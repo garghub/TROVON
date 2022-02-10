@@ -1,0 +1,93 @@
+/* capture_info.c
+ * capture info functions
+ *
+ * Wireshark - Network traffic analyzer
+ * By Gerald Combs <gerald@wireshark.org>
+ * Copyright 1998 Gerald Combs
+ *
+ * SPDX-License-Identifier: GPL-2.0+
+ */
+
+#include <config.h>
+
+#ifdef HAVE_LIBPCAP
+
+#include <glib.h>
+
+#include <epan/packet.h>
+#include <wiretap/wtap.h>
+
+#include "capture_info.h"
+
+#include <epan/capture_dissectors.h>
+
+static void
+capture_info_packet(info_data_t* cap_info, gint wtap_linktype, const guchar *pd, guint32 caplen, union wtap_pseudo_header *pseudo_header)
+{
+    capture_packet_info_t cpinfo;
+
+    /* Setup the capture packet structure */
+    cpinfo.counts = cap_info->counts.counts_hash;
+
+    cap_info->counts.total++;
+    if (!try_capture_dissector("wtap_encap", wtap_linktype, pd, 0, caplen, &cpinfo, pseudo_header))
+        cap_info->counts.other++;
+}
+
+/* new packets arrived */
+void capture_info_new_packets(int to_read, info_data_t* cap_info)
+{
+    int err;
+    gchar *err_info;
+    gint64 data_offset;
+    struct wtap_pkthdr *phdr;
+    union wtap_pseudo_header *pseudo_header;
+    int wtap_linktype;
+    const guchar *buf;
+
+
+    cap_info->ui.new_packets = to_read;
+
+    /*g_warning("new packets: %u", to_read);*/
+
+    while (to_read > 0) {
+        wtap_cleareof(cap_info->wtap);
+        if (wtap_read(cap_info->wtap, &err, &err_info, &data_offset)) {
+            phdr = wtap_phdr(cap_info->wtap);
+            pseudo_header = &phdr->pseudo_header;
+            wtap_linktype = phdr->pkt_encap;
+            buf = wtap_buf_ptr(cap_info->wtap);
+
+            capture_info_packet(cap_info, wtap_linktype, buf, phdr->caplen, pseudo_header);
+
+            /*g_warning("new packet");*/
+            to_read--;
+        }
+    }
+
+    capture_info_ui_update(&cap_info->ui);
+}
+
+
+/* close the info */
+void capture_info_close(info_data_t* cap_info)
+{
+    capture_info_ui_destroy(&cap_info->ui);
+    if(cap_info->wtap)
+        wtap_close(cap_info->wtap);
+}
+
+#endif /* HAVE_LIBPCAP */
+
+/*
+ * Editor modelines  -  http://www.wireshark.org/tools/modelines.html
+ *
+ * Local variables:
+ * c-basic-offset: 4
+ * tab-width: 8
+ * indent-tabs-mode: nil
+ * End:
+ *
+ * vi: set shiftwidth=4 tabstop=8 expandtab:
+ * :indentSize=4:tabSize=8:noTabs=true:
+ */
