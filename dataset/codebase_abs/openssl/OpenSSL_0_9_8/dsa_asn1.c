@@ -1,0 +1,1 @@
+static int F_1 ( int V_1 , T_1 * * V_2 , const T_2 * V_3 )\r\n{\r\nif( V_1 == V_4 ) {\r\nT_3 * V_5 ;\r\nV_5 = F_2 ( sizeof( T_3 ) ) ;\r\nV_5 -> V_6 = NULL ;\r\nV_5 -> V_7 = NULL ;\r\n* V_2 = ( T_1 * ) V_5 ;\r\nif( V_5 ) return 2 ;\r\nF_3 ( V_8 , V_9 ) ;\r\nreturn 0 ;\r\n}\r\nreturn 1 ;\r\n}

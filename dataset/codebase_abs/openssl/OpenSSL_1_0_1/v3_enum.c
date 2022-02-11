@@ -1,0 +1,1 @@
+char * F_1 ( T_1 * V_1 ,\r\nT_2 * V_2 )\r\n{\r\nT_3 * V_3 ;\r\nlong V_4 ;\r\nV_4 = F_2 ( V_2 ) ;\r\nfor( V_3 = V_1 -> V_5 ; V_3 -> V_6 ; V_3 ++ ) {\r\nif( V_4 == V_3 -> V_7 ) return F_3 ( V_3 -> V_6 ) ;\r\n}\r\nreturn F_4 ( V_1 , V_2 ) ;\r\n}

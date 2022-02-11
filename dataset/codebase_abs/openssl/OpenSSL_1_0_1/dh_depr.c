@@ -1,0 +1,1 @@
+T_1 * F_1 ( int V_1 , int V_2 ,\r\nvoid (* F_2)( int , int , void * ) , void * V_3 )\r\n{\r\nT_2 V_4 ;\r\nT_1 * V_5 = NULL ;\r\nif( ( V_5 = F_3 () ) == NULL )\r\nreturn NULL ;\r\nF_4 ( & V_4 , F_2 , V_3 ) ;\r\nif( F_5 ( V_5 , V_1 , V_2 , & V_4 ) )\r\nreturn V_5 ;\r\nF_6 ( V_5 ) ;\r\nreturn NULL ;\r\n}

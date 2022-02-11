@@ -1,0 +1,1 @@
+void F_1 ( const unsigned char * V_1 , unsigned char * V_2 ,\r\nconst T_1 * V_3 , const int V_4 )\r\n{\r\nassert ( V_1 && V_2 && V_3 ) ;\r\nassert ( ( V_5 == V_4 ) || ( V_6 == V_4 ) ) ;\r\nif ( V_5 == V_4 )\r\nF_2 ( V_1 , V_2 , V_3 ) ;\r\nelse\r\nF_3 ( V_1 , V_2 , V_3 ) ;\r\n}

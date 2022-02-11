@@ -1,0 +1,1 @@
+static int F_1 ( int V_1 , T_1 * * V_2 , const T_2 * V_3 )\r\n{\r\nif( V_1 == V_4 ) {\r\n* V_2 = ( T_1 * ) F_2 () ;\r\nif( * V_2 ) return 2 ;\r\nreturn 0 ;\r\n} else if( V_1 == V_5 ) {\r\nF_3 ( ( V_6 * ) * V_2 ) ;\r\n* V_2 = NULL ;\r\nreturn 2 ;\r\n}\r\nreturn 1 ;\r\n}

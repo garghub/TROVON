@@ -1,0 +1,1 @@
+static int F_1 ( int V_1 , T_1 * * V_2 , const T_2 * V_3 ,\r\nvoid * V_4 )\r\n{\r\nif( V_1 == V_5 ) {\r\nT_3 * V_6 = ( T_3 * ) * V_2 ;\r\nif ( V_6 -> V_7 -> V_8 . V_9 )\r\nF_2 ( V_6 -> V_7 -> V_8 . V_9 -> V_10 ,\r\nV_6 -> V_7 -> V_8 . V_9 -> V_11 ) ;\r\n}\r\nreturn 1 ;\r\n}

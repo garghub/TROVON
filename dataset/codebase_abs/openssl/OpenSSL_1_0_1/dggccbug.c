@@ -1,0 +1,1 @@
+void F_1 ( T_1 )\r\nint * T_1 ;\r\n{\r\n( * T_1 ) ++ ;\r\n}\r\nmain ()\r\n{\r\nint V_1 = 0 ;\r\n#ifdef F_2\r\nint V_2 ;\r\n#endif\r\nwhile ( V_1 < 3 )\r\n{\r\nfprintf ( V_3 , L_1 , V_1 ) ;\r\nF_1 ( & V_1 ) ;\r\n#ifdef F_2\r\nV_2 += V_1 ;\r\n#endif\r\n}\r\n}

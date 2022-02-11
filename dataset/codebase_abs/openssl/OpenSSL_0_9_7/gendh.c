@@ -1,0 +1,119 @@
+int MAIN ( int V_1 , char * * V_2 )
+{
+T_1 * V_3 = NULL ;
+T_2 * V_4 = NULL ;
+int V_5 = 1 , V_6 = V_7 ;
+int V_8 = 2 ;
+char * V_9 = NULL ;
+char * V_10 = NULL ;
+char * V_11 = NULL ;
+T_3 * V_12 = NULL ;
+F_1 () ;
+if ( V_13 == NULL )
+if ( ( V_13 = F_2 ( F_3 () ) ) != NULL )
+F_4 ( V_13 , V_14 , V_15 | V_16 ) ;
+if ( ! F_5 ( V_13 , NULL ) )
+goto V_17;
+V_2 ++ ;
+V_1 -- ;
+for (; ; )
+{
+if ( V_1 <= 0 ) break;
+if ( strcmp ( * V_2 , L_1 ) == 0 )
+{
+if ( -- V_1 < 1 ) goto V_18;
+V_9 = * ( ++ V_2 ) ;
+}
+else if ( strcmp ( * V_2 , L_2 ) == 0 )
+V_8 = 2 ;
+else if ( strcmp ( * V_2 , L_3 ) == 0 )
+V_8 = 5 ;
+else if ( strcmp ( * V_2 , L_4 ) == 0 )
+{
+if ( -- V_1 < 1 ) goto V_18;
+V_11 = * ( ++ V_2 ) ;
+}
+else if ( strcmp ( * V_2 , L_5 ) == 0 )
+{
+if ( -- V_1 < 1 ) goto V_18;
+V_10 = * ( ++ V_2 ) ;
+}
+else
+break;
+V_2 ++ ;
+V_1 -- ;
+}
+if ( ( V_1 >= 1 ) && ( ( sscanf ( * V_2 , L_6 , & V_6 ) == 0 ) || ( V_6 < 0 ) ) )
+{
+V_18:
+F_6 ( V_13 , L_7 ) ;
+F_6 ( V_13 , L_8 ) ;
+F_6 ( V_13 , L_9 ) ;
+F_6 ( V_13 , L_10 ) ;
+F_6 ( V_13 , L_11 ) ;
+F_6 ( V_13 , L_12 , V_19 , V_19 ) ;
+F_6 ( V_13 , L_13 ) ;
+F_6 ( V_13 , L_14 ) ;
+goto V_17;
+}
+V_3 = F_7 ( V_13 , V_11 , 0 ) ;
+V_12 = F_2 ( F_3 () ) ;
+if ( V_12 == NULL )
+{
+F_8 ( V_13 ) ;
+goto V_17;
+}
+if ( V_9 == NULL )
+{
+F_4 ( V_12 , stdout , V_15 ) ;
+#ifdef F_9
+{
+T_3 * V_20 = F_2 ( F_10 () ) ;
+V_12 = F_11 ( V_20 , V_12 ) ;
+}
+#endif
+}
+else
+{
+if ( F_12 ( V_12 , V_9 ) <= 0 )
+{
+perror ( V_9 ) ;
+goto V_17;
+}
+}
+if ( ! F_13 ( NULL , V_13 , 1 ) && V_10 == NULL )
+{
+F_6 ( V_13 , L_15 ) ;
+}
+if ( V_10 != NULL )
+F_6 ( V_13 , L_16 ,
+F_14 ( V_10 ) ) ;
+F_6 ( V_13 , L_17 , V_6 , V_8 ) ;
+F_6 ( V_13 , L_18 ) ;
+V_4 = F_15 ( V_6 , V_8 , V_21 , V_13 ) ;
+if ( V_4 == NULL ) goto V_17;
+F_16 ( NULL , V_13 ) ;
+if ( ! F_17 ( V_12 , V_4 ) )
+goto V_17;
+V_5 = 0 ;
+V_17:
+if ( V_5 != 0 )
+F_8 ( V_13 ) ;
+if ( V_12 != NULL ) F_18 ( V_12 ) ;
+if ( V_4 != NULL ) F_19 ( V_4 ) ;
+F_20 () ;
+F_21 ( V_5 ) ;
+}
+static void T_4 V_21 ( int V_22 , int V_23 , void * V_24 )
+{
+char V_25 = '*' ;
+if ( V_22 == 0 ) V_25 = '.' ;
+if ( V_22 == 1 ) V_25 = '+' ;
+if ( V_22 == 2 ) V_25 = '*' ;
+if ( V_22 == 3 ) V_25 = '\n' ;
+F_22 ( ( T_3 * ) V_24 , & V_25 , 1 ) ;
+( void ) F_23 ( ( T_3 * ) V_24 ) ;
+#ifdef F_24
+V_22 = V_23 ;
+#endif
+}

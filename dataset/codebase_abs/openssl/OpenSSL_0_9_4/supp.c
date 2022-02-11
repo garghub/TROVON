@@ -1,0 +1,1 @@
+void F_1 ( T_1 * V_1 , T_2 * V_2 )\r\n{\r\nint V_3 ;\r\nconst unsigned int * V_4 = ( const unsigned int * ) V_1 ;\r\nfprintf ( V_2 , L_1 ) ;\r\nfor ( V_3 = 0 ; V_3 < 8 ; V_3 ++ ) {\r\nfprintf ( V_2 , L_2 , V_4 [ V_3 ] ) ;\r\nif ( V_3 != 7 ) fprintf ( V_2 , L_3 ) ;\r\n}\r\nfprintf ( V_2 , L_4 ) ;\r\n}

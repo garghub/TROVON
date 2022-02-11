@@ -1,0 +1,1 @@
+T_1 * F_1 ( void )\r\n{\r\n#ifdef F_2\r\nreturn ( F_2 () ) ;\r\n#elif F_3 ( V_1 )\r\nreturn ( F_4 () ) ;\r\n#elif F_3 ( V_2 )\r\nreturn ( F_5 () ) ;\r\n#elif F_3 ( V_3 )\r\nreturn ( F_6 () ) ;\r\n#elif F_3 ( V_4 )\r\nreturn ( F_7 () ) ;\r\n#else\r\nreturn ( F_8 () ) ;\r\n#endif\r\n}

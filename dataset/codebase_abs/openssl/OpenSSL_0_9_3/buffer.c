@@ -1,0 +1,73 @@
+T_1 * F_1 ( void )
+{
+T_1 * V_1 ;
+V_1 = Malloc ( sizeof( T_1 ) ) ;
+if ( V_1 == NULL )
+{
+F_2 ( V_2 , V_3 ) ;
+return ( NULL ) ;
+}
+V_1 -> V_4 = 0 ;
+V_1 -> V_5 = 0 ;
+V_1 -> V_6 = NULL ;
+return ( V_1 ) ;
+}
+void F_3 ( T_1 * V_7 )
+{
+if( V_7 == NULL )
+return;
+if ( V_7 -> V_6 != NULL )
+{
+memset ( V_7 -> V_6 , 0 , ( unsigned int ) V_7 -> V_5 ) ;
+Free ( V_7 -> V_6 ) ;
+}
+Free ( V_7 ) ;
+}
+int F_4 ( T_1 * V_8 , int V_9 )
+{
+char * V_1 ;
+unsigned int V_10 ;
+if ( V_8 -> V_4 >= V_9 )
+{
+V_8 -> V_4 = V_9 ;
+return ( V_9 ) ;
+}
+if ( V_8 -> V_5 >= V_9 )
+{
+memset ( & V_8 -> V_6 [ V_8 -> V_4 ] , 0 , V_9 - V_8 -> V_4 ) ;
+V_8 -> V_4 = V_9 ;
+return ( V_9 ) ;
+}
+V_10 = ( V_9 + 3 ) / 3 * 4 ;
+if ( V_8 -> V_6 == NULL )
+V_1 = Malloc ( V_10 ) ;
+else
+V_1 = Realloc ( V_8 -> V_6 , V_10 ) ;
+if ( V_1 == NULL )
+{
+F_2 ( V_11 , V_3 ) ;
+V_9 = 0 ;
+}
+else
+{
+V_8 -> V_6 = V_1 ;
+V_8 -> V_4 = V_9 ;
+V_8 -> V_5 = V_10 ;
+}
+return ( V_9 ) ;
+}
+char * F_5 ( const char * V_8 )
+{
+char * V_1 ;
+int V_10 ;
+if ( V_8 == NULL ) return ( NULL ) ;
+V_10 = strlen ( V_8 ) ;
+V_1 = Malloc ( V_10 + 1 ) ;
+if ( V_1 == NULL )
+{
+F_2 ( V_12 , V_3 ) ;
+return ( NULL ) ;
+}
+memcpy ( V_1 , V_8 , V_10 + 1 ) ;
+return ( V_1 ) ;
+}

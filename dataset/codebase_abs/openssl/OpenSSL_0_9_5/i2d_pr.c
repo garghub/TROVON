@@ -1,0 +1,1 @@
+int F_1 ( T_1 * V_1 , unsigned char * * V_2 )\r\n{\r\n#ifndef F_2\r\nif ( V_1 -> type == V_3 )\r\n{\r\nreturn ( F_3 ( V_1 -> V_4 . V_5 , V_2 ) ) ;\r\n}\r\nelse\r\n#endif\r\n#ifndef F_4\r\nif ( V_1 -> type == V_6 )\r\n{\r\nreturn ( F_5 ( V_1 -> V_4 . V_7 , V_2 ) ) ;\r\n}\r\n#endif\r\nF_6 ( V_8 , V_9 ) ;\r\nreturn ( - 1 ) ;\r\n}

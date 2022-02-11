@@ -1,0 +1,1 @@
+unsigned char * F_1 ( const unsigned char * V_1 , T_1 V_2 ,\r\nunsigned char * V_3 )\r\n{\r\nT_2 V_4 ;\r\nstatic unsigned char V_5 [ V_6 ] ;\r\nif ( V_3 == NULL ) V_3 = V_5 ;\r\nif ( ! F_2 ( & V_4 ) )\r\nreturn NULL ;\r\nF_3 ( & V_4 , V_1 , V_2 ) ;\r\nF_4 ( V_3 , & V_4 ) ;\r\nF_5 ( & V_4 , sizeof( V_4 ) ) ;\r\nreturn ( V_3 ) ;\r\n}

@@ -1,0 +1,1 @@
+main ()\r\n{\r\nT_1 * V_1 ;\r\nchar V_2 [ 512 ] ;\r\nint V_3 ;\r\nlong V_4 ;\r\nV_1 = F_1 () ;\r\nV_3 = F_2 ( V_1 , 98736 , L_1 , 8 ) ;\r\nprintf ( L_2 , V_3 ) ;\r\nV_3 = F_3 ( V_1 , & V_4 , V_2 , 8 ) ;\r\nV_2 [ 8 ] = '\0' ;\r\nprintf ( L_3 , V_4 , V_3 , V_2 [ 8 ] ) ;\r\nV_2 [ 8 ] = '\0' ;\r\nprintf ( L_4 , V_2 ) ;\r\nF_4 () ;\r\nF_5 ( V_5 ) ;\r\n}

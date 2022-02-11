@@ -1,0 +1,1 @@
+static int F_1 ( int V_1 , T_1 * * V_2 , const T_2 * V_3 )\r\n{\r\nT_3 * V_4 = ( T_3 * ) * V_2 ;\r\nif( V_1 == V_5 ) {\r\nV_4 -> V_6 = F_2 () ;\r\nif( ! V_4 -> V_6 ) return 0 ;\r\n}\r\nreturn 1 ;\r\n}

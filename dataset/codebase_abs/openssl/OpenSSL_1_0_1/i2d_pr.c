@@ -1,0 +1,1 @@
+int F_1 ( T_1 * V_1 , unsigned char * * V_2 )\r\n{\r\nif ( V_1 -> V_3 && V_1 -> V_3 -> V_4 )\r\n{\r\nreturn V_1 -> V_3 -> V_4 ( V_1 , V_2 ) ;\r\n}\r\nif ( V_1 -> V_3 && V_1 -> V_3 -> V_5 ) {\r\nT_2 * V_6 = F_2 ( V_1 ) ;\r\nint V_7 = F_3 ( V_6 , V_2 ) ;\r\nF_4 ( V_6 ) ;\r\nreturn V_7 ;\r\n}\r\nF_5 ( V_8 , V_9 ) ;\r\nreturn ( - 1 ) ;\r\n}

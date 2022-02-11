@@ -1,0 +1,1 @@
+int F_1 ( unsigned char * V_1 , unsigned char * V_2 , int V_3 ,\r\nT_1 * V_4 )\r\n{\r\nint V_5 = - 1 ;\r\n#ifndef F_2\r\nif ( V_4 -> type != V_6 )\r\n{\r\n#endif\r\nF_3 ( V_7 , V_8 ) ;\r\n#ifndef F_2\r\ngoto V_9;\r\n}\r\nV_5 = F_4 ( V_3 , V_2 , V_1 , V_4 -> V_10 . V_11 , V_12 ) ;\r\nV_9:\r\n#endif\r\nreturn ( V_5 ) ;\r\n}

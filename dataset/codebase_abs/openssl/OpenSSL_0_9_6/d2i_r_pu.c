@@ -1,0 +1,22 @@
+T_1 * F_1 ( T_1 * * V_1 , unsigned char * * V_2 , long V_3 )
+{
+int V_4 = V_5 ;
+T_2 * V_6 = NULL ;
+F_2 ( V_1 , T_1 * , V_7 ) ;
+F_3 () ;
+F_4 () ;
+F_5 ( V_6 , V_8 ) ;
+if ( ( V_9 -> V_10 = F_6 ( V_6 -> V_11 , V_6 -> V_3 , V_9 -> V_10 ) ) == NULL ) goto V_12;
+F_5 ( V_6 , V_8 ) ;
+if ( ( V_9 -> V_13 = F_6 ( V_6 -> V_11 , V_6 -> V_3 , V_9 -> V_13 ) ) == NULL ) goto V_12;
+F_7 ( V_6 ) ;
+V_6 = NULL ;
+F_8 ( V_1 ) ;
+V_12:
+V_4 = V_14 ;
+V_15:
+F_9 ( V_16 , V_4 ) ;
+if ( ( V_9 != NULL ) && ( ( V_1 == NULL ) || ( * V_1 != V_9 ) ) ) F_10 ( V_9 ) ;
+if ( V_6 != NULL ) F_7 ( V_6 ) ;
+return ( NULL ) ;
+}

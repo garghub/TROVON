@@ -1,0 +1,1 @@
+static int F_1 ( T_1 * V_1 )\r\n{ return F_2 ( V_1 -> V_2 ) ; }\r\nstatic int F_3 ( T_1 * V_1 , const void * V_3 , T_2 V_4 )\r\n{ return F_4 ( V_1 -> V_2 , V_3 , V_4 ) ; }\r\nstatic int F_5 ( T_1 * V_1 , unsigned char * V_5 )\r\n{ return F_6 ( V_5 , V_1 -> V_2 ) ; }\r\nconst T_3 * F_7 ( void )\r\n{\r\nreturn ( & V_6 ) ;\r\n}

@@ -1,0 +1,1 @@
+const char * F_1 ( void )\r\n{ return ( V_1 ) ; }\r\nconst char * F_2 ( void )\r\n{ return ( V_2 ) ; }\r\nconst char * F_3 ( void )\r\n{ return ( V_3 ) ; }\r\nconst char * F_4 ( void )\r\n{ return ( V_4 ) ; }\r\nconst char * F_5 ( void )\r\n{ return ( V_5 ) ; }\r\nconst char * F_6 ( void )\r\n{ return ( V_6 ) ; }

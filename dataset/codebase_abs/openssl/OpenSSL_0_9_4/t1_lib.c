@@ -1,0 +1,1 @@
+static long F_1 ( void )\r\n{\r\nreturn ( 60 * 60 * 2 ) ;\r\n}\r\nT_1 * F_2 ( void )\r\n{\r\nreturn ( & V_1 ) ;\r\n}\r\nint F_3 ( T_2 * V_2 )\r\n{\r\nif ( ! F_4 ( V_2 ) ) return ( 0 ) ;\r\nV_2 -> V_3 -> V_4 ( V_2 ) ;\r\nreturn ( 1 ) ;\r\n}\r\nvoid F_5 ( T_2 * V_2 )\r\n{\r\nF_6 ( V_2 ) ;\r\n}\r\nvoid F_7 ( T_2 * V_2 )\r\n{\r\nF_8 ( V_2 ) ;\r\nV_2 -> V_5 = V_6 ;\r\n}

@@ -1,0 +1,1 @@
+static int F_1 ( T_1 * V_1 , T_2 * V_2 , int V_3 )\r\n{\r\nint V_4 ;\r\nT_3 * V_5 ;\r\nV_4 = F_2 ( V_2 , V_3 , - 1 ) ;\r\nif ( V_4 < 0 )\r\nreturn 1 ;\r\nV_5 = F_3 ( V_2 , V_4 ) ;\r\nif ( ! F_4 ( & V_1 -> V_6 , V_5 ) )\r\nreturn 0 ;\r\nreturn 1 ;\r\n}

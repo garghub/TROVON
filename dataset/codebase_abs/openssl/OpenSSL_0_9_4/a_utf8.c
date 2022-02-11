@@ -1,0 +1,1 @@
+int F_1 ( T_1 * V_1 , unsigned char * * V_2 )\r\n{\r\nreturn ( F_2 ( ( V_3 * ) V_1 , V_2 ,\r\nV_4 , V_5 ) ) ;\r\n}\r\nT_1 * F_3 ( T_1 * * V_1 , unsigned char * * V_2 ,\r\nlong V_6 )\r\n{\r\nT_1 * V_7 = NULL ;\r\nV_7 = ( T_1 * ) F_4 ( ( V_3 * * ) V_1 ,\r\nV_2 , V_6 , V_4 , V_5 ) ;\r\nif ( V_7 == NULL )\r\n{\r\nF_5 ( V_8 , V_9 ) ;\r\nreturn ( NULL ) ;\r\n}\r\nreturn ( V_7 ) ;\r\n}

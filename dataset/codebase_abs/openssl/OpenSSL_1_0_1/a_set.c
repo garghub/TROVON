@@ -1,0 +1,1 @@
+static int F_1 ( const void * V_1 , const void * V_2 )\r\n{\r\nconst T_1 * V_3 = ( const T_1 * ) V_1 ;\r\nconst T_1 * V_4 = ( const T_1 * ) V_2 ;\r\nint V_5 ;\r\nV_5 = memcmp ( V_3 -> V_6 , V_4 -> V_6 ,\r\nV_3 -> V_7 < V_4 -> V_7 ? V_3 -> V_7 : V_4 -> V_7 ) ;\r\nif( V_5 != 0 )\r\nreturn V_5 ;\r\nreturn V_3 -> V_7 - V_4 -> V_7 ;\r\n}

@@ -1,0 +1,1 @@
+main ()\r\n{\r\nint V_1 , V_2 ;\r\nfor ( V_1 = 0 ; V_1 < 256 ; V_1 ++ )\r\n{\r\nfor ( V_2 = 0 ; V_2 < 256 ; V_2 ++ )\r\nif ( V_3 [ V_2 ] == V_1 )\r\n{\r\nprintf ( L_1 , V_2 ) ;\r\nbreak;\r\n}\r\n}\r\n}

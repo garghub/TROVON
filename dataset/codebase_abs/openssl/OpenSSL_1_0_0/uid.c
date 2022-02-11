@@ -1,0 +1,1 @@
+int F_1 ( void )\r\n{\r\nreturn F_2 () ;\r\n}\r\nint F_1 ( void )\r\n{\r\nreturn 0 ;\r\n}\r\nint F_1 ( void )\r\n{\r\nif ( F_3 () != F_4 () ) return 1 ;\r\nif ( F_5 () != F_6 () ) return 1 ;\r\nreturn 0 ;\r\n}

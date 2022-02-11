@@ -1,0 +1,1 @@
+void F_1 ( T_1 , T_2 )\r\nTYPE * T_1 ;\r\nTYPE T_2 ;\r\n{\r\nprintf ( L_1 , T_1 [ 0 ] , T_2 ) ;\r\n}\r\nmain ()\r\n{\r\nTYPE V_1 [ 5 ] = { 1L , 2L , 3L , 4L , 5L } ;\r\nTYPE * V_2 ;\r\nint V_3 ;\r\nV_2 = V_1 ;\r\nfor ( V_3 = 0 ; V_3 < 4 ; V_3 ++ )\r\n{\r\nF_1 ( V_2 , * ( V_2 ++ ) ) ;\r\n}\r\n}

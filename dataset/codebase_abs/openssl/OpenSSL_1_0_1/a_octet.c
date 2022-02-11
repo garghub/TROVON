@@ -1,0 +1,1 @@
+T_1 * F_1 ( const T_1 * V_1 )\r\n{ return F_2 ( V_1 ) ; }\r\nint F_3 ( const T_1 * V_2 , const T_1 * V_3 )\r\n{ return F_4 ( V_2 , V_3 ) ; }\r\nint F_5 ( T_1 * V_1 , const unsigned char * V_4 , int V_5 )\r\n{ return F_6 ( V_1 , V_4 , V_5 ) ; }

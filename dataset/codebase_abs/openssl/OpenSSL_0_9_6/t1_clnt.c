@@ -1,0 +1,1 @@
+static T_1 * F_1 ( int V_1 )\r\n{\r\nif ( V_1 == V_2 )\r\nreturn ( F_2 () ) ;\r\nelse\r\nreturn ( NULL ) ;\r\n}\r\nT_1 * F_2 ( void )\r\n{\r\nstatic int V_3 = 1 ;\r\nstatic T_1 V_4 ;\r\nif ( V_3 )\r\n{\r\nmemcpy ( ( char * ) & V_4 , ( char * ) F_3 () ,\r\nsizeof( T_1 ) ) ;\r\nV_4 . V_5 = V_6 ;\r\nV_4 . V_7 = F_1 ;\r\nV_3 = 0 ;\r\n}\r\nreturn ( & V_4 ) ;\r\n}

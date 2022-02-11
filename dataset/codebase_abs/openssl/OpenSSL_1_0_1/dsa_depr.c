@@ -1,0 +1,1 @@
+T_1 * F_1 ( int V_1 ,\r\nunsigned char * V_2 , int V_3 ,\r\nint * V_4 , unsigned long * V_5 ,\r\nvoid (* F_2)( int , int , void * ) ,\r\nvoid * V_6 )\r\n{\r\nT_2 V_7 ;\r\nT_1 * V_8 ;\r\nif ( ( V_8 = F_3 () ) == NULL ) return NULL ;\r\nF_4 ( & V_7 , F_2 , V_6 ) ;\r\nif( F_5 ( V_8 , V_1 , V_2 , V_3 ,\r\nV_4 , V_5 , & V_7 ) )\r\nreturn V_8 ;\r\nF_6 ( V_8 ) ;\r\nreturn NULL ;\r\n}

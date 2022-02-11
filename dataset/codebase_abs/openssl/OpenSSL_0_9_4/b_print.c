@@ -1,0 +1,1 @@
+int F_1 ( T_1 * V_1 , ... )\r\n{\r\nT_2 args ;\r\nchar * V_2 ;\r\nint V_3 ;\r\nT_3 char V_4 [ 1024 * 2 ] ;\r\nva_start ( args , V_1 ) ;\r\nV_2 = va_arg ( args , char * ) ;\r\nV_4 [ 0 ] = '\0' ;\r\nvsprintf ( V_4 , V_2 , args ) ;\r\nV_3 = F_2 ( V_1 , V_4 , strlen ( V_4 ) ) ;\r\nva_end ( args ) ;\r\nreturn ( V_3 ) ;\r\n}
