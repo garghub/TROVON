@@ -1,0 +1,1 @@
+T_1\r\nF_1 ( T_1 V_1 , const T_2 * V_2 ,\r\nint V_3 )\r\n{\r\nregister int V_4 ;\r\nfor ( V_4 = 0 ; V_4 < V_3 ; V_4 ++ ) {\r\nV_1 = ( ( V_1 << 8 ) & 0x3ff )\r\n^ V_5 [ ( V_1 >> 2 ) & 0xff ]\r\n^ * V_2 ++ ;\r\n}\r\nreturn V_1 ;\r\n}

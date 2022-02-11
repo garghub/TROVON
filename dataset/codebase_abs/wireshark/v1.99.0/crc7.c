@@ -1,0 +1,1 @@
+T_1 F_1 ( T_1 V_1 , const unsigned char * V_2 , int V_3 )\r\n{\r\nunsigned int V_4 ;\r\nwhile ( V_3 -- ) {\r\nV_4 = ( ( V_1 >> 0 ) ^ * V_2 ) & 0xff ;\r\nV_1 = ( V_5 [ V_4 ] ^ ( V_1 << ( 8 - 1 ) ) ) & ( 0x7f << 1 ) ;\r\nV_2 ++ ;\r\n}\r\nreturn V_1 & ( 0x7f << 1 ) ;\r\n}

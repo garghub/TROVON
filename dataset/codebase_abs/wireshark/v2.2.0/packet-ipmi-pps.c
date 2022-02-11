@@ -1,0 +1,1 @@
+void\r\nF_1 ( void )\r\n{\r\nstatic T_1 V_1 [ 3 ] = { 0x0a , 0x40 , 0x00 } ;\r\nstatic T_1 V_2 [ 3 ] = { 0x00 , 0x40 , 0x0a } ;\r\nF_2 ( V_3 , V_4 , V_1 , 3 ,\r\nL_1 , V_5 , F_3 ( V_5 ) ) ;\r\nF_2 ( V_3 , V_4 , V_2 , 3 ,\r\nL_2 , V_5 , F_3 ( V_5 ) ) ;\r\n}

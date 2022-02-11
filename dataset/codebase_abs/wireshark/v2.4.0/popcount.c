@@ -1,0 +1,1 @@
+int\r\nF_1 ( unsigned int V_1 )\r\n{\r\n#if ( V_2 > 3 || ( V_2 == 3 && V_3 >= 4 ) )\r\nreturn F_2 ( V_1 ) ;\r\n#else\r\nunsigned long V_4 ;\r\nV_4 = ( V_1 >> 1 ) & 033333333333 ;\r\nV_4 = V_1 - V_4 - ( ( V_4 >> 1 ) & 033333333333 ) ;\r\nreturn ( ( ( V_4 + ( V_4 >> 3 ) ) & 030707070707 ) % 077 ) ;\r\n#endif\r\n}

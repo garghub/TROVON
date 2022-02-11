@@ -1,0 +1,1 @@
+void\r\nF_1 ( const char * V_1 , ... )\r\n{\r\nT_1 V_2 ;\r\nchar * V_3 , * V_4 , * V_5 ;\r\nva_start ( V_2 , V_1 ) ;\r\nV_3 = F_2 ( V_1 , V_2 ) ;\r\nva_end ( V_2 ) ;\r\nif ( V_6 == NULL )\r\nV_6 = V_3 ;\r\nelse {\r\nV_4 = V_6 ;\r\nV_5 = F_3 ( L_1 , V_4 , V_3 ) ;\r\nF_4 ( V_3 ) ;\r\nV_6 = V_5 ;\r\nF_4 ( V_4 ) ;\r\n}\r\n}\r\nvoid\r\nF_1 ( const char * V_1 V_7 , ... )\r\n{\r\n}

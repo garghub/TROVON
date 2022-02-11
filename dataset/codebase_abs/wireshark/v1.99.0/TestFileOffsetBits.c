@@ -1,0 +1,1 @@
+int main ( int V_1 , char * * V_2 )\r\n{\r\n#define F_1 (((off_t) 1 << 62) - 1 + ((off_t) 1 << 62))\r\nint V_3 [ ( F_1 % 2147483629 == 721 && F_1 % 2147483647 == 1 ) ? 1 : - 1 ] ;\r\nreturn 0 ;\r\n}

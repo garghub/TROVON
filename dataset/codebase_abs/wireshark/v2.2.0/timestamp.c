@@ -1,0 +1,1 @@
+T_1 F_1 ( void )\r\n{\r\nreturn V_1 ;\r\n}\r\nvoid F_2 ( T_1 V_2 )\r\n{\r\nV_1 = V_2 ;\r\n}\r\nint F_3 ( void )\r\n{\r\nreturn V_3 ;\r\n}\r\nvoid F_4 ( int V_4 )\r\n{\r\nV_3 = V_4 ;\r\n}\r\nT_2 F_5 ( void )\r\n{\r\nreturn V_5 ;\r\n}\r\nvoid F_6 ( T_2 V_2 )\r\n{\r\nV_5 = V_2 ;\r\n}

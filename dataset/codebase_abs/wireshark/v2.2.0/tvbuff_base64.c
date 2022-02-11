@@ -1,0 +1,1 @@
+T_1 *\r\nF_1 ( T_1 * V_1 , const char * V_2 )\r\n{\r\nT_1 * V_3 ;\r\nchar * V_4 = F_2 ( V_2 ) ;\r\nT_2 V_5 ;\r\nV_5 = ( T_2 ) F_3 ( V_4 ) ;\r\nV_3 = F_4 ( V_1 , ( const V_6 * ) V_4 , V_5 , V_5 ) ;\r\nF_5 ( V_3 , V_7 ) ;\r\nreturn V_3 ;\r\n}

@@ -1,0 +1,167 @@
+static int F_1 ( T_1 * V_1 , T_2 * V_2 , T_3 * V_3 , void * T_4 V_4 )
+{
+T_5 * V_5 ;
+T_3 * V_6 , * V_7 ;
+T_6 V_8 = 0 ;
+T_6 V_9 ;
+T_7 V_10 = F_2 ( V_1 ) ;
+if ( V_10 == 0 )
+return V_10 ;
+F_3 ( V_2 -> V_11 , V_12 , L_1 ) ;
+V_9 = F_4 ( V_1 , V_8 ) ;
+V_10 -= 1 + V_9 ;
+if ( V_10 > 0 )
+F_5 ( V_2 -> V_11 , V_13 , L_2 , V_9 , V_10 , ( V_10 > 1 ) ? L_3 : L_4 ) ;
+else
+F_5 ( V_2 -> V_11 , V_13 , L_5 , V_9 ) ;
+V_5 = F_6 ( V_3 , V_14 , V_1 , 0 , - 1 , V_15 ) ;
+V_6 = F_7 ( V_5 , V_16 ) ;
+V_5 = F_6 ( V_6 , V_17 , V_1 , 0 , V_9 + 1 , V_15 ) ;
+V_7 = F_7 ( V_5 , V_18 ) ;
+F_6 ( V_7 , V_19 , V_1 , V_8 , 1 , V_20 ) ;
+V_8 ++ ;
+F_8 ( F_9 ( V_1 , V_8 , V_9 ) , V_2 , V_7 ) ;
+V_8 += V_9 ;
+F_8 ( F_10 ( V_1 , V_8 ) , V_2 , V_6 ) ;
+return V_10 ;
+}
+static int F_11 ( T_1 * V_1 , T_2 * V_2 , T_3 * V_3 , void * T_4 V_4 )
+{
+T_6 V_10 = F_2 ( V_1 ) ;
+T_5 * V_5 ;
+T_3 * V_6 ;
+if ( V_10 == 0 )
+return 0 ;
+F_3 ( V_2 -> V_11 , V_12 , L_1 ) ;
+F_5 ( V_2 -> V_11 , V_13 , L_6 , V_10 , ( V_10 > 1 ) ? L_3 : L_4 ) ;
+V_5 = F_6 ( V_3 , V_14 , V_1 , 0 , - 1 , V_15 ) ;
+V_6 = F_7 ( V_5 , V_16 ) ;
+F_8 ( V_1 , V_2 , V_6 ) ;
+return V_10 ;
+}
+static T_8 F_12 ( T_1 * V_1 , T_6 V_8 , T_2 * V_2 V_4 ,
+T_3 * V_3 , T_6 V_21 , T_9 V_22 , T_9 T_10 V_4 )
+{
+T_6 V_10 ;
+T_6 V_23 = 0 ;
+T_5 * V_5 ;
+T_3 * V_24 ;
+char V_25 [ 256 ] ;
+T_9 V_26 ;
+if ( ! F_13 ( V_1 , V_3 , V_8 , L_7 , V_22 ) )
+return TRUE ;
+if ( V_3 )
+{
+V_10 = F_14 ( V_1 , V_8 ) + V_8 + 2 ;
+V_8 += 2 ;
+while ( V_8 < V_10 )
+{
+T_9 V_27 = F_4 ( V_1 , V_8 + 1 ) ;
+V_5 = F_6 ( V_3 , V_28 , V_1 , V_8 , V_27 + 2 , V_15 ) ;
+V_24 = F_7 ( V_5 , V_29 [ V_21 * V_30 + V_23 ] ) ;
+V_25 [ 0 ] = 0 ;
+switch ( F_4 ( V_1 , V_8 ) )
+{
+case V_31 :
+F_15 ( V_5 , L_8 ) ;
+V_26 = F_4 ( V_1 , V_8 + 2 ) ;
+if ( V_26 & V_32 )
+F_16 ( V_25 , L_9 , 256 ) ;
+if ( V_26 & V_33 )
+F_16 ( V_25 , L_10 , 256 ) ;
+if ( V_26 & V_34 )
+F_16 ( V_25 , L_11 , 256 ) ;
+if ( V_26 & V_35 )
+F_16 ( V_25 , L_12 , 256 ) ;
+F_16 ( V_25 , L_13 , 256 ) ;
+F_15 ( V_5 , L_14 , V_25 + 2 ) ;
+break;
+case V_36 :
+F_15 ( V_5 , L_15 ) ;
+V_26 = F_4 ( V_1 , V_8 + 2 ) ;
+if ( V_26 & V_37 )
+F_16 ( V_25 , L_16 , 256 ) ;
+if ( V_26 & V_38 )
+F_16 ( V_25 , L_17 , 256 ) ;
+F_16 ( V_25 , L_13 , 256 ) ;
+F_15 ( V_5 , L_14 , V_25 + 2 ) ;
+break;
+case V_39 :
+F_15 ( V_5 , L_18 ,
+F_17 ( V_1 , V_8 + 2 , V_27 ) ) ;
+break;
+default:
+F_15 ( V_5 , L_19 ) ;
+}
+V_8 = F_18 ( V_1 , V_24 , V_8 ) ;
+V_23 ++ ;
+}
+}
+return TRUE ;
+}
+static T_8 F_19 ( T_1 * V_1 , T_6 V_8 , T_2 * V_2 ,
+T_3 * V_3 , T_6 V_21 V_4 , T_9 V_22 , T_9 T_10 )
+{
+T_9 V_40 ;
+if ( ( V_40 = F_20 ( V_1 , V_3 , V_8 , L_20 , V_22 ) ) == 0 )
+return FALSE ;
+F_21 ( V_2 , V_40 , TRUE , V_41 , T_10 ) ;
+return FALSE ;
+}
+static T_8 F_22 ( T_1 * V_1 , T_6 V_8 , T_2 * V_2 ,
+T_3 * V_3 , T_6 V_21 V_4 , T_9 V_22 , T_9 T_10 )
+{
+T_9 V_40 ;
+if ( ( V_40 = F_20 ( V_1 , V_3 , V_8 , L_21 , V_22 ) ) == 0 )
+return FALSE ;
+F_21 ( V_2 , V_40 , FALSE , V_42 , T_10 ) ;
+return FALSE ;
+}
+void F_23 ( void )
+{
+T_6 V_43 ;
+static T_11 V_44 [] = {
+{ & V_28 ,
+{ L_22 , L_23 ,
+V_45 , V_46 , NULL , 0 ,
+NULL , V_47 } } ,
+#if 0
+{ &hf_param_pi,
+{ "Parameter Identifier", "ircomm.pi",
+FT_UINT8, BASE_HEX, NULL, 0,
+NULL, HFILL }},
+{ &hf_param_pl,
+{ "Parameter Length", "ircomm.pl",
+FT_UINT8, BASE_HEX, NULL, 0,
+NULL, HFILL }},
+{ &hf_param_pv,
+{ "Parameter Value", "ircomm.pv",
+FT_BYTES, BASE_NONE, NULL, 0,
+NULL, HFILL }},
+#endif
+{ & V_17 ,
+{ L_24 , L_25 ,
+V_45 , V_46 , NULL , 0 ,
+NULL , V_47 } } ,
+{ & V_19 ,
+{ L_26 , L_27 ,
+V_48 , V_49 , NULL , 0 ,
+NULL , V_47 } }
+} ;
+static T_7 * V_50 [] = {
+& V_16 ,
+& V_18
+} ;
+T_7 * V_51 [ V_52 * V_30 ] ;
+V_14 = F_24 ( L_28 , L_1 , L_29 ) ;
+V_42 = F_25 ( L_30 , F_11 , V_14 ) ;
+V_41 = F_25 ( L_31 , F_1 , V_14 ) ;
+F_26 ( V_14 , V_44 , F_27 ( V_44 ) ) ;
+F_28 ( V_50 , F_27 ( V_50 ) ) ;
+for ( V_43 = 0 ; V_43 < V_52 * V_30 ; V_43 ++ )
+{
+V_29 [ V_43 ] = - 1 ;
+V_51 [ V_43 ] = & V_29 [ V_43 ] ;
+}
+F_28 ( V_51 , V_52 * V_30 ) ;
+}

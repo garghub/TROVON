@@ -1,0 +1,1 @@
+static T_1 F_1 ( T_1 * V_1 , T_2 V_2 , T_1 V_3 , const T_1 V_4 [] )\r\n{\r\nT_1 V_5 ;\r\nV_5 = V_3 ;\r\nwhile( V_2 -- > 0 )\r\nV_5 = V_4 [ ( T_1 ) ( * V_1 ++ ) ^ V_5 ] ;\r\nreturn V_5 ;\r\n}\r\nT_1 F_2 ( T_1 * V_1 , T_2 V_2 , T_1 V_3 )\r\n{\r\nreturn F_1 ( V_1 , V_2 , V_3 , V_6 ) ;\r\n}

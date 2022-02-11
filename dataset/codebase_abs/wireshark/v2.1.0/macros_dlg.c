@@ -1,0 +1,1 @@
+void F_1 ( void ) {\r\nF_2 ( V_1 . V_2 ) ;\r\nV_1 . V_2 = NULL ;\r\nF_3 ( V_3 , L_1 ) ;\r\n}\r\nvoid F_4 ( void ) {\r\nT_1 * V_4 ;\r\nF_5 ( & V_4 ) ;\r\nV_4 -> V_5 = F_1 ;\r\n}\r\nvoid F_6 ( T_2 * T_3 V_6 , T_4 T_5 V_6 ) {\r\nT_1 * V_4 ;\r\nF_5 ( & V_4 ) ;\r\nF_7 ( NULL , V_4 ) ;\r\n}

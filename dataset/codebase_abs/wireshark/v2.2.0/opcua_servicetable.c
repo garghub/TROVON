@@ -1,0 +1,1 @@
+void F_1 ( T_1 * V_1 , T_2 * V_2 , T_3 * V_3 , T_4 * V_4 , int V_5 )\r\n{\r\nint V_6 = 0 ;\r\nwhile ( V_6 < V_7 )\r\n{\r\nif ( V_8 [ V_6 ] . V_9 == V_5 )\r\n{\r\n( * V_8 [ V_6 ] . V_10 ) ( V_1 , V_2 , V_3 , V_4 ) ;\r\nbreak;\r\n}\r\nV_6 ++ ;\r\n}\r\n}

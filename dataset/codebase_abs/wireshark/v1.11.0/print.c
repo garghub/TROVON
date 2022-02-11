@@ -1,0 +1,1233 @@
+static T_1 *
+F_1 ( T_2 V_1 , const char * V_2 )
+{
+T_1 * V_3 ;
+if ( V_1 )
+V_3 = F_2 ( V_2 , L_1 ) ;
+else
+V_3 = F_3 ( V_2 , L_1 ) ;
+return V_3 ;
+}
+static T_2
+F_4 ( T_2 V_1 , T_1 * V_3 )
+{
+if ( V_1 )
+return ( fclose ( V_3 ) == 0 ) ;
+else
+return ( F_5 ( V_3 ) == 0 ) ;
+}
+T_2
+F_6 ( T_3 * V_4 , T_4 * V_5 ,
+T_5 * V_6 )
+{
+T_6 V_7 ;
+V_7 . V_8 = 0 ;
+V_7 . V_6 = V_6 ;
+V_7 . V_9 = TRUE ;
+V_7 . V_10 = V_5 -> V_11 . V_12 ;
+V_7 . V_13 = ( V_14 ) V_5 -> V_11 . V_15 -> V_16 . V_13 ;
+V_7 . V_17 = V_4 -> V_17 ;
+V_7 . V_18 = ! V_4 -> V_19 ;
+V_7 . V_5 = V_5 ;
+F_7 ( V_5 -> V_20 , V_21 , & V_7 ) ;
+return V_7 . V_9 ;
+}
+static void
+V_21 ( T_7 * V_22 , T_8 V_7 )
+{
+T_9 * V_23 = F_8 ( V_22 ) ;
+T_6 * V_24 = ( T_6 * ) V_7 ;
+const T_10 * V_25 ;
+T_11 V_26 [ V_27 ] ;
+T_11 * V_28 ;
+F_9 ( V_23 ) ;
+if ( F_10 ( V_22 ) )
+return;
+if ( ! V_24 -> V_9 )
+return;
+if ( V_23 -> V_29 ) {
+V_28 = V_23 -> V_29 -> V_30 ;
+}
+else {
+V_28 = V_26 ;
+F_11 ( V_23 , V_26 ) ;
+}
+if ( F_12 ( V_22 ) )
+V_28 = F_13 ( L_2 , V_28 , L_3 , NULL ) ;
+V_24 -> V_9 = F_14 ( V_24 -> V_6 , V_24 -> V_8 , V_28 ) ;
+if ( F_12 ( V_22 ) )
+F_15 ( V_28 ) ;
+if ( ! V_24 -> V_9 )
+return;
+if ( ( V_31 != NULL ) && ( V_24 -> V_8 == 0 )
+&& ( F_16 ( V_31 , V_23 -> V_32 -> V_33 ) == NULL ) ) {
+return;
+}
+if ( ( V_23 -> V_32 -> V_34 == V_35 ) && ( V_24 -> V_18 ) ) {
+V_25 = F_17 ( V_24 -> V_10 , V_23 ) ;
+if ( V_25 ) {
+if ( ! F_14 ( V_24 -> V_6 , 0 , L_4 ) ) {
+V_24 -> V_9 = FALSE ;
+return;
+}
+if ( ! F_18 ( V_24 -> V_6 , V_25 ,
+V_23 -> V_36 , V_24 -> V_13 ) ) {
+V_24 -> V_9 = FALSE ;
+return;
+}
+}
+}
+F_9 ( ( V_23 -> V_37 >= - 1 ) && ( V_23 -> V_37 < V_38 ) ) ;
+if ( ( V_24 -> V_17 == V_39 ) ||
+( ( V_24 -> V_17 == V_40 ) &&
+( V_23 -> V_37 >= 0 ) && F_19 ( V_23 -> V_37 ) ) ) {
+if ( V_22 -> V_41 != NULL ) {
+V_24 -> V_8 ++ ;
+F_7 ( V_22 ,
+V_21 , V_24 ) ;
+V_24 -> V_8 -- ;
+if ( ! V_24 -> V_9 )
+return;
+}
+}
+}
+void
+F_20 ( T_1 * V_3 , const T_11 * V_42 )
+{
+T_12 V_43 = time ( NULL ) ;
+char * V_44 = asctime ( localtime ( & V_43 ) ) ;
+V_44 [ strlen ( V_44 ) - 1 ] = 0 ;
+fputs ( L_5 , V_3 ) ;
+fputs ( L_6 V_45 L_7 , V_3 ) ;
+fprintf ( V_3 , L_8 V_45 L_9 V_45 L_10 , F_21 () ) ;
+fputs ( L_11 V_46 L_12 , V_3 ) ;
+fprintf ( V_3 , L_13 , V_47 , V_48 , V_44 , V_42 ? V_42 : L_4 ) ;
+}
+void
+F_22 ( T_4 * V_5 , T_1 * V_3 )
+{
+T_13 V_7 ;
+V_7 . V_8 = 0 ;
+V_7 . V_3 = V_3 ;
+V_7 . V_10 = V_5 -> V_11 . V_12 ;
+V_7 . V_5 = V_5 ;
+fprintf ( V_3 , L_14 ) ;
+F_23 ( V_5 -> V_20 , V_3 ) ;
+F_7 ( V_5 -> V_20 , V_49 ,
+& V_7 ) ;
+fprintf ( V_3 , L_15 ) ;
+}
+static void
+V_49 ( T_7 * V_22 , T_8 V_7 )
+{
+T_9 * V_23 = F_8 ( V_22 ) ;
+T_13 * V_24 = ( T_13 * ) V_7 ;
+const T_11 * V_28 ;
+T_11 V_26 [ V_27 ] ;
+char * V_50 ;
+T_14 V_51 ;
+int V_52 ;
+T_2 V_53 ;
+F_9 ( V_23 ) ;
+V_53 =
+( ( ( V_23 -> V_32 -> type != V_54 ) ||
+( V_23 -> V_32 -> V_34 == V_35 ) ) &&
+( V_24 -> V_8 == 0 ) ) ;
+for ( V_52 = - 1 ; V_52 < V_24 -> V_8 ; V_52 ++ ) {
+fputs ( L_16 , V_24 -> V_3 ) ;
+}
+if ( V_53 ) {
+fputs ( L_17 , V_24 -> V_3 ) ;
+V_24 -> V_8 ++ ;
+for ( V_52 = - 1 ; V_52 < V_24 -> V_8 ; V_52 ++ ) {
+fputs ( L_16 , V_24 -> V_3 ) ;
+}
+}
+if ( V_23 -> V_32 -> V_34 == V_55 ) {
+if ( V_23 -> V_29 ) {
+V_28 = V_23 -> V_29 -> V_30 ;
+}
+else {
+V_28 = L_4 ;
+}
+fputs ( L_18 , V_24 -> V_3 ) ;
+fputs ( L_19 , V_24 -> V_3 ) ;
+F_24 ( V_24 -> V_3 , V_28 ) ;
+fprintf ( V_24 -> V_3 , L_20 , V_23 -> V_36 ) ;
+if ( V_22 -> V_56 && V_22 -> V_56 -> V_57 && ( V_23 -> V_58 < V_22 -> V_56 -> V_57 -> V_58 ) ) {
+fprintf ( V_24 -> V_3 , L_21 , V_22 -> V_56 -> V_57 -> V_58 + V_23 -> V_58 ) ;
+} else {
+fprintf ( V_24 -> V_3 , L_21 , V_23 -> V_58 ) ;
+}
+fputs ( L_22 , V_24 -> V_3 ) ;
+F_25 ( V_24 , V_23 ) ;
+if ( V_22 -> V_41 != NULL ) {
+fputs ( L_23 , V_24 -> V_3 ) ;
+}
+else {
+fputs ( L_24 , V_24 -> V_3 ) ;
+}
+}
+else if ( V_23 -> V_32 -> V_34 == V_35 ) {
+fputs ( L_25 , V_24 -> V_3 ) ;
+F_25 ( V_24 , V_23 ) ;
+fputs ( L_23 , V_24 -> V_3 ) ;
+}
+else {
+if ( ( V_23 -> V_32 -> type == V_54 ) && ( V_23 -> V_32 -> V_34 != V_59 ) ) {
+fputs ( L_26 , V_24 -> V_3 ) ;
+}
+else {
+fputs ( L_18 , V_24 -> V_3 ) ;
+}
+F_24 ( V_24 -> V_3 , V_23 -> V_32 -> V_33 ) ;
+#if 0
+fputs("\" showname=\"", pdata->fh);
+print_escaped_xml(pdata->fh, fi->hfinfo->name);
+#endif
+if ( V_23 -> V_29 ) {
+fputs ( L_27 , V_24 -> V_3 ) ;
+F_24 ( V_24 -> V_3 , V_23 -> V_29 -> V_30 ) ;
+}
+else {
+V_28 = V_26 ;
+F_11 ( V_23 , V_26 ) ;
+fputs ( L_27 , V_24 -> V_3 ) ;
+F_24 ( V_24 -> V_3 , V_28 ) ;
+}
+if ( F_10 ( V_22 ) )
+fprintf ( V_24 -> V_3 , L_28 ) ;
+fprintf ( V_24 -> V_3 , L_20 , V_23 -> V_36 ) ;
+if ( V_22 -> V_56 && V_22 -> V_56 -> V_57 && ( V_23 -> V_58 < V_22 -> V_56 -> V_57 -> V_58 ) ) {
+fprintf ( V_24 -> V_3 , L_21 , V_22 -> V_56 -> V_57 -> V_58 + V_23 -> V_58 ) ;
+} else {
+fprintf ( V_24 -> V_3 , L_21 , V_23 -> V_58 ) ;
+}
+switch ( V_23 -> V_32 -> type )
+{
+case V_54 :
+break;
+case V_60 :
+fputs ( L_29 , V_24 -> V_3 ) ;
+break;
+default:
+V_50 = F_26 ( V_23 ,
+V_24 -> V_5 ) ;
+if ( V_50 != NULL ) {
+V_51 = strlen ( V_23 -> V_32 -> V_33 ) + 4 ;
+if ( V_50 [ strlen ( V_50 ) - 1 ] == '"' ) {
+V_50 [ strlen ( V_50 ) - 1 ] = '\0' ;
+V_51 ++ ;
+}
+fputs ( L_19 , V_24 -> V_3 ) ;
+F_24 ( V_24 -> V_3 , & V_50 [ V_51 ] ) ;
+}
+if ( V_23 -> V_36 > 0 ) {
+fputs ( L_22 , V_24 -> V_3 ) ;
+if ( V_23 -> V_32 -> V_61 != 0 ) {
+switch ( V_23 -> V_62 . V_63 -> V_63 ) {
+case V_64 :
+case V_65 :
+case V_66 :
+case V_67 :
+fprintf ( V_24 -> V_3 , L_30 , ( V_68 ) F_27 ( & V_23 -> V_62 ) ) ;
+break;
+case V_69 :
+case V_70 :
+case V_71 :
+case V_72 :
+case V_73 :
+fprintf ( V_24 -> V_3 , L_30 , F_28 ( & V_23 -> V_62 ) ) ;
+break;
+case V_74 :
+case V_75 :
+F_29 ( V_24 -> V_3 , L_31 V_76 L_32 ,
+F_30 ( & V_23 -> V_62 ) ) ;
+break;
+default:
+F_31 () ;
+}
+fputs ( L_33 , V_24 -> V_3 ) ;
+F_25 ( V_24 , V_23 ) ;
+}
+else {
+F_25 ( V_24 , V_23 ) ;
+}
+}
+}
+if ( V_22 -> V_41 != NULL ) {
+fputs ( L_23 , V_24 -> V_3 ) ;
+}
+else if ( V_23 -> V_32 -> V_34 == V_35 ) {
+fputs ( L_23 , V_24 -> V_3 ) ;
+}
+else {
+fputs ( L_24 , V_24 -> V_3 ) ;
+}
+}
+if ( V_22 -> V_41 != NULL ) {
+V_24 -> V_8 ++ ;
+F_7 ( V_22 ,
+V_49 , V_24 ) ;
+V_24 -> V_8 -- ;
+}
+if ( V_53 ) {
+V_24 -> V_8 -- ;
+}
+if ( V_22 -> V_41 != NULL ) {
+for ( V_52 = - 1 ; V_52 < V_24 -> V_8 ; V_52 ++ ) {
+fputs ( L_16 , V_24 -> V_3 ) ;
+}
+if ( ( V_23 -> V_32 -> V_34 != V_35 ) && ( V_23 -> V_32 -> V_34 != V_59 ) ) {
+if ( V_23 -> V_32 -> type == V_54 ) {
+fputs ( L_34 , V_24 -> V_3 ) ;
+}
+else {
+fputs ( L_35 , V_24 -> V_3 ) ;
+}
+} else {
+fputs ( L_35 , V_24 -> V_3 ) ;
+}
+}
+if ( V_53 ) {
+fputs ( L_34 , V_24 -> V_3 ) ;
+}
+}
+static void
+F_23 ( T_15 * V_20 , T_1 * V_3 )
+{
+T_16 V_77 , V_78 , V_79 ;
+T_17 * V_80 ;
+T_18 * V_81 ;
+T_9 * V_82 ;
+V_81 = F_32 ( V_20 , V_83 ) ;
+if ( F_33 ( V_81 ) < 1 ) {
+return;
+}
+V_82 = ( T_9 * ) V_81 -> V_24 [ 0 ] ;
+F_34 ( V_81 , TRUE ) ;
+V_81 = F_32 ( V_20 , V_84 ) ;
+if ( F_33 ( V_81 ) < 1 ) {
+return;
+}
+V_77 = F_28 ( & ( ( T_9 * ) V_81 -> V_24 [ 0 ] ) -> V_62 ) ;
+F_34 ( V_81 , TRUE ) ;
+V_81 = F_32 ( V_20 , V_85 ) ;
+if ( F_33 ( V_81 ) < 1 ) {
+return;
+}
+V_78 = F_28 ( & ( ( T_9 * ) V_81 -> V_24 [ 0 ] ) -> V_62 ) ;
+F_34 ( V_81 , TRUE ) ;
+V_81 = F_32 ( V_20 , V_86 ) ;
+if ( F_33 ( V_81 ) < 1 ) {
+return;
+}
+V_79 = F_28 ( & ( ( T_9 * ) V_81 -> V_24 [ 0 ] ) -> V_62 ) ;
+F_34 ( V_81 , TRUE ) ;
+V_81 = F_32 ( V_20 , V_87 ) ;
+if ( F_33 ( V_81 ) < 1 ) {
+return;
+}
+V_80 = ( T_17 * ) F_35 ( & ( ( T_9 * ) V_81 -> V_24 [ 0 ] ) -> V_62 ) ;
+F_34 ( V_81 , TRUE ) ;
+fprintf ( V_3 ,
+L_36 ,
+V_82 -> V_36 ) ;
+fprintf ( V_3 ,
+L_37 ,
+V_77 , V_77 , V_82 -> V_36 ) ;
+fprintf ( V_3 ,
+L_38 ,
+V_78 , V_78 , V_82 -> V_36 ) ;
+fprintf ( V_3 ,
+L_39 ,
+V_79 , V_79 , V_82 -> V_36 ) ;
+fprintf ( V_3 ,
+L_40 ,
+F_36 ( V_80 , V_88 , TRUE ) , ( int ) V_80 -> V_89 , V_80 -> V_90 , V_82 -> V_36 ) ;
+fprintf ( V_3 ,
+L_41 ) ;
+}
+void
+F_37 ( T_1 * V_3 )
+{
+fputs ( L_42 , V_3 ) ;
+}
+void
+F_38 ( T_1 * V_3 )
+{
+fputs ( L_5 , V_3 ) ;
+fputs ( L_43 V_91 L_12 , V_3 ) ;
+fprintf ( V_3 , L_44 , V_47 , V_48 ) ;
+V_92 = TRUE ;
+}
+void
+F_39 ( T_4 * V_5 , T_1 * V_3 )
+{
+T_19 V_52 ;
+if ( V_92 ) {
+fprintf ( V_3 , L_45 ) ;
+for ( V_52 = 0 ; V_52 < V_5 -> V_11 . V_93 -> V_94 ; V_52 ++ ) {
+fprintf ( V_3 , L_46 ) ;
+F_24 ( V_3 , V_5 -> V_11 . V_93 -> V_95 [ V_52 ] ) ;
+fprintf ( V_3 , L_47 ) ;
+}
+fprintf ( V_3 , L_48 ) ;
+V_92 = FALSE ;
+}
+fprintf ( V_3 , L_14 ) ;
+for ( V_52 = 0 ; V_52 < V_5 -> V_11 . V_93 -> V_94 ; V_52 ++ ) {
+fprintf ( V_3 , L_46 ) ;
+F_24 ( V_3 , V_5 -> V_11 . V_93 -> V_96 [ V_52 ] ) ;
+fprintf ( V_3 , L_47 ) ;
+}
+fprintf ( V_3 , L_15 ) ;
+}
+void
+F_40 ( T_1 * V_3 )
+{
+fputs ( L_49 , V_3 ) ;
+}
+void
+F_41 ( T_1 * V_3 V_97 )
+{
+V_92 = TRUE ;
+}
+static T_11 * F_42 ( const T_11 * V_98 , const T_11 * V_99 )
+{
+T_11 * V_100 ;
+T_11 * V_101 ;
+V_100 = F_43 ( V_98 , V_99 ) ;
+V_101 = V_100 ;
+while ( ( V_101 = strstr ( V_101 , L_50 ) ) != NULL )
+* V_101 = '\"' ;
+return V_100 ;
+}
+static void F_44 ( const char * V_102 , char V_103 , T_1 * V_3 )
+{
+T_11 * V_100 ;
+V_100 = F_42 ( V_102 , NULL ) ;
+fprintf ( V_3 , L_51 , V_100 , V_103 ) ;
+F_15 ( V_100 ) ;
+}
+void
+F_45 ( T_4 * V_5 , T_1 * V_3 )
+{
+T_19 V_52 ;
+if ( V_92 ) {
+for ( V_52 = 0 ; V_52 < V_5 -> V_11 . V_93 -> V_94 - 1 ; V_52 ++ )
+F_44 ( V_5 -> V_11 . V_93 -> V_95 [ V_52 ] , ',' , V_3 ) ;
+F_44 ( V_5 -> V_11 . V_93 -> V_95 [ V_52 ] , '\n' , V_3 ) ;
+V_92 = FALSE ;
+}
+for ( V_52 = 0 ; V_52 < V_5 -> V_11 . V_93 -> V_94 - 1 ; V_52 ++ )
+F_44 ( V_5 -> V_11 . V_93 -> V_96 [ V_52 ] , ',' , V_3 ) ;
+F_44 ( V_5 -> V_11 . V_93 -> V_96 [ V_52 ] , '\n' , V_3 ) ;
+}
+void
+F_46 ( T_1 * V_3 V_97 )
+{
+}
+void
+F_47 ( T_1 * V_3 V_97 )
+{
+}
+void
+F_48 ( T_16 V_77 , T_1 * V_3 , T_4 * V_5 )
+{
+T_16 V_52 = 0 , V_104 = 0 ;
+T_20 * V_105 ;
+T_21 * V_106 ;
+const char * V_107 ;
+const T_22 * V_108 ;
+V_68 V_36 ;
+char V_109 [ 9 ] ;
+struct V_110 * V_111 ;
+for ( V_105 = V_5 -> V_11 . V_12 ; V_105 != NULL ; V_105 = V_105 -> V_112 ) {
+memset ( V_109 , 0 , sizeof( V_109 ) ) ;
+V_111 = (struct V_110 * ) V_105 -> V_7 ;
+V_106 = F_49 ( V_111 ) ;
+V_36 = F_50 ( V_106 ) ;
+if ( V_36 == 0 )
+continue;
+V_108 = F_51 ( V_106 , 0 , V_36 ) ;
+V_107 = F_52 ( V_111 ) ;
+if ( V_107 )
+fprintf ( V_3 , L_52 , V_107 ) ;
+if ( V_104 ) {
+fprintf ( V_3 , L_53 ,
+V_77 , V_104 , V_36 ) ;
+} else {
+fprintf ( V_3 , L_54 ,
+V_77 , V_36 ) ;
+}
+V_104 ++ ;
+for ( V_52 = 0 ; V_52 < V_36 ; V_52 ++ ) {
+fprintf ( V_3 , L_55 , * ( V_108 + V_52 ) ) ;
+V_109 [ V_52 % 8 ] = isprint ( * ( V_108 + V_52 ) ) ? * ( V_108 + V_52 ) : '.' ;
+if ( V_52 == ( V_36 - 1 ) ) {
+V_68 V_113 ;
+V_113 = V_36 % 8 ;
+if ( V_113 ) {
+V_68 V_114 ;
+for ( V_114 = 0 ; V_114 < 8 - V_113 ; V_114 ++ )
+fprintf ( V_3 , L_56 ) ;
+}
+fprintf ( V_3 , L_57 , V_109 ) ;
+break;
+}
+if ( ! ( ( V_52 + 1 ) % 8 ) ) {
+fprintf ( V_3 , L_58 , V_109 ) ;
+memset ( V_109 , 0 , sizeof( V_109 ) ) ;
+}
+else {
+fprintf ( V_3 , L_59 ) ;
+}
+}
+}
+}
+void
+F_53 ( T_1 * V_3 V_97 )
+{
+}
+static const T_10 *
+F_17 ( T_20 * V_10 , T_9 * V_23 )
+{
+T_20 * V_105 ;
+T_21 * V_115 ;
+T_19 V_36 , V_116 ;
+struct V_110 * V_111 ;
+for ( V_105 = V_10 ; V_105 != NULL ; V_105 = V_105 -> V_112 ) {
+V_111 = (struct V_110 * ) V_105 -> V_7 ;
+V_115 = F_49 ( V_111 ) ;
+if ( V_23 -> V_117 == V_115 ) {
+V_116 = F_54 ( V_115 ,
+V_23 -> V_58 ) ;
+if ( V_116 < 0 ) {
+return NULL ;
+}
+V_36 = V_23 -> V_36 ;
+if ( V_36 > V_116 )
+V_36 = V_116 ;
+return F_51 ( V_115 , V_23 -> V_58 , V_36 ) ;
+}
+}
+F_31 () ;
+return NULL ;
+}
+static void
+F_24 ( T_1 * V_3 , const char * V_118 )
+{
+const char * V_119 ;
+char V_120 [ 8 ] ;
+for ( V_119 = V_118 ; * V_119 != '\0' ; V_119 ++ ) {
+switch ( * V_119 ) {
+case '&' :
+fputs ( L_60 , V_3 ) ;
+break;
+case '<' :
+fputs ( L_61 , V_3 ) ;
+break;
+case '>' :
+fputs ( L_62 , V_3 ) ;
+break;
+case '"' :
+fputs ( L_63 , V_3 ) ;
+break;
+case '\'' :
+fputs ( L_64 , V_3 ) ;
+break;
+default:
+if ( F_55 ( * V_119 ) )
+fputc ( * V_119 , V_3 ) ;
+else {
+F_56 ( V_120 , sizeof( V_120 ) , L_65 , ( T_10 ) * V_119 ) ;
+fputs ( V_120 , V_3 ) ;
+}
+}
+}
+}
+static void
+F_25 ( T_13 * V_24 , T_9 * V_23 )
+{
+int V_52 ;
+const T_10 * V_25 ;
+if ( ! V_23 -> V_117 )
+return;
+if ( V_23 -> V_36 > F_54 ( V_23 -> V_117 , V_23 -> V_58 ) ) {
+fprintf ( V_24 -> V_3 , L_66 ) ;
+return;
+}
+V_25 = F_17 ( V_24 -> V_10 , V_23 ) ;
+if ( V_25 ) {
+for ( V_52 = 0 ; V_52 < V_23 -> V_36 ; V_52 ++ ) {
+fprintf ( V_24 -> V_3 , L_67 , V_25 [ V_52 ] ) ;
+}
+}
+}
+T_2
+F_57 ( T_5 * V_6 , T_4 * V_5 )
+{
+T_2 V_121 ;
+T_20 * V_105 ;
+T_21 * V_106 ;
+const char * V_107 ;
+char * line ;
+const T_22 * V_108 ;
+V_68 V_36 ;
+struct V_110 * V_111 ;
+V_121 = ( V_5 -> V_11 . V_12 -> V_112 != NULL ) ;
+for ( V_105 = V_5 -> V_11 . V_12 ; V_105 != NULL ;
+V_105 = V_105 -> V_112 ) {
+V_111 = (struct V_110 * ) V_105 -> V_7 ;
+V_106 = F_49 ( V_111 ) ;
+if ( V_121 ) {
+V_107 = F_52 ( V_111 ) ;
+line = F_58 ( L_68 , V_107 ) ;
+F_14 ( V_6 , 0 , line ) ;
+F_15 ( line ) ;
+}
+V_36 = F_50 ( V_106 ) ;
+if ( V_36 == 0 )
+return TRUE ;
+V_108 = F_51 ( V_106 , 0 , V_36 ) ;
+if ( ! F_18 ( V_6 , V_108 , V_36 ,
+( V_14 ) V_5 -> V_11 . V_15 -> V_16 . V_13 ) )
+return FALSE ;
+}
+return TRUE ;
+}
+static T_2
+F_18 ( T_5 * V_6 , const T_22 * V_108 ,
+V_68 V_36 , V_14 V_13 )
+{
+register unsigned int V_122 , V_52 , V_114 , V_123 , V_124 ;
+T_22 V_125 ;
+T_11 line [ V_126 + 1 ] ;
+unsigned int V_127 ;
+static T_11 V_128 [ 16 ] = {
+'0' , '1' , '2' , '3' , '4' , '5' , '6' , '7' ,
+'8' , '9' , 'a' , 'b' , 'c' , 'd' , 'e' , 'f' } ;
+if ( ( ( V_36 - 1 ) & 0xF0000000 ) != 0 )
+V_127 = 8 ;
+else if ( ( ( V_36 - 1 ) & 0x0F000000 ) != 0 )
+V_127 = 7 ;
+else if ( ( ( V_36 - 1 ) & 0x00F00000 ) != 0 )
+V_127 = 6 ;
+else if ( ( ( V_36 - 1 ) & 0x000F0000 ) != 0 )
+V_127 = 5 ;
+else
+V_127 = 4 ;
+V_122 = 0 ;
+V_52 = 0 ;
+V_114 = 0 ;
+V_123 = 0 ;
+while ( V_52 < V_36 ) {
+if ( ( V_52 & 15 ) == 0 ) {
+V_114 = 0 ;
+V_124 = V_127 ;
+do {
+V_124 -- ;
+V_125 = ( V_122 >> ( V_124 * 4 ) ) & 0xF ;
+line [ V_114 ++ ] = V_128 [ V_125 ] ;
+} while ( V_124 != 0 );
+line [ V_114 ++ ] = ' ' ;
+line [ V_114 ++ ] = ' ' ;
+memset ( line + V_114 , ' ' , V_129 ) ;
+V_123 = V_114 + V_130 + 2 ;
+}
+V_125 = * V_108 ++ ;
+line [ V_114 ++ ] = V_128 [ V_125 >> 4 ] ;
+line [ V_114 ++ ] = V_128 [ V_125 & 0xf ] ;
+V_114 ++ ;
+if ( V_13 == V_131 ) {
+V_125 = F_59 ( V_125 ) ;
+}
+line [ V_123 ++ ] = ( ( V_125 >= ' ' ) && ( V_125 < 0x7f ) ) ? V_125 : '.' ;
+V_52 ++ ;
+if ( ( ( V_52 & 15 ) == 0 ) || ( V_52 == V_36 ) ) {
+line [ V_123 ] = '\0' ;
+if ( ! F_14 ( V_6 , 0 , line ) )
+return FALSE ;
+V_122 += 16 ;
+}
+}
+return TRUE ;
+}
+static
+void F_60 ( char * V_132 , const char * V_133 , int V_134 )
+{
+int V_135 , V_136 ;
+char V_125 ;
+if ( V_133 == NULL ) {
+V_132 [ 0 ] = '\0' ;
+return;
+}
+for ( V_135 = 0 , V_136 = 0 ; V_136 < V_134 ; V_135 ++ , V_136 ++ ) {
+V_125 = V_133 [ V_135 ] ;
+switch ( V_125 ) {
+case '(' :
+case ')' :
+case '\\' :
+V_132 [ V_136 ] = '\\' ;
+V_132 [ ++ V_136 ] = V_125 ;
+break;
+default:
+V_132 [ V_136 ] = V_125 ;
+break;
+}
+if ( V_125 == 0 ) {
+break;
+}
+}
+}
+T_2
+F_61 ( T_5 * V_137 , T_11 * V_42 , const char * V_138 )
+{
+return V_137 -> V_139 -> F_61 ? ( V_137 -> V_139 -> F_61 ) ( V_137 , V_42 , V_138 ) : TRUE ;
+}
+T_2
+F_14 ( T_5 * V_137 , int V_140 , const char * line )
+{
+return ( V_137 -> V_139 -> F_14 ) ( V_137 , V_140 , line ) ;
+}
+T_2
+F_62 ( T_5 * V_137 , const T_11 * V_107 , const T_11 * V_141 )
+{
+return V_137 -> V_139 -> F_62 ? ( V_137 -> V_139 -> F_62 ) ( V_137 , V_107 , V_141 ) : TRUE ;
+}
+T_2
+F_63 ( T_5 * V_137 )
+{
+return V_137 -> V_139 -> F_63 ? ( V_137 -> V_139 -> F_63 ) ( V_137 ) : TRUE ;
+}
+T_2
+F_64 ( T_5 * V_137 )
+{
+return V_137 -> V_139 -> F_64 ? ( V_137 -> V_139 -> F_64 ) ( V_137 ) : TRUE ;
+}
+T_2
+F_65 ( T_5 * V_137 )
+{
+return V_137 -> V_139 -> V_142 ? ( V_137 -> V_139 -> V_142 ) ( V_137 ) : TRUE ;
+}
+static T_2
+F_66 ( T_5 * V_137 , int V_140 , const char * line )
+{
+static char V_143 [ V_144 ] ;
+T_14 V_145 ;
+T_23 * V_146 = ( T_23 * ) V_137 -> V_7 ;
+unsigned int V_147 ;
+if ( ! V_143 [ 0 ] ) {
+int V_52 ;
+for ( V_52 = 0 ; V_52 < V_144 ; V_52 ++ )
+V_143 [ V_52 ] = ' ' ;
+}
+V_147 = V_140 * 4 ;
+if ( V_147 > V_144 )
+V_147 = V_144 ;
+V_145 = fwrite ( V_143 , 1 , V_147 , V_146 -> V_3 ) ;
+if ( V_145 == V_147 ) {
+fputs ( line , V_146 -> V_3 ) ;
+putc ( '\n' , V_146 -> V_3 ) ;
+}
+return ! ferror ( V_146 -> V_3 ) ;
+}
+static T_2
+F_67 ( T_5 * V_137 )
+{
+T_23 * V_146 = ( T_23 * ) V_137 -> V_7 ;
+fputs ( L_69 , V_146 -> V_3 ) ;
+return ! ferror ( V_146 -> V_3 ) ;
+}
+static T_2
+F_68 ( T_5 * V_137 )
+{
+T_23 * V_146 = ( T_23 * ) V_137 -> V_7 ;
+T_2 V_145 ;
+V_145 = F_4 ( V_146 -> V_1 , V_146 -> V_3 ) ;
+F_15 ( V_146 ) ;
+F_15 ( V_137 ) ;
+return V_145 ;
+}
+static T_5 *
+F_69 ( T_2 V_1 , T_1 * V_3 )
+{
+T_5 * V_6 ;
+T_23 * V_146 ;
+V_146 = ( T_23 * ) F_70 ( sizeof *V_146 ) ;
+V_146 -> V_1 = V_1 ;
+V_146 -> V_3 = V_3 ;
+V_6 = ( T_5 * ) F_70 ( sizeof ( T_5 ) ) ;
+V_6 -> V_139 = & V_148 ;
+V_6 -> V_7 = V_146 ;
+return V_6 ;
+}
+T_5 *
+F_71 ( T_2 V_1 , const char * V_2 )
+{
+T_1 * V_3 ;
+V_3 = F_1 ( V_1 , V_2 ) ;
+if ( V_3 == NULL )
+return NULL ;
+return F_69 ( V_1 , V_3 ) ;
+}
+T_5 *
+F_72 ( T_1 * V_3 )
+{
+return F_69 ( TRUE , V_3 ) ;
+}
+static T_2
+F_73 ( T_5 * V_137 , T_11 * V_42 , const char * V_138 )
+{
+T_24 * V_146 = ( T_24 * ) V_137 -> V_7 ;
+char V_149 [ V_150 ] ;
+F_74 ( V_146 -> V_3 ) ;
+fputs ( L_70 , V_146 -> V_3 ) ;
+F_60 ( V_149 , V_42 , V_150 ) ;
+fprintf ( V_146 -> V_3 , L_71 V_48 L_72 , V_149 , V_138 ) ;
+fputs ( L_73 , V_146 -> V_3 ) ;
+return ! ferror ( V_146 -> V_3 ) ;
+}
+static T_2
+F_75 ( T_5 * V_137 , int V_140 , const char * line )
+{
+T_24 * V_146 = ( T_24 * ) V_137 -> V_7 ;
+char V_149 [ V_150 ] ;
+F_60 ( V_149 , line , V_150 ) ;
+fprintf ( V_146 -> V_3 , L_74 , V_140 , V_149 ) ;
+return ! ferror ( V_146 -> V_3 ) ;
+}
+static T_2
+F_76 ( T_5 * V_137 , const T_11 * V_107 , const T_11 * V_141 )
+{
+T_24 * V_146 = ( T_24 * ) V_137 -> V_7 ;
+char V_149 [ V_150 ] ;
+F_60 ( V_149 , V_141 , V_150 ) ;
+fprintf ( V_146 -> V_3 , L_75 , V_107 ,
+V_149 ) ;
+fputs ( L_76 ,
+V_146 -> V_3 ) ;
+fputs ( L_77 ,
+V_146 -> V_3 ) ;
+fprintf ( V_146 -> V_3 , L_78 , V_107 ) ;
+return ! ferror ( V_146 -> V_3 ) ;
+}
+static T_2
+F_77 ( T_5 * V_137 )
+{
+T_24 * V_146 = ( T_24 * ) V_137 -> V_7 ;
+fputs ( L_79 , V_146 -> V_3 ) ;
+return ! ferror ( V_146 -> V_3 ) ;
+}
+static T_2
+F_78 ( T_5 * V_137 )
+{
+T_24 * V_146 = ( T_24 * ) V_137 -> V_7 ;
+F_79 ( V_146 -> V_3 ) ;
+return ! ferror ( V_146 -> V_3 ) ;
+}
+static T_2
+F_80 ( T_5 * V_137 )
+{
+T_24 * V_146 = ( T_24 * ) V_137 -> V_7 ;
+T_2 V_145 ;
+V_145 = F_4 ( V_146 -> V_1 , V_146 -> V_3 ) ;
+F_15 ( V_146 ) ;
+F_15 ( V_137 ) ;
+return V_145 ;
+}
+static T_5 *
+F_81 ( T_2 V_1 , T_1 * V_3 )
+{
+T_5 * V_6 ;
+T_24 * V_146 ;
+V_146 = ( T_24 * ) F_70 ( sizeof *V_146 ) ;
+V_146 -> V_1 = V_1 ;
+V_146 -> V_3 = V_3 ;
+V_6 = ( T_5 * ) F_70 ( sizeof ( T_5 ) ) ;
+V_6 -> V_139 = & V_151 ;
+V_6 -> V_7 = V_146 ;
+return V_6 ;
+}
+T_5 *
+F_82 ( T_2 V_1 , const char * V_2 )
+{
+T_1 * V_3 ;
+V_3 = F_1 ( V_1 , V_2 ) ;
+if ( V_3 == NULL )
+return NULL ;
+return F_81 ( V_1 , V_3 ) ;
+}
+T_5 *
+F_83 ( T_1 * V_3 )
+{
+return F_81 ( TRUE , V_3 ) ;
+}
+T_25 * F_84 ( void )
+{
+T_25 * V_152 = F_85 ( T_25 , 1 ) ;
+V_152 -> V_153 = FALSE ;
+V_152 -> V_154 = '\t' ;
+V_152 -> V_155 = 'a' ;
+V_152 -> V_156 = ',' ;
+V_152 -> V_152 = NULL ;
+V_152 -> V_157 = NULL ;
+V_152 -> V_158 = NULL ;
+V_152 -> V_159 = '\0' ;
+V_152 -> V_160 = FALSE ;
+return V_152 ;
+}
+T_26 F_86 ( T_25 * V_152 )
+{
+F_9 ( V_152 ) ;
+if ( NULL == V_152 -> V_152 ) {
+return 0 ;
+} else {
+return V_152 -> V_152 -> V_78 ;
+}
+}
+void F_87 ( T_25 * V_152 )
+{
+F_9 ( V_152 ) ;
+if ( NULL != V_152 -> V_152 ) {
+T_26 V_52 ;
+if ( NULL != V_152 -> V_157 ) {
+F_88 ( V_152 -> V_157 ) ;
+}
+if ( NULL != V_152 -> V_158 ) {
+F_15 ( V_152 -> V_158 ) ;
+}
+for( V_52 = 0 ; V_52 < V_152 -> V_152 -> V_78 ; ++ V_52 ) {
+T_11 * V_161 = ( T_11 * ) F_89 ( V_152 -> V_152 , V_52 ) ;
+F_15 ( V_161 ) ;
+}
+F_34 ( V_152 -> V_152 , TRUE ) ;
+}
+F_15 ( V_152 ) ;
+}
+void F_90 ( T_25 * V_152 , const T_11 * V_161 )
+{
+T_11 * V_162 ;
+F_9 ( V_152 ) ;
+F_9 ( V_161 ) ;
+if ( NULL == V_152 -> V_152 ) {
+V_152 -> V_152 = F_91 () ;
+}
+V_162 = F_92 ( V_161 ) ;
+F_93 ( V_152 -> V_152 , V_162 ) ;
+if ( ! strncmp ( V_161 , V_163 , strlen ( V_163 ) ) )
+V_152 -> V_160 = TRUE ;
+}
+T_2 F_94 ( T_25 * V_164 , T_11 * V_165 )
+{
+const T_11 * V_166 ;
+const T_11 * V_167 ;
+F_9 ( V_164 ) ;
+F_9 ( V_165 ) ;
+if ( '\0' == * V_165 ) {
+return FALSE ;
+}
+V_166 = strtok ( V_165 , L_80 ) ;
+if ( ! V_166 ) {
+return FALSE ;
+}
+V_167 = V_165 + strlen ( V_166 ) + 1 ;
+if ( 0 == strcmp ( V_166 , L_81 ) ) {
+switch ( NULL == V_167 ? '\0' : * V_167 ) {
+case 'n' :
+V_164 -> V_153 = FALSE ;
+break;
+case 'y' :
+V_164 -> V_153 = TRUE ;
+break;
+default:
+return FALSE ;
+}
+return TRUE ;
+}
+if ( 0 == strcmp ( V_166 , L_82 ) ) {
+switch ( NULL == V_167 ? '\0' : * V_167 ) {
+case '\0' :
+return FALSE ;
+case '/' :
+switch ( * ++ V_167 ) {
+case 't' :
+V_164 -> V_154 = '\t' ;
+break;
+case 's' :
+V_164 -> V_154 = ' ' ;
+break;
+default:
+V_164 -> V_154 = '\\' ;
+}
+break;
+default:
+V_164 -> V_154 = * V_167 ;
+break;
+}
+return TRUE ;
+}
+if ( 0 == strcmp ( V_166 , L_83 ) ) {
+switch ( NULL == V_167 ? '\0' : * V_167 ) {
+case 'f' :
+case 'l' :
+case 'a' :
+V_164 -> V_155 = * V_167 ;
+break;
+default:
+return FALSE ;
+}
+return TRUE ;
+}
+if ( 0 == strcmp ( V_166 , L_84 ) ) {
+switch ( NULL == V_167 ? '\0' : * V_167 ) {
+case '\0' :
+return FALSE ;
+case '/' :
+switch ( * ++ V_167 ) {
+case 's' :
+V_164 -> V_156 = ' ' ;
+break;
+default:
+V_164 -> V_156 = '\\' ;
+}
+break;
+default:
+V_164 -> V_156 = * V_167 ;
+break;
+}
+return TRUE ;
+}
+if ( 0 == strcmp ( V_166 , L_85 ) ) {
+switch ( NULL == V_167 ? '\0' : * V_167 ) {
+default:
+case '\0' :
+V_164 -> V_159 = '\0' ;
+return FALSE ;
+case 'd' :
+V_164 -> V_159 = '"' ;
+break;
+case 's' :
+V_164 -> V_159 = '\'' ;
+break;
+case 'n' :
+V_164 -> V_159 = '\0' ;
+break;
+}
+return TRUE ;
+}
+return FALSE ;
+}
+void F_95 ( T_1 * V_3 )
+{
+fprintf ( V_3 , L_86 ) ;
+fputs ( L_87 , V_3 ) ;
+fputs ( L_88 , V_3 ) ;
+fputs ( L_89 , V_3 ) ;
+fputs ( L_90 , V_3 ) ;
+fputs ( L_91 , V_3 ) ;
+}
+T_2 F_96 ( T_25 * V_152 )
+{
+F_9 ( V_152 ) ;
+return V_152 -> V_160 ;
+}
+void F_97 ( T_25 * V_152 , T_1 * V_3 )
+{
+T_26 V_52 ;
+F_9 ( V_152 ) ;
+F_9 ( V_3 ) ;
+F_9 ( V_152 -> V_152 ) ;
+if ( ! V_152 -> V_153 ) {
+return;
+}
+for( V_52 = 0 ; V_52 < V_152 -> V_152 -> V_78 ; ++ V_52 ) {
+const T_11 * V_161 = ( const T_11 * ) F_89 ( V_152 -> V_152 , V_52 ) ;
+if ( V_52 != 0 ) {
+fputc ( V_152 -> V_154 , V_3 ) ;
+}
+fputs ( V_161 , V_3 ) ;
+}
+fputc ( '\n' , V_3 ) ;
+}
+static void F_98 ( T_25 * V_152 , T_8 V_168 , const T_11 * V_62 )
+{
+V_68 V_169 ;
+T_18 * V_170 ;
+if ( ( NULL == V_62 ) || ( '\0' == * V_62 ) )
+return;
+V_169 = F_99 ( V_168 ) - 1 ;
+if ( V_152 -> V_158 [ V_169 ] == NULL ) {
+V_152 -> V_158 [ V_169 ] = F_91 () ;
+}
+V_170 = V_152 -> V_158 [ V_169 ] ;
+switch ( V_152 -> V_155 ) {
+case 'f' :
+if ( F_33 ( V_170 ) != 0 )
+return;
+break;
+case 'l' :
+F_100 ( V_170 , 0 ) ;
+break;
+case 'a' :
+if ( F_33 ( V_170 ) > 0 ) {
+F_93 ( V_170 , ( T_8 ) F_101 ( L_92 , V_152 -> V_156 ) ) ;
+}
+break;
+default:
+F_31 () ;
+break;
+}
+F_93 ( V_170 , ( T_8 ) V_62 ) ;
+}
+static void F_102 ( T_7 * V_22 , T_8 V_7 )
+{
+T_27 * V_171 ;
+T_9 * V_23 ;
+T_8 V_168 ;
+V_171 = ( T_27 * ) V_7 ;
+V_23 = F_8 ( V_22 ) ;
+F_9 ( V_23 ) ;
+V_168 = F_16 ( V_171 -> V_152 -> V_157 , V_23 -> V_32 -> V_33 ) ;
+if ( NULL != V_168 ) {
+F_98 ( V_171 -> V_152 , V_168 ,
+F_103 ( V_23 , V_171 -> V_5 )
+) ;
+}
+if ( V_22 -> V_41 != NULL ) {
+F_7 ( V_22 , F_102 ,
+V_171 ) ;
+}
+}
+void F_104 ( T_25 * V_152 , T_4 * V_5 , T_28 * V_93 , T_1 * V_3 )
+{
+T_26 V_52 ;
+T_19 V_172 ;
+T_11 * V_173 ;
+T_8 V_168 ;
+T_27 V_7 ;
+F_9 ( V_152 ) ;
+F_9 ( V_152 -> V_152 ) ;
+F_9 ( V_5 ) ;
+F_9 ( V_3 ) ;
+V_7 . V_152 = V_152 ;
+V_7 . V_5 = V_5 ;
+if ( NULL == V_152 -> V_157 ) {
+V_152 -> V_157 = F_105 ( V_174 , V_175 ) ;
+V_52 = 0 ;
+while ( V_52 < V_152 -> V_152 -> V_78 ) {
+T_11 * V_161 = ( T_11 * ) F_89 ( V_152 -> V_152 , V_52 ) ;
+++ V_52 ;
+F_106 ( V_152 -> V_157 , V_161 , F_107 ( V_52 ) ) ;
+}
+}
+if ( NULL == V_152 -> V_158 )
+V_152 -> V_158 = F_108 ( T_18 * , V_152 -> V_152 -> V_78 ) ;
+F_7 ( V_5 -> V_20 , F_102 ,
+& V_7 ) ;
+if ( V_152 -> V_160 ) {
+for ( V_172 = 0 ; V_172 < V_93 -> V_94 ; V_172 ++ ) {
+V_173 = F_101 ( L_93 , V_163 , V_93 -> V_95 [ V_172 ] ) ;
+V_168 = F_16 ( V_152 -> V_157 , V_173 ) ;
+if ( NULL != V_168 ) {
+F_98 ( V_152 , V_168 , V_93 -> V_96 [ V_172 ] ) ;
+}
+}
+}
+for( V_52 = 0 ; V_52 < V_152 -> V_152 -> V_78 ; ++ V_52 ) {
+if ( 0 != V_52 ) {
+fputc ( V_152 -> V_154 , V_3 ) ;
+}
+if ( NULL != V_152 -> V_158 [ V_52 ] ) {
+T_18 * V_170 ;
+T_26 V_114 ;
+V_170 = V_152 -> V_158 [ V_52 ] ;
+if ( V_152 -> V_159 != '\0' ) {
+fputc ( V_152 -> V_159 , V_3 ) ;
+}
+for ( V_114 = 0 ; V_114 < F_33 ( V_170 ) ; V_114 ++ ) {
+fputs ( ( T_11 * ) F_89 ( V_170 , V_114 ) , V_3 ) ;
+}
+if ( V_152 -> V_159 != '\0' ) {
+fputc ( V_152 -> V_159 , V_3 ) ;
+}
+F_34 ( V_170 , TRUE ) ;
+V_152 -> V_158 [ V_52 ] = NULL ;
+}
+}
+}
+void F_109 ( T_25 * V_152 V_97 , T_1 * V_3 V_97 )
+{
+}
+const T_11 * F_103 ( T_9 * V_23 , T_4 * V_5 )
+{
+if ( V_23 -> V_32 -> V_34 == V_55 ) {
+if ( V_23 -> V_29 ) {
+return V_23 -> V_29 -> V_30 ;
+}
+else {
+return F_110 ( V_5 -> V_11 . V_12 , V_23 ) ;
+}
+}
+else if ( V_23 -> V_32 -> V_34 == V_35 ) {
+return F_110 ( V_5 -> V_11 . V_12 , V_23 ) ;
+}
+else {
+T_11 * V_50 ;
+T_14 V_51 ;
+switch ( V_23 -> V_32 -> type )
+{
+case V_54 :
+if ( V_23 -> V_29 ) {
+return V_23 -> V_29 -> V_30 ;
+} else {
+return V_23 -> V_32 -> V_33 ;
+}
+case V_60 :
+return L_94 ;
+default:
+V_50 = F_26 ( V_23 ,
+V_5 ) ;
+if ( V_50 != NULL ) {
+V_51 = strlen ( V_23 -> V_32 -> V_33 ) + 4 ;
+if ( V_50 [ strlen ( V_50 ) - 1 ] == '"' ) {
+V_50 [ strlen ( V_50 ) - 1 ] = '\0' ;
+V_51 ++ ;
+}
+return & ( V_50 [ V_51 ] ) ;
+} else {
+return F_110 ( V_5 -> V_11 . V_12 , V_23 ) ;
+}
+}
+}
+}
+static const T_11 *
+F_110 ( T_20 * V_10 , T_9 * V_23 )
+{
+const T_10 * V_25 ;
+if ( ! V_23 -> V_117 )
+return NULL ;
+if ( V_23 -> V_36 > F_54 ( V_23 -> V_117 , V_23 -> V_58 ) ) {
+return L_66 ;
+}
+V_25 = F_17 ( V_10 , V_23 ) ;
+if ( V_25 ) {
+int V_52 ;
+T_11 * V_176 ;
+T_11 * V_119 ;
+int V_78 ;
+const int V_177 = 2 ;
+V_78 = V_177 * V_23 -> V_36 ;
+V_176 = F_111 ( T_11 , V_78 + 1 ) ;
+V_176 [ V_78 ] = '\0' ;
+V_119 = V_176 ;
+for ( V_52 = 0 ; V_52 < V_23 -> V_36 ; V_52 ++ ) {
+F_56 ( V_119 , V_177 + 1 , L_67 , V_25 [ V_52 ] ) ;
+V_119 += V_177 ;
+}
+return V_176 ;
+} else {
+return NULL ;
+}
+}

@@ -1,0 +1,1 @@
+T_1 *\r\nF_1 ( const struct V_1 * V_2 )\r\n{\r\nT_1 * V_3 ;\r\nV_3 = ( T_1 * ) F_2 ( 14 ) ;\r\nF_3 ( V_2 , V_3 , 14 ) ;\r\nreturn V_3 ;\r\n}\r\nvoid\r\nF_3 ( const struct V_1 * V_2 , T_1 * V_4 , int V_5 )\r\n{\r\nF_4 ( V_4 , V_5 , L_1 , V_2 -> V_6 , V_2 -> V_7 ) ;\r\n}

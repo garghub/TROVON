@@ -1,0 +1,1 @@
+int F_1 ( T_1 * V_1 ) {\r\nconst T_2 * V_2 [] = { V_3 , NULL } ;\r\nreturn F_2 ( V_1 , V_2 ) ;\r\n}\r\nint F_3 ( T_1 * V_1 ) {\r\nconst T_2 * V_2 [] = { V_4 , NULL } ;\r\nreturn F_2 ( V_1 , V_2 ) ;\r\n}\r\nint F_4 ( T_1 * V_1 ) {\r\nconst T_2 * V_2 [] = { V_3 , V_4 , V_5 , NULL } ;\r\nreturn F_2 ( V_1 , V_2 ) ;\r\n}

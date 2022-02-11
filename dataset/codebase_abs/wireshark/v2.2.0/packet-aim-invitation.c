@@ -1,0 +1,1 @@
+static int F_1 ( T_1 * V_1 , T_2 * V_2 , T_3 * V_3 )\r\n{\r\nreturn F_2 ( V_1 , V_2 , 0 , V_3 , V_4 ) ;\r\n}\r\nvoid\r\nF_3 ( void )\r\n{\r\nstatic T_4 * V_5 [] = {\r\n& V_6 ,\r\n} ;\r\nV_7 = F_4 ( L_1 , L_2 , L_3 ) ;\r\nF_5 ( V_5 , F_6 ( V_5 ) ) ;\r\n}\r\nvoid\r\nF_7 ( void )\r\n{\r\nF_8 ( V_7 , V_6 , V_8 , V_9 ) ;\r\n}

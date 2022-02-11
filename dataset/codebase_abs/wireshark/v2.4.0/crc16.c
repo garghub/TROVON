@@ -1,0 +1,63 @@
+static T_1 F_1 ( const T_2 * V_1 , T_3 V_2 ,
+T_1 V_3 , const T_3 V_4 [] )
+{
+T_3 V_5 = ( T_3 ) V_3 ;
+while( V_2 -- != 0 )
+V_5 = V_4 [ ( ( V_5 >> 8 ) ^ * V_1 ++ ) & 0xff ] ^ ( V_5 << 8 ) ;
+return ( T_1 ) V_5 ;
+}
+static T_1 F_2 ( const T_2 * V_1 , T_3 V_2 ,
+T_1 V_3 , const T_3 V_4 [] )
+{
+T_3 V_5 = ( T_3 ) V_3 ;
+while( V_2 -- != 0 )
+V_5 = V_4 [ ( V_5 ^ * V_1 ++ ) & 0xff ] ^ ( V_5 >> 8 ) ;
+return ( T_1 ) V_5 ;
+}
+T_1 F_3 ( const T_2 * V_1 , T_3 V_2 )
+{
+return F_2 ( V_1 , V_2 , V_6 , V_7 )
+^ V_8 ;
+}
+T_1 F_4 ( const T_2 * V_1 , T_3 V_2 , T_1 V_9 )
+{
+return F_1 ( V_1 , V_2 , V_9 , V_10 ) ;
+}
+T_1 F_5 ( const T_2 * V_1 , T_3 V_2 , T_1 V_9 )
+{
+return F_2 ( V_1 , V_2 , V_9 , V_7 )
+^ V_8 ;
+}
+T_1 F_6 ( const T_2 * V_1 , T_3 V_2 )
+{
+return F_2 ( V_1 , V_2 , 0x6363 , V_7 ) ;
+}
+T_1 F_7 ( const T_2 * V_1 , T_4 V_2 , T_1 V_9 )
+{
+return F_1 ( V_1 , V_2 , V_9 , V_11 ) ;
+}
+T_1 F_8 ( const T_2 * V_1 , T_4 V_2 , T_1 V_9 )
+{
+return F_1 ( V_1 , V_2 , V_9 , V_12 ) ;
+}
+T_1 F_9 ( const T_2 * V_1 , T_3 V_2 , T_1 V_9 )
+{
+return F_2 ( V_1 , V_2 , V_9 , V_13 ) ;
+}
+T_1 F_10 ( const T_2 * V_1 , T_3 V_2 , T_1 V_9 )
+{
+return F_2 ( V_1 , V_2 , V_9 , V_14 ) ;
+}
+T_1 F_11 ( const T_2 * V_1 , T_3 V_2 , T_1 V_9 )
+{
+T_1 V_15 = V_9 ;
+if ( V_2 > 0 )
+{
+while ( V_2 -- > 0 )
+{
+T_2 V_16 = * V_1 ++ ;
+V_15 = V_17 [ ( ( V_15 >> 8 ) ^ V_16 ) ] ^ ( V_15 << 8 ) ;
+}
+}
+return V_15 ;
+}

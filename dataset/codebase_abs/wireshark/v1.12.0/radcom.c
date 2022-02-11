@@ -1,0 +1,250 @@
+int F_1 ( T_1 * V_1 , int * V_2 , T_2 * * V_3 )
+{
+int V_4 ;
+T_3 V_5 [ 8 ] , V_6 [ 11 ] , V_7 [ 7 ] ;
+struct V_8 V_9 ;
+#if 0
+guint32 sec;
+struct tm tm;
+#endif
+V_10 = V_11 ;
+V_4 = F_2 ( V_5 , 8 , V_1 -> V_12 ) ;
+if ( V_4 != 8 ) {
+* V_2 = F_3 ( V_1 -> V_12 , V_3 ) ;
+if ( * V_2 != 0 && * V_2 != V_13 )
+return - 1 ;
+return 0 ;
+}
+V_5 [ 1 ] = 0xD2 ;
+V_5 [ 2 ] = 0x00 ;
+if ( memcmp ( V_5 , V_14 , 8 ) != 0 ) {
+return 0 ;
+}
+V_10 = V_11 ;
+V_4 = F_2 ( V_6 , 11 , V_1 -> V_12 ) ;
+if ( V_4 != 11 ) {
+* V_2 = F_3 ( V_1 -> V_12 , V_3 ) ;
+if ( * V_2 != 0 && * V_2 != V_13 )
+return - 1 ;
+return 0 ;
+}
+while ( memcmp ( V_6 , V_15 , 11 ) != 0 )
+{
+if ( F_4 ( V_1 -> V_12 , - 10 , V_16 , V_2 ) == - 1 )
+return - 1 ;
+V_10 = V_11 ;
+V_4 = F_2 ( V_6 , 11 , V_1 -> V_12 ) ;
+if ( V_4 != 11 ) {
+* V_2 = F_3 ( V_1 -> V_12 , V_3 ) ;
+if ( * V_2 != 0 && * V_2 != V_13 )
+return - 1 ;
+return 0 ;
+}
+}
+if ( F_4 ( V_1 -> V_12 , - 43 , V_16 , V_2 ) == - 1 ) return - 1 ;
+V_10 = V_11 ;
+V_4 = F_2 ( & V_9 , sizeof( struct V_8 ) ,
+V_1 -> V_12 ) ;
+if ( V_4 != sizeof( struct V_8 ) ) {
+* V_2 = F_3 ( V_1 -> V_12 , V_3 ) ;
+if ( * V_2 != 0 && * V_2 != V_13 )
+return - 1 ;
+return 0 ;
+}
+V_1 -> V_17 = V_18 ;
+V_1 -> V_19 = V_20 ;
+V_1 -> V_21 = V_22 ;
+V_1 -> V_23 = 0 ;
+V_1 -> V_24 = V_25 ;
+#if 0
+tm.tm_year = pletoh16(&start_date.year)-1900;
+tm.tm_mon = start_date.month-1;
+tm.tm_mday = start_date.day;
+sec = pletoh32(&start_date.sec);
+tm.tm_hour = sec/3600;
+tm.tm_min = (sec%3600)/60;
+tm.tm_sec = sec%60;
+tm.tm_isdst = -1;
+#endif
+if ( F_4 ( V_1 -> V_12 , sizeof( struct V_8 ) , V_16 , V_2 ) == - 1 )
+return - 1 ;
+V_10 = V_11 ;
+V_4 = F_2 ( V_7 , 4 , V_1 -> V_12 ) ;
+if ( V_4 != 4 ) {
+goto V_26;
+}
+while ( memcmp ( V_27 , V_7 , 4 ) ) {
+if ( F_4 ( V_1 -> V_12 , - 3 , V_16 , V_2 ) == - 1 )
+return - 1 ;
+V_10 = V_11 ;
+V_4 = F_2 ( V_7 , 4 , V_1 -> V_12 ) ;
+if ( V_4 != 4 ) {
+goto V_26;
+}
+}
+if ( F_4 ( V_1 -> V_12 , 12 , V_16 , V_2 ) == - 1 )
+return - 1 ;
+V_10 = V_11 ;
+V_4 = F_2 ( V_7 , 4 , V_1 -> V_12 ) ;
+if ( V_4 != 4 ) {
+goto V_26;
+}
+if ( memcmp ( V_7 , L_1 , 4 ) == 0 )
+V_1 -> V_28 = V_29 ;
+else if ( memcmp ( V_7 , L_2 , 4 ) == 0 )
+V_1 -> V_28 = V_30 ;
+else if ( memcmp ( V_7 , L_3 , 4 ) == 0 )
+V_1 -> V_28 = V_31 ;
+else {
+* V_2 = V_32 ;
+* V_3 = F_5 ( L_4 , V_7 ) ;
+return - 1 ;
+}
+#if 0
+bytes_read = file_read(&next_date, sizeof(struct frame_date), wth->fh);
+errno = WTAP_ERR_CANT_READ;
+if (bytes_read != sizeof(struct frame_date)) {
+goto read_error;
+}
+while (memcmp(&start_date, &next_date, 4)) {
+if (file_seek(wth->fh, 1-sizeof(struct frame_date), SEEK_CUR, err) == -1)
+return -1;
+errno = WTAP_ERR_CANT_READ;
+bytes_read = file_read(&next_date, sizeof(struct frame_date),
+wth->fh);
+if (bytes_read != sizeof(struct frame_date)) {
+goto read_error;
+}
+}
+#endif
+if ( V_1 -> V_28 == V_30 ) {
+if ( F_4 ( V_1 -> V_12 , 294 , V_16 , V_2 ) == - 1 )
+return - 1 ;
+} else if ( V_1 -> V_28 == V_29 ) {
+if ( F_4 ( V_1 -> V_12 , 297 , V_16 , V_2 ) == - 1 )
+return - 1 ;
+} else if ( V_1 -> V_28 == V_31 ) {
+if ( F_4 ( V_1 -> V_12 , 504 , V_16 , V_2 ) == - 1 )
+return - 1 ;
+}
+return 1 ;
+V_26:
+* V_2 = F_3 ( V_1 -> V_12 , V_3 ) ;
+if ( * V_2 != 0 )
+return - 1 ;
+return 0 ;
+}
+static T_4 V_20 ( T_1 * V_1 , int * V_2 , T_2 * * V_3 ,
+T_5 * V_33 )
+{
+int V_4 ;
+char V_34 [ 2 ] ;
+* V_33 = F_6 ( V_1 -> V_12 ) ;
+if ( ! F_7 ( V_1 , V_1 -> V_12 , & V_1 -> V_35 , V_1 -> V_36 ,
+V_2 , V_3 ) ) {
+return FALSE ;
+}
+if ( V_1 -> V_28 == V_29 ) {
+V_10 = V_11 ;
+V_4 = F_2 ( & V_34 , sizeof V_34 , V_1 -> V_12 ) ;
+if ( V_4 != sizeof V_34 ) {
+* V_2 = F_3 ( V_1 -> V_12 , V_3 ) ;
+if ( * V_2 == 0 )
+* V_2 = V_13 ;
+return FALSE ;
+}
+}
+return TRUE ;
+}
+static T_4
+V_22 ( T_1 * V_1 , T_5 V_37 ,
+struct V_38 * V_35 , T_6 * V_39 ,
+int * V_2 , T_2 * * V_3 )
+{
+if ( F_4 ( V_1 -> V_40 , V_37 , V_41 , V_2 ) == - 1 )
+return FALSE ;
+if ( ! F_7 ( V_1 , V_1 -> V_40 , V_35 , V_39 , V_2 ,
+V_3 ) ) {
+if ( * V_2 == 0 ) {
+* V_2 = V_13 ;
+}
+return FALSE ;
+}
+return TRUE ;
+}
+static T_4
+F_7 ( T_1 * V_1 , T_7 V_12 , struct V_38 * V_35 , T_6 * V_39 ,
+int * V_2 , T_2 * * V_3 )
+{
+struct V_42 V_43 ;
+int V_4 ;
+T_8 V_44 , V_45 , V_46 ;
+T_9 V_47 ;
+struct V_48 V_48 ;
+T_3 V_49 [ 8 ] ;
+V_10 = V_11 ;
+V_4 = F_2 ( & V_43 , sizeof V_43 , V_12 ) ;
+if ( V_4 != sizeof V_43 ) {
+* V_2 = F_3 ( V_12 , V_3 ) ;
+if ( * V_2 == 0 && V_4 != 0 )
+* V_2 = V_13 ;
+return FALSE ;
+}
+V_44 = F_8 ( & V_43 . V_44 ) ;
+if ( V_44 == 0 ) {
+* V_2 = 0 ;
+return FALSE ;
+}
+V_46 = F_8 ( & V_43 . V_46 ) ;
+V_45 = F_8 ( & V_43 . V_45 ) ;
+V_35 -> V_50 = V_51 ;
+V_35 -> V_52 = V_53 | V_54 ;
+V_48 . V_55 = F_8 ( & V_43 . V_56 . V_57 ) - 1900 ;
+V_48 . V_58 = ( V_43 . V_56 . V_59 & 0x0f ) - 1 ;
+V_48 . V_60 = V_43 . V_56 . V_61 ;
+V_47 = F_9 ( & V_43 . V_56 . V_47 ) ;
+V_48 . V_62 = V_47 / 3600 ;
+V_48 . V_63 = ( V_47 % 3600 ) / 60 ;
+V_48 . V_64 = V_47 % 60 ;
+V_48 . V_65 = - 1 ;
+V_35 -> V_66 . V_67 = mktime ( & V_48 ) ;
+V_35 -> V_66 . V_68 = F_9 ( & V_43 . V_56 . V_69 ) * 1000 ;
+switch ( V_1 -> V_28 ) {
+case V_30 :
+V_35 -> V_70 . V_71 . V_72 = - 1 ;
+break;
+case V_29 :
+V_35 -> V_70 . V_73 . V_74 = ( V_43 . V_75 & 0x1 ) ?
+0x00 : V_76 ;
+V_46 -= 2 ;
+V_45 -= 2 ;
+break;
+case V_31 :
+if ( ! F_10 ( V_1 -> V_12 , V_49 , sizeof V_49 , V_2 ,
+V_3 ) )
+return FALSE ;
+V_46 -= 8 ;
+V_45 -= 8 ;
+break;
+}
+V_35 -> V_77 = V_45 ;
+V_35 -> V_78 = V_46 ;
+if ( ! F_11 ( V_12 , V_39 , V_46 , V_2 , V_3 ) )
+return FALSE ;
+return TRUE ;
+}
+static T_4
+F_10 ( T_7 V_12 , T_3 * V_79 , int V_46 , int * V_2 ,
+T_2 * * V_3 )
+{
+int V_4 ;
+V_10 = V_11 ;
+V_4 = F_2 ( V_79 , V_46 , V_12 ) ;
+if ( V_4 != V_46 ) {
+* V_2 = F_3 ( V_12 , V_3 ) ;
+if ( * V_2 == 0 )
+* V_2 = V_13 ;
+return FALSE ;
+}
+return TRUE ;
+}

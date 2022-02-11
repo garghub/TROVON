@@ -1,0 +1,1 @@
+void *\r\nF_1 ( const T_1 * V_1 )\r\n{\r\nT_2 * V_2 ;\r\nV_2 = F_2 ( V_1 ) ;\r\nF_3 ( V_2 ) ;\r\nreturn F_4 ( V_2 ) ;\r\n}\r\nvoid *\r\nF_5 ( T_1 * V_1 )\r\n{\r\nvoid * V_3 ;\r\nV_3 = F_1 ( V_1 ) ;\r\nF_6 ( V_1 , V_3 ) ;\r\nreturn V_3 ;\r\n}

@@ -1,0 +1,1 @@
+void F_1 ( void )\r\n{\r\n#include "packet-novell_pkis-dis-tab.c"\r\n}\r\nvoid F_2 ( void )\r\n{\r\nstatic T_1 V_1 [] = {\r\n#include "packet-novell_pkis-hfarr.c"\r\n} ;\r\nstatic T_2 * V_2 [] = {\r\n#include "packet-novell_pkis-ettarr.c"\r\n} ;\r\nif ( V_3 != - 1 ) return;\r\nV_3 = F_3 ( L_1 , L_2 , L_2 ) ;\r\nF_4 ( V_3 , V_1 , F_5 ( V_1 ) ) ;\r\nF_6 ( V_2 , F_5 ( V_2 ) ) ;\r\n}

@@ -1,0 +1,323 @@
+static int
+F_1 ( T_1 * V_1 , T_2 * V_2 , T_3 * V_3 , void * T_4 V_4 )
+{
+T_5 * V_5 , * V_6 ;
+T_3 * V_7 , * V_8 ;
+T_1 * V_9 = NULL ;
+int V_10 = 0 ;
+T_6 V_11 ;
+int V_12 ;
+int V_13 = - 1 ;
+char * V_14 = NULL ;
+char * V_15 = NULL ;
+char * V_16 = NULL ;
+T_7 V_17 ;
+T_8 * V_18 ;
+T_9 V_19 ;
+T_10 V_20 = 0 ;
+T_11 V_21 ;
+F_2 ( V_2 -> V_22 , V_23 , L_1 ) ;
+V_5 = F_3 ( V_3 , V_24 , V_1 , V_10 , - 1 , V_25 ) ;
+V_7 = F_4 ( V_5 , V_26 ) ;
+do {
+V_11 = F_5 ( V_1 , V_10 ) ;
+V_5 = F_3 ( V_7 , V_27 , V_1 , V_10 , 2 , V_28 ) ;
+V_10 += 2 ;
+V_8 = F_4 ( V_5 , V_29 ) ;
+F_3 ( V_8 , V_30 , V_1 , V_10 , 2 , V_28 ) ;
+V_12 = F_5 ( V_1 , V_10 ) ;
+V_10 += 2 ;
+switch( V_11 ) {
+case V_31 :
+V_13 = V_32 ;
+V_14 = F_6 ( F_7 () , V_1 , V_10 , V_12 , V_33 | V_25 ) ;
+F_3 ( V_8 , V_34 , V_1 , V_10 , V_12 , V_33 | V_25 ) ;
+break;
+case V_35 :
+V_13 = V_36 ;
+V_14 = F_6 ( F_7 () , V_1 , V_10 , V_12 , V_33 | V_25 ) ;
+F_3 ( V_8 , V_37 , V_1 , V_10 , V_12 , V_33 | V_25 ) ;
+break;
+case V_38 :
+V_13 = V_39 ;
+V_15 = F_6 ( F_7 () , V_1 , V_10 , V_12 , V_33 | V_25 ) ;
+F_3 ( V_8 , V_40 , V_1 , V_10 , V_12 , V_33 | V_25 ) ;
+break;
+case V_41 :
+F_3 ( V_8 , V_42 , V_1 , V_10 , 4 , V_28 ) ;
+V_6 = F_3 ( V_8 , V_43 , V_1 , V_10 , 4 , V_28 ) ;
+F_8 ( V_6 ) ;
+V_6 = F_3 ( V_8 , V_44 , V_1 , V_10 , 4 , V_28 ) ;
+F_8 ( V_6 ) ;
+F_9 ( & V_2 -> V_45 , V_46 , 4 , V_1 , V_10 ) ;
+F_10 ( & V_2 -> V_47 , & V_2 -> V_45 ) ;
+break;
+case V_48 :
+F_3 ( V_8 , V_49 , V_1 , V_10 , 4 , V_28 ) ;
+V_6 = F_3 ( V_8 , V_43 , V_1 , V_10 , 4 , V_28 ) ;
+F_8 ( V_6 ) ;
+V_6 = F_3 ( V_8 , V_50 , V_1 , V_10 , 4 , V_28 ) ;
+F_8 ( V_6 ) ;
+F_9 ( & V_2 -> V_51 , V_46 , 4 , V_1 , V_10 ) ;
+F_10 ( & V_2 -> V_52 , & V_2 -> V_51 ) ;
+break;
+case V_53 :
+F_3 ( V_8 , V_54 , V_1 , V_10 , 16 , V_25 ) ;
+V_6 = F_3 ( V_8 , V_55 , V_1 , V_10 , 16 , V_28 ) ;
+F_8 ( V_6 ) ;
+V_6 = F_3 ( V_8 , V_56 , V_1 , V_10 , 16 , V_28 ) ;
+F_8 ( V_6 ) ;
+F_9 ( & V_2 -> V_45 , V_57 , 16 , V_1 , V_10 ) ;
+F_10 ( & V_2 -> V_47 , & V_2 -> V_45 ) ;
+break;
+case V_58 :
+F_3 ( V_8 , V_59 , V_1 , V_10 , 16 , V_25 ) ;
+V_6 = F_3 ( V_8 , V_55 , V_1 , V_10 , 16 , V_28 ) ;
+F_8 ( V_6 ) ;
+V_6 = F_3 ( V_8 , V_60 , V_1 , V_10 , 16 , V_28 ) ;
+F_8 ( V_6 ) ;
+F_9 ( & V_2 -> V_51 , V_57 , 16 , V_1 , V_10 ) ;
+F_10 ( & V_2 -> V_52 , & V_2 -> V_51 ) ;
+break;
+case V_61 :
+V_2 -> V_62 = ( V_63 ) F_11 ( V_1 , V_10 ) ;
+F_12 ( V_8 , V_64 , V_1 , V_10 , 4 , V_2 -> V_62 ,
+L_2 , F_13 ( V_2 -> V_62 ) , V_2 -> V_62 ) ;
+break;
+case V_65 :
+F_3 ( V_8 , V_66 , V_1 , V_10 , 4 , V_28 ) ;
+V_2 -> V_67 = F_11 ( V_1 , V_10 ) ;
+break;
+case V_68 :
+F_3 ( V_8 , V_69 , V_1 , V_10 , 4 , V_28 ) ;
+V_2 -> V_70 = F_11 ( V_1 , V_10 ) ;
+break;
+case V_71 :
+F_3 ( V_8 , V_72 , V_1 , V_10 , 4 , V_28 ) ;
+V_18 = ( T_8 * ) F_14 ( V_2 -> V_73 , sizeof( T_8 ) ) ;
+V_18 -> V_74 = F_11 ( V_1 , V_10 ) ;
+V_18 -> type = ( V_75 ) F_5 ( V_1 , V_10 + 4 ) ;
+V_18 -> V_76 = F_15 ( V_1 , V_10 + 6 ) ;
+F_16 ( & V_2 -> V_47 , V_77 , sizeof( T_8 ) , ( T_9 * ) V_18 ) ;
+break;
+case V_78 :
+F_3 ( V_8 , V_79 , V_1 , V_10 , 4 , V_28 ) ;
+V_18 = ( T_8 * ) F_14 ( V_2 -> V_73 , sizeof( T_8 ) ) ;
+V_18 -> V_74 = F_11 ( V_1 , V_10 ) ;
+V_18 -> type = ( V_75 ) F_5 ( V_1 , V_10 + 4 ) ;
+V_18 -> V_76 = F_15 ( V_1 , V_10 + 6 ) ;
+F_16 ( & V_2 -> V_52 , V_77 , sizeof( T_8 ) , ( T_9 * ) V_18 ) ;
+break;
+case V_80 :
+F_3 ( V_8 , V_81 , V_1 , V_10 , 4 , V_28 ) ;
+break;
+case V_82 :
+V_19 = F_15 ( V_1 , V_10 ) ;
+F_3 ( V_8 , V_83 ,
+V_1 , V_10 , 1 , V_28 ) ;
+F_17 ( V_19 , V_2 ) ;
+break;
+case V_84 :
+V_20 = F_11 ( V_1 , V_10 ) ;
+F_3 ( V_8 , V_85 , V_1 , V_10 , 4 , V_28 ) ;
+break;
+case V_86 :
+V_16 = F_6 ( F_7 () , V_1 , V_10 , V_12 , V_33 | V_25 ) ;
+F_3 ( V_8 , V_87 , V_1 , V_10 , V_12 , V_33 | V_25 ) ;
+break;
+case V_88 :
+break;
+default:
+F_3 ( V_8 , V_89 , V_1 , V_10 , V_12 , V_25 ) ;
+break;
+}
+V_10 = V_10 + V_12 ;
+} while( V_11 != 0 );
+V_9 = F_18 ( V_1 , V_10 ) ;
+switch( V_13 ) {
+case V_32 :
+V_17 = F_19 ( V_14 ) ;
+if ( V_17 ) {
+F_20 ( V_2 -> V_22 , V_23 ) ;
+F_21 ( V_17 , V_9 , V_2 , V_3 ) ;
+}
+break;
+case V_36 :
+{
+T_12 * V_90 = F_22 ( V_14 ) ;
+if ( V_90 ) {
+F_20 ( V_2 -> V_22 , V_23 ) ;
+F_23 ( V_90 , V_9 , V_2 , V_3 , NULL ) ;
+}
+break;
+}
+case V_39 :
+{
+V_21 = F_24 ( V_15 ) ;
+if ( V_21 ) {
+F_20 ( V_2 -> V_22 , V_23 ) ;
+if ( V_16 ) {
+F_25 ( V_2 -> V_22 , V_23 , L_3 , V_16 ) ;
+}
+F_26 ( V_21 , V_20 , V_9 , V_2 , V_3 , FALSE , NULL ) ;
+}
+}
+default:
+break;
+}
+F_3 ( V_7 , V_91 , V_9 , 0 , - 1 , V_25 ) ;
+return F_27 ( V_1 ) ;
+}
+void
+F_28 ( void )
+{
+static T_13 V_92 [] = {
+{ & V_27 ,
+{ L_4 , L_5 ,
+V_93 , V_94 , F_29 ( V_95 ) , 0 ,
+NULL , V_96 }
+} ,
+{ & V_30 ,
+{ L_6 , L_7 ,
+V_93 , V_94 , NULL , 0 ,
+NULL , V_96 }
+} ,
+{ & V_89 ,
+{ L_8 , L_9 ,
+V_97 , V_98 , NULL , 0 ,
+NULL , V_96 }
+} ,
+{ & V_34 ,
+{ L_10 , L_11 ,
+V_99 , V_98 , NULL , 0 ,
+NULL , V_96 }
+} ,
+{ & V_37 ,
+{ L_12 , L_13 ,
+V_99 , V_98 , NULL , 0 ,
+NULL , V_96 }
+} ,
+{ & V_40 ,
+{ L_14 , L_15 ,
+V_99 , V_98 , NULL , 0 ,
+NULL , V_96 }
+} ,
+{ & V_42 ,
+{ L_16 , L_17 ,
+V_100 , V_98 , NULL , 0 ,
+NULL , V_96 }
+} ,
+{ & V_49 ,
+{ L_18 , L_19 ,
+V_100 , V_98 , NULL , 0 ,
+NULL , V_96 }
+} ,
+{ & V_54 ,
+{ L_20 , L_21 ,
+V_101 , V_98 , NULL , 0 ,
+NULL , V_96 }
+} ,
+{ & V_59 ,
+{ L_22 , L_23 ,
+V_101 , V_98 , NULL , 0 ,
+NULL , V_96 }
+} ,
+{ & V_64 ,
+{ L_24 , L_25 ,
+V_102 , V_94 , NULL , 0 ,
+NULL , V_96 }
+} ,
+{ & V_66 ,
+{ L_26 , L_27 ,
+V_102 , V_94 , NULL , 0 ,
+NULL , V_96 }
+} ,
+{ & V_69 ,
+{ L_28 , L_29 ,
+V_102 , V_94 , NULL , 0 ,
+NULL , V_96 }
+} ,
+#if 0
+{ &hf_exported_pdu_sctp_ppid,
+{ "SCTP PPID", "exported_pdu.sctp_ppid",
+FT_UINT32, BASE_DEC, NULL, 0,
+NULL, HFILL }
+},
+#endif
+{ & V_72 ,
+{ L_30 , L_31 ,
+V_102 , V_94 , NULL , 0 ,
+NULL , V_96 }
+} ,
+{ & V_79 ,
+{ L_32 , L_33 ,
+V_102 , V_94 , NULL , 0 ,
+NULL , V_96 }
+} ,
+{ & V_81 ,
+{ L_34 , L_35 ,
+V_102 , V_94 , NULL , 0 ,
+NULL , V_96 }
+} ,
+{ & V_83 ,
+{ L_36 , L_37 ,
+V_103 , V_104 , F_29 ( V_105 ) , 0 ,
+NULL , V_96 }
+} ,
+{ & V_91 ,
+{ L_1 , L_38 ,
+V_97 , V_98 , NULL , 0 ,
+NULL , V_96 }
+} ,
+{ & V_85 ,
+{ L_39 , L_40 ,
+V_102 , V_94 , NULL , 0 ,
+NULL , V_96 }
+} ,
+{ & V_87 ,
+{ L_41 , L_42 ,
+V_99 , V_98 , NULL , 0 ,
+NULL , V_96 }
+} ,
+} ;
+static T_14 * V_106 [] = {
+& V_26 ,
+& V_29
+} ;
+V_24 = F_30 ( L_43 ,
+L_44 , L_44 ) ;
+F_31 ( L_44 , F_1 , V_24 ) ;
+F_32 ( V_24 , V_92 , F_33 ( V_92 ) ) ;
+F_34 ( V_106 , F_33 ( V_106 ) ) ;
+#if 0
+exported_pdu_module = prefs_register_protocol(exported_pdu,
+proto_reg_handoff_exported_pdu);
+prefs_register_bool_preference(exported_pdu_module, "show_hex",
+"Display numbers in Hex",
+"Enable to display numerical values in hexadecimal.",
+&gPREF_HEX);
+* Register an example port preference */
+prefs_register_uint_preference(exported_pdu_module, "tcp.port", "exported_pdu TCP Port",
+" exported_pdu TCP port if other than the default",
+10, &gPORT_PREF);
+#endif
+F_35 ( V_107 ) ;
+F_35 ( V_108 ) ;
+}
+void
+F_36 ( void )
+{
+static T_15 V_109 = FALSE ;
+static T_7 V_110 ;
+if ( ! V_109 ) {
+V_110 = F_19 ( L_44 ) ;
+F_37 ( L_45 , V_111 , V_110 ) ;
+V_109 = TRUE ;
+}
+V_43 = F_38 ( L_46 ) ;
+V_50 = F_38 ( L_47 ) ;
+V_44 = F_38 ( L_48 ) ;
+V_55 = F_38 ( L_49 ) ;
+V_60 = F_38 ( L_50 ) ;
+V_56 = F_38 ( L_49 ) ;
+}

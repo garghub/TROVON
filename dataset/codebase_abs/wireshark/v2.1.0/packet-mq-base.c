@@ -1,0 +1,1 @@
+T_1 F_1 ( T_2 * V_1 , T_3 V_2 )\r\n{\r\nT_1 V_3 = 0 ;\r\nif ( V_1 != NULL )\r\n{\r\nfor ( V_3 = V_2 - 1 ; V_3 >= 0 ; V_3 -- )\r\n{\r\nif ( V_1 [ V_3 ] != ' ' && V_1 [ V_3 ] != '\0' )\r\nbreak;\r\nelse\r\nV_1 [ V_3 ] = '\0' ;\r\n}\r\n}\r\nreturn V_3 ;\r\n}

@@ -1,0 +1,38 @@
+void
+F_1 ( void )
+{
+static T_1 V_1 = {
+V_2 ,
+L_1 ,
+L_2 ,
+0 ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+NULL ,
+} ;
+F_2 ( V_2 , & V_1 ) ;
+}

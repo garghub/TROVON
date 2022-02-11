@@ -1,0 +1,38 @@
+static int
+F_1 ( T_1 * V_1 , T_2 * V_2 , T_3 * V_3 , void * T_4 V_4 )
+{
+T_5 * V_5 ;
+T_3 * V_6 ;
+V_5 = F_2 ( V_3 , V_7 , V_1 , 0 , - 1 , L_1 ) ;
+V_6 = F_3 ( V_5 , V_8 ) ;
+if( F_4 ( V_1 ) > 0 )
+{
+F_5 ( V_1 , V_2 , V_6 , NULL ) ;
+}
+return F_6 ( V_1 ) ;
+}
+void
+F_7 ( void )
+{
+static T_6 V_9 [] = {
+#include "packet-charging_ase-hfarr.c"
+} ;
+static T_7 * V_10 [] = {
+& V_8 ,
+#include "packet-charging_ase-ettarr.c"
+} ;
+static T_8 V_11 [] = {
+{ & V_12 , { L_2 , V_13 , V_14 , L_3 , V_15 } } ,
+} ;
+T_9 * V_16 ;
+V_7 = F_8 ( V_17 , V_18 , V_19 ) ;
+F_9 ( V_7 , V_9 , F_10 ( V_9 ) ) ;
+F_11 ( V_10 , F_10 ( V_10 ) ) ;
+V_16 = F_12 ( V_7 ) ;
+F_13 ( V_16 , V_11 , F_10 ( V_11 ) ) ;
+}
+void
+F_14 ( void )
+{
+V_20 = F_15 ( F_1 , V_7 ) ;
+}

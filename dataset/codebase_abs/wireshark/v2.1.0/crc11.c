@@ -1,0 +1,1 @@
+T_1 F_1 ( const T_2 * V_1 , T_3 V_2 )\r\n{\r\nT_1 V_3 = 0 ;\r\nT_4 V_4 ;\r\nwhile ( V_2 -- ) {\r\nV_4 = ( ( V_3 >> 3 ) ^ * V_1 ) & 0xff ;\r\nV_3 = ( V_5 [ V_4 ] ^ ( V_3 << 8 ) ) & 0x7ff ;\r\nV_1 ++ ;\r\n}\r\nreturn V_3 & 0x7ff ;\r\n}

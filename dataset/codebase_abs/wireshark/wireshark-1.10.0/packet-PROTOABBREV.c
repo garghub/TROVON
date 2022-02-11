@@ -1,0 +1,69 @@
+static int
+F_1 ( T_1 * V_1 , T_2 * V_2 , T_3 * V_3 ,
+void * T_4 V_4 )
+{
+T_5 * V_5 ;
+T_3 * V_6 ;
+T_6 V_7 = 0 ;
+if ( F_2 ( V_1 ) < V_8 )
+return 0 ;
+if ( )
+return 0 ;
+F_3 ( V_2 -> V_9 , V_10 , L_1 ) ;
+#if 0
+col_clear(pinfo->cinfo, COL_INFO);
+#endif
+F_3 ( V_2 -> V_9 , V_11 , L_2 ) ;
+V_5 = F_4 ( V_3 , V_12 , V_1 , 0 , - 1 , V_13 ) ;
+V_6 = F_5 ( V_5 , V_14 ) ;
+F_4 ( V_6 , V_15 , V_1 ,
+V_7 , V_16 , V_17 ) ;
+V_7 += V_16 ;
+return F_2 ( V_1 ) ;
+}
+void
+F_6 ( void )
+{
+T_7 * V_18 ;
+static T_8 V_19 [] = {
+{ & V_15 ,
+{ L_3 , L_4 ,
+V_20 , V_21 , V_22 , V_23 ,
+L_5 , V_24 }
+}
+} ;
+static T_9 * V_25 [] = {
+& V_14
+} ;
+V_12 = F_7 ( L_6 ,
+L_7 , L_1 ) ;
+F_8 ( V_12 , V_19 , F_9 ( V_19 ) ) ;
+F_10 ( V_25 , F_9 ( V_25 ) ) ;
+V_18 = F_11 ( V_12 ,
+V_26 ) ;
+V_18 = F_12 ( const char * V_27 ,
+V_12 , V_26 ) ;
+F_13 ( V_18 , L_8 ,
+L_9 ,
+L_10 ,
+& V_28 ) ;
+F_14 ( V_18 , L_11 , L_12 ,
+L_13 ,
+10 , & V_29 ) ;
+}
+void
+V_26 ( void )
+{
+static T_10 V_30 = FALSE ;
+static T_11 V_31 ;
+static int V_32 ;
+if ( ! V_30 ) {
+V_31 = F_15 ( F_1 ,
+V_12 ) ;
+V_30 = TRUE ;
+} else {
+F_16 ( L_11 , V_32 , V_31 ) ;
+}
+V_32 = V_29 ;
+F_17 ( L_11 , V_32 , V_31 ) ;
+}

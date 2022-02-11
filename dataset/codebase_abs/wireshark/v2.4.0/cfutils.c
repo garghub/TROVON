@@ -1,0 +1,1 @@
+char *\r\nF_1 ( T_1 V_1 )\r\n{\r\nT_2 V_2 ;\r\nchar * string ;\r\nV_2 = F_2 ( F_3 ( V_1 ) ,\r\nV_3 ) ;\r\nstring = ( char * ) F_4 ( V_2 + 1 ) ;\r\nif ( ! F_5 ( V_1 , string , V_2 + 1 ,\r\nV_3 ) ) {\r\nF_6 ( string ) ;\r\nreturn NULL ;\r\n}\r\nreturn string ;\r\n}

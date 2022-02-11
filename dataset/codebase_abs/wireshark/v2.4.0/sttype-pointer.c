@@ -1,0 +1,1 @@
+void\r\nF_1 ( void )\r\n{\r\nstatic T_1 V_1 = {\r\nV_2 ,\r\nL_1 ,\r\nNULL ,\r\nNULL ,\r\nNULL\r\n} ;\r\nstatic T_1 V_3 = {\r\nV_4 ,\r\nL_2 ,\r\nNULL ,\r\nNULL ,\r\nNULL\r\n} ;\r\nF_2 ( & V_1 ) ;\r\nF_2 ( & V_3 ) ;\r\n}

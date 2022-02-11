@@ -1,0 +1,1 @@
+void\r\nF_1 ( void )\r\n{\r\n#if 0\r\nstatic hf_register_info hf[] = {\r\n};\r\n#endif\r\nstatic T_1 * V_1 [] = {\r\n& V_2 ,\r\n} ;\r\nV_3 = F_2 ( L_1 , L_2 , L_3 ) ;\r\nF_3 ( V_1 , F_4 ( V_1 ) ) ;\r\n}\r\nvoid\r\nF_5 ( void )\r\n{\r\nF_6 ( V_3 , V_2 , V_4 , V_5 ) ;\r\n}
