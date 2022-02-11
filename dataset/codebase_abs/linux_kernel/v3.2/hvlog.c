@@ -1,0 +1,1 @@
+void F_1 ( const void * V_1 , T_1 V_2 )\r\n{\r\nstruct V_3 V_4 ;\r\nT_1 V_5 ;\r\nT_1 V_6 = F_2 ( V_1 ) ;\r\nwhile ( V_2 ) {\r\nV_4 . V_7 = V_6 ;\r\nV_5 = ( ( V_6 & V_8 ) + V_9 ) - V_6 ;\r\nif ( V_5 > V_2 )\r\nV_5 = V_2 ;\r\nV_4 . V_2 = V_5 ;\r\nV_2 -= V_5 ;\r\nF_3 ( V_10 ,\r\nF_2 ( & V_4 ) ,\r\nV_5 ) ;\r\nV_6 = ( V_6 & V_8 ) + V_9 ;\r\n}\r\n}

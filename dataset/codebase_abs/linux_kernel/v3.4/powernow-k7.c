@@ -1,0 +1,440 @@
+static int F_1 ( unsigned int V_1 )
+{
+int V_2 ;
+unsigned int V_3 = V_4 / 1000 ;
+V_2 = ( V_1 > V_3 ) ? V_1 - V_3 : V_3 - V_1 ;
+return V_2 < 5 ;
+}
+static int F_2 ( void )
+{
+struct V_5 * V_6 = & F_3 ( 0 ) ;
+unsigned int V_7 , V_8 , V_9 , V_10 , V_11 ;
+if ( ! F_4 ( V_12 ) )
+return 0 ;
+V_7 = F_5 ( 0x80000000 ) ;
+if ( V_7 < 0x80000007 ) {
+#ifdef F_6
+F_7 (KERN_INFO PFX L_1 ) ;
+#endif
+return 0 ;
+}
+if ( ( V_6 -> V_13 == 6 ) && ( V_6 -> V_14 == 0 ) ) {
+F_7 (KERN_INFO PFX L_2
+L_3 ) ;
+V_15 = 1 ;
+}
+F_8 ( 0x80000007 , & V_8 , & V_9 , & V_10 , & V_11 ) ;
+if ( ! ( V_11 & ( 1 << 1 | 1 << 2 ) ) )
+return 0 ;
+F_7 (KERN_INFO PFX L_4 ) ;
+if ( V_11 & 1 << 1 ) {
+F_7 ( L_5 ) ;
+V_16 = 1 ;
+}
+if ( ( V_11 & ( 1 << 1 | 1 << 2 ) ) == 0x6 )
+F_7 ( L_6 ) ;
+if ( V_11 & 1 << 2 ) {
+F_7 ( L_7 ) ;
+V_17 = 1 ;
+}
+F_7 ( L_8 ) ;
+return 1 ;
+}
+static void F_9 ( unsigned int V_18 )
+{
+V_19 [ V_18 ] . V_20 = V_21 ;
+}
+static int F_10 ( unsigned char * V_22 )
+{
+unsigned int V_23 ;
+unsigned int V_24 ;
+T_1 V_25 , V_26 ;
+V_19 = F_11 ( ( sizeof( struct V_27 ) *
+( V_28 + 1 ) ) , V_29 ) ;
+if ( ! V_19 )
+return - V_30 ;
+for ( V_23 = 0 ; V_23 < V_28 ; V_23 ++ ) {
+V_25 = * V_22 ++ ;
+V_19 [ V_23 ] . V_20 = ( V_4 * V_31 [ V_25 ] ) / 10 ;
+V_19 [ V_23 ] . V_32 = V_25 ;
+V_24 = V_19 [ V_23 ] . V_20 ;
+if ( ( V_31 [ V_25 ] % 10 ) == 5 ) {
+#ifdef F_12
+if ( V_15 == 1 )
+F_9 ( V_23 ) ;
+#endif
+}
+if ( V_24 < V_33 )
+V_33 = V_24 ;
+if ( V_24 > V_34 )
+V_34 = V_24 ;
+V_26 = * V_22 ++ ;
+V_19 [ V_23 ] . V_32 |= ( V_26 << 8 ) ;
+F_13 ( L_9
+L_10 , V_25 , V_31 [ V_25 ] / 10 ,
+V_31 [ V_25 ] % 10 , V_24 / 1000 , V_26 ,
+V_35 [ V_26 ] / 1000 ,
+V_35 [ V_26 ] % 1000 ) ;
+}
+V_19 [ V_28 ] . V_20 = V_36 ;
+V_19 [ V_28 ] . V_32 = 0 ;
+return 0 ;
+}
+static void F_14 ( int V_25 )
+{
+union V_37 V_38 ;
+F_15 ( V_39 , V_38 . V_40 ) ;
+if ( V_38 . V_41 . V_42 != V_25 ) {
+V_38 . V_41 . V_43 = V_44 ;
+V_38 . V_41 . V_42 = V_25 ;
+V_38 . V_41 . V_45 = 0 ;
+V_38 . V_41 . V_46 = 1 ;
+F_16 ( V_39 , V_38 . V_40 ) ;
+}
+}
+static void F_17 ( int V_26 )
+{
+union V_37 V_38 ;
+F_15 ( V_39 , V_38 . V_40 ) ;
+if ( V_38 . V_41 . V_47 != V_26 ) {
+V_38 . V_41 . V_43 = V_44 ;
+V_38 . V_41 . V_47 = V_26 ;
+V_38 . V_41 . V_46 = 0 ;
+V_38 . V_41 . V_45 = 1 ;
+F_16 ( V_39 , V_38 . V_40 ) ;
+}
+}
+static void F_18 ( unsigned int V_32 )
+{
+T_1 V_25 , V_26 ;
+struct V_48 V_49 ;
+union V_50 V_51 ;
+int V_52 ;
+V_25 = V_19 [ V_32 ] . V_32 & 0xFF ;
+V_26 = ( V_19 [ V_32 ] . V_32 & 0xFF00 ) >> 8 ;
+V_49 . V_53 = 0 ;
+F_15 ( V_54 , V_51 . V_40 ) ;
+V_52 = V_51 . V_41 . V_55 ;
+V_49 . V_56 = V_4 * V_31 [ V_52 ] / 10 ;
+V_49 . V_57 = V_19 [ V_32 ] . V_20 ;
+F_19 ( & V_49 , V_58 ) ;
+if ( V_15 == 1 )
+F_20 () ;
+if ( V_49 . V_56 > V_49 . V_57 ) {
+F_14 ( V_25 ) ;
+F_17 ( V_26 ) ;
+} else {
+F_17 ( V_26 ) ;
+F_14 ( V_25 ) ;
+}
+if ( V_15 == 1 )
+F_21 () ;
+F_19 ( & V_49 , V_59 ) ;
+}
+static int F_22 ( void )
+{
+int V_60 ;
+int V_61 = 0 ;
+union V_62 V_63 ;
+if ( V_64 != NULL && V_19 != NULL ) {
+V_61 = - V_65 ;
+goto V_66;
+}
+V_64 = F_11 ( sizeof( struct V_67 ) ,
+V_29 ) ;
+if ( ! V_64 ) {
+V_61 = - V_30 ;
+goto V_66;
+}
+if ( ! F_23 ( & V_64 -> V_68 ,
+V_29 ) ) {
+V_61 = - V_30 ;
+goto V_69;
+}
+if ( F_24 ( V_64 , 0 ) ) {
+V_61 = - V_70 ;
+goto V_71;
+}
+if ( V_64 -> V_72 . V_73 !=
+V_74 ) {
+V_61 = - V_75 ;
+goto V_76;
+}
+if ( V_64 -> V_77 . V_73 !=
+V_74 ) {
+V_61 = - V_75 ;
+goto V_76;
+}
+V_28 = V_64 -> V_78 ;
+if ( V_28 < 2 ) {
+V_61 = - V_75 ;
+goto V_76;
+}
+V_19 = F_11 ( ( sizeof( struct V_27 ) *
+( V_28 + 1 ) ) , V_29 ) ;
+if ( ! V_19 ) {
+V_61 = - V_30 ;
+goto V_76;
+}
+V_63 . V_40 = ( unsigned long ) V_64 -> V_79 [ 0 ] . V_80 ;
+for ( V_60 = 0 ; V_60 < V_28 ; V_60 ++ ) {
+T_1 V_25 , V_26 ;
+struct V_81 * V_82 =
+& V_64 -> V_79 [ V_60 ] ;
+unsigned int V_24 , V_83 ;
+V_63 . V_40 = ( unsigned long ) V_82 -> V_80 ;
+F_13 ( L_11 ,
+V_60 ,
+( V_84 ) V_82 -> V_85 ,
+( V_84 ) V_82 -> V_86 ,
+( V_84 ) V_82 -> V_87 ,
+( V_84 ) V_82 -> V_80 ,
+V_63 . V_41 . V_88 ) ;
+V_26 = V_63 . V_41 . V_26 ;
+V_25 = V_63 . V_41 . V_25 ;
+V_19 [ V_60 ] . V_20 = V_4 * V_31 [ V_25 ] / 10 ;
+V_19 [ V_60 ] . V_32 = V_25 ;
+V_19 [ V_60 ] . V_32 |= ( V_26 << 8 ) ;
+V_24 = V_19 [ V_60 ] . V_20 ;
+V_83 = V_24 / 1000 ;
+if ( V_24 % 1000 > 0 )
+V_83 ++ ;
+if ( ( V_31 [ V_25 ] % 10 ) == 5 ) {
+if ( V_15 == 1 )
+F_9 ( V_60 ) ;
+}
+F_13 ( L_9
+L_10 , V_25 , V_31 [ V_25 ] / 10 ,
+V_31 [ V_25 ] % 10 , V_83 , V_26 ,
+V_35 [ V_26 ] / 1000 ,
+V_35 [ V_26 ] % 1000 ) ;
+if ( V_82 -> V_85 != V_83 ) {
+V_82 -> V_85 = V_83 ;
+F_13 ( L_12 ,
+V_83 ) ;
+}
+if ( V_44 < V_63 . V_41 . V_88 )
+V_44 = V_63 . V_41 . V_88 ;
+if ( V_24 < V_33 )
+V_33 = V_24 ;
+if ( V_24 > V_34 )
+V_34 = V_24 ;
+}
+V_19 [ V_60 ] . V_20 = V_36 ;
+V_19 [ V_60 ] . V_32 = 0 ;
+F_25 ( V_89 ) ;
+return 0 ;
+V_76:
+F_26 ( V_64 , 0 ) ;
+V_71:
+F_27 ( V_64 -> V_68 ) ;
+V_69:
+F_28 ( V_64 ) ;
+V_66:
+F_7 (KERN_WARNING PFX L_13
+L_14 ) ;
+V_64 = NULL ;
+return V_61 ;
+}
+static int F_22 ( void )
+{
+F_7 (KERN_INFO PFX L_15
+L_16 ) ;
+return - V_65 ;
+}
+static void F_29 ( struct V_90 * V_22 , unsigned int V_23 )
+{
+F_13 ( L_17 , V_23 , V_22 ) ;
+F_13 ( L_18 ,
+V_22 -> F_8 , V_22 -> V_1 , V_22 -> V_91 , V_22 -> V_92 ) ;
+}
+static int F_30 ( int V_91 , int V_92 )
+{
+struct V_93 * V_94 ;
+struct V_90 * V_22 ;
+unsigned int V_60 , V_23 ;
+unsigned char * V_95 ;
+unsigned int V_96 ;
+unsigned int V_97 ;
+V_96 = F_5 ( 0x80000001 ) ;
+for ( V_60 = 0xC0000 ; V_60 < 0xffff0 ; V_60 += 16 ) {
+V_95 = F_31 ( V_60 ) ;
+if ( memcmp ( V_95 , L_19 , 10 ) == 0 ) {
+F_13 ( L_20 , V_95 ) ;
+V_94 = (struct V_93 * ) V_95 ;
+F_13 ( L_21 , V_94 -> V_98 ) ;
+if ( V_94 -> V_98 != 0x12 ) {
+F_7 (KERN_INFO PFX L_22
+L_23 ) ;
+return - V_75 ;
+}
+F_13 ( L_24 , V_94 -> V_99 ) ;
+if ( ( V_94 -> V_99 & 1 ) == 0 )
+F_13 ( L_25 ) ;
+else
+F_13 ( L_26 ) ;
+V_44 = V_94 -> V_100 ;
+if ( V_44 < 100 ) {
+F_7 (KERN_INFO PFX L_27
+L_28
+L_29
+L_30 , latency) ;
+V_44 = 100 ;
+}
+F_13 ( L_31 ,
+V_94 -> V_100 ) ;
+F_13 ( L_32
+L_33 ,
+V_94 -> V_101 ) ;
+V_95 += sizeof( struct V_93 ) ;
+V_22 = (struct V_90 * ) V_95 ;
+for ( V_23 = 0 ; V_23 < V_94 -> V_101 ; V_23 ++ ) {
+V_22 = (struct V_90 * ) V_95 ;
+V_28 = V_22 -> V_102 ;
+if ( ( V_96 == V_22 -> F_8 ) &&
+F_1 ( V_22 -> V_1 ) &&
+( V_91 == V_22 -> V_91 ) &&
+( V_92 == V_22 -> V_92 ) ) {
+F_29 ( V_22 , V_23 ) ;
+V_95 = ( char * ) V_22 + sizeof( struct V_90 ) ;
+V_97 = F_10 ( V_95 ) ;
+return V_97 ;
+} else {
+unsigned int V_103 ;
+V_95 = ( char * ) V_22 + sizeof( struct V_90 ) ;
+for ( V_103 = 0 ; V_103 < V_28 ; V_103 ++ )
+V_95 += 2 ;
+}
+}
+F_7 (KERN_INFO PFX L_34
+L_35 , etuple) ;
+F_7 (KERN_INFO PFX L_36
+L_37 ) ;
+return - V_65 ;
+}
+V_95 ++ ;
+}
+return - V_75 ;
+}
+static int F_32 ( struct V_104 * V_105 ,
+unsigned int V_106 ,
+unsigned int V_107 )
+{
+unsigned int V_108 ;
+if ( F_33 ( V_105 , V_19 , V_106 ,
+V_107 , & V_108 ) )
+return - V_65 ;
+F_18 ( V_108 ) ;
+return 0 ;
+}
+static int F_34 ( struct V_104 * V_105 )
+{
+return F_35 ( V_105 , V_19 ) ;
+}
+static int T_2 F_36 ( void )
+{
+unsigned int V_88 ;
+unsigned int V_109 ;
+V_109 = V_4 / 3333 ;
+if ( ( V_109 % 10 ) >= 5 )
+V_109 += 5 ;
+V_109 /= 10 ;
+V_88 = 100 * V_109 * V_44 ;
+V_88 = V_88 / 3 ;
+if ( V_88 > 0xfffff ) {
+F_7 (KERN_WARNING PFX L_38 , sgtc) ;
+V_88 = 0xfffff ;
+}
+return V_88 ;
+}
+static unsigned int F_37 ( unsigned int V_53 )
+{
+union V_50 V_51 ;
+unsigned int V_52 ;
+if ( V_53 )
+return 0 ;
+F_15 ( V_54 , V_51 . V_40 ) ;
+V_52 = V_51 . V_41 . V_55 ;
+return V_4 * V_31 [ V_52 ] / 10 ;
+}
+static int T_2 F_38 ( const struct V_110 * V_111 )
+{
+F_7 (KERN_WARNING PFX
+L_39 ,
+d->ident) ;
+F_7 (KERN_WARNING PFX
+L_40
+L_41 ) ;
+F_7 (KERN_WARNING PFX
+L_42 ) ;
+return 0 ;
+}
+static int T_2 F_39 ( struct V_104 * V_105 )
+{
+union V_50 V_51 ;
+int V_112 ;
+if ( V_105 -> V_53 != 0 )
+return - V_75 ;
+F_15 ( V_54 , V_51 . V_40 ) ;
+F_40 () ;
+V_4 = ( 10 * V_113 ) / V_31 [ V_51 . V_41 . V_55 ] ;
+if ( ! V_4 ) {
+F_7 (KERN_WARNING PFX L_43 ) ;
+return - V_65 ;
+}
+F_13 ( L_44 , V_4 / 1000 ) ;
+if ( F_41 ( V_114 ) || V_115 ) {
+F_7 (KERN_INFO PFX L_45
+L_46 ) ;
+V_112 = F_22 () ;
+} else {
+V_112 = F_30 ( V_51 . V_41 . V_116 ,
+V_51 . V_41 . V_117 ) ;
+if ( V_112 ) {
+F_7 (KERN_INFO PFX L_47 ) ;
+V_34 = 0 ;
+V_33 = - 1 ;
+V_44 = 0 ;
+V_112 = F_22 () ;
+if ( V_112 ) {
+F_7 (KERN_INFO PFX
+L_48 ) ;
+}
+} else {
+V_44 = F_36 () ;
+F_7 (KERN_INFO PFX L_49 , latency) ;
+}
+}
+if ( V_112 )
+return V_112 ;
+F_7 (KERN_INFO PFX L_50 ,
+minimum_speed/1000 , maximum_speed/1000 ) ;
+V_105 -> V_118 . V_87 =
+F_42 ( 2000000UL , V_4 , V_44 ) ;
+V_105 -> V_119 = F_37 ( 0 ) ;
+F_43 ( V_19 , V_105 -> V_53 ) ;
+return F_44 ( V_105 , V_19 ) ;
+}
+static int F_45 ( struct V_104 * V_105 )
+{
+F_46 ( V_105 -> V_53 ) ;
+#ifdef F_12
+if ( V_64 ) {
+F_26 ( V_64 , 0 ) ;
+F_27 ( V_64 -> V_68 ) ;
+F_28 ( V_64 ) ;
+}
+#endif
+F_28 ( V_19 ) ;
+return 0 ;
+}
+static int T_3 F_47 ( void )
+{
+if ( F_2 () == 0 )
+return - V_75 ;
+return F_48 ( & V_120 ) ;
+}
+static void T_4 F_49 ( void )
+{
+F_50 ( & V_120 ) ;
+}

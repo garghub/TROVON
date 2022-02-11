@@ -1,0 +1,1 @@
+int T_1 F_1 ( void )\r\n{\r\nif ( ! F_2 () && ! F_3 () )\r\nreturn - V_1 ;\r\nV_2 [ 0 ] . V_3 = F_4 ( V_4 ) ;\r\nV_2 [ 0 ] . V_5 = V_2 [ 0 ] . V_3 ;\r\nV_2 [ 0 ] . V_5 += V_6 - 1 ;\r\nV_2 [ 1 ] . V_3 = F_5 ( V_7 ) ;\r\nreturn F_6 ( & V_8 ) ;\r\n}

@@ -1,0 +1,1 @@
+void F_1 ( void * V_1 , T_1 * V_2 )\r\n{\r\nswitch( V_2 -> type ) {\r\ncase V_3 :\r\nF_2 ( V_1 , V_2 ) ;\r\nbreak;\r\ncase V_4 :\r\nF_3 ( V_1 , V_2 ) ;\r\nbreak;\r\ncase V_5 :\r\nF_4 ( V_1 , V_2 ) ;\r\nbreak;\r\ndefault:\r\nF_5 ( V_1 , L_1 , V_2 -> type ) ;\r\nbreak;\r\n}\r\n}

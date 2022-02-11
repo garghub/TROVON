@@ -1,0 +1,1 @@
+void F_1 ( T_1 V_1 , void * V_2 )\r\n{\r\nif ( V_1 != V_3 )\r\nreturn;\r\nif ( NULL == V_2 )\r\nreturn;\r\nswitch ( * ( ( V_4 * ) V_2 ) ) {\r\ncase V_5 :\r\n{\r\nT_2 * V_6 =\r\n( T_2 * ) V_2 ;\r\nF_2 ( V_6 -> V_7 ) ;\r\nV_6 -> V_7 = NULL ;\r\nbreak;\r\n}\r\ndefault:\r\nbreak;\r\n}\r\n}

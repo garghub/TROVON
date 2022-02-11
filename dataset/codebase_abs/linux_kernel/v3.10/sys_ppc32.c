@@ -1,0 +1,56 @@
+T_1 long F_1 ( T_2 V_1 , T_3 T_4 * V_2 ,
+T_3 T_4 * V_3 , T_3 T_4 * exp ,
+T_5 V_4 )
+{
+return F_2 ( ( int ) V_1 , V_2 , V_3 , exp , F_3 ( V_4 ) ) ;
+}
+unsigned long F_4 ( unsigned long V_5 , T_6 V_6 ,
+unsigned long V_7 , unsigned long V_8 ,
+unsigned long V_9 , unsigned long V_10 )
+{
+return F_5 ( V_5 , V_6 , V_7 , V_8 , V_9 , V_10 << 12 ) ;
+}
+T_7 F_6 ( unsigned int V_9 , char T_4 * V_11 , T_8 V_12 ,
+T_2 V_13 , T_2 V_14 , T_2 V_15 )
+{
+return F_7 ( V_9 , V_11 , V_12 , ( ( V_16 ) V_14 << 32 ) | V_15 ) ;
+}
+T_7 F_8 ( unsigned int V_9 , const char T_4 * V_11 , T_8 V_12 ,
+T_2 V_13 , T_2 V_14 , T_2 V_15 )
+{
+return F_9 ( V_9 , V_11 , V_12 , ( ( V_16 ) V_14 << 32 ) | V_15 ) ;
+}
+T_7 F_10 ( int V_9 , T_2 V_17 , T_2 V_18 , T_2 V_19 , T_2 V_12 )
+{
+return F_11 ( V_9 , ( ( V_16 ) V_18 << 32 ) | V_19 , V_12 ) ;
+}
+T_1 int F_12 ( const char T_4 * V_20 , T_2 V_21 ,
+unsigned long V_22 , unsigned long V_23 )
+{
+return F_13 ( V_20 , ( V_22 << 32 ) | V_23 ) ;
+}
+T_1 long F_14 ( int V_9 , int V_24 , T_2 V_18 , T_2 V_19 ,
+T_2 V_25 , T_2 V_26 )
+{
+return F_15 ( V_9 , V_24 , ( ( V_16 ) V_18 << 32 ) | V_19 ,
+( ( V_16 ) V_25 << 32 ) | V_26 ) ;
+}
+T_1 int F_16 ( unsigned int V_9 , T_2 V_21 , unsigned long V_22 ,
+unsigned long V_23 )
+{
+return F_17 ( V_9 , ( V_22 << 32 ) | V_23 ) ;
+}
+long F_18 ( int V_9 , T_2 V_27 , T_2 V_28 , T_2 V_29 ,
+T_6 V_6 , int V_30 )
+{
+return F_19 ( V_9 , ( V_31 ) V_28 << 32 | V_29 , V_6 ,
+V_30 ) ;
+}
+T_1 long F_20 ( int V_9 , unsigned int V_8 ,
+unsigned V_32 , unsigned V_33 ,
+unsigned V_34 , unsigned V_35 )
+{
+V_16 V_36 = ( ( V_16 ) V_32 << 32 ) | V_33 ;
+V_16 V_37 = ( ( V_16 ) V_34 << 32 ) | V_35 ;
+return F_21 ( V_9 , V_36 , V_37 , V_8 ) ;
+}

@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\nF_2 ( F_3 ( V_1 ) ) ;\r\nF_4 ( 1 ) ;\r\nF_5 ( 0 , NULL , F_3 ( V_2 ) ) ;\r\nF_6 ( F_3 ( V_3 ) ) ;\r\n#ifdef F_7\r\nV_4 . V_5 . V_6 = & V_7 ;\r\nF_8 ( & V_4 ) ;\r\n#endif\r\n#ifdef F_9\r\nV_8 . V_5 . V_6 = & V_7 ;\r\nF_8 ( & V_8 ) ;\r\n#endif\r\n#ifdef F_10\r\nV_9 . V_5 . V_6 = & V_7 ;\r\nF_8 ( & V_9 ) ;\r\n#endif\r\n}

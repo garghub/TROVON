@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\nF_2 ( V_1 ) ;\r\nF_3 () ;\r\nF_4 ( & V_2 ) ;\r\nF_5 ( V_3 ,\r\nV_4 ) ;\r\nF_6 ( & V_5 ) ;\r\nF_7 ( L_1\r\nL_2 ) ;\r\nif ( F_8 ( V_6 , L_3 ) == 0 ) {\r\nif ( F_9 ( V_6 ) == 0 )\r\nV_7 . V_8 = F_10 ( V_6 ) ;\r\nelse\r\nF_11 ( V_6 ) ;\r\n}\r\nif ( V_7 . V_8 == 0 )\r\nF_12 ( L_4 ) ;\r\nF_13 ( 0 , & V_7 , 1 ) ;\r\n}

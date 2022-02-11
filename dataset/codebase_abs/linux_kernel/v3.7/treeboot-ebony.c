@@ -1,0 +1,1 @@
+void F_1 ( void )\r\n{\r\nunsigned long V_1 = 0x8000000 ;\r\nunsigned long V_2 = V_1 - ( unsigned long ) V_3 ;\r\nF_2 ( V_3 , V_2 , 32 , 64 ) ;\r\nF_3 ( ( V_4 * ) V_5 ,\r\n( V_4 * ) ( V_5 + V_6 ) ) ;\r\n}

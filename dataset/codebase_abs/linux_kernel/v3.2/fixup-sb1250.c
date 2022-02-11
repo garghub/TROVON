@@ -1,0 +1,1 @@
+static void T_1 F_1 ( struct V_1 * V_2 )\r\n{\r\nF_2 ( V_2 , 0x40 , 0xff ) ;\r\n}\r\nstatic void T_1 F_3 ( struct V_1 * V_2 )\r\n{\r\nV_2 -> V_3 = V_4 << 8 ;\r\n}\r\nstatic void T_1 F_4 ( struct V_1 * V_2 )\r\n{\r\nF_2 ( V_2 , 0x64 , 0xff ) ;\r\n}

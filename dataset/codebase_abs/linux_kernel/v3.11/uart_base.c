@@ -1,0 +1,1 @@
+void F_1 ( void )\r\n{\r\nswitch ( V_1 ) {\r\ncase V_2 :\r\nV_3 = V_4 + 0x3f8 ;\r\nbreak;\r\ncase V_5 :\r\ncase V_6 :\r\nV_3 = V_4 + 0x2f8 ;\r\nbreak;\r\ncase V_7 :\r\ncase V_8 :\r\ncase V_9 :\r\ncase V_10 :\r\ndefault:\r\nV_3 = V_11 + 0x3f8 ;\r\nbreak;\r\n}\r\nV_12 =\r\n( unsigned long ) F_2 ( V_3 , 8 ) ;\r\n}

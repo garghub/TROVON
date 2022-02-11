@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\nF_2 () ;\r\n}\r\nunsigned long T_1 F_3 ( void )\r\n{\r\nunsigned long V_1 = 0 ;\r\nint V_2 ;\r\nF_4 (i)\r\nV_1 += F_5 ( F_6 ( V_2 ) ) ;\r\nV_1 += F_7 ( V_3 ) ;\r\nreturn V_1 ;\r\n}

@@ -1,0 +1,1 @@
+static void F_1 ( struct V_1 * V_2 )\r\n{\r\nF_2 ( V_3 , F_3 ( V_2 -> V_4 ) ) ;\r\n}\r\nstatic void F_4 ( struct V_1 * V_2 )\r\n{\r\nF_2 ( V_5 | V_6 , F_3 ( V_2 -> V_4 ) ) ;\r\n}\r\nvoid T_1 F_5 ( void )\r\n{\r\nint V_4 ;\r\nfor ( V_4 = 0 ; V_4 < 64 ; V_4 ++ ) {\r\nF_1 ( F_6 ( V_4 ) ) ;\r\nF_7 ( V_4 , & V_7 , V_8 ) ;\r\nF_8 ( V_4 , V_9 ) ;\r\n}\r\n}

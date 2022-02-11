@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\nint V_1 , V_2 ;\r\nV_1 = F_2 ( V_3 ) ;\r\nF_3 ( V_4 , V_5 ) ;\r\nV_2 = F_2 ( V_6 ) & 0x7f ;\r\nV_2 |= 2 ;\r\nF_3 ( V_2 , V_6 ) ;\r\nif ( ( F_2 ( V_5 ) & 0x7f ) == V_4 &&\r\nF_2 ( V_6 ) == V_2 ) {\r\nif ( ( V_1 & 0x80 ) == 0 )\r\nF_4 ( V_7 L_1 ) ;\r\n}\r\n}

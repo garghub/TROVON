@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\nstruct V_1 * V_2 ;\r\nint V_3 ;\r\n#ifdef F_2\r\nV_4 . V_5 = V_6 ;\r\nV_7 . V_5 = V_8 ;\r\nV_9 . V_5 = V_10 ;\r\n#endif\r\nfor ( V_3 = 0 ; V_2 = V_11 [ V_3 ] , V_2 ; V_3 ++ )\r\nV_2 -> V_12 . V_13 = V_14 ;\r\nF_3 ( V_11 ) ;\r\n}

@@ -1,0 +1,1 @@
+int F_1 ( struct V_1 * V_2 , int type , int V_3 , void * V_4 )\r\n{\r\nstruct V_5 * V_6 ;\r\nif ( V_2 -> V_7 == NULL ) {\r\nV_6 = F_2 ( sizeof( struct V_5 ) , V_8 ) ;\r\nif ( V_6 == NULL )\r\nreturn - V_9 ;\r\nV_2 -> V_7 = V_6 ;\r\n}\r\nV_6 = V_2 -> V_7 ;\r\nreturn 0 ;\r\n}

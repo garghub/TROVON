@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\n#ifdef F_2\r\nstruct V_1 * V_2 ;\r\n#endif\r\nF_3 ( V_3 L_1 ) ;\r\nF_4 () ;\r\n#ifdef F_2\r\nF_5 (np, L_2 , L_3 )\r\nF_6 ( V_2 ) ;\r\n#endif\r\nF_7 () ;\r\n}\r\nstatic void T_1 F_8 ( void )\r\n{\r\nF_9 () ;\r\nF_10 () ;\r\n}\r\nstatic int T_1 F_11 ( void )\r\n{\r\nunsigned long V_4 = F_12 () ;\r\nreturn F_13 ( V_4 , L_4 ) ;\r\n}

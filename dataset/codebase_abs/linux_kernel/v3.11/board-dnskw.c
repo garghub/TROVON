@@ -1,0 +1,1 @@
+static void T_1 F_1 ( unsigned V_1 , char * V_2 , int V_3 )\r\n{\r\nif ( F_2 ( V_1 , V_2 ) == 0 &&\r\nF_3 ( V_1 , 0 ) == 0 ) {\r\nF_4 ( V_1 , V_3 ) ;\r\nif ( F_5 ( V_1 , 0 ) != 0 )\r\nF_6 ( L_1 , V_2 ) ;\r\n} else\r\nF_6 ( L_2 , V_2 ) ;\r\n}\r\nvoid T_1 F_7 ( void )\r\n{\r\nF_8 ( & V_4 ) ;\r\nF_1 ( 37 , L_3 , 1 ) ;\r\n}

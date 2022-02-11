@@ -1,0 +1,31 @@
+struct V_1 * F_1 ( T_1 V_2 , struct V_3 * V_3 )
+{
+struct V_4 * V_5 = F_2 ( sizeof( struct V_4 ) , V_6 ) ;
+if ( ! V_5 ) {
+F_3 ( L_1 ) ;
+return NULL ;
+}
+F_4 ( F_5 ( struct V_4 , V_7 ) == 0 ) ;
+memset ( V_5 , 0 , sizeof( struct V_4 ) ) ;
+F_6 ( V_5 , V_2 , V_3 , false ) ;
+V_5 -> V_7 . V_8 = V_9 ;
+V_5 -> V_7 . V_10 = V_11 ;
+snprintf ( V_5 -> V_7 . V_12 , V_13 - 1 , L_2 , V_2 ) ;
+return & V_5 -> V_7 ;
+}
+static int V_9 ( struct V_1 * V_14 , struct V_15 * V_16 )
+{
+return V_14 -> V_17 -> V_8 ( V_14 -> V_17 , V_16 ) ;
+}
+static int V_11 ( struct V_1 * V_14 , struct V_15 * V_16 )
+{
+struct V_4 * V_18 = F_7 ( V_14 ) ;
+struct V_19 * V_20 ;
+int V_21 ;
+if ( ! F_8 ( V_18 , & V_21 ) )
+return V_21 ;
+V_20 = F_9 ( V_16 ) ;
+V_20 -> V_2 = V_18 -> V_7 . V_22 ;
+V_20 -> V_3 = & V_18 -> V_3 ;
+return V_14 -> V_23 -> V_10 ( V_14 -> V_23 , V_16 ) ;
+}

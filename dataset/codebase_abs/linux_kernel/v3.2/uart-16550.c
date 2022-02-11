@@ -1,0 +1,1 @@
+static inline unsigned int F_1 ( int V_1 )\r\n{\r\nreturn * ( ( char * ) F_2 ( V_1 ) ) ;\r\n}\r\nstatic inline void F_3 ( int V_1 , int V_2 )\r\n{\r\n* ( ( char * ) F_2 ( V_1 ) ) = V_2 ;\r\n}\r\nvoid putc ( char V_3 )\r\n{\r\nint V_4 = 1024 ;\r\nwhile ( ( ( F_1 ( V_5 ) & V_6 ) == 0 ) && ( V_4 -- > 0 ) )\r\n;\r\nF_3 ( V_7 , V_3 ) ;\r\n}

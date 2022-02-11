@@ -1,0 +1,1 @@
+int F_1 ( void )\r\n{\r\nV_1 = F_2 ( V_2 , 1 ) ;\r\nif ( V_1 < 0 )\r\nreturn 1 ;\r\nV_3 = F_3 ( V_2 ) ;\r\nreturn 0 ;\r\n}\r\nvoid F_4 ( void )\r\n{\r\nif ( V_1 >= 0 ) {\r\nF_2 ( V_1 , 0 ) ;\r\nF_3 ( V_3 ) ;\r\n}\r\n}

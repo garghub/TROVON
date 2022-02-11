@@ -1,0 +1,1 @@
+int F_1 ( struct V_1 * V_2 )\r\n{\r\nint V_3 ;\r\nV_3 = F_2 ( & V_4 , V_2 ) ;\r\nreturn V_3 ;\r\n}\r\nint F_3 ( struct V_1 * V_2 )\r\n{\r\nreturn F_4 ( & V_4 , V_2 ) ;\r\n}\r\nint F_5 ( unsigned long V_5 , void * V_6 )\r\n{\r\nreturn F_6 ( & V_4 , V_5 , V_6 ) ;\r\n}

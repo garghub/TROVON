@@ -1,0 +1,1 @@
+static int F_1 ( void * V_1 , char * V_2 )\r\n{\r\nreturn 0 ;\r\n}\r\nstatic void F_2 ( void * V_1 , unsigned long V_3 , int V_4 )\r\n{\r\nstruct V_5 * V_6 = V_1 ;\r\nif ( V_4 )\r\nF_3 ( V_6 , V_3 ) ;\r\n}\r\nvoid\r\nF_4 ( struct V_5 * V_6 , struct V_7 * V_8 )\r\n{\r\nF_3 ( V_6 , V_8 -> V_9 ) ;\r\nF_5 ( NULL , V_8 , NULL , & V_10 , V_6 ) ;\r\n}

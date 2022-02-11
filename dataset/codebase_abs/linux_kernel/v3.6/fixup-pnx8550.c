@@ -1,0 +1,1 @@
+void T_1 F_1 ( struct V_1 * V_2 )\r\n{\r\n}\r\nvoid T_1 F_2 ( void )\r\n{\r\n}\r\nint T_1 F_3 ( const struct V_1 * V_2 , T_2 V_3 , T_2 V_4 )\r\n{\r\nreturn V_5 [ V_3 ] [ V_4 ] ;\r\n}\r\nint F_4 ( struct V_1 * V_2 )\r\n{\r\nreturn 0 ;\r\n}

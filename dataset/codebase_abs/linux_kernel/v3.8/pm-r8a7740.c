@@ -1,0 +1,1 @@
+static int F_1 ( void )\r\n{\r\nreturn - V_1 ;\r\n}\r\nstatic int F_2 ( void )\r\n{\r\nreturn V_2 ? 0 : - V_1 ;\r\n}\r\nvoid T_1 F_3 ( void )\r\n{\r\nF_4 ( V_3 , F_5 ( V_3 ) ) ;\r\nF_6 ( L_1 , L_2 ) ;\r\n}

@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\nif ( F_2 () ) {\r\nF_3 ( V_1 , V_2 ) ;\r\n} else if ( F_4 () ) {\r\nF_3 ( V_1 , V_3 ) ;\r\nF_5 ( V_4 , V_5 ) ;\r\nF_6 ( & V_6 ) ;\r\n}\r\nF_7 ( V_7 , F_8 ( V_7 ) ,\r\nV_8 , V_9 ) ;\r\nF_9 () ;\r\nF_10 () ;\r\nif ( F_2 () )\r\nF_11 ( V_10 ,\r\nV_10 ) ;\r\nelse if ( F_4 () )\r\nF_11 ( V_11 ,\r\nV_11 ) ;\r\nF_12 () ;\r\n}

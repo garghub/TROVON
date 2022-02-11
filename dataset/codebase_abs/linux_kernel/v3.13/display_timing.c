@@ -1,0 +1,1 @@
+void F_1 ( struct V_1 * V_2 )\r\n{\r\nif ( V_2 -> V_3 ) {\r\nunsigned int V_4 ;\r\nfor ( V_4 = 0 ; V_4 < V_2 -> V_5 ; V_4 ++ )\r\nF_2 ( V_2 -> V_3 [ V_4 ] ) ;\r\nF_2 ( V_2 -> V_3 ) ;\r\n}\r\nF_2 ( V_2 ) ;\r\n}

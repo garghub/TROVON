@@ -1,0 +1,73 @@
+static int
+F_1 ( struct V_1 * V_2 )
+{
+struct V_3 * V_4 = V_2 -> V_5 -> V_4 ;
+struct V_6 * V_7 = V_2 -> V_5 -> V_8 ;
+struct V_9 * V_10 ;
+struct V_11 * V_12 = & V_7 -> V_13 -> V_13 . V_12 ;
+struct V_14 * V_15 ;
+int V_16 , V_17 ;
+V_10 = V_2 -> V_8 = F_2 ( sizeof( * V_10 ) , V_18 ) ;
+if ( ! V_10 )
+return - V_19 ;
+F_3 ( & V_10 -> V_20 ) ;
+V_10 -> V_20 . V_21 = V_22 ;
+V_10 -> V_20 . V_23 = V_24 ;
+V_10 -> V_20 . V_25 = V_26 ;
+V_16 = F_4 (nv_object(chan->cli), chan->handle,
+NvSema, 0x0002 ,
+&(struct nv_dma_class) {
+.flags = NV_DMA_TARGET_VRAM |
+NV_DMA_ACCESS_RDWR,
+.start = mem->start * PAGE_SIZE,
+.limit = mem->size - 1 ,
+}, sizeof(struct nv_dma_class),
+&object) ;
+for ( V_17 = 0 ; ! V_16 && V_17 < V_4 -> V_27 . V_28 ; V_17 ++ ) {
+struct V_29 * V_13 = F_5 ( V_4 , V_17 ) ;
+V_16 = F_4 (nv_object(chan->cli), chan->handle,
+NvEvoSema0 + i, 0x003d ,
+&(struct nv_dma_class) {
+.flags = NV_DMA_TARGET_VRAM |
+NV_DMA_ACCESS_RDWR,
+.start = bo->bo.offset,
+.limit = bo->bo.offset + 0xfff ,
+}, sizeof(struct nv_dma_class),
+&object) ;
+}
+if ( V_16 )
+F_6 ( V_2 ) ;
+return V_16 ;
+}
+int
+F_7 ( struct V_30 * V_5 )
+{
+struct V_6 * V_7 ;
+int V_16 = 0 ;
+V_7 = V_5 -> V_8 = F_2 ( sizeof( * V_7 ) , V_18 ) ;
+if ( ! V_7 )
+return - V_19 ;
+V_7 -> V_20 . V_31 = V_32 ;
+V_7 -> V_20 . V_33 = V_34 ;
+V_7 -> V_20 . V_35 = F_1 ;
+V_7 -> V_20 . V_36 = F_6 ;
+F_8 ( & V_7 -> V_37 ) ;
+V_16 = F_9 ( V_5 -> V_4 , 4096 , 0x1000 , V_38 ,
+0 , 0x0000 , NULL , & V_7 -> V_13 ) ;
+if ( ! V_16 ) {
+V_16 = F_10 ( V_7 -> V_13 , V_38 ) ;
+if ( ! V_16 ) {
+V_16 = F_11 ( V_7 -> V_13 ) ;
+if ( V_16 )
+F_12 ( V_7 -> V_13 ) ;
+}
+if ( V_16 )
+F_13 ( NULL , & V_7 -> V_13 ) ;
+}
+if ( V_16 ) {
+V_32 ( V_5 ) ;
+return V_16 ;
+}
+F_14 ( V_7 -> V_13 , 0x000 , 0x00000000 ) ;
+return V_16 ;
+}

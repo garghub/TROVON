@@ -1,0 +1,1 @@
+void F_1 ( struct V_1 * V_1 )\r\n{\r\nV_2 |= 1 << V_1 -> V_3 ;\r\n}\r\nvoid F_2 ( struct V_1 * V_1 )\r\n{\r\nV_2 &= ~ ( 1 << V_1 -> V_3 ) ;\r\n}\r\nstatic int F_3 ( void )\r\n{\r\nV_4 = V_2 ;\r\nreturn 0 ;\r\n}\r\nstatic void F_4 ( void )\r\n{\r\nV_2 = V_4 ;\r\n}

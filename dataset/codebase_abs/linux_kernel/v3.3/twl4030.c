@@ -1,0 +1,933 @@
+static inline unsigned int F_1 ( struct V_1 * V_2 ,
+unsigned int V_3 )
+{
+T_1 * V_4 = V_2 -> V_5 ;
+if ( V_3 >= V_6 )
+return - V_7 ;
+return V_4 [ V_3 ] ;
+}
+static inline void F_2 ( struct V_1 * V_2 ,
+T_1 V_3 , T_1 V_8 )
+{
+T_1 * V_4 = V_2 -> V_5 ;
+if ( V_3 >= V_6 )
+return;
+V_4 [ V_3 ] = V_8 ;
+}
+static int F_3 ( struct V_1 * V_2 ,
+unsigned int V_3 , unsigned int V_8 )
+{
+struct V_9 * V_10 = F_4 ( V_2 ) ;
+int V_11 = 0 ;
+F_2 ( V_2 , V_3 , V_8 ) ;
+if ( F_5 ( V_3 < V_12 ) ) {
+switch ( V_3 ) {
+case V_13 :
+if ( V_10 -> V_14 )
+V_11 = 1 ;
+break;
+case V_15 :
+if ( V_10 -> V_16 )
+V_11 = 1 ;
+break;
+case V_17 :
+if ( V_10 -> V_18 )
+V_11 = 1 ;
+break;
+case V_19 :
+if ( V_10 -> V_20 )
+V_11 = 1 ;
+break;
+case V_21 :
+if ( V_10 -> V_22 )
+V_11 = 1 ;
+break;
+case V_23 :
+if ( V_10 -> V_24 || V_10 -> V_25 )
+V_11 = 1 ;
+break;
+default:
+V_11 = 1 ;
+break;
+}
+if ( V_11 )
+return F_6 ( V_26 ,
+V_8 , V_3 ) ;
+}
+return 0 ;
+}
+static inline void F_7 ( int time )
+{
+if ( time < 60 ) {
+time *= 1000 ;
+F_8 ( time , time + 500 ) ;
+} else {
+F_9 ( time ) ;
+}
+}
+static void F_10 ( struct V_1 * V_2 , int V_27 )
+{
+struct V_9 * V_10 = F_4 ( V_2 ) ;
+int V_28 ;
+if ( V_27 == V_10 -> V_29 )
+return;
+if ( V_27 )
+V_28 = F_11 ( V_30 ) ;
+else
+V_28 = F_12 ( V_30 ) ;
+if ( V_28 >= 0 ) {
+F_2 ( V_2 , V_31 , V_28 ) ;
+V_10 -> V_29 = V_27 ;
+}
+F_13 ( 10 ) ;
+}
+static inline void F_14 ( struct V_1 * V_2 )
+{
+int V_32 , V_33 = 0 ;
+T_1 V_34 ;
+F_15 ( V_2 -> V_35 , L_1 ) ;
+for ( V_32 = 1 ; V_32 <= V_36 ; V_32 ++ ) {
+F_16 ( V_26 , & V_34 , V_32 ) ;
+if ( V_34 != V_37 [ V_32 ] ) {
+V_33 ++ ;
+F_15 ( V_2 -> V_35 ,
+L_2 ,
+V_32 , V_34 , V_37 [ V_32 ] ) ;
+}
+}
+F_15 ( V_2 -> V_35 , L_3 ,
+V_33 , V_33 ? L_4 : L_5 ) ;
+}
+static inline void F_17 ( struct V_1 * V_2 )
+{
+int V_32 ;
+for ( V_32 = V_38 ; V_32 <= V_36 ; V_32 ++ )
+if ( V_32 != V_39 )
+F_3 ( V_2 , V_32 , V_37 [ V_32 ] ) ;
+}
+static void F_18 ( struct V_1 * V_2 )
+{
+struct V_40 * V_41 = F_19 ( V_2 -> V_35 ) ;
+struct V_9 * V_10 = F_4 ( V_2 ) ;
+T_1 V_3 , V_42 ;
+int V_32 = 0 ;
+if ( V_41 && V_41 -> V_43 )
+F_14 ( V_2 ) ;
+if ( ! V_41 || ( V_41 && V_41 -> V_44 ) )
+F_17 ( V_2 ) ;
+F_16 ( V_26 , & V_42 ,
+V_39 ) ;
+F_2 ( V_2 , V_39 , V_42 ) ;
+V_3 = F_1 ( V_2 , V_45 ) ;
+F_3 ( V_2 , V_45 ,
+V_3 | V_46 ) ;
+F_3 ( V_2 , V_38 ,
+V_47 | V_48 |
+V_49 | V_50 ) ;
+F_3 ( V_2 , V_51 , 0x32 ) ;
+if ( ! V_41 )
+return;
+V_10 -> V_52 = V_41 -> V_52 ;
+V_3 = F_1 ( V_2 , V_53 ) ;
+V_3 &= ~ V_54 ;
+V_3 |= ( V_41 -> V_55 << 2 ) ;
+F_2 ( V_2 , V_53 , V_3 ) ;
+F_10 ( V_2 , 1 ) ;
+V_3 = F_1 ( V_2 , V_56 ) ;
+V_3 &= ~ V_57 ;
+V_3 |= V_41 -> V_58 ;
+F_3 ( V_2 , V_56 ,
+V_3 | V_59 ) ;
+F_9 ( 20 ) ;
+do {
+F_8 ( 1000 , 2000 ) ;
+F_16 ( V_26 , & V_42 ,
+V_56 ) ;
+} while ( ( V_32 ++ < 100 ) &&
+( ( V_42 & V_59 ) ==
+V_59 ) );
+F_2 ( V_2 , V_56 , V_42 ) ;
+F_10 ( V_2 , 0 ) ;
+}
+static void F_20 ( struct V_1 * V_2 , int V_27 )
+{
+struct V_9 * V_10 = F_4 ( V_2 ) ;
+int V_60 = - 1 ;
+if ( V_27 ) {
+V_10 -> V_61 ++ ;
+if ( V_10 -> V_61 == 1 )
+V_60 = F_11 (
+V_62 ) ;
+} else {
+V_10 -> V_61 -- ;
+if ( ! V_10 -> V_61 )
+V_60 = F_12 (
+V_62 ) ;
+}
+if ( V_60 >= 0 )
+F_2 ( V_2 , V_39 , V_60 ) ;
+}
+static void F_21 ( struct V_1 * V_2 , int V_3 , int V_63 )
+{
+unsigned char V_64 ;
+V_64 = F_1 ( V_2 , V_3 ) ;
+if ( V_63 ) {
+V_64 |= V_65 ;
+F_3 ( V_2 , V_3 , V_64 ) ;
+F_13 ( 10 ) ;
+V_64 |= V_66 ;
+F_3 ( V_2 , V_3 , V_64 ) ;
+F_13 ( 40 ) ;
+V_64 |= V_67 ;
+V_64 |= V_68 ;
+F_3 ( V_2 , V_3 , V_64 ) ;
+} else {
+V_64 &= ~ V_67 ;
+V_64 &= ~ V_68 ;
+F_3 ( V_2 , V_3 , V_64 ) ;
+V_64 &= ~ V_66 ;
+F_3 ( V_2 , V_3 , V_64 ) ;
+F_13 ( 40 ) ;
+V_64 &= ~ V_65 ;
+F_3 ( V_2 , V_3 , V_64 ) ;
+}
+}
+static int F_22 ( struct V_69 * V_70 ,
+struct V_71 * V_72 , int V_73 )
+{
+switch ( V_73 ) {
+case V_74 :
+F_21 ( V_70 -> V_2 , V_75 , 1 ) ;
+break;
+case V_76 :
+F_21 ( V_70 -> V_2 , V_75 , 0 ) ;
+break;
+}
+return 0 ;
+}
+static int F_23 ( struct V_69 * V_70 ,
+struct V_71 * V_72 , int V_73 )
+{
+switch ( V_73 ) {
+case V_74 :
+F_21 ( V_70 -> V_2 , V_77 , 1 ) ;
+break;
+case V_76 :
+F_21 ( V_70 -> V_2 , V_77 , 0 ) ;
+break;
+}
+return 0 ;
+}
+static int F_24 ( struct V_69 * V_70 ,
+struct V_71 * V_72 , int V_73 )
+{
+F_3 ( V_70 -> V_2 , V_78 , 0xff ) ;
+return 0 ;
+}
+static int F_25 ( struct V_69 * V_70 ,
+struct V_71 * V_72 , int V_73 )
+{
+switch ( V_73 ) {
+case V_79 :
+F_20 ( V_70 -> V_2 , 1 ) ;
+break;
+case V_76 :
+F_20 ( V_70 -> V_2 , 0 ) ;
+break;
+}
+return 0 ;
+}
+static int F_26 ( struct V_69 * V_70 ,
+struct V_71 * V_72 , int V_73 )
+{
+T_1 V_80 ;
+V_80 = F_1 ( V_70 -> V_2 , V_81 ) ;
+switch ( V_73 ) {
+case V_79 :
+F_20 ( V_70 -> V_2 , 1 ) ;
+F_3 ( V_70 -> V_2 , V_81 ,
+V_80 | V_82 ) ;
+break;
+case V_76 :
+F_3 ( V_70 -> V_2 , V_81 ,
+V_80 & ~ V_82 ) ;
+F_20 ( V_70 -> V_2 , 0 ) ;
+break;
+}
+return 0 ;
+}
+static void F_27 ( struct V_1 * V_2 , int V_63 )
+{
+struct V_40 * V_41 = V_2 -> V_35 -> V_83 ;
+unsigned char V_84 , V_85 ;
+struct V_9 * V_10 = F_4 ( V_2 ) ;
+unsigned int V_86 [] = { 524288 , 1048576 , 2097152 , 4194304 ,
+8388608 , 16777216 , 33554432 , 67108864 } ;
+unsigned int V_87 ;
+V_84 = F_1 ( V_2 , V_23 ) ;
+V_85 = F_1 ( V_2 , V_53 ) ;
+V_87 = ( V_86 [ ( V_85 & V_54 ) >> 2 ] /
+V_10 -> V_88 ) + 1 ;
+if ( V_41 && V_41 -> V_89 ) {
+if ( V_41 -> V_90 ) {
+V_41 -> V_90 ( 1 ) ;
+} else {
+V_85 |= V_91 ;
+F_3 ( V_2 , V_53 , V_85 ) ;
+}
+}
+if ( V_63 ) {
+V_85 |= V_92 ;
+F_3 ( V_2 , V_53 , V_85 ) ;
+F_6 ( V_26 ,
+V_84 ,
+V_23 ) ;
+V_85 |= V_93 ;
+F_3 ( V_2 , V_53 , V_85 ) ;
+F_7 ( V_87 ) ;
+} else {
+V_85 &= ~ V_93 ;
+F_3 ( V_2 , V_53 , V_85 ) ;
+F_7 ( V_87 ) ;
+F_6 ( V_26 ,
+V_84 & ( ~ 0x0f ) ,
+V_23 ) ;
+V_85 &= ~ V_92 ;
+F_3 ( V_2 , V_53 , V_85 ) ;
+}
+if ( V_41 && V_41 -> V_89 ) {
+if ( V_41 -> V_90 ) {
+V_41 -> V_90 ( 0 ) ;
+} else {
+V_85 &= ~ V_91 ;
+F_3 ( V_2 , V_53 , V_85 ) ;
+}
+}
+}
+static int F_28 ( struct V_69 * V_70 ,
+struct V_71 * V_72 , int V_73 )
+{
+struct V_9 * V_10 = F_4 ( V_70 -> V_2 ) ;
+switch ( V_73 ) {
+case V_74 :
+if ( ! V_10 -> V_25 )
+F_27 ( V_70 -> V_2 , 1 ) ;
+V_10 -> V_24 = 1 ;
+break;
+case V_76 :
+if ( ! V_10 -> V_25 )
+F_27 ( V_70 -> V_2 , 0 ) ;
+V_10 -> V_24 = 0 ;
+break;
+}
+return 0 ;
+}
+static int F_29 ( struct V_69 * V_70 ,
+struct V_71 * V_72 , int V_73 )
+{
+struct V_9 * V_10 = F_4 ( V_70 -> V_2 ) ;
+switch ( V_73 ) {
+case V_74 :
+if ( ! V_10 -> V_24 )
+F_27 ( V_70 -> V_2 , 1 ) ;
+V_10 -> V_25 = 1 ;
+break;
+case V_76 :
+if ( ! V_10 -> V_24 )
+F_27 ( V_70 -> V_2 , 0 ) ;
+V_10 -> V_25 = 0 ;
+break;
+}
+return 0 ;
+}
+static int F_30 ( struct V_69 * V_70 ,
+struct V_71 * V_72 , int V_73 )
+{
+struct V_9 * V_10 = F_4 ( V_70 -> V_2 ) ;
+if ( V_10 -> V_52 )
+F_7 ( V_10 -> V_52 ) ;
+return 0 ;
+}
+static int F_31 ( struct V_71 * V_72 ,
+struct V_94 * V_95 )
+{
+struct V_96 * V_97 =
+(struct V_96 * ) V_72 -> V_98 ;
+struct V_1 * V_2 = F_32 ( V_72 ) ;
+unsigned int V_3 = V_97 -> V_3 ;
+unsigned int V_99 = V_97 -> V_99 ;
+unsigned int V_100 = V_97 -> V_100 ;
+int V_101 = V_97 -> V_101 ;
+int V_102 = ( 1 << F_33 ( V_101 ) ) - 1 ;
+V_95 -> V_8 . integer . V_8 [ 0 ] =
+( F_34 ( V_2 , V_3 ) >> V_99 ) & V_102 ;
+if ( V_95 -> V_8 . integer . V_8 [ 0 ] )
+V_95 -> V_8 . integer . V_8 [ 0 ] =
+V_101 + 1 - V_95 -> V_8 . integer . V_8 [ 0 ] ;
+if ( V_99 != V_100 ) {
+V_95 -> V_8 . integer . V_8 [ 1 ] =
+( F_34 ( V_2 , V_3 ) >> V_100 ) & V_102 ;
+if ( V_95 -> V_8 . integer . V_8 [ 1 ] )
+V_95 -> V_8 . integer . V_8 [ 1 ] =
+V_101 + 1 - V_95 -> V_8 . integer . V_8 [ 1 ] ;
+}
+return 0 ;
+}
+static int F_35 ( struct V_71 * V_72 ,
+struct V_94 * V_95 )
+{
+struct V_96 * V_97 =
+(struct V_96 * ) V_72 -> V_98 ;
+struct V_1 * V_2 = F_32 ( V_72 ) ;
+unsigned int V_3 = V_97 -> V_3 ;
+unsigned int V_99 = V_97 -> V_99 ;
+unsigned int V_100 = V_97 -> V_100 ;
+int V_101 = V_97 -> V_101 ;
+int V_102 = ( 1 << F_33 ( V_101 ) ) - 1 ;
+unsigned short V_34 , V_103 , V_104 ;
+V_34 = ( V_95 -> V_8 . integer . V_8 [ 0 ] & V_102 ) ;
+V_104 = V_102 << V_99 ;
+if ( V_34 )
+V_34 = V_101 + 1 - V_34 ;
+V_34 = V_34 << V_99 ;
+if ( V_99 != V_100 ) {
+V_103 = ( V_95 -> V_8 . integer . V_8 [ 1 ] & V_102 ) ;
+V_104 |= V_102 << V_100 ;
+if ( V_103 )
+V_103 = V_101 + 1 - V_103 ;
+V_34 |= V_103 << V_100 ;
+}
+return F_36 ( V_2 , V_3 , V_104 , V_34 ) ;
+}
+static int F_37 ( struct V_71 * V_72 ,
+struct V_94 * V_95 )
+{
+struct V_96 * V_97 =
+(struct V_96 * ) V_72 -> V_98 ;
+struct V_1 * V_2 = F_32 ( V_72 ) ;
+unsigned int V_3 = V_97 -> V_3 ;
+unsigned int V_105 = V_97 -> V_106 ;
+unsigned int V_99 = V_97 -> V_99 ;
+int V_101 = V_97 -> V_101 ;
+int V_102 = ( 1 << F_33 ( V_101 ) ) - 1 ;
+V_95 -> V_8 . integer . V_8 [ 0 ] =
+( F_34 ( V_2 , V_3 ) >> V_99 ) & V_102 ;
+V_95 -> V_8 . integer . V_8 [ 1 ] =
+( F_34 ( V_2 , V_105 ) >> V_99 ) & V_102 ;
+if ( V_95 -> V_8 . integer . V_8 [ 0 ] )
+V_95 -> V_8 . integer . V_8 [ 0 ] =
+V_101 + 1 - V_95 -> V_8 . integer . V_8 [ 0 ] ;
+if ( V_95 -> V_8 . integer . V_8 [ 1 ] )
+V_95 -> V_8 . integer . V_8 [ 1 ] =
+V_101 + 1 - V_95 -> V_8 . integer . V_8 [ 1 ] ;
+return 0 ;
+}
+static int F_38 ( struct V_71 * V_72 ,
+struct V_94 * V_95 )
+{
+struct V_96 * V_97 =
+(struct V_96 * ) V_72 -> V_98 ;
+struct V_1 * V_2 = F_32 ( V_72 ) ;
+unsigned int V_3 = V_97 -> V_3 ;
+unsigned int V_105 = V_97 -> V_106 ;
+unsigned int V_99 = V_97 -> V_99 ;
+int V_101 = V_97 -> V_101 ;
+int V_102 = ( 1 << F_33 ( V_101 ) ) - 1 ;
+int V_107 ;
+unsigned short V_34 , V_103 , V_104 ;
+V_104 = V_102 << V_99 ;
+V_34 = ( V_95 -> V_8 . integer . V_8 [ 0 ] & V_102 ) ;
+V_103 = ( V_95 -> V_8 . integer . V_8 [ 1 ] & V_102 ) ;
+if ( V_34 )
+V_34 = V_101 + 1 - V_34 ;
+if ( V_103 )
+V_103 = V_101 + 1 - V_103 ;
+V_34 = V_34 << V_99 ;
+V_103 = V_103 << V_99 ;
+V_107 = F_36 ( V_2 , V_3 , V_104 , V_34 ) ;
+if ( V_107 < 0 )
+return V_107 ;
+V_107 = F_36 ( V_2 , V_105 , V_104 , V_103 ) ;
+return V_107 ;
+}
+static int F_39 ( struct V_71 * V_72 ,
+struct V_94 * V_95 )
+{
+struct V_1 * V_2 = F_32 ( V_72 ) ;
+struct V_9 * V_10 = F_4 ( V_2 ) ;
+struct V_108 * V_109 = (struct V_108 * ) V_72 -> V_98 ;
+unsigned short V_34 ;
+unsigned short V_102 , V_110 ;
+if ( V_10 -> V_111 ) {
+F_40 ( V_112 L_6
+L_7 ) ;
+return - V_113 ;
+}
+for ( V_110 = 1 ; V_110 < V_109 -> V_101 ; V_110 <<= 1 )
+;
+if ( V_95 -> V_8 . V_114 . V_115 [ 0 ] > V_109 -> V_101 - 1 )
+return - V_116 ;
+V_34 = V_95 -> V_8 . V_114 . V_115 [ 0 ] << V_109 -> V_117 ;
+V_102 = ( V_110 - 1 ) << V_109 -> V_117 ;
+if ( V_109 -> V_117 != V_109 -> V_118 ) {
+if ( V_95 -> V_8 . V_114 . V_115 [ 1 ] > V_109 -> V_101 - 1 )
+return - V_116 ;
+V_34 |= V_95 -> V_8 . V_114 . V_115 [ 1 ] << V_109 -> V_118 ;
+V_102 |= ( V_110 - 1 ) << V_109 -> V_118 ;
+}
+return F_36 ( V_2 , V_109 -> V_3 , V_102 , V_34 ) ;
+}
+static int F_41 ( struct V_1 * V_2 ,
+enum V_119 V_120 )
+{
+switch ( V_120 ) {
+case V_121 :
+break;
+case V_122 :
+break;
+case V_123 :
+if ( V_2 -> V_124 . V_125 == V_126 )
+F_10 ( V_2 , 1 ) ;
+break;
+case V_126 :
+F_10 ( V_2 , 0 ) ;
+break;
+}
+V_2 -> V_124 . V_125 = V_120 ;
+return 0 ;
+}
+static void F_42 ( struct V_9 * V_10 ,
+struct V_127 * V_128 )
+{
+struct V_127 * V_129 ;
+if ( V_128 == V_10 -> V_130 )
+V_129 = V_10 -> V_131 ;
+else if ( V_128 == V_10 -> V_131 )
+V_129 = V_10 -> V_130 ;
+else
+return;
+F_43 ( V_129 -> V_132 ,
+V_133 ,
+V_10 -> V_134 ,
+V_10 -> V_134 ) ;
+F_43 ( V_129 -> V_132 ,
+V_135 ,
+V_10 -> V_136 ,
+V_10 -> V_136 ) ;
+F_43 ( V_129 -> V_132 ,
+V_137 ,
+V_10 -> V_138 ,
+V_10 -> V_138 ) ;
+}
+static void F_44 ( struct V_1 * V_2 , int V_139 ,
+int V_27 )
+{
+T_1 V_3 , V_102 ;
+V_3 = F_1 ( V_2 , V_38 ) ;
+if ( V_139 == V_140 )
+V_102 = V_141 | V_142 ;
+else
+V_102 = V_143 | V_144 ;
+if ( V_27 )
+V_3 |= V_102 ;
+else
+V_3 &= ~ V_102 ;
+F_3 ( V_2 , V_38 , V_3 ) ;
+}
+static int F_45 ( struct V_127 * V_145 ,
+struct V_146 * V_147 )
+{
+struct V_148 * V_149 = V_145 -> V_150 ;
+struct V_1 * V_2 = V_149 -> V_2 ;
+struct V_9 * V_10 = F_4 ( V_2 ) ;
+F_46 ( V_145 -> V_132 , 0 , 32 , 24 ) ;
+if ( V_10 -> V_130 ) {
+V_10 -> V_131 = V_145 ;
+if ( V_10 -> V_111 )
+F_42 ( V_10 , V_10 -> V_130 ) ;
+} else {
+if ( ! ( F_1 ( V_2 , V_31 ) &
+V_151 ) ) {
+F_43 ( V_145 -> V_132 ,
+V_137 ,
+2 , 2 ) ;
+}
+V_10 -> V_130 = V_145 ;
+}
+return 0 ;
+}
+static void F_47 ( struct V_127 * V_145 ,
+struct V_146 * V_147 )
+{
+struct V_148 * V_149 = V_145 -> V_150 ;
+struct V_1 * V_2 = V_149 -> V_2 ;
+struct V_9 * V_10 = F_4 ( V_2 ) ;
+if ( V_10 -> V_130 == V_145 )
+V_10 -> V_130 = V_10 -> V_131 ;
+V_10 -> V_131 = NULL ;
+if ( ! V_10 -> V_130 )
+V_10 -> V_111 = 0 ;
+else if ( ! V_10 -> V_130 -> V_132 -> V_138 )
+V_10 -> V_111 = 0 ;
+if ( V_145 -> V_132 -> V_138 == 4 )
+F_44 ( V_2 , V_145 -> V_152 , 0 ) ;
+}
+static int F_48 ( struct V_127 * V_145 ,
+struct V_153 * V_154 ,
+struct V_146 * V_147 )
+{
+struct V_148 * V_149 = V_145 -> V_150 ;
+struct V_1 * V_2 = V_149 -> V_2 ;
+struct V_9 * V_10 = F_4 ( V_2 ) ;
+T_1 V_28 , V_155 , V_156 , V_157 ;
+if ( F_49 ( V_154 ) == 4 ) {
+V_156 = F_1 ( V_2 , V_81 ) ;
+V_28 = F_1 ( V_2 , V_31 ) ;
+if ( ( V_28 & V_151 ) &&
+( ( V_156 & V_158 ) == V_159 ) )
+F_44 ( V_2 , V_145 -> V_152 , 1 ) ;
+else
+return - V_116 ;
+}
+if ( V_10 -> V_111 )
+return 0 ;
+V_155 = F_1 ( V_2 ,
+V_31 ) & ~ V_160 ;
+V_28 = V_155 & ~ V_161 ;
+switch ( F_50 ( V_154 ) ) {
+case 8000 :
+V_28 |= V_162 ;
+break;
+case 11025 :
+V_28 |= V_163 ;
+break;
+case 12000 :
+V_28 |= V_164 ;
+break;
+case 16000 :
+V_28 |= V_165 ;
+break;
+case 22050 :
+V_28 |= V_166 ;
+break;
+case 24000 :
+V_28 |= V_167 ;
+break;
+case 32000 :
+V_28 |= V_168 ;
+break;
+case 44100 :
+V_28 |= V_169 ;
+break;
+case 48000 :
+V_28 |= V_170 ;
+break;
+case 96000 :
+V_28 |= V_171 ;
+break;
+default:
+F_40 ( V_112 L_8 ,
+F_50 ( V_154 ) ) ;
+return - V_116 ;
+}
+V_157 = F_1 ( V_2 , V_81 ) ;
+V_156 = V_157 ;
+V_156 &= ~ V_172 ;
+switch ( F_51 ( V_154 ) ) {
+case V_173 :
+V_156 |= V_174 ;
+break;
+case V_175 :
+V_156 |= V_176 ;
+break;
+default:
+F_40 ( V_112 L_9 ,
+F_51 ( V_154 ) ) ;
+return - V_116 ;
+}
+if ( V_156 != V_157 || V_28 != V_155 ) {
+if ( V_10 -> V_29 ) {
+F_10 ( V_2 , 0 ) ;
+F_3 ( V_2 , V_31 , V_28 ) ;
+F_3 ( V_2 , V_81 , V_156 ) ;
+F_10 ( V_2 , 1 ) ;
+} else {
+F_3 ( V_2 , V_31 , V_28 ) ;
+F_3 ( V_2 , V_81 , V_156 ) ;
+}
+}
+V_10 -> V_111 = 1 ;
+V_10 -> V_134 = F_50 ( V_154 ) ;
+V_10 -> V_136 = F_52 ( V_154 ,
+V_135 ) -> V_177 ;
+V_10 -> V_138 = F_49 ( V_154 ) ;
+if ( V_10 -> V_131 )
+F_42 ( V_10 , V_145 ) ;
+return 0 ;
+}
+static int F_53 ( struct V_146 * V_178 ,
+int V_179 , unsigned int V_180 , int V_181 )
+{
+struct V_1 * V_2 = V_178 -> V_2 ;
+struct V_9 * V_10 = F_4 ( V_2 ) ;
+switch ( V_180 ) {
+case 19200000 :
+case 26000000 :
+case 38400000 :
+break;
+default:
+F_54 ( V_2 -> V_35 , L_10 , V_180 ) ;
+return - V_116 ;
+}
+if ( ( V_180 / 1000 ) != V_10 -> V_88 ) {
+F_54 ( V_2 -> V_35 ,
+L_11 ,
+V_180 , V_10 -> V_88 * 1000 ) ;
+return - V_116 ;
+}
+return 0 ;
+}
+static int F_55 ( struct V_146 * V_178 ,
+unsigned int V_182 )
+{
+struct V_1 * V_2 = V_178 -> V_2 ;
+struct V_9 * V_10 = F_4 ( V_2 ) ;
+T_1 V_157 , V_156 ;
+V_157 = F_1 ( V_2 , V_81 ) ;
+V_156 = V_157 ;
+switch ( V_182 & V_183 ) {
+case V_184 :
+V_156 &= ~ ( V_185 ) ;
+V_156 &= ~ ( V_186 ) ;
+break;
+case V_187 :
+V_156 |= V_185 ;
+V_156 |= V_186 ;
+break;
+default:
+return - V_116 ;
+}
+V_156 &= ~ V_158 ;
+switch ( V_182 & V_188 ) {
+case V_189 :
+V_156 |= V_190 ;
+break;
+case V_191 :
+V_156 |= V_159 ;
+break;
+default:
+return - V_116 ;
+}
+if ( V_156 != V_157 ) {
+if ( V_10 -> V_29 ) {
+F_10 ( V_2 , 0 ) ;
+F_3 ( V_2 , V_81 , V_156 ) ;
+F_10 ( V_2 , 1 ) ;
+} else {
+F_3 ( V_2 , V_81 , V_156 ) ;
+}
+}
+return 0 ;
+}
+static int F_56 ( struct V_146 * V_147 , int V_192 )
+{
+struct V_1 * V_2 = V_147 -> V_2 ;
+T_1 V_3 = F_1 ( V_2 , V_81 ) ;
+if ( V_192 )
+V_3 |= V_193 ;
+else
+V_3 &= ~ V_193 ;
+return F_3 ( V_2 , V_81 , V_3 ) ;
+}
+static void F_57 ( struct V_1 * V_2 , int V_139 ,
+int V_27 )
+{
+T_1 V_3 , V_102 ;
+V_3 = F_1 ( V_2 , V_38 ) ;
+if ( V_139 == V_140 )
+V_102 = V_141 ;
+else
+V_102 = V_143 | V_144 ;
+if ( V_27 )
+V_3 |= V_102 ;
+else
+V_3 &= ~ V_102 ;
+F_3 ( V_2 , V_38 , V_3 ) ;
+}
+static int F_58 ( struct V_127 * V_145 ,
+struct V_146 * V_147 )
+{
+struct V_148 * V_149 = V_145 -> V_150 ;
+struct V_1 * V_2 = V_149 -> V_2 ;
+struct V_9 * V_10 = F_4 ( V_2 ) ;
+T_1 V_28 ;
+if ( V_10 -> V_88 != 26000 ) {
+F_54 ( V_2 -> V_35 , L_12
+L_13 ,
+V_10 -> V_88 * 1000 ) ;
+return - V_116 ;
+}
+V_28 = F_1 ( V_2 , V_31 )
+& V_194 ;
+if ( V_28 != V_195 ) {
+F_40 ( V_112 L_14
+L_15 ) ;
+return - V_116 ;
+}
+return 0 ;
+}
+static void F_59 ( struct V_127 * V_145 ,
+struct V_146 * V_147 )
+{
+struct V_148 * V_149 = V_145 -> V_150 ;
+struct V_1 * V_2 = V_149 -> V_2 ;
+F_57 ( V_2 , V_145 -> V_152 , 0 ) ;
+}
+static int F_60 ( struct V_127 * V_145 ,
+struct V_153 * V_154 , struct V_146 * V_147 )
+{
+struct V_148 * V_149 = V_145 -> V_150 ;
+struct V_1 * V_2 = V_149 -> V_2 ;
+struct V_9 * V_10 = F_4 ( V_2 ) ;
+T_1 V_155 , V_28 ;
+F_57 ( V_2 , V_145 -> V_152 , 1 ) ;
+V_155 = F_1 ( V_2 , V_31 )
+& ~ ( V_160 ) ;
+V_28 = V_155 ;
+switch ( F_50 ( V_154 ) ) {
+case 8000 :
+V_28 &= ~ ( V_196 ) ;
+break;
+case 16000 :
+V_28 |= V_196 ;
+break;
+default:
+F_40 ( V_112 L_16 ,
+F_50 ( V_154 ) ) ;
+return - V_116 ;
+}
+if ( V_28 != V_155 ) {
+if ( V_10 -> V_29 ) {
+F_10 ( V_2 , 0 ) ;
+F_3 ( V_2 , V_31 , V_28 ) ;
+F_10 ( V_2 , 1 ) ;
+} else {
+F_3 ( V_2 , V_31 , V_28 ) ;
+}
+}
+return 0 ;
+}
+static int F_61 ( struct V_146 * V_178 ,
+int V_179 , unsigned int V_180 , int V_181 )
+{
+struct V_1 * V_2 = V_178 -> V_2 ;
+struct V_9 * V_10 = F_4 ( V_2 ) ;
+if ( V_180 != 26000000 ) {
+F_54 ( V_2 -> V_35 , L_17
+L_18 , V_180 ) ;
+return - V_116 ;
+}
+if ( ( V_180 / 1000 ) != V_10 -> V_88 ) {
+F_54 ( V_2 -> V_35 ,
+L_11 ,
+V_180 , V_10 -> V_88 * 1000 ) ;
+return - V_116 ;
+}
+return 0 ;
+}
+static int F_62 ( struct V_146 * V_178 ,
+unsigned int V_182 )
+{
+struct V_1 * V_2 = V_178 -> V_2 ;
+struct V_9 * V_10 = F_4 ( V_2 ) ;
+T_1 V_157 , V_156 ;
+V_157 = F_1 ( V_2 , V_197 ) ;
+V_156 = V_157 ;
+switch ( V_182 & V_183 ) {
+case V_184 :
+V_156 &= ~ ( V_198 ) ;
+break;
+case V_187 :
+V_156 |= V_198 ;
+break;
+default:
+return - V_116 ;
+}
+switch ( V_182 & V_199 ) {
+case V_200 :
+V_156 &= ~ ( V_201 ) ;
+break;
+case V_202 :
+V_156 |= V_201 ;
+break;
+default:
+return - V_116 ;
+}
+if ( V_156 != V_157 ) {
+if ( V_10 -> V_29 ) {
+F_10 ( V_2 , 0 ) ;
+F_3 ( V_2 , V_197 , V_156 ) ;
+F_10 ( V_2 , 1 ) ;
+} else {
+F_3 ( V_2 , V_197 , V_156 ) ;
+}
+}
+return 0 ;
+}
+static int F_63 ( struct V_146 * V_147 , int V_192 )
+{
+struct V_1 * V_2 = V_147 -> V_2 ;
+T_1 V_3 = F_1 ( V_2 , V_197 ) ;
+if ( V_192 )
+V_3 |= V_203 ;
+else
+V_3 &= ~ V_203 ;
+return F_3 ( V_2 , V_197 , V_3 ) ;
+}
+static int F_64 ( struct V_1 * V_2 )
+{
+F_41 ( V_2 , V_126 ) ;
+return 0 ;
+}
+static int F_65 ( struct V_1 * V_2 )
+{
+F_41 ( V_2 , V_123 ) ;
+return 0 ;
+}
+static int F_66 ( struct V_1 * V_2 )
+{
+struct V_9 * V_10 ;
+V_10 = F_67 ( sizeof( struct V_9 ) , V_204 ) ;
+if ( V_10 == NULL ) {
+F_40 ( L_19 ) ;
+return - V_205 ;
+}
+F_68 ( V_2 , V_10 ) ;
+V_10 -> V_88 = F_69 () / 1000 ;
+V_2 -> V_124 . V_206 = 1 ;
+F_18 ( V_2 ) ;
+return 0 ;
+}
+static int F_70 ( struct V_1 * V_2 )
+{
+struct V_9 * V_10 = F_4 ( V_2 ) ;
+F_17 ( V_2 ) ;
+F_41 ( V_2 , V_126 ) ;
+F_71 ( V_10 ) ;
+return 0 ;
+}
+static int T_2 F_72 ( struct V_207 * V_208 )
+{
+struct V_40 * V_41 = V_208 -> V_35 . V_83 ;
+if ( ! V_41 ) {
+F_54 ( & V_208 -> V_35 , L_20 ) ;
+return - V_116 ;
+}
+return F_73 ( & V_208 -> V_35 , & V_209 ,
+V_210 , F_74 ( V_210 ) ) ;
+}
+static int T_3 F_75 ( struct V_207 * V_208 )
+{
+F_76 ( & V_208 -> V_35 ) ;
+return 0 ;
+}

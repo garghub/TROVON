@@ -1,0 +1,1 @@
+int T_1 F_1 ( void )\r\n{\r\nF_2 ( L_1 ) ;\r\nV_1 . V_2 [ 1 ] . V_3 = V_4 ;\r\nV_1 . V_2 [ 1 ] . V_5 = V_4 ;\r\n#ifdef F_3\r\nF_4 ( & V_6 ) ;\r\nF_4 ( & V_7 ) ;\r\n#endif\r\nF_4 ( & V_8 ) ;\r\nreturn F_5 ( & V_9 ) ;\r\n}\r\nvoid T_1 F_6 ( void )\r\n{\r\nF_7 () ;\r\nV_10 . V_11 = V_12 ;\r\nV_10 . V_13 = V_14 ;\r\n}

@@ -1,0 +1,1 @@
+int F_1 ( struct V_1 * V_1 )\r\n{\r\nint V_2 = 0 ;\r\nif ( F_2 ( V_1 , & V_3 ) ) {\r\nV_2 = F_3 ( & V_4 ) ;\r\nif ( V_2 < 0 ) {\r\nF_4 ( V_5 L_1\r\nL_2 ) ;\r\nreturn V_2 ;\r\n}\r\n}\r\nreturn 0 ;\r\n}\r\nvoid F_5 ( struct V_1 * V_1 )\r\n{\r\nif ( F_2 ( V_1 , & V_3 ) )\r\nF_6 ( & V_4 ) ;\r\n}

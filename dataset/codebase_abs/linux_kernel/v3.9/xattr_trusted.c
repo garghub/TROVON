@@ -1,0 +1,31 @@
+static int F_1 ( struct V_1 * V_1 , const char * V_2 ,
+void * V_3 , T_1 V_4 , int type )
+{
+char V_5 [ V_6 + 1 ] = { 0 } ;
+T_1 V_7 = strlen ( V_2 ) ;
+if ( ! strcmp ( V_2 , L_1 ) )
+return - V_8 ;
+if ( V_7 + V_9 > V_6 )
+return - V_10 ;
+strcpy ( V_5 , V_11 ) ;
+strcpy ( V_5 + V_9 , V_2 ) ;
+return F_2 ( V_1 , V_5 , V_3 , V_4 ) ;
+}
+static int F_3 ( struct V_1 * V_1 , const char * V_2 ,
+const void * V_3 , T_1 V_4 , int V_12 , int type )
+{
+char V_5 [ V_6 + 1 ] = { 0 } ;
+T_1 V_7 = strlen ( V_2 ) ;
+if ( ! strcmp ( V_2 , L_1 ) )
+return - V_8 ;
+if ( V_7 + V_9 > V_6 )
+return - V_10 ;
+strcpy ( V_5 , V_11 ) ;
+strcpy ( V_5 + V_9 , V_2 ) ;
+return F_4 ( V_1 , V_5 , V_3 , V_4 , V_12 ) ;
+}
+static T_1 F_5 ( struct V_1 * V_1 , char * V_13 ,
+T_1 V_14 , const char * V_2 , T_1 V_15 , int type )
+{
+return - V_10 ;
+}

@@ -1,0 +1,1 @@
+static int F_1 ( const struct V_1 * V_2 , T_1 V_3 , T_1 V_4 )\r\n{\r\nreturn V_5 ;\r\n}\r\nstatic void T_2 F_2 ( void )\r\n{\r\nF_3 ( V_6 L_1 ) ;\r\nF_4 () ;\r\n#ifdef F_5\r\nF_6 ( & V_7 ) ;\r\n#endif\r\nF_7 () ;\r\nF_8 () ;\r\n}

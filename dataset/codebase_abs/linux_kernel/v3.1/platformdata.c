@@ -1,0 +1,1 @@
+void T_1 * F_1 ( void * V_1 , T_2 V_2 ,\r\nstruct V_3 * V_4 )\r\n{\r\nvoid * V_5 ;\r\nif ( ! V_1 ) {\r\nF_2 ( V_6 L_1 , V_4 -> V_7 ) ;\r\nreturn NULL ;\r\n}\r\nV_5 = F_3 ( V_1 , V_2 , V_8 ) ;\r\nif ( ! V_5 ) {\r\nF_2 ( V_6 L_2 , V_4 -> V_7 ) ;\r\nreturn NULL ;\r\n}\r\nV_4 -> V_9 . V_10 = V_5 ;\r\nreturn V_5 ;\r\n}

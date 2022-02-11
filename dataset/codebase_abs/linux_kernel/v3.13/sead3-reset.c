@@ -1,0 +1,1 @@
+static void F_1 ( char * V_1 )\r\n{\r\nunsigned int T_1 * V_2 =\r\nF_2 ( V_3 , sizeof( unsigned int ) ) ;\r\nF_3 ( V_4 , V_2 ) ;\r\n}\r\nstatic void F_4 ( void )\r\n{\r\nunsigned int T_1 * V_2 =\r\nF_2 ( V_3 , sizeof( unsigned int ) ) ;\r\nF_3 ( V_4 , V_2 ) ;\r\n}\r\nstatic int T_2 F_5 ( void )\r\n{\r\nV_5 = F_1 ;\r\nV_6 = F_4 ;\r\nV_7 = F_4 ;\r\nreturn 0 ;\r\n}

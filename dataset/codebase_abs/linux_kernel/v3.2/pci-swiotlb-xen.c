@@ -1,0 +1,1 @@
+int T_1 F_1 ( void )\r\n{\r\nif ( ( F_2 () || V_1 || V_2 ) &&\r\n( F_3 () ) )\r\nV_3 = 1 ;\r\nif ( F_3 () )\r\nV_1 = 0 ;\r\nreturn V_3 ;\r\n}\r\nvoid T_1 F_4 ( void )\r\n{\r\nif ( V_3 ) {\r\nF_5 ( 1 ) ;\r\nV_4 = & V_5 ;\r\nF_6 () ;\r\n}\r\n}

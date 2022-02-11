@@ -1,0 +1,1 @@
+unsigned long F_1 ( void * V_1 , const void T_1 * V_2 ,\r\nunsigned long V_3 )\r\n{\r\nunsigned long V_4 = F_2 ( V_1 , V_2 , V_3 ) ;\r\nif ( F_3 ( V_4 ) )\r\nmemset ( V_1 + V_3 - V_4 , 0 , V_4 ) ;\r\nreturn V_4 ;\r\n}

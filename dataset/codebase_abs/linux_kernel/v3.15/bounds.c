@@ -1,0 +1,1 @@
+void F_1 ( void )\r\n{\r\nDEFINE ( V_1 , V_2 ) ;\r\nDEFINE ( V_3 , V_4 ) ;\r\nDEFINE ( V_5 , V_6 ) ;\r\n#ifdef F_2\r\nDEFINE ( V_7 , F_3 ( V_8 ) ) ;\r\n#endif\r\nDEFINE ( V_9 , sizeof( V_10 ) ) ;\r\n}

@@ -1,0 +1,1 @@
+static const char * F_1 ( void )\r\n{\r\nreturn L_1 ;\r\n}\r\nstatic void F_2 ( struct V_1 * V_2 , int V_3 )\r\n{\r\nV_2 -> V_4 = 1 ;\r\nif ( V_3 ) {\r\nV_2 -> V_5 = V_6 ;\r\nV_2 -> V_7 = V_8 ;\r\n} else\r\nF_3 ( V_2 , V_6 , V_8 ) ;\r\n}\r\nstatic int F_4 ( void )\r\n{\r\nreturn 0 ;\r\n}

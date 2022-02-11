@@ -1,0 +1,1 @@
+int F_1 ( struct V_1 * V_2 )\r\n{\r\nreturn V_3 ;\r\n}\r\nint T_1 F_2 ( const struct V_1 * V_2 , T_2 V_4 , T_2 V_5 )\r\n{\r\n#if ! F_3 ( V_6 ) && ! F_3 ( V_7 )\r\nF_4 ( V_8 L_1 ) ;\r\n#endif\r\nF_4 ( V_8 L_2 ,\r\nV_9 [ V_4 ] [ V_5 ] , V_4 , V_5 ) ;\r\nreturn V_9 [ V_4 ] [ V_5 ] ;\r\n}

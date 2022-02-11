@@ -1,0 +1,1 @@
+const char * F_1 ( int V_1 )\r\n{\r\nif ( V_1 > 0 )\r\nreturn L_1 ;\r\nelse if ( V_1 == 0 )\r\nreturn L_2 ;\r\nelse if ( V_1 > - V_2 ) {\r\nconst char * V_3 = V_4 [ - V_1 ] . V_5 ;\r\nif ( V_3 )\r\nreturn V_3 ;\r\n}\r\nreturn L_3 ;\r\n}

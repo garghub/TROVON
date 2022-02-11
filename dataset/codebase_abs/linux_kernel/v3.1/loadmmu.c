@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\nswitch( V_1 ) {\r\ncase V_2 :\r\ncase V_3 :\r\nF_2 () ;\r\nbreak;\r\ncase V_4 :\r\ncase V_5 :\r\ncase V_6 :\r\nF_3 () ;\r\nbreak;\r\ndefault:\r\nF_4 ( L_1 , ( int ) V_1 ) ;\r\nF_5 () ;\r\n}\r\nF_6 () ;\r\n}

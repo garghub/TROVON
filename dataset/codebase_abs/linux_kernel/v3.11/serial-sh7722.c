@@ -1,0 +1,1 @@
+static void F_1 ( struct V_1 * V_2 , unsigned int V_3 )\r\n{\r\nunsigned short V_4 ;\r\nif ( V_2 -> V_5 == 0xffe00000 ) {\r\nV_4 = F_2 ( V_6 ) ;\r\nV_4 &= ~ 0x03cf ;\r\nif ( ! ( V_3 & V_7 ) )\r\nV_4 |= 0x0340 ;\r\nF_3 ( V_4 , V_6 ) ;\r\n}\r\n}

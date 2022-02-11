@@ -1,0 +1,1 @@
+int F_1 ( T_1 V_1 , T_1 V_2 )\r\n{\r\nunsigned V_3 = F_2 ( V_1 ) ;\r\nunsigned V_4 = F_2 ( V_2 ) ;\r\nif ( V_3 < V_4 )\r\nreturn - 1 ;\r\nif ( V_3 > V_4 )\r\nreturn 1 ;\r\nV_3 = F_3 ( V_1 ) ;\r\nV_4 = F_3 ( V_2 ) ;\r\nif ( V_3 < V_4 )\r\nreturn - 1 ;\r\nif ( V_3 > V_4 )\r\nreturn 1 ;\r\nreturn 0 ;\r\n}

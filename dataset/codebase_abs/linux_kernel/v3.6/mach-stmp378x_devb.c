@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\nint V_1 ;\r\nF_2 () ;\r\nF_3 ( V_2 ,\r\nF_4 ( V_2 ) ) ;\r\nF_5 () ;\r\nF_6 () ;\r\nF_7 () ;\r\nV_1 = F_8 ( V_3 ,\r\nV_4 , L_1 ) ;\r\nif ( V_1 )\r\nF_9 ( L_2 , V_1 ) ;\r\nF_10 ( 0 , & V_5 ) ;\r\nF_11 ( V_6 , F_4 ( V_6 ) ) ;\r\n}\r\nstatic void T_1 F_12 ( void )\r\n{\r\nF_13 () ;\r\n}

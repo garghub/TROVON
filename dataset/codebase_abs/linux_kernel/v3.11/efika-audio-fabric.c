@@ -1,0 +1,1 @@
+static T_1 int F_1 ( void )\r\n{\r\nstruct V_1 * V_2 ;\r\nint V_3 ;\r\nif ( ! F_2 ( L_1 ) )\r\nreturn - V_4 ;\r\nV_2 = F_3 ( L_2 , 1 ) ;\r\nif ( ! V_2 ) {\r\nF_4 ( L_3 ) ;\r\nreturn - V_4 ;\r\n}\r\nF_5 ( V_2 , & V_5 ) ;\r\nV_3 = F_6 ( V_2 ) ;\r\nif ( V_3 ) {\r\nF_4 ( L_4 ) ;\r\nF_7 ( V_2 ) ;\r\nreturn - V_4 ;\r\n}\r\nreturn 0 ;\r\n}

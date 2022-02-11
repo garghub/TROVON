@@ -1,0 +1,1 @@
+struct V_1 * F_1 ( const char * V_2 ,\r\nT_1 * * V_3 , T_2 * V_4 )\r\n{\r\nstruct V_5 * V_6 ;\r\nstruct V_1 * V_7 ;\r\nV_7 = F_2 ( & V_8 , V_2 , NULL ) ;\r\nif ( F_3 ( V_7 ) )\r\ngoto error;\r\nF_4 ( & V_7 -> V_9 ) ;\r\nV_6 = V_7 -> V_10 . V_11 ;\r\n* V_3 = V_6 -> V_1 ;\r\n* V_4 = V_6 -> V_12 ;\r\nerror:\r\nreturn V_7 ;\r\n}

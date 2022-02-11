@@ -1,0 +1,1 @@
+T_1 F_1 ( T_1 V_1 , int * V_2 )\r\n{\r\nV_3 ;\r\nV_4 ;\r\nV_5 ;\r\nswitch ( V_6 ) {\r\ncase V_7 :\r\ncase V_8 :\r\ncase V_9 :\r\ncase V_10 :\r\n* V_2 = 0 ;\r\nreturn V_1 ;\r\ncase V_11 :\r\nV_12 ;\r\nbreak;\r\ncase V_13 :\r\nbreak;\r\n}\r\n* V_2 = V_14 + 1 ;\r\nreturn F_2 ( V_15 , - 1 + V_16 , V_17 & ~ V_18 ) ;\r\n}

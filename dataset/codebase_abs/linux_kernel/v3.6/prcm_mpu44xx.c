@@ -1,0 +1,1 @@
+T_1 F_1 ( T_2 V_1 , T_3 V_2 )\r\n{\r\nreturn F_2 ( F_3 ( V_1 , V_2 ) ) ;\r\n}\r\nvoid F_4 ( T_1 V_3 , T_2 V_1 , T_3 V_2 )\r\n{\r\nF_5 ( V_3 , F_3 ( V_1 , V_2 ) ) ;\r\n}\r\nT_1 F_6 ( T_1 V_4 , T_1 V_5 , T_2 V_1 , T_2 V_2 )\r\n{\r\nT_1 V_6 ;\r\nV_6 = F_1 ( V_1 , V_2 ) ;\r\nV_6 &= ~ V_4 ;\r\nV_6 |= V_5 ;\r\nF_4 ( V_6 , V_1 , V_2 ) ;\r\nreturn V_6 ;\r\n}

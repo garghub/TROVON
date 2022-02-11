@@ -1,0 +1,1 @@
+T_1 F_1 ( struct V_1 * V_2 , int V_3 )\r\n{\r\nif ( F_2 ( ( V_4 ) V_3 >= V_5 ) )\r\nreturn 0 ;\r\nreturn V_2 -> V_6 [ V_3 ] ;\r\n}\r\nint F_3 ( T_1 V_7 )\r\n{\r\nif ( ! V_7 || V_7 & V_8 )\r\nreturn - V_9 ;\r\nreturn 0 ;\r\n}\r\nT_1 F_4 ( struct V_10 * V_11 )\r\n{\r\nreturn V_12 ;\r\n}

@@ -1,0 +1,1 @@
+static int T_1 F_1 ( void )\r\n{\r\nF_2 ( 0 , V_1 , F_3 ( V_1 ) ) ;\r\nF_4 ( V_2 , F_3 ( V_2 ) ) ;\r\nreturn 0 ;\r\n}\r\nstatic void T_1 F_5 ( void )\r\n{\r\nF_6 ( V_3 ) ;\r\n}\r\nstatic void T_1 F_7 ( char * * V_4 )\r\n{\r\nF_8 ( V_5 L_1 ) ;\r\nF_9 ( V_6 , V_7 ) ;\r\nF_9 ( V_8 , V_9 ) ;\r\nF_9 ( V_10 , V_11 ) ;\r\nF_8 ( V_5 L_2 ) ;\r\n}

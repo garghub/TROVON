@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\nF_2 () ;\r\n}\r\nstatic void T_1 F_3 ( void )\r\n{\r\nF_4 ( NULL ) ;\r\nF_5 () ;\r\nF_6 () ;\r\nF_7 ( F_8 () ) ;\r\n#ifdef F_9\r\nF_10 ( 0 , ~ 0UL ) ;\r\n#endif\r\n}\r\nstatic void T_1 F_11 ( void )\r\n{\r\nF_12 ( NULL , V_1 , NULL , NULL ) ;\r\n}

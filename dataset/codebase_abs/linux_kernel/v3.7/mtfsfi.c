@@ -1,0 +1,1 @@
+int\r\nF_1 ( unsigned int V_1 , unsigned int V_2 )\r\n{\r\nT_1 V_3 = 0xf ;\r\nif ( ! V_1 )\r\nV_3 = 9 ;\r\nV_4 &= ~ ( V_3 << ( ( 7 - V_1 ) << 2 ) ) ;\r\nV_4 |= ( V_2 & 0xf ) << ( ( 7 - V_1 ) << 2 ) ;\r\n#ifdef F_2\r\nF_3 ( L_1 , V_5 , V_1 , V_2 , V_4 ) ;\r\n#endif\r\nreturn 0 ;\r\n}

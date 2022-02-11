@@ -1,0 +1,1 @@
+int F_1 ( char * V_1 )\r\n{\r\nint V_2 = strlen ( V_1 ) ;\r\nif ( ( strlen ( V_3 ) == V_2 )\r\n&& ( strncmp ( V_3 , V_1 , V_2 ) == 0 ) )\r\nreturn 1 ;\r\nif ( ( strlen ( V_4 ) == V_2 )\r\n&& ( strncmp ( V_4 , V_1 , V_2 ) == 0 ) )\r\nreturn 1 ;\r\nreturn 0 ;\r\n}

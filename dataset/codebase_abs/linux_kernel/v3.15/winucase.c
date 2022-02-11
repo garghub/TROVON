@@ -1,0 +1,1 @@
+T_1\r\nF_1 ( T_1 V_1 )\r\n{\r\nunsigned char V_2 ;\r\nconst T_1 * V_3 ;\r\nT_1 V_4 ;\r\nV_2 = ( V_1 & 0xff00 ) >> 8 ;\r\nV_3 = V_5 [ V_2 ] ;\r\nif ( ! V_3 )\r\nreturn V_1 ;\r\nV_2 = V_1 & 0xff ;\r\nV_4 = V_3 [ V_2 ] ;\r\nif ( V_4 )\r\nreturn V_4 ;\r\nreturn V_1 ;\r\n}

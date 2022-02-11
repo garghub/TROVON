@@ -1,0 +1,1 @@
+static int F_1 ( T_1 V_1 )\r\n{\r\nreturn 4 ;\r\n}\r\nstatic int F_2 ( T_1 V_1 , T_2 V_2 , void * V_3 )\r\n{\r\nreturn 0 ;\r\n}\r\nvoid T_3 F_3 ( struct V_4 * V_5 )\r\n{\r\nstruct V_4 * V_6 ;\r\nV_6 = F_4 ( V_5 , sizeof( struct V_4 ) ,\r\n& V_7 ) ;\r\nif ( ! V_6 -> V_8 )\r\nV_6 -> V_8 = F_2 ;\r\nif ( ! V_6 -> V_9 )\r\nV_6 -> V_9 = F_1 ;\r\n}

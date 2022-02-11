@@ -1,0 +1,108 @@
+void T_1 F_1 ( void )
+{
+#if F_2 ( V_1 )
+F_3 () ;
+#elif F_2 ( V_2 )
+F_4 () ;
+#elif F_2 ( V_3 )
+F_5 () ;
+#elif F_2 ( V_4 )
+F_6 () ;
+#elif F_2 ( V_5 )
+F_7 () ;
+#elif F_2 ( V_6 )
+F_8 () ;
+#elif F_2 ( V_7 )
+F_9 () ;
+#elif F_2 ( V_8 )
+F_10 () ;
+#elif F_2 ( V_9 )
+F_11 () ;
+#elif F_2 ( V_10 )
+F_12 () ;
+#elif F_2 ( V_11 )
+F_13 () ;
+#elif F_2 ( V_12 )
+F_14 () ;
+#elif F_2 ( V_13 )
+F_15 () ;
+#elif F_2 ( V_14 )
+F_16 () ;
+#elif F_2 ( V_15 )
+F_17 () ;
+#elif F_2 ( V_16 )
+F_18 () ;
+#elif F_2 ( V_17 )
+F_19 () ;
+#elif F_2 ( V_18 )
+F_20 () ;
+#endif
+#ifdef F_21
+V_19 = 10 ;
+F_22 () ;
+#endif
+}
+void F_23 ( const char * V_20 )
+{
+if ( V_21 ) {
+char V_22 ;
+if ( V_20 && * V_20 != '\0' ) {
+while ( ( V_22 = * V_20 ++ ) != '\0' )
+V_21 ( V_22 ) ;
+}
+if ( V_23 )
+V_23 () ;
+}
+#if 0
+else {
+printk("%s", s);
+}
+#endif
+}
+int F_24 ( const char * V_20 , int V_24 )
+{
+int V_25 = V_24 ;
+char V_22 ;
+if ( ! V_21 )
+return 0 ;
+if ( V_20 && * V_20 != '\0' ) {
+while ( ( ( V_22 = * V_20 ++ ) != '\0' ) && ( V_25 -- > 0 ) ) {
+V_21 ( V_22 ) ;
+}
+}
+if ( V_23 )
+V_23 () ;
+return V_24 - V_25 ;
+}
+void F_25 ( const char * V_26 , ... )
+{
+char V_27 [ V_28 ] ;
+T_2 args ;
+va_start ( args , V_26 ) ;
+vsnprintf ( V_27 , V_28 , V_26 , args ) ;
+F_23 ( V_27 ) ;
+va_end ( args ) ;
+}
+void T_1 F_26 ( char * V_20 , unsigned short V_29 )
+{
+F_23 ( V_20 ) ;
+F_23 ( L_1 ) ;
+}
+static void F_27 ( struct V_30 * V_31 , const char * V_20 ,
+unsigned int V_24 )
+{
+F_24 ( V_20 , V_24 ) ;
+}
+void T_1 F_22 ( void )
+{
+if ( V_32 )
+return;
+if ( ! V_21 )
+return;
+if ( strstr ( V_33 , L_2 ) ) {
+F_28 ( V_34 L_3 ) ;
+V_35 . V_36 &= ~ V_37 ;
+}
+V_32 = & V_35 ;
+F_29 ( & V_35 ) ;
+}

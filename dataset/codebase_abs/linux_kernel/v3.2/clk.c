@@ -1,0 +1,1 @@
+struct V_1 * F_1 ( struct V_2 * V_3 , const char * V_4 )\r\n{\r\nreturn NULL ;\r\n}\r\nint F_2 ( struct V_1 * V_1 )\r\n{\r\nreturn 0 ;\r\n}\r\nvoid F_3 ( struct V_1 * V_1 )\r\n{\r\n}\r\nvoid F_4 ( struct V_1 * V_1 )\r\n{\r\n}\r\nunsigned long F_5 ( struct V_1 * V_1 )\r\n{\r\nreturn V_5 ;\r\n}

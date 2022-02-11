@@ -1,0 +1,1 @@
+static int F_1 ( struct V_1 * V_2 ,\r\nunsigned long * V_3 )\r\n{\r\nif ( ! V_2 -> V_4 )\r\n* V_3 = V_5 ;\r\nelse\r\n* V_3 = V_2 -> V_4 ;\r\nreturn 0 ;\r\n}\r\nstatic int F_2 ( struct V_1 * V_1 )\r\n{\r\nreturn F_3 ( V_1 ) ;\r\n}

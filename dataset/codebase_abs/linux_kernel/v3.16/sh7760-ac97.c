@@ -1,0 +1,1 @@
+static int T_1 F_1 ( void )\r\n{\r\nint V_1 ;\r\nunsigned short V_2 ;\r\nV_2 = F_2 ( V_3 ) ;\r\nF_3 ( V_2 | ( 3 << 10 ) , V_3 ) ;\r\nV_1 = - V_4 ;\r\nV_5 = F_4 ( L_1 , - 1 ) ;\r\nif ( ! V_5 )\r\ngoto V_6;\r\nF_5 ( V_5 ,\r\n& V_7 ) ;\r\nV_1 = F_6 ( V_5 ) ;\r\nif ( V_1 )\r\nF_7 ( V_5 ) ;\r\nV_6:\r\nreturn V_1 ;\r\n}\r\nstatic void T_2 F_8 ( void )\r\n{\r\nF_9 ( V_5 ) ;\r\n}

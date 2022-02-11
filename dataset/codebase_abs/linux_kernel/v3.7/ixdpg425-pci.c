@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\nF_2 ( V_1 , V_2 ) ;\r\nF_2 ( V_3 , V_2 ) ;\r\nF_3 () ;\r\n}\r\nstatic int T_1 F_4 ( const struct V_4 * V_5 , T_2 V_6 , T_2 V_7 )\r\n{\r\nif ( V_6 == 12 || V_6 == 13 )\r\nreturn V_3 ;\r\nelse if ( V_6 == 14 )\r\nreturn V_1 ;\r\nelse return - 1 ;\r\n}\r\nint T_1 F_5 ( void )\r\n{\r\nif ( F_6 () )\r\nF_7 ( & V_8 ) ;\r\nreturn 0 ;\r\n}

@@ -1,0 +1,1 @@
+static void F_1 ( struct V_1 * V_2 , const char * V_3 ,\r\nunsigned V_4 )\r\n{\r\nwhile ( V_4 -- ) {\r\nif ( * V_3 == '\n' )\r\nF_2 ( '\r' ) ;\r\nF_2 ( * V_3 ++ ) ;\r\n}\r\n}\r\nstatic int F_3 ( struct V_1 * V_2 , char * V_5 )\r\n{\r\nreturn ! ( V_6 & V_7 ) ;\r\n}\r\nstatic int T_1 F_4 ( void )\r\n{\r\nF_5 ( & V_8 ) ;\r\nreturn 0 ;\r\n}

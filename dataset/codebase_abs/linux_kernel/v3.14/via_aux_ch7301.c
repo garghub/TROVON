@@ -1,0 +1,1 @@
+static void F_1 ( struct V_1 * V_2 , T_1 V_3 )\r\n{\r\nstruct V_4 V_5 = {\r\n. V_2 = V_2 ,\r\n. V_3 = V_3 ,\r\n. V_6 = V_6 } ;\r\nT_1 V_7 ;\r\nif ( ! F_2 ( & V_5 , 0x4B , & V_7 , 1 ) || V_7 != 0x17 )\r\nreturn;\r\nF_3 ( V_8 L_1 , V_6 , V_3 ) ;\r\nF_4 ( & V_5 ) ;\r\n}\r\nvoid F_5 ( struct V_1 * V_2 )\r\n{\r\nF_1 ( V_2 , 0x75 ) ;\r\nF_1 ( V_2 , 0x76 ) ;\r\n}

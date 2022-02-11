@@ -1,0 +1,1 @@
+static int T_1 F_1 ( void )\r\n{\r\nint V_1 , V_2 = 0 ;\r\nF_2 ( V_3 L_1 ) ;\r\nfor ( V_1 = 0 ; V_1 < V_4 ; V_1 ++ )\r\nif ( V_5 [ V_1 ] != NULL ) {\r\nF_2 ( V_3 L_2 , V_1 , V_5 [ V_1 ] -> V_6 ) ;\r\nV_2 ++ ;\r\n}\r\nif ( V_2 == 0 )\r\nF_2 ( V_3 L_3 ) ;\r\nreturn 0 ;\r\n}

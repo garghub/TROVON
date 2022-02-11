@@ -1,0 +1,1 @@
+void\r\nF_1 ( long V_1 , long V_2 )\r\n{\r\nF_2 ( V_1 , V_2 , 0 , 0 , V_3 ) ;\r\n}\r\nvoid\r\nF_3 ( long V_4 )\r\n{\r\nF_2 ( V_4 , 0 , 0 , 0 , V_5 ) ;\r\n}\r\nvoid T_1\r\nF_4 ( char * * V_6 )\r\n{\r\nV_7 = V_8 ;\r\nF_5 () ;\r\n}

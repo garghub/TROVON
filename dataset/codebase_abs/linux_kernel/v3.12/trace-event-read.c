@@ -1,0 +1,312 @@
+static int F_1 ( int V_1 , void * V_2 , int V_3 )
+{
+int V_4 = V_3 ;
+while ( V_3 ) {
+int V_5 = F_2 ( V_1 , V_2 , V_3 ) ;
+if ( V_5 <= 0 )
+return - 1 ;
+if ( V_6 ) {
+int V_7 = F_3 ( V_8 , V_2 , V_5 ) ;
+if ( V_7 <= 0 || V_7 != V_5 ) {
+F_4 ( L_1 ) ;
+return - 1 ;
+}
+}
+V_3 -= V_5 ;
+V_2 += V_5 ;
+}
+return V_4 ;
+}
+static int F_5 ( void * V_9 , int V_3 )
+{
+int V_10 ;
+V_10 = F_1 ( V_11 , V_9 , V_3 ) ;
+if ( V_10 <= 0 ) {
+F_4 ( L_2 ,
+V_3 , V_10 ) ;
+return - 1 ;
+}
+V_12 += V_10 ;
+return V_10 ;
+}
+static void F_6 ( int V_3 )
+{
+char V_2 [ V_13 ] ;
+int V_10 ;
+while ( V_3 ) {
+V_10 = V_3 > V_13 ? V_13 : V_3 ;
+F_5 ( V_2 , V_10 ) ;
+V_3 -= V_10 ;
+} ;
+}
+static unsigned int F_7 ( struct V_14 * V_14 )
+{
+unsigned int V_9 ;
+if ( F_5 ( & V_9 , 4 ) < 0 )
+return 0 ;
+return F_8 ( V_14 , V_9 ) ;
+}
+static unsigned long long F_9 ( struct V_14 * V_14 )
+{
+unsigned long long V_9 ;
+if ( F_5 ( & V_9 , 8 ) < 0 )
+return 0 ;
+return F_10 ( V_14 , V_9 ) ;
+}
+static char * F_11 ( void )
+{
+char V_2 [ V_13 ] ;
+char * V_15 = NULL ;
+int V_3 = 0 ;
+T_1 V_10 ;
+char V_16 ;
+for (; ; ) {
+V_10 = F_2 ( V_11 , & V_16 , 1 ) ;
+if ( V_10 < 0 ) {
+F_4 ( L_3 ) ;
+goto V_17;
+}
+if ( ! V_10 ) {
+F_4 ( L_4 ) ;
+goto V_17;
+}
+if ( V_6 ) {
+int V_7 = F_3 ( V_8 , & V_16 , 1 ) ;
+if ( V_7 <= 0 || V_7 != V_10 ) {
+F_4 ( L_5 ) ;
+goto V_17;
+}
+}
+V_2 [ V_3 ++ ] = V_16 ;
+if ( ! V_16 )
+break;
+}
+V_12 += V_3 ;
+V_15 = malloc ( V_3 ) ;
+if ( V_15 )
+memcpy ( V_15 , V_2 , V_3 ) ;
+V_17:
+return V_15 ;
+}
+static int F_12 ( struct V_14 * V_14 )
+{
+unsigned int V_3 ;
+char * V_2 ;
+V_3 = F_7 ( V_14 ) ;
+if ( ! V_3 )
+return 0 ;
+V_2 = malloc ( V_3 + 1 ) ;
+if ( V_2 == NULL )
+return - 1 ;
+if ( F_5 ( V_2 , V_3 ) < 0 ) {
+free ( V_2 ) ;
+return - 1 ;
+}
+V_2 [ V_3 ] = '\0' ;
+F_13 ( V_14 , V_2 , V_3 ) ;
+free ( V_2 ) ;
+return 0 ;
+}
+static int F_14 ( struct V_14 * V_14 )
+{
+unsigned int V_3 ;
+char * V_2 ;
+V_3 = F_7 ( V_14 ) ;
+if ( ! V_3 )
+return 0 ;
+V_2 = malloc ( V_3 ) ;
+if ( V_2 == NULL )
+return - 1 ;
+if ( F_5 ( V_2 , V_3 ) < 0 ) {
+free ( V_2 ) ;
+return - 1 ;
+}
+F_15 ( V_14 , V_2 , V_3 ) ;
+free ( V_2 ) ;
+return 0 ;
+}
+static int F_16 ( struct V_14 * V_14 )
+{
+unsigned long long V_3 ;
+char * V_18 ;
+char V_2 [ V_13 ] ;
+int V_5 = 0 ;
+if ( F_5 ( V_2 , 12 ) < 0 )
+return - 1 ;
+if ( memcmp ( V_2 , L_6 , 12 ) != 0 ) {
+F_4 ( L_7 ) ;
+return - 1 ;
+}
+V_3 = F_9 ( V_14 ) ;
+V_18 = malloc ( V_3 ) ;
+if ( V_18 == NULL )
+return - 1 ;
+if ( F_5 ( V_18 , V_3 ) < 0 ) {
+F_4 ( L_7 ) ;
+free ( V_18 ) ;
+return - 1 ;
+}
+if ( ! F_17 ( V_14 , V_18 , V_3 ,
+F_18 ( V_14 ) ) ) {
+F_19 ( V_14 , V_14 -> V_19 ) ;
+}
+free ( V_18 ) ;
+if ( F_5 ( V_2 , 13 ) < 0 )
+return - 1 ;
+if ( memcmp ( V_2 , L_8 , 13 ) != 0 ) {
+F_4 ( L_9 ) ;
+return - 1 ;
+}
+V_3 = F_9 ( V_14 ) ;
+F_6 ( V_3 ) ;
+return V_5 ;
+}
+static int F_20 ( struct V_14 * V_14 , unsigned long long V_3 )
+{
+char * V_2 ;
+V_2 = malloc ( V_3 ) ;
+if ( V_2 == NULL )
+return - 1 ;
+if ( F_5 ( V_2 , V_3 ) < 0 ) {
+free ( V_2 ) ;
+return - 1 ;
+}
+F_21 ( V_14 , V_2 , V_3 ) ;
+free ( V_2 ) ;
+return 0 ;
+}
+static int F_22 ( struct V_14 * V_14 , char * V_20 ,
+unsigned long long V_3 )
+{
+char * V_2 ;
+V_2 = malloc ( V_3 ) ;
+if ( V_2 == NULL )
+return - 1 ;
+if ( F_5 ( V_2 , V_3 ) < 0 ) {
+free ( V_2 ) ;
+return - 1 ;
+}
+F_23 ( V_14 , V_2 , V_3 , V_20 ) ;
+free ( V_2 ) ;
+return 0 ;
+}
+static int F_24 ( struct V_14 * V_14 )
+{
+unsigned long long V_3 ;
+int V_21 ;
+int V_22 ;
+int V_5 ;
+V_21 = F_7 ( V_14 ) ;
+for ( V_22 = 0 ; V_22 < V_21 ; V_22 ++ ) {
+V_3 = F_9 ( V_14 ) ;
+V_5 = F_20 ( V_14 , V_3 ) ;
+if ( V_5 )
+return V_5 ;
+}
+return 0 ;
+}
+static int F_25 ( struct V_14 * V_14 )
+{
+unsigned long long V_3 ;
+char * V_20 ;
+int V_23 ;
+int V_21 ;
+int V_22 , V_24 ;
+int V_5 ;
+V_23 = F_7 ( V_14 ) ;
+for ( V_22 = 0 ; V_22 < V_23 ; V_22 ++ ) {
+V_20 = F_11 () ;
+if ( V_20 == NULL )
+return - 1 ;
+V_21 = F_7 ( V_14 ) ;
+for ( V_24 = 0 ; V_24 < V_21 ; V_24 ++ ) {
+V_3 = F_9 ( V_14 ) ;
+V_5 = F_22 ( V_14 , V_20 , V_3 ) ;
+if ( V_5 )
+return V_5 ;
+}
+}
+return 0 ;
+}
+T_2 F_26 ( int V_1 , struct V_14 * * V_25 , bool V_26 )
+{
+char V_2 [ V_13 ] ;
+char V_27 [] = { 23 , 8 , 68 } ;
+char * V_28 ;
+int V_29 = 0 ;
+int V_30 = 0 ;
+int V_31 = 0 ;
+T_2 V_3 = - 1 ;
+int V_32 ;
+int V_33 ;
+int V_34 ;
+int V_35 ;
+struct V_14 * V_14 ;
+int V_36 ;
+* V_25 = NULL ;
+V_6 = V_26 ;
+V_11 = V_1 ;
+if ( F_5 ( V_2 , 3 ) < 0 )
+return - 1 ;
+if ( memcmp ( V_2 , V_27 , 3 ) != 0 ) {
+F_4 ( L_10 ) ;
+return - 1 ;
+}
+if ( F_5 ( V_2 , 7 ) < 0 )
+return - 1 ;
+if ( memcmp ( V_2 , L_11 , 7 ) != 0 ) {
+F_4 ( L_12 ) ;
+return - 1 ;
+}
+V_28 = F_11 () ;
+if ( V_28 == NULL )
+return - 1 ;
+if ( V_29 )
+printf ( L_13 , V_28 ) ;
+free ( V_28 ) ;
+if ( F_5 ( V_2 , 1 ) < 0 )
+return - 1 ;
+V_32 = V_2 [ 0 ] ;
+V_33 = F_27 () ;
+V_14 = F_28 ( V_32 , V_33 ) ;
+if ( V_14 == NULL ) {
+F_4 ( L_14 ) ;
+goto V_17;
+}
+if ( F_5 ( V_2 , 1 ) < 0 )
+goto V_17;
+V_34 = V_2 [ 0 ] ;
+V_35 = F_7 ( V_14 ) ;
+if ( ! V_35 )
+goto V_17;
+F_19 ( V_14 , V_34 ) ;
+F_29 ( V_14 , V_35 ) ;
+V_36 = F_16 ( V_14 ) ;
+if ( V_36 )
+goto V_17;
+V_36 = F_24 ( V_14 ) ;
+if ( V_36 )
+goto V_17;
+V_36 = F_25 ( V_14 ) ;
+if ( V_36 )
+goto V_17;
+V_36 = F_12 ( V_14 ) ;
+if ( V_36 )
+goto V_17;
+V_36 = F_14 ( V_14 ) ;
+if ( V_36 )
+goto V_17;
+V_3 = V_12 ;
+V_6 = false ;
+if ( V_30 ) {
+F_30 ( V_14 ) ;
+} else if ( V_31 ) {
+F_31 ( V_14 ) ;
+}
+* V_25 = V_14 ;
+V_14 = NULL ;
+V_17:
+if ( V_14 )
+F_32 ( V_14 ) ;
+return V_3 ;
+}

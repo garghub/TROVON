@@ -1,0 +1,283 @@
+static unsigned long F_1 ( unsigned long V_1 )
+{
+unsigned long V_2 ;
+__asm__ __volatile__("ldxa [%1] %2, %0"
+: "=&r" (ret)
+: "r" (addr), "i" (ASI_PHYS_BYPASS_EC_E));
+return V_2 ;
+}
+static void F_2 ( unsigned long V_1 , unsigned long V_3 )
+{
+__asm__ __volatile__("stxa %0, [%1] %2\n\t"
+"membar #Sync"
+:
+: "r" (val), "r" (addr), "i" (ASI_PHYS_BYPASS_EC_E)
+: "memory");
+if ( V_1 == V_4 ) {
+F_3 ( 1 ) ;
+}
+}
+static void F_4 ( int V_5 )
+{
+unsigned long V_6 = F_1 ( V_7 ) ;
+if ( V_5 )
+V_6 |= V_8 ;
+else
+V_6 &= ~ V_8 ;
+F_2 ( V_7 , V_6 ) ;
+( void ) F_1 ( V_7 ) ;
+}
+static void F_5 ( int V_9 ,
+unsigned long V_10 ,
+unsigned long V_11 , unsigned long V_12 )
+{
+unsigned long V_13 , V_14 , V_6 ;
+V_14 = ( V_10 * V_15 ) ;
+V_14 /= ( V_16 * V_12 * 1000000000UL ) ;
+V_6 = F_1 ( V_7 ) ;
+V_13 = ( V_6 & V_17 )
+>> V_18 ;
+V_6 &= ~ V_17 ;
+V_6 |= V_14 << V_18 ;
+F_2 ( V_7 , V_6 ) ;
+V_6 = F_1 ( V_7 ) ;
+if ( V_9 && ! ( V_6 & V_8 ) ) {
+unsigned long V_19 ;
+V_19 = ( V_16 *
+( V_14 + V_13 ) *
+1000000UL *
+V_11 ) / V_10 ;
+F_3 ( V_19 + 1UL ) ;
+}
+}
+static void F_6 ( unsigned long V_20 , unsigned long V_21 ,
+unsigned long V_10 ,
+unsigned long V_11 , unsigned long V_12 )
+{
+unsigned long V_22 ;
+F_7 ( V_22 ) ;
+V_20 &= ~ V_23 ;
+if ( V_11 == 2 && V_12 == 1 ) {
+F_4 ( 0 ) ;
+F_2 ( V_4 , V_20 | V_21 ) ;
+F_5 ( 0 , V_10 , V_11 , V_12 ) ;
+} else if ( V_11 == 1 && V_12 == 2 ) {
+F_5 ( 1 , V_10 , V_11 , V_12 ) ;
+F_2 ( V_4 , V_20 | V_21 ) ;
+F_4 ( 1 ) ;
+} else if ( V_11 == 1 && V_12 > 2 ) {
+F_6 ( V_20 , V_24 , V_10 ,
+1 , 2 ) ;
+F_6 ( V_20 , V_21 , V_10 ,
+2 , V_12 ) ;
+} else if ( V_11 > 2 && V_12 == 1 ) {
+F_6 ( V_20 , V_24 , V_10 ,
+V_11 , 2 ) ;
+F_6 ( V_20 , V_21 , V_10 ,
+2 , V_12 ) ;
+} else if ( V_11 < V_12 ) {
+F_5 ( 0 , V_10 , V_11 , V_12 ) ;
+F_2 ( V_4 , V_20 | V_21 ) ;
+} else if ( V_11 > V_12 ) {
+F_2 ( V_4 , V_20 | V_21 ) ;
+F_5 ( 1 , V_10 , V_11 , V_12 ) ;
+} else {
+F_8 () ;
+}
+F_9 ( V_22 ) ;
+}
+static unsigned long F_10 ( unsigned int V_25 )
+{
+switch ( V_25 ) {
+case 0 :
+return V_26 ;
+case 1 :
+return V_24 ;
+case 2 :
+return V_27 ;
+case 3 :
+return V_28 ;
+case 4 :
+return V_29 ;
+default:
+F_8 () ;
+}
+}
+static unsigned long F_11 ( unsigned int V_25 )
+{
+switch ( V_25 ) {
+case 0 :
+return 1 ;
+case 1 :
+return 2 ;
+case 2 :
+return 4 ;
+case 3 :
+return 6 ;
+case 4 :
+return 8 ;
+default:
+F_8 () ;
+}
+}
+static unsigned long F_12 ( unsigned long V_20 )
+{
+unsigned long V_2 ;
+switch ( V_20 & V_23 ) {
+case V_26 :
+V_2 = 1 ;
+break;
+case V_24 :
+V_2 = 2 ;
+break;
+case V_27 :
+V_2 = 4 ;
+break;
+case V_28 :
+V_2 = 6 ;
+break;
+case V_29 :
+V_2 = 8 ;
+break;
+default:
+F_8 () ;
+}
+return V_2 ;
+}
+static unsigned int F_13 ( unsigned int V_30 )
+{
+T_1 V_31 ;
+unsigned long V_10 , V_20 ;
+if ( ! F_14 ( V_30 ) )
+return 0 ;
+F_15 ( & V_31 , F_16 ( V_32 ) ) ;
+F_17 ( V_32 , F_18 ( V_30 ) ) ;
+V_10 = F_19 ( V_30 ) / 1000 ;
+V_20 = F_1 ( V_4 ) ;
+F_17 ( V_32 , & V_31 ) ;
+return V_10 / F_12 ( V_20 ) ;
+}
+static void F_20 ( unsigned int V_30 , unsigned int V_25 )
+{
+unsigned long V_21 , V_33 ;
+unsigned long V_10 , V_12 , V_11 , V_20 ;
+T_1 V_31 ;
+struct V_34 V_35 ;
+if ( ! F_14 ( V_30 ) )
+return;
+F_15 ( & V_31 , F_16 ( V_32 ) ) ;
+F_17 ( V_32 , F_18 ( V_30 ) ) ;
+V_33 = V_10 = F_19 ( V_30 ) / 1000 ;
+V_21 = F_10 ( V_25 ) ;
+V_12 = F_11 ( V_25 ) ;
+V_33 /= V_12 ;
+V_20 = F_1 ( V_4 ) ;
+V_11 = F_12 ( V_20 ) ;
+V_35 . V_36 = V_10 / V_11 ;
+V_35 . V_37 = V_33 ;
+V_35 . V_30 = V_30 ;
+F_21 ( & V_35 , V_38 ) ;
+if ( V_11 != V_12 )
+F_6 ( V_20 , V_21 , V_10 * 1000 ,
+V_11 , V_12 ) ;
+F_21 ( & V_35 , V_39 ) ;
+F_17 ( V_32 , & V_31 ) ;
+}
+static int F_22 ( struct V_40 * V_41 ,
+unsigned int V_42 ,
+unsigned int V_43 )
+{
+unsigned int V_44 = 0 ;
+if ( F_23 ( V_41 ,
+& V_45 [ V_41 -> V_30 ] . V_46 [ 0 ] ,
+V_42 , V_43 , & V_44 ) )
+return - V_47 ;
+F_20 ( V_41 -> V_30 , V_44 ) ;
+return 0 ;
+}
+static int F_24 ( struct V_40 * V_41 )
+{
+return F_25 ( V_41 ,
+& V_45 [ V_41 -> V_30 ] . V_46 [ 0 ] ) ;
+}
+static int T_2 F_26 ( struct V_40 * V_41 )
+{
+unsigned int V_30 = V_41 -> V_30 ;
+unsigned long V_10 = F_19 ( V_30 ) / 1000 ;
+struct V_48 * V_46 =
+& V_45 [ V_30 ] . V_46 [ 0 ] ;
+V_46 [ 0 ] . V_25 = 0 ;
+V_46 [ 0 ] . V_49 = V_10 / 1 ;
+V_46 [ 1 ] . V_25 = 1 ;
+V_46 [ 1 ] . V_49 = V_10 / 2 ;
+V_46 [ 2 ] . V_25 = 2 ;
+V_46 [ 2 ] . V_49 = V_10 / 4 ;
+V_46 [ 2 ] . V_25 = 3 ;
+V_46 [ 2 ] . V_49 = V_10 / 6 ;
+V_46 [ 2 ] . V_25 = 4 ;
+V_46 [ 2 ] . V_49 = V_10 / 8 ;
+V_46 [ 2 ] . V_25 = 5 ;
+V_46 [ 3 ] . V_49 = V_50 ;
+V_41 -> V_51 . V_52 = 0 ;
+V_41 -> V_53 = V_10 ;
+return F_27 ( V_41 , V_46 ) ;
+}
+static int F_28 ( struct V_40 * V_41 )
+{
+if ( V_54 )
+F_20 ( V_41 -> V_30 , 0 ) ;
+return 0 ;
+}
+static int T_2 F_29 ( void )
+{
+unsigned long V_55 , V_56 , V_57 ;
+int V_2 ;
+if ( V_58 != V_59 )
+return - V_60 ;
+__asm__("rdpr %%ver, %0" : "=r" (ver));
+V_55 = ( ( V_57 >> 48 ) & 0xffff ) ;
+V_56 = ( ( V_57 >> 32 ) & 0xffff ) ;
+if ( V_55 == 0x17 && V_56 == 0x13 ) {
+struct V_61 * V_62 ;
+V_2 = - V_63 ;
+V_62 = F_30 ( sizeof( struct V_61 ) , V_64 ) ;
+if ( ! V_62 )
+goto V_65;
+V_45 = F_30 (
+( V_66 * sizeof( struct V_67 ) ) ,
+V_64 ) ;
+if ( ! V_45 )
+goto V_65;
+V_62 -> V_68 = F_26 ;
+V_62 -> V_69 = F_24 ;
+V_62 -> V_70 = F_22 ;
+V_62 -> V_71 = F_13 ;
+V_62 -> exit = F_28 ;
+V_62 -> V_72 = V_73 ,
+strcpy ( V_62 -> V_74 , L_1 ) ;
+V_54 = V_62 ;
+V_2 = F_31 ( V_62 ) ;
+if ( V_2 )
+goto V_65;
+return 0 ;
+V_65:
+if ( V_62 ) {
+F_32 ( V_62 ) ;
+V_54 = NULL ;
+}
+F_32 ( V_45 ) ;
+V_45 = NULL ;
+return V_2 ;
+}
+return - V_60 ;
+}
+static void T_3 F_33 ( void )
+{
+if ( V_54 ) {
+F_34 ( V_54 ) ;
+F_32 ( V_54 ) ;
+V_54 = NULL ;
+F_32 ( V_45 ) ;
+V_45 = NULL ;
+}
+}

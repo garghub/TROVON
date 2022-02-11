@@ -1,0 +1,1 @@
+int\r\nF_1 ( void * V_1 , void * V_2 )\r\n{\r\n#if 0\r\n#ifdef F_2\r\nprintk("%s: S %p, ea %p: ", __func__, frS, ea);\r\ndump_double(frS);\r\nprintk("\n");\r\n#endif\r\n#endif\r\nif ( F_3 ( V_2 , V_1 , sizeof( double ) ) )\r\nreturn - V_3 ;\r\nreturn 0 ;\r\n}

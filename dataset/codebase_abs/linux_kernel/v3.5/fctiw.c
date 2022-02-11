@@ -1,0 +1,1 @@
+int\r\nF_1 ( T_1 * V_1 , void * V_2 )\r\n{\r\nF_2 ( V_3 ) ;\r\nV_4 ;\r\nunsigned int V_5 ;\r\nF_3 ( V_3 , V_2 ) ;\r\nF_4 ( V_5 , V_3 , 32 , 1 ) ;\r\nV_1 [ 1 ] = V_5 ;\r\n#ifdef F_5\r\nF_6 ( L_1 , V_6 , V_1 , V_2 ) ;\r\nF_7 ( V_1 ) ;\r\nF_6 ( L_2 ) ;\r\n#endif\r\nreturn 0 ;\r\n}

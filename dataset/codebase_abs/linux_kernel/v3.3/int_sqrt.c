@@ -1,0 +1,1 @@
+unsigned long F_1 ( unsigned long V_1 )\r\n{\r\nunsigned long V_2 , V_3 , V_4 ;\r\nV_2 = V_1 ;\r\nV_3 = 0 ;\r\nV_4 = 1UL << ( V_5 - 2 ) ;\r\nwhile ( V_4 > V_2 )\r\nV_4 >>= 2 ;\r\nwhile ( V_4 != 0 ) {\r\nif ( V_2 >= V_3 + V_4 ) {\r\nV_2 = V_2 - ( V_3 + V_4 ) ;\r\nV_3 = V_3 + 2 * V_4 ;\r\n}\r\nV_3 /= 2 ;\r\nV_4 /= 4 ;\r\n}\r\nreturn V_3 ;\r\n}

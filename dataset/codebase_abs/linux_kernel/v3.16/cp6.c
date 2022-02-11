@@ -1,0 +1,1 @@
+static int F_1 ( struct V_1 * V_2 , unsigned int V_3 )\r\n{\r\nT_1 V_4 ;\r\nasm volatile (\r\n"mrc p15, 0, %0, c15, c1, 0\n\t"\r\n"orr %0, %0, #(1 << 6)\n\t"\r\n"mcr p15, 0, %0, c15, c1, 0\n\t"\r\n: "=r"(temp));\r\nreturn 0 ;\r\n}\r\nvoid T_2 F_2 ( void )\r\n{\r\nF_3 ( & V_5 ) ;\r\n}

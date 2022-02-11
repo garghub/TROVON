@@ -1,0 +1,53 @@
+static int F_1 ( void )
+{
+void T_1 * V_1 = F_2 ( V_2 ) ;
+T_2 V_3 = F_3 ( V_1 + V_4 ) & 0xff ;
+switch ( V_3 ) {
+case 0x0 :
+return V_5 ;
+case 0x10 :
+return V_6 ;
+default:
+return V_7 ;
+}
+}
+int F_4 ( void )
+{
+if ( ! F_5 () )
+return - V_8 ;
+if ( V_9 == - 1 )
+V_9 = F_1 () ;
+return V_9 ;
+}
+int T_3 F_6 ( void )
+{
+if ( F_4 () < V_6 &&
+( V_10 & V_11 ) ) {
+V_10 &= ~ V_11 ;
+F_7 ( L_1 ) ;
+}
+return 0 ;
+}
+static int F_8 ( void )
+{
+void T_1 * V_1 = F_2 ( V_12 ) ;
+T_2 V_3 = F_3 ( V_1 + V_4 ) & 0xff ;
+switch ( V_3 ) {
+case 0x0 :
+return V_13 ;
+case 0x2 :
+return V_5 ;
+case 0x3 :
+return V_14 ;
+default:
+return V_7 ;
+}
+}
+int F_9 ( void )
+{
+if ( ! F_10 () )
+return - V_8 ;
+if ( V_9 == - 1 )
+V_9 = F_8 () ;
+return V_9 ;
+}

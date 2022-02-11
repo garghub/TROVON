@@ -1,0 +1,1 @@
+char * T_1 F_1 ( void )\r\n{\r\nreturn & ( V_1 [ 0 ] ) ;\r\n}\r\nvoid T_1 F_2 ( void )\r\n{\r\nchar * V_2 ;\r\nint V_3 ;\r\nV_3 = 1 ;\r\nV_2 = & ( V_1 [ 0 ] ) ;\r\nwhile( V_3 < V_4 ) {\r\nstrcpy ( V_2 , F_3 ( V_3 ) ) ;\r\nV_2 += strlen ( F_3 ( V_3 ) ) ;\r\n* V_2 ++ = ' ' ;\r\nV_3 ++ ;\r\n}\r\nif ( V_2 != & ( V_1 [ 0 ] ) ) {\r\n-- V_2 ;\r\n* V_2 = '\0' ;\r\n}\r\n}

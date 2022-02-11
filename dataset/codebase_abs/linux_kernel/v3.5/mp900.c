@@ -1,0 +1,1 @@
+static void F_1 ( struct V_1 * V_2 , int V_3 )\r\n{\r\nint V_4 = V_3 / 10 ;\r\n__asm__ volatile ("0:\n"\r\n"subs %0, %1, #1\n"\r\n"bge 0b\n"\r\n:"=r" (cyc)\r\n:"0"(cyc)\r\n);\r\n}\r\nstatic void T_1 F_2 ( void )\r\n{\r\nF_3 ( V_5 L_1 ) ;\r\nF_4 ( NULL ) ;\r\nF_5 ( NULL ) ;\r\nF_6 ( NULL ) ;\r\nF_7 ( V_6 , F_8 ( V_6 ) ) ;\r\n}

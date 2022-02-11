@@ -1,0 +1,1 @@
+int F_1 ( unsigned int V_1 )\r\n{\r\nreturn 1 ;\r\n}\r\nvoid F_2 ( unsigned int V_1 )\r\n{\r\nF_3 () ;\r\nF_4 () ;\r\nif ( F_5 ( 0x0 , 0x200 ) != 0x0 )\r\nF_6 ( V_2 L_1 ) ;\r\nfor (; ; ) {\r\nF_7 () ;\r\nif ( F_8 () == V_1 ) {\r\nbreak;\r\n}\r\nF_9 ( L_2 , V_1 ) ;\r\n}\r\n}\r\nint F_10 ( unsigned int V_1 )\r\n{\r\nreturn V_1 == 0 ? - V_3 : 0 ;\r\n}

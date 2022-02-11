@@ -1,0 +1,1 @@
+static int F_1 ()\r\n{\r\nint V_1 ;\r\nstruct V_2 * V_3 ;\r\nint V_4 ;\r\nV_4 = F_2 () ;\r\nif ( V_4 < 0 ) {\r\nF_3 ( L_1 ) ;\r\nreturn - 1 ;\r\n}\r\nprintf ( L_2 ) ;\r\nprintf ( L_3 ) ;\r\nfor ( V_1 = 0 ; V_1 < V_5 -> V_6 ; V_1 ++ ) {\r\nV_3 = & V_5 -> V_3 [ V_1 ] ;\r\nif ( F_4 ( V_3 ) < 0 )\r\nV_4 = - 1 ;\r\n}\r\nF_5 () ;\r\nreturn V_4 ;\r\n}

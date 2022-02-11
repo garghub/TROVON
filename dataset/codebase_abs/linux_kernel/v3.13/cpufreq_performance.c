@@ -1,0 +1,1 @@
+static int F_1 ( struct V_1 * V_2 ,\r\nunsigned int V_3 )\r\n{\r\nswitch ( V_3 ) {\r\ncase V_4 :\r\ncase V_5 :\r\nF_2 ( L_1 ,\r\nV_2 -> V_6 , V_3 ) ;\r\nF_3 ( V_2 , V_2 -> V_6 ,\r\nV_7 ) ;\r\nbreak;\r\ndefault:\r\nbreak;\r\n}\r\nreturn 0 ;\r\n}\r\nstatic int T_1 F_4 ( void )\r\n{\r\nreturn F_5 ( & V_8 ) ;\r\n}\r\nstatic void T_2 F_6 ( void )\r\n{\r\nF_7 ( & V_8 ) ;\r\n}

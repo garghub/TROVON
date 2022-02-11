@@ -1,0 +1,1 @@
+int T_1 F_1 ( const struct V_1 * V_2 , T_2 V_3 , T_2 V_4 )\r\n{\r\nint V_5 = - 1 ;\r\nswitch ( V_3 ) {\r\ncase 12 :\r\nV_5 = V_6 ;\r\nbreak;\r\ncase 13 :\r\nV_5 = V_7 ;\r\nbreak;\r\ncase 14 :\r\nV_5 = V_8 ;\r\nbreak;\r\ndefault:\r\nbreak;\r\n}\r\nreturn V_5 ;\r\n}\r\nint F_2 ( struct V_1 * V_2 )\r\n{\r\nreturn 0 ;\r\n}

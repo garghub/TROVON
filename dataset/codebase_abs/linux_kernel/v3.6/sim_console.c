@@ -1,0 +1,1 @@
+static inline unsigned int F_1 ( int V_1 )\r\n{\r\nreturn F_2 ( 0x3f8 + V_1 ) ;\r\n}\r\nstatic inline void F_3 ( int V_1 , int V_2 )\r\n{\r\nF_4 ( V_2 , 0x3f8 + V_1 ) ;\r\n}\r\nvoid T_1 F_5 ( char V_3 )\r\n{\r\nwhile ( ( F_1 ( V_4 ) & V_5 ) == 0 )\r\n;\r\nF_3 ( V_6 , V_3 ) ;\r\n}

@@ -1,0 +1,1 @@
+static int F_1 ( struct V_1 * V_2 ,\r\nstruct V_3 * V_4 ,\r\nint V_5 )\r\n{\r\nF_2 () ;\r\nF_3 () ;\r\nF_4 () ;\r\nF_5 ( V_6 , & V_2 -> V_7 ) ;\r\nF_6 ( 0 , V_8 ) ;\r\nF_5 ( V_9 , & V_2 -> V_7 ) ;\r\nF_7 () ;\r\nF_8 () ;\r\nF_9 () ;\r\nreturn V_5 ;\r\n}\r\nint T_1 F_10 ( void )\r\n{\r\nreturn F_11 ( & V_10 , NULL ) ;\r\n}

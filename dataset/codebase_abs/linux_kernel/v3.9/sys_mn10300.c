@@ -1,0 +1,1 @@
+T_1 long F_1 ( unsigned long V_1 , unsigned long V_2 ,\r\nunsigned long V_3 , unsigned long V_4 ,\r\nunsigned long V_5 , unsigned long V_6 )\r\n{\r\nif ( V_6 & ~ V_7 )\r\nreturn - V_8 ;\r\nreturn F_2 ( V_1 , V_2 , V_3 , V_4 , V_5 , V_6 >> V_9 ) ;\r\n}

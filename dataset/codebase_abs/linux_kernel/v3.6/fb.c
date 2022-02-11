@@ -1,0 +1,1 @@
+void T_1 F_1 ( const struct V_1 * V_2 )\r\n{\r\nV_3 . V_4 = * V_2 ;\r\nV_5 = true ;\r\n}\r\nstatic int T_1 F_2 ( void )\r\n{\r\nif ( ! V_5 )\r\nreturn 0 ;\r\nreturn F_3 ( & V_6 ) ;\r\n}\r\nstatic int T_1 F_2 ( void )\r\n{\r\nreturn F_3 ( & V_6 ) ;\r\n}\r\nvoid T_1 F_1 ( const struct V_1 * V_2 )\r\n{\r\n}

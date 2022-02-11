@@ -1,0 +1,1 @@
+static struct V_1 * F_1 ( struct V_2 * V_3 ,\r\nstruct V_4 * V_5 )\r\n{\r\nstruct V_6 * V_7 ;\r\nV_7 = F_2 ( V_3 -> V_8 , V_5 ) ;\r\nreturn F_3 ( V_7 -> V_9 , V_7 ) ;\r\n}\r\nstatic int F_4 ( struct V_10 * V_11 )\r\n{\r\nreturn F_5 ( & V_11 -> V_12 ,\r\n& V_13 ,\r\nV_14 |\r\nV_15 ) ;\r\n}\r\nstatic int F_6 ( struct V_10 * V_11 )\r\n{\r\nF_7 ( & V_11 -> V_12 ) ;\r\nreturn 0 ;\r\n}

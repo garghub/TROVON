@@ -1,0 +1,1 @@
+int T_1 F_1 ( void )\r\n{\r\nV_1 = F_2 ( & V_2 , L_1 , V_3 ) ;\r\nV_4 = F_2 ( & V_2 , L_2 , V_5 ) ;\r\nif ( ! V_1 || ! V_4 ) {\r\nF_3 () ;\r\nreturn - V_6 ;\r\n}\r\nreturn 0 ;\r\n}\r\nvoid F_3 ( void )\r\n{\r\nif ( V_1 ) {\r\nF_4 ( V_1 ) ;\r\nV_1 = NULL ;\r\n}\r\nif ( V_4 ) {\r\nF_4 ( V_4 ) ;\r\nV_4 = NULL ;\r\n}\r\n}

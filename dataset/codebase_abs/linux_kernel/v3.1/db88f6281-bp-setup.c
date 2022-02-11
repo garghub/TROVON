@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\nF_2 () ;\r\nF_3 ( V_1 ) ;\r\nF_4 ( F_5 ( V_2 ) , 25 ) ;\r\nF_6 () ;\r\nF_7 ( & V_3 ) ;\r\nF_8 ( & V_4 ) ;\r\nF_9 () ;\r\nF_10 ( & V_5 ) ;\r\n}\r\nstatic int T_1 F_11 ( void )\r\n{\r\nif ( F_12 () ) {\r\nT_2 V_6 , V_7 ;\r\nF_13 ( & V_6 , & V_7 ) ;\r\nif ( V_6 == V_8 )\r\nF_14 ( V_9 | V_10 ) ;\r\nelse\r\nF_14 ( V_10 ) ;\r\n}\r\nreturn 0 ;\r\n}

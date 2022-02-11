@@ -1,0 +1,1 @@
+T_1 F_1 ( T_1 * V_1 )\r\n{\r\nstruct V_2 V_3 ;\r\nT_2 time ;\r\nT_1 V_4 ;\r\nV_3 = F_2 () ;\r\ntime = ( T_2 ) V_3 . V_5 * 1000000 + V_3 . V_6 / 1000 ;\r\nif ( V_1 != NULL )\r\n* V_1 = ( T_1 ) ( ( time >> 32 ) & 0xFFFFFFFF ) ;\r\nV_4 = ( T_1 ) ( time & 0xFFFFFFFF ) ;\r\nreturn V_4 ;\r\n}

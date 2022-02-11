@@ -1,0 +1,1 @@
+int T_1 F_1 ( void )\r\n{\r\nT_2 V_1 = { 0 } ;\r\nT_3 V_2 = { . V_3 = V_4 } ;\r\nV_1 . V_5 = V_6 ;\r\nV_1 . V_7 = V_6 / 4 + ( V_6 % 4 ? 1 : 0 ) ;\r\nF_2 ( V_8 , V_9 , V_10 , V_1 ) ;\r\nmemset ( ( void * ) ( V_11 | V_12 ) , 0 , 2 * 1024 ) ;\r\nF_2 ( V_8 , V_9 , V_13 , V_2 ) ;\r\nreturn 0 ;\r\n}

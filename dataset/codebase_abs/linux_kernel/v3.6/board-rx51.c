@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\nstruct V_1 * V_2 ;\r\nF_2 ( V_3 , V_4 ) ;\r\nF_3 () ;\r\nV_2 = F_4 () ;\r\nF_5 ( V_2 , V_2 ) ;\r\nF_6 ( & V_5 ) ;\r\nF_7 () ;\r\nF_8 ( L_1 , V_6 ) ;\r\nF_8 ( L_2 , V_6 ) ;\r\nF_9 ( & V_7 ) ;\r\n}\r\nstatic void T_1 F_10 ( void )\r\n{\r\nF_11 () ;\r\nF_12 () ;\r\n}

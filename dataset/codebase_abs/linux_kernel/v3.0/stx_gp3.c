@@ -1,0 +1,85 @@
+static void F_1 ( unsigned int V_1 , struct V_2 * V_3 )
+{
+struct V_4 * V_5 = F_2 ( V_3 ) ;
+int V_6 ;
+while ( ( V_6 = F_3 () ) >= 0 )
+F_4 ( V_6 ) ;
+V_5 -> V_7 ( & V_3 -> V_8 ) ;
+}
+static void T_1 F_5 ( void )
+{
+struct V_9 * V_9 ;
+struct V_10 V_11 ;
+struct V_12 * V_13 ;
+#ifdef F_6
+int V_1 ;
+#endif
+V_13 = F_7 ( NULL , L_1 ) ;
+if ( ! V_13 ) {
+F_8 ( V_14 L_2 ) ;
+return;
+}
+if ( F_9 ( V_13 , 0 , & V_11 ) ) {
+F_8 ( V_14 L_3 ) ;
+F_10 ( V_13 ) ;
+return;
+}
+V_9 = F_11 ( V_13 , V_11 . V_15 ,
+V_16 | V_17 | V_18 ,
+0 , 256 , L_4 ) ;
+F_12 ( V_9 == NULL ) ;
+F_10 ( V_13 ) ;
+F_13 ( V_9 ) ;
+#ifdef F_6
+V_13 = F_14 ( NULL , NULL , L_5 ) ;
+if ( V_13 == NULL ) {
+F_8 ( V_14 L_6 ) ;
+return;
+}
+V_1 = F_15 ( V_13 , 0 ) ;
+if ( V_1 == V_19 ) {
+F_10 ( V_13 ) ;
+F_8 ( V_14 L_7 ) ;
+return;
+}
+F_16 ( V_13 ) ;
+F_10 ( V_13 ) ;
+F_17 ( V_1 , F_1 ) ;
+#endif
+}
+static void T_1 F_18 ( void )
+{
+#ifdef F_19
+struct V_12 * V_13 ;
+#endif
+if ( V_20 . V_21 )
+V_20 . V_21 ( L_8 , 0 ) ;
+#ifdef F_6
+F_20 () ;
+#endif
+#ifdef F_19
+F_21 (np, L_9 , L_10 )
+F_22 ( V_13 , 1 ) ;
+#endif
+}
+static void F_23 ( struct V_22 * V_23 )
+{
+T_2 V_24 , V_25 , V_26 ;
+V_24 = F_24 ( V_27 ) ;
+V_25 = F_24 ( V_28 ) ;
+F_25 ( V_23 , L_11 ) ;
+F_25 ( V_23 , L_12 , V_24 ) ;
+F_25 ( V_23 , L_13 , V_25 ) ;
+V_26 = F_24 ( V_29 ) ;
+F_25 ( V_23 , L_14 , ( ( V_26 >> 24 ) & 0x3f ) ) ;
+}
+static int T_1 F_26 ( void )
+{
+F_27 ( NULL , V_30 , NULL ) ;
+return 0 ;
+}
+static int T_1 F_28 ( void )
+{
+unsigned long V_31 = F_29 () ;
+return F_30 ( V_31 , L_15 ) ;
+}

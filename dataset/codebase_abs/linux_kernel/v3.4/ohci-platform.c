@@ -1,0 +1,93 @@
+static int F_1 ( struct V_1 * V_2 )
+{
+struct V_3 * V_4 = F_2 ( V_2 -> V_5 . V_6 ) ;
+struct V_7 * V_8 = V_4 -> V_9 . V_10 ;
+struct V_11 * V_12 = F_3 ( V_2 ) ;
+int V_13 ;
+if ( V_8 -> V_14 )
+V_12 -> V_15 |= V_16 ;
+if ( V_8 -> V_17 )
+V_12 -> V_15 |= V_18 ;
+if ( V_8 -> V_19 )
+V_12 -> V_15 |= V_20 ;
+F_4 ( V_12 ) ;
+V_13 = F_5 ( V_12 ) ;
+return V_13 ;
+}
+static int F_6 ( struct V_1 * V_2 )
+{
+struct V_11 * V_12 = F_3 ( V_2 ) ;
+int V_13 ;
+V_13 = F_7 ( V_12 ) ;
+if ( V_13 < 0 ) {
+F_8 ( V_12 , L_1 ) ;
+F_9 ( V_2 ) ;
+}
+return V_13 ;
+}
+static int T_1 F_10 ( struct V_3 * V_9 )
+{
+struct V_1 * V_2 ;
+struct V_21 * V_22 ;
+int V_23 ;
+int V_13 = - V_24 ;
+F_11 ( ! V_9 -> V_9 . V_10 ) ;
+if ( F_12 () )
+return - V_25 ;
+V_23 = F_13 ( V_9 , 0 ) ;
+if ( V_23 < 0 ) {
+F_14 ( L_2 ) ;
+return V_23 ;
+}
+V_22 = F_15 ( V_9 , V_26 , 0 ) ;
+if ( ! V_22 ) {
+F_14 ( L_3 ) ;
+return - V_27 ;
+}
+V_2 = F_16 ( & V_28 , & V_9 -> V_9 ,
+F_17 ( & V_9 -> V_9 ) ) ;
+if ( ! V_2 )
+return - V_24 ;
+V_2 -> V_29 = V_22 -> V_30 ;
+V_2 -> V_31 = F_18 ( V_22 ) ;
+if ( ! F_19 ( V_2 -> V_29 , V_2 -> V_31 , V_32 ) ) {
+F_14 ( L_4 ) ;
+V_13 = - V_33 ;
+goto V_34;
+}
+V_2 -> V_35 = F_20 ( V_2 -> V_29 , V_2 -> V_31 ) ;
+if ( ! V_2 -> V_35 )
+goto V_36;
+V_13 = F_21 ( V_2 , V_23 , V_37 ) ;
+if ( V_13 )
+goto V_38;
+F_22 ( V_9 , V_2 ) ;
+return V_13 ;
+V_38:
+F_23 ( V_2 -> V_35 ) ;
+V_36:
+F_24 ( V_2 -> V_29 , V_2 -> V_31 ) ;
+V_34:
+F_25 ( V_2 ) ;
+return V_13 ;
+}
+static int T_2 F_26 ( struct V_3 * V_9 )
+{
+struct V_1 * V_2 = F_27 ( V_9 ) ;
+F_28 ( V_2 ) ;
+F_23 ( V_2 -> V_35 ) ;
+F_24 ( V_2 -> V_29 , V_2 -> V_31 ) ;
+F_25 ( V_2 ) ;
+F_22 ( V_9 , NULL ) ;
+return 0 ;
+}
+static int F_29 ( struct V_39 * V_9 )
+{
+return 0 ;
+}
+static int F_30 ( struct V_39 * V_9 )
+{
+struct V_1 * V_2 = F_31 ( V_9 ) ;
+F_32 ( V_2 ) ;
+return 0 ;
+}

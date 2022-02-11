@@ -1,0 +1,172 @@
+static int T_1 F_1 ( char * V_1 )
+{
+if ( ! strcmp ( L_1 , V_1 ) )
+V_2 = V_3 ;
+else if ( strcmp ( L_2 , V_1 ) )
+F_2 ( L_3 , V_1 ) ;
+return 1 ;
+}
+enum V_4 F_3 ( void )
+{
+return V_2 ;
+}
+static int F_4 ( struct V_5 * V_6 , int V_7 )
+{
+F_5 ( F_6 ( V_8 ) , ! V_7 ) ;
+return 0 ;
+}
+static int F_7 ( struct V_5 * V_6 )
+{
+return F_8 ( F_6 ( V_9 ) ) ;
+}
+static int F_9 ( struct V_5 * V_6 , T_2 V_10 ,
+void * V_11 )
+{
+int V_12 ;
+V_12 = F_10 ( V_13 , L_4 ) ;
+if ( V_12 )
+return V_12 ;
+F_11 ( V_13 ) ;
+#ifdef F_12
+V_12 = F_10 ( V_14 , L_5 ) ;
+if ( V_12 )
+goto V_15;
+F_11 ( V_14 ) ;
+#endif
+V_12 = F_13 ( F_14 ( V_16 ) , V_10 ,
+V_17 | V_18 ,
+L_4 , V_11 ) ;
+if ( V_12 )
+goto V_19;
+return 0 ;
+V_19:
+#ifdef F_12
+F_15 ( V_14 ) ;
+V_15:
+#endif
+F_15 ( V_13 ) ;
+return V_12 ;
+}
+static void F_16 ( struct V_5 * V_6 , void * V_11 )
+{
+F_17 ( F_14 ( V_16 ) , V_11 ) ;
+F_15 ( V_13 ) ;
+F_15 ( V_14 ) ;
+}
+static int T_1 F_18 ( void )
+{
+int V_20 , V_12 = - V_21 ;
+struct V_22 * V_23 = F_19 ( & V_24 ) ;
+if ( F_20 ( V_23 ) )
+return F_21 ( V_23 ) ;
+V_20 = F_22 ( & V_23 -> V_6 ,
+V_25 , V_25 ,
+V_26 ,
+V_27 | V_28 ) ;
+if ( ! ( V_20 & V_27 ) )
+goto V_29;
+V_12 = F_23 ( V_23 ) ;
+if ( V_12 )
+V_29:
+F_24 ( V_23 ) ;
+return V_12 ;
+}
+static int F_25 ( struct V_22 * V_23 )
+{
+return F_26 ( V_23 -> V_30 , V_31 ) ;
+}
+static int F_27 ( struct V_22 * V_23 )
+{
+return F_26 ( V_23 -> V_30 , V_31 ) ;
+}
+static int T_1 F_28 ( char * V_32 )
+{
+if ( ! strcmp ( V_32 , L_6 ) )
+V_33 = 1 ;
+else if ( ! strcmp ( V_32 , L_7 ) )
+V_33 = 0 ;
+else
+F_29 ( L_8
+L_9 ) ;
+return 0 ;
+}
+static void T_1 F_30 ( void )
+{
+int V_12 ;
+F_31 () ;
+F_32 ( V_34 , 1 ) ;
+F_33 ( V_35 , F_34 ( V_35 ) ,
+L_10 ) ;
+#define F_35 (PAD_CTL_DRV_MAX | PAD_CTL_SRE_FAST | PAD_CTL_HYS_CMOS \
+| PAD_CTL_ODE_CMOS | PAD_CTL_100K_PU)
+F_36 ( V_36 , F_35 ) ;
+F_36 ( V_37 , F_35 ) ;
+F_36 ( V_38 , F_35 ) ;
+F_36 ( V_39 , F_35 ) ;
+F_36 ( V_40 , F_35 ) ;
+F_36 ( V_41 , F_35 ) ;
+F_36 ( V_42 , F_35 ) ;
+F_36 ( V_43 , F_35 ) ;
+F_36 ( V_44 , F_35 ) ;
+F_36 ( V_45 , F_35 ) ;
+F_36 ( V_46 , F_35 ) ;
+F_36 ( V_47 , F_35 ) ;
+if ( F_3 () == V_3 )
+F_33 ( V_48 ,
+F_34 ( V_48 ) , L_11 ) ;
+else
+F_33 ( V_49 ,
+F_34 ( V_49 ) ,
+L_11 ) ;
+F_37 ( V_50 , F_34 ( V_50 ) ) ;
+F_38 ( NULL ) ;
+F_39 ( & V_51 ) ;
+F_40 ( & V_51 ) ;
+F_41 ( & V_51 ) ;
+F_42 ( NULL ) ;
+V_12 = F_10 ( F_6 ( V_52 ) , L_12 ) ;
+if ( V_12 )
+F_2 ( L_13 ) ;
+else {
+F_11 ( F_6 ( V_52 ) ) ;
+F_43 ( & V_53 ) ;
+}
+F_44 ( 1 , V_54 ,
+F_34 ( V_54 ) ) ;
+F_45 ( & V_55 ) ;
+F_46 ( & V_56 ) ;
+F_47 ( & V_57 ) ;
+F_48 ( 0 , & V_58 ) ;
+F_49 ( & V_59 ) ;
+F_50 ( & V_60 ) ;
+V_12 = F_10 ( F_6 ( V_8 ) , L_14 ) ;
+if ( ! V_12 )
+F_51 ( F_6 ( V_8 ) , 1 ) ;
+else
+V_61 . V_62 = NULL ;
+F_18 () ;
+F_43 ( & V_63 ) ;
+if ( V_33 ) {
+V_64 . V_65 = F_52 ( V_66 |
+V_67 ) ;
+if ( V_64 . V_65 )
+F_53 ( & V_64 ) ;
+}
+V_68 . V_65 = F_52 ( V_66 |
+V_67 ) ;
+if ( V_68 . V_65 )
+F_54 ( 2 , & V_68 ) ;
+if ( ! V_33 )
+F_55 ( & V_69 ) ;
+}
+static void T_1 F_56 ( void )
+{
+F_57 ( 26000000 ) ;
+}
+static void T_1 F_58 ( void )
+{
+V_25 = F_59 ( V_26 ,
+V_26 ) ;
+F_60 ( V_25 , V_26 ) ;
+F_61 ( V_25 , V_26 ) ;
+}

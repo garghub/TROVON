@@ -1,0 +1,1 @@
+void F_1 ( enum V_1 V_2 , const char * V_3 )\r\n{\r\nT_1 V_4 ;\r\nV_4 = F_2 ( V_5 ) ;\r\nF_3 ( V_6 , V_4 ) ;\r\nF_4 () ;\r\nwhile ( 1 ) ;\r\n}\r\nstatic int T_2 F_5 ( void )\r\n{\r\nV_6 = F_6 ( NULL , L_1 ) ;\r\nif ( F_7 ( V_6 ) )\r\nreturn - V_7 ;\r\nV_5 = F_6 ( NULL , L_2 ) ;\r\nif ( F_7 ( V_5 ) )\r\nreturn - V_7 ;\r\nreturn 0 ;\r\n}

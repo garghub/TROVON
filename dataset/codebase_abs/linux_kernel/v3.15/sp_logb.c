@@ -1,0 +1,1 @@
+T_1 F_1 ( T_1 V_1 )\r\n{\r\nV_2 ;\r\nV_3 ;\r\nV_4 ;\r\nswitch ( V_5 ) {\r\ncase V_6 :\r\nreturn F_2 ( V_1 , L_1 , V_1 ) ;\r\ncase V_7 :\r\nreturn V_1 ;\r\ncase V_8 :\r\nreturn F_3 ( 0 ) ;\r\ncase V_9 :\r\nreturn F_3 ( 1 ) ;\r\ncase V_10 :\r\nV_11 ;\r\nbreak;\r\ncase V_12 :\r\nbreak;\r\n}\r\nreturn F_4 ( V_13 ) ;\r\n}

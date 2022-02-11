@@ -1,0 +1,1 @@
+static unsigned int\r\nF_1 ( struct V_1 * V_2 )\r\n{\r\nreturn 0 ;\r\n}\r\nstatic void\r\nF_2 ( struct V_1 * V_2 )\r\n{\r\n}\r\nstatic int\r\nF_3 ( struct V_1 * V_3 , const struct V_4 * V_5 , bool V_6 )\r\n{\r\nreturn 0 ;\r\n}\r\nvoid T_1\r\nF_4 ( void )\r\n{\r\nint V_7 ;\r\nF_5 (i) {\r\nstruct V_8 * V_9 = F_6 ( V_7 ) ;\r\nif ( V_9 == & V_10 )\r\nF_7 ( V_7 , & V_11 ) ;\r\n}\r\n}

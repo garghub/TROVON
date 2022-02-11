@@ -1,0 +1,1 @@
+void F_1 ( struct V_1 * V_2 )\r\n{\r\nF_2 ( & V_3 ) ;\r\nF_3 ( & V_2 -> V_4 , & V_5 ) ;\r\nF_4 ( & V_3 ) ;\r\n}\r\nvoid F_5 ( struct V_1 * V_2 )\r\n{\r\nF_2 ( & V_3 ) ;\r\nF_6 ( & V_2 -> V_4 ) ;\r\nF_4 ( & V_3 ) ;\r\n}\r\nint F_7 ( void )\r\n{\r\nreturn ! F_8 ( & V_5 ) ;\r\n}

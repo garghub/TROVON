@@ -1,0 +1,1 @@
+void T_1 * F_1 ( struct V_1 * V_2 , T_2 V_3 ,\r\nT_3 V_4 , unsigned long V_5 )\r\n{\r\nvoid T_1 * * V_6 , * V_7 ;\r\nV_6 = F_2 ( V_8 , sizeof( * V_6 ) , V_9 ) ;\r\nif ( ! V_6 )\r\nreturn NULL ;\r\nV_7 = F_3 ( V_3 , V_4 , V_5 ) ;\r\nif ( V_7 ) {\r\n* V_6 = V_7 ;\r\nF_4 ( V_2 , V_6 ) ;\r\n} else\r\nF_5 ( V_6 ) ;\r\nreturn V_7 ;\r\n}

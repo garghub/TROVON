@@ -1,0 +1,1 @@
+static void F_1 ( struct V_1 * V_1 )\r\n{\r\nif ( ! V_1 || ! V_1 -> V_2 )\r\nreturn;\r\nF_2 () ;\r\n}\r\nstatic void F_3 ( struct V_1 * V_1 )\r\n{\r\nif ( ! V_1 || ! V_1 -> V_2 )\r\nreturn;\r\nF_4 () ;\r\n}

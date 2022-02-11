@@ -1,0 +1,1 @@
+int T_1 F_1 ( void )\r\n{\r\nint V_1 ;\r\nV_1 = F_2 ( & V_2 , V_3 ) ;\r\nif ( V_1 )\r\ngoto V_4;\r\nV_1 = F_2 ( & V_5 , V_6 ) ;\r\nif ( V_1 )\r\ngoto V_7;\r\nV_4:\r\nreturn V_1 ;\r\nV_7:\r\nF_3 ( & V_2 , V_3 ) ;\r\ngoto V_4;\r\n}

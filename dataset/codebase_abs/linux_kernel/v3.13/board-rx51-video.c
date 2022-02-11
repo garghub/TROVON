@@ -1,0 +1,1 @@
+static int T_1 F_1 ( void )\r\n{\r\nif ( ! F_2 () && ! F_3 ( L_1 ) )\r\nreturn 0 ;\r\nif ( F_4 ( V_1 , V_2 ) ) {\r\nF_5 ( L_2 , V_3 ) ;\r\nreturn 0 ;\r\n}\r\nF_6 ( & V_4 ) ;\r\nF_7 ( & V_5 ) ;\r\nreturn 0 ;\r\n}

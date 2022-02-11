@@ -1,0 +1,1 @@
+static int T_1 F_1 ( const struct V_1 * V_2 , T_2 V_3 , T_2 V_4 )\r\n{\r\nif ( V_2 -> V_5 == V_6 &&\r\nV_2 -> V_7 == V_8 )\r\nswitch ( F_2 ( V_2 -> V_9 ) ) {\r\ncase 1 : return 14 ;\r\ncase 2 : return 15 ;\r\ncase 3 : return 12 ;\r\n}\r\nreturn V_10 [ ( V_3 + V_4 ) & 3 ] ;\r\n}\r\nstatic int T_1 F_3 ( void )\r\n{\r\nif ( F_4 () )\r\nF_5 ( & V_11 ) ;\r\nreturn 0 ;\r\n}

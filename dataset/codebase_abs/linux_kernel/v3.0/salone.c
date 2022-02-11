@@ -1,0 +1,13 @@
+LONG T_1 F_1 ( CHAR * V_1 , T_2 V_2 , T_2 * V_3 , T_2 * V_4 )
+{
+return F_2 ( V_5 , V_1 , V_2 , V_3 , V_4 ) ;
+}
+LONG T_1 F_3 ( T_2 V_3 , T_2 V_6 , T_2 V_7 , CHAR * V_8 [] ,
+CHAR * V_9 [] )
+{
+return F_4 ( V_10 , V_3 , V_6 , V_7 , V_8 , V_9 ) ;
+}
+LONG T_1 F_5 ( CHAR * V_1 , LONG V_7 , CHAR * V_8 [] , CHAR * V_9 [] )
+{
+return F_2 ( V_11 , V_1 , V_7 , V_8 , V_9 ) ;
+}

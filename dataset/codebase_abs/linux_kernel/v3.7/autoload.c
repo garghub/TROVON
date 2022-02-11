@@ -1,0 +1,1 @@
+void F_1 ( const char * V_1 )\r\n{\r\nF_2 ( V_1 ) ;\r\n}\r\nstruct V_2 * F_3 ( const char * V_1 )\r\n{\r\nstruct V_2 * V_3 = F_4 ( V_1 ) ;\r\nif ( V_3 == NULL ) {\r\nF_1 ( V_1 ) ;\r\nV_3 = F_4 ( V_1 ) ;\r\n}\r\nreturn V_3 ;\r\n}

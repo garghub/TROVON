@@ -1,0 +1,1 @@
+static int T_1 F_1 ( void )\r\n{\r\nreturn F_2 ( V_1 ,\r\nF_3 ( V_1 ) ) ;\r\n}\r\nvoid T_1 F_4 ( void )\r\n{\r\nF_5 ( V_2 ,\r\nF_3 ( V_2 ) ) ;\r\n}\r\nvoid T_1 F_6 ( int V_3 )\r\n{\r\nswitch ( V_3 ) {\r\ncase V_4 :\r\nF_7 ( F_8 ( V_5 ) | V_6 , V_5 ) ;\r\nF_9 ( & V_7 ) ;\r\nbreak;\r\ndefault:\r\nF_10 () ;\r\n}\r\n}\r\nvoid T_1 F_11 ( void )\r\n{\r\nF_9 ( & V_8 ) ;\r\n}

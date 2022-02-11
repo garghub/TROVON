@@ -1,0 +1,1 @@
+void T_1 F_1 ( struct V_1 * V_2 )\r\n{\r\nstruct V_1 * V_3 = V_2 ;\r\nstruct V_4 * V_5 ;\r\nstruct V_6 * V_7 ;\r\nF_2 (devices_link, &(current_bus->devices)) {\r\nV_5 = F_3 ( V_7 ) ;\r\nif ( V_5 == NULL )\r\ncontinue;\r\n}\r\n}

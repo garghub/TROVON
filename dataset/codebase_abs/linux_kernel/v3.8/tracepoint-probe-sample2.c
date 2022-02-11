@@ -1,0 +1,1 @@
+static void F_1 ( void * V_1 ,\r\nstruct V_2 * V_2 , struct V_3 * V_3 )\r\n{\r\nF_2 ( V_4 L_1 ,\r\nV_2 -> V_5 ) ;\r\n}\r\nstatic int T_1 F_3 ( void )\r\n{\r\nint V_6 ;\r\nV_6 = F_4 ( F_1 , NULL ) ;\r\nF_5 ( V_6 ) ;\r\nreturn 0 ;\r\n}\r\nstatic void T_2 F_6 ( void )\r\n{\r\nF_7 ( F_1 , NULL ) ;\r\nF_8 () ;\r\n}

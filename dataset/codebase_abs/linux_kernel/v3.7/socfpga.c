@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\nF_2 ( V_1 ) ;\r\n}\r\nstatic void F_3 ( char V_2 , const char * V_3 )\r\n{\r\n}\r\nstatic void T_1 F_4 ( void )\r\n{\r\nF_5 ( 0 , ~ 0UL ) ;\r\nF_6 ( NULL , V_4 , NULL , NULL ) ;\r\nF_7 () ;\r\n}

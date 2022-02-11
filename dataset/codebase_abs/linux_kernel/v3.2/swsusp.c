@@ -1,0 +1,1 @@
+int F_1 ( unsigned long V_1 )\r\n{\r\nunsigned long V_2 = F_2 ( & V_3 ) >> V_4 ;\r\nunsigned long V_5 = F_3 ( F_2 ( & V_6 ) ) >> V_4 ;\r\nreturn ( V_1 >= V_2 ) && ( V_1 < V_5 ) ;\r\n}\r\nvoid F_4 ( void )\r\n{\r\nF_5 ( V_7 ) ;\r\n}\r\nvoid F_6 ( void )\r\n{\r\nF_7 () ;\r\n}

@@ -1,0 +1,1 @@
+void F_1 ( void )\r\n{\r\n}\r\nint F_2 ( const void * V_1 , int V_2 )\r\n{\r\nreturn F_3 ( V_1 , V_2 ) ;\r\n}\r\nint F_4 ( void )\r\n{\r\nif ( V_3 )\r\nreturn V_3 () ;\r\nreturn - 1 ;\r\n}\r\nint F_5 ( void )\r\n{\r\nif ( V_4 )\r\nreturn V_4 () ;\r\nreturn - 1 ;\r\n}

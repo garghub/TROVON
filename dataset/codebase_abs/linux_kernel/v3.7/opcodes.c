@@ -1,0 +1,1 @@
+T_1 unsigned int F_1 ( T_2 V_1 , T_2 V_2 )\r\n{\r\nT_2 V_3 = V_1 >> 28 ;\r\nT_2 V_4 = V_2 >> 28 ;\r\nunsigned int V_5 ;\r\nif ( V_3 != V_6 ) {\r\nif ( ( V_7 [ V_3 ] >> ( V_4 ) ) & 1 )\r\nV_5 = V_8 ;\r\nelse\r\nV_5 = V_9 ;\r\n} else {\r\nV_5 = V_10 ;\r\n}\r\nreturn V_5 ;\r\n}

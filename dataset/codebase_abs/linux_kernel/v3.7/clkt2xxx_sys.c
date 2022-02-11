@@ -1,0 +1,1 @@
+T_1 F_1 ( void )\r\n{\r\nT_1 div ;\r\ndiv = F_2 ( V_1 ) ;\r\ndiv &= V_2 ;\r\ndiv >>= V_3 ;\r\nreturn div ;\r\n}\r\nunsigned long F_3 ( struct V_4 * V_4 )\r\n{\r\nreturn V_4 -> V_5 -> V_6 / F_1 () ;\r\n}

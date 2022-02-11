@@ -1,0 +1,1 @@
+static int T_1 F_1 ( void )\r\n{\r\nF_2 ( NULL , V_1 , NULL ) ;\r\nreturn 0 ;\r\n}\r\nstatic int T_1 F_3 ( void )\r\n{\r\nunsigned long V_2 = F_4 () ;\r\nint V_3 = 0 ;\r\nfor ( V_3 = 0 ; V_3 < F_5 ( V_4 ) ; V_3 ++ ) {\r\nif ( F_6 ( V_2 , V_4 [ V_3 ] ) ) {\r\nF_7 ( V_5 ) ;\r\nreturn 1 ;\r\n}\r\n}\r\nreturn 0 ;\r\n}

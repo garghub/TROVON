@@ -1,0 +1,1 @@
+unsigned long F_1 ( unsigned long V_1 , unsigned long V_2 )\r\n{\r\nunsigned long V_3 ;\r\nif ( V_1 < V_2 )\r\nF_2 ( V_1 , V_2 ) ;\r\nwhile ( ( V_3 = V_1 % V_2 ) != 0 ) {\r\nV_1 = V_2 ;\r\nV_2 = V_3 ;\r\n}\r\nreturn V_2 ;\r\n}

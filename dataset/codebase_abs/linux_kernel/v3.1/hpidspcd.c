@@ -1,0 +1,92 @@
+short F_1 ( T_1 V_1 , void * V_2 , struct V_3 * V_3 ,
+T_1 * V_4 )
+{
+const struct V_5 * V_5 ;
+struct V_6 * V_7 = V_2 ;
+struct V_8 V_9 ;
+char V_10 [ 20 ] ;
+short V_11 = V_12 ;
+int V_13 ;
+sprintf ( V_10 , L_1 , V_1 ) ;
+V_13 = F_2 ( & V_5 , V_10 , & V_7 -> V_7 ) ;
+if ( V_13 || ! V_5 ) {
+F_3 ( V_14 , & V_7 -> V_7 ,
+L_2 , V_13 ,
+V_10 ) ;
+goto V_15;
+}
+if ( V_5 -> V_16 < sizeof( V_9 ) ) {
+F_3 ( V_14 , & V_7 -> V_7 , L_3 ,
+V_10 ) ;
+goto V_17;
+}
+memcpy ( & V_9 , V_5 -> V_18 , sizeof( V_9 ) ) ;
+if ( ( V_9 . type != 0x45444F43 ) ||
+( V_9 . V_1 != V_1 )
+|| ( V_9 . V_16 != V_5 -> V_16 ) ) {
+F_3 ( V_14 , & V_7 -> V_7 , L_4 ) ;
+goto V_17;
+}
+if ( ( V_9 . V_19 / 100 & ~ 1 ) != ( V_20 / 100 & ~ 1 ) ) {
+F_3 ( V_14 , & V_7 -> V_7 ,
+L_5
+L_6 , V_9 . V_19 ,
+V_20 ) ;
+goto V_17;
+}
+if ( V_9 . V_19 != V_20 ) {
+F_3 ( V_21 , & V_7 -> V_7 ,
+L_7 ,
+V_9 . V_19 , V_20 ) ;
+}
+F_4 ( V_22 , L_8 , V_10 ) ;
+V_3 -> V_23 = F_5 ( sizeof( * V_3 -> V_23 ) , V_24 ) ;
+if ( ! V_3 -> V_23 ) {
+V_11 = V_25 ;
+goto V_17;
+}
+V_3 -> V_23 -> V_7 = V_7 ;
+V_3 -> V_23 -> V_5 = V_5 ;
+V_3 -> V_9 = V_9 ;
+V_3 -> V_26 = V_9 . V_16 / sizeof( T_1 ) ;
+V_3 -> V_27 = sizeof( V_9 ) / sizeof( T_1 ) ;
+return 0 ;
+V_17:
+F_6 ( V_5 ) ;
+V_15:
+V_3 -> V_26 = 0 ;
+return V_11 ;
+}
+void F_7 ( struct V_3 * V_3 )
+{
+if ( V_3 -> V_23 -> V_5 ) {
+F_4 ( V_22 , L_9 ) ;
+F_6 ( V_3 -> V_23 -> V_5 ) ;
+V_3 -> V_23 -> V_5 = NULL ;
+}
+F_8 ( V_3 -> V_23 ) ;
+}
+void F_9 ( struct V_3 * V_3 )
+{
+V_3 -> V_27 = sizeof( struct V_8 ) / sizeof( T_1 ) ;
+}
+short F_10 ( struct V_3 * V_3 , T_1 * V_28 )
+{
+if ( V_3 -> V_27 + 1 > V_3 -> V_26 )
+return V_29 ;
+* V_28 = ( ( T_1 * ) ( V_3 -> V_23 -> V_5 -> V_18 ) ) [ V_3 ->
+V_27 ] ;
+V_3 -> V_27 ++ ;
+return 0 ;
+}
+short F_11 ( T_2 V_30 ,
+struct V_3 * V_3 , T_1 * * V_31 )
+{
+if ( V_3 -> V_27 + V_30 > V_3 -> V_26 )
+return V_29 ;
+* V_31 =
+( ( T_1 * ) ( V_3 -> V_23 -> V_5 -> V_18 ) ) +
+V_3 -> V_27 ;
+V_3 -> V_27 += V_30 ;
+return 0 ;
+}

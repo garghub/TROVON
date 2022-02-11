@@ -1,0 +1,1 @@
+T_1 F_1 ( const unsigned char * V_1 , T_2 V_2 )\r\n{\r\nT_1 V_3 = 0 ;\r\nunsigned int V_4 ;\r\nfor ( V_4 = 0 ; V_4 < V_2 ; V_4 ++ )\r\nV_3 = ( V_3 << 8 ) ^ V_5 [ ( ( V_3 >> 8 ) ^ V_1 [ V_4 ] ) & 0xff ] ;\r\nreturn V_3 ;\r\n}

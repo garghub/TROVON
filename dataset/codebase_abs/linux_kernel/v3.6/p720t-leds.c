@@ -1,0 +1,1 @@
+static void F_1 ( T_1 V_1 )\r\n{\r\nunsigned long V_2 ;\r\nT_2 V_3 ;\r\nF_2 ( V_2 ) ;\r\nswitch( V_1 ) {\r\ncase V_4 :\r\nbreak;\r\ncase V_5 :\r\nbreak;\r\ncase V_6 :\r\nV_3 = F_3 ( V_7 ) ;\r\nF_4 ( V_3 ^ 1 , V_7 ) ;\r\nbreak;\r\ndefault:\r\nbreak;\r\n}\r\nF_5 ( V_2 ) ;\r\n}\r\nstatic int T_3 F_6 ( void )\r\n{\r\nif ( F_7 () )\r\nV_8 = F_1 ;\r\nreturn 0 ;\r\n}

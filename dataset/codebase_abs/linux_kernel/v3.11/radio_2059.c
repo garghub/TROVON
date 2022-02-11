@@ -1,0 +1,1 @@
+const struct V_1\r\n* F_1 ( struct V_2 * V_3 , T_1 V_4 )\r\n{\r\nconst struct V_1 * V_5 ;\r\nunsigned int V_6 ;\r\nV_5 = V_7 ;\r\nfor ( V_6 = 0 ; V_6 < F_2 ( V_7 ) ; V_6 ++ , V_5 ++ ) {\r\nif ( V_5 -> V_4 == V_4 )\r\nreturn V_5 ;\r\n}\r\nreturn NULL ;\r\n}

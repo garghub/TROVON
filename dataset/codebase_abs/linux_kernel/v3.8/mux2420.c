@@ -1,0 +1,1 @@
+int T_1 F_1 ( struct V_1 * V_2 , int V_3 )\r\n{\r\nstruct V_4 * V_5 = NULL ;\r\nswitch ( V_3 & V_6 ) {\r\ncase V_7 :\r\nV_5 = V_8 ;\r\nbreak;\r\ncase V_9 :\r\ndefault:\r\nF_2 ( L_1 ,\r\nV_10 ) ;\r\n}\r\nreturn F_3 ( L_2 , V_11 | V_12 ,\r\nV_13 ,\r\nV_14 ,\r\nV_15 , NULL , V_2 ,\r\nV_5 ) ;\r\n}

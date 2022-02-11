@@ -1,0 +1,1 @@
+static int T_1 F_1 ( void )\r\n{\r\n#if 0\r\nif (getdeviceid() & DEV_ID_SINGLE_PC) {\r\nslmRegs *sreg = (slmRegs *) SREG_BASE;\r\nsreg->single_pc_enable = SINGLE_PCCARD;\r\n}\r\n#endif\r\nF_2 () ;\r\nreturn 0 ;\r\n}

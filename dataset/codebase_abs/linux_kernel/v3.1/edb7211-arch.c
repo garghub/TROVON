@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\nF_2 ( V_1 , 0x00020000 ) ;\r\n}\r\nstatic void T_1\r\nF_3 ( struct V_2 * V_3 , struct V_4 * V_5 ,\r\nchar * * V_6 , struct V_7 * V_8 )\r\n{\r\nV_8 -> V_9 [ 0 ] . V_10 = 0xc0000000 ;\r\nV_8 -> V_9 [ 0 ] . V_11 = 8 * 1024 * 1024 ;\r\nV_8 -> V_9 [ 1 ] . V_10 = 0xc1000000 ;\r\nV_8 -> V_9 [ 1 ] . V_11 = 8 * 1024 * 1024 ;\r\nV_8 -> V_12 = 2 ;\r\n}

@@ -1,0 +1,1 @@
+static void F_1 ( void )\r\n{\r\nF_2 () ;\r\nfor (; ; )\r\ncontinue;\r\n}\r\nstatic void F_3 ( char * V_1 )\r\n{\r\nF_1 () ;\r\n}\r\nstatic int T_1 F_4 ( void )\r\n{\r\nunsigned long V_2 = F_5 () ;\r\nif ( F_6 ( V_2 , L_1 ) ) {\r\nreturn 0 ;\r\n}\r\nif ( ! F_6 ( V_2 , L_2 ) )\r\nreturn 0 ;\r\nreturn 1 ;\r\n}

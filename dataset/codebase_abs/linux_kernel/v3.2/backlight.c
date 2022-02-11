@@ -1,0 +1,1 @@
+int F_1 ( struct V_1 * V_2 )\r\n{\r\n#ifdef F_2\r\nstruct V_3 * V_4 = V_2 -> V_5 ;\r\nreturn V_4 -> V_6 -> V_7 ( V_2 ) ;\r\n#else\r\nreturn 0 ;\r\n#endif\r\n}\r\nvoid F_3 ( struct V_1 * V_2 )\r\n{\r\n#ifdef F_2\r\nstruct V_3 * V_4 = V_2 -> V_5 ;\r\nif ( V_4 -> V_8 ) {\r\nV_4 -> V_8 -> V_9 . V_10 = 0 ;\r\nF_4 ( V_4 -> V_8 ) ;\r\nF_5 ( V_4 -> V_8 ) ;\r\n}\r\n#endif\r\n}

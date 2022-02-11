@@ -1,0 +1,1 @@
+static int T_1 F_1 ( void )\r\n{\r\nF_2 ( NULL , V_1 , NULL ) ;\r\nF_3 () ;\r\nreturn 0 ;\r\n}\r\nstatic int T_1 F_4 ( void )\r\n{\r\nunsigned long V_2 = F_5 () ;\r\nif ( ! F_6 ( V_2 , L_1 ) )\r\nreturn 0 ;\r\nF_7 ( V_3 ) ;\r\nreturn 1 ;\r\n}

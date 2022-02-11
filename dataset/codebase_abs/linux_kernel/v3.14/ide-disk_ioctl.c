@@ -1,0 +1,1 @@
+int F_1 ( T_1 * V_1 , struct V_2 * V_3 , T_2 V_4 ,\r\nunsigned int V_5 , unsigned long V_6 )\r\n{\r\nint V_7 ;\r\nF_2 ( & V_8 ) ;\r\nV_7 = F_3 ( V_1 , V_3 , V_5 , V_6 , V_9 ) ;\r\nif ( V_7 != - V_10 )\r\ngoto V_11;\r\nV_7 = F_4 ( V_1 , V_3 , V_5 , V_6 ) ;\r\nV_11:\r\nF_5 ( & V_8 ) ;\r\nreturn V_7 ;\r\n}

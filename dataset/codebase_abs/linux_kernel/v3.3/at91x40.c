@@ -1,0 +1,1 @@
+int F_1 ( struct V_1 * V_1 )\r\n{\r\nreturn 0 ;\r\n}\r\nvoid F_2 ( struct V_1 * V_1 )\r\n{\r\n}\r\nunsigned long F_3 ( struct V_1 * V_1 )\r\n{\r\nreturn V_2 ;\r\n}\r\nvoid T_1 F_4 ( unsigned long V_3 )\r\n{\r\nV_4 = ( 1 << V_5 ) | ( 1 << V_6 )\r\n| ( 1 << V_7 ) ;\r\n}\r\nvoid T_1 F_5 ( unsigned int V_8 [ V_9 ] )\r\n{\r\nif ( ! V_8 )\r\nV_8 = V_10 ;\r\nF_6 ( V_8 ) ;\r\n}

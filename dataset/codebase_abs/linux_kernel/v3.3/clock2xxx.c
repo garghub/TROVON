@@ -1,0 +1,1 @@
+void F_1 ( void )\r\n{\r\nT_1 V_1 ;\r\nif ( V_2 == NULL || V_3 == NULL )\r\nreturn;\r\nV_1 = F_2 ( V_3 ) ;\r\nF_3 ( V_2 , V_1 ) ;\r\n}\r\nstatic int T_2 F_4 ( void )\r\n{\r\nint V_4 ;\r\nif ( ! F_5 () )\r\nreturn 0 ;\r\nV_4 = F_6 ( L_1 ) ;\r\nif ( ! V_4 )\r\nF_7 ( L_2 , L_3 , L_4 ) ;\r\nreturn V_4 ;\r\n}

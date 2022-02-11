@@ -1,0 +1,1 @@
+int F_1 ( const volatile void T_1 * V_1 ,\r\nconst unsigned char * V_2 , int V_3 )\r\n{\r\nwhile ( V_3 -- ) {\r\nif ( F_2 ( V_1 ) != * V_2 )\r\nreturn 0 ;\r\nV_1 ++ ;\r\nV_2 ++ ;\r\n}\r\nreturn 1 ;\r\n}

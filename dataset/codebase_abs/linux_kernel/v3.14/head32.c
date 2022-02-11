@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\nV_1 . V_2 . V_3 = V_4 ;\r\nV_1 . V_5 . V_6 = V_7 ;\r\nF_2 () ;\r\n}\r\nT_2 void T_1 F_3 ( void )\r\n{\r\nF_4 ( & V_8 ) ;\r\nswitch ( V_8 . V_9 . V_10 ) {\r\ncase V_11 :\r\nF_5 () ;\r\nbreak;\r\ncase V_12 :\r\nF_6 () ;\r\nbreak;\r\ndefault:\r\nF_1 () ;\r\nbreak;\r\n}\r\nF_7 () ;\r\n}

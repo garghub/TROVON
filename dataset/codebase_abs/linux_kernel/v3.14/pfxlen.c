@@ -1,0 +1,1 @@
+T_1\r\nF_1 ( T_1 V_1 , T_1 V_2 , T_2 * V_3 )\r\n{\r\nT_1 V_4 ;\r\nT_2 V_5 ;\r\nfor ( V_5 = 1 ; V_5 < 32 ; V_5 ++ ) {\r\nif ( ( V_1 & F_2 ( V_5 ) ) != V_1 )\r\ncontinue;\r\nV_4 = V_1 | ~ F_2 ( V_5 ) ;\r\nif ( ! F_3 ( V_4 , V_2 ) ) {\r\n* V_3 = V_5 ;\r\nreturn V_4 ;\r\n}\r\n}\r\n* V_3 = 32 ;\r\nreturn V_1 ;\r\n}

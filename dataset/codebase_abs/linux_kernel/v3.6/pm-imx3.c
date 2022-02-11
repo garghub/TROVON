@@ -1,0 +1,1 @@
+void F_1 ( enum V_1 V_2 )\r\n{\r\nint V_3 = F_2 ( V_4 + V_5 ) ;\r\nV_3 &= ~ V_6 ;\r\nswitch ( V_2 ) {\r\ncase V_7 :\r\nif ( F_3 () )\r\nV_3 |= V_8 ;\r\nF_4 ( V_3 , V_4 + V_5 ) ;\r\nbreak;\r\ndefault:\r\nF_5 ( L_1 , V_2 ) ;\r\nreturn;\r\n}\r\n}

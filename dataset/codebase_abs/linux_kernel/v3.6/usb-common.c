@@ -1,0 +1,1 @@
+const char * F_1 ( enum V_1 V_2 )\r\n{\r\nstatic const char * const V_3 [] = {\r\n[ V_4 ] = L_1 ,\r\n[ V_5 ] = L_2 ,\r\n[ V_6 ] = L_3 ,\r\n[ V_7 ] = L_4 ,\r\n[ V_8 ] = L_5 ,\r\n[ V_9 ] = L_6 ,\r\n} ;\r\nif ( V_2 < 0 || V_2 >= F_2 ( V_3 ) )\r\nV_2 = V_4 ;\r\nreturn V_3 [ V_2 ] ;\r\n}

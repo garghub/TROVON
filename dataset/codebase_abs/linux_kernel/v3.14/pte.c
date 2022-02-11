@@ -1,0 +1,1 @@
+T_1 * F_1 ( unsigned long V_1 )\r\n{\r\nT_1 * V_2 ;\r\nunsigned int V_3 ;\r\nV_2 = F_2 ( V_1 , & V_3 ) ;\r\nif ( ! V_2 )\r\nreturn NULL ;\r\nif ( V_3 != V_4 )\r\nreturn NULL ;\r\nif ( ! F_3 ( * V_2 ) )\r\nreturn NULL ;\r\nreturn V_2 ;\r\n}

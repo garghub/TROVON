@@ -1,0 +1,1 @@
+void T_1 F_1 ( void ) { }\r\nvoid T_2 F_2 ( unsigned int V_1 ) { }\r\nint T_2 F_3 ( void ) { return 0 ; }\r\nvoid F_4 ( void ) { }\r\nstatic void F_5 ( void ) { }\r\nstatic int F_6 ( void ) { return 1 ; }

@@ -1,0 +1,1 @@
+int main ( void )\r\n{\r\nint V_1 = F_1 ( L_1 , V_2 ) ;\r\nint V_3 = 0 ;\r\nif ( V_1 == - 1 ) {\r\nperror ( L_2 ) ;\r\nexit ( V_4 ) ;\r\n}\r\nwhile ( 1 ) {\r\nV_3 = F_2 ( V_1 , L_3 , 1 ) ;\r\nif ( V_3 != 1 ) {\r\nV_3 = - 1 ;\r\nbreak;\r\n}\r\nF_3 ( 10 ) ;\r\n}\r\nF_4 ( V_1 ) ;\r\nreturn V_3 ;\r\n}

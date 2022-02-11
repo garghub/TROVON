@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\nF_2 ( V_1 , F_3 ( V_1 ) ) ;\r\n}\r\nvoid T_1 F_4 ( void )\r\n{\r\nF_5 () ;\r\n}\r\nvoid T_1 F_6 ( void )\r\n{\r\nstruct V_2 * V_3 = F_7 ( NULL , L_1 ) ;\r\nF_8 ( F_9 ( V_3 ) ) ;\r\nF_10 ( V_3 ) ;\r\n}\r\nvoid T_1 F_11 ( void )\r\n{\r\nF_12 ( V_4 , F_3 ( V_4 ) ) ;\r\n}

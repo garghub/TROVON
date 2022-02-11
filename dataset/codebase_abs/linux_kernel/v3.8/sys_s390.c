@@ -1,0 +1,1 @@
+T_1 (F_1)( int V_1 , int V_2 , T_2 V_3 ,\r\nT_3 V_4 , T_3 V_5 )\r\n{\r\nreturn F_2 ( V_1 , V_2 , V_3 , ( ( V_6 ) V_4 << 32 ) | V_5 ) ;\r\n}\r\nT_4 long F_3 ( long V_1 , long V_2 , T_2 V_3 ,\r\nlong V_4 , long V_5 )\r\n{\r\nreturn F_4 ( ( int ) V_1 , ( int ) V_2 , V_3 ,\r\n( T_3 ) V_4 , ( T_3 ) V_5 ) ;\r\n}

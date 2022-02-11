@@ -1,0 +1,1 @@
+static int F_1 ( struct V_1 * V_2 ,\r\nstruct V_3 * V_4 )\r\n{\r\nstruct V_5 V_6 = {\r\n. V_7 = V_8 ,\r\n. V_9 = sizeof( struct V_3 ) ,\r\n. V_10 = V_4 ,\r\n. V_11 = V_12 ,\r\n. V_13 = NULL ,\r\n} ;\r\nreturn F_2 ( V_2 , & V_6 ) ;\r\n}

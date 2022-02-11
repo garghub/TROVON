@@ -1,0 +1,1 @@
+const char * F_1 ( void )\r\n{\r\nreturn L_1 ;\r\n}\r\nvoid T_1 F_2 ( void )\r\n{\r\nF_3 ( & V_1 ) ;\r\n}\r\nvoid T_1 F_4 ( void )\r\n{\r\nunsigned long V_2 , V_3 ;\r\nif ( ! V_4 )\r\nreturn;\r\nV_2 = F_5 ( ( void * ) V_4 ) ;\r\nV_3 = F_6 ( V_4 -> V_5 ) ;\r\nF_7 ( V_2 , V_3 , V_6 ) ;\r\nF_8 () ;\r\n}

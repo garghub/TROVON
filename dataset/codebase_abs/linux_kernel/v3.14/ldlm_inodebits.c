@@ -1,0 +1,1 @@
+void F_1 ( const T_1 * V_1 ,\r\nT_2 * V_2 )\r\n{\r\nmemset ( V_2 , 0 , sizeof( * V_2 ) ) ;\r\nV_2 -> V_3 . V_4 = V_1 -> V_3 . V_4 ;\r\n}\r\nvoid F_2 ( const T_2 * V_2 ,\r\nT_1 * V_1 )\r\n{\r\nmemset ( V_1 , 0 , sizeof( * V_1 ) ) ;\r\nV_1 -> V_3 . V_4 = V_2 -> V_3 . V_4 ;\r\n}

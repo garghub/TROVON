@@ -1,0 +1,48 @@
+T_1 int F_1 ( unsigned long V_1 , unsigned long V_2 ,
+unsigned long V_3 , unsigned long V_4 ,
+struct V_5 V_6 )
+{
+struct V_5 * V_7 = F_2 ( & V_6 , 0 ) ;
+int V_8 [ 2 ] ;
+int error ;
+error = F_3 ( V_8 , 0 ) ;
+if ( ! error ) {
+V_7 -> V_7 [ 1 ] = V_8 [ 1 ] ;
+return V_8 [ 0 ] ;
+}
+return error ;
+}
+T_1 T_2 F_4 ( unsigned int V_8 , char T_3 * V_9 ,
+T_4 V_10 , long V_11 , T_5 V_12 )
+{
+return F_5 ( V_8 , V_9 , V_10 , V_12 ) ;
+}
+T_1 T_2 F_6 ( unsigned int V_8 , const char T_3 * V_9 ,
+T_4 V_10 , long V_11 , T_5 V_12 )
+{
+return F_7 ( V_8 , V_9 , V_10 , V_12 ) ;
+}
+T_1 int F_8 ( int V_8 , T_6 V_13 , T_6 V_14 ,
+T_6 V_15 , T_6 V_16 , int V_17 )
+{
+#ifdef F_9
+return F_10 ( V_8 , ( V_18 ) V_14 << 32 | V_13 ,
+( V_18 ) V_16 << 32 | V_15 , V_17 ) ;
+#else
+return F_10 ( V_8 , ( V_18 ) V_13 << 32 | V_14 ,
+( V_18 ) V_15 << 32 | V_16 , V_17 ) ;
+#endif
+}
+int F_11 ( const char * V_19 ,
+const char * const V_20 [] ,
+const char * const V_21 [] )
+{
+register long T_7 V_22 ( L_1 ) = V_23 ;
+register long T_8 V_22 ( L_2 ) = ( long ) V_19 ;
+register long T_9 V_22 ( L_3 ) = ( long ) V_20 ;
+register long T_10 V_22 ( L_4 ) = ( long ) V_21 ;
+__asm__ __volatile__ (SYSCALL_ARG3 : "=z" (__sc0)
+: "0" (__sc0), "r" (__sc4), "r" (__sc5), "r" (__sc6)
+: "memory");
+return T_7 ;
+}

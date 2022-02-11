@@ -1,0 +1,1 @@
+struct V_1 * F_1 ( struct V_2 * V_3 )\r\n{\r\nif ( ( V_3 -> V_4 & V_5 ) == 0 )\r\nF_2 ( & V_3 -> V_6 ) ;\r\nF_3 ( V_3 -> V_7 ) ;\r\nV_3 -> V_4 |= V_8 ;\r\nreturn V_3 -> V_7 ;\r\n}\r\nvoid F_4 ( struct V_2 * V_3 )\r\n{\r\nV_3 -> V_4 &= ~ V_8 ;\r\nF_5 ( V_3 -> V_7 ) ;\r\nif ( ( V_3 -> V_4 & V_5 ) == 0 )\r\nF_6 ( & V_3 -> V_6 ) ;\r\n}

@@ -1,0 +1,1 @@
+void F_1 ( struct V_1 * V_2 )\r\n{\r\nstruct V_3 * V_4 = V_2 -> V_5 . V_6 ;\r\nmemset ( V_4 , 0 , sizeof( struct V_3 ) ) ;\r\nV_2 -> V_5 . V_7 = & V_4 -> V_7 ;\r\nmemset ( V_2 -> V_5 . V_7 , 0 , sizeof( struct V_8 ) ) ;\r\nreturn;\r\n}

@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\nF_2 () ;\r\n}\r\nstatic int T_1 F_3 ( void )\r\n{\r\nif ( F_4 () ) {\r\nF_5 ( V_1 ) ;\r\nF_6 ( V_2 ) ;\r\nF_7 ( V_3 , 32 ) ;\r\nF_8 ( F_9 ( V_4 ) ) ;\r\n}\r\nreturn 0 ;\r\n}\r\nstatic void T_1 F_10 ( void )\r\n{\r\nF_11 ( V_5 | V_6 , V_7 ) ;\r\nF_11 ( V_8 , V_7 ) ;\r\nF_12 ( V_9 ) ;\r\n}

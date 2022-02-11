@@ -1,0 +1,1 @@
+static int T_1 F_1 ( struct V_1 * V_2 , int V_3 )\r\n{\r\nreturn 0 ;\r\n}\r\nstatic int T_1 F_2 ( int V_3 )\r\n{\r\nint V_4 ;\r\nif ( ! V_5 . V_6 ) {\r\nF_3 ( L_1 , V_3 ) ;\r\nreturn - V_7 ;\r\n}\r\nV_4 = V_5 . V_6 ( F_4 ( V_3 ) , F_5 ( V_8 ) ) ;\r\nif ( V_4 ) {\r\nF_3 ( L_2 , V_3 , V_4 ) ;\r\nreturn V_4 ;\r\n}\r\nreturn 0 ;\r\n}

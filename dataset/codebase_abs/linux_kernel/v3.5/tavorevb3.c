@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\nF_2 ( NULL ) ;\r\nF_3 ( 0 , F_4 ( V_1 ) ) ;\r\n}\r\nstatic inline void F_1 ( void ) {}\r\nstatic void T_1 F_5 ( void )\r\n{\r\nF_6 ( F_4 ( V_2 ) ) ;\r\nF_7 ( NULL ) ;\r\nF_1 () ;\r\n}

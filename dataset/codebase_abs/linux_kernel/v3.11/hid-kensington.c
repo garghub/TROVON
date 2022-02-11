@@ -1,0 +1,1 @@
+static int F_1 ( struct V_1 * V_2 , struct V_3 * V_4 ,\r\nstruct V_5 * V_6 , struct V_7 * V_8 ,\r\nunsigned long * * V_9 , int * V_10 )\r\n{\r\nif ( ( V_8 -> V_11 & V_12 ) != V_13 )\r\nreturn 0 ;\r\nswitch ( V_8 -> V_11 & V_14 ) {\r\ncase 0x01 : F_2 ( V_15 ) ; break;\r\ncase 0x02 : F_2 ( V_16 ) ; break;\r\ndefault:\r\nreturn 0 ;\r\n}\r\nreturn 1 ;\r\n}

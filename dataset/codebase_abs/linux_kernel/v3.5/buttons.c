@@ -1,0 +1,1 @@
+static T_1 int F_1 ( void )\r\n{\r\nstruct V_1 * V_2 ;\r\nint error ;\r\nV_2 = F_2 ( L_1 , - 1 ) ;\r\nif ( ! V_2 )\r\nreturn - V_3 ;\r\nerror = F_3 ( V_2 , & V_4 , 1 ) ;\r\nif ( error )\r\ngoto V_5;\r\nerror = F_4 ( V_2 ) ;\r\nif ( error )\r\ngoto V_5;\r\nreturn 0 ;\r\nV_5:\r\nF_5 ( V_2 ) ;\r\nreturn error ;\r\n}

@@ -1,0 +1,1 @@
+static int T_1 F_1 ( void )\r\n{\r\nF_2 (KERN_INFO OSM_DESCRIPTION L_1 OSM_VERSION L_2 ) ;\r\nif ( F_3 ( & V_1 ) ) {\r\nF_4 ( L_3 ) ;\r\nreturn - V_2 ;\r\n}\r\n#ifdef F_5\r\nif ( F_6 () ) {\r\nF_4 ( L_4 ) ;\r\nF_7 ( & V_1 ) ;\r\nreturn - V_2 ;\r\n}\r\n#endif\r\nreturn 0 ;\r\n}\r\nstatic void F_8 ( void )\r\n{\r\n#ifdef F_5\r\nF_9 () ;\r\n#endif\r\nF_7 ( & V_1 ) ;\r\n}

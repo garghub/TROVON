@@ -1,0 +1,1 @@
+int F_1 ( T_1 V_1 , int V_2 )\r\n{\r\nstruct {\r\nunsigned int V_2 ;\r\nT_1 V_1 ;\r\n} V_3 ;\r\nV_3 . V_1 = V_1 ;\r\nV_3 . V_2 = V_2 ;\r\nreturn F_2 ( V_4 , V_5 ,\r\n& V_3 , sizeof( V_3 ) , NULL , 0 ) ;\r\n}

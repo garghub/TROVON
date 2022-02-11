@@ -1,0 +1,1 @@
+static int T_1 F_1 ( void )\r\n{\r\nunsigned char V_1 ;\r\nV_1 = V_2 [ V_3 ] [ 0 ] . V_1 ;\r\nif ( V_4 == V_1 )\r\nV_2 [ V_3 ] [ 0 ] . V_5 =\r\n( void V_6 * ) V_7 ;\r\nelse if ( V_8 == V_1 )\r\nV_2 [ V_3 ] [ 0 ] . V_9 =\r\nV_10 - V_11 ;\r\nV_12 . V_13 . V_14 = V_2 [ V_3 ] ;\r\nreturn F_2 ( & V_12 ) ;\r\n}

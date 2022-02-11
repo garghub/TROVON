@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\nT_2 V_1 ;\r\nchar * V_2 ;\r\nV_1 = F_2 ( F_3 ( V_3 + V_4 ) ) ;\r\nswitch ( V_1 ) {\r\ncase 0x00 :\r\nV_5 = V_6 ;\r\nV_2 = L_1 ;\r\nbreak;\r\ncase 0x10 :\r\nV_5 = V_7 ;\r\nV_2 = L_2 ;\r\nbreak;\r\ncase 0x11 :\r\nV_5 = V_8 ;\r\nV_2 = L_3 ;\r\nbreak;\r\ndefault:\r\nV_5 = V_9 ;\r\nV_2 = L_4 ;\r\n}\r\nF_4 ( V_10 L_5 , V_2 ) ;\r\n}

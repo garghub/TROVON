@@ -1,0 +1,134 @@
+unsigned int F_1 ( int V_1 )
+{
+unsigned long V_2 , V_3 ;
+unsigned int V_4 , V_5 , V_6 , V_7 , V_8 , V_9 ;
+V_2 = V_10 ;
+asm( "mrc\tp14, 0, %0, c6, c0, 0" : "=r" (turbo) );
+V_4 = V_11 [ ( V_2 >> 0 ) & 0x1f ] ;
+V_6 = V_12 [ ( V_2 >> 5 ) & 0x03 ] ;
+V_8 = V_13 [ ( V_2 >> 7 ) & 0x07 ] ;
+V_5 = V_4 * V_14 ;
+V_7 = V_6 * V_5 ;
+V_9 = V_8 * V_7 / 2 ;
+if( V_1 )
+{
+V_5 += 5000 ;
+F_2 ( V_15 L_1 ,
+V_5 / 1000000 , ( V_5 % 1000000 ) / 10000 , V_4 ) ;
+V_7 += 5000 ;
+F_2 ( V_15 L_2 ,
+V_7 / 1000000 , ( V_7 % 1000000 ) / 10000 , V_6 ) ;
+V_9 += 5000 ;
+F_2 ( V_15 L_3 ,
+V_9 / 1000000 , ( V_9 % 1000000 ) / 10000 , V_8 / 2 , ( V_8 % 2 ) * 5 ,
+( V_3 & 1 ) ? L_4 : L_5 ) ;
+}
+return ( V_3 & 1 ) ? ( V_9 / 1000 ) : ( V_7 / 1000 ) ;
+}
+static unsigned long F_3 ( struct V_16 * V_16 )
+{
+return V_11 [ ( V_10 >> 0 ) & 0x1f ] * V_14 ;
+}
+static void F_4 ( struct V_16 * V_16 )
+{
+F_5 ( V_17 , 1 ) ;
+}
+static void F_6 ( struct V_16 * V_16 )
+{
+F_5 ( V_18 , 1 ) ;
+}
+static void F_7 ( struct V_16 * V_16 )
+{
+F_5 ( V_19 , 1 ) ;
+}
+static void F_8 ( struct V_16 * V_16 )
+{
+F_5 ( V_20 , 1 ) ;
+}
+static void F_9 ( unsigned long * V_21 )
+{
+F_10 ( V_22 ) ;
+}
+static void F_11 ( unsigned long * V_21 )
+{
+F_12 ( V_22 ) ;
+}
+static void F_13 ( T_1 V_23 )
+{
+V_24 = V_25 | V_26 | V_27 | V_28 ;
+switch ( V_23 ) {
+case V_29 :
+F_14 ( V_30 , V_31 - V_32 ) ;
+break;
+}
+}
+static int F_15 ( void )
+{
+V_33 = F_16 ( V_34 ) ;
+return 0 ;
+}
+static void F_17 ( void )
+{
+V_33 = 0 ;
+}
+static void T_2 F_18 ( void )
+{
+V_35 = & V_36 ;
+}
+static inline void F_18 ( void ) {}
+static int F_19 ( struct V_37 * V_38 , unsigned int V_39 )
+{
+int V_40 = F_20 ( V_38 -> V_41 ) ;
+T_3 V_42 = 0 ;
+if ( V_40 >= 0 && V_40 < 85 )
+return F_21 ( V_40 , V_39 ) ;
+if ( V_38 -> V_41 == V_43 ) {
+V_42 = V_44 ;
+goto V_45;
+}
+return - V_46 ;
+V_45:
+if ( V_39 )
+V_47 |= V_42 ;
+else
+V_47 &= ~ V_42 ;
+return 0 ;
+}
+void T_2 F_22 ( void )
+{
+F_23 ( 32 , F_19 ) ;
+F_24 ( V_48 , 2 , 84 , F_19 ) ;
+}
+void T_2 F_25 ( void )
+{
+F_23 ( 32 , F_19 ) ;
+F_24 ( V_48 , 2 , 89 , F_19 ) ;
+}
+void T_2 F_26 ( void )
+{
+F_27 () ;
+F_28 ( F_29 ( V_49 ) ) ;
+F_1 ( 1 ) ;
+}
+static int T_2 F_30 ( void )
+{
+int V_50 = 0 ;
+if ( F_31 () ) {
+V_51 = V_24 ;
+F_32 ( V_52 , F_33 ( V_52 ) ) ;
+if ( ( V_50 = F_34 ( V_53 , 16 ) ) )
+return V_50 ;
+F_18 () ;
+F_35 ( & V_54 ) ;
+F_35 ( & V_55 ) ;
+F_35 ( & V_56 ) ;
+F_35 ( & V_57 ) ;
+V_50 = F_36 ( V_58 ,
+F_33 ( V_58 ) ) ;
+if ( V_50 )
+return V_50 ;
+}
+if ( F_37 () )
+F_38 ( & V_59 ) ;
+return V_50 ;
+}

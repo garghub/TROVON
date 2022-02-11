@@ -1,0 +1,1 @@
+int F_1 ( void )\r\n{\r\nif ( ! V_1 [ V_2 ] . V_3 [ V_4 ] )\r\nreturn V_5 | V_6 ;\r\nif ( ! V_1 [ V_7 ] . V_3 [ V_4 ] )\r\nreturn V_8 | V_6 ;\r\nreturn V_8 ;\r\n}\r\nint T_1 F_2 ( void )\r\n{\r\nreturn F_3 ( & V_9 ) ;\r\n}

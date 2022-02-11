@@ -1,0 +1,1 @@
+static T_1 F_1 ( struct V_1 * V_2 )\r\n{\r\nreturn ( T_1 ) V_3 ;\r\n}\r\nT_2 F_2 ( void )\r\n{\r\nunsigned long V_4 ;\r\nT_2 V_5 ;\r\ndo {\r\nV_4 = F_3 ( & V_6 ) ;\r\nV_5 = V_7 ;\r\n} while ( F_4 ( & V_6 , V_4 ) );\r\nreturn V_5 ;\r\n}\r\nstatic int T_3 F_5 ( void )\r\n{\r\nreturn F_6 ( & V_8 ) ;\r\n}\r\nstruct V_1 * T_3 __weak F_7 ( void )\r\n{\r\nreturn & V_8 ;\r\n}

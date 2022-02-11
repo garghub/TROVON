@@ -1,0 +1,1 @@
+static int T_1 F_1 ( void )\r\n{\r\nF_2 () ;\r\nF_3 () ;\r\nF_4 ( V_1 ) ;\r\nF_5 ( V_2 , 1 ) ;\r\nF_6 () ;\r\n#ifdef F_7\r\nF_8 () ;\r\n#endif\r\nreturn 0 ;\r\n}\r\nstatic void T_2 F_9 ( void )\r\n{\r\nF_10 () ;\r\nF_11 () ;\r\nF_12 () ;\r\nF_13 () ;\r\n#ifdef F_7\r\nF_14 () ;\r\n#endif\r\n}

@@ -1,0 +1,1 @@
+T_1 long\r\nF_1 ( unsigned * V_1 , unsigned * V_2 , struct V_3 * V_4 )\r\n{\r\nunsigned int V_5 ;\r\nif ( F_2 ( V_6 ) == V_7 ) {\r\nF_3 ( & V_5 ) ;\r\n} else {\r\nasm("lsl %1,%0" : "=r" (p) : "r" (__PER_CPU_SEG));\r\n}\r\nif ( V_1 )\r\n* V_1 = V_5 & 0xfff ;\r\nif ( V_2 )\r\n* V_2 = V_5 >> 12 ;\r\nreturn 0 ;\r\n}

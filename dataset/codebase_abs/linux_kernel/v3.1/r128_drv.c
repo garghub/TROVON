@@ -1,0 +1,1 @@
+int F_1 ( struct V_1 * V_2 , unsigned long V_3 )\r\n{\r\nreturn F_2 ( V_2 , 1 ) ;\r\n}\r\nstatic int T_1 F_3 ( void )\r\n{\r\nV_4 . V_5 = V_6 ;\r\nreturn F_4 ( & V_4 , & V_7 ) ;\r\n}\r\nstatic void T_2 F_5 ( void )\r\n{\r\nF_6 ( & V_4 , & V_7 ) ;\r\n}

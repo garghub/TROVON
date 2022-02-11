@@ -1,0 +1,1 @@
+void F_1 ( struct V_1 * V_2 )\r\n{\r\nstatic T_1 V_3 [ 256 ] ;\r\nif ( V_2 -> V_4 [ 0 ] . V_5 == 0 ) {\r\nV_2 -> V_4 [ 0 ] . V_6 . V_7 = 0xa0 >> 1 ;\r\nF_2 ( & V_2 -> V_4 [ 0 ] . V_6 , V_3 ,\r\nsizeof( V_3 ) ) ;\r\n}\r\n}

@@ -1,0 +1,1 @@
+struct V_1 * T_1 F_1 ( const char * V_2 ,\r\nT_2 V_3 )\r\n{\r\nstruct V_4 V_5 [] = {\r\n{\r\n. V_6 = V_3 ,\r\n. V_7 = V_3 + V_8 - 1 ,\r\n. V_9 = V_10 ,\r\n}\r\n} ;\r\nreturn F_2 ( V_2 , - 1 ,\r\nV_5 , F_3 ( V_5 ) , NULL , 0 ,\r\nF_4 ( 32 ) ) ;\r\n}

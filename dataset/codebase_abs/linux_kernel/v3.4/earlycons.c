@@ -1,0 +1,1 @@
+void F_1 ( char V_1 )\r\n{\r\nT_1 V_2 ;\r\n#if F_2 ( V_3 )\r\nV_2 = F_3 ( 0 , 0 ) ;\r\n#elif F_2 ( V_4 )\r\nV_2 = F_4 ( V_5 ) ;\r\n#endif\r\nwhile ( F_5 ( V_2 , V_6 ) == 0 )\r\n;\r\nF_6 ( V_2 , V_7 , V_1 ) ;\r\n}

@@ -1,0 +1,1 @@
+static inline T_1 F_1 ( const void * V_1 )\r\n{\r\nreturn * ( T_1 * ) V_1 ;\r\n}\r\nstatic inline void F_2 ( T_1 V_2 , void * V_1 )\r\n{\r\n* ( T_1 * ) V_1 = V_2 ;\r\n}\r\nvoid F_3 ( struct V_3 * V_4 ,\r\nstruct V_5 * V_6 , int V_7 )\r\n{\r\nunsigned long V_8 = F_4 ( V_7 ) ;\r\nF_5 ( V_4 , (struct V_9 * ) V_8 ,\r\nstruct V_9 , V_10 , V_6 ) ;\r\n}

@@ -1,0 +1,1 @@
+void F_1 ( bool V_1 )\r\n{\r\nenum V_2 V_3 = V_1 ? V_4 : V_5 ;\r\nF_2 ( V_6 , V_3 ) ;\r\n}\r\nvoid F_3 ( bool V_1 )\r\n{\r\nenum V_2 V_3 = V_1 ? V_4 : V_5 ;\r\nF_2 ( V_7 , V_3 ) ;\r\n}\r\nstatic int T_1 F_4 ( void )\r\n{\r\nF_5 ( L_1 , & V_6 ) ;\r\nF_5 ( L_2 , & V_7 ) ;\r\nreturn 0 ;\r\n}\r\nstatic void T_2 F_6 ( void )\r\n{\r\nF_7 ( V_7 ) ;\r\nF_7 ( V_6 ) ;\r\n}

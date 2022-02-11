@@ -1,0 +1,1 @@
+int F_1 ( const char * V_1 ,\r\nconst char * const V_2 [] ,\r\nconst char * const V_3 [] )\r\n{\r\nlong V_4 ;\r\nasm volatile ("int $0x80"\r\n: "=a" (__res)\r\n: "0" (__NR_execve), "b" (filename), "c" (argv), "d" (envp) : "memory");\r\nreturn V_4 ;\r\n}

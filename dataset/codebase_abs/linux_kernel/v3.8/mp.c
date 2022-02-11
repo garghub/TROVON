@@ -1,0 +1,1 @@
+int\r\nF_1 ( int V_1 , struct V_2 * V_3 , int V_4 , char * V_5 )\r\n{\r\nint V_6 ;\r\nunsigned long V_7 ;\r\nF_2 ( & V_8 , V_7 ) ;\r\nswitch( V_9 ) {\r\ncase V_10 :\r\ncase V_11 :\r\ndefault:\r\nV_6 = - 1 ;\r\nbreak;\r\ncase V_12 :\r\nV_6 = ( * ( V_13 -> V_14 ) ) ( V_1 , ( int ) V_3 , V_4 , V_5 ) ;\r\nbreak;\r\n}\r\nF_3 () ;\r\nF_4 ( & V_8 , V_7 ) ;\r\nreturn V_6 ;\r\n}

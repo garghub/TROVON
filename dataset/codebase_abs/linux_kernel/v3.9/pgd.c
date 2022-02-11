@@ -1,0 +1,1 @@
+T_1 * F_1 ( struct V_1 * V_2 )\r\n{\r\nT_1 * V_3 ;\r\nif ( V_4 == V_5 )\r\nV_3 = ( T_1 * ) F_2 ( V_6 ) ;\r\nelse\r\nV_3 = F_3 ( V_4 , V_6 ) ;\r\nif ( ! V_3 )\r\nreturn NULL ;\r\nreturn V_3 ;\r\n}\r\nvoid F_4 ( struct V_1 * V_2 , T_1 * V_7 )\r\n{\r\nif ( V_4 == V_5 )\r\nF_5 ( ( unsigned long ) V_7 ) ;\r\nelse\r\nF_6 ( V_7 ) ;\r\n}

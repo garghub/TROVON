@@ -1,0 +1,1 @@
+T_1 * F_1 ( struct V_1 * V_2 )\r\n{\r\nif ( V_3 == V_4 )\r\nreturn ( T_1 * ) F_2 ( V_5 ) ;\r\nelse\r\nreturn F_3 ( V_3 , V_5 ) ;\r\n}\r\nvoid F_4 ( struct V_1 * V_2 , T_1 * V_6 )\r\n{\r\nif ( V_3 == V_4 )\r\nF_5 ( ( unsigned long ) V_6 ) ;\r\nelse\r\nF_6 ( V_6 ) ;\r\n}

@@ -1,0 +1,1 @@
+int F_1 ( unsigned int V_1 , unsigned int V_2 )\r\n{\r\nvoid T_1 * V_3 ;\r\nunsigned long V_4 ;\r\nunsigned long V_5 ;\r\nunsigned long V_6 ;\r\nV_3 = ( V_1 & V_7 ) ? V_8 : V_9 ;\r\nV_6 = 3 << F_2 ( V_1 ) ;\r\nF_3 ( V_5 ) ;\r\nV_4 = F_4 ( V_3 ) ;\r\nV_4 &= ~ V_6 ;\r\nV_4 |= V_2 & V_6 ;\r\nF_5 ( V_4 , V_3 ) ;\r\nF_6 ( V_5 ) ;\r\nreturn 0 ;\r\n}

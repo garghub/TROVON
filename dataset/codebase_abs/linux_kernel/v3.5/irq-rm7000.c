@@ -1,0 +1,1 @@
+static inline void F_1 ( struct V_1 * V_2 )\r\n{\r\nF_2 ( 0x100 << ( V_2 -> V_3 - V_4 ) ) ;\r\n}\r\nstatic inline void F_3 ( struct V_1 * V_2 )\r\n{\r\nF_4 ( 0x100 << ( V_2 -> V_3 - V_4 ) ) ;\r\n}\r\nvoid T_1 F_5 ( void )\r\n{\r\nint V_5 = V_4 ;\r\nint V_6 ;\r\nF_4 ( 0x00000f00 ) ;\r\nfor ( V_6 = V_5 ; V_6 < V_5 + 4 ; V_6 ++ )\r\nF_6 ( V_6 , & V_7 ,\r\nV_8 ) ;\r\n}

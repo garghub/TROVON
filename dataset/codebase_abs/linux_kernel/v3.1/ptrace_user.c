@@ -1,0 +1,1 @@
+int F_1 ( long V_1 , unsigned long * V_2 )\r\n{\r\nif ( F_2 ( V_3 , V_1 , 0 , V_2 ) < 0 )\r\nreturn - V_4 ;\r\nreturn ( 0 ) ;\r\n}\r\nint F_3 ( long V_1 , unsigned long * V_2 )\r\n{\r\nif ( F_2 ( V_5 , V_1 , 0 , V_2 ) < 0 )\r\nreturn - V_4 ;\r\nreturn ( 0 ) ;\r\n}

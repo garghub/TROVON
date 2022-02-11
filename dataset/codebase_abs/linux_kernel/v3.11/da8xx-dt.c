@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\nint V_1 ;\r\nfor ( V_1 = 0 ; V_1 < V_2 ; V_1 ++ )\r\nF_2 ( V_1 , NULL ) ;\r\n}\r\nstatic void T_1 F_3 ( void )\r\n{\r\nF_4 ( V_3 ) ;\r\n}\r\nstatic void T_1 F_5 ( void )\r\n{\r\nF_6 ( NULL , V_4 ,\r\nV_5 , NULL ) ;\r\nF_1 () ;\r\n}

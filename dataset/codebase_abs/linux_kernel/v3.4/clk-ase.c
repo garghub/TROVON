@@ -1,0 +1,1 @@
+unsigned int F_1 ( void )\r\n{\r\nreturn V_1 ;\r\n}\r\nunsigned int F_2 ( int V_2 )\r\n{\r\nreturn V_1 ;\r\n}\r\nunsigned int F_3 ( void )\r\n{\r\nif ( F_4 ( V_3 ) & ( 1 << 5 ) )\r\nreturn V_4 ;\r\nelse\r\nreturn V_1 ;\r\n}\r\nunsigned int F_5 ( void )\r\n{\r\nreturn V_1 ;\r\n}

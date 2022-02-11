@@ -1,0 +1,1 @@
+void T_1 F_1 ( struct V_1 * V_2 )\r\n{\r\nV_2 -> V_3 = ( F_2 ( V_4 ) & V_5 ) >> V_6 ;\r\nV_2 -> V_7 = ( F_2 ( V_4 ) & V_8 ) >> V_9 ;\r\nswitch ( V_2 -> V_3 ) {\r\ncase V_10 :\r\nV_2 -> V_11 = V_12 ;\r\nV_2 -> type = V_13 ;\r\nbreak;\r\ndefault:\r\nF_3 () ;\r\nbreak;\r\n}\r\n}

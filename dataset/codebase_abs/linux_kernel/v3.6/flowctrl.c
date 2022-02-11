@@ -1,0 +1,1 @@
+static void F_1 ( T_1 V_1 , T_2 V_2 )\r\n{\r\nvoid T_3 * V_3 = F_2 ( V_4 ) + V_1 ;\r\nF_3 ( V_2 , V_3 ) ;\r\nF_4 () ;\r\nF_5 ( V_3 ) ;\r\n}\r\nvoid F_6 ( unsigned int V_5 , T_2 V_2 )\r\n{\r\nreturn F_1 ( V_6 [ V_5 ] , V_2 ) ;\r\n}\r\nvoid F_7 ( unsigned int V_5 , T_2 V_2 )\r\n{\r\nreturn F_1 ( V_7 [ V_5 ] , V_2 ) ;\r\n}

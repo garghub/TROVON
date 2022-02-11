@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\nvoid T_2 * V_1 = F_2 ( 0xe6180000 ) ;\r\nF_3 ( 0x0131000e , V_1 + V_2 ) ;\r\nF_3 ( 0 , V_1 + V_3 ) ;\r\n}\r\nstatic inline void F_1 ( void ) {}\r\nvoid T_1 F_4 ( void )\r\n{\r\nstatic int V_4 ;\r\nif ( ! V_4 ++ )\r\nF_1 () ;\r\n}

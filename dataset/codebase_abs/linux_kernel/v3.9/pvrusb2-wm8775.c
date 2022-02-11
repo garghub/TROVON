@@ -1,0 +1,1 @@
+void F_1 ( struct V_1 * V_2 , struct V_3 * V_4 )\r\n{\r\nif ( V_2 -> V_5 || V_2 -> V_6 ) {\r\nT_1 V_7 ;\r\nswitch ( V_2 -> V_8 ) {\r\ncase V_9 :\r\nV_7 = 1 ;\r\nbreak;\r\ndefault:\r\nV_7 = 2 ;\r\nbreak;\r\n}\r\nF_2 ( V_10 , L_1\r\nL_2 ,\r\nV_2 -> V_8 , V_7 ) ;\r\nV_4 -> V_11 -> V_12 -> V_13 ( V_4 , V_7 , 0 , 0 ) ;\r\n}\r\n}

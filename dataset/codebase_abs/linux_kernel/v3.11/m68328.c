@@ -1,0 +1,1 @@
+void F_1 ( void )\r\n{\r\nF_2 () ;\r\nasm volatile ("moveal #0x10c00000, %a0;\n\t"\r\n"moveb #0, 0xFFFFF300;\n\t"\r\n"moveal 0(%a0), %sp;\n\t"\r\n"moveal 4(%a0), %a0;\n\t"\r\n"jmp (%a0);");\r\n}\r\nvoid F_3 ( char * V_1 , int V_2 )\r\n{\r\nF_4 ( V_3 L_1 ) ;\r\nF_4 ( V_3 L_2 ) ;\r\nF_4 ( V_3 L_3 ) ;\r\nV_4 = V_5 ;\r\nV_6 = F_1 ;\r\n}

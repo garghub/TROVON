@@ -1,0 +1,1 @@
+void F_1 ( struct V_1 * V_2 , T_1 V_3 )\r\n{\r\nV_4 [ V_3 ] = F_2 ( V_2 , V_5 [ V_3 ] ) ;\r\nif ( F_3 ( V_4 [ V_3 ] ) )\r\nV_4 [ V_3 ] = NULL ;\r\nelse\r\nF_4 ( V_4 [ V_3 ] ) ;\r\n}\r\nvoid F_5 ( T_1 V_3 )\r\n{\r\nif ( V_4 [ V_3 ] )\r\nF_6 ( V_4 [ V_3 ] ) ;\r\n}\r\nvoid F_7 ( T_1 V_3 )\r\n{\r\nif ( V_4 [ V_3 ] )\r\nF_8 ( V_4 [ V_3 ] ) ;\r\n}

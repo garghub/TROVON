@@ -1,0 +1,1 @@
+static void F_1 ( struct V_1 * V_2 , const char * V_3 ,\r\nunsigned V_4 )\r\n{\r\nunsigned V_5 ;\r\nfor ( V_5 = 0 ; V_5 < V_4 ; V_5 ++ ) {\r\nif ( * V_3 == 10 )\r\nF_2 ( L_1 , 13 ) ;\r\nF_2 ( L_1 , * V_3 ++ ) ;\r\n}\r\n}\r\nstatic int T_1 F_3 ( struct V_1 * V_2 , char * V_6 )\r\n{\r\nreturn 0 ;\r\n}\r\nstatic int T_1 F_4 ( void )\r\n{\r\nF_5 ( & V_7 ) ;\r\nreturn 0 ;\r\n}

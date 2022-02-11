@@ -1,0 +1,1 @@
+static int F_1 ( struct V_1 * V_1 )\r\n{\r\nT_1 V_2 ;\r\nV_2 = F_2 ( V_3 ) ;\r\nF_3 ( V_2 & ~ V_4 , V_3 ) ;\r\nreturn 0 ;\r\n}\r\nstatic void F_4 ( struct V_1 * V_1 )\r\n{\r\nT_1 V_2 ;\r\nV_2 = F_2 ( V_3 ) ;\r\nF_3 ( V_2 | V_4 , V_3 ) ;\r\n}\r\nunsigned long F_5 ( struct V_1 * V_1 )\r\n{\r\nreturn F_6 () * F_7 () ;\r\n}
