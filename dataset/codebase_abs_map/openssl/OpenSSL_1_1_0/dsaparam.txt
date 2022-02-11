@@ -1,0 +1,142 @@
+need_rand	,	V_12
+DSAparams_print	,	F_26
+"    if (dsa == NULL)\n"	,	L_19
+OPT_IN	,	V_37
+BN_GENCB_new	,	F_18
+BIO_write	,	F_44
+bio_out	,	V_60
+"BN space"	,	L_12
+len	,	V_58
+sa_flags	,	V_51
+text	,	V_20
+"    return(dsa);\n}\n"	,	L_27
+"unable to load DSA parameters\n"	,	L_11
+app_RAND_load_files	,	F_17
+"Error, couldn't set SIGALRM handler\n"	,	L_8
+OPTION_CHOICE	,	T_4
+in	,	V_6
+OPT_OUTFORM	,	V_38
+dsa_cb	,	V_47
+"    if (!dsa-&gt;p || !dsa-&gt;q || !dsa-&gt;g) {\n"	,	L_24
+BN_GENCB_get_arg	,	F_45
+PEM_read_bio_DSAparams	,	F_25
+DSA_free	,	F_37
+bio_err	,	V_32
+BIO_flush	,	F_46
+BIGNUM	,	T_5
+C	,	V_17
+opt_next	,	F_5
+OPT_GENKEY	,	V_44
+"%s: Use -help for summary.\n"	,	L_1
+infile	,	V_23
+opt_arg	,	F_9
+dsakey	,	V_61
+stop_keygen_flag	,	V_2
+numbits	,	V_9
+bits_p	,	V_59
+out	,	V_7
+OPT_HELP	,	V_34
+ERR_print_errors	,	F_23
+"dsag"	,	L_16
+DSAparams_dup	,	F_35
+opt_rest	,	F_12
+cb	,	V_8
+FORMAT_ASN1	,	V_53
+c	,	V_63
+setup_engine	,	F_10
+dsaparam_options	,	V_28
+BIO_printf	,	F_6
+g	,	V_56
+DSA_generate_key	,	F_36
+i	,	V_19
+OPT_EOF	,	V_29
+app_RAND_load_file	,	F_16
+"Generating DSA parameters, %d bit long prime\n"	,	L_5
+prog	,	V_25
+app_RAND_write_file	,	F_40
+n	,	V_62
+o	,	V_27
+p	,	V_54
+"    dsa-&gt;g = BN_bin2bn(dsag_%d, sizeof (dsag_%d), NULL);\n"	,	L_23
+OPT_TEXT	,	V_42
+q	,	V_55
+print_bignum_var	,	F_31
+"        return NULL;\n"	,	L_20
+OPT_RAND	,	V_45
+"%ld semi-random bytes loaded\n"	,	L_2
+"\n"	,	L_18
+data	,	V_57
+BN_GENCB	,	T_3
+num	,	V_10
+app_malloc	,	F_30
+genkey	,	V_11
+i2d_DSAparams_bio	,	F_33
+outformat	,	V_15
+BIO_free	,	F_42
+BN_GENCB_free	,	F_41
+bio_open_owner	,	F_15
+DSA	,	T_1
+act	,	V_49
+"        DSA_free(dsa);\n"	,	L_25
+OPENSSL_free	,	F_32
+bio_open_default	,	F_14
+"dsaq"	,	L_15
+sa_handler	,	V_50
+ret	,	V_18
+"    DSA *dsa = DSA_new();\n"	,	L_17
+opt_format	,	F_8
+BIO_free_all	,	F_43
+opt_init	,	F_4
+sigaction	,	V_48
+BN_num_bits	,	F_29
+noout	,	V_16
+dsa	,	V_5
+OPT_NOOUT	,	V_46
+OPT_TIMEBOMB	,	V_41
+"dsap"	,	L_14
+inrand	,	V_26
+PEM_write_bio_DSAPrivateKey	,	F_39
+private	,	V_21
+OPT_ERR	,	V_30
+"DSA *get_dsa%d()\n{\n"	,	L_13
+foo	,	V_1
+outfile	,	V_24
+OPT_INFORM	,	V_35
+OPT_FMT_PEMDER	,	V_36
+argv	,	V_4
+"    dsa-&gt;q = BN_bin2bn(dsaq_%d, sizeof (dsaq_%d), NULL);\n"	,	L_22
+BN_GENCB_set	,	F_19
+"    }\n"	,	L_26
+"Error allocating BN_GENCB object\n"	,	L_3
+d2i_DSAparams_bio	,	F_24
+opt_num_rest	,	F_11
+alarm	,	F_21
+end	,	V_33
+timebomb	,	V_22
+i2d_DSAPrivateKey_bio	,	F_38
+"Error allocating DSA object\n"	,	L_4
+timebomb_sigalarm	,	F_1
+PEM_write_bio_DSAparams	,	F_34
+OPT_OUT	,	V_39
+"    dsa-&gt;p = BN_bin2bn(dsap_%d, sizeof (dsap_%d), NULL);\n"	,	L_21
+argc	,	V_3
+"This could take some time\n"	,	L_6
+"(though I'll stop it if not done within %d secs)\n"	,	L_7
+opt_int	,	F_13
+OPT_ENGINE	,	V_40
+"DSA key generation time-stopped\n"	,	L_9
+BIO	,	T_2
+OPT_C	,	V_43
+SIGALRM	,	V_52
+"Error, DSA key generation failed\n"	,	L_10
+GENCB_TEST	,	F_3
+"unable to write DSA parameters\n"	,	L_28
+opthelp	,	V_31
+BN_num_bytes	,	F_28
+informat	,	V_13
+opt_help	,	F_7
+DSA_new	,	F_20
+FORMAT_PEM	,	V_14
+DSA_get0_pqg	,	F_27
+dsaparam_main	,	F_2
+DSA_generate_parameters_ex	,	F_22

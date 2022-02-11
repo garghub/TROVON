@@ -1,0 +1,156 @@
+"This is an S/MIME signed message\n\n"	,	L_5
+mime_hdr_free	,	V_27
+eol	,	V_41
+bcont	,	V_17
+"application/pkcs7-signature"	,	L_21
+bio	,	V_1
+BIO_pop	,	F_8
+mime_param_find	,	F_21
+"Found Match Quote\n"	,	L_30
+BIO_write	,	F_16
+hdrs	,	V_73
+PKCS7_DETACHED	,	V_15
+PKCS7_R_PKCS7_PARSE_ERROR	,	V_38
+mime_parse_hdr	,	F_18
+len	,	V_42
+sk_pop_free	,	F_20
+"Found End Value\n"	,	L_28
+MAX_SMLEN	,	V_11
+mparam	,	V_69
+state	,	V_49
+MIME_COMMENT	,	V_61
+PKCS7_F_B64_WRITE_PKCS7	,	V_4
+p7in	,	V_18
+in	,	V_39
+"protocol=\"application/x-pkcs7-signature\" ; "	,	L_3
+"Content-Disposition: attachment; filename=\"smime.p7s\"\n\n"	,	L_11
+mime_hdr_new	,	F_37
+linelen	,	V_78
+PKCS7err	,	F_4
+"application/x-pkcs7-signature"	,	L_20
+PKCS7_F_SMIME_TEXT	,	V_45
+params	,	V_67
+sk_find	,	F_42
+B64_write_PKCS7	,	F_1
+"--"	,	L_31
+PKCS7_BINARY	,	V_43
+PKCS7_R_PKCS7_SIG_PARSE_ERROR	,	V_36
+BIO_gets	,	F_28
+BIO_flush	,	F_7
+mime_bound_check	,	F_32
+param_value	,	V_29
+strip_start	,	F_40
+B64_read_PKCS7	,	F_10
+SMIME_write_PKCS7	,	F_12
+"application/x-pkcs7-mime"	,	L_23
+PKCS7_R_NO_CONTENT_TYPE	,	V_28
+flags	,	V_9
+SMIME_crlf_copy	,	F_27
+MIME_TYPE	,	V_60
+out	,	V_40
+MIME_START	,	V_59
+mime_debug	,	F_36
+sk_num	,	F_23
+"multipart/signed"	,	L_18
+"Found Quote\n"	,	L_29
+PKCS7_R_NO_MULTIPART_BODY_FAILURE	,	V_31
+PKCS7_R_INVALID_MIME_TYPE	,	V_37
+mhdr	,	V_55
+blen	,	V_47
+a	,	V_71
+b	,	V_72
+c	,	V_13
+"boundary"	,	L_19
+PKCS7	,	T_2
+BIO_printf	,	F_14
+i	,	V_14
+PKCS7_F_SMIME_READ_PKCS7	,	V_24
+PKCS7_R_NO_MULTIPART_BOUNDARY	,	V_30
+mime_hdr_addparam	,	F_38
+"micalg=sha1 ; boundary=\"----%s\"\n\n"	,	L_4
+SMIME_text	,	F_30
+PKCS7_TEXT	,	V_16
+p	,	V_52
+"Content-Type: text/plain\r\n\r\n"	,	L_25
+q	,	V_53
+PKCS7_R_SIG_INVALID_MIME_TYPE	,	V_35
+linebuf	,	V_10
+sk_new	,	F_31
+SMIME_read_PKCS7	,	F_17
+iobuf	,	V_44
+BIO_s_mem	,	F_34
+"MIME-Version: 1.0\n"	,	L_1
+save_state	,	V_56
+BIO_read	,	F_15
+"\n"	,	L_16
+first	,	V_51
+multi_split	,	F_22
+strip_ends	,	F_35
+data	,	V_8
+PKCS7_R_NO_SIG_CONTENT_TYPE	,	V_34
+RAND_pseudo_bytes	,	F_13
+"text/plain"	,	L_27
+"\n------%s--\n\n"	,	L_12
+tmpval	,	V_66
+BIO_free	,	F_9
+MIME_QUOTE	,	V_63
+mime_param_cmp	,	V_68
+tmpname	,	V_65
+PKCS7_R_DECODE_ERROR	,	V_7
+"\n------%s\n"	,	L_8
+mime_hdr_cmp	,	V_57
+"Content-Type: application/x-pkcs7-mime; name=\"smime.p7m\"\n"	,	L_14
+sk_free	,	F_26
+MIME_NAME	,	V_58
+htmp	,	V_74
+ret	,	V_23
+b64	,	V_3
+MIME_PARAM	,	T_5
+prm	,	V_22
+"Content-Transfer-Encoding: base64\n\n"	,	L_15
+d2i_PKCS7_bio	,	F_11
+"------%s\r\n"	,	L_6
+PKCS7_F_B64_READ_PKCS7	,	V_6
+ERR_R_MALLOC_FAILURE	,	V_5
+parts	,	V_20
+name	,	V_64
+BIO_new	,	F_2
+idx	,	V_75
+BIO_f_base64	,	F_3
+"Content-Transfer-Encoding: base64\n"	,	L_10
+MIME_HEADER	,	T_4
+ERR_add_error_data	,	F_25
+p7	,	V_2
+part	,	V_50
+"Content-Type: text/plain\n\n"	,	L_7
+bpart	,	V_48
+"Content-Type: application/x-pkcs7-signature; name=\"smime.p7s\"\n"	,	L_9
+mime_hdr_find	,	F_19
+STACK	,	T_3
+"\r\n"	,	L_26
+sk_push	,	F_33
+param	,	V_76
+"Content-Disposition: attachment; filename=\"smime.p7m\"\n"	,	L_13
+mime_param_free	,	V_77
+ntmp	,	V_54
+PKCS7_R_MIME_PARSE_ERROR	,	V_25
+MIME_VALUE	,	V_62
+"Content-Type: multipart/signed ; "	,	L_2
+value	,	V_26
+"content-type"	,	L_17
+sk_value	,	F_24
+headers	,	V_19
+BIO_push	,	F_5
+iscrlf	,	F_29
+stkfree	,	V_32
+strip_end	,	F_39
+BUF_strdup	,	F_41
+bound	,	V_12
+i2d_PKCS7_bio	,	F_6
+BIO	,	T_1
+PKCS7_R_MIME_SIG_PARSE_ERROR	,	V_33
+"type: "	,	L_22
+PKCS7_R_MIME_NO_CONTENT_TYPE	,	V_46
+"application/pkcs7-mime"	,	L_24
+hdr	,	V_21
+param_name	,	V_70

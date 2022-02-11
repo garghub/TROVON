@@ -1,0 +1,163 @@
+OPENSSL_NO_ENGINE	,	F_2
+stdin	,	V_34
+"\treturn(dsa);\n\t}\n"	,	L_54
+bad	,	V_33
+need_rand	,	V_24
+DSAparams_print	,	F_27
+apps_startup	,	F_4
+" -rand         files to use for random number input\n"	,	L_24
+BIO_write	,	F_44
+len	,	V_46
+sa_flags	,	V_41
+text	,	V_9
+"unable to load DSA parameters\n"	,	L_37
+LINT	,	F_46
+app_RAND_load_files	,	F_20
+"Error, couldn't set SIGALRM handler\n"	,	L_33
+in	,	V_10
+BN_bn2bin	,	F_31
+ERR_load_crypto_strings	,	F_11
+"\tif ((dsa=DSA_new()) == NULL) return(NULL);\n"	,	L_48
+" -inform arg   input format - DER or PEM\n"	,	L_16
+"\t\t{ DSA_free(dsa); return(NULL); }\n"	,	L_53
+dsa_cb	,	V_37
+"%s [options] [bits] &lt;infile &gt;outfile\n"	,	L_14
+"DSA *get_dsa%d()\n\t{\n"	,	L_46
+PEM_read_bio_DSAparams	,	F_26
+"static unsigned char dsa%d_p[]={"	,	L_39
+DSA_free	,	F_38
+" -out arg      output file\n"	,	L_19
+apps_shutdown	,	F_42
+bio_err	,	V_27
+BIO_NOCLOSE	,	V_29
+BIO_flush	,	F_45
+bits_q	,	V_48
+C	,	V_15
+BIO_FP_TEXT	,	V_30
+"\n\t};\n\n"	,	L_45
+infile	,	V_17
+dsakey	,	V_53
+badops	,	V_8
+stop_keygen_flag	,	V_2
+numbits	,	V_21
+bits_p	,	V_47
+out	,	V_11
+" -genkey       generate a DSA key\n"	,	L_23
+ERR_print_errors	,	F_12
+DSAparams_dup	,	F_34
+bits_g	,	V_49
+arg	,	V_56
+load_config	,	F_8
+" -timebomb n   interrupt keygen after &lt;n&gt; seconds\n"	,	L_26
+cb	,	V_36
+"static unsigned char dsa%d_q[]={"	,	L_43
+BIO_write_filename	,	F_17
+FORMAT_ASN1	,	V_43
+c	,	V_55
+"bad output format specified for outfile\n"	,	L_55
+e	,	V_5
+setup_engine	,	F_18
+BIO_printf	,	F_10
+"-engine"	,	L_5
+" -outform arg  output format - DER or PEM\n"	,	L_17
+g	,	V_52
+DSA_generate_key	,	F_35
+ENGINE	,	T_1
+i	,	V_7
+"\tDSA *dsa;\n\n"	,	L_47
+app_RAND_load_file	,	F_19
+l	,	V_45
+"Generating DSA parameters, %d bit long prime\n"	,	L_30
+prog	,	V_19
+app_RAND_write_file	,	F_39
+n	,	V_54
+p	,	V_50
+str2fmt	,	F_9
+q	,	V_51
+" -text         print as text\n"	,	L_20
+OPENSSL_EXIT	,	F_43
+"%ld semi-random bytes loaded\n"	,	L_28
+OPENSSL_SYS_VMS	,	F_14
+data	,	V_44
+"-noout"	,	L_11
+BN_GENCB	,	T_4
+num	,	V_22
+"-in"	,	L_3
+"-timebomb"	,	L_6
+genkey	,	V_23
+i2d_DSAparams_bio	,	F_32
+outformat	,	V_13
+BIO_free	,	F_40
+"-inform"	,	L_1
+"bad input format specified\n"	,	L_36
+" -in arg       input file\n"	,	L_18
+DSA	,	T_2
+act	,	V_39
+"static unsigned char dsa%d_g[]={"	,	L_44
+BIO_set_fp	,	F_7
+"\tdsa-&gt;g=BN_bin2bn(dsa%d_g,sizeof(dsa%d_g),NULL);\n"	,	L_51
+"\n\t"	,	L_40
+sa_handler	,	V_40
+ret	,	V_16
+" -engine e     use engine e, possibly a hardware device.\n"	,	L_25
+"\n\t};\n"	,	L_42
+OPENSSL_malloc	,	F_30
+BIO_free_all	,	F_41
+"OPENSSL_malloc"	,	L_38
+"\tdsa-&gt;p=BN_bin2bn(dsa%d_p,sizeof(dsa%d_p),NULL);\n"	,	L_49
+stderr	,	V_28
+sigaction	,	V_38
+BN_num_bits	,	F_29
+noout	,	V_14
+"-genkey"	,	L_9
+dsa	,	V_6
+tmpbio	,	V_35
+inrand	,	V_20
+BIO_new	,	F_5
+" number        number of bits to use for generating private key\n"	,	L_27
+" -noout        no output\n"	,	L_22
+BIO_read_filename	,	F_13
+PEM_write_bio_DSAPrivateKey	,	F_37
+BIO_f_linebuffer	,	F_15
+foo	,	V_1
+outfile	,	V_18
+argv	,	V_4
+BN_GENCB_set	,	F_21
+"%d"	,	L_12
+d2i_DSAparams_bio	,	F_25
+engine	,	V_25
+"unknown option %s\n"	,	L_13
+alarm	,	F_23
+end	,	V_31
+"-text"	,	L_7
+"-C"	,	L_8
+"where options are\n"	,	L_15
+timebomb	,	V_26
+i2d_DSAPrivateKey_bio	,	F_36
+"Error allocating DSA object\n"	,	L_29
+timebomb_sigalarm	,	F_1
+PEM_write_bio_DSAparams	,	F_33
+MS_CALLBACK	,	T_5
+" -C            Output C code\n"	,	L_21
+argc	,	V_3
+"-rand"	,	L_10
+"This could take some time\n"	,	L_31
+"(though I'll stop it if not done within %d secs)\n"	,	L_32
+BIO_push	,	F_16
+"DSA key generation time-stopped\n"	,	L_34
+BIO	,	T_3
+SIGALRM	,	V_42
+"Error, DSA key generation failed\n"	,	L_35
+"0x%02X,"	,	L_41
+"-out"	,	L_4
+"\tdsa-&gt;q=BN_bin2bn(dsa%d_q,sizeof(dsa%d_q),NULL);\n"	,	L_50
+GENCB_TEST	,	F_3
+"unable to write DSA parameters\n"	,	L_56
+BN_num_bytes	,	F_28
+informat	,	V_12
+BIO_s_file	,	F_6
+DSA_new	,	F_22
+FORMAT_PEM	,	V_32
+"-outform"	,	L_2
+"\tif ((dsa-&gt;p == NULL) || (dsa-&gt;q == NULL) || (dsa-&gt;g == NULL))\n"	,	L_52
+DSA_generate_parameters_ex	,	F_24

@@ -1,0 +1,169 @@
+OPENSSL_NO_ENGINE	,	F_2
+stdin	,	V_35
+bad	,	V_29
+"\tif ((dh-&gt;p == NULL) || (dh-&gt;g == NULL))\n"	,	L_61
+apps_startup	,	F_3
+"-5"	,	L_12
+"\t\t{ DH_free(dh); return(NULL); }\n"	,	L_62
+BIO_write	,	F_46
+"\tstatic unsigned char dh%d_p[]={"	,	L_52
+"This is going to take a long time\n"	,	L_38
+len	,	V_43
+text	,	V_6
+"-check"	,	L_6
+"unable to load DSA parameters\n"	,	L_40
+LINT	,	F_48
+app_RAND_load_files	,	F_14
+LIST_SEPARATOR_CHAR	,	V_30
+in	,	V_8
+BN_bn2bin	,	F_38
+ERR_load_crypto_strings	,	F_10
+DH_free	,	F_22
+bits	,	V_45
+"\tstatic unsigned char dh%d_g[]={"	,	L_56
+" -rand file%cfile%c...\n"	,	L_29
+"               the random number generator\n"	,	L_31
+"generator may not be chosen for DSA parameters\n"	,	L_33
+PEM_read_bio_DSAparams	,	F_26
+"#ifndef HEADER_DH_H\n"	,	L_48
+"DH *get_dh%d()\n\t{\n"	,	L_51
+DSA_free	,	F_17
+" -out arg      output file\n"	,	L_20
+apps_shutdown	,	F_44
+d2i_DHparams_bio	,	F_27
+bio_err	,	V_23
+" -2            generate parameters using  2 as the generator value\n"	,	L_25
+"DH parameters appear to be ok.\n"	,	L_46
+"unable to write DH parameters\n"	,	L_66
+BIO_NOCLOSE	,	V_25
+BIO_flush	,	F_47
+"the g value is not a generator\n"	,	L_45
+C	,	V_14
+BIO_FP_TEXT	,	V_26
+DH_new	,	F_20
+OPENSSL_NO_DSA	,	F_1
+infile	,	V_16
+dh_cb	,	V_33
+badops	,	V_5
+out	,	V_9
+PEM_read_bio_DHparams	,	F_28
+ERR_print_errors	,	F_18
+" -check        check the DH parameters\n"	,	L_22
+"               - load the file (or the files in the directory) into\n"	,	L_30
+arg	,	V_50
+dsaparam	,	V_7
+load_config	,	F_7
+cb	,	V_32
+PEM_write_bio_DHparams	,	F_41
+BIO_write_filename	,	F_32
+FORMAT_ASN1	,	V_36
+c	,	V_49
+"bad output format specified for outfile\n"	,	L_65
+setup_engine	,	F_11
+BIO_printf	,	F_9
+" -outform arg  output format - one of DER PEM\n"	,	L_18
+g	,	V_22
+"-engine"	,	L_5
+i	,	V_4
+"\n\t\t};\n"	,	L_55
+app_RAND_load_file	,	F_13
+l	,	V_44
+"Generating DSA parameters, %d bit long prime\n"	,	L_36
+prog	,	V_18
+"-dsaparam"	,	L_8
+app_RAND_write_file	,	F_23
+n	,	V_48
+p	,	V_46
+str2fmt	,	F_8
+OPENSSL_EXIT	,	F_45
+"%ld semi-random bytes loaded\n"	,	L_35
+" -5            generate parameters using  5 as the generator value\n"	,	L_26
+"\tDH *dh;\n\n"	,	L_57
+"unable to load DH parameters\n"	,	L_41
+OPENSSL_SYS_VMS	,	F_29
+"\tdh-&gt;length = %ld;\n"	,	L_63
+DH	,	T_1
+dh	,	V_3
+data	,	V_42
+"-noout"	,	L_10
+BN_GENCB	,	T_3
+num	,	V_21
+"-in"	,	L_3
+"warning, not much extra random data, consider using the -rand option\n"	,	L_34
+DSA_dup_DH	,	F_19
+outformat	,	V_11
+BIO_free	,	F_42
+"-inform"	,	L_1
+"bad input format specified\n"	,	L_39
+" -in arg       input file\n"	,	L_19
+DSA	,	T_4
+DH_CHECK_P_NOT_PRIME	,	V_38
+OPENSSL_free	,	F_39
+BIO_set_fp	,	F_6
+" -dsaparam     read or generate DSA parameters, convert to DH\n"	,	L_21
+"\n\t\t"	,	L_53
+ret	,	V_15
+" -engine e     use engine e, possibly a hardware device.\n"	,	L_28
+OPENSSL_malloc	,	F_37
+BIO_free_all	,	F_43
+"#endif\n"	,	L_50
+"OPENSSL_malloc"	,	L_47
+DH_generate_parameters_ex	,	F_21
+DH_NOT_SUITABLE_GENERATOR	,	V_41
+check	,	V_12
+"-2"	,	L_11
+stderr	,	V_24
+BN_num_bits	,	F_36
+noout	,	V_13
+"\tdh-&gt;g=BN_bin2bn(dh%d_g,sizeof(dh%d_g),NULL);\n"	,	L_60
+dsa	,	V_34
+DEFBITS	,	V_31
+DHparams_print	,	F_33
+" -text         print a text form of the DH parameters\n"	,	L_23
+tmpbio	,	V_37
+inrand	,	V_19
+BIO_new	,	F_4
+" -noout        no output\n"	,	L_32
+"Generating DH parameters, %d bit long safe prime, generator %d\n"	,	L_37
+"\tif ((dh=DH_new()) == NULL) return(NULL);\n"	,	L_58
+BIO_read_filename	,	F_24
+"%s [options] [numbits]\n"	,	L_15
+BIO_f_linebuffer	,	F_30
+outfile	,	V_17
+"#include &lt;openssl/dh.h&gt;\n"	,	L_49
+argv	,	V_2
+BN_GENCB_set	,	F_12
+DH_CHECK_P_NOT_SAFE_PRIME	,	V_39
+"%d"	,	L_14
+" -inform arg   input format - one of DER PEM\n"	,	L_17
+d2i_DSAparams_bio	,	F_25
+engine	,	V_20
+"\tdh-&gt;p=BN_bin2bn(dh%d_p,sizeof(dh%d_p),NULL);\n"	,	L_59
+end	,	V_27
+"-text"	,	L_7
+"-C"	,	L_9
+"where options are\n"	,	L_16
+DH_check	,	F_34
+MS_CALLBACK	,	T_5
+" -C            Output C code\n"	,	L_24
+argc	,	V_1
+"-rand"	,	L_13
+DH_UNABLE_TO_CHECK_GENERATOR	,	V_40
+BIO_push	,	F_31
+"p value is not a safe prime\n"	,	L_43
+"p value is not prime\n"	,	L_42
+length	,	V_47
+BIO	,	T_2
+"0x%02X,"	,	L_54
+"-out"	,	L_4
+" numbits       number of bits in to generate (default 512)\n"	,	L_27
+BN_num_bytes	,	F_35
+i2d_DHparams_bio	,	F_40
+informat	,	V_10
+"\treturn(dh);\n\t}\n"	,	L_64
+BIO_s_file	,	F_5
+DSA_new	,	F_15
+FORMAT_PEM	,	V_28
+"unable to check the generator value\n"	,	L_44
+"-outform"	,	L_2
+DSA_generate_parameters_ex	,	F_16

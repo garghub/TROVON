@@ -1,0 +1,66 @@
+dh_load_rand	,	F_10
+DH	,	T_1
+dh	,	V_4
+bad	,	V_17
+num	,	V_6
+apps_startup	,	F_1
+"-5"	,	L_3
+"warning, not much extra random data, consider using the -rand option\n"	,	L_14
+"             the random number generator\n"	,	L_12
+BIO_free	,	F_14
+BIO_write	,	F_16
+" -rand file:file:...\n"	,	L_10
+DH_generate_parameters	,	F_11
+"This is going to take a long time\n"	,	L_17
+" -2    use 2 as the generator value\n"	,	L_8
+RAND_write_file	,	F_12
+buffer	,	V_3
+BIO_set_fp	,	F_4
+"           - load the file (or the files in the directory) into\n"	,	L_11
+ret	,	V_5
+LINT	,	F_18
+last	,	V_25
+LIST_SEPARATOR_CHAR	,	V_27
+RAND_load_file	,	F_9
+DH_free	,	F_15
+"-2"	,	L_2
+stderr	,	V_14
+" -out file - output the key to 'file\n"	,	L_7
+RAND_file_name	,	F_8
+"unable to write 'random state'\n"	,	L_18
+DEFBITS	,	V_7
+bio_err	,	V_13
+name	,	V_24
+inrand	,	V_10
+BIO_new	,	F_2
+BIO_NOCLOSE	,	V_15
+BIO_flush	,	F_17
+BIO_FP_TEXT	,	V_16
+" -5    use 5 as the generator value\n"	,	L_9
+outfile	,	V_9
+randfile	,	V_11
+dh_cb	,	V_19
+argv	,	V_2
+out	,	V_12
+ERR_print_errors	,	F_6
+"%d"	,	L_5
+arg	,	V_22
+tot	,	V_26
+end	,	V_18
+"usage: gendh [args] [numbits]\n"	,	L_6
+MS_CALLBACK	,	T_3
+argc	,	V_1
+"-rand"	,	L_4
+PEM_write_bio_DHparams	,	F_13
+BIO_write_filename	,	F_7
+c	,	V_23
+BIO_printf	,	F_5
+g	,	V_8
+BIO	,	T_2
+"unable to load 'random state'\n"	,	L_13
+"Generating DH parameters, %d bit long strong prime, generator of %d\n"	,	L_16
+"-out"	,	L_1
+n	,	V_21
+p	,	V_20
+BIO_s_file	,	F_3
+"%ld semi-random bytes loaded\n"	,	L_15

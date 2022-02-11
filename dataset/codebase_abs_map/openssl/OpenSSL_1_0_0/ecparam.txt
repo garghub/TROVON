@@ -1,0 +1,284 @@
+curve_name	,	V_10
+stdin	,	V_48
+"%s\n"	,	L_70
+bad	,	V_45
+need_rand	,	V_18
+nid	,	V_55
+"\tif ((tmp_1 = BN_bin2bn(ec_p_%d, "	,	L_99
+new_form	,	V_6
+EC_POINT	,	T_8
+len	,	V_63
+"-name"	,	L_8
+"point conversion form \n"	,	L_46
+" -text             print the ec "	,	L_35
+EC_GROUP_get_point_conversion_form	,	F_36
+POINT_CONVERSION_COMPRESSED	,	V_46
+BN_bn2bin	,	F_60
+"\t\t{\n"	,	L_129
+"bad output format specified for"	,	L_134
+"\n\t0x00"	,	L_142
+i2d_ECPrivateKey_bio	,	F_50
+EC_GROUP_set_point_conversion_form	,	F_24
+apps_shutdown	,	F_57
+bio_err	,	V_39
+"no elliptic curve parameters\n"	,	L_81
+"\tEC_POINT *point = NULL;\n"	,	L_96
+BN_new	,	F_31
+asn1_flag	,	V_7
+"*tmp_3 = NULL;\n\n"	,	L_98
+"instead of secp192r1\n"	,	L_73
+BIO_NOCLOSE	,	V_41
+meth	,	V_64
+BIGNUM	,	T_5
+""	,	L_68
+list_curves	,	V_12
+" -out arg          output file - "	,	L_31
+" use the seed\n"	,	L_60
+C	,	V_28
+"                   possible values:"	,	L_47
+tmp_len	,	V_60
+"\n\t};\n\n"	,	L_146
+"sizeof(ec_gen_%d), tmp_1)) == NULL)"	,	L_111
+" -in  arg          input file  - "	,	L_29
+badops	,	V_15
+ERR_print_errors	,	F_10
+NID_X9_62_prime192v1	,	V_56
+"\n\n"	,	L_92
+ECPKParameters_print	,	F_28
+EC_GROUP_free	,	F_56
+"\n\tok=1;\n"	,	L_122
+load_config	,	F_6
+"failed\n"	,	L_83
+"named_curve"	,	L_15
+BIO_write_filename	,	F_15
+FORMAT_ASN1	,	V_58
+e	,	V_30
+"                                   "	,	L_49
+setup_engine	,	F_16
+ENGINE	,	T_4
+i	,	V_17
+"ec_gen"	,	L_89
+app_RAND_load_file	,	F_44
+"function creating the parameters\n"	,	L_40
+l	,	V_68
+" -noout            do not print the "	,	L_33
+"default PEM (DER or PEM)\n"	,	L_26
+n	,	V_52
+is_prime	,	V_62
+app_RAND_write_file	,	F_52
+EC_GROUP_method_of	,	F_30
+"GFp(tmp_1, tmp_2, tmp_3, NULL)) == NULL)"	,	L_107
+EC_KEY_set_group	,	F_47
+EC_KEY_new	,	F_46
+" -outform arg      output format - "	,	L_27
+OPENSSL_EXIT	,	F_58
+"%ld semi-random bytes loaded\n"	,	L_138
+EC_KEY_free	,	F_49
+EC_GROUP_check	,	F_29
+"sizeof(ec_cofactor_%d), tmp_3)) == NULL)"	,	L_119
+"default stdout\n"	,	L_32
+"\tif ((tmp_2 = BN_bin2bn(ec_a_%d, "	,	L_102
+EC_KEY	,	T_10
+"-in"	,	L_3
+genkey	,	V_19
+EC_METHOD	,	T_9
+outformat	,	V_26
+BIO_free	,	F_54
+"-inform"	,	L_1
+"\t/* build generator */\n"	,	L_109
+"-list_curves"	,	L_9
+OPENSSL_free	,	F_19
+"\tif ((group = EC_GROUP_new_curve_"	,	L_106
+BIO_set_fp	,	F_5
+"\n\t"	,	L_143
+"possibly a hardware device\n"	,	L_66
+ret	,	V_29
+"uncompressed"	,	L_12
+" -check            validate the ec "	,	L_37
+"default PEM\n"	,	L_28
+OPENSSL_malloc	,	F_18
+"\tif (!ok)\n"	,	L_128
+"OPENSSL_malloc"	,	L_85
+new_asn1_flag	,	V_9
+"                   in the asn1 der "	,	L_54
+"sizeof(ec_b_%d), NULL)) == NULL)\n\t\t"	,	L_105
+check	,	V_14
+stderr	,	V_40
+BN_num_bits	,	F_39
+ecparam_print_var	,	F_41
+"-genkey"	,	L_19
+"parameters in text form\n"	,	L_36
+EC_GROUP_get_order	,	F_37
+tmpbio	,	V_49
+"static unsigned char %s_%d[] = {"	,	L_141
+"\tEC_GROUP *group = NULL;\n"	,	L_95
+eckey	,	V_66
+ec_cofactor	,	V_37
+"hybrid"	,	L_13
+"ok\n"	,	L_84
+"\tif ((tmp_3 = BN_bin2bn(ec_cofactor_%d, "	,	L_118
+" key\n"	,	L_62
+argv	,	V_2
+PEM_read_bio_ECPKParameters	,	F_26
+"default stdin\n"	,	L_30
+d2i_ECPKParameters_bio	,	F_25
+engine	,	V_31
+end	,	V_43
+"-text"	,	L_5
+"where options are\n"	,	L_24
+" -inform arg       input format - "	,	L_25
+argc	,	V_1
+"-rand"	,	L_20
+"ec parameter\n"	,	L_34
+OBJ_sn2nid	,	F_21
+" -param_enc arg    specifies the way"	,	L_52
+BIO	,	T_3
+"0x%02X,"	,	L_144
+" -C                print a 'C' "	,	L_39
+"encoding\n"	,	L_55
+" -name arg         use the "	,	L_41
+curves	,	V_50
+"secp256r1"	,	L_74
+EC_GROUP_get_cofactor	,	F_38
+form	,	V_4
+" named_curve (default)\n"	,	L_56
+"using curve name prime192v1 "	,	L_72
+BIO_s_file	,	F_4
+" compressed\n"	,	L_48
+FORMAT_PEM	,	V_44
+comment	,	V_53
+"sizeof(ec_a_%d), NULL)) == NULL)\n\t\t"	,	L_103
+OPENSSL_NO_ENGINE	,	F_1
+EC_get_builtin_curves	,	F_17
+"CURVE DESCRIPTION NOT AVAILABLE"	,	L_67
+"\t\tEC_GROUP_free(group);\n"	,	L_130
+apps_startup	,	F_2
+"\tint ok=0;\n"	,	L_94
+text	,	V_16
+"\tif (tmp_3)\n\t\tBN_free(tmp_3);\n"	,	L_126
+"-check"	,	L_7
+"goto err;\n"	,	L_101
+ec_p	,	V_32
+ec_order	,	V_36
+"parameters\n"	,	L_38
+app_RAND_load_files	,	F_45
+in	,	V_23
+var	,	V_67
+ERR_load_crypto_strings	,	F_9
+EC_KEY_generate_key	,	F_48
+"instead of secp256r1\n"	,	L_76
+"for outfile\n"	,	L_140
+EC_GROUP_set_asn1_flag	,	F_23
+ec_b	,	V_34
+ec_a	,	V_33
+"\tif (tmp_2)\n\t\tBN_free(tmp_2);\n"	,	L_125
+"-conv_form"	,	L_10
+"\n\t\tgoto err;\n"	,	L_112
+"\tif ((tmp_1 = BN_bin2bn(ec_gen_%d, "	,	L_110
+"\t\tgroup = NULL;\n"	,	L_131
+"-param_enc"	,	L_14
+BIO_FP_TEXT	,	V_42
+" -conv_form arg    specifies the "	,	L_45
+infile	,	V_20
+OBJ_nid2sn	,	F_20
+NID_X9_62_prime_field	,	V_65
+out	,	V_24
+NID_X9_62_prime256v1	,	V_57
+"ec_order"	,	L_90
+"secp192r1"	,	L_71
+"sizeof(ec_order_%d), tmp_2)) == NULL)"	,	L_117
+EC_GROUP	,	T_1
+i2d_ECPKParameters_bio	,	F_42
+BIO_printf	,	F_8
+"-engine"	,	L_21
+" parameters are choosen do not"	,	L_59
+prog	,	V_22
+" -engine e         use engine e, "	,	L_65
+"ec parameters with 'short name' name\n"	,	L_42
+str2fmt	,	F_7
+"err:\n"	,	L_123
+"\t\t}\n"	,	L_132
+"\tif ((tmp_2 = BN_bin2bn(ec_order_%d, "	,	L_116
+"curve parameters\n"	,	L_137
+"\tif (tmp_1)\n\t\tBN_free(tmp_1);\n"	,	L_124
+crv_len	,	V_51
+EC_GROUP_new_by_curve_name	,	F_22
+"ec_a"	,	L_87
+OPENSSL_SYS_VMS	,	F_12
+"-noout"	,	L_18
+size_t	,	T_7
+" the ec parameters are encoded\n"	,	L_53
+"bad input format specified\n"	,	L_79
+" explicit\n"	,	L_57
+" -list_curves      prints a list of "	,	L_43
+"unable to load elliptic curve parameters\n"	,	L_80
+EC_GROUP_set_seed	,	F_27
+buffer	,	V_38
+"ec_b"	,	L_88
+group	,	V_3
+"all currently available curve 'short names'\n"	,	L_44
+BN_free	,	F_53
+"\tif (point == NULL)\n\t\tgoto err;\n"	,	L_115
+"\n\t\tgoto err;\n\n"	,	L_108
+"checking elliptic curve parameters: "	,	L_82
+EC_POINT_point2bn	,	F_35
+BIO_free_all	,	F_55
+"unable to create curve (%s)\n"	,	L_78
+POINT_CONVERSION_UNCOMPRESSED	,	V_5
+"\tpoint = EC_POINT_bn2point(group, tmp_1, "	,	L_113
+"compressed"	,	L_11
+noout	,	V_27
+"bad output format specified "	,	L_139
+PEM_write_bio_ECPKParameters	,	F_43
+"\tBIGNUM   *tmp_1 = NULL, *tmp_2 = NULL, "	,	L_97
+point_conversion_form_t	,	T_2
+"EC_GROUP *get_ec_group_%d(void)\n\t{\n"	,	L_93
+"sizeof(ec_p_%d), NULL)) == NULL)\n\t\t"	,	L_100
+inrand	,	V_11
+BIO_new	,	F_3
+"ec_cofactor"	,	L_91
+" hybrid\n"	,	L_51
+BIO_read_filename	,	F_11
+"0x%02X"	,	L_145
+" -no_seed          if 'explicit'"	,	L_58
+"%s [options] &lt;infile &gt;outfile\n"	,	L_23
+" -rand file        files to use for"	,	L_63
+"  %-10s: "	,	L_69
+"explicit"	,	L_16
+"unable to write elliptic "	,	L_136
+BIO_f_linebuffer	,	F_13
+outfile	,	V_21
+"\tif (point)\n\t\tEC_POINT_free(point);\n"	,	L_127
+"\tif ((tmp_3 = BN_bin2bn(ec_b_%d, "	,	L_104
+EC_builtin_curve	,	T_6
+point	,	V_61
+" random number input\n"	,	L_64
+"ec_p"	,	L_86
+"using curve name prime256v1 "	,	L_75
+ec_gen	,	V_35
+"\tif (!EC_GROUP_set_generator(group, point,"	,	L_120
+"unknown option %s\n"	,	L_22
+"-C"	,	L_6
+POINT_CONVERSION_HYBRID	,	V_47
+buf_len	,	V_59
+" outfile\n"	,	L_135
+BN_is_zero	,	F_59
+EC_GROUP_get0_generator	,	F_34
+"-no_seed"	,	L_17
+BIO_push	,	F_14
+PEM_write_bio_ECPrivateKey	,	F_51
+no_seed	,	V_13
+" uncompressed (default)\n"	,	L_50
+" -genkey           generate ec"	,	L_61
+"-out"	,	L_4
+OPENSSL_EC_NAMED_CURVE	,	V_8
+" tmp_2, tmp_3))\n\t\tgoto err;\n"	,	L_121
+BN_num_bytes	,	F_40
+"\treturn(group);\n\t}\n"	,	L_133
+EC_GROUP_get_curve_GFp	,	F_33
+informat	,	V_25
+sname	,	V_54
+"NULL, NULL);\n"	,	L_114
+"-outform"	,	L_2
+"unknown curve name (%s)\n"	,	L_77
+EC_METHOD_get_field_type	,	F_32

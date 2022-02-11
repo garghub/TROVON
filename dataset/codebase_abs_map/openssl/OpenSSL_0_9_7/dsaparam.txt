@@ -1,0 +1,140 @@
+stdin	,	V_31
+"\treturn(dsa);\n\t}\n"	,	L_47
+bad	,	V_30
+need_rand	,	V_22
+DSAparams_print	,	F_21
+apps_startup	,	F_1
+" -rand         files to use for random number input\n"	,	L_23
+BIO_write	,	F_38
+len	,	V_37
+text	,	V_7
+"unable to load DSA parameters\n"	,	L_30
+LINT	,	F_40
+app_RAND_load_files	,	F_17
+in	,	V_8
+BN_bn2bin	,	F_25
+ERR_load_crypto_strings	,	F_8
+"\tif ((dsa=DSA_new()) == NULL) return(NULL);\n"	,	L_41
+" -inform arg   input format - DER or PEM\n"	,	L_15
+"\t\t{ DSA_free(dsa); return(NULL); }\n"	,	L_46
+dsa_cb	,	V_33
+"%s [options] [bits] &lt;infile &gt;outfile\n"	,	L_13
+"DSA *get_dsa%d()\n\t{\n"	,	L_39
+PEM_read_bio_DSAparams	,	F_20
+"static unsigned char dsa%d_p[]={"	,	L_32
+DSA_free	,	F_32
+" -out arg      output file\n"	,	L_18
+apps_shutdown	,	F_36
+bio_err	,	V_24
+BIO_NOCLOSE	,	V_26
+BIO_flush	,	F_39
+bits_q	,	V_39
+C	,	V_13
+BIO_FP_TEXT	,	V_27
+"\n\t};\n\n"	,	L_38
+infile	,	V_15
+dsakey	,	V_44
+badops	,	V_6
+numbits	,	V_19
+bits_p	,	V_38
+out	,	V_9
+" -genkey       generate a DSA key\n"	,	L_22
+ERR_print_errors	,	F_9
+DSAparams_dup	,	F_28
+bits_g	,	V_40
+arg	,	V_46
+load_config	,	F_5
+"static unsigned char dsa%d_q[]={"	,	L_36
+BIO_write_filename	,	F_14
+FORMAT_ASN1	,	V_34
+c	,	V_47
+"bad output format specified for outfile\n"	,	L_48
+e	,	V_3
+setup_engine	,	F_15
+BIO_printf	,	F_7
+"-engine"	,	L_5
+" -outform arg  output format - DER or PEM\n"	,	L_16
+g	,	V_43
+DSA_generate_key	,	F_29
+ENGINE	,	T_1
+i	,	V_5
+"\tDSA *dsa;\n\n"	,	L_40
+app_RAND_load_file	,	F_16
+l	,	V_36
+"Generating DSA parameters, %d bit long prime\n"	,	L_27
+prog	,	V_17
+app_RAND_write_file	,	F_33
+n	,	V_45
+p	,	V_41
+str2fmt	,	F_6
+q	,	V_42
+" -text         print as text\n"	,	L_19
+OPENSSL_EXIT	,	F_37
+"%ld semi-random bytes loaded\n"	,	L_26
+OPENSSL_SYS_VMS	,	F_11
+data	,	V_35
+"-noout"	,	L_10
+num	,	V_20
+"-in"	,	L_3
+genkey	,	V_21
+i2d_DSAparams_bio	,	F_26
+outformat	,	V_11
+BIO_free	,	F_34
+"-inform"	,	L_1
+"bad input format specified\n"	,	L_29
+" -in arg       input file\n"	,	L_17
+DSA	,	T_2
+"static unsigned char dsa%d_g[]={"	,	L_37
+BIO_set_fp	,	F_4
+"\tdsa-&gt;g=BN_bin2bn(dsa%d_g,sizeof(dsa%d_g),NULL);\n"	,	L_44
+"\n\t"	,	L_33
+ret	,	V_14
+" -engine e     use engine e, possibly a hardware device.\n"	,	L_24
+"\n\t};\n"	,	L_35
+OPENSSL_malloc	,	F_24
+BIO_free_all	,	F_35
+"OPENSSL_malloc"	,	L_31
+"\tdsa-&gt;p=BN_bin2bn(dsa%d_p,sizeof(dsa%d_p),NULL);\n"	,	L_42
+stderr	,	V_25
+BN_num_bits	,	F_23
+noout	,	V_12
+"-genkey"	,	L_8
+dsa	,	V_4
+tmpbio	,	V_32
+inrand	,	V_18
+BIO_new	,	F_2
+" number        number of bits to use for generating private key\n"	,	L_25
+DSA_generate_parameters	,	F_18
+" -noout        no output\n"	,	L_21
+BIO_read_filename	,	F_10
+PEM_write_bio_DSAPrivateKey	,	F_31
+BIO_f_linebuffer	,	F_12
+outfile	,	V_16
+argv	,	V_2
+"%d"	,	L_11
+d2i_DSAparams_bio	,	F_19
+engine	,	V_23
+"unknown option %s\n"	,	L_12
+end	,	V_28
+"-text"	,	L_6
+"-C"	,	L_7
+"where options are\n"	,	L_14
+i2d_DSAPrivateKey_bio	,	F_30
+PEM_write_bio_DSAparams	,	F_27
+MS_CALLBACK	,	T_4
+" -C            Output C code\n"	,	L_20
+argc	,	V_1
+"-rand"	,	L_9
+"This could take some time\n"	,	L_28
+BIO_push	,	F_13
+BIO	,	T_3
+"0x%02X,"	,	L_34
+"-out"	,	L_4
+"\tdsa-&gt;q=BN_bin2bn(dsa%d_q,sizeof(dsa%d_q),NULL);\n"	,	L_43
+"unable to write DSA parameters\n"	,	L_49
+BN_num_bytes	,	F_22
+informat	,	V_10
+BIO_s_file	,	F_3
+FORMAT_PEM	,	V_29
+"-outform"	,	L_2
+"\tif ((dsa-&gt;p == NULL) || (dsa-&gt;q == NULL) || (dsa-&gt;g == NULL))\n"	,	L_45

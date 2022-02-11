@@ -1,0 +1,35 @@
+""	,	L_8
+"(NL)		"	,	L_9
+"); fflush(stdout);(NL)(NL)    EVP_Digest ("	,	L_18
+"); fflush(stdout);(NL)(NL)    EVP_MD_CTX_init (&amp;evp);(NL)    EVP_DigestInit_ex (&amp;evp,EVP_sha512(),NULL);(NL)    for (i=0;i&lt;1000000;i+=288)(NL)	EVP_DigestUpdate (&amp;evp,	"	,	L_12
+"Testing SHA-512 "	,	L_3
+SHA512_DIGEST_LENGTH	,	V_4
+"); fflush(stdout);(NL)(NL)    EVP_MD_CTX_init (&amp;evp);(NL)    EVP_DigestInit_ex (&amp;evp,EVP_sha384(),NULL);(NL)    for (i=0;i&lt;1000000;i+=64)(NL)	EVP_DigestUpdate (&amp;evp,	"	,	L_20
+argv	,	V_2
+",112,md,NULL,EVP_sha512(),NULL);(NL)    if (memcmp(md,app_c2,sizeof(app_c2)))(NL)    {	fflush(stdout);(NL)	fprintf(stderr,"	,	L_10
+EVP_sha512	,	F_3
+");(NL)(NL)    EVP_Digest ("	,	L_16
+"."	,	L_6
+md	,	V_3
+",(NL)				(1000000-i)&lt;288?1000000-i:288);(NL)    EVP_DigestFinal_ex (&amp;evp,md,NULL);(NL)    EVP_MD_CTX_cleanup (&amp;evp);(NL)(NL)    if (memcmp(md,app_c3,sizeof(app_c3)))(NL)    {	fflush(stdout);(NL)	fprintf(stderr,"	,	L_14
+evp	,	V_6
+argc	,	V_1
+",3,md,NULL,EVP_sha384(),NULL);(NL)    if (memcmp(md,app_d1,sizeof(app_d1)))(NL)    {	fflush(stdout);(NL)	fprintf(stderr,"	,	L_17
+"No SHA512 support\n"	,	L_1
+app_c1	,	V_9
+i	,	V_5
+");(NL)	return 1;(NL)    }(NL)    else(NL)	fprintf(stdout,"	,	L_11
+",(NL)				(1000000-i)&lt;64?1000000-i:64);(NL)    EVP_DigestFinal_ex (&amp;evp,md,NULL);(NL)    EVP_MD_CTX_cleanup (&amp;evp);(NL)(NL)    if (memcmp(md,app_d3,sizeof(app_d3)))(NL)    {	fflush(stdout);(NL)	fprintf(stderr,"	,	L_21
+OPENSSL_IA32_SSE2	,	F_1
+env	,	V_7
+stderr	,	V_10
+"abc"	,	L_4
+"); fflush(stdout);(NL)(NL)    fprintf(stdout,"	,	L_15
+",112,md,NULL,EVP_sha384(),NULL);(NL)    if (memcmp(md,app_d2,sizeof(app_d2)))(NL)    {	fflush(stdout);(NL)	fprintf(stderr,"	,	L_19
+"OPENSSL_ia32cap"	,	L_2
+"abcdefgh""	,	L_7
+"\nTEST 1 of 3 failed.\n"	,	L_5
+EVP_MD_CTX	,	T_1
+OPENSSL_ia32cap	,	V_8
+EVP_Digest	,	F_2
+"(NL)				"	,	L_13

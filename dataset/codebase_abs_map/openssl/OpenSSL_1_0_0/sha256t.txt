@@ -1,0 +1,31 @@
+""	,	L_7
+"(NL)		"	,	L_8
+"); fflush(stdout);(NL)(NL)    EVP_Digest ("	,	L_17
+"No SHA256 support\n"	,	L_1
+app_b1	,	V_7
+argv	,	V_2
+",56,md,NULL,EVP_sha256(),NULL);(NL)    if (memcmp(md,app_b2,sizeof(app_b2)))(NL)    {	fflush(stdout);(NL)	fprintf(stderr,"	,	L_9
+");(NL)(NL)    EVP_Digest ("	,	L_15
+"."	,	L_5
+md	,	V_3
+"Testing SHA-256 "	,	L_2
+",56,md,NULL,EVP_sha224(),NULL);(NL)    if (memcmp(md,addenum_2,sizeof(addenum_2)))(NL)    {	fflush(stdout);(NL)	fprintf(stderr,"	,	L_18
+EVP_sha256	,	F_2
+evp	,	V_6
+argc	,	V_1
+"abcdbcde""	,	L_6
+",3,md,NULL,EVP_sha224(),NULL);(NL)    if (memcmp(md,addenum_1,sizeof(addenum_1)))(NL)    {	fflush(stdout);(NL)	fprintf(stderr,"	,	L_16
+i	,	V_5
+");(NL)	return 1;(NL)    }(NL)    else(NL)	fprintf(stdout,"	,	L_10
+stderr	,	V_8
+",(NL)				(1000000-i)&lt;160?1000000-i:160);(NL)    EVP_DigestFinal_ex (&amp;evp,md,NULL);(NL)    EVP_MD_CTX_cleanup (&amp;evp);(NL)(NL)    if (memcmp(md,app_b3,sizeof(app_b3)))(NL)    {	fflush(stdout);(NL)	fprintf(stderr,"	,	L_13
+"abc"	,	L_3
+"); fflush(stdout);(NL)(NL)    fprintf(stdout,"	,	L_14
+"); fflush(stdout);(NL)(NL)    EVP_MD_CTX_init (&amp;evp);(NL)    EVP_DigestInit_ex (&amp;evp,EVP_sha256(),NULL);(NL)    for (i=0;i&lt;1000000;i+=160)(NL)	EVP_DigestUpdate (&amp;evp,	"	,	L_11
+"\nTEST 1 of 3 failed.\n"	,	L_4
+",(NL)				(1000000-i)&lt;64?1000000-i:64);(NL)    EVP_DigestFinal_ex (&amp;evp,md,NULL);(NL)    EVP_MD_CTX_cleanup (&amp;evp);(NL)(NL)    if (memcmp(md,addenum_3,sizeof(addenum_3)))(NL)    {	fflush(stdout);(NL)	fprintf(stderr,"	,	L_20
+EVP_MD_CTX	,	T_1
+"); fflush(stdout);(NL)(NL)    EVP_MD_CTX_init (&amp;evp);(NL)    EVP_DigestInit_ex (&amp;evp,EVP_sha224(),NULL);(NL)    for (i=0;i&lt;1000000;i+=64)(NL)	EVP_DigestUpdate (&amp;evp,	"	,	L_19
+EVP_Digest	,	F_1
+"(NL)				"	,	L_12
+SHA256_DIGEST_LENGTH	,	V_4

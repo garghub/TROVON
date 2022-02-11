@@ -1,0 +1,349 @@
+stdin	,	V_88
+OCSP_RESPONSE_free	,	F_45
+print_ocsp_summary	,	F_52
+sign_flags	,	V_53
+"Error loading signer certificate\n"	,	L_123
+X509_VERIFY_PARAM_free	,	F_54
+BIO_pop	,	F_76
+cert	,	V_28
+sign_other	,	V_47
+"-VAfile"	,	L_31
+tpath	,	V_9
+OCSP_NOVERIFY	,	V_81
+"-resp_text           print text form of response\n"	,	L_72
+path	,	V_6
+verify_other	,	V_48
+"-cert"	,	L_46
+len	,	V_107
+respout	,	V_13
+verify_flags	,	V_54
+rsign_md	,	V_73
+rkeyfile	,	V_17
+preq	,	V_104
+rrow	,	V_100
+"-no_intern           don't search certificates contained in response for signer\n"	,	L_91
+acbio	,	V_33
+OpenSSL_add_ssl_algorithms	,	F_5
+OPENSSL_STRING	,	V_62
+"Usage ocsp [options]\n"	,	L_61
+"w"	,	L_109
+"-timeout"	,	L_3
+"-req_text"	,	L_26
+signfile	,	V_14
+CA_DB	,	T_10
+"issuer certificate"	,	L_45
+"-rmd"	,	L_59
+"POST"	,	L_144
+"-trust_other"	,	L_22
+BIO_new_accept	,	F_73
+reqin	,	V_10
+bio_err	,	V_74
+"-respin"	,	L_29
+sk_OCSP_CERTID_free	,	F_59
+"Error opening output file\n"	,	L_110
+rsignfile	,	V_16
+lookup_serial	,	F_63
+BIO_NOCLOSE	,	V_76
+itmp	,	V_97
+BIGNUM	,	T_13
+"Waiting for OCSP client connections...\n"	,	L_120
+"-reqout file         write DER encoded OCSP request to \"file\"\n"	,	L_74
+OCSP_NOCHAIN	,	V_82
+"-reqin file          read DER encoded OCSP request from \"file\"\n"	,	L_76
+"WARNING: no nonce in response\n"	,	L_136
+"-signkey"	,	L_40
+"Nonce Verify error\n"	,	L_137
+bn	,	V_96
+"-no_chain"	,	L_19
+"-timeout n           timeout connection to OCSP responder after n seconds\n"	,	L_108
+"Responder Error: %s (%d)\n"	,	L_133
+ERR_print_errors	,	F_51
+bs	,	V_26
+"-index"	,	L_49
+"-no_cert_checks      don't do additional checks on signing certificate\n"	,	L_95
+sign_certfile	,	V_50
+"-rsigner"	,	L_56
+"-resp_key_id"	,	L_15
+BN_bn2hex	,	F_68
+"-verify_other file   additional certificates to search for signer\n"	,	L_89
+load_config	,	F_3
+key	,	V_31
+ser	,	V_95
+tport	,	V_8
+"certificate"	,	L_47
+e	,	V_3
+"-noverify            don't verify response at all\n"	,	L_88
+use_ssl	,	V_21
+ENGINE	,	T_1
+i	,	V_60
+"-validity_period"	,	L_36
+store	,	V_45
+rcertfile	,	V_52
+badsig	,	V_59
+pcbio	,	V_105
+bufbio	,	V_102
+resp_text	,	V_39
+rdb	,	V_69
+OCSP_NOINTERN	,	V_86
+"-host host:n         send OCSP request to host on port n\n"	,	L_81
+"-rkey file           responder key to sign responses with\n"	,	L_100
+done_resp	,	V_91
+OPENSSL_EXIT	,	F_62
+"-nonce"	,	L_12
+"-status_age"	,	L_38
+"-rkey"	,	L_57
+"-respout file        write DER encoded OCSP reponse to \"file\"\n"	,	L_75
+db	,	V_94
+"rb"	,	L_112
+EVP_PKEY	,	T_6
+"-path"	,	L_43
+"Error loading responder certificate\n"	,	L_116
+"-VAfile file         validator certificates file\n"	,	L_85
+d2i_OCSP_REQUEST_bio	,	F_21
+ASN1_INTEGER_to_BN	,	F_64
+rca_cert	,	V_66
+BIO_free	,	F_22
+"CA certificate"	,	L_117
+thost	,	V_7
+"Error setting up accept BIO\n"	,	L_142
+"-CAfile file         trusted certificates file\n"	,	L_84
+maxage	,	V_42
+i2d_OCSP_REQUEST_bio	,	F_32
+rkey	,	V_32
+OPENSSL_free	,	F_9
+"-sign_other"	,	L_32
+TXT_DB_get_by_index	,	F_70
+sk_CONF_VALUE_pop_free	,	F_61
+load_certs	,	F_24
+X509_STORE_free	,	F_53
+req	,	V_24
+X509_STORE_set1_param	,	F_47
+ret	,	V_56
+"-no_nonce"	,	L_13
+rsigner	,	V_30
+"Need a responder certificate, key and CA for this operation!\n"	,	L_129
+CONF_VALUE	,	V_22
+stderr	,	V_75
+"-CA"	,	L_50
+redo_accept	,	V_89
+OCSP_RESPONSE_print	,	F_42
+sk_X509_pop_free	,	F_60
+OCSP_NOSIGS	,	V_80
+OCSP_NOCERTS	,	V_78
+port	,	V_5
+EVP_MD	,	T_11
+"signer certificates"	,	L_124
+respin	,	V_11
+ids	,	V_65
+"-issuer file         issuer certificate\n"	,	L_64
+OCSP_BASICRESP	,	T_4
+"-url URL             OCSP responder URL\n"	,	L_80
+"-no_nonce            don't add OCSP nonce to request\n"	,	L_79
+OCSP_check_nonce	,	F_49
+CAfile	,	V_43
+OCSP_response_status	,	F_40
+"-path                path to use in OCSP request\n"	,	L_82
+OCSP_NOCHECKS	,	V_83
+"-no_signature_verify"	,	L_17
+"-nrequest"	,	L_53
+"-ndays"	,	L_55
+argv	,	V_2
+"-no_chain            don't chain verify response\n"	,	L_94
+noverify	,	V_20
+"-respout"	,	L_42
+"-signer file         certificate to sign OCSP request with\n"	,	L_67
+"00"	,	L_140
+"Illegal validity age %s\n"	,	L_39
+setup_verify	,	F_46
+"Content-Length: %d\r\n\r\n"	,	L_148
+index_index	,	F_34
+inbuf	,	V_108
+"HTTP/1.0 200 OK\r\nContent-type: application/ocsp-response\r\n"	,	L_147
+end	,	V_77
+"-text"	,	L_25
+"where options are\n"	,	L_62
+"Error setting up accept BIO - sockets not supported.\n"	,	L_141
+BIO_new_fp	,	F_2
+argc	,	V_1
+add_nonce	,	V_19
+headers	,	V_23
+"Error Opening OCSP response file\n"	,	L_131
+OCSP_request_sign	,	F_30
+BUF_strdup	,	F_67
+OCSP_RESPONSE_STATUS_MALFORMEDREQUEST	,	V_90
+"-reqin"	,	L_28
+OCSP_REQUEST	,	T_2
+BIO	,	T_7
+badarg	,	V_58
+"-no_certs"	,	L_16
+vpm	,	V_46
+d2i_OCSP_RESPONSE_bio	,	F_38
+OCSP_response_get1_basic	,	F_48
+"responder private key"	,	L_119
+"-status_age n        maximum status age in seconds\n"	,	L_87
+"Illegal validity period %s\n"	,	L_37
+FORMAT_PEM	,	V_87
+"-resp_text"	,	L_27
+add_ocsp_serial	,	F_18
+add_ocsp_cert	,	F_16
+rother	,	V_49
+"Error parsing URL\n"	,	L_6
+OCSP_NOEXPLICIT	,	V_84
+OPENSSL_NO_SOCK	,	F_36
+rflags	,	V_55
+issuer	,	V_27
+nsec	,	V_40
+have_post	,	V_106
+"-no_intern"	,	L_23
+load_cert	,	F_14
+BIO_new_file	,	F_20
+nmin	,	V_70
+OCSP_request_add1_nonce	,	F_29
+i2d_OCSP_RESPONSE_bio	,	F_39
+OCSP_CERTID	,	V_64
+"signer certificate"	,	L_122
+i2d_OCSP_RESPONSE	,	F_78
+signer	,	V_29
+"-nmin n              number of minutes before next update\n"	,	L_103
+ridx_filename	,	V_67
+"-ignore_err"	,	L_10
+"signer private key"	,	L_125
+make_ocsp_response	,	F_35
+"Error parsing response\n"	,	L_135
+"-&lt;dgst alg&gt;          use specified digest in the request\n"	,	L_107
+keyfile	,	V_15
+"-"	,	L_111
+load_index	,	F_33
+BIO_gets	,	F_77
+"-issuer"	,	L_44
+derbio	,	V_35
+BIO_flush	,	F_79
+reqnames	,	V_63
+"-badsig"	,	L_24
+sk_OPENSSL_STRING_new_null	,	F_6
+"-host"	,	L_7
+"wb"	,	L_127
+STACK_OF	,	F_1
+"-trust_other         don't verify additional certificates\n"	,	L_90
+OCSP_RESPONSE	,	T_3
+"Error opening file %s\n"	,	L_128
+"-respin file         read DER encoded OCSP reponse from \"file\"\n"	,	L_77
+out	,	V_36
+X509_STORE	,	T_8
+OCSP_response_create	,	F_27
+EVP_PKEY_free	,	F_55
+"responder certificate"	,	L_115
+"OCSP utility\n"	,	L_60
+"-sign_other file     additional certificates to include in signed request\n"	,	L_69
+OCSP_response_status_str	,	F_41
+"-signkey file        private key to sign OCSP request with\n"	,	L_68
+"-no_cert_verify      don't check signing certificate\n"	,	L_93
+OCSP_TRUSTOTHER	,	V_85
+"-resp_no_certs       don't include any certificates in response\n"	,	L_102
+"-CApath"	,	L_35
+err	,	V_103
+BIO_printf	,	F_8
+"-out file            output filename\n"	,	L_63
+"-nrequest n          number of requests to accept (default unlimited)\n"	,	L_106
+BIO_set_accept_bios	,	F_74
+req_text	,	V_38
+cert_id_md	,	V_72
+"/"	,	L_1
+"-rother"	,	L_58
+X509_VERIFY_PARAM	,	T_9
+EVP_sha1	,	F_15
+"-index file          certificate status index file\n"	,	L_97
+DB_serial	,	V_101
+"-cert file           certificate to check\n"	,	L_65
+OCSP_BASICRESP_free	,	F_57
+sk_OPENSSL_STRING_free	,	F_58
+X509V3_conf_free	,	V_93
+"-CAfile"	,	L_34
+"Invalid request\n"	,	L_145
+"-resp_no_certs"	,	L_14
+"Illegal update period %s\n"	,	L_52
+"-reqout"	,	L_41
+load_key	,	F_25
+"validator certificate"	,	L_134
+req_timeout	,	V_37
+"Error signing OCSP request\n"	,	L_126
+args_verify	,	F_12
+"-serial n            serial number to check\n"	,	L_66
+"Error reading OCSP response\n"	,	L_132
+"-nmin"	,	L_51
+X509	,	T_5
+OPENSSL_assert	,	F_65
+http_resp	,	V_109
+"Need an OCSP request for this operation!\n"	,	L_121
+"-no_signature_verify don't check signature on response\n"	,	L_92
+host	,	V_4
+sk_OCSP_CERTID_new_null	,	F_7
+"-header"	,	L_9
+OCSP_parse_url	,	F_10
+X509_free	,	F_13
+BIO_do_accept	,	F_75
+CApath	,	V_44
+"-verify_other"	,	L_33
+"-no_certs            don't include any certificates in signed request\n"	,	L_70
+BN_free	,	F_69
+send_ocsp_response	,	F_28
+BIO_free_all	,	F_43
+OCSP_RESPONSE_STATUS_SUCCESSFUL	,	V_92
+BIO_f_buffer	,	F_72
+"-no_cert_verify"	,	L_18
+"-signer"	,	L_30
+"-req_text            print text form of request\n"	,	L_71
+"-CApath dir          trusted certificates directory\n"	,	L_83
+do_responder	,	F_26
+sk_OPENSSL_STRING_push	,	F_17
+"-nonce               add OCSP nonce to request\n"	,	L_78
+"-no_cert_checks"	,	L_20
+X509V3_add_value	,	F_11
+BIO_new	,	F_71
+reqout	,	V_12
+DB_NUMBER	,	V_99
+init_responder	,	F_23
+verify_certfile	,	V_51
+"-noverify"	,	L_11
+OCSP_RESPID_KEY	,	V_79
+free_index	,	F_56
+MAX_VALIDITY_PERIOD	,	V_41
+EVP_get_digestbyname	,	F_19
+outfile	,	V_18
+"-resp_key_id         identify reponse by signing certificate key ID\n"	,	L_105
+"responder other certificates"	,	L_118
+"Response verify OK\n"	,	L_139
+OCSP_REQUEST_free	,	F_44
+"Error Opening OCSP request file\n"	,	L_113
+"Error reading OCSP request\n"	,	L_114
+"Error parsing OCSP request\n"	,	L_146
+"-validity_period n   maximum validity discrepancy in seconds\n"	,	L_86
+"Error accepting connection\n"	,	L_143
+accept_count	,	V_57
+"-CA file             CA certificate\n"	,	L_98
+row	,	V_98
+"Illegal accept count %s\n"	,	L_54
+BN_is_zero	,	F_66
+"-ndays n             number of days before next update\n"	,	L_104
+"-rother file         other certificates to include in response\n"	,	L_101
+resp	,	V_25
+process_responder	,	F_37
+"-port"	,	L_8
+"-serial"	,	L_48
+cbio	,	V_34
+"-url"	,	L_5
+"Response Verify Failure\n"	,	L_138
+rca_filename	,	V_68
+"-out"	,	L_2
+"Illegal timeout value %s\n"	,	L_4
+"Error creating connect BIO - sockets not supported.\n"	,	L_130
+SSL_load_error_strings	,	F_4
+"-rsigner file        responder certificate to sign responses with\n"	,	L_99
+ndays	,	V_71
+OCSP_REQUEST_print	,	F_31
+ignore_err	,	V_61
+"-port num            port to run responder on\n"	,	L_96
+"-text                print text form of request and response\n"	,	L_73
+"-no_explicit"	,	L_21
+OCSP_basic_verify	,	F_50
+ASN1_INTEGER	,	T_12

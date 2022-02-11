@@ -1,0 +1,159 @@
+"print a BN"	,	L_19
+"    DH *dh = DH_new();\n"	,	L_27
+DH_CHECK_INVALID_J_VALUE	,	V_53
+"DH *get_dh%d()\n{\n"	,	L_24
+"    BIGNUM *dhp_bn, *dhg_bn;\n"	,	L_28
+OPT_IN	,	V_33
+BN_GENCB_new	,	F_13
+BIO_write	,	F_46
+"        BN_free(dhg_bn);\n"	,	L_37
+"This is going to take a long time\n"	,	L_7
+len	,	V_57
+text	,	V_12
+"ERROR: Invalid parameters generated\n"	,	L_18
+"            || !DH_set0_pqg(dh, dhp_bn, NULL, dhg_bn)) {\n"	,	L_34
+"unable to load DSA parameters\n"	,	L_8
+app_RAND_load_files	,	F_17
+"    if (dh == NULL)\n"	,	L_29
+OPTION_CHOICE	,	T_3
+in	,	V_3
+OPT_OUTFORM	,	V_32
+bits	,	V_58
+DH_free	,	F_45
+BN_GENCB_get_arg	,	F_47
+"generator may not be chosen for DSA parameters\n"	,	L_2
+PEM_read_bio_DSAparams	,	F_28
+"#ifndef HEADER_DH_H\n"	,	L_20
+DSA_free	,	F_20
+d2i_DHparams_bio	,	F_29
+bio_err	,	V_27
+"DH parameters appear to be ok.\n"	,	L_17
+"WARNING: p value is not a safe prime\n"	,	L_11
+"unable to write DH parameters\n"	,	L_41
+BIO_flush	,	F_48
+DH_get_length	,	F_38
+BIGNUM	,	T_6
+DH_get0_pqg	,	F_35
+C	,	V_13
+opt_next	,	F_4
+DH_new	,	F_23
+OPENSSL_NO_DSA	,	F_2
+"%s: Use -help for summary.\n"	,	L_1
+infile	,	V_6
+opt_arg	,	F_8
+dh_cb	,	V_46
+out	,	V_4
+OPT_HELP	,	V_29
+PEM_read_bio_DHparams	,	F_30
+"dhg"	,	L_26
+ERR_print_errors	,	F_14
+"dhp"	,	L_25
+"WARNING: the g value is not a generator\n"	,	L_16
+"        DH_free(dh);\n"	,	L_35
+dsaparam	,	V_10
+opt_rest	,	F_11
+cb	,	V_45
+PEM_write_bio_DHparams	,	F_42
+"    dhg_bn = BN_bin2bn(dhg_%d, sizeof (dhg_%d), NULL);\n"	,	L_32
+FORMAT_ASN1	,	V_48
+c	,	V_64
+setup_engine	,	F_9
+BIO_printf	,	F_5
+g	,	V_16
+i	,	V_11
+OPT_EOF	,	V_24
+app_RAND_load_file	,	F_16
+"WARNING: q value is invalid\n"	,	L_13
+"Generating DSA parameters, %d bit long prime\n"	,	L_5
+prog	,	V_8
+app_RAND_write_file	,	F_25
+n	,	V_63
+o	,	V_22
+p	,	V_62
+OPT_TEXT	,	V_37
+print_bignum_var	,	F_37
+"        return NULL;\n"	,	L_30
+q	,	V_61
+OPT_RAND	,	V_43
+"%ld semi-random bytes loaded\n"	,	L_4
+"\n"	,	L_23
+"unable to load DH parameters\n"	,	L_9
+DH	,	T_2
+dh	,	V_5
+data	,	V_56
+BN_GENCB	,	T_4
+num	,	V_15
+app_malloc	,	F_36
+"warning, not much extra random data, consider using the -rand option\n"	,	L_3
+DSA_dup_DH	,	F_22
+DH_bits	,	F_34
+outformat	,	V_19
+BIO_free	,	F_43
+BN_GENCB_free	,	F_21
+DSA	,	T_5
+"        BN_free(dhp_bn);\n"	,	L_36
+DH_CHECK_P_NOT_PRIME	,	V_49
+OPENSSL_free	,	F_39
+DH_CHECK_INVALID_Q_VALUE	,	V_52
+bio_open_default	,	F_26
+"    if (dhp_bn == NULL || dhg_bn == NULL\n"	,	L_33
+ret	,	V_14
+opt_format	,	F_7
+"    dhp_bn = BN_bin2bn(dhp_%d, sizeof (dhp_%d), NULL);\n"	,	L_31
+BIO_free_all	,	F_44
+"#endif\n"	,	L_22
+opt_init	,	F_3
+DH_generate_parameters_ex	,	F_24
+DH_NOT_SUITABLE_GENERATOR	,	V_55
+DH_size	,	F_33
+check	,	V_20
+PEM_write_bio_DHxparams	,	F_41
+noout	,	V_21
+dsa	,	V_47
+DEFBITS	,	V_44
+OPT_NOOUT	,	V_42
+DHparams_print	,	F_31
+inrand	,	V_9
+"    if (!DH_set_length(dh, %ld)) {\n"	,	L_39
+DH_CHECK_Q_NOT_PRIME	,	V_51
+"Generating DH parameters, %d bit long safe prime, generator %d\n"	,	L_6
+pbn	,	V_59
+dhparam_options	,	V_23
+"    return dh;\n}\n"	,	L_40
+OPT_ERR	,	V_25
+"WARNING: j value is invalid\n"	,	L_14
+outfile	,	V_7
+OPT_INFORM	,	V_30
+"# include &lt;openssl/dh.h&gt;\n"	,	L_21
+OPT_CHECK	,	V_36
+OPT_FMT_PEMDER	,	V_31
+argv	,	V_2
+BN_GENCB_set	,	F_15
+"    }\n"	,	L_38
+DH_CHECK_P_NOT_SAFE_PRIME	,	V_50
+d2i_DSAparams_bio	,	F_27
+opt_num_rest	,	F_10
+end	,	V_28
+DH_check	,	F_32
+OPT_OUT	,	V_34
+"WARNING: unable to check the generator value\n"	,	L_15
+argc	,	V_1
+dhparam_main	,	F_1
+opt_int	,	F_12
+DH_UNABLE_TO_CHECK_GENERATOR	,	V_54
+OPT_ENGINE	,	V_35
+BIO	,	T_1
+OPT_DSAPARAM	,	V_38
+OPT_C	,	V_39
+opthelp	,	V_26
+i2d_DHparams_bio	,	F_40
+gbn	,	V_60
+informat	,	V_17
+opt_help	,	F_6
+OPT_5	,	V_41
+OPT_2	,	V_40
+DSA_new	,	F_18
+"WARNING: p value is not prime\n"	,	L_10
+"WARNING: q value is not a prime\n"	,	L_12
+FORMAT_PEM	,	V_18
+DSA_generate_parameters_ex	,	F_19

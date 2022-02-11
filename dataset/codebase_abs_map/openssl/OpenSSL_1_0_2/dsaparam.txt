@@ -1,0 +1,159 @@
+OPENSSL_NO_ENGINE	,	F_2
+stdin	,	V_33
+"\treturn(dsa);\n\t}\n"	,	L_54
+bad	,	V_32
+need_rand	,	V_23
+DSAparams_print	,	F_27
+apps_startup	,	F_4
+" -rand         files to use for random number input\n"	,	L_24
+BIO_write	,	F_44
+len	,	V_45
+sa_flags	,	V_40
+text	,	V_8
+"unable to load DSA parameters\n"	,	L_37
+LINT	,	F_46
+app_RAND_load_files	,	F_20
+"Error, couldn't set SIGALRM handler\n"	,	L_33
+in	,	V_9
+BN_bn2bin	,	F_31
+ERR_load_crypto_strings	,	F_11
+"\tif ((dsa=DSA_new()) == NULL) return(NULL);\n"	,	L_48
+" -inform arg   input format - DER or PEM\n"	,	L_16
+"\t\t{ DSA_free(dsa); return(NULL); }\n"	,	L_53
+dsa_cb	,	V_36
+"%s [options] [bits] &lt;infile &gt;outfile\n"	,	L_14
+"DSA *get_dsa%d()\n\t{\n"	,	L_46
+PEM_read_bio_DSAparams	,	F_26
+"static unsigned char dsa%d_p[]={"	,	L_39
+DSA_free	,	F_36
+" -out arg      output file\n"	,	L_19
+apps_shutdown	,	F_42
+bio_err	,	V_26
+BIO_NOCLOSE	,	V_28
+BIO_flush	,	F_45
+C	,	V_14
+BIO_FP_TEXT	,	V_29
+"\n\t};\n\n"	,	L_45
+infile	,	V_16
+dsakey	,	V_50
+badops	,	V_7
+stop_keygen_flag	,	V_2
+numbits	,	V_20
+bits_p	,	V_46
+out	,	V_10
+" -genkey       generate a DSA key\n"	,	L_23
+ERR_print_errors	,	F_12
+DSAparams_dup	,	F_34
+arg	,	V_53
+load_config	,	F_8
+" -timebomb n   interrupt keygen after &lt;n&gt; seconds\n"	,	L_26
+cb	,	V_35
+"static unsigned char dsa%d_q[]={"	,	L_43
+BIO_write_filename	,	F_17
+FORMAT_ASN1	,	V_42
+c	,	V_52
+"bad output format specified for outfile\n"	,	L_55
+setup_engine	,	F_18
+BIO_printf	,	F_10
+"-engine"	,	L_5
+" -outform arg  output format - DER or PEM\n"	,	L_17
+g	,	V_49
+DSA_generate_key	,	F_35
+i	,	V_6
+"\tDSA *dsa;\n\n"	,	L_47
+app_RAND_load_file	,	F_19
+l	,	V_44
+"Generating DSA parameters, %d bit long prime\n"	,	L_30
+prog	,	V_18
+app_RAND_write_file	,	F_39
+n	,	V_51
+p	,	V_47
+str2fmt	,	F_9
+q	,	V_48
+" -text         print as text\n"	,	L_20
+OPENSSL_EXIT	,	F_43
+"%ld semi-random bytes loaded\n"	,	L_28
+OPENSSL_SYS_VMS	,	F_14
+data	,	V_43
+"-noout"	,	L_11
+BN_GENCB	,	T_3
+num	,	V_21
+"-in"	,	L_3
+"-timebomb"	,	L_6
+genkey	,	V_22
+i2d_DSAparams_bio	,	F_32
+outformat	,	V_12
+BIO_free	,	F_40
+"-inform"	,	L_1
+"bad input format specified\n"	,	L_36
+" -in arg       input file\n"	,	L_18
+DSA	,	T_1
+act	,	V_38
+"static unsigned char dsa%d_g[]={"	,	L_44
+BIO_set_fp	,	F_7
+"\tdsa-&gt;g=BN_bin2bn(dsa%d_g,sizeof(dsa%d_g),NULL);\n"	,	L_51
+"\n\t"	,	L_40
+sa_handler	,	V_39
+ret	,	V_15
+" -engine e     use engine e, possibly a hardware device.\n"	,	L_25
+"\n\t};\n"	,	L_42
+OPENSSL_malloc	,	F_30
+BIO_free_all	,	F_41
+"OPENSSL_malloc"	,	L_38
+"\tdsa-&gt;p=BN_bin2bn(dsa%d_p,sizeof(dsa%d_p),NULL);\n"	,	L_49
+stderr	,	V_27
+sigaction	,	V_37
+BN_num_bits	,	F_29
+noout	,	V_13
+"-genkey"	,	L_9
+dsa	,	V_5
+tmpbio	,	V_34
+inrand	,	V_19
+BIO_new	,	F_5
+" number        number of bits to use for generating private key\n"	,	L_27
+" -noout        no output\n"	,	L_22
+BIO_read_filename	,	F_13
+PEM_write_bio_DSAPrivateKey	,	F_38
+BIO_f_linebuffer	,	F_15
+foo	,	V_1
+outfile	,	V_17
+argv	,	V_4
+BN_GENCB_set	,	F_21
+"%d"	,	L_12
+d2i_DSAparams_bio	,	F_25
+engine	,	V_24
+"unknown option %s\n"	,	L_13
+alarm	,	F_23
+end	,	V_30
+"-text"	,	L_7
+"-C"	,	L_8
+"where options are\n"	,	L_15
+timebomb	,	V_25
+i2d_DSAPrivateKey_bio	,	F_37
+"Error allocating DSA object\n"	,	L_29
+timebomb_sigalarm	,	F_1
+PEM_write_bio_DSAparams	,	F_33
+MS_CALLBACK	,	T_4
+" -C            Output C code\n"	,	L_21
+argc	,	V_3
+"-rand"	,	L_10
+"This could take some time\n"	,	L_31
+"(though I'll stop it if not done within %d secs)\n"	,	L_32
+BIO_push	,	F_16
+"DSA key generation time-stopped\n"	,	L_34
+BIO	,	T_2
+SIGALRM	,	V_41
+"Error, DSA key generation failed\n"	,	L_35
+"0x%02X,"	,	L_41
+"-out"	,	L_4
+"\tdsa-&gt;q=BN_bin2bn(dsa%d_q,sizeof(dsa%d_q),NULL);\n"	,	L_50
+GENCB_TEST	,	F_3
+"unable to write DSA parameters\n"	,	L_56
+BN_num_bytes	,	F_28
+informat	,	V_11
+BIO_s_file	,	F_6
+DSA_new	,	F_22
+FORMAT_PEM	,	V_31
+"-outform"	,	L_2
+"\tif ((dsa-&gt;p == NULL) || (dsa-&gt;q == NULL) || (dsa-&gt;g == NULL))\n"	,	L_52
+DSA_generate_parameters_ex	,	F_24
