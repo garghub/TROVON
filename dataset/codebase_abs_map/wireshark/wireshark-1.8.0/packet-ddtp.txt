@@ -1,0 +1,95 @@
+dissect_ddtp	,	F_1
+tvb_get_ntohl	,	F_4
+"Update query opcode"	,	L_23
+proto_register_protocol	,	F_12
+tvbuff_t	,	T_1
+"IP address"	,	L_24
+"Message type"	,	L_19
+"Dynamic DNS Tools Protocol"	,	L_29
+proto_ddtp	,	V_10
+ddtp_tree	,	V_4
+"Version"	,	L_11
+hf_ddtp_encrypt	,	V_15
+vals_ddtp_version	,	V_6
+col_set_str	,	F_5
+gint	,	T_6
+proto_item_add_subtree	,	F_8
+"ddtp.status"	,	L_27
+hf_ddtp	,	V_27
+proto_register_field_array	,	F_13
+FT_IPv4	,	V_34
+"Hostid"	,	L_16
+tvb	,	V_1
+hf_ddtp_version	,	V_13
+"Unknown type : %u"	,	L_9
+"ddtp.hostid"	,	L_17
+hf_ddtp_hostid	,	V_16
+ett	,	V_37
+COL_INFO	,	V_9
+dissector_add_uint	,	F_18
+"DDTP"	,	L_1
+tree	,	V_3
+"Opcode"	,	L_21
+DDTP_ALIVE_QUERY	,	V_25
+"ddtp.opcode"	,	L_22
+vals_ddtp_msgtype	,	V_32
+packet_info	,	T_2
+col_clear	,	F_6
+cinfo	,	V_7
+ddtp_handle	,	V_38
+proto_register_subtree_array	,	F_15
+array_length	,	F_14
+DDTP_ENCRYPT_PLAINTEXT	,	V_17
+"Unknown type"	,	L_8
+hf_ddtp_ipaddr	,	V_22
+match_strval	,	F_3
+proto_tree_add_item	,	F_7
+pinfo	,	V_2
+dissector_handle_t	,	T_7
+DDTP_MESSAGE_ERROR	,	V_19
+hf_ddtp_opcode	,	V_21
+vals_ddtp_status	,	V_36
+"Dummy : %u"	,	L_6
+hf_ddtp_msgtype	,	V_18
+hf_ddtp_status	,	V_24
+ett_ddtp	,	V_12
+proto_register_ddtp	,	F_10
+vals_ddtp_opcode	,	V_33
+"Update reply status"	,	L_28
+"ddtp.msgtype"	,	L_20
+hf_register_info	,	T_5
+vals_ddtp_encrypt	,	V_31
+"ddtp.ipaddr"	,	L_25
+VALS	,	F_11
+HFILL	,	V_30
+DDTP_UPDATE_QUERY	,	V_20
+"ddtp.version"	,	L_12
+"Host ID"	,	L_18
+proto_reg_handoff_ddtp	,	F_16
+new_create_dissector_handle	,	F_17
+"Status"	,	L_26
+COL_PROTOCOL	,	V_8
+"Update Reply"	,	L_4
+"ddtp.encrypt"	,	L_14
+DDTP_UPDATE_REPLY	,	V_23
+tvb_length	,	F_2
+"udp.port"	,	L_31
+UDP_PORT_DDTP	,	V_39
+"Encryption type"	,	L_15
+proto_tree_add_text	,	F_9
+BASE_DEC	,	V_29
+proto_item	,	T_4
+ENC_BIG_ENDIAN	,	V_14
+ENC_NA	,	V_11
+"Alive Query"	,	L_5
+"Encryption"	,	L_13
+"ddtp"	,	L_30
+DDTP_ALIVE_REPLY	,	V_26
+FT_UINT32	,	V_28
+ti	,	V_5
+BASE_NONE	,	V_35
+"Alive Reply"	,	L_7
+"Message Error"	,	L_2
+proto_tree	,	T_3
+"Update Query"	,	L_3
+"Encrypted payload"	,	L_10

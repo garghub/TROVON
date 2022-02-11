@@ -1,0 +1,345 @@
+"AT Command"	,	L_98
+"Control: Frame type: %s (0x%x), P/F flag: %d"	,	L_6
+hf_msc_ic	,	V_41
+proto_register_protocol	,	F_33
+"btrfcomm.fcs"	,	L_62
+hf_max_frame_size	,	V_25
+"btrfcomm.pn.cl"	,	L_53
+"Convergence layer"	,	L_52
+"Flow Control"	,	L_66
+btrfcomm_sdp_tap_packet	,	F_40
+ett_btspp	,	V_147
+hf_len	,	V_63
+"SPP"	,	L_110
+gint	,	T_12
+"RFCOMM SERVICE"	,	L_87
+proto_reg_handoff_btrfcomm	,	F_41
+"btrfcomm.msc.rtc"	,	L_68
+tvb	,	V_1
+hf_msc_l	,	V_43
+dissect_btrfcomm_Control	,	F_14
+BTSDP_LOCAL_SERVICE_FLAG_MASK	,	V_124
+guint32	,	T_3
+"btrfcomm.max_frame_size"	,	L_28
+"AT Cmd"	,	L_96
+COL_INFO	,	V_72
+dlci_state_t	,	T_7
+pf_flag	,	V_56
+hf_pn_c14	,	V_21
+"BTDUN"	,	L_107
+dissect_btrfcomm_Address	,	F_13
+"Length of MCC data"	,	L_60
+ctrl_tree	,	V_79
+hf_max_retrans	,	V_26
+cr_flagp	,	V_45
+MIN	,	F_55
+cinfo	,	V_71
+PI_ERROR	,	V_96
+"%s \"%s\""	,	L_93
+array_length	,	F_36
+"Ready To Communicate"	,	L_69
+next_tvb	,	V_97
+chandle	,	V_101
+""	,	L_113
+bc	,	V_7
+mcc_cr_flagp	,	V_64
+ett_btdun	,	V_140
+vs_ctl	,	V_73
+call_dissector	,	F_30
+"Flow Control (FC)"	,	L_64
+dissect_btrfcomm	,	F_19
+ENC_ASCII	,	V_131
+mcc_ea_flagp	,	V_65
+"Sent"	,	L_94
+col_append_str	,	F_25
+"EA Flag"	,	L_35
+hf_mcc_cr	,	V_76
+hf_register_info	,	T_11
+arg	,	T_13
+hf_msc_fc	,	V_38
+"btrfcomm.error_recovery_mode"	,	L_34
+"btrfcomm"	,	L_85
+hctl_tree	,	V_54
+"HANDSFREE"	,	L_92
+"Type of information frames used for that particular DLCI"	,	L_51
+"MCC Length"	,	L_58
+is_at_cmd	,	V_137
+"Bluetooth Handsfree Packet"	,	L_99
+st	,	V_13
+btrfcomm_data_t	,	T_10
+guint16	,	T_8
+hf_mcc_len	,	V_94
+COL_PROTOCOL	,	V_84
+get_le_multi_byte_value	,	F_1
+"%s DLCI=%d "	,	L_14
+ett_ctrl_pn_v24	,	V_37
+"btrfcomm.dlci"	,	L_23
+"Frame length"	,	L_57
+cl	,	V_16
+i	,	V_138
+ascii_only	,	V_145
+"%s \"%s%s\""	,	L_111
+hf_frame_type	,	V_60
+"btrfcomm.mcc.ea"	,	L_41
+"Ready To Communicate (RTC)"	,	L_67
+"RFCOMM"	,	L_10
+"Huge MCC length: %u"	,	L_19
+guint8	,	T_4
+"MPX_CTRL "	,	L_17
+proto_register_btrfcomm	,	F_31
+"Maximum Frame Size"	,	L_29
+t	,	V_11
+ti	,	V_14
+BASE_NONE	,	V_133
+"btrfcomm.msc.dv"	,	L_77
+hf_mcc_ea	,	V_77
+start_offset	,	V_9
+tvb_length_remaining	,	F_26
+vs_frame_type	,	V_57
+register_dissector	,	F_34
+hf_fc_credits	,	V_91
+hf_at_cmd	,	V_130
+tvbuff_t	,	T_1
+"Error Recovery Mode"	,	L_33
+val_to_str_ext_const	,	F_24
+hf_dlci	,	V_19
+hf_dun_at_cmd	,	V_141
+BASE_HEX	,	V_108
+rfcomm_tree	,	V_78
+col_add_str	,	F_21
+"RFCOMM DLCI"	,	L_24
+"Credits"	,	L_81
+hf_ea	,	V_51
+gboolean	,	T_19
+proto_item_add_subtree	,	F_6
+proto_register_field_array	,	F_35
+FT_BYTES	,	V_149
+vs_ctl_pn_i	,	V_114
+hf_pn_i14	,	V_23
+"(%s) "	,	L_15
+ett_mcc	,	V_74
+proto_bthf	,	V_128
+"btspp"	,	L_118
+"Maximum number of retransmissions"	,	L_32
+hf_error_recovery_mode	,	V_27
+dissector_add_uint	,	F_43
+btrfcomm_handle	,	V_125
+data_handle	,	V_104
+FT_UINT16	,	V_111
+ett_bthf	,	V_129
+btdun_handle	,	V_143
+arg2	,	V_119
+tvb_get_guint8	,	F_2
+"Incoming Call Indicator (IC)"	,	L_73
+BTSDP_RFCOMM_PROTOCOL_UUID	,	V_122
+dlci_state	,	V_17
+hf_cr	,	V_50
+"Poll/Final bit"	,	L_48
+bthf_handle	,	V_134
+"EA flag (should be always 1)"	,	L_37
+fd	,	V_28
+cid	,	V_102
+dlci	,	V_15
+frame_len	,	V_62
+"Unknown direction %d "	,	L_13
+proto_reg_handoff_btspp	,	F_57
+"btrfcomm.msc.ic"	,	L_74
+ett_ctrl_pn_ci	,	V_20
+pf_flagp	,	V_52
+FT_STRING	,	V_132
+"Rcvd"	,	L_95
+"Flow control: number of UIH frames allowed to send"	,	L_83
+"btspp.data"	,	L_115
+proto_register_btspp	,	F_56
+addr_tree	,	V_47
+"btrfcomm.priority"	,	L_26
+"btrfcomm.frame_type"	,	L_45
+val_to_str_const	,	F_15
+mcc_type	,	V_70
+length	,	V_34
+find_dissector	,	F_42
+ea_flag	,	V_48
+rfcomm_data	,	V_99
+"btrfcomm.service"	,	L_86
+mcc_ea_flag	,	V_69
+dissect_ctrl_msc	,	F_11
+"Ready To Receive"	,	L_72
+"PPP"	,	L_103
+dlcip	,	V_46
+vs_service_classes_ext	,	V_90
+"Multiplexer Control Command"	,	L_18
+BTSDP_HFP_SERVICE_UUID	,	V_135
+service	,	V_89
+visited	,	V_29
+"DUN"	,	L_102
+"Incoming Call Indicator"	,	L_75
+hf	,	V_106
+"btrfcomm.mcc.cr"	,	L_42
+proto_reg_handoff_btdun	,	F_53
+proto_register_bthf	,	F_48
+dissect_btrfcomm_PayloadLen	,	F_16
+hf_mcc_cmd	,	V_75
+ett_control	,	V_58
+channel	,	V_123
+proto_btspp	,	V_146
+"Model Status Command "	,	L_21
+"btrfcomm.msc.fc"	,	L_65
+frame_typep	,	V_53
+do_credit_fc	,	V_33
+l2cap_data	,	V_98
+se_tree_create	,	F_39
+val_ptr	,	V_4
+col_append_fstr	,	F_18
+fcs_offset	,	V_80
+"Max Frame Size"	,	L_27
+"Length of break in units of 200ms"	,	L_79
+col_set_str	,	F_20
+btl2cap_data_t	,	T_9
+dissect_ctrl_pn	,	F_4
+"BTSPP"	,	L_117
+hf_index	,	V_5
+val	,	V_8
+"Frame Check Sequence"	,	L_61
+"btrfcomm.mcc.len"	,	L_59
+byte	,	V_6
+it	,	V_35
+frame_type	,	V_55
+"RFCOMM dlci table"	,	L_88
+"bthf.atcmd"	,	L_97
+col_clear	,	F_22
+"btrfcomm.pf"	,	L_47
+BTL2CAP_PSM_RFCOMM	,	V_126
+sdp_data	,	V_120
+"btrfcomm.len"	,	L_56
+proto_register_subtree_array	,	F_37
+epan_dissect_t	,	T_14
+hf_pf	,	V_59
+"btrfcomm.msc.bl"	,	L_80
+status	,	V_36
+proto_tree_add_item	,	F_7
+mcc_cr_flag	,	V_68
+private_data	,	V_100
+pinfo	,	V_10
+col_add_fstr	,	F_23
+"Priority"	,	L_25
+dissector_handle_t	,	T_17
+"Data"	,	L_114
+flags	,	V_18
+_U_	,	V_118
+"Address: E/A flag: %d, C/R flag: %d, DLCI: 0x%02x"	,	L_5
+hf_data	,	V_148
+"btrfcomm.ea"	,	L_36
+"Data Valid (DV)"	,	L_76
+frame_lenp	,	V_61
+ett_btrfcomm	,	V_83
+dissect_bthf	,	F_45
+proto_btdun	,	V_139
+mcc_tree	,	V_67
+VALS	,	F_32
+"..."	,	L_112
+"%s "	,	L_8
+"data"	,	L_90
+proto_register_btdun	,	F_52
+"Break bits B1-B3: 0x%x"	,	L_4
+tvb_length	,	F_46
+FT_UINT8	,	V_107
+proto_tree_add_text	,	F_5
+BASE_DEC	,	V_110
+tvb_new_subset	,	F_28
+proto_item	,	T_6
+TL_IS_DISSECTOR_HELPER	,	V_127
+token	,	V_30
+ENC_NA	,	V_82
+btsdp_data_t	,	T_16
+"C/R Flag"	,	L_38
+register_tap_listener	,	F_44
+expert_add_info_format	,	F_27
+"I1-I4: 0x%x, C1-C4: 0x%x"	,	L_1
+tvb_format_text	,	F_47
+ENC_LITTLE_ENDIAN	,	V_22
+se_tree_lookup32	,	F_8
+ett_btrfcomm_ctrl	,	V_93
+register_dissector_table	,	F_38
+btspp_handle	,	V_150
+dlci_table	,	V_32
+"UID "	,	L_16
+vs_cr	,	V_113
+se_alloc0	,	F_9
+"Rcvd "	,	L_12
+"Parameter Negotiation "	,	L_20
+hf_msc_dv	,	V_42
+BTSDP_DUN_SERVICE_UUID	,	V_144
+BTSDP_HFP_GW_SERVICE_UUID	,	V_136
+protocol	,	V_121
+"Bluetooth SPP Packet"	,	L_116
+"Payload length"	,	L_55
+dissect_btdun	,	F_51
+"Convergence layer used for that particular DLCI"	,	L_54
+"Frame type"	,	L_44
+"Command/Response flag"	,	L_40
+"Checksum over frame"	,	L_63
+"btrfcomm.credits"	,	L_82
+guint	,	T_18
+offset	,	V_2
+ett	,	V_116
+"Sent "	,	L_11
+P2P_DIR_RECV	,	V_86
+"btrfcomm.mcc.cmd"	,	L_43
+"V.24 Signals: FC = %d, RTC = %d, RTR = %d, IC = %d, DV = %d"	,	L_3
+tree	,	V_3
+proto_btrfcomm	,	V_81
+"Bluetooth DUN Packet"	,	L_106
+packet_info	,	T_5
+dissect_btrfcomm_MccType	,	F_17
+"Ready To Receive (RTR)"	,	L_70
+"Acknowledgement timer (T1): %d ms"	,	L_2
+edt	,	T_15
+mcc_typep	,	V_66
+"Type of frame"	,	L_49
+"BTHF"	,	L_100
+proto_tree_add_uint	,	F_3
+cr_flag	,	V_12
+mcc_ti	,	V_92
+proto_reg_handoff_bthf	,	F_49
+"btrfcomm.msc.rtr"	,	L_71
+ett_addr	,	V_49
+hf_msc_rtc	,	V_39
+"btsdp"	,	L_91
+"bthf"	,	L_101
+"%s &lt;PPP frame&gt;"	,	L_104
+P2P_DIR_SENT	,	V_85
+hf_fcs	,	V_105
+"btdun.atcmd"	,	L_105
+dissect_btspp	,	F_54
+"btrfcomm.cr"	,	L_39
+"btdun"	,	L_108
+vs_frame_type_short	,	V_88
+hf_priority	,	V_24
+PI_MALFORMED	,	V_95
+HFILL	,	V_109
+vs_ctl_pn_cl	,	V_115
+ea_flagp	,	V_44
+p2p_dir	,	V_31
+rfcomm_service_dissector_table	,	V_103
+"Max Retrans"	,	L_30
+ppp_handle	,	V_142
+dissector_try_uint	,	F_29
+"P/F flag"	,	L_46
+"btl2cap.psm"	,	L_89
+"ppp_raw_hdlc"	,	L_109
+hf_msc_rtr	,	V_40
+EMEM_TREE_TYPE_RED_BLACK	,	V_117
+se_tree_insert32	,	F_10
+vs_ea	,	V_112
+create_dissector_handle	,	F_50
+"Data Valid"	,	L_78
+BTSDP_SPP_SERVICE_UUID	,	V_151
+proto_item_set_len	,	F_12
+"Bluetooth RFCOMM Protocol"	,	L_84
+"DLCI"	,	L_22
+"btrfcomm.pn.i"	,	L_50
+"btrfcomm.max_retrans"	,	L_31
+P2P_DIR_UNKNOWN	,	V_87
+"Unknown"	,	L_7
+"Type: %s (0x%x), C/R flag = %d, E/A flag = %d"	,	L_9
+proto_tree	,	T_2

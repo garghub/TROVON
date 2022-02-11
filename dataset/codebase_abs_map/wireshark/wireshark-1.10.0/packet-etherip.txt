@@ -1,0 +1,67 @@
+register_dissector	,	F_15
+ETHERIP_VERS_MASK	,	V_11
+dissect_etherip	,	F_1
+proto_register_protocol	,	F_11
+proto_reg_handoff_etherip	,	F_16
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_4
+tvb_get_ntohs	,	F_3
+BASE_HEX	,	V_25
+tvb_new_subset_remaining	,	F_8
+"Version"	,	L_5
+col_set_str	,	F_2
+gint	,	T_7
+proto_item_add_subtree	,	F_5
+proto_etherip	,	V_12
+proto_register_field_array	,	F_12
+eth_withoutfcs_handle	,	V_20
+tvb	,	V_1
+etherip_tree	,	V_5
+"EtherIP, Version %d"	,	L_2
+"Ethernet over IP"	,	L_10
+"etherip.ver"	,	L_6
+ett	,	V_26
+dissector_add_uint	,	F_18
+tree	,	V_3
+hf_etherip_reserved	,	V_18
+version	,	V_8
+FT_UINT16	,	V_22
+packet_info	,	T_2
+"ip.proto"	,	L_13
+field	,	V_7
+cinfo	,	V_9
+hf_etherip	,	V_21
+proto_register_subtree_array	,	F_14
+hf_etherip_ver	,	V_14
+array_length	,	F_13
+"etherip.reserved"	,	L_8
+"Reserved"	,	L_7
+next_tvb	,	V_4
+"eth_withoutfcs"	,	L_12
+proto_tree_add_item	,	F_6
+"Reserved field must be 0"	,	L_4
+call_dissector	,	F_9
+pinfo	,	V_2
+dissector_handle_t	,	T_8
+"etherip"	,	L_11
+ETHERIP_RESERVE_MASK	,	V_19
+ett_etherip	,	V_13
+hf_register_info	,	T_6
+IP_PROTO_ETHERIP	,	V_28
+HFILL	,	V_24
+PI_PROTOCOL	,	V_16
+guint16	,	T_5
+proto_register_etherip	,	F_10
+COL_PROTOCOL	,	V_10
+find_dissector	,	F_17
+BASE_DEC	,	V_23
+PI_WARN	,	V_17
+"Version must be 3"	,	L_3
+proto_item	,	T_4
+ENC_BIG_ENDIAN	,	V_15
+"Reserved (must be 0)"	,	L_9
+ti	,	V_6
+"ETHERIP"	,	L_1
+expert_add_info_format	,	F_7
+etherip_handle	,	V_27
+proto_tree	,	T_3

@@ -1,0 +1,117 @@
+hf_mpeg_pmt_stream_reserved1	,	V_34
+MPEG_PMT_STREAM_ELEMENTARY_PID_MASK	,	V_30
+hf_mpeg_pmt_stream_reserved2	,	V_36
+"mpeg_pmt.reserved3"	,	L_18
+proto_register_protocol	,	F_13
+proto_mpeg_descriptor_loop_dissect	,	F_7
+"mpeg_pmt.prog_info_len"	,	L_20
+MPEG_PMT_TID	,	V_57
+"Current/Next Indicator"	,	L_9
+hf_mpeg_pmt_current_next_indicator	,	V_22
+"mpeg_pmt.stream.reserved2"	,	L_26
+BASE_EXT_STRING	,	V_51
+col_set_str	,	F_2
+gint	,	T_9
+tvb	,	V_1
+COL_INFO	,	V_14
+"Elementary PID"	,	L_24
+"mpeg_sect.tid"	,	L_32
+mpeg_pmt_stream_type_vals_ext	,	V_52
+mpeg_pmt_stream_tree	,	V_12
+"Stream type"	,	L_21
+MPEG_PMT_PCR_PID_MASK	,	V_49
+proto_register_mpeg_pmt	,	F_11
+cinfo	,	V_13
+"MPEG PMT"	,	L_30
+proto_register_subtree_array	,	F_16
+array_length	,	F_15
+hf_mpeg_pmt_stream_type	,	V_33
+"Reserved"	,	L_5
+proto_tree_add_item	,	F_3
+hf_mpeg_pmt_version_number	,	V_21
+"mpeg_pmt.stream.es_info_len"	,	L_28
+pinfo	,	V_2
+"mpeg_pmt.reserved1"	,	L_6
+"Section Number"	,	L_11
+_U_	,	V_4
+es_info_len	,	V_8
+hf_mpeg_pmt_program_info_length	,	V_29
+MPEG_PMT_RESERVED1_MASK	,	V_43
+MPEG_PMT_STREAM_ES_INFO_LENGTH_MASK	,	V_31
+"Program Number"	,	L_3
+hf_register_info	,	T_8
+VALS	,	F_12
+hf_mpeg_pmt_reserved3	,	V_28
+hf_mpeg_pmt_reserved1	,	V_20
+hf_mpeg_pmt_last_section_number	,	V_24
+hf_mpeg_pmt_reserved2	,	V_25
+prog_info_len	,	V_7
+guint16	,	T_6
+FT_UINT8	,	V_42
+BASE_DEC	,	V_47
+"mpeg_pmt.reserved2"	,	L_15
+proto_item	,	T_7
+ENC_NA	,	V_16
+ti	,	V_10
+ett_mpeg_pmt_stream	,	V_32
+"PCR PID"	,	L_16
+mpeg_pmt_handle	,	V_56
+"mpeg_pmt.stream.reserved1"	,	L_23
+dissect_mpeg_pmt	,	F_1
+register_dissector	,	F_17
+data	,	T_4
+tvbuff_t	,	T_1
+pid	,	V_9
+hf_mpeg_pmt_program_number	,	V_18
+tvb_get_ntohs	,	F_6
+BASE_HEX	,	V_40
+"mpeg_pmt.version"	,	L_8
+mpeg_pmt_cur_next_vals	,	V_45
+"Last Section Number"	,	L_13
+ett_mpeg_pmt	,	V_17
+proto_item_add_subtree	,	F_4
+proto_register_field_array	,	F_14
+MPEG_PMT_STREAM_RESERVED2_MASK	,	V_54
+proto_reg_handoff_mpeg_pmt	,	F_18
+guint	,	T_5
+offset	,	V_5
+ett	,	V_55
+MPEG_PMT_CURRENT_NEXT_INDICATOR_MASK	,	V_46
+dissector_add_uint	,	F_19
+tree	,	V_3
+MPEG_PMT_PROGRAM_INFO_LENGTH_MASK	,	V_27
+"Stream PID=0x%04hx"	,	L_2
+"mpeg_pmt.last_sect_num"	,	L_14
+hf_mpeg_pmt_stream_elementary_pid	,	V_35
+"mpeg_pmt.cur_next_ind"	,	L_10
+FT_UINT16	,	V_39
+packet_info	,	T_2
+"mpeg_pmt.pg_num"	,	L_4
+MPEG_PMT_STREAM_RESERVED1_MASK	,	V_53
+packet_mpeg_sect_header	,	F_5
+MPEG_PMT_RESERVED3_MASK	,	V_50
+"mpeg_pmt.stream.elementary_pid"	,	L_25
+proto_mpeg_pmt	,	V_15
+"mpeg_pmt.pcr_pid"	,	L_17
+hf_mpeg_pmt_pcr_pid	,	V_26
+"mpeg_pmt.stream.type"	,	L_22
+hf_mpeg_pmt_section_number	,	V_23
+"mpeg_pmt.sect_num"	,	L_12
+mpeg_pmt_tree	,	V_11
+HFILL	,	V_41
+"Program Map Table (PMT)"	,	L_1
+"Program Info Length"	,	L_19
+hf_mpeg_pmt_stream_es_info_length	,	V_37
+"ES Info Length"	,	L_27
+"Version Number"	,	L_7
+length	,	V_6
+MPEG_PMT_RESERVED2_MASK	,	V_48
+proto_tree_add_subtree_format	,	F_8
+packet_mpeg_sect_crc	,	F_9
+"mpeg_pmt"	,	L_31
+proto_item_set_len	,	F_10
+ENC_BIG_ENDIAN	,	V_19
+"MPEG2 Program Map Table"	,	L_29
+MPEG_PMT_VERSION_NUMBER_MASK	,	V_44
+proto_tree	,	T_3
+hf	,	V_38

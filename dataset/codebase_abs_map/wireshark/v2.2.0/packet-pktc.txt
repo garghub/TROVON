@@ -1,0 +1,319 @@
+tvb_get_string_enc	,	F_26
+"PKTC MTA FQDN"	,	L_113
+hf_pktc_list_of_ciphersuites_len	,	V_38
+proto_register_protocol	,	F_47
+"%.2s-%.2s-%.2s %.2s:%.2s:%.2s"	,	L_6
+hf_pktc_mtafqdn_msgtype	,	V_62
+hf_pktc_server_principal	,	V_50
+dissect_pktc_rekey	,	F_25
+"pktc.mtafqdn.unknown_doi"	,	L_108
+"Minor version"	,	L_26
+tvb_new_subset_remaining	,	F_17
+"pktc.asd.snmp_enc_alg"	,	L_47
+len	,	V_12
+hf_pktc_mtafqdn_manu_cert_revoked	,	V_72
+pktc_handle	,	V_118
+hf_pktc_app_spec_data	,	V_13
+"MTA FQDN Protocol Version"	,	L_92
+" %s"	,	L_2
+gint	,	T_14
+FT_ETHER	,	V_120
+msgtype	,	V_59
+"pktc.mtafqdn.manu_cert_revoked"	,	L_99
+"Grace Period in seconds"	,	L_81
+tvb	,	V_3
+guint32	,	T_6
+COL_INFO	,	V_64
+FT_BOOLEAN	,	V_116
+hf_pktc_usmUserName	,	V_26
+"Key Management Message ID"	,	L_19
+engineid_tree	,	V_9
+hf_pktc_snmpEngineID	,	V_20
+version	,	V_91
+"MTA FQDN Message Type"	,	L_87
+proto_tree_add_string_format_value	,	F_27
+"SNMPv3 Engine ID Time"	,	L_61
+PKTC_MTAFQDN_REQ	,	V_68
+tvb_reported_length_remaining	,	F_33
+"MsgType %u"	,	L_7
+PKTC_MTAFQDN_REP	,	V_73
+"pktc.server_principal"	,	L_33
+get_ber_identifier	,	F_39
+ett_pktc_version	,	V_97
+"Security Parameter Lifetime"	,	L_74
+cinfo	,	V_63
+proto_tree_add_ipv4	,	F_35
+"Request"	,	L_12
+KMMID_AP_REQUEST	,	V_17
+hf_pktc_grace_period	,	V_55
+hf_pktc_mtafqdn_ip	,	V_75
+"pktc.version.minor"	,	L_27
+array_length	,	F_49
+"Protocol Version"	,	L_90
+hf_pktc_mtafqdn_pub_key_hash	,	V_70
+"Server Kerberos Principal Identifier"	,	L_32
+" (%s)"	,	L_17
+"pktc.mtafqdn.unknown_kmmid"	,	L_106
+"%0x"	,	L_3
+ENC_ASCII	,	V_27
+"pktc.doi"	,	L_22
+PROTO_ITEM_SET_HIDDEN	,	F_11
+KERBEROS_APPLICATIONS_AP_REP	,	V_87
+KERBEROS_APPLICATIONS_AP_REQ	,	V_86
+"ACK Required Flag"	,	L_72
+hf_pktc_kmmid	,	V_95
+hf_register_info	,	T_13
+"PKTC"	,	L_9
+pktc_tvb	,	V_51
+cb	,	V_90
+COL_PROTOCOL	,	V_81
+"pktc.grace_period"	,	L_80
+"Unknown Kerberos application"	,	L_111
+"SNMPv3 USM User Name Length"	,	L_62
+i	,	V_35
+"SNMPv3 Engine ID Length"	,	L_52
+"Enterprise Number"	,	L_88
+hf_pktc_snmpEngineTime	,	V_24
+PKTC_PORT	,	V_119
+"pktc.mtafqdn.mac"	,	L_94
+guint8	,	T_4
+"/%s"	,	L_4
+BASE_NONE	,	V_112
+dissect_pktc	,	F_42
+secs	,	V_71
+proto_register_pktc	,	F_45
+ts	,	V_61
+"Server Nonce"	,	L_29
+"Timestamp"	,	L_34
+tvb_get_ntohl	,	F_14
+pktc_mtafqdn_handle	,	V_130
+"Lifetime in seconds of security parameter"	,	L_76
+proto_reg_handoff_pktc	,	F_51
+tvbuff_t	,	T_3
+"pktc.asd.snmp_usm_username"	,	L_66
+"pktc.mtafqdn.msgtype"	,	L_86
+tvb_strsize	,	F_15
+proto_reg_handoff_pktc_mtafqdn	,	F_57
+tvb_memcpy	,	F_34
+"pktc.mtafqdn.version"	,	L_91
+BASE_HEX	,	V_107
+parent_tree	,	V_2
+pktc_mtafqdn_tvb	,	V_77
+col_add_str	,	F_30
+"not revoked"	,	L_8
+gboolean	,	T_11
+proto_item_add_subtree	,	F_3
+"pktc.mtafqdn.ip"	,	L_104
+proto_pktc_mtafqdn	,	V_129
+proto_register_field_array	,	F_48
+FT_BYTES	,	V_115
+kmmid_types	,	V_100
+ei	,	V_124
+string_len	,	V_48
+dissector_add_uint	,	F_53
+ei_pktc_unknown_doi	,	V_32
+hf_pktc_doi	,	V_96
+"SNMPv3 Engine Time"	,	L_59
+tvb_get_guint8	,	F_4
+"SNMPv3 Authentication Algorithm"	,	L_44
+tvb_captured_length	,	F_41
+hf_pktc_mtafqdn_fqdn	,	V_74
+"pktc"	,	L_83
+match_uint	,	V_85
+doi_types	,	V_101
+"pktc.mtafqdn.enterprise"	,	L_89
+ett_pktc_app_spec_data	,	V_15
+KMMID_WAKEUP	,	V_102
+"pktc.asd.snmp_engine_boots"	,	L_58
+expert_pktc	,	V_128
+ei_pktc_unknown_kmmid	,	V_28
+"pktc.version.major"	,	L_24
+dissect_pktc_app_specific_data	,	F_1
+signed_time_secs_to_str	,	F_22
+gint8	,	T_10
+hf_pktc_sec_param_lifetime	,	V_54
+pktc_mtafqdn_msgtype_vals	,	V_65
+pktc_tree	,	V_92
+engineid_item	,	V_11
+pktc_mtafqdn_tree	,	V_76
+FT_STRING	,	V_111
+"Message Type"	,	L_85
+hf_pktc_snmpAuthenticationAlgorithm	,	V_39
+"Unknown Kerberos application (%d), expected 10 or 11"	,	L_13
+"pktc.ciphers.len"	,	L_43
+"Version: %d.%d"	,	L_15
+"Unknown KMMID %#x"	,	L_16
+"Number of Ciphersuites"	,	L_42
+ett_pktc_engineid	,	V_21
+"Manufacturer Cert Revocation Time (UTC) or 0 if not revoked"	,	L_100
+"pktc.asd.snmp_auth_alg"	,	L_45
+"SNMPv3 Encryption Transform ID"	,	L_46
+STR_UNICODE	,	V_113
+"pktc.spl"	,	L_75
+snmp_authentication_algorithm_vals	,	V_40
+PI_WARN	,	V_126
+ENC_BIG_ENDIAN	,	V_23
+hf_pktc_timestamp	,	V_58
+hf_pktc_reestablish_flag	,	V_52
+FT_UINT32	,	V_110
+"Length of SNMPv3 Engine ID"	,	L_54
+old_offset	,	V_7
+"pktc.asd.ipsec_enc_alg"	,	L_51
+snmp_transform_id_vals	,	V_42
+hf	,	V_105
+"Application Specific Data"	,	L_37
+"List of Ciphersuites"	,	L_40
+"SNMPv3 Engine Boots"	,	L_57
+proto_tree_add_time	,	F_32
+"pktc.kmmid"	,	L_20
+"pktc.asd.ipsec_spi"	,	L_68
+hf_pktc_usmUserName_len	,	V_25
+hf_pktc_snmpEncryptionTransformID	,	V_41
+"MTA FQDN %s"	,	L_10
+"MTA IP Address"	,	L_103
+col_append_fstr	,	F_44
+PKTC_MTAFQDN_PORT	,	V_131
+col_set_str	,	F_37
+"Unknown DOI %#x"	,	L_18
+dissect_pktc_ap_reply	,	F_19
+"pktc.asd"	,	L_38
+"Unknown DOI"	,	L_109
+proto_tree_add_uint_format	,	F_20
+FT_IPv4	,	V_123
+hf_pktc_snmpEngineID_len	,	V_19
+item	,	V_10
+snonce	,	V_47
+dissect_snmp_engineid	,	F_6
+dissect_pktc_mtafqdn_krbsafeuserdata	,	F_29
+hidden_item	,	V_34
+proto_item_append_text	,	F_10
+"Grace Period"	,	L_79
+DOI_SNMPv3	,	V_16
+"Major version of PKTC"	,	L_25
+FT_ABSOLUTE_TIME	,	V_121
+"Manufacturer Cert Revocation Time"	,	L_98
+proto_register_subtree_array	,	F_50
+val_to_str	,	F_12
+gint32	,	T_12
+"pktc.timestamp"	,	L_35
+hf_pktc_snmpEngineBoots	,	V_22
+KMMID_SEC_PARAM_REC	,	V_103
+doi	,	V_5
+" (%d):"	,	L_1
+version_tree	,	V_93
+"Re-establish Flag"	,	L_70
+proto_tree_add_item	,	F_2
+"pktc.mtafqdn.unknown_kerberos_application"	,	L_110
+pinfo	,	V_1
+col_add_fstr	,	F_38
+dissector_handle_t	,	T_15
+hf_pktc_ipsec_spi	,	V_31
+"MTA MAC address"	,	L_93
+proto_register_pktc_mtafqdn	,	F_54
+_U_	,	V_33
+"pktc.asd.snmp_engine_time"	,	L_60
+"pktc.reestablish"	,	L_71
+proto_registrar_get_name	,	F_21
+"Timestamp (UTC)"	,	L_36
+"pktc.mtafqdn"	,	L_114
+KERBEROS_APPLICATIONS_KRB_SAFE	,	V_89
+VALS	,	F_46
+PI_PROTOCOL	,	V_125
+dissect_pktc_ap_request	,	F_16
+FT_UINT8	,	V_106
+"PacketCable MTA FQDN"	,	L_112
+BASE_DEC	,	V_109
+hf_pktc_ipsecEncryptionTransformID	,	V_45
+ei_pktc_unknown_kerberos_application	,	V_88
+proto_item	,	T_5
+"MTA FQDN"	,	L_101
+expert_register_field_array	,	F_56
+"pktc.asd.ipsec_auth_alg"	,	L_49
+ENC_NA	,	V_14
+ABSOLUTE_TIME_LOCAL	,	V_122
+"pktc.server_nonce"	,	L_30
+expert_add_info_format	,	F_40
+"Minor version of PKTC"	,	L_28
+"Domain of Interpretation"	,	L_21
+"Reply"	,	L_11
+hf_pktc_mtafqdn_mac	,	V_69
+"KMMID/DOI application specific data"	,	L_39
+data	,	T_9
+hf_pktc_server_nonce	,	V_49
+ipsec_transform_id_vals	,	V_46
+hf_pktc_ack_required_flag	,	V_56
+"Server Nonce random number"	,	L_31
+"pktc.asd.snmp_engine_id"	,	L_56
+ipsec_authentication_algorithm_vals	,	V_44
+ett_pktc	,	V_94
+"pktc.ack_required"	,	L_73
+dissect_pktc_sec_param_rec	,	F_24
+"Unknown KMMID"	,	L_107
+ei_register_info	,	T_16
+expert_register_protocol	,	F_55
+ett_pktc_list_of_ciphersuites	,	V_37
+ber_class	,	V_78
+"IPsec Security Parameter Index"	,	L_67
+tag	,	V_80
+KMMID_AP_REPLY	,	V_18
+nstime_t	,	T_8
+guint	,	T_7
+FT_NONE	,	V_114
+offset	,	V_4
+"Length of SNMPv3 USM User Name"	,	L_64
+ett	,	V_117
+wmem_packet_scope	,	F_23
+expert_module_t	,	T_17
+tree	,	V_8
+"SNMPv3 USM User Name"	,	L_65
+packet_info	,	T_1
+kmmid	,	V_6
+hf_pktc_list_of_ciphersuites	,	V_36
+"pktc.sha1_hmac"	,	L_78
+"Major version"	,	L_23
+bignum	,	V_60
+hf_pktc_version_major	,	V_98
+hf_pktc_version_minor	,	V_99
+dissect_pktc_wakeup	,	F_13
+proto_tree_add_uint	,	F_5
+ett_pktc_mtafqdn	,	V_83
+EXPFILL	,	V_127
+dissect_kerberos_main	,	F_18
+proto_tree_add_expert	,	F_7
+proto_pktc	,	V_82
+"pktc.mtafqdn.fqdn"	,	L_102
+"%s: %s"	,	L_5
+dissect_pktc_error_reply	,	F_28
+proto_tree_add_time_format_value	,	F_31
+dissect_pktc_list_of_ciphersuites	,	F_9
+"pktc.mtafqdn.pub_key_hash"	,	L_96
+KMMID_ERROR_REPLY	,	V_104
+hf_pktc_ipsecAuthenticationAlgorithm	,	V_43
+"pktc.ciphers"	,	L_41
+dissect_pktc_mtafqdn	,	F_36
+HFILL	,	V_108
+"IPsec Authentication Algorithm"	,	L_48
+DOI_IPSEC	,	V_29
+hf_pktc_mtafqdn_version	,	V_67
+"MTA Public Key Hash"	,	L_95
+"udp.port"	,	L_84
+"IPsec Encryption Transform ID"	,	L_50
+"SHA-1 HMAC"	,	L_77
+hf_pktc_sha1_hmac	,	V_53
+create_dissector_handle	,	F_52
+timestr	,	V_57
+proto_tree_add_subtree_format	,	F_43
+"SNMPv3 Engine ID"	,	L_55
+"MTA IP Address (all zeros if not supplied)"	,	L_105
+proto_item_set_len	,	F_8
+hf_pktc_mtafqdn_enterprise	,	V_66
+"Unknown Kerberos application (%d), expected 20"	,	L_14
+"Security Parameter Index for inbound Security Association (IPsec)"	,	L_69
+"MTA Public Key Hash (SHA-1)"	,	L_97
+pc	,	V_79
+KMMID_REKEY	,	V_30
+srcport	,	V_84
+"PacketCable"	,	L_82
+"pktc.asd.snmp_engine_id.len"	,	L_53
+"pktc.asd.snmp_usm_username.len"	,	L_63
+proto_tree	,	T_2

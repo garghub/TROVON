@@ -1,0 +1,185 @@
+"DLC Header - Ctrl : 0x%02x"	,	L_56
+dissect_dlsw_tcp	,	F_26
+"DLC Header Length = %u"	,	L_40
+vtype	,	V_39
+DLSW_GDSID_ACK	,	V_46
+THROW	,	F_19
+"DLC Header - FC byte : 0x%02x"	,	L_50
+proto_register_protocol	,	F_29
+"Remote DLC     = %u"	,	L_9
+gdsid	,	V_41
+"DLC Header - RIF : %s"	,	L_53
+mtype	,	V_7
+"DLC Header - SSAP : 0x%02x"	,	L_55
+"DLC Header - SA : %s"	,	L_52
+col_append_fstr	,	F_11
+"Target MAC Address  = %s"	,	L_35
+tcp_dissect_pdus	,	F_27
+col_set_str	,	F_2
+gint	,	T_5
+"Error cause = %s"	,	L_61
+DLSW_GDSID_REF	,	V_47
+ett_dlsw_header	,	V_24
+dlsw_data_tree	,	V_16
+"Origin DLC             = %u"	,	L_42
+tvb	,	V_1
+"Capabilities Length =  %d"	,	L_57
+"Target Link SAP     = 0x%02x"	,	L_38
+proto_register_dlsw	,	F_28
+dissect_dlsw_udp	,	F_22
+COL_INFO	,	V_19
+"Old message type = %s (0x%02x)"	,	L_26
+"Not used for CapEx"	,	L_16
+"Flow Control Operator: %s"	,	L_23
+proto_item_append_text	,	F_18
+DLSW_INFO_HEADER	,	V_29
+"Multicast Version Number = %d"	,	L_81
+version	,	V_4
+"Data Link SWitching"	,	L_84
+dlsw_tcp_handle	,	V_56
+"Target Transport ID    = %u"	,	L_46
+cinfo	,	V_17
+"Flow Control Indication: no"	,	L_20
+CAP_EXCHANGE	,	V_26
+proto_register_subtree_array	,	F_30
+"Header Length  = %u"	,	L_7
+val_to_str	,	F_14
+"Origin DLC Port ID     = %u"	,	L_41
+dlsw_capex_type_vals	,	V_30
+"MAC Address List = %s / %s"	,	L_78
+array_length	,	F_31
+"Largest Frame size  = %u"	,	L_29
+tvb_get_ntoh24	,	F_20
+"Reserved"	,	L_11
+"TCP connections  = %d"	,	L_76
+"MAC Address Exclusivity = %s"	,	L_70
+"DLC Header - DSAP : 0x%02x"	,	L_54
+"Invalid GDS ID"	,	L_58
+proto_tree_add_item	,	F_6
+pinfo	,	V_2
+col_add_fstr	,	F_4
+dissector_handle_t	,	T_6
+"Data"	,	L_48
+flags	,	V_10
+_U_	,	V_53
+KEEPALIVE	,	V_37
+dlsw_udp_handle	,	V_55
+"on "	,	L_74
+"DLSw"	,	L_1
+dlsw_gds_vals	,	V_45
+get_dlsw_pdu_len	,	F_25
+"Message Type   = %s (0x%02x)"	,	L_14
+"Version String = %s"	,	L_69
+"Unknown Version, dissection may be inaccurate"	,	L_6
+"Explorer message: no"	,	L_32
+"Vector Type   = %s (0x%02x)"	,	L_65
+"SAP List Support = 0x%x0=%s 0x%x2=%s 0x%x4=%s 0x%x6=%s 0x%x8=%s 0x%xa=%s 0x%xc=%s 0x%xe=%s"	,	L_73
+ti2	,	V_13
+"Flow Control Acknowledgment: yes"	,	L_21
+", %s"	,	L_12
+ReportedBoundsError	,	V_50
+COL_PROTOCOL	,	V_18
+"DLC Header Length = %u (bogus, must be &lt;= message length %u)"	,	L_39
+dissect_dlsw_pdu	,	F_1
+IFCM	,	V_35
+"Explorer message: yes"	,	L_31
+"Unknown refuse cause"	,	L_62
+tvb_length	,	F_24
+proto_tree_add_text	,	F_8
+i	,	V_43
+TCP_PORT_DLSW	,	V_58
+tvb_new_subset	,	F_17
+"Unknown vector type"	,	L_63
+"dlsw"	,	L_85
+decode_boolean_bitfield	,	F_12
+ENC_NA	,	V_22
+ti	,	V_12
+tvb_bytes_to_str	,	F_15
+UDP_PORT_DLSW	,	V_57
+"Target DLC             = %u"	,	L_45
+tvb_format_text	,	F_21
+"DLSw %s"	,	L_2
+"Remote DLC PID = %u"	,	L_10
+proto_dlsw	,	V_21
+"%s"	,	L_18
+"Unknown Version"	,	L_3
+tvb_get_ntohl	,	F_10
+"SSP Flags      = 0x%02x"	,	L_30
+"Unknown Direction"	,	L_28
+tvbuff_t	,	T_1
+"Unknown message Type"	,	L_13
+ett_dlsw_fc	,	V_27
+tvb_get_ntohs	,	F_9
+"Origin Transport ID    = %u"	,	L_43
+decode_enumerated_bitfield	,	F_13
+"Target DLC Port ID     = %u"	,	L_44
+proto_item_add_subtree	,	F_7
+"Unknown Type"	,	L_15
+hlen	,	V_5
+"Unknown (%d)"	,	L_34
+"Vector Length = %d"	,	L_64
+"Unknown data"	,	L_83
+guint	,	T_4
+offset	,	V_40
+"Vendor OUI = 0x%06x"	,	L_80
+ett	,	V_54
+"Error pointer =  %d"	,	L_60
+"off"	,	L_75
+dissector_add_uint	,	F_34
+tree	,	V_3
+"Frame direction   =  %s (0x%02x)"	,	L_27
+dlsw_frame_direction_vals	,	V_33
+dlsw_vector_vals	,	V_51
+dlsw_header_tree	,	V_14
+"Header Number  = 0x%02x"	,	L_25
+packet_info	,	T_2
+ett_dlsw_data	,	V_34
+"Version        = %s"	,	L_5
+"On"	,	L_71
+tvb_get_guint8	,	F_3
+"DLSw header, %s"	,	L_4
+"Origin MAC Address  = %s"	,	L_36
+dlsw_tree	,	V_11
+mlen	,	V_6
+" - %s"	,	L_59
+INFOFRAME	,	V_36
+"DLC Header - AC byte : 0x%02x"	,	L_49
+"NetBIOS name = %s"	,	L_79
+"OUI = 0x%06x"	,	L_66
+ett_dlsw	,	V_23
+"Flow ctrl byte = 0x%02x"	,	L_17
+match_strval	,	F_23
+"DLSw data"	,	L_47
+"Origin Link SAP     = 0x%02x"	,	L_37
+"DLSw Version = %d.%d"	,	L_67
+dlsw_flags_tree	,	V_15
+"Message Length = %u"	,	L_8
+"Off"	,	L_72
+dlsw_refuse_vals	,	V_48
+dlchlen	,	V_8
+dlsw_fc_cmd_vals	,	V_28
+"Flow Control Acknowledgment: no"	,	L_22
+"Circuit priority = %s"	,	L_33
+"DLC Header - DA : %s"	,	L_51
+"Initial Pacing Window = %d"	,	L_68
+direction	,	V_9
+new_create_dissector_handle	,	F_33
+dissect_dlsw_capex	,	F_16
+sap	,	V_42
+val_to_str_const	,	F_5
+"udp.port"	,	L_86
+vlen	,	V_38
+ett_dlsw_sspflags	,	V_31
+proto_reg_handoff_dlsw	,	F_32
+DLSW_GDSID_SEND	,	V_49
+"NetBIOS Name Exclusivity = %s"	,	L_77
+dlsw_pri_vals	,	V_32
+dlsw_vector_tree	,	V_44
+dlsw_type_vals	,	V_25
+"Vector Data = ???"	,	L_82
+"Flow Control Indication: yes"	,	L_19
+ett_dlsw_vector	,	V_52
+"tcp.port"	,	L_87
+"Protocol ID    = 0x%02x"	,	L_24
+proto_tree	,	T_3
+dlsw_version_vals	,	V_20

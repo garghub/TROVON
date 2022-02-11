@@ -1,0 +1,85 @@
+proto_register_e212	,	F_13
+"Mobile Country Code (MCC)"	,	L_7
+octet	,	V_8
+"Mobile Network Code (MNC)"	,	L_10
+proto_register_protocol	,	F_14
+tvbuff_t	,	T_2
+mcc_mnc_str	,	V_18
+mcc	,	V_9
+val_to_str_ext_const	,	F_7
+ei_E212_mcc_non_decimal	,	V_21
+"MNC contains non-decimal digits"	,	L_16
+try_val_to_str_ext	,	F_12
+expert_e212	,	V_35
+wmem_strdup_printf	,	F_8
+BASE_EXT_STRING	,	V_29
+ei_register_info	,	T_11
+gboolean	,	T_5
+expert_register_protocol	,	F_17
+hf_E212_mcc	,	V_20
+"e212"	,	L_19
+proto_register_field_array	,	F_15
+dissect_e212_mcc_mnc_in_address	,	F_11
+tvb	,	V_1
+mcc_mnc_codes_ext	,	V_23
+"MCC %u %s, MNC %02u %s"	,	L_6
+mnc3	,	V_16
+item	,	V_17
+mnc2	,	V_15
+offset	,	V_4
+guint32	,	T_9
+ei	,	V_31
+wmem_packet_scope	,	F_9
+"%s (%02u)"	,	L_5
+mcc_mnc	,	V_7
+expert_module_t	,	T_12
+proto_e212	,	V_36
+dissect_e212_mcc_mnc	,	F_10
+tree	,	V_3
+"e212.mcc"	,	L_8
+dissect_e212_mcc_mnc_wmem_packet_str	,	F_1
+"E.212"	,	L_18
+FT_UINT16	,	V_27
+packet_info	,	T_3
+tvb_get_guint8	,	F_3
+array_length	,	F_16
+mnc1	,	V_14
+tvb_get_ntoh24	,	F_2
+proto_tree_add_uint	,	F_4
+long_mnc	,	V_19
+""	,	L_4
+EXPFILL	,	V_34
+"MCC contains non-decimal digits"	,	L_14
+little_endian	,	V_5
+"%s (%03u)"	,	L_1
+pinfo	,	V_2
+expert_add_info	,	F_5
+ei_E212_mnc_non_decimal	,	V_25
+"MCC %u %s, MNC %03u %s"	,	L_3
+hf_register_info	,	T_10
+E212_codes_ext	,	V_24
+HFILL	,	V_30
+PI_MALFORMED	,	V_32
+"e212.mnc.non_decimal"	,	L_15
+guint16	,	T_7
+mnc	,	V_10
+"ITU-T E.212 number"	,	L_17
+"e212.mnc"	,	L_11
+gchar	,	T_1
+"e212.mcc.non_decimal"	,	L_13
+BASE_DEC	,	V_28
+"Mobile network code"	,	L_12
+PI_WARN	,	V_33
+proto_item	,	T_8
+expert_register_field_array	,	F_18
+proto_tree_add_uint_format_value	,	F_6
+guint8	,	T_6
+"Mobile Country Code MCC"	,	L_9
+mcc3	,	V_13
+mcc2	,	V_12
+hf_E212_mnc	,	V_22
+mcc1	,	V_11
+"Unknown"	,	L_2
+start_offset	,	V_6
+proto_tree	,	T_4
+hf	,	V_26

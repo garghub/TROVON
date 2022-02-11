@@ -1,0 +1,299 @@
+socket_item	,	V_9
+"Contact Version"	,	L_10
+contact_start_offset	,	V_40
+proto_register_protocol	,	F_29
+hf_mojito_flags_shutdown	,	V_60
+bigint_tree	,	V_64
+ett_mojito_status_code	,	V_94
+kuid_item	,	V_100
+tvb_reported_length	,	F_26
+"Version"	,	L_7
+ett_mojito_bigint	,	V_66
+gint	,	T_9
+proto_mojito	,	V_114
+hf_mojito_vendor	,	V_53
+hf_mojito_mnrversion	,	V_32
+"Mojito"	,	L_17
+"mojito.statuscodesecondarykuid"	,	L_91
+"mojito.kuidcount"	,	L_57
+tvb	,	V_1
+flag_tree	,	V_36
+COL_INFO	,	V_50
+"mojito.dhtvaluetype"	,	L_59
+FT_BOOLEAN	,	V_142
+hf_mojito_sectokenlen	,	V_80
+MOJITO_PING_RESPONSE	,	V_118
+hf_mojito_storestatuscode_secondary_kuid	,	V_96
+"mojito.kuid"	,	L_38
+tvb_reported_length_remaining	,	F_17
+hf_mojito_kuidcount	,	V_105
+"mojito.sectoken"	,	L_67
+cinfo	,	V_49
+PI_ERROR	,	V_19
+"IP Version"	,	L_39
+array_length	,	F_31
+hf_mojito_dhtvaluetype	,	V_106
+offset_start	,	V_6
+hf_mojito_socketaddress_port	,	V_20
+"Status Code %d"	,	L_15
+"DHTValue"	,	L_80
+hf_mojito_target_kuid	,	V_103
+"mojito.dhtvaluevaluetype"	,	L_75
+ENC_ASCII	,	V_28
+"DHTValue Count"	,	L_19
+"Extended Length"	,	L_54
+"Estimated DHT size"	,	L_12
+hf_register_info	,	T_12
+proto_reg_handoff_mojito	,	F_35
+mojito_header_data_t	,	T_6
+ett_mojito_flags	,	V_59
+"SHUTDOWN"	,	L_50
+dissect_mojito_ping_response	,	F_13
+"mojito.majorversion"	,	L_28
+FT_IPv6_LEN	,	V_16
+"Secondary KUID Count"	,	L_56
+dhtvaluelength	,	V_78
+"Payload Length"	,	L_31
+guint16	,	T_7
+hf_mojito_sectoken	,	V_81
+COL_PROTOCOL	,	V_113
+dissect_mojito_contact	,	F_8
+"mojito.statuscodekuid"	,	L_89
+ett_mojito_opcode	,	V_117
+i	,	V_101
+dissect_mojito_heuristic	,	F_25
+sc_item	,	V_92
+"mojito.dhtvaluelength"	,	L_79
+hf_mojito_dhtvalue_value	,	V_89
+"mojito.flags"	,	L_49
+guint8	,	T_4
+"Security Token"	,	L_66
+ti	,	V_111
+"mojito.dhtvaluecount"	,	L_20
+BASE_NONE	,	V_135
+contact_tree	,	V_22
+start_offset	,	V_39
+"Opcode specific data (%s)"	,	L_18
+MOJITO_STORE_RESPONSE	,	V_120
+header_tree	,	V_35
+"mojito.requestload"	,	L_24
+MOJITO_FIND_NODE_REQUEST	,	V_121
+MOJITO_STATS_RESPONSE_DEPRECATED	,	V_127
+tvbuff_t	,	T_1
+socket_tree	,	V_8
+old_mojito_udp_port	,	V_148
+opcode	,	V_48
+tvb_get_ntohs	,	F_15
+contactcount	,	V_76
+"Vendor"	,	L_35
+BASE_HEX	,	V_137
+header_data	,	V_34
+FT_UINT24	,	V_143
+"mojito.firewalledflag"	,	L_53
+gboolean	,	T_10
+ett_mojito_header_version	,	V_44
+proto_item_add_subtree	,	F_4
+module_t	,	T_11
+proto_register_field_array	,	F_30
+"Kademlia Unique ID (KUID)"	,	L_37
+kuid_tree	,	V_99
+FT_BYTES	,	V_134
+"Contact #%d"	,	L_3
+hf_mojito_dhtvalue_length	,	V_88
+"FDHTMessage"	,	L_25
+"Status Code Count"	,	L_85
+MOJITO_PING_REQUEST	,	V_125
+socket_address_version	,	V_7
+dissector_add_uint	,	F_39
+flag_item	,	V_38
+FT_UINT16	,	V_141
+sectokenlen	,	V_77
+tvb_get_guint8	,	F_2
+"DHT Value Type"	,	L_58
+ett_mojito_header	,	V_41
+bigint_item	,	V_65
+"mojito.instanceid"	,	L_47
+"KUID of the Contact"	,	L_72
+"Instance ID"	,	L_46
+dissector_delete_uint	,	F_38
+"DHTValue #%d"	,	L_14
+MOJITO_HEADER_LENGTH	,	V_116
+"mojito.bigintegerhexval"	,	L_63
+title	,	V_5
+heur_dissector_add	,	F_37
+FT_STRING	,	V_138
+"mojito.sectokenlen"	,	L_65
+ett_mojito_contact_version	,	V_30
+"Mojito DHT"	,	L_94
+new_create_dissector_handle	,	F_36
+"mojito.socketaddressversion"	,	L_40
+val_to_str_const	,	F_12
+hf_mojito_messageid	,	V_42
+hf_mojito_bigintegerval	,	V_72
+dht_tree	,	V_73
+"mojito.bigintegerval"	,	L_83
+hf_mojito_origmnrversion	,	V_55
+ENC_BIG_ENDIAN	,	V_15
+"Requester's External Socket Address"	,	L_11
+dissect_mojito_store_response	,	F_16
+FT_UINT32	,	V_136
+"mojito.fdhtmessage"	,	L_26
+"DHTValue Version"	,	L_76
+hf_mojito_flags	,	V_58
+hf_mojito_fdhtmessage	,	V_43
+udp_mojito_port	,	V_146
+hf	,	V_130
+"IP Port"	,	L_44
+"mojito.contactversion"	,	L_71
+"Unsupported Socket Address Type"	,	L_2
+hf_mojito_mjrversion	,	V_31
+hf_mojito_bigint_value_three	,	V_70
+header_item	,	V_37
+prefs_register_protocol	,	F_33
+"mojito.shutdownflag"	,	L_51
+FT_IPv6	,	V_140
+hf_mojito_contactversion	,	V_29
+"Gnutella Header"	,	L_6
+hf_mojito_contactcount	,	V_98
+kuidcount	,	V_102
+contact_offset	,	V_79
+col_set_str	,	F_22
+"Big Integer DEC Value"	,	L_82
+"Flags"	,	L_48
+ett_mojito_socket_address	,	V_10
+"mojito.socketaddressipv4"	,	L_42
+FT_IPv4	,	V_139
+ii	,	V_75
+"mojito.opcode"	,	L_34
+"mojito.contactkuid"	,	L_73
+"mojito.statuscodecount"	,	L_86
+"Originating Contact"	,	L_9
+dissect_mojito_find_value_request	,	F_19
+col_clear	,	F_23
+ett_mojito_dht	,	V_83
+MOJITO_STORE_REQUEST	,	V_119
+proto_register_subtree_array	,	F_32
+hf_mojito_dhtvalue_valuetype	,	V_85
+version_tree	,	V_23
+MOJITO_STATS_REQUEST_DEPRECATED	,	V_126
+proto_tree_add_item	,	F_5
+pinfo	,	V_2
+col_add_fstr	,	F_11
+"Secondary KUID\'s"	,	L_16
+"mojito.bigintegerlen"	,	L_61
+dissector_handle_t	,	T_13
+payloadlength	,	V_45
+"Data"	,	L_92
+_U_	,	V_90
+hf_mojito_kuid	,	V_56
+hf_mojito_storestatuscode_code	,	V_97
+MOJITO_FIND_VALUE_REQUEST	,	V_123
+"OPCode"	,	L_33
+dissect_mojito_find_value_response	,	F_20
+hf_mojito_storestatuscode_count	,	V_93
+hf_mojito_bigint_value_four	,	V_71
+dht_item	,	V_74
+initialized	,	V_147
+"Contact"	,	L_4
+VALS	,	F_28
+"mojito.socketaddressipv6"	,	L_43
+hf_mojito_contactkuid	,	V_33
+PI_PROTOCOL	,	V_18
+"mojito.minorversion"	,	L_30
+hf_mojito_requestload	,	V_108
+MOJITO_FIND_NODE_RESPONSE	,	V_122
+tvb_length	,	F_24
+bigintlen	,	V_63
+FT_UINT8	,	V_131
+proto_tree_add_text	,	F_3
+BASE_DEC	,	V_132
+proto_item	,	T_5
+mojito_module	,	V_129
+"Contact Count"	,	L_68
+hf_mojito_storestatuscode_kuid	,	V_95
+ENC_NA	,	V_12
+"Big Integer HEX Value"	,	L_62
+ett_mojito_kuids	,	V_104
+expert_add_info_format	,	F_6
+mojito_tree	,	V_109
+"Request Load"	,	L_23
+FT_IPv4_LEN	,	V_13
+ett_mojito_dht_version	,	V_87
+"mojito.extlength"	,	L_55
+"mojito.contactcount"	,	L_69
+ENC_LITTLE_ENDIAN	,	V_47
+opcode_item	,	V_112
+hf_mojito_dhtvaluecount	,	V_82
+"mojito.opcode.data"	,	L_93
+"%s"	,	L_1
+"mojito.socketaddressport"	,	L_45
+data	,	T_8
+opcodeflags	,	V_51
+"Socket Address"	,	L_5
+"Security Token Length"	,	L_64
+MOJITO_FIND_VALUE_RESPONSE	,	V_124
+"Mojito UDP Port"	,	L_97
+"Big Integer Length"	,	L_60
+"Message ID"	,	L_21
+mojito_handle	,	V_149
+prefs_register_uint_preference	,	F_34
+hf_mojito_dhtvalue_kuid	,	V_84
+"Secondary KUID of the Status Code"	,	L_90
+tvb_get_letohl	,	F_10
+hf_mojito_bigint_value_one	,	V_68
+"DHTValue Length"	,	L_78
+dissect_mojito_store_request	,	F_14
+dhtvaluescount	,	V_107
+"Firewalled"	,	L_52
+offset	,	V_4
+ett	,	V_145
+hf_mojito_opcode	,	V_52
+tree	,	V_3
+hf_mojito_length	,	V_46
+packet_info	,	T_2
+"Major Version"	,	L_27
+ett_mojito	,	V_115
+"udp"	,	L_98
+ett_mojito_contact	,	V_26
+"DHTValue ValueType"	,	L_74
+"mojito.contactvendor"	,	L_70
+hf_mojito_instanceid	,	V_57
+"IP Address"	,	L_41
+"mojito"	,	L_95
+version_item	,	V_25
+hf_mojito_flags_firewalled	,	V_61
+"mojito.messageid"	,	L_22
+hf_mojito_socketaddress_version	,	V_11
+contact_id	,	V_21
+"Unsupported BigInt length"	,	L_13
+dissect_mojito_address	,	F_1
+hf_mojito_dhtvalue_version	,	V_86
+hf_mojito_origmjrversion	,	V_54
+"Minor Version"	,	L_29
+"StatusCode"	,	L_87
+"Primary KUID of the Status Code"	,	L_88
+hf_mojito_socketaddress_ipv4	,	V_14
+hf_mojito_bigintegerlen	,	V_67
+hf_mojito_socketaddress_ipv6	,	V_17
+HFILL	,	V_133
+sc_tree	,	V_91
+statuscodeflags	,	V_144
+hf_mojito_bigint_value_two	,	V_69
+dissect_mojito_header	,	F_9
+"udp.port"	,	L_96
+dissect_mojito	,	F_21
+dissect_mojito_find_node_response	,	F_18
+hf_mojito_opcode_data	,	V_128
+"Target Kademlia Unique ID (KUID)"	,	L_84
+proto_item_set_len	,	F_7
+hf_mojito_contactvendor	,	V_27
+opcode_tree	,	V_110
+proto_register_mojito	,	F_27
+contact_item	,	V_24
+"mojito.vendor"	,	L_36
+"mojito.payloadlength"	,	L_32
+"mojito.dhtvalueversion"	,	L_77
+"mojito.dhtvaluehexvalue"	,	L_81
+"Unknown"	,	L_8
+hf_mojito_extendedlength	,	V_62
+proto_tree	,	T_3

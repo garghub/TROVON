@@ -1,0 +1,171 @@
+hf_btmcap_configuration	,	V_30
+bluetooth_clock_sync_time	,	V_12
+timestamp_sync_time	,	V_13
+hf_btmcap_bluetooth_clock_sync_time	,	V_33
+"Configuration"	,	L_37
+proto_register_protocol	,	F_20
+hf_btmcap_mdl_id	,	V_26
+prefs_register_protocol	,	F_25
+"btmcap.timestamp_sync_time"	,	L_46
+response_code_vals	,	V_37
+col_append_fstr	,	F_9
+FT_UINT64	,	V_52
+gint	,	T_5
+col_set_str	,	F_2
+"Bluetooth Protocol MCAP version: 1.0"	,	L_65
+hf_btmcap_mdep_id	,	V_29
+"btl2cap.service"	,	L_67
+tvb	,	V_1
+"btmcap.sync_lead_time"	,	L_52
+"btmcap"	,	L_63
+guint32	,	T_6
+COL_INFO	,	V_16
+module	,	V_44
+proto_item_append_text	,	F_11
+"btmcap.response_code"	,	L_32
+hf_btmcap_timestamp_update_information	,	V_32
+"Timestamp Native Accuracy"	,	L_55
+"The Response Parameters for MD_RECONNECT_MDL_RSP shall have length zero."	,	L_26
+col_clear	,	F_3
+" (Clock Sync)"	,	L_7
+hf_btmcap_timestamp_sync_time	,	V_34
+"btmcap.configuration"	,	L_38
+"Sync Lead Time"	,	L_51
+" (Baseband half-slots)"	,	L_23
+"Op Code"	,	L_29
+cinfo	,	V_14
+ett_btmcap	,	V_22
+proto_register_subtree_array	,	F_24
+BTSDP_HDP_SINK_SERVICE_UUID	,	V_62
+val_to_str	,	F_10
+hf_btmcap_timestamp_native_accuracy	,	V_41
+array_length	,	F_23
+"btmcap.data"	,	L_60
+"Unknown Op Code"	,	L_6
+proto_tree_add_item	,	F_6
+BTSDP_MCAP_CONTROL_CHANNEL_PROTOCOL_UUID	,	V_58
+hf_btmcap_sync_lead_time	,	V_39
+"mcap.version"	,	L_64
+pinfo	,	V_2
+col_add_fstr	,	F_5
+dissector_handle_t	,	T_10
+"Data"	,	L_59
+proto_register_btmcap	,	F_18
+"Timestamp Sample Accuracy"	,	L_47
+"Version of protocol supported by this dissector."	,	L_66
+mdl_id	,	V_10
+"btmcap.timestamp_native_resolution"	,	L_54
+hf_register_info	,	T_9
+" - MDL ID: %u"	,	L_9
+VALS	,	F_19
+"Timestamp Sync Time"	,	L_45
+" (Indicates all MDLs)"	,	L_10
+PI_PROTOCOL	,	V_27
+"btmcap.bluetooth_clock_sync_time"	,	L_44
+prefs_register_static_text_preference	,	F_26
+COL_PROTOCOL	,	V_15
+"Timestamp Update Information"	,	L_41
+"When the Response Code is not Success, the Response Parameters shall have length zero."	,	L_27
+dissect_btmcap	,	F_1
+FT_UINT8	,	V_46
+" (Time-Stamp Clock Instant)"	,	L_19
+BASE_DEC	,	V_50
+"Response Parameters"	,	L_57
+"btmcap.bluetooth_clock_access_resolution"	,	L_50
+hf_btmcap_response_parameters	,	V_42
+proto_item	,	T_4
+main_tree	,	V_5
+" ppm"	,	L_15
+hf_btmcap_timestamp_native_resolution	,	V_40
+ENC_NA	,	V_21
+"btl2cap.cid"	,	L_69
+expert_add_info_format	,	F_13
+BASE_NONE	,	V_54
+BTSDP_MCAP_DATA_CHANNEL_PROTOCOL_UUID	,	V_59
+" (Standard)"	,	L_8
+hf_btmcap_bluetooth_clock_access_resolution	,	V_38
+tvb_length_remaining	,	F_17
+" (Available for use)"	,	L_14
+register_dissector	,	F_21
+"%s"	,	L_5
+btmcap_handle	,	V_57
+proto_btmcap	,	V_20
+"btmcap.op_code"	,	L_30
+tvb_get_ntohl	,	F_14
+hf_btmcap_response_code	,	V_36
+"Rcvd "	,	L_3
+tvbuff_t	,	T_1
+" (No Time Synchronization)"	,	L_18
+tvb_get_ntohs	,	F_12
+"Bluetooth MCAP Protocol"	,	L_61
+op_code_vals	,	V_25
+BASE_HEX	,	V_47
+"Bluetooth Clock Sync Time"	,	L_43
+col_add_str	,	F_4
+" The value 0xFFFF is not a valid MDL ID for this request and shall not be used."	,	L_13
+"MDL ID"	,	L_33
+" (Instant Synchronization)"	,	L_16
+mdep_id	,	V_11
+proto_item_add_subtree	,	F_7
+hf_btmcap_data	,	V_43
+module_t	,	T_8
+" (Reserved)"	,	L_12
+"Bluetooth Clock Access Resolution"	,	L_49
+"Timestamp Required Accuracy"	,	L_39
+proto_register_field_array	,	F_22
+FT_BYTES	,	V_53
+G_GUINT64_CONSTANT	,	F_16
+FT_NONE	,	V_55
+offset	,	V_7
+ett	,	V_56
+"Sent "	,	L_2
+P2P_DIR_RECV	,	V_19
+dissector_add_uint	,	F_29
+tree	,	V_3
+" us"	,	L_20
+dissector_add_handle	,	F_30
+"btmcap.timestamp_sample_accuracy"	,	L_48
+"btmcap.mdl_id"	,	L_34
+FT_UINT16	,	V_49
+packet_info	,	T_2
+"Response Code"	,	L_31
+tvb_get_ntoh64	,	F_15
+tvb_get_guint8	,	F_8
+" (Dynamic Range)"	,	L_11
+BTSDP_HDP_SERVICE_UUID	,	V_60
+" - %s"	,	L_21
+"btmcap.timestamp_required_accuracy"	,	L_40
+response_code	,	V_9
+"MDEP ID"	,	L_35
+"Unknown direction %d "	,	L_4
+"btmcap.response_parameters"	,	L_58
+op_code	,	V_8
+"btmcap.mdep_id"	,	L_36
+" ms"	,	L_24
+hf_btmcap_timestamp_sample_accuracy	,	V_35
+hf_btmcap_op_code	,	V_23
+proto_reg_handoff_btmcap	,	F_27
+P2P_DIR_SENT	,	V_18
+pitem	,	V_6
+" (Baseband Half-Slot Instant)"	,	L_17
+hf_btmcap_timestamp_required_accuracy	,	V_31
+HFILL	,	V_48
+main_item	,	V_4
+p2p_dir	,	V_17
+"btl2cap.psm"	,	L_68
+"Timestamp Native Resolution"	,	L_53
+find_dissector	,	F_28
+"Unknown ResponseCode"	,	L_22
+PI_WARN	,	V_28
+BTSDP_HDP_SOURCE_SERVICE_UUID	,	V_61
+ENC_BIG_ENDIAN	,	V_24
+FT_UINT32	,	V_51
+"btmcap.timestamp_native_accuracy"	,	L_56
+"Unexpected data"	,	L_28
+"BT MCAP"	,	L_62
+" - %u"	,	L_25
+"MCAP"	,	L_1
+guint64	,	T_7
+"btmcap.timestamp_update_information"	,	L_42
+proto_tree	,	T_3
+hf	,	V_45

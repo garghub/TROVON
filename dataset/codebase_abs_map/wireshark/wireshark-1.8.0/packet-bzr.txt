@@ -1,0 +1,126 @@
+dissect_bzr	,	F_13
+"bzr.kind"	,	L_4
+proto_bzr	,	V_27
+proto_register_protocol	,	F_18
+prefs_register_protocol	,	F_23
+"bzr.result"	,	L_23
+len	,	V_6
+gint	,	T_5
+col_set_str	,	F_14
+"Bazaar Smart Protocol"	,	L_2
+tvb	,	V_1
+"Protocol version"	,	L_5
+guint32	,	T_8
+COL_INFO	,	V_35
+proto_reg_handoff_bzr	,	F_25
+desegment_offset	,	V_38
+pdu_len	,	V_31
+tvb_reported_length_remaining	,	F_5
+hf_bzr_prefixed_bencode	,	V_13
+"bzr.bytes.data"	,	L_19
+get_bzr_prefixed_len	,	F_1
+cinfo	,	V_33
+proto_register_subtree_array	,	F_22
+array_length	,	F_21
+cmd	,	V_8
+tvb_find_line_end	,	F_4
+next_tvb	,	V_32
+proto_tree_add_item	,	F_8
+pinfo	,	T_4
+dissector_handle_t	,	T_12
+bzr_tree	,	V_26
+_U_	,	V_4
+hf_bzr_bytes	,	V_20
+ENC_ASCII	,	V_30
+hf_bzr_bytes_length	,	V_22
+proto_register_bzr	,	F_16
+"Command result (success or failure with error message)"	,	L_24
+"Whether the Bazaar dissector should reassemble messages spanning multiple TCP segments."	,	L_29
+can_desegment	,	V_36
+hf_register_info	,	T_10
+VALS	,	F_17
+TCP_PORT_BZR	,	V_55
+prefs_register_bool_preference	,	F_24
+next_offset	,	V_5
+hf_bzr_result	,	V_25
+ett_prefixed_bytes	,	V_21
+hf_bzr_prefixed_bencode_data	,	V_18
+COL_PROTOCOL	,	V_34
+FT_UINT8	,	V_42
+"lists."	,	L_10
+"bzr"	,	L_26
+BASE_DEC	,	V_43
+tvb_new_subset	,	F_15
+"bzr.bencode"	,	L_8
+proto_item	,	T_9
+"bzr.protocol_version"	,	L_6
+"Bencode packet length"	,	L_11
+"bzr.bencode.length"	,	L_12
+ENC_NA	,	V_14
+protocol_version_len	,	V_7
+guint8	,	T_6
+"BZR"	,	L_1
+ti	,	V_12
+BASE_NONE	,	V_47
+"Prefixed bytes data"	,	L_18
+dissect_body	,	F_11
+message_results	,	V_51
+hf_bzr_bytes_data	,	V_23
+header_len	,	V_3
+register_dissector	,	F_19
+prefixed_bencode_tree	,	V_11
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\""	,	L_30
+"Bytes field with prefixed 32-bit length"	,	L_17
+tvb_get_ntohl	,	F_2
+"bzr.bencode.data"	,	L_14
+"Bazaar"	,	L_25
+tvbuff_t	,	T_2
+bzr_module	,	V_53
+bzr_desegment	,	V_37
+"desegment"	,	L_27
+hf_bzr_prefixed_bencode_len	,	V_16
+BASE_HEX	,	V_50
+plen	,	V_10
+desegment_len	,	V_39
+proto_item_add_subtree	,	F_9
+module_t	,	T_11
+proto_register_field_array	,	F_20
+FT_BYTES	,	V_48
+bzr_handle	,	V_54
+dissect_bzr_pdu	,	F_12
+guint	,	T_1
+offset	,	V_2
+hf_bzr_packet_protocol_version	,	V_29
+ett	,	V_52
+"Bencode packet"	,	L_7
+dissector_add_uint	,	F_27
+tree	,	V_9
+"Result"	,	L_22
+packet_info	,	T_3
+hf_bzr_packet_kind	,	V_24
+tvb_get_guint8	,	F_6
+ett_prefixed_bencode	,	V_15
+"Bencode packet data"	,	L_13
+DESEGMENT_ONE_MORE_SEGMENT	,	V_40
+dissect_prefixed_bytes	,	F_10
+prefixed_bytes_tree	,	V_19
+FT_STRING	,	V_46
+"Packet kind"	,	L_3
+"bzr.bytes"	,	L_16
+ett_bzr	,	V_28
+"Prefixed bytes length"	,	L_20
+"Prefixed bytes"	,	L_15
+HFILL	,	V_45
+"bzr.bytes.length"	,	L_21
+find_dissector	,	F_26
+get_bzr_pdu_len	,	F_3
+ENC_BIG_ENDIAN	,	V_17
+FT_UINT32	,	V_49
+" in the TCP protocol settings."	,	L_31
+"Serialized structure of integers, dictionaries, strings and "	,	L_9
+message_part_kind	,	V_44
+"tcp.port"	,	L_32
+proto_tree	,	T_7
+hf	,	V_41
+"Reassemble Bazaar messages spanning multiple TCP segments"	,	L_28
+dissect_prefixed_bencode	,	F_7

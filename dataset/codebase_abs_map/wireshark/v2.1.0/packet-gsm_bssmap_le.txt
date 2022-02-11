@@ -1,0 +1,315 @@
+BSSMAP_LE_POSITIONING_DATA	,	V_89
+NUM_INDIVIDUAL_ELEMS	,	F_43
+proto_register_protocol	,	F_44
+hf_gsm_bssmap_le_apdu	,	V_10
+"Ionospheric Model"	,	L_33
+bssmap_le_tree	,	V_109
+tvb_reported_length	,	F_30
+ett_bssmap_le_msg	,	V_119
+bssmap_le_lcs_cause_values	,	V_139
+len	,	V_5
+gint	,	T_11
+hf_gsm_bssmap_le_vertical_coordinate_indicator	,	V_44
+DE_BMAPLE_LCS_CLIENT_TYPE	,	V_61
+"(BSSMAP LE) "	,	L_2
+hf_gsm_bssmap_le_iono_mod	,	V_27
+DE_BMAPLE_LCS_CAPABILITY	,	V_73
+bssmap_le_connection_oriented	,	F_26
+hf_gsm_bssmap_le_client_subtype	,	V_38
+TFS	,	F_42
+"gsm_bssmap_le"	,	L_79
+tvb	,	V_1
+guint32	,	T_5
+COL_INFO	,	V_115
+hf_gsm_bssmap_le_apdu_protocol_id	,	V_12
+hf_gsm_bssmap_le_response_time_category	,	V_49
+curr_offset	,	V_7
+FT_BOOLEAN	,	V_137
+BSSMAP_LE_CELL_IDENTIFIER	,	V_53
+"gsm_bssmap_le.not_decoded_yet"	,	L_71
+DE_BMAPLE_PACKET_MEAS_REP	,	V_75
+str	,	V_110
+proto_tree_add_expert_format	,	F_10
+pdu_type	,	V_122
+"DGPS Corrections"	,	L_29
+cinfo	,	V_114
+wmem_strdup	,	F_32
+BE_GPS_ASSIST_DATA	,	V_69
+tfs_requested_not_requested	,	V_138
+array_length	,	F_46
+"gsm_bssmap_le.lcsCauseValue"	,	L_46
+ei_gsm_a_bssmap_le_extraneous_data	,	V_16
+call_dissector	,	F_5
+tap_p	,	V_103
+"Extraneous Data, dissector bug or later version spec(report to wireshark.org)"	,	L_74
+hf_gsm_bssmap_le_message_elements	,	V_126
+col_append_str	,	F_29
+"gsm_bssmap_le.decipheringKeys.flag"	,	L_18
+"gsm_bssmap_le.utc_mod"	,	L_36
+"Horizontal Accuracy"	,	L_59
+"gsm_bssmap_le.lcsQos.horizontalAccuracy"	,	L_60
+hf_register_info	,	T_16
+DE_BMAPLE_MEAS_CELL_ID	,	V_77
+de_bmaple_lcs_qos	,	F_13
+BSSMAP_LE_GEOGRAPHIC_LOCATION	,	V_86
+ett_gsm_bssmap_le_elem	,	V_160
+BSSMAP_LE_PACKET_MEASUREMENT_REPORT	,	V_74
+apdu_protocol_id	,	V_8
+BSSMAP_LE_LCS_QOS	,	V_66
+guint16	,	T_1
+"Spare"	,	L_15
+"Ephemeris Extension"	,	L_41
+"gsm_bssmap_le.ref_loc"	,	L_28
+hf_gsm_bssmap_le_dgps_corr	,	V_25
+i	,	V_127
+"Real-Time Integrity"	,	L_43
+"UTC Model"	,	L_35
+co	,	V_112
+"gsm_bssmap_le.gps_corr"	,	L_30
+sccp_msg_info_t	,	T_15
+guint8	,	T_10
+"gsm_bssmap_le.lcsClientType.clientCategory"	,	L_50
+BASE_NONE	,	V_149
+gsm_bsslap_handle	,	V_14
+bitCount	,	V_36
+"gsm_bssmap_le.lcsQos.responseTimeCategory"	,	L_66
+register_dissector	,	F_50
+BSSMAP_LE_GANSS_LOCATION_TYPE	,	V_82
+tvbuff_t	,	T_2
+proto_tree_add_protocol_format	,	F_35
+"Ephemeris Extension Check"	,	L_39
+BASE_HEX	,	V_131
+de_bmaple_decihp_keys	,	F_7
+hf_gsm_bssmap_le_lcs_cause_value	,	V_34
+ELEM_OPT_TLV	,	F_23
+"Protocol ID"	,	L_12
+ett_gsm_bssmap_le_msg	,	V_120
+BE_CM_INFO_3	,	V_58
+"gsm_bssmap_le.elem_id"	,	L_11
+BSSMAP_LE_LCS_CLIENT_TYPE	,	V_59
+proto_item_add_subtree	,	F_36
+PI_UNDECODED	,	V_152
+NUM_GSM_BSSMAP_LE_ELEM	,	V_159
+proto_register_field_array	,	F_45
+bssmap_le_vertical_coordinate_indicator_vals	,	V_144
+hf_gsm_bssmap_le_client_category	,	V_37
+FT_BYTES	,	V_148
+hf_gsm_bssmap_le_horizontal_accuracy	,	V_46
+BE_SEG	,	V_100
+bssmap_le_horizontal_accuracy_indicator_vals	,	V_145
+"Next Deciphering Key Value"	,	L_21
+"Message Type %s"	,	L_7
+GSM_A_PDU_TYPE_BSSMAP	,	V_54
+"BSSMAP LE Message Type"	,	L_8
+ei	,	V_151
+string_len	,	T_9
+dissector_add_uint	,	F_53
+"gsm_bssmap_le.apdu"	,	L_68
+data_tvb	,	V_50
+proto_tree_add_bits_item	,	F_8
+DE_BMAPLE_IMSI	,	V_79
+tvb_get_guint8	,	F_3
+bssmap_le_response_time_definitions_vals	,	V_147
+hf_gsm_bssmap_le_msg_type	,	V_121
+verticalCoordIndicator	,	V_39
+idx	,	V_107
+curr_len	,	V_52
+"gsm_bssmap_le.ref_time"	,	L_26
+"Diagnostic Value"	,	L_47
+de_bmaple_pos_dta	,	F_15
+BE_VEL_EST	,	V_96
+bssmap_le_vertical_accuracy_indicator_vals	,	V_146
+NUM_GSM_BSSMAP_LE_MSG	,	V_158
+bssmap_le_client_subtype	,	V_142
+verticalAccuracyIndicator	,	V_42
+proto_tree_add_bits_ret_val	,	F_14
+"Element ID"	,	L_10
+bit_offset	,	V_17
+"Acquisition Assistance"	,	L_23
+DE_BMAPLE_LCSQOS	,	V_67
+hf_gsm_bssmap_le_ref_loc	,	V_24
+"Vertical Accuracy Indicator"	,	L_63
+de_bmaple_req_gps_ass_data	,	F_9
+proto_reg_handoff_gsm_bssmap_le	,	F_51
+BSSMAP_LE_CELL_IDENTITY_LIST	,	V_76
+find_dissector	,	F_52
+"gsm_bssmap_le.lcsQos.velocityRequested"	,	L_54
+label	,	V_117
+PI_WARN	,	V_153
+ENC_BIG_ENDIAN	,	V_13
+hf_gsm_bssmap_le_spare	,	V_18
+DE_BMAPLE_DECIPH_KEYS	,	V_92
+hf_gsm_bssmap_le_ciphering_key_flag	,	V_19
+horizontalAccuracyIndicator	,	V_41
+"gsm_bssmap_le.acq_ass"	,	L_24
+guint64	,	T_12
+DE_BMAPLE_GANSS_LOC_TYPE	,	V_83
+bssmap_le_perf_loc_info	,	F_27
+"Lb - I/F BSSMAP LE - Unknown BSSMAP Message Type (0x%02x)"	,	L_4
+hf	,	V_129
+"gsm_bssmap_le.decipheringKeys.current"	,	L_20
+hf_gsm_bssmap_le_nav_mod	,	V_26
+BSSMAP_LE_IMSI	,	V_78
+"Response Time Category"	,	L_65
+"gsm_bssmap_le.message_elements"	,	L_70
+"bssap.pdu_type"	,	L_80
+EXTRANEOUS_DATA_CHECK	,	F_6
+DE_BMAPLE_REQ_GNSS_ASSIST_D	,	V_85
+ELEM_MAND_TELV	,	F_24
+hf_gsm_bssmap_le_next_deciphering_key_value	,	V_21
+BSSAP_PDU_TYPE_BSSMAP	,	V_87
+"gsm_bssmap_le.apdu_protocol_id"	,	L_13
+"Cause Value"	,	L_45
+"Client Category"	,	L_49
+bssmap_le_handle	,	V_161
+BSSMAP_LE_CHOSEN_CHANNEL	,	V_62
+col_append_fstr	,	F_37
+be_packet_meas_rep	,	F_19
+DE_BMAPLE_POS_DATA	,	V_90
+FT_UINT64	,	V_136
+"gsm_bssmap_le.lcsQos.verticalCoordinateIndicator"	,	L_56
+bssmap_le_perf_loc_resp	,	F_25
+proto_tree_add_uint_format	,	F_38
+"APDU embedded protocol id"	,	L_14
+oct	,	V_105
+"gsm_bssmap_le.decipheringKeys.next"	,	L_22
+"gsm_bssmap_le.lcsQos.horizontalAccuracyIndicator"	,	L_58
+bssmap_le_msg_fcn	,	V_125
+find_dissector_add_dependency	,	F_54
+de_bmaple_apdu	,	F_1
+message_type	,	V_123
+expert_gsm_a_bssmap_le	,	V_150
+DE_BMAPLE_APDU	,	V_71
+"Vertical Coordinate Indicator"	,	L_55
+"GSM BSSMAP LE"	,	L_78
+BSSMAP_LE_VELOCITY_DATA	,	V_95
+BSSMAP_LE_GANSS_POSITIONING_DATA	,	V_97
+ei_gsm_a_bssmap_le_not_decoded_yet	,	V_33
+proto_register_subtree_array	,	F_47
+GSM_PDU_TYPE_BSSMAP_LE	,	V_60
+val_to_str	,	F_34
+hf_gsm_bssmap_le_current_deciphering_key_value	,	V_20
+BSSMAP_LE_CLASSMARK_INFORMATION_TYPE_3	,	V_57
+"Almanac"	,	L_37
+de_bmaple_client	,	F_12
+BE_LOC_EST	,	V_88
+"Reference Time"	,	L_25
+g_tree	,	V_15
+proto_tree_add_item	,	F_2
+pinfo	,	V_3
+dissector_handle_t	,	T_19
+BSSMAP_LE_LCS_CAUSE	,	V_93
+_U_	,	V_6
+gsm_a_tap	,	V_124
+velocityRequested	,	V_40
+"gsm_bssmap_le.ephemeris_ext"	,	L_42
+BSSMAP_LE_REQUESTED_GANSS_ASSISTANCE_DATA	,	V_84
+bssmap_le_position_method_failure_diagnostic_vals	,	V_140
+de_bmaple_cause	,	F_11
+"Reference Location"	,	L_27
+VALS	,	F_41
+hf_gsm_bssmap_le_ref_time	,	V_23
+DE_BMAPLE_GANSS_POS_DATA	,	V_98
+BE_CELL_ID	,	V_55
+PI_PROTOCOL	,	V_155
+APDU_tvb	,	V_9
+hf_gsm_bssmap_le_elem_id	,	V_133
+"%s "	,	L_6
+hf_gsm_bssmap_le_real_time_int	,	V_32
+gsm_a_tap_rec_t	,	T_13
+FT_UINT8	,	V_130
+"Client Subtype"	,	L_51
+BASE_DEC	,	V_134
+hf_gsm_bssmap_le_horizontal_accuracy_indicator	,	V_45
+proto_item	,	T_14
+tap_queue_packet	,	F_39
+expert_register_field_array	,	F_49
+ENC_NA	,	V_11
+BSSMAP_LE_IMEI	,	V_80
+DE_BMAPLE_IMEI	,	V_81
+"Not decoded yet"	,	L_72
+"Missing Mandatory element, rest of dissection is suspect"	,	L_76
+hf_gsm_bssmap_le_utc_mod	,	V_28
+hf_gsm_bssmap_le_ephemeris_ext_chk	,	V_30
+ELEM_MAND_TLV	,	F_22
+"gsm_bssmap_le.diagnosticValue"	,	L_48
+"gsm_bssmap_le.almanac"	,	L_38
+dissect_geographical_description	,	F_16
+"gsm_bssmap_le.missing_mandatory_element"	,	L_75
+"gsm_bssmap_le.spare"	,	L_16
+"gsm_bssmap_le.lcsQos.verticalAccuracyIndicator"	,	L_64
+BE_LCS_PRIO	,	V_65
+data	,	V_101
+"Horizontal Accuracy Indicator"	,	L_57
+hf_gsm_bssmap_le_acq_ass	,	V_22
+BE_CHOSEN_CHAN	,	V_63
+"gsm_bssmap_le.real_time_int"	,	L_44
+"gsm_bssmap_le.lcsQos.verticalAccuracy"	,	L_62
+"gsm_bssmap_le.iono_mod"	,	L_34
+DE_BMAPLE_LCS_CAUSE	,	V_94
+ei_register_info	,	T_18
+hf_gsm_bssmap_le_ephemeris_ext	,	V_31
+expert_register_protocol	,	F_48
+BSSMAP_LE_LCS_CAPABILITY	,	V_72
+assoc	,	V_113
+gsm_bssmap_le_msg_strings	,	V_116
+PI_NOTE	,	V_156
+bssmap_le_perf_loc_request	,	F_21
+bssmap_le_item	,	V_108
+saved_offset	,	V_106
+guint	,	T_6
+offset	,	V_4
+"gsm_bssmap_le.nav_mod"	,	L_32
+ett	,	V_157
+add_string	,	T_8
+sccp_msg_p	,	V_111
+gsm_apdu_protocol_id_strings	,	V_135
+expert_module_t	,	T_17
+tree	,	V_2
+BSSMAP_LE_DECIPHERING_KEYS	,	V_91
+"gsm_bssmap_le.extraneous_data"	,	L_73
+proto_bssmap_le	,	V_118
+packet_info	,	T_4
+"Satellite related data Not decoded yet"	,	L_1
+be_measured_cell_identity	,	F_20
+hf_gsm_bssmap_le_velocity_requested	,	V_43
+hf_gsm_bssmap_le_diagnostic_value	,	V_35
+BSSMAP_LE_APDU	,	V_70
+"Lb-I/F BSSMAP LE"	,	L_77
+"gsm_bsslap"	,	L_81
+consumed	,	V_51
+EXPFILL	,	V_154
+tap_rec	,	V_102
+proto_tree_add_expert	,	F_18
+"BSSMAP LE(0x%02x)"	,	L_3
+hf_gsm_bssmap_le_almanac	,	V_29
+"Velocity Requested"	,	L_53
+tvb_new_subset_length	,	F_4
+"Message Elements"	,	L_69
+wmem_file_scope	,	F_33
+"gsm_bssmap_le.msgtype"	,	L_9
+HFILL	,	V_132
+"Current Deciphering Key Value"	,	L_19
+hf_gsm_bssmap_le_vertical_accuracy	,	V_48
+last_offset	,	V_128
+"Lb - I/F BSSMAP LE - %s"	,	L_5
+be_lcs_capability	,	F_17
+gchar	,	T_7
+"gsm_bssmap_le.lcsClientType.clientSubtype"	,	L_52
+hf_gsm_bssmap_le_vertical_accuracy_indicator	,	V_47
+ei_gsm_a_bssmap_le_missing_mandatory_element	,	V_56
+dissect_bssmap_le	,	F_28
+bssmap_le_velocity_requested_vals	,	V_143
+BSSMAP_LE_SEGMENTATION	,	V_99
+BSSMAP_LE_REQUESTED_GPS_ASSISTANCE_DATA	,	V_68
+"Navigation Model"	,	L_31
+try_val_to_str_idx	,	F_31
+proto_register_gsm_bssmap_le	,	F_40
+BSSMAP_LE_LCS_PRIORITY	,	V_64
+bssmap_le_client_category	,	V_141
+"Vertical Accuracy"	,	L_61
+tap_current	,	V_104
+proto_tree	,	T_3
+"gsm_bssmap_le.ephemeris_ext_chk"	,	L_40
+"APDU"	,	L_67
+"Ciphering Key Flag"	,	L_17

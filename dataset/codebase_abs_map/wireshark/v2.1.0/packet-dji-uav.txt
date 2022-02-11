@@ -1,0 +1,166 @@
+hf_djiuav_respunk	,	V_53
+g_direct_hash	,	V_15
+hf_djiuav_response_to	,	V_31
+hf_djiuav_seqno	,	V_48
+proto_register_protocol	,	F_32
+proto_tree_add_time	,	F_16
+is_cmd	,	V_9
+"djiuav"	,	L_33
+prefs_register_protocol	,	F_36
+hf_djiuav_cmdunk	,	V_52
+PROTO_LONG_NAME	,	V_69
+tcp_dissect_pdus	,	F_29
+"R Unknown"	,	L_20
+col_set_str	,	F_18
+gint	,	T_15
+FT_RELATIVE_TIME	,	V_66
+"Flags"	,	L_8
+tvb	,	V_1
+guint32	,	T_4
+COL_INFO	,	V_40
+djiuav_conv_info_t	,	T_6
+it	,	V_28
+hf_djiuav_flags	,	V_47
+"djiuav.response_time"	,	L_31
+"Unexpected"	,	L_22
+"Whether DJIUAV should reassemble messages spanning multiple"	,	L_36
+"djiuav.magic"	,	L_5
+djiuav_tree	,	V_3
+cinfo	,	V_37
+proto_djiuav	,	V_13
+proto_register_subtree_array	,	F_35
+val_to_str	,	F_21
+array_length	,	F_34
+packet_type	,	V_10
+"Checksum"	,	L_14
+g_direct_equal	,	V_16
+hf_djiuav_response_time	,	V_32
+proto_tree_add_item	,	F_22
+proto_register_djiuav	,	F_30
+pinfo	,	V_2
+"C: "	,	L_1
+dissector_handle_t	,	T_17
+flags	,	V_18
+_U_	,	V_34
+test_djiuav	,	F_24
+"R: "	,	L_2
+djiuav_module	,	V_68
+abs_ts	,	V_24
+col_append_str	,	F_20
+djiuav_transaction_t	,	T_7
+hf_djiuav_checksum	,	V_55
+"djiuav.flags"	,	L_9
+hf_register_info	,	T_14
+reply_frame	,	V_22
+"PDU Length"	,	L_6
+VALS	,	F_31
+prefs_register_bool_preference	,	F_37
+"djiuav.cmd04.bcdtime"	,	L_17
+guint16	,	T_8
+COL_PROTOCOL	,	V_38
+GUINT_TO_POINTER	,	F_11
+"djiuav.response_in"	,	L_25
+"Matching command in frame"	,	L_29
+FT_UINT8	,	V_61
+BASE_DEC	,	V_62
+proto_item	,	T_11
+hf_djiuav_cmd	,	V_50
+" TCP segments (required to get useful results)"	,	L_37
+"djiuav.length"	,	L_7
+"djiuav.seqno"	,	L_11
+ENC_NA	,	V_42
+guint8	,	T_10
+ti	,	V_35
+BASE_NONE	,	V_64
+"Matching response in frame"	,	L_26
+wmem_map_new	,	F_8
+hf_djiuav_extradata	,	V_54
+ENC_LITTLE_ENDIAN	,	V_49
+"Response In"	,	L_24
+data	,	T_13
+num	,	V_21
+"Time in BCD"	,	L_16
+"Time between Command and matching Response"	,	L_32
+tvbuff_t	,	T_1
+tvb_get_ntohs	,	F_26
+"desegment"	,	L_34
+BASE_HEX	,	V_59
+PROTO_ITEM_SET_GENERATED	,	F_14
+col_add_str	,	F_19
+gboolean	,	T_9
+proto_item_add_subtree	,	F_23
+module_t	,	T_16
+PROTO_SHORT_NAME	,	V_39
+"Request In"	,	L_27
+"Response Time"	,	L_30
+nstime_t	,	T_12
+proto_register_field_array	,	F_33
+conversation	,	V_5
+tvb_get_letohs	,	F_2
+FT_BYTES	,	V_63
+conversation_t	,	T_5
+seq_no	,	V_8
+pdu_length	,	V_36
+guint	,	V_27
+offset	,	V_4
+ett	,	V_67
+pdus	,	V_14
+dissector_add_uint	,	F_40
+nstime_delta	,	F_15
+"C Unknown"	,	L_18
+tree	,	V_33
+hf_djiuav_response_in	,	V_29
+FT_UINT16	,	V_58
+packet_info	,	T_2
+hf_djiuav_magic	,	V_44
+tvb_get_guint8	,	F_3
+dissect_djiuav_static	,	F_28
+tvb_captured_length	,	F_25
+djiuav_info	,	V_6
+match_uint	,	V_11
+destport	,	V_12
+fd	,	V_17
+proto_tree_add_uint	,	F_13
+proto_reg_handoff_djiuav	,	F_38
+dissect_djiuav_pdu	,	F_17
+"Type 0x%02x"	,	L_3
+ns	,	V_30
+hf_djiuav_cmd20_unknown	,	V_51
+djiuav_handle	,	V_70
+conversation_get_proto_data	,	F_5
+"Protocol Magic"	,	L_4
+"djiuav.resp.unknown"	,	L_21
+"djiuav.unexpected"	,	L_23
+"djiuav.response_to"	,	L_28
+request_time	,	V_23
+"djiuav.pdutype"	,	L_13
+djiuav_desegment	,	V_56
+wmem_file_scope	,	F_7
+request_response_handling	,	F_1
+HFILL	,	V_60
+"djiuav.checksum"	,	L_15
+"Reassemble DJIUAV messages"	,	L_35
+ett_djiuav	,	V_43
+"djiuav.cmd.unknown"	,	L_19
+seqno	,	V_25
+get_djiuav_pdu_len	,	F_27
+conversation_add_proto_data	,	F_9
+wmem_map_insert	,	F_10
+wmem_new	,	F_6
+request_frame	,	V_20
+create_dissector_handle	,	F_39
+FT_FRAMENUM	,	V_65
+command	,	V_26
+ENC_BIG_ENDIAN	,	V_45
+djiuav_trans	,	V_7
+hf_djiuav_length	,	V_46
+visited	,	V_19
+find_or_create_conversation	,	F_4
+"Sequence No"	,	L_10
+djiuav_pdu_type	,	V_41
+PORT_DJIUAV	,	V_71
+"tcp.port"	,	L_38
+wmem_map_lookup	,	F_12
+proto_tree	,	T_3
+hf	,	V_57
+"PDU Type"	,	L_12

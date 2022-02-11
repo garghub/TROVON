@@ -1,0 +1,155 @@
+"Header Type"	,	L_14
+"Unexpected record"	,	L_39
+INDIGOCARE_ICALL_CALL_NAME1	,	V_51
+identifier_offset	,	V_11
+tvb_get_string_enc	,	F_10
+INDIGOCARE_ICALL_CALL_NAME2	,	V_53
+data_start	,	V_12
+proto_register_protocol	,	F_24
+header_item	,	V_5
+INDIGOCARE_ICALL_US	,	V_36
+INDIGOCARE_ICALL_EOT	,	V_22
+"icall.call.location"	,	L_27
+record_identifier	,	V_16
+tvb_reported_length	,	F_3
+header_offset	,	V_9
+len	,	V_21
+col_append_fstr	,	F_17
+"icall.call.nurse"	,	L_35
+INDIGOCARE_ICALL_CALL_TYPE	,	V_41
+"ID"	,	L_22
+col_set_str	,	F_4
+gint	,	T_13
+"Room"	,	L_16
+proto_tree_add_uint_format	,	F_15
+tvb	,	V_1
+COL_INFO	,	V_25
+" Location=%s"	,	L_8
+INDIGOCARE_ICALL_CALL_NURSE	,	V_57
+col_clear	,	F_5
+proto_tree_add_expert_format	,	F_14
+"Nurse"	,	L_34
+cinfo	,	V_23
+proto_register_subtree_array	,	F_27
+gint32	,	T_7
+val_to_str	,	F_13
+array_length	,	F_26
+"icall"	,	L_41
+"icall.call.id"	,	L_23
+ett_icall	,	V_28
+proto_tree_add_item	,	F_6
+INDIGOCARE_ICALL_CALL_TASK	,	V_47
+INDIGOCARE_ICALL_CALL_TYPE_NUMERICAL	,	V_55
+pinfo	,	V_2
+col_add_fstr	,	F_12
+dissector_handle_t	,	T_9
+"icall.call.room"	,	L_17
+_U_	,	V_3
+"%s:"	,	L_2
+ENC_ASCII	,	V_40
+icall_handle	,	V_60
+icall_tree	,	V_6
+hf_icall_call_name2_type	,	V_54
+hf_register_info	,	T_10
+dissector_add_for_decode_as	,	F_21
+VALS	,	F_23
+proto_register_icall	,	F_22
+"icall.unexpected.record"	,	L_38
+"Addition"	,	L_20
+COL_PROTOCOL	,	V_24
+"Type Numerical"	,	L_32
+dissect_icall	,	F_1
+"Unexpected header %d"	,	L_4
+ett_icall_unknown	,	V_72
+BASE_DEC	,	V_63
+hf_icall_call_addition_type	,	V_44
+proto_item	,	T_6
+expert_register_field_array	,	F_29
+proto_icall	,	V_26
+hf_icall_call_location_type	,	V_50
+INDIGOCARE_ICALL_ETX	,	V_35
+ENC_NA	,	V_27
+guint8	,	T_8
+"iCall Communication Protocol"	,	L_40
+ti	,	V_4
+BASE_NONE	,	V_66
+caplen	,	V_20
+" Name 2=%s"	,	L_10
+ei_icall_unexpected_record	,	V_59
+INDIGOCARE_ICALL_CALL_ADDITION	,	V_43
+hf_icall_call_id_type	,	V_46
+hf_icall_call_type_type	,	V_42
+"icall.call.name1"	,	L_29
+proto_tree_add_item_ret_string	,	F_16
+INDIGOCARE_ICALL_SOH	,	V_18
+"%s"	,	L_5
+data	,	T_5
+proto_reg_handoff_icall	,	F_19
+"Name 1"	,	L_28
+"icall.call.type_numerical"	,	L_33
+tvbuff_t	,	T_1
+icall_header_tree	,	V_7
+hf_icall_call_task_type	,	V_48
+tvb_find_guint8	,	F_8
+INDIGOCARE_ICALL_CALL_ID	,	V_45
+hf_icall_call_numerical_type	,	V_56
+ei_register_info	,	T_11
+expert_register_protocol	,	F_28
+proto_item_add_subtree	,	F_7
+" Room=%s"	,	L_6
+INDIGOCARE_ICALL_CALL	,	V_31
+proto_register_field_array	,	F_25
+"Unknown (%d)"	,	L_3
+INDIGOCARE_ICALL_CALL_LOCATION	,	V_49
+"icall.call.name2"	,	L_31
+"Name 2"	,	L_30
+"iCall"	,	L_1
+hf_icall_call_name1_type	,	V_52
+"Unexpected record %d with value %s"	,	L_11
+ett	,	V_14
+ei	,	V_67
+wmem_packet_scope	,	F_11
+"icall.call.addition"	,	L_21
+expert_module_t	,	T_12
+record_data	,	V_17
+tree	,	T_4
+ei_icall_unexpected_header	,	V_33
+INDIGOCARE_ICALL_RS	,	V_37
+hf_icall_call_nurse_type	,	V_58
+packet_info	,	T_2
+current_offset	,	V_8
+tvb_get_guint8	,	F_2
+phdr	,	V_19
+tvb_captured_length	,	F_18
+identifier_start	,	V_10
+header	,	V_15
+INDIGOCARE_ICALL_CALL_ROOM	,	V_38
+hf_icall_call_room_type	,	V_39
+EXPFILL	,	V_70
+"icall.unexpected.header"	,	L_36
+ett_icall_call	,	V_32
+" Name 1=%s"	,	L_9
+"icall.call.task"	,	L_25
+FT_STRING	,	V_65
+ws_strtoi32	,	F_9
+INDIGOCARE_ICALL_STX	,	V_29
+HFILL	,	V_64
+"Location"	,	L_26
+PI_MALFORMED	,	V_68
+" Type=%s"	,	L_7
+expert_icall	,	V_71
+hf_icall_header_type	,	V_34
+"udp.port"	,	L_12
+"icall.call.type"	,	L_19
+"icall.header"	,	L_15
+"Task"	,	L_24
+create_dissector_handle	,	F_20
+PI_WARN	,	V_69
+"Unexpected header"	,	L_37
+data_offset	,	V_13
+FT_UINT32	,	V_62
+"Type"	,	L_18
+"tcp.port"	,	L_13
+icall_headertypenames	,	V_30
+proto_tree	,	T_3
+hf	,	V_61

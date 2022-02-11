@@ -1,0 +1,403 @@
+ett_cp2179_subdata	,	V_95
+"Unknown Packet Type"	,	L_16
+SBO_SELECT_RESPONSE	,	V_76
+tvb_reported_length	,	F_17
+hf_cp2179_status_byte	,	V_67
+SBO_SELECT_REQUEST	,	V_43
+analog16_num	,	V_60
+CP2179_MIN_LENGTH	,	V_132
+"cp2179.twobitstatusbit3"	,	L_118
+cp2179_data_tree	,	V_53
+tvb_new_child_real_data	,	F_4
+"cp2179.nop_flag"	,	L_26
+ett_cp2179_addr	,	V_25
+cp2179_tvb	,	V_122
+guint32	,	T_8
+SUPERVISORY_CONTROL	,	V_110
+FT_BOOLEAN	,	V_147
+hf_cp2179_specialcalc	,	V_83
+hf_cp2179_command_code	,	V_41
+proto_cp2179	,	V_22
+hf_cp2179_sbo_request_point	,	V_44
+classify_packet_type	,	F_36
+cp2179_subdata_item	,	V_52
+"cp2179.twobitstatus"	,	L_94
+tvb_reported_length_remaining	,	F_16
+"NOP Flag"	,	L_25
+p_get_proto_data	,	F_19
+"cp2179.twobitstatusbit4"	,	L_120
+dissect_bs_response_frame	,	F_18
+"cp2179.portstatus"	,	L_38
+array_length	,	F_54
+cp2179_telnet_clean	,	V_134
+bs_response_item	,	V_51
+"cp2179.rst_flag"	,	L_28
+"cp2179.twobitstatusbit5"	,	L_122
+hf_register_info	,	T_17
+"2 Bit Status Change 1"	,	L_97
+bs_request_frame	,	T_10
+guint16	,	T_5
+"RTU Address"	,	L_19
+hf_cp2179_2bitstatuschg6	,	V_169
+hf_cp2179_2bitstatuschg5	,	V_168
+hf_cp2179_2bitstatuschg7	,	V_170
+hf_cp2179_simplestatusbit0	,	V_146
+hf_cp2179_2bitstatuschg0	,	V_163
+hf_cp2179_2bitstatuschg2	,	V_165
+"cp2179.twobitstatusbit6"	,	L_124
+BASE_NONE	,	V_137
+hf_cp2179_2bitstatuschg1	,	V_164
+hf_cp2179_2bitstatuschg4	,	V_167
+hf_cp2179_2bitstatuschg3	,	V_166
+hf_cp2179_simplestatusbit8	,	V_155
+hf_cp2179_simplestatusbit7	,	V_154
+"2 Bit Status Change 0"	,	L_95
+hf_cp2179_simplestatusbit6	,	V_153
+hf_cp2179_simplestatusbit5	,	V_152
+hf_cp2179_simplestatusbit4	,	V_151
+hf_cp2179_simplestatusbit3	,	V_150
+hf_cp2179_simplestatusbit2	,	V_149
+hf_cp2179_simplestatusbit1	,	V_148
+cp2179_CommandCodeNames	,	V_143
+hf_cp2179_simplestatusbit9	,	V_156
+tvb_set_free_cb	,	F_5
+BASE_HEX	,	V_142
+PROTO_ITEM_SET_GENERATED	,	F_24
+INIT_RTU_RESPONSE	,	V_79
+proto_item_add_subtree	,	F_9
+"2 Bit Status Change 3"	,	L_101
+module_t	,	T_18
+"cp2179.twobitstatusbit7"	,	L_126
+"cp2179.scaninc_stopreq_point"	,	L_48
+"cp2179.simplestatusbit13"	,	L_88
+proto_register_field_array	,	F_53
+conversation	,	V_128
+"cp2179.simplestatusbit0"	,	L_62
+dissector_add_uint	,	F_61
+tvb_get_ptr	,	F_2
+FT_UINT16	,	V_139
+SPECIAL_CALC_RESPONSE	,	V_80
+"2 Bit Status Change 2"	,	L_99
+fd	,	V_73
+"cp2179.simplestatusbit12"	,	L_86
+frame	,	V_69
+"cp2179.simplestatusbit1"	,	L_64
+"cp2179.RTUAddress"	,	L_20
+cp2179_CommandCodeNames_ext	,	V_40
+responsenumberofcharacters	,	V_106
+SBO_SELECT_REQ_LEN	,	V_111
+"cp2179.rtustatus"	,	L_36
+proto_tree_add_float_format	,	F_28
+"cp2179.simplestatusbit2"	,	L_66
+specialcalvalue	,	V_64
+"Reserved Bits"	,	L_29
+"2 Bit Status Change 5"	,	L_105
+"cp2179.simplestatusbit11"	,	L_84
+proto_reg_handoff_cp2179	,	V_182
+conversation_add_proto_data	,	F_44
+val_to_str_const	,	F_13
+"Port Status"	,	L_37
+length	,	V_131
+ett_cp2179_data	,	V_81
+requested_points	,	V_85
+wmem_list_frame_t	,	T_14
+ett_cp2179_fc	,	V_29
+"cp2179.simplestatusbit10"	,	L_82
+ett_cp2179_header	,	V_24
+visited	,	V_127
+SIMPLE_STATUS_DATA	,	V_93
+"cp2179.simplestatusbit3"	,	L_68
+find_or_create_conversation	,	F_41
+"2 Bit Status Change 4"	,	L_103
+hf	,	V_135
+req_command_code	,	V_18
+"Simple Status bit 2"	,	L_65
+hf_cp2179_master_address	,	V_28
+prefs_register_protocol	,	F_56
+proto_tree_add_subtree	,	F_26
+point_num	,	V_61
+"2 Bit Status bit 1"	,	L_113
+col_append_fstr	,	F_14
+hf_cp2179_rst_flag	,	V_66
+col_set_str	,	F_38
+"Analog 16-bit"	,	L_57
+"2 Bit Status Change 7"	,	L_109
+telnet_tvb	,	V_5
+"Stop Request Point"	,	L_47
+"cp2179.crc"	,	L_52
+"cp2179.accumulator"	,	L_54
+"Simple Status bit 3"	,	L_67
+BASIC_SCAN_RESPONSE_PACKET	,	V_89
+packet_length	,	V_107
+"2 Bit Status bit 2"	,	L_115
+spos	,	V_7
+"2 Bit Status Change 6"	,	L_107
+"Simple Status bit 0"	,	L_61
+"Simple Status bit 10"	,	L_81
+dissector_handle_t	,	T_19
+fnum	,	V_71
+"2 Bit Status bit 3"	,	L_117
+g_malloc	,	F_3
+"cp2179.speccalc_requestpoint"	,	L_44
+VALS	,	F_50
+"Analog (16 bit) %u : %i"	,	L_9
+prefs_register_bool_preference	,	F_58
+cp2179_handle	,	V_185
+"Special Calc"	,	L_55
+"Simple Status bit 1"	,	L_63
+dissect_cp2179_pdu	,	F_37
+BASE_DEC	,	V_140
+"2 Bit Status bit 4"	,	L_119
+ENC_NA	,	V_23
+"Simple Status Point 0x%x"	,	L_11
+", No Request found"	,	L_13
+wmem_alloc	,	F_35
+"%s"	,	L_15
+"Simple Status bit 6"	,	L_73
+"telnetclean"	,	L_133
+"cp2179.commandcode"	,	L_32
+"Simple Status bit 12"	,	L_85
+"cp2179.simplestatusbit"	,	L_60
+"CP2179 Protocol"	,	L_127
+INIT_RTU_REQUEST	,	V_33
+ett_cp2179	,	V_180
+prefs_register_uint_preference	,	F_57
+"2 Bit Status bit 5"	,	L_121
+"CP 2179 Protocol Port"	,	L_130
+"Set the TCP port for CP 2179 Protocol packets (if other"	,	L_131
+frame_ptr	,	V_130
+guint	,	T_12
+"Simple Status bit 7"	,	L_75
+ett	,	V_179
+hf_cp2179_port_status_byte	,	V_68
+"Simple Status bit 11"	,	L_83
+"cp2179.request_frame"	,	L_18
+bs_conv_data	,	V_129
+packet_info	,	T_2
+cp2179_fc_tree	,	V_16
+"cp2179.twobitstatusbit0"	,	L_112
+"2 Bit Status bit 6"	,	L_123
+req_address_word	,	V_56
+"Simple Status bit 8"	,	L_77
+"cp2179.specialcalc"	,	L_56
+"Simple Status bit 4"	,	L_69
+"Simple Status bit 14"	,	L_89
+tvb_get_letohieee_float	,	F_27
+hf_cp2179_rtu_address	,	V_26
+conversation_get_proto_data	,	F_42
+"cp2179.twobitstatusbit1"	,	L_114
+tvb_new_subset_length	,	F_48
+hf_cp2179_resetacc_request_point	,	V_45
+"2 Bit Status bit 7"	,	L_125
+ACCUMULATOR_16_BIT	,	V_90
+HFILL	,	V_138
+endpt	,	V_104
+"Simple Status bit 5"	,	L_71
+"Simple Status bit 13"	,	L_87
+"Special Calculation %u : %f"	,	L_8
+wmem_new	,	F_34
+proto_tree_add_subtree_format	,	F_11
+"CRC"	,	L_51
+"cp2179.twobitstatusbit2"	,	L_116
+"Function Code"	,	L_23
+len_remaining	,	V_10
+cp2179_prefs_initialized	,	V_184
+"cp2179.twobitstatuschg1"	,	L_98
+proto_register_protocol	,	F_51
+ANALOG_16_BIT	,	V_92
+"Accumulator"	,	L_53
+requestnumberofcharacters	,	V_21
+SPECIAL_CALC_REQUEST_ALL	,	V_118
+"cp2179.sbo_requestpoint"	,	L_40
+len	,	V_4
+"Command Code"	,	L_31
+gint	,	T_11
+hf_cp2179_2bitstatusstatus2	,	V_173
+tvb	,	V_2
+hf_cp2179_2bitstatusstatus1	,	V_172
+hf_cp2179_2bitstatusstatus0	,	V_171
+"Simple Status bit 15"	,	L_91
+hf_cp2179_2bitstatusstatus6	,	V_177
+COL_INFO	,	V_39
+hf_cp2179_2bitstatusstatus5	,	V_176
+hf_cp2179_2bitstatusstatus4	,	V_175
+"Function Code: %s (0x%02x)"	,	L_3
+hf_cp2179_2bitstatusstatus3	,	V_174
+RESET_ACC_RESPONSE	,	V_78
+bs_request_frame_data	,	V_70
+"cp2179.twobitstatuschg0"	,	L_96
+hf_cp2179_2bitstatusstatus7	,	V_178
+hf_cp2179_reserved	,	V_32
+cinfo	,	V_38
+INIT_RTU_CONFIGURATION	,	V_120
+" [ %s ]"	,	L_5
+hf_cp2179_simplestatusbit	,	V_94
+SBO_OPERATE_RESPONSE	,	V_77
+SBO_OPERATE	,	V_114
+hf_cp2179_scaninc_startreq_point	,	V_48
+"SBO Request Point"	,	L_39
+RESET_ACCUMULATOR	,	V_121
+hf_cp2179_simplestatusbit15	,	V_162
+"cp2179.twobitstatuschg3"	,	L_102
+RTACSER_PAYLOAD_CP2179	,	V_187
+hf_cp2179_simplestatusbit14	,	V_161
+proto_item_set_text	,	F_31
+hf_cp2179_simplestatusbit13	,	V_160
+hf_cp2179_simplestatusbit12	,	V_159
+FunctionCodenames	,	V_30
+hf_cp2179_simplestatusbit11	,	V_158
+hf_cp2179_simplestatusbit10	,	V_157
+"cp2179.twobitstatuschg4"	,	L_104
+hf_cp2179_function_code	,	V_31
+"Simple Status bit 9"	,	L_79
+wmem_list_frame_data	,	F_22
+COL_PROTOCOL	,	V_124
+g_free	,	V_11
+"cp2179.twobitstatuschg2"	,	L_100
+hf_cp2179_speccalc_request_point	,	V_47
+guint8	,	T_3
+buf	,	V_6
+"2 Bit Status Point 0x%x"	,	L_12
+request_found	,	V_57
+tvbuff_t	,	T_1
+val_to_str_ext_const	,	F_15
+analogtestvalue	,	V_59
+proto_tree_add_bitmask	,	F_30
+"Simple Status Bit"	,	L_59
+"Number of Characters"	,	L_49
+SBO_OPERATE_REQ_LEN	,	V_113
+gboolean	,	T_9
+"cp2179.twobitstatuschg6"	,	L_108
+simplestatusseq	,	V_62
+SPECIAL_CALC_RANGE	,	V_84
+"Command Code (FC 0x20)"	,	L_33
+RTU_CONFIG	,	V_119
+"cp2179.commandcodeinitrtu"	,	L_34
+cp2179_FC20_CommandCodeNames	,	V_144
+tvb_get_guint8	,	F_12
+cp2179_packettype_vals_ext	,	V_125
+p_add_proto_data	,	F_45
+FT_FLOAT	,	V_145
+"cp2179.twobitstatuschg5"	,	L_106
+BASIC_SCAN_QUERY_PACKET	,	V_36
+idx	,	V_100
+dissector_delete_uint	,	F_60
+hf_cp2179_scaninc_stopreq_point	,	V_49
+"Accumulator %u : %u"	,	L_10
+"cp2179.scaninc_startreq_point"	,	L_46
+"rtacser.data"	,	L_136
+"cp2179.analogdata"	,	L_58
+cp2179_module	,	V_181
+"cp2179.numberofcharacters"	,	L_50
+"cp2179"	,	L_128
+SBO_SELECT_REPLY_LEN	,	V_112
+SBO_OPERATE_REQUEST	,	V_115
+new_create_dissector_handle	,	F_59
+hf_cp2179_nop_flag	,	V_65
+SCAN_INCLUSIVE_16_ANALOG_REQUEST	,	V_37
+cp2179_port	,	V_186
+cp2179_proto_tree	,	V_14
+numberofcharacters	,	V_63
+"CP2179 Data Field"	,	L_7
+"2 Bit Status bit 0"	,	L_111
+RESET_ACC_REQUEST	,	V_34
+command_code	,	V_105
+hf_cp2179_analog_16bit	,	V_88
+"cp2179.twobitstatuschg7"	,	L_110
+"cp2179.Reserved"	,	L_30
+"cp2179.resetacc_requestpoint"	,	L_42
+hf_cp2179_accumulator	,	V_91
+request_data	,	V_58
+SCAN_FOR_SPECIAL_CALC	,	V_117
+commmand_code	,	V_72
+hf_cp2179_request_frame	,	V_75
+wmem_list_new	,	F_43
+startpt	,	V_103
+"Processed Telnet Data"	,	L_1
+skip_byte	,	V_9
+conv	,	V_54
+"cp2179.simplestatusbit4"	,	L_70
+proto_tree_add_uint_format	,	F_29
+SCAN_INCLUSIVE_16_ANALOG_RESPONSE	,	V_86
+proto_item_append_text	,	F_32
+hf_cp2179_crc	,	V_50
+"Start Request Point"	,	L_45
+copy_bs_request_frame	,	F_33
+col_clear	,	F_39
+proto_register_subtree_array	,	F_55
+cp2179_2bitstatus_bits	,	V_99
+"cp2179.simplestatusbit5"	,	L_72
+"Whether the SEL Protocol dissector should automatically pre-process Telnet data to remove IAC bytes"	,	L_135
+packet_type	,	V_13
+"Master Address"	,	L_21
+proto_tree_add_item	,	F_8
+pinfo	,	V_1
+col_add_fstr	,	F_40
+_U_	,	V_123
+flags	,	V_126
+new_register_dissector	,	F_52
+hf_cp2179_number_characters	,	V_42
+cp2179_proto_item	,	V_17
+TWO_BIT_STATUS	,	V_97
+"cp2179.simplestatusbit6"	,	L_74
+"cp2179.simplestatusbit15"	,	L_92
+dpos	,	V_8
+"cp2179.functioncode"	,	L_24
+BASIC_SCAN_REQ_LEN	,	V_109
+proto_register_cp2179	,	F_49
+FT_UINT8	,	V_141
+proto_item	,	T_6
+hf_cp2179_command_code_fc20	,	V_35
+req_frame_num	,	V_55
+"cp2179.simplestatusbit7"	,	L_76
+dissect_cp2179	,	F_47
+dissect_request_frame	,	F_7
+"cp2179.simplestatusbit14"	,	L_90
+ENC_LITTLE_ENDIAN	,	V_27
+"Unknown Function Code"	,	L_4
+wmem_list_head	,	F_21
+data	,	T_15
+num	,	V_74
+clean_telnet_iac	,	F_1
+cp2179_addr_tree	,	V_15
+wmem_list_prepend	,	F_46
+function_code	,	V_19
+"cp2179.simplestatusbit8"	,	L_78
+"RTU Address: %d, Master Address: %d"	,	L_2
+global_cp2179_tcp_port	,	V_183
+tvb_get_letohs	,	F_10
+conversation_t	,	T_16
+BASIC_SCAN	,	V_108
+offset	,	V_3
+tree	,	V_12
+SPECIAL_CALC_REQUEST_RANGE	,	V_46
+SCAN_INCLUSIVE	,	V_102
+"Unknown Command Code"	,	L_6
+add_new_data_source	,	F_6
+"CP2179"	,	L_14
+address_word	,	V_20
+SPECIAL_CALC_ALL	,	V_82
+"cp2179.simplestatusbit9"	,	L_80
+SBO_OPERATE_REPLY_LEN	,	V_116
+proto_tree_add_uint	,	F_23
+cp2179_conversation	,	T_7
+gfloat	,	T_13
+cp2179_simplestatus_bits	,	V_96
+num_objects	,	V_101
+"Enable Automatic pre-processing of Telnet-encapsulated data to remove extra 0xFF (IAC) bytes"	,	L_134
+" than the default of 0)"	,	L_132
+"cp2179.MasterAddress"	,	L_22
+"RTU Status"	,	L_35
+"Special Calc Request Point"	,	L_43
+"Request Frame"	,	L_17
+wmem_file_scope	,	F_20
+"RST Flag"	,	L_27
+"Reset Accumulator Request Point"	,	L_41
+FT_FRAMENUM	,	V_136
+wmem_list_frame_next	,	F_25
+"2 Bit Status"	,	L_93
+gint16	,	V_87
+hf_cp2179_2bitstatus	,	V_98
+srcport	,	V_133
+"tcp.port"	,	L_129
+proto_tree	,	T_4

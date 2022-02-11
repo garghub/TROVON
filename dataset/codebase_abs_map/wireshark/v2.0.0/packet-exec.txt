@@ -1,0 +1,132 @@
+"exec"	,	L_23
+WAIT_FOR_PASSWORD	,	V_42
+preference_info_show_username	,	V_30
+proto_register_protocol	,	F_23
+fourth_packet_state	,	V_26
+exec_hash_entry_t	,	T_9
+"Username client uses to log in to the server."	,	L_12
+prefs_register_protocol	,	F_27
+second_packet_number	,	V_15
+col_append_fstr	,	F_9
+dissect_exec	,	F_1
+"Server -&gt; Client Data"	,	L_5
+gint	,	T_6
+col_set_str	,	F_7
+state	,	V_18
+"Client username"	,	L_10
+"exec.password"	,	L_14
+NONE	,	V_23
+"Command to execute"	,	L_16
+"Command:%s "	,	L_3
+tvb	,	V_1
+"Remote Process Execution"	,	L_22
+COL_INFO	,	V_29
+guchar	,	T_5
+field_stringz	,	V_6
+hf_exec_command	,	V_47
+tvb_reported_length_remaining	,	F_14
+col_clear	,	F_8
+WAIT_FOR_DATA	,	V_34
+cinfo	,	V_27
+"EXEC"	,	L_1
+isprint_string	,	F_19
+wmem_strdup	,	F_20
+"exec.client_server_data"	,	L_20
+proto_register_subtree_array	,	F_26
+proto_tree_add_string	,	F_18
+EXEC_COMMAND_LEN	,	V_46
+array_length	,	F_25
+hf_exec_server_client_data	,	V_51
+"exec.username"	,	L_11
+hf_exec_stderr_port	,	V_37
+proto_tree_add_item	,	F_10
+FT_STRINGZ	,	V_53
+pinfo	,	V_2
+proto_register_exec	,	F_22
+dissector_handle_t	,	T_12
+ENC_ASCII	,	V_35
+col_append_str	,	F_21
+exec_tree	,	V_5
+hash_info	,	V_10
+hf_register_info	,	T_10
+preference_info_show_command	,	V_31
+"exec.server_client_data"	,	L_21
+WAIT_FOR_COMMAND	,	V_45
+prefs_register_bool_preference	,	F_28
+hf_exec_username	,	V_41
+COL_PROTOCOL	,	V_28
+"Show username in info column"	,	L_25
+proto_item	,	T_4
+ett_exec	,	V_33
+ENC_NA	,	V_32
+ti	,	V_4
+BASE_NONE	,	V_54
+"Client -&gt; Server data"	,	L_4
+"Controls the display of the session's username in the info column.  This is only displayed if the packet containing it was seen during this capture session."	,	L_26
+isdigit_string	,	F_17
+"exec.command"	,	L_17
+"info_show_username"	,	L_24
+"Controls the display of the command being run on the server by this session in the info column.  This is only displayed if the packet containing it was seen during this capture session."	,	L_29
+"Username:%s "	,	L_2
+"Client port that is listening for stderr stream from server"	,	L_9
+EXEC_PASSWORD_LEN	,	V_43
+"Stderr port (optional)"	,	L_7
+num	,	V_14
+tvb_get_stringz_enc	,	F_15
+hf_exec_client_server_data	,	V_50
+tvbuff_t	,	T_1
+hf_exec_password	,	V_44
+proto_reg_handoff_exec	,	F_29
+tvb_find_guint8	,	F_12
+"Client -&gt; Server Data"	,	L_19
+proto_item_add_subtree	,	F_11
+module_t	,	T_11
+proto_register_field_array	,	F_24
+conversation	,	V_9
+FT_BYTES	,	V_56
+conversation_t	,	T_8
+guint	,	T_7
+offset	,	V_8
+first_packet_number	,	V_12
+ett	,	V_57
+wmem_packet_scope	,	F_16
+dissector_add_uint	,	F_31
+tree	,	V_3
+WAIT_FOR_USERNAME	,	V_39
+exec_module	,	V_58
+packet_info	,	T_2
+tvb_captured_length	,	F_13
+fourth_packet_number	,	V_17
+exec_handle	,	V_59
+third_packet_number	,	V_16
+destport	,	V_48
+fd	,	V_13
+"Session Establishment"	,	L_6
+EXEC_STDERR_PORT_LEN	,	V_36
+second_packet_state	,	V_24
+conversation_get_proto_data	,	F_3
+"Show command in info column"	,	L_28
+"info_show_command"	,	L_27
+wmem_file_scope	,	F_5
+HFILL	,	V_55
+"Client password"	,	L_13
+conversation_add_proto_data	,	F_6
+wmem_new	,	F_4
+WAIT_FOR_STDERR_PORT	,	V_19
+gchar	,	V_38
+length	,	V_7
+third_packet_state	,	V_25
+"Command client is requesting the server to run."	,	L_18
+create_dissector_handle	,	F_30
+first_packet_state	,	V_22
+proto_exec	,	V_11
+command	,	V_21
+EXEC_PORT	,	V_49
+"exec.stderr_port"	,	L_8
+EXEC_USERNAME_LEN	,	V_40
+"Password client uses to log in to the server."	,	L_15
+find_or_create_conversation	,	F_2
+"tcp.port"	,	L_30
+proto_tree	,	T_3
+hf	,	V_52
+username	,	V_20

@@ -1,0 +1,60 @@
+"wmx.clk_cmp.comparison_value"	,	L_7
+data	,	T_5
+clk_cmp_item	,	V_7
+clk_cmp_tree	,	V_8
+proto_register_protocol	,	F_8
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_2
+"wmx.clk_cmp.clock_count"	,	L_3
+"Clock ID"	,	L_4
+proto_mac_mgmt_msg_clk_cmp_decoder	,	V_9
+gint	,	T_9
+proto_item_add_subtree	,	F_3
+"Clock Count"	,	L_2
+"wmx.mgmtmsg"	,	L_13
+proto_register_field_array	,	F_9
+tvb	,	V_1
+"WiMax CLK-CMP (clk)"	,	L_11
+guint	,	T_6
+offset	,	V_4
+ett	,	V_21
+dissector_add_uint	,	F_14
+tree	,	V_3
+"wmx.clk"	,	L_12
+"Sequence Number"	,	L_8
+handle	,	V_22
+packet_info	,	T_2
+tvb_get_guint8	,	F_4
+FT_INT8	,	V_20
+"wmx.clk_cmp.clock_id"	,	L_5
+dissect_mac_mgmt_msg_clk_cmp_decoder	,	F_1
+clock_count	,	V_6
+tvb_captured_length	,	F_6
+"wmx.clk_cmp.seq_number"	,	L_9
+proto_register_subtree_array	,	F_11
+array_length	,	F_10
+"WiMax CLK-CMP Message"	,	L_10
+proto_register_mac_mgmt_msg_clk_cmp	,	F_7
+hf_clk_cmp_seq_number	,	V_14
+proto_tree_add_item	,	F_5
+pinfo	,	T_3
+dissector_handle_t	,	T_10
+_U_	,	V_2
+hf_register_info	,	T_8
+proto_reg_handoff_mac_mgmt_msg_clk_cmp	,	F_12
+HFILL	,	V_19
+hf_clk_cmp_clock_count	,	V_11
+hf_clk_cmp	,	V_16
+FT_UINT8	,	V_17
+hf_clk_cmp_clock_id	,	V_13
+i	,	V_5
+BASE_DEC	,	V_18
+create_dissector_handle	,	F_13
+proto_item	,	T_7
+ett_mac_mgmt_msg_clk_cmp_decoder	,	V_10
+ENC_BIG_ENDIAN	,	V_12
+"Comparison Value"	,	L_6
+hf_clk_cmp_comparison_value	,	V_15
+MAC_MGMT_MSG_CLK_CMP	,	V_23
+"Clock Comparison (CLK-CMP)"	,	L_1
+proto_tree	,	T_4

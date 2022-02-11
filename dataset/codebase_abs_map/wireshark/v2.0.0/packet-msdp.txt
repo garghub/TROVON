@@ -1,0 +1,190 @@
+add_notification_data_ipv4addr	,	F_19
+"MSDP SA Entry Count"	,	L_15
+hf_msdp_length	,	V_16
+available_length	,	V_36
+"The IP address of the active source"	,	L_30
+proto_register_protocol	,	F_24
+"Error Code"	,	L_37
+"msdp.not.error"	,	L_38
+hf_msdp_not_rp_address	,	V_63
+"msdp.sa.rp_addr"	,	L_17
+dissect_msdp_sa	,	F_10
+hf_msdp_sa_reserved	,	V_31
+FSM_ERROR	,	V_54
+SA_REQUEST_ERROR	,	V_50
+hf_msdp_not_group_address	,	V_61
+tvb_new_subset_remaining	,	F_21
+col_set_str	,	F_2
+gint	,	T_7
+MSDP_SA_RSP	,	V_18
+tvb_captured_length_remaining	,	F_14
+"MSDP TLV type"	,	L_9
+tlv_len	,	V_43
+FT_IPv4	,	V_73
+"Packet with unknown encapsulation"	,	L_61
+error_sub	,	V_44
+tvb	,	V_1
+COL_INFO	,	V_10
+hf_msdp_sa_entry_count	,	V_27
+"Multicast Source Discovery Protocol"	,	L_65
+tvb_reported_length_remaining	,	F_7
+"msdp.not.group_address"	,	L_43
+cinfo	,	V_8
+"msdp.tlv_contents"	,	L_58
+"The group address the active source has sent data to"	,	L_27
+"msdp.sa_req.res"	,	L_31
+proto_register_subtree_array	,	F_27
+"msdp.sa.sprefix_len"	,	L_23
+"Indicates the type of Notification"	,	L_39
+array_length	,	F_26
+MSDP_SA	,	V_17
+MESSAGE_HEADER_ERROR	,	V_48
+"Reserved"	,	L_19
+next_tvb	,	V_38
+"msdp.not.source_address"	,	L_49
+"Transmitted as zeros and ignored by a receiver"	,	L_21
+"Source address in Notification messages"	,	L_50
+"Reserved field in Notification messages"	,	L_52
+proto_tree_add_item	,	F_5
+"msdp.sa.group_addr"	,	L_26
+"The group address the MSDP peer is requesting"	,	L_33
+call_dissector	,	F_18
+pinfo	,	V_2
+vals	,	V_45
+dissector_handle_t	,	T_10
+ip_handle	,	V_40
+DISSECTOR_ASSERT	,	F_15
+"TLV contents"	,	L_57
+dissect_msdp	,	F_1
+"msdp.sa.entry_count"	,	L_14
+"%s (%u)"	,	L_5
+ett_msdp_not_data	,	V_80
+hf_register_info	,	T_9
+"RP address"	,	L_45
+hf_msdp_not_error_sub	,	V_60
+VALS	,	F_23
+msdp_handle	,	V_81
+hf_msdp_sa_req_res	,	V_20
+"Group Address"	,	L_25
+CEASE	,	V_58
+proto_register_msdp	,	F_22
+"msdp.unknown_encap"	,	L_62
+guint16	,	T_6
+"Error subcode"	,	L_40
+COL_PROTOCOL	,	V_9
+col_set_writable	,	F_17
+hf_msdp_unknown_encap	,	V_66
+"Group address"	,	L_42
+FT_UINT8	,	V_69
+"msdp.not.rp_address"	,	L_46
+"Source Address"	,	L_28
+"ip"	,	L_68
+tvb_ip_to_str	,	F_13
+BASE_DEC	,	V_70
+MSDP_NOTIFICATION	,	V_23
+tvb_new_subset	,	F_16
+"msdp.not.error_sub"	,	L_41
+proto_item	,	T_4
+hf_addr	,	V_41
+"Source address"	,	L_48
+ENC_NA	,	V_13
+guint8	,	T_5
+NOTIFICATION	,	V_57
+"msdp.not.o"	,	L_35
+"msdp.length"	,	L_11
+ti	,	V_4
+BASE_NONE	,	V_74
+"Source prefix length in Notification messages"	,	L_56
+value_string	,	T_8
+hf_msdp_not_error	,	V_47
+hf_msdp_sa_sprefix_len	,	V_32
+"msdp.not.res"	,	L_51
+ett_msdp	,	V_14
+tvbuff_t	,	T_1
+"msdp.sa.reserved"	,	L_20
+tvb_get_ntohs	,	F_8
+entry_tree	,	V_29
+BASE_HEX	,	V_76
+proto_reg_handoff_msdp	,	F_28
+FT_UINT24	,	V_75
+"msdp.sa_req.group_addr"	,	L_32
+proto_item_add_subtree	,	F_6
+ett_msdp_sa_entry	,	V_30
+proto_register_field_array	,	F_25
+"RP Address"	,	L_16
+FT_BYTES	,	V_78
+"Unknown data"	,	L_63
+"&lt;Unknown MSDP message type&gt;"	,	L_2
+hf_msdp_sa_rp_addr	,	V_28
+"msdp.type"	,	L_8
+"Length"	,	L_10
+offset	,	V_6
+HOLD_TIMER_EXPIRED	,	V_56
+"msdp.unknown_data"	,	L_64
+ett	,	V_79
+"MSDP"	,	L_1
+dissector_add_uint	,	F_30
+tree	,	V_3
+hf_msdp_sa_group_addr	,	V_33
+"The route prefix length associated with source address"	,	L_24
+"msdp.sa.src_addr"	,	L_29
+"RP address in Notification messages"	,	L_47
+FT_UINT16	,	V_72
+packet_info	,	T_2
+SA_MESSAGE_SA_RESPONSE_ERROR	,	V_52
+tvb_get_guint8	,	F_4
+entries	,	V_26
+hf_msdp_unknown_data	,	V_67
+hf_msdp_trailing_junk	,	V_25
+hf_msdp_sa_src_addr	,	V_34
+"msdp.not.sprefix_len"	,	L_55
+dissect_msdp_notification	,	F_11
+proto_tree_add_uint	,	F_9
+proto_msdp	,	V_12
+"MSDP TLV Length"	,	L_12
+msdp_tree	,	V_5
+hf_msdp_tlv_contents	,	V_24
+"Open-bit"	,	L_34
+msdp_types	,	V_11
+hf_msdp_sa_req_group	,	V_22
+enc_tree	,	V_35
+"Sprefix len"	,	L_22
+"Entry Count in Notification messages"	,	L_54
+MSDP_SA_REQ	,	V_19
+error_vals	,	V_77
+hf_msdp_not_source_address	,	V_64
+"Encapsulated IPv4 packet: %u bytes"	,	L_4
+"Group address in Notification messages"	,	L_44
+HFILL	,	V_71
+"If clear, the connection will be closed"	,	L_36
+hf_msdp_not_entry_count	,	V_62
+"(S,G) block: %s/%u -&gt; %s"	,	L_3
+ett_msdp_sa_enc_data	,	V_39
+hf_msdp_not_res	,	V_42
+sa_req_error_vals	,	V_51
+"msdp.not.entry_count"	,	L_53
+"Trailing junk"	,	L_59
+hf_msdp_not_o	,	V_46
+val_to_str_const	,	F_3
+length	,	V_7
+"Entry Count"	,	L_13
+find_dissector	,	F_31
+"&lt;Unknown Error subcode&gt;"	,	L_6
+create_dissector_handle	,	F_29
+proto_tree_add_subtree_format	,	F_12
+fsm_error_vals	,	V_55
+"msdp.trailing_junk"	,	L_60
+proto_tree_add_uint_format_value	,	F_20
+hf_msdp_not_sprefix_len	,	V_65
+ENC_BIG_ENDIAN	,	V_21
+"Active source's RP address"	,	L_18
+sa_msg_error_vals	,	V_53
+hf_msdp_type	,	V_15
+reported_length	,	V_37
+sa_unspec_error_vals	,	V_59
+"msdp"	,	L_66
+hdr_error_vals	,	V_49
+"Type"	,	L_7
+"tcp.port"	,	L_67
+proto_tree	,	T_3
+hf	,	V_68

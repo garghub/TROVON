@@ -1,0 +1,963 @@
+tvb_get_string_enc	,	F_102
+hf_http_sec_websocket_version	,	V_362
+g_new	,	F_129
+proto_is_frame_protocol	,	F_51
+"Content-Length"	,	L_167
+res_framenum	,	V_81
+"http.response.code"	,	L_141
+"HTTP/Requests"	,	L_329
+push_req	,	F_37
+push_res	,	F_39
+proto_tree_add_format_text	,	F_63
+content_length	,	V_125
+"TCP port for protocols using HTTP"	,	L_315
+st_str_packets	,	V_38
+upgrade	,	V_128
+guint32	,	T_28
+"http.request_in"	,	L_240
+value_len	,	V_266
+pool	,	V_211
+"http.header.%s"	,	L_83
+hf_http_transfer_encoding	,	V_344
+g_ascii_strncasecmp	,	F_85
+"http.authcitrix.domain"	,	L_119
+p_get_proto_data	,	F_74
+g_ascii_isspace	,	F_141
+req_res	,	V_70
+array_length	,	F_146
+"Whether the HTTP dissector should use the "	,	L_292
+"http.proxy_authenticate"	,	L_150
+"http.sec_websocket_protocol"	,	L_227
+"MERGE"	,	L_55
+ENC_ASCII	,	V_197
+http_host	,	V_32
+col_append_str	,	F_191
+proto_deregister_field	,	F_124
+hf_register_info	,	T_30
+http_reqs_stats_tree_init	,	F_9
+"http.cookie"	,	L_191
+"Custom HTTP header fields"	,	L_312
+resp_grp	,	V_57
+"Cookie"	,	L_190
+same_name_next	,	V_259
+guint16	,	T_26
+c	,	V_4
+"This packet will be responded in the packet with this number"	,	L_244
+content_encoding	,	V_126
+i	,	V_27
+"SSTP_DUPLEX_POST"	,	L_82
+line_end_offset	,	V_262
+n	,	V_6
+o	,	V_7
+p	,	V_22
+"HTTP Response Reason Phrase"	,	L_145
+r	,	V_1
+wmem_alloc0	,	F_32
+BASE_NONE	,	V_256
+"A name/value HTTP cookie pair"	,	L_195
+v	,	V_23
+"HTTP/Load Distribution"	,	L_331
+hf_http_www_authenticate	,	V_339
+"http.transfer_encoding"	,	L_176
+addresses_equal	,	F_111
+orig_offset	,	V_91
+"OPTIONS"	,	L_64
+"CHECKIN"	,	L_65
+header_len	,	V_263
+trailer_len	,	V_222
+proto_tag	,	V_83
+ett_http_header_item	,	V_291
+"http.next_response_in"	,	L_249
+proto_message_http	,	V_390
+headers_uat	,	V_383
+check_auth_ntlmssp	,	F_136
+tvb_memcpy	,	F_106
+rec	,	V_3
+PROTO_ITEM_SET_GENERATED	,	F_72
+"x-gzip"	,	L_27
+FT_UINT24	,	V_276
+tvb_ensure_captured_length_remaining	,	F_46
+"multipart/"	,	L_33
+"; domain=\""	,	L_92
+layers	,	V_117
+proto_item_add_subtree	,	F_60
+conversation	,	V_67
+FT_BYTES	,	V_368
+hf_http_sec_websocket_extensions	,	V_359
+"ssl"	,	L_11
+"End of chunked encoding"	,	L_35
+FT_UINT16	,	V_275
+tvb_strneql	,	F_26
+"TRACE"	,	L_52
+chunked_datalen	,	V_167
+req_resp_hdrs_do_reassembly	,	F_47
+port	,	V_329
+HDR_HOST	,	V_296
+st_str_responses	,	V_42
+"Last-Modified"	,	L_233
+response_code	,	V_28
+hf_http_next_response_in	,	V_162
+"and reassemble chunked data spanning multiple TCP segments. "	,	L_295
+HTTP_OTHERS	,	V_115
+"HTTP Response Status Code"	,	L_142
+chunk_subtree	,	V_216
+proto_register_message_http	,	F_192
+"GET"	,	L_41
+heur_dissector_add	,	F_195
+"gzip"	,	L_25
+HEURISTIC_ENABLE	,	V_393
+FT_STRING	,	V_254
+http_req_stats_tree_init	,	F_15
+startframe	,	V_188
+"HTTP Connection"	,	L_189
+"decompress_body"	,	L_300
+stat_info	,	V_118
+linep	,	V_89
+"http.cookie_pair"	,	L_194
+headers	,	V_102
+special	,	V_282
+leading_crlf	,	V_112
+hf_http_next_request_in	,	V_161
+hf_http_response_line	,	V_270
+FT_UINT32	,	V_277
+"Credentials"	,	L_111
+st_str_requests	,	V_40
+visited	,	V_326
+"http_srv"	,	L_330
+find_or_create_conversation	,	F_30
+"http.user_agent"	,	L_182
+dissector_add_uint_range	,	F_162
+hf_http_citrix_domain	,	V_318
+"HTTP Proxy Connect Hostname"	,	L_157
+"A table to define custom HTTP header for which fields can be setup and used for filtering/data extraction etc."	,	L_313
+uat_new	,	F_178
+"HTTP Set Cookie"	,	L_232
+http_stats_tree_packet	,	F_19
+UPGRADE_SSTP	,	V_187
+register_heur_dissector_list	,	F_181
+number	,	V_72
+proto_tree_add_subtree	,	F_65
+tmp	,	V_273
+col_set_str	,	F_56
+"http.proxy_authorization"	,	L_153
+"HTTP Accept Encoding"	,	L_207
+"HTTP Upgrade header"	,	L_180
+"h2"	,	L_86
+"MKWORKSPACE"	,	L_75
+handle	,	V_105
+"TRUE if CitrixAGBasic Auth"	,	L_115
+expert_http	,	V_382
+"\"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_289
+proto_tree_add_string	,	F_70
+st_str_reqs_by_srv_addr	,	V_16
+server_port	,	V_192
+"Unknown header"	,	L_267
+hf_http_sec_websocket_accept	,	V_358
+dissector_handle_t	,	T_23
+"desegment_headers"	,	L_284
+"Citrix AG Session ID"	,	L_122
+base64_to_tvb	,	F_24
+blurb	,	V_257
+"PATCH"	,	L_53
+content_type_parameters	,	V_123
+can_desegment	,	V_239
+"http.authorization"	,	L_147
+st_str_resp_400	,	V_52
+hf_http_prev_request_in	,	V_158
+ei_http_ssl_port	,	V_141
+hf_http_sec_websocket_key	,	V_360
+proto_register_http	,	F_164
+ett_http_encoded_entity	,	V_175
+nstime_set_unset	,	F_36
+"http.upgrade"	,	L_179
+"Reassemble HTTP bodies spanning multiple TCP segments"	,	L_291
+"Basic "	,	L_89
+hf_http_content_encoding	,	V_343
+err	,	V_2
+hf_http_request_line	,	V_271
+ett_http	,	V_135
+"Time since the request was sent"	,	L_259
+websocket_handle	,	V_327
+"SSDP"	,	L_12
+stats_tree	,	T_5
+"http.accept_language"	,	L_203
+http_info_value_t	,	T_9
+subtree	,	V_206
+"HTTP Host"	,	L_186
+hf_http_request_full_uri	,	V_147
+ssl_dissector_delete	,	F_156
+"Accept"	,	L_196
+"http.accept"	,	L_197
+hf_http_server	,	V_356
+WMEM_COPY_ADDRESS	,	F_99
+header_fields_initialize_cb	,	F_122
+"Notification"	,	L_98
+g_hash_table_lookup	,	F_121
+"LABEL"	,	L_54
+http_ssl_range	,	V_331
+"User-Agent"	,	L_181
+"Sec-WebSocket-Protocol"	,	L_226
+expert_register_protocol	,	F_168
+" (message/http)"	,	L_332
+kerberos_tvb	,	V_66
+"tcp"	,	L_336
+http_handle	,	V_238
+ERANGE	,	V_288
+hf_http_cookie	,	V_349
+st_node_other	,	V_55
+colon_offset	,	V_101
+st_str_reqs_by_http_host	,	V_18
+guint	,	T_11
+"http.accept_encoding"	,	L_206
+ett	,	V_369
+http_conv_t	,	T_14
+wmem_packet_scope	,	F_53
+st_node_reqs_by_http_host	,	V_17
+"HTTP Proxy-Authenticate header"	,	L_151
+packet_info	,	T_6
+"COPY"	,	L_44
+proto_add_deregistered_data	,	F_126
+"Request number"	,	L_109
+"Content-Type"	,	L_164
+uncomp_tvb	,	V_172
+hf_http_host	,	V_347
+EXPFILL	,	V_373
+"http.unknown_header"	,	L_268
+hf_http_request_uri	,	V_198
+http_eo_t	,	T_24
+"NTLMSSP"	,	L_8
+ptype	,	V_137
+"Request URI"	,	L_131
+cookie_tree	,	V_301
+hf_http_set_cookie	,	V_363
+range_convert_str	,	F_175
+PI_MALFORMED	,	V_374
+"HTTP Last Modified"	,	L_235
+"http.cache_control"	,	L_212
+create_dissector_handle	,	F_188
+"desegment_body"	,	L_290
+http_eo_tap	,	V_176
+HDR_AUTHORIZATION	,	V_283
+"UNSUBSCRIBE"	,	L_78
+reqresp_dissector	,	V_99
+UAT_AFFECTS_FIELDS	,	V_387
+basic_request_dissector	,	F_100
+req_tree	,	V_100
+"Upgrade"	,	L_178
+get_token_len	,	F_101
+prev	,	V_75
+proto_register_protocol	,	F_166
+nstime_is_unset	,	F_78
+"UNCHECKOUT"	,	L_73
+hostname	,	V_177
+tvb_new_subset_remaining	,	F_150
+len	,	V_261
+gint	,	T_19
+g_strsplit	,	F_112
+g_strstrip	,	F_3
+tvb	,	V_61
+"BASELINE-CONTROL"	,	L_81
+range_delete_http_ssl_callback	,	F_155
+hf_http_citrix	,	V_316
+desegment_offset	,	V_189
+"http.prev_response_in"	,	L_255
+"http.response_in"	,	L_243
+req_res_num	,	V_73
+"Sec-WebSocket-Key"	,	L_224
+st_node_resp_300	,	V_49
+PI_ERROR	,	V_378
+hf_http_date	,	V_354
+reqs_by_this_addr	,	V_25
+call_dissector	,	F_27
+"CitrixAGBasic "	,	L_90
+"username=\""	,	L_91
+"SSL/TLS Ports range"	,	L_309
+"http"	,	L_19
+http_tree	,	V_84
+UAT_FLD_CSTRING	,	F_165
+"http.host"	,	L_185
+PROTO_ITEM_SET_HIDDEN	,	F_76
+hf_http_chunked_trailer_part	,	V_224
+"HTTP Request Method"	,	L_130
+"HTTP Cache Control"	,	L_213
+"PROPPATCH"	,	L_70
+proto_tree_add_boolean	,	F_75
+"Host"	,	L_184
+check_auth_basic	,	F_137
+req_framenum	,	V_77
+pi_chunked	,	V_207
+COL_PROTOCOL	,	V_132
+decode_tcp_ports	,	F_117
+"DELETE"	,	L_56
+g_free	,	F_8
+"Hypertext Transfer Protocol"	,	L_283
+is_http	,	V_129
+HTTP_NOTIFICATION	,	V_152
+"using \"Content-Encoding: \""	,	L_303
+value_is_in_range	,	F_115
+guint8	,	T_29
+"Header name can't be empty"	,	L_1
+http_desegment_body	,	V_114
+http_dissector_add	,	F_183
+g_str_has_prefix	,	F_145
+"Accept-Language"	,	L_202
+"http.authcitrix.session"	,	L_123
+"HTTP Location"	,	L_219
+"Kerberos "	,	L_95
+"http.authbasic"	,	L_112
+"Prev request in frame"	,	L_251
+st_str_resp_100	,	V_46
+eo_info	,	V_108
+tvbuff_t	,	T_12
+resps_by_this_addr	,	V_26
+tvb_get_ntohs	,	F_42
+conversation_set_dissector	,	F_153
+"http.request.uri"	,	L_132
+"Request Method"	,	L_128
+"Chunk boundary"	,	L_263
+UAT_END_FIELDS	,	V_380
+"http.chat"	,	L_269
+stats_tree_create_pivot	,	F_18
+"custom_http_header_fields"	,	L_311
+header_field_t	,	T_2
+http_udp_handle	,	V_388
+from_server	,	V_234
+"http.port"	,	L_314
+range_empty	,	F_176
+"The full requested URI (including host name)"	,	L_139
+"UPDATE"	,	L_60
+"of a request spanning multiple TCP segments. "	,	L_287
+st_node_resp_500	,	V_53
+p_add_proto_data	,	F_38
+headers_t	,	T_22
+tvb_get_guint8	,	F_44
+"http.response.line"	,	L_125
+"Unencrypted HTTP protocol detected over encrypted port, could indicate a dangerous misconfiguration."	,	L_276
+proto_tree_add_string_format	,	F_134
+"http.authcitrix.user"	,	L_117
+name	,	V_252
+next	,	V_76
+st_node_requests_by_host	,	V_34
+trailer_offset	,	V_221
+"http_req"	,	L_328
+ch_ptr	,	V_313
+FT_INT24	,	V_280
+"HTTP WWW-Authenticate header"	,	L_163
+"HTTP body subdissector failed, trying heuristic subdissector"	,	L_274
+st_str_requests_by_host	,	V_35
+HDR_COOKIE	,	V_300
+"Optional trailer in a chunked body"	,	L_262
+"ntlmssp"	,	L_324
+FT_INT32	,	V_281
+prefs_register_obsolete_preference	,	F_174
+FT_INT16	,	V_279
+"http.leading_crlf"	,	L_277
+"http.sec_websocket_extensions"	,	L_223
+find_dissector	,	F_187
+range_foreach	,	F_163
+resp_str	,	V_58
+proto_tree_add_uint_format_value	,	F_107
+heur_subdissector_list	,	V_185
+ptr	,	V_227
+"Accept Encoding"	,	L_205
+hf_http_response_code	,	V_201
+e_tree	,	V_173
+tree_item	,	V_290
+"RPC_OUT_DATA"	,	L_79
+"Next request in frame"	,	L_245
+HTTP_RESPONSE	,	V_149
+ntlm_headers	,	V_306
+match_string	,	V_181
+"\"Content-length:\" value, if present, to reassemble "	,	L_293
+"HTTP X-Forwarded-For"	,	L_238
+"http.response.phrase"	,	L_144
+proto_tree_add_time	,	F_80
+hf_http_cache_control	,	V_355
+framenum	,	V_119
+"%s://%s%s"	,	L_17
+hf_http_content_length	,	V_292
+"TCP Ports"	,	L_305
+tvb_ptr	,	V_203
+"Full request URI"	,	L_137
+hf_http_proxy_authenticate	,	V_337
+"http.prev_request_in"	,	L_252
+conv_data	,	V_68
+http_dechunk_body	,	V_169
+proto_tree_add_uint_format	,	F_77
+item	,	V_231
+get_hf_for_header	,	F_120
+"gssapi"	,	L_325
+proto_item_append_text	,	F_90
+col_set_fence	,	F_151
+"LOCK"	,	L_45
+"BDELETE"	,	L_62
+request_uri	,	V_36
+have_tap_listener	,	F_91
+epan_dissect_t	,	T_7
+proto_tree_add_item	,	F_59
+pinfo	,	V_21
+col_add_fstr	,	F_57
+flags	,	V_325
+new_register_dissector	,	F_170
+dissected	,	V_106
+tvb_ensure_bytes_exist	,	F_55
+"M-"	,	L_39
+"media_type"	,	L_316
+"message-http"	,	L_335
+"http.chunked_trailer_part"	,	L_261
+TCP_PORT_SSDP	,	V_121
+"Leading CRLF previous message in the stream may have extra CRLF"	,	L_278
+find_conversation	,	F_113
+"the body of a request spanning multiple TCP segments, "	,	L_294
+header_fields_update_cb	,	F_1
+display	,	V_255
+"Response line"	,	L_124
+"sstp"	,	L_326
+tap_queue_packet	,	F_92
+dissector_add_string	,	F_194
+st_node_resp_broken	,	V_43
+http_module	,	V_381
+HDR_CONTENT_ENCODING	,	V_294
+http_req_res_t	,	T_16
+hf_http_last_modified	,	V_364
+num_header_fields	,	V_248
+tvb_format_text	,	F_64
+http_tap	,	V_193
+tvb_offset_exists	,	F_54
+"http.sec_websocket_accept"	,	L_221
+p_id	,	V_247
+register_dissector_table	,	F_180
+hf_http_accept_encoding	,	V_353
+"X-Forwarded-For"	,	L_236
+num	,	V_79
+"The previous HTTP request starts in packet number"	,	L_253
+header_desc	,	V_11
+" -&gt; %u bytes"	,	L_30
+"http_eo"	,	L_318
+tcpinfo	,	V_240
+ei_register_info	,	T_32
+proto_reg_handoff_http	,	F_186
+ei_http_subdissector_failed	,	V_184
+"HTTP"	,	L_13
+"TRUE if HTTP request"	,	L_106
+"The next HTTP response starts in packet number"	,	L_250
+PI_NOTE	,	V_376
+"Unknown (%d)"	,	L_6
+PI_SEQUENCE	,	V_371
+"identity"	,	L_22
+hf_size	,	V_246
+data_val	,	V_315
+"http.request.version"	,	L_135
+dissect_message_http	,	F_190
+tree	,	V_62
+"HTTP Cookie"	,	L_192
+"http_tcp"	,	L_338
+basic_headers	,	V_311
+"http.sec_websocket_key"	,	L_225
+st_node_resp_100	,	V_45
+g_ascii_isprint	,	F_43
+header_fields_copy_cb	,	F_6
+abbrev	,	V_253
+destport	,	V_140
+"HTTP chunked response"	,	L_34
+PI_SECURITY	,	V_377
+"RPC_IN_DATA"	,	L_77
+uat_t	,	T_36
+"http.proxy_connect_port"	,	L_159
+"HTTP Date"	,	L_210
+part	,	V_302
+ett_http_request	,	V_143
+request_method	,	V_30
+proto_tree_add_uint64	,	F_144
+"Request Version"	,	L_134
+"%d"	,	L_84
+"Server"	,	L_214
+"ssl.port"	,	L_307
+" [Error: Decompression failed]"	,	L_32
+"http.server"	,	L_215
+"udp.port"	,	L_323
+gssapi_handle	,	V_65
+http_port_add	,	F_185
+proto_item_set_len	,	F_97
+"POLL"	,	L_47
+hf_http_proxy_connect_port	,	V_236
+"http.chunk_boundary"	,	L_264
+hf_http_sec_websocket_protocol	,	V_361
+chunk_offset	,	V_214
+"tcp.port"	,	L_97
+"http.sec_websocket_version"	,	L_229
+PI_CHAT	,	V_372
+TCP_DEFAULT_RANGE	,	V_384
+hf_http_response	,	V_154
+hf_http_request_number	,	V_164
+uat_field_t	,	T_33
+reqs_by_this_host	,	V_24
+"http.request.full_uri"	,	L_138
+proto_http	,	V_69
+tvb_new_child_real_data	,	F_109
+"TRUE if HTTP notification"	,	L_100
+body_dissected	,	V_170
+errno	,	V_287
+st_node_reqs	,	V_13
+FT_BOOLEAN	,	V_333
+datalen	,	V_103
+tvb_reported_length_remaining	,	F_41
+"http.proxy_connect_host"	,	L_156
+"PUT"	,	L_42
+"Request"	,	L_104
+wmem_strdup	,	F_69
+wmem_strndup	,	F_119
+"Citrix AG Password"	,	L_120
+HDR_TRANSFER_ENCODING	,	V_295
+"http.content_type"	,	L_165
+indx	,	V_242
+DISSECTOR_ASSERT	,	F_105
+hf_http_content_length_header	,	V_341
+st_str_other	,	V_56
+"Connection"	,	L_187
+hf_http_request_method	,	V_196
+"%u %s"	,	L_5
+part_end	,	V_303
+proto_get_id_by_filter_name	,	F_196
+stats_tree_register	,	F_189
+hf_http_accept_language	,	V_352
+hdrlen	,	V_308
+"http.referer"	,	L_200
+hf_http_referer	,	V_351
+range_add_http_ssl_callback	,	F_157
+"Set-Cookie"	,	L_230
+hf_http_request	,	V_163
+"http.authcitrix"	,	L_114
+"Content-Encoding"	,	L_172
+"HTTP header name"	,	L_280
+header_tree	,	V_289
+media_handle	,	V_186
+next_token	,	V_194
+proto_reg_handoff_message_http	,	F_193
+st_node_reqs_by_srv_addr	,	V_15
+message_http_handle	,	V_392
+"HTTP Accept"	,	L_198
+desegment_len	,	V_190
+"Citrix AG Domain"	,	L_118
+module_t	,	T_34
+"tcp_alternate_port"	,	L_304
+raw_data	,	V_208
+proto_register_field_array	,	F_131
+e_ti	,	V_145
+hf_http_proxy_connect_host	,	V_235
+ei	,	V_370
+saved_port	,	V_229
+dissector_add_uint	,	F_184
+nstime_delta	,	F_79
+"HTTP response %u/%u"	,	L_20
+hf_http_cookie_pair	,	V_305
+"Request in frame"	,	L_239
+data_handle	,	V_171
+hf_http_citrix_user	,	V_317
+tvb_get_ptr	,	F_48
+prefs_register_range_preference	,	F_177
+FT_INT8	,	V_278
+"Cache-Control"	,	L_211
+first_loop	,	V_107
+tvb_captured_length	,	F_88
+"Authorization"	,	L_146
+"HTTP Request HTTP-Version"	,	L_136
+g_ascii_tolower	,	F_142
+"http.time"	,	L_258
+"Reassemble HTTP headers spanning multiple TCP segments"	,	L_285
+fd	,	V_78
+dissector_get_string_handle	,	F_93
+dissect_http_heur_tcp	,	F_152
+tick_stat_node	,	F_13
+call_dissector_with_data	,	F_98
+hf_http_connection	,	V_348
+expert_add_info	,	F_62
+g_hash_table_new	,	F_127
+"HTTP/"	,	L_40
+media_str	,	V_168
+header_fields	,	V_250
+"Kerberos Data"	,	L_9
+"Response Phrase"	,	L_143
+"http.date"	,	L_209
+is_ssl	,	V_95
+"Location"	,	L_217
+"Sec-WebSocket-Version"	,	L_228
+siz	,	T_4
+conversation_add_proto_data	,	F_34
+hf_http_upgrade	,	V_345
+PI_WARN	,	V_375
+HAVE_LIBZ	,	F_173
+"Whether to uncompress entity bodies that are compressed "	,	L_302
+"websocket"	,	L_321
+ei_http_chunked_and_length	,	V_293
+st_node_resps_by_srv_addr	,	V_19
+ett_http_chunked_response	,	V_210
+"HTTP Request-URI"	,	L_133
+"http.request"	,	L_105
+"The previous HTTP response starts in packet number"	,	L_256
+header_fields_hash	,	V_244
+"Response in frame"	,	L_242
+wmem_free	,	F_14
+"REPORT"	,	L_59
+hf	,	V_245
+req_res_tail	,	V_74
+"http.content_length_header"	,	L_168
+new_tvb	,	V_225
+"Status Code"	,	L_140
+dissect_http_message	,	F_40
+UDP_PORT_SSDP	,	V_389
+prefs_register_protocol	,	F_171
+part_len	,	V_304
+ws_base64_decode_inplace	,	F_148
+wmem_strdup_printf	,	F_68
+st_str_resp_300	,	V_50
+g_strfreev	,	F_118
+"HTTP Accept Language"	,	L_204
+text	,	V_142
+stats_tree_create_node	,	F_10
+hf_index	,	V_264
+"SEARCH"	,	L_57
+"WWW-Authenticate"	,	L_161
+hf_http_content_type	,	V_340
+ett_http_ntlmssp	,	V_310
+"Description of the value contained in the header"	,	L_282
+hidden_item	,	V_86
+hf_http_prev_response_in	,	V_159
+it	,	V_269
+hf_http_notification	,	V_153
+http_stats_tree_init	,	F_17
+"%u octets"	,	L_37
+"media"	,	L_320
+UAT_AFFECTS_DISSECTION	,	V_386
+val_to_str	,	F_21
+next_handle	,	V_322
+"http.content_length"	,	L_171
+tvb_find_line_end	,	F_45
+dissector_try_heuristic	,	F_96
+"http.x_forwarded_for"	,	L_237
+is_request_or_reply	,	V_94
+"CCM_POST"	,	L_68
+strings	,	V_230
+http_desegment_headers	,	V_113
+firstline	,	V_87
+prefs_register_bool_preference	,	F_172
+next_offset	,	V_88
+is_http_request_or_reply	,	F_49
+hf_http_response_number	,	V_156
+"http.response_number"	,	L_108
+"%s "	,	L_14
+"Proxy-Connect-Port"	,	L_158
+"data"	,	L_319
+"HTTP over TCP"	,	L_337
+"NTLMSSP / GSSAPI Data"	,	L_7
+media_type_subdissector_table	,	V_182
+BASE_DEC	,	V_335
+tvb_new_subset	,	F_83
+uri	,	V_146
+ENC_NA	,	V_134
+"HTTP Content-Encoding header"	,	L_174
+"http.request.method"	,	L_129
+"TCP Ports range"	,	L_306
+try_desegment_body	,	V_116
+"HEAD"	,	L_10
+wmem_alloc	,	F_104
+"%s"	,	L_16
+"http.chunk_size"	,	L_266
+"BMOVE"	,	L_50
+"HTTP Referer"	,	L_201
+push_req_res	,	F_35
+http_decompress_body	,	V_174
+size_t	,	T_3
+req_ts	,	V_71
+"Data chunk (%u octets)"	,	L_36
+"dechunk_body"	,	L_296
+st_str_resp_500	,	V_54
+header_field_info	,	T_31
+get_http_conversation_data	,	F_29
+hf_http_user_agent	,	V_346
+"https"	,	L_18
+HDR_CONTENT_LENGTH	,	V_286
+"Response"	,	L_101
+payload_len	,	V_179
+"http.chunkd_and_length"	,	L_271
+"http.subdissector_failed"	,	L_273
+"http.request_number"	,	L_110
+"HTTP/1.1"	,	L_96
+server_addr	,	V_191
+dissector_delete_uint_range	,	F_160
+hf_http_basic	,	V_312
+http_type_t	,	T_20
+header	,	V_307
+http_tcp_range	,	V_237
+dst	,	V_31
+conversation_get_proto_data	,	F_31
+wmem_memdup	,	F_140
+tvb_new_subset_length	,	F_108
+hf_http_chunk_size	,	V_219
+UPGRADE_HTTP2	,	V_299
+dissector_get_uint_handle	,	F_94
+"Transfer-Encoding"	,	L_175
+"Custom HTTP Header Fields"	,	L_310
+HFILL	,	V_334
+"Chunk size"	,	L_265
+"HTTP User-Agent header"	,	L_183
+src	,	V_33
+"BCOPY"	,	L_49
+wmem_new	,	F_52
+proto_registrar_get_nth	,	F_135
+gchar	,	T_10
+"HTTP request %u/%u"	,	L_21
+"MOVE"	,	L_46
+hfinfo	,	V_251
+proto_tree_add_subtree_format	,	F_89
+"Field desc"	,	L_281
+"http.notification"	,	L_99
+pi	,	V_150
+g_strdup_printf	,	F_5
+"Content-encoded entity body (%s): %u bytes"	,	L_29
+"http2"	,	L_322
+ei_http_leading_crlf	,	V_136
+ei_http_chat	,	V_144
+process_header	,	F_67
+global_http_tcp_range	,	V_330
+"Negotiate "	,	L_88
+hf_http_authorization	,	V_336
+st_str_resp_broken	,	V_44
+delta	,	V_155
+"NOTIFY"	,	L_61
+"RPC_CONNECT"	,	L_76
+g_hash_table_size	,	F_123
+have_content_length	,	V_124
+hf_id	,	V_243
+first_linelen	,	V_92
+g_hash_table_insert	,	F_130
+"http.set_cookie"	,	L_231
+FT_RELATIVE_TIME	,	V_367
+"Whether to reassemble bodies of entities that are transferred "	,	L_298
+curr	,	V_151
+tvb_captured_length_remaining	,	F_82
+"CHECKOUT"	,	L_67
+st_str_resps_by_srv_addr	,	V_20
+hf_http_response_in	,	V_165
+hdr_tree	,	V_309
+COL_INFO	,	V_133
+hf_http_location	,	V_357
+hf_http_response_phrase	,	V_202
+http_type	,	V_97
+"Proxy-Authorization"	,	L_152
+http2_handle	,	V_324
+str	,	V_59
+tvb_child_uncompress	,	F_87
+"Internet media type"	,	L_317
+"POST"	,	L_48
+filename	,	V_178
+HDR_AUTHENTICATE	,	V_284
+g_ascii_strtoll	,	F_143
+cinfo	,	V_131
+orig_datalen	,	V_204
+"MKCOL"	,	L_51
+http_payload_subdissector	,	F_110
+register_tap	,	F_182
+next_tvb	,	V_166
+check_auth_kerberos	,	F_139
+"using the \"Transfer-Encoding: chunked\" method"	,	L_299
+hf_http_proxy_authorization	,	V_338
+HDR_CONTENT_TYPE	,	V_285
+"To use this option, you must also enable "	,	L_288
+PT_TCP	,	V_138
+hf_http_request_in	,	V_160
+"http.last_modified"	,	L_234
+abs_ts	,	V_80
+proto_item_set_text	,	F_133
+"TRUE if HTTP response"	,	L_103
+"Reassemble chunked transfer-coded bodies"	,	L_297
+"http.ssl_port"	,	L_275
+payload_data	,	V_180
+g_new0	,	F_128
+http_reqs_stats_tree_packet	,	F_11
+st	,	V_12
+"HTTP/Packet Counter"	,	L_327
+"BPROPPATCH"	,	L_72
+g_str_hash	,	V_249
+value_offset	,	V_265
+header_name	,	V_5
+ett_message_http	,	V_391
+st_node_resp_400	,	V_51
+transfer_encoding	,	V_127
+"http.content_encoding"	,	L_173
+"OK"	,	L_3
+ti	,	V_85
+"HTTP Content-Length header"	,	L_169
+uri_port	,	V_228
+g_hash_table_destroy	,	F_125
+tvb_strncaseeql	,	F_147
+conversation_get_dissector	,	F_116
+"Uncompressed entity body"	,	L_31
+format_text	,	F_58
+ntlmssp_tvb	,	V_63
+chunked_data_size	,	V_205
+"http.www_authenticate"	,	L_162
+"Uncompress entity bodies"	,	L_301
+prefs_register_uat_preference	,	F_179
+gboolean	,	T_1
+"Proxy-Connect-Hostname"	,	L_155
+up	,	V_268
+ip_str	,	V_29
+st_node_packets	,	V_37
+HTTP_REQUEST	,	V_148
+"Response number"	,	L_107
+"ICY"	,	L_43
+"; password=\""	,	L_93
+data_len	,	V_314
+ett_http_chunk_data	,	V_218
+heur_dtbl_entry_t	,	T_25
+"Cookie pair"	,	L_193
+"VERSION-CONTROL"	,	L_80
+hf_http_x_forwarded_for	,	V_365
+"De-chunked entity body"	,	L_24
+port_subdissector_table	,	V_183
+data_tvb	,	V_212
+"Continuation"	,	L_15
+"SSL/TLS Ports"	,	L_308
+header_field_len	,	V_223
+match_uint	,	V_120
+"HTTP Authorization header"	,	L_148
+"Content length"	,	L_170
+HDR_UPGRADE	,	V_297
+proto_check_field_name	,	F_4
+hf_http_chunk_boundary	,	V_220
+"Date"	,	L_208
+PINFO_FD_VISITED	,	F_73
+"Formatted text"	,	L_270
+st_str_resp_200	,	V_48
+"http.location"	,	L_218
+":"	,	L_38
+ett_http_kerberos	,	V_321
+content_type	,	V_122
+chunk_string	,	V_215
+global_http_ssl_range	,	V_332
+same_name_prev_id	,	V_258
+check_auth_citrixbasic	,	F_138
+"Prev response in frame"	,	L_254
+"The next HTTP request starts in packet number"	,	L_247
+g_strdup	,	F_2
+st_str_reqs	,	V_14
+"NTLM "	,	L_87
+ssl_dissector_add	,	F_158
+"WebSocket"	,	L_85
+header_fields_free_cb	,	F_7
+SSL_DEFAULT_RANGE	,	V_385
+"It is incorrect to specify a content-length header and chunked encoding together."	,	L_272
+lineend	,	V_90
+"Next response in frame"	,	L_248
+reported_length	,	V_110
+"PROPFIND"	,	L_66
+reinit_http	,	F_159
+"Media Type: message/http"	,	L_333
+hdtbl_entry	,	V_109
+range_copy	,	F_161
+"Citrix AG Username"	,	L_116
+"http.connection"	,	L_188
+st_node_responses	,	V_41
+dissect_http_kerberos	,	F_28
+"Referer"	,	L_199
+hf_http_citrix_session	,	V_320
+"Time since request"	,	L_257
+"Proxy-Authenticate"	,	L_149
+FT_UINT64	,	V_342
+conv	,	V_233
+"; AGESessionId=\""	,	L_94
+dissect_http	,	F_149
+isHttpRequestOrReply	,	V_241
+guchar	,	T_18
+hf_http_citrix_passwd	,	V_319
+linelen	,	V_93
+chunked_encoding_dissector	,	F_86
+"HTTP Server"	,	L_216
+"CONNECT"	,	L_63
+proto_register_subtree_array	,	F_167
+"Citrix AG Auth"	,	L_113
+"http.response"	,	L_102
+"UNLOCK"	,	L_58
+word	,	V_111
+"message/http"	,	L_334
+http_req_stats_tree_packet	,	F_16
+_U_	,	V_8
+tokenlen	,	V_195
+"SUBSCRIBE"	,	L_69
+find_header_hf_value	,	F_132
+hf_http_accept	,	V_350
+PROTO_ITEM_SET_URL	,	F_71
+sstp_handle	,	V_328
+vals_status_code	,	V_60
+hf_http_time	,	V_157
+call_dissector_only	,	F_95
+"chunked"	,	L_23
+g_ascii_strcasecmp	,	F_84
+"x-deflate"	,	L_28
+basic_response_dissector	,	F_103
+FT_UINT8	,	V_274
+custom_header_uat_fields	,	V_379
+hf_http_version	,	V_199
+proto_item	,	T_17
+expert_register_field_array	,	F_169
+eh_ptr	,	V_260
+"HTTP Content-Type header"	,	L_166
+new_rec	,	V_9
+expert_add_info_format	,	F_66
+"HTTP Proxy Connect Port"	,	L_160
+"deflate"	,	L_26
+UPGRADE_WEBSOCKET	,	V_298
+chunk_size	,	V_213
+"MKACTIVITY"	,	L_74
+data	,	V_226
+"This packet is a response to the packet with this number"	,	L_241
+not_http	,	V_130
+"trailer-part"	,	L_260
+ntlmssp_handle	,	V_64
+"http.request.line"	,	L_127
+nstime_t	,	T_27
+"http.authcitrix.password"	,	L_121
+conversation_t	,	T_15
+response_code_chars	,	V_200
+offset	,	V_82
+chunk_size_item	,	V_217
+expert_module_t	,	T_35
+ReqRespDissector	,	T_21
+add_new_data_source	,	F_25
+edt	,	T_8
+old_rec	,	V_10
+raw_len	,	V_209
+g_str_equal	,	F_50
+"Header name"	,	L_279
+proto_tree_add_uint	,	F_81
+"http.next_request_in"	,	L_246
+"HTTP Transfer-Encoding header"	,	L_177
+proto_http2	,	V_323
+proto_tree_add_expert	,	F_61
+"Header name can't contain '%c'"	,	L_2
+"KO"	,	L_4
+g_snprintf	,	F_20
+stats_tree_tick_pivot	,	F_22
+PINFO_FD_NUM	,	F_114
+st_node_requests	,	V_39
+wmem_file_scope	,	F_33
+reported_datalen	,	V_104
+proxy_tree	,	V_232
+value	,	V_267
+"HTTP Proxy-Authorization header"	,	L_154
+saw_req_resp_or_header	,	V_96
+hf_http_unknown_header	,	V_272
+hdr_item	,	V_98
+"Request line"	,	L_126
+address_to_str	,	F_12
+"Sec-WebSocket-Accept"	,	L_220
+FT_FRAMENUM	,	V_366
+dissect_http_ntlmssp	,	F_23
+st_node_resp_200	,	V_47
+"Sec-WebSocket-Extensions"	,	L_222
+"BPROPFIND"	,	L_71
+srcport	,	V_139
+dissect_http_udp	,	F_154
+"Whether the HTTP dissector should reassemble headers "	,	L_286
+proto_tree	,	T_13

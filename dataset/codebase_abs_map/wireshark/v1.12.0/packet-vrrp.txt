@@ -1,0 +1,194 @@
+"vrrp.reserved_mbz"	,	L_41
+hf_vrrp_virt_rtr_id	,	V_36
+"Auth Type"	,	L_34
+proto_register_protocol	,	F_26
+"vrrp.checksum"	,	L_30
+"IP address associated with the virtual router"	,	L_47
+hf_vrrp_ver_type	,	V_31
+tvb_reported_length	,	F_14
+len	,	V_49
+gint	,	T_5
+"vrrp.type"	,	L_18
+"VRRP version"	,	L_16
+tvb	,	V_1
+guint32	,	T_8
+vrrp_tree	,	V_15
+COL_INFO	,	V_27
+proto_register_vrrp	,	F_24
+vec_t	,	T_7
+FT_BOOLEAN	,	V_68
+VRRP_TYPE_MASK	,	V_65
+"There is some ambigiousy on how to calculate V3 checksums"	,	L_59
+"vrrp.version"	,	L_15
+cinfo	,	V_25
+array_length	,	F_28
+" [correct]"	,	L_7
+"Reserved"	,	L_40
+"vrrp"	,	L_56
+"The authentication method being utilized"	,	L_36
+ENC_ASCII	,	V_59
+"Sending VRRP router's priority for the virtual router"	,	L_25
+PROTO_ITEM_SET_HIDDEN	,	F_20
+"VRRP protocol version"	,	L_14
+proto_tree_add_boolean	,	F_19
+hf_register_info	,	T_12
+"VRRP"	,	L_1
+auth_type	,	V_19
+guint16	,	T_11
+COL_PROTOCOL	,	V_26
+"VRRP type"	,	L_19
+"Addr Count"	,	L_26
+"vrrp.virt_rtr_id"	,	L_21
+ver_type_tree	,	V_16
+guint8	,	T_6
+hf_vrrp_short_adver_int	,	V_42
+ti	,	V_11
+BASE_NONE	,	V_69
+"vrrp.ipv6_addr"	,	L_49
+hf_vrrp_adver_int	,	V_44
+tv	,	V_12
+"Version %u, Packet type %u (%s)"	,	L_3
+vrrp_module	,	V_80
+"Calculate V3 checksum as in V2 for IPv4 packets"	,	L_58
+tvbuff_t	,	T_1
+hf_vrrp_ip6	,	V_54
+tvb_get_ntohs	,	F_13
+BASE_HEX	,	V_67
+gboolean	,	T_9
+dissect_vrrp	,	F_1
+proto_item_add_subtree	,	F_8
+module_t	,	T_15
+fragmented	,	V_46
+VRRP_AUTH_TYPE_SIMPLE_TEXT	,	V_56
+proto_register_field_array	,	F_27
+ei	,	V_75
+"Virtual Router Redundancy Protocol"	,	L_55
+VRRP_AUTH_DATA_LEN	,	V_58
+vrrp_type_vals	,	V_32
+"The number of addresses contained in this VRRP advertisement"	,	L_28
+dissector_add_uint	,	F_36
+g_htonl	,	F_16
+"Announcement (v%u)"	,	L_2
+lo_nibble	,	F_10
+ett_vrrp_ver_type	,	V_33
+tvb_get_ptr	,	F_17
+FT_UINT16	,	V_66
+hi_nibble	,	F_6
+"ip.proto"	,	L_61
+phdr	,	V_9
+tvb_get_guint8	,	F_4
+expert_vrrp	,	V_79
+"vrrp.short_adver_int"	,	L_43
+"Time interval (in centiseconds) between ADVERTISEMENTS"	,	L_44
+hf_vrrp_prio	,	V_38
+"vrrp.checksum_bad"	,	L_33
+ver_type	,	V_7
+FT_STRING	,	V_73
+vrrp_prio_vals	,	V_39
+hf_vrrp_addr_count	,	V_40
+proto_reg_handoff_vrrp	,	F_34
+new_create_dissector_handle	,	F_35
+val_to_str_const	,	F_11
+" [incorrect, should be 0x%04x(check preferences)]"	,	L_8
+PI_WARN	,	V_77
+cksum_vec	,	V_8
+ptr	,	V_48
+ENC_BIG_ENDIAN	,	V_37
+"vrrp.checksum_bad.expert"	,	L_53
+"VRRP packet type"	,	L_17
+"Authentification String"	,	L_51
+IP_PROTO_VRRP	,	V_51
+hf	,	V_60
+"Non-default backup priority"	,	L_6
+"v3_checksum_as_in_v2"	,	L_57
+"Bad checksum"	,	L_54
+"IPv6 Address"	,	L_48
+prefs_register_protocol	,	F_32
+FT_IPv6	,	V_72
+hf_vrrp_checksum	,	V_45
+"vrrp.auth_string"	,	L_52
+col_set_str	,	F_2
+"Time interval (in seconds) between ADVERTISEMENTS"	,	L_39
+proto_tree_add_uint_format	,	F_9
+FT_IPv4	,	V_71
+hidden_item	,	V_13
+proto_item_append_text	,	F_21
+priority	,	V_17
+hf_vrrp_type	,	V_35
+hf_vrrp_version	,	V_34
+g_vrrp_v3_checksum_as_in_v2	,	V_47
+hf_vrrp_reserved_mbz	,	V_41
+"vrrp.auth_type"	,	L_35
+col_clear	,	F_3
+proto_register_subtree_array	,	F_29
+"VRRP message version and type"	,	L_11
+"vrrp.ip_addr"	,	L_46
+"Checksum"	,	L_29
+"VRRP Checksum Incorrect, should be 0x%04x"	,	L_10
+proto_tree_add_item	,	F_7
+in_cksum	,	F_18
+pinfo	,	V_2
+col_add_fstr	,	F_5
+"Priority"	,	L_23
+dissector_handle_t	,	T_16
+cksum	,	V_21
+_U_	,	V_4
+"Virtual Rtr ID"	,	L_20
+checksum_item	,	V_14
+computed_cksum	,	V_22
+"vrrp.typever"	,	L_12
+hf_vrrp_auth_type	,	V_43
+AT_IPv6	,	V_24
+VALS	,	F_25
+"VRRP version and type"	,	L_13
+prefs_register_bool_preference	,	F_33
+vrrp_len	,	V_6
+in_cksum_shouldbe	,	F_22
+"Used to detect data corruption in the VRRP message"	,	L_31
+tvb_length	,	F_15
+FT_UINT8	,	V_61
+BASE_DEC	,	V_62
+proto_item	,	T_10
+expert_register_field_array	,	F_31
+ENC_NA	,	V_29
+expert_add_info_format	,	F_23
+"IPv6 address associated with the virtual router"	,	L_50
+vrrp_handle	,	V_81
+data	,	T_4
+hf_vrrp_ip	,	V_55
+addr_count	,	V_18
+"Bad Checksum"	,	L_32
+ei_register_info	,	T_13
+expert_register_protocol	,	F_30
+proto_vrrp	,	V_28
+"vrrp.addr_count"	,	L_27
+offset	,	V_5
+ett	,	V_74
+expert_module_t	,	T_14
+tree	,	V_3
+packet_info	,	T_2
+hf_vrrp_auth_string	,	V_57
+vrrp_auth_vals	,	V_70
+"Must be zero"	,	L_42
+"vrrp.prio"	,	L_24
+"Adver Int"	,	L_37
+proto_tree_add_uint	,	F_12
+EXPFILL	,	V_78
+"IP Address"	,	L_45
+dst	,	V_50
+PI_CHECKSUM	,	V_76
+"Priority: %u (%s)"	,	L_5
+is_ipv6	,	V_10
+ett_vrrp	,	V_30
+" [incorrect, should be 0x%04x]"	,	L_9
+HFILL	,	V_63
+ei_vrrp_checksum	,	V_53
+hf_vrrp_checksum_bad	,	V_52
+src	,	V_23
+VRRP_AUTH_TYPE_NONE	,	V_20
+"vrrp.adver_int"	,	L_38
+"Virtual router this packet is reporting status for"	,	L_22
+"Unknown"	,	L_4
+VRRP_VERSION_MASK	,	V_64
+"As in V3 will use a pseudo header(which may only be implemented for IPv6 by some manufacturers)"	,	L_60
+proto_tree	,	T_3

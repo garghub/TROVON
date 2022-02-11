@@ -1,0 +1,368 @@
+hf_c1222_neg_pkt_size	,	V_59
+"C12.22 Timing Setup Intercharacter Timeout"	,	L_88
+hf_c1222_write_table	,	V_50
+"C12.22 EPSEM ED Class"	,	L_46
+hf_c1222_timing_setup_traffic	,	V_62
+"C12.22 EPSEM could not be authenticated"	,	L_26
+proto_register_protocol	,	F_47
+"C12.22 Timing Setup Response Timeout"	,	L_90
+"C12.22 unknown command truncated"	,	L_20
+uat_field_t	,	T_17
+"C12.22 EPSEM: %s (pkt size %d, num pkts %d, with %d baud rates)"	,	L_16
+"c1222.epsem.flags.proxy"	,	L_39
+"Invalid key size; must be 16 bytes"	,	L_22
+password	,	V_11
+C1222_CMD_FULL_WRITE	,	V_49
+tvb_new_subset_remaining	,	F_31
+len	,	V_3
+"C12.22 Security Mode Flags"	,	L_42
+tcp_dissect_pdus	,	F_42
+hf_c1222_write_data	,	V_52
+gint	,	T_3
+proto_c1222	,	V_137
+element	,	V_79
+"c1222.authenticate.len"	,	L_63
+tvb	,	V_1
+resp_to	,	V_24
+C1222_CMD_SECURITY	,	V_36
+hf_c1222_epsem_crypto_bad	,	V_131
+guint32	,	T_6
+"C12.22 EPSEM missing"	,	L_23
+FT_BOOLEAN	,	V_146
+"C12.22 Logon User"	,	L_58
+Eax_Decrypt	,	F_21
+"c1222.negotiate.pktsize"	,	L_81
+"Decrypted EPSEM Data"	,	L_24
+ett_c1222_epsem	,	V_165
+"C12.22 Table Data"	,	L_76
+cinfo	,	V_134
+PI_ERROR	,	V_35
+"decryption_table"	,	L_114
+"c1222.read.offset"	,	L_69
+PSNAME	,	V_170
+array_length	,	F_49
+hf_c1222_epsem_flags_response_control	,	V_155
+canonifyTable	,	V_78
+key_id_element	,	V_96
+hf_c1222_epsem_flags_ed_class	,	V_152
+user_name	,	V_10
+c1222_security_modes	,	V_154
+c1222_response_control	,	V_156
+sum	,	V_4
+get_ber_len_size	,	F_13
+proto_item_set_text	,	F_8
+PNAME	,	V_136
+c1222_uat_flds	,	V_167
+crypto_good	,	V_112
+proto_tree_add_boolean	,	F_35
+proto_reg_handoff_c1222	,	V_172
+cmd_err	,	V_109
+hf_register_info	,	T_15
+keybuff	,	V_84
+tvb_new_real_data	,	F_28
+"c1222.logon.user"	,	L_59
+key	,	V_89
+c1222_item	,	V_132
+hf_c1222_epsem_crypto_good	,	V_130
+c1222_handle	,	V_176
+"Unknown (0x%02x)"	,	L_2
+guint16	,	T_7
+"C12.22 EPSEM BER length error"	,	L_29
+COL_PROTOCOL	,	V_135
+ch	,	V_101
+g_free	,	F_17
+i	,	V_86
+hf_c1222_epsem_flags	,	V_116
+c1222_uat	,	V_173
+C1222_EPSEM_FLAG_SECURITY_MODE	,	V_119
+n	,	V_67
+addtag	,	V_81
+ct	,	V_103
+guint8	,	T_1
+t	,	V_77
+tvb_bytes_to_str	,	F_11
+BASE_NONE	,	V_159
+"c1222.data"	,	L_95
+dissect_c1222_common	,	F_37
+C1222_EPSEM_FLAG_RESERVED	,	V_147
+decrypt	,	V_91
+tvb_length_remaining	,	F_26
+"C12.22 EPSEM: %s (%d seconds)"	,	L_14
+buff	,	V_75
+orig_offset	,	V_139
+"C12.22 Timing Setup Number of Retries"	,	L_92
+hf_c1222_epsem_flags_reserved	,	V_145
+C1222_EPSEM_FLAG_ED_CLASS_INCLUDED	,	V_125
+tvbuff_t	,	T_2
+"C12.22 EPSEM: %s (%s-%d)"	,	L_9
+tvb_get_ntohs	,	F_5
+"desegment"	,	L_106
+"C12.22 Security Password"	,	L_60
+inter_char	,	V_23
+len2	,	V_108
+proto_tree_add_bitmask	,	F_25
+"C12.22 data"	,	L_94
+BASE_HEX	,	V_143
+"C12.22 Negotiate Packet Size"	,	L_80
+PROTO_ITEM_SET_GENERATED	,	F_36
+"c1222.negotiate.numpkts"	,	L_83
+"c1222.wait.seconds"	,	L_85
+prefs_register_uat_preference	,	F_54
+FT_UINT24	,	V_163
+gboolean	,	T_11
+"c1222.read.table"	,	L_67
+hf_c1222_read_count	,	V_48
+keynum	,	V_72
+proto_item_add_subtree	,	F_34
+module_t	,	T_16
+UAT_END_FIELDS	,	V_169
+PI_UNDECODED	,	V_124
+UAT_FLD_BUFFER	,	F_46
+proto_register_field_array	,	F_48
+FT_BYTES	,	V_158
+"c1222.epsem.data"	,	L_49
+"C12.22 Negotiate Number of Packets"	,	L_82
+c1222_users	,	V_168
+EAX_SIZEOF_KEY	,	V_74
+"C12.22 Response Control Flags"	,	L_44
+c1222_udp_handle	,	V_177
+key_id	,	V_94
+dissector_add_uint	,	F_56
+"C12.22 EPSEM: %s (%d bytes: %s)"	,	L_7
+"C12.22 EPSEM MAC"	,	L_50
+hf_c1222_security_password	,	V_37
+hf_c1222_epsem_mac	,	V_128
+"C12.22 EPSEM: %s (password \"%s\", id %d)"	,	L_4
+C1222_EPSEM_FLAG_RECOVERY_SESSION	,	V_149
+C1222_CMD_PARTIAL_READ_OFFSET	,	V_45
+FT_UINT16	,	V_160
+"C12.22 EPSEM"	,	L_48
+"c1222.cmd"	,	L_53
+"C12.22 Logon User-Id"	,	L_56
+tvb_get_guint8	,	F_2
+nbr_packet	,	V_21
+"c1222.timingsetup.respto"	,	L_91
+"True: crypto ok; False: doesn't match or not checked"	,	L_98
+"c1222_decryption_table"	,	L_113
+TOP_ELEMENT_CONTROL	,	T_13
+"C12.22 Reserved Flag"	,	L_34
+epsem_buffer	,	V_111
+hf_c1222_timing_setup_resp_to	,	V_64
+crypto_bad	,	V_113
+dissect_c1222	,	F_41
+hf_c1222_read_table	,	V_43
+"C12.22 READ command truncated"	,	L_11
+"c1222.timingsetup.nbrretries"	,	L_93
+"c1222.epsem.flags.ed_class"	,	L_41
+"Key ID"	,	L_102
+hf_c1222_write_size	,	V_51
+"C12.22 WRITE command truncated"	,	L_13
+"C12.22 ED Class missing"	,	L_28
+"C12.22 MAC missing"	,	L_31
+c1222_tree	,	V_133
+"C12.22 Offset"	,	L_68
+C1222_CMD_AUTHENTICATE	,	V_38
+"C12.22 Command"	,	L_52
+"C12.22 EPSEM could not be decrypted"	,	L_27
+"c1222.write.data"	,	L_77
+"C12.22 NEGOTIATE command truncated"	,	L_17
+FT_STRING	,	V_162
+"c1222.write.chksum"	,	L_79
+"C12.22 EPSEM: %s (id %d, user \"%s\")"	,	L_1
+"C12.22 Timing Setup Channel Traffic Timeout"	,	L_86
+hf_c1222_auth_len	,	V_39
+c1222_module	,	V_166
+auth_req	,	V_13
+"Verify crypto for all applicable C12.22 messages"	,	L_110
+ett_c1222_flags	,	V_117
+hf_c1222_epsem_total	,	V_123
+"c1222.write.offset"	,	L_73
+"C12.22 Table Size"	,	L_74
+"Key"	,	L_104
+length	,	V_8
+CANONBUFFSIZE	,	F_20
+"c1222.epsem.flags.security"	,	L_43
+"c1222.epsem.edclass"	,	L_47
+"C12.22 Authenticate Data"	,	L_64
+PI_WARN	,	V_122
+ett_c1222	,	V_138
+"C12.22 Response"	,	L_54
+wait_seconds	,	V_18
+ptr	,	V_68
+ENC_BIG_ENDIAN	,	V_47
+"C12.22 Table"	,	L_66
+"c1222.epsem.flags.recovery"	,	L_37
+"C12.22 Proxy Service Used Flag"	,	L_38
+packet_size	,	V_20
+hf_c1222_epsem_flags_recovery	,	V_148
+"c1222.epsem.flags.reserved"	,	L_35
+hf_c1222_epsem_flags_proxy	,	V_150
+"Invalid key number; must be less than 256"	,	L_21
+EAX_MODE_CLEARTEXT_AUTH	,	V_99
+hf	,	V_141
+PFNAME	,	V_171
+"c1222.write.size"	,	L_75
+"decrypt"	,	L_109
+uat_new	,	F_53
+keylen	,	V_73
+tblsize	,	V_15
+"C12.22 LOGON command truncated"	,	L_3
+required	,	V_80
+prefs_register_protocol	,	F_51
+hf_c1222_epsem_flags_security_modes	,	V_153
+"c1222.epsem.mac"	,	L_51
+C1222_CMD_PARTIAL_WRITE_OFFSET	,	V_55
+truncate	,	V_83
+ber_len_ok	,	F_22
+C1222_EPSEM_FLAG_RESPONSE_CONTROL	,	V_157
+col_set_str	,	F_38
+hf_c1222_timing_setup_nbr_retries	,	V_65
+yt	,	V_105
+MAC_T	,	V_97
+item	,	V_26
+"Unknown (0x%04x)"	,	L_10
+"C12.22 Count"	,	L_70
+guchar	,	T_12
+hf_c1222_cmd	,	V_28
+c1222_flags	,	V_118
+tvb_memdup	,	F_27
+hf_c1222_write_offset	,	V_56
+user_id	,	V_9
+EAX_MODE_CIPHERTEXT_AUTH	,	V_98
+proto_register_subtree_array	,	F_50
+UAT_AFFECTS_DISSECTION	,	V_174
+proto_tree_add_string	,	F_7
+val_to_str	,	F_9
+cmd	,	V_7
+maxsize	,	V_69
+chksum	,	V_16
+hf_c1222_write_chksum	,	V_53
+status	,	V_95
+"C12.22 WAIT command truncated"	,	L_15
+parse_c1222_detailed	,	F_3
+proto_tree_add_item	,	F_12
+pinfo	,	V_5
+keylookup	,	F_18
+_U_	,	V_100
+flags	,	V_106
+hf_c1222_neg_nbr_pkts	,	V_60
+dissect_C1222_MESSAGE_PDU	,	F_39
+C1222_CMD_LOGON	,	V_30
+"C12.22 EPSEM field length error"	,	L_30
+"Table of security parameters for decryption of C12.22 packets"	,	L_115
+C1222_CMD_NEGOTIATE	,	V_27
+initialized	,	V_175
+VALS	,	F_44
+prefs_register_bool_preference	,	F_52
+table	,	V_14
+tvb_get_ephemeral_string	,	F_6
+c1222_key	,	V_93
+err	,	V_70
+FT_UINT8	,	V_142
+BASE_DEC	,	V_161
+proto_item	,	T_9
+global_c1222_port	,	V_178
+"c1222.timingsetup.traffic"	,	L_87
+ENC_NA	,	V_41
+new_rec	,	V_71
+hasmac	,	V_114
+crypto_tree	,	V_104
+expert_add_info_format	,	F_10
+"c1222.err"	,	L_55
+"C12.22 EPSEM: %s (password \"%s\")"	,	L_5
+"Key identifier in hexadecimal"	,	L_103
+c1222_cksum	,	F_1
+calcsum	,	V_17
+get_c1222_message_len	,	F_40
+tvb_offset_exists	,	F_23
+"c1222.crypto_bad"	,	L_100
+"True: crypto bad; False: crypto ok or not checked"	,	L_101
+"c1222.read.count"	,	L_71
+"C12.22 Authenticate Request Length"	,	L_62
+"c1222.epsem.flags.response_control"	,	L_45
+"Reassemble all C12.22 messages spanning multiple TCP segments"	,	L_107
+hf_c1222_auth_data	,	V_40
+"Encryption key as 16-byte hex string"	,	L_105
+c1222_uat_data	,	V_87
+"Crypto bad"	,	L_99
+"C12.22 EPSEM failed authentication"	,	L_25
+"C12.22 Recovery Flag"	,	L_36
+"Crypto good"	,	L_96
+hf_c1222_logon_id	,	V_31
+ett_c1222_crypto	,	V_129
+hf_c1222_wait_secs	,	V_58
+buffsize	,	V_76
+num_c1222_uat_data	,	V_88
+tag	,	V_82
+buffer	,	V_90
+auth_len	,	V_12
+"C12.22 EPSEM Flags"	,	L_32
+"c1222.crypto_good"	,	L_97
+traffic	,	V_22
+C1222_CMD_WAIT	,	V_57
+"C12.22 EPSEM: %s (traffic to %d s, inter-char to %d s, response to %d s, %d retries)"	,	L_18
+numrates	,	V_19
+guint	,	T_14
+offset	,	V_2
+hf_c1222_epsem_ed_class	,	V_126
+ett	,	V_164
+"C12.22 ED Class Flag"	,	L_40
+nbr_retries	,	V_25
+"C12.22 SECURITY command truncated"	,	L_6
+tree	,	V_6
+keyid	,	V_85
+"C12.22 EPSEM: %s"	,	L_19
+UAT_FLD_HEX	,	F_45
+"C12.22 Table Data Checksum"	,	L_78
+c1222_desegment	,	V_140
+packet_info	,	T_4
+C1222_CMD_FULL_READ	,	V_42
+add_new_data_source	,	F_30
+cmd_tree	,	V_102
+"c1222.write.table"	,	L_72
+"Whether the C12.22 dissector should verify the crypto for all relevant messages"	,	L_111
+"Decryption Table"	,	L_112
+commandnames	,	V_33
+proto_tree_add_uint	,	F_4
+hf_c1222_timing_setup_inter_char	,	V_63
+ett_c1222_cmd	,	V_127
+tvb_set_child_real_data_tvbuff	,	F_29
+PI_SECURITY	,	V_121
+PI_CHECKSUM	,	V_54
+"c1222.timingsetup.interchar"	,	L_89
+tableflags	,	V_44
+hf_c1222_read_offset	,	V_46
+proto_register_c1222	,	F_43
+"c1222.logon.id"	,	L_57
+decrypt_packet	,	F_19
+PI_MALFORMED	,	V_34
+HFILL	,	V_144
+hf_c1222_logon_user	,	V_32
+canonbuff	,	V_92
+ind	,	V_110
+"Whether the C12.22 dissector should reassemble all messages spanning multiple TCP segments"	,	L_108
+c1222_decrypt	,	V_120
+encode_ber_len	,	F_14
+canonify_unencrypted_header	,	F_16
+"udp.port"	,	L_117
+gchar	,	T_8
+hf_c1222_data	,	V_66
+create_dissector_handle	,	F_55
+"Bad checksum [should be 0x%02x]"	,	L_12
+HAVE_LIBGCRYPT	,	F_32
+dissect_epsem	,	F_24
+dissect_ber_length	,	F_33
+C1222_CMD_TIMING_SETUP	,	V_61
+c1222_uat_data_update_cb	,	F_15
+"C12.22 AUTHENTICATE command truncated"	,	L_8
+local_offset	,	V_107
+C1222_EPSEM_FLAG_PROXY_SERVICE_USED	,	V_151
+"c1222.authenticate.data"	,	L_65
+encrypted	,	V_115
+"c1222.security.password"	,	L_61
+"c1222.epsem.flags"	,	L_33
+"C12.22 Wait Seconds"	,	L_84
+hf_c1222_err	,	V_29
+c1222_uat_data_t	,	T_10
+"tcp.port"	,	L_116
+proto_tree	,	T_5

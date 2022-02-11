@@ -1,0 +1,240 @@
+PAGP_TLV_RESERVED	,	V_87
+"pagp.partnerlearncap"	,	L_53
+"Remote group capability"	,	L_63
+"Unknown PDU version"	,	L_3
+tvb_get_string	,	F_21
+"pagp.partnerportpri"	,	L_56
+proto_register_protocol	,	F_27
+PAGP_PARTNER_PORT_PRIORITY	,	V_66
+hf_pagp_local_group_ifindex	,	V_61
+hf_pagp_tlv_agport_mac	,	V_86
+"Version"	,	L_18
+len	,	V_8
+FT_ETHER	,	V_95
+gint	,	T_10
+"%sAuto Mode"	,	L_9
+automode	,	V_94
+"Local Port Hot Standby Priority"	,	L_37
+TFS	,	F_26
+tvb	,	V_1
+guint32	,	T_4
+"Entry"	,	L_72
+COL_INFO	,	V_24
+pdu_vers	,	V_30
+FT_BOOLEAN	,	V_92
+hf_pagp_flush_transaction_id	,	V_38
+tvb_reported_length_remaining	,	F_20
+hf_pagp_partner_port_priority	,	V_67
+cinfo	,	V_22
+"Remote learn capability"	,	L_54
+array_length	,	F_29
+"llc.cisco_pid"	,	L_93
+tlv_item	,	V_20
+PAGP_LOCAL_GROUP_IFINDEX	,	V_60
+hf_pagp_partner_device_id	,	V_63
+hf_pagp_num_tlvs	,	V_77
+"Local Group Capability"	,	L_43
+col_append_str	,	F_8
+"Type = %d (%s)"	,	L_14
+hf_pagp_flush_partner_device_id	,	V_36
+"Length = %u bytes (includes Type and Length)"	,	L_16
+proto_tree_add_boolean	,	F_15
+hf_register_info	,	T_9
+"pagp.localportpri"	,	L_38
+current_proto	,	V_25
+"Slow Hello"	,	L_24
+"pagp.partnergroupcap"	,	L_62
+sep	,	V_21
+guint16	,	T_5
+COL_PROTOCOL	,	V_23
+ch	,	V_14
+"pagp.flushlocaldevid"	,	L_85
+hf_pagp_local_device_id	,	V_51
+hf_pagp_partner_group_capability	,	V_71
+"1 = using Slow Hello, 0 = Slow Hello disabled"	,	L_26
+"pagp.flushpartnerdevid"	,	L_87
+guint8	,	T_6
+BASE_NONE	,	V_96
+"Partner Port Hot Standby Priority"	,	L_55
+"Unknown data - TLV len=0"	,	L_12
+"Transaction ID"	,	L_89
+"pagp.localearncap"	,	L_36
+tvb_get_ntohl	,	F_13
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_5
+"pagp.localgroupifindex"	,	L_47
+"pagp.localdevid"	,	L_34
+tvb_get_ntohs	,	F_17
+BASE_HEX	,	V_90
+hf_pagp_tlv	,	V_79
+flags_tree	,	V_17
+PAGP_LOCAL_SENT_PORT_IFINDEX	,	V_56
+PAGP_PARTNER_DEVICE_ID	,	V_62
+proto_item_add_subtree	,	F_6
+hf_pagp_partner_count	,	V_75
+proto_register_field_array	,	F_28
+"Name of port used to send PDU"	,	L_80
+PAGP_FLUSH_TRANSACTION_ID	,	V_37
+dissector_add_uint	,	F_33
+"Port Aggregation Protocol"	,	L_2
+FT_UINT16	,	V_100
+tvb_get_guint8	,	F_4
+PAGP_TLV_PORT_NAME	,	V_83
+"1 = Auto Mode enabled, 0 = Desirable Mode"	,	L_29
+"Flush transaction ID"	,	L_91
+PAGP_VERSION_NUMBER	,	V_26
+"Number of TLVs following"	,	L_71
+")"	,	L_11
+"Remote group interface index"	,	L_66
+raw_octet	,	V_12
+hf_pagp_version_number	,	V_29
+raw_word	,	V_4
+tvb_ether_to_str	,	F_11
+raw_half_word	,	V_5
+"Information flags"	,	L_23
+"pagp.localgroupcap"	,	L_44
+PAGP_LOCAL_PORT_PRIORITY	,	V_54
+"Local Sent Port ifindex"	,	L_40
+FT_STRING	,	V_101
+PAGP_NUM_TLVS	,	V_76
+hf_pagp_local_port_priority	,	V_55
+PAGP_FIRST_TLV	,	V_11
+"Partner Group ifindex"	,	L_64
+val_to_str_const	,	F_9
+"Local Device ID"	,	L_33
+"%sSlow Hello"	,	L_8
+PAGP_PARTNER_SENT_PORT_IFINDEX	,	V_68
+"TLV length too large"	,	L_17
+"The local hot standby priority assigned to this port"	,	L_39
+FT_UINT32	,	V_99
+PAGP_FLUSH_PDU	,	V_31
+pagp_item	,	V_16
+ett_pagp_flags	,	V_41
+proto_pagp	,	V_27
+hf	,	V_88
+tlv	,	V_7
+hf_pagp_tlv_port_name	,	V_84
+PAGP_LOCAL_LEARN_CAP	,	V_52
+hf_pagp_flags_slow_hello	,	V_44
+"pagp.partnerdevid"	,	L_50
+"; Local DevID: %s"	,	L_4
+hf_pagp_tlv_device_name	,	V_82
+"pagp.version"	,	L_19
+pagp_handle	,	V_103
+PAGP_FLUSH_PARTNER_DEVICE_ID	,	V_35
+"pagp.flags.automode"	,	L_28
+PAGP_PARTNER_GROUP_CAPABILITY	,	V_70
+col_append_fstr	,	F_10
+col_set_str	,	F_2
+hf_pagp_local_group_capability	,	V_59
+"Flags"	,	L_21
+"1 = Consistent State, 0 = Not Ready"	,	L_32
+PAGP_FLAGS_CONSISTENT_STATE	,	V_47
+hf_pagp_local_sent_port_ifindex	,	V_57
+PAGP_PARTNER_COUNT	,	V_74
+proto_tree_add_uint_format	,	F_19
+ii	,	V_9
+tlv_types	,	V_80
+num_tlvs	,	V_6
+"Partner Learn Capability"	,	L_52
+guchar	,	T_7
+ett_pagp_tlvs	,	V_78
+"pagp.tlvportname"	,	L_79
+PAGP_TLV_DEVICE_NAME	,	V_81
+"Partner Group Capability"	,	L_61
+PAGP_FLAGS_SLOW_HELLO	,	V_43
+proto_item_append_text	,	F_16
+"pagp.partnersentportifindex"	,	L_59
+"pagp.partnercount"	,	L_68
+"pagp.flags.state"	,	L_31
+"The local group interface index"	,	L_48
+PAGP_LOCAL_DEVICE_ID	,	V_50
+col_clear	,	F_3
+"Partner Count"	,	L_67
+"Identifies the PAgP PDU version: 1 = Info, 2 = Flush"	,	L_20
+proto_register_subtree_array	,	F_30
+"Partner Device ID"	,	L_49
+proto_tree_add_string	,	F_23
+"pagp.tlvagportmac"	,	L_82
+proto_tree_add_item	,	F_12
+"pagp.partnergroupifindex"	,	L_65
+pinfo	,	V_2
+dissector_handle_t	,	T_11
+"pagp.tlvdevname"	,	L_76
+flags	,	V_13
+proto_register_pagp	,	F_24
+"Flush Local Device ID"	,	L_84
+hf_pagp_flush_local_device_id	,	V_33
+"pagp.transid"	,	L_90
+PAGP_FLAGS	,	V_39
+"pagp.tlv"	,	L_73
+pagp_tree	,	V_15
+VALS	,	F_25
+"pagp.localsentportifindex"	,	L_41
+PAGP_LOCAL_GROUP_CAPABILITY	,	V_58
+dissect_pagp	,	F_1
+FT_UINT8	,	V_89
+proto_tree_add_text	,	F_18
+BASE_DEC	,	V_98
+initial_sep	,	V_42
+PAGP_FLUSH_LOCAL_DEVICE_ID	,	V_32
+proto_item	,	T_8
+"PAGP"	,	L_1
+"pagp.flags.slowhello"	,	L_25
+ENC_NA	,	V_34
+"TLV Entry #%d"	,	L_13
+flags_item	,	V_18
+"Device Name"	,	L_75
+"Type/Length/Value"	,	L_74
+ett_pagp	,	V_28
+hf_pagp_partner_learn_cap	,	V_65
+"sysName of device"	,	L_77
+hf_pagp_partner_sent_port_ifindex	,	V_69
+"Source MAC on frames for this aggregate"	,	L_83
+PAGP_FLAGS_AUTO_MODE	,	V_45
+"Consistent State"	,	L_30
+hf_pagp_flags_consistent_state	,	V_48
+"Flush remote device ID"	,	L_88
+"Remote port priority"	,	L_57
+"pagp.numtlvs"	,	L_70
+"Partner Sent Port ifindex"	,	L_58
+offset	,	V_10
+hf_pagp_local_learn_cap	,	V_53
+ett	,	V_102
+wmem_packet_scope	,	F_22
+tree	,	V_3
+hf_pagp_partner_group_ifindex	,	V_73
+hf_pagp_flags	,	V_40
+"Remote port interface index sent"	,	L_60
+packet_info	,	T_2
+"Remote Device ID (MAC)"	,	L_51
+tfs_yes_no	,	V_93
+"Local Group ifindex"	,	L_46
+proto_reg_handoff_pagp	,	F_31
+hf_pagp_flags_auto_mode	,	V_46
+PAGP_PARTNER_GROUP_IFINDEX	,	V_72
+"pagp"	,	L_92
+"%sConsistent State"	,	L_10
+PAGP_TLV_AGPORT_MAC	,	V_85
+proto_tree_add_uint	,	F_7
+"Local Learn Capability"	,	L_35
+"Number of TLVs"	,	L_69
+tlv_tree	,	V_19
+"; Flags 0x%x"	,	L_7
+APPEND_BOOLEAN_FLAG	,	F_14
+HFILL	,	V_91
+"Flush Partner Device ID"	,	L_86
+learn_cap	,	V_97
+"Agport MAC Address"	,	L_81
+"Auto Mode"	,	L_27
+PAGP_PARTNER_LEARN_CAP	,	V_64
+"; Transaction ID: 0x%x "	,	L_6
+create_dissector_handle	,	F_32
+"Physical Port Name"	,	L_78
+"The local group capability"	,	L_45
+"Unknown"	,	L_15
+", Partner DevID: %s"	,	L_5
+cont_sep	,	V_49
+proto_tree	,	T_3
+"pagp.flags"	,	L_22
+"The interface index of the local port used to send PDU"	,	L_42

@@ -1,0 +1,117 @@
+DVB_SDT_RESERVED3_MASK	,	V_45
+"Service ID"	,	L_18
+proto_register_protocol	,	F_13
+ett_dvb_sdt	,	V_16
+proto_mpeg_descriptor_loop_dissect	,	F_8
+"dvb_sdt.reserved1"	,	L_6
+hf_dvb_sdt_eit_present_following_flag	,	V_30
+"Current/Next Indicator"	,	L_9
+col_set_str	,	F_2
+gint	,	T_8
+DVB_SDT_DESCRIPTORS_LOOP_LENGTH_MASK	,	V_34
+dvb_sdt_free_ca_mode_vals	,	V_50
+"dvb_sdt.version"	,	L_8
+"dvb_sdt.svc.eit_present_following_flag"	,	L_24
+tvb	,	V_1
+hf_dvb_sdt_current_next_indicator	,	V_21
+COL_INFO	,	V_13
+dvb_sdt_running_status_vals	,	V_48
+DVB_SDT_VERSION_NUMBER_MASK	,	V_41
+dvb_sdt_handle	,	V_53
+hf_dvb_sdt_free_ca_mode	,	V_32
+"mpeg_sect.tid"	,	L_34
+DVB_SDT_RESERVED1_MASK	,	V_40
+cinfo	,	V_12
+proto_register_subtree_array	,	F_16
+"Free CA Mode"	,	L_27
+array_length	,	F_15
+"DVB Service Description Table"	,	L_31
+"Reserved"	,	L_5
+"dvb_sdt.original_nid"	,	L_16
+dissect_dvb_sdt	,	F_1
+hf_dvb_sdt_reserved2	,	V_25
+hf_dvb_sdt_reserved3	,	V_28
+proto_reg_handoff_dvb_sdt	,	F_17
+proto_tree_add_item	,	F_3
+hf_dvb_sdt_reserved1	,	V_19
+pinfo	,	V_2
+dissector_handle_t	,	T_9
+hf_dvb_sdt_running_status	,	V_31
+"Section Number"	,	L_11
+descriptor_len	,	V_6
+"dvb_sdt.sect_num"	,	L_12
+DVB_SDT_CURRENT_NEXT_INDICATOR_MASK	,	V_44
+"dvb_sdt.svc.free_ca_mode"	,	L_28
+si	,	V_10
+hf_register_info	,	T_7
+VALS	,	F_12
+"Original Network ID"	,	L_15
+"dvb_sdt.svc.descr_loop_len"	,	L_30
+guint16	,	T_5
+"dvb_sdt.last_sect_num"	,	L_14
+"Descriptors Loop Length"	,	L_29
+FT_UINT8	,	V_39
+proto_tree_add_text	,	F_7
+BASE_DEC	,	V_42
+proto_item	,	T_6
+hf_dvb_sdt_descriptors_loop_length	,	V_33
+DVB_SDT_FREE_CA_MODE_MASK	,	V_51
+"Service 0x%04hx"	,	L_2
+"dvb_sdt.cur_next_ind"	,	L_10
+ENC_NA	,	V_15
+"EIT Present Following Flag"	,	L_23
+ti	,	V_8
+proto_register_dvb_sdt	,	F_11
+"DVB SDT"	,	L_32
+DVB_SDT_TID_ACTUAL	,	V_54
+"dvb_sdt.svc.id"	,	L_19
+tvbuff_t	,	T_1
+tvb_get_ntohs	,	F_6
+hf_dvb_sdt_last_section_number	,	V_23
+BASE_HEX	,	V_37
+DVB_SDT_TID_OTHER	,	V_55
+"Last Section Number"	,	L_13
+DVB_SDT_EIT_PRESENT_FOLLOWING_FLAG_MASK	,	V_47
+hf_dvb_sdt_service_id	,	V_27
+DVB_SDT_EIT_SCHEDULE_FLAG_MASK	,	V_46
+proto_item_add_subtree	,	F_4
+hf_dvb_sdt_eit_schedule_flag	,	V_29
+hf_dvb_sdt_transport_stream_id	,	V_17
+proto_register_field_array	,	F_14
+dvb_sdt_tree	,	V_9
+guint	,	T_4
+offset	,	V_4
+ett	,	V_52
+dissector_add_uint	,	F_19
+tree	,	V_3
+FT_UINT16	,	V_36
+packet_info	,	T_2
+"Transport Stream ID"	,	L_3
+dvb_sdt_cur_next_vals	,	V_43
+svc_id	,	V_7
+hf_dvb_sdt_section_number	,	V_22
+"Running Status"	,	L_25
+packet_mpeg_sect_header	,	F_5
+"dvb_sdt.tsid"	,	L_4
+"dvb_sdt.svc.eit_schedule_flag"	,	L_22
+dvb_sdt_service_tree	,	V_11
+hf_dvb_sdt_original_network_id	,	V_24
+ett_dvb_sdt_service	,	V_26
+"Service Description Table (SDT)"	,	L_1
+proto_dvb_sdt	,	V_14
+"dvb_sdt.svc.reserved"	,	L_20
+HFILL	,	V_38
+"EIT Schedule Flag"	,	L_21
+"Version Number"	,	L_7
+"dvb_sdt"	,	L_33
+length	,	V_5
+hf_dvb_sdt_version_number	,	V_20
+create_dissector_handle	,	F_18
+packet_mpeg_sect_crc	,	F_9
+proto_item_set_len	,	F_10
+"dvb_sdt.reserved2"	,	L_17
+ENC_BIG_ENDIAN	,	V_18
+DVB_SDT_RUNNING_STATUS_MASK	,	V_49
+"dvb_sdt.svc.running_status"	,	L_26
+proto_tree	,	T_3
+hf	,	V_35

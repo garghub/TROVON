@@ -1,0 +1,196 @@
+proto_register_protocol	,	F_29
+drda_opcode_vals_ext	,	V_29
+"DSSFMT type"	,	L_30
+dissect_drda	,	F_2
+tcp_dissect_pdus	,	F_22
+gint	,	T_4
+hf_drda_ddm_fmt_samecorr	,	V_41
+TFS	,	F_27
+tvb	,	V_2
+drda_dsstyp_abbr	,	V_77
+COL_INFO	,	V_18
+"drda.ddm.codepoint"	,	L_38
+val_to_str_ext	,	F_9
+FT_BOOLEAN	,	V_71
+dissect_drda_heur	,	F_23
+"drda.ddm.ddmid"	,	L_11
+cinfo	,	V_14
+drda_tree	,	V_23
+PI_ERROR	,	V_21
+"Format"	,	L_13
+tfs_set_notset	,	V_72
+DRDA_DSSFMT_CHAINED	,	V_74
+hf_drda_ddm_fmt_reserved	,	V_38
+array_length	,	F_31
+"Data (ASCII)"	,	L_44
+"Reserved"	,	L_16
+next_tvb	,	V_55
+proto_register_drda	,	F_26
+" (%s)"	,	L_5
+hf_drda_param_data_ebcdic	,	V_52
+col_append_str	,	F_5
+hf_drda_ddm_magic	,	V_35
+proto_tree_add_boolean	,	F_15
+hf_register_info	,	T_11
+"Unknown (0x%02x)"	,	L_4
+ett_drda	,	V_30
+guint16	,	T_5
+COL_PROTOCOL	,	V_15
+"DDM format"	,	L_15
+"DSSFMT reserved"	,	L_18
+hf_drda_sqlstatement	,	V_56
+"Reassemble DRDA messages spanning multiple TCP segments"	,	L_58
+guint8	,	T_6
+"DDM magic"	,	L_12
+iFormatFlags	,	V_9
+ti	,	V_26
+BASE_NONE	,	V_80
+drdaroot_tree	,	V_24
+cOuterLength	,	V_61
+"Param data left as ASCII for display"	,	L_46
+tvb_length_remaining	,	F_17
+ett_drda_ddm_format	,	V_37
+"DSSFMT same correlation"	,	L_27
+tvbuff_t	,	T_1
+DRDA_TEXT_DDM	,	V_31
+tvb_get_ntohs	,	F_7
+"desegment"	,	L_57
+conversation_set_dissector	,	F_25
+BASE_HEX	,	V_70
+proto_reg_handoff_drda	,	F_36
+ett_drda_ddm	,	V_32
+gboolean	,	T_8
+iDSSFlags	,	V_11
+proto_item_add_subtree	,	F_12
+module_t	,	T_12
+proto_register_field_array	,	F_30
+conversation	,	V_60
+drda_init	,	F_1
+"Invalid length detected (%u): should be at least 10 bytes long"	,	L_3
+"drda.ddm.length2"	,	L_35
+iDSSType	,	V_10
+FT_UINT16	,	V_66
+"drda"	,	L_56
+register_init_routine	,	F_35
+tvb_get_guint8	,	F_14
+"SQL statement (ASCII)"	,	L_50
+"Code point"	,	L_37
+"DSSFMT chained"	,	L_21
+fd	,	V_16
+"drda.param.length"	,	L_40
+"DSSFMT continue on error"	,	L_24
+"DDM length2"	,	L_36
+"DDM code point"	,	L_39
+heur_dissector_add	,	F_37
+FT_STRING	,	V_79
+"drda.ddm.fmt.bit3"	,	L_26
+hf_drda_ddm_fmt_chained	,	V_39
+DRDA_DSSFMT_CONTINUE	,	V_75
+"SQL statement"	,	L_6
+ENC_BIG_ENDIAN	,	V_34
+drda_tcp_handle	,	V_64
+hf_drda_sqlstatement_ebcdic	,	V_57
+"drda.ddm.fmt.bit2"	,	L_23
+"drda.ddm.format"	,	L_14
+find_or_create_conversation	,	F_24
+"DRDA"	,	L_1
+hf	,	V_65
+"drda.param.data"	,	L_45
+"DSS type"	,	L_28
+"drda.ddm.fmt.dsstyp"	,	L_29
+"drda.ddm.rqscrr"	,	L_32
+iLengthParam	,	V_13
+"Param length"	,	L_41
+"DDM length"	,	L_9
+"CorrelId"	,	L_31
+prefs_register_protocol	,	F_33
+BASE_EXT_STRING	,	V_78
+"drda.ddm.fmt.bit1"	,	L_20
+col_set_str	,	F_3
+proto_item_append_text	,	F_11
+hf_drda_ddm_rc	,	V_43
+drda_tree_sub	,	V_25
+"drda.ddm.fmt.bit0"	,	L_17
+col_clear	,	F_4
+DRDA_TEXT_PARAM	,	V_46
+proto_register_subtree_array	,	F_32
+iPreviousFrameNumber	,	V_1
+proto_tree_add_item	,	F_10
+pinfo	,	V_3
+_U_	,	V_58
+"drda.sqlstatement"	,	L_51
+"Chained"	,	L_19
+iParameterCP	,	V_12
+"SQL statement (EBCDIC)"	,	L_53
+iLength	,	V_7
+" multiple TCP segments."	,	L_60
+DRDA_CP_SQLSTT	,	V_54
+"drda.param.data.ebcdic"	,	L_48
+"Magic"	,	L_10
+VALS	,	F_28
+prefs_register_bool_preference	,	F_34
+"drda.sqlstatement.ebcdic"	,	L_54
+tvb_length	,	F_6
+FT_UINT8	,	V_69
+proto_tree_add_text	,	F_13
+BASE_DEC	,	V_67
+tvb_new_subset	,	F_18
+proto_item	,	T_7
+" | "	,	L_2
+ENC_NA	,	V_28
+"SQL statement left as ASCII for display"	,	L_52
+drda_module	,	V_82
+expert_add_info_format	,	F_8
+"Param data converted from EBCDIC to ASCII for display"	,	L_49
+drda_opcode_abbr_ext	,	V_22
+DRDA_DSSFMT_RESERVED	,	V_73
+hf_drda_ddm_fmt_dsstyp	,	V_42
+DRDA_DSSFMT_SAME_CORR	,	V_76
+hf_drda_ddm_format	,	V_36
+"Same correlation"	,	L_25
+"Continue"	,	L_22
+data	,	T_9
+"Length2"	,	L_34
+iCommandEnd	,	V_8
+num	,	V_17
+"SQL statement converted from EBCDIC to ASCII for display"	,	L_55
+hf_drda_ddm_length2	,	V_44
+dissect_drda_tcp	,	F_21
+"Param code point"	,	L_43
+"tcp"	,	L_64
+iCommand	,	V_6
+hf_drda_ddm_fmt_errcont	,	V_40
+"Data (EBCDIC)"	,	L_47
+conversation_t	,	T_10
+drda_desegment	,	V_59
+guint	,	V_19
+"Length"	,	L_7
+offset	,	V_5
+ett	,	V_81
+tree	,	V_4
+get_drda_pdu_len	,	F_20
+hf_drda_param_codepoint	,	V_49
+packet_info	,	T_2
+" \"Allow subdissectors to reassemble TCP streams\""	,	L_62
+add_new_data_source	,	F_19
+"drda.param.codepoint"	,	L_42
+proto_tree_add_uint	,	F_16
+ett_drda_param	,	V_47
+hf_drda_ddm_codepoint	,	V_45
+cInnerLength	,	V_62
+"DDM correlation identifier"	,	L_33
+" To use this option, you must also enable"	,	L_61
+hf_drda_ddm_length	,	V_33
+hf_drda_param_length	,	V_48
+"Whether the DRDA dissector should reassemble messages spanning"	,	L_59
+PI_MALFORMED	,	V_20
+HFILL	,	V_68
+proto_drda	,	V_27
+hf_drda_param_data	,	V_50
+create_dissector_handle	,	F_38
+"drda.ddm.length"	,	L_8
+DRDA_MAGIC	,	V_63
+" in the TCP protocol settings."	,	L_63
+ENC_UTF_8	,	V_51
+proto_tree	,	T_3
+ENC_EBCDIC	,	V_53

@@ -1,0 +1,357 @@
+"lwres.authtype"	,	L_49
+"Address family"	,	L_120
+"lwres srv prio"	,	L_91
+"Address type"	,	L_100
+proto_register_protocol	,	F_35
+hf_version	,	V_136
+hf_authlen	,	V_143
+check_col	,	F_29
+rdata_resp_item	,	V_91
+"Version"	,	L_30
+len	,	V_53
+rec_item	,	V_65
+"lwres adn namelen"	,	L_104
+"lwres rflags"	,	L_56
+gint	,	T_11
+ett_srv_rec	,	V_68
+hf_recvlen	,	V_141
+curr	,	V_52
+LW_VERSION_OFFSET	,	V_121
+"Port"	,	L_95
+LWRES_OPCODE_NOOP	,	V_144
+tvb	,	V_1
+guint32	,	T_3
+COL_INFO	,	V_130
+"lwres listener UDP Port"	,	L_133
+ett_adn_alias	,	V_33
+"Time To Live"	,	L_69
+rdtype	,	V_89
+"Real doname name"	,	L_81
+realnamelen	,	V_19
+version	,	V_109
+datalen	,	V_103
+hf_adn_naddrs	,	V_48
+cinfo	,	V_118
+noop_tree	,	V_105
+ett_noop	,	V_106
+"lwres.authlen"	,	L_52
+authlength	,	V_111
+"lwres.recvlen"	,	L_46
+LW_PKTFLASG_OFFSET	,	V_122
+message_types_values	,	V_131
+array_length	,	F_37
+dissect_noop	,	F_22
+hf_rdclass	,	V_85
+"lwres.adn.namelen"	,	L_103
+hf_length	,	V_107
+adn_request_item	,	V_36
+"lwres.srv.port"	,	L_96
+ENC_ASCII	,	V_31
+hf_nrdatas	,	V_95
+"lwres adn flags"	,	L_99
+proto_item_set_text	,	F_16
+lwres_item	,	V_117
+LW_OPCODE_OFFSET	,	V_124
+"(if other than the default of 921)"	,	L_135
+"lwres class"	,	L_59
+"MX record: pri=%d,dname=%s"	,	L_15
+result	,	V_113
+"lwres authtype"	,	L_50
+srv_rec_tree	,	V_66
+hf_register_info	,	T_10
+dissect_ns_records	,	F_19
+LW_LENGTH_OFFSET	,	V_120
+hf_adn_realname	,	V_30
+"Weight"	,	L_92
+hf_adn_family	,	V_13
+lwres_module	,	V_159
+guint16	,	T_4
+ett_a_rec	,	V_56
+COL_PROTOCOL	,	V_119
+"MX records (%d)"	,	L_14
+i	,	V_16
+hf_ttl	,	V_94
+"lwres authlen"	,	L_53
+"lwres adn addr addr"	,	L_128
+"lwres.version"	,	L_31
+"lwres realnamelen"	,	L_80
+"Set the UDP port for lwres daemon"	,	L_134
+"Addr: %s"	,	L_8
+BASE_NONE	,	V_156
+"udp.lwres_port"	,	L_132
+"lwres.flags"	,	L_34
+"Number of signature records"	,	L_75
+"Number of aliases"	,	L_108
+"lwres.adn.naddrs"	,	L_112
+"lwres.serial"	,	L_37
+ns_rec_item	,	V_77
+tvb_get_ntohl	,	F_2
+tvbuff_t	,	T_1
+opcode_values	,	V_132
+"lwres.srv.priority"	,	L_90
+"lwres adn addrtype"	,	L_102
+opcode	,	V_112
+"lwres.realnamelen"	,	L_79
+tvb_get_ntohs	,	F_3
+proto_lwres	,	V_134
+"lwres.nrdatas"	,	L_73
+BASE_HEX	,	V_153
+"getaddrbyname parameters"	,	L_4
+rec_tree	,	V_67
+"lwres length"	,	L_29
+global_lwres_port	,	V_161
+gboolean	,	T_13
+nba_resp_tree	,	V_23
+LW_RECVLEN_OFFSET	,	V_126
+"Real name"	,	L_114
+proto_item_add_subtree	,	F_6
+module_t	,	T_12
+ett_adn_addr	,	V_49
+proto_register_field_array	,	F_36
+"lwres srv weight"	,	L_94
+hf_serial	,	V_138
+dissector_add_uint	,	F_43
+"lwres adn addr family"	,	L_122
+weight	,	V_60
+dissect_rdata_request	,	F_20
+FT_UINT16	,	V_152
+mx_rec_tree	,	V_74
+dissect_getrdatabyname	,	F_26
+port	,	V_61
+"lwres.result"	,	L_43
+hf_adn_flags	,	V_12
+"lwres.adn.addrtype"	,	L_101
+dissector_delete_uint	,	F_42
+LW_RESULT_OFFSET	,	V_125
+"lwres.arecord"	,	L_85
+a_rec_tree	,	V_55
+"lwres adn name"	,	L_107
+adn_resp_tree	,	V_44
+"lwres arecord"	,	L_86
+LWRES_OPCODE_GETRDATABYNAME	,	V_147
+"lwres adn naddrs"	,	L_113
+"  "	,	L_11
+ett_a_rec_addr	,	V_57
+ett_rdata_req	,	V_83
+"lwres nrdatas"	,	L_74
+FT_STRING	,	V_155
+alias_tree	,	V_25
+LWRES_OPCODE_GETNAMEBYADDR	,	V_146
+"Received length"	,	L_45
+lwres_port	,	V_164
+dissect_getnamebyaddr_request	,	F_1
+ett_mx_rec_item	,	V_76
+"lwres nsigs"	,	L_77
+"lwres namelen"	,	L_65
+"lw_res"	,	L_23
+addr_tree	,	V_46
+hf_srv_port	,	V_72
+"Operation code"	,	L_39
+"lwres.adn.aliasname"	,	L_118
+dissect_getnamebyaddr_response	,	F_9
+length	,	V_42
+"Alias name"	,	L_117
+"Auth. length"	,	L_51
+"lwres.adn.name"	,	L_106
+"lwres adn realname"	,	L_116
+naliases	,	V_18
+"Number of rdata records"	,	L_72
+"Number of addresses"	,	L_111
+"Name: %s"	,	L_19
+ENC_BIG_ENDIAN	,	V_27
+"lwres.nsigs"	,	L_76
+ett_adn_resp	,	V_47
+FT_UINT32	,	V_149
+dissect_getnamebyaddr	,	F_25
+slen	,	V_6
+hf_rflags	,	V_84
+"Name length"	,	L_63
+family	,	V_4
+hf	,	V_148
+dissect_rdata_response	,	F_21
+dissect_getaddrsbyname_request	,	F_12
+"getnamebyaddr parameters"	,	L_1
+ns_rec_tree	,	V_78
+LWRES_LWPACKETFLAG_RESPONSE	,	V_129
+"lwres.srv.weight"	,	L_93
+"Light Weight DNS RESolver (BIND9)"	,	L_129
+namelen	,	V_35
+LW_AUTHLEN_OFFSET	,	V_128
+"lwres adn aliasname"	,	L_119
+"Packet Flags"	,	L_33
+prefs_register_protocol	,	F_39
+"lwres.namelen"	,	L_64
+addrlen	,	V_5
+hf_realnamelen	,	V_97
+T_A	,	V_99
+"lwres.opcode"	,	L_40
+hf_srv_prio	,	V_70
+col_set_str	,	F_28
+hf_opcode	,	V_139
+"Flags"	,	L_54
+hf_realname	,	V_98
+dlen	,	V_62
+"lwres ttl"	,	L_71
+"lwres.adn.addr.family"	,	L_121
+proto_register_lwres	,	F_33
+nba_request_tree	,	V_9
+hf_flags	,	V_137
+hf_adn_addr_addr	,	V_15
+hf_namelen	,	V_87
+guchar	,	T_8
+addrs	,	V_7
+message_type	,	V_116
+priority	,	V_59
+"Real name length"	,	L_78
+a_rec_item	,	V_54
+"lwres adn addr length"	,	L_125
+"A records"	,	L_7
+"lwres type"	,	L_62
+col_clear	,	F_30
+hf_adn_aliasname	,	V_34
+"lwres.ttl"	,	L_70
+hf_adn_name	,	V_40
+dissect_lwres	,	F_27
+proto_register_subtree_array	,	F_38
+"getaddrbyname records"	,	L_5
+proto_tree_add_string	,	F_8
+hf_nsigs	,	V_96
+val_to_str	,	F_32
+hf_result	,	V_140
+proto_tree_add_item	,	F_10
+hf_req_name	,	V_88
+proto_reg_handoff_lwres	,	V_160
+"lwres.realname"	,	L_82
+get_dns_name	,	F_17
+pinfo	,	V_108
+col_add_fstr	,	F_31
+"Priority"	,	L_89
+dissector_handle_t	,	T_14
+"NS record: dname=%s"	,	L_18
+flags	,	V_3
+tvb_ensure_bytes_exist	,	F_23
+nrec	,	V_51
+T_MX	,	V_101
+rdata_request_item	,	V_81
+"Noop record"	,	L_22
+"lwres.class"	,	L_58
+alias_item	,	V_24
+"getnamebyaddr records"	,	L_2
+adn_resp_item	,	V_43
+"Alias %s"	,	L_3
+ett_ns_rec	,	V_79
+"lwres version"	,	L_32
+VALS	,	F_34
+"lwres opcode"	,	L_41
+"lwres.adn.realname"	,	L_115
+dname	,	V_63
+"lwres.adn.addr.addr"	,	L_127
+tvb_get_ephemeral_string	,	F_11
+dissect_srv_records	,	F_15
+"lwres.reqdname"	,	L_67
+"Class"	,	L_57
+dissect_mx_records	,	F_18
+addr_item	,	V_45
+"SRV record:pri=%d,w=%d,port=%d,dname=%s"	,	L_12
+"DNAME: %s"	,	L_13
+tvb_ip_to_str	,	F_4
+proto_tree_add_text	,	F_5
+ett_nba_request	,	V_11
+BASE_DEC	,	V_150
+nba_request_item	,	V_8
+proto_item	,	T_5
+"lwres.length"	,	L_28
+hf_adn_addr_len	,	V_14
+"%s, opcode=%s, serial=0x%x, result=%s"	,	L_24
+ENC_NA	,	V_32
+"Serial"	,	L_36
+ett_srv_rec_item	,	V_69
+hf_adn_namelen	,	V_29
+dissect_getaddrsbyname_response	,	F_13
+ett_ns_rec_item	,	V_80
+"LWRES"	,	L_130
+hf_adn_addrtype	,	V_39
+result_values	,	V_133
+hf_adn_naliases	,	V_28
+lwres_prefs_initialized	,	V_162
+LWRES_LWPACKET_LENGTH	,	V_10
+LW_AUTHTYPE_OFFSET	,	V_127
+"Name"	,	L_105
+hf_a_record	,	V_157
+"lwres"	,	L_131
+hf_a_rec_len	,	V_58
+authtype	,	V_110
+"lwres flags"	,	L_35
+prefs_register_uint_preference	,	F_40
+"lwres.adn.naliases"	,	L_109
+"Address %s"	,	L_6
+"lwres reqdname"	,	L_68
+ett_adn_request	,	V_38
+"SRV records (%d)"	,	L_10
+"Address length"	,	L_123
+"name: %s"	,	L_16
+T_SRV	,	V_100
+"lwres serial"	,	L_38
+"RDATA request parameters"	,	L_20
+guint	,	T_7
+"Length"	,	L_27
+offset	,	V_17
+ett	,	V_158
+LW_SERIAL_OFFSET	,	V_123
+tree	,	V_50
+"Result"	,	L_42
+"IPv4 Address"	,	L_84
+ett_rdata_resp	,	V_93
+"lwres adn naliases"	,	L_110
+packet_info	,	T_9
+aliasname	,	V_21
+"lwres srv port"	,	L_97
+T_NS	,	V_102
+"lwres result"	,	L_44
+noop_item	,	V_104
+recvlength	,	V_114
+ett_lwres	,	V_135
+"SRV records"	,	L_9
+proto_tree_add_uint	,	F_7
+"lwres areclen"	,	L_88
+"lwres.type"	,	L_61
+ett_nba_resp	,	V_26
+"IP Address"	,	L_126
+hf_srv_weight	,	V_71
+LWRES_OPCODE_GETADDRSBYNAME	,	V_145
+"Auth. type"	,	L_48
+rdata_request_tree	,	V_82
+naddrs	,	V_41
+"Domain name"	,	L_66
+"lwres.adn.flags"	,	L_98
+dissect_getaddrsbyname	,	F_24
+"lwres.adn.addr.length"	,	L_124
+dissect_a_records	,	F_14
+"lwres.rflags"	,	L_55
+HFILL	,	V_151
+mx_rec_item	,	V_73
+nrdatas	,	V_90
+"lwres.areclen"	,	L_87
+t_types	,	V_154
+"udp.port"	,	L_136
+gchar	,	T_6
+"NS record (%d)"	,	L_17
+aliaslen	,	V_20
+ett_mx_rec	,	V_75
+create_dissector_handle	,	F_41
+nba_resp_item	,	V_22
+srv_rec_item	,	V_64
+"RDATA response"	,	L_21
+"%s, opcode=%s, serial=0x%x"	,	L_26
+serial	,	V_115
+adn_request_tree	,	V_37
+hf_rdtype	,	V_86
+"lwres realname"	,	L_83
+rdata_resp_tree	,	V_92
+"lwres recvlen"	,	L_47
+"Type"	,	L_60
+"unknown"	,	L_25
+lwres_handle	,	V_163
+lwres_tree	,	V_2
+hf_authtype	,	V_142
+proto_tree	,	T_2

@@ -1,0 +1,171 @@
+this_offset	,	V_16
+proto_reg_handoff_mac_mgmt_msg_reg_rsp	,	F_30
+col_append_sep_str	,	F_9
+proto_register_protocol	,	F_25
+sub_tlv_len	,	V_19
+REG_RSP_TLV_T_24_2_CID_UPDATE_ENCODINGS_SFID	,	V_65
+REG_NUM_DL_TRANS_CID	,	V_42
+tvb_reported_length	,	F_2
+REG_TLV_T_29_HO_PROCESS_OPTIMIZATION_MS_TIMER	,	V_50
+REG_TLV_T_42_MS_HO_TEK_PROCESSING_TIME	,	V_54
+REG_RSP_TLV_T_28_HO_SYSTEM_RESOURCE_RETAIN_TIME	,	V_70
+gint	,	T_8
+dissect_extended_tlv	,	F_12
+REG_DSX_FLOW_CONTROL	,	V_39
+wimax_service_flow_encodings_decoder	,	F_18
+"wmx.mgmtmsg"	,	L_34
+"wmx.reg_rsp.invalid_tlv"	,	L_14
+tlv_len	,	V_15
+VENDOR_ID_ENCODING	,	V_80
+REG_MCA_FLOW_CONTROL	,	V_40
+tvb	,	V_1
+COL_INFO	,	V_27
+proto_item_append_text	,	F_17
+REG_RSP_TLV_T_24_CID_UPDATE_ENCODINGS	,	V_61
+"Total Number of Provisional Service Flow"	,	L_21
+tlv_type	,	V_14
+"CMAC Tuple"	,	L_10
+sub_tree	,	V_11
+sub_tlv_type	,	V_18
+SHORT_HMAC_TUPLE	,	V_77
+"New CID after handover to new BS"	,	L_15
+cinfo	,	V_26
+hf_reg_rsp_service_flow_id	,	V_66
+"CID Update Encodings Connection Info"	,	L_4
+"WiMax REG-RSP"	,	L_30
+tvb_len	,	V_6
+REG_TLV_T_41_MS_HO_CONNECTIONS_PARAM_PROCESSING_TIME	,	V_53
+proto_register_subtree_array	,	F_28
+REG_POWER_SAVING_CLASS_CAPABILITY	,	V_56
+array_length	,	F_27
+REG_ARQ_SUPPORT	,	V_38
+wimax_common_tlv_encoding_decoder	,	F_22
+"REG-RSP TLV error"	,	L_2
+"WiMax REG-RSP Messages"	,	L_29
+proto_tree_add_item	,	F_5
+hf_reg_rsp_status	,	V_23
+"wmx.reg_rsp.unknown_tlv_type"	,	L_28
+call_dissector	,	F_15
+pinfo	,	V_2
+tlv_item	,	V_9
+dissector_handle_t	,	T_10
+"wmx.reg_rsp.secondary_mgmt_cid"	,	L_20
+tlv_info_t	,	T_7
+wimax_short_hmac_tuple_decoder	,	F_21
+"wmx.reg_rsp.service_flow_id"	,	L_24
+reg_rsp_tree	,	V_8
+REG_RSP_TLV_T_24_3_CID_UPDATE_ENCODINGS_CONNECTION_INFO	,	V_67
+hf_register_info	,	T_9
+REG_TLV_T_20_MAX_MAC_DATA_PER_FRAME_SUPPORT	,	V_44
+VALS	,	F_24
+VENDOR_SPECIFIC_INFO	,	V_79
+"HMAC Tuple"	,	L_9
+hf_reg_rsp_secondary_mgmt_cid	,	V_58
+"mac_mgmt_msg_reg_rsp_handler"	,	L_32
+" (multiple of 100 milliseconds)"	,	L_6
+REG_TLV_T_22_MAC_EXTENDED_RTPS_SUPPORT	,	V_46
+FT_UINT8	,	V_88
+hmac_found	,	V_12
+hf_reg_invalid_tlv	,	V_28
+get_tlv_length	,	F_8
+REG_IP_VERSION	,	V_33
+BASE_DEC	,	V_87
+REG_IP_MGMT_MODE	,	V_32
+tlv_offset	,	V_5
+proto_item	,	T_5
+ENC_NA	,	V_29
+proto_register_mac_mgmt_msg_reg_rsp	,	F_23
+REG_ARQ_PARAMETERS	,	V_30
+BASE_NONE	,	V_84
+add_protocol_subtree	,	F_14
+"System Resource Retain Time"	,	L_25
+REG_RSP_TLV_T_36_TOTAL_PROVISIONED_SERVICE_FLOW_DSAs	,	V_59
+REG_IP_PHS_SDU_ENCAP	,	V_35
+hf_tlv_type	,	V_69
+"wmx.reg_rsp.response"	,	L_18
+MAC_VERSION_ENCODING	,	V_81
+register_dissector	,	F_29
+"Short HMAC Tuple"	,	L_11
+ett_mac_mgmt_msg_reg_rsp_decoder	,	V_22
+dissect_mac_mgmt_msg_reg_rsp_decoder	,	F_1
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_3
+REG_TLV_T_31_MOBILITY_FEATURES_SUPPORTED	,	V_51
+"Service flow ID"	,	L_23
+REG_TLV_T_21_PACKING_SUPPORT	,	V_45
+"Unknown TLV Type"	,	L_27
+" (in units of 100 milliseconds)"	,	L_5
+BASE_HEX	,	V_89
+include_cor2_changes	,	V_72
+gboolean	,	T_6
+ett_reg_rsp_message_tree	,	V_62
+reg_rsp_handle	,	V_93
+"Downlink Service Flow Encodings"	,	L_8
+proto_item_add_subtree	,	F_4
+"Secondary Management CID"	,	L_19
+proto_register_field_array	,	F_26
+"MAC Management Message, REG-RSP"	,	L_1
+FT_BYTES	,	V_83
+MAC_MGMT_MSG_REG_RSP	,	V_94
+"Response"	,	L_17
+guint	,	T_4
+REG_TLV_T_23_MAX_NUM_BURSTS_TRANSMITTED_CONCURRENTLY_TO_THE_MS	,	V_47
+offset	,	V_4
+ett	,	V_92
+REG_MAX_CLASSIFIERS_SUPPORTED	,	V_36
+dissector_add_uint	,	F_33
+REG_MCAST_POLLING_CIDS	,	V_41
+tree	,	V_3
+sub_tlv_info	,	V_17
+sub_tlv_offset	,	V_20
+wimax_hmac_tuple_decoder	,	F_19
+" (HMAC Tuple is missing !)"	,	L_12
+CMAC_TUPLE	,	V_76
+"wmx.reg_rsp.system_resource_retain_time"	,	L_26
+FT_UINT16	,	V_86
+packet_info	,	T_2
+MAX_TLV_LEN	,	V_25
+DSx_DOWNLINK_FLOW	,	V_74
+wimax_cmac_tuple_decoder	,	F_20
+vals_reg_rsp_status	,	V_90
+add_tlv_subtree	,	F_13
+tlv_info	,	V_13
+hf_reg_total_provisioned_sf	,	V_60
+"Uplink Service Flow Encodings"	,	L_7
+hf_reg_rsp_new_cid_after_ho	,	V_64
+tlv_tree	,	V_10
+reg_rsp_item	,	V_7
+"wmx.reg_rsp.total_provisional_sf"	,	L_22
+get_tlv_value_offset	,	F_10
+DSx_UPLINK_FLOW	,	V_73
+"wmx.reg_rsp"	,	L_31
+SHORT_HMAC_TUPLE_COR2	,	V_78
+tvb_new_subset_length	,	F_16
+WIMAX_16E_2005	,	F_11
+"Invalid TLV"	,	L_13
+REG_TLV_T_27_HANDOVER_SUPPORTED	,	V_49
+HFILL	,	V_85
+HMAC_TUPLE	,	V_75
+"wmx.reg_rsp.new_cid_after_ho"	,	L_16
+REG_RSP_TLV_T_24_1_CID_UPDATE_ENCODINGS_NEW_CID	,	V_63
+hf_reg_rsp_system_resource_retain_time	,	V_71
+init_tlv_info	,	F_6
+"CID update encodings"	,	L_3
+REG_MAC_ADDRESS	,	V_43
+REG_SS_MGMT_SUPPORT	,	V_31
+REG_TLV_T_26_METHOD_FOR_ALLOCATING_IP_ADDR_SECONDARY_MGMNT_CONNECTION	,	V_48
+find_dissector	,	F_31
+REG_UL_TRANSPORT_CIDS_SUPPORTED	,	V_34
+create_dissector_handle	,	F_32
+REG_TLV_T_40_ARQ_ACK_TYPE	,	V_52
+REG_PHS_SUPPORT	,	V_37
+ENC_BIG_ENDIAN	,	V_24
+"mac_mgmt_msg_dsc_rsp_handler"	,	L_33
+get_tlv_type	,	F_7
+FT_UINT32	,	V_91
+REG_TLV_T_43_MAC_HEADER_AND_EXTENDED_SUBHEADER_SUPPORT	,	V_55
+dsc_rsp_handle	,	V_68
+REG_RSP_SECONDARY_MGMT_CID	,	V_57
+proto_tree	,	T_3
+hf	,	V_82
+proto_mac_mgmt_msg_reg_rsp_decoder	,	V_21

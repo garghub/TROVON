@@ -1,0 +1,170 @@
+hf_v120_f_ext	,	V_54
+v120_cf_items_ext	,	V_29
+proto_register_protocol	,	F_24
+"Break condition"	,	L_22
+"EA0 = 1 (Error)"	,	L_14
+check_col	,	F_6
+hf_v120_p	,	V_47
+tvb_new_subset_remaining	,	F_19
+"No segmentation bit B"	,	L_26
+"v120.control"	,	L_40
+col_set_str	,	F_3
+gint	,	T_8
+hf_v120_f	,	V_53
+ett_v120_address	,	V_25
+"No RR"	,	L_36
+"E"	,	L_29
+TFS	,	F_22
+tvb	,	V_1
+COL_INFO	,	V_18
+proto_register_v120	,	F_21
+XDLC_P_F	,	V_50
+FT_BOOLEAN	,	V_48
+hf_v120_ftype_s_u_ext	,	V_69
+hf_v120_n_r	,	V_42
+"Final"	,	L_47
+modifier_vals_cmd	,	V_60
+"LLI: %d"	,	L_13
+hf_v120_n_s	,	V_45
+XDLC_U_MODIFIER_MASK	,	V_61
+"EA1 = 0 (Error)"	,	L_17
+col_clear	,	F_4
+cinfo	,	V_16
+tfs_set_notset	,	V_49
+proto_register_subtree_array	,	F_27
+array_length	,	F_26
+"Segmentation bit F"	,	L_27
+hf_v120_header	,	V_70
+next_tvb	,	V_15
+"Invalid V.120 frame"	,	L_3
+ett_v120_control	,	V_27
+call_dissector	,	F_20
+pinfo	,	V_2
+col_add_fstr	,	F_7
+"v120.control.n_s"	,	L_44
+nbits	,	V_33
+"N(R)"	,	L_41
+"Header Field"	,	L_55
+v120_cf_items	,	V_28
+is_response	,	V_8
+"SR"	,	L_33
+hf_v120_address	,	V_38
+hf_register_info	,	T_7
+XDLC_S_FTYPE_MASK	,	V_57
+VALS	,	F_23
+"No SR"	,	L_34
+"v120.control.u_modifier_cmd"	,	L_51
+"Header octet: %s (0x%02X)"	,	L_19
+hf_v120_u_modifier_resp	,	V_62
+guint16	,	T_6
+COL_PROTOCOL	,	V_17
+"v120.control.n_r"	,	L_42
+"Address field: %s"	,	L_9
+"data"	,	L_59
+"EA0 = 0"	,	L_15
+"Error control C1/C2: %d"	,	L_24
+"v120.control.p"	,	L_46
+FT_UINT8	,	V_59
+proto_tree_add_text	,	F_11
+BASE_DEC	,	V_43
+proto_item	,	T_4
+tc	,	V_5
+decode_boolean_bitfield	,	F_12
+"v120.control.u_modifier_resp"	,	L_52
+guint8	,	T_5
+XDLC_N_S_EXT_MASK	,	V_46
+ti	,	V_7
+BASE_NONE	,	V_72
+"v120.header"	,	L_56
+"Command"	,	L_12
+header_len	,	V_32
+hf_v120_p_ext	,	V_51
+register_dissector	,	F_28
+"%s"	,	L_10
+hf_v120_control	,	V_26
+tvbuff_t	,	T_1
+ftype_vals	,	V_65
+proto_tree_add_protocol_format	,	F_8
+COL_RES_DL_SRC	,	V_19
+hf_v120_ftype_s_u	,	V_67
+"RR"	,	L_35
+BASE_HEX	,	V_40
+"Supervisory frame type"	,	L_49
+"v120.control.f"	,	L_48
+"N(S)"	,	L_43
+dissect_v120	,	F_1
+ep_alloc	,	F_2
+"No segmentation bit F"	,	L_28
+"EA1 = 1"	,	L_16
+proto_item_add_subtree	,	F_9
+proto_v120	,	V_20
+hf_v120_u_modifier_cmd	,	V_58
+"Frame type"	,	L_53
+proto_register_field_array	,	F_25
+info	,	V_10
+"DCE"	,	L_4
+"Response"	,	L_11
+modifier_vals_resp	,	V_63
+offset	,	V_31
+ett	,	V_73
+tree	,	V_3
+COL_RES_DL_DST	,	V_23
+dissect_v120_header	,	F_17
+"LLI: %d C/R: %s"	,	L_6
+tvb_bytes_exist	,	F_16
+data_handle	,	V_30
+FT_UINT16	,	V_39
+packet_info	,	T_2
+tvb_get_guint8	,	F_5
+"R"	,	L_7
+XDLC_CONTROL_LEN	,	F_15
+byte1	,	V_13
+byte0	,	V_12
+stype_vals	,	V_56
+"Segmentation bit B"	,	L_25
+header	,	V_34
+"v120.control.ftype"	,	L_54
+"0x%02X"	,	L_2
+"Link Address"	,	L_37
+XDLC_I_MASK	,	V_66
+XDLC_N_R_EXT_MASK	,	V_44
+"No extension octet"	,	L_20
+XDLC_S_U_MASK	,	V_68
+address_tree	,	V_6
+hf_v120_s_ftype	,	V_55
+"DTE"	,	L_5
+g_snprintf	,	F_10
+XDLC_P_F_EXT	,	V_52
+v120_tree	,	V_4
+"v120.address"	,	L_38
+FT_STRING	,	V_71
+"Header: B: %d F: %d"	,	L_18
+"No break condition"	,	L_23
+P2P_DIR_SENT	,	V_22
+"v120.control.s_ftype"	,	L_50
+addr	,	V_9
+HFILL	,	V_41
+"Async data over ISDN (V.120)"	,	L_57
+p2p_dir	,	V_21
+ett_v120	,	V_24
+proto_reg_handoff_v120	,	F_29
+"Extension octet follows"	,	L_21
+"C"	,	L_8
+"Poll"	,	L_45
+"DR"	,	L_31
+dissect_xdlc_control	,	F_14
+v120len	,	V_11
+find_dissector	,	F_30
+control	,	V_14
+"Control Field"	,	L_39
+"E bit not set (Error)"	,	L_30
+"No DR"	,	L_32
+proto_item_set_len	,	F_18
+hf_v120_ftype_i	,	V_64
+ett_v120_header	,	V_36
+decode_numeric_bitfield	,	F_13
+h_tree	,	V_35
+"v120"	,	L_58
+proto_tree	,	T_3
+"V.120"	,	L_1
+hf	,	V_37

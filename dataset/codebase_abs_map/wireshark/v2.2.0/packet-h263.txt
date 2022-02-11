@@ -1,0 +1,195 @@
+"(PSC) "	,	L_3
+"H263 payload "	,	L_2
+proto_register_protocol	,	F_19
+hf_h263_source_format	,	V_27
+ett_h263_payload	,	V_57
+"H.263"	,	L_81
+hf_h263_picture_type_code	,	V_44
+"h263.tr2"	,	L_12
+"H.263 Group of Block Start Code"	,	L_8
+opptype_item	,	V_12
+picture_coding_type_vals	,	V_33
+gint	,	T_3
+"Picture start Code, PSC"	,	L_7
+"Custom PCF"	,	L_67
+ett_h263_optype	,	V_40
+"h263.psbi"	,	L_60
+TFS	,	F_15
+tvb	,	V_1
+dissect_h263_group_of_blocks_layer	,	F_1
+guint32	,	V_32
+COL_INFO	,	V_31
+h263_payload_item	,	V_51
+"H.263 Document camera indicator"	,	L_20
+"h263.syntax_based_arithmetic_coding_mode"	,	L_42
+FT_BOOLEAN	,	V_65
+"Supplemental Enhancement Information (PSUPP)"	,	L_73
+picture_coding_type_flg	,	V_73
+tvb_reported_length_remaining	,	F_10
+custom_pcf_flg	,	V_77
+cinfo	,	V_30
+H263_PLUSPTYPE	,	V_28
+"H.263 Source Format"	,	L_25
+array_length	,	F_18
+hf_h263_syntax_based_arithmetic_coding_mode	,	V_35
+"H.263 Update Full Extended PTYPE"	,	L_29
+"h263.gn"	,	L_51
+"Document camera indicator"	,	L_22
+on_off_flg	,	V_67
+hf_h263_ext_source_format	,	V_41
+col_append_str	,	F_5
+"Unknown (%u)"	,	L_1
+"H.263 Picture start Code"	,	L_5
+startcode	,	V_54
+"Continuous Presence Multipoint and Video Multiplex (CPM)"	,	L_58
+hf_register_info	,	T_12
+"h263.gbsc"	,	L_9
+PB_frames_mode_flg	,	V_74
+h263_payload_tree	,	V_52
+"These bits are not dissected(yet), displayed for clarity"	,	L_79
+guint8	,	T_11
+BASE_NONE	,	V_66
+"H.263 Custom PCF"	,	L_65
+"h263.stream"	,	L_75
+picture_coding_type	,	V_16
+"h263.trb"	,	L_15
+"Optional Syntax-based Arithmetic Coding mode"	,	L_43
+hf_h263_UFEP	,	V_38
+register_dissector	,	F_21
+dissect_h263_data	,	F_8
+tvb_get_ntohl	,	F_12
+"H.263 Bits currently not dissected"	,	L_77
+tvbuff_t	,	T_1
+"H.263 Continuous Presence Multipoint and Video Multiplex (CPM)"	,	L_56
+hf_h263_psc	,	V_22
+hf_h263_pquant	,	V_47
+BASE_HEX	,	V_61
+FT_UINT24	,	V_72
+gboolean	,	T_4
+"H.263 Optional Unrestricted Motion Vector mode"	,	L_38
+proto_item_add_subtree	,	F_7
+hf_h263_psbi	,	V_46
+proto_register_field_array	,	F_20
+"H.263 Full Picture Freeze Release"	,	L_23
+FT_BYTES	,	V_78
+source_format	,	V_14
+"h263.split_screen_indicator"	,	L_18
+"Group of Block Start Code"	,	L_10
+"H.263 Optional Part of PLUSPTYPE"	,	L_32
+FT_UINT16	,	V_70
+proto_tree_add_bits_item	,	F_2
+"h263.ufep"	,	L_30
+tvb_get_guint8	,	F_13
+hf_h263_data	,	V_58
+tvb_captured_length	,	F_11
+custom_pcf	,	V_18
+hf_h263_payload_picture_coding_type	,	V_29
+dissector_data	,	T_9
+"H.263 Picture Type Code"	,	L_62
+"Picture Coding Type"	,	L_37
+"H.263 Optional PB-frames mode"	,	L_47
+ufep	,	V_15
+"h263"	,	L_82
+offset_in_bits	,	V_5
+hf_h263_custom_pcf	,	V_42
+proto_tree_add_bits_ret_val	,	F_4
+"Full Picture Freeze Release"	,	L_24
+"h263.source_format"	,	L_26
+hf_h263_split_screen_indicator	,	V_24
+"Optional Part of PLUSPTYPE"	,	L_34
+"h263.PB_frames_mode"	,	L_48
+hf_h263_pei	,	V_49
+picture_type_code_vals	,	V_76
+length	,	T_6
+is_rfc4626	,	V_4
+ENC_BIG_ENDIAN	,	V_7
+"h263.cpm"	,	L_57
+FT_UINT32	,	V_60
+"Picture Type Code"	,	L_64
+guint64	,	T_8
+"h263.custom_pcf"	,	L_66
+hf	,	V_59
+"Temporal Reference, TR"	,	L_13
+"Split screen indicator"	,	L_19
+saved_bit_offset	,	V_13
+"Temporal Reference for B frames"	,	L_14
+"H.263 Optional Advanced Prediction mode"	,	L_44
+proto_h263_data	,	V_55
+hf_h263_document_camera_indicator	,	V_25
+pei	,	V_21
+hf_h263_psupp	,	V_50
+"h263.pquant"	,	L_54
+cpm_flg	,	V_75
+"h263.not_dis"	,	L_78
+"h263.psi"	,	L_63
+"H.263 Split screen indicator"	,	L_17
+"Temporal Reference for the B frame as defined by H.263"	,	L_16
+hf_h263_opptype	,	V_39
+h263_srcformat_vals	,	V_68
+h263_opptype_tree	,	V_11
+dissect_h263_picture_layer	,	F_3
+"Update Full Extended PTYPE"	,	L_31
+picture_type_code	,	V_19
+proto_register_subtree_array	,	F_17
+val_to_str	,	F_6
+hf_h263_PB_frames_mode	,	V_37
+proto_tree_add_item	,	F_9
+pinfo	,	V_9
+_U_	,	V_10
+hf_h263_GN	,	V_8
+"Extra Insertion Information (PEI)"	,	L_70
+"h263.psupp"	,	L_72
+VALS	,	F_16
+"H.263 Temporal Reference"	,	L_11
+"h263.opptype"	,	L_33
+hf_h263_opt_unres_motion_vector_mode	,	V_34
+ext_srcformat_vals	,	V_69
+FT_UINT8	,	V_64
+BASE_DEC	,	V_63
+proto_item	,	T_7
+ENC_NA	,	V_56
+"Optional Advanced Prediction mode"	,	L_46
+"H.263 Quantizer Information (PQUANT)"	,	L_53
+hf_h263_optional_advanced_prediction_mode	,	V_36
+"H.263 Supplemental Enhancement Information (PSUPP)"	,	L_71
+"Picture Sub-Bitstream Indicator (PSBI)"	,	L_61
+data	,	V_53
+"h263.opt_unres_motion_vector_mode"	,	L_39
+"Optional PB-frames mode"	,	L_49
+"H.263 stream"	,	L_74
+"ITU-T Recommendation H.263"	,	L_80
+"h263.optional_advanced_prediction_mode"	,	L_45
+cpm	,	V_20
+guint	,	T_10
+offset	,	V_3
+ett	,	V_79
+tree	,	V_2
+hf_h263_trb	,	V_48
+hf_h263_not_dissected	,	V_43
+hf_h263_cpm	,	V_45
+"The H.263 stream including its Picture, GOB or Macro block start code."	,	L_76
+packet_info	,	T_5
+"H.263 Optional Syntax-based Arithmetic Coding mode"	,	L_41
+h263_ufep_vals	,	V_71
+"Optional Unrestricted Motion Vector mode"	,	L_40
+"H.263 Extra Insertion Information (PEI)"	,	L_68
+"Quantizer Information (PQUANT)"	,	L_55
+"Group Number, GN"	,	L_52
+"h263.document_camera_indicator"	,	L_21
+"h263.psc"	,	L_6
+HFILL	,	V_62
+"H.263 Group Number"	,	L_50
+hf_h263_TR	,	V_23
+hf_h263_full_picture_freeze_release	,	V_26
+"Source Format"	,	L_27
+"h263data"	,	L_83
+proto_register_h263_data	,	F_14
+PB_frames_mode	,	V_17
+"(GBSC) "	,	L_4
+"h263.pei"	,	L_69
+"h263.ext_source_format"	,	L_28
+"H.263 Picture Sub-Bitstream Indicator (PSBI)"	,	L_59
+"h263.picture_coding_type"	,	L_36
+hf_h263_gbsc	,	V_6
+"H.263 Picture Coding Type"	,	L_35
+proto_tree	,	T_2

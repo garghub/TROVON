@@ -1,0 +1,771 @@
+lbtru_null_address	,	V_8
+LBTRU_DEFAULT_RECEIVER_PORT_HIGH	,	V_386
+L_LBTRU_NCF_HDR_T_NUM_NCFS	,	V_119
+"lbtru.sm"	,	L_69
+hf_lbtru_analysis_prev_data_frame	,	V_300
+"Source port range high (default "	,	L_216
+"A table to define LBT-RU tags"	,	L_240
+guint32	,	T_4
+"Session Message Header"	,	L_68
+"lbtru.data.sqn"	,	L_65
+"lbtru.analysis.prev_frame"	,	L_125
+L_LBTRU_BASIC_OPT_T	,	V_263
+"lbtru.hdr.flags.rx"	,	L_55
+"lbtru.analysis.data_retransmission"	,	L_162
+"lbtru.tag"	,	L_41
+array_length	,	F_86
+"lbtru.analysis.rst"	,	L_193
+"LBT Reliable Unicast over UDP"	,	L_243
+ett_lbtru_opt	,	V_265
+"Next Transport RST Frame"	,	L_154
+"Source port range low (default "	,	L_213
+"lbtru.opt_unknown"	,	L_119
+dissector_add_for_decode_as_with_preference	,	F_97
+lbtru_transport_add	,	F_5
+hf_register_info	,	T_26
+ncf_count	,	V_94
+"lbtru.analysis.ncf.ncf"	,	L_184
+nak_tree	,	V_131
+guint16	,	T_3
+address	,	T_2
+"lbtru.analysis.data.gap"	,	L_197
+next_client_id	,	V_15
+"lbtru.analysis.next_ack_frame"	,	L_151
+L_LBTRU_NCF_HDR_T_REASON_FORMAT	,	V_124
+"LBT-RU Tags"	,	L_239
+cid_flags	,	V_255
+lbtru_tag_array	,	V_393
+"Previous Transport CREQ Frame"	,	L_136
+"lbtru.analysis.unknown_type"	,	L_175
+BASE_NONE	,	V_343
+col_append_sep_fstr	,	F_73
+"lbtru.data"	,	L_63
+L_LBTRU_ACK_HDR_T_ACK_SQN	,	V_91
+"lbtru.analysis.sqn.frame"	,	L_160
+ack	,	V_84
+PROTO_ITEM_SET_GENERATED	,	F_63
+col_add_str	,	F_65
+"SID Option"	,	L_100
+proto_item_add_subtree	,	F_44
+"Client ID"	,	L_116
+"lbtru.opt_cid.flags.ignore"	,	L_115
+hf_lbtru_opt_sid_flags	,	V_272
+"Previous Transport NAK Frame"	,	L_130
+"lbtru.hdr"	,	L_43
+FT_UINT16	,	V_355
+rst_type	,	V_246
+hf_lbtru_analysis_prev_ncf_frame	,	V_325
+hf_lbtru_hdr_request	,	V_241
+ett_lbtru_transport	,	V_249
+lbtru_transport_find	,	F_1
+dissect_lbtru_sm	,	F_58
+global_lbtru_sequence_analysis	,	V_390
+session_tree	,	V_6
+"Next Transport Frame"	,	L_140
+LBTRU_DEFAULT_SOURCE_PORT_HIGH	,	V_382
+wmem_new0	,	F_17
+" naks"	,	L_20
+"lbtru.analysis.data.ooo"	,	L_199
+heur_dissector_add	,	F_98
+"lbtru.analysis.sm.syn"	,	L_189
+HEURISTIC_ENABLE	,	V_396
+O_LBTRU_HDR_T_FLAGS_OR_RES	,	V_217
+frame_tree	,	V_303
+"Leading Edge Sequence Number"	,	L_71
+FT_STRING	,	V_349
+source_port	,	V_2
+previous_frame	,	V_47
+"Data Header"	,	L_62
+last_ack_frame	,	V_26
+"RST %s"	,	L_25
+LBTRU_NHDR_SID	,	V_261
+hf_lbtru_ncf_list_ncf	,	V_103
+"use_lbtru_domain"	,	L_233
+"lbtru.sm.sqn"	,	L_70
+"lbtru.data.trail"	,	L_67
+FT_UINT32	,	V_347
+"29West"	,	L_211
+visited	,	V_294
+dissect_lbtru	,	F_64
+guint64	,	T_19
+ei_lbtru_analysis_unknown_type	,	V_236
+BASE_HEX_DEC	,	V_346
+"receiver_port_low"	,	L_218
+"Previous Transport ACK Frame"	,	L_134
+uat_new	,	F_94
+channel	,	V_13
+"Channel ID"	,	L_36
+"lbtru.sm.trail"	,	L_73
+O_LBTRU_HDR_T_VER_TYPE	,	V_215
+hf_lbtru_hdr_reason	,	V_243
+nak	,	V_136
+"Flags"	,	L_52
+hf_lbtru_hdr	,	V_224
+O_LBTRU_NCF_HDR_T_TRAIL_SQN	,	V_116
+"NAK List"	,	L_80
+"Previous Transport SM Frame"	,	L_128
+client_list	,	V_16
+"lbtru.opt_sid.session_id"	,	L_109
+hf_lbtru_analysis_sm_ooo_gap	,	V_319
+hf_lbtru_analysis_prev_sm_frame	,	V_315
+lbtru_client_transport_frame_add	,	F_23
+proto_tree_add_string	,	F_72
+"Retransmission"	,	L_54
+"lbtru.ncf.reason"	,	L_90
+sqn_list	,	V_43
+"DATA(RX) sqn 0x%x"	,	L_15
+"lbtru.analysis.sm_duplicate"	,	L_174
+hf_lbtru_ncf_num	,	V_118
+ncf	,	V_98
+receiver_port	,	V_19
+":%08x"	,	L_2
+hf_lbtru_nak_num	,	V_144
+AT_IPv4	,	V_336
+"lbtru.analysis.prev_ncf_frame"	,	L_133
+L_LBTRU_HDR_T_NEXT_HDR	,	V_230
+"Header Length"	,	L_103
+"SM Sequence Out of Order Gap"	,	L_171
+"lbtru.ncf.format"	,	L_91
+"lbtru.nak.num"	,	L_77
+"lbtru.hdr.ver"	,	L_45
+"Tag name can't be empty"	,	L_3
+valid_packet	,	V_334
+wmem_tree_lookup32	,	F_4
+prefs_register_uint_preference	,	F_91
+expert_register_protocol	,	F_88
+sqn_gap	,	V_53
+dup_sqn_entry	,	V_45
+"Unrecognized type 0x%02x"	,	L_26
+guint	,	T_16
+ett	,	V_367
+wmem_packet_scope	,	F_27
+"lbtru.analysis.next_data_frame"	,	L_143
+"SM sqn 0x%x"	,	L_18
+LBM_CHANNEL_NO_CHANNEL	,	V_200
+packet_info	,	T_15
+hf_lbtru_analysis_next_frame	,	V_299
+wmem_tree_new	,	F_7
+hf_lbtru_hdr_type	,	V_228
+dissected_len	,	V_193
+"udp"	,	L_242
+LBTRU_NCF_HDR_FORMAT_MASK	,	V_363
+EXPFILL	,	V_371
+sqn_frame	,	V_182
+"lbtru.analysis.prev_data_frame"	,	L_127
+"SM SYN"	,	L_190
+ei_lbtru_analysis_rst	,	V_244
+hf_lbtru_analysis_sqn	,	V_305
+ptype	,	V_335
+"lbtru.analysis.next_ncf_frame"	,	L_149
+O_LBTRU_NAK_HDR_T_NUM_NAKS	,	V_143
+hf_lbtru_ncf_reason	,	V_123
+last_frame	,	V_11
+hf_lbtru_opt_sid_flags_ignore	,	V_254
+lbm_transport_frame_add	,	F_24
+L_LBTRU_SM_HDR_T_TRAIL_SQN	,	V_165
+PI_MALFORMED	,	V_369
+lbtru_dissector_handle	,	V_395
+O_LBTRU_SM_HDR_T_LEAD_SQN	,	V_161
+"Unrecognized type"	,	L_176
+"lbtru.analysis.sm.ooo"	,	L_205
+hf_lbtru_opt_sid_next_hdr	,	V_266
+"Data sequence gap"	,	L_198
+"NCF List"	,	L_92
+create_dissector_handle	,	F_96
+transport	,	V_17
+lbm_lbtru_tap_info_t	,	T_20
+proto_register_lbtru	,	F_81
+hf_lbtru_analysis_next_ncf_frame	,	V_326
+reason	,	V_95
+"lbtru.analysis.nak"	,	L_185
+tap_info	,	V_81
+proto_register_protocol	,	F_84
+hf_lbtru_hdr_next_hdr	,	V_229
+previous_type_frame	,	V_49
+"expert_separate_ncfs"	,	L_227
+tvb_new_subset_remaining	,	F_40
+len	,	V_99
+sep_nak_item	,	V_135
+G_GUINT16_FORMAT	,	V_55
+gint	,	T_27
+"lbtru"	,	L_210
+g_strstrip	,	F_34
+hf_lbtru_data_sqn	,	V_173
+tvb	,	V_76
+"LBT-RU:%s:%"	,	L_1
+"Unrecognized header"	,	L_178
+ei_lbtru_analysis_sm_gap	,	V_318
+"NCF"	,	L_94
+"Header"	,	L_42
+LBTRU_NAK_HDR_FORMAT_MASK	,	V_359
+LBTRU_HDR_VER_VER_MASK	,	V_351
+"Format"	,	L_78
+PI_ERROR	,	V_370
+tfs_set_notset	,	V_357
+wmem_list_append	,	F_18
+ei_lbtru_analysis_sm_syn	,	V_166
+"CID Option"	,	L_110
+O_LBTRU_BASIC_OPT_T_HDR_LEN	,	V_260
+last_data_frame	,	V_22
+hf_lbtru_opt_unknown_next_hdr	,	V_289
+copy_address_shallow	,	F_75
+lbtru_tree	,	V_186
+creq_type	,	V_245
+current_frame	,	V_183
+LBTRU_HDR_VER_TYPE_MASK	,	V_353
+hf_lbtru_nak_list	,	V_133
+ett_lbtru_opt_sid_flags	,	V_273
+O_LBTRU_NAK_HDR_T_FORMAT	,	V_147
+proto_tree_add_boolean	,	F_78
+"Use LBT-RU tag table"	,	L_234
+COL_PROTOCOL	,	V_213
+LBTRU_DEFAULT_SOURCE_PORT_LOW	,	V_380
+"lbtru.analysis.data.dup"	,	L_201
+g_free	,	F_37
+channel_tree	,	V_201
+guint8	,	T_9
+"Duplicate data"	,	L_202
+"SQN Also in"	,	L_156
+LBTRU_PACKET_TYPE_NAK	,	V_38
+L_LBTRU_SM_HDR_T_LEAD_SQN	,	V_162
+tvb_get_ntohl	,	F_46
+"lbtru.nak"	,	L_75
+hf_lbtru_hdr_res	,	V_240
+tvbuff_t	,	T_17
+proto_tree_add_protocol_format	,	F_70
+source	,	V_61
+tvb_get_ntohs	,	F_53
+lbtru_sqn_frame_list_callback_data_t	,	T_24
+proto_tree_add_bitmask	,	F_74
+LBTRU_NCF_HDR_REASON	,	F_54
+dissect_lbtru_nak_list	,	F_56
+"lbtru.channel"	,	L_35
+lbtru_tag_count	,	V_72
+ei_item	,	V_208
+lbtru_nak_format	,	V_358
+lbtru_transport_source_string	,	F_29
+L_LBTRU_NCF_HDR_T	,	V_126
+duplicate	,	V_51
+"SM sequence out of order gap (%"	,	L_33
+sqn_entry	,	V_35
+"Next Transport DATA Frame"	,	L_142
+tvb_get_guint8	,	F_52
+LBTRU_PACKET_TYPE_NCF	,	V_39
+"lbtru.analysis.prev_sm_frame"	,	L_129
+name	,	V_59
+"LBT-RU"	,	L_10
+LBTRU_HDR_VER	,	F_71
+hf_lbtru_opt_sid_hdr_len	,	V_268
+hf_lbtru_channel	,	V_222
+lbtru_tag_entry	,	V_73
+lbtru_item	,	V_187
+"lbtru.opt_unknown.hdr_len"	,	L_121
+already_registered	,	V_394
+" ncfs"	,	L_22
+"lbtru.hdr.next_hdr"	,	L_49
+last_creq_frame	,	V_27
+L_LBTRU_DATA_HDR_T_TRAIL_SQN	,	V_178
+"Receiver port range low (default "	,	L_219
+"Data Sequence Out of Order Gap"	,	L_165
+conversation_new	,	F_6
+num_sqns	,	V_129
+"source_port_low"	,	L_212
+test_lbtru_packet	,	F_80
+lbtru_next_header	,	V_354
+O_LBTRU_SID_OPT_T_SESSION_ID	,	V_275
+proto_tree_add_uint_format_value	,	F_61
+hf_lbtru_opt_sid	,	V_262
+lbtru_tag_update_cb	,	F_32
+"Frame is a Data Retransmission"	,	L_161
+"Set the high end of the LBT-RU receiver UDP port range (receiver transport_lbtru_port_high)"	,	L_223
+" (RX)"	,	L_9
+receiver_port_low	,	V_67
+hf_lbtru_ncf_format	,	V_125
+"Previous Transport NCF Frame"	,	L_132
+item	,	V_220
+hf_lbtru_sm_trail_sqn	,	V_163
+hf_lbtru_data	,	V_170
+col_set_fence	,	F_68
+dissect_lbtru_sqn_frame_list_callback	,	F_60
+col_clear	,	F_66
+L_LBTRU_NAK_HDR_T_FORMAT	,	V_148
+"LBT Reliable Unicast Protocol"	,	L_209
+"lbtru.opt_sid"	,	L_101
+proto_tree_add_item	,	F_43
+"source_port_high"	,	L_215
+pinfo	,	V_69
+col_add_fstr	,	F_67
+"Data sequence gap (%"	,	L_29
+"Previous Transport Frame"	,	L_124
+flags	,	V_293
+"Next Transport CREQ Frame"	,	L_152
+L_LBTRU_NCF_HDR_T_RESERVED	,	V_122
+"NAK"	,	L_82
+flags_sm	,	V_190
+L_LBTRU_SM_HDR_T	,	V_155
+ei_lbtru_analysis_zero_length_header	,	V_270
+lbtru_client_transport_sqn_find	,	F_19
+find_conversation	,	F_2
+LBTRU_NHDR_DATA	,	V_250
+"SM sqn 0x%x SYN"	,	L_17
+tap_queue_packet	,	F_79
+"Frame"	,	L_159
+ei_lbtru_analysis_data_rx	,	V_308
+"lbtru.analysis.data.rx"	,	L_195
+L_LBTRU_BASIC_OPT_T_HDR_LEN	,	V_269
+ei_lbtru_analysis_sm_dup	,	V_322
+"lbtru.analysis.ncf"	,	L_183
+lbtru_client_transport_add	,	F_16
+O_LBTRU_DATA_HDR_T_TRAIL_SQN	,	V_177
+hf_lbtru_analysis_prev_rst_frame	,	V_331
+L_LBTRU_NCF_HDR_T_TRAIL_SQN	,	V_117
+ncf_reason	,	V_128
+lbm_transport_sqn_frame_t	,	T_25
+"Receiver port range high (default "	,	L_222
+ett_lbtru_hdr	,	V_225
+"lbtru.analysis.zero_length_header"	,	L_179
+num	,	V_295
+ei_register_info	,	T_28
+lbtru_client_transport_t	,	T_7
+LBTRU_PACKET_TYPE_SM	,	V_37
+O_LBTRU_NCF_HDR_T_RESERVED	,	V_121
+global_lbtru_receiver_port_low	,	V_385
+"Unrecognized header 0x%02x"	,	L_28
+"SYN"	,	L_56
+PI_NOTE	,	V_374
+LBTRU_PACKET_TYPE_CREQ	,	V_41
+FT_NONE	,	V_342
+PI_SEQUENCE	,	V_372
+" "	,	L_14
+receiver_port_high	,	V_68
+tree	,	V_78
+PT_UDP	,	V_9
+L_LBTRU_CID_OPT_T	,	V_279
+"Transport Analysis"	,	L_122
+LBTRU_PACKET_TYPE_RST	,	V_42
+L_LBTRU_DATA_HDR_T	,	V_171
+L_LBTRU_HDR_T	,	V_231
+"lbtru.analysis.ack"	,	L_181
+destport	,	V_74
+"lbtru.hdr.flags.syn"	,	L_57
+dissect_lbtru_data	,	F_59
+"DATA sqn 0x%x"	,	L_16
+uat_t	,	T_30
+lbm_uint32_t	,	T_22
+"Session ID"	,	L_108
+"lbtru.analysis.nak.nak"	,	L_186
+hf_lbtru_channel_id	,	V_296
+source_port_low	,	V_65
+proto_tree_add_uint64	,	F_76
+last_rst_frame	,	V_28
+"CREQ %s"	,	L_24
+nak_item	,	V_132
+lbtru_ncf_format	,	V_362
+ei_lbtru_analysis_sm_ooo	,	V_320
+O_LBTRU_BASIC_OPT_T_RES	,	V_271
+"udp.port"	,	L_241
+len_dissected	,	V_108
+channel_item	,	V_202
+"ACK Sequence Number"	,	L_98
+proto_item_set_len	,	F_50
+"NCF %"	,	L_21
+ett_lbtru_ncf_list	,	V_101
+cur_next_hdr	,	V_258
+"lbtru.nak.list.nak"	,	L_83
+"lbtru.analysis.next_sm_frame"	,	L_145
+"Type"	,	L_46
+lbtru_transport_source_string_format	,	F_25
+PI_CHAT	,	V_373
+sm_sqn	,	V_30
+"NAK %"	,	L_19
+lbtru_sequence_analysis	,	V_247
+L_LBTRU_NAK_HDR_T_NUM_NAKS	,	V_145
+"receiver_port_high"	,	L_221
+total_dissected_len	,	V_194
+hf_lbtru_opt_cid_next_hdr	,	V_280
+hf_lbtru_analysis_data_sqn_gap	,	V_309
+lbm_transport_sqn_add	,	F_21
+transport_tree	,	V_197
+record	,	V_56
+"expert_separate_naks"	,	L_224
+num_naks	,	V_140
+TFS	,	F_83
+sid_flags	,	V_253
+hf_lbtru_opt_cid_flags_ignore	,	V_256
+FT_BOOLEAN	,	V_356
+global_lbtru_expert_separate_ncfs	,	V_389
+"[Tag: %s]"	,	L_11
+L_LBTRU_BASIC_OPT_T_NEXT_HDR	,	V_267
+"LBT-RU Protocol: Version %u, Type %s"	,	L_13
+ei_lbtru_analysis_unknown_header	,	V_287
+O_LBTRU_SM_HDR_T_TRAIL_SQN	,	V_164
+"Request"	,	L_58
+wmem_strdup	,	F_30
+wmem_tree_t	,	T_5
+hf_lbtru_analysis_next_rst_frame	,	V_332
+"%"	,	L_8
+"LBT-RU Protocol (Tag: %s): Version %u, Type %s"	,	L_12
+"lbtru.analysis.sm"	,	L_187
+wmem_alloc_array	,	F_55
+L_LBTRU_BASIC_OPT_T_RES	,	V_364
+"Reason"	,	L_60
+ack_item	,	V_83
+lbtru_expert_separate_ncfs	,	V_104
+"Unknown (0x%02x)"	,	L_5
+setup_frame	,	V_10
+hf_lbtru_opt_cid_hdr_len	,	V_281
+hf_lbtru_analysis_prev_ack_frame	,	V_327
+"Data sequence out of order"	,	L_200
+session_id	,	V_3
+global_lbtru_source_port_low	,	V_381
+expert_lbtru	,	V_378
+O_LBTRU_DATA_HDR_T_SQN	,	V_174
+hdrlen	,	V_257
+"lbtru.ncf.trail"	,	L_86
+frame_entry	,	V_46
+hf_lbtru_ack_sqn	,	V_89
+receiver_address	,	V_18
+retransmission	,	V_44
+header_tree	,	V_195
+"Perform analysis on LBT-RU sequence numbers to determine out-of-order, gaps, loss, etc"	,	L_232
+frame_count	,	V_302
+transport_item	,	V_181
+lbm_channel_assign	,	F_12
+BASE_HEX	,	V_352
+hf_lbtru_opt_cid_flags	,	V_282
+sqns	,	V_107
+hf_lbtru_nak_list_nak	,	V_137
+L_LBTRU_SID_OPT_T	,	V_264
+last_ncf_frame	,	V_25
+"lbtru.opt_cid.flags"	,	L_114
+module_t	,	T_29
+"Zero-length header"	,	L_180
+proto_register_field_array	,	F_85
+ei	,	V_368
+"Separate multiple NCFs from a single packet into distinct Expert Info entries"	,	L_229
+hf_lbtru_nak_format	,	V_146
+"Sequence Number"	,	L_64
+hf_lbtru_analysis_next_creq_frame	,	V_330
+hf_lbtru_opt_cid_client_id	,	V_284
+"Separate NAKs in Expert Info"	,	L_225
+")"	,	L_30
+sm_tree	,	V_152
+dissect_lbtru_ncf_list	,	F_47
+fd	,	V_292
+frame	,	V_4
+"NAK Confirmation Header"	,	L_84
+expert_add_info	,	F_45
+lbtru_receiver_port_low	,	V_339
+LBTRU_NHDR_CID	,	V_277
+"lbtru.analysis.data_duplicate"	,	L_168
+source_address	,	V_1
+client	,	V_33
+hf_lbtru_opt_unknown	,	V_288
+data_item	,	V_169
+hf_lbtru_ack	,	V_85
+hf_lbtru_analysis_prev_frame	,	V_298
+packet_sqn	,	V_205
+"lbtru.analysis.prev_rst_frame"	,	L_139
+"lbtru.opt_unknown.next_hdr"	,	L_120
+conversation_add_proto_data	,	F_9
+O_LBTRU_NCF_HDR_T_NUM_NCFS	,	V_114
+LBTRU_NCF_HDR_REASON_MASK	,	V_361
+length	,	T_14
+flags_or_res	,	V_206
+LBTRU_OPT_IGNORE	,	V_365
+global_lbtru_receiver_port_high	,	V_387
+PI_WARN	,	V_375
+"lbtru.ncf.num"	,	L_88
+"Unknown Option"	,	L_118
+dissect_lbtru_ack	,	F_42
+ett_lbtru	,	V_219
+"Connection REQuest"	,	L_192
+ack_tree	,	V_82
+"SM sequence gap"	,	L_204
+"lbtru.analysis.prev_creq_frame"	,	L_137
+hf	,	V_341
+"lbtru.sm.lead"	,	L_72
+"lbtru.nak.list"	,	L_81
+hf_lbtru_opt_cid	,	V_278
+hf_lbtru_hdr_flags_syn	,	V_191
+"Number of Individual NCFs"	,	L_87
+"Tag"	,	L_40
+wmem_strdup_printf	,	F_26
+frame_tree_item	,	V_304
+"lbtru.analysis"	,	L_123
+"Gap in Data Sequence"	,	L_163
+id	,	V_21
+data_sqn	,	V_29
+"lbtru.analysis.sm_ooo_gap"	,	L_172
+lbtru_source_port_low	,	V_337
+"lbm_lbtru"	,	L_245
+num_ncfs	,	V_110
+"Sequence number also appears in these frames"	,	L_158
+global_lbtru_expert_separate_naks	,	V_388
+UAT_AFFECTS_DISSECTION	,	V_392
+"lbtru.ncf.list.ncf"	,	L_95
+val_to_str	,	F_49
+ett_lbtru_transport_sqn	,	V_306
+L_LBTRU_SID_OPT_T_SESSION_ID	,	V_276
+data_tree	,	V_168
+"ACK Header"	,	L_96
+"lbtru.analysis.next_rst_frame"	,	L_155
+LBTRU_PACKET_TYPE_DATA	,	V_36
+"Duplicate Data Frame"	,	L_167
+hf_lbtru_analysis_next_sm_frame	,	V_316
+"lbtru.opt_cid"	,	L_111
+ei_lbtru_analysis_ncf_ncf	,	V_105
+lbtru_tap_handle	,	V_333
+VALS	,	F_82
+prefs_register_bool_preference	,	F_93
+dissect_lbtru_nak	,	F_57
+wmem_tree_foreach	,	F_77
+"lbtru.analysis.data_ooo_gap"	,	L_166
+"lbtru.analysis.data_sqn_gap"	,	L_164
+global_lbtru_source_port_high	,	V_383
+BASE_DEC	,	V_348
+"lbtru.channel.channel"	,	L_37
+lbtru_expert_separate_naks	,	V_138
+ENC_NA	,	V_87
+L_LBTRU_NAK_HDR_T	,	V_149
+"Data retransmission"	,	L_196
+"lbtru.channel.client"	,	L_39
+hf_lbtru_analysis_data_retransmission	,	V_307
+next_frame	,	V_48
+ofs	,	V_192
+ett_lbtru_channel	,	V_223
+ett_lbtru_hdr_flags	,	V_238
+L_LBTRU_HDR_T_FLAGS_OR_RES	,	V_239
+"lbtru.analysis.sm.gap"	,	L_203
+"Trailing Edge Sequence Number"	,	L_66
+lbm_transport_sqn_t	,	T_8
+ei_lbtru_analysis_sm	,	V_167
+size_t	,	T_13
+hf_lbtru_hdr_ver	,	V_226
+"Previous Transport DATA Frame"	,	L_126
+lbtru_ncf_reason	,	V_106
+dissect_lbtru_ncf	,	F_51
+hf_lbtru_analysis_sqn_frame	,	V_184
+O_LBTRU_HDR_T_NEXT_HDR	,	V_216
+"Ignore"	,	L_106
+MAKESTRING	,	F_92
+"lbtru.ncf"	,	L_85
+proto_reg_handoff_lbtru	,	V_379
+LBTRU_SM_SYN_FLAG	,	V_233
+hf_lbtru_analysis_prev_creq_frame	,	V_329
+entry	,	V_5
+"SM"	,	L_188
+ett_lbtru_opt_cid_flags	,	V_283
+"SM sequence gap (%"	,	L_32
+dst	,	V_291
+hf_lbtru_analysis_data_ooo_gap	,	V_311
+conversation_get_proto_data	,	F_3
+last_sm_frame	,	V_23
+LBTRU_PACKET_TYPE_ACK	,	V_40
+hf_lbtru_tag	,	V_221
+sqn	,	V_34
+"lbtru.ack"	,	L_97
+O_LBTRU_ACK_HDR_T_ACK_SQN	,	V_90
+HFILL	,	V_344
+"Set the high end of the LBT-RU source UDP port range (context transport_lbtru_port_high)"	,	L_217
+lbm_transport_frame_t	,	T_10
+ett_lbtru_nak	,	V_142
+ett_lbtru_ncf	,	V_112
+src	,	V_63
+hf_lbtru_opt_sid_session_id	,	V_274
+wmem_new	,	F_10
+lbtru_tag_copy_cb	,	F_35
+error_string	,	V_57
+"lbtru.opt_sid.flags.ignore"	,	L_107
+ncf_item	,	V_97
+"ACK"	,	L_182
+type_item	,	V_209
+lbtru_module	,	V_376
+"Set the low end of the LBT-RU source UDP port range (context transport_lbtru_port_low)"	,	L_214
+wmem_tree_insert32	,	F_14
+"Version"	,	L_44
+"lbtru_udp"	,	L_244
+hf_lbtru_hdr_flags_rx	,	V_189
+ei_lbtru_analysis_data_gap	,	V_310
+"Previous Transport RST Frame"	,	L_138
+COL_INFO	,	V_214
+cb_data	,	V_180
+next_hdr_item	,	V_210
+ett_lbtru_ack	,	V_88
+from_source	,	V_198
+"tnw_lbtru_tags"	,	L_238
+cinfo	,	V_212
+"NAK Header"	,	L_74
+hf_lbtru_analysis_next_nak_frame	,	V_324
+"lbtru.ncf.list"	,	L_93
+register_tap	,	F_99
+"Reserved"	,	L_50
+next_tvb	,	V_80
+ei_lbtru_analysis_ack	,	V_93
+lbtru_transport_t	,	T_1
+lbtru_client_transport_find	,	F_15
+bufptr	,	V_54
+hf_lbtru_sm_lead_sqn	,	V_160
+"lbtru.analysis.next_nak_frame"	,	L_147
+lbtru_tag_find	,	F_38
+"lbtru.hdr.reason"	,	L_61
+ei_lbtru_analysis_data_ooo	,	V_312
+"Perform Sequence Number Analysis"	,	L_231
+key	,	T_23
+"Channel Client"	,	L_38
+LBTRU_DEFAULT_RECEIVER_PORT_LOW	,	V_384
+"lbtru.analysis.unknown_header"	,	L_177
+hf_lbtru_analysis_sm_duplicate	,	V_321
+O_LBTRU_SM_HDR_T_SM_SQN	,	V_158
+tag_name	,	V_79
+hf_lbtru_ncf_trail_sqn	,	V_115
+L_LBTRU_ACK_HDR_T	,	V_86
+source_port_high	,	V_66
+hf_lbtru_hdr_flags	,	V_237
+"lbtru.analysis.next_creq_frame"	,	L_153
+ncf_tree	,	V_96
+hf_lbtru_channel_client	,	V_297
+next_type_frame	,	V_50
+dest	,	V_64
+ei_lbtru_analysis_nak	,	V_150
+nak_count	,	V_130
+prefs_register_uat_preference	,	F_95
+gboolean	,	T_11
+"Duplicate SM Frame"	,	L_173
+global_lbtru_use_tag	,	V_391
+ooo_gap	,	V_52
+"lbtru.hdr.request"	,	L_59
+"LBT-RU tag definitions"	,	L_236
+lbtru_tag_free_cb	,	F_36
+"Data sequence out of order gap (%"	,	L_31
+"lbtru.ncf.reserved"	,	L_89
+lbtru_tag_entry_t	,	T_12
+"NAK 0x%08x"	,	L_7
+lbtru_rst_reason	,	V_235
+"Number of NAKs"	,	L_76
+client_conv	,	V_20
+idx	,	V_70
+fld_item	,	V_207
+L_LBTRU_HDR_T_VER_TYPE	,	V_227
+"lbtru.hdr.flags"	,	L_53
+BASE_DEC_HEX	,	V_360
+ei_lbtru_analysis_ncf	,	V_127
+ett_lbtru_sm	,	V_156
+destination	,	V_60
+syn	,	V_151
+"Next Transport NCF Frame"	,	L_148
+ver_type	,	V_203
+lbtru_client_transport_sqn_add	,	F_20
+O_LBTRU_NCF_HDR_T_REASON_FORMAT	,	V_113
+g_strdup	,	F_33
+flags_data	,	V_188
+LBM_CHANNEL_TRANSPORT_LBTRU	,	V_14
+"Set the low end of the LBT-RU receiver UDP port range (receiver transport_lbtru_port_low)"	,	L_220
+tapinfo	,	V_211
+ei_lbtru_analysis_data_dup	,	V_314
+ENC_BIG_ENDIAN	,	V_92
+tag_uat	,	V_377
+hf_lbtru_ncf_reserved	,	V_120
+sm_high_sqn	,	V_32
+reason_format	,	V_109
+sm_item	,	V_153
+"Duplicate SM"	,	L_208
+"lbtru_domains"	,	L_237
+wmem_list_new	,	F_13
+header_item	,	V_196
+L_LBTRU_SM_HDR_T_SM_SQN	,	V_159
+opt_tree	,	V_252
+FT_UINT64	,	V_345
+LBTRU_RETRANSMISSION_FLAG	,	V_232
+conv	,	V_7
+"Unknown (0x%04x)"	,	L_27
+"lbtru.hdr.res"	,	L_51
+"lbtru.analysis.prev_nak_frame"	,	L_131
+ett_lbtru_nak_list	,	V_134
+"lbtru.opt_cid.hdr_len"	,	L_113
+"Use table of LBT-RU tags to decode the packet instead of above values"	,	L_235
+"SM sequence out of order"	,	L_206
+"Next Transport ACK Frame"	,	L_150
+lbtru_transport_source_string_transport	,	F_31
+proto_register_subtree_array	,	F_87
+packet_type	,	V_199
+hf_lbtru_opt_unknown_hdr_len	,	V_290
+next_hdr	,	V_204
+data_high_sqn	,	V_31
+"Separate multiple NAKs from a single packet into distinct Expert Info entries"	,	L_226
+_U_	,	V_62
+"NCF 0x%08x %s"	,	L_4
+lbtru_receiver_port_high	,	V_340
+hf_lbtru_nak	,	V_141
+lbtru_creq_request	,	V_234
+hf_lbtru_analysis_sm_sqn_gap	,	V_317
+"lbtru.analysis.sm_sqn_gap"	,	L_170
+FT_UINT8	,	V_350
+proto_item	,	T_21
+expert_register_field_array	,	F_89
+"NCF %s"	,	L_6
+O_LBTRU_CID_OPT_T_CLIENT_SID	,	V_285
+lbmc_dissect_lbmc_packet	,	F_41
+expert_add_info_format	,	F_48
+ei_lbtru_analysis_creq	,	V_242
+ei_lbtru_analysis_nak_nak	,	V_139
+hf_lbtru_analysis_prev_nak_frame	,	V_323
+"sequence_analysis"	,	L_230
+lbtru_use_tag	,	V_71
+"lbtru.analysis.prev_ack_frame"	,	L_135
+"ReSeT"	,	L_194
+hf_lbtru_ncf	,	V_111
+ett_lbtru_data	,	V_172
+"lbtru.analysis.sm.dup"	,	L_207
+"Gap in SM Sequence"	,	L_169
+lbtru_source_port_high	,	V_338
+"Channel"	,	L_34
+G_GUINT32_FORMAT	,	V_185
+tag	,	V_58
+lbtru_client_transport_frame_find	,	F_22
+LBTRU_HDR_TYPE	,	F_69
+L_LBTRU_CID_OPT_T_CLIENT_SID	,	V_286
+conversation_t	,	T_6
+hf_lbtru_analysis_next_ack_frame	,	V_328
+"lbtru.analysis.next_frame"	,	L_141
+offset	,	V_77
+expert_module_t	,	T_31
+hf_lbtru_sm_sqn	,	V_157
+user_data	,	V_179
+hf_lbtru_analysis	,	V_248
+"lbtru.opt_sid.next_hdr"	,	L_102
+"lbtru.opt_sid.hdr_len"	,	L_104
+hdr_length_item	,	V_251
+O_LBTRU_BASIC_OPT_T_NEXT_HDR	,	V_259
+"Next Transport SM Frame"	,	L_144
+proto_tree_add_uint	,	F_62
+"lbtru.nak.format"	,	L_79
+"Separate NCFs in Expert Info"	,	L_228
+"lbtru.opt_sid.flags"	,	L_105
+"lbtru.ack.sqn"	,	L_99
+"lbtru.hdr.type"	,	L_47
+prefs_register_protocol_subtree	,	F_90
+sep_ncf_item	,	V_102
+last_nak_frame	,	V_24
+copy_address_wmem	,	F_11
+hf_lbtru_sm	,	V_154
+wmem_file_scope	,	F_8
+"lbtru.analysis.sqn"	,	L_157
+"Next Header"	,	L_48
+address_to_str	,	F_28
+"lbtru.analysis.creq"	,	L_191
+hf_lbtru_data_trail_sqn	,	V_176
+hf_lbtru_analysis_next_data_frame	,	V_301
+L_LBTRU_DATA_HDR_T_SQN	,	V_175
+FT_FRAMENUM	,	V_366
+proto_lbtru	,	V_12
+"ACK sqn 0x%x"	,	L_23
+hf_lbtru_ncf_list	,	V_100
+"Next Transport NAK Frame"	,	L_146
+"lbtru.opt_cid.client_id"	,	L_117
+hf_lbtru_analysis_data_duplicate	,	V_313
+srcport	,	V_75
+dissect_lbtru_data_contents	,	F_39
+lbtru_packet_type	,	V_218
+proto_tree	,	T_18
+"lbtru.opt_cid.next_hdr"	,	L_112

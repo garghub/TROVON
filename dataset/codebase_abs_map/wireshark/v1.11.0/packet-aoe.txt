@@ -1,0 +1,231 @@
+"D"	,	L_51
+proto_register_protocol	,	F_38
+proto_reg_handoff_aoe	,	F_44
+AOE_AFLAGS_E	,	V_36
+" Error"	,	L_6
+"Version"	,	L_17
+"aoe.response_to"	,	L_66
+"Sector Count"	,	L_25
+AOE_AFLAGS_A	,	V_87
+AOE_AFLAGS_D	,	V_85
+gint	,	T_3
+g_hash_table_insert	,	F_13
+hf_aoe_sector_count	,	V_42
+FT_RELATIVE_TIME	,	V_92
+"E"	,	L_48
+TFS	,	F_37
+tvb	,	V_11
+"aoe.aflags.w"	,	L_57
+"aoe"	,	L_73
+"Major address"	,	L_35
+guint32	,	T_9
+COL_INFO	,	V_45
+dissect_aoe	,	F_29
+ata_info	,	V_17
+hf_aoe_flags_error	,	V_53
+FT_BOOLEAN	,	V_78
+version	,	V_67
+cinfo	,	V_44
+"Request"	,	L_12
+array_length	,	F_40
+"Minor"	,	L_36
+" Unknown ATA&lt;0x%02x&gt;"	,	L_2
+ett_aoe_flags	,	V_51
+hf_aoe_response_in	,	V_33
+ata_cmd_unmatched	,	V_28
+"ethertype"	,	L_74
+abs_ts	,	V_27
+"W"	,	L_56
+ata_cmd_hash_matched	,	F_1
+"aoe.response"	,	L_28
+"ATA Status"	,	L_42
+hf_register_info	,	T_15
+"aoe.version"	,	L_18
+AOE_FLAGS_RESPONSE	,	V_54
+key	,	V_4
+"Whether this is an error PDU or not"	,	L_32
+COL_PROTOCOL	,	V_68
+GUINT_TO_POINTER	,	F_14
+"aoe.time"	,	L_69
+k	,	V_1
+hf_aoe_error	,	V_56
+guint8	,	T_11
+proto_register_aoe	,	F_35
+BASE_NONE	,	V_91
+"Is this a command writing data to the device or not"	,	L_58
+g_hash_table_destroy	,	F_33
+register_dissector	,	F_42
+tfs_error	,	V_80
+"Response In"	,	L_62
+"aoe.flags_error"	,	L_31
+tfs_aflags_a	,	V_86
+"aoe.err_feature"	,	L_24
+tfs_aflags_d	,	V_84
+tvbuff_t	,	T_7
+tfs_aflags_e	,	V_83
+BASE_HEX	,	V_77
+parent_tree	,	V_65
+PROTO_ITEM_SET_GENERATED	,	F_16
+flags_tree	,	V_50
+response_frame	,	V_24
+gboolean	,	T_8
+proto_item_add_subtree	,	F_27
+"Command Tag"	,	L_47
+tfs_aflags_w	,	V_88
+proto_register_field_array	,	F_39
+conversation	,	V_8
+dissector_add_uint	,	F_46
+nstime_delta	,	F_17
+"Whether this is a response PDU or not"	,	L_29
+ata_cmd_equal_matched	,	F_3
+req_time	,	V_26
+FT_UINT16	,	V_81
+register_init_routine	,	F_43
+tvb_get_guint8	,	F_10
+ata_cmd_vals	,	V_46
+"Unknown command&lt;%d&gt;"	,	L_10
+aoe_handle	,	V_94
+ata_cmd_matched	,	V_29
+hf_aoe_cmd	,	V_60
+fd	,	V_18
+"aoe.ata.status"	,	L_43
+g_hash_table_new	,	F_34
+error_vals	,	V_57
+"aoe.aflags.e"	,	L_49
+hf_aoe_astatus	,	V_47
+AOE_AFLAGS_W	,	V_38
+request_frame	,	V_22
+find_dissector	,	F_45
+AOE_CMD_QUERY_CONFIG_INFO	,	V_64
+ENC_BIG_ENDIAN	,	V_35
+hf_aoe_version	,	V_72
+FT_UINT32	,	V_82
+"aoe.aflags.d"	,	L_52
+visited	,	V_20
+ata_cmd_hash_unmatched	,	F_4
+find_or_create_conversation	,	F_7
+guint64	,	T_12
+hf	,	V_73
+proto_tree_add_time	,	F_18
+hf_aoe_err_feature	,	V_41
+ett_aoe	,	V_71
+"Tag"	,	L_45
+"Error"	,	L_20
+col_append_fstr	,	F_20
+FT_UINT64	,	V_89
+col_set_str	,	F_30
+"Lba"	,	L_59
+tmp_ata_info	,	V_21
+hf_aoe_tag	,	V_62
+item	,	V_66
+k1	,	V_2
+k2	,	V_3
+proto_item_append_text	,	F_28
+"Response To"	,	L_65
+"Time between Request and Reply for ATA calls"	,	L_70
+hf_aoe_lba	,	V_48
+col_clear	,	F_31
+ETHERTYPE_AOE	,	V_95
+proto_register_subtree_array	,	F_41
+g_hash_table_remove	,	F_12
+val_to_str	,	F_21
+"Response flag"	,	L_27
+cmd	,	V_25
+"ATA Cmd"	,	L_39
+proto_tree_add_item	,	F_19
+pinfo	,	V_9
+dissector_handle_t	,	T_16
+flags	,	V_19
+" Response"	,	L_4
+hf_aoe_major	,	V_58
+"aoe.aflags.a"	,	L_54
+"This is a response to the ATA command in this frame"	,	L_67
+hf_aoe_minor	,	V_59
+"Err/Feature"	,	L_23
+dissect_aoe_v1	,	F_25
+GPOINTER_TO_UINT	,	F_2
+VALS	,	F_36
+" ATA:%s"	,	L_1
+dissect_ata_pdu	,	F_6
+"Unknown error&lt;%d&gt;"	,	L_8
+"Error flag"	,	L_30
+cmd_vals	,	V_61
+proto_aoe	,	V_69
+FT_UINT8	,	V_74
+gconstpointer	,	T_2
+proto_tree_add_text	,	F_26
+" Request"	,	L_5
+BASE_DEC	,	V_75
+proto_item	,	T_10
+ENC_NA	,	V_70
+flags_item	,	V_49
+"ATAoverEthernet"	,	L_71
+"aoe.error"	,	L_21
+"%s %s"	,	L_9
+"Command"	,	L_14
+key1	,	V_6
+key2	,	V_7
+"Whether this is a normal or LBA48 command"	,	L_50
+g_hash_table_lookup	,	F_11
+ata_cmd_equal_unmatched	,	F_5
+num	,	V_23
+"aoe.response_in"	,	L_63
+aflags	,	V_15
+"AoE"	,	L_13
+"aoe.minor"	,	L_37
+"Version of the AOE protocol"	,	L_19
+tvb_get_letohl	,	F_23
+tag	,	V_5
+"aoe.major"	,	L_34
+nstime_t	,	T_14
+tvb_get_letohs	,	F_22
+conversation_t	,	T_13
+tmp_item	,	V_14
+"Response"	,	L_11
+guint	,	T_1
+"A"	,	L_53
+offset	,	V_12
+AOE_CMD_ISSUE_ATA_COMMAND	,	V_63
+ett	,	V_93
+tree	,	V_10
+"The response to this packet is in this frame"	,	L_64
+lba	,	V_16
+"Lba address"	,	L_61
+"aoe.cmd"	,	L_15
+hf_aoe_response_to	,	V_31
+packet_info	,	T_5
+"AOE"	,	L_72
+"ATA command opcode"	,	L_41
+"Time from request"	,	L_68
+ata_init	,	F_32
+hf_aoe_time	,	V_32
+proto_tree_add_uint	,	F_15
+delta_ts	,	V_30
+"aoe.lba"	,	L_60
+"Flags:"	,	L_3
+"aoe.ata.cmd"	,	L_40
+tfs_response	,	V_79
+hf_aoe_aflags_a	,	V_39
+"Major"	,	L_33
+hf_aoe_aflags_e	,	V_34
+hf_aoe_aflags_d	,	V_37
+proto_tree_add_uint64	,	F_24
+"Minor address"	,	L_38
+"aoe.tag"	,	L_46
+"ATA status bits"	,	L_44
+hf_aoe_acmd	,	V_43
+wmem_file_scope	,	F_9
+HFILL	,	V_76
+"Whether this is an asynchronous write or not"	,	L_55
+"aoe.sector_count"	,	L_26
+wmem_new	,	F_8
+AOE_FLAGS_ERROR	,	V_55
+FT_FRAMENUM	,	V_90
+"Error:%s "	,	L_7
+"Error code"	,	L_22
+hf_aoe_flags_response	,	V_52
+response	,	V_13
+ata_info_t	,	T_4
+"AOE Command"	,	L_16
+proto_tree	,	T_6
+hf_aoe_aflags_w	,	V_40

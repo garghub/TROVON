@@ -1,0 +1,942 @@
+hf_sua_source_address_ssn_bit	,	V_153
+"Start"	,	L_218
+"sua.protcol_class_reserved"	,	L_203
+PARAMETER_VALUE_OFFSET	,	V_78
+hf_sua_source_numbering_plan	,	V_323
+"sua.tid_label_value"	,	L_223
+RECEIVE_SEQUENCE_NUMBER_PARAMETER_TAG	,	V_455
+PROTOCOL_CLASS_MASK	,	V_281
+"sua.sccp_cause_type"	,	L_157
+parameter_tag_values	,	V_428
+V8_ROUTING_KEY_PARAMETER_TAG	,	V_408
+dissect_sccp_cause_parameter	,	F_50
+hf_sua_deregistration_status	,	V_128
+"Protocol Class 2"	,	L_177
+hf_sua_asp_capabilities_reserved	,	V_215
+"Protocol Class 0"	,	L_181
+hf_sua_destination_address_ssn_bit	,	V_160
+guint32	,	T_2
+cause_type	,	V_169
+sua_source_gt	,	V_338
+parameter_value_length	,	V_368
+version	,	V_478
+MESSAGE_TYPE_LENGTH	,	V_59
+STATUS_INFO_LENGTH	,	V_104
+"SUA (ID 08)"	,	L_28
+array_length	,	F_108
+"Protocol Class 1"	,	L_179
+hf_sua_tid_label_value	,	V_258
+"sua.importance_inportance"	,	L_199
+hf_sua_protocol_class_reserved	,	V_275
+TID_START_OFFSET	,	V_253
+"sua.segmentation_reference"	,	L_214
+ENC_ASCII	,	V_74
+ADDRESS_RANGE_PARAMETER_TAG	,	V_463
+"sua.source.global_title_translation_type"	,	L_95
+"ASP Identifier"	,	L_66
+PROTOCOL_CLASSES_OFFSET	,	V_216
+"sua.cause_user_cause"	,	L_188
+dissect_deregistration_result_parameter	,	F_39
+"sua.source.gt_reserved"	,	L_89
+sccp_release_cause_values	,	V_186
+hf_register_info	,	T_16
+V8_AFFECTED_POINT_CODE_PARAMETER_TAG	,	V_399
+hf_sua_source_global_title_digits	,	V_335
+hf_sua_source_ssn_number	,	V_353
+a	,	V_3
+DEREGISTRATION_STATUS_LENGTH	,	V_130
+SEGMENTATION_PARAMETER_TAG	,	V_469
+guint16	,	T_10
+address	,	T_4
+V8_CONGESTION_LEVEL_PARAMETER_TAG	,	V_397
+receive_sequence_number_tree	,	V_195
+sccp_address_signal_values	,	V_333
+context_offset	,	V_77
+"Source Number of Digits"	,	L_92
+"sua.destination.ssn_bit"	,	L_122
+hf_sua_asp_capabilities_b_bit	,	V_221
+AT_SS7PC	,	V_21
+sua_parameter_table	,	V_429
+C_BIT_MASK	,	V_534
+dissect_tid_label_parameter	,	F_60
+BASE_NONE	,	V_508
+calling	,	V_1
+TRAFFIC_MODE_TYPE_PARAMETER_TAG	,	V_443
+"Traffic mode Type"	,	L_56
+hf_sua_drn_label_value	,	V_249
+hf_sua_sequence_control	,	V_282
+dissect_traffic_mode_type_parameter	,	F_25
+"sua.error_code"	,	L_59
+sccp_refusal_cause_values	,	V_184
+COMMON_HEADER_LENGTH	,	V_484
+"Source Reserved"	,	L_88
+dissect_source_address_parameter	,	F_44
+"sua.destination.gti"	,	L_126
+MESSAGE_TYPE_COAK	,	V_33
+V8_DRN_LABEL_PARAMETER_TAG	,	V_420
+V8_PROTOCOL_CLASS_PARAMETER_TAG	,	V_415
+GT_EVEN_SIGNAL_MASK	,	V_331
+PROTO_ITEM_SET_GENERATED	,	F_93
+FT_UINT24	,	V_515
+V8_SOURCE_REFERENCE_NUMBER_PARAMETER_TAG	,	V_388
+SEQ_NUM_MASK	,	V_526
+hf_sua_source_translation_type	,	V_320
+protocol_classes_tree	,	V_214
+proto_item_add_subtree	,	F_46
+hf_sua_destination_address_gt_bit	,	V_158
+TID_VALUE_LENGTH	,	V_260
+NUMBERING_PLAN_OFFSET	,	V_325
+"sua.protocol_class_class"	,	L_206
+FT_BYTES	,	V_507
+hf_sua_message_type	,	V_58
+CAUSE_TYPE_LENGTH	,	V_177
+hf_sua_dest_ssn_reserved	,	V_352
+CONGESTION_LEVEL_LENGTH	,	V_297
+CAUSE_TYPE_RETURN	,	V_181
+"Protocol Class"	,	L_21
+hf_sua_v8_parameter_tag	,	V_380
+V8_SUBSYSTEM_NUMBER_PARAMETER_TAG	,	V_389
+FT_UINT16	,	V_511
+ADDRESS_GT_BITMASK	,	V_519
+CORRELATION_ID_LENGTH	,	V_122
+TID_LABEL_PARAMETER_TAG	,	V_471
+"Source Reference Number"	,	L_153
+"sua.tid_label_start"	,	L_219
+"Interworking"	,	L_183
+" (%s: %s)"	,	L_16
+REGISTRATION_STATUS_LENGTH	,	V_126
+src_rn	,	V_16
+dissect_v8_parameter	,	F_81
+"sua.reserved"	,	L_33
+"SUA Version"	,	L_238
+ett_sua_receive_sequence_number_number	,	V_210
+DRN_VALUE_OFFSET	,	V_250
+"sua_version"	,	L_236
+dissect_destination_address_parameter	,	F_47
+V8_REGISTRATION_RESULT_PARAMETER_TAG	,	V_409
+dissect_registration_result_parameter	,	F_36
+"Version used by Wireshark"	,	L_239
+padding_length	,	V_376
+"Message Type"	,	L_36
+FT_STRING	,	V_513
+"sua.destination.hostname.name"	,	L_145
+SEGMENTATION_REFERENCE_LENGTH	,	V_294
+next_assoc_id	,	V_5
+V8_ASP_IDENTIFIER_PARAMETER_TAG	,	V_398
+"Reserved Bits"	,	L_173
+hf_sua_asp_capabilities_a_bit	,	V_220
+"sua.message_priority_priority"	,	L_202
+find_dissector_table	,	F_121
+param_tag_str	,	V_427
+hf_sua_destination_address_pc_bit	,	V_159
+set_addresses	,	V_493
+"Cause Type"	,	L_156
+FT_UINT32	,	V_510
+hf_sua_status_info	,	V_103
+"sua.sequence_control_sequence_control"	,	L_208
+visited	,	V_31
+AFFECTED_DPC_LENGTH	,	V_118
+"Registration status"	,	L_72
+"Protocol Class 3"	,	L_175
+SEQUENCE_NUMBER_SENT_SEQ_LENGTH	,	V_203
+ett_sua_sequence_number_rec_number	,	V_199
+traffic_mode_type_values	,	V_90
+called	,	V_2
+ett_sua_sequence_number_sent_number	,	V_204
+hf_sua_return_on_error_bit	,	V_279
+"Destination Hostname"	,	L_144
+GLOBAL_TITLE_OFFSET	,	V_329
+IPV4_ADDRESS_PARAMETER_TAG	,	V_473
+"Cause Value"	,	L_158
+FT_IPv6	,	V_525
+register_heur_dissector_list	,	F_114
+se_tree_create	,	F_117
+LOCAL_ROUTING_KEY_IDENTIFIER_LENGTH	,	V_134
+col_set_str	,	F_100
+hf_sua_destination_address_routing_indicator	,	V_155
+hf_sua_ss7_hop_counter_reserved	,	V_135
+DESTINATION_REFERENCE_NUMBER_LENGTH	,	V_168
+FT_IPv4	,	V_524
+ADDRESS_RESERVED_BITMASK	,	V_517
+number_of_contexts	,	V_75
+"sua.affected_pointcode_dpc"	,	L_71
+"Source Include GT"	,	L_82
+"Source Subsystem Number"	,	L_105
+"Address Indicator"	,	L_15
+"Destination Include SSN"	,	L_121
+FIRST_BIT_MASK	,	V_541
+V8_SS7_HOP_COUNTER_PARAMETER_TAG	,	V_400
+ADD_PADDING	,	F_87
+mtp3_addr_pc_t	,	V_22
+"sua.destination.routing_indicator"	,	L_114
+CAUSE_OFFSET	,	V_235
+dissector_handle_t	,	T_19
+"Sequence Control"	,	L_207
+"More Data Bit"	,	L_163
+dissect_point_code_parameter	,	F_73
+more_data_bit_value	,	V_527
+hf_sua_diagnostic_information_info	,	V_82
+GT_EVEN_SIGNAL_SHIFT	,	V_332
+IPV6_ADDRESS_PARAMETER_TAG	,	V_475
+no_sua_assoc	,	V_20
+V8_STATUS_PARAMETER_TAG	,	V_396
+hf_sua_asp_capabilities_d_bit	,	V_223
+RESERVED_OFFSET	,	V_53
+dissect_receive_sequence_number_parameter	,	F_52
+"Source Include PC"	,	L_84
+"sua.destination.ssn_reserved"	,	L_139
+hf_sua_dest_numbering_plan	,	V_324
+proto_tree_add_text	,	F_45
+STATUS_TYPE_LENGTH	,	V_102
+hf_sua_dest_nature_of_address	,	V_327
+global_title_length	,	V_299
+CAUSE_TYPE_ERROR	,	V_189
+NATURE_OF_ADDRESS_LENGTH	,	V_311
+hf_sua_sequence_number_sent_number	,	V_205
+GT_ODD_SIGNAL_MASK	,	V_330
+"Address information (digits): %s"	,	L_24
+CREDIT_PARAMETER_TAG	,	V_457
+"draft-08"	,	L_229
+V8_USER_CAUSE_PARAMETER_TAG	,	V_406
+AFFECTED_POINT_CODE_PARAMETER_TAG	,	V_448
+dissect_error_code_parameter	,	F_28
+hf_sua_congestion_level	,	V_295
+FIRST_REMAINING_LENGTH	,	V_288
+dissect_global_title_parameter	,	F_69
+assoc	,	V_27
+"sua.message_type"	,	L_37
+"set_addresses"	,	L_240
+"Local routing key identifier"	,	L_76
+"sua.credit"	,	L_186
+guint	,	T_5
+diag_info_length	,	V_81
+ett	,	V_543
+NETWORK_APPEARANCE_OFFSET	,	V_241
+dissect_congestion_level_parameter	,	F_68
+packet_info	,	T_3
+DIAGNOSTIC_INFO_OFFSET	,	V_83
+"SUA (RFC 3868)"	,	L_29
+DATA_PARAMETER_DATA_OFFSET	,	V_233
+hf_sua_sequence_number_rec_number	,	V_200
+curr_msg	,	V_490
+NETWORK_APPEARANCE_PARAMETER_TAG	,	V_459
+dissect_info_string_parameter	,	F_15
+"sua.destination.ipv6_address"	,	L_147
+ett_sua_parameter	,	V_379
+"sua.infostring"	,	L_247
+"sua.destination.global_title_nature_of_address"	,	L_134
+cause	,	V_170
+dissect_sequence_control_parameter	,	F_66
+emem_tree_key_t	,	T_6
+ADDRESS_INDICATOR_OFFSET	,	V_147
+hf_sua_asp_capabilities_c_bit	,	V_222
+SUA_V08	,	V_479
+hf_sua_source_reference_number	,	V_163
+hf_sua_parameter_padding	,	V_426
+hf_sua_message_class	,	V_56
+"Destination IPv4 address"	,	L_142
+hf_sua_source_ssn_reserved	,	V_351
+CAUSE_TYPE_REFUSAL	,	V_183
+hf_sua_asp_capabilities_interworking	,	V_224
+called_dpc	,	V_9
+mtp3_pc_hash	,	F_4
+"SS7 SCCP-User Adaptation Layer"	,	L_233
+parameter_tvb	,	V_64
+"sua.assoc.id"	,	L_228
+HOSTNAME_PARAMETER_TAG	,	V_474
+"SMI"	,	L_216
+receive_sequence_number_item	,	V_194
+parameter_tree	,	V_65
+"Unknown"	,	L_23
+"sua.destination.global_title_digits"	,	L_136
+SSN_LENGTH	,	V_355
+"unknown"	,	L_10
+hf_sua_cause_type	,	V_175
+"Importance"	,	L_198
+proto_register_protocol	,	F_105
+hf_sua_sequence_number_spare_bit	,	V_206
+V8_ROUTING_CONTEXT_PARAMETER_TAG	,	V_391
+MESSAGE_CLASS_OFFSET	,	V_43
+STATUS_PARAMETER_TAG	,	V_445
+tvb_new_subset_remaining	,	F_37
+SUA_PAYLOAD_PROTOCOL_ID	,	V_550
+"Return On Error Bit"	,	L_204
+gint	,	T_11
+"sctp.ppi"	,	L_248
+"sua.cause_user_user"	,	L_190
+MESSAGE_CLASS_CO_MESSAGE	,	V_485
+SEQUENCE_CONTROL_OFFSET	,	V_283
+"sua.source.global_title_number_of_digits"	,	L_93
+hf_sua_data	,	V_232
+source_ssn	,	V_372
+called_ssn	,	V_12
+"sua.smi_smi"	,	L_217
+"Source IP Version 6 address"	,	L_111
+MIN	,	F_88
+DRN_END_OFFSET	,	V_247
+"sua.source.pc_bit"	,	L_85
+"Info string"	,	L_48
+V8_RECEIVE_SEQUENCE_NUMBER_PARAMETER_TAG	,	V_403
+" (%.*s)"	,	L_4
+NUMBER_OF_SEGMENTS_MASK	,	V_542
+call_dissector	,	F_18
+" (%s)"	,	L_9
+PARAMETER_LENGTH_LENGTH	,	V_383
+" (SS7 message of %u byte%s)"	,	L_20
+"reserved"	,	L_2
+PARAMETER_TAG_LENGTH	,	V_381
+prefs_register_enum_preference	,	F_112
+"Destination Reserved"	,	L_123
+"sua.destination.global_title_numbering_plan"	,	L_132
+hf_sua_importance_reserved	,	V_265
+"Source GTI"	,	L_90
+parameter_item	,	V_66
+V8_NETWORK_APPEARANCE_PARAMETER_TAG	,	V_407
+COL_PROTOCOL	,	V_499
+"Destination Global Title Digits"	,	L_135
+CORRELATION_ID_PARAMETER_TAG	,	V_464
+"sua.sequence_number_reserved"	,	L_160
+DRN_END_LENGTH	,	V_248
+INFO_STRING_OFFSET	,	V_72
+hf_sua_sequence_number_reserved	,	V_196
+HEARTBEAT_DATA_OFFSET	,	V_86
+guint8	,	T_12
+bw_key	,	V_26
+tvb_get_ntohl	,	F_26
+MESSAGE_TYPE_CORE	,	V_25
+TID_END_OFFSET	,	V_256
+tvbuff_t	,	T_7
+MESSAGE_CLASS_LENGTH	,	V_57
+source	,	V_298
+dissect_heartbeat_data_parameter	,	F_24
+tvb_get_ntohs	,	F_16
+RECEIVE_SEQUENCE_NUMBER_REC_SEQ_LENGTH	,	V_209
+V8_DEREGISTRATION_RESULT_PARAMETER_TAG	,	V_410
+hf_sua_dest_translation_type	,	V_321
+hf_sua_cause_reserved	,	V_173
+ROUTING_CONTEXT_LENGTH	,	V_80
+CAUSE_VALUE_LENGTH	,	V_180
+hf_sua_source_gt_reserved	,	V_312
+SCCP_CAUSE_PARAMETER_TAG	,	V_453
+dissect_parameter	,	F_83
+se_tree_insert32_array	,	F_8
+"Destination Point Code"	,	L_137
+"sua.registration_status"	,	L_73
+NO_OF_DIGITS_OFFSET	,	V_319
+tvb_get_guint8	,	F_10
+error_code_values	,	V_96
+SMI_PARAMETER_TAG	,	V_470
+"sua.version"	,	L_31
+"Heartbeat Data"	,	L_54
+proto_tree_add_string_format	,	F_72
+"sua.protocol_class_return_on_error_bit"	,	L_205
+USER_LENGTH	,	V_239
+ADDRESS_INDICATOR_LENGTH	,	V_148
+"Receive Sequence Number"	,	L_17
+"Status type"	,	L_60
+tvb_ip6_to_str	,	F_79
+ep_new0	,	F_90
+hf_sua_ss7_hop_counter_counter	,	V_137
+"Set source and destination addresses"	,	L_241
+v8_error_code_values	,	V_94
+"sua.source.global_title_numbering_plan"	,	L_97
+VERSION_LENGTH	,	V_50
+parameters_tvb	,	V_123
+"Source Point Code"	,	L_102
+dissect_unknown_parameter	,	F_80
+"Deregistration status"	,	L_74
+"Destination Numbering Plan"	,	L_131
+prefs_register_obsolete_preference	,	F_111
+"sua.source.routing_indicator"	,	L_79
+SS7_HOP_COUNTER_OFFSET	,	V_138
+"Parameter Length"	,	L_42
+find_dissector	,	F_119
+hf_sua_mask	,	V_113
+"sua.message_length"	,	L_39
+sua_ri	,	V_143
+assocs	,	V_28
+hf_sua_correlation_id	,	V_120
+heur_subdissector_list	,	V_496
+hf_sua_dest_number_of_digits	,	V_318
+"sua"	,	L_235
+hf_sua_drn_label_end	,	V_246
+MESSAGE_PRIORITY_LENGTH	,	V_272
+proto_reg_handoff_sua	,	F_118
+V8_SEQUENCE_CONTROL_PARAMETER_TAG	,	V_416
+hf_sua_routing_context	,	V_79
+"SUA"	,	L_234
+hf_sua_message_priority	,	V_270
+hf_sua_message_priority_reserved	,	V_269
+ROUTING_INDICATOR_LENGTH	,	V_146
+dissect_sua_message	,	F_89
+V8_SOURCE_ADDRESS_PARAMETER_TAG	,	V_385
+USER_OFFSET	,	V_238
+TID_END_LENGTH	,	V_257
+CAUSE_VALUE_OFFSET	,	V_179
+"sua.destination.point_code"	,	L_138
+NO_OF_DIGITS_LENGTH	,	V_308
+protocol_classes_item	,	V_213
+"sua.source.ssn"	,	L_106
+options	,	V_547
+DATA_PARAMETER_TAG	,	V_431
+LOCAL_ROUTING_KEY_IDENTIFIER_PARAMETER_TAG	,	V_451
+dissect_asp_identifier_parameter	,	F_30
+proto_tree_add_uint_format	,	F_14
+ADDRESS_PARAMETERS_OFFSET	,	V_154
+REGISTRATION_STATUS_PARAMETER_TAG	,	V_449
+"sua.asp_capabilities_c_bit"	,	L_180
+"Label Value"	,	L_222
+proto_item_append_text	,	F_19
+info_string_length	,	V_67
+"Destination Include GT"	,	L_117
+ep_alloc0	,	F_70
+col_clear	,	F_101
+ERROR_CODE_LENGTH	,	V_93
+FIRST_REMAINING_OFFSET	,	V_287
+V8_GLOBAL_TITLE_PARAMETER_TAG	,	V_421
+"Routing context"	,	L_50
+"sua.destination.gt_bit"	,	L_118
+calling_dpc	,	V_8
+proto_tree_add_item	,	F_13
+REGISTRATION_STATUS_OFFSET	,	V_125
+ett_sua_return_on_error_bit_and_protocol_class	,	V_278
+ADDRESS_SSN_BITMASK	,	V_521
+pinfo	,	V_13
+col_add_fstr	,	F_11
+flags	,	V_30
+"sua.status_type"	,	L_61
+A_BIT_MASK	,	V_532
+TID_START_LENGTH	,	V_254
+"sua.source_reference_number"	,	L_154
+called_routing_ind	,	V_7
+V8_MESSAGE_PRIORITY_PARAMETER_TAG	,	V_414
+"sua.source.reserved_bits"	,	L_81
+status_type_info_values	,	V_105
+V8_IMPORTANCE_PARAMETER_TAG	,	V_413
+DESTINATION_ADDRESS_PARAMETER_TAG	,	V_433
+number_of_destinations	,	V_109
+V8_INFO_STRING_PARAMETER_TAG	,	V_390
+tvb_get_ephemeral_string	,	F_20
+"Sent Sequence Number"	,	L_18
+hf_sua_destination_reference_number	,	V_167
+RESERVED_3_LENGTH	,	V_136
+heartbeat_data_length	,	V_84
+tap_queue_packet	,	F_96
+SEQUENCE_CONTROL_LENGTH	,	V_284
+registration_status_values	,	V_127
+hf_sua_number_of_remaining_segments	,	V_291
+" (%u destination%s)"	,	L_13
+GT_SIGNAL_LENGTH	,	V_334
+message_class_type_values	,	V_60
+NETWORK_APPEARANCE_LENGTH	,	V_242
+"Padding"	,	L_46
+"Diagnostic Information"	,	L_52
+register_dissector_table	,	F_115
+hf_sua_heartbeat_data	,	V_85
+DRN_START_LENGTH	,	V_245
+dissect_destination_reference_number_parameter	,	F_49
+dissect_affected_destinations_parameter	,	F_31
+dissect_routing_key_parameter	,	F_58
+"sua.affected_point_code_mask"	,	L_69
+ROUTE_ON_GT_ROUTING_INDICATOR	,	V_337
+"sua.source.global_title_digits"	,	L_101
+"sua.source.ssn_reserved"	,	L_104
+SET_ADDRESS	,	F_97
+V8_ADDRESS_RANGE_PARAMETER_TAG	,	V_411
+"Source Translation Type"	,	L_94
+"Destination Translation Type"	,	L_129
+" (%d)"	,	L_14
+hf_sua_error_code	,	V_95
+hf_sua_source_nature_of_address	,	V_326
+hf_sua_first_bit	,	V_290
+DEREGISTRATION_STATUS_PARAMETER_TAG	,	V_450
+hf_sua_source_address_pc_bit	,	V_152
+hf_sua_smi_reserved	,	V_261
+tree	,	V_371
+MESSAGE_PRIORITY_OFFSET	,	V_271
+get_sccp_assoc	,	F_94
+SS7_HOP_COUNTER_LENGTH	,	V_139
+"sua.importance_reserved"	,	L_197
+"sua.sequence_number_sent_sequence_number"	,	L_166
+hf_sua_source_number_of_digits	,	V_317
+Standard_Type	,	V_344
+"sua.status_info"	,	L_63
+"sua.sequence_number_more_data_bit"	,	L_164
+TRAFFIC_MODE_TYPE_LENGTH	,	V_89
+sua_dpc	,	V_346
+dissect_ssn_parameter	,	F_74
+assoc_id	,	V_4
+" (%u)"	,	L_12
+D_BIT_MASK	,	V_535
+"Receive Sequence Number P(R)"	,	L_161
+CAUSE_TYPE_RELEASE	,	V_185
+message_class_type_acro_values	,	V_47
+PARAMETER_TAG_OFFSET	,	V_370
+dst_rn	,	V_17
+sccp_error_cause_values	,	V_190
+ett_sua_protcol_classes	,	V_218
+"sua.source.hostname.name"	,	L_110
+EMEM_TREE_TYPE_RED_BLACK	,	V_548
+gt_digits	,	V_305
+ett_sua_affected_destination	,	V_544
+dpc_item	,	V_112
+HEARTBEAT_DATA_PARAMETER_TAG	,	V_442
+"sua.source.gt_bit"	,	L_83
+"Destination Include PC"	,	L_119
+POINT_CODE_PARAMETER_TAG	,	V_434
+AFFECTED_MASK_LENGTH	,	V_115
+sccp_return_cause_values	,	V_182
+cause_type_values	,	V_191
+"sua.asp_capabilities_reserved_bits"	,	L_174
+DRN_START_OFFSET	,	V_244
+sent_sequence_number_item	,	V_192
+ett_sua_first_remaining	,	V_289
+calling_ssn	,	V_10
+"Destination Routing Indicator"	,	L_113
+"sua.segmentation_number_of_remaining_segments"	,	L_212
+interworking_values	,	V_536
+INVALID_SSN	,	V_11
+PARAMETER_HEADER_LENGTH	,	V_70
+SEQUENCE_NUMBER_SENT_SEQ_OFFSET	,	V_202
+even_signal	,	V_303
+CONGESTION_LEVEL_OFFSET	,	V_296
+TFS	,	F_104
+DEREGISTRATION_STATUS_OFFSET	,	V_129
+FT_BOOLEAN	,	V_518
+"sua.asp_capabilities_d_bit"	,	L_182
+sua_opc	,	V_343
+TID_VALUE_OFFSET	,	V_259
+status_type_values	,	V_514
+return_on_error_bit_value	,	V_538
+dissect_credit_parameter	,	F_54
+dissect_network_appearance_parameter	,	F_57
+ROUTE_ON_SSN_PC_ROUTING_INDICATOR	,	V_342
+"Source Global Title Digits"	,	L_100
+""	,	L_6
+"Destination Number of Digits"	,	L_127
+"Message Class"	,	L_34
+hostname_length	,	V_360
+"sua.asp_capabilities_interworking"	,	L_184
+"Unknown parameter"	,	L_27
+"sua.tid_label_end"	,	L_221
+STATUS_INFO_OFFSET	,	V_100
+"Destination Reserved Bits"	,	L_115
+"User"	,	L_189
+dissect_hostname_parameter	,	F_77
+ADDRESS_PC_BITMASK	,	V_520
+"sua.destination.reserved_bits"	,	L_116
+cause_string	,	V_172
+RESERVED_BITS_MASK	,	V_530
+"sua.destination.global_title_translation_type"	,	L_130
+hf_sua_v8_error_code	,	V_91
+RESERVED_LENGTH	,	V_54
+"Set the source and destination addresses to the PC or GT digits, depending on the routing indicator."	,	L_242
+"sua.heartbeat_data"	,	L_55
+"sua.ss7_hop_counter_counter"	,	L_149
+V8_ASP_CAPABILITIES_PARAMETER_TAG	,	V_404
+"Source Nature of Address"	,	L_98
+got_assoc	,	V_35
+protocol_version_values	,	V_505
+"sua.source.point_code"	,	L_103
+address_indicator_tree	,	V_142
+"Destination Reference Number"	,	L_151
+V8_TID_LABEL_PARAMETER_TAG	,	V_419
+"Destination IPv6 address"	,	L_146
+"Status info: %s (%u)"	,	L_11
+V8_TRAFFIC_MODE_TYPE_PARAMETER_TAG	,	V_394
+V8_SEGMENTATION_PARAMETER_TAG	,	V_417
+plurality	,	F_22
+BASE_HEX	,	V_512
+hf_sua_tid_label_end	,	V_255
+ROUTING_INDICATOR_OFFSET	,	V_144
+STATUS_TYPE_OFFSET	,	V_99
+sccp_info	,	V_491
+module_t	,	T_17
+"sua.asp_capabilities_reserved"	,	L_172
+proto_register_field_array	,	F_107
+mtp3_pc_structured	,	F_32
+"sua_associations"	,	L_246
+hf_sua_parameter_value	,	V_369
+SEQUENCE_NUMBER_REC_SEQ_OFFSET	,	V_197
+"Parameter Value"	,	L_44
+MESSAGE_TYPE_OFFSET	,	V_44
+dissector_add_uint	,	F_120
+dissect_data_parameter	,	F_55
+"Status info"	,	L_62
+"sua.traffic_mode_type"	,	L_57
+data_handle	,	V_497
+"Message Priority"	,	L_201
+"sctp.port"	,	L_249
+V8_HOSTNAME_PARAMETER_TAG	,	V_424
+destination_offset	,	V_111
+"Source Reserved Bits"	,	L_80
+"sua.network_appearance"	,	L_194
+LOCAL_ROUTING_KEY_IDENTIFIER_OFFSET	,	V_133
+sent_sequence_number_tree	,	V_193
+"sua.congestion_level"	,	L_65
+fd	,	V_29
+"sua.parameter_tag"	,	L_41
+V8_IPV6_ADDRESS_PARAMETER_TAG	,	V_425
+hf_sua_segmentation_reference	,	V_292
+ASP_IDENTIFIER_OFFSET	,	V_107
+V8_HEARTBEAT_DATA_PARAMETER_TAG	,	V_393
+"Source Numbering Plan"	,	L_96
+ett_sua_destination_address_indicator	,	V_156
+SSN_OFFSET	,	V_350
+hf_sua_dest_hostname	,	V_362
+"Congestion Level"	,	L_64
+dissect_sequence_number_parameter	,	F_51
+message_class_values	,	V_509
+mtp3_pc_to_str	,	F_33
+destination_number	,	V_110
+B_BIT_MASK	,	V_533
+val_to_str_const	,	F_12
+length	,	V_375
+SEQUENCE_NUMBER_PARAMETER_TAG	,	V_454
+ERROR_CODE_OFFSET	,	V_92
+even_length	,	V_301
+"sua.drn_label_value"	,	L_226
+dissect_address_range_parameter	,	F_61
+hf	,	V_502
+address_indicator_item	,	V_141
+TRANSLATION_TYPE_OFFSET	,	V_322
+"sua.receive_sequence_number_reserved"	,	L_169
+hf_sua_reserved	,	V_52
+sccp_ssn_dissector_table	,	V_495
+"Sent Sequence Number P(S)"	,	L_165
+enum_val_t	,	T_18
+hf_sua_traffic_mode_type	,	V_87
+DIAGNOSTIC_INFO_PARAMETER_TAG	,	V_441
+NATURE_OF_ADDRESS_OFFSET	,	V_328
+prefs_register_protocol	,	F_110
+"sua.receive_sequence_number_spare_bit"	,	L_171
+ROUTING_KEY_PARAMETER_TAG	,	V_460
+"sua.correlation_id"	,	L_196
+RECEIVE_SEQUENCE_NUMBER_REC_SEQ_OFFSET	,	V_208
+total_length	,	V_476
+CORRELATION_ID_OFFSET	,	V_121
+V8_SEQUENCE_NUMBER_PARAMETER_TAG	,	V_402
+SUA_RFC	,	V_480
+COMMON_HEADER_OFFSET	,	V_483
+"rfc3868"	,	L_231
+sua_handle	,	V_549
+AFFECTED_MASK_OFFSET	,	V_114
+reset_sccp_assoc	,	F_91
+mtp3_standard	,	V_345
+hf_sua_sequence_number_more_data_bit	,	V_201
+dissect_message_priority_parameter	,	F_64
+hf_sua_receive_sequence_number_number	,	V_211
+"Internet Draft version 08"	,	L_230
+sua_tap	,	V_492
+fw_key	,	V_34
+"sua.destination.pc_bit"	,	L_120
+hf_sua_cause_value	,	V_178
+dissector_try_heuristic	,	F_98
+"First Segment Bit"	,	L_209
+hf_sua_tid_label_start	,	V_252
+hf_sua_asp_identifier	,	V_106
+hf_sua_status_type	,	V_101
+V8_DATA_PARAMETER_TAG	,	V_384
+dpc	,	V_15
+SMI_LENGTH	,	V_264
+VALS	,	F_103
+prefs_register_bool_preference	,	F_113
+hf_sua_source_gti	,	V_314
+sccp_reset_cause_values	,	V_188
+hf_sua_receive_sequence_number_reserved	,	V_207
+CREDIT_OFFSET	,	V_228
+"%s "	,	L_1
+ett_sua_source_address_indicator	,	V_149
+"data"	,	L_250
+TRAFFIC_MODE_TYPE_OFFSET	,	V_88
+tvb_length	,	F_82
+"sua.destination_reference_number"	,	L_152
+"sua.sequence_number_receive_sequence_number"	,	L_162
+se_new0	,	F_2
+BASE_DEC	,	V_504
+tvb_new_subset	,	F_17
+"RFC 3868"	,	L_232
+cause_values	,	V_537
+try_val_to_str	,	F_84
+ENC_NA	,	V_55
+"Source Include SSN"	,	L_86
+protocol_class_tree	,	V_274
+CAUSE_LENGTH	,	V_236
+"sua.info_string"	,	L_49
+IMPORTANCE_PARAMETER_TAG	,	V_465
+"%s"	,	L_26
+"Affected DPC"	,	L_70
+status_type	,	V_97
+" (%u byte%s)"	,	L_8
+dissect_v8_error_code_parameter	,	F_27
+V8_POINT_CODE_PARAMETER_TAG	,	V_422
+"sua.source.ipv4_address"	,	L_108
+odd_signal	,	V_302
+sua_assoc	,	F_3
+V8_SMI_PARAMETER_TAG	,	V_418
+"sua.sccp_cause_value"	,	L_159
+SOURCE_REFERENCE_NUMBER_OFFSET	,	V_162
+"sua.asp_identifier"	,	L_67
+IMPORTANCE_LENGTH	,	V_268
+drn	,	V_165
+nature_of_address_values	,	V_523
+hf_sua_source_hostname	,	V_361
+PROTOCOL_CLASS_PARAMETER_TAG	,	V_467
+hf_sua_drn_label_start	,	V_243
+"Parameter Tag"	,	L_40
+" (%u context%s)"	,	L_5
+"s"	,	L_7
+"Credit"	,	L_185
+dissect_parameters	,	F_38
+MESSAGE_LENGTH_OFFSET	,	V_62
+"sua.source.ssn_bit"	,	L_87
+"Destination Subsystem Number"	,	L_140
+"Destination Nature of Address"	,	L_133
+dissect_deregistration_status_parameter	,	F_41
+dst	,	V_488
+hf_sua_network_appearance	,	V_240
+hf_sua_source_ipv6	,	V_364
+"sua.message_class"	,	L_35
+"Message Type: %s (%u)"	,	L_3
+hf_sua_source_ipv4	,	V_356
+"Correlation ID"	,	L_195
+dissect_status_type_parameter	,	F_29
+tvb_offset_from_real_beginning	,	F_95
+AFFECTED_DPC_OFFSET	,	V_117
+"Association ID"	,	L_227
+hf_sua_dest_point_code	,	V_348
+"Number of Remaining Segments"	,	L_211
+CONGESTION_LEVEL_PARAMETER_TAG	,	V_446
+v8_parameter_tag_values	,	V_378
+dpck	,	V_19
+"Mask"	,	L_68
+HFILL	,	V_506
+dissector_try_uint	,	F_85
+V8_IPV4_ADDRESS_PARAMETER_TAG	,	V_423
+src	,	V_487
+"sua.drn_label_start"	,	L_224
+gchar	,	T_13
+hf_sua_version	,	V_48
+"Cause"	,	L_187
+srn	,	V_161
+SEGMENTATION_REFERENCE_OFFSET	,	V_293
+"Error code"	,	L_58
+common_header_tvb	,	V_40
+"sua.source.gti"	,	L_91
+pc	,	V_340
+has_bw_key	,	V_32
+message_class	,	V_42
+pi	,	V_171
+ASP_IDENTIFIER_PARAMETER_TAG	,	V_447
+"sccp.ssn"	,	L_251
+SOURCE_REFERENCE_NUMBER_LENGTH	,	V_164
+REGISTRATION_RESULT_PARAMETER_TAG	,	V_461
+hf_sua_user	,	V_237
+status_info	,	V_98
+V8_CORRELATION_ID_PARAMETER_TAG	,	V_412
+"sua.asp_capabilities_b_bit"	,	L_178
+ssn	,	V_140
+message_tvb	,	V_481
+POINT_CODE_OFFSET	,	V_341
+"Version"	,	L_30
+"Proprietary SUA Tags"	,	L_245
+assoc_item	,	V_482
+AT_STRINGZ	,	V_494
+ROUTING_CONTEXT_PARAMETER_TAG	,	V_440
+V8_DESTINATION_REFERENCE_NUMBER_PARAMETER_TAG	,	V_387
+ASP_CAPABILITIES_PARAMETER_TAG	,	V_456
+CREDIT_LENGTH	,	V_229
+hf_sua_importance	,	V_266
+COL_INFO	,	V_46
+"SS7 Hop Counter"	,	L_148
+RESERVED_2_LENGTH	,	V_174
+dissect_protocol_class_parameter	,	F_65
+"Segmentation Reference"	,	L_213
+g_strlcat	,	F_71
+cinfo	,	V_45
+INFO_STRING_PARAMETER_TAG	,	V_439
+register_tap	,	F_116
+opck	,	V_18
+VERSION_OFFSET	,	V_49
+"Reserved"	,	L_32
+sua_module	,	V_546
+next_tvb	,	V_68
+PARAMETER_LENGTH_OFFSET	,	V_69
+"sua.destination.gt_reserved"	,	L_124
+hf_sua_cause	,	V_234
+"Network Appearance"	,	L_193
+hf_sua_source_address_reserved_bits	,	V_150
+SUBSYSTEM_NUMBER_PARAMETER_TAG	,	V_438
+"sua.parameter_length"	,	L_43
+MORE_DATA_BIT_MASK	,	V_528
+"sua.routing_context"	,	L_51
+first_remaining_tree	,	V_286
+dissect_ipv6_parameter	,	F_78
+key	,	V_39
+V8_CREDIT_PARAMETER_TAG	,	V_405
+dissect_importance_parameter	,	F_63
+hf_sua_protocol_class	,	V_280
+g_str_hash	,	F_5
+"sua.parameter_padding"	,	L_47
+dissect_ss7_hop_counter_parameter	,	F_43
+CAUSE_TYPE_RESET	,	V_187
+SMI_OFFSET	,	V_263
+tvb_length_remaining	,	F_86
+dissect_sua	,	F_99
+dissect_drn_label_parameter	,	F_59
+register_dissector	,	F_106
+TRANSLATION_TYPE_LENGTH	,	V_309
+"sua.deregistration_status"	,	L_75
+hf_sua_parameter_length	,	V_382
+DEREGISTRATION_RESULT_PARAMETER_TAG	,	V_462
+GTI_LENGTH	,	V_307
+sua_assoc_info_t	,	T_1
+"Message Length"	,	L_38
+dissect_routing_context_parameter	,	F_21
+dissect_source_reference_number_parameter	,	F_48
+gboolean	,	T_14
+"sua.sccp_cause_reserved"	,	L_155
+hf_sua_credit	,	V_227
+"sua.prop.tags"	,	L_244
+IPV6_ADDRESS_OFFSET	,	V_366
+opc	,	V_14
+dissect_ipv4_parameter	,	F_75
+"version"	,	L_237
+data_tvb	,	V_230
+dissect_smi_parameter	,	F_62
+proto_register_sua	,	F_102
+POINT_CODE_LENGTH	,	V_349
+"sua.data"	,	L_192
+dissect_common_header	,	F_9
+V8_ERROR_CODE_PARAMETER_TAG	,	V_395
+V8_SCCP_CAUSE_PARAMETER_TAG	,	V_401
+"sua.source.global_title_nature_of_address"	,	L_99
+first_remaining_item	,	V_285
+IPV4_ADDRESS_LENGTH	,	V_359
+ERROR_CODE_PARAMETER_TAG	,	V_444
+PROTOCOL_CLASS_LENGTH	,	V_277
+SOURCE_REFERENCE_NUMBER_PARAMETER_TAG	,	V_437
+se_tree_lookup32_array	,	F_7
+HOSTNAME_OFFSET	,	V_363
+hf_sua_dest_gt_reserved	,	V_313
+first_bit_value	,	V_540
+MESSAGE_LENGTH_LENGTH	,	V_63
+data_length	,	V_231
+"sua.diagnostic_information"	,	L_53
+"Source Hostname"	,	L_109
+"sua.sequence_number_spare_bit"	,	L_168
+hf_sua_message_length	,	V_61
+ENC_BIG_ENDIAN	,	V_51
+INTERWORKING_LENGTH	,	V_226
+SCTP_PORT_SUA	,	V_551
+"sua.receive_sequence_number_number"	,	L_170
+protocol_class_item	,	V_273
+sua_destination_gt	,	V_339
+dissect_local_routing_key_identifier_parameter	,	F_42
+sccp_assoc_info_t	,	T_15
+"sua.segmentation_first_bit"	,	L_210
+"sua.destination.ipv4_address"	,	L_143
+has_fw_key	,	V_38
+remaining_length	,	V_477
+"First / Remaining"	,	L_22
+"sua.drn_label_end"	,	L_225
+"Destination GTI"	,	L_125
+V8_DIAGNOSTIC_INFO_PARAMETER_TAG	,	V_392
+CAUSE_TYPE_OFFSET	,	V_176
+hf_sua_source_address_routing_indicator	,	V_145
+GLOBAL_TITLE_PARAMETER_TAG	,	V_435
+hf_sua_source_address_gt_bit	,	V_151
+"sua.asp_capabilities_a_bit"	,	L_176
+message_type	,	V_24
+hf_sua_dest_ssn_number	,	V_354
+"sua.source.ipv6_address"	,	L_112
+proto_sua	,	V_500
+SOURCE_ADDRESS_PARAMETER_TAG	,	V_432
+proto_register_subtree_array	,	F_109
+NUMBERING_PLAN_LENGTH	,	V_310
+tvb_get_ntoh24	,	F_34
+sua_item	,	V_498
+"sua.destination.global_title_number_of_digits"	,	L_128
+dissect_correlation_id_parameter	,	F_35
+"sua.local_routing_key_identifier"	,	L_77
+"Data"	,	L_191
+dissect_user_cause_parameter	,	F_56
+dissect_segmentation_parameter	,	F_67
+"Source Routing Indicator"	,	L_78
+hf_sua_smi	,	V_262
+hf_sua_source_point_code	,	V_347
+deregistration_status_values	,	V_131
+SEQUENCE_CONTROL_PARAMETER_TAG	,	V_468
+hf_sua_dest_global_title_digits	,	V_336
+DRN_LABEL_PARAMETER_TAG	,	V_472
+hf_sua_dpc	,	V_116
+SPARE_BIT_MASK	,	V_529
+new_assoc	,	F_1
+dissect_diagnostic_information_parameter	,	F_23
+DESTINATION_REFERENCE_NUMBER_PARAMETER_TAG	,	V_436
+SEQUENCE_NUMBER_REC_SEQ_LENGTH	,	V_198
+ett_sua_assoc	,	V_545
+IMPORTANCE_OFFSET	,	V_267
+dest_ssn	,	V_373
+SS7_HOP_COUNTER_PARAMETER_TAG	,	V_452
+FT_UINT8	,	V_503
+GT_MAX_SIGNALS	,	V_306
+tvb_ip_to_str	,	F_76
+proto_item	,	T_9
+tfs_supported_not_supported	,	V_531
+V8_DESTINATION_ADDRESS_PARAMETER_TAG	,	V_386
+"sua.destination.ssn"	,	L_141
+USER_CAUSE_PARAMETER_TAG	,	V_458
+GTI_OFFSET	,	V_316
+"Spare Bit"	,	L_167
+MESSAGE_PRIORITY_PARAMETER_TAG	,	V_466
+data	,	V_23
+hf_sua_receive_sequence_number_spare_bit	,	V_212
+dissect_asp_capabilities_parameter	,	F_53
+PARAMETER_HEADER_OFFSET	,	V_377
+hf_sua_parameter_tag	,	V_430
+"(tag %u and %u byte%s value)"	,	L_25
+hf_sua_info_string	,	V_73
+tag	,	V_374
+hf_sua_asp_capabilities_reserved_bits	,	V_219
+offset	,	V_300
+P2P_DIR_RECV	,	V_37
+calling_routing_ind	,	V_6
+hf_sua_dest_ipv6	,	V_365
+hf_sua_dest_ipv4	,	V_357
+context_number	,	V_76
+INTERWORKING_OFFSET	,	V_225
+DRN_VALUE_LENGTH	,	V_251
+hf_sua_registration_status	,	V_124
+DESTINATION_REFERENCE_NUMBER_OFFSET	,	V_166
+"sua.ss7_hop_counter_reserved"	,	L_150
+numbering_plan_values	,	V_522
+proto_tree_add_uint	,	F_92
+ASP_IDENTIFIER_LENGTH	,	V_108
+"sua.smi_reserved"	,	L_215
+RETURN_ON_ERROR_BIT_MASK	,	V_539
+"  This may affect TCAP's ability to recognize which messages belong to which TCAP session."	,	L_243
+sua_tree	,	V_41
+IPV4_ADDRESS_OFFSET	,	V_358
+"Source IP Version 4 address"	,	L_107
+"Protocol classes"	,	L_19
+AFFECTED_DESTINATION_LENGTH	,	V_119
+dissect_registration_status_parameter	,	F_40
+PROTOCOL_CLASSES_LENGTH	,	V_217
+hf_sua_assoc_id	,	V_489
+"sua.parameter_value"	,	L_45
+p2p_dir	,	V_36
+hf_sua_destination_address_reserved_bits	,	V_157
+IPV6_ADDRESS_LENGTH	,	V_367
+hf_sua_dest_gti	,	V_315
+address_to_str	,	F_6
+"End"	,	L_220
+PROTOCOL_CLASS_OFFSET	,	V_276
+ett_sua	,	V_501
+number_of_digits	,	V_304
+routing_indicator_values	,	V_516
+hf_sua_local_routing_key_identifier	,	V_132
+"sua.message_priority_reserved"	,	L_200
+sua_info_str_handle	,	V_71
+proto_tree	,	T_8
+sccp_assoc	,	V_486

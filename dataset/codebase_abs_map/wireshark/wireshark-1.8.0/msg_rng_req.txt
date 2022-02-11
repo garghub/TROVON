@@ -1,0 +1,208 @@
+col_append_sep_str	,	F_7
+proto_register_protocol	,	F_21
+"Listening window duration (measured in frames)"	,	L_29
+tfs_rng_min_power	,	V_95
+hf_rng_power_saving_mgmt_connection_direction	,	V_45
+"wmx.rng_req.anomalies.min_power"	,	L_45
+tvb_reported_length	,	F_14
+"ID from the target BS for use in initial ranging during MS handover to it"	,	L_57
+gint	,	T_2
+"wmx.rng_req.anomalies.max_power"	,	L_44
+FT_ETHER	,	V_100
+power_saving_class_tree	,	V_9
+tlv_len	,	V_10
+TFS	,	F_19
+tvb	,	V_3
+COL_INFO	,	V_17
+"CID of connection to be included into the Power Saving Class."	,	L_25
+tfs_rng_activate	,	V_87
+FT_BOOLEAN	,	V_86
+"DIUC"	,	L_51
+tlv_type	,	V_2
+"Ranging Purpose Flags (%u byte(s))"	,	L_7
+SHORT_HMAC_TUPLE	,	V_81
+"AAS broadcast capability"	,	L_41
+cinfo	,	V_16
+tvb_len	,	V_48
+"wmx.rng.power_save.trf_ind_required"	,	L_38
+RNG_REQ_RANGING_ANOMALIES	,	V_59
+array_length	,	F_23
+compound_tlv_len	,	V_4
+"Reserved"	,	L_33
+"wmx.rng_req.reserved"	,	L_68
+hf_rng_power_saving_class_type	,	V_29
+tlv_item	,	V_7
+RNG_REQ_SS_MAC_ADDRESS	,	V_57
+RNG_FINAL_SLEEP_WINDOW_BASE	,	V_36
+"Power Saving Class Type"	,	L_15
+"Start frame number for first sleep window"	,	L_23
+"wmx.rng"	,	L_75
+RNG_REQ_SERVING_BS_ID	,	V_65
+hf_rng_power_saving_first_sleep_window_frame	,	V_31
+"wmx.rng_req.repetition_coding_level"	,	L_67
+"RNG-REQ TLV error"	,	L_2
+hf_rng_req_cmac_key_count	,	V_80
+"wmx.rng_req.dl_burst_profile.ccc"	,	L_50
+hf_register_info	,	T_8
+hf_rng_req_reserved	,	V_53
+hf_rng_req_serving_bs_id	,	V_66
+RNG_REQ_AAS_BROADCAST	,	V_63
+"Meaning"	,	L_43
+tlv_offset	,	V_11
+tfs_rng_req_aas_broadcast	,	V_93
+"wmx.rng_req.invalid_tlv"	,	L_56
+hf_rng_power_saving_initial_sleep_window	,	V_33
+"wmx.rng_req.ho_id"	,	L_58
+"Location Update Request"	,	L_64
+hf_rng_req_ranging_anomalies_min_power	,	V_61
+BASE_NONE	,	V_92
+add_protocol_subtree	,	F_10
+"MAC Management Message Type"	,	L_39
+"CMAC Key Count"	,	L_47
+hf_tlv_type	,	V_46
+MAC_VERSION_ENCODING	,	V_83
+"Power down Indicator"	,	L_59
+"wmx.rng.power_save.slpid"	,	L_36
+"LSB of CCC of DCD associated with DIUC"	,	L_49
+"BS shall transmit at least one TRF-IND message during each listening window of the Power Saving Class"	,	L_37
+tvbuff_t	,	T_3
+proto_tree_add_protocol_format	,	F_2
+"wmx.rng.power_save.final_sleep_window_base"	,	L_20
+hf_rng_power_saving_class_id	,	V_27
+"wmx.rng_req.serving_bs_id"	,	L_70
+hf_rng_req_ss_mac_address	,	V_58
+"wmx.rng.power_save.first_sleep_window_frame"	,	L_24
+RNG_REQ_CMAC_KEY_COUNT	,	V_78
+proto_item_add_subtree	,	F_3
+"Requested Downlink Burst Profile 0x%02x"	,	L_5
+"Power Saving Class ID"	,	L_13
+tfs_rng_max_power	,	V_94
+proto_register_field_array	,	F_22
+FT_BYTES	,	V_97
+ett_mac_mgmt_msg_rng_req_decoder	,	V_14
+payload_type	,	V_49
+"wmx.rng.power_save.activate"	,	L_12
+"wmx.rng_req.ss_mac_address"	,	L_72
+hf_rng_power_saving_included_cid	,	V_43
+FT_UINT16	,	V_91
+MAX_TLV_LEN	,	V_15
+tvb_get_guint8	,	F_13
+hf_rng_req_ho_id	,	V_72
+"wmx.rng_req.ranging_purpose.reserved"	,	L_63
+add_tlv_subtree	,	F_11
+tlv_info	,	V_12
+vals_rng_req_ranging_purpose_location_update_request	,	V_98
+get_tlv_value_offset	,	F_9
+SHORT_HMAC_TUPLE_COR2	,	V_82
+"Final-sleep window exponent (measured in frames)"	,	L_21
+RNG_DIRECTION	,	V_44
+RNG_START_FRAME_NUMBER	,	V_30
+"wmx.rng_req.cmac_key_count"	,	L_48
+hf_rng_req_ranging_anomalies_timing_adj	,	V_62
+ENC_BIG_ENDIAN	,	V_22
+dissect_power_saving_class	,	F_1
+"Repetition coding level"	,	L_66
+"wmx.rng_req.unknown_tlv_type"	,	L_54
+hf_rng_power_saving_final_sleep_window_base	,	V_37
+hf	,	V_85
+rng_req_tree	,	V_1
+"MAC Management Message, RNG-REQ (4)"	,	L_4
+RNG_CID	,	V_42
+"Short HMAC Tuple (%u byte(s))"	,	L_9
+hf_rng_invalid_tlv	,	V_18
+hf_rng_req_ranging_purpose_location_update_request	,	V_69
+"wmx.rng.power_save.included_cid"	,	L_26
+"Power saving class parameters (%u bytes)"	,	L_1
+"Former serving BS ID"	,	L_69
+hf_rng_trf_ind_required	,	V_24
+RNG_POWER_SAVING_CLASS_TYPE	,	V_28
+hf_rng_req_dl_burst_profile_lsb_ccc	,	V_56
+"Ranging Anomalies %d"	,	L_6
+"Power Saving Class Parameters (%u byte(s))"	,	L_10
+RNG_INITIAL_SLEEP_WINDOW	,	V_32
+hf_rng_power_saving_final_sleep_window_exp	,	V_39
+"Requested downlink repetition coding level (%u byte(s))"	,	L_8
+hf_rng_req_ranging_purpose_ho_indication	,	V_68
+proto_register_subtree_array	,	F_24
+hf_rng_req_requested_downlink_repetition_coding_level_reserved	,	V_77
+wimax_common_tlv_encoding_decoder	,	F_16
+"wmx.rng.power_save.final_sleep_window_exp"	,	L_22
+RNG_REQ_POWER_DOWN_INDICATOR	,	V_73
+proto_tree_add_item	,	F_8
+"wmx.rng.power_save.mgmt_connection_direction"	,	L_32
+pinfo	,	V_5
+hf_rng_req_ranging_purpose_reserved	,	V_70
+tlv_info_t	,	T_7
+wimax_short_hmac_tuple_decoder	,	F_15
+"MS HO indication"	,	L_61
+VALS	,	F_20
+tfs_rng_timing_adj	,	V_96
+RNG_REQ_RANGING_PURPOSE_INDICATION	,	V_67
+"wmx.rng_req.dl_burst_profile.diuc"	,	L_52
+RNG_REQ_DL_BURST_PROFILE	,	V_54
+FT_UINT8	,	V_89
+get_tlv_length	,	F_6
+hf_rng_activation_of_power_saving_class	,	V_23
+BASE_DEC	,	V_90
+tvb_new_subset	,	F_17
+proto_item	,	T_6
+"Final-sleep window base (measured in frames)"	,	L_19
+"WiMax RNG-REQ/RSP Messages"	,	L_73
+"wmx.macmgtmsgtype.rng_req"	,	L_40
+"SLPID assigned by the BS whenever an MS is instructed to enter sleep mode"	,	L_35
+ENC_NA	,	V_19
+hf_rng_power_saving_listening_window	,	V_35
+hf_rng_definition_of_power_saving_class_present	,	V_21
+"wmx.rng.power_save.initial_sleep_window"	,	L_28
+dissect_mac_mgmt_msg_rng_req_decoder	,	F_12
+"wmx.rng_req.aas_broadcast"	,	L_42
+"Direction for management connection added to Power Saving Class"	,	L_31
+"Power Saving Class (%u byte)"	,	L_3
+rng_req_item	,	V_50
+"Unknown TLV Type"	,	L_53
+hf_rng_power_saving_class_reserved	,	V_25
+proto_mac_mgmt_msg_rng_req_decoder	,	V_13
+RNG_SLPID	,	V_40
+hf_rng_req_dl_burst_profile_diuc	,	V_55
+include_cor2_changes	,	V_79
+hf_rng_power_saving_slpid	,	V_41
+"Activation of Power Saving Class (Types 1 and 2 only)"	,	L_11
+guint	,	T_4
+offset	,	V_6
+ett	,	V_101
+tree	,	V_47
+RNG_POWER_SAVING_CLASS_ID	,	V_26
+RNG_LISTENING_WINDOW	,	V_34
+packet_info	,	T_5
+"wmx.rng_req.ranging_purpose.loc_update_req"	,	L_65
+"SS MAC Address"	,	L_71
+"wmx.rng_req.anomalies.timing_adj"	,	L_46
+hf_rng_req_power_down_indicator	,	V_74
+"wmx.rng.power_save.class_type"	,	L_16
+hf_rng_req_message_type	,	V_52
+"wmx.rng_req.power_down_indicator"	,	L_60
+proto_register_mac_mgmt_msg_rng_req	,	F_18
+tlv_tree	,	V_8
+RNG_POWER_SAVING_CLASS_FLAGS	,	V_20
+"wmx.rng.power_save.listening_window"	,	L_30
+"Definition of Power Saving Class present"	,	L_17
+hf_rng_req_repetition_coding_level	,	V_76
+"wmx.rng.power_save.definition_present"	,	L_18
+"Invalid TLV"	,	L_55
+"WiMax RNG-REQ/RSP (rng)"	,	L_74
+"wmx.rng_req.ranging_purpose.ho_indication"	,	L_62
+HFILL	,	V_88
+init_tlv_info	,	F_4
+"wmx.rng.power_save.reserved"	,	L_34
+MAC_MGMT_MSG_RNG_REQ	,	V_51
+RNG_REQ_HO_ID	,	V_71
+hf_rng_req_ranging_anomalies_max_power	,	V_60
+RNG_FINAL_SLEEP_WINDOW_EXPONENT	,	V_38
+RNG_REQ_POWER_SAVING_CLASS_PARAMETERS	,	V_84
+get_tlv_type	,	F_5
+"Initial-sleep window"	,	L_27
+"wmx.rng.power_save.class_id"	,	L_14
+hf_rng_req_aas_broadcast	,	V_64
+vals_rng_req_repetition_coding_level	,	V_99
+proto_tree	,	T_1
+RNG_REQ_REQUESTED_DNLK_REP_CODING_LEVEL	,	V_75

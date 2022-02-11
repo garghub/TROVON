@@ -1,0 +1,354 @@
+PI_CHAT	,	V_150
+hf_pn_dcp_suboption_ip_block_info	,	V_48
+THROW	,	F_37
+proto_register_protocol	,	F_45
+hf_pn_dcp_suboption_device_nameofstation	,	V_73
+hf_pn_dcp_block_info	,	V_68
+nameofstation	,	V_62
+gint	,	T_13
+dissect_pn_uint16	,	F_7
+", DeviceInitiative"	,	L_51
+dissect_PNDCP_Option	,	F_1
+"pn_dcp.option"	,	L_84
+"pn_dcp.reserved8"	,	L_75
+pn_dcp_suboption_manuf	,	V_30
+tvb	,	V_1
+suboption	,	V_9
+pn_append_info	,	F_8
+"Ident"	,	L_60
+guint32	,	T_9
+device_id	,	V_60
+"Control/Reset FactorySettings"	,	L_50
+COL_INFO	,	V_33
+", BlockQualifier: %s"	,	L_10
+PNDCP_SUBOPTION_CONTROL_END_TRANS	,	V_93
+"Undecoded"	,	L_9
+"DeviceInitiative/DeviceInitiative"	,	L_52
+hf_pn_dcp_suboption_manuf	,	V_29
+hf_pn_dcp_suboption_all	,	V_27
+typeofstation	,	V_61
+"BlockQualifier"	,	L_91
+PNDCP_SERVICE_TYPE_RESPONSE_UNSUPPORTED	,	V_122
+"pn_dcp.suboption_device_role"	,	L_112
+cinfo	,	V_32
+"IP/IP"	,	L_7
+vendor_id	,	V_59
+", \"%s\""	,	L_19
+"Xid"	,	L_72
+"Device/Device ID"	,	L_21
+", Manufacturer Specific"	,	L_55
+array_length	,	F_47
+"Reserved"	,	L_74
+dissect_PNDCP_Suboption_Device	,	F_15
+"pn_dcp.suboption_device_devicevendorvalue"	,	L_104
+hf_pn_dcp_suboption_device_typeofstation	,	V_70
+"DHCP/Client-ID"	,	L_38
+dissect_PNDCP_Suboption_Manuf	,	F_28
+", BlockError: %s"	,	L_48
+is_response	,	V_36
+PNDCP_SUBOPTION_DEVICE_ALIAS_NAME	,	V_82
+hf_register_info	,	T_12
+ori_offset	,	V_104
+append_col	,	V_7
+"pn_dcp.subobtion_ip_subnetmask"	,	L_99
+"DeviceInstanceLow"	,	L_117
+hf_pn_dcp_suboption_device_role	,	V_78
+", %s"	,	L_3
+ReportedBoundsError	,	V_123
+guint16	,	T_8
+"Control/Response"	,	L_45
+COL_PROTOCOL	,	V_129
+", IP: %s"	,	L_11
+pn_dcp_service_type	,	V_137
+"VendorID"	,	L_107
+"pn_dcp.suboption_manuf"	,	L_128
+"pn_dcp.reserved16"	,	L_76
+ett_pn_dcp_block	,	V_106
+", End-Trans"	,	L_41
+"pn_dcp"	,	L_133
+guint8	,	T_6
+BASE_NONE	,	V_142
+hf_pn_dcp_suboption_dhcp	,	V_18
+value_string	,	T_7
+"pn_dcp.block_qualifier"	,	L_92
+" unsupported"	,	L_64
+"IPaddress"	,	L_96
+dissect_pn_ipv4	,	F_13
+tvb_length_remaining	,	F_36
+"pn_dcp.suboption_deviceinitiative"	,	L_124
+dissect_pn_undecoded	,	F_9
+"pn_dcp.service_type"	,	L_71
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_42
+tvb_get_ntohs	,	F_10
+tvb_memcpy	,	F_18
+", DHCP client identifier"	,	L_37
+expert_pn_dcp	,	V_153
+BASE_HEX	,	V_139
+dissect_pn_uint8	,	F_2
+PNDCP_SUBOPTION_DEVICE_DEV_OPTIONS	,	V_80
+FRAME_ID_DCP_HELLO	,	V_127
+gboolean	,	T_5
+hf_pn_dcp_suboption_deviceinitiative	,	V_24
+"IP/MAC"	,	L_5
+"pn_dcp.data_length"	,	L_80
+", VendorID: 0x%04x / DeviceID: 0x%04x"	,	L_22
+proto_item_add_subtree	,	F_31
+pn_dcp_suboption_all	,	V_28
+proto_register_field_array	,	F_46
+PNDCP_SERVICE_ID_HELLO	,	V_46
+FT_BYTES	,	V_145
+PNDCP_SERVICE_ID_IDENTIFY	,	V_45
+ei	,	V_148
+"pn_dcp.block_error.unknown"	,	L_129
+"Device/Manufacturer specific"	,	L_15
+PNDCP_SERVICE_TYPE_REQUEST	,	V_117
+"pn_dcp.suboption_device_id"	,	L_110
+", Response(%s)"	,	L_47
+dissect_pn_padding	,	F_33
+"DeviceRoleDetails"	,	L_111
+"pn_dcp.suboption_control_response"	,	L_123
+FT_UINT16	,	V_140
+"Block"	,	L_87
+tvb_get_guint8	,	F_24
+device_role	,	V_58
+"pn_dcp.suboption_ip_standard_gateway"	,	L_101
+dissect_PNDCP_Data_heur	,	F_38
+PI_RESPONSE_CODE	,	V_149
+block_tree	,	V_103
+"Device/Device Instance"	,	L_35
+"Subnetmask"	,	L_98
+dcp_tree	,	V_125
+ip_to_str	,	F_14
+expert_add_info	,	F_12
+dissect_pn_uint32	,	F_35
+PNDCP_SERVICE_ID_SET	,	V_51
+dissect_PNDCP_Suboption_All	,	F_27
+"pn_dcp.response_delay"	,	L_78
+"Get"	,	L_58
+"BlockInfo"	,	L_89
+heur_dissector_add	,	F_52
+"Device/NameOfStation"	,	L_18
+"Device/Device Role"	,	L_24
+FT_STRING	,	V_144
+"DCPBlockLength"	,	L_81
+ei_pn_dcp_ip_conflict	,	V_50
+device_instance_high	,	V_66
+hf_pn_dcp_suboption_control_response	,	V_96
+", IO-Multidevice"	,	L_27
+dissect_PNDCP_Suboption_IP	,	F_6
+hf_pn_dcp_suboption_device_id	,	V_76
+"pn_dcp.suboption_device_nameofstation"	,	L_106
+hf_pn_dcp_suboption_ip_ip	,	V_54
+hf_pn_dcp_suboption_device_aliasname	,	V_83
+"Suboption"	,	L_93
+pn_dcp_suboption_deviceinitiative	,	V_25
+hf_pn_dcp_block_error	,	V_97
+"Control/End-Transaction"	,	L_42
+proto_tree_add_none_format	,	F_30
+data_length	,	V_112
+hf_pn_dcp_xid	,	V_116
+PNDCP_SUBOPTION_IP_IP	,	V_44
+", Dev-Instance"	,	L_34
+", DeviceVendorValue"	,	L_14
+"pn_rt"	,	L_134
+", Start-Trans"	,	L_39
+pn_dcp_suboption_ip	,	V_13
+pn_dcp_option	,	V_31
+hf_pn_dcp_suboption_device_instance_low	,	V_86
+PNDCP_SERVICE_TYPE_RESPONSE_SUCCESS	,	V_121
+FT_UINT32	,	V_138
+PNDCP_SUBOPTION_DEVICE_DEV_ID	,	V_74
+pn_dcp_service_id	,	V_135
+"Device ID"	,	L_119
+"pn_dcp.suboption_control"	,	L_121
+PNDCP_SUBOPTION_DEVICE_DEV_ROLE	,	V_77
+"DeviceID"	,	L_109
+hf	,	V_132
+", IO-Device"	,	L_25
+", PN-Supervisor"	,	L_28
+dissect_PNDCP_Block	,	F_29
+"PROFINET DCP, "	,	L_67
+hf_pn_dcp_suboption_ip_subnetmask	,	V_55
+"Block: "	,	L_57
+hfindex	,	V_6
+", Dev-ID"	,	L_20
+"PN-DCP"	,	L_66
+PNDCP_OPTION_CONTROL	,	V_20
+dissect_PNDCP_PDU	,	F_34
+col_append_fstr	,	F_5
+wmem_strdup_printf	,	F_20
+hf_pn_dcp_service_type	,	V_115
+col_set_str	,	F_40
+FT_IPv4	,	V_143
+"pn_dcp.block_info"	,	L_90
+item	,	V_41
+ip	,	V_40
+hf_pn_dcp_reserved16	,	V_119
+ett_pn_dcp	,	V_131
+pn_dcp_block_error	,	V_99
+proto_item_append_text	,	F_3
+PNDCP_SUBOPTION_CONTROL_RESPONSE	,	V_95
+"pn_dcp.subobtion_ip_ip"	,	L_97
+block_item	,	V_5
+dissect_PNDCP_Suboption_Control	,	F_23
+col_clear	,	F_41
+hf_pn_dcp_service_id	,	V_114
+"ServiceID"	,	L_68
+proto_register_subtree_array	,	F_48
+val_to_str	,	F_4
+proto_tree_add_string	,	F_19
+"BlockError"	,	L_85
+", Subnet: %s"	,	L_12
+", %u options"	,	L_31
+PNDCP_SUBOPTION_DEVICE_DEV_INSTANCE	,	V_84
+PNDCP_SUBOPTION_CONTROL_START_TRANS	,	V_92
+proto_tree_add_item	,	F_22
+xid_str	,	V_113
+PNDCP_OPTION_DHCP	,	V_17
+"Set"	,	L_59
+private_data	,	V_126
+pinfo	,	V_3
+pn_dcp_suboption_device	,	V_16
+dcp_item	,	V_34
+hf_pn_dcp_block_qualifier	,	V_52
+_U_	,	V_87
+proto_register_pn_dcp	,	F_43
+"Device/AliasName"	,	L_33
+hf_pn_dcp_deviceinitiative_value	,	V_102
+"pn_dcp.suboption_dhcp"	,	L_118
+"DeviceInstanceHigh"	,	L_115
+" Req"	,	L_62
+hf_pn_dcp_suboption_vendor_id	,	V_75
+hf_pn_dcp_reserved8	,	V_79
+pn_dcp_block_info	,	V_71
+", NameOfStation:\"%s\""	,	L_17
+GPOINTER_TO_UINT	,	F_39
+"pn_dcp.suboption_ip_block_info"	,	L_95
+pn_dcp_deviceinitiative_value	,	V_146
+VALS	,	F_44
+", All"	,	L_53
+PNDCP_SUBOPTION_DEVICE_MANUF	,	V_69
+response_delay	,	V_111
+"Hello"	,	L_61
+hf_pn_dcp_option	,	V_81
+dissect_PNDCP_Suboption_DeviceInitiative	,	F_26
+have_block_info	,	V_64
+FT_UINT8	,	V_133
+"DeviceInitiativeValue"	,	L_125
+hf_pn_dcp_suboption_device	,	V_15
+hf_pn_dcp_response_delay	,	V_118
+BASE_DEC	,	V_134
+proto_item	,	T_4
+"Option"	,	L_83
+expert_register_field_array	,	F_50
+"pn_dcp.suboption_device"	,	L_102
+hf_pn_dcp_suboption_ip_standard_gateway	,	V_56
+ENC_NA	,	V_90
+pn_dcp_block_qualifier	,	V_53
+expert_add_info_format	,	F_25
+"pn_dcp.suboption_vendor_id"	,	L_108
+", MAC"	,	L_4
+", IO-Controller"	,	L_26
+"AliasName"	,	L_113
+hf_pn_dcp_suboption_ip	,	V_12
+wmem_alloc	,	F_16
+"Control/Signal"	,	L_44
+info_str	,	V_57
+"%s"	,	L_46
+"Manufacturer Specific"	,	L_56
+data	,	T_11
+", IP"	,	L_6
+"pn_dcp.suboption_ip"	,	L_94
+"NameOfStation"	,	L_105
+PNDCP_SUBOPTION_CONTROL_FACT_RESET	,	V_100
+block_info	,	V_38
+PNDCP_SUBOPTION_DHCP_CLIENT_ID	,	V_88
+pn_dcp_suboption_control	,	V_22
+", Xid:0x%x"	,	L_65
+"pn_dcp.block_error"	,	L_86
+", BlockInfo: %s"	,	L_8
+proto_pn_dcp	,	V_130
+"pn_dcp.suboption_device_instance"	,	L_116
+xid	,	V_110
+"pn_dcp.block"	,	L_88
+ei_register_info	,	T_14
+expert_register_protocol	,	F_49
+"DCPDataLength"	,	L_79
+"Device/Device Options"	,	L_30
+ei_pn_dcp_block_error_unknown	,	V_98
+have_block_qualifier	,	V_65
+PI_NOTE	,	V_152
+hf_pn_dcp_block_length	,	V_42
+"ResponseDelay"	,	L_77
+"Response"	,	L_122
+hf_pn_dcp_block	,	V_105
+FT_NONE	,	V_141
+offset	,	V_2
+PNDCP_OPTION_IP	,	V_11
+", Dev-Role"	,	L_23
+", Reset FactorySettings"	,	L_49
+ett	,	V_147
+wmem_packet_scope	,	F_17
+expert_module_t	,	T_15
+tree	,	V_4
+PNDCP_SUBOPTION_DEVICE_NAMEOFSTATION	,	V_72
+", DeviceVendorValue: \"%s\""	,	L_16
+FRAME_ID_DCP_IDENT_RES	,	V_128
+", Dev-Options(%u)"	,	L_29
+packet_info	,	T_2
+"pn_dcp.block_length"	,	L_82
+device_instance_low	,	V_67
+"pn_dcp.suboption_dhcp_device_id"	,	L_120
+aliasname	,	V_63
+block_error	,	V_91
+"IP address conflict detected!"	,	L_131
+"pn_dcp.suboption_device_aliasname"	,	L_114
+"Control/Start-Transaction"	,	L_40
+dissect_PNDCP_Suboption_DHCP	,	F_21
+"ServiceType"	,	L_70
+"pn_dcp.ip_conflict"	,	L_130
+u16FrameID	,	V_124
+option	,	V_8
+block_length	,	V_37
+proto_tree_add_uint	,	F_11
+PNDCP_OPTION_ALLSELECTOR	,	V_26
+EXPFILL	,	V_151
+proto_reg_handoff_pn_dcp	,	F_51
+hf_pn_dcp_data_length	,	V_120
+"DeviceVendorValue"	,	L_103
+" Ok "	,	L_63
+PNDCP_OPTION_MANUF_X81	,	V_108
+PNDCP_OPTION_MANUF_X80	,	V_107
+"All/All"	,	L_54
+val_str	,	V_10
+service_id	,	V_35
+PNDCP_SERVICE_ID_GET	,	V_47
+", AliasName:\"%s\""	,	L_32
+hf_pn_dcp_suboption_control	,	V_21
+PNDCP_OPTION_DEVICEINITIATIVE	,	V_23
+"pn_dcp.suboption_all"	,	L_127
+HFILL	,	V_136
+"pn_dcp.xid"	,	L_73
+value	,	V_101
+", Signal"	,	L_43
+pn_dcp_suboption_ip_block_info	,	V_49
+"pn_dcp.deviceinitiative_value"	,	L_126
+"PROFINET DCP"	,	L_132
+hf_pn_dcp_suboption_dhcp_device_id	,	V_89
+hf_pn_dcp_suboption_device_instance_high	,	V_85
+PNDCP_SUBOPTION_CONTROL_SIGNAL	,	V_94
+PNDCP_OPTION_DEVICE	,	V_14
+PNDCP_SUBOPTION_IP_MAC	,	V_43
+gchar	,	T_10
+", InstanceHigh: %d, Instance Low: %d"	,	L_36
+proto_item_set_len	,	F_32
+pn_dcp_suboption_dhcp	,	V_19
+block_qualifier	,	V_39
+service_type	,	V_109
+", Status from %s - %s"	,	L_1
+"Unknown"	,	L_2
+", Gateway: %s"	,	L_13
+"StandardGateway"	,	L_100
+proto_tree	,	T_3
+"pn_dcp.service_id"	,	L_69

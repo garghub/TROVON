@@ -1,0 +1,119 @@
+BSD_ENC_M_RESERVED	,	V_46
+"Payload authenticated"	,	L_16
+proto_register_protocol	,	F_20
+"unknown (%u)"	,	L_4
+proto_register_enc	,	F_18
+tvb_new_subset_remaining	,	F_14
+enc_cap_handle	,	V_49
+len	,	V_3
+ett_enc	,	V_28
+col_set_str	,	F_6
+gint	,	T_12
+"Flags"	,	L_11
+BSD_ENC_M_AUTH_AH	,	V_45
+tvb	,	V_9
+hf_enc_flags_payload_compress	,	V_20
+guint32	,	T_5
+"enc.spi"	,	L_9
+af	,	V_7
+guchar	,	T_2
+FT_BOOLEAN	,	V_41
+pntoh32	,	F_3
+"enc.flags.payload_compress"	,	L_19
+cinfo	,	V_23
+"ENC"	,	L_2
+"enc.flags.reserved"	,	L_23
+proto_register_subtree_array	,	F_23
+val_to_str	,	F_10
+array_length	,	F_22
+hf_enc_flags_payload_auth	,	V_19
+"SPI"	,	L_8
+"Reserved"	,	L_22
+next_tvb	,	V_14
+try_capture_dissector	,	F_4
+"enc.flags.header_auth"	,	L_21
+"enc.flags.payload_auth"	,	L_17
+register_capture_dissector_table	,	F_25
+proto_tree_add_item	,	F_12
+pinfo	,	V_10
+dissector_handle_t	,	T_13
+proto_enc	,	V_26
+"OpenBSD Encapsulating device"	,	L_24
+_U_	,	V_2
+flags	,	V_17
+enchdr	,	V_12
+BSD_ENC_HDRLEN	,	V_8
+"Protocol (IPv4 vs IPv6)"	,	L_7
+BSD_ENC_M_AUTH	,	V_43
+hf_enc_spi	,	V_31
+enc_dissector_table	,	V_35
+hf_register_info	,	T_11
+create_capture_dissector_handle	,	F_29
+VALS	,	F_19
+COL_PROTOCOL	,	V_24
+proto_reg_handoff_enc	,	F_26
+hf_enc_flags_header_auth	,	V_21
+BASE_DEC	,	V_38
+proto_item	,	T_10
+"Payload compressed"	,	L_18
+"Security Parameter Index"	,	L_10
+ti	,	V_16
+hf_enc_flags_reserved	,	V_22
+"enc.flags.payload_enc"	,	L_15
+register_dissector_table	,	F_24
+hf_enc_af	,	V_29
+data	,	T_9
+tvb_get_ntohl	,	F_8
+tvbuff_t	,	T_6
+ett_enc_flag	,	V_34
+proto_tree_add_protocol_format	,	F_9
+"wtap_encap"	,	L_25
+proto_tree_add_bitmask	,	F_13
+BASE_HEX	,	V_40
+gboolean	,	T_1
+proto_item_add_subtree	,	F_11
+ENC_HOST_ENDIAN	,	V_30
+proto_register_field_array	,	F_21
+hf_enc_flags	,	V_33
+offset	,	T_3
+"enc"	,	L_1
+ett	,	V_47
+dissector_add_uint	,	F_28
+tree	,	V_11
+"ENC flags"	,	L_13
+spi	,	V_25
+packet_info	,	T_7
+wtap_pseudo_header	,	V_5
+tvb_captured_length	,	F_17
+"Address Family"	,	L_5
+capture_packet_info_t	,	T_4
+capture_dissector_handle_t	,	T_14
+pseudo_header	,	V_6
+dissect_enc	,	F_5
+hf_enc_flags_payload_enc	,	V_18
+enc_handle	,	V_48
+enc_tree	,	V_15
+"Payload encrypted"	,	L_14
+WTAP_ENCAP_ENC	,	V_50
+cpinfo	,	V_4
+"enc.flags"	,	L_12
+tvb_get_h_guint32	,	F_7
+call_data_dissector	,	F_16
+capture_enc	,	F_1
+"enc.af"	,	L_6
+HFILL	,	V_39
+BSD_ENC_M_CONF	,	V_42
+"Enc %s, SPI 0x%8.8x"	,	L_3
+ench	,	V_13
+dissector_try_uint	,	F_15
+BSD_ENC_M_COMP	,	V_44
+capture_dissector_add_uint	,	F_30
+BYTES_ARE_IN_FRAME	,	F_2
+create_dissector_handle	,	F_27
+af_vals	,	V_27
+ENC_BIG_ENDIAN	,	V_32
+pd	,	V_1
+FT_UINT32	,	V_37
+proto_tree	,	T_8
+hf	,	V_36
+"Header authenticated"	,	L_20

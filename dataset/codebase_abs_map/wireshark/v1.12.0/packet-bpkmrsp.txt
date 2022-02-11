@@ -1,0 +1,65 @@
+register_dissector	,	F_16
+proto_docsis_bpkmrsp	,	V_11
+hf_docsis_bpkmrsp_ident	,	V_15
+proto_register_protocol	,	F_12
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_5
+"BPKM Code"	,	L_4
+"docsis_bpkmattr"	,	L_13
+tvb_new_subset_remaining	,	F_8
+hf_docsis_bpkmrsp_length	,	V_16
+gint	,	T_7
+bpkmrsp_tree	,	V_5
+proto_item_add_subtree	,	F_6
+docsis_bpkmrsp_handle	,	V_24
+hf_docsis_bpkmrsp_code	,	V_13
+proto_register_field_array	,	F_13
+"docsis_bpkmrsp.ident"	,	L_7
+tvb	,	V_1
+code_field_vals	,	V_10
+ett	,	V_23
+COL_INFO	,	V_9
+"BPKM Response Message"	,	L_3
+dissector_add_uint	,	F_19
+"docsis_mgmt"	,	L_14
+tree	,	V_3
+proto_reg_handoff_docsis_bpkmrsp	,	F_17
+it	,	V_4
+FT_UINT16	,	V_22
+packet_info	,	T_2
+attrs_handle	,	V_17
+tvb_get_guint8	,	F_2
+"Unknown code %u"	,	L_2
+"DOCSIS BPKM-RSP"	,	L_11
+cinfo	,	V_8
+proto_register_subtree_array	,	F_15
+val_to_str	,	F_4
+array_length	,	F_14
+code	,	V_6
+proto_tree_add_item	,	F_7
+call_dissector	,	F_9
+pinfo	,	V_2
+col_add_fstr	,	F_3
+dissector_handle_t	,	T_8
+attrs_tvb	,	V_7
+"BPKM Length"	,	L_8
+dissect_bpkmrsp	,	F_1
+hf_register_info	,	T_6
+VALS	,	F_11
+"docsis_bpkmrsp.length"	,	L_9
+HFILL	,	V_21
+"docsis_bpkmrsp.code"	,	L_5
+"BPKM Identifier"	,	L_6
+"DOCSIS Baseline Privacy Key Management Response"	,	L_10
+FT_UINT8	,	V_19
+find_dissector	,	F_18
+BASE_DEC	,	V_20
+proto_item	,	T_4
+ett_docsis_bpkmrsp	,	V_12
+proto_register_docsis_bpkmrsp	,	F_10
+ENC_BIG_ENDIAN	,	V_14
+guint8	,	T_5
+"BPKM Response (%s)"	,	L_1
+"docsis_bpkmrsp"	,	L_12
+proto_tree	,	T_3
+hf	,	V_18

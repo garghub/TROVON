@@ -1,0 +1,232 @@
+dissect_cbs_data_coding_scheme	,	F_30
+"gsm_cbs.page.overlap"	,	L_46
+proto_tree_get_root	,	F_29
+"Reassembled message length"	,	L_66
+tvb_get_string	,	F_13
+dissect_gsm_cell_broadcast	,	F_26
+proto_register_protocol	,	F_38
+hf_gsm_cbs_message_reassembled_length	,	V_87
+utf8_out	,	V_25
+"Message ID to be allocated by GSMA"	,	L_2
+process_reassembled_data	,	F_34
+"GSM Cell Broadcast Message"	,	L_27
+len	,	V_38
+"Page contained data past end of packet"	,	L_56
+ett_cbs_serial_no	,	V_11
+cbs_subtree	,	V_66
+gint	,	T_14
+tvb_new_child_real_data	,	F_18
+msg_id	,	V_15
+"CBS Page Content Padding"	,	L_75
+current_page	,	V_37
+tvb	,	V_3
+guint32	,	T_10
+frag_data	,	V_46
+COL_INFO	,	V_49
+"gsm_cbs.fragment.error"	,	L_58
+SMS_ENCODING_7BIT_LANG	,	V_31
+FT_BOOLEAN	,	V_77
+"gsm_cbs.page.overlap.conflict"	,	L_49
+"CBS Page Content"	,	L_73
+text_len	,	V_39
+"Message ID in PLMN operator specific range"	,	L_10
+cinfo	,	V_47
+"Cell Broadcast"	,	L_28
+"gsm_cbs.total_pages"	,	L_42
+"CBS Page Number"	,	L_69
+"gsm_cbs.pages"	,	L_72
+array_length	,	F_40
+"%s (%d)"	,	L_14
+fragment_add_seq_check	,	F_33
+"GSM CBS Current Page"	,	L_43
+ett_cbs_coding	,	V_93
+cbs_page_subtree	,	V_54
+dissect_cbs_data	,	F_11
+msg_len	,	V_67
+col_append_str	,	F_27
+"gsm_cbs.page_number"	,	L_70
+l_conv_error	,	V_29
+"Fragment count"	,	L_60
+hf_gsm_cbs_page_count	,	V_84
+hf_register_info	,	T_13
+g_iconv_close	,	F_25
+hf_gsm_cbs_message_identifier	,	V_18
+msg_id_string	,	V_16
+"Traffic information Mannesmann Telecommerce"	,	L_12
+cd	,	V_28
+guint16	,	T_1
+dissect_umts_cell_broadcast_message	,	F_35
+COL_PROTOCOL	,	V_48
+proto_register_cbs	,	F_36
+g_free	,	V_32
+ett_gsm_cbs_pages	,	V_94
+reassembly_table_init	,	F_2
+hf_cbs	,	V_68
+guint8	,	T_5
+BASE_NONE	,	V_78
+GIConv	,	T_8
+"page overlap"	,	L_45
+"CBS Pages"	,	L_71
+register_dissector	,	F_42
+"Reassembly error due to illegal fragments"	,	L_59
+hf_gsm_cbs_page_content	,	V_56
+tvbuff_t	,	T_2
+"gsm_cbs.page_content"	,	L_74
+proto_tree_add_protocol_format	,	F_28
+hf_gsm_cbs_update_number	,	V_14
+"Message ID reserved for Cell Broadcast Data Download (secured) to the SIM "	,	L_5
+tvb_get_ntohs	,	F_4
+tvb_set_free_cb	,	F_19
+"GSM CBS page overlaps with other fragments"	,	L_47
+proto_item_add_subtree	,	F_7
+proto_register_field_array	,	F_39
+hf_gsm_cbs_page_content_padding	,	V_57
+"gsm_cbs.page.multipletails"	,	L_52
+cbs_msg_tree	,	V_60
+fragment_head	,	T_12
+FT_UINT16	,	V_69
+"gsm_cbs.reassembled.length"	,	L_67
+register_init_routine	,	F_41
+"Unhandled encoding %d of CBS String"	,	L_20
+"gsm_cbs.page.toolongfragment"	,	L_55
+tvb_get_guint8	,	F_31
+cbs_page_tvb	,	V_44
+msg_key	,	V_40
+BASE_DEC_HEX	,	V_72
+"Message ID reserved for Cell Broadcast Data Download (unsecured) to the SIM "	,	L_4
+"Traffic Information Traffic Master UK"	,	L_11
+"gsm_cbs"	,	L_80
+hf_gsm_cbs_page_overlap_conflict	,	V_79
+FT_STRING	,	V_91
+hf_gsm_cbs_pages	,	V_89
+g_strdup	,	F_17
+"Intended for standardization in future versions of 3GPP TS 23.041"	,	L_9
+"gsm_cbs.message_code"	,	L_34
+", Message Code: %d, Update Number: %d"	,	L_1
+hf_gsm_cbs_message_content	,	V_62
+"gsm_cbs.reassembled.in"	,	L_64
+length	,	V_23
+"CMAS CBS Message Identifier for future extension"	,	L_7
+cbs_tree	,	V_65
+proto_tree_add_uint_format_value	,	F_10
+cbs_msg_tvb	,	V_45
+ENC_BIG_ENDIAN	,	V_10
+"umts_cell_broadcast"	,	L_81
+hf_gsm_cbs_total_pages	,	V_53
+FT_UINT32	,	V_85
+" (CBS Message)"	,	L_26
+g_convert_with_iconv	,	F_23
+BASE_HEX_DEC	,	V_70
+"CBS Message Content"	,	L_77
+"Message ID intended for standardization in future versions of 3GPP TS 23.041"	,	L_3
+ett_gsm_cbs_page	,	V_51
+"Several copies of the final page were found when reassembling the message"	,	L_53
+ett_gsm_cbs_page_content	,	V_55
+" Cell Broadcast"	,	L_21
+"gsm_cbs.geographic_scope"	,	L_36
+item	,	V_7
+"unpacked 7 bit data"	,	L_15
+GError	,	T_9
+proto_item_append_text	,	F_6
+hf_gsm_cbs_current_page	,	V_52
+"gsm_cbs.message-identifier"	,	L_40
+utf8_text	,	V_24
+proto_register_subtree_array	,	F_43
+hf_gsm_cbs_page_error	,	V_82
+proto_tree_add_string	,	F_32
+hf_gsm_cbs_page_overlap	,	V_76
+gsm_page_items	,	V_58
+"The total length of the reassembled message"	,	L_68
+proto_tree_add_item	,	F_5
+geographic_scope_values	,	V_74
+pinfo	,	V_20
+cbs_item2	,	V_64
+"GSM CBS Message Identifier"	,	L_39
+"CBS pages are reassembled in the given packet"	,	L_65
+g_iconv_open	,	F_22
+hf_gsm_cbs_message_code	,	V_13
+hf_gsm_cbs_message_reassembled_in	,	V_86
+VALS	,	F_37
+hf_gsm_cbs_serial_number	,	V_9
+hf_gsm_cbs_geographic_scope	,	V_12
+SMS_ENCODING_UCS2	,	V_34
+"CBS Message Identifier for future PWS use"	,	L_8
+proto_cell_broadcast	,	V_50
+SMS_ENCODING_7BIT	,	V_30
+SMS_ENCODING_UCS2_LANG	,	V_35
+tvb_length	,	F_12
+"UCS-2BE"	,	L_17
+FT_UINT8	,	V_75
+"CBS String: g_iconv_open FAILED contact wireshark"	,	L_19
+proto_tree_add_text	,	F_24
+BASE_DEC	,	V_73
+serial_number	,	V_6
+tvb_new_subset	,	F_21
+message_id	,	V_43
+total_pages	,	V_36
+"gsm_cbs.serial_number"	,	L_32
+"Multiple final pages found"	,	L_51
+proto_item	,	T_4
+cbs_page_item	,	V_41
+try_val_to_str	,	F_9
+subtree	,	V_8
+hf_gsm_cbs_page_too_long_fragment	,	V_81
+dissect_cbs_message_identifier	,	F_8
+"gsm_cbs.current_page"	,	L_44
+"%s"	,	L_30
+message_id_values	,	V_17
+"GSM CBS Geographic Scope"	,	L_35
+"Reassembly error"	,	L_57
+cbs_page_tree	,	V_42
+"GSM CBS Serial Number"	,	L_31
+cbs_item	,	V_63
+"GSM Cell Broadcast Service"	,	L_79
+guint	,	T_11
+FT_NONE	,	V_90
+offset	,	V_5
+ett	,	V_92
+wmem_packet_scope	,	F_14
+"gsm_cbs.update_number"	,	L_38
+addresses_reassembly_table_functions	,	V_2
+tree	,	V_4
+"GSM CBS Message Code"	,	L_33
+gsm_sms_char_7bit_unpack	,	F_15
+out_len	,	V_22
+packet_info	,	T_6
+add_new_data_source	,	F_20
+hf_gsm_cbs_page_multiple_tails	,	V_80
+"gsm_cbs.message_content"	,	L_78
+"Cell Broadcast Page Contents"	,	L_24
+gsm_cbs_message_reassembly_init	,	F_1
+"gsm_cbs.page_content_padding"	,	L_76
+"Overlapping pages contained conflicting data"	,	L_50
+ett_cbs_msg	,	V_61
+"ETWS CBS Message Identifier for future extension"	,	L_6
+"Cell Broadcast Message Contents (length: %d)"	,	L_29
+"GSM CBS Total Pages"	,	L_41
+"Reassembled in"	,	L_63
+gsm_sms_chars_to_utf8	,	F_16
+"CBS String: g_convert_with_iconv FAILED"	,	L_18
+"gsm_cbs.fragment.count"	,	L_61
+"Count of Page Fragment"	,	L_62
+msgbuf	,	V_26
+dissect_cbs_serial_number	,	F_3
+HFILL	,	V_71
+cbs_msg_item	,	V_59
+"Conflicting data in page overlap"	,	L_48
+gchar	,	T_7
+FT_FRAMENUM	,	V_83
+tvb_out	,	V_21
+"Message ID intended as PLMN operator specific range in future versions of 3GPP TS 23.041"	,	L_13
+input_string	,	V_27
+"UTF-8"	,	L_16
+hf_gsm_cbs_page_num	,	V_88
+gsm_cbs_reassembly_table	,	V_1
+"Reassembled Cell Broadcast message"	,	L_25
+"GSM CBS Update Number"	,	L_37
+sms_encoding	,	V_19
+" (CBS Page)"	,	L_22
+"GSM Cell Broadcast"	,	L_23
+SMS_ENCODING_8BIT	,	V_33
+proto_tree	,	T_3
+"Page too long"	,	L_54

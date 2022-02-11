@@ -1,0 +1,165 @@
+hf_clique_rm_type	,	V_63
+proto_register_protocol	,	F_24
+packet_type_vals	,	V_59
+"clique_rm.type"	,	L_11
+ett_clique_rm_join	,	V_76
+proto_tree_add_subtree	,	F_7
+proto_register_clique_rm	,	F_22
+"Version"	,	L_8
+len	,	V_9
+col_append_fstr	,	F_19
+hf_clique_rm_data_flags	,	V_14
+ett_clique_rm	,	V_61
+hf_clique_rm_join_failures_senders	,	V_40
+gint	,	T_2
+col_set_str	,	F_16
+"clique_rm.data.flags"	,	L_30
+ii	,	V_20
+"Depends"	,	L_16
+tvb	,	V_5
+hf_clique_rm_depend_sender	,	V_24
+hf_clique_rm_sender	,	V_64
+dissect_data_packet	,	F_6
+hf_clique_rm_depends	,	V_21
+COL_INFO	,	V_58
+hf_clique_rm_version	,	V_62
+PACKET_TYPE_SESSION	,	V_51
+"Sender"	,	L_12
+"clique_rm.attempt_join.sender"	,	L_25
+dissect_unreliable_packet	,	F_11
+version	,	V_54
+", sender: 0x%x"	,	L_6
+"Join failures"	,	L_26
+dissect_depends	,	F_8
+cinfo	,	V_56
+"Clique Reliable Multicast Protocol"	,	L_47
+"clique_rm.depends.sender"	,	L_18
+PACKET_TYPE_DATA	,	V_27
+proto_register_subtree_array	,	F_27
+val_to_str	,	F_18
+array_length	,	F_26
+"clique_rm.depends.packet_id"	,	L_19
+"Failures"	,	L_20
+proto_tree_add_item	,	F_3
+FT_STRINGZ	,	V_74
+ett_clique_rm_attempt_join	,	V_35
+"New attempt join senders"	,	L_23
+pinfo	,	V_52
+col_add_fstr	,	F_17
+"Data"	,	L_1
+"clique_rm.repair_request.sender_id"	,	L_44
+_U_	,	V_53
+ENC_ASCII	,	V_47
+"clique_rm.data.data"	,	L_36
+PACKET_TYPE_WHOIS_REQUEST	,	V_42
+hf_clique_rm_repair_request_sender_id	,	V_49
+"clique-rm"	,	L_48
+dissect_clique_rm	,	F_12
+"Whois reply name length"	,	L_39
+hf_register_info	,	T_11
+"Repair request for sender"	,	L_43
+VALS	,	F_23
+"Data flags"	,	L_29
+"clique_rm.whois_request.id"	,	L_38
+"Unknown (0x%02x)"	,	L_5
+PACKET_TYPE_ATTEMPT_JOIN	,	V_33
+"Whois request id"	,	L_37
+"Clique-rm"	,	L_3
+"Depend item %d"	,	L_2
+COL_PROTOCOL	,	V_57
+tvb_length	,	F_13
+"clique_rm.failures.sender"	,	L_22
+FT_UINT8	,	V_66
+i	,	V_7
+BASE_DEC	,	V_67
+proto_item	,	T_5
+hf_clique_rm_join_failures	,	V_38
+PACKET_TYPE_FAILURE	,	V_29
+ENC_NA	,	V_18
+guint8	,	T_6
+ti	,	V_10
+BASE_NONE	,	V_73
+"Whois reply name"	,	L_41
+clique_rm_tree	,	V_1
+"clique_rm.whois_reply.length"	,	L_40
+PACKET_TYPE_REPAIR_REQUEST	,	V_48
+hf_clique_rm_data_data	,	V_17
+tvb_get_ntoh48	,	F_14
+"%s"	,	L_4
+data	,	T_9
+tvb_get_ntohl	,	F_20
+depend_tree	,	V_19
+tvbuff_t	,	T_3
+"clique_rm.data.size"	,	L_32
+qword	,	V_55
+"Repair request for packet"	,	L_45
+BASE_HEX	,	V_69
+hf_clique_rm_failures	,	V_30
+gboolean	,	T_7
+proto_reg_handoff_clique_rm	,	F_28
+"clique_rm.join_failures"	,	L_27
+proto_item_add_subtree	,	F_5
+ett_clique_rm_data	,	V_13
+"clique_rm.whois_reply.name"	,	L_42
+proto_register_field_array	,	F_25
+FT_BYTES	,	V_72
+"clique_rm.depends"	,	L_17
+G_GUINT64_CONSTANT	,	F_15
+guint	,	T_4
+offset	,	V_6
+ett	,	V_75
+hf_clique_rm_whois_reply_name	,	V_46
+count	,	V_8
+tree	,	V_11
+hf_clique_rm_failures_senders	,	V_32
+PACKET_TYPE_JOIN	,	V_37
+"clique_rm.failures"	,	L_21
+", id: 0x%x"	,	L_7
+PACKET_TYPE_NO_DATA	,	V_28
+FT_UINT16	,	V_71
+packet_info	,	T_8
+tvb_get_guint8	,	F_2
+dissect_sender_array	,	F_1
+"udp"	,	L_49
+"clique_rm.packet_id"	,	L_15
+hf_clique_rm_whois_reply_name_length	,	V_45
+hf_clique_rm_data_size	,	V_16
+ett_clique_rm_depends	,	V_22
+ett_clique_rm_failures	,	V_31
+"clique_rm.attempt_join"	,	L_24
+hf_header	,	V_2
+hf_clique_rm_whois_request_id	,	V_43
+ett_clique_rm_depends_item	,	V_23
+hf_clique_rm_depend_packet_id	,	V_25
+"Packet id"	,	L_14
+ett_header	,	V_3
+heur_dissector_add	,	F_29
+proto_clique_rm	,	V_60
+IS_RELIABLE	,	F_21
+"clique_rm.version"	,	L_9
+hf_clique_rm_packet_id	,	V_26
+hf_clique_rm_repair_request_packet_id	,	V_50
+"clique_rm.data.stream_id"	,	L_34
+hf_clique_rm_data_stream_id	,	V_15
+HFILL	,	V_68
+"Data stream id"	,	L_33
+PACKET_TYPE_WHOIS_REPLY	,	V_44
+hf_clique_rm_attempt_join	,	V_34
+PACKET_TYPE_BYE	,	V_41
+dissect_reliable_packet	,	F_10
+proto_tree_add_subtree_format	,	F_9
+"Data total size"	,	L_31
+hf_clique_rm_attempt_join_senders	,	V_36
+proto_item_set_len	,	F_4
+ENC_BIG_ENDIAN	,	V_12
+"clique_rm.sender"	,	L_13
+"Raw data"	,	L_35
+FT_UINT32	,	V_70
+"clique_rm.join_failures.sender"	,	L_28
+ett_clique_rm_join_failures	,	V_39
+"clique_rm.repair_request.packet_id"	,	L_46
+guint64	,	T_10
+"Type"	,	L_10
+hf_header_sender	,	V_4
+proto_tree	,	T_1
+hf	,	V_65

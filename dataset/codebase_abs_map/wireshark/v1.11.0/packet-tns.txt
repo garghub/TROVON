@@ -1,0 +1,439 @@
+"Refuse Reason from Application"	,	L_146
+", Control"	,	L_20
+"Maximum Transmission Data Unit Size"	,	L_66
+"tns.refuse_reason_user"	,	L_145
+ett_tns_attention	,	V_170
+"Refuse Reason (User)"	,	L_144
+"Abort Reason from System"	,	L_160
+hf_tns_ntp_flag_tduio	,	V_63
+"Abort Reason (User)"	,	L_156
+FT_BOOLEAN	,	V_156
+"Packet Checksum"	,	L_33
+"Type of TNS packet"	,	L_204
+"Header Checksum"	,	L_36
+"Request To Send"	,	L_196
+"Request"	,	L_22
+tns_marker_types	,	V_167
+", Redirect"	,	L_18
+"Can handoff connection to another"	,	L_88
+array_length	,	F_34
+"Service Options"	,	L_43
+tns_tree	,	V_24
+hf_tns_data_flag_dic	,	V_40
+", Data"	,	L_4
+hf_tns_compat_version	,	V_53
+"tns.so_flag.bconn"	,	L_46
+ENC_ASCII	,	V_90
+hf_tns_data_flag_reserved	,	V_37
+"Interchange is involved"	,	L_123
+"Confirmation"	,	L_186
+col_append_str	,	F_11
+"Offset to Connect Data"	,	L_109
+"NA services required"	,	L_117
+df_tree	,	V_31
+hf_tns_connect_data	,	V_89
+"tns.trace_cf1"	,	L_128
+hf_register_info	,	T_9
+"TRUE if TNS request"	,	L_29
+"Data Flag"	,	L_180
+guint16	,	T_8
+dissect_tns_service_options	,	F_1
+"tns.connect_data_length"	,	L_108
+"Connect Data"	,	L_133
+hf_tns_ntp_flag_pio	,	V_68
+"tns.connect_data_offset"	,	L_110
+hf_tns_refuse_data	,	V_105
+"Do Immediate Confirmation"	,	L_194
+"Connect"	,	L_5
+", SNS"	,	L_3
+hf_tns_nt_proto_characteristics	,	V_59
+BASE_NONE	,	V_157
+hf_tns_accept_data_offset	,	V_97
+"Callback IO supported"	,	L_80
+"NA services enabled"	,	L_121
+"Abort Reason from Application"	,	L_158
+"tns.data_flag"	,	L_181
+"Can Receive Attention"	,	L_60
+"Direct IO to Transport"	,	L_56
+"More Data to Come"	,	L_190
+"Reassemble TNS messages spanning multiple TCP segments"	,	L_208
+is_attention	,	V_112
+"tns.sdu_size"	,	L_65
+"To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_210
+hf_tns_data_flag_send	,	V_34
+"Refuse Reason from System"	,	L_149
+BASE_HEX	,	V_161
+cflag_tree	,	V_16
+"tns.connect_flags.wantna"	,	L_126
+", Accept"	,	L_8
+"Length of Accept Data"	,	L_138
+proto_item_add_subtree	,	F_8
+"Length of Redirect Data"	,	L_176
+module_t	,	T_11
+proto_register_field_array	,	F_33
+FT_BYTES	,	V_162
+hf_tns_ntp_flag_asio	,	V_67
+"Checksum of Header Data"	,	L_38
+hf_tns_connect_data_max	,	V_82
+"tns.connect_flags.nareq"	,	L_118
+dissector_add_uint	,	F_40
+"Reserved Byte"	,	L_200
+"tns.ntp_flag.pio"	,	L_85
+data_handle	,	V_45
+"Secure Network Services"	,	L_1
+FT_UINT16	,	V_159
+"tns.nt_proto_characteristics"	,	L_69
+TNS_TYPE_MAX	,	V_130
+ett_tns_sopt_flag	,	V_55
+"Whether the TNS dissector should reassemble messages spanning multiple TCP segments. "	,	L_209
+accept_len	,	V_93
+hf_tns_redirect	,	V_120
+ett_tns	,	V_138
+accept_offset	,	V_92
+"tns.accept"	,	L_135
+hf_tns_refuse_reason_system	,	V_103
+FT_STRING	,	V_166
+hf_tns_response	,	V_140
+"tns.ntp_flag.hangon"	,	L_71
+"tns.ntp_flag.srun"	,	L_77
+hf_tns_ntp_flag_urgentio	,	V_74
+"tns.data_flag.eof"	,	L_193
+hf_tns_data_flag_more	,	V_38
+"tns.so_flag.dio"	,	L_57
+hf_tns_accept	,	V_95
+val_to_str_const	,	F_29
+length	,	V_133
+"tns.response"	,	L_26
+"TDU based IO"	,	L_74
+"tns.refuse_data_length"	,	L_151
+TNS_TYPE_REDIRECT	,	V_149
+"tns.connect_flags.ichg"	,	L_124
+"tns.data_flag.more"	,	L_191
+", %s (%u)"	,	L_24
+FT_UINT32	,	V_163
+"Generate SIGIO signal"	,	L_90
+ntp_tree	,	V_58
+hf	,	V_155
+"Half Duplex"	,	L_51
+hf_tns_conn_flag_nalink	,	V_18
+hf_tns_refuse_reason_user	,	V_102
+"tns.marker.type"	,	L_165
+"tns.so_flag.hc"	,	L_48
+accept_tree	,	V_91
+hf_tns_marker_data_byte	,	V_117
+", Refuse"	,	L_10
+hf_tns_packet_type	,	V_143
+prefs_register_protocol	,	F_36
+hf_tns_abort_data	,	V_111
+hf_tns_sopt_flag_pc	,	V_6
+col_append_fstr	,	F_28
+hf_tns_refuse_data_length	,	V_104
+col_set_str	,	F_27
+marker_tree	,	V_113
+"tns.data_flag.dic"	,	L_195
+"Trace Cross Facility Item 1"	,	L_127
+"Generate SIGURG signal"	,	L_94
+cd_offset	,	V_47
+"Checksum of Packet Data"	,	L_35
+hidden_item	,	V_27
+ett_tns_control	,	V_124
+", Attention"	,	L_16
+"tns.connect_flags.enablena"	,	L_122
+hf_tns_conn_flag_nareq	,	V_17
+"tns.compat_version"	,	L_42
+data_tree	,	V_25
+dissector_handle_t	,	T_12
+"Redirect Data Length"	,	L_174
+hf_tns_conn_flag_wantna	,	V_21
+"tns.max_tdu_size"	,	L_67
+"tns.data_flag.rc"	,	L_185
+TNS_TYPE_ACCEPT	,	V_147
+is_sns	,	V_28
+hf_tns_packet_checksum	,	V_142
+hf_tns_sopt_flag_ra	,	V_14
+ett_tns_conn_flag	,	V_84
+"tns.accept_data_offset"	,	L_142
+"tns.length"	,	L_31
+"tns.abort"	,	L_155
+VALS	,	F_31
+"tns.type"	,	L_203
+"Refuse Data"	,	L_153
+"desegment_tns_messages"	,	L_207
+prefs_register_bool_preference	,	F_37
+"tns.ntp_flag.crel"	,	L_73
+hf_tns_trace_cid	,	V_88
+dissect_tns	,	F_24
+"data"	,	L_212
+tvb_length	,	F_26
+"tns.marker.databyte"	,	L_167
+proto_tree_add_text	,	F_7
+BASE_DEC	,	V_160
+"tns.accept_data_length"	,	L_137
+hf_tns_ntp_flag_sigpipe	,	V_72
+"Accept Data Length"	,	L_136
+ENC_NA	,	V_79
+"tns.control.cmd"	,	L_170
+hf_tns_sdu_size	,	V_56
+tns_type_vals	,	V_144
+"Accept"	,	L_7
+TNS_TYPE_REFUSE	,	V_148
+"tns.data_flag.c"	,	L_187
+dissect_tns_connect	,	F_14
+"Marker Data Byte"	,	L_166
+"Trace Cross Facility Item 2"	,	L_129
+"Marker"	,	L_13
+hf_tns_abort_reason_user	,	V_109
+"Broken Connect Notify"	,	L_45
+TNS_TYPE_MARKER	,	V_151
+dissect_tns_redirect	,	F_21
+"Length of TNS packet"	,	L_32
+hf_tns_data_flag_c	,	V_36
+"tns.ntp_flag.sigurg"	,	L_95
+ett_tns_data_flag	,	V_33
+"tns.accept_data"	,	L_140
+"Response"	,	L_23
+guint	,	T_5
+ett	,	V_169
+"tns.line_turnaround"	,	L_103
+hf_tns_header_checksum	,	V_146
+packet_info	,	T_3
+"tns.header_checksum"	,	L_37
+hf_tns_sopt_flag_sa	,	V_15
+"Abort Data"	,	L_161
+"End of File"	,	L_192
+"Can grant connection to another"	,	L_86
+"tns.trace_cf2"	,	L_130
+hf_tns_length	,	V_141
+"tns.data_flag.reserved"	,	L_189
+ett_tns_connect	,	V_50
+"tns.so_flag.ap"	,	L_59
+"tns.refuse_reason_system"	,	L_148
+"tns.abort_reason_system"	,	L_159
+hf_tns_connect_data_offset	,	V_81
+hf_tns_data_flag_eof	,	V_39
+"Maximum Receivable Connect Data"	,	L_111
+"tns.reserved_byte"	,	L_201
+hf_tns_data_flag_rc	,	V_35
+dissect_tns_data	,	F_4
+"Can Send Attention"	,	L_62
+dissect_tns_connect_flag	,	F_3
+HFILL	,	V_158
+"Data test"	,	L_78
+"tns.ntp_flag.handoff"	,	L_89
+refuse_tree	,	V_99
+abort_tree	,	V_106
+"tns.connect"	,	L_106
+"NA services linked in"	,	L_119
+"Full duplex IO supported"	,	L_98
+"Line Turnaround Value"	,	L_102
+dissect_tns_control	,	F_22
+"tns.abort_data"	,	L_162
+"tns.data_flag.rts"	,	L_197
+hf_tns_abort_reason_system	,	V_110
+hf_tns_ntp_flag_dtest	,	V_65
+hf_tns_trace_cf2	,	V_87
+hf_tns_trace_cf1	,	V_86
+hf_tns_abort	,	V_108
+proto_reg_handoff_tns	,	F_38
+"Unknown"	,	L_25
+"tns.connect_flags.nalink"	,	L_120
+"tns.data"	,	L_179
+control_tree	,	V_123
+"tns.so_flag.sa"	,	L_63
+"Control Data"	,	L_171
+proto_register_protocol	,	F_32
+"Refuse Reason (System)"	,	L_147
+hf_tns_sopt_flag_hc	,	V_7
+hf_tns_connect_flags0	,	V_83
+hf_tns_sopt_flag_hd	,	V_9
+TNS_TYPE_ATTENTION	,	V_152
+hf_tns_connect_flags1	,	V_85
+"tns.marker"	,	L_163
+tvb_new_subset_remaining	,	F_13
+"Version"	,	L_39
+tcp_dissect_pdus	,	F_25
+gint	,	T_10
+ett_tns_ntp_flag	,	V_60
+hf_tns_ntp_flag_grant	,	V_69
+hf_tns_ntp_flag_sigio	,	V_71
+tvb	,	V_1
+hf_tns_data_flag	,	V_32
+"tns.ntp_flag.asio"	,	L_83
+COL_INFO	,	V_44
+proto_tns	,	V_137
+hf_tns_ntp_flag_hangon	,	V_61
+hf_tns_ntp_flag_fdio	,	V_75
+"Value of 1 in Hardware"	,	L_104
+"Spawner running"	,	L_76
+cinfo	,	V_43
+dissect_tns_marker	,	F_20
+"Reserved"	,	L_188
+call_dissector	,	F_12
+ett_tns_data	,	V_29
+hf_tns_control_cmd	,	V_126
+hf_tns_redirect_data_length	,	V_121
+hf_tns_connect	,	V_51
+"Packet oriented IO"	,	L_84
+"tns.packet_checksum"	,	L_34
+PROTO_ITEM_SET_HIDDEN	,	F_10
+proto_tree_add_boolean	,	F_9
+hf_tns_data_flag_rts	,	V_41
+sopt_tree	,	V_3
+COL_PROTOCOL	,	V_134
+"tns.connect_data"	,	L_134
+"tns.ntp_flag.dtest"	,	L_79
+guint8	,	T_7
+hf_tns_service_options	,	V_54
+"tns.so_flag.fd"	,	L_50
+ti	,	V_26
+"Marker Type"	,	L_164
+"Generate SIGPIPE signal"	,	L_92
+hf_tns_ntp_flag_testop	,	V_76
+"Confirmed release"	,	L_72
+"tns.ntp_flag.sigio"	,	L_91
+"Offset to Accept Data"	,	L_141
+tvbuff_t	,	T_1
+"tns.so_flag.dc2"	,	L_55
+tvb_get_ntohs	,	F_15
+hf_tns_control_data	,	V_127
+"tns.redirect"	,	L_173
+dissect_tns_pdu	,	V_132
+"Redirect Data"	,	L_177
+tns_module	,	V_172
+hf_tns_sopt_flag_dc2	,	V_11
+tns_handle	,	V_173
+TNS_TYPE_DATA	,	V_154
+hf_tns_sopt_flag_dc1	,	V_10
+"Abort"	,	L_11
+hf_tns_reserved_byte	,	V_145
+"Don't Care"	,	L_53
+tvb_get_guint8	,	F_6
+"Urgent IO supported"	,	L_96
+match_uint	,	V_135
+hf_tns_version	,	V_52
+", Abort"	,	L_12
+"tns.ntp_flag.sigpipe"	,	L_93
+hf_tns_connect_data_length	,	V_80
+"tns.ntp_flag.cbio"	,	L_81
+hf_tns_request	,	V_139
+"tns.ntp_flag.urgentio"	,	L_97
+"Redirect"	,	L_17
+"Hangon to listener connect"	,	L_70
+hf_tns_refuse	,	V_101
+"tns.redirect_data_length"	,	L_175
+dissect_tns_refuse	,	F_18
+new_create_dissector_handle	,	F_39
+"tns.trace_cid"	,	L_132
+hf_tns_conn_flag_ichg	,	V_20
+"tns.service_options"	,	L_44
+"Request Confirmation"	,	L_184
+hf_tns_conn_flag_enablena	,	V_19
+"TRUE if TNS response"	,	L_27
+"tns.so_flag.dc1"	,	L_54
+find_dissector	,	F_41
+"tns.so_flag.hd"	,	L_52
+", Connect"	,	L_6
+ENC_BIG_ENDIAN	,	V_5
+hf_tns_max_tdu_size	,	V_57
+"tns.abort_reason_user"	,	L_157
+hf_tns_marker_type	,	V_116
+hf_tns_control	,	V_125
+TNS_TYPE_ABORT	,	V_150
+"Length of Refuse Data"	,	L_152
+"tns.ntp_flag.testop"	,	L_101
+ett_tns_accept	,	V_94
+"Length of Connect Data"	,	L_107
+"tns.so_flag.pc"	,	L_47
+"tns.connect_flags0"	,	L_114
+"tns.control.data"	,	L_172
+"ASync IO Supported"	,	L_82
+"NA services wanted"	,	L_125
+FT_UINT64	,	V_165
+hf_tns_ntp_flag_srun	,	V_64
+TNS_TYPE_CONTROL	,	V_153
+"Refuse Data Length"	,	L_150
+"tns.connect_flags1"	,	L_116
+tns_offset	,	V_49
+hf_tns_data_flag_sntt	,	V_42
+"tns.value_of_one"	,	L_105
+"tns.control"	,	L_168
+proto_register_subtree_array	,	F_35
+hf_tns_data	,	V_30
+hf_tns_accept_data	,	V_98
+"tns.connect_data_max"	,	L_112
+hf_tns_ntp_flag_crel	,	V_62
+"tns"	,	L_206
+"tns.refuse_data"	,	L_154
+proto_tree_add_item	,	F_2
+hf_tns_redirect_data	,	V_122
+pinfo	,	V_22
+"Data"	,	L_2
+_U_	,	V_128
+dissect_tns_accept	,	F_17
+"tns.data_flag.sntt"	,	L_199
+"TNS"	,	L_21
+hf_tns_sopt_flag_ap	,	V_13
+hf_tns_marker	,	V_115
+"Full Duplex"	,	L_49
+"Trace Unique Connection ID"	,	L_131
+ett_sql	,	V_171
+FT_UINT8	,	V_164
+"Test operation"	,	L_100
+"Send NT Trailer"	,	L_198
+proto_item	,	T_4
+"Transparent Network Substrate Protocol"	,	L_205
+"Packet Length"	,	L_30
+ett_tns_abort	,	V_107
+"Accept Data"	,	L_139
+"NT Protocol Characteristics"	,	L_68
+"tns.ntp_flag.tduio"	,	L_75
+"tns.data_flag.send"	,	L_183
+ett_tns_refuse	,	V_100
+redirect_tree	,	V_118
+"Control"	,	L_19
+"Packet Type"	,	L_202
+data	,	T_6
+ett_tns_redirect	,	V_119
+hf_tns_ntp_flag_cbio	,	V_66
+"Session Data Unit Size"	,	L_64
+"tns.version"	,	L_40
+offset	,	V_2
+tree	,	V_23
+"Attention"	,	L_14
+"tns.request"	,	L_28
+cd_len	,	V_48
+hf_tns_sopt_flag_bconn	,	V_4
+TNS_TYPE_CONNECT	,	V_129
+tvb_bytes_exist	,	F_5
+hf_tns_accept_data_length	,	V_96
+hf_tns_sopt_flag_dio	,	V_12
+"Control Command"	,	L_169
+"tns.redirect_data"	,	L_178
+TCP_PORT_TNS	,	V_174
+hf_tns_value_of_one	,	V_78
+destport	,	V_136
+proto_register_tns	,	F_30
+"Attention Processing"	,	L_58
+tns_control_cmds	,	V_168
+proto_tree_add_uint	,	F_16
+hf_tns_sopt_flag_fd	,	V_8
+dissect_tns_abort	,	F_19
+connect_tree	,	V_46
+"tns.so_flag.ra"	,	L_61
+"Connect Flags 1"	,	L_115
+"tns.ntp_flag.dfio"	,	L_99
+ett_tns_marker	,	V_114
+"Refuse"	,	L_9
+"tns.refuse"	,	L_143
+", Marker"	,	L_15
+hf_tns_line_turnaround	,	V_77
+hf_tns_ntp_flag_handoff	,	V_70
+get_tns_pdu_len	,	F_23
+hf_tns_ntp_flag_sigurg	,	V_73
+tns_desegment	,	V_131
+"Connect Flags 0"	,	L_113
+"tns.ntp_flag.grant"	,	L_87
+"Version (Compatible)"	,	L_41
+"tcp.port"	,	L_211
+proto_tree	,	T_2
+"Send Token"	,	L_182

@@ -1,0 +1,444 @@
+dissect_route_entry	,	F_16
+"pnrp.segment.length"	,	L_72
+"Message with invalid length %u (&lt; 4)"	,	L_5
+tvb_reported_length	,	F_2
+messageType	,	V_14
+FLAGS_LOOKUPCONTROLS_A	,	V_185
+"pnrp.segment.ipv6EndpointArray.NumberOfEntries"	,	L_117
+"Extended Payload: "	,	L_19
+hf_pnrp_encodedCPA_minorVersion	,	V_105
+"A Certificate Chain, containing the public key used to sign the CPA and its Certificate Chain"	,	L_199
+hf_pnrp_message_ack_flags_Nbit	,	V_47
+"CPA contains (C)lassifier Hash"	,	L_135
+FT_BOOLEAN	,	V_158
+"pnrp.segment.classifier.entryLength"	,	L_94
+"pnrp.encodedCPA.flags.xbit"	,	L_132
+"pnrp.encodedCPA.classifierHash"	,	L_152
+"pnrp.ident"	,	L_60
+"Length of Signature : %d"	,	L_50
+tvb_reported_length_remaining	,	F_11
+"pnrp.encodedCPA.vMinor"	,	L_128
+TARGET_PNRP_ID	,	V_64
+"pnrp.segment.idArray.Length"	,	L_192
+pnrp_publicKey_tree	,	V_126
+array_length	,	F_29
+hf_pnrp_encodedCPA_flags_Xbit	,	V_173
+FLOOD_CONTROLS	,	V_52
+"PNRP ID Array: "	,	L_20
+ENC_ASCII	,	V_119
+ett_pnrp_header	,	V_25
+"0 bit - reserved:"	,	L_162
+hf_pnrp_encodedCPA_flags_Abit	,	V_177
+"Certificate Chain"	,	L_197
+ett_pnrp_message_lookupControls_flags	,	V_59
+hf_register_info	,	T_9
+FLAGS_AUTHORITY_RESERVED1	,	V_160
+FLAGS_AUTHORITY_RESERVED2	,	V_164
+"pnrp.encodedCPA"	,	L_122
+FLAGS_AUTHORITY_RESERVED3	,	V_168
+"pnrp.segment.ipv6EndpointArray.ArrayLength"	,	L_119
+"Unknown (0x%02x)"	,	L_3
+guint16	,	T_7
+FLAGS_LOOKUPCONTROLS_0	,	V_187
+"pnrp"	,	L_1
+ACK	,	V_45
+"Type of Array Entry"	,	L_193
+"pnrp.segment.ack.flags.Nbit"	,	L_99
+hf_pnrp_message_classifier_arrayLength	,	V_75
+VALIDATE_CPA	,	V_86
+"pnrp.segment.routeEntry.flags"	,	L_182
+"pnrp.segment.ipv6EndpointArray.EntryLength"	,	L_120
+"Classifier"	,	L_95
+"pnrp.lookupControls.resolveCriteria"	,	L_168
+BASE_NONE	,	V_138
+"Reserved 1"	,	L_79
+"pnrp.encodedCPA.serviceLocation"	,	L_147
+"pnrp.encodedCPA.flags.cbit"	,	L_136
+hf_pnrp_header_fieldID	,	V_26
+"pnrp.segment.classifier.string"	,	L_96
+"pnrp.encodedCPA.flags.reserved"	,	L_130
+BASE_HEX	,	V_141
+"Signature Structure"	,	L_49
+pnrp_publicKey_item	,	V_127
+"Length of each Array Entry"	,	L_195
+"Sender is willing to accept returned nodes that are not closer to the target ID than the Validate PNRP ID"	,	L_161
+"CERT Chain: "	,	L_21
+"Length of Data : %d"	,	L_42
+dissect_pnrp_ids	,	F_13
+hf_pnrp_message_lookupControls_flags_Abit	,	V_184
+proto_item_add_subtree	,	F_10
+ett_pnrp	,	V_23
+proto_register_field_array	,	F_28
+FT_BYTES	,	V_145
+"Reserved 2"	,	L_87
+"pnrp.lookupControls.reasonCode"	,	L_170
+"pnrp.encodedCPA.expirationDate"	,	L_144
+ett_pnrp_message_signatureStructure	,	V_134
+ett_pnrp_message_payloadStructure	,	V_123
+dissector_add_uint	,	F_33
+"Number of Unicode Characters"	,	L_89
+"Friendly Name of PNRP ID"	,	L_154
+ett_pnrp_message_encodedCPA_flags	,	V_108
+"E(X)tended Payload sent in Authority response"	,	L_83
+"pnrp.segment.idArray.Entrylength"	,	L_196
+"(B)usy"	,	L_105
+FT_UINT16	,	V_140
+hf_pnrp_header_versionMajor	,	V_30
+pnrp_header_tree	,	V_18
+"Service Address Length : %d"	,	L_37
+"pnrp.encodedCPA.friendlyName"	,	L_155
+"pnrp.header"	,	L_53
+"Reserved 3"	,	L_107
+"Flood Control: "	,	L_12
+"Size of Algorithm OID : %d"	,	L_46
+lengthOfData	,	V_120
+"Signature"	,	L_177
+"Reserved : %d"	,	L_16
+ENC_UTF_16	,	V_78
+"Hashed Nonce"	,	L_187
+"Message Type"	,	L_65
+FT_STRING	,	V_156
+hf_pnrp_encodedCPA_flags_Ubit	,	V_178
+proto_pnrp	,	V_21
+"Reserved 2: %d"	,	L_13
+"CPA contains Binary (A)uthority field"	,	L_137
+hf_pnrp_message_flood_flags_Dbit	,	V_54
+"Signature created when signing the CPA"	,	L_179
+hf_pnrp_header_ident	,	V_29
+STR_UNICODE	,	V_157
+"pnrp.segment.inquire.flags.Xbit"	,	L_84
+length	,	V_92
+dissect_publicKey_structure	,	F_22
+FLAGS_FIELD	,	V_40
+"pnrp.vMinor"	,	L_64
+"pnrp.segment.splitControls.authorityBuffer"	,	L_115
+"CPA Public Key Structure"	,	L_44
+"Routing Entry: "	,	L_27
+FT_UINT32	,	V_144
+"Precision - Number of significant bits to match"	,	L_166
+FLAGS_LOOKUPCONTROLS_RESERVED	,	V_183
+hf	,	V_136
+"pnrp.segment.authority.flags.Nbit"	,	L_110
+"Hash Algorithm Identifier : %x"	,	L_51
+"CPA has E(X)tended Payload"	,	L_131
+hf_pnrp_message_authority_flags_Lbit	,	V_161
+"pnrp.header.length"	,	L_58
+"pnrp.lookupControls.precision"	,	L_165
+"pnrp.segment.ack.flags.reserved"	,	L_97
+"pnrp.segment.pnrpID"	,	L_77
+"Split controls: "	,	L_25
+FT_IPv6	,	V_191
+"Unused Bits : %d"	,	L_48
+proto_register_pnrp	,	F_25
+"pnrp.messageType"	,	L_66
+col_set_str	,	F_5
+"Flags"	,	L_11
+hf_pnrp_header_length	,	V_28
+"Nonce"	,	L_185
+PNRP_HEADER	,	V_10
+pnrp_header_item	,	V_17
+hf_pnrp_message_ack_flags_reserved	,	V_46
+tmp_offset	,	V_94
+AUTHORITY	,	V_48
+dissect_ipv6_endpoint_structure	,	F_18
+"Reason Code"	,	L_169
+hf_pnrp_message_ipv6EndpointArray_ArrayLength	,	V_89
+"pnrp.segment.type"	,	L_70
+val_to_str	,	F_7
+hf_pnrp_message_inquire_flags_reserved2	,	V_154
+hf_pnrp_message_inquire_flags_reserved1	,	V_146
+field_type	,	V_8
+hf_pnrp_encodedCPA_friendlyName	,	V_118
+HASHED_NONCE	,	V_79
+"Solicit Controls: "	,	L_15
+dissector_handle_t	,	T_10
+hf_pnrp_message_authority_flags	,	V_49
+EXTENDED_PAYLOAD	,	V_65
+"pnrp.segment.inquire.flags"	,	L_78
+inquire_flags	,	V_44
+hf_pnrp_encodedCPA_classifiertHash	,	V_116
+hf_pnrp_message_lookupControls_reasonCode	,	V_63
+VALS	,	F_26
+"pnrp.segment.headerAck"	,	L_75
+"This is a (r)evoke CPA"	,	L_141
+reasonCode	,	V_189
+hf_pnrp_message_hashednonce	,	V_80
+"Length of Array"	,	L_191
+"pnrp.lookupControls.flags"	,	L_157
+"pnrp.lookupControls.flags.reserved"	,	L_158
+hf_pnrp_message_solicitType	,	V_56
+proto_tree_add_text	,	F_12
+BASE_DEC	,	V_142
+"PNRP %s Message "	,	L_2
+hf_pnrp_message_type	,	V_35
+"SHA-1 Hash of the classifier text"	,	L_153
+ENC_NA	,	V_22
+"Nonce: "	,	L_24
+ett_pnrp_message_encodedCPA	,	V_103
+"Validate CPA: "	,	L_28
+"(L)eaf Set"	,	L_102
+"Payload Structure"	,	L_40
+hf_pnrp_message_inquire_flags_Abit	,	V_148
+CERT_CHAIN	,	V_71
+PNRP_PORT	,	V_197
+pnrp_payload_item	,	V_122
+hf_pnrp_message_lookupControls_resolveCriteria	,	V_62
+FLAGS_AUTHORITY_B	,	V_166
+"pnrp.publicKey.objID"	,	L_172
+hf_pnrp_encodedCPA_flags_Cbit	,	V_176
+"Message ID"	,	L_67
+hf_pnrp_message_inquire_flags_Xbit	,	V_150
+"Port Number"	,	L_180
+"IPv6 Endpoint Array: "	,	L_29
+FLAGS_AUTHORITY_N	,	V_170
+FLAGS_AUTHORITY_L	,	V_162
+"pnrp.segment.authority.flags.reserved2"	,	L_104
+"Padding: %d bytes"	,	L_10
+"Port Number : %d"	,	L_33
+"Length"	,	L_123
+"(D)on't send ACK"	,	L_112
+ett	,	V_192
+hf_pnrp_encodedCPA_flags_reserved	,	V_171
+hf_pnrp_message_lookupControls_flags_reserved	,	V_182
+"Address Count"	,	L_183
+packet_info	,	T_2
+"pnrp.segment.routeEntry.portNumber"	,	L_181
+"CPA should (a)ppear in response"	,	L_81
+hf_pnrp_message_lookupControls_flags_0bit	,	V_186
+"Flags Field: "	,	L_8
+ett_pnrp_message_authority_flags	,	V_50
+"pnrp.segment.authority.flags.reserved3"	,	L_108
+hf_pnrp_message_routeEntry_portNumber	,	V_95
+"An ASN.1-encoded object identifier (OID) indicating the public key format"	,	L_173
+resolveCriteria	,	V_188
+hf_pnrp_message_authority_flags_Bbit	,	V_165
+"pnrp.publicKey.publicKeyData"	,	L_175
+hf_pnrp_message_splitControls_authorityBuffer	,	V_84
+"Version Minor"	,	L_63
+"(C)ertificate Chain sent in Authority response"	,	L_85
+HFILL	,	V_139
+hf_pnrp_message_idarray_Entrylength	,	V_70
+hf_pnrp_encodedCPA_notAfter	,	V_110
+hf_pnrp_message_classifier_unicodeCount	,	V_74
+"pnrp.segment.idArray.NumEnries"	,	L_190
+hf_pnrp_encodedCPA_majorVersion	,	V_106
+flagsField	,	V_99
+"Entry Length"	,	L_93
+"Type: %s, length: %u"	,	L_30
+ett_pnrp_message_inquire_flags	,	V_43
+"pnrp.encodedCPA.flags"	,	L_129
+CLASSIFIER	,	V_73
+"Payload Type : %d"	,	L_41
+"pnrp.vMajor"	,	L_62
+"Header length"	,	L_57
+pnrp_handle	,	V_196
+hf_pnrp_message_authority_flags_reserved1	,	V_159
+proto_register_protocol	,	F_27
+hf_pnrp_message_authority_flags_reserved3	,	V_167
+"Segment Type"	,	L_69
+hf_pnrp_message_authority_flags_reserved2	,	V_163
+PROTOSHORTNAME	,	V_194
+"pnrp.signature.data"	,	L_178
+pnrp_payload_tree	,	V_121
+"pnrp.encodedCPA.binaryAuthority"	,	L_149
+gint	,	T_5
+tvb	,	V_1
+"Ident"	,	L_59
+FLAGS_INQUIRE_X	,	V_151
+COL_INFO	,	V_13
+"Header"	,	L_52
+cinfo	,	V_11
+"pnrp.segment.authority.flags.Bbit"	,	L_106
+PROTONAME	,	V_193
+"Reserved"	,	L_34
+hf_pnrp_message_inquire_flags_Cbit	,	V_152
+hf_pnrp_message_authority_flags_Nbit	,	V_169
+"pnrp.segment.certChain"	,	L_198
+lookupControls_flags	,	V_60
+hf_pnrp_publicKey_objID	,	V_129
+"Padding: %d"	,	L_14
+"pnrp.segment.ElementFieldType"	,	L_194
+"pnrp.segment.authority.flags"	,	L_100
+FLAGS_ENCODED_CPA_RESERVED	,	V_172
+hf_pnrp_header_messageID	,	V_33
+FLAGS_INQUIRE_C	,	V_153
+"Binary Authority"	,	L_148
+authority_flags	,	V_51
+FLAGS_INQUIRE_A	,	V_149
+"Array Length:"	,	L_118
+pnrp_encodedCPA_tree	,	V_100
+"Solicit Type"	,	L_200
+PNRP_HEADER_ACKED	,	V_37
+hf_pnrp_message_idArray_NumEntries	,	V_67
+"pnrp.encodedCPA.flags.fbit"	,	L_134
+"Length of Friendly name : %d"	,	L_35
+"Authority  Buffer Size:"	,	L_114
+"CPA contains (F)riendly Name"	,	L_133
+"pnrp.segment.solicitType"	,	L_201
+COL_PROTOCOL	,	V_12
+"Header FieldID"	,	L_55
+padding_bytes	,	V_6
+hf_pnrp_encodedCPA_flags_Fbit	,	V_175
+guint8	,	T_6
+ti	,	V_15
+", Message Type %s"	,	L_4
+"pnrp.segment.authority.flags.reserved1"	,	L_101
+SPLIT_CONTROLS	,	V_83
+"Number of Payload Structures : %d"	,	L_38
+tvbuff_t	,	T_1
+pnrp_tree	,	V_16
+"pnrp.segment.inquire.flags.Abit"	,	L_82
+tvb_get_ntohs	,	F_3
+proto_tree_add_bitmask	,	F_14
+"PNRP Header"	,	L_54
+hf_pnrp_message_certChain	,	V_72
+dissect_ipv6_address	,	F_19
+"pnrp.segment.hashednonce"	,	L_188
+"Service Location"	,	L_146
+ROUTING_ENTRY	,	V_85
+FLAGS_INQUIRE_RESERVED1	,	V_147
+FLAGS_INQUIRE_RESERVED2	,	V_155
+hf_pnrp_header_versionMinor	,	V_31
+hf_pnrp_message_ipv6EndpointArray_NumberOfEntries	,	V_88
+hf_pnrp_message_routeEntry_flags	,	V_96
+"pnrp.segment.nonce"	,	L_186
+proto_tree_add_bits_item	,	F_15
+tvb_get_guint8	,	F_4
+IPV6_ENDPOINT_ARRAY	,	V_87
+objIDLength	,	V_124
+"Classifiert Hash"	,	L_151
+"Resolve Criteria"	,	L_167
+"Total Bytes of Payload : %d"	,	L_39
+"An ASN.1-encoded 1024-bit RSA public key"	,	L_176
+hf_pnrp_message_ipv6EndpointArray_EntryLength	,	V_90
+dissect_signature_structure	,	F_23
+pnrp_message_tree	,	V_19
+"Validate PNRP ID: "	,	L_7
+INQUIRE	,	V_41
+"pnrp.encodedCPA.length"	,	L_124
+"pnrp.segment.flood.flags.Dbit"	,	L_113
+PNRP_ID_ARRAY	,	V_66
+hf_pnrp_message_routeEntry_addressCount	,	V_97
+"PNRP ID"	,	L_76
+"pnrp.segment.flood.flags.reserved"	,	L_111
+new_create_dissector_handle	,	F_32
+"Array Length"	,	L_91
+"CPA Major Version"	,	L_125
+data_length	,	V_9
+hf_pnrp_message_idArray_Length	,	V_68
+LOOKUP_CONTROLS	,	V_57
+ett_pnrp_message	,	V_34
+"Padding : %d - 2 Bytes"	,	L_9
+ENC_BIG_ENDIAN	,	V_27
+"Number of Service Addresses : %d"	,	L_36
+"Size of cbData : %d"	,	L_47
+"Target PNRP ID: "	,	L_18
+"pnrp.encodedCPA.flags.ubit"	,	L_140
+hf_pnrp_publicKey_publicKeyData	,	V_130
+"pnrp.header.fieldID"	,	L_56
+"IPv6 Address"	,	L_202
+FLAGS_ENCODED_CPA_R	,	V_112
+FLAGS_ENCODED_CPA_F	,	V_117
+hf_pnrp_encodedCPA_length	,	V_104
+"pnrp.encodedCPA.vMajor"	,	L_126
+hf_pnrp_message_pnrpID	,	V_93
+FLAGS_ENCODED_CPA_C	,	V_115
+hf_pnrp_message_nonce	,	V_82
+FLAGS_ENCODED_CPA_A	,	V_113
+FT_UINT64	,	V_181
+"Lookup Control: "	,	L_17
+"Unknown (0x%04x)"	,	L_31
+"IANA Protocol Number : %d"	,	L_43
+proto_item_append_text	,	F_9
+message_type	,	V_7
+"Public Key Object Identifier"	,	L_171
+"Message ACK ID: "	,	L_6
+hf_pnrp_encodedCPA	,	V_102
+hf_pnrp_message_inquire_flags	,	V_42
+proto_register_subtree_array	,	F_30
+hf_pnrp_header_messageType	,	V_32
+FLAGS_ENCODED_CPA_U	,	V_179
+"CPA expiration Date"	,	L_143
+fieldID	,	V_91
+FLAGS_ENCODED_CPA_X	,	V_174
+pnrp_message_item	,	V_20
+proto_tree_add_item	,	F_8
+dissect_pnrp	,	F_1
+pinfo	,	V_2
+col_add_fstr	,	F_6
+"Data"	,	L_32
+dissect_payload_structure	,	F_21
+_U_	,	V_4
+"(N)ot found"	,	L_109
+pnrp_signature_item	,	V_133
+"pnrp.segment.ipv6Address"	,	L_203
+"pnrp.encodedCPA.flags.rbit"	,	L_142
+"A human-readable label identifying the PNRP ID"	,	L_156
+FT_UINT8	,	V_143
+proto_item	,	T_8
+hf_pnrp_message_lookupControls_flags	,	V_58
+"Precision"	,	L_164
+"A bit:"	,	L_159
+"CPA Minor Version"	,	L_127
+hf_pnrp_encodedCPA_serviceLocation	,	V_111
+"pnrp.lookupControls.flags.Abit"	,	L_160
+hf_pnrp_message_flood_flags_reserved1	,	V_53
+hf_pnrp_encodedCPA_binaryAuthority	,	V_114
+data	,	T_4
+"SHA-1 Hash of PublicKey Data field"	,	L_150
+"Segment length"	,	L_71
+cbDataLength	,	V_125
+hf_pnrp_signature_signatureData	,	V_135
+"Friendly Name in (U)TF-8"	,	L_139
+hf_pnrp_message_length	,	V_36
+"Public Key Data"	,	L_174
+"pnrp.segment.inquire.flags.Cbit"	,	L_86
+"pnrp.encodedCPA.flags.abit"	,	L_138
+"pnrp.segment.classifier.arrayLength"	,	L_92
+"pnrp.segment.authority.flags.Lbit"	,	L_103
+tvb_get_letohl	,	F_24
+tvb_get_letohs	,	F_20
+proto_reg_handoff_pnrp	,	F_31
+hf_pnrp_message_classifier_string	,	V_77
+solicitType	,	V_190
+FT_NONE	,	V_137
+offset	,	V_5
+dissect_encodedCPA_structure	,	F_17
+"Number of Entries"	,	L_189
+tree	,	V_3
+VALIDATE_PNRP_ID	,	V_39
+hf_pnrp_message_classifier_entryLength	,	V_76
+"ACKed Header ID"	,	L_74
+"pnrp.segment.classifier.unicodeCount"	,	L_90
+hf_pnrp_message_lookupControls_precision	,	V_61
+hf_pnrp_message_ipv6	,	V_98
+"Encoded CPA structure"	,	L_121
+NONCE	,	V_81
+hf_pnrp_message_ElementFieldType	,	V_69
+ett_pnrp_message_publicKeyStructure	,	V_128
+"CPA expiration Date since January 1, 1601 UTC"	,	L_145
+"Version Major"	,	L_61
+SOLICIT_CONTROLS	,	V_55
+hf_pnrp_encodedCPA_flags	,	V_107
+"Length of Structure : %d"	,	L_45
+pnrp_encodedCPA_item	,	V_101
+"Number of Entries:"	,	L_116
+"pnrp.segment.inquire.flags.reserved2"	,	L_88
+encodedCPA_flags	,	V_109
+hf_pnrp_message_headerack	,	V_38
+hf_pnrp_header	,	V_24
+PROTOABBREV	,	V_195
+"(N)ot found Bit"	,	L_98
+pnrp_signature_tree	,	V_132
+"Classifier: "	,	L_22
+"pnrp.header.messageID"	,	L_68
+"udp.port"	,	L_204
+signatureLength	,	V_131
+"Offset : %d"	,	L_26
+"pnrp.segment.inquire.flags.reserved1"	,	L_80
+hf_pnrp_encodedCPA_flags_Rbit	,	V_180
+"Hashed Nonce: "	,	L_23
+"Message length"	,	L_73
+"pnrp.segment.routeEntry.addressCount"	,	L_184
+proto_tree	,	T_3
+"pnrp.lookupControls.flags.0bit"	,	L_163

@@ -1,0 +1,232 @@
+tvb_get_string	,	F_11
+"Number of characters"	,	L_88
+proto_register_protocol	,	F_21
+"Operating system of client system"	,	L_26
+len	,	V_21
+"wow.srp.m2"	,	L_70
+tcp_dissect_pdus	,	F_18
+"Secure Remote Password protocol 'A' value (one of the public ephemeral values)"	,	L_61
+gint	,	T_12
+hf_wow_srp_i_len	,	V_45
+"wow.srp.i_len"	,	L_36
+tvb	,	V_2
+"Secure Remote Password protocol 'B' value (one of the public ephemeral values)"	,	L_43
+tvb_get_stringz	,	F_14
+guint32	,	T_11
+COL_INFO	,	V_25
+wow_handle	,	V_88
+"wow.num_keys"	,	L_68
+WOW_PORT	,	V_89
+"wow.srp.m1"	,	L_63
+"Type of packet"	,	L_6
+"Secure Remote Password protocol 'I' value (username)"	,	L_40
+"wow.srp.g_len"	,	L_45
+"Game name"	,	L_11
+cinfo	,	V_23
+"Packet size"	,	L_9
+"wow.srp.i"	,	L_39
+"SRP g length"	,	L_44
+array_length	,	F_23
+"SRP N"	,	L_53
+dissect_wow_pdu	,	F_4
+hf_wow_gamename	,	V_34
+hf_wow_realm_name	,	V_65
+FT_STRINGZ	,	V_85
+ENC_ASCII	,	V_47
+ett_wow	,	V_29
+ett_wow_realms	,	V_61
+"wow.build"	,	L_20
+hf_wow_timezone_bias	,	V_42
+hf_register_info	,	T_15
+get_wow_pdu_len	,	F_1
+guint16	,	T_6
+COL_PROTOCOL	,	V_24
+"Operating system"	,	L_24
+"wow.cmd"	,	L_5
+"Secure Remote Password protocol 'M1' value"	,	L_64
+hf_wow_realm_type	,	V_62
+"SRP I length"	,	L_35
+"wow.realm_name"	,	L_82
+guint8	,	T_5
+realm_status_vs	,	V_84
+ti	,	V_13
+BASE_NONE	,	V_79
+"wow.os"	,	L_25
+"wow.srp.g"	,	L_48
+"IP address and port to connect to on the server to reach this realm"	,	L_85
+hf_wow_realm_num_characters	,	V_68
+hf_wow_crc_hash	,	V_57
+"wow.gamename"	,	L_12
+tvbuff_t	,	T_3
+hf_wow_realm_population_level	,	V_67
+"desegment"	,	L_95
+BASE_HEX	,	V_74
+"wow"	,	L_94
+"SRP I"	,	L_38
+gboolean	,	T_13
+"wow.crc_hash"	,	L_66
+AUTH_LOGON_PROOF	,	V_54
+proto_item_add_subtree	,	F_9
+module_t	,	T_14
+"Timezone bias"	,	L_30
+proto_register_field_array	,	F_22
+proto_reg_handoff_wow	,	F_27
+FT_BYTES	,	V_82
+"WOW"	,	L_1
+dissector_add_uint	,	F_29
+hf_wow_srp_s	,	V_53
+realm_name	,	V_16
+FT_UINT16	,	V_77
+tvb_get_guint8	,	F_2
+FT_FLOAT	,	V_86
+"wow.country"	,	L_28
+srp_i_len	,	V_17
+"wow.realm_socket"	,	L_84
+gint8	,	T_4
+"wow.realm_status"	,	L_78
+proto_register_wow	,	F_19
+"Reassemble wow messages spanning multiple TCP segments."	,	L_96
+FT_STRING	,	V_78
+"Secure Remote Password protocol 'N' value length"	,	L_52
+"Color"	,	L_79
+"Secure Remote Password protocol 'g' value length"	,	L_46
+new_create_dissector_handle	,	F_28
+"Secure Remote Password protocol 'N' value (a large safe prime)"	,	L_55
+"Population level"	,	L_86
+srp_n_len	,	V_19
+"wow.error"	,	L_8
+val_to_str_const	,	F_7
+wow_realms_tree	,	V_15
+hf_wow_country	,	V_41
+ENC_BIG_ENDIAN	,	V_44
+FT_UINT32	,	V_80
+"wow.timezone_bias"	,	L_31
+"wow.srp.n_len"	,	L_51
+cmd_vs	,	V_26
+"SRP M2"	,	L_69
+hf	,	V_72
+"wow.pkt_size"	,	L_10
+"Version 2"	,	L_15
+"CRC hash"	,	L_65
+"Language and country of client system"	,	L_29
+"wow.srp.s"	,	L_57
+prefs_register_protocol	,	F_25
+hf_wow_realm_socket	,	V_66
+"Error"	,	L_7
+col_set_str	,	F_5
+"SRP M1"	,	L_62
+FT_IPv4	,	V_81
+"Secure Remote Password protocol 'M2' value"	,	L_71
+"wow.srp.b"	,	L_42
+ii	,	V_22
+"Version 1"	,	L_13
+size_field_offset	,	V_4
+"CPU architecture of client system"	,	L_23
+REALM_LIST	,	V_8
+"Platform"	,	L_21
+"wow.realm_num_characters"	,	L_89
+col_clear	,	F_6
+"SRP g"	,	L_47
+proto_register_subtree_array	,	F_24
+proto_tree_add_string	,	F_13
+cmd	,	V_5
+wow_module	,	V_71
+"wow.srp.a"	,	L_60
+wow_tree	,	V_14
+proto_tree_add_item	,	F_8
+pinfo	,	V_1
+g_strreverse	,	F_10
+hf_wow_srp_n_len	,	V_51
+dissector_handle_t	,	T_16
+_U_	,	V_12
+wow_preference_desegment	,	V_70
+"wow.platform"	,	L_22
+"Country"	,	L_27
+"Secure Remote Password protocol 's' (user's salt) value"	,	L_58
+hf_wow_realm_color	,	V_64
+"wow.ip"	,	L_33
+hf_wow_srp_g	,	V_50
+hf_wow_realm_status	,	V_63
+hf_wow_srp_i	,	V_46
+hf_wow_srp_n	,	V_52
+hf_wow_srp_b	,	V_48
+VALS	,	F_20
+hf_wow_srp_a	,	V_55
+"wow.realm_color"	,	L_80
+prefs_register_bool_preference	,	F_26
+"Unrecognized packet type"	,	L_2
+hf_wow_pkt_size	,	V_33
+"Version 3"	,	L_17
+hf_wow_srp_g_len	,	V_49
+tvb_length	,	F_16
+"World of Warcraft"	,	L_93
+FT_UINT8	,	V_73
+proto_tree_add_text	,	F_15
+BASE_DEC	,	V_76
+proto_item	,	T_9
+pkt_len	,	V_6
+hf_wow_srp_m2	,	V_59
+ENC_NA	,	V_28
+hf_wow_ip	,	V_43
+"Number of keys"	,	L_67
+hf_wow_build	,	V_38
+hf_wow_srp_m1	,	V_56
+ENC_LITTLE_ENDIAN	,	V_31
+"Command"	,	L_4
+"wow.version1"	,	L_14
+hf_wow_num_keys	,	V_58
+"%s"	,	L_3
+hf_wow_error	,	V_32
+data	,	T_8
+"Secure Remote Password protocol 'g' value"	,	L_49
+"Name"	,	L_81
+hf_wow_version3	,	V_37
+"IP address"	,	L_32
+"SRP N length"	,	L_50
+"SRP A"	,	L_59
+proto_wow	,	V_27
+hf_wow_command	,	V_30
+hf_wow_version2	,	V_36
+hf_wow_version1	,	V_35
+hf_wow_platform	,	V_39
+"wow.version2"	,	L_16
+"wow.srp.n"	,	L_54
+"Timezone"	,	L_91
+tvb_get_letohs	,	F_3
+dissect_wow	,	F_17
+"wow.realm_type"	,	L_75
+hf_wow_realm_timezone	,	V_69
+WOW_CLIENT_TO_SERVER	,	V_9
+guint	,	T_1
+offset	,	V_3
+ett	,	V_87
+wmem_packet_scope	,	F_12
+tree	,	V_11
+"Server socket"	,	L_83
+"Number of characters the user has in this realm"	,	L_90
+packet_info	,	T_2
+"SRP B"	,	L_41
+"wow.version3"	,	L_18
+"wow.realm_population_level"	,	L_87
+"wow.num_realms"	,	L_73
+hf_wow_os	,	V_40
+"SRP s"	,	L_56
+AUTH_LOGON_CHALLENGE	,	V_10
+"Client's actual IP address"	,	L_34
+WOW_SERVER_TO_CLIENT	,	V_7
+hf_wow_num_realms	,	V_60
+"Secure Remote Password protocol 'I' value length"	,	L_37
+HFILL	,	V_75
+srp_g_len	,	V_18
+"Whether the wow dissector should reassemble messages spanning multiple TCP segments.  To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_97
+realm_type_vs	,	V_83
+"wow.realm_timezone"	,	L_92
+"Status"	,	L_77
+"Build"	,	L_19
+"Number of realms"	,	L_72
+gchar	,	T_10
+"Also known as realm icon"	,	L_76
+num_realms	,	V_20
+"Type"	,	L_74
+"tcp.port"	,	L_98
+proto_tree	,	T_7

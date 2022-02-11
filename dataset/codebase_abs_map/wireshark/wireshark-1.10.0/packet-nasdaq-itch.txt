@@ -1,0 +1,196 @@
+hf_nasdaq_itch_second	,	V_42
+proto_nasdaq_itch	,	V_36
+proto_register_protocol	,	F_29
+hf_nasdaq_itch_attribution	,	V_52
+nasdaq_itch_type	,	V_28
+hf_nasdaq_itch_cross	,	V_55
+hf_nasdaq_itch_canceled	,	V_54
+"Version"	,	L_15
+gint	,	T_4
+"Market participant identifier"	,	L_54
+hf_nasdaq_itch_stock	,	V_18
+"qty %u "	,	L_6
+tvb	,	V_1
+guint32	,	T_5
+COL_INFO	,	V_10
+hf_nasdaq_itch_round_lot_size	,	V_46
+PINFO_COL	,	F_2
+version	,	V_29
+hf_nasdaq_itch_message	,	V_56
+stock_p	,	V_17
+size	,	V_12
+cinfo	,	V_9
+array_length	,	F_31
+hf_nasdaq_itch_round_lots_only	,	V_47
+"Shares"	,	L_47
+"Reserved"	,	L_37
+""	,	L_2
+"Stock"	,	L_29
+"nasdaq-itch.stock"	,	L_30
+"nasdaq-itch.buy_sell"	,	L_45
+"Number of shares executed"	,	L_57
+ENC_ASCII	,	V_19
+executed	,	F_18
+hf_nasdaq_itch_millisecond	,	V_39
+"NASDAQ-ITCH"	,	L_74
+" %u (%02u:%02u:%02u.%03u)"	,	L_4
+"Reason"	,	L_39
+"Buy/Sell indicator"	,	L_46
+"nasdaq-itch.printable"	,	L_62
+hf_register_info	,	T_10
+"nasdaq-itch.cross"	,	L_69
+"Attribution"	,	L_52
+"Message"	,	L_71
+"nasdaq-itch.price"	,	L_51
+"Financial Status Indicator"	,	L_27
+COL_PROTOCOL	,	V_30
+time_stamp	,	F_6
+"nasdaq-itch.attribution"	,	L_53
+"Nasdaq TotalView-ITCH"	,	L_73
+"Cross trade type"	,	L_70
+hf_nasdaq_itch_reserved	,	V_49
+g_ascii_strtoull	,	F_12
+dissect_nasdaq_itch	,	F_19
+"Trading State"	,	L_35
+guint8	,	T_7
+ti	,	V_27
+BASE_NONE	,	V_66
+"Match number"	,	L_60
+"Cross Type"	,	L_68
+hf_nasdaq_itch_executed	,	V_24
+"nasdaq-itch.order_reference"	,	L_42
+register_dissector	,	F_35
+hf_nasdaq_itch_reason	,	V_50
+ett_nasdaq_itch	,	V_37
+"Executed Shares"	,	L_55
+hf_nasdaq_itch_financial_status	,	V_45
+chix_msg	,	V_32
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_24
+"nasdaq-itch.second"	,	L_20
+message_types_val	,	V_34
+nasdaq_itch_tree	,	V_3
+col_add_str	,	F_23
+PROTO_ITEM_SET_GENERATED	,	F_26
+proto_item_add_subtree	,	F_25
+module_t	,	T_11
+rep	,	V_33
+proto_register_field_array	,	F_30
+nasdaq_itch_module	,	V_70
+hf_nasdaq_itch_price	,	V_23
+"nasdaq-itch.reserved"	,	L_38
+"nasdaq-itch.execution_price"	,	L_64
+"Printable"	,	L_61
+tvb_get_guint8	,	F_17
+"Whether the Nasdaq ITCH dissector should decode Chi X extensions."	,	L_78
+"Order reference number"	,	L_43
+"nasdaq_itch"	,	L_75
+"nasdaq-itch.financial_status"	,	L_28
+"Number of shares to be removed"	,	L_67
+"Decode Chi X extensions"	,	L_77
+hf_nasdaq_itch_system_event	,	V_43
+"nasdaq-itch.round_lot_size"	,	L_32
+"Message Type"	,	L_17
+FT_STRING	,	V_65
+number_of_shares	,	F_9
+"nasdaq-itch.version"	,	L_16
+hf_nasdaq_itch_shares	,	V_22
+proto_tree_add_uint_format_value	,	F_8
+ENC_BIG_ENDIAN	,	V_41
+FT_DOUBLE	,	V_68
+FT_UINT32	,	V_61
+" %03u"	,	L_3
+"nasdaq-itch.market_category"	,	L_26
+hf	,	V_57
+big	,	V_16
+"Order Reference"	,	L_41
+market_category_val	,	V_63
+"System Event"	,	L_23
+round_lots_only_val	,	V_67
+"nasdaq-itch"	,	L_79
+prefs_register_protocol	,	F_33
+col_append_fstr	,	F_5
+price	,	F_10
+guint64_to_gdouble	,	F_11
+col_set_str	,	F_20
+id	,	V_11
+proto_reg_handoff_nasdaq_itch	,	F_36
+order	,	F_16
+"nasdaq-itch.millisecond"	,	L_22
+"nasdaq-itch.round_lots_only"	,	L_34
+val	,	V_14
+"Second"	,	L_19
+item	,	V_35
+"Canceled Shares"	,	L_65
+"nasdaq-itch.system_event"	,	L_24
+"Nasdaq-ITCH"	,	L_10
+"Number of shares"	,	L_49
+col_clear	,	F_22
+proto_register_nasdaq_itch	,	F_27
+"Buy/Sell"	,	L_44
+system_event_val	,	V_62
+"Price"	,	L_50
+proto_register_subtree_array	,	F_32
+val_to_str	,	F_21
+proto_tree_add_item	,	F_15
+pinfo	,	V_2
+"Millisecond"	,	L_21
+"Unknown packet type (0x%02x) "	,	L_11
+"nasdaq-itch.message"	,	L_72
+"nasdaq-itch.match"	,	L_59
+"nasdaq-itch.trading_state"	,	L_36
+"3.0"	,	L_14
+VALS	,	F_28
+prefs_register_bool_preference	,	F_34
+tvb_get_ephemeral_string	,	F_3
+gdouble	,	T_6
+hf_nasdaq_itch_printable	,	V_51
+"Matched"	,	L_58
+"Execution Price"	,	L_63
+display	,	V_15
+FT_UINT8	,	V_58
+BASE_DEC	,	V_59
+hf_nasdaq_itch_version	,	V_38
+proto_item	,	T_8
+order_ref_number	,	F_1
+ENC_NA	,	V_20
+hf_nasdaq_itch_match	,	V_25
+"%c "	,	L_9
+ep_strdup_printf	,	F_7
+"nasdaq-itch.reason"	,	L_40
+hf_nasdaq_itch_message_type	,	V_40
+hf_nasdaq_itch_trading_state	,	V_48
+"%s"	,	L_5
+"nasdaq-itch.shares"	,	L_48
+hf_nasdaq_itch_execution_price	,	V_53
+"Round Lots Only"	,	L_33
+"nasdaq-itch.canceled"	,	L_66
+col_info	,	V_5
+"Nasdaq TotalView-ITCH %s, %s"	,	L_12
+"&lt;%s&gt; "	,	L_8
+proto_tree_add_double	,	F_13
+stock	,	F_14
+"nasdaq-itch.message_type"	,	L_18
+offset	,	V_4
+ett	,	V_69
+ms	,	V_13
+"2.0"	,	L_13
+tree	,	V_26
+"chi_x"	,	L_76
+packet_info	,	T_2
+"nasdaq-itch.executed"	,	L_56
+hf_nasdaq_itch_order_reference	,	V_8
+proto_tree_add_uint	,	F_4
+hf_nasdaq_itch_buy_sell	,	V_21
+HFILL	,	V_60
+value	,	V_7
+financial_status_val	,	V_64
+"Market Category"	,	L_25
+"%u "	,	L_1
+hf_nasdaq_itch_market_category	,	V_44
+gchar	,	T_9
+"Round Lot Size"	,	L_31
+"price %g "	,	L_7
+str_value	,	V_6
+nasdaq_itch_chi_x	,	V_31
+proto_tree	,	T_3

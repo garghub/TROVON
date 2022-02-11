@@ -1,0 +1,248 @@
+bits_used_for_frames	,	V_34
+"Mode Type indication"	,	L_56
+proto_register_amr	,	F_36
+proto_register_protocol	,	F_38
+toc_tree	,	V_53
+actx	,	V_68
+encoding_types	,	V_94
+gint	,	T_6
+bitcount	,	V_33
+"amr.wb.if1.modeind"	,	L_60
+"rtp.pt"	,	L_31
+"AMR IF1"	,	L_72
+TFS	,	F_37
+tvb	,	V_1
+COL_INFO	,	V_24
+amr_tree	,	V_52
+hf_amr_reserved	,	V_59
+"FQI"	,	L_66
+val_to_str_ext	,	F_8
+FT_BOOLEAN	,	V_86
+proto_item_get_parent	,	F_27
+" - unknown(%s)"	,	L_25
+hf_amr_wb_if2_sti_mode_ind	,	V_27
+tvb_reported_length_remaining	,	F_14
+"amr"	,	L_26
+amr_mode	,	V_29
+bytes_needed_for_frames	,	V_35
+hf_amr_if1_fqi	,	V_8
+cinfo	,	V_23
+PI_ERROR	,	V_48
+"amr.toc.q"	,	L_46
+hf_amr_wb_if1_mode_req	,	V_16
+"Narrowband AMR"	,	L_75
+array_length	,	F_40
+"amr_if1_wb"	,	L_87
+"AMR IF2"	,	L_73
+"Reserved"	,	L_36
+"codec mode request"	,	L_34
+amr_wb_codec_mode_request_vals_ext	,	V_28
+"amr.wb.if2.ft"	,	L_62
+DISSECTOR_ASSERT	,	F_26
+"FT bits"	,	L_41
+dissect_amr_nb_if2	,	F_6
+dissect_amr_nb_if1	,	F_1
+amr_encoding_type_value	,	V_58
+"encoding.version"	,	L_82
+"amr-wb"	,	L_27
+prefs_register_enum_preference	,	F_44
+"Error:"	,	L_7
+hf_register_info	,	T_15
+q_bit	,	V_37
+" / Frame OK"	,	L_5
+"amr.nb.if2.ft"	,	L_61
+hf_amr_nb_if1_sti_mode_ind	,	V_12
+hf_amr_wb_if2_ft	,	V_26
+hf_amr_nb_cmr	,	V_41
+COL_PROTOCOL	,	V_61
+"RFC 3267 Byte aligned"	,	L_68
+f	,	V_66
+": %s"	,	L_24
+"RFC 3267 octet aligned"	,	L_69
+guint8	,	T_5
+ti	,	V_50
+BASE_NONE	,	V_87
+ett_amr_toc	,	V_60
+proto_reg_handoff_amr	,	F_29
+f_bit	,	V_36
+hf_amr_wb_cmr	,	V_42
+"amr_if2_nb"	,	L_88
+dynamic_payload_type	,	V_75
+Framebits_NB	,	V_38
+register_dissector	,	F_45
+hf_amr_nb_if1_mode_req	,	V_10
+dissect_amr_common	,	F_16
+tvbuff_t	,	T_1
+oid_add_from_string	,	F_46
+"; The value must be greater than 95"	,	L_81
+PROTO_ITEM_SET_GENERATED	,	F_19
+gboolean	,	T_8
+first_time	,	V_49
+proto_item_add_subtree	,	F_17
+module_t	,	T_14
+"AMR dynamic payload type"	,	L_79
+"amr.toc.f"	,	L_40
+dissect_amr_wb	,	F_22
+proto_register_field_array	,	F_39
+"amr.fqi"	,	L_67
+"amr.nb.if1.modeind"	,	L_59
+dissector_add_uint	,	F_35
+proto_amr	,	V_54
+"amr_if2_wb"	,	L_89
+hf_amr_wb_if1_sti_mode_ind	,	V_17
+proto_tree_add_bits_item	,	F_11
+" (%d Bytes)"	,	L_11
+tvb_get_guint8	,	F_3
+"Frame quality indicator bit"	,	L_47
+pref_amr_mode	,	V_62
+name	,	V_72
+"Reserved bits"	,	L_38
+" - %s"	,	L_23
+dissector_delete_uint	,	F_34
+"The dynamic payload type which will be interpreted as AMR"	,	L_80
+"amr.wb.if1.ft"	,	L_50
+hf_amr_wb_if1_ft	,	V_14
+"RFC 3267 BW-efficient"	,	L_71
+"Reserved != 0, wrongly encoded or not octet aligned. Decoding as bandwidth-efficient mode"	,	L_19
+ft	,	V_31
+temp_dynamic_payload_type	,	V_79
+bit_offset	,	V_32
+"Padding bits correct"	,	L_14
+new_create_dissector_handle	,	F_33
+"CMR"	,	L_32
+find_dissector	,	F_30
+content_pdu	,	V_78
+amr_encoding_type	,	V_57
+"Unknown value - Error"	,	L_18
+ENC_BIG_ENDIAN	,	V_7
+"amr.wb.if1.modereq"	,	L_53
+dissect_amr	,	F_20
+"Adaptive Multi-Rate"	,	L_77
+hf_amr_wb_if1_mode_ind	,	V_18
+"amr.wb.cmr"	,	L_35
+toc_f_bit_vals	,	V_88
+AMR_WB_SID	,	V_15
+hf	,	V_81
+match_string	,	V_70
+enum_val_t	,	T_16
+modes	,	V_95
+dissect_amr_be	,	F_10
+"F bit"	,	L_39
+prefs_register_protocol	,	F_42
+" / Frame damaged"	,	L_6
+hf_amr_toc_q	,	V_46
+col_append_fstr	,	F_7
+BASE_EXT_STRING	,	V_84
+" %d Bytes remaining - should be 0!"	,	L_12
+col_set_str	,	F_21
+tvb_get_bits8	,	F_12
+"amr.nb.cmr"	,	L_33
+id	,	V_64
+hf_amr_nb_if1_ft	,	V_6
+item	,	V_30
+"amr.wb.toc.ft"	,	L_44
+proto_item_append_text	,	F_13
+amr_wb_handle	,	V_74
+proto_register_subtree_array	,	F_41
+val_to_str	,	F_18
+amr_name_handle	,	V_77
+proto_tree_add_item	,	F_2
+private_data	,	V_69
+pinfo	,	T_3
+dissector_handle_t	,	T_12
+_U_	,	V_2
+"h245.gef.content"	,	L_30
+AMR_WB	,	V_63
+"amr.nb.if1.stimodeind"	,	L_57
+"amr.nb.if2.stimodeind"	,	L_64
+hf_amr_wb_toc_ft	,	V_45
+get_asn1_ctx	,	F_25
+"amr.nb.toc.ft"	,	L_42
+AMR_NO_TRANS	,	V_22
+"h245.gef.name"	,	L_29
+"The AMR mode"	,	L_85
+"Frame Data"	,	L_10
+"rtp_dyn_payload_type"	,	L_28
+amr_sti_vals	,	V_92
+"dynamic.payload.type"	,	L_78
+"Padding bits error"	,	L_15
+"%s "	,	L_3
+ftr	,	V_65
+FT_UINT8	,	V_82
+proto_tree_add_text	,	F_4
+BASE_DEC	,	V_83
+created_item	,	V_71
+"Superfluous data remaining"	,	L_13
+proto_item	,	T_7
+"Padding bits error - MUST be 0"	,	L_16
+amr_handle	,	V_73
+hf_amr_if1_sti	,	V_11
+"amr.wb.if2.stimodeind"	,	L_65
+ENC_NA	,	V_55
+dissector_add_string	,	F_31
+"amr.wb.if1.stimodeind"	,	L_58
+expert_add_info_format	,	F_15
+"SID Type Indicator"	,	L_54
+ett_amr	,	V_56
+"Q bit"	,	L_45
+"RFC 3267 Bandwidth-efficient"	,	L_70
+toc_q_bit_vals	,	V_89
+"G.722.2 (AMR-WB) audio capability"	,	L_90
+hf_amr_nb_if2_ft	,	V_19
+octet	,	V_5
+"Payload decoded as %s"	,	L_17
+"Frame type index"	,	L_43
+amr_capability_t	,	T_9
+dissect_amr_wb_if2	,	F_9
+prefs_register_uint_preference	,	F_43
+Framebits_WB	,	V_39
+toc_item	,	V_51
+"Unknown (%d)"	,	L_4
+dissect_amr_wb_if1	,	F_5
+AMR_NB	,	V_40
+"AMR"	,	L_21
+guint	,	T_13
+offset	,	V_4
+ett	,	V_93
+tree	,	V_3
+"amr.reserved"	,	L_37
+amr_capability_tab	,	V_67
+packet_info	,	T_2
+amr_nb_codec_mode_vals_ext	,	V_90
+"amr.if1.sti"	,	L_55
+"AMR-NB"	,	L_74
+" %d Bytes available, %d would be needed!"	,	L_8
+"Not enough data for the frames according to TOC"	,	L_9
+"Payload Table of Contents"	,	L_20
+find_cap	,	F_23
+"mode"	,	L_84
+hf_amr_nb_if1_mode_ind	,	V_13
+amr_nb_codec_mode_request_vals_ext	,	V_25
+"amr.nb.if1.ft"	,	L_49
+"Speech data"	,	L_2
+proto_tree_get_parent	,	F_28
+PI_MALFORMED	,	V_47
+HFILL	,	V_85
+"Type of AMR encoding of the payload"	,	L_83
+hf_amr_nb_if2_sti_mode_ind	,	V_21
+"amr_if1_nb"	,	L_86
+"amr.nb.if1.modereq"	,	L_52
+"amr.if2.sti"	,	L_63
+amr_prefs_initialized	,	V_76
+hf_amr_toc_f	,	V_43
+gchar	,	T_10
+dissect_amr_name	,	F_24
+create_dissector_handle	,	F_32
+"0.0.7.7222.1.0"	,	L_91
+AMR_NB_SID	,	V_9
+"Wideband AMR"	,	L_76
+hf_amr_nb_toc_ft	,	V_44
+"AMR-WB"	,	L_22
+"Error:Spare bits not 0"	,	L_1
+"Mode Type request"	,	L_51
+asn1_ctx_t	,	T_11
+amr_wb_codec_mode_vals_ext	,	V_91
+amr_module	,	V_80
+proto_tree	,	T_4
+hf_amr_if2_sti	,	V_20
+"Frame Type"	,	L_48

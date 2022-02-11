@@ -1,0 +1,216 @@
+proto_register_protocol	,	F_30
+ei_nordic_ble_bad_crc	,	V_44
+", Packet counter: %u"	,	L_3
+nordic_ble_tree	,	V_66
+AT_STRINGZ	,	V_27
+"Encrypted packet decrypted incorrectly (bad MIC)"	,	L_4
+gint	,	T_1
+legacy_mode	,	V_5
+hf_nordic_ble_packet_id	,	V_59
+TFS	,	F_29
+tvb	,	V_1
+"Protocol version"	,	L_16
+hf_nordic_ble_legacy_marker	,	V_70
+guint32	,	T_9
+COL_INFO	,	V_76
+FT_BOOLEAN	,	V_86
+ett_flags	,	V_36
+"Legacy marker"	,	L_7
+"nordic_ble.crcok"	,	L_28
+"Header"	,	L_9
+cinfo	,	V_75
+"Length of payload"	,	L_13
+PI_ERROR	,	V_95
+array_length	,	F_34
+"RSSI (dBm)"	,	L_40
+hf_nordic_ble_channel	,	V_63
+call_dissector	,	F_27
+"nordic_ble.direction"	,	L_31
+hf_nordic_ble_crcok	,	V_43
+"Master"	,	L_1
+"Delta time: us since start of last reported packet"	,	L_50
+hf_nordic_ble_header_length	,	V_11
+dissector_add_for_decode_as_with_preference	,	F_40
+hf_register_info	,	T_12
+crc_valid_at_capture	,	V_24
+"Cyclic Redundancy Check state"	,	L_29
+"nordic_ble.channel"	,	L_39
+"nordic_ble.flags"	,	L_26
+"nordic_ble.len"	,	L_24
+"nordic_ble.hlen"	,	L_12
+rssi	,	V_62
+"MIC is bad"	,	L_54
+crc_checked_at_capture	,	V_23
+guint8	,	T_6
+ti	,	V_54
+BASE_NONE	,	V_85
+ett_nordic_ble	,	V_69
+"Event counter"	,	L_43
+start_offset	,	V_56
+"nordic_ble.delta_time_ss"	,	L_49
+register_dissector	,	F_31
+dissect_flags	,	F_6
+header_tree	,	V_55
+"nordic_ble.header"	,	L_10
+mic_checked_at_capture	,	V_37
+expert_nordic_ble	,	V_98
+tvbuff_t	,	T_2
+hf_nordic_ble_payload_length	,	V_13
+dir	,	V_19
+dissect_ble_delta_time	,	F_10
+BASE_HEX	,	V_83
+flags_tree	,	V_22
+col_add_str	,	F_26
+gboolean	,	T_5
+hf_nordic_ble_direction	,	V_42
+hf_nordic_ble_rssi	,	V_64
+proto_item_add_subtree	,	F_8
+packet_len	,	V_45
+debug_handle	,	V_77
+"nordic_ble.packet_id"	,	L_22
+dissect_lengths	,	F_1
+hlen	,	V_8
+proto_register_field_array	,	F_35
+ei	,	V_93
+"Was the packet encrypted"	,	L_34
+FT_UINT16	,	V_82
+proto_tree_add_bits_item	,	F_9
+tvb_get_guint8	,	F_2
+tvb_captured_length	,	F_4
+hf_nordic_ble_flags	,	V_35
+"nordic_ble.protover"	,	L_17
+dissect_header	,	F_20
+"nordic_ble.packet_counter"	,	L_19
+wmem_new0	,	F_22
+btle_dissector_handle	,	V_74
+call_dissector_with_data	,	F_25
+expert_add_info	,	F_5
+"nordic_ble.micok"	,	L_36
+"Received Signal Strength Indicator"	,	L_42
+"Length of header"	,	L_11
+"Packet ID"	,	L_21
+dissect_nordic_ble	,	F_21
+"Nordic BLE sniffer meta"	,	L_57
+"NORDIC_BLE"	,	L_58
+"Direction"	,	L_30
+BTLE_DIR_MASTER_SLAVE	,	V_30
+FT_INT16	,	V_90
+hf_nordic_ble_delta_time_ss	,	V_52
+hf_nordic_ble_protover	,	V_60
+dissect_packet_counter	,	F_13
+"nordic_ble.length.bad"	,	L_55
+find_dissector	,	F_39
+hf_nordic_ble_micok	,	V_38
+"Length of packet"	,	L_23
+ENC_BIG_ENDIAN	,	V_67
+BLE_METADATA_TRANFER_TIME_US	,	V_50
+FT_UINT32	,	V_91
+"btle"	,	L_60
+"nordic_ble.plen"	,	L_14
+hf	,	V_78
+hf_nordic_ble_board_id	,	V_71
+hf_nordic_ble_packet_length	,	V_61
+delta_time	,	V_47
+tvb_get_guint16	,	F_15
+context	,	V_17
+"Flags"	,	L_25
+bad_length	,	V_7
+item	,	V_10
+BTLE_DIR_SLAVE_MASTER	,	V_33
+proto_item_append_text	,	F_14
+hf_nordic_ble_delta_time	,	V_49
+hf_nordic_ble_event_counter	,	V_65
+"nordic_ble.rssi"	,	L_41
+packet_length	,	V_6
+proto_register_subtree_array	,	F_36
+gint32	,	T_10
+ett_packet_header	,	V_58
+hf_nordic_ble_header	,	V_57
+proto_tree_add_item	,	F_3
+"Length is incorrect"	,	L_56
+pinfo	,	V_3
+"Delta time: us since last reported packet"	,	L_47
+dissector_handle_t	,	T_15
+flags	,	V_18
+_U_	,	V_72
+"nordic_ble.event_counter"	,	L_44
+hf_nordic_ble_packet_counter	,	V_53
+US_PER_BYTE	,	V_51
+"nordic_ble"	,	L_59
+hf_nordic_ble_encrypted	,	V_41
+FT_UINT8	,	V_79
+BASE_DEC	,	V_80
+"nordic_ble.mic.bad"	,	L_53
+"nordic_ble.legacy_marker"	,	L_8
+proto_item	,	T_7
+expert_register_field_array	,	F_33
+tvb_new_subset_length_caplen	,	F_24
+ENC_NA	,	V_12
+flags_item	,	V_21
+"Packet counter"	,	L_18
+ENC_LITTLE_ENDIAN	,	V_39
+ei_nordic_ble_bad_mic	,	V_40
+"CRC is bad"	,	L_52
+btle_context_t	,	T_8
+data	,	T_11
+"Delta time (us end to start)"	,	L_45
+proto_register_nordic_ble	,	F_28
+plen	,	V_9
+"Global packet counter for packets sent on UART"	,	L_20
+"Channel"	,	L_38
+ei_register_info	,	T_13
+expert_register_protocol	,	F_32
+tvb_get_letohl	,	F_11
+"Payload length"	,	L_15
+ok_incorrect	,	V_87
+"nordic_ble.crc.bad"	,	L_51
+ei_nordic_ble_bad_length	,	V_16
+FT_NONE	,	V_84
+offset	,	V_2
+ett	,	V_92
+P2P_DIR_RECV	,	V_34
+wmem_packet_scope	,	F_23
+expert_module_t	,	T_14
+tree	,	V_4
+"Encrypted"	,	L_32
+proto_reg_handoff_nordic_ble	,	F_37
+MIN_TOTAL_LENGTH	,	V_14
+payload_tvb	,	V_73
+packet_info	,	T_3
+tfs_yes_no	,	V_89
+"Slave"	,	L_2
+delta_time_ss	,	V_48
+proto_tree_add_uint	,	F_12
+EXPFILL	,	V_96
+dissect_packet	,	F_18
+"Board"	,	L_5
+dst	,	V_28
+PI_CHECKSUM	,	V_94
+set_address	,	F_7
+previous_ble_packet_length	,	V_46
+MAX_TOTAL_LENGTH	,	V_15
+mic_valid_at_capture	,	V_25
+proto_nordic_ble	,	V_68
+nordic_ble_handle	,	V_99
+P2P_DIR_SENT	,	V_32
+"nordic_ble.encrypted"	,	L_33
+HFILL	,	V_81
+PI_MALFORMED	,	V_97
+direction	,	V_29
+p2p_dir	,	V_31
+src	,	V_26
+"udp.port"	,	L_62
+create_dissector_handle	,	F_38
+"CRC"	,	L_27
+direction_tfs	,	V_88
+proto_item_set_len	,	F_17
+encrypted	,	V_20
+"nordic_debug"	,	L_61
+dissect_packet_header	,	F_16
+"Delta time (us start to start)"	,	L_48
+proto_tree_add_int	,	F_19
+"nordic_ble.board_id"	,	L_6
+"nordic_ble.delta_time"	,	L_46
+proto_tree	,	T_4
+"MIC"	,	L_35
+"Message Integrity Check state"	,	L_37

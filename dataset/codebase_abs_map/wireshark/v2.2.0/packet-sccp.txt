@@ -1,0 +1,968 @@
+"sccp.ssn.is_zero"	,	L_208
+"Trace Associations"	,	L_240
+hf_sccp_handling	,	V_301
+hf_sccp_error_cause	,	V_321
+ITU_PC_LENGTH	,	V_29
+PARAMETER_ISNI	,	V_383
+SEND_SEQUENCE_NUMBER_MASK	,	V_472
+ITU_PC_INDICATOR_MASK	,	V_22
+SCCP_MSG_TYPE_LUDT	,	V_45
+"Hop Counter"	,	L_150
+dissect_sccp_parameter	,	F_81
+dissect_sccp_refusal_cause_param	,	F_69
+guint32	,	T_2
+hf_sccp_ansi_isni_netspec	,	V_358
+pool	,	V_162
+"sccp.linked_dissector"	,	L_195
+"sccp_users"	,	L_224
+"Default Payload"	,	L_253
+"Address is coded to international standards.  This doesn't normally happen in ANSI networks."	,	L_205
+"sccp.calling.pc"	,	L_95
+g_ascii_strncasecmp	,	F_55
+ANSI_ISNI_ROUTING_CONTROL_LENGTH	,	V_349
+array_length	,	F_119
+"sccp.gt_digits_missing"	,	L_214
+SEQUENCING_SEGMENTING_RSN_LENGTH	,	V_315
+UAT_FLD_DEC	,	F_112
+"sccp.variable_pointer1"	,	L_37
+hf_sccp_calling_gt_es	,	V_208
+GT_NAI_MASK	,	V_216
+ett_sccp_called_ai	,	V_256
+col_append_str	,	F_93
+ett_sccp_calling_ai	,	V_257
+"sccp.unknown_parameter"	,	L_201
+dissect_sccp_called_param	,	F_58
+"sccp.dlr"	,	L_111
+other_ssn	,	V_323
+sccp_release_cause_values	,	V_64
+hf_register_info	,	T_27
+sccp_isni_ti_values	,	V_486
+hf_sccp_linked_dissector	,	V_288
+hf_sccp_sequencing_segmenting_ssn	,	V_313
+hf_sccp_called_pc_cluster	,	V_236
+a	,	V_89
+guint16	,	T_18
+address	,	T_10
+c	,	V_436
+sccp_address_signal_values	,	V_167
+hf_sccp_xudt_msg_fragment_overlap_conflicts	,	V_495
+i	,	V_327
+ett_sccp_calling	,	V_254
+sccp_msg_info_t	,	T_12
+m	,	V_139
+n	,	V_440
+o	,	V_441
+wmem_alloc0	,	F_34
+r	,	V_433
+ANSI_ISNI_TYPE_1	,	V_357
+u	,	V_330
+BASE_NONE	,	V_454
+length_length	,	V_384
+calling	,	V_87
+ett_sccp_sequencing_segmenting	,	V_311
+"ISNI Counter"	,	L_162
+ptr_size	,	T_23
+ITU_AI_GTI_TT_NP_ES	,	V_195
+sccp_refusal_cause_values	,	V_61
+JAPAN_PC_LENGTH	,	V_279
+wmem_tree_new_autoreset	,	F_132
+"sccp.variable_pointer3"	,	L_41
+sccp_msg	,	V_169
+ett_sccp_called_gt	,	V_191
+_sccp_ul	,	V_435
+"wtap_encap"	,	L_255
+hf_sccp_dlr	,	V_150
+empty	,	V_437
+GT_EVEN_SIGNAL_MASK	,	V_165
+"Calling"	,	L_12
+PROTO_ITEM_SET_GENERATED	,	F_54
+FT_UINT24	,	V_462
+payload	,	V_99
+"SCCP"	,	L_227
+ROUTE_ON_GT	,	V_24
+PARAMETER_TYPE_LENGTH	,	V_388
+proto_item_add_subtree	,	F_39
+ei_sccp_class_unexpected	,	V_298
+", TCAP SSN linked to %s"	,	L_17
+PARAMETER_SEQUENCING_SEGMENTING	,	V_312
+hf_sccp_calling_itu_natl_use_bit	,	V_264
+FT_BYTES	,	V_503
+hf_sccp_called_ansi_national_indicator	,	V_258
+"Segmentation: Source Local Reference"	,	L_148
+"sccp.variable_pointer2"	,	L_39
+address_type_get_by_name	,	F_139
+PARAMETER_LONG_DATA_LENGTH_LENGTH	,	V_385
+dissect_sccp_unknown_param	,	F_25
+user_list	,	V_438
+FT_UINT16	,	V_449
+"sccp.parameter_length"	,	L_45
+ANSI_NETWORK_MASK	,	V_463
+"sccp.called.tt"	,	L_79
+dissect_sccp_release_cause_param	,	F_65
+wmem_new0	,	F_12
+fragment_add_seq_next	,	F_91
+"Signalling Connection Control Part"	,	L_226
+"Reassemble SCCP messages"	,	L_237
+hf_sccp_ansi_isni_ti	,	V_354
+"Pointer to Optional parameter"	,	L_42
+mtp3_addr_p	,	V_425
+hf_sccp_ansi_isni_network	,	V_359
+SEGMENTING_REASSEMBLING_MASK	,	V_72
+"sccp.called.ni"	,	L_51
+"Message Type"	,	L_34
+FT_STRING	,	V_453
+pci	,	V_9
+ANSI_PC_INDICATOR_MASK	,	V_19
+ANSI_SSN_INDICATOR_MASK	,	V_20
+next_assoc_id	,	V_91
+hf_sccp_slr	,	V_155
+"ISNI Type Indicator"	,	L_158
+"TCAP"	,	L_16
+hf_sccp_ansi_isni_cluster	,	V_361
+"Nature of Address Indicator"	,	L_74
+label	,	V_137
+"sccp.message_type"	,	L_35
+calling_ptr	,	V_35
+PARAMETER_RETURN_CAUSE	,	V_372
+"Message has multiple tail fragments"	,	L_176
+register_cleanup_routine	,	F_131
+set_addresses	,	V_178
+hf_sccp_xudt_msg_reassembled_in	,	V_501
+ett_sccp_xudt_msg_fragments	,	V_506
+FT_UINT32	,	V_500
+ei_sccp_gt_digits_missing	,	V_219
+UAT_FLD_RANGE	,	F_113
+handling	,	V_299
+ANSI_STANDARD	,	V_12
+ett_sccp_ansi_isni_routing_control	,	V_350
+"Segmented Data"	,	L_192
+called	,	V_88
+hf_sccp_called_gt_digits_length	,	V_181
+dissect_sccp_error_cause_param	,	F_68
+uat_new	,	F_115
+sccp_xudt_msg_frag_items	,	V_408
+register_heur_dissector_list	,	F_124
+proto_tree_add_subtree	,	F_50
+"sccp.calling.tt"	,	L_103
+nai	,	V_187
+col_set_str	,	F_97
+GT_OE_EVEN	,	V_215
+sccp_isni_iri_values	,	V_484
+gti	,	V_7
+hf_sccp_calling_ansi_point_code_indicator	,	V_292
+msgs	,	V_97
+"sccp.called.es"	,	L_83
+RECEIVE_SEQUENCE_NUMBER_LENGTH	,	V_409
+"sccp.called.digits"	,	L_85
+ANSI_NCM_LENGTH	,	V_360
+handle	,	V_328
+GT_ES_BCD_EVEN	,	V_209
+hf_sccp_calling_itu_point_code_indicator	,	V_275
+"Address Indicator"	,	L_13
+even	,	V_190
+proto_tree_add_string	,	F_38
+hf_pc	,	V_227
+dissect_mtp3_3byte_pc	,	F_48
+"PC"	,	L_64
+mtp3_addr_pc_t	,	V_116
+dissect_sccp_data_param	,	F_70
+dissect_sccp	,	F_96
+dissector_handle_t	,	T_15
+call_tcap_dissector	,	F_72
+SCCP_MSG_TYPE_IT	,	V_73
+"SLR=%d "	,	L_7
+"sccp.isni.ti"	,	L_159
+"ranap"	,	L_260
+msg_offset	,	V_400
+"Message fragment too long"	,	L_178
+"sccp.calling.digits.length"	,	L_109
+GT_EVEN_SIGNAL_SHIFT	,	V_166
+hf_sccp_calling_gt_np	,	V_204
+GT_NP_ISDN_MOBILE	,	V_222
+hf_sccp_calling_ssn	,	V_285
+sccp_tap	,	V_423
+"sccp.rsn"	,	L_123
+hf_sccp_called_japan_pc	,	V_280
+err	,	V_434
+hf_sccp_called_ansi_ssn_indicator	,	V_293
+"Called or Calling SubSystem Number"	,	L_46
+JAPAN_STANDARD	,	V_268
+hf_sccp_calling_pc_network	,	V_235
+dissect_sccp_importance_param	,	F_79
+variable_pointer1	,	V_390
+SEGMENTATION_FIRST_SEGMENT_MASK	,	V_477
+"sccp.segmentation.remaining"	,	L_147
+sccp_handle	,	V_522
+GT_ODD_SIGNAL_MASK	,	V_164
+variable_pointer3	,	V_392
+"Return Cause"	,	L_134
+variable_pointer2	,	V_391
+"sccp.calling.es"	,	L_105
+"Message fragment"	,	L_170
+ei_sccp_no_ssn_present	,	V_273
+ssn_dissector_short_name	,	V_251
+in_error_pkt	,	V_414
+"sccp.calling.digits"	,	L_107
+SCCP_MSG_TYPE_CR	,	V_55
+"%s Party address (%u byte%s)"	,	L_10
+"sccp.isni.netspec"	,	L_161
+hf_sccp_unknown_parameter	,	V_146
+prefs_register_uint_preference	,	F_126
+expert_register_protocol	,	F_121
+calling_gt	,	V_173
+RESET_CAUSE_LENGTH	,	V_415
+assoc	,	V_114
+"sccp.error_cause"	,	L_139
+"Variable parameter length"	,	L_44
+"sccp.called.pc"	,	L_65
+proto_reg_handoff_sccp	,	V_520
+gt_tvb	,	V_248
+"set_addresses"	,	L_248
+SCCP_MSG_TYPE_CC	,	V_57
+SCCP_MSG_TYPE_UDTS	,	V_46
+sccp_users_copy_cb	,	F_102
+guint	,	T_6
+ett	,	V_504
+wmem_packet_scope	,	F_18
+"Reassembled SCCP length"	,	L_186
+hf_sccp_xudt_msg_reassembled_length	,	V_502
+hf_sccp_ssn	,	V_286
+PARAMETER_CREDIT	,	V_380
+packet_info	,	T_8
+dissect_sccp_receive_sequence_number_param	,	F_62
+VARIABLE_POINTER	,	F_88
+"sccp.calling.chinese_pc"	,	L_97
+ANSI_ISNI_COUNTER_MASK	,	V_488
+looks_like_valid_sccp	,	F_4
+"Wrong length indicated. Expected 3, got %u"	,	L_5
+"sccp.reset_cause"	,	L_137
+sccp_ai_pci_values	,	V_460
+"Message defragmentation error"	,	L_180
+curr_msg	,	V_98
+hf_sccp_calling_ansi_pc	,	V_229
+hf_sccp_called_pc_member	,	V_238
+"sccp.msg.reassembled.length"	,	L_187
+EXPFILL	,	V_510
+"defragment_xudt"	,	L_236
+ei_sccp_wrong_length	,	V_149
+ett_sccp_called	,	V_253
+hf_sccp_calling_ansi_national_indicator	,	V_259
+hf_sccp_ansi_isni_counter	,	V_355
+"Reassembled in"	,	L_184
+cause	,	V_33
+"sccp.more"	,	L_121
+"sccp.optional_pointer"	,	L_43
+show_key_params	,	V_152
+ANSI_ISNI_NETSPEC_MASK	,	V_487
+P2P_DIR_SENT	,	V_126
+"Reassembled SCCP"	,	L_23
+SCCP_MSG_TYPE_EA	,	V_78
+SCCP_MSG_TYPE_ED	,	V_79
+PI_MALFORMED	,	V_508
+"sccp.called.ri"	,	L_55
+hf_sccp_message_type	,	V_402
+hf_sccp_segmentation_first	,	V_341
+sccp_nai_values	,	V_466
+called_dpc	,	V_93
+mtp3_pc_hash	,	F_15
+"sccp.calling.ri"	,	L_90
+hf_sccp_called_ssn	,	V_284
+parameter_tvb	,	V_364
+PARAMETER_DATA	,	V_367
+calling_party	,	V_101
+ett_sccp_segmentation	,	V_339
+P2P_DIR_UNKNOWN	,	V_432
+sccp_users_vals	,	V_516
+"DPCs for which this protocol is to be used"	,	L_218
+users_uat	,	V_518
+sccp_message_type_values	,	V_447
+tcap_ssn_dissector_short_name	,	V_252
+hf_sccp_calling_gt_digits_length	,	V_182
+hf_sccp_calling_japan_pc	,	V_281
+"Importance"	,	L_152
+"Pointer to second Mandatory Variable parameter"	,	L_38
+"Whether SCCP messages should be reassembled"	,	L_238
+hf_sccp_segmented_data	,	V_405
+proto_register_protocol	,	F_116
+dissector_try_uint_new	,	F_74
+PARAMETER_SEGMENTING_REASSEMBLING	,	V_378
+dissect_sccp_sequencing_segmenting_param	,	F_63
+len	,	V_11
+"ISNI Network Specific (Type 1)"	,	L_160
+"Called"	,	L_11
+" %s"	,	L_26
+gint	,	T_28
+hf_sccp_calling_gt_tt	,	V_199
+tvb	,	V_2
+get_itu_tcap_subdissector	,	F_56
+no_assoc	,	V_140
+"sccp.isni.iri"	,	L_157
+called_ssn	,	V_96
+"Message is routed on SSN, but SSN is not present"	,	L_207
+fragment_set_tot_len	,	F_94
+"Odd/Even Indicator"	,	L_76
+dissect_sccp_slr_param	,	F_32
+ADDRESS_SSN_LENGTH	,	V_26
+"PC Member"	,	L_72
+"Wrong length indicated."	,	L_203
+"The source point code (usually MSC) (to determine whether message is uplink or downlink)"	,	L_232
+PI_ERROR	,	V_509
+CLASS_SPARE_HANDLING_MASK	,	V_300
+SOURCE_LOCAL_REFERENCE_LENGTH	,	V_58
+"Refusal Cause"	,	L_140
+"Called or Calling GT Digits"	,	L_48
+tcap_handle	,	V_526
+PARAMETER_LENGTH_LENGTH	,	V_71
+call_dissector	,	F_76
+"ISNI Routing Control"	,	L_20
+hf_sccp_param_length	,	V_386
+SEQUENCING_SEGMENTING_MORE_MASK	,	V_474
+rsn	,	V_307
+PROTO_ITEM_SET_HIDDEN	,	F_30
+sccp_segmentation_class_values	,	V_478
+CLASS_CLASS_MASK	,	V_52
+SCCP_MSG_TYPE_AK	,	V_76
+"sccp.msg.reassembled.in"	,	L_185
+COL_PROTOCOL	,	V_428
+"default_payload"	,	L_252
+ITU_SSN_INDICATOR_MASK	,	V_21
+g_free	,	F_105
+hf_sccp_xudt_msg_fragments	,	V_489
+value_is_in_range	,	F_71
+reassembly_table_init	,	F_107
+guint8	,	T_5
+AI_GTI_NO_GT	,	V_25
+sccp_source_pc_global	,	V_431
+hf_sccp_called_pc_network	,	V_234
+uses_tcap	,	V_329
+RSN_MASK	,	V_471
+bw_key	,	V_119
+"sccp.called.network"	,	L_69
+tvbuff_t	,	T_4
+"Show SLR, DLR, and CAUSE Parameters in the Information Column of the Summary"	,	L_244
+"sccp.msg.fragment.error"	,	L_181
+"sccp.ssn.not_present"	,	L_206
+hf_sccp_called_gt_oe	,	V_212
+ett_sccp_calling_pc	,	V_233
+ROUTING_INDICATOR_SHIFT	,	V_18
+sccp_isni_mark_for_id_values	,	V_482
+hf_sccp_ansi_isni_iri	,	V_352
+UAT_END_FIELDS	,	V_517
+ett_sccp	,	V_430
+fragmented	,	V_406
+hf_sccp_calling_gt_oe	,	V_213
+hf_sccp_called_routing_indicator	,	V_265
+hf_sccp_called_gt_np	,	V_203
+dissect_sccp_credit_param	,	F_64
+fragment_head	,	T_20
+bssap_handle	,	V_528
+range_empty	,	F_99
+tvb_get_guint8	,	F_3
+proto_tree_add_string_format	,	F_53
+DESTINATION_LOCAL_REFERENCE_LENGTH	,	V_56
+msg_type	,	T_19
+ADDRESS_INDICATOR_LENGTH	,	V_255
+"Receive Sequence Number"	,	L_122
+"sccp.isni.cluster"	,	L_167
+len_needed	,	V_10
+next	,	V_136
+hf_sccp_calling_pc_member	,	V_239
+"Message fragment overlap"	,	L_172
+"Network Indicator"	,	L_216
+"Calling Party Digits"	,	L_106
+"sccp.msg.fragment.overlap"	,	L_173
+hf_sccp_assoc_msg	,	V_421
+ANSI_MEMBER_MASK	,	V_465
+"sccp.sequencing_segmenting.ssn"	,	L_125
+hf_sccp_credit	,	V_317
+"SCCP (Int. ITU)"	,	L_28
+"Wrong length indicated. Expected 1, got %u"	,	L_18
+"SubSystem Number"	,	L_62
+dissect_sccp_dlr_param	,	F_26
+SCCP_MSG_TYPE_RLSD	,	V_62
+proto_sccp	,	V_429
+"sccp.international_standard_address"	,	L_204
+opt_ptr	,	V_37
+cleanup_sccp	,	F_108
+find_dissector	,	F_135
+assocs	,	V_123
+heur_subdissector_list	,	V_336
+GT_NP_ES_LENGTH	,	V_205
+inap_handle	,	V_531
+ANSI_ISNI_IRI_MASK	,	V_485
+sccp_users	,	V_331
+"PC Network"	,	L_68
+"Message fragment overlapping with conflicting data"	,	L_174
+framenum	,	V_112
+"sccp.msg.fragment.count"	,	L_183
+dissect_sccp_calling_param	,	F_59
+"sccp.isni.mi"	,	L_155
+"The User Protocol"	,	L_222
+dissect_sccp_variable_parameter	,	F_82
+proto_register_sccp	,	F_110
+"sccp.calling.reserved"	,	L_89
+proto_tree_add_uint_format	,	F_83
+SCCP_MSG_TYPE_DT2	,	V_77
+SCCP_MSG_TYPE_DT1	,	V_69
+item	,	V_241
+hf_var	,	T_22
+find_dissector_add_dependency	,	F_138
+hf_sccp_sequencing_segmenting_more	,	V_316
+HOP_COUNTER_LENGTH	,	V_50
+proto_item_append_text	,	F_57
+ERROR_CAUSE_LENGTH	,	V_67
+sccp_show_length	,	V_387
+pointer_length	,	V_38
+sccp_item	,	V_424
+dissect_sccp_segmentation_param	,	F_77
+reassembly_table_destroy	,	F_109
+lr_item	,	V_148
+ei_sccp_ssn_zero	,	V_282
+ITU_PC_MASK	,	V_461
+calling_dpc	,	V_92
+wmem_tree_insert32_array	,	F_21
+proto_tree_add_item	,	F_43
+hf_sccp_release_cause	,	V_318
+pinfo	,	V_104
+col_add_fstr	,	F_90
+flags	,	V_413
+"sccp.called.ansi_pc"	,	L_66
+SCCP_MSG_TYPE_LUDTS	,	V_48
+"(Message reassembled) "	,	L_24
+"trace_sccp"	,	L_239
+"sccp.calling.member"	,	L_100
+"sccp.segmentation.class"	,	L_145
+INVALID_LR	,	V_401
+hf_sccp_calling_itu_global_title_indicator	,	V_270
+hf_sccp_called_gt_nai	,	V_217
+"Point Code Indicator"	,	L_60
+PARAMETER_END_OF_OPTIONAL_PARAMETERS	,	V_86
+dissect_sccp_gt_address_information	,	F_33
+sccp_ssn_values	,	V_452
+hf_sccp_calling_pc_cluster	,	V_237
+GT_NAI_LENGTH	,	V_214
+more	,	V_399
+AI_GTI_TT	,	V_193
+dissect_sccp_reset_cause_param	,	F_67
+tap_queue_packet	,	F_95
+hf_sccp_called_itu_point_code_indicator	,	V_274
+dissector_add_string	,	F_137
+"SCCP (ANSI)"	,	L_29
+call_ai_item	,	V_240
+GT_SIGNAL_LENGTH	,	V_168
+PARAMETER_HOP_COUNTER	,	V_381
+sccp_user_t	,	T_17
+parameter_length	,	V_363
+PARAMETER_RESET_CAUSE	,	V_373
+"Set the source and destination addresses to the GT digits (if present)."	,	L_250
+SCCP_MSG_TYPE_LENGTH	,	V_42
+PARAMETER_CLASS	,	V_377
+hf_sccp_end_optional_param	,	V_376
+register_dissector_table	,	F_123
+signals_tvb	,	V_185
+num	,	V_113
+sccp_tree	,	V_142
+"sccp.end_optional_param"	,	L_197
+trace_sccp	,	V_133
+ett_sccp_calling_gt	,	V_192
+PARAMETER_DESTINATION_LOCAL_REFERENCE	,	V_370
+ei_register_info	,	T_29
+ett_sccp_xudt_msg_fragment	,	V_505
+save_fragmented	,	V_395
+"users_table"	,	L_245
+sccp_ai_ssni_values	,	V_459
+FT_NONE	,	V_490
+"PC Cluster"	,	L_70
+DISSECTOR_ASSERT_NOT_REACHED	,	F_8
+tree	,	V_145
+hf_sccp_lr	,	V_151
+get_sccp_assoc	,	F_14
+hf_sccp_importance	,	V_347
+"gsm_map_sccp"	,	L_262
+new_ud_msg	,	F_85
+tvb_get_letoh24	,	F_28
+"sccp.called.member"	,	L_73
+Standard_Type	,	V_426
+"sccp.handling"	,	L_119
+hf_sccp_calling_itu_ssn_indicator	,	V_272
+range_t	,	T_24
+uat_t	,	T_33
+"AT_SS7PC"	,	L_265
+"Unknown message (%u byte%s)"	,	L_1
+hf_sccp_calling_ansi_ssn_indicator	,	V_294
+ett_sccp_called_gt_digits	,	V_176
+"ChSccpUsers"	,	L_225
+sccp_segmenting_reassembling_values	,	V_470
+REFUSAL_CAUSE_LENGTH	,	V_60
+"Message fragment count"	,	L_182
+"Encoding Scheme"	,	L_82
+sccp_error_cause_values	,	V_68
+gt_digits	,	V_161
+hf_sccp_called_gt_tt	,	V_198
+save_in_error_pkt	,	V_412
+ITU_RESERVED_MASK	,	V_262
+num_sccp_users	,	V_326
+"sccp.called.ssni"	,	L_59
+"National Indicator"	,	L_50
+sccp_message_type_acro_values	,	V_41
+sccp_module	,	V_513
+PARAMETER_CALLING_PARTY_ADDRESS	,	V_366
+user	,	V_439
+sccp_return_cause_values	,	V_53
+users_flds	,	V_515
+"sccp.importance"	,	L_153
+PARAMETER_CALLED_PARTY_ADDRESS	,	V_365
+called_pc	,	V_333
+hf_sccp_return_cause	,	V_319
+"sccp.msg.fragment.multiple_tails"	,	L_177
+invalid_class	,	V_296
+sccp_class_handling_values	,	V_303
+calling_ssn	,	V_94
+uat_field_t	,	T_32
+tvb_reported_length	,	F_2
+process_reassembled_data	,	F_92
+INVALID_SSN	,	V_95
+even_signal	,	V_158
+hf_sccp_sequencing_segmenting_rsn	,	V_314
+ANSI_PC_LENGTH	,	V_28
+dissect_sccp_optional_parameters	,	F_84
+dissect_e212_mcc_mnc_in_address	,	F_46
+"Unknown parameter 0x%x (%u byte%s)"	,	L_4
+"Error Cause"	,	L_138
+source_local_ref	,	V_398
+assoc_protos	,	V_422
+"sccp.calling.pci"	,	L_93
+ai	,	V_5
+FT_BOOLEAN	,	V_494
+"source_pc"	,	L_230
+ssni	,	V_8
+init_sccp	,	F_106
+"User protocol"	,	L_221
+"sccp.wrong_length"	,	L_202
+sccp_ansi_national_indicator_values	,	V_455
+wmem_strdup	,	F_37
+""	,	L_2
+"sccp.hops"	,	L_151
+PARAMETER_RECEIVE_SEQUENCE_NUMBER	,	V_379
+"Unknown parameter"	,	L_200
+"inap"	,	L_264
+dissect_sccp_class_param	,	F_60
+proto_tree_add_bytes_format	,	F_23
+national	,	V_245
+"sccp.release_cause"	,	L_133
+expert_item	,	V_243
+got_assoc_rlc	,	V_132
+SCCP_MSG_TYPE_XUDTS	,	V_47
+"sccp.assoc.id"	,	L_189
+ANSI_CLUSTER_MASK	,	V_464
+"sccp.msg.fragments"	,	L_169
+ANSI_NATIONAL_MASK	,	V_13
+sccp_segmentation_first_segment_values	,	V_476
+co	,	V_135
+"Address digits missing"	,	L_215
+hf_sccp_called_chinese_pc	,	V_230
+"sccp.msg.fragment"	,	L_171
+PARAMETER_REFUSAL_CAUSE	,	V_375
+optional_pointer	,	V_393
+"Show parameter length in the protocol tree"	,	L_235
+got_assoc	,	V_129
+"sccp.digits"	,	L_49
+more_frag	,	V_417
+RETURN_FALSE	,	V_14
+plurality	,	F_24
+BASE_HEX	,	V_446
+msg_class	,	V_32
+sccp_info	,	V_147
+OPTIONAL_POINTER	,	F_89
+"Segmentation: Class"	,	L_144
+module_t	,	T_30
+SCCP_MSG_TYPE_XUDT	,	V_44
+proto_register_field_array	,	F_118
+"Sequencing Segmenting: More"	,	L_128
+GTI_MASK	,	V_15
+ei	,	V_507
+dissector_add_uint	,	F_136
+RELEASE_CAUSE_LENGTH	,	V_63
+ITU_AI_GTI_TT_NP_ES_NAI	,	V_196
+dissect_sccp_3byte_pc	,	F_47
+data_handle	,	V_338
+es	,	V_189
+PARAMETER_ERROR_CAUSE	,	V_374
+RECEIVE_SEQUENCE_NUMBER_MASK	,	V_473
+tvb_captured_length	,	F_5
+hf_sccp_calling_routing_indicator	,	V_266
+dissect_sccp_message	,	F_86
+"sccp.calling.ansi_pc"	,	L_96
+ROUTING_INDICATOR_MASK	,	V_17
+hf_sccp_called_itu_global_title_indicator	,	V_269
+ITU_AI_GTI_NAI	,	V_210
+call_dissector_with_data	,	F_73
+expert_add_info	,	F_44
+sccp_reassemble	,	V_404
+"show_length"	,	L_233
+sccp_decode_context_t	,	T_9
+"tali.opcode"	,	L_257
+ssn_ptr	,	V_283
+CHINESE_ITU_STANDARD	,	V_27
+"Wrong length indicated (%u) should be at least %u, PC is %u octets"	,	L_14
+"sccp.calling.nai"	,	L_101
+siz	,	T_26
+length	,	V_120
+tcap_ssn_dissector	,	V_250
+sccp_itu_global_title_indicator_values	,	V_457
+dlr	,	V_128
+call_ai_tree	,	V_244
+PI_WARN	,	V_511
+hf_sccp_called_itu_pc	,	V_276
+"End of Optional"	,	L_196
+"Segmentation: Remaining"	,	L_146
+opt_param	,	V_84
+even_length	,	V_156
+orig_opt_ptr	,	V_394
+GT_NP_SHIFT	,	V_220
+hf	,	V_444
+ANSI_ISNI_TI_SHIFT	,	V_356
+"sccp.assoc.msg"	,	L_191
+initialised	,	V_523
+new_tvb	,	V_396
+sccp_ssn_dissector_table	,	V_287
+ei_sccp_international_standard_address	,	V_260
+sccp_users_free_cb	,	F_104
+"Source PC (in hex)"	,	L_231
+prefs_register_protocol	,	F_125
+"Network ID cluster"	,	L_166
+col_append_fstr	,	F_31
+"sccp.called.reserved"	,	L_53
+id	,	V_90
+called_gt	,	V_172
+"sccp.called.oe"	,	L_77
+"Destination Local Reference"	,	L_110
+"Must specify a PC"	,	L_32
+hf_sccp_reset_cause	,	V_320
+SEQUENCING_SEGMENTING_SSN_LENGTH	,	V_310
+hf_sccp_optional_pointer	,	V_451
+hidden_item	,	V_242
+mtp3_standard	,	V_427
+dissect_e164_cc	,	F_45
+hf_sccp_calling_gt_digits	,	V_175
+frame_num	,	T_3
+"sccp.handling_invalid"	,	L_212
+UAT_AFFECTS_DISSECTION	,	V_519
+slr	,	V_122
+"sccp.called.cluster"	,	L_71
+fw_key	,	V_127
+val_to_str	,	F_36
+hf_sccp_calling_chinese_pc	,	V_231
+CLASS_SPARE_HANDLING_SHIFT	,	V_302
+dissector_try_heuristic	,	F_75
+"%s length: %d"	,	L_21
+message_length	,	V_143
+default_handle	,	V_337
+sccp_called_calling_looks_valid	,	F_1
+GT_NP_LAND_MOBILE	,	V_225
+dpc	,	V_110
+GT_NP_ISDN	,	V_221
+ANSI_ISNI_MI_MASK	,	V_483
+SCCP_MSG_TYPE_OFFSET	,	V_40
+"sccp.called.ssn"	,	L_63
+VALS	,	F_111
+prefs_register_bool_preference	,	F_127
+sccp_reset_cause_values	,	V_475
+"sccp.calling.gti"	,	L_91
+"%s "	,	L_22
+hf_sccp_called_ansi_pc	,	V_228
+"data"	,	L_258
+"More data"	,	L_120
+BASE_DEC	,	V_450
+dissect_sccp_global_title	,	F_41
+try_val_to_str	,	F_6
+hf_sccp_refusal_cause	,	V_322
+"sccp.sequencing_segmenting.rsn"	,	L_127
+ENC_NA	,	V_201
+"Must specify an SSN"	,	L_33
+"Cause=%d "	,	L_19
+"Show length"	,	L_234
+dissect_sccp_return_cause_param	,	F_66
+"SubSystem Number Indicator"	,	L_58
+call_tree	,	V_226
+default_payload	,	V_521
+hops	,	V_345
+ANSI_AI_GTI_TT_NP_ES	,	V_197
+"Unknown message"	,	L_198
+"Source Local Reference"	,	L_112
+SEGMENTATION_REMAINING_MASK	,	V_480
+sccp_routing_indicator_values	,	V_456
+"Translation Type"	,	L_78
+size_t	,	T_25
+ITU_STANDARD	,	V_267
+SCCP_MSG_TYPE_CREF	,	V_59
+dissect_sccp_called_calling_param	,	F_49
+odd_signal	,	V_157
+"sccp.msg.fragment.too_long_fragment"	,	L_179
+POINTER_LENGTH	,	V_39
+parameter_type	,	V_362
+"Called SSNs for which this protocol is to be used"	,	L_220
+addresses_reassembly_table_functions	,	V_443
+"sccp.calling.oe"	,	L_102
+"s"	,	L_3
+hf_sccp_class	,	V_297
+hf_sccp_called_itu_ssn_indicator	,	V_271
+"Credit"	,	L_130
+"sccp.lr"	,	L_115
+ni	,	V_332
+"SCCP Users Table"	,	L_223
+np	,	V_188
+sccp_xudt_msg_reassembly_table	,	V_407
+"camel"	,	L_263
+dst	,	V_111
+hf_sccp_called_gt_es	,	V_207
+called_party	,	V_102
+tvb_offset_from_real_beginning	,	F_87
+"Association ID"	,	L_188
+tvb_new_subset_length	,	F_9
+ett_sccp_calling_gt_digits	,	V_177
+"Users Table"	,	L_246
+"Global Title Indicator"	,	L_56
+"Segmentation: First"	,	L_142
+dissector_get_uint_handle	,	F_51
+dpck	,	V_107
+HFILL	,	V_448
+SCCP_MSG_TYPE_UDT	,	V_43
+src	,	V_109
+my_mtp3_standard	,	V_3
+"Release Cause"	,	L_132
+proto_tree_add_subtree_format	,	F_42
+hf_sccp_rsn	,	V_308
+"Pointer to third Mandatory Variable parameter"	,	L_40
+"sccp.isni.network"	,	L_165
+pc	,	V_334
+has_bw_key	,	V_124
+dissect_sccp_hop_counter_param	,	F_78
+pi	,	V_295
+"sccp.ssn"	,	L_47
+handlep	,	V_335
+pt	,	V_419
+GTI_SHIFT	,	V_16
+PARAMETER_LONG_DATA	,	V_368
+"Message in frame"	,	L_190
+ssn	,	V_247
+message_tvb	,	V_141
+AT_STRINGZ	,	V_179
+"sccp.class_unexpected"	,	L_210
+SCCP_PLOAD_NONE	,	V_100
+routing_ind	,	V_246
+"sccp.calling.np"	,	L_104
+"sccp.return_cause"	,	L_135
+msgtype	,	V_31
+"sccp.segmentation.first"	,	L_143
+wmem_tree_lookup32_array	,	F_19
+PARAMETER_RELEASE_CAUSE	,	V_371
+CREDIT_LENGTH	,	V_75
+COL_INFO	,	V_154
+IMPORTANCE_IMPORTANCE_MASK	,	V_481
+wmem_epan_scope	,	F_133
+frag_msg	,	V_397
+hf_sccp_called_ansi_point_code_indicator	,	V_291
+"Pointer to first Mandatory Variable parameter"	,	L_36
+ssn_dissector	,	V_249
+proto_tree_add_expert_format	,	F_27
+g_strlcat	,	F_35
+cinfo	,	V_153
+ri	,	V_6
+RETURN_CAUSE_LENGTH	,	V_54
+register_tap	,	F_134
+opck	,	V_106
+"sccp.calling.network"	,	L_98
+"Number of Called Party Digits"	,	L_86
+"mtp3.service_indicator"	,	L_256
+ANSI_ISNI_TI_MASK	,	V_353
+SCCP_MSG_TYPE_RSR	,	V_81
+SEGMENTATION_CLASS_MASK	,	V_479
+hf_sccp_xudt_msg_fragment_error	,	V_498
+"Unexpected message class for this message type"	,	L_211
+END_OF_OPTIONAL_PARAMETERS_LENGTH	,	V_389
+is_co	,	V_4
+"(Message fragment) "	,	L_25
+key	,	V_121
+SEGMENTING_REASSEMBLING_LENGTH	,	V_70
+sccp_users_update_cb	,	F_98
+g_str_hash	,	F_16
+"Sequencing Segmenting: Receive Sequence Number"	,	L_126
+ti	,	V_348
+ranges_are_equal	,	F_100
+"A table that enumerates user protocols to be used against specific PCs and SSNs"	,	L_247
+data_ptr	,	V_36
+register_dissector	,	F_117
+"Network ID network"	,	L_164
+odd_even	,	V_186
+hf_sccp_segmentation_class	,	V_342
+sccp_oe_values	,	V_467
+dissect_sccp_unknown_message	,	F_22
+ud	,	V_171
+"sccp.called.chinese_pc"	,	L_67
+"sccp.calling.cluster"	,	L_99
+prefs_register_uat_preference	,	F_128
+hf_sccp_calling_ansi_global_title_indicator	,	V_290
+gboolean	,	T_1
+digits_item	,	V_159
+un	,	V_442
+"Sequencing Segmenting: Send Sequence Number"	,	L_124
+"Number of Calling Party Digits"	,	L_108
+GT_NP_MASK	,	V_202
+"Show key parameters in Info Column"	,	L_243
+opc	,	V_108
+"sccp"	,	L_228
+"Message fragments"	,	L_168
+"Message is routed on SSN, but SSN is zero (unspecified)"	,	L_209
+"SCCP (Chin. ITU)"	,	L_30
+heur_dtbl_entry_t	,	T_16
+"bssap"	,	L_261
+register_init_routine	,	F_130
+PARAMETER_SEGMENTATION	,	V_340
+hf_sccp_xudt_msg_fragment_multiple_tails	,	V_496
+hf_sccp_unknown_message	,	V_144
+"tcap"	,	L_259
+"sccp.class"	,	L_117
+hf_sccp_hop_counter	,	V_346
+"sccp.msg.fragment.overlap.conflicts"	,	L_175
+PINFO_FD_VISITED	,	F_20
+gt_ptr	,	V_170
+ranap_handle	,	V_527
+sccp_ansi_global_title_indicator_values	,	V_458
+PROTOCOL_CLASS_LENGTH	,	V_49
+decode_mtp3_standard	,	V_194
+g_strdup	,	F_101
+ROUTE_ON_SSN	,	V_23
+hf_sccp_calling_itu_pc	,	V_277
+"Invalid message handling"	,	L_213
+dissect_sccp_segmenting_reassembling_param	,	F_61
+"sccp.calling.ssn"	,	L_94
+"DLR=%d "	,	L_6
+ENC_BIG_ENDIAN	,	V_306
+hf_sccp_xudt_msg_fragment_too_long_fragment	,	V_497
+"sccp.calling.ni"	,	L_88
+comment	,	V_138
+GT_ES_MASK	,	V_206
+hdtbl_entry	,	V_324
+range_copy	,	F_103
+"sccp.called.pci"	,	L_61
+hf_sccp_segmentation_slr	,	V_344
+digits_tree	,	V_160
+sccp_assoc_info_t	,	T_7
+param_tree	,	V_309
+hf_sccp_xudt_msg_fragment_overlap	,	V_493
+_sccp_msg_info_t	,	V_325
+"Reset Cause"	,	L_136
+param_tvb	,	V_83
+has_fw_key	,	V_131
+param_len	,	V_82
+sccp_es_values	,	V_469
+"Called Party Digits"	,	L_84
+"SCCP SSN"	,	L_229
+"SCCP (Japan)"	,	L_31
+"The protocol which should be used to dissect the payload if nothing else has claimed it"	,	L_254
+GT_NAI_INTERNATIONAL_NUM	,	V_223
+"sccp.called.digits.length"	,	L_87
+gsmmap_handle	,	V_529
+gt_item	,	V_183
+var	,	T_21
+message_type	,	V_118
+"Unknown: %d"	,	L_8
+"Set source and destination GT addresses"	,	L_249
+" (current)"	,	L_27
+"Linked dissector"	,	L_194
+"Whether to keep information about messages and their associations"	,	L_241
+hf_sccp_called_gt_digits	,	V_174
+proto_register_subtree_array	,	F_120
+ei_sccp_handling_invalid	,	V_304
+MTP_SI_SCCP	,	V_525
+"Local Reference"	,	L_114
+"sccp.called.nai"	,	L_75
+"ISNI Mark for Identification Indicator"	,	L_154
+_U_	,	V_1
+GT_TT_LENGTH	,	V_200
+hf_sccp_xudt_msg_fragment_count	,	V_499
+PARAMETER_SOURCE_LOCAL_REFERENCE	,	V_369
+called_ptr	,	V_34
+hf_sccp_calling_gt_nai	,	V_218
+new_assoc	,	F_11
+"sccp.segmentation.slr"	,	L_149
+PI_PROTOCOL	,	V_512
+"Class"	,	L_116
+natl_use_bit	,	V_261
+hf_sccp_more	,	V_305
+FT_UINT8	,	V_445
+GT_MAX_SIGNALS	,	V_163
+hf_sccp_xudt_msg_fragment	,	V_491
+"Numbering Plan"	,	L_80
+"sccp.isni.counter"	,	L_163
+prefs_register_string_preference	,	F_129
+proto_item	,	T_14
+expert_register_field_array	,	F_122
+is_connectionless	,	F_10
+SCCP_MSG_TYPE_RLC	,	V_65
+SCCP_MSG_TYPE_ERR	,	V_66
+ENC_LITTLE_ENDIAN	,	V_278
+msg	,	V_134
+"sccp.called.gti"	,	L_57
+ett_sccp_called_pc	,	V_232
+"sccp.unknown_message"	,	L_199
+data	,	V_117
+octet	,	V_416
+POINTER_LENGTH_LONG	,	V_51
+E164_ENC_BCD	,	V_224
+"sccp.called.np"	,	L_81
+hf_sccp_assoc_id	,	V_418
+sccp_parameter_values	,	V_85
+"Message handling"	,	L_118
+SEQUENCING_SEGMENTING_LENGTH	,	V_74
+"show_more_info"	,	L_242
+hf_sccp_called_itu_natl_use_bit	,	V_263
+tvb_get_letohs	,	F_7
+"sccp.segmented_data"	,	L_193
+SCCP_MSG_TYPE_RSC	,	V_80
+dissector_handle_get_short_name	,	F_52
+offset	,	V_30
+P2P_DIR_RECV	,	V_130
+expert_module_t	,	T_31
+"Global Title 0x%x (%u byte%s)"	,	L_9
+wmem_tree_key_t	,	T_11
+sccp_np_values	,	V_468
+hf_sccp_gt_digits	,	V_180
+gt_tree	,	V_184
+"Linked to %s"	,	L_15
+proto_tree_add_uint	,	F_29
+"sccp.slr"	,	L_113
+camel_handle	,	V_530
+"  This may affect TCAP's ability to recognize which messages belong to which TCAP session."	,	L_251
+ett_sccp_assoc	,	V_420
+PARAMETER_IMPORTANCE	,	V_382
+set_address	,	F_40
+"Routing Indicator"	,	L_54
+"Called DPCs"	,	L_217
+WTAP_ENCAP_SCCP	,	V_524
+hf_sccp_called_ansi_global_title_indicator	,	V_289
+"ISNI Routing Indicator"	,	L_156
+"Reserved for national use"	,	L_52
+wmem_file_scope	,	F_13
+"sccp.sequencing_segmenting.more"	,	L_129
+"Called SSNs"	,	L_219
+value	,	V_105
+hf_sccp_segmentation_remaining	,	V_343
+p2p_dir	,	V_125
+"sccp.calling.ssni"	,	L_92
+expert_sccp	,	V_514
+address_to_str	,	F_17
+hf_sccp_ansi_isni_mi	,	V_351
+GT_OE_MASK	,	V_211
+ss7pc_address_type	,	V_115
+FT_FRAMENUM	,	V_492
+UAT_FLD_VS	,	F_114
+extra_info	,	V_103
+hf_sccp_variable_pointer3	,	V_411
+"sccp.refusal_cause"	,	L_141
+"sccp.credit"	,	L_131
+hf_sccp_variable_pointer2	,	V_410
+hf_sccp_variable_pointer1	,	V_403
+proto_tree	,	T_13
+dissect_sccp_isni_param	,	F_80

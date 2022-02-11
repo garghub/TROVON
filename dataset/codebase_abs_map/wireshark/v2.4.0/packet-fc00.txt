@@ -1,0 +1,159 @@
+g_checksum_type_get_length	,	F_10
+"Auth Type"	,	L_9
+"IPv6 Address"	,	L_24
+"fc00.auth_challange.hash_code"	,	L_12
+proto_register_protocol	,	F_24
+gsize	,	T_9
+"Public Key: %s.k"	,	L_2
+raw_key	,	V_39
+tvb_reported_length	,	F_7
+proto_fc00	,	V_14
+FT_IPv6	,	V_68
+NONCE_OFF	,	V_33
+"Double SHA256 hash of public key"	,	L_26
+col_set_str	,	F_2
+gint	,	T_13
+tvb	,	V_1
+expert_fc00	,	V_74
+guint32	,	T_5
+COL_INFO	,	V_11
+guchar	,	V_44
+ett_fc00_key	,	V_46
+"fc00.authenticator"	,	L_28
+"Auth Challenge"	,	L_7
+hf_fc00_session_state	,	V_21
+PUBLIC_KEY_LEN	,	V_40
+fc00_handle	,	V_75
+col_clear	,	F_3
+cinfo	,	V_9
+"Poly1305 Authenticator"	,	L_27
+proto_tree_add_ipv6	,	F_19
+"fc00.chksum_unsupported"	,	L_33
+proto_register_subtree_array	,	F_27
+hf_fc00_auth_poly	,	V_29
+g_checksum_new	,	F_9
+CHALLENGE_OFF	,	V_23
+array_length	,	F_26
+"fc00.auth_challange.poly1305"	,	L_14
+hash	,	V_35
+"Random Nonce"	,	L_19
+"fc00.session_nonce"	,	L_6
+proto_tree_add_item	,	F_5
+pinfo	,	V_2
+"checksum calculation is not supported"	,	L_34
+dissector_handle_t	,	T_15
+_U_	,	V_4
+PUBLIC_KEY_OFF	,	V_43
+"fc00.auth_challange.derivations"	,	L_16
+hf_fc00_auth_additional	,	V_31
+"fc00.auth_challange.additional"	,	L_18
+G_MAXUINT32	,	V_13
+NONCE_LEN	,	V_34
+"Fc00"	,	L_36
+ett_fc00	,	V_17
+proto_register_fc00	,	F_22
+dissector_add_for_decode_as_with_preference	,	F_32
+hf_register_info	,	T_11
+VALS	,	F_23
+session_state	,	V_5
+POLY_AUTH_LEN	,	V_52
+proto_reg_handoff_fc00	,	F_30
+COL_PROTOCOL	,	V_10
+g_checksum_free	,	F_17
+"fc00.temp_key"	,	L_30
+FT_UINT8	,	V_64
+"fc00.random_nonce"	,	L_20
+BASE_DEC	,	V_59
+proto_item	,	T_6
+e_in6_addr	,	V_48
+session_states	,	V_60
+"fc00.payload"	,	L_32
+expert_register_field_array	,	F_29
+"Auth Hash Code"	,	L_11
+ENC_NA	,	V_16
+guint8	,	T_10
+"fc00.auth_challange.type"	,	L_10
+ti	,	V_6
+GLIB_CHECK_VERSION	,	F_8
+BASE_NONE	,	V_63
+"Encrypted Payload"	,	L_31
+encoded_key	,	V_41
+"fc00.ip"	,	L_25
+wmem_alloc	,	F_11
+data	,	T_4
+tvb_get_ntohl	,	F_4
+hf_fc00_session_nonce	,	V_18
+ei_fc00_chksum_unsupported	,	V_49
+tvbuff_t	,	T_1
+hf_fc00_auth_type	,	V_27
+"Encrypted/Authenticated Temporary Public Key"	,	L_29
+tvb_memcpy	,	F_13
+CHALLENGE_LEN	,	V_24
+g_checksum_update	,	F_15
+BASE_HEX	,	V_66
+"Session State"	,	L_3
+ei_register_info	,	T_12
+expert_register_protocol	,	F_28
+proto_item_add_subtree	,	F_6
+dissect_cryptoauth	,	F_1
+PI_NOTE	,	V_71
+SESSION_STATE_OFF	,	V_12
+proto_register_field_array	,	F_25
+FT_BYTES	,	V_62
+key_tree	,	V_38
+hf_fc00_auth_challenge	,	V_22
+"Fc00 CryptoAuth"	,	L_35
+guint	,	T_7
+FT_NONE	,	V_67
+"Auth Derivations"	,	L_15
+ei	,	V_69
+ett	,	V_73
+payload_len	,	V_8
+wmem_packet_scope	,	F_12
+expert_module_t	,	T_14
+hf_fc00_ip_address	,	V_47
+tree	,	V_3
+hf_fc00_auth_hash_code	,	V_28
+"fc00"	,	L_1
+"Poly1305 Authentication"	,	L_13
+FT_UINT16	,	V_65
+packet_info	,	T_2
+ws_base32_decode	,	F_14
+tvb_captured_length	,	F_21
+hf_fc00_authenticator	,	V_50
+TEMP_KEY_LEN	,	V_55
+"fc00.session_state"	,	L_4
+"Session Nonce"	,	L_5
+"fc00.auth_challange"	,	L_8
+hf_fc00_random_nonce	,	V_32
+EXPFILL	,	V_72
+auth_tree	,	V_25
+hf_fc00_public_key	,	V_45
+proto_tree_add_expert	,	F_20
+"Base32 encoded public key"	,	L_23
+G_CHECKSUM_SHA512	,	V_36
+CRYPTO_HEADER_LEN	,	V_56
+ip_buf	,	V_42
+TEMP_KEY_OFF	,	V_54
+hf_fc00_temp_publicy_key	,	V_53
+GChecksum	,	T_8
+HFILL	,	V_61
+"fc00.public_key"	,	L_22
+POLY_AUTH_OFF	,	V_51
+digest_len	,	V_37
+"Permanent Public Key"	,	L_21
+"udp.port"	,	L_37
+proto_tree_add_none_format	,	F_18
+PI_DECRYPTION	,	V_70
+create_dissector_handle	,	F_31
+ENC_BIG_ENDIAN	,	V_19
+hf_fc00_payload	,	V_20
+"Auth Additional"	,	L_17
+FT_UINT32	,	V_58
+hf_fc00_auth_derivations	,	V_30
+ett_fc00_auth	,	V_26
+SESSION_STATE_LEN	,	V_15
+g_checksum_get_digest	,	F_16
+fc00_tree	,	V_7
+proto_tree	,	T_3
+hf	,	V_57

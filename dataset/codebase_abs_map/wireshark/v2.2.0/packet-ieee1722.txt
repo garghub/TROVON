@@ -1,0 +1,409 @@
+ieee1722_crf_tree	,	V_6
+"crf.data_len"	,	L_29
+IEEE_1722_SID_MASK	,	V_104
+hf_1722_aaf_data	,	V_58
+"Clock Reference Format"	,	L_40
+IEEE_1722_FORMAT_MASK	,	V_176
+"61883.unknown_format"	,	L_141
+"61883.dbs"	,	L_105
+"61883.syt"	,	L_121
+IEEE_1722_CHANNEL_PER_FRAME_MASK	,	V_55
+" bytes"	,	L_1
+"EVT"	,	L_64
+guint32	,	T_7
+"crf.expert.clock_reference_format_type"	,	L_36
+ieee1722_tree	,	V_133
+"CIP Source Packet Header"	,	L_110
+FT_BOOLEAN	,	V_145
+proto_register_1722_aaf	,	F_29
+datalen	,	V_9
+fields3	,	V_44
+sample_tree	,	V_34
+fields2	,	V_41
+hf_1722_61883_cip_sph	,	V_111
+IEEE_1722_SAMPLE_MASK	,	V_185
+"aaf.avtp_timestamp"	,	L_51
+array_length	,	F_22
+"crf.type"	,	L_21
+IEEE_1722_STREAM_ID_MASK	,	V_173
+channels_per_frame	,	V_35
+IEEE_1722_TCODE_MASK	,	V_95
+"Sample Chunk %d"	,	L_3
+"crf.mrfield"	,	L_13
+"ethertype"	,	L_154
+IEEE_1722_SUBTYPE_MASK	,	V_201
+hf_register_info	,	T_11
+"IEC 61883 format not dissected yet"	,	L_142
+hf_1722_crf_stream_id	,	V_24
+guint16	,	T_9
+i	,	V_38
+j	,	V_10
+IEEE_1722_FN_MASK	,	V_192
+proto_reg_handoff_1722_aaf	,	F_30
+RVALS	,	F_34
+ei_1722_61883_incorrect_tcode	,	V_96
+BASE_NONE	,	V_161
+hf_1722_61883_cip_fn	,	V_107
+"61883.channel"	,	L_95
+IEEE_1722_61883_4	,	V_119
+IEEE_1722_61883_6	,	V_118
+"61883.incorrect_tcode"	,	L_133
+"Wrong value for sample width"	,	L_71
+IEEE_1722_BASE_FREQUENCY_MASK	,	V_158
+IEEE_1722_QPC_MASK	,	V_109
+IEEE_1722_TV_MASK	,	V_171
+tag_vals	,	V_190
+BASE_HEX	,	V_152
+"Sparse Timestamp Mode"	,	L_62
+"61883.incorrect_qi1"	,	L_135
+proto_item_add_subtree	,	F_3
+"aaf.expert.sample_width_zero"	,	L_70
+proto_register_field_array	,	F_21
+FT_BYTES	,	V_160
+ei	,	V_162
+dissector_add_uint	,	F_28
+"1394 App-specific Control"	,	L_98
+hf_1722_61883_gvfield	,	V_78
+"Sequence Number"	,	L_18
+"61883"	,	L_145
+hf_1722_crf_timestamp	,	V_31
+FT_UINT16	,	V_159
+IEEE_1722_MR_MASK	,	V_146
+hf_1722_61883_cip_qpc	,	V_108
+tvb_captured_length	,	F_9
+"ieee1722.subtype"	,	L_43
+"AVB Transportation Protocol"	,	L_11
+proto_register_1722_61883	,	F_31
+"CIP Quadlet Padding Count"	,	L_108
+expert_add_info	,	F_7
+"IEC 61883 Protocol"	,	L_143
+"Sample %d"	,	L_9
+"aaf.format_info"	,	L_53
+avbtp_handle	,	V_204
+"Sample Data"	,	L_68
+ieee1722_61883_tree	,	V_64
+"AVBTP Subtype"	,	L_146
+numSourcePackets	,	V_76
+IEEE_1722_SP_MASK	,	V_182
+"61883.gateway_info"	,	L_89
+hf_1722_aaf_sample	,	V_63
+IEEE_1722_CRF_TIMESTAMP_SIZE	,	V_30
+ei_1722_61883_incorrect_qpc	,	V_110
+PI_WARN	,	V_165
+IEEE_1722_BIT_DEPTH_MASK	,	V_179
+proto_item_prepend_text	,	F_8
+"Timestamp Interval"	,	L_30
+FT_UINT32	,	V_155
+"61883.incorrect_qi2"	,	L_139
+"CIP Format Dependent Field"	,	L_118
+"AVTP Stream ID Valid"	,	L_147
+hf	,	V_144
+"Incorrect quadlet indicator 2 field, talker shall set this field to 0x02"	,	L_140
+ETHERTYPE_AVBTP	,	V_205
+hf_1722_61883_seqnum	,	V_82
+IEEE_1722_CHANNEL_MASK	,	V_92
+channel	,	V_68
+"Frame Sync"	,	L_14
+hf_1722_crf_seqnum	,	V_21
+"61883.audiodata.sample.sampledata"	,	L_126
+cip_fmt	,	V_74
+ei_1722_61883_incorrect_qi1	,	V_102
+ei_1722_61883_incorrect_qi2	,	V_115
+"aaf.expert.channels_per_frame_zero"	,	L_72
+col_set_str	,	F_16
+BASE_RANGE_STRING	,	V_199
+"CIP Format ID"	,	L_116
+hf_1722_61883_cip_sid	,	V_103
+timestamp_tree	,	V_7
+"Data Length"	,	L_28
+IEEE_1722_FMT_MASK	,	V_117
+hf_1722_crf_fsfield	,	V_13
+"aaf.tvfield"	,	L_46
+"1394 Packet Format Tag"	,	L_92
+expert_1722_crf	,	V_168
+proto_tree_add_item_ret_uint	,	F_5
+dissector_handle_t	,	T_14
+"Video Data"	,	L_127
+"IEEE1722"	,	L_10
+IEEE_1722_EVT_MASK	,	V_183
+cip_sid	,	V_71
+"61883.sph"	,	L_111
+VALS	,	F_19
+"61883.tag"	,	L_93
+IEEE_1722_CIP_HEADER_SIZE	,	V_123
+hf_1722_61883_cip_fmt	,	V_116
+avb1722_crf_handle	,	V_169
+"61883.sy"	,	L_99
+proto_1722_61883	,	V_80
+"crf.fsfield"	,	L_15
+BASE_DEC	,	V_151
+ett_1722_crf	,	V_20
+"crf.seqnum"	,	L_19
+"aaf.nominal_sample_rate"	,	L_55
+": Originating source is on AVTP network"	,	L_8
+ENC_NA	,	V_19
+"ieee1722"	,	L_152
+"Timestamp %d "	,	L_2
+proto_tree_add_bitmask_list	,	F_4
+IEEE_1722_QI2_MASK	,	V_114
+dissect_1722	,	F_15
+"The CRF data length must be multiple of 8"	,	L_39
+"CRF"	,	L_41
+pull_vals	,	V_156
+expert_register_protocol	,	F_24
+"61883.videodata"	,	L_128
+"61883.tcode"	,	L_97
+IEEE_1722_61883_SID_AVTP	,	V_105
+"crf.timestamp_interval"	,	L_31
+hf_1722_61883_cip_qi1	,	V_100
+hf_1722_61883_cip_qi2	,	V_113
+type_vals	,	V_153
+guint	,	T_8
+ett	,	V_167
+hf_1722_aaf_stream_id	,	V_51
+sample_width	,	V_36
+"61883.stream_id"	,	L_86
+packet_info	,	T_2
+"aaf"	,	L_78
+hf_1722_crf_data_length	,	V_25
+db_size	,	V_75
+"61883.mrfield"	,	L_79
+"aaf.bit_depth"	,	L_59
+EXPFILL	,	V_166
+"61883.gvfield"	,	L_81
+"AVTP Audio Format"	,	L_76
+"Timestamp Data"	,	L_32
+"AVTP Timestamp"	,	L_50
+ett_1722_aaf_sample	,	V_62
+ei_1722_61883_unknown_format	,	V_120
+avb1722_61883_handle	,	V_197
+hf_1722_aaf_sparse_timestamp	,	V_45
+"Timestamp Valid"	,	L_82
+subtype	,	V_134
+"Pull"	,	L_24
+HFILL	,	V_147
+hf_1722_crf_pull	,	V_16
+hf_1722_aaf_nominal_sample_rate	,	V_42
+dissector_try_uint	,	F_17
+proto_reg_handoff_1722	,	F_36
+"61883.spht"	,	L_130
+create_dissector_handle	,	F_27
+proto_tree_add_subtree_format	,	F_12
+proto_1722_aaf	,	V_47
+IEEE_1722_TIMESTAMP_MASK	,	V_174
+IEEE_1722_SUBTYPE_AAF	,	V_188
+"Incorrect tcode, talker shall set this field to 0x0A"	,	L_134
+IEEE_1722_STREAM_DATA_LENGTH_MASK	,	V_180
+proto_reg_handoff_1722_crf	,	F_26
+IEEE_1722_SUBTYPE_61883	,	V_198
+hf_1722_61883_cip_dbs	,	V_106
+"crf.expert.crf_datalen"	,	L_38
+ei_clock_reference_type	,	V_163
+"61883.dbc"	,	L_113
+proto_register_protocol	,	F_20
+"1394 Stream Data Length"	,	L_90
+ieee1722_aaf_tree	,	V_32
+hf_1722_61883_tvfield	,	V_79
+avb_dissector_table	,	V_143
+"61883.sid"	,	L_103
+"CIP SYT"	,	L_120
+gint	,	T_6
+hf_1722_61883_mrfield	,	V_77
+tvb	,	V_1
+"AAF"	,	L_77
+COL_INFO	,	V_139
+"Reserved value"	,	L_75
+IEEE_1722_GV_MASK	,	V_189
+ett_1722	,	V_141
+format_offset	,	V_37
+hf_1722_61883_sample	,	V_128
+hf_1722_61883_label	,	V_127
+hf_1722_aaf_tufield	,	V_50
+hf_1722_61883_cip_dbc	,	V_112
+cinfo	,	V_137
+hf_1722_61883_source_packet_header_timestamp	,	V_131
+"Format"	,	L_52
+"61883.fmt"	,	L_117
+audio_tree	,	V_33
+"crf"	,	L_42
+IEEE_1722_61883_TAG_CIP	,	V_99
+"crf.tufield"	,	L_17
+IEEE_1722_PULL_MASK	,	V_157
+"Channel: %d "	,	L_4
+hf_1722_aaf_evtfield	,	V_46
+format_vals	,	V_194
+hf_1722_aaf_bit_depth	,	V_56
+"Wrong value for parameter channels per Frame"	,	L_73
+"61883.avtp_timestamp"	,	L_87
+hf_1722_61883_audio_data	,	V_124
+"Timestamp Uncertain"	,	L_16
+hf_1722_aaf_avtp_timestamp	,	V_52
+proto_register_1722_crf	,	F_18
+"61883.tvfield"	,	L_83
+"Base Frequency"	,	L_26
+COL_PROTOCOL	,	V_138
+IEEE_1722_SUBTYPE_CRF	,	V_170
+"61883.incorrect_tag"	,	L_131
+"Stream ID"	,	L_22
+hf_1722_61883_cip_fdf	,	V_121
+guint8	,	T_10
+ti	,	V_5
+"61883.seqnum"	,	L_84
+ei_crf_datalen	,	V_29
+"aaf.channels_per_frame"	,	L_57
+tvbuff_t	,	T_1
+pull_frequency	,	V_15
+hf_1722_61883_gateway_info	,	V_86
+tvb_get_ntohs	,	F_11
+IEEE_1722_61883_4_LEN_SOURCE_PACKET	,	V_130
+proto_1722	,	V_140
+IEEE_1722_61883_CHANNEL_AVTP	,	V_93
+IEEE_1722_TU_MASK	,	V_149
+"1394 Packet Channel"	,	L_94
+hf_1722_svfield	,	V_135
+sparse_mode_vals	,	V_181
+"aaf.expert.format_reserved"	,	L_74
+"1394 Packet Tcode"	,	L_96
+"61883.fdf"	,	L_119
+cip_qi1	,	V_70
+cip_qi2	,	V_73
+"IEC 61883"	,	L_144
+"crf.stream_id"	,	L_23
+tvb_get_guint8	,	F_14
+ei_format_reserved	,	V_54
+ett_1722_aaf_audio	,	V_59
+"Incorrect quadlet padding count field, shall be set to 0"	,	L_138
+"Stream Data Length"	,	L_60
+fields	,	V_11
+"CIP Fraction Number"	,	L_106
+ett_1722_61883	,	V_81
+"aaf.tufield"	,	L_48
+hf_1722_61883_avtp_timestamp	,	V_85
+hf_1722_aaf_stream_data_length	,	V_57
+ett_1722_61883_audio	,	V_125
+dissect_1722_crf	,	F_1
+"crf.pull"	,	L_25
+"Incorrect quadlet indicator 1 field, talker shall set this field to 0x00"	,	L_136
+hf_1722_crf_type	,	V_23
+"Audio Data"	,	L_66
+IEEE_1722_SV_MASK	,	V_202
+avb1722_aaf_handle	,	V_187
+ENC_BIG_ENDIAN	,	V_22
+tcode	,	V_69
+hf_1722_crf_timestamp_data	,	V_27
+"aaf.stream_id"	,	L_49
+hf_1722_crf_timestamp_interval	,	V_26
+"ieee1722.svfield"	,	L_148
+"CIP Source ID"	,	L_102
+hf_1722_61883_stream_data_length	,	V_87
+dissect_1722_61883	,	F_13
+hf_1722_aaf_channels_per_frame	,	V_43
+"crf.timestamp_data"	,	L_33
+hf_1722_aaf_tvfield	,	V_40
+hf_1722_61883_tcode	,	V_94
+FT_UINT64	,	V_154
+"aaf.sparse_timestamp"	,	L_63
+"crf.timestamp"	,	L_35
+hf_1722_61883_tufield	,	V_83
+hf_1722_61883_cip_syt	,	V_122
+IEEE_1722_NOM_SAMPLE_RATE_MASK	,	V_178
+ieee1722_subtype_range_vals	,	V_200
+proto_reg_handoff_1722_61883	,	F_32
+proto_item_append_text	,	F_6
+"AVTP Version"	,	L_149
+ei_sample_width	,	V_60
+IEEE_1722_TAG_MASK	,	V_89
+"aaf.seqnum"	,	L_47
+hf_1722_61883_video_data	,	V_129
+IEEE_1722_61883_4_LEN_SP_TIMESTAMP	,	V_132
+hf_1722_aaf_mrfield	,	V_39
+proto_register_subtree_array	,	F_23
+"61883.qi1"	,	L_101
+"61883.fn"	,	L_107
+"IEEE1722 AVBTP Subtype"	,	L_153
+"61883.incorrect_qpc"	,	L_137
+proto_tree_add_item	,	F_2
+pinfo	,	V_2
+"Data"	,	L_34
+hf_1722_61883_channel	,	V_91
+_U_	,	V_4
+"crf.base_frequency"	,	L_27
+"Gateway Info"	,	L_88
+"Channels per Frame"	,	L_56
+hf_1722_61883_stream_id	,	V_84
+"aaf.mrfield"	,	L_44
+"61883.audiodata"	,	L_122
+expert_1722_61883	,	V_196
+proto_register_1722	,	F_33
+hf_1722_aaf_seqnum	,	V_49
+"61883.stream_data_len"	,	L_91
+"Media Clock Restart"	,	L_12
+"aaf.evtfield"	,	L_65
+proto_1722_crf	,	V_18
+PI_PROTOCOL	,	V_164
+dissect_1722_aaf	,	F_10
+FT_UINT8	,	V_150
+"aaf.stream_data_len"	,	L_61
+proto_item	,	T_5
+expert_register_field_array	,	F_25
+format_info_vals	,	V_175
+"Sample"	,	L_125
+"Source Packet Header Timestamp"	,	L_129
+video_tree	,	V_65
+hf_1722_verfield	,	V_136
+"61883.tufield"	,	L_85
+IEEE_1722_SEQ_NUM_MASK	,	V_172
+register_dissector_table	,	F_35
+ei_channels_per_frame	,	V_61
+data	,	T_4
+"IIDC 1394 video payload:"	,	L_7
+"Gateway Info Valid"	,	L_80
+hf_1722_61883_tag	,	V_88
+sample_rate_type_vals	,	V_177
+":  Originating source is on AVTP network (native AVTP)"	,	L_6
+"ieee1722.verfield"	,	L_150
+ei_register_info	,	T_12
+"Incorrect tag field, only 0x00 and 0x01 supported for AVTP"	,	L_132
+ei_1722_61883_incorrect_tag	,	V_90
+tag	,	V_67
+PI_NOTE	,	V_195
+cip_qpc	,	V_72
+offset	,	V_8
+expert_module_t	,	T_13
+expert_1722_aaf	,	V_186
+tree	,	V_3
+"61883.audiodata.sample.label"	,	L_124
+"CIP Data Block Size"	,	L_104
+"CIP Data Block Continuity"	,	L_112
+dbs	,	V_66
+"The CRF type is not supported"	,	L_37
+"Label"	,	L_123
+hf_1722_crf_base_frequency	,	V_17
+IEEE_1722_FS_MASK	,	V_148
+"aaf.data"	,	L_67
+hf_1722_crf_mrfield	,	V_12
+ett_1722_crf_timestamp	,	V_28
+hf_1722_61883_sy	,	V_97
+"CIP Quadlet Indicator 1"	,	L_100
+IEEE_1722_VER_MASK	,	V_203
+ett_1722_61883_sample	,	V_126
+"61883.qi2"	,	L_115
+hf_1722_aaf_format	,	V_53
+IEEE_1722_QI1_MASK	,	V_101
+"Bit Depth"	,	L_58
+"61883.qpc"	,	L_109
+IEEE_1722_SPH_MASK	,	V_193
+"Source Timestamp Valid"	,	L_45
+"Nominal Sample Rate"	,	L_54
+ett_1722_aaf	,	V_48
+"CIP Quadlet Indicator 2"	,	L_114
+IEEE_1722_SY_MASK	,	V_191
+"IEEE 1722 Protocol"	,	L_151
+hf_1722_subtype	,	V_142
+"Type"	,	L_20
+IEEE_1722_61883_TAG_NO_CIP	,	V_98
+": Originating  Source  ID  from  an  IEEE  1394  serial  bus"	,	L_5
+proto_tree	,	T_3
+hf_1722_crf_tufield	,	V_14
+IEEE_1722_DATA_MASK	,	V_184
+"aaf.data.sample"	,	L_69

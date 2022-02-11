@@ -1,0 +1,320 @@
+DIGITECH_POSITION_AMP	,	V_31
+tvb_get_string	,	F_21
+proto_register_protocol	,	F_35
+hf_digitech_parameter_id_amp_cabinet	,	V_34
+"Unpacked Procedure Data"	,	L_1
+hf_digitech_parameter_id_equalizer	,	V_56
+len	,	V_137
+hf_digitech_parameter_position	,	V_74
+gint	,	T_2
+digitech_parameter_ids_volume_pre_fx	,	V_173
+tvb_new_child_real_data	,	F_5
+DIGITECH_POSITION_WAH_MIN_MAX	,	V_53
+hf_digitech_desired_family_id	,	V_96
+DIGITECH_FAMILY_RP	,	V_85
+digitech_parameter_ids_volume_post_fx	,	V_177
+TFS	,	F_34
+tvb	,	V_1
+hf_digitech_parameter_count	,	V_113
+guint32	,	V_78
+COL_INFO	,	V_125
+proto_reg_handoff_sysex	,	F_42
+"Parameter Count"	,	L_46
+FT_BOOLEAN	,	V_158
+hf_digitech_parameter_id_amp	,	V_32
+remaining	,	V_7
+"Preset Name"	,	L_38
+"Parameter ID"	,	L_48
+DIGITECH_PROCEDURE_RECEIVE_WHO_AM_I	,	V_98
+"SYSEX Error: Wrong end byte"	,	L_68
+cinfo	,	V_123
+"Product ID"	,	L_18
+dissect_digitech_procedure	,	F_14
+array_length	,	F_37
+DIGITECH_POSITION_DISTORTION	,	V_27
+digitech_parameter_positions_ext	,	V_183
+"SYSEX Error: Wrong start byte"	,	L_64
+DIGITECH_POSITION_LIBRARY	,	V_65
+hf_sysex_message_eox	,	V_141
+next_tvb	,	V_3
+ei_sysex_message_end_byte	,	V_142
+DIGITECH_PROCEDURE_RECEIVE_PRESET_NAMES	,	V_104
+hf_sysex_device_id	,	V_135
+"Messages to follow"	,	L_43
+"sysex.digitech.parameter_position"	,	L_51
+hf_digitech_nack_request_proc_id	,	V_118
+"sysex.digitech.parameter_data_count"	,	L_55
+DIGITECH_POSITION_EXPRESSION	,	V_61
+digitech_parameter_ids_amp_cabinet	,	V_169
+DIGITECH_POSITION_AMP_LOOP	,	V_59
+hf_digitech_parameter_id_volume_pre_fx	,	V_42
+"Preset Index"	,	L_34
+hf_register_info	,	T_12
+get_digitech_hf_product_by_family	,	F_13
+digitech_parameter_ids_preset	,	V_178
+"Parameter data"	,	L_52
+hf_digitech_parameter_id_noisegate	,	V_40
+guint16	,	T_7
+COL_PROTOCOL	,	V_124
+"Desired Family ID"	,	L_24
+i	,	V_12
+g_free	,	V_13
+procedure	,	V_87
+"System Exclusive Message start (0xF0)"	,	L_8
+hf_digitech_os_mode	,	V_101
+guint8	,	T_3
+digitech_parameter_ids_gnx3k_whammy_ext	,	V_165
+dissect_sysex_command	,	F_25
+get_digitech_hf_parameter_id_by_position	,	F_7
+ti	,	V_126
+BASE_NONE	,	V_157
+"Requesting Procedure ID"	,	L_57
+"sysex.digitech.parameter_id"	,	L_49
+digitech_parameter_ids_pickup	,	V_162
+data_ptr	,	V_6
+DIGITECH_POSITION_VOLUME_PRE_FX	,	V_41
+register_dissector	,	F_41
+DIGITECH_POSITION_CHORUS_FX	,	V_43
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_27
+tvb_strsize	,	F_20
+tvb_get_ntohs	,	F_12
+DIGITECH_PROCEDURE_RECEIVE_PRESET_PARAMETERS	,	V_112
+"sysex.digitech.desired_product_id"	,	L_27
+tvb_set_free_cb	,	F_6
+BASE_HEX	,	V_145
+parent_tree	,	V_120
+"sysex.start"	,	L_7
+FT_UINT24	,	V_147
+hf_digitech_parameter_id_gnx3k_whammy	,	V_26
+hf_digitech_preset_index	,	V_108
+proto_item_add_subtree	,	F_28
+PI_UNDECODED	,	V_191
+proto_register_field_array	,	F_36
+conversation	,	V_92
+"sysex.device_id"	,	L_12
+FT_BYTES	,	V_184
+"sysex.digitech.device_id"	,	L_28
+hf_parameter	,	V_15
+digitech_conv_data_t	,	T_6
+manufacturer_id	,	V_127
+"sysex.digitech.preset_index"	,	L_35
+ei	,	V_186
+data_len	,	V_5
+count	,	V_91
+hf_digitech_parameter_id_reverb	,	V_48
+"MIDI System Exclusive Command"	,	L_3
+digitech_parameter_ids_equalizer	,	V_180
+"sysex.digitech.preset_modified"	,	L_41
+data_tvb	,	V_67
+tvb_get_ptr	,	F_3
+FT_UINT16	,	V_160
+"sysex.digitech.desired_family_id"	,	L_25
+DIGITECH_POSITION_NOISEGATE	,	V_39
+hf_digitech_parameter_id_pickup	,	V_20
+tvb_get_guint8	,	F_9
+DIGITECH_POSITION_AMP_B	,	V_35
+hf_sysex_three_byte_manufacturer_id	,	V_133
+digitech_procedures_ext	,	V_152
+ei_sysex_undecoded	,	V_119
+hf_digitech_parameter_id_compressor	,	V_24
+hf_digitech_parameter_data_count	,	V_77
+DIGITECH_PROCEDURE_RECEIVE_PARAMETER_VALUE	,	V_114
+expert_add_info	,	F_29
+"Modified flag (0 = unmodified)"	,	L_42
+"Parameter value count"	,	L_54
+digitech_parameter_ids_amp_ext	,	V_168
+DIGITECH_POSITION_EQUALIZER	,	V_55
+FT_STRING	,	V_156
+hf_digitech_parameter_id_amp_loop	,	V_60
+DIGITECH_POSITION_GNX3K_WHAMMY	,	V_25
+hf_digitech_ack_request_proc_id	,	V_116
+hf_sysex_message_start	,	V_131
+"SysEx message start"	,	L_6
+unpacked_ptr	,	V_9
+"OS Mode"	,	L_29
+SYSEX_MANUFACTURER_DOD	,	V_136
+"sysex.digitech.message_count"	,	L_44
+"Not dissected yet (report to wireshark.org)"	,	L_70
+digitech_parameter_ids_amp_cabinet_b	,	V_171
+length	,	V_4
+DIGITECH_PROCEDURE_REQUEST_PRESET_NAMES	,	V_102
+"sysex.digitech.os_mode"	,	L_30
+"sysex.digitech.parameter_count"	,	L_47
+digitech_parameter_ids_compressor	,	V_164
+PI_WARN	,	V_188
+hf_digitech_rp_product_id	,	V_86
+ENC_BIG_ENDIAN	,	V_73
+protocol_version	,	V_72
+"Parameter position"	,	L_50
+"Device ID"	,	L_11
+find_or_create_conversation	,	F_15
+digitech_parameter_ids_chorusfx_ext	,	V_174
+family	,	V_82
+"Desired Product ID"	,	L_26
+hf	,	V_143
+DIGITECH_POSITION_PICKUP	,	V_19
+hf_digitech_family_id	,	V_100
+DIGITECH_POSITION_LFO_2	,	V_64
+"Preset Bank"	,	L_32
+tmp_string	,	V_89
+digitech_family_id	,	V_149
+DIGITECH_POSITION_LFO_1	,	V_63
+"sysex.digitech.parameter_data"	,	L_53
+DIGITECH_POSITION_AMP_CABINET_B	,	V_37
+"sysex.digitech.ack.procedure_id"	,	L_58
+BASE_EXT_STRING	,	V_151
+sysex_three_byte_manufacturer_id	,	V_148
+" (correct)"	,	L_4
+col_set_str	,	F_26
+conv_data	,	V_69
+item	,	V_122
+ett_sysex	,	V_130
+guchar	,	T_4
+hf_digitech_preset_count	,	V_105
+proto_item_append_text	,	F_31
+unpacked	,	V_8
+DIGITECH_POSITION_REVERB	,	V_47
+hf_digitech_procedure_id	,	V_138
+hf_digitech_parameter_id_amp_b	,	V_36
+"sysex"	,	L_72
+hf_digitech_desired_product_id	,	V_97
+hf_sysex_manufacturer_id	,	V_134
+proto_register_subtree_array	,	F_38
+digitech_os_modes	,	V_153
+proto_tree_add_string	,	F_23
+DIGITECH_PROCEDURE_NACK	,	V_117
+DIGITECH_POSITION_WAH	,	V_21
+str_size	,	V_90
+digitech_parameter_ids_wah_min_max	,	V_179
+tvb_get_ntoh24	,	F_30
+" (NOT correct)"	,	L_5
+"Checksum"	,	L_61
+hf_digitech_parameter_id_global	,	V_18
+"Preset Count"	,	L_36
+DIGITECH_POSITION_WAH_PEDAL	,	V_66
+proto_tree_add_item	,	F_10
+ei_sysex_message_start_byte	,	V_132
+digitech_parameter_ids_wah	,	V_163
+pinfo	,	V_88
+expert_sysex	,	V_192
+"MIDI System Exclusive"	,	L_71
+hf_digitech_parameter_id_wah	,	V_22
+"sysex.eox"	,	L_14
+"Number of messages to follow"	,	L_45
+"DigiTech OS Mode"	,	L_31
+DIGITECH_POSITION_GLOBAL	,	V_17
+g_malloc	,	F_4
+DIGITECH_POSITION_V_SWITCH_ASSIGN	,	V_62
+DIGITECH_POSITION_VOLUME_POST_FX	,	V_49
+"sysex.digitech.checksum_bad"	,	L_65
+"Procedure ID of the request being NACKed"	,	L_60
+VALS	,	F_33
+dissect_digitech_parameter	,	F_8
+DIGITECH_POSITION_PRESET	,	V_51
+PI_PROTOCOL	,	V_187
+"Desired Device ID"	,	L_22
+hf_digitech_preset_bank	,	V_103
+"Manufacturer ID"	,	L_9
+tvb_length	,	F_2
+FT_UINT8	,	V_144
+hf_digitech_parameter_data	,	V_75
+BASE_DEC	,	V_155
+proto_item	,	T_11
+expert_register_field_array	,	F_40
+digitech_parameter_ids_amp_loop	,	V_182
+ENC_NA	,	V_81
+hf_digitech_parameter_id_chorusfx	,	V_44
+hf_digitech_unknown_product_id	,	V_84
+digitech_parameter_ids_global	,	V_161
+"sysex.message_start_byte"	,	L_63
+"System Exclusive Message end (0xF7)"	,	L_15
+msb	,	V_11
+DIGITECH_POSITION_AMP_CHANNEL	,	V_29
+digitech_parameter_ids_noisegate	,	V_172
+"sysex.message_end_byte"	,	L_67
+digitech_helper	,	V_71
+DIGITECH_PROCEDURE_REQUEST_WHO_AM_I	,	V_94
+"Procedure ID of the request being ACKed"	,	L_59
+DIGITECH_PROCEDURE_RECEIVE_PRESET_START	,	V_109
+"sysex.digitech.procedure_id"	,	L_21
+hf_digitech_parameter_multibyte_data	,	V_80
+proto_register_sysex	,	F_32
+hf_digitech_parameter_id_distortion	,	V_28
+digitech_parameter_ids_reverb	,	V_176
+"sysex.digitech.desired_device_id"	,	L_23
+hf_digitech_parameter_id_amp_cabinet_b	,	V_38
+ei_register_info	,	T_13
+hf_digitech_parameter_id_equalizer_b	,	V_58
+digitech_parameter_ids_distortion_ext	,	V_166
+expert_register_protocol	,	F_39
+hf_digitech_parameter_id_preset	,	V_52
+sysex_helper	,	V_121
+hf_product	,	V_83
+three_byte_manufacturer_id	,	V_128
+data_count	,	V_76
+conversation_t	,	T_10
+hf_digitech_parameter_id	,	V_16
+"sysex.digitech.preset_bank"	,	L_33
+guint	,	T_9
+offset	,	V_2
+"sysex.digitech.product_id"	,	L_19
+"Preset Modified"	,	L_40
+wmem_packet_scope	,	F_22
+digitech_preset_banks	,	V_154
+expert_module_t	,	T_14
+digitech_parameter_ids_delay_ext	,	V_175
+tree	,	V_68
+hf_digitech_parameter_id_delay	,	V_46
+packet_info	,	T_8
+"sysex.undecoded"	,	L_69
+hf_digitech_parameter_id_wah_min_max	,	V_54
+add_new_data_source	,	F_19
+tfs_yes_no	,	V_159
+unpacked_size	,	V_10
+hf_digitech_parameter_id_amp_channel	,	V_30
+DIGITECH_PROCEDURE_REQUEST_PRESET	,	V_107
+position	,	V_14
+DIGITECH_POSITION_COMPRESSOR	,	V_23
+digitech_parameter_ids_amp_channel	,	V_167
+hf_digitech_device_id	,	V_99
+proto_tree_add_uint	,	F_11
+EXPFILL	,	V_189
+"sysex.manufacturer_id"	,	L_10
+DIGITECH_POSITION_DELAY	,	V_45
+"sysex.digitech.checksum"	,	L_62
+proto_tree_add_expert	,	F_24
+procedure_id	,	V_129
+digitech_parameter_ids_equalizer_b	,	V_181
+PI_CHECKSUM	,	V_190
+DIGITECH_POSITION_AMP_CABINET	,	V_33
+hf_digitech_parameter_data_two_byte_count	,	V_79
+conversation_get_proto_data	,	F_16
+hf_digitech_desired_device_id	,	V_95
+hf_digitech_preset_modified	,	V_110
+unpack_digitech_message	,	F_1
+hf_digitech_preset_name	,	V_106
+digitech_rp_product_id	,	V_150
+"sysex.digitech.preset_name"	,	L_39
+hf_digitech_parameter_id_volume_post_fx	,	V_50
+"Family ID"	,	L_16
+"Parameter data count"	,	L_56
+wmem_file_scope	,	F_18
+HFILL	,	V_146
+proto_sysex	,	V_93
+hf_digitech_message_count	,	V_111
+wmem_new	,	F_17
+"ARP packet storm detected"	,	L_66
+"SYSEX"	,	L_2
+"sysex.digitech.family_id"	,	L_17
+DIGITECH_POSITION_EQUALIZER_B	,	V_57
+sysex_subtrees	,	V_185
+"EOX"	,	L_13
+DIGITECH_PROCEDURE_ACK	,	V_115
+hf_digitech_checksum	,	V_139
+ei_digitech_checksum_bad	,	V_140
+data_offset	,	V_70
+digitech_parameter_ids_amp_b	,	V_170
+"Procedure ID"	,	L_20
+"sysex.digitech.preset_count"	,	L_37
+proto_tree	,	T_5

@@ -1,0 +1,140 @@
+"GVCP Opcode"	,	L_25
+"Unknown opcode (0x%04x)"	,	L_2
+" %d bytes written"	,	L_22
+proto_register_protocol	,	F_19
+", ..."	,	L_11
+tvb_reported_length	,	F_8
+hf_gvcp_payloadsize	,	V_24
+packet_plsize	,	V_6
+hf_gvcp_unknown16	,	V_35
+"Remaining arguments"	,	L_39
+col_set_str	,	F_4
+FT_ETHER	,	V_46
+gint	,	T_8
+" *0x%08x = &lt;%d bytes&gt;"	,	L_21
+hf_gvcp_data	,	V_37
+" %d bytes from 0x%08x"	,	L_20
+FT_IPv4	,	V_47
+tvb	,	V_1
+guint32	,	V_14
+COL_INFO	,	V_12
+hf_gvcp_ip	,	V_27
+hf_gvcp_nbytes	,	V_36
+hf_gvcp_ether	,	V_26
+"gvcp.address2"	,	L_36
+str	,	V_15
+"GVCP"	,	L_1
+"gvcp.nwritten"	,	L_42
+col_clear	,	F_5
+"IPv4 address"	,	L_51
+cinfo	,	V_10
+"GVCP Type"	,	L_23
+proto_register_subtree_array	,	F_22
+val_to_str	,	F_7
+" *0x%08x = 0x%08x"	,	L_12
+array_length	,	F_21
+"%d.%d.%d.%d to %s"	,	L_7
+packet_type	,	V_4
+""	,	L_16
+proto_tree_add_item	,	F_15
+pinfo	,	V_2
+dissector_handle_t	,	T_9
+"Data"	,	L_47
+hf_gvcp_value2	,	V_33
+"Value"	,	L_33
+"gvcp.ip"	,	L_52
+"gvcp.remainder"	,	L_40
+" (payload is not multiple of 4 bytes)"	,	L_5
+hf_register_info	,	T_7
+VALS	,	F_18
+"gvcp.size"	,	L_28
+" 0x%08x"	,	L_9
+opcode_names	,	V_13
+dissect_gvcp	,	F_1
+hf_gvcp_value	,	V_32
+gvcp_handle	,	V_49
+" &lt;missing arg(s)&gt;"	,	L_8
+guint16	,	T_4
+COL_PROTOCOL	,	V_11
+"Value 2"	,	L_37
+tvb_length	,	F_2
+" 0x%08x (%d bytes, X=0x%04x)"	,	L_18
+"2-byte unknown meaning"	,	L_45
+hf_gvcp_address2	,	V_30
+BASE_DEC	,	V_42
+"; excess payload"	,	L_19
+proto_item	,	T_6
+" &lt;missing args&gt;"	,	L_6
+"Number of registers written"	,	L_41
+hf_gvcp_nwritten	,	V_34
+ENC_NA	,	V_19
+ett_gvcp	,	V_20
+hf_gvcp_address	,	V_29
+proto_register_gvcp	,	F_17
+ti	,	V_16
+BASE_NONE	,	V_45
+GVCP_PORT	,	V_9
+"Address 2"	,	L_35
+proto_reg_handoff_gvcp	,	F_23
+", 0x%08x"	,	L_10
+tvb_get_ntohl	,	F_14
+tvbuff_t	,	T_1
+hf_gvcp_type	,	V_21
+tvb_get_ntohs	,	F_3
+gvcp_tree	,	V_17
+hf_gvcp_sequenceno	,	V_25
+BASE_HEX	,	V_40
+col_add_str	,	F_10
+"GVCP Payload bytes"	,	L_27
+"gvcp.address"	,	L_32
+"GVCP Sequence number"	,	L_29
+proto_item_add_subtree	,	F_16
+proto_register_field_array	,	F_20
+info	,	V_7
+FT_BYTES	,	V_44
+ett	,	V_48
+dissector_add_uint	,	F_25
+"gvcp.type"	,	L_24
+tree	,	V_3
+hf_gvcp_remainder	,	V_31
+"gvcp.seqn"	,	L_30
+FT_UINT16	,	V_39
+packet_info	,	T_2
+"gvcp.ether"	,	L_50
+"s"	,	L_17
+tvb_get_guint8	,	F_12
+tvb_bytes_to_str_punct	,	F_13
+ep_strbuf_new	,	F_6
+"gvcp.value"	,	L_34
+"GigE Vision Control Protocol"	,	L_55
+destport	,	V_8
+ep_strbuf_append_printf	,	F_9
+"Address"	,	L_31
+ep_strbuf_append	,	F_11
+"gvcp"	,	L_56
+"Link layer address (ethernet)"	,	L_49
+"gvcp.unknown16"	,	L_46
+" &lt;missing arg&gt;"	,	L_14
+"gvcp.nbytes"	,	L_44
+"gvcp.netmask"	,	L_54
+hf_gvcp_netmask	,	V_28
+"gvcp.opcode"	,	L_26
+hf_gvcp_opcode	,	V_23
+"gvcp.value2"	,	L_38
+HFILL	,	V_41
+"Netmask"	,	L_53
+new_create_dissector_handle	,	F_24
+", *0x%08x = 0x%08x"	,	L_13
+packet_opcode	,	V_5
+"udp.port"	,	L_57
+" %d register%s written"	,	L_15
+"Number of bytes"	,	L_43
+ENC_BIG_ENDIAN	,	V_22
+" (truncated? %u bytes missing)"	,	L_3
+FT_UINT32	,	V_43
+proto_gvcp	,	V_18
+" (%u excess bytes)"	,	L_4
+"gvcp.data"	,	L_48
+proto_tree	,	T_3
+emem_strbuf_t	,	T_5
+hf	,	V_38

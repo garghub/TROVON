@@ -1,0 +1,166 @@
+proto_btle_rf	,	V_29
+"BTLE RF"	,	L_4
+"btle_rf.flags.rfu.1"	,	L_40
+proto_register_protocol	,	F_16
+WTAP_ENCAP_BLUETOOTH_LE_LL_WITH_PHDR	,	V_80
+proto_reg_handoff_btle_rf	,	F_21
+tvb_new_subset_remaining	,	F_13
+"RF Channel"	,	L_13
+"btle_rf.reference_access_address"	,	L_22
+gint	,	T_2
+context	,	V_9
+col_set_str	,	F_5
+"Reference Access Address"	,	L_21
+"Flags"	,	L_23
+"btle_rf.access_address_offenses"	,	L_20
+hf_btle_rf_crc_valid_flag	,	V_74
+E_AA_MATCHED	,	V_45
+"Illegal channel"	,	L_3
+tvb	,	V_2
+find_dissector_add_dependency	,	F_23
+COL_INFO	,	V_16
+"btle_rf.flags.dewhitened"	,	L_26
+"btle_rf.flags.rfu.2"	,	L_49
+FT_BOOLEAN	,	V_63
+proto_item_append_text	,	F_11
+"btle_rf.flags.noise_dbm_valid"	,	L_30
+LE_PACKET_DECRYPTED	,	V_68
+"btle_rf.flags.channel_aliased"	,	L_38
+"Decrypted"	,	L_31
+"Advertising channel"	,	L_1
+col_clear	,	F_6
+hf_btle_rf_reference_access_address	,	V_47
+cinfo	,	V_14
+proto_register_subtree_array	,	F_19
+hf_btle_rf_mic_checked_flag	,	V_75
+"btle_rf"	,	L_51
+array_length	,	F_18
+hf_btle_rf_signal_dbm	,	V_36
+"MIC Checked"	,	L_45
+"Noise Power Valid"	,	L_29
+proto_tree_add_item	,	F_8
+"Noise dBm"	,	L_17
+pinfo	,	V_3
+"Dewhitened"	,	L_25
+"btle_rf.flags.mic_checked"	,	L_46
+ett_btle_rf	,	V_31
+flags	,	V_11
+LE_SIGPOWER_VALID	,	V_35
+"btle_rf.flags.signal_dbm_valid"	,	L_28
+hf_btle_rf_channel	,	V_32
+"btle_rf.flags.crc_checked"	,	L_42
+ett_btle_rf_flags	,	V_50
+hf_register_info	,	T_10
+hf_btle_rf_ref_aa_valid_flag	,	V_69
+aa_offenses	,	V_10
+crc_valid_at_capture	,	V_23
+hf_btle_rf_dewhitened_flag	,	V_62
+hf_btle_rf_packet_decrypted_flag	,	V_67
+guint16	,	T_8
+COL_PROTOCOL	,	V_15
+hf_btle_rf_access_address_offenses	,	V_41
+"btle_rf.word_unused"	,	L_12
+hf_btle_rf_mic_valid_flag	,	V_76
+btle_handle	,	V_53
+FT_UINT8	,	V_58
+crc_checked_at_capture	,	V_21
+LE_REF_AA_VALID	,	V_42
+BASE_DEC	,	V_56
+"btle_rf.flags.decrypted"	,	L_32
+rf_channel	,	V_1
+proto_item	,	T_6
+ENC_NA	,	V_30
+guint8	,	T_1
+hf_btle_rf_flags_rfu_1	,	V_72
+ti	,	V_6
+hf_btle_rf_noisepower_valid_flag	,	V_66
+hf_btle_rf_flags_rfu_2	,	V_77
+"MIC Valid"	,	L_47
+ENC_LITTLE_ENDIAN	,	V_33
+register_dissector	,	F_20
+"Signal Power Valid"	,	L_27
+btle_context_t	,	T_7
+data	,	V_5
+dissect_btle_rf	,	F_3
+mic_checked_at_capture	,	V_25
+tvbuff_t	,	T_3
+"Signal dBm"	,	L_15
+"btle_rf.signed_byte_unused"	,	L_8
+E_AA_ILLEGAL	,	V_44
+BASE_HEX	,	V_60
+"btle_rf.signal_dbm"	,	L_16
+"btle_rf.flags.crc_valid"	,	L_44
+"Unused signed byte"	,	L_7
+"Unused unsigned byte"	,	L_9
+hf_btle_rf_crc_checked_flag	,	V_73
+BTLE_RF_OCTETS	,	V_13
+previous_protocol_data	,	V_17
+proto_item_add_subtree	,	F_9
+btle_rf_channel_type	,	F_1
+proto_register_field_array	,	F_17
+tvb_get_letohs	,	F_7
+"Access Address Offenses Valid"	,	L_35
+btle_tvb	,	V_8
+LE_CHANNEL_ALIASED	,	V_34
+hf_btle_rf_aa_offenses_valid_flag	,	V_70
+"Channel Aliased"	,	L_37
+ett	,	V_78
+dissector_add_uint	,	F_22
+tree	,	V_4
+FT_UINT16	,	V_61
+packet_info	,	T_4
+LE_CRC_VALID	,	V_24
+hf_btle_rf_noise_dbm	,	V_39
+btle_rf_channel_index	,	F_2
+tvb_get_guint8	,	F_10
+FT_INT8	,	V_55
+LE_NOISEPOWER_VALID	,	V_38
+tvb_captured_length	,	F_4
+"btle_rf.flags"	,	L_24
+"Reference Access Address Valid"	,	L_33
+"Bluetooth Low Energy RF Info"	,	L_50
+BMT_NO_APPEND	,	V_52
+connection_info_valid	,	V_20
+hf_btle_rf_flags	,	V_49
+call_dissector_with_data	,	F_14
+bluetooth_data_t	,	T_9
+"RFU"	,	L_39
+hfs_btle_rf_flags	,	V_51
+"Unused word"	,	L_11
+btle_rf_handle	,	V_79
+"Data channel"	,	L_2
+hf_btle_rf_channel_aliased_flag	,	V_71
+LE_CRC_CHECKED	,	V_22
+"CRC Valid"	,	L_43
+mic_valid_at_capture	,	V_27
+LE_AA_OFFENSES_VALID	,	V_40
+"btle_rf.noise_dbm"	,	L_18
+LE_MIC_VALID	,	V_28
+HFILL	,	V_57
+aa_category	,	V_18
+E_AA_BIT_ERRORS	,	V_43
+hf_btle_rf_unsigned_byte_unused	,	V_46
+btle_rf_tree	,	V_7
+"Access Address Offenses"	,	L_19
+"btle_rf.flags.mic_valid"	,	L_48
+E_AA_NO_COMMENT	,	V_19
+", %d MHz, %s %d"	,	L_5
+"btle_rf.channel"	,	L_14
+"CRC Checked"	,	L_41
+"bluetooth.encap"	,	L_52
+proto_tree_add_bitmask_with_flags	,	F_12
+hf_btle_rf_word_unused	,	V_48
+"btle_rf.unsigned_byte_unused"	,	L_10
+proto_register_btle_rf	,	F_15
+FT_UINT32	,	V_59
+hf_btle_rf_sigpower_valid_flag	,	V_65
+"btle_rf.flags.reference_access_address_valid"	,	L_34
+"btle"	,	L_53
+hf_btle_rf_signed_byte_unused	,	V_37
+bluetooth_data	,	V_12
+" [aliased]"	,	L_6
+LE_DEWHITENED	,	V_64
+LE_MIC_CHECKED	,	V_26
+"btle_rf.flags.access_address_offenses_valid"	,	L_36
+proto_tree	,	T_5
+hf	,	V_54

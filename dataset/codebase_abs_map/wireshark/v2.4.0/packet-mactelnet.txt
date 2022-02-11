@@ -1,0 +1,148 @@
+mactelnet_control_item	,	V_7
+"mactelnet.control_width"	,	L_42
+proto_register_protocol	,	F_19
+tvb_reported_length	,	F_16
+"Null padded MD5 password"	,	L_36
+"mactelnet.protocol_version"	,	L_11
+"mactelnet.session_bytes"	,	L_22
+tvb_new_subset_remaining	,	F_14
+col_set_str	,	F_5
+"%s &gt; %s Direction: %s Type: %s"	,	L_1
+FT_ETHER	,	V_55
+gint	,	T_10
+dissect_mactelnet	,	F_1
+"mactelnet.session_id"	,	L_17
+hf_mactelnet_control_encryption_key	,	V_40
+"Data Packet Type"	,	L_24
+tvb	,	V_1
+"Encryption Key"	,	L_31
+guint32	,	T_7
+COL_INFO	,	V_19
+hf_mactelnet_control	,	V_36
+tvb_reported_length_remaining	,	F_11
+"Username"	,	L_37
+"Password MD5"	,	L_34
+cinfo	,	V_16
+proto_register_subtree_array	,	F_22
+val_to_str	,	F_8
+array_length	,	F_21
+"Protocol Version"	,	L_10
+hf_mactelnet_control_length	,	V_39
+proto_tree_add_item	,	F_9
+"Control packet length"	,	L_30
+pinfo	,	V_2
+col_add_fstr	,	F_6
+"Destination MAC"	,	L_14
+dissector_handle_t	,	T_11
+_U_	,	V_4
+ENC_ASCII	,	V_43
+next_client	,	V_48
+"mactelnet"	,	L_46
+proto_register_mactelnet	,	F_17
+"Session ID for this connection"	,	L_18
+hf_mactelnet_datatype	,	V_38
+hf_mactelnet_destination_mac	,	V_28
+hf_mactelnet_source_mac	,	V_27
+"mactelnet.control_encryptionkey"	,	L_32
+control_packet	,	V_33
+datatype	,	V_34
+mactelnet_tree	,	V_6
+hf_register_info	,	T_9
+VALS	,	F_18
+"mactelnet.control_password"	,	L_35
+hf_mactelnet_protocolver	,	V_25
+"Source MAC"	,	L_12
+guint16	,	T_6
+COL_PROTOCOL	,	V_17
+FT_UINT8	,	V_53
+i	,	V_12
+clienttypenames	,	V_13
+BASE_DEC	,	V_54
+proto_item	,	T_5
+"Client-&gt;Server"	,	L_2
+ENC_NA	,	V_23
+guint8	,	T_8
+BASE_NONE	,	V_56
+"Unknown Type:0x%02x"	,	L_4
+ENC_LITTLE_ENDIAN	,	V_46
+foundping	,	V_9
+"mactelnet.source_mac"	,	L_13
+PROTO_TAG_MACTELNET	,	V_18
+"Packet Type"	,	L_9
+data	,	T_4
+tvb_get_ntohl	,	F_12
+mactelnet_control_tree	,	V_8
+tvbuff_t	,	T_1
+"Terminal Width"	,	L_41
+mactelnet_handle	,	V_64
+tvb_get_ntohs	,	F_4
+"MikroTik MAC-Telnet Protocol"	,	L_45
+BASE_HEX	,	V_51
+"mactelnet.client_type"	,	L_20
+ett_mactelnet_control	,	V_63
+proto_item_add_subtree	,	F_10
+"mactelnet.control_username"	,	L_38
+proto_register_field_array	,	F_20
+FT_BYTES	,	V_60
+hf_mactelnet_client_type	,	V_31
+"Control Packet"	,	L_26
+FT_NONE	,	V_59
+"Terminal Type"	,	L_39
+MACTELNET_UDP_PORT	,	V_65
+offset	,	V_21
+ett	,	V_62
+tree	,	V_3
+"mactelnet.control_packet"	,	L_6
+"mactelnet.type"	,	L_8
+"mactelnet.data_type"	,	L_25
+"mactelnet.control"	,	L_27
+hf_mactelnet_type	,	V_26
+FT_UINT16	,	V_57
+packet_info	,	T_2
+hf_mactelnet_control_terminal	,	V_44
+tvb_get_guint8	,	F_3
+"Client Type"	,	L_19
+"mactelnet.destination_mac"	,	L_15
+foundserver	,	V_11
+tvb_captured_length	,	F_2
+proto_mactelnet	,	V_22
+hf_mactelnet_control_password	,	V_41
+"Session Data Bytes"	,	L_21
+"Server-&gt;Client"	,	L_3
+hf_mactelnet_session_id	,	V_29
+tvb_ether_to_str	,	F_7
+hf_mactelnet_control_packet	,	V_37
+strptr	,	V_14
+"Session ID"	,	L_16
+"Login encryption key"	,	L_33
+"Session data bytes received"	,	L_23
+"Control Data Length"	,	L_28
+foundclient	,	V_10
+hf_mactelnet_control_height	,	V_47
+"Terminal Height"	,	L_43
+ett_mactelnet	,	V_24
+hf_mactelnet_control_username	,	V_42
+FT_STRING	,	V_61
+mactelnet_item	,	V_5
+hf_mactelnet_control_width	,	V_45
+call_data_dissector	,	F_15
+"Control Packet Magic Number"	,	L_5
+proto_reg_handoff_mactelnet	,	F_23
+HFILL	,	V_52
+value	,	V_15
+datalength	,	V_35
+"udp.port"	,	L_47
+hf_mactelnet_databytes	,	V_32
+create_dissector_handle	,	F_24
+"mactelnet.control_terminaltype"	,	L_40
+controlpackettypenames	,	V_58
+proto_item_set_len	,	F_13
+ENC_BIG_ENDIAN	,	V_30
+packettypenames	,	V_20
+FT_UINT32	,	V_50
+dissector_add_uint_with_preference	,	F_25
+"Type"	,	L_7
+proto_tree	,	T_3
+hf	,	V_49
+"mactelnet.control_length"	,	L_29
+"mactelnet.control_height"	,	L_44

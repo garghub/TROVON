@@ -1,0 +1,146 @@
+"Status Code"	,	L_19
+"Payload length too short to include the type and length"	,	L_5
+"The total length in bytes of the payload including the header"	,	L_33
+proto_register_protocol	,	F_21
+hf_asf_integrity_alg	,	V_48
+dissect_asf_open_session_response	,	F_10
+ASF_PAYLOAD_TYPE_INTEGRITY	,	V_39
+asf_integrity_type_vals	,	V_47
+"ASF Data Length"	,	L_18
+"rmcp.class"	,	L_45
+len	,	V_7
+BASE_EXT_STRING	,	V_52
+RMCP_CLASS_ASF	,	V_63
+col_set_str	,	F_2
+gint	,	T_7
+"Alert Standard Forum"	,	L_42
+hf_asf_mgt_console_id	,	V_25
+hf_asf_iana	,	V_16
+"asf.payload.data"	,	L_35
+tvb	,	V_1
+"asf.auth_alg"	,	L_37
+"Data Length"	,	L_16
+COL_INFO	,	V_11
+"Integrity Algorithm"	,	L_38
+dissect_asf_payload_authentication	,	F_17
+ett_asf_alg_payload	,	V_44
+"Authentication Algorithm: %s"	,	L_6
+"IANA Enterprise Number"	,	L_8
+col_clear	,	F_3
+cinfo	,	V_9
+dissect_asf_payloads	,	F_13
+PI_ERROR	,	V_37
+ASF_PAYLOAD_TYPE_AUTHENTICATION	,	V_38
+proto_register_subtree_array	,	F_24
+val_to_str	,	F_6
+array_length	,	F_23
+"Reserved"	,	L_40
+next_tvb	,	V_8
+"asf.integrity_alg"	,	L_39
+proto_tree_add_item	,	F_7
+"Managed Client Session ID"	,	L_24
+call_dissector	,	F_12
+"Authentication Algorithm"	,	L_36
+pinfo	,	V_2
+dissector_handle_t	,	T_10
+"Data"	,	L_34
+ASF_TYPE_OPEN_SESS_RESP	,	V_22
+_U_	,	V_4
+hf_asf_payload_type	,	V_34
+"Unknown (%u)"	,	L_4
+ASF_TYPE_OPEN_SESS_RQST	,	V_21
+hf_register_info	,	T_9
+VALS	,	F_20
+asf_rssp_status_code_vals	,	V_57
+"asf"	,	L_43
+"Unknown (0x%02x)"	,	L_2
+"Payload Length"	,	L_31
+guint16	,	T_8
+hf_asf_payload_len	,	V_35
+COL_PROTOCOL	,	V_10
+hf_asf_len	,	V_20
+"data"	,	L_44
+FT_UINT8	,	V_55
+BASE_DEC	,	V_51
+tvb_new_subset	,	F_11
+proto_item	,	T_5
+"ASF Message Type"	,	L_12
+ptree	,	V_30
+ENC_NA	,	V_14
+guint8	,	T_6
+ti	,	V_6
+expert_add_info_format	,	F_16
+BASE_NONE	,	V_59
+dissect_asf_open_session_request	,	F_9
+data	,	T_4
+asf_type_vals	,	V_12
+"asf.tag"	,	L_14
+"Identifies the status of the previous message"	,	L_21
+tvbuff_t	,	T_1
+hf_asf_type	,	V_18
+ett_asf	,	V_15
+"Integrity Algorithm: %s"	,	L_7
+proto_reg_handoff_asf	,	F_25
+"ASF"	,	L_1
+tvb_get_ntohs	,	F_14
+"%s: %u bytes"	,	L_3
+BASE_HEX	,	V_56
+plen	,	V_29
+col_add_str	,	F_5
+"asf.len"	,	L_17
+proto_item_add_subtree	,	F_8
+alg	,	V_41
+proto_register_field_array	,	F_22
+"Message Tag"	,	L_13
+FT_NONE	,	V_58
+offset	,	V_24
+"asf.payload.type"	,	L_29
+ett	,	V_61
+"Mgt Console Session ID"	,	L_22
+dissector_add_uint	,	F_28
+dissect_asf	,	F_1
+tree	,	V_3
+hf_asf_auth_alg	,	V_45
+data_handle	,	V_23
+FT_UINT16	,	V_60
+packet_info	,	T_2
+"ASF Message Tag"	,	L_15
+sminmpec_values_ext	,	V_53
+"Identifies the type of payload that follows"	,	L_30
+tvb_get_guint8	,	F_4
+hf_asf_rssp_status_code	,	V_26
+asf_tree	,	V_5
+dissect_asf_payload_integrity	,	F_18
+hf_asf_reserved	,	V_46
+"Payload"	,	L_26
+ptype	,	V_28
+hf_asf_payload_data	,	V_40
+hf_asf_client_id	,	V_27
+hf_asf_payload	,	V_31
+"asf.payload"	,	L_27
+"asf.reserved"	,	L_41
+"Message Type"	,	L_10
+proto_asf	,	V_13
+ett_asf_payload	,	V_33
+PI_MALFORMED	,	V_36
+HFILL	,	V_54
+"asf.iana"	,	L_9
+"asf.mgt_console_id"	,	L_23
+"Payload Type"	,	L_28
+"asf.type"	,	L_11
+new_create_dissector_handle	,	F_27
+hf_asf_tag	,	V_19
+proto_tree_add_none_format	,	F_15
+proto_register_asf	,	F_19
+find_dissector	,	F_26
+"asf.rssp_status_code"	,	L_20
+"asf.client_id"	,	L_25
+"asf.payload.len"	,	L_32
+asf_payload_type_vals	,	V_32
+asf_handle	,	V_62
+ENC_BIG_ENDIAN	,	V_17
+atree	,	V_42
+FT_UINT32	,	V_50
+asf_authentication_type_vals	,	V_43
+proto_tree	,	T_3
+hf	,	V_49

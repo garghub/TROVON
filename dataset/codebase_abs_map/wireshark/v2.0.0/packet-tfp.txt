@@ -1,0 +1,139 @@
+"tfp_usb_bulk"	,	L_34
+mod	,	V_3
+hv_tfp_seq	,	V_16
+tfp_USB_VENDOR_ID	,	V_53
+usb_conv_info_t	,	T_10
+proto_register_protocol	,	F_19
+"Error Code"	,	L_22
+tvb_reported_length	,	F_13
+"tfp.r"	,	L_17
+gint	,	T_2
+col_set_str	,	F_15
+tvb_get_bits8	,	F_5
+"tfp.uid"	,	L_7
+base58_encode	,	F_1
+tvb	,	V_9
+"UID: %s, Len: %d, FID: %d, Seq: %d"	,	L_1
+proto_tfp	,	V_25
+guint32	,	T_1
+COL_INFO	,	V_22
+tfp_handle_tcp	,	V_65
+proto_tree_add_string_format_value	,	F_9
+str	,	V_2
+"UID (Numeric)"	,	L_8
+"tfp.future_use"	,	L_25
+hf_tfp_len	,	V_31
+BASE58_ALPHABET	,	V_8
+col_clear	,	F_16
+cinfo	,	V_21
+proto_register_subtree_array	,	F_22
+array_length	,	F_21
+dissect_tfp_common	,	F_2
+"Future Use"	,	L_24
+hf_tfp	,	V_56
+proto_tree_add_item	,	F_11
+FT_STRINGZ	,	V_57
+pinfo	,	V_10
+col_add_fstr	,	F_6
+dissector_handle_t	,	T_12
+byte_count_tfp_len	,	V_32
+byte_offset_len	,	V_18
+tfp_USB_PRODUCT_ID	,	V_55
+hf_register_info	,	T_11
+bit_count_tfp_seq	,	V_20
+hf_tfp_oo	,	V_40
+deviceProduct	,	V_54
+hf_tfp_fid	,	V_33
+COL_PROTOCOL	,	V_49
+"tfp.a"	,	L_19
+FT_UINT8	,	V_62
+i	,	V_4
+byte_offset	,	V_12
+BASE_DEC	,	V_61
+k	,	V_5
+proto_item	,	T_8
+"Authentication"	,	L_18
+ENC_NA	,	V_48
+guint8	,	T_7
+byte_count_tfp_fid	,	V_34
+ti	,	V_24
+"UID (String)"	,	L_6
+BASE_NONE	,	V_58
+hf_tfp_payload	,	V_47
+ENC_LITTLE_ENDIAN	,	V_30
+byte_count_tfp_uid	,	V_28
+"%s"	,	L_3
+"TFP over TCP"	,	L_4
+data	,	V_50
+bit_count_tfp_future_use	,	V_45
+tvbuff_t	,	T_4
+proto_tree_add_protocol_format	,	F_7
+hf_tfp_uid_numeric	,	V_29
+PROTO_ITEM_SET_GENERATED	,	F_10
+gboolean	,	T_9
+usb_conv_info	,	V_51
+tvb_get_letohl	,	F_3
+proto_item_add_subtree	,	F_8
+proto_register_field_array	,	F_20
+FT_BYTES	,	V_63
+tfp_PORT	,	V_66
+"tfp.fid"	,	L_13
+"Length"	,	L_10
+"Response Expected"	,	L_16
+ett	,	V_64
+tfp_uid_string	,	V_17
+bit_count_tfp_oo	,	V_41
+dissector_add_uint	,	F_25
+tree	,	V_11
+"Sequence Number"	,	L_14
+bit_count_tfp_a	,	V_39
+tfp_tree	,	V_23
+packet_info	,	T_5
+proto_tree_add_bits_item	,	F_12
+dissect_tfp_tcp	,	F_14
+proto_register_tfp	,	F_18
+tvb_get_guint8	,	F_4
+dissect_tfp_bulk_heur	,	F_17
+"tfp.oo"	,	L_21
+byte_offset_fid	,	V_19
+"tfp.seq"	,	L_15
+"Tinkerforge USB bulk endpoint"	,	L_33
+deviceVendor	,	V_52
+hf_tfp_e	,	V_42
+"Payload"	,	L_26
+hv_tfp_len	,	V_14
+"tfp.len"	,	L_11
+"TFP over USB"	,	L_5
+heur_dissector_add	,	F_26
+HEURISTIC_ENABLE	,	V_67
+"tfp"	,	L_30
+hf_tfp_r	,	V_36
+bit_count_tfp_e	,	V_43
+"Tinkerforge Protocol, UID: %s, Len: %d, FID: %d, Seq: %d"	,	L_2
+BASE58_MAX_STR_SIZE	,	V_7
+bit_offset	,	V_13
+bit_count_tfp_r	,	V_37
+HFILL	,	V_59
+value	,	V_1
+"TFP"	,	L_29
+"Function ID"	,	L_12
+byte_count_tfp_flags	,	V_46
+reverse_str	,	V_6
+gchar	,	T_3
+hv_tfp_fid	,	V_15
+"usb.bulk"	,	L_32
+hf_tfp_future_use	,	V_44
+create_dissector_handle	,	F_24
+hf_tfp_uid	,	V_27
+"tfp.uid_numeric"	,	L_9
+ett_tfp	,	V_26
+FT_UINT32	,	V_60
+"tfp.payload"	,	L_27
+"Other Options"	,	L_20
+"tfp.e"	,	L_23
+"Tinkerforge Protocol"	,	L_28
+hf_tfp_a	,	V_38
+"tcp.port"	,	L_31
+proto_reg_handoff_tfp	,	F_23
+proto_tree	,	T_6
+hf_tfp_seq	,	V_35

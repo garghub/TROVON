@@ -1,0 +1,50 @@
+proto_reg_handoff_mac_mgmt_msg_prc_lt_ctrl	,	F_11
+"MAC Management Message, PRC-LT-CTRL"	,	L_1
+"wmx.prc"	,	L_8
+proto_register_mac_mgmt_msg_prc_lt_ctrl	,	F_5
+proto_mac_mgmt_msg_prc_lt_ctrl_decoder	,	V_7
+proto_register_protocol	,	F_7
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_2
+hf_prc_lt_ctrl_precoding	,	V_9
+"WiMax PRC-LT-CTRL (prc)"	,	L_7
+MAC_MGMT_MSG_PRC_LT_CTRL	,	V_19
+hf_prc_lt_ctrl_precoding_delay	,	V_11
+gint	,	T_8
+proto_item_add_subtree	,	F_3
+"wmx.mgmtmsg"	,	L_9
+"WiMax PRC-LT-CTRL Message"	,	L_6
+proto_register_field_array	,	F_8
+tvb	,	V_1
+"BS precoding application delay"	,	L_4
+guint	,	T_5
+offset	,	V_4
+ett	,	V_17
+dissector_add_uint	,	F_13
+tree	,	V_3
+handle	,	V_18
+packet_info	,	T_2
+ett_mac_mgmt_msg_prc_lt_ctrl_decoder	,	V_8
+"wimax.prc_lt_ctrl.precoding_delay"	,	L_5
+prc_lt_ctrl_item	,	V_5
+proto_register_subtree_array	,	F_10
+"Setup/Tear-down long-term precoding with feedback"	,	L_2
+array_length	,	F_9
+dissect_mac_mgmt_msg_prc_lt_ctrl_decoder	,	F_1
+proto_tree_add_item	,	F_4
+pinfo	,	T_3
+dissector_handle_t	,	T_9
+_U_	,	V_2
+vals_turn_on	,	V_15
+"wimax.prc_lt_ctrl.precoding"	,	L_3
+hf_register_info	,	T_7
+prc_lt_ctrl_tree	,	V_6
+VALS	,	F_6
+HFILL	,	V_16
+FT_UINT8	,	V_13
+BASE_DEC	,	V_14
+create_dissector_handle	,	F_12
+proto_item	,	T_6
+ENC_BIG_ENDIAN	,	V_10
+proto_tree	,	T_4
+hf	,	V_12

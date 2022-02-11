@@ -1,0 +1,175 @@
+"reassemble TCP streams\" in the TCP protocol settings."	,	L_39
+tvb_get_string	,	F_5
+json_tvb	,	V_20
+channel	,	V_18
+proto_register_protocol	,	F_29
+"Dissector TCP port"	,	L_41
+prefs_register_protocol	,	F_34
+CH_GLASTOPF_EVENTS	,	V_31
+tvb_reported_length	,	F_25
+hpfeeds_prefs_initialized	,	V_75
+len	,	V_6
+tcp_dissect_pdus	,	F_26
+col_set_str	,	F_18
+"hpfeeds.channel_len"	,	L_23
+gint	,	T_9
+dissect_hpfeeds_pdu	,	F_17
+"hpfeeds.channel"	,	L_21
+OP_SUBSCRIBE	,	V_49
+HPFEEDS_HDR_LEN	,	V_52
+tvb	,	V_1
+"Ident"	,	L_18
+CH_EINVAL	,	V_19
+"Reassemble HPFEEDS messages spanning multiple TCP segments"	,	L_35
+COL_INFO	,	V_41
+"Nonce"	,	L_10
+"hpfeeds.errmsg"	,	L_27
+"dissector_port"	,	L_40
+"Ident length"	,	L_24
+dissect_hpfeeds_auth_pdu	,	F_9
+col_clear	,	F_19
+cinfo	,	V_39
+proto_register_subtree_array	,	F_31
+val_to_str	,	F_21
+array_length	,	F_22
+hf_hpfeeds_ident	,	V_15
+hf_hpfeeds_secret	,	V_16
+"hpfeeds"	,	L_33
+"hpfeeds.payload"	,	L_15
+proto_tree_add_item	,	F_2
+hf_hpfeeds_server_len	,	V_11
+private_data	,	V_24
+call_dissector	,	F_13
+"hpfeeds.server"	,	L_17
+pinfo	,	V_17
+col_add_fstr	,	F_20
+dissector_handle_t	,	T_13
+hf_hpfeeds_payload	,	V_34
+"Whether the HPFEEDS dissector should reassemble messages spanning "	,	L_36
+"hpfeeds.ident_len"	,	L_25
+_U_	,	V_36
+"json"	,	L_44
+"HPFEEDS HoneyPot Feeds Protocol"	,	L_32
+dissect_hpfeeds_info_pdu	,	F_3
+CH_GEOLOC_EVENTS	,	V_32
+hf_hpfeeds_errmsg	,	V_4
+json_hdl	,	V_33
+hf_register_info	,	T_8
+HPFEEDS_OPCODE_OFFSET	,	V_37
+hpfeeds_module	,	V_70
+VALS	,	F_28
+"hpfeeds.opcode"	,	L_7
+prefs_register_bool_preference	,	F_35
+"Unknown value for opcode field"	,	L_31
+"Unknown (0x%02x)"	,	L_4
+PI_PROTOCOL	,	V_67
+"hpfeeds.server_len"	,	L_29
+COL_PROTOCOL	,	V_40
+FT_UINT8	,	V_57
+proto_tree_add_text	,	F_7
+BASE_DEC	,	V_64
+tvb_new_subset	,	F_12
+hpfeeds_desegment	,	V_55
+chan_vals	,	V_23
+proto_item	,	T_5
+expert_register_field_array	,	F_33
+ENC_NA	,	V_35
+msglen	,	V_50
+guint8	,	T_4
+ett_hpfeeds	,	V_10
+OP_ERROR	,	V_45
+"Server length"	,	L_28
+ti	,	V_7
+expert_add_info_format	,	F_23
+BASE_NONE	,	V_62
+"Secret"	,	L_12
+"hpfeeds.opcode.unknown"	,	L_30
+"Channel length"	,	L_22
+tvb_get_ntohl	,	F_16
+tvbuff_t	,	T_1
+CH_DIONAEA_CONNECTIONS	,	V_29
+opcode	,	V_38
+"Message Length"	,	L_8
+prefs_register_uint_preference	,	F_36
+"Channel"	,	L_20
+ei_register_info	,	T_10
+"Error message"	,	L_26
+expert_register_protocol	,	F_32
+gboolean	,	T_14
+proto_item_add_subtree	,	F_8
+module_t	,	T_11
+proto_register_field_array	,	F_30
+FT_BYTES	,	V_61
+OP_INFO	,	V_46
+hpfeeds_port_pref	,	V_73
+guint	,	T_3
+hpfeeds_dissector_port	,	V_76
+offset	,	V_3
+ett	,	V_65
+ei	,	V_66
+wmem_packet_scope	,	F_6
+hf_hpfeeds_msg_length	,	V_54
+expert_module_t	,	T_12
+dissector_add_uint	,	F_39
+hpfeeds_handle	,	V_74
+tree	,	V_2
+"Opcode"	,	L_6
+CH_DIONAEA_SHELLCODE	,	V_27
+"Set the TCP port for HPFEEDS messages"	,	L_42
+hf_hpfeeds_ident_len	,	V_14
+CH_KIPPO_SESSIONS	,	V_30
+hf_hpfeeds_opcode	,	V_43
+proto_reg_handoff_hpfeeds	,	V_72
+packet_info	,	T_6
+OP_AUTH	,	V_47
+"To use this option, you must also enable \"Allow subdissectors to "	,	L_38
+tvb_get_guint8	,	F_4
+CH_DIONAEA_CAPTURE	,	V_25
+dissect_hpfeeds_error_pdu	,	F_1
+CH_DIONAEA_DCE	,	V_26
+proto_hpfeeds	,	V_53
+dissector_delete_uint	,	F_38
+"Unknown value %02x for opcode field"	,	L_5
+EXPFILL	,	V_69
+BASE_DEC_HEX	,	V_58
+proto_register_hpfeeds	,	F_27
+"Payload"	,	L_14
+strptr	,	V_9
+data_subtree	,	V_8
+"HPFEEDS"	,	L_2
+dissect_hpfeeds_publish_pdu	,	F_10
+gint8	,	T_7
+"desegment_hpfeeds_messages"	,	L_34
+"hpfeeds.secret"	,	L_13
+ei_hpfeeds_opcode_unknown	,	V_44
+FT_STRING	,	V_63
+dissect_hpfeeds_subscribe_pdu	,	F_14
+"Type %s"	,	L_3
+"Server"	,	L_16
+str_to_val	,	F_11
+hf_hpfeeds_server	,	V_12
+get_hpfeeds_pdu_len	,	F_15
+HFILL	,	V_59
+hf_hpfeeds_channel	,	V_22
+opcode_vals	,	V_42
+CH_DIONAEA_UINQUE	,	V_28
+hpfeeds_tree	,	V_51
+expert_hpfeeds	,	V_71
+"multiple TCP segments. "	,	L_37
+dissect_hpfeeds	,	F_24
+"hpfeeds.nonce"	,	L_11
+hf_hpfeeds_chan_len	,	V_21
+find_dissector	,	F_40
+create_dissector_handle	,	F_37
+PI_WARN	,	V_68
+ENC_BIG_ENDIAN	,	V_5
+OP_PUBLISH	,	V_48
+gint16	,	T_15
+hf_hpfeeds_nonce	,	V_13
+FT_UINT32	,	V_60
+"Broker: %s"	,	L_1
+"tcp.port"	,	L_43
+"hpfeeds.msglen"	,	L_9
+proto_tree	,	T_2
+hf	,	V_56
+"hpfeeds.ident"	,	L_19

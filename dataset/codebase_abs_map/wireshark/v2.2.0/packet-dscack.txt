@@ -1,0 +1,69 @@
+register_dissector	,	F_18
+docsis_tlv_handle	,	V_18
+data	,	T_4
+proto_register_protocol	,	F_14
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_6
+tvb_get_ntohs	,	F_2
+tvb_new_subset_remaining	,	F_9
+"DOCSIS Dynamic Service Change Acknowledgement"	,	L_9
+gint	,	T_9
+docsis_conf_code	,	V_12
+proto_item_add_subtree	,	F_7
+proto_register_field_array	,	F_15
+hf_docsis_dscack_response	,	V_17
+tvb	,	V_1
+"Transaction Id"	,	L_4
+ett	,	V_24
+COL_INFO	,	V_11
+transid	,	V_7
+dissector_add_uint	,	F_21
+"docsis_mgmt"	,	L_13
+tree	,	V_3
+it	,	V_5
+FT_UINT16	,	V_20
+packet_info	,	T_2
+tvb_get_guint8	,	F_3
+"Dynamic Service Change Ack ID = %u (%s)"	,	L_1
+cinfo	,	V_10
+tvb_captured_length	,	F_11
+proto_register_subtree_array	,	F_17
+val_to_str	,	F_5
+array_length	,	F_16
+proto_docsis_dscack	,	V_13
+next_tvb	,	V_9
+proto_tree_add_item	,	F_8
+call_dissector	,	F_10
+pinfo	,	V_2
+col_add_fstr	,	F_4
+dissector_handle_t	,	T_10
+"Service Identifier"	,	L_6
+_U_	,	V_4
+"docsis_dscack"	,	L_11
+"docsis_dscack.tranid"	,	L_5
+"%d"	,	L_2
+hf_docsis_dscack_tranid	,	V_15
+hf_register_info	,	T_8
+"DOCSIS DSC-ACK"	,	L_10
+VALS	,	F_13
+HFILL	,	V_22
+"docsis_tlv"	,	L_12
+"docsis_dscack.confcode"	,	L_8
+ett_docsis_dscack	,	V_14
+"Confirmation Code"	,	L_7
+proto_register_docsis_dscack	,	F_12
+guint16	,	T_6
+"DSC Acknowledge"	,	L_3
+dscack_tree	,	V_6
+FT_UINT8	,	V_23
+find_dissector	,	F_20
+BASE_DEC	,	V_21
+proto_item	,	T_5
+ENC_BIG_ENDIAN	,	V_16
+guint8	,	T_7
+docsis_dscack_handle	,	V_25
+response	,	V_8
+dissect_dscack	,	F_1
+proto_reg_handoff_docsis_dscack	,	F_19
+proto_tree	,	T_3
+hf	,	V_19

@@ -1,0 +1,427 @@
+dissect_csnp_lsp_entries	,	F_23
+ei_nlsp_type	,	V_137
+hf_nlsp_lsp_id_pseudonode_id	,	V_75
+hf_nlsp_hello_sending_router_system_id	,	V_33
+hf_nlsp_lsp_link_info_clv_flags_cost_present	,	V_53
+"Source ID system ID"	,	L_148
+opts	,	V_5
+hf_nlsp_svcs_info_hops_to_reach_the_service	,	V_62
+FT_ETHER	,	V_161
+", System ID: %s"	,	L_7
+hf_nlsp_lsp_router_type	,	V_83
+"Unknown NLSP version (%d vs 1)"	,	L_26
+TFS	,	F_39
+guint32	,	T_9
+FT_BOOLEAN	,	V_143
+dissect_psnp_lsp_entries	,	F_24
+hf_nlsp_psnp_lsp_id_pseudonode_id	,	V_96
+clv_l1_psnp_opts	,	V_113
+"Remaining Lifetime"	,	L_125
+ei_nlsp_short_packet	,	V_12
+array_length	,	F_42
+"nlsp"	,	L_175
+hf_nlsp_lsp_checksum	,	V_78
+ENC_ASCII	,	V_51
+"Circuit Type"	,	L_46
+hf_nlsp_minor_version	,	V_126
+"Unknown (%u)"	,	L_25
+"nlsp.hello_local_mtu.mtu_size"	,	L_80
+"nlsp.csnp.lsp_id_lsp_number"	,	L_136
+hf_register_info	,	T_11
+"Long packet"	,	L_169
+hf_nlsp_ext_routes_rip_delay	,	V_70
+guint16	,	T_8
+"nlsp.header_length"	,	L_30
+tfs_internal_external	,	V_160
+hf_nlsp_header_length	,	V_125
+"Router Type"	,	L_63
+sequence_number	,	V_72
+q	,	V_10
+"Short management info entry"	,	L_10
+"nlsp.psnp.lsp_sequence_number"	,	L_145
+BASE_NONE	,	V_162
+"Router System ID"	,	L_99
+dissect	,	V_13
+nlsp_hello_state_vals	,	V_145
+"nlsp.svcs_info.type"	,	L_117
+hf_nlsp_csnp_lsp_id_source_id	,	V_88
+"%u bits/s"	,	L_12
+"ipx.socket"	,	L_176
+"nlsp.type"	,	L_36
+NLSP_TYPE_L1_PSNP	,	V_136
+NLSP_LSP_PARTITION_MASK	,	V_153
+hf_nlsp_neighbor	,	V_22
+NLSP_TYPE_L1_HELLO	,	V_134
+"nlsp.csnp.end_lsp_id_source_id"	,	L_159
+hf_nlsp_lsp_id_system_id	,	V_74
+"nlsp.psnp.remaining_lifetime"	,	L_146
+BASE_HEX	,	V_140
+"nlsp.csnp.start_lsp_id_lsp_number"	,	L_157
+col_add_str	,	F_31
+"Router Pseudonode ID"	,	L_101
+"nlsp.area_address.mask"	,	L_76
+ett_nlsp_hello_clv_unknown	,	V_44
+proto_item_add_subtree	,	F_30
+proto_register_field_array	,	F_41
+nlsp_tree	,	V_116
+"If set, this router supports the optional Partition Repair function"	,	L_58
+ei	,	V_180
+"Multi-homed Non-routing Server"	,	L_33
+dissector_add_uint	,	F_48
+hf_nlsp_mgt_info_node_number	,	V_47
+"Sequence Number"	,	L_52
+FT_UINT16	,	V_144
+ett_nlsp_lsp_clv_unknown	,	V_85
+hf_nlsp_type	,	V_131
+"Local WAN Circuit ID"	,	L_83
+tvb_captured_length	,	F_36
+nlsp_handle	,	V_187
+hf_nlsp_lsp_link_info_clv_flags_cost	,	V_55
+hf_nlsp_remaining_lifetime	,	V_73
+"nlsp.mgt_info.name_length"	,	L_96
+"LSP ID system ID"	,	L_127
+hf_nlsp_csnp_lsp_id_lsp_number	,	V_90
+hf_nlsp_lsp_p	,	V_80
+tvb_ether_to_str	,	F_13
+tree_text	,	V_16
+expert_add_info	,	F_35
+", Source ID: %s"	,	L_21
+"nlsp.lsp_id_system_id"	,	L_128
+"nlsp.hello.multicast"	,	L_44
+hf_nlsp_psnp_lsp_id_source_id	,	V_95
+"Area address mask"	,	L_75
+FT_STRING	,	V_163
+hf_nlsp_link_info_throughput	,	V_60
+length	,	V_9
+"End LSP ID source ID"	,	L_158
+hf_nlsp_packet_length	,	V_37
+PI_WARN	,	V_185
+"nlsp.lsp.attached_flag"	,	L_60
+nlsp_dissect_nlsp_psnp	,	F_26
+"Short packet"	,	L_167
+FT_UINT32	,	V_152
+"nlsp.lsp.lspdbol"	,	L_62
+dissect_hello_local_mtu_clv	,	F_10
+proto_nlsp	,	V_122
+"Name length"	,	L_95
+"Unknown NLSP packet type"	,	L_173
+hf	,	V_138
+PROTO_CHECKSUM_NO_FLAGS	,	V_79
+"nlsp.csnp.end_lsp_id_pseudonode_id"	,	L_161
+"nlsp.csnp.lsp_id_pseudonode_id"	,	L_135
+"nlsp.mgt_info.network_number"	,	L_90
+"nlsp.svcs_info.hops_to_reach_the_service"	,	L_111
+"Socket"	,	L_114
+col_append_fstr	,	F_12
+ett_nlsp_lsp_clv_svcs_info	,	V_176
+hf_nlsp_link_info_media_type	,	V_61
+col_set_str	,	F_28
+"nlsp.ext_routes.rip_delay"	,	L_124
+hf_nlsp_lsp_lspdbol	,	V_82
+NLSP_LSP_OVERFLOW_MASK	,	V_156
+ett_nlsp_lsp_info	,	V_172
+"nlsp.mgt_info.node_number"	,	L_92
+clv_hello_opts	,	V_43
+", Sequence: 0x%08x, Lifetime: %us"	,	L_17
+hf_nlsp_major_version	,	V_132
+"Source ID pseudonode ID"	,	L_150
+hf_nlsp_csnp_remaining_lifetime	,	V_92
+packet_length	,	V_27
+val_to_str	,	F_32
+hf_nlsp_hello_multicast	,	V_31
+dissector_handle_t	,	T_15
+hf_nlsp_svcs_info_socket	,	V_65
+"Cost metric"	,	L_67
+hf_nlsp_csnp_source_id_pseudonode_id	,	V_102
+packet_type_flags	,	V_119
+"nlsp.csnp.source_id_system_id"	,	L_149
+"nlsp.lsp.link_info_clv.flags.cost_present"	,	L_66
+"nlsp.ext_routes.hops"	,	L_121
+proto_tree_add_checksum	,	F_22
+hello_type	,	V_25
+VALS	,	F_38
+nlsp_router_type_vals	,	V_157
+"RIP delay"	,	L_123
+"nlsp.mgt_info.ipx_version_number"	,	L_94
+nlsp_clv_handle_t	,	T_4
+"Short external routes entry"	,	L_14
+hf_nlsp_lsp_id_lsp_number	,	V_76
+nlsp_major_version	,	V_117
+"nlsp.neighbor"	,	L_78
+hf_nlsp_csnp_end_lsp_id_pseudonode_id	,	V_107
+BASE_DEC	,	V_142
+", End LSP ID: %s"	,	L_23
+ENC_NA	,	V_23
+subtree	,	V_86
+"nlsp.hello.local_wan_circuit_id"	,	L_84
+hf_nlsp_hello_priority	,	V_38
+proto_register_nlsp	,	F_37
+ett_nlsp	,	V_123
+ett_nlsp_csnp_lsp_entry	,	V_87
+hf_nlsp_mgt_info_name_length	,	V_49
+clv_l1_csnp_opts	,	V_109
+"%u ticks"	,	L_15
+"Name"	,	L_97
+name_length	,	V_45
+"nlsp.hello.designated_router_system_id"	,	L_86
+"Short link info entry"	,	L_6
+"nlsp.unknown_code"	,	L_72
+"nlsp.lsp_id_lsp_number"	,	L_132
+"nlsp.lsp.checksum"	,	L_55
+expert_register_protocol	,	F_44
+nlsp_dissect_nlsp_hello	,	F_11
+"nlsp.psnp.lsp_id_pseudonode_id"	,	L_143
+"nlsp.hello.sending_router_system_id"	,	L_82
+"nlsp.link_info.router_pseudonode_id"	,	L_102
+"Delay"	,	L_104
+hf_nlsp_svcs_info_type	,	V_66
+"LSP Sequence Number"	,	L_137
+ett	,	V_168
+hf_nlsp_csnp_lsp_sequence_number	,	V_91
+novell_server_vals_ext	,	V_167
+ett_nlsp_psnp_lsp_entries	,	V_179
+"nlsp.link_info.media_type"	,	L_109
+packet_info	,	T_2
+"Major Version"	,	L_37
+"nlsp.link_info.delay"	,	L_105
+hf_nlsp_hello_local_mtu_mtu_size	,	V_24
+"LSP ID source ID"	,	L_133
+EXPFILL	,	V_183
+code	,	V_8
+"nlsp.hello.state"	,	L_42
+tree_id	,	V_15
+ipx_socket_vals_ext	,	V_166
+expert_nlsp	,	V_186
+"Short CSNP header entry"	,	L_18
+"nlsp.lsp.link_info_clv.flags.cost_metric"	,	L_68
+hf_nlsp_psnp_source_id_system_id	,	V_111
+"Area address network number"	,	L_73
+hf_nlsp_psnp_remaining_lifetime	,	V_99
+"Minor Version"	,	L_31
+", LSP ID: %s"	,	L_16
+"nlsp.long_packet"	,	L_168
+HFILL	,	V_141
+PI_MALFORMED	,	V_181
+"nlsp.major_version.unknown"	,	L_170
+"Designated Router System ID"	,	L_85
+"nlsp.link_info.throughput"	,	L_107
+ei_nlsp_major_version	,	V_133
+create_dissector_handle	,	F_47
+proto_tree_add_subtree_format	,	F_4
+"Multicast Routing"	,	L_43
+"nlsp.link_info.mtu_size"	,	L_103
+dissect_lsp_ext_routes_clv	,	F_20
+", Start LSP ID: %s"	,	L_22
+"End LSP ID LSP number"	,	L_162
+NLSP_TYPE_WAN_HELLO	,	V_29
+type_item	,	V_115
+proto_register_protocol	,	F_40
+hf_nlsp_hello_local_wan_circuit_id	,	V_39
+"Partition Repair"	,	L_56
+len	,	V_6
+hf_nlsp_mgt_info_network_number	,	V_46
+ett_nlsp_lsp_clv_mgt_info	,	V_174
+gint	,	T_12
+hf_nlsp_psnp_lsp_id_lsp_number	,	V_97
+"nlsp.psnp.lsp_checksum"	,	L_147
+hf_nlsp_lsp_attached_flag	,	V_81
+"nlsp.remaining_lifetime"	,	L_126
+hf_nlsp_psnp_source_id_pseudonode_id	,	V_112
+remaining_lifetime	,	V_71
+tvb	,	V_1
+COL_INFO	,	V_35
+hf_nlsp_hello_circuit_type	,	V_32
+hf_nlsp_psnp_lsp_checksum	,	V_100
+"Short CLV header (%d vs %d)"	,	L_1
+NLSP_LSP_ATT_MASK	,	V_155
+proto_tree_add_expert_format	,	F_3
+ett_nlsp_hello_clv_area_addr	,	V_169
+cinfo	,	V_34
+PI_ERROR	,	V_182
+"Start LSP ID source ID"	,	L_152
+flags_cost	,	V_52
+"nlsp.hello.priority"	,	L_51
+"End LSP ID pseudonode ID"	,	L_160
+NLSP_HELLO_PRIORITY_MASK	,	V_151
+hf_nlsp_unknown_code	,	V_18
+"nlsp.lsp.link_info_clv.flags.cost"	,	L_70
+hf_nlsp_mgt_info_name	,	V_50
+"nlsp.svcs_info.node_number"	,	L_113
+"nlsp.lsp.partition_repair"	,	L_57
+"nlsp.csnp.remaining_lifetime"	,	L_139
+"nlsp.mgt_info.name"	,	L_98
+"%s (%u)"	,	L_2
+proto_tree_add_boolean	,	F_33
+"Node number"	,	L_91
+"Start LSP ID pseudonode ID"	,	L_154
+"nlsp.nr"	,	L_34
+holding_timer	,	V_28
+"Short area address entry"	,	L_4
+"PDU Header Length"	,	L_29
+"Start LSP ID LSP number"	,	L_156
+COL_PROTOCOL	,	V_121
+"LSP ID pseudonode ID"	,	L_129
+"nlsp.csnp.start_lsp_id_source_id"	,	L_153
+hf_nlsp_lsp_sequence_number	,	V_77
+"nlsp.lsp_id_pseudonode_id"	,	L_130
+hf_nlsp_ext_routes_network_number	,	V_69
+PACKET_TYPE_MASK	,	V_127
+"nlsp.type.unknown"	,	L_172
+media_type_vals	,	V_164
+"Service Name"	,	L_118
+ett_nlsp_hello_clv_neighbors	,	V_170
+guint8	,	T_6
+ett_nlsp_csnp_lsp_entries	,	V_178
+ti	,	V_17
+"NLSP"	,	L_24
+"packet header length %d went beyond packet"	,	L_9
+"nlsp.area_address.network_number"	,	L_74
+tvb_get_ntohl	,	F_18
+"NetWare Link Services Protocol Discriminator"	,	L_27
+"Cost present"	,	L_65
+"nlsp.lsp.router_type"	,	L_64
+"Network number"	,	L_89
+tvbuff_t	,	T_1
+hf_nlsp_hello_designated_router_system_id	,	V_40
+NLSP_HELLO_MULTICAST_MASK	,	V_148
+tvb_get_ntohs	,	F_14
+"Media type"	,	L_108
+NLSP_HELLO_CTYPE_MASK	,	V_150
+"nlsp.svcs_info.network_number"	,	L_112
+"nlsp.link_info.router_system_id"	,	L_100
+optcode	,	V_14
+"nlsp.ext_routes.network_number"	,	L_122
+"Unknown NLSP version"	,	L_171
+nlsp_header_length	,	V_118
+"LSP ID LSP number"	,	L_131
+ett_nlsp_psnp_lsp_entry	,	V_94
+tvb_get_guint8	,	F_2
+header_length	,	V_26
+ett_nlsp_psnp_clv_unknown	,	V_114
+"State"	,	L_41
+"Designated Router Pseudonode ID"	,	L_87
+"nlsp.psnp.lsp_id_source_id"	,	L_142
+hf_nlsp_csnp_lsp_id_pseudonode_id	,	V_89
+"Attached Flag"	,	L_59
+ett_nlsp_lsp_clv_area_addr	,	V_173
+hf_nlsp_nr	,	V_130
+"nlsp.csnp.start_lsp_id_pseudonode_id"	,	L_155
+"nlsp.psnp.source_id_system_id"	,	L_164
+"LSP checksum"	,	L_140
+NLSP_TYPE_L1_LSP	,	V_129
+"nlsp.short_packet"	,	L_166
+hf_nlsp_hello_state	,	V_30
+ei_nlsp_long_packet	,	V_42
+"nlsp.csnp.lsp_checksum"	,	L_141
+hf_nlsp_hello_designated_router_pseudonode_id	,	V_41
+hf_nlsp_csnp_start_lsp_id_pseudonode_id	,	V_104
+"Short PSNP header entry"	,	L_20
+hf_nlsp_irpd	,	V_124
+hf_nlsp_psnp_lsp_sequence_number	,	V_98
+proto_tree_add_uint_format_value	,	F_5
+ENC_BIG_ENDIAN	,	V_20
+hf_nlsp_svcs_info_node_number	,	V_64
+hf_nlsp_svcs_info_network_number	,	V_63
+hf_nlsp_link_info_mtu_size	,	V_58
+hf_nlsp_csnp_start_lsp_id_source_id	,	V_103
+"nlsp.hello.circuit_type"	,	L_47
+"nlsp.major_version"	,	L_38
+tfs_no_yes	,	V_159
+hf_nlsp_csnp_source_id_system_id	,	V_101
+"nlsp.csnp.lsp_id_source_id"	,	L_134
+"nlsp.sequence_number"	,	L_53
+BASE_EXT_STRING	,	V_165
+hf_nlsp_csnp_start_lsp_id_lsp_number	,	V_105
+hf_nlsp_ext_routes_hops	,	V_68
+nlsp_hello_circuit_type_vals	,	V_149
+"Cost"	,	L_69
+"nlsp.csnp.source_id_pseudonode_id"	,	L_151
+"MTU Size"	,	L_79
+dissect_neighbor_clv	,	F_9
+ett_nlsp_hello_local_mtu	,	V_171
+"If set, this router supports multicast routing"	,	L_45
+col_clear	,	F_29
+dissect_lsp_svcs_info_clv	,	F_19
+"%uus"	,	L_11
+proto_register_subtree_array	,	F_43
+"Hops"	,	L_120
+hf_nlsp_area_address_network_number	,	V_19
+"nlsp.svcs_info.socket"	,	L_115
+packet_type	,	V_120
+"Checksum"	,	L_54
+proto_tree_add_item	,	F_8
+pinfo	,	V_2
+"Priority"	,	L_50
+_U_	,	V_7
+"IPX version number"	,	L_93
+hf_nlsp_svcs_info_service_name	,	V_67
+nlsp_dissect_clvs	,	F_1
+"NetWare Link Services Protocol"	,	L_174
+nlsp_packet_type_vals	,	V_128
+dissect_lsp_mgt_info_clv	,	F_16
+hf_nlsp_csnp_lsp_checksum	,	V_93
+"LSP Database Overloaded"	,	L_61
+"nlsp.irpd"	,	L_28
+PI_PROTOCOL	,	V_184
+dissect_lsp_link_info_clv	,	F_17
+dissect_nlsp	,	F_27
+FT_UINT8	,	V_139
+proto_item	,	T_7
+tfs_supported_not_supported	,	V_147
+expert_register_field_array	,	F_45
+nlsp_dissect_nlsp_lsp	,	F_21
+clv_tree	,	V_11
+"Packet Length"	,	L_39
+expert_add_info_format	,	F_34
+"Sending Router System ID"	,	L_81
+hf_nlsp_lsp_link_info_clv_flags_cost_metric	,	V_54
+hf_nlsp_link_info_delay	,	V_59
+"Packet Type"	,	L_35
+data	,	T_10
+"Holding Timer"	,	L_48
+hf_nlsp_hello_holding_timer	,	V_36
+"Unknown code"	,	L_71
+ett_nlsp_lsp_clv_link_info	,	V_175
+hf_nlsp_mgt_info_ipx_version_number	,	V_48
+ett_nlsp_lsp_clv_ext_routes	,	V_177
+ei_register_info	,	T_13
+"nlsp.psnp.lsp_id_lsp_number"	,	L_144
+"Hops to reach the service"	,	L_110
+"nlsp.packet_length"	,	L_40
+"%u (%u)"	,	L_3
+offset	,	V_4
+nlsp_dissect_nlsp_csnp	,	F_25
+expert_module_t	,	T_14
+tree	,	V_3
+"Short services info entry"	,	L_13
+NLSP_LSP_ROUTER_TYPE_MASK	,	V_158
+"LSP-ID: %s, Sequence: 0x%08x, Lifetime: %5us, Checksum: 0x%04x"	,	L_19
+"nlsp.hello.holding_timer"	,	L_49
+"nlsp.svcs_info.service_name"	,	L_119
+"Short neighbor entry"	,	L_5
+hf_nlsp_csnp_end_lsp_id_lsp_number	,	V_108
+proto_reg_handoff_nlsp	,	F_46
+proto_tree_add_uint	,	F_15
+"Throughput"	,	L_106
+dissect_area_address_clv	,	F_7
+hf_nlsp_area_address_mask	,	V_21
+"%us"	,	L_8
+"nlsp.csnp.end_lsp_id_lsp_number"	,	L_163
+clv_l1_lsp_opts	,	V_84
+"nlsp.minor_version"	,	L_32
+hf_nlsp_link_info_router_system_id	,	V_56
+NLSP_TYPE_L1_CSNP	,	V_135
+ett_nlsp_csnp_clv_unknown	,	V_110
+"Neighbor"	,	L_77
+unknown_tree_id	,	T_5
+hf_nlsp_link_info_router_pseudonode_id	,	V_57
+proto_item_set_len	,	F_6
+hf_nlsp_csnp_end_lsp_id_source_id	,	V_106
+"nlsp.csnp.lsp_sequence_number"	,	L_138
+IPX_SOCKET_NLSP	,	V_188
+"nlsp.psnp.source_id_pseudonode_id"	,	L_165
+nlsp_attached_flag_vals	,	V_154
+"Type"	,	L_116
+proto_tree	,	T_3
+NLSP_HELLO_STATE_MASK	,	V_146
+"nlsp.hello.designated_router_pseudonode_id"	,	L_88

@@ -1,0 +1,155 @@
+nsh_next_proto	,	V_18
+"nsh.contextheader"	,	L_33
+"Length MUST be of value 0x6 for MD Type equal to 0x1"	,	L_3
+"Next Protocol"	,	L_23
+proto_register_protocol	,	F_19
+length_pi	,	V_19
+nsh_tree	,	V_2
+"MD Type"	,	L_20
+"vxlan.next_proto"	,	L_55
+nsh_next_protocols	,	V_48
+tvb_new_subset_remaining	,	F_13
+"Version"	,	L_6
+"Context Header"	,	L_32
+"Length must be at least 0x1 for NSH Base Header"	,	L_5
+col_set_str	,	F_6
+gint	,	T_9
+tvb_get_bits8	,	F_4
+"nsh.metadatareservedbits"	,	L_41
+tvb_captured_length_remaining	,	F_12
+"Critical Metadata Bit"	,	L_13
+"nsh.si"	,	L_30
+tvb	,	V_1
+MD_TYPE_2	,	V_38
+MD_TYPE_1	,	V_36
+guint32	,	T_5
+COL_INFO	,	V_23
+hf_nsh_oam	,	V_28
+ei_nsh_length_invalid	,	V_37
+"Length MUST be of value 0x2 or greater for MD Type equal to 0x2"	,	L_4
+proto_nsh	,	V_25
+"Type of metadata"	,	L_40
+hf_nsh_metadata_type	,	V_10
+"nsh.metadata"	,	L_46
+cinfo	,	V_21
+proto_register_subtree_array	,	F_22
+nsh_info	,	V_41
+"nsh.length.invalid"	,	L_48
+proto_tree_add_item_ret_uint	,	F_8
+"nsh.length"	,	L_18
+"SI"	,	L_29
+array_length	,	F_21
+"nsh.reservedbits"	,	L_15
+"SPI"	,	L_26
+next_tvb	,	V_20
+hf_nsh_metadata_reservedbits	,	V_11
+proto_tree_add_item	,	F_2
+"TLV Class"	,	L_35
+"gre.proto"	,	L_54
+pinfo	,	V_14
+dissector_handle_t	,	T_11
+_U_	,	V_16
+"ethertype"	,	L_53
+"Variable length metadata"	,	L_47
+nsh_bytes_len	,	V_6
+hf_register_info	,	T_8
+"Reserved Bits within Variable Length Metadata header"	,	L_42
+VALS	,	F_18
+"Service Path Identifier"	,	L_28
+PI_PROTOCOL	,	V_54
+COL_PROTOCOL	,	V_22
+hf_nsh_length	,	V_31
+"TLV class describes the scope of the metadata type field"	,	L_37
+FT_UINT8	,	V_47
+BASE_DEC	,	V_45
+"Protocol type of the original packet"	,	L_25
+proto_item	,	T_6
+"OAM Bit"	,	L_10
+expert_register_field_array	,	F_24
+"nsh.CBit"	,	L_12
+ENC_NA	,	V_5
+"NSH Next Protocol"	,	L_52
+"nsh"	,	L_50
+ti	,	V_24
+expert_add_info_format	,	F_11
+BASE_NONE	,	V_51
+"Service Index"	,	L_31
+"nsh.metadatalen"	,	L_43
+dissect_nsh	,	F_5
+VXLAN_NSH	,	V_60
+register_dissector_table	,	F_25
+"nsh.mdtype"	,	L_21
+"NSH"	,	L_1
+data	,	T_4
+tvbuff_t	,	T_1
+"Invalid total length"	,	L_49
+ETHERTYPE_NSH	,	V_59
+"nsh.nextproto"	,	L_24
+BASE_HEX	,	V_46
+FT_UINT24	,	V_49
+ei_register_info	,	T_10
+expert_register_protocol	,	F_23
+proto_item_add_subtree	,	F_7
+"nsh.spi"	,	L_27
+proto_register_field_array	,	F_20
+nsh_handle	,	V_58
+"Network Service Header"	,	L_2
+FT_BYTES	,	V_50
+"Variable Metadata"	,	L_45
+"Length"	,	L_17
+offset	,	V_3
+ett	,	V_52
+ei	,	V_53
+expert_module_t	,	T_7
+dissector_add_uint	,	F_28
+tree	,	V_15
+"Reserved bits within NSH Base Header"	,	L_16
+"nsh.next_proto"	,	L_51
+FT_UINT16	,	V_42
+packet_info	,	T_3
+"Manadatory Context Header"	,	L_34
+hf_nsh_context_header	,	V_4
+tvb_get_guint8	,	F_10
+tvb_captured_length	,	F_16
+hf_nsh_metadata_class	,	V_8
+proto_register_nsh	,	F_17
+"Total length, in 4-byte words, of NSH including Base, Service Path headers and optional variable TLVs"	,	L_19
+hf_nsh_service_index	,	V_35
+"nsh.metadatatype"	,	L_39
+EXPFILL	,	V_56
+BASE_DEC_HEX	,	V_43
+"nsh.metadataclass"	,	L_36
+proto_reg_handoff_nsh	,	F_26
+hf_nsh_critical_metadata	,	V_29
+hf_nsh_service_pathID	,	V_34
+hf_nsh_next_proto	,	V_33
+expert_nsh	,	V_40
+hf_nsh_reservedbits	,	V_30
+hf_nsh_md_type	,	V_32
+subdissector_table	,	V_39
+hf_nsh_version	,	V_27
+hf_nsh_metadata	,	V_13
+call_data_dissector	,	F_15
+"Reserved Bits"	,	L_14
+dissect_nsh_md_type_1	,	F_1
+HFILL	,	V_44
+dissect_nsh_md_type_2	,	F_3
+type2_metadata_len	,	V_7
+dissector_try_uint	,	F_14
+"Length of the variable metadata in 4-byte words"	,	L_44
+"nsh.Obit"	,	L_9
+create_dissector_handle	,	F_27
+PI_WARN	,	V_55
+NSH_NSH	,	V_61
+"O Bit"	,	L_8
+proto_item_set_len	,	F_9
+ENC_BIG_ENDIAN	,	V_9
+"Metadata Type defines the format of the metadata being carried"	,	L_22
+hf_nsh_metadata_length	,	V_12
+FT_UINT32	,	V_57
+"Type"	,	L_38
+proto_tree	,	T_2
+ett_nsh	,	V_26
+md_type	,	V_17
+"nsh.version"	,	L_7
+"C Bit"	,	L_11

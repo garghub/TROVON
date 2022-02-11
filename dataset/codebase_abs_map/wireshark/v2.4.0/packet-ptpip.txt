@@ -1,0 +1,221 @@
+dissect_ptpIP_data	,	F_16
+ptpIP_module	,	V_99
+PTPIP_EVENT	,	V_23
+"ptpip.len"	,	L_26
+hf_ptpIP_guid	,	V_78
+proto_register_protocol	,	F_40
+PTPIP_START_DATA_PACKET	,	V_24
+"Data Phase Info"	,	L_37
+dataLen	,	V_62
+"CloseSession"	,	L_12
+"Version"	,	L_33
+dissect_ptpIP_end_data	,	F_17
+dissect_ptpIP_start_data	,	F_15
+gint	,	T_12
+"PTP/IP"	,	L_1
+"GetDeviceInfo"	,	L_11
+tvb_captured_length_remaining	,	F_2
+"Connection Number"	,	L_35
+tvb	,	V_1
+ett_ptpIP	,	V_13
+guint32	,	T_7
+COL_INFO	,	V_11
+"Event Packet "	,	L_15
+version	,	V_71
+hf_ptp_vendor_opCode	,	V_35
+cinfo	,	V_9
+tvb_get_letoh64	,	F_29
+ptp_opcode_canon_names_ext	,	V_40
+hf_ptpIP_name	,	V_69
+array_length	,	F_42
+PTPIP_DATA_PACKET	,	V_25
+FT_STRINGZ	,	V_89
+hf_ptp_vendor_respCode	,	V_94
+"ptpip.opcode.param.sessionid"	,	L_50
+DISSECTOR_ASSERT	,	F_23
+"ptpip.version"	,	L_34
+col_append_str	,	F_31
+dissect_ptpIP_init_command_request	,	F_8
+prefs_register_enum_preference	,	F_45
+hf_register_info	,	T_13
+ptp_respcode_canon_names	,	V_56
+"ptpip.respcode"	,	L_42
+"ptpip.datalen"	,	L_48
+"ptpip"	,	L_52
+"%s (0x%04x)"	,	L_9
+"Host Name"	,	L_31
+guint16	,	T_6
+COL_PROTOCOL	,	V_10
+PTPIP_CMD_RESPONSE	,	V_22
+hf_ptp_eventCode	,	V_61
+PTP_VENDOR_MTP	,	V_45
+"Data Packet "	,	L_18
+guint8	,	T_11
+tvb_bytes_to_str	,	F_37
+BASE_NONE	,	V_88
+ptp_respcode_names	,	V_59
+ptp_tree	,	V_6
+value_string	,	T_9
+PTPIP_INIT_COMMAND_REQUEST	,	V_17
+"Transaction ID"	,	L_45
+PTP_VENDOR_NIKON	,	V_41
+"Event Code"	,	L_43
+proto_register_ptpip	,	F_38
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_4
+pref_hsp_role	,	V_100
+hf_ptpIP_len	,	V_14
+opcode	,	V_29
+ptpip_pktType_names_ext	,	V_86
+val_to_str_ext_const	,	F_25
+"Init Command Ack"	,	L_4
+BASE_HEX	,	V_84
+"Camera vendor"	,	L_54
+connectionNumber	,	V_27
+PTPIP_CMD_REQUEST	,	V_21
+ptp_respcode_ek_names	,	V_55
+proto_item_add_subtree	,	F_5
+module_t	,	T_14
+hf_ptpIP_pktType	,	V_16
+proto_register_field_array	,	F_41
+FT_BYTES	,	V_87
+PTP_OC_GetDeviceInfo	,	V_50
+G_GUINT64_CONSTANT	,	F_30
+dissect_ptpIP_protocol_version	,	F_20
+ptp_respcode_nikon_names	,	V_57
+FT_UINT16	,	V_92
+"Response Code"	,	L_41
+name	,	V_67
+guid	,	V_76
+"OpenSession"	,	L_20
+"End Data Packet "	,	L_19
+dissect_ptpIP_operation_request	,	F_12
+"Operation Request Packet "	,	L_8
+"Operation Code"	,	L_39
+BASE_DEC_HEX	,	V_96
+transactionID	,	V_65
+ENC_UTF_16	,	V_70
+FT_STRING	,	V_91
+hf_ptp_totalDataLength	,	V_63
+"Total Data Length"	,	L_47
+STR_UNICODE	,	V_90
+dissect_ptpIP_init_event_request	,	F_10
+val_to_str_const	,	F_28
+protoVersion	,	V_72
+pref_vendor	,	V_33
+proto_tree_add_uint_format_value	,	F_24
+dissect_ptpIP_init_command_ack	,	F_9
+FT_UINT32	,	V_81
+dissect_ptp_transactionID	,	F_27
+PTPIP_END_DATA_PACKET	,	V_26
+PTP_VENDOR_UNKNOWN	,	V_34
+guint64	,	T_10
+hf	,	V_80
+majorVersion	,	V_73
+"ptpip.connection"	,	L_36
+prefs_register_protocol	,	F_44
+"ptpip.phaseinfo"	,	L_38
+col_append_fstr	,	F_21
+BASE_EXT_STRING	,	V_85
+PTP_OC_CloseSession	,	V_52
+"GetStorageIDs"	,	L_13
+"Picture Transfer Protocol"	,	L_2
+FT_UINT64	,	V_95
+col_set_str	,	F_3
+hf_ptpIP_connectionNumber	,	V_28
+ptpIP_handle	,	V_101
+"ptpip.eventcode"	,	L_44
+PTPIP_PORT	,	V_102
+"Init Command Request"	,	L_3
+nameLen	,	V_68
+"Picture Transfer Protocol Over IP"	,	L_51
+dissect_ptpIP_event	,	F_14
+PTPIP_INIT_EVENT_ACK	,	V_20
+dissect_ptpIP_unicode_name	,	F_19
+"Properly translates vendor specific opcodes"	,	L_55
+proto_register_subtree_array	,	F_43
+proto_tree_add_string	,	F_36
+proto_ptpIP	,	V_12
+proto_tree_add_item	,	F_6
+pinfo	,	V_2
+dissector_handle_t	,	T_15
+_U_	,	V_4
+PTP_OC_OpenSession	,	V_51
+vendor_values	,	V_36
+"ptpip.name"	,	L_32
+hf_ptp_transactionID	,	V_66
+PTP_OC_GetStorageIDs	,	V_53
+VALS	,	F_39
+ett_ptpIP_hdr	,	V_98
+dissect_ptp_opCode_openSession	,	F_26
+"Operation Response Packet "	,	L_14
+pktType	,	V_8
+BASE_DEC	,	V_82
+proto_item	,	T_5
+"ptpip.transactionID"	,	L_46
+" Connection #:%u"	,	L_5
+ptp_respcode_mtp_names	,	V_58
+ENC_NA	,	V_79
+dissect_ptpIP_operation_response	,	F_13
+hf_ptp_opCode_param_sessionID	,	V_64
+ptp_opcode_olympus_names_ext	,	V_48
+PTP_OC_EXTENSION_MASK	,	V_32
+minorVersion	,	V_74
+ENC_LITTLE_ENDIAN	,	V_15
+PTP_VENDOR_EASTMAN_KODAK	,	V_37
+proto_reg_handoff_ptpIP	,	F_46
+proto_tree_add_item_ret_string	,	F_33
+"Packet Type"	,	L_27
+data	,	T_4
+ptp_opcode_ek_names_ext	,	V_38
+value_string_ext	,	T_8
+PTP_VENDOR_OLYMPUS	,	V_47
+"Start Data Packet "	,	L_16
+dissect_ptpIP	,	F_1
+ptp_opcode_mtp_names_ext	,	V_46
+tvb_get_letohl	,	F_7
+" GUID: %s"	,	L_24
+tvb_get_letohs	,	F_22
+" Name: %s"	,	L_22
+hf_ptpIP_version	,	V_75
+"Length"	,	L_25
+"ptpip.opcode"	,	L_40
+offset	,	V_7
+ptp_opcode_nikon_names_ext	,	V_42
+ett	,	V_97
+wmem_packet_scope	,	F_34
+tree	,	V_3
+hf_ptp_opCode	,	V_49
+packet_info	,	T_2
+"Init Event Ack"	,	L_7
+"Init Event Request"	,	L_6
+dissect_ptpIP_init_event_ack	,	F_11
+ptp_opcode_names_ext	,	V_93
+"GUID"	,	L_29
+ptp_opcode_casio_names_ext	,	V_44
+"Session ID"	,	L_49
+transactionID_offset	,	V_30
+g_snprintf	,	F_35
+PTPIP_GUID_SIZE	,	V_77
+tvb_unicode_strsize	,	F_32
+hf_ptp_respCode	,	V_60
+HFILL	,	V_83
+PTPIP_INIT_EVENT_REQUEST	,	V_19
+PTPIP_INIT_COMMAND_ACK	,	V_18
+" Data Length Unknown"	,	L_17
+PTP_VENDOR_CANON	,	V_39
+dissect_ptpIP_guid	,	F_18
+resp	,	V_54
+"vendor"	,	L_53
+"ptpip.guid"	,	L_30
+create_dissector_handle	,	F_47
+"%u.%u"	,	L_23
+"ptpip.pktType"	,	L_28
+hf_ptpIP_dataPhaseInfo	,	V_31
+item_ptr	,	V_5
+dissector_add_uint_with_preference	,	F_48
+"Unknown"	,	L_10
+"tcp.port"	,	L_56
+proto_tree	,	T_3
+PTP_VENDOR_CASIO	,	V_43
+" Transaction ID: %d"	,	L_21

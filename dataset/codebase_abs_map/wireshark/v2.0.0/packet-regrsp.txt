@@ -1,0 +1,65 @@
+register_dissector	,	F_17
+docsis_tlv_handle	,	V_17
+hf_docsis_regrsp_sid	,	V_14
+"docsis_regrsp.sid"	,	L_5
+proto_register_protocol	,	F_13
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_6
+tvb_get_ntohs	,	F_2
+hf_docsis_regrsp_response	,	V_16
+tvb_new_subset_remaining	,	F_9
+ett_docsis_regrsp	,	V_13
+gint	,	T_8
+docsis_conf_code	,	V_11
+proto_item_add_subtree	,	F_7
+proto_register_field_array	,	F_14
+tvb	,	V_1
+ett	,	V_23
+COL_INFO	,	V_10
+dissector_add_uint	,	F_20
+"Registration Response SID = %u (%s)"	,	L_1
+"docsis_mgmt"	,	L_12
+tree	,	V_3
+it	,	V_4
+FT_UINT16	,	V_19
+packet_info	,	T_2
+"Response Code"	,	L_6
+tvb_get_guint8	,	F_3
+cinfo	,	V_9
+proto_register_subtree_array	,	F_16
+val_to_str	,	F_5
+proto_docsis_regrsp	,	V_12
+array_length	,	F_15
+regrsp_tree	,	V_5
+next_tvb	,	V_8
+"DOCSIS REG-RSP"	,	L_9
+proto_tree_add_item	,	F_8
+call_dissector	,	F_10
+pinfo	,	V_2
+col_add_fstr	,	F_4
+dissector_handle_t	,	T_9
+"Service Identifier"	,	L_4
+"Registration Response"	,	L_3
+docsis_regrsp_handle	,	V_24
+sid	,	V_6
+"%d"	,	L_2
+hf_register_info	,	T_7
+VALS	,	F_12
+HFILL	,	V_21
+"docsis_tlv"	,	L_11
+proto_reg_handoff_docsis_regrsp	,	F_18
+guint16	,	T_5
+FT_UINT8	,	V_22
+find_dissector	,	F_19
+BASE_DEC	,	V_20
+"DOCSIS Registration Responses"	,	L_8
+proto_item	,	T_4
+ENC_BIG_ENDIAN	,	V_15
+dissect_regrsp	,	F_1
+guint8	,	T_6
+response	,	V_7
+"docsis_regrsp.respnse"	,	L_7
+proto_register_docsis_regrsp	,	F_11
+"docsis_regrsp"	,	L_10
+proto_tree	,	T_3
+hf	,	V_18

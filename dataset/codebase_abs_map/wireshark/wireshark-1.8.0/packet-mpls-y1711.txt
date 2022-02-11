@@ -1,0 +1,115 @@
+"reserved and must be 0x00"	,	L_26
+"Warning: Exp bits should be 0 for Y.1711"	,	L_11
+proto_register_protocol	,	F_15
+"Error: must have a minimum payload "	,	L_7
+check_col	,	F_2
+"Error: these bytes are padding and "	,	L_23
+proto_mpls_y1711	,	V_38
+col_append_fstr	,	F_5
+"MPLS ITU-T Y.1711 OAM"	,	L_43
+"Warning: TTL should be 1 for Y.1711"	,	L_13
+gint	,	T_8
+"Error: this byte is reserved "	,	L_21
+"length of 44 bytes"	,	L_8
+"Frequency of probe injection"	,	L_35
+dissect_mpls_y1711	,	F_1
+hf_mpls_y1711_function_type	,	V_19
+"mpls.label"	,	L_46
+tvb	,	V_1
+"BDI"	,	L_4
+guint32	,	T_6
+COL_INFO	,	V_13
+"and must be 0xFF"	,	L_18
+"Unknown MPLS Y.1711 PDU"	,	L_27
+"mpls.y1711.defect_type"	,	L_37
+cinfo	,	V_12
+"reserved/unknown"	,	L_6
+"Defect Type"	,	L_36
+proto_register_subtree_array	,	F_18
+"Warning: S bit should be 1 for Y.1711"	,	L_12
+array_length	,	F_17
+ett_mpls_y1711	,	V_14
+"FDD"	,	L_5
+proto_tree_add_item	,	F_8
+private_data	,	V_6
+pinfo	,	V_2
+"Warning: Y.1711 but no OAM alert label (%d) ?!"	,	L_10
+y1711_function_type_vals	,	V_29
+new_register_dissector	,	F_19
+"Error: these bytes are reserved and "	,	L_14
+"Function Type"	,	L_28
+tvb_get_ipv4	,	F_10
+"Trail Termination Source Identifier"	,	L_31
+hf_register_info	,	T_7
+VALS	,	F_14
+hf_mpls_y1711_defect_location	,	V_23
+hf_mpls_y1711_frequency	,	V_24
+FT_UINT8	,	V_27
+proto_tree_add_text	,	F_6
+BASE_DEC	,	V_36
+proto_item	,	T_4
+"must be 0x00"	,	L_15
+"and must be 0x00"	,	L_17
+y1711_defect_type_vals	,	V_35
+guint8	,	T_5
+tvb_memeql	,	F_9
+mplsinfo	,	V_5
+ti	,	V_7
+"Y.1711 OAM"	,	L_9
+"TTSI not preset (optional for FDI/BDI)"	,	L_22
+allzero	,	V_11
+ENC_LITTLE_ENDIAN	,	V_20
+mpls_y1711_handle	,	V_39
+"mpls_y1711"	,	L_45
+tvb_get_ntohl	,	F_12
+"mplsy1711"	,	L_44
+tvbuff_t	,	T_1
+hf_mpls_y1711_defect_type	,	V_22
+allone	,	V_10
+BASE_HEX	,	V_28
+proto_item_add_subtree	,	F_7
+"mpls.y1711.ttsi"	,	L_32
+proto_register_field_array	,	F_16
+y1711_frequency_vals	,	V_33
+mpls_y1711_tree	,	V_4
+offset	,	V_9
+ett	,	V_37
+"FDI"	,	L_3
+dissector_add_uint	,	F_22
+tree	,	V_3
+lsrid_ipv4addr	,	V_21
+"mpls.y1711.bip16"	,	L_42
+tvb_bytes_exist	,	F_3
+LABEL_OAM_ALERT	,	V_16
+"Error: these bytes are "	,	L_25
+FT_UINT16	,	V_34
+packet_info	,	T_2
+functype	,	V_8
+tvb_get_guint8	,	F_4
+"LSR ID: %s"	,	L_19
+hf_mpls_y1711_bip16	,	V_25
+"CV"	,	L_2
+" (Y.1711: %s)"	,	L_1
+"mpls.y1711.function_type"	,	L_29
+hf_mpls_y1711_ttsi	,	V_31
+ip_to_str	,	F_11
+"Frequency"	,	L_33
+bos	,	V_17
+"Defect Location"	,	L_40
+"Defect Location (AS)"	,	L_38
+"mpls.y1711.defect_location"	,	L_39
+proto_register_mpls_y1711	,	F_13
+"must be 0xFF"	,	L_24
+"Function Type codepoint"	,	L_30
+HFILL	,	V_30
+"Error: these bytes are padding "	,	L_16
+proto_reg_handoff_mpls_y1711	,	F_20
+find_dissector	,	F_21
+label	,	V_15
+"BIP16"	,	L_41
+"LSP ID: %d"	,	L_20
+ttl	,	V_18
+FT_UINT32	,	V_32
+"mpls.y1711.frequency"	,	L_34
+proto_tree	,	T_3
+hf	,	V_26

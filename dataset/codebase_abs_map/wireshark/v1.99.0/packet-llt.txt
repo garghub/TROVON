@@ -1,0 +1,86 @@
+preference_alternate_ethertype	,	V_29
+"Sequence number"	,	L_13
+llt_handle	,	V_31
+proto_register_protocol	,	F_10
+tvbuff_t	,	T_1
+llt_module	,	V_20
+llt_tree	,	V_5
+"Alternate ethertype value (in hex)"	,	L_22
+hf_llt_message_type	,	V_16
+"Message type"	,	L_7
+ett_llt	,	V_13
+"Sequence number of this frame"	,	L_15
+prefs_register_protocol	,	F_14
+BASE_HEX	,	V_25
+prefs_register_uint_preference	,	F_15
+"Veritas Low Latency Transport (LLT)"	,	L_19
+gboolean	,	T_9
+col_set_str	,	F_2
+gint	,	T_8
+proto_item_add_subtree	,	F_7
+module_t	,	T_6
+"llt.message_type"	,	L_8
+proto_register_field_array	,	F_11
+tvb	,	V_1
+"Message time"	,	L_16
+guint	,	T_11
+ett	,	V_27
+COL_INFO	,	V_9
+dissector_add_uint	,	F_17
+hf_llt_node_id	,	V_17
+dissect_llt	,	F_1
+tree	,	V_3
+message_type	,	V_6
+message_type_vs	,	V_10
+packet_info	,	T_2
+"Cluster number that this node belongs to"	,	L_6
+tvb_get_guint8	,	F_3
+proto_reg_handoff_llt	,	V_28
+cinfo	,	V_7
+proto_register_subtree_array	,	F_13
+val_to_str	,	F_5
+array_length	,	F_12
+"Message type: %s"	,	L_2
+preference_alternate_ethertype_last	,	V_32
+ETHERTYPE_LLT	,	V_33
+dissector_delete_uint	,	F_18
+"llt"	,	L_20
+"Node ID"	,	L_10
+"alternate_ethertype"	,	L_21
+proto_tree_add_item	,	F_6
+pinfo	,	V_2
+col_add_fstr	,	F_4
+dissector_handle_t	,	T_10
+"Type of LLT message contained in this frame"	,	L_9
+"Dissect this ethertype as LLT traffic in addition to the default, 0xCAFE."	,	L_23
+"ethertype"	,	L_24
+hf_llt_cluster_num	,	V_14
+hf_llt_sequence_num	,	V_18
+hf_register_info	,	T_7
+proto_llt	,	V_11
+"Cluster number"	,	L_4
+initialized	,	V_30
+VALS	,	F_9
+"llt.node_id"	,	L_11
+"llt.cluster_num"	,	L_5
+HFILL	,	V_24
+"llt.sequence_num"	,	L_14
+"Unknown (0x%02x)"	,	L_3
+"Number of ticks since this node was last rebooted"	,	L_18
+"llt.message_time"	,	L_17
+COL_PROTOCOL	,	V_8
+hf_llt_message_time	,	V_19
+FT_UINT8	,	V_22
+proto_register_llt	,	F_8
+BASE_DEC	,	V_23
+"Number identifying this node within the cluster"	,	L_12
+create_dissector_handle	,	F_16
+proto_item	,	T_4
+ENC_BIG_ENDIAN	,	V_15
+ENC_NA	,	V_12
+guint8	,	T_5
+"LLT"	,	L_1
+FT_UINT32	,	V_26
+ti	,	V_4
+proto_tree	,	T_3
+hf	,	V_21

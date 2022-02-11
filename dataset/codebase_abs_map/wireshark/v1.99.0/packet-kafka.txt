@@ -1,0 +1,357 @@
+ett_kafka_metadata_broker	,	V_45
+dissect_kafka_metadata_replica	,	F_32
+hf_kafka_partition_id	,	V_37
+"Response Frame"	,	L_116
+"Offset Fetch Response Partition"	,	L_5
+"Timeout"	,	L_67
+proto_register_protocol	,	F_83
+"kafka.consumer_group"	,	L_94
+len	,	V_10
+tcp_dissect_pdus	,	F_80
+gint	,	T_11
+"kafka.message_magic"	,	L_86
+dissect_kafka_offset_response	,	F_55
+"Response API."	,	L_48
+"kafka.version"	,	L_50
+dissect_kafka_array	,	F_3
+hf_kafka_broker_port	,	V_48
+"Port"	,	L_101
+tvb	,	V_2
+hf_kafka_metadata	,	V_42
+COL_INFO	,	V_73
+ei_kafka_message_decompress	,	V_29
+raw	,	V_19
+hf_kafka_request_api_version	,	V_87
+" issued."	,	L_115
+"Failed to decompress message"	,	L_119
+dissect_kafka_fetch_request	,	F_39
+dissect_kafka_offset_response_topic	,	F_54
+tvb_child_uncompress	,	F_16
+tvb_reported_length_remaining	,	F_22
+hf_kafka_response_api_key	,	V_95
+dissect_kafka_tcp	,	F_79
+dissect_kafka_offset_fetch_response_topic	,	F_27
+cinfo	,	V_71
+p_get_proto_data	,	F_66
+hf_kafka_len	,	V_76
+"kafka.offset"	,	L_35
+dissect_kafka_bytes	,	F_9
+"kafka.response_key"	,	L_47
+array_length	,	F_85
+hf_kafka_consumer_group	,	V_40
+"kafka.string_len"	,	L_58
+subti	,	V_51
+"The maximum amount of time in milliseconds to block waiting if"	,	L_113
+"Node ID"	,	L_97
+wmem_queue_push	,	F_70
+dissect_kafka_metadata_topic	,	F_35
+"kafka.topic_name"	,	L_70
+ett_kafka_metadata_brokers	,	V_58
+match_queue	,	V_70
+KAFKA_OFFSET	,	V_93
+"The minimum number of bytes of messages that must be available"	,	L_105
+ENC_ASCII	,	V_13
+"Broker TCP Port"	,	L_122
+KAFKA_COMPRESSION_SNAPPY	,	V_30
+"kafka.replica_id"	,	L_74
+currentPort	,	V_121
+dissect_kafka_produce_response_topic	,	F_47
+KAFKA_PRODUCE	,	V_82
+hf_register_info	,	T_17
+"Host"	,	L_99
+"Message"	,	L_1
+" partition. This helps bound the size of the response."	,	L_110
+"kafka.host"	,	L_100
+dissect_kafka_produce_response	,	F_48
+COL_PROTOCOL	,	V_72
+hf_kafka_message_codec	,	V_25
+get_kafka_pdu_len	,	F_1
+"Kafka"	,	L_26
+i	,	V_6
+"Offset Response Topic"	,	L_25
+KAFKA_OFFSET_FETCH	,	V_90
+sub_start_offset	,	V_53
+guint8	,	T_9
+kafka_port	,	V_78
+ti	,	V_16
+BASE_NONE	,	V_103
+hf_kafka_array_count	,	V_7
+proto_kafka	,	V_74
+kafka_module	,	V_96
+dissect_kafka_metadata_request	,	F_30
+hf_kafka_topic_name	,	V_39
+start_offset	,	V_15
+dissect_kafka_metadata_broker	,	F_31
+"kafka.timeout"	,	L_68
+decrypt_item	,	V_17
+dissect_kafka_produce_request_topic	,	F_44
+wmem_queue_peek	,	F_76
+tvb_get_ntohl	,	F_2
+"Kafka %s Response"	,	L_30
+"Bytes Length"	,	L_60
+hf_kafka_request_api_key	,	V_86
+tvbuff_t	,	T_4
+tvb_get_ntohs	,	F_7
+BASE_HEX	,	V_107
+"Offset Fetch Request Topic"	,	L_4
+PROTO_ITEM_SET_GENERATED	,	F_74
+kafka_apis	,	V_83
+response_frame	,	V_85
+hf_kafka_offset_time	,	V_65
+"Generic length for kafka-encoded string."	,	L_59
+kafka_codecs	,	V_109
+payload	,	V_20
+gboolean	,	T_10
+hf_kafka_message_size	,	V_36
+"Uncompressed Message"	,	L_2
+proto_item_add_subtree	,	F_59
+module_t	,	T_16
+"Client ID"	,	L_54
+PI_UNDECODED	,	V_114
+kafka_tree	,	V_67
+proto_register_field_array	,	F_84
+conversation	,	V_69
+FT_BYTES	,	V_110
+hf_kafka_isr	,	V_50
+ei	,	V_113
+dissect_kafka_offset_fetch_request	,	F_25
+dissector_add_uint	,	F_93
+count	,	V_5
+dissect_kafka_metadata_isr	,	F_33
+"kafka.max_offsets"	,	L_39
+"Message Size"	,	L_81
+"kafka.max_wait_time"	,	L_112
+"Produce Request Topic"	,	L_19
+"Broker Metadata"	,	L_12
+tvb_get_guint8	,	F_15
+p_add_proto_data	,	F_69
+FT_INT8	,	V_108
+hf_item	,	V_9
+dissect_kafka_fetch_request_partition	,	F_37
+ett_kafka_response_partition	,	V_54
+subsubtree	,	V_52
+"Replicas"	,	L_9
+dissector_delete_uint	,	F_92
+dissect_kafka_offset_request_topic	,	F_50
+"Max Offsets"	,	L_38
+PINFO_FD_VISITED	,	F_65
+expert_add_info	,	F_20
+"Topic Name"	,	L_69
+hf_kafka_timeout	,	V_64
+"Partition ID"	,	L_71
+wmem_queue_pop	,	F_77
+"kafka.offset_time"	,	L_37
+FT_STRING	,	V_102
+"kafka.reponse_frame"	,	L_117
+"Offset Response Partition"	,	L_24
+"Message Set"	,	L_3
+hf_kafka_bytes_len	,	V_14
+ett_kafka_request_partition	,	V_41
+"Magic Byte"	,	L_85
+"Offset Request Partition"	,	L_22
+FT_INT32	,	V_98
+dissect_kafka_fetch_response_partition	,	F_40
+FT_INT16	,	V_104
+new_create_dissector_handle	,	F_91
+kafka_get_bytes	,	F_11
+expert_kafka	,	V_117
+ett_kafka_metadata_isr	,	V_57
+"kafka.node_id"	,	L_98
+conversation_add_proto_data	,	F_64
+request_frame	,	V_80
+val_to_str_const	,	F_72
+"kafka.partition_id"	,	L_72
+"Key"	,	L_89
+dissect_kafka_offset_request	,	F_51
+"kafka.port"	,	L_102
+PI_WARN	,	V_115
+"offset fetch response topic"	,	L_6
+dissect_kafka_produce_request_partition	,	F_43
+"kafka"	,	L_120
+ENC_BIG_ENDIAN	,	V_8
+ett_kafka_message	,	V_22
+ett_kafka_response_topic	,	V_44
+"API Version"	,	L_49
+func	,	F_4
+FT_UINT32	,	V_106
+api_key	,	V_79
+dissect_kafka_fetch_request_topic	,	F_38
+"kafka.message_key"	,	L_90
+KAFKA_METADATA	,	V_91
+kafka_errors	,	V_105
+find_or_create_conversation	,	F_60
+"Replica ID"	,	L_73
+"Broker"	,	L_7
+hf_kafka_max_bytes	,	V_60
+dissect_kafka_offset_fetch_request_topic	,	F_24
+ett_kafka_metadata_replicas	,	V_56
+hf	,	V_97
+"Consumer Group"	,	L_93
+"String Length"	,	L_57
+"Max Bytes"	,	L_107
+prefs_register_protocol	,	F_89
+dissect_kafka_produce_response_partition	,	F_46
+proto_tree_add_subtree	,	F_14
+"Error"	,	L_42
+dissect_kafka_metadata_response	,	F_36
+hf_kafka_broker_nodeid	,	V_46
+"Min Bytes"	,	L_103
+"Fetch Request Partition"	,	L_14
+col_set_str	,	F_57
+proto_register_kafka	,	F_81
+"kafka.required_acks"	,	L_66
+"Caught-Up Replica ID"	,	L_75
+"Request API Version."	,	L_51
+"Produce Response Partition"	,	L_20
+"kafka.len"	,	L_32
+"Array Count"	,	L_63
+"Time"	,	L_36
+wmem_queue_t	,	T_15
+"Kafka Response (Unknown API, Missing Request)"	,	L_29
+dissect_kafka_string	,	F_6
+"Compression Codec"	,	L_87
+matcher	,	V_68
+"kafka.message_codec"	,	L_88
+"kafka.leader"	,	L_78
+dissect_kafka_produce_request	,	F_45
+col_clear	,	F_58
+"kafka.client_id"	,	L_55
+"Fetch Request Topic"	,	L_15
+dissect_kafka_fetch_response_topic	,	F_41
+proto_register_subtree_array	,	F_86
+hf_kafka_message_key	,	V_26
+gint32	,	T_6
+proto_tree_add_string	,	F_8
+hf_kafka_broker_host	,	V_47
+"kafka.decompress_failed"	,	L_118
+dissect_kafka_offset_response_partition	,	F_53
+"kafka.max_bytes"	,	L_108
+proto_tree_add_item	,	F_5
+hf_kafka_partition_leader	,	V_55
+hf_kafka_client_id	,	V_89
+pinfo	,	T_3
+ett_kafka_metadata_topics	,	V_59
+col_add_fstr	,	F_71
+dissector_handle_t	,	T_20
+"kafka.metadata"	,	L_41
+_U_	,	V_1
+hf_kafka_max_wait_time	,	V_61
+"kafka.array_count"	,	L_64
+"Value"	,	L_91
+"Fetch Response Topic"	,	L_17
+dissect_kafka_fetch_response	,	F_42
+"Produce Request Partition"	,	L_18
+"kafka.min_bytes"	,	L_104
+"Generic length for kafka-encoded bytes."	,	L_62
+initialized	,	V_119
+VALS	,	F_82
+"kafka.isr_id"	,	L_76
+dissect_kafka_offset_fetch_request_partition	,	F_23
+dissect_kafka_offset_fetch_response	,	F_28
+dissect_kafka_offset_response_offset	,	F_52
+dissect_kafka	,	F_56
+"Metadata"	,	L_40
+tvb_length	,	F_17
+BASE_DEC	,	V_99
+hf_kafka_correlation_id	,	V_88
+proto_item	,	T_8
+expert_register_field_array	,	F_88
+ENC_NA	,	V_12
+subtree	,	V_18
+hf_kafka_message_magic	,	V_24
+hf_kafka_min_bytes	,	V_62
+"kafka.message_value"	,	L_92
+hf_kafka_response_frame	,	V_84
+response_found	,	V_81
+FT_INT64	,	V_101
+ett_kafka_message_set	,	V_34
+wmem_queue_new	,	F_62
+"kafka.request_frame"	,	L_96
+has_length_field	,	V_32
+hf_kafka_max_offsets	,	V_66
+data	,	T_12
+ett_kafka	,	V_75
+hf_kafka_replica	,	V_49
+hf_kafka_required_acks	,	V_63
+"The length of this Kafka packet."	,	L_33
+"Request API."	,	L_46
+dissect_kafka_metadata_request_topic	,	F_29
+prefs_register_uint_preference	,	F_90
+ei_register_info	,	T_18
+expert_register_protocol	,	F_87
+"Leader"	,	L_77
+"Kafka broker's TCP port"	,	L_123
+"CRC32"	,	L_83
+"Message Set Size"	,	L_79
+"Partition"	,	L_8
+conversation_t	,	T_14
+dissect_kafka_offset_request_partition	,	F_49
+"The maximum bytes to include in the message set for this"	,	L_109
+guint	,	T_1
+"Length"	,	L_31
+offset	,	V_3
+ett	,	V_112
+expert_module_t	,	T_19
+tree	,	V_4
+dissect_kafka_message	,	F_13
+proto_tree_add_bytes	,	F_10
+"kafka.correlation_id"	,	L_53
+dissect_kafka_offset_fetch_response_partition	,	F_26
+"Offset Request Topic"	,	L_23
+"Topic"	,	L_11
+packet_info	,	T_2
+dissect_kafka_message_set	,	F_19
+ett_kafka_request_topic	,	V_38
+codec	,	V_21
+add_new_data_source	,	F_18
+hf_kafka_offset	,	V_35
+"Required Acks"	,	L_65
+"kafka.error"	,	L_43
+hf_kafka_message_crc	,	V_23
+hf_kafka_message_value	,	V_28
+"kafka.request_key"	,	L_45
+"Offset"	,	L_34
+KAFKA_COMPRESSION_NONE	,	V_31
+dissect_kafka_metadata_partition	,	F_34
+proto_reg_handoff_kafka	,	V_118
+destport	,	V_77
+"Produce Response Topic"	,	L_21
+kafka_query_response_t	,	T_13
+proto_tree_add_uint	,	F_73
+KAFKA_FETCH	,	V_92
+"kafka.message_crc"	,	L_84
+EXPFILL	,	V_116
+conversation_get_proto_data	,	F_61
+"Correlation ID"	,	L_52
+hf_kafka_error	,	V_43
+"Topic Metadata"	,	L_13
+hf_kafka_string_len	,	V_11
+"Max Wait Time"	,	L_111
+tvb_new_subset_length	,	F_12
+"Request Frame"	,	L_95
+wmem_queue_count	,	F_75
+"kafka.bytes_len"	,	L_61
+PINFO_FD_NUM	,	F_68
+wmem_file_scope	,	F_63
+KAFKA_COMPRESSION_GZIP	,	V_27
+HFILL	,	V_100
+"The ID of the sending client."	,	L_56
+"Caught-Up Replicas"	,	L_10
+wmem_new	,	F_67
+"API Key"	,	L_44
+hf_kafka_request_frame	,	V_94
+"kafka.message_size"	,	L_82
+" insufficient data is available at the time the request is"	,	L_114
+kafka_handle	,	V_120
+FT_FRAMENUM	,	V_111
+"kafka.message_set_size"	,	L_80
+hf_kafka_message_set_size	,	V_33
+proto_item_set_len	,	F_21
+"Kafka %s Request"	,	L_27
+" to give a response."	,	L_106
+gint16	,	T_7
+"Unknown"	,	L_28
+"Fetch Response Partition"	,	L_16
+proto_tree_add_int	,	F_78
+"tcp.port"	,	L_121
+proto_tree	,	T_5

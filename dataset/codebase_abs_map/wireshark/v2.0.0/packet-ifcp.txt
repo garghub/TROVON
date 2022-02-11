@@ -1,0 +1,214 @@
+hf_ifcp_framelen_c	,	V_55
+"ifcp.encap.tsec"	,	L_20
+proto_register_protocol	,	F_30
+iFCP_SOFi4	,	V_64
+iFCP_MIN_HEADER_LEN	,	V_5
+"ifcp.flags"	,	L_40
+"Version"	,	L_9
+hf_ifcp_tusec	,	V_57
+tcp_dissect_pdus	,	F_22
+"EOF"	,	L_27
+gint	,	T_7
+dissect_ifcp_handle	,	F_23
+fc_data_t	,	T_10
+tvb_captured_length_remaining	,	F_2
+fc_handle	,	V_73
+TFS	,	F_29
+tvb	,	V_1
+proto_ifcp	,	V_36
+eof_tree	,	V_31
+FT_BOOLEAN	,	V_87
+hf_ifcp_flags_ses	,	V_9
+pdu_len	,	V_75
+"Time (secs)"	,	L_19
+hf_ifcp_framelen	,	V_52
+IFCP_FLAGS_TRP	,	V_93
+dissect_ifcp_pdu	,	F_8
+cinfo	,	V_34
+ifcp_flags_spc_tfs	,	V_94
+array_length	,	F_32
+"ifcp.sof_c"	,	L_30
+next_tvb	,	V_25
+call_dissector	,	F_19
+hf_ifcp_eof	,	V_50
+sof_tree	,	V_30
+"iFCP (%s/%s)"	,	L_2
+"ifcp.flags.spc"	,	L_48
+hf_register_info	,	T_13
+"Reassemble iFCP messages spanning multiple TCP segments"	,	L_52
+guint16	,	T_3
+"ifcp.encap.version"	,	L_10
+COL_PROTOCOL	,	V_35
+sof_eof	,	V_61
+proto_reg_handoff_ifcp	,	F_37
+tvb_memeql	,	F_3
+guint8	,	T_8
+ti	,	V_23
+ett_ifcp_flags	,	V_13
+"ifcp_tcp"	,	L_58
+"SPC"	,	L_47
+"Protocol (1's Complement)"	,	L_7
+IFCP_FLAGS_SES	,	V_91
+"ifcp.common_flags"	,	L_36
+tvbuff_t	,	T_2
+proto_tree_add_protocol_format	,	F_13
+ett_ifcp_protocol	,	V_41
+tvb_get_ntohs	,	F_4
+ifcp_eof_vals	,	V_38
+"desegment"	,	L_51
+proto_tree_add_bitmask	,	F_6
+conversation_set_dissector	,	F_26
+"ifcp.encap.versionc"	,	L_12
+BASE_HEX	,	V_84
+parent_tree	,	V_7
+gboolean	,	T_1
+proto_item_add_subtree	,	F_15
+module_t	,	T_14
+proto_register_field_array	,	F_31
+"ifcp.eof_c"	,	L_32
+ifcp_sof_vals	,	V_37
+"Is the CRC field valid?"	,	L_38
+data_handle	,	V_74
+ett_ifcp_sof	,	V_49
+FT_UINT16	,	V_85
+IFCP_COMMON_FLAGS_CRCV	,	V_89
+tvb_get_guint8	,	F_12
+hf_ifcp_version_c	,	V_45
+tvb_captured_length	,	F_9
+"Whether the iFCP dissector should reassemble messages spanning multiple TCP segments."	,	L_53
+ifcp_desegment	,	V_76
+"ifcp.encap.framelenc"	,	L_18
+frame_len	,	V_20
+call_dissector_with_data	,	F_18
+"Frame Length (1's Complement)"	,	L_17
+FC_DATA_EOF_INVALID	,	V_71
+protocol_tree	,	V_27
+hf_ifcp_flags	,	V_12
+heur_dissector_add	,	F_38
+HEURISTIC_ENABLE	,	V_98
+dissect_ifcp	,	F_21
+"fc_ifcp"	,	L_61
+ett_ifcp_frame_len	,	V_53
+tfs_valid_not_valid	,	V_88
+prefs_register_obsolete_preference	,	F_36
+new_create_dissector_handle	,	F_39
+"ifcp.flags.ses"	,	L_42
+dissect_ifcpflags	,	F_5
+hf_ifcp_protocol	,	V_40
+find_dissector	,	F_41
+ENC_BIG_ENDIAN	,	V_14
+iFCP_SOFi2	,	V_63
+FT_UINT32	,	V_86
+iFCP_SOFi3	,	V_62
+find_or_create_conversation	,	F_25
+iFCP_SOFf	,	V_66
+eof	,	V_22
+hf	,	V_79
+hf_ifcp_protocol_c	,	V_44
+"ifcp.encap.protoc"	,	L_8
+prefs_register_protocol	,	F_34
+get_ifcp_pdu_len	,	F_20
+"ifcp.encap.crc"	,	L_24
+col_set_str	,	F_10
+"Flags"	,	L_35
+"SOF"	,	L_25
+"ifcp.common_flags.crcv"	,	L_37
+hf_ifcp_ls_command_acc	,	V_47
+ett_ifcp_eof	,	V_51
+ett_ifcp	,	V_39
+ethertype	,	V_72
+"SES"	,	L_41
+hf_ifcp_sof_c	,	V_59
+FC_DATA_SOF_FIRST_FRAME	,	V_65
+"Is this a Session control frame"	,	L_43
+"ifcp.flags.trp"	,	L_45
+proto_register_subtree_array	,	F_33
+val_to_str	,	F_14
+version_tree	,	V_28
+"ifcp.encap.proto"	,	L_6
+proto_tree_add_item	,	F_16
+pinfo	,	V_18
+dissect_ifcp_heur	,	F_24
+flags	,	V_8
+_U_	,	V_19
+ifcp_conv	,	V_78
+ifcp_flags_trp_tfs	,	V_92
+ifcp_header_test	,	F_1
+VALS	,	F_28
+dissector_add_for_decode_as	,	F_40
+prefs_register_bool_preference	,	F_35
+ifcp_flags_ses_tfs	,	V_90
+ifcp_header_4_bytes	,	V_6
+hf_ifcp_common_flags_crcv	,	V_15
+"data"	,	L_60
+FT_UINT8	,	V_80
+"Is address transparent mode enabled"	,	L_46
+BASE_DEC	,	V_81
+"ifcp.sof"	,	L_26
+proto_item	,	T_9
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_54
+dissect_commonflags	,	F_7
+"Version (1's Complement)"	,	L_11
+"Ls Command Acc"	,	L_33
+"NA"	,	L_4
+hf_ifcp_version	,	V_42
+hf_ifcp_eof_c	,	V_60
+"ifcp.eof"	,	L_28
+"ifcp.ls_command_acc"	,	L_34
+data	,	T_6
+"0x%x"	,	L_3
+"iFCP Encapsulation Flags (1's Complement)"	,	L_13
+sof	,	V_21
+fcencap_proto_vals	,	V_82
+protocol	,	V_26
+"tcp"	,	L_56
+proto_register_ifcp	,	F_27
+iFCP_ENCAP_HEADER_LEN	,	V_33
+conversation_t	,	T_12
+"EOF Compliment"	,	L_31
+guint	,	T_11
+offset	,	V_2
+ett	,	V_96
+tree	,	V_24
+hf_ifcp_encap_crc	,	V_58
+"iFCP over TCP"	,	L_57
+tvb_bytes_exist	,	F_11
+packet_info	,	T_5
+"Time (fraction)"	,	L_21
+FC_DATA_SOF_SOFF	,	V_67
+"iFCP"	,	L_1
+flen	,	V_3
+ifcp_handle	,	V_77
+iFCP_EOFn	,	V_68
+ifcp_module	,	V_97
+iFCP_EOFt	,	V_70
+"ifcp"	,	L_50
+FCENCAP_PROTO_iFCP	,	V_46
+hf_ifcp_encap_flags_c	,	V_54
+IFCP_FLAGS_SPC	,	V_95
+ett_ifcp_version	,	V_43
+tvb_new_subset_length	,	F_17
+"SOF Compliment"	,	L_29
+"ifcp.encap.framelen"	,	L_16
+hf_ifcp_common_flags	,	V_16
+"Frame Length (in Words)"	,	L_15
+hf_ifcp_sof	,	V_48
+hf_ifcp_flags_trp	,	V_10
+frame_len_tree	,	V_29
+"target_port"	,	L_55
+hf_ifcp_tsec	,	V_56
+HFILL	,	V_83
+hf_ifcp_flags_spc	,	V_11
+"Is frame part of link service"	,	L_49
+flen1	,	V_4
+"ifcp.encap_flagsc"	,	L_14
+"CRC"	,	L_23
+"Protocol"	,	L_5
+"iFCP Flags"	,	L_39
+"TRP"	,	L_44
+fc_data	,	V_32
+"ifcp.encap.tusec"	,	L_22
+ett_ifcp_common_flags	,	V_17
+FC_DATA_EOF_LAST_FRAME	,	V_69
+"tcp.port"	,	L_59
+proto_tree	,	T_4

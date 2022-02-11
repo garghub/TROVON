@@ -1,0 +1,74 @@
+ypbind2_proc_vals	,	V_20
+hf_ypbind_domain	,	V_4
+"ypbind"	,	L_21
+data	,	T_5
+dissect_ypbind_domain_v2_reply	,	F_3
+tvb_get_ntohl	,	F_4
+dissect_ypbind_domain_v2_request	,	F_1
+"Port to use"	,	L_15
+"ypbind.domain"	,	L_6
+"IP Addr"	,	L_10
+proto_register_protocol	,	F_10
+tvbuff_t	,	T_1
+"ypbind.addr"	,	L_11
+proto_register_ypbind	,	F_8
+hf_ypbind_resp_type	,	V_6
+"Version"	,	L_16
+dissect_rpc_uint32	,	F_5
+gint	,	T_8
+"V2 Procedure"	,	L_3
+proto_reg_handoff_ypbind	,	F_14
+proto_register_field_array	,	F_11
+dissect_rpc_string	,	F_2
+FT_IPv4	,	V_24
+"Port"	,	L_13
+ypbind_vers_info	,	V_29
+tvb	,	V_1
+guint32	,	T_6
+offset	,	V_5
+ett	,	V_25
+tree	,	V_3
+rpc_init_prog	,	F_15
+"V1 Procedure"	,	L_1
+"ypbind.procedure_v1"	,	L_2
+packet_info	,	T_2
+resp_type_vals	,	V_23
+proto_register_subtree_array	,	F_13
+hf_ypbind_setdom_version	,	V_12
+"Version of setdom"	,	L_18
+array_length	,	F_12
+"Yellow Pages Bind"	,	L_19
+dissect_ypbind_setdomain_v2_request	,	F_7
+"Response Type"	,	L_8
+proto_tree_add_item	,	F_6
+proto_ypbind	,	V_27
+pinfo	,	T_3
+YPBIND_RESP_TYPE_SUCC_VAL	,	V_7
+hf_ypbind_addr	,	V_8
+_U_	,	V_2
+hf_ypbind_port	,	V_10
+"ypbind.procedure_v2"	,	L_4
+G_N_ELEMENTS	,	F_16
+"Name of the NIS/YP Domain"	,	L_7
+FT_STRING	,	V_21
+"YPBIND"	,	L_20
+hf_register_info	,	T_7
+VALS	,	F_9
+HFILL	,	V_18
+"ypbind.port"	,	L_14
+"IP Address of server"	,	L_12
+hf_ypbind_procedure_v1	,	V_14
+hf_ypbind_procedure_v2	,	V_19
+BASE_DEC	,	V_16
+ett_ypbind	,	V_26
+"ypbind.setdom.version"	,	L_17
+ypbind1_proc_vals	,	V_17
+ENC_BIG_ENDIAN	,	V_9
+YPBIND_PROGRAM	,	V_28
+YPBIND_RESP_TYPE_FAIL_VAL	,	V_11
+FT_UINT32	,	V_15
+BASE_NONE	,	V_22
+"ypbind.resp_type"	,	L_9
+"Domain"	,	L_5
+proto_tree	,	T_4
+hf	,	V_13

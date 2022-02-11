@@ -1,0 +1,152 @@
+ett_fcoe_crc	,	V_39
+proto_register_protocol	,	F_26
+PINFO_EOF_INVALID	,	V_54
+prefs_register_protocol	,	F_30
+" [invalid length]"	,	L_9
+"Version"	,	L_20
+"EOF"	,	L_18
+gint	,	T_4
+col_set_str	,	F_6
+fcoe_module	,	V_57
+"SOF"	,	L_16
+proto_tree_add_uint_format	,	F_16
+"fcoe.crc_bad"	,	L_30
+fc_handle	,	V_55
+tvb	,	V_1
+item	,	V_19
+guint32	,	T_10
+dissect_fcoe	,	F_1
+FT_BOOLEAN	,	V_64
+"[error: should be %8.8x]"	,	L_13
+ett_fcoe	,	V_32
+"Fibre Channel over Ethernet"	,	L_32
+version	,	V_9
+proto_fcoe	,	V_30
+tvb_reported_length_remaining	,	F_5
+FCOE_TRAILER_LEN	,	V_26
+"CRC good"	,	L_26
+eof_offset	,	V_5
+cinfo	,	V_27
+PI_ERROR	,	V_38
+proto_register_subtree_array	,	F_29
+val_to_str	,	F_10
+array_length	,	F_28
+bytes_remaining	,	V_12
+hf_fcoe_len	,	V_34
+hf_fcoe_crc_bad	,	V_40
+next_tvb	,	V_22
+""	,	L_3
+proto_tree_add_item	,	F_22
+call_dissector	,	F_23
+pinfo	,	V_2
+dissector_handle_t	,	T_13
+hf_fcoe_eof	,	V_42
+proto_reg_handoff_fcoe	,	F_32
+"ethertype"	,	L_34
+"none"	,	L_6
+FCOE_EOFt	,	V_53
+hf_fcoe_crc_good	,	V_41
+proto_tree_add_boolean	,	F_20
+hf_register_info	,	T_12
+VALS	,	F_25
+"fcoe.crc"	,	L_25
+proto_tree_set_appendix	,	F_18
+guint16	,	T_6
+COL_PROTOCOL	,	V_28
+"data"	,	L_35
+eof_str	,	V_15
+sof_eof	,	V_44
+FT_UINT8	,	V_59
+"Frame length"	,	L_22
+proto_tree_add_text	,	F_19
+BASE_DEC	,	V_63
+tvb_new_subset	,	F_8
+proto_item	,	T_8
+guint8	,	T_7
+ti	,	V_18
+crc32_802_tvb	,	F_12
+expert_add_info_format	,	F_17
+BASE_NONE	,	V_65
+"FCoE %s(%s/%s) %d bytes%s%s"	,	L_10
+FCOE_SOFf	,	V_49
+ep_strdup_printf	,	F_4
+tvb_length_remaining	,	F_7
+hf_fcoe_crc	,	V_36
+"CRC: [missing]"	,	L_15
+header_len	,	V_7
+"fcoe.eof"	,	L_19
+tvb_get_ntohl	,	F_11
+"0x%x"	,	L_7
+crc_computed	,	V_24
+"fcoe.len"	,	L_23
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_13
+sof	,	V_13
+proto_register_fcoe	,	F_24
+tvb_get_ntohs	,	F_3
+"True: CRC matches packet content; False: doesn't match or not checked."	,	L_28
+BASE_HEX	,	V_60
+"FCoE"	,	L_5
+PROTO_ITEM_SET_GENERATED	,	F_21
+" [bad FC CRC]"	,	L_8
+gboolean	,	T_9
+fcoe_sof_vals	,	V_31
+proto_item_add_subtree	,	F_14
+module_t	,	T_11
+"fcoe"	,	L_33
+proto_register_field_array	,	F_27
+ver	,	V_10
+guint	,	T_5
+ett	,	V_66
+dissector_add_uint	,	F_34
+crc_msg	,	V_16
+"pre-T11 "	,	L_1
+"True: CRC doesn't match packet content; False: matches or not checked."	,	L_31
+tree	,	V_3
+tvb_bytes_exist	,	F_9
+crc_exists	,	V_23
+data_handle	,	V_56
+packet_info	,	T_2
+hf_fcoe_ver	,	V_33
+tvb_get_guint8	,	F_2
+FCOE_SOFi4	,	V_47
+FCOE_SOFi3	,	V_45
+"fc"	,	L_36
+"ver %d "	,	L_4
+PINFO_SOF_SOFF	,	V_50
+FCOE_EOFn	,	V_51
+"fcoe.sof"	,	L_17
+FCOE_HEADER_LEN	,	V_8
+FCOE_SOFi2	,	V_46
+ETHERTYPE_FCOE	,	V_68
+"fcoe.ver"	,	L_21
+proto_tree_add_uint	,	F_15
+frame_len	,	V_6
+"CRC bad"	,	L_29
+"fcoe.crc_good"	,	L_27
+crc_offset	,	V_4
+"Bad FC CRC %8.8x %8.x"	,	L_14
+PI_CHECKSUM	,	V_37
+hf_fcoe_sof	,	V_35
+crc_tree	,	V_21
+len_sof	,	V_11
+crc	,	V_25
+"CRC: %8.8x "	,	L_12
+fcoe_eof_vals	,	V_29
+HFILL	,	V_61
+prefs_register_obsolete_preference	,	F_31
+len_msg	,	V_17
+find_dissector	,	F_35
+create_dissector_handle	,	F_33
+"CRC"	,	L_24
+fcoe_handle	,	V_67
+ENC_BIG_ENDIAN	,	V_43
+"CRC: %8.8x [valid]"	,	L_11
+FT_UINT32	,	V_62
+PINFO_EOF_LAST_FRAME	,	V_52
+PINFO_SOF_FIRST_FRAME	,	V_48
+fcoe_tree	,	V_20
+eof	,	V_14
+proto_tree	,	T_3
+hf	,	V_58
+"pre-T11 ver %d "	,	L_2

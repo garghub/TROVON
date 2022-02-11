@@ -1,0 +1,169 @@
+"btatt.length"	,	L_52
+proto_register_protocol	,	F_19
+"Error Code"	,	L_40
+", Attribute List Length: %u"	,	L_15
+prefs_register_protocol	,	F_24
+hf_btatt_uuid128	,	V_34
+uuid_vals_ext	,	V_37
+"BT ATT"	,	L_63
+"Handle"	,	L_26
+col_append_fstr	,	F_9
+BASE_EXT_STRING	,	V_56
+"btatt.offset"	,	L_55
+col_set_str	,	F_2
+"btatt.uuid16"	,	L_43
+gint	,	T_8
+"Flags"	,	L_56
+"btatt.handle_in_error"	,	L_39
+"ATT"	,	L_1
+tvb	,	V_1
+item	,	V_6
+ltree	,	V_8
+COL_INFO	,	V_14
+module	,	V_48
+"btatt.flags"	,	L_57
+proto_item_append_text	,	F_15
+BTL2CAP_FIXED_CID_ATT	,	V_63
+hf_btatt_offset	,	V_43
+cinfo	,	V_10
+proto_register_subtree_array	,	F_23
+array_length	,	F_22
+hf_btatt_sign_counter	,	V_46
+"UUID"	,	L_42
+hf_btatt_server_rx_mtu	,	V_27
+"Group End Handle"	,	L_32
+proto_tree_add_item	,	F_6
+"Length of Handle/Value Pair"	,	L_53
+" (%s)"	,	L_14
+pinfo	,	V_2
+col_add_fstr	,	F_4
+"btatt.uuid_format"	,	L_50
+dissector_handle_t	,	T_9
+"0x%04x "	,	L_21
+"Request Opcode in Error"	,	L_36
+"btatt.signature"	,	L_61
+"btatt.starting_handle"	,	L_29
+"Value"	,	L_34
+col_append_str	,	F_16
+", Handle: 0x%04x, Offset: %u"	,	L_18
+hf_btatt_client_rx_mtu	,	V_26
+" - %s, Handle: 0x%04x"	,	L_7
+"Version of protocol supported by this dissector."	,	L_67
+hf_register_info	,	T_7
+VALS	,	F_18
+"Attribute Data, Handle: 0x%04x"	,	L_16
+"btatt.error_code"	,	L_41
+"Sign Counter"	,	L_58
+PI_PROTOCOL	,	V_35
+st	,	V_7
+", %s"	,	L_23
+prefs_register_static_text_preference	,	F_25
+COL_PROTOCOL	,	V_11
+FT_UINT8	,	V_50
+proto_tree_add_text	,	F_14
+BASE_DEC	,	V_57
+proto_item	,	T_4
+", Handle: 0x%04x"	,	L_17
+"Bluetooth Attribute Protocol"	,	L_62
+ENC_NA	,	V_17
+guint8	,	T_5
+"btatt.uuid128"	,	L_44
+"btl2cap.cid"	,	L_69
+ti	,	V_5
+hf_btatt_uuid_format	,	V_31
+expert_add_info_format	,	F_12
+BASE_NONE	,	V_55
+hf_btatt_req_opcode_in_error	,	V_22
+hf_btatt_handle_in_error	,	V_23
+tvb_length_remaining	,	F_5
+ENC_LITTLE_ENDIAN	,	V_20
+", Client Rx MTU: %u"	,	L_8
+register_dissector	,	F_20
+"att.version"	,	L_65
+"%s"	,	L_5
+"Attribute Data, Handle: 0x%04x, Group End Handle: 0x%04x"	,	L_22
+"Rcvd "	,	L_3
+tvbuff_t	,	T_1
+hf_btatt_ending_handle	,	V_29
+"Starting Handle"	,	L_28
+"Ending Handle"	,	L_30
+"Client Rx MTU"	,	L_45
+opcode	,	V_9
+val_to_str_ext_const	,	F_13
+BASE_HEX	,	V_51
+col_add_str	,	F_3
+proto_item_add_subtree	,	F_7
+"btatt.value"	,	L_35
+module_t	,	T_6
+", Handles: "	,	L_20
+proto_register_field_array	,	F_21
+tvb_get_letohs	,	F_11
+FT_BYTES	,	V_54
+hf_btatt_value	,	V_38
+"btatt.server_rx_mtu"	,	L_48
+"Length"	,	L_51
+offset	,	V_4
+ett	,	V_60
+"Bluetooth Protocol ATT version from Core 4.0"	,	L_66
+"Sent "	,	L_2
+P2P_DIR_RECV	,	V_15
+proto_reg_handoff_btatt	,	F_26
+dissector_add_uint	,	F_28
+tree	,	V_3
+format	,	V_30
+hf_btatt_length	,	V_42
+"Opcode"	,	L_24
+hf_btatt_uuid16	,	V_33
+"Unknown format"	,	L_11
+btatt_handle	,	V_61
+", %s, Handles: 0x%04x..0x%04x"	,	L_12
+FT_UINT16	,	V_53
+packet_info	,	T_2
+tvb_get_guint8	,	F_8
+"Offset"	,	L_54
+"Handle in Error"	,	L_38
+"btatt.group_end_handle"	,	L_33
+"btatt.client_rx_mtu"	,	L_46
+uuid_format_vals	,	V_58
+dissect_btatt	,	F_1
+"Unknown direction %d "	,	L_4
+"UUID Format"	,	L_49
+BTL2CAP_PSM_ATT	,	V_62
+ett_btatt_list	,	V_39
+proto_register_btatt	,	F_17
+"btatt"	,	L_64
+hf_btatt_opcode	,	V_19
+"Signature"	,	L_60
+error_vals	,	V_24
+"btatt.opcode"	,	L_25
+"&lt;unknown&gt;"	,	L_6
+hf_btatt_flags	,	V_45
+hf_btatt_signature	,	V_47
+P2P_DIR_SENT	,	V_13
+HFILL	,	V_52
+opcode_vals	,	V_21
+p2p_dir	,	V_12
+"btl2cap.psm"	,	L_68
+", Server Rx MTU: %u"	,	L_9
+"btatt.req_opcode_in_error"	,	L_37
+val_to_str_const	,	F_10
+hf_btatt_starting_handle	,	V_28
+ett_btatt	,	V_18
+length	,	V_41
+find_dissector	,	F_27
+PI_WARN	,	V_36
+"btatt.ending_handle"	,	L_31
+hf_btatt_handle	,	V_32
+flags_vals	,	V_44
+FT_UINT32	,	V_59
+"btatt.sign_counter"	,	L_59
+"Handles Info, Handle: 0x%04x, Group End Handle: 0x%04x"	,	L_13
+"btatt.handle"	,	L_27
+proto_btatt	,	V_16
+"Too few handles, should be 2 or more"	,	L_19
+"Server Rx MTU"	,	L_47
+hf_btatt_error_code	,	V_25
+proto_tree	,	T_3
+hf_btatt_group_end_handle	,	V_40
+hf	,	V_49
+", Handles: 0x%04x..0x%04x"	,	L_10

@@ -1,0 +1,128 @@
+THROW	,	F_6
+proto_register_protocol	,	F_12
+SEQ_OUT_OF_RANGE	,	V_34
+"1.6 DSID"	,	L_35
+cmstatus_tree	,	V_23
+event_type	,	V_25
+"T3 retries exceeded"	,	L_18
+len	,	V_4
+T3_RETRIES_EXCEEDED	,	V_42
+gint	,	T_8
+"TLV Data"	,	L_1
+dissect_cmstatus	,	F_7
+tvb	,	V_1
+"Secondary Channel MDD Recovery"	,	L_12
+COL_INFO	,	V_27
+hf_docsis_cmstatus_dsid	,	V_18
+it	,	V_5
+tvb_reported_length_remaining	,	F_9
+proto_register_docsis_cmstatus	,	F_11
+"DOCSIS CM-STATUS Report"	,	L_38
+"docsis_cmstatus.us_chid"	,	L_33
+proto_reg_handoff_docsis_cmstatus	,	F_17
+cinfo	,	V_26
+"Secondary Channel MDD timeout"	,	L_6
+proto_register_subtree_array	,	F_15
+EVENT_DESCR	,	V_19
+docsis_cmstatus_handle	,	V_59
+CM_ON_BATTERY	,	V_46
+array_length	,	F_14
+"docsis_cmstatus.t4_timeout"	,	L_17
+SEC_CH_MDD_RECOVERY	,	V_36
+proto_tree_add_item	,	F_5
+ett_docsis_cmstatus	,	V_28
+CM_ON_AC_POWER	,	V_48
+pinfo	,	V_22
+col_add_fstr	,	F_10
+"Description"	,	L_28
+dissector_handle_t	,	T_9
+"QAM/FEC lock failure"	,	L_8
+EVENT_US_CH_ID	,	V_15
+hf_docsis_cmstatus_e_t_cm_b	,	V_47
+"docsis_cmstatus.description"	,	L_27
+"docsis_cmstatus.cm_on_ac_power"	,	L_25
+hf_docsis_cmstatus_e_t_cm_a	,	V_49
+"Sequence out-of-range"	,	L_10
+QAM_FEC_LOCK_FAILURE	,	V_32
+hf_docsis_cmstatus_us_ch_id	,	V_16
+pos	,	V_7
+"CM-STATUS Report: Transaction ID = %u"	,	L_2
+hf_register_info	,	T_7
+hf_docsis_cmstatus_e_t_s_o	,	V_35
+ReportedBoundsError	,	V_14
+guint16	,	T_4
+hf_docsis_cmstatus_tranid	,	V_29
+FT_UINT8	,	V_54
+T4_TIMEOUT	,	V_40
+BASE_DEC	,	V_52
+"Upstream Channel ID"	,	L_34
+"T4 timeout"	,	L_16
+proto_item	,	T_5
+ENC_NA	,	V_21
+guint8	,	T_3
+"docsis_cmstatus.mdd_recovery"	,	L_13
+ett_docsis_cmstatus_tlv	,	V_10
+BASE_NONE	,	V_56
+"Downstream Channel ID"	,	L_31
+"DSID"	,	L_37
+"CM-STATUS Report"	,	L_3
+"CM returned to A/C power"	,	L_24
+register_dissector	,	F_16
+"Transaction ID"	,	L_4
+SEC_CH_MDD_TIMEOUT	,	V_30
+"docsis_cmstatus.successful_ranging_after_t3_retries_exceeded"	,	L_21
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_2
+tvb_get_ntohs	,	F_8
+"docsis_cmstatus.tranid"	,	L_5
+"1.2 Description"	,	L_26
+FT_UINT24	,	V_57
+"docsis_cmstatus.mdd_timeout"	,	L_7
+"QAM/FEC Lock Recovery"	,	L_14
+EVENT_DS_CH_ID	,	V_11
+proto_item_add_subtree	,	F_3
+hf_docsis_cmstatus_ds_ch_id	,	V_12
+proto_register_field_array	,	F_13
+dissect_cmstatus_tlv	,	F_1
+FT_BYTES	,	V_55
+hf_docsis_cmstatus_e_t_rng_s	,	V_45
+ett	,	V_58
+"docsis_cmstatus"	,	L_40
+transid	,	V_24
+dissector_add_uint	,	F_19
+"docsis_mgmt"	,	L_41
+tree	,	V_2
+"docsis_cmstatus.sequence_out_of_range"	,	L_11
+FT_UINT16	,	V_51
+packet_info	,	T_6
+tvb_get_guint8	,	F_4
+"docsis_cmstatus.t3_retries_exceeded"	,	L_19
+"docsis_cmstatus.cm_on_battery"	,	L_23
+"Successful ranging after T3 retries exceeded"	,	L_20
+"docsis_cmstatus.qam_fec_lock_failure"	,	L_9
+hf_docsis_cmstatus_descr	,	V_20
+"docsis_cmstatus.dsid"	,	L_36
+tlv_tree	,	V_6
+QAM_FEC_LOCK_RECOVERY	,	V_38
+hf_docsis_cmstatus_e_t_t4_t	,	V_41
+HFILL	,	V_53
+"CM operating on battery backup"	,	L_22
+EVENT_DSID	,	V_17
+"docsis_cmstatus.qam_fec_lock_recovery"	,	L_15
+"1.5 Upstream Channel ID"	,	L_32
+start	,	V_3
+length	,	V_8
+find_dissector	,	F_18
+hf_docsis_cmstatus_e_t_t3_e	,	V_43
+proto_docsis_cmstatus	,	V_9
+hf_docsis_cmstatus_e_t_qfl_f	,	V_33
+ENC_BIG_ENDIAN	,	V_13
+"1.4 Downstream Channel ID"	,	L_29
+"DOCSIS CM-STATUS"	,	L_39
+hf_docsis_cmstatus_e_t_mdd_r	,	V_37
+"docsis_cmstatus.ds_chid"	,	L_30
+hf_docsis_cmstatus_e_t_qfl_r	,	V_39
+SUCCESS_RANGING_AFTER_T3_RETRIES_EXCEEDED	,	V_44
+hf_docsis_cmstatus_e_t_mdd_t	,	V_31
+proto_tree	,	T_2
+hf	,	V_50

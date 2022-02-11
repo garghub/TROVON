@@ -1,0 +1,70 @@
+hf_docsis_dccack_key_seq_num	,	V_17
+register_dissector	,	F_15
+"Transaction ID"	,	L_3
+"DOCSIS Downstream Channel Change Acknowledge"	,	L_9
+data	,	T_4
+THROW	,	F_8
+proto_register_protocol	,	F_11
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_4
+tvb_reported_length	,	F_2
+hf_docsis_dccack_tran_id	,	V_14
+len	,	V_9
+"DOCSIS DCC-ACK"	,	L_10
+col_set_str	,	F_3
+gint	,	T_9
+proto_item_add_subtree	,	F_5
+proto_register_field_array	,	F_12
+FT_BYTES	,	V_27
+tvb	,	V_1
+ett	,	V_29
+COL_INFO	,	V_11
+dissector_add_uint	,	F_18
+"docsis_mgmt"	,	L_12
+tree	,	V_3
+"DCC-ACK Message: "	,	L_1
+"HMAC-DigestNumber"	,	L_7
+FT_UINT16	,	V_23
+packet_info	,	T_2
+tvb_get_guint8	,	F_7
+cinfo	,	V_10
+tvb_captured_length	,	F_9
+proto_register_subtree_array	,	F_14
+array_length	,	F_13
+"DCC-ACK Message"	,	L_2
+proto_tree_add_item	,	F_6
+hf_docsis_dccack_hmac_digest	,	V_20
+pinfo	,	V_2
+dissector_handle_t	,	T_10
+_U_	,	V_4
+"Auth Key Sequence Number"	,	L_5
+proto_docsis_dccack	,	V_12
+pos	,	V_5
+hf_register_info	,	T_8
+"docsis_dccack.tran_id"	,	L_4
+"docsis_dccack.key_seq_num"	,	L_6
+HFILL	,	V_25
+ReportedBoundsError	,	V_18
+guint16	,	T_5
+dcc_tree	,	V_7
+FT_UINT8	,	V_26
+length	,	V_6
+find_dissector	,	F_17
+DCCACK_HMAC_DIGEST	,	V_19
+BASE_DEC	,	V_24
+"docsis_dccack.hmac_digest"	,	L_8
+dissect_dccack	,	F_1
+proto_item	,	T_7
+proto_reg_handoff_docsis_dccack	,	F_16
+ett_docsis_dccack	,	V_13
+ENC_BIG_ENDIAN	,	V_15
+ENC_NA	,	V_21
+guint8	,	T_6
+DCCACK_KEY_SEQ_NUM	,	V_16
+proto_register_docsis_dccack	,	F_10
+dcc_item	,	V_8
+BASE_NONE	,	V_28
+"docsis_dccack"	,	L_11
+docsis_dccack_handle	,	V_30
+proto_tree	,	T_3
+hf	,	V_22

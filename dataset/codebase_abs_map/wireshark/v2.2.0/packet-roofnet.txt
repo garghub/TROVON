@@ -1,0 +1,187 @@
+PROTO_CHECKSUM_NO_FLAGS	,	V_12
+"Roofnet Flags"	,	L_27
+"Next Link"	,	L_16
+hf_roofnet_nlinks	,	V_8
+ptvcursor_tvbuff	,	F_6
+proto_register_protocol	,	F_32
+"[More payload data (%u) than told by Roofnet (%u)]"	,	L_2
+ptvcursor_tree	,	F_5
+hf_roofnet_ttl	,	V_10
+dissect_roofnet_link	,	F_10
+hf_roofnet_link_dst	,	V_30
+tvb_new_subset_remaining	,	F_20
+"Version"	,	L_7
+gint	,	T_7
+col_set_str	,	F_22
+"Roofnet Version"	,	L_9
+"Flags"	,	L_25
+"Revision Number"	,	L_44
+roofnet_handle	,	V_71
+dissect_roofnet	,	F_21
+FT_IPv4	,	V_62
+tvb	,	V_2
+"Data Length"	,	L_28
+guint32	,	T_5
+"Rev"	,	L_42
+"Roofnet Protocol"	,	L_57
+find_dissector_add_dependency	,	F_39
+COL_INFO	,	V_46
+"roofnet.datalength"	,	L_29
+"Roofnet Query Destination"	,	L_33
+nlink	,	V_42
+it	,	V_38
+"Time To Live"	,	L_19
+"Data Payload Length"	,	L_30
+hf_roofnet_data_length	,	V_14
+ei_roofnet_too_many_links	,	V_54
+"roofnet.querydst"	,	L_32
+addr_dst	,	V_20
+tvb_reported_length_remaining	,	F_17
+ptvcursor_free	,	F_9
+hf_roofnet_link_src	,	V_25
+proto_tree_add_expert_format	,	F_18
+ROOFNET_MAX_LENGTH	,	V_53
+proto_tree_add_ipv4	,	F_14
+cinfo	,	V_43
+PI_ERROR	,	V_68
+proto_register_subtree_array	,	F_35
+val_to_str	,	F_25
+"Roofnet Header Checksum"	,	L_24
+array_length	,	F_34
+"Checksum"	,	L_22
+proto_tree_add_item	,	F_26
+dissect_roofnet_data	,	F_15
+call_dissector	,	F_19
+pinfo	,	V_31
+col_add_fstr	,	F_24
+"roofnet.seq"	,	L_35
+dissector_handle_t	,	T_15
+"roofnet.next"	,	L_17
+ROOFNET_LINK_OFFSET_DST	,	V_22
+ip_handle	,	V_36
+_U_	,	V_37
+ei_roofnet_too_much_data	,	V_35
+"ethertype"	,	L_60
+"Roofnet Message Type"	,	L_12
+proto_register_roofnet	,	F_30
+"roofnet.ttl"	,	L_20
+proto_tree_add_checksum	,	F_4
+tvb_get_ipv4	,	F_11
+expert_roofnet	,	V_70
+hf_register_info	,	T_12
+ROOFNET_LINK_LEN	,	V_23
+roofnet_nlinks	,	V_41
+roofnet_msg_type	,	V_40
+VALS	,	F_31
+"roofnet.cksum"	,	L_23
+"roofnet.link.dst"	,	L_51
+"Roofnet Message Destination"	,	L_52
+"roofnet.too_much_data"	,	L_55
+"roofnet.link.age"	,	L_48
+guint16	,	T_8
+"roofnet.flags"	,	L_26
+COL_PROTOCOL	,	V_44
+ROOFNET_OFFSET_DATA_LENGTH	,	V_34
+"Link Sequential Number"	,	L_46
+FT_UINT8	,	V_57
+"ip"	,	L_59
+BASE_DEC	,	V_58
+proto_item	,	T_10
+"Information Age"	,	L_49
+expert_register_field_array	,	F_37
+hf_roofnet_type	,	V_7
+"roofnet"	,	L_58
+ptvcursor_advance	,	F_8
+subtree	,	V_18
+ENC_NA	,	V_49
+hf_roofnet_link_rev	,	V_27
+guint8	,	T_11
+ptvcursor_current_offset	,	F_7
+expert_add_info_format	,	F_28
+BASE_NONE	,	V_63
+"More payload data than told by Roofnet"	,	L_56
+ROOFNET_LINK_OFFSET_SRC	,	V_21
+roofnet_datalen	,	V_32
+"roofnet.link.rev"	,	L_43
+get_hostname	,	F_13
+"Roofnet"	,	L_3
+"Forward"	,	L_40
+ptvcursor_t	,	T_4
+data	,	T_9
+tvbuff_t	,	T_2
+roofnet_flags_vals	,	V_61
+hf_roofnet_seq	,	V_16
+tvb_get_ntohs	,	F_16
+"roofnet.type"	,	L_11
+roofnet_tree	,	V_39
+ROOFNET_LINK_DESCRIPTION_LENGTH	,	V_55
+"roofnet.link.src"	,	L_38
+ei_register_info	,	T_13
+expert_register_protocol	,	F_36
+hf_roofnet_query_dst	,	V_15
+proto_item_add_subtree	,	F_27
+"link: %u, src: %s, dst: %s"	,	L_1
+proto_register_field_array	,	F_33
+dissect_roofnet_header	,	F_1
+"Unknown (%d)"	,	L_5
+guint	,	T_3
+offset	,	V_3
+"Roofnet Message Source"	,	L_39
+ett	,	V_65
+ei	,	V_66
+proto_roofnet	,	V_48
+"roofnet.version"	,	L_8
+expert_module_t	,	T_14
+dissector_add_uint	,	F_41
+tree	,	V_1
+"roofnet.link.seq"	,	L_45
+"Query Dst"	,	L_31
+FT_UINT16	,	V_60
+packet_info	,	T_6
+"roofnet.nlinks"	,	L_14
+tvb_get_guint8	,	F_23
+roofnet_pt_vals	,	V_47
+hf_roofnet_next	,	V_9
+"Too many links (%u)"	,	L_6
+tvb_captured_length	,	F_29
+hf_roofnet_link_seq	,	V_28
+"Roofnet Next Link to Use"	,	L_18
+"roofnet.link.forward"	,	L_41
+proto_reg_handoff_roofnet	,	F_38
+"Too many links"	,	L_54
+"Age"	,	L_47
+cursor	,	V_4
+EXPFILL	,	V_69
+"Dst IP"	,	L_50
+"Source IP"	,	L_37
+link	,	V_17
+ROOFNET_OFFSET_TYPE	,	V_45
+"Roofnet Sequential Number"	,	L_36
+addr_src	,	V_19
+ptvcursor_new	,	F_2
+remaining_datalen	,	V_33
+ptvcursor_add	,	F_3
+hf_roofnet_flags	,	V_13
+hf_roofnet_link_age	,	V_29
+hf_roofnet_link_forward	,	V_26
+HFILL	,	V_59
+"Roofnet Time to Live"	,	L_21
+PI_MALFORMED	,	V_67
+"Roofnet Number of Links"	,	L_15
+"Seq"	,	L_34
+ett_roofnet_link	,	V_24
+create_dissector_handle	,	F_40
+proto_tree_add_subtree_format	,	F_12
+"Message Type: %s"	,	L_4
+"roofnet.too_many_links"	,	L_53
+"Number of Links"	,	L_13
+ENC_BIG_ENDIAN	,	V_6
+ROOFNET_OFFSET_NLINKS	,	V_51
+hf_roofnet_version	,	V_5
+FT_UINT32	,	V_64
+hf_roofnet_cksum	,	V_11
+ROOFNET_HEADER_LENGTH	,	V_52
+"Type"	,	L_10
+proto_tree	,	T_1
+hf	,	V_56
+ett_roofnet	,	V_50

@@ -1,0 +1,73 @@
+register_dissector	,	F_13
+"Bonded Ranging Request: MD-DS-SG-ID = %u (0x%X)"	,	L_1
+hf_docsis_bintrngreq_capflags_encrypt	,	V_16
+BASE_HEX_DEC	,	V_25
+data	,	T_4
+"docsis_bintrngreq.capflags"	,	L_4
+"DS Chan ID"	,	L_14
+proto_register_protocol	,	F_9
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_4
+tvb_get_ntohs	,	F_2
+proto_docsis_bintrngreq	,	V_11
+BASE_HEX	,	V_22
+hf_docsis_bintrngreq_capflags	,	V_13
+"Early Authentication and Encryption supported"	,	L_10
+gint	,	T_8
+proto_item_add_subtree	,	F_6
+dissect_bintrngreq	,	F_1
+"MD-DS-SG-ID"	,	L_11
+proto_register_field_array	,	F_10
+tvb	,	V_1
+hf_docsis_bintrngreq_mddsgid	,	V_17
+"Pre-3.0 DOCSIS fragmentation is supported prior to registration"	,	L_7
+"docsis_bintrngreq.upchid"	,	L_17
+offset	,	V_10
+ett	,	V_26
+COL_INFO	,	V_9
+md_ds_sg_id	,	V_7
+dissector_add_uint	,	F_16
+"docsis_bintrngreq.capflags.encrypt"	,	L_9
+"docsis_mgmt"	,	L_21
+tree	,	V_3
+FT_BOOLEAN	,	V_24
+"DOCSIS Bonded Initial Ranging Message"	,	L_18
+"Capability Flags"	,	L_3
+packet_info	,	T_2
+"MAC Domain Downstream Service Group Identifier"	,	L_13
+cinfo	,	V_8
+tvb_captured_length	,	F_5
+proto_register_docsis_bintrngreq	,	F_8
+proto_register_subtree_array	,	F_12
+array_length	,	F_11
+"docsis_bintrngreq.capflags.frag"	,	L_6
+"docsis_bintrngreq"	,	L_20
+proto_tree_add_item	,	F_7
+pinfo	,	V_2
+col_add_fstr	,	F_3
+dissector_handle_t	,	T_9
+"Bonded Initial Ranging Request"	,	L_2
+_U_	,	V_4
+proto_reg_handoff_docsis_bintrngreq	,	F_14
+bintrngreq_tree	,	V_6
+hf_docsis_bintrngreq_up_chid	,	V_19
+hf_docsis_bintrngreq_capflags_frag	,	V_15
+"docsis_bintrngreq.downchid"	,	L_15
+"DOCSIS B-INT-RNG-REQ"	,	L_19
+hf_register_info	,	T_7
+"Pre-3.0 Fragmentation"	,	L_5
+HFILL	,	V_23
+bintrngreq_item	,	V_5
+"Early Auth. &amp; Encrypt"	,	L_8
+guint16	,	T_6
+"docsis_bintrngreq.mddsgid"	,	L_12
+"US Chan ID"	,	L_16
+FT_UINT8	,	V_21
+find_dissector	,	F_15
+hf_docsis_bintrngreq_down_chid	,	V_18
+proto_item	,	T_5
+ett_docsis_bintrngreq	,	V_12
+ENC_BIG_ENDIAN	,	V_14
+docsis_bintrngreq_handle	,	V_27
+proto_tree	,	T_3
+hf	,	V_20

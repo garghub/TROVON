@@ -1,0 +1,233 @@
+ett_btsap_parameter	,	V_24
+proto_register_protocol	,	F_26
+"Parameter error"	,	L_62
+PARAMETER_COMMAND_APDU	,	V_81
+pref_top_dissect	,	V_104
+"Unknown MsgID"	,	L_17
+"Parameter Padding"	,	L_33
+"Card in Reader is Powered"	,	L_53
+"btsap"	,	L_65
+hf_btsap_parameter_card_reader_status_card_powered	,	V_46
+gint	,	T_1
+"btsap.parameter.result_code"	,	L_40
+msg_id	,	V_59
+hf_btsap_parameter_length	,	V_30
+tvb	,	V_1
+top_tree	,	V_3
+ett_btsap	,	V_72
+PARAMETER_CONNECTION_STATUS	,	V_79
+COL_INFO	,	V_28
+parameter_offsets	,	V_62
+module	,	V_88
+FT_BOOLEAN	,	V_98
+"btsap.parameter.card_reader_status.card_reader_removable"	,	L_46
+"gsm_sim.command"	,	L_71
+": %u"	,	L_6
+"Parameter ID"	,	L_28
+"btsap.parameter_error"	,	L_61
+proto_tree_add_expert_format	,	F_22
+cinfo	,	V_27
+number_of_parameters	,	V_60
+array_length	,	F_29
+hf_btsap_parameter_padding	,	V_56
+hf_btsap_parameter_disconnection_type	,	V_36
+"Parameter: %s: "	,	L_1
+next_tvb	,	V_11
+expert_btsap	,	V_89
+"btsap.parameter.transport_protocol"	,	L_58
+call_dissector	,	F_12
+": "	,	L_10
+PARAMETER_CARD_READER_STATUS	,	V_85
+"reserved"	,	L_26
+"Card is Present in Reader"	,	L_51
+col_append_str	,	F_11
+prefs_register_enum_preference	,	F_35
+"Identify of Card Reader"	,	L_43
+hf_register_info	,	T_11
+hf_btsap_header_reserved	,	V_76
+parameter_item	,	V_8
+guint16	,	T_8
+"btsap.parameter.max_msg_size"	,	L_36
+status_change	,	V_21
+COL_PROTOCOL	,	V_67
+"btrfcomm.channel"	,	L_75
+hf_btsap_parameter_card_reader_status_card_reader_identity	,	V_51
+hf_btsap_parameter_card_reader_status_card_present	,	V_47
+gsm_sim_cmd_handle	,	V_38
+": %s"	,	L_9
+hf_btsap_parameter_max_msg_size	,	V_31
+ptree	,	V_10
+status_change_vals	,	V_53
+hf_btsap_header_msg_id	,	V_73
+guint8	,	T_5
+wmem_alloc0	,	F_21
+ti	,	V_57
+"MsgID"	,	L_22
+BASE_NONE	,	V_97
+"btsap.parameter.padding"	,	L_34
+"Card Reader is Removable"	,	L_45
+register_dissector	,	F_27
+hf_btsap_parameter_reserved	,	V_29
+" (in 4 bytes sections, padding length: %u)"	,	L_4
+"btsap.parameter.status_change"	,	L_56
+parameters_check	,	V_63
+proto_register_btsap	,	F_24
+tvbuff_t	,	T_2
+tvb_get_ntohs	,	F_3
+BASE_HEX	,	V_92
+col_add_str	,	F_17
+PARAMETER_TRANSPORT_PROTOCOL	,	V_87
+proto_item_add_subtree	,	F_6
+module_t	,	T_9
+dissect_parameter	,	F_1
+proto_register_field_array	,	F_28
+ei	,	V_100
+dissector_add_uint	,	F_38
+PARAMETER_MAX_MSG_SIZE	,	V_78
+"Invalid parameters"	,	L_19
+ei_btsap_parameter_error	,	V_55
+FT_UINT16	,	V_94
+tvb_get_guint8	,	F_2
+hf_btsap_parameter_card_reader_status_card_reader_present_lower	,	V_48
+TOP_DISSECT_INTERNAL	,	V_41
+" - %s"	,	L_3
+parameters	,	V_61
+"Connection Status"	,	L_37
+"Disconnection Type"	,	L_41
+"Transport Protocol"	,	L_57
+"Unknown direction %d "	,	L_16
+"Unknown ParameterID"	,	L_2
+"btsap.parameter.reserved"	,	L_30
+padding_length	,	V_15
+"Too many parameters"	,	L_21
+"btsap.parameter.disconnection_type"	,	L_42
+"btsap.parameter.card_reader_status.card_present"	,	L_52
+i_parameter	,	V_65
+hf_btsap_parameter_transport_protocol	,	V_54
+" (length %d)"	,	L_12
+val_to_str_const	,	F_5
+max_msg_size	,	V_17
+"Parameter Length"	,	L_31
+proto_reg_handoff_btsap	,	F_36
+length	,	V_16
+"sap.top_dissect"	,	L_69
+find_dissector	,	F_37
+PI_WARN	,	V_102
+"btrfcomm.service"	,	L_74
+PARAMETER_COMMAND_APDU_7816	,	V_82
+ENC_BIG_ENDIAN	,	V_26
+"btsap.parameter_id"	,	L_29
+hf_btsap_parameter_connection_status	,	V_32
+disconnection_type_vals	,	V_37
+hf	,	V_90
+"btsap.msg_id"	,	L_23
+prefs_register_protocol	,	F_33
+"sap.version"	,	L_66
+col_append_fstr	,	F_8
+i_next_parameter	,	V_66
+col_set_str	,	F_16
+"Card Reader Present is ID-1 Size"	,	L_49
+parameter_id	,	V_12
+PARAMETER_RESPONSE_APDU	,	V_83
+PARAMETER_STATUS_CHANGE	,	V_86
+connection_status	,	V_18
+proto_item_append_text	,	F_9
+col_clear	,	F_13
+proto_register_subtree_array	,	F_30
+result_code	,	V_19
+transport_protocol	,	V_22
+proto_btsap	,	V_71
+"btsap.parameter.length"	,	L_32
+"btsap.parameter.connection_status"	,	L_38
+btsap_tree	,	V_58
+proto_tree_add_item	,	F_7
+pinfo	,	V_2
+col_add_fstr	,	F_18
+dissector_handle_t	,	T_13
+"Data"	,	L_59
+result_code_vals	,	V_35
+hf_btsap_parameter_card_reader_status_card_reader_removable	,	V_50
+"Version of protocol supported by this dissector."	,	L_68
+VALS	,	F_25
+"btsap.data"	,	L_60
+PI_PROTOCOL	,	V_101
+prefs_register_static_text_preference	,	F_34
+disconnection_type	,	V_20
+"gsm_sim.response"	,	L_72
+tvb_length	,	F_23
+FT_UINT8	,	V_91
+proto_tree_add_text	,	F_4
+"There are no required parameters"	,	L_18
+BASE_DEC	,	V_95
+tvb_new_subset	,	F_10
+proto_item	,	T_6
+expert_register_field_array	,	F_32
+"btsap.parameter.card_reader_status.card_reader_identity"	,	L_44
+ENC_NA	,	V_43
+"iso7816.atr"	,	L_73
+btsap_handle	,	V_105
+expert_add_info_format	,	F_14
+top_dissect	,	V_39
+parameter_length	,	V_13
+PARAMETER_DISCONNECTION_TYPE	,	V_80
+wmem_alloc	,	F_19
+"%s"	,	L_7
+parameter_offset	,	V_7
+dissect_btsap	,	F_15
+"Rcvd "	,	L_15
+parameter_padding_length	,	V_14
+hf_btsap_parameter_id	,	V_25
+"Dissecting the top protocols"	,	L_70
+ei_register_info	,	T_12
+expert_register_protocol	,	F_31
+"Too few parameters"	,	L_20
+"Bluetooth Profile SAP version: 1.1"	,	L_67
+"btsap.parameter.card_reader_status.card_powered"	,	L_54
+gsm_sim_resp_handle	,	V_44
+"Parameter Length does not meet content length"	,	L_11
+msg_id_vals	,	V_74
+guint	,	T_7
+FT_NONE	,	V_96
+offset	,	V_5
+ett	,	V_99
+"Sent "	,	L_14
+P2P_DIR_RECV	,	V_70
+wmem_packet_scope	,	F_20
+expert_module_t	,	T_10
+"btsap.reserved"	,	L_27
+tree	,	V_4
+"Result Code"	,	L_39
+dissector_add_handle	,	F_39
+required_parameters	,	V_64
+packet_info	,	T_3
+"Max Msg Size"	,	L_35
+"Card Reader is Present"	,	L_47
+hf_btsap_parameter_status_change	,	V_52
+iso7816_atr_handle	,	V_45
+PARAMETER_RESULT_CODE	,	V_77
+"btsap.parameter.card_reader_status.card_reader_present"	,	L_48
+BTSDP_SAP_SERVICE_UUID	,	V_106
+"Bluetooth SAP Profile"	,	L_63
+"%u"	,	L_5
+EXPFILL	,	V_103
+"SAP"	,	L_13
+"BT SAP"	,	L_64
+parameter	,	V_6
+P2P_DIR_SENT	,	V_69
+pitem	,	V_9
+connection_status_vals	,	V_33
+HFILL	,	V_93
+parameter_id_vals	,	V_23
+hf_btsap_parameter_result_code	,	V_34
+p2p_dir	,	V_68
+hf_btsap_parameter_card_reader_status_card_reader_present	,	V_49
+TOP_DISSECT_OFF	,	V_40
+"btsap.number_of_parameters"	,	L_25
+hf_btsap_header_number_of_parameters	,	V_75
+"btsap.parameter.card_reader_status.card_reader_present_lower"	,	L_50
+"Status Change"	,	L_55
+hf_btsap_data	,	V_42
+"Number of Parameters"	,	L_24
+"Unknown"	,	L_8
+PARAMETER_ATR	,	V_84
+proto_tree	,	T_4

@@ -1,0 +1,150 @@
+proto_register_bvlc	,	F_16
+hf_bvlc_result	,	V_30
+bvlc_result	,	V_18
+"bvlc.bdt_port"	,	L_22
+"Timeout"	,	L_35
+proto_register_protocol	,	F_18
+hf_bvlc_fdt_ip	,	V_39
+hf_bvlc_length	,	V_29
+bvlc_length	,	V_14
+prefs_register_protocol	,	F_22
+tvb_reported_length	,	F_15
+"BDT Broadcast Distribution Mask"	,	L_26
+gint	,	T_6
+col_set_str	,	F_4
+"BVLC"	,	L_1
+"BACnet Virtual Link Control"	,	L_2
+FT_IPv4	,	V_53
+hf_bvlc_fwd_port	,	V_44
+"Port"	,	L_21
+tvb	,	V_1
+"bvlc.bdt_mask"	,	L_25
+COL_INFO	,	V_23
+hf_bvlc_type	,	V_27
+bvlc_function_names	,	V_50
+"additional_udp_port"	,	L_43
+"bvlc.fwd_port"	,	L_40
+"bvlc.function"	,	L_10
+tvb_reported_length_remaining	,	F_6
+packet_length	,	V_15
+"Length of BVLC"	,	L_14
+cinfo	,	V_21
+proto_register_subtree_array	,	F_21
+"FDT IP"	,	L_31
+array_length	,	F_20
+"bvlc.fdt_ip"	,	L_30
+next_tvb	,	V_19
+length_remaining	,	V_17
+proto_tree_add_item	,	F_7
+pinfo	,	V_2
+dissector_handle_t	,	T_13
+_U_	,	V_4
+ti_fdt	,	V_7
+hf_bvlc_fdt_port	,	V_40
+ti_bdt	,	V_6
+dissect_bvlc	,	F_1
+bvlc_type	,	V_12
+hf_register_info	,	T_10
+"BDT IP"	,	L_20
+additional_bvlc_udp_port	,	V_62
+VALS	,	F_17
+npdu_length	,	V_16
+"%d of %d bytes BACnet packet length"	,	L_4
+guint16	,	T_8
+COL_PROTOCOL	,	V_22
+"bvlc.fdt_timeout"	,	L_36
+bvlc_dissector_table	,	V_45
+FT_UINT8	,	V_47
+BASE_DEC	,	V_52
+"IP"	,	L_18
+tvb_new_subset	,	F_12
+proto_item	,	T_5
+bvlc_function	,	V_13
+bvlc_types	,	V_20
+try_val_to_str	,	F_3
+ENC_NA	,	V_25
+guint8	,	T_7
+hf_bvlc_bdt_port	,	V_35
+"FWD IP"	,	L_39
+"bvlc"	,	L_42
+ti	,	V_5
+BASE_NONE	,	V_54
+bvlc_module	,	V_57
+"bvlc.fdt_ttl"	,	L_34
+"Set an additional UDP port, "	,	L_45
+"bvlc.fwd_ip"	,	L_38
+"FDT Port"	,	L_33
+register_dissector_table	,	F_25
+"%d of %d bytes (invalid length - expected %d bytes)"	,	L_3
+register_dissector	,	F_24
+"bvlc.result"	,	L_16
+data	,	T_4
+"BDT Port"	,	L_23
+global_additional_bvlc_udp_port	,	V_59
+tvbuff_t	,	T_1
+ett_fdt	,	V_38
+tvb_get_ntohs	,	F_5
+"0x%04x (%s)"	,	L_5
+ett_bdt	,	V_32
+"bvlc.length"	,	L_13
+BASE_HEX	,	V_48
+"Additional UDP port"	,	L_44
+prefs_register_uint_preference	,	F_23
+gboolean	,	T_12
+proto_item_add_subtree	,	F_8
+"Function"	,	L_9
+"BVLC Function"	,	L_11
+module_t	,	T_11
+proto_register_field_array	,	F_19
+"bvlc.bdt_ip"	,	L_19
+FT_BYTES	,	V_55
+"bvlc.reg_ttl"	,	L_28
+proto_bvlc	,	V_24
+ett_bvlc	,	V_26
+guint	,	T_9
+offset	,	V_11
+ett	,	V_56
+dissector_add_uint	,	F_27
+tree	,	V_3
+hf_bvlc_fwd_ip	,	V_43
+"Result"	,	L_15
+"besides the standard X'BAC0' (47808) port."	,	L_46
+hf_bvlc_reg_ttl	,	V_37
+"Result Code"	,	L_17
+"FWD Port"	,	L_41
+hf_bvlc_fdt_ttl	,	V_41
+FT_UINT16	,	V_51
+packet_info	,	T_2
+hf_bvlc_bdt_ip	,	V_33
+tvb_get_guint8	,	F_2
+"BVLC-Length"	,	L_12
+"Foreign Device Time To Live"	,	L_29
+dissector_delete_uint	,	F_28
+proto_tree_add_uint	,	F_9
+fdt_tree	,	V_10
+"bvlc.type"	,	L_8
+bdt_tree	,	V_9
+bvlc_initialized	,	V_60
+bvlc_handle	,	V_61
+hf_bvlc_fdt_timeout	,	V_42
+proto_reg_handoff_bvlc	,	V_58
+hf_bvlc_function	,	V_28
+call_data_dissector	,	F_14
+"Foreign Device Timeout (seconds)"	,	L_37
+"Mask"	,	L_24
+hf_bvlc_bdt_mask	,	V_36
+HFILL	,	V_49
+dissector_try_uint	,	F_13
+val_to_str_const	,	F_11
+"udp.port"	,	L_47
+bvlc_result_names	,	V_31
+find_dissector	,	F_26
+bvlc_tree	,	V_8
+proto_tree_add_uint_format_value	,	F_10
+ENC_BIG_ENDIAN	,	V_34
+"Unknown"	,	L_6
+"Type"	,	L_7
+"bvlc.fdt_port"	,	L_32
+proto_tree	,	T_3
+hf	,	V_46
+"TTL"	,	L_27

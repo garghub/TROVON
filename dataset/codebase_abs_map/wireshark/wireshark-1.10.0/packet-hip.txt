@@ -1,0 +1,483 @@
+hip_handle	,	V_236
+tvb_reported_length	,	F_11
+"Locator priority"	,	L_160
+hf_hip_tlv_r1_res	,	V_90
+"Host Identity flags"	,	L_97
+"Certificate"	,	L_174
+"Host Identity Y (public value)"	,	L_113
+tlv_len	,	V_65
+hf_hip_tlv_reg_lt	,	V_182
+guint32	,	T_7
+hiph_res_ver	,	V_21
+"HMAC"	,	L_138
+vec_t	,	T_6
+FT_BOOLEAN	,	V_220
+PARAM_HMAC_2	,	V_186
+reserved	,	V_77
+hip_tree	,	V_4
+hf_hip_tlv_relay_to_protocol	,	V_206
+di_type	,	V_74
+array_length	,	F_28
+"hip.tlv.r1_reserved"	,	L_50
+trans	,	V_71
+PARAM_RELAY_TO	,	V_204
+""	,	L_15
+"hip.tlv_relay_from_reserved"	,	L_192
+"hip.tlv.locator_lifetime"	,	L_153
+"hip.tlv.reg_failtype"	,	L_137
+hf_hip_tlv_ei_keyidx	,	V_86
+hf_hip_tlv_reg_from_address	,	V_213
+"hip.tlv.host_identity_t"	,	L_106
+"hip.tlv_transaction_minta"	,	L_185
+"hip.tlv.host_domain_id_type"	,	L_94
+PARAM_PUZZLE	,	V_105
+"hip.tlv.notification_data"	,	L_126
+PARAM_RVS_HMAC	,	V_187
+"(UDP)"	,	L_17
+hf_register_info	,	T_9
+"Unknown algorithm type (%d).\n"	,	L_22
+"hip.tlv.cert_id"	,	L_171
+"Fixed S-bit: %u (%s)"	,	L_5
+"hip.tlv.nat_traversal_mode_id"	,	L_177
+guint16	,	T_5
+hf_hip_tlv_sig_alg	,	V_192
+"hip.tlv.reg_type"	,	L_135
+PARAM_RELAY_HMAC	,	V_188
+n	,	V_68
+"hip.tlv.locator_transport_protocol"	,	L_157
+hf_hip_shim6_fixed_bit_p	,	V_40
+hf_hip_shim6_fixed_bit_s	,	V_43
+t	,	V_66
+BASE_NONE	,	V_223
+"Cert ID"	,	L_170
+"hip.tlv.host_id_y"	,	L_114
+"should be 0x%04x)"	,	L_9
+computed_checksum	,	V_13
+hi_t	,	V_82
+"Cert type"	,	L_172
+hip_handle2	,	V_237
+hf_hip_tlv_locator_transport_protocol	,	V_102
+hf_hip_tlv_rvs_address	,	V_198
+"Opaque Data"	,	L_57
+"Cert group"	,	L_166
+dissect_hip	,	F_1
+"FQDN: %s"	,	L_23
+BASE_HEX	,	V_219
+PARAM_REG_FAILED	,	V_178
+proto_item_add_subtree	,	F_8
+transport_proto	,	V_79
+hf_hip_tlv_cert_group	,	V_161
+proto_register_field_array	,	F_27
+"Host Identity Protocol"	,	L_200
+FT_BYTES	,	V_222
+hf_hip_tlv_relay_from_port	,	V_200
+hi_hdr_proto_vals	,	V_229
+hf_hip_tlv_reg_ltmax	,	V_180
+dissector_add_uint	,	F_32
+g_htonl	,	F_12
+hf_hip_tlv_seq_updid	,	V_117
+tvb_get_ptr	,	F_13
+FT_UINT16	,	V_218
+"ip.proto"	,	L_202
+phdr	,	V_17
+PARAM_DIFFIE_HELLMAN	,	V_120
+"hip.tlv.cert_group"	,	L_167
+"Signature Algorithm"	,	L_140
+"Address"	,	L_186
+hf_hip_tlv_puzzle_life	,	V_107
+"hip.tlv_relay_to_address"	,	L_196
+"Solution (J)"	,	L_65
+hf_hip_hit_rcvr	,	V_59
+hf_hip_tlv_host_id_len	,	V_142
+reg_type_vals	,	V_184
+"hip.tlv.opaque_data"	,	L_127
+"Encrypted Parameter Data (%u bytes)"	,	L_19
+"Signature"	,	L_142
+hiph_hdr_len	,	V_18
+hf_hip_controls	,	V_55
+hf_hip_tlv_dh_pub	,	V_124
+tlv_length_h	,	V_15
+hf_hip_tlv_cert_type	,	V_164
+hf_hip_tlv_reg_from_protocol	,	V_211
+hf_hip_tlv_trans_id	,	V_127
+hf_hip_tlv_cert_id	,	V_163
+val_to_str_const	,	F_6
+"Relay To Port"	,	L_180
+length	,	V_8
+cksum_vec	,	V_16
+"Cipher ID"	,	L_87
+FT_UINT32	,	V_224
+proto_hip	,	V_34
+hf	,	V_214
+"hip.hit_sndr"	,	L_44
+"SHIM6"	,	L_6
+newlen	,	V_81
+hf_hip_tlv_transaction_minta	,	V_134
+"hip.tlv.host_id_n"	,	L_120
+hf_hip_tlv_locator_lifetime	,	V_99
+"Host Identity Header Protocol"	,	L_101
+FT_IPv6	,	V_234
+col_set_str	,	F_2
+PARAM_TRANSACTION_PACING	,	V_133
+"hip.tlv.notification_res"	,	L_122
+ett_hip_tlv_host_id_hdr	,	V_146
+"Registration Lifetime"	,	L_132
+nullbytes	,	V_63
+algorithm	,	V_69
+"hip.tlv.solution_random_i"	,	L_64
+"hip.tlv_reg_from_protocol"	,	L_197
+"Host Identity T"	,	L_105
+"hip.tlv_relay_from_protocol"	,	L_191
+PARAM_HIP_SIGNATURE	,	V_190
+"hip.hit_rcvr"	,	L_46
+"&lt;&lt; e_len too large &gt;&gt;"	,	L_20
+"hip.tlv.locator_type"	,	L_148
+tlv_type_h	,	V_14
+PARAM_ECHO_REQUEST_SIGNED	,	V_170
+"HIP Controls"	,	L_37
+dissector_handle_t	,	T_11
+newoffset	,	V_10
+hf_hip_tlv_hmac	,	V_189
+"hip.tlv.host_id_p"	,	L_110
+HIP_SHIM6_FIXED_BIT_S_MASK	,	V_32
+"Notification Reserved"	,	L_121
+hf_hip_tlv_ei_oldspi	,	V_87
+checksum_h	,	V_12
+"hip.tlv.reg_ltmin"	,	L_129
+AT_IPv6	,	V_50
+VALS	,	F_25
+hf_hip_tlv_relay_to_reserved	,	V_207
+hf_hip_tlv_ei_res	,	V_85
+IP_PROTO_UDP	,	V_54
+in_cksum_shouldbe	,	F_15
+tvb_length	,	F_18
+PARAM_NOTIFICATION	,	V_166
+proto_tree_add_text	,	F_17
+BASE_DEC	,	V_216
+hf_hip_tlv_relay_from_address	,	V_203
+"Header Length"	,	L_27
+PARAM_REG_REQUEST	,	V_176
+ENC_NA	,	V_35
+"hip.tlv_solution_j"	,	L_66
+dissect_hip_tlv	,	F_19
+PARAM_ECHO_RESPONSE_SIGNED	,	V_171
+hf_hip_tlv_relay_from_protocol	,	V_201
+hf_hip_tlv_ei_newspi	,	V_88
+"hip.tlv.sig_alg"	,	L_141
+"Host Identity Q"	,	L_107
+ti_loc	,	V_67
+PARAM_SOLUTION	,	V_110
+hf_hip_tlv_sig	,	V_194
+PARAM_FROM	,	V_195
+pv_len	,	V_76
+"hip.tlv.puzzle_random_i"	,	L_60
+"Host Identity Header Algorithm"	,	L_103
+hip_tlv_tree	,	V_5
+"hip.type"	,	L_48
+hf_hip_tlv_esp_reserved	,	V_126
+"hip.tlv.relay_from_port"	,	L_179
+ett	,	V_235
+"hip.tlv.locator_port"	,	L_155
+ett_hip_tlv	,	V_60
+hf_hip_tlv_host_di_type	,	V_143
+IP_PROTO_HIP	,	V_51
+"hip.tlv.host_id_header_proto"	,	L_102
+"Host Identity P"	,	L_109
+packet_info	,	T_2
+hf_hip_checksum	,	V_52
+"Reserved: 0x%x %s"	,	L_13
+"hip.tlv.enc_reserved"	,	L_144
+hf_hip_tlv_cipher_id	,	V_138
+PARAM_HIP_CIPHER	,	V_137
+"Traffic Type"	,	L_145
+"Locator transport protocol"	,	L_156
+hf_hip_tlv_reg_from_reserved	,	V_212
+"hip.tlv.host_id_length"	,	L_92
+PARAM_ESP_INFO	,	V_83
+hf_hip_tlv_puzzle_i	,	V_109
+"hip.tlv_relay_to_protocol"	,	L_194
+dst	,	V_49
+hf_hip_tlv_puzzle_k	,	V_106
+hf_hip_tlv_dh_pv_length	,	V_123
+"%s (type=%u, length=%u)"	,	L_12
+proto_register_hip	,	F_24
+hf_hip_tlv_r1count	,	V_91
+"Transport protocol: %d %s"	,	L_16
+"Public Value"	,	L_82
+PARAM_HMAC	,	V_185
+hi_hdr	,	V_78
+sig_alg_vals	,	V_193
+"hip.proto"	,	L_26
+HI_HDR_PROTO_MASK	,	V_230
+"hip.tlv.locator_address"	,	L_165
+hf_hip_tlv_solution_reserved	,	V_112
+HFILL	,	V_217
+"hip.hdr_len"	,	L_28
+"hip.tlv_esp_info_new_spi"	,	L_73
+hf_hip_proto	,	V_37
+hf_hip_version	,	V_42
+hf_hip_tlv_host_id_hdr	,	V_145
+src	,	V_46
+"hip.tlv.reg_from_port"	,	L_183
+"hip.tlv_seq_update_id"	,	L_75
+"hip.tlv.trans_id"	,	L_85
+create_dissector_handle	,	F_31
+hf_hip_tlv_host_id_e_len	,	V_157
+"hip.controls"	,	L_38
+"hip.tlv.host_identity_q"	,	L_108
+cipher_vals	,	V_225
+"Random number (I)"	,	L_59
+"Old SPI"	,	L_70
+"hip.tlv.hmac"	,	L_139
+hf_hip_tlv_reg_from_port	,	V_210
+"hip.tlv.notification_type"	,	L_124
+hf_hip_tlv_puzzle_o	,	V_108
+"Unknown"	,	L_2
+"hip.tlv_puzzle_opaque"	,	L_58
+newtvb	,	V_64
+"Locator Lifetime"	,	L_152
+"RSA Host Identity public modulus (n)"	,	L_119
+"hip.tlv_reg_from_reserved"	,	L_198
+hf_hip_type	,	V_61
+"hip.shim6_fixed_s"	,	L_36
+proto_register_protocol	,	F_26
+notification_vals	,	V_233
+hf_hip_tlv_locator_port	,	V_101
+"Payload Protocol"	,	L_25
+"hip.tlv_solution_opaque"	,	L_63
+hf_hip_controls_anon	,	V_57
+hf_hip_tlv_host_id_hdr_flags	,	V_147
+hf_hip_tlv_host_di_len	,	V_144
+"hip.tlv.sig"	,	L_143
+tvb_new_subset_remaining	,	F_22
+"Version"	,	L_33
+len	,	V_48
+PARAM_ENCRYPTED	,	V_135
+"Cert count"	,	L_168
+"Transform ID"	,	L_84
+gint	,	T_10
+"Port"	,	L_182
+hi_hdr_alg_vals	,	V_231
+tvb	,	V_1
+"hip.checksum"	,	L_42
+COL_INFO	,	V_27
+"hip.tlv_esp_info_key_index"	,	L_69
+"hip.tlv.host_id_g"	,	L_112
+"Host Identity Header Flags"	,	L_99
+hf_hip_tlv_notification_data	,	V_169
+cinfo	,	V_25
+PARAM_R1_COUNTER	,	V_89
+hiph_version	,	V_22
+hf_hip_tlv_nat_traversal_mode_id	,	V_131
+"Receiver's HIT"	,	L_45
+"Reserved"	,	L_49
+"HIP Parameters"	,	L_11
+reg_type	,	V_70
+"hip.tlv.r1_counter"	,	L_52
+hf_hip_tlv_reg_failtype	,	V_181
+"hip.controls.a"	,	L_40
+proto_tree_add_boolean	,	F_16
+"hip.shim6_fixed_p"	,	L_32
+hi_hdr_flags_vals	,	V_227
+"Checksum: 0x%04x (correct)"	,	L_7
+"Notification Data"	,	L_125
+"hip.tlv.host_id_header_algo"	,	L_104
+"Registration Failure Type"	,	L_136
+"Locator Length"	,	L_149
+"hip.tlv_relay_from_address"	,	L_193
+COL_PROTOCOL	,	V_26
+"R1 Counter"	,	L_51
+hf_hip_tlv_opaque_data	,	V_174
+guint8	,	T_8
+"hip.packet_type"	,	L_30
+ti	,	V_6
+control_h	,	V_11
+hit_suite_vals	,	V_226
+pinfo_vals	,	V_33
+hf_hip_tlv_notification_res	,	V_167
+tvb_get_ntohl	,	F_21
+"hip.tlv.host_domain_id_length"	,	L_96
+hf_hip_tlv_locator_reserved	,	V_98
+e_len	,	V_75
+tvbuff_t	,	T_1
+tvb_get_ntohs	,	F_5
+"Registration Type"	,	L_134
+hf_hip_tlv_locator_priority	,	V_104
+"hip.tlv.reg_ltmax"	,	L_131
+hiph_reserved	,	V_23
+PARAM_REG_INFO	,	V_175
+"hip.tlv_rvs_address"	,	L_189
+"hip.tlv_solution_k"	,	L_61
+fragmented	,	V_44
+HIP_SHIM6_FIXED_BIT_P_MASK	,	V_28
+ett_hip	,	V_36
+"Fixed P-bit: %u (Always zero)"	,	L_3
+hf_hip_tlv_enc_reserved	,	V_136
+HIP_VERSION_MASK	,	V_30
+"hip.tlv.locator_reserved"	,	L_151
+"hip.tlv_solution_reserved"	,	L_62
+tvb_get_guint8	,	F_4
+"hip.tlv.dh_public_value"	,	L_83
+"Host Identity G"	,	L_111
+"Locator Type"	,	L_147
+hi_len	,	V_72
+"hip.tlv.locator_len"	,	L_150
+"hip.tlv.certificate"	,	L_175
+"hip.tlv.locator_kind"	,	L_159
+"Anonymous (Sender's HI is anonymous)"	,	L_39
+"hip.tlv.hit_suite_id"	,	L_90
+ipproto	,	V_53
+"Locator"	,	L_164
+"(Preferred)"	,	L_14
+"RVS Address"	,	L_188
+HI_HDR_ALG_MASK	,	V_232
+"Sender's HIT"	,	L_43
+HIP_RESERVED_MASK	,	V_31
+PARAM_ESP_TRANSFORM	,	V_125
+"Checksum: 0x%04x (unverified)"	,	L_10
+"RSA Host Identity exponent length (e_len)"	,	L_115
+ett_hip_locator_data	,	V_94
+"hip.tlv.host_id_e"	,	L_118
+hf_hip_tlv_dh_group_id	,	V_121
+HI_HDR_FLAGS_MASK	,	V_228
+ptr	,	V_45
+ENC_BIG_ENDIAN	,	V_38
+"Relay From Port"	,	L_178
+"Keymaterial Index"	,	L_68
+hf_hip_tlv_cert_count	,	V_162
+"hip.tlv_ack_updid"	,	L_77
+"NAI: %s"	,	L_24
+locator_type	,	V_80
+"Seq Update ID"	,	L_74
+dissect_hip_in_udp	,	F_20
+hf_hip_tlv_locator_address	,	V_93
+"RSA Host Identity exponent (e)"	,	L_117
+ett_hip_controls	,	V_56
+PARAM_ECHO_RESPONSE_UNSIGNED	,	V_173
+"&lt;&lt; Invalid HI length &gt;&gt;"	,	L_21
+hiph_packet_type	,	V_20
+hf_hip_tlv_hit_suite_id	,	V_140
+PARAM_REG_RESPONSE	,	V_177
+"%u (%s)"	,	L_18
+"Minimum Registration Lifetime"	,	L_128
+proto_tree_add_uint_format	,	F_9
+PARAM_CERT	,	V_160
+hf_hip_tlv_host_id_hdr_proto	,	V_148
+PARAM_HOST_ID	,	V_141
+hf_hip_tlv_reg_type	,	V_183
+dh_group_id_vals	,	V_122
+PARAM_VIA_RVS	,	V_197
+"hip.tlv.reg_lt"	,	L_133
+col_clear	,	F_3
+PARAM_HIP_TRANSFORM	,	V_129
+"Maximum Registration Lifetime"	,	L_130
+PARAM_ACK	,	V_118
+proto_register_subtree_array	,	F_29
+"hip.tlv.relay_to_port"	,	L_181
+hf_hip_tlv_locator_spi	,	V_100
+"Checksum"	,	L_41
+proto_tree_add_item	,	F_7
+in_cksum	,	F_14
+pinfo	,	V_2
+"hip.tlv_esp_info_reserved"	,	L_67
+PARAM_HIT_SUITE_LIST	,	V_139
+hf_hip_tlv_relay_to_address	,	V_208
+hf_hip_hit_sndr	,	V_58
+hf_hip_tlv_locator_type	,	V_96
+"Locator SPI"	,	L_162
+transform_id_vals	,	V_128
+"hip.tlv_reg_from_address"	,	L_199
+"hip.tlv.dh_pv_length"	,	L_81
+"hip.tlv.cert_type"	,	L_173
+"New SPI"	,	L_72
+"hip.tlv_puzzle_k"	,	L_54
+"ACKed Peer Update ID"	,	L_76
+hf_hip_tlv_notification_type	,	V_168
+"Version: %u, Reserved: %u"	,	L_4
+tvb_get_ephemeral_string	,	F_23
+"Lifetime"	,	L_55
+"Domain Identifier Type"	,	L_93
+FT_UINT8	,	V_215
+HI_ALG_RSA	,	V_156
+HIP_CONTROL_A_MASK	,	V_221
+proto_item	,	T_4
+"hip.tlv.locator_spi"	,	L_163
+PARAM_HIP_SIGNATURE_2	,	V_191
+PARAM_ECHO_REQUEST_UNSIGNED	,	V_172
+"Locator port"	,	L_154
+"Packet Type"	,	L_29
+"Header fixed bit S"	,	L_35
+"Locator kind"	,	L_158
+data	,	V_47
+"Difficulty (K)"	,	L_53
+hf_hip_tlv_locator_traffic_type	,	V_95
+"hip.version"	,	L_34
+"hip.tlv_puzzle_lifetime"	,	L_56
+"hip.tlv.host_id_hdr"	,	L_98
+"Min Ta"	,	L_184
+hf_hip_tlv_relay_to_port	,	V_205
+"HIT Suite ID"	,	L_89
+"hip.tlv.host_id_e_length"	,	L_116
+hiph_shim6_fixed_bit_p	,	V_24
+"hip"	,	L_201
+hiph_shim6_fixed_bit_s	,	V_19
+PARAM_REG_FROM	,	V_209
+hf_hip_tlv_host_id_hdr_alg	,	V_149
+PARAM_RELAY_FROM	,	V_199
+offset	,	V_9
+hf_hip_tlv_from_address	,	V_196
+"hip.tlv.locator_priority"	,	L_161
+tree	,	V_3
+proto_reg_handoff_hip	,	F_30
+PARAM_LOCATOR	,	V_92
+"HIP"	,	L_1
+hf_hip_tlv_reg_ltmin	,	V_179
+hf_hip_hdr_len	,	V_39
+"hip.tlv_esp_info_old_spi"	,	L_71
+hf_hip_packet_type	,	V_41
+"hip.tlv.cert_count"	,	L_169
+proto_tree_add_uint	,	F_10
+"Domain Identifier Length"	,	L_95
+di_len	,	V_73
+HIP_PACKET_TYPE_MASK	,	V_29
+PARAM_NAT_TRAVERSAL_MODE	,	V_130
+hf_hip_tlv_solution_o	,	V_113
+hf_hip_tlv_host_id_y	,	V_155
+"hip.tlv.esp_trans_res"	,	L_86
+hf_hip_tlv_solution_i	,	V_114
+hf_hip_tlv_host_id_t	,	V_151
+hf_hip_tlv_solution_k	,	V_111
+hf_hip_tlv_solution_j	,	V_115
+"NAT Traversal Mode ID"	,	L_176
+hf_hip_tlv_host_id_p	,	V_153
+PARAM_SEQ	,	V_116
+hf_hip_tlv_host_id_q	,	V_152
+ett_hip_tlv_data	,	V_84
+ti_tlv	,	V_7
+hf_hip_tlv_host_id_n	,	V_159
+hf_hip_tlv_relay_from_reserved	,	V_202
+hf_hip_tlv_locator_len	,	V_97
+hf_hip_tlv_host_id_g	,	V_154
+"hip.tlv.dh_group_id"	,	L_79
+"hip.tlv_from_address"	,	L_187
+hf_hip_tlv_host_id_e	,	V_158
+"Header fixed bit P"	,	L_31
+"Host Identity Length"	,	L_91
+HI_ALG_DSA	,	V_150
+hf_hip_tlv_certificate	,	V_165
+"hip.tlv.cipher_id"	,	L_88
+hip_param_vals	,	V_62
+"udp.port"	,	L_203
+"hip.tlv_relay_to_reserved"	,	L_195
+mode_id_vals	,	V_132
+"Checksum: 0x%04x (incorrect, "	,	L_8
+"Notification Message Type"	,	L_123
+"Group ID"	,	L_78
+"Protocol"	,	L_190
+"Public Value Length"	,	L_80
+hf_hip_tlv_locator_kind	,	V_103
+"Type"	,	L_47
+"hip.tlv.host_id_header_flags"	,	L_100
+"hip.tlv.locator_traffic_type"	,	L_146
+proto_tree	,	T_3
+hf_hip_tlv_ack_updid	,	V_119

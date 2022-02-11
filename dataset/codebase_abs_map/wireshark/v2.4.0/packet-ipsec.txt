@@ -1,0 +1,602 @@
+ipproto_val_ext	,	V_248
+"AH ICV"	,	L_51
+g_direct_hash	,	V_281
+bad	,	V_137
+"Destination Address"	,	L_123
+hf_ipcomp_next_header	,	V_240
+g_esp_enable_null_encryption_decode_heuristic	,	V_183
+ipcomp_handle	,	V_285
+"esp"	,	L_135
+ah_prompt	,	F_26
+crypt_algo_libgcrypt	,	V_170
+uat_field_t	,	T_29
+tvb_reported_length	,	V_87
+advance	,	V_96
+uat_esp_sa_record_update_cb	,	F_6
+"Assumes a 12 byte auth (HMAC-SHA1-96/HMAC-MD5-96/AES-XCBC-MAC-96) "	,	L_142
+record	,	V_30
+gcry_cipher_close	,	F_9
+ipcomp_tree	,	V_234
+"HMAC-SHA-256-128 [RFC4868]"	,	L_108
+dstIP	,	V_25
+tvb_new_child_real_data	,	F_80
+pdu_tvb	,	V_88
+"esp.icv_good"	,	L_76
+guint32	,	T_11
+authentication_check_using_hmac_libgcrypt	,	V_164
+pool	,	V_79
+FT_BOOLEAN	,	V_256
+"Attempt to detect/decode NULL encrypted ESP payloads"	,	L_140
+gcry_cipher_setkey	,	F_77
+frag_plen	,	V_114
+decrypted_len_alloc	,	V_167
+"Wrong Sequence Number for SPI %08x - %u repeated"	,	L_3
+" (%u bytes)"	,	L_11
+p_get_proto_data	,	F_28
+num_sa_uat	,	V_75
+show_esp_sequence_info	,	F_17
+"Authentication Key"	,	L_130
+array_length	,	F_99
+ip_dissector_table	,	V_128
+hf_esp_spi	,	V_177
+esp_module	,	V_277
+"esp.icv_bad"	,	L_79
+decode_as_t	,	T_32
+hf_ah_reserved	,	V_122
+"IPComp Flags"	,	L_87
+authenticator_data_computed_md	,	V_173
+gpointer	,	T_18
+result	,	V_77
+icv_tree	,	V_135
+sn_ti	,	V_47
+sad_is_present	,	V_165
+"0x%04x"	,	L_40
+comp_cpi	,	V_236
+"&lt;IPsec/ESP Dissector&gt; Error in Algorithm %s, Mode %d, gcry_cipher_decrypt failed: %s\n"	,	L_33
+hex_digit	,	V_5
+hf_register_info	,	T_26
+proto_tree_add_bytes_format	,	F_83
+"HMAC-SHA-256-96 [draft-ietf-ipsec-ciph-sha-256-00]"	,	L_107
+uat_esp_sa_records	,	V_76
+curr_layer_num	,	V_81
+gcry_cipher_setctr	,	F_78
+"True: ICV doesn't match packet content; False: matches content or not checked"	,	L_80
+i	,	V_7
+j	,	V_8
+ipprotostr	,	F_86
+ett_ipcomp	,	V_239
+"ESP Next Header"	,	L_68
+decrypted_data	,	V_147
+IPSEC_AUTH_ANY_64BIT	,	V_187
+n	,	V_19
+o	,	V_20
+sequence_number	,	V_36
+"ah.reserved"	,	L_47
+r	,	V_9
+"IP protocol %u as"	,	L_8
+wmem_alloc0	,	F_63
+export_pdu_create_common_tags	,	F_32
+BASE_NONE	,	V_251
+EXPORT_PDU_TAP_NAME_LAYER_3	,	V_290
+IPSEC_AUTH_HMAC_SHA1_96	,	V_194
+srcIP	,	V_24
+tvb_decrypted	,	V_150
+num_records	,	V_32
+capture_ah	,	F_35
+root_tree	,	V_99
+spi_string	,	V_67
+hf_ah_length	,	V_121
+good	,	V_136
+tvb_memcpy	,	F_64
+"Wrong Sequence Number for SPI %08x - %u less than expected"	,	L_5
+addr_tmp	,	V_56
+filter_string_tmp	,	V_57
+BASE_HEX	,	V_253
+rec	,	V_11
+PROTO_ITEM_SET_GENERATED	,	F_20
+"Wrong Sequence Number"	,	L_94
+hf_esp_sequence	,	V_178
+hf_ah_sequence	,	V_124
+"IPComp CPI"	,	L_90
+"enable_encryption_decode"	,	L_147
+proto_item_add_subtree	,	F_44
+hf_esp_icv_bad	,	V_140
+esp_crypt_key	,	V_156
+module_t	,	T_33
+ah_handle	,	V_284
+proto_register_field_array	,	F_98
+FT_BYTES	,	V_250
+gcry_md_setkey	,	F_69
+"enable_authentication_check"	,	L_150
+filter_tmp	,	V_55
+ei	,	V_261
+dissector_add_uint	,	F_115
+dissector_handle_get_dissector_name	,	F_33
+data_handle	,	V_129
+GCRY_CIPHER_MODE_CTR	,	V_222
+"&lt;IPsec/ESP Dissector&gt; Error in Algorithm %s Mode %d, gcry_cipher_setkey(key_len=%u) failed: %s\n"	,	L_32
+FT_UINT16	,	V_259
+frame_status	,	V_43
+"ip.proto"	,	L_9
+"&lt;IPsec/ESP Dissector&gt; Error in Algorithm %s, gcry_md_read failed\n"	,	L_22
+tvb_captured_length	,	V_86
+"&lt;ESP Preferences&gt; Error in Encryption Algorithm CAST5-CBC : Bad Keylen (%u Bits)\n"	,	L_26
+hf_esp_iv	,	V_229
+capture_dissector_handle_t	,	T_35
+ipv6_tree	,	V_115
+dissector_data	,	T_25
+ah_nxt	,	V_102
+ett_esp	,	V_176
+fd	,	V_180
+IPSEC_AUTH_ANY_128BIT	,	V_189
+wmem_new0	,	F_14
+md_len	,	V_169
+ah_da_values	,	V_271
+proto_ah	,	V_80
+IPSEC_AUTH_HMAC_MD5_96	,	V_196
+esp_auth_algo	,	V_154
+"Attempt to Check ESP Authentication based on the SAD described hereafter."	,	L_152
+"ipcomp"	,	L_137
+"AH Sequence"	,	L_54
+EOF	,	V_66
+decrypted_len	,	V_161
+esp_iv_len	,	V_160
+null_encryption_decode_heuristic	,	V_146
+siz	,	T_9
+find_dissector_table	,	F_117
+"&lt;IPsec/ESP Dissector&gt; Error in Algorithm %s, grcy_md_get_algo_dlen failed: %d\n"	,	L_21
+"Authentication Data [correct]"	,	L_14
+GCRY_MD_MD5	,	V_203
+dissect_esp_authentication	,	F_53
+PI_WARN	,	V_263
+register_cleanup_routine	,	F_110
+"Next header"	,	L_42
+FT_UINT32	,	V_252
+decode_as_value_t	,	T_31
+"IP Encapsulating Security Payload Pad Length"	,	L_67
+visited	,	V_182
+"ah.length"	,	L_45
+IPSEC_IPV6_ADDR_LEN	,	V_63
+hf_ipcomp_flags	,	V_241
+IPSEC_AUTH_ANY_256BIT	,	V_191
+BASE_HEX_DEC	,	V_255
+"enable_null_encryption_decode_heuristic"	,	L_139
+hf_esp_pad	,	V_230
+decrypt_dissect_ok	,	V_145
+uat_new	,	F_106
+"True: ICV matches packet content; False: doesn't match content or not checked"	,	L_77
+"IP Encapsulating Security Payload Security Parameters Index"	,	L_59
+previousSequenceNumber	,	V_40
+"esp.sequence-analysis.wrong-sequence-number"	,	L_93
+prefs_register_protocol	,	F_103
+"Encryption algorithm"	,	L_126
+proto_tree_add_subtree	,	F_54
+g_esp_enable_authentication_check	,	V_185
+"&lt;ESP Preferences&gt; Error in Encryption Algorithm BLOWFISH-CBC : Bad Keylen (%u Bits, need %lu)\n"	,	L_30
+col_set_str	,	F_39
+ipsec_cleanup_protocol	,	F_92
+extra_esp_sa_records	,	V_31
+authentication_checking_ok	,	V_133
+esp_handle	,	V_283
+"AH SPI"	,	L_48
+"esp.spi"	,	L_58
+esp_crypt_algo	,	V_152
+UAT_AFFECTS_DISSECTION	,	V_280
+"Authentication Data (truncated)"	,	L_17
+proto_tree_add_item_ret_uint	,	F_45
+val_to_str	,	F_90
+"IP Authentication Header Integrity Check Value"	,	L_53
+"SPI"	,	L_124
+status	,	V_38
+dissector_handle_t	,	T_19
+"esp.protocol"	,	L_69
+IPSEC_ENCRYPT_AES_CTR	,	V_220
+hf_esp_authentication_data	,	V_233
+hf_esp_sequence_analysis_expected_sn	,	V_49
+IP_PROTO_IPCOMP	,	V_289
+"AES-CBC [RFC3602]"	,	L_99
+g_malloc	,	F_2
+"0x%08x"	,	L_7
+AT_IPv4	,	V_186
+AT_IPv6	,	V_112
+VALS	,	F_94
+prefs_register_bool_preference	,	F_105
+gcry_md_algo_name	,	F_66
+err	,	T_6
+"data"	,	L_157
+auth_algo_libgcrypt	,	V_172
+"AH"	,	L_10
+BASE_DEC	,	V_246
+"ah"	,	L_131
+"HMAC-MD5-96 [RFC2403]"	,	L_111
+hf_ipcomp	,	V_258
+"ANY 192 bit authentication [no checking]"	,	L_116
+esp_authentication_type_vals	,	V_267
+"Authentication"	,	L_128
+tvb_new_subset_length_caplen	,	F_87
+ENC_NA	,	V_117
+"Encryption"	,	L_125
+"Authentication Header"	,	L_133
+MAX_DECODE_AS_PROMPT_LEN	,	V_78
+authenticator_data_computed	,	V_131
+"TripleDES-CBC [RFC2451]"	,	L_98
+wmem_alloc	,	F_72
+hf_esp	,	V_254
+"esp.authentication_data"	,	L_71
+size_t	,	T_8
+"Preconfigured ESP Security Associations"	,	L_156
+IPSEC_IPV4_ADDR_LEN	,	V_65
+GCRY_MD_SHA512	,	V_202
+GCRY_CIPHER_DES	,	V_219
+expert_register_protocol	,	F_101
+"&lt;ESP Preferences&gt; Error in Encryption Algorithm AES-CBC : Bad Keylen (%u Bits)\n"	,	L_25
+authenticator_data	,	V_148
+authentication_key_string	,	V_16
+encapsulated_protocol	,	V_144
+"ah.spi"	,	L_49
+ei_esp_sequence_analysis_wrong_sequence_number	,	V_51
+g_esp_enable_encryption_decode	,	V_184
+"&lt;IPsec/ESP Dissector&gt; Error in Algorithm %s Mode %d, grcy_open_cipher failed: %s\n"	,	L_31
+guint	,	T_3
+"Length"	,	L_44
+ett	,	V_260
+"esp_sa"	,	L_154
+wmem_packet_scope	,	F_60
+crypt_mode_libgcrypt	,	V_171
+"IP Payload Compression Protocol Compression Parameter Index"	,	L_92
+spi	,	V_26
+packet_info	,	T_12
+"TWOFISH-CBC"	,	L_104
+esp_uat_flds	,	V_268
+authentication_key	,	V_18
+esp_sequence_analysis_hash	,	V_39
+ett_esp_icv	,	V_138
+gcry_error_t	,	T_24
+"ESP Pad Length"	,	L_65
+g_esp_do_sequence_analysis	,	V_179
+EXPFILL	,	V_264
+"This is done only if the Decoding is not SET or the packet does not belong to a SA. "	,	L_141
+"Attempt to detect/decode encrypted ESP payloads"	,	L_148
+dst	,	V_71
+wmem_memdup	,	F_81
+"IPComp (CPI=%s)"	,	L_39
+cpinfo	,	V_92
+ipv6_pinfo_t	,	T_22
+tvb_new_subset_length	,	F_84
+get_esp_sa	,	F_25
+"IPv4"	,	L_95
+"AES-CTR [RFC3686]"	,	L_100
+dissector_get_uint_handle	,	F_51
+HFILL	,	V_249
+authentication_key_len	,	V_73
+IPSEC_ENCRYPT_3DES_CBC	,	V_209
+src	,	V_70
+gchar	,	T_2
+create_dissector_handle	,	F_116
+proto_tree_add_subtree_format	,	F_56
+"Expected SN"	,	L_81
+pd	,	V_89
+"Dest IP"	,	L_122
+IPSEC_SA_IPV4	,	V_64
+pi	,	V_100
+protocol_typ	,	V_69
+ah_value	,	F_29
+dissector_handle	,	V_82
+IPSEC_SA_IPV6	,	V_62
+proto_reg_handoff_ipsec	,	F_113
+"NULL Authentication"	,	L_13
+"Bad"	,	L_78
+IPSEC_SA_WILDCARDS_ANY	,	V_61
+proto_register_protocol	,	F_97
+register_decode_as	,	F_112
+GCRY_CIPHER_BLOWFISH	,	V_227
+hf_esp_pad_len	,	V_231
+"Attempt to decode based on the SAD described hereafter."	,	L_149
+"Authentication Data"	,	L_16
+gcry_cipher_open	,	F_75
+ah_da	,	V_272
+tvb_new_subset_remaining	,	F_49
+len	,	V_91
+"IPv6"	,	L_96
+GCRY_CIPHER_TWOFISH	,	V_225
+gint	,	T_1
+GCRY_MD_SHA1	,	V_199
+IPSEC_ENCRYPT_CAST5_CBC	,	V_216
+hf_ah_next_header	,	V_119
+tvb	,	V_45
+"Good"	,	L_75
+COL_INFO	,	V_111
+ipv6_pinfo	,	V_113
+wmem_epan_scope	,	F_109
+tvb_child_uncompress	,	F_91
+"and attempts decode based on the ethertype 13 bytes from packet end"	,	L_143
+cinfo	,	V_109
+IPSEC_ENCRYPT_DES_CBC	,	V_218
+"%x"	,	L_6
+"Reserved"	,	L_46
+next_tvb	,	V_107
+g_direct_equal	,	V_282
+GCRY_CIPHER_3DES	,	V_210
+exported_pdu_tap	,	V_83
+esp_uat	,	V_279
+call_dissector	,	F_52
+"&lt;IPsec/ESP Dissector&gt; Failed to add UE as already have max (%d) configured\n"	,	L_1
+saved_match_uint	,	V_108
+IPSEC_AUTH_ANY_192BIT	,	V_193
+ascii_key	,	V_1
+UAT_FLD_CSTRING	,	F_96
+filter_address_match	,	F_22
+"CAST5-CBC [RFC2144]"	,	L_102
+found	,	V_74
+authentication_key_length	,	V_17
+proto_tree_add_boolean	,	F_57
+ctr_block	,	V_174
+"IP Encapsulating Security Payload Sequence Number"	,	L_62
+create_capture_dissector_handle	,	F_118
+"IPComp"	,	L_37
+key	,	V_2
+gcry_cipher_algo_name	,	F_76
+COL_PROTOCOL	,	V_110
+GUINT_TO_POINTER	,	F_13
+gcry_cipher_hd_t	,	T_17
+"Source Address"	,	L_121
+g_free	,	F_4
+raw_key_len	,	V_4
+decode_as_default_populate_list	,	V_273
+"do_esp_sequence_analysis"	,	L_144
+guint8	,	T_10
+ti	,	V_101
+value_string	,	T_28
+cipher_hd	,	V_29
+IPSEC_ENCRYPT_AES_GCM	,	V_221
+"ESP IV"	,	L_72
+"ANY 256 bit authentication [no checking]"	,	L_117
+build_valid_func	,	T_30
+gcry_control	,	F_62
+register_dissector	,	F_111
+tvb_get_ntohl	,	F_61
+comp_nxt	,	V_235
+"Encapsulating Security Payload"	,	L_134
+encryption_key_string	,	V_12
+tvbuff_t	,	T_14
+typ	,	V_54
+md_hd	,	V_168
+GCRY_MD_FLAG_HMAC	,	V_207
+"ESP (SPI=0x%08x)"	,	L_19
+IPSEC_AUTH_HMAC_SHA256_128	,	V_188
+GCRY_CIPHER_MODE_CBC	,	V_211
+ah_len	,	V_103
+prefs_register_uat_preference	,	F_107
+ah_tree	,	V_98
+ah_da_build_value	,	V_270
+expert_esp	,	V_278
+gboolean	,	T_5
+p_get_ipv6_pinfo	,	F_42
+decode_as_default_change	,	V_275
+"%s (0x%02x)"	,	L_38
+UAT_END_FIELDS	,	V_269
+hf_esp_icv_good	,	V_139
+proto_register_ipsec	,	F_93
+"ipcomp.cpi"	,	L_91
+decrypt_using_libgcrypt	,	V_163
+ah_module	,	V_276
+"&lt;ESP Preferences&gt; Error in Encryption Algorithm AES-CTR / AES-GCM : Bad Keylen (%u Bits)\n"	,	L_28
+stderr	,	V_35
+GCRY_CIPHER_TWOFISH128	,	V_224
+tvb_get_guint8	,	F_41
+p_add_proto_data	,	F_48
+wtap_pseudo_header	,	V_93
+"MAC-RIPEMD-160-96 [RFC2857]"	,	L_112
+gpg_strerror	,	F_67
+encryption_key	,	V_14
+match_uint	,	V_127
+dissect_esp	,	F_58
+dissect_ipcomp	,	F_88
+GCRY_CIPHER_AES192	,	V_214
+esp_encryption_type_vals	,	V_266
+"ANY 64 bit authentication [no checking]"	,	L_113
+records	,	V_33
+"IPcomp inflated data"	,	L_41
+addr_string_tmp	,	V_58
+"esp.pad"	,	L_64
+"AES-GCM [RFC4106]"	,	L_105
+"Wrong Sequence Number for SPI %08x - %u missing"	,	L_4
+g_ascii_xdigit_value	,	F_3
+ipv6_dissect_next	,	F_50
+"Network"	,	L_132
+IPSEC_SPI_LEN_MAX	,	V_68
+hf_esp_protocol	,	V_232
+"IP Authentication Header Sequence Number"	,	L_56
+GCRYCTL_DISABLE_SECMEM	,	V_205
+"AH (SPI=0x%08x)"	,	L_12
+GCRY_MD_SHA256	,	V_200
+g_strdup	,	F_5
+encryption_key_length	,	V_13
+uat_esp_sa_record_copy_cb	,	F_7
+IPSEC_ENCRYPT_TWOFISH_CBC	,	V_223
+prefs_register_obsolete_preference	,	F_104
+hf_ah	,	V_244
+"esp.sequence"	,	L_61
+find_dissector	,	F_114
+capture_dissector_add_uint	,	F_119
+BYTES_ARE_IN_FRAME	,	F_36
+decrypt_ok	,	V_162
+GCRY_MD_SHA384	,	V_201
+proto_tree_add_uint_format_value	,	F_89
+proto_esp	,	V_175
+"NULL"	,	L_97
+authentication_ok	,	V_132
+proto_ipcomp	,	V_238
+ENC_BIG_ENDIAN	,	V_120
+"IV (truncated)"	,	L_35
+"ah.next_header"	,	L_43
+"Next header: %s (0x%02x)"	,	L_36
+ah_spi	,	V_106
+"Protocol used"	,	L_119
+IPSEC_AUTH_ANY_96BIT	,	V_198
+"sa_table"	,	L_155
+"&lt;ESP Preferences&gt; Error in Encryption Algorithm 3DES-CBC : Bad Keylen (got %u Bits, need %lu)\n"	,	L_24
+"esp.iv"	,	L_73
+"BLOWFISH-CBC [RFC2451]"	,	L_103
+gcry_md_close	,	F_73
+esp_pad_len	,	V_166
+gcry_cipher_get_algo_keylen	,	F_74
+dissect_ah	,	F_38
+IPSEC_ENCRYPT_AES_CBC	,	V_212
+BASE_EXT_STRING	,	V_247
+"ANY 96 bit authentication [no checking]"	,	L_114
+"Authentication Data [incorrect, should be 0x%s]"	,	L_15
+hf_esp_sequence_analysis_previous_frame	,	V_50
+hf_ah_iv	,	V_125
+proto_tree_add_uint_format	,	F_85
+"IP Payload Compression"	,	L_136
+item	,	V_134
+"Encryption Key"	,	L_127
+IPSEC_ENCRYPT_BLOWFISH_CBC	,	V_226
+guchar	,	T_4
+"ESP SAs"	,	L_153
+proto_item_append_text	,	F_19
+"%02X"	,	L_23
+IPSEC_AUTH_NULL	,	V_155
+"IP Authentication Header Security Parameters Index"	,	L_50
+ip_dst	,	V_143
+encryption_key_len	,	V_72
+col_clear	,	F_40
+have_tap_listener	,	F_31
+"Pad"	,	L_63
+"Previous Frame"	,	L_83
+proto_register_subtree_array	,	F_100
+"Attempt to Check ESP Authentication"	,	L_151
+key_byte	,	V_6
+try_capture_dissector	,	F_37
+GCRYCTL_INITIALIZATION_FINISHED	,	V_206
+"ANY 128 bit authentication [no checking]"	,	L_115
+proto_tree_add_item	,	F_43
+hf_ipcomp_cpi	,	V_242
+pinfo	,	V_37
+col_add_fstr	,	F_46
+_U_	,	V_10
+ip_src	,	V_142
+flags	,	V_181
+IPSEC_AUTH_HMAC_SHA512_256	,	V_190
+"&lt;IPsec/ESP Dissector&gt; Error in Algorithm %s, gcry_md_open failed: %s\n"	,	L_20
+cpi2val	,	V_243
+"HMAC-SHA-384-192 [RFC4868]"	,	L_109
+"ESP Sequence"	,	L_60
+IP_PROTO_AH	,	V_287
+GPOINTER_TO_UINT	,	F_27
+filter_spi_match	,	F_23
+exp_pdu_data	,	V_84
+"ah.icv"	,	L_52
+key_len	,	V_3
+check_esp_sequence_info	,	F_11
+spi_status	,	T_13
+EXP_PDU_TAG_PROTO_NAME	,	V_85
+FT_UINT8	,	V_245
+proto_item	,	T_16
+tap_queue_packet	,	F_34
+expert_register_field_array	,	F_102
+filter	,	V_53
+new_rec	,	V_21
+decomp	,	V_237
+"Authentication algorithm"	,	L_129
+frame_ti	,	V_48
+expert_add_info_format	,	F_21
+export_ipsec_pdu	,	F_30
+gcry_md_open	,	F_65
+"DES-CBC [RFC2405]"	,	L_101
+previousFrameNum	,	V_41
+gcry_md_read	,	F_71
+"Check sequence numbers of ESP frames"	,	L_145
+data	,	V_97
+IPSEC_AUTH_HMAC_SHA384_192	,	V_192
+"Src IP"	,	L_120
+num	,	V_42
+esp_sequence_analysis_report_hash	,	V_44
+esp_data	,	V_149
+protocol	,	V_23
+esp_auth_key_len	,	V_159
+hf_ah_spi	,	V_123
+ei_register_info	,	T_27
+decode_as_default_reset	,	V_274
+exp_pdu_data_t	,	T_20
+IPSEC_AUTH_HMAC_RIPEMD160_96	,	V_197
+authentication_algo	,	V_28
+"Decrypted Data"	,	L_34
+addr_len	,	V_59
+NEW_ESP_DATA_SIZE	,	V_228
+"esp.pad_len"	,	L_66
+"esp.sequence-analysis.previous-frame"	,	L_84
+IP_PROTO_ESP	,	V_288
+IPSEC_SA_UNKNOWN	,	V_151
+encryption_algo	,	V_27
+PI_SEQUENCE	,	V_262
+offset	,	V_90
+"ipcomp.next_header"	,	L_86
+expert_module_t	,	T_34
+esp_auth_len	,	V_130
+esp_proto_type_vals	,	V_265
+tree	,	V_46
+ws_ip	,	V_126
+"&lt;ESP Preferences&gt; Error in Encryption Algorithm TWOFISH-CBC : Bad Keylen (%u Bits)\n"	,	L_29
+tvb_bytes_exist	,	F_55
+"IP Encapsulating Security Payload"	,	L_74
+"Check that successive frames increase sequence number by 1 within an SPI.  This should work OK when only one host is sending frames on an SPI"	,	L_146
+GCRY_CIPHER_CAST5	,	V_217
+add_new_data_source	,	F_82
+IPSEC_AUTH_HMAC_SHA256_96	,	V_195
+esp_crypt_key_len	,	V_158
+ah_cap_handle	,	V_286
+old_rec	,	V_22
+"ipcomp.flags"	,	L_88
+ipv6_item_len	,	V_116
+GCRY_MD_RMD160	,	V_204
+capture_packet_info_t	,	T_21
+filter_len	,	V_60
+proto_tree_add_uint	,	F_18
+uat_esp_sa_record_t	,	T_7
+pseudo_header	,	V_94
+gcry_md_get_algo_dlen	,	F_68
+authenticator_data_computed_car	,	V_208
+wmem_map_new_autoreset	,	F_108
+g_snprintf	,	F_24
+"HMAC-SHA-1-96 [RFC2404]"	,	L_106
+IPSEC_ENCRYPT_NULL	,	V_153
+gcry_md_write	,	F_70
+esp_sa_record_add_from_dissector	,	F_10
+esp_auth_key	,	V_157
+wmem_file_scope	,	F_15
+addr	,	V_52
+"Next Header"	,	L_85
+MAX_EXTRA_SA_RECORDS	,	V_34
+"ESP"	,	L_18
+ah_icv_len	,	V_105
+cipher_hd_created	,	V_15
+"HMAC-SHA-512-256 [RFC4868]"	,	L_110
+gcry_md_hd_t	,	T_23
+"place_ah_payload_in_subtree"	,	L_138
+ah_hdr_len	,	V_104
+wmem_map_insert	,	F_16
+address_to_str	,	F_59
+gcry_cipher_decrypt	,	F_79
+esp_tree	,	V_141
+compute_ascii_key	,	F_1
+nxt	,	V_95
+"IP Encapsulating Security Payload Next Header"	,	L_70
+FT_FRAMENUM	,	V_257
+GCRY_CIPHER_AES128	,	V_213
+"ESP SPI"	,	L_57
+UAT_FLD_VS	,	F_95
+proto_item_set_len	,	F_47
+uat_esp_sa_record_free_cb	,	F_8
+GCRY_CIPHER_AES256	,	V_215
+"esp.sequence-analysis.expected-sn"	,	L_82
+"&lt;ESP Preferences&gt; Error in Encryption Algorithm DES-CBC : Bad Keylen (%u Bits, need %lu)\n"	,	L_27
+"Protocol"	,	L_118
+ett_ah	,	V_118
+"ah.sequence"	,	L_55
+find_tap_id	,	F_120
+" (%u SNs missing)"	,	L_2
+"IP Payload Compression Protocol Flags"	,	L_89
+wmem_map_lookup	,	F_12
+proto_tree	,	T_15

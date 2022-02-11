@@ -1,0 +1,114 @@
+SIR_CE	,	V_3
+proto_register_protocol	,	F_28
+"SIR"	,	L_23
+len	,	V_13
+"Beginning of frame"	,	L_10
+actual_fcs	,	V_14
+ett_sir	,	V_31
+gint	,	T_8
+tvb_new_child_real_data	,	F_7
+TCP_PORT_SIR	,	V_39
+proto_tree_add_uint_format	,	F_13
+crc16_ccitt_tvb	,	F_12
+irda_handle	,	V_38
+tvb	,	V_1
+hf_sir_bof	,	V_34
+hidden_item	,	V_12
+FT_BOOLEAN	,	V_47
+desegment_offset	,	V_24
+eof_offset	,	V_20
+hf_sir_fcs_bad	,	V_17
+SIR_ESCAPE	,	F_6
+proto_register_subtree_array	,	F_30
+array_length	,	F_31
+hf_sir_length	,	V_36
+next_tvb	,	V_8
+SIR_EOF	,	V_22
+proto_sir	,	V_30
+proto_tree_add_item	,	F_21
+call_dissector	,	F_23
+pinfo	,	V_2
+"Preamble"	,	L_20
+PROTO_ITEM_SET_HIDDEN	,	F_15
+g_malloc	,	F_4
+hf_sir_preamble	,	V_32
+proto_tree_add_boolean	,	F_14
+can_desegment	,	V_23
+hf_register_info	,	T_9
+hf_sir	,	V_42
+guint16	,	T_7
+c	,	V_9
+"data"	,	L_8
+tvb_length	,	F_3
+FT_UINT8	,	V_43
+g_free	,	V_10
+BASE_DEC	,	V_49
+tvb_new_subset	,	F_16
+proto_register_irsir	,	F_27
+proto_item	,	T_6
+"sir.fcs"	,	L_15
+hf_sir_eof	,	V_37
+SIR_BOF	,	V_21
+ENC_NA	,	V_33
+guint8	,	T_4
+"Bad frame check sequence"	,	L_16
+ti	,	V_29
+BASE_NONE	,	V_48
+"sir.eof"	,	L_13
+tvb_length_remaining	,	F_18
+register_dissector	,	F_29
+"Serial Infrared, Len: %d"	,	L_5
+data	,	V_6
+hf_sir_fcs	,	V_16
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_19
+"Serial Infrared"	,	L_22
+tvb_set_free_cb	,	F_8
+BASE_HEX	,	V_44
+"sir.fcs_bad"	,	L_17
+tvb_find_guint8	,	F_2
+"sir.length"	,	L_19
+desegment_len	,	V_25
+"sir.bof"	,	L_11
+proto_item_add_subtree	,	F_20
+"irda"	,	L_9
+"Unescaped SIR"	,	L_1
+proto_register_field_array	,	F_32
+tvb_get_letohs	,	F_11
+FT_BYTES	,	V_50
+guint	,	T_3
+"Length"	,	L_18
+offset	,	V_5
+"(incorrect, should be 0x%04x)"	,	L_4
+ett	,	V_41
+dissector_add_uint	,	F_25
+data_len	,	V_28
+tree	,	V_11
+data_handle	,	V_40
+FT_UINT16	,	V_46
+packet_info	,	T_2
+add_new_data_source	,	F_9
+tvb_get_guint8	,	F_5
+"sir.preamble"	,	L_21
+calculated_fcs	,	V_15
+proto_tree_add_uint	,	F_22
+dissect_sir	,	F_17
+preamble_len	,	V_26
+dst	,	V_7
+"Frame check sequence: 0x%04x (correct)"	,	L_2
+root	,	V_18
+proto_reg_handoff_irsir	,	F_24
+unescape_data	,	F_1
+HFILL	,	V_45
+length	,	V_4
+find_dissector	,	F_26
+data_offset	,	V_27
+ENC_BIG_ENDIAN	,	V_35
+bof_offset	,	V_19
+"Frame check sequence: 0x%04x "	,	L_3
+checksum_data	,	F_10
+"End of frame"	,	L_12
+"Frame check sequence"	,	L_14
+"tcp.port"	,	L_6
+"sir"	,	L_7
+proto_tree	,	T_5

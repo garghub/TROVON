@@ -1,0 +1,183 @@
+stx_start	,	V_35
+"Ack"	,	L_29
+"uts"	,	L_70
+tvb_get_string	,	F_14
+proto_register_protocol	,	F_19
+"Reply Request"	,	L_13
+rid	,	V_13
+"Message Waiting"	,	L_10
+"Function Message '%c'"	,	L_18
+"ReTxRequst"	,	L_47
+hf_rid	,	V_62
+"CCC + padding"	,	L_37
+"Site Identifier address"	,	L_43
+col_append_fstr	,	F_6
+"User Data Message"	,	L_68
+STX	,	V_56
+col_set_str	,	F_4
+gint	,	T_9
+hf_function	,	V_71
+"SID (%02X) (General)"	,	L_24
+"General Poll + ACK"	,	L_6
+hf_retxrequest	,	V_65
+proto_tree_add_uint_format	,	F_12
+tvb	,	V_1
+uts_header_tree	,	V_21
+"RID (%02X) (General)"	,	L_22
+" %2.2X:%2.2X:%2.2X"	,	L_2
+"ETX"	,	L_36
+COL_INFO	,	V_11
+GSID	,	V_47
+"Retransmit Request"	,	L_9
+proto_register_uts	,	F_18
+"uts.replyrequest"	,	L_53
+"uts.msgwaiting"	,	L_61
+FT_BOOLEAN	,	V_78
+"NotBusy"	,	L_57
+"TRUE if Reply Request"	,	L_54
+hf_replyrequest	,	V_67
+field	,	V_12
+"Header"	,	L_20
+cinfo	,	V_10
+"UTS"	,	L_3
+proto_register_subtree_array	,	F_22
+"DID"	,	L_44
+"uts.busy"	,	L_55
+array_length	,	F_21
+COL_DEF_DST	,	V_18
+"No Traffic + ACK"	,	L_8
+""	,	L_33
+testchar	,	F_1
+pinfo	,	T_3
+col_add_fstr	,	F_8
+"Function Message '%c' + ACK"	,	L_17
+"Data"	,	L_66
+"Text"	,	L_12
+_U_	,	V_2
+"RID (%02X)"	,	L_23
+hf_data	,	V_72
+replyrequest_start	,	V_29
+ett_uts	,	V_59
+hf_sid	,	V_63
+"SID"	,	L_41
+"Remote Identifier address"	,	L_40
+notbusy_start	,	V_28
+hf_register_info	,	T_8
+"TRUE if Re-transmit Request"	,	L_49
+"DID (%02X)"	,	L_27
+"SOH"	,	L_21
+msgwaiting_start	,	V_31
+FETCH	,	V_8
+SITA_FRAME_DIR_TXED	,	V_53
+COL_PROTOCOL	,	V_41
+"Device Identifier address"	,	L_46
+hf_busy	,	V_68
+GRID	,	V_61
+FT_UINT8	,	V_75
+BEL	,	V_55
+proto_tree_add_text	,	F_11
+"Unisys Transmittal System"	,	L_69
+proto_tree_add_boolean_format	,	F_13
+proto_item	,	T_6
+SOH	,	V_44
+OTHER	,	V_39
+guint8	,	T_7
+ti	,	V_23
+BASE_NONE	,	V_79
+sita	,	V_50
+"Function '%c'"	,	L_30
+NOTRAFFIC	,	V_38
+tvb_length_remaining	,	F_2
+did	,	V_15
+data_ptr	,	V_37
+"uts.sid"	,	L_42
+register_dissector	,	F_23
+"Specific Poll + ACK"	,	L_7
+"Unknown Message Format"	,	L_1
+ETX	,	V_43
+tvbuff_t	,	T_1
+"No Traffic"	,	L_4
+proto_tree_add_protocol_format	,	F_9
+hf_ack	,	V_66
+hf_msgwaiting	,	V_70
+plurality	,	F_17
+BASE_HEX	,	V_76
+"DID (%02X) (General)"	,	L_26
+"Trailer"	,	L_35
+"Text (%d byte%s)"	,	L_32
+"uts.ack"	,	L_50
+function_code	,	V_36
+"ETX + padding"	,	L_19
+busy_start	,	V_27
+proto_uts	,	V_58
+GDID	,	V_48
+proto_item_add_subtree	,	F_10
+hf_notbusy	,	V_69
+"Busy"	,	L_14
+"Function"	,	L_63
+"Start of Text"	,	L_31
+"ReplyRequst"	,	L_52
+proto_register_field_array	,	F_20
+"Not Busy"	,	L_15
+"uts.rid"	,	L_39
+uts_tree	,	V_20
+offset	,	V_3
+DST	,	V_45
+ett	,	V_81
+"SID (%02X)"	,	L_25
+wmem_packet_scope	,	F_15
+tree	,	V_19
+"General Poll"	,	L_5
+function_start	,	V_30
+packet_info	,	T_2
+"s"	,	L_34
+tvb_get_guint8	,	F_3
+uts_trailer_tree	,	V_22
+header_length	,	V_25
+proto_tree_add_string_format	,	F_16
+"uts.data"	,	L_67
+msg_type	,	V_40
+"Function Code value"	,	L_65
+DLE	,	V_46
+"Text + ACK"	,	L_11
+pseudo_header	,	V_49
+SRC	,	V_16
+"Re-transmit Request"	,	L_28
+"TRUE if Ack"	,	L_51
+ack_start	,	V_26
+ENQ	,	V_57
+storage	,	V_6
+sita_flags	,	V_51
+"uts.function"	,	L_64
+sid	,	V_14
+bcc_start	,	V_34
+FT_STRING	,	V_80
+etx_start	,	V_33
+"uts.notbusy"	,	L_58
+"TRUE if Message Waiting"	,	L_62
+"uts.did"	,	L_45
+COL_DEF_SRC	,	V_17
+HFILL	,	V_77
+nak_start	,	V_32
+op	,	V_4
+temp	,	V_7
+ett_trailer_uts	,	V_73
+gchar	,	T_4
+match	,	V_5
+length	,	V_24
+dissect_uts	,	F_7
+"uts.retxrequst"	,	L_48
+EOT	,	V_42
+"TRUE if Not Busy"	,	L_59
+"Not Busy + ACK"	,	L_16
+"RID"	,	L_38
+SITA_FRAME_DIR	,	V_52
+set_addr	,	F_5
+NAK	,	V_54
+"TRUE if Busy"	,	L_56
+ett_header_uts	,	V_60
+hf_did	,	V_64
+MATCH	,	V_9
+proto_tree	,	T_5
+hf	,	V_74
+"MsgWaiting"	,	L_60

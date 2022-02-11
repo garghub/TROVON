@@ -1,0 +1,213 @@
+hf_REF_id	,	V_33
+proto_register_protocol	,	F_18
+"ar_drone.anim.seq"	,	L_85
+hf_LED_sec	,	V_54
+gint	,	T_5
+"Movment(Animation) to Play"	,	L_89
+hf_PCMD_yaw	,	V_31
+"ar_drone.comwdg"	,	L_65
+tvb	,	V_1
+hf_PCMD_id	,	V_25
+COL_INFO	,	V_15
+ett_CONFIG_ID	,	V_35
+"AT*LED"	,	L_22
+"Animation Duration (seconds)"	,	L_90
+"AT*"	,	L_1
+tvb_reported_length_remaining	,	F_7
+sub_tree	,	V_11
+"Movment(Animation) Time in Seconds"	,	L_92
+cinfo	,	V_13
+PI_ERROR	,	V_24
+ar_drone_handle	,	V_69
+ar_drone_port	,	V_68
+array_length	,	F_20
+hf_REF_ctrl	,	V_34
+"ar_drone.ctrl.seq"	,	L_93
+hf_PCMD_roll	,	V_28
+ENC_ASCII	,	V_26
+"Carriage return delimiter (0x0d) not found"	,	L_13
+"ar_drone.pcmd.pitch"	,	L_39
+old_port	,	V_70
+"ar_drone.config.val"	,	L_72
+proto_reg_handoff_ar_drone	,	F_24
+"AR Drone UDP port"	,	L_101
+hf_register_info	,	T_8
+"Animation Sequence Number"	,	L_84
+ett_PCMD	,	V_22
+"Command WatchDog Request"	,	L_64
+"Progressive Command Yaw"	,	L_46
+COL_PROTOCOL	,	V_14
+hf_LED_seq	,	V_51
+"Configuration ID current application ID"	,	L_63
+dissect_ar_drone	,	F_1
+"AT*ANIM"	,	L_18
+"Configuration ID current user ID"	,	L_60
+guint8	,	T_7
+"LED Animation Length (Seconds)"	,	L_81
+ti	,	V_8
+BASE_NONE	,	V_64
+"ar_drone.anim.sec"	,	L_91
+hf_CTRL_fsize	,	V_61
+"Gaz"	,	L_41
+tvbuff_t	,	T_1
+"Comma delimiter not found"	,	L_5
+"Current User ID"	,	L_58
+"ar_drone.pcmd.flag"	,	L_33
+tvb_find_guint8	,	F_8
+gboolean	,	T_12
+" (Unknown Mode)"	,	L_26
+proto_item_add_subtree	,	F_6
+module_t	,	T_9
+hf_CONFIG_ID_user	,	V_38
+proto_register_field_array	,	F_19
+dissector_add_uint	,	F_28
+"Option Parameter"	,	L_71
+"Sequence Number"	,	L_29
+"ar_drone.ref.id"	,	L_47
+"ar_drone.led.anim"	,	L_76
+hf_CONFIG_seq	,	V_47
+"AT*REF"	,	L_16
+"Pitch"	,	L_38
+tvb_get_guint8	,	F_11
+"Configuration ID current session ID"	,	L_57
+proto_register_ar_drone	,	F_17
+"AR Drone Packet"	,	L_3
+dissector_delete_uint	,	F_27
+"ar_drone.anim.num"	,	L_88
+heur_dissector_add	,	F_26
+"ar_drone.ftrim.seq"	,	L_51
+"Command WatchDog Reset request"	,	L_66
+PCMD_str	,	V_21
+FT_STRING	,	V_63
+"Current Session ID"	,	L_55
+"ar_drone.configids.app"	,	L_62
+"ar_drone.config.seq"	,	L_67
+hf_FTRIM_seq	,	V_45
+" (NO CHANGE)"	,	L_6
+"Yaw"	,	L_44
+"Movment(Animation) Sequence #"	,	L_86
+new_create_dissector_handle	,	F_25
+"ar_drone.configids.user"	,	L_59
+"Progressive Command Pitch"	,	L_40
+"AT*CONFIG_IDS"	,	L_17
+length	,	V_6
+ett_ar_drone	,	V_18
+" (PITCH BACKWARD)"	,	L_10
+" (DECREASE VERT SPEED)"	,	L_11
+proto_ar_drone	,	V_16
+proto_item_append_string	,	F_12
+"Current Application ID"	,	L_61
+"LED Animation Frequency"	,	L_80
+hf	,	V_62
+"Roll"	,	L_35
+"Progressive Command Roll"	,	L_37
+"ar_drone.pcmd.gaz"	,	L_42
+ett_LED	,	V_50
+prefs_register_protocol	,	F_22
+"AT*CTRL"	,	L_24
+CTRL_mode_vs	,	V_60
+"ar_drone.led.sec"	,	L_82
+"Progressive Command ID"	,	L_31
+col_set_str	,	F_4
+master_offset	,	V_7
+ett_ANIM	,	V_40
+"LED Anim Length"	,	L_83
+"Selected Animation Number"	,	L_87
+" (ROTATE LEFT)"	,	L_14
+"Flag"	,	L_32
+proto_item_append_text	,	F_14
+"ar_drone.ctrl.filesize"	,	L_97
+"(Sets the reference for the horizontal plane)"	,	L_20
+ett_FTRIM	,	V_44
+proto_register_subtree_array	,	F_21
+proto_tree_add_string	,	F_9
+proto_tree_add_item	,	F_5
+pinfo	,	V_2
+hf_command	,	V_19
+dissector_handle_t	,	T_10
+_U_	,	V_4
+"ar_drone.led.seq"	,	L_73
+"ar_drone.configids.seq"	,	L_53
+hf_PCMD_flag	,	V_27
+"Configuration ID sequence number"	,	L_54
+initialized	,	V_71
+ett_CONFIG	,	V_46
+PCMD_byte	,	V_20
+"Animation Frequency"	,	L_78
+"ar_drone.pcmd.yaw"	,	L_45
+tvb_get_ephemeral_string	,	F_3
+"Firmware Update File Size (0 for no update)"	,	L_96
+"Progressive Command Flag"	,	L_34
+"ar_drone.pcmd.roll"	,	L_36
+"Selected LED Animation"	,	L_77
+" (ROLL LEFT)"	,	L_7
+"Configuration Seq Num"	,	L_68
+proto_tree_add_text	,	F_13
+proto_item	,	T_6
+"AT*CONFIG"	,	L_21
+ENC_NA	,	V_17
+"Selected Animation"	,	L_75
+"ar_drone"	,	L_2
+" (ROLL RIGHT)"	,	L_8
+expert_add_info_format	,	F_10
+"AT*COMWDG"	,	L_23
+"AR Drone UDP Port"	,	L_100
+" (INCREASE VERT SPEED)"	,	L_12
+"Reference ID"	,	L_48
+hf_PCMD_pitch	,	V_29
+drone_module	,	V_67
+"Command"	,	L_27
+hf_LED_freq	,	V_53
+"%s"	,	L_25
+data	,	T_4
+hf_ANIM_anim	,	V_42
+"ar_drone.pcmd.id"	,	L_30
+hf_PCMD_gaz	,	V_30
+hf_ANIM_seq	,	V_41
+" (ROTATE RIGHT)"	,	L_15
+ett_REF	,	V_32
+prefs_register_uint_preference	,	F_23
+hf_CONFIG_ID_seq	,	V_36
+"AR Drone"	,	L_98
+hf_ANIM_sec	,	V_43
+"LED Sequence Number"	,	L_74
+"Control Mode"	,	L_94
+guint	,	T_11
+offset	,	V_5
+ett	,	V_66
+"ar_drone.configids.session"	,	L_56
+tree	,	V_3
+tvb_bytes_exist	,	F_2
+packet_info	,	T_2
+ett_CTRL	,	V_57
+sub_item	,	V_9
+hf_CONFIG_ID_session	,	V_37
+ett_COMWDG	,	V_55
+"Control Command"	,	L_49
+"udp"	,	L_102
+"Progressive Command Gaz"	,	L_43
+hf_COMWDG	,	V_56
+"Flap Trim / Horizontal Plane Reference"	,	L_52
+" (PITCH FORWARD)"	,	L_9
+"AT*PCMD"	,	L_4
+hf_CTRL_mode	,	V_59
+str_to_str	,	F_15
+hf_CONFIG_name	,	V_48
+"ar_drone.config.name"	,	L_70
+"ar_drone.ref.ctrl"	,	L_50
+hf_CONFIG_ID_app	,	V_39
+ar_tree	,	V_10
+PI_MALFORMED	,	V_23
+HFILL	,	V_65
+"udp.port"	,	L_99
+"ar_drone.led.freq"	,	L_79
+hf_CONFIG_val	,	V_49
+hf_LED_anim	,	V_52
+"AT*FTRIM"	,	L_19
+"Option Name"	,	L_69
+command	,	V_12
+proto_item_set_len	,	F_16
+hf_CTRL_seq	,	V_58
+"ar_drone.command"	,	L_28
+"ar_drone.ctrl.mode"	,	L_95
+proto_tree	,	T_3

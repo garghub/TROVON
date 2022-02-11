@@ -1,0 +1,512 @@
+"Sequence number"	,	L_142
+"U:%.1u  "	,	L_27
+"EFCI bit"	,	L_121
+" of any of the ATM cells that transported the AAL5 CPCS-SDU is set"	,	L_130
+ei_pref_cw_flags	,	V_137
+hf_len	,	V_144
+ei_pw_payload_size_invalid_error	,	V_92
+"pw.cw.length.invalid"	,	L_156
+pwatm_mode_t	,	T_1
+item_top	,	V_131
+"AAL5 PDU mode:"	,	L_48
+TFS	,	F_59
+pref_aal5_sdu_allow_cw_length_nonzero	,	V_103
+" AAL5 PDU or AAL5 fragment. Note: The EFCI state is"	,	L_98
+hf_11_ncells	,	V_91
+ei_cell_h_m	,	V_164
+padding_size	,	V_21
+hf_pw_type_n1_nocw	,	V_121
+hf_aal5_pdu_rsv	,	V_168
+FT_BOOLEAN	,	V_186
+tvb_reported_length_remaining	,	F_18
+hf_n1_nocw_ncells	,	V_122
+size	,	V_129
+"Bad Length: too small, must be &gt;= %d"	,	L_32
+ett_cell_header	,	V_155
+ett_cell	,	V_175
+array_length	,	F_64
+"pw.cw.length"	,	L_140
+""	,	L_5
+SIZEOF_11_VCC_PW_CELL_HEADER	,	V_15
+"The reserved bits should be set to 0 at the transmitter and"	,	L_86
+PWATM_SUBMODE_ADMIN_CELL	,	V_13
+shortname_11_vcc	,	V_76
+hf_pref_cw_flags	,	V_136
+TRAF_UNKNOWN	,	V_38
+PWC_PAY_SIZE_BAD	,	V_27
+"Congestion is experienced for one or more ATM AAL5 cells"	,	L_59
+DISSECTOR_ASSERT	,	F_5
+aal	,	V_36
+col_append_str	,	F_7
+clp_vals	,	V_177
+payload_size_from_packet	,	V_101
+hfa_cw	,	V_196
+"pw.cw.seqno"	,	L_143
+"\n\n"	,	L_187
+hf_register_info	,	T_14
+pwatm_private_data_t	,	T_5
+"Bits 0..3 of Control Word must be 0"	,	L_153
+enable_fill_columns_by_atm_dissector	,	V_56
+"VCI Present"	,	L_79
+aal5t_len	,	V_45
+AAL_OAMCELL	,	V_57
+cw_len	,	V_102
+e	,	V_128
+h	,	V_216
+", VCI:%.5d"	,	L_9
+" which uses reserved bits as extension of Length"	,	L_190
+m	,	V_124
+PWC_CW_BAD_LEN_MUST_BE_0	,	V_104
+pwc_longname_pw_atm_11_or_aal5_pdu	,	V_209
+"atm.vpi"	,	L_61
+SIZEOF_N1_PW_CELL_HEADER	,	V_14
+dh_atm_oam_cell	,	V_58
+u	,	V_127
+v	,	V_125
+ei_cell_h_v_not_zero	,	V_166
+dh_cell_header	,	V_52
+proto_item_append_text_cwb3_fields	,	F_39
+"pw.cw.bits03.not_zero"	,	L_152
+" The ingress router copies this bit here."	,	L_138
+dissect_size	,	V_152
+"ATM admin cell is transerred;"	,	L_44
+" contains an AAL5 payload."	,	L_78
+"mplspwatmn1nocw"	,	L_173
+PTI_IS_ADMIN	,	F_52
+" an AAL5 PDU and represents the value of the ATM User-to-User"	,	L_91
+"pw.type.atm.n1cw"	,	L_103
+HF_INITIALIZER_PWTYPE	,	F_61
+hf_pw_type_aal5_sdu	,	V_109
+plurality	,	F_9
+BASE_HEX	,	V_197
+"PW payload size invalid"	,	L_149
+PROTO_ITEM_SET_GENERATED	,	F_32
+pwc_longname_pw_atm_n1_cw	,	V_208
+proto_item_add_subtree	,	F_29
+module_t	,	T_19
+"EFCI:%.1u  "	,	L_28
+"High priority"	,	L_53
+tvb_d	,	V_174
+PI_UNDECODED	,	V_204
+"ATM admin cell"	,	L_108
+proto_register_field_array	,	F_63
+"PW packet size too small"	,	L_147
+aal2_cid	,	V_41
+"PW ATM Cell Header [000]"	,	L_37
+ei	,	V_199
+"PW payload size (%d) must be &lt;&gt;0 and multiple of %d"	,	L_21
+hf_cell_h_rsv	,	V_169
+"EFCI"	,	L_95
+PWATM_MODE_AAL5_PDU	,	V_10
+PWC_CW_BAD_PAYLEN_GT_PACKET	,	V_107
+"atm.pti"	,	L_65
+dissect_n1_cw	,	F_37
+" cell relay encapsulation. If not set, the PDU"	,	L_120
+FT_UINT16	,	V_182
+"MPLS PW ATM Cell Header"	,	L_176
+"mplspwatm11_or_aal5pdu"	,	L_171
+tvb_captured_length	,	F_35
+"pw.type.atm.11vpc"	,	L_105
+call_dissector_with_data	,	F_13
+"mplspwatmaal5sdu"	,	L_172
+expert_add_info	,	F_44
+hf_cell_h_v	,	V_165
+e_vals	,	V_180
+PWC_PACKET_PROPERTIES_T_INITIALIZER	,	V_80
+"Transport Mode"	,	L_73
+prepare_pseudo_header_atm	,	F_10
+"pw.type.atm.aal5pdu"	,	L_106
+"EFCI is set to the EFCI state of the last cell of the"	,	L_97
+" is present in the packet. If set to 1, the VCI field is present"	,	L_82
+"allow_cw_length_nonzero_aal5"	,	L_196
+"Payload Type"	,	L_64
+hf_cw_bits03	,	V_133
+aal5_sdu_frame_relay_cr_bit	,	V_44
+hf_cw_seq	,	V_148
+PI_WARN	,	V_205
+dh_cell	,	V_59
+vpi	,	V_29
+ett_encaps	,	V_86
+hfa_cell_header	,	V_181
+hf_pw_type_11_vcc	,	V_89
+pw_cell_size	,	F_1
+"AAL5 payload"	,	L_55
+proto_register_pw_atm_ata	,	F_57
+pw_cell_header_size	,	F_3
+"Payload type"	,	L_115
+"The Cell Loss Priority (CLP) field indicates CLP value"	,	L_71
+hf_cell_h_m	,	V_163
+dh_atm_untruncated	,	V_96
+channel	,	V_42
+HF_INITIALIZER_NCELLS	,	F_60
+" PTI of the encapsulated ATM cell."	,	L_68
+prefs_register_protocol	,	F_69
+proto_reg_handoff_pw_atm_ata	,	F_71
+PWC_CW_BAD_PAYLEN_LE_0	,	V_106
+"No congestion"	,	L_109
+col_append_fstr	,	F_8
+"VPI:%.4u  "	,	L_40
+" in the ATM header."	,	L_94
+"pw.cw.atmbyte"	,	L_168
+col_set_str	,	F_21
+"Flags"	,	L_113
+" Note that Length should have proper value (dissector checks this anyway)."	,	L_186
+"mplspwatmcellheader"	,	L_177
+too_small_packet_or_notpw	,	F_17
+clp	,	V_32
+is_enough_data	,	V_151
+PWC_CW_BAD_PADDING_NE_0	,	V_108
+ei_cw_bits03	,	V_135
+"Bad length of cell payload: must be == %d"	,	L_52
+SIZEOF_11_VPC_PW_CELL	,	V_9
+hf_generic_cw_rsv	,	V_142
+a5s_e_vals	,	V_195
+"atm.pw_control_byte.v.not_zero"	,	L_164
+dh_control_word	,	V_94
+dissect_11_or_aal5_pdu	,	F_23
+pwc_longname_pw_atm_n1_nocw	,	V_211
+hf_cell_h_pti	,	V_158
+proto_cell	,	V_173
+"atm.pw_control_byte.v.not_one"	,	L_162
+dissect_n1_nocw	,	F_38
+"Disable to blame all packets with CW.Reserved &lt;&gt; 0. This conforms to RFC4717."	,	L_191
+dissector_handle_t	,	T_20
+"Malformed: PW packet is too small"	,	L_14
+", VPI:%.4d"	,	L_8
+atm_is_oam_cell	,	F_14
+hf_pw_type_aal5_pdu	,	V_90
+"atm.pw_control_byte.u"	,	L_89
+hf_gen_cw_atmbyte	,	V_149
+VALS	,	F_58
+dissector_add_for_decode_as	,	F_73
+"Unknown value of PTI field (%d) in the atm-specific byte"	,	L_49
+prefs_register_bool_preference	,	F_70
+pw_cell_number	,	V_51
+BASE_DEC	,	V_183
+tvb_new_subset	,	F_15
+cumulative	,	V_28
+try_val_to_str	,	F_54
+dissect_try_cw_first_nibble	,	F_22
+"atm.pw_control_byte.v"	,	L_80
+" in the packet is set to 1. Otherwise this bit is set to 0."	,	L_132
+ENC_NA	,	V_65
+" contains an ATM cell or a frame payload. If set to 0,"	,	L_76
+"atm_pw_untruncated"	,	L_200
+m_vals	,	V_178
+description_extend_cw_length_with_rsvd	,	V_213
+VALUE_SELECTOR_VPC_VCC_PDU	,	F_31
+"ATM cell"	,	L_22
+"Flags must be 0 for PW ATM N:1 encapsulation"	,	L_155
+" which generate non-zero Length even if there is no padding in the packet."	,	L_185
+"Not enough data (size: %d), impossible to decode"	,	L_50
+hfa_aal5_sdu	,	V_193
+", PTI:%.1d"	,	L_10
+"CLP bit"	,	L_128
+"ATM admin cell is transerred. PTI field should be 4, 5 or 6."	,	L_159
+"VCI"	,	L_62
+mode	,	V_1
+"Bit (T) of the control word indicates whether the packet contains"	,	L_117
+"pw.type.atm.11vcc"	,	L_104
+proto_handler	,	V_61
+expert_register_protocol	,	F_65
+"allow_cw_length_nonzero"	,	L_192
+"pw.payload.size_invalid"	,	L_148
+"This frame contains the last cell of AAL5 PDU"	,	L_57
+"Cell Loss Priority"	,	L_69
+"good ATM cell"	,	L_15
+"Enable to use reserved bits (8..9) of Control Word as an extension of CW.Length."	,	L_189
+guint	,	T_6
+hf_cell_h_vci	,	V_157
+"Length"	,	L_100
+" of the AAL5 CPCS-PDU may contain the Frame Relay C/R bit."	,	L_137
+"When FRF.8.1 Frame Relay/ATM PVC Service Interworking [RFC3916]"	,	L_135
+"This frame does not contain the last cell of AAL5 PDU"	,	L_56
+pwc_item_append_text_n_items	,	F_28
+PWATM_MODE_11_VPC	,	V_8
+packet_info	,	T_4
+ei_cell_broken	,	V_93
+"s"	,	L_6
+pref_aal5_sdu_extend_cw_length_with_rsvd	,	V_100
+"pw.type.atm.aal5sdu"	,	L_107
+"1:1 VCC mode:"	,	L_46
+", CLP:%.1d"	,	L_11
+EXPFILL	,	V_202
+"atm.pt"	,	L_116
+"Unknown value of PTI field in the ATM cell header"	,	L_158
+"Bits 0 to 3"	,	L_111
+longname_pw_atm_11_vpc	,	V_75
+" ignored upon reception."	,	L_87
+SIZEOF_ATM_CELL_PAYLOAD	,	V_11
+MODE_11	,	F_25
+"atm.pw_control_byte.m.not_zero"	,	L_160
+tvb_new_subset_length	,	F_34
+proto_aal5_sdu	,	V_98
+"U bit"	,	L_88
+shortname_n1_cw	,	V_111
+hf_n1_cw_ncells	,	V_117
+subtype	,	V_39
+", "	,	L_2
+HFILL	,	V_184
+PI_MALFORMED	,	V_200
+hf_pw_type_n1_cw	,	V_116
+"Allow CW.Length &lt;&gt; 0"	,	L_193
+" an ATM admin cell or an AAL5 payload. If T = 1, the packet"	,	L_118
+" V bit must be 0 to indicate that VCI is absent"	,	L_47
+" indicated in the middle bit of each ATM cell's PTI."	,	L_99
+"pw.cw.aal5sdu.u"	,	L_134
+create_dissector_handle	,	F_72
+"pw.cw.3rd_byte"	,	L_145
+", %d padding"	,	L_12
+pd	,	V_22
+ei_pw_payload_size_invalid_note	,	V_118
+ei_pref_cw_len	,	V_147
+ph	,	V_34
+MODE_11_OR_AAL5_PDU	,	F_47
+"atm.efci"	,	L_122
+pref_n1_cw_allow_cw_length_nonzero	,	V_115
+payload_size	,	V_17
+proto_tree_add_int	,	F_33
+"pw.cw.rsv"	,	L_139
+"atm.pw_control_byte.rsv.not_zero"	,	L_166
+col_append_pw_info	,	F_6
+expert_cell	,	V_207
+proto_register_protocol	,	F_62
+aal5t_chksum	,	V_46
+tvb_new_subset_remaining	,	F_12
+SIZEOF_11_VCC_PW_CELL	,	V_7
+gint	,	T_3
+"Use CW.Reserved as extension of CW.Length"	,	L_195
+module_aal5_sdu	,	V_215
+tvb	,	V_47
+"atm.cell.len"	,	L_101
+" traffic is being transported, the Least-Significant Bit of CPCS-UU"	,	L_136
+COL_INFO	,	V_26
+"Length (extended)"	,	L_141
+"mpls_pw_atm_control_word"	,	L_180
+shortname_11_vpc	,	V_74
+hf_pref_cw_rsv	,	V_143
+"CW:Bad"	,	L_1
+"M:%.1u  "	,	L_24
+" bit for the last ATM cell of the PSN frame. Note: The ATM"	,	L_92
+cinfo	,	V_25
+PI_ERROR	,	V_201
+tmp8	,	V_153
+dissect_cell	,	F_55
+ett_array	,	V_198
+" of the final cell of those that transported the AAL5 CPCS-SDU is"	,	L_124
+pdata	,	V_35
+call_dissector	,	F_16
+SIZEOF_N1_PW_CELL	,	V_5
+"atm.pw_control_byte.m"	,	L_74
+proto_item_set_text	,	F_27
+PROTO_ITEM_SET_HIDDEN	,	F_45
+MODE_N1	,	F_46
+"VPI"	,	L_60
+proto_tree_add_boolean	,	F_30
+rsv	,	V_126
+"Low priority"	,	L_54
+"ATM-specific byte"	,	L_144
+shortname_n1_nocw	,	V_119
+"PW packet size (%d) is too small to carry sensible information"	,	L_13
+COL_PROTOCOL	,	V_67
+"1:1 mode: M bit must be 0 to distinguish from AAL5 PDU mode"	,	L_161
+"Reserved bits in the 3rd byte of CW must be 0"	,	L_167
+hf_pref_cw_len	,	V_145
+hf_pw_type_11_vpc	,	V_88
+ei_cell_h_pti_undecoded	,	V_160
+guint8	,	T_12
+PWATM_MODE_N1_NOCW	,	V_3
+value_string	,	T_13
+hfa_11_aal5pdu	,	V_192
+"Congestion is not experienced"	,	L_58
+PWC_CW_BAD_RSV	,	V_82
+register_dissector	,	F_68
+item2	,	V_87
+tvb_get_ntohl	,	F_43
+tvbuff_t	,	T_7
+TRAF_ST_UNKNOWN	,	V_40
+tvb_get_ntohs	,	F_49
+"atm.cell_broken"	,	L_150
+ei_pw_packet_size_too_small	,	V_66
+gboolean	,	T_9
+"Bad Length: must be == PSN packet size (%d), no padding allowed"	,	L_34
+" set to 1, or if the EFCI bit of the single ATM cell to be"	,	L_125
+"byte"	,	L_51
+"Bit (M) of the control byte indicates  whether the packet"	,	L_75
+"Unknown value of PTI field (%d) in the ATM cell header"	,	L_43
+"pw.packet_size_too_small"	,	L_146
+"MPLS PW ATM Control Word"	,	L_174
+"atm.clp"	,	L_70
+proto_11_or_aal5_pdu	,	V_72
+ei_gen_cw_atmbyte	,	V_150
+"The ingress router sets this bit to 1 if the CLP bit"	,	L_129
+ei_cell_h_rsv	,	V_170
+"Enable to allow non-zero Length in Control Word."	,	L_183
+" PTI coding of the cell.  These bits are set to the value of the"	,	L_67
+" This may be needed to correctly decode traffic from some legacy devices"	,	L_184
+tvb_get_guint8	,	F_24
+ei_cell_h_pti_malformed	,	V_161
+"1:1 VCC mode: V bit must be 0 to indicate that VCI is absent"	,	L_165
+"Bad Length: must be &lt;= than PSN packet size (%d)"	,	L_33
+hfa_n1_nocw	,	V_190
+name	,	T_16
+"Reserved bits"	,	L_84
+" the packet contains an ATM cell. If set to 1, the PDU"	,	L_77
+" User-to-User bit is the least significant bit of the PTI"	,	L_93
+"U bit (Command/Response)"	,	L_133
+"atm.pti.invalid"	,	L_157
+module_n1_cw	,	V_214
+hf_cell_payload_len	,	V_176
+" transported in the packet is set to 1. Otherwise, this bit"	,	L_126
+description_allow_cw_length_nonzero	,	V_212
+tree2	,	V_85
+proto_n1_nocw	,	V_120
+SIZEOF_11_VPC_PW_CELL_HEADER	,	V_16
+proto_name_column	,	V_62
+" PTI field (%d) should be 4, 5 or 6."	,	L_45
+call_data_dissector	,	F_56
+hfa_cell	,	V_188
+FT_INT32	,	V_189
+"pw.type.atm.n1nocw"	,	L_102
+dissect_control_word	,	F_41
+pti	,	V_31
+PWC_SIZEOF_CW	,	V_84
+find_dissector	,	F_74
+"Congestion experienced"	,	L_110
+shortname_aal5_sdu	,	V_97
+"mpls_pw_atm_cell"	,	L_181
+ENC_BIG_ENDIAN	,	V_134
+cells	,	V_19
+packet_size	,	V_63
+ei_cell_h_v_not_one	,	V_167
+"mplspwatmcontrolword"	,	L_175
+"ATM-specific byte of CW is fully dissected below as %s%s"	,	L_35
+"atm_pw_truncated"	,	L_199
+pwatm_submode_t	,	T_2
+"In ATM admin cell mode,"	,	L_19
+"atm.pw_control_byte.rsv"	,	L_85
+"Disable to blame all packets with CW.Length &lt;&gt; 0. This conforms to RFC4717."	,	L_188
+proto_n1_cw	,	V_112
+shortname_11_or_aal5_pdu	,	V_71
+hf_pref_cw_rsvlen	,	V_146
+" to 1, or if the CLP bit of the single ATM cell to be transported"	,	L_131
+"mpls.label"	,	L_198
+atm_phdr	,	V_33
+item	,	V_64
+shortname_aal5_pdu	,	V_78
+proto_item_append_text	,	F_40
+UPDATE_CUMULATIVE_VALUE	,	F_51
+" [%.3d]"	,	L_39
+props	,	V_23
+PWATM_MODE_11_VCC	,	V_6
+hf_pref_cw_a5s_t	,	V_138
+hf_pref_cw_a5s_u	,	V_141
+col_clear	,	F_26
+"CLP:%.1u  "	,	L_29
+hf_cell_h_vpi	,	V_156
+" contains an ATM admin cell, encapsulated according to the N:1"	,	L_119
+proto_register_subtree_array	,	F_67
+"mpls_pw_atm_cell_header"	,	L_182
+proto_name_tree	,	V_69
+dissect_payload_and_padding	,	F_11
+tvb_get_ntoh24	,	F_50
+"PTI:%.1u  "	,	L_42
+"%d byte%s"	,	L_4
+hf_pref_cw_a5s_e	,	V_139
+"pw_padding"	,	L_202
+proto_tree_add_item	,	F_19
+pinfo	,	V_20
+hf_pref_cw_a5s_c	,	V_140
+"atm.vci"	,	L_63
+submode	,	V_2
+flags	,	V_37
+_U_	,	V_68
+" of the encapsulated cell."	,	L_72
+tvb_2	,	V_50
+"mplspwatmn1cw"	,	L_170
+tvb_3	,	V_54
+dissected	,	V_49
+AAL_5	,	V_95
+"atm_pw_oam_cell"	,	L_201
+"PW payload size (%d) must be &lt;&gt; 0 and multiple of %d"	,	L_16
+dissect_cell_header	,	F_48
+vci	,	V_30
+"V:%.1u  "	,	L_25
+PI_PROTOCOL	,	V_206
+PWATM_SUBMODE_DEFAULT	,	V_99
+a5s_t_vals	,	V_194
+" for the cell. If set to 0, no VCI field is present."	,	L_83
+"ATM Cell"	,	L_178
+FT_UINT8	,	V_185
+proto_item	,	T_10
+expert_register_field_array	,	F_66
+" PW payload size (%d) must be == %d (exactly 1 admin cell)"	,	L_20
+expert_add_info_format	,	F_20
+"Bit (V) of the control byte indicates whether the VCI field"	,	L_81
+PWC_ANYOF_CW_BAD	,	V_24
+"PW ATM cell [%.3d] is broken"	,	L_17
+"atm.pw_control_byte.efci"	,	L_96
+hf_handle	,	T_15
+"pw.cw.flags"	,	L_114
+dissect_aal5_sdu	,	F_36
+hf_aal5_pdu_u	,	V_171
+data	,	T_11
+"VCI:%.5u  "	,	L_41
+"%d ATM cell%s"	,	L_7
+"1:1 VPC mode: V bit must be 1 to indicate that VCI is present"	,	L_163
+proto_control_word	,	V_130
+ei_register_info	,	T_17
+atm_pt_vals	,	V_159
+hfa_n1_cw	,	V_191
+PWC_CW_BAD_FLAGS	,	V_113
+PI_NOTE	,	V_203
+" is set to 0."	,	L_127
+pwc_item_append_cw	,	F_42
+payload_size_from_cw	,	V_105
+"Indicates whether this frame contains the last cell of"	,	L_90
+proto_cell_header	,	V_154
+"pw.cw.bits03"	,	L_112
+DISSECTOR_ASSERT_NOT_REACHED	,	F_2
+expert_module_t	,	T_18
+tree	,	V_48
+"Payload size:Bad, "	,	L_3
+dh_padding	,	V_60
+cwb3	,	V_123
+PWC_CW_BAD_BITS03	,	V_81
+tfs_yes_no	,	V_187
+PWATM_PRIVATE_DATA_T_INITIALIZER	,	V_70
+"extend_cw_length_with_rsvd_aal5"	,	L_197
+"ATM-specific byte of CW is fully dissected below"	,	L_169
+"The ingress router sets this bit to 1 if the EFCI bit"	,	L_123
+ett_cw	,	V_132
+longname_pw_atm_11_vcc	,	V_77
+proto_tree_add_uint	,	F_53
+aal5t_u2u	,	V_43
+"The 3-bit Payload Type Identifier (PTI) incorporates ATM Layer"	,	L_66
+"Third byte of Control Word"	,	L_38
+cell_mode_oam	,	V_53
+"Packet (size: %d) is too small to carry MPLS PW Control Word"	,	L_30
+remainder_size	,	V_18
+"Bad Length: must be 0 for this encapsulation"	,	L_31
+"Last PW ATM cell [%.3d] is broken"	,	L_23
+dh_atm_truncated	,	V_110
+"RSV:%.1u  "	,	L_26
+", OAM cell"	,	L_18
+"a part of "	,	L_36
+"pw.cw.flags.not_zero"	,	L_154
+third_byte	,	V_73
+u_vals	,	V_179
+pref_n1_cw_extend_cw_length_with_rsvd	,	V_114
+"PW ATM cell is broken"	,	L_151
+bad_padding_size	,	V_83
+PWATM_MODE_AAL5_SDU	,	V_12
+"extend_cw_length_with_rsvd"	,	L_194
+pwc_longname_pw_atm_aal5_sdu	,	V_210
+bytes_to_dissect	,	V_55
+hf_aal5_pdu_e	,	V_172
+PWATM_MODE_N1_CW	,	V_4
+"mplspwatmcell"	,	L_179
+longname_pw_atm_aal5_pdu	,	V_79
+hf_cell_h_clp	,	V_162
+number_of_cells	,	F_4
+proto_tree	,	T_8

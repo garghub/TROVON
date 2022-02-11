@@ -1,0 +1,132 @@
+"DLT"	,	L_15
+uat_new	,	F_29
+proto_register_protocol	,	F_24
+"Size of an eventual trailer that follows the actual payload, 0 means none"	,	L_24
+uat_field_t	,	T_12
+"Trailer protocol"	,	L_25
+prefs_register_protocol	,	F_28
+tvb_reported_length	,	F_13
+", Header: %s (%s)"	,	L_7
+len	,	V_7
+wmem_strdup_printf	,	F_3
+record	,	V_37
+gint	,	T_6
+UAT_FLD_PROTO	,	F_22
+header_proto_name	,	V_26
+tvb	,	V_1
+item	,	V_6
+trailer_proto	,	V_30
+"A table that enumerates the various protocols to be used against a certain user DLT"	,	L_36
+module	,	V_41
+proto_item_append_text	,	F_11
+"Protocol to be used for the trailer (empty = data)"	,	L_26
+", Trailer: %s (%s)"	,	L_9
+user_copy_cb	,	F_14
+"pktap"	,	L_12
+UAT_AFFECTS_DISSECTION	,	V_52
+ei_user_encap_not_handled	,	V_19
+"Header protocol"	,	L_21
+"User encapsulation's protocol %s not found: "	,	L_4
+array_length	,	F_27
+"user_dlt"	,	L_10
+"User encapsulation not handled: DLT=%d, "	,	L_1
+""	,	L_13
+UAT_FLD_DEC	,	F_23
+proto_tree_add_item	,	F_2
+call_dissector	,	F_7
+pinfo	,	V_2
+dissector_handle_t	,	T_9
+proto_reg_handoff_user_encap	,	F_18
+"ChUserDLTsSection"	,	L_33
+dissect_user	,	F_1
+_U_	,	V_34
+encap	,	V_4
+proto_item_set_text	,	F_5
+user_encap_handle	,	V_39
+"user_dlt.not_handled"	,	L_27
+dissector_handle_get_long_name	,	F_9
+"Protocol to be used for the header (empty = data)"	,	L_22
+num_encaps	,	V_10
+d	,	V_36
+"data"	,	L_11
+tvb_length	,	F_12
+i	,	V_9
+g_free	,	F_17
+tvb_new_subset	,	F_8
+proto_item	,	T_5
+user_free_cb	,	F_16
+expert_register_field_array	,	F_26
+reported_len	,	V_8
+expert_user_encap	,	V_42
+o	,	V_35
+ENC_NA	,	V_14
+proto_register_user_encap	,	F_20
+expert_add_info_format	,	F_6
+orig	,	V_33
+u	,	V_38
+header_proto	,	V_25
+msg	,	V_17
+register_dissector	,	F_31
+"%s"	,	L_3
+trailer_size	,	V_28
+tvbuff_t	,	T_1
+size_t	,	T_8
+dest	,	V_32
+"wtap_encap"	,	L_14
+prefs_register_uat_preference	,	F_30
+ei_register_info	,	T_13
+"Header size"	,	L_19
+expert_register_protocol	,	F_25
+trailer_tvb	,	V_29
+module_t	,	T_10
+UAT_END_FIELDS	,	V_46
+encaps	,	V_11
+PI_UNDECODED	,	V_48
+"Payload protocol"	,	L_17
+", Payload: %s (%s)"	,	L_8
+user_encap	,	V_44
+"Trailer size"	,	L_23
+guint	,	T_7
+ei	,	V_47
+wmem_packet_scope	,	F_4
+dissector_add_uint	,	F_19
+expert_module_t	,	T_11
+tree	,	V_3
+WTAP_ENCAP_USER15	,	V_40
+trailer_proto_name	,	V_31
+data_handle	,	V_20
+"Encapsulations Table"	,	L_35
+payload_tvb	,	V_5
+"Protocol to be used for the payload of this DLT"	,	L_18
+packet_info	,	T_2
+"DLT User"	,	L_29
+user2_encap	,	V_16
+proto_user_encap	,	V_13
+"encaps_table"	,	L_34
+match_uint	,	V_12
+EXPFILL	,	V_50
+WTAP_ENCAP_USER0	,	V_18
+WTAP_ENCAP_USER2	,	V_15
+"DLT: %d"	,	L_6
+"Formatted text"	,	L_28
+user_dlts	,	V_45
+user_encap_t	,	T_4
+"DLT=%d, check your Preferences-&gt;Protocols-&gt;DLT_USER"	,	L_5
+"User DLTs Table"	,	L_31
+payload_proto	,	V_21
+g_strdup	,	F_15
+"check your Preferences-&gt;Protocols-&gt;DLT_USER"	,	L_2
+"The DLT"	,	L_16
+encaps_uat	,	V_51
+"DLT_USER"	,	L_30
+header_size	,	V_23
+find_dissector	,	F_10
+proto_name	,	V_27
+PI_WARN	,	V_49
+UAT_FLD_VS	,	F_21
+"user_dlts"	,	L_32
+"Size of an eventual header that precedes the actual payload, 0 means none"	,	L_20
+hdr_tvb	,	V_24
+proto_tree	,	T_3
+payload_proto_name	,	V_22
+user_flds	,	V_43

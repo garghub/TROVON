@@ -1,0 +1,104 @@
+proto_register_protocol	,	F_13
+hf_aas_beam_beam_bit_mask	,	V_17
+"Beam Bit Mask"	,	L_6
+tvb_reported_length	,	F_8
+"RSSI Mean Value"	,	L_24
+aas_beam_item	,	V_5
+"mac_mgmt_msg_aas_beam_select_handler"	,	L_29
+gint	,	T_9
+"WiMax AAS-BEAM Messages"	,	L_26
+proto_mac_mgmt_msg_aas_beam_decoder	,	V_7
+"wmx.mgmtmsg"	,	L_32
+"wmx.aas_beam.rssi_mean_value"	,	L_25
+tvb	,	V_1
+report_type	,	V_19
+hf_aas_beam_select_reserved	,	V_11
+tvb_len	,	V_18
+proto_register_subtree_array	,	F_16
+"mac_mgmt_msg_aas_beam_rsp_handler"	,	L_31
+"wmx.aas_beam.beam_bit_mask"	,	L_7
+"wmx.aas_beam"	,	L_28
+array_length	,	F_15
+"AAS Beam Index"	,	L_4
+MAC_MGMT_MSG_AAS_BEAM_SELECT	,	V_42
+"Reserved"	,	L_20
+"Frequency Value (imaginary part)"	,	L_14
+proto_tree_add_item	,	F_4
+pinfo	,	T_3
+dissector_handle_t	,	T_10
+_U_	,	V_2
+indx	,	V_21
+AAS_BEAM_BEAM_BIT_MASK_MASK	,	V_34
+AAS_BEAM_RESOLUTION_PARAMETER_MASK	,	V_39
+AAS_BEAM_MEASUREMENT_REPORT_TYPE_MASK	,	V_23
+"Frame Number"	,	L_12
+hf_register_info	,	T_8
+VALS	,	F_12
+"Measurement Report Type"	,	L_18
+ett_mac_mgmt_msg_aas_beam_rsp_decoder	,	V_22
+FT_UINT8	,	V_29
+BASE_DEC	,	V_30
+proto_item	,	T_7
+"mac_mgmt_msg_aas_beam_req_handler"	,	L_30
+"AAS Beam Select (AAS-BEAM-SELECT)"	,	L_1
+AAS_BEAM_FEEDBACK_REQUEST_NUMBER_MASK	,	V_35
+AAS_BEAM_SELECT_AAS_BEAM_INDEX_MASK	,	V_31
+"Frequency Value (real part)"	,	L_16
+hf_aas_beam_rssi_value	,	V_26
+"wmx.aas_beam.resolution_parameter"	,	L_23
+hf_aas_beam_feedback_request_number	,	V_14
+register_dissector	,	F_17
+"AAS Beam Response (AAS-BEAM-RSP)"	,	L_3
+data	,	T_5
+OFDM	,	F_11
+number_of_frequencies	,	V_20
+hf_aas_beam_freq_value_im	,	V_25
+"WiMax AAS-BEAM"	,	L_27
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_2
+hf_aas_beam_frame_number	,	V_13
+vals_report_types	,	V_36
+"wmx.aas_beam.freq_value_re"	,	L_17
+BASE_HEX	,	V_33
+"wmx.aas_beam.reserved"	,	L_21
+"AAS Beam Request (AAS-BEAM-REQ)"	,	L_2
+proto_item_add_subtree	,	F_3
+proto_register_field_array	,	F_14
+"wmx.aas_beam.measurement_report_type"	,	L_19
+"wmx.aas_beam.aas_beam_index"	,	L_5
+AAS_BEAM_SELECT_RESERVED_MASK	,	V_37
+guint	,	T_6
+offset	,	V_4
+ett	,	V_40
+"wmx.aas_beam.cinr_mean_value"	,	L_9
+proto_reg_handoff_mac_mgmt_msg_aas_beam	,	F_18
+dissector_add_uint	,	F_20
+tree	,	V_3
+dissect_mac_mgmt_msg_aas_beam_req_decoder	,	F_6
+"Resolution Parameter"	,	L_22
+"CINR Mean Value"	,	L_8
+proto_register_mac_mgmt_msg_aas_beam	,	F_10
+packet_info	,	T_2
+hf_aas_beam_select_index	,	V_9
+tvb_get_guint8	,	F_9
+vals_resolution_parameter	,	V_38
+hf_aas_beam_measurement_report_type	,	V_15
+tvb_captured_length	,	F_5
+hf_aas_beam_cinr_value	,	V_27
+dissect_mac_mgmt_msg_aas_beam_rsp_decoder	,	F_7
+hf_aas_beam_freq_value_re	,	V_24
+"wmx.aas_beam.frame_number"	,	L_13
+aas_handle	,	V_41
+hf_aas_beam_resolution_parameter	,	V_16
+HFILL	,	V_32
+dissect_mac_mgmt_msg_aas_beam_select_decoder	,	F_1
+"wmx.aas_beam.freq_value_im"	,	L_15
+create_dissector_handle	,	F_19
+aas_beam_tree	,	V_6
+ENC_BIG_ENDIAN	,	V_10
+"Feedback Request Number"	,	L_10
+ett_mac_mgmt_msg_aas_beam_req_decoder	,	V_12
+hf_aas_beam	,	V_28
+ett_mac_mgmt_msg_aas_beam_select_decoder	,	V_8
+"wmx.aas_beam.feedback_request_number"	,	L_11
+proto_tree	,	T_4

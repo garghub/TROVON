@@ -1,0 +1,225 @@
+proto_register_protocol	,	F_25
+reassembly_table_register	,	F_31
+ett_cbch_fragments	,	V_92
+cbch_frag_items	,	V_59
+tvb_reported_length	,	F_2
+process_reassembled_data	,	F_17
+"Conflicting data in fragment overlap"	,	L_41
+tvb_new_subset_remaining	,	F_19
+len	,	V_4
+"%d, Repeat of non-existant slot %d"	,	L_5
+"GSM CBCH Last Block"	,	L_20
+gint	,	T_13
+msg_id	,	V_32
+proto_reg_handoff_gsm_cbch	,	F_33
+hf_gsm_cbch_sched_spare	,	V_26
+"GSM CBCH Schedule End Slot"	,	L_30
+tvb	,	V_1
+top_tree	,	V_3
+frag_data	,	V_38
+guint32	,	T_11
+COL_INFO	,	V_19
+proto_item_set_end	,	F_12
+"GSM CBCH Schedule Message"	,	L_2
+FT_BOOLEAN	,	V_77
+"%d Free Message Slot, reading advised"	,	L_9
+"Slot"	,	L_32
+"GSM CBCH Schedule Spare Bits"	,	L_28
+new_slots	,	V_11
+"Reassembled CBCH message"	,	L_15
+cinfo	,	V_18
+"Other message slots in this schedule"	,	L_11
+"gsm_cbch.fragment.count"	,	L_54
+"Reserved Sequence Number"	,	L_71
+array_length	,	F_27
+sched_subtree	,	V_17
+fragment_add_seq_check	,	F_16
+cbch_block_reassembly_table	,	V_57
+call_dissector	,	F_20
+hf_gsm_cbch_lb	,	V_54
+schedule_item	,	V_15
+DISSECTOR_ASSERT	,	F_10
+col_append_str	,	F_3
+"gsm_cbch.block_type.lb"	,	L_21
+ett_schedule_msg	,	V_21
+hf_cbch_fragment	,	V_87
+"Invalid Link Protocol Discriminator"	,	L_73
+hf_register_info	,	T_12
+"Defragmentation error"	,	L_50
+slot_item	,	V_24
+"gsm_cbch.fragment.overlap.conflict"	,	L_42
+"gsm_cbch.fragment.multipletails"	,	L_45
+"gsm_cbch.fragment.overlap"	,	L_39
+guint16	,	T_7
+COL_PROTOCOL	,	V_49
+i	,	V_7
+j	,	V_29
+hf_cbch_fragment_overlap	,	V_76
+k	,	V_8
+"gsm_cbch.padding"	,	L_35
+RVALS	,	F_24
+guint8	,	T_5
+BASE_NONE	,	V_75
+msg_tvb	,	V_48
+proto_register_gsm_cbch	,	F_22
+"NULL message"	,	L_69
+register_dissector	,	F_30
+"Fragment overlaps with other fragments"	,	L_40
+"gsm_cbch.sched_type"	,	L_25
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_4
+BASE_HEX	,	V_66
+"%d, Message: %d, First transmission of an SMSCB within the Schedule Period"	,	L_12
+gboolean	,	T_6
+hf_gsm_cbch_sched_end_slot	,	V_27
+"gsm_cbch.fragment"	,	L_63
+proto_cbch	,	V_20
+proto_item_add_subtree	,	F_5
+fragmented	,	V_56
+proto_register_field_array	,	F_26
+"gsm_cbch.block_type.spare"	,	L_17
+FT_BYTES	,	V_74
+"%d, Apparent forward reference to slot %d"	,	L_7
+ei	,	V_94
+fragment_head	,	T_10
+"gsm_cbch.block_type.seq_num.reserved"	,	L_70
+"%d, Message ID: %d, Repeat of Slot %d"	,	L_6
+"%d reserved MDT: %x"	,	L_10
+hf_cbch_fragment_count	,	V_83
+tvb_get_guint8	,	F_7
+tvb_captured_length	,	F_21
+"GSM CBCH spare bit"	,	L_16
+expert_add_info	,	F_8
+"Fragment contained data past end of packet"	,	L_49
+"gsm_cbs"	,	L_77
+"gsm_cbch.schedule_begin"	,	L_27
+hf_gsm_cbch_seq_num	,	V_55
+gsm_cbch_sched_begin_slot_rvals	,	V_73
+hf_gsm_cbch_padding	,	V_34
+call_data_dissector	,	F_18
+"gsm_cbch.reassembled.in"	,	L_57
+" CBCH"	,	L_14
+hf_gsm_cbch_block	,	V_51
+"Multiple tail fragments found"	,	L_44
+"Several tails were found when defragmenting the packet"	,	L_46
+hf_gsm_cbch_spare_bit	,	V_52
+"CBCH fragments are reassembled in the given packet"	,	L_58
+PI_WARN	,	V_96
+CBCH_FRAGMENT_SIZE	,	V_58
+proto_tree_add_uint_format_value	,	F_11
+ENC_BIG_ENDIAN	,	V_23
+hf_gsm_cbch_sched_type	,	V_22
+FT_UINT32	,	V_84
+"gsm_cbch.block_type.seq_num.null"	,	L_68
+"%d, Message ID: %d, First transmission of an SMSCB within the Schedule Period"	,	L_4
+proto_tree_add_subtree	,	F_13
+"Reassembled message length is one less than indicated here"	,	L_59
+hf_cbch_fragment_overlap_conflict	,	V_78
+"%d Free Message Slot, optional reading"	,	L_8
+"CBCH Fragment"	,	L_62
+hf_cbch_fragments	,	V_88
+BASE_RANGE_STRING	,	V_72
+ei_gsm_cbch_seq_num_null	,	V_60
+item	,	V_14
+"This schedule contains %d slots with new messages"	,	L_3
+find_dissector_add_dependency	,	F_34
+dissect_schedule_message	,	F_1
+"gsm_cbch.block_type.seq_num"	,	L_23
+ei_gsm_cbch_seq_num_reserved	,	V_61
+hf_smscb	,	V_64
+sched_end	,	V_10
+"gsm_cbch.sched_end"	,	L_31
+proto_register_subtree_array	,	F_32
+ei_gsm_cbch_sched_end_slot	,	V_28
+"GSM CBCH Schedule Type"	,	L_24
+"gsm_cbch.fragment.toolongfragment"	,	L_48
+"Fragment overlap"	,	L_38
+"The total length of the reassembled message"	,	L_61
+valid_message	,	V_12
+proto_tree_add_item	,	F_6
+pinfo	,	V_2
+sched_begin	,	V_9
+_U_	,	V_37
+octet2	,	V_31
+ett_cbch_msg	,	V_50
+octet1	,	V_6
+VALS	,	F_23
+lpd_item	,	V_44
+hf_cbch_reassembled_length	,	V_86
+PI_PROTOCOL	,	V_95
+lpd	,	V_41
+cbch_tree	,	V_46
+FT_UINT8	,	V_65
+BASE_DEC	,	V_68
+"Overlapping fragments contained conflicting data"	,	L_43
+"gsm_cbch.reassembled.length"	,	L_60
+proto_item	,	T_8
+expert_register_field_array	,	F_29
+block_type_lpd_strings	,	V_69
+ENC_NA	,	V_35
+"Count of CBCH Fragments"	,	L_55
+lb	,	V_40
+other_slots	,	V_13
+"gsm_cbch.sched_spare"	,	L_29
+"Fragment too long"	,	L_47
+"Padding"	,	L_34
+"gsm_cbch.block"	,	L_37
+data	,	T_9
+reass_tvb	,	V_47
+octet	,	V_39
+hf_cbch_fragment_error	,	V_81
+seq_num	,	V_42
+ei_register_info	,	T_15
+expert_register_protocol	,	F_28
+dissect_cbch	,	F_14
+PI_NOTE	,	V_98
+guint	,	T_4
+"CBCH Block"	,	L_36
+FT_NONE	,	V_89
+offset	,	V_5
+ett	,	V_90
+expert_module_t	,	T_14
+hf_gsm_cbch_slot	,	V_33
+" CBCH Schedule Message "	,	L_1
+tree	,	V_36
+addresses_reassembly_table_functions	,	V_99
+expert_cbch	,	V_93
+"End Slot Number less than Begin Slot Number: ignoring message"	,	L_67
+"GSM Cell Broadcast Channel"	,	L_74
+"CBCH Fragments"	,	L_64
+packet_info	,	T_2
+"GSM CBCH Schedule Begin slot"	,	L_26
+"GSM CBCH Link Protocol Discriminator"	,	L_18
+block_type_seq_num_values	,	V_70
+hf_gsm_cbch_sched_begin_slot	,	V_25
+proto_tree_add_uint	,	F_15
+ett_schedule_new_msg	,	V_30
+EXPFILL	,	V_97
+ett_cbch_fragment	,	V_91
+"Defragmentation error due to illegal fragments"	,	L_52
+hf_cbch_reassembled_in	,	V_85
+"gsm_cbch.fragments"	,	L_65
+"Reassembled in"	,	L_56
+hf_gsm_cbch_lpd	,	V_53
+ei_gsm_cbch_lpd	,	V_63
+"gsm_cbch"	,	L_76
+seq_item	,	V_45
+sched_type_values	,	V_71
+"GSM CBCH"	,	L_75
+"gsm_cbch.block_type.lpd"	,	L_19
+hf_cbch_fragment_too_long_fragment	,	V_80
+HFILL	,	V_67
+"GSM CBCH Sequence Number"	,	L_22
+cbs_handle	,	V_62
+"gsm_cbch.slot"	,	L_33
+"gsm_cbch.fragment.error"	,	L_51
+proto_tree_add_subtree_format	,	F_9
+FT_FRAMENUM	,	V_82
+"gsm_cbch.block_type.lpd.invalid"	,	L_72
+cbch_item	,	V_43
+"gsm_cbch.sched_end.bad_range"	,	L_66
+hf_cbch_fragment_multiple_tails	,	V_79
+sched_tree	,	V_16
+proto_tree	,	T_3
+"GSM CBCH - Block (0x%02x)"	,	L_13
+"Fragmentation count"	,	L_53

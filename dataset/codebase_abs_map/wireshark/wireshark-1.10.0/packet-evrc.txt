@@ -1,0 +1,163 @@
+hf_toc_frame_type_high	,	V_17
+evrc_legacy_handle	,	V_69
+hf_evrc_legacy_toc_frame_type	,	V_35
+proto_register_protocol	,	F_19
+toc_tree	,	V_15
+speech_data_len	,	V_19
+"evrc.nw.mode_request"	,	L_21
+hf_evrc_b_mode_request	,	V_41
+"evrc.reserved"	,	L_8
+prefs_register_protocol	,	F_23
+tvb_reported_length	,	F_4
+evrc_legacy_frame_type_vals	,	V_64
+"evrc.toc.frame_type_lo"	,	L_28
+evrc_variant_t	,	T_5
+len	,	V_12
+hf_evrc_mode_request	,	V_37
+hf_evrc_nw_mode_request	,	V_47
+"evrc"	,	L_42
+evrcb_handle	,	V_71
+col_set_str	,	F_3
+gint	,	T_11
+toc_further_entries_bit_vals	,	V_63
+dissect_evrcb	,	F_12
+"rtp.pt"	,	L_50
+TFS	,	F_18
+tvb	,	V_2
+oct	,	V_6
+item	,	V_13
+guint32	,	T_6
+"ToC Reduced Rate"	,	L_37
+"EVRC"	,	L_1
+FT_BOOLEAN	,	V_62
+"evrc.frame_count"	,	L_23
+"EVRCWB"	,	L_48
+frame_type	,	V_1
+EVRC_VARIANT_EVRC	,	V_36
+evrc_b_mode_request_vals	,	V_57
+cinfo	,	V_20
+proto_register_subtree_array	,	F_22
+array_length	,	F_21
+"evrc.b.toc.frame_type_hi"	,	L_29
+hf_evrc_legacy_toc_fe_ind	,	V_33
+"ToC Further Entries Indicator bit"	,	L_36
+"Reserved"	,	L_7
+"ToC Further Entries Indicator"	,	L_34
+""	,	L_4
+g_tree	,	V_23
+"Interleave Length"	,	L_10
+evrc_wb_mode_request_vals	,	V_58
+proto_tree_add_item	,	F_5
+"evrc.legacy.toc.further_entries_ind"	,	L_35
+pinfo	,	V_3
+"Mode Request"	,	L_16
+dissector_handle_t	,	T_12
+"ToC Frame Type bits"	,	L_27
+"Add dissector for static payload type 60 as legacy EVRC (non-RFC3558)"	,	L_44
+hf_register_info	,	T_10
+hf_evrc_padding	,	V_49
+VALS	,	F_17
+"Mode Request bits"	,	L_18
+prefs_register_bool_preference	,	F_24
+"rtp_dyn_payload_type"	,	L_46
+g_pinfo	,	V_22
+"ToC Reduced Rate bits"	,	L_39
+"evrc.legacy.toc.reduced_rate"	,	L_38
+COL_PROTOCOL	,	V_21
+"evrc.interleave_idx"	,	L_14
+hf_evrc_frame_count	,	V_48
+FT_UINT8	,	V_52
+i	,	V_8
+proto_tree_add_text	,	F_7
+BASE_DEC	,	V_55
+"Padding bits"	,	L_33
+hf_evrc_legacy_toc_reduc_rate	,	V_34
+proto_item	,	T_8
+"EVRCNW"	,	L_49
+dissect_evrc_legacy	,	F_15
+ENC_NA	,	V_25
+"Speech Data [%u]"	,	L_6
+evrc_handle	,	V_70
+dissector_add_string	,	F_26
+guint8	,	T_1
+EVRC_VARIANT_EVRC_B	,	V_40
+proto_register_evrc	,	F_16
+dissect_evrc	,	F_11
+ett_evrc	,	V_26
+"Padding"	,	L_31
+evrc_frame_type_vals	,	V_60
+"Frame Count (0 means 1 frame)"	,	L_22
+frame_count	,	V_7
+"Enhanced Variable Rate Codec"	,	L_41
+tvbuff_t	,	T_2
+evrc_nw_mode_request_vals	,	V_59
+evrc_prefs_initialized	,	V_68
+plurality	,	F_9
+BASE_HEX	,	V_53
+evrc_mode_request_vals	,	V_56
+gboolean	,	T_7
+hf_evrc_toc_frame_type_high	,	V_38
+proto_item_add_subtree	,	F_6
+"Frame Count bits, a value of 0 means 1 frame"	,	L_24
+module_t	,	T_9
+dissect_evrc_aux	,	F_2
+proto_register_field_array	,	F_20
+saved_offset	,	V_10
+offset	,	V_9
+ett	,	V_65
+"Whether the EVRC dissector should process payload type 60 as legacy EVRC packets"	,	L_45
+evrcnw_handle	,	V_73
+evrc_b_frame_type_vals	,	V_61
+dissector_add_uint	,	F_28
+hf_evrc_interleave_index	,	V_30
+"evrc.b.mode_request"	,	L_19
+"ToC Frame Type"	,	L_25
+tree	,	V_4
+"Interleave Index"	,	L_13
+"evrc.wb.mode_request"	,	L_20
+evrc_tree	,	V_14
+EVRC_VARIANT_EVRC_WB	,	V_44
+packet_info	,	T_3
+evrc_variant	,	V_5
+"s"	,	L_5
+"evrc.padding"	,	L_32
+tvb_get_guint8	,	F_8
+EVRC_VARIANT_EVRC_NW	,	V_46
+EVRC_VARIANT_EVRC_LEGACY	,	V_31
+"Reserved bits"	,	L_9
+"evrc.interleave_len"	,	L_11
+dissector_delete_uint	,	F_27
+proto_reg_handoff_evrc	,	V_66
+hf_evrc_b_toc_frame_type_low	,	V_43
+evrc_frame_type_to_octs	,	F_1
+hf_evrc_interleave_length	,	V_29
+"EVRCB"	,	L_47
+"evrc.legacy.toc.frame_type"	,	L_40
+"evrc.toc.frame_type_hi"	,	L_26
+legacy_pt_60	,	V_67
+hf_evrc_wb_mode_request	,	V_45
+further_entries	,	V_11
+HFILL	,	V_54
+"evrc.mode_request"	,	L_17
+hf_evrc_toc_frame_type_low	,	V_39
+hf_mode_request	,	V_16
+create_dissector_handle	,	F_25
+"legacy_pt_60"	,	L_43
+proto_item_set_len	,	F_10
+ENC_BIG_ENDIAN	,	V_28
+hf_toc_frame_type_low	,	V_18
+"Interleave length bits"	,	L_12
+"ToC - %u frame%s"	,	L_3
+hf_evrc_reserved	,	V_27
+evrc_module	,	V_50
+"Interleave index bits"	,	L_15
+ett_toc	,	V_32
+hf_evrc_b_toc_frame_type_high	,	V_42
+dissect_evrcnw	,	F_14
+"evrc.b.toc.frame_type_lo"	,	L_30
+dissect_evrcwb	,	F_13
+proto_evrc	,	V_24
+evrcwb_handle	,	V_72
+proto_tree	,	T_4
+hf	,	V_51
+"ToC [%u]"	,	L_2

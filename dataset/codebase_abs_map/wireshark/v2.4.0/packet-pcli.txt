@@ -1,0 +1,129 @@
+proto_register_protocol	,	F_21
+register_decode_as	,	F_30
+"Call Content Connection Identifier"	,	L_7
+pcli_payload_da_values	,	V_37
+pcli_tree	,	V_6
+prefs_register_protocol	,	F_26
+"CCCID: %u"	,	L_3
+tvb_new_subset_remaining	,	F_9
+"PCLI12 (timestamp)"	,	L_22
+"pcli.cccid"	,	L_6
+FT_UINT64	,	V_33
+col_set_str	,	F_2
+gint	,	T_10
+"PCLI"	,	L_1
+"Packet Cable Lawful Intercept (timestamp)"	,	L_21
+tvb	,	V_1
+hf_pcli_timestamp	,	V_21
+guint32	,	T_4
+COL_INFO	,	V_16
+"pcli20"	,	L_26
+proto_item_append_text	,	F_6
+pcli_handle20	,	V_49
+"pcli.payload"	,	L_16
+cinfo	,	V_8
+FT_ABSOLUTE_TIME	,	V_31
+proto_register_subtree_array	,	F_25
+proto_tree_add_item_ret_uint	,	F_5
+pcli_payload_da_build_value	,	V_36
+array_length	,	F_24
+dissect_pcli8	,	F_14
+next_tvb	,	V_17
+decode_as_t	,	T_14
+proto_tree_add_item	,	F_3
+"PCLI20 (timestamp, case ID)"	,	L_25
+pinfo	,	V_2
+col_add_fstr	,	F_7
+dissector_handle_t	,	T_15
+_U_	,	V_19
+"Part of 8 byte header (including CCCID?)"	,	L_9
+proto_pcli12	,	V_44
+"PCLI payload"	,	L_15
+gpointer	,	T_8
+"PCLI payload as"	,	L_4
+result	,	V_24
+"pcli.timestamp"	,	L_11
+hf_pcli_cccid	,	V_13
+dissector_add_for_decode_as_with_preference	,	F_33
+hf_register_info	,	T_9
+"Packet Cable Lawful Intercept"	,	L_17
+prefs_register_bool_preference	,	F_28
+FT_PROTOCOL	,	V_43
+proto_register_pcli	,	F_20
+"pcli.header"	,	L_8
+COL_PROTOCOL	,	V_9
+"pcli8"	,	L_20
+proto_pcli20	,	V_45
+hf_pcli_case_id	,	V_23
+dissect_pcli12	,	F_15
+BASE_DEC	,	V_28
+pcli_prompt	,	F_17
+"PCLI payload dissector"	,	L_31
+proto_item	,	T_5
+decode_as_default_populate_list	,	V_39
+pcli_summary_in_tree	,	V_15
+dissect_pcli	,	F_12
+ENC_NA	,	V_11
+MAX_DECODE_AS_PROMPT_LEN	,	V_25
+build_valid_func	,	T_12
+register_dissector_table	,	F_29
+ett_pcli	,	V_12
+"Timestamp"	,	L_10
+data	,	T_6
+tvbuff_t	,	T_2
+dissect_pcli20	,	F_16
+ABSOLUTE_TIME_UTC	,	V_32
+BASE_HEX	,	V_30
+pcli_handle8	,	V_47
+proto_reg_handoff_pcli	,	F_31
+"summary_in_tree"	,	L_28
+decode_as_default_reset	,	V_40
+decode_as_default_change	,	V_41
+proto_item_add_subtree	,	F_4
+module_t	,	T_11
+proto_register_field_array	,	F_23
+"Show PCLI summary in protocol tree"	,	L_29
+offset	,	V_4
+ett	,	V_34
+"Case ID"	,	L_12
+tree	,	V_3
+ENC_TIME_NTP	,	V_22
+pcli_subdissector_table	,	V_18
+packet_info	,	T_3
+"Packet Cable Lawful Intercept (8 byte CCCID)"	,	L_18
+pcli_module	,	V_35
+proto_pcli8	,	V_42
+tvb_captured_length	,	F_13
+hf_pcli_header	,	V_20
+pcli_handle	,	V_46
+"pcli12"	,	L_23
+"Whether the PCLI summary line should be shown in the protocol tree"	,	L_30
+proto_register_protocol_in_name_only	,	F_22
+"PCLI8 (8 byte CCCID)"	,	L_19
+"pcli"	,	L_14
+proto_pcli	,	V_10
+g_snprintf	,	F_18
+"udp_port"	,	L_27
+dissect_pcli_common	,	F_1
+call_data_dissector	,	F_11
+HFILL	,	V_29
+pcli_handle12	,	V_48
+"pcli.case_id"	,	L_13
+prefs_register_obsolete_preference	,	F_27
+dissector_try_uint	,	F_10
+", CCCID: %u"	,	L_2
+"Packet Cable Lawful Intercept (timestamp, case ID)"	,	L_24
+"udp.port"	,	L_32
+gchar	,	T_7
+create_dissector_handle	,	F_32
+pcli_value	,	F_19
+pcli_payload_da	,	V_38
+ENC_BIG_ENDIAN	,	V_14
+FT_UINT32	,	V_27
+decode_as_value_t	,	T_13
+dissect_pcli_payload	,	F_8
+pcli_item	,	V_7
+proto_tree	,	T_1
+hf	,	V_26
+"CCCID"	,	L_5
+cccid	,	V_5

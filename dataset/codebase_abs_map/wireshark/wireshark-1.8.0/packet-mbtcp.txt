@@ -1,0 +1,374 @@
+hf_modbus_wordcnt	,	V_88
+"event count"	,	L_86
+"Exception Error Count %d"	,	L_32
+tvb_get_string	,	F_35
+"mbtcp.modbus.ev_send_read_ex"	,	L_99
+proto_register_protocol	,	F_40
+"mbtcp.modbus.diagnostic_code"	,	L_83
+RESTART_COMMUNICATION_OPTION	,	V_94
+"mbtcp.modbus.reference_type"	,	L_63
+check_col	,	F_8
+READ_INPUT_DISCRETES	,	V_81
+GET_COMM_EVENT_LOG	,	V_111
+"mbtcp.len"	,	L_53
+"Slave Abort Exception Sent"	,	L_100
+len	,	V_20
+tcp_dissect_pdus	,	F_23
+encap_interface_code_vals	,	V_30
+REMOTE_DEVICE_SEND_EVENT_VALUE	,	V_122
+gint	,	T_8
+"Receive Event: 0x%02X"	,	L_41
+"Diagnostics"	,	L_4
+"mbtcp.modbus.unit_id"	,	L_55
+transaction_id	,	V_18
+tvb	,	V_8
+ett_modbus_hdr	,	V_76
+hf_modbus_event_count	,	V_110
+hf_modbus_writewordcnt	,	V_144
+hf_modbus_mei	,	V_147
+guint32	,	T_9
+MODBUS_PROTOCOL_ID	,	V_179
+COL_INFO	,	V_28
+group_byte_cnt	,	V_69
+group_word_cnt	,	V_70
+"Character Overrun"	,	L_92
+"mbtcp.modbus.mei"	,	L_115
+tvb_reported_length_remaining	,	F_27
+QUERY_PACKET	,	V_6
+READ_DEVICE_ID	,	V_148
+cinfo	,	V_26
+p_get_proto_data	,	F_14
+"mbtcp"	,	L_132
+hf_modbus_diag_sf	,	V_92
+WRITE_FILE_RECORD	,	V_136
+function_code_vals	,	V_33
+array_length	,	F_44
+"length"	,	L_52
+"mbtcp.modbus.ev_send_slave_abort_ex"	,	L_101
+next_tvb	,	V_14
+""	,	L_1
+hf_modbus_writeref	,	V_143
+"OR mask"	,	L_111
+ENCAP_INTERFACE_TRANSP	,	V_29
+call_dissector	,	F_19
+READ_WRITE_REG	,	V_140
+hf_modbus_event_send_slave_nak_ex	,	V_127
+"mbtcp.modbus.read_device_id"	,	L_117
+dissect_mbtcp	,	F_21
+hf_modbus_object_str_value	,	V_159
+hf_mbtcp_protid	,	V_37
+"modbus"	,	L_133
+proto_item_set_text	,	F_33
+MASK_WRITE_REG	,	V_137
+"diagnostic code"	,	L_82
+proto_reg_handoff_mbtcp	,	F_46
+"mbtcp.modbus.data"	,	L_113
+"%8s: trans: %5u; unit: %3u, func: %3u: %s. %s"	,	L_11
+hf_register_info	,	T_10
+proto_tree_add_bytes_format	,	F_28
+"Slave Busy Exception Sent"	,	L_102
+"Number of Objects"	,	L_120
+temp_data	,	V_62
+guint16	,	T_5
+COL_PROTOCOL	,	V_27
+"mbtcp.modbus.write_reference_num"	,	L_67
+"Total Message Count %d"	,	L_30
+"mbtcp.modbus.reference_num"	,	L_59
+hf_modbus_event_send_lo_mode	,	V_129
+"Conformity Level"	,	L_124
+dissect_mbudp	,	F_25
+i	,	V_64
+g_free	,	F_37
+modbus_handle	,	V_41
+"mbtcp.modbus.read_reference_num"	,	L_65
+"Slave Program NAK Exception Sent"	,	L_104
+guint8	,	T_6
+conformity_level_vals	,	V_172
+CLEAR_COUNTERS_AND_DIAG_REG	,	V_107
+BASE_NONE	,	V_169
+get_mbtcp_pdu_len	,	F_20
+RETURN_SLAVE_NO_RESPONSE_COUNT	,	V_101
+hf_modbus_conformity_level	,	V_152
+device_objects_tree	,	V_54
+tvb_length_remaining	,	F_18
+READ_COILS	,	V_80
+"Diagnostic Register Contents 0x%04x"	,	L_28
+"AND mask"	,	L_109
+"function %u:  %s"	,	L_21
+tvbuff_t	,	T_2
+"Write Timeout Error Occurred"	,	L_106
+proto_tree_add_protocol_format	,	F_10
+hf_modbus_event_recv_lo_mode	,	V_119
+"reference number (32 bit)"	,	L_60
+tvb_get_ntohs	,	F_5
+object_len	,	V_68
+event_tree	,	V_52
+ett_events	,	V_113
+object_id_vals	,	V_171
+BASE_HEX	,	V_167
+"Unknown exception code (%u)"	,	L_20
+GPOINTER_TO_INT	,	F_31
+exception_code	,	V_23
+"Object String Value"	,	L_130
+proto_item_add_subtree	,	F_11
+"Read Exception Sent"	,	L_98
+proto_register_field_array	,	F_43
+FT_BYTES	,	V_168
+"mbtcp.modbus.num_objects"	,	L_121
+subfunction_code	,	V_24
+"Slave Character Overrun Count %d"	,	L_37
+dissector_add_uint	,	F_48
+object_index	,	V_67
+WRITE_MULT_COILS	,	V_130
+object_str	,	V_75
+event_index	,	V_63
+hf_modbus_more_follows	,	V_153
+FT_UINT16	,	V_162
+REMOTE_DEVICE_RECV_EVENT_MASK	,	V_114
+"mbtcp.prot_id"	,	L_51
+"Entered Listen Only Mode"	,	L_40
+tvb_get_guint8	,	F_6
+p_add_proto_data	,	F_16
+"Events"	,	L_38
+"Unable to classify as query or response."	,	L_8
+"write reference number"	,	L_66
+ett_mbtcp	,	V_35
+"mbtcp.modbus.ev_send_lo_mode"	,	L_108
+hf_modbus_event_send_slave_abort_ex	,	V_125
+"Group %u"	,	L_44
+proto_modbus	,	V_175
+fd	,	V_40
+"Request Data"	,	L_23
+"Unknown function (%d)"	,	L_5
+hf_modbus_next_object_id	,	V_154
+"message count"	,	L_88
+doie	,	V_60
+mbtcp_tree	,	V_11
+group_offset	,	V_61
+"Clear Log"	,	L_26
+mbudp_handle	,	V_178
+"mbtcp.modbus.ev_recv_comm_err"	,	L_91
+REMOTE_DEVICE_SEND_EVENT_MASK	,	V_121
+RETURN_SLAVE_MESSAGE_COUNT	,	V_100
+hf_mbtcp_functioncode	,	V_77
+"Object Value"	,	L_47
+"mbtcp.modbus.next_object_id"	,	L_129
+FT_STRING	,	V_173
+mbtcp_desegment	,	V_44
+"CRC Error Count %d"	,	L_31
+device_objects_item_tree	,	V_55
+event_code	,	V_72
+"Leave Log"	,	L_25
+"status"	,	L_84
+"%8s: trans: %5u; unit: %3u, func: %3u/%3u: %s"	,	L_14
+hf_modbus_reference	,	V_82
+new_create_dissector_handle	,	F_47
+pkt_type_str	,	V_16
+hf_modbus_reftype	,	V_134
+"mbtcp.modbus.reference_num_32"	,	L_61
+hf_modbus_lbytecnt	,	V_146
+RETURN_BUS_EXCEPTION_ERROR_COUNT	,	V_99
+hf_modbus_exceptioncode	,	V_79
+hf_modbus_ormask	,	V_139
+event_item_tree	,	V_53
+ENC_BIG_ENDIAN	,	V_83
+"response"	,	L_7
+diagnostic_code	,	V_74
+RETURN_BUS_COMM_ERROR_COUNT	,	V_98
+RETURN_SLAVE_BUSY_COUNT	,	V_103
+FT_UINT32	,	V_166
+PORT_MBTCP	,	V_3
+"mbtcp.modbus.ev_count"	,	L_87
+hf_mbtcp_len	,	V_38
+"query"	,	L_6
+"mbtcp.modbus.ev_send_write_timeout"	,	L_107
+hf	,	V_161
+diagnostic_code_vals	,	V_32
+byte_cnt	,	V_65
+"mbtcp.modbus.ev_send_slave_nak_ex"	,	L_105
+"read reference number"	,	L_64
+hf_modbus_data	,	V_48
+hf_modbus_bytecnt	,	V_85
+CANOPEN_REQ_RESP	,	V_151
+"Broadcast Received"	,	L_96
+"mbtcp.modbus.more_follows"	,	L_127
+GINT_TO_POINTER	,	F_17
+"mbtcp.modbus.object_str_value"	,	L_131
+"More Follows"	,	L_126
+"Object length"	,	L_122
+"Read Device ID"	,	L_116
+"mbtcp.modbus.exception_code"	,	L_81
+dissect_mbtcp_pdu	,	F_2
+"byte count"	,	L_76
+"Communication Error"	,	L_90
+"Currently in Listen Only Mode"	,	L_94
+col_set_str	,	F_3
+"Unknown function"	,	L_18
+WRITE_MULT_REGS	,	V_131
+p_save_proto_data	,	V_25
+p_remove_proto_data	,	F_15
+"CHAR 0x%02x"	,	L_29
+classify_packet	,	F_1
+"Exception returned "	,	L_10
+group_tree	,	V_51
+col_clear	,	F_4
+WRITE_SINGLE_REG	,	V_90
+proto_register_subtree_array	,	F_45
+val_to_str	,	F_7
+proto_tree_add_string	,	F_36
+payload_start	,	V_45
+doe	,	V_59
+packet_type	,	V_13
+hf_modbus_event_send_write_timeout	,	V_128
+proto_tree_add_item	,	F_34
+"read word count"	,	L_70
+READ_MULT_REGS	,	V_86
+pinfo	,	V_1
+col_add_fstr	,	F_9
+dissector_handle_t	,	T_11
+"Data"	,	L_15
+hf_modbus_event_recv_char_over	,	V_118
+read_device_id_vals	,	V_170
+"mbtcp.modbus.bit_cnt"	,	L_75
+_U_	,	V_42
+"function %u:  %s.  Exception: %s"	,	L_19
+ett_device_id_object_items	,	V_157
+new_register_dissector	,	F_41
+dissect_mbtcp_data	,	F_26
+"mbtcp.modbus.ev_recv_char_over"	,	L_93
+READ_FIFO_QUEUE	,	V_145
+"Encapsulated Interface Transport"	,	L_3
+RETURN_DIAGNOSTIC_REGISTER	,	V_95
+CHANGE_ASCII_INPUT_DELIMITER	,	V_96
+hf_mbtcp_unitid	,	V_39
+VALS	,	F_39
+unit_id	,	V_21
+"word count"	,	L_68
+"mbtcp.modbus.or_mask"	,	L_112
+hf_modbus_list_object_len	,	V_158
+"Modbus"	,	L_17
+"data"	,	L_16
+tvb_length	,	F_24
+ett_events_send	,	V_123
+FT_UINT8	,	V_165
+proto_tree_add_text	,	F_32
+BASE_DEC	,	V_163
+"write word count"	,	L_72
+tvb_new_subset	,	F_13
+proto_item	,	T_4
+"Modbus/TCP"	,	L_2
+"mbtcp.trans_id"	,	L_49
+reported_len	,	V_47
+RETURN_BUS_CHAR_OVERRUN_COUNT	,	V_104
+"mbtcp.modbus.conformity_level"	,	L_125
+"byte count (16-bit)"	,	L_78
+dissect_modbus	,	F_30
+"Slave NAK Count %d"	,	L_35
+"Unknown Event"	,	L_43
+"mbtcp.modbus.ev_recv_broadcast"	,	L_97
+GET_COMM_EVENT_CTRS	,	V_108
+hf_modbus_message_count	,	V_112
+"Object ID"	,	L_118
+hf_modbus_status	,	V_109
+"transaction identifier"	,	L_48
+"mbtcp.modbus.ev_recv_lo_mode"	,	L_95
+ett_device_id_objects	,	V_156
+"function code"	,	L_56
+"mbtcp.modbus.byte_cnt_16"	,	L_79
+"mbtcp.modbus.and_mask"	,	L_110
+"Next Object ID"	,	L_128
+"Padding"	,	L_22
+ENC_LITTLE_ENDIAN	,	V_117
+"mbtcp.modbus.ev_msg_count"	,	L_89
+register_dissector_table	,	F_42
+hf_modbus_readwordcnt	,	V_142
+mbtcp_handle	,	V_177
+proto_mbtcp	,	V_34
+hf_modbus_event_recv_broadcast	,	V_120
+RETURN_BUS_MESSAGE_COUNT	,	V_97
+ett_events_recv	,	V_115
+"exception code"	,	L_80
+"Objects"	,	L_45
+CANNOT_CLASSIFY	,	V_7
+err_str	,	V_17
+"unit identifier"	,	L_54
+CLEAR_OVERRUN_COUNTER_AND_FLAG	,	V_105
+"reference type"	,	L_62
+"Modbus/TCP Data"	,	L_134
+hf_modbus_bitcnt	,	V_84
+proto_register_modbus	,	F_38
+plen	,	V_43
+"Slave Device Busy Count %d"	,	L_36
+function_code	,	V_22
+me	,	V_57
+mf	,	V_56
+hf_mbtcp_transid	,	V_36
+mi	,	V_10
+"Object #%d"	,	L_46
+func_string	,	V_15
+hf_modbus_readref	,	V_141
+READ_EXCEPT_STAT	,	V_91
+"mbtcp.modbus.func_code"	,	L_57
+"mbtcp.modbus.byte_cnt"	,	L_77
+guint	,	T_7
+RETURN_QUERY_DATA	,	V_93
+offset	,	V_12
+FORCE_LISTEN_ONLY_MODE	,	V_106
+"mbtcp.modbus.ev_send_slave_busy_ex"	,	L_103
+ett	,	V_174
+payload_len	,	V_46
+hf_modbus_lreference	,	V_135
+tree	,	V_9
+"%8s: trans: %5u; unit: %3u, func: %3u/%3u: %s. %s"	,	L_13
+READ_INPUT_REGS	,	V_87
+"bit count"	,	L_74
+"Send Event: 0x%02X"	,	L_42
+protocol_id	,	V_19
+tvb_bytes_exist	,	F_22
+ett_group_hdr	,	V_133
+packet_info	,	T_1
+"protocol identifier"	,	L_50
+hf_modbus_event_send_slave_busy_ex	,	V_126
+"mbtcp.modbus.objects_len"	,	L_123
+hf_modbus_object_id	,	V_150
+"mbtcp.modbus.word_cnt"	,	L_69
+WRITE_COIL	,	V_89
+hf_modbus_event_recv_comm_err	,	V_116
+destport	,	V_4
+DIAGNOSTICS	,	V_31
+proto_tree_add_uint	,	F_12
+"reference number"	,	L_58
+mbtcp_dissector_table	,	V_49
+num_objects	,	V_66
+"mbtcp.modbus.write_word_cnt"	,	L_73
+RETURN_SLAVE_NAK_COUNT	,	V_102
+RESPONSE_PACKET	,	V_5
+"mbtcp.modbus.ev_status"	,	L_85
+"mbtcp.modbus.read_word_cnt"	,	L_71
+"mbtcp.modbus.object_id"	,	L_119
+mei	,	V_58
+mei_code	,	V_71
+"%8s: trans: %5u; unit: %3u, func: %3u: %s"	,	L_12
+dissector_try_string	,	F_29
+HFILL	,	V_164
+modbus_dissector_table	,	V_176
+hf_modbus_andmask	,	V_138
+hf_modbus_num_objects	,	V_155
+object_type	,	V_73
+"udp.port"	,	L_136
+exception_code_vals	,	V_78
+READ_FILE_RECORD	,	V_132
+"Echo Data"	,	L_24
+"Slave Message Count %d"	,	L_33
+modbus_tree	,	V_50
+hf_modbus_read_device_id	,	V_149
+"MEI type"	,	L_114
+"Initiated Communication Restart"	,	L_39
+srcport	,	V_2
+"Unknown"	,	L_27
+REPORT_SLAVE_ID	,	V_160
+"unknown"	,	L_9
+hf_modbus_event_send_read_ex	,	V_124
+"tcp.port"	,	L_135
+proto_tree	,	T_3
+"Slave No Response Count %d"	,	L_34

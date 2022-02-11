@@ -1,0 +1,189 @@
+"CPHA"	,	L_1
+"Interfaces up in the Outbound"	,	L_65
+proto_register_protocol	,	F_18
+"Seed"	,	L_57
+hf_id_num	,	V_35
+opcode_type_vals	,	V_16
+hf_ethernet_add	,	V_54
+state_vals	,	V_68
+"cpha.src_id"	,	L_23
+"cpha.machine_num"	,	L_56
+dissect_policy_change	,	F_15
+hf_seed	,	V_49
+"cpha.opcode"	,	L_15
+report_code_vals	,	V_65
+"cpha.ha_mode"	,	L_35
+col_set_str	,	F_4
+hf_opcode	,	V_24
+FT_ETHER	,	V_70
+gint	,	T_7
+"Report code"	,	L_32
+"Filler"	,	L_28
+"Check Point High Availability Protocol"	,	L_76
+FT_IPv4	,	V_72
+tvb	,	V_1
+"State node"	,	L_41
+"cpha.in_up"	,	L_62
+COL_INFO	,	V_15
+FT_BOOLEAN	,	V_71
+proto_item_append_text	,	F_10
+hf_filler	,	V_30
+"Ethernet Address"	,	L_47
+hf_random_id	,	V_26
+"Policy ID"	,	L_26
+col_clear	,	F_5
+"cpha.in_assume_up"	,	L_64
+hf_slot_num	,	V_47
+cinfo	,	V_13
+proto_register_subtree_array	,	F_21
+val_to_str	,	F_7
+array_length	,	F_20
+proto_reg_handoff_cpha	,	F_22
+"Protocol Version"	,	L_9
+"HA Time unit (ms)"	,	L_38
+proto_tree_add_item	,	F_8
+"cpha.state_node"	,	L_42
+pinfo	,	V_2
+col_add_fstr	,	F_6
+hf_cpha_protocol_ver	,	V_22
+dissector_handle_t	,	T_8
+cpha_handle	,	V_78
+ntree	,	V_8
+"Interface Trusted"	,	L_49
+hf_in_assumed_up_num	,	V_43
+"Interface Number"	,	L_74
+ha_version_vals	,	V_62
+hf_policy_id	,	V_29
+"Interfaces up in the Inbound"	,	L_61
+hf_is_if_trusted	,	V_55
+"HA OpCode"	,	L_14
+hf_cluster_number	,	V_23
+dissect_conf_reply	,	F_13
+hf_register_info	,	T_6
+"cpha.ethernet_addr"	,	L_48
+VALS	,	F_17
+"cpha.dst_id"	,	L_25
+hf_magic_number	,	V_20
+"Time units ago"	,	L_71
+ha_mode_vals	,	V_66
+report_code	,	V_33
+"Hash list length"	,	L_59
+nti	,	V_6
+guint16	,	T_5
+COL_PROTOCOL	,	V_14
+"cpha.filler"	,	L_29
+tvb_length	,	F_2
+FT_UINT8	,	V_67
+"Destination Machine ID"	,	L_24
+i	,	V_32
+BASE_DEC	,	V_61
+dissect_probe	,	F_12
+proto_item	,	T_4
+cpha_tree	,	V_7
+"Cluster Number"	,	L_12
+ENC_NA	,	V_18
+hf_ifn	,	V_52
+ti	,	V_5
+BASE_NONE	,	V_64
+"cpha"	,	L_77
+"cpha.payload"	,	L_17
+status_vals	,	V_76
+hf_machine_states	,	V_39
+hf_cluster_last_packet	,	V_46
+"cpha.status"	,	L_73
+hf_payload	,	V_31
+tvbuff_t	,	T_1
+"Reported Interfaces"	,	L_45
+opcode	,	V_9
+hf_dst_machine_id	,	V_28
+"Magic Number"	,	L_7
+"Slot Number"	,	L_53
+tvb_get_ntohs	,	F_3
+"Number of IDs reported"	,	L_30
+BASE_HEX	,	V_59
+"cpha.if_trusted"	,	L_50
+dissect_lb_conf	,	F_14
+hf_status	,	V_51
+proto_item_add_subtree	,	F_9
+hf_out_assumed_up_num	,	V_45
+"cpha.interface_states"	,	L_44
+"Last packet seen"	,	L_69
+hf_state_node	,	V_40
+"cpha.random_id"	,	L_21
+proto_register_field_array	,	F_19
+hf_out_up_num	,	V_44
+FT_NONE	,	V_63
+offset	,	V_4
+"cpha.policy_id"	,	L_27
+ett	,	V_77
+dissector_add_uint	,	F_24
+tree	,	V_3
+"cpha.machine_states"	,	L_40
+"cpha.hash_len"	,	L_60
+hf_interface_states	,	V_41
+FT_UINT16	,	V_58
+packet_info	,	T_2
+"CPHAP Version"	,	L_11
+" (Cluster %d)"	,	L_6
+"Random ID"	,	L_20
+FT_INT8	,	V_75
+"Interface States"	,	L_43
+"cpha.ifn"	,	L_75
+"HA mode"	,	L_34
+"Unknown %d"	,	L_3
+id_num	,	V_34
+"cpha.id_num"	,	L_31
+" - %s"	,	L_4
+"cpha.out_up"	,	L_66
+"cpha.version"	,	L_10
+UDP_PORT_CPHA	,	V_79
+"IP Address"	,	L_51
+"Machine Number"	,	L_55
+"cpha.cluster_number"	,	L_13
+"Payload"	,	L_16
+"cpha.out_assume_up"	,	L_68
+hf_ha_mode	,	V_37
+"HA Time unit"	,	L_36
+" (Nodes %d)"	,	L_5
+hf_src_if_num	,	V_25
+"Source Interface"	,	L_18
+"cpha.src_if"	,	L_19
+hf_report_code	,	V_36
+ha_version	,	V_11
+"Interfaces assumed up in the Outbound"	,	L_67
+"Source Machine ID"	,	L_22
+"Machines States"	,	L_39
+"cpha.seed"	,	L_58
+HFILL	,	V_60
+magic_number	,	V_10
+FT_INT32	,	V_74
+"cpha.ha_time_unit"	,	L_37
+FT_INT16	,	V_73
+new_create_dissector_handle	,	F_23
+hf_ip	,	V_56
+"Status"	,	L_72
+"cpha.magic_number"	,	L_8
+"cpha.slot_num"	,	L_54
+"udp.port"	,	L_78
+"cpha.cluster_last_packet"	,	L_70
+CPHA_MAGIC	,	V_12
+"cpha.report_code"	,	L_33
+"cpha.reported_ifs"	,	L_46
+hf_num_reported_ifs	,	V_53
+ett_cphap	,	V_19
+hf_hash_len	,	V_50
+dissect_my_state	,	F_11
+ENC_BIG_ENDIAN	,	V_21
+hf_machine_num	,	V_48
+FT_UINT32	,	V_69
+hf_ha_time_unit	,	V_38
+"Interfaces assumed up in the Inbound"	,	L_63
+hf_in_up_num	,	V_42
+proto_register_cpha	,	F_16
+"CPHAv%d: %s"	,	L_2
+dissect_cpha	,	F_1
+proto_cphap	,	V_17
+hf_src_machine_id	,	V_27
+proto_tree	,	T_3
+hf	,	V_57
+"cpha.ip"	,	L_52

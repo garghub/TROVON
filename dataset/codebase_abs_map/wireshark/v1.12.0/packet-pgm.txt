@@ -1,0 +1,519 @@
+"Sequence number"	,	L_60
+pgmlen	,	V_141
+ptvcursor_tvbuff	,	F_8
+"pgm.hdr.cksum"	,	L_53
+tvb_reported_length	,	F_45
+"pgm.hdr.sport"	,	L_36
+opts	,	V_1
+PGM_OPT_NAK_BO_RNG_SIZE	,	V_102
+"pgm.opts.fragment.total_length"	,	L_157
+hf_pgm_opt_nak_bo_ivl_bo_ivl_sqn	,	V_99
+"Total Length"	,	L_109
+hf_pgm_spm_path6	,	V_191
+poll_subtype_vals	,	V_159
+TFS	,	F_54
+hf_pgm_spm_lead	,	V_187
+guint32	,	T_10
+"pgm.nak.sqn"	,	L_73
+vec_t	,	T_13
+FT_BOOLEAN	,	V_227
+"pgm.hdr.gsi"	,	L_57
+"Transport Service Data Unit Length"	,	L_58
+pgmhdr_tsdulen	,	V_134
+pollstname	,	V_138
+"pgm.poll.rand_str"	,	L_96
+opts_present	,	V_228
+tvb_reported_length_remaining	,	F_37
+dissect_pgmopts	,	F_7
+PGM_OPT_PARITY_PRM_PRO	,	V_11
+paritystr	,	F_6
+"Maximum Received Sequence Number"	,	L_102
+"check_checksum"	,	L_169
+array_length	,	F_57
+ett_pgm_ack	,	V_218
+"%s Options - initial option is %s, should be %s"	,	L_11
+""	,	L_1
+ett_pgm_opts_nak_bo_rng	,	V_101
+"pgm.poll.res"	,	L_91
+"Path NLA AFI"	,	L_66
+"pgm.opts.nak_bo_rng.min_bo_ivl"	,	L_143
+hf_pgm_opt_ccdata_acker	,	V_81
+"pgm.hdr.tsdulen"	,	L_59
+hf_register_info	,	T_14
+proto_tree_add_bytes_format	,	F_26
+hf_pgm_genopt_opx	,	V_44
+"Unknown (0x%02x)"	,	L_12
+guint16	,	T_9
+soffset	,	V_67
+"PGM Encap Unicast Port (standard is 3055)"	,	L_173
+"pgm.poll.pathafi"	,	L_90
+i	,	V_64
+opx_vals	,	V_236
+j	,	V_65
+"Path NLA"	,	L_70
+"Whether to check the validity of the PGM checksum"	,	L_171
+BASE_NONE	,	V_229
+hf_pgm_opt_fragment_offset	,	V_119
+hf_pgm_opt_ccdata_acker6	,	V_83
+"pgm.genopts.len"	,	L_114
+PGM_OPT_PARITY_PRM_OND	,	V_12
+ett_pgm_opts_parityprm	,	V_49
+"pgm.hdr.type"	,	L_42
+PGM_ODATA_PCKT	,	V_156
+"pgm.poll.path"	,	L_92
+tvb_memcpy	,	F_24
+PGM_OPT_NAK_BO_IVL	,	V_94
+BASE_HEX	,	V_226
+ptvcursor_add_no_advance	,	F_21
+"pgm.spm.path"	,	L_71
+proto_item_add_subtree	,	F_12
+"DLR AFI"	,	L_147
+module_t	,	T_16
+proto_register_field_array	,	F_56
+PGM_OPT_REDIRECT	,	V_106
+hf_pgm_opt_parity_prm_prmtgsz	,	V_52
+FT_BYTES	,	V_230
+ett_pgm_opts_fragment	,	V_115
+hf_pgm_poll_path	,	V_209
+ei	,	V_238
+hf_pgm_nak_srcres	,	V_196
+"Time Stamp"	,	L_128
+dissector_add_uint	,	F_68
+hf_pgm_spm_res	,	V_189
+"Sequence Number"	,	L_84
+old_udp_encap_mcast_port	,	V_250
+data_handle	,	V_130
+"pgm.address_format_invalid"	,	L_164
+" (Total Length %d)"	,	L_13
+tvb_get_ptr	,	F_47
+FT_UINT16	,	V_222
+"Option Extensibility Bits"	,	L_115
+"ip.proto"	,	L_179
+"pgm.spm.lead"	,	L_65
+"Global Source Identifier"	,	L_56
+hf_pgm_genopt_len	,	V_43
+cursor	,	V_13
+parity	,	V_10
+hf_pgm_polr_round	,	V_216
+expert_add_info	,	F_28
+returned_length	,	V_3
+"Back-off Interval Sequence Number"	,	L_139
+hf_pgm_main_opts	,	V_169
+ett_pgm_opts_redirect	,	V_107
+"Leading Edge Sequence Number"	,	L_64
+subdissector_table	,	V_128
+ptvcursor_add	,	F_15
+hf_pgm_opt_len	,	V_33
+ett_pgm_opts_ccdata	,	V_74
+hf_pgm_main_dport	,	V_167
+pgmhdr_dport	,	V_124
+afi	,	V_136
+ei_pgm_genopt_len	,	V_37
+ett_pgm	,	V_164
+PI_WARN	,	V_240
+"Length %u invalid, must be &gt;= 4"	,	L_17
+cksum_vec	,	V_177
+"List(%d): %s"	,	L_22
+hf_pgm_opt_fragment_first_sqn	,	V_118
+FT_UINT32	,	V_231
+hf_pgm_opt_type	,	V_28
+hf_pgm_nak_srcafi	,	V_195
+gsi	,	V_139
+MAX_STR_LEN	,	V_5
+hf	,	V_221
+ei_pgm_opt_tlen	,	V_35
+PGM_OPT_PARITY_PRM	,	V_47
+"pgm.opts.ccdata.lossrate"	,	L_136
+"pgm.opts.nak_bo_rng.max_bo_ivl"	,	L_145
+"Packet too small"	,	L_25
+"Parity"	,	L_50
+"pgm.opts.nak.list"	,	L_126
+prefs_register_protocol	,	F_63
+"pgm.opts.len"	,	L_108
+FT_IPv6	,	V_234
+register_heur_dissector_list	,	F_62
+theend	,	V_22
+"pgm.opts.redirect.dlr"	,	L_151
+PGM_MAX_NAK_LIST_SZ	,	V_61
+"pgm.opts.fragment.res"	,	L_152
+hf_pgm_opt_ccfeedbk_res	,	V_88
+","	,	L_4
+col_set_str	,	F_35
+"pgm.opts.ccdata.res2"	,	L_132
+FT_IPv4	,	V_233
+hf_pgm_opt_nak_bo_ivl_bo_ivl	,	V_98
+hidden_item	,	V_162
+"Variable length Parity Packet Option"	,	L_48
+pgm_module	,	V_242
+ptvcursor_free	,	F_51
+"pgm.opts.parity_prm.prm_grp"	,	L_120
+"pgm.poll.sqn"	,	L_85
+val_to_str	,	F_17
+"pgm.opts.type.invalid"	,	L_158
+hf_pgm_opt_join_res	,	V_45
+"Requested Sequence Number"	,	L_72
+dissector_try_heuristic	,	F_32
+dissector_handle_t	,	T_18
+dissect_pgm	,	F_34
+PGM_OPT_LENGTH	,	V_30
+tvb_bytes_to_ep_str	,	F_38
+"udp.encap_mcast_port"	,	L_176
+"%u (bogus, must be &gt;= %u)"	,	L_19
+pgm_check_checksum	,	V_176
+PGM_OPT_PGMCC_FEEDBACK_SIZE	,	V_87
+computed_cksum	,	V_178
+"Acker AFI"	,	L_130
+g_ntohl	,	F_25
+VALS	,	F_53
+" (Note: This option is off, i.e. port is 0, by default)"	,	L_175
+prefs_register_bool_preference	,	F_64
+hf_pgm_polr_sqn	,	V_215
+hf_pgm_opt_fragment_total_length	,	V_120
+in_cksum_shouldbe	,	F_50
+"data"	,	L_180
+tvb_length	,	F_46
+"pgm.port"	,	L_40
+proto_tree_add_text	,	F_9
+hf_pgm_spm_path	,	V_190
+BASE_DEC	,	V_223
+hf_pgm_opt_ccfeedbk_afi	,	V_90
+hf_pgm_ack_bitmap	,	V_220
+ptvcursor_advance	,	F_23
+ENC_NA	,	V_84
+hf_pgm_nak_sqn	,	V_194
+optdata_po	,	V_48
+"Can't handle this address format"	,	L_165
+"pgm.hdr.opts"	,	L_44
+wmem_alloc	,	F_2
+"pgm.nak.srcres"	,	L_76
+ptvcursor_t	,	T_3
+"%s"	,	L_23
+"Trailing Edge Sequence Number"	,	L_62
+"Acker"	,	L_133
+PGM_OPT_NAK_LIST_SIZE	,	V_70
+PGM_OPT	,	V_6
+"Bad Checksum"	,	L_54
+prefs_register_uint_preference	,	F_65
+expert_register_protocol	,	F_59
+" Src Port %u, Dst Port %u, GSI %s"	,	L_30
+hf_pgm_main_opts_opt	,	V_171
+hf_pgm_main_opts_varlen	,	V_173
+hf_pgm_nak_src	,	V_197
+hf_pgm_opt_fragment_res	,	V_117
+"%s Options"	,	L_10
+type_vals	,	V_148
+guint	,	T_12
+"Length"	,	L_107
+"%s Options (Total Length %u - invalid, must be &gt;= 4)"	,	L_14
+ett	,	V_237
+wmem_packet_scope	,	F_3
+hf_pgm_main_type	,	V_168
+"pgm.hdr.opts.opt"	,	L_45
+hf_pgm_main_sport	,	V_166
+"pgm.nak.grpafi"	,	L_80
+dissector_add_handle	,	F_67
+"Matching Bitmask"	,	L_97
+PGM_ACK_PCKT	,	V_154
+opts_total_len	,	V_23
+PGM_OPT_JOIN	,	V_38
+packet_info	,	T_4
+"Pragmatic General Multicast: Type %s"	,	L_29
+"Network Significant Options"	,	L_46
+"Minimum Sequence Number"	,	L_122
+opt_vals	,	V_32
+"Back-off Interval"	,	L_93
+EXPFILL	,	V_241
+hf_pgm_opt_nak_bo_rng_max_bo_ivl	,	V_105
+opts_type	,	V_26
+PGM_OPT_NAK_BO_RNG	,	V_100
+AFNUM_INET6	,	V_82
+"Source Port"	,	L_35
+"pgm.opts.join.min_join"	,	L_123
+hf_pgm_port	,	V_165
+"Source NLA"	,	L_77
+ptvcursor_new	,	F_42
+"Present"	,	L_2
+sqn	,	V_135
+"Parity Parameters"	,	L_117
+decode_pgm_ports	,	F_29
+"Multicast Group AFI"	,	L_79
+"Option end"	,	L_111
+proto_reg_handoff_pgm	,	V_244
+"pgm.opts.nak.op"	,	L_124
+PGM_POLL_PCKT	,	V_157
+AFNUM_INET	,	V_80
+HFILL	,	V_224
+"pgm.nak.srcafi"	,	L_75
+"Remaining total options length doesn't have enough for an options header"	,	L_15
+dissector_try_uint	,	F_31
+"pgm.spm.res"	,	L_69
+create_dissector_handle	,	F_66
+hf_pgm_spm_trail	,	V_186
+PGM_SPM_PCKT	,	V_149
+hf_pgm_opt_nak_bo_ivl_res	,	V_97
+reportedlen	,	V_142
+hf_pgm_opt_ccdata_tsp	,	V_77
+"Pro-active"	,	L_8
+old_udp_encap_ucast_port	,	V_249
+PGM_RDATA_PCKT	,	V_155
+pktname	,	V_15
+ett_pgm_opts_paritygrp	,	V_54
+"pgm.opts.fragment.first_sqn"	,	L_154
+"0x%04x [incorrect, should be 0x%04x]"	,	L_33
+proto_register_protocol	,	F_55
+"PGM Encap is PGM packets encapsulated in UDP packets"	,	L_174
+ptvcursor_tree	,	F_10
+hf_pgm_polr_res	,	V_217
+"Subtype"	,	L_88
+hf_pgm_spm_pathafi	,	V_188
+tvb_new_subset_remaining	,	F_30
+len	,	V_180
+"%s Packet"	,	L_34
+"%sOn-demand"	,	L_9
+"pgm.nak.grpres"	,	L_81
+gint	,	T_2
+pgmhdr_type	,	V_131
+"Total Length invalid"	,	L_161
+"Source NLA AFI"	,	L_74
+"Port"	,	L_39
+tvb	,	V_21
+"Length %u &gt; remaining total options length"	,	L_18
+COL_INFO	,	V_145
+"pgm.ack.bitmap"	,	L_105
+"List"	,	L_125
+PGM_OPT_PGMCC_FEEDBACK	,	V_86
+"Fragment Offset"	,	L_155
+hf_pgm_poll_pathafi	,	V_207
+PGM_OPT_FRAGMENT	,	V_114
+MIN	,	F_5
+cinfo	,	V_143
+"pgm.opts.nak_bo_ivl.res"	,	L_137
+"udp.encap_ucast_port"	,	L_172
+proto_pgm	,	V_163
+afn_vals	,	V_232
+"Reserved"	,	L_68
+next_tvb	,	V_125
+"pgm.genopts.end"	,	L_112
+call_dissector	,	F_33
+"DLR"	,	L_150
+hf_pgm_opt_ccfeedbk_tsp	,	V_89
+"pgm.opts.ccdata.afi"	,	L_131
+"%-5s sqn 0x%x gsi %s"	,	L_26
+PGM_OPT_END	,	V_36
+PROTO_ITEM_SET_HIDDEN	,	F_44
+"Pragmatic General Multicast"	,	L_166
+found	,	V_126
+proto_tree_add_boolean	,	F_49
+hf_pgm_spm_sqn	,	V_185
+"0x%04x [correct]"	,	L_32
+"%s (0x%x)"	,	L_20
+"pgm.polr.res"	,	L_101
+"PGM Encap Multicast Port (standard is 3056)"	,	L_177
+"pgm.poll.matching_bmask"	,	L_98
+"pgm.opts.redirect.afi"	,	L_148
+"pgm.poll.backoff_ivl"	,	L_94
+COL_PROTOCOL	,	V_144
+isdata	,	V_140
+naks	,	V_66
+"pgm.opts.redirect.res"	,	L_146
+opts_tree	,	V_19
+hf_pgm_opt_parity_prm_po	,	V_51
+pgm_tree	,	V_160
+"Max Back-off Interval"	,	L_144
+guint8	,	T_1
+tf	,	V_16
+ti	,	V_17
+ptvcursor_current_offset	,	F_11
+hf_pgm_main_opts_netsig	,	V_172
+optdata_afi	,	V_73
+hf_pgm_genopt_end	,	V_40
+"pgm.hdr.opts.netsig"	,	L_47
+"pgm.hdr.opts.varlen"	,	L_49
+firsttime	,	V_63
+ei_pgm_opt_type	,	V_31
+tvb_get_ntohl	,	F_39
+"pgm.nak.src"	,	L_78
+tvbuff_t	,	T_7
+proto_tree_add_protocol_format	,	F_41
+tvb_get_ntohs	,	F_18
+"%-5s sqn 0x%x gsi %s subtype %s"	,	L_28
+PGM_NNAK_PCKT	,	V_151
+hf_pgm_nak_src6	,	V_198
+hf_pgm_opt_nak_list	,	V_71
+"pgm.opts.redirect.res2"	,	L_149
+gboolean	,	T_8
+"First Sequence Number"	,	L_153
+hf_pgm_nak_grp	,	V_201
+"pgm.opts.ccdata.acker"	,	L_134
+hf_pgm_main_tsdulen	,	V_183
+"0x%lx "	,	L_21
+"Option length invalid"	,	L_163
+PGM_OPT_PARITY_PRM_SIZE	,	V_50
+PGM_OPT_PGMCC_DATA_SIZE	,	V_75
+"PGM port"	,	L_168
+hf_pgm_opt_nak_res	,	V_69
+heur_dtbl_entry_t	,	T_11
+"pgm.opts.join.res"	,	L_121
+ti_len	,	V_18
+tvb_get_guint8	,	F_14
+"pgm.opts.fragment.fragment_offset"	,	L_156
+PGM_OPT_FRAGMENT_SIZE	,	V_116
+PGM_NAK_PCKT	,	V_150
+PGM_OPT_NETSIG	,	V_7
+idx	,	V_4
+"Min Back-off Interval"	,	L_142
+dissector_delete_uint	,	F_70
+"pgm"	,	L_167
+expert_pgm	,	V_243
+pgmhdr_cksum	,	V_133
+hf_pgm_opt_ccdata_afi	,	V_78
+"PGM"	,	L_24
+hf_pgm_main_cksum	,	V_175
+"not available"	,	L_31
+"%sVarLen"	,	L_5
+hf_pgm_opt_tlen	,	V_34
+hf_pgm_opt_redirect_res2	,	V_111
+PGM_OPT_PARITY	,	V_9
+PGM_OPT_PARITY_GRP_SIZE	,	V_55
+"pgm.spm.sqn"	,	L_61
+PGM_OPT_VAR_PKTLEN	,	V_8
+genopts_type	,	V_24
+hf_pgm_opt_ccdata_res2	,	V_79
+hf_pgm_main_opts_parity	,	V_174
+find_dissector	,	F_69
+"Transmission Group Size"	,	L_119
+proto_tree_add_uint_format_value	,	F_22
+PGM_OPT_NAK_LIST	,	V_58
+heur_subdissector_list	,	V_129
+ptr	,	V_179
+ENC_BIG_ENDIAN	,	V_29
+genopts_len	,	V_25
+hf_pgm_poll_sqn	,	V_204
+"Destination Port"	,	L_37
+udp_encap_mcast_port	,	V_246
+hdtbl_entry	,	V_127
+"pgm.opts.tlen"	,	L_110
+hf_pgm_opt_nak_bo_rng_res	,	V_103
+pgmhdr_opts	,	V_132
+"Multicast Group NLA"	,	L_82
+hf_pgm_opt_ccdata_res	,	V_76
+ett_pgm_opts_nak_bo_ivl	,	V_95
+ett_pgm_spm	,	V_184
+opt_tree	,	V_20
+hf_pgm_opt_ccfeedbk_acker6	,	V_93
+"%sParity"	,	L_6
+ei_address_format_invalid	,	V_85
+"Loss Rate"	,	L_135
+"pgm.poll.round"	,	L_87
+"pgm.spm.trail"	,	L_63
+proto_item_append_text	,	F_19
+"%sNetSig"	,	L_3
+hf_pgm_poll_path6	,	V_210
+"pgm.opts.ccdata.tstamp"	,	L_129
+col_clear	,	F_36
+"pgm.spm.pathafi"	,	L_67
+"pgm.polr.round"	,	L_100
+proto_register_subtree_array	,	F_58
+poll_stype	,	V_158
+ett_pgm_opts	,	V_27
+naklist	,	V_60
+proto_tree_add_bytes_format_value	,	F_27
+hf_pgm_poll_backoff_ivl	,	V_211
+"Checksum"	,	L_52
+"pgm.opts.nak_bo_ivl.bo_ivl"	,	L_138
+"Check the validity of the PGM checksum when possible"	,	L_170
+proto_tree_add_item	,	F_43
+in_cksum	,	F_48
+pinfo	,	V_14
+col_add_fstr	,	F_40
+optdata_len	,	V_59
+"pgm.poll.subtype"	,	L_89
+PGM_OPT_PARITY_GRP	,	V_53
+hf_pgm_opt_nak_bo_rng_min_bo_ivl	,	V_104
+"pgm.hdr.cksum_bad"	,	L_55
+hf_pgm_main_cksum_bad	,	V_181
+"Invalid option"	,	L_159
+ett_pgm_opts_join	,	V_39
+hf_pgm_opt_ccfeedbk_acker	,	V_92
+hf_pgm_opt_parity_grp_res	,	V_56
+hf_pgm_poll_matching_bmask	,	V_213
+initialized	,	V_247
+"Option: %s, Length: %u"	,	L_16
+PI_PROTOCOL	,	V_239
+nakbuf	,	V_62
+FT_UINT8	,	V_225
+proto_item	,	T_5
+expert_register_field_array	,	F_60
+expert_add_info_format	,	F_16
+hf_pgm_opt_ccfeedbk_lossrate	,	V_91
+type_tree	,	V_161
+"Packet Bitmap"	,	L_104
+PGM_OPT_JOIN_SIZE	,	V_42
+register_dissector_table	,	F_61
+msg	,	V_2
+"0x%x"	,	L_7
+hf_pgm_opt_join_minjoin	,	V_46
+hf_pgm_opt_parity_grp_prmgrp	,	V_57
+PGM_OPT_REDIRECT_SIZE	,	V_108
+ett_pgm_polr	,	V_214
+plen	,	V_137
+"pgm.opts.nak_bo_rng.res"	,	L_141
+ei_register_info	,	T_15
+proto_register_pgm	,	F_52
+optsstr	,	F_1
+ett_pgm_optbits	,	V_170
+ett_pgm_poll	,	V_203
+hf_pgm_nak_grpres	,	V_200
+"pgm.ack.maxsqn"	,	L_103
+"pgm.opts.ccdata.res"	,	L_127
+"pgm.opts.nak_bo_ivl.bo_ivl_sqn"	,	L_140
+"pgm.genopts.type"	,	L_113
+"pgm.genopts.opx"	,	L_116
+offset	,	V_121
+hf_pgm_nak_grp6	,	V_202
+expert_module_t	,	T_17
+tree	,	V_122
+ett_pgm_nak	,	V_193
+hf_pgm_poll_round	,	V_205
+PGM_OPT_PGMCC_DATA	,	V_72
+"pgm.nak.grp"	,	L_83
+"pgm.polr.sqn"	,	L_99
+hf_pgm_opt_redirect_afi	,	V_110
+hf_pgm_ack_sqn	,	V_219
+tfs_yes_no	,	V_235
+ett_pgm_opts_naklist	,	V_68
+pgmhdr_sport	,	V_123
+destport	,	V_147
+"Options"	,	L_43
+ett_pgm_data	,	V_192
+udp_encap_ucast_port	,	V_245
+hf_pgm_opt_redirect_dlr	,	V_112
+"%-5s sqn 0x%x gsi %s tsdulen %d"	,	L_27
+"Round"	,	L_86
+hf_pgm_poll_res	,	V_208
+hf_pgm_genopt_type	,	V_41
+PGM_POLR_PCKT	,	V_153
+hf_pgm_nak_grpafi	,	V_199
+"pgm.opts.parity_prm.op"	,	L_118
+pgm_handle	,	V_248
+PGM_NCF_PCKT	,	V_152
+g_snprintf	,	F_4
+hf_pgm_opt_redirect_dlr6	,	V_113
+"pgm.hdr.dport"	,	L_38
+"Random String"	,	L_95
+"pgm.opts.type"	,	L_106
+"pgm.hdr.opts.parity"	,	L_51
+"udp.port"	,	L_178
+hf_pgm_poll_subtype	,	V_206
+hf_pgm_main_gsi	,	V_182
+IP_PROTO_PGM	,	V_251
+proto_item_set_len	,	F_20
+hf_pgm_opt_redirect_res	,	V_109
+hf_pgm_poll_rand_str	,	V_212
+"pgm.opts.tlen.invalid"	,	L_160
+PGM_OPT_NAK_BO_IVL_SIZE	,	V_96
+srcport	,	V_146
+"pgm.genopts.len.invalid"	,	L_162
+ptvcursor_set_tree	,	F_13
+"Type"	,	L_41
+proto_tree	,	T_6

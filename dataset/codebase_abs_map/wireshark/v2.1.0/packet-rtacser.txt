@@ -1,0 +1,179 @@
+mbok	,	V_20
+ring	,	V_19
+col_append_sep_str	,	F_17
+hf_rtacser_ctrl_rts	,	V_45
+proto_register_protocol	,	F_27
+proto_tree_add_time	,	F_10
+dissect_rtacser	,	F_23
+register_decode_as	,	F_35
+RTACSER_CTRL_CTS	,	V_34
+prefs_register_protocol	,	F_33
+proto_tree_add_subtree	,	F_15
+event_type	,	V_12
+tvb_new_subset_remaining	,	F_20
+len	,	V_11
+"rtacser.rts"	,	L_44
+"RTS"	,	L_14
+"rtacser"	,	L_50
+"/DSR"	,	L_13
+col_set_str	,	F_5
+gint	,	T_12
+"DSR, "	,	L_28
+FT_RELATIVE_TIME	,	V_53
+hf_rtacser_footer	,	V_49
+"Event Type"	,	L_39
+"CTS, "	,	L_24
+tvb	,	V_4
+hf_rtacser_event_type	,	V_32
+cts	,	V_14
+COL_INFO	,	V_25
+proto_item_append_text	,	F_18
+"/RTS, "	,	L_31
+hf_rtacser_timestamp	,	V_30
+"RTAC Serial Data Subdissector"	,	L_52
+tvb_reported_length_remaining	,	F_19
+col_clear	,	F_6
+rtacser_hf	,	V_52
+cinfo	,	V_23
+hf_rtacser_ctrl_mbok	,	V_48
+ett_rtacser_cl	,	V_41
+hf_rtacser_ctrl_ring	,	V_47
+proto_register_subtree_array	,	F_32
+"RING, "	,	L_34
+"rtacser.dsr"	,	L_43
+"Payload as"	,	L_1
+array_length	,	F_31
+"/RING, "	,	L_35
+"DTR"	,	L_16
+"/CTS, "	,	L_25
+RTACSER_HEADER_LEN	,	V_22
+decode_as_t	,	T_16
+proto_tree_add_item	,	F_14
+pinfo	,	T_2
+col_add_fstr	,	F_12
+"/DTR, "	,	L_33
+_U_	,	V_1
+"Arrived At Time"	,	L_37
+gpointer	,	T_4
+col_append_str	,	F_16
+"MBOK"	,	L_20
+result	,	V_2
+"/DCD"	,	L_11
+rtacser_handle	,	V_68
+hf_rtacser_ctrl_dcd	,	V_43
+hf_rtacser_ctrl_dsr	,	V_44
+hf_register_info	,	T_13
+VALS	,	F_26
+RTACSER_CTRL_MBOK	,	V_40
+COL_PROTOCOL	,	V_24
+RTACSER_CTRL_RING	,	V_39
+"rtacserial_payload_proto"	,	L_53
+"DCD, "	,	L_26
+FT_UINT8	,	V_56
+BASE_DEC	,	V_58
+proto_item	,	T_7
+decode_as_default_populate_list	,	V_64
+rts	,	V_17
+cl_tree	,	V_9
+ett_rtacser	,	V_27
+MAX_DECODE_AS_PROMPT_LEN	,	V_3
+BASE_NONE	,	V_54
+secs	,	V_28
+"rtacser.dcd"	,	L_42
+"CTS"	,	L_8
+build_valid_func	,	T_14
+register_dissector_table	,	F_29
+"/RTS"	,	L_15
+register_dissector	,	F_28
+tv	,	V_13
+tvb_get_ntohl	,	F_9
+data	,	T_11
+tvbuff_t	,	T_5
+proto_reg_handoff_rtacser	,	V_71
+proto_tree_add_protocol_format	,	F_7
+"wtap_encap"	,	L_54
+rtacser_item	,	V_6
+"%-21s"	,	L_4
+BASE_HEX	,	V_57
+"RTAC Serial Line"	,	L_3
+decode_as_default_reset	,	V_65
+gboolean	,	T_10
+"/CTS"	,	L_9
+decode_as_default_change	,	V_66
+"RTS, "	,	L_30
+proto_item_add_subtree	,	F_8
+"Unknown Type"	,	L_5
+"rtacser.footer"	,	L_49
+module_t	,	T_17
+nstime_t	,	T_9
+proto_register_field_array	,	F_30
+"rtacser.mbok"	,	L_47
+guint	,	T_8
+offset	,	V_10
+ett	,	V_60
+dissector_add_uint	,	F_36
+tree	,	V_5
+"/RING"	,	L_19
+"DTR, "	,	L_32
+payload_tvb	,	V_21
+"rtacser.eventtype"	,	L_40
+FT_UINT16	,	V_59
+packet_info	,	T_1
+tvb_get_guint8	,	F_11
+"rtacser.timestamp"	,	L_38
+hf_rtacser_ctrl_dtr	,	V_46
+tvb_captured_length	,	F_24
+" ("	,	L_23
+WTAP_ENCAP_RTAC_SERIAL	,	V_72
+"RING"	,	L_18
+")"	,	L_36
+proto_rtacser	,	V_26
+RTACSER_CTRL_RTS	,	V_37
+"rtacser.cts"	,	L_41
+"Control Lines"	,	L_6
+"DCD"	,	L_10
+dsr	,	V_16
+" ( "	,	L_7
+rtacser_ppi_value	,	F_3
+dcd	,	V_15
+"/MBOK"	,	L_21
+"rtacser.data"	,	L_51
+DISSECTOR_TABLE_NOT_ALLOW_DUPLICATE	,	V_70
+RTACSER_CTRL_DTR	,	V_38
+rtacser_ppi_prompt	,	F_1
+g_snprintf	,	F_2
+subdissector_table	,	V_50
+"/DSR, "	,	L_29
+"/DTR"	,	L_17
+dissect_rtacser_data	,	F_4
+" )"	,	L_22
+call_data_dissector	,	F_22
+HFILL	,	V_55
+rtacser_da_ppi_build_value	,	V_61
+rtacser_eventtype_vals	,	V_31
+rtacser_da_ppi_values	,	V_62
+prefs_register_obsolete_preference	,	F_34
+dissector_try_uint	,	F_21
+dtr	,	V_18
+val_to_str_const	,	F_13
+gchar	,	T_3
+length	,	V_51
+cl_item	,	V_7
+RTACSER_CTRL_DCD	,	V_35
+rtacser_module	,	V_67
+RTACSER_CTRL_DSR	,	V_36
+proto_register_rtacser	,	F_25
+ENC_BIG_ENDIAN	,	V_33
+"/DCD, "	,	L_27
+"rtacser.ring"	,	L_46
+nsecs	,	V_29
+hf_rtacser_ctrl_cts	,	V_42
+decode_as_value_t	,	T_15
+FT_UINT32	,	V_69
+rtacser_da_ppi	,	V_63
+"RTAC Serial"	,	L_2
+rtacser_tree	,	V_8
+"Footer"	,	L_48
+proto_tree	,	T_6
+"DSR"	,	L_12
+"rtacser.dtr"	,	L_45

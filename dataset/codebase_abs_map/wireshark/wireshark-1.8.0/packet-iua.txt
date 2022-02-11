@@ -1,0 +1,344 @@
+DLCI_SPARE_LENGTH	,	V_38
+"Start"	,	L_46
+PARAMETER_VALUE_OFFSET	,	V_10
+proto_register_protocol	,	F_44
+"%s parameter"	,	L_18
+hf_version	,	V_143
+MESSAGE_CLASS_OFFSET	,	V_137
+hf_diag_info	,	V_40
+hf_dlci_spare_bit	,	V_25
+message_tvb	,	V_158
+PARAMETER_HEADER_LENGTH	,	V_8
+status_id	,	V_69
+tvb_new_subset_remaining	,	F_39
+"Version"	,	L_75
+INT_INTERFACE_IDENTIFIER_PARAMETER_TAG	,	V_115
+parameter_tag_values	,	V_108
+gint	,	T_5
+"sctp.ppi"	,	L_94
+ZERO_BIT_MASK	,	V_173
+"iua.int_interface_identifier"	,	L_27
+"Traffic mode type"	,	L_54
+DLCI_SAPI_LENGTH	,	V_24
+"unknown status information"	,	L_15
+COL_INFO	,	V_140
+FT_BOOLEAN	,	V_172
+dissect_integer_range_interface_identifier_parameter	,	F_14
+SAPI_VAL_CALL_CONTROL	,	V_83
+parameter_value_length	,	V_99
+MESSAGE_TYPE_LENGTH	,	V_152
+"iua.dlci_sapi"	,	L_37
+", %d"	,	L_2
+dissect_asp_reason_parameter	,	F_16
+MIN	,	F_35
+cinfo	,	V_139
+"UNKNOWN"	,	L_21
+status_type_values	,	V_181
+END_OFFSET	,	V_48
+array_length	,	F_47
+VERSION_OFFSET	,	V_144
+"Info string"	,	L_30
+"Reserved"	,	L_77
+PARAMETER_LENGTH_OFFSET	,	V_7
+" (%.*s)"	,	L_5
+""	,	L_9
+TEXT_INTERFACE_IDENTIFIER_PARAMETER_TAG	,	V_116
+" (%s)"	,	L_6
+call_dissector	,	F_23
+dissect_tei_status_parameter	,	F_25
+PARAMETER_LENGTH_LENGTH	,	V_114
+iua_module	,	V_185
+DLCI_TEI_OFFSET	,	V_33
+ENC_ASCII	,	V_16
+"TEI"	,	L_40
+"reserved"	,	L_23
+ett_iua	,	V_165
+PARAMETER_TAG_LENGTH	,	V_112
+"iua.traffic_mode_type"	,	L_55
+"Reason"	,	L_52
+"x.25"	,	L_92
+hf_register_info	,	T_8
+hf_parameter_value	,	V_100
+hf_error_code_ig	,	V_62
+DLCI_PARAMETER_TAG	,	V_118
+"iua.release_reason"	,	L_62
+parameter_item	,	V_3
+guint16	,	T_4
+COL_PROTOCOL	,	V_163
+"Spare"	,	L_42
+"iua.error_code"	,	L_57
+TEI_STATUS_LENGTH	,	V_94
+hf_text_interface_id	,	V_14
+number_of_ranges	,	V_41
+"Parameter padding"	,	L_73
+SCTP_PORT_IUA	,	V_187
+"Message type: %u (%s)"	,	L_22
+INFO_STRING_OFFSET	,	V_20
+RESERVED_LENGTH	,	V_148
+HEARTBEAT_DATA_OFFSET	,	V_52
+guint8	,	T_7
+BASE_NONE	,	V_171
+TRAFFIC_MODE_TYPE_PARAMETER_TAG	,	V_123
+dissect_traffic_mode_type_parameter	,	F_17
+tvb_length_remaining	,	F_33
+PROTOCOL_DATA_OFFSET	,	V_82
+"iua.dlci_tei"	,	L_41
+", %d-%d"	,	L_11
+register_dissector	,	F_50
+RELEASE_REASON_PARAMETER_TAG	,	V_127
+COMMON_HEADER_LENGTH	,	V_160
+tvb_get_ntohl	,	F_5
+protocol_version_values	,	V_182
+interface_id_length	,	V_13
+DLCI_SPARE_OFFSET	,	V_37
+tvbuff_t	,	T_1
+"iua.status_identification"	,	L_61
+MESSAGE_CLASS_LENGTH	,	V_150
+dissect_heartbeat_data_parameter	,	F_15
+tvb_get_ntohs	,	F_2
+plurality	,	F_13
+BASE_HEX	,	V_168
+IUA_PAYLOAD_PROTOCOL_ID	,	V_188
+STATUS_TYPE_OFFSET	,	V_70
+"Support Implementers Guide"	,	L_89
+proto_item_add_subtree	,	F_31
+"%d-%d"	,	L_12
+"iua.message_length"	,	L_84
+hf_dlci_sapi	,	V_26
+dissect_parameter	,	F_28
+proto_register_field_array	,	F_46
+FT_BYTES	,	V_179
+"Zero bit"	,	L_32
+"Parameter value"	,	L_71
+dissect_release_reason_parameter	,	F_24
+MESSAGE_TYPE_OFFSET	,	V_138
+dissector_add_uint	,	F_53
+STATUS_IDENT_OFFSET	,	V_71
+SAPI_VAL_X25	,	V_86
+START_LENGTH	,	V_46
+hf_asp_reason	,	V_53
+hf_dlci_zero_bit	,	V_22
+FT_UINT16	,	V_178
+tvb_get_guint8	,	F_10
+error_code_values	,	V_67
+"sctp.port"	,	L_93
+dissect_common_header	,	F_36
+"One bit"	,	L_38
+")"	,	L_4
+"ISDN Q.921-User Adaptation Layer"	,	L_85
+"Status type"	,	L_58
+"ASP identifier"	,	L_65
+"iua.status_type"	,	L_59
+ERROR_CODE_PARAMETER_TAG	,	V_124
+"iua.reserved"	,	L_78
+padding_length	,	V_105
+FT_STRING	,	V_170
+"Message Type"	,	L_81
+parameters_tvb	,	V_131
+VERSION_LENGTH	,	V_145
+iua_handle	,	V_186
+hf_interface_range_start	,	V_44
+dissect_unknown_parameter	,	F_27
+message_class_values	,	V_183
+dissect_dlci_parameter	,	F_9
+hf_dlci_tei	,	V_35
+hf_traffic_mode_type	,	V_57
+support_IG	,	V_61
+MESSAGE_LENGTH_LENGTH	,	V_157
+length	,	V_104
+find_dissector	,	F_52
+"iua.interface_range_start"	,	L_47
+"iua.info_string"	,	L_31
+SAPI_SHIFT	,	V_29
+ENC_BIG_ENDIAN	,	V_12
+range_number	,	V_42
+ERROR_CODE_OFFSET	,	V_64
+FT_UINT32	,	V_167
+"iua.dlci_spare"	,	L_43
+"iua.message_class"	,	L_80
+tei_status_values	,	V_95
+"iua.message_type"	,	L_82
+hf_parameter_length	,	V_113
+hf	,	V_166
+traffic_mode_type_values	,	V_60
+"IUA (RFC 3057)"	,	L_25
+"Diagnostic information"	,	L_44
+hf_heartbeat_data	,	V_51
+hf_message_class	,	V_149
+ASP_REASON_PARAMETER_TAG	,	V_122
+RELEASE_REASON_LENGTH	,	V_90
+prefs_register_protocol	,	F_45
+"iua.version"	,	L_76
+ASP_ID_LENGTH	,	V_98
+remaining_length	,	V_133
+"Heartbeat data"	,	L_50
+"Support Implementers Guide (version 01)"	,	L_90
+hf_interface_range_end	,	V_47
+col_set_str	,	F_41
+"iua.parameter_value"	,	L_72
+"iua.parameter_padding"	,	L_74
+hf_tei_status	,	V_92
+total_length	,	V_132
+dissect_asp_identifier_parameter	,	F_26
+TEI_STATUS_PARAMETER_TAG	,	V_128
+proto_tree_add_uint_format	,	F_20
+STATUS_IDENT_LENGTH	,	V_75
+SAPI_VAL_Q931_PACKET	,	V_84
+COMMON_HEADER_OFFSET	,	V_159
+INTEGER_RANGE_INTERFACE_IDENTIFIER_PARAMETER_TAG	,	V_120
+"Status identification"	,	L_60
+id_number	,	V_5
+proto_item_append_text	,	F_3
+"iua.heartbeat_data"	,	L_51
+message_type	,	V_136
+TEXT_INTERFACE_ID_OFFSET	,	V_15
+info_string_length	,	V_18
+TEI_MASK	,	V_177
+ERROR_CODE_LENGTH	,	V_65
+ASP_REASON_OFFSET	,	V_54
+proto_register_iua	,	F_42
+proto_register_subtree_array	,	F_48
+val_to_str	,	F_11
+q931_handle	,	V_85
+DLCI_TEI_LENGTH	,	V_34
+"iua.text_interface_identifier"	,	L_29
+"Status identification: %u (%s)"	,	L_14
+ADD_PADDING	,	F_34
+"iua"	,	L_87
+proto_tree_add_item	,	F_4
+pinfo	,	V_78
+release_reason_values	,	V_91
+col_add_fstr	,	F_37
+dissector_handle_t	,	T_9
+"iua.parameter_length"	,	L_70
+INT_INTERFACE_ID_LENGTH	,	V_9
+hf_dlci_one_bit	,	V_32
+hf_parameter_tag_ig	,	V_110
+"IUA"	,	L_86
+dissect_text_interface_identifier_parameter	,	F_6
+protocol_data_tvb	,	V_81
+"IUA (RFC 3057 + IG)"	,	L_24
+SPARE_BIT_MASK	,	V_174
+VALS	,	F_43
+"iua.tei_status"	,	L_64
+SAPI_MASK	,	V_28
+dissect_diagnostic_information_parameter	,	F_12
+DIAGNOSTIC_INFORMATION_PARAMETER_TAG	,	V_119
+"iua.asp_reason"	,	L_53
+prefs_register_bool_preference	,	F_49
+"Unknown/reserved"	,	L_7
+status_type_id_ig_values	,	V_76
+RESERVED_OFFSET	,	V_147
+tvb_get_ephemeral_string	,	F_7
+START_OFFSET	,	V_45
+"Spare bit"	,	L_34
+iua_tree	,	V_102
+"%s "	,	L_20
+TRAFFIC_MODE_TYPE_OFFSET	,	V_58
+tvb_length	,	F_29
+FT_UINT8	,	V_175
+proto_tree_add_text	,	F_30
+BASE_DEC	,	V_180
+STATUS_TYPE_LENGTH	,	V_73
+tvb_new_subset	,	F_22
+hf_message_type	,	V_151
+dissect_protocol_data_parameter	,	F_21
+proto_item	,	T_3
+END_LENGTH	,	V_49
+heartbeat_data_length	,	V_50
+ENC_NA	,	V_17
+"Text interface identifier"	,	L_28
+proto_reg_handoff_iua	,	F_51
+PARAMETERS_OFFSET	,	V_161
+dissect_int_interface_identifier_parameter	,	F_1
+message_class_type_values	,	V_154
+asp_reason_values	,	V_56
+hf_int_interface_id	,	V_11
+message_class_type_ig_values	,	V_153
+"iua.interface_range_end"	,	L_49
+error_code_ig_values	,	V_66
+status_type	,	V_68
+INFO_PARAMETER_TAG	,	V_117
+RELEASE_REASON_OFFSET	,	V_89
+message_class_type_acro_ig_values	,	V_141
+" (%u byte%s)"	,	L_8
+parameter_tag_ig_values	,	V_107
+dissect_status_type_identification_parameter	,	F_19
+"iua.asp_identifier"	,	L_66
+dissect_error_code_parameter	,	F_18
+hf_release_reason	,	V_88
+" with tag %u and %u byte%s value"	,	L_17
+"iua.dlci_zero_bit"	,	L_33
+PARAMETER_HEADER_OFFSET	,	V_106
+hf_message_length	,	V_155
+tag	,	V_103
+proto_iua	,	V_164
+INTERVAL_LENGTH	,	V_43
+"iua.diagnostic_information"	,	L_45
+hf_status_id	,	V_74
+offset	,	V_6
+diag_info_length	,	V_39
+ett	,	V_184
+"iua.dlci_spare_bit"	,	L_35
+status_type_id_values	,	V_77
+tree	,	V_79
+TEI_STATUS_OFFSET	,	V_93
+ett_iua_parameter	,	V_109
+sapi_values	,	V_30
+sapi_val_assigned	,	V_31
+protocol_data_length	,	V_80
+dissect_iua_message	,	F_38
+packet_info	,	T_6
+hf_dlci_spare	,	V_36
+"Parameter Tag"	,	L_67
+"s"	,	L_10
+ASP_ID_OFFSET	,	V_97
+"support_ig"	,	L_88
+" ("	,	L_1
+dissect_parameters	,	F_32
+hf_status_type	,	V_72
+"Message class"	,	L_79
+MESSAGE_LENGTH_OFFSET	,	V_156
+TRAFFIC_MODE_TYPE_LENGTH	,	V_59
+dissect_info_string_parameter	,	F_8
+"iua.parameter_tag"	,	L_68
+hf_info_string	,	V_19
+" (%u)"	,	L_16
+ONE_BIT_MASK	,	V_176
+"Integer interface identifier"	,	L_26
+"Parameter length"	,	L_69
+"%d"	,	L_3
+message_class_type_acro_values	,	V_142
+PARAMETER_TAG_OFFSET	,	V_101
+"iua.dlci_one_bit"	,	L_39
+iua_item	,	V_162
+HFILL	,	V_169
+hf_asp_id	,	V_96
+sapi_val	,	V_27
+hf_parameter_tag	,	V_111
+number_of_ids	,	V_4
+"TEI status"	,	L_63
+hf_reserved	,	V_146
+sapi_item	,	V_21
+dissect_iua	,	F_40
+"End"	,	L_48
+PROTOCOL_DATA_PARAMETER_TAG	,	V_126
+"SAPI"	,	L_36
+parameter_tvb	,	V_1
+"q931"	,	L_91
+DLCI_SAPI_OFFSET	,	V_23
+"Error code"	,	L_56
+common_header_tvb	,	V_134
+ASP_REASON_LENGTH	,	V_55
+HEARTBEAT_DATA_PARAMETER_TAG	,	V_121
+x25_handle	,	V_87
+hf_parameter_padding	,	V_130
+message_class	,	V_135
+parameter_tree	,	V_2
+hf_error_code	,	V_63
+"Unknown"	,	L_19
+ASP_IDENTIFIER_PARAMETER_TAG	,	V_129
+"Message length"	,	L_83
+"unknown"	,	L_13
+STATUS_TYPE_INDENTIFICATION_PARAMETER_TAG	,	V_125
+proto_tree	,	T_2

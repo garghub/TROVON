@@ -1,0 +1,121 @@
+"Extended Ack"	,	L_10
+"Ack"	,	L_6
+"TCS"	,	L_20
+proto_register_protocol	,	F_12
+"Eak"	,	L_8
+prefs_register_protocol	,	F_16
+"Reliable UDP"	,	L_34
+tvb_new_subset_remaining	,	F_9
+"rudp.flags"	,	L_3
+col_set_str	,	F_3
+gint	,	T_8
+"rudp.flags.tcs"	,	L_21
+tvb	,	V_1
+COL_INFO	,	V_21
+"Acknowledgement Number"	,	L_31
+FT_BOOLEAN	,	V_38
+saved_udp_port	,	V_47
+rudp_tree	,	V_5
+col_clear	,	F_4
+proto_reg_handoff_rudp	,	V_43
+cinfo	,	V_19
+proto_register_subtree_array	,	F_15
+array_length	,	F_14
+"Checksum"	,	L_32
+next_tvb	,	V_4
+rudp_handle	,	V_46
+proto_tree_add_item	,	F_5
+call_dissector	,	F_8
+pinfo	,	T_3
+dissector_handle_t	,	T_11
+_U_	,	V_2
+flags	,	V_8
+hf_rudp_flags	,	V_25
+hf_rudp_flags_nul	,	V_15
+"Set the UDP port for Reliable UDP traffic"	,	L_38
+"UDP port for RUDP"	,	L_37
+hf_register_info	,	T_7
+udp_port	,	V_44
+initialized	,	V_45
+"rudp.flags.chk"	,	L_18
+dissector_add_for_decode_as	,	F_19
+hf_rudp_seq	,	V_29
+"rudp.cksum"	,	L_33
+"rudp.flags.nul"	,	L_15
+hf_rudp_flags_eak	,	V_13
+COL_PROTOCOL	,	V_20
+"data"	,	L_40
+hf_rudp_flags_rst	,	V_14
+tvb_length	,	F_10
+FT_UINT8	,	V_35
+hf_rudp_flags_0	,	V_18
+i	,	V_9
+BASE_DEC	,	V_36
+proto_item	,	T_5
+proto_rudp	,	V_22
+"Header Length"	,	L_25
+"rudp.hlen"	,	L_26
+ENC_NA	,	V_23
+hf_rudp_ack	,	V_30
+guint8	,	T_6
+"RST"	,	L_11
+ti	,	V_7
+"CHK"	,	L_17
+"Reset flag"	,	L_13
+tvbuff_t	,	T_1
+"Null flag"	,	L_16
+BASE_HEX	,	V_40
+"rudp"	,	L_35
+dissect_rudp	,	F_1
+flags_tree	,	V_6
+"rudp.flags.rst"	,	L_12
+prefs_register_uint_preference	,	F_17
+"0"	,	L_23
+gboolean	,	T_10
+proto_item_add_subtree	,	F_6
+"Syn"	,	L_4
+module_t	,	T_9
+hlen	,	V_10
+proto_register_field_array	,	F_13
+"Checksum is on header or body"	,	L_19
+guint	,	T_12
+ett	,	V_41
+dissector_add_uint	,	F_22
+tree	,	V_3
+hf_rudp_flags_ack	,	V_12
+"Sequence Number"	,	L_29
+data_handle	,	V_32
+FT_UINT16	,	V_39
+packet_info	,	T_2
+"rudp.seq"	,	L_28
+"rudp.ack"	,	L_30
+tvb_get_guint8	,	F_2
+hf_rudp_flags_chk	,	V_16
+"sm"	,	L_39
+hf_rudp_hlen	,	V_28
+"rudp.flags.syn"	,	L_5
+dissector_delete_uint	,	F_21
+sm_handle	,	V_33
+"RUDP"	,	L_1
+proto_register_rudp	,	F_11
+"RUDP Header flags"	,	L_2
+"Transfer Connection System"	,	L_22
+tvb_new_subset_length	,	F_7
+"rudp.flags.0"	,	L_24
+hf_rudp_cksum	,	V_31
+HFILL	,	V_37
+ett_rudp_flags	,	V_27
+"Seq"	,	L_27
+"rudp.flags.ack"	,	L_7
+ett_rudp	,	V_24
+"udp.port"	,	L_36
+find_dissector	,	F_20
+create_dissector_handle	,	F_18
+hf_rudp_flags_syn	,	V_11
+"rudp.flags.eak"	,	L_9
+"NULL"	,	L_14
+ENC_BIG_ENDIAN	,	V_26
+hf_rudp_flags_tcs	,	V_17
+proto_tree	,	T_4
+hf	,	V_34
+rudp_module	,	V_42

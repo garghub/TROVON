@@ -1,0 +1,446 @@
+elements_tree	,	V_25
+"ObjectID process ID"	,	L_178
+dissect_mongo_reply	,	F_13
+BSON_ELEMENT_TYPE_REGEX	,	V_76
+"Number Returned"	,	L_56
+"Op Log Reply"	,	L_100
+"mongo.query.flags.awaitdata"	,	L_108
+tvb_reported_length	,	F_18
+"mongo.message_length"	,	L_10
+"Bit vector of reply options."	,	L_34
+ei_mongo_unknown	,	V_149
+"Tailable means cursor is not closed when the last data is retrieved"	,	L_96
+BSON_ELEMENT_TYPE_BOOL	,	V_74
+"mongo.full_collection_name"	,	L_25
+"mongo.query.flags.op_log_reply"	,	L_101
+TFS	,	F_33
+guint32	,	T_9
+hf_mongo_number_to_skip	,	V_121
+FT_BOOLEAN	,	V_164
+mongo_handle	,	V_184
+hf_mongo_query	,	V_123
+"mongo.number_returned"	,	L_57
+BSON_ELEMENT_TYPE_JS_CODE_SCOPE	,	V_81
+"mongo.update.flags.multiupdate"	,	L_78
+array_length	,	F_36
+"The server normally times out idle cursors after an inactivity period (10 minutes)"	,	L_105
+" that the client will fully read all data queried"	,	L_114
+"mongo.reply.flags.awaitcapable"	,	L_45
+"mongo.number_to_cursor_ids"	,	L_138
+ENC_ASCII	,	V_9
+"Query BSON Document"	,	L_126
+hf_mongo_query_flags_tailablecursor	,	V_114
+dissect_mongo_update	,	F_16
+"Set when getMore is called but the cursor id is not valid at the server"	,	L_37
+"Zero"	,	L_67
+hf_register_info	,	T_12
+"mongo.delete.flags"	,	L_131
+ReportedBoundsError	,	V_35
+i	,	V_93
+BSON_ELEMENT_TYPE_STRING	,	V_51
+js_code_sub_tree	,	V_28
+doc_tree	,	V_24
+"Query"	,	L_124
+ett_mongo	,	V_133
+"Cursor id if client needs to do get more's"	,	L_52
+"Element Value"	,	L_154
+BASE_NONE	,	V_161
+"mongo.update.flags"	,	L_71
+hf_mongo_element_value_objectid	,	V_67
+"Return Field Selector"	,	L_127
+"Bit vector of update options."	,	L_72
+ett_mongo_doc	,	V_30
+"Stream the data down full blast in multiple more packages, on the assumption"	,	L_113
+hf_mongo_return_field_selector	,	V_124
+hf_mongo_element_value_int64	,	V_91
+opcode	,	V_129
+BASE_HEX	,	V_172
+FT_UINT24	,	V_171
+js_scope	,	V_23
+"BSON document length too long: %u"	,	L_3
+proto_item_add_subtree	,	F_5
+module_t	,	T_10
+PI_UNDECODED	,	V_179
+proto_register_field_array	,	F_35
+"mongo.document.length"	,	L_62
+FT_BYTES	,	V_167
+hf_mongo_unknown	,	V_148
+ei	,	V_175
+dissector_add_uint	,	F_44
+"No Cursor Timeout"	,	L_103
+"Identifier for this message"	,	L_14
+dissect_mongo_msg	,	F_14
+FT_UINT16	,	V_173
+"mongo.element.value.bytes"	,	L_161
+"ObjectID"	,	L_167
+"mongo.element.value.js_scope"	,	L_188
+hf_mongo_document_length	,	V_31
+element_type_vals	,	V_169
+"mongo.query.flags.tailable_cursor"	,	L_95
+final_offset	,	V_18
+expert_add_info	,	F_27
+"Selector"	,	L_81
+expert_mongo	,	V_153
+hf_mongo_element_value_boolean	,	V_75
+"Update"	,	L_84
+FT_STRING	,	V_163
+str_len	,	V_42
+BSON_ELEMENT_TYPE_MAX_KEY	,	V_65
+"mongo.element.value.regex.options"	,	L_165
+"Slave OK"	,	L_97
+"Number of Cursor IDS"	,	L_137
+" matching document is found"	,	L_76
+val_to_str_const	,	F_26
+"Bit vector of insert options."	,	L_89
+PI_WARN	,	V_180
+"Cursor Not Found"	,	L_35
+FT_UINT32	,	V_158
+hf_mongo_number_of_cursor_ids	,	V_127
+OP_KILL_CURSORS	,	V_147
+"mongo.unknown"	,	L_190
+hf	,	V_154
+"Await Capable"	,	L_44
+"Reserved (Must be is Zero)"	,	L_69
+ett_mongo_element	,	V_47
+hf_mongo_update	,	V_110
+BASE_HEX_DEC	,	V_159
+"mongo.message"	,	L_48
+"ContinueOnError"	,	L_90
+"Empty Document"	,	L_64
+prefs_register_protocol	,	F_40
+BSON_ELEMENT_TYPE_ARRAY	,	V_57
+hf_mongo_starting_from	,	V_102
+"BSON document recursion exceeds %u"	,	L_1
+col_append_fstr	,	F_25
+hf_mongo_element_value_js_scope	,	V_85
+"Document"	,	L_59
+col_set_str	,	F_24
+"mongo.request_id"	,	L_13
+"fullCollectionName"	,	L_24
+ett_mongo_objectid	,	V_68
+"ObjectID timestampt"	,	L_172
+"ObjectID Time"	,	L_170
+"Response To"	,	L_15
+OP_DELETE	,	V_146
+"Collection Name"	,	L_30
+"mongo.element.value.double"	,	L_157
+proto_reg_handoff_mongo	,	V_181
+hf_mongo_query_flags_oplogreplay	,	V_116
+"mongo.element.value.js_code"	,	L_185
+" collection. Otherwise all matching documents will be removed"	,	L_136
+hf_mongo_number_returned	,	V_103
+dissector_handle_t	,	T_15
+hf_mongo_element_value_double	,	V_50
+"Value"	,	L_152
+"mongo.element.name"	,	L_144
+mongo_module	,	V_152
+dissect_bson_document	,	F_6
+ett_mongo_code	,	V_84
+VALS	,	F_32
+"Allow query of replica slave"	,	L_99
+"Document length"	,	L_61
+hf_mongo_message_length	,	V_134
+BASE_DEC	,	V_156
+"mongo.element.value.objectid.time"	,	L_171
+"mongo.opcode"	,	L_19
+"mongo.element.value.objectid.machine"	,	L_174
+"Shared Config Stale"	,	L_42
+"Mongo Wire Protocol"	,	L_198
+ENC_NA	,	V_10
+proto_register_mongo	,	F_31
+"ObjectID PID"	,	L_176
+"mongo.document.zero"	,	L_68
+dissect_mongo	,	F_29
+"The query to select the document"	,	L_83
+"ObjectID inc"	,	L_179
+FT_INT64	,	V_166
+"mongo.elements"	,	L_141
+hf_mongo_query_flags_nocursortimeout	,	V_117
+hf_mongo_cursor_id	,	V_101
+"mongo.document.empty"	,	L_65
+"Message for the database"	,	L_49
+document_length	,	V_17
+"mongo.collection_name"	,	L_31
+prefs_register_uint_preference	,	F_41
+expert_register_protocol	,	F_38
+" collection name, using a dot for the concatenation"	,	L_27
+"mongo.update"	,	L_85
+"ObjectID increment"	,	L_181
+guint	,	T_2
+"Length"	,	L_149
+ett	,	V_174
+wmem_packet_scope	,	F_12
+packet_info	,	T_6
+objectid_sub_tree	,	V_27
+"Where in the cursor this reply is starting"	,	L_55
+hf_mongo_element_value_binary	,	V_61
+" field describing the failure."	,	L_41
+dissect_mongo_getmore	,	F_20
+"Bit vector of delete options."	,	L_132
+EXPFILL	,	V_178
+"Exhaust"	,	L_111
+"Elements"	,	L_140
+dissect_mongo_insert	,	F_17
+hf_mongo_reply_flags_cursornotfound	,	V_97
+BSON_ELEMENT_TYPE_DATETIME	,	V_88
+proto_item_get_len	,	F_15
+dissect_mongo_kill_cursors	,	F_22
+"Update Flags"	,	L_70
+HFILL	,	V_157
+PI_MALFORMED	,	V_176
+hf_mongo_update_flags	,	V_106
+"mongo.document"	,	L_60
+"mongo.query.flags.partial"	,	L_116
+OP_QUERY	,	V_144
+hf_mongo_document_empty	,	V_38
+" to prevent excess memory use. Set this option to prevent that"	,	L_106
+BSON_MAX_DOC_SIZE	,	V_37
+hf_mongo_database_name	,	V_12
+"mongo.number_to_return"	,	L_122
+create_dissector_handle	,	F_42
+hf_mongo_element_value_objectid_time	,	V_69
+"Element Name"	,	L_145
+hf_mongo_collection_name	,	V_13
+"Get partial results from a mongos if some shards are down (instead of throwing an error)"	,	L_117
+"Unknown"	,	L_8
+objectid	,	V_21
+"Element Value Length"	,	L_160
+"OpCode"	,	L_18
+hf_mongo_element_length	,	V_82
+"MONGO"	,	L_4
+"mongo.query.flags.slave_ok"	,	L_98
+THROW	,	F_9
+proto_register_protocol	,	F_34
+"Scope document for JavaScript evaluation"	,	L_189
+"Cursor ID"	,	L_50
+"Total message size (include this)"	,	L_11
+"Set when query failed. Results consist of one document containing an $err"	,	L_40
+"mongo.database_name"	,	L_29
+"mongo.element.value.objectid"	,	L_168
+hf_mongo_element_name	,	V_45
+tcp_dissect_pdus	,	F_30
+gint	,	T_8
+" %s"	,	L_7
+hf_mongo_element_value_string_length	,	V_54
+hf_mongo_query_flags_partial	,	V_120
+element	,	V_20
+tvb	,	V_1
+hf_mongo_number_to_return	,	V_122
+tvb_get_stringz	,	F_11
+COL_INFO	,	V_138
+hf_mongo_doc	,	V_15
+fcn_tree	,	V_7
+"Number to Return"	,	L_121
+dissect_mongo_pdu	,	F_23
+"Bit vector of query options."	,	L_23
+hf_mongo_reply_flags	,	V_95
+cinfo	,	V_130
+PI_ERROR	,	V_177
+ei_mongo_document_length_bad	,	V_36
+"If set, the database will update all matching objects in the collection."	,	L_79
+"mongo.reply.flags"	,	L_33
+dissect_mongo_query	,	F_19
+dissect_fullcollectionname	,	F_1
+"Database Name"	,	L_28
+FT_STRINGZ	,	V_162
+"mongo.element.value.int64"	,	L_156
+hf_mongo_selector	,	V_109
+currentPort	,	V_185
+BSON_ELEMENT_TYPE_UNDEF	,	V_62
+"Message"	,	L_47
+"Number of documents in the reply"	,	L_58
+"Element Type"	,	L_148
+BSON_ELEMENT_TYPE_DB_PTR	,	V_79
+hf_mongo_query_flags_slaveok	,	V_115
+"mongo.delete.flags.singleremove"	,	L_134
+"mongo.element.value.db_ptr"	,	L_182
+"JavaScript code"	,	L_184
+"BSON document length bad"	,	L_195
+COL_PROTOCOL	,	V_131
+js_scope_sub_tree	,	V_29
+"Query Flags"	,	L_21
+fcn_length	,	V_4
+"Document with no elements"	,	L_66
+"mongo.element.value.regex.pattern"	,	L_163
+"BSON document recursion exceeds"	,	L_193
+"Set when the server supports the AwaitData Query option"	,	L_46
+guint8	,	T_7
+number_returned	,	V_94
+"mongo.element.value.bool"	,	L_153
+ti	,	V_6
+doc_len	,	V_44
+"mongo.query"	,	L_125
+"Single Remove"	,	L_133
+"Length of BSON Document"	,	L_63
+OP_GET_MORE	,	V_145
+hf_mongo_reply_flags_awaitcapable	,	V_100
+"Reply Flags"	,	L_32
+"Starting From"	,	L_53
+"Regex Pattern"	,	L_164
+e_len	,	V_43
+tvbuff_t	,	T_1
+BSON_MAX_NESTING	,	V_33
+tvb_strsize	,	F_2
+"RequestID from the original request"	,	L_17
+" Otherwise only updates first matching doc."	,	L_80
+flags_tree	,	V_92
+hf_mongo_reply_flags_queryfailure	,	V_98
+"Message Length"	,	L_9
+"mongo.insert.flags.continueonerror"	,	L_91
+tvb_find_guint8	,	F_4
+gboolean	,	T_14
+"mongo.selector"	,	L_82
+OP_UPDATE	,	V_142
+"Element"	,	L_143
+"mongo.element.value.objectid.pid"	,	L_177
+"mongo.element.value.objectid.inc"	,	L_180
+"MONGO TCP Port"	,	L_201
+"Unknown Data type"	,	L_191
+"MONGO TCP port if other than the default"	,	L_202
+"Request ID"	,	L_12
+hf_mongo_request_id	,	V_135
+tvb_get_guint8	,	F_10
+"mongo"	,	L_199
+"If set, the database will not stop processing a bulk insert if one fails"	,	L_92
+"AwaitData"	,	L_107
+"mongo.insert.flags"	,	L_88
+"mongo.response_to"	,	L_16
+dissector_delete_uint	,	F_43
+ett_mongo_fcn	,	V_11
+hf_mongo_element_value_regex_pattern	,	V_77
+hf_mongo_insert_flags_continueonerror	,	V_112
+"mongo.return_field_selector"	,	L_128
+"ObjectID Value"	,	L_169
+"Response :"	,	L_5
+"Unknown Data (not interpreted)"	,	L_197
+ei_mongo_document_recursion_exceeded	,	V_34
+hf_mongo_element_value_objectid_inc	,	V_73
+"mongo.starting_from"	,	L_54
+hf_mongo_insert_flags	,	V_111
+"Partial"	,	L_115
+BSON_ELEMENT_TYPE_TIMESTAMP	,	V_89
+hf_mongo_element_type	,	V_48
+"Return Field Selector BSON Document"	,	L_129
+FT_INT32	,	V_155
+"If set, the database will insert the supplied object into the collection if no"	,	L_75
+hf_mongo_zero	,	V_105
+"DBPointer"	,	L_183
+"Document Elements"	,	L_142
+ENC_BIG_ENDIAN	,	V_70
+FT_DOUBLE	,	V_170
+"mongo.element.value.int"	,	L_155
+"BSON document length too short: %u"	,	L_2
+hf_mongo_element_value_js_code	,	V_83
+hf_mongo_message	,	V_104
+"mongo.element.value.string"	,	L_158
+"Tailable Cursor"	,	L_94
+"mongo.document.recursion_exceeded"	,	L_192
+"mongo.number_to_skip"	,	L_119
+BSON_ELEMENT_TYPE_DOC	,	V_56
+hf_mongo_update_flags_multiupdate	,	V_108
+" After a timeout period, we do return as normal"	,	L_110
+BSON_ELEMENT_TYPE_INT64	,	V_90
+"mongo.unknown.expert"	,	L_196
+get_mongo_pdu_len	,	F_28
+e_type	,	V_41
+hf_mongo_element_value_objectid_pid	,	V_72
+mongo_tree	,	V_128
+hf_mongo_element_value_int32	,	V_87
+hf_mongo_element_value_objectid_machine	,	V_71
+"ObjectID machine ID"	,	L_175
+"Multi Update"	,	L_77
+proto_register_subtree_array	,	F_37
+OP_INSERT	,	V_143
+gint32	,	T_4
+BSON_ELEMENT_TYPE_SYMBOL	,	V_53
+BSON_ELEMENT_TYPE_BINARY	,	V_59
+hf_mongo_delete_flags_singleremove	,	V_126
+"mongo.query.flags.exhaust"	,	L_112
+proto_tree_add_item	,	F_3
+pinfo	,	V_14
+proto_mongo	,	V_132
+_U_	,	V_150
+" (eg due to duplicate IDs)"	,	L_93
+"Number of cursorIDs in message"	,	L_139
+BSON_ELEMENT_TYPE_DOUBLE	,	V_49
+"mongo.reply.flags.cursornotfound"	,	L_36
+"The full collection name is the concatenation of the database name with the"	,	L_26
+"Insert Flags"	,	L_87
+initialized	,	V_183
+element_sub_tree	,	V_26
+OP_MSG	,	V_141
+hf_mongo_update_flags_upsert	,	V_107
+"If set, the database will remove only the first matching document in the"	,	L_135
+FT_UINT8	,	V_168
+"If we are at the end of the data, block for a while rather than returning no data."	,	L_109
+"mongo.element.length"	,	L_150
+proto_item	,	T_5
+"Regex Options"	,	L_166
+expert_register_field_array	,	F_39
+hf_mongo_element_value_string	,	V_55
+"mongo.reply.flags.sharedconfigstale"	,	L_43
+hf_mongo_element_value_db_ptr	,	V_80
+"Internal replication use only"	,	L_102
+"mongo.cursor_id"	,	L_51
+"Binary Element Length"	,	L_162
+expert_add_info_format	,	F_8
+hf_mongo_reply_flags_sharedconfigstale	,	V_99
+dbn_length	,	V_5
+elements	,	V_19
+global_mongo_tcp_port	,	V_182
+BSON_ELEMENT_TYPE_INT32	,	V_86
+"mongo.element.value.length"	,	L_159
+hf_mongo_element_value_regex_options	,	V_78
+"mongo.document.length.bad"	,	L_194
+"mongo.update.flags.upsert"	,	L_74
+ENC_LITTLE_ENDIAN	,	V_32
+"Request :"	,	L_6
+"Element Length"	,	L_151
+"Number of documents in the skip"	,	L_120
+hf_mongo_op_code	,	V_137
+"JavaScript scope"	,	L_187
+plen	,	V_151
+ei_register_info	,	T_13
+hf_mongo_query_flags_awaitdata	,	V_118
+hf_mongo_element_value_binary_length	,	V_60
+tvb_get_letohl	,	F_7
+nest_level	,	V_16
+hf_mongo_query_flags	,	V_113
+"Query Failure"	,	L_38
+"mongo.element.type"	,	L_147
+"Number of documents in the return"	,	L_123
+hf_mongo_elements	,	V_39
+FT_NONE	,	V_160
+offset	,	V_2
+expert_module_t	,	T_11
+tree	,	V_3
+"Specification of the update to perform"	,	L_86
+"Upsert"	,	L_73
+BSON_ELEMENT_TYPE_JS_CODE	,	V_52
+"JavaScript code to be evaluated"	,	L_186
+"Delete Flags"	,	L_130
+hf_mongo_fullcollectionname	,	V_8
+BSON_ELEMENT_TYPE_NULL	,	V_63
+tfs_yes_no	,	V_165
+ett_mongo_flags	,	V_96
+"mongo.reply.flags.queryfailure"	,	L_39
+OP_REPLY	,	V_140
+hf_mongo_query_flags_exhaust	,	V_119
+"mongo.query.flags.no_cursor_timeout"	,	L_104
+"mongo.query.flags"	,	L_22
+dissect_mongo_delete	,	F_21
+js_code	,	V_22
+hf_mongo_document	,	V_58
+hf_mongo_response_to	,	V_136
+ett_mongo_elements	,	V_40
+opcode_vals	,	V_139
+"ObjectID Machine"	,	L_173
+BSON_ELEMENT_TYPE_MIN_KEY	,	V_64
+"Number To Skip"	,	L_118
+"Type of request message"	,	L_20
+BSON_ELEMENT_TYPE_OBJ_ID	,	V_66
+ENC_UTF_8	,	V_46
+"Type"	,	L_146
+"tcp.port"	,	L_200
+proto_tree	,	T_3
+hf_mongo_delete_flags	,	V_125

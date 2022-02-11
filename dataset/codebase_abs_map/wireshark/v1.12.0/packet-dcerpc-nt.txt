@@ -1,0 +1,398 @@
+dcerpc_smb_store_pol_pkts	,	F_47
+tvb_get_string_enc	,	F_78
+"Acct Ctrl"	,	L_39
+"Number of elements in following array"	,	L_78
+"Blob data"	,	L_2
+"Unknown char. If you know what this is, contact wireshark developers."	,	L_84
+hf_nt_acb_disabled	,	V_129
+ett_nt_policy_hnd	,	V_90
+ett_nt_counted_string	,	V_32
+dissect_nt_sid	,	F_82
+NDR_POINTER_UNIQUE	,	V_27
+dissect_ndr_nt_PSID	,	F_88
+hnd	,	V_88
+TFS	,	F_104
+dissect_ndr_counted_byte_array_cb	,	F_19
+dissect_ndr_char_cvstring	,	V_35
+guint32	,	T_14
+is_open	,	V_75
+FT_BOOLEAN	,	V_150
+is_close	,	V_76
+"dcerpc.nt.domain_sid"	,	L_74
+dissect_nt_guid_hnd	,	F_71
+tfs_nt_acb_autolock	,	V_161
+"Size of string in short integers"	,	L_28
+size	,	V_21
+dissect_ndr_counted_ascii_string_cb	,	F_28
+wmem_strdup	,	F_52
+array_length	,	F_106
+"If a password is required for this account?"	,	L_49
+ett_nt_sid_pointer	,	V_115
+"The Domain SID"	,	L_75
+ett_nt_sid_and_attributes_array	,	V_138
+ENC_ASCII	,	V_15
+ei_dcerpc_nt_badsid	,	V_113
+proto_dcerpc	,	V_139
+hf_register_info	,	T_24
+", %s"	,	L_5
+guint16	,	T_11
+"Account disabled"	,	L_41
+"Wrong string type"	,	L_70
+hf_nt_acb_pwnotreq	,	V_127
+": %s"	,	L_6
+dissect_ntstatus	,	F_57
+k	,	V_56
+hf_lsa_String_name_len	,	V_53
+dissect_ndr_nt_acct_ctrl	,	F_90
+s	,	V_39
+"Name Len"	,	L_87
+hf_nt_acb_wstrust	,	V_122
+BASE_NONE	,	V_146
+cur_frame	,	V_82
+item_local	,	V_94
+hf_lsa_String_name_size	,	V_54
+hf_nt_acb_tempdup	,	V_126
+dissect_ndr_nt_LOGON_HOURS	,	F_96
+di	,	V_5
+"Account is autolocked"	,	L_67
+ett_nt_acct_ctrl	,	V_118
+"Count"	,	L_76
+BASE_HEX	,	V_149
+policy_hnd	,	V_58
+PROTO_ITEM_SET_GENERATED	,	F_65
+GPOINTER_TO_INT	,	F_21
+init_pol_hash	,	F_54
+use_remaining_space	,	V_8
+proto_item_add_subtree	,	F_4
+"If this account expires or not"	,	L_66
+proto_register_field_array	,	F_107
+"SID pointer:"	,	L_18
+dissect_ndr_uint16s	,	F_77
+hf_nt_acb_mns	,	V_124
+ei	,	V_166
+count	,	V_134
+CB_STR_COL_INFO	,	V_40
+list	,	V_68
+ett_nt_data_blob	,	V_12
+tvb_get_ptr	,	F_73
+FT_UINT16	,	V_142
+"Number of divisions for LOGON_HOURS"	,	L_81
+tfs_nt_acb_tempdup	,	V_154
+"dcerpc_smb: pol_hash name collision %s/%s\n"	,	L_10
+dissect_null_term_wstring	,	F_10
+DREP_ENC_INTEGER	,	F_76
+fd	,	V_77
+frame	,	V_64
+cb_str_postprocess	,	V_44
+hf_nt_acct_ctrl	,	V_117
+"dcerpc.nt.logonhours.divisions"	,	L_80
+tfs_nt_acb_mns	,	V_156
+g_hash_table_new	,	F_56
+expert_add_info	,	F_84
+PIDL_dissect_uint16	,	F_34
+ENC_UTF_16	,	V_17
+"dcerpc.nt.acb.domtrust"	,	L_59
+FT_STRING	,	V_163
+hf_nt_guid	,	V_45
+"SID pointer"	,	L_19
+g_warning	,	F_51
+"If this is a normal user account"	,	L_55
+"dcerpc.nt.acb.pwnoexp"	,	L_65
+length	,	V_105
+hf_nt_domain_sid	,	V_111
+FT_UINT32	,	V_148
+old_offset	,	V_49
+visited	,	V_78
+dissect_ndr_pointer	,	F_89
+FT_GUID	,	V_145
+hf	,	V_141
+"dcerpc.nt.attr"	,	L_86
+add_pol_handle	,	F_43
+dissect_ndr_lsa_String	,	F_32
+dissect_ndr_uint3264	,	F_6
+dcerpc_call_value	,	T_22
+GINT_TO_POINTER	,	F_16
+col_append_fstr	,	F_24
+wmem_strdup_printf	,	F_68
+last_child	,	V_112
+text	,	V_108
+hf_index	,	V_7
+hf_nt_count	,	V_114
+dissect_ndr_counted_byte_array	,	F_27
+k1	,	V_60
+k2	,	V_61
+pol_name	,	V_100
+"Normal user account"	,	L_53
+dissect_nt_GUID	,	F_30
+ett_nt_sid_array	,	V_135
+first_frame	,	V_70
+status	,	V_84
+dissect_nt_hnd	,	F_61
+newoffset	,	V_110
+tvb_bytes_to_ep_str	,	F_23
+"dcerpc.nt.open_frame"	,	L_36
+PIDL_POLHND_CLOSE	,	V_98
+"GUID (uuid for groups?)"	,	L_34
+cb_byte_array_postprocess	,	F_20
+hf_nt_acb_autolock	,	V_119
+"Divisions"	,	L_79
+ALIGN_TO_4_BYTES	,	V_55
+proto_tree_add_text	,	F_2
+callback_args	,	V_20
+BASE_DEC	,	V_143
+subtree	,	V_11
+ENC_NA	,	V_16
+call_data	,	V_28
+attributes	,	V_92
+GET_ITEM_PARENT	,	F_26
+e_ctx_hnd	,	T_18
+wmem_alloc	,	F_44
+key1	,	V_62
+key2	,	V_63
+"%s"	,	L_1
+g_hash_table_lookup	,	F_42
+"If this account is enabled or disabled"	,	L_43
+hf_nt_acb_normal	,	V_125
+e_hnd_type	,	T_21
+"dcerpc.nt.acb.svrtrust"	,	L_63
+ALIGN_TO_5_BYTES	,	V_22
+"Interdomain trust account"	,	L_58
+expert_register_protocol	,	F_108
+drep	,	V_6
+header_field_info	,	T_15
+"Character Array"	,	L_3
+"dcerpc.nt.acb.normal"	,	L_54
+"dcerpc.lsa_String.name_len"	,	L_88
+is_null_pol	,	F_39
+pol_hash_compare	,	F_40
+"PSID_ARRAY"	,	L_23
+DCERPC_IS_NDR64	,	V_30
+DOS_errors_ext	,	V_86
+tfs_nt_acb_disabled	,	V_151
+guint	,	T_9
+"Length"	,	L_29
+ett	,	V_165
+wmem_packet_scope	,	F_69
+"Frame handle closed"	,	L_37
+dissect_null_term_string	,	F_7
+dissect_dcerpc_uint16s	,	F_75
+tfs_nt_acb_homedirreq	,	V_152
+hf_logonhours_unknown_char	,	V_130
+packet_info	,	T_2
+"GUID handle"	,	L_14
+PIDL_dissect_policy_hnd	,	F_67
+"&lt;...&gt;"	,	L_15
+tfs_nt_acb_normal	,	V_155
+dissect_nt_policy_hnd	,	F_66
+EXPFILL	,	V_169
+CB_STR_SAVE	,	V_107
+"dcerpc.lsa_String.name_size"	,	L_90
+"GUID"	,	L_32
+hf_logonhours_divisions	,	V_133
+dissect_nt_64bit_time	,	F_37
+"SID_AND_ATTRIBUTES:"	,	L_24
+"dcerpc.nt.acb.autolock"	,	L_68
+ett_nt_counted_byte_array	,	V_34
+dissect_ndr_counted_string	,	F_17
+wmem_memdup	,	F_70
+"dcerpc.nt.str.size"	,	L_27
+dissect_ndr_uuid_t	,	F_31
+dissect_ndr_nt_SID28	,	F_81
+"Byte Array"	,	L_4
+"Blob size"	,	L_91
+last_frame	,	V_71
+tfs_nt_acb_svrtrust	,	V_159
+dissect_ndr_ucvarray	,	F_95
+pitem	,	V_87
+HFILL	,	V_144
+PI_MALFORMED	,	V_167
+dissect_ndr_nt_NTTIME	,	F_36
+tfs_nt_acb_domtrust	,	V_157
+"dcerpc.nt.sting_error"	,	L_71
+hf_nt_policy_open_frame	,	V_95
+proto_registrar_get_nth	,	F_33
+dissect_ndr_counted_string_helper	,	F_15
+hf_nt_acb_homedirreq	,	V_128
+null_policy_hnd	,	V_59
+callback	,	V_19
+"Domain"	,	L_17
+"dcerpc.nt.close_frame"	,	L_38
+"Unknown error 0x%08x"	,	L_12
+"dcerpc.nt.guid"	,	L_33
+tvb_get_string	,	F_79
+dissect_ndr_wchar_cvstring	,	V_26
+dissect_ndr_nt_SID_AND_ATTRIBUTES_ARRAY	,	F_102
+len	,	V_10
+gint	,	T_13
+" %s"	,	L_7
+g_hash_table_insert	,	F_46
+"Ascii String"	,	L_8
+tvb	,	V_1
+COL_INFO	,	V_42
+dcerpc_procedure_name	,	V_103
+val_to_str_ext	,	F_59
+"Password required"	,	L_47
+"dcerpc.nt.acb.pwnotreq"	,	L_48
+cinfo	,	V_41
+PI_ERROR	,	V_168
+"Domain SID"	,	L_73
+pdata	,	V_83
+dissect_dcerpc_uint8s	,	F_72
+polprev	,	V_73
+pol	,	V_66
+hf_info	,	V_50
+dissect_ndr_pointer_cb	,	F_14
+proto_tree_add_boolean	,	F_91
+key	,	V_57
+hf_nt_cs_size	,	V_25
+dissect_ndr_uint32	,	F_58
+close_frame	,	V_80
+"dcerpc.nt.blob.size"	,	L_92
+dcerpc_store_polhnd_type	,	F_48
+"MNS logon user account"	,	L_56
+"Workstation trust account"	,	L_60
+"LOGON_HOURS"	,	L_21
+"Length of string in short integers"	,	L_31
+dcerpc_smb_init	,	F_103
+guint8	,	T_5
+g_hash_table_destroy	,	F_55
+start_offset	,	V_36
+tvb_length_remaining	,	F_5
+hf_nt_cs_len	,	V_24
+"dcerpc.nt.badsid"	,	L_93
+pol_value	,	T_19
+tvbuff_t	,	T_1
+end_offset	,	V_37
+polnext	,	V_74
+tvb_strsize	,	F_8
+parent_tree	,	V_46
+"Temporary duplicate account"	,	L_50
+gboolean	,	T_12
+dcerpc_info	,	T_4
+"Password expires"	,	L_64
+"Association rejected"	,	L_94
+"Attributes"	,	L_85
+HND_TYPE_GUID	,	V_91
+dissect_LOGON_HOURS_hours	,	F_94
+register_init_routine	,	F_110
+dcerpc_store_polhnd_name	,	F_49
+name	,	V_51
+"Is homedirs required for this account?"	,	L_46
+dissect_ndr_uint16	,	F_13
+dissect_ndr_datablob	,	F_1
+next	,	V_69
+"dcerpc.nt.str.len"	,	L_30
+"dcerpc.nt.count"	,	L_77
+dcerpc_callback_fnct_t	,	T_10
+NT_errors_ext	,	V_85
+ett_nt_logon_hours	,	V_132
+"Non terminated string"	,	L_72
+param	,	V_47
+dissect_ndr_ucarray	,	F_99
+dcerpc_fetch_polhnd_data	,	F_53
+mask	,	V_116
+"dcerpc.nt.acb.tempdup"	,	L_51
+dissect_ndr_uint8	,	F_93
+"dcerpc.nt.unknown.char"	,	L_83
+hf_nt_attrib	,	V_137
+hf_nt_error	,	V_162
+tfs_nt_acb_wstrust	,	V_158
+"&lt;UNKNOWN&gt;"	,	L_11
+hfindex	,	V_48
+sid_str	,	V_109
+guint3264	,	T_7
+add_subtree	,	V_31
+options	,	V_38
+dissect_doserror	,	F_60
+item	,	V_9
+PIDL_POLHND_OPEN	,	V_97
+"LOGON_HOURS:"	,	L_20
+"Server trust account"	,	L_62
+proto_item_append_text	,	F_25
+tfs_nt_acb_pwnoexp	,	V_160
+dissect_ndr_nt_PSID_ARRAY_sids	,	F_98
+"If this account has been autolocked"	,	L_69
+proto_register_subtree_array	,	F_105
+dissect_ndr_str_pointer_item	,	F_80
+proto_tree_add_item	,	F_9
+open_frame	,	V_81
+private_data	,	V_102
+pinfo	,	V_3
+_U_	,	V_14
+flags	,	V_29
+ett_nt_logon_hours_hours	,	V_131
+dissect_ndr_ctx_hnd	,	F_62
+pol_hash_fn	,	F_38
+proto_registrar_get_name	,	F_3
+pol_string	,	V_99
+"SID array:"	,	L_22
+dissect_ndr_nt_PSID_no_hf	,	F_97
+"dcerpc.nt.acct_ctrl"	,	L_40
+ett_nt_counted_ascii_string	,	V_43
+FT_UINT8	,	V_164
+cb_wstr_postprocess	,	V_33
+gconstpointer	,	T_16
+proto_item	,	T_6
+expert_register_field_array	,	F_109
+"%s: "	,	L_9
+"Frame handle opened"	,	L_35
+expert_dcerpc_nt	,	V_140
+PIDL_POLHND_TYPE_MASK	,	V_104
+CB_STR_ITEM_LEVELS	,	F_22
+ENC_LITTLE_ENDIAN	,	V_18
+pol_hash_key	,	T_17
+levels	,	T_8
+"dcerpc.nt.acb.disabled"	,	L_42
+"dcerpc.nt.acb.mns"	,	L_57
+data	,	V_106
+hf_nt_policy_close_frame	,	V_96
+num	,	V_79
+"If this is a temporary duplicate account"	,	L_52
+dissect_ndr_counted_ascii_string	,	F_29
+dissect_ndr_nt_SID	,	F_85
+"Home dir required"	,	L_44
+uuid	,	V_93
+dissect_ndr_uint8s	,	F_74
+find_pol_handle	,	F_41
+tfs_nt_acb_pwnotreq	,	V_153
+ei_register_info	,	T_25
+conformant_run	,	V_23
+hf_nt_data_blob_len	,	V_13
+offset	,	V_2
+DISSECTOR_ASSERT_NOT_REACHED	,	F_63
+expert_module_t	,	T_23
+tree	,	V_4
+"%s(%s)"	,	L_16
+dissect_ndr_nt_SID_AND_ATTRIBUTES	,	F_101
+dissect_ndr_counted_string_cb	,	F_12
+dissect_ndr_nt_SID_with_options	,	F_86
+"dcerpc.nt.acb.homedirreq"	,	L_45
+DEBUG_HASH_COLL	,	F_50
+"SID_AND_ATTRIBUTES array:"	,	L_25
+hf_nt_acb_pwnoexp	,	V_120
+proto_tree_add_uint	,	F_64
+HND_TYPE_CTX_HANDLE	,	V_89
+"Unknown char"	,	L_82
+ett_lsa_String	,	V_52
+"Policy Handle"	,	L_13
+ett_nt_sid_and_attributes	,	V_136
+"Name Size"	,	L_89
+dissect_ndr_counted_string_ptr	,	F_18
+pol_hash	,	V_67
+tvb_unicode_strsize	,	F_11
+hf_nt_acb_domtrust	,	V_123
+pol_hash_value	,	T_20
+dcv	,	V_101
+wmem_file_scope	,	F_45
+proto_tree_get_parent	,	F_83
+value	,	V_72
+dissect_ndr_nt_PSID_ARRAY	,	F_100
+hf_nt_acb_svrtrust	,	V_121
+dissect_LOGON_HOURS_entry	,	F_92
+FT_FRAMENUM	,	V_147
+proto_item_set_len	,	F_35
+dissect_ndr_nt_SID_hf_through_ptr	,	F_87
+"Size"	,	L_26
+valuep	,	V_65
+proto_tree	,	T_3
+"dcerpc.nt.acb.wstrust"	,	L_61

@@ -1,0 +1,272 @@
+"CM-STATUS Event Enable Bitmask for Non-Channel-Specific Events"	,	L_8
+"MDD Message:"	,	L_1
+"Number of Fragments"	,	L_12
+"Destination Address"	,	L_103
+proto_register_protocol	,	F_14
+hf_docsis_mdd_cm_status_event_enable_bitmask_qam_fec_lock_failure	,	V_40
+"docsis_mdd.ccc"	,	L_10
+primary_capable_vals	,	V_103
+verbose_rpc_reporting_vals	,	V_106
+"Verbose RCP reporting"	,	L_68
+"Mdd Extended Upstream Transmit Power Support"	,	L_120
+"Mdd Downstream Ambiguity Resolution frequency"	,	L_64
+len	,	V_8
+mdd_tree	,	V_5
+gint	,	T_5
+tlv_sub_tree	,	V_14
+FT_ETHER	,	V_114
+"docsis_mdd.cm_status_event_enable_non_channel_specific_events_cm_returned_to_ac_power"	,	L_116
+"Mdd Configuration Change Count"	,	L_11
+hf_docsis_mdd_cm_status_event_enable_bitmask_t4_timeout	,	V_66
+"docsis_mdd.event_type"	,	L_92
+TFS	,	F_13
+tvb	,	V_1
+COL_INFO	,	V_17
+hf_docsis_mdd_downstream_active_channel_list_modulation_order	,	V_34
+FT_BOOLEAN	,	V_116
+"Mdd Pre-registration DSID"	,	L_76
+"Mdd Upstream Frequency Range"	,	L_87
+tvb_reported_length_remaining	,	F_2
+ett_tlv	,	V_25
+docsis_mdd_handle	,	V_119
+cinfo	,	V_16
+UPSTREAM_TRANSMIT_POWER_REPORTING	,	V_82
+hf_docsis_mdd_upstream_frequency_range	,	V_72
+mdd_tfs_on_off	,	V_117
+array_length	,	F_16
+"docsis_mdd.early_authentication_and_encryption"	,	L_78
+DOWNSTREAM_ACTIVE_CHANNEL_LIST_CM_STATUS_EVENT_ENABLE_BITMASK	,	V_38
+"docsis_mdd.mac_domain_downstream_service_group_md_ds_sg_identifier"	,	L_61
+"CM-STATUS event non-channel-event Cm returned to AC power"	,	L_117
+hf_docsis_mdd_maximum_event_holdoff_timer	,	V_79
+pos	,	V_6
+hf_register_info	,	T_7
+"Mdd Symbol Clock Locking Indicator"	,	L_90
+hf_docsis_mdd_cm_status_event_enable_bitmask_successful_ranging_after_t3_retries_exceeded	,	V_68
+ett_sub_tlv	,	V_33
+"docsis_mdd.symbol_clock_locking_indicator"	,	L_89
+"docsis_mdd.fragment_sequence_number"	,	L_16
+"MD-DS-SG Identifier"	,	L_60
+mdd_tlv_vals	,	V_26
+VERBOSE_RCP_REPORTING	,	V_53
+"docsis_mdd.mac_domain_downstream_service_group_channel_id"	,	L_58
+DOWNSTREAM_ACTIVE_CHANNEL_LIST_MODULATION_ORDER_ANNEX	,	V_32
+UPSTREAM_ACTIVE_CHANNEL_LIST_CM_STATUS_EVENT_ENABLE_BITMASK	,	V_65
+hf_docsis_mdd_event_type	,	V_77
+hf_docsis_mdd_downstream_active_channel_list_channel_id	,	V_29
+"Mdd Mac Domain Downstream Service Group MD-DS-SG Identifier"	,	L_62
+"docsis_mdd.upstream_frequency_range"	,	L_86
+"CM-STATUS event T4 timeout"	,	L_50
+i	,	V_12
+hf_docsis_mdd_number_of_fragments	,	V_22
+"Mdd Fragment Sequence Number"	,	L_17
+CM_STATUS_EVENT_ENABLE_NON_CHANNEL_SPECIFIC_EVENTS	,	V_90
+"Mdd Downstream Active Channel List Modulation Order"	,	L_32
+"docsis_mdd.pre_registration_dsid"	,	L_75
+"docsis_mdd.downstream_active_channel_list_primary_capable"	,	L_34
+guint8	,	T_6
+hf_docsis_mdd_mac_domain_downstream_service_group_md_ds_sg_identifier	,	V_45
+BASE_NONE	,	V_115
+"docsis_mdd.cm_status_event_enable_bitmask_t3_retries_exceeded"	,	L_52
+eae_vals	,	V_109
+DSG_DA_TO_DSID_ASSOCIATION_DSID	,	V_88
+proto_register_docsis_mdd	,	F_11
+"Maximum Number of Reports per Event"	,	L_97
+"docsis_mdd.number_of_fragments"	,	L_13
+"Mdd Downstream Active Channel List MDD Timeout"	,	L_38
+"DOCSIS Mac Domain Description"	,	L_121
+register_dissector	,	F_18
+"Mdd Mac Domain Upstream Ambiguity Resolution Channel List Channel Id"	,	L_84
+"docsis_mdd.dsg_da_to_dsid_association_da"	,	L_104
+"CM-STATUS event MDD Recovery"	,	L_44
+EARLY_AUTHENTICATION_AND_ENCRYPTION	,	V_60
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_4
+MAC_DOMAIN_DOWNSTREAM_SERVICE_GROUP_CHANNEL_IDS	,	V_46
+dissect_mdd	,	F_1
+FT_UINT24	,	V_108
+"Mdd Number of Fragments"	,	L_14
+proto_item_add_subtree	,	F_5
+"docsis_mdd.current_channel_dcid"	,	L_19
+symbol_clock_locking_indicator_vals	,	V_111
+proto_register_field_array	,	F_15
+rpc_center_frequency_spacing_vals	,	V_105
+" (Unlimited)"	,	L_7
+dissector_add_uint	,	F_21
+"docsis_mgmt"	,	L_124
+FT_UINT16	,	V_104
+"docsis_mdd.cm_status_event_enable_non_channel_specific_events_sequence_out_of_range"	,	L_110
+hf_docsis_mdd_cm_status_event_enable_non_channel_specific_events_sequence_out_of_range	,	V_91
+tvb_get_guint8	,	F_7
+"CM-STATUS event QAM/FEC Lock Recovery"	,	L_47
+"docsis_mdd.dsg_da_to_dsid_association_dsid"	,	L_107
+RCP_CENTER_FREQUENCY_SPACING	,	V_51
+IP_PROVISIONING_MODE	,	V_56
+hf_docsis_mdd_upstream_transmit_power_reporting	,	V_83
+"CM-STATUS event T3 Retries Exceeded"	,	L_53
+"CM-STATUS event non-channel-event Sequence out of range"	,	L_111
+text_item	,	V_15
+MAC_DOMAIN_DOWNSTREAM_SERVICE_GROUP_MD_DS_SG_IDENTIFIER	,	V_44
+subpos	,	V_7
+hf_docsis_mdd_maximum_number_of_reports_per_event	,	V_81
+hf_docsis_mdd_cm_status_event_enable_non_channel_specific_events_cm_operating_on_battery_backup	,	V_92
+"Annex"	,	L_27
+RECEIVE_CHANNEL_PROFILE_REPORTING_CONTROL	,	V_50
+SYMBOL_CLOCK_LOCKING_INDICATOR	,	V_73
+"docsis_mdd.maximum_event_holdoff_timer"	,	L_95
+hf_docsis_mdd_downstream_ambiguity_resolution_frequency	,	V_49
+"RPC Center Frequency Spacing"	,	L_65
+"CM operating on battery backup"	,	L_112
+"Primary Capable"	,	L_33
+length	,	V_9
+find_dissector	,	F_20
+DOWNSTREAM_AMBIGUITY_RESOLUTION_FREQUENCY_LIST	,	V_48
+hf_docsis_mdd_fragment_sequence_number	,	V_23
+"Mdd RPC Center Frequency Spacing"	,	L_67
+upstream_frequency_range_vals	,	V_110
+DSG_DA_TO_DSID_ASSOCIATION_DA	,	V_85
+ENC_BIG_ENDIAN	,	V_21
+hf_docsis_mdd_cm_status_event_enable_bitmask_mdd_timeout	,	V_39
+hf_docsis_mdd_cm_status_event_enable_bitmask_t3_retries_exceeded	,	V_67
+FT_UINT32	,	V_100
+hf_docsis_mdd_early_authentication_and_encryption	,	V_61
+"docsis_mdd.downstream_active_channel_list_modulation_order"	,	L_31
+hf	,	V_96
+"Upstream Transmit Power Reporting"	,	L_100
+"Fragment Sequence Number"	,	L_15
+"docsis_mdd.downstream_active_channel_list_frequency"	,	L_25
+"docsis_mdd.upstream_active_channel_list_upstream_channel_id"	,	L_81
+"Returned to AC power"	,	L_115
+"Mdd Current Channel DCID"	,	L_20
+"Channel ID"	,	L_21
+hf_docsis_mdd_downstream_active_channel_list_annex	,	V_35
+hf_docsis_mdd_mac_domain_downstream_service_group_channel_id	,	V_47
+hf_docsis_mdd_ccc	,	V_20
+proto_tree_add_subtree	,	F_8
+EXTENDED_UPSTREAM_TRANSMIT_POWER_SUPPORT	,	V_94
+"docsis_mdd.downstream_ambiguity_resolution_frequency"	,	L_63
+col_set_str	,	F_3
+"Successful Ranging after T3 Retries Exceeded"	,	L_54
+"Event Type"	,	L_91
+"Extended Upstream Transmit Power Support"	,	L_118
+hf_docsis_mdd_rpc_center_frequency_spacing	,	V_52
+ett_docsis_mdd	,	V_19
+J83_annex_vals	,	V_101
+"Mdd Maximum Event Holdoff Timer"	,	L_96
+CM_STATUS_EVENT_CONTROL	,	V_75
+proto_item_append_text	,	F_10
+"Mdd Downstream Active Channel List Primary Capable"	,	L_35
+"Mdd Downstream Active Channel List Annex"	,	L_29
+"Mdd Maximum Number of Reports per Event"	,	L_99
+it	,	V_4
+hf_docsis_mdd_cm_status_event_enable_bitmask_qam_fec_lock_recovery	,	V_42
+hf_docsis_mdd_dsg_da_to_dsid_association_da	,	V_86
+proto_register_subtree_array	,	F_17
+"CM-STATUS Event Enable Bitmask"	,	L_5
+val_to_str	,	F_9
+upstream_transmit_power_reporting_vals	,	V_113
+proto_tree_add_item	,	F_6
+pinfo	,	V_2
+proto_reg_handoff_docsis_mdd	,	F_19
+dissector_handle_t	,	T_8
+hf_docsis_mdd_pre_registration_dsid	,	V_59
+"docsis_mdd.verbose_rpc_reporting"	,	L_69
+"Upstream Channel Id"	,	L_80
+proto_docsis_mdd	,	V_18
+"Mdd IP Provisioning Mode"	,	L_73
+"Modulation Order"	,	L_30
+hf_docsis_mdd_cm_status_event_enable_bitmask_mdd_recovery	,	V_41
+"docsis_mdd.downstream_active_channel_list_channel_id"	,	L_22
+"docsis_mdd.upstream_transmit_power_reporting"	,	L_101
+"docsis_mdd.downstream_active_channel_list_annex"	,	L_28
+"Current Channel DCID"	,	L_18
+VALS	,	F_12
+"Pre-registration DSID"	,	L_74
+hf_docsis_mdd_current_channel_dcid	,	V_24
+hf_docsis_mdd_cm_status_event_enable_non_channel_specific_events_cm_returned_to_ac_power	,	V_93
+DSG_DA_TO_DSID_ASSOCIATION_ENTRY	,	V_84
+"docsis_mdd.downstream_active_channel_list_mdd_timeout"	,	L_37
+"IP Provisioning Mode"	,	L_71
+EVENT_TYPE_CODE	,	V_76
+FT_UINT8	,	V_97
+"Channel Id"	,	L_57
+BASE_DEC	,	V_98
+"Mdd Mac Domain Downstream Service Group Channel Id"	,	L_59
+"T4 timeout"	,	L_48
+"Maximum Event Holdoff Timer (units of 20 ms)"	,	L_94
+DOWNSTREAM_ACTIVE_CHANNEL_LIST_CHANNEL_ID	,	V_28
+proto_item	,	T_4
+MAC_DOMAIN_DOWNSTREAM_SERVICE_GROUP	,	V_43
+"Mdd Downstream Active Channel List QAM/FEC Lock Failure"	,	L_41
+DOWNSTREAM_ACTIVE_CHANNEL_LIST_FREQUENCY	,	V_30
+"docsis_mdd"	,	L_123
+ENC_NA	,	V_87
+"docsis_mdd.upstream_ambiguity_resolution_channel_list_channel_id"	,	L_83
+"DOCSIS Mdd"	,	L_122
+"Mdd Upstream Active Channel List Upstream Channel Id"	,	L_82
+"docsis_mdd.maximum_number_of_reports_per_event"	,	L_98
+UPSTREAM_ACTIVE_CHANNEL_LIST	,	V_62
+"Mdd Mdd DSG DA to DSID association DSID"	,	L_108
+"DSID"	,	L_106
+"docsis_mdd.cm_status_event_enable_non_channel_specific_events_cm_operating_on_battery_backup"	,	L_113
+"MDD Message"	,	L_2
+UPSTREAM_FREQUENCY_RANGE	,	V_71
+"MDD Recovery"	,	L_42
+hf_docsis_mdd_symbol_clock_locking_indicator	,	V_74
+symbol_cm_status_event_vals	,	V_112
+"QAM/FEC Lock Recovery"	,	L_45
+modulation_order_vals	,	V_102
+MAXIMUM_EVENT_HOLDOFF_TIMER	,	V_78
+"Early Authentication and Encryption"	,	L_77
+"docsis_mdd.cm_status_event_enable_bitmask_successful_ranging_after_t3_retries_exceeded"	,	L_55
+hf_docsis_mdd_downstream_active_channel_list_primary_capable	,	V_37
+ett	,	V_118
+tree	,	V_3
+DOWNSTREAM_ACTIVE_CHANNEL_LIST	,	V_27
+PRE_REGISTRATION_DSID	,	V_58
+" (%d ms)"	,	L_6
+"T3 Retries Exceeded"	,	L_51
+ip_provisioning_mode_vals	,	V_107
+packet_info	,	T_2
+hf_docsis_mdd_dsg_da_to_dsid_association_dsid	,	V_89
+"Mdd Early Authentication and Encryption"	,	L_79
+"docsis_mdd.cm_status_event_enable_bitmask_qam_fec_lock_failure"	,	L_40
+"Modulation Order/Annex"	,	L_4
+hf_docsis_mdd_extended_upstream_transmit_power_support	,	V_95
+IP_INITIALIZATION_PARAMETERS	,	V_55
+"docsis_mdd.cm_status_event_enable_bitmask_t4_timeout"	,	L_49
+"CM-STATUS event non-channel-event Cm operating on battery backup"	,	L_114
+"docsis_mdd.extended_upstream_transmit_power_support"	,	L_119
+"Unknown TLV (%u)"	,	L_3
+UPSTREAM_AMBIGUITY_RESOLUTION_CHANNEL_LIST	,	V_69
+"Frequency"	,	L_24
+tlv_tree	,	V_13
+hf_docsis_mdd_downstream_active_channel_list_frequency	,	V_31
+"Upstream Frequency Range"	,	L_85
+"QAM/FEC Lock Failure"	,	L_39
+"CM-STATUS event Successful Ranging after T3 Retries Exceeded"	,	L_56
+subtype	,	V_10
+"Mdd Verbose RPC Reporting"	,	L_70
+hf_docsis_mdd_upstream_ambiguity_resolution_channel_list_channel_id	,	V_70
+"Sequence out of range"	,	L_109
+HFILL	,	V_99
+hf_docsis_mdd_verbose_rcp_reporting	,	V_54
+"Mdd Downstream Active Channel List Channel ID"	,	L_23
+"Symbol Clock Locking Indicator"	,	L_88
+hf_docsis_mdd_upstream_active_channel_list_upstream_channel_id	,	V_64
+"docsis_mdd.rpc_center_frequency_spacing"	,	L_66
+"Mdd CM-STATUS Event Type"	,	L_93
+"docsis_mdd.ip_provisioning_mode"	,	L_72
+"Mdd Upstream Transmit Power Reporting"	,	L_102
+"Mdd Downstream Active Channel List Frequency"	,	L_26
+"MDD Timeout"	,	L_36
+UPSTREAM_ACTIVE_CHANNEL_LIST_UPSTREAM_CHANNEL_ID	,	V_63
+"Configuration Change Count"	,	L_9
+MAXIMUM_NUMBER_OF_REPORTS_PER_EVENT	,	V_80
+"docsis_mdd.cm_status_event_enable_bitmask_qam_fec_lock_recovery"	,	L_46
+"docsis_mdd.cm_status_event_enable_bitmask_mdd_recovery"	,	L_43
+"Mdd DSG DA to DSID association Destination Address"	,	L_105
+DOWNSTREAM_ACTIVE_CHANNEL_LIST_PRIMARY_CAPABLE	,	V_36
+proto_tree	,	T_3
+sublength	,	V_11
+hf_docsis_mdd_ip_provisioning_mode	,	V_57

@@ -1,0 +1,324 @@
+"Sequence number"	,	L_136
+cmpp_uint4	,	F_13
+cmpp_uint1	,	F_9
+CMPP_DELIVER_RESP	,	V_98
+"China Mobile Point to Point Protocol"	,	L_139
+cmpp_uint2	,	F_11
+"Destination Address"	,	L_96
+CMPP_TERMINATE	,	V_93
+proto_register_protocol	,	F_38
+hf_cmpp_Service_Id	,	V_41
+"Version"	,	L_23
+"Deliver Report"	,	L_121
+tcp_dissect_pdus	,	F_35
+gint	,	T_3
+"Destination ID"	,	L_112
+"Total Length"	,	L_8
+"cmpp.Report.SMSC_sequence"	,	L_135
+"cmpp.submit.Fee_terminal_type"	,	L_67
+tvb	,	V_2
+"Total number of parts of the message with the same Msg_Id, start from 1"	,	L_40
+guint32	,	T_9
+COL_INFO	,	V_84
+"SIMG Authenticate result"	,	L_32
+"cmpp.submit.Valld_Time"	,	L_85
+FT_BOOLEAN	,	V_112
+"cmpp.Dest_terminal_Id"	,	L_97
+version	,	V_7
+sub_tree	,	V_20
+"%02u.%02u"	,	L_1
+command_id	,	V_77
+"cmpp.Msg_Id.sequence_id"	,	L_50
+hf_cmpp_submit_DestUsr_tl	,	V_54
+"cmpp.submit_resp.Result"	,	L_110
+cinfo	,	V_82
+tvb_len	,	V_78
+"Number of Part"	,	L_38
+"cmpp.Sequence_Id"	,	L_15
+array_length	,	F_40
+"%02u/%02u %02u:%02u:%02u"	,	L_2
+proto_register_cmpp	,	F_36
+"Message source SP ID"	,	L_79
+vals_command_Id	,	V_81
+"Fake Fee Terminal"	,	L_66
+"Service ID, a mix of characters, numbers and symbol"	,	L_59
+hf_cmpp_submit_Registered_Delivery	,	V_39
+"Charging Informations"	,	L_60
+hf_cmpp_Dest_terminal_Id	,	V_55
+hf_cmpp_Sequence_Id	,	V_90
+"CMPP Version"	,	L_25
+msgLen	,	V_35
+"Command Id of the CMPP messages"	,	L_13
+"Part number of the message with the same Msg_Id, start from 1"	,	L_43
+"cmpp.Command_Id"	,	L_12
+"cmpp.submit.Msg_src"	,	L_78
+hf_cmpp_connect_Source_Addr	,	V_27
+hf_cmpp_connect_Timestamp	,	V_30
+hf_cmpp_deliver_Src_terminal_type	,	V_70
+"cmpp.deliver.Report"	,	L_125
+proto_tree_add_boolean	,	F_15
+"(Unknown CMPP Operation 0x%08X)"	,	L_5
+"SP Service ID or server number"	,	L_114
+hf_register_info	,	T_15
+"GSM TP udhi field"	,	L_74
+"Detail Deliver Report"	,	L_124
+"cmpp.connect.Source_Addr"	,	L_18
+"cmpp.Msg_Length"	,	L_103
+hf_cmpp_deliver_Dest_Id	,	V_68
+guint16	,	T_7
+CMPP_SUBMIT_RESP	,	V_96
+"Timestamp MM/DD HH:MM:SS Bit 64 ~ 39"	,	L_45
+COL_PROTOCOL	,	V_83
+"%s. "	,	L_7
+ismg_code	,	V_18
+i	,	V_33
+hf_cmpp_LinkID	,	V_59
+vals_Deliver_Resp_Result	,	V_117
+"Fee Terminal ID"	,	L_63
+"Done_time"	,	L_132
+"cmpp.deliver.Report.Status"	,	L_128
+guint8	,	T_6
+cmpp_tree	,	V_76
+ti	,	V_75
+BASE_NONE	,	V_107
+"cmpp.deliver.Src_terminal_Id"	,	L_116
+"Fee Type"	,	L_80
+cmpp_submit	,	F_21
+"SMS Messages"	,	L_4
+hf_cmpp_deliver_Registered_Delivery	,	V_71
+"Authenticator Source"	,	L_20
+"Source ID"	,	L_90
+cmpp_handle	,	V_119
+"Timestamp"	,	L_26
+tvb_get_ntohl	,	F_8
+"Part Number"	,	L_41
+tvbuff_t	,	T_2
+hf_cmpp_Msg_Content	,	V_58
+"cmpp.deliver.Dest_Id"	,	L_113
+"Msg_Id sequence Id"	,	L_49
+tvb_get_ntohs	,	F_12
+cmpp_submit_resp	,	F_22
+BASE_HEX	,	V_105
+"cmpp.Msg_Fmt"	,	L_76
+cmpp_msg_id	,	F_16
+gboolean	,	T_8
+"Format YYMMDDHHMM"	,	L_131
+"This value matches SMPP submit_sm source_addr field"	,	L_92
+"The message is a deliver report if this value = 1"	,	L_123
+proto_item_add_subtree	,	F_18
+"Registered Delivery flag"	,	L_54
+proto_register_field_array	,	F_39
+"Source Address, the SP_Id"	,	L_19
+"cmpp.TP_udhi"	,	L_73
+"Number of destination address, must smaller then 100"	,	L_95
+dissector_add_uint	,	F_44
+"cmpp.TP_pId"	,	L_70
+"The detail report"	,	L_126
+hf_cmpp_TP_udhi	,	V_46
+FT_UINT16	,	V_111
+CMPP_DELIVER_REPORT_LEN	,	V_61
+dissect_cmpp	,	F_33
+"cmpp.connect.Timestamp"	,	L_27
+cmpp_desegment	,	V_100
+tvb_get_guint8	,	F_5
+hf_cmpp_submit_FeeType	,	V_49
+"Src_terminal_Id"	,	L_115
+month	,	V_11
+hf_cmpp_deliver_Report_Done_time	,	V_65
+cmpp_connect_resp	,	F_20
+"cmpp.Msg_Id.ismg_code"	,	L_47
+"cmpp.submit.Src_Id"	,	L_91
+"cmpp.submit.FeeCode"	,	L_83
+gint8	,	T_4
+"Fake source terminal type"	,	L_118
+hf_cmpp_submit_Fee_UserType	,	V_42
+FT_STRING	,	V_106
+"Charging Informations, if value is 3, this field will not be used"	,	L_62
+"cmpp.submit.Registered_Delivery"	,	L_53
+hf_cmpp_submit_Src_Id	,	V_53
+hf_cmpp_deliver_Report	,	V_72
+get_cmpp_pdu_len	,	F_32
+new_create_dissector_handle	,	F_43
+"cmpp.deliver.Report.Done_time"	,	L_133
+"SMS Message length, ASCII must be &lt;= 160 bytes, other must be &lt;= 140 bytes"	,	L_104
+length	,	V_5
+vals_Msg_Fmt	,	V_114
+"ISMG Code"	,	L_46
+ENC_BIG_ENDIAN	,	V_21
+"cmpp.connect_resp.AuthenticatorISMG"	,	L_33
+FT_UINT32	,	V_102
+proto_reg_handoff_cmpp	,	F_42
+CMPP_TERMINATE_RESP	,	V_94
+CMPP_ISMG_LONG_PORT	,	V_122
+hf	,	V_101
+"Service ID"	,	L_57
+"Fee Terminal ID, Valid only when Fee_UserType is 3"	,	L_65
+"Submit Result"	,	L_111
+hf_cmpp_Version	,	V_29
+"Fake Destination Terminal"	,	L_99
+hf_cmpp_submit_resp_Result	,	V_60
+"Send time"	,	L_87
+col_append_fstr	,	F_31
+"Response Status, Value higher then 4 means other error"	,	L_31
+"destination terminal type, 0 is real, 1 is fake"	,	L_101
+FT_UINT64	,	V_109
+col_set_str	,	F_30
+total_length	,	V_79
+"MD5 Hash"	,	L_3
+"Connect Response Status"	,	L_29
+"cmpp.Servicd_Id"	,	L_58
+hf_cmpp_submit_At_Time	,	V_52
+hf_cmpp_deliver_Src_terminal_Id	,	V_69
+cmpp_version	,	F_4
+"cmpp.submit.At_time"	,	L_88
+hf_cmpp_connect_AuthenticatorSource	,	V_28
+"ISMG Code, bit 38 ~ 17"	,	L_48
+col_clear	,	F_34
+field	,	V_3
+proto_register_subtree_array	,	F_41
+proto_tree_add_string	,	F_3
+gint32	,	T_5
+dissect_cmpp_tcp_pdu	,	F_26
+val_to_str	,	F_29
+"Msg_Id"	,	L_35
+"Fee Code"	,	L_82
+hf_cmpp_submit_Valld_Time	,	V_51
+"cmpp"	,	L_140
+destUsr	,	V_34
+"Message send time, format following SMPP 3.3"	,	L_89
+cmpp_boolean	,	F_14
+proto_tree_add_item	,	F_17
+pinfo	,	V_74
+dissector_handle_t	,	T_16
+"Message Content"	,	L_105
+"Total length of the CMPP PDU."	,	L_10
+_U_	,	V_99
+hf_cmpp_submit_pk_number	,	V_38
+"cmpp.Msg_Content"	,	L_106
+hf_cmpp_Msg_Length	,	V_57
+"CMPP"	,	L_6
+CMPP_FIX_HEADER_LENGTH	,	V_26
+"Source Addr"	,	L_17
+"cmpp.submit.DestUsr_tl"	,	L_94
+"cmpp.submit.Pk_total"	,	L_39
+"cmpp.submit.Msg_level"	,	L_56
+VALS	,	F_37
+hf_cmpp_TP_pId	,	V_45
+hf_cmpp_submit_Fee_terminal_Id	,	V_43
+"Type of the source terminal, can be 0 (real) or 1 (fake)"	,	L_120
+tvb_get_ephemeral_string	,	F_2
+hf_cmpp_deliver_Report_Stat	,	V_63
+"cmpp.connect_resp.Status"	,	L_30
+CMPP_ISMG_SHORT_PORT	,	V_123
+tvb_length	,	F_27
+display	,	V_6
+FT_UINT8	,	V_110
+cmpp_deliver_resp	,	F_25
+BASE_DEC	,	V_103
+proto_item	,	T_10
+vals_connect_resp_status	,	V_108
+try_val_to_str	,	F_28
+"Authenticator result, MD5(Status + AuthenticatorSource + shared secret)"	,	L_34
+ENC_NA	,	V_86
+"Submit_time"	,	L_129
+hf_cmpp_Total_Length	,	V_88
+"TP pId"	,	L_69
+report	,	V_67
+"cmpp.Msg_Id.timestamp"	,	L_44
+ep_strdup_printf	,	F_6
+hf_cmpp_deliver_Report_SMSC_sequence	,	V_66
+"Message Source SP_Id"	,	L_77
+"Destination Address Count"	,	L_93
+proto_cmpp	,	V_85
+"Authenticator source, MD5(Source_addr + 9 zero + shared secret + timestamp)"	,	L_22
+minor	,	V_9
+data	,	T_14
+"GSM TP pId Field"	,	L_71
+strval	,	V_10
+"Link ID"	,	L_107
+"SMSC_sequence"	,	L_134
+CMPP_SP_SHORT_PORT	,	V_121
+"cmpp.submit.Fee_UserType"	,	L_61
+"Source MSISDN number, if it is deliver report, this will be the CMPP_SUBMIT destination number"	,	L_117
+ett_msg_id	,	V_22
+"Fee terminal type, 0 is real, 1 is fake"	,	L_68
+second	,	V_15
+CMPP_CONNECT_RESP	,	V_92
+"cmpp.submit.Pk_number"	,	L_42
+"Message ID"	,	L_37
+hf_cmpp_submit_Dest_terminal_type	,	V_56
+ett_deliver_report	,	V_62
+major	,	V_8
+"Sequence Id"	,	L_14
+hf_cmpp_connect_resp_AuthenticatorISMG	,	V_32
+"cmpp.submit.Fee_terminal_Id"	,	L_64
+CMPP_SP_LONG_PORT	,	V_120
+"Registered Delivery"	,	L_52
+hf_cmpp_msg_id	,	V_36
+"cmpp.submit.Dest_terminal_type"	,	L_100
+CMPP_SUBMIT	,	V_95
+day	,	V_12
+"Command Id"	,	L_11
+"Deliver Status"	,	L_127
+guint	,	T_11
+FT_NONE	,	V_116
+offset	,	V_4
+"cmpp.deliver.Src_terminal_type"	,	L_119
+ett	,	V_118
+hf_cmpp_submit_Msg_level	,	V_40
+tree	,	V_1
+"Sequence Id of the CMPP messages"	,	L_16
+"Message Valid Time, format follow SMPP 3.3"	,	L_86
+"Result"	,	L_109
+timevalue	,	V_16
+hf_cmpp_submit_pk_total	,	V_37
+packet_info	,	T_12
+hf_msg_id_timestamp	,	V_23
+vals_submit_Fee_UserType	,	V_113
+"MSISDN number which receive the SMS"	,	L_98
+"cmpp.deliver.Registered_Delivery"	,	L_122
+"cmpp.deliver.Report.Submit_time"	,	L_130
+"cmpp.Total_Length"	,	L_9
+hf_cmpp_submit_Fee_terminal_type	,	V_44
+proto_tree_add_uint	,	F_10
+"Message Level"	,	L_55
+ett_cmpp	,	V_87
+vals_Submit_Resp_Result	,	V_115
+"cmpp.Version"	,	L_24
+cmpp_octet_string	,	F_1
+hf_msg_id_ismg_code	,	V_24
+command_str	,	V_80
+"cmpp.Msg_Id"	,	L_36
+hour	,	V_13
+CMPP_DELIVER	,	V_97
+hf_cmpp_Command_Id	,	V_89
+"Valid time"	,	L_84
+CMPP_CONNECT	,	V_91
+hf_cmpp_submit_Msg_src	,	V_48
+HFILL	,	V_104
+value	,	V_17
+cmpp_timestamp	,	F_7
+hf_cmpp_connect_resp_status	,	V_31
+"Timestamp MM/DD HH:MM:SS"	,	L_28
+hf_cmpp_deliver_resp_Result	,	V_73
+"cmpp.connect.AuthenticatorSource"	,	L_21
+hf_msg_id_sequence_id	,	V_25
+"cmpp.LinkID"	,	L_108
+gchar	,	T_13
+"Message Format"	,	L_75
+"cmpp.submit.FeeType"	,	L_81
+minute	,	V_14
+cmpp_deliver	,	F_24
+hf_cmpp_Msg_Fmt	,	V_47
+hf_cmpp_deliver_Report_Submit_time	,	V_64
+"Msg_Id sequence Id, bit 16 ~ 1"	,	L_51
+"TP udhi"	,	L_72
+hf_cmpp_submit_FeeCode	,	V_50
+pi	,	V_19
+"Deliver Result"	,	L_138
+"Message length"	,	L_102
+cmpp_connect	,	F_19
+cmpp_deliver_report	,	F_23
+"tcp.port"	,	L_141
+proto_tree	,	T_1
+"cmpp.deliver_resp.Result"	,	L_137

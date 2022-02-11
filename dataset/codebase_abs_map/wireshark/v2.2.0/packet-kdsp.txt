@@ -1,0 +1,434 @@
+ei_kdsp_payload_expected	,	V_105
+FCS_FLAG	,	V_53
+"Start"	,	L_135
+"kdsp.chset.length"	,	L_101
+hf_kdsp_cpt_bitmap	,	V_46
+FRAME_HEADER_LEN	,	V_4
+hf_kdsp_gps_lat	,	V_77
+"Source Hop"	,	L_157
+bitmap	,	V_9
+"kdsp.source.rate"	,	L_162
+hf_kdsp_gps_alt	,	V_79
+hf_kdsp_fcs	,	V_54
+hf_kdsp_gps_spd	,	V_80
+hf_kdsp_ch_end	,	V_130
+"kdsp.str.length"	,	L_20
+hf_kdsp_ch_length	,	V_108
+DATA_TVUSEC_FLAG	,	V_96
+guint32	,	T_7
+"Current Channel"	,	L_123
+FT_BOOLEAN	,	V_162
+"Capture GPS Header"	,	L_61
+hf_kdsp_radio_hdr	,	V_58
+"Encoding"	,	L_53
+hf_kdsp_report_hdr_len	,	V_147
+hf_kdsp_radio_accuracy	,	V_62
+array_length	,	F_24
+"kdsp.radio.enc"	,	L_54
+"Channel Data"	,	L_129
+hf_kdsp_report_flags	,	V_150
+"kdsp.source.uuid"	,	L_148
+DATA_PACKLEN_FLAG	,	V_94
+ENC_ASCII	,	V_40
+kdsp_tree	,	V_22
+hf_kdsp_cpt_dc_flag_usec	,	V_91
+"kdsp.fcs.data"	,	L_38
+hf_kdsp_cpt_dc_flag_uuid	,	V_88
+"Command Flag"	,	L_105
+hf_kdsp_cpt_packet_len	,	V_100
+"No payload expected but found some data"	,	L_175
+"kdsp.chset.uuid"	,	L_121
+ett_ch_data	,	V_126
+hf_register_info	,	T_11
+"kdsp.cpt.tv_usec"	,	L_98
+"Unknown (0x%02x)"	,	L_3
+guint16	,	T_8
+GPS_FLAG	,	V_71
+"kdsp.gps.heading"	,	L_77
+"Dwell Flag"	,	L_115
+"kdsp.ch.flag.numch"	,	L_112
+i	,	V_11
+CH_DWELL_FLAG	,	V_175
+"kdsp.cpt.uuid"	,	L_92
+BASE_NONE	,	V_161
+"kdsp.radio.car"	,	L_52
+hf_kdsp_ch_cmd	,	V_121
+hf_kdsp_source_dwell	,	V_144
+CAPPACKET	,	V_45
+hf_kdsp_source_length	,	V_136
+"kdsp.chset.cur_ch"	,	L_124
+"kdsp.chset.start"	,	L_136
+CH_UUID_FLAG	,	V_169
+"Data Rate"	,	L_55
+BASE_HEX	,	V_157
+"kdsp.version"	,	L_12
+"kdsp.radio.signal_rssi"	,	L_58
+DATA_TVSEC_FLAG	,	V_95
+proto_item_add_subtree	,	F_10
+module_t	,	T_10
+hf_kdsp_radio_noise_dbm	,	V_65
+hf_kdsp_ch_flag_hopdwell	,	V_119
+"Spd"	,	L_74
+PI_UNDECODED	,	V_185
+proto_register_field_array	,	F_23
+hf_kdsp_cpt_tv_sec	,	V_101
+FT_BYTES	,	V_166
+"Capture Packet Header"	,	L_78
+ei	,	V_181
+HELLO	,	V_37
+dissector_add_uint	,	F_33
+"kdsp.payload_unexpected"	,	L_174
+hf_kdsp_ch_iter	,	V_132
+"Dwell"	,	L_133
+payloadtypenames	,	V_168
+proto_register_kdsp	,	F_20
+FT_UINT16	,	V_164
+tvb_captured_length	,	F_17
+"kdsp.fcs"	,	L_36
+"kdsp.cpt.tv_sec"	,	L_96
+kdsp_item	,	V_17
+"kdsp.ch.flag.hop"	,	L_110
+"Number of Channels"	,	L_127
+expert_add_info	,	F_13
+"KDSP"	,	L_1
+"kdsp.source.hop"	,	L_158
+"kdsp.chset.bitmap"	,	L_102
+dlt_handle	,	V_193
+hf_kdsp_source_uuid	,	V_138
+FT_STRING	,	V_160
+hf_kdsp_fcs_data	,	V_56
+hf_kdsp_radio_encoding	,	V_67
+hf_kdsp_str_len	,	V_43
+"Sentinel"	,	L_5
+"Width"	,	L_139
+"kdsp.ch.flag.rate"	,	L_118
+hf_kdsp_sentinel	,	V_33
+hf_kdsp_ch_flag_numch	,	V_115
+length	,	V_7
+PI_WARN	,	V_186
+kdsp_handle	,	V_192
+hf_kdsp_report_content_bitmap	,	V_148
+packettypenames	,	V_29
+FT_UINT32	,	V_156
+hf_kdsp_ch_num_ch	,	V_124
+"Source Dwell"	,	L_159
+hf	,	V_155
+hf_kdsp_ch_data	,	V_125
+hf_kdsp_ch_bitmap	,	V_109
+proto_kdsp	,	V_30
+hf_kdsp_ch_uuid	,	V_120
+hf_kdsp_radio_freq_mhz	,	V_63
+prefs_register_protocol	,	F_26
+"kdsp.radio"	,	L_40
+"Longitude"	,	L_70
+col_set_str	,	F_4
+hf_kdsp_cpt_dc_flag_sec	,	V_90
+"Capture Content UUID Flag"	,	L_81
+CH_HOPDWELL_FLAG	,	V_177
+"kdsp.chset.dwell"	,	L_134
+DATA_DLT_FLAG	,	V_97
+"It is likely the dissector does not support all flags"	,	L_178
+ett_sub_cpt	,	V_84
+val_to_str	,	F_7
+"kdsp.cpt.bitmap"	,	L_24
+ei_kdsp_payload_unexpected	,	V_106
+dissector_handle_t	,	T_16
+hf_kdsp_ch_ch_dwell	,	V_134
+"Kismet Drone TCP Port"	,	L_185
+ett_sub_radio	,	V_59
+hf_kdsp_source_type	,	V_142
+hf_kdsp_report_hop_tm_sec	,	V_151
+"kdsp.radio.signal_dbm"	,	L_48
+global_kdsp_tcp_port	,	V_189
+VALS	,	F_21
+"Source Invalidate"	,	L_149
+"kdsp.radio.datarate"	,	L_56
+hf_kdsp_cpt_flag_fcs	,	V_49
+"Server Version"	,	L_13
+"kdsp.cpt"	,	L_79
+"kdsp.chset.width"	,	L_140
+"kdsp.ch.flag.uuid"	,	L_104
+"kdsp.chset.data"	,	L_130
+BASE_DEC	,	V_159
+tvb_new_subset	,	F_14
+"kdsp.source.bitmap"	,	L_147
+ENC_NA	,	V_31
+"Data Link Type"	,	L_99
+subsub_item	,	V_19
+"kdsp.ch.flag.dwell"	,	L_116
+"Source Rate"	,	L_161
+reported_payload_len	,	V_14
+"Command"	,	L_7
+tcp_port	,	V_191
+ett_ch_bitmap	,	V_110
+"kdsp.gps.lon"	,	L_71
+"Channel Hop"	,	L_125
+"kdsp.report.bitmap"	,	L_164
+prefs_register_uint_preference	,	F_30
+expert_register_protocol	,	F_27
+dissect_kdsp_message	,	F_3
+hf_kdsp_ch_start	,	V_129
+hf_kdsp_ch_flag_channels	,	V_116
+hf_kdsp_ch_hop	,	V_123
+"Capture FCS Header"	,	L_35
+channelcmds	,	V_178
+guint	,	T_1
+"Length"	,	L_9
+ett	,	V_180
+payload_len	,	V_13
+hf_kdsp_cpt_data_content_bitmap	,	V_86
+" than the default of 2502)"	,	L_187
+CHANNELSET	,	V_107
+hf_kdsp_cpt_data_hdr	,	V_83
+"kdsp.gps.lat"	,	L_69
+payload_tvb	,	V_25
+ett_cpt_data_content_bitmap	,	V_87
+packet_info	,	T_2
+sub_item	,	V_18
+hf_kdsp_ch_flag_hop	,	V_114
+"kdsp.length"	,	L_10
+"Frame Checksum"	,	L_37
+"Capture Content Datalink Type Flag"	,	L_89
+"kdsp.chset.hop"	,	L_126
+EXPFILL	,	V_184
+hf_kdsp_gps_hdr	,	V_72
+hf_kdsp_hostname	,	V_41
+"kdsp.str.flags"	,	L_18
+DATALINK_WLAN	,	V_195
+HFILL	,	V_158
+PI_MALFORMED	,	V_182
+"kdsp.source.name"	,	L_152
+dissector_try_uint	,	F_15
+"Kismet Drone/Server Protocol"	,	L_181
+ett_cpt_bitmap	,	V_47
+hf_kdsp_source_name	,	V_140
+"Noise rssi"	,	L_59
+hf_kdsp_source_hop	,	V_143
+create_dissector_handle	,	F_31
+"Hop-Dwell Flag"	,	L_119
+"Source Bitmap"	,	L_146
+"Calculated header length does not match reported header length. "	,	L_177
+"Offset Capture Packet Header"	,	L_33
+dissect_kdsp	,	F_18
+"kdsp.gps.fix"	,	L_67
+proto_register_protocol	,	F_22
+kdsp_module	,	V_154
+"kdsp.command"	,	L_8
+tcp_dissect_pdus	,	F_19
+gint	,	T_12
+hf_kdsp_radio_hdr_len	,	V_60
+"kdsp.cpt.flag.gps"	,	L_30
+"Accuracy"	,	L_43
+"kdsp.radio.accuracy"	,	L_44
+tvb	,	V_2
+"kdsp.command.unknown"	,	L_179
+"Interface"	,	L_153
+"kdsp.report.usec"	,	L_171
+"kdsp.report.length"	,	L_163
+"Noise dbm"	,	L_49
+COL_INFO	,	V_28
+hf_kdsp_ch_flag_rate	,	V_118
+"kdsp.report.flags"	,	L_167
+ett_sub_gps	,	V_73
+"kdsp.ch.flag.curch"	,	L_108
+sub_tree	,	V_23
+hf_kdsp_ch_flag_dwell	,	V_117
+"Capture Content Length Flag"	,	L_83
+hf_kdsp_ch_cur_ch	,	V_122
+cinfo	,	V_26
+PI_ERROR	,	V_183
+SOURCE	,	V_135
+"Num Channels Flag"	,	L_111
+"Capture Packet Flag"	,	L_25
+"UUID"	,	L_91
+expert_kdsp	,	V_187
+"TV sec"	,	L_95
+"kdsp.report.uuid"	,	L_165
+DATA_UUID_FLAG	,	V_93
+"kdsp.cpt.cd.flag.uuid"	,	L_82
+hf_kdsp_ch_width	,	V_131
+hf_kdsp_str_msg	,	V_44
+hf_kdsp_length	,	V_36
+"kdsp.cpt.cd.flag.dlt"	,	L_90
+"Command %s; "	,	L_2
+"Message"	,	L_21
+get_kdsp_message_len	,	F_1
+"kdsp.gps.bitmap"	,	L_65
+COL_PROTOCOL	,	V_27
+"kdsp.hostname"	,	L_16
+hf_kdsp_cmdnum	,	V_35
+"kdsp.cpt.cd.flag.len"	,	L_84
+"Capture Radio Flag"	,	L_31
+"kdsp.cpt.cd.flag.usec"	,	L_88
+CH_CMD_FLAG	,	V_170
+"kdsp.source.length"	,	L_145
+hf_kdsp_gps_content_bitmap	,	V_75
+CH_HOP_FLAG	,	V_172
+hf_kdsp_ch_rate	,	V_133
+hf_kdsp_gps_lon	,	V_78
+"kdsp.ch.flag.channels"	,	L_114
+"Hop Flag"	,	L_109
+"kdsp.radio.length"	,	L_41
+hf_kdsp_cpt_dc_flag_dlt	,	V_92
+"radiotap"	,	L_188
+tvb_get_ntohl	,	F_2
+ei_kdsp_cpt_data_hdr_len	,	V_98
+hf_kdsp_cpt_flag_cpt	,	V_48
+tvbuff_t	,	T_4
+hf_kdsp_ch_flag_cmd	,	V_112
+hf_kdsp_gps_heading	,	V_81
+tvb_get_ntohs	,	F_12
+"Capture Content Microsecond Flag"	,	L_87
+"kdsp.chset.cmd"	,	L_122
+hf_kdsp_ch_flag_curch	,	V_113
+gboolean	,	T_15
+ei_kdsp_cmdnum	,	V_153
+"kdsp"	,	L_182
+"Capture FCS Flag"	,	L_27
+"kdsp.gps.spd"	,	L_75
+"Unknown command, can not parse message"	,	L_180
+"kdsp.report.sec"	,	L_169
+"kdsp.radio.freq"	,	L_46
+CH_CURCH_FLAG	,	V_171
+hf_kdsp_cpt_tv_usec	,	V_102
+hf_kdsp_radio_signal_dbm	,	V_64
+hf_kdsp_gps_fix	,	V_76
+"kdsp.chset.ch"	,	L_132
+"GPS fix"	,	L_66
+hf_kdsp_cpt_offset	,	V_52
+hf_kdsp_ch_ch	,	V_127
+hf_kdsp_source_bitmap	,	V_137
+dissector_delete_uint	,	F_34
+data_len_item	,	V_20
+hf_kdsp_report_hop_tm_usec	,	V_152
+"KDSP Version"	,	L_11
+hf_kdsp_cpt_dlt	,	V_103
+"kdsp.str.message"	,	L_22
+"Heading"	,	L_76
+hf_kdsp_server_version	,	V_39
+FT_INT16	,	V_165
+hf_kdsp_cpt_uuid	,	V_99
+"Source Name"	,	L_151
+CH_CHANNELS_FLAG	,	V_174
+find_dissector	,	F_32
+"Signal dbm"	,	L_47
+REPORT	,	V_146
+ENC_BIG_ENDIAN	,	V_34
+"Payload expected but no link type specified. Can not decode."	,	L_173
+"kdsp.source.dwell"	,	L_160
+subsub_tree	,	V_24
+"Rate"	,	L_143
+hf_kdsp_cpt_data_hdr_len	,	V_85
+"kdsp.gps.alt"	,	L_73
+"Capture GPS Flag"	,	L_29
+hf_kdsp_source_invalidate	,	V_139
+hf_kdsp_cpt_flag_radio	,	V_51
+"Set the port for Kismet Drone/Server messages (if other"	,	L_186
+"String Length"	,	L_19
+"kdsp.cpt.dlt"	,	L_100
+cptbitmap	,	V_10
+"kdsp.chset.end"	,	L_138
+command_item	,	V_21
+"Current Channel Flag"	,	L_107
+hf_kdsp_str_flags	,	V_42
+ett_kdsp_pdu	,	V_32
+FT_UINT64	,	V_167
+"kdsp.cpt.cd.flag.sec"	,	L_86
+"KDSP DLT Type"	,	L_183
+hf_kdsp_cpt_dc_flag_len	,	V_89
+"Alt"	,	L_72
+"kdsp.chset.num_ch"	,	L_128
+hf_kdsp_source_interface	,	V_141
+proto_item_append_text	,	F_11
+"Channels Flag"	,	L_113
+col_set_fence	,	F_8
+"kdsp.sentinel"	,	L_6
+"Carrier"	,	L_51
+col_clear	,	F_5
+"Iter"	,	L_141
+proto_register_subtree_array	,	F_25
+"kdsp.radio.noise_rssi"	,	L_60
+"kdsp.source.interface"	,	L_154
+"Signal rssi"	,	L_57
+hf_kdsp_radio_signal_rssi	,	V_69
+proto_tree_add_item	,	F_9
+pinfo	,	T_3
+col_add_fstr	,	F_6
+"kdsp.cpt.length.invalid"	,	L_176
+_U_	,	V_1
+"String Flags"	,	L_17
+"Latitude"	,	L_68
+"Hop Time (usec)"	,	L_170
+numChan	,	V_8
+"kdsp.gps.length"	,	L_64
+"Capture Content Second Flag"	,	L_85
+"kdsp.ch.flag.hopdwell"	,	L_120
+"Bitmap"	,	L_23
+proto_reg_handoff_kdsp	,	V_188
+initialized	,	V_190
+DATALINK_RADIOTAP	,	V_194
+FT_UINT8	,	V_179
+hf_kdsp_radio_content_bitmap	,	V_61
+proto_item	,	T_9
+expert_register_field_array	,	F_28
+"Hostname"	,	L_15
+"kdsp.radio.bitmap"	,	L_42
+"Packet Length"	,	L_93
+"TV usec"	,	L_97
+"wlan"	,	L_189
+"kdsp.source.invalidate"	,	L_150
+data_hdr_len_check	,	V_16
+register_dissector_table	,	F_29
+hf_kdsp_report_uuid	,	V_149
+data	,	T_5
+ett_sub_fcs	,	V_55
+hf_kdsp_cpt_flag_gps	,	V_50
+hf_kdsp_gps_hdr_len	,	V_74
+"kdsp.cpt.offset"	,	L_34
+"UUID Flag"	,	L_103
+"Channel"	,	L_131
+ei_register_info	,	T_13
+CH_NUMCH_FLAG	,	V_173
+hf_kdsp_version	,	V_38
+"kdsp.cpt.pkt_len"	,	L_94
+FT_NONE	,	V_163
+offset	,	V_3
+"GPS Length"	,	L_63
+"kdsp.chset.rate"	,	L_144
+"Capture Radio Header"	,	L_39
+expert_module_t	,	T_14
+tree	,	V_5
+"kdsp.source.type"	,	L_156
+"kdsp.chset.iter"	,	L_142
+"kdsp.payload_expected"	,	L_172
+CPT_FLAG	,	V_82
+hf_kdsp_source_rate	,	V_145
+"kdsp.cpt.length"	,	L_80
+"Rate Flag"	,	L_117
+"Hop Time (sec)"	,	L_168
+"kdsp.cpt.flag.cpt"	,	L_26
+data_hdr_len	,	V_15
+subdissector_dlt_table	,	V_104
+proto_tree_add_expert	,	F_16
+"Frequency"	,	L_45
+", Command %s"	,	L_4
+datalink_type	,	V_12
+RADIO_FLAG	,	V_57
+hf_kdsp_ch_dwell	,	V_128
+"kdsp.gps"	,	L_62
+"flags"	,	L_166
+CH_RATE_FLAG	,	V_176
+"kdsp.cpt.flag.radio"	,	L_32
+"kdsp.radio.noise_dbm"	,	L_50
+hf_kdsp_radio_carrier	,	V_66
+"End"	,	L_137
+hf_kdsp_radio_datarate	,	V_68
+command	,	V_6
+"kdsp.ch.flag.cmd"	,	L_106
+hf_kdsp_radio_noise_rssi	,	V_70
+hf_kdsp_ch_flag_uuid	,	V_111
+"kdsp.server.version"	,	L_14
+"kdsp.cpt.flag.fcs"	,	L_28
+"Type"	,	L_155
+"tcp.port"	,	L_184
+proto_tree	,	T_6

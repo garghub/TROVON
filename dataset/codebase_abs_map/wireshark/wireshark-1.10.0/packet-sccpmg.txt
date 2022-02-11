@@ -1,0 +1,143 @@
+sccpmg_handle	,	V_76
+"Affected PC Cluster"	,	L_19
+ITU_PC_LENGTH	,	V_14
+proto_register_protocol	,	F_21
+message_tvb	,	V_1
+SCCPMG_MESSAGE_TYPE_SSP	,	V_48
+proto_sccpmg	,	V_56
+SCCPMG_MESSAGE_TYPE_SST	,	V_49
+hf_sccpmg_affected_ssn	,	V_5
+col_set_str	,	F_17
+gint	,	T_8
+tvb	,	V_4
+guint32	,	T_3
+hf_affected_pc	,	V_19
+SCCPMG_MESSAGE_TYPE_SSA	,	V_47
+COL_INFO	,	V_40
+SCCPMG_MESSAGE_TYPE_SBR	,	V_44
+SCCPMG_MESSAGE_TYPE_SSC	,	V_52
+mtp3_standard	,	V_11
+SCCPMG_MESSAGE_TYPE_SRT	,	V_46
+SCCPMG_SMI_LENGTH	,	V_30
+message_type	,	V_37
+dissect_sccpmg_smi	,	F_9
+cinfo	,	V_39
+proto_register_subtree_array	,	F_24
+"Signalling Connection Control Part Management"	,	L_27
+array_length	,	F_23
+dissect_mtp3_3byte_pc	,	F_8
+ITU_PC_MASK	,	V_66
+dissect_sccpmg_affected_pc	,	F_7
+"SCCPMG"	,	L_28
+""	,	L_2
+hf_sccpmg_affected_pc_cluster	,	V_25
+proto_tree_add_item	,	F_6
+ett_sccpmg_affected_pc	,	V_23
+proto_reg_handoff_sccpmg	,	F_25
+SCCPMG_MESSAGE_TYPE_OFFSET	,	V_38
+message_length	,	V_3
+pinfo	,	V_36
+col_add_fstr	,	F_13
+"sccpmg.cluster"	,	L_20
+dissector_handle_t	,	T_9
+SCCPMG_SSN_LENGTH	,	V_7
+hf_sccpmg_affected_itu_pc	,	V_13
+hf_register_info	,	T_7
+VALS	,	F_20
+"Subsystem Multiplicity Indicator"	,	L_23
+dissect_sccpmg_message	,	F_11
+sccpmg_message_type_acro_values	,	V_41
+"sccpmg.congestion"	,	L_26
+"sccpmg"	,	L_29
+hf_sccpmg_affected_chinese_pc	,	V_22
+"%s "	,	L_4
+COL_PROTOCOL	,	V_55
+tvb_length	,	F_2
+FT_UINT8	,	V_60
+JAPAN_STANDARD	,	V_16
+proto_tree_add_text	,	F_3
+BASE_DEC	,	V_64
+ANSI_CLUSTER_MASK	,	V_71
+proto_item	,	T_6
+sccpmg_item	,	V_54
+ENC_NA	,	V_57
+guint8	,	T_4
+"Affected SubSystem Number"	,	L_11
+BASE_NONE	,	V_68
+"Affected PC Network"	,	L_17
+ENC_LITTLE_ENDIAN	,	V_15
+hf_sccpmg_affected_pc_member	,	V_26
+hf_sccpmg_affected_pc_network	,	V_24
+SCCPMG_AFFECTED_SSN_OFFSET	,	V_6
+JAPAN_PC_LENGTH	,	V_18
+CHINESE_ITU_SCCPMG_CONGESTION_OFFSET	,	V_32
+"Affected Point Code"	,	L_13
+"SCCPMG (ANSI)"	,	L_7
+tvbuff_t	,	T_1
+SCCPMG_MESSAGE_TYPE_SOR	,	V_50
+SCCPMG_AFFECTED_PC_OFFSET	,	V_10
+ITU_STANDARD	,	V_12
+plurality	,	F_4
+BASE_HEX	,	V_61
+FT_UINT24	,	V_69
+"sccpmg.member"	,	L_22
+SCCPMG_SMI_MASK	,	V_73
+proto_item_add_subtree	,	F_18
+ITU_SCCPMG_SMI_OFFSET	,	V_27
+proto_register_field_array	,	F_22
+SCCPMG_MESSAGE_TYPE_SOG	,	V_51
+sccpmg_tree	,	V_2
+ett_sccpmg	,	V_58
+hf_sccpmg_affected_japan_pc	,	V_17
+hf_sccpmg_affected_ansi_pc	,	V_21
+offset	,	V_9
+"SCCPMG (Chin. ITU)"	,	L_8
+ett	,	V_75
+dissector_add_uint	,	F_27
+tree	,	V_53
+SCCPMG_MESSAGE_TYPE_SNR	,	V_45
+FT_UINT16	,	V_65
+packet_info	,	T_5
+ANSI_NETWORK_MASK	,	V_70
+"s"	,	L_3
+tvb_get_guint8	,	F_12
+hf_sccpmg_congestion_level	,	V_34
+hf_sccpmg_message_type	,	V_42
+"sccpmg.chinese_pc"	,	L_16
+ITU_SCCPMG_CONGESTION_MASK	,	V_74
+proto_tree_add_uint	,	F_15
+"sccpmg.pc"	,	L_14
+ITU_SCCPMG_CONGESTION_LENGTH	,	V_35
+"Unknown message (%u byte%s)"	,	L_1
+dissect_sccpmg_affected_ssn	,	F_5
+dissect_sccpmg_unknown_message	,	F_1
+ITU_SCCPMG_CONGESTION_OFFSET	,	V_33
+"Affected PC Member"	,	L_21
+ANSI_SCCPMG_SMI_OFFSET	,	V_28
+"sccpmg.network"	,	L_18
+ANSI_MEMBER_MASK	,	V_72
+SCCPMG_SSN	,	V_77
+"Message Type"	,	L_9
+FT_STRING	,	V_67
+"sccpmg.ssn"	,	L_12
+SCCPMG_MESSAGE_TYPE_LENGTH	,	V_43
+"SCCP Congestion Level (ITU)"	,	L_25
+HFILL	,	V_63
+CHINESE_ITU_STANDARD	,	V_31
+sccpmg_message_type_values	,	V_62
+val_to_str_const	,	F_14
+"SCCPMG (Int. ITU)"	,	L_6
+dissect_sccpmg_congestion_level	,	F_10
+"sccpmg.ansi_pc"	,	L_15
+create_dissector_handle	,	F_26
+ENC_BIG_ENDIAN	,	V_8
+hf_sccpmg_smi	,	V_29
+dissect_sccpmg	,	F_16
+"sccpmg.message_type"	,	L_10
+"sccpmg.smi"	,	L_24
+"Unknown"	,	L_5
+"sccp.ssn"	,	L_30
+ANSI_STANDARD	,	V_20
+proto_tree	,	T_2
+hf	,	V_59
+proto_register_sccpmg	,	F_19

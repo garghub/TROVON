@@ -1,0 +1,189 @@
+"Ack"	,	L_39
+src_flowid_string	,	V_65
+"KDP SYN Flag"	,	L_21
+"SYN "	,	L_9
+"kdp.flags.rst"	,	L_26
+proto_register_protocol	,	F_13
+"Option Len"	,	L_45
+"KDP"	,	L_1
+tvb_reported_length	,	F_7
+check_col	,	F_9
+"Option4 - Enable Reliable"	,	L_53
+"kdp.option5"	,	L_56
+hf_kdp_option6	,	V_54
+packet_errors	,	V_8
+hf_kdp_option7	,	V_55
+KDP_DROP_FLAG	,	V_66
+hf_kdp_option8	,	V_56
+hf_kdp_option9	,	V_57
+"Option8 - BWMIN"	,	L_61
+"kdp.xml_body"	,	L_74
+col_set_str	,	F_2
+gint	,	T_9
+hf_kdp_fragment	,	V_59
+hf_kdp_option1	,	V_49
+hf_kdp_option2	,	V_50
+hf_kdp_option3	,	V_51
+hf_kdp_option4	,	V_52
+hf_kdp_option5	,	V_53
+"MaxSegmentSize"	,	L_41
+"kdp.optionnumber"	,	L_44
+tvb	,	V_1
+"KDP flags"	,	L_17
+"kdp.flags.dup"	,	L_30
+guint32	,	T_6
+hf_kdp_bcst_flag	,	V_34
+COL_INFO	,	V_16
+proto_kdp	,	V_20
+FT_BOOLEAN	,	V_74
+"kdp.option4"	,	L_54
+ack_string	,	V_62
+hf_kdp_optionnumber	,	V_47
+version	,	V_5
+ett_kdp_flags	,	V_29
+option_number	,	V_45
+"KDP BCST Flag"	,	L_27
+col_clear	,	F_3
+"KDP version"	,	L_13
+"kdp.maxsegmentsize"	,	L_42
+cinfo	,	V_14
+KDP_BCST_FLAG	,	V_40
+hf_kdp_destflowid	,	V_38
+proto_register_subtree_array	,	F_16
+"Option5 - Disable Reliable"	,	L_55
+"FragTotal"	,	L_69
+kdp_tree	,	V_18
+array_length	,	F_15
+"RST "	,	L_10
+"Fragment"	,	L_67
+""	,	L_8
+KDP_ACK_FLAG	,	V_37
+"kdp.fragtotal"	,	L_70
+proto_tree_add_item	,	F_4
+hf_kdp_errors	,	V_36
+pinfo	,	V_2
+col_add_fstr	,	F_11
+"kdp.body"	,	L_72
+dissector_handle_t	,	T_10
+"Option9 - INT"	,	L_63
+ENC_ASCII	,	V_26
+"kdp.option7"	,	L_60
+G_MAXUINT32	,	V_10
+"Kontiki Delivery Protocol"	,	L_75
+kdp_handle	,	V_82
+hf_register_info	,	T_8
+"kdp.flags.bcst"	,	L_28
+"kdp.version"	,	L_14
+seq_num_string	,	V_64
+BUFFER_SIZE	,	V_63
+"DestFlowID"	,	L_33
+hf_kdp_option_unknown	,	V_58
+hf_kdp_headerlen	,	V_27
+COL_PROTOCOL	,	V_15
+"Option Number"	,	L_43
+dissect_kdp	,	F_1
+packet_flags	,	V_7
+FT_UINT8	,	V_70
+BASE_DEC	,	V_71
+"kdp.flags"	,	L_18
+"kdp.flags.drop"	,	L_20
+"Option1 - Max Window"	,	L_47
+proto_item	,	T_7
+KDP_SYN_FLAG	,	V_39
+"kdp.option6"	,	L_58
+"kdp.fragment"	,	L_68
+sequence_number	,	V_9
+ENC_NA	,	V_21
+guint8	,	T_5
+"kdp.srcflowid"	,	L_36
+ti	,	V_17
+BASE_NONE	,	V_78
+body_len	,	V_4
+hf_kdp_syn_flag	,	V_31
+"KDP DROP Flag"	,	L_19
+"Option2 - TCP Fraction"	,	L_49
+header_len	,	V_6
+"kdp.option9"	,	L_64
+tvb_get_ntohl	,	F_8
+hf_kdp_optionlen	,	V_48
+tvbuff_t	,	T_1
+"kdp.option1"	,	L_48
+"BCST "	,	L_11
+ack_number	,	V_11
+BASE_HEX	,	V_73
+hf_kdp_srcflowid	,	V_41
+flags_tree	,	V_19
+hf_kdp_ack_flag	,	V_32
+"DROP "	,	L_7
+"kdp.destflowid"	,	L_34
+proto_item_add_subtree	,	F_5
+"XML Body"	,	L_73
+hf_kdp_fragtotal	,	V_60
+proto_register_field_array	,	F_14
+FT_BYTES	,	V_79
+hf_kdp_dup_flag	,	V_35
+hf_kdp_ack	,	V_43
+guint	,	T_4
+FT_NONE	,	V_77
+offset	,	V_13
+"KDP header len"	,	L_15
+ett	,	V_81
+"ACK=%x "	,	L_3
+"kdp.flags.ack"	,	L_24
+"Option7 - COS"	,	L_59
+dissector_add_uint	,	F_19
+tree	,	V_3
+KDP_PORT	,	V_83
+"kdp.option8"	,	L_62
+"Sequence"	,	L_37
+FT_UINT16	,	V_76
+packet_info	,	T_2
+option_len	,	V_46
+KDP_DUP_FLAG	,	V_68
+tvb_get_guint8	,	F_6
+"SRC_FLOWID=%x "	,	L_5
+src_flowid	,	V_12
+proto_register_kdp	,	F_12
+KDP_RST_FLAG	,	V_67
+hf_kdp_flags	,	V_28
+hf_kdp_maxsegmentsize	,	V_44
+"Option3 - KDP Version"	,	L_51
+hf_kdp_sequence	,	V_42
+"Encrypted Body"	,	L_71
+"kdp.option3"	,	L_52
+"kdp.ack"	,	L_40
+ett_kdp	,	V_22
+hf_kdp_rst_flag	,	V_33
+"kdp.headerlen"	,	L_16
+g_snprintf	,	F_10
+"Option6 - SACK"	,	L_57
+"KDP DUP Flag"	,	L_29
+FT_STRING	,	V_80
+"kdp.sequence"	,	L_38
+"DUP "	,	L_12
+"KDP errors"	,	L_31
+HFILL	,	V_72
+hf_kdp_drop_flag	,	V_30
+"KDP ACK Flag"	,	L_23
+"kdp.errors"	,	L_32
+"kdp.option_unknown"	,	L_66
+"udp.port"	,	L_77
+"SrcFlowID"	,	L_35
+"SDDP message"	,	L_2
+"kdp.option2"	,	L_50
+create_dissector_handle	,	F_18
+hf_kdp_body	,	V_61
+ENC_BIG_ENDIAN	,	V_24
+"KDP RST Flag"	,	L_25
+FT_UINT32	,	V_75
+hf_kdp_xml_body	,	V_25
+"Unknown option"	,	L_65
+proto_reg_handoff_kdp	,	F_17
+hf_kdp_version	,	V_23
+"kdp.option"	,	L_46
+"SEQ=%x "	,	L_4
+"kdp"	,	L_76
+"kdp.flags.syn"	,	L_22
+proto_tree	,	T_3
+"%s%s%s%s%s%s%s%serrors=%d"	,	L_6
+hf	,	V_69

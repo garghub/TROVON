@@ -1,0 +1,493 @@
+"smcr_infiniband"	,	L_196
+"Alert Token"	,	L_160
+tvb_reported_length	,	F_24
+"smcr.sender.peer.id"	,	L_79
+"smcr.clc_msg"	,	L_8
+"RMB RToken Pair 1 Virtual Address for the new SMC Link"	,	L_119
+hf_smcr_confirm_flags	,	V_60
+hf_accept_smc_version	,	V_34
+FT_ETHER	,	V_232
+hf_smcr_rmbe_ctrl_cons_wrap_seqno	,	V_163
+hf_smcr_add_link_cont_number_of_rkeys	,	V_110
+hf_smcr_accept_server_preferred_gid	,	V_37
+guint32	,	V_187
+"RMB RToken Pair 2 - Equivalent Rkey for the new SMC Link"	,	L_123
+hf_confirm_smc_version	,	V_62
+FT_BOOLEAN	,	V_227
+"Client TCP Connection Index"	,	L_71
+proto_smcr	,	V_192
+hf_smcr_rmbe_ctrl_peer_conn_state_flags	,	V_172
+tvb_reported_length_remaining	,	F_35
+hf_smcr_confirm_client_rmb_virtual_address	,	V_74
+hf_smcr_add_link_initial_psn	,	V_104
+"smcr.accept.qp.mtu.value"	,	L_18
+"IPv6 Prefix Length"	,	L_48
+"Initial PSN"	,	L_60
+hf_smcr_clc_msg	,	V_194
+delete_rkey_flag_tree	,	V_140
+hf_smcr_rmbe_ctrl_urgent_present	,	V_169
+array_length	,	F_39
+hf_smcr_add_link_flags2	,	V_101
+hf_accept_rmb_buffer_size	,	V_49
+hf_smcr_rmbe_ctrl_write_blocked	,	V_167
+msg_len	,	V_179
+col_append_str	,	F_26
+accept_flag_item	,	V_28
+hf_register_info	,	T_13
+"smcr.confirm.client.rmb.rkey"	,	L_70
+"smcr.confirm.rkey.new.virt"	,	L_147
+"Sender MAC Address"	,	L_84
+hf_smcr_confirm_rkey_flags	,	V_129
+"Peer Sending Done"	,	L_182
+guint16	,	T_4
+"RMB RToken Pair 1 - Rkey as known on this SMC Link"	,	L_115
+disect_smcr_add_continuation	,	F_11
+PSN_LEN	,	V_55
+proto_reg_handoff_smcr	,	F_43
+"smcr.accept.rmb.buffer.size"	,	L_16
+ett_delete_link_flag	,	V_120
+"smcr.rmbe.ctrl.peer.closed.conn"	,	L_185
+BASE_NONE	,	V_231
+hf_smcr_accept_flags2	,	V_47
+"smcr.rmbe.ctrl.peer.conn.state.flags"	,	L_181
+"Client Preferred MAC Address"	,	L_34
+hf_smcr_add_link_response_rejected	,	V_96
+hf_smcr_rmbe_ctrl_failover_validation	,	V_171
+ett_add_link_flag2	,	V_102
+"smcr.accept.server.qp.number"	,	L_51
+"Number of other QP"	,	L_142
+"Sender (Client) Peer ID"	,	L_30
+"smcr.add.link.cont.flags"	,	L_110
+proposal_flag_item	,	V_6
+BASE_HEX	,	V_228
+"smcr.add.link.cont.rmb.RTok1.Rkey1"	,	L_116
+VIRTUAL_ADDR_LEN	,	V_53
+SMC_CLC_ACCEPT	,	V_189
+FT_UINT24	,	V_236
+"smcr.add.link.sender.gid"	,	L_97
+hf_smcr_proposal_flags	,	V_9
+proto_item_add_subtree	,	F_3
+"Sender (Server) Peer ID"	,	L_36
+MAC_ADDR_LEN	,	V_20
+proto_register_field_array	,	F_38
+disect_smcr_test_link	,	F_16
+dissect_smcr_tcp	,	F_28
+count	,	V_138
+delete_rkey_flag_item	,	V_139
+"Sequence Number"	,	L_158
+"Failover Validation Indicator"	,	L_178
+hf_smcr_confirm_link_userid	,	V_87
+"smcr.add.link.sender.mac"	,	L_98
+"SMCR"	,	L_189
+FT_UINT16	,	V_237
+hf_smcr_add_link_response	,	V_95
+"smcr.rmbe.ctrl.failover.validation"	,	L_179
+tvb_captured_length	,	F_31
+SMCR_TCP_MIN_HEADER_LENGTH	,	V_214
+"Outgoing Interface Subnet Mask"	,	L_42
+"Server QP Number"	,	L_50
+hf_smcr_add_link_qp_mtu_value	,	V_103
+smcr_llc_message_txt	,	V_200
+"smcr.accept.flags.2"	,	L_26
+hf_smcr_rmbe_ctrl_prod_wrap_seqno	,	V_160
+"Link Number"	,	L_88
+heur_dissector_add	,	F_44
+HEURISTIC_ENABLE	,	V_240
+"smcr.confirm.link.sender.link.userid"	,	L_91
+"smcr.add.link.cont.response"	,	L_111
+"smcr.rmbe.ctrl.peer.prod.curs"	,	L_165
+"smcr_tcp"	,	L_193
+hf_smcr_rmbe_ctrl_cons_update_requested	,	V_170
+"smcr.delete.rkey.response"	,	L_150
+ACCEPT_CONFIRM_QP_OFFSET	,	V_191
+"LLC Message"	,	L_9
+val_to_str_const	,	F_21
+ALERT_TOKEN_LEN	,	V_46
+hf_smcr_rmbe_ctrl_peer_prod_curs	,	V_161
+length	,	V_213
+ett_test_link_flag	,	V_150
+hf_smcr_confirm_client_qp_number	,	V_66
+"smcr.client.rmb.virtual.address"	,	L_76
+hf_smcr_accept_server_rmb_rkey	,	V_41
+FT_UINT32	,	V_235
+hf_smcr_confirm_link_mac	,	V_83
+"Link Number For The Failed Link"	,	L_132
+hf	,	V_223
+"smcr.confirm.link.number"	,	L_89
+"smcr.add.link.flags"	,	L_102
+"smcr.add.link.cont.rmb.RTok1.Rkey2"	,	L_118
+"smcr.confirm.rkey.retry.rkey.set"	,	L_141
+CONN_INDEX_LEN	,	V_44
+"smcr.sender.gid"	,	L_83
+hf_smcr_proposal_outgoing_subnet_mask_signifcant_bits	,	V_23
+"Unknown Command"	,	L_3
+LLC_ADD_LINK	,	V_206
+"smcr.confirm.client.mac"	,	L_66
+"smcr.accept.initial.psn"	,	L_61
+disect_smcr_delete_rkey	,	F_15
+hf_smcr_decline_flags	,	V_76
+FT_IPv6	,	V_230
+hf_smcr_accept_server_rmb_virtual_address	,	V_52
+col_append_fstr	,	F_22
+hf_smcr_proposal_ipv6_prefix_length	,	V_27
+"smcr.confirm.qp.mtu.value"	,	L_21
+col_set_str	,	F_19
+QP_LEN	,	V_40
+hf_smcr_llc_msg	,	V_204
+"Flags"	,	L_22
+FT_IPv4	,	V_233
+hf_smcr_accept_server_tcp_conn_index	,	V_43
+"smcr.llc_msg"	,	L_10
+"smcr.confirm.link.max.links"	,	L_93
+accept_flag2_tree	,	V_31
+hf_smcr_add_link_flags	,	V_93
+"smcr.accept.server.preferred.mac"	,	L_41
+ett_smcr	,	V_193
+"Reason Code"	,	L_134
+LLC_TEST_LINK	,	V_212
+LLC_LEN_OFFSET	,	V_198
+"Server Preferred GID"	,	L_38
+"smcr.confirm.link.flags"	,	L_94
+llc_msgid	,	V_197
+disect_smcr_confirm_rkey	,	F_13
+RMBE_CTRL_START_OFFSET	,	V_156
+"QP MTU Value (enumerated value)"	,	L_17
+hf_smcr_decline_peer_id	,	V_77
+RMBE_CTRL	,	V_201
+VALS	,	F_37
+"smcr.delete.link.all"	,	L_129
+"(Resp)"	,	L_6
+disect_smcr_accept	,	F_6
+"Client RMB Buffers Size (Compressed Notation)"	,	L_19
+"smcr.accept.sender.server.peer.id"	,	L_37
+BASE_DEC	,	V_225
+"Client GID"	,	L_63
+"Negative Response"	,	L_138
+"Consumer window wrap sequence number"	,	L_166
+"smcr.delete.link.number"	,	L_133
+"smcr.accept.server.preferred.gid"	,	L_39
+add_link_flag_item	,	V_89
+"First Contact"	,	L_13
+IPV4_SUBNET_MASK_LEN	,	V_22
+ENC_NA	,	V_18
+col_prepend_fstr	,	F_20
+LLC_ADD_LINK_CONT	,	V_207
+"Terminate All Links In The Link Group"	,	L_128
+hf_smcr_accept_server_preferred_mac	,	V_38
+ett_confirm_rkey_flag	,	V_130
+ett_confirm_link_flag	,	V_81
+"smcr.confirm.rkey.new.rkey"	,	L_145
+SMC_CLC_DECLINE	,	V_196
+hf_smcr_confirm_link_number	,	V_86
+"tcp"	,	L_191
+proto_register_smcr	,	F_36
+"smcr.confirm.rkey.link.number"	,	L_148
+"smcr.confirm.client.tcp.conn.index"	,	L_72
+hf_smcr_accept_initial_psn	,	V_54
+"Flags 2"	,	L_25
+hf_smcr_confirm_link_response	,	V_82
+"smcr.delete.rkey.negative.response"	,	L_151
+"smcr.rmbe.ctrl.seqno"	,	L_159
+"Response"	,	L_95
+"Shared Memory Communications over TCP"	,	L_192
+guint	,	T_3
+"Server RMB Rkey"	,	L_52
+ett	,	V_238
+hf_smcr_confirm_rkey_negative_response	,	V_132
+accept_flag2_item	,	V_30
+"smcr.delete.link.flags"	,	L_126
+hf_smcr_rmbe_ctrl_alert_token	,	V_159
+hf_accept_first_contact	,	V_35
+hf_smcr_add_link_cont_p2_rkey	,	V_114
+"smcr.accept.server.rmb.virtual.address"	,	L_59
+get_smcr_pdu_length	,	F_27
+packet_info	,	T_8
+hf_smcr_confirm_link_max_links	,	V_88
+"smcr.test.link.response"	,	L_157
+hf_smcr_rmbe_ctrl_peer_abnormal_close	,	V_176
+hf_smcr_confirm_client_tcp_conn_index	,	V_68
+disect_smcr_delete_link	,	F_12
+llc_message	,	T_11
+"smcr.add.link.initial.psn"	,	L_101
+hf_smcr_delete_rkey_deleted	,	V_146
+hf_smcr_add_link_mac	,	V_97
+"smcr.rmbe.ctrl.conn.rw.status.flags"	,	L_169
+hf_smcr_delete_rkey_flags	,	V_141
+"smcr.confirm.flags.2"	,	L_29
+HFILL	,	V_226
+hf_smcr_confirm_client_gid	,	V_64
+add_link_flag_tree	,	V_90
+hf_smcr_accept_server_qp_number	,	V_39
+hf_smcr_confirm_client_rmb_rkey	,	V_67
+"[SMC-R-%s],"	,	L_2
+"smcr.outgoing.interface.subnet.mask"	,	L_43
+hf_smcr_delete_link_number	,	V_124
+disect_smcr_confirm	,	F_7
+"smcr.confirm.rmb.buffer.size"	,	L_20
+disect_smcr_confirm_link	,	F_9
+"smcr.add.link.link.number"	,	L_100
+"Peer Producer Cursor"	,	L_164
+"Urgent Data Pending"	,	L_172
+hf_smcr_confirm_rkey_virtual_address	,	V_136
+dissect_smcr_tcp_pdu	,	F_18
+"smcr.accept.server.rmb.rkey"	,	L_53
+hf_smcr_delete_rkey_mask	,	V_145
+proposal_flag_tree	,	V_7
+hf_smcr_confirm_link_qp_number	,	V_85
+ett_add_link_cont_flag	,	V_107
+"RMB Rkey to be deleted"	,	L_154
+hf_smcr_delete_rkey_negative_response	,	V_144
+LLC_RMBE_CTRL	,	V_222
+proto_register_protocol	,	F_41
+"Shared Memory Communications - RDMA"	,	L_188
+hf_smcr_rmbe_ctrl_seqno	,	V_157
+"smcr.rmbe.ctrl.prod.wrap.seq"	,	L_163
+"smcr.peer.diag.info"	,	L_81
+hf_smcr_confirm_initial_psn	,	V_75
+tcp_dissect_pdus	,	F_29
+LLC_CONFIRM_RKEY	,	V_209
+gint	,	T_7
+"Number of Rkeys"	,	L_113
+hf_smcr_add_link_cont_flags	,	V_106
+tvb_captured_length_remaining	,	F_34
+tvb	,	V_1
+hf_smcr_confirm_client_peer_id	,	V_63
+COL_INFO	,	V_186
+clc_msgid	,	V_180
+"Client MAC Address"	,	L_65
+"smcr.delete.link.response"	,	L_127
+rmbe_ctrl_rw_status_flag_item	,	V_152
+LLC_DELETE_RKEY	,	V_211
+delete_link_flag_item	,	V_117
+hf_smcr_confirm_rkey_new_rkey	,	V_135
+cinfo	,	V_183
+"smcr.add.link.cont.rkey.number"	,	L_114
+disect_smcr_confirm_rkey_cont	,	F_14
+hf_smcr_proposal_outgoing_interface_subnet_mask	,	V_21
+dissect_smcr_infiniband	,	F_25
+dissect_smcr_tcp_heur	,	F_30
+ett_rmbe_ctrl_rw_status_flag	,	V_166
+"CLC Message"	,	L_7
+hf_smcr_accept_server_peer_id	,	V_36
+"RMB RToken Pair 1 - Equivalent Rkey for the new SMC Link"	,	L_117
+"smcr.delete.link.reason.code"	,	L_135
+disect_smcr_rmbe_ctrl	,	F_17
+"smcr.outgoing.interface.subnet.mask.number.of.significant.bits"	,	L_45
+hf_smcr_add_link_gid	,	V_98
+msg_byte0	,	V_217
+"smcr.delete.rkey.deleted"	,	L_155
+msg_byte1	,	V_218
+hf_smcr_proposal_ipv6_prefix	,	V_25
+disect_smcr_decline	,	F_8
+IPV6_PREFIX_LEN	,	V_26
+"RMB RToken Pair 2 Virtual Address for the new SMC Link"	,	L_125
+COL_PROTOCOL	,	V_184
+"Error Mask"	,	L_152
+"smcr.proposal.ipv6.prefix.length"	,	L_49
+CLC_MSG_START_OFFSET	,	V_8
+guint8	,	T_5
+ti	,	V_181
+"Urgent Data Present"	,	L_174
+FLAG_BYTE_LEN	,	V_10
+num_entries	,	V_126
+hf_smcr_rmbe_ctrl_peer_closed_conn	,	V_175
+"smcr.delete.rkey.flags"	,	L_149
+tvb_get_ntohl	,	F_32
+hf_smcr_proposal_client_preferred_gid	,	V_16
+"smcr.add.link.flags2"	,	L_107
+"Peer Consumer Cursor"	,	L_167
+"Peer Connection State Flags"	,	L_180
+tvbuff_t	,	T_1
+delete_link_flag_tree	,	V_118
+tvb_get_ntohs	,	F_4
+"smcr.confirm.client.qp.number"	,	L_68
+"Peer Diagnosis Information"	,	L_80
+ONE_BYTE_RESERVED	,	V_51
+hf_smcr_add_link_cont_link_number	,	V_109
+hf_smcr_accept_flags	,	V_32
+gboolean	,	T_12
+"New RMB virtual address for this link"	,	L_146
+ipv6_prefix_count	,	V_5
+hf_smcr_rmbe_ctrl_urgent_pending	,	V_168
+CLC_MSG_BYTE_0	,	V_215
+CLC_MSG_BYTE_1	,	V_220
+"smcr"	,	L_190
+"Peer Closed Connection"	,	L_184
+"smcr.rmbe.ctrl.urgent.present"	,	L_175
+"smcr.proposal.ipv6.prefix.value"	,	L_47
+LLC_CMD_OFFSET	,	V_199
+"Write Blocked"	,	L_170
+ett_accept_flag2	,	V_48
+hf_smcr_rmbe_ctrl_peer_sending_done	,	V_174
+ett_confirm_flag2	,	V_71
+tvb_get_guint8	,	F_5
+"smcr.test.link.flags"	,	L_156
+"smcr.confirm.rkey.negative.response"	,	L_139
+rmbe_ctrl_rw_status_flag_tree	,	V_153
+"Terminate Links Orderly"	,	L_130
+"SMC Version"	,	L_11
+"smcr.confirm.rkey.number.qp"	,	L_143
+clc_message	,	T_10
+"Consumer Cursor Update Requested"	,	L_176
+hf_confirm_qp_mtu_value	,	V_73
+hf_smcr_test_link_flags	,	V_149
+"Sender Peer ID"	,	L_78
+ett_delete_rkey_flag	,	V_142
+LLC_CONFIRM_LINK	,	V_205
+"smcr.rmbe.ctrl.peer.sending.done"	,	L_183
+dissect_smcr_infiniband_heur	,	F_33
+hf_smcr_add_link_cont_p2_virt_addr	,	V_116
+"smcr.proposal.client.preferred.gid"	,	L_33
+"RMB RToken Pair 2 - Rkey as known on this SMC Link"	,	L_121
+"smcr.proposal.smc.version"	,	L_12
+"Server TCP Connection Index"	,	L_54
+"smcr.proposal.first.contact"	,	L_14
+hf_smcr_confirm_client_rmb_element_alert_token	,	V_69
+"smcr.rmbe.ctrl.alert.token"	,	L_161
+"infiniband.payload"	,	L_194
+"Client Preferred GID"	,	L_32
+hf_smcr_confirm_link_flags	,	V_80
+"smcr.rmbe.ctrl.cons.update.requested"	,	L_177
+mask_offset	,	V_4
+ENC_BIG_ENDIAN	,	V_11
+"smcr.accept.server.tcp.conn.index"	,	L_55
+"smcr.rmbe.ctrl.peer.abnormal.close"	,	L_187
+"smcr.proposal.client.preferred.mac"	,	L_35
+"Server RMB Buffers Size (Compressed Notation)"	,	L_15
+hf_smcr_proposal_client_peer_id	,	V_14
+hf_smcr_add_link_qp_number	,	V_99
+hf_smcr_delete_link_all	,	V_122
+confirm_flag2_tree	,	V_59
+LLC_MSG_START_OFFSET	,	V_79
+"smcr.delete.rkey.error.mask"	,	L_153
+RKEY_LEN	,	V_42
+"smcr.confirm.flags"	,	L_27
+" QP=0x%06x"	,	L_4
+LLC_FLAG_RESP	,	V_203
+"smcr.initial.psn"	,	L_77
+"Producer window wrap sequence number"	,	L_162
+confirm_flag_tree	,	V_57
+FT_UINT64	,	V_229
+hf_smcr_proposal_client_preferred_mac	,	V_19
+hf_accept_qp_mtu_value	,	V_50
+hf_smcr_add_link_cont_response	,	V_108
+hf_smcr_rmbe_ctrl_peer_cons_curs	,	V_164
+"New Rkey for this link"	,	L_144
+test_link_flag_tree	,	V_148
+"Server Preferred MAC Address"	,	L_40
+"Sender GID"	,	L_82
+ett_proposal_flag	,	V_12
+hf_smcr_rmbe_ctrl_conn_rw_status_flags	,	V_165
+BASE_NETMASK	,	V_234
+"Server's RMB Vitual Address"	,	L_58
+SEQNO_LEN	,	V_158
+hf_smcr_decline_diag_info	,	V_78
+hf_smcr_test_link_response	,	V_151
+"Outgoing Interface Subnet Mask Number of Significant Bits"	,	L_44
+"Server RMB Element Alert Token"	,	L_56
+proto_register_subtree_array	,	F_40
+tvb_get_ntoh24	,	F_23
+hf_smcr_delete_link_reason_code	,	V_125
+CLC_MSG_LEN_OFFSET	,	V_185
+"smcr.add.link.cont.rmb.RTok1.virt"	,	L_120
+hf_smcr_confirm_rkey_response	,	V_131
+"Peer Abnormal Close"	,	L_186
+proto_tree_add_item	,	F_2
+"SMC-R"	,	L_1
+pinfo	,	V_177
+"Client RMB Rkey"	,	L_69
+"smcr.confirm.link.sender.qp.number"	,	L_87
+_U_	,	V_178
+"Client QP Number"	,	L_67
+new_register_dissector	,	F_42
+confirm_rkey_flag_item	,	V_127
+hf_smcr_add_link_number	,	V_100
+"smcr.proposal.sender.client.peer.id"	,	L_31
+"smcr.add.link.qp.mtu.value"	,	L_109
+ett_rmbe_ctrl_peer_conn_state_flag	,	V_173
+"smcr.confirm.rkey.response"	,	L_137
+"smcr.accept.flags"	,	L_24
+hf_smcr_delete_link_response	,	V_121
+"[SMC-R] "	,	L_5
+hf_smcr_delete_rkey_response	,	V_143
+hf_smcr_add_link_cont_p2_rkey2	,	V_115
+"Client's RMB Vitual Address"	,	L_75
+LLC_MSG_LENGTH	,	V_221
+ett_accept_flag	,	V_33
+FT_UINT8	,	V_224
+add_link_flag2_tree	,	V_92
+"smcr.confirm.sender.client.peer.id"	,	L_62
+proto_item	,	T_6
+SMCR_CLC_ID	,	V_216
+disect_smcr_add_link	,	F_10
+num_of_keys	,	V_105
+smcr_tree	,	V_182
+hf_smcr_add_link_cont_p1_virt_addr	,	V_113
+rmbe_ctrl_peer_conn_state_flag_item	,	V_154
+TWO_BYTE_RESERVED	,	V_24
+hf_smcr_confirm_link_gid	,	V_84
+hf_smcr_accept_server_rmb_element_alert_token	,	V_45
+"IPv6 Prefix Value"	,	L_46
+SMC_CLC_PROPOSAL	,	V_195
+data	,	T_9
+"Client RMB Element Alert Token"	,	L_73
+LLC_CONFIRM_RKEY_CONT	,	V_210
+GID_LEN	,	V_17
+test_link_flag_item	,	V_147
+"smcr.rmbe.ctrl.urgent.pending"	,	L_173
+SMC_CLC_CONFIRMATION	,	V_190
+"smcr.client.gid"	,	L_64
+confirm_flag2_item	,	V_58
+"smcr.add.link.cont.rmb.RTok2.Rkey1"	,	L_122
+"Sender Link User ID"	,	L_90
+"smcr.accept.server.rmb.element.alert.token"	,	L_57
+offset	,	V_3
+smcr_tcp_handle	,	V_239
+tree	,	V_2
+"Shared Memory Communications Infiniband"	,	L_195
+"Sender QP Number"	,	L_86
+"smcr.add.link.response.rejected"	,	L_106
+hf_smcr_confirm_client_mac	,	V_65
+hf_smcr_delete_link_flags	,	V_119
+"Retry Rkey Set"	,	L_140
+CURSOR_LEN	,	V_162
+"smcr.add.link.response"	,	L_104
+hf_smcr_add_link_cont_p1_rkey2	,	V_112
+"smcr.add.link.cont.rmb.RTok2.Rkey2"	,	L_124
+hf_confirm_rmb_buffer_size	,	V_72
+"Max Links"	,	L_92
+hf_smcr_confirm_rkey_link_number	,	V_137
+"Add Link Response"	,	L_103
+"smcr.confirm.rkey.flags"	,	L_136
+"smcr.proposal.flags"	,	L_23
+hf_proposal_smc_version	,	V_13
+LLC_CMD_RSP_OFFSET	,	V_202
+SMCR_MSG_BYTE_0	,	V_219
+"smcr.confirm.link.response"	,	L_96
+"smcr.confirm.link.sender.mac"	,	L_85
+"Connection read/write status flags"	,	L_168
+hf_smcr_confirm_rkey_retry_rkey_set	,	V_133
+"smcr.add.link.cont.link.number"	,	L_112
+"smcr.delete.link.orderly"	,	L_131
+disect_smcr_proposal	,	F_1
+hf_smcr_add_link_cont_p1_rkey	,	V_111
+hf_smcr_delete_link_orderly	,	V_123
+"smcr.client.rmb.element.alert.token"	,	L_74
+PEERID_LEN	,	V_15
+rmbe_ctrl_peer_conn_state_flag_tree	,	V_155
+LLC_DEL_LINK	,	V_208
+hf_smcr_confirm_rkey_number	,	V_134
+"QP MTU Value"	,	L_108
+"Add Link Rejected"	,	L_105
+smcr_clc_message_txt	,	V_188
+hf_smcr_confirm_flags2	,	V_70
+"smcr.decline.flags"	,	L_28
+ett_confirm_flag	,	V_61
+confirm_flag_item	,	V_56
+accept_flag_tree	,	V_29
+ett_add_link_flag	,	V_94
+confirm_rkey_flag_tree	,	V_128
+"smcr.add.link.sender.qp.number"	,	L_99
+"smcr.rmbe.ctrl.write.blocked"	,	L_171
+add_link_flag2_item	,	V_91
+proto_tree	,	T_2

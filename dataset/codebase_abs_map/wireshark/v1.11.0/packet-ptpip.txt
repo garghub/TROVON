@@ -1,0 +1,181 @@
+dissect_ptpIP_data	,	F_16
+PTPIP_EVENT	,	V_23
+"ptpip.len"	,	L_24
+hf_ptpIP_guid	,	V_54
+proto_register_protocol	,	F_38
+PTPIP_START_DATA_PACKET	,	V_24
+majorVersion	,	V_49
+"Data Phase Info"	,	L_35
+dataLen	,	V_39
+"ptpip.connection"	,	L_34
+"CloseSession"	,	L_10
+tvb_get_unicode_string	,	F_30
+"ptpip.phaseinfo"	,	L_36
+"Version"	,	L_31
+dissect_ptpIP_end_data	,	F_17
+col_append_fstr	,	F_21
+PTP_OC_CloseSession	,	V_35
+"GetStorageIDs"	,	L_11
+"Picture Transfer Protocol"	,	L_2
+dissect_ptpIP_start_data	,	F_15
+FT_UINT64	,	V_69
+col_set_str	,	F_3
+gint	,	T_10
+"PTP/IP"	,	L_1
+hf_ptpIP_connectionNumber	,	V_28
+ptpIP_handle	,	V_73
+"GetDeviceInfo"	,	L_9
+"Connection Number"	,	L_33
+"ptpip.eventcode"	,	L_42
+PTPIP_PORT	,	V_74
+"Init Command Request"	,	L_3
+tvb	,	V_1
+ett_ptpIP	,	V_13
+guint32	,	T_7
+COL_INFO	,	V_11
+nameLen	,	V_45
+"Picture Transfer Protocol Over IP"	,	L_49
+dissect_ptpIP_event	,	F_14
+"Event Packet "	,	L_13
+PTPIP_INIT_EVENT_ACK	,	V_20
+version	,	V_47
+dissect_ptpIP_unicode_name	,	F_19
+cinfo	,	V_9
+tvb_get_letoh64	,	F_26
+proto_register_subtree_array	,	F_41
+hf_ptpIP_name	,	V_46
+proto_tree_add_string	,	F_34
+array_length	,	F_40
+proto_ptpIP	,	V_12
+PTPIP_DATA_PACKET	,	V_25
+proto_tree_add_item	,	F_6
+FT_STRINGZ	,	V_64
+pinfo	,	V_2
+dissector_handle_t	,	T_12
+_U_	,	V_4
+PTP_OC_OpenSession	,	V_34
+"ptpip.opcode.param.sessionid"	,	L_48
+"ptpip.version"	,	L_32
+col_append_str	,	F_28
+dissect_ptpIP_init_command_request	,	F_8
+"ptpip.name"	,	L_30
+hf_ptp_transactionID	,	V_43
+hf_register_info	,	T_11
+"ptpip.respcode"	,	L_40
+"ptpip.datalen"	,	L_46
+"ptpip"	,	L_50
+PTP_OC_GetStorageIDs	,	V_36
+VALS	,	F_37
+ett_ptpIP_hdr	,	V_72
+dissect_ptp_opCode_openSession	,	F_24
+"Host Name"	,	L_29
+"Operation Response Packet "	,	L_12
+guint16	,	T_6
+COL_PROTOCOL	,	V_10
+PTPIP_CMD_RESPONSE	,	V_22
+hf_ptp_eventCode	,	V_38
+pktType	,	V_8
+BASE_DEC	,	V_58
+proto_item	,	T_5
+"Data Packet "	,	L_16
+"ptpip.transactionID"	,	L_44
+" Connection #:%u"	,	L_5
+ENC_NA	,	V_55
+dissect_ptpIP_operation_response	,	F_13
+guint8	,	T_9
+hf_ptp_opCode_param_sessionID	,	V_41
+tvb_bytes_to_str	,	F_35
+BASE_NONE	,	V_63
+ptp_respcode_names	,	V_68
+ptp_tree	,	V_6
+tvb_length_remaining	,	F_2
+minorVersion	,	V_50
+ENC_LITTLE_ENDIAN	,	V_15
+proto_reg_handoff_ptpIP	,	F_42
+PTPIP_INIT_COMMAND_REQUEST	,	V_17
+"Transaction ID"	,	L_43
+"Packet Type"	,	L_25
+data	,	T_4
+"Event Code"	,	L_41
+proto_register_ptpip	,	F_36
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_4
+"Start Data Packet "	,	L_14
+dissect_ptpIP	,	F_1
+hf_ptpIP_len	,	V_14
+opcode	,	V_29
+"Init Command Ack"	,	L_4
+BASE_HEX	,	V_60
+col_add_str	,	F_22
+connectionNumber	,	V_27
+PTPIP_CMD_REQUEST	,	V_21
+proto_item_add_subtree	,	F_5
+tvb_get_letohl	,	F_7
+" GUID: %s"	,	L_22
+hf_ptpIP_pktType	,	V_16
+proto_register_field_array	,	F_39
+tvb_get_letohs	,	F_23
+" Name: %s"	,	L_20
+hf_ptpIP_version	,	V_51
+FT_BYTES	,	V_62
+PTP_OC_GetDeviceInfo	,	V_33
+G_GUINT64_CONSTANT	,	F_27
+dissect_ptpIP_protocol_version	,	F_20
+"Length"	,	L_23
+"ptpip.opcode"	,	L_38
+offset	,	V_7
+ett	,	V_71
+wmem_packet_scope	,	F_31
+ptp_opcode_names	,	V_67
+dissector_add_uint	,	F_44
+tree	,	V_3
+proto_tree_add_unicode_string	,	F_32
+hf_ptp_opCode	,	V_32
+FT_UINT16	,	V_66
+packet_info	,	T_2
+"Response Code"	,	L_39
+"Init Event Ack"	,	L_7
+name	,	V_44
+guid	,	V_52
+"OpenSession"	,	L_18
+"End Data Packet "	,	L_17
+"Init Event Request"	,	L_6
+dissect_ptpIP_operation_request	,	F_12
+"Operation Request Packet "	,	L_8
+dissect_ptpIP_init_event_ack	,	F_11
+"Operation Code"	,	L_37
+BASE_DEC_HEX	,	V_70
+"GUID"	,	L_27
+"Session ID"	,	L_47
+transactionID	,	V_42
+transactionID_offset	,	V_30
+g_snprintf	,	F_33
+PTPIP_GUID_SIZE	,	V_53
+tvb_unicode_strsize	,	F_29
+FT_STRING	,	V_65
+hf_ptp_totalDataLength	,	V_40
+hf_ptp_respCode	,	V_37
+HFILL	,	V_59
+"Total Data Length"	,	L_45
+PTPIP_INIT_EVENT_REQUEST	,	V_19
+PTPIP_INIT_COMMAND_ACK	,	V_18
+" Data Length Unknown"	,	L_15
+new_create_dissector_handle	,	F_43
+dissect_ptpIP_guid	,	F_18
+dissect_ptpIP_init_event_request	,	F_10
+"ptpip.guid"	,	L_28
+protoVersion	,	V_48
+"%u.%u"	,	L_21
+"ptpip.pktType"	,	L_26
+dissect_ptpIP_init_command_ack	,	F_9
+hf_ptpIP_dataPhaseInfo	,	V_31
+FT_UINT32	,	V_57
+item_ptr	,	V_5
+dissect_ptp_transactionID	,	F_25
+PTPIP_END_DATA_PACKET	,	V_26
+guint64	,	T_8
+"tcp.port"	,	L_51
+ptpip_pktType_names	,	V_61
+proto_tree	,	T_3
+" Transaction ID: %d"	,	L_19
+hf	,	V_56

@@ -1,0 +1,446 @@
+"Sequence number"	,	L_88
+aformat	,	V_16
+XTP_CMD_OPTIONS_EOM	,	V_196
+tcntl	,	V_32
+cmd_ptype_pformat	,	V_141
+"xtp.aseg.alen"	,	L_129
+cntl	,	V_77
+ett_xtp	,	V_149
+tvb_reported_length	,	F_25
+XTP_TCNTL_PKT	,	V_173
+"xtp.ecntl.span_le"	,	L_102
+"xtp.tspec.outrate"	,	L_126
+"xtp.aseg.adomain"	,	L_131
+"END"	,	L_36
+"xtp.cmd.options"	,	L_60
+fpos	,	V_114
+cmd_options	,	V_117
+TFS	,	F_42
+", Unsupported aformat(%u)"	,	L_5
+ett_xtp_cntl	,	V_78
+guint32	,	T_3
+vec_t	,	T_12
+FT_BOOLEAN	,	V_183
+"xtp.sync"	,	L_87
+dsthost	,	V_21
+tvb_reported_length_remaining	,	F_2
+array_length	,	F_46
+hf_xtp_ecntl_echo	,	V_95
+fstr	,	V_113
+XTP_IP_ADDR_SEG_LEN	,	V_20
+"xtp.tspec.tlen"	,	L_113
+""	,	L_41
+hf_xtp_cntl_rseq	,	V_80
+hf_xtp_dlen	,	V_160
+"xtp.tspec.inburst"	,	L_124
+"xtp.cmd.options.noerr"	,	L_63
+ENC_ASCII	,	V_106
+xtp_ecntl	,	V_83
+XTP_CMD_OPTIONS_BTAG	,	V_169
+"0x%04x"	,	L_54
+adomain	,	V_15
+dissect_xtp_ecntl	,	F_19
+hf_register_info	,	T_14
+hf_xtp_tcntl_echo	,	V_45
+"xtp.cntl.rseq"	,	L_91
+ti2	,	V_7
+hf_xtp_cmd_options_sreq	,	V_129
+seq	,	V_146
+guint16	,	T_13
+hf_xtp_ecntl_span_left	,	V_97
+", bogus length(%u, must be %u)"	,	L_4
+i	,	V_86
+hf_xtp_tcntl_alloc	,	V_44
+"Diagnostic code"	,	L_144
+have_btag	,	V_70
+" [%s]"	,	L_43
+"xtp.tcntl.xkey"	,	L_111
+BASE_NONE	,	V_205
+diag_code_vals	,	V_206
+aseg	,	V_11
+hf_xtp_cmd_options_eom	,	V_133
+XTP_VERSION_4	,	V_158
+"xtp.data.btag"	,	L_143
+"xtp.tspec.inrate"	,	L_122
+hf_xtp_diag_val	,	V_104
+hf_xtp_ecntl_nspan	,	V_96
+"xtp.checksum"	,	L_151
+BASE_HEX	,	V_179
+"xtp.cntl.echo"	,	L_95
+col_add_str	,	F_33
+XTP_CNTL_PKT	,	V_170
+FT_UINT24	,	V_182
+"Maxdata"	,	L_119
+"xtp.cmd.ptype.pformat"	,	L_81
+"Destination port"	,	L_138
+proto_item_add_subtree	,	F_35
+rsvd	,	V_38
+proto_register_field_array	,	F_48
+FT_BYTES	,	V_209
+ett_xtp_data	,	V_72
+inburst	,	V_64
+ei	,	V_213
+hf_xtp_aseg_srchost	,	V_25
+dissector_add_uint	,	F_52
+hf_xtp_tspec_maxdata	,	V_61
+check	,	V_143
+", bogus length(%u, must be at least %u)"	,	L_2
+FT_UINT16	,	V_201
+"xtp.key"	,	L_56
+xtp_traffic_spec1	,	V_48
+"ip.proto"	,	L_158
+"Diagnostic value"	,	L_146
+XTP_CMD_OPTIONS_RCLOSE	,	V_194
+hf_xtp_ecntl_alloc	,	V_94
+tspec	,	V_49
+XTP_CMD_OPTIONS_RES	,	V_188
+"Diagnostic Segment"	,	L_21
+"Error Control Segment"	,	L_17
+hf_xtp_cmd_options	,	V_153
+"RES"	,	L_27
+"xtp.cmd.options.sreq"	,	L_69
+returned_length	,	V_115
+", Recv-Seq: %"	,	L_12
+", Dst Port: %u"	,	L_6
+"Traffic Control Segment"	,	L_8
+hf_xtp_tspec_service	,	V_56
+"xtp.cmd.options.fastnak"	,	L_68
+FT_STRING	,	V_208
+"Traffic"	,	L_117
+hf_xtp_tspec_outburst	,	V_69
+dissect_xtp_first	,	F_18
+hf_xtp_tcntl_rseq	,	V_43
+cksum_vec	,	V_118
+xtp_cmd_tree	,	V_109
+hf_xtp_cmd	,	V_151
+FT_UINT32	,	V_181
+service	,	V_53
+"xtp.cmd.options.sort"	,	L_66
+aformat_vals	,	V_203
+guint64	,	T_7
+ett_xtp_diag	,	V_100
+hf_xtp_cmd_options_end	,	V_134
+XTP_CMD_OPTIONS_END	,	V_197
+hf	,	V_177
+dissect_xtp_tspec	,	F_14
+hf_xtp_tspec_outrate	,	V_67
+XTP_CMD_OPTIONS_NOERR	,	V_186
+hf_xtp_tspec_inrate	,	V_63
+G_GINT64_MODIFIER	,	V_42
+"xtp.cmd.options.dreq"	,	L_70
+dissect_xtp_jcntl	,	F_22
+proto_tree_add_subtree	,	F_3
+hf_xtp_tcntl_xkey	,	V_47
+col_append_fstr	,	F_12
+tlen	,	V_52
+col_set_str	,	F_26
+XTP_DIAG_PKT	,	V_176
+"xtp.cmd.ptype.ver"	,	L_79
+FT_IPv4	,	V_204
+dissect_xtp	,	F_24
+"xtp.cmd.options.noflow"	,	L_67
+"Address Segment"	,	L_1
+"xtp.cmd.options.multi"	,	L_64
+"WCLOSE"	,	L_34
+"xtp.aseg.dstport"	,	L_139
+proto_reg_handoff_xtp	,	F_50
+val_to_str	,	F_34
+cmd	,	V_138
+cmd_ptype_ver	,	V_140
+dissector_handle_t	,	T_17
+diag_val_vals	,	V_207
+computed_cksum	,	V_119
+XTP_CMD_OPTIONS_NOCHECK	,	V_163
+tvb_get_ipv4	,	F_9
+" Len=%u"	,	L_45
+maxdata	,	V_59
+VALS	,	F_43
+SET_CKSUM_VEC_TVB	,	F_37
+in_cksum_shouldbe	,	F_40
+hf_xtp_diag_msg	,	V_105
+BASE_DEC	,	V_199
+"Synchronizing handshake"	,	L_86
+"Service"	,	L_114
+"xtp.tcntl.rsvd"	,	L_109
+"Number of spans incorrect"	,	L_155
+ENC_NA	,	V_75
+"xtp.ecntl.rseq"	,	L_96
+", bogus length (%u, must be at least %u)"	,	L_18
+"Data Segment"	,	L_15
+wmem_alloc	,	F_29
+"Command"	,	L_57
+"xtp.aseg.address"	,	L_133
+hf_xtp_tspec_tlen	,	V_55
+"BTAG"	,	L_37
+"Sort"	,	L_84
+hf_xtp_aseg_srcport	,	V_29
+spans_len	,	V_85
+XTP_CMD_OPTIONS_EDGE	,	V_185
+hf_xtp_seq	,	V_167
+XTP_CMD_OPTIONS_DREQ	,	V_193
+ei_xtp_spans_bad	,	V_91
+"Exchange key"	,	L_110
+"Common Control Segment"	,	L_16
+"xtp.tspec.outburst"	,	L_128
+expert_register_protocol	,	F_44
+ett_xtp_tspec	,	V_50
+check_len	,	V_162
+version_vals	,	V_200
+ett_xtp_cmd	,	V_152
+"Destination host"	,	L_134
+guint	,	T_8
+XTP_CMD_OPTIONS_SORT	,	V_189
+"Length"	,	L_112
+ett	,	V_210
+wmem_packet_scope	,	F_30
+MIN_XTP_ECNTL_PKT_LEN	,	V_88
+sort	,	V_144
+packet_info	,	T_5
+XTP_DIAG_PKT_HEADER_LEN	,	V_101
+hf_xtp_cntl_alloc	,	V_81
+dissect_xtp_tcntl	,	F_21
+", Unsupported tformat(%u)"	,	L_14
+EXPFILL	,	V_216
+"xtp.cmd"	,	L_58
+service_vals	,	V_202
+"Incoming burst size"	,	L_123
+xtph	,	V_111
+hf_xtp_aseg_dstport	,	V_27
+"Number of spans"	,	L_99
+tformat	,	V_54
+"SORT"	,	L_28
+hf_xtp_cmd_options_noerr	,	V_123
+XTP_MAX_NSPANS	,	V_92
+", "	,	L_40
+HFILL	,	V_180
+PI_MALFORMED	,	V_214
+top_ti	,	V_8
+"Traffic Specifier"	,	L_13
+ett_xtp_tcntl	,	V_33
+gchar	,	T_10
+hf_xtp_cmd_ptype_ver	,	V_157
+"SREQ"	,	L_31
+"NOFLOW"	,	L_29
+create_dissector_handle	,	F_51
+"xtp.cmd.options.edge"	,	L_62
+"u"	,	L_10
+hf_xtp_cmd_options_sort	,	V_126
+hf_xtp_cmd_options_edge	,	V_122
+"RCLOSE"	,	L_33
+hf_xtp_cmd_options_dreq	,	V_130
+XTP_FIRST_PKT	,	V_171
+outburst	,	V_68
+"Domain"	,	L_130
+"xtp.ecntl.alloc"	,	L_97
+"MULTI"	,	L_26
+"0x%04x [incorrect, should be 0x%04x]"	,	L_53
+proto_register_protocol	,	F_47
+IP_PROTO_XTP	,	V_219
+echo	,	V_37
+"xtp.cmd.options.wclose"	,	L_72
+"Too many spans: %u"	,	L_20
+xtp_ip_addr_seg	,	V_10
+"Version"	,	L_78
+len	,	V_4
+srchost	,	V_24
+"xtp.aseg.srchost"	,	L_137
+gint	,	T_11
+"xtp.diag.val"	,	L_147
+hf_xtp_aseg_address	,	V_22
+tvb	,	V_1
+"Packet type"	,	L_76
+expert_xtp	,	V_217
+hf_xtp_aseg_adomain	,	V_18
+COL_INFO	,	V_41
+"%s%s"	,	L_39
+"xtp.aseg.srcport"	,	L_141
+hf_xtp_sort	,	V_165
+"xtp.cmd.options.rclose"	,	L_71
+MIN	,	F_32
+proto_tree_add_ipv4	,	F_10
+cinfo	,	V_40
+"Format"	,	L_80
+PI_ERROR	,	V_215
+XTP_TRAFFIC_SPEC1_LEN	,	V_58
+tfs_set_notset	,	V_184
+xtp_subtree	,	V_9
+alen	,	V_14
+hf_xtp_aseg_dsthost	,	V_23
+"Reserved"	,	L_108
+"xtp.tspec.format"	,	L_116
+"xtp.tspec.maxdata"	,	L_120
+"xtp.diag.code"	,	L_145
+"xtp.ecntl.nspan"	,	L_100
+" Recv-Seq=%"	,	L_9
+"xtp.cmd.options.res"	,	L_65
+proto_xtp	,	V_148
+ett_xtp_first	,	V_212
+", Src Port: %u"	,	L_7
+"0x%04x [correct]"	,	L_52
+"Message"	,	L_148
+"xtp.cntl.alloc"	,	L_93
+key	,	V_137
+ett_xtp_jcntl	,	V_211
+COL_PROTOCOL	,	V_136
+MAX_OPTIONS_LEN	,	F_28
+xtp_tree	,	V_108
+"Synchronizing handshake echo"	,	L_94
+"X"	,	L_47
+"xtp.cmd.options.eom"	,	L_73
+ti	,	V_6
+"NOCHECK"	,	L_23
+"xtp.diag.msg"	,	L_149
+hf_xtp_diag_code	,	V_102
+XTP_NULL_ADDR_SEG_LEN	,	V_13
+tvb_get_ntohl	,	F_8
+tvbuff_t	,	T_1
+"Allocation"	,	L_92
+tvb_get_ntohs	,	F_5
+proto_tree_add_bitmask	,	F_36
+" Alloc=%"	,	L_11
+gboolean	,	T_6
+dissect_xtp_diag	,	F_23
+rseq	,	V_35
+"xtp.ecntl.span_re"	,	L_104
+"xtp.data"	,	L_153
+"Data length"	,	L_82
+bpos	,	V_116
+fragmented	,	V_161
+"xtp.cmd.options.end"	,	L_74
+"Beginning tag"	,	L_142
+" Seq=%"	,	L_44
+"xtp.seq"	,	L_89
+sync	,	V_145
+tvb_get_guint8	,	F_6
+hf_xtp_aseg_aformat	,	V_19
+alloc	,	V_36
+", Len: %u"	,	L_49
+cmd_options_flags	,	V_120
+dissect_xtp_traffic_cntl	,	F_11
+"&lt;None&gt;"	,	L_22
+"Number of spans (%u) incorrect. Should be %u."	,	L_19
+XTP_TRAFFIC_SPEC0_LEN	,	V_51
+"xtp.cmd.options.nocheck"	,	L_61
+"xtp"	,	L_157
+", Key: 0x%016"	,	L_46
+dissect_xtp_data	,	F_15
+"EDGE"	,	L_24
+"Source host"	,	L_136
+xtphdr	,	V_110
+xkey	,	V_39
+pformat_vals	,	V_147
+hf_xtp_tcntl_rsvd	,	V_46
+xtp_cntl	,	V_76
+hf_xtp_cmd_options_nocheck	,	V_121
+hf_xtp_checksum	,	V_164
+"xtp.tcntl.echo"	,	L_107
+"Key"	,	L_55
+start	,	V_5
+proto_tree_add_uint_format_value	,	F_39
+"xtp.cmd.options.btag"	,	L_75
+ENC_BIG_ENDIAN	,	V_103
+"Unknown pformat (%u)"	,	L_42
+"Outgoing burst size"	,	L_127
+inrate	,	V_62
+"XTP"	,	L_38
+", bogus length (%u, must be %u)"	,	L_51
+nspan	,	V_89
+dstport	,	V_26
+"Outgoing rate"	,	L_125
+hf_xtp_cmd_options_multi	,	V_124
+XTP_CMD_OPTIONS_SREQ	,	V_192
+hf_xtp_cmd_options_noflow	,	V_127
+ett_xtp_cmd_ptype	,	V_156
+FT_UINT64	,	V_178
+options	,	V_112
+hf_xtp_cmd_options_rclose	,	V_131
+dlen	,	V_142
+ett_xtp_ecntl	,	V_87
+hf_xtp_sync	,	V_166
+proto_item_append_text	,	F_4
+"xtp.tcntl.rseq"	,	L_105
+"xtp.cmd.ptype"	,	L_77
+XTP_CNTL_PKT_LEN	,	V_79
+"FASTNAK"	,	L_30
+dissect_xtp_cntl	,	F_17
+"DREQ"	,	L_32
+hf_xtp_cmd_options_fastnak	,	V_128
+col_clear	,	F_27
+XTP_CMD_OPTIONS_FASTNAK	,	V_191
+proto_register_subtree_array	,	F_49
+hf_xtp_cmd_options_res	,	V_125
+hf_xtp_tspec_inburst	,	V_65
+outrate	,	V_66
+"EOM"	,	L_35
+"Checksum"	,	L_150
+proto_tree_add_item	,	F_16
+in_cksum	,	F_38
+pinfo	,	V_30
+"Data"	,	L_152
+"NOERR"	,	L_25
+_U_	,	V_107
+hf_xtp_aseg_alen	,	V_17
+XTP_CMD_OPTIONS_WCLOSE	,	V_195
+"Span right edge"	,	L_103
+proto_register_xtp	,	F_41
+FT_UINT8	,	V_198
+"xtp.aseg.dsthost"	,	L_135
+proto_item	,	T_4
+expert_register_field_array	,	F_45
+XTP_ECNTL_PKT	,	V_172
+expert_add_info_format	,	F_20
+"xtp.sort"	,	L_85
+", Unknown XTP version (%03X)"	,	L_50
+dissect_xtp_aseg	,	F_1
+hf_xtp_btag	,	V_73
+ENC_LITTLE_ENDIAN	,	V_98
+XTP_DATA_PKT	,	V_168
+"xtp.dlen"	,	L_83
+data	,	T_9
+hf_xtp_tspec_traffic	,	V_60
+hf_xtp_key	,	V_150
+XTP_JOIN_PKT	,	V_174
+ei_register_info	,	T_15
+"xtp.tspec.traffic"	,	L_118
+XTP_JCNTL_PKT	,	V_175
+hf_xtp_cmd_ptype	,	V_155
+offset	,	V_3
+cmd_ptype	,	V_139
+expert_module_t	,	T_16
+XTP_TRAFFIC_CNTL_LEN	,	V_34
+"xtp.tspec.service"	,	L_115
+tree	,	V_2
+"Source port"	,	L_140
+hf_xtp_ecntl_rseq	,	V_93
+"xtp.spans_bad"	,	L_154
+hf_xtp_cmd_options_btag	,	V_135
+ecntl	,	V_84
+XTP_CMD_OPTIONS_NOFLOW	,	V_190
+xtp_handle	,	V_218
+ett_xtp_cmd_options	,	V_154
+"Span left edge"	,	L_101
+"Options"	,	L_59
+"xtp.ecntl.echo"	,	L_98
+hf_xtp_cmd_ptype_pformat	,	V_159
+proto_tree_add_uint	,	F_7
+XTP_CMD_OPTIONS_MULTI	,	V_187
+hf_xtp_cntl_echo	,	V_82
+"Received sequence number"	,	L_90
+hf_xtp_ecntl_span_right	,	V_99
+proto_tree_add_uint64	,	F_13
+hf_xtp_data	,	V_74
+g_snprintf	,	F_31
+ett_xtp_aseg	,	V_12
+btag	,	V_71
+", Seq: %"	,	L_48
+"Xpress Transport Protocol"	,	L_156
+"xtp.tcntl.alloc"	,	L_106
+", bogus length(%u, must be at most %u)"	,	L_3
+"Incoming rate"	,	L_121
+"xtp.aseg.aformat"	,	L_132
+xtp_traffic_cntl	,	V_31
+XTP_HEADER_LEN	,	V_90
+hf_xtp_tspec_tformat	,	V_57
+srcport	,	V_28
+hf_xtp_cmd_options_wclose	,	V_132
+proto_tree	,	T_2

@@ -1,0 +1,57 @@
+"docsis_cmctrlrsp"	,	L_7
+register_dissector	,	F_15
+cmctrl_tlv_handle	,	V_15
+data	,	T_4
+hf_docsis_cmctrlrsp_tranid	,	V_13
+proto_register_protocol	,	F_11
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_4
+tvb_get_ntohs	,	F_2
+ett_docsis_cmctrlrsp	,	V_12
+tvb_new_subset_remaining	,	F_7
+gint	,	T_8
+proto_item_add_subtree	,	F_5
+proto_docsis_cmctrlrsp	,	V_11
+proto_register_field_array	,	F_12
+dissect_cmctrlrsp	,	F_1
+tvb	,	V_1
+"Transaction Id"	,	L_3
+ett	,	V_20
+COL_INFO	,	V_10
+docsis_cmctrlrsp_handle	,	V_21
+transid	,	V_7
+dissector_add_uint	,	F_18
+"docsis_mgmt"	,	L_9
+tree	,	V_3
+it	,	V_5
+FT_UINT16	,	V_17
+packet_info	,	T_2
+cinfo	,	V_9
+tvb_captured_length	,	F_9
+proto_register_subtree_array	,	F_14
+array_length	,	F_13
+proto_register_docsis_cmctrlrsp	,	F_10
+"cmctrl_tlv"	,	L_8
+next_tvb	,	V_8
+proto_tree_add_item	,	F_6
+call_dissector	,	F_8
+"docsis_cmctrlrsp.tranid"	,	L_4
+pinfo	,	V_2
+col_add_fstr	,	F_3
+dissector_handle_t	,	T_9
+_U_	,	V_4
+proto_reg_handoff_docsis_cmctrlrsp	,	F_16
+hf_register_info	,	T_7
+"DOCSIS CM Control Response"	,	L_5
+cmctrlrsp_tree	,	V_6
+HFILL	,	V_19
+guint16	,	T_6
+"CM Control Response: Transaction-Id = %u"	,	L_1
+"CM Control Response"	,	L_2
+"DOCSIS CM-CTRL-RSP"	,	L_6
+find_dissector	,	F_17
+BASE_DEC	,	V_18
+proto_item	,	T_5
+ENC_BIG_ENDIAN	,	V_14
+proto_tree	,	T_3
+hf	,	V_16

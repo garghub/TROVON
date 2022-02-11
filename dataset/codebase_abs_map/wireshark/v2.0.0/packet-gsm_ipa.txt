@@ -1,0 +1,189 @@
+dissect_ipa	,	F_14
+"Set the port(s) for ip.access IPA"	,	L_40
+SUB_DATA	,	V_34
+ett_ipaccess	,	V_21
+proto_ipa	,	V_41
+SUB_SCCP	,	V_49
+proto_register_protocol	,	F_26
+MAX_UDP_PORT	,	V_75
+ipa_initialized	,	V_78
+dissect_ipa_attr	,	F_1
+"Osmo ext protocol"	,	L_14
+"GSM over IP ip.access Protocol"	,	L_37
+"Tag"	,	L_23
+prefs_register_protocol	,	F_32
+"The IPA Sub-Protocol"	,	L_10
+ipa_udp_handle	,	V_82
+tvb_new_subset_remaining	,	F_11
+len	,	V_4
+col_append_fstr	,	F_7
+"ipaccess.msg_type"	,	L_21
+global_ipa_in_info	,	V_55
+"GSM IPA TCP Port(s)"	,	L_39
+sub_handles	,	V_30
+gint	,	T_1
+col_set_str	,	F_15
+dissect_osmo	,	F_10
+hf_ipa	,	V_67
+dissect_ipaccess	,	F_6
+ipaccess_msgtype_vals	,	V_19
+tvb	,	V_1
+"gsm_ipa.hsl_debug"	,	L_12
+"GSM over IP ip.access CCM sub-protocol"	,	L_34
+COL_INFO	,	V_18
+hf_ipaccess_attribute_unk	,	V_12
+"DataLen"	,	L_5
+osmo_proto	,	V_25
+base_offs	,	V_2
+ipa_module	,	V_58
+global_ipa_in_root	,	V_54
+remaining	,	V_36
+hf_ipaccess_msgtype	,	V_22
+tvb_reported_length_remaining	,	F_2
+col_clear	,	F_16
+"gsm_ipa.data_len"	,	L_6
+ABISIP_IPACCESS	,	V_47
+dissect_ipa_udp	,	F_23
+cinfo	,	V_17
+" (usually: "	,	L_45
+SUB_MGCP	,	V_31
+ipaccess_idtag_vals	,	V_68
+proto_register_subtree_array	,	F_29
+hf_ipaccess_attr_string	,	V_9
+val_to_str	,	F_8
+array_length	,	F_28
+next_tvb	,	V_24
+"udp_ports"	,	L_43
+proto_ipaccess	,	V_20
+proto_tree_add_item	,	F_4
+call_dissector	,	F_13
+pinfo	,	V_13
+"ipaccess.attr_tag"	,	L_24
+ENC_ASCII	,	V_10
+ipa_protocol_vals	,	V_40
+proto_register_ipa	,	F_24
+"MessageType"	,	L_20
+"Attribute Tag"	,	L_25
+dissect_ipa_tcp	,	F_22
+IPAC_PROTO_EXT_CTRL	,	V_32
+hf_register_info	,	T_10
+"hsl_debug_in_root_tree"	,	L_46
+"HSL Debug messages in INFO column"	,	L_49
+"String"	,	L_26
+"Type of ip.access messsage"	,	L_22
+VALS	,	F_25
+prefs_register_bool_preference	,	F_34
+hf_ipa_osmo_proto	,	V_27
+"gsm_ipa"	,	L_33
+guint16	,	T_8
+"%s "	,	L_1
+COL_PROTOCOL	,	V_38
+"data"	,	L_54
+FT_UINT8	,	V_63
+"The length of the data (in bytes)"	,	L_7
+BASE_DEC	,	V_61
+g_free	,	F_38
+proto_item	,	T_6
+"ipaccess"	,	L_35
+ENC_NA	,	V_11
+guint8	,	T_4
+"Hay Systems Limited debug message"	,	L_13
+ti	,	V_14
+BASE_NONE	,	V_66
+"gsm_ipa.osmo.protocol"	,	L_15
+register_dissector_table	,	F_30
+"gsm_abis_oml"	,	L_51
+HSL_DEBUG	,	V_52
+is_udp	,	V_35
+"The osmo extension protocol"	,	L_16
+"gsm_ipa.protocol"	,	L_9
+tvb_get_stringz_enc	,	F_20
+tvbuff_t	,	T_2
+attr_type	,	V_5
+proto_tree_add_protocol_format	,	F_18
+"IPA"	,	L_3
+tvb_get_ntohs	,	F_17
+ipa_osmo_proto_vals	,	V_26
+BASE_HEX	,	V_64
+"tcp_ports"	,	L_38
+gboolean	,	T_7
+IPA_UDP_PORTS	,	V_77
+proto_item_add_subtree	,	F_9
+module_t	,	T_9
+"gsm_abis_rsl"	,	L_50
+"ipaccess.attr_string"	,	L_27
+proto_register_field_array	,	F_27
+"GSM IPA UDP Port(s)"	,	L_44
+ipatree	,	V_23
+offset	,	V_6
+"Unknown attribute type"	,	L_29
+ett	,	V_69
+"sccp"	,	L_52
+wmem_packet_scope	,	F_21
+"unknown 0x%02x"	,	L_2
+global_ipa_tcp_ports	,	V_70
+ipa_tcp_handle	,	V_81
+tree	,	V_3
+global_ipa_udp_ports	,	V_73
+hf_ipaccess_attr_tag	,	V_7
+hf_ipa_osmo_ctrl_data	,	V_33
+ABISIP_OML	,	V_45
+"mgcp"	,	L_53
+dissector_delete_uint_range	,	F_37
+FT_UINT16	,	V_60
+packet_info	,	T_5
+ipa_tree	,	V_39
+"gsm_ipa.ctrl.data"	,	L_18
+prefs_register_range_preference	,	F_33
+"String attribute"	,	L_28
+"HSL Debug messages in root protocol tree"	,	L_47
+"hsl_debug_in_info"	,	L_48
+tvb_get_guint8	,	F_3
+header_length	,	V_37
+"CTRL data"	,	L_17
+IPAC_PROTO_EXT_MGCP	,	V_29
+range_t	,	T_11
+msg_type	,	V_16
+"Debug Message"	,	L_11
+"GSM over IP protocol as used by ip.access"	,	L_31
+")"	,	L_42
+proto_tree_add_uint	,	F_5
+OSMO_EXT	,	V_51
+hf_ipa_data_len	,	V_43
+AIP_SCCP	,	V_48
+" (default: "	,	L_41
+tvb_new_subset_length	,	F_19
+hf_ipa_hsl_debug	,	V_53
+FT_STRING	,	V_65
+ett_ipa	,	V_42
+range_convert_str	,	F_31
+"IPA protocol ip.access, type: %s"	,	L_4
+proto_reg_handoff_gsm_ipa	,	V_76
+HFILL	,	V_62
+IPA_MGCP	,	V_50
+"ipa.osmo.protocol"	,	L_36
+IPA_TCP_PORTS	,	V_71
+ipa_udp_ports	,	V_80
+dissector_try_uint	,	F_12
+osmo_dissector_table	,	V_28
+"ipaccess.attr_unk"	,	L_30
+ABISIP_RSL_MAX	,	V_56
+ipa_tcp_ports	,	V_79
+"udp.port"	,	L_56
+find_dissector	,	F_35
+IPA_UDP_PORTS_DEFAULT	,	V_74
+create_dissector_handle	,	F_36
+ENC_BIG_ENDIAN	,	V_8
+SUB_OML	,	V_46
+hf_ipa_protocol	,	V_44
+"Control interface data"	,	L_19
+"Protocol"	,	L_8
+SUB_RSL	,	V_57
+MAX_TCP_PORT	,	V_72
+"GSM over IP"	,	L_32
+"tcp.port"	,	L_55
+proto_tree	,	T_3
+hf	,	V_59
+ipaccess_tree	,	V_15
+range_copy	,	F_39
+dissector_add_uint_range	,	F_40

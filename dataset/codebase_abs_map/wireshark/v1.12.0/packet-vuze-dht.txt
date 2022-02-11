@@ -1,0 +1,377 @@
+dissect_vuze_dht_network_coordinate	,	F_21
+hf_vuze_dht_error_type	,	V_123
+value_bytes_count	,	V_53
+proto_register_protocol	,	F_40
+"Network Coordinates"	,	L_69
+hf_vuze_dht_address_port	,	V_23
+AT_FIND_NODE_REQUEST	,	V_140
+hf_vuze_dht_value_groups	,	V_66
+"%d network coordinates"	,	L_13
+"vuze-dht.proto_ver"	,	L_34
+"vuze-dht.value.creation_time"	,	L_40
+"Value Bytes"	,	L_43
+gint	,	T_11
+"Contact Type"	,	L_31
+"vuze-dht.time"	,	L_66
+"Port"	,	L_27
+tvb	,	V_1
+vuze_dht_udp_port	,	V_168
+COL_INFO	,	V_83
+has_values	,	V_115
+"vuze-dht.contact.type"	,	L_32
+hf_vuze_dht_reads_per_min	,	V_51
+id_len	,	V_103
+"vuze-dht.value_groups_count"	,	L_94
+"vuze-dht.id"	,	L_106
+"Vuze DHT Protocol"	,	L_143
+sub_tree	,	V_7
+cinfo	,	V_82
+"vuze-dht.action"	,	L_54
+TL_INT	,	V_48
+array_length	,	F_42
+hf_vuze_dht_address	,	V_10
+"Protocol Version"	,	L_33
+"Values Num"	,	L_119
+hf_vuze_dht_values_count	,	V_64
+value_groups_count	,	V_65
+"Local Address"	,	L_15
+"DHT Size"	,	L_109
+AT_KEY_BLOCK_REQUEST	,	V_145
+hf_vuze_dht_max_values	,	V_114
+AT_STORE_REPLY	,	V_139
+"vuze-dht.keys"	,	L_84
+"vuze-dht.value.ver"	,	L_38
+PV_FIX_ORIGINATOR	,	V_90
+"Value Groups"	,	L_97
+hf_vuze_dht_network_coordinates_count	,	V_76
+dissect_vuze_dht_reply_store	,	F_28
+hf_vuze_dht_network_coordinate_type	,	V_71
+"Network Coordinate Type"	,	L_73
+hf_vuze_dht_node_status	,	V_107
+"Values"	,	L_95
+coordinate_size	,	V_68
+"Key Block Request Length"	,	L_135
+"vuze-dht.value"	,	L_36
+"%s contact, version %d"	,	L_3
+PV_VIVALDI_FINDVALUE	,	V_119
+"Values Total"	,	L_121
+hf_register_info	,	T_10
+values_count	,	V_61
+address	,	T_7
+COL_PROTOCOL	,	V_133
+"vuze-dht"	,	L_144
+hf_vuze_dht_contacts_count	,	V_112
+PV_NETWORKS	,	V_88
+hf_vuze_dht_instance_id	,	V_92
+proto_vuze_dht	,	V_134
+ett_vuze_dht	,	V_135
+"Key Data"	,	L_89
+i	,	V_31
+"vuze-dht.has_continuation"	,	L_130
+guint8	,	T_5
+hf_vuze_dht_vendor_id	,	V_87
+"vuze-dht.has_values"	,	L_132
+ti	,	V_8
+BASE_NONE	,	V_148
+"vuze-dht.flags"	,	L_118
+vuze_dht_module	,	V_163
+dissect_vuze_dht_request_store	,	F_27
+ett_vuze_dht_value	,	V_45
+"vuze-dht.spoof_id"	,	L_80
+dissect_vuze_dht_request_key_block	,	F_34
+PV_VIVALDI	,	V_94
+ET_WRONG_ADDRESS	,	V_125
+ett_vuze_dht_value_groups	,	V_67
+"vuze-dht.address.port"	,	L_28
+"Transaction ID"	,	L_55
+hf_vuze_dht_value_life_hours	,	V_59
+"vuze-dht.network_coordinate.type"	,	L_74
+tvb_get_ntohl	,	F_18
+"Node Type"	,	L_111
+tvbuff_t	,	T_1
+PV_XFER_STATUS	,	V_109
+proto_ver	,	V_131
+tvb_get_ntohs	,	F_10
+vuze_dht_flag_type_vals	,	V_160
+PV_VENDOR_ID	,	V_86
+"Network Coordinate"	,	L_71
+BASE_HEX	,	V_158
+gboolean	,	T_13
+error_type	,	V_120
+": type %d, length %d ( %s )"	,	L_12
+"vuze-dht.value.flags"	,	L_46
+"Key Length"	,	L_87
+proto_item_add_subtree	,	F_4
+"Value Creation Time"	,	L_39
+"vuze-dht.key.data"	,	L_90
+module_t	,	T_12
+"vuze-dht.stats.diversification_type"	,	L_126
+"Contacts"	,	L_115
+"Value Groups Count"	,	L_93
+proto_register_field_array	,	F_41
+FT_BYTES	,	V_157
+hf_vuze_dht_contacts	,	V_32
+"Values Count"	,	L_91
+dissector_add_uint	,	F_48
+"Network Coordinate Size"	,	L_75
+hf_vuze_dht_key_len	,	V_37
+dissect_vuze_dht_network_coordinates	,	F_22
+FT_UINT16	,	V_154
+"vuze-dht.value.replication_factor"	,	L_50
+hf_vuze_dht_key_block_request_len	,	V_127
+tvb_get_guint8	,	F_2
+PV_REMOVE_DIST_ADD_VER	,	V_46
+AT_STORE_REQUEST	,	V_138
+dissect_vuze_dht_value	,	F_17
+"%d value groups"	,	L_11
+diversifications_len	,	V_100
+AT_FIND_NODE_REPLY	,	V_141
+hf_vuze_dht_has_continuation	,	V_116
+"Instance ID"	,	L_63
+dissector_delete_uint	,	F_47
+"Address"	,	L_19
+"Keys Count"	,	L_81
+"Vuze-DHT"	,	L_18
+"vuze-dht.diversifications"	,	L_102
+vuze_dht_bool_type_vals	,	V_161
+dissect_vuze_dht_keys	,	F_16
+proto_reg_handoff_vuze_dht	,	V_165
+TL_BOOL	,	V_117
+"vuze-dht.connection_id"	,	L_52
+"Value Life Hours"	,	L_47
+dissect_vuze_dht_reply_find_value	,	F_32
+"Signature"	,	L_141
+dissect_vuze_dht_key	,	F_14
+ett_vuze_dht_contacts	,	V_33
+"Network ID"	,	L_59
+"vuze-dht.instance_id"	,	L_64
+vuze_dht_handle	,	V_164
+dissect_vuze_dht_value_groups	,	F_20
+TL_SHORT	,	V_24
+val_to_str_const	,	F_12
+proto_tree_add_none_format	,	F_3
+"Key"	,	L_85
+hf_vuze_dht_diversification_type	,	V_52
+hf_vuze_dht_value_ver	,	V_47
+AT_ERROR_REPLY	,	V_144
+"Diversifications"	,	L_101
+hf_vuze_dht_contact_type	,	V_28
+ip_length	,	V_6
+AT_NONE	,	V_22
+ENC_BIG_ENDIAN	,	V_14
+"vuze-dht.network_coordinate.size"	,	L_76
+hf_vuze_dht_key_block_request	,	V_128
+vuze_dht_prefs_initialized	,	V_167
+hf_vuze_dht_value_groups_count	,	V_98
+global_vuze_dht_udp_port	,	V_166
+FT_UINT32	,	V_155
+"vuze-dht.node_status"	,	L_108
+dissect_vuze_dht_address	,	F_1
+TL_BYTE	,	V_13
+hf_vuze_dht_value_replication_factor	,	V_60
+hf_vuze_dht_time	,	V_93
+hf	,	V_146
+PV_ANTI_SPOOF	,	V_95
+"Diversifications Length"	,	L_99
+"vuze-dht.address.ipv4"	,	L_24
+dissect_vuze_dht_value_group	,	F_19
+"vuze-dht.key.len"	,	L_88
+PV_SIZE_ESTIMATE	,	V_111
+"IPv6 Address"	,	L_25
+"vuze-dht.network_coordinate.data"	,	L_78
+"vuze-dht.id_len"	,	L_104
+hf_vuze_dht_spoof_id	,	V_96
+"vuze-dht.address.length"	,	L_22
+hf_vuze_dht_values_total	,	V_50
+"%d values"	,	L_10
+AT_FIND_VALUE_REQUEST	,	V_142
+prefs_register_protocol	,	F_45
+"%d keys"	,	L_8
+dissect_vuze_dht	,	F_35
+FT_IPv6	,	V_153
+"vuze-dht.value_groups"	,	L_98
+dissect_vuze_dht_request_find_value	,	F_31
+col_append_fstr	,	F_24
+"ID"	,	L_105
+"vuze-dht.key_block_request_len"	,	L_136
+hf_vuze_dht_network_coordinate_size	,	V_72
+"vuze-dht.value.life_hours"	,	L_48
+FT_UINT64	,	V_156
+col_set_str	,	F_36
+action	,	V_79
+dissect_vuze_dht_reply_find_node	,	F_30
+"vuze-dht.dht_size"	,	L_110
+ett_vuze_dht_keys	,	V_41
+"Flags"	,	L_117
+"Has Continuation"	,	L_129
+FT_IPv4	,	V_152
+"%s:%d"	,	L_2
+"Address Length"	,	L_21
+"Signature Length"	,	L_139
+hf_vuze_dht_value_group	,	V_62
+hf_vuze_dht_keys_count	,	V_97
+"Time"	,	L_65
+"Value Version"	,	L_37
+proto_item_append_text	,	F_7
+hf_vuze_dht_local_proto_ver	,	V_91
+AT_FIND_VALUE_REPLY	,	V_143
+"vuze-dht.stats.values_total"	,	L_122
+contacts_count	,	V_30
+"Vendor ID"	,	L_57
+"vuze-dht.network_coordinates_count"	,	L_68
+col_clear	,	F_37
+hf_vuze_dht_network_coordinate	,	V_69
+"Diversification Type"	,	L_125
+"Local Protocol Version"	,	L_61
+"Network Coordinates Count"	,	L_67
+proto_register_subtree_array	,	F_43
+network_coordinates_count	,	V_74
+"Max values"	,	L_127
+" Action: %s"	,	L_14
+hf_vuze_dht_value_flags	,	V_58
+proto_tree_add_item	,	F_5
+"Value Flags"	,	L_45
+"vuze-dht.address.ipv6"	,	L_26
+"vuze-dht.stats.reads_per_min"	,	L_124
+pinfo	,	V_2
+"%d contacts"	,	L_6
+hf_vuze_dht_network_coordinate_data	,	V_73
+"Contact Address"	,	L_5
+_U_	,	T_3
+hf_vuze_dht_diversifications_len	,	V_101
+tvb_bytes_to_ep_str	,	F_15
+"vuze-dht.local_proto_ver"	,	L_62
+"Network Coordinate Data"	,	L_77
+new_register_dissector	,	F_44
+"vuze-dht.keys_count"	,	L_82
+"Value"	,	L_35
+"vuze-dht.contacts"	,	L_116
+vuze_dht_error_type_vals	,	V_124
+"vuze-dht.value.bytes"	,	L_44
+ett_vuze_dht_key	,	V_36
+hf_vuze_dht_key_data	,	V_38
+hf_vuze_dht_address_v6	,	V_19
+hf_vuze_dht_address_v4	,	V_16
+AT_PING_REPLY	,	V_137
+keys_count	,	V_39
+"vuze-dht.value.bytes_count"	,	L_42
+vuze_dht_node_type_vals	,	V_159
+AT_IPv4	,	V_17
+AT_IPv6	,	V_21
+"Contact"	,	L_29
+VALS	,	F_39
+decoded_length	,	V_132
+hf_vuze_dht_id_len	,	V_104
+key_len	,	V_34
+hf_vuze_dht_value_bytes	,	V_57
+ET_KEY_BLOCKED	,	V_126
+hf_vuze_dht_signature	,	V_130
+dissect_vuze_dht_reply_ping	,	F_26
+FT_UINT8	,	V_150
+"Error Type"	,	L_133
+BASE_DEC	,	V_151
+"Value Replication Factor"	,	L_49
+"vuze-dht.error_type"	,	L_134
+proto_item	,	T_6
+ett_vuze_dht_contact	,	V_27
+"vuze-dht.vendor_id"	,	L_58
+"vuze-dht.key_block_request"	,	L_138
+"%s: "	,	L_1
+hf_vuze_dht_transaction_id	,	V_85
+ENC_NA	,	V_20
+hf_vuze_dht_value	,	V_44
+hf_vuze_dht_contact	,	V_25
+hf_vuze_dht_connection_id	,	V_80
+vuze_dht_contact_type_vals	,	V_26
+TL_LONG	,	V_55
+hf_vuze_dht_has_values	,	V_118
+"vuze-dht.node_type"	,	L_112
+hf_vuze_dht_values_num	,	V_49
+PV_DIV_AND_CONT	,	V_99
+dissect_vuze_dht_request_find_node	,	F_29
+data	,	T_9
+dissect_vuze_dht_contact	,	F_11
+"Spoof ID"	,	L_79
+hf_vuze_dht_key	,	V_35
+hf_vuze_dht_id	,	V_105
+prefs_register_uint_preference	,	F_46
+TVB_SET_ADDRESS	,	F_6
+"Contacts Count"	,	L_113
+proto_register_vuze_dht	,	F_38
+hf_vuze_dht_keys	,	V_40
+" (reply to STATS): %d values for the key, out of %d in total..."	,	L_9
+hf_vuze_dht_diversifications	,	V_102
+ver	,	V_42
+guint	,	T_8
+FT_NONE	,	V_147
+"vuze-dht.signature_len"	,	L_140
+offset	,	V_4
+ett	,	V_162
+wmem_packet_scope	,	F_9
+"vuze-dht.transaction_id"	,	L_56
+"vuze-dht.signature"	,	L_142
+tree	,	V_3
+hf_vuze_dht_value_bytes_count	,	V_56
+ett_vuze_dht_network_coordinates	,	V_78
+"Reads Per Minute"	,	L_123
+"IPv4 Address"	,	L_23
+hf_vuze_dht_size	,	V_108
+ett_vuze_dht_value_group	,	V_63
+packet_info	,	T_2
+dissect_vuze_dht_reply_error	,	F_33
+"vuze-dht.network_coordinate"	,	L_72
+ett_vuze_dht_address	,	V_11
+"Sender Address"	,	L_17
+"Has Values"	,	L_131
+signature_len	,	V_122
+" Error: %s"	,	L_16
+value_ver	,	V_43
+hf_vuze_dht_value_created	,	V_54
+"Set the UDP port for Vuze DHT Protocol."	,	L_147
+dissect_vuze_dht_contacts	,	F_13
+"vuze-dht.network_id"	,	L_60
+ett_vuze_dht_network_coordinate	,	V_70
+hf_vuze_dht_network_id	,	V_89
+hf_vuze_dht_network_coordinates	,	V_77
+hf_vuze_dht_flags	,	V_113
+hf_vuze_dht_action	,	V_81
+hf_vuze_dht_node_type	,	V_110
+"Action"	,	L_53
+hf_vuze_dht_signature_len	,	V_129
+addr_name	,	V_5
+PV_MORE_NODE_STATUS	,	V_106
+"vuze-dht.max_values"	,	L_128
+"Key Block Request"	,	L_137
+"vuze-dht.stats.values_num"	,	L_120
+"udp_port"	,	L_145
+TL_IPv4	,	V_15
+hf_vuze_dht_proto_ver	,	V_29
+TL_IPv6	,	V_18
+hf_vuze_dht_address_len	,	V_12
+addr	,	V_9
+HFILL	,	V_149
+"vuze-dht.contact"	,	L_30
+dissect_vuze_dht_reply_header	,	F_25
+"Node Status"	,	L_107
+"vuze-dht.address"	,	L_20
+"vuze-dht.values"	,	L_96
+address_to_str	,	F_8
+vuze_dht_action_type_vals	,	V_84
+"udp.port"	,	L_148
+"Vuze DHT Protocol UDP port"	,	L_146
+PV_GENERIC_NETPOS	,	V_75
+"Value Bytes Count"	,	L_41
+"vuze-dht.values_count"	,	L_92
+"ID Length"	,	L_103
+"Connection ID"	,	L_51
+"vuze-dht.contacts_count"	,	L_114
+"vuze-dht.key"	,	L_86
+AT_PING_REQUEST	,	V_136
+": %d bytes ( %s )"	,	L_7
+"Keys"	,	L_83
+"Unknown"	,	L_4
+dissect_vuze_dht_request_header	,	F_23
+"vuze-dht.network_coordinates"	,	L_70
+"vuze-dht.diversifications_len"	,	L_100
+proto_tree	,	T_4
+key_block_request_len	,	V_121

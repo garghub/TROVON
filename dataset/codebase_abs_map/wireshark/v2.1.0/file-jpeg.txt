@@ -1,0 +1,369 @@
+proto_register_protocol	,	F_33
+hf_version	,	V_45
+process_sos_header	,	F_8
+"Assigns a unique label to the ith component in the sequence of frame component specification parameters."	,	L_74
+tvb_reported_length	,	F_23
+"Start of Frame header"	,	L_58
+" be set to zero for the sequential DCT processes. In the lossless mode of operations"	,	L_106
+" (unknown identifier)"	,	L_6
+".identifier"	,	L_26
+" each block in zig-zag order which shall be coded in the scan. This parameter shall"	,	L_105
+vals_exif_tags	,	V_126
+"Version"	,	L_28
+len	,	V_3
+"%u bytes"	,	L_2
+hf_len	,	V_13
+"JFIF Major Version"	,	L_33
+process_comment_header	,	F_9
+gint	,	T_7
+"Exif"	,	L_7
+hf_marker	,	V_11
+expert_jfif	,	V_134
+hf_sof_v_i	,	V_25
+"Units used in this segment"	,	L_39
+tvb	,	V_2
+guint32	,	T_3
+"Specifies the last DCT coefficient in each block in zig-zag order which shall be coded"	,	L_110
+COL_INFO	,	V_84
+"This parameter specifies the point transform used in the preceding scan (i.e. successive"	,	L_115
+hf_version_major	,	V_47
+STR_ASCII	,	V_124
+dissect_jfif	,	F_22
+"Fill bytes"	,	L_142
+"Specifies the relationship between the component vertical dimension and maximum image dimension Y."	,	L_80
+str	,	V_40
+hf_version_minor	,	V_48
+hf_idf_type	,	V_72
+"Incorrect encoding 0x%04x- skipping the remainder of this application marker"	,	L_10
+cinfo	,	V_83
+tvb_len	,	V_78
+"JFIF Marker"	,	L_19
+"Length of segment (including length field)"	,	L_24
+" approximation bit position low in the preceding scan) for the band of coefficients"	,	L_116
+hf_sof_samples_per_line	,	V_21
+array_length	,	F_35
+hf_xdensity	,	V_50
+ett_jfif	,	V_86
+".ifd.tag"	,	L_149
+hf_sos_header	,	V_27
+hf_entropy_coded_segment	,	V_87
+FT_STRINGZ	,	V_119
+ett_details	,	V_46
+" lossless mode of operations this parameter has no meaning. It shall be set to zero."	,	L_112
+".endianness"	,	L_133
+marker_has_length	,	F_28
+"RGB values of the thumbnail pixels (24 bit per pixel, Xthumbnail x Ythumbnail pixels)"	,	L_54
+"Start offset of IFD starting from the TIFF header start"	,	L_134
+hf_sos_ns	,	V_28
+ENC_ASCII	,	V_38
+"big endian"	,	L_9
+"http"	,	L_168
+"Comment header"	,	L_126
+" table needed for decoding of the AC coefficients of component Csj is retrieved."	,	L_101
+hf_comment	,	V_37
+tmp_tvb	,	V_90
+".extension.code"	,	L_56
+hf_register_info	,	T_12
+".version.minor"	,	L_35
+"Component identifier"	,	L_72
+guint16	,	T_4
+"Value offset from start of TIFF header"	,	L_154
+".remain_seg_data"	,	L_131
+ei_file_jpeg_first_identifier_not_jfif	,	V_59
+"Skipped data between end of TIFF header and start of IFD"	,	L_144
+hf_idf_count	,	V_73
+hf_ifd_num_fields	,	V_70
+".sof.tq_i"	,	L_82
+ett_marker_segment	,	V_10
+" position low, used before coding the band of coefficients specified by Ss and Se."	,	L_123
+guint8	,	T_6
+tvb_memeql	,	F_24
+ti	,	V_6
+BASE_NONE	,	V_116
+process_app0_segment	,	F_10
+col_append_sep_fstr	,	F_25
+x	,	V_42
+"FPXR"	,	L_13
+y	,	V_43
+" (Unknown identifier)"	,	L_12
+".sos.al"	,	L_121
+".next_ifd_offset.invalid"	,	L_160
+"Specifies the maximum number of lines in the source image."	,	L_65
+"Endianness"	,	L_132
+".fill_bytes"	,	L_143
+register_dissector	,	F_39
+tvb_get_stringz_enc	,	F_11
+tvbuff_t	,	T_2
+"Units"	,	L_37
+MARKER_SOS	,	V_108
+proto_register_jfif	,	F_31
+"Exif FlashPix APP2 application marker"	,	L_138
+vals_exif_types	,	V_127
+"wtap_encap"	,	L_167
+tvb_get_ntohs	,	F_16
+tiff_item	,	V_64
+IMG_JFIF	,	V_111
+"Count"	,	L_152
+".sof.h_i"	,	L_76
+MARKER_SOF11	,	V_104
+BASE_HEX	,	V_113
+hf_ythumbnail	,	V_53
+MARKER_SOI	,	V_82
+MARKER_SOF10	,	V_103
+hf_idf_offset	,	V_74
+MARKER_SOF13	,	V_105
+tvb_find_guint8	,	F_26
+".sos.ns"	,	L_88
+gboolean	,	T_9
+vals_units	,	V_120
+hf_exif_flashpix_marker	,	V_77
+proto_item_add_subtree	,	F_3
+MARKER_APP0	,	V_91
+MARKER_SOF15	,	V_107
+MARKER_APP1	,	V_92
+MARKER_SOF14	,	V_106
+proto_register_field_array	,	F_34
+MARKER_APP2	,	V_93
+hf_fill_bytes	,	V_88
+"Marker segment"	,	L_20
+FT_BYTES	,	V_121
+"Specifies the relationship between the component horizontal dimension and maximum image dimension X."	,	L_77
+" It shall be set to zero."	,	L_119
+ei	,	V_129
+MARKER_COM	,	V_109
+".Ydensity"	,	L_44
+dissector_add_uint	,	F_43
+count	,	V_16
+".sof.c_i"	,	L_73
+encoding	,	V_60
+FT_UINT16	,	V_117
+".version.major"	,	L_32
+"Specifies one of four possible AC entropy coding table destinations from which the entropy"	,	L_100
+tvb_get_guint8	,	F_7
+" (bogus, should be &gt;= %u)"	,	L_11
+"Start of spectral or predictor selection"	,	L_102
+num_fields	,	V_63
+"End of spectral selection"	,	L_108
+WTAP_ENCAP_JPEG_JFIF	,	V_136
+"JFIF Minor Version"	,	L_36
+expert_add_info	,	F_15
+hf_skipped_tiff_data	,	V_69
+"In the DCT modes of operation this parameter specifies the point transform, i.e. bit"	,	L_122
+"Number of fields in this IFD"	,	L_146
+".marker"	,	L_18
+heur_dissector_add	,	F_44
+HEURISTIC_ENABLE	,	V_137
+"Exif Tag"	,	L_148
+FT_STRING	,	V_123
+val_32	,	V_62
+" table needed for decoding of the DC coefficients of component Csj is retrieved."	,	L_97
+".header.comment"	,	L_127
+".sof.precision"	,	L_61
+"Selects which of the Nf image components specified in the frame parameters shall be the jth"	,	L_92
+"image/jpeg"	,	L_166
+"JPEG file"	,	L_172
+hf_identifier	,	V_44
+val_16	,	V_61
+".sof"	,	L_59
+"jfif_http"	,	L_170
+marker_name	,	V_5
+proto_tree_add_none_format	,	F_13
+vals_marker	,	V_89
+" this parameter is used to select the predictor."	,	L_107
+find_dissector	,	F_41
+ei_start_ifd_offset	,	V_68
+"Number of image components in scan"	,	L_87
+tiff_start	,	V_58
+PI_WARN	,	V_131
+proto_tree_add_uint_format_value	,	F_17
+"Comment"	,	L_128
+" specified by Ss and Se. This parameter shall be set to zero for the first scan of each"	,	L_117
+ENC_BIG_ENDIAN	,	V_12
+".units"	,	L_38
+FT_UINT32	,	V_125
+"AC entropy coding table destination selector"	,	L_98
+".sos.ah"	,	L_114
+"Xdensity"	,	L_40
+hf	,	V_110
+start_entropy	,	V_79
+".marker_segment"	,	L_21
+"Offset to next IFD from start of TIFF header"	,	L_136
+" band of coefficients. In the lossless mode of operations this parameter has no meaning."	,	L_118
+"Version: %u.%u"	,	L_4
+dissect_jfif_heur	,	F_30
+"jfif_wtap"	,	L_173
+process_marker_segment	,	F_1
+".ifd.num_fields"	,	L_147
+"Entropy-coded segment (dissection is not yet implemented)"	,	L_140
+hf_sos_cs_j	,	V_29
+" This parameter shall be set to zero for the sequential DCT processes. In the lossless"	,	L_124
+"JFXX extension code for thumbnail encoding"	,	L_57
+hf_units	,	V_49
+".sos.ac_entropy_selector"	,	L_99
+hf_start_ifd_offset	,	V_67
+"Xthumbnail"	,	L_46
+hf_sos_td_j	,	V_30
+"Ydensity"	,	L_43
+hf_sof_header	,	V_18
+"JFIF Version"	,	L_30
+"Extension code"	,	L_55
+"Specifies the precision in bits for the samples of the components in the frame."	,	L_62
+proto_item_append_text	,	F_4
+".Xthumbnail"	,	L_47
+process_sof_header	,	F_6
+".version"	,	L_29
+".sof.nf"	,	L_70
+subtree_details	,	V_39
+" component in the scan."	,	L_93
+"JPEG file in HTTP"	,	L_169
+"Horizontal sampling factor"	,	L_75
+"Invalid value"	,	L_159
+proto_jfif	,	V_85
+proto_register_subtree_array	,	F_36
+proto_tree_add_item_ret_uint	,	F_20
+gint32	,	T_11
+str_size	,	V_41
+proto_tree_add_bytes_format_value	,	F_5
+process_app1_segment	,	F_14
+hf_endianness	,	V_66
+"JFIF"	,	L_3
+MARKER_SOF5	,	V_98
+MARKER_SOF6	,	V_99
+hf_idf_tag	,	V_71
+MARKER_SOF7	,	V_100
+proto_tree_add_item	,	F_2
+MARKER_SOF8	,	V_101
+MARKER_SOF9	,	V_102
+pinfo	,	V_56
+dissector_handle_t	,	T_15
+_U_	,	V_15
+"Specifies the maximum number of samples per line in the source image."	,	L_68
+hf_rgb	,	V_54
+".sos.dc_entropy_selector"	,	L_95
+".Ythumbnail"	,	L_50
+".header.sos"	,	L_86
+".ifd.offset"	,	L_155
+"Initial App0 segment with \"JFIF\" Identifier not found"	,	L_157
+tvb_get_guint32	,	F_18
+"media_type"	,	L_163
+VALS	,	F_32
+MARKER_SOF0	,	V_94
+MARKER_SOF1	,	V_95
+hf_sof_c_i	,	V_23
+MARKER_SOF2	,	V_96
+MARKER_SOF3	,	V_97
+PI_PROTOCOL	,	V_133
+FT_UINT8	,	V_112
+" in the scan. This parameter shall be set to 63 for the sequential DCT processes. In the"	,	L_111
+BASE_DEC	,	V_118
+".start_ifd_offset.invalid"	,	L_158
+"JPEG File Interchange Format"	,	L_161
+proto_item	,	T_5
+expert_register_field_array	,	F_38
+"Thumbnail vertical pixel count"	,	L_51
+".exif_flashpix_marker"	,	L_139
+try_val_to_str	,	F_27
+subtree	,	V_7
+ENC_NA	,	V_9
+dissector_add_string	,	F_42
+hf_marker_segment	,	V_8
+expert_add_info_format	,	F_19
+start_fill	,	V_80
+".length"	,	L_23
+"Vertical pixel density"	,	L_45
+"Specifies one of four possible DC entropy coding table destinations from which the entropy"	,	L_96
+start_marker	,	V_81
+"Identifier of the segment"	,	L_27
+".app0-identifier-not-jfif"	,	L_156
+proto_reg_handoff_jfif	,	F_40
+"JFIF (JPEG) image"	,	L_162
+": %s (0x%04X)"	,	L_1
+"Quantization table destination selector"	,	L_81
+ENC_LITTLE_ENDIAN	,	V_65
+"Marker"	,	L_17
+"image/jpg"	,	L_165
+"Thumbnail horizontal pixel count"	,	L_48
+hf_extension_code	,	V_55
+data	,	T_10
+".sof.lines"	,	L_64
+" mode of operations, this parameter specifies the point transform, Pt."	,	L_125
+".ifd.count"	,	L_153
+"Remaining segment data"	,	L_130
+hf_sof_nf	,	V_22
+"DC entropy coding table destination selector"	,	L_94
+"image/jfif"	,	L_164
+"Horizontal pixel density"	,	L_42
+ei_register_info	,	T_13
+expert_register_protocol	,	F_37
+hf_sof_h_i	,	V_24
+"Identifier"	,	L_25
+" (Reserved)"	,	L_16
+"Specifies the number of source image components in the frame."	,	L_71
+"RGB values of thumbnail pixels"	,	L_52
+"Successive approximation bit position high"	,	L_113
+".skipped_tiff_data"	,	L_145
+FT_NONE	,	V_115
+"Length"	,	L_22
+".sos.se"	,	L_109
+offset	,	V_17
+" "	,	L_14
+".sos.component_selector"	,	L_91
+ett	,	V_128
+wmem_packet_scope	,	F_12
+expert_module_t	,	T_14
+".sof.v_i"	,	L_79
+tree	,	V_1
+".entropy_coded_segment"	,	L_141
+packet_info	,	T_8
+"little endian"	,	L_8
+".sof.samples_per_line"	,	L_67
+"Number of image components in frame"	,	L_69
+" use for dequantization of DCT coefficients of component Ci is retrieved."	,	L_84
+hf_sof_precision	,	V_19
+hf_sos_al	,	V_35
+"Successive approximation bit position low or point transform"	,	L_120
+"Major Version"	,	L_31
+hf_sos_ah	,	V_34
+marker	,	V_4
+"JFXX"	,	L_5
+"Vertical sampling factor"	,	L_78
+EXPFILL	,	V_132
+hf_xthumbnail	,	V_52
+hf_remain_seg_data	,	V_14
+".comment"	,	L_129
+"Sample Precision (bits)"	,	L_60
+"Start of Segment header"	,	L_85
+".sos.ss"	,	L_103
+hf_next_ifd_offset	,	V_75
+tvb_new_subset_length	,	F_29
+".RGB"	,	L_53
+hf_sof_tq_i	,	V_26
+"Minor Version"	,	L_34
+"(JPEG JFIF image)"	,	L_15
+hf_sos_ta_j	,	V_31
+".Xdensity"	,	L_41
+HFILL	,	V_114
+PI_MALFORMED	,	V_130
+"Scan component selector"	,	L_90
+hf_sos_se	,	V_33
+".next_ifd_offset"	,	L_137
+"wtap_file"	,	L_171
+hf_sos_ss	,	V_32
+"Samples per line"	,	L_66
+hf_sof_lines	,	V_20
+".start_ifd_offset"	,	L_135
+ei_next_ifd_offset	,	V_76
+vals_extension_code	,	V_122
+".ifd.type"	,	L_151
+"Specifies one of four possible quantization table destinations from which the quantization table to"	,	L_83
+"Specifies the number of source image components in the scan."	,	L_89
+"Ythumbnail"	,	L_49
+show_first_identifier_not_jfif	,	V_57
+"In the DCT modes of operation, this parameter specifies the first DCT coefficient in"	,	L_104
+"Lines"	,	L_63
+hf_ydensity	,	V_51
+process_app2_segment	,	F_21
+"Type"	,	L_150
+hf_comment_header	,	V_36
+proto_tree	,	T_1
+jfif_handle	,	V_135

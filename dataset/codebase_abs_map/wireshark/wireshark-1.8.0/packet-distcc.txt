@@ -1,0 +1,148 @@
+proto_register_protocol	,	F_26
+"distcc.doti_source"	,	L_37
+"DOTI Preprocessed Source File (.i)"	,	L_38
+distcc_handle	,	V_43
+prefs_register_protocol	,	F_30
+dissect_distcc_argc	,	F_6
+distcc_module	,	V_37
+"[Short DOTO PDU]"	,	L_23
+"DIST: %d"	,	L_1
+col_append_fstr	,	F_3
+len	,	V_14
+hf_distcc_doto_object	,	V_21
+"DONE"	,	L_28
+gint	,	T_5
+col_set_str	,	F_19
+proto_reg_handoff_distcc	,	V_38
+proto_tree_add_uint_format	,	F_2
+"SOUT"	,	L_15
+"ARGC: %d"	,	L_7
+tvb	,	V_1
+item	,	V_23
+guint32	,	T_4
+COL_INFO	,	V_8
+dissect_distcc_dist	,	F_1
+col_clear	,	F_20
+cinfo	,	V_7
+proto_register_subtree_array	,	F_29
+"ARGV argument"	,	L_35
+"[Short SERR PDU]"	,	L_14
+array_length	,	F_28
+"distcc.argv"	,	L_34
+hf_distcc_version	,	V_6
+DESEGMENT_TCP	,	F_9
+"Whether the DISTCC dissector should reassemble messages spanning multiple TCP segments."	,	L_57
+proto_tree_add_item	,	F_11
+call_dissector	,	F_24
+pinfo	,	V_2
+dissector_handle_t	,	T_10
+"STAT:%d "	,	L_6
+_U_	,	V_10
+"distcc.doto_object"	,	L_47
+ENC_ASCII	,	V_16
+col_append_str	,	F_16
+"%08x"	,	L_25
+"DOTO"	,	L_21
+"DISTCC TCP Port"	,	L_53
+dissect_distcc_done	,	F_4
+hf_register_info	,	T_7
+registered_dissector	,	V_41
+prefs_register_bool_preference	,	F_32
+distcc_tcp_port	,	V_42
+"%s "	,	L_10
+COL_PROTOCOL	,	V_25
+"SERR:%s "	,	L_13
+"data"	,	L_59
+"STAT: %d"	,	L_5
+proto_tree_add_text	,	F_12
+"distcc.version"	,	L_31
+BASE_DEC	,	V_31
+proto_item	,	T_6
+"Set the TCP port for DISTCC messages"	,	L_54
+"distcc.argc"	,	L_32
+token	,	V_24
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_58
+argv_len	,	V_13
+ENC_NA	,	V_17
+hf_distcc_stat	,	V_9
+"distcc"	,	L_51
+BASE_NONE	,	V_34
+"Object"	,	L_46
+"[Short SOUT PDU]"	,	L_17
+ett_distcc	,	V_27
+"ARGC:%d "	,	L_8
+"Source"	,	L_36
+tvb_length_remaining	,	F_22
+dissect_distcc_stat	,	F_5
+"DOTO object "	,	L_22
+tvbuff_t	,	T_1
+"DONE: %d"	,	L_3
+dissect_distcc_doto	,	F_17
+"Distcc Distributed Compiler"	,	L_49
+hf_distcc_sout	,	V_19
+distcc_desegment	,	V_40
+tvb_memcpy	,	F_10
+"Number of arguments"	,	L_33
+parent_tree	,	V_22
+dissect_distcc_doti	,	F_15
+prefs_register_uint_preference	,	F_31
+gboolean	,	T_9
+"distcc.status"	,	L_40
+"Unix wait status for command completion"	,	L_41
+proto_item_add_subtree	,	F_21
+module_t	,	T_8
+proto_register_field_array	,	F_27
+FT_BYTES	,	V_35
+"DISTCC"	,	L_50
+proto_distcc	,	V_26
+offset	,	V_4
+"DONE:%d "	,	L_4
+ett	,	V_36
+dissector_add_uint	,	F_36
+tree	,	V_3
+"ARGC"	,	L_27
+data_handle	,	V_28
+proto_register_distcc	,	F_25
+"STDERR output"	,	L_43
+tvb_get_ptr	,	F_23
+packet_info	,	T_2
+"distcc.serr"	,	L_42
+glb_distcc_tcp_port	,	V_39
+hf_distcc_serr	,	V_18
+"DISTCC Version"	,	L_30
+dissector_delete_uint	,	F_35
+"DIST"	,	L_26
+dissect_distcc	,	F_18
+dissect_distcc_serr	,	F_13
+"[Short ARGV PDU]"	,	L_11
+"DISTCC "	,	L_24
+argv	,	V_12
+CHECK_PDU_LEN	,	F_8
+"STAT"	,	L_29
+"STDOUT output"	,	L_45
+FT_STRING	,	V_33
+"DOTO Compiled object file (.o)"	,	L_48
+parameter	,	V_5
+"SOUT:%s "	,	L_16
+"SERR"	,	L_12
+dissect_distcc_sout	,	F_14
+HFILL	,	V_32
+"ARGV"	,	L_9
+"desegment_distcc_over_tcp"	,	L_55
+"Status"	,	L_39
+"DOTI"	,	L_18
+find_dissector	,	F_34
+create_dissector_handle	,	F_33
+"DOTI source "	,	L_19
+hf_distcc_argv	,	V_15
+hf_distcc_argc	,	V_11
+FT_UINT32	,	V_30
+"[Short DOTI PDU]"	,	L_20
+"Reassemble DISTCC-over-TCP messages\nspanning multiple TCP segments"	,	L_56
+"DIST:%d "	,	L_2
+dissect_distcc_argv	,	F_7
+"distcc.sout"	,	L_44
+"tcp.port"	,	L_52
+proto_tree	,	T_3
+hf	,	V_29
+hf_distcc_doti_source	,	V_20

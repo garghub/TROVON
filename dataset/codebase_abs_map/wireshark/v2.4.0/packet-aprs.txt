@@ -1,0 +1,446 @@
+tvb_get_string_enc	,	F_28
+dissect_mic_e	,	F_15
+"Destination Address"	,	L_168
+wmem_strbuf_new_label	,	F_35
+"aprs.mic_e_current"	,	L_166
+hf_aprs_lat	,	V_124
+"Longitude degrees"	,	L_170
+hf_aprs_msg_nrq	,	V_38
+hf_aprs_mic_e_0_old	,	V_157
+"Map Feature"	,	L_69
+"aprs.weather.1_hour"	,	L_139
+hf_aprs_mdhm	,	V_119
+"aprs.raw"	,	L_42
+"Maidenhead grid locator beacon (obsolete)"	,	L_54
+ett_aprs_ct	,	V_10
+mic_e_msg_table	,	V_70
+ett_aprs_storm	,	V_89
+"Third-party"	,	L_61
+"aprs.weather.dir"	,	L_130
+tvb_reported_length_remaining	,	F_16
+hf_aprs_user_defined	,	V_154
+"Station"	,	L_44
+wmem_strbuf_t	,	T_11
+hf_aprs_peet_1	,	V_160
+hf_aprs_peet_2	,	V_161
+array_length	,	F_47
+"Invalid or test"	,	L_55
+wind	,	V_15
+""	,	L_11
+"Old Mic-E"	,	L_162
+"aprs.storm.direction"	,	L_185
+"Lat: %7.7s%c Long: %03d%02d.%02d%c, Cse: %d, Spd: %d, SSID: %d, Msg %s"	,	L_3
+indx	,	V_43
+"aprs.agrelo"	,	L_50
+ENC_ASCII	,	V_20
+hf_aprs_dti	,	V_145
+col_append_str	,	F_20
+aprs_latitude_compressed	,	F_24
+"aprs.storm.radius_whole_gale"	,	L_200
+hf_aprs_comment	,	V_165
+hf_register_info	,	T_13
+"aprs.msg.aod.t"	,	L_125
+hf_aprs_invalid_test	,	V_153
+"aprs.user_defined"	,	L_59
+"Pre-calculated radio range"	,	L_100
+c	,	V_84
+ch	,	V_18
+symbol_code	,	V_133
+"aprs.mic_e_old"	,	L_163
+"Query"	,	L_37
+"showaprslax"	,	L_203
+"aprs.mic_e_0_old"	,	L_161
+BASE_NONE	,	V_170
+"Wind speed"	,	L_131
+"aprs.mic_e.status"	,	L_183
+"aprs.station"	,	L_45
+"aprs.maidenhead"	,	L_53
+"Time Zone"	,	L_86
+"Agrelo DFJr / MicroFinder"	,	L_51
+"aprs.msg.phg.h"	,	L_114
+d28_to_deg	,	F_13
+BASE_HEX	,	V_174
+col_add_str	,	F_39
+hf_aprs_ct_nmea_src	,	V_13
+"Peak wind gusts (knots)"	,	L_191
+proto_item_add_subtree	,	F_4
+hf_aprs_storm_sws	,	V_93
+module_t	,	T_12
+proto_register_field_array	,	F_46
+digit	,	V_68
+FT_BYTES	,	V_172
+"aprs.ct"	,	L_89
+"aprs.msg.dir"	,	L_106
+symbol_table_id	,	V_132
+dissect_aprs_compressed_msg	,	F_8
+"aprs.invalid_test"	,	L_56
+dissect_aprs_storm	,	F_21
+hf_aprs_storm_rwg	,	V_98
+"aprs.weather.pressure"	,	L_147
+hf_aprs_storm_rtsw	,	V_97
+hf_aprs_weather_temp	,	V_105
+tzone	,	V_118
+"Current Mic-E"	,	L_165
+"aprs.weather.24_hour"	,	L_141
+"Day/Hour/Minute"	,	L_80
+hf_aprs_weather_humidty	,	V_109
+"aprs.storm.pwg"	,	L_192
+"Radius Tropical Storm Winds (nautical miles)"	,	L_197
+FT_STRING	,	V_169
+"aprs.weather.speed"	,	L_132
+"%6.2f"	,	L_9
+"Direction"	,	L_184
+"aprs.dhm"	,	L_81
+wmem_strbuf_append	,	F_36
+"Course"	,	L_101
+n_s	,	V_56
+"aprs.map_feature"	,	L_70
+"aprs.msg.phg.g"	,	L_116
+"aprs.msg"	,	L_97
+new_offset	,	V_6
+hf_aprs_object	,	V_166
+"Central pressure (millibars/hPascal)"	,	L_193
+"aprs.storm.speed"	,	L_187
+hf_aprs_weather_rain	,	V_108
+hf	,	V_168
+"aprs.weather.luminosity"	,	L_149
+"Position ("	,	L_13
+"Ultimeter 2000 WX Station"	,	L_12
+"Wind speed (1 minute)"	,	L_133
+"Rain (last 24 hours)"	,	L_140
+"aprs.storm.radius_tropical_storms_winds"	,	L_198
+"Temperature (F)"	,	L_136
+hf_aprs_mic_e_status	,	V_86
+"Space weather"	,	L_75
+ctype_vals	,	V_177
+prefs_register_protocol	,	F_49
+msg_c	,	V_55
+hf_aprs_weather_dir	,	V_102
+msg_b	,	V_54
+hf_aprs_weather_press	,	V_110
+"aprs.sym_id"	,	L_22
+wmem_strdup_printf	,	F_9
+msg_a	,	V_53
+"Longitude"	,	L_25
+col_set_str	,	F_19
+"Symbol code"	,	L_19
+dst_code_lookup	,	F_12
+hf_ultimeter_2000	,	V_148
+"Third-party traffic"	,	L_63
+"aprs.mic_e.speed_sp"	,	L_177
+"Hour/Minute/Second"	,	L_82
+"aprs.weather.humidity"	,	L_145
+hf_aprs_mic_e_spd_se	,	V_81
+AX25_ADDR_LEN	,	V_66
+hf_aprs_storm_pwg	,	V_94
+"APRS"	,	L_10
+"aprs.mdhm"	,	L_85
+hf_aprs_mic_e_spd_sp	,	V_79
+"Snow"	,	L_150
+proto_tree_add_string	,	F_11
+hf_aprs_weather_rain_1	,	V_106
+hf_aprs_third_party	,	V_129
+"aprs.space_weather"	,	L_76
+"aprs.ct.nmea_src"	,	L_93
+"Range"	,	L_98
+"Ultimeter 2000"	,	L_29
+VALS	,	F_43
+prefs_register_bool_preference	,	F_50
+aprs_default_bytes	,	F_31
+hf_aprs_sym_id	,	V_83
+ENC_NA	,	V_21
+"User-Defined"	,	L_58
+"aprs.mic_e.long_d"	,	L_171
+"Automatic Position Reporting System"	,	L_201
+dissect_aprs	,	F_33
+hf_aprs_msg_dir	,	V_23
+wmem_alloc	,	F_17
+"%s"	,	L_16
+"aprs.position.lat"	,	L_24
+hf_aprs_mic_e_old	,	V_158
+brg_nrq	,	V_16
+lr	,	V_114
+hf_aprs_hms	,	V_121
+"Wind direction"	,	L_105
+"aprs.telemetry"	,	L_40
+"local"	,	L_7
+"Agrelo"	,	L_49
+dissect_aprs_compression_type	,	F_1
+hf_aprs_ct_origin	,	V_14
+"Weather report"	,	L_128
+hf_aprs_raw	,	V_149
+hf_aprs_storm_type	,	V_92
+hf_aprs_map_feature	,	V_162
+guint	,	T_6
+"Raw NMEA position report format"	,	L_43
+ett	,	V_178
+wmem_packet_scope	,	F_10
+spd	,	V_59
+"Station capabilities"	,	L_46
+"Longitude minutes"	,	L_172
+storm_tree	,	V_87
+packet_info	,	T_7
+"aprs.storm.type"	,	L_188
+hf_aprs_shelter_data	,	V_163
+" ("	,	L_15
+"Lat %7.7s, Msg A %d, Msg B %d, Msg C %d, N/S %c, Long off %3d, W/E %c, SSID %d"	,	L_5
+"aprs.ct.gps_fix"	,	L_91
+"aprs.msg.nrq"	,	L_110
+code	,	V_46
+dst	,	V_63
+"Speed (knots)"	,	L_186
+hf_aprs_weather_luminosity	,	V_111
+"Allow APRS violations."	,	L_204
+"Storm"	,	L_78
+dti	,	V_139
+ett_aprs_weather	,	V_101
+HFILL	,	V_171
+hf_aprs_dhm	,	V_122
+"Status"	,	L_31
+g_ascii_isdigit	,	F_7
+gps_vals	,	V_175
+gchar	,	T_4
+hf_aprs_mic_e_dst	,	V_75
+"aprs.mic_e.long_h"	,	L_175
+"aprs.msg.phg.p"	,	L_112
+"Speed"	,	L_103
+cse	,	V_58
+ett_aprs_mic_e	,	V_74
+"aprs.mic_e_0_current"	,	L_159
+"unknown"	,	L_8
+"aprs.msg.dfs.d"	,	L_123
+"aprs.message"	,	L_48
+"Old Mic-E (Rev 0)"	,	L_160
+"aprs.item"	,	L_36
+hf_mic_e_idx	,	V_50
+"aprs.msg.rng"	,	L_99
+"aprs.weather.peak"	,	L_135
+proto_register_protocol	,	F_44
+"Directivity"	,	L_117
+len	,	V_65
+probably_not_a_msg	,	V_135
+hf_aprs_mic_e_telemetry	,	V_85
+gint	,	T_8
+"aprs.msg.dfs.g"	,	L_122
+msg_tree	,	V_17
+"Humidity"	,	L_144
+"aprs.storm.central_pressure"	,	L_194
+tvb	,	V_1
+std	,	V_71
+"aprs.query"	,	L_38
+COL_INFO	,	V_73
+"aprs.ct.origin"	,	L_95
+hf_aprs_msg_aod_t	,	V_35
+hf_aprs_weather_spd	,	V_103
+"Radius Hurricane Winds (nautical miles)"	,	L_195
+"aprs.comment"	,	L_28
+hf_aprs_msg	,	V_19
+cinfo	,	V_72
+"aprs.peet_1"	,	L_65
+d28_to_min	,	F_14
+"Raw"	,	L_41
+hf_aprs_msg_aod_c	,	V_36
+"aprs.weather.raw_rain"	,	L_153
+hf_aprs_status	,	V_126
+"aprs.storm.sws"	,	L_190
+latitude	,	V_52
+"aprs.mic_e.telemetry"	,	L_182
+"aprs.peet_2"	,	L_68
+long_offset	,	V_47
+sb	,	V_140
+"Item"	,	L_35
+"aprs.msg.aod.c"	,	L_127
+"Telemetry"	,	L_39
+"Message"	,	L_47
+"aprs.weather.unit"	,	L_157
+key	,	V_45
+"Compression origin"	,	L_94
+hf_aprs_msg_rng	,	V_34
+AT_AX25	,	V_64
+COL_PROTOCOL	,	V_141
+hf_aprs_sym_code	,	V_82
+hf_aprs_msg_spd	,	V_25
+"aprs.object"	,	L_34
+hf_aprs_weather	,	V_100
+"aprs.mic_e.long_m"	,	L_173
+hf_aprs_item	,	V_128
+"Speed (hundreds &amp; tens)"	,	L_176
+tc	,	V_4
+guint8	,	T_3
+hf_aprs_message	,	V_155
+ti	,	V_138
+"Object"	,	L_33
+"Longitude hundreths of minutes"	,	L_174
+"aprs.msg.dfs.h"	,	L_121
+info_buffer	,	V_42
+hf_aprs_maidenhead	,	V_152
+"MIC-E "	,	L_4
+register_dissector	,	F_45
+nmea_vals	,	V_176
+hf_aprs_storm	,	V_88
+hf_aprs_msg_dfs_s	,	V_26
+"aprs.msg.spd"	,	L_104
+tvbuff_t	,	T_1
+hf_aprs_msg_phg_h	,	V_31
+proto_tree_add_protocol_format	,	F_41
+hf_aprs_msg_phg_d	,	V_33
+val_to_str_ext_const	,	F_37
+hf_aprs_msg_phg_g	,	V_32
+ett_aprs	,	V_144
+parent_tree	,	V_3
+hf_aprs_msg_dfs_g	,	V_28
+hf_aprs_msg_phg_p	,	V_30
+hf_aprs_msg_dfs_h	,	V_27
+mic_e_tree	,	V_51
+gboolean	,	T_9
+hf_aprs_msg_dfs_d	,	V_29
+"Luminosity"	,	L_148
+hf_aprs_storm_dir	,	V_90
+dst_code	,	V_44
+w_e	,	V_57
+hf_aprs_weather_rain_24	,	V_107
+"[Reserved - Map Feature"	,	L_71
+hf_aprs_mic_e_long_h	,	V_78
+hf_aprs_mic_e_long_d	,	V_76
+data_len	,	V_7
+hf_aprs_mic_e_long_m	,	V_77
+"Current Mic-E Data (not used in TM-D700)"	,	L_167
+tvb_get_guint8	,	F_2
+hf_aprs_tz	,	V_120
+"Peak wind speed"	,	L_134
+hf_aprs_query	,	V_147
+"Rain"	,	L_142
+"aprs.storm"	,	L_79
+ch_ptr	,	V_127
+"aprs.shelter_data"	,	L_73
+proto_aprs	,	V_143
+hf_aprs_weather_snow	,	V_112
+hf_aprs_weather_unit	,	V_116
+"Month/Day/Hour/Minute"	,	L_84
+"aprs.status"	,	L_32
+speed	,	V_40
+"aprs.weather.rain"	,	L_143
+"aprs.weather.snow"	,	L_151
+"Rain (last 1 hour)"	,	L_138
+hf_aprs_weather_raw_rain	,	V_113
+"Strength"	,	L_119
+"Comment"	,	L_27
+"Colour"	,	L_126
+ENC_BIG_ENDIAN	,	V_12
+gPREF_APRS_LAX	,	V_136
+"User-Defined APRS packet format"	,	L_60
+"[Reserved - Space weather]"	,	L_77
+"Symbol table ID"	,	L_21
+aprs_timestamp	,	F_23
+"Data Type Indicator"	,	L_17
+"aprs.weather.temp"	,	L_137
+"Unit"	,	L_156
+"GPS fix type"	,	L_90
+"aprs"	,	L_202
+"aprs.mic_e.speed_dc"	,	L_179
+hfindex	,	V_130
+"Raw rain"	,	L_152
+"aprs.msg.cse"	,	L_102
+"aprs.msg.phg.d"	,	L_118
+"Extended message"	,	L_96
+"Power"	,	L_111
+"Peet U-II (1)"	,	L_64
+"NMEA source"	,	L_92
+"Invalid data or test data"	,	L_57
+"Current Mic-E (Rev 0)"	,	L_158
+hf_aprs_station	,	V_146
+hf_aprs_space_weather	,	V_164
+col_clear	,	F_34
+proto_register_subtree_array	,	F_48
+aprs_3rd_party	,	F_29
+"Shelter data"	,	L_72
+proto_tree_add_item	,	F_5
+hf_aprs_storm_cp	,	V_95
+pinfo	,	V_49
+aprs_default_string	,	F_30
+"%7.2f"	,	L_1
+_U_	,	V_137
+range	,	V_41
+"Latitude"	,	L_23
+ssid	,	V_60
+"zulu"	,	L_6
+hf_aprs_compression_type	,	V_9
+hf_aprs_mic_e_spd_dc	,	V_80
+"aprs.tz"	,	L_87
+hf_aprs_mic_e_0_current	,	V_156
+"Peet U-II (2)"	,	L_67
+course	,	V_39
+"Course (tens &amp; units)"	,	L_180
+"[Reserved - Shelter data with time]"	,	L_74
+hf_aprs_mic_e_current	,	V_159
+compression_tree	,	V_5
+proto_register_aprs	,	F_42
+"Compression type"	,	L_88
+"Radius Whole Gale (nautical miles)"	,	L_199
+FT_UINT8	,	V_173
+aprs_tree	,	V_117
+hf_aprs_storm_rhw	,	V_96
+proto_item	,	T_10
+"aprs.msg.brg"	,	L_108
+"Sustained wind speed (knots)"	,	L_189
+"aprs.ultimeter_2000"	,	L_30
+with_msg	,	V_131
+tvb_format_text	,	F_38
+"Pressure"	,	L_146
+msg	,	V_69
+"Bearing"	,	L_107
+data	,	V_67
+hf_aprs_long	,	V_125
+"Speed (tens), Course (hundreds)"	,	L_178
+"aprs.weather.software"	,	L_155
+aprs_longitude_compressed	,	F_25
+"aprs.mic_e.speed_se"	,	L_181
+"Maidenhead"	,	L_52
+"Gain"	,	L_115
+hf_aprs_ct_gps_fix	,	V_11
+"Software"	,	L_154
+"Height"	,	L_113
+offset	,	V_2
+" "	,	L_14
+"aprs.dti"	,	L_18
+hf_aprs_weather_peak	,	V_104
+"aprs.msg.dfs.s"	,	L_120
+hf_aprs_agrelo	,	V_150
+hf_aprs_storm_spd	,	V_91
+ett_aprs_msg	,	V_22
+"Old Mic-E Data (but Current data for TM-D700)"	,	L_164
+proto_tree_add_uint	,	F_3
+"aprs.sym_code"	,	L_20
+dst_code_entry	,	V_62
+aprs_description_ext	,	V_142
+"aprs.position.long"	,	L_26
+"aprs.weather"	,	L_129
+aprs_status	,	F_26
+compression_type	,	V_8
+probably_a_msg	,	V_134
+hf_aprs_telemetry	,	V_151
+"aprs.mic_e.dst"	,	L_169
+g_snprintf	,	F_18
+"%d"	,	L_2
+dissect_aprs_weather	,	F_22
+"Attempt to display common APRS protocol violations correctly"	,	L_205
+hf_aprs_msg_cse	,	V_24
+addr	,	V_61
+value	,	V_48
+"aprs.hms"	,	L_83
+dissect_aprs_msg	,	F_6
+temp	,	V_123
+hf_aprs_weather_software	,	V_115
+aprs_item	,	F_27
+weather_tree	,	V_99
+"aprs.third_party"	,	L_62
+"aprs.storm.radius_hurricane_winds"	,	L_196
+aprs_position	,	F_32
+"Peet Bros U-II Weather Station"	,	L_66
+hf_aprs_msg_brg	,	V_37
+"Number/Range/Quality"	,	L_109
+mic_e_dst_code_table_s	,	T_5
+wmem_strbuf_get_str	,	F_40
+"Type"	,	L_124
+proto_tree	,	T_2
+aprs_module	,	V_167

@@ -1,0 +1,276 @@
+Proto_get_dissector	,	F_61
+lua_pushnil	,	F_75
+Tvb	,	T_18
+WSLUA_METHOD	,	T_9
+"only ProtoFields should be in the table"	,	L_18
+epan_set_always_visible	,	F_41
+proto_register_protocol	,	F_18
+lua_getglobal	,	F_68
+Proto_commit	,	F_101
+field_abbr	,	V_44
+g_new	,	F_131
+len	,	V_2
+loname	,	V_13
+pref	,	V_48
+Proto_set_dissector	,	F_63
+gint	,	T_13
+state	,	V_4
+expert_module	,	V_24
+tvb	,	V_85
+dissect_lua	,	V_34
+pdu_len	,	V_87
+all_fields	,	V_33
+lua_pushfstring	,	F_33
+WSLUA_CONSTRUCTOR	,	T_3
+wslua_is_field_available	,	F_89
+Proto_set_fields	,	F_71
+WSLUA_REGISTER_CLASS	,	F_86
+eia	,	V_54
+"there cannot be two protocols with the same name"	,	L_4
+g_ptr_array_new	,	F_88
+wslua_deregister_protocols	,	F_93
+"A heuristic dissector for Proto '%s' is already registered for the '%s' list"	,	L_12
+L	,	V_5
+hf_info	,	V_80
+"Lua Error in dissect_tcp_pdus: did not find the get_len_func dissector"	,	L_26
+wslua_dissect_tcp_dissector	,	F_119
+luaL_argerror	,	F_40
+ProtoExpert	,	T_12
+Proto_register	,	F_85
+push_Pinfo	,	F_111
+hf_register_info	,	V_56
+"there is no heuristic list for '%s'"	,	L_8
+lua_istable	,	F_55
+fixed_len	,	V_92
+"must not be an empty string"	,	L_1
+Proto_get_fields	,	F_70
+"The third and fourth arguments need to be Lua functions"	,	L_30
+g_ptr_array_remove_index_fast	,	F_2
+EI_TABLE	,	F_81
+checkTvb	,	F_128
+"this protocol is already registered as postdissector"	,	L_6
+WSLUA_OPTARG_dissect_tcp_pdus_DESEGMENT	,	F_127
+lua_isfunction	,	F_51
+has_heur_dissector_list	,	F_47
+isProtoExpert	,	F_82
+Pref	,	T_11
+e	,	V_72
+proto_get_id_by_filter_name	,	F_15
+f	,	V_45
+g_array_free	,	F_100
+g_free	,	F_4
+listname	,	V_35
+expert_info_table_ref	,	V_23
+lua_pinfo	,	V_94
+toProto	,	F_84
+u	,	V_28
+ti	,	V_91
+g_ascii_strup	,	F_13
+"'%s' is already registered as heuristic"	,	L_9
+pushDissector	,	F_62
+WSLUA_ARG_Proto_new_DESC	,	F_7
+checkTreeItem	,	F_129
+WSLUA_ARG_Proto_new_NAME	,	F_6
+hiname	,	V_14
+register_dissector	,	F_38
+WSLUA_METAMETHOD	,	T_6
+tvbuff_t	,	T_16
+lua_isnumber	,	F_116
+"Lua Error dissect_tcp_pdus: get_len_func did not return a Lua number of the PDU length"	,	L_25
+DESC	,	V_16
+g_array_append_val	,	F_104
+"either a ProtoField or an array of protofields"	,	L_19
+gboolean	,	T_8
+push_TreeItem	,	F_120
+bitmask	,	V_67
+LUA_REGISTRYINDEX	,	V_8
+proto_register_field_array	,	F_106
+ei	,	V_81
+WSLUA_ARG_dissect_tcp_pdus_GET_LEN_FUNC	,	F_125
+"dissect_tcp_pdus can only be invoked while in a dissect function"	,	L_29
+"The heuristic dissector must be a function"	,	L_13
+hfid	,	V_18
+lua_replace	,	F_52
+NAME	,	V_15
+"only ProtoExperts should be in the table"	,	L_20
+"invalid character in name"	,	L_3
+luaL_checkstring	,	F_8
+name	,	V_10
+ids	,	V_50
+g_array_new	,	F_103
+push_Tvb	,	F_110
+fields	,	V_22
+vs	,	V_66
+desc	,	V_11
+next	,	V_29
+proto_check_field_name	,	F_12
+find_heur_dissector_by_unique_short_name	,	F_48
+Proto_set_prefs_changed	,	F_67
+clear_outstanding_FuncSavers	,	F_1
+lua_dissectors_table_ref	,	V_38
+isProtoField	,	F_77
+"dissect_tcp_pdus: did not find the dissect_func dissector"	,	L_28
+fs	,	V_3
+heur_dissector_add	,	F_60
+HEURISTIC_ENABLE	,	V_41
+Proto__tostring	,	F_31
+isDissector	,	F_49
+deregister_dissector	,	F_94
+expired	,	V_21
+"fields can be registered only once"	,	L_22
+g_strdup	,	F_17
+WSLUA_RETURN	,	F_26
+lua_pushstring	,	F_23
+mask	,	V_68
+severity	,	V_77
+summary	,	V_78
+lua_remove	,	F_30
+proto_deregister_protocol	,	F_97
+proto_name	,	V_36
+label	,	V_26
+pushPrefs	,	F_66
+prefs	,	V_25
+is_postdissector	,	V_20
+WSLUA_OPTARG_register_postdissector_ALLFIELDS	,	F_36
+prefs_deregister_protocol	,	F_95
+LUA_NOREF	,	V_7
+hf	,	V_51
+WSLUA_ARG_Proto_register_heuristic_LISTNAME	,	F_43
+base	,	V_64
+eiinfo	,	V_75
+luaL_unref	,	F_3
+heur_dissect_lua	,	V_40
+WSLUA_ARG_dissect_tcp_pdus_TREE	,	F_123
+"The initializer of a protocol must be a function"	,	L_17
+g_assert	,	F_54
+"Lua Error in dissect_tcp_pdus get_len_func: %s"	,	L_24
+Proto_set_experts	,	F_80
+lua_pushinteger	,	F_112
+WSLUA_ARG_Proto__call_NAME	,	F_28
+wslua_register_postdissector	,	F_34
+lua_getfield	,	F_50
+"Proto_register_heuristic: got NULL proto name or invalid hfid"	,	L_7
+text	,	V_79
+Proto_new	,	F_5
+WSLUA_ARG_Proto_register_heuristic_FUNC	,	F_44
+"Proto_register_heuristic: could not get lua function from lua_dissectors_table"	,	L_10
+hfa	,	V_52
+handle	,	V_31
+WSLUA_ARG_Proto__call_DESC	,	F_29
+lua_heur_dissectors_table_ref	,	V_39
+checkProtoExpert	,	F_98
+"there cannot be two protocols with the same description"	,	L_2
+luaL_ref	,	F_20
+Proto__gc	,	F_83
+THROW_LUA_ERROR	,	F_114
+proto_register_subtree_array	,	F_107
+lua_settable	,	F_25
+"The prefs of a protocol must be a function"	,	L_16
+EI_INIT_HF	,	V_83
+Proto__call	,	F_27
+Proto_get_experts	,	F_79
+ettp	,	V_55
+g_ptr_array_add	,	F_132
+pinfo	,	V_84
+WRAP_NON_LUA_EXCEPTIONS	,	F_133
+proto_desegment	,	V_93
+"expert fields can be registered only once"	,	L_23
+func_saver_t	,	T_1
+blurb	,	V_69
+"dissect_tcp_pdus dissect_func: %s"	,	L_27
+g_malloc	,	F_16
+lua_setfield	,	F_58
+Proto	,	T_5
+top	,	V_37
+strings	,	V_65
+EI_INIT_EI	,	V_82
+protocols_table_ref	,	V_32
+"either a ProtoExpert or an array of ProtoExperts"	,	L_21
+VALS	,	F_105
+WSLUA_PREFS_CHANGED	,	V_42
+display	,	V_63
+prefs_module	,	V_30
+expert_register_field_array	,	F_108
+proto_item	,	V_90
+expert_deregister_protocol	,	F_96
+wslua_get_field	,	F_59
+etta	,	V_53
+lua_newtable	,	F_19
+"The protocol hasn't been registered yet"	,	L_14
+p_id	,	V_61
+lua_State	,	T_2
+g_ascii_strdown	,	F_11
+Proto_set_init	,	F_69
+"Proto: %s"	,	L_5
+data	,	V_71
+hfri	,	V_58
+TreeItem	,	T_19
+checkProto	,	F_32
+dissect_ref	,	V_9
+WSLUA_ARG_ERROR	,	F_9
+NEW_TABLE	,	F_73
+luaL_checkinteger	,	F_130
+consumed_bytes	,	V_89
+luaL_error	,	F_46
+WSLUA_REGISTER_ATTRIBUTES	,	F_87
+ei_register_info	,	V_57
+expert_register_protocol	,	F_21
+lua_insert	,	F_64
+wslua_deregister_heur_dissectors	,	F_91
+wslua_get_table	,	F_56
+FIELDS_TABLE	,	F_72
+group	,	V_76
+FT_NONE	,	V_59
+guint	,	T_14
+ett	,	V_19
+offset	,	V_86
+tree	,	V_88
+packet_info	,	T_15
+proto_add_deregistered_data	,	F_99
+blob	,	V_70
+wslua_dissect_tcp_get_pdu_len	,	F_109
+pushProto	,	F_24
+wslua_togint	,	F_117
+proto	,	V_12
+wslua_optbool	,	F_37
+WSLUA_ARG_dissect_tcp_pdus_TVB	,	F_122
+NEW_FIELD	,	F_74
+WSLUA_INIT_ROUTINES	,	V_43
+abbrev	,	V_46
+WSLUA_FUNCTION	,	T_7
+lua_isnil	,	F_78
+lua_pcall	,	F_113
+REPORT_DISSECTOR_BUG	,	F_118
+wslua_dissect_tcp_pdus	,	F_121
+EXPFILL	,	V_74
+lua_pop	,	F_53
+get_len_ref	,	V_6
+Proto_register_heuristic	,	F_42
+ProtoField	,	T_10
+WSLUA_ARG_dissect_tcp_pdus_DISSECT_FUNC	,	F_126
+proto_name_already_registered	,	F_10
+lua_tostring	,	F_115
+WSLUA_ARG_register_postdissector_PROTO	,	F_35
+WSLUA_ARG_dissect_tcp_pdus_MIN_HEADER_SIZE	,	F_124
+"Proto_register_heuristic: could not get lua_heur_dissectors table from registry"	,	L_11
+outstanding_FuncSavers	,	V_1
+proto_id	,	V_47
+lua_pushvalue	,	F_57
+checkProtoField	,	F_90
+HFILL	,	V_60
+value	,	V_27
+lua_settop	,	F_102
+gchar	,	T_4
+lua_rawgeti	,	F_22
+register_postdissector	,	F_39
+"The dissector of a protocol must be a function"	,	L_15
+hfinfo	,	V_62
+lua_gettop	,	F_45
+Proto_get_prefs	,	F_65
+proto_get_id_by_short_name	,	F_14
+wslua_proto_t	,	V_17
+heur_dissector_delete	,	F_92
+eiri	,	V_73
+pe	,	V_49
+lua_next	,	F_76
+proto_tree	,	T_17

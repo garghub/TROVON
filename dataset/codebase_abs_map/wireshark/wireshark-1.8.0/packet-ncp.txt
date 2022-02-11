@@ -1,0 +1,401 @@
+PI_CHAT	,	V_15
+"Source Connection ID"	,	L_58
+NCP_BURST_MODE_XFER	,	V_93
+hf_ncp_oplock_handle	,	V_88
+"NCP message type"	,	L_27
+hf_ncp_stream_type	,	V_106
+"Destination Connection ID"	,	L_61
+"Missing Data Count"	,	L_94
+"Connection Number"	,	L_30
+hf_ncp_missing_data_offset	,	V_134
+guint32	,	T_7
+mncp_hash_insert	,	F_8
+ett_ncp_system_flags	,	V_95
+ncp_hdr	,	V_52
+FT_BOOLEAN	,	V_152
+ncp_desegment	,	V_140
+"Slot"	,	L_101
+version	,	V_63
+"SYS"	,	L_49
+"Is this the last packet of the burst?"	,	L_48
+"Number of bytes of missing data"	,	L_96
+hf_ncp_system_flags_sys	,	V_104
+"ncp.completion_code"	,	L_98
+array_length	,	F_52
+"Control Code"	,	L_103
+"file_2_expert"	,	L_142
+NCP_LIP_ECHO	,	V_90
+ENC_ASCII	,	V_92
+hf_ncp_burst_seqno	,	V_111
+"Packet Burst File Handle"	,	L_114
+ncp_burst_command	,	V_38
+ABT	,	V_97
+"NCP over IP length"	,	L_17
+hf_register_info	,	T_15
+ncp_tree	,	V_22
+expert_item	,	V_48
+guint16	,	T_14
+"Offset of beginning of missing data"	,	L_93
+dissect_ncp_request	,	F_35
+"Server requesting station to clear oplock on handle - %08x"	,	L_4
+"ncp.missing_fraglist_count"	,	L_89
+BASE_NONE	,	V_148
+v	,	V_1
+dissect_ncp_reply	,	F_39
+ncp_echo_server	,	V_163
+"initial_hash_size"	,	L_119
+"ipx.socket"	,	L_150
+"ncp.dst_connection"	,	L_62
+NCP_BROADCAST_SLOT	,	V_82
+ncp_tap	,	V_80
+"ncp.burst_seqno"	,	L_71
+"desegment"	,	L_120
+"ncp.burst_offset"	,	L_80
+BASE_HEX	,	V_143
+col_add_str	,	F_28
+"newstyle"	,	L_127
+"EOB"	,	L_46
+"End of Burst"	,	L_12
+ett_nds_segment	,	V_158
+ett_ncp	,	V_56
+"ncp.ip.packetsig"	,	L_24
+proto_item_add_subtree	,	F_18
+hf_ncp_src_connection	,	V_107
+module_t	,	T_16
+PI_UNDECODED	,	V_137
+proto_register_field_array	,	F_51
+conversation	,	V_5
+FT_BYTES	,	V_147
+hf_ncp_ip_sig	,	V_60
+hf_ncp_fragment_handle	,	V_153
+dissector_add_uint	,	F_62
+"Sequence Number"	,	L_28
+"ABT"	,	L_43
+data_handle	,	V_133
+FT_UINT16	,	V_149
+nds_defrag	,	F_38
+ett_nds	,	V_156
+nwtask	,	V_7
+"Delay Time"	,	L_67
+mncp_postseq_cleanup	,	F_7
+hf_ncp_system_flags	,	V_94
+fd	,	V_17
+burst_off	,	V_40
+mncp_rhash	,	V_9
+NCP_SERVICE_REPLY	,	V_125
+"ncp.seq"	,	L_29
+g_hash_table_new	,	F_6
+hf_ncp_ip_length	,	V_62
+"ncp.missing_data_count"	,	L_95
+"ncp.msg_flag"	,	L_35
+commhdr	,	V_33
+"Expert: NCP Errors?"	,	L_137
+FT_STRING	,	V_154
+mncp_equal	,	F_1
+hf_ncp_control_code	,	V_132
+EOB	,	V_101
+length	,	V_61
+"The workstation's connection identification number"	,	L_60
+FT_UINT32	,	V_142
+visited	,	V_79
+"ncp.connection"	,	L_31
+NCPIP_RPLY	,	V_58
+mncp_rhash_key	,	T_3
+hf	,	V_141
+val2	,	V_4
+nds_echo_eid	,	V_162
+val1	,	V_3
+ncp_newstyle	,	V_161
+prefs_register_protocol	,	F_54
+"File Handle"	,	L_36
+col_set_str	,	F_15
+"Data Offset"	,	L_82
+"Next expected burst sequence number"	,	L_75
+"Data Bytes"	,	L_85
+hf_ncp_burst_offset	,	V_120
+"Offset of this packet"	,	L_84
+ncp_type_vals	,	V_67
+val_to_str	,	F_29
+hf_ncp_system_flags_lst	,	V_102
+hf_ncp_delay_time	,	V_110
+"Reassemble NCP-over-TCP messages spanning multiple TCP segments"	,	L_121
+ncpiphrq	,	V_27
+dissect_ncp	,	F_43
+dissector_handle_t	,	T_17
+burst_file	,	V_41
+"Fragment Handle"	,	L_105
+"Whether the NCP dissector should defragment NDS messages spanning multiple reply packets."	,	L_126
+"ncp.fragger_hndl"	,	L_106
+"ncp.slot"	,	L_102
+"ipx.packet_type"	,	L_149
+ncp_ip_rqhdr	,	V_26
+VALS	,	F_49
+"Sequence number of this packet in a burst"	,	L_66
+prefs_register_bool_preference	,	F_56
+"Expert: NCP Connections?"	,	L_134
+"error_2_expert"	,	L_136
+"ncp.ip.length"	,	L_18
+"data"	,	L_151
+proto_tree_add_text	,	F_33
+BASE_DEC	,	V_146
+ncp_ack_seqno	,	V_29
+tvb_new_subset	,	F_42
+NCPIP_RQST	,	V_57
+ENC_NA	,	V_55
+ncp_handle	,	V_165
+mncp_key	,	V_8
+"%s packets not supported yet"	,	L_14
+g_hash_table_lookup	,	F_13
+hf_ncp_system_flags_abt	,	V_96
+"Stream Type"	,	L_38
+"ncp.ack_seqno"	,	L_74
+nw_connection	,	V_43
+"The server's connection identification number"	,	L_63
+"Whether the NCP dissector should reassemble messages spanning multiple TCP segments."	,	L_122
+guint	,	T_4
+ett	,	V_155
+"Missing Data Offset"	,	L_91
+mncp_hash	,	F_2
+"connection_2_expert"	,	L_133
+packet_info	,	T_9
+task	,	V_71
+header	,	V_53
+ncpiph	,	V_25
+"ncp.ip.signature"	,	L_16
+"Type of burst"	,	L_40
+dst	,	V_75
+ncp_echo_file	,	V_89
+PT_NCP	,	V_76
+"Number of data bytes in this packet"	,	L_87
+hf_ncp_packet_seqno	,	V_109
+"NetWare Core Protocol"	,	L_117
+proto_reg_handoff_ncp	,	F_60
+HFILL	,	V_145
+"NCP over IP Reply Buffer Size"	,	L_21
+src	,	V_74
+"NCP over IP Version"	,	L_19
+create_dissector_handle	,	F_61
+hf_ncp_ack_seqno	,	V_112
+"ncp.connection_status"	,	L_100
+hf_ncp_system_flags_eob	,	V_100
+proto_register_protocol	,	F_50
+"ncp.task"	,	L_33
+check_col	,	F_27
+"Lip Echo Packet"	,	L_13
+tvb_new_subset_remaining	,	F_34
+"Total length of data in this burst"	,	L_78
+tcp_dissect_pdus	,	F_47
+gint	,	T_1
+g_hash_table_insert	,	F_10
+conn_low	,	V_70
+tvb	,	V_19
+"ncp_srt"	,	L_145
+COL_INFO	,	V_51
+"Whether the NCP dissector should echo NCP connection information to the expert table."	,	L_135
+hf_ncp_data_offset	,	V_114
+BSY	,	V_99
+"Delay time between consecutive packet sends (100 us increments)"	,	L_69
+"Expert: Server Information?"	,	L_140
+hf_ncp_oplock_flag	,	V_87
+"Number of missing fragments reported"	,	L_90
+cinfo	,	V_49
+register_tap	,	F_58
+"Reserved"	,	L_115
+next_tvb	,	V_36
+"ncp.system_flags.sys"	,	L_50
+length_remaining	,	V_35
+ncp_echo_err	,	V_136
+hf_ncp_connection	,	V_84
+call_dissector	,	F_41
+ncp_ip_header	,	V_24
+burst_command	,	V_121
+hf_ncp_burst_reserved	,	V_119
+hf_ncp_type	,	V_73
+"ncp.system_flags.bsy"	,	L_53
+key	,	V_11
+ncp_burst_seqno	,	V_28
+testvar	,	V_37
+stat	,	V_164
+COL_PROTOCOL	,	V_50
+ett_nds_segments	,	V_157
+"ncp.delay_time"	,	L_68
+"Reassemble fragmented NDS messages spanning multiple reply packets"	,	L_125
+UDP_PORT_NCP	,	V_168
+guint8	,	T_8
+ti	,	V_23
+g_hash_table_destroy	,	F_5
+hf_ncp_completion_code	,	V_128
+mncp_rhash_value	,	T_5
+v2	,	V_2
+tvb_length_remaining	,	F_32
+hdr_offset	,	V_32
+tvb_get_ntohl	,	F_19
+tvbuff_t	,	T_10
+tvb_get_ntohs	,	F_22
+"  BSY"	,	L_6
+"Large Internet Packet Echo"	,	L_107
+flags_tree	,	V_31
+gboolean	,	T_12
+"Unknown (0x%08x)"	,	L_11
+hf_ncp_burst_command	,	V_117
+"Dissect New Netware Information Structure"	,	L_128
+"ncp.stream_type"	,	L_39
+data_len	,	V_45
+IPX_SOCKET_NCP	,	V_170
+"ncp.burst_command"	,	L_110
+nds_defragment	,	V_160
+"Whether the NCP dissector should echo server information to the expert table."	,	L_141
+SYS	,	V_105
+register_init_routine	,	F_57
+"  SYS"	,	L_9
+get_ncp_pdu_len	,	F_44
+tvb_get_guint8	,	F_23
+"Missing Fragment List Count"	,	L_88
+PI_RESPONSE_CODE	,	V_14
+"Connection Status"	,	L_99
+proto_ncp	,	V_54
+hf_ncp_ip_packetsig	,	V_68
+"Whether the NCP dissector should echo file open/close/oplock information to the expert table."	,	L_144
+session_start_packet_num	,	V_16
+subfunction	,	V_42
+conversation_new	,	F_25
+dissect_ping_req	,	F_37
+"Expert: EID to Name lookups?"	,	L_131
+prefs_register_obsolete_preference	,	F_55
+is_tcp	,	V_21
+"ncp.type"	,	L_26
+"ncp.control_code"	,	L_104
+hf_ncp_seq	,	V_83
+hf_ncp_ip_rplybufsize	,	V_66
+find_dissector	,	F_63
+ncp_tcp_handle	,	V_166
+ENC_BIG_ENDIAN	,	V_86
+"Is this an abort request?"	,	L_45
+"Offset of data in the burst"	,	L_81
+hf_ncp_missing_fraglist_count	,	V_116
+hdr	,	V_81
+"ncp.packet_seqno"	,	L_65
+hf_ncp_burst_file_handle	,	V_118
+dissect_ncp_common	,	F_14
+"Is the server busy?"	,	L_54
+"ncp.missing_data_offset"	,	L_92
+nwconnection	,	V_6
+"ncp.system_flags.abt"	,	L_44
+hf_ncp_missing_data_count	,	V_135
+burst_len	,	V_39
+"ncp_hdr"	,	L_146
+"ncp.file_handle"	,	L_113
+"ncp.data_offset"	,	L_83
+proto_item_append_text	,	F_30
+IPX_PACKET_TYPE_NCP	,	V_169
+"Burst Sequence Number"	,	L_70
+"ncp.ip.version"	,	L_20
+dissect_ncp_tcp	,	F_46
+"Whether the NCP dissector should echo protocol errors to the expert table."	,	L_138
+col_clear	,	F_16
+"ncp.system_flags.lst"	,	L_56
+dissect_nds_request	,	F_36
+"LST"	,	L_55
+"Detected New Server Session. Connection %d, Task %d"	,	L_1
+proto_register_subtree_array	,	F_53
+"ncp.burst_reserved"	,	L_116
+"Unknown type (0x%04x)"	,	L_3
+"Expert: File Information?"	,	L_143
+register_postseq_cleanup_routine	,	F_59
+proto_tree_add_item	,	F_17
+pinfo	,	V_10
+signature	,	V_59
+col_add_fstr	,	F_31
+flags	,	V_30
+_U_	,	V_139
+ncp_oplock_vals	,	V_151
+mncp_init_protocol	,	F_4
+"Burst File Handle"	,	L_112
+GPOINTER_TO_UINT	,	F_3
+hf_ncp_connection_status	,	V_130
+"ncp"	,	L_118
+ncp_ip_signature	,	V_144
+find_conversation	,	F_24
+"ncp.data_bytes"	,	L_86
+FT_UINT8	,	V_150
+gconstpointer	,	T_2
+hf_ncp_slot	,	V_131
+"ncp.src_connection"	,	L_59
+"NCP"	,	L_2
+proto_item	,	T_13
+tap_queue_packet	,	F_26
+"Sequence number of this packet in the burst"	,	L_72
+"ncp.oplock_handle"	,	L_37
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_123
+NCP_DEALLOCATE_SLOT	,	V_127
+expert_add_info_format	,	F_11
+"eid_2_expert"	,	L_130
+ENC_LITTLE_ENDIAN	,	V_129
+tvb_offset_exists	,	F_40
+"Burst Length"	,	L_76
+"Completion Code"	,	L_97
+num	,	V_18
+hf_ncp_ip_ver	,	V_64
+"System Flags"	,	L_41
+proto_register_ncp	,	F_48
+"Task Number"	,	L_32
+"Whether the NCP dissector should echo the NDS Entry ID to name resolves to the expert table."	,	L_132
+"Broadcast Message Flag"	,	L_34
+ncp_module	,	V_159
+"Burst Offset"	,	L_79
+"Is this a system packet?"	,	L_51
+TCP_PORT_NCP	,	V_167
+PI_NOTE	,	V_138
+ncp_echo_conn	,	V_13
+conversation_t	,	T_6
+"  LST"	,	L_8
+NCP_ALLOCATE_SLOT	,	V_122
+offset	,	V_34
+"ncp.system_flags"	,	L_42
+tree	,	V_20
+se_alloc	,	F_9
+rplybufsize	,	V_65
+hf_ncp_burst_len	,	V_113
+NCP_SERVICE_REQUEST	,	V_124
+LST	,	V_103
+"%s %d bytes starting at offset %d in file 0x%08x"	,	L_10
+"NCP over IP signature"	,	L_15
+sequence	,	V_69
+"server_2_expert"	,	L_139
+missing_fraglist_count	,	V_46
+hf_ncp_system_flags_bsy	,	V_98
+"NCP over IP Packet Signature"	,	L_23
+destport	,	V_78
+mncp_hash_lookup	,	F_12
+proto_tree_add_uint	,	F_20
+"ncp.lip_echo"	,	L_108
+"  ABT"	,	L_5
+"Dissect the NetWare Information Structure as NetWare 5.x or higher or as older NetWare 3.x."	,	L_129
+match_strval	,	F_21
+"Burst Command"	,	L_109
+hf_ncp_dst_connection	,	V_108
+"Return Fragment List?"	,	L_57
+value	,	V_12
+NCP_POSITIVE_ACK	,	V_123
+hf_ncp_task	,	V_85
+hf_ncp_data_bytes	,	V_115
+"BSY"	,	L_52
+"ncp.burst_len"	,	L_77
+"udp.port"	,	L_148
+NCP_WATCHDOG	,	V_126
+data_offset	,	V_44
+"ACK Sequence Number"	,	L_73
+"ncp.system_flags.eob"	,	L_47
+"ncp.ip.replybufsize"	,	L_22
+"defragment_nds"	,	L_124
+dissect_ncp_tcp_pdu	,	F_45
+"Packet Sequence Number"	,	L_64
+conn_high	,	V_72
+request_value	,	V_47
+hf_lip_echo	,	V_91
+srcport	,	V_77
+"Type"	,	L_25
+"Packet Burst Command"	,	L_111
+"tcp.port"	,	L_147
+proto_tree	,	T_11
+"  EOB"	,	L_7

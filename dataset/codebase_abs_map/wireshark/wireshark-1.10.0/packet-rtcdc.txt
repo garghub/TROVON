@@ -1,0 +1,174 @@
+"rtcdc.priority"	,	L_22
+hf_label	,	V_22
+"RTCDC"	,	L_5
+"Reverse stream identifier"	,	L_27
+DATA_CHANNEL_NEW_OPEN_REQUEST	,	V_73
+proto_register_protocol	,	F_18
+"Inconsistent label and parameter length"	,	L_4
+DATA_CHANNEL_RESPONSE_LENGTH	,	V_24
+prefs_register_protocol	,	F_22
+"Error"	,	L_25
+hf_unordered_allowed	,	V_15
+col_set_str	,	F_13
+gint	,	T_13
+"sctp.ppi"	,	L_37
+SID_OFFSET	,	V_31
+"Flags"	,	L_13
+LABEL_OFFSET	,	V_23
+tvb	,	V_1
+"Label length"	,	L_29
+hf_flags	,	V_10
+guint32	,	T_8
+NEW_CHANNEL_TYPE_OFFSET	,	V_39
+COL_INFO	,	V_63
+FT_BOOLEAN	,	V_83
+ett_flags	,	V_13
+PRIORITY_LENGTH	,	V_21
+message_type	,	V_59
+channel_type_values	,	V_79
+MESSAGE_TYPE_LENGTH	,	V_69
+NEW_OPEN_REQUEST_HEADER_LENGTH	,	V_53
+"RTCDC SCTP PPID if other than the default"	,	L_39
+NEW_RELIABILITY_LENGTH	,	V_46
+dissect_new_open_request_message	,	F_8
+dissect_open_ack_message	,	F_7
+cinfo	,	V_61
+PI_ERROR	,	V_26
+proto_register_subtree_array	,	F_21
+DATA_CHANNEL_FLAG_RESERVED_MASK	,	V_82
+array_length	,	F_20
+DATA_CHANNEL_OPEN_REQUEST	,	V_70
+"Reserved"	,	L_15
+"RTCDC SCTP PPID"	,	L_38
+FLAGS_OFFSET	,	V_11
+"rtcdc.channel_type"	,	L_12
+proto_tree_add_item	,	F_2
+rtcdc_ppid	,	V_91
+rtcdc_item	,	T_6
+pinfo	,	T_3
+col_add_fstr	,	F_14
+rtcdc_module	,	V_74
+"Priority"	,	L_21
+dissector_handle_t	,	T_15
+"rtcdc.message_type"	,	L_10
+hf_flags_reserved	,	V_14
+reliability	,	V_35
+_U_	,	V_2
+"reserved"	,	L_7
+"rtcdc.flags"	,	L_14
+hf_sid	,	V_30
+NEW_RELIABILITY_OFFSET	,	V_45
+"rtcdc.label"	,	L_24
+hf_register_info	,	T_12
+initialized	,	V_92
+VALS	,	F_17
+CHANNEL_TYPE_OFFSET	,	V_7
+DATA_CHANNEL_OPEN_RESPONSE	,	V_71
+NEW_CHANNEL_TYPE_LENGTH	,	V_40
+guint16	,	T_9
+COL_PROTOCOL	,	V_62
+"%s "	,	L_6
+tvb_length	,	F_5
+"Unknown channel type"	,	L_2
+FT_UINT8	,	V_76
+BASE_DEC	,	V_77
+NEW_LABEL_OFFSET	,	V_56
+proto_rtcdc	,	V_65
+hf_message_type	,	V_68
+proto_item	,	T_5
+RELIABILITY_LENGTH	,	V_18
+CHANNEL_TYPE_LENGTH	,	V_8
+ENC_NA	,	V_66
+guint8	,	T_7
+ett_rtcdc	,	V_67
+flags_item	,	V_5
+expert_add_info_format	,	F_6
+BASE_NONE	,	V_86
+dissect_rtcdc	,	F_12
+PRIORITY_OFFSET	,	V_20
+hf_new_label_length	,	V_47
+dissect_open_response_message	,	F_4
+proto_register_rtcdc	,	F_16
+"Channel type"	,	L_11
+tvb_get_ntohl	,	F_10
+data	,	T_10
+"Message too long"	,	L_1
+tvbuff_t	,	T_1
+"rtcdc"	,	L_36
+"rtcdc.protocol_length"	,	L_32
+"Message type"	,	L_9
+tvb_get_ntohs	,	F_11
+hf_error	,	V_27
+BASE_HEX	,	V_81
+flags_tree	,	V_4
+prefs_register_uint_preference	,	F_23
+NEW_LABEL_LENGTH_OFFSET	,	V_48
+FLAGS_LENGTH	,	V_12
+gboolean	,	T_14
+proto_item_add_subtree	,	F_3
+module_t	,	T_11
+"rtcdc.label_length"	,	L_30
+proto_register_field_array	,	F_19
+DATA_CHANNEL_ACK_LENGTH	,	V_33
+hf_new_label	,	V_55
+label_length	,	V_36
+SID_LENGTH	,	V_32
+guint	,	V_54
+ett	,	V_89
+dissect_open_request_message	,	F_1
+MESSAGE_TYPE_OFFSET	,	V_60
+dissector_add_uint	,	F_26
+protocol_length	,	V_37
+RELIABILITY_OFFSET	,	V_17
+tree	,	V_58
+current_ppid	,	V_94
+FT_UINT16	,	V_80
+packet_info	,	T_2
+new_channel_type_values	,	V_87
+tvb_get_guint8	,	F_9
+"Label"	,	L_23
+hf_new_protocol	,	V_57
+"rtcdc.flags_reserved"	,	L_16
+dissector_delete_uint	,	F_25
+"rtcdc.reverse_stream_id"	,	L_28
+NEW_PRIORITY_LENGTH	,	V_43
+hf_reliability	,	V_16
+rtcdc_handle	,	V_93
+NEW_PRIORITY_OFFSET	,	V_42
+"rtcdc.error"	,	L_26
+hf_new_priority	,	V_41
+rtcdc_tree	,	V_3
+"Protocol length"	,	L_31
+"WebRTC Datachannel Protocol"	,	L_35
+NEW_PROTOCOL_LENGTH_OFFSET	,	V_51
+DATA_CHANNEL_ACK	,	V_72
+FT_STRING	,	V_85
+hf_new_channel_type	,	V_38
+"rtcdc.protocol"	,	L_34
+"Unordered allowed"	,	L_17
+proto_reg_handoff_rtcdc	,	V_90
+"rtcdc.flags_unordered_allowed"	,	L_18
+"Reliability parameter non zero for reliable channel"	,	L_3
+"Reliability parameter"	,	L_19
+DATA_CHANNEL_FLAG_OUT_OF_ORDER_ALLOWED_MASK	,	V_84
+hf_channel_type	,	V_6
+hf_priority	,	V_19
+PI_MALFORMED	,	V_25
+channel_type	,	V_34
+HFILL	,	V_78
+new_create_dissector_handle	,	F_24
+ERROR_LENGTH	,	V_29
+val_to_str_const	,	F_15
+ERROR_OFFSET	,	V_28
+"Unknown message type"	,	L_8
+message_type_values	,	V_64
+ENC_BIG_ENDIAN	,	V_9
+"rtcdc.reliability_parameter"	,	L_20
+"Protocol"	,	L_33
+FT_UINT32	,	V_88
+hf_new_reliability	,	V_44
+hf_new_protocol_length	,	V_50
+NEW_LABEL_LENGTH_LENGTH	,	V_49
+NEW_PROTOCOL_LENGTH_LENGTH	,	V_52
+proto_tree	,	T_4
+hf	,	V_75

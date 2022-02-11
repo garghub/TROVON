@@ -1,0 +1,115 @@
+"Transport Descriptors Length"	,	L_26
+DVB_NIT_TID_OTHER	,	V_54
+proto_register_protocol	,	F_13
+proto_mpeg_descriptor_loop_dissect	,	F_7
+"Current/Next Indicator"	,	L_9
+"Transport Stream Loop Length"	,	L_19
+col_set_str	,	F_2
+gint	,	T_9
+DVB_NIT_RESERVED2_MASK	,	V_48
+ett_dvb_nit	,	V_18
+tvb	,	V_1
+COL_INFO	,	V_15
+dvb_nit_cur_next_vals	,	V_46
+"mpeg_sect.tid"	,	L_31
+hf_dvb_nit_reserved4	,	V_36
+hf_dvb_nit_reserved3	,	V_29
+hf_dvb_nit_reserved2	,	V_26
+hf_dvb_nit_reserved1	,	V_21
+cinfo	,	V_14
+DVB_NIT_CURRENT_NEXT_INDICATOR_MASK	,	V_47
+DVB_NIT_RESERVED3_MASK	,	V_49
+proto_register_subtree_array	,	F_16
+array_length	,	F_15
+"Reserved"	,	L_5
+proto_tree_add_item	,	F_3
+pinfo	,	V_2
+dissector_handle_t	,	T_10
+"dvb_nit.cur_next_ind"	,	L_10
+"Section Number"	,	L_11
+_U_	,	V_4
+hf_dvb_nit_transport_stream_id	,	V_34
+"dvb_nit.reserved2"	,	L_15
+new_register_dissector	,	F_17
+"dvb_nit.sect_num"	,	L_12
+"dvb_nit.last_sect_num"	,	L_14
+proto_register_dvb_nit	,	F_11
+hf_register_info	,	T_8
+VALS	,	F_12
+hf_dvb_nit_current_next_indicator	,	V_23
+"Original Network ID"	,	L_23
+"DVB NIT"	,	L_29
+"dvb_nit.ts.desc_len"	,	L_27
+guint16	,	T_6
+hf_dvb_nit_last_section_number	,	V_25
+hf_dvb_nit_transport_descriptors_length	,	V_37
+FT_UINT8	,	V_42
+ts_end	,	V_8
+proto_tree_add_text	,	F_8
+BASE_DEC	,	V_45
+"dvb_nit.reserved1"	,	L_6
+proto_item	,	T_7
+ENC_NA	,	V_17
+"dvb_nit.ts.id"	,	L_22
+ti	,	V_10
+dvb_nit_ts_tree	,	V_13
+proto_reg_handoff_dvb_nit	,	F_18
+ett_dvb_nit_ts	,	V_33
+data	,	T_4
+desc_loop_len	,	V_7
+tvbuff_t	,	T_1
+hf_dvb_nit_original_network_id	,	V_35
+ts_desc_len	,	V_6
+hf_dvb_nit_network_descriptors_length	,	V_27
+hf_dvb_nit_transport_stream_loop_length	,	V_30
+tvb_get_ntohs	,	F_6
+BASE_HEX	,	V_40
+"Last Section Number"	,	L_13
+DVB_NIT_TRANSPORT_DESCRIPTORS_LENGTH_MASK	,	V_32
+proto_item_add_subtree	,	F_4
+dissect_dvb_nit	,	F_1
+proto_register_field_array	,	F_14
+dvb_nit_handle	,	V_52
+"Network Information Table (NIT)"	,	L_1
+"dvb_nit.sid"	,	L_4
+guint	,	T_5
+offset	,	V_5
+ett	,	V_51
+"dvb_nit.network_desc_len"	,	L_17
+dissector_add_uint	,	F_20
+tree	,	V_3
+"dvb_nit.reserved3"	,	L_18
+FT_UINT16	,	V_39
+packet_info	,	T_2
+"Transport Stream ID"	,	L_21
+DVB_NIT_NETWORK_DESCRIPTORS_LENGTH_MASK	,	V_28
+dvb_nit_tree	,	V_11
+packet_mpeg_sect_header	,	F_5
+DVB_NIT_VERSION_NUMBER_MASK	,	V_44
+"dvb_nit.ts.original_network_id"	,	L_24
+"dvb_nit.ts_loop_len"	,	L_20
+tsi	,	V_12
+"Network Descriptors Length"	,	L_16
+"Network ID"	,	L_3
+"dvb_nit"	,	L_30
+"DVB Network Information Table"	,	L_28
+hf_dvb_nit_section_number	,	V_24
+"dvb_nit.ts.reserved"	,	L_25
+HFILL	,	V_41
+DVB_NIT_RESERVED4_MASK	,	V_50
+proto_dvb_nit	,	V_16
+"Version Number"	,	L_7
+"dvb_nit.version"	,	L_8
+find_dissector	,	F_19
+hf_dvb_nit_network_id	,	V_19
+hf_dvb_nit_version_number	,	V_22
+tsid	,	V_9
+packet_mpeg_sect_crc	,	F_9
+proto_item_set_len	,	F_10
+DVB_NIT_RESERVED1_MASK	,	V_43
+ENC_BIG_ENDIAN	,	V_20
+"Stream ID=0x%04hx"	,	L_2
+DVB_NIT_TRANSPORT_STREAM_LOOP_LENGTH_MASK	,	V_31
+DVB_NIT_TID	,	V_53
+proto_tree	,	T_3
+hf	,	V_38

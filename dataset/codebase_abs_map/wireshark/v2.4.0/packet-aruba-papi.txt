@@ -1,0 +1,259 @@
+tvb_get_string_enc	,	F_10
+"PAPI - Aruba AP Control Protocol"	,	L_8
+"papi.hdr.magic"	,	L_10
+papi_port_vals_ext	,	V_88
+offset_end	,	V_8
+proto_register_protocol	,	F_23
+tvb_reported_length	,	F_16
+"PAPI Header Magic Number"	,	L_11
+"Debug (16 Bits)"	,	L_51
+tvb_new_subset_remaining	,	F_20
+"Version"	,	L_12
+"papi.licmgr.type"	,	L_68
+FT_ETHER	,	V_95
+gint	,	T_11
+"papi.debug.8bits"	,	L_50
+hf_papi_licmgr_value	,	V_25
+"papi.licmgr.license.pef.remaining"	,	L_84
+"papi.debug.64bits"	,	L_58
+"TLV"	,	L_65
+tvb	,	V_1
+guint32	,	T_8
+COL_INFO	,	V_17
+hf_papi_licmgr_license_ap_remaining	,	V_31
+hf_papi_debug_8bits	,	V_49
+"papi.licmgr.license.acr.remaining"	,	L_90
+": %u"	,	L_5
+tvb_reported_length_remaining	,	F_14
+"papi.licmgr.license.pef.used"	,	L_94
+"papi.hdr.nat_port_number"	,	L_20
+proto_tree_add_expert_format	,	F_18
+"papi.debug.16bits"	,	L_52
+cinfo	,	V_16
+UDP_PORT_PAPI	,	V_103
+hf_papi_debug_32bits	,	V_51
+array_length	,	F_25
+"License PEF used"	,	L_93
+next_tvb	,	V_61
+"Debug (Text)"	,	L_39
+tlv_item	,	V_19
+papi_module	,	V_79
+"papi.licmgr.license.ap.remaining"	,	L_82
+ENC_ASCII	,	V_28
+hf_papi_debug_16bits	,	V_50
+"papi.debug.text"	,	L_40
+"papi.licmgr.tlv"	,	L_66
+"License RFP used"	,	L_95
+"papi.licmgr.license.ap.used"	,	L_92
+"papi.hdr.seq_number"	,	L_32
+"Unknown Type (%02d)"	,	L_3
+hf_register_info	,	T_10
+debug_tree	,	V_42
+hf_papi_licmgr	,	V_10
+"PAPI"	,	L_7
+"Debug (48 Bits)"	,	L_47
+"Payload Length"	,	L_63
+COL_PROTOCOL	,	V_62
+hf_papi_licmgr_license_acr_remaining	,	V_35
+"License Manager"	,	L_59
+": %s"	,	L_4
+g_papi_debug	,	V_78
+hf_papi_hdr_packet_size	,	V_73
+ti	,	V_5
+BASE_NONE	,	V_86
+"papi.licmgr.license.rfp.used"	,	L_96
+dissect_papi	,	F_19
+proto_register_papi	,	F_22
+hf_papi_licmgr_license_rfp_used	,	V_38
+"License xSEC remaining"	,	L_87
+"papi.licmgr.unknown"	,	L_62
+tvb_get_ntohl	,	F_13
+proto_reg_handoff_papi	,	F_31
+tvbuff_t	,	T_1
+papi_tree	,	V_58
+"papi"	,	L_105
+"papi.hdr.src.ip"	,	L_18
+"Destination IP"	,	L_15
+tvb_get_ntohs	,	F_6
+"papi.hdr.garbage"	,	L_22
+BASE_HEX	,	V_82
+"papi.hdr.src.port"	,	L_26
+gboolean	,	T_6
+hf_papi_debug_48bits	,	V_48
+proto_item_add_subtree	,	F_3
+"Attempt to decode parts of the message that aren't fully understood yet"	,	L_108
+module_t	,	T_9
+"Debug (Bytes)"	,	L_43
+proto_register_field_array	,	F_24
+dest_port	,	V_59
+"papi.licmgr.hostname"	,	L_78
+FT_BYTES	,	V_89
+ei	,	V_97
+"experimental_decode"	,	L_106
+hf_papi_licmgr_serial_number	,	V_27
+"Sequence Number"	,	L_31
+"papi.hdr.dest.port"	,	L_24
+"Debug"	,	L_37
+"Debug (64 Bits)"	,	L_57
+"papi.licmgr.value"	,	L_72
+FT_UINT16	,	V_81
+"papi.licmgr.serial_number"	,	L_76
+hf_papi_licmgr_license_xsec_remaining	,	V_34
+tvb_get_guint8	,	F_17
+licmgr_type_vals	,	V_21
+"License AP remaining"	,	L_81
+hf_papi_licmgr_payload_len	,	V_14
+dissect_papi_debug	,	F_15
+hf_papi_hdr_garbage	,	V_69
+"Source IP"	,	L_17
+ei_papi_debug_unknown	,	V_56
+hf_papi_hdr_checksum	,	V_76
+expert_papi	,	V_101
+"Debug (8 Bits)"	,	L_49
+LICENSE_MANAGER	,	V_77
+ett_papi_licmgr_tlv	,	V_22
+FT_STRING	,	V_91
+"papi.licmgr.license.xsec.remaining"	,	L_88
+call_data_dissector	,	F_21
+hf_papi_hdr_dest_ip	,	V_66
+"papi.licmgr.mac_address"	,	L_80
+hf_papi_licmgr_unknown	,	V_13
+hf_papi_licmgr_license_ap_used	,	V_36
+PI_WARN	,	V_99
+ENC_BIG_ENDIAN	,	V_15
+hf_papi_debug	,	V_44
+src_port	,	V_60
+FT_UINT32	,	V_94
+"Destination Port"	,	L_23
+"papi.licmgr.license.xsec.used"	,	L_98
+"License ACR used"	,	L_99
+hf	,	V_80
+"papi.licmgr.padding"	,	L_102
+"papi.licmgr.license.rfp.remaining"	,	L_86
+hf_papi_licmgr_license_pef_remaining	,	V_32
+"papi.debug.32bits"	,	L_54
+hf_papi_hdr_version	,	V_65
+hf_papi_licmgr_type	,	V_23
+"papi.licmgr"	,	L_60
+hf_papi_licmgr_tlv	,	V_20
+hf_papi_hdr_src_port	,	V_71
+"papi.licmgr.payload_len"	,	L_64
+prefs_register_protocol	,	F_29
+hf_papi_licmgr_license_pef_used	,	V_37
+"papi.hdr.dest.ip"	,	L_16
+BASE_EXT_STRING	,	V_87
+"Serial Number"	,	L_75
+"papi.debug"	,	L_38
+FT_UINT64	,	V_92
+col_set_str	,	F_5
+hf_papi_debug_bytes_length	,	V_54
+hf_papi_hdr_message_code	,	V_75
+hf_papi_hdr_src_ip	,	V_67
+FT_IPv4	,	V_85
+"MAC Address"	,	L_79
+proto_item_append_text	,	F_7
+"Garbage"	,	L_21
+"License PEF remaining"	,	L_83
+proto_register_subtree_array	,	F_26
+proto_tree_add_item_ret_uint	,	F_4
+val_to_str	,	F_8
+"papi.hdr.message_code"	,	L_34
+"papi.licmgr.length"	,	L_70
+"License ACR remaining"	,	L_89
+hf_papi_hdr_packet_type	,	V_72
+"Checksum"	,	L_35
+hf_papi_hdr_dest_port	,	V_70
+proto_tree_add_item	,	F_2
+hf_papi_debug_bytes	,	V_53
+pinfo	,	V_2
+dissector_handle_t	,	T_14
+optlen	,	V_18
+_U_	,	V_57
+hf_papi_licmgr_hostname	,	V_29
+hf_papi_licmgr_license_rfp_remaining	,	V_33
+"papi.debug.bytes_length"	,	L_46
+"Aruba PAPI"	,	L_104
+"Value"	,	L_71
+"papi.hdr.checksum"	,	L_36
+hf_papi_debug_text_length	,	V_47
+": (t=%d,l=%d) %s"	,	L_2
+"Debug Text Length"	,	L_41
+ett_papi_licmgr	,	V_12
+"Magic"	,	L_9
+"Debug Bytes Length"	,	L_45
+"NAT Port Number"	,	L_19
+"Debug (IPv4)"	,	L_55
+prefs_register_bool_preference	,	F_30
+"papi.debug.48bits"	,	L_48
+"License AP used"	,	L_91
+PI_PROTOCOL	,	V_98
+licmgr_tree	,	V_6
+FT_UINT8	,	V_93
+tvb_ip_to_str	,	F_9
+BASE_DEC	,	V_84
+proto_item	,	T_5
+hf_papi_hdr_nat_port_number	,	V_68
+expert_register_field_array	,	F_28
+debug_sub_tree	,	V_43
+"Hostname"	,	L_77
+ENC_NA	,	V_11
+"Do experimental decode"	,	L_107
+"License RFP remaining"	,	L_85
+hf_papi_debug_text	,	V_46
+"papi.debug.bytes"	,	L_44
+"PAPI Protocol Version"	,	L_14
+"Padding"	,	L_101
+"Packet Type"	,	L_27
+"papi.hdr.version"	,	L_13
+data	,	T_7
+hf_papi_licmgr_padding	,	V_41
+"papi.hdr.packet.size"	,	L_30
+hf_papi_debug_64bits	,	V_55
+dissect_papi_license_manager	,	F_1
+ett_papi	,	V_45
+"Debug (32 Bits)"	,	L_53
+ei_register_info	,	T_12
+expert_register_protocol	,	F_27
+tvb_get_ether_name	,	F_12
+"Unknown (%d)"	,	L_6
+hf_papi_hdr_seq_number	,	V_74
+guint	,	T_3
+FT_NONE	,	V_90
+"Length"	,	L_69
+offset	,	V_3
+hf_papi_hdr_magic	,	V_64
+ett	,	V_96
+payload_len	,	V_9
+wmem_packet_scope	,	F_11
+expert_module_t	,	T_13
+"PAPI - Licence Manager"	,	L_1
+tree	,	V_4
+packet_info	,	T_2
+hf_papi_debug_ipv4	,	V_52
+hf_papi_licmgr_length	,	V_24
+EXPFILL	,	V_100
+proto_papi	,	V_63
+"Source Port"	,	L_25
+"papi.hdr.packet.type"	,	L_28
+"Packet Size"	,	L_29
+"papi.debug.text_length"	,	L_42
+"Message Code"	,	L_33
+licmgr_subtree	,	V_7
+"papi.licmgr.ip"	,	L_74
+HFILL	,	V_83
+"papi.debug.ipv4"	,	L_56
+hf_papi_licmgr_license_xsec_used	,	V_39
+hf_papi_licmgr_ip	,	V_26
+"udp.port"	,	L_109
+hf_papi_licmgr_mac_address	,	V_30
+create_dissector_handle	,	F_32
+hf_papi_licmgr_license_acr_used	,	V_40
+"papi.debug.unknown"	,	L_103
+"License Manager IP Address"	,	L_73
+"License xSec used"	,	L_97
+dissector_add_uint_with_preference	,	F_33
+"papi.licmgr.license.acr.used"	,	L_100
+"Unknown"	,	L_61
+"Type"	,	L_67
+papi_handle	,	V_102
+proto_tree	,	T_4

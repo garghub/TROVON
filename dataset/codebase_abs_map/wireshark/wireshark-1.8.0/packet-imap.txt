@@ -1,0 +1,92 @@
+register_dissector	,	F_16
+format_text	,	F_7
+get_token_len	,	F_13
+proto_register_protocol	,	F_15
+tvbuff_t	,	T_1
+next_token	,	V_13
+proto_register_imap	,	F_14
+check_col	,	F_3
+"imap.response_tag"	,	L_18
+gboolean	,	T_4
+gint	,	T_6
+col_set_str	,	F_2
+"Remainder of request line"	,	L_11
+proto_item_add_subtree	,	F_9
+"imap.isrequest"	,	L_5
+hf_imap_line	,	V_23
+"Remainder of response line"	,	L_16
+"Response Tag"	,	L_17
+proto_register_field_array	,	F_17
+"First token of response line"	,	L_19
+tvb	,	V_1
+"Response"	,	L_4
+hf_imap_response_tag	,	V_27
+offset	,	V_9
+ett	,	V_35
+COL_INFO	,	V_18
+"imap.line"	,	L_8
+guchar	,	T_7
+dissector_add_uint	,	F_22
+hidden_item	,	V_8
+tree	,	V_3
+FT_BOOLEAN	,	V_31
+dissect_imap	,	F_1
+linelen	,	V_11
+ett_imap	,	V_21
+ett_imap_reqresp	,	V_25
+proto_imap	,	V_19
+tvb_get_ptr	,	F_5
+packet_info	,	T_2
+"imap"	,	L_21
+imap_tree	,	V_5
+cinfo	,	V_14
+"Request"	,	L_3
+"imap.request"	,	L_10
+proto_register_subtree_array	,	F_19
+match_uint	,	V_16
+array_length	,	F_18
+destport	,	V_17
+tvb_find_line_end	,	F_4
+is_request	,	V_4
+"Request Tag"	,	L_12
+reqresp_tree	,	V_6
+proto_tree_add_item	,	F_8
+FT_STRINGZ	,	V_34
+hf_imap_request	,	V_28
+pinfo	,	V_2
+col_add_fstr	,	F_6
+dissector_handle_t	,	T_9
+TCP_PORT_SSL_IMAP	,	V_38
+"A line of an IMAP message"	,	L_9
+tokenlen	,	V_12
+"Line"	,	L_7
+ENC_ASCII	,	V_24
+PROTO_ITEM_SET_HIDDEN	,	F_11
+"%s: %s"	,	L_2
+proto_tree_add_boolean	,	F_10
+TCP_PORT_IMAP	,	V_37
+hf_register_info	,	T_8
+"Internet Message Access Protocol"	,	L_20
+HFILL	,	V_33
+next_offset	,	V_10
+"imap.request_tag"	,	L_13
+ssl_dissector_add	,	F_23
+"TRUE if IMAP request, FALSE otherwise"	,	L_6
+"IMAP"	,	L_1
+imap_handle	,	V_36
+COL_PROTOCOL	,	V_15
+hf_imap_request_tag	,	V_26
+"First token of request line"	,	L_14
+"imap.response"	,	L_15
+create_dissector_handle	,	F_21
+proto_item	,	T_5
+hf_imap_isrequest	,	V_22
+hf_imap_response	,	V_29
+ENC_NA	,	V_20
+proto_reg_handoff_imap	,	F_20
+ti	,	V_7
+BASE_NONE	,	V_32
+tvb_length_remaining	,	F_12
+"tcp.port"	,	L_22
+proto_tree	,	T_3
+hf	,	V_30

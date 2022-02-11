@@ -1,0 +1,224 @@
+proto_register_protocol	,	F_42
+"knet.msg.reliable_number"	,	L_33
+byte_count	,	V_3
+hf_knet_payload	,	V_50
+knet_module	,	V_81
+PINGREPLY	,	V_43
+tcp_dissect_pdus	,	F_32
+gint	,	T_7
+DISCONNECT	,	V_28
+"knet.payload.flowctrlreq"	,	L_42
+content_length	,	V_37
+tvb	,	V_1
+guint32	,	T_2
+ett_knet	,	V_93
+COL_INFO	,	V_36
+FT_BOOLEAN	,	V_88
+hf_knet_pingid	,	V_44
+hf_knet_flags	,	V_76
+dissect_knet	,	F_24
+"knet.datagram.rmib"	,	L_24
+tvb_reported_length_remaining	,	F_36
+"knet"	,	L_48
+cinfo	,	V_35
+array_length	,	F_40
+dissect_packetid	,	F_3
+"%s (%d)"	,	L_2
+current_protocol	,	V_60
+dissect_knet_tcp_pdu	,	F_27
+payload_tree	,	V_39
+"Set the UDP port for kNet messages"	,	L_60
+hf_knet_reliable	,	V_79
+"AppData or Malformed Message ID"	,	L_3
+hf_register_info	,	T_12
+proto_tree_add_bytes_format	,	F_21
+hf_knet_inorder	,	V_78
+count_vle_bytes	,	F_1
+get_knet_pdu_len	,	F_26
+"knet.payload.data"	,	L_36
+col_set_writable	,	F_17
+COL_PROTOCOL	,	V_69
+"KNET"	,	L_7
+ett_knet_message	,	V_58
+hf_knet_msg_inorder	,	V_19
+"Fragment Start"	,	L_26
+PINGREQUEST	,	V_42
+dissect_reliable_message_index_base	,	F_5
+hf_knet_payload_tree	,	V_40
+guint8	,	T_8
+BASE_NONE	,	V_87
+col_append_sep_fstr	,	F_18
+start_offset	,	V_54
+UDP_MSG_BLOCK_RELIABLE_FLAG	,	V_59
+current_udp_port	,	V_104
+hf_knet_msg_reliable_message_number	,	V_22
+"Flowcontrol Request"	,	L_41
+register_dissector	,	F_43
+proto_register_knet	,	F_37
+"Message Block"	,	L_11
+"knetsctp"	,	L_49
+udpflags_ti	,	V_71
+tvbuff_t	,	T_1
+"knet.datagram.packetid"	,	L_22
+KNET_TCP_PACKET	,	V_68
+"knet.datagram.inorder"	,	L_18
+"knet.msg.flags"	,	L_25
+FT_UINT24	,	V_89
+message_ti	,	V_62
+gboolean	,	T_6
+proto_item_add_subtree	,	F_11
+hf_knet_packetack	,	V_48
+module_t	,	T_11
+dissect_knet_udp	,	F_34
+"Datagram Header"	,	L_13
+proto_register_field_array	,	F_39
+messageid_length	,	V_25
+FT_BYTES	,	V_91
+"Reliable Flag"	,	L_19
+"knet.payload.packetack"	,	L_44
+dissector_add_uint	,	F_48
+"Sequence Number"	,	L_45
+FT_UINT16	,	V_90
+"knet.msg.flags.ff"	,	L_29
+tvb_get_guint8	,	F_2
+tvb_captured_length	,	F_28
+"sctp.port"	,	L_52
+ett_knet_datagram	,	V_75
+dissect_knet_tcp	,	F_29
+dissector_delete_uint	,	F_47
+current_sctp_port	,	V_102
+"knettcp"	,	L_50
+messageindex	,	V_52
+knet_sctp_port	,	V_98
+"Packet ID"	,	L_21
+KNET_SCTP_PACKET	,	V_67
+udpflags_tree	,	V_73
+"Packet Ack"	,	L_43
+CONNECTSYNACK	,	V_31
+ett_knet_main	,	V_66
+hf_knet_packetid	,	V_7
+hf_knet_message_tree	,	V_57
+"knetudp"	,	L_51
+"knet.msg.flags.inorder"	,	L_30
+val_to_str_const	,	F_15
+"knet.datagram.flags"	,	L_16
+length	,	V_10
+knet_udp_port	,	V_100
+proto_tree_add_uint_format_value	,	F_14
+hf_knet	,	V_82
+"knet.payload.messageid"	,	L_38
+packettypenames	,	V_34
+FT_UINT32	,	V_83
+dissect_content_length	,	F_9
+"knet.payload.pingid"	,	L_40
+dissect_content_length_vle	,	F_7
+"knet.msg.flags.fs"	,	L_27
+"knet.payload.seqnumber"	,	L_46
+DISCONNECTACK	,	V_29
+hf_knet_content_length	,	V_21
+hf_knet_seqnumber	,	V_49
+prefs_register_protocol	,	F_45
+col_append_fstr	,	F_19
+"Content Length"	,	L_9
+col_set_str	,	F_31
+tvb_get_bits8	,	F_10
+knet_handle_sctp	,	V_94
+total_length	,	V_53
+msgblock_tree	,	V_56
+"Flags"	,	L_15
+"Set the TCP port for kNet messages"	,	L_57
+"Reliable Message Index Base"	,	L_23
+col_set_fence	,	F_25
+hf_knet_content_length_vle	,	V_11
+proto_knet	,	V_65
+CONNECTSYN	,	V_30
+col_clear	,	F_30
+knet_ti	,	V_61
+proto_register_subtree_array	,	F_41
+ett_knet_message_flags	,	V_16
+datagram_ti	,	V_70
+proto_tree_add_item	,	F_6
+pinfo	,	V_23
+col_add_fstr	,	F_35
+payload_ti	,	V_38
+_U_	,	V_51
+messageid	,	V_26
+"Set the SCTP port for kNet messages"	,	L_54
+hf_knet_msg_fs	,	V_17
+hf_knet_flowctrlreq	,	V_46
+new_register_dissector	,	F_44
+hf_knet_datagram_tree	,	V_74
+current_tcp_port	,	V_103
+hf_knet_msg_ff	,	V_18
+ett_knet_flags	,	V_77
+initialized	,	V_101
+VALS	,	F_38
+"AppData"	,	L_5
+PACKETACK	,	V_47
+packetid	,	V_6
+"Error in Content Length calculation"	,	L_1
+FLOWCONTROLREQUEST	,	V_45
+"knet.msg"	,	L_12
+FT_UINT8	,	V_92
+BASE_DEC	,	V_84
+"Packet ID %d: "	,	L_8
+proto_item	,	T_4
+ENC_NA	,	V_15
+proto_reg_handoff_knet	,	V_97
+datagram_tree	,	V_72
+col_write	,	V_27
+"Reliable Message Number"	,	L_32
+ENC_LITTLE_ENDIAN	,	V_9
+hf_knet_rmib	,	V_8
+"Fragment Flag"	,	L_28
+UDP_DATAGRAM_RELIABLE_FLAG	,	V_80
+"kNet TCP Port"	,	L_56
+data	,	T_10
+dissect_payload	,	F_20
+msgflags_ti	,	V_12
+message_tree	,	V_64
+dissect_knet_sctp	,	F_33
+"Message ID"	,	L_37
+"knet.datagram"	,	L_14
+prefs_register_uint_preference	,	F_46
+"knet.length"	,	L_10
+"No Payload"	,	L_6
+buffer	,	V_4
+hf_knet_msg_flags	,	V_14
+msgblock_ti	,	V_55
+guint	,	T_9
+FT_NONE	,	V_86
+offset	,	V_2
+dissect_messageid	,	F_13
+hf_knet_messageid	,	V_33
+tree	,	V_5
+"Ping ID"	,	L_39
+"kNet SCTP Port"	,	L_53
+separator	,	V_24
+packet_info	,	T_5
+ett_knet_payload	,	V_41
+"Inorder Flag"	,	L_17
+dissect_knet_message	,	F_22
+knet_handle_udp	,	V_96
+proto_tree_add_uint	,	F_4
+REPORT_DISSECTOR_BUG	,	F_8
+col_get_writable	,	F_16
+"knet.datagram.reliable"	,	L_20
+"Payload"	,	L_34
+msgflags_tree	,	V_13
+"kNet UDP Port"	,	L_59
+"knet.payload.tree"	,	L_35
+dissect_reliable_message_number	,	F_12
+hf_knet_msg_reliable	,	V_20
+knet_handle_tcp	,	V_95
+", "	,	L_4
+HFILL	,	V_85
+"knet.msg.flags.reliable"	,	L_31
+"udp.port"	,	L_58
+proto_item_set_len	,	F_23
+CONNECTACK	,	V_32
+knet_tcp_port	,	V_99
+"kNet Protocol"	,	L_47
+"tcp.port"	,	L_55
+proto_tree	,	T_3
+knet_tree	,	V_63

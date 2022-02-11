@@ -1,0 +1,212 @@
+get_token_len	,	F_28
+hf_pop_data_fragment_overlap_conflicts	,	V_66
+is_continuation	,	V_8
+proto_register_protocol	,	F_37
+hf_pop_request_data	,	V_53
+pop_data_reassemble_cleanup	,	F_34
+tvb_reported_length	,	F_18
+process_reassembled_data	,	F_22
+hf_pop_request	,	V_41
+"pop.response.indicator"	,	L_19
+msg_request	,	V_47
+"Reassembled DATA in frame"	,	L_56
+pop_module	,	V_78
+gint	,	T_7
+hf_pop_request_parameter	,	V_51
+"+OK "	,	L_13
+tvb	,	V_1
+COL_INFO	,	V_28
+"STLS"	,	L_12
+TCP_PORT_SSL_POP	,	V_80
+frag_msg	,	V_17
+FT_BOOLEAN	,	V_65
+imf_handle	,	V_39
+pop_data_val	,	V_20
+"DATA fragment overlapping with conflicting data"	,	L_42
+pop_tree	,	V_9
+"DATA fragment overlap"	,	L_39
+tvb_reported_length_remaining	,	F_12
+g_ascii_strncasecmp	,	F_29
+cinfo	,	V_23
+p_get_proto_data	,	F_3
+"Request"	,	L_25
+"pop.data.fragment.too_long_fragment"	,	L_49
+array_length	,	F_40
+next_tvb	,	V_18
+""	,	L_3
+length_remaining	,	V_22
+"pop.data.fragment.multiple_tails"	,	L_46
+call_dissector	,	F_23
+msg_read_len	,	V_32
+ENC_ASCII	,	V_46
+hf_pop_response_description	,	V_52
+"pop.data.fragment.overlap.conflicts"	,	L_43
+dissect_pop	,	F_1
+hf_pop_response	,	V_42
+"pop.response.description"	,	L_21
+hf_register_info	,	T_11
+"pop.data.reassembled.in"	,	L_57
+COL_PROTOCOL	,	V_24
+reassembly_table_init	,	F_33
+"pop.request.parameter"	,	L_30
+ti	,	V_11
+pop_data_desegment	,	V_31
+BASE_NONE	,	V_58
+register_dissector	,	F_38
+"DATA has multiple tail fragments"	,	L_45
+format_text	,	F_15
+tvbuff_t	,	T_1
+proto_register_pop	,	F_36
+next_token	,	V_16
+plurality	,	F_14
+TCP_PORT_POP	,	V_79
+hf_pop_data_fragment_multiple_tails	,	V_67
+ett_pop_data_fragments	,	V_77
+gboolean	,	T_5
+ssl_handle	,	V_49
+proto_item_add_subtree	,	F_17
+module_t	,	T_12
+fragmented	,	V_40
+pop_proto_data	,	V_5
+proto_register_field_array	,	F_39
+conversation	,	V_19
+hf_pop_data_reassembled_in	,	V_73
+"Message fragments"	,	L_35
+fragment_head	,	T_9
+dissector_add_uint	,	F_48
+"TOP"	,	L_11
+more_frags	,	V_35
+"ssl"	,	L_70
+tvb_get_ptr	,	F_10
+register_init_routine	,	F_42
+p_add_proto_data	,	F_20
+tvb_captured_length	,	F_25
+proto_tree_add_string_format	,	F_26
+match_uint	,	V_26
+is_request	,	V_7
+wmem_new0	,	F_7
+fragment_add_seq_next	,	F_21
+"Response Data"	,	L_24
+"Message fragment overlap"	,	L_41
+addresses_ports_reassembly_table_functions	,	V_55
+pop_data_reassemble_init	,	F_32
+proto_reg_handoff_pop	,	F_46
+FT_STRING	,	V_57
+hf_pop_data_fragment_error	,	V_69
+"-ERR"	,	L_15
+"pop.request"	,	L_26
+call_data_dissector	,	F_24
+"desegment_data"	,	L_64
+ssl_dissector_add	,	F_49
+conversation_add_proto_data	,	F_8
+find_dissector	,	F_47
+"DATA fragment"	,	L_36
+"Message has multiple tail fragments"	,	L_47
+register_cleanup_routine	,	F_43
+hf_pop_response_indicator	,	V_45
+"pop.request.command"	,	L_28
+FT_UINT32	,	V_71
+"pop.response"	,	L_17
+find_or_create_conversation	,	F_5
+"This DATA fragment is reassembled in this frame"	,	L_58
+stls_request	,	V_48
+hf	,	V_56
+"pop"	,	L_63
+"Message fragment overlapping with conflicting data"	,	L_44
+conv_index	,	V_34
+hf_pop_data_fragment_count	,	V_70
+prefs_register_protocol	,	F_44
+pop_handle	,	V_50
+col_set_str	,	F_2
+"Response description"	,	L_20
+frame_data_p	,	V_6
+find_dissector_add_dependency	,	F_50
+guchar	,	T_8
+"DATA defragmentation error"	,	L_51
+"DATA fragments"	,	L_33
+linelen	,	V_14
+"+OK"	,	L_14
+"Request data"	,	L_32
+"S: DATA fragment, %d byte%s"	,	L_2
+"POP"	,	L_1
+proto_register_subtree_array	,	F_41
+reassembly_table_destroy	,	F_35
+"Reassemble POP RETR and TOP responses spanning multiple TCP segments"	,	L_65
+tvb_find_line_end	,	F_9
+proto_pop	,	V_25
+proto_tree_add_item	,	F_16
+pinfo	,	V_2
+col_add_fstr	,	F_13
+"Data"	,	L_22
+_U_	,	V_4
+tokenlen	,	V_15
+hf_pop_data_fragment	,	V_62
+"Message fragment too long"	,	L_50
+response_is_continuation	,	F_11
+conversation_id	,	V_33
+"Post Office Protocol"	,	L_62
+prefs_register_bool_preference	,	F_45
+next_offset	,	V_13
+"Request parameter"	,	L_29
+ett_pop_data_fragment	,	V_76
+"pop.data.reassembled.length"	,	L_60
+BASE_DEC	,	V_72
+"pop.data.fragment.count"	,	L_55
+proto_item	,	T_6
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_67
+ENC_NA	,	V_29
+tvb_format_text	,	F_27
+tvb_offset_exists	,	F_31
+"Message fragment"	,	L_38
+"DATA fragment count"	,	L_54
+"%s"	,	L_9
+data	,	T_4
+"pop.data.fragment.error"	,	L_52
+pop_data_reassembly_table	,	V_37
+"Response indicator"	,	L_18
+conversation_t	,	T_10
+"Response"	,	L_16
+FT_NONE	,	V_61
+offset	,	V_12
+data_val	,	V_21
+ett	,	V_75
+hf_pop_data_fragments	,	V_60
+tree	,	V_3
+pop_data_frag_items	,	V_38
+packet_info	,	T_2
+"s"	,	L_4
+msg_tot_len	,	V_36
+hf_pop_data_reassembled_length	,	V_74
+"Request command"	,	L_27
+"pop.request.data"	,	L_31
+"Whether the POP dissector should reassemble RETR and TOP responses and spanning multiple TCP segments."	,	L_66
+"Message defragmentation error"	,	L_53
+destport	,	V_27
+"pop.response.data"	,	L_23
+reqresp_tree	,	V_10
+hf_pop_data_fragment_overlap	,	V_64
+"RETR"	,	L_10
+conversation_get_proto_data	,	F_6
+"pop.data.fragment.overlap"	,	L_40
+"S"	,	L_7
+"%s: %s"	,	L_5
+hf_pop_request_command	,	V_44
+"The total length of the reassembled payload"	,	L_61
+"imf"	,	L_69
+wmem_file_scope	,	F_4
+HFILL	,	V_59
+ssl_starttls_ack	,	F_30
+"pop.data.fragment"	,	L_37
+ett_pop	,	V_30
+"C"	,	L_6
+hf_pop_data_fragment_too_long_fragment	,	V_68
+"DATA fragment too long"	,	L_48
+wmem_new	,	F_19
+ett_pop_reqresp	,	V_43
+FT_FRAMENUM	,	V_63
+"Reassembled DATA length"	,	L_59
+"pop.data.fragments"	,	L_34
+hf_pop_response_data	,	V_54
+"Reassembled DATA"	,	L_8
+"tcp.port"	,	L_68
+proto_tree	,	T_3

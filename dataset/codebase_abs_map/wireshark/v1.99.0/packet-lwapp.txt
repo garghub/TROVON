@@ -1,0 +1,161 @@
+control_tree	,	V_5
+seqNo	,	V_20
+"LWAPP IP or Layer 2"	,	L_6
+ett_lwapp_control	,	V_17
+proto_register_protocol	,	F_18
+hf_lwapp_control_mac	,	V_38
+"LWAPP Control Message"	,	L_40
+prefs_register_protocol	,	F_22
+"LWAPP-L3"	,	L_4
+proto_lwapp	,	V_36
+proto_tree_add_ether	,	F_14
+"Swap frame control bytes (needed for some APs"	,	L_45
+tvb_new_subset_remaining	,	F_10
+"Version"	,	L_9
+BASE_EXT_STRING	,	V_69
+"LWAPP Encapsulated Packet"	,	L_36
+"lwapp.flags.fragmentType"	,	L_18
+gint	,	T_6
+col_set_str	,	F_2
+hf_lwapp_length	,	V_47
+FT_ETHER	,	V_67
+LWAPP_FLAGS_FT	,	V_64
+TFS	,	F_17
+tvb	,	V_1
+"lwapp.flags.fragment"	,	L_16
+lwapp_flags_type	,	V_61
+COL_INFO	,	V_11
+"lwapp.control.seqno"	,	L_33
+val_to_str_ext	,	F_6
+FT_BOOLEAN	,	V_60
+wlan_handle	,	V_54
+lwapp_handle	,	V_73
+version	,	V_29
+hf_lwapp_flags_fragment	,	V_43
+hf_lwapp_control_type	,	V_18
+proto_lwapp_control	,	V_15
+"lwapp.version"	,	L_10
+cinfo	,	V_9
+ett_lwapp_flags	,	V_41
+tfs_set_notset	,	V_62
+proto_register_subtree_array	,	F_21
+array_length	,	F_20
+ett_lwapp	,	V_37
+"Fragment"	,	L_15
+next_tvb	,	V_6
+"Bad Type: 0x%02x"	,	L_3
+proto_tree_add_item	,	F_7
+call_dissector	,	F_11
+pinfo	,	V_2
+LWAPP_FLAGS_T	,	V_35
+dissector_handle_t	,	T_10
+flags	,	V_34
+next_client	,	V_24
+wlan_bsfc_handle	,	V_53
+swap_frame_control	,	V_52
+"ethertype"	,	L_51
+"lwapp.rssi"	,	L_24
+col_append_str	,	F_5
+"wlan_withoutfcs"	,	L_47
+lwapp_module	,	V_71
+"lwapp.apid"	,	L_28
+LWAPP_FLAGS_F	,	V_63
+proto_tree_add_boolean	,	F_15
+lwapp_l3_handle	,	V_72
+hf_register_info	,	T_8
+"lwapp"	,	L_37
+"swap_fc"	,	L_43
+"CNTL "	,	L_2
+prefs_register_bool_preference	,	F_23
+g_ntohs	,	F_4
+hf_lwapp_flags_fragment_type	,	V_44
+rssi	,	V_49
+COL_PROTOCOL	,	V_10
+"data"	,	L_49
+hf_lwapp_rssi	,	V_48
+"RSSI"	,	L_23
+FT_UINT8	,	V_56
+"Control Sequence Number"	,	L_32
+BASE_DEC	,	V_57
+proto_item	,	T_5
+ENC_NA	,	V_16
+"lwapp.control.type"	,	L_31
+guint8	,	V_12
+ti	,	V_7
+BASE_NONE	,	V_68
+snr	,	V_51
+"lwapp.snr"	,	L_26
+" 802.11 Packet"	,	L_8
+"LWAPP Layer 3 Packet"	,	L_38
+"Control Type"	,	L_30
+ett_lwapp_l3	,	V_26
+have_destmac	,	V_32
+tvbuff_t	,	T_1
+dissect_lwapp_l3	,	F_12
+"lwapp.flags.type"	,	L_14
+tvb_memcpy	,	F_3
+LWAPP_Header	,	T_7
+BASE_HEX	,	V_65
+flags_tree	,	V_30
+"Access Point Identity"	,	L_29
+FT_UINT24	,	V_59
+proto_item_add_subtree	,	F_8
+" Control Packet"	,	L_7
+module_t	,	T_9
+hf_lwapp_flags_type	,	V_42
+"lwapp.fragmentId"	,	L_20
+proto_register_field_array	,	F_19
+eth_withoutfcs_handle	,	V_27
+hf_lwapp_slotid	,	V_40
+proto_register_lwapp	,	F_16
+"wlan_bsfc"	,	L_48
+"Length"	,	L_21
+offset	,	V_8
+ett	,	V_70
+dest_mac	,	V_31
+hf_lwapp_snr	,	V_50
+"lwapp-l3"	,	L_39
+dissector_add_uint	,	F_27
+tree	,	V_3
+"lwapp.control.length"	,	L_35
+data_handle	,	V_22
+dissect_control	,	F_1
+FT_UINT16	,	V_66
+packet_info	,	T_2
+"Fragment Id"	,	L_19
+"lwapp.Length"	,	L_22
+"Fragment Type"	,	L_17
+header	,	V_4
+dissect_lwapp	,	F_13
+hf_lwapp_control_length	,	V_21
+destport	,	V_33
+proto_tree_add_uint	,	F_9
+"LWAPP"	,	L_1
+"eth_withoutfcs"	,	L_46
+proto_reg_handoff_lwapp	,	F_24
+"LWAPP-CNTL"	,	L_41
+hf_lwapp_fragment_id	,	V_45
+proto_lwapp_l3	,	V_25
+"AP Identity"	,	L_27
+"SNR"	,	L_25
+"Swap Frame Control"	,	L_44
+hf_lwapp_control_seq_no	,	V_19
+"slotId"	,	L_11
+slotId	,	V_28
+CNTL_Header	,	T_4
+hf_lwapp_version	,	V_39
+HFILL	,	V_58
+lwapp_tree	,	V_23
+"802.3 Packets over Layer 3"	,	L_5
+"lwapp.slotId"	,	L_12
+"udp.port"	,	L_50
+length	,	V_13
+find_dissector	,	F_25
+create_dissector_handle	,	F_26
+"lwapp-cntl"	,	L_42
+fragmentId	,	V_46
+"Type"	,	L_13
+proto_tree	,	T_3
+hf	,	V_55
+control_msg_vals_ext	,	V_14
+"Control Length"	,	L_34

@@ -1,0 +1,96 @@
+register_dissector	,	F_24
+"aprs"	,	L_21
+"Decode DX cluster info field"	,	L_17
+"%s"	,	L_2
+"ax25_nol3.dx"	,	L_9
+proto_register_protocol	,	F_19
+tvbuff_t	,	T_1
+saved_private_data	,	V_20
+"Decode the APRS info field"	,	L_14
+proto_tree_add_protocol_format	,	F_7
+prefs_register_protocol	,	F_22
+gPREF_DX	,	V_24
+parent_tree	,	V_3
+"AX.25 no L3"	,	L_11
+col_add_str	,	F_15
+tvb_new_subset_remaining	,	F_16
+ax25_nol3_tree	,	V_18
+gboolean	,	T_5
+ep_alloc	,	F_12
+col_set_str	,	F_3
+gint	,	T_9
+proto_item_add_subtree	,	F_8
+"DX cluster"	,	L_7
+dissect_dx	,	F_1
+module_t	,	T_7
+ett_dx	,	V_12
+hf_dx	,	V_31
+"Enable decoding of the payload as DX cluster info."	,	L_18
+proto_register_field_array	,	F_25
+tvb	,	V_1
+offset	,	V_7
+ett	,	V_35
+COL_INFO	,	V_10
+dissector_add_uint	,	F_27
+data_len	,	V_6
+"AX.25-NoL3"	,	L_4
+"ax25.pid"	,	L_20
+"DX (%s)"	,	L_3
+"Enable decoding of the payload as APRS."	,	L_15
+"showcluster"	,	L_16
+hf_dx_report	,	V_13
+"APRS"	,	L_6
+ax25_nol3_module	,	V_30
+packet_info	,	T_2
+gPREF_APRS	,	V_23
+col_clear	,	F_4
+tvb_get_guint8	,	F_14
+cinfo	,	V_8
+proto_register_subtree_array	,	F_20
+array_length	,	F_21
+AX25_P_NO_L3	,	V_36
+"DX"	,	L_1
+"dx"	,	L_19
+next_tvb	,	V_21
+proto_dx	,	V_11
+"AX.25 no Layer 3"	,	L_10
+proto_tree_add_item	,	F_9
+private_data	,	V_27
+call_dissector	,	F_17
+pinfo	,	V_2
+col_add_fstr	,	F_5
+dissect_ax25_nol3	,	F_11
+"Text"	,	L_5
+default_handle	,	V_29
+ENC_ASCII	,	V_14
+aprs_handle	,	V_28
+dx_tree	,	V_5
+dissected	,	V_22
+g_snprintf	,	F_13
+FT_STRING	,	V_32
+hf_register_info	,	T_8
+dti	,	V_16
+"showaprs"	,	L_13
+proto_ax25_nol3	,	V_25
+HFILL	,	V_34
+prefs_register_bool_preference	,	F_23
+b	,	V_17
+COL_PROTOCOL	,	V_9
+proto_reg_handoff_ax25_nol3	,	F_26
+"data"	,	L_22
+find_dissector	,	F_29
+proto_register_ax25_nol3	,	F_18
+create_dissector_handle	,	F_28
+proto_item	,	T_4
+ENC_NA	,	V_15
+guint8	,	T_6
+ti	,	V_4
+isaprs	,	F_10
+BASE_NONE	,	V_33
+"AX.25 No Layer 3 - (%s)"	,	L_8
+ett_ax25_nol3	,	V_26
+tvb_format_text	,	F_6
+tvb_length_remaining	,	F_2
+"ax25_nol3"	,	L_12
+proto_tree	,	T_3
+info_buffer	,	V_19

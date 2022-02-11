@@ -1,0 +1,200 @@
+"ACK"	,	L_25
+proto_register_protocol	,	F_21
+"Internal TDM"	,	L_57
+chloc1	,	V_10
+itdm_item	,	V_5
+chloc2	,	V_11
+check_col	,	F_6
+"itdm.ctl_cmd"	,	L_44
+paired_trans_id	,	V_53
+tvb_new_subset_remaining	,	F_12
+itdm_ctl_command_vals	,	V_59
+actbit	,	V_13
+"ctl_flowno"	,	L_62
+gint	,	T_9
+hf_itdm_ctl_flowid	,	V_64
+hf_itdm_sop_eop	,	V_34
+TFS	,	F_20
+tvb	,	V_1
+"I-TDM Data Mode"	,	L_47
+"itdm.uid"	,	L_24
+guint32	,	T_5
+COL_INFO	,	V_21
+FT_BOOLEAN	,	V_77
+"itdm.act"	,	L_28
+hf_itdm_chcmd	,	V_41
+cinfo	,	V_15
+" Loc1 %d Loc2 %d"	,	L_5
+array_length	,	F_24
+"IEEE 754 Packet Rate"	,	L_37
+"Last Packet"	,	L_17
+"Reserved"	,	L_3
+next_tvb	,	V_4
+"I-TDM Explicit Multi-timeslot Size"	,	L_49
+Initialized	,	V_89
+call_dissector	,	F_13
+ett_itdm_ctl	,	V_61
+trans_id	,	V_52
+gbl_ItdmCTLFlowNo	,	V_70
+itdm_ctl_tree	,	V_50
+itdm_ctl_data_mode_vals	,	V_83
+"ITDM-Control"	,	L_6
+hf_register_info	,	T_8
+"itdm.pktrate"	,	L_38
+"Flow %d Command %s "	,	L_7
+hf_itdm_ctl_emts	,	V_66
+guint16	,	T_6
+COL_PROTOCOL	,	V_16
+hf_itdm_pktrate	,	V_44
+"itdm.ctl_ptid"	,	L_54
+ITDM_CMD_CLOSE_CHAN	,	V_24
+guint8	,	T_7
+hf_itdm_ctl_transid	,	V_62
+"itdm.ctlemts"	,	L_50
+ITDM_CHCMD_OFFSET	,	V_19
+itdm_module	,	V_86
+register_dissector	,	F_22
+"Transaction ID"	,	L_41
+"Timestamp"	,	L_11
+tvb_get_ntohl	,	F_15
+ITDM_CTL_TRANSID_OFFSET	,	V_57
+"itdm.last_pack"	,	L_18
+tvbuff_t	,	T_1
+"Flow %d Chan %d ACT %d ACK %d %s"	,	L_2
+tvb_get_ntohs	,	F_5
+proto_itdm	,	V_28
+dissect_itdm_125usec	,	F_1
+BASE_HEX	,	V_79
+FT_UINT24	,	V_80
+gboolean	,	T_11
+gbl_ItdmMPLSLabel	,	V_88
+proto_item_add_subtree	,	F_11
+module_t	,	T_10
+"itdm.chcmd"	,	L_30
+proto_register_field_array	,	F_23
+ITDM_CHLOC1_OFFSET	,	V_20
+"mpls_label"	,	L_59
+dissector_add_uint	,	F_30
+"Sequence Number"	,	L_13
+data_handle	,	V_48
+FT_UINT16	,	V_72
+tvb_get_guint8	,	F_4
+hf_itdm_uid	,	V_38
+ITDM_FLOWID_OFFSET	,	V_17
+hf_itdm_ctl_command	,	V_63
+dissector_delete_uint	,	F_29
+"Channel Location 2"	,	L_35
+" Alloc'd FlowID %d"	,	L_8
+"ITDM Control Message Checksum"	,	L_55
+ett_itdm	,	V_30
+"itdm.chksum"	,	L_22
+dissect_itdm_control	,	F_14
+"itdm"	,	L_58
+"Flow Number used by I-TDM Control Protocol traffic."	,	L_64
+ackbit	,	V_14
+hf_itdm_ack	,	V_39
+"itdm.ctl_flowid"	,	L_46
+chcmd_vals	,	V_22
+ITDM_CMD_RELOC_CHAN	,	V_26
+"itdm.ctl_transid"	,	L_42
+"Paired Transaction ID"	,	L_53
+hf_itdm_timestamp	,	V_31
+"Channel Location 1"	,	L_33
+ITDM_CTL_FLOWID_OFFSET	,	V_56
+find_dissector	,	F_28
+"Activate"	,	L_27
+sop_eop_vals	,	V_76
+ITDM_CMD_PACKET_RATE	,	V_43
+ENC_BIG_ENDIAN	,	V_32
+itdm_handle	,	V_90
+"itdm.cxnsize"	,	L_40
+FT_UINT32	,	V_82
+hf_itdm_chloc1	,	V_45
+hf_itdm_chloc2	,	V_47
+hf_itdm_act	,	V_40
+"itdm.ctl_dm"	,	L_48
+"ITDM"	,	L_1
+flowid	,	V_8
+"Start/End of Packet"	,	L_15
+hf	,	V_71
+"itdm.seqnum"	,	L_14
+"itdm.timestamp"	,	L_12
+ITDM_CMD_CYCLIC_REAF	,	V_25
+"Channel ID"	,	L_31
+"The MPLS label (aka Flow Bundle ID) used by ITDM traffic."	,	L_61
+itdm_ctl_pktrate_vals	,	V_84
+prefs_register_protocol	,	F_26
+hf_itdm_last_pack	,	V_35
+"itdm.ack"	,	L_26
+col_append_fstr	,	F_9
+hf_itdm_pktlen	,	V_36
+chcmd	,	V_12
+col_set_str	,	F_2
+ITDM_CTL_CMD_AFI_REQ	,	V_60
+"mpls.label"	,	L_66
+"itdm.ctl_pktrate"	,	L_52
+"Channel Command"	,	L_29
+proto_register_itdm	,	F_18
+ITDM_CMD_NEW_CHAN	,	V_23
+tfs_true_false	,	V_78
+proto_register_subtree_array	,	F_25
+val_to_str	,	F_8
+chanid	,	V_9
+tvb_get_ntoh24	,	F_3
+"itdm.pktlen"	,	L_20
+"Checksum"	,	L_21
+proto_tree_add_item	,	F_10
+pinfo	,	V_2
+col_add_fstr	,	F_7
+dissector_handle_t	,	T_12
+"I-TDM Packet Rate"	,	L_51
+hf_itdm_chid	,	V_42
+" Paired TransID 0x%x"	,	L_10
+VALS	,	F_19
+hf_itdm_ctl_pktrate	,	V_67
+"itdm.sop_eop"	,	L_16
+"I-TDM Control Protocol Flow Number"	,	L_63
+hf_itdm_cxnsize	,	V_46
+"data"	,	L_65
+tvb_length	,	F_17
+FT_UINT8	,	V_75
+"Flow ID"	,	L_23
+BASE_DEC	,	V_73
+proto_item	,	T_4
+ENC_NA	,	V_29
+itdm_tree	,	V_6
+"Packet Length"	,	L_19
+ITDM_CTL_PAIRED_TRANSID_OFFSET	,	V_58
+hf_itdm_ctl_ptid	,	V_68
+" TransID 0x%x "	,	L_9
+" Loc1 %d"	,	L_4
+ITDM_CHLOC2_OFFSET	,	V_27
+"itdm.chloc2"	,	L_36
+dissect_itdm	,	F_16
+"Allocated Flow ID"	,	L_45
+prefs_register_uint_preference	,	F_27
+ITDM_CTL_CMD_OFFSET	,	V_55
+guint	,	T_13
+offset	,	V_7
+ett	,	V_85
+tree	,	V_3
+"itdm.chid"	,	L_32
+packet_info	,	T_2
+"itdm.ctl_cksum"	,	L_56
+"Control Command"	,	L_43
+ack_tfs	,	V_81
+ITDM_CHANID_OFFSET	,	V_18
+allocd_flowid	,	V_54
+hf_itdm_ctl_dm	,	V_65
+"ITDM MPLS label (Flow Bundle ID in hex)"	,	L_60
+ItdmMPLSLabel	,	V_91
+proto_reg_handoff_itdm	,	V_87
+HFILL	,	V_74
+hf_itdm_ctl_cksum	,	V_69
+"itdm.chloc1"	,	L_34
+"Connection Size"	,	L_39
+hf_itdm_seqnum	,	V_33
+command	,	V_51
+hf_itdm_chksum	,	V_37
+itdm_ctl_item	,	V_49
+proto_tree	,	T_3

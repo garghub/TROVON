@@ -1,0 +1,191 @@
+"Frame Status"	,	L_38
+hf_netanalyzer_status	,	V_29
+data_dissector_handle	,	V_57
+proto_register_protocol	,	F_25
+"netANALYZER"	,	L_15
+"Wrong netANALYZER header version"	,	L_1
+frame_length	,	V_10
+tvb_new_subset_remaining	,	F_20
+"eth_withfcs"	,	L_58
+col_set_str	,	F_16
+" %s"	,	L_20
+TXT_SFD_ERROR	,	V_75
+gint	,	T_11
+hf_netanalyzer_gpio_edge	,	V_51
+gpio_number	,	V_61
+"Status of Ethernet frame"	,	L_40
+MSK_SFD_ERROR	,	V_76
+proto_tree_add_uint_format	,	F_9
+tvb	,	V_1
+guint32	,	T_5
+ett_netanalyzer	,	V_20
+SRT_GPIO_FLAG	,	V_21
+COL_INFO	,	V_52
+hf_netanalyzer_status_sfd_error	,	V_40
+guchar	,	T_9
+MAX_BUFFER	,	F_14
+"Frame captured in transparent mode"	,	L_24
+"Ethernet frame length"	,	L_35
+FT_BOOLEAN	,	V_68
+proto_item_append_text	,	F_7
+version	,	V_15
+hf_netanalyzer_port	,	V_26
+str	,	V_33
+TXT_TOO_LONG	,	V_73
+cinfo	,	V_48
+PI_ERROR	,	V_24
+"netanalyzer"	,	L_57
+proto_register_subtree_array	,	F_28
+array_length	,	F_27
+MSK_SHORT_FRAME	,	V_78
+"netanalyzer.packetstatus.short_preamble"	,	L_53
+eth_dissector_handle	,	V_54
+SRT_VERSION	,	V_22
+next_tvb	,	V_53
+""	,	L_4
+" (Port: %u, "	,	L_2
+proto_tree_add_item	,	F_2
+MSK_LONG_PREAMBLE	,	V_82
+call_dissector	,	F_21
+pinfo	,	V_2
+"Status: "	,	L_6
+col_add_fstr	,	F_18
+dissector_handle_t	,	T_12
+MSK_RX_ERR	,	V_69
+ep_strbuf_new_label	,	F_10
+proto_reg_handoff_netanalyzer	,	F_29
+transparent_payload_tree	,	V_55
+TXT_LONG_PREAMBLE	,	V_81
+"netANALYZER transparent mode"	,	L_25
+TXT_SHORT_PREAMBLE	,	V_79
+MSK_LENGTH	,	V_27
+"netanalyzer.packetstatus.short_frame"	,	L_51
+hf_netanalyzer_status_short_frame	,	V_41
+MSK_ALIGN_ERR	,	V_45
+netana_handle	,	V_84
+hf_register_info	,	T_10
+"%s)"	,	L_11
+ett_netanalyzer_status	,	V_34
+VALS	,	F_24
+"netanalyzer.framelen"	,	L_36
+"Event on"	,	L_26
+gpio_edge	,	V_14
+COL_PROTOCOL	,	V_49
+"data"	,	L_59
+tvb_length	,	F_13
+TXT_ALIGN_ERR	,	V_70
+ti_status	,	V_6
+FT_UINT8	,	V_59
+"netanalyzer.packetstatus.alignment_error"	,	L_43
+"Status: Error present (expand tree for details)"	,	L_9
+"Frame too short"	,	L_52
+proto_tree_add_text	,	F_12
+BASE_DEC	,	V_64
+MSK_TRANSPARENT_MODE	,	V_44
+proto_item	,	T_4
+ENC_NA	,	V_19
+"netanalyzer.port"	,	L_33
+"Length: %u byte%s, "	,	L_3
+INFO_TYPE_OFFSET	,	V_47
+ti	,	V_4
+expert_add_info_format	,	F_5
+"This frame was captured in transparent mode"	,	L_12
+strbuf	,	V_30
+TXT_RX_ERR	,	V_67
+"netanalyzer.packetstatus.too_long"	,	L_47
+gpio_edge_vals	,	V_63
+ENC_LITTLE_ENDIAN	,	V_36
+first	,	V_31
+packet_status	,	V_8
+"%s"	,	L_19
+hf_netanalyzer_status_too_long	,	V_39
+"FCS error detected in frame"	,	L_46
+tvbuff_t	,	T_1
+MSK_SHORT_PREAMBLE	,	V_80
+"wtap_encap"	,	L_60
+"netanalyzer.packetstatus.sfd_error"	,	L_49
+BASE_HEX	,	V_60
+"netanalyzer.packetstatus"	,	L_39
+proto_register_netanalyzer	,	F_23
+gboolean	,	T_8
+msk_strings	,	V_32
+ep_alloc	,	F_15
+ett_netanalyzer_transparent	,	V_56
+proto_item_add_subtree	,	F_3
+"Reception Port"	,	L_32
+"netanalyzer.packetstatus.long_preamble"	,	L_55
+dissect_netanalyzer_common	,	F_1
+hf_netanalyzer_gpio_number	,	V_50
+proto_register_field_array	,	F_26
+tvb_get_letohs	,	F_8
+"SDF error detected in frame"	,	L_50
+"netanalyzer.gpio_event.gpio_edge"	,	L_30
+netanalyzer_header_tree	,	V_5
+guint	,	T_6
+offset	,	V_12
+ett	,	V_83
+MSK_PACKET_STATUS	,	V_66
+"netanalyzer.packetstatus.fcs_error"	,	L_45
+dissector_add_uint	,	F_32
+port_num	,	V_9
+tree	,	V_3
+SRT_PORT_NUM	,	V_25
+hf_netanalyzer_status_fcs	,	V_38
+FT_UINT16	,	V_65
+packet_info	,	T_2
+dissect_netanalyzer_transparent	,	F_22
+"s"	,	L_5
+tvb_get_guint8	,	F_4
+WTAP_ENCAP_NETANALYZER_TRANSPARENT	,	V_87
+"RX_ER detected in frame"	,	L_42
+"GPIO event on GPIO %d (%sing edge)"	,	L_16
+proto_netanalyzer	,	V_17
+"Preamble longer than 7 bytes"	,	L_56
+idx	,	V_16
+"ris"	,	L_17
+proto_tree_add_uint	,	F_6
+ep_strbuf_append	,	F_11
+"Event type"	,	L_29
+hf_netanalyzer_status_align_err	,	V_37
+TXT_FCS_ERROR	,	V_71
+"Alignment error detected in frame"	,	L_44
+"No Error)"	,	L_8
+szTemp	,	V_46
+hf_netanalyzer_length	,	V_28
+netanalyzer_status_tree	,	V_7
+"netanalyzer.packetstatus.rx_er"	,	L_41
+"Edge of GPIO event"	,	L_31
+", Transparent Mode"	,	L_13
+g_snprintf	,	F_17
+"No netANALYZER header found"	,	L_22
+"netANALYZER reception port"	,	L_34
+is_gpio	,	V_11
+HEADER_SIZE	,	V_18
+"No valid netANALYZER GPIO definition found"	,	L_21
+MSK_FCS_ERROR	,	V_72
+MSK_TOO_LONG	,	V_74
+PI_MALFORMED	,	V_23
+", "	,	L_10
+hf_netanalyzer_status_short_preamble	,	V_42
+HFILL	,	V_62
+gpio_num	,	V_13
+dissect_netanalyzer	,	F_19
+"Raw packet data"	,	L_23
+TXT_SHORT_FRAME	,	V_77
+hf_netanalyzer_status_rx_err	,	V_35
+"Status: No Error"	,	L_7
+"Actual Ethernet frame length"	,	L_37
+find_dissector	,	F_30
+"fall"	,	L_18
+create_dissector_handle	,	F_31
+"Displayed frame data contains additional nibble due to alignment error (upper nibble is not valid)"	,	L_14
+WTAP_ENCAP_NETANALYZER	,	V_86
+"netanalyzer.gpio_event.gpio_number"	,	L_27
+"Event on GPIO number"	,	L_28
+hf_netanalyzer_status_long_preamble	,	V_43
+"Frame too long (capture truncated)"	,	L_48
+netana_handle_transparent	,	V_85
+"Preamble shorter than 7 bytes"	,	L_54
+proto_tree	,	T_3
+emem_strbuf_t	,	T_7
+hf	,	V_58

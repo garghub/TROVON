@@ -1,0 +1,95 @@
+register_dissector	,	F_25
+"aprs"	,	L_21
+"Decode DX cluster info field"	,	L_17
+"%s"	,	L_2
+"ax25_nol3.dx"	,	L_9
+proto_register_protocol	,	F_20
+tvbuff_t	,	T_1
+"Decode the APRS info field"	,	L_14
+proto_tree_add_protocol_format	,	F_6
+prefs_register_protocol	,	F_23
+gPREF_DX	,	V_23
+parent_tree	,	V_3
+"AX.25 no L3"	,	L_11
+col_add_str	,	F_16
+tvb_new_subset_remaining	,	F_17
+ax25_nol3_tree	,	V_18
+gboolean	,	T_5
+col_set_str	,	F_3
+gint	,	T_9
+proto_item_add_subtree	,	F_7
+"DX cluster"	,	L_7
+dissect_dx	,	F_1
+module_t	,	T_7
+ett_dx	,	V_12
+hf_dx	,	V_29
+"Enable decoding of the payload as DX cluster info."	,	L_18
+proto_register_field_array	,	F_26
+tvb	,	V_1
+offset	,	V_7
+ett	,	V_33
+COL_INFO	,	V_10
+wmem_packet_scope	,	F_12
+dissector_add_uint	,	F_28
+data_len	,	V_6
+"AX.25-NoL3"	,	L_4
+"ax25.pid"	,	L_20
+"DX (%s)"	,	L_3
+"Enable decoding of the payload as APRS."	,	L_15
+"showcluster"	,	L_16
+hf_dx_report	,	V_13
+"APRS"	,	L_6
+ax25_nol3_module	,	V_28
+packet_info	,	T_2
+gPREF_APRS	,	V_22
+tvb_reported_length_remaining	,	F_2
+col_clear	,	F_13
+tvb_get_guint8	,	F_15
+cinfo	,	V_8
+proto_register_subtree_array	,	F_21
+array_length	,	F_22
+AX25_P_NO_L3	,	V_34
+"DX"	,	L_1
+"dx"	,	L_19
+next_tvb	,	V_20
+proto_dx	,	V_11
+"AX.25 no Layer 3"	,	L_10
+proto_tree_add_item	,	F_8
+call_dissector	,	F_18
+pinfo	,	V_2
+col_add_fstr	,	F_4
+dissect_ax25_nol3	,	F_10
+"Text"	,	L_5
+default_handle	,	V_27
+ENC_ASCII	,	V_14
+aprs_handle	,	V_26
+dx_tree	,	V_5
+dissected	,	V_21
+g_snprintf	,	F_14
+FT_STRING	,	V_30
+hf_register_info	,	T_8
+dti	,	V_16
+"showaprs"	,	L_13
+proto_ax25_nol3	,	V_24
+HFILL	,	V_32
+prefs_register_bool_preference	,	F_24
+b	,	V_17
+COL_PROTOCOL	,	V_9
+proto_reg_handoff_ax25_nol3	,	F_27
+"data"	,	L_22
+find_dissector	,	F_30
+proto_register_ax25_nol3	,	F_19
+create_dissector_handle	,	F_29
+proto_item	,	T_4
+ENC_NA	,	V_15
+guint8	,	T_6
+ti	,	V_4
+isaprs	,	F_9
+BASE_NONE	,	V_31
+"AX.25 No Layer 3 - (%s)"	,	L_8
+ett_ax25_nol3	,	V_25
+tvb_format_text	,	F_5
+"ax25_nol3"	,	L_12
+proto_tree	,	T_3
+wmem_alloc	,	F_11
+info_buffer	,	V_19

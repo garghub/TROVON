@@ -1,0 +1,102 @@
+proto_register_protocol	,	F_13
+"IAP"	,	L_1
+tvb_reported_length	,	F_11
+"Version"	,	L_7
+col_append_fstr	,	F_9
+"Vlan ID (of Uplink)"	,	L_25
+col_set_str	,	F_3
+gint	,	T_8
+dissect_aruba_iap	,	F_1
+"aruba_iap.magic"	,	L_5
+"aruba_iap.unknown.bytes"	,	L_27
+FT_IPv4	,	V_35
+tvb	,	V_1
+hf_iap_vc_ip	,	V_24
+"aruba_iap"	,	L_32
+COL_INFO	,	V_12
+col_clear	,	F_4
+"Magic Number of IAP trafic (Always 0x8ffd)"	,	L_6
+cinfo	,	V_10
+hf_iap_status	,	V_22
+proto_register_subtree_array	,	F_16
+"aruba_iap.status"	,	L_17
+array_length	,	F_15
+"aruba_iap.uptime"	,	L_19
+proto_tree_add_item	,	F_5
+pinfo	,	V_2
+col_add_fstr	,	F_7
+dissector_handle_t	,	T_9
+_U_	,	V_4
+"Unknown (UINT) Data..."	,	L_30
+"ethertype"	,	L_33
+"Address IP of Virtual Controller"	,	L_22
+hf_register_info	,	T_7
+"Magic"	,	L_4
+hf_iap_type	,	V_19
+"aruba_iap.type"	,	L_10
+hf_iap_version	,	V_18
+"Aruba Instant AP Protocol"	,	L_31
+guint16	,	T_5
+COL_PROTOCOL	,	V_11
+FT_UINT8	,	V_32
+tvb_ip_to_str	,	F_10
+BASE_DEC	,	V_33
+hf_iap_id	,	V_21
+ENC_NA	,	V_14
+guint8	,	T_6
+ti	,	V_5
+BASE_NONE	,	V_36
+hf_iap_uptime	,	V_23
+hf_iap_length	,	V_20
+magic	,	V_7
+proto_aruba_iap	,	V_13
+data	,	T_4
+tvbuff_t	,	T_1
+hf_iap_unknown_uint	,	V_25
+MAGIC_IAP	,	V_9
+tvb_get_ntohs	,	F_2
+BASE_HEX	,	V_30
+ETHERTYPE_IAP	,	V_41
+proto_item_add_subtree	,	F_6
+"Aruba Instant AP"	,	L_2
+ett_aruba_iap	,	V_15
+"aruba_iap.pvid"	,	L_24
+proto_register_field_array	,	F_14
+"VC IP"	,	L_20
+FT_BYTES	,	V_37
+"aruba_iap.version"	,	L_8
+"Length"	,	L_12
+offset	,	V_8
+ett	,	V_39
+dissector_add_uint	,	F_19
+tree	,	V_3
+proto_register_aruba_iap	,	F_12
+FT_UINT16	,	V_29
+packet_info	,	T_2
+tvb_get_guint8	,	F_8
+"Uptime"	,	L_18
+"Unknown Data..."	,	L_28
+aruba_iap_tree	,	V_6
+BASE_DEC_HEX	,	V_38
+"PVID (Port Vlan ID)"	,	L_23
+" VC IP: %s"	,	L_3
+hf_iap_unknown_bytes	,	V_27
+"aruba_iap.id"	,	L_15
+proto_reg_handoff_aruba_iap	,	F_17
+"aruba_iap.length"	,	L_13
+HFILL	,	V_31
+"Status"	,	L_16
+create_dissector_handle	,	F_18
+iap_handle	,	V_40
+ENC_BIG_ENDIAN	,	V_17
+FT_UINT32	,	V_34
+"Id"	,	L_14
+"aruba_iap.vc_ip"	,	L_21
+hf_iap_magic	,	V_16
+"aruba_iap.unknown.uint"	,	L_29
+"Unknown"	,	L_26
+"Type"	,	L_9
+proto_tree	,	T_3
+hf	,	V_28
+hf_iap_pvid	,	V_26
+"Type of message"	,	L_11

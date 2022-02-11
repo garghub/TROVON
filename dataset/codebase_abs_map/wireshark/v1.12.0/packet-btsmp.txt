@@ -1,0 +1,150 @@
+"AuthReq"	,	L_50
+dissect_btsmp_key_dist	,	F_8
+"btsmp.key_dist_id"	,	L_45
+hf_btsmp_max_enc_key_size	,	V_38
+hf_btsmp_long_term_key	,	V_43
+initiator	,	V_17
+proto_register_protocol	,	F_16
+"btsmp.authreq"	,	L_51
+col_append_fstr	,	F_7
+ett_btsmp_auth_req	,	V_10
+hf_btsmp_key_dist_enc	,	V_21
+hf_btsmp_oob_data_flags	,	V_37
+col_set_str	,	F_11
+gint	,	T_9
+"Bonding Flags"	,	L_36
+"Identity Resolving Key"	,	L_32
+"btsmp.max_enc_key_size"	,	L_41
+tvb	,	V_1
+"Id Key (IRK)"	,	L_44
+COL_INFO	,	V_16
+"MITM Flag"	,	L_38
+proto_item_append_text	,	F_5
+hf_btsmp_io_capabilities	,	V_36
+dissect_btsmp	,	F_10
+"btsmp.key_dist_sign"	,	L_47
+cinfo	,	V_15
+", Initiator Key(s): "	,	L_7
+"btsmp.oob_data_flags"	,	L_25
+"Bluetooth Security Manager Protocol"	,	L_56
+proto_register_subtree_array	,	F_20
+hf_btsmp_key_dist_id	,	V_22
+array_length	,	F_19
+proto_register_btsmp	,	F_14
+"btsmp.cfm_value"	,	L_27
+hf_btsmp_cfm_value	,	V_39
+hf_btsmp_ediv	,	V_44
+hf_btsmp_signature_key	,	V_46
+proto_tree_add_item	,	F_3
+pinfo	,	V_3
+col_add_fstr	,	F_12
+"btsmp.long_term_key"	,	L_31
+_U_	,	V_24
+": "	,	L_16
+new_register_dissector	,	F_17
+col_append_str	,	F_9
+"No MITM"	,	L_5
+hf_btsmp_opcode	,	V_34
+"Reason"	,	L_20
+"OOB Data Flags"	,	L_24
+"btsmp.random_value"	,	L_29
+hf_register_info	,	T_8
+bonding_flag_vals	,	V_13
+VALS	,	F_15
+"Max Encryption Key Size"	,	L_40
+"Encryption Key (LTK)"	,	L_42
+st	,	V_26
+COL_PROTOCOL	,	V_30
+hf_btsmp_authreq	,	V_8
+FT_UINT8	,	V_48
+hf_btsmp_bonding_flags	,	V_11
+": %s"	,	L_17
+io_capability_vals	,	V_51
+BASE_DEC	,	V_55
+proto_reg_handoff_btsmp	,	F_21
+proto_item	,	T_4
+reason_vals	,	V_42
+hf_btsmp_initiator_key_distribution	,	V_18
+ENC_NA	,	V_9
+guint8	,	T_5
+"btl2cap.cid"	,	L_59
+ti	,	V_25
+BASE_NONE	,	V_54
+"LTK "	,	L_9
+"btsmp.mitm_flag"	,	L_39
+tvb_length_remaining	,	F_13
+ENC_LITTLE_ENDIAN	,	V_12
+BTL2CAP_FIXED_CID_SMP	,	V_60
+"%s"	,	L_3
+"Signature Key (CSRK)"	,	L_46
+data	,	T_7
+hf_btsmp_responder_key_distribution	,	V_19
+dissect_btsmp_auth_req	,	F_1
+"Rcvd "	,	L_14
+tvbuff_t	,	T_1
+"btsmp.ediv"	,	L_49
+", Responder Key(s): "	,	L_8
+opcode	,	V_27
+BASE_HEX	,	V_49
+gboolean	,	T_6
+"btsmp.opcode"	,	L_19
+"%s, %s"	,	L_6
+"Responder Key Distribution"	,	L_54
+proto_item_add_subtree	,	F_4
+proto_register_field_array	,	F_18
+FT_BYTES	,	V_53
+"btsmp.initiator_key_distribution"	,	L_53
+hf_btsmp_key_dist_sign	,	V_23
+"btsmp.reason"	,	L_21
+"Random Value"	,	L_28
+FT_NONE	,	V_57
+offset	,	V_2
+ett	,	V_58
+"Sent "	,	L_13
+P2P_DIR_RECV	,	V_33
+ett_btsmp_key_dist	,	V_20
+dissector_add_uint	,	F_22
+tree	,	V_4
+ti_param	,	V_5
+"Opcode"	,	L_18
+"Initiator Key Distribution"	,	L_52
+"CSRK "	,	L_11
+FT_UINT16	,	V_56
+packet_info	,	T_2
+"MITM"	,	L_4
+proto_btsmp	,	V_28
+tvb_get_guint8	,	F_2
+"btsmp.bonding_flags"	,	L_37
+ett_btsmp	,	V_29
+"btsmp.id_resolving_key"	,	L_33
+btsmp_handle	,	V_59
+"btsmp.io_capability"	,	L_23
+"btsmp.key_dist_enc"	,	L_43
+st_param	,	V_6
+hf_btsmp_mitm_flag	,	V_14
+"Unknown direction %d "	,	L_15
+"SMP"	,	L_12
+"IRK "	,	L_10
+"&lt;unknown&gt;"	,	L_2
+param	,	V_7
+hf_btsmp_random	,	V_40
+P2P_DIR_SENT	,	V_32
+"btsmp.responder_key_distribution"	,	L_55
+HFILL	,	V_50
+"BT SMP"	,	L_57
+"%s, "	,	L_1
+opcode_vals	,	V_35
+hf_btsmp_reason	,	V_41
+"Encrypted Diversifier (EDIV)"	,	L_48
+p2p_dir	,	V_31
+hf_btsmp_id_resolving_key	,	V_45
+"Signature Key"	,	L_34
+val_to_str_const	,	F_6
+"btsmp"	,	L_58
+"btsmp.signature_key"	,	L_35
+"Confirm Value"	,	L_26
+"IO Capability"	,	L_22
+oob_data_flag_vals	,	V_52
+proto_tree	,	T_3
+hf	,	V_47
+"Long Term Key"	,	L_30

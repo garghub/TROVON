@@ -1,0 +1,213 @@
+"Display UID as big endian value"	,	L_58
+tvb_get_string_enc	,	F_7
+"PFLOG"	,	L_1
+"Sub Rule Number"	,	L_26
+"Destination Address"	,	L_44
+proto_register_protocol	,	F_18
+"Last matched firewall anchored ruleset rule number"	,	L_28
+hf_pflog_rewritten	,	V_42
+"unknown (%u)"	,	L_4
+tvb_new_subset_remaining	,	F_13
+gint	,	T_7
+"pflog.invalid_header_length"	,	L_53
+"pflog.ruleset"	,	L_21
+tvb	,	V_1
+hf_pflog_rule_uid	,	V_38
+"Interface"	,	L_18
+"pflog.ifname"	,	L_19
+"pflog.subrulenr"	,	L_27
+guint32	,	T_6
+af	,	V_9
+COL_INFO	,	V_59
+"pflog.dir"	,	L_51
+"PFLOG-OLD"	,	L_64
+"PF Log (pre 3.4) %s %s on %s by rule %d"	,	L_65
+dissect_old_pflog	,	F_30
+cinfo	,	V_15
+PI_ERROR	,	V_77
+"pflog.rnr"	,	L_67
+"ipv6"	,	L_61
+array_length	,	F_20
+"OpenBSD Packet Filter log file, pre 3.4"	,	L_69
+"Rewritten"	,	L_37
+next_tvb	,	V_4
+"Rule PID"	,	L_35
+call_dissector	,	F_14
+ENC_ASCII	,	V_28
+proto_item_set_text	,	F_10
+"Protocol (IPv4 vs IPv6)"	,	L_11
+"Reason"	,	L_15
+"uid_endian"	,	L_57
+proto_old_pflog	,	V_85
+WTAP_ENCAP_PFLOG	,	V_82
+"pflog-old"	,	L_70
+hf_register_info	,	T_8
+BSD_AF_INET6_BSD	,	V_47
+guint16	,	T_14
+COL_PROTOCOL	,	V_16
+hf_pflog_ruleset	,	V_29
+"Source Address"	,	L_42
+"ip"	,	L_60
+hf_old_pflog_action	,	V_90
+"Rule UID"	,	L_33
+hf_pflog_action	,	V_25
+guint8	,	T_5
+proto_reg_handoff_old_pflog	,	F_33
+pflog_handle	,	V_81
+ti	,	V_6
+BASE_NONE	,	V_67
+"Invalid header length "	,	L_54
+hf_pflog_saddr	,	V_50
+LEN_PFLOG_BSD38	,	V_32
+LEN_PFLOG_BSD34	,	V_22
+tvb_get_ntohl	,	F_31
+"Action taken by PF on the packet"	,	L_14
+tvbuff_t	,	T_1
+hf_pflog_uid	,	V_36
+BSD_AF_INET	,	V_44
+"wtap_encap"	,	L_63
+tvb_get_ntohs	,	F_9
+hf_pflog_sport	,	V_52
+proto_item_add_subtree	,	F_4
+module_t	,	T_11
+proto_register_field_array	,	F_19
+pflog_action_vals	,	V_55
+FT_BYTES	,	V_69
+LEN_PFLOG_BSD49	,	V_41
+hf_old_pflog_af	,	V_86
+hf_old_pflog_dir	,	V_91
+ei	,	V_75
+dissector_add_uint	,	F_29
+ti_len	,	V_7
+data_handle	,	V_58
+FT_UINT16	,	V_72
+tvb_get_guint8	,	F_5
+proto_pflog	,	V_17
+pflog_tree	,	V_5
+"[%s %s/#%d] "	,	L_66
+hf_pflog_saddr_ipv6	,	V_48
+"Direction of packet in stack (inbound versus outbound)"	,	L_52
+"pflog.sport"	,	L_47
+"pflog.rewritten"	,	L_38
+hf_old_pflog_ifname	,	V_87
+hf_pflog_dir	,	V_40
+hf_pflog_saddr_ipv4	,	V_45
+"pflog.uid"	,	L_30
+FT_STRING	,	V_66
+"Direction"	,	L_50
+pflog_af_vals	,	V_54
+hf_pflog_daddr	,	V_51
+"Invalid header length %u"	,	L_2
+FT_INT32	,	V_68
+FT_INT16	,	V_92
+new_create_dissector_handle	,	F_34
+"pflog.saddr"	,	L_43
+"pflog.pad"	,	L_40
+hf_pflog_rulenr	,	V_30
+length	,	V_8
+find_dissector	,	F_27
+pflog_module	,	V_80
+proto_reg_handoff_pflog	,	F_26
+rulenr	,	V_12
+ipv6_handle	,	V_57
+"pflog.pid"	,	L_32
+hf_pflog_length	,	V_20
+ENC_BIG_ENDIAN	,	V_21
+hf_pflog_af	,	V_24
+pflog_old_dir_vals	,	V_93
+pflog_reason_vals	,	V_65
+FT_UINT32	,	V_64
+hf_pflog_pad	,	V_43
+"Destination Port"	,	L_48
+hf	,	V_60
+dissect_pflog	,	F_1
+proto_register_pflog	,	F_16
+endian	,	V_33
+prefs_register_protocol	,	F_24
+hf_old_pflog_reason	,	V_89
+"pflog.rulenr"	,	L_24
+FT_IPv6	,	V_71
+"UID"	,	L_29
+"pflog.rule_pid"	,	L_36
+"Must be Zero"	,	L_41
+col_set_str	,	F_2
+"Rule Number"	,	L_23
+action	,	V_10
+FT_IPv4	,	V_70
+"pflog.length"	,	L_7
+"[%s %s/%u] "	,	L_5
+proto_register_subtree_array	,	F_21
+val_to_str	,	F_11
+hf_pflog_ifname	,	V_27
+"PID"	,	L_31
+"Reason for logging the packet"	,	L_17
+proto_tree_add_item	,	F_3
+expert_pflog	,	V_79
+pinfo	,	V_2
+dissector_handle_t	,	T_12
+ip_handle	,	V_56
+_U_	,	V_83
+"pflog.reason"	,	L_16
+hf_pflog_reason	,	V_26
+VALS	,	F_17
+prefs_register_bool_preference	,	F_25
+"data"	,	L_62
+FT_UINT8	,	V_61
+"Whether or not UID and PID fields are dissected in big or little endian"	,	L_59
+BASE_DEC	,	V_62
+proto_item	,	T_4
+expert_register_field_array	,	F_23
+"Header Length"	,	L_6
+ENC_NA	,	V_18
+col_prepend_fstr	,	F_15
+"pflog"	,	L_56
+expert_add_info_format	,	F_6
+"Padding"	,	L_39
+ENC_LITTLE_ENDIAN	,	V_35
+ett_old_pflog	,	V_94
+data	,	T_13
+pad_len	,	V_13
+hf_old_pflog_rnr	,	V_88
+ei_register_info	,	T_9
+expert_register_protocol	,	F_22
+"Last matched firewall main ruleset rule number"	,	L_25
+"OpenBSD Packet Filter log file"	,	L_55
+offset	,	V_14
+"Length of Header"	,	L_8
+ett	,	V_74
+ett_pflog	,	V_19
+wmem_packet_scope	,	F_8
+expert_module_t	,	T_10
+tree	,	V_3
+packet_info	,	T_2
+ei_pflog_invalid_header_length	,	V_23
+WTAP_ENCAP_OLD_PFLOG	,	V_95
+hf_pflog_dport	,	V_53
+hf_pflog_subrulenr	,	V_31
+rnr	,	V_84
+"Address Family"	,	L_9
+"Last matched firewall rule number"	,	L_68
+"Ruleset"	,	L_20
+"pflog.dport"	,	L_49
+EXPFILL	,	V_78
+"PF Log %s %s on %s by rule %u"	,	L_3
+"Action"	,	L_12
+"pflog.action"	,	L_13
+hf_pflog_daddr_ipv6	,	V_49
+"Source Port"	,	L_46
+hf_pflog_pid	,	V_37
+hf_pflog_daddr_ipv4	,	V_46
+pflog_dir_vals	,	V_73
+ifname	,	V_11
+HFILL	,	V_63
+PI_MALFORMED	,	V_76
+"Ruleset name in anchor"	,	L_22
+hf_pflog_rule_pid	,	V_39
+"pflog.daddr"	,	L_45
+create_dissector_handle	,	F_28
+"pflog.af"	,	L_10
+proto_item_set_len	,	F_12
+proto_register_old_pflog	,	F_32
+uid_endian	,	V_34
+"pflog.rule_uid"	,	L_34
+proto_tree	,	T_3

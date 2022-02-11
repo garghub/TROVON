@@ -1,0 +1,340 @@
+"Sequence number"	,	L_73
+"Stack command Endpoints mismatch (should be 0, both)!"	,	L_101
+g_byte_array_free	,	F_52
+"Destination Address"	,	L_82
+"lwm.cmd.rlinkq"	,	L_94
+proto_register_protocol	,	F_41
+lwm_tree	,	V_18
+ett_lwm_cmd_tree	,	V_102
+tvb_reported_length	,	F_3
+hf_lwm_fcf_multicast	,	V_36
+gcry_cipher_open	,	F_24
+tvb_new_subset_remaining	,	F_20
+hf_lwm_cmd_route_dst	,	V_113
+len	,	V_99
+" %s"	,	L_7
+gint	,	T_9
+gcry_cipher_close	,	F_29
+"lwm.empty_payload"	,	L_102
+hf_lwm_fcf_security	,	V_34
+tvb	,	V_1
+"lwm.cmd.route_dst"	,	L_83
+guint32	,	T_10
+lwm_dst_endp	,	V_17
+COL_INFO	,	V_24
+vmic	,	V_87
+LWM_MULTI_MEM_RAD_OFFSET	,	V_64
+pool	,	V_90
+"Encrypted data (%i byte(s)) DECRYPT FAILED"	,	L_13
+FT_BOOLEAN	,	V_129
+"lwm.seq"	,	L_41
+gcry_cipher_setkey	,	F_25
+GCRY_CIPHER_MODE_ECB	,	V_93
+"lwm.cmd.linkq"	,	L_88
+hf_lwm_cmd_route_src	,	V_112
+"Lightweight Mesh over IEEE 802.15.4"	,	L_113
+cinfo	,	V_22
+"Non-member Radius"	,	L_55
+PI_ERROR	,	V_139
+hf_lwm_multi_mmrad	,	V_65
+"lwm.src_addr"	,	L_44
+"Reverse Link Quality"	,	L_93
+lwm_src_addr	,	V_13
+"Control information for the frame."	,	L_24
+array_length	,	F_43
+LWM_SRC_ENDP_MASK	,	V_45
+hf_lwm_fcf_ack_req	,	V_32
+ett_lwm_fcf	,	V_31
+gcrypt_err	,	V_91
+hf_lwm_multi_mnmrad	,	V_59
+"It contains Command ID value."	,	L_72
+LWM_FCF_ACK_REQUEST	,	V_130
+GByteArray	,	T_17
+col_append_str	,	F_17
+"Specifies the sequence identifier for the frame."	,	L_42
+"lwm.multi_mrad"	,	L_62
+"lwm.decryption_failed"	,	L_106
+", Nwk_Dst: 0x%04x, Nwk_Src: 0x%04x"	,	L_8
+LWM_MULTI_MAX_MEM_RAD_OFFSET	,	V_67
+rlen	,	V_69
+hf_register_info	,	T_13
+"lwm.multi_mmrad"	,	L_65
+vector	,	V_83
+tvb_new_real_data	,	F_30
+" (Stack command endpoint)"	,	L_9
+lwm_header_len	,	V_8
+guint16	,	T_7
+"It contains an arbitrary value that can be set on the sending side."	,	L_78
+COL_PROTOCOL	,	V_23
+gcry_cipher_hd_t	,	T_12
+LWM_MULTI_UNICAST_STRING	,	V_44
+lwm_cmd_multi_names	,	V_135
+LWM_MULTI_HEADER_LEN	,	V_52
+i	,	V_86
+"Control Message"	,	L_76
+"lwm.multi_mnmrad"	,	L_59
+"Source address"	,	L_79
+lwmes_key_str	,	V_148
+"lwm.dst_addr"	,	L_47
+guint8	,	T_6
+LWM_FCF_MULTICAST	,	V_28
+dissect_lwm_cmd_frame_route_reply	,	F_35
+ti	,	V_20
+",  MIC SUCCESS"	,	L_14
+nwkSecurityVector	,	V_88
+dissect_lwm	,	F_4
+", Sequence Number: %i"	,	L_3
+cypher_hd	,	V_82
+dissect_lwm_cmd_frame_ack	,	F_32
+hf_lwm_src_endp	,	V_49
+lwm_linkqual	,	V_117
+register_dissector	,	F_49
+hf_lwm_mic	,	V_73
+ei_lwm_mal_error	,	V_108
+hf_lwm_cmd_route_multi	,	V_115
+tvbuff_t	,	T_2
+proto_tree_add_protocol_format	,	F_7
+lwm_multi_header	,	V_54
+"If it set to 0, Destination Address field contains a network address. If it set to 1, Destination Address field contains a group ID."	,	L_86
+BASE_HEX	,	V_127
+"lwm.cmd.seq"	,	L_74
+LWM_SRC_ENDP_OFFSET	,	V_46
+lwm_mic	,	V_71
+"Specifies the destination endpoint identifier."	,	L_54
+gboolean	,	T_1
+"Broadcast (0x%04x)"	,	L_6
+proto_item_add_subtree	,	F_8
+gcry_cipher_encrypt	,	F_26
+module_t	,	T_15
+proto_register_field_array	,	F_42
+multi_tree	,	V_53
+lwmes_key_valid	,	V_75
+res	,	V_150
+LWM_FCF_RESERVED	,	V_5
+dissect_lwm_cmd_frame_route_req	,	F_34
+ei	,	V_137
+hf_lwm_seq	,	V_38
+"Sequence Number"	,	L_40
+hf_lwm_fcf_reserved	,	V_37
+"Specifies whether the frame payload is encrypted."	,	L_30
+"Specifies the source endpoint identifier."	,	L_51
+FT_UINT16	,	V_133
+tvb_get_guint8	,	F_2
+"lwm.dst_endp"	,	L_53
+"Network Source Address"	,	L_43
+tvb_captured_length	,	F_19
+"lwm.not_src_broadcast"	,	L_98
+IEEE802154_PROTOABBREV_WPAN	,	V_153
+"Reserved bits"	,	L_37
+ei_lwm_n_src_broad	,	V_41
+proto_register_lwm	,	F_39
+lwm_seq	,	V_12
+LWM_MULTI_MAX_NON_MEM_RAD_MASK	,	V_60
+"Size is %i byte(s), instead of %i bytes"	,	L_20
+proto_reg_handoff_lwm	,	V_147
+LWM_CMD_UNKNOWN_VAL_STRING	,	V_101
+"Specifies the network address of the node originating the frame."	,	L_45
+expert_add_info	,	F_14
+"lwm.cmd.flinkq"	,	L_91
+"Encrypted data (%i byte(s)): libgcrypt not present, cannot decrypt"	,	L_17
+"128-bit decryption key in hexadecimal format"	,	L_112
+heur_dissector_add	,	F_55
+HEURISTIC_ENABLE	,	V_154
+"Source Endpoint"	,	L_49
+call_data_dissector	,	F_28
+ieee_packet	,	V_76
+"Specifies remaining radius (number of hops) for Members of multicast group."	,	L_63
+LWM_HEADER_BASE_LEN	,	V_6
+hf_lwm_cmd_revlinkquality	,	V_123
+"lwm.mic"	,	L_68
+LWM_CMD_ROUTE_REPLY	,	V_107
+"Malformed Packet"	,	L_97
+hf_lwm_dst_endp	,	V_50
+payload_offset	,	V_79
+start	,	V_70
+length	,	V_78
+find_dissector	,	F_54
+"lwm.src_endp"	,	L_50
+PI_WARN	,	V_143
+proto_tree_add_uint_format_value	,	F_15
+decrypted_tvb	,	V_81
+"lwm.multi_nmrad"	,	L_56
+ei_lwm_decryption_failed	,	V_95
+ei_lwm_no_decryption_key	,	V_96
+FT_UINT32	,	V_134
+"lwm.no_decryption_key"	,	L_104
+"It contains a value of the Link Quality field from the corresponding Route Request Command Frame."	,	L_92
+"Specifies Message Integrity Code (MIC)."	,	L_69
+"Multicast Header"	,	L_11
+"Empty LwMesh Payload!"	,	L_103
+lwm_cmd_tree	,	V_97
+"lwm.multicast"	,	L_35
+hf	,	V_125
+"Maximum Member Radius"	,	L_64
+new_tvb	,	V_21
+"[Stack command Endpoints mismatch]"	,	L_10
+LWM_MULTI_NON_MEM_RAD_OFFSET	,	V_58
+"It contains a link quality value of the potential route accumulated over all hops towards the destination."	,	L_89
+prefs_register_protocol	,	F_47
+proto_tree_add_subtree	,	F_18
+"Specifies the network address of the destination node or group address for multicast messages."	,	L_48
+"lwm.ack_req"	,	L_26
+LWM_CMD_FRAME_ROUTE_REPLY_LEN	,	V_124
+"It may be set to one to prevent neighboring nodes from rebroadcasting a frame."	,	L_33
+col_append_fstr	,	F_16
+LWM_CMD_ROUTE_REQ	,	V_106
+hf_lwm_cmd_cm	,	V_110
+col_set_str	,	F_5
+LWM_MULTI_MAX_MEM_RAD_MASK	,	V_66
+g_byte_array_new	,	F_50
+block	,	V_80
+text	,	V_84
+"Specifies maximum radius (number of hops) for Members of multicast group."	,	L_66
+hex_str_to_bytes	,	F_51
+LWM_DST_ENDP_OFFSET	,	V_48
+"Message Integrity Code"	,	L_67
+"Source address can not be broadcast address !"	,	L_99
+"Network Destination Address"	,	L_46
+"Lightweight Mesh (v1.1.1)"	,	L_108
+hf_lwm_cmd_forwlinkquality	,	V_122
+proto_item_append_text	,	F_12
+LWM_BCAST_ADDR	,	V_40
+"Encrypted data (%i byte(s)) NO DECRYPT KEY"	,	L_16
+proto_lwm	,	V_25
+lwm_dst_addr	,	V_14
+"Specifies whether an acknowledgment is required from the destination node."	,	L_27
+tvb_memdup	,	F_23
+LWM_CMD_LINKQ_STRING	,	V_119
+"Multicast"	,	L_34
+col_clear	,	F_6
+ei_lwm_mismatch_endp	,	V_51
+"Encrypted data (%i byte(s)) MIC FAILURE"	,	L_15
+"LwMesh"	,	L_1
+LWM_CMD_ACK	,	V_104
+proto_register_subtree_array	,	F_44
+proto_tree_add_item_ret_uint	,	F_21
+val_to_str	,	F_31
+ei_lwm_empty_payload	,	V_68
+"lwmes_key"	,	L_110
+lwm_src_endp	,	V_16
+"Command ID"	,	L_70
+"Unknown command"	,	L_19
+proto_tree_add_item	,	F_11
+pinfo	,	V_2
+col_add_fstr	,	F_9
+"lwm.cmd.cm"	,	L_77
+_U_	,	V_7
+hf_lwm_multi_mrad	,	V_62
+hf_lwm_cmd_linkquality	,	V_118
+"[Empty LwMesh Payload]"	,	L_12
+"lwm"	,	L_109
+"If the Multicast subfield is set to one, Multicast Header should be present and the Destination Address is a group address."	,	L_36
+LWM_CMD_MULTI_ADDR_TRUE	,	V_114
+", Sequence number: %d"	,	L_21
+hf_lwm_cmd_seq	,	V_109
+lwm_fcf_security	,	V_10
+ett_lwm_multi_tree	,	V_55
+"Link Quality"	,	L_87
+LWM_CMD_FRAME_ACK_LEN	,	V_111
+VALS	,	F_40
+dissector_add_for_decode_as	,	F_53
+tvb_set_reported_length	,	F_27
+"Frame control field"	,	L_22
+lwm_cmd_names	,	V_100
+PI_PROTOCOL	,	V_144
+FT_UINT8	,	V_126
+IEEE802154_PROTOABBREV_WPAN_PANID	,	V_152
+LWM_DST_ENDP_MASK	,	V_47
+BASE_DEC	,	V_132
+prefs_register_string_preference	,	F_48
+proto_item	,	T_8
+ti_proto	,	V_19
+expert_register_field_array	,	F_46
+LWM_MIC_LEN	,	V_72
+ieee802154_packet	,	T_11
+"It contains a network sequence number of a frame that is being acknowledged."	,	L_75
+ENC_NA	,	V_33
+"Acknowledgment Request"	,	L_25
+hf_lwm_cmd	,	V_103
+expert_add_info_format	,	F_36
+LWM_MULTI_MEM_RAD_MASK	,	V_63
+"It contains a link quality value of the discovered route accumulated over all hops towards the originator."	,	L_95
+hf_lwm_src_addr	,	V_39
+lwmes_key	,	V_94
+ENC_LITTLE_ENDIAN	,	V_74
+"Link Local"	,	L_31
+PI_COMMENTS_GROUP	,	V_141
+"%s"	,	L_18
+hf_lwm_fcf	,	V_30
+data	,	V_4
+LWM_MULTI_MAX_NON_MEM_RAD_OFFSET	,	V_61
+"Lightweight Mesh"	,	L_2
+lwm_fcf	,	V_9
+"Lw Decryption key"	,	L_111
+"lwm.fcf"	,	L_23
+ei_register_info	,	T_14
+expert_register_protocol	,	F_45
+dst_pan	,	V_89
+lwm_revlinkqual	,	V_121
+PI_NOTE	,	V_142
+tvb_get_letohs	,	F_13
+LWM_CMD_FRAME_ROUTE_ERR_LEN	,	V_116
+field_tree	,	V_29
+guint	,	T_5
+"lwm.cmd"	,	L_71
+"It contains a source network address from the frame that cannot be routed"	,	L_81
+ett	,	V_136
+hf_lwm_multi_nmrad	,	V_56
+expert_module_t	,	T_16
+"lwm.linklocal"	,	L_32
+"Member Radius"	,	L_61
+tree	,	V_3
+packet_info	,	T_3
+" (Non-routing node)"	,	L_5
+"lwm_wlan"	,	L_114
+LWM_FCF_SEC_EN	,	V_27
+"Specifies maximum radius (number of hops) for Non-members of multicast group."	,	L_60
+"Decryption Failed"	,	L_107
+IEEE802154_CIPHER_SIZE	,	V_151
+lwm_endp_field	,	V_15
+LWM_MULTI_GROUP_STRING	,	V_43
+"lwm.malformed_error"	,	L_96
+"lwm.mismatch_endp"	,	L_100
+proto_tree_add_uint	,	F_10
+EXPFILL	,	V_140
+text_dec	,	V_85
+"Maximum Non-member Radius"	,	L_58
+LWM_CMD_FRAME_ROUTE_REQ_LEN	,	V_120
+lwm_fcf_multicast	,	V_11
+"lwm.security"	,	L_29
+"lwm.cmd.multi"	,	L_85
+expert_lwm	,	V_146
+"Forward Link Quality"	,	L_90
+" (Routing node)"	,	L_4
+"Destination Endpoint"	,	L_52
+"Specifies remaining radius (number of hops) for Non-members of multicast group."	,	L_57
+proto_tree_get_parent	,	F_38
+HFILL	,	V_128
+PI_MALFORMED	,	V_138
+LWM_CMD_ROUTE_ERR	,	V_105
+LWM_FCF_LINK_LOCAL	,	V_131
+hf_lwm_fcf_linklocal	,	V_35
+hf_lwm_dst_addr	,	V_42
+lwm_cmd	,	V_98
+lw_module	,	V_145
+"It contains a destination network address from the frame that cannot be routed"	,	L_84
+"lwm.cmd.route_src"	,	L_80
+GCRY_CIPHER_AES128	,	V_92
+"lwm.fcf.reserved"	,	L_38
+HAVE_LIBGCRYPT	,	F_22
+payload_length	,	V_77
+"No encryption key set - can't decrypt"	,	L_105
+dissect_lwm_cmd_frame_route_err	,	F_33
+proto_item_set_len	,	F_37
+"Security Enabled"	,	L_28
+bytes	,	V_149
+"The 4 bits are reserved."	,	L_39
+LWM_MULTI_NON_MEM_RAD_MASK	,	V_57
+proto_tree	,	T_4
+dissect_lwm_heur	,	F_1
+ett_lwm	,	V_26

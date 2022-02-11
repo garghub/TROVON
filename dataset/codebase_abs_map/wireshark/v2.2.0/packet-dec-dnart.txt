@@ -1,0 +1,456 @@
+handle_nsp_msg	,	F_23
+"Destination Address"	,	L_66
+do_initialization_msg	,	F_15
+"Request for additional %d %s msgs"	,	L_36
+"interrupt"	,	L_37
+"msg nr. %d: end of segment"	,	L_26
+"Control packet"	,	L_50
+"Requested services"	,	L_82
+"dec_dna"	,	L_194
+hf_dec_rt_tiinfo	,	V_80
+"Verification required"	,	L_143
+"Version 1.0: RQSTRID, PASSWRD and ACCOUNT fields included"	,	L_44
+"dec_dna.ctl.blk_size"	,	L_116
+FT_ETHER	,	V_184
+"Router states"	,	L_167
+TFS	,	F_36
+hf_dec_rt_iinfo_blkreq	,	V_102
+"Node type"	,	L_141
+guint32	,	T_10
+pool	,	V_9
+FT_BOOLEAN	,	V_178
+version	,	V_76
+hf_dec_rt_fc_val	,	V_148
+tvb_reported_length_remaining	,	F_26
+hf_dec_ctl_msg_hdr	,	V_41
+ett_dec_rt_list	,	V_116
+RT_CTL_LVL2_ROUTING	,	V_47
+wmem_strdup	,	F_6
+hf_dec_rt_version	,	V_82
+array_length	,	F_40
+"Verification failed"	,	L_149
+"Accepts multicast traffic"	,	L_152
+"Verification message function value"	,	L_128
+hf_dec_rt_test_data	,	V_86
+ENC_ASCII	,	V_170
+"Discarded packet"	,	L_64
+"ethertype"	,	L_195
+list_ether	,	V_112
+col_append_str	,	F_32
+paddr_src	,	V_4
+"Cross sub-channel %s of data segment msg: %d"	,	L_31
+ack_oth	,	V_129
+"dec_dna.nsp.segsize"	,	L_90
+"Max. segment size"	,	L_91
+hf_register_info	,	T_11
+"Verification seed"	,	L_163
+hf_dec_ctl_msgs	,	V_40
+hf_dec_rt_long_msg	,	V_52
+NOP_MSG	,	V_72
+"Session control version 1.0"	,	L_46
+rt_msg_type_vals	,	V_191
+"dec_dna.ctl.iinfo.node_type"	,	L_142
+my_checksum	,	V_88
+guint16	,	T_2
+address	,	T_4
+"dec_dna.ctl.id"	,	L_140
+dnet_ntoa	,	F_1
+"dec_dna.nsp.disc_reason"	,	L_118
+hf_dec_rt_iinfo_rej	,	V_99
+do_hello_test_msg	,	F_17
+BASE_NONE	,	V_185
+hf_dec_rt_inter_eth	,	V_55
+hf_dec_rt_ctrl_msg	,	V_39
+"dec_dna.sess.obj_type"	,	L_187
+hf_dec_rt_iinfo_verf	,	V_100
+ett_dec_rt_nsp_msg	,	V_73
+pstate_tree	,	V_121
+hf_dec_nsp_msgs	,	V_71
+"Routing Test message data"	,	L_133
+"Control protocol version"	,	L_122
+hf_dec_sess_usr_code	,	V_168
+pristate	,	V_119
+rt_services_vals	,	V_187
+"dec_dna.src.addr"	,	L_69
+ett_dec_flow_control	,	V_147
+BASE_HEX	,	V_176
+"Long data packet format"	,	L_52
+"Rejected message"	,	L_148
+ett_dec_routing_flags	,	V_35
+proto_item_add_subtree	,	F_12
+"Version 1.0: USRDATA field included"	,	L_45
+obj_type	,	V_162
+proto_register_field_array	,	F_39
+FT_BYTES	,	V_196
+"Session connect data"	,	L_174
+"negatively"	,	L_19
+"dec_dna.ctl.reserved"	,	L_127
+dissector_add_uint	,	F_44
+hf_dec_rt_dst_addr	,	V_57
+count	,	V_89
+"dec_dna.flags.discard"	,	L_65
+FT_UINT16	,	V_189
+"Maximum data segment size"	,	L_89
+ett_dec_rt	,	V_33
+"Nodes visited"	,	L_102
+"Hello timer(seconds)"	,	L_123
+"Routing control, hello/test message"	,	L_8
+tvb_captured_length	,	F_24
+RT_CTL_ETH_ENDNODE_HELLO_MSG	,	V_49
+hf_dec_rt_blk_size	,	V_81
+"Service class"	,	L_73
+proto_register_dec_rt	,	F_35
+do_hello_msg	,	F_19
+"Short message indicator"	,	L_56
+LINK_SERVICE_MSG	,	V_145
+menu_ver	,	V_163
+hf_dec_rt_short_msg	,	V_63
+"DEC_DNA"	,	L_193
+"NSP message"	,	L_108
+padding_length	,	V_13
+FT_STRING	,	V_198
+"dec_dna.nsp.info"	,	L_86
+"dec_dna.nsp.delay"	,	L_98
+"dec_dna.nsp.flow_control"	,	L_80
+item_len	,	V_114
+ack_dat	,	V_128
+RT_CTL_ETH_ROUTER_HELLO_MSG	,	V_48
+proto_tree_add_none_format	,	F_25
+ack_num	,	V_127
+"DNA NSP message"	,	L_106
+remainder_count	,	V_79
+"List of router states"	,	L_165
+"dec_dna.sess.conn"	,	L_175
+"dec_dna.sess.grp_code"	,	L_179
+dst_format	,	V_160
+"Message number"	,	L_94
+"Short data packet format"	,	L_55
+RT_CTL_VERIFICATION	,	V_44
+hf	,	V_174
+ti_localb	,	V_120
+seg_num	,	V_130
+ti_locala	,	V_109
+hf_dec_rt_id	,	V_103
+hf_dec_rt_discard	,	V_56
+rt_flow_control_vals	,	V_186
+hf_dec_flow_control	,	V_146
+"dec_dna.ctl.iinfo.verf"	,	L_150
+"Routing information"	,	L_113
+PPP_DEC4	,	V_203
+wmem_strdup_printf	,	F_2
+col_append_fstr	,	F_31
+col_set_str	,	F_8
+"Cross sub-channel %s of other data msg %d"	,	L_21
+"dec_dna.nsp.services"	,	L_83
+AT_ETHER	,	V_7
+"NSP disconnect initiate/confirm message"	,	L_43
+hf_dec_rt_iinfo_node_type	,	V_97
+DATA_SEGMENT_MSG	,	V_135
+"Blocking requested?"	,	L_157
+hf_dec_rt_seed	,	V_107
+"NSP connect acknowledgement"	,	L_4
+"(go)"	,	L_35
+tvb_memdup	,	F_21
+"Routing flags"	,	L_47
+"dec_dna.vst_node"	,	L_101
+"dec_dna.ctl.iinfo.vrf"	,	L_144
+proto_tree_add_string	,	F_30
+"Next level 2 router"	,	L_70
+user_eco	,	V_78
+RT_FLAGS_RQR	,	V_180
+"dec_dna.ctl.router_state"	,	L_173
+dissector_handle_t	,	T_12
+info_flags	,	V_96
+"msg nr. %d single segment"	,	L_27
+"DEC DNA Routing Protocol"	,	L_192
+dl_dst	,	V_28
+proto_tree_add_checksum	,	F_28
+"Routing control"	,	L_105
+RT_FLAGS_DISCARD	,	V_183
+VALS	,	F_37
+DISCONN_INITIATE_MSG	,	V_156
+hf_dec_sess_menu_ver	,	V_172
+"data"	,	L_38
+forward	,	V_14
+BASE_DEC	,	V_190
+dl_src	,	V_25
+rt_iinfo_node_type_vals	,	V_197
+"dec_dna.ctl_neighbor"	,	L_161
+ENC_NA	,	V_32
+hf_dec_rt_iinfo_mta	,	V_101
+"(no change)"	,	L_33
+"NSP other data ACK message"	,	L_40
+"dec_dna.flags.RTS"	,	L_61
+proto_reg_handoff_dec_rt	,	F_42
+"dec_dna.ctl.iinfo.mta"	,	L_153
+hf_dec_rt_elist	,	V_115
+nsp_msg_type_vals	,	V_192
+ett_dec_rt_state	,	V_123
+do_routing_msg	,	F_18
+", bytes this segment: %d, total so far:%d"	,	L_28
+"dec_dna.dst_node"	,	L_88
+CONN_CONFIRM_MSG	,	V_151
+net_src	,	V_26
+list_tree	,	V_111
+hf_dec_rt_router_prio	,	V_125
+ti_local	,	V_69
+RT_FLAGS_LONG_MSG	,	V_50
+hf_dec_rt_seg_size	,	V_155
+hf_dec_rt_src_addr	,	V_58
+RT_FLAGS_RTS	,	V_181
+hf_dec_rt_checksum	,	V_93
+guint	,	T_7
+"Source node"	,	L_92
+ett	,	V_199
+wmem_packet_scope	,	F_3
+"dec_dna.visit_cnt"	,	L_78
+hf_dec_rt_segment	,	V_92
+"Last interrupt/link service msg %s acknowledged: %d"	,	L_30
+"ppp.protocol"	,	L_197
+packet_info	,	T_3
+hf_dec_rt_iprio	,	V_106
+"Ack/Nak"	,	L_109
+nsp_msg_type	,	V_70
+"Session Group code"	,	L_178
+"Rejected"	,	L_146
+"dec_dna.ctl.seed"	,	L_164
+"dec_dna.flags.control"	,	L_51
+my_offset	,	V_75
+"Routing Verification function"	,	L_130
+dst	,	V_30
+ett_dec_rt_ctl_msg	,	V_42
+"dec_dna.flags.msglen"	,	L_53
+"dec_dna.sess.src_name"	,	L_185
+"chdlc.protocol"	,	L_196
+"dec_dna.ctl.fcnval"	,	L_129
+PROTO_CHECKSUM_VERIFY	,	V_94
+HFILL	,	V_177
+ti_ether	,	V_110
+src	,	V_27
+"dec_dna.ctl.router_id"	,	L_171
+"dec_dna.ctl.timer"	,	L_124
+"dec_dna.rt.msg_type"	,	L_104
+create_dissector_handle	,	F_43
+"Accepts multicast traffic?"	,	L_154
+"dec_dna.ctl.iinfo.blkreq"	,	L_156
+net_dst	,	V_29
+ett_dec_rt_info_flags	,	V_105
+"Blocking requested"	,	L_155
+ETHERTYPE_DNA_RT	,	V_202
+"unknown"	,	L_17
+"dec_dna.svc_cls"	,	L_74
+"ACK"	,	L_22
+hf_dec_rt_router_id	,	V_122
+proto_register_protocol	,	F_38
+nsp_msg_tree	,	V_68
+hf_dec_rt_router_state	,	V_124
+"dec_dna.sess.menu_ver"	,	L_189
+OTHER_DATA_ACK_MSG	,	V_150
+"Version"	,	L_120
+"Cross sub-channel %s of data msg %d"	,	L_41
+AT_STRINGZ	,	V_6
+startid	,	V_90
+gint	,	T_8
+dnet_addr	,	V_2
+hf_dec_sess_dst_name	,	V_169
+tvb	,	V_10
+dec_rt_handle	,	V_201
+hf_dec_rt_visit_count	,	V_60
+COL_INFO	,	V_24
+set_dnet_address	,	F_4
+hf_dec_routing_flags	,	V_34
+"dec_dna.flags"	,	L_48
+cinfo	,	V_22
+DISCONN_CONFIRM_MSG	,	V_157
+"dec_dna.ctl.prio"	,	L_159
+"Routing Layer version: %d.%d.%d."	,	L_6
+msg_bit_flags	,	V_51
+"Reserved"	,	L_126
+" (%s)"	,	L_3
+"msg nr. %d: continuation segment "	,	L_25
+hf_dec_rt_service_class	,	V_61
+"reserved"	,	L_72
+"known 2-way"	,	L_16
+"ack/nak number"	,	L_111
+"dec_dna.flags.intra_eth"	,	L_63
+"Segment: count:%d, start area: %d, hops:%d, cost: %d"	,	L_12
+"Session Object type"	,	L_186
+"Long message indicator"	,	L_54
+"dec_dna.nl2"	,	L_71
+proto_tree_add_boolean	,	F_14
+"Session Destination end user"	,	L_182
+hf_dec_rt_visited_nodes	,	V_67
+rt_visit_count	,	V_16
+"Intra-ethernet packet"	,	L_62
+"dec_dna.ctl.test_data"	,	L_132
+"Destination node"	,	L_87
+rt_disc_reason_vals	,	V_195
+hf_dec_rt_nl2	,	V_59
+"Reason for disconnect"	,	L_117
+"Flow control"	,	L_79
+COL_PROTOCOL	,	V_23
+"Routing control, Level 1 routing message"	,	L_9
+"Source Address"	,	L_68
+services	,	V_133
+hf_dec_rt_acknum	,	V_139
+BOM_EOM_MSG	,	V_138
+"dec_dna.ctl.segment"	,	L_135
+"Segment"	,	L_134
+guint8	,	T_1
+ti	,	V_21
+ctl_msg_tree	,	V_38
+hf_dec_rt_protocol_type	,	V_62
+RT_CTL_INITIALIZATION	,	V_43
+hf_dec_sess_rqstr_id	,	V_173
+"Packet on return trip"	,	L_60
+hf_dec_rt_rqr	,	V_53
+ett_dec_rt_rlist	,	V_118
+"DNA routing flag"	,	L_49
+hf_dec_sess_grp_code	,	V_167
+"DEC DNA"	,	L_2
+"Flow control(stop, go)"	,	L_81
+tvbuff_t	,	T_5
+CONN_ACK_MSG	,	V_74
+proto_tree_add_bitmask	,	F_29
+rt_tree	,	V_19
+flags_tree	,	V_20
+hf_dec_rt_timer	,	V_83
+ett_dec_msg_flags	,	V_200
+DATA_ACK_MSG	,	V_149
+"Session User code"	,	L_180
+"Segment number"	,	L_96
+image_len	,	V_113
+"dec_dna.flags.RQR"	,	L_58
+"dec_dna.ctl.tiinfo"	,	L_114
+hf_dec_rt_rts	,	V_54
+"Delayed ACK allowed"	,	L_97
+dec_dna_total_bytes_this_segment	,	V_140
+"Verification required?"	,	L_145
+ett_dec_sess_contents	,	V_165
+"dec_dna.ctl.version"	,	L_121
+"dec_dna.ctl.checksum"	,	L_138
+"Visit count"	,	L_77
+"Router ID"	,	L_170
+"NSP link control message"	,	L_32
+"dec_dna.ctl.ename"	,	L_169
+tvb_get_guint8	,	F_10
+hf_dec_rt_dst_node	,	V_64
+RT_CTL_HELLO_TEST	,	V_45
+RT_FLAGS_CTRL_MSG	,	V_36
+rtginfo	,	V_91
+paddr_tgt	,	V_5
+"dec_dna.ctl.acknum"	,	L_110
+"Services requested"	,	L_84
+BOM_MSG	,	V_136
+"(stop)"	,	L_34
+hf_dec_rt_fcnval	,	V_85
+"Protocol type"	,	L_75
+RT_FLAGS_INTRA_ETHER	,	V_182
+"Router priority"	,	L_176
+"Delayed ACK allowed?"	,	L_99
+data_length	,	V_126
+"Routing Layer Version: %d.%d.%d"	,	L_13
+"Routing control, Endnode Hello message"	,	L_15
+dissect_dec_rt	,	F_7
+"dec_dna.ctl.elist"	,	L_166
+"Ethernet name"	,	L_168
+hf_dec_rt_iinfo_vrf	,	V_98
+hf_dec_rt_reserved	,	V_84
+hf_dec_sess_src_name	,	V_171
+proto_dec_rt	,	V_31
+"dec_dna.sess.usr_code"	,	L_181
+"dec_dna.nsp.fc_val"	,	L_112
+"Return to Sender"	,	L_59
+"dec_dna.proto_type"	,	L_76
+"NSP interrupt message"	,	L_29
+hf_dec_rt_services	,	V_153
+rt_tiinfo_vals	,	V_194
+proto_item_append_text	,	F_22
+priority	,	V_95
+fc_val	,	V_132
+"Hello timer in seconds"	,	L_125
+col_clear	,	F_9
+eco_nr	,	V_77
+"Session Requestor ID"	,	L_190
+"msg nr. %d: start of segment"	,	L_24
+proto_register_subtree_array	,	F_41
+"Routing control, Level 2 routing message"	,	L_11
+"Checksum"	,	L_137
+proto_tree_add_item	,	F_11
+EOM_MSG	,	V_137
+"Neighbour ID"	,	L_162
+pinfo	,	V_3
+"Routing control, initialization message"	,	L_5
+INTERRUPT_MSG	,	V_144
+dec_dna_previous_total	,	V_143
+_U_	,	V_12
+proto_tree_add_bitmask_list_value	,	F_20
+"Nodes visited ty this package"	,	L_100
+"NAK"	,	L_23
+"dec_dna.sess.rqstr_id"	,	L_191
+hf_dec_rt_neighbor	,	V_108
+"dec_dna.ctl.iinfo.rej"	,	L_147
+"Routing control message"	,	L_103
+"Test message data"	,	L_131
+FT_UINT8	,	V_175
+rt_zero	,	V_17
+proto_item	,	T_9
+"NSP data %s message(%d)"	,	L_39
+rt_info_version_vals	,	V_188
+hf_dec_rt_ename	,	V_117
+hf_dec_rt_delay	,	V_142
+"Version info"	,	L_85
+"%d.%d"	,	L_1
+"Session Menu version"	,	L_188
+ENC_LITTLE_ENDIAN	,	V_65
+"Routing control, verification message"	,	L_7
+"Router state"	,	L_172
+"NSP connect confirm/initiate message"	,	L_42
+RT_CTL_LVL1_ROUTING	,	V_46
+msg	,	V_87
+data	,	V_1
+hf_dec_sess_obj_type	,	V_166
+msg_flags	,	V_15
+ls_flags	,	V_131
+tvb_get_letohs	,	F_27
+hf_dec_conn_contents	,	V_164
+hf_dec_rt_iinfo	,	V_104
+contents_tree	,	V_159
+FT_NONE	,	V_193
+offset	,	V_18
+tree	,	V_11
+hf_dec_rt_src_node	,	V_66
+"dec_dna.sess.dst_name"	,	L_183
+tfs_yes_no	,	V_179
+"Routing priority"	,	L_158
+"Session Source end user"	,	L_184
+do_verification_msg	,	F_16
+proto_tree_add_uint	,	F_13
+handle_connect_contents	,	F_33
+"dec_dna.ctl.router_prio"	,	L_177
+handle_disc_init_contents	,	F_34
+set_address	,	F_5
+"Block size"	,	L_115
+hf_dec_rt_segnum	,	V_141
+CONN_INITIATE_MSG	,	V_152
+"dec_dna.nsp.segnum"	,	L_95
+"Last data segment %s acknowledged: %d"	,	L_18
+"Transmitting system ID"	,	L_139
+addr	,	V_8
+"Routing control, Ethernet Router Hello  message"	,	L_14
+"Neighbor"	,	L_160
+"Routing Segment"	,	L_136
+flow_control_tree	,	V_134
+src_format	,	V_161
+ctl_msg_type	,	V_37
+"Disconnect reason"	,	L_119
+hf_dec_disc_reason	,	V_158
+"Segment: count:%d, start Id: %d, hops:%d, cost: %d"	,	L_10
+"Return to Sender Request"	,	L_57
+"dec_dna.dst.address"	,	L_67
+"dec_dna.nsp.msg_type"	,	L_107
+"dec_dna.src_node"	,	L_93
+hf_dec_rt_info	,	V_154
+"Verification failed?"	,	L_151
+proto_tree	,	T_6
+"positively"	,	L_20

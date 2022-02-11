@@ -1,0 +1,165 @@
+currentblock	,	V_43
+"tdmop.seqnum"	,	L_24
+hf_tdmop_Flags_remote_no_data	,	V_32
+new_tvb	,	V_57
+"tdmop.delay"	,	L_28
+"tdmop.transferid"	,	L_6
+proto_register_protocol	,	F_19
+current_tdmop_ethertype	,	V_76
+hd_tdmop_Reserved	,	V_38
+prefs_register_protocol	,	F_23
+len	,	V_40
+"Block %d"	,	L_3
+ett_tdmop_channel	,	V_44
+gint	,	T_7
+col_set_str	,	F_3
+"TDMoP Sequence number"	,	L_23
+tvb_new_child_real_data	,	F_15
+tvb_captured_length_remaining	,	F_8
+tvb	,	V_1
+init	,	V_75
+guint32	,	T_9
+find_dissector_add_dependency	,	F_28
+COL_INFO	,	V_16
+hf_tdmop_TransferID	,	V_25
+pool	,	V_56
+tdmop_module	,	V_59
+FT_BOOLEAN	,	V_66
+"tdmop.payload"	,	L_32
+cdata	,	V_52
+"TDMoP D-Channel"	,	L_38
+TDMOP_FLAG_LOST_REQUEST	,	V_17
+col_clear	,	F_4
+dchannel_len	,	V_7
+cinfo	,	V_14
+proto_register_subtree_array	,	F_22
+"TDMoP Dst Ch"	,	L_7
+array_length	,	F_21
+pref_tdmop_d_channel	,	V_53
+hf_tdmop_Compression_mask	,	V_50
+"TDMoP Src Ch"	,	L_9
+"The ethertype assigned to TDMoP (without IP/UDP) stream"	,	L_45
+"TDMoP protocol"	,	L_35
+proto_tree_add_item	,	F_6
+"Channel %d"	,	L_4
+call_dissector	,	F_16
+pinfo	,	V_2
+col_add_fstr	,	F_5
+hf_tdmop_Flags_compressed	,	V_33
+"d_channel"	,	L_37
+dissector_handle_t	,	T_12
+PT_TDMOP	,	V_21
+"lapd-bitstream"	,	L_47
+_U_	,	V_4
+flags	,	V_8
+hf_tdmop_SrcCh	,	V_28
+"tdmop.flags.lostrequest"	,	L_14
+"ethertype"	,	L_43
+"TDMoP Short SrcDst"	,	L_21
+"Lost Request"	,	L_2
+hf_tdmop_DstCh	,	V_27
+"TDMoP Flags"	,	L_11
+"TDMoP Reserved"	,	L_29
+tdmop_handle	,	V_74
+dissector_add_for_decode_as_with_preference	,	F_26
+hf_register_info	,	T_11
+lapd_handle	,	V_58
+"tdmop.reserved"	,	L_30
+dstch	,	V_12
+COL_PROTOCOL	,	V_15
+proto_register_tdmop	,	F_18
+pref_tdmop_ethertype	,	V_73
+FT_UINT8	,	V_64
+"TDMoP Delay"	,	L_27
+"TDMoP default timeslot mask"	,	L_41
+i	,	V_46
+BASE_DEC	,	V_65
+dissect_tdmop	,	F_1
+j	,	V_47
+proto_item	,	T_8
+hd_tdmop_SeqNum	,	V_35
+ENC_NA	,	V_23
+subtree	,	V_51
+guint8	,	T_5
+ti	,	V_10
+BASE_NONE	,	V_70
+ENC_LITTLE_ENDIAN	,	V_26
+buff	,	V_55
+proto_tdmop	,	V_22
+hf_tdmop_Flags_no_data	,	V_30
+data	,	T_4
+"The TDMoD channel that contains the D-Channel."	,	L_39
+tvbuff_t	,	T_1
+hf_tdmop_Flags_lost_request	,	V_31
+"tdmop.cmask"	,	L_34
+ett_tdmop	,	V_24
+MAX_DCHANNEL_LEN	,	V_6
+BASE_HEX	,	V_62
+prefs_register_uint_preference	,	F_24
+"TDMoP Payload"	,	L_31
+gboolean	,	T_13
+proto_item_add_subtree	,	F_7
+tvb_get_letohl	,	F_10
+module_t	,	T_10
+"tdmop.flags.compressed"	,	L_20
+dchannel_data	,	V_5
+TDMOP_FLAG_REMOTE_NO_DATA	,	V_67
+proto_register_field_array	,	F_20
+FT_BYTES	,	V_69
+"TDMoP Last Received number"	,	L_25
+guint	,	T_6
+offset	,	V_9
+"TDMoP No data flag"	,	L_15
+ett	,	V_71
+dissector_add_uint	,	F_27
+hd_tdmop_LastRecv	,	V_36
+"TDMoP compressed framed"	,	L_19
+tree	,	V_3
+"tdmop.srcch"	,	L_10
+FT_UINT16	,	V_68
+packet_info	,	T_2
+hd_tdmop_SrcDst	,	V_34
+hd_tdmop_Delay	,	V_37
+tvb_get_guint8	,	F_2
+tvb_captured_length	,	F_17
+"TDMoP Transfer ID"	,	L_5
+"TDMoP Lost Request Flag"	,	L_13
+TDMOP_FLAG_COMPRESSED	,	V_49
+destport	,	V_18
+dissector_delete_uint	,	F_29
+proto_tree_add_uint	,	F_11
+srcch	,	V_13
+"tdmop.srcdst"	,	L_22
+proto_reg_handoff_tdmop	,	V_72
+"The bitmask of channels in uncompressed TDMoP frame"	,	L_42
+ptype	,	V_20
+reverse_map	,	V_54
+wmem_memdup	,	F_14
+"ts_mask"	,	L_40
+TDMOP_FLAG_NO_DATA	,	V_39
+blockid	,	V_41
+"tdmop.flags"	,	L_12
+"tdmop.flags.nodata"	,	L_16
+tvb_new_subset_length	,	F_12
+"tdmop.dstch"	,	L_8
+pref_tdmop_mask	,	V_48
+call_data_dissector	,	F_13
+tdmop_tree	,	V_11
+"tdmop.flags.remotenodata"	,	L_18
+HFILL	,	V_63
+"tdmop.recvnumber"	,	L_26
+"tdmop"	,	L_36
+"TDMoP Compression mask"	,	L_33
+mask	,	V_45
+"udp.port"	,	L_46
+create_dissector_handle	,	F_25
+"TDMoP"	,	L_1
+proto_tree_add_subtree_format	,	F_9
+hf_tdmop_Flags	,	V_29
+FT_UINT32	,	V_61
+"TDMoP No data received from remote side flag"	,	L_17
+"Ethertype for TDMoP stream(Usually 0808)"	,	L_44
+hf_tdmop_payload	,	V_42
+srcport	,	V_19
+proto_tree	,	T_3
+hf	,	V_60

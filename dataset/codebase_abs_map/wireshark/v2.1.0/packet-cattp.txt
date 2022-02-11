@@ -1,0 +1,239 @@
+"Extended Acknowledgement Numbers"	,	L_65
+"Acknowledge Flag"	,	L_24
+proto_register_protocol	,	F_34
+"cattp.seq"	,	L_45
+tvb_reported_length	,	F_31
+CATTP_HBLEN	,	V_75
+tvb_new_subset_remaining	,	F_27
+"Version"	,	L_34
+M_PDU_RST	,	V_77
+gint	,	T_16
+"Synchronize Flag"	,	L_22
+"cattp.rc"	,	L_61
+wmem_strbuf_new	,	F_7
+tvb	,	V_1
+"cattp.flags"	,	L_21
+M_VERSION	,	V_58
+guint32	,	T_1
+COL_INFO	,	V_13
+vec_t	,	T_11
+hf_cattp_flags	,	V_59
+hf_cattp_eaks	,	V_30
+rc	,	V_31
+cinfo	,	V_12
+wmem_strbuf_t	,	T_7
+wsize	,	V_50
+array_length	,	F_36
+"Maxsdu"	,	L_58
+ett_cattp_id	,	V_14
+""	,	L_2
+hf_cattp_maxsdu	,	V_10
+"cattp.iccid"	,	L_55
+dissect_cattp_heur	,	F_30
+hf_register_info	,	T_15
+hf_cattp_datalen	,	V_65
+"Extended Acknowledge Flag"	,	L_26
+guint16	,	T_13
+"Validate checksum of all messages"	,	L_70
+c	,	V_21
+COL_PROTOCOL	,	V_53
+i	,	V_20
+hf_cattp_ack	,	V_67
+n	,	V_22
+guint8	,	T_6
+buf	,	V_19
+ti	,	V_38
+BASE_NONE	,	V_95
+hf_cattp_flag_syn	,	V_83
+" IdLen=%u "	,	L_1
+gushort	,	T_10
+hf_cattp_seq	,	V_66
+hf_cattp_maxpdu	,	V_8
+cattp_reset_reason	,	V_33
+tvbuff_t	,	T_2
+proto_tree_add_protocol_format	,	F_19
+"NULL Flag"	,	L_30
+"cattp.srcport"	,	L_39
+tvb_get_ntohs	,	F_21
+hf_cattp_eaklen	,	V_27
+proto_tree_add_bitmask	,	F_20
+BASE_HEX	,	V_81
+"0x%X [incorrect, correct: 0x%X]"	,	L_18
+"cattp.dstport"	,	L_41
+gboolean	,	T_14
+"Identification Length"	,	L_62
+"[RST PDU]"	,	L_14
+wmem_strbuf_append_printf	,	F_9
+proto_item_add_subtree	,	F_6
+CATTP_SHORTNAME	,	V_54
+module_t	,	T_17
+cattp_module	,	V_98
+hlen	,	V_24
+proto_register_field_array	,	F_35
+FT_BYTES	,	V_94
+hf_cattp_iccid	,	V_23
+ett_cattp	,	V_56
+"%u &gt; %u "	,	L_11
+dissect_cattp_rstpdu	,	F_14
+"Card Application Toolkit Transport Protocol"	,	L_9
+"Sequence Number"	,	L_44
+"cattp.flags.eak"	,	L_27
+"cattp.flags.ack"	,	L_25
+FT_UINT16	,	V_93
+idi	,	V_5
+M_FLAGS	,	V_57
+hf_cattp_flag_ack	,	V_85
+tvb_get_guint8	,	F_3
+tvb_captured_length	,	F_29
+F_SEG	,	V_91
+F_RST	,	V_71
+"cattp.maxpdu"	,	L_57
+computed_chksum	,	V_39
+"cattp.flags.syn"	,	L_23
+id_tree	,	V_6
+"cattp.idlen"	,	L_63
+"ETSI Card Application Toolkit Transport Protocol"	,	L_67
+heur_dissector_add	,	F_42
+HEURISTIC_ENABLE	,	V_102
+"Window Size"	,	L_48
+FT_STRING	,	V_96
+eaki	,	V_25
+call_data_dissector	,	F_28
+prefs_register_obsolete_preference	,	F_40
+"Whether the checksum of all messages should be validated or not"	,	L_71
+seqno	,	V_49
+hf_cattp_flag_seg	,	V_90
+"cattp.windowsize"	,	L_49
+"cattp.flags.seg"	,	L_33
+idlen	,	V_7
+proto_tree_add_uint_format_value	,	F_13
+cksum_vec	,	V_40
+"cattp_udp"	,	L_75
+ENC_BIG_ENDIAN	,	V_9
+"cattp.checksum"	,	L_51
+"ICCID"	,	L_54
+F_ACK	,	V_70
+"Destination Port"	,	L_40
+hf_cattp_idlen	,	V_11
+hf_cattp_dstport	,	V_64
+hf_cattp_flag_rst	,	V_87
+dissect_cattp_eakpdu	,	F_12
+hf	,	V_79
+proto_register_cattp	,	F_32
+cattp_check_checksum	,	V_72
+"[SYN PDU]"	,	L_12
+rc_str	,	V_32
+dissect_cattp	,	F_16
+prefs_register_protocol	,	F_38
+header_offset	,	V_41
+ett_cattp_flags	,	V_60
+"cattp.ack"	,	L_47
+col_append_fstr	,	F_5
+"cattp.eak"	,	L_64
+col_set_str	,	F_17
+"Flags"	,	L_20
+" DataLen=%u"	,	L_19
+"Data Length"	,	L_42
+"cattp"	,	L_68
+"Acknowledgement Number"	,	L_46
+"0x%X [validated]"	,	L_17
+proto_item_append_text	,	F_22
+F_SYN	,	V_69
+"%02X"	,	L_3
+" (v%u, Src Port: %u, Dst Port: %u)"	,	L_10
+cattp_flags	,	V_61
+"cattp.flags.rst"	,	L_29
+col_clear	,	F_18
+"Reason Code"	,	L_60
+proto_register_subtree_array	,	F_37
+hf_cattp_identification	,	V_16
+proto_tree_add_string	,	F_10
+val_to_str	,	F_15
+chksum	,	V_47
+"Checksum"	,	L_50
+"cattp.version"	,	L_35
+proto_tree_add_item	,	F_2
+in_cksum	,	F_25
+pinfo	,	V_2
+col_add_fstr	,	F_23
+dissector_handle_t	,	T_18
+_U_	,	V_36
+flags	,	V_43
+hf_cattp_checksum	,	V_73
+"Segmentation Flag"	,	L_32
+"Unknown reason code: 0x%02x"	,	L_6
+"cattp.identification"	,	L_53
+ICCID_PREFIX	,	V_18
+eak_count	,	V_26
+dport	,	V_52
+"0x%X [validation disabled]"	,	L_16
+"CAT-TP over UDP"	,	L_74
+first_byte	,	V_44
+initialized	,	V_100
+VALS	,	F_33
+dissector_add_for_decode_as	,	F_43
+SET_CKSUM_VEC_TVB	,	F_24
+"cattp.datalen"	,	L_43
+prefs_register_bool_preference	,	F_39
+ett_cattp_eaks	,	V_29
+"Maxpdu"	,	L_56
+"%u PDUs"	,	L_4
+in_cksum_shouldbe	,	F_26
+FT_UINT8	,	V_80
+"[ACK PDU]"	,	L_13
+BASE_DEC	,	V_84
+"enable"	,	L_72
+proto_item	,	T_5
+"Header Length"	,	L_36
+ENC_NA	,	V_17
+proto_reg_handoff_cattp	,	V_99
+data	,	T_9
+hf_cattp_srcport	,	V_63
+ackno	,	V_48
+plen	,	V_46
+eak_tree	,	V_28
+"cattp.hlen"	,	L_37
+ver	,	V_45
+guint	,	T_12
+M_PDU_SYN	,	V_76
+offset	,	V_4
+ett	,	V_97
+wmem_packet_scope	,	F_8
+tree	,	V_35
+packet_info	,	T_3
+cattp_handle	,	V_101
+F_EAK	,	V_74
+proto_cattp	,	V_55
+hf_cattp_rc	,	V_34
+hf_cattp_flag_nul	,	V_88
+"udp"	,	L_73
+pdutype	,	V_37
+proto_tree_add_uint	,	F_4
+hf_cattp_version	,	V_92
+hf_cattp_hlen	,	V_62
+"checksum"	,	L_69
+"Source Port"	,	L_38
+cattp_tree	,	V_3
+" EAKs=%u"	,	L_5
+"%s Flags=0x%02X Ack=%u Seq=%u WSize=%u"	,	L_15
+"cattp.maxsdu"	,	L_59
+"cattp.flags.nul"	,	L_31
+dissect_cattp_synpdu	,	F_1
+HFILL	,	V_82
+"Reset Flag"	,	L_28
+M_PDU_ACK	,	V_78
+"udp.port"	,	L_76
+gchar	,	T_8
+first_id_byte	,	V_15
+"[Unknown PDU]"	,	L_8
+F_NUL	,	V_89
+create_dissector_handle	,	F_41
+hf_cattp_windowsize	,	V_68
+"Identification"	,	L_52
+cksum_data_len	,	V_42
+" Reason=\"%s\" "	,	L_7
+wmem_strbuf_get_str	,	F_11
+sport	,	V_51
+"cattp.eaks"	,	L_66
+proto_tree	,	T_4
+hf_cattp_flag_eak	,	V_86

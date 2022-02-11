@@ -1,0 +1,256 @@
+dissect_ccid	,	F_8
+"Chain Parameter"	,	L_23
+"usbccid.bVoltageSupport"	,	L_40
+SUB_DATA	,	V_55
+proto_register_protocol	,	F_22
+PC_RDR_ESCAPE	,	V_62
+"usbccid.bNumDataRatesSupported"	,	L_60
+tvb_new_subset_remaining	,	F_14
+"maximum clock frequency"	,	L_51
+sub_handles	,	V_54
+gint	,	T_1
+"number of supported data rates"	,	L_59
+"Clock Status"	,	L_27
+bVoltageLevel_fields	,	V_18
+"usbccid.abRFU"	,	L_22
+TFS	,	F_21
+tvb	,	V_1
+ett_ccid_voltage_level	,	V_17
+COL_INFO	,	V_42
+"ACR122 PN532"	,	L_90
+FT_BOOLEAN	,	V_99
+"USB CCID"	,	L_91
+"usbccid.bVoltageSupport.50"	,	L_42
+"Slot"	,	L_12
+"gsm_sim.command"	,	L_101
+"usbccid.dwMaxCCIDMessageLength"	,	L_68
+"usbccid.hf_ccid_bPINSupport"	,	L_76
+"dwProtocols"	,	L_47
+"GSM SIM"	,	L_86
+"supports 3.0V"	,	L_43
+cinfo	,	V_40
+hf_ccid_bClassGetResponse	,	V_30
+tfs_set_notset	,	V_100
+"usbccid.dwMaximumClock"	,	L_52
+array_length	,	F_24
+"usbccid.bVoltageSupport.18"	,	L_46
+next_tvb	,	V_38
+SUB_PN532	,	V_67
+call_dissector	,	F_15
+"usbccid.dwDefaultClock"	,	L_50
+descriptor_len	,	V_6
+hf_ccid_dwFeatures	,	V_28
+hf_ccid_bVoltageSupport50	,	V_98
+"PIN support"	,	L_75
+"acr122"	,	L_89
+hf_ccid_bClassEnvelope	,	V_31
+ett_ccid	,	V_45
+proto_register_ccid	,	F_19
+"Block Wait Time Integer"	,	L_31
+prefs_register_enum_preference	,	F_27
+"usb.descriptor"	,	L_96
+hf_ccid_abRFU	,	V_63
+hf_register_info	,	T_10
+ccid_clock_states_vals	,	V_95
+"usbccid.bcdCCID"	,	L_36
+dissect_usb_descriptor_header	,	F_4
+sub_selected	,	V_66
+"Generic ISO 7816"	,	L_84
+COL_PROTOCOL	,	V_41
+"mechanical characteristics"	,	L_63
+num_clock_supp	,	V_9
+ccid_descriptor_type_vals_ext	,	V_12
+"SMART CARD DEVICE CLASS DESCRIPTOR"	,	L_1
+"usbccid"	,	L_92
+"usbccid.hf_ccid_wLcdLayout"	,	L_74
+usb_ccid_descr_handle	,	V_107
+guint8	,	T_7
+SUB_ACR122_PN532	,	V_68
+BASE_NONE	,	V_93
+"number of supported clock frequencies"	,	L_53
+"usb.device"	,	L_98
+hf_ccid_bNumClockSupported	,	V_22
+descriptor_type	,	V_5
+"usbccid.bError"	,	L_19
+tvbuff_t	,	T_2
+RDR_PC_SLOT_STATUS	,	V_83
+ccid_proto_structs_vals	,	V_96
+proto_tree_add_bitmask	,	F_6
+PC_RDR_GET_SLOT_STATUS	,	V_59
+hf_ccid_bError	,	V_77
+BASE_HEX	,	V_87
+PC_RDR_XFR_BLOCK	,	V_61
+"usb.protocol"	,	L_100
+"maximum CCID message length"	,	L_67
+proto_item_add_subtree	,	F_10
+module_t	,	T_12
+proto_register_field_array	,	F_23
+FT_BYTES	,	V_92
+ett_ccid_desc	,	V_11
+hf_ccid_bBWI	,	V_64
+"usbccid.bProtocolNum"	,	L_30
+dissector_add_uint	,	F_31
+hf_ccid_bMaxSlotIndex	,	V_15
+"USBCCID"	,	L_4
+"usbccid.bVoltageSupport.30"	,	L_44
+"Sequence"	,	L_14
+FT_UINT16	,	V_97
+"usbccid.dwSynchProtocols"	,	L_62
+"Reserved for Future Use"	,	L_79
+"iso7816"	,	L_83
+tvb_get_guint8	,	F_2
+hf_ccid_dwLength	,	V_49
+hf_ccid_dwDefaultClock	,	V_20
+"usbccid.bClockStatus"	,	L_28
+" - %s"	,	L_6
+"prtype"	,	L_93
+call_dissector_with_data	,	F_16
+"intelligent features"	,	L_65
+"RFU"	,	L_20
+"max slot index"	,	L_37
+hf_ccid_wLcdLayout	,	V_32
+hf_ccid_bVoltageSupport	,	V_16
+hf_ccid_dwDataRate	,	V_23
+hf_ccid_bRFU	,	V_78
+PC_RDR_ICC_OFF	,	V_58
+desc_tree	,	V_8
+"Message Type"	,	L_8
+SUB_GSM_SIM_RSP	,	V_82
+"CCID Packet"	,	L_5
+new_create_dissector_handle	,	F_30
+freq_item	,	V_7
+val_to_str_const	,	F_12
+dissect_usb_ccid_descriptor	,	F_1
+"supported protocol types"	,	L_61
+find_dissector	,	F_33
+ccid_tree	,	V_36
+RDR_PC_DATA_BLOCK	,	V_74
+hf_ccid_bMaxCCIDBusySlots	,	V_34
+PC_RDR_ICC_ON	,	V_56
+FT_UINT32	,	V_90
+sub_enum_vals	,	V_104
+hf	,	V_85
+"bcdCCID"	,	L_35
+enum_val_t	,	T_11
+hf_ccid_dwMaxDataRate	,	V_24
+hf_ccid_bClockStatus	,	V_84
+"usbccid.bBWI"	,	L_32
+usb_conv_info_t	,	T_9
+hf_ccid_dwProtocols	,	V_19
+prefs_register_protocol	,	F_26
+"usbccid.hf_ccid_bClassGetResponse"	,	L_70
+proto_tree_add_subtree	,	F_3
+proto_ccid	,	V_43
+"Error"	,	L_18
+col_append_fstr	,	F_11
+PC_RDR_GET_PARAMS	,	V_60
+col_set_str	,	F_9
+IF_CLASS_SMART_CARD	,	V_108
+hf_ccid_bChainParameter	,	V_79
+"supports 1.8V"	,	L_45
+hf_ccid_bNumDataRatesSupported	,	V_25
+"Level Parameter"	,	L_33
+hf_ccid_bMessageType	,	V_46
+item	,	V_35
+proto_item_append_text	,	F_7
+hf_ccid_bSlot	,	V_50
+PC_RDR_SET_PARAMS	,	V_48
+hf_ccid_wLevelParameter	,	V_65
+"pn532"	,	L_87
+proto_register_subtree_array	,	F_25
+hf_ccid_dwMaxCCIDMessageLength	,	V_29
+cmd	,	V_37
+hf_ccid_Reserved	,	V_53
+"voltage support"	,	L_39
+proto_tree_add_item	,	F_5
+pinfo	,	T_4
+dissector_handle_t	,	T_13
+"Data"	,	L_82
+"gsm_sim"	,	L_85
+_U_	,	V_2
+"maximum number of busy slots"	,	L_77
+new_register_dissector	,	F_28
+"usbccid.dwDataRate"	,	L_56
+hf_ccid_dwMaximumClock	,	V_21
+"supports 5.0V"	,	L_41
+VALS	,	F_20
+"usbccid.dwMechanical"	,	L_64
+dissector_add_for_decode_as	,	F_32
+deviceProduct	,	V_73
+hf_ccid_bProtocolNum	,	V_52
+"usbccid.dwProtocols"	,	L_48
+proto_reg_handoff_ccid	,	F_29
+"default class for Envelope"	,	L_71
+"data"	,	L_81
+"gsm_sim.response"	,	L_102
+tvb_length	,	F_18
+FT_UINT8	,	V_86
+BASE_DEC	,	V_91
+proto_item	,	T_8
+"usbccid.dwLength"	,	L_11
+ENC_NA	,	V_44
+hf_ccid_bSeq	,	V_51
+"Packet Length"	,	L_10
+"usbccid.bSeq"	,	L_15
+hf_ccid_bcdCCID	,	V_13
+"Voltage Level"	,	L_25
+ENC_LITTLE_ENDIAN	,	V_14
+"usbccid.dwFeatures"	,	L_66
+"usbccid.hf_ccid_Reserved"	,	L_80
+usb_ccid_handle	,	V_106
+"usbccid.dwMaxDataRate"	,	L_58
+data	,	T_6
+"usbccid.bSlot"	,	L_13
+ccid_opcode_vals	,	V_88
+hf_ccid_bVoltageSupport30	,	V_101
+"Data Structure Type"	,	L_29
+"usbccid.bNumClockSupported"	,	L_54
+"usbccid.bRFU"	,	L_21
+"default ICC I/O data rate in bps"	,	L_55
+usb_conv_info	,	V_39
+tvb_get_letohl	,	F_13
+"usbccid.bMessageType"	,	L_9
+"usbccid.bChainParameter"	,	L_24
+offset	,	V_4
+ett	,	V_103
+P2P_DIR_RECV	,	V_80
+"usbccid.bPowerSelect"	,	L_26
+tree	,	V_3
+hf_ccid_dwSynchProtocols	,	V_26
+hf_ccid_dwMechanical	,	V_27
+packet_info	,	T_3
+"usb.product"	,	L_99
+"usbccid.wLevelParameter"	,	L_34
+"usbccid.hf_ccid_bMaxCCIDBusySlots"	,	L_78
+ccid_voltage_levels_vals	,	V_94
+deviceVendor	,	V_72
+"PC -&gt; Reader Payload Type"	,	L_94
+" (only default and maximum)"	,	L_3
+pref_mod	,	V_105
+"How commands from the PC to the reader are interpreted"	,	L_95
+tvb_new_subset_length	,	F_17
+hf_ccid_bStatus	,	V_76
+hf_ccid_bVoltageSupport18	,	V_102
+P2P_DIR_SENT	,	V_70
+hf_ccid_bPINSupport	,	V_33
+" kHz"	,	L_2
+"NXP PN532"	,	L_88
+HFILL	,	V_89
+"usbccid.hf_ccid_bClassEnvelope"	,	L_72
+USB_DESC_TYPE_SMARTCARD	,	V_10
+p2p_dir	,	V_69
+"Status"	,	L_16
+hf_ccid_bPowerSelect	,	V_57
+"usbccid.bMaxSlotIndex"	,	L_38
+SUB_GSM_SIM_CMD	,	V_81
+"usb.bulk"	,	L_97
+"usbccid.bStatus"	,	L_17
+"LCD layout"	,	L_73
+SUB_ISO7816	,	V_71
+RDR_PC_ESCAPE	,	V_75
+ccid_messagetypes_vals	,	V_47
+"maximum ICC I/O data rate in bps"	,	L_57
+"Unknown"	,	L_7
+"default class for Get Response"	,	L_69
+proto_tree	,	T_5
+"default clock frequency"	,	L_49

@@ -1,0 +1,189 @@
+fix_prefs	,	F_41
+"Bad checksum"	,	L_13
+upper	,	V_7
+proto_register_protocol	,	F_47
+MARKER_LEN	,	V_4
+dissect_fix	,	F_33
+"9="	,	L_2
+"TCP Ports"	,	L_36
+prefs_register_protocol	,	F_50
+tvb_reported_length	,	F_17
+check_col	,	F_18
+hf_id	,	V_48
+tcp_dissect_pdus	,	F_32
+"Whether the FIX dissector should reassemble messages spanning multiple TCP segments."	,	L_33
+col_set_str	,	F_13
+gint	,	T_12
+conv	,	V_66
+"fix.field.tag"	,	L_19
+fix_param	,	F_9
+"Field Tag"	,	L_18
+dissect_fix_packet	,	F_12
+tvb	,	V_1
+item	,	V_49
+guint32	,	T_10
+COL_INFO	,	V_35
+ett_unknow	,	V_59
+value_len	,	V_21
+lower	,	V_6
+FT_BOOLEAN	,	V_78
+ett_badfield	,	V_45
+pdu_len	,	V_29
+proto_reg_handoff_fix	,	F_54
+ett_fix	,	V_38
+"%s [correct]"	,	L_11
+"Continuation Data"	,	L_16
+proto_tree_add_string_format_value	,	F_23
+dissect_fix_pdus	,	F_31
+col_clear	,	F_14
+tag_value	,	V_31
+size	,	V_24
+cinfo	,	V_33
+PI_ERROR	,	V_58
+proto_register_subtree_array	,	F_49
+val_to_str	,	F_24
+proto_tree_add_string	,	F_29
+array_length	,	F_5
+range_delete_fix_tcp_callback	,	F_37
+field_len	,	V_18
+tag_len	,	V_20
+proto_tree_add_item	,	F_15
+pinfo	,	V_25
+hf_fix_field_value	,	V_60
+_U_	,	V_62
+global_fix_tcp_range	,	V_70
+sum	,	V_51
+ENC_ASCII	,	V_61
+fix_module	,	V_80
+"fix.checksum_bad"	,	L_27
+fix_tcp_range	,	V_69
+hf_fix_data	,	V_39
+found	,	V_43
+proto_tree_add_boolean	,	F_26
+fix_desegment	,	V_64
+proto_register_fix	,	F_45
+hf_register_info	,	T_11
+hf_fix_field_tag	,	V_46
+fix_len	,	V_63
+prefs_register_bool_preference	,	F_51
+base_offset	,	V_22
+key	,	V_5
+table	,	V_47
+tvb_get_ephemeral_string	,	F_8
+ett_checksum	,	V_54
+middle	,	V_9
+COL_PROTOCOL	,	V_34
+range_add_fix_tcp_callback	,	F_39
+i	,	V_42
+proto_tree_add_text	,	F_21
+g_free	,	F_43
+BASE_DEC	,	V_76
+j	,	V_53
+hf_fix_checksum_bad	,	V_56
+value_offset	,	V_19
+proto_item	,	T_7
+"FIX Message (%s)"	,	L_6
+"Reassemble FIX messages spanning multiple TCP segments"	,	L_32
+ENC_NA	,	V_37
+guint8	,	T_3
+field_offset	,	V_30
+fix_fields	,	V_8
+ti	,	V_27
+expert_add_info_format	,	F_28
+BASE_NONE	,	V_73
+"fix.field.value"	,	L_22
+hf_FIX	,	V_81
+equals	,	V_16
+fix_marker	,	F_1
+"TCP Ports range"	,	L_37
+proto_fix	,	V_36
+tvb_length_remaining	,	F_7
+ctrla_offset	,	V_17
+"Good Checksum"	,	L_23
+"Field length."	,	L_20
+data	,	V_13
+tvbuff_t	,	T_1
+MARKER_TAG	,	V_3
+"desegment"	,	L_31
+conversation_set_dissector	,	F_36
+"Bad Checksum"	,	L_26
+col_add_str	,	F_20
+PROTO_ITEM_SET_GENERATED	,	F_27
+tvb_find_guint8	,	F_10
+fix_next_header	,	F_6
+gboolean	,	T_8
+"tcp"	,	L_38
+proto_item_add_subtree	,	F_16
+module_t	,	T_13
+tag	,	V_11
+proto_register_field_array	,	F_48
+FT_BYTES	,	V_72
+ret	,	V_15
+"%i: &lt;missing value&gt;"	,	L_7
+conversation_t	,	T_9
+res	,	V_10
+field_tree	,	V_44
+guint	,	T_2
+offset	,	V_2
+ett	,	V_79
+"%s [incorrect should be %d]"	,	L_12
+dissector_add_uint	,	F_40
+tree	,	V_26
+"True: checksum doesn't match packet content; False: matches content or not checked"	,	L_28
+dissector_add_handle	,	F_57
+dissect_fix_init	,	F_3
+"True: checksum matches packet content; False: doesn't match content or not checked"	,	L_25
+range_empty	,	F_53
+tvb_get_ptr	,	F_25
+FT_UINT16	,	V_75
+register_init_routine	,	F_46
+packet_info	,	T_5
+prefs_register_range_preference	,	F_52
+sum_ok	,	V_52
+tvb_strneql	,	F_2
+"unknown %s"	,	L_9
+port	,	V_68
+get_fix_pdu_len	,	F_30
+msg_type	,	V_40
+"[FIX continuation]"	,	L_5
+"fix.checksum_good"	,	L_24
+dissector_delete_uint	,	F_38
+tag_str	,	V_32
+"Field Value"	,	L_21
+proto_tree_add_uint	,	F_22
+"fix"	,	L_30
+hf_fix_checksum_good	,	V_55
+min_len	,	V_12
+messages_val	,	V_41
+PI_CHECKSUM	,	V_57
+fix_handle	,	V_67
+FIX_MIN_LEN	,	V_65
+"fix.data"	,	L_17
+str_to_str	,	F_19
+heur_dissector_add	,	F_55
+"%i: %s"	,	L_14
+FT_STRING	,	V_77
+fix_tree	,	V_28
+" To use this option, you must also enable"	,	L_34
+tag_search	,	F_4
+"Financial Information eXchange Protocol"	,	L_29
+HFILL	,	V_74
+value	,	V_23
+"unknown %d"	,	L_10
+start	,	V_14
+" \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_35
+create_dissector_handle	,	F_56
+range_foreach	,	F_42
+"\0018"	,	L_1
+fix_header_len	,	F_11
+"FIX"	,	L_4
+"%s (%s)"	,	L_8
+"10="	,	L_3
+dissect_fix_heur	,	F_34
+find_or_create_conversation	,	F_35
+fix_parameter	,	T_4
+"tcp.port"	,	L_15
+proto_tree	,	T_6
+checksum_tree	,	V_50
+hf	,	V_71
+range_copy	,	F_44

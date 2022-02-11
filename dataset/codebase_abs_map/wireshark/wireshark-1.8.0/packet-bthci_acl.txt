@@ -1,0 +1,141 @@
+chandle_data_t	,	T_8
+proto_register_protocol	,	F_23
+"bthci_acl"	,	L_25
+"Reassembled BTHCI ACL"	,	L_5
+prefs_register_protocol	,	F_28
+se_tree_create	,	F_30
+len	,	V_34
+col_append_fstr	,	F_17
+col_set_str	,	F_2
+gint	,	T_10
+acl_reassembly	,	V_31
+"hci_h4.type"	,	L_30
+tvb_new_child_real_data	,	F_19
+"hci_h1.type"	,	L_31
+BTHCI_CHANNEL_ACL	,	V_63
+"bthci_acl.length"	,	L_15
+"btl2cap"	,	L_32
+bthci_acl_handle	,	V_61
+tvb	,	V_1
+item	,	V_44
+se_tree_lookup32_le	,	F_18
+hf_btacl_length	,	V_30
+reassembled	,	V_41
+COL_INFO	,	V_46
+"This is a continuation to the PDU in frame #"	,	L_20
+pd_save	,	V_15
+"bthci_acl.continuation_to"	,	L_19
+acl_data	,	V_13
+btacl_module	,	V_60
+cinfo	,	V_16
+"bthci_acl.bc_flag"	,	L_12
+proto_register_subtree_array	,	F_27
+array_length	,	F_26
+next_tvb	,	V_12
+first_frame	,	V_37
+chandle	,	V_25
+proto_tree_add_item	,	F_3
+private_data	,	V_26
+call_dissector	,	F_13
+pinfo	,	V_2
+dissector_handle_t	,	T_13
+"Data"	,	L_16
+flags	,	V_6
+l2cap_length	,	V_11
+"Packet Boundary Flag"	,	L_10
+hf_btacl_pb_flag	,	V_23
+hf_register_info	,	T_11
+"This PDU is reassembled in frame #"	,	L_23
+VALS	,	F_22
+prefs_register_bool_preference	,	F_29
+btl2cap_handle	,	V_32
+guint16	,	T_5
+pb_flag_vals	,	V_53
+hf_btacl_data	,	V_55
+COL_PROTOCOL	,	V_17
+tot_len	,	V_40
+BASE_DEC	,	V_52
+tvb_new_subset	,	F_11
+proto_item	,	T_4
+"bthci_acl.chandle"	,	L_7
+ENC_NA	,	V_19
+guint8	,	V_42
+ti	,	V_4
+BASE_NONE	,	V_57
+"This PDU is reassembled in frame"	,	L_21
+tvb_length_remaining	,	F_12
+ENC_LITTLE_ENDIAN	,	V_22
+se_tree_lookup32	,	F_7
+"bthci_acl chandles"	,	L_29
+hf_btacl_bc_flag	,	V_24
+register_dissector	,	F_24
+"bthci_acl.data"	,	L_17
+num	,	V_38
+tvbuff_t	,	T_1
+tvb_memcpy	,	F_14
+bc_flag_vals	,	V_54
+"Data Total Length"	,	L_14
+BASE_HEX	,	V_50
+PROTO_ITEM_SET_GENERATED	,	F_16
+"bthci_acl.pb_flag"	,	L_9
+"Bluetooth HCI ACL Packet"	,	L_24
+"BC Flag"	,	L_11
+gboolean	,	T_6
+ep_alloc	,	F_6
+"Connection Handle"	,	L_6
+proto_item_add_subtree	,	F_4
+module_t	,	T_12
+fragmented	,	V_8
+"HCI_ACL"	,	L_1
+proto_register_field_array	,	F_25
+tvb_get_letohs	,	F_5
+proto_reg_handoff_btacl	,	F_31
+FT_NONE	,	V_56
+offset	,	V_9
+ett	,	V_59
+dissector_add_uint	,	F_33
+tree	,	V_3
+multi_fragment_pdu_t	,	T_9
+chandle_tree	,	V_27
+se_alloc	,	F_8
+chandle_data	,	V_14
+FT_UINT16	,	V_49
+packet_info	,	T_2
+hf_btacl_chandle	,	V_21
+add_new_data_source	,	F_20
+btacl_tree	,	V_5
+fd	,	V_35
+proto_tree_add_uint	,	F_15
+pb_flag	,	V_10
+ett_btacl	,	V_20
+HCI_H4_TYPE_ACL	,	V_62
+cur_off	,	V_43
+"Broadcast Flag"	,	L_13
+last_frame	,	V_39
+se_tree_create_non_persistent	,	F_9
+HFILL	,	V_51
+proto_btacl	,	V_18
+EMEM_TREE_TYPE_RED_BLACK	,	V_29
+" [Continuation to #%u]"	,	L_4
+"Whether the ACL dissector should reassemble fragmented PDUs"	,	L_28
+length	,	V_7
+se_tree_insert32	,	F_10
+find_dissector	,	F_32
+start_fragments	,	V_28
+"bthci_acl fragment starts"	,	L_2
+FT_FRAMENUM	,	V_58
+dissect_btacl	,	F_1
+proto_register_btacl	,	F_21
+"PB Flag"	,	L_8
+"Reassemble ACL Fragments"	,	L_27
+" [Reassembled in #%u]"	,	L_3
+"btacl_reassembly"	,	L_26
+mfp	,	V_33
+bthci_acl_data_t	,	T_7
+visited	,	V_36
+hf_btacl_continuation_to	,	V_47
+"bthci_acl.reassembled_in"	,	L_22
+proto_tree	,	T_3
+hf	,	V_48
+hf_btacl_reassembled_in	,	V_45
+"This is a continuation to the PDU in frame"	,	L_18

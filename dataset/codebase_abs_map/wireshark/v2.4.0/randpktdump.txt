@@ -1,0 +1,144 @@
+"one random type is chosen for all packets"	,	L_34
+attach_parent_console	,	F_17
+"%s\n"	,	L_41
+"--all-random"	,	L_35
+WinMain	,	F_34
+optarg	,	V_34
+"Option '%s' requires an argument"	,	L_45
+extcap_conf	,	V_1
+list_config	,	F_5
+_WIN32	,	F_8
+all_random	,	V_17
+g_debug	,	F_18
+g_strfreev	,	F_4
+option_idx	,	V_12
+OPT_ALL_RANDOM	,	V_38
+"arg {number=%u}{call=--maxbytes}{display=Max bytes in a packet}"	,	L_6
+" %s --extcap-interface=%s --extcap-config\n"	,	L_22
+"a random type is chosen for each packet"	,	L_36
+__argc	,	V_52
+extcap_base_handle_interface	,	F_25
+"\nPacket types:\n"	,	L_1
+version	,	V_31
+extcap_base_parse_options	,	F_24
+EXIT_FAILURE	,	V_7
+EXIT_SUCCESS	,	V_9
+ws_strtou16	,	F_20
+"Invalid option: %s"	,	L_46
+"No interface specified."	,	L_4
+"Invalid parameter maxbytes: %s (max value is %u)"	,	L_42
+ws_strtou64	,	F_21
+"arg {number=%u}{call=--random-type}{display=Random type}"	,	L_10
+randpkt_loop	,	F_31
+__argv	,	V_53
+OPT_VERSION	,	V_30
+"max bytes per pack"	,	L_30
+randpkt_find_example	,	F_29
+OPT_TYPE	,	V_39
+example	,	V_19
+OPT_HELP	,	V_32
+"ERROR: WSAStartup failed with error: %d"	,	L_48
+result	,	V_13
+randpkt_example	,	T_4
+"arg {number=%u}{call=--type}{display=Type of packet}"	,	L_14
+g_new0	,	F_9
+" %s --extcap-interface=%s --extcap-dlts\n"	,	L_21
+RANDPKT_EXTCAP_INTERFACE	,	V_8
+_stdcall	,	T_7
+show_config	,	V_42
+OPT_MAXBYTES	,	V_33
+"{type=long}{default=1000}{tooltip=Number of packets to generate (-1 for infinite)}\n"	,	L_9
+guint16	,	T_2
+"%s "	,	L_39
+g_ascii_strcasecmp	,	F_22
+getopt_long	,	F_19
+"randpktdump.html"	,	L_17
+i	,	V_2
+g_free	,	F_12
+extcap_help_add_header	,	F_15
+randpkt_example_init	,	F_30
+"the packet type"	,	L_38
+extcap_base_register_interface	,	F_13
+"Random packet generator"	,	L_18
+g_strcmp0	,	F_7
+longname_list	,	V_4
+help	,	F_1
+"--version"	,	L_27
+lpszCmdLine	,	V_50
+randpkt_example_close	,	F_32
+RANDPKTDUMP_VERSION_RELEASE	,	V_27
+random_type	,	V_16
+hPrevInstance	,	V_49
+HINSTANCE__	,	V_47
+"\n"	,	L_3
+"value {arg=%u}{value=%s}{display=%s}\n"	,	L_16
+G_MAXUINT16	,	V_35
+help_url	,	V_23
+optind	,	V_40
+savedump	,	V_20
+"{type=unsigned}{range=1,5000}{default=5000}{tooltip=The max number of bytes in a packet}\n"	,	L_7
+"--count &lt;num&gt;"	,	L_31
+WSADATA	,	T_6
+"Invalid packet count: %s"	,	L_43
+ret	,	V_21
+help_header	,	V_24
+RANDPKTDUMP_VERSION_MAJOR	,	V_25
+nCmdShow	,	V_51
+hInstance	,	V_48
+" %s --extcap-interface=%s --type dns --count 10 "	,	L_23
+"print this help"	,	L_26
+"--random-type"	,	L_33
+data_file_url	,	F_10
+count	,	V_15
+capture	,	V_43
+RANDPKTDUMP_VERSION_MINOR	,	V_26
+extcap_base_cleanup	,	F_33
+"{type=selector}{tooltip=Type of packet to generate}\n"	,	L_15
+WSAStartup	,	F_26
+"Generator dependent DLT"	,	L_19
+"Interface must be %s"	,	L_5
+wtap_dumper	,	T_5
+"arg {number=%u}{call=--all-random}{display=All random packets}"	,	L_12
+OPT_COUNT	,	V_36
+"--type &lt;type&gt;"	,	L_37
+abbrev	,	V_44
+"arg {number=%u}{call=--count}{display=Number of packets}"	,	L_8
+randpkt_parse_type	,	F_28
+"--maxbytes &lt;bytes&gt;"	,	L_29
+extcap_help_print	,	F_2
+"Generating packets: %s"	,	L_50
+abbrev_list	,	V_3
+"number of packets to generate"	,	L_32
+" %s --extcap-interfaces\n"	,	L_20
+":"	,	L_40
+extcap_help_add_option	,	F_16
+interface	,	V_5
+argv	,	V_11
+"ERROR: invalid interface"	,	L_49
+"--fifo=FILENAME --capture\n"	,	L_24
+g_strdup	,	F_23
+MAKEWORD	,	F_27
+g_warning	,	F_6
+produce_type	,	V_18
+OPT_RANDOM_TYPE	,	V_37
+end	,	V_28
+dump	,	V_46
+inc	,	V_6
+argc	,	V_10
+randpkt_example_list	,	F_3
+fifo	,	V_45
+"--help"	,	L_25
+EXTCAP_OPT_LIST_INTERFACES	,	V_41
+"true"	,	L_44
+extcap_parameters	,	T_1
+wsaData	,	V_22
+extcap_base_set_util_info	,	F_11
+"You can specify only one between: --random-type, --all-random"	,	L_47
+"{type=boolean}{default=false}{tooltip=Packet type for each packet is randomly chosen}\n"	,	L_13
+maxbytes	,	V_14
+"{type=boolean}{default=false}{tooltip=The packets type is randomly chosen}\n"	,	L_11
+guint64	,	T_3
+g_strdup_printf	,	F_14
+longopts	,	V_29
+"\t%-16s%s\n"	,	L_2
+"print the version"	,	L_28

@@ -1,0 +1,257 @@
+ring	,	V_8
+proto_trmac	,	V_73
+"Ring Station Version Number"	,	L_100
+len_item	,	V_13
+hf_trmac_ring_station_version_number	,	V_38
+proto_register_protocol	,	F_26
+"Error Code"	,	L_93
+"trmac.product_instance_id"	,	L_99
+"trmac.errors.lost"	,	L_53
+"trmac.wrap_data"	,	L_103
+hf_trmac_correlator	,	V_31
+FT_ETHER	,	V_87
+gint	,	T_12
+"Illegal value: %d"	,	L_7
+"Total Length"	,	L_28
+hf_trmac_transmit_status_code	,	V_43
+beacon_vs	,	V_23
+": 0x%08X"	,	L_11
+"trmac.errors.token"	,	L_61
+tvb	,	V_1
+"trmac.dstclass"	,	L_33
+guint32	,	T_6
+hf_trmac_product_instance_id	,	V_37
+COL_INFO	,	V_71
+val_to_str_ext	,	F_7
+hf_trmac_local_ring_number	,	V_26
+"Frame-Copied Errors"	,	L_56
+"trmac"	,	L_113
+": %u"	,	L_20
+"Correlator"	,	L_76
+"Frame Forward"	,	L_104
+ett_tr_mac	,	V_74
+"Receiver Congestion Errors"	,	L_54
+cinfo	,	V_69
+"trmac.errors.burst"	,	L_45
+PI_ERROR	,	V_96
+"Isolating Errors"	,	L_38
+array_length	,	F_28
+"trmac.svec.len.invalid"	,	L_110
+"trmac.sa_of_last_amp_or_smp_frame"	,	L_79
+"trmac.errors.iso"	,	L_39
+sv_length	,	V_5
+" (%s)"	,	L_3
+"Individual Address Count"	,	L_82
+hf_trmac_errors_ac	,	V_52
+"trmac.station_identifier"	,	L_85
+mv_length	,	V_65
+": %u ms"	,	L_13
+hf_register_info	,	T_11
+"trmac.mvec"	,	L_27
+"Group Address"	,	L_88
+guint16	,	T_5
+": %08X"	,	L_22
+COL_PROTOCOL	,	V_70
+hf_trmac_beacon_type	,	V_22
+hf_trmac_errors_freq	,	V_59
+hf_trmac_unknown_subvector	,	V_62
+"Token Errors"	,	L_60
+": %s"	,	L_6
+hf_trmac_errors_burst	,	V_51
+"trmac.svec.len"	,	L_35
+classes_vs	,	V_85
+"trmac.beacon_type"	,	L_65
+guint8	,	T_10
+"trmac.authorized_function_classes"	,	L_73
+ti	,	V_14
+hf_trmac_error_report_timer_value	,	V_28
+hf_trmac_errors_abort	,	V_53
+BASE_NONE	,	V_88
+hf_trmac_assign_physical_drop_number	,	V_27
+"0x%04X 0x%02X 0x%02x"	,	L_16
+"Invalid length"	,	L_111
+hf_trmac_error_code	,	V_61
+register_dissector	,	F_32
+tvb_get_ntohl	,	F_11
+hf_trmac_functional_addresses	,	V_46
+"Error Report Timer Value"	,	L_70
+tvbuff_t	,	T_1
+"trmac.individual_address_count"	,	L_83
+"trmac.physical_drop_number"	,	L_81
+tvb_get_ntohs	,	F_8
+tvb_memcpy	,	F_16
+BASE_HEX	,	V_81
+col_add_str	,	F_22
+"trmac.group_address_ether"	,	L_90
+"%u ms"	,	L_12
+proto_item_add_subtree	,	F_18
+hf_trmac_errors_token	,	V_60
+hf_trmac_authorized_function_classes	,	V_29
+"trmac.errors.fc"	,	L_57
+proto_register_field_array	,	F_27
+FT_BYTES	,	V_92
+"trmac.group_addres32s"	,	L_89
+ei	,	V_94
+ett_tr_sv	,	V_16
+svoff	,	V_2
+"Invalid subvector: length &lt; 2"	,	L_2
+FT_UINT16	,	V_86
+"Response Code"	,	L_95
+tvb_get_guint8	,	F_3
+tvb_captured_length	,	F_23
+"trmac.ring_station_version_number"	,	L_101
+"Subvector length is != 6"	,	L_10
+"Line Errors"	,	L_40
+ett_tr_nerr_cnt	,	V_55
+sv_offset	,	V_66
+"Abort Delimiter Transmitted Errors"	,	L_48
+"Unknown Subvector"	,	L_108
+dissect_trmac	,	F_19
+tvb_ether_to_str	,	F_10
+"Upstream Neighbor's Address"	,	L_62
+": 0x%04X 0x%02X 0x%02x"	,	L_17
+"Authorized Function Classes"	,	L_72
+major_vector_vs_ext	,	V_72
+"trmac.correlator"	,	L_77
+"trmac.response_code"	,	L_96
+"Beacon Type"	,	L_64
+"trmac.local_ring_number"	,	L_67
+hf_trmac_dstclass	,	V_78
+"Source Class"	,	L_30
+"trmac.response_code48"	,	L_97
+"trmac.authorized_access_priority"	,	L_75
+hf_trmac_ring_station_status	,	V_42
+hf_trmac_errors_line	,	V_49
+"trmac.errors.congestion"	,	L_55
+"trmac.error_report_timer_value"	,	L_71
+error_report_timer_value	,	V_9
+"Transmit Status Code"	,	L_86
+"trmac.srcclass"	,	L_31
+proto_tree_add_uint_format_value	,	F_12
+ENC_BIG_ENDIAN	,	V_18
+subvector_vs_ext	,	V_21
+mac_tree	,	V_64
+FT_UINT32	,	V_90
+proto_tree_add_uint64_format_value	,	F_13
+"trmac.ring_station_status"	,	L_107
+"Subvector Length"	,	L_34
+"Subvector length is != 4"	,	L_5
+hf_trmac_individual_address_count	,	V_36
+sv_id	,	V_6
+"Ring Station Status"	,	L_106
+hf	,	V_79
+BASE_HEX_DEC	,	V_89
+expert_trmac	,	V_98
+"Major Vector"	,	L_26
+"Subvector"	,	L_1
+hf_trmac_station_identifier	,	V_41
+"Subvector Identifier"	,	L_36
+proto_tree_add_subtree	,	F_2
+hf_trmac_group_address_ether	,	V_45
+"Non-Isolating Errors"	,	L_50
+BASE_EXT_STRING	,	V_82
+"Physical Drop Number"	,	L_80
+FT_UINT64	,	V_91
+col_set_str	,	F_20
+"trmac.assign_physical_drop_number"	,	L_69
+hf_trmac_mv	,	V_75
+"trmac.unknown_subvector"	,	L_109
+guchar	,	T_8
+mv_val	,	V_68
+proto_item_append_text	,	F_6
+hf_trmac_frame_forward	,	V_40
+"A/C Errors"	,	L_46
+"trmac.functional_addresses"	,	L_92
+"trmac.error_code"	,	L_94
+"Product Instance ID"	,	L_98
+col_clear	,	F_21
+"Authorized Access Priority"	,	L_74
+proto_register_subtree_array	,	F_29
+val_to_str	,	F_9
+"trmac.svec.id"	,	L_37
+"Internal Errors"	,	L_42
+tvb_get_ntoh24	,	F_15
+"SA of Last AMP or SMP Frame"	,	L_78
+"Frequency Errors"	,	L_58
+proto_tree_add_item	,	F_4
+"Functional Addresses"	,	L_91
+"trmac.frame_forward"	,	L_105
+pinfo	,	V_3
+_U_	,	V_63
+hf_trmac_length	,	V_76
+ett_tr_ierr_cnt	,	V_48
+"0x%04X 0x%02X 0x%06X"	,	L_18
+"Subvector length is != 6 and != 8"	,	L_21
+"Token-Ring Media Access Control"	,	L_112
+hf_trmac_errors_congestion	,	V_57
+"trmac.errors.line"	,	L_41
+VALS	,	F_25
+sv_item	,	V_12
+hf_trmac_sa_of_last_amp_or_smp_frame	,	V_32
+hf_trmac_srcclass	,	V_77
+"Local Ring Number"	,	L_66
+hf_trmac_group_address32	,	V_44
+"Wrap Data"	,	L_102
+": %04X"	,	L_14
+FT_UINT8	,	V_80
+BASE_DEC	,	V_84
+proto_item	,	T_7
+expert_register_field_array	,	F_31
+ENC_NA	,	V_25
+hf_trmac_physical_drop_number	,	V_33
+expert_add_info_format	,	F_5
+hf_trmac_wrap_data	,	V_39
+"Subvector length is != 8"	,	L_8
+tvb_get_ntoh48	,	F_14
+data	,	T_9
+"trmac.errors.freq"	,	L_59
+"Destination Class"	,	L_32
+"Unknown subvector ID 0x%02X"	,	L_4
+hf_trmac_response_code48	,	V_35
+"Burst Errors"	,	L_44
+"TR MAC"	,	L_23
+ei_register_info	,	T_13
+expert_register_protocol	,	F_30
+hf_trmac_errors_internal	,	V_50
+guint	,	T_4
+": 0x%04X 0x%02X 0x%06X"	,	L_19
+ett	,	V_93
+expert_module_t	,	T_14
+tree	,	V_4
+hf_trmac_errors_iso	,	V_47
+hf_trmac_errors_noniso	,	V_54
+"trmac.errors.internal"	,	L_43
+packet_info	,	T_2
+sv_text	,	F_1
+"trmac.naun"	,	L_63
+hf_trmac_errors_lost	,	V_56
+"Lost Frame Errors"	,	L_52
+errors	,	V_15
+hf_trmac_sv_id	,	V_20
+proto_tree_add_uint	,	F_17
+EXPFILL	,	V_97
+sv_tree	,	V_10
+sv_subtree	,	V_11
+hf_trmac_naun	,	V_24
+"trmac.errors.abort"	,	L_49
+"Assign Physical Drop Number"	,	L_68
+proto_register_trmac	,	F_24
+"trmac.errors.noniso"	,	L_51
+beacon_type	,	V_7
+hf_trmac_response_code32	,	V_34
+hf_trmac_authorized_access_priority	,	V_30
+HFILL	,	V_83
+PI_MALFORMED	,	V_95
+hf_trmac_sv_len	,	V_17
+"trmac.transmit_status_code"	,	L_87
+"trmac.errors.ac"	,	L_47
+": 0x%04X (%d)"	,	L_9
+hf_trmac_errors_fc	,	V_58
+"Station Identifier"	,	L_84
+"Subvector length is != 4 and != 6"	,	L_15
+"%d bytes"	,	L_25
+"Unknown Major Vector: %u"	,	L_24
+"trmac.length"	,	L_29
+ei_trmac_sv_len	,	V_19
+proto_tree	,	T_3
+sv_additional	,	V_67

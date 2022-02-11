@@ -1,0 +1,147 @@
+"wmx.arq.reset_type"	,	L_24
+hf_arq_num_ack_maps	,	V_17
+"wmx.arq.selective_map"	,	L_26
+proto_register_protocol	,	F_4
+"wmx.arq.last"	,	L_15
+arq_discard_tree	,	V_64
+hf_arq_discard_bsn	,	V_11
+hf_arq_1seq_ack_map	,	V_28
+arq_last	,	V_46
+tvb_reported_length	,	F_12
+hf_arq_seq_format	,	V_29
+"More"	,	L_45
+TFS	,	F_3
+hf_arq_1seq1_len	,	V_32
+tvb	,	V_40
+FT_BOOLEAN	,	V_15
+proto_item_append_text	,	F_17
+hf_arq_message_type	,	V_2
+"Last"	,	L_44
+"Sequence 3 Length"	,	L_35
+", %u ARQ_feedback_IE(s)"	,	L_49
+"ARQ_Feedback_IE"	,	L_42
+proto_register_mac_mgmt_msg_arq_feedback	,	F_1
+tvb_len	,	V_50
+proto_register_subtree_array	,	F_7
+"LAST"	,	L_14
+hf_ack_type_reserved	,	V_35
+"BSN"	,	L_5
+"wmx.arq.discard_reserved"	,	L_13
+val_to_str	,	F_18
+"WiMax ARQ Feedback/Discard/Reset (arq)"	,	L_39
+array_length	,	F_6
+hf_arq_discard_reserved	,	V_13
+"Sequence Format"	,	L_29
+", %u ACK Map(s)"	,	L_47
+"wmx.arq.seq2_len"	,	L_34
+arq_feedback_tree	,	V_53
+"Reserved"	,	L_12
+"MAC Management Message, ARQ-Reset (35)"	,	L_51
+""	,	L_46
+"WiMax ARQ Feedback/Discard/Reset Messages"	,	L_38
+proto_tree_add_item	,	F_15
+"wmx.macmgtmsgtype.arq"	,	L_2
+pinfo	,	T_4
+arq_feedback_ie_count	,	V_44
+_U_	,	V_41
+tfs_arq_last	,	V_16
+hf_arq_1seq3_len	,	V_34
+hf_arq_bsn	,	V_8
+hf_arq_reset_direction	,	V_20
+"wmx.arq.reset_direction"	,	L_21
+arq_fb_item	,	V_54
+ARQ_CUMULATIVE_ACK_ENTRY	,	V_62
+"wmx.arq.cid"	,	L_8
+hf_register_info	,	T_1
+"wmx.arq.num_maps"	,	L_17
+"ACK Type"	,	L_3
+VALS	,	F_2
+vals_arq_ack_type	,	V_7
+hf_arq_reset_reserved	,	V_22
+FT_UINT8	,	V_3
+BASE_DEC	,	V_4
+"wmx.arq.seq3_len"	,	L_36
+i	,	V_57
+proto_item	,	T_8
+arq_reset_tree	,	V_67
+"wmx.arq.discard_bsn"	,	L_10
+arq_ack_type	,	V_47
+ti	,	V_56
+"wmx.arq.ack_type"	,	L_4
+proto_register_mac_mgmt_msg_arq_reset	,	F_9
+arq_cid	,	V_45
+"MAC Management Message Type"	,	L_1
+hf_arq_reset_type	,	V_23
+MAC_MGMT_MSG_ARQ_FEEDBACK	,	V_59
+ett_mac_mgmt_msg_arq_decoder	,	V_60
+tvbuff_t	,	T_2
+hf_arq_discard_cid	,	V_12
+proto_tree_add_protocol_format	,	F_13
+"Selective ACK Map"	,	L_25
+tvb_get_ntohs	,	F_16
+BASE_HEX	,	V_26
+"wmx.arq.reset_cid"	,	L_19
+gboolean	,	T_7
+proto_item_add_subtree	,	F_14
+hf_arq_0seq2_len	,	V_31
+dissect_mac_mgmt_msg_arq_feedback_decoder	,	F_10
+hf_arq_last	,	V_14
+arq_discard_item	,	V_63
+vals_arq_reset_direction	,	V_21
+proto_register_field_array	,	F_5
+payload_type	,	V_51
+guint	,	T_6
+ett	,	V_37
+offset	,	V_43
+"Sequence 1 Length"	,	L_31
+tree	,	V_42
+proto_register_mac_mgmt_msg_arq_discard	,	F_8
+hf_arq_ack_type	,	V_6
+"The ID of the connection being referenced"	,	L_9
+FT_UINT16	,	V_9
+packet_info	,	T_3
+proto_mac_mgmt_msg_arq_discard_decoder	,	V_38
+tvb_get_guint8	,	F_11
+"wmx.arq"	,	L_40
+" (%d map(s))"	,	L_48
+"wmx.ack_type.reserved"	,	L_37
+hf_arq_reset_cid	,	V_19
+proto_mac_mgmt_msg_arq_reset_decoder	,	V_39
+"wmx.arq.seq_ack_map"	,	L_28
+", CID: %u, %s ARQ feedback IE, %s, BSN: %u"	,	L_43
+"Sequence ACK Map"	,	L_27
+MAC_MGMT_MSG_ARQ_RESET	,	V_68
+"MAC Management Message, ARQ-Discard (34)"	,	L_50
+dissect_mac_mgmt_msg_arq_reset_decoder	,	F_20
+"wmx.arq.reset_reserved"	,	L_22
+arq_num_ack_maps	,	V_49
+"wmx.arq.seq_format"	,	L_30
+hf_arq_cid	,	V_10
+"Number of ACK Maps"	,	L_16
+hf_arq_0seq_ack_map	,	V_27
+arq_feedback_item	,	V_52
+hf_arq_1seq2_len	,	V_33
+"wmx.arq.seq1_len"	,	L_32
+"wmx.arq.discard_cid"	,	L_11
+"Direction"	,	L_20
+MAC_MGMT_MSG_ARQ_DISCARD	,	V_65
+HFILL	,	V_5
+"wmx.arq.reserved"	,	L_18
+seq_format	,	V_58
+proto_mac_mgmt_msg_arq_feedback_decoder	,	V_36
+arq_fb_tree	,	V_55
+"Sequence 2 Length"	,	L_33
+"MAC Management Message, ARQ-Feedback (33)"	,	L_41
+hf_arq_0seq1_len	,	V_30
+"Connection ID"	,	L_7
+ENC_BIG_ENDIAN	,	V_61
+dissect_mac_mgmt_msg_arq_discard_decoder	,	F_19
+hf_arq_selective_map	,	V_25
+"wmx.arq.bsn"	,	L_6
+arq_bsn	,	V_48
+"Type"	,	L_23
+arq_reset_item	,	V_66
+hf_arq_reserved	,	V_18
+vals_arq_reset_type	,	V_24
+hf	,	V_1
+proto_tree	,	T_5

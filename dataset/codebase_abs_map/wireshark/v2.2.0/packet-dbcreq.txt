@@ -1,0 +1,65 @@
+register_dissector	,	F_15
+docsis_tlv_handle	,	V_17
+hf_docsis_dbcreq_number_of_fragments	,	V_15
+"Number of Fragments"	,	L_5
+BASE_HEX_DEC	,	V_23
+"DOCSIS Dynamic Bonding Change Request"	,	L_9
+data	,	T_4
+docsis_dbcreq_handle	,	V_25
+proto_register_protocol	,	F_11
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_4
+dissect_dbcreq	,	F_1
+"docsis_dbcreq.fragment_sequence_number"	,	L_8
+tvb_get_ntohs	,	F_2
+dbcreq_tree	,	V_6
+tvb_new_subset_remaining	,	F_7
+"Dynamic Bonding Change Request: Tran-Id = %u"	,	L_1
+proto_reg_handoff_docsis_dbcreq	,	F_16
+gint	,	T_8
+proto_item_add_subtree	,	F_5
+proto_register_field_array	,	F_12
+tvb	,	V_1
+"Transaction Id"	,	L_3
+ett	,	V_24
+COL_INFO	,	V_10
+"docsis_dbcreq.tranid"	,	L_4
+transid	,	V_7
+dissector_add_uint	,	F_18
+"docsis_mgmt"	,	L_13
+tree	,	V_3
+proto_docsis_dbcreq	,	V_11
+FT_UINT16	,	V_19
+packet_info	,	T_2
+"Fragment Seq No"	,	L_7
+"docsis_dbcreq"	,	L_11
+cinfo	,	V_9
+tvb_captured_length	,	F_9
+hf_docsis_dbcreq_fragment_sequence_number	,	V_16
+proto_register_subtree_array	,	F_14
+array_length	,	F_13
+next_tvb	,	V_8
+"Dynamic Bonding Change Request"	,	L_2
+proto_tree_add_item	,	F_6
+call_dissector	,	F_8
+pinfo	,	V_2
+col_add_fstr	,	F_3
+ett_docsis_dbcreq	,	V_12
+dissector_handle_t	,	T_9
+_U_	,	V_4
+"DOCSIS DBC-REQ"	,	L_10
+hf_register_info	,	T_7
+"docsis_dbcreq.number_of_fragments"	,	L_6
+HFILL	,	V_21
+"docsis_tlv"	,	L_12
+guint16	,	T_6
+FT_UINT8	,	V_22
+find_dissector	,	F_17
+BASE_DEC	,	V_20
+proto_item	,	T_5
+ENC_BIG_ENDIAN	,	V_14
+proto_register_docsis_dbcreq	,	F_10
+hf_docsis_dbcreq_tranid	,	V_13
+dbcreq_item	,	V_5
+proto_tree	,	T_3
+hf	,	V_18

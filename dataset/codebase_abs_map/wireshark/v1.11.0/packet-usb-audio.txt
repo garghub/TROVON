@@ -1,0 +1,168 @@
+new_tvb	,	V_22
+interfaceSubclass	,	V_38
+"Reassembled Message"	,	L_3
+usb_conv_info_t	,	T_10
+"USB Midi Event Packet"	,	L_2
+aud_descriptor_type_vals_ext	,	V_35
+proto_register_protocol	,	F_23
+"Message fragment overlapping with conflicting data"	,	L_22
+ett_usb_audio	,	V_16
+hf_sysex_msg_fragments	,	V_48
+process_reassembled_data	,	F_11
+ett_sysex_msg_fragments	,	V_68
+"usbaudio.sysex.fragment.error"	,	L_29
+gint	,	T_4
+col_set_str	,	F_6
+hf_sysex_msg_fragment_multiple_tails	,	V_56
+tvb	,	V_2
+"USBAUDIO"	,	L_8
+item	,	V_30
+"usbaudio.sysex.reassembled.length"	,	L_35
+COL_INFO	,	V_13
+FT_BOOLEAN	,	V_54
+is_sysex_code	,	F_1
+"usbaudio.midi.event"	,	L_15
+"Reassembled data"	,	L_36
+AUDIO_SUBCLASS_MIDISTREAMING	,	V_39
+"sysex"	,	L_43
+cinfo	,	V_12
+"Reassembled length"	,	L_34
+hf_sysex_msg_fragment_overlap_conflicts	,	V_55
+proto_register_subtree_array	,	F_26
+array_length	,	F_25
+"usbaudio.midi.cable_number"	,	L_11
+proto_tree_add_item	,	F_9
+"Cable Number"	,	L_10
+call_dissector	,	F_13
+pinfo	,	V_6
+dissector_handle_t	,	T_15
+_U_	,	V_27
+descriptor_len	,	V_28
+col_append_str	,	F_12
+hf_sysex_msg_reassembled_in	,	V_62
+"Message fragment too long"	,	L_26
+" (SysEx Reassembled)"	,	L_4
+"usb.descriptor"	,	L_41
+hf_register_info	,	T_12
+"USB Audio"	,	L_9
+" (SysEx fragment)"	,	L_5
+VALS	,	F_22
+dissect_usb_descriptor_header	,	F_16
+COL_PROTOCOL	,	V_37
+hf_sysex_msg_fragment_overlap	,	V_53
+tvb_length	,	F_3
+FT_UINT8	,	V_43
+IF_CLASS_AUDIO	,	V_76
+proto_tree_add_text	,	F_15
+BASE_DEC	,	V_61
+proto_reg_handoff_usb_audio	,	F_31
+proto_item	,	T_7
+expert_register_field_array	,	F_28
+reassembly_table_init	,	F_20
+"usbaudio.sysex.reassembled.data"	,	L_37
+usb_audio_tree	,	V_7
+guint8	,	T_2
+proto_usb_audio	,	V_15
+dissect_usb_midi_event	,	F_5
+ti	,	V_14
+ei_usb_audio_undecoded	,	V_40
+BASE_NONE	,	V_50
+usb_audio_subtrees	,	V_66
+dissect_usb_audio_descriptor	,	F_14
+"Message fragment"	,	L_18
+register_dissector	,	F_30
+hf_sysex_msg_fragment	,	V_51
+data	,	T_9
+"usbaudio.sysex.fragment.count"	,	L_31
+descriptor_type	,	V_29
+tvbuff_t	,	T_3
+"usbaudio.undecoded"	,	L_38
+proto_tree_add_protocol_format	,	F_7
+"MIDI Event"	,	L_14
+BASE_HEX	,	V_44
+parent_tree	,	V_8
+hf_sysex_msg_reassembled_data	,	V_64
+sysex_msg_frag_items	,	V_25
+FT_UINT24	,	V_47
+"usbaudio.sysex.fragment.too_long_fragment"	,	L_27
+ei_register_info	,	T_13
+gboolean	,	T_1
+midi_data_reassembly_table	,	V_24
+usb_conv_info	,	V_36
+expert_register_protocol	,	F_27
+save_fragmented	,	V_10
+"AUDIO CONTROL INTERFACE DESCRIPTOR"	,	L_6
+"usbaudio.sysex.fragment"	,	L_19
+hf_sysex_msg_fragment_count	,	V_59
+proto_item_add_subtree	,	F_8
+fragmented	,	V_21
+PI_UNDECODED	,	V_70
+cable	,	V_9
+proto_register_field_array	,	F_24
+FT_BYTES	,	V_65
+hf_midi_event	,	V_20
+guint	,	T_11
+FT_NONE	,	V_49
+offset	,	V_3
+last	,	V_4
+ei	,	V_69
+"Message fragments"	,	L_16
+fragment_head	,	T_8
+expert_module_t	,	T_14
+dissector_add_uint	,	F_33
+tree	,	V_11
+addresses_reassembly_table_functions	,	V_41
+register_init_routine	,	F_29
+packet_info	,	T_5
+hf_sysex_msg_fragment_error	,	V_58
+tvb_get_guint8	,	F_4
+"Code Index"	,	L_12
+ett_usb_audio_desc	,	V_34
+"usbaudio.sysex.reassembled.in"	,	L_33
+"Message defragmentation error"	,	L_28
+"usbaudio.midi.code_index"	,	L_13
+dissect_usb_audio_bulk	,	F_17
+EXPFILL	,	V_72
+"usbaudio.sysex.fragment.multiple_tails"	,	L_25
+code	,	V_1
+fragment_add_seq_next	,	F_10
+"Message fragment overlap"	,	L_20
+proto_tree_add_expert	,	F_18
+hf_midi_cable_number	,	V_17
+"AUDIO CONTROL ENDPOINT DESCRIPTOR"	,	L_7
+"Reassembled in"	,	L_32
+hf_midi_code_index	,	V_19
+ett_sysex_msg_fragment	,	V_67
+"USB-MIDI Event Packets"	,	L_1
+desc_tree	,	V_31
+"usbaudio.sysex.fragment.overlap"	,	L_21
+"usbaudio.sysex.fragment.overlap.conflicts"	,	L_23
+"Message fragment count"	,	L_30
+"usbaudio"	,	L_40
+HFILL	,	V_45
+hf_sysex_msg_fragment_too_long_fragment	,	V_57
+expert_usb_audio	,	V_73
+code_index_vals	,	V_46
+new_create_dissector_handle	,	F_32
+sysex_handle	,	V_26
+usb_audio_bulk_handle	,	V_74
+"Not dissected yet (report to wireshark.org)"	,	L_39
+length	,	V_5
+find_dissector	,	F_34
+"usb.bulk"	,	L_42
+hf_sysex_msg_reassembled_length	,	V_63
+FT_FRAMENUM	,	V_52
+PI_WARN	,	V_71
+"Message has multiple tail fragments"	,	L_24
+ENC_BIG_ENDIAN	,	V_18
+frag_sysex_msg	,	V_23
+usb_audio_descr_handle	,	V_75
+"usbaudio.sysex.fragments"	,	L_17
+FT_UINT32	,	V_60
+CS_INTERFACE	,	V_32
+CS_ENDPOINT	,	V_33
+proto_register_usb_audio	,	F_21
+is_last_sysex_packet_in_tvb	,	F_2
+proto_tree	,	T_6
+hf	,	V_42
+midi_data_reassemble_init	,	F_19

@@ -1,0 +1,320 @@
+vtype	,	V_79
+THROW	,	F_19
+proto_register_protocol	,	F_28
+"dlsw.origin_transport_id"	,	L_74
+hf_dlsw_oui	,	V_97
+"Version"	,	L_29
+hf_dlsw_target_link_sap	,	V_54
+tcp_dissect_pdus	,	F_24
+hf_dlsw_vector_type	,	V_96
+FT_ETHER	,	V_119
+gint	,	T_8
+"Origin Transport ID"	,	L_73
+ett_dlsw_header	,	V_24
+"dlsw.dlc_header.sa"	,	L_88
+"Capabilities Length"	,	L_97
+TFS	,	F_26
+tvb	,	V_1
+hf_dlsw_error_pointer	,	V_89
+COL_INFO	,	V_19
+hf_dlsw_old_message_type	,	V_44
+"Not used for CapEx"	,	L_132
+FT_BOOLEAN	,	V_108
+"MAC Address List"	,	L_115
+version	,	V_5
+"Capability exchange type"	,	L_49
+hf_dlsw_initial_pacing_window	,	V_98
+"Data Link SWitching"	,	L_133
+dlsw_tcp_handle	,	V_135
+cinfo	,	V_17
+"dlsw.protocol_id"	,	L_44
+hf_dlsw_ssp_flags	,	V_47
+array_length	,	F_30
+hf_dlsw_target_transport_id	,	V_63
+"Reserved"	,	L_123
+"Invalid GDS ID"	,	L_10
+hf_dlsw_message_length	,	V_27
+"dlsw.dlc_header.da"	,	L_86
+"dlsw.message_type"	,	L_40
+"dlsw.version"	,	L_30
+"dlsw.capabilities_length"	,	L_98
+"dlsw.multicast_version_number"	,	L_122
+"DLC Header Length bogus"	,	L_130
+ENC_ASCII	,	V_72
+hf_dlsw_origin_mac_address	,	V_52
+"dlsw.origin_dlc_port_id"	,	L_70
+KEEPALIVE	,	V_67
+dlsw_udp_handle	,	V_134
+"DLSw"	,	L_1
+"Target Link SAP"	,	L_63
+get_dlsw_pdu_len	,	F_22
+hf_register_info	,	T_7
+"Flow Control Operator"	,	L_25
+"Origin MAC Address"	,	L_59
+"SAP List Support = 0x%x0=%s 0x%x2=%s 0x%x4=%s 0x%x6=%s 0x%x8=%s 0x%xa=%s 0x%xc=%s 0x%xe=%s"	,	L_17
+ti2	,	V_14
+", %s"	,	L_5
+ReportedBoundsError	,	V_92
+COL_PROTOCOL	,	V_18
+"DLC Header Length = %u (bogus, must be &lt;= message length %u)"	,	L_7
+"dlsw.flags.explorer_msg"	,	L_28
+dissect_dlsw_pdu	,	F_1
+"Old message type"	,	L_47
+IFCM	,	V_65
+"Header Number"	,	L_45
+i	,	V_83
+hf_dlsw_origin_dlc	,	V_59
+"dlsw"	,	L_134
+hf_dlsw_flow_control_ack	,	V_39
+ti	,	V_13
+hf_dlsw_version	,	V_25
+BASE_NONE	,	V_120
+hf_dlsw_flow_control_operator	,	V_40
+hf_dlsw_dlc_header_fc_byte	,	V_70
+hf_dlsw_vector_data	,	V_105
+"dlsw.header_number"	,	L_46
+proto_dlsw	,	V_21
+hf_dlsw_netbios_name	,	V_102
+"OUI"	,	L_107
+tvbuff_t	,	T_1
+"DLC Header - RIF"	,	L_89
+"dlsw.target_mac_address"	,	L_58
+tvb_get_ntohs	,	F_9
+"Multicast Version Number"	,	L_121
+hf_dlsw_flow_ctrl_byte	,	V_36
+BASE_HEX	,	V_116
+hf_dlsw_dlc_header_ctrl	,	V_77
+"dlsw.data"	,	L_126
+"Message Length"	,	L_33
+"Protocol ID"	,	L_43
+FT_UINT24	,	V_125
+"dlsw.dlc_header.fc_byte"	,	L_84
+proto_item_add_subtree	,	F_7
+hlen	,	V_6
+proto_register_field_array	,	F_29
+"dlsw.error_pointer"	,	L_100
+hf_dlsw_multicast_version_number	,	V_104
+"Largest Frame size"	,	L_51
+FT_BYTES	,	V_126
+"Target DLC Port ID"	,	L_75
+"dlsw.old_message_type"	,	L_48
+ei	,	V_128
+dissector_add_uint	,	F_36
+"dlsw.dlc_header.ac_byte"	,	L_82
+"TCP connections"	,	L_113
+dlsw_vector_vals	,	V_94
+"dlsw.not_used_for_capex"	,	L_131
+hf_dlsw_capabilities_length	,	V_85
+"dlsw.target_transport_id"	,	L_80
+"dlsw.dlc_header.rif"	,	L_90
+hf_dlsw_message_type	,	V_33
+FT_UINT16	,	V_114
+hf_dlsw_dlc_header_length	,	V_56
+hf_dlsw_target_dlc	,	V_62
+"On"	,	L_15
+tvb_get_guint8	,	F_3
+"Vendor OUI"	,	L_119
+hf_dlsw_dlc_header_ssap	,	V_76
+hf_dlsw_dlc_header_da	,	V_71
+"dlsw.flow_control_indication"	,	L_22
+dlsw_tree	,	V_11
+hf_dlsw_unknown_data	,	V_106
+"Version String"	,	L_111
+mlen	,	V_7
+" - %s"	,	L_11
+INFOFRAME	,	V_66
+"Target MAC Address"	,	L_57
+hf_dlsw_flags_explorer_msg	,	V_49
+ett_dlsw	,	V_23
+hf_dlsw_dlc_header_sa	,	V_73
+"DLSw data"	,	L_8
+hf_dlsw_vector_length	,	V_95
+hf_dlsw_version_string	,	V_99
+"dlsw.dlc_header_length.bogus"	,	L_129
+hf_dlsw_remote_dlc_pid	,	V_30
+"Initial Pacing Window"	,	L_109
+"DLC Header - Ctrl"	,	L_95
+"Error pointer"	,	L_99
+"dlsw.target_link_sap"	,	L_64
+dlsw_flags_tree	,	V_15
+dlsw_refuse_vals	,	V_124
+"Message Type"	,	L_39
+FT_STRING	,	V_122
+hf_dlsw_circuit_priority	,	V_50
+"Vector Length"	,	L_103
+"DLC Header - DSAP"	,	L_91
+dlsw_fc_cmd_vals	,	V_113
+FT_INT16	,	V_123
+new_create_dissector_handle	,	F_35
+hf_dlsw_reserved	,	V_31
+"dlsw.origin_dlc"	,	L_72
+val_to_str_const	,	F_5
+"dlsw.vendor_oui"	,	L_120
+PI_WARN	,	V_130
+ENC_BIG_ENDIAN	,	V_28
+"dlsw.origin_mac_address"	,	L_60
+hf_dlsw_target_dlc_port_id	,	V_61
+FT_UINT32	,	V_115
+dlsw_vector_tree	,	V_84
+dlsw_type_vals	,	V_32
+"Remote DLC"	,	L_35
+dlsw_version_vals	,	V_20
+hf	,	V_107
+hf_dlsw_header_number	,	V_43
+hf_dlsw_frame_direction	,	V_55
+dissect_dlsw_tcp	,	F_23
+DLSW_GDSID_ACK	,	V_87
+"dlsw.tcp_connections"	,	L_114
+gdsid	,	V_81
+hf_dlsw_flow_control_indication	,	V_38
+hf_dlsw_dlc_header_dsap	,	V_75
+mtype	,	V_8
+proto_tree_add_subtree	,	F_13
+col_append_fstr	,	F_10
+hf_dlsw_origin_transport_id	,	V_60
+col_set_str	,	F_2
+hf_dlsw_largest_frame_size	,	V_46
+hf_dlsw_header_length	,	V_26
+"dlsw.flow_control_operator"	,	L_26
+DLSW_GDSID_REF	,	V_88
+"dlsw.vector_length"	,	L_104
+"dlsw.remote_dlc"	,	L_36
+dlsw_data_tree	,	V_16
+proto_register_dlsw	,	F_25
+dissect_dlsw_udp	,	F_20
+"DLC Header - DA"	,	L_85
+"Flow ctrl byte"	,	L_41
+"dlsw.dlc_header.dsap"	,	L_92
+proto_item_append_text	,	F_18
+"dlsw.dlc_header.ctrl"	,	L_96
+"dlsw.flow_control_ack"	,	L_24
+"dlsw.error_cause"	,	L_102
+DLSW_INFO_HEADER	,	V_41
+hf_dlsw_target_mac_address	,	V_51
+hf_dlsw_data	,	V_68
+CAP_EXCHANGE	,	V_34
+proto_register_subtree_array	,	F_31
+"dlsw.dlc_header_length"	,	L_68
+"Error cause"	,	L_101
+"dlsw.initial_pacing_window"	,	L_110
+dlsw_capex_type_vals	,	V_117
+"MAC Address Exclusivity = %s"	,	L_14
+proto_tree_add_item	,	F_6
+pinfo	,	V_2
+col_add_fstr	,	F_4
+dissector_handle_t	,	T_11
+"Data"	,	L_125
+"Target DLC"	,	L_77
+_U_	,	V_4
+flags	,	V_10
+"dlsw.mac_address_list"	,	L_116
+"dlsw.remote_dlc_pid"	,	L_38
+"Flow Control Indication"	,	L_21
+"Explorer message"	,	L_27
+"on "	,	L_18
+"Frame direction"	,	L_65
+dlsw_gds_vals	,	V_86
+"dlsw.target_dlc_port_id"	,	L_76
+VALS	,	F_27
+PI_PROTOCOL	,	V_129
+"dlsw.dlc_header.ssap"	,	L_94
+hf_dlsw_tcp_connections	,	V_100
+"dlsw.header_length"	,	L_32
+"dlsw.largest_frame_size"	,	L_52
+hf_dlsw_dlc_header_rif	,	V_74
+tvb_length	,	F_16
+FT_UINT8	,	V_111
+proto_tree_add_text	,	F_17
+BASE_DEC	,	V_112
+TCP_PORT_DLSW	,	V_137
+tvb_new_subset	,	F_15
+"Unknown vector type"	,	L_12
+proto_item	,	T_6
+expert_register_field_array	,	F_33
+"Header Length"	,	L_31
+try_val_to_str	,	F_21
+"Origin DLC"	,	L_71
+"dlsw.vector_data"	,	L_127
+ENC_NA	,	V_22
+hf_dlsw_error_cause	,	V_90
+"DLC Header - SSAP"	,	L_93
+"dlsw.origin_link_sap"	,	L_62
+expert_add_info_format	,	F_12
+"DLC Header - SA"	,	L_87
+UDP_PORT_DLSW	,	V_136
+"Vector Type"	,	L_105
+"SSP Flags"	,	L_53
+"DLSw %s"	,	L_2
+"Origin DLC Port ID"	,	L_69
+"%s"	,	L_9
+"Unknown Version"	,	L_3
+data	,	T_4
+"dlsw.flags"	,	L_54
+"Unknown message Type"	,	L_6
+ett_dlsw_fc	,	V_37
+ei_dlsw_not_used_for_capex	,	V_35
+ei_register_info	,	T_9
+"DLC Header - FC byte"	,	L_83
+expert_register_protocol	,	F_32
+hf_dlsw_origin_link_sap	,	V_53
+"Target Transport ID"	,	L_79
+hf_dlsw_protocol_id	,	V_42
+PI_NOTE	,	V_132
+guint	,	T_5
+offset	,	V_80
+hf_dlsw_mac_address_list	,	V_101
+ett	,	V_127
+"off"	,	L_19
+"DLC Header - AC byte"	,	L_81
+expert_module_t	,	T_10
+tree	,	V_3
+dlsw_frame_direction_vals	,	V_121
+hf_dlsw_capex_type	,	V_45
+"dlsw.oui"	,	L_108
+dlsw_header_tree	,	V_12
+packet_info	,	T_2
+ett_dlsw_data	,	V_64
+"dlsw.unknown_data"	,	L_128
+expert_dlsw	,	V_133
+hf_dlsw_vendor_oui	,	V_103
+"dlsw.version_string"	,	L_112
+hf_dlsw_origin_dlc_port_id	,	V_58
+"DLSw header, %s"	,	L_4
+tfs_yes_no	,	V_109
+"DLC Header Length"	,	L_67
+ei_dlsw_dlc_header_length	,	V_57
+"Circuit priority"	,	L_55
+hf_dlsw_dlc_header_ac_byte	,	V_69
+EXPFILL	,	V_131
+proto_tree_add_expert	,	F_11
+"DLSw Version = %d.%d"	,	L_13
+"dlsw.capex_type"	,	L_50
+"Origin Link SAP"	,	L_61
+"dlsw.frame_direction"	,	L_66
+"Off"	,	L_16
+"Flow Control Acknowledgment"	,	L_23
+"dlsw.vector_type"	,	L_106
+"dlsw.message_length"	,	L_34
+dlchlen	,	V_9
+"dlsw.circuit_priority"	,	L_56
+HFILL	,	V_110
+"NetBIOS name"	,	L_117
+"dlsw.netbios_name"	,	L_118
+dissect_dlsw_capex	,	F_14
+sap	,	V_82
+"udp.port"	,	L_135
+vlen	,	V_78
+hf_dlsw_remote_dlc	,	V_29
+"dlsw.reserved"	,	L_124
+proto_tree_add_subtree_format	,	F_8
+ett_dlsw_sspflags	,	V_48
+"dlsw.flow_ctrl_byte"	,	L_42
+proto_reg_handoff_dlsw	,	F_34
+DLSW_GDSID_SEND	,	V_91
+"NetBIOS Name Exclusivity = %s"	,	L_20
+"Remote DLC PID"	,	L_37
+dlsw_pri_vals	,	V_118
+ett_dlsw_vector	,	V_93
+"tcp.port"	,	L_136
+"dlsw.target_dlc"	,	L_78
+proto_tree	,	T_3

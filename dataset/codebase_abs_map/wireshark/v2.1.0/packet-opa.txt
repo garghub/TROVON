@@ -1,0 +1,555 @@
+"opa.deth"	,	L_91
+hf_opa_RDETH_reserved8	,	V_123
+hf_opa_psm_hostpid	,	V_216
+"Invariant CRC"	,	L_38
+PSM_TIDS_GRANT_ACK	,	V_203
+"GRH - Global Route Header"	,	L_40
+"AETH - ACK Extended Transport Header"	,	L_113
+"opa.kdeth.j_key"	,	L_150
+hf_opa_RETH_dma_length	,	V_139
+tvb_reported_length	,	F_36
+"opa.9b.lnh"	,	L_29
+"opa.grh.ipver"	,	L_43
+ett_grh	,	V_38
+RDETH_DETH_ATOMICETH	,	V_94
+"RETH - RDMA Extended Transport Header"	,	L_97
+AETH_header_item	,	V_148
+parse_ATOMICACKETH	,	F_26
+PSM_NAK	,	V_211
+hf_opa_psm_rreqidx	,	V_199
+TFS	,	F_49
+hf_opa_grh_source_gid	,	V_45
+"RreqIdx"	,	L_177
+PSM_TIDS_GRANT	,	V_201
+guint32	,	T_2
+"opa.grh.tclass"	,	L_45
+hf_opa_AtomicAckETH_original_remote_data	,	V_158
+pool	,	V_26
+RDETH_AETH_PAYLD	,	V_80
+FT_BOOLEAN	,	V_263
+hf_opa_bth_pad_count	,	V_57
+hf_opa_grh_next_header	,	V_43
+tvb_reported_length_remaining	,	F_44
+CF_FUNC	,	F_48
+contains	,	F_18
+"opa.psm.hostipv4"	,	L_186
+lnh_val	,	V_8
+hf_opa_AETH	,	V_150
+"IMMDT - Immediate Extended Transport Header"	,	L_123
+wmem_strdup	,	F_42
+"IP Version"	,	L_42
+"ipv6"	,	L_202
+PSM_LONG_RTS	,	V_196
+array_length	,	F_20
+"IETH - Invalidate Extended Transport Header"	,	L_127
+"Service Channel"	,	L_20
+hf_opa_KDETH_hcrc	,	V_277
+"opa.reth"	,	L_98
+hf_opa_psm	,	V_178
+"Source GID"	,	L_54
+col_append_str	,	F_15
+"HCRC"	,	L_147
+hf_opa_bth_partition_key	,	V_59
+hf_register_info	,	T_12
+"Traffic Class"	,	L_44
+"opa.atomiceth"	,	L_106
+"opa.psm.paylen"	,	L_173
+hf_opa_bth_destination_qp	,	V_63
+"Dest LID"	,	L_30
+hf_opa_psm_msgseq	,	V_187
+guint16	,	V_27
+"opa.bth.fcn"	,	L_73
+i	,	V_70
+"opa.psm.payload"	,	L_198
+BASE_NONE	,	V_251
+ett_aeth	,	V_151
+opa_tvb	,	V_233
+hf_opa_bth_bcn	,	V_61
+PSM_TIDS_RELEASE	,	V_205
+hf_opa_9B_slid	,	V_32
+ITEM_LABEL_LENGTH	,	V_3
+"DETH - Datagram Extended Transport Header"	,	L_90
+PAYLD	,	V_72
+"erf.types.type"	,	L_205
+"MsqSeq"	,	L_165
+BASE_CUSTOM	,	V_258
+ATOMICACKETH_header_item	,	V_154
+PSM_EXPTID	,	V_209
+parse_RETH	,	F_23
+"opa.bth.a"	,	L_81
+"CommIdx"	,	L_159
+BASE_HEX	,	V_255
+hf_opa_grh_ip_version	,	V_39
+FT_UINT24	,	V_267
+dst_addr	,	V_12
+"RKey"	,	L_129
+proto_item_add_subtree	,	F_6
+opCode_AETH_PAYLD	,	V_81
+"opa.psm.flags"	,	L_158
+proto_register_field_array	,	F_52
+"opa.psm.rdescid"	,	L_180
+"opa.grh.sgid"	,	L_55
+RD_RDMA_READ_RESPONSE_MIDDLE	,	V_103
+"AtomicETH - Atomic Extended Transport Header"	,	L_105
+parsePayload	,	V_239
+"ACKPSN"	,	L_155
+dissector_add_uint	,	F_56
+AETH_header_tree	,	V_149
+"opa.grh.paylen"	,	L_49
+"Datalength"	,	L_189
+AETH_ATOMICACKETH	,	V_102
+PSM_ACK	,	V_210
+hf_opa_KDETH_j_key	,	V_278
+RD_ATOMIC_ACKNOWLEDGE	,	V_107
+FT_UINT16	,	V_257
+hf_opa_psm_sdescid	,	V_206
+set_address_tvb	,	F_13
+hf_opa_bth_solicited_event	,	V_55
+hf_opa_bth_opcode	,	V_52
+tvb_captured_length	,	F_38
+hf_opa_psm_hidx	,	V_228
+AETH_PAYLD	,	V_82
+"IETH: "	,	L_13
+"opa.9b.sc"	,	L_21
+"opa.psm.hidx"	,	L_194
+RDETH_DETH	,	V_114
+PSM_CONNECT_REQUEST	,	V_219
+"opa.kdeth.intr"	,	L_138
+"NumberArgs"	,	L_191
+"MsqData"	,	L_169
+opCode_RDETH_AETH_PAYLD	,	V_79
+parse_opa_bth	,	F_14
+"opa.bth.p_key"	,	L_71
+"Reserved (2 bits)"	,	L_26
+opCode	,	V_47
+hf_opa_KDETH_offset	,	V_276
+"Argument"	,	L_195
+PSM_EXPTID_UNALIGNED	,	V_208
+"Link Next Header"	,	L_28
+"ACKFlag"	,	L_153
+"opa.psm.nargs"	,	L_192
+"opa.bth.se"	,	L_63
+"opa.psm.commidx"	,	L_160
+length	,	V_69
+ipv6_handle	,	V_230
+opCode_IMMDT_PAYLD	,	V_73
+PSM_AM_REQUEST	,	V_224
+parse_IMMDT	,	F_27
+RDETH_DETH_RETH_PAYLD	,	V_88
+FT_UINT32	,	V_259
+"KDETH Version Field"	,	L_133
+hf	,	V_249
+"BTH - Base Transport Header"	,	L_58
+BASE_HEX_DEC	,	V_266
+"J_Key"	,	L_149
+"Queue Key"	,	L_92
+PSM_FLOW_CCA_BECN	,	V_218
+opCode_ATOMICETH	,	V_89
+"Tag"	,	L_167
+"opa.ieth.r_key"	,	L_130
+hf_opa_RDETH	,	V_121
+FT_IPv6	,	V_262
+hf_opa_psm_payload	,	V_191
+"opa.kdeth"	,	L_132
+nextHdr	,	V_34
+col_append_fstr	,	F_12
+col_set_str	,	F_40
+"Flags"	,	L_157
+FT_IPv4	,	V_279
+hf_opa_IETH	,	V_166
+hf_opa_KDETH_tid	,	V_273
+ett_atomicacketh	,	V_157
+hf_opa_psm_arg	,	V_229
+vals_opa_bth_opcode	,	V_54
+PSM_header_item	,	V_175
+"opa.psm.short.msglen"	,	L_171
+hf_opa_psm_dlen	,	V_226
+opCode_RETH_IMMDT_PAYLD	,	V_85
+infiniband_tvb	,	V_234
+"opa.mad"	,	L_203
+val_to_str	,	F_16
+IETH_header_tree	,	V_165
+parse_KDETH	,	F_29
+proto_opa_9b	,	V_244
+"Compare Data"	,	L_111
+"BCN"	,	L_74
+"opa.psm.a"	,	L_154
+find_next_header_sequence	,	F_19
+hf_opa_psm_psn	,	V_212
+hf_opa_AtomicETH_remote_key	,	V_145
+VALS	,	F_47
+"opa.atomiceth.cmpdt"	,	L_112
+hf_opa_9B_service_channel	,	V_19
+"SreqIdx"	,	L_175
+tfs_opa_bth_migrated_notmigrated	,	V_265
+hf_opa_grh_flow_label	,	V_41
+RD_ACKNOWLEDGE	,	V_105
+"opa.kdeth.tid"	,	L_142
+BASE_DEC	,	V_254
+tvb_new_subset	,	F_45
+"opa.rdeth.eecnxt"	,	L_89
+RC_ACKNOWLEDGE	,	V_97
+ett_ieth	,	V_167
+col_prepend_fstr	,	F_4
+ENC_NA	,	V_17
+hf_opa_AtomicETH	,	V_142
+hf_opa_9B_reserved2	,	V_23
+hf_opa_KDETH	,	V_171
+"Destination GID"	,	L_56
+hf_opa_9B_reserved3	,	V_30
+hf_opa_psm_msgdata	,	V_189
+"opa.reth.va"	,	L_100
+wmem_alloc	,	F_8
+hf_opa_9b_ICRC	,	V_248
+"SuppressHeader"	,	L_135
+"opa.bth.opcode"	,	L_61
+"AtomicACKETH: "	,	L_11
+proto_tree_add_bitmask_list	,	F_30
+DETH_header_tree	,	V_126
+AETH	,	V_98
+"opa.bth.padcnt"	,	L_67
+IETH_header_item	,	V_164
+hf_opa_RETH	,	V_135
+"opa.bth"	,	L_59
+"Source LID"	,	L_36
+PSM_header_tree	,	V_176
+"opa.rdeth"	,	L_85
+"opa.aeth.syndrome"	,	L_116
+"BTH: "	,	L_4
+ett	,	V_280
+hf_opa_IMMDT	,	V_161
+ett_atomiceth	,	V_143
+hf_opa_KDETH_tidctrl	,	V_272
+"Swap (Or Add) Data"	,	L_109
+opCode_RDETH_DETH_RETH_PAYLD	,	V_87
+packet_info	,	T_4
+"opa.psm.rreqidx"	,	L_178
+RDETH_DETH_IMMDT_PAYLD	,	V_84
+parse_DETH	,	F_22
+hf_opa_psm_a	,	V_180
+"Offset"	,	L_145
+"opa.bth.tver"	,	L_69
+"opa.atomicacketh"	,	L_120
+"opa.psm.flowid"	,	L_162
+"Offset Mode"	,	L_143
+RDETH_AETH_ATOMICACKETH	,	V_108
+ERF_TYPE_OPA_9B	,	V_282
+dst	,	V_28
+vals_opa_9b_grh_ipver	,	V_260
+"Payload"	,	L_197
+ett_reth	,	V_136
+"Source Queue Pair"	,	L_95
+"Reserved (6 bits)"	,	L_76
+"AtomicETH: "	,	L_9
+"AtomicAckETH - Atomic ACK Extended Transport Header"	,	L_119
+"opa.deth.reserved"	,	L_94
+"DMA Length"	,	L_103
+hf_opa_AtomicETH_swap_or_add_data	,	V_146
+hf_opa_KDETH_sh	,	V_270
+HFILL	,	V_252
+"opa.deth.q_key"	,	L_93
+parse_PSM	,	F_31
+hf_opa_DETH_source_qp	,	V_131
+"opa.atomiceth.va"	,	L_107
+dissect_opa_9b	,	F_37
+"opa.kdeth.hcrc"	,	L_148
+src	,	V_33
+hf_opa_bth_migreq	,	V_56
+gchar	,	T_1
+"KDETH: "	,	L_14
+"infiniband"	,	L_204
+"opa.psm.ackpsn"	,	L_156
+"opa.grh.flowlabel"	,	L_47
+"opa.9b.sl"	,	L_25
+"InterruptBit"	,	L_137
+"opa.psm.sdescid"	,	L_182
+"Remote Key"	,	L_101
+hf_opa_IMMDT_data	,	V_163
+"opa.atomiceth.r_key"	,	L_108
+PSM_SHORT	,	V_190
+RDETH_AETH	,	V_106
+proto_tree_get_parent_tree	,	F_39
+captured_length	,	V_236
+"PSM Header"	,	L_151
+PSM_ERR_CHK_GEN	,	V_217
+proto_register_opa_9b	,	F_46
+proto_register_protocol	,	F_50
+hf_opa_psm_flags	,	V_182
+hf_opa_DETH_queue_key	,	V_129
+hf_opa_9B_lnh	,	V_24
+KDETH_PSM	,	V_96
+hf_opa_grh_traffic_class	,	V_40
+"opa.grh.hoplmt"	,	L_53
+hf_opa_9B_link_version	,	V_21
+tvb_new_subset_remaining	,	F_35
+"opa.psm.dlen"	,	L_190
+KDETH_header_tree	,	V_170
+AT_STRINGZ	,	V_246
+gint	,	T_6
+tvb_captured_length_remaining	,	F_43
+"AETH: "	,	L_10
+tvb	,	V_4
+COL_INFO	,	V_15
+PSM_TIDS_RELEASE_CONFIRM	,	V_207
+"Intel Omni-Path"	,	L_199
+"opa.immdt.data"	,	L_126
+cinfo	,	V_14
+global_route_header_tree	,	V_36
+"RETH: "	,	L_8
+PSM_MEDIUM	,	V_192
+tfs_set_notset	,	V_264
+"opa.psm.msgseq"	,	L_166
+infiniband_handle	,	V_242
+"opa.reth.r_key"	,	L_102
+"opa.psm.psn"	,	L_184
+hf_opa_psm_hostipv4	,	V_215
+call_dissector	,	F_34
+"RDETH - Reliable Datagram Extended Transport Header"	,	L_84
+RETH_header_tree	,	V_134
+"opa.atomicacketh.origremdt"	,	L_122
+hf_opa_bth_acknowledge_request	,	V_65
+"opa.length"	,	L_35
+hf_opa_KDETH_intr	,	V_271
+"9B: "	,	L_2
+hf_opa_psm_short_msglen	,	V_202
+"Payload Length"	,	L_48
+hf_opa_grh	,	V_37
+hf_opa_psm_tag	,	V_188
+COL_PROTOCOL	,	V_243
+"Syndrome"	,	L_115
+base_transport_header_item	,	V_48
+PSM_AM_REQUEST_NOREPLY	,	V_223
+ett_psm	,	V_179
+src_addr	,	V_11
+opCode_RETH_PAYLD	,	V_77
+hf_opa_psm_commidx	,	V_183
+"opa.psm.offset"	,	L_174
+buf	,	V_1
+guint8	,	T_7
+ATOMICETH_header_item	,	V_140
+proto_reg_handoff_opa_9b	,	F_54
+"MsgLen"	,	L_163
+register_dissector	,	F_51
+"opa.kdeth.offsetmode"	,	L_144
+KDETH_header_item	,	V_169
+hf_opa_psm_ackpsn	,	V_181
+hf_opa_psm_msglen	,	V_186
+tvbuff_t	,	T_3
+"opa.kdeth.offset"	,	L_146
+ett_deth	,	V_128
+tvb_get_ntohs	,	F_9
+hf_opa_grh_destination_gid	,	V_46
+"opa.kdeth.sh"	,	L_136
+gboolean	,	T_9
+ib_offset	,	V_235
+RETH_PAYLD	,	V_78
+OpCode	,	V_67
+hf_opa_9B_packet_length	,	V_31
+RC_ATOMIC_ACKNOWLEDGE	,	V_101
+hf_opa_RETH_remote_key	,	V_138
+hf_opa_AETH_message_sequence_number	,	V_153
+hf_opa_psm_flowid	,	V_184
+RD_RDMA_WRITE_ONLY_IMM	,	V_109
+RETH_IMMDT_PAYLD	,	V_86
+"RDETH: "	,	L_6
+opa_9b_handle	,	V_281
+"FlowId"	,	L_161
+hf_opa_DETH_reserved8	,	V_130
+bthFollows	,	V_238
+tvb_get_guint8	,	F_7
+ATOMICETH	,	V_90
+"KDETH - Key Datagram Extended Transport Header"	,	L_131
+"opa"	,	L_201
+"PSM: "	,	L_15
+"Message Sequence Number"	,	L_117
+RDETH_DETH_RETH_IMMDT_PAYLD	,	V_110
+PSM_TINY	,	V_185
+"opa.kdeth.kver"	,	L_134
+"OPA"	,	L_200
+PSM_CONNECT_REPLY	,	V_220
+"Acknowledge Request"	,	L_80
+"opa.bth.reserved8a"	,	L_77
+hf_opa_9B_dlid	,	V_25
+"Hop Limit"	,	L_52
+"Original Remote Data"	,	L_121
+hf_opa_AtomicETH_virtual_address	,	V_144
+"Virtual Address"	,	L_99
+hf_opa_IETH_r_key	,	V_168
+DETH_PAYLD	,	V_116
+parse_AETH	,	F_25
+ett_9b	,	V_18
+"opa.deth.srcqp"	,	L_96
+hf_opa_psm_nargs	,	V_227
+hf_opa_RETH_virtual_address	,	V_137
+RETH_header_item	,	V_133
+_opa_KDETH_word2	,	V_174
+_opa_KDETH_word1	,	V_173
+hf_opa_DETH	,	V_127
+"IPv6 over OPA Packet"	,	L_17
+"opa.9b.slid"	,	L_37
+"PayLen"	,	L_172
+"GRH: "	,	L_3
+DETH_IMMDT_PAYLD	,	V_118
+PSM_ERR_CHK	,	V_213
+ett_rdeth	,	V_122
+"opa.immdt"	,	L_124
+baseVersion	,	V_241
+PSM_MEDIUM_DATA	,	V_194
+find_dissector	,	F_55
+opCode_RDETH_DETH_PAYLD	,	V_75
+ENC_BIG_ENDIAN	,	V_20
+L2_9B_header_tree	,	V_10
+"opa.bth.bcn"	,	L_75
+reported_length	,	V_237
+hf_opa_psm_paylen	,	V_193
+hf_opa_psm_sreqidx	,	V_197
+"opa.reth.dmalen"	,	L_104
+hf_opa_psm_rdescid	,	V_204
+RD_RESYNC	,	V_113
+ATOMICETH_header_tree	,	V_141
+"opa.psm.sreqidx"	,	L_176
+RDETH_DETH_RETH	,	V_112
+"TokenIDCtrl"	,	L_139
+DETH_header_item	,	V_125
+"HostPid"	,	L_187
+RD_RDMA_READ_REQUEST	,	V_111
+"DETH: "	,	L_7
+ett_kdeth	,	V_172
+"opa.psm.msgdata"	,	L_170
+"opa.9b"	,	L_19
+"EE Context"	,	L_88
+"Flow Label"	,	L_46
+opCode_RDETH_DETH_IMMDT_PAYLD	,	V_83
+hf_opa_grh_hop_limit	,	V_44
+FT_UINT64	,	V_268
+"HostIPv4Addr"	,	L_185
+ATOMICACKETH_header_tree	,	V_155
+AT_IB	,	V_29
+RC_RDMA_READ_REQUEST	,	V_99
+"Unknown OpCode (0x%0x)"	,	L_5
+"Service Level"	,	L_24
+"opa.grh"	,	L_41
+hf_opa_KDETH_offset_mode	,	V_274
+hf_opa_AtomicAckETH	,	V_156
+payLength	,	V_177
+opa_packet	,	V_232
+RDETH_header_item	,	V_119
+hf_opa_9B_service_level	,	V_22
+PSM_DISCONNECT_REQUEST	,	V_221
+"Omni-Path 9B Header"	,	L_18
+"Solicited Event"	,	L_62
+"Omni-Path"	,	L_16
+col_clear	,	F_41
+PSM_LONG_DATA	,	V_200
+opCode_RDETH_DETH_ATOMICETH	,	V_93
+"TokenID"	,	L_141
+proto_register_subtree_array	,	F_53
+IETH_PAYLD	,	V_92
+gint32	,	T_10
+"opa.psm.msglen"	,	L_164
+"Partition Key"	,	L_70
+"opa.bth.m"	,	L_65
+tvb_get_ntoh24	,	F_17
+hf_opa_9B	,	V_16
+UD_SEND_ONLY	,	V_115
+"opa.ieth"	,	L_128
+proto_tree_add_item	,	F_5
+"opa.kdeth.tidctrl"	,	L_140
+pinfo	,	V_5
+_U_	,	V_231
+"opa.grh.nxthdr"	,	L_51
+parse_opa_grh	,	F_11
+tfs_opa_kdeth_offset_32_64	,	V_275
+cf_opa_dw_to_b	,	F_1
+"Reserved (4 bits)"	,	L_32
+"opa.psm.tag"	,	L_168
+"Reserved (8 bits)"	,	L_86
+"Destination Queue Pair"	,	L_78
+"opa.grh.dgid"	,	L_57
+parse_ATOMICETH	,	F_24
+hf_opa_bth_packet_sequence_number	,	V_66
+"SdescId"	,	L_181
+FT_UINT8	,	V_253
+hf_opa_KDETH_kver	,	V_269
+proto_item	,	T_8
+parse_RDETH	,	F_21
+"opa.9b.reserved2"	,	L_27
+"Packet Length"	,	L_34
+hf_opa_bth_fcn	,	V_60
+parse_IPvSix	,	F_33
+"opa.psm.hostpid"	,	L_188
+hf_opa_bth_Reserved8a	,	V_62
+ENC_LITTLE_ENDIAN	,	V_53
+IMMDT_header_tree	,	V_160
+PSM_ERR_CHK_BAD	,	V_214
+data	,	T_11
+opCode_PAYLD	,	V_71
+"Link Version"	,	L_22
+"MigReq"	,	L_64
+IMMDT_header_item	,	V_159
+ett_immdt	,	V_162
+PSM_LONG_CTS	,	V_198
+"opa.9b.reserved3"	,	L_33
+"IMMDT: "	,	L_12
+L2_9B_header_item	,	V_9
+hf_opa_psm_offset	,	V_195
+PSM_DISCONNECT_REPLY	,	V_222
+tvb_get_letohl	,	F_32
+ett_all_headers	,	V_245
+"%u DWORDS (%u Bytes)"	,	L_1
+"opa.aeth.msn"	,	L_118
+"opa.psm.arg"	,	L_196
+FT_NONE	,	V_250
+offset	,	V_7
+"RdescId"	,	L_179
+"Pad Count"	,	L_66
+tree	,	V_6
+"Opcode"	,	L_60
+"opa.bth.psn"	,	L_83
+vals_opa_9b_grh_next_hdr	,	V_261
+opa_mad_handle	,	V_247
+"opa.9b.linkversion"	,	L_23
+opCode_PSM	,	V_95
+RDETH_PAYLD	,	V_104
+RDETH_header_tree	,	V_120
+nextHeaderSequence	,	V_240
+global_route_header_item	,	V_35
+parse_opa_9B_Header	,	F_3
+destport	,	V_64
+hf_opa_RDETH_ee_context	,	V_124
+PSM_AM_REPLY	,	V_225
+"opa.9b.dlid"	,	L_31
+"Header Version"	,	L_68
+"opa.bth.destqp"	,	L_79
+"opa.rdeth.reserved"	,	L_87
+hf_opa_grh_payload_length	,	V_42
+RETH	,	V_100
+set_address	,	F_10
+hf_opa_AETH_syndrome	,	V_152
+"FCN"	,	L_72
+g_snprintf	,	F_2
+"opa.9b.icrc"	,	L_39
+opCode_IETH_PAYLD	,	V_91
+IMMDT_PAYLD	,	V_74
+hf_opa_AtomicETH_compare_data	,	V_147
+"Next Header"	,	L_50
+value	,	V_2
+"Immediate Data"	,	L_125
+UD_SEND_ONLY_IMM	,	V_117
+"opa.atomiceth.swapdt"	,	L_110
+Codes	,	V_68
+vals_opa_9b_lnh	,	V_256
+parse_IETH	,	F_28
+base_transport_header_tree	,	V_49
+"HandlerIndex"	,	L_193
+"opa.aeth"	,	L_114
+hf_opa_bth	,	V_50
+ett_bth	,	V_51
+local_offset	,	V_13
+"Packet Sequence Number"	,	L_82
+hf_opa_bth_transport_header_version	,	V_58
+srcport	,	V_132
+RDETH_DETH_PAYLD	,	V_76
+"PSN"	,	L_183
+proto_tree	,	T_5
+"opa.psm"	,	L_152

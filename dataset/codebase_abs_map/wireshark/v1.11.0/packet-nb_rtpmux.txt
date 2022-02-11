@@ -1,0 +1,98 @@
+nb_rtpmux_cmp_rtp_tree	,	V_8
+dstport	,	V_12
+captured_length	,	V_15
+proto_register_protocol	,	F_15
+tvb_reported_length	,	F_4
+"nb_rtpmux.length"	,	L_8
+"R bit"	,	L_9
+col_set_str	,	F_3
+gint	,	T_7
+"Compressed headers(T bit)"	,	L_3
+"nb_rtpmux.compressed"	,	L_4
+tvb	,	V_1
+hf_nb_rtpmux_length	,	V_24
+FT_BOOLEAN	,	V_34
+hf_nb_rtpmux_dstport	,	V_23
+"nb_rtpmux.cmp_rtp.sequence_no"	,	L_16
+tbit	,	V_17
+hf_nb_rtpmux_cmp_rtp_data	,	V_30
+cinfo	,	V_10
+"nb_rtpmux.cmp_rtp.data"	,	L_20
+proto_register_subtree_array	,	F_18
+array_length	,	F_17
+hf_nb_rtpmux_data	,	V_32
+next_tvb	,	V_16
+"NB_RTPMUX"	,	L_1
+proto_tree_add_item	,	F_6
+call_dissector	,	F_13
+pinfo	,	V_2
+dissector_handle_t	,	T_10
+_U_	,	V_4
+ett_nb_rtpmux_cmp_rtp_hdr	,	V_27
+dissect_nb_rtpmux	,	F_1
+ett_nb_rtpmux	,	V_20
+proto_nb_rtpmux	,	V_18
+"nb_rtpmux"	,	L_22
+hf_nb_rtpmux_compressed	,	V_21
+hf_register_info	,	T_9
+guint16	,	T_6
+COL_PROTOCOL	,	V_11
+tvb_length	,	F_2
+FT_UINT8	,	V_38
+proto_tree_add_text	,	F_10
+BASE_DEC	,	V_37
+tvb_new_subset	,	F_12
+"nb_rtpmux.dstport"	,	L_6
+proto_item	,	T_5
+"RTP Data"	,	L_19
+ENC_NA	,	V_19
+nb_rtpmux_handle	,	V_42
+ti	,	V_5
+BASE_NONE	,	V_40
+tvb_length_remaining	,	F_11
+"rtp"	,	L_24
+"Timestamp"	,	L_17
+data	,	T_4
+"nb_rtpmux.data"	,	L_14
+tvbuff_t	,	T_1
+tvb_get_ntohs	,	F_8
+hf_nb_r_bit	,	V_25
+hf_nb_rtpmux_cmp_rtp_timestamp	,	V_29
+gboolean	,	T_8
+proto_item_add_subtree	,	F_7
+hf_nb_rtpmux_cmp_rtp_sequence_no	,	V_28
+"Compressed RTP header"	,	L_2
+rtpdissector	,	V_31
+"nb_rtpmux.srcport"	,	L_12
+proto_register_field_array	,	F_16
+FT_BYTES	,	V_39
+cmp_rtp_item	,	V_6
+hf_nb_rtpmux_srcport	,	V_26
+"Length"	,	L_7
+offset	,	V_9
+ett	,	V_41
+tree	,	V_3
+"Sequence Number"	,	L_15
+dissector_add_handle	,	F_21
+"nb_rtpmux.cmp_rtp.timestamp"	,	L_18
+proto_reg_handoff_nb_rtpmux	,	F_19
+FT_UINT16	,	V_36
+packet_info	,	T_2
+tvb_get_guint8	,	F_5
+"Src port"	,	L_11
+proto_tree_add_uint	,	F_9
+"Dst port"	,	L_5
+nb_rtpmux_tree	,	V_7
+"3GPP Nb Interface RTP Multiplex"	,	L_21
+proto_register_nb_rtpmux	,	F_14
+HFILL	,	V_35
+"nb_rtpmux.r_bit"	,	L_10
+"RTP Packet"	,	L_13
+new_create_dissector_handle	,	F_20
+"udp.port"	,	L_23
+length	,	V_14
+find_dissector	,	F_22
+ENC_BIG_ENDIAN	,	V_22
+srcport	,	V_13
+proto_tree	,	T_3
+hf	,	V_33

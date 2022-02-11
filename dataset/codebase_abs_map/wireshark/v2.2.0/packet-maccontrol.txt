@@ -1,0 +1,181 @@
+"C0"	,	L_16
+MACCTRL_REGISTER	,	V_34
+"CBFC Class Enable Vector"	,	L_14
+"8 MSbs of ENBV must be 0"	,	L_57
+proto_register_protocol	,	F_19
+hf_macctrl_cbfc_enbv	,	V_41
+proto_tree_add_subtree	,	F_15
+hf_macctrl_pause_time	,	V_29
+col_append_fstr	,	F_12
+macctrl_cbfc_pause_times_list	,	V_46
+"macc.cbfc.enbv.c0"	,	L_17
+hf_reg_grants	,	V_37
+gint	,	T_7
+col_set_str	,	F_2
+"Pending Grants"	,	L_42
+"Flags"	,	L_40
+"macc.cbfc.pause_time.c1"	,	L_33
+tvb	,	V_1
+"C1"	,	L_18
+"macc.opcode"	,	L_6
+COL_INFO	,	V_15
+reg_flags_vals	,	V_72
+FT_BOOLEAN	,	V_55
+hf_macctrl_timestamp	,	V_22
+ei_macctrl_cbfc_enbv	,	V_44
+"macc.cbfc.enbv"	,	L_15
+"Unknown opcode"	,	L_55
+"MAC CTRL"	,	L_1
+col_clear	,	F_3
+cinfo	,	V_13
+"macc.cbfc.enbv.c1"	,	L_19
+proto_register_subtree_array	,	F_22
+hf_macctrl_cbfc_pause_time_c2	,	V_65
+val_to_str	,	F_9
+macctrl_dst_address	,	V_27
+hf_macctrl_cbfc_pause_time_c1	,	V_64
+hf_macctrl_cbfc_pause_time_c0	,	V_63
+array_length	,	F_21
+hf_macctrl_cbfc_pause_time_c6	,	V_69
+hf_macctrl_cbfc_pause_time_c5	,	V_68
+pause_times_tree	,	V_8
+hf_macctrl_cbfc_pause_time_c4	,	V_67
+"macc.cbfc.pause_time.c0"	,	L_32
+hf_macctrl_cbfc_pause_time_c3	,	V_66
+"C2"	,	L_20
+proto_tree_add_item	,	F_5
+pinfo	,	V_2
+MACCTRL_REGISTER_ACK	,	V_21
+dissector_handle_t	,	T_11
+pause_time	,	V_10
+_U_	,	V_4
+macctrl_cbfc_enbv_list	,	V_43
+"ethertype"	,	L_63
+"macc.cbfc.enbv.c6"	,	L_29
+"macc.regack.synctime"	,	L_53
+"macc.reg.grants"	,	L_45
+hf_register_info	,	T_8
+MACCTRL_PAUSE	,	V_25
+hf_reg_time	,	V_36
+VALS	,	F_18
+"MAC Control Opcode"	,	L_7
+"macc.cbfc.pause_time.c3"	,	L_35
+"C3"	,	L_22
+PI_PROTOCOL	,	V_75
+guint16	,	T_6
+COL_PROTOCOL	,	V_14
+hf_reg_ack_time	,	V_39
+"pause_time"	,	L_11
+FT_UINT8	,	V_71
+"Assigned Port (LLID)"	,	L_46
+"macc.regreq.grants"	,	L_43
+i	,	V_11
+BASE_DEC	,	V_53
+proto_item	,	T_5
+"Sync Time"	,	L_50
+expert_register_field_array	,	F_24
+ENC_NA	,	V_17
+"Echoed Assigned Port (LLID)"	,	L_48
+hf_reg_flags	,	V_32
+dissect_macctrl	,	F_1
+ti	,	V_5
+expert_macctrl	,	V_78
+": pause_time: %u quanta"	,	L_3
+MACCTRL_REPORT	,	V_30
+proto_register_macctrl	,	F_17
+"macc.cbfc.enbv.c7"	,	L_31
+opcode_item	,	V_6
+addresses_equal	,	F_10
+"macc.cbfc.pause_time.c2"	,	L_34
+MACCTRL_REGISTER_REQ	,	V_31
+ei_macctrl_dst_address	,	V_28
+ei_macctrl_opcode	,	V_47
+"Destination address must be 01-80-C2-00-00-01"	,	L_59
+"Timestamp"	,	L_8
+"macc.timestamp"	,	L_9
+data	,	T_4
+tvbuff_t	,	T_1
+opcode	,	V_9
+tvb_get_ntohs	,	F_4
+proto_tree_add_bitmask	,	F_13
+BASE_HEX	,	V_50
+"macc.cbfc.enbv.c4"	,	L_25
+col_add_str	,	F_8
+"macc.pause_time"	,	L_12
+ei_register_info	,	T_9
+"MAC control PAUSE frame pause_time"	,	L_13
+expert_register_protocol	,	F_23
+proto_item_add_subtree	,	F_6
+ETHERTYPE_MAC_CONTROL	,	V_80
+"macc.cbfc.pause_time.c5"	,	L_37
+proto_reg_handoff_macctrl	,	F_25
+MACCTRL_CLASS_BASED_FLOW_CNTRL_PAUSE	,	V_40
+proto_register_field_array	,	F_20
+hf_reg_req_grants	,	V_33
+MACCTRL_GATE	,	V_20
+"C4"	,	L_24
+"Echoed Sync Time"	,	L_52
+"macc.opcode.unknown"	,	L_54
+offset	,	V_12
+ett	,	V_73
+ei	,	V_74
+expert_module_t	,	T_10
+dissector_add_uint	,	F_27
+macctrl_handle	,	V_79
+tree	,	V_3
+"Opcode"	,	L_5
+proto_macctrl	,	V_16
+hf_reg_ack_port	,	V_38
+"MACC"	,	L_61
+FT_UINT16	,	V_49
+"macc.dst_address_invalid"	,	L_58
+packet_info	,	T_2
+tvb_get_guint8	,	F_14
+"macc.cbfc.enbv.c5"	,	L_27
+hf_reg_port	,	V_35
+tvb_captured_length	,	F_16
+"macc.cbfc.pause_time.c4"	,	L_36
+"C5"	,	L_26
+proto_tree_add_uint	,	F_7
+EXPFILL	,	V_77
+hf_macctrl_cbfc_pause_time_c7	,	V_70
+dst	,	V_26
+"MAC Control"	,	L_60
+expert_add_info	,	F_11
+"macc.reg.flags"	,	L_41
+"macc.cbfc.enbv.not_zero"	,	L_56
+"CBFC Class Pause Times"	,	L_4
+"Echoed Pending Grants"	,	L_44
+ett_macctrl_cbfc_enbv	,	V_42
+"macc.cbfc.enbv.c2"	,	L_21
+"macc.cbfc.pause_time.c7"	,	L_39
+HFILL	,	V_51
+opcode_vals	,	V_24
+"C6"	,	L_28
+hf_macctrl_cbfc_enbv_c0	,	V_54
+hf_macctrl_cbfc_enbv_c1	,	V_56
+ett_macctrl	,	V_18
+hf_macctrl_opcode	,	V_19
+hf_macctrl_cbfc_enbv_c4	,	V_59
+hf_macctrl_cbfc_enbv_c5	,	V_60
+hf_macctrl_cbfc_enbv_c2	,	V_57
+"MAC Control Timestamp"	,	L_10
+hf_macctrl_cbfc_enbv_c3	,	V_58
+hf_macctrl_cbfc_enbv_c6	,	V_61
+create_dissector_handle	,	F_26
+hf_macctrl_cbfc_enbv_c7	,	V_62
+PI_WARN	,	V_76
+ENC_BIG_ENDIAN	,	V_23
+ett_macctrl_cbfc_pause_times	,	V_45
+"macc.cbfc.enbv.c3"	,	L_23
+"macc.reg.assignedport"	,	L_47
+"macc.reg.synctime"	,	L_51
+FT_UINT32	,	V_52
+macctrl_tree	,	V_7
+"macc.cbfc.pause_time.c6"	,	L_38
+"Unknown"	,	L_2
+"macc.regack.assignedport"	,	L_49
+"C7"	,	L_30
+proto_tree	,	T_3
+hf	,	V_48
+"macc"	,	L_62

@@ -1,0 +1,186 @@
+new_tvb	,	V_40
+mrp_tree	,	V_45
+"pn_mrp.sequence_id"	,	L_39
+hfindex	,	V_5
+"LinkDown"	,	L_8
+proto_register_protocol	,	F_33
+" High priorities"	,	L_10
+" Lowest priority for redundancy manager (auto)"	,	L_16
+"MRP_TimeStamp [ms]"	,	L_54
+port_role	,	V_17
+ring_state	,	V_26
+tvb_new_subset_remaining	,	F_22
+col_append_fstr	,	F_25
+"MRP_Transition"	,	L_51
+gint	,	T_2
+col_set_str	,	F_27
+FT_ETHER	,	V_57
+dissect_pn_uint16	,	F_5
+"Mandatory"	,	L_3
+"Test"	,	L_19
+"pn_mrp.domain_uuid"	,	L_62
+dissect_pn_oid	,	F_19
+hf_pn_mrp_sequence_id	,	V_12
+pn_mrp_port_role_vals	,	V_59
+tvb	,	V_1
+item	,	V_9
+"MRP_SequenceID"	,	L_38
+guint32	,	T_10
+COL_INFO	,	V_15
+" High priorities for redundancy manager (auto)"	,	L_13
+dissect_PNMRP_Test	,	F_13
+dissect_PNMRP_PDU	,	F_21
+hf_pn_mrp_ring_state	,	V_30
+proto_item_append_text	,	F_8
+hf_pn_mrp_sa	,	V_21
+version	,	V_38
+dissect_pn_align4	,	F_11
+col_clear	,	F_28
+"pn_mrp.ManufacturerData"	,	L_60
+cinfo	,	V_14
+"pn_mrp.time_stamp"	,	L_55
+proto_pn_mrp	,	V_47
+proto_register_subtree_array	,	F_36
+hf_pn_mrp_port_role	,	V_22
+interval	,	V_18
+pn_mrp_ring_state_vals	,	V_60
+array_length	,	F_35
+"Reserved"	,	L_7
+OUI_SIEMENS	,	V_37
+"MRP_DomainUUID"	,	L_61
+new_item	,	V_7
+oui	,	V_35
+pdata	,	V_6
+dissect_PNMRP_LinkDown	,	F_9
+"Option(Siemens)"	,	L_25
+proto_tree_add_item	,	F_29
+"Unknown TLVType 0x%x"	,	L_30
+pinfo	,	T_4
+dissector_handle_t	,	T_12
+_U_	,	V_3
+ett_pn_mrp	,	V_49
+"PROFINET MRP"	,	L_65
+"MRP_ManufacturerData: %d bytes"	,	L_23
+dissect_PNMRP	,	F_26
+"ethertype"	,	L_67
+"pn_mrp.version"	,	L_37
+col_append_str	,	F_7
+mac	,	V_16
+" Default priority for redundancy manager"	,	L_11
+dissect_PNMRP_TopologyChange	,	F_15
+hf_pn_mrp_domain_uuid	,	V_13
+"The MRC is able to receive and forward frames to port in state blocked"	,	L_6
+blocked	,	V_19
+"MRP_RingState"	,	L_47
+hf_register_info	,	T_11
+sequence_id	,	V_10
+dissect_pn_uint16_ret_item	,	F_1
+VALS	,	F_32
+"MRP_ManufacturerData"	,	L_59
+dissect_pn_ManuData	,	F_16
+guint16	,	T_6
+" Low priorities for redundancy manager"	,	L_12
+COL_PROTOCOL	,	V_46
+time_stamp	,	V_28
+"data"	,	L_22
+FT_UINT8	,	V_51
+i	,	V_39
+BASE_DEC	,	V_55
+proto_item	,	T_7
+mrp_Prio2msg	,	F_12
+"Option"	,	L_27
+"MRP_TLVHeader.Length"	,	L_34
+hf_pn_mrp_prio	,	V_29
+transition	,	V_27
+"pn_mrp.port_role"	,	L_46
+ENC_NA	,	V_48
+"Unique sequence number to each outstanding service request"	,	L_40
+guint8	,	T_9
+ti	,	V_44
+BASE_NONE	,	V_58
+"pn_mrp.oui"	,	L_64
+tvb_length_remaining	,	F_23
+proto_reg_handoff_pn_mrp	,	F_37
+"%s"	,	L_18
+data	,	V_8
+dissect_pn_uuid	,	F_6
+e_uuid_t	,	T_8
+" Highest priority redundancy manager"	,	L_9
+pn_mrp_oui_vals	,	V_65
+hf_pn_mrp_interval	,	V_23
+dissect_pn_undecoded	,	F_20
+tvbuff_t	,	T_1
+"MRP_ManufacturerOUIr"	,	L_63
+" Low priorities for redundancy manager (auto)"	,	L_15
+tvb_get_ntohs	,	F_2
+uuid	,	V_11
+"pn_mrp.blocked"	,	L_58
+pn_mrp_block_type_vals	,	V_53
+dissect_pn_mac	,	F_10
+BASE_HEX	,	V_52
+dissect_pn_uint8	,	F_24
+"pn_mrp"	,	L_66
+FT_UINT24	,	V_64
+"MRP_SA"	,	L_41
+proto_item_add_subtree	,	F_30
+prio	,	V_25
+dissect_PNMRP_Option	,	F_18
+proto_register_field_array	,	F_34
+ETHERTYPE_MRP	,	V_68
+hf_pn_mrp_blocked	,	V_24
+offset	,	V_2
+ett	,	V_66
+"Option(Unknown-OUI)"	,	L_26
+"MRP_Prio"	,	L_43
+dissector_add_uint	,	F_39
+tree	,	V_4
+"Option(SIEMENS)"	,	L_24
+"The MRC is not able to receive and forward frames to port in state blocked"	,	L_5
+FT_UINT16	,	V_56
+packet_info	,	T_3
+"Number of transitions between media redundancy lost and ok states"	,	L_53
+sub_item	,	V_20
+proto_tree_add_string_format	,	F_17
+dissect_PNMRP_Common	,	F_4
+"pn_mrp.sa"	,	L_42
+proto_tree_add_uint	,	F_3
+hf_pn_mrp_transition	,	V_31
+"MRP_Blocked"	,	L_57
+"pn_mrp.length"	,	L_35
+"pn_mrp.interval"	,	L_50
+" Default priority for redundancy manager (auto)"	,	L_14
+hf_pn_mrp_time_stamp	,	V_32
+dissect_pn_uint32	,	F_14
+"MRP_PortRole"	,	L_45
+"pn_mrp.ring_state"	,	L_48
+mrp_handle	,	V_67
+" Reserved"	,	L_17
+"Common"	,	L_1
+FT_STRING	,	V_62
+"Actual counter value of 1ms counter"	,	L_56
+"PN-MRP"	,	L_31
+hf_pn_mrp_length	,	V_43
+"Interval for next topology change event (in ms)"	,	L_2
+", "	,	L_28
+HFILL	,	V_54
+hf_pn_mrp_type	,	V_42
+hf_pn_manufacturer_data	,	V_34
+"pn_mrp.type"	,	L_33
+length	,	V_33
+"End"	,	L_29
+create_dissector_handle	,	F_38
+"MRP_Interval"	,	L_49
+hf_pn_mrp_oui	,	V_36
+"TopologyChange"	,	L_21
+"MRP_TLVHeader.Type"	,	L_32
+"Optional"	,	L_4
+proto_register_pn_mrp	,	F_31
+FT_UINT32	,	V_61
+"MRP_Version"	,	L_36
+"pn_mrp.transition"	,	L_52
+hf_pn_mrp_version	,	V_41
+" Interval for next topology change event (in ms) "	,	L_20
+FT_GUID	,	V_63
+proto_tree	,	T_5
+hf	,	V_50
+"pn_mrp.prio"	,	L_44

@@ -1,0 +1,106 @@
+proto_reg_handoff_socketcan	,	F_21
+"Remote Transmission Request Flag"	,	L_9
+"canopen"	,	L_22
+proto_register_protocol	,	F_15
+prefs_register_protocol	,	F_19
+col_append_fstr	,	F_8
+gint	,	T_6
+col_set_str	,	F_2
+CAN_EFF_MASK	,	V_20
+id	,	V_8
+tvb	,	V_1
+guint32	,	T_7
+COL_INFO	,	V_11
+FT_BOOLEAN	,	V_41
+frame_type	,	V_6
+can_high_level_protocol_dissector	,	V_32
+col_clear	,	F_3
+cinfo	,	V_9
+"can.flags.rtr"	,	L_10
+proto_register_subtree_array	,	F_18
+val_to_str	,	F_7
+array_length	,	F_17
+proto_tree_add_item	,	F_10
+call_dissector	,	F_12
+pinfo	,	V_2
+col_add_fstr	,	F_6
+dissector_handle_t	,	T_10
+"Error Flag"	,	L_11
+can_high_level_protocol_dissector_options	,	V_46
+WTAP_ENCAP_SOCKETCAN	,	V_48
+LINUX_SLL_P_CAN	,	V_49
+prefs_register_enum_preference	,	F_20
+hf_register_info	,	T_8
+"Unknown (0x%02x)"	,	L_3
+ett_can	,	V_25
+COL_PROTOCOL	,	V_10
+"data"	,	L_23
+FT_UINT8	,	V_42
+CAN_LEN_OFFSET	,	V_12
+BASE_DEC	,	V_43
+"CAN"	,	L_1
+hf_can_errflag	,	V_30
+tvb_new_subset	,	F_13
+can_module	,	V_45
+proto_item	,	T_4
+CAN_DATA_OFFSET	,	V_22
+ENC_NA	,	V_24
+guint8	,	T_5
+ti	,	V_5
+"   %s"	,	L_4
+hf_can_extflag	,	V_28
+"can"	,	L_16
+"sll.ltype"	,	L_21
+"can.id"	,	L_6
+tvb_get_ntohl	,	F_5
+"Next level protocol like CANopen etc."	,	L_19
+tvbuff_t	,	T_1
+proto_register_socketcan	,	F_14
+"wtap_encap"	,	L_20
+LINUX_CAN_RTR	,	V_14
+BASE_HEX	,	V_39
+LINUX_CAN_ERR	,	V_16
+hf_can_ident	,	V_26
+hf_can_len	,	V_31
+proto_item_add_subtree	,	F_11
+"Identifier"	,	L_5
+module_t	,	T_9
+CAN_EFF_FLAG	,	V_17
+proto_register_field_array	,	F_16
+"protocol"	,	L_17
+ett	,	V_44
+dissector_add_uint	,	F_23
+tree	,	V_3
+data_handle	,	V_34
+"Frame-Length"	,	L_13
+packet_info	,	T_2
+tvb_get_guint8	,	F_4
+tvb_bytes_to_str_punct	,	F_9
+proto_can	,	V_23
+frame_len	,	V_7
+"%s: 0x%08x"	,	L_2
+hf_can_rtrflag	,	V_29
+"can.flags.xtd"	,	L_8
+LINUX_CAN_STD	,	V_19
+CAN_CANOPEN_DISSECTOR	,	V_35
+canopen_handle	,	V_36
+can_tree	,	V_4
+CAN_ERR_FLAG	,	V_15
+HFILL	,	V_40
+LINUX_CAN_EXT	,	V_18
+CAN_RTR_FLAG	,	V_13
+CAN_DATA_DISSECTOR	,	V_33
+"can.flags.err"	,	L_12
+dissect_socketcan	,	F_1
+find_dissector	,	F_24
+create_dissector_handle	,	F_22
+frame_type_vals	,	V_21
+"Next level protocol"	,	L_18
+ENC_BIG_ENDIAN	,	V_27
+FT_UINT32	,	V_38
+"Extended Flag"	,	L_7
+"Controller Area Network"	,	L_15
+"can.len"	,	L_14
+proto_tree	,	T_3
+hf	,	V_37
+can_handle	,	V_47

@@ -1,0 +1,158 @@
+conn	,	V_9
+ett_conn	,	V_24
+"ipvs.cport"	,	L_14
+ett_ipvs_syncd	,	V_12
+"Destination Address"	,	L_23
+proto_register_ipvs_syncd	,	F_10
+IP_VS_CONN_F_OUT_SEQ	,	V_65
+proto_register_protocol	,	F_13
+"ipvs.in_seq.delta"	,	L_46
+"ipvs.resv8"	,	L_10
+ipvs_syncd_handle	,	V_71
+"ipvs.out_seq.delta"	,	L_52
+col_set_str	,	F_4
+hf_vaddr	,	V_31
+gint	,	T_9
+hf_cport	,	V_27
+"ipvs.flags.no_client_port_set"	,	L_40
+"Flags"	,	L_25
+"ipvs.flags.adjust_output_seq"	,	L_36
+FT_IPv4	,	V_57
+"ipvs.dport"	,	L_18
+TFS	,	F_12
+"No Output Packets"	,	L_31
+tvb	,	V_1
+item	,	V_6
+hf_flags	,	V_33
+COL_INFO	,	V_15
+ctree	,	V_20
+FT_BOOLEAN	,	V_60
+ett_flags	,	V_34
+hf_flags_conn_type	,	V_35
+"Virtual Port"	,	L_15
+hf_flags_adjust_output_seq	,	V_39
+hf_in_seq_init	,	V_44
+col_clear	,	F_5
+cinfo	,	V_13
+"ipvs.size"	,	L_8
+connection_type_strings	,	V_59
+"Input Sequence (Previous Delta)"	,	L_47
+tfs_true_false	,	V_61
+proto_register_subtree_array	,	F_16
+"Connection Count"	,	L_3
+"Input Sequence (Initial)"	,	L_43
+"ipvs.vaddr"	,	L_22
+array_length	,	F_15
+"ipvs.flags.adjust_input_seq"	,	L_38
+"ipvs.state"	,	L_42
+"Reserved"	,	L_9
+"Input Sequence (Delta)"	,	L_45
+proto_tree_add_item	,	F_2
+IP_VS_CONN_F_IN_SEQ	,	V_66
+dissect_ipvs_syncd	,	F_1
+pinfo	,	V_2
+"ipvs.flags.hashed_entry"	,	L_30
+dissector_handle_t	,	T_10
+hf_out_seq_delta	,	V_48
+_U_	,	V_4
+flags	,	V_23
+"Connection #%d"	,	L_2
+IP_VS_CONN_F_NOOUTPUT	,	V_63
+"ipvs.out_seq.initial"	,	L_50
+hf_register_info	,	T_8
+hf_syncid	,	V_18
+hf_in_seq_delta	,	V_45
+VALS	,	F_11
+guint16	,	T_7
+COL_PROTOCOL	,	V_14
+"Output Sequence (Initial)"	,	L_49
+FT_UINT8	,	V_51
+cnt	,	V_8
+hf_resv8	,	V_25
+BASE_DEC	,	V_52
+proto_item	,	T_5
+hf_dport	,	V_29
+ENC_NA	,	V_11
+guint8	,	T_6
+"ipvs.conncount"	,	L_4
+hf_vport	,	V_28
+BASE_NONE	,	V_58
+"Adjust Output Sequence"	,	L_35
+"ipvs.flags.conn_type"	,	L_28
+hf_conn_count	,	V_16
+"ipvs.caddr"	,	L_20
+state_strings	,	V_68
+"ipvs.out_seq.pdelta"	,	L_54
+"Client Address"	,	L_19
+hf_out_seq_pdelta	,	V_49
+data	,	T_4
+"Client Port"	,	L_13
+tvbuff_t	,	T_1
+tvb_get_ntohs	,	F_8
+"ipvs.in_seq.initial"	,	L_44
+hf_in_seq_pdelta	,	V_46
+BASE_HEX	,	V_55
+"ipvs.flags.conn_not_established"	,	L_34
+parent_tree	,	V_3
+"Hashed Entry"	,	L_29
+hf_flags_conn_not_established	,	V_38
+proto_item_add_subtree	,	F_3
+"ipvs"	,	L_56
+proto_register_field_array	,	F_14
+"No Client Port Set"	,	L_39
+hf_caddr	,	V_30
+hf_flags_no_output_packets	,	V_37
+offset	,	V_7
+hf_size	,	V_19
+ett	,	V_70
+dissector_add_uint	,	F_19
+tree	,	V_5
+FT_UINT16	,	V_54
+packet_info	,	T_2
+"Output Sequence (Previous Delta)"	,	L_53
+tvb_get_guint8	,	F_6
+"IPVS"	,	L_1
+tvb_captured_length	,	F_9
+"State"	,	L_41
+"Adjust Input Sequence"	,	L_37
+fi	,	V_22
+"Connection Not Established"	,	L_33
+IP_VS_CONN_F_SEQ_MASK	,	V_43
+"ipvs.syncid"	,	L_6
+hf_flags_no_client_port_set	,	V_41
+hf_state	,	V_42
+"Virtual Address"	,	L_21
+hf_flags_hashed_entry	,	V_36
+IPVS_SYNCD_PORT	,	V_72
+IP_VS_CONN_F_INACTIVE	,	V_64
+"ipvs.proto"	,	L_12
+"Connection Type"	,	L_27
+hf_proto	,	V_26
+hf_daddr	,	V_32
+IP_VS_CONN_F_NO_CPORT	,	V_67
+ftree	,	V_21
+"ipvs.daddr"	,	L_24
+proto_strings	,	V_56
+"IP Virtual Services Sync Daemon"	,	L_55
+HFILL	,	V_53
+IP_VS_CONN_F_HASHED	,	V_62
+hf_flags_adjust_input_seq	,	V_40
+proto_ipvs_syncd	,	V_10
+"ipvs.vport"	,	L_16
+"Output Sequence (Delta)"	,	L_51
+"ipvs.flags"	,	L_26
+"udp.port"	,	L_57
+create_dissector_handle	,	F_18
+proto_tree_add_subtree_format	,	F_7
+"ipvs.flags.no_output_packets"	,	L_32
+ENC_BIG_ENDIAN	,	V_17
+"Protocol"	,	L_11
+hf_out_seq_init	,	V_47
+FT_UINT32	,	V_69
+"Size"	,	L_7
+"Destination Port"	,	L_17
+proto_reg_handoff_ipvs_syncd	,	F_17
+proto_tree	,	T_3
+hf	,	V_50
+"Synchronization ID"	,	L_5
+"ipvs.in_seq.pdelta"	,	L_48

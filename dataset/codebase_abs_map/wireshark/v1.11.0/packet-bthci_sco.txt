@@ -1,0 +1,66 @@
+register_dissector	,	F_8
+"Rcvd "	,	L_2
+proto_register_protocol	,	F_7
+tvbuff_t	,	T_1
+"bthci_sco.chandle"	,	L_5
+"Data Total Length"	,	L_6
+BASE_HEX	,	V_21
+col_add_str	,	F_2
+bthci_sco_tree	,	V_5
+"Connection Handle"	,	L_4
+gint	,	T_7
+proto_item_add_subtree	,	F_5
+"hci_h4.type"	,	L_13
+"hci_h1.type"	,	L_14
+proto_register_field_array	,	F_9
+tvb	,	V_1
+FT_NONE	,	V_25
+offset	,	V_6
+ett	,	V_27
+COL_INFO	,	V_10
+"Sent "	,	L_1
+P2P_DIR_RECV	,	V_11
+dissector_add_uint	,	F_14
+proto_bthci_sco	,	V_12
+tree	,	V_3
+"bthci_sco.data"	,	L_9
+FT_UINT16	,	V_20
+packet_info	,	T_2
+hf_bthci_sco_length	,	V_17
+cinfo	,	V_9
+"HCI_SCO"	,	L_11
+"bthci_sco"	,	L_12
+proto_register_subtree_array	,	F_11
+hf_bthci_sco_data	,	V_18
+array_length	,	F_10
+ett_bthci_sco	,	V_14
+proto_register_bthci_sco	,	F_6
+proto_tree_add_item	,	F_4
+pinfo	,	T_3
+col_add_fstr	,	F_3
+proto_reg_handoff_bthci_sco	,	F_12
+dissector_handle_t	,	T_8
+"Unknown direction %d "	,	L_3
+"Data"	,	L_8
+hf_bthci_sco_chandle	,	V_15
+_U_	,	V_2
+HCI_H4_TYPE_SCO	,	V_29
+P2P_DIR_SENT	,	V_8
+hf_register_info	,	T_6
+"bthci_sco.length"	,	L_7
+HFILL	,	V_22
+"Bluetooth HCI SCO Packet"	,	L_10
+p2p_dir	,	V_7
+dissect_bthci_sco	,	F_1
+bthci_sco_handle	,	V_28
+FT_UINT8	,	V_23
+find_dissector	,	F_13
+BASE_DEC	,	V_24
+proto_item	,	T_5
+ENC_NA	,	V_13
+BTHCI_CHANNEL_SCO	,	V_30
+ti	,	V_4
+BASE_NONE	,	V_26
+ENC_LITTLE_ENDIAN	,	V_16
+proto_tree	,	T_4
+hf	,	V_19

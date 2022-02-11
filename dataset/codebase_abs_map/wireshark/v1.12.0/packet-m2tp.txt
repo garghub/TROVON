@@ -1,0 +1,230 @@
+reason	,	V_56
+tvb_get_string	,	F_15
+PARAMETER_VALUE_OFFSET	,	V_34
+proto_register_protocol	,	F_39
+MESSAGE_CLASS_OFFSET	,	V_13
+m2tp_item	,	V_66
+m2tp_message_class_type_values	,	V_27
+message_tvb	,	V_93
+PARAMETER_HEADER_LENGTH	,	V_48
+"Version"	,	L_19
+gint	,	T_9
+"sctp.ppi"	,	L_56
+"MTP 2 Transparent Proxy"	,	L_53
+guint32	,	T_6
+hf_m2tp_user	,	V_42
+COL_INFO	,	V_17
+"Interface Identifier"	,	L_37
+m2tp_protocol_version_values	,	V_102
+version	,	V_6
+parameter_value_length	,	V_73
+MESSAGE_TYPE_LENGTH	,	V_26
+"Incomplete parameter"	,	L_17
+tvb_reported_length_remaining	,	F_34
+reserved	,	V_7
+cinfo	,	V_16
+m2tp_handle	,	V_114
+"Reason parameter (%s)"	,	L_13
+array_length	,	F_41
+VERSION_OFFSET	,	V_11
+"Reserved"	,	L_21
+"Info string"	,	L_43
+PARAMETER_LENGTH_OFFSET	,	V_47
+""	,	L_10
+REASON_OFFSET	,	V_57
+call_dissector	,	F_26
+PARAMETER_LENGTH_LENGTH	,	V_82
+dissect_m2tp_info_parameter	,	F_13
+"reserved"	,	L_2
+proto_item_set_text	,	F_10
+"m2tp.info_string"	,	L_44
+PARAMETER_TAG_LENGTH	,	V_80
+"Reason"	,	L_51
+hf_m2tp_message_length	,	V_28
+hf_register_info	,	T_10
+dissect_m2tp_interface_identifier_parameter	,	F_9
+m2tp_user_identifier_values	,	V_111
+parameter_item	,	V_32
+hf_m2tp_master_slave	,	V_38
+guint16	,	T_8
+COL_PROTOCOL	,	V_96
+"Protocol data (SS7 message)"	,	L_15
+"m2tp.user_identifier"	,	L_40
+m2tp_reason_code_values	,	V_60
+INFO_STRING_OFFSET	,	V_49
+dissect_m2tp_diagnostic_information_parameter	,	F_18
+RESERVED_LENGTH	,	V_22
+guint8	,	T_5
+m2tp_mode_values	,	V_41
+BASE_NONE	,	V_110
+nr_of_padding_bytes	,	F_1
+"m2tp.message_class"	,	L_24
+mtp2_handle	,	V_71
+m2tp_tree	,	V_5
+COMMON_HEADER_LENGTH	,	V_95
+tvb_get_ntohl	,	F_4
+SCTP_PORT_M2TP	,	V_116
+tvbuff_t	,	T_2
+MESSAGE_CLASS_LENGTH	,	V_24
+"mtp2"	,	L_55
+tvb_get_ntohs	,	F_14
+"m2tp.message_type"	,	L_26
+hf_m2tp_interface_identifier	,	V_35
+plurality	,	F_20
+BASE_HEX	,	V_104
+proto_item_add_subtree	,	F_32
+dissect_m2tp_unknown_parameter	,	F_29
+M2TP_USER_LENGTH	,	V_44
+proto_register_field_array	,	F_40
+"Master Slave Indicator (%s)"	,	L_5
+FT_BYTES	,	V_109
+"m2tp.interface_identifier"	,	L_38
+"m2tp"	,	L_54
+"Parameter Value"	,	L_33
+MESSAGE_TYPE_OFFSET	,	V_14
+"m2tp.diagnostic_info"	,	L_46
+dissector_add_uint	,	F_46
+FT_UINT16	,	V_107
+"Info String (%.*s)"	,	L_8
+tvb_get_guint8	,	F_3
+"sctp.port"	,	L_57
+error_code	,	V_61
+REASON_LENGTH	,	V_59
+hf_m2tp_heartbeat_data	,	V_55
+"M2TP"	,	L_18
+"M2tp User Identifier"	,	L_39
+MASTER_SLAVE_OFFSET	,	V_39
+M2TP_USER_IDENTIFIER_PARAMETER_TAG	,	V_85
+ERROR_CODE_PARAMETER_TAG	,	V_90
+padding_length	,	V_69
+"Message Type"	,	L_25
+m2tp_parameter_tag_values	,	V_108
+FT_STRING	,	V_112
+VERSION_LENGTH	,	V_20
+"m2tp.parameter_value"	,	L_34
+"Interface Identifier (%u)"	,	L_4
+val_to_str_const	,	F_6
+MESSAGE_LENGTH_LENGTH	,	V_29
+length	,	V_1
+find_dissector	,	F_44
+dissect_m2tp_error_code_parameter	,	F_23
+"Master Slave Indicator"	,	L_41
+proto_tree_add_uint_format_value	,	F_8
+hf_m2tp_version	,	V_19
+ERROR_CODE_OFFSET	,	V_62
+dissect_m2tp_parameter	,	F_30
+FT_UINT32	,	V_106
+"m2tp.parameter_length"	,	L_32
+hf_m2tp_parameter_padding	,	V_92
+hf	,	V_99
+m2tp_message_class_type_acro_values	,	V_18
+proto_m2tp	,	V_97
+"Diagnostic information"	,	L_45
+dissect_m2tp_master_slave_parameter	,	F_11
+MASTER_SLAVE_INDICATOR_PARAMETER_TAG	,	V_84
+"Heartbeat data"	,	L_47
+col_set_str	,	F_36
+total_length	,	V_76
+"%u (%s)"	,	L_3
+"M2TP User Identifier (%u)"	,	L_7
+message_type	,	V_9
+hf_m2tp_diagnostic_info	,	V_52
+dissect_m2tp_common_header	,	F_2
+info_string_length	,	V_45
+ERROR_CODE_LENGTH	,	V_64
+hf_m2tp_parameter_tag	,	V_79
+proto_register_subtree_array	,	F_42
+hf_m2tp_reserved	,	V_21
+proto_tree_add_string	,	F_17
+ett_m2tp_parameter	,	V_78
+"m2tp.heartbeat_data"	,	L_48
+hf_m2tp_message_class	,	V_23
+proto_tree_add_item	,	F_19
+pinfo	,	V_4
+message_length	,	V_10
+col_add_fstr	,	F_5
+info_string	,	V_46
+dissector_handle_t	,	T_11
+REASON_PARAMETER_TAG	,	V_89
+hf_m2tp_message_type	,	V_25
+dissect_m2tp_protocol_data_parameter	,	F_24
+VALS	,	F_38
+DIAGNOSTIC_INFORMATION_PARAMETER_TAG	,	V_87
+RESERVED_OFFSET	,	V_12
+dissect_m2tp_reason_parameter	,	F_22
+dissect_m2tp_message	,	F_33
+INTERFACE_IDENTIFIER_OFFSET	,	V_36
+"%s "	,	L_1
+dissect_m2tp	,	F_35
+"m2tp.parameter_tag"	,	L_30
+FT_UINT8	,	V_100
+parameter_value	,	V_33
+proto_tree_add_text	,	F_31
+BASE_DEC	,	V_101
+tvb_new_subset	,	F_25
+proto_item	,	T_7
+heartbeat_data_length	,	V_54
+"m2tp.parameter_padding"	,	L_36
+INTERFACE_IDENTIFIER_LENGTH	,	V_37
+"Diagnostic information (%u byte%s)"	,	L_9
+ENC_NA	,	V_53
+ett_m2tp	,	V_98
+proto_register_m2tp	,	F_37
+M2TP_PAYLOAD_PROTOCOL_ID	,	V_115
+"Padding"	,	L_35
+hf_m2tp_parameter_value	,	V_75
+hf_m2tp_parameter_length	,	V_81
+proto_reg_handoff_m2tp	,	F_43
+INFO_PARAMETER_TAG	,	V_86
+diagnostic_info_length	,	V_51
+PARAMETER_HEADER_OFFSET	,	V_77
+dissect_m2tp_user_identifier_parameter	,	F_12
+tag	,	V_72
+m2tp_message_class_values	,	V_105
+guint	,	T_1
+"Parameter with tag %u and %u byte%s value"	,	L_16
+hf_m2tp_error_code	,	V_63
+offset	,	V_94
+ett	,	V_113
+wmem_packet_scope	,	F_16
+INTERFACE_IDENTIFIER_PARAMETER_TAG	,	V_83
+tree	,	V_67
+"Error code parameter (%s)"	,	L_14
+"m2tp.error_code"	,	L_50
+protocol_data_length	,	V_68
+"m2tp.message_length"	,	L_28
+packet_info	,	T_3
+"Parameter Tag"	,	L_29
+"s"	,	L_11
+"m2tp.master_slave"	,	L_42
+mtp2_tvb	,	V_70
+"Heartbeat data (%u byte%s)"	,	L_12
+"m2tp.version"	,	L_20
+"Message class"	,	L_23
+MESSAGE_LENGTH_OFFSET	,	V_15
+proto_tree_add_uint	,	F_7
+MASTER_SLAVE_LENGTH	,	V_40
+hf_m2tp_reason	,	V_58
+"Parameter length"	,	L_31
+dissect_m2tp_heartbeat_data_parameter	,	F_21
+proto_item_get_len	,	F_28
+PARAMETER_TAG_OFFSET	,	V_74
+hf_m2tp_info_string	,	V_50
+HFILL	,	V_103
+M2TP_USER_OFFSET	,	V_43
+create_dissector_handle	,	F_45
+PROTOCOL_DATA_PARAMETER_TAG	,	V_91
+parameter_tvb	,	V_30
+proto_item_set_len	,	F_27
+"Error code"	,	L_49
+common_header_tvb	,	V_3
+HEARTBEAT_DATA_PARAMETER_TAG	,	V_88
+"m2tp.reserved"	,	L_22
+message_class	,	V_8
+parameter_tree	,	V_31
+"Message length"	,	L_27
+"unknown"	,	L_6
+"m2tp.reason"	,	L_52
+remainder	,	V_2
+m2tp_error_code_values	,	V_65
+proto_tree	,	T_4

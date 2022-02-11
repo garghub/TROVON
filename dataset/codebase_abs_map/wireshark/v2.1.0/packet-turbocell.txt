@@ -1,0 +1,159 @@
+hf_turbocell_aggregate_msdu_len	,	V_49
+"turbocell_aggregate.unknown1"	,	L_42
+proto_register_protocol	,	F_24
+TURBOCELL_TYPE_MANAGEMENT	,	V_18
+subframe_tree	,	V_42
+dissect_turbocell	,	F_1
+G_GINT64_CONSTANT	,	F_7
+hf_turbocell_aggregate_len	,	V_45
+"Turbocell Aggregate Data"	,	L_48
+tvb_new_subset_remaining	,	F_13
+"Turbocell Packet (Data)"	,	L_4
+col_append_fstr	,	F_11
+remaining_length	,	V_14
+hf_turbocell_timestamp	,	V_29
+msdu_tvb	,	V_36
+gint	,	T_8
+col_set_str	,	F_3
+FT_ETHER	,	V_62
+"Total Length"	,	L_39
+proto_tree_add_uint_format	,	F_19
+FT_IPv4	,	V_64
+"Network Name"	,	L_30
+tvb	,	V_1
+"turbocell.counter"	,	L_16
+"Destination"	,	L_18
+guint32	,	T_9
+find_dissector_add_dependency	,	F_30
+COL_INFO	,	V_16
+"turbocell_aggregate.msdulen"	,	L_38
+"turbocell_aggregate.unknown2"	,	L_44
+"turbocell"	,	L_47
+mpdu_tree	,	V_41
+"turbocell.station"	,	L_33
+"Always 0x7856"	,	L_43
+"Counter"	,	L_15
+"Always 0000"	,	L_26
+tvb_reported_length_remaining	,	F_8
+cinfo	,	V_15
+"Station"	,	L_32
+proto_register_subtree_array	,	F_28
+"have the values 0x4,0xC or 0x8"	,	L_45
+"turbocell.dst"	,	L_19
+array_length	,	F_26
+packet_type	,	V_11
+next_tvb	,	V_9
+proto_tree_add_item	,	F_4
+FT_STRINGZ	,	V_66
+call_dissector	,	F_20
+pinfo	,	V_2
+_U_	,	V_4
+ENC_ASCII	,	V_33
+"turbocell.name"	,	L_31
+"turbocell_aggregate.len"	,	L_40
+"Turbocell"	,	L_2
+proto_reg_handoff_turbocell	,	F_29
+"turbocell.timestamp"	,	L_28
+"Turbocell Packet (Unknown)"	,	L_5
+hf_register_info	,	T_11
+"turbocell.nwid"	,	L_14
+VALS	,	F_23
+turbocell_type_values	,	V_56
+ett_network	,	V_34
+"Turbocell Packet (Management)"	,	L_3
+guint16	,	T_10
+COL_PROTOCOL	,	V_17
+hf_turbocell_type	,	V_23
+hf_turbocell_station	,	V_35
+"turbocell_aggregate"	,	L_49
+eth_handle	,	V_52
+FT_UINT8	,	V_54
+aggregate_fields	,	V_67
+i	,	V_10
+BASE_DEC	,	V_59
+"IP"	,	L_21
+"turbocell.ip"	,	L_22
+TURBOCELL_TYPE_DATA	,	V_19
+j	,	V_38
+tvb_new_subset	,	F_15
+"Satellite Mode"	,	L_11
+proto_item	,	T_5
+ett_turbocell	,	V_22
+ENC_NA	,	V_21
+guint8	,	T_6
+ti	,	V_5
+"Increments every frame (per station)"	,	L_17
+BASE_NONE	,	V_63
+hf_turbocell_satmode	,	V_25
+ENC_LITTLE_ENDIAN	,	V_50
+hf_turbocell_counter	,	V_27
+register_dissector	,	F_27
+"Packet Type"	,	L_9
+"turbocell.satmode"	,	L_12
+data	,	T_4
+hf_turbocell_dst	,	V_28
+format_text	,	F_12
+hf_turbocell_aggregate_unknown2	,	V_51
+"Timestamp (in 10 ms)"	,	L_27
+tvb_get_stringz_enc	,	F_9
+tvbuff_t	,	T_1
+hf_turbocell_aggregate_unknown1	,	V_46
+proto_tree_add_protocol_format	,	F_17
+tvb_get_ntohs	,	F_16
+BASE_HEX	,	V_55
+"IP address of base station ?"	,	L_23
+FT_UINT24	,	V_60
+"turbocell.type"	,	L_10
+proto_item_add_subtree	,	F_5
+proto_turbocell	,	V_20
+"Turbocell Aggregate Frames"	,	L_7
+proto_register_field_array	,	F_25
+tvb_get_letohs	,	F_18
+"Seems to be the destination"	,	L_20
+"MSDU length"	,	L_37
+guint	,	T_7
+ett	,	V_68
+wmem_packet_scope	,	F_10
+tree	,	V_3
+str_name	,	V_12
+turbocell_satmode_values	,	V_58
+FT_UINT16	,	V_65
+"Timestamp per station (since connection?)"	,	L_29
+packet_info	,	T_2
+msdu_offset	,	V_37
+tvb_get_guint8	,	F_2
+"Turbocell Header"	,	L_46
+tvb_captured_length	,	F_21
+hf_turbocell_unknown	,	V_30
+"A-MSDU Subframe #%u"	,	L_8
+name_item	,	V_6
+BASE_DEC_HEX	,	V_61
+"eth_withoutfcs"	,	L_50
+proto_aggregate	,	V_43
+tvb_get_bits64	,	F_6
+"Network ID"	,	L_13
+ett_msdu_aggregation_parent_tree	,	V_44
+hf_turbocell_ip	,	V_31
+str_len	,	V_13
+call_data_dissector	,	F_14
+"turbocell.unknown"	,	L_25
+network_tree	,	V_8
+proto_register_turbocell	,	F_22
+HFILL	,	V_57
+hf_turbocell_name	,	V_32
+"turbocell_aggregate.msduheader"	,	L_36
+"connected stations / satellites ?"	,	L_34
+"Turbocell Packet (Beacon)"	,	L_1
+"Total reported length"	,	L_41
+msdu_length	,	V_39
+ENC_BIG_ENDIAN	,	V_24
+turbocell_tree	,	V_7
+"MAC Service Data Unit (MSDU)"	,	L_35
+hf_turbocell_nwid	,	V_26
+parent_item	,	V_40
+ett_msdu_aggregation_subframe_tree	,	V_48
+"Unknown"	,	L_24
+hf_turbocell_aggregate_msdu_header_text	,	V_47
+proto_tree	,	T_3
+hf	,	V_53
+", Network=\"%s\""	,	L_6

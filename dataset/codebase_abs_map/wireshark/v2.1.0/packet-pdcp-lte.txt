@@ -1,0 +1,772 @@
+"pdcp-lte.nmp"	,	L_116
+"UEId"	,	L_190
+"Reserved bits have value 0x%x - should be 0x0"	,	L_32
+"pdcp-lte.rohc.compression"	,	L_51
+"EIA2 (AES)"	,	L_187
+"Do sequence number analysis"	,	L_204
+gcry_cipher_close	,	F_67
+"UE Identifier of UE associated with keys"	,	L_191
+configuration_frame	,	V_210
+default_integrity_algorithm_vals	,	V_368
+guint32	,	T_14
+hf_pdcp_lte_hrw2	,	V_309
+rohc_ip_version	,	V_195
+hf_pdcp_lte_hrw3	,	V_311
+"pdcp-lte.pdu-type"	,	L_97
+gcry_cipher_setkey	,	F_66
+PDCP_LTE_UEID_TAG	,	V_204
+control_pdu_type	,	V_282
+p_get_proto_data	,	F_54
+reserved	,	V_268
+pdcp_lte_ueid_frame_hash_equal	,	F_40
+array_length	,	F_112
+"PDCP SN missing"	,	L_153
+global_pdcp_dissect_rohc	,	V_335
+UAT_FLD_DEC	,	F_108
+"RRC Cipher Key"	,	L_192
+pdcp_sequence_analysis_channel_hash	,	V_122
+"ROHC profile"	,	L_70
+p_key	,	V_44
+ENC_ASCII	,	V_140
+p_pdcp_lte_info	,	V_42
+"pdcp-lte.sequence-analysis.next-frame"	,	L_127
+gpointer	,	T_12
+col_append_str	,	F_45
+security_info	,	V_205
+deciphered	,	V_217
+large_cid_present	,	V_166
+hf_register_info	,	T_31
+do_persist	,	V_43
+ett_pdcp_security	,	V_259
+seqnum_ti	,	V_57
+guint16	,	T_9
+c	,	V_1
+i	,	V_289
+j	,	V_290
+l	,	V_291
+n	,	V_2
+o	,	V_3
+p	,	V_49
+rrc_handle	,	V_170
+"CID Inclusion Info"	,	L_79
+r	,	V_28
+BASE_NONE	,	V_341
+v	,	V_32
+PDCP_SN_LENGTH_18_BITS	,	V_72
+buff	,	V_296
+SEQUENCE_ANALYSIS_RLC_ONLY	,	V_316
+global_pdcp_decipher_userplane	,	V_224
+rohc_mode	,	V_199
+global_pdcp_check_integrity	,	V_231
+tvb_memcpy	,	F_70
+show_pdcp_config	,	F_46
+hf_pdcp_lte_rohc_profile	,	V_161
+rec	,	V_21
+PROTO_ITEM_SET_GENERATED	,	F_26
+FT_UINT24	,	V_348
+"Wrong Sequence Number"	,	L_157
+"Attempt to decode ROHC data"	,	L_206
+"verify_integrity"	,	L_226
+no_header_pdu	,	V_150
+proto_item_add_subtree	,	F_25
+hf_pdcp_lte_rohc_compression	,	V_152
+hf_pdcp_lte_security_cipher_key	,	V_96
+ei_pdcp_lte_reserved_bits_not_zero	,	V_271
+FT_BYTES	,	V_349
+eea0	,	V_79
+va_list	,	T_24
+"pdcp-lte.rohc.rnd"	,	L_55
+" Status Report (fms=%u) not-received=%u"	,	L_37
+pdcp_security_hash	,	V_208
+FT_UINT16	,	V_346
+tvb_strneql	,	F_53
+"5 reserved bits"	,	L_91
+"pdcp-lte.security-config.bearer"	,	L_143
+"pdcp-lte.seqnum_length"	,	L_77
+"RND"	,	L_54
+eea3	,	V_367
+eea2	,	V_222
+eea1	,	V_221
+wmem_new0	,	F_12
+pdcp_tree	,	V_243
+"Sequence Analysis"	,	L_2
+"RND of outer ip header"	,	L_56
+HAVE_SNOW3G	,	F_63
+"Next frame for channel"	,	L_126
+hf_pdcp_lte_channel_id	,	V_147
+"Ciphering Algorithm"	,	L_140
+heur_dissector_add	,	F_126
+pdcp_result_hash_key	,	T_11
+PDCP_SN_LENGTH_5_BITS	,	V_68
+hf_pdcp_lte_rohc_udp_checksum_present	,	V_159
+FT_STRING	,	V_340
+"Direction"	,	L_60
+get_ueid_frame_hash_key	,	F_39
+"PDCP SN (%u) repeated for %s for UE %u (%s-%u)"	,	L_9
+mac_ti	,	V_320
+"pdcp-lte.sequence-analysis.skipped-frames"	,	L_131
+ipv6_handle	,	V_333
+decrypted_tvb	,	V_220
+register_cleanup_routine	,	F_124
+FT_UINT32	,	V_350
+global_pdcp_dissect_user_plane_as_ip	,	V_329
+visited	,	V_118
+PDCP_LTE_ROHC_IP_VERSION_TAG	,	V_194
+hf_pdcp_lte_sequence_analysis	,	V_61
+"PDU Type"	,	L_96
+global_default_integrity_algorithm	,	V_257
+"PDCP Info"	,	L_171
+PDCP_LTE_ROHC_PROFILE_TAG	,	V_202
+uat_new	,	F_121
+"eea2"	,	L_178
+hf_pdcp_lte_security_direction	,	V_88
+gcry_mac_open	,	F_78
+"pdcp-lte.no-header_pdu"	,	L_73
+seqnumLengthTagPresent	,	V_183
+snow3g_f8	,	F_72
+col_set_str	,	F_83
+snow3g_f9	,	F_77
+cid_inclusion_info	,	V_164
+current_security	,	V_246
+global_pdcp_lte_layer_to_show	,	V_251
+"pdcp-lte.direction"	,	L_61
+rrcCipherKeyString	,	V_8
+pdu_security_settings	,	V_215
+"lte_rrc.dl_ccch"	,	L_19
+"eea3"	,	L_180
+pdcp_lte_ueid_frame_hash_func	,	F_41
+proto_tree_add_string	,	F_32
+proto_tree_add_item_ret_uint	,	F_94
+proto_rlc_lte	,	V_253
+"pdcp-lte.sequence-analysis.ok"	,	L_123
+"Plane"	,	L_74
+hf_pdcp_lte_sequence_analysis_repeated	,	V_107
+"Which layer info to show in Info column"	,	L_209
+hf_pdcp_lte_nmp3	,	V_313
+dissector_handle_t	,	T_25
+BCH_TRANSPORT	,	V_176
+hf_pdcp_lte_nmp2	,	V_310
+configuration_tree	,	V_137
+previous_ciphering	,	V_212
+"eea0"	,	L_174
+"3 reserved bits"	,	L_89
+"User-Plane Cipher Key"	,	L_194
+" MAC=0x%08x (%u bytes data)"	,	L_44
+"pdcp-lte.sequence-analysis.wrong-sequence-number"	,	L_156
+"eea1"	,	L_176
+"INTEGRITY KEY"	,	L_150
+PDCP_LTE_CHANNEL_ID_TAG	,	V_203
+channel_key	,	V_110
+"pdcp-lte.control-pdu-type"	,	L_101
+rrc_payload_tvb	,	V_324
+g_hash_table_lookup	,	F_10
+sequenceExpected	,	V_66
+mode	,	V_156
+do_analysis	,	V_314
+expert_register_protocol	,	F_114
+MAX_INFO_BUFFER	,	F_43
+"pdcp-lte.sequence-analysis.sn-missing"	,	L_152
+integrityKey	,	V_94
+hf_pdcp_lte_ueid	,	V_145
+guint	,	T_7
+ett	,	V_355
+wmem_packet_scope	,	F_90
+rnd	,	V_158
+ue_keys_uat_flds	,	V_370
+packet_info	,	T_17
+"udp"	,	L_228
+ShowPDCPLayer	,	V_365
+payload_deciphered	,	V_249
+EXPFILL	,	V_360
+ei_pdcp_lte_sequence_analysis_sn_missing	,	V_102
+seqnum_set	,	V_266
+PDCP_LTE_PAYLOAD_TAG	,	V_187
+" (%u SNs not received)"	,	L_36
+"UE Identifier"	,	L_65
+reserved_value	,	V_276
+set_pdcp_lte_rrc_ciphering_key	,	F_9
+pdcp_plane	,	V_186
+"pdcp-lte.sequence-analysis.repeated-frame"	,	L_133
+"Traffic Info"	,	L_173
+PI_MALFORMED	,	V_361
+ei_pdcp_lte_sequence_analysis_sn_repeated	,	V_108
+direction	,	V_40
+"pdcp-lte.rohc.checksum-present"	,	L_58
+hf_pdcp_lte_configuration	,	V_139
+"Attempt to check integrity calculation"	,	L_227
+HAVE_LIBGCRYPT	,	F_64
+"Expected SN"	,	L_128
+expectedSequenceNumber	,	V_114
+"MAC"	,	L_94
+"Unknown"	,	L_5
+integrityKeyValid	,	V_95
+"Preconfigured PDCP keys"	,	L_215
+seen_next_ul_pdu	,	V_213
+" - SN missing (%u)"	,	L_8
+proto_register_protocol	,	F_110
+"Configuration info passed into dissector"	,	L_49
+integrity	,	V_80
+hf_pdcp_lte_bitmap_byte	,	V_304
+tvb_new_subset_remaining	,	F_58
+p_frame_security	,	V_206
+len	,	V_292
+"Direction of message"	,	L_62
+gint	,	V_15
+"pdcp-lte.sequence-analysis.sn-repeated"	,	L_154
+state	,	V_73
+binaryKey	,	V_17
+defined	,	V_237
+tvb	,	V_53
+"ue_keys_table"	,	L_213
+"Integrity Algorithm"	,	L_138
+pdu_security	,	V_55
+"Reserved bits not zero"	,	L_159
+"pdcp-lte.user-data"	,	L_99
+" sn=%-2u "	,	L_31
+PI_ERROR	,	V_362
+"- SN %u Repeated"	,	L_10
+gcrypt_err	,	V_227
+"show-pdcp"	,	L_170
+ei_pdcp_lte_sequence_analysis_wrong_sequence_number	,	V_109
+"ROHC Compression"	,	L_50
+UAT_FLD_CSTRING	,	F_109
+PDCP_LTE_ROHC_RND_TAG	,	V_200
+PROTO_ITEM_SET_HIDDEN	,	F_29
+proto_tree_add_boolean	,	F_30
+prefs_register_enum_preference	,	F_120
+ctr_block	,	V_225
+"Reserved bits have value 0x1 - should be 0x0"	,	L_38
+hf_pdcp_lte_bitmap	,	V_302
+pdcp_result_hash_equal	,	F_17
+SN	,	V_39
+cleanString	,	V_19
+upCipherKeyString	,	V_9
+set_pdcp_lte_rrc_integrity_key	,	F_15
+USER_PLANE	,	V_148
+"dissect_rohc"	,	L_205
+COL_PROTOCOL	,	V_250
+GUINT_TO_POINTER	,	F_11
+gcry_cipher_hd_t	,	T_28
+g_free	,	F_8
+mac_hd	,	V_240
+hf_pdcp_lte_sequence_analysis_skipped	,	V_99
+guint8	,	T_8
+calculated_digest	,	V_321
+"Seq Num"	,	L_85
+cypher_hd	,	V_226
+info_buffer	,	V_132
+PDCP_LTE_SEQNUM_LENGTH_TAG	,	V_188
+pKeyOK	,	V_18
+tvb_get_ntohl	,	F_98
+tvbuff_t	,	T_19
+"lte_rrc.bcch_dl_sch"	,	L_22
+" (ciphering=%s, integrity=%s)"	,	L_29
+tvb_get_ntohs	,	F_56
+nmp	,	V_305
+"pdcp_lte_ue_keys"	,	L_212
+"2 reserved bits"	,	L_107
+UAT_END_FIELDS	,	V_371
+"lte_rrc.dl_dcch"	,	L_24
+uat_ue_keys_record_t	,	T_5
+Channel_BCCH	,	V_174
+"pdcp_lte_udp"	,	L_230
+"show_signalling_plane_as_rrc"	,	L_201
+pdu_ti	,	V_130
+lastSN	,	V_100
+"Skipped frames"	,	L_130
+PDCP_LTE_START_STRING	,	V_184
+ip_payload_tvb	,	V_330
+set_pdcp_lte_up_ciphering_key	,	F_16
+tvb_get_guint8	,	F_55
+p_add_proto_data	,	F_57
+proto_tree_add_string_format	,	F_24
+was_writable	,	V_325
+ue_keys_uat	,	V_374
+"(direction=%s, plane=%s"	,	L_13
+"BEARER"	,	L_142
+pdcp_security_key_hash	,	V_31
+call_data_dissector	,	F_99
+prefs_register_obsolete_preference	,	F_118
+pdcp_security_result_hash	,	V_214
+hf_pdcp_lte_security_integrity_algorithm	,	V_262
+find_dissector	,	F_50
+bitmap_ti	,	V_295
+"pdcp-lte.seq-num"	,	L_86
+rrcCipherKeyOK	,	V_23
+control_pdu_type_vals	,	V_352
+"DIRECTION"	,	L_144
+hf_pdcp_lte_security_setup_frame	,	V_260
+check_valid_key_sring	,	F_4
+will_be_deciphered	,	V_216
+pdcp_sequence_report_in_frame	,	T_16
+framenum	,	V_126
+rrcIntegrityKeyString	,	V_10
+hf_pdcp_lte_control_pdu_type	,	V_283
+"pdcp-lte.security-cofig"	,	L_135
+"decipher_signalling"	,	L_221
+"Error"	,	L_14
+previous_configuration_frame	,	V_209
+DIRECTION_UPLINK	,	V_172
+"PDCP SN (%u) missing for %s on UE %u (%s-%u)"	,	L_7
+hf_pdcp_lte_nmp	,	V_307
+tvb_get_bits8	,	F_91
+udp_checksum_present	,	V_160
+proto_tree_add_uint_format	,	F_93
+find_dissector_add_dependency	,	F_127
+proto_item_append_text	,	F_31
+write_pdu_label_and_info	,	F_42
+"EIA3 (ZUC)"	,	L_189
+hfn	,	V_89
+col_clear	,	F_85
+update_key_from_string	,	F_5
+"PDCP signalling header reserved bits not zero"	,	L_30
+"N.B. only possible if build with algorithm support, and have key available and configured"	,	L_223
+security_tree	,	V_54
+"EEA1 (SNOW3G)"	,	L_177
+hf_pdcp_lte_sequence_analysis_next_frame	,	V_77
+"Large CID Present"	,	L_81
+SN_Repeated	,	V_106
+proto_tree_add_item	,	F_47
+pinfo	,	V_51
+direction_vals	,	V_103
+configuration_ti	,	V_138
+flags	,	V_117
+"Can show RLC, PDCP or Traffic layer info in Info column"	,	L_210
+"show-rlc"	,	L_168
+pdcp_security_info_t	,	T_27
+"show_user_plane_as_ip"	,	L_199
+"PDCP SNs (%u to %u) missing for %s on UE %u (%s-%u)"	,	L_4
+hf_pdcp_lte_no_header_pdu	,	V_149
+"Highest Received Sequence Number on WLAN"	,	L_113
+get_report_hash_key	,	F_20
+"Bitmap"	,	L_108
+first_byte	,	V_267
+"PDCP SN repeated"	,	L_155
+"pdcp-lte.channel-type"	,	L_67
+gconstpointer	,	T_10
+g_vsnprintf	,	F_44
+pdcp_lte_ueid_hash_equal	,	F_36
+gcry_mac_write	,	F_81
+"lte_rrc.bcch_bch"	,	L_21
+hf_pdcp_lte_signalling_data	,	V_326
+previous_integrity	,	V_211
+PDCP_LTE_ROHC_MODE_TAG	,	V_198
+hf_pdcp_lte_plane	,	V_144
+"Repeated frame"	,	L_132
+num	,	V_120
+PDCP_LTE_ROHC_CID_INC_INFO_TAG	,	V_196
+dissect_pdcp_lte_heur	,	F_51
+"RRC Integrity Key"	,	L_196
+ei_register_info	,	T_32
+"ROHC Mode"	,	L_52
+FT_NONE	,	V_353
+PI_SEQUENCE	,	V_358
+checkChannelSequenceInfo	,	F_35
+DISSECTOR_ASSERT_NOT_REACHED	,	F_28
+tree	,	V_52
+format	,	V_131
+"CIPHER KEY"	,	L_148
+"Sequence Number Length"	,	L_78
+"pdcp-lte.large-cid-present"	,	L_82
+g_malloc0	,	F_69
+rohc_compression	,	V_154
+"pdcp-lte.rohc.profile"	,	L_71
+integrity_algorithm_vals	,	V_264
+cipherKeyValid	,	V_93
+col_get_writable	,	F_96
+"Security Config"	,	L_134
+dissect_pdcp_lte	,	F_59
+" (SN=%u)"	,	L_33
+"pdcp-lte.bitmap.byte"	,	L_112
+asInt	,	V_41
+addChannelSequenceInfo	,	F_23
+pdcp_lte_cleanup_protocol	,	F_104
+Channel_DCCH	,	V_178
+set_pdcp_lte_security_algorithms	,	F_60
+payload_length	,	V_219
+ShowRLCLayer	,	V_252
+"layer_to_show"	,	L_208
+"If RRC Security Info not seen, e.g. in Handover"	,	L_218
+"pdcp-lte.cid-inclusion-info"	,	L_80
+bitmap_tree	,	V_294
+LogicalChannelType	,	V_191
+ueId	,	V_121
+" %s: "	,	L_17
+plane	,	V_38
+"RLC Info"	,	L_169
+"show-traffic"	,	L_172
+"First Missing PDCP Sequence Number"	,	L_104
+g_direct_hash	,	V_337
+"Attempt to decipher Signalling (RRC) SDUs"	,	L_222
+"Configuration"	,	L_47
+uat_field_t	,	T_34
+"pdcp-lte.reserved6"	,	L_106
+ett_pdcp_report_bitmap	,	V_303
+record	,	V_20
+"lte_rrc.ul_ccch"	,	L_18
+pdcp_lte_init_protocol	,	F_102
+tvb_new_child_real_data	,	F_73
+"UE"	,	L_63
+frameNumber	,	V_36
+" [Matches calculated result]"	,	L_43
+hf_pdcp_lte_fms2	,	V_299
+profile	,	V_162
+hf_pdcp_lte_fms3	,	V_301
+FT_BOOLEAN	,	V_343
+ti_expected_sn	,	V_58
+infoAlreadySet	,	V_182
+ap	,	V_133
+tvb_reported_length_remaining	,	F_88
+"pdcp-lte.reserved7"	,	L_117
+hf_pdcp_lte_security_bearer	,	V_86
+ett_pdcp	,	V_254
+digest_was_calculated	,	V_322
+"Show unciphered Signalling-Plane data as RRC"	,	L_202
+"rohc"	,	L_233
+"ipv6"	,	L_232
+stringKey	,	V_16
+keys_record	,	V_60
+ciphering	,	V_78
+sequence_analysis_vals	,	V_363
+""	,	L_1
+set_pdcp_lte_security_algorithms_failed	,	F_61
+"show_feedback_option_tag_length"	,	L_198
+"PDCP UE Keys"	,	L_214
+"pdcp-lte.reserved8"	,	L_119
+" No-Header "	,	L_41
+expert_pdcp_lte	,	V_373
+"MAC-I doesn't match expected value"	,	L_161
+gcry_cipher_setctr	,	F_68
+rohc_tvb	,	V_245
+"ip"	,	L_231
+hf_pdcp_lte_security	,	V_258
+hf_pdcp_lte_user_plane_data	,	V_334
+"pdcp-lte.rohc.mode"	,	L_53
+decrypted_data	,	V_218
+"lte_rrc.pcch"	,	L_20
+firstSN	,	V_101
+rohc_profile_vals	,	V_169
+ciphering_algorithm_vals	,	V_263
+hf_pdcp_lte_security_ciphering_algorithm	,	V_261
+"Channel type"	,	L_66
+pdu_security_settings_t	,	T_20
+fms	,	V_285
+SIGNALING_PLANE	,	V_91
+lookup_rrc_dissector_handle	,	F_49
+tvb_set_free_cb	,	F_74
+BASE_HEX	,	V_347
+"pdcp-lte"	,	L_197
+pdcp_channel_status	,	T_22
+module_t	,	T_35
+raw_string	,	V_11
+"Wrong Sequence Number for %s on UE %u (%s-%u) - got %u, expected %u"	,	L_11
+proto_register_field_array	,	F_111
+"pdcp-lte.sequence-analysis"	,	L_121
+global_pdcp_dissect_signalling_plane_as_rrc	,	V_323
+"UDP Checksum present"	,	L_59
+ei	,	V_357
+"pdcp-lte.reserved"	,	L_84
+count	,	V_83
+PDCP_LTE_BCCH_TRANSPORT_TYPE_TAG	,	V_192
+show_info_col_vals	,	V_364
+GCRY_CIPHER_MODE_CTR	,	V_229
+root_ti	,	V_244
+proto_register_pdcp	,	F_106
+tvb_captured_length	,	F_100
+")"	,	L_16
+fd	,	V_116
+call_dissector_with_data	,	F_101
+seqnum	,	V_265
+g_hash_table_new	,	F_103
+hf_pdcp_lte_security_integrity_key	,	V_97
+"User-Plane Data"	,	L_98
+"pdcp-lte.security-config.integrity-key"	,	L_151
+"Show uncompressed User-Plane data as IP"	,	L_200
+siz	,	T_4
+val_to_str_const	,	F_34
+length	,	V_14
+pdu_type_vals	,	V_351
+"First Missing Sequence Number"	,	L_102
+PI_WARN	,	V_359
+"EEA2 (AES)"	,	L_179
+record_id	,	V_46
+PDCP_LTE_LOG_CHAN_TYPE_TAG	,	V_190
+rrcCipherBinaryKey	,	V_22
+"Control PDU Type"	,	L_100
+pdcp_plane_vals	,	V_167
+"pdcp-lte.bitmap"	,	L_109
+"No-Analysis"	,	L_163
+hf	,	V_339
+"pdcp-lte.security-config.integrity"	,	L_139
+hf_pdcp_lte_control_plane_reserved	,	V_269
+enum_val_t	,	T_33
+val2	,	V_35
+val1	,	V_34
+hf_pdcp_lte_fms	,	V_297
+"pdcp-only"	,	L_166
+"PDCP Seq num"	,	L_87
+previousSequenceNumber	,	V_123
+prefs_register_protocol	,	F_117
+col_append_fstr	,	F_48
+default_ciphering_algorithm_vals	,	V_366
+"pdcp-lte.security-config.cipher-key"	,	L_149
+PDCP_LTE_DIRECTION_TAG	,	V_189
+num_ue_keys_uat	,	V_47
+nextFrameNum	,	V_76
+hf_pdcp_lte_reserved8	,	V_312
+sequenceNumber	,	V_50
+hf_pdcp_lte_reserved7	,	V_308
+"4 reserved bits"	,	L_120
+ett_pdcp_lte_sequence_analysis	,	V_62
+pdcp_lte_info	,	T_15
+bits	,	V_284
+UAT_AFFECTS_DISSECTION	,	V_375
+hf_pdcp_lte_reserved4	,	V_298
+ShowTrafficLayer	,	V_331
+hf_pdcp_lte_reserved3	,	V_277
+hf_pdcp_lte_reserved6	,	V_300
+hf_pdcp_lte_reserved5	,	V_280
+message_length	,	V_234
+read_digest_length	,	V_241
+mac	,	V_233
+"PDCP-LTE"	,	L_26
+rrcIntegrityBinaryKey	,	V_26
+" LWA Status Report (fms=%u) not-received=%u"	,	L_39
+VALS	,	F_107
+prefs_register_bool_preference	,	F_119
+"pdcp-lte.configuration"	,	L_48
+"Channel Id"	,	L_68
+BASE_DEC	,	V_345
+"Deciphered Payload"	,	L_25
+"UDP Checksum"	,	L_57
+ENC_NA	,	V_141
+p_pdcp_info	,	V_136
+cipher_key	,	V_84
+PDCP_SN_LENGTH_15_BITS	,	V_71
+wmem_alloc	,	F_89
+"%s"	,	L_12
+proto_pdcp_lte	,	V_185
+size_t	,	T_3
+"(%u bytes data)"	,	L_45
+"pdcp-lte.hwr"	,	L_114
+"heuristic_pdcp_lte_over_udp"	,	L_207
+"Status report bitmap (0=error, 1=OK)"	,	L_110
+"Bitmap byte"	,	L_111
+cipherKey	,	V_92
+hf_pdcp_lte_channel_type	,	V_146
+calculated	,	V_230
+hex_ascii_to_binary	,	F_1
+snLimit	,	V_115
+"lte_rrc.ul_dcch"	,	L_23
+gcry_mac_hd_t	,	T_30
+"pdcp-lte.reserved3"	,	L_88
+"pdcp-lte.security-config.direction"	,	L_145
+payload_tvb	,	V_248
+security_to_store	,	V_255
+"pdcp-lte.security-config.setup-frame"	,	L_137
+header	,	T_29
+hf_pdcp_lte_direction	,	V_143
+"Previous frame for channel"	,	L_124
+uat_ue_keys_records	,	V_48
+PDCP_LTE_ROHC_UDP_CHECKSUM_PRES_TAG	,	V_201
+"default_ciphering_algorithm"	,	L_216
+uat_ue_keys_record_free_cb	,	F_7
+"pdcp-lte.reserved4"	,	L_105
+tvb_new_subset_length	,	F_95
+hf_pdcp_lte_rohc_mode	,	V_155
+HFILL	,	V_342
+integrity_key	,	V_85
+wmem_new	,	F_21
+"No Header PDU"	,	L_72
+gchar	,	T_2
+"      ,"	,	L_35
+"|ROHC(%s)"	,	L_46
+hf_pdcp_lte_seq_num_7	,	V_275
+"rlc-only"	,	L_164
+hf_pdcp_lte_seq_num_5	,	V_272
+"pdcp-lte.reserved5"	,	L_90
+ei_pdcp_lte_digest_wrong	,	V_328
+rohc_mode_vals	,	V_168
+is_retx	,	V_317
+gcry_mac_read	,	F_82
+SEQUENCE_ANALYSIS_PDCP_ONLY	,	V_318
+pdcp_tvb	,	V_180
+"Signalling Data"	,	L_92
+pdcp_result_hash_func	,	F_18
+hf_pdcp_lte_seq_num_12	,	V_278
+"pdcp-lte.security-config.ciphering"	,	L_141
+hf_pdcp_lte_sequence_analysis_ok	,	V_75
+hf_pdcp_lte_seq_num_15	,	V_279
+rrcIntegrityKeyOK	,	V_27
+hf_pdcp_lte_seq_num_18	,	V_281
+"Integrity algorithm to use if not signalled"	,	L_220
+"decipher_userplane"	,	L_224
+global_pdcp_check_sequence_numbers	,	V_315
+gcry_cipher_open	,	F_65
+ueid_frame	,	V_129
+get_channel_hash_key	,	F_19
+g_hash_table_insert	,	F_14
+tvb_captured_length_remaining	,	F_52
+COL_INFO	,	V_135
+"default_integrity_algorithm"	,	L_219
+ueid_frame_t	,	T_23
+global_default_ciphering_algorithm	,	V_256
+pdu_type	,	V_273
+cinfo	,	V_134
+"no-analysis"	,	L_162
+"pdcp-lte.security-config.count"	,	L_147
+not_received	,	V_287
+modulo	,	V_286
+"Reserved"	,	L_83
+g_direct_equal	,	V_338
+rohc_handle	,	V_336
+"EEA3 (ZUC)"	,	L_181
+hf_pdcp_lte_mac	,	V_327
+sn	,	V_288
+key	,	V_29
+channelId	,	V_37
+u8	,	V_236
+col_set_writable	,	F_84
+look_up_keys_record	,	F_22
+" - OK"	,	L_3
+"1 reserved bit"	,	L_118
+gcry_mac_close	,	F_80
+"OK"	,	L_122
+ti	,	V_59
+PDCP_SN_LENGTH_7_BITS	,	V_69
+g_hash_table_destroy	,	F_105
+v2	,	V_33
+Channel_CCCH	,	V_171
+register_dissector	,	F_116
+channelType	,	V_104
+"check_sequence_numbers"	,	L_203
+pdcp_lte_ueid_hash_func	,	F_37
+upCipherBinaryKey	,	V_24
+hf_pdcp_lte_sequence_analysis_expected_sn	,	V_65
+sequenceExpectedCorrect	,	V_124
+prefs_register_uat_preference	,	F_122
+uat_ue_keys_record_update_cb	,	F_6
+gboolean	,	T_6
+hf_pdcp_lte_rohc_rnd	,	V_157
+written	,	V_13
+" - SNs missing (%u to %u)"	,	L_6
+hf_pdcp_lte_seqnum_length	,	V_151
+hf_pdcp_lte_large_cid_present	,	V_165
+BCCHTransport	,	V_175
+hf_pdcp_lte_sequence_analysis_previous_frame	,	V_64
+createdChannel	,	V_113
+PDCP_LTE_ROHC_LARGE_CID_PRES_TAG	,	V_197
+"pdcp-lte.maci-wrong"	,	L_160
+register_init_routine	,	F_123
+" - INVALID PLANE (%u)"	,	L_40
+"Only-RLC-frames"	,	L_165
+"pdcp-lte.signalling-data"	,	L_93
+"MAC-I Digest wrong expected %08x but found %08x"	,	L_42
+p_channel_status	,	V_111
+uat_ue_keys_record_copy_cb	,	F_2
+ett_pdcp_configuration	,	V_142
+"EEA0 (NULL)"	,	L_175
+global_pdcp_decipher_signalling	,	V_223
+decipher_payload	,	F_62
+g_strdup	,	F_3
+hfn_multiplier	,	V_82
+checked_string	,	V_12
+bit_offset	,	V_293
+"COUNT"	,	L_146
+key_record	,	V_30
+hf_pdcp_lte_security_count	,	V_90
+data_length	,	V_319
+ueid_frame_1	,	V_127
+proto_reg_handoff_pdcp_lte	,	F_125
+hf_pdcp_lte_hrw	,	V_306
+"Key for deciphering signalling messages"	,	L_193
+ueid_frame_2	,	V_128
+ENC_BIG_ENDIAN	,	V_270
+SN_OK	,	V_74
+hf_pdcp_lte_data_control	,	V_274
+"pdcp-lte.mac"	,	L_95
+BCCHTransportType	,	V_193
+"pdcp-lte.plane"	,	L_75
+"EIA1 (SNOW3G)"	,	L_185
+p_report_in_frame	,	V_112
+pdcp_channel_hash_key	,	T_13
+hf_pdcp_lte_cid_inclusion_info	,	V_163
+" (mode=%c)"	,	L_27
+guchar	,	T_1
+p_previous_report	,	V_125
+"UE Security"	,	L_28
+proto_register_subtree_array	,	F_113
+upCipherKeyOK	,	V_25
+"pdcp-lte.channel-id"	,	L_69
+tvb_get_ntoh24	,	F_86
+seqnum_tree	,	V_56
+seqnum_length	,	V_67
+ip_handle	,	V_332
+_U_	,	V_4
+"%6u,"	,	L_34
+SN_Missing	,	V_98
+"pdcp-lte.sequence-analysis.expected-sn"	,	L_129
+"Ciphering algorithm to use if not signalled"	,	L_217
+GPOINTER_TO_UINT	,	F_38
+"Key for deciphering user-plane messages"	,	L_195
+BUFF_SIZE	,	F_87
+"pdcp-lte.ueid"	,	L_64
+call_dissector_only	,	F_97
+PDCP_SN_LENGTH_12_BITS	,	V_70
+FT_UINT8	,	V_344
+"Only-PDCP-frames"	,	L_167
+proto_item	,	T_21
+expert_register_field_array	,	F_115
+new_rec	,	V_5
+expert_add_info_format	,	F_33
+", mode=%c, profile=%s"	,	L_15
+ue_security	,	V_207
+DLSCH_TRANSPORT	,	V_177
+previousFrameNum	,	V_63
+"Configuration frame"	,	L_136
+data	,	T_26
+"eia2"	,	L_186
+Channel_PCCH	,	V_173
+calculate_digest	,	F_76
+bearer	,	V_87
+"Seqnum length"	,	L_76
+tag	,	V_181
+ueid	,	V_7
+pdcp_lte_sequence_analysis_report_hash	,	V_119
+offset	,	V_179
+ett_pdcp_packet	,	V_356
+expert_module_t	,	T_36
+"eia3"	,	L_188
+security_ti	,	V_247
+add_new_data_source	,	F_75
+message_data	,	V_235
+old_rec	,	V_6
+"pdcp-lte.fms"	,	L_103
+"EIA0 (NULL)"	,	L_183
+eia3	,	V_369
+eia2	,	V_239
+eia1	,	V_232
+eia0	,	V_81
+gcry_mac_setkey	,	F_79
+HEURISTIC_DISABLE	,	V_376
+proto_tree_add_uint	,	F_27
+logical_channel_vals	,	V_105
+"eia0"	,	L_182
+rohc	,	V_153
+g_snprintf	,	F_92
+notUsed	,	V_45
+"PDCP-LTE over UDP"	,	L_229
+"PDCP UE security keys"	,	L_211
+wmem_file_scope	,	F_13
+"Number of Missing PDCP PDUs"	,	L_115
+GCRYPT_VERSION_NUMBER	,	V_238
+pdcp_lte_module	,	V_372
+"Attempt to decipher User-plane (IP) SDUs"	,	L_225
+gcry_cipher_decrypt	,	F_71
+"pdcp-lte.sequence-analysis.previous-frame"	,	L_125
+"eia1"	,	L_184
+FT_FRAMENUM	,	V_354
+GCRY_CIPHER_AES128	,	V_228
+GCRY_MAC_CMAC_AES	,	V_242
+"pdcp-lte.reserved-bits-not-zero"	,	L_158
+proto_tree	,	T_18

@@ -1,0 +1,323 @@
+decode_plain_auth	,	F_13
+proto_register_protocol	,	F_47
+ntlm_req_frame	,	V_95
+process_reassembled_data	,	F_41
+"smtp.response.code"	,	L_44
+len	,	V_6
+"Reassembled DATA in frame"	,	L_74
+gint	,	T_6
+save_can_desegment	,	V_69
+smtp_data_frag_items	,	V_115
+"smtp.data.fragment.too_long_fragment"	,	L_67
+"User: %s"	,	L_3
+tvb	,	V_7
+ntlm_tvb	,	V_16
+guint32	,	T_11
+COL_INFO	,	V_28
+proto_smtp	,	V_51
+frag_msg	,	V_47
+FT_BOOLEAN	,	V_126
+desegment_offset	,	V_80
+imf_handle	,	V_116
+"Whether the SMTP dissector should reassemble DATA command and lines"	,	L_89
+"DATA fragment overlapping with conflicting data"	,	L_60
+"DATA fragment overlap"	,	L_57
+"BDAT"	,	L_10
+hf_smtp_data_fragment_overlap	,	V_138
+" spanning multiple TCP segments. To use this option, you must also enable "	,	L_85
+tvb_reported_length_remaining	,	F_29
+"Username"	,	L_47
+g_ascii_strncasecmp	,	F_3
+pdu_type	,	V_84
+SMTP_STATE_READING_DATA	,	V_83
+cinfo	,	V_27
+p_get_proto_data	,	F_25
+"Request"	,	L_30
+"Reassemble SMTP command and response lines\nspanning multiple TCP segments"	,	L_83
+array_length	,	F_49
+hf_smtp_req_parameter	,	V_114
+next_tvb	,	V_48
+""	,	L_20
+length_remaining	,	V_43
+call_dissector	,	F_12
+"C: "	,	L_23
+"smtp.data.fragment.overlap.conflicts"	,	L_61
+"smtp.data.fragment.overlap"	,	L_58
+"smtp.data.fragment.multiple_tails"	,	L_64
+ENC_ASCII	,	V_12
+smtp_session_state	,	V_37
+msg_read_len	,	V_62
+msg_len	,	V_88
+"smtp.data.reassembled.in"	,	L_75
+col_append_str	,	F_18
+response_codes_vs_ext	,	V_133
+PROTO_ITEM_SET_HIDDEN	,	F_40
+proto_tree_add_boolean	,	F_39
+commandlen	,	V_2
+hf_register_info	,	T_14
+"Response parameter"	,	L_45
+"Message"	,	L_34
+session_state	,	V_38
+"smtp.command_line"	,	L_37
+SMTP_AUTH_STATE_USERNAME_REQ	,	V_97
+guint16	,	T_13
+COL_PROTOCOL	,	V_106
+length_pass	,	V_23
+auth_state	,	V_54
+i	,	V_3
+hf_smtp_command_line	,	V_111
+reassembly_table_init	,	F_45
+guint8	,	T_8
+wmem_alloc0	,	F_26
+"Command Line"	,	L_36
+smtp_proto_data	,	V_30
+proto_reg_handoff_smtp	,	F_55
+"smtp.req"	,	L_31
+ti	,	V_33
+BASE_NONE	,	V_127
+decrypt	,	V_24
+username_cmd_frame	,	V_66
+tvb_length_remaining	,	F_28
+register_dissector	,	F_52
+ntlm_rsp_frame	,	V_105
+"DATA has multiple tail fragments"	,	L_63
+"smtp.data.fragments"	,	L_52
+SMTP_AUTH_STATE_PLAIN_START_REQ	,	V_91
+tvbuff_t	,	T_4
+hf_smtp_data_fragments	,	V_134
+plurality	,	F_34
+gboolean	,	T_1
+desegment_len	,	V_81
+ssl_handle	,	V_73
+smtp_desegment	,	V_79
+proto_item_add_subtree	,	F_33
+"smtp.data.reassembled.length"	,	L_78
+SMTP_AUTH_STATE_NTLM_CHALLANGE	,	V_103
+module_t	,	T_15
+fragmented	,	V_117
+proto_register_field_array	,	F_48
+commands	,	V_5
+conversation	,	V_36
+"AUTH PLAIN"	,	L_13
+"Message fragments"	,	L_53
+dissector_add_uint	,	F_57
+returncode	,	V_20
+SMTP_AUTH_STATE_NTLM_REQ	,	V_94
+smtp_data_reassemble_init	,	F_44
+more_frags	,	V_78
+"ssl"	,	L_95
+tvb_get_ptr	,	F_30
+register_init_routine	,	F_51
+tvb_strneql	,	F_10
+p_add_proto_data	,	F_27
+SMTP_AUTH_STATE_USERNAME_RSP	,	V_90
+tvb_get_guint8	,	F_42
+hf_smtp_data_reassembled_in	,	V_144
+ett_smtp_cmdresp	,	V_112
+match_uint	,	V_75
+cmdresp_tree	,	V_32
+fd	,	V_67
+"Response code"	,	L_43
+spd_frame_data	,	V_31
+fragment_add_seq_next	,	F_35
+"Message fragment overlap"	,	L_59
+SMTP_STATE_AWAITING_STARTTLS_RESPONSE	,	V_96
+a_offset	,	V_18
+"AUTH LOGIN"	,	L_12
+a_linelen	,	V_19
+addresses_ports_reassembly_table_functions	,	V_124
+TCP_PORT_SSL_SMTP	,	V_152
+"NTLMSSP Data"	,	L_2
+"smtp.req.command"	,	L_39
+hf_smtp_response	,	V_119
+FT_STRING	,	V_129
+"Whether the SMTP dissector should decrypt AUTH parameters"	,	L_92
+hf_smtp_data_fragment_overlap_conflicts	,	V_139
+"ntlmssp"	,	L_96
+"smtp.auth.password"	,	L_50
+"desegment_data"	,	L_87
+hf_smtp_data_fragment_error	,	V_142
+ssl_dissector_add	,	F_58
+linep	,	V_39
+smtp_state	,	V_52
+password_frame	,	V_59
+conversation_add_proto_data	,	F_24
+find_dissector	,	F_56
+"smtp.rsp.parameter"	,	L_46
+"DATA fragment"	,	L_54
+lineend	,	V_40
+"Message has multiple tail fragments"	,	L_65
+"C: ."	,	L_22
+FT_UINT32	,	V_130
+".\r\n"	,	L_6
+"Reassemble SMTP DATA commands spanning multiple TCP segments"	,	L_88
+find_or_create_conversation	,	F_20
+"STARTTLS"	,	L_15
+"Pass: %s"	,	L_25
+hf_smtp_rsp_code	,	V_122
+"This DATA fragment is reassembled in this frame"	,	L_76
+fragment_data	,	T_12
+hf	,	V_125
+SMTP_AUTH_STATE_PLAIN_RSP	,	V_101
+SMTP_STATE_READING_CMDS	,	V_53
+SMTP_AUTH_STATE_START	,	V_89
+"Password"	,	L_49
+"Message fragment overlapping with conflicting data"	,	L_62
+"AUTH NTLM"	,	L_14
+last_nontls_frame	,	V_65
+prefs_register_protocol	,	F_53
+hf_smtp_rsp	,	V_118
+epan_base64_decode	,	F_15
+"SMTP"	,	L_16
+col_append_fstr	,	F_17
+user_pass_cmd_frame	,	V_93
+BASE_EXT_STRING	,	V_132
+col_set_str	,	F_31
+"desegment_lines"	,	L_82
+"smtp.data.fragment.count"	,	L_73
+"C: DATA fragment"	,	L_17
+dissect_smtp_data	,	F_4
+guchar	,	T_2
+"smtp"	,	L_81
+hidden_item	,	V_34
+"DATA defragmentation error"	,	L_69
+index	,	V_77
+SMTP_AUTH_STATE_FAILED	,	V_121
+"DATA fragments"	,	L_51
+linelen	,	V_42
+hf_smtp_data_fragment_too_long_fragment	,	V_141
+ett_smtp_data_fragment	,	V_147
+eom_seen	,	V_44
+hf_smtp_req_command	,	V_113
+SMTP_AUTH_STATE_PASSWORD_RSP	,	V_99
+hf_smtp_data_fragment_count	,	V_143
+last_auth_frame	,	V_57
+col_clear	,	F_32
+dissect_smtp	,	F_19
+smtp_module	,	V_149
+"DATA"	,	L_9
+proto_register_subtree_array	,	F_50
+"LAST"	,	L_11
+"\"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_86
+proto_tree_add_string	,	F_16
+tvb_find_line_end	,	F_6
+ett_smtp	,	V_107
+NCOMMANDS	,	V_4
+proto_tree_add_item	,	F_7
+pinfo	,	V_14
+dissector_handle_t	,	T_16
+SMTP_AUTH_STATE_NONE	,	V_55
+SMTP_AUTH_STATE_SUCCESS	,	V_120
+base64_to_tvb	,	F_9
+saved_can_desegment	,	V_72
+"Message fragment too long"	,	L_68
+can_desegment	,	V_71
+conversation_id	,	V_76
+"Reassembled SMTP"	,	L_26
+SMTP_AUTH_STATE_NTLM_RSP	,	V_104
+prefs_register_bool_preference	,	F_54
+next_offset	,	V_10
+"Whether the SMTP dissector should reassemble command and response lines"	,	L_84
+hf_smtp_req	,	V_110
+"Request parameter"	,	L_40
+tvb_get_ephemeral_string	,	F_14
+"Simple Mail Transfer Protocol"	,	L_80
+tvb_length	,	F_36
+smtp_tree	,	V_9
+proto_tree_add_text	,	F_37
+BASE_DEC	,	V_131
+proto_item	,	T_9
+" | "	,	L_24
+ENC_NA	,	V_13
+"smtp.response"	,	L_42
+"C: Message Body"	,	L_18
+", %d byte%s"	,	L_19
+"smtp.data.fragment"	,	L_55
+tvb_offset_exists	,	F_5
+wmem_alloc	,	F_22
+SMTP_AUTH_STATE_PASSWORD_REQ	,	V_98
+"Command"	,	L_38
+fragment_end_seq_next	,	F_38
+hf_smtp_rsp_parameter	,	V_123
+"Message fragment"	,	L_56
+"DATA fragment count"	,	L_72
+proto_register_smtp	,	F_46
+cmdlen	,	V_46
+smtp_data_desegment	,	V_108
+num	,	V_68
+"Decrypt AUTH parameters"	,	L_91
+"\r\n.\r\n"	,	L_7
+size_t	,	T_3
+username_frame	,	V_58
+crlf_seen	,	V_60
+SMTP_PDU_CMD	,	V_87
+ntlmssp_handle	,	V_17
+"%d %s"	,	L_29
+dissect_ntlm_auth	,	F_8
+user_pass_frame	,	V_102
+SMTP_AUTH_STATE_PLAIN_CRED_REQ	,	V_92
+"smtp.auth.username"	,	L_48
+hf_smtp_data_fragment_multiple_tails	,	V_140
+"smtp.data.fragment.error"	,	L_70
+base64_string	,	V_49
+conversation_t	,	T_10
+"Response"	,	L_32
+FT_NONE	,	V_135
+offset	,	V_8
+" "	,	L_4
+ett	,	V_146
+data_seen	,	V_61
+loffset	,	V_45
+tree	,	V_15
+"S: "	,	L_27
+packet_info	,	T_7
+add_new_data_source	,	F_11
+first_auth_frame	,	V_56
+SMTP_AUTH_STATE_PLAIN_REQ	,	V_100
+"s"	,	L_21
+line_code	,	V_50
+"%d "	,	L_28
+msg_tot_len	,	V_63
+"smtp.req.parameter"	,	L_41
+length_user2	,	V_22
+length_user1	,	V_21
+"Message defragmentation error"	,	L_71
+destport	,	V_74
+hf_smtp_message	,	V_11
+proto_tree_add_uint	,	F_43
+g_ascii_isalpha	,	F_2
+request	,	V_35
+stmp_decryption_enabled	,	V_25
+code	,	V_41
+smtp_data_reassembly_table	,	V_109
+"smtp.message"	,	L_35
+save_last_nontls_frame	,	V_70
+SMTP_PDU_MESSAGE	,	V_86
+conversation_get_proto_data	,	F_21
+smtp_handle	,	V_150
+"NTLMSSP"	,	L_1
+DESEGMENT_ONE_MORE_SEGMENT	,	V_82
+hf_smtp_password	,	V_29
+hf_smtp_username	,	V_26
+"\r\n"	,	L_8
+"The total length of the reassembled payload"	,	L_79
+"imf"	,	L_94
+" Pass: %s"	,	L_5
+hf_smtp_data_reassembled_length	,	V_145
+TCP_PORT_SMTP	,	V_151
+line_is_smtp_command	,	F_1
+wmem_file_scope	,	F_23
+HFILL	,	V_128
+TCP_PORT_SUBMISSION	,	V_153
+SMTP_PDU_EOM	,	V_85
+"DATA fragment too long"	,	L_66
+"smtp.rsp"	,	L_33
+hf_smtp_data_fragment	,	V_136
+msg_last	,	V_64
+FT_FRAMENUM	,	V_137
+"Reassembled DATA length"	,	L_77
+"decryption"	,	L_90
+command	,	V_1
+ett_smtp_data_fragments	,	V_148
+"tcp.port"	,	L_93
+proto_tree	,	T_5

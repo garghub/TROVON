@@ -1,0 +1,345 @@
+bssgp_handle	,	V_115
+col_append_sep_str	,	F_31
+proto_register_protocol	,	F_67
+"nsip.pdu_type"	,	L_33
+length_len	,	V_5
+NSIP_IE_IP_ADDRESS	,	V_110
+"NS SDU"	,	L_80
+"NS SDU Control bits"	,	L_62
+tvb_new_subset_remaining	,	F_44
+NSIP_PDU_NS_UNITDATA	,	V_120
+", Request Change Flow"	,	L_20
+gint	,	T_11
+"nsip.ip_element.data_weight"	,	L_77
+tvb_captured_length_remaining	,	F_41
+"nsip.num_ip6_endpoints"	,	L_46
+NSIP_PDU_NS_RESET	,	V_121
+dissector_add_uint_range_with_preference	,	F_76
+"NS VCI: %#04x"	,	L_6
+element	,	V_36
+TFS	,	F_66
+tvb	,	V_7
+guint32	,	T_10
+COL_INFO	,	V_21
+"nsip.end_flag.spare"	,	L_61
+FT_BOOLEAN	,	V_150
+ett_nsip_control_bits	,	V_91
+version	,	V_42
+hf_nsip_control_bits_c	,	V_88
+reset_flags	,	V_63
+pdu_type	,	V_119
+cinfo	,	V_20
+proto_tree_add_ipv4	,	F_34
+NSIP_IE_FORMAT_TV	,	V_97
+decode_pdu_sns_ack	,	F_50
+MASK_LENGTH_INDICATOR	,	V_3
+proto_tree_add_ipv6	,	F_36
+tfs_set_notset	,	V_151
+"gprs_ns"	,	L_84
+array_length	,	F_69
+", NS VCI: %#04x"	,	L_7
+num_endpoints	,	V_58
+hf_nsip_ip_address_type	,	V_73
+next_tvb	,	V_27
+build_info_t	,	T_2
+hf_nsip_control_bits_r	,	V_87
+NSIP_IE_MAX_NUM_NS_VC	,	V_106
+decode_pdu_general	,	F_42
+nsip_ie_t	,	T_1
+call_dissector	,	F_16
+decode_ip_element	,	F_19
+hf_nsip_ns_sdu	,	V_117
+bi	,	V_2
+decode_pdu_sns_add	,	F_51
+nsip_handle	,	V_29
+NSIP_DEBUG	,	V_12
+"nsip.bvci"	,	L_36
+hf_register_info	,	T_14
+proto_tree_add_bytes_format	,	F_14
+udp_port	,	V_38
+"nsip.control_bits.spare"	,	L_69
+decode_pdu_sns_changeweight	,	F_52
+num_ies	,	V_112
+"Unknown (0x%02x)"	,	L_4
+sdu_length	,	V_114
+guint16	,	T_4
+COL_PROTOCOL	,	V_139
+proto_register_nsip	,	F_64
+", Cause: %s"	,	L_5
+i	,	V_53
+MASK_ONE_BYTE_LENGTH	,	V_4
+e_in6_addr	,	V_71
+decode_iei_transaction_id	,	F_37
+hf_nsip_control_bits	,	V_90
+"nsip.ipv4_address"	,	L_55
+", NSEI %u"	,	L_10
+guint8	,	T_3
+decode_iei_cause	,	F_6
+tf	,	V_39
+ti	,	V_24
+BASE_NONE	,	V_155
+col_append_sep_fstr	,	F_8
+dissect_nsip	,	F_59
+decode_iei_bvci	,	F_18
+NSIP_PDU_NS_BLOCK	,	V_123
+"Data Weight"	,	L_76
+register_dissector	,	F_71
+"Transaction ID"	,	L_70
+NSIP_IE_BVCI	,	V_103
+"Number of IP4 endpoints"	,	L_43
+NSIP_IE_IP6_ELEMENTS	,	V_105
+tvbuff_t	,	T_5
+tvb_get_ntohs	,	F_12
+proto_tree_add_bitmask	,	F_30
+"Maximum number of NS-VCs"	,	L_41
+proto_reg_handoff_nsip	,	F_74
+nsip_is_recursive	,	V_31
+ett_nsip_ip_element	,	V_41
+BASE_HEX	,	V_146
+parent_tree	,	V_116
+"nsip.control_bits.c"	,	L_67
+gboolean	,	T_6
+num_elements	,	V_54
+NSIP_PDU_SNS_CONFIG	,	V_129
+check_correct_iei	,	F_3
+proto_item_add_subtree	,	F_62
+module_t	,	T_15
+proto_register_field_array	,	F_68
+TRAF_GPRS_NS	,	V_164
+hf_nsip_pdu_type	,	V_142
+FT_BYTES	,	V_160
+"nsip.num_ip4_endpoints"	,	L_44
+dissector_add_uint	,	F_77
+ett_nsip_ip_element_list	,	V_55
+"Signalling Weight"	,	L_74
+hf_nsip_control_bits_spare	,	V_89
+hf_nsip_ns_vci	,	V_26
+"GPRS-NS"	,	L_24
+FT_UINT16	,	V_148
+tvb_get_guint8	,	F_2
+"nsip.cause"	,	L_28
+"nsip.end_flag"	,	L_58
+tvb_captured_length	,	F_63
+tab_nsip_cause_values	,	V_23
+tvb_ip6_to_str	,	F_23
+decode_iei_max_num_ns_vc	,	F_26
+hf_nsip_end_flag_bit	,	V_81
+decode_iei_num_ip6_endpoints	,	F_28
+decode_pdu	,	F_58
+hf_nsip_num_ip4_endpoints	,	V_59
+decode_pdu_sns_config	,	F_53
+"Spare bits"	,	L_68
+iei	,	V_13
+tab_nsip_ieis	,	V_15
+"NS PDU (%u bytes)"	,	L_8
+hf_nsip_nsei	,	V_33
+"nsip.ip_address_type"	,	L_53
+hf_nsip_reset_flag	,	V_66
+", UDP Port: %u"	,	L_15
+DEFAULT_NSIP_PORT_RANGE	,	V_163
+num_ns_vc	,	V_56
+ies	,	V_111
+element_tree	,	V_37
+"nsip.ip_element.udp_port"	,	L_73
+NSIP_PDU_SNS_ADD	,	V_127
+fetched_iei	,	V_11
+decode_iei_control_bits	,	F_39
+ie_start_offset	,	V_16
+NSIP_MASK_RESET_FLAG_SPARE	,	V_152
+NSIP_MASK_END_FLAG_SPARE	,	V_158
+nsip_tree	,	V_14
+"PDU type"	,	L_32
+NSIP_MASK_END_FLAG	,	V_157
+org_offset	,	V_94
+NSIP_PDU_NS_UNBLOCK_ACK	,	V_137
+prefs_register_obsolete_preference	,	F_73
+NSIP_PDU_SNS_ACK	,	V_126
+"nsip.ns_sdu"	,	L_81
+"nsip.ip_element.signalling_weight"	,	L_75
+ip_address_type_vals	,	V_153
+val_to_str_const	,	F_5
+length	,	V_6
+was_recursive	,	V_30
+ENC_BIG_ENDIAN	,	V_46
+"Transaction Id: %d"	,	L_18
+"nsip.max_num_ns_vc"	,	L_42
+decode_pdu_sns_size_ack	,	F_57
+"Unknown PDU type"	,	L_26
+hf_nsip_cause	,	V_18
+decode_pdu_ns_block_ack	,	F_48
+"nsip.ns_vci"	,	L_30
+decode_pdu_ns_status	,	F_49
+"List of IP%u Elements (%u Elements)"	,	L_16
+hf	,	V_144
+hf_nsip_ns_pdu	,	V_28
+decode_pdu_ns_unitdata	,	F_43
+ipv6_element	,	V_77
+addr_type	,	V_69
+decode_iei_ns_pdu	,	F_13
+hf_nsip_ip_element_signalling_weight	,	V_51
+"BVCI"	,	L_35
+"BVCI %u"	,	L_11
+decode_pdu_ns_block	,	F_47
+prefs_register_protocol	,	F_72
+FT_IPv6	,	V_156
+proto_tree_add_subtree	,	F_20
+"atm.aal5.type"	,	L_89
+"Confirm change flow"	,	L_66
+NSIP_PDU_SNS_SIZE_ACK	,	V_133
+col_set_str	,	F_60
+nsei	,	V_32
+NSIP_IP_ADDRESS_TYPE_IPV4	,	V_74
+total_length	,	V_10
+id	,	V_78
+NSIP_PDU_SNS_SIZE	,	V_132
+NSIP_PDU_NS_UNBLOCK	,	V_136
+ie	,	V_1
+NSIP_IP_ADDRESS_TYPE_IPV6	,	V_76
+NSIP_PDU_SNS_CHANGEWEIGHT	,	V_128
+"NS SDU (%u bytes)"	,	L_23
+FT_IPv4	,	V_154
+"udp.port2"	,	L_86
+"bssgp"	,	L_87
+"Network Service Virtual Link Identifier"	,	L_31
+NSIP_IE_FORMAT_TLV	,	V_96
+decode_pdu_ns_reset	,	F_45
+"Number of IP6 endpoints"	,	L_45
+"nsip.control_bits"	,	L_63
+find_dissector_add_dependency	,	F_75
+NSIP_PDU_NS_ALIVE_ACK	,	V_135
+proto_item_append_text	,	F_10
+NSIP_IP_VERSION_6	,	V_47
+NSIP_IP_VERSION_4	,	V_43
+NSIP_PDU_SNS_DELETE	,	V_131
+col_clear	,	F_61
+"Reset"	,	L_17
+tab_nsip_pdu_types	,	V_143
+NSIP_IE_NSEI	,	V_102
+proto_register_subtree_array	,	F_70
+val_to_str	,	F_9
+ip4_addr	,	V_70
+get_value_length	,	F_1
+hf_nsip_end_flag	,	V_83
+decode_pdu_sns_size	,	F_56
+"udp.port1"	,	L_85
+address_length	,	V_45
+"nsip.control_bits.r"	,	L_65
+"NSEI"	,	L_38
+"nsip.reset_flag.flag"	,	L_49
+proto_tree_add_item	,	F_21
+flag	,	V_62
+pinfo	,	V_19
+_U_	,	V_61
+flags	,	V_86
+NSIP_MASK_CONTROL_BITS_R	,	V_92
+NSIP_SEP	,	V_22
+decode_iei_ip_address	,	F_32
+"Req CF"	,	L_19
+value_length	,	V_9
+tvb_get_ipv4	,	F_33
+NSIP_IE_IP4_ELEMENTS	,	V_104
+tvb_get_ipv6	,	F_35
+decode_pdu_ns_reset_ack	,	F_46
+VALS	,	F_65
+NSIP_MASK_CONTROL_BITS_C	,	V_93
+"Conf CF"	,	L_21
+"NS-VCI"	,	L_29
+"PDU type information element"	,	L_34
+decode_iei_end_flag	,	F_38
+"Request change flow"	,	L_64
+FT_UINT8	,	V_145
+"nsip.transaction_id"	,	L_71
+tvb_ip_to_str	,	F_22
+BASE_DEC	,	V_149
+proto_item	,	T_7
+tvb_new_subset_length_caplen	,	F_15
+"Cause: %s"	,	L_3
+ENC_NA	,	V_49
+ett_nsip_end_flag	,	V_84
+NSIP_PDU_NS_BLOCK_ACK	,	V_124
+NSIP_IE_NUM_IP6_ENDPOINTS	,	V_108
+hf_nsip_transaction_id	,	V_79
+decode_pdu_sns_delete	,	F_55
+hf_nsip_bvci	,	V_35
+"nsip.nsei"	,	L_39
+NSIP_PDU_NS_STATUS	,	V_125
+decode_iei_num_ip4_endpoints	,	F_27
+hf_nsip_reset_flag_bit	,	V_64
+hf_nsip_ip_element_data_weight	,	V_52
+data	,	T_13
+hf_nsip_ip_element_udp_port	,	V_50
+NSIP_MASK_CONTROL_BITS_SPARE	,	V_159
+hf_nsip_ip_address_ipv4	,	V_44
+", Confirm Change Flow"	,	L_22
+"Reset flag"	,	L_47
+hf_nsip_ip_address_ipv6	,	V_48
+NSIP_PDU_SNS_CONFIG_ACK	,	V_130
+"IP Address Type"	,	L_52
+ett_nsip	,	V_141
+"nsip.ipv6_address"	,	L_56
+ett_nsip_reset_flag	,	V_67
+NSIP_PDU_NS_RESET_ACK	,	V_122
+"nsip.reset_flag"	,	L_48
+control_bits	,	V_85
+bvci	,	V_34
+"IP Element"	,	L_13
+proto_tree_add_debug	,	F_4
+hf_nsip_num_ip6_endpoints	,	V_60
+decode_ip_elements	,	F_24
+hf_nsip_end_flag_spare	,	V_82
+"End flag spare bits"	,	L_60
+"Tried IEI %s (%#02x), found IEI %s (%#02x)"	,	L_1
+NSIP_IE_NS_VCI	,	V_100
+field_tree	,	V_40
+offset	,	V_8
+NSIP_IE_NUM_IP4_ENDPOINTS	,	V_107
+"nsip.end_flag.flag"	,	L_59
+ett	,	V_161
+format	,	V_95
+NSIP_PDU_NS_ALIVE	,	V_134
+tree	,	V_138
+nsip_ip_element_info_t	,	T_8
+packet_info	,	T_12
+decode_iei_ns_vci	,	F_11
+decode_ie	,	F_40
+", BVCI %u"	,	L_12
+ipv4_element	,	V_75
+proto_tree_add_uint	,	F_7
+end_flags	,	V_80
+NSIP_IE_FORMAT_V	,	V_98
+NSIP_IE_PRESENCE_M	,	V_113
+": IP address: %s"	,	L_14
+"IP Address"	,	L_54
+"nsip.ns_pdu"	,	L_79
+hf_nsip_reset_flag_spare	,	V_65
+cause	,	V_17
+"BSSGP Virtual Connection Identifier"	,	L_37
+proto_nsip	,	V_140
+nsip_module	,	V_162
+decode_pdu_sns_config_ack	,	F_54
+ns_vci	,	V_25
+"nsip.reset_flag.spare"	,	L_51
+"Reset flag spare bits"	,	L_50
+NSIP_MASK_RESET_FLAG	,	V_68
+NSIP_IE_PRESENCE_C	,	V_118
+NSIP_IE_CAUSE	,	V_99
+HFILL	,	V_147
+hf_nsip_max_num_ns_vc	,	V_57
+"gprs-ns"	,	L_83
+"End flag"	,	L_57
+ip6_addr	,	V_72
+"NS PDU"	,	L_78
+decode_iei_nsei	,	F_17
+"GPRS Network Service"	,	L_82
+"udp.port"	,	L_88
+proto_tree_add_subtree_format	,	F_25
+"Network Service Entity Identifier"	,	L_40
+", PDU type: %s"	,	L_25
+"Cause"	,	L_27
+"UDP Port"	,	L_72
+"NSEI %u"	,	L_9
+NSIP_IE_RESET_FLAG	,	V_109
+"Unknown"	,	L_2
+decode_iei_reset_flag	,	F_29
+NSIP_IE_NS_PDU	,	V_101
+proto_tree	,	T_9

@@ -1,0 +1,171 @@
+get_token_len	,	F_24
+proto_register_protocol	,	F_29
+prefs_register_protocol	,	F_34
+"subscribe"	,	L_11
+"imap.request.command"	,	L_35
+gint	,	T_4
+col_set_str	,	F_15
+"Remainder of request line"	,	L_25
+"imap.isrequest"	,	L_19
+hf_imap_line	,	V_48
+"Remainder of response line"	,	L_30
+"Response Tag"	,	L_31
+"First token of response line"	,	L_33
+tvb	,	V_1
+hf_imap_response_tag	,	V_52
+"search"	,	L_15
+COL_INFO	,	V_44
+guchar	,	T_9
+imap_state_t	,	T_11
+MAX_BUFFER	,	V_39
+hidden_item	,	V_12
+"delete"	,	L_9
+imap_ssl_heuristic	,	V_35
+FT_BOOLEAN	,	V_60
+iter	,	V_29
+hf_imap_request_folder	,	V_56
+dissect_imap	,	F_5
+linelen	,	V_20
+ett_imap	,	V_46
+ett_imap_reqresp	,	V_50
+proto_imap	,	V_33
+"Request Command"	,	L_34
+cinfo	,	V_40
+"Request"	,	L_3
+proto_register_subtree_array	,	F_33
+ssl_requested	,	V_34
+array_length	,	F_32
+tvb_find_line_end	,	F_16
+"Request command uid"	,	L_45
+"Response status code"	,	L_39
+"rename"	,	L_10
+"Request Tag"	,	L_26
+proto_tree_add_item	,	F_19
+FT_STRINGZ	,	V_63
+call_dissector	,	F_12
+hf_imap_request	,	V_57
+pinfo	,	V_5
+col_add_fstr	,	F_17
+ssl_heur_tries_left	,	V_36
+_U_	,	V_7
+"A line of an IMAP message"	,	L_23
+tokenlen	,	V_21
+hf_imap_response_status	,	V_55
+ENC_ASCII	,	V_49
+"Request Folder"	,	L_40
+PROTO_ITEM_SET_HIDDEN	,	F_22
+proto_tree_add_boolean	,	F_21
+commandlen	,	V_30
+hf_register_info	,	T_12
+session_state	,	V_32
+prefs_register_bool_preference	,	F_35
+uid_offset	,	V_14
+next_offset	,	V_19
+"TRUE if IMAP request, FALSE otherwise"	,	L_20
+"IMAP"	,	L_1
+imap_handle	,	V_38
+"ssl_heuristic"	,	L_48
+COL_PROTOCOL	,	V_41
+hf_imap_request_tag	,	V_51
+i	,	V_3
+"imap.response"	,	L_29
+"imap.response.status"	,	L_38
+"Whether to use heuristics for post-STARTTLS detection of encrypted IMAP conversations"	,	L_50
+proto_item	,	T_8
+hf_imap_response	,	V_58
+ENC_NA	,	V_45
+wmem_alloc0	,	F_13
+"create"	,	L_8
+s	,	V_2
+proto_reg_handoff_imap	,	F_36
+ti	,	V_11
+"ok"	,	L_17
+BASE_NONE	,	V_61
+"append"	,	L_14
+tvb_offset_exists	,	F_23
+register_dissector	,	F_30
+ssl_starttls_post_ack	,	F_11
+uid_next_token	,	V_25
+data	,	T_7
+format_text	,	F_18
+tvbuff_t	,	T_2
+"select"	,	L_6
+next_token	,	V_24
+proto_register_imap	,	F_28
+"Request isUID"	,	L_43
+"examine"	,	L_7
+"imap.response_tag"	,	L_32
+gboolean	,	T_1
+ssl_handle	,	V_37
+"Request command folder"	,	L_42
+proto_item_add_subtree	,	F_20
+module_t	,	T_13
+proto_register_field_array	,	F_31
+conversation	,	V_31
+conversation_t	,	T_10
+"Response"	,	L_4
+"imap.request.folder"	,	L_41
+offset	,	V_13
+ett	,	V_64
+wmem_packet_scope	,	F_14
+"imap.line"	,	L_22
+check_imap_heur	,	F_1
+tree	,	V_6
+hf_imap_request_uid	,	V_53
+tvb_bytes_exist	,	F_2
+command_token	,	V_28
+"ssl"	,	L_52
+tvb_get_ptr	,	F_3
+IMAP_HEUR_LEN	,	V_4
+packet_info	,	T_5
+"imap"	,	L_47
+folder_line	,	V_18
+imap_tree	,	V_9
+tvb_captured_length	,	F_27
+"imap.request"	,	L_24
+g_ascii_isprint	,	F_4
+match_uint	,	V_42
+"unsubscribe"	,	L_12
+destport	,	V_43
+g_ascii_tolower	,	F_25
+is_request	,	V_8
+reqresp_tree	,	V_10
+wmem_new0	,	F_8
+"Use heuristic detection for TLS"	,	L_49
+uid_tokenlen	,	V_22
+TCP_PORT_SSL_IMAP	,	V_67
+"copy"	,	L_16
+conversation_get_proto_data	,	F_7
+"Line"	,	L_21
+folder_offset	,	V_15
+"%s: %s"	,	L_2
+"Response Status"	,	L_37
+hf_imap_request_command	,	V_54
+TCP_PORT_IMAP	,	V_66
+"Internet Message Access Protocol"	,	L_46
+"status"	,	L_13
+wmem_file_scope	,	F_9
+HFILL	,	V_62
+ssl_starttls_ack	,	F_26
+"imap.request_tag"	,	L_27
+ssl_dissector_add	,	F_38
+"uid"	,	L_5
+"starttls"	,	L_18
+conversation_add_proto_data	,	F_10
+"First token of request line"	,	L_28
+folder_tokenlen	,	V_23
+gchar	,	T_3
+imap_module	,	V_65
+find_dissector	,	F_39
+uid_line	,	V_17
+lineend	,	V_16
+"imap.request.command.uid"	,	L_44
+hf_imap_isrequest	,	V_47
+tokenbuf	,	V_27
+folder_next_token	,	V_26
+"Request command name"	,	L_36
+dissector_add_uint_with_preference	,	F_37
+find_or_create_conversation	,	F_6
+"tcp.port"	,	L_51
+proto_tree	,	T_6
+hf	,	V_59

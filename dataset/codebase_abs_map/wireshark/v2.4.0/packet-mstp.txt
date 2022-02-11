@@ -1,0 +1,190 @@
+PROTO_CHECKSUM_NO_FLAGS	,	V_42
+"Preamble 55"	,	L_8
+"Destination Address"	,	L_17
+"mstp.vendorid"	,	L_22
+proto_register_protocol	,	F_35
+ett_bacnet_mstp_checksum	,	V_68
+col_append_fstr	,	F_15
+"mstp.hdr_crc"	,	L_28
+ei_mstp_frame_checksum_bad	,	V_40
+gint	,	T_12
+col_set_str	,	F_12
+" %s"	,	L_6
+"Header CRC"	,	L_27
+"Checksum status"	,	L_33
+"Unknown Frame Type (%u)"	,	L_1
+hf_mstp_frame_crc8	,	V_38
+defined	,	F_11
+val	,	V_5
+tvb	,	V_11
+item	,	V_21
+"mstp.preamble_55"	,	L_9
+guint32	,	T_4
+mstp_to_str	,	F_6
+COL_INFO	,	V_30
+WTAP_ENCAP_BACNET_MS_TP_WITH_PHDR	,	V_80
+dataValue	,	V_1
+MSTP_BACNET_DATA_EXPECTING_REPLY	,	V_81
+ei_mstp_frame_pdu_len	,	V_37
+"BACnet MS/TP, Src (%u), Dst (%u), %s"	,	L_7
+tvb_reported_length_remaining	,	F_17
+MIN	,	F_24
+mstp_handle	,	V_76
+"MS/TP Frame Type"	,	L_16
+cinfo	,	V_28
+PI_ERROR	,	V_71
+"MS/TP Vendor ID of proprietary frametypes"	,	L_23
+proto_register_subtree_array	,	F_38
+val_to_str	,	F_4
+array_length	,	F_37
+bytes_to_hexstr	,	F_7
+mstp_tvb_pdu_len	,	V_18
+next_tvb	,	V_20
+"mstp.checksum.status"	,	L_34
+proto_checksum_vals	,	V_66
+proto_tree_add_item	,	F_16
+"BACnet MS/TP Address"	,	L_43
+pinfo	,	V_12
+dissector_handle_t	,	T_17
+copy_address_shallow	,	F_29
+ett_bacnet_mstp	,	V_56
+_U_	,	V_7
+BACNET_MSTP_CHECKSUM_VALIDATE	,	V_22
+crcdata	,	V_25
+dl_dst	,	V_49
+hf_mstp_frame_vendor_id	,	V_43
+crc16	,	V_24
+proto_tree_add_checksum	,	F_19
+hf_register_info	,	T_14
+VALS	,	F_34
+"Data CRC"	,	L_30
+BACNET_MSTP_SUMMARY_IN_TREE	,	F_27
+guint16	,	T_2
+address	,	T_5
+COL_PROTOCOL	,	V_29
+mstp_col_filter_str	,	F_8
+"VendorID"	,	L_21
+FT_UINT8	,	V_60
+"Source Address"	,	L_19
+vendorid	,	V_19
+i	,	V_26
+BASE_DEC	,	V_63
+mstp_frame_type	,	V_16
+bacnet_mstp_frame_type_name	,	V_6
+proto_item	,	T_13
+expert_register_field_array	,	F_40
+mstp_len	,	F_9
+dl_src	,	V_52
+tvb_new_subset_length_caplen	,	F_21
+subtree	,	V_14
+ENC_NA	,	V_55
+proto_register_mstp	,	F_33
+guint8	,	T_1
+buf	,	V_8
+ti	,	V_46
+BASE_NONE	,	V_65
+"Length field value goes past the end of the payload"	,	L_36
+hf_mstp_frame_pdu_len	,	V_35
+CRC_Calc_Data	,	F_2
+dissect_mstp	,	F_10
+ENC_LITTLE_ENDIAN	,	V_32
+register_dissector_table	,	F_42
+register_dissector	,	F_41
+proto_reg_handoff_mstp	,	F_44
+crcLow	,	V_4
+data	,	V_9
+"mstp.frame_type"	,	L_15
+crcValue	,	V_2
+tvbuff_t	,	T_9
+hf_mstp_frame_source	,	V_34
+proto_tree_add_protocol_format	,	F_30
+WTAP_ENCAP_BACNET_MS_TP	,	V_79
+mstp_address_type	,	V_50
+"wtap_encap"	,	L_44
+tvb_get_ntohs	,	F_14
+dissect_mstp_wtap	,	F_26
+BASE_HEX	,	V_61
+"MS/TP Preamble FF"	,	L_13
+"Bad Checksum"	,	L_38
+mstp_str_len	,	F_5
+"mstp.src"	,	L_2
+FT_UINT24	,	V_77
+hf_mstp_preamble_55	,	V_57
+ei_register_info	,	T_15
+gboolean	,	T_8
+expert_register_protocol	,	F_39
+proto_item_add_subtree	,	F_31
+"AT_MSTP"	,	L_42
+mstp_frame_destination	,	V_48
+hf_mstp_frame_checksum_status	,	V_39
+proto_register_field_array	,	F_36
+"mstp.len"	,	L_25
+"Destination MS/TP MAC Address"	,	L_18
+"Length"	,	L_24
+offset	,	V_15
+ett	,	V_67
+ei	,	V_69
+expert_module_t	,	T_16
+dissector_add_uint	,	F_45
+tree	,	V_13
+hf_mstp_frame_destination	,	V_33
+hf_mstp_frame_crc16	,	V_45
+"mstp.vendor_frame_type"	,	L_40
+FT_UINT16	,	V_64
+packet_info	,	T_10
+mstp_frame_pdu_len	,	V_17
+tvb_get_guint8	,	F_13
+set_address_tvb	,	F_28
+hf_mstp_preamble_FF	,	V_58
+tvb_captured_length	,	F_32
+"BACnet"	,	L_4
+"mstp.len.bad"	,	L_35
+g_htons	,	F_25
+"BACnet MS/TP"	,	L_5
+hf_mstp_frame_type	,	V_31
+EXPFILL	,	V_72
+"mstp.preamble_FF"	,	L_12
+expert_mstp	,	V_75
+dst	,	V_51
+PI_CHECKSUM	,	V_73
+expert_add_info	,	F_18
+"MS/TP Data CRC"	,	L_32
+crc8	,	V_23
+mstp_frame_type_text	,	F_3
+"MS/TP Data Length"	,	L_26
+tvb_new_subset_length	,	F_20
+subdissector_table	,	V_44
+"mstp.dst"	,	L_3
+crc	,	V_3
+PROTO_CHECKSUM_VERIFY	,	V_41
+call_data_dissector	,	F_23
+buf_len	,	T_7
+addr	,	T_6
+HFILL	,	V_62
+PI_MALFORMED	,	V_70
+is_src	,	V_10
+dissector_try_uint	,	F_22
+"Source MS/TP MAC Address"	,	L_20
+address_type_dissector_register	,	F_43
+"mstp"	,	L_39
+src	,	V_53
+"Preamble FF"	,	L_11
+gchar	,	T_3
+"mstp.data_crc"	,	L_31
+find_dissector	,	F_46
+"MSTP Vendor specific Frametypes"	,	L_41
+PI_WARN	,	V_74
+"MS/TP Header CRC"	,	L_29
+max_len	,	V_27
+ENC_BIG_ENDIAN	,	V_36
+"MS/TP Preamble 55"	,	L_10
+"bacnet"	,	L_45
+mstp_frame_source	,	V_47
+proto_mstp	,	V_54
+MSTP_BACNET_DATA_NOT_EXPECTING_REPLY	,	V_82
+CRC_Calc_Header	,	F_1
+"mstp.checksum_bad.expert"	,	L_37
+bacnet_handle	,	V_78
+proto_tree	,	T_11
+hf	,	V_59
+"Frame Type"	,	L_14

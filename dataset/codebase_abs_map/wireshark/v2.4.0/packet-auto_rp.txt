@@ -1,0 +1,143 @@
+auto_rp_tree	,	V_13
+hf_auto_rp_prefix_sgn	,	V_41
+"auto_rp.group_prefix"	,	L_37
+AUTO_RP_SIGN_MASK	,	V_39
+proto_register_protocol	,	F_22
+rp_count	,	V_6
+map_tree	,	V_29
+hf_auto_rp_trailing_junk	,	V_28
+"Version"	,	L_24
+grp_tree	,	V_35
+col_set_str	,	F_2
+"The number of RP addresses contained in this message"	,	L_18
+gint	,	T_9
+proto_register_auto_rp	,	F_20
+FT_IPv4	,	V_53
+auto_rp_ver_vals	,	V_11
+tvb	,	V_1
+"Protocol version"	,	L_10
+"Packet type"	,	L_13
+hf_auto_rp_type	,	V_23
+COL_INFO	,	V_9
+hf_auto_rp_version	,	V_22
+"RP count"	,	L_16
+mask_len	,	V_37
+"Version: %s, Packet type: %s"	,	L_6
+tvb_reported_length_remaining	,	F_17
+col_clear	,	F_3
+"Auto-RP packet type"	,	L_15
+cinfo	,	V_7
+proto_register_subtree_array	,	F_25
+array_length	,	F_24
+do_auto_rp_map	,	F_16
+ett_auto_rp_group	,	V_38
+"The amount of time in seconds this announcement is valid"	,	L_23
+"auto_rp.prefix_sign"	,	L_31
+"Reserved"	,	L_39
+hf_auto_rp_reserved	,	V_26
+""	,	L_4
+UDP_PORT_PIM_RP_DISC	,	V_60
+proto_tree_add_item	,	F_10
+pinfo	,	V_2
+col_add_fstr	,	F_5
+dissector_handle_t	,	T_10
+hf_auto_rp_mask_len	,	V_42
+_U_	,	V_4
+"auto_rp.trailing_junk"	,	L_42
+"auto_rp.holdtime"	,	L_22
+hf_register_info	,	T_8
+"RP address"	,	L_27
+ett_auto_rp_map	,	V_31
+VALS	,	F_21
+"Group prefix sign"	,	L_32
+"Length of group prefix"	,	L_35
+holdtime	,	V_17
+hf_auto_rp_group_prefix	,	V_43
+guint16	,	T_7
+dissect_auto_rp	,	F_1
+COL_PROTOCOL	,	V_8
+proto_reg_handoff_auto_rp	,	F_26
+"auto_rp.type"	,	L_14
+FT_UINT8	,	V_45
+"Auto-RP"	,	L_1
+"Holdtime"	,	L_21
+i	,	V_15
+tvb_ip_to_str	,	F_19
+BASE_DEC	,	V_46
+proto_item	,	T_6
+"auto_rp.rp_addr"	,	L_28
+"Prefix"	,	L_36
+ver_type_tree	,	V_14
+ENC_NA	,	V_19
+guint8	,	T_5
+ti	,	V_12
+"auto_rp.group_num"	,	L_20
+BASE_NONE	,	V_54
+"auto_rp.reserved"	,	L_40
+"Auto-RP protocol version"	,	L_12
+data	,	T_4
+group_count	,	V_30
+sign	,	V_36
+tvbuff_t	,	T_1
+tvb_get_ntohs	,	F_14
+plurality	,	F_9
+BASE_HEX	,	V_56
+auto_rp_pim_ver_vals	,	V_51
+"Group prefix"	,	L_38
+proto_item_add_subtree	,	F_11
+hf_auto_rp_group_num	,	V_34
+"%s (v%s) for %u RP%s"	,	L_2
+proto_register_field_array	,	F_23
+FT_BYTES	,	V_57
+offset	,	V_16
+ett	,	V_58
+hf_auto_rp_holdtime	,	V_25
+tree	,	V_3
+hf_auto_rp_count	,	V_24
+AUTO_RP_TYPE_MASK	,	V_49
+lo_nibble	,	F_7
+FT_UINT16	,	V_50
+packet_info	,	T_2
+hi_nibble	,	F_8
+"s"	,	L_5
+tvb_get_guint8	,	F_4
+"RP %s: %u group%s"	,	L_8
+"Cisco Auto-RP"	,	L_43
+tvb_captured_length	,	F_18
+"Number of groups this RP maps to"	,	L_19
+auto_rp_type_vals	,	V_10
+ett_auto_rp	,	V_20
+hf_auto_rp_rp_addr	,	V_32
+"auto_rp.rp_count"	,	L_17
+proto_tree_add_uint	,	F_13
+"auto_rp.mask_len"	,	L_34
+"Sign"	,	L_30
+"auto_rp.version"	,	L_11
+ver_type	,	V_5
+auto_rp_mask_sign_vals	,	V_40
+HFILL	,	V_48
+"The unicast IP address of the RP"	,	L_29
+"Trailing junk"	,	L_41
+proto_auto_rp	,	V_18
+AUTO_RP_PIM_VER_MASK	,	V_52
+val_to_str_const	,	F_6
+hf_auto_rp_pim_ver	,	V_33
+"Group %s/%u (%s)"	,	L_9
+"udp.port"	,	L_45
+AUTO_RP_VERSION_MASK	,	V_47
+create_dissector_handle	,	F_27
+proto_tree_add_subtree_format	,	F_12
+"auto_rp"	,	L_44
+"auto_rp.pim_ver"	,	L_25
+proto_tree_add_uint_format_value	,	F_15
+ett_auto_rp_ver_type	,	V_21
+ENC_BIG_ENDIAN	,	V_27
+FT_UINT32	,	V_55
+"RP's highest PIM version"	,	L_26
+dissector_add_uint_with_preference	,	F_28
+"%u second%s"	,	L_7
+"Unknown"	,	L_3
+auto_rp_handle	,	V_59
+proto_tree	,	T_3
+hf	,	V_44
+"Mask length"	,	L_33

@@ -1,0 +1,167 @@
+tvb_get_string_enc	,	F_6
+hf_exported_pdu_dvbci_evt	,	V_67
+next_proto_type	,	V_11
+proto_register_protocol	,	F_22
+hf_exported_pdu_tag	,	V_23
+"Tag"	,	L_3
+FT_IPv6	,	V_80
+tvb_new_subset_remaining	,	F_16
+"Src Port"	,	L_21
+col_set_str	,	F_2
+gint	,	T_11
+"Dst Port"	,	L_23
+FT_IPv4	,	V_79
+exported_pdu_handle	,	V_89
+"IPv6 Dst"	,	L_17
+proto_handle	,	V_15
+tvb	,	V_1
+WTAP_ENCAP_WIRESHARK_UPPER_PDU	,	V_90
+guchar	,	T_6
+"exported_pdu.unknown_tag"	,	L_8
+pool	,	V_57
+register_export_pdu_tap	,	F_27
+hf_exported_pdu_prot_name	,	V_30
+"SS7 OPC"	,	L_25
+EXP_PDU_TAG_IPV6_DST	,	V_43
+EXP_PDU_TAG_IPV4_DST	,	V_36
+col_clear	,	F_18
+mtp3_addr	,	V_16
+cinfo	,	V_18
+proto_register_subtree_array	,	F_26
+array_length	,	F_25
+"IPv4 Src"	,	L_11
+mtp3_addr_pc_t	,	T_8
+tag_len	,	V_10
+proto_tree_add_item	,	F_3
+port_type	,	V_47
+call_dissector	,	F_19
+"exported_pdu.exported_pdu"	,	L_33
+pinfo	,	V_2
+dissector_handle_t	,	T_7
+"IPv6 Src"	,	L_15
+EXP_PDU_TAG_PORT_TYPE	,	V_45
+EXP_PDU_TAG_IPV4_SRC	,	V_31
+EXP_PDU_TAG_IPV6_SRC	,	V_40
+"%s (%u)"	,	L_2
+EXP_PDU_TAG_END_OF_OPT	,	V_68
+EXP_PDU_TAG_SS7_OPC	,	V_55
+dvbci_event	,	V_84
+hf_register_info	,	T_10
+AT_IPv4	,	V_34
+initialized	,	V_88
+tag_tree	,	V_6
+AT_IPv6	,	V_42
+VALS	,	F_21
+"Port Type"	,	L_19
+guint16	,	T_5
+COL_PROTOCOL	,	V_19
+hf_exported_pdu_ss7_opc	,	V_56
+EXP_PDU_TAG_PROTO_NAME	,	V_27
+EXP_PDU_TAG_SRC_PORT	,	V_49
+FT_UINT8	,	V_82
+src_addr	,	V_13
+proto_register_exported_pdu	,	F_20
+BASE_DEC	,	V_73
+"exported_pdu.ipv4_src"	,	L_12
+proto_item	,	T_4
+"exported_pdu.prot_name"	,	L_10
+hf_exported_pdu_unknown_tag	,	V_69
+ENC_NA	,	V_21
+guint8	,	T_9
+wmem_alloc0	,	F_13
+AT_SS7PC	,	V_61
+EXPORT_PDU_TAP_NAME_LAYER_7	,	V_87
+ti	,	V_4
+BASE_NONE	,	V_77
+"exported_pdu"	,	L_35
+EXPORT_PDU_TAP_NAME_LAYER_3	,	V_86
+hf_exported_pdu_dst_port	,	V_53
+register_dissector	,	F_23
+dvb_ci_dir	,	V_17
+EXP_PDU_TAG_DVBCI_EVT	,	V_66
+tvb_get_ntohl	,	F_10
+tvbuff_t	,	T_1
+"exported_pdu.dst_port"	,	L_24
+"Protocol Name"	,	L_9
+EXP_PDU_TAG_SS7_DPC	,	V_62
+"wtap_encap"	,	L_36
+tvb_get_ntohs	,	F_5
+SET_ADDRESS	,	F_9
+BASE_HEX	,	V_83
+"exported_pdu.port_type"	,	L_20
+net_src	,	V_33
+"Unkown tag"	,	L_7
+"exported_pdu.orig_fno"	,	L_30
+gboolean	,	T_12
+dst_addr	,	V_14
+proto_item_add_subtree	,	F_4
+port_type_to_str	,	F_12
+tag	,	V_9
+EXP_PDU_TAG_DST_PORT	,	V_52
+proto_register_field_array	,	F_24
+dvbci_set_addrs	,	F_15
+FT_BYTES	,	V_76
+"exported_pdu.src_port"	,	L_22
+ett_exported_pdu	,	V_22
+"Length"	,	L_5
+"exported_pdu.ipv4_dst"	,	L_14
+offset	,	V_8
+ett	,	V_85
+wmem_packet_scope	,	F_7
+dissector_add_uint	,	F_29
+ett_exported_pdu_tag	,	V_25
+proto_reg_handoff_exported_pdu	,	F_28
+tree	,	V_3
+proto_exported_pdu	,	V_20
+hf_exported_pdu_port_type	,	V_48
+payload_tvb	,	V_7
+tvb_get_ptr	,	F_8
+FT_UINT16	,	V_72
+packet_info	,	T_2
+tvb_get_guint8	,	F_14
+"exported_pdu.ipv6_dst"	,	L_18
+hf_exported_pdu_ss7_dpc	,	V_63
+"exported_pdu.dvb-ci.event"	,	L_32
+Standard_Type	,	V_59
+ni	,	V_60
+destport	,	V_54
+EXP_PDU_TAG_ORIG_FNO	,	V_64
+"exported_pdu.tag_len"	,	L_6
+hf_exported_pdu_exported_pdu	,	V_70
+hf_exported_pdu_ipv4_dst	,	V_37
+hf_exported_pdu_tag_len	,	V_26
+hf_exported_pdu_src_port	,	V_50
+dst	,	V_39
+hf_exported_pdu_ipv6_src	,	V_41
+exported_pdu_tree	,	V_5
+ptype	,	V_46
+EXPORTED_PDU_NEXT_PROTO_STR	,	V_28
+FT_STRING	,	V_78
+"EXPORTED_PDU"	,	L_34
+"Exported PDU"	,	L_1
+hf_exported_pdu_orig_fno	,	V_65
+HFILL	,	V_75
+"exported_pdu.ss7_opc"	,	L_26
+src	,	V_35
+hf_exported_pdu_ipv4_src	,	V_32
+hf_exported_pdu_ipv6_dst	,	V_44
+find_dissector	,	F_17
+proto_name	,	V_12
+"exported_pdu.ipv6_src"	,	L_16
+dissect_exported_pdu	,	F_1
+proto_tree_add_uint_format_value	,	F_11
+"SS7 DPC"	,	L_27
+exported_pdu_tag_vals	,	V_74
+ENC_BIG_ENDIAN	,	V_24
+"exported_pdu.tag"	,	L_4
+pc	,	V_58
+FT_UINT32	,	V_81
+net_dst	,	V_38
+"IPv4 Dst"	,	L_13
+srcport	,	V_51
+ENC_UTF_8	,	V_29
+"Original Frame Number"	,	L_29
+"exported_pdu.ss7_dpc"	,	L_28
+proto_tree	,	T_3
+hf	,	V_71
+"DVB-CI event"	,	L_31

@@ -1,0 +1,332 @@
+col_append_sep_str	,	F_9
+proto_register_protocol	,	F_27
+hf_rng_rsp_paging_information	,	V_101
+sub_tlv_len	,	V_24
+"wmx.rng_rsp.paging_offset"	,	L_95
+tvb_reported_length	,	F_2
+hf_rng_rsp_repetition_coding_indication	,	V_94
+"Primary Management CID"	,	L_98
+"Downlink Operational Burst Profile"	,	L_37
+"wmx.rng_rsp.ho_process_optimization.send_notification"	,	L_72
+gint	,	T_8
+RNG_RSP_DL_FREQ_OVERRIDE	,	V_45
+"wmx.rng_rsp.aas_broadcast"	,	L_22
+FT_ETHER	,	V_154
+hf_rng_rsp_primary_mgmt_cid	,	V_59
+wimax_service_flow_encodings_decoder	,	F_21
+tlv_len	,	V_20
+TFS	,	F_25
+"wmx.rng_rsp.time_symbol_reference"	,	L_119
+tvb	,	V_1
+"wmx.rng_rsp.ul_chan_id_override"	,	L_123
+"Downlink Operational Burst Profile for OFDMA"	,	L_39
+COL_INFO	,	V_34
+hf_rng_rsp_timing_adjust	,	V_38
+FT_BOOLEAN	,	V_123
+"wmx.rng_rsp.dl_op_burst_prof.diuc"	,	L_36
+hf_rng_rsp_dl_freq_override	,	V_46
+hf_rng_rsp_dl_operational_burst_profile_ccc	,	V_53
+"wmx.rng_rsp.ranging_status"	,	L_103
+tlv_type	,	V_19
+" (mutually exclusive with SS MAC Address!)"	,	L_17
+sub_tree	,	V_17
+sub_tlv_type	,	V_23
+"wmx.rng_rsp.paging_cycle"	,	L_89
+RNG_RSP_RANGING_STATUS	,	V_43
+cinfo	,	V_33
+tvb_len	,	V_12
+"Ranging code attributes"	,	L_104
+vals_rng_rsp_ho_process_optimization_12	,	V_145
+"Uplink channel ID Override"	,	L_122
+vals_rng_rsp_ho_process_optimization_13	,	V_146
+array_length	,	F_29
+hf_rng_rsp_opportunity_number	,	V_65
+vals_rng_rsp_ho_process_optimization_10	,	V_143
+"Reserved"	,	L_108
+"RNG-RSP TLV error"	,	L_2
+vals_rng_rsp_ho_process_optimization_11	,	V_144
+RNG_RSP_AAS_BROADCAST_PERMISSION	,	V_60
+proto_tree_add_float_format_value	,	F_13
+"wmx.rng_rsp.config_change_count_of_dcd"	,	L_30
+call_dissector	,	F_18
+tlv_item	,	V_15
+proto_reg_handoff_mac_mgmt_msg_rng_rsp	,	F_31
+RNG_RSP_POWER_SAVING_CLASS_PARAMETERS	,	V_105
+hf_rng_rsp_location_update_response	,	V_99
+RNG_RSP_DL_OPERATIONAL_BURST_PROFILE	,	V_49
+RNG_RSP_SA_CHALLENGE_TUPLE	,	V_106
+hf_register_info	,	T_9
+"wmx.rng_rsp.ho_process_optimization.omit_reg_req"	,	L_62
+"The ranging code index that was sent by the SS"	,	L_100
+"wmx.rng_rsp.invalid_tlv"	,	L_79
+hf_rng_req_reserved	,	V_30
+"Bit #15: Reserved"	,	L_77
+"wmx.rng_rsp.primary_mgmt_cid"	,	L_99
+tlv_offset	,	V_11
+opportunity_number_item	,	V_9
+"Paging Information"	,	L_92
+"wmx.rng_rsp.resource_retain_flag"	,	L_111
+"OFDM time symbol reference used to transmit the ranging code"	,	L_118
+RNG_RSP_POWER_LEVEL_ADJUST	,	V_39
+BASE_NONE	,	V_124
+add_protocol_subtree	,	F_17
+hf_tlv_type	,	V_111
+tfs_rng_rsp_aas_broadcast	,	V_125
+hf_rng_rsp_ho_process_optimization_11	,	V_82
+sbc_rsp_handle	,	V_88
+hf_rng_rsp_ho_process_optimization_10	,	V_81
+vals_rng_rsp_level_of_service	,	V_153
+"The connection information for the MS is"	,	L_110
+tvb_get_ntohl	,	F_12
+"Short HMAC Tuple"	,	L_15
+"wmx.rng_rsp.ho_process_optimization.omit_sbc_req"	,	L_50
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_3
+BASE_HEX	,	V_130
+" %.2f modulation symbols"	,	L_3
+FT_UINT24	,	V_132
+reg_rsp_handle	,	V_90
+" (shall be set to 2 because Downlink Frequency Override is present)"	,	L_16
+proto_item_add_subtree	,	F_4
+RNG_RSP_FRAME_NUMBER	,	V_62
+RNG_RSP_DL_OP_BURST_PROFILE_OFDMA	,	V_91
+hf_rng_rsp_ho_process_optimization_15	,	V_86
+hf_rng_rsp_ho_process_optimization_14	,	V_85
+proto_register_field_array	,	F_28
+RNG_RSP_PRIMARY_MGMT_CID	,	V_58
+hf_rng_rsp_ho_process_optimization_13	,	V_84
+hf_rng_rsp_broadcast	,	V_61
+hf_rng_rsp_ho_process_optimization_12	,	V_83
+hf_rng_rsp_config_change_count_of_dcd	,	V_95
+FT_BYTES	,	V_127
+"wmx.rng_rsp.reserved"	,	L_109
+dissector_add_uint	,	F_33
+sub_tlv_info	,	V_22
+FT_UINT16	,	V_128
+vals_rng_rsp_repetition_coding_indication	,	V_151
+MAX_TLV_LEN	,	V_32
+ett_mac_mgmt_msg_rng_rsp_decoder	,	V_29
+tvb_get_guint8	,	F_15
+"Configuration Change Count value of DCD defining DIUC associated burst profile"	,	L_29
+"Initial ranging opportunity number"	,	L_86
+FT_FLOAT	,	V_149
+DSx_DOWNLINK_FLOW	,	V_113
+tvb_captured_length	,	F_23
+"Bit #9"	,	L_65
+vals_rng_rsp_location_update_response	,	V_147
+add_tlv_subtree	,	F_16
+"wmx.rng_rsp.ho_process_optimization.omit_tftp"	,	L_58
+RNG_RSP_RESOURCE_RETAIN_FLAG	,	V_68
+RNG_RSP_SBC_RSP_ENCODINGS	,	V_87
+frame_number_item	,	V_8
+tlv_info	,	V_18
+RNG_RSP_PAGING_INFORMATION	,	V_100
+"BS_Random"	,	L_27
+hf_rng_rsp_akid	,	V_110
+get_tlv_value_offset	,	F_10
+SHORT_HMAC_TUPLE_COR2	,	V_120
+"OFDMA subchannel reference used to transmit the ranging code"	,	L_116
+"wmx.rng_rsp.opportunity_number"	,	L_87
+"Bit #8"	,	L_63
+"wmx.rng_rsp.ho_process_optimization.unsolicited_sbc_rsp"	,	L_64
+FT_INT32	,	V_148
+"wmx.rng_rsp.ho_process_optimization.omit_time_of_day"	,	L_56
+hf_rng_rsp_paging_offset	,	V_103
+"wmx.rng_rsp.akid"	,	L_24
+find_dissector	,	F_34
+"REG-RSP Encodings"	,	L_10
+ENC_BIG_ENDIAN	,	V_31
+dissect_power_saving_class	,	F_20
+FT_UINT32	,	V_131
+hf_rng_rsp_ranging_subchan	,	V_115
+"Bit #7"	,	L_61
+"HO Process Optimization"	,	L_47
+vals_rng_rsp_ranging_status	,	V_150
+hf_rng_rsp_ho_process_optimization_1_2	,	V_73
+hf	,	V_122
+RNG_RSP_HO_PROCESS_OPTIMIZATION	,	V_70
+"wmx.rng_rsp.eight_bit_frame_num"	,	L_42
+"wmx.rng_rsp.bs_random"	,	L_28
+this_offset	,	V_21
+hf_rng_rsp_ranging_code_index	,	V_118
+"Location Update Response"	,	L_82
+hf_rng_rsp_ss_mac_address	,	V_55
+"Bit #10"	,	L_67
+"wmx.rng_rsp.least_robust_diuc"	,	L_81
+RNG_RSP_UL_CHANNEL_ID_OVERRIDE	,	V_47
+"WiMax RNG-RSP Messages"	,	L_126
+hf_rng_invalid_tlv	,	V_35
+hf_rng_rsp_power_level_adjust	,	V_40
+hf_rng_rsp_bs_random	,	V_108
+ss_mac_address_item	,	V_7
+RNG_RSP_BASIC_CID	,	V_56
+"Bit #6"	,	L_59
+"wmx.mgmtmsg"	,	L_129
+"Basic CID"	,	L_25
+hf_rng_rsp_ho_id	,	V_97
+"wmx.rng_rsp.dl_op_burst_prof.ccc"	,	L_34
+RNG_RSP_OPPORTUNITY_NUMBER	,	V_64
+hf_rng_rsp_resource_retain_flag	,	V_69
+hf_rng_rsp_subchannel_reference	,	V_117
+proto_item_append_text	,	F_14
+"wmx.rng_rsp.repetition_coding_indication"	,	L_107
+add_tlv_subtree_no_item	,	F_11
+"Bit #11"	,	L_69
+"wmx.rng_rsp.ho_process_optimization.trigger_higher_layer_protocol"	,	L_74
+"wmx.rng_rsp.paging_group_id"	,	L_91
+rng_rsp_tree	,	V_16
+proto_register_subtree_array	,	F_30
+"wmx.rng_rsp.ranging_code_index"	,	L_101
+"Service Level Prediction"	,	L_112
+"Bit #5"	,	L_57
+"mac_mgmt_msg_sbc_rsp_handler"	,	L_130
+"wmx.rng_rsp.dl_op_burst_profile_ofdma"	,	L_40
+"AKId"	,	L_23
+"Power Level Adjust"	,	L_96
+timing_adjust	,	V_26
+proto_tree_add_item	,	F_5
+"Timing Adjust"	,	L_120
+pinfo	,	V_2
+dissector_handle_t	,	T_10
+_U_	,	V_4
+power_level_adjust	,	V_27
+hf_rng_rsp_dl_op_burst_profile_ofdma	,	V_92
+tlv_info_t	,	T_7
+RNG_RSP_TIMING_ADJUST	,	V_37
+wimax_short_hmac_tuple_decoder	,	F_22
+RNG_RSP_HO_ID	,	V_96
+hf_rng_rsp_frame_number2	,	V_119
+RNG_RSP_REG_RSP_ENCODINGS	,	V_89
+"Least Robust DIUC that may be used by the BS for transmissions to the MS"	,	L_80
+" (during periodic ranging shall not exceed +- 2)"	,	L_4
+VALS	,	F_26
+" (mutually exclusive with Frame Number!)"	,	L_18
+"Bit #4"	,	L_55
+RNG_RSP_SS_MAC_ADDRESS	,	V_54
+RNG_RSP_OFFSET_FREQ_ADJUST	,	V_41
+"wmx.rng_rsp.service_level_prediction"	,	L_113
+hf_rng_rsp_dl_operational_burst_profile_diuc	,	V_52
+"Bits #1-2"	,	L_51
+"mac_mgmt_msg_reg_rsp_handler"	,	L_131
+"wmx.rng_rsp.power_level_adjust"	,	L_97
+FT_UINT8	,	V_133
+get_tlv_length	,	F_8
+BASE_DEC	,	V_129
+RNG_RSP_LOCATION_UPDATE_RESPONSE	,	V_98
+"Paging Group ID"	,	L_90
+"wmx.rng_rsp.ranging_subchannel"	,	L_105
+proto_item	,	T_5
+vals_rng_rsp_ho_process_optimization_1_2	,	V_135
+ENC_NA	,	V_36
+"wmx.rng_rsp.location_update_response"	,	L_83
+hf_rng_rsp_time_symbol_reference	,	V_116
+"Offset Frequency Adjust"	,	L_84
+"wmx.rng_rsp.ho_process_optimization.virtual_sdu_sn"	,	L_70
+hf_rng_rsp_basic_cid	,	V_57
+hf_rng_rsp_paging_group_id	,	V_104
+"Paging Offset"	,	L_94
+"Bit #3"	,	L_53
+"Frame number"	,	L_43
+proto_register_mac_mgmt_msg_rng_rsp	,	F_24
+"wmx.rng_rsp.ho_id"	,	L_46
+"AAS broadcast permission"	,	L_21
+"wmx.rng_rsp.basic_cid"	,	L_26
+data	,	T_4
+"Downlink QOS Parameters"	,	L_14
+"Unknown TLV Type"	,	L_124
+" (may not be 0!)"	,	L_8
+hf_rng_rsp_ul_chan_id_override	,	V_48
+"wmx.rng_rsp"	,	L_128
+hf_rng_rsp_ho_process_optimization	,	V_71
+hf_rng_rsp_paging_cycle	,	V_102
+include_cor2_changes	,	V_121
+"Bit #14: Reserved"	,	L_75
+hf_rng_rsp_offset_freq_adjust	,	V_42
+"wmx.rng_rsp.unknown_tlv_type"	,	L_125
+hf_rng_rsp_frame_number	,	V_63
+"wmx.rng_rsp.dl_freq_override"	,	L_32
+"wmx.rng_rsp.ho_process_optimization.unsolicited_reg_rsp"	,	L_68
+rng_rsp_item	,	V_13
+hf_rng_rsp_dl_operational_burst_profile	,	V_50
+hf_rng_rsp_ranging_status	,	V_44
+proto_mac_mgmt_msg_rng_rsp_decoder	,	V_28
+"wmx.rng_rsp.ho_process_optimization.reserved"	,	L_76
+RNG_RSP_RANGING_CODE_ATTRIBUTES	,	V_114
+"Bit #0"	,	L_49
+"Repetition Coding Indication"	,	L_106
+RNG_RSP_SA_CHALLENGE_BS_RANDOM	,	V_107
+guint	,	T_6
+hf_rng_rsp_ho_process_optimization_0	,	V_72
+ranging_status_item	,	V_5
+offset	,	V_10
+hf_rng_rsp_ho_process_optimization_5	,	V_76
+ett	,	V_155
+"WiMax RNG-RSP"	,	L_127
+hf_rng_rsp_ho_process_optimization_6	,	V_77
+" (mutually exclusive with Initial Ranging Opportunity Number!)"	,	L_19
+" (Ranging status is missing!)"	,	L_20
+hf_rng_rsp_ho_process_optimization_3	,	V_74
+hf_rng_rsp_ho_process_optimization_4	,	V_75
+"SA Challenge Tuple"	,	L_12
+tree	,	V_3
+sub_tlv_offset	,	V_25
+hf_rng_rsp_ho_process_optimization_9	,	V_80
+"HO ID"	,	L_45
+hf_rng_rsp_ho_process_optimization_7	,	V_78
+hf_rng_rsp_ho_process_optimization_8	,	V_79
+packet_info	,	T_2
+vals_rng_rsp_ho_process_optimization_7	,	V_140
+vals_rng_rsp_ho_process_optimization_8	,	V_141
+vals_rng_rsp_ho_process_optimization_9	,	V_142
+vals_rng_rsp_ho_process_optimization_3	,	V_136
+sub_item	,	V_14
+"CCC value of DCD defining the burst profile associated with DIUC"	,	L_33
+"The 8 least significant bits of the frame number of the OFDMA frame where the SS sent the ranging code"	,	L_41
+vals_rng_rsp_ho_process_optimization_4	,	V_137
+"SS MAC Address"	,	L_114
+vals_rng_rsp_ho_process_optimization_5	,	V_138
+vals_rng_rsp_ho_process_optimization_6	,	V_139
+vals_rng_rsp_ho_process_optimization_0	,	V_134
+MAC_MGMT_MSG_RNG_RSP	,	V_157
+hf_rng_rsp_service_level_prediction	,	V_67
+"wmx.rng_rsp.ho_process_optimization.omit_network_address"	,	L_54
+hf_rng_rsp_least_robust_diuc	,	V_93
+tfs_rng_rsp_resource_retain_flag	,	V_152
+"wmx.rng_rsp.ho_process_optimization.transfer_or_sharing"	,	L_60
+"wmx.rng_rsp.ss_mac_address"	,	L_115
+" %.2f dB"	,	L_5
+"wmx.rng_rsp.offset_freq_adjust"	,	L_85
+"Bit #12"	,	L_71
+DSx_UPLINK_FLOW	,	V_112
+"wmx.rng_rsp.paging_information"	,	L_93
+ett_rng_rsp_message_tree	,	V_51
+"wmx.rng_rsp.ho_process_optimization.perform_reauthentication"	,	L_52
+"wmx.rng_rsp.subchannel_reference"	,	L_117
+dl_freq_override_item	,	V_6
+tvb_new_subset_length	,	F_19
+RNG_RSP_SERVICE_LEVEL_PREDICTION	,	V_66
+"Invalid TLV"	,	L_78
+" kHz"	,	L_7
+" Hz"	,	L_6
+"SBC-RSP Encodings"	,	L_9
+HFILL	,	V_126
+"wmx.rng_rsp.timing_adjust"	,	L_121
+"Power Saving Class Parameters"	,	L_11
+"wmx.rng_rsp.ho_process_optimization"	,	L_48
+"Downlink Frequency Override"	,	L_31
+"Paging Cycle"	,	L_88
+init_tlv_info	,	F_6
+"Ranging status"	,	L_102
+RNG_RSP_SA_CHALLENGE_AKID	,	V_109
+"Bit #13"	,	L_73
+create_dissector_handle	,	F_32
+"wmx.rng_rsp.frame_number"	,	L_44
+dissect_mac_mgmt_msg_rng_rsp_decoder	,	F_1
+"wmx.rng_rsp.dl_op_burst_profile"	,	L_38
+get_tlv_type	,	F_7
+"Uplink QOS Parameters"	,	L_13
+"The least robust DIUC that may be used by the BS for transmissions to the SS"	,	L_35
+"wmx.rng_rsp.ho_process_optimization.post_ho_reentry"	,	L_66
+"MAC Management Message, RNG-RSP"	,	L_1
+rng_rsp_handle	,	V_156
+proto_tree	,	T_3

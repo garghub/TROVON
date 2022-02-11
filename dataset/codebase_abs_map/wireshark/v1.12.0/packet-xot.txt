@@ -1,0 +1,178 @@
+"General Format Identifier"	,	L_15
+init_itf_name_len	,	V_33
+"Logical Channel"	,	L_16
+X25_MBIT_MOD8	,	V_16
+proto_register_protocol	,	F_25
+"xot.pvc.send_inc_window"	,	L_35
+prefs_register_protocol	,	F_30
+offset_next	,	V_8
+"Version"	,	L_7
+get_xot_pdu_len_mult	,	F_4
+col_append_fstr	,	F_10
+len	,	V_56
+tcp_dissect_pdus	,	F_22
+col_set_str	,	F_8
+gint	,	T_11
+"xot.pvc.init_itf_name"	,	L_43
+get_xot_pdu_len	,	F_1
+tvb	,	V_2
+"Sender outgoing window"	,	L_36
+COL_INFO	,	V_27
+remain	,	V_5
+offset_x25	,	V_15
+XOT_PVC_SETUP	,	V_32
+X25_MBIT_MOD128	,	V_17
+bytes0_1	,	V_12
+hf_xot_pvc_resp_lcn	,	V_46
+version	,	V_21
+" TotX25: %d"	,	L_3
+"Version of X.25 over TCP protocol"	,	L_9
+"Responder interface name"	,	L_44
+"Initiator Logical Channel Number"	,	L_28
+MIN	,	F_17
+cinfo	,	V_25
+tvb_len	,	V_10
+"Sender outgoing packet size"	,	L_40
+proto_register_subtree_array	,	F_28
+"GFI"	,	L_13
+array_length	,	F_27
+hf_xot_pvc_init_lcn	,	V_44
+modulo	,	V_11
+next_tvb	,	V_24
+"Responder Logical Channel Number"	,	L_33
+proto_tree_add_item	,	F_15
+"xot.pvc.status"	,	L_23
+call_dissector	,	F_18
+pinfo	,	T_3
+col_add_fstr	,	F_9
+hf_xot_pvc_send_out_window	,	V_48
+_U_	,	V_1
+"xot.pvc.init_lcn"	,	L_27
+hf_xot_pvc_send_inc_window	,	V_47
+ENC_ASCII	,	V_52
+new_register_dissector	,	F_29
+"Length of X.25 over TCP packet"	,	L_12
+"xot.pvc.resp_lcn"	,	L_32
+"x.25"	,	L_57
+xot_module	,	V_72
+"To use this option, you should also enable \"Reassemble X.25-over-TCP messages spanning multiple TCP segments\", \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings and \"Reassemble fragmented X.25 packets\" in the X.25 protocol settings."	,	L_55
+"Whether the X.25-over-TCP dissector should reassemble messages spanning multiple TCP segments. "	,	L_49
+hf_register_info	,	T_12
+"xot.pvc.resp_itf_name"	,	L_45
+hf_xot_pvc_send_out_pkt_size	,	V_50
+hf_x25_gfi	,	V_37
+VALS	,	F_24
+prefs_register_bool_preference	,	F_31
+"Initiator interface name length"	,	L_24
+"Responder LCN"	,	L_31
+guint16	,	T_5
+COL_PROTOCOL	,	V_26
+hf_xot_pvc_init_itf_name_len	,	V_43
+dissect_xot_tcp_heur	,	F_21
+tvb_length	,	F_19
+"x25.lcn"	,	L_17
+FT_UINT8	,	V_65
+hf_xot_length	,	V_31
+BASE_DEC	,	V_63
+tvb_new_subset	,	F_16
+proto_item	,	T_10
+PACKET_IS_DATA	,	F_6
+"Initiator interface name"	,	L_42
+ENC_NA	,	V_53
+"If the TCP packets arrive out-of-order, the X.25 reassembly can otherwise fail. "	,	L_54
+guint8	,	T_6
+hf_xot_pvc_resp_itf_name	,	V_54
+ti	,	V_22
+BASE_NONE	,	V_70
+"XOT Version = %u, size = %u"	,	L_2
+xot_pvc_status_vals	,	V_68
+"Sender incoming window"	,	L_34
+hf_xot_pvc_status	,	V_42
+"xot.pvc.send_out_pkt_size"	,	L_41
+tvb_length_remaining	,	F_2
+hf_xot_pvc_send_inc_pkt_size	,	V_49
+"x25_desegment"	,	L_51
+hdr_offset	,	V_36
+"Packet Type"	,	L_19
+X25_MIN_HEADER_LENGTH	,	V_9
+data	,	T_9
+xot_tree	,	V_23
+pkt_size	,	V_35
+tvbuff_t	,	T_4
+"xot.pvc.resp_itf_name_len"	,	L_30
+proto_tree_add_protocol_format	,	F_11
+offset_before	,	V_7
+tvb_get_ntohs	,	F_3
+"desegment"	,	L_47
+"Reassemble X.25 packets with More flag to enable safe X.25 reassembly"	,	L_52
+proto_register_xot	,	F_23
+BASE_HEX	,	V_66
+"xot"	,	L_46
+plen	,	V_4
+offset_max	,	V_57
+hf_xot_pvc_resp_itf_name_len	,	V_45
+vals_x25_type	,	V_67
+ett_xot	,	V_29
+gboolean	,	T_7
+desegment_len	,	V_18
+proto_item_add_subtree	,	F_12
+module_t	,	T_13
+TCP_PORT_XOT	,	V_74
+proto_register_field_array	,	F_26
+guint	,	T_1
+"Length"	,	L_10
+"Responder interface name length"	,	L_29
+offset	,	V_3
+ett	,	V_71
+"Logical Channel Number"	,	L_18
+dissector_add_uint	,	F_33
+tree	,	V_20
+hf_x25_type	,	V_40
+"x25.gfi"	,	L_14
+FT_UINT16	,	V_62
+packet_info	,	T_2
+"XOT"	,	L_1
+"xot.pvc.version"	,	L_21
+tvb_get_guint8	,	F_5
+XOT_VERSION	,	V_58
+xot_desegment	,	V_60
+"Whether the X.25-over-TCP dissector should reassemble all X.25 packets before calling the X25 dissector. "	,	L_53
+proto_tree_add_uint	,	F_13
+pkt_type	,	V_13
+"Reassemble X.25-over-TCP messages spanning multiple TCP segments"	,	L_48
+proto_xot	,	V_28
+"x25.type"	,	L_20
+DESEGMENT_ONE_MORE_SEGMENT	,	V_19
+"xot.version"	,	L_8
+m_bit_set	,	V_14
+"X.25 over TCP"	,	L_4
+hf_xot_pvc_init_itf_name	,	V_51
+"Sender incoming packet size"	,	L_38
+FT_STRING	,	V_69
+hf_xot_pvc_version	,	V_41
+xot_handle	,	V_73
+"Initiator LCN"	,	L_26
+HFILL	,	V_64
+"xot.length"	,	L_11
+proto_reg_handoff_xot	,	F_32
+resp_itf_name_len	,	V_34
+dissect_xot_pdu	,	F_7
+x25_desegment	,	V_59
+"Status"	,	L_22
+"X.25 over TCP - X.25 Sequence"	,	L_6
+"xot.pvc.send_inc_pkt_size"	,	L_39
+find_dissector	,	F_34
+dissect_xot_mult	,	F_20
+hf_x25_lcn	,	V_39
+"To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings"	,	L_50
+proto_item_set_len	,	F_14
+XOT_HEADER_LENGTH	,	V_6
+ENC_BIG_ENDIAN	,	V_38
+"XOT PVC Setup"	,	L_5
+"xot.pvc.send_out_window"	,	L_37
+x25_handle	,	V_55
+hf_xot_version	,	V_30
+"xot.pvc.init_itf_name_len"	,	L_25
+"tcp.port"	,	L_56
+proto_tree	,	T_8
+hf	,	V_61

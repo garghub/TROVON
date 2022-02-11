@@ -1,0 +1,640 @@
+ep_handle_tree	,	V_71
+hf_mausb_dev_cap_len	,	V_43
+hf_mausb_req_id	,	V_143
+"mausb.iflag.ihf"	,	L_73
+ett_dev_cap	,	V_41
+del	,	V_114
+ma_dev_addr	,	V_230
+hf_mausb_tflag_arq	,	V_292
+tvb_reported_length	,	F_37
+tx_dly	,	V_251
+req_id	,	V_246
+"CCU"	,	L_143
+"mausb.clear_transfers_req.rsvd"	,	L_158
+"mausb.clear_transfers_resp.rsvd"	,	L_160
+MAUSB_MGMT_SIZE_EP_DES_OFFSET	,	V_92
+EPHandleDeleteResp	,	V_166
+"Device Type"	,	L_108
+MAUSB_TFLAG_RSVD	,	V_301
+SetUSBDevAddrReq	,	V_178
+dissector_add_uint_range_with_preference	,	F_68
+tfs_ep_handle_resp_dir	,	V_324
+MAUSB_EP_HANDLE_RESP_LMAN_MASK	,	V_328
+TFS	,	F_57
+"mausb.ep_handle"	,	L_30
+"mausb.tflag.neg"	,	L_60
+"Descriptors Length"	,	L_113
+FT_BOOLEAN	,	V_274
+dissect_mausb_mgmt_pkt_cap_resp	,	F_23
+"Token"	,	L_45
+"mausb.delta"	,	L_92
+MAUSB_SIZE_MAUSB_EP_DES	,	V_123
+MAUSB_INTERVAL_MASK	,	V_316
+mausb_tree	,	V_218
+MAUSB_CAP_RESP_MGMT_REQ_MASK	,	V_321
+mausb_has_timestamp	,	F_8
+hf_mausb_clear_transfers_req_block_rsvd	,	V_100
+hf_mausb_tflag_type	,	V_298
+"mausb.clear_transfers_resp.block_rsvd"	,	L_172
+array_length	,	F_60
+hf_llc_mausb_pid	,	V_340
+is_setup	,	V_209
+"The total size of MA Device Capabilities descriptors"	,	L_115
+""	,	L_199
+MAUSB_TFLAG_NEG	,	V_295
+"mausb.cap_resp.desc_len"	,	L_114
+hf_mausb_clear_transfers_start_req_id	,	V_99
+hf_mausb_ep_handle_req_pad	,	V_129
+LinkSleepCap	,	V_51
+hf_mausb_mgmt_pad	,	V_262
+MAUSB_IFLAG_MTD	,	V_18
+VendorSpecificResp	,	V_173
+URB_UNKNOWN	,	V_217
+SyncCap	,	V_49
+mausb_header	,	V_1
+col_append_str	,	F_41
+mass_id	,	V_232
+ett_mausb_flags	,	V_221
+CapReq	,	V_174
+"Transfer Flags"	,	L_55
+"Frame Number"	,	L_86
+dissector_add_for_decode_as_with_preference	,	F_69
+"MA Device Address"	,	L_39
+MAUSB_EP_HANDLE_DEV_ADDR	,	V_28
+hf_register_info	,	T_15
+hf_mausb_mgmt_ep_des_pad	,	V_122
+USBDevHandleResp	,	V_176
+guint16	,	T_4
+mausb_cancel_transfer_status_string	,	V_333
+"mausb.tflag.eot"	,	L_62
+cap_type	,	V_37
+MAUSB_CAP_RESP_NUM_STREAM_MASK	,	V_318
+i	,	V_57
+mausb_get_pkt_len	,	F_15
+s	,	V_12
+u	,	V_11
+hf_mausb_clear_transfers_status	,	V_101
+TransferResp	,	V_24
+SynchReq	,	V_181
+dissect_mausb_dev_cap_desc	,	F_17
+hf_mausb_cancel_transfer_byte_offset	,	V_106
+mausb_tcp_handle	,	V_351
+OUI_WFA	,	V_350
+"mausb.flags.host"	,	L_16
+"Timestamp"	,	L_19
+mausb_is_data_pkt	,	F_3
+MAUSB_PRESENT_TIME_MASK	,	V_311
+MAUSB_EP_HANDLE_RESP_ISO_MASK	,	V_326
+temp_buffer	,	V_90
+MAUSB_VERSION_MASK	,	V_269
+MAUSB_CLEAR_TRANSFERS_PARTIAL_MASK	,	V_337
+MAUSB_EP_HANDLE_EP_NUM	,	V_26
+BASE_HEX	,	V_271
+MAUSB_TFLAG_OFFSET	,	V_14
+ett_mgmt	,	V_152
+col_add_str	,	F_48
+"Start Request ID"	,	L_167
+FT_UINT24	,	V_309
+proto_reg_handoff_mausb	,	F_65
+"mausb.version"	,	L_12
+ei_dev_cap_len	,	V_54
+proto_item_add_subtree	,	F_26
+MAUSB_FLAG_MASK	,	V_272
+proto_register_field_array	,	F_59
+req	,	V_93
+"mausb.frame"	,	L_87
+ei	,	V_343
+hf_mausb_present_time	,	V_80
+EPInactivateResp	,	V_159
+"Type-specific management packet fields"	,	L_49
+"EP Status"	,	L_52
+dissector_add_uint	,	F_67
+"MTD Valid"	,	L_70
+MAUSB_EP_HANDLE_EP_NUM_OFFSET	,	V_27
+MAUSB_CANCEL_TRANSFER_STATUS_MASK	,	V_145
+"Sequence Number"	,	L_78
+ei_mgmt_type_spec_len_long	,	V_203
+hf_mausb_mgmt_ep_handle_num	,	V_120
+mausb_tx_type	,	F_6
+FT_UINT16	,	V_283
+dissect_mausb_mgmt_pkt_flds	,	F_36
+"Number of Iso Headers"	,	L_66
+"Cancellation Status"	,	L_163
+mausb_pid_string	,	V_341
+mausb_tflag_fields	,	V_239
+"Valid"	,	L_141
+"mausb.ep_handle_pad"	,	L_129
+hf_mausb_ep_handle_ep_num	,	V_76
+hf_mausb_cap_resp_num_dev	,	V_59
+block_tree	,	V_94
+" Length=%u"	,	L_3
+"Transfer Type"	,	L_63
+"MAUSB"	,	L_6
+"ASAP"	,	L_74
+ett_mausb_timestamp	,	V_86
+"Media Time/Transmission Delay"	,	L_95
+ett_mausb_ep_handle	,	V_74
+expert_add_info	,	F_22
+MAUSB_FLAG_RETRY	,	V_278
+ModifyEP0Resp	,	V_167
+hf_mausb_seq_num	,	V_245
+hf_mausb_clear_transfers_req_rsvd	,	V_109
+"Incorrect value in Device Descriptors Length field"	,	L_191
+"Direction"	,	L_31
+"mausb.ei.type_spec.len"	,	L_185
+mausb_is_transfer_ack	,	F_5
+MAUSB_TX_TYPE_BULK	,	V_213
+"mausb.dev_handle"	,	L_28
+hf_mausb_flags	,	V_220
+mausb_dev_cap_string	,	V_42
+hf_mausb_stream_id	,	V_98
+"mausb.uframe"	,	L_85
+hf_mausb_ep_handle_resp_lman	,	V_135
+EPCloseStreamReq	,	V_182
+DevDisconnectResp	,	V_198
+val_to_str_const	,	F_20
+length	,	V_67
+hf_mausb_num_iso_hdr	,	V_240
+"mausb.ep_iso"	,	L_138
+PI_WARN	,	V_345
+"The maximum number of total outstanding transfer requests"	,	L_118
+PingReq	,	V_195
+mausb_is_transfer_req	,	F_4
+"mausb.streamid"	,	L_77
+FT_UINT32	,	V_310
+"Number of Outstanding Management Requests"	,	L_119
+"ARQ"	,	L_57
+MAUSB_EP_HANDLE_RESP_DIR_MASK	,	V_325
+tfs_success_fail	,	V_334
+"Last Request ID"	,	L_169
+transfer_type	,	V_210
+proto_register_mausb	,	F_55
+hf	,	V_265
+hf_mausb_clear_transfers_last_req_id	,	V_104
+hf_mausb_flag_host	,	V_273
+MAUSB_FRAME_MASK	,	V_313
+usb_conv_info_t	,	T_14
+ContainerIDCap	,	V_50
+MAUSB_NUM_SEGS_MASK	,	V_314
+mausb_set_usb_conv_info	,	F_38
+proto_tree_add_subtree	,	F_19
+size_ep_des	,	V_89
+col_append_fstr	,	F_43
+"mausb.nomitvl"	,	L_94
+ei_cap_resp_desc_len	,	V_68
+"mausb.ep_handle_num"	,	L_128
+col_set_str	,	F_47
+MAUSB_CLEAR_TRANSFERS_RESP_BLOCK_RSVD_MASK	,	V_338
+"Flags"	,	L_13
+"Number of Endpoint Descriptors"	,	L_130
+"mausb.presenttime"	,	L_83
+timestamp_tree	,	V_84
+hf_mausb_cancel_transfer_rsvd_2	,	V_147
+"Size of Endpoint Descriptors"	,	L_132
+"mausb.clear_transfers.last_reqid"	,	L_170
+handle	,	V_25
+hf_mausb_iflag_mtd	,	V_304
+dissect_usb_endpoint_descriptor	,	F_33
+"mausb.clear_transfers.info"	,	L_152
+"mausb.ep_des_num"	,	L_131
+hf_mausb_flag_reserved	,	V_281
+"mausb.cap_resp.dev_cap.length"	,	L_123
+ei_dev_cap_resp_desc_len	,	V_69
+URB_ISOCHRONOUS	,	V_212
+MAUSB_PKT_TYPE_DATA	,	V_8
+val_to_str	,	F_42
+"Clear Transfers Information Block"	,	L_151
+"PID"	,	L_177
+status	,	V_142
+ClearTransfersResp	,	V_164
+"mausb.mgmt_flds"	,	L_50
+"mausb.iflag"	,	L_69
+MAUSB_FLAG_HOST	,	V_3
+MAUSB_MIN_LENGTH	,	V_264
+dissector_handle_t	,	T_18
+"mausb.cancel_transfer.seqnum"	,	L_174
+mausb_version_string	,	V_268
+"mausb.cancel_transfer.byte_offset"	,	L_176
+USBDevResetResp	,	V_170
+hf_mausb_cap_resp_mgmt_req	,	V_65
+USBDevHandleReq	,	V_175
+VALS	,	F_56
+hf_mausb_num_segs	,	V_249
+hf_mausb_clear_transfers_req_num	,	V_108
+mausb_iflag_fields	,	V_243
+USBDevDisconnectResp	,	V_190
+hf_mausb_status	,	V_234
+BASE_DEC	,	V_267
+"mausb.eps.reserved"	,	L_54
+URB_CONTROL	,	V_211
+"mausb.ep_des_size"	,	L_133
+ENC_NA	,	V_53
+col_prepend_fstr	,	F_54
+"mausb.ep_ccu"	,	L_144
+"Retry"	,	L_17
+"Type-specific device capability descriptor fields"	,	L_125
+"Packet length field does not match size of packet"	,	L_182
+URB_INTERRUPT	,	V_216
+MAUSB_DELTA_MASK	,	V_315
+"The maximum number of host initiated outstanding management requests"	,	L_121
+DevInitDisconnectResp	,	V_200
+MAUSB_FLAG_TIMESTAMP	,	V_17
+hf_mausb_cap_resp_desc_len	,	V_63
+hf_mausb_clear_transfers_resp_rsvd	,	V_112
+DevInitDisconnectReq	,	V_199
+"USB Device Address"	,	L_35
+hf_mausb_timestamp	,	V_85
+SleepResp	,	V_192
+"mausb.flags.reserved"	,	L_22
+seq_num	,	V_22
+EPCloseStreamResp	,	V_168
+"mausb.ei.cap_resp.desc_len"	,	L_192
+"llc.wfa_pid"	,	L_196
+usb_conv_info	,	V_115
+expert_register_protocol	,	F_62
+mausb_eps_string	,	V_289
+credit	,	V_253
+"mausb.ep_des_pad"	,	L_134
+mausb_is_setup_response	,	F_11
+MAUSB_EP_HANDLE_BUS_NUM	,	V_30
+MAUSB_EP_DES_PAD	,	V_132
+"mausb.clear_transfers_req.block_rsvd"	,	L_171
+MAUSB_TX_TYPE_ISOC	,	V_16
+MAUSB_CAP_RESP_DEV_TYPE_MASK	,	V_320
+guint	,	T_5
+MAUSB_SIZE_EP_HANDLE	,	V_73
+"Length"	,	L_25
+ett	,	V_342
+tfs_endpoint_direction	,	V_284
+MAUSB_FLAG_OFFSET	,	V_4
+" ReqID=%u"	,	L_5
+packet_info	,	T_6
+MAUSB_EP_HANDLE_BUS_NUM_OFFSET	,	V_31
+hf_mausb_cancel_transfer_status	,	V_146
+MAUSB_EP_HANDLE_RESP_VALID_MASK	,	V_330
+"mausb.ma_dev_addr"	,	L_40
+"mausb.status"	,	L_44
+ei_len	,	V_228
+"mausb.mgmt_flds.generic"	,	L_51
+header	,	V_2
+"EoT"	,	L_61
+"Endpoint Handle"	,	L_29
+hf_mausb_uframe	,	V_82
+EXPFILL	,	V_346
+mausb_get_size_ep_des	,	F_29
+VendorSpecificReq	,	V_172
+"mausb.cap_resp.dev_cap.type"	,	L_124
+UpdateDevReq	,	V_180
+MAUSB_EPS_MASK	,	V_290
+MAUSB_EP_HANDLE_D	,	V_285
+hf_mausb_clear_transfers_partial	,	V_102
+"mausb.tflag.rsvd"	,	L_65
+MAUSB_EP_HANDLE_DEV_ADDR_OFFSET	,	V_29
+" Token=%u"	,	L_8
+"NEG"	,	L_59
+DevDisconnectReq	,	V_197
+ei_mgmt_type_spec_len_short	,	V_150
+HFILL	,	V_270
+PI_MALFORMED	,	V_347
+len_field	,	V_39
+direction	,	V_207
+"Media Agnostic USB"	,	L_194
+"Status"	,	L_43
+col_clear_fence	,	F_53
+"mausb.ep_buf_size"	,	L_146
+create_dissector_handle	,	F_66
+MAUSB_PKT_TYPE_MASK	,	V_7
+hf_mausb_ep_handle_resp_valid	,	V_136
+WakeReq	,	V_193
+"mausb.clear_transfers.start_reqid"	,	L_168
+"L-Managed"	,	L_139
+"mausb.ei.ep_handle.length"	,	L_179
+MAUSB_FLAG_RESERVED	,	V_282
+"mausb.length"	,	L_26
+"mausb.cap_resp.desc_count"	,	L_111
+hf_mausb_frame	,	V_83
+ModifyEP0Req	,	V_177
+ett_mausb	,	V_258
+hf_mausb_eps_rsvd	,	V_235
+"mausb.cap_resp.dev_cap.generic"	,	L_126
+EPResetResp	,	V_161
+MAUSB_PKT_TYPE_MGMT	,	V_6
+MAUSB_IFLAG_OFFSET	,	V_19
+hf_mausb_flag_retry	,	V_276
+MAUSB_IFLAG_HDR_FORMAT	,	V_306
+proto_register_protocol	,	F_58
+"Number of Endpoints"	,	L_99
+tfs_invalid_valid	,	V_329
+dissect_mausb_mgmt_pkt_clear_transfers	,	F_31
+hf_mausb_cap_resp_num_ep	,	V_58
+hf_mausb_mgmt_type_spec_generic	,	V_162
+"Version"	,	L_11
+hf_mausb_nom_interval	,	V_88
+tcp_dissect_pdus	,	F_52
+hf_mausb_ep_handle	,	V_72
+gint	,	T_13
+MAUSB_SS_EP_DES_SIZE	,	V_128
+hf_mausb_token	,	V_261
+"Unknown Capability"	,	L_1
+DevResetResp	,	V_187
+"mausb.flags.retry"	,	L_18
+tvb	,	V_33
+"Number of Endpoint Handles"	,	L_127
+size_field	,	V_116
+COL_INFO	,	V_224
+"mausb.cap_resp.num_ep"	,	L_100
+MAUSB_IFLAG_ASAP	,	V_308
+mausb_flag_fields	,	V_222
+IsoCap	,	V_48
+cinfo	,	V_223
+PI_ERROR	,	V_348
+tfs_set_notset	,	V_275
+hf_mausb_flag_timestamp	,	V_279
+"Reserved"	,	L_21
+"mausb.iflag.mtd"	,	L_71
+"mausb.ep_valid"	,	L_142
+hf_mausb_cap_resp_transfer_req	,	V_64
+mausb_has_setup_data	,	F_10
+ett_clear_transfers_block	,	V_97
+MAUSB_MGMT_PAD_MASK	,	V_287
+dissect_usb_common	,	F_50
+endpoint	,	V_208
+"Presentation Time"	,	L_82
+hf_cap	,	V_317
+"Host"	,	L_15
+MAUSB_CLEAR_TRANSFERS_STATUS_MASK	,	V_335
+u1	,	V_20
+num_ep	,	V_117
+u2	,	V_247
+MAUSB_TFLAG_MASK	,	V_291
+timestamp	,	V_250
+hf_mausb_ep_handle_resp_iso_prog_dly	,	V_139
+USB_DT_EP_SIZE	,	V_125
+MAUSB_NUM_ISO_HDR_MASK	,	V_302
+COL_PROTOCOL	,	V_255
+"mausb.clear_transfers_resp.num"	,	L_159
+dev_cap_tree	,	V_40
+"Iso Programming Delay"	,	L_147
+"Stream ID"	,	L_76
+MAUSB_ISO_SSP_EP_DES_PAD	,	V_130
+"Incorrect length value for this device capability descriptor"	,	L_189
+guint8	,	T_3
+"Delta"	,	L_91
+ti	,	V_70
+mausb_num_pdus	,	V_256
+"Buffer Size"	,	L_145
+"mausb.cancel_transfer.rsvd_2"	,	L_162
+mgmt_tree	,	V_148
+"mausb.token"	,	L_46
+hf_mausb_dev_cap_generic	,	V_52
+EPOpenStreamResp	,	V_171
+"mausb.flags.timestamp"	,	L_20
+mausb_is_iso_pkt	,	F_7
+EPHandleResp	,	V_155
+MAUSB_MGMT_SIZE_EP_DES_MASK	,	V_91
+dissect_mausb_pkt_common	,	F_39
+tvbuff_t	,	T_8
+"Isochronous Header Format"	,	L_72
+ett_mausb_tflags	,	V_238
+MAUSB_SS_EP_DES_PAD	,	V_131
+"Padding to a DWORD"	,	L_47
+proto_tree_add_bitmask	,	F_40
+"LLC WFA OUI PID"	,	L_197
+" SeqNum=%u"	,	L_4
+"Invalid Endpoint handle length field"	,	L_180
+hf_mausb_ep_handle_bus_num	,	V_78
+gboolean	,	T_1
+ett_mausb_iflags	,	V_242
+dissect_clear_transfers_block	,	F_30
+MAUSB_CLEAR_TRANSFERS_RESP_NUM_MASK	,	V_332
+"[%i packets] "	,	L_10
+device_address	,	V_206
+hf_mausb_rem_size_credit	,	V_254
+hf_mausb_clear_transfers_status_block	,	V_96
+hf_mausb_type	,	V_226
+"mausb.ep_iso_resp_dly"	,	L_150
+"Expected type-specific management packet data"	,	L_187
+"Request ID"	,	L_80
+"2 to the power of this value is the max number of streams supported"	,	L_107
+ei_ep_handle_len	,	V_141
+"Device Handle"	,	L_27
+URB_BULK	,	V_214
+hf_mausb_mgmt_ep_des_size	,	V_121
+tvb_get_guint8	,	F_18
+MAUSB_MGMT_CLEAR_TRANSFER_RESP_NUM_MASK	,	V_110
+"mausb.reqid"	,	L_81
+"Isochronous Flags"	,	L_68
+mausb_cap_resp_dev_type	,	V_319
+CapResp	,	V_153
+hf_ep_handle	,	V_323
+WakeResp	,	V_194
+dissect_mausb_present_time	,	F_27
+EPResetReq	,	V_160
+hf_mausb_cancel_transfer_seq_num	,	V_105
+tfs_present_not_present	,	V_280
+is_request	,	V_204
+"mausb.ei.dev_cap_resp.desc_len"	,	L_190
+"mausb.ep_iso_prog_dly"	,	L_148
+"["	,	L_7
+gint8	,	T_2
+proto_mausb	,	V_257
+hf_mausb_eps	,	V_236
+"mausb.timestamp"	,	L_90
+PingResp	,	V_196
+dissect_ep_handle	,	F_25
+EPHandleDeleteReq	,	V_165
+"mausb.ep_handle.ep_num"	,	L_34
+hf_mausb_version	,	V_219
+MAUSB_IFLAG_MASK	,	V_303
+bus_id	,	V_205
+hf_mausb_cap_resp_dev_type	,	V_61
+hf_mausb_ssid	,	V_233
+EPActivateReq	,	V_156
+hf_mausb_tflag_eot	,	V_296
+MAUSB_CAP_RESP_RSVD_MASK	,	V_322
+start	,	V_113
+"Delivered Sequence Number"	,	L_173
+dissect_usb_unknown_descriptor	,	F_34
+"Undefined management packet type"	,	L_184
+EPOpenStreamReq	,	V_185
+hf_mausb_ep_handle_d	,	V_75
+MAUSB_TFLAG_ARQ	,	V_293
+CancelTransferResp	,	V_184
+"mausb.clear_transfers.status_block"	,	L_154
+SpeedCap	,	V_46
+"Number of Segments"	,	L_88
+hf_mausb_tflags	,	V_237
+"mausb.tflag.type"	,	L_64
+"the maximum number of USB devices the MA USB device can manage"	,	L_104
+dissect_mausb_timestamp	,	F_28
+"]"	,	L_9
+"Partial Delivery"	,	L_165
+"mausb.tflag.arq"	,	L_58
+"mausb.cancel_transfer.rsvd"	,	L_155
+mausb_ep_handle_dev_addr	,	F_13
+hf_mausb_clear_transfers_resp_block_rsvd	,	V_103
+PmanCap	,	V_47
+hf_mausb_dev_cap_type	,	V_45
+stream_id	,	V_244
+"mausb.numseg"	,	L_89
+"mausb.remsize_credit"	,	L_98
+dissect_mausb_mgmt_pkt_ep_handle	,	F_32
+"mausb.ep_handle.dev_addr"	,	L_36
+"Cancel Transfers Status Block"	,	L_153
+"Descriptors Count"	,	L_110
+dissect_mausb_mgmt_pkt_cancel_transfer	,	F_35
+"mausb.flags"	,	L_14
+"Iso Response Delay"	,	L_149
+"Delivered Byte Offset"	,	L_175
+"Value in Descriptors Length field exceeds actual space in packet"	,	L_193
+"Nominal Bus Interval"	,	L_93
+"mausb.ep_lman"	,	L_140
+num_headers_iflags	,	V_21
+"mausb.cap_resp.mgmt_req"	,	L_120
+hf_cancel_transfer	,	V_331
+SynchResp	,	V_201
+USBDevResetReq	,	V_169
+hf_mausb_mgmt_ep_des_num	,	V_119
+col_set_fence	,	F_49
+mausb_status_string	,	V_286
+"mausb.mgmt_pad"	,	L_48
+EPHandleReq	,	V_154
+MAUSB_MGMT_NUM_EP_DES_MASK	,	V_118
+"Number of Streams"	,	L_105
+mausb_ep_handle_ep_num	,	F_12
+hf_mausb_clear_transfers_info_block	,	V_95
+"Endpoint Number"	,	L_33
+tfs_true_false	,	V_336
+"mausb.seqnum"	,	L_79
+proto_register_subtree_array	,	F_61
+"mausb.cap_resp.rsvd"	,	L_122
+SetUSBDevAddrResp	,	V_179
+TransferReq	,	V_9
+ver_flags	,	V_5
+UpdateDevResp	,	V_188
+desc_count	,	V_55
+proto_tree_add_item	,	F_21
+PID_MAUSB	,	V_353
+pinfo	,	T_7
+hf_mausb_mtd	,	V_252
+llc_add_oui	,	F_64
+mausb_has_mtd	,	F_9
+hf_mausb_dev_handle	,	V_229
+"mausb.cancel_transfer.status"	,	L_161
+_U_	,	V_32
+USB_DT_SS_EP_COMP_SIZE	,	V_127
+"Number of Devices"	,	L_102
+"mausb.ei.length"	,	L_181
+hf_mausb_ep_handle_resp_ccu	,	V_137
+hf_mausb_tflag_rsvd	,	V_300
+hf_mausb_cancel_transfer_rsvd	,	V_144
+"the maximum number of endpoints for this device"	,	L_101
+"mausb.ei.type"	,	L_183
+hf_mausb_iflags	,	V_241
+MAUSB_UFRAME_MASK	,	V_312
+hf_mausb_ma_dev_addr	,	V_231
+expert_mausb	,	V_349
+ett_mausb_present_time	,	V_81
+mausb_is_from_host	,	F_1
+SleepReq	,	V_191
+hf_mausb_iflag_asap	,	V_307
+mausb_is_mgmt_pkt	,	F_2
+hf_mausb_clear_transfers_resp_num	,	V_111
+hf_mausb_length	,	V_227
+"mausb.mtd"	,	L_96
+hf_mausb_ep_handle_resp_buf_size	,	V_138
+hf_mausb_tflag_neg	,	V_294
+"mausb.cap_resp.num_dev"	,	L_103
+"Data exists after type-specific management packet field"	,	L_186
+PI_PROTOCOL	,	V_344
+ClearTransfersReq	,	V_163
+FT_UINT8	,	V_266
+type_spec_len	,	V_149
+proto_item	,	T_12
+tfs_supported_not_supported	,	V_327
+expert_register_field_array	,	F_63
+token	,	V_259
+"mausb.ep_handle.bus_num"	,	L_38
+"Microframe Number"	,	L_84
+mausb_ep_handle_bus_num	,	F_14
+oui_hf	,	V_339
+hf_mausb_cap_resp_rsvd	,	V_66
+hf_mausb_mgmt_type_spec	,	V_151
+"mausb"	,	L_195
+"mausb.clear_transfers.status"	,	L_164
+"USB Bus Number"	,	L_37
+"mausb.cap_resp.dev_type"	,	L_109
+ENC_LITTLE_ENDIAN	,	V_44
+MAUSB_TFLAG_TRANSFER_TYPE	,	V_15
+"mausb.eps"	,	L_53
+data	,	T_9
+"mausb.clear_transfers_req.num"	,	L_157
+MAUSB_TX_TYPE_INTR	,	V_215
+mausb_transfer_type_string	,	V_299
+USBDevDisconnectReq	,	V_189
+"mausb.ep_handle.d"	,	L_32
+ei_register_info	,	T_16
+"Service Set ID"	,	L_41
+num_block	,	V_107
+tvb_get_letohl	,	F_45
+hf_mausb_mgmt_ep_handle_pad	,	V_124
+mausb_type_string	,	V_225
+tvb_get_letohs	,	F_16
+"Number of Blocks"	,	L_156
+FT_NONE	,	V_288
+offset	,	V_34
+loop_offset	,	V_56
+hf_mausb_delta	,	V_87
+MAUSB_EP_DES_SIZE	,	V_126
+expert_module_t	,	T_17
+tree	,	V_35
+USB_HEADER_MAUSB	,	V_263
+CancelTransferReq	,	V_183
+tvb_get_letoh24	,	F_24
+tfs_yes_no	,	V_277
+MAUSB_TX_TYPE_CTRL	,	V_23
+"mausb.pid"	,	L_178
+"mausb.cap_resp.transfer_req"	,	L_117
+dissect_mausb_pkt	,	F_46
+hf_mausb_cap_resp_desc_count	,	V_62
+EPInactivateReq	,	V_158
+MAUSB_TFLAG_EOT	,	V_297
+hf_mausb_ep_handle_resp_iso_resp_dly	,	V_140
+"mausb.type"	,	L_24
+hf_mausb_iflag_hdr_format	,	V_305
+"mausb.ei.cap_resp.dev_cap.length"	,	L_188
+"The total number of MA Device Capabilities descriptors"	,	L_112
+"mausb.ssid"	,	L_42
+hf_mausb_ep_handle_resp_dir	,	V_133
+"mausb.numisohdr"	,	L_67
+desc_offset	,	V_38
+eps_tflags	,	V_13
+hf_mausb_cap_resp_num_stream	,	V_60
+"mausb.iflag.asap"	,	L_75
+ei_mgmt_type_undef	,	V_202
+desc_len	,	V_36
+"%d"	,	L_2
+"mausb.clear_transfers.partial"	,	L_166
+TransferAck	,	V_10
+DevResetReq	,	V_186
+"Isochronous"	,	L_137
+hf_mausb_ep_handle_resp_iso	,	V_134
+present_time_tree	,	V_79
+EPActivateResp	,	V_157
+"udp.port"	,	L_200
+"Remaining Size/Credit"	,	L_97
+"mausb.ep_handle_req.pad"	,	L_135
+present_time_num_seg	,	V_248
+"mausb.cap_resp.num_stream"	,	L_106
+"mausb.ep_dir"	,	L_136
+gint16	,	T_11
+mausb_pkt_handle	,	V_352
+MAUSB_TOKEN_MASK	,	V_260
+dissect_mausb	,	F_51
+dissect_mausb_pkt_data	,	F_44
+"mausb.tflag"	,	L_56
+"Number of Outstanding Transfer Requests"	,	L_116
+"Type"	,	L_23
+hf_mausb_ep_handle_dev_addr	,	V_77
+"tcp.port"	,	L_198
+proto_tree	,	T_10

@@ -1,0 +1,84 @@
+"Error processing message"	,	L_1
+register_dissector	,	F_18
+proto_reg_handoff_pw_hdlc	,	F_19
+"HDLC-like framing for PPP"	,	L_20
+"U frame"	,	L_3
+"S frame"	,	L_4
+fr_handle	,	V_4
+proto_register_protocol	,	F_14
+tvbuff_t	,	T_1
+item_address	,	V_7
+"pw_hdlc.pf_bit"	,	L_15
+BASE_HEX	,	V_23
+hf_pw_hdlc_address_field	,	V_14
+tvb_new_subset_remaining	,	F_11
+"pw_hdlc_nocw_fr"	,	L_19
+proto_pw_hdlc_nocw_fr	,	V_28
+hf_pw_hdlc_control_field	,	V_15
+gint	,	T_7
+proto_item_add_subtree	,	F_8
+"C/R bit"	,	L_10
+"pw_hdlc.cr_bit"	,	L_11
+"pw_hdlc.control_field"	,	L_13
+proto_register_field_array	,	F_15
+"mpls.label"	,	L_23
+tvb	,	V_1
+item	,	V_6
+pw_hdlc_modifier_vals	,	V_26
+MPLS_LABEL_INVALID	,	V_30
+ett	,	V_27
+dissector_add_uint	,	F_21
+tree	,	V_3
+handle	,	V_29
+packet_info	,	T_2
+tvb_reported_length_remaining	,	F_4
+tvb_get_guint8	,	F_6
+"HDLC PW, FR port mode (no CW)"	,	L_18
+proto_register_subtree_array	,	F_17
+"I frame"	,	L_5
+hf_pw_hdlc_modifier	,	V_19
+array_length	,	F_16
+"Poll/Final bit"	,	L_14
+dissect_pw_hdlc_nocw_hdlc_ppp	,	F_3
+"Address"	,	L_8
+proto_tree_add_uint	,	F_10
+"pw_hdlc.modifier"	,	L_17
+proto_tree_add_item	,	F_7
+call_dissector	,	F_2
+pinfo	,	V_2
+dissector_handle_t	,	T_8
+"ppp"	,	L_24
+"Modifier"	,	L_16
+dissect_pw_hdlc_nocw_fr	,	F_1
+item_control	,	V_8
+hf_register_info	,	T_6
+ett_pw_hdlc	,	V_13
+VALS	,	F_13
+proto_pw_hdlc_nocw_hdlc_ppp	,	V_11
+addr	,	V_9
+"Address field"	,	L_6
+HFILL	,	V_24
+ppp_handle	,	V_20
+"pw_hdlc.address_field"	,	L_7
+"fr"	,	L_25
+"pw_hdlc.address"	,	L_9
+"HDLC PW with PPP payload (no CW)"	,	L_21
+FT_UINT8	,	V_22
+find_dissector	,	F_20
+proto_tree_add_text	,	F_5
+BASE_DEC	,	V_25
+control	,	V_10
+proto_item	,	T_4
+proto_tree_add_uint_format_value	,	F_9
+"Control field"	,	L_12
+ENC_NA	,	V_12
+guint8	,	T_5
+proto_register_pw_hdlc	,	F_12
+hf_pw_hdlc_pf_bit	,	V_18
+hf_pw_hdlc_address	,	V_16
+hf_pw_hdlc_cr_bit	,	V_17
+"0x%x (All stations)"	,	L_2
+proto_tree	,	T_3
+tr	,	V_5
+hf	,	V_21
+"pw_hdlc_nocw_hdlc_ppp"	,	L_22

@@ -1,0 +1,113 @@
+errcode	,	V_4
+pdu	,	V_16
+PFNAME	,	V_37
+apdu_depth	,	V_22
+arg_pdu	,	V_23
+dissect_h450_arg	,	F_4
+proto_register_protocol	,	F_19
+rose_ctx_init	,	F_23
+dissect_h450_err	,	F_17
+"Error"	,	L_8
+" %s"	,	L_2
+gint	,	T_11
+"h450.error"	,	L_9
+"H.450 Operation Argument (global opcode)"	,	L_12
+tvb	,	V_6
+h450_err_t	,	T_3
+hidden_item	,	V_9
+proto_item_append_text	,	F_11
+"Operation"	,	L_6
+err_global_dissector_table	,	V_48
+PSNAME	,	V_36
+dissect_h450_H4501SupplementaryService_PDU	,	V_38
+proto_register_subtree_array	,	F_22
+gint32	,	T_2
+array_length	,	F_2
+proto_item_get_parent_nth	,	F_12
+proto_h450	,	V_34
+rctx	,	V_11
+private_data	,	V_14
+pinfo	,	V_7
+dissector_handle_t	,	T_12
+DISSECTOR_ASSERT	,	F_6
+arg_local_dissector_table	,	V_44
+new_register_dissector	,	F_20
+rose_ctx_t	,	T_8
+PNAME	,	V_35
+op_ptr	,	V_12
+PROTO_ITEM_SET_HIDDEN	,	F_8
+hf_h450_error	,	V_26
+hf_register_info	,	T_10
+VALS	,	F_10
+"h4501"	,	L_10
+dissect_h450_res	,	F_16
+"UNSUPPORTED ARGUMENT TYPE (H.450)"	,	L_3
+d	,	V_15
+h450_op_tab	,	V_3
+FT_UINT8	,	V_30
+i	,	V_2
+proto_tree_add_text	,	F_15
+BASE_DEC	,	V_31
+proto_item	,	T_7
+h450_str_error	,	V_27
+p	,	V_13
+get_rose_ctx	,	F_5
+BASE_NONE	,	V_42
+get_err	,	F_3
+"h450.operation"	,	L_7
+proto_reg_handoff_h450	,	F_25
+tvb_length_remaining	,	F_14
+register_dissector_table	,	F_24
+res_pdu	,	V_24
+"h450.ros.local.res"	,	L_17
+tvbuff_t	,	T_4
+opcode	,	V_1
+BASE_HEX	,	V_46
+res_local_dissector_table	,	V_47
+"H.450 Operation Argument (local opcode)"	,	L_16
+proto_register_field_array	,	F_21
+"h450.ros.local.err"	,	L_21
+offset	,	V_10
+ett	,	V_33
+dissector_add_uint	,	F_27
+"UNSUPPORTED ERROR TYPE (H.450)"	,	L_5
+tree	,	V_8
+res_global_dissector_table	,	V_43
+packet_info	,	T_5
+h450_err_handle	,	V_52
+h450_res_handle	,	V_51
+hf_h450_operation	,	V_19
+code_local	,	V_18
+" - %s"	,	L_1
+proto_tree_add_uint	,	F_7
+proto_register_h450	,	F_18
+code	,	V_17
+match_strval	,	F_9
+err_ptr	,	V_25
+"h450.ros.global.arg"	,	L_11
+"h450.ros.global.res"	,	L_13
+"UNSUPPORTED RESULT TYPE (H.450)"	,	L_4
+arg_global_dissector_table	,	V_40
+FT_STRING	,	V_41
+"H.450 Operation Result (global opcode)"	,	L_14
+proto_tree_get_parent	,	F_13
+HFILL	,	V_32
+h450_arg_handle	,	V_50
+new_create_dissector_handle	,	F_26
+get_op	,	F_1
+h450_op_t	,	T_1
+gchar	,	T_9
+"H.450 Error (local opcode)"	,	L_22
+h450_rose_ctx	,	V_39
+"H.450 Error (global opcode)"	,	L_20
+h450_err_tab	,	V_5
+code_item	,	V_21
+"H.450 Operation Result (local opcode)"	,	L_18
+"h450.ros.local.arg"	,	L_15
+FT_UINT32	,	V_45
+h450_str_operation	,	V_20
+err_pdu	,	V_28
+err_local_dissector_table	,	V_49
+proto_tree	,	T_6
+hf	,	V_29
+"h450.ros.global.err"	,	L_19

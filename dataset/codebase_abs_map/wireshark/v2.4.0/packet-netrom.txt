@@ -1,0 +1,208 @@
+NETROM_NAK_FLAG	,	V_14
+ett_netrom	,	V_37
+hf_netrom_n_r	,	V_53
+hf_netrom_n_s	,	V_52
+"Destination callsign"	,	L_18
+"netrom.your.cct.index"	,	L_26
+proto_register_protocol	,	F_30
+op_code_vals_abbrev	,	V_80
+cct_index	,	V_25
+tvb_new_subset_remaining	,	F_17
+len	,	V_69
+gint	,	T_4
+"More"	,	L_39
+TFS	,	F_29
+"Window"	,	L_54
+tvb	,	V_1
+"Destination"	,	L_16
+hf_netrom_choke	,	V_85
+hf_netrom_type	,	V_55
+COL_INFO	,	V_17
+FT_BOOLEAN	,	V_82
+"N(r)"	,	L_29
+FT_AX25	,	V_73
+"NET/ROM"	,	L_8
+"netrom.your.cct.id"	,	L_28
+cinfo	,	V_16
+tfs_set_notset	,	V_83
+netrom_type_items	,	V_57
+array_length	,	F_32
+next_tvb	,	V_27
+""	,	L_4
+hf_netrom_more	,	V_81
+call_dissector	,	F_18
+NETROM_CHOKE_FLAG	,	V_15
+ENC_ASCII	,	V_67
+"Choke flag"	,	L_47
+"netrom.op"	,	L_37
+hf_register_info	,	T_15
+hf_netrom_nak	,	V_84
+create_capture_dissector_handle	,	F_37
+"User"	,	L_48
+COL_PROTOCOL	,	V_28
+AT_AX25	,	V_30
+"netrom.name"	,	L_60
+proto_register_netrom	,	F_27
+"ip"	,	L_64
+"netrom.my.cct.index"	,	L_22
+"netrom.flag.nak"	,	L_43
+tc	,	V_8
+"User callsign"	,	L_50
+guint8	,	T_6
+"N(s)"	,	L_31
+ti	,	V_23
+BASE_NONE	,	V_74
+"Accepted window"	,	L_58
+"Source"	,	L_13
+hf_netrom_op	,	V_79
+mnemonic_len	,	V_65
+info_buffer	,	V_10
+netrom_tree	,	V_24
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_15
+hf_tf_choke	,	V_20
+BASE_HEX	,	V_77
+col_add_str	,	F_6
+gboolean	,	T_9
+proto_item_add_subtree	,	F_8
+mnemonic	,	V_64
+hf_tf_nak	,	V_21
+proto_register_field_array	,	F_31
+capture_netrom	,	F_25
+dissector_add_uint	,	F_35
+hf_netrom_pwindow	,	V_58
+hf_netrom_mnemonic	,	V_66
+hf_netrom_user	,	V_59
+tvb_get_guint8	,	F_2
+set_address_tvb	,	F_13
+wtap_pseudo_header	,	V_70
+tvb_captured_length	,	F_24
+hf_netrom_my_cct_id	,	V_44
+"netrom.n_s"	,	L_32
+netrom_cap_handle	,	V_88
+dissect_netrom_routing	,	F_20
+capture_dissector_handle_t	,	T_16
+proto_netrom	,	V_35
+"routing table frame"	,	L_11
+"More flag"	,	L_41
+"netrom"	,	L_62
+"Your circuit ID"	,	L_27
+hf_netrom_your_cct_index	,	V_47
+FT_STRING	,	V_86
+"netrom.awindow"	,	L_57
+hf_netrom_my_cct_index	,	V_43
+call_data_dissector	,	F_19
+dissect_netrom_type	,	F_1
+"Proposed window"	,	L_56
+proto_reg_handoff_netrom	,	F_34
+val_to_str_const	,	F_5
+capture_dissector_add_uint	,	F_38
+BYTES_ARE_IN_FRAME	,	F_26
+hf_netrom_node	,	V_60
+ENC_BIG_ENDIAN	,	V_19
+NETROM_MORE_FLAG	,	V_13
+hf	,	V_72
+"TTL"	,	L_19
+"netrom.ttl"	,	L_20
+", Choke"	,	L_6
+dissect_netrom	,	F_23
+hf_netrom_src	,	V_38
+"My circuit ID"	,	L_23
+"netrom.my.cct.id"	,	L_24
+wmem_strdup_printf	,	F_3
+"Node name"	,	L_59
+"%s%s%s%s (0x%02x)"	,	L_1
+col_set_str	,	F_11
+NETROM_CONNREQ	,	V_45
+"Type field: %s"	,	L_7
+proto_tree_add_uint_format	,	F_7
+op_code_vals_text	,	V_12
+NETROM_DISCACK	,	V_50
+"Amateur Radio NET/ROM"	,	L_61
+find_dissector_add_dependency	,	F_39
+guchar	,	T_10
+proto_item_append_text	,	F_22
+"netrom.flag.more"	,	L_40
+AX25_ADDR_LEN	,	V_31
+NETROM_CONNACK	,	V_46
+"OP code"	,	L_36
+NETROM_INFOACK	,	V_54
+col_clear	,	F_12
+NETROM_DISCREQ	,	V_49
+hf_netrom_ttl	,	V_41
+"Choke"	,	L_45
+proto_register_subtree_array	,	F_33
+"netrom.dst"	,	L_17
+proto_tree_add_item	,	F_9
+pinfo	,	V_3
+col_add_fstr	,	F_14
+"NET/ROM, Src: %s, Dst: %s"	,	L_10
+ip_handle	,	V_63
+_U_	,	V_68
+dl_dst	,	V_33
+"NAK"	,	L_42
+"netrom.n_r"	,	L_30
+"Your circuit index"	,	L_25
+VALS	,	F_28
+"My circuit index"	,	L_21
+FT_UINT8	,	V_76
+type_items	,	V_7
+BASE_DEC	,	V_78
+ett_netrom_type	,	V_56
+proto_item	,	T_7
+dl_src	,	V_29
+"Source callsign"	,	L_15
+", More"	,	L_3
+ENC_NA	,	V_39
+hf_netrom_awindow	,	V_61
+type_tree	,	V_9
+"%s"	,	L_9
+data	,	T_8
+"Node callsign"	,	L_53
+dissect_netrom_proto	,	F_10
+NETROM_INFO	,	V_51
+"NAK flag"	,	L_44
+"Packet type field"	,	L_35
+"netrom.pwindow"	,	L_55
+NETROM_HEADER_SIZE	,	V_36
+NETROM_PROTOEXT	,	V_42
+offset	,	V_2
+ett	,	V_87
+wmem_packet_scope	,	F_4
+hf_netrom_your_cct_id	,	V_48
+ett_netrom_type_param	,	V_6
+tree	,	V_4
+"ax25.pid"	,	L_63
+hf_tf_op	,	V_18
+netrom_tf_items	,	T_5
+packet_info	,	T_2
+AX25_P_NETROM	,	V_89
+"netrom.user"	,	L_49
+hf_tf_more	,	V_22
+capture_packet_info_t	,	T_12
+cct_id	,	V_26
+pseudo_header	,	T_14
+dst	,	V_34
+"netrom.node"	,	L_52
+"netrom.flag.choke"	,	L_46
+hf_netrom_type_param	,	V_5
+op_code	,	V_11
+", NAK"	,	L_5
+cpinfo	,	T_13
+"netrom.type"	,	L_34
+HFILL	,	V_75
+"Node"	,	L_51
+"Protocol operation code"	,	L_38
+proto_tree_add_item_ret_string_and_length	,	F_21
+", routing table frame, Node: %.6s"	,	L_12
+src	,	V_32
+address_to_str	,	F_16
+"netrom.src"	,	L_14
+NETROM_MIN_SIZE	,	V_71
+create_dissector_handle	,	F_36
+NETROM_PROTO_IP	,	V_62
+hf_netrom_dst	,	V_40
+pd	,	T_11
+"Unknown"	,	L_2
+"Type"	,	L_33
+proto_tree	,	T_3

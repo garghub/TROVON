@@ -1,0 +1,96 @@
+magic	,	V_11
+pdu	,	V_17
+ett_ipsictl	,	V_21
+hf_ipsictl_type	,	V_27
+"PDU"	,	L_6
+proto_register_protocol	,	F_12
+tvbuff_t	,	T_1
+tvb_get_ntohs	,	F_5
+check_col	,	F_9
+"ipsictl.length"	,	L_13
+"IPSICTL data"	,	L_26
+BASE_HEX	,	V_36
+remaining_length	,	V_10
+pdu_tree	,	V_5
+"ipsictl.type"	,	L_16
+col_set_str	,	F_8
+gint	,	T_7
+proto_item_add_subtree	,	F_4
+"ipsictl"	,	L_27
+ett_ipsictl_pdu	,	V_24
+hf_ipsictl_data	,	V_30
+proto_register_field_array	,	F_13
+proto_tree_add_uint_format	,	F_6
+FT_BYTES	,	V_38
+"PDUS=%d, Seq=0x%04x-0x%04x"	,	L_4
+tvb	,	V_1
+"IPSICTL Type"	,	L_17
+"Length"	,	L_12
+offset	,	V_7
+ett	,	V_40
+last_sequence	,	V_15
+COL_INFO	,	V_33
+dissector_add_uint	,	F_18
+loffset	,	V_8
+"Initialization"	,	L_5
+tree	,	V_3
+"IPSICTL PDU"	,	L_8
+FT_UINT16	,	V_35
+"Sequence"	,	L_18
+packet_info	,	T_2
+"ipsictl.field1"	,	L_22
+tvb_reported_length_remaining	,	F_2
+hf_ipsictl_length	,	V_26
+"ipsictl.magic"	,	L_10
+sequence	,	V_13
+"ipsictl.data"	,	L_25
+"ipsictl.sequence"	,	L_19
+cinfo	,	V_31
+hf_ipsictl_field1	,	V_29
+"IPSICTL Field1"	,	L_23
+proto_register_subtree_array	,	F_15
+array_length	,	F_14
+haspdus	,	V_18
+proto_tree_add_uint	,	F_7
+proto_tree_add_item	,	F_3
+"ipsictl.pdu"	,	L_7
+"Field1"	,	L_21
+pinfo	,	V_2
+col_add_fstr	,	F_10
+dissector_handle_t	,	T_8
+"Data"	,	L_24
+"IPSICTL Magic"	,	L_11
+"IPSICTL Length"	,	L_14
+proto_ipsictl	,	V_19
+dissect_ipsictl	,	F_1
+hf_ipsictl_magic	,	V_25
+proto_register_ipsictl	,	F_11
+hf_register_info	,	T_6
+"Magic"	,	L_9
+"PDUS=%d, Seq=0x%04x"	,	L_3
+HFILL	,	V_37
+first_sequence	,	V_14
+ipsictl_tree	,	V_4
+guint16	,	T_5
+hf_ipsictl_pdu	,	V_23
+COL_PROTOCOL	,	V_32
+"IPSICTL"	,	L_2
+length	,	V_12
+create_dissector_handle	,	F_17
+proto_item	,	T_4
+IPSICTL_PDU_MAGIC	,	V_22
+ENC_NA	,	V_20
+field1	,	V_16
+ti	,	V_6
+BASE_NONE	,	V_39
+"PDU: %d"	,	L_1
+ipsictl_handle	,	V_41
+proto_reg_handoff_ipsictl	,	F_16
+hf_ipsictl_sequence	,	V_28
+"Type"	,	L_15
+"tcp.port"	,	L_28
+IPSICTL_PORT	,	V_42
+llength	,	V_9
+"IPSICTL Sequence"	,	L_20
+proto_tree	,	T_3
+hf	,	V_34

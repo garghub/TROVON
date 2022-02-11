@@ -1,0 +1,393 @@
+hf_adwin_password	,	V_38
+hf_adwin_val1	,	V_44
+"Set the UDP port for ADwin packets (if other"	,	L_143
+hf_adwin_val3	,	V_104
+"Timeout"	,	L_120
+hf_adwin_val2	,	V_103
+"Link address"	,	L_71
+hf_adwin_val4	,	V_105
+"adwin.data_float"	,	L_50
+hf_adwin_address	,	V_89
+data_type_mapping_ext	,	V_164
+tvb_reported_length	,	F_35
+"adwin.response_to"	,	L_106
+"adwin.data_hex"	,	L_52
+hf_adwin_packet_start	,	V_128
+dissect_UDPH1_old	,	F_21
+"adwin.mem_type"	,	L_75
+I_GET_MEMORY	,	V_88
+GetDataSHRequest_LENGTH	,	V_143
+guint32	,	T_4
+"Maximum number of unacknowledged packets"	,	L_40
+hf_adwin_retry_packet_index	,	V_86
+"adwin.timeout"	,	L_121
+hf_adwin_mem_type	,	V_49
+proto_adwin	,	V_9
+I_SET_DATA_LAST_STATUS	,	V_77
+wmem_strdup	,	F_40
+"adwin.data"	,	L_54
+array_length	,	F_49
+"Unused"	,	L_123
+"3+1 Instruction"	,	L_69
+"GDSHP"	,	L_26
+"UDPR4 Undefined error code %d"	,	L_14
+"packets are a range"	,	L_67
+"adwin.unused"	,	L_124
+ett_adwin_debug	,	V_149
+I_GET_FIFO_RETRY	,	V_84
+"Data element hex"	,	L_51
+"Complete packets"	,	L_41
+packet_name	,	V_27
+"GDSH: End Packet"	,	L_83
+"Request Number"	,	L_113
+hf_register_info	,	T_15
+ti2	,	V_133
+"Data No. (16bit)"	,	L_53
+hf_adwin_instruction	,	V_35
+adwin_debug_tree	,	V_25
+"UDPR1 Undefined error code %d"	,	L_8
+i	,	V_106
+fvalue	,	V_112
+BASE_NONE	,	V_161
+"Password for ADwin system"	,	L_97
+"ADwin"	,	L_22
+"Response In"	,	L_102
+"Data[%3d]: %10d - %10f - 0x%08x"	,	L_12
+"Dissect Data sections"	,	L_146
+adwin_tree	,	V_3
+hf_adwin_binfilesize	,	V_64
+hf_adwin_data_no16	,	V_72
+"Count"	,	L_44
+BASE_HEX	,	V_156
+PROTO_ITEM_SET_GENERATED	,	F_12
+col_add_str	,	F_41
+proto_item_add_subtree	,	F_38
+module_t	,	T_17
+hf_adwin_is_range	,	V_127
+proto_register_field_array	,	F_48
+conversation	,	V_6
+"Memory size"	,	L_76
+hf_adwin_start_index	,	V_68
+UDPH2_LENGTH	,	V_138
+dissector_add_uint	,	F_45
+nstime_delta	,	F_13
+I_GET_ARM_VERSION	,	V_79
+FT_UINT16	,	V_162
+UDPH1_NEW_LENGTH	,	V_136
+"ADwin Debug information"	,	L_23
+fd	,	V_11
+I_BOOT	,	V_60
+UDPR3_LENGTH	,	V_140
+"Memory type"	,	L_74
+"adwin.process_no"	,	L_99
+adwin_transaction_t	,	T_8
+dll_version_s	,	V_93
+"adwin.processor"	,	L_101
+global_adwin_udp_port	,	V_153
+FT_STRING	,	V_170
+"adwin.parameter"	,	L_94
+"adwin"	,	L_141
+"Number of longs"	,	L_46
+"The response to this ADwin request is in this frame"	,	L_104
+dissect_GDSHP	,	F_31
+dissect_UDPH1_new	,	F_22
+dissect_GDSHR	,	F_33
+conversation_add_proto_data	,	F_7
+hf_adwin_data_packet_index	,	V_78
+length	,	V_134
+"Generic return value 3 (interpretation depends on request)."	,	L_136
+hf_adwin_complete_packets	,	V_126
+hf_adwin_data_type	,	V_71
+APT_UDPR2	,	V_107
+FT_UINT32	,	V_155
+"FiFo No. (32bit)"	,	L_64
+APT_UDPR1	,	V_101
+visited	,	V_13
+data_type	,	V_118
+find_or_create_conversation	,	F_2
+APT_UDPR4	,	V_119
+hf_adwin_data_float	,	V_114
+APT_UDPR3	,	V_116
+hf	,	V_154
+"adwin.packet_end"	,	L_82
+"adwin.dll_version"	,	L_61
+adwin_direction_t	,	T_5
+prefs_register_protocol	,	F_51
+"adwin.complete_packets"	,	L_42
+wmem_strdup_printf	,	F_17
+"Generic return value 1 interpreted as integer (correct interpretation depends on request)."	,	L_127
+tmp	,	V_32
+col_set_str	,	F_36
+packet_type_mapping_ext	,	V_168
+hf_adwin_data_int	,	V_113
+hf_adwin_parameter	,	V_43
+"Value 1 (as int)"	,	L_125
+it	,	V_20
+I_LOAD_BIN_FILE	,	V_65
+"UDPR4 Status: %s"	,	L_13
+proto_tree_add_string	,	F_23
+proto_register_adwin	,	F_46
+"UDPR1 Status: %s"	,	L_7
+status	,	V_98
+"Response time"	,	L_108
+adwin_handle	,	V_151
+ett_adwin	,	V_148
+"Value 3"	,	L_134
+hf_adwin_status	,	V_102
+"End packet"	,	L_81
+dissector_handle_t	,	T_14
+UDPR4_LENGTH	,	V_141
+req_frame	,	V_15
+"Unknown ADwin packet, length: %d"	,	L_28
+instructionID	,	V_29
+"adwin.link_addr"	,	L_72
+"Data No. (32bit)"	,	L_55
+prefs_register_bool_preference	,	F_53
+"Value 4"	,	L_137
+hf_adwin_timeout	,	V_91
+"Value 2"	,	L_131
+proto_tree_add_text	,	F_27
+BASE_DEC	,	V_158
+ENC_NA	,	V_147
+error_code_mapping_ext	,	V_99
+hf_adwin_i3plus1	,	V_41
+hf_adwin_packet_no	,	V_117
+parameter_mapping_ext	,	V_169
+I_3P1_SET_PAR	,	V_42
+wmem_tree_lookup32	,	F_9
+seq_num	,	V_4
+prefs_register_uint_preference	,	F_52
+"Request In"	,	L_105
+"Timeout in ms"	,	L_122
+"The time between the Request and the Reply"	,	L_110
+ett	,	V_174
+wmem_packet_scope	,	F_10
+hf_adwin_link_addr	,	V_90
+packet_info	,	T_2
+"adwin.fifo_no"	,	L_63
+rep_frame	,	V_17
+wmem_tree_new	,	F_6
+"adwin.packet_no"	,	L_87
+"Generic return value 1 interpreted as float (correct interpretation depends on request)."	,	L_130
+"adwin.data_type"	,	L_57
+ns	,	V_22
+conversation_get_proto_data	,	F_3
+"Processor"	,	L_100
+I_3P1_GET_MEMORY_INFO	,	V_47
+instruction_mapping_ext	,	V_30
+hf_adwin_data_hex	,	V_115
+"Operating system / environment"	,	L_80
+ADWIN_RESPONSE	,	V_100
+"Process No."	,	L_98
+"%s: %s"	,	L_1
+I_GET_PAR_ALL	,	V_76
+"adwin.retry_packet_index"	,	L_112
+HFILL	,	V_157
+direction	,	V_5
+"adwin.instruction"	,	L_66
+I_3P1_CLEAR_FIFO	,	V_56
+"Status"	,	L_118
+"Value 1 (as float)"	,	L_128
+hf_adwin_armVersion	,	V_80
+packet_end	,	V_123
+I_GET_DATA_TYPE	,	V_67
+adwin_trans	,	V_8
+wmem_new	,	F_4
+gchar	,	T_11
+"Starting packet"	,	L_88
+adwin_conv_info_t	,	T_7
+dissect_UDPH1_generic	,	F_15
+"UDPR3"	,	L_25
+I_3PLUS1	,	V_31
+"unknown instruction: %d"	,	L_2
+status_string	,	V_97
+hf_adwin_count	,	V_73
+"adwin.val1"	,	L_126
+proto_register_protocol	,	F_47
+"Data[%3d]: 0x%08x"	,	L_17
+wmem_tree_insert32	,	F_8
+"%d.%d.%d"	,	L_6
+gint	,	T_16
+FT_RELATIVE_TIME	,	V_172
+hf_adwin_fifo_no32	,	V_59
+"adwin.is_range"	,	L_68
+"memory address"	,	L_30
+"adwin.start_index"	,	L_117
+tvb	,	V_1
+"Packet type"	,	L_91
+hf_adwin_request_no	,	V_125
+COL_INFO	,	V_146
+"Specify if the Data sections of packets "	,	L_147
+val_to_str_ext	,	F_18
+cinfo	,	V_144
+"Packet index"	,	L_84
+adwin_request_response_handling	,	F_1
+UDPR1_LENGTH	,	V_137
+FT_STRINGZ	,	V_165
+hf_adwin_fifo_no16	,	V_83
+hf_adwin_packet_end	,	V_129
+"Data packet index"	,	L_58
+"adwin.val3"	,	L_135
+ADWIN_REQUEST	,	V_14
+abs_ts	,	V_19
+proto_item_set_text	,	F_39
+"should be dissected or not"	,	L_148
+"GDSH: Starting Packet"	,	L_90
+PROTO_ITEM_SET_HIDDEN	,	F_28
+"Memory address to read on DSP"	,	L_32
+"adwin.data_packet_index"	,	L_59
+hf_adwin_response_time	,	V_24
+udp_port	,	V_152
+COL_PROTOCOL	,	V_145
+"Operating system"	,	L_78
+I_3P1_GET_FIFO_COUNT	,	V_58
+I_3P1_STOP	,	V_51
+"adwin.val2"	,	L_132
+hf_adwin_memsize	,	V_61
+"adwin.count"	,	L_45
+ti	,	V_132
+"Start index"	,	L_116
+dll_i	,	V_94
+I_3P1_START	,	V_50
+dissect_UDPR3	,	F_29
+dissect_UDPR4	,	F_30
+dissect_UDPR1	,	F_24
+tvb_get_ntohl	,	F_32
+dissect_UDPR2	,	F_26
+hf_adwin_processor	,	V_63
+APT_GDSHR	,	V_124
+tvbuff_t	,	T_1
+APT_GDSHP	,	V_120
+proto_reg_handoff_adwin	,	F_42
+SET_PACKET_TYPE	,	F_19
+"Data element int"	,	L_47
+"adwin.armVersion"	,	L_34
+"unknown 3+1 code: %d"	,	L_3
+UDPH1_OLD_LENGTH	,	V_135
+"adwin.val4"	,	L_138
+"Generic return value 2 (interpretation depends on request)."	,	L_133
+req_time	,	V_18
+is_range	,	V_121
+FT_FLOAT	,	V_160
+adwin_prefs_initialized	,	V_150
+hf_adwin_response_to	,	V_23
+"Highest sequential package number"	,	L_43
+I_3P1_GET_FIFO_EMPTY	,	V_57
+dissector_delete_uint	,	F_44
+I_3P1_GET_DETAILED_MEM_INFO	,	V_48
+"adwin.password"	,	L_96
+I_GET_DATA	,	V_69
+"Instruction"	,	L_65
+adwin_module	,	V_175
+I_SET_FIFO	,	V_82
+"Data element float"	,	L_49
+"adwin.status"	,	L_119
+"Retry packet index"	,	L_111
+global_adwin_dissect_data	,	V_108
+FT_INT32	,	V_159
+new_create_dissector_handle	,	F_43
+"adwin.data_int"	,	L_48
+"This is a response to the ADwin request in this frame"	,	L_107
+ENC_BIG_ENDIAN	,	V_39
+"adwin.osys"	,	L_79
+"UDPH1 (new)"	,	L_5
+"GDSH status: get single packet no %d"	,	L_18
+"Password"	,	L_95
+"DLL Version"	,	L_60
+proto_tree_add_time	,	F_14
+try_val_to_str_ext	,	F_25
+BASE_EXT_STRING	,	V_163
+hf_adwin_response_in	,	V_21
+hf_adwin_dll_version	,	V_96
+"Data[%3d]: %10d - 0x%08x"	,	L_15
+I_TEST_VERSION	,	V_87
+item	,	V_109
+"adwin.request_no"	,	L_114
+dissect_adwin	,	F_34
+"File size"	,	L_35
+"Link address (TCP/IP Server only)"	,	L_73
+"GDSH status: unknown code %d"	,	L_21
+hf_adwin_osys	,	V_92
+"Generic return value 4 (interpretation depends on request)."	,	L_139
+i3plus1code	,	V_28
+col_clear	,	F_37
+"Size of binary file"	,	L_37
+"adwin.address"	,	L_31
+hf_adwin_packet_index	,	V_37
+proto_register_subtree_array	,	F_50
+gint32	,	T_12
+APT_UDPH1_new	,	V_95
+"UDPR2 Status: %s"	,	L_9
+proto_tree_add_item	,	F_20
+pinfo	,	V_2
+info_string	,	V_26
+"Data"	,	L_11
+"GDSH status: get packets %d - %d"	,	L_19
+flags	,	V_12
+_U_	,	V_131
+"adwin.response_time"	,	L_109
+"Packet No."	,	L_86
+"Data[%3d]: %10f - 0x%08x"	,	L_16
+"UDPH2 - UNUSED"	,	L_24
+"adwin.binfilesize"	,	L_36
+hf_adwin_data_no32	,	V_55
+hf_adwin_process_no	,	V_53
+instruction_3plus1_mapping_ext	,	V_33
+"adwin.packet_type"	,	L_92
+I_GET_DATA_SHIFTED_HANDSHAKE	,	V_74
+"Blocksize"	,	L_38
+"Get ARM Version"	,	L_33
+proto_item	,	T_9
+"adwin.memsize"	,	L_77
+"UDPR2 Undefined error code %d"	,	L_10
+I_SET_FIFO_RETRY	,	V_85
+ENC_LITTLE_ENDIAN	,	V_36
+I_GET_DATA_SMALL	,	V_75
+osys_mapping_ext	,	V_166
+"adwin.response_in"	,	L_103
+" than the default of 6543)"	,	L_144
+I_3P1_CLEAR_PROCESS	,	V_52
+data	,	T_13
+"dissect_data"	,	L_145
+hf_adwin_unused	,	V_40
+"GDSHR"	,	L_27
+num	,	V_16
+"FiFo No. (16bit)"	,	L_62
+"ADwin UDP Port"	,	L_142
+tvb_get_letohl	,	F_16
+nstime_t	,	T_10
+adwin_info	,	V_7
+I_GET_WORKLOAD	,	V_66
+conversation_t	,	T_6
+FT_NONE	,	V_173
+offset	,	V_110
+GetDataSHPacket_LENGTH	,	V_142
+pdus	,	V_10
+tree	,	V_130
+"GDSH status: finished"	,	L_20
+I_SET_DATA	,	V_70
+APT_UDPH1_old	,	V_34
+"adwin.i3plus1"	,	L_70
+"adwin.blocksize"	,	L_39
+proto_tree_add_uint	,	F_11
+"Data type"	,	L_56
+UDPR2_LENGTH	,	V_139
+"adwin.val1f"	,	L_129
+I_3P1_GET_DATA_LENGTH	,	V_54
+I_3P1_GET_PAR	,	V_46
+hf_adwin_packet_type	,	V_167
+"Parameter"	,	L_93
+hf_adwin_blocksize	,	V_62
+"UDPH1 (old)"	,	L_4
+packet_start	,	V_122
+wmem_file_scope	,	F_5
+value	,	V_111
+I_GET_FIFO	,	V_81
+"adwin.packet_start"	,	L_89
+"udp.port"	,	L_29
+FT_FRAMENUM	,	V_171
+"Request number index"	,	L_115
+"adwin.packet_index"	,	L_85
+"ADwin communication protocol"	,	L_140
+hf_adwin_val1f	,	V_45
+proto_tree	,	T_3

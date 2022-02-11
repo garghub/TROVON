@@ -1,0 +1,130 @@
+dissect_e212_utf8_imsi	,	F_20
+tvb_get_string_enc	,	F_15
+"Mobile Country Code (MCC)"	,	L_12
+hf_E212_mnc_rai	,	V_28
+"Mobile Network Code (MNC)"	,	L_18
+proto_register_protocol	,	F_22
+ei_E212_mcc_non_decimal	,	V_34
+E212_LAI	,	V_23
+try_val_to_str_ext	,	F_12
+expert_e212	,	V_58
+wmem_strdup_printf	,	F_8
+BASE_EXT_STRING	,	V_52
+gint	,	T_12
+"e212"	,	L_30
+dissect_e212_mcc_mnc_in_address	,	F_11
+tvb	,	V_1
+"MCC %u %s, MNC %02u %s"	,	L_6
+item	,	V_18
+guint32	,	T_10
+"%s (%02u)"	,	L_5
+proto_e212	,	V_59
+dissect_e212_mcc_mnc	,	F_10
+"e212.mcc"	,	L_13
+dissect_e212_mcc_mnc_wmem_packet_str	,	F_1
+"IMSI"	,	L_9
+proto_register_subtree_array	,	F_25
+proto_tree_add_string	,	F_18
+array_length	,	F_24
+tvb_get_ntoh24	,	F_2
+"e212.lai.mnc"	,	L_21
+hf_E212_mnc_id	,	V_22
+"e212.rai.mnc"	,	L_22
+""	,	L_4
+"MCC contains non-decimal digits"	,	L_25
+"%s (%03u)"	,	L_1
+pinfo	,	V_2
+_U_	,	V_38
+ei_E212_mnc_non_decimal	,	V_37
+ett_e212_array	,	V_53
+hf_register_info	,	T_11
+E212_SAI	,	V_29
+"e212.mnc.non_decimal"	,	L_26
+hf_E212_mcc_id	,	V_21
+guint16	,	T_8
+"e212.mcc.non_decimal"	,	L_24
+skip_first	,	V_41
+BASE_DEC	,	V_51
+"Mobile network code"	,	L_20
+"e212.lai.mcc"	,	L_15
+proto_item	,	T_9
+expert_register_field_array	,	F_27
+hf_E212_imsi	,	V_44
+ett_e212_imsi	,	V_45
+subtree	,	V_42
+guint8	,	T_7
+"Mobile Country Code MCC"	,	L_14
+mcc3	,	V_14
+BASE_NONE	,	V_48
+mcc2	,	V_13
+hf_E212_mnc	,	V_33
+mcc1	,	V_12
+dissect_e212_mcc_mnc_in_utf8_address	,	F_14
+hf_E212_mcc_rai	,	V_27
+imsi_str	,	V_43
+e212_number_type_t	,	T_5
+start_offset	,	V_7
+proto_register_e212	,	F_21
+hf_E212_mnc_lai	,	V_25
+octet	,	V_9
+"Unknown2"	,	L_8
+tvbuff_t	,	T_2
+number_type	,	V_5
+mcc_mnc_str	,	V_19
+mcc	,	V_10
+val_to_str_ext_const	,	F_7
+"MNC contains non-decimal digits"	,	L_27
+ei_register_info	,	T_13
+gboolean	,	T_6
+expert_register_protocol	,	F_26
+hf_E212_mcc	,	V_32
+proto_item_add_subtree	,	F_19
+E212_RAI	,	V_26
+proto_register_field_array	,	F_23
+mcc_mnc_codes_ext	,	V_35
+mnc3	,	V_17
+mnc2	,	V_16
+"International mobile subscriber identity(IMSI)"	,	L_11
+offset	,	V_4
+ei	,	V_54
+wmem_packet_scope	,	F_9
+mcc_mnc	,	V_8
+expert_module_t	,	T_14
+"Unknown1"	,	L_7
+tree	,	V_3
+"e212.imsi"	,	L_10
+"e212.sai.mcc"	,	L_17
+"E.212"	,	L_29
+dissect_e212_imsi	,	F_16
+FT_UINT16	,	V_50
+packet_info	,	T_3
+tvb_get_guint8	,	F_3
+hf_E212_mcc_sai	,	V_30
+mnc1	,	V_15
+proto_tree_add_uint	,	F_4
+long_mnc	,	V_20
+EXPFILL	,	V_57
+little_endian	,	V_6
+tvb_bcd_dig_to_wmem_packet_str	,	F_17
+expert_add_info	,	F_5
+hf_E212_mnc_sai	,	V_31
+"MCC %u %s, MNC %03u %s"	,	L_3
+dissect_e212_mcc_mnc_high_nibble	,	F_13
+FT_STRING	,	V_47
+E212_codes_ext	,	V_36
+HFILL	,	V_49
+PI_MALFORMED	,	V_55
+mnc	,	V_11
+"ITU-T E.212 number"	,	L_28
+"e212.mnc"	,	L_19
+gchar	,	T_1
+length	,	V_40
+"e212.rai.mcc"	,	L_16
+PI_WARN	,	V_56
+proto_tree_add_uint_format_value	,	F_6
+hf_E212_mcc_lai	,	V_24
+"Unknown"	,	L_2
+ENC_UTF_8	,	V_39
+proto_tree	,	T_4
+hf	,	V_46
+"e212.sai.mnc"	,	L_23

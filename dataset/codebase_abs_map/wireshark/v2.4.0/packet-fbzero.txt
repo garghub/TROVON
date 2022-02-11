@@ -1,0 +1,259 @@
+tvb_get_string_enc	,	F_15
+TAG_NONC	,	V_50
+offset_end	,	V_14
+hf_fb_zero_tag_time	,	V_41
+"Key exchange algorithms"	,	L_61
+proto_register_protocol	,	F_35
+total_tag_len	,	V_8
+tvb_reported_length	,	F_30
+"A list of tags, in preference order, specifying the AEAD primitives supported by the server"	,	L_49
+"Version"	,	L_19
+"fb_zero.tag.unknown"	,	L_68
+hf_fb_zero_padding	,	V_67
+gint	,	T_14
+"fb_zero.tag.length.truncated"	,	L_78
+TFS	,	F_34
+tvb	,	V_1
+"32 bytes consisting of 4 bytes of timestamp (big-endian, UNIX epoch seconds), 8 bytes of server orbit and 20 bytes of random data"	,	L_66
+guint32	,	T_1
+"fb_zero.tag.sno"	,	L_46
+COL_INFO	,	V_65
+FT_BOOLEAN	,	V_93
+"Tag length"	,	L_37
+"Fb Zero Payload.."	,	L_73
+version	,	V_72
+dissect_fb_zero	,	F_28
+": %u"	,	L_7
+tvb_reported_length_remaining	,	F_12
+ti_type	,	V_13
+TAG_AEAD	,	V_34
+cinfo	,	V_64
+TAG_VERS	,	V_30
+"Unknown tag"	,	L_67
+ti_aead	,	V_35
+array_length	,	F_38
+tag_len	,	V_9
+"fb_zero.puflags"	,	L_17
+" (%s)"	,	L_1
+"Server nonce"	,	L_45
+"Unknown Tag"	,	L_12
+ENC_ASCII	,	V_21
+"FBZERO"	,	L_82
+"fb_zero.unknown"	,	L_74
+PUFLAGS_VRSN	,	V_81
+hf_register_info	,	T_13
+TAG_PUBS	,	V_44
+"Dissector for FB Zero Tag code not implemented, Contact Wireshark developers if you want this supported"	,	L_77
+"fb_zero.puflags.unknown"	,	L_22
+", %s"	,	L_6
+COL_PROTOCOL	,	V_74
+fb_zero_handle	,	V_88
+": %s"	,	L_5
+"FB_ZERO"	,	L_14
+hf_fb_zero_version	,	V_83
+ett_fb_zero_puflags	,	V_78
+guint8	,	T_7
+"(Facebook) Zero Protocol"	,	L_81
+ti	,	V_56
+BASE_NONE	,	V_97
+"fb_zero.tag.nonc"	,	L_65
+fb_zero_tree	,	V_3
+"Unknown Data"	,	L_75
+"fb_zero.tag.unknown.data"	,	L_80
+register_dissector	,	F_36
+"Authenticated encryption algorithms"	,	L_47
+proto_register_fb_zero	,	F_33
+tvb_get_ntohl	,	F_6
+" %s (%s) code not implemented, Contact"	,	L_9
+tvbuff_t	,	T_2
+"fb_zero.tag.aead"	,	L_48
+hf_fb_zero_tag_offset_end	,	V_23
+"Signifies that this packet also contains the version of the FB Zero protocol"	,	L_21
+"Application-Layer Protocol Negotiation supported"	,	L_57
+hf_fb_zero_puflags_unknown	,	V_80
+tag_vals	,	V_22
+conversation_set_dissector	,	F_32
+BASE_HEX	,	V_91
+hf_fb_zero_tag_sno	,	V_33
+PROTO_ITEM_SET_GENERATED	,	F_11
+col_add_str	,	F_27
+TAG_TIME	,	V_40
+FT_UINT24	,	V_103
+gboolean	,	T_11
+message_tag	,	V_57
+proto_item_add_subtree	,	F_3
+"Tag Type"	,	L_33
+PI_UNDECODED	,	V_110
+proto_register_field_array	,	F_37
+conversation	,	V_87
+hf_fb_zero_tag_sni	,	V_29
+FT_BYTES	,	V_102
+"A list of public values, 24-bit, little-endian length prefixed"	,	L_60
+ei	,	V_109
+hf_fb_zero_tags	,	V_17
+hf_fb_zero_puflags_vrsn	,	V_79
+FBZERO_MIN_LENGTH	,	V_73
+ti_len	,	V_11
+"fb_zero.tag_value"	,	L_39
+"fb_zero"	,	L_83
+FT_UINT16	,	V_100
+": %s (%s)"	,	L_3
+"Public Flags"	,	L_16
+hf_fb_zero_tag_unknown	,	V_52
+tvb_get_guint8	,	F_25
+"Client nonce"	,	L_64
+"fb_zero.tag"	,	L_28
+tvb_captured_length	,	F_23
+"Specifying per-packet public flags"	,	L_18
+PUFLAGS_UNKN	,	V_95
+BASE_DEC_HEX	,	V_104
+"fb_zero.tag.version"	,	L_43
+expert_add_info	,	F_13
+hf_fb_zero_unknown	,	V_60
+ett_fb_zero	,	V_76
+heur_dissector_add	,	F_43
+HEURISTIC_ENABLE	,	V_115
+FT_STRING	,	V_96
+"An opaque, 16-byte identifier for this server config"	,	L_52
+length	,	V_58
+"fb_zero.tag_number"	,	L_30
+"fb_zero.tag.time"	,	L_54
+hf_fb_zero_tag_number	,	V_66
+"fb_zero.tag.alpn"	,	L_56
+FT_UINT32	,	V_98
+MTAG_CHLO	,	V_84
+find_or_create_conversation	,	F_31
+"Server Name Indication"	,	L_40
+hf	,	V_89
+"fb_zero.padding"	,	L_70
+"Tag"	,	L_27
+tag_aead_vals	,	V_37
+col_set_str	,	F_24
+tag_number	,	V_5
+puflags_tree	,	V_70
+len_pkn	,	T_8
+MTAG_SNOM	,	V_85
+"Time"	,	L_53
+proto_item_append_text	,	F_7
+hf_fb_zero_length	,	V_61
+"32 bit opaque tag that represents the version of the ZB Zero (Always QTV)"	,	L_24
+"Truncated Tag Length..."	,	L_79
+hf_fb_zero_tag_kexs	,	V_48
+"fb_zero.length"	,	L_26
+tag_offset_start	,	V_6
+ti_tag	,	V_12
+hf_fb_zero_tag	,	V_63
+proto_register_subtree_array	,	F_39
+"Server Config ID"	,	L_50
+gint32	,	T_6
+val_to_str	,	F_8
+proto_tree_add_item_ret_uint	,	F_18
+hf_fb_zero_tag_length	,	V_25
+tvb_get_ntoh24	,	F_26
+proto_tree_add_item	,	F_2
+pinfo	,	V_2
+col_add_fstr	,	F_20
+"Version of FB Zero supported"	,	L_44
+_U_	,	V_55
+dissect_fb_zero_tag	,	F_1
+"ALPN"	,	L_55
+" Wireshark developers if you want this supported"	,	L_10
+", Type: %s (%s)"	,	L_11
+"fb_zero.tags"	,	L_32
+ei_fb_zero_tag_undecoded	,	V_53
+tag_tree	,	V_10
+ett_fb_zero_ftflags	,	V_108
+hf_fb_zero_tag_alpn	,	V_43
+"A list of tags, in preference order, specifying the key exchange algorithms that the server supports"	,	L_63
+"fb_zero.tag.kexs"	,	L_62
+"fb_zero.payload"	,	L_72
+hf_fb_zero_tag_scid	,	V_39
+hf_fb_zero_puflags	,	V_77
+FT_UINT8	,	V_90
+BASE_DEC	,	V_99
+proto_item	,	T_9
+expert_register_field_array	,	F_41
+try_val_to_str	,	F_19
+"fb_zero.puflags.version"	,	L_20
+ENC_NA	,	V_18
+proto_fb_zero	,	V_75
+ett_fb_zero_prflags	,	V_106
+expert_add_info_format	,	F_14
+message_tag_vals	,	V_62
+"Padding"	,	L_69
+ENC_LITTLE_ENDIAN	,	V_24
+proto_tree_add_item_ret_string	,	F_4
+TAG_SNI	,	V_28
+"%s"	,	L_13
+"Tag/value"	,	L_31
+"Payload (Encrypted)"	,	L_15
+TAG_SNO	,	V_32
+data	,	T_10
+"fb_zero.version"	,	L_23
+hf_fb_zero_tag_nonc	,	V_51
+puflags	,	V_71
+"Public value"	,	L_58
+ei_register_info	,	T_15
+proto_reg_handoff_fb_zero	,	F_42
+"fb_zero.tag_offset_end"	,	L_36
+expert_register_protocol	,	F_40
+"tcp"	,	L_84
+tvb_get_letohl	,	F_9
+tag	,	V_15
+PI_NOTE	,	V_111
+tvb_get_letohs	,	F_21
+conversation_t	,	T_12
+dissect_fb_zero_common	,	F_22
+guint	,	T_5
+"Length"	,	L_25
+FT_NONE	,	V_101
+offset	,	V_4
+"fb_zero.tag_type"	,	L_34
+ett	,	V_105
+wmem_packet_scope	,	F_5
+expert_module_t	,	T_16
+TAG_KEXS	,	V_46
+dissect_fb_zero_heur	,	F_29
+hf_fb_zero_tag_vers	,	V_31
+tree	,	V_68
+hf_fb_zero_payload	,	V_86
+tag_offset	,	V_7
+packet_info	,	T_3
+"fb_zero.tag.pubs"	,	L_59
+ti_kexs	,	V_47
+hf_fb_zero_tag_type	,	V_20
+tfs_yes_no	,	V_94
+hf_fb_zero_tag_aead	,	V_36
+"Dissector for FB Zero Tag"	,	L_8
+expert_fb_zero	,	V_114
+tag_str	,	V_16
+proto_tree_add_uint	,	F_10
+EXPFILL	,	V_112
+ti_puflags	,	V_69
+ei_fb_zero_tag_length	,	V_26
+proto_tree_add_expert	,	F_16
+"Payload"	,	L_71
+hf_fb_zero_tag_value	,	V_27
+tag_kexs_vals	,	V_49
+"Tag Number"	,	L_29
+"fb_zero.tag_offset_length"	,	L_38
+ett_fb_zero_ft	,	V_107
+"FBZero (QUIC) over TCP"	,	L_85
+TAG_ALPN	,	V_42
+"The fully qualified DNS name of the server, canonicalised to lowercase with no trailing period"	,	L_42
+"fb_zero.tag.scid"	,	L_51
+HFILL	,	V_92
+PI_MALFORMED	,	V_113
+message_tag_str	,	V_59
+ett_fb_zero_tag_value	,	V_19
+"Tag offset end"	,	L_35
+" (l=%u)"	,	L_4
+ei_fb_zero_tag_unknown	,	V_54
+"fb_zero.tag.sni"	,	L_41
+hf_fb_zero_tag_pubs	,	V_45
+TAG_SCID	,	V_38
+dissect_fb_zero_unencrypt	,	F_17
+VERSION_QTV	,	V_82
+"Unknown"	,	L_2
+proto_tree	,	T_4
+"fb_zero.tag.undecoded"	,	L_76

@@ -1,0 +1,65 @@
+"wmx.macmgtmsgtype.dsa_ack"	,	L_4
+"Transaction ID"	,	L_9
+MAC_MGMT_MSG_DSA_RSP	,	V_16
+"wmx.macmgtmsgtype.dsa_req"	,	L_5
+proto_register_protocol	,	F_13
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_4
+tvb_reported_length	,	F_3
+BASE_HEX	,	V_27
+dissect_mac_mgmt_msg_dsa_ack_decoder	,	F_11
+"wmx.macmgtmsgtype.dsa_rsp"	,	L_6
+gint	,	T_7
+proto_item_add_subtree	,	F_6
+"wmx.ds"	,	L_13
+"%s (%u bytes)"	,	L_1
+proto_register_field_array	,	F_14
+tvb	,	V_1
+payload_type	,	V_6
+guint	,	T_4
+offset	,	V_4
+ett	,	V_29
+hf_dsa_req_message_type	,	V_13
+tree	,	V_3
+dissect_mac_mgmt_msg_dsa_req_decoder	,	F_1
+ett_mac_mgmt_msg_dsa_ack_decoder	,	V_21
+"wmx.dsa.transaction_id"	,	L_10
+FT_UINT16	,	V_28
+packet_info	,	T_2
+tvb_get_guint8	,	F_2
+MAC_MGMT_MSG_DSA_REQ	,	V_9
+tvb_len	,	V_5
+proto_register_subtree_array	,	F_16
+hf_dsa_transaction_id	,	V_15
+dissect_mac_mgmt_msg_dsa_rsp_decoder	,	F_10
+hf_dsa_rsp_message_type	,	V_18
+proto_register_mac_mgmt_msg_dsa	,	F_12
+val_to_str	,	F_5
+"Confirmation code"	,	L_7
+array_length	,	F_15
+wimax_common_tlv_encoding_decoder	,	F_8
+"WiMax DSA/C/D (ds)"	,	L_12
+MAC_MGMT_MSG_DSA_ACK	,	V_20
+proto_tree_add_item	,	F_7
+"WiMax DSA/C/D Messages"	,	L_11
+pinfo	,	V_2
+vals_dsa_msgs	,	V_11
+proto_mac_mgmt_msg_dsa_decoder	,	V_10
+dsa_tree	,	V_8
+dsa_item	,	V_7
+hf_register_info	,	T_6
+ett_mac_mgmt_msg_dsa_req_decoder	,	V_12
+HFILL	,	V_26
+"wmx.dsa.confirmation_code"	,	L_8
+FT_UINT8	,	V_24
+BASE_DEC	,	V_25
+tvb_new_subset	,	F_9
+ett_mac_mgmt_msg_dsa_rsp_decoder	,	V_17
+proto_item	,	T_5
+ENC_BIG_ENDIAN	,	V_14
+hf_dsa_confirmation_code	,	V_19
+"MAC Management Message Type"	,	L_3
+"Unknown"	,	L_2
+hf_dsa_ack_message_type	,	V_22
+proto_tree	,	T_3
+hf	,	V_23

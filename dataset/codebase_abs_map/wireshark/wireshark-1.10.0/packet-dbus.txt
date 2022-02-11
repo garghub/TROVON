@@ -1,0 +1,220 @@
+"DOUBLE: %."	,	L_10
+serial_val	,	V_30
+dissect_dbus_body	,	F_26
+hf_dbus_value_str	,	V_24
+proto_register_protocol	,	F_38
+getdouble	,	V_20
+field_code_vals	,	V_48
+path	,	V_1
+ett_dbus_field	,	V_45
+tvb_get_letohieee_double	,	V_72
+DBL_DIG	,	V_22
+len	,	V_23
+AT_STRINGZ	,	V_36
+tcp_dissect_pdus	,	F_34
+hf_dbus_hdr_serial	,	V_62
+gint	,	T_17
+"dbus.length"	,	L_35
+get16	,	V_18
+tvb	,	V_3
+guint32	,	T_9
+hdr_tree	,	V_49
+"dbus.serial"	,	L_37
+proto_item_set_end	,	F_22
+hf_dbus_hdr	,	V_50
+COL_INFO	,	V_55
+FT_BOOLEAN	,	V_93
+"dbus.value.double"	,	L_53
+str	,	V_25
+dissect_dbus_field_signature	,	F_14
+DBUS_HEADER_FIELD_SIGNATURE	,	V_37
+"Header"	,	L_24
+"Message Flags"	,	L_30
+cinfo	,	V_54
+hf_dbus_value_bool	,	V_14
+array_length	,	F_40
+"Protocol Version"	,	L_32
+"g"	,	L_11
+hf_dbus_body	,	V_65
+""	,	L_22
+FT_STRINGZ	,	V_92
+"dbus.field"	,	L_41
+field_code	,	V_26
+ENC_ASCII	,	V_53
+"Header Field"	,	L_40
+"INT32: %d"	,	L_8
+dbus_validate_object_path	,	F_1
+hf_dbus_hdr_field	,	V_43
+hf_register_info	,	T_18
+guint16	,	T_11
+"Invalid signature"	,	L_17
+dissect_dbus	,	F_27
+COL_PROTOCOL	,	V_68
+"Body"	,	L_46
+": %s"	,	L_20
+proto_tree_add_boolean_format	,	F_6
+guint8	,	T_8
+ett_dbus	,	V_78
+proto_register_dbus	,	F_36
+ti	,	V_9
+BASE_NONE	,	V_85
+hf_dbus_value_int	,	V_19
+body_len	,	V_60
+len_hdr	,	V_80
+proto_reg_handoff_dbus	,	F_42
+"Message Serial (cookie)"	,	L_36
+hf_dbus_hdr_endianness	,	V_52
+"Invalid string (not UTF-8)"	,	L_13
+tvb_get_ntohl	,	V_75
+"dbus.header"	,	L_25
+dissect_dbus_tcp	,	F_33
+tvbuff_t	,	T_3
+end_offset	,	V_40
+ett_dbus_hdr	,	V_51
+addr_val	,	V_33
+DBUS_HEADER_LEN	,	V_81
+"wtap_encap"	,	L_56
+tvb_get_ntohs	,	V_74
+hf_dbus_hdr_body_length	,	V_61
+BASE_HEX	,	V_90
+"dbus"	,	L_55
+col_add_str	,	F_24
+gboolean	,	T_1
+dbus_validate_signature	,	F_2
+g_utf8_validate	,	F_13
+proto_item_add_subtree	,	F_19
+hf_dbus_hdr_version	,	V_59
+hf_dbus_hdr_fields_length	,	V_63
+dbus_info_t	,	T_4
+proto_register_field_array	,	F_39
+dinfo	,	V_4
+ret	,	V_7
+hf_dbus_value_uint	,	V_11
+get_guint32	,	F_31
+dissector_add_uint	,	F_44
+hf_dbus_value_double	,	V_21
+ett_dbus_body	,	V_66
+"dbus.field.code"	,	L_43
+"dbus.value.uint"	,	L_51
+tvb_get_guint8	,	F_4
+body_tree	,	V_64
+proto_tree_add_string_format	,	F_12
+"STRING: %s"	,	L_12
+message_type_vals	,	V_56
+proto_tree_add_double_format	,	F_9
+sig_val	,	V_38
+hf_dbus_hdr_flags	,	V_58
+sig	,	T_2
+FT_STRING	,	V_87
+"Message Type"	,	L_28
+hf_dbus_type_signature	,	V_28
+enc	,	V_47
+FT_INT32	,	V_94
+org_offset	,	V_8
+new_create_dissector_handle	,	F_43
+WTAP_ENCAP_DBUS	,	V_99
+val_to_str_const	,	F_25
+PI_WARN	,	V_17
+ENC_BIG_ENDIAN	,	V_73
+FT_DOUBLE	,	V_95
+"UINT32: %u"	,	L_9
+FT_UINT32	,	V_91
+fields_len	,	V_41
+hf	,	V_83
+get_dbus_message_len	,	F_30
+col_set_str	,	F_28
+tvb_get_ntohieee_double	,	V_76
+proto_tree_add_uint_format	,	F_5
+val	,	V_10
+"dbus.body"	,	L_47
+proto_item_append_text	,	F_20
+"Unknown: %d"	,	L_21
+"dbus.value.bool"	,	L_49
+col_clear	,	F_29
+body_sig	,	V_39
+proto_register_subtree_array	,	F_41
+gint32	,	T_12
+proto_tree_add_string	,	F_15
+val_to_str	,	F_21
+proto_tree_add_item	,	F_18
+pinfo	,	V_15
+"dbus.value.str"	,	L_52
+dissector_handle_t	,	T_19
+_U_	,	V_2
+"dbus.type"	,	L_29
+"Value"	,	L_48
+"dbus.version"	,	L_33
+"BYTE: %u"	,	L_1
+VALS	,	F_37
+PI_PROTOCOL	,	V_16
+gdouble	,	T_13
+tvb_get_ephemeral_string	,	F_11
+tvb_length	,	F_35
+dissect_dbus_pdu	,	F_32
+FT_UINT8	,	V_88
+BASE_DEC	,	V_89
+"Type signature"	,	L_44
+"BOOLEAN: %s"	,	L_2
+dissect_dbus_hdr	,	F_23
+dbus_handle_tcp	,	V_98
+proto_item	,	T_7
+uint	,	V_12
+DBUS_HEADER_FIELD_SENDER	,	V_32
+"dbus.type_signature"	,	L_45
+ENC_NA	,	V_44
+dbus_val_t	,	T_6
+expert_add_info_format	,	F_7
+"dbus.value.int"	,	L_50
+dbus_handle	,	V_97
+"dbus.fields_length"	,	L_39
+"D-Bus"	,	L_54
+"D-BUS"	,	L_23
+"dbus.endianness"	,	L_27
+ENC_LITTLE_ENDIAN	,	V_69
+len_body	,	V_79
+dbus_desegment	,	V_82
+data	,	T_16
+"True"	,	L_3
+"Invalid boolean value (must be 0 or 1 is: %u)"	,	L_5
+SET_ADDRESS	,	F_16
+tvb_get_letohl	,	V_71
+tvb_get_letohs	,	V_70
+"Header fields Length"	,	L_38
+field_tree	,	V_42
+guint	,	T_14
+FT_NONE	,	V_84
+offset	,	V_6
+ett	,	V_96
+tree	,	V_5
+dissector_add_handle	,	F_45
+"INT16: %d"	,	L_6
+"dbus.flags"	,	L_31
+packet_info	,	T_15
+"False"	,	L_4
+"s"	,	L_19
+dissect_dbus_sig	,	F_3
+dbus_tree	,	V_67
+"OBJECT_PATH: %s"	,	L_14
+"Invalid object_path"	,	L_15
+dst	,	V_34
+"Endianness Flag"	,	L_26
+hf_dbus_hdr_field_code	,	V_46
+hf_dbus_hdr_type	,	V_57
+sig_len	,	V_27
+HFILL	,	V_86
+"Field code"	,	L_42
+proto_tree_add_int_format	,	F_8
+"Message body Length"	,	L_34
+"SIGNATURE: %s"	,	L_16
+dissect_dbus_hdr_fields	,	F_17
+src	,	V_35
+"UINT16: %u"	,	L_7
+DBUS_HEADER_FIELD_DESTINATION	,	V_31
+get32	,	V_13
+"u"	,	L_18
+proto_dbus	,	V_77
+gint16	,	T_10
+DBUS_HEADER_FIELD_REPLY_SERIAL	,	V_29
+STRINGIFY	,	F_10
+"tcp.port"	,	L_57
+proto_tree	,	T_5

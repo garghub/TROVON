@@ -1,0 +1,179 @@
+ua_sys_to_term_handle	,	V_48
+"uasip.udp_lost_reinit"	,	L_29
+noesip_enabled	,	V_11
+hf_uasip_sntseq	,	V_46
+"ACK"	,	L_9
+UAUDP_CONNECT_UDP_LOST	,	V_30
+dissect_uasip	,	F_19
+"UDP Lost"	,	L_25
+proto_register_protocol	,	F_21
+expseq	,	V_15
+prefs_register_protocol	,	F_26
+"Try to decode SIP NOE"	,	L_56
+tvb_reported_length	,	F_14
+proto_register_uasip	,	F_20
+"uasip.opcode"	,	L_14
+"Version"	,	L_16
+col_append_fstr	,	F_18
+BASE_EXT_STRING	,	V_61
+"UDP lost reinit"	,	L_28
+gint	,	T_3
+rTLV	,	F_1
+"uasip.udp_lost"	,	L_26
+UAUDP_CONNECT_UDP_LOST_REINIT	,	V_32
+"QoS 802.1 PRI"	,	L_40
+"UA/SIP Version"	,	L_18
+tvb	,	V_3
+str_to_ip	,	F_32
+COL_INFO	,	V_17
+"application/octet-stream"	,	L_64
+val_to_str_ext	,	F_10
+"NACK"	,	L_6
+"UA/SIP Window Size"	,	L_21
+"UA SIP Protocol enabled"	,	L_54
+"aplication_octet_stream"	,	L_52
+UAUDP_CONNECT_QOS_IP_TOS	,	V_36
+datalen	,	V_45
+"UA/SIP Sent Sequence Number"	,	L_48
+SYS_TO_TERM	,	V_47
+"UA/SIP Keepalive"	,	L_33
+cinfo	,	V_12
+"ua_sys_to_term"	,	L_61
+proto_register_subtree_array	,	F_25
+"uasip.sntseq"	,	L_47
+UAUDP_CONNECT_WINDOW_SIZE	,	V_26
+array_length	,	F_24
+tvb_get_ntoh24	,	F_5
+hf_uasip_opcode	,	V_21
+"NACK exp:%d"	,	L_7
+""	,	L_65
+call_dissector	,	F_15
+pinfo	,	V_6
+col_add_fstr	,	F_9
+"ua_term_to_sys"	,	L_62
+L	,	V_5
+"uasip.window_size"	,	L_20
+uasip_enabled	,	V_67
+col_append_str	,	F_8
+"UA/SIP Lost Re-Init"	,	L_30
+prefs_initialized	,	V_69
+"Try to decode application/octet-stream as UASIP"	,	L_53
+"uasip: Invalid 'Proxy IP Address': \"%s\""	,	L_66
+T	,	V_23
+UAUDP_NACK	,	V_42
+V	,	V_2
+proxy_ipaddr	,	V_54
+hf_register_info	,	T_10
+"media_type"	,	L_63
+prefs_register_bool_preference	,	F_27
+UAUDP_CONNECT	,	V_22
+"Keepalive"	,	L_31
+COL_PROTOCOL	,	V_13
+uasip_handle	,	V_65
+proto_reg_handoff_uasip	,	V_66
+"Proxy IP Address"	,	L_59
+FT_UINT8	,	V_59
+ua_term_to_sys_handle	,	V_50
+BASE_DEC	,	V_60
+hf_uasip_window_size	,	V_27
+prefs_register_string_preference	,	F_28
+"ACK  exp:%d"	,	L_12
+"UA/SIP MTU"	,	L_24
+proto_item	,	T_7
+UAUDP_CONNECT_VERSION	,	V_24
+hf_uasip_expseq	,	V_43
+"uasip"	,	L_51
+dissector_add_string	,	F_30
+guint8	,	T_8
+"/NOE"	,	L_1
+UAUDP_CONNECT_KEEPALIVE	,	V_34
+"MTU"	,	L_22
+uasip_item	,	V_8
+use_proxy_ipaddr	,	V_51
+tvb_offset_exists	,	F_13
+" snt:%d"	,	L_11
+register_dissector	,	F_22
+hf_uasip_udp_lost	,	V_31
+"%s"	,	L_3
+tvb_get_ntohl	,	F_6
+data	,	V_53
+"uasip.keepalive"	,	L_32
+tvbuff_t	,	T_2
+proto_tree_add_protocol_format	,	F_11
+hf_uasip_qos_ip_tos	,	V_37
+"UA/SIP QoS 802.1 PRI"	,	L_42
+opcode	,	V_10
+"UASIP"	,	L_50
+tvb_get_ntohs	,	F_4
+"UA/SIP Protocol"	,	L_49
+"Sequence Number (sent)"	,	L_46
+"UA/SIP QoS IP TOS"	,	L_36
+"UA/SIP Lost"	,	L_27
+col_add_str	,	F_17
+ua_tap_info	,	V_14
+"uasip.qos_ip_tos"	,	L_35
+gboolean	,	T_11
+hf_uasip_version	,	V_25
+UAUDP_DATA	,	V_44
+proto_item_add_subtree	,	F_12
+"uasip.qos_8021_pri"	,	L_41
+module_t	,	T_9
+proto_register_field_array	,	F_23
+hf_uasip_qos_8021_pri	,	V_41
+ett_uasip	,	V_20
+"QoS IP TOS"	,	L_34
+"NOE SIP Protocol"	,	L_57
+"proxy_ipaddr"	,	L_58
+offset	,	V_4
+ett	,	V_64
+DIR_UNKNOWN	,	V_56
+report_failure	,	F_33
+tree	,	V_1
+hf_uasip_mtu	,	V_29
+"Opcode"	,	L_13
+UAUDP_CONNECT_QOS_8021_VLID	,	V_38
+hf_uasip_keepalive	,	V_35
+FT_UINT16	,	V_63
+packet_info	,	T_5
+"DATA - Couldn't resolve direction."	,	L_8
+tvb_get_guint8	,	F_3
+proto_uasip	,	V_19
+"QoS 802.1 VLID"	,	L_37
+"UA/SIP Opcode"	,	L_15
+"uasip.mtu"	,	L_23
+"unknown (0x%02x)"	,	L_4
+hf_uasip	,	V_58
+proto_tree_add_uint	,	F_2
+hf_uasip_udp_lost_reinit	,	V_33
+dissector_delete_string	,	F_31
+dst	,	V_55
+UAUDP_CONNECT_QOS_8021_PRI	,	V_40
+sntseq	,	V_16
+hf_uasip_qos_8021_vlid	,	V_39
+pref_proxy_ipaddr_s	,	V_68
+uasip_tree	,	V_9
+gint8	,	T_4
+"Window Size"	,	L_19
+"uasip.version"	,	L_17
+tvb_new_subset_length	,	F_16
+"IPv4 address of the proxy (Invalid values will be ignored)"	,	L_60
+_dissect_uasip	,	F_7
+UAUDP_CONNECT_MTU	,	V_28
+TERM_TO_SYS	,	V_49
+"DATA exp:%d"	,	L_10
+"SIP/NOE Protocol, %s"	,	L_5
+"/DL"	,	L_2
+uaudp_opcode_str_ext	,	V_18
+"UA/SIP QoS 802.1 VLID"	,	L_39
+uasip_module	,	V_57
+HFILL	,	V_62
+"uasip.expseq"	,	L_44
+direction	,	V_7
+src	,	V_52
+find_dissector	,	F_29
+"noesip"	,	L_55
+"Sequence Number (expected)"	,	L_43
+proto_tree	,	T_1
+e_ua_direction	,	T_6
+"uasip.qos_8021_vlid"	,	L_38
+"UA/SIP Expected Sequence Number"	,	L_45

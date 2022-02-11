@@ -1,0 +1,178 @@
+"krb4.byte_order"	,	L_19
+AUTH_MSG_DIE	,	V_56
+UDP_PORT_KRB4	,	V_75
+hf_krb4_m_type	,	V_41
+proto_register_protocol	,	F_22
+proto_tree_add_time	,	F_6
+"Realm"	,	L_24
+"Version"	,	L_9
+hf_krb4_instance	,	V_16
+col_append_fstr	,	F_14
+tlen	,	V_29
+gint	,	T_5
+hf_krb4_request_blob	,	V_34
+col_set_str	,	F_18
+"krb4.name"	,	L_21
+hf_index	,	V_2
+tvb	,	V_4
+hf_krb4_request_length	,	V_32
+item	,	V_37
+"Unknown (0x%04x)"	,	L_5
+AUTH_MSG_SAFE	,	V_54
+AUTH_MSG_APPL_ERR	,	V_55
+proto_tree_add_item_ret_length	,	F_2
+guint32	,	T_9
+COL_INFO	,	V_43
+"%s%s"	,	L_2
+proto_item_append_text	,	F_16
+AUTH_MSG_APPL_REQUEST_MUTUAL	,	V_51
+"Ticket Blob"	,	L_51
+version	,	V_10
+"Encrypted Blob"	,	L_55
+col_clear	,	F_19
+hf_krb4_version	,	V_60
+cinfo	,	V_42
+"Msg Type"	,	L_12
+FT_ABSOLUTE_TIME	,	V_69
+hf_krb4_byte_order	,	V_45
+"krb4.request.blob"	,	L_54
+proto_register_subtree_array	,	F_26
+"krb4.version"	,	L_10
+proto_tree_add_item_ret_uint	,	F_10
+val_to_str	,	F_15
+array_length	,	F_25
+hf_krb4_encrypted_blob	,	V_28
+""	,	L_4
+AUTH_MSG_KDC_REPLY	,	V_49
+AUTH_MSG_APPL_REQUEST	,	V_50
+proto_tree_add_item	,	F_4
+FT_STRINGZ	,	V_67
+" (%s)"	,	L_7
+pinfo	,	T_2
+"Length of request"	,	L_50
+hf_krb4_ticket_length	,	V_31
+_U_	,	V_1
+"Request Length"	,	L_48
+ENC_ASCII	,	V_7
+dissect_krb4	,	F_17
+"krb4.instance"	,	L_23
+"Exp Date"	,	L_28
+dissect_krb4_kdc_reply	,	F_9
+rlen	,	V_30
+tvb_get_guint32	,	F_5
+hf_register_info	,	T_13
+"krb4.length"	,	L_43
+"Time Sec"	,	L_26
+VALS	,	F_21
+"Lifetime"	,	L_32
+"%d (%d minutes)"	,	L_1
+COL_PROTOCOL	,	V_59
+"Byte Order"	,	L_18
+byte_order_vals	,	V_46
+FT_UINT8	,	V_63
+"Kvno"	,	L_39
+"krb4.encrypted_blob"	,	L_56
+BASE_DEC	,	V_64
+AUTH_MSG_KDC_REQUEST	,	V_48
+proto_register_krb4	,	F_20
+proto_item	,	T_10
+dissect_krb4_appl_request	,	F_11
+"Service Name"	,	L_35
+ENC_NA	,	V_8
+ABSOLUTE_TIME_LOCAL	,	V_70
+guint8	,	T_8
+"TRANSARC-"	,	L_3
+"krb4.m_type"	,	L_16
+BASE_NONE	,	V_68
+secs	,	V_18
+ENC_LITTLE_ENDIAN	,	V_61
+"krb4.auth_msg_type"	,	L_13
+"krb4.kvno"	,	L_40
+"krb4.request.length"	,	L_49
+register_dissector	,	F_23
+data	,	T_12
+hf_krb4_kvno	,	V_25
+lifetime	,	V_12
+AUTH_MSG_ERR_REPLY	,	V_52
+"M Type"	,	L_15
+"Name"	,	L_20
+tvbuff_t	,	T_4
+opcode	,	V_47
+"Ticket Length"	,	L_45
+hf_krb4_ticket_blob	,	V_33
+"Lifetime (in 5 min units)"	,	L_34
+"krb4.ticket.blob"	,	L_52
+BASE_HEX	,	V_66
+"krb4.realm"	,	L_25
+parent_tree	,	V_36
+m_type_vals	,	V_44
+"krb4.req_date"	,	L_31
+gboolean	,	T_11
+"Service Instance"	,	L_37
+hf_krb4_length	,	V_27
+proto_item_add_subtree	,	F_13
+"Key Version No"	,	L_41
+ett_krb4	,	V_58
+proto_reg_handoff_krb4	,	F_27
+nstime_t	,	T_7
+"krb4.lifetime"	,	L_33
+proto_register_field_array	,	F_24
+FT_BYTES	,	V_72
+"Length of ticket"	,	L_47
+guint	,	T_6
+"Length"	,	L_42
+offset	,	V_5
+ett	,	V_73
+" %s%s"	,	L_6
+"krb4.s_name"	,	L_36
+dissect_krb4_auth_msg_type	,	F_12
+tree	,	V_3
+"krb4.s_instance"	,	L_38
+hf_krb4_auth_msg_type	,	V_39
+encoding	,	V_9
+"Unknown blob only present in Transarc packets"	,	L_59
+packet_info	,	T_1
+tvb_get_guint8	,	F_7
+dissect_krb4_string	,	F_1
+"Length of encrypted blob"	,	L_44
+"Req Date"	,	L_30
+"krb4"	,	L_61
+TRANSARC_SPECIAL_VERSION	,	V_13
+hf_krb4_unknown_transarc_blob	,	V_14
+"Request Blob"	,	L_53
+krb4_handle	,	V_74
+hf_krb4_s_instance	,	V_23
+"Instance"	,	L_22
+"Unknown Transarc Blob"	,	L_57
+"KRB4"	,	L_8
+hf_krb4_s_name	,	V_22
+AUTH_MSG_PRIVATE	,	V_53
+hf_krb4_time_sec	,	V_20
+"Kerberos(v4) version number"	,	L_11
+"Message Type/Byte Order"	,	L_14
+"Message Type"	,	L_17
+"krb4.exp_date"	,	L_29
+hf_krb4_exp_date	,	V_24
+proto_krb4	,	V_57
+"krb4.time_sec"	,	L_27
+"krb4.unknown_transarc_blob"	,	L_58
+auth_msg_type	,	V_38
+HFILL	,	V_65
+"Kerberos v4"	,	L_60
+hf_krb4_req_date	,	V_35
+"udp.port"	,	L_62
+length	,	V_6
+hf_krb4_name	,	V_15
+ett_krb4_auth_msg_type	,	V_40
+time_sec	,	V_11
+proto_tree_add_uint_format_value	,	F_8
+ENC_BIG_ENDIAN	,	V_26
+nsecs	,	V_19
+FT_UINT32	,	V_71
+dissector_add_uint_with_preference	,	F_28
+hf_krb4_lifetime	,	V_21
+dissect_krb4_kdc_request	,	F_3
+hf_krb4_realm	,	V_17
+proto_tree	,	T_3
+hf	,	V_62
+"krb4.ticket.length"	,	L_46

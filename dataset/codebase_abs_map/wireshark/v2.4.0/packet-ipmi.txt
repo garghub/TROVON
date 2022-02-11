@@ -1,0 +1,571 @@
+"Req, %s%s"	,	L_13
+"Storage"	,	L_147
+"Keyboard Controller Style Interface"	,	L_136
+del	,	V_38
+ipmi_get_hdr	,	F_52
+rs_lun	,	V_24
+"Cannot return number of requested data bytes"	,	L_66
+rq_hdr	,	V_16
+hf_ipmi_header_crc	,	V_93
+hnd	,	V_108
+get_packet_data	,	F_1
+guint32	,	T_5
+"Request data truncated"	,	L_62
+"\\U%02x%02x"	,	L_33
+fru_eng	,	V_139
+"Source LUN"	,	L_26
+"Cannot execute command: command, or request parameter(s), not supported in present state"	,	L_77
+"\trq_seq=%x\n"	,	L_9
+hf_ipmi_header_src	,	V_95
+fru_langcode_is_english	,	V_151
+"Header Checksum"	,	L_98
+"Standard command-specific code"	,	L_81
+"Request"	,	L_20
+tvb_len	,	V_193
+IPMI_D_NO_SEQ	,	V_96
+array_length	,	F_110
+ett_typelen	,	V_154
+ipmi_fmt_version	,	F_91
+"Current channel"	,	L_50
+COL_DEF_DST	,	V_197
+""	,	L_15
+bcd	,	V_127
+guess_imb_format	,	F_103
+cc_val	,	V_50
+rs_frame	,	V_39
+parse_8bit_ascii	,	F_64
+parse_resp	,	V_109
+hf_register_info	,	T_29
+hf_ipmi_header_netfn	,	V_88
+completion	,	V_188
+"Response in"	,	L_116
+ch	,	V_130
+data4	,	V_162
+data3	,	V_161
+data2	,	V_160
+data1	,	V_159
+i	,	V_126
+ch0	,	V_132
+chan_vals	,	V_185
+"Request data length invalid"	,	L_63
+matched_frame_num	,	V_46
+ch1	,	V_133
+m	,	V_237
+ipmi_parse_typelen	,	V_138
+"Session-based (LAN, ...)"	,	L_125
+dissect_i2c_ipmi	,	F_106
+p	,	V_123
+"ipmi.header.source"	,	L_101
+IPMI_OEM_PPS	,	V_232
+"\trs_sa=%x\n"	,	L_4
+s	,	V_184
+hf_ipmi_response_to	,	V_80
+BASE_NONE	,	V_224
+v	,	V_125
+db	,	V_177
+"\tnetfn=%x\n"	,	L_6
+ITEM_LABEL_LENGTH	,	V_77
+IPMI_D_NO_RQ_SA	,	V_94
+get_len_bcdplus	,	F_58
+ipmi_packet_data_t	,	T_1
+correct	,	V_92
+"%d.%03d seconds"	,	L_45
+"Unspecified error"	,	L_79
+IPMI_CHASSIS_REQ	,	V_239
+dn	,	V_176
+dir	,	V_20
+oemsel_vals	,	V_231
+"Command response could not be provided: BMC initialization or initialization agent in progress"	,	L_74
+red	,	V_216
+BASE_HEX	,	V_221
+PROTO_ITEM_SET_GENERATED	,	F_44
+"Do not search for responses coming after this timeout (milliseconds)"	,	L_157
+proto_ipmb	,	V_217
+get_len_8bit_ascii	,	F_63
+ei_impi_parser_not_implemented	,	V_183
+proto_item_add_subtree	,	F_38
+"Target LUN: 0x%02x, NetFN: %s %s (0x%02x)"	,	L_18
+"[%s] '%s'"	,	L_38
+"%s since SEL device's initialization"	,	L_40
+module_t	,	T_32
+i2c	,	V_219
+proto_ipmi	,	V_4
+PI_UNDECODED	,	V_234
+"ipmi"	,	L_134
+proto_register_field_array	,	F_109
+FT_BYTES	,	V_223
+res	,	V_190
+len_is_bytes	,	T_23
+ei	,	V_233
+nstime_delta	,	F_18
+cks1	,	V_91
+cks2	,	V_114
+"Sequence Number"	,	L_104
+list	,	V_174
+IPMI_BRIDGE_REQ	,	V_240
+"Broadcast "	,	L_14
+tvb_get_ptr	,	F_33
+nstime_to_msec	,	F_19
+tvb_captured_length	,	F_30
+rq_frame	,	V_43
+ipmi_netfn_setdesc	,	F_79
+curr_ccode	,	V_113
+frame	,	V_12
+wmem_new0	,	F_4
+"Session handle"	,	L_90
+session	,	V_21
+"Signature"	,	L_110
+IPMI_SE_REQ	,	V_241
+ett_header	,	V_228
+"%s: 0x%02x, SeqNo: 0x%02x"	,	L_24
+frame_tree	,	V_5
+ipmi_request_t	,	T_6
+offs	,	T_22
+sig	,	V_167
+IPMI_APP_REQ	,	V_242
+FT_STRING	,	V_78
+COL_DEF_SRC	,	V_196
+ett_ipmi	,	V_199
+hf_type	,	V_135
+ipmi_fmt_10ms_1based	,	F_84
+proto_register_ipmi	,	F_107
+ipmi_getsiglen	,	F_29
+"Channel #%d"	,	L_52
+hf_ipmi_header_sequence	,	V_101
+conversation_add_proto_data	,	F_8
+get_frame_data	,	F_9
+"Node Busy"	,	L_56
+val_to_str_const	,	F_98
+"0123456789 -.:,_"	,	L_31
+parse	,	V_153
+PI_WARN	,	V_235
+env	,	V_203
+IPMI_UPDATE_REQ	,	V_243
+wmem_list_frame_t	,	T_9
+hf_ipmi_header_trg	,	V_86
+"\tcmd=%x\n}\n"	,	L_10
+unsigned_time_secs_to_str	,	F_74
+"Bridge"	,	L_143
+hf_ipmi_header_bridged	,	V_99
+dissect_tmode	,	F_99
+CMD_CALLRQ	,	V_105
+ipmi_cmd_handler_t	,	T_21
+find_or_create_conversation	,	F_2
+"Console"	,	L_83
+"Cannot execute command: parameter is illegal because subfunction is disabled or unavailable"	,	L_78
+wmem_free	,	F_20
+hf	,	V_156
+"Command Completed Normally"	,	L_55
+enum_val_t	,	T_30
+"Format of embedded messages"	,	L_162
+channel	,	V_18
+wmem_list_remove	,	F_23
+"Response to"	,	L_114
+cks	,	V_90
+"%d, %d: rq_hdr : {\n"	,	L_1
+ipmi_fmt_5s_1based	,	F_90
+prefs_register_protocol	,	F_115
+proto_tree_add_subtree	,	F_42
+"BMC"	,	L_84
+ipmi_context_t	,	T_18
+wmem_strdup_printf	,	F_82
+tmp	,	V_194
+"Transport"	,	L_148
+context	,	V_17
+netfn	,	V_26
+col_set_str	,	F_100
+ic	,	V_182
+calc_cks	,	F_102
+"Application"	,	L_145
+"Requested Sensor, data, or record not present"	,	L_67
+ipmi_header_t	,	T_7
+curr_hdr	,	V_112
+hf_ipmi_header_command	,	V_102
+"pps"	,	L_128
+get_len_6bit_ascii	,	F_60
+ipmi_cmd_data_t	,	T_11
+MAX_NEST_LEVEL	,	V_73
+IPMI_E_NONE	,	V_195
+"NetFN"	,	L_96
+ptl_unicode	,	V_145
+ipmi	,	V_146
+"0x%02x(%s)"	,	L_86
+frame_num	,	V_11
+"NetFn: %s %s (0x%02x)"	,	L_21
+"Sensor/Event"	,	L_144
+proto_tree_add_string	,	F_41
+is_fru	,	V_137
+cmd	,	V_28
+"Cannot execute command: insufficient privilege level or other security-based restriction"	,	L_76
+ipmi_fmt_percent	,	F_96
+"Unknown command"	,	L_44
+"Destination unavailable"	,	L_75
+"Intelligent Platform Management Interface"	,	L_132
+parse_binary	,	F_57
+check_bc	,	V_205
+dissector_handle_t	,	T_34
+"\tchannel=%d\n"	,	L_2
+curr_frame	,	V_40
+"ipmi.header.target"	,	L_93
+"none"	,	L_120
+"ipmi.response_in"	,	L_117
+ipmi_cmd_t	,	T_12
+"Out of space"	,	L_60
+tmp_tree	,	V_64
+dissector_add_for_decode_as	,	F_121
+IPMI_E_GETMSG	,	V_31
+prefs_register_bool_preference	,	F_116
+IPMI_D_NO_CKS	,	V_71
+sa_len	,	V_209
+"ipmi.response_time"	,	L_119
+IPMI_STORAGE_REQ	,	V_244
+rq_data	,	V_44
+off	,	V_202
+try_val_to_str	,	F_97
+"Pigeon Point Systems"	,	L_129
+ENC_NA	,	V_75
+do_dissect_ipmb	,	F_104
+"0x%02x (correct)"	,	L_23
+wmem_alloc	,	F_68
+"Command"	,	L_106
+ett_data	,	V_111
+"%s"	,	L_41
+ipmi_getcmd	,	F_34
+size_t	,	T_25
+wmem_tree_lookup32	,	F_10
+std_completion_codes	,	V_189
+siglen	,	V_67
+proto_registrar_get_ftype	,	F_40
+prefs_register_uint_preference	,	F_117
+expert_register_protocol	,	F_112
+"Command invalid for given LUN"	,	L_58
+"Invalid Command"	,	L_57
+"ipmi.header.src_lun"	,	L_102
+"Response"	,	L_19
+"Rsp, %s, %s"	,	L_16
+guint	,	T_8
+ett	,	V_227
+wmem_packet_scope	,	F_69
+cmd_data	,	V_42
+udp_port_to_display	,	F_95
+expert_ipmi	,	V_238
+"selected_oem"	,	L_164
+packet_info	,	T_2
+get_matched_request	,	F_12
+cmd_tree	,	V_63
+ipmi_getnetfn	,	F_32
+unit	,	V_149
+wmem_tree_new	,	F_6
+hf_string	,	V_134
+nf	,	V_175
+"Response ahead of request"	,	L_159
+parse_unicode	,	F_66
+typelen	,	V_150
+IPMI_GROUP_REQ	,	V_246
+"Target LUN"	,	L_94
+val_to_str_wmem	,	F_93
+EXPFILL	,	V_236
+"FRU Language Code is English"	,	L_153
+match_request_response	,	F_22
+ns	,	V_79
+imb_flags	,	V_204
+"Responded in"	,	L_118
+conversation_get_proto_data	,	F_3
+tvb_new_subset_length	,	F_51
+"Data checksum"	,	L_112
+"msgfmt"	,	L_161
+shft	,	V_129
+"Cannot execute duplicated request"	,	L_71
+HFILL	,	V_222
+is_resp	,	V_68
+request_list	,	V_6
+proto_registrar_get_nth	,	F_70
+ipmi_fmt_1s_0based	,	F_87
+gchar	,	T_26
+"%s Type/Length byte: %s, %d %s"	,	L_36
+"IPMB"	,	L_123
+create_dissector_handle	,	F_120
+proto_tree_add_subtree_format	,	F_47
+DEBUG	,	F_14
+ptl_binary	,	V_140
+"Primary IPMB (IPMB-0)"	,	L_48
+curr_channel	,	V_19
+saved_data	,	V_47
+"Unknown"	,	L_82
+ipmi_cmd_unknown	,	V_180
+dissect_kcs	,	F_101
+ipmi_get_ccode	,	F_53
+"Command response could not be provided: device in firmware update mode"	,	L_73
+delta	,	V_35
+proto_register_protocol	,	F_108
+ipmi_getnetfnname	,	F_46
+wmem_tree_insert32	,	F_11
+len	,	V_122
+gint	,	T_17
+ipmi_fmt_1s_1based	,	F_88
+FT_RELATIVE_TIME	,	V_226
+"response_after_req"	,	L_155
+port_str	,	V_187
+parse_bcdplus	,	F_59
+tvb	,	V_56
+"\trs_lun=%d\n"	,	L_5
+wmem_list_remove_frame	,	F_21
+COL_INFO	,	V_54
+ctx	,	V_60
+get_len	,	V_152
+wmem_epan_scope	,	F_81
+response_before_req	,	V_248
+ipmi_fmt_2s_0based	,	F_89
+proto_tree_add_string_format_value	,	F_71
+str	,	V_76
+rq_sa	,	V_23
+cinfo	,	V_53
+"Maximum delay of response message"	,	L_156
+oem_selector	,	V_166
+response_after_req	,	V_37
+ipmi_handle	,	V_249
+wmem_list_append	,	F_25
+"Reserved"	,	L_42
+rq	,	V_30
+"Req, %s"	,	L_17
+"%s (%d)"	,	L_53
+"IPMB-B"	,	L_87
+"Allow for responses before requests (milliseconds)"	,	L_160
+ipmi_fmt_500ms_1based	,	F_86
+"ipmi.header.bridged"	,	L_103
+" (%s)"	,	L_28
+hf_length	,	V_136
+s_tree	,	V_148
+IPMI_OEM_REQ	,	V_247
+"[PARSER NOT IMPLEMENTED]"	,	L_131
+abs_ts	,	V_72
+IPMI_D_TMODE	,	V_98
+ipmi_register_netfn_cmdtab	,	F_80
+"System Interface"	,	L_51
+prefs_register_enum_preference	,	F_118
+"ipmi.session_handle"	,	L_91
+arg	,	V_192
+curr_time	,	V_34
+blen	,	V_120
+"%d seconds"	,	L_46
+"\\x%02x"	,	L_32
+wmem_list_frame_data	,	F_15
+"Chassis"	,	L_142
+ipmi_frame_data_t	,	T_4
+"Command illegal for specified sensor or record type"	,	L_69
+"OEM commands parsed as"	,	L_165
+"Firmware Update"	,	L_146
+"Source Address"	,	L_100
+"None"	,	L_121
+"0x%02x (incorrect, expected 0x%02x)"	,	L_22
+guint8	,	T_14
+"Group"	,	L_149
+ett_tree	,	V_59
+ti	,	V_62
+value_string	,	T_27
+ipmi_netfn_root	,	V_163
+hf_ipmi_header_trg_lun	,	V_89
+"Command response could not be provided: SDR Repository in update mode"	,	L_72
+"IPMB-A"	,	L_88
+"\trq_lun=%d\n"	,	L_8
+ts	,	V_36
+hf_parent_item	,	V_58
+"Device specific (OEM) completion code"	,	L_80
+register_dissector	,	F_114
+"FRU Language Code is English; strings are ASCII+LATIN1 (vs. Unicode)"	,	L_154
+message_format	,	V_210
+tvbuff_t	,	T_15
+ipmi_get_data	,	F_55
+ipmi_notimpl	,	V_181
+"Use heuristics"	,	L_127
+ABSOLUTE_TIME_UTC	,	V_157
+gboolean	,	T_13
+hf_ipmi_session_handle	,	V_84
+"ipmi.header.command"	,	L_107
+"ipmi.header.netfn"	,	L_97
+"kcs"	,	L_138
+"Serial Terminal Mode Interface"	,	L_139
+"%s (0x%02x)"	,	L_27
+hf_ipmi_response_in	,	V_82
+NSAVED_DATA	,	V_118
+data_len	,	V_106
+cmdtablen	,	V_169
+"KCS"	,	L_137
+stderr	,	V_29
+data_tvb	,	V_107
+cmd_list	,	V_61
+rq_seq	,	V_27
+tvb_get_guint8	,	F_35
+"IPMI"	,	L_133
+prev_level	,	V_65
+name	,	V_155
+"HOST"	,	L_85
+curr_frame_num	,	V_8
+guid	,	V_158
+idx	,	V_116
+"fru_langcode_is_english"	,	L_152
+desc	,	V_55
+pmax	,	V_131
+next	,	V_173
+selected_oem	,	V_178
+ipmi_add_timestamp	,	F_72
+rs_data	,	V_41
+proto_tree_add_guid	,	F_78
+IPMI_D_SESSION_HANDLE	,	V_83
+hf_ipmi_header_src_lun	,	V_100
+IPMI_NETFN_MAX	,	V_171
+call_data_dissector	,	F_31
+"lan"	,	L_124
+"Selects which OEM format is used for commands that IPMI does not define"	,	L_166
+"ipmi.parser_not_implemented"	,	L_130
+ptl_6bit_ascii	,	V_142
+"Format of messages embedded into Send/Get/Forward Message"	,	L_163
+"response_before_req"	,	L_158
+IPMI_E_SENDMSG_RS	,	V_215
+IPMI_E_SENDMSG_RQ	,	V_214
+rq_lun	,	V_25
+start	,	V_201
+hf_ipmi_response_time	,	V_81
+"OEM"	,	L_151
+ipmi_netfn_handler	,	V_172
+proto_tree_add_uint_format_value	,	F_49
+ptr	,	V_147
+rs_hdr	,	V_13
+e_guid_t	,	T_24
+MSGFMT_IPMB	,	V_212
+hdr	,	V_33
+"ipmi.header.sequence"	,	L_105
+ipmi_fmt_channel	,	F_92
+MSGFMT_LAN	,	V_213
+clen	,	V_119
+add_request	,	F_24
+"0123456789ABCDEF"	,	L_30
+"OEM/Group"	,	L_150
+proto_kcs	,	V_200
+"Rsp, %s, %s (%02xh)"	,	L_12
+hf_ipmi_data_crc	,	V_115
+cmdtab	,	V_168
+"Parameter out of range"	,	L_65
+sh_len	,	V_208
+proto_tree_add_time	,	F_45
+wmem_list_new	,	F_7
+"IPMB-L"	,	L_49
+"ipmi.header.crc"	,	L_99
+IPMI_TRANSPORT_REQ	,	V_245
+"bytes"	,	L_34
+dissect_ipmi_cmd	,	F_28
+hf_ipmi_header_sig	,	V_104
+conv	,	V_3
+hex	,	V_124
+proto_tree_add_uint_format	,	F_48
+proto_reg_handoff_ipmi	,	F_119
+cs_cc	,	V_191
+iter	,	V_15
+proto_item_append_text	,	F_50
+"Command response could not be provided"	,	L_70
+get_len_unicode	,	F_65
+ipmi_netfn_t	,	T_19
+MSGFMT_NONE	,	V_211
+"tmode"	,	L_141
+proto_register_subtree_array	,	F_111
+"guess"	,	L_126
+MSGFMT_GUESS	,	V_230
+broadcast	,	V_52
+"Bridged"	,	L_25
+proto_tree_add_item	,	F_37
+pinfo	,	V_1
+col_add_fstr	,	F_27
+"Data"	,	L_29
+"Reservation Canceled or Invalid Reservation ID"	,	L_61
+"characters"	,	L_35
+flags	,	V_14
+_U_	,	V_121
+curr_dir	,	V_48
+"Request data field length limit exceeded"	,	L_64
+"Unspecified/Invalid"	,	L_39
+ipmi_fmt_500ms_0based	,	F_85
+get_len_binary	,	F_56
+"\trq_sa=%x\n"	,	L_7
+ipmi_cmd_tab	,	V_165
+cc_str	,	V_51
+"%d%%"	,	L_54
+FT_UINT8	,	V_220
+proto_item	,	T_20
+msgfmt_vals	,	V_229
+"Intelligent Platform Management Bus"	,	L_135
+expert_register_field_array	,	F_113
+rs_sa	,	V_22
+ipmi_add_typelen	,	F_67
+check_sh	,	V_206
+"ipmi.header.completion"	,	L_109
+"%d.%d"	,	L_47
+"Target Address"	,	L_92
+ENC_LITTLE_ENDIAN	,	V_85
+wmem_list_head	,	F_13
+check_sa	,	V_207
+curr_level	,	V_9
+data	,	V_2
+msk	,	V_128
+abs_time_secs_to_str	,	F_75
+"Completion Code"	,	L_108
+num	,	V_7
+ipmi_add_guid	,	F_76
+ptl_bcdplus	,	V_141
+ipmi_set_data	,	F_54
+"%d %s"	,	L_37
+next_level	,	V_10
+ei_register_info	,	T_31
+tvb_get_letohl	,	F_73
+"Invalid data field in Request"	,	L_68
+dissect_ipmi	,	F_105
+nest_level	,	V_45
+nstime_t	,	T_10
+tvb_get_letohs	,	F_77
+conversation_t	,	T_3
+tmp_str	,	V_186
+offset	,	V_66
+parse_6bit_ascii	,	F_61
+expert_module_t	,	T_33
+"ipmi.data.crc"	,	L_113
+tree	,	V_57
+"ipmi.response_to"	,	L_115
+"ipmi.header.signature"	,	L_111
+IPMI_OEM_NONE	,	V_179
+tvb_get_letoh24	,	F_62
+"\tdir=%d\n"	,	L_3
+proto_tree_add_uint	,	F_43
+pseudo_header	,	V_218
+ipmi_dissect_arg_t	,	T_28
+"ipmb"	,	L_122
+proto_tree_add_expert	,	F_83
+"%d, %d: hdr : {\n"	,	L_11
+ipmi_fmt_udpport	,	F_94
+netfn_str	,	V_69
+ptl_8bit_ascii	,	V_143
+g_snprintf	,	F_39
+parse_req	,	V_110
+add_command_info	,	F_26
+hdr_len	,	V_70
+"TMode"	,	L_140
+ipmi_get_completion_code	,	F_36
+ett_header_byte_4	,	V_97
+wmem_file_scope	,	F_5
+remove_old_requests	,	F_17
+ett_header_byte_1	,	V_87
+value	,	V_117
+fru_noneng	,	V_144
+"0x%02x"	,	L_89
+inh	,	V_170
+resp	,	V_49
+hf_ipmi_header_completion	,	V_103
+IPMI_D_TRG_SA	,	V_32
+"i2c.message"	,	L_167
+IPMI_D_BROADCAST	,	V_74
+"ipmi.header.trg_lun"	,	L_95
+FT_FRAMENUM	,	V_225
+inr	,	V_164
+wmem_list_frame_next	,	F_16
+"Timeout while processing command, response unavailable"	,	L_59
+"%s (%s)"	,	L_43
+proto_tmode	,	V_198
+proto_tree	,	T_16

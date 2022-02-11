@@ -1,0 +1,598 @@
+"D"	,	L_99
+lowpan_addr16_to_ifcid	,	F_1
+"Sequence number"	,	L_94
+hf_6lowpan_mesh_dest64	,	V_281
+proto_tree_get_root	,	F_65
+hf_6lowpan_reassembled_length	,	V_335
+dissect_6lowpan_bc0	,	F_22
+LOWPAN_NHC_PATTERN_UDP	,	V_53
+tvb_reported_length	,	F_44
+LOWPAN_IPHC_FLAG_OFFSET_DCI	,	V_195
+process_reassembled_data	,	F_64
+IP_PROTO_FRAGMENT	,	V_45
+BITS_TO_BYTE_LEN	,	F_37
+iphc_flags	,	V_157
+IEEE802154_FCF_ADDR_SHORT	,	V_13
+tvb_new_child_real_data	,	F_9
+TFS	,	F_68
+IP_PROTO_MIPV6	,	V_49
+hf_6lowpan_fragments	,	V_324
+frag_data	,	V_291
+proto_item_set_end	,	F_54
+FT_BOOLEAN	,	V_311
+dgram_size	,	V_81
+mesh_header	,	V_260
+"ECN"	,	L_76
+packet	,	V_4
+HopsLeft	,	V_272
+tvb_reported_length_remaining	,	F_48
+"UDP header compression"	,	L_11
+frag_tree	,	V_287
+hf_6lowpan_nhc_ext_next	,	V_241
+lowpan_hc1_next	,	V_313
+iphc_hop_limit	,	V_159
+"6lowpan.mesh.dest64"	,	L_110
+"ipv6"	,	L_145
+array_length	,	F_71
+hf_6lowpan_nhc_ext_nh	,	V_234
+hf_6lowpan_mesh_v	,	V_267
+LOWPAN_HC1_SOURCE_IFC	,	V_98
+dissect_6lowpan_frag_first	,	F_23
+"6lowpan.iphc.sam"	,	L_51
+""	,	L_140
+eid	,	V_37
+"6lowpan.hc1.src_prefix"	,	L_22
+hf_6lowpan_mesh_hops	,	V_273
+hf_6lowpan_bcast_seqnum	,	V_259
+hf_6lowpan_mesh_f	,	V_269
+"6lowpan.udp.checksum"	,	L_93
+diid	,	V_83
+"Flow label"	,	L_74
+"Destination interface"	,	L_27
+ett_6lowpan_hc2_udp	,	V_109
+hf_register_info	,	T_13
+hf_6lowpan_hc1_source_ifc	,	V_97
+"6lowpan.hc1.dst_prefix"	,	L_26
+LOWPAN_PATTERN_IPHC	,	V_63
+"6lowpan.iphc.tf"	,	L_41
+hf_6lowpan_mesh_orig16	,	V_278
+ip6_plen	,	V_31
+LOWPAN_IPHC_FLAG_OFFSET_SCI	,	V_193
+guint16	,	T_1
+LOWPAN_IPHC_FLOW_CLASS_LABEL	,	V_201
+LOWPAN_IPHC_LABEL_BITS	,	V_211
+i	,	V_85
+ipprotostr	,	F_42
+e_in6_addr	,	V_351
+"6lowpan.fragment.too_long_fragment"	,	L_128
+nhdr_list	,	V_23
+hf_6lowpan_hop_limit	,	V_120
+BASE_NONE	,	V_322
+dst_port	,	V_147
+LOWPAN_IPHC_FLAG_OFFSET_FLOW	,	V_168
+LOWPAN_IPHC_FLAG_OFFSET_DST_MODE	,	V_174
+dissect_6lowpan_iphc_nhc	,	F_52
+LOWPAN_IPHC_FLAG_OFFSET_HLIM	,	V_170
+hf_6lowpan_fragment_too_long_fragment	,	V_331
+g_string_printf	,	F_77
+LOWPAN_IPHC_FLOW_COMPRESSED	,	V_199
+"Destination IPv6 address"	,	L_87
+tvb_memcpy	,	F_47
+tvb_set_free_cb	,	F_10
+BASE_HEX	,	V_307
+hf_6lowpan_hc1_more	,	V_106
+"Destination port"	,	L_37
+LOWPAN_HC1_NEXT_ICMP	,	V_134
+hf_6lowpan_dest	,	V_126
+proto_item_add_subtree	,	F_19
+module_t	,	T_14
+proto_register_field_array	,	F_70
+LOWPAN_IPHC_FLOW_ECN_LABEL	,	V_210
+"Originator"	,	L_106
+ret	,	V_29
+LOWPAN_IPHC_HLIM_64	,	V_214
+lowpan_context_table	,	V_216
+hf_6lowpan_frag_dgram_size	,	V_295
+"6lowpan.nhc.pattern"	,	L_20
+dissect_6lowpan_ipv6	,	F_25
+next_header	,	V_88
+lowpan_nhc_eid	,	V_318
+proto_init_6lowpan	,	V_342
+hf_6lowpan_mesh_dest16	,	V_282
+data_handle	,	V_244
+dissect_6lowpan_mesh	,	F_21
+tvb_get_ptr	,	F_60
+FT_UINT16	,	V_314
+LOWPAN_IPHC_FLOW_CLASS	,	V_202
+"Traffic class and flow label"	,	L_29
+"6lowpan.iphc.hlim"	,	L_45
+hf_6lowpan_mesh_orig64	,	V_276
+LOWPAN_HC1_NEXT	,	V_94
+g_htons	,	F_57
+cursor	,	V_27
+hf_6lowpan_nhc_udp_checksum	,	V_249
+seqnum	,	V_256
+LOWPAN_NHC_PATTERN_EXT_BITS	,	V_35
+"6LoWPAN"	,	L_1
+"6lowpan.fragment.multiple_tails"	,	L_126
+heur_dissector_add	,	F_85
+"Destination context identifier"	,	L_60
+g_string_new	,	F_76
+LOWPAN_NHC_EXT_NHDR	,	V_235
+"Length is less than IPv6 header length %u"	,	L_16
+ext_len	,	V_238
+LOWPAN_FRAG_DGRAM_SIZE_BITS	,	V_294
+length	,	V_24
+lowpan_parse_nhc_proto	,	F_11
+LOWPAN_NHC_UDP_SRCPORT	,	V_252
+ipv6_handle	,	V_77
+"Message has multiple tail fragments"	,	L_125
+AF_INET6	,	V_350
+"6lowpan.frag.tag"	,	L_114
+"Next header"	,	L_31
+FT_UINT32	,	V_320
+ett_6lowpan_nhc_ext	,	V_231
+guint64	,	T_6
+LOWPAN_CONTEXT_COUNT	,	V_345
+fragment_data	,	T_12
+hf	,	V_305
+LOWPAN_CONTEXT_LINK_LOCAL	,	V_198
+new_tvb	,	V_289
+"6lowpan.dst"	,	L_86
+"UDP checksum"	,	L_92
+hf_6lowpan_iphc_dci	,	V_197
+LOWPAN_IPHC_FLAG_MCAST_COMP	,	V_186
+LOWPAN_HC1_SOURCE_PREFIX	,	V_96
+lowpan_dlsrc_to_ifcid	,	F_2
+LOWPAN_IPHC_MCAST_STATEFUL_48BIT	,	V_225
+prefs_register_protocol	,	F_75
+FT_IPv6	,	V_321
+hf_6lowpan_reassembled_in	,	V_334
+LOWPAN_IPHC_FLAG_HLIM	,	V_169
+col_set_str	,	F_20
+LOWPAN_IPHC_FLAG_FLOW	,	V_167
+LOWPAN_IPHC_ADDR_64BIT_INLINE	,	V_220
+"Flags"	,	L_14
+"Traffic class"	,	L_72
+lowpan_iphc_hop_limit	,	V_316
+ti_dam	,	V_156
+ip6_src	,	V_121
+"Source address compression"	,	L_48
+hf_6lowpan_flow_label	,	V_131
+"6lowpan.nhc.udp.checksum"	,	L_69
+src64	,	V_12
+"Broadcast Header"	,	L_12
+hf_6lowpan_frag_dgram_offset	,	V_303
+LOWPAN_NHDR_DATA	,	F_8
+val_to_str	,	F_51
+lowpan_reassembled_table	,	V_300
+"HC1 Encoding"	,	L_2
+LOWPAN_HC1_DEST_PREFIX	,	V_100
+"6lowpan.next"	,	L_80
+iphc_dci	,	V_165
+ett_6lowpan_mesh_flags	,	V_337
+hf_6lowpan_nhc_ext_length	,	V_242
+LOWPAN_PATTERN_MESH_BITS	,	V_64
+hc_udp_encoding	,	V_87
+"6lowpan.iphc.cid"	,	L_47
+"traffic class and flow control encoding"	,	L_42
+dl_dst	,	V_15
+hf_6lowpan_traffic_class	,	V_129
+"6lowpan.hc1.class"	,	L_30
+"6lowpan.hc2.udp.length"	,	L_40
+"Reassembled 6LowPAN length"	,	L_135
+LOWPAN_IPHC_FLAG_DST_MODE	,	V_173
+"UDP length"	,	L_90
+g_malloc	,	F_7
+"Message fragment too long"	,	L_127
+LOWPAN_IPHC_ADDR_COMPRESSED	,	V_218
+g_ntohl	,	F_40
+"6lowpan.hc1.src_ifc"	,	L_24
+addr64	,	V_275
+VALS	,	F_67
+ip6e_len	,	V_243
+tvb_set_reported_length	,	F_62
+"6lowpan.frag.offset"	,	L_116
+g_ntohs	,	F_6
+IP_PROTO_UDP	,	V_54
+hf_6lowpan_fragment_overlap	,	V_328
+length_item	,	V_288
+proto_6lowpan	,	V_73
+ip6_ext	,	V_236
+LOWPAN_NHC_UDP_DSTPORT	,	V_254
+"data"	,	L_144
+tvb_length	,	F_18
+lowpan_nhc_patterns	,	V_310
+proto_tree_add_text	,	F_33
+BASE_DEC	,	V_319
+tvb_new_subset	,	F_56
+LOWPAN_IPHC_MCAST_32BIT	,	V_223
+prefs_module	,	V_340
+lowpan_compression	,	V_312
+ieee802154_packet	,	T_5
+dl_src	,	V_6
+iphc_src_mode	,	V_160
+dst_iid	,	V_72
+"6lowpan.flow"	,	L_75
+"Context %d"	,	L_142
+"6lowpan.iphc.sci"	,	L_59
+hf_6lowpan_iphc_flag_hlim	,	V_179
+"6lowpan.mesh.v"	,	L_97
+"Datagram size"	,	L_111
+IP_PROTO_TCP	,	V_137
+src16	,	V_14
+"Message fragment"	,	L_119
+"6lowpan.mesh.hops"	,	L_103
+LOWPAN_MESH_HEADER_HOPS	,	V_271
+hf_6lowpan_pattern	,	V_79
+lowpan_root	,	V_70
+"6lowpan.nhc.ext.eid"	,	L_63
+dst_addr_mode	,	V_16
+iphc_sci	,	V_163
+ett_6lowpan_mesh	,	V_264
+hf_6lowpan_hc1_source_prefix	,	V_95
+hf_6lowpan_udp_checksum	,	V_153
+net_src	,	V_280
+LOWPAN_IPHC_TRAFFIC_ECN	,	V_207
+g_string_free	,	F_79
+LOWPAN_PATTERN_FRAGN	,	V_68
+hf_6lowpan_mesh_hops8	,	V_274
+hf_6lowpan_nhc_ext_eid	,	V_233
+buffer	,	V_26
+ett_6lowpan_frag	,	V_293
+LOWPAN_NHC_EID_ROUTING	,	V_42
+LOWPAN_HC2_UDP_DSTPORT	,	V_113
+"6lowpan.mesh.dest16"	,	L_109
+guint	,	V_297
+"Length"	,	L_39
+LOWPAN_PATTERN_BC0	,	V_61
+"IPHC Header"	,	L_6
+ett	,	V_336
+ett_6lowpan	,	V_74
+"6lowpan.frag.size"	,	L_112
+LOWPAN_IPV6_NEXT_HEADER_BITS	,	V_138
+hf_6lowpan_iphc_flag_cid	,	V_180
+LOWPAN_IPHC_DSCP_BITS	,	V_203
+LOWPAN_HC2_UDP_SRCPORT	,	V_111
+lowpan_iphc_mcast_modes	,	V_189
+pref_desc	,	V_348
+packet_info	,	T_4
+pref_name	,	V_346
+"6lowpan.hc1.dst_ifc"	,	L_28
+"6lowpan.iphc.sac"	,	L_49
+"Message defragmentation error"	,	L_129
+dst_bitlen	,	V_246
+"Context identifier extension"	,	L_46
+LOWPAN_UDP_PORT_BITS	,	V_145
+siid	,	V_82
+dst	,	V_283
+ip6_dst	,	V_125
+"Reassembled in"	,	L_133
+"6lowpan.iphc.dam"	,	L_57
+ipv6	,	V_21
+LOWPAN_IPV6_HOP_LIMIT_BITS	,	V_119
+hf_6lowpan_iphc_sci	,	V_196
+hf_6lowpan_hc1_dest_prefix	,	V_99
+PI_MALFORMED	,	V_116
+HFILL	,	V_309
+LOWPAN_UDP_LENGTH_BITS	,	V_149
+dam_vs	,	V_175
+"6lowpan.fragment.count"	,	L_132
+src_addr_mode	,	V_10
+src	,	V_279
+LOWPAN_UDP_CHECKSUM_BITS	,	V_151
+gchar	,	T_15
+LOWPAN_IPHC_FLAG_SRC_MODE	,	V_171
+"More HC bits"	,	L_33
+LOWPAN_IPHC_FLAG_OFFSET_SRC_MODE	,	V_172
+hf_6lowpan_hc1_class	,	V_103
+lowpan_iphc_traffic	,	V_315
+"6lowpan.hops"	,	L_81
+LOWPAN_NHC_EID_DEST_OPTIONS	,	V_46
+net_dst	,	V_284
+"short destination address present"	,	L_101
+bytes	,	V_122
+iphc_dst_mode	,	V_161
+LOWPAN_NHC_EID_MOBILITY	,	V_48
+"wpan"	,	L_146
+src_iid	,	V_71
+lowpan_iphc_addr_modes	,	V_190
+mesh_tree	,	V_261
+"HC1 more bits expected for illegal next header type."	,	L_4
+LOWPAN_HC1_TRAFFIC_CLASS	,	V_104
+hf_6lowpan_dscp	,	V_208
+"Header length"	,	L_66
+"context%d"	,	L_141
+proto_register_protocol	,	F_69
+iphc_traffic	,	V_158
+"6lowpan.fragments"	,	L_118
+LOWPAN_IPHC_ECN_BITS	,	V_200
+LOWPAN_PATTERN_BC0_BITS	,	V_60
+tvb_new_subset_remaining	,	F_32
+ip6_hdr	,	V_20
+gint	,	T_8
+IP_PROTO_ROUTING	,	V_43
+LOWPAN_IPHC_HLIM_1	,	V_212
+"Fragmentation Header"	,	L_15
+hf_6lowpan_fragment_multiple_tails	,	V_330
+reassembled_table_init	,	F_81
+LOWPAN_NHC_EID_HOP_BY_HOP	,	V_40
+tvb	,	V_19
+ext_flags	,	V_229
+flag_tree	,	V_266
+"Destination"	,	L_85
+dissect_6lowpan_iphc	,	F_28
+LOWPAN_IPHC_FLAG_DST_COMP	,	V_188
+"6lowpan.mesh.orig16"	,	L_107
+LOWPAN_PORT_12BIT_OFFSET	,	V_144
+LOWPAN_IPHC_MCAST_8BIT	,	V_224
+"IPv6 over IEEE 802.15.4"	,	L_138
+"V"	,	L_96
+str	,	V_349
+"6lowpan.reassembled.in"	,	L_134
+cinfo	,	V_75
+PI_ERROR	,	V_117
+proto_tree_add_ipv6	,	F_38
+hf_6lowpan_nhc_pattern	,	V_232
+dissect_6lowpan_heur	,	F_15
+hf_6lowpan_iphc_flag_mcast	,	V_185
+ip6_hops	,	V_118
+LOWPAN_PATTERN_IPHC_BITS	,	V_62
+"6lowpan.hc2.udp.src"	,	L_36
+"Reserved"	,	L_8
+call_dissector	,	F_30
+hf_6lowpan_iphc_flag_sam	,	V_184
+hf_6lowpan_hc1_dest_ifc	,	V_101
+src_ifcid	,	V_262
+"6lowpan"	,	L_139
+hf_6lowpan_ecn	,	V_206
+"6lowpan.reassembled.length"	,	L_136
+"6lowpan.fragment.overlap"	,	L_122
+hf_6lowpan_nhc_udp_src	,	V_251
+"6lowpan.class"	,	L_73
+"6lowpan.fragment.error"	,	L_130
+proto_tree_add_boolean	,	F_34
+reported	,	V_25
+tvb_ensure_length_remaining	,	F_45
+"6lowpan.udp.dst"	,	L_89
+ett_6lowpan_hc1	,	V_93
+"Deep Hops left (Flags.Hops left == 15)"	,	L_104
+"%s (0x%04x)"	,	L_7
+lowpan_tree	,	V_69
+hf_6lowpan_next_header	,	V_139
+LOWPAN_IPHC_MCAST_48BIT	,	V_222
+dissect_6lowpan_unknown	,	F_29
+lowpan_dldst_to_ifcid	,	F_4
+prefs_6lowpan_apply	,	V_344
+COL_PROTOCOL	,	V_76
+g_free	,	V_32
+LOWPAN_NHC_PATTERN_UDP_BITS	,	V_52
+"DSCP"	,	L_78
+guint8	,	T_2
+ti	,	V_90
+value_string	,	T_11
+LOWPAN_PORT_8BIT_OFFSET	,	V_255
+lowpan_nhdr	,	V_22
+"Source"	,	L_82
+LOWPAN_PATTERN_FRAG1	,	V_67
+"6lowpan.udp.length"	,	L_91
+tvb_length_remaining	,	F_55
+register_dissector	,	F_73
+"Mesh Header"	,	L_13
+IEEE802154_FCF_ADDR_EXT	,	V_11
+LOWPAN_IPV6_TRAFFIC_CLASS_BITS	,	V_128
+pntoh64	,	F_3
+tvbuff_t	,	T_7
+proto_tree_add_protocol_format	,	F_17
+tvb_get_ntohs	,	F_49
+IP_PROTO_DSTOPTS	,	V_47
+"2002:db8::ff:fe00:0"	,	L_137
+gboolean	,	T_3
+LOWPAN_IPV6_FLOW_LABEL_BITS	,	V_130
+ep_alloc	,	F_46
+src_bitlen	,	V_245
+ett_6lowpan_nhc_udp	,	V_248
+tf_tree	,	V_204
+dgram_tag	,	V_286
+"6lowpan.udp.src"	,	L_88
+fragmented	,	V_298
+"Destination address mode"	,	L_56
+nhc_tree	,	V_226
+"Message fragments"	,	L_117
+inet_pton	,	F_82
+dissect_6lowpan	,	F_16
+flag_item	,	V_265
+"6LowPAN"	,	L_17
+LOWPAN_NHC_PATTERN_EXT	,	V_36
+"Datagram offset"	,	L_115
+hf_6lowpan_nhc_udp_dst	,	V_253
+data_tvb	,	V_304
+"IPv6 extension header"	,	L_10
+"6lowpan.fragment.overlap.conflicts"	,	L_124
+register_init_routine	,	F_74
+proto_tree_add_bits_item	,	F_31
+ett_6lopwan_traffic_class	,	V_205
+tvb_get_guint8	,	F_14
+hf_6lowpan_fragment_count	,	V_333
+hf_6lowpan_iphc_flag_sac	,	V_182
+LOWPAN_IFC_ID_LEN	,	V_9
+next	,	V_30
+"6lowpan.nhc.ext.next"	,	L_65
+AT_EUI64	,	V_7
+"Message fragment overlap"	,	L_121
+ett_6lowpan_fragments	,	V_339
+"6lowpan.nhc.ext.nh"	,	L_64
+"6lowpan.iphc.dci"	,	L_61
+dst_ifcid	,	V_263
+LOWPAN_PATTERN_MESH	,	V_65
+hf_6lowpan_frag_dgram_tag	,	V_296
+LOWPAN_PATTERN_IPV6_BITS	,	V_56
+hc1_encoding	,	V_86
+LOWPAN_UDP_PORT_COMPRESSED_BITS	,	V_143
+"6lowpan.src"	,	L_83
+hf_6lowpan_fragment_overlap_conflicts	,	V_329
+hf_6lowpan_iphc_flag_nhdr	,	V_177
+bit_offset	,	V_84
+ip6_flow	,	V_127
+proto_reg_handoff_6lowpan	,	F_83
+ip6_hlim	,	V_213
+addr16	,	V_277
+"Source interface"	,	L_23
+hf_6lowpan_iphc_flag_dac	,	V_187
+IP_PROTO_IPV6	,	V_51
+lowpan_reassemble_ipv6	,	F_5
+find_dissector	,	F_84
+"6lowpan.ecn"	,	L_77
+proto_tree_add_uint_format_value	,	F_50
+"6lowpan.mesh.hops8"	,	L_105
+"Header ID"	,	L_62
+LOWPAN_PATTERN_IPV6	,	V_57
+ENC_BIG_ENDIAN	,	V_80
+src_port	,	V_142
+LOWPAN_IPHC_FLAG_NHDR	,	V_178
+dst64	,	V_17
+hf_6lowpan_iphc_flag_dam	,	V_191
+"6lowpan.hc2.udp.dst"	,	L_38
+"Next header: %s (0x%02x)"	,	L_5
+ett_6lowpan_fragment	,	V_338
+"Source prefix"	,	L_21
+LOWPAN_NHC_EXT_EID_OFFSET	,	V_39
+LOWPAN_HC1_NEXT_TCP	,	V_136
+"Hop limit"	,	L_44
+dgram_offset	,	V_302
+"Hops left"	,	L_102
+"Message fragment overlapping with conflicting data"	,	L_123
+hf_6lowpan_iphc_flag_tf	,	V_176
+ipv6_class	,	V_92
+"6lowpan.mesh.f"	,	L_100
+"6lowpan.iphc.dac"	,	L_55
+"Destination address compression"	,	L_54
+ext_proto	,	V_239
+LOWPAN_MESH_HEADER_F	,	V_270
+lowpan_fragment_table	,	V_299
+LOWPAN_CONTEXT_DEFAULT	,	V_164
+FT_UINT64	,	V_323
+hf_6lowpan_udp_dst	,	V_148
+tvb_get_bits8	,	F_13
+dst16	,	V_18
+LOWPAN_HC1_MORE	,	V_107
+proto_tree_add_uint_format	,	F_41
+LOWPAN_HC1_NEXT_UDP	,	V_108
+"Illegal destination address mode"	,	L_9
+iphc_tree	,	V_155
+ip6_nxt	,	V_133
+lowpan_iphc_addr_compression	,	V_317
+LOWPAN_IPHC_FLAG_SRC_COMP	,	V_183
+hf_6lowpan_fragment_error	,	V_332
+LOWPAN_NHC_EXT_EID	,	V_38
+GString	,	T_16
+LOWPAN_PATTERN_FRAG_BITS	,	V_66
+"HC_UDP Encoding"	,	L_3
+LOWPAN_HC2_UDP_LENGTH	,	V_115
+proto_register_6lowpan	,	F_66
+ep_alloc0	,	F_53
+tvb_get_bits16	,	F_43
+"6lowpan.pattern"	,	L_19
+proto_register_subtree_array	,	F_72
+hf_6lowpan_udp_src	,	V_146
+"6lowpan.bcast.seqnum"	,	L_95
+"6lowpan.hc1.more"	,	L_34
+"Checksum"	,	L_68
+LOWPAN_PATTERN_HC1	,	V_59
+"6lowpan.iphc.m"	,	L_53
+private_data	,	V_5
+pinfo	,	V_3
+_U_	,	V_78
+udp_hdr	,	V_140
+"Multicast address compression"	,	L_52
+"6lowpan.nhc.udp.dst"	,	L_71
+ett_6lowpan_bcast	,	V_258
+ipv6_tvb	,	V_91
+ipv6_ext	,	V_237
+lowpan_llprefix	,	V_123
+LOWPAN_IPHC_ADDR_FULL_INLINE	,	V_219
+LOWPAN_MESH_HEADER_V	,	V_268
+LOWPAN_PATTERN_HC1_BITS	,	V_58
+"Destination prefix"	,	L_25
+"6lowpan.hc1.next"	,	L_32
+FT_UINT8	,	V_306
+prefs_register_string_preference	,	F_78
+udp_flags	,	V_247
+proto_item	,	T_10
+tvb_get_bits32	,	F_39
+hf_6lowpan_hc1_next	,	V_105
+expert_add_info_format	,	F_36
+ifcid	,	V_2
+ip6e_nxt	,	V_240
+LOWPAN_IPHC_ADDR_SRC_UNSPEC	,	V_217
+LOWPAN_IPHC_TRAFFIC_DSCP	,	V_209
+data	,	V_8
+"6lowpan.iphc.nh"	,	L_43
+fragment_add_check	,	F_63
+hc_tree	,	V_89
+LOWPAN_HC1_DEST_IFC	,	V_102
+"6lowpan.fragment"	,	L_120
+dissect_6lowpan_hc1	,	F_26
+"Datagram tag"	,	L_113
+SET_ADDRESS	,	F_61
+"IPv6 prefix to use for stateful address decompression."	,	L_143
+LOWPAN_NHC_EID_IPV6	,	V_50
+"Source address mode"	,	L_50
+hf_6lowpan_hc2_udp_len	,	V_114
+save_fragmented	,	V_292
+lowpan_context_prefs	,	V_343
+dissect_6lowpan_frag_middle	,	F_24
+LOWPAN_NHC_EID_FRAGMENT	,	V_44
+"6lowpan.nhc.udp.src"	,	L_70
+"6lowpan.nhc.ext.length"	,	L_67
+lowpan_patterns	,	V_308
+FT_NONE	,	V_325
+offset	,	V_33
+"Source IPv6 address"	,	L_84
+tree	,	V_55
+LOWPAN_IPHC_FLAG_DCI	,	V_194
+"Source port"	,	L_35
+tvb_bytes_exist	,	F_12
+init_context_str	,	V_341
+add_new_data_source	,	F_27
+tvb_get_ntoh64	,	F_58
+IP_PROTO_NONE	,	V_34
+"short originator address present"	,	L_98
+proto	,	V_154
+IP_PROTO_ICMPV6	,	V_135
+"6lowpan.mesh.orig64"	,	L_108
+LOWPAN_NHC_PATTERN_EXT_IPV6_BITS	,	V_227
+proto_tree_add_uint	,	F_35
+udp	,	V_141
+"Source context identifier"	,	L_58
+hf_6lowpan_hc2_udp_src	,	V_110
+LOWPAN_IPHC_FLAG_CONTEXT_ID	,	V_181
+hf_6lowpan_udp_len	,	V_150
+bcast_tree	,	V_257
+proto_tree_add_uint64	,	F_59
+frag_tvb	,	V_290
+ip6_vfc	,	V_132
+frag_size	,	V_285
+checksum	,	V_152
+"Message fragment count"	,	L_131
+LOWPAN_IPHC_FLAG_SCI	,	V_192
+addr	,	V_1
+"Pattern"	,	L_18
+pref_title	,	V_347
+hf_6lowpan_hc2_udp_dst	,	V_112
+iphc_ctx	,	V_162
+ett_6lowpan_iphc	,	V_166
+"6lowpan.dscp"	,	L_79
+FT_FRAMENUM	,	V_327
+LOWPAN_IPHC_ADDR_16BIT_INLINE	,	V_221
+iphc_tvb	,	V_230
+hf_6lowpan_fragment	,	V_326
+LOWPAN_IPHC_HLIM_255	,	V_215
+LOWPAN_NHC_PATTERN_EXT_IPV6	,	V_228
+nhdr	,	V_28
+lowpan_frag_items	,	V_301
+IP_PROTO_HOPOPTS	,	V_41
+fragment_table_init	,	F_80
+proto_tree	,	T_9
+LOWPAN_NHC_UDP_CHECKSUM	,	V_250
+hf_6lowpan_source	,	V_124

@@ -1,0 +1,262 @@
+"Sequence number"	,	L_19
+"Addressing"	,	L_56
+g_direct_hash	,	V_120
+hf_iso15765_reassembled_in	,	V_102
+proto_register_protocol	,	F_36
+dissector_try_uint_new	,	F_31
+register_decode_as	,	F_47
+reassembly_table_register	,	F_50
+tvb_reported_length	,	F_22
+hf_iso15765_flow_status	,	V_64
+process_reassembled_data	,	F_30
+ISO15765_FC_BS_LEN	,	V_66
+len	,	V_52
+gint	,	T_18
+"Window"	,	L_59
+tvb	,	V_6
+"iso15765.fragment"	,	L_30
+guint32	,	T_8
+ae	,	V_18
+COL_INFO	,	V_28
+"iso15765.fragment.count"	,	L_42
+wmem_epan_scope	,	F_49
+frag_msg	,	V_76
+FT_BOOLEAN	,	V_95
+last_frag_id	,	V_74
+"iso15765.flow_control.stmin"	,	L_26
+hf_iso15765_message_type	,	V_34
+cinfo	,	V_26
+p_get_proto_data	,	F_10
+PI_ERROR	,	V_109
+hf_iso15765_fc_stmin	,	V_67
+array_length	,	F_40
+next_tvb	,	V_13
+fragment_add_seq_check	,	F_29
+g_direct_equal	,	V_121
+hf_iso15765_fragment_error	,	V_99
+decode_as_t	,	T_24
+DISSECTOR_ASSERT	,	F_9
+gpointer	,	T_4
+ISO15765_FC_STMIN_OFFSET	,	V_63
+result	,	V_2
+hf_iso15765_sequence_number	,	V_57
+bs	,	V_60
+prefs_register_enum_preference	,	F_45
+hf_register_info	,	T_17
+iso15765_reassembly_table	,	V_77
+seq	,	V_51
+"Unknown (0x%02x)"	,	L_4
+ISO15765_FC_STMIN_LEN	,	V_68
+guint16	,	T_15
+COL_PROTOCOL	,	V_27
+GUINT_TO_POINTER	,	F_24
+"ISO15765"	,	L_2
+"Frame length"	,	L_17
+hf_iso15765_fragments	,	V_89
+iso15765_handle	,	V_123
+decode_as_default_populate_list	,	V_116
+"iso15765.data_length"	,	L_16
+guint8	,	T_5
+hf_iso15765_fragment	,	V_92
+ti	,	V_11
+BASE_NONE	,	V_91
+"   %s"	,	L_10
+iso15765_frame	,	V_50
+build_valid_func	,	T_22
+ISO15765_MESSAGE_TYPES_FIRST_FRAME	,	V_43
+register_dissector	,	F_37
+addressing	,	V_19
+iso15765_frame_t	,	T_14
+"iso15765.fragment.too_long_fragment"	,	L_38
+ei_iso15765_message_type_bad	,	V_69
+tvbuff_t	,	T_6
+ett_iso15765_fragments	,	V_106
+tvb_get_ntohs	,	F_21
+BASE_HEX	,	V_84
+iso15765_identifier_t	,	T_11
+"iso15765.subdissector"	,	L_51
+gboolean	,	T_13
+iso15765_frame_table	,	V_53
+decode_as_default_change	,	V_118
+"ISO15765 next level dissector"	,	L_54
+proto_item_add_subtree	,	F_15
+"Data length"	,	L_15
+module_t	,	T_20
+ett_iso15765_fragment	,	V_105
+"addressing"	,	L_55
+fragmented	,	V_24
+ISO15765_MESSAGE_TYPES_FLOW_CONTROL	,	V_58
+proto_register_field_array	,	F_39
+iso15765_frag_items	,	V_78
+ISO15765_MESSAGE_TYPES_CONSECUTIVE_FRAME	,	V_55
+hf_iso15765_data_length	,	V_42
+last	,	V_31
+ei	,	V_107
+"Message fragments"	,	L_27
+fragment_head	,	T_16
+FT_UINT16	,	V_87
+iso15765_tree	,	V_10
+"(Len: %d)"	,	L_5
+p_add_proto_data	,	F_13
+tvb_get_guint8	,	F_16
+tvb_captured_length	,	F_33
+"Next level protocol as"	,	L_1
+frag_id_low	,	V_21
+proto_register_iso15765	,	F_34
+NORMAL_ADDRESSING	,	V_20
+fd	,	V_47
+wmem_new0	,	F_12
+"Message fragment overlap"	,	L_31
+hf_iso15765_frame_length	,	V_54
+hf_iso15765_fragment_multiple_tails	,	V_97
+subdissector_table	,	V_81
+"Message Type"	,	L_13
+expert_iso15765	,	V_112
+pci	,	V_14
+call_data_dissector	,	F_32
+hf_iso15765_reassembled_length	,	V_103
+stmin	,	V_62
+"iso15765.fragments"	,	L_28
+"iso15765"	,	L_49
+mask	,	V_5
+ett_iso15765	,	V_33
+data_length	,	V_23
+proto_iso15765	,	V_29
+"ISO 15765"	,	L_53
+"Message has multiple tail fragments"	,	L_35
+ENC_BIG_ENDIAN	,	V_37
+ISO15765_MESSAGE_FRAME_LENGTH_OFFSET	,	V_45
+"iso15765.fragment.error"	,	L_40
+FT_UINT32	,	V_101
+decode_as_value_t	,	T_23
+" [Reassembled in #%u]"	,	L_12
+can_iso15765	,	V_115
+visited	,	V_49
+"Window of ISO 15765 fragments"	,	L_60
+"iso15765.flow_control.bs"	,	L_24
+"iso15765.fragment.overlap"	,	L_32
+window	,	V_73
+hf	,	V_82
+new_tvb	,	V_70
+"iso15765.message_type.bad"	,	L_47
+"Reassembled Message"	,	L_11
+proto_reg_handoff_iso15765	,	F_51
+"Message fragment overlapping with conflicting data"	,	L_33
+prefs_register_protocol	,	F_44
+iso15765_prompt	,	F_1
+"iso15765.fragment.multiple_tails"	,	L_36
+iso15765_da_build_value	,	V_113
+col_append_fstr	,	F_20
+"Transport"	,	L_50
+col_set_str	,	F_7
+id	,	V_30
+ISO15765_PCI_LEN	,	V_36
+"Separation time minimum (ms)"	,	L_25
+message_type	,	V_15
+"iso15765.reassembled.in"	,	L_44
+col_clear	,	F_8
+"Reassembled length"	,	L_45
+hf_iso15765_fragment_overlap_conflicts	,	V_96
+proto_register_subtree_array	,	F_41
+"iso15765.flow_status"	,	L_22
+gint32	,	T_12
+val_to_str	,	F_18
+iso15765_info	,	V_17
+full_len	,	V_44
+status	,	V_59
+proto_tree_add_item	,	F_14
+frag_id	,	V_71
+"Bad Message Type value"	,	L_48
+pinfo	,	T_2
+col_add_fstr	,	F_17
+dissector_handle_t	,	T_25
+_U_	,	V_1
+flags	,	V_48
+"Message fragment too long"	,	L_37
+"Bad Message Type value %u &lt;= 3"	,	L_9
+"iso15765.reassembled.length"	,	L_46
+VALS	,	F_35
+dissector_add_for_decode_as	,	F_53
+message_type_item	,	V_12
+enum_addressing	,	V_119
+ISO15765_MESSAGE_TYPE_MASK	,	V_38
+FT_UINT8	,	V_83
+BASE_DEC	,	V_86
+proto_item	,	T_9
+expert_register_field_array	,	F_42
+tvb_new_subset_length_caplen	,	F_19
+ENC_NA	,	V_32
+ISO15765_MESSAGE_FLOW_STATUS_MASK	,	V_88
+MAX_DECODE_AS_PROMPT_LEN	,	V_3
+expert_add_info_format	,	F_25
+iso15765_da_values	,	V_114
+dissect_iso15765	,	F_6
+complete	,	V_25
+hf_iso15765_fragment_count	,	V_100
+register_dissector_table	,	F_43
+"Message fragment"	,	L_29
+"%s"	,	L_3
+data	,	V_8
+num	,	V_80
+"window"	,	L_58
+"can.subdissector"	,	L_61
+ISO15765_MESSAGE_FRAME_LENGTH_LEN	,	V_46
+ISO15765_FC_BS_OFFSET	,	V_61
+"(Status: %d, Block size:0x%x, Seperation time minimum: %d ms)"	,	L_8
+"Addressing of ISO 15765. Normal or Extended"	,	L_57
+ISO15765_PCI_OFFSET	,	V_35
+prefs_register_uint_preference	,	F_46
+ei_register_info	,	T_19
+decode_as_default_reset	,	V_117
+expert_register_protocol	,	F_38
+save_fragmented	,	V_75
+iso15765_message_types	,	V_39
+"(Seq: %d)"	,	L_7
+hf_iso15765_fragment_too_long_fragment	,	V_98
+FT_NONE	,	V_90
+iso15765_value	,	F_3
+offset	,	V_22
+ett	,	V_104
+wmem_packet_scope	,	F_27
+expert_module_t	,	T_21
+tree	,	V_7
+addresses_reassembly_table_functions	,	V_122
+ISO15765_MESSAGE_DATA_LENGTH_MASK	,	V_41
+packet_info	,	T_1
+ISO15765_MESSAGE_SEQUENCE_NUMBER_MASK	,	V_56
+tvb_bytes_to_str_punct	,	F_26
+hf_iso15765_fragment_overlap	,	V_94
+"Message defragmentation error"	,	L_39
+"iso15765.sequence_number"	,	L_20
+ISO15765_MESSAGE_TYPES_SINGLE_FRAME	,	V_40
+EXPFILL	,	V_110
+"iso15765.fragment.overlap.conflicts"	,	L_34
+hf_iso15765_fc_bs	,	V_65
+"Reassembled in"	,	L_43
+wmem_map_new_autoreset	,	F_48
+"iso15765.message_type"	,	L_14
+"Block size"	,	L_23
+"(Frame Len: %d)"	,	L_6
+can_info	,	V_16
+g_snprintf	,	F_2
+ws_ctz	,	F_5
+"Message fragment count"	,	L_41
+wmem_file_scope	,	F_11
+HFILL	,	V_85
+PI_MALFORMED	,	V_108
+masked_guint8_value	,	F_4
+value	,	V_4
+"ISO15765 Protocol"	,	L_52
+iso15765_module	,	V_111
+can_identifier_t	,	T_10
+wmem_map_insert	,	F_23
+gchar	,	T_3
+create_dissector_handle	,	F_52
+FT_FRAMENUM	,	V_93
+reassembled_in	,	V_79
+"Flow status"	,	L_21
+msg_seqid	,	V_9
+frag_id_high	,	V_72
+"iso15765.frame_length"	,	L_18
+wmem_map_lookup	,	F_28
+proto_tree	,	T_7

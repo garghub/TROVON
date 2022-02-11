@@ -1,0 +1,281 @@
+PPI_ANTENNA_MASK_PGAIN	,	F_25
+pt	,	V_9
+"ppi_antenna.present.appid"	,	L_53
+"Header length"	,	L_16
+proto_register_protocol	,	F_41
+"ppi_antenna.appid"	,	L_101
+gint	,	T_7
+ppi_antenna_tree	,	V_8
+"beamid"	,	L_40
+PPI_ANTENNA_SERIALNUM	,	V_75
+ei_ppi_antenna_length	,	V_58
+PPI_ANTENNA_MASK_GAINDB	,	F_22
+tvb	,	V_1
+"ppi_antenna.version"	,	L_11
+guint32	,	T_5
+COL_INFO	,	V_49
+PPI_ANTENNA_MASK_APPID	,	F_31
+"ppi_antenna.length"	,	L_17
+PPI_ANTENNA_DESCSTR	,	V_81
+FT_BOOLEAN	,	V_95
+"Specifies if the description string is present"	,	L_51
+"Specifies if the application specific field id is present"	,	L_54
+ett_ppi_antennaflags	,	V_64
+"ppi_antenna.version.unsupported"	,	L_106
+version	,	V_5
+"ppi_antenna.length.invalid"	,	L_108
+hf_ppi_antenna_version	,	V_52
+"Specifies if the antenna gain field  is present"	,	L_30
+"Length of header including version, pad, length and data fields"	,	L_18
+ppi_antenna_ant_flags	,	V_40
+cinfo	,	V_48
+PI_ERROR	,	V_106
+"Bitmask indicating polarity, etc"	,	L_21
+proto_register_ppi_antenna	,	F_20
+hf_ppi_antenna_pad	,	V_53
+array_length	,	F_43
+"Invalid version (got %d,  expected 1 or 2)"	,	L_3
+"Header pad"	,	L_13
+hf_ppi_antenna_beamid	,	V_74
+"Invalid PPI-Antenna length  (got %d, %d max\n)"	,	L_5
+length_remaining	,	V_7
+"ppi_antenna.vertbw"	,	L_89
+" (%s)"	,	L_8
+PPI_ANTENNAFLAGS_MASK_STEER_ELEC	,	F_39
+"Description"	,	L_49
+PPI_ANTENNAFLAGS_MASK_HPOL	,	F_35
+"Specifies if the horizontal beamwidth field is present"	,	L_33
+ENC_ASCII	,	V_77
+"serialnum"	,	L_43
+PPI_GEOBASE_MIN_HEADER_LEN	,	V_57
+ei_ppi_antenna_present_bit	,	V_87
+PPI_ANTENNA_MASK_DESCSTR	,	F_30
+hf_register_info	,	T_13
+hf_ppi_antenna_present_flags	,	V_28
+hf_ppi_antennaflags_horizpol	,	V_42
+"Specifies if the serial num is present"	,	L_45
+guint16	,	T_10
+PPI_ANTENNA_ANTFLAGS	,	V_62
+hf_ppi_antenna_present_modelname	,	V_35
+"Specifies if the BeamID field is present"	,	L_42
+vertbw	,	V_23
+"Specifies if the antenna is vertically polarized"	,	L_69
+hf_ppi_antenna_present_vertbw	,	V_31
+"Invalid version"	,	L_107
+"ppi_antenna.antennaflags.circpol_l"	,	L_71
+guint8	,	T_9
+BASE_NONE	,	V_97
+"Invalid length"	,	L_109
+hf_ppi_antenna_pgain	,	V_72
+"ppi_antenna.present.ext"	,	L_59
+"ppi_antenna.beamid"	,	L_94
+"Error: PPI-ANTENNA: unknown bit set in present field."	,	L_105
+register_dissector	,	F_47
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_7
+hf_ppi_antenna_length	,	V_55
+proto_tree_add_bitmask	,	F_12
+BASE_HEX	,	V_94
+"ppi_antenna.present.flags"	,	L_26
+"HorizBw"	,	L_85
+"ppi_antenna.present.gaindb"	,	L_29
+"ppi_antenna.antennaflags.steer_mech"	,	L_80
+hf_ppi_antenna_present_descstr	,	V_36
+proto_item_add_subtree	,	F_8
+hf_ppi_antennaflags_circpol_r	,	V_45
+proto_register_field_array	,	F_42
+FT_BYTES	,	V_99
+hf_ppi_antenna_gaindb	,	V_66
+hf_ppi_antenna_horizbw	,	V_68
+"ppi_antenna.horizbw"	,	L_86
+"ModelName"	,	L_97
+"ppi_antenna.appdata"	,	L_103
+hf_ppi_antenna_present_appspecific_data	,	V_38
+ei	,	V_101
+hf_ppi_antennaflags_circpol_l	,	V_44
+"vertically polarized"	,	L_67
+hf_ppi_antennaflags_steer_mech	,	V_47
+"appdata"	,	L_55
+"Gain of antenna (dBi)"	,	L_84
+hf_ppi_antenna_present_beamid	,	V_33
+t_pgain	,	V_20
+FT_UINT16	,	V_92
+hf_ppi_antenna_appspecific_num	,	V_84
+tvb_get_guint8	,	F_3
+tvb_captured_length	,	F_19
+"Bitmask indicating which fields are present"	,	L_24
+"Specifies if there are any extensions to the header present"	,	L_60
+"horizbw"	,	L_31
+"Antenna flags"	,	L_19
+hf_ppi_antenna_present_ext	,	V_39
+"Specifies if the antenna is horizontally polarized"	,	L_66
+"ppi_antenna.antennaflags.mimo"	,	L_62
+FT_STRING	,	V_98
+hf_ppi_antenna_present	,	V_60
+PPI_ANTENNA_MASK_HORIZBW	,	F_23
+PPI_ANTENNA_HORIZBW	,	V_67
+PPI_ANTENNA_GAINDB	,	V_65
+"ppi_antenna.present.pgain"	,	L_38
+"ppi_antenna.present.horizbw"	,	L_32
+"Specifies if the antenna is circularly polarized, left handed"	,	L_72
+hf_ppi_antenna_present_appspecific_num	,	V_37
+length	,	V_6
+"ppi_antenna.present.appdata"	,	L_56
+PI_WARN	,	V_103
+curr_str	,	V_25
+"VertBw"	,	L_88
+"BeamID"	,	L_93
+hf_ppi_antenna_appspecific_data	,	V_86
+PPI_ANTENNAFLAGS_MASK_STEER_MECH	,	F_40
+FT_DOUBLE	,	V_96
+PPI_ANTENNA_MODELSTR	,	V_79
+"ppi_antenna.present.modelname"	,	L_47
+FT_UINT32	,	V_93
+"mimo"	,	L_61
+"ppi_antenna.antenna_flags"	,	L_20
+"Specifies if the precision gain field is present"	,	L_39
+"ppi_antenna.present.serialnum"	,	L_44
+"Antenna is part of MIMO system"	,	L_63
+"horizontally polarized"	,	L_64
+next_present	,	V_15
+"ppi_antenna.antennaflags.horizpol"	,	L_65
+t_hbw	,	V_18
+hf	,	V_88
+" HorizBw: %f"	,	L_7
+PPI_ANTENNA_MASK_BEAMID	,	F_26
+"Specifies if the model name is present"	,	L_48
+"PPI antenna Decoder"	,	L_111
+t_appspecific_num	,	V_21
+"mechanically steerable"	,	L_79
+"ppi_antenna.gaindb"	,	L_83
+bit	,	V_13
+PPI_ANTENNA_APPID	,	V_83
+dissect_ppi_antenna	,	F_1
+"Antenna: "	,	L_2
+PPI_ANTENNA_BEAMID	,	V_73
+"Specifies if the vertical beamwidth field is present"	,	L_36
+"ppi_antenna.modelname"	,	L_98
+PPI_ANTENNA_MASK_FLAGS	,	F_21
+"ppi_antenna.present.unknown_bit"	,	L_104
+"Error: PPI-ANTENNA: unknown bit (%d) set in present field."	,	L_9
+"Precision Gain (dBi)"	,	L_91
+hf_ppi_antennaflags_mimo	,	V_41
+"gaindb"	,	L_28
+"Invalid PPI-Antenna length - minimum length is 8"	,	L_4
+proto_item_append_text	,	F_14
+PPI_ANTENNA_PGAIN	,	V_71
+"circularly polarized left"	,	L_70
+hf_ppi_antenna_descstr	,	V_82
+"Specifies if the flags bitfield is present"	,	L_27
+proto_ppi_antenna	,	V_50
+"appid"	,	L_52
+col_clear	,	F_2
+PPI_ANTENNA_MASK_VERTBW	,	F_24
+"circularly polarized right"	,	L_73
+hf_ppi_antennaflags_steer_elec	,	V_46
+"ppi_antenna.antennaflags.circpol_r"	,	L_74
+proto_register_subtree_array	,	F_44
+"Specifies if the antenna is electrically steerable"	,	L_78
+"ppi_antenna.serialnum"	,	L_96
+proto_tree_add_string	,	F_18
+"Application Specific id"	,	L_100
+ppi_antenna_present_flags	,	V_27
+PPI_ANTENNA_VERTBW	,	V_69
+"pgain"	,	L_37
+"electrically steerable"	,	L_76
+proto_tree_add_item	,	F_10
+pinfo	,	V_2
+col_add_fstr	,	F_6
+_U_	,	V_4
+hf_ppi_antenna_present_gaindb	,	V_29
+PPI_ANTENNA_MASK_RES7	,	F_27
+"Horizontal beamwidth"	,	L_87
+antenna_line	,	V_10
+PPI_ANTENNA_MASK_MODELSTR	,	F_29
+"ext"	,	L_58
+PPI_ANTENNA_APPDATA	,	V_85
+PPI_ANTENNA_MASK_APPDATA	,	F_32
+"Specifies if the antenna is mechanically steerable"	,	L_81
+length_item	,	V_12
+PI_PROTOCOL	,	V_102
+gdouble	,	T_11
+"ppi_antenna.descr"	,	L_99
+FT_UINT8	,	V_89
+hf_ppi_antenna_serialnum	,	V_76
+BASE_DEC	,	V_90
+"ppi_antenna.present.descr"	,	L_50
+proto_item	,	T_8
+hf_ppi_antenna_present_pgain	,	V_32
+expert_register_field_array	,	F_46
+"Gain (dBi)"	,	L_82
+hf_ppi_antenna_flags	,	V_63
+ENC_NA	,	V_78
+"ppi_antenna.pad"	,	L_14
+hf_ppi_antenna_present_horizbw	,	V_30
+expert_add_info_format	,	F_11
+gaindb	,	V_16
+horizbw	,	V_22
+"Padding"	,	L_15
+ENC_LITTLE_ENDIAN	,	V_54
+ett_ppi_antenna_present	,	V_61
+data	,	T_4
+"Vertical beamwidth"	,	L_90
+"SerialNumber"	,	L_95
+"Application specific data"	,	L_102
+"Version of ppi_antenna header format"	,	L_12
+"Header revision"	,	L_10
+t_vbw	,	V_19
+"ppi_antenna"	,	L_112
+ei_register_info	,	T_14
+expert_register_protocol	,	F_45
+tvb_get_letohl	,	F_5
+PPI_ANTENNAFLAGS_MASK_VPOL	,	F_36
+proto_tree_add_double	,	F_16
+tvb_get_letohs	,	F_4
+"ppi_antenna.present.beamid"	,	L_41
+"ppi_antenna.antennaflags.steer_elec"	,	L_77
+guint	,	T_6
+ett_ppi_antenna	,	V_51
+offset	,	V_26
+ett	,	V_100
+"ppi_antenna.pgain"	,	L_92
+expert_module_t	,	T_15
+PPI_ANTENNA_MASK_EXT	,	F_33
+tree	,	V_3
+PPI_ANTENNA_MASK_SERIALNUM	,	F_28
+"ppi_antenna.antennaflags.vertpol"	,	L_68
+"PPI Antenna info v%u, Length %u"	,	L_1
+BITNO_32	,	F_13
+packet_info	,	T_2
+"modelname"	,	L_46
+pgain	,	V_24
+"Specifies if the application specific data field  is present"	,	L_57
+present	,	V_14
+" Gain: %d"	,	L_6
+proto_tree_add_uint	,	F_9
+EXPFILL	,	V_104
+"PPI antenna decoder"	,	L_110
+version_item	,	V_11
+"ppi_antenna.present.vertbw"	,	L_35
+ei_ppi_antenna_version	,	V_56
+"Present"	,	L_22
+PPI_ANTENNAFLAGS_MASK_CPOL_L	,	F_37
+hf_ppi_antenna_modelname	,	V_80
+ppi_fixed3_6_to_gdouble	,	F_15
+HFILL	,	V_91
+PPI_ANTENNAFLAGS_MASK_CPOL_R	,	F_38
+"flags"	,	L_25
+PI_MALFORMED	,	V_105
+hf_ppi_antenna_vertbw	,	V_70
+"Specifies if the antenna is circularly polarized, right handed"	,	L_75
+gchar	,	T_12
+"vertbw"	,	L_34
+hf_ppi_antenna_present_serialnum	,	V_34
+hf_ppi_antennaflags_vertpol	,	V_43
+expert_ppi_antenna	,	V_107
+"ppi_antenna.present"	,	L_23
+PPI_ANTENNA_MAXTAGLEN	,	V_59
+tvb_format_stringzpad	,	F_17
+PPI_ANTENNAFLAGS_MASK_MIMO	,	F_34
+beamid	,	V_17
+proto_tree	,	T_3

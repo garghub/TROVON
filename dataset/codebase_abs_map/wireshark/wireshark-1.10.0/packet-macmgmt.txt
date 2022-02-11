@@ -1,0 +1,101 @@
+"docsis_mgmt.rsvd"	,	L_24
+"Destination Address"	,	L_3
+proto_register_protocol	,	F_17
+"DOCSIS MGMT"	,	L_1
+"Destination SAP"	,	L_12
+hf_docsis_mgt_control	,	V_25
+"Version"	,	L_19
+"docsis_mgmt.ssap"	,	L_14
+col_set_str	,	F_2
+FT_ETHER	,	V_32
+gint	,	T_8
+AT_ETHER	,	V_14
+tvb	,	V_1
+"Control [0x03]"	,	L_16
+COL_INFO	,	V_12
+hf_docsis_mgt_ssap	,	V_24
+col_clear	,	F_3
+"DOCSIS MAC MGMT"	,	L_28
+cinfo	,	V_10
+"docsis_mgmt.msglen"	,	L_8
+proto_register_subtree_array	,	F_20
+array_length	,	F_19
+"Reserved"	,	L_25
+proto_tree_add_item	,	F_8
+call_dissector	,	F_13
+pinfo	,	V_2
+"Message Length - DSAP to End (Bytes)"	,	L_7
+"docsis_mgmt.type"	,	L_22
+msg_len	,	V_6
+hf_docsis_mgt_rsvd	,	V_28
+dl_dst	,	V_15
+"docsis_mgmt.src"	,	L_6
+hf_docsis_mgt_version	,	V_26
+hf_register_info	,	T_7
+VALS	,	F_15
+guint16	,	T_5
+COL_PROTOCOL	,	V_11
+"data"	,	L_29
+hf_docsis_mgt_dsap	,	V_23
+"docsis_mgmt.version"	,	L_20
+FT_UINT8	,	V_37
+"Source Address"	,	L_5
+BASE_DEC	,	V_36
+tvb_new_subset	,	F_11
+proto_item	,	T_6
+"Source SAP"	,	L_15
+dl_src	,	V_13
+ENC_NA	,	V_19
+guint8	,	T_4
+BASE_NONE	,	V_33
+hf_docsis_mgt_src_addr	,	V_20
+mgt_hdr_tree	,	V_8
+"docsis_mgmt.dsap"	,	L_11
+register_dissector_table	,	F_16
+register_dissector	,	F_21
+"Control"	,	L_18
+"Mac Management"	,	L_2
+"docsis_mgmt.dst"	,	L_4
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_6
+tvb_get_ntohs	,	F_10
+SET_ADDRESS	,	F_5
+BASE_HEX	,	V_38
+"Message Length"	,	L_9
+"DSAP [0x00]"	,	L_10
+proto_item_add_subtree	,	F_7
+"SSAP [0x00]"	,	L_13
+proto_register_field_array	,	F_18
+dissect_macmgmt	,	F_1
+ett	,	V_40
+"docsis_mgmt"	,	L_26
+tree	,	V_3
+hf_docsis_mgt_msg_len	,	V_21
+mgt_hdr_it	,	V_7
+data_handle	,	V_30
+payload_tvb	,	V_9
+tvb_get_ptr	,	F_4
+FT_UINT16	,	V_35
+packet_info	,	T_2
+tvb_get_guint8	,	F_9
+proto_register_docsis_mgmt	,	F_14
+"docsis_mgmt.control"	,	L_17
+ett_docsis_mgmt	,	V_17
+dst	,	V_5
+proto_docsis_mgmt	,	V_16
+hf_docsis_mgt_type	,	V_27
+HFILL	,	V_34
+dissector_try_uint	,	F_12
+hf_docsis_mgt_dst_addr	,	V_18
+src	,	V_4
+proto_reg_handoff_docsis_mgmt	,	F_22
+find_dissector	,	F_23
+"Reserved [0x00]"	,	L_23
+"DOCSIS Mac Management"	,	L_27
+docsis_mgmt_dissector_table	,	V_29
+ENC_BIG_ENDIAN	,	V_22
+ett_mgmt_pay	,	V_41
+mgmt_type_vals	,	V_39
+"Type"	,	L_21
+proto_tree	,	T_3
+hf	,	V_31

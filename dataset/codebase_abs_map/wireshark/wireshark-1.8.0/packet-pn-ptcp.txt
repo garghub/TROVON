@@ -1,0 +1,305 @@
+"PROFINET PTCP, "	,	L_36
+"Delay1ns"	,	L_75
+delayms	,	V_88
+hf_pn_ptcp_subdomain_uuid	,	V_15
+ett_pn_ptcp_block	,	V_68
+"%s: Sequence=%u, Delay=%dns"	,	L_22
+proto_register_protocol	,	F_43
+OUI_PROFINET	,	V_58
+hf_pn_ptcp_irdata_uuid	,	V_55
+": T2PortRxDelay=%uns, T3PortTxDelay=%uns"	,	L_10
+"Subtype"	,	L_117
+", PortMAC=%02x:%02x:%02x:%02x:%02x:%02x"	,	L_13
+pn_ptcp_master_prio1_vals	,	V_113
+"pn_ptcp.sequence_id"	,	L_72
+"pn_ptcp.clock_class"	,	L_110
+hf_pn_ptcp_clockvariance	,	V_41
+hf_pn_ptcp_port_mac_address	,	V_50
+ClockClass	,	V_34
+hf_pn_ptcp_master_priority1	,	V_37
+FT_ETHER	,	V_110
+gint	,	T_15
+dissect_pn_uint16	,	F_2
+hf_pn_ptcp_master_priority2	,	V_38
+"NanoSeconds"	,	L_99
+" (%u.%03u,%03u,%03u sec)"	,	L_28
+dissect_pn_oid	,	F_22
+"PROFINET Subtype"	,	L_119
+name_short	,	V_73
+"Reserved FrameID 0x%04x"	,	L_58
+dissect_PNPTCP_RTSyncPDU	,	F_32
+tvb	,	V_1
+guint32	,	T_9
+res_1	,	V_82
+COL_INFO	,	V_17
+res_2	,	V_83
+": Type=%s (%x), Length=%u"	,	L_20
+dissect_PNPTCP_AnnouncePDU	,	F_33
+"Announce (Time)"	,	L_47
+hf_pn_ptcp_t2timestamp	,	V_52
+sub_tree	,	V_62
+"FollowUp   (Time)"	,	L_50
+"Header"	,	L_59
+cinfo	,	V_16
+"pn_ptcp.delay1ns_byte"	,	L_74
+"pn_ptcp.t2portrxdelay"	,	L_90
+array_length	,	F_45
+"pn_ptcp.flags"	,	L_102
+ptcp_tree	,	V_96
+"%s, Seq=%3u, Delay=%11dns"	,	L_21
+"pn_ptcp.oui"	,	L_116
+Data2	,	V_19
+Data3	,	V_20
+Data4	,	V_21
+"pn_ptcp.block"	,	L_62
+dissect_PNPTCP_PortTime	,	F_18
+hf_pn_ptcp_delay1ns_byte	,	V_92
+Data1	,	V_18
+hf_pn_ptcp_block_tlvheader	,	V_69
+proto_item_set_text	,	F_26
+"%s: Sequence=%u, Delay=%uns"	,	L_33
+": PROFINET"	,	L_17
+dissect_PNPTCP_Time	,	F_8
+"IRDataUUID"	,	L_120
+CurrentUTCOffset	,	V_29
+": Sequence=%u"	,	L_31
+hf_register_info	,	T_14
+"DelayReq"	,	L_53
+": MasterSource=%02x:%02x:%02x:%02x:%02x:%02x"	,	L_2
+dissect_PNPTCP_Option_PROFINET	,	F_19
+guint16	,	T_6
+COL_PROTOCOL	,	V_98
+", Subdomain=%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x"	,	L_3
+"%s, Seq=%3u, Delay=%11uns"	,	L_32
+"EpochNumber"	,	L_95
+Flags	,	V_28
+tlvheader_tree	,	V_64
+guint8	,	T_7
+u32SubStart	,	V_65
+BASE_NONE	,	V_103
+ett_pn_ptcp_header	,	V_79
+"pn_ptcp"	,	L_123
+pn_ptcp_clock_class_vals	,	V_44
+"pn_ptcp.subdomain_uuid"	,	L_86
+hf_pn_ptcp_t3porttxdelay	,	V_49
+tvb_length_remaining	,	F_40
+dissect_PNPTCP_blocks	,	F_28
+", Time: %4us %09uns, Epoch: %u"	,	L_5
+"MasterSourceAddress"	,	L_83
+"Reserved 1"	,	L_65
+header_tree	,	V_75
+"Announce   (Time)"	,	L_46
+dissect_pn_undecoded	,	F_20
+"SequenceID"	,	L_71
+hf_pn_ptcp_tl_length	,	V_10
+dissect_pn_int32	,	F_31
+tvbuff_t	,	T_1
+": Sequence=%u, Delay=%dns"	,	L_23
+proto_tree_add_protocol_format	,	F_39
+ett_pn_ptcp	,	V_100
+hf_pn_ptcp_oui	,	V_57
+BASE_HEX	,	V_112
+dissect_pn_uint8	,	F_13
+dissect_PNPTCP_Option	,	F_21
+FT_UINT24	,	V_115
+": Flags=0x%x, CurrentUTCOffset=%u"	,	L_6
+gboolean	,	T_11
+hf_pn_ptcp_epoch_number	,	V_25
+"PN-PTCP"	,	L_35
+pn_ptcp_block_type	,	V_71
+proto_item_add_subtree	,	F_25
+"Announce  (Clock)"	,	L_44
+hf_pn_ptcp_currentutcoffset	,	V_31
+proto_register_field_array	,	F_44
+"DelayRes"	,	L_55
+"Reserved 2"	,	L_67
+delay1ns_fup	,	V_77
+hf_pn_ptcp_delay10ns	,	V_91
+dissect_pn_padding	,	F_30
+tl_type	,	V_7
+"Block"	,	L_61
+FT_UINT16	,	V_107
+hf_pn_ptcp_res2	,	V_90
+dissect_pn_int16	,	F_14
+hf_pn_ptcp_nanoseconds	,	V_27
+name	,	V_72
+ClockVariance	,	V_36
+hf_pn_ptcp_seconds	,	V_26
+"FollowUp (Time)"	,	L_51
+"pn_ptcp.subtype"	,	L_118
+"MasterPriority2"	,	L_107
+dissect_PNPTCP_Master	,	F_12
+dissect_pn_uint32	,	F_9
+t3porttxdelay	,	V_47
+"T2PortRxDelay (ns)"	,	L_89
+"RTSync FU (Time)"	,	L_39
+"pn_ptcp.master_priority2"	,	L_108
+heur_dissector_add	,	F_48
+hf_pn_ptcp_res1	,	V_89
+pn_ptcp_oui_vals	,	V_116
+": T2TimeStamp=%uns"	,	L_14
+OUI_PROFINET_MULTICAST	,	V_59
+": Sequence=%u, Delay=%uns"	,	L_34
+", Prio1=\"%s\""	,	L_7
+end	,	V_60
+hf_pn_ptcp_t2portrxdelay	,	V_48
+FT_INT32	,	V_109
+"RTSync    (Clock)"	,	L_40
+FT_INT16	,	V_114
+MasterPriority1	,	V_32
+"DelayReq         "	,	L_52
+"Announce (Clock)"	,	L_45
+"RTSync     (Time)"	,	L_42
+MasterPriority2	,	V_33
+length	,	V_6
+"Seconds"	,	L_97
+"(Reserved: 0x%x)"	,	L_8
+"pn_rt"	,	L_124
+"FollowUp (Clock)"	,	L_49
+"pn_ptcp.res2"	,	L_68
+"pn_ptcp.irdata_uuid"	,	L_121
+FT_UINT32	,	V_105
+proto_register_pn_ptcp	,	F_41
+delay1ns_32	,	V_87
+"TypeLength.Length"	,	L_79
+Seconds	,	V_23
+seq_id	,	V_76
+guint64	,	T_13
+"Delay10ns"	,	L_69
+FT_GUID	,	V_111
+hf	,	V_101
+dissect_PNPTCP_Subdomain	,	F_3
+hf_pn_ptcp_profinet_subtype	,	V_54
+delay1ns_8	,	V_85
+G_GINT64_MODIFIER	,	V_94
+"ClockClass"	,	L_109
+"ClockVariance"	,	L_113
+header_item	,	V_74
+": Prio1=\"%s\", Prio2=%s, Clock: Class=\"%s\", Accuracy=%s, Variance=%d"	,	L_9
+"pn_ptcp.res1"	,	L_66
+col_append_fstr	,	F_6
+"TLVHeader"	,	L_63
+pn_ptcp_profinet_subtype_vals	,	V_117
+col_set_str	,	F_37
+delay1ns_64	,	V_86
+"pn_ptcp.clock_accuracy"	,	L_112
+"Flags"	,	L_101
+"pn_ptcp.epoch_number"	,	L_96
+item	,	T_5
+dissect_PNPTCP_DelayParameter	,	F_17
+"Organizationally Unique Identifier"	,	L_115
+proto_item_append_text	,	F_7
+": IRDataUUID=%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x"	,	L_16
+t2portrxdelay	,	V_46
+"pn_ptcp.master_priority1"	,	L_106
+"pn_ptcp.header"	,	L_60
+dissect_pn_align4	,	F_11
+col_clear	,	F_38
+ClockAccuracy	,	V_35
+hf_pn_ptcp_clock_accuracy	,	V_40
+hf_pn_ptcp_delay1ns	,	V_93
+proto_register_subtree_array	,	F_46
+dissect_PNPTCP_TLVHeader	,	F_1
+NanoSeconds	,	V_24
+val_to_str	,	F_15
+gint32	,	T_12
+"RTSync (Time)"	,	L_43
+subType	,	V_53
+pn_ptcp_master_prio2_vals	,	V_43
+oui	,	V_56
+proto_pn_ptcp	,	V_99
+proto_tree_add_item	,	F_24
+private_data	,	V_97
+pinfo	,	V_3
+"pn_ptcp.clockvariance"	,	L_114
+_U_	,	V_5
+"%s, Seq=%3u"	,	L_29
+"RTSync FU (Clock)"	,	L_37
+"TypeLength.Type"	,	L_81
+mac	,	V_12
+"CurrentUTCOffset"	,	L_103
+"pn_ptcp.currentutcoffset"	,	L_104
+"%s: Sequence=%u"	,	L_30
+GPOINTER_TO_UINT	,	F_36
+"MasterPriority1"	,	L_105
+VALS	,	F_42
+"%s, Seq=%3u, Delay=%11"	,	L_24
+"pn_ptcp.t2timestamp"	,	L_94
+"pn_ptcp.delay10ns"	,	L_70
+"DelayRes         "	,	L_54
+FT_UINT8	,	V_108
+"FollowUp  (Clock)"	,	L_48
+BASE_DEC	,	V_106
+proto_item	,	T_4
+"pn_ptcp.delay1ns"	,	L_76
+"DelayFuRes       "	,	L_56
+dissect_PNPTCP_FollowUpPDU	,	F_29
+ENC_NA	,	V_67
+dissect_PNPTCP_DelayPDU	,	F_34
+"pn_ptcp.delay1ns_fup"	,	L_78
+"pn_ptcp.nanoseconds"	,	L_100
+hf_pn_ptcp_header	,	V_78
+hf_pn_ptcp_tl_type	,	V_9
+"%s"	,	L_18
+dissect_pn_uuid	,	F_5
+e_uuid_t	,	T_8
+", T2Rx=%uns, T3Tx=%uns"	,	L_11
+"DelayFuRes"	,	L_57
+uuid	,	V_13
+"SubdomainUUID"	,	L_85
+dissect_pn_mac	,	F_4
+"pn_ptcp.tlvheader"	,	L_64
+"T2TimeStamp (ns)"	,	L_93
+"pn_ptcp.tl_type"	,	L_82
+": PortMAC=%02x:%02x:%02x:%02x:%02x:%02x"	,	L_12
+hf_pn_ptcp_clock_class	,	V_39
+"Delay1ns_Byte"	,	L_73
+"uns"	,	L_25
+dissect_PNPTCP_PortParameter	,	F_16
+FT_NONE	,	V_102
+offset	,	V_2
+"ClockAccuracy"	,	L_111
+ett	,	V_118
+hf_pn_ptcp_seq_id	,	V_80
+tree	,	V_4
+packet_info	,	T_2
+sub_item	,	V_61
+hf_pn_ptcp_block	,	V_66
+"%s: Sequence=%u, Delay=%"	,	L_26
+u16FrameID	,	V_11
+"pn_ptcp.t3porttxdelay"	,	L_92
+hf_pn_ptcp_delay1ns_fup	,	V_81
+"T3PortTxDelay (ns)"	,	L_91
+proto_reg_handoff_pn_ptcp	,	F_47
+"pn_ptcp.tl_length"	,	L_80
+dissect_PNPTCP_block	,	F_23
+": Sequence=%u, Delay=%"	,	L_27
+"pn_ptcp.port_mac_address"	,	L_88
+dissect_PNPTCP_TimeExtension	,	F_10
+"RTSync FU  (Time)"	,	L_38
+dissect_PNPTCP_Data_heur	,	F_35
+", Master=%02x:%02x:%02x:%02x:%02x:%02x"	,	L_1
+t2timestamp	,	V_51
+"PortMACAddress"	,	L_87
+HFILL	,	V_104
+EpochNumber	,	V_22
+delay10ns	,	V_84
+"RTSync (Clock)"	,	L_41
+"pn_ptcp.seconds"	,	L_98
+pn_ptcp_clock_accuracy_vals	,	V_45
+pn_ptcp_master_prio1_short_vals	,	V_42
+"Delay1ns_FUP"	,	L_77
+"pn_ptcp.master_source_address"	,	L_84
+hf_pn_ptcp_master_source_address	,	V_14
+proto_item_set_len	,	F_27
+tl_length	,	V_8
+gint16	,	T_10
+ett_pn_ptcp_block_header	,	V_70
+delay1ns	,	V_95
+"PROFINET PTCP"	,	L_122
+hf_pn_ptcp_flags	,	V_30
+"Unknown"	,	L_19
+": Seconds=%u NanoSeconds=%u EpochNumber=%u"	,	L_4
+proto_tree	,	T_3
+", T2TS=%uns"	,	L_15
+tlvheader_item	,	V_63

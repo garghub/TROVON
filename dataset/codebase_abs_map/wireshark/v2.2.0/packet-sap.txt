@@ -1,0 +1,213 @@
+tvb_get_string_enc	,	F_14
+proto_register_protocol	,	F_22
+hf_sap_message_identifier_hash	,	V_43
+tvb_new_subset_remaining	,	F_17
+proto_register_sap	,	F_19
+gint	,	T_9
+tvb_captured_length_remaining	,	F_12
+"Originating source address type"	,	L_16
+TFS	,	F_21
+tvb	,	V_1
+proto_reg_handoff_sap	,	F_28
+guint32	,	T_7
+COL_INFO	,	V_22
+sap_tree	,	V_18
+FT_BOOLEAN	,	V_82
+"sap.auth.flags.t"	,	L_34
+"Padding Bit"	,	L_31
+proto_tree_add_string_format_value	,	F_16
+cinfo	,	V_20
+tfs_set_notset	,	V_84
+sdi	,	V_47
+array_length	,	F_24
+"Reserved"	,	L_17
+"sap.bogus_authentication_or_pad_length"	,	L_56
+next_tvb	,	V_15
+hf_sap_originating_source_ipv6	,	V_44
+call_dissector	,	F_18
+hf_sap_flags_r	,	V_38
+hf_sap_originating_source_ipv4	,	V_45
+hf_sap_flags_t	,	V_39
+"Encryption Bit"	,	L_22
+MCAST_SAP_AUTH_BIT_P	,	V_60
+ENC_ASCII	,	V_73
+mcast_sap_ver	,	V_81
+mcast_sap_auth_pad	,	V_92
+"Authentication data"	,	L_26
+hf_sap_flags_a	,	V_37
+hf_sap_flags_c	,	V_41
+si	,	V_16
+hf_sap_flags_e	,	V_40
+hf_register_info	,	T_10
+"Authentication data flags"	,	L_28
+"sap.auth.subheader"	,	L_43
+"Authentication data padding"	,	L_44
+"sap.payload_type"	,	L_49
+COL_PROTOCOL	,	V_21
+"Message Identifier Hash"	,	L_37
+hf_auth_flags	,	V_55
+"sap.auth.flags"	,	L_29
+e_in6_addr	,	V_29
+"sap.auth.flags.v"	,	L_30
+ett_sap_auth	,	V_54
+"Bogus authentication length (%d) or pad length (%d)"	,	L_5
+guint8	,	T_5
+MCAST_SAP_VERSION_MASK	,	V_27
+"sap.message_identifier_hash"	,	L_38
+BASE_NONE	,	V_90
+hf_auth_data	,	V_53
+"Bogus authentication length"	,	L_57
+hf_sap_flags_v	,	V_36
+"Announcement"	,	L_4
+"%s (v%u)"	,	L_2
+sdp_handle	,	V_75
+tvbuff_t	,	T_1
+sa_tree	,	V_49
+BASE_HEX	,	V_78
+proto_item_add_subtree	,	F_7
+PI_UNDECODED	,	V_102
+proto_register_field_array	,	F_23
+FT_BYTES	,	V_98
+mcast_sap_message_type	,	V_86
+mcast_sap_auth_type	,	V_93
+ei	,	V_101
+dissector_add_uint	,	F_30
+FT_UINT16	,	V_95
+tvb_get_guint8	,	F_4
+tvb_strneql	,	F_11
+tvb_captured_length	,	F_9
+"sap.auth.flags.p"	,	L_32
+"sap.compressed_and_encrypted"	,	L_50
+vers_flags	,	V_12
+"sap.compressed"	,	L_54
+sap_handle	,	V_107
+ei_sap_compressed_and_encrypted	,	V_66
+ei_sap_encrypted	,	V_67
+sif	,	V_17
+"Message Type"	,	L_19
+FT_STRING	,	V_99
+UDP_PORT_SAP	,	V_108
+is_del	,	V_8
+pt_str	,	V_72
+dissect_sap	,	F_1
+hf_sap_auth_len	,	V_42
+hf_auth_flags_v	,	V_57
+has_pad	,	V_51
+hf_auth_flags_p	,	V_58
+PI_WARN	,	V_103
+hf_auth_flags_t	,	V_59
+ENC_BIG_ENDIAN	,	V_34
+"sdp"	,	L_61
+"sap.flags"	,	L_9
+pt_string_len	,	V_71
+pt_len	,	V_70
+"Payload type"	,	L_48
+hf	,	V_76
+"v="	,	L_6
+mangle	,	V_65
+FT_IPv6	,	V_97
+is_comp	,	V_10
+MCAST_SAP_AUTH_TYPE_MASK	,	V_94
+"Session Announcement Protocol"	,	L_58
+col_set_str	,	F_2
+ett_sap_flags	,	V_35
+"Flags"	,	L_8
+"sap.auth"	,	L_27
+"sap.originating_source.ipv6"	,	L_41
+"sap.flags.c"	,	L_25
+FT_IPv4	,	V_96
+"Authentication subheader"	,	L_42
+"Authentication data pad count (bytes)"	,	L_46
+"sap.encrypted"	,	L_52
+ett_sap	,	V_32
+MCAST_SAP_BIT_E	,	V_25
+MCAST_SAP_BIT_C	,	V_26
+"Bits in the beginning of the SAP header"	,	L_10
+find_dissector_add_dependency	,	F_31
+"sap.flags.t"	,	L_20
+MCAST_SAP_BIT_T	,	V_24
+col_clear	,	F_3
+MCAST_SAP_BIT_R	,	V_85
+expert_sap	,	V_106
+hf_sap_payload_type	,	V_74
+proto_register_subtree_array	,	F_25
+remaining_len	,	V_69
+proto_tree_add_item	,	F_6
+pinfo	,	V_2
+col_add_fstr	,	F_5
+dissector_handle_t	,	T_13
+saf_tree	,	V_50
+"Authentication Length"	,	L_35
+_U_	,	V_4
+expert_field	,	T_8
+proto_sap	,	V_30
+hf_sap_auth_data_padding_len	,	V_63
+VALS	,	F_20
+"sap.flags.e"	,	L_23
+hf_sap_auth_subheader	,	V_62
+MCAST_SAP_BIT_A	,	V_23
+mcast_sap_auth_ver	,	V_91
+PI_PROTOCOL	,	V_105
+FT_UINT8	,	V_77
+"sap.flags.v"	,	L_12
+BASE_DEC	,	V_80
+proto_item	,	T_6
+expert_register_field_array	,	F_27
+tvb_strnlen	,	F_13
+ENC_NA	,	V_31
+"Announcement type"	,	L_21
+sap_flags_tree	,	V_19
+mcast_sap_crypt_type	,	V_87
+expert_add_info_format	,	F_8
+"sap.auth.len"	,	L_36
+sap_version	,	V_6
+ett_sap_authf	,	V_56
+data	,	T_4
+pad_len	,	V_52
+"Authentication Type"	,	L_33
+"The rest of the packet is compressed and encrypted"	,	L_51
+ei_register_info	,	T_11
+expert_register_protocol	,	F_26
+"Originating Source"	,	L_39
+auth_len	,	V_13
+addr_len	,	V_11
+"sap.originating_source"	,	L_40
+FT_NONE	,	V_89
+offset	,	V_5
+ett	,	V_100
+wmem_packet_scope	,	F_15
+expert_module_t	,	T_12
+auth_flags	,	V_14
+tree	,	V_3
+hf_sap_flags	,	V_33
+"%.*s"	,	L_7
+packet_info	,	T_2
+"sap.auth.data_padding.len"	,	L_47
+"sap"	,	L_59
+mcast_sap_address_type	,	V_83
+hf_sap_auth_data_padding	,	V_64
+EXPFILL	,	V_104
+"Deletion"	,	L_3
+mcast_sap_comp_type	,	V_88
+MCAST_SAP_VERSION_SHIFT	,	V_28
+proto_tree_add_expert	,	F_10
+"SAP"	,	L_1
+is_ipv6	,	V_7
+"The rest of the packet is compressed"	,	L_55
+"3 bit version field in the SAP header"	,	L_13
+sai	,	V_48
+HFILL	,	V_79
+"sap.flags.a"	,	L_15
+ei_sap_compressed	,	V_68
+ei_sap_bogus_authentication_or_pad_length	,	V_61
+"Version Number"	,	L_11
+"udp.port"	,	L_60
+"Compression Bit"	,	L_24
+create_dissector_handle	,	F_29
+is_enc	,	V_9
+auth_data_len	,	V_46
+"sap.flags.r"	,	L_18
+"Address Type"	,	L_14
+"sap.auth.data_padding"	,	L_45
+"The rest of the packet is encrypted"	,	L_53
+proto_tree	,	T_3

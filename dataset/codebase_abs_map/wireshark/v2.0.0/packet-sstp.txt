@@ -1,0 +1,190 @@
+SSTP_FSIZE_ATTRIB_LENGTH	,	V_59
+sstp_messagetype	,	V_40
+sstp_tree_version	,	V_12
+SSTP_BITMASK_LENGTH_LENGTH	,	V_61
+SSTP_FSIZE_ISCONTROL	,	V_36
+proto_register_protocol	,	F_21
+"sstp.status"	,	L_44
+hf_sstp_cert_hash	,	V_76
+hf_sstp_nonce	,	V_73
+get_sstp_pdu_len	,	F_16
+hf_sstp_length	,	V_37
+tvb_get_guint16	,	F_9
+tvb_new_subset_remaining	,	F_13
+col_append_fstr	,	F_7
+"ID"	,	L_24
+encapsulated_protocols	,	V_100
+SSTP_ATTRIB_STATUS_INFO	,	V_65
+tcp_dissect_pdus	,	F_18
+hash_protocols	,	V_99
+col_set_str	,	F_2
+gint	,	T_11
+SSTP_CERT_HASH_PROTOCOL_SHA1	,	V_75
+SSTP_FSIZE_ATTRIB_ID	,	V_57
+tvb	,	V_1
+"Encapsulated Procotol"	,	L_41
+SSTP_BITMASK_MINORVERSION	,	V_24
+guint32	,	T_6
+COL_INFO	,	V_17
+SSTP_BITMASK_LENGTH_RESERVED	,	V_98
+"sstp.majorversion"	,	L_10
+FT_BOOLEAN	,	V_95
+"Nonce"	,	L_33
+hf_sstp_padding	,	V_78
+"sstp.cert_hash"	,	L_36
+tvb_reported_length_remaining	,	F_12
+col_clear	,	F_3
+SSTP_FSIZE_MINORVERSION	,	V_31
+SSTP_OFFSET_LENGTH	,	V_38
+cinfo	,	V_15
+"Unknown Attribute"	,	L_7
+proto_register_subtree_array	,	F_25
+proto_register_sstp	,	F_19
+"sstp.nonce"	,	L_34
+val_to_str	,	F_10
+SSTP_OFFSET_MSGTYPE	,	V_41
+array_length	,	F_24
+sstp_messagetypes	,	V_42
+"Reserved"	,	L_13
+hf_sstp_reserved	,	V_32
+"sstp.attribvalue"	,	L_46
+proto_tree_add_item	,	F_4
+call_dissector	,	F_14
+pinfo	,	V_2
+"sstp.attribid"	,	L_25
+"sstp.compoundmac"	,	L_40
+SSTP_FSIZE_NONCE	,	V_74
+_U_	,	V_4
+"sstp.attribreserved"	,	L_23
+dissect_sstp_pdu	,	F_1
+hf_sstp_status	,	V_67
+SSTP_FSIZE_CERT_HASH_SHA256	,	V_83
+SSTP_ATTRIB_CRYPTO_BINDING_REQ	,	V_84
+hf_register_info	,	T_10
+"Type: DATA; "	,	L_8
+sstp_minor	,	V_8
+"SSTP"	,	L_1
+VALS	,	F_20
+"sstp.minorversion"	,	L_12
+"sstp.length"	,	L_18
+"Hash Protocol"	,	L_31
+sstp_major	,	V_7
+SSTP_FSIZE_PADDING_SHA1	,	V_79
+hf_sstp_attrib_length_reserved	,	V_58
+guint16	,	T_5
+tvb_next	,	V_14
+"sstp.padding"	,	L_38
+COL_PROTOCOL	,	V_16
+SSTP_FSIZE_ATTRIB_RESERVED	,	V_52
+FT_UINT8	,	V_89
+BASE_DEC	,	V_90
+SSTP_BITMASK_MAJORVERSION	,	V_91
+"sstp"	,	L_48
+proto_item	,	T_8
+SSTP_OFFSET_NUMATTRIB	,	V_46
+"Compound Mac"	,	L_39
+ENC_NA	,	V_19
+guint8	,	T_7
+SSTP_CERT_HASH_PROTOCOL_SHA256	,	V_82
+ti	,	V_9
+BASE_NONE	,	V_94
+attrib_id	,	V_49
+SSTP_FSIZE_MAJORVERSION	,	V_26
+hf_sstp_control_flag	,	V_35
+"Padding"	,	L_37
+"Unknown Data"	,	L_29
+"sstp.numattrib"	,	L_22
+SSTP_FSIZE_ENCAPSULATED_PROTOCOL	,	V_64
+register_dissector	,	F_22
+SSTP_OFFSET_MAJORVERSION	,	V_25
+SSTP_FSIZE_MSGTYPE	,	V_44
+data	,	T_4
+sstp_tree_attribute	,	V_11
+tvbuff_t	,	T_1
+SSTP_OFFSET_RESERVED	,	V_33
+"Cert Hash"	,	L_35
+"Unknown Messagetype"	,	L_5
+tvb_get_ntohs	,	F_11
+SSTP_FSIZE_RESERVED	,	V_34
+BASE_HEX	,	V_97
+ett_sstp_version	,	V_27
+"sstp.dataunknown"	,	L_30
+hf_sstp_attrib_value	,	V_69
+"Length-Packet"	,	L_17
+proto_item_add_subtree	,	F_5
+proto_register_field_array	,	F_23
+FT_BYTES	,	V_93
+"Control Packet"	,	L_15
+"Version %d.%d"	,	L_3
+guint	,	T_9
+"Length"	,	L_27
+offset	,	V_6
+ett	,	V_103
+SSTP_FSIZE_LENGTH	,	V_39
+"sstp.hash"	,	L_32
+tree	,	V_3
+"sstp.iscontrol"	,	L_16
+SSTP_FSIZE_NUMATTRIB	,	V_47
+FT_UINT16	,	V_96
+packet_info	,	T_2
+"Major Version"	,	L_9
+tvb_get_guint8	,	F_6
+hf_sstp_data_unknown	,	V_85
+tvb_captured_length	,	F_15
+sstp_control_flag	,	V_5
+proto_sstp	,	V_18
+ett_sstp	,	V_20
+dissect_sstp	,	F_17
+SSTP_FSIZE_RESERVED2	,	V_66
+"sstp.attriblengthreserved"	,	L_26
+hf_sstp_attrib_reserved	,	V_55
+SSTP_FSIZE_CERT_HASH_SHA1	,	V_77
+SSTP_OFFSET_DATA	,	V_86
+hf_sstp_compound_mac	,	V_80
+hf_sstp_messagetype	,	V_43
+hf_sstp_hash_protocol	,	V_71
+"sstp.messagetype"	,	L_20
+attrib_length	,	V_48
+"ppp"	,	L_49
+ett_sstp_attribute	,	V_53
+sstp_attributes	,	V_54
+"Message Type"	,	L_19
+"Number of Attributes"	,	L_21
+SSTP_OFFSET_ATTRIBUTES	,	V_51
+"Minor Version"	,	L_11
+SSTP_OFFSET_ISCONTROL	,	V_21
+SSTP_OFFSET_MINORVERSION	,	V_23
+SSTP_FSIZE_COMPOUND_MAC_SHA1	,	V_81
+HFILL	,	V_92
+"sstp.encapsulatedprotocol"	,	L_42
+hf_sstp_numattrib	,	V_45
+hf_sstp_ecapsulated_protocol	,	V_63
+"SSTP-%u.%u "	,	L_2
+hf_sstp_major	,	V_28
+hf_sstp_minor	,	V_30
+ppp_handle	,	V_87
+SSTP_BITMASK_CONTROLFLAG	,	V_22
+"Status"	,	L_43
+"sstp.attriblength"	,	L_28
+sstp_tree	,	V_10
+"Secure Socket Tunneling Protocol"	,	L_47
+find_dissector	,	F_27
+proto_tree_add_subtree_format	,	F_8
+hf_sstp_attrib_length	,	V_60
+SSTP_FSIZE_STATUS	,	V_68
+sstp_numattrib	,	V_13
+ENC_BIG_ENDIAN	,	V_29
+SSTP_ATTRIB_ENCAPSULATED_PROTOCOL_ID	,	V_62
+hf_sstp_attrib_id	,	V_56
+"Attribute %s"	,	L_6
+"Type: CONTROL, %s; "	,	L_4
+SSTP_ATTRIB_CRYPTO_BINDING	,	V_70
+FT_UINT32	,	V_101
+"Attribute Value"	,	L_45
+hashproto	,	V_50
+SSTP_FSIZE_HASH_PROTOCOL	,	V_72
+proto_reg_handoff_sstp	,	F_26
+attrib_status	,	V_102
+proto_tree	,	T_3
+hf	,	V_88
+"sstp.reserved"	,	L_14

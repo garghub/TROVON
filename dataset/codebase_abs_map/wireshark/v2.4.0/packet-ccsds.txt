@@ -1,0 +1,241 @@
+"Bad"	,	L_64
+"0x%04x [incorrect, should be 0x%04x]"	,	L_7
+proto_register_protocol	,	F_28
+"ccsds.user_data"	,	L_57
+"ccsds.checkword"	,	L_59
+"ccsds.format_version_id"	,	L_49
+"ccsds"	,	L_71
+secondary_header	,	V_21
+"ccsds.vid"	,	L_40
+"Embedded Time"	,	L_54
+"ccsds.type"	,	L_13
+ccsds_secondary_header_cmd_data_packet	,	V_96
+tvb_new_subset_remaining	,	F_19
+"Version"	,	L_10
+proto_register_ccsds	,	F_26
+gint	,	T_10
+"global_pref_checkword"	,	L_72
+dissect_ccsds	,	F_5
+tvb	,	V_11
+CCSDS_PRIMARY_HEADER_LENGTH	,	V_44
+"Good"	,	L_61
+guint32	,	T_8
+COL_INFO	,	V_42
+proto_item_set_end	,	F_15
+hf_ccsds_length	,	V_55
+FT_BOOLEAN	,	V_90
+hf_ccsds_seqflag	,	V_53
+tvb_reported_length_remaining	,	F_9
+"ccsds.extended_format_id"	,	L_51
+cinfo	,	V_40
+PI_ERROR	,	V_105
+checkword_flag	,	V_27
+hf_ccsds_packet_type	,	V_70
+array_length	,	F_30
+"ccsds.no_checkword"	,	L_69
+next_tvb	,	V_34
+ett_ccsds_checkword	,	V_80
+"Secondary Header"	,	L_14
+"Extended Format ID"	,	L_50
+hf_ccsds_dcc	,	V_69
+expert_ccsds	,	V_110
+checkword_field	,	V_32
+proto_tree_add_boolean	,	F_22
+prefs_register_enum_preference	,	F_36
+dissector_add_for_decode_as_with_preference	,	F_39
+hf_register_info	,	T_11
+hf_ccsds_zoe	,	V_66
+"0x%04x [correct]"	,	L_6
+dissect_checkword	,	V_112
+"Time Identifier"	,	L_29
+HDR_VERSION	,	V_88
+ccsds_length	,	V_24
+guint16	,	T_7
+checkword_item	,	V_30
+COL_PROTOCOL	,	V_41
+hf_ccsds_checkword_bad	,	V_82
+"ccsds.coarse_time"	,	L_26
+ccsds_secondary_header_packet_type	,	V_94
+global_dissect_checkword	,	V_64
+guint8	,	T_9
+"ccsds.secheader"	,	L_15
+t	,	V_4
+BASE_NONE	,	V_100
+hf_ccsds_checkword	,	V_79
+secs	,	V_8
+register_dissector	,	F_34
+tvb_get_ntohl	,	F_16
+"Secondary Header Present"	,	L_16
+tvbuff_t	,	T_2
+"ZOE TLM"	,	L_34
+tvb_get_ntohs	,	F_7
+proto_reg_handoff_ccsds	,	F_38
+proto_tree_add_bitmask	,	F_13
+HDR_APID	,	V_43
+BASE_HEX	,	V_85
+PROTO_ITEM_SET_GENERATED	,	F_23
+"Format Version ID"	,	L_48
+"ccsds.checkword_bad"	,	L_65
+proto_item_add_subtree	,	F_11
+module_t	,	T_13
+"Data Cycle Counter"	,	L_41
+hf_ccsds_fine_time	,	V_60
+proto_register_field_array	,	F_29
+FT_BYTES	,	V_101
+"User Data"	,	L_56
+ei	,	V_103
+multiplier	,	V_7
+"ccsds.embedded_time"	,	L_55
+"Sequence Number"	,	L_21
+ccsds_module	,	V_109
+"Frame ID"	,	L_52
+FT_UINT16	,	V_84
+"ccsds.checkword_flag"	,	L_32
+CCSDS_SECONDARY_HEADER_LENGTH	,	V_45
+tvb_get_guint8	,	F_17
+"Packet does not contain a Checkword"	,	L_70
+tvb_captured_length	,	F_25
+"ccsds.packet_type"	,	L_38
+proto_ccsds	,	V_46
+hf_ccsds_timeid	,	V_62
+expert_add_info	,	F_14
+HDR_TYPE	,	V_65
+"Primary CCSDS Header"	,	L_4
+"Header Flags"	,	L_8
+hf_ccsds_apid	,	V_39
+"ccsds.zoe"	,	L_35
+"Length field value is greater than the packet seen on the wire"	,	L_68
+FT_STRING	,	V_99
+hf_ccsds_checkword_flag	,	V_63
+"Element ID"	,	L_44
+"ccsds.version"	,	L_11
+call_data_dissector	,	F_24
+hf_ccsds_type	,	V_37
+"Packet Type (unused for Ku-band)"	,	L_37
+length	,	V_25
+"CCSDS checkword"	,	L_58
+abs_time_to_str	,	F_3
+counter	,	V_28
+"ccsds.length.error"	,	L_67
+PI_WARN	,	V_108
+checkword_tree	,	V_31
+proto_tree_add_uint_format_value	,	F_21
+ENC_BIG_ENDIAN	,	V_52
+hf_ccsds_coarse_time	,	V_59
+reported_length	,	V_26
+hf_ccsds_seqnum	,	V_54
+hf_ccsds_cmd_data_packet	,	V_72
+FT_UINT32	,	V_92
+"Specify how the dissector should handle the CCSDS checkword"	,	L_74
+"ccsds.fine_time"	,	L_28
+hf	,	V_83
+"Checkword present"	,	L_33
+ett_ccsds_primary_header	,	V_49
+hf_ccsds_secheader	,	V_38
+prefs_register_protocol	,	F_35
+proto_tree_add_subtree	,	F_12
+"ccsds.element_id"	,	L_45
+BASE_EXT_STRING	,	V_97
+col_set_str	,	F_6
+yr	,	V_5
+item	,	V_29
+"Sequence Flags"	,	L_19
+"ccsds.length"	,	L_24
+"APID %4d (0x%03X)"	,	L_3
+"CCSDS checkword: 16-bit running sum of all bytes excluding the checkword"	,	L_60
+"Secondary CCSDS Header"	,	L_5
+proto_register_subtree_array	,	F_31
+"Fine Time"	,	L_27
+proto_tree_add_string	,	F_18
+time_string	,	V_23
+hf_ccsds_frame_id	,	V_75
+proto_tree_add_item	,	F_10
+"ccsds.dcc"	,	L_42
+pinfo	,	V_12
+col_add_fstr	,	F_8
+hf_ccsds_embedded_time	,	V_61
+_U_	,	V_14
+"APID"	,	L_17
+ei_ccsds_checkword	,	V_77
+first_word	,	V_20
+ccsds_handle	,	V_111
+checkword_sum	,	V_33
+VALS	,	F_27
+ccsds_secondary_header_type	,	V_89
+PI_PROTOCOL	,	V_107
+"CCSDS Packet"	,	L_2
+ccsds_secondary_header_format_id_ext	,	V_98
+utcdiff	,	V_3
+ccsds_dissector_table	,	V_78
+fine_time	,	V_2
+hf_ccsds_user_data	,	V_76
+ei_ccsds_length_error	,	V_56
+FT_UINT8	,	V_93
+ett_ccsds_secondary_header	,	V_58
+BASE_DEC	,	V_87
+header_flags	,	V_35
+proto_item	,	T_6
+expert_register_field_array	,	F_33
+fraction	,	V_6
+ENC_NA	,	V_47
+hf_ccsds_packet_type_unused	,	V_67
+"Packet Length"	,	L_23
+"Contains S-band ZOE Packets"	,	L_36
+hf_ccsds_format_version_id	,	V_73
+ccsds_tree	,	V_17
+HDR_SECHDR	,	V_57
+register_dissector_table	,	F_37
+"Packet Type"	,	L_43
+"True: checkword matches packet content; False: doesn't match content"	,	L_63
+data	,	T_5
+"ccsds.cmd_data_packet"	,	L_47
+hf_ccsds_extended_format_id	,	V_74
+primary_header	,	V_18
+ei_register_info	,	T_12
+expert_register_protocol	,	F_32
+"ccsds.frame_id"	,	L_53
+hf_ccsds_vid	,	V_68
+"Cmd/Data Packet Indicator"	,	L_46
+embedded_time_to_string	,	F_1
+nstime_t	,	T_1
+ccsds_packet	,	V_16
+"Coarse Time"	,	L_25
+offset	,	V_15
+ett	,	V_102
+wmem_packet_scope	,	F_4
+expert_module_t	,	T_14
+tree	,	V_13
+hf_ccsds_checkword_good	,	V_81
+Leap	,	F_2
+ccsds_primary_header_sequence_flags	,	V_91
+"ccsds.timeid"	,	L_30
+packet_info	,	T_3
+hf_ccsds_element_id	,	V_71
+"Version Identifier"	,	L_39
+EXPFILL	,	V_106
+hf_ccsds_header_flags	,	V_50
+"ccsds.seqflag"	,	L_20
+secondary_header_tree	,	V_22
+primary_header_tree	,	V_19
+ett_ccsds_primary_header_flags	,	V_51
+"ccsds.checkword_good"	,	L_62
+"True: checkword doesn't match packet content; False: matches content"	,	L_66
+ett_ccsds	,	V_48
+HFILL	,	V_86
+PI_MALFORMED	,	V_104
+"How to handle the CCSDS checkword"	,	L_73
+dissector_try_uint	,	F_20
+"udp.port"	,	L_76
+"ccsds.seqnum"	,	L_22
+coarse_time	,	V_1
+ccsds_secondary_header_element_id	,	V_95
+"CCSDS apid"	,	L_75
+"ccsds.apid"	,	L_18
+"ccsds.header_flags"	,	L_9
+nsecs	,	V_9
+hf_ccsds_version	,	V_36
+"Checkword Indicator"	,	L_31
+"Type"	,	L_12
+"CCSDS"	,	L_1
+ABSOLUTE_TIME_DOY_UTC	,	V_10
+proto_tree	,	T_4

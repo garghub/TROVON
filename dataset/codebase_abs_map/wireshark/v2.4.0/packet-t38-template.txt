@@ -1,0 +1,295 @@
+"t38.setup-method"	,	L_18
+hf_t38_fragment_error	,	V_119
+proto_register_protocol	,	F_49
+MAX_T38_MESSAGES_IN_PACKET	,	V_55
+reassembly_table_register	,	F_56
+dissect_tpkt_encap	,	F_42
+"Where available, show which protocol and frame caused "	,	L_64
+t30_hdlc_handle	,	V_140
+tvb_new_subset_remaining	,	F_39
+"t38.fragments"	,	L_21
+len	,	V_45
+setup_frame_number	,	V_6
+last_seqnum	,	V_26
+gint	,	T_16
+p_conversation_data	,	V_9
+"this T.38 stream to be created"	,	L_65
+"[MALFORMED PACKET or wrong preference settings]"	,	L_5
+proto_register_t38	,	F_48
+hf_t38_fragment_overlap_conflicts	,	V_116
+src_t38_info	,	V_22
+p_t38_packet_conv	,	V_65
+"t38.malformed"	,	L_40
+tvb	,	V_77
+NO_ADDR_B	,	V_15
+guint32	,	T_4
+COL_INFO	,	V_52
+dissect_t38_tcp	,	F_41
+FT_BOOLEAN	,	V_115
+t38_conv_info	,	V_73
+t38_tcp_pdu_handle	,	V_96
+" IFPPacket#%u"	,	L_8
+tvb_reported_length_remaining	,	F_35
+"t38.fragment"	,	L_23
+proto_tree_add_expert_format	,	F_36
+size	,	V_39
+cinfo	,	V_51
+p_get_proto_data	,	F_21
+last_fd	,	V_37
+PI_ERROR	,	V_130
+"Show stream setup information"	,	L_63
+p_conversation	,	V_8
+data_value	,	V_59
+ifp_packet_number	,	V_92
+array_length	,	F_51
+"Stream setup"	,	L_11
+register_tap	,	F_57
+next_tvb	,	V_91
+reassembly_table	,	T_8
+T38_TPKT_ALWAYS	,	V_94
+""	,	L_9
+"be dissected as RTP packet or T.38 packet. If enabled there is a risk that T.38 UDPTL "	,	L_51
+call_dissector	,	F_27
+"packets with sequence number higher than 32767 may be dissected as RTP."	,	L_52
+clear_address	,	F_2
+col_append_str	,	F_33
+"tpkt_usage"	,	L_59
+t38_tpkt_usage	,	V_93
+prefs_register_enum_preference	,	F_60
+hf_register_info	,	T_15
+proto_reg_handoff_t38	,	F_61
+tvb_new_real_data	,	F_14
+"T.38"	,	L_2
+"use_pre_corrigendum_asn1_specification"	,	L_44
+"t38.reassembled.in"	,	L_37
+setup_frame	,	V_17
+guint16	,	T_14
+address	,	T_2
+COL_PROTOCOL	,	V_85
+key_ptr	,	V_74
+t38_setup_tree	,	V_99
+g_strlcpy	,	F_10
+hf_t38_fragment_overlap	,	V_114
+"t38.fragment.error"	,	L_33
+guint8	,	T_10
+tvb_memeql	,	F_16
+t38_module	,	V_132
+ti	,	V_100
+BASE_NONE	,	V_108
+"show_setup_info"	,	L_62
+force_reassemble_seq	,	F_11
+hf_t38_fragments	,	V_111
+addresses_equal	,	F_23
+tr	,	V_82
+register_dissector	,	F_55
+"rtp"	,	L_66
+tvbuff_t	,	T_11
+proto_tree_add_protocol_format	,	F_30
+"Whether a UDP packet that looks like RTP version 2 packet will "	,	L_50
+tvb_memcpy	,	F_15
+conversation_set_dissector	,	F_5
+PROTO_ITEM_SET_GENERATED	,	F_45
+ett_t38_setup	,	V_102
+burst_lost	,	V_28
+proto_item_add_subtree	,	F_31
+"TCP: IFPPacket"	,	L_7
+dissect_possible_rtpv2_packets_as_rtp	,	V_83
+module_t	,	T_18
+t38_add_address	,	F_1
+init_t38_info_conv	,	F_20
+proto_register_field_array	,	F_50
+"t38"	,	L_42
+ei_t38_malformed	,	V_90
+t38_tap	,	V_136
+ei	,	V_128
+tvb_data	,	V_46
+"Message fragments"	,	L_20
+additional_hdlc_data_field_counter	,	V_30
+fragment_head	,	T_7
+reass_ID	,	V_23
+"Whether T.38 is used with TPKT for TCP"	,	L_61
+"Stream frame"	,	L_14
+p_t38_conv	,	V_66
+data_handle	,	V_141
+tvb_get_ptr	,	F_17
+global_t38_show_setup_info	,	V_89
+hf_t38_reassembled_length	,	V_124
+p_add_proto_data	,	F_22
+tvb_get_guint8	,	F_25
+frame_num_first_t4_data	,	V_64
+"t38_udp"	,	L_43
+port	,	V_3
+tvb_captured_length	,	F_37
+proto_tree_add_string_format	,	F_44
+"reassembly"	,	L_53
+hf_t38_fragment_too_long_fragment	,	V_118
+fd	,	V_10
+desc	,	V_62
+next	,	V_43
+"Message fragment overlap"	,	L_24
+"Use the Pre-Corrigendum ASN.1 specification"	,	L_45
+is_tpkt	,	F_43
+hf_t38_reassembled_in	,	V_123
+RTP_VERSION	,	F_26
+t38_info_arr	,	V_57
+FT_STRING	,	V_107
+conversation_new	,	F_4
+MAX_T38_SETUP_METHOD_SIZE	,	V_21
+t38_tpkt_reassembly	,	V_95
+"dissect_possible_rtpv2_packets_as_rtp"	,	L_48
+"t38.fragment.multiple_tails"	,	L_29
+hf_t38_fragment	,	V_113
+use_pre_corrigendum_asn1_specification	,	V_137
+"t30.hdlc"	,	L_67
+conversation_add_proto_data	,	F_9
+find_dissector	,	F_64
+FD_OVERLAPCONFLICT	,	V_48
+"Message has multiple tail fragments"	,	L_28
+dissect_t38_tcp_pdu	,	F_38
+hf_t38_setup	,	V_101
+FT_UINT32	,	V_121
+"when TPKT is used over TCP. "	,	L_56
+hf_t38_fragment_multiple_tails	,	V_117
+visited	,	V_12
+desc_comment	,	V_63
+"TCP streams\" in the TCP protocol settings."	,	L_58
+hf	,	V_106
+"t38.fragment.count"	,	L_35
+t38_conv	,	T_6
+show_setup_info	,	F_32
+fd_i	,	V_36
+hf_t38_setup_method	,	V_105
+"Message fragment overlapping with conflicting data"	,	L_26
+fd_head	,	V_35
+hf_t38_setup_frame	,	V_104
+seqnum_prev_data_field	,	V_31
+prefs_register_protocol	,	F_58
+fragment_get	,	F_12
+col_append_fstr	,	F_19
+col_set_str	,	F_28
+"Stream setup by %s (frame %u)"	,	L_10
+"ASN.1 specification (1998)."	,	L_47
+t38_udp_handle	,	V_13
+NO_ADDR2	,	V_18
+id	,	V_34
+dst_t38_info	,	V_32
+hf_t38_fragment_count	,	V_120
+item	,	V_103
+dfpos	,	V_38
+find_dissector_add_dependency	,	F_63
+"Reassemble T.38 PDUs over TPKT over TCP"	,	L_54
+p_conv	,	V_67
+it	,	V_81
+t38_info_current	,	V_54
+reass_start_seqnum	,	V_24
+col_clear	,	F_29
+dissect_IFPPacket_PDU	,	F_40
+p_t38_packet_conv_info	,	V_53
+FD_OVERLAP	,	V_47
+proto_register_subtree_array	,	F_52
+proto_tree_add_string	,	F_47
+expert_t38	,	V_133
+"t38.setup-frame"	,	L_15
+t30ind_value	,	V_60
+p_t38_conv_info	,	V_76
+pinfo	,	V_1
+Data_Field_item_num	,	V_87
+proto_t38	,	V_20
+"t38.fragment.overlap.conflicts"	,	L_27
+flags	,	V_11
+_U_	,	V_79
+type_msg	,	V_58
+octet1	,	V_80
+g_malloc	,	F_13
+"Message fragment too long"	,	L_30
+dissector_add_for_decode_as	,	F_65
+prefs_register_bool_preference	,	F_59
+table	,	V_33
+"Frame that set up this stream"	,	L_16
+find_conversation	,	F_3
+t38_tcp_handle	,	V_139
+"data"	,	L_68
+fragment_item	,	T_9
+ett_t38	,	V_88
+"Stream Method"	,	L_17
+BASE_DEC	,	V_122
+" [Malformed?]"	,	L_6
+"Method used to set up this stream"	,	L_19
+proto_item	,	T_13
+expert_register_field_array	,	F_54
+"t38.setup"	,	L_12
+"Stream setup, method and frame number"	,	L_13
+other_port	,	V_4
+time_first_t4_data	,	V_29
+"To use this option, you must also enable \"Allow subdissectors to reassemble "	,	L_57
+"t38.reassembled.length"	,	L_39
+"TPKT used over TCP"	,	L_60
+"Message fragment"	,	L_22
+"Whether the dissector should reassemble T.38 PDUs spanning multiple TCP segments "	,	L_55
+NO_PORT2	,	V_19
+"t38.fragment.too_long_fragment"	,	L_31
+data	,	V_41
+primary_part	,	V_86
+"Malformed packet"	,	L_41
+num	,	V_50
+NO_PORT_B	,	V_16
+null_addr	,	V_7
+seq_num	,	V_40
+net_src	,	V_69
+ei_register_info	,	T_17
+expert_register_protocol	,	F_53
+"UDP: UDPTLPacket "	,	L_4
+" (t4-data Reassembled: %d pack lost, %d pack burst lost)"	,	L_1
+conversation_t	,	T_5
+t38_tpkt_options	,	V_138
+FT_NONE	,	V_112
+offset	,	V_44
+ett	,	V_125
+expert_module_t	,	T_19
+FD_DEFRAGMENTED	,	V_42
+tree	,	V_78
+addresses_reassembly_table_functions	,	V_135
+PT_UDP	,	V_14
+dissect_UDPTLPacket_PDU	,	F_34
+setup_method	,	V_5
+packet_info	,	T_1
+t38_info	,	V_56
+rtp_handle	,	V_84
+"Message defragmentation error"	,	L_32
+destport	,	V_71
+proto_tree_add_uint	,	F_46
+"ITU-T Recommendation T.38"	,	L_3
+EXPFILL	,	V_131
+conversation_get_proto_data	,	F_6
+dissect_t38_udp	,	F_24
+"Reassembled in"	,	L_36
+ptype	,	V_70
+"Reassembled T38 length"	,	L_38
+packet_lost	,	V_27
+Data_Field_field_type_value	,	V_61
+"Dissect possible RTP version 2 packets with RTP dissector"	,	L_49
+"Message fragment count"	,	L_34
+wmem_file_scope	,	F_8
+addr	,	V_2
+HFILL	,	V_109
+PI_MALFORMED	,	V_129
+ett_data_fragments	,	V_127
+reass_data_type	,	V_25
+data_reassembly_table	,	V_134
+addr1	,	V_75
+wmem_new	,	F_7
+tvb_free	,	F_18
+"udp.port"	,	L_70
+gchar	,	T_3
+create_dissector_handle	,	F_62
+FT_FRAMENUM	,	V_110
+reassembled_in	,	V_49
+p_t38_conversation	,	V_98
+net_dst	,	V_68
+"t38.fragment.overlap"	,	L_25
+srcport	,	V_72
+ett_data_fragment	,	V_126
+"Whether the T.38 dissector should decode using the Pre-Corrigendum T.38 "	,	L_46
+T38_TPKT_NEVER	,	V_97
+"tcp.port"	,	L_69
+proto_tree	,	T_12

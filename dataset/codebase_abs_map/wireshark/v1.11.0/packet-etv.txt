@@ -1,0 +1,148 @@
+"Invalid reserved bits"	,	L_21
+sub_tvb	,	V_11
+msg_error	,	V_25
+ssi	,	V_18
+proto_register_protocol	,	F_19
+etv_ddb_handle	,	V_65
+"Invalid filter info"	,	L_25
+dissect_etv_common	,	F_1
+"etv-ddb.invalid_section_length"	,	L_22
+"ETV-AM DII Section"	,	L_30
+hf_etv_ddb_reserved	,	V_37
+col_append_fstr	,	F_7
+col_set_str	,	F_16
+gint	,	T_11
+proto_etv_dii	,	V_32
+dissect_etv_ddb	,	F_15
+tvb	,	V_1
+ei_dii	,	V_61
+COL_INFO	,	V_29
+proto_register_etv	,	F_18
+", Length: %u"	,	L_1
+proto_item_append_text	,	F_8
+"mpeg_sect.tid"	,	L_36
+ei_etv_ddb_filter_info	,	V_41
+"etv-dii.invalid_section_length"	,	L_28
+ei_etv_dii_invalid_reserved_bits	,	V_45
+ei_etv_ddb_invalid_reserved_bits	,	V_39
+hf_etv_dii_reserved	,	V_43
+reserved	,	V_19
+cinfo	,	V_28
+PI_ERROR	,	V_59
+proto_register_subtree_array	,	F_22
+ei_etv_dii_invalid_section_syntax_indicator	,	V_44
+array_length	,	F_21
+"Invalid section_syntax_indicator (should be 0)"	,	L_19
+items	,	V_16
+"Reserved"	,	L_14
+expert_etv_dii	,	V_62
+proto_tree_add_item	,	F_2
+call_dissector	,	F_13
+pinfo	,	V_2
+"etv-ddb.invalid_section_syntax_indicator"	,	L_18
+dissector_handle_t	,	T_14
+packet_mpeg_sect_header_extra	,	F_4
+PACKET_MPEG_SECT_PI__LENGTH	,	V_30
+"ETV-DII"	,	L_10
+ett_etv_payload	,	V_56
+expert_field	,	T_4
+"ETV DDB"	,	L_9
+"etv-ddb"	,	L_35
+hf_register_info	,	T_10
+proto_reg_handoff_etv	,	F_25
+ett_etv	,	V_24
+"Filter Info"	,	L_12
+guint16	,	T_9
+sect_len	,	V_22
+"etv-ddb.filter_info"	,	L_13
+COL_PROTOCOL	,	V_35
+hf_ddb	,	V_48
+"Invalid section_length (must not exceed 1021)"	,	L_23
+ETV_TID_DDB_SECTION	,	V_67
+"data"	,	L_38
+FT_UINT8	,	V_52
+BASE_DEC	,	V_53
+tvb_new_subset	,	F_12
+proto_item	,	T_6
+expert_register_field_array	,	F_24
+"mp2t-dsmcc"	,	L_37
+ENC_NA	,	V_23
+guint8	,	T_8
+ti	,	V_13
+expert_add_info_format	,	F_10
+proto_etv_ddb	,	V_33
+hf_filter_info	,	V_5
+hf_dii	,	V_54
+ei_etv_ddb_invalid_section_length	,	V_40
+dissect_etv_dii	,	F_17
+ei_section_syntax_indicator	,	V_7
+" Filter=0x%x"	,	L_4
+tvbuff_t	,	T_1
+dsmcc_handle	,	V_34
+ei_ddb	,	V_57
+ei_section_length	,	V_9
+tvb_get_ntohs	,	F_9
+BASE_HEX	,	V_50
+ETV_TID_DII_SECTION	,	V_66
+PROTO_ITEM_SET_GENERATED	,	F_5
+ei_register_info	,	T_12
+gboolean	,	T_7
+expert_register_protocol	,	F_23
+reserved2	,	V_20
+proto_item_add_subtree	,	F_3
+proto_register_field_array	,	F_20
+ei_etv_dii_invalid_section_length	,	V_46
+expert_etv_ddb	,	V_63
+guint	,	T_5
+"etv-dii.filter_info"	,	L_16
+offset	,	V_12
+ett	,	V_55
+PACKET_MPEG_SECT_PI__RESERVED	,	V_27
+expert_module_t	,	T_13
+dissector_add_uint	,	F_27
+tree	,	V_3
+data_handle	,	V_68
+PACKET_MPEG_SECT_PI__SIZE	,	V_17
+hf_etv_ddb_filter_info	,	V_36
+"ETV DII"	,	L_11
+FT_UINT16	,	V_49
+"ETV-AM DII"	,	L_31
+packet_info	,	T_2
+tvb_get_guint8	,	F_11
+ei_etv_dii_filter_info	,	V_47
+"etv-dii.reserved"	,	L_17
+proto	,	V_4
+"Invalid filter_info value (must be [0x0001-0xFBEF] inclusive)"	,	L_6
+"etv-dii.invalid_section_syntax_indicator"	,	L_26
+ei_reserved	,	V_8
+" Length=%u"	,	L_2
+etv_tree	,	V_15
+EXPFILL	,	V_60
+"etv-ddb.filter_info.invalid"	,	L_24
+ei_etv_ddb_invalid_section_syntax_indicator	,	V_38
+expert_add_info	,	F_6
+"ETV-AM DDB"	,	L_34
+"etv-ddb.invalid_reserved_bits"	,	L_20
+"etv-dii.filter_info.invalid"	,	L_29
+PACKET_MPEG_SECT_PI__SSI	,	V_26
+"etv-dii.invalid_reserved_bits"	,	L_27
+hf_etv_dii_filter_info	,	V_42
+", Filter: 0x%x"	,	L_3
+HFILL	,	V_51
+PI_MALFORMED	,	V_58
+ei_filter_info	,	V_10
+"Invalid reserved2 bits (should all be 0)"	,	L_7
+"etv-dii"	,	L_32
+"etv-ddb.reserved"	,	L_15
+"ETV-DDB"	,	L_8
+hf_reserved	,	V_6
+find_dissector	,	F_28
+create_dissector_handle	,	F_26
+packet_mpeg_sect_crc	,	F_14
+ENC_BIG_ENDIAN	,	V_31
+etv_dii_handle	,	V_64
+"ETV-AM DDB Section"	,	L_33
+"Invalid filter_info value (must be 0xFBFB)"	,	L_5
+pi	,	V_14
+filter_info	,	V_21
+proto_tree	,	T_3

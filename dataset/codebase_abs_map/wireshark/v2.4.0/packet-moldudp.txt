@@ -1,0 +1,147 @@
+real_msglen	,	V_11
+proto_register_protocol	,	F_20
+dissector_try_uint_new	,	F_14
+register_decode_as	,	F_27
+proto_register_moldudp	,	F_19
+tvb_reported_length	,	F_5
+"moldudp.sequence"	,	L_12
+"Invalid Message Length (claimed %u, found %u)"	,	L_3
+MOLDUDP_SESSION_LEN	,	V_30
+col_set_str	,	F_7
+gint	,	T_13
+moldudp_tree	,	V_27
+"The number of messages contained in this packet."	,	L_16
+proto_reg_handoff_moldudp	,	F_28
+tvb	,	V_4
+hf_moldudp_msgblk	,	V_18
+guint32	,	T_8
+ett_moldudp_msgblk	,	V_20
+COL_INFO	,	V_17
+"moldudp.msglen"	,	L_21
+"MoldUDP Payload"	,	L_33
+"The sequence number of this message."	,	L_24
+"moldudp.count.invalid"	,	L_30
+remaining	,	V_13
+hf_moldudp_msgseq	,	V_21
+col_clear	,	F_16
+cinfo	,	V_16
+"The session to which this packet belongs."	,	L_10
+PI_ERROR	,	V_54
+"moldudp.msgblock"	,	L_18
+"moldudp.msglen.invalid"	,	L_28
+proto_register_subtree_array	,	F_24
+hf_moldudp_msgdata	,	V_26
+"Payload as"	,	L_1
+array_length	,	F_23
+proto_moldudp	,	V_35
+"Session"	,	L_8
+next_tvb	,	V_14
+decode_as_t	,	T_18
+proto_tree_add_item	,	F_8
+MOLDUDP_SEQUENCE_LEN	,	V_31
+pinfo	,	T_2
+dissector_handle_t	,	T_19
+_U_	,	V_1
+moldudp_handle	,	V_63
+ENC_ASCII	,	V_38
+gpointer	,	T_4
+result	,	V_2
+dissector_add_for_decode_as_with_preference	,	F_30
+hf_register_info	,	T_12
+"Invalid Message Count (claimed %u, found %u)"	,	L_7
+"moldudp.msgseq"	,	L_23
+"moldudp.msgdata"	,	L_26
+guint16	,	T_10
+dissect_moldudp	,	F_15
+MOLDUDP_COUNT_LEN	,	V_32
+COL_PROTOCOL	,	V_33
+expert_moldudp	,	V_56
+"moldudp.count"	,	L_15
+BASE_DEC	,	V_47
+proto_item	,	T_9
+decode_as_default_populate_list	,	V_60
+expert_register_field_array	,	F_26
+msglen	,	V_10
+ENC_NA	,	V_19
+moldudp_da_values	,	V_58
+MAX_DECODE_AS_PROMPT_LEN	,	V_3
+ti	,	V_8
+hf_moldudp_msglen	,	V_22
+expert_add_info_format	,	F_12
+BASE_NONE	,	V_44
+"The length of this message."	,	L_22
+"A message."	,	L_19
+"The sequence number of the first message in this packet."	,	L_13
+"MoldUDP Heartbeat"	,	L_5
+build_valid_func	,	T_16
+"moldudp.payload"	,	L_34
+ENC_LITTLE_ENDIAN	,	V_23
+register_dissector_table	,	F_21
+moldudp_da_build_value	,	V_57
+dissect_moldudp_msgblk	,	F_4
+data	,	T_11
+hf_moldudp_count	,	V_40
+"Message Block"	,	L_17
+tvbuff_t	,	T_6
+ei_moldudp_msglen_invalid	,	V_24
+"Count"	,	L_14
+PROTO_ITEM_SET_GENERATED	,	F_11
+ei_register_info	,	T_14
+decode_as_default_reset	,	V_61
+expert_register_protocol	,	F_25
+decode_as_default_change	,	V_62
+proto_item_add_subtree	,	F_9
+tvb_get_letohl	,	F_17
+"Invalid Message Length"	,	L_29
+proto_register_field_array	,	F_22
+tvb_get_letohs	,	F_6
+FT_BYTES	,	V_50
+hf_moldudp_session	,	V_37
+moldudp_value	,	F_3
+MOLDUDP_MSGLEN_LEN	,	V_15
+guint	,	T_5
+FT_NONE	,	V_49
+"Length"	,	L_20
+offset	,	V_6
+ett	,	V_51
+ei	,	V_52
+expert_module_t	,	T_15
+tree	,	V_5
+count	,	V_28
+whole_len	,	V_12
+"Sequence"	,	L_11
+FT_UINT16	,	V_48
+packet_info	,	T_1
+sequence	,	V_7
+tvb_captured_length	,	F_18
+"Invalid Count"	,	L_31
+proto_tree_add_uint	,	F_10
+EXPFILL	,	V_55
+real_count	,	V_29
+"MoldUDP Messages"	,	L_6
+ei_moldudp_count_invalid	,	V_41
+"MoldUDP Messages (End Of Session)"	,	L_2
+MOLDUDP_HEARTBEAT	,	V_34
+"Payload"	,	L_25
+g_snprintf	,	F_2
+tvb_new_subset_length	,	F_13
+FT_STRING	,	V_43
+"moldudp.session"	,	L_9
+"The payload data of this message."	,	L_27
+HFILL	,	V_45
+PI_MALFORMED	,	V_53
+moldudp_payload_table	,	V_25
+moldudp_prompt	,	F_1
+"MoldUDP"	,	L_4
+hf_moldudp_sequence	,	V_39
+"udp.port"	,	L_35
+gchar	,	T_3
+blk_tree	,	V_9
+create_dissector_handle	,	F_29
+ett_moldudp	,	V_36
+moldudp_da	,	V_59
+"moldudp"	,	L_32
+FT_UINT32	,	V_46
+decode_as_value_t	,	T_17
+proto_tree	,	T_7
+hf	,	V_42

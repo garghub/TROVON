@@ -1,0 +1,139 @@
+proto_reg_handoff_carp	,	F_29
+"carp"	,	L_37
+proto_register_protocol	,	F_25
+"CARP version and type"	,	L_10
+tvb_reported_length	,	F_17
+hf_carp_type	,	V_26
+FT_UINT64	,	V_43
+col_set_str	,	F_8
+gint	,	T_14
+"Common Address Redundancy Protocol"	,	L_36
+"Time interval (in seconds) between ADVERTISEMENTS"	,	L_28
+"carp.authlen"	,	L_22
+"carp_ip"	,	L_41
+proto_tree_add_uint_format	,	F_13
+carp_handle	,	V_49
+tvb	,	V_1
+CARP_VERSION_MASK	,	V_41
+COL_INFO	,	V_19
+"carp.vhid"	,	L_18
+"HMAC"	,	L_31
+vec_t	,	T_10
+proto_item_append_text	,	F_20
+"Counter"	,	L_29
+version	,	V_4
+"Virtual Host ID"	,	L_17
+dissect_carp_heur	,	F_22
+test_carp_packet	,	F_1
+col_clear	,	F_9
+cinfo	,	V_17
+ett_carp_ver_type	,	V_24
+"carp.checksum"	,	L_35
+proto_register_subtree_array	,	F_28
+"CARP message version and type"	,	L_8
+array_length	,	F_27
+" [correct]"	,	L_6
+carp_type_vals	,	V_6
+carp_tree	,	V_13
+"Checksum"	,	L_34
+"CARP over IP"	,	L_40
+carp_len	,	V_8
+proto_tree_add_item	,	F_11
+in_cksum	,	F_19
+pinfo	,	T_4
+col_add_fstr	,	F_10
+dissector_handle_t	,	T_15
+cksum	,	V_15
+_U_	,	V_2
+hf_carp_hmac	,	V_36
+computed_cksum	,	V_16
+hf_register_info	,	T_13
+VALS	,	F_24
+"carp.demotion"	,	L_25
+SET_CKSUM_VEC_TVB	,	F_18
+guint16	,	T_12
+COL_PROTOCOL	,	V_18
+in_cksum_shouldbe	,	F_21
+"%s (Virtual Host ID: %u)"	,	L_2
+FT_UINT8	,	V_38
+"ip"	,	L_39
+BASE_DEC	,	V_39
+proto_item	,	T_11
+auth_length	,	V_5
+try_val_to_str	,	F_5
+ver_type_tree	,	V_14
+proto_carp	,	V_20
+ENC_NA	,	V_21
+"Advertisment Skew"	,	L_19
+guint8	,	T_8
+hf_carp_checksum	,	V_33
+"carp.hmac"	,	L_32
+ti	,	V_11
+BASE_NONE	,	V_45
+"CARP"	,	L_1
+hf_carp_ver_type	,	V_23
+vhid	,	V_9
+"Announcement"	,	L_3
+tv	,	V_12
+"Version %u, Packet type %u (%s)"	,	L_4
+data	,	T_7
+"CARP type"	,	L_16
+tvbuff_t	,	T_2
+tvb_get_ntohs	,	F_16
+BASE_HEX	,	V_47
+"carp.adver_int"	,	L_27
+gboolean	,	T_1
+proto_item_add_subtree	,	F_12
+"carp.version"	,	L_12
+fragmented	,	V_34
+proto_register_field_array	,	F_26
+"Size of counter+hash in 32bit chunks"	,	L_23
+FT_BYTES	,	V_44
+guint	,	T_9
+offset	,	V_7
+ett	,	V_48
+"CARP packet type"	,	L_14
+dissector_add_uint	,	F_31
+"CARP version"	,	L_13
+tree	,	T_6
+lo_nibble	,	F_6
+FT_UINT16	,	V_46
+packet_info	,	T_3
+hi_nibble	,	F_4
+"ip.proto"	,	L_38
+tvb_get_guint8	,	F_3
+tvb_captured_length	,	F_2
+"carp.type"	,	L_15
+"Adver Int"	,	L_26
+hf_carp_advbase	,	V_32
+hf_carp_counter	,	V_35
+"carp.typever"	,	L_9
+proto_tree_add_uint	,	F_15
+hf_carp_demotion	,	V_31
+hf_carp_authlen	,	V_30
+heur_dissector_add	,	F_32
+ver_type	,	V_3
+HEURISTIC_ENABLE	,	V_51
+CARP_TYPE_MASK	,	V_42
+"Demotion indicator"	,	L_24
+" [incorrect, should be 0x%04x]"	,	L_7
+HFILL	,	V_40
+"carp.counter"	,	L_30
+dissect_carp	,	F_7
+hf_carp_vhid	,	V_27
+val_to_str_const	,	F_14
+"SHA-1 HMAC"	,	L_33
+create_dissector_handle	,	F_30
+cksum_vec	,	V_10
+"carp.advskew"	,	L_20
+ENC_BIG_ENDIAN	,	V_28
+proto_register_carp	,	F_23
+ett_carp	,	V_22
+hf_carp_version	,	V_25
+"Unknown"	,	L_5
+"CARP protocol version"	,	L_11
+proto_tree	,	T_5
+hf_carp_advskew	,	V_29
+hf	,	V_37
+IP_PROTO_VRRP	,	V_50
+"Auth Len"	,	L_21

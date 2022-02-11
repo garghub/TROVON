@@ -1,0 +1,177 @@
+"Bogus ESIS length (%u, must be &gt;= %u)"	,	L_8
+tmpl	,	V_16
+type_item	,	V_25
+proto_register_protocol	,	F_26
+esis_handle	,	V_75
+CKSUM_OK	,	V_48
+hf_esis_type	,	V_43
+nlpid_vals	,	V_59
+"Version"	,	L_21
+len	,	V_1
+"Number of Source Addresses (SA, Format: NSAP)"	,	L_32
+"esis.ver.unknown"	,	L_48
+"BSNPAL"	,	L_40
+col_set_str	,	F_15
+gint	,	T_8
+hf_esis_sal	,	V_12
+"%2u Octets"	,	L_1
+expert_esis	,	V_73
+variable_len	,	V_27
+ESIS_ESH_PDU	,	V_52
+"ESIS"	,	L_7
+"esis.bsnpal"	,	L_41
+"esis.da"	,	L_45
+tvb	,	V_2
+"esis"	,	L_54
+COL_INFO	,	V_33
+"Unknown ESIS version"	,	L_49
+"esis.res"	,	L_24
+CKSUM_NOT_OK	,	V_49
+"osinl.incl"	,	L_55
+"###  Subnetwork Address Section ###"	,	L_5
+proto_esis	,	V_34
+ett_esis_area_addr	,	V_11
+version	,	V_23
+"esis.dal"	,	L_39
+dissect_esis	,	F_14
+calc_checksum	,	F_19
+col_clear	,	F_16
+ett_esis	,	V_35
+cinfo	,	V_31
+PI_ERROR	,	V_72
+proto_register_subtree_array	,	F_29
+hf_esis_netl	,	V_14
+proto_tree_add_string	,	F_11
+val_to_str	,	F_22
+hf_esis_da	,	V_18
+array_length	,	F_28
+"Checksum"	,	L_30
+hf_esis_bsnpa	,	V_20
+proto_tree_add_item	,	F_13
+"0x%x ( %s )"	,	L_15
+"SAL"	,	L_34
+ESIS_REQUIRED_VERSION	,	V_40
+pinfo	,	V_22
+dissector_handle_t	,	T_11
+proto_reg_handoff_esis	,	F_33
+"esis.length.invalid"	,	L_50
+"DAL"	,	L_38
+esis_dissect_esh_pdu	,	F_1
+esis_dissect_redirect_pdu	,	F_12
+"esis.type"	,	L_26
+"esis.chksum"	,	L_31
+"%u seconds"	,	L_10
+NO_CKSUM	,	V_46
+"Network Layer Protocol Identifier"	,	L_17
+"### Network Entity Title Section ###"	,	L_3
+"esis.net"	,	L_43
+hf_register_info	,	T_7
+"Holding Time"	,	L_27
+"Not Used"	,	L_11
+hf_esis_number_of_source_addresses	,	V_10
+"PDU Length"	,	L_19
+ESIS_RD_PDU	,	V_54
+VALS	,	F_25
+netl	,	V_13
+holdtime	,	V_28
+"BSNPA"	,	L_46
+PI_PROTOCOL	,	V_68
+PROTO_STRING_ESIS	,	V_74
+guint16	,	T_6
+cksum_status	,	V_30
+COL_PROTOCOL	,	V_32
+"NET"	,	L_42
+DATA_MISSING	,	V_47
+esis_tree	,	V_26
+hf_esis_reserved	,	V_42
+FT_UINT8	,	V_57
+proto_tree_add_text	,	F_6
+BASE_DEC	,	V_61
+proto_item	,	T_4
+expert_register_field_array	,	F_31
+"Unknown (0x%x)"	,	L_16
+hf_esis_holdtime	,	V_45
+ENC_NA	,	V_21
+hf_esis_nlpi	,	V_36
+guint8	,	T_1
+"Unknown ESIS packet type"	,	L_53
+ti	,	V_8
+expert_add_info_format	,	F_17
+BASE_NONE	,	V_64
+"Is wrong"	,	L_14
+NLPID_ISO9542_ESIS	,	V_76
+register_dissector	,	F_32
+"esis.ver"	,	L_22
+"Unknown ESIS version (%u vs %u)"	,	L_9
+"esis.netl"	,	L_37
+tvbuff_t	,	T_2
+ei_esis_length	,	V_38
+tvb_get_ntohs	,	F_18
+ei_esis_type	,	V_55
+proto_register_esis	,	F_24
+" SA: %s"	,	L_2
+hf_esis_checksum	,	V_50
+BASE_HEX	,	V_58
+col_add_str	,	F_21
+ei_register_info	,	T_9
+expert_register_protocol	,	F_30
+proto_item_add_subtree	,	F_4
+hf_esis_bsnpal	,	V_19
+proto_register_field_array	,	F_27
+offset	,	V_5
+ett	,	V_66
+ei	,	V_67
+DISSECTOR_ASSERT_NOT_REACHED	,	F_20
+expert_module_t	,	T_10
+dissector_add_uint	,	F_35
+tree	,	V_3
+"esis.sal"	,	L_35
+"esis.number_of_source_addresses"	,	L_33
+OSI_PDU_TYPE_MASK	,	V_44
+tvb_get_ptr	,	F_8
+FT_UINT16	,	V_62
+esis_dissect_ish_pdu	,	F_10
+packet_info	,	T_5
+"s"	,	L_29
+tvb_get_guint8	,	F_2
+esis_vals	,	V_51
+ESIS_ISH_PDU	,	V_53
+FT_SYSTEM_ID	,	V_65
+proto_tree_add_uint	,	F_3
+"Not checkable - not all of packet was captured"	,	L_12
+EXPFILL	,	V_70
+"NETL"	,	L_36
+"esis.bsnpa"	,	L_47
+hf_esis_length	,	V_37
+"### No Network Entity Title Section ###"	,	L_6
+hf_esis_version	,	V_39
+expert_add_info	,	F_23
+"esis.nlpi"	,	L_18
+hf_esis_dal	,	V_17
+"Reserved(==0)"	,	L_23
+"esis.length"	,	L_20
+no_sa	,	V_6
+"esis.type.unknown"	,	L_52
+FT_STRING	,	V_63
+hf_esis_net	,	V_15
+checksum	,	V_29
+"Bogus ESIS length"	,	L_51
+HFILL	,	V_60
+PI_MALFORMED	,	V_71
+esis_area_tree	,	V_4
+print_nsap_net	,	F_7
+sal	,	V_7
+dissect_osi_options	,	F_9
+"Is good"	,	L_13
+length	,	V_24
+find_dissector	,	F_34
+PI_WARN	,	V_69
+proto_tree_add_uint_format_value	,	F_5
+ei_esis_version	,	V_41
+"esis.htime"	,	L_28
+ESIS_HDR_FIXED_LENGTH	,	V_9
+"DA"	,	L_44
+"### Destination Address Section ###"	,	L_4
+proto_tree	,	T_3
+hf	,	V_56
+"PDU Type"	,	L_25

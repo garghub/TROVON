@@ -1,0 +1,106 @@
+proto_register_protocol	,	F_16
+"Source Node"	,	L_19
+set_actual_length	,	F_8
+tvb_new_subset_remaining	,	F_11
+"%u bytes"	,	L_2
+col_set_str	,	F_2
+FT_ETHER	,	V_40
+gint	,	T_8
+hf_idp_snode	,	V_27
+tvb	,	V_1
+idp_handle	,	V_44
+hf_idp_dsocket	,	V_25
+COL_INFO	,	V_10
+idp_tree	,	V_4
+col_clear	,	F_3
+cinfo	,	V_8
+"Internetwork Datagram Protocol"	,	L_23
+proto_register_idp	,	F_14
+proto_register_subtree_array	,	F_19
+"Transport Control (Hops)"	,	L_7
+"Destination Network"	,	L_11
+array_length	,	F_18
+"Checksum"	,	L_3
+next_tvb	,	V_7
+"idp"	,	L_24
+hf_idp_dnet	,	V_22
+proto_tree_add_item	,	F_4
+call_dissector	,	F_13
+pinfo	,	V_2
+dissector_handle_t	,	T_9
+hf_idp_dnode	,	V_23
+"idp.src.net"	,	L_18
+"ethertype"	,	L_26
+"idp.dst.socket"	,	L_16
+ett_idp	,	V_14
+"IDP"	,	L_1
+"idp.len"	,	L_6
+"idp.hops"	,	L_8
+hf_register_info	,	T_7
+"Destination Socket"	,	L_15
+hf_idp_len	,	V_17
+VALS	,	F_15
+hf_idp_checksum	,	V_15
+"idp.src.node"	,	L_20
+guint16	,	T_5
+COL_PROTOCOL	,	V_9
+hf_idp_packet_type	,	V_19
+idp_type_dissector_table	,	V_30
+"data"	,	L_28
+IDP_HEADER_LEN	,	V_12
+FT_UINT8	,	V_37
+BASE_DEC	,	V_36
+proto_item	,	T_4
+"Source Network"	,	L_17
+ENC_NA	,	V_13
+guint8	,	T_6
+"Destination Node"	,	L_13
+proto_reg_handoff_idp	,	F_21
+ti	,	V_5
+BASE_NONE	,	V_41
+hf_idp_ssocket	,	V_29
+idp_socket_vals	,	V_42
+register_dissector_table	,	F_20
+"Packet Type"	,	L_9
+"idp.packet_type"	,	L_10
+tvbuff_t	,	T_1
+"Source Socket"	,	L_21
+ETHERTYPE_XNS_IDP	,	V_45
+tvb_get_ntohs	,	F_6
+BASE_HEX	,	V_34
+PT_IDP	,	V_21
+proto_item_add_subtree	,	F_5
+proto_idp	,	V_11
+idp_packet_type_vals	,	V_38
+proto_register_field_array	,	F_17
+"Length"	,	L_5
+ett	,	V_43
+dissector_add_uint	,	F_23
+tree	,	V_3
+data_handle	,	V_31
+FT_UINT16	,	V_33
+packet_info	,	T_2
+tvb_get_guint8	,	F_9
+hf_idp	,	V_32
+destport	,	V_24
+"IDP packet type"	,	L_25
+proto_tree_add_uint	,	F_10
+"idp.checksum"	,	L_4
+ptype	,	V_20
+"chdlc.protocol"	,	L_27
+hf_idp_hops	,	V_18
+"idp.dst.node"	,	L_14
+HFILL	,	V_35
+hf_idp_snet	,	V_26
+dissector_try_uint	,	F_12
+length	,	V_6
+find_dissector	,	F_24
+dissect_idp	,	F_1
+create_dissector_handle	,	F_22
+proto_tree_add_uint_format_value	,	F_7
+ENC_BIG_ENDIAN	,	V_16
+"idp.src.socket"	,	L_22
+FT_UINT32	,	V_39
+srcport	,	V_28
+proto_tree	,	T_3
+"idp.dst.net"	,	L_12

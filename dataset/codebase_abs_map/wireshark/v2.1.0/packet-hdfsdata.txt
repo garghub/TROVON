@@ -1,0 +1,221 @@
+"HDFSDATA source node"	,	L_19
+hf_hdfsdata_tokenservice	,	V_21
+proto_register_protocol	,	F_25
+"hdfsdata.timestamp"	,	L_10
+READ_RESP_HEAD_LEN	,	V_74
+byte_count	,	V_5
+tvb_reported_length	,	F_15
+hf_hdfsdata_rest	,	V_51
+ett_hdfsdata	,	V_68
+len	,	V_10
+tcp_dissect_pdus	,	F_23
+"HDFSDATA access token type"	,	L_37
+gint	,	T_13
+READ_OP	,	V_56
+FINISH_REQ_LEN	,	V_72
+hf_hdfsdata_blockid	,	V_46
+"HDFSDATA Protocol"	,	L_70
+tvb	,	V_2
+guint32	,	T_5
+COL_INFO	,	V_65
+"HDFSDATA client id length"	,	L_25
+proto_hdfsdata	,	V_67
+"HDFSDATA chunk size"	,	L_45
+"hdfsdata.crc32"	,	L_59
+size	,	V_9
+cinfo	,	V_63
+"HDFSDATA node object"	,	L_23
+array_length	,	F_27
+"HDFSDATA block length"	,	L_13
+hf_hdfsdata_node	,	V_42
+"hdfsdata.datalen"	,	L_57
+ENC_ASCII	,	V_15
+hdfsdata_handle	,	V_97
+hf_hdfsdata_pipelinestatus	,	V_70
+hf_hdfsdata_chunksize	,	V_34
+dissect_access_tokens	,	F_6
+hf_register_info	,	T_12
+"hdfsdata.version"	,	L_4
+hf_hdfsdata_chunklength	,	V_49
+CHUNKSIZE_START	,	V_28
+need_reassemble	,	V_77
+b	,	V_13
+COL_PROTOCOL	,	V_64
+hf_hdfsdata_pipelinenum	,	V_38
+dissect_write_request_end	,	F_12
+"HDFSDATA block id"	,	L_7
+MIN_WRITE_REQ	,	V_57
+i	,	V_7
+"Set the TCP port for HDFSDATA"	,	L_74
+guint8	,	T_10
+ti	,	V_66
+"HDFSDATA start offset"	,	L_11
+BASE_NONE	,	V_89
+hf_hdfsdata_end	,	V_73
+"HDFSDATA protocol version"	,	L_3
+"HDFSDATA last packet in block"	,	L_55
+hf_hdfsdata_sourcenode	,	V_40
+"HDFSDATA sequence number"	,	L_53
+proto_register_hdfsdata	,	F_24
+dissect_read_response_start	,	F_9
+register_dissector	,	F_31
+"hdfsdata.pipelinenum"	,	L_16
+tvb_get_ntohl	,	F_8
+"hdfsdata.tokenlen"	,	L_32
+tvbuff_t	,	T_3
+hf_hdfsdata_timestamp	,	V_47
+"HDFSDATA access token service"	,	L_39
+tvb_get_ntohs	,	F_22
+gboolean	,	T_11
+"hdfsdata.recovery"	,	L_18
+"HDFSDATA access token length"	,	L_31
+proto_item_add_subtree	,	F_19
+module_t	,	T_14
+"hdfsdata.currentpipline"	,	L_22
+"HDFSDATA chunk length"	,	L_64
+proto_register_field_array	,	F_26
+"hdfsdata.packetsize"	,	L_63
+hf_hdfsdata_clientlen	,	V_11
+dissector_add_uint	,	F_34
+get_hdfsdata_message_len	,	F_16
+dissect_variable_int_string	,	F_5
+FT_UINT16	,	V_82
+"HDFSDATA chunk offset"	,	L_47
+"HDFSDATA client id"	,	L_27
+tvb_get_guint8	,	F_3
+FT_INT8	,	V_90
+tvb_captured_length	,	F_20
+"hdfsdata.pipelinestatus"	,	L_69
+hf_hdfsdata_blocklen	,	V_37
+"hdfsdata.blocklen"	,	L_14
+idx	,	V_6
+dissect_header	,	F_13
+"HDFSDATA timestamp"	,	L_9
+dissector_delete_uint	,	F_33
+hf_hdfsdata_checksumtype	,	V_33
+END_PACKET_LEN	,	V_53
+hf_hdfsdata_cmd	,	V_45
+"hdfsdata.tokenpassword"	,	L_36
+"hdfsdata.datalength"	,	L_50
+gint8	,	T_1
+"hdfsdata.sourcenode"	,	L_20
+hf_hdfsdata_packetsize	,	V_48
+CRC_SIZE	,	V_30
+dissect_write_response	,	F_14
+saved_tcp_port	,	V_99
+"HDFS Data"	,	L_2
+FT_STRING	,	V_88
+WRITE_RESP_HEAD_LEN	,	V_54
+FT_INT32	,	V_91
+proto_reg_handoff_hdfsdata	,	V_95
+"HDFSDATA access token password"	,	L_35
+dissect_variable_length_long	,	F_2
+hf_hdfsdata_currentpipeline	,	V_41
+hf_hdfsdata_last	,	V_26
+"HDFSDATA in block offset"	,	L_51
+ENC_BIG_ENDIAN	,	V_12
+FIRST_READ_FRAGMENT_LEN	,	V_59
+"hdfsdata.status"	,	L_42
+hf_hdfsdata_version	,	V_44
+FT_UINT32	,	V_87
+WRITE_OP	,	V_58
+"hdfsdata.chunksize"	,	L_46
+"HDFSDATA access token ID"	,	L_33
+hf	,	V_81
+"hdfsdata.inblockoffset"	,	L_52
+dissect_hdfsdata	,	F_21
+frame_header_len	,	V_76
+"HDFSDATA pipeline status"	,	L_68
+"HDFSDATA status code"	,	L_41
+prefs_register_protocol	,	F_29
+LAST_READ_FRAGMENT_LEN	,	V_61
+dissect_write_request	,	F_11
+hf_hdfsdata_startoffset	,	V_36
+chunksize	,	V_22
+FT_UINT64	,	V_86
+col_set_str	,	F_18
+hf_hdfsdata_tokenlen	,	V_17
+hf_hdfsdata_tokentype	,	V_20
+hf_hdfsdata_tokenpassword	,	V_19
+"hdfsdata.startoffset"	,	L_12
+"hdfsdata.end"	,	L_30
+"HDFSDATA length of data"	,	L_49
+"hdfsdata.clientid"	,	L_28
+proto_register_subtree_array	,	F_28
+STATUS_SUCCESS	,	V_79
+"HDFSDATA end data request"	,	L_29
+hdfsdata_module	,	V_94
+"hdfsdata.last"	,	L_56
+proto_tree_add_item	,	F_4
+pinfo	,	T_7
+_U_	,	V_52
+hf_hdfsdata_crc32	,	V_31
+hf_hdfsdata_chunkoffset	,	V_35
+"TCP port for HDFSDATA"	,	L_73
+"HDFSDATA recovery boolean"	,	L_17
+first_byte	,	V_8
+WRITE_REQ_HEAD_LEN	,	V_80
+"hdfsdata.tokenid"	,	L_34
+initialized	,	V_98
+dissector_add_for_decode_as	,	F_32
+"hdfsdata.clientlen"	,	L_26
+"hdfsdata.tokenservice"	,	L_40
+hf_hdfsdata_inblockoffset	,	V_24
+only_packet	,	V_78
+"HDFSDATA data"	,	L_60
+SECOND_READ_FRAGMENT_LEN	,	V_60
+FT_UINT8	,	V_85
+hf_hdfsdata_datalen	,	V_27
+BASE_DEC	,	V_83
+PIPELINE_LEN	,	V_69
+proto_item	,	T_9
+ENC_NA	,	V_16
+"HDFSDATA current number of nodes in the pipeline"	,	L_21
+hdfsdata_tree	,	V_3
+"hdfsdata.rest"	,	L_61
+"hdfsdata.blockid"	,	L_8
+FT_INT64	,	V_92
+tcp_port	,	V_96
+decode_vint_size	,	F_1
+"hdfsdata.checksumtype"	,	L_44
+data	,	T_8
+"HDFSDATA crc32 checksum"	,	L_58
+"hdfsdata"	,	L_71
+"hdfsdata.chunkoffset"	,	L_48
+prefs_register_uint_preference	,	F_30
+hf_hdfsdata_seqnum	,	V_25
+hf_hdfsdata_tokenid	,	V_18
+guint	,	T_2
+offset	,	V_4
+ett	,	V_93
+hf_hdfsdata_crc64	,	V_50
+tree	,	V_62
+MIN_READ_REQ	,	V_55
+dissect_read_request	,	F_10
+"hdfsdata.crc64"	,	L_67
+packet_info	,	T_6
+"hdfsdata.cmd"	,	L_6
+CRC	,	V_29
+hf_hdfsdata_clientid	,	V_14
+"hdfsdata.chunklength"	,	L_65
+"hdfsdata.seqnum"	,	L_54
+"hdfsdata.node"	,	L_24
+HFILL	,	V_84
+value	,	V_1
+hf_hdfsdata_datalength	,	V_23
+op	,	V_75
+"HDFSDATA checksum type"	,	L_43
+dissect_read_response	,	F_7
+dissect_hdfsdata_message	,	F_17
+hf_hdfsdata_recovery	,	V_39
+hf_hdfsdata_status	,	V_32
+"HDFSDATA command"	,	L_5
+"hdfsdata.tokentype"	,	L_38
+STATUS_LEN	,	V_71
+command	,	V_43
+"HDFSDATA"	,	L_1
+"HDFSDATA crc64 checksum"	,	L_66
+"HDFSDATA number in pipeline"	,	L_15
+"tcp.port"	,	L_72
+proto_tree	,	T_4
+"HDFSDATA packet size"	,	L_62

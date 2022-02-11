@@ -1,0 +1,180 @@
+expert_btatt	,	V_66
+"btatt.length"	,	L_50
+proto_register_protocol	,	F_19
+"Error Code"	,	L_38
+", Attribute List Length: %u"	,	L_14
+prefs_register_protocol	,	F_26
+hf_btatt_uuid128	,	V_35
+uuid_vals_ext	,	V_37
+"BT ATT"	,	L_65
+"Handle"	,	L_24
+col_append_fstr	,	F_9
+ei_btatt_handle_too_few	,	V_44
+BASE_EXT_STRING	,	V_57
+"btatt.offset"	,	L_53
+"btatt.handle.too_few"	,	L_62
+col_set_str	,	F_2
+"btatt.uuid16"	,	L_41
+gint	,	T_9
+"Flags"	,	L_54
+"btatt.handle_in_error"	,	L_37
+"ATT"	,	L_1
+tvb	,	V_1
+item	,	V_7
+ltree	,	V_9
+COL_INFO	,	V_15
+module	,	V_49
+"btatt.flags"	,	L_55
+proto_item_append_text	,	F_15
+BTL2CAP_FIXED_CID_ATT	,	V_69
+hf_btatt_offset	,	V_43
+cinfo	,	V_11
+proto_register_subtree_array	,	F_23
+array_length	,	F_22
+hf_btatt_sign_counter	,	V_47
+"UUID"	,	L_40
+hf_btatt_server_rx_mtu	,	V_28
+"Group End Handle"	,	L_30
+proto_tree_add_item	,	F_6
+"Length of Handle/Value Pair"	,	L_51
+" (%s)"	,	L_13
+pinfo	,	V_2
+col_add_fstr	,	F_4
+"btatt.uuid_format"	,	L_48
+"0x%04x "	,	L_19
+_U_	,	V_4
+"Request Opcode in Error"	,	L_34
+new_register_dissector	,	F_20
+"btatt.signature"	,	L_59
+"btatt.starting_handle"	,	L_27
+"Value"	,	L_32
+col_append_str	,	F_16
+", Handle: 0x%04x, Offset: %u"	,	L_17
+hf_btatt_client_rx_mtu	,	V_27
+" - %s, Handle: 0x%04x"	,	L_7
+"Version of protocol supported by this dissector."	,	L_69
+hf_register_info	,	T_8
+VALS	,	F_18
+"Attribute Data, Handle: 0x%04x"	,	L_15
+"btatt.error_code"	,	L_39
+"Sign Counter"	,	L_56
+PI_PROTOCOL	,	V_63
+st	,	V_8
+", %s"	,	L_21
+prefs_register_static_text_preference	,	F_27
+COL_PROTOCOL	,	V_12
+FT_UINT8	,	V_51
+proto_tree_add_text	,	F_14
+BASE_DEC	,	V_58
+proto_item	,	T_5
+", Handle: 0x%04x"	,	L_16
+expert_register_field_array	,	F_25
+"btatt.uuid_format.unknown"	,	L_60
+"Bluetooth Attribute Protocol"	,	L_64
+ENC_NA	,	V_18
+guint8	,	T_6
+"btatt.uuid128"	,	L_42
+"btl2cap.cid"	,	L_71
+ti	,	V_6
+hf_btatt_uuid_format	,	V_32
+BASE_NONE	,	V_56
+hf_btatt_req_opcode_in_error	,	V_23
+hf_btatt_handle_in_error	,	V_24
+tvb_length_remaining	,	F_5
+ENC_LITTLE_ENDIAN	,	V_21
+", Client Rx MTU: %u"	,	L_8
+"att.version"	,	L_67
+"%s"	,	L_5
+data	,	T_4
+"Attribute Data, Handle: 0x%04x, Group End Handle: 0x%04x"	,	L_20
+"Rcvd "	,	L_3
+tvbuff_t	,	T_1
+hf_btatt_ending_handle	,	V_30
+"Starting Handle"	,	L_26
+"Ending Handle"	,	L_28
+"Client Rx MTU"	,	L_43
+opcode	,	V_10
+val_to_str_ext_const	,	F_13
+BASE_HEX	,	V_52
+col_add_str	,	F_3
+ei_register_info	,	T_10
+expert_register_protocol	,	F_24
+proto_item_add_subtree	,	F_7
+"btatt.value"	,	L_33
+module_t	,	T_7
+", Handles: "	,	L_18
+proto_register_field_array	,	F_21
+tvb_get_letohs	,	F_11
+FT_BYTES	,	V_55
+hf_btatt_value	,	V_38
+"btatt.server_rx_mtu"	,	L_46
+"Length"	,	L_49
+offset	,	V_5
+ett	,	V_61
+ei	,	V_62
+"Bluetooth Protocol ATT version from Core 4.0"	,	L_68
+"Sent "	,	L_2
+P2P_DIR_RECV	,	V_16
+expert_module_t	,	T_11
+proto_reg_handoff_btatt	,	F_28
+dissector_add_uint	,	F_29
+tree	,	V_3
+format	,	V_31
+hf_btatt_length	,	V_42
+"Opcode"	,	L_22
+hf_btatt_uuid16	,	V_34
+"Unknown format"	,	L_61
+btatt_handle	,	V_67
+", %s, Handles: 0x%04x..0x%04x"	,	L_11
+FT_UINT16	,	V_54
+packet_info	,	T_2
+tvb_get_guint8	,	F_8
+"Offset"	,	L_52
+"Handle in Error"	,	L_36
+"btatt.group_end_handle"	,	L_31
+EXPFILL	,	V_65
+"btatt.client_rx_mtu"	,	L_44
+uuid_format_vals	,	V_59
+dissect_btatt	,	F_1
+"Unknown direction %d "	,	L_4
+"UUID Format"	,	L_47
+expert_add_info	,	F_12
+BTL2CAP_PSM_ATT	,	V_68
+ett_btatt_list	,	V_39
+proto_register_btatt	,	F_17
+"btatt"	,	L_66
+hf_btatt_opcode	,	V_20
+"Signature"	,	L_58
+error_vals	,	V_25
+"btatt.opcode"	,	L_23
+"&lt;unknown&gt;"	,	L_6
+hf_btatt_flags	,	V_46
+hf_btatt_signature	,	V_48
+P2P_DIR_SENT	,	V_14
+HFILL	,	V_53
+opcode_vals	,	V_22
+p2p_dir	,	V_13
+"btl2cap.psm"	,	L_70
+", Server Rx MTU: %u"	,	L_9
+"btatt.req_opcode_in_error"	,	L_35
+val_to_str_const	,	F_10
+hf_btatt_starting_handle	,	V_29
+ett_btatt	,	V_19
+length	,	V_41
+PI_WARN	,	V_64
+"btatt.ending_handle"	,	L_29
+hf_btatt_handle	,	V_33
+flags_vals	,	V_45
+FT_UINT32	,	V_60
+"btatt.sign_counter"	,	L_57
+"Handles Info, Handle: 0x%04x, Group End Handle: 0x%04x"	,	L_12
+"btatt.handle"	,	L_25
+proto_btatt	,	V_17
+"Server Rx MTU"	,	L_45
+"Too few handles, should be 2 or more"	,	L_63
+hf_btatt_error_code	,	V_26
+proto_tree	,	T_3
+hf_btatt_group_end_handle	,	V_40
+hf	,	V_50
+", Handles: 0x%04x..0x%04x"	,	L_10
+ei_btatt_uuid_format_unknown	,	V_36

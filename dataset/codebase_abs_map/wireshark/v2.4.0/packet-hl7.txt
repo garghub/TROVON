@@ -1,0 +1,185 @@
+new_tvb	,	V_64
+field_number	,	V_10
+field_str	,	V_25
+tvb_get_string_enc	,	F_10
+field_separator	,	V_12
+proto_register_protocol	,	F_38
+prefs_register_protocol	,	F_44
+tvb_reported_length	,	F_23
+TCP_PORT_HL7	,	V_69
+tvb_new_subset_remaining	,	F_26
+len	,	V_38
+col_append_fstr	,	F_18
+"Health Level Seven"	,	L_32
+gint	,	T_6
+col_set_str	,	F_16
+"display_llp"	,	L_39
+escape_character	,	V_15
+"hl7.malformed"	,	L_30
+end_of_segment_offset	,	V_8
+tvb	,	V_3
+ett_hl7_segment	,	V_33
+COL_INFO	,	V_45
+"HL7 over TCP"	,	L_14
+hidden_item	,	V_18
+proto_item_append_text	,	F_21
+desegment_offset	,	V_59
+proto_register_hl7	,	F_37
+message_type	,	V_11
+col_set_fence	,	F_20
+tvb_find_guint16	,	F_25
+tvb_reported_length_remaining	,	F_24
+segment_len	,	V_7
+"Display LLP markers (Start/End Of Block)"	,	L_40
+col_clear	,	F_17
+parse_msh	,	F_2
+cinfo	,	V_43
+proto_register_subtree_array	,	F_41
+segment_consumed	,	V_28
+subcomponent_separator	,	V_16
+"MSH must have at least 9 fields"	,	L_2
+eob_offset	,	V_40
+array_length	,	F_40
+tvb_find_line_end	,	F_4
+"hl7.raw"	,	L_18
+field_len	,	V_27
+tvb_offset	,	V_37
+hl7_msg_type_vals	,	V_47
+proto_tree_add_item	,	F_7
+"hl7.segment"	,	L_26
+pinfo	,	T_4
+"raw message"	,	L_17
+"Unknown Segment"	,	L_4
+_U_	,	V_4
+"Segments must be terminated with CR"	,	L_1
+ENC_ASCII	,	V_20
+hl7_seg_type_vals	,	V_32
+proto_item_set_text	,	F_12
+hl7_tree	,	V_41
+hf_hl7_llp_sob	,	V_51
+hf_hl7_message_type	,	V_19
+proto_reg_handoff_hl7	,	F_33
+"field %d: %s"	,	L_5
+col_append_str	,	F_19
+"MSH|"	,	L_12
+ett_hl7	,	V_49
+PROTO_ITEM_SET_HIDDEN	,	F_8
+hf_register_info	,	T_12
+llp_block_len	,	V_62
+prefs_register_bool_preference	,	F_45
+next_offset	,	V_53
+"hl7.message.type"	,	L_27
+last_field	,	V_29
+global_hl7_raw	,	V_34
+expert_hl7	,	V_82
+", %s"	,	L_8
+"Display raw text for HL7 message"	,	L_35
+COL_PROTOCOL	,	V_44
+"hl7.raw.segment"	,	L_24
+"in addition to the dissection tree"	,	L_38
+FT_UINT8	,	V_74
+hl7_event_type_vals	,	V_48
+proto_item	,	T_7
+expert_register_field_array	,	F_43
+"Specifies that the raw text of the "	,	L_36
+ENC_NA	,	V_21
+"hl7_tcp"	,	L_15
+"hl7.llp.eob"	,	L_22
+LLP_EOB	,	V_58
+expert_add_info_format	,	F_5
+ti	,	V_24
+", %s (%s)"	,	L_7
+BASE_NONE	,	V_72
+tvb_strncaseeql	,	F_30
+"hl7.field"	,	L_29
+msh	,	V_1
+data	,	T_10
+llp_eob_offset	,	V_57
+segment_len_crlf	,	T_8
+available	,	V_56
+tvbuff_t	,	T_2
+hl7_heur_handle	,	V_67
+ei_hl7_malformed	,	V_17
+"hl7.llp.sob"	,	L_20
+"Malformed"	,	L_31
+hf_hl7_event_type	,	V_22
+conversation_set_dissector	,	F_32
+BASE_HEX	,	V_75
+tvb_find_guint8	,	F_6
+ei_register_info	,	T_13
+gboolean	,	T_1
+desegment_len	,	V_60
+expert_register_protocol	,	F_42
+"tcp"	,	L_13
+global_hl7_llp	,	V_50
+proto_item_add_subtree	,	F_14
+proto_hl7	,	V_46
+module_t	,	T_15
+proto_register_field_array	,	F_39
+conversation	,	V_65
+dissect_hl7_segment	,	F_9
+dissect_hl7_heur	,	F_29
+ret	,	V_42
+conversation_t	,	T_11
+guint	,	T_9
+"raw segment"	,	L_23
+offset	,	V_6
+ett	,	V_77
+ei	,	V_78
+wmem_packet_scope	,	F_11
+expert_module_t	,	T_14
+tree	,	V_5
+hl7_module	,	V_83
+FT_UINT16	,	V_76
+packet_info	,	T_3
+field_num	,	V_26
+tvb_get_guint8	,	F_3
+hl7_handle	,	V_66
+"LLP End Of Block"	,	L_21
+tvb_captured_length	,	F_28
+", Type: %s, Event: %s"	,	L_9
+EXPFILL	,	V_81
+"LLP Start Of Block"	,	L_19
+hf_hl7_raw_segment	,	V_35
+component_separator	,	V_13
+str_to_str	,	F_13
+DESEGMENT_ONE_MORE_SEGMENT	,	V_61
+trigger_event	,	V_2
+heur_dissector_add	,	F_35
+"HL7 message should be displayed "	,	L_37
+HEURISTIC_ENABLE	,	V_68
+"should be displayed (Start/End Of Block) "	,	L_42
+FT_STRING	,	V_71
+hf_hl7_field	,	V_36
+", Type: %s"	,	L_11
+"display_raw"	,	L_34
+call_data_dissector	,	F_27
+segment_type_id	,	V_30
+repetition_separator	,	V_14
+HFILL	,	V_73
+"xyz"	,	L_25
+PI_MALFORMED	,	V_79
+"hl7.event.type"	,	L_28
+event_present	,	F_1
+dissect_hl7_message	,	F_15
+hf_hl7_segment	,	V_31
+"hl7"	,	L_33
+hl7f_info	,	V_70
+sob_offset	,	V_39
+"Specifies that the LLP session information "	,	L_41
+hf_hl7_raw	,	V_52
+LLP_SOB	,	V_63
+create_dissector_handle	,	F_34
+dissect_hl7	,	F_22
+PI_WARN	,	V_80
+"%s (%s)"	,	L_3
+ENC_BIG_ENDIAN	,	V_55
+"HL7"	,	L_6
+segment_tree	,	V_23
+dissector_add_uint_with_preference	,	F_36
+"Unknown"	,	L_10
+hf_hl7_llp_eob	,	V_54
+find_or_create_conversation	,	F_31
+field_separator_offset	,	V_9
+"tcp.port"	,	L_16
+proto_tree	,	T_5

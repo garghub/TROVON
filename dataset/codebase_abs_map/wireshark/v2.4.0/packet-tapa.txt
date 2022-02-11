@@ -1,0 +1,224 @@
+hf_tapa_discover_req_value	,	V_27
+hf_tapa_discover_newtlv_length	,	V_33
+"Tapa tunnel version"	,	L_45
+"New tlv length"	,	L_38
+proto_register_protocol	,	F_28
+"Tapa tunnel seqno"	,	L_61
+tvb_reported_length	,	F_20
+hf_tapa_tunnel_type	,	V_60
+TAPA_TYPE_REQUEST_NEW	,	V_51
+"tapa.discover.newtlv.pad"	,	L_37
+gint	,	T_3
+FT_ETHER	,	V_89
+"tapa.tunnel.0804"	,	L_58
+hf_tapa_discover_reply_unused	,	V_13
+iph	,	V_75
+tvb	,	V_1
+"tapa.tunnel.tags"	,	L_60
+guint32	,	T_7
+COL_INFO	,	V_12
+test_tapa_tunnel	,	F_23
+hf_tapa_discover_flags	,	V_47
+version	,	V_55
+remaining	,	V_8
+cinfo	,	V_11
+hf_tapa_discover_unknown	,	V_53
+PI_ERROR	,	V_93
+", Switch: %s"	,	L_1
+array_length	,	F_30
+tapa_handle	,	V_96
+ENC_ASCII	,	V_36
+expert_tapa	,	V_78
+PORT_TAPA	,	V_97
+"New tlv type"	,	L_34
+"tapa.tunnel.version"	,	L_46
+hf_tapa_discover_type	,	V_46
+hf_register_info	,	T_15
+guint16	,	T_11
+COL_PROTOCOL	,	V_41
+", %s: %s"	,	L_3
+check_ascii	,	F_1
+hf_tapa_discover_newtlv_valuetext	,	V_35
+"ip"	,	L_71
+i	,	V_4
+hf_tapa_tunnel_tagsetc	,	V_66
+IP_PROTO_IPIP	,	V_77
+"Type %d = %s, length %d, value %s"	,	L_4
+guint8	,	T_4
+buf	,	V_5
+hf_tapa_tunnel_seqno	,	V_68
+ti	,	V_39
+BASE_NONE	,	V_86
+"Tapa tunnel tags, seqno, pad"	,	L_59
+TAPA_TUNNEL_TYPE_1	,	V_67
+"Req type"	,	L_18
+TAPA_TUNNEL_TYPE_0	,	V_64
+tapa_tunnel_type_vals	,	V_56
+register_dissector	,	F_34
+item_type	,	V_18
+hf_tapa_discover_reply_switchip	,	V_9
+"Tapa tunnel 0804"	,	L_57
+tvbuff_t	,	T_2
+"tapa.discover.reply.pad"	,	L_33
+TAPA_TYPE_REPLY_NEW	,	V_52
+tvb_get_ntohs	,	F_9
+dissect_tapa_static	,	F_24
+BASE_HEX	,	V_83
+gboolean	,	T_1
+proto_item_add_subtree	,	F_18
+"tapa.discover.newtlv.type"	,	L_35
+proto_register_field_array	,	F_29
+FT_BYTES	,	V_85
+"tapa.discover.req.pad"	,	L_21
+"Req value"	,	L_24
+dissect_tapa_tunnel	,	F_19
+ei	,	V_91
+"tapa.tunnel.smac"	,	L_56
+"tapa.discover.req.value"	,	L_25
+"tapa.tunnel.dmac"	,	L_54
+hf_tapa_tunnel_version	,	V_58
+FT_UINT16	,	V_84
+ett_tapa_discover_req	,	V_23
+tvb_get_guint8	,	F_2
+"Length is too short (&lt;= 4)"	,	L_68
+tvb_captured_length	,	F_22
+tapa_tunnel_tree	,	V_54
+item_text	,	V_20
+"tapa.discover.reply.unused"	,	L_29
+"Tapa tunnel type"	,	L_49
+hf_tapa_discover_reply_pad	,	V_15
+"TAPA over IP"	,	L_72
+expert_add_info	,	F_13
+heur_dissector_add	,	F_37
+hf_tapa_discover_req_type	,	V_24
+HEURISTIC_ENABLE	,	V_98
+hf_tapa_tunnel_smac	,	V_63
+FT_STRING	,	V_88
+"Tapa unknown packet"	,	L_43
+"tapa.tunnel.remaining"	,	L_66
+item_type_text	,	V_21
+length	,	V_3
+ENC_BIG_ENDIAN	,	V_10
+tapa_discover_item_tree	,	V_17
+"tapa.discover.length"	,	L_17
+"BINARY-DATA"	,	L_6
+"tapa.discover.req.length"	,	L_23
+"Switch Ip"	,	L_26
+"Type %d, length %d"	,	L_5
+proto_register_tapa	,	F_26
+tapa_discover_tree	,	V_7
+hf	,	V_79
+hf_tapa_tunnel_0804	,	V_65
+TAPA_TYPE_REPLY	,	V_50
+hf_tapa_discover_req_length	,	V_26
+PROTO_LONG_NAME	,	V_95
+col_append_fstr	,	F_5
+hf_tapa_discover_length	,	V_48
+ett_tapa_tunnel	,	V_57
+col_set_str	,	F_16
+tapa_discover_type_vals	,	V_43
+"Flags"	,	L_14
+"tapa.tunnel.length"	,	L_64
+hf_tapa_discover_req_pad	,	V_25
+"Req length"	,	L_22
+FT_IPv4	,	V_87
+item	,	V_28
+"tapa.discover.type"	,	L_13
+proto_item_append_text	,	F_14
+tapa_discover_request_vals	,	V_22
+"Req padding"	,	L_20
+"tapa.tunnel.type"	,	L_50
+"tapa.length_too_short"	,	L_67
+", value %s"	,	L_8
+proto_register_subtree_array	,	F_31
+val_to_str	,	F_8
+proto_reg_handoff_tapa	,	F_35
+packet_type	,	V_40
+proto_tree_add_item	,	F_4
+"New tlv value"	,	L_40
+pinfo	,	V_6
+col_add_fstr	,	F_17
+_U_	,	V_74
+dissect_tapa_heur	,	F_25
+"Reply unused"	,	L_28
+"Tapa tunnel src mac"	,	L_55
+"New tlv padding"	,	L_36
+hf_tapa_discover_newtlv_valuehex	,	V_37
+ip_nxt	,	V_76
+VALS	,	F_27
+req_type	,	V_71
+hf_tapa_discover_reply_bias	,	V_14
+hf_tapa_discover_newtlv_type	,	V_31
+"tapa.discover.reply.switchip"	,	L_27
+test_tapa_discover	,	F_21
+dissect_tapa_discover	,	F_15
+dissect_tapa_discover_unknown_new_tlv	,	F_12
+FT_UINT8	,	V_80
+"Tapa tunnel length"	,	L_63
+tvb_ip_to_str	,	F_6
+BASE_DEC	,	V_81
+proto_item	,	T_9
+expert_register_field_array	,	F_33
+hf_tapa_tunnel_length	,	V_69
+ENC_NA	,	V_16
+"tapa.tunnel.seqno"	,	L_62
+TAPA_REQUEST_MODEL	,	V_73
+"tapa"	,	L_69
+hf_tapa_tunnel_remaining	,	V_70
+"tapa.discover.req.type"	,	L_19
+tvb_format_text	,	F_10
+proto_tapa	,	V_44
+hf_tapa_tunnel_dmac	,	V_62
+data	,	T_12
+"Tapa tunnel dest mac"	,	L_53
+is_ascii	,	V_30
+"tapa.discover.newtlv.valuehex"	,	L_42
+"Reply bias"	,	L_30
+ei_register_info	,	T_16
+expert_register_protocol	,	F_32
+"tapa.discover.unknown"	,	L_44
+PROTO_SHORT_NAME	,	V_42
+"Unknown (%d)"	,	L_10
+"Tapa tunnel five"	,	L_47
+"tapa_ip"	,	L_73
+"Discover - %s"	,	L_9
+"Tapa tunnel zeroes"	,	L_51
+guint	,	T_10
+"Length"	,	L_16
+offset	,	V_2
+ett	,	V_90
+expert_module_t	,	T_14
+tree	,	V_38
+"Tunnel - V=%d, T=%s"	,	L_11
+ws_ip	,	T_13
+ei_tapa_length_too_short	,	V_34
+dissect_tapa_discover_reply	,	F_3
+packet_info	,	T_5
+hf_tapa_tunnel_five	,	V_59
+hf_tapa_tunnel_zero	,	V_61
+"tapa.discover.reply.bias"	,	L_31
+"tapa.discover.newtlv.valuetext"	,	L_41
+EXPFILL	,	V_94
+ett_tapa_discover	,	V_45
+discover_item	,	V_29
+TAPA_TYPE_REQUEST	,	V_49
+"tapa.discover.newtlv.length"	,	L_39
+"%d"	,	L_2
+"Reply pad"	,	L_32
+HFILL	,	V_82
+PI_MALFORMED	,	V_92
+", T=%d L=%d"	,	L_7
+"tapa.discover.flags"	,	L_15
+item_length	,	V_19
+TAPA_REQUEST_SERIAL	,	V_72
+"Tapa tunnel all data"	,	L_65
+"udp.port"	,	L_70
+dissect_tapa_discover_req	,	F_7
+gchar	,	T_8
+hf_tapa_discover_newtlv_pad	,	V_32
+"tapa.tunnel.five"	,	L_48
+proto_tree_add_subtree_format	,	F_11
+"tapa.tunnel.zero"	,	L_52
+dissector_add_uint_with_preference	,	F_36
+"Type"	,	L_12
+proto_tree	,	T_6

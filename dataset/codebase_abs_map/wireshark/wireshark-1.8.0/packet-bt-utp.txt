@@ -1,0 +1,134 @@
+EXT_SELECTION_ACKS	,	V_32
+proto_register_bt_utp	,	F_17
+"bt-utp.type"	,	L_13
+proto_register_protocol	,	F_19
+tvb_reported_length	,	F_3
+"Version"	,	L_8
+len	,	V_4
+col_append_fstr	,	F_6
+col_set_str	,	F_16
+gint	,	T_11
+hf_bt_utp_ver	,	V_25
+"Flags"	,	L_10
+ett_bt_utp	,	V_46
+tvb	,	V_1
+EXT_EXTENSION_BITS	,	V_38
+"bt-utp.flags"	,	L_11
+dissect_utp_header_v0	,	F_4
+" Extension Bits, Len=%d"	,	L_4
+"bt-utp.extension_unknown"	,	L_23
+"bt-utp.timestamp_us"	,	L_29
+COL_INFO	,	V_21
+dissect_utp_header_v1	,	F_8
+hf_bt_utp_ack_nr	,	V_24
+proto_item_append_text	,	F_11
+bt_utp_type_vals	,	V_22
+hf_bt_utp_extension_unknown	,	V_39
+sub_tree	,	V_41
+cinfo	,	V_20
+proto_register_subtree_array	,	F_22
+"bt-utp.ver"	,	L_9
+val_to_str	,	F_7
+hf_bt_utp_extension	,	V_33
+array_length	,	F_21
+proto_bt_utp	,	V_45
+proto_tree_add_item	,	F_5
+hf_bt_utp_extension_len	,	V_36
+"bt-utp.extension_bitmask"	,	L_21
+pinfo	,	V_8
+_U_	,	T_7
+"bt-utp.wnd_size"	,	L_33
+"Extension Length"	,	L_18
+"Extension Bitmask"	,	L_20
+extension_length	,	V_31
+hf_register_info	,	T_10
+VALS	,	F_18
+decoded_length	,	V_42
+COL_PROTOCOL	,	V_44
+v1_ext	,	V_3
+" Unknown, Len=%d"	,	L_5
+FT_UINT8	,	V_48
+"bt-utp"	,	L_38
+BASE_DEC	,	V_49
+"bt-utp.seq_nr"	,	L_35
+proto_item	,	T_8
+"Timestamp Microseconds"	,	L_28
+ENC_NA	,	V_34
+guint8	,	T_3
+hf_bt_utp_seq_nr	,	V_23
+ti	,	V_29
+BASE_NONE	,	V_52
+"bt-utp.next_extension_type"	,	L_17
+hf_bt_utp_wnd_size_v0	,	V_17
+hf_bt_utp_wnd_size_v1	,	V_28
+extension_type	,	V_11
+"Timestamp seconds"	,	L_26
+"Sequence NR"	,	L_34
+utp_is_v1	,	F_1
+"BT-uTP"	,	L_6
+proto_reg_handoff_bt_utp	,	F_23
+hf_bt_utp_next_extension_type	,	V_18
+"bt-utp.ack_nr"	,	L_37
+tvbuff_t	,	T_2
+"Next Extension Type"	,	L_16
+bt_utp_handle	,	V_43
+conversation_set_dissector	,	F_15
+hf_bt_utp_flags	,	V_19
+gboolean	,	T_1
+proto_item_add_subtree	,	F_10
+proto_register_field_array	,	F_20
+conversation	,	V_40
+FT_BYTES	,	V_54
+conversation_t	,	T_9
+hf_bt_utp_extension_bitmask	,	V_37
+guint	,	T_4
+FT_NONE	,	V_51
+offset	,	V_10
+ett	,	V_57
+"ACK NR"	,	L_36
+tree	,	V_9
+"Extension Unknown"	,	L_22
+dissector_add_handle	,	F_26
+V1_FIXED_HDR_SIZE	,	V_7
+FT_UINT16	,	V_56
+packet_info	,	T_5
+hf_bt_utp_timestamp_diff_us	,	V_16
+"bt-utp.timestamp_sec"	,	L_27
+ett_bt_utp_extension	,	V_35
+tvb_get_guint8	,	F_2
+" Type: %s"	,	L_1
+"Windows Size"	,	L_32
+"udp"	,	L_39
+"Unknown %d"	,	L_2
+" Selection Acks, Len=%d"	,	L_3
+"bt-utp.extension_len"	,	L_19
+dissect_utp_extension	,	F_9
+"uTorrent Transport Protocol"	,	L_7
+"Timestamp Difference Microseconds"	,	L_30
+heur_dissector_add	,	F_24
+ST_NUM_STATES	,	V_5
+hf_bt_utp_type	,	V_26
+ext_tree	,	V_30
+HFILL	,	V_50
+"Extension"	,	L_14
+"bt-utp.extension"	,	L_15
+new_create_dissector_handle	,	F_25
+v1_ver_type	,	V_2
+"udp.port"	,	L_40
+EXT_NUM_EXT	,	V_6
+"bt-utp.connection_id"	,	L_25
+proto_item_set_len	,	F_12
+dissect_bt_utp	,	F_13
+"Connection ID"	,	L_24
+"bt-utp.timestamp_diff_us"	,	L_31
+ENC_BIG_ENDIAN	,	V_13
+hf_bt_utp_connection_id_v0	,	V_12
+bt_utp_extension_type_vals	,	V_53
+hf_bt_utp_timestamp_us	,	V_15
+FT_UINT32	,	V_55
+find_or_create_conversation	,	F_14
+"Type"	,	L_12
+hf_bt_utp_connection_id_v1	,	V_27
+hf_bt_utp_timestamp_sec	,	V_14
+proto_tree	,	T_6
+hf	,	V_47

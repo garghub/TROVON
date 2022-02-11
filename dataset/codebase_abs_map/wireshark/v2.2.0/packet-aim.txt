@@ -1,0 +1,490 @@
+"aim.dcinfo.auth_cookie"	,	L_126
+tvb_get_string_enc	,	F_5
+dissect_aim_userinfo	,	F_25
+"aim.tlv.length"	,	L_38
+len_item	,	V_132
+aim_get_buddyname	,	F_3
+hf_aim_userclass_commercial	,	V_92
+aim_ssi_result_codes	,	V_42
+tvb_reported_length	,	F_53
+g_new	,	F_11
+dissect_aim_tlv_value_messageblock	,	F_70
+"FNAC Subtype ID"	,	L_45
+dissect_aim_unknown_channel	,	F_42
+hdr_channel	,	V_158
+FNAC_FLAG_CONTAINS_VERSION	,	V_63
+hf_aim_dcinfo_ip	,	V_113
+"aim.dcinfo.type"	,	L_123
+"ICQ user sign"	,	L_71
+TFS	,	F_82
+CLASS_AWAY	,	V_193
+guint32	,	T_10
+CLASS_UNKNOWN2000	,	V_201
+dissect_aim_tlv_value_uint32	,	F_69
+FT_BOOLEAN	,	V_186
+CLASS_AIM	,	V_192
+hf_aim_messageblock_featuresdes	,	V_134
+tvb_reported_length_remaining	,	F_17
+"%s {%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}"	,	L_16
+hf_aim_messageblock_charset	,	V_140
+"Invalid block length"	,	L_143
+aim_init_family	,	F_10
+array_length	,	F_86
+"Protocol Version"	,	L_33
+hf_aim_userclass_unknown20000	,	V_106
+aim_get_family	,	F_2
+hf_aim_userclass_unknown2000	,	V_102
+buddy_tree	,	V_71
+"Block info"	,	L_108
+"Internal IP address"	,	L_118
+hf_aim_fnac_flags	,	V_60
+ENC_ASCII	,	V_142
+"Block length"	,	L_110
+aim_family	,	T_4
+"aim.fnac.subtype"	,	L_46
+hf_register_info	,	T_19
+g_list_append	,	F_14
+featurelen	,	V_130
+ti1	,	V_148
+"aim.dcinfo.tcpport"	,	L_121
+", %s"	,	L_7
+guint16	,	T_2
+c	,	V_22
+dissect_aim_tlv_value_uint16	,	F_66
+"Keep Alive"	,	L_12
+data4	,	V_84
+data3	,	V_83
+data2	,	V_82
+"aim.ssi.code"	,	L_139
+data1	,	V_79
+"aim.fnac.family"	,	L_44
+i	,	V_8
+aim_tree	,	V_38
+j	,	V_21
+aim_find_capability	,	F_44
+BASE_NONE	,	V_183
+"Features Length"	,	L_105
+"AIM over SSL"	,	L_151
+msg_length	,	V_20
+orig_offset	,	V_52
+"Web Front Port"	,	L_127
+"aim.messageblock.featureslen"	,	L_106
+root_tree	,	V_46
+"Last Info Update"	,	L_131
+"aim.nickinfo.caps"	,	L_94
+"desegment"	,	L_145
+"aim.messageblock.message"	,	L_117
+BASE_HEX	,	V_177
+col_add_str	,	F_21
+"aim"	,	L_144
+bracket	,	V_23
+proto_item_add_subtree	,	F_37
+module_t	,	T_21
+proto_register_field_array	,	F_85
+FT_BYTES	,	V_182
+ei	,	V_214
+ett_aim_nickinfo_caps	,	V_86
+hf_aim_tlv_length	,	V_152
+dissector_add_uint	,	F_93
+"aim.seqno"	,	L_32
+"Sequence Number"	,	L_31
+"aim.userclass.icq"	,	L_72
+hf_aim_fnac_flag_next_is_related	,	V_55
+oldoffset	,	V_65
+famnum	,	V_1
+"ssl"	,	L_150
+FT_UINT16	,	V_180
+CLASS_ONE_WAY_WIRELESS	,	V_200
+"aim.fnac.flags.contains_version"	,	L_100
+"aim.dcinfo.last_ext_status_update"	,	L_136
+"Address/Port List"	,	L_140
+CLASS_UNKNOWN800	,	V_199
+"aim.datalen"	,	L_36
+"aim.dcinfo.unknown"	,	L_137
+expert_add_info	,	F_72
+"aim.messageblock.charsubset"	,	L_115
+heur_dissector_add	,	F_95
+hf_aim_string08	,	V_127
+"aim.data"	,	L_42
+dctree	,	V_111
+FT_STRING	,	V_185
+CLASS_WIRELESS	,	V_195
+dissect_aim_keep_alive	,	F_40
+hf_aim_dcinfo_last_ext_info_update	,	V_121
+"AOL Staff User Flag"	,	L_63
+dissect_aim_tlv_value_dcinfo	,	F_60
+"Warning Level"	,	L_101
+gl	,	V_3
+hf_aim_userclass_administrator	,	V_90
+length	,	V_145
+PI_WARN	,	V_216
+"aim.userclass.imf"	,	L_78
+new_offset	,	V_26
+FT_UINT32	,	V_184
+"aim.tlv.value_id"	,	L_40
+family	,	V_7
+ett_aim	,	V_162
+FT_GUID	,	V_208
+hf	,	V_175
+tlv	,	V_144
+"FNAC Family ID"	,	L_43
+"aim.dcinfo.client_futures"	,	L_130
+"Unknown bit"	,	L_75
+"FNAC Flags"	,	L_47
+"Channel ID"	,	L_29
+dissect_aim_capability	,	F_46
+prefs_register_protocol	,	F_90
+dissect_aim_tlv_value_userclass	,	F_58
+dc_types	,	V_211
+proto_tree_add_subtree	,	F_73
+col_append_fstr	,	F_36
+tmp	,	V_146
+col_set_str	,	F_16
+"aim.fnac.flags"	,	L_48
+id	,	V_11
+FT_IPv4	,	V_210
+dissect_aim_close_conn	,	F_41
+aim_client_capability	,	T_12
+"aim.messageblock.length"	,	L_111
+"Reassemble AIM messages spanning multiple TCP segments"	,	L_146
+family_id	,	V_47
+hf_aim_userclass_imf	,	V_98
+"AOL away status flag"	,	L_69
+"aim.userclass.forward_mobile"	,	L_92
+val_to_str	,	F_22
+hf_aim_dcinfo_last_ext_status_update	,	V_122
+proto_tree_add_item_ret_uint	,	F_71
+tvb_get_ntohguid	,	F_47
+dissect_aim_tlv_value_uint8	,	F_65
+subtvb	,	V_51
+hf_aim_data	,	V_37
+"aim.userclass.staff"	,	L_64
+"aim.dcinfo.addr"	,	L_119
+aim_desegment	,	V_172
+dissector_handle_t	,	T_18
+"aim.userclass.unknown20000"	,	L_88
+"TLV: %s"	,	L_23
+hf_aim_fnac_subtype	,	V_59
+"aim.nickinfo.short_caps"	,	L_96
+"aim.userclass.unknown4000"	,	L_85
+"Value"	,	L_24
+msg_offset	,	V_19
+"aim.channel"	,	L_30
+"aim.dcinfo.webport"	,	L_128
+aim_handle	,	V_174
+hf_aim_messageblock_charsubset	,	V_141
+aim_client_tlvs	,	V_36
+hf_aim_messageblock_features	,	V_136
+VALS	,	F_81
+hf_aim_dcinfo_type	,	V_115
+prefs_register_bool_preference	,	F_91
+"aim.string08"	,	L_141
+", Subtype: 0x%04x"	,	L_10
+CLASS_FORWARD_MOBILE	,	V_207
+max	,	V_24
+hf_aim_dcinfo_webport	,	V_118
+"AOL commercial account flag"	,	L_65
+BASE_DEC	,	V_181
+tlv_count	,	V_155
+ENC_NA	,	V_17
+"Last Extended Status Update"	,	L_135
+"Block Character subset"	,	L_114
+dissect_aim	,	F_77
+"aim.buddyname"	,	L_54
+ett_aim_dcinfo	,	V_112
+hf_aim_tlv_value_id	,	V_151
+tlv_table	,	V_154
+"Message: %s "	,	L_22
+hf_aim_channel	,	V_164
+GList	,	T_3
+"FLAP error"	,	L_11
+dissect_aim_snac_error	,	F_20
+hf_aim_dcinfo_last_info_update	,	V_120
+hf_aim_buddyname_len	,	V_73
+hf_aim_userclass_unknown8000	,	V_104
+hf_aim_dcinfo_tcpport	,	V_114
+expert_register_protocol	,	F_88
+hf_aim_dcinfo_unknown	,	V_123
+"aim.messageblock.featuresdes"	,	L_104
+shortid	,	V_78
+"aim.userclass.unknown2000"	,	L_84
+"Features"	,	L_103
+guint	,	T_17
+"Length"	,	L_37
+ett	,	V_29
+wmem_packet_scope	,	F_6
+CLASS_IMF	,	V_197
+packet_info	,	T_8
+hf_aim_nickinfo_short_caps	,	V_85
+entry	,	V_80
+CLASS_UNKNOWN10000	,	V_204
+ett_aim_tlv_value	,	V_153
+"aim.userclass.commercial"	,	L_66
+EXPFILL	,	V_217
+ett_aim_tlv	,	V_150
+hdr_data_field_length	,	V_160
+protocol_versions	,	V_212
+"aim.tlvcount"	,	L_56
+CLASS_UNKNOWN20000	,	V_205
+dissect_aim_tlv_sequence	,	F_19
+dissect_aim_tlv_value_time	,	F_55
+tvb_new_subset_length	,	F_74
+"Client Capabilities List"	,	L_17
+subtype	,	V_2
+CHANNEL_FLAP_ERR	,	V_169
+hf_aim_fnac_flag_contains_version	,	V_56
+HFILL	,	V_178
+new_length	,	V_27
+"Value: 0x%04x"	,	L_19
+"Value: %d"	,	L_21
+hf_aim_dcinfo_proto_version	,	V_116
+"TLV Count"	,	L_55
+proto_tree_add_subtree_format	,	F_30
+families	,	V_4
+"aim.userclass.wireless"	,	L_74
+dissect_aim_tlv_value_userstatus	,	F_59
+CHANNEL_NEW_CONN	,	V_167
+"Unknown"	,	L_5
+hf_aim_userclass_unknown800	,	V_100
+proto_reg_handoff_aim	,	F_92
+"Forward to mobile if not active"	,	L_91
+value8	,	V_128
+"Last Extended Info Update"	,	L_133
+proto_register_protocol	,	F_83
+dissector	,	V_69
+hf_aim_nickinfo_caps	,	V_81
+blocklen	,	V_131
+hf_aim_dcinfo_client_future	,	V_119
+"Data Field Length"	,	L_35
+find_protocol_by_id	,	F_12
+tvb_new_subset_remaining	,	F_35
+CLASS_UNKNOWN8000	,	V_203
+len	,	V_64
+aim_find_short_capability	,	F_45
+tcp_dissect_pdus	,	F_78
+"AOL wireless user"	,	L_73
+gint	,	T_15
+hf_aim_userinfo_warninglevel	,	V_44
+tvb	,	V_13
+hf_aim_ssi_result_code	,	V_43
+COL_INFO	,	V_34
+"Bot User"	,	L_79
+hf_aim_messageblock_featureslen	,	V_135
+aim_module	,	V_218
+tagchars	,	V_25
+proto_aim	,	V_161
+"aim.messageblock.length.invalid"	,	L_142
+dissect_aim_newconn	,	F_15
+"Value: %s"	,	L_20
+cinfo	,	V_33
+tfs_set_notset	,	V_187
+CHANNEL_SNAC_DATA	,	V_168
+hdr_sequence_no	,	V_159
+"AOL Instant Messenger"	,	L_26
+"Value ID"	,	L_39
+aim_flap_channels	,	V_179
+CLASS_NO_KNOCK_KNOCK	,	V_206
+proto_item_set_text	,	F_52
+hf_aim_messageblock_message	,	V_143
+"Message"	,	L_116
+"Unknown SNAC error 0x%02x"	,	L_2
+"%s (0x%04x)"	,	L_6
+value32	,	V_129
+hf_aim_userclass_away	,	V_94
+hf_aim_userclass_no_knock_knock	,	V_107
+clsid	,	V_75
+COL_PROTOCOL	,	V_67
+"Whether the AIM dissector should reassemble messages spanning multiple TCP segments."	,	L_147
+"Using IM Forwarding"	,	L_77
+"Buddyname len"	,	L_51
+dissect_aim_tlv_value_bytes	,	F_64
+aim_get_message	,	F_7
+guint8	,	T_5
+buf	,	V_124
+"aim.messageblock.charset"	,	L_113
+hf_aim_messageblock_info	,	V_137
+aim_tree_fnac	,	V_50
+ti	,	V_68
+"Command Start"	,	L_27
+hf_aim_userclass_one_way_wireless	,	V_101
+"aim.dcinfo.proto_version"	,	L_124
+"Do not display the 'not on Buddy List' knock-knock"	,	L_89
+register_dissector	,	F_84
+tvb_get_ntohl	,	F_29
+"Close Connection"	,	L_13
+format_text	,	F_62
+dissect_aim_pdu	,	F_76
+CLASS_ICQ	,	V_194
+tvbuff_t	,	T_6
+dissect_aim_tlv	,	F_34
+CHANNEL_KEEP_ALIVE	,	V_171
+tvb_get_ntohs	,	F_23
+proto_tree_add_bitmask	,	F_32
+"Contains Version of Family this SNAC is in"	,	L_99
+ett_aim_userclass	,	V_109
+"AOL Unconfirmed account flag"	,	L_59
+proto_tree_add_guid_format	,	F_48
+dissect_aim_tlv_list	,	F_27
+hf_aim_seqno	,	V_165
+value16	,	V_110
+FT_UINT_STRING	,	V_213
+CLASS_ADMINISTRATOR	,	V_189
+dissect_aim_tlv_value_client_short_capabilities	,	F_54
+string_len	,	V_125
+"AOL Administrator flag"	,	L_61
+aim_onlinebuddy_tlvs	,	V_45
+tvb_get_guint8	,	F_4
+ei_aim_messageblock_len	,	V_139
+hf_aim_version	,	V_35
+name	,	V_10
+app_handle	,	V_173
+desc	,	V_147
+next	,	V_12
+hf_aim_data_len	,	V_166
+"Client Futures"	,	L_129
+expert_aim	,	V_219
+caps	,	V_77
+"aim.userinfo.warninglevel"	,	L_102
+"Authorization Cookie"	,	L_125
+"Followed By SNAC with related information"	,	L_97
+dissect_aim_tlv_value_ipv4	,	F_67
+CLASS_COMMERCIAL	,	V_191
+hf_aim_userclass_icq	,	V_95
+hf_aim_snac_error	,	V_40
+ssl_dissector_add	,	F_94
+"aim.dcinfo.last_info_update"	,	L_132
+buddyname_length	,	V_15
+dissect_aim_buddyname	,	F_26
+"aim.fnac.flags.next_is_related"	,	L_98
+"aim.userclass.unconfirmed"	,	L_60
+proto_tree_add_uint_format_value	,	F_31
+STRIP_TAGS	,	F_8
+ENC_BIG_ENDIAN	,	V_41
+e_guid_t	,	T_13
+"aim.cmd_start"	,	L_28
+"SNAC data"	,	L_8
+ett_aim_messageblock	,	V_133
+"aim.userclass.unknown10000"	,	L_87
+"aim.buddynamelen"	,	L_52
+dissect_aim_snac	,	F_28
+"Buddy: %s"	,	L_15
+fnac_flags	,	V_54
+hf_aim_userclass_unknown4000	,	V_103
+"Unknown Channel"	,	L_14
+subtypes	,	V_9
+"aim.userclass.no_knock_knock"	,	L_90
+"aim.userclass.unknown100"	,	L_76
+fam	,	V_5
+CHANNEL_CLOSE_CONN	,	V_170
+"aim.messageblock.features"	,	L_107
+CLASS_UNCONFIRMED	,	V_188
+proto_tree_add_uint_format	,	F_50
+hf_aim_userclass_bot	,	V_99
+guchar	,	T_7
+proto_item_append_text	,	F_38
+"FNAC ID"	,	L_49
+", Family: 0x%04x"	,	L_9
+hf_aim_cmd_start	,	V_163
+dissect_aim_tlv_value_string08_array	,	F_63
+aim_fnac_tlvs	,	V_66
+"aim.version"	,	L_34
+proto_register_subtree_array	,	F_87
+hf_aim_tlvcount	,	V_156
+"aim_ssl"	,	L_152
+ett_aim_buddyname	,	V_72
+ett_aim_fnac_flags	,	V_61
+"FNAC: Family: %s (0x%04x), Subtype: %s (0x%04x)"	,	L_4
+"AIM"	,	L_25
+proto_tree_add_item	,	F_18
+pinfo	,	V_31
+"Data"	,	L_41
+flags	,	V_49
+_U_	,	V_70
+proto_tree_add_bitmask_list_value	,	F_57
+"aim.userclass.one_way_wireless"	,	L_83
+hf_aim_userclass_unknown10000	,	V_105
+aim_snac_errors	,	V_39
+"aim.snac.error"	,	L_58
+"aim.userclass.away"	,	L_70
+"aim.userclass.bot"	,	L_80
+FNAC_FLAG_NEXT_IS_RELATED	,	V_209
+"Client capabilities"	,	L_93
+PI_PROTOCOL	,	V_215
+dissect_aim_ssi_result	,	F_24
+CLASS_UNKNOWN100	,	V_196
+known_client_caps	,	V_76
+FT_UINT8	,	V_176
+tvb_ip_to_str	,	F_68
+"Short Client Capabilities List"	,	L_18
+proto_item	,	T_11
+expert_register_field_array	,	F_89
+hf_aim_userclass_aol	,	V_91
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_148
+ett_aim_fnac	,	V_57
+"aim.userclass.unknown8000"	,	L_86
+"aim.dcinfo.last_ext_info_update"	,	L_134
+"Unknown SSI result code 0x%02x"	,	L_3
+tvb_format_text	,	F_43
+hf_aim_fnac_id	,	V_62
+msg	,	V_18
+dissect_aim_tlv_value_string	,	F_61
+valueid	,	T_14
+hf_aim_fnac_family	,	V_58
+data	,	V_6
+TCP_PORT_AIM	,	V_220
+"aim.messageblock.info"	,	L_109
+proto_register_aim	,	F_80
+"aim.userclass.unknown800"	,	L_81
+plen	,	V_157
+aim_tlv	,	T_16
+ei_register_info	,	T_20
+aim_get_subtype	,	F_1
+CLASS_UNKNOWN4000	,	V_202
+hf_aim_dcinfo_auth_cookie	,	V_117
+dissect_aim_ssl_heur	,	F_79
+subtype_id	,	V_48
+hf_aim_messageblock_len	,	V_138
+offset	,	V_14
+expert_module_t	,	T_22
+hf_aim_userclass_aim	,	V_93
+tree	,	V_32
+aim_subtype	,	T_1
+dissect_aim_tlv_value_client_capabilities	,	F_51
+"Last SSI operation result code"	,	L_138
+dissect_aim_short_capability	,	F_49
+hf_aim_userclass_unknown100	,	V_97
+"Block Character set"	,	L_112
+ett_aim_nickinfo_short_caps	,	V_87
+proto	,	V_28
+g_ascii_isprint	,	F_9
+"Short client capabilities"	,	L_95
+HEURISTIC_DISABLE	,	V_221
+proto_tree_add_uint	,	F_33
+"aim.fnac.id"	,	L_50
+hf_aim_userclass_forward_mobile	,	V_108
+tlv_tree	,	V_149
+dissect_aim_userclass	,	F_56
+"Buddy Name"	,	L_53
+proto_get_protocol_short_name	,	F_13
+CLASS_BOT	,	V_198
+proto_id	,	V_30
+"aim.userclass.administrator"	,	L_62
+value	,	V_88
+ett_aim_string08_array	,	V_126
+CLASS_AOL	,	V_190
+hf_aim_userclass_wireless	,	V_96
+family_tree	,	V_53
+"aim.userclass.free"	,	L_68
+"One Way Wireless Device"	,	L_82
+"TCP Port"	,	L_120
+"New Connection"	,	L_1
+dissect_aim_flap_err	,	F_39
+"AIM user flag"	,	L_67
+"SNAC Error"	,	L_57
+hf_aim_buddyname	,	V_74
+ENC_UTF_8	,	V_16
+"Type"	,	L_122
+hf_aim_userclass_unconfirmed	,	V_89
+"tcp.port"	,	L_149
+get_aim_pdu_len	,	F_75
+proto_tree	,	T_9

@@ -1,0 +1,120 @@
+"lanforge.magic"	,	L_7
+"Payload Length(H)"	,	L_18
+tmpi	,	V_11
+"Dest session ID"	,	L_12
+hf_lanforge_dst_session	,	V_24
+"Payload Length(L)"	,	L_15
+proto_register_protocol	,	F_19
+proto_tree_add_time	,	F_14
+check_col	,	F_5
+hf_lanforge_crc	,	V_20
+tvb_new_subset_remaining	,	F_17
+tmp	,	V_6
+"The LANforge payload pattern"	,	L_26
+col_set_str	,	F_4
+gint	,	T_10
+"lanforge.ts-secs"	,	L_31
+tvb	,	V_1
+"The LANforge CRC number"	,	L_5
+guint32	,	T_7
+COL_INFO	,	V_16
+lanforge_magic	,	V_13
+"Payload Pattern"	,	L_24
+"Source session ID"	,	L_9
+"Magic number"	,	L_6
+tvb_reported_length_remaining	,	F_15
+cinfo	,	V_14
+FT_ABSOLUTE_TIME	,	V_43
+proto_register_subtree_array	,	F_22
+array_length	,	F_21
+proto_register_lanforge	,	F_18
+"lanforge.pld-len-H"	,	L_19
+proto_tree_add_item	,	F_8
+call_dissector	,	F_16
+pinfo	,	V_2
+col_add_fstr	,	F_6
+"lanforge.ts-nsecs"	,	L_33
+_U_	,	V_4
+"lanforge.seqno"	,	L_28
+hf_register_info	,	T_9
+"Payload Length"	,	L_21
+"The LANforge Sequence Number"	,	L_29
+COL_PROTOCOL	,	V_15
+"data"	,	L_40
+tvb_length	,	F_2
+FT_UINT8	,	V_42
+"lanforge.pld-pattern"	,	L_25
+BASE_DEC	,	V_41
+proto_item	,	T_6
+"lanforge.dest-session-id"	,	L_13
+dissect_lanforge	,	F_1
+hf_lanforge_src_session	,	V_23
+ENC_NA	,	V_18
+ABSOLUTE_TIME_LOCAL	,	V_44
+tvb_memeql	,	F_3
+ti	,	V_5
+secs	,	V_30
+"The LANforge magic number"	,	L_8
+"lanforge.timestamp"	,	L_35
+"Timestamp"	,	L_34
+data	,	T_5
+tvb_get_ntohl	,	F_7
+hf_lanforge_pld_len_h	,	V_26
+tvbuff_t	,	T_2
+"lanforge.source-session-id"	,	L_10
+"Timestamp nsecs"	,	L_32
+hf_lanforge_pld_len_l	,	V_25
+pld_len	,	V_12
+tvb_get_ntohs	,	F_10
+"Seq: %u"	,	L_2
+BASE_HEX	,	V_38
+PROTO_ITEM_SET_GENERATED	,	F_11
+gboolean	,	T_1
+"tcp"	,	L_39
+proto_item_add_subtree	,	F_9
+hf_lanforge_seq	,	V_29
+nstime_t	,	T_8
+proto_register_field_array	,	F_20
+proto_reg_handoff_lanforge	,	F_23
+offset	,	V_8
+"lanforge.CRC"	,	L_4
+"The LANforge dest session ID"	,	L_14
+ett	,	V_45
+tree	,	V_3
+hf_lanforge_tx_time_ns	,	V_33
+"Sequence Number"	,	L_27
+hf_lanforge_tx_time_s	,	V_31
+data_handle	,	V_35
+"lanforge"	,	L_37
+FT_UINT16	,	V_40
+packet_info	,	T_3
+tvb_get_guint8	,	F_12
+hf_lanforge_pld_len	,	V_27
+lanforge_tree	,	V_7
+tstamp	,	V_9
+"LANforge"	,	L_1
+"udp"	,	L_38
+"lanforge.pld-len-L"	,	L_16
+hf_lanforge_magic	,	V_22
+proto_tree_add_uint	,	F_13
+"The LANforge payload length (high byte)"	,	L_20
+"The LANforge payload length"	,	L_23
+heur_dissector_add	,	F_24
+"The LANforge source session ID"	,	L_11
+"The LANforge payload length (low bytes)"	,	L_17
+tss	,	V_10
+"LANforge Traffic Generator"	,	L_36
+HFILL	,	V_39
+"lanforge.pld-length"	,	L_22
+hf_lanforge_pld_pattern	,	V_28
+find_dissector	,	F_25
+"Timestamp Secs"	,	L_30
+proto_lanforge	,	V_17
+ett_lanforge	,	V_19
+"CRC"	,	L_3
+ENC_BIG_ENDIAN	,	V_21
+nsecs	,	V_32
+FT_UINT32	,	V_37
+hf_lanforge_timestamp	,	V_34
+proto_tree	,	T_4
+hf	,	V_36

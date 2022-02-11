@@ -1,0 +1,144 @@
+"Stop Time (milliseconds)"	,	L_25
+"Status Code"	,	L_15
+LSC_STATUS_REPLY	,	V_29
+"Server Mode"	,	L_33
+proto_register_protocol	,	F_22
+hf_lsc_stream_handle	,	V_39
+"lsc.status_code"	,	L_16
+LSC_RESUME	,	V_16
+mode_vals	,	V_63
+tvb_reported_length	,	F_9
+"lsc.current_npt"	,	L_27
+"Pegasus Lightweight Stream Control"	,	L_36
+"Version"	,	L_7
+hf_lsc_scale_num	,	V_46
+tcp_dissect_pdus	,	F_19
+LSC_PAUSE_REPLY	,	V_27
+col_set_str	,	F_3
+gint	,	T_10
+"lsc"	,	L_37
+lsc_tcp_handle	,	V_66
+LSC_PAUSE_LEN	,	V_15
+"Current Server Mode"	,	L_35
+LSC_RESUME_LEN	,	V_17
+" [Too short]"	,	L_4
+tvb	,	V_1
+guint32	,	T_7
+COL_INFO	,	V_13
+hf_lsc_trans_id	,	V_41
+"lsc.version"	,	L_8
+"LSC"	,	L_1
+pdu_len	,	V_51
+status_code_vals	,	V_58
+hf_lsc_stop_npt	,	V_43
+"Current NPT"	,	L_26
+proto_register_lsc	,	F_20
+col_clear	,	F_4
+"Op Code"	,	L_12
+cinfo	,	V_11
+"lsc.stream_handle"	,	L_18
+proto_register_subtree_array	,	F_25
+val_to_str	,	F_8
+dissect_lsc_common	,	F_1
+array_length	,	F_24
+hf_lsc_version	,	V_40
+hf_lsc_mode	,	V_49
+"Stop NPT"	,	L_23
+LSC_RESUME_REPLY	,	V_28
+"Start Time (milliseconds)"	,	L_22
+"Unknown op code (0x%x)"	,	L_3
+proto_tree_add_item	,	F_11
+pinfo	,	V_2
+LSC_PAUSE	,	V_14
+col_add_fstr	,	F_7
+"%s, session %.8u"	,	L_2
+dissector_handle_t	,	T_11
+_U_	,	V_4
+LSC_STATUS	,	V_18
+col_append_str	,	F_10
+"lsc.scale_num"	,	L_30
+hf_lsc_op_code	,	V_38
+hf_lsc_current_npt	,	V_48
+stream	,	V_8
+dissector_add_for_decode_as_with_preference	,	F_28
+hf_register_info	,	T_9
+VALS	,	F_21
+" [Too long]"	,	L_5
+"lsc.trans_id"	,	L_11
+hf_lsc_status_code	,	V_42
+COL_PROTOCOL	,	V_12
+LSC_RESET_LEN	,	V_21
+get_lsc_pdu_len	,	F_17
+"Stream identification handle"	,	L_19
+FT_UINT8	,	V_54
+LSC_PLAY_REPLY	,	V_32
+BASE_DEC	,	V_55
+LSC_DONE	,	V_26
+proto_item	,	T_5
+ENC_NA	,	V_36
+guint8	,	T_6
+ti	,	V_5
+ett_lsc	,	V_37
+"%.8u"	,	L_6
+proto_reg_handoff_lsc	,	F_26
+"Transaction ID"	,	L_10
+data	,	T_4
+tvb_get_ntohl	,	F_6
+tvbuff_t	,	T_1
+lsc_udp_handle	,	V_65
+hf_lsc_start_npt	,	V_45
+lsc_tree	,	V_6
+op_code_vals	,	V_34
+BASE_HEX	,	V_57
+"Scale Numerator"	,	L_29
+LSC_RESET	,	V_20
+LSC_PLAY_LEN	,	V_25
+proto_item_add_subtree	,	F_12
+proto_register_field_array	,	F_23
+"Stream Handle"	,	L_17
+"lsc.scale_denum"	,	L_32
+proto_lsc	,	V_35
+hf_lsc_scale_denom	,	V_47
+guint	,	T_8
+offset	,	V_50
+ett	,	V_64
+LSC_JUMP_LEN	,	V_23
+tree	,	V_3
+"lsc.stop_npt"	,	L_24
+FT_UINT16	,	V_62
+packet_info	,	T_2
+tvb_get_guint8	,	F_5
+LSC_MIN_LEN	,	V_10
+"Start NPT"	,	L_20
+tvb_captured_length	,	F_2
+isReply	,	F_15
+LSC_OPCODE_LEN	,	V_52
+proto_tree_add_uint	,	F_13
+"Operation Code"	,	L_14
+LSC_JUMP	,	V_22
+LSC_PLAY	,	V_24
+"Current Time (milliseconds)"	,	L_28
+"Version of the Pegasus LSC protocol"	,	L_9
+"lsc.mode"	,	L_34
+op_code	,	V_7
+"lsc.start_npt"	,	L_21
+expected_len	,	V_9
+dissect_lsc_udp	,	F_16
+HFILL	,	V_56
+LSC_STATUS_LEN	,	V_19
+FT_INT32	,	V_60
+FT_INT16	,	V_61
+"udp.port"	,	L_38
+create_dissector_handle	,	F_27
+LSC_RESET_REPLY	,	V_30
+LSC_JUMP_REPLY	,	V_31
+"lsc.op_code"	,	L_13
+proto_tree_add_uint_format_value	,	F_14
+ENC_BIG_ENDIAN	,	V_44
+LSC_REPLY_LEN	,	V_33
+FT_UINT32	,	V_59
+dissect_lsc_tcp	,	F_18
+"tcp.port"	,	L_39
+proto_tree	,	T_3
+hf	,	V_53
+"Scale Denominator"	,	L_31

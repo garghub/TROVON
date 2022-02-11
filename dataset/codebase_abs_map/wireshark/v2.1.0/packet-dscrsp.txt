@@ -1,0 +1,69 @@
+register_dissector	,	F_18
+"Dynamic Service Change Response ID = %u (%s)"	,	L_1
+docsis_tlv_handle	,	V_18
+data	,	T_4
+proto_register_protocol	,	F_14
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_6
+"docsis_dscrsp.tranid"	,	L_5
+tvb_get_ntohs	,	F_2
+ett_docsis_dscrsp	,	V_14
+tvb_new_subset_remaining	,	F_9
+gint	,	T_9
+docsis_conf_code	,	V_12
+proto_item_add_subtree	,	F_7
+proto_register_field_array	,	F_15
+hf_docsis_dscrsp_response	,	V_17
+tvb	,	V_1
+"Transaction Id"	,	L_4
+proto_reg_handoff_docsis_dscrsp	,	F_19
+ett	,	V_24
+COL_INFO	,	V_11
+transid	,	V_7
+dissector_add_uint	,	F_21
+"docsis_mgmt"	,	L_13
+tree	,	V_3
+"docsis_dscrsp"	,	L_11
+it	,	V_5
+FT_UINT16	,	V_20
+packet_info	,	T_2
+tvb_get_guint8	,	F_3
+dissect_dscrsp	,	F_1
+cinfo	,	V_10
+tvb_captured_length	,	F_11
+proto_register_subtree_array	,	F_17
+val_to_str	,	F_5
+proto_register_docsis_dscrsp	,	F_12
+array_length	,	F_16
+next_tvb	,	V_9
+proto_tree_add_item	,	F_8
+call_dissector	,	F_10
+"docsis_dscrsp.confcode"	,	L_8
+pinfo	,	V_2
+col_add_fstr	,	F_4
+dissector_handle_t	,	T_10
+"Service Identifier"	,	L_6
+_U_	,	V_4
+dscrsp_tree	,	V_6
+"%d"	,	L_2
+hf_register_info	,	T_8
+VALS	,	F_13
+HFILL	,	V_22
+"docsis_tlv"	,	L_12
+"DOCSIS DSC-RSP"	,	L_10
+hf_docsis_dscrsp_tranid	,	V_15
+"Confirmation Code"	,	L_7
+guint16	,	T_6
+"DOCSIS Dynamic Service Change Response"	,	L_9
+FT_UINT8	,	V_23
+find_dissector	,	F_20
+BASE_DEC	,	V_21
+docsis_dscrsp_handle	,	V_25
+proto_item	,	T_5
+ENC_BIG_ENDIAN	,	V_16
+guint8	,	T_7
+"DSC Response"	,	L_3
+response	,	V_8
+proto_docsis_dscrsp	,	V_13
+proto_tree	,	T_3
+hf	,	V_19

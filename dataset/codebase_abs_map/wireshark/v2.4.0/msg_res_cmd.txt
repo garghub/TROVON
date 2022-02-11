@@ -1,0 +1,77 @@
+data	,	T_4
+col_append_sep_str	,	F_8
+proto_register_protocol	,	F_18
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_3
+tlv_value_offset	,	V_9
+proto_register_mac_mgmt_msg_res_cmd	,	F_17
+tvb_reported_length	,	F_2
+"RES-CMD TLV error"	,	L_2
+gint	,	T_6
+proto_item_add_subtree	,	F_4
+hf_res_cmd_invalid_tlv	,	V_19
+"wmx.mgmtmsg"	,	L_13
+tlv_len	,	V_8
+proto_register_field_array	,	F_19
+FT_BYTES	,	V_25
+tvb	,	V_1
+guint	,	T_5
+offset	,	V_5
+COL_INFO	,	V_18
+"Unknown TLV type"	,	L_8
+dissector_add_uint	,	F_24
+tree	,	V_3
+res_cmd_tree	,	V_11
+wimax_hmac_tuple_decoder	,	F_13
+CMAC_TUPLE	,	V_22
+handle	,	V_29
+tlv_type	,	V_7
+ett_mac_mgmt_msg_res_cmd_decoder	,	V_15
+packet_info	,	T_2
+proto_mac_mgmt_msg_res_cmd_decoder	,	V_14
+MAX_TLV_LEN	,	V_16
+"CMAC Tuple"	,	L_5
+cinfo	,	V_17
+tvb_captured_length	,	F_16
+tvb_len	,	V_6
+wimax_cmac_tuple_decoder	,	F_14
+"WiMax RES-CMD (res)"	,	L_11
+proto_register_subtree_array	,	F_21
+add_tlv_subtree	,	F_15
+array_length	,	F_20
+tlv_info	,	V_13
+proto_tree_add_item	,	F_9
+pinfo	,	V_2
+dissector_handle_t	,	T_10
+_U_	,	V_4
+tlv_tree	,	V_12
+get_tlv_value_offset	,	F_10
+tlv_info_t	,	T_8
+dissect_mac_mgmt_msg_res_cmd_decoder	,	F_1
+hf_res_cmd	,	V_24
+res_cmd_item	,	V_10
+proto_reg_handoff_mac_mgmt_msg_res_cmd	,	F_22
+"Reset Command (RES-CMD)"	,	L_1
+hf_res_cmd_unknown_type	,	V_23
+hf_register_info	,	T_9
+"Invalid TLV"	,	L_6
+HFILL	,	V_27
+HMAC_TUPLE	,	V_21
+"HMAC Tuple"	,	L_4
+init_tlv_info	,	F_5
+"RES-CMD Type: %u (%u bytes, offset=%u, tlv_len=%u, tvb_len=%u)"	,	L_3
+get_tlv_length	,	F_7
+"WiMax RES-CMD Message"	,	L_10
+create_dissector_handle	,	F_23
+proto_item	,	T_7
+DEBUG	,	F_11
+MAC_MGMT_MSG_RES_CMD	,	V_30
+ENC_NA	,	V_20
+get_tlv_type	,	F_6
+"wmx.res_cmd.invalid_tlv"	,	L_7
+BASE_NONE	,	V_26
+ett_res_cmd	,	V_28
+add_protocol_subtree	,	F_12
+"wmx.res"	,	L_12
+proto_tree	,	T_3
+"wmx.res_cmd.unknown_tlv_type"	,	L_9

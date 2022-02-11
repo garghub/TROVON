@@ -1,0 +1,133 @@
+proto_register_protocol	,	F_24
+tvb_reported_length	,	F_5
+via	,	V_28
+"Version"	,	L_20
+len	,	V_6
+"Message Number: %u (0x%02X, %s)"	,	L_12
+gint	,	T_2
+kingfisher_tree	,	V_12
+col_set_str	,	F_6
+"System Identifier: %u (0x%02X)"	,	L_7
+"Unknown function"	,	L_2
+proto_tree_add_uint_format	,	F_16
+tvb	,	V_1
+item	,	V_13
+COL_INFO	,	V_20
+proto_reg_handoff_kingfisher	,	F_28
+hf_kingfisher_target	,	V_32
+"Via RTU: %u (0x%02X)"	,	L_11
+hf_kingfisher_via	,	V_35
+version	,	V_25
+tvb_reported_length_remaining	,	F_2
+"Kingfisher Protocol, %s"	,	L_4
+proto_kingfisher	,	V_21
+cinfo	,	V_17
+"Request"	,	L_14
+hf_kingfisher_message	,	V_36
+proto_register_subtree_array	,	F_27
+val_to_str	,	F_7
+function_code_vals	,	V_19
+array_length	,	F_26
+kingfisher_packet_t	,	T_6
+"Checksum"	,	L_36
+pinfo	,	V_8
+col_add_fstr	,	F_8
+dissector_handle_t	,	T_10
+"kingfisher.from"	,	L_27
+"System Identifier"	,	L_22
+hf_register_info	,	T_9
+ett_kingfisher	,	V_29
+VALS	,	F_23
+"From RTU: %u (0x%02X)"	,	L_10
+TCP_PORT_KINGFISHER_OLD	,	V_51
+c	,	V_3
+COL_PROTOCOL	,	V_18
+tvb_length	,	F_12
+FT_UINT8	,	V_43
+i	,	V_4
+proto_tree_add_text	,	F_17
+BASE_DEC	,	V_44
+j	,	V_5
+proto_item	,	T_7
+hf_kingfisher_checksum	,	V_38
+is_conv_dissector	,	V_10
+guint8	,	V_24
+"incorrect"	,	L_18
+kfp	,	V_11
+proto_register_kingfisher	,	F_22
+"(%s)"	,	L_3
+hf_kingfisher_function	,	V_37
+"kingfisher.target"	,	L_29
+"kingfisher.checksum"	,	L_37
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_9
+"kingfisher.system"	,	L_23
+tvb_get_ntohs	,	F_13
+conversation_set_dissector	,	F_20
+gboolean	,	T_3
+ep_alloc	,	F_10
+function	,	V_22
+proto_item_add_subtree	,	F_14
+"From RTU"	,	L_26
+from	,	V_27
+func_string	,	V_14
+proto_register_field_array	,	F_25
+conversation	,	V_40
+conversation_t	,	T_8
+"Response"	,	L_13
+"kingfisher.via"	,	L_31
+"Length"	,	L_24
+"kingfisher.length"	,	L_25
+offset	,	V_2
+ett	,	V_47
+dissector_add_uint	,	F_30
+tree	,	V_9
+hf_kingfisher_from	,	V_34
+hf_kingfisher_length	,	V_33
+"Message Data"	,	L_16
+FT_UINT16	,	V_46
+packet_info	,	T_4
+tvb_get_guint8	,	F_3
+"Length: %u (0x%02X)"	,	L_9
+"kingfisher.version"	,	L_21
+"kingfisher.message"	,	L_33
+proto_tree_add_uint	,	F_15
+match_strval	,	F_11
+"kingfisher.function"	,	L_35
+TCP_PORT_KINGFISHER	,	V_49
+kingfisher_checksum	,	F_1
+kingfisher_conv_handle	,	V_41
+"kf"	,	L_38
+crc	,	V_7
+checksum	,	V_15
+dissect_kingfisher_conv	,	F_21
+kingfisher_handle	,	V_48
+SUPPORT_KINGFISHER_SERIES_2	,	F_31
+"%u &gt; %u (%s)"	,	L_5
+"Via RTU"	,	L_30
+HFILL	,	V_45
+new_create_dissector_handle	,	F_29
+"Kingfisher"	,	L_1
+"Message Number"	,	L_32
+hf_kingfisher_system	,	V_31
+"Target RTU"	,	L_28
+"Kingfisher Protocol, From RTU: %d, Target RTU: %d"	,	L_6
+"Target RTU: %u (0x%02X)"	,	L_8
+"udp.port"	,	L_40
+"correct"	,	L_19
+length	,	V_23
+hf_kingfisher_version	,	V_30
+message	,	V_16
+"Checksum: 0x%04X [%s]"	,	L_17
+was_kingfisher	,	V_39
+target	,	V_26
+dissect_kingfisher	,	F_4
+UDP_PORT_KINGFISHER	,	V_50
+"Function Code"	,	L_34
+UDP_PORT_KINGFISHER_OLD	,	V_52
+find_or_create_conversation	,	F_19
+"Message Function Code: %u (0x%02X, %s)"	,	L_15
+dissect_kingfisher_heur	,	F_18
+"tcp.port"	,	L_39
+proto_tree	,	T_5
+hf	,	V_42

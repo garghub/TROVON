@@ -1,0 +1,227 @@
+proto_flip	,	V_61
+ett_flip_payload	,	V_101
+proto_register_protocol	,	F_29
+"NSN FLIP, FlowID %s"	,	L_12
+tvb_reported_length	,	F_14
+"flip.chksum.etype"	,	L_36
+len	,	V_78
+flip_module	,	V_102
+gint	,	T_9
+"Extension header indicated, but not enough data"	,	L_18
+flip_prefs_initialized	,	V_106
+tvb	,	V_1
+"Extension Type"	,	L_35
+guint32	,	T_7
+COL_INFO	,	V_23
+PT_H263	,	V_31
+vec_t	,	T_10
+RTCP_BYE	,	V_39
+version	,	V_27
+"Decoding to user-defined protocol"	,	L_63
+"Invalid user dissector \"%s\""	,	L_20
+"Invalid extension header type 0x%02x"	,	L_19
+cinfo	,	V_22
+array_length	,	F_31
+FLIP_BASIC_HDR_LEN	,	V_58
+"Reserved"	,	L_23
+"heur_enabled_protocols"	,	L_49
+call_dissector	,	F_26
+"Basic Header Sequence Number"	,	L_31
+has_user_messed_up	,	V_82
+DISSECTOR_ASSERT	,	F_25
+"ethertype"	,	L_64
+"Mapping of flow IDs to their decodings"	,	L_60
+DISSECT_FLIP_EXIT	,	V_59
+hf_flip_basic_e	,	V_65
+is_faulty_frame	,	V_56
+chksum_tvb	,	V_74
+prefs_register_enum_preference	,	F_34
+hf_flip_chksum_etype	,	V_16
+hf_register_info	,	T_12
+PT_UNDF_127	,	V_33
+"RTCP"	,	L_56
+guint16	,	T_4
+COL_PROTOCOL	,	V_57
+"Spare"	,	L_38
+FLIP_EXTENSION_HDR_MIN_LEN	,	V_71
+global_forced_protocol	,	V_94
+basic_hdr_tree	,	V_43
+proto_reg_handoff_flip	,	V_103
+"rtcp"	,	L_66
+RTCP_V2_HEADER_MIN_LEN	,	V_36
+"FLIP"	,	L_9
+guint8	,	T_8
+"Heuristic mode: enabled protocols"	,	L_50
+ti	,	V_41
+chksum_hdr_tree	,	V_7
+tvb_length_remaining	,	F_9
+is_heur_enabled_rtp	,	V_87
+"Enabled protocols for heuristic mode"	,	L_51
+"Forced mode: decode to user-specified protocol"	,	L_59
+"rtp"	,	L_65
+RTCP_SR	,	V_37
+tvb_get_ntohl	,	F_2
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_20
+"heur_decode_rtcp"	,	L_55
+"FlowID"	,	L_26
+BASE_HEX	,	V_99
+dw	,	V_8
+gboolean	,	T_5
+bytes_dissected	,	V_13
+proto_item_add_subtree	,	F_4
+module_t	,	T_13
+flip_payload_decoding_modes	,	V_104
+ETHERTYPE_FLIP	,	V_107
+proto_register_field_array	,	F_30
+hf_flip_basic_flowid	,	V_67
+payload_type	,	V_28
+chksum_hdr_etype	,	V_9
+PT_UNDF_96	,	V_32
+dissector_add_uint	,	F_39
+data_len	,	V_81
+"flip.chksum.spare"	,	L_39
+is_payload_rtp	,	F_8
+"Basic Header Reserved"	,	L_25
+data_handle	,	V_85
+tvb_get_ptr	,	F_22
+chksum_hdr_spare	,	V_10
+hf_flip_chksum_chksum	,	V_21
+tvb_get_guint8	,	F_10
+rtcp_handle	,	V_90
+"RTP"	,	L_53
+FLIP_CHKSUM_HDR_LEN	,	V_24
+RTCP_RR	,	V_38
+basic_hdr_ext	,	V_47
+g_htons	,	F_24
+basic_hdr_len	,	V_51
+frame_len	,	V_54
+computed_chksum	,	V_4
+"FLIP payload decoding mode"	,	L_47
+"heur_decode_rtp"	,	L_52
+RTP_VERSION	,	F_11
+"Decode payload as RTCP if detected"	,	L_57
+is_heur_enabled_rtcp	,	V_89
+"Checksum 0x%04x [%s] (computed 0x%04x)"	,	L_8
+flip_etype	,	V_17
+hf_flip_basic_reserved	,	V_66
+"%d (0x%04x)"	,	L_15
+"flip.basic.reserved"	,	L_24
+new_create_dissector_handle	,	F_38
+"Extension Header Follows"	,	L_21
+"NSN FLIP"	,	L_44
+find_dissector	,	F_40
+"Seqnum"	,	L_29
+proto_tree_add_uint_format_value	,	F_5
+"Correct"	,	L_6
+ptr	,	V_77
+ENC_BIG_ENDIAN	,	V_68
+"forced_protocol"	,	L_58
+FT_UINT32	,	V_96
+hf	,	V_95
+dissect_flip_chksum_hdr	,	F_1
+ett_flip_chksum	,	V_15
+prefs_register_protocol	,	F_33
+flip_tvb	,	V_44
+"Decode payload as RTP if detected"	,	L_54
+basic_hdr_reserved	,	V_48
+col_set_str	,	F_16
+ext_hdr_type	,	V_72
+flip_handle	,	V_105
+"flip.basic.len"	,	L_33
+"Basic Header Packet Length"	,	L_34
+is_payload_rtcp	,	F_13
+"Checksum Header Spare"	,	L_40
+flip_len	,	V_55
+chksum_hdr_ext	,	V_11
+item	,	V_6
+"forced_decode"	,	L_61
+"flip.basic.flowid"	,	L_27
+handle	,	V_79
+dissect_flip	,	F_15
+"Invalid length in basic header: %d bytes"	,	L_17
+proto_register_subtree_array	,	F_32
+chksum_hdr_chksum	,	V_12
+val_to_str	,	F_6
+bytes_handled	,	V_73
+"Checksum Header Extension Type"	,	L_37
+packet_type	,	V_35
+"Checksum"	,	L_42
+"Incorrect"	,	L_7
+ett_flip	,	V_63
+proto_tree_add_item	,	F_21
+in_cksum	,	F_23
+pinfo	,	V_2
+col_add_fstr	,	F_7
+dissector_handle_t	,	T_11
+is_forced_handle_ok	,	V_92
+octet2	,	V_26
+octet1	,	V_25
+FLIP_PAYLOAD_DECODING_MODE_HEURISTIC	,	V_86
+first_byte	,	V_34
+"0x%08x"	,	L_11
+VALS	,	F_28
+prefs_register_bool_preference	,	F_36
+prefs_register_static_text_preference	,	F_35
+RTCP_APP	,	V_40
+"data"	,	L_67
+tvb_length	,	F_17
+hf_flip_basic_seqnum	,	V_69
+proto_tree_add_text	,	F_3
+BASE_DEC	,	V_97
+tvb_new_subset	,	F_18
+"Decode FLIP payload according to mode"	,	L_48
+prefs_register_string_preference	,	F_37
+proto_item	,	T_6
+"Protocol name"	,	L_62
+flip_tree	,	V_42
+ENC_NA	,	V_62
+FLIP_PAYLOAD_DECODING_MODE_NONE	,	V_84
+FLIP_PAYLOAD_DECODING_MODE_FORCED	,	V_91
+"%s"	,	L_2
+"Length mismatch: frame %d bytes, hdr %d bytes"	,	L_16
+"flip.chksum.chksum"	,	L_43
+"FlowID %s"	,	L_10
+"Basic Header"	,	L_13
+hf_flip_basic_len	,	V_70
+ett_flip_basic	,	V_64
+vec	,	V_76
+"flip.chksum.e"	,	L_41
+"%d (0x%02x)"	,	L_4
+RTP_V2_HEADER_MIN_LEN	,	V_30
+basic_hdr_flow_id	,	V_49
+proto_register_flip	,	F_27
+visible	,	V_60
+offset	,	V_14
+ett	,	V_100
+payload_len	,	V_53
+"flip"	,	L_45
+"decoding_mode"	,	L_46
+tree	,	V_3
+hf_flip_chksum_e	,	V_19
+payload_tvb	,	V_80
+packet_info	,	T_2
+forced_handle	,	V_93
+rtp_handle	,	V_88
+global_flip_payload_decoding_mode	,	V_83
+hf_flip_chksum_spare	,	V_18
+RTP_PAYLOAD_TYPE	,	F_12
+ext_hdr_follows_ptr	,	V_5
+"%d"	,	L_14
+basic_hdr_seqnum	,	V_50
+"flip.basic.seqnum"	,	L_30
+HFILL	,	V_98
+FLIP_CHKSUM	,	V_75
+"flip.basic.e"	,	L_22
+flip_boolean	,	V_20
+"Len"	,	L_32
+ext_hdr	,	V_52
+"0x%04x [%s] (computed 0x%04x)"	,	L_5
+"Basic Header Flow ID"	,	L_28
+PTREE_DATA	,	F_19
+len_remaining	,	V_29
+"Unknown"	,	L_3
+"Checksum Header"	,	L_1
+proto_tree	,	T_3
+dw2	,	V_46
+dw1	,	V_45

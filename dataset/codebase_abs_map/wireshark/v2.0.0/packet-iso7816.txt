@@ -1,0 +1,335 @@
+dissect_iso7816_atr_ta	,	F_3
+"Interface character TC(%d): 0x%02x"	,	L_15
+ett_iso7816_p1	,	V_77
+dissect_iso7816_le	,	F_21
+proto_register_protocol	,	F_42
+"Response APDU"	,	L_29
+"TA(i+1) present"	,	L_52
+tvb_reported_length	,	F_36
+hf_iso7816_body	,	V_106
+wmem_tree_insert32	,	F_28
+hf_iso7816_atr_k	,	V_41
+hf_iso7816_cla_channel	,	V_58
+AT_STRINGZ	,	V_122
+gint	,	T_4
+iso7816_class_rvals	,	V_139
+hf_iso7816_atr_t	,	V_42
+hf_iso7816_atr_hist_bytes	,	V_45
+ett_iso7816_p2	,	V_79
+tvb	,	V_3
+iso7816_sw1	,	V_142
+"iso7816.apdu.select_file.ctrl"	,	L_97
+COL_INFO	,	V_29
+" (or unused)"	,	L_16
+wmem_epan_scope	,	F_50
+FT_BOOLEAN	,	V_134
+p1_it	,	V_66
+"Fi"	,	L_42
+hf_iso7816_atr_next_tc_present	,	V_39
+tree_ti	,	V_112
+tvb_reported_length_remaining	,	F_12
+cinfo	,	V_28
+dissect_iso7816	,	F_33
+"iso7816.atr.ta1.di"	,	L_45
+"iso7816.atr.next_td_present"	,	L_59
+"APDU Body"	,	L_90
+p1_p2_it	,	V_70
+array_length	,	F_44
+offset_start	,	V_60
+"Response in frame %d"	,	L_25
+"iso7816.apdu.sw2"	,	L_95
+hf_iso7816_get_resp	,	V_85
+hf_iso7816_application_data	,	V_88
+"iso7816.atr.t"	,	L_63
+ADDR_INTF	,	V_123
+INS_GET_RESP	,	V_84
+hf_iso7816_sel_file_fci_req	,	V_80
+hf_register_info	,	T_14
+p1_offset	,	V_61
+tck_len	,	V_25
+guint16	,	T_1
+"iso7816.apdu.sw1"	,	L_93
+COL_PROTOCOL	,	V_118
+td_tree	,	V_33
+"Clock rate conversion factor Fi: %d (FI 0x%x)"	,	L_2
+INS_EXT_AUTH	,	V_75
+i	,	V_18
+proto_tree_add_boolean_format	,	F_11
+"iso7816.apdu.cla.sm"	,	L_77
+k	,	V_24
+ta	,	V_8
+tb	,	V_21
+tc	,	V_22
+RVALS	,	F_41
+td	,	V_23
+guint8	,	T_2
+BASE_NONE	,	V_136
+col_append_sep_fstr	,	F_9
+body_len	,	V_95
+"iso7816.application_data"	,	L_109
+"Interface character TB(i)"	,	L_46
+"iso7816.apdu.p2"	,	L_85
+"iso7816.atr.ta"	,	L_41
+iso7816_ins	,	V_108
+"Response In"	,	L_68
+"Interface character TA(%d): 0x%02x"	,	L_1
+wmem_tree_new_autoreset	,	F_49
+hf_iso7816_cla_sm	,	V_57
+DI	,	V_2
+"Baud rate adjustment factor Di: %d (DI 0x%x)"	,	L_3
+DI_to_Di	,	F_2
+p2_tree	,	V_69
+dissect_iso7816_cmd_apdu	,	F_22
+hf_iso7816_atr_ta1_di	,	V_16
+proto_iso7816	,	V_119
+tvbuff_t	,	T_3
+proto_tree_add_protocol_format	,	F_8
+p2_it	,	V_67
+hf_iso7816_ins	,	V_103
+val_to_str_ext_const	,	F_29
+BASE_HEX	,	V_129
+"iso7816.apdu.p1"	,	L_83
+PROTO_ITEM_SET_GENERATED	,	F_20
+"iso7816.atr.t0"	,	L_39
+p1_tree	,	V_68
+" Response APDU"	,	L_35
+gboolean	,	T_13
+proto_item_add_subtree	,	F_6
+INS_SELECT_FILE	,	V_76
+iso7816_tree	,	V_113
+proto_register_field_array	,	F_43
+"Check character TCK"	,	L_66
+FT_BYTES	,	V_135
+"Application data (proprietary coding)"	,	L_108
+proto_reg_handoff_iso7816	,	F_51
+ret	,	V_94
+"iso7816.atr.tb"	,	L_47
+hf_iso7816_atr_init_char	,	V_30
+hf_iso7816_atr_tb	,	V_43
+"iso7816.atr.next_tc_present"	,	L_57
+hf_iso7816_atr_ta	,	V_13
+hf_iso7816_atr_td	,	V_35
+ei	,	V_147
+Di	,	V_10
+hf_iso7816_atr_next_ta_present	,	V_37
+hf_iso7816_atr_tc	,	V_44
+" Command APDU"	,	L_34
+"Di"	,	L_44
+"iso7816.apdu.body"	,	L_91
+ta_it	,	V_11
+"TB(i+1) present"	,	L_54
+"iso7816.atr.k"	,	L_61
+FT_UINT16	,	V_132
+expert_iso7816	,	V_151
+"iso7816"	,	L_113
+"ISO 7816"	,	L_33
+tvb_get_guint8	,	F_4
+wmem_tree_lookup32_le	,	F_31
+"Parameter 1"	,	L_82
+class_tree	,	V_51
+resp_frame	,	V_99
+dev_class	,	V_52
+"Offset of the first byte to read"	,	L_102
+hf_iso7816_resp_to	,	V_109
+"iso7816.atr.tc"	,	L_49
+"iso7816.apdu.select_file.fci_req"	,	L_99
+"Instruction"	,	L_80
+ett_iso7816_atr	,	V_27
+FI	,	V_1
+PINFO_FD_VISITED	,	F_23
+" (selection control)"	,	L_20
+"TC(i+1) present"	,	L_56
+"RFU"	,	L_106
+"Interface character TB(%d): 0x%02x"	,	L_14
+"iso7816.apdu.cla"	,	L_75
+"TCK byte must either be absent or exactly one byte"	,	L_111
+hf_iso7816_atr_ta1_fi	,	V_15
+"offset %d"	,	L_22
+"Historical bytes"	,	L_64
+params_tree	,	V_63
+"Parameter 2"	,	L_84
+INS_GET_DATA	,	V_86
+"GetResp"	,	L_104
+"iso7816.atr.td"	,	L_51
+ett_iso7816_atr_td	,	V_36
+"Interface character TA(i)"	,	L_40
+Fi	,	V_9
+ett_iso7816_atr_ta	,	V_14
+"Unknown instruction"	,	L_28
+val_to_str_const	,	F_32
+find_dissector	,	F_52
+"iso7816.apdu.ins"	,	L_81
+PI_WARN	,	V_149
+"Initial character"	,	L_36
+ENC_BIG_ENDIAN	,	V_31
+hf_iso7816_atr_t0	,	V_34
+ext_iso7816_sel_file_ctrl	,	V_143
+hf_iso7816_atr_next_td_present	,	V_40
+"iso7816.resp_in"	,	L_69
+"TD(i+1) present"	,	L_58
+"ISO 7816 ATR"	,	L_4
+"TB(%d) present: %s"	,	L_10
+hf	,	V_127
+le_item	,	V_90
+ADDR_CARD	,	V_125
+"Protocol reference T"	,	L_62
+ext_iso7816_sel_file_fci_req	,	V_144
+"iso7816.atr.tck"	,	L_67
+channel	,	V_53
+"The response to this command is in this frame"	,	L_70
+"Expected response length Le"	,	L_88
+proto_tree_add_subtree	,	F_18
+dissect_iso7816_params	,	F_17
+hf_iso7816_resp_in	,	V_100
+BASE_EXT_STRING	,	V_141
+col_set_str	,	F_34
+BASE_RANGE_STRING	,	V_138
+cmd_frame	,	V_98
+proto_tree_add_uint_format	,	F_5
+"TD(%d) present: %s"	,	L_12
+p2_offset	,	V_62
+"iso7816.rfu"	,	L_107
+dissect_iso7816_resp_apdu	,	F_30
+proto_item_append_text	,	F_16
+"Response To"	,	L_71
+"iso7816.apdu.le"	,	L_89
+hf_iso7816_sw2	,	V_111
+hf_iso7816_sw1	,	V_110
+dissect_iso7816_class	,	F_15
+transactions	,	V_97
+"Occurrence"	,	L_100
+"ISO 7816-3"	,	L_115
+col_clear	,	F_35
+trans_ti	,	V_93
+proto_register_subtree_array	,	F_45
+iso7816_atr_init_char	,	V_130
+hf_iso7816_sel_file_ctrl	,	V_78
+proto_tr	,	V_20
+ch_item	,	V_54
+proto_tree_add_item	,	F_10
+pinfo	,	T_7
+"Interface character TD(i)"	,	L_50
+FI_to_Fi	,	F_1
+_U_	,	V_6
+"iso7816.offset_first_byte"	,	L_103
+new_register_dissector	,	F_48
+"Secure Messaging"	,	L_76
+" (reference of the algorithm on the card)"	,	L_18
+"Parameters"	,	L_17
+"ATR"	,	L_5
+VALS	,	F_40
+ett_iso7816_class	,	V_56
+"iso7816.apdu.select_file.occurrence"	,	L_101
+"Command APDU using proprietary format"	,	L_27
+"iso7816.get_resp"	,	L_105
+call_dissector_only	,	F_38
+PI_PROTOCOL	,	V_148
+hf_iso7816_sel_file_occ	,	V_81
+"Class"	,	L_74
+FT_UINT8	,	V_128
+hf_iso7816_atr_next_tb_present	,	V_38
+BASE_DEC	,	V_133
+"iso7816.apdu.lc"	,	L_87
+proto_item	,	T_9
+"iso7816.atr.init_char"	,	L_37
+expert_register_field_array	,	F_47
+"Number K of historical bytes"	,	L_60
+dissect_iso7816_atr	,	F_7
+ENC_NA	,	V_46
+"iso7816.atr.historical_bytes"	,	L_65
+"iso7816.atr"	,	L_116
+"iso7816.atr.next_tb_present"	,	L_55
+lc	,	V_96
+le	,	V_89
+ta_tree	,	V_12
+hf_iso7816_le	,	V_91
+hf_iso7816_lc	,	V_105
+INS_READ_BIN	,	V_82
+"%s"	,	L_26
+data	,	T_10
+"TA(%d) present: %s"	,	L_7
+"True"	,	L_8
+" (reference of the secret)"	,	L_19
+"iso7816.atr.ta1.fi"	,	L_43
+hf_iso7816_offset_first_byte	,	V_83
+wmem_tree_lookup32	,	F_24
+iso7816_ins_ext	,	V_104
+SET_ADDRESS	,	F_37
+INS_INVALID	,	V_102
+"Length field Lc"	,	L_86
+ei_register_info	,	T_15
+expert_register_protocol	,	F_46
+ett_iso7816_param	,	V_72
+"Logical channel number"	,	L_78
+"iso7816.resp_to"	,	L_72
+"Status Word SW2"	,	L_94
+guint	,	T_5
+offset	,	V_4
+hf_iso7816_p2	,	V_74
+" "	,	L_31
+is_atr	,	V_114
+"This is the response to the command in this frame"	,	L_73
+ett	,	V_146
+hf_iso7816_p1	,	V_73
+P2P_DIR_RECV	,	V_117
+P1P2	,	V_71
+expert_module_t	,	T_16
+tree	,	V_7
+ext_iso7816_sel_file_occ	,	V_145
+"TC(%d) present: %s"	,	L_11
+packet_info	,	T_6
+" (selection options)"	,	L_21
+"False"	,	L_9
+"Selection control"	,	L_96
+"TA(%d)=%s TB(%d)=%s TC(%d)=%s TD(%d)=%s"	,	L_13
+init_char	,	V_17
+iso7816_atr_handle	,	V_126
+"Both should be 0x00, other values are RFU"	,	L_23
+proto_register_iso7816	,	F_39
+proto_tree_add_uint	,	F_19
+hf_iso7816_rfu	,	V_87
+EXPFILL	,	V_150
+"Interface character TD(%d): 0x%02x"	,	L_6
+p1	,	V_64
+p2	,	V_65
+ett_iso7816	,	V_120
+dst	,	V_124
+proto_tree_add_expert	,	F_13
+proto_iso7816_atr	,	V_26
+"Interface character TC(i)"	,	L_48
+td_it	,	V_32
+"Response to frame %d (%s)"	,	L_30
+"iso7816.atr.next_ta_present"	,	L_53
+"File control information request"	,	L_98
+" (maximum number of available bytes)"	,	L_24
+"iso7816.apdu.cla.channel"	,	L_79
+hf_iso7816_cla	,	V_55
+"(to %s)"	,	L_32
+ret_fct	,	V_49
+iso7816_transaction_t	,	T_11
+class_item	,	V_50
+P2P_DIR_SENT	,	V_116
+PINFO_FD_NUM	,	F_25
+wmem_file_scope	,	F_27
+ta_index	,	V_5
+HFILL	,	V_131
+"iso7816.atr.tck.not1"	,	L_110
+cmd_ins	,	V_101
+p2p_dir	,	V_115
+ie_iso7816_atr_tck_not1	,	V_48
+hf_iso7816_atr_tck	,	V_47
+src	,	V_121
+iso7816_trans	,	V_92
+wmem_new	,	F_26
+gchar	,	T_12
+proto_it	,	V_19
+FT_FRAMENUM	,	V_137
+proto_item_set_len	,	F_14
+ins	,	V_59
+iso7816_cla_sm	,	V_140
+"Format character T0"	,	L_38
+"ISO/IEC 7816-3"	,	L_114
+"Status Word SW1"	,	L_92
+"ISO/IEC 7816"	,	L_112
+cmd_ins_str	,	V_107
+proto_tree	,	T_8

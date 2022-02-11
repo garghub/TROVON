@@ -1,0 +1,319 @@
+rte_on_last_req	,	V_13
+rrpd	,	V_26
+g_direct_hash	,	V_48
+tcp_retran	,	V_114
+CAPTURE_SERVICE	,	V_116
+ett_transum_header	,	V_138
+transum_module	,	V_131
+proto_register_protocol	,	F_63
+"transum.calculation"	,	L_40
+init_globals	,	F_30
+"RTE Response Spread"	,	L_35
+req_first_rtime	,	V_81
+MAX_SUBPKTS_PER_PACKET	,	V_127
+decode_based	,	V_30
+find_protocol_by_id	,	F_32
+"Response missing"	,	L_3
+RRPD	,	T_2
+len	,	V_120
+"RTE data will be added to the first request packet"	,	L_68
+tcp_flags_syn	,	V_123
+gint	,	T_17
+FT_RELATIVE_TIME	,	V_136
+state	,	V_19
+msg_id	,	V_18
+find_latest_rrpd	,	F_12
+wmem_strbuf_new	,	F_39
+"transum.art"	,	L_25
+tvb	,	V_69
+guint32	,	T_5
+c2s	,	V_35
+hf_tsum_status	,	V_82
+wmem_epan_scope	,	F_66
+update_output_rrpd	,	F_7
+set_postdissector_wanted_hfids	,	F_37
+"Summarizer information"	,	L_44
+write_rte	,	F_38
+RTE_TIME_SEC	,	V_144
+append_to_rrpd_list	,	F_8
+insert_into_temp_rsp_rrpd_list	,	F_18
+wmem_strbuf_t	,	T_10
+"Req First Seg"	,	L_12
+array_length	,	F_68
+wmem_list_append	,	F_11
+"137-139"	,	L_49
+update_rrpd_list_entry_req	,	F_17
+g_direct_equal	,	V_49
+""	,	L_1
+ip_proto	,	V_28
+rrpd_list	,	V_24
+"transum.lastreq"	,	L_16
+"RTE data will be added to the last response packet"	,	L_77
+"rte_on_last_rsp"	,	L_75
+"Filter expression to select the APDU Reqest-Response pair"	,	L_38
+update_temp_rsp_rrpd	,	F_22
+PT_TCP	,	V_112
+update_rrpd_list_entry_rsp	,	F_25
+"Set this to discard any packet in the direction client to service,\nwith a 1-byte payload of 0x00 and the ACK flag set"	,	L_65
+rte_on_last_rsp	,	V_15
+prefs_register_enum_preference	,	F_72
+rte_reqspread	,	V_74
+hf_register_info	,	T_16
+temp_string	,	V_78
+hf_tsum_req_last_seg	,	V_84
+"Rsp First Seg"	,	L_18
+wmem_list_frame_data	,	F_15
+guint16	,	T_1
+preferences	,	V_11
+main_list	,	V_45
+GUINT_TO_POINTER	,	F_3
+hf_tsum_calculation	,	V_95
+relative_time	,	V_108
+"TRANSUM RTE Data"	,	L_45
+output_rrpd	,	V_6
+i	,	V_27
+session_id	,	V_31
+proto_transum	,	V_47
+"transum.summary"	,	L_43
+j	,	V_60
+reassembly	,	V_17
+"transum"	,	L_47
+"Output RTE data for these TCP service ports"	,	L_58
+"capture_position"	,	L_51
+"OK"	,	L_2
+BASE_NONE	,	V_133
+calculation	,	V_93
+register_dissector	,	F_75
+tvbuff_t	,	T_6
+"Position of the capture unit that produced this trace.  This setting affects the way TRANSUM handles TCP Retransmissions.  See the manual for details."	,	L_53
+next_rrpd	,	V_16
+set_proto_values	,	F_51
+g_array_append_val	,	F_36
+decode_smb	,	F_54
+orphan_ka_discard	,	V_121
+extract_uint	,	F_55
+PROTO_ITEM_SET_GENERATED	,	F_45
+gboolean	,	T_4
+wmem_strbuf_append_printf	,	F_48
+proto_is_protocol_enabled	,	F_31
+proto_item_add_subtree	,	F_42
+module_t	,	T_15
+in_rrpd	,	V_5
+proto_register_field_array	,	F_67
+decode_dns	,	F_58
+field_value_count	,	V_104
+number_sub_pkts_of_interest	,	V_110
+proto_reg_handoff_transum	,	F_78
+rte_st	,	V_73
+nstime_delta	,	F_43
+wmem_list_frame_prev	,	F_14
+capture_position_vals	,	V_145
+register_init_routine	,	F_76
+prefs_register_range_preference	,	F_74
+rte_art	,	V_72
+"transum.firstreq"	,	L_13
+port	,	V_1
+"reassembly"	,	L_54
+decode_gudp	,	F_57
+g_array_new	,	F_35
+wmem_map_remove	,	F_6
+"Rsp Spread"	,	L_33
+"transum.clip_filter"	,	L_37
+fd	,	V_106
+"First Segment of an APDU Response"	,	L_20
+rrpd_index	,	V_25
+"tcp.stream==%d"	,	L_4
+ranges	,	V_61
+PINFO_FD_VISITED	,	F_60
+"Discard orphaned TCP Keep-Alives"	,	L_64
+summarisers_enabled	,	V_97
+"APDU Rsp Time"	,	L_24
+ett_transum_data	,	V_139
+FT_STRING	,	V_132
+"transum.rspspread"	,	L_34
+req_last_frame	,	V_8
+udp_svc_ports	,	V_57
+decode_gtcp	,	F_52
+null_output_rrpd_entries	,	F_5
+TRACE_CAP_CLIENT	,	V_140
+"25, 80, 443, 1433"	,	L_48
+prefs_register_obsolete_preference	,	F_71
+summary	,	V_71
+pkt_of_interest	,	V_117
+proto_name	,	V_146
+hf_tsum_service_time	,	V_88
+capture_position	,	V_115
+wmem_list_frame_t	,	T_3
+"Last Segment of an APDU Response"	,	L_23
+wmem_list_tail	,	F_13
+"Basis of the RTE calculation"	,	L_41
+add_detected_tcp_svc	,	F_1
+subpackets	,	V_101
+"rte_on_last_req"	,	L_69
+proto_registrar_get_id_byname	,	F_79
+tcp_svc_ports	,	V_56
+time_multiplier	,	V_143
+hf	,	V_54
+rrdp_calculation_vals	,	V_96
+"Summary"	,	L_42
+hf_tsum_rsp_last_seg	,	V_86
+"Capture position"	,	L_52
+"Add RTE data to the last response segment"	,	L_76
+transum_handle	,	V_55
+" &amp;&amp; tcp.len&gt;0"	,	L_7
+"transum.firstrsp"	,	L_19
+dstport	,	V_124
+decode_dcerpc	,	F_56
+wmem_list_remove	,	F_24
+proto_tree_add_time	,	F_47
+MAX_UDP_PORT	,	V_142
+wmem_list_new	,	F_34
+is_dcerpc_context_zero	,	F_27
+"Indication of completeness of the RTE information"	,	L_11
+"Trace clip filter"	,	L_36
+prefs_register_protocol	,	F_70
+decode_syn	,	F_53
+"transum.st"	,	L_28
+hf_tsum_clip_filter	,	V_94
+tcp_keep_alive	,	V_119
+field_uint	,	V_102
+"Req Last Seg"	,	L_15
+"udp_port_ranges"	,	L_60
+"RTE data will be added to the first response packet"	,	L_74
+temp_rsp_rrpd_list	,	V_43
+req_last_rtime	,	V_36
+"TRANSUM"	,	L_46
+find_temp_rsp_rrpd	,	F_19
+"RTE APDU Response Time"	,	L_26
+proto_register_subtree_array	,	F_69
+proto_tree_add_string	,	F_44
+val_to_str	,	F_50
+rte_on_first_rsp	,	V_14
+"transum.status"	,	L_10
+dissect_transum	,	F_59
+hf_tsum_rsp_first_seg	,	V_85
+"Add RTE data to the last request segment"	,	L_70
+proto_tree_add_item	,	F_41
+temp_list	,	V_44
+pinfo	,	V_99
+"Rsp Last Seg"	,	L_21
+" &amp;&amp; frame.number&gt;=%d &amp;&amp; frame.number&lt;=%d"	,	L_6
+RRPD_STATE_1	,	V_21
+pkt_info	,	V_100
+_U_	,	V_129
+RRPD_STATE_2	,	V_23
+RRPD_STATE_3	,	V_20
+RRPD_STATE_4	,	V_22
+RRPD_STATE_5	,	V_40
+RRPD_STATE_6	,	V_42
+"tsumenabled"	,	L_50
+RRPD_STATE_7	,	V_39
+RRPD_STATE_8	,	V_41
+"Add RTE data to the first request segment"	,	L_67
+low	,	V_62
+"Add and remove ports numbers separated by commas\nRanges are supported e.g. 25,80,2000-3000,5432"	,	L_59
+wmem_alloc0_array	,	F_61
+prefs_register_bool_preference	,	F_73
+IP_PROTO_UDP	,	V_92
+rsp_first_rtime	,	V_37
+"udp.stream==%d"	,	L_5
+"Add RTE data to the first response segment"	,	L_73
+wanted_fields	,	V_50
+migrate_temp_rsp_rrpd	,	F_23
+proto_item	,	T_9
+frame_number	,	V_105
+ENC_NA	,	V_79
+hf_tsum_req_spread	,	V_89
+"Add and remove ports numbers separated by commas\nRanges are supported e.g. 123,137-139,520-521,2049"	,	L_62
+"Subdissector reassembly enabled"	,	L_55
+rsp_last_rtime	,	V_38
+wmem_map_new	,	F_33
+"Last Segment of an APDU Request"	,	L_17
+update_rrpd_rte_data	,	F_26
+"rte_on_first_req"	,	L_66
+wmem_list_head	,	F_20
+IP_PROTO_TCP	,	V_91
+update_rrpd_list_entry	,	F_16
+data	,	T_14
+RRPD_STATE_DONT_CARE	,	V_33
+udp_svc_port_range_values	,	V_65
+hf_tsum_apdu_rsp_time	,	V_87
+num	,	V_107
+"transum.reqspread"	,	L_31
+RTE_CALC_DNS	,	V_68
+"First Segment of an APDU Request"	,	L_14
+rte_on_first_req	,	V_12
+size_t	,	T_13
+suffix	,	V_32
+"Req Spread"	,	L_30
+hf_tsum_rsp_spread	,	V_90
+RTE_CALC_GTCP	,	V_64
+high	,	V_63
+"tcp_port_ranges"	,	L_57
+HF_INTEREST_DCERPC_VER	,	V_126
+is_dcerpc_req_pkt_type	,	F_29
+rsp_first_frame	,	V_9
+rte_tree	,	V_76
+buffer	,	V_128
+nstime_t	,	T_8
+"Output RTE data for these UDP service ports"	,	L_61
+"Unknown calculation type: %d"	,	L_8
+"Calculation"	,	L_39
+"RTE Request Spread"	,	L_32
+guint	,	V_51
+ett	,	V_137
+wmem_packet_scope	,	F_40
+"RTE Service Time"	,	L_29
+tree	,	V_70
+PT_UDP	,	V_113
+detected_tcp_svc	,	V_2
+init_dcerpc_data	,	F_4
+packet_info	,	T_11
+rel_ts	,	V_109
+"RTE data will be added to the last request packet"	,	L_71
+"Service Time"	,	L_27
+"orphan_ka_discard"	,	L_63
+hf_tsum_summary	,	V_98
+proto_register_transum	,	F_62
+proto_tree_add_uint	,	F_46
+"RTE Status"	,	L_9
+pkt_type	,	V_46
+HF_INTEREST_END_OF_LIST	,	V_52
+proto_disable_by_default	,	F_64
+nranges	,	V_59
+ptype	,	V_111
+wmem_memdup	,	F_9
+stream_no	,	V_29
+tcp_flags_ack	,	V_122
+range_convert_str	,	F_65
+MAX_RETURNED_ELEMENTS	,	V_103
+wmem_file_scope	,	F_10
+dcerpc_req_pkt_type	,	V_3
+HFILL	,	V_134
+hf_of_interest	,	V_53
+ett_transum	,	V_80
+hf_tsum_req_first_seg	,	V_83
+req_first_frame	,	V_7
+wmem_map_insert	,	F_2
+match	,	V_34
+register_postdissector	,	F_77
+sub_packet	,	V_130
+FT_FRAMENUM	,	V_135
+rte_rspspread	,	V_75
+wmem_list_frame_next	,	F_21
+"rte_on_first_rsp"	,	L_72
+RTE_CALC_GUDP	,	V_66
+PKT_INFO	,	T_12
+"transum.lastrsp"	,	L_22
+dcerpc_context_zero	,	V_4
+tcp_svc_port_range_values	,	V_58
+RTE_CALC_SMB2	,	V_67
+MAX_TCP_PORT	,	V_141
+CAPTURE_CLIENT	,	V_118
+pi	,	V_77
+wmem_strbuf_get_str	,	F_49
+srcport	,	V_125
+"Set this to match to the TCP subdissector reassembly setting"	,	L_56
+rsp_last_frame	,	V_10
+wmem_map_lookup	,	F_28
+proto_tree	,	T_7

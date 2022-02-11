@@ -1,0 +1,155 @@
+hf_stt_pcp	,	V_40
+G_GINT64_MODIFIER	,	V_44
+proto_register_protocol	,	F_15
+"stt.mss"	,	L_29
+FLAG_B3_MASK	,	V_34
+tvb_new_subset_remaining	,	F_11
+"Version"	,	L_7
+"Checksum verified"	,	L_22
+"VLAN ID"	,	L_34
+FT_UINT64	,	V_65
+col_set_str	,	F_2
+FLAG_B4_MASK	,	V_58
+gint	,	T_10
+proto_stt	,	V_18
+"Flags"	,	L_9
+hf_stt_reserved_8	,	V_36
+"stt.vlan_id"	,	L_35
+"stt.flags.b2"	,	L_19
+"V flag"	,	L_32
+tvb	,	V_1
+STT_VLANID_MASK	,	V_39
+ett_stt_flgs	,	V_24
+"PCP"	,	L_30
+COL_INFO	,	V_17
+FT_BOOLEAN	,	V_54
+l4_offset	,	V_11
+proto_item_append_text	,	F_9
+"stt.reserved"	,	L_27
+hf_stt_v	,	V_41
+cinfo	,	V_15
+proto_register_subtree_array	,	F_20
+flg_item	,	V_7
+array_length	,	F_18
+"Context ID"	,	L_36
+"stt.flags.b3"	,	L_17
+"stt.l4offset"	,	L_25
+"Reserved"	,	L_26
+next_tvb	,	V_9
+"stt.flags.b0"	,	L_23
+proto_tree_add_item	,	F_4
+call_dissector	,	F_12
+pinfo	,	V_2
+dissector_handle_t	,	T_12
+flags	,	V_10
+"x"	,	L_6
+", Context ID: 0x%"	,	L_5
+STT_V_MASK	,	V_38
+hf_register_info	,	T_9
+ei_stt_l4_offset	,	V_35
+VALS	,	F_14
+PI_PROTOCOL	,	V_70
+guint16	,	T_6
+COL_PROTOCOL	,	V_16
+"stt"	,	L_43
+eth_handle	,	V_46
+FT_UINT8	,	V_49
+BASE_DEC	,	V_50
+dissect_stt	,	F_1
+proto_item	,	T_4
+expert_register_field_array	,	F_17
+"Bad L4 Offset"	,	L_41
+hf_stt_vlan_id	,	V_42
+ENC_NA	,	V_19
+guint8	,	T_5
+ti	,	V_6
+expert_add_info_format	,	F_7
+BASE_NONE	,	V_67
+FLAG_B5_MASK	,	V_57
+STT_PCP_MASK	,	V_64
+attributes	,	V_12
+"Padding"	,	L_38
+FLAG_B2_MASK	,	V_59
+"stt.flags.b1"	,	L_21
+hf_stt_padding	,	V_45
+tvbuff_t	,	T_1
+", Priority: %u, VLAN ID: %u"	,	L_4
+"Unused flag"	,	L_11
+"Max Segment Size"	,	L_28
+tvb_get_ntohs	,	F_8
+BASE_HEX	,	V_53
+ei_register_info	,	T_11
+expert_register_protocol	,	F_16
+"STT"	,	L_1
+"TCP payload"	,	L_16
+proto_item_add_subtree	,	F_5
+"stt.flags.b6"	,	L_13
+"Incorrect offset, should be greater than zero"	,	L_3
+proto_register_field_array	,	F_19
+"L4 Offset"	,	L_24
+FT_BYTES	,	V_66
+hf_stt_l4_offset	,	V_33
+pri_vals	,	V_63
+offset	,	V_14
+hf_stt_flag_b6	,	V_26
+hf_stt_context_id	,	V_43
+ett	,	V_68
+ei	,	V_69
+hf_stt_flag_b7	,	V_25
+hf_stt_flag_b4	,	V_28
+proto_register_stt	,	F_13
+expert_module_t	,	T_8
+dissector_add_uint	,	F_24
+hf_stt_flag_b5	,	V_27
+"stt.context_id"	,	L_37
+tree	,	V_3
+hf_stt_flag_b2	,	V_30
+hf_stt_flag_b3	,	V_29
+hf_stt_flag_b0	,	V_32
+hf_stt_flag_b1	,	V_31
+FT_UINT16	,	V_62
+packet_info	,	T_2
+flg_tree	,	V_5
+tvb_get_ntoh64	,	F_10
+tvb_get_guint8	,	F_6
+TCP_PORT_STT	,	V_74
+"stt.flags.b7"	,	L_12
+"stt.v"	,	L_33
+EXPFILL	,	V_72
+FLAG_B0_MASK	,	V_61
+"eth"	,	L_44
+"stt.l4_offset_bad.expert"	,	L_40
+"stt.flags"	,	L_10
+FLAG_B6_MASK	,	V_56
+ett_stt	,	V_20
+hf_stt_version	,	V_21
+stt_handle	,	V_73
+"Checksum partial"	,	L_20
+"stt.version"	,	L_8
+"stt.padding"	,	L_39
+"Stateless Transport Tunneling"	,	L_42
+"IPv4 packet"	,	L_18
+FLAG_B1_MASK	,	V_60
+hf_stt_mss	,	V_37
+HFILL	,	V_52
+"stt.flags.b4"	,	L_15
+"stt.pcp"	,	L_31
+FLAG_B7_MASK	,	V_55
+expert_stt	,	V_47
+col_clear_fence	,	F_3
+find_dissector	,	F_22
+hf_stt_flags	,	V_23
+create_dissector_handle	,	F_23
+PI_WARN	,	V_71
+l4_offset_item	,	V_8
+ENC_BIG_ENDIAN	,	V_22
+proto_reg_handoff_stt	,	F_21
+stt_tree	,	V_4
+NO_MASK	,	V_51
+context_id	,	V_13
+"Incorrect offset, should be equals to zero"	,	L_2
+guint64	,	T_7
+"stt.flags.b5"	,	L_14
+"tcp.port"	,	L_45
+proto_tree	,	T_3
+hf	,	V_48

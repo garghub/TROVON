@@ -1,0 +1,153 @@
+"papi.hdr.ip.src"	,	L_13
+"papi.debug.32bits"	,	L_41
+"PAPI - Aruba AP Control Protocol"	,	L_3
+hf_papi_hdr_version	,	V_32
+proto_register_protocol	,	F_13
+prefs_register_protocol	,	F_19
+tvb_reported_length	,	F_4
+hf_papi_hdr_port_destination	,	V_37
+"Debug (16 Bits)"	,	L_38
+tvb_new_subset_remaining	,	F_10
+"Version"	,	L_7
+"ID"	,	L_4
+"papi.debug"	,	L_25
+FT_UINT64	,	V_53
+col_set_str	,	F_9
+gint	,	T_10
+hf_papi_debug_bytes_length	,	V_21
+"papi.debug.8bits"	,	L_37
+FT_IPv4	,	V_48
+"papi.debug.64bits"	,	L_45
+tvb	,	V_1
+COL_INFO	,	V_29
+"papi.hdr.sequence"	,	L_21
+"Port Destination"	,	L_16
+hf_papi_debug_8bits	,	V_16
+hf_papi_hdr_ip_destination	,	V_33
+proto_tree_add_expert_format	,	F_7
+"papi.debug.16bits"	,	L_39
+cinfo	,	V_27
+UDP_PORT_PAPI	,	V_63
+hf_papi_debug_32bits	,	V_18
+proto_register_subtree_array	,	F_16
+array_length	,	F_15
+"Checksum"	,	L_22
+next_tvb	,	V_26
+hf_papi_hdr_ip_source	,	V_34
+proto_tree_add_item	,	F_2
+"Debug (Text)"	,	L_26
+hf_papi_debug_bytes	,	V_20
+call_dissector	,	F_11
+pinfo	,	V_2
+"PAPI Header ID (Magic Number ?)"	,	L_6
+dissector_handle_t	,	T_13
+_U_	,	V_24
+papi_module	,	V_42
+"papi.hdr.ip.dst"	,	L_11
+ENC_ASCII	,	V_12
+hf_papi_debug_16bits	,	V_17
+"papi.debug.text"	,	L_27
+"papi.debug.bytes_length"	,	L_33
+"Aruba PAPI"	,	L_47
+"Port Source"	,	L_14
+"papi.hdr.checksum"	,	L_23
+hf_papi_debug_text_length	,	V_13
+"Debug Text Length"	,	L_28
+hf_register_info	,	T_9
+"Debug Bytes Length"	,	L_32
+debug_tree	,	V_6
+"papi.hdr.unknown"	,	L_19
+"Debug (IPv4)"	,	L_42
+"PAPI"	,	L_2
+prefs_register_bool_preference	,	F_20
+"Debug (48 Bits)"	,	L_34
+"papi.debug.48bits"	,	L_35
+PI_PROTOCOL	,	V_58
+COL_PROTOCOL	,	V_28
+"data"	,	L_53
+FT_UINT8	,	V_54
+BASE_DEC	,	V_47
+proto_item	,	T_5
+expert_register_field_array	,	F_18
+debug_sub_tree	,	V_7
+g_papi_debug	,	V_40
+"papi.hdr.port.destination"	,	L_17
+ENC_NA	,	V_9
+"Do experimental decode"	,	L_50
+hf_papi_debug_text	,	V_11
+ti	,	V_5
+BASE_NONE	,	V_49
+dissect_papi	,	F_8
+proto_register_papi	,	F_12
+"papi.debug.bytes"	,	L_31
+"PAPI Protocol Version"	,	L_9
+hf_papi_hdr_port_source	,	V_36
+"IP Source"	,	L_12
+hf_papi_hdr_id	,	V_31
+"papi.hdr.version"	,	L_8
+data	,	T_7
+"IP Destination"	,	L_10
+proto_reg_handoff_papi	,	F_21
+tvbuff_t	,	T_1
+hf_papi_debug_64bits	,	V_22
+papi_tree	,	V_25
+"papi"	,	L_48
+tvb_get_ntohs	,	F_6
+ett_papi	,	V_10
+BASE_HEX	,	V_45
+"Debug (32 Bits)"	,	L_40
+ei_register_info	,	T_11
+gboolean	,	T_6
+expert_register_protocol	,	F_17
+hf_papi_debug_48bits	,	V_15
+proto_item_add_subtree	,	F_3
+"Attempt to decode parts of the message that aren't fully understood yet"	,	L_51
+module_t	,	T_8
+"papi.hdr.port.src"	,	L_15
+"Debug (Bytes)"	,	L_30
+proto_register_field_array	,	F_14
+"Unknown (%d)"	,	L_1
+FT_BYTES	,	V_50
+hf_papi_hdr_unknown	,	V_35
+guint	,	T_3
+FT_NONE	,	V_51
+offset	,	V_3
+ett	,	V_56
+ei	,	V_57
+"experimental_decode"	,	L_49
+hf_papi_hdr_sequence	,	V_38
+expert_module_t	,	T_12
+dissector_add_uint	,	F_23
+tree	,	V_4
+"Debug"	,	L_24
+"Debug (64 Bits)"	,	L_44
+data_handle	,	V_41
+FT_UINT16	,	V_44
+"Sequence"	,	L_20
+packet_info	,	T_2
+hf_papi_debug_ipv4	,	V_19
+tvb_get_guint8	,	F_5
+"papi.hdr.id"	,	L_5
+dissect_papi_debug	,	F_1
+EXPFILL	,	V_60
+ei_papi_debug_unknown	,	V_23
+hf_papi_hdr_checksum	,	V_39
+proto_papi	,	V_30
+expert_papi	,	V_61
+"Debug (8 Bits)"	,	L_36
+"papi.debug.text_length"	,	L_29
+FT_STRING	,	V_52
+HFILL	,	V_46
+"papi.debug.ipv4"	,	L_43
+new_create_dissector_handle	,	F_22
+"udp.port"	,	L_52
+find_dissector	,	F_24
+PI_WARN	,	V_59
+hf_papi_debug	,	V_8
+ENC_BIG_ENDIAN	,	V_14
+"papi.debug.unknown"	,	L_46
+FT_UINT32	,	V_55
+"Unknown"	,	L_18
+papi_handle	,	V_62
+proto_tree	,	T_4
+hf	,	V_43

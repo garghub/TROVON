@@ -1,0 +1,722 @@
+PI_CHAT	,	V_331
+sm_sqn	,	V_23
+"MIM outgoing port (default "	,	L_195
+hf_lbtrm_analysis_prev_sm_frame	,	V_269
+lbtrm_expert_separate_naks	,	V_127
+"lbtrm.analysis.data.rx"	,	L_150
+"Next Transport NCF frame"	,	L_119
+total_dissected_len	,	V_206
+lbm_transport_sqn_add	,	F_18
+"lbtrm.analysis.sm.dup"	,	L_162
+"sport_high"	,	L_182
+transport_tree	,	V_210
+"Data RX"	,	L_151
+record	,	V_44
+"expert_separate_naks"	,	L_197
+"lbtrm.sm.sm_sqn"	,	L_65
+"Source port range high (default "	,	L_183
+num_naks	,	V_129
+ett_lbtrm_transport_sqn	,	V_260
+TFS	,	F_83
+"Trail Sequence Number"	,	L_68
+guint32	,	T_4
+"Session Message Header"	,	L_63
+"lbtrm.transport.sm_sqn_gap"	,	L_135
+LBTRM_NCF_HDR_REASON_MASK	,	V_321
+sm_sqn_item	,	V_145
+FT_BOOLEAN	,	V_312
+"[Tag: %s]"	,	L_12
+L_LBTRM_DATA_HDR_T_FEC_SYMBOL	,	V_192
+dissect_lbtrm_nak_list	,	F_53
+hf_lbtrm_analysis_next_sm_frame	,	V_270
+tvb_reported_length_remaining	,	F_80
+"lbtrm.analysis.rx"	,	L_146
+wmem_strdup	,	F_27
+lbtrm_tag_copy_cb	,	F_32
+wmem_tree_t	,	T_6
+"lbtrm.hdr.ver"	,	L_36
+"Unicast NAKs"	,	L_53
+"lbtrm.data.flags_fec_type"	,	L_52
+array_length	,	F_86
+"Destination port range high (default "	,	L_177
+hf_lbtrm_hdr_session_id	,	V_241
+L_LBTRM_DATA_HDR_T	,	V_176
+"%"	,	L_9
+"lbtrm.analysis.invalid_value"	,	L_148
+"lbtrm.hdr.session_id"	,	L_44
+hf_lbtrm_analysis_data_ooo_gap	,	V_265
+"Duplicate SM frame"	,	L_138
+"Source port range low (default "	,	L_180
+wmem_alloc_array	,	F_51
+" ID 0x%08x"	,	L_18
+MIM_DEFAULT_MC_INCOMING_ADDRESS	,	V_353
+"Perform sequence Number Analysis"	,	L_204
+multicast_group	,	V_13
+global_mim_outgoing_mc_address	,	V_356
+"Reason"	,	L_92
+", Session ID 0x%08x"	,	L_14
+L_LBTRM_HDR_T_UCAST_PORT	,	V_240
+hf_register_info	,	T_25
+"Set the incoming MIM multicast address (context mim_incoming_address)"	,	L_187
+ncf_count	,	V_81
+LBTRM_HDR_TYPE	,	F_68
+LBTRM_PACKET_TYPE_NCF	,	V_31
+O_LBTRM_DATA_HDR_T_TRAIL_SQN	,	V_182
+"Unknown (0x%02x)"	,	L_5
+nak_tree	,	V_120
+guint16	,	T_3
+address	,	T_2
+expert_lbtrm	,	V_338
+hf_lbtrm_nak_num_naks	,	V_133
+session_id	,	V_3
+dest_addr_h	,	V_69
+hf_lbtrm_data_fec_symbol	,	V_190
+mim_outgoing_dest_port	,	V_294
+hf_lbtrm_data_flags_tgsz	,	V_187
+hdrlen	,	V_244
+hf_lbtrm_hdr_next_hdr	,	V_237
+BASE_NONE	,	V_302
+"lbtrm.transport.data_duplicate"	,	L_133
+frame_entry	,	V_35
+hf_lbtrm_sm_sm_sqn	,	V_149
+hf_lbtrm_tag	,	V_229
+col_append_sep_fstr	,	F_75
+hf_lbtrm_analysis_data_duplicate	,	V_267
+retransmission	,	V_33
+mc_address_high_val_h	,	V_56
+"Set the low end of the LBT-RM multicast address range (context transport_lbtrm_multicast_address_low)"	,	L_169
+hf_lbtrm_hdr_ver	,	V_233
+ei_lbtrm_analysis_nak	,	V_139
+frame_count	,	V_256
+ei_lbtrm_analysis_sm	,	V_167
+"Set if NAKs are sent via unicast"	,	L_55
+"LBT-RM Protocol: Version %u, Type %s: Source Unicast Port %"	,	L_15
+hf_lbtrm_hdr	,	V_230
+lbtrm_transport_sqn_find	,	F_16
+transport_item	,	V_197
+lbm_channel_assign	,	F_15
+BASE_HEX	,	V_305
+PROTO_ITEM_SET_GENERATED	,	F_62
+col_add_str	,	F_64
+"lbtrm.analysis.data.dup"	,	L_156
+"Duplicate Data frame"	,	L_132
+sqns	,	V_97
+"lbtrm.transport"	,	L_100
+global_lbtrm_expert_separate_naks	,	V_361
+dissect_lbtrm_data_contents	,	F_38
+proto_item_add_subtree	,	F_43
+last_ncf_frame	,	V_21
+module_t	,	T_28
+hf_lbtrm_ncf_format	,	V_114
+ei_lbtrm_analysis_rx	,	V_194
+proto_register_field_array	,	F_85
+MIM_DEFAULT_MC_OUTGOING_ADDRESS	,	V_355
+ei	,	V_326
+"Separate multiple NCFs from a single packet into distinct Expert Info entries"	,	L_202
+LBTRM_PACKET_TYPE_NAK	,	V_30
+g_htonl	,	F_103
+O_LBTRM_HDR_T_VER_TYPE	,	V_220
+"Sequence Number"	,	L_47
+L_LBTRM_NAK_HDR_T_FORMAT	,	V_137
+FT_UINT16	,	V_309
+"lbtrm.transport.sm_duplicate"	,	L_139
+dissect_lbtrm_data	,	F_58
+L_LBTRM_HDR_T_VER_TYPE	,	V_234
+"Separate NAKs in Expert Info"	,	L_198
+L_LBTRM_NAK_HDR_T	,	V_138
+O_LBTRM_SM_HDR_T_LEAD_SQN	,	V_153
+")"	,	L_25
+sm_tree	,	V_141
+fd	,	V_248
+frame	,	V_4
+session_tree	,	V_7
+mim_mc_incoming_address_val_h	,	V_64
+wmem_new0	,	F_74
+global_mim_incoming_mc_address	,	V_354
+"NAK Confirmation Header"	,	L_85
+"LBT Reliable Multicast over UDP"	,	L_216
+expert_add_info	,	F_55
+ett_lbtrm	,	V_225
+lbtrm_mc_address_low_host	,	V_287
+"lbtrm.data.fec_symbol"	,	L_62
+lbtrm_nak_format	,	V_318
+sqn_item	,	V_172
+"lbtrm.nak.list.nak"	,	L_84
+hf_lbtrm_data_sqn	,	V_178
+L_LBTRM_DATA_HDR_T_FLAGS_FEC_TYPE	,	V_313
+heur_dissector_add	,	F_101
+"lbtrm.sm.flags_fec_type.ucast_naks"	,	L_71
+LBTRM_DEFAULT_DPORT_HIGH	,	V_347
+HEURISTIC_ENABLE	,	V_371
+dport_low	,	V_57
+frame_tree	,	V_257
+FT_STRING	,	V_301
+source_address	,	V_1
+source_port	,	V_2
+previous_frame	,	V_36
+"Data Header"	,	L_45
+"lbtrm.nak"	,	L_76
+data_item	,	V_169
+"lbtrm.sm.lead_sqn"	,	L_67
+LBTRM_DATA_RETRANSMISSION_FLAG	,	V_193
+ei_lbtrm_analysis_ncf	,	V_116
+"lbtrm.hdr.type"	,	L_38
+"dport_high"	,	L_176
+hf_lbtrm_hdr_type	,	V_235
+dissect_lbtrm	,	F_63
+hf_lbtrm_channel	,	V_228
+"lbtrm.transport.next_data_frame"	,	L_114
+conversation_add_proto_data	,	F_9
+"lbtrm.transport.prev_ncf_frame"	,	L_110
+length	,	T_13
+ett_lbtrm_data	,	V_177
+ei_lbtrm_analysis_data_rx	,	V_262
+PI_WARN	,	V_330
+hf_lbtrm_ncf_reserved	,	V_109
+hf_lbtrm_data_flags_fec_type	,	V_185
+ei_lbtrm_analysis_sm_gap	,	V_272
+FT_UINT32	,	V_311
+"29West"	,	L_166
+visited	,	V_249
+"SM sequence gap"	,	L_159
+sport_high	,	V_60
+"mim_outgoing_address"	,	L_188
+guint64	,	T_18
+LBTRM_VERSION	,	V_286
+hf	,	V_297
+BASE_HEX_DEC	,	V_299
+"Number of Individual NCFs"	,	L_89
+uat_new	,	F_97
+channel	,	V_16
+"Channel ID"	,	L_29
+hf_lbtrm_sm_reserved	,	V_164
+"Tag"	,	L_31
+LBTRM_HDR_TYPE_MASK	,	V_307
+lbtrm_transport_source_string	,	F_26
+"lbtrm"	,	L_165
+O_LBTRM_HDR_T_NEXT_HDR	,	V_221
+ei_lbtrm_analysis_ncf_ncf	,	V_95
+wmem_strdup_printf	,	F_23
+ett_lbtrm_nak	,	V_131
+frame_tree_item	,	V_258
+nak	,	V_122
+"Gap in Data Sequence"	,	L_128
+"lbtrm.transport.sqn.frame"	,	L_125
+"Source Unicast Port"	,	L_41
+data_sqn	,	V_22
+lbtrm_tag_array	,	V_366
+hf_lbtrm_sm	,	V_146
+L_LBTRM_HDR_T_SESSION_ID	,	V_242
+"NAK List"	,	L_81
+"lbtrm.nak.list"	,	L_82
+lbtrm_ncf_reason	,	V_96
+ei_lbtrm_analysis_sm_ooo	,	V_274
+"MIM incoming multicast address (default "	,	L_186
+num_ncfs	,	V_98
+"lbtrm.hdr.next_hdr"	,	L_40
+"Sequence number also appears in these frames"	,	L_123
+"lbtrm.hdr"	,	L_34
+UAT_AFFECTS_DISSECTION	,	V_365
+O_LBTRM_DATA_HDR_T_FLAGS_FEC_TYPE	,	V_184
+val_to_str	,	F_46
+proto_tree_add_string	,	F_73
+ei_lbtrm_analysis_data_ooo	,	V_266
+"lbtrm.transport.prev_nak_frame"	,	L_108
+in_addr	,	V_335
+"Retransmission"	,	L_56
+ei_lbtrm_analysis_data_gap	,	V_264
+"lbtrm.nak.num_naks"	,	L_78
+sqn_list	,	V_32
+data_tree	,	V_168
+O_LBTRM_BASIC_OPT_T_NEXT_HDR	,	V_245
+hf_lbtrm_ncf_trail_sqn	,	V_104
+"Use table of LBT-RM tags to decode the packet instead of above values"	,	L_208
+"lbtrm.sm.flags_fec_type"	,	L_70
+LBTRM_NCF_HDR_FORMAT_MASK	,	V_323
+"TGSZ Flags"	,	L_59
+ncf	,	V_86
+lbtrm_tag_free_cb	,	F_33
+lbm_lbtrm_tap_info_t	,	T_19
+LBTRM_NAK_HDR_FORMAT_MASK	,	V_319
+"LBT-RM Tags"	,	L_212
+g_ntohl	,	F_92
+AT_IPv4	,	V_285
+O_LBTRM_DATA_HDR_T_FLAGS_TGSZ	,	V_188
+VALS	,	F_82
+dissector_add_for_decode_as	,	F_100
+LBTRM_NCF_HDR_REASON	,	F_50
+prefs_register_bool_preference	,	F_96
+ett_lbtrm_ncf	,	V_101
+"lbtrm.ncf.format"	,	L_94
+lbtrm_transport_sqn_add	,	F_17
+wmem_tree_foreach	,	F_76
+"Set if this is a retransmission"	,	L_58
+mim_mc_outgoing_address_val_h	,	V_66
+"lbtrm.tag"	,	L_32
+lbtrm_tag_find	,	F_35
+BASE_DEC	,	V_310
+"lbtrm.hdr.ucast_port"	,	L_42
+global_lbtrm_use_tag	,	V_364
+"lbtrm.ncf.list"	,	L_96
+"mc_address_high"	,	L_170
+ENC_NA	,	V_89
+"lbtrm.ncf.reason"	,	L_93
+O_LBTRM_NCF_HDR_T_REASON_FORMAT	,	V_103
+"Next Transport NAK frame"	,	L_117
+"SM Sequence Out of Order Gap"	,	L_136
+lbtrm_transport_add	,	F_12
+next_frame	,	V_37
+O_LBTRM_BASIC_OPT_T_HDR_LEN	,	V_246
+L_LBTRM_DATA_HDR_T_TRAIL_SQN	,	V_183
+"Trailing Sequence Number"	,	L_87
+L_LBTRM_NCF_HDR_T	,	V_115
+LBTRM_NHDR_DATA	,	V_243
+"Trailing Edge Sequence Number"	,	L_49
+lbm_transport_sqn_t	,	T_7
+"Set the incoming MIM UDP port (context mim_incoming_destination_port)"	,	L_193
+"Tag name can't be empty"	,	L_3
+valid_packet	,	V_282
+size_t	,	T_12
+wmem_tree_lookup32	,	F_4
+"Perform analysis on LBT-RM sequence numbers to determine out-of-order, gaps, loss, etc"	,	L_205
+"Multicast address range low (default "	,	L_168
+prefs_register_uint_preference	,	F_94
+global_lbtrm_sequence_analysis	,	V_363
+hf_lbtrm_analysis_sm_ooo_gap	,	V_273
+expert_register_protocol	,	F_88
+proto_reg_handoff_lbtrm	,	V_339
+hf_lbtrm_data	,	V_175
+s_addr	,	V_341
+MAKESTRING	,	F_95
+dport_high	,	V_58
+sqn_gap	,	V_42
+"Previous Transport frame"	,	L_101
+dup_sqn_entry	,	V_34
+"LBTRM:%s:%"	,	L_1
+lbtrm_use_tag	,	V_70
+"Unrecognized type 0x%02x"	,	L_23
+hf_lbtrm_sm_flags_fec_type	,	V_159
+guint	,	T_15
+LBTRM_HDR_VER_MASK	,	V_306
+ett	,	V_325
+wmem_packet_scope	,	F_24
+"lbtrm_udp"	,	L_217
+ei_lbtrm_analysis_data_dup	,	V_268
+LBM_CHANNEL_NO_CHANNEL	,	V_212
+packet_info	,	T_14
+entry	,	V_15
+global_mim_incoming_dest_port	,	V_358
+"lbtrm.sm.reserved"	,	L_74
+"lbtrm.transport.data_sqn_gap"	,	L_129
+wmem_tree_new	,	F_7
+dissected_len	,	V_205
+"SM"	,	L_145
+"udp"	,	L_215
+hf_lbtrm_sm_flags_fec_type_ucast_naks	,	V_144
+is_retransmission	,	V_174
+EXPFILL	,	V_329
+"LBT Reliable Multicast Protocol"	,	L_164
+sqn_frame	,	V_198
+"SM sequence gap (%"	,	L_27
+"lbtrm.transport.next_nak_frame"	,	L_118
+dst	,	V_71
+L_LBTRM_SM_HDR_T_SM_SQN	,	V_151
+lbtrm_tap_handle	,	V_281
+conversation_get_proto_data	,	F_3
+ptype	,	V_284
+hf_lbtrm_analysis_sqn	,	V_259
+last_sm_frame	,	V_19
+sqn	,	V_26
+hf_lbtrm_analysis_sqn_frame	,	V_200
+L_LBTRM_SM_HDR_T_TRAIL_SQN	,	V_157
+last_frame	,	V_10
+"Use LBT-RM tag table"	,	L_207
+O_LBTRM_NCF_HDR_T_TRAIL_SQN	,	V_105
+lbm_transport_frame_add	,	F_21
+HFILL	,	V_300
+PI_MALFORMED	,	V_332
+lbm_transport_frame_t	,	T_9
+ei_lbtrm_analysis_sm_dup	,	V_276
+"lbtrm.ncf.list.ncf"	,	L_98
+"Previous Transport NCF frame"	,	L_109
+ei_lbtrm_analysis_nak_nak	,	V_128
+O_LBTRM_NAK_HDR_T_NUM_NAKS	,	V_132
+L_LBTRM_NCF_HDR_T_REASON_FORMAT	,	V_113
+src	,	V_51
+L_LBTRM_NCF_HDR_T_NUM_NCFS	,	V_108
+O_LBTRM_HDR_T_UCAST_PORT	,	V_222
+wmem_new	,	F_13
+"Data sequence gap"	,	L_153
+L_LBTRM_SM_HDR_T_FLAGS_TGSZ	,	V_163
+"NCF List"	,	L_95
+create_dissector_handle	,	F_99
+transport	,	V_5
+hf_lbtrm_data_flags_fec_type_rx	,	V_171
+header_type_item	,	V_216
+error_string	,	V_45
+L_LBTRM_SM_HDR_T_RESERVED	,	V_166
+"lbtrm.data.flags_fec_type.ucast_naks"	,	L_54
+IN_MULTICAST	,	F_37
+dissect_lbtrm_ncf_list	,	F_41
+proto_register_lbtrm	,	F_81
+LBTRM_DEFAULT_SPORT_LOW	,	V_349
+mim_incoming_mc_address_host	,	V_291
+reason	,	V_82
+"NCF %u ncfs Port %"	,	L_22
+"FEC Symbol"	,	L_61
+tap_info	,	V_83
+ncf_item	,	V_85
+"Next Transport frame"	,	L_111
+"Next Transport SM frame"	,	L_115
+proto_register_protocol	,	F_84
+lbtrm_null_address	,	V_8
+O_LBTRM_NCF_HDR_T_NUM_NCFS	,	V_102
+"NAK %u naks Port %"	,	L_21
+"lbtrm.analysis.nak.nak"	,	L_143
+LBTRM_PACKET_TYPE_SM	,	V_29
+previous_type_frame	,	V_38
+"expert_separate_ncfs"	,	L_200
+wmem_tree_insert32	,	F_10
+tvb_new_subset_remaining	,	F_39
+"Version"	,	L_35
+len	,	V_87
+sep_nak_item	,	V_125
+"Set the outgoing MIM multicast address (context mim_outgoing_address)"	,	L_190
+G_GUINT16_FORMAT	,	V_43
+gint	,	T_26
+global_lbtrm_src_port_high	,	V_352
+hf_lbtrm_analysis_sm_duplicate	,	V_275
+"Destination port range low (default "	,	L_174
+g_strstrip	,	F_31
+tvb	,	V_76
+"lbtrm.transport.sm_ooo_gap"	,	L_137
+ei_lbtrm_analysis_invalid_value	,	V_236
+sport_low	,	V_59
+O_LBTRM_SM_HDR_T_TRAIL_SQN	,	V_156
+hdr_tree	,	V_207
+COL_INFO	,	V_219
+cb_data	,	V_196
+lbtrm_module	,	V_334
+pntoh32	,	F_36
+packet_ver	,	V_283
+hf_lbtrm_ncf	,	V_100
+hf_lbtrm_ncf_reason	,	V_112
+lbtrm_item	,	V_203
+"lbtrm.ncf"	,	L_86
+"NCF"	,	L_97
+"Previous Transport DATA frame"	,	L_103
+lbtrm_transport_unicast_find	,	F_1
+lbtrm_transport_find	,	F_11
+lbtrm_dest_port_low	,	V_289
+"Header"	,	L_33
+cinfo	,	V_217
+"NAK Header"	,	L_75
+"Format"	,	L_79
+PI_ERROR	,	V_333
+tfs_set_notset	,	V_314
+"Set the low end of the LBT-RM UDP source port range (context transport_lbtrm_source_port_low)"	,	L_181
+"lbm_lbtrm"	,	L_218
+"LBT-RM tag definitions"	,	L_209
+"lbtrm.data.flags_fec_type.rx"	,	L_57
+register_tap	,	F_102
+lbtrm_transport_frame_add	,	F_20
+"Reserved"	,	L_73
+"lbtrm.transport.data_ooo_gap"	,	L_131
+"Multicast address range high (default "	,	L_171
+next_tvb	,	V_80
+"use_lbtrm_domain"	,	L_206
+"lbtrm.transport.next_ncf_frame"	,	L_120
+last_data_frame	,	V_18
+O_LBTRM_SM_HDR_T_RESERVED	,	V_165
+mim_mc_outgoing_address	,	V_65
+hf_lbtrm_analysis_prev_data_frame	,	V_254
+global_mim_outgoing_dest_port	,	V_360
+"lbtrm_domains"	,	L_210
+current_frame	,	V_199
+lbtrm_transport_t	,	T_1
+"DATA sqn 0x%x Port %"	,	L_19
+proto_tree_add_boolean	,	F_77
+"lbtrm.analysis.sm"	,	L_144
+dissect_lbtrm_ncf	,	F_47
+"lbtrm.analysis.ncf"	,	L_140
+key	,	T_22
+COL_PROTOCOL	,	V_218
+tag_name	,	V_79
+hf_lbtrm_analysis_next_ncf_frame	,	V_280
+g_free	,	F_34
+lbtrm_tag_entry_t	,	T_11
+hf_lbtrm_ncf_num_ncfs	,	V_107
+hf_lbtrm_sm_lead_sqn	,	V_152
+guint8	,	T_8
+"Duplicate data"	,	L_157
+hf_lbtrm_analysis	,	V_250
+"SQN Also in"	,	L_121
+LBTRM_DATA_UNICAST_NAKS_FLAG	,	V_315
+LBTRM_DEFAULT_DPORT_LOW	,	V_345
+"MIM incoming port (default "	,	L_192
+"mim_incoming_dport"	,	L_191
+tvb_get_ntohl	,	F_44
+L_LBTRM_DATA_HDR_T_SQN	,	V_180
+flags_fec_type	,	V_214
+ncf_tree	,	V_84
+"lbtrm.transport.next_sm_frame"	,	L_116
+lbtrm_dest_port_high	,	V_290
+tvbuff_t	,	T_16
+lbtrm_tree	,	V_202
+proto_tree_add_protocol_format	,	F_69
+"lbtrm.analysis.data.gap"	,	L_152
+source	,	V_49
+global_lbtrm_dest_port_low	,	V_346
+next_type_frame	,	V_39
+dest	,	V_52
+tvb_get_ntohs	,	F_48
+"lbtrm.transport.prev_data_frame"	,	L_104
+"mc_address_low"	,	L_167
+lbtrm_transport_source_string_format	,	F_22
+"Lead Sequence Number"	,	L_66
+proto_tree_add_bitmask	,	F_57
+nak_count	,	V_119
+"lbtrm.data.flags_tgsz"	,	L_60
+prefs_register_uat_preference	,	F_98
+"SM sqn 0x%x Port %"	,	L_20
+gboolean	,	T_10
+O_LBTRM_HDR_T_SESSION_ID	,	V_223
+O_LBTRM_DATA_HDR_T_FEC_SYMBOL	,	V_191
+mc_address_high	,	V_55
+dest_port	,	V_14
+ooo_gap	,	V_41
+ett_lbtrm_ncf_list	,	V_90
+"Previous Transport NAK frame"	,	L_107
+"Data sequence out of order gap (%"	,	L_26
+MIM_DEFAULT_INCOMING_DPORT	,	V_357
+dissect_lbtrm_nak	,	F_54
+"lbtrm.sm.trail_sqn"	,	L_69
+"NAK 0x%08x"	,	L_7
+duplicate	,	V_40
+"SM sequence out of order gap (%"	,	L_28
+sqn_entry	,	V_27
+flags_val	,	V_173
+tvb_get_guint8	,	F_49
+"Number of NAKs"	,	L_77
+hf_lbtrm_nak_list_nak	,	V_126
+dissect_lbtrm_sqn_frame_list_callback	,	F_59
+hf_lbtrm_ncf_list_ncf	,	V_92
+name	,	V_47
+idx	,	V_68
+hf_lbtrm_ncf_list	,	V_88
+tfs_present_not_present	,	V_316
+BASE_DEC_HEX	,	V_320
+"Set the outgoing MIM UDP port (context mim_outgoing_destination_port)"	,	L_196
+L_LBTRM_HDR_T_NEXT_HDR	,	V_238
+PINFO_FD_VISITED	,	F_71
+already_registered	,	V_367
+destination	,	V_48
+O_LBTRM_SM_HDR_T_FLAGS_FEC_TYPE	,	V_158
+":%08x:%s:%"	,	L_2
+ver_type	,	V_213
+hf_lbtrm_analysis_next_frame	,	V_253
+LBTRM_PACKET_TYPE_DATA	,	V_28
+"Data Sequence Out of Order Gap"	,	L_130
+conversation_new	,	F_6
+num_sqns	,	V_118
+g_strdup	,	F_30
+lbtrm_transport_unicast_add	,	F_5
+lbtrm_src_port_low	,	V_295
+"lbtrm.transport.next_frame"	,	L_112
+"mim_incoming_address"	,	L_185
+"lbtrm.analysis.data.ooo"	,	L_154
+tapinfo	,	V_215
+LBM_CHANNEL_TRANSPORT_LBTRM	,	V_17
+"lbtrm.analysis.sm.gap"	,	L_158
+"SM out of order"	,	L_161
+proto_tree_add_uint_format_value	,	F_60
+transport_entry	,	V_12
+mim_mc_incoming_address	,	V_63
+ENC_BIG_ENDIAN	,	V_93
+src_port	,	V_209
+L_LBTRM_NAK_HDR_T_NUM_NAKS	,	V_134
+"lbtrm.ncf.trail_sqn"	,	L_88
+tag_uat	,	V_337
+hf_lbtrm_nak	,	V_130
+global_lbtrm_dest_port_high	,	V_348
+"LBT-RM Protocol (Tag: %s): Version %u, Type %s: Source Unicast Port %"	,	L_13
+lbtrm_next_header	,	V_308
+hf_lbtrm_analysis_prev_nak_frame	,	V_277
+"A table to define LBT-RM tags"	,	L_213
+L_LBTRM_HDR_T	,	V_231
+test_lbtrm_packet	,	F_79
+"Frame is a Data Retransmission"	,	L_126
+"lbtrm.transport.data_retransmission"	,	L_127
+sm_high_sqn	,	V_25
+" (RX)"	,	L_10
+sm_item	,	V_142
+"Duplicate SM"	,	L_163
+hf_lbtrm_sm_flags_tgsz	,	V_161
+hf_lbtrm_nak_format	,	V_135
+lbtrm_sqn_frame_list_callback_data_t	,	T_23
+"sport_low"	,	L_179
+"lbtrm.data"	,	L_46
+FT_UINT64	,	V_298
+conv	,	V_6
+L_LBTRM_SM_HDR_T_LEAD_SQN	,	V_154
+"lbtrm.sm.flags_tgsz"	,	L_72
+inet_aton	,	F_91
+item	,	V_227
+LBTRM_DEFAULT_MC_ADDRESS_HIGH	,	V_343
+L_LBTRM_NCF_HDR_T_RESERVED	,	V_111
+"Set the high end of the LBT-RM UDP destination port range (source transport_lbtrm_destination_port)"	,	L_178
+"Next Transport DATA frame"	,	L_113
+col_set_fence	,	F_67
+"RX"	,	L_147
+hf_lbtrm_analysis_prev_ncf_frame	,	V_279
+lbtrm_expert_separate_ncfs	,	V_94
+lbtrm_tag_entry	,	V_74
+L_LBTRM_DATA_HDR_T_FLAGS_TGSZ	,	V_189
+dest_addr_h_high	,	V_369
+col_clear	,	F_65
+"lbtrm.analysis.ncf.ncf"	,	L_141
+"lbtrm.analysis.nak"	,	L_142
+"Invalid value"	,	L_149
+proto_register_subtree_array	,	F_87
+ett_lbtrm_hdr	,	V_232
+lbtrm_src_port_high	,	V_296
+global_lbtrm_src_port_low	,	V_350
+packet_type	,	V_211
+next_hdr	,	V_204
+data_high_sqn	,	V_24
+proto_tree_add_item	,	F_42
+lbtrm_transport_frame_find	,	F_19
+lbtrm_ncf_format	,	V_322
+pinfo	,	V_67
+col_add_fstr	,	F_66
+"Data sequence gap (%"	,	L_24
+"lbtrm.transport.prev_sm_frame"	,	L_106
+"Separate multiple NAKs from a single packet into distinct Expert Info entries"	,	L_199
+_U_	,	V_50
+flags	,	V_143
+ett_lbtrm_sm_flags_fec_type	,	V_160
+"Set the low end of the LBT-RM UDP destination port range (source transport_lbtrm_destination_port)"	,	L_175
+"NCF 0x%08x %s"	,	L_4
+"NAK"	,	L_83
+O_LBTRM_NCF_HDR_T_RESERVED	,	V_110
+lbtrm_sequence_analysis	,	V_247
+LBTRM_HDR_VER	,	F_70
+"FEC Flags"	,	L_51
+"lbtrm.transport.sqn"	,	L_122
+MIM_DEFAULT_OUTGOING_DPORT	,	V_359
+find_conversation	,	F_2
+hf_lbtrm_analysis_sm_sqn_gap	,	V_271
+global_lbtrm_mc_address_high	,	V_344
+FT_UINT8	,	V_304
+LBTRM_SM_UNICAST_NAKS_FLAG	,	V_317
+prefs_register_string_preference	,	F_93
+proto_item	,	T_20
+tap_queue_packet	,	F_78
+"Frame"	,	L_124
+expert_register_field_array	,	F_89
+"NCF %s"	,	L_6
+lbmc_dissect_lbmc_packet	,	F_40
+expert_add_info_format	,	F_45
+"RX 0x%08x"	,	L_8
+ncf_reason	,	V_117
+lbm_transport_sqn_frame_t	,	T_24
+"sequence_analysis"	,	L_203
+ett_lbtrm_nak_list	,	V_124
+"dport_low"	,	L_173
+data	,	V_72
+mim_outgoing_mc_address_host	,	V_292
+hf_lbtrm_nak_list	,	V_123
+mim_incoming_dest_port	,	V_293
+num	,	V_226
+global_lbtrm_mc_address_low	,	V_342
+ett_lbtrm_transport	,	V_251
+"Gap in SM Sequence"	,	L_134
+L_LBTRM_NCF_HDR_T_TRAIL_SQN	,	V_106
+hf_lbtrm_data_trail_sqn	,	V_181
+dest_addr_h_low	,	V_368
+mc_address_low	,	V_53
+ei_register_info	,	T_27
+G_GUINT32_FORMAT	,	V_201
+tag	,	V_46
+PI_NOTE	,	V_328
+hf_lbtrm_analysis_data_retransmission	,	V_261
+"Set the high end of the LBT-RM UDP source port range (context transport_lbtrm_source_port_high)"	,	L_184
+"lbtrm.analysis.sm.ooo"	,	L_160
+conversation_t	,	T_5
+mc_address_low_val_h	,	V_54
+"LBT-RM"	,	L_11
+lbtrm_mc_address_high_host	,	V_288
+FT_NONE	,	V_303
+PI_SEQUENCE	,	V_327
+offset	,	V_77
+" "	,	L_16
+lbtrm_dissector_handle	,	V_370
+expert_module_t	,	T_30
+tree	,	V_78
+PT_UDP	,	V_9
+lbtrm_tag_count	,	V_73
+L_LBTRM_SM_HDR_T	,	V_147
+hf_lbtrm_data_flags_fec_type_ucast_naks	,	V_170
+O_LBTRM_SM_HDR_T_SM_SQN	,	V_150
+"mim_outgoing_dport"	,	L_194
+user_data	,	V_195
+hf_lbtrm_analysis_prev_frame	,	V_252
+"Transport Analysis"	,	L_99
+sequence	,	V_140
+"Previous Transport SM frame"	,	L_105
+hf_lbtrm_analysis_next_nak_frame	,	V_278
+ett_lbtrm_data_flags_fec_type	,	V_186
+dissect_lbtrm_sm	,	F_56
+O_LBTRM_SM_HDR_T_FLAGS_TGSZ	,	V_162
+destport	,	V_75
+proto_tree_add_uint	,	F_61
+uat_t	,	T_29
+"Separate NCFs in Expert Info"	,	L_201
+mim_incoming_dport	,	V_61
+lbm_uint32_t	,	T_21
+O_LBTRM_DATA_HDR_T_SQN	,	V_179
+"Session ID"	,	L_43
+ett_lbtrm_sm	,	V_148
+lbtrm_tag_update_cb	,	F_29
+LBTRM_DEFAULT_SPORT_HIGH	,	V_351
+O_LBTRM_NAK_HDR_T_FORMAT	,	V_136
+proto_tree_add_uint64	,	F_72
+prefs_register_protocol_subtree	,	F_90
+"lbtrm.nak.format"	,	L_80
+sep_ncf_item	,	V_91
+last_nak_frame	,	V_20
+"lbtrm.transport.prev_frame"	,	L_102
+hf_lbtrm_analysis_next_data_frame	,	V_255
+copy_address_wmem	,	F_14
+"lbtrm.ncf.reserved"	,	L_91
+"DATA(RX) sqn 0x%x Port %"	,	L_17
+nak_item	,	V_121
+wmem_file_scope	,	F_8
+"Next Header"	,	L_39
+addr	,	V_336
+lbtrm_packet_type	,	V_224
+"lbtrm.ncf.num_ncfs"	,	L_90
+hf_lbtrm_hdr_ucast_port	,	V_239
+hf_lbtrm_sm_trail_sqn	,	V_155
+"lbtrm.channel"	,	L_30
+hdr_item	,	V_208
+proto_lbtrm	,	V_11
+address_to_str	,	F_25
+LBTRM_DEFAULT_MC_ADDRESS_LOW	,	V_340
+"MIM outgoing multicast address (default "	,	L_189
+"udp.port"	,	L_214
+"Set the high end of the LBT-RM multicast address range (context transport_lbtrm_multicast_address_high)"	,	L_172
+FT_FRAMENUM	,	V_324
+"lbtrm.data.trail_sqn"	,	L_50
+proto_item_set_len	,	F_52
+hf_lbtrm_analysis_data_sqn_gap	,	V_263
+"lbtrm.sm"	,	L_64
+lbtrm_transport_source_string_transport	,	F_28
+reason_item	,	V_99
+"lbtrm.data.sqn"	,	L_48
+global_lbtrm_expert_separate_ncfs	,	V_362
+"Data out of order"	,	L_155
+"Type"	,	L_37
+proto_tree	,	T_17
+"tnw_lbtrm_tags"	,	L_211
+mim_outgoing_dport	,	V_62

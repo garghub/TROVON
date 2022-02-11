@@ -1,0 +1,489 @@
+hf_s5066dts_management_extended_message_hftrp_number_of_nodes	,	V_120
+"s5066dts.eot"	,	L_36
+s5066dts_module	,	V_177
+calculate_s5066dts_dpdu_len	,	F_35
+"s5066dts.eow.capability.non_arcs_ale"	,	L_73
+"s5066dts.eow.drc_response.response"	,	L_54
+"C_PDU Segment"	,	L_41
+guint32	,	T_6
+FT_BOOLEAN	,	V_192
+"UNKNOWN_HFTRP_TOKEN"	,	L_9
+"STANAG 4529 available"	,	L_62
+hf_s5066dts_exp_data_only_cpdu_id	,	V_96
+hf_s5066dts_eow_drc_request_data_rate	,	V_4
+hf_s5066dts_exp_non_arq_data_cpdu_size	,	V_135
+"Management frame ID number"	,	L_151
+"UNKNOWN_DPDU_TYPE"	,	L_24
+hf_s5066dts_data_ack_cpdu_end	,	V_78
+dissect_s5066dts	,	F_37
+hf_s5066dts_data_only_drop_cpdu	,	V_68
+array_length	,	F_50
+"s5066dts.address.size"	,	L_38
+COL_DEF_DST	,	V_56
+"Unused"	,	L_122
+""	,	L_28
+addr_size	,	V_48
+"s5066dts.eow.alm_request.interleaving"	,	L_77
+"Modem waveform"	,	L_81
+"s5066dts.eow.hdr_drc_request.waveform"	,	L_82
+"Reason"	,	L_55
+"s5066dts.data_only.cpdu_start"	,	L_92
+hf_register_info	,	T_11
+"s5066dts.eow.alm_request.others"	,	L_78
+hf_s5066dts_eow_hdr_drc_request_interleaver_length	,	V_112
+"DpduType=%d (%s)"	,	L_10
+hf_s5066dts_eow_drc_request_interleaving	,	V_6
+"s5066dts.data_only.tx_win_uwe"	,	L_100
+"Unknown (0x%02x)"	,	L_11
+"Group Address"	,	L_170
+S5066_EOW_ALM_REQUEST	,	V_44
+guint16	,	T_7
+hf_s5066dts_data_only_tx_win_lwe	,	V_70
+"C_PDU ID number (field 2)"	,	L_172
+dissect_s5066dts_data_only	,	F_24
+DISSECTOR_NAME	,	V_152
+"s5066dts.eow.alm_request.data_rate"	,	L_76
+dissect_s5066dts_non_arq_data	,	F_32
+hf_s5066dts_eow_data	,	V_39
+hf_s5066dts_non_arq_data_cpdu_segment_offset	,	V_128
+i	,	V_52
+proto_reg_handoff_s5066dts	,	V_202
+"s5066dts.cpdu_crc"	,	L_46
+eow_content	,	V_101
+"s5066dts.data_ack.deliver_in_order"	,	L_113
+BASE_NONE	,	V_185
+"Adaptive modem parameters capable"	,	L_60
+"STANAG 5066(DTS layer)"	,	L_198
+"HFTRP tokens can only be carried with Management D_PDU"	,	L_197
+"s5066dts.data_only.tx_win_lwe"	,	L_102
+"s5066dts.reset_win_resync.unused"	,	L_123
+"wtap_encap"	,	L_207
+"Data Rate"	,	L_47
+BASE_HEX	,	V_180
+hf_s5066dts_eow_capability_mil_std_188_110a	,	V_14
+crc32_0x0AA725CF_tvb_offset_seed	,	F_22
+ack_size	,	V_73
+S5066_DPDU_SIZE_OF_ADDRESS_INDEX	,	V_142
+"s5066dts.exp_data_only.transmit_sequence_number"	,	L_141
+proto_item_add_subtree	,	F_14
+module_t	,	T_10
+"Source Address: %d.%d.%d.%d"	,	L_4
+"Extended management message"	,	L_153
+proto_register_field_array	,	F_49
+FT_BYTES	,	V_184
+dissect_s5066dts_eow	,	F_11
+"Extended data rate available"	,	L_66
+hf_s5066dts_eow_drc_response_reason	,	V_9
+ei	,	V_197
+"Offset of segmented C_PDU "	,	L_186
+dissector_add_uint	,	F_59
+FT_UINT16	,	V_179
+s5066dts_over_tcp_handle	,	V_205
+dissect_s5066dts_eow_capability	,	F_5
+dissect_s5066dts_data_ack	,	F_26
+hf_s5066dts_non_arq_data_cpdu_size	,	V_127
+"s5066dts.reset_win_resync.reset_rx_win"	,	L_129
+S5066_DPDU_EOW_TYPE_INDEX	,	V_155
+"s5066dts.data_ack.acks"	,	L_121
+"s5066dts.eow_hdr_drc_request.invalid"	,	L_194
+hf_s5066dts_non_arq_data_deliver_in_order	,	V_123
+"ARCS capable"	,	L_74
+header_crc	,	V_59
+"Requested data rate for each channel"	,	L_85
+expert_add_info	,	F_9
+"New receiver ARQ RX-LWE"	,	L_132
+", DPDU Type %s "	,	L_23
+proto_register_s5066dts	,	F_46
+dissect_s5066dts_eow_drc_request	,	F_1
+hf_s5066dts_exp_non_arq_data_segmented_cpdu_size	,	V_133
+"s5066dts.eow.capability.full_duplex"	,	L_69
+hf_s5066dts_eow_alm_request_others	,	V_22
+hf_s5066dts_eow_capability_adaptive	,	V_12
+"Selective ACK"	,	L_109
+source_address	,	V_49
+"%d.%d.%d.%d"	,	L_5
+hf_s5066dts_eow_hdr_drc_request_num_channels	,	V_30
+COL_DEF_SRC	,	V_55
+"s5066dts.eow.drc_request.others"	,	L_52
+hf_s5066dts_eow_alm_response_reason	,	V_24
+"Valid message"	,	L_147
+"s5066dts.exp_non_arq_data.cpdu_size"	,	L_185
+hf_s5066dts_eow_capability_full_duplex	,	V_16
+ett_s5066dts	,	V_162
+"C_PDU Deliver-in-Order"	,	L_95
+hf_s5066dts_eow_capability_extended	,	V_15
+"s5066dts.reset_win_resync.reset_frame_id"	,	L_135
+"s5066dts.exp_non_arq_data.group_address"	,	L_183
+val_to_str_const	,	F_31
+header_size	,	V_58
+" EowType=%d (%s:%s)"	,	L_16
+"s5066dts.header_size"	,	L_40
+"s5066dts.reset_win_resync.reset_tx_win"	,	L_127
+"s5066dts.data_only.transmit_sequence_number"	,	L_106
+hf_s5066dts_non_arq_data_cpdu_reception_window	,	V_129
+"s5066dts.warning.frame_type"	,	L_191
+"s5066dts.eow.drc_request.interleaving"	,	L_50
+FT_UINT32	,	V_186
+"s5066dts.exp_data_only.segmented_cpdu_size"	,	L_140
+S5066_DPDU_DATA_ONLY	,	V_144
+"Non-ARCS ALE capable"	,	L_72
+"s5066dts.exp_data_only.cpdu_end"	,	L_137
+ett_s5066dts_address	,	V_53
+hf	,	V_178
+"D_PDU type"	,	L_29
+"s5066dts.data_ack.drop_cpdu"	,	L_114
+hf_s5066dts_management_unused	,	V_106
+"s5066dts.management.extended_message"	,	L_154
+config_s5066dts_port	,	V_175
+prefs_register_protocol	,	F_55
+hf_s5066dts_data_ack_rx_lwe	,	V_85
+"Reset TX-WIN request"	,	L_126
+col_append_fstr	,	F_40
+"STANAG 5066 (DTS Layer)"	,	L_22
+col_set_str	,	F_38
+hf_s5066dts_exp_data_only_cpdu_start	,	V_94
+"Drop C_PDU"	,	L_97
+hf_s5066dts_reset_win_resync_reset_rx_win_cmnd	,	V_90
+FT_IPv4	,	V_195
+"s5066dts.management.manegement_frame_id"	,	L_152
+" Seq=%d RxLWE=%d"	,	L_20
+"s5066dts.exp_ack_only.rx_lwe"	,	L_142
+S5066_EOW_DRC_REQUEST	,	V_40
+hf_s5066dts_data_only_transmit_sequence_number	,	V_72
+hf_s5066dts_ack_only_rx_lwe	,	V_74
+val_to_str	,	F_39
+"s5066dts.eow.capability.adaptive"	,	L_61
+"Offset of segmented C_PDU"	,	L_176
+"High data rate change request can only be made in Management D_PDU"	,	L_195
+"Destination &amp; Source Addresses"	,	L_2
+dissector_handle_t	,	T_15
+dissect_s5066dts_exp_data_only	,	F_28
+hf_s5066dts_non_arq_data_segmented_cpdu_size	,	V_125
+"s5066dts.segmented_cpdu"	,	L_42
+expert_s5066dts	,	V_201
+"s5066dts.eow.unrec_type.reason"	,	L_59
+"s5066dts.warning.reason"	,	L_193
+hf_s5066dts_data_ack_tx_win_uwe	,	V_81
+VALS	,	F_47
+dissect_s5066dts_exp_ack_only	,	F_29
+s5066dts_eow_interleaving	,	V_188
+prefs_register_bool_preference	,	F_56
+hf_s5066dts_reset_win_resync_full_reset_command	,	V_88
+hf_s5066dts_management_message	,	V_108
+"s5066dts.reset_win_resync.reset_ack"	,	L_131
+"Ring Address"	,	L_157
+S5066_DPDU_EOW_CONTENT_INDEX	,	V_105
+tvb_length	,	F_42
+" EOT=%d"	,	L_17
+proto_tree_add_text	,	F_13
+BASE_DEC	,	V_183
+ENC_NA	,	V_76
+hf_s5066dts_data_ack_cpdu_start	,	V_77
+s5066dts_eow_response	,	V_190
+"UNKNOWN_EOW_TYPE"	,	L_14
+"TX WIN LWE"	,	L_101
+hf_s5066dts_management_management_frame_id	,	V_110
+"s5066dts.data_only.deliver_in_order"	,	L_96
+hf_s5066dts_management_extended_message_hftrp_gen_seq_id	,	V_118
+"s5066dts.eow.hdr_drc_request.interleaver_length"	,	L_88
+"s5066dts.eow.type"	,	L_32
+prefs_register_uint_preference	,	F_57
+"Header size"	,	L_39
+expert_register_protocol	,	F_52
+hf_s5066dts_data_only_cpdu_end	,	V_66
+pdu_tree	,	V_150
+"s5066dts.management.extended_message.sequence_id"	,	L_160
+hf_s5066dts_management_extended_message_flag	,	V_107
+"s5066dts.exp_non_arq_data.cpdu_id_2"	,	L_184
+"TX WIN UWE"	,	L_99
+hf_s5066dts_eow_capability_stanag_4529	,	V_13
+dissect_s5066dts_raw	,	F_43
+ett_s5066dts_hftrp_token	,	V_114
+s5066dts_eow_waveform	,	V_194
+ei_s5066dts_eow_hdr_drc_request_invalid	,	V_28
+guint	,	T_2
+ett	,	V_196
+"C_PDU ID number (field 1)"	,	L_167
+ei_s5066dts_eow_hftrp_invalid	,	V_31
+packet_info	,	T_4
+"C_PDU End"	,	L_93
+"s5066dts.exp_non_arq_data.cpdu_id_1"	,	L_181
+"EOW Field"	,	L_1
+EXPFILL	,	V_200
+hf_s5066dts_header_crc	,	V_61
+"s5066dts.management.extended_message.new_successor_id"	,	L_164
+cpdu_crc	,	V_63
+s5066dts_eow_data_rate	,	V_187
+"s5066dts.eow.hftrp.token_type"	,	L_90
+"s5066dts.eow.capability.split_frequency"	,	L_71
+"Other parameters"	,	L_51
+"s5066dts.management.message"	,	L_148
+S5066_DPDU_ACK_ONLY	,	V_159
+dissect_s5066dts_eow_hftrp	,	F_10
+HFILL	,	V_181
+PI_MALFORMED	,	V_198
+hf_s5066dts_exp_ack_only_acks	,	V_100
+dissect_s5066dts_cpdu_crc	,	F_21
+"s5066dts.non_arq_data.cpdu_size"	,	L_175
+dissect_s5066dts_eow_unrec_type	,	F_4
+"Sequence ID"	,	L_159
+pdu_size	,	V_141
+dissect_s5066dts_exp_non_arq_data	,	F_33
+"New Successor ID"	,	L_163
+"s5066dts.exp_non_arq_data.cpdu_segment_offset"	,	L_187
+"s5066dts.data_ack.tx_win_lwe"	,	L_116
+S5066_DPDU_DATA_ACK	,	V_145
+S5066_EOW_DRC_RESPONSE	,	V_41
+hf_s5066dts_reset_win_resync_reset_tx_win_rqst	,	V_89
+" Seq=%d"	,	L_18
+proto_register_protocol	,	F_48
+hf_s5066dts_exp_non_arq_data_cpdu_id_2	,	V_134
+"TX Frame Sequence Number"	,	L_105
+hf_s5066dts_exp_non_arq_data_cpdu_id_1	,	V_130
+"s5066dts.type"	,	L_30
+"s5066dts.non_arq_data.group_address"	,	L_171
+"s5066dts.eow.data"	,	L_34
+S5066_EOW_HFTRP_TOKEN	,	V_47
+tcp_dissect_pdus	,	F_45
+"s5066dts.eow.drc_request.data_rate"	,	L_48
+gint	,	T_12
+"s5066dts.data_ack.tx_win_uwe"	,	L_115
+tvb	,	V_1
+hf_s5066dts_management_extended_message_hftrp_seq_id	,	V_117
+COL_INFO	,	V_153
+"s5066dts.management.extended_message_flag"	,	L_146
+hf_s5066dts_management_extended_message_hftrp_new_successor_id	,	V_119
+hf_s5066dts_data_only_tx_win_uwe	,	V_69
+"TX frame sequence number"	,	L_118
+s5066dts_eow_type	,	V_156
+"s5066dts.exp_ack_only.acks"	,	L_143
+pdu_type	,	V_26
+cinfo	,	V_54
+PI_ERROR	,	V_199
+hf_s5066dts_reset_win_resync_reset_ack	,	V_91
+S5066_DPDU_EXP_NON_ARQ_DATA	,	V_148
+dissect_s5066dts_address	,	F_15
+"HFTRP Token Type"	,	L_89
+hf_s5066dts_warning_reason	,	V_139
+hf_s5066dts_eow_unrec_type_reason	,	V_11
+"s5066dts.exp_non_arq_data.deliver_in_order"	,	L_182
+S5066_EOW_UNRECOGNIZED_TYPE	,	V_42
+hf_s5066dts_management_extended_message_hftrp_payload_size	,	V_115
+"s5066dts.non_arq_data.deliver_in_order"	,	L_169
+"s5066dts.header_crc"	,	L_44
+currentPort	,	V_206
+S5066_DPDU_WARNING	,	V_170
+" EowType=RESERVED"	,	L_12
+"s5066dts.exp_data_only.cpdu_id"	,	L_139
+dissect_s5066dts_tcp	,	F_44
+"Segmented C_PDU ID"	,	L_138
+hf_s5066dts_eow_capability_split_frequency	,	V_17
+hf_s5066dts_management_ack	,	V_109
+COL_PROTOCOL	,	V_151
+"EOT"	,	L_35
+hf_s5066dts_address_size	,	V_166
+"s5066dts.non_arq_data.cpdu_reception_window"	,	L_179
+"s5066dts.management.unused"	,	L_144
+"C_PDU reception window"	,	L_178
+"s5066dts.exp_non_arq_data.segmented_cpdu_size"	,	L_189
+S5066_DPDU_MANAGEMENT	,	V_27
+hf_s5066dts_reset_win_resync_unused	,	V_87
+guint8	,	T_8
+"s5066dts.eow.capability.extended"	,	L_67
+hf_s5066dts_cpdu_crc	,	V_64
+ti	,	V_33
+hf_s5066dts_eow_alm_request_interleaving	,	V_21
+S5066_EOW_RESERVED	,	V_38
+"s5066dts.data_ack.transmit_sequence_number"	,	L_119
+" RxLWE=%d"	,	L_19
+segmented_cpdu_size	,	V_62
+"s5066dts.non_arq_data.cpdu_id_2"	,	L_173
+"Size of segmented C_PDU"	,	L_103
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_41
+dissect_s5066dts_eow_hdr_drc_request	,	F_8
+hf_s5066dts_eow_hdr_drc_request_waveform	,	V_29
+hf_s5066dts_exp_non_arq_data_group_address	,	V_132
+tvb_get_ntohs	,	F_36
+s5066dts_eow_hftrp_frame_control_abbr	,	V_157
+dissect_s5066dts_header_crc	,	F_17
+hf_s5066dts_data_ack_drop_cpdu	,	V_80
+dissect_s5066dts_warning	,	F_34
+"s5066dts.data_ack.cpdu_start"	,	L_111
+"Reset frame ID number"	,	L_134
+S5066_DPDU_EXP_ACK_ONLY	,	V_160
+"Sync preamble"	,	L_26
+"C_PDU size"	,	L_174
+hf_s5066dts_exp_data_only_segmented_cpdu_size	,	V_97
+"Split frequency supported"	,	L_70
+"Reset acknowledgment"	,	L_130
+crc16_0x9949_tvb_offset_seed	,	F_18
+hf_s5066dts_management_extended_message	,	V_121
+hf_s5066dts_non_arq_data_cpdu_id_1	,	V_122
+address_size	,	V_57
+hf_s5066dts_non_arq_data_cpdu_id_2	,	V_126
+"Whether the STANAG 5066 DTS Layer dissector should reassemble DPDUs spanning multiple TCP segments"	,	L_203
+hf_s5066dts_eow_drc_request_others	,	V_7
+S5066_DPDU_EXP_DATA_ONLY	,	V_146
+"Extended message flag"	,	L_145
+tvb_get_guint8	,	F_12
+"s5066dts.reset_win_resync.full_reset"	,	L_125
+hftrp_proto_item	,	V_102
+dissector_delete_uint	,	F_60
+"Set the port for STANAG 5066 DTS Layer. (If other than the default 5067.)"	,	L_206
+"D_PDU Type Specific Header"	,	L_25
+hf_s5066dts_reset_win_resync_reset_frame_id_number	,	V_93
+"s5066dts.data_ack.cpdu_end"	,	L_112
+dissect_s5066dts_eow_drc_response	,	F_3
+"s5066dts.eow.alm_response.reason"	,	L_80
+address_tree	,	V_51
+"s5066dts.reset_win_resync.new_rx_lwe"	,	L_133
+"Generation Sequence ID"	,	L_161
+hf_s5066dts_exp_ack_only_rx_lwe	,	V_99
+b_length	,	V_172
+"s5066dts.eow.hdr_drc_request.num_channels"	,	L_84
+"STANAG 5066 DTS"	,	L_199
+"STANAG 5066 DTS Layer TCP Port"	,	L_205
+hf_s5066dts_eow_capability_non_arcs_ale	,	V_18
+hf_s5066dts_ack_only_acks	,	V_75
+"s5066dts.sync"	,	L_27
+"Full reset command"	,	L_124
+hf_s5066dts_data_ack_transmit_sequence_number	,	V_84
+hf_s5066dts_exp_non_arq_data_cpdu_reception_window	,	V_137
+new_create_dissector_handle	,	F_58
+dissect_s5066dts_ack_only	,	F_25
+destination_address	,	V_50
+ett_s5066dts_pdu	,	V_168
+"s5066dts.management.ack"	,	L_150
+ett_s5066dts_eow	,	V_36
+S5066_DPDU_SIZE_OF_HEADER_INDEX	,	V_143
+"s5066dts.ack_only.rx_lwe"	,	L_108
+ENC_BIG_ENDIAN	,	V_5
+hf_s5066dts_eow_alm_request_data_rate	,	V_20
+"s5066dts.exp_data_only.cpdu_start"	,	L_136
+WTAP_ENCAP_STANAG_5066_D_PDU	,	V_207
+s5066dts_eow_reason	,	V_191
+"s5066dts.non_arq_data.cpdu_id_1"	,	L_168
+"Full duplex supported"	,	L_68
+s5066dts_dpdu_type	,	V_154
+"s5066dts.data_ack.segmented_cpdu_size"	,	L_117
+eow_type	,	V_35
+"s5066dts.eow.drc_response.reason"	,	L_56
+hf_s5066dts_eow_capability_arcs	,	V_19
+"Reason warning sent"	,	L_192
+S5066_DPDU_NON_ARQ_DATA	,	V_147
+" EowType=%d (%s)"	,	L_13
+"Response for DRC"	,	L_53
+hf_s5066dts_exp_data_only_cpdu_end	,	V_95
+hf_s5066dts_data_only_deliver_in_order	,	V_67
+hf_s5066dts_eow_drc_response_response	,	V_8
+" FrameID=%d"	,	L_21
+hf_s5066dts_data_ack_deliver_in_order	,	V_79
+"s5066dts.management.extended_message.reserved"	,	L_156
+"Payload Size"	,	L_155
+s5066dts_handle	,	V_204
+proto_s5066dts	,	V_161
+"s5066dts.eow.capability.arcs"	,	L_75
+"HFTRP Token (%s)"	,	L_8
+"Address size (1/2 bytes)"	,	L_37
+proto_item_append_text	,	F_20
+S5066_DPDU_SYNC_SEQUENCE_SIZE	,	V_60
+proto_register_subtree_array	,	F_51
+"CRC on C_PDU segment"	,	L_45
+"RX LWE"	,	L_107
+"s5066dts.management.extended_message.generation_sequence_id"	,	L_162
+hf_s5066dts_dpdu_type	,	V_164
+S5066_DPDU_RESET_WIN_RESYNC	,	V_169
+"s5066dts.management.extended_message.ring_address"	,	L_158
+proto_tree_add_item	,	F_2
+hf_s5066dts_segmented_cpdu	,	V_171
+pinfo	,	V_25
+col_add_fstr	,	F_16
+hf_s5066dts_eow_alm_response_response	,	V_23
+_U_	,	V_140
+"s5066dts.eow.capability.mil_std_188_110a"	,	L_65
+new_register_dissector	,	F_54
+hf_s5066dts_data_ack_segmented_cpdu_size	,	V_83
+"s5066dts.non_arq_data.cpdu_segment_offset"	,	L_177
+hf_s5066dts_warning_frame_type	,	V_138
+"Number of channels"	,	L_83
+initialized	,	V_203
+hf_s5066dts_data_ack_acks	,	V_86
+S5066_EOW_CAPABILITY	,	V_43
+hf_s5066dts_eot	,	V_165
+"s5066dts.eow_hftrp.invalid"	,	L_196
+dissect_s5066dts_management	,	F_30
+hf_s5066dts_data_ack_tx_win_lwe	,	V_82
+s5066dts_tree	,	V_149
+"Reset RX-WIN command"	,	L_128
+"Reassemble STANAG 5066 DPDUs spanning multiple TCP segments"	,	L_202
+hftrp_token_tree	,	V_103
+extended_message_size	,	V_104
+FT_UINT8	,	V_182
+S5066_DPDU_FRAME_HEADER_LEN	,	V_173
+proto_item	,	T_5
+expert_register_field_array	,	F_53
+"Acknowledgment"	,	L_149
+"Received frame type"	,	L_190
+"Interleaver length for each channel"	,	L_87
+hf_s5066dts_eow_unrec_type_response	,	V_10
+"s5066dts.data_ack.rx_lwe"	,	L_120
+S5066_DPDU_EOT_INDEX	,	V_158
+"EOW type"	,	L_31
+" (Correct)"	,	L_6
+dissect_s5066dts_eow_alm_request	,	F_6
+" (Incorrect, should be %x)"	,	L_7
+"C_PDU Start"	,	L_91
+data	,	T_9
+config_proto_desegment	,	V_176
+"proto_desegment"	,	L_201
+" EowType=UNSPECIFIED"	,	L_15
+"CRC on header"	,	L_43
+"s5066dts.data_only.segmented_cpdu_size"	,	L_104
+hf_s5066dts_reset_win_resync_new_rx_lwe	,	V_92
+ei_register_info	,	T_13
+tvb_get_letohl	,	F_23
+"s5066dts.ack_only.acks"	,	L_110
+tvb_get_letohs	,	F_19
+"MIL-STD-188-110A available"	,	L_64
+offset	,	V_2
+hf_s5066dts_exp_non_arq_data_cpdu_segment_offset	,	V_136
+expert_module_t	,	T_14
+tree	,	V_3
+s5066dts_eow_others	,	V_189
+"s5066dts.exp_non_arq_data.cpdu_reception_window"	,	L_188
+"Destination Address: %d.%d.%d.%d"	,	L_3
+"s5066dts.management.extended_message.number_of_nodes"	,	L_166
+eow_tree	,	V_34
+destport	,	V_174
+"s5066dts.eow.hdr_drc_request.data_rate"	,	L_86
+"This value should be set to 0"	,	L_57
+hf_s5066dts_data_only_cpdu_start	,	V_65
+s5066dts_eow_hftrp_frame_control	,	V_113
+"s5066dts.data_only.cpdu_end"	,	L_94
+"Number of Nodes"	,	L_165
+hf_s5066dts_management_extended_message_hftrp_ra	,	V_116
+"s5066dts.non_arq_data.segmented_cpdu_size"	,	L_180
+hf_s5066dts_header_size	,	V_167
+"EOW data"	,	L_33
+S5066_EOW_ALM_RESPONSE	,	V_45
+"s5066dts.eow.alm_response.response"	,	L_79
+"s5066dts"	,	L_200
+hf_s5066dts_eow_hdr_drc_request_data_rate	,	V_111
+dissect_s5066dts_reset_win_resync	,	F_27
+dissect_s5066dts_eow_alm_response	,	F_7
+S5066_EOW_HDR_DRC_REQUEST	,	V_46
+"Interleaver parameter"	,	L_49
+hf_s5066dts_data_only_segmented_cpdu_size	,	V_71
+"s5066dts.eow.capability.stanag_4529"	,	L_63
+hf_s5066dts_eow_hftrp_hftrp_token	,	V_32
+hf_s5066dts_non_arq_data_group_address	,	V_124
+s5066dts_alm_reason	,	V_193
+hf_s5066dts_exp_data_only_transmit_sequence_number	,	V_98
+"s5066dts.eow.unrec_type.response"	,	L_58
+hf_s5066dts_exp_non_arq_data_deliver_in_order	,	V_131
+hf_s5066dts_sync_word	,	V_163
+"tcp.port"	,	L_204
+proto_tree	,	T_3
+hf_s5066dts_eow_type	,	V_37
+"s5066dts.data_only.drop_cpdu"	,	L_98

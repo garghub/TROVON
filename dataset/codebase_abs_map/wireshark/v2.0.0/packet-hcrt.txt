@@ -1,0 +1,188 @@
+dissect_hcrt	,	F_11
+proto_register_protocol	,	F_21
+MAX_UDP_PORT	,	V_79
+"Tag"	,	L_11
+prefs_register_protocol	,	F_28
+"hcrt.hdr"	,	L_10
+proto_hcrt	,	V_52
+col_append_fstr	,	F_16
+FT_UINT64	,	V_70
+gint	,	T_4
+col_set_str	,	F_12
+"The UDP port used in L3 communications (default "	,	L_44
+hcrt_dos	,	V_65
+hcrt_hdr_tree	,	V_28
+"hcrt.response_code"	,	L_24
+hf_hcrt_1st_dword_enable	,	V_37
+expert_hcrt	,	V_54
+TFS	,	F_20
+tvb	,	V_1
+hf_hcrt_adl	,	V_40
+COL_INFO	,	V_50
+"ADL"	,	L_25
+FT_BOOLEAN	,	V_64
+"Unusual error code"	,	L_39
+"Discovery Operation"	,	L_17
+ethertype_pref	,	V_81
+hf_hcrt_addr_64	,	V_20
+col_clear	,	F_13
+HCRT_WRITE	,	V_15
+"Header"	,	L_9
+cinfo	,	V_48
+PI_ERROR	,	V_74
+"Expected: %.2X, got: %.2X"	,	L_2
+proto_register_subtree_array	,	F_24
+val_to_str	,	F_15
+array_length	,	F_23
+"hcrt.am"	,	L_16
+HCRT_UDP_PORTS_DEFAULT	,	V_78
+hf_hcrt_command_nop	,	V_14
+proto_tree_add_item	,	F_2
+pinfo	,	V_24
+hf_hcrt_last	,	V_41
+col_add_fstr	,	F_14
+dissector_handle_t	,	T_13
+hf_hcrt_message_tag	,	V_33
+"hcrt.type"	,	L_14
+"Data"	,	L_34
+"Last DWORD enable"	,	L_21
+"ethertype"	,	L_50
+"Ethernet type"	,	L_47
+ett_hcrt	,	V_53
+"Addressing Mode"	,	L_15
+proto_register_hcrt	,	F_18
+hf_register_info	,	T_11
+"hcrt.adl"	,	L_26
+hf_hcrt_data_64	,	V_21
+VALS	,	F_19
+dissector_add_for_decode_as	,	F_32
+dissect_hcrt_body	,	F_1
+dword_enable_vals	,	V_66
+"hcrt.data32"	,	L_35
+"Unknown (0x%02x)"	,	L_6
+proto_reg_handoff_hcrt	,	V_80
+COL_PROTOCOL	,	V_49
+"Body"	,	L_29
+FT_UINT8	,	V_60
+i	,	V_9
+BASE_DEC	,	V_62
+hcrt_handle	,	V_82
+g_free	,	F_35
+proto_item	,	T_3
+expert_register_field_array	,	F_26
+hf_hcrt_body	,	V_10
+"hcrt.tag"	,	L_12
+ett_hcrt_hdr	,	V_31
+ENC_NA	,	V_11
+dissect_hcrt_header	,	F_5
+guint8	,	T_7
+ei_hcrt_error	,	V_32
+hf_hcrt_am	,	V_35
+expert_add_info_format	,	F_6
+ti	,	V_45
+BASE_NONE	,	V_58
+b0_first	,	V_25
+"HCrt"	,	L_4
+body_len	,	V_6
+"hcrt.address64"	,	L_33
+", Address: 0x%.8X"	,	L_7
+ENC_LITTLE_ENDIAN	,	V_18
+hf_hcrt_header	,	V_30
+"Command"	,	L_36
+"Type: %s, Tag: 0x%X, ADL: %u"	,	L_5
+tvbuff_t	,	T_1
+"hcrt"	,	L_41
+hf_hcrt_resp_code	,	V_38
+BASE_HEX	,	V_61
+"Invalid Byte 0 in Header. Must be equal in all HCrt messages. "	,	L_1
+prefs_register_uint_preference	,	F_30
+ei_register_info	,	T_12
+hcrt_port_range	,	V_84
+gboolean	,	T_5
+expert_register_protocol	,	F_25
+"UDP port"	,	L_43
+proto_item_add_subtree	,	F_3
+tvb_get_letohl	,	F_17
+module_t	,	T_10
+tag	,	V_47
+proto_register_field_array	,	F_22
+tvb_get_letohs	,	F_7
+HCRT_HDR_LEN	,	V_43
+hcrt_ams	,	V_63
+FT_BYTES	,	V_71
+HCRT_NOP	,	V_13
+guint	,	T_8
+FT_NONE	,	V_57
+offset	,	V_3
+last	,	V_29
+ei	,	V_72
+ett	,	V_76
+DISSECTOR_ASSERT_NOT_REACHED	,	F_4
+expert_module_t	,	T_9
+dissector_add_uint	,	F_37
+tree	,	V_2
+adl	,	V_5
+"dissector_udp_port"	,	L_42
+hcrt_body_tree	,	V_8
+dissector_delete_uint_range	,	F_34
+hcrt_message_types	,	V_51
+FT_UINT16	,	V_68
+packet_info	,	T_6
+hf_hcrt_message_type	,	V_34
+prefs_register_range_preference	,	F_29
+tvb_get_guint8	,	F_9
+"hcrt.last_dword_enable"	,	L_22
+"hcrt.do"	,	L_18
+"hcrt.command_nop"	,	L_37
+"Hotline Command-Response Transaction protocol"	,	L_40
+HCRT_RESPONSE	,	V_23
+dissect_hcrt_message	,	F_8
+range_t	,	T_14
+"The ethernet type used for L2 communications"	,	L_48
+hf_hcrt_last_dword_enable	,	V_39
+")"	,	L_45
+", Data: 0x%.8X"	,	L_8
+dissector_delete_uint	,	F_33
+HCRT_READ	,	V_22
+"Address"	,	L_31
+EXPFILL	,	V_75
+"Response code"	,	L_23
+ti_body	,	V_7
+"1st DWORD enable"	,	L_19
+ti_hdr	,	V_27
+"dissector_ethertype"	,	L_46
+hf_hcrt_do	,	V_36
+hcrt_port_range_default	,	V_77
+"hcrt.first_dword_enable"	,	L_20
+"hcrt.error"	,	L_38
+"Message %d"	,	L_3
+hf_hcrt_addr_32	,	V_17
+range_convert_str	,	F_27
+hcrt_ethertype	,	V_85
+"hcrt.last"	,	L_28
+HFILL	,	V_59
+PI_MALFORMED	,	V_73
+ett_hcrt_body	,	V_12
+hcrt_module	,	V_55
+b0_current	,	V_26
+"udp.port"	,	L_51
+ett_hcrt_msg	,	V_44
+ADDR_MODE_32	,	V_16
+create_dissector_handle	,	F_31
+proto_tree_add_subtree_format	,	F_10
+hcrt_tree	,	V_46
+hcrt_msg_tree	,	V_42
+"hcrt.body"	,	L_30
+hcrt_prefs_initialized	,	V_83
+"Last message"	,	L_27
+FT_UINT32	,	V_69
+addr_mode	,	V_4
+response_codes	,	V_67
+hf_hcrt_data_32	,	V_19
+"Type"	,	L_13
+"hcrt.address32"	,	L_32
+"tcp.port"	,	L_49
+proto_tree	,	T_2
+hf	,	V_56
+range_copy	,	F_36
+dissector_add_uint_range	,	F_38

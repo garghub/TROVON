@@ -1,0 +1,234 @@
+hf_bt_dht_error	,	V_27
+tvb_get_string_enc	,	F_5
+proto_register_protocol	,	F_41
+"Integer"	,	L_3
+"v"	,	L_36
+"request_type"	,	L_40
+one_byte	,	V_21
+len	,	V_5
+"bt-dht.ip6"	,	L_71
+gint	,	T_7
+tvb_captured_length_remaining	,	F_2
+"Port"	,	L_72
+peer_index	,	V_33
+tvb	,	V_1
+dissect_bencoded_dict_entry	,	F_27
+dissect_bencoded_string	,	F_7
+COL_INFO	,	V_30
+hf_port	,	V_39
+"List"	,	L_47
+"%s: %d nodes"	,	L_21
+"message_type"	,	L_39
+remaining	,	V_6
+ett_bt_dht_nodes	,	V_47
+sub_tree	,	V_20
+proto_tree_add_expert_format	,	F_28
+cinfo	,	V_29
+PI_ERROR	,	V_81
+"bt-dht.bencoded.dict_entry"	,	L_54
+"%s: error %s, %s"	,	L_9
+"bt-dht.peer"	,	L_60
+array_length	,	F_45
+ett_bt_dht_error	,	V_28
+"%s=%s "	,	L_41
+hf_bencoded_dict	,	V_63
+"BitTorrent DHT over UDP"	,	L_81
+dissect_bt_dht_heur	,	F_34
+"String must contain an integer"	,	L_77
+node_index	,	V_44
+ENC_ASCII	,	V_7
+hf_bencoded_list_terminator	,	V_16
+", IPv6/Port: [%s]"	,	L_19
+dissect_bt_dht_values	,	F_21
+proto_item_set_text	,	F_18
+"%d peers"	,	L_17
+result	,	V_10
+"Invalid string for value"	,	L_38
+dissector_add_for_decode_as_with_preference	,	F_52
+tohex	,	V_11
+hf_register_info	,	T_12
+key	,	V_51
+COL_PROTOCOL	,	V_65
+value_tree	,	V_32
+"ip"	,	L_31
+"IP"	,	L_69
+offset_ptr	,	V_2
+hf_ip6	,	V_50
+error_no	,	V_25
+dissect_bencoded_dict	,	F_15
+tvb_memeql	,	F_36
+tvb_bytes_to_str	,	F_8
+ti	,	V_19
+BASE_NONE	,	V_71
+node_tree	,	V_43
+"target"	,	L_33
+start_offset	,	V_15
+"bt-dht.nodes"	,	L_66
+orig_offset	,	V_53
+"bt-dht.bencoded.int"	,	L_50
+" (IP/Port: %s"	,	L_13
+tvbuff_t	,	T_1
+tvb_get_ntohs	,	F_24
+"bt-dht.bencoded.list"	,	L_48
+conversation_set_dissector	,	F_39
+gboolean	,	T_6
+proto_item_add_subtree	,	F_14
+bt_dht_handle	,	V_67
+module_t	,	T_14
+ei_int_string	,	V_24
+proto_register_field_array	,	F_44
+conversation	,	V_66
+FT_BYTES	,	V_74
+ei	,	V_79
+string_len	,	V_13
+"nodes"	,	L_29
+"Invalid string for Key"	,	L_25
+FT_UINT16	,	V_77
+tvb_get_guint8	,	F_3
+hf_bt_dht_peers	,	V_34
+bencoded_string_length	,	F_1
+proto_tree_add_string_format	,	F_9
+tvb_captured_length	,	F_35
+"bt-dht.peers"	,	L_62
+"Terminator"	,	L_55
+tvb_ip6_to_str	,	F_26
+ett_bencoded_dict	,	V_64
+heur_dissector_add	,	F_50
+"info_hash"	,	L_34
+FT_STRING	,	V_70
+"bt-dht.error"	,	L_58
+"bt-dht.bencoded.string"	,	L_46
+hf_bencoded_dict_entry	,	V_54
+prefs_register_obsolete_preference	,	F_43
+"Dictionary Entry"	,	L_53
+"bt-dht.id"	,	L_68
+val_to_str_const	,	F_29
+proto_tree_add_none_format	,	F_13
+"Key"	,	L_24
+"bt-dht.bencoded.dict"	,	L_52
+start	,	V_4
+label	,	V_12
+"%s: list..."	,	L_2
+"Error Message"	,	L_8
+bt_dht_module	,	V_84
+ENC_BIG_ENDIAN	,	V_38
+"Error ID"	,	L_7
+hf_truncated_data	,	V_40
+"reply=%d peers "	,	L_16
+old_offset	,	V_58
+find_or_create_conversation	,	F_38
+hf	,	V_69
+expert_bt_dht	,	V_68
+prefs_register_protocol	,	F_42
+hf_bt_dht_peer	,	V_36
+FT_IPv6	,	V_76
+"Error"	,	L_57
+col_append_fstr	,	F_19
+wmem_strdup_printf	,	F_20
+"id"	,	L_32
+"ID"	,	L_67
+col_set_str	,	F_32
+dissect_bencoded_int	,	F_10
+hf_bt_dht_id	,	V_49
+FT_IPv4	,	V_75
+val	,	V_52
+"Sub-dict"	,	L_5
+proto_item_append_text	,	F_22
+":%u)"	,	L_14
+list_str	,	V_57
+"bt-dht.bencoded.list.terminator"	,	L_56
+"bittorrent_dht_udp"	,	L_82
+" reply=%d nodes "	,	L_22
+col_clear	,	F_33
+", IPv4/Port: %s"	,	L_20
+proto_register_subtree_array	,	F_46
+" (id: %s"	,	L_18
+ett_bencoded_list	,	V_23
+"BitTorrent DHT Protocol"	,	L_44
+"token"	,	L_37
+"BT-DHT"	,	L_43
+proto_reg_handoff_bt_dht	,	F_49
+proto_tree_add_item	,	F_11
+pinfo	,	V_8
+_U_	,	T_4
+"nodes6"	,	L_30
+"Value"	,	L_26
+short_val_name_value_string	,	V_60
+"bt-dht"	,	L_78
+"Int"	,	L_49
+"bt-dht.invalid_string"	,	L_76
+"error %s, %s"	,	L_11
+"String"	,	L_6
+"d1:"	,	L_45
+error_msg	,	V_26
+dissect_bt_dht_nodes	,	F_25
+"Peer"	,	L_59
+"Peers"	,	L_61
+tvb_ip_to_str	,	F_23
+BASE_DEC	,	V_78
+"enable"	,	L_79
+"values"	,	L_28
+proto_item	,	T_8
+expert_register_field_array	,	F_48
+dissect_bencoded_list	,	F_12
+try_val_to_str	,	F_37
+"bt-dht.ip"	,	L_70
+ENC_NA	,	V_17
+proto_bt_dht	,	V_61
+"bt-dht.port"	,	L_73
+hf_bencoded_list	,	V_22
+data	,	T_9
+ei_register_info	,	T_13
+expert_register_protocol	,	F_47
+ett_bt_dht_peers	,	V_35
+"error_no=%s error_msg=%s "	,	L_10
+"Sub-list"	,	L_4
+conversation_t	,	T_10
+guint	,	T_2
+FT_NONE	,	V_73
+offset	,	V_3
+hf_bencoded_string	,	V_14
+ett	,	V_83
+wmem_packet_scope	,	F_6
+expert_module_t	,	T_11
+tree	,	V_9
+"Nodes"	,	L_65
+hf_bt_dht_node	,	V_48
+dissect_bt_dht	,	F_31
+packet_info	,	T_3
+"udp"	,	L_80
+dissect_bt_dht_error	,	F_17
+ett_bencoded_dict_entry	,	V_55
+HEURISTIC_DISABLE	,	V_85
+"Dictionary"	,	L_51
+EXPFILL	,	V_82
+hf_bencoded_int	,	V_18
+proto_tree_add_expert	,	F_16
+proto_register_bt_dht	,	F_40
+" %d"	,	L_12
+is_ipv6	,	V_41
+dict_str	,	V_56
+"t"	,	L_35
+"%d"	,	L_23
+"%s: %s"	,	L_1
+node_ti	,	V_42
+HFILL	,	V_72
+PI_MALFORMED	,	V_80
+"Node"	,	L_63
+ws_strtou32	,	F_4
+hf_ip	,	V_37
+ett_bt_dht	,	V_62
+"Truncated data"	,	L_74
+"udp.port"	,	L_83
+"bt-dht.truncated_data"	,	L_75
+"%s: Dictionary..."	,	L_42
+create_dissector_handle	,	F_51
+node_byte_length	,	V_45
+short_key_name_value_string	,	V_59
+proto_item_set_len	,	F_30
+value_ti	,	V_31
+"bt-dht.node"	,	L_64
+"%s: %d peers"	,	L_15
+hf_bt_dht_nodes	,	V_46
+proto_tree	,	T_5
+"e"	,	L_27

@@ -1,0 +1,159 @@
+"aruba_erm.orig_len"	,	L_9
+"Airmagnet (type 2) is no yet supported (Please use other type)"	,	L_21
+data_rate	,	V_13
+hf_aruba_erm_channel	,	V_16
+enum_val_t	,	T_11
+dissect_aruba_erm	,	F_9
+"peek (type1)"	,	L_25
+"Set the UDP port numbers (typically the range 5555 to 5560) used for ARUBA"	,	L_36
+proto_register_protocol	,	F_19
+proto_tree_add_time	,	F_3
+MAX_UDP_PORT	,	V_60
+prefs_register_protocol	,	F_21
+"aruba_erm.incl_len"	,	L_7
+tvb_new_subset_remaining	,	F_15
+PROTO_LONG_NAME	,	V_58
+"aruba_erm.data_rate"	,	L_11
+gint	,	T_5
+col_set_str	,	F_10
+peek_handle	,	V_33
+aruba_erm_tree	,	V_3
+tvb	,	V_1
+"type.captured"	,	L_39
+COL_INFO	,	V_25
+proto_item_append_text	,	F_11
+"aruba_erm"	,	L_32
+"Data Rate: %.1f Mb/s"	,	L_1
+"Data rate (1/2 Mb/s)"	,	L_12
+dissect_aruba_erm_pcap	,	F_1
+cinfo	,	V_22
+FT_ABSOLUTE_TIME	,	V_41
+PI_ERROR	,	V_53
+proto_register_subtree_array	,	F_26
+"pcapplusradio_type_3"	,	L_28
+val_to_str	,	F_12
+array_length	,	F_25
+TYPE_PCAPPLUSRADIO	,	V_37
+"udp.ports"	,	L_34
+proto_tree_add_item	,	F_4
+"pcap (type 0)"	,	L_23
+call_dissector	,	F_16
+pinfo	,	T_3
+_U_	,	V_2
+aruba_erm_type_vals	,	V_28
+hf_aruba_erm_data_rate	,	V_14
+"Signal strength (Percentage)"	,	L_19
+"wlan_withoutfcs"	,	L_41
+"802.11 channel number that this frame was sent/received on"	,	L_16
+prefs_register_enum_preference	,	F_23
+hf_register_info	,	T_9
+"pcap_type_0"	,	L_22
+"Type of formats for captured packets"	,	L_40
+initialized	,	V_64
+dissect_aruba_erm_pcap_radio	,	F_5
+ppi_handle	,	V_39
+guint16	,	T_8
+COL_PROTOCOL	,	V_23
+TYPE_AIRMAGNET	,	V_34
+"data"	,	L_44
+FT_UINT8	,	V_49
+": %s"	,	L_2
+BASE_DEC	,	V_45
+g_free	,	F_32
+proto_item	,	T_7
+expert_register_field_array	,	F_28
+aruba_erm_handle	,	V_65
+ENC_NA	,	V_17
+ABSOLUTE_TIME_LOCAL	,	V_42
+"ppi (type 4)"	,	L_31
+"Packet Length"	,	L_8
+ti	,	V_20
+BASE_NONE	,	V_48
+secs	,	V_6
+"pcap+radio header (type 3)"	,	L_29
+hf_aruba_erm_time	,	V_8
+ts	,	V_5
+tvb_get_ntohl	,	F_2
+tvbuff_t	,	T_1
+TYPE_PCAP	,	V_30
+aruba_erm_types	,	V_55
+proto_aruba_erm	,	V_26
+tvb_get_ntohs	,	F_6
+TYPE_PEEK	,	V_32
+"Data Rate"	,	L_10
+PROTO_ITEM_SET_GENERATED	,	F_8
+ett_aruba_erm	,	V_29
+"Channel"	,	L_14
+ei_register_info	,	T_10
+"0"	,	L_33
+expert_register_protocol	,	F_27
+gboolean	,	T_15
+"Packet Captured Length"	,	L_6
+"aruba_erm.data_rate_gen"	,	L_13
+proto_item_add_subtree	,	F_13
+module_t	,	T_12
+PROTO_SHORT_NAME	,	V_24
+"aruba_erm.time"	,	L_5
+PI_UNDECODED	,	V_52
+nstime_t	,	T_6
+ei_aruba_erm_airmagnet	,	V_35
+"Signal Strength  [percent]"	,	L_17
+proto_register_field_array	,	F_24
+"airmagnet_type_2"	,	L_26
+offset	,	V_4
+proto_register_aruba_erm	,	F_18
+ett	,	V_50
+ei	,	V_51
+hf_aruba_erm_incl_len	,	V_9
+expert_module_t	,	T_13
+expert_aruba_erm	,	V_57
+tree	,	V_19
+"aruba_erm.signal_strength"	,	L_18
+data_handle	,	V_36
+TYPE_PPI	,	V_38
+dissector_delete_uint_range	,	F_31
+FT_UINT16	,	V_46
+"peekremote"	,	L_43
+packet_info	,	T_2
+prefs_register_range_preference	,	F_22
+aruba_erm_port_range	,	V_62
+FT_FLOAT	,	V_47
+"ARUBA_ERM UDP Port numbers"	,	L_35
+range_t	,	T_14
+ieee80211_handle	,	V_31
+hf_aruba_erm_signal_strength	,	V_18
+EXPFILL	,	V_54
+"airmagnet (type 2)"	,	L_27
+" encapsulated remote mirroring frames;\n"	,	L_37
+proto_tree_add_expert	,	F_17
+"aruba_erm.channel"	,	L_15
+hf_aruba_erm_orig_len	,	V_11
+"Packet Capture Timestamp"	,	L_4
+global_aruba_erm_port_range	,	V_59
+"peek_type_1"	,	L_24
+eth_tvb	,	V_21
+"ppi_type_4"	,	L_30
+hf_aruba_erm_data_rate_gen	,	V_15
+proto_tree_add_float_format	,	F_7
+range_convert_str	,	F_20
+"0 (default) means that the ARUBA_ERM dissector is not active\n"	,	L_38
+HFILL	,	V_43
+proto_reg_handoff_aruba_erm	,	V_61
+"udp.port"	,	L_45
+ti_data_rate	,	V_12
+find_dissector	,	F_29
+"ppi"	,	L_42
+"aruba_erm.airmagnet"	,	L_20
+create_dissector_handle	,	F_30
+aruba_erm_radio_port_range	,	V_63
+proto_item_set_len	,	F_14
+ENC_BIG_ENDIAN	,	V_10
+nsecs	,	V_7
+aruba_erm_type	,	V_27
+FT_UINT32	,	V_44
+"Unknown"	,	L_3
+aruba_erm_module	,	V_56
+proto_tree	,	T_4
+hf	,	V_40
+range_copy	,	F_33
+dissector_add_uint_range	,	F_34

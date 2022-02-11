@@ -1,0 +1,314 @@
+INFERRED_SEARCH	,	V_39
+g_byte_array_free	,	F_41
+UDP_PORT_LDSS	,	V_141
+proto_register_ldss	,	F_55
+proto_register_protocol	,	F_57
+"ldss.message_id"	,	L_28
+DIGEST_LEN	,	V_31
+tvb_reported_length	,	F_22
+len	,	V_98
+"Size of currently available portion of file"	,	L_47
+gint	,	T_15
+FT_RELATIVE_TIME	,	V_133
+"Port"	,	L_54
+tvb	,	V_13
+guint32	,	T_9
+COL_INFO	,	V_42
+hf_ldss_message_detail	,	V_47
+hf_ldss_properties	,	V_61
+resp_ts	,	V_105
+"Properties"	,	L_64
+"Initiated by"	,	L_74
+desegment_offset	,	V_102
+"ldss.priority"	,	L_61
+ei_ldss_unrecognized_line	,	V_95
+tvb_child_uncompress	,	F_46
+MIN	,	F_43
+ldss_compression_value	,	V_126
+size	,	V_21
+cinfo	,	V_41
+array_length	,	F_59
+"LDSS"	,	L_11
+compression	,	V_18
+message_detail	,	V_66
+"Reserved"	,	L_51
+hf_ldss_target_time	,	V_54
+packet_detail	,	V_30
+""	,	L_5
+"ldss.properties"	,	L_65
+"ldss.compression"	,	L_35
+" - file can be pushed to this TCP port"	,	L_9
+PT_TCP	,	V_5
+INFERRED_PROMISE	,	V_37
+ldss_tree	,	V_28
+DISSECTOR_ASSERT	,	F_27
+"Digest"	,	L_39
+abs_ts	,	V_64
+GByteArray	,	T_17
+"ldss"	,	L_86
+dissect_ldss_broadcast	,	F_8
+hf_register_info	,	T_19
+proto_tree_add_bytes_format	,	F_44
+hf_ldss_response_to	,	V_109
+"Cookie"	,	L_36
+"Rate (B/s)"	,	L_57
+seq	,	V_79
+guint16	,	T_7
+COL_PROTOCOL	,	V_75
+address	,	T_18
+g_ascii_strtoull	,	F_34
+"The broadcast that initiated this file transfer"	,	L_76
+guint8	,	T_8
+wmem_alloc0	,	F_40
+ti	,	V_27
+BASE_NONE	,	V_130
+"md5:"	,	L_13
+hf_ldss_size	,	V_52
+addresses_equal	,	F_53
+ts	,	V_63
+broadcast_addr	,	V_114
+"Response In"	,	L_68
+tvb_get_ntohl	,	F_11
+tvbuff_t	,	T_4
+"Unrecognized line ignored"	,	L_84
+tvb_get_ntohs	,	F_9
+conversation_set_dissector	,	F_7
+"LDSS File Transfer (Requesting file - pull)"	,	L_12
+BASE_HEX	,	V_128
+PROTO_ITEM_SET_GENERATED	,	F_20
+"sha256:"	,	L_15
+gboolean	,	T_14
+tii	,	V_96
+desegment_len	,	V_103
+broadcast_addr_bytes	,	V_115
+DIGEST_TYPE_SHA256	,	V_92
+proto_item_add_subtree	,	F_18
+expert_ldss	,	V_139
+is_digest_line	,	V_87
+ldss_digest_type_value	,	V_125
+"ldss.response_in"	,	L_69
+proto_register_field_array	,	F_58
+hf_ldss_rate	,	V_57
+req	,	V_82
+FT_BYTES	,	V_129
+"Target time (relative)"	,	L_48
+ett_ldss_transfer	,	V_84
+ei	,	V_135
+nstime_delta	,	F_49
+dissect_ldss	,	F_54
+tvb_get_ptr	,	F_39
+FT_UINT16	,	V_120
+"%d:%02d:%02d"	,	L_6
+is_broadcast	,	F_51
+tvb_get_guint8	,	F_10
+" - shutdown (promises from this peer are no longer valid)"	,	L_4
+"Size of complete file"	,	L_44
+port	,	V_6
+tvb_captured_length	,	F_17
+hf_ldss_transfer_completed_in	,	V_113
+"This is a response to the file pull request in this frame"	,	L_73
+"ldss.inferred_meaning"	,	L_30
+"Random value used for duplicate rejection"	,	L_38
+"LDSS File Transfer (Sending file - %s)"	,	L_20
+broadcast_response_time	,	V_74
+"Inferred meaning of the packet"	,	L_31
+wmem_new0	,	F_3
+PINFO_FD_VISITED	,	F_23
+"ldss.target_time"	,	L_49
+ldss_message_id_value	,	V_32
+gint8	,	V_94
+"ldss.digest_type"	,	L_33
+hf_ldss_message_id	,	V_45
+rate	,	V_24
+conversation_new	,	F_5
+DIGEST_TYPE_MD5	,	V_90
+ldss_broadcast_t	,	T_1
+hf_ldss_file_data	,	V_106
+ldss_inferred_info	,	V_40
+"ldss.file_data"	,	L_67
+"ldss.size"	,	L_43
+ett_ldss_broadcast	,	V_44
+prepare_ldss_transfer_conv	,	F_1
+transfer_conv	,	V_9
+conversation_add_proto_data	,	F_6
+hf_ldss_priority	,	V_59
+val_to_str_const	,	F_14
+"Time until file will be needed/available"	,	L_50
+"Gzip compressed data: %d bytes"	,	L_23
+hf_ldss_offset	,	V_53
+PI_WARN	,	V_137
+G_LN2	,	V_58
+proto_tree_add_uint_format_value	,	F_21
+"%d%s"	,	L_7
+ENC_BIG_ENDIAN	,	V_46
+FT_UINT32	,	V_127
+already_dissected	,	V_81
+hf_ldss_initiated_by	,	V_112
+proto_reg_handoff_ldss	,	F_63
+guint64	,	T_10
+hf	,	V_119
+targetTime	,	V_23
+hf_ldss_port	,	V_56
+"Unused field - should be 0x00000000"	,	L_53
+"push"	,	L_22
+"Size: "	,	L_17
+proto_tree_add_time	,	F_50
+transfer_tcpinfo	,	V_72
+ldss_file_request_t	,	V_83
+MESSAGE_ID_WILLSEND	,	V_33
+hf_ldss_cookie	,	V_50
+proto_tree_add_subtree	,	F_32
+hf_ldss_digest	,	V_51
+"Inferred meaning"	,	L_29
+ldss_broadcaster_t	,	V_69
+FT_UINT64	,	V_131
+col_set_str	,	F_26
+g_byte_array_new	,	F_37
+NO_ADDR2	,	V_7
+"unknown:"	,	L_16
+AT_ETHER	,	V_116
+hex_str_to_bytes	,	F_38
+INFERRED_NONE	,	V_26
+cookie	,	V_19
+"ldss.property_count"	,	L_63
+linelen	,	V_86
+"Digest of file padded with 0x00"	,	L_41
+"Compression: "	,	L_19
+"Uncompressed Data"	,	L_25
+tvb_memdup	,	F_12
+ldss_file_t	,	V_68
+"Start: "	,	L_18
+digest_type_len	,	V_88
+"Digest Type"	,	L_32
+hf_ldss_response_in	,	V_100
+"Property Count"	,	L_62
+proto_register_subtree_array	,	F_60
+"sha1:"	,	L_14
+resp_num	,	V_99
+tvb_find_line_end	,	F_30
+proto_tree_add_bytes_format_value	,	F_48
+"ldss.digest"	,	L_40
+packet_type	,	V_29
+"ldss.initiated_by"	,	L_75
+broadcast	,	V_1
+proto_tree_add_item	,	F_16
+pinfo	,	V_14
+col_add_fstr	,	F_15
+"Priority"	,	L_60
+_U_	,	V_117
+messageID	,	V_16
+"The time between the request and the response for a pull transfer"	,	L_79
+"ldss.port"	,	L_55
+dl_dst	,	V_118
+"Compressed Format"	,	L_34
+hf_ldss_property_count	,	V_60
+file	,	V_67
+can_desegment	,	V_101
+digest	,	V_20
+hf_ldss_transfer_response_time	,	V_111
+VALS	,	F_56
+" - file can be pulled at this TCP port"	,	L_8
+next_offset	,	V_85
+pull_response_time	,	V_110
+PI_PROTOCOL	,	V_136
+ldss_tcp_handle	,	V_12
+find_conversation	,	F_2
+FT_UINT8	,	V_124
+BASE_DEC	,	V_121
+message_id	,	V_65
+proto_item	,	T_16
+expert_register_field_array	,	F_62
+"0x%x%s"	,	L_3
+"ldss.offset"	,	L_46
+digest_type	,	V_17
+ENC_NA	,	V_43
+transfer_info	,	V_10
+"File data"	,	L_66
+"%ld"	,	L_10
+"ldss.unrecognized_line"	,	L_83
+tvb_format_text	,	F_33
+tvb_offset_exists	,	F_29
+COMPRESSION_GZIP	,	V_107
+NO_PORT2	,	V_8
+"The response to this file pull request is in this frame"	,	L_70
+broadcaster	,	V_3
+"LDSS Broadcast (%s%s)"	,	L_2
+data	,	V_62
+"Uncompressed data: %d bytes"	,	L_26
+num	,	V_2
+ldss_transfer_info_t	,	T_3
+ett_ldss_transfer_req	,	V_89
+"LDSS Message ID"	,	L_27
+tcpinfo	,	V_71
+MESSAGE_ID_NEEDFILE	,	V_38
+ei_register_info	,	T_20
+expert_register_protocol	,	F_61
+DIGEST_TYPE_SHA1	,	V_91
+"Request In"	,	L_71
+nstime_t	,	T_12
+conversation_t	,	T_2
+"File data: %d bytes"	,	L_24
+hf_ldss_digest_type	,	V_48
+guint	,	T_13
+offset	,	V_22
+DIGEST_TYPE_UNKNOWN	,	V_93
+HAVE_ZLIB	,	F_45
+ett	,	V_134
+wmem_packet_scope	,	F_31
+expert_module_t	,	T_21
+proto_ldss	,	V_11
+tree	,	V_15
+INFERRED_WANDOWNLOAD	,	V_35
+"ldss.reserved_1"	,	L_52
+proto_tree_add_bytes	,	F_42
+"TCP port for push (Need file) or pull (Will send)"	,	L_56
+packet_info	,	T_5
+tvb_get_ntoh64	,	F_13
+add_new_data_source	,	F_47
+"ldss.transfer_response_time"	,	L_78
+"Offset"	,	L_45
+"ldss.transfer_completed_in"	,	L_81
+destport	,	V_78
+uncomp_tvb	,	V_108
+proto_tree_add_uint	,	F_19
+EXPFILL	,	V_138
+digest_bytes	,	V_97
+INFERRED_OFFER	,	V_36
+lastackseq	,	V_80
+hf_ldss_compression	,	V_49
+dst	,	V_76
+proto_tree_add_expert	,	F_36
+conversation_get_proto_data	,	F_28
+set_address	,	F_52
+DESEGMENT_UNTIL_FIN	,	V_104
+proto_tree_add_uint64	,	F_35
+ldss_udp_handle	,	V_140
+"ldss.rate"	,	L_58
+hf_ldss_reserved_1	,	V_55
+copy_address_wmem	,	F_24
+wmem_file_scope	,	F_4
+addr	,	V_4
+HFILL	,	V_122
+ldss_inferred_value	,	V_123
+"Transfer completed in"	,	L_80
+INFERRED_PEERSHUTDOWN	,	V_34
+src	,	V_70
+"udp.port"	,	L_87
+gchar	,	T_11
+"Estimated current download rate"	,	L_59
+"Local Download Sharing Service"	,	L_85
+create_dissector_handle	,	F_64
+"ldss.cookie"	,	L_37
+FT_FRAMENUM	,	V_132
+"The time between requesting the file and completion of the file transfer"	,	L_82
+"ldss.response_to"	,	L_72
+dissector_add_uint_with_preference	,	F_65
+"Size"	,	L_42
+srcport	,	V_77
+dissect_ldss_transfer	,	F_25
+line_tree	,	V_73
+"unknown"	,	L_1
+messageDetail	,	V_25
+"Transfer response time"	,	L_77
+proto_tree	,	T_6
+"pull"	,	L_21

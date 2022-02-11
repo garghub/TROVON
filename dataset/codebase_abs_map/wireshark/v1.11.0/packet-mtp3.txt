@@ -1,0 +1,378 @@
+hf_dpc_string	,	V_77
+ITU_OPC_MASK	,	V_82
+hf_mtp3_ansi_dpc	,	V_91
+hf_mtp3_dpc_network	,	V_97
+"standard"	,	L_85
+MAX_STRUCTURED_PC_LENGTH	,	V_21
+"mtp3.chinese_opc"	,	L_33
+"%u:%u"	,	L_5
+proto_register_protocol	,	F_47
+addr_opc	,	V_161
+"mtp3.dpc.cluster"	,	L_47
+"mtp3.sls_spare"	,	L_53
+mtp3_network_indicator_vals	,	V_171
+tvb_new_subset_remaining	,	F_27
+len	,	V_143
+analyze_q708_ispc	,	F_22
+"Network indicator"	,	L_21
+ITU_ROUTING_LABEL_LENGTH	,	V_80
+"mtp3.dpc.member"	,	L_49
+gint	,	T_8
+ANSI_PC_LENGTH	,	V_47
+hf_mtp3_service_indicator	,	V_67
+"mtp3.pc"	,	L_31
+tvb	,	V_33
+guint32	,	T_1
+COL_INFO	,	V_139
+pool	,	V_160
+hf_pc_network	,	V_38
+hf_mtp3_opc_cluster	,	V_104
+hf_mtp3_itu_opc	,	V_88
+"3-8-3"	,	L_74
+JAPAN_PC_STRUCTURE_3_4_4_5	,	V_19
+str	,	V_20
+"mtp3.chinese_dpc"	,	L_43
+sio_tree	,	V_57
+ANSI_HEADER_LENGTH	,	V_147
+si_code	,	V_163
+size	,	V_164
+cinfo	,	V_138
+ROUTING_LABEL_OFFSET	,	V_79
+array_length	,	F_50
+ITU_PC_STRUCTURE_3_8_3	,	V_8
+register_tap	,	F_53
+"%x"	,	L_4
+"7-4-5"	,	L_76
+ett_pc	,	V_36
+JAPAN_OPC_OFFSET	,	V_119
+service_indicator	,	V_132
+ANSI_8BIT_SLS_MASK	,	V_186
+"Service information octet"	,	L_9
+MTP3_ADDR_FMT_DASHED	,	V_32
+" (%s)"	,	L_7
+call_dissector	,	F_30
+pc_subtree	,	V_76
+"ITU Pointcode structure"	,	L_89
+MTP3_ADDR_FMT_DEC	,	V_24
+"DPC Network"	,	L_44
+"mtp3.service_indicator"	,	L_20
+ANSI_5BIT_SLS_MASK	,	V_185
+mtp3_addr_fmt_str_e	,	V_190
+"OPC Network"	,	L_34
+"NI-Decimal"	,	L_67
+PROTO_ITEM_SET_HIDDEN	,	F_14
+prefs_register_enum_preference	,	F_56
+si	,	V_142
+hf_register_info	,	T_13
+japan_pc_structures	,	V_192
+"Try to determine the MTP3 standard heuristically"	,	L_83
+"MTP3 (ANSI)"	,	L_16
+"MTP3 (Japan)"	,	L_18
+hf_mtp3_network_indicator	,	V_61
+MTP3_NI_INT0	,	V_86
+COL_PROTOCOL	,	V_158
+"Spare"	,	L_23
+dissect_mtp3_routing_label	,	F_20
+"DPC Cluster"	,	L_46
+"unstructured"	,	L_72
+mtp3_use_japan_5_bit_sls	,	V_121
+ANSI_CLUSTER_MASK	,	V_13
+hf_mtp3_japan_4_bit_sls	,	V_126
+"MTP3 Service indicator"	,	L_81
+hf_mtp3_dpc_cluster	,	V_98
+mtp3_service_indicator_code_vals	,	V_169
+buf	,	V_2
+guint8	,	T_10
+ett_mtp3_label_opc	,	V_89
+hf_mtp3_24bit_dpc	,	V_100
+AT_SS7PC	,	V_130
+"MTP3 (Chin. ITU)"	,	L_17
+wmem_alloc0	,	F_43
+"mtp3.spare"	,	L_24
+ANSI_SLS_OFFSET	,	V_109
+JAPAN_5_BIT_SLS_SPARE_MASK	,	V_184
+hf_mtp3_japan_4_bit_sls_spare	,	V_127
+dissect_mtp3	,	F_37
+BASE_NONE	,	V_177
+"Japan Pointcode structure"	,	L_92
+proto_register_mtp3	,	F_45
+"DPC Member"	,	L_48
+"japan"	,	L_60
+"heuristic_standard"	,	L_82
+"mtp3.network_indicator"	,	L_22
+register_dissector	,	F_48
+JAPAN_PC_LENGTH	,	V_116
+"itu_pc_structure"	,	L_88
+heuristic_standard	,	V_152
+tvbuff_t	,	T_5
+proto_reg_handoff_mtp3	,	F_57
+"wtap_encap"	,	L_106
+dissect_mtp3_payload	,	F_26
+mtp3_module	,	V_193
+BASE_HEX	,	V_168
+PROTO_ITEM_SET_GENERATED	,	F_41
+FT_UINT24	,	V_178
+gboolean	,	T_3
+payload	,	V_144
+SLS_LENGTH	,	V_110
+proto_item_add_subtree	,	F_15
+"Use 5-bit (instead of 8-bit) SLS in ANSI MTP3 packets"	,	L_96
+proto_register_field_array	,	F_49
+mtp3_pc_structured	,	F_7
+opc	,	V_71
+hf_mtp3_ansi_priority	,	V_63
+dissector_add_uint	,	F_59
+hf_mtp3_japan_dpc	,	V_115
+data_handle	,	V_141
+"mtp3.priority"	,	L_26
+FT_UINT16	,	V_179
+ett_mtp3_sio	,	V_60
+ANSI_NETWORK_MASK	,	V_12
+tvb_get_guint8	,	F_19
+mtp3_use_ansi_5_bit_sls	,	V_107
+hf_mtp3_opc_network	,	V_103
+"mtp3.dpc.network"	,	L_45
+mtp3_handle	,	V_194
+hf_mtp3_chinese_opc	,	V_94
+JAPAN_HEADER_LENGTH	,	V_148
+MTP3_ADDR_FMT_NI_HEX	,	V_31
+wmem_new0	,	F_38
+mtp3_tap	,	V_165
+"ITU priority"	,	L_25
+"mtp3.opc"	,	L_29
+JAPAN_PC_STRUCTURE_7_4_5	,	V_18
+pc_item	,	V_43
+hf_mtp3_24bit_pc	,	V_101
+mtp3_item	,	V_153
+ITU_SLS_MASK	,	V_180
+hf_mtp3_ansi_opc	,	V_92
+ANSI_MEMBER_MASK	,	V_14
+ANSI_CLUSTER_OFFSET	,	V_50
+hf_mtp3_itu_spare	,	V_66
+SIO_OFFSET	,	V_58
+FT_STRING	,	V_176
+"Use 5-bit SLS (ANSI only)"	,	L_95
+label_item	,	V_72
+JAPAN_MTP_PAYLOAD_OFFSET	,	V_137
+itu_pc_structure	,	V_6
+sio	,	V_55
+ett_mtp3_label	,	V_81
+"ni-decimal"	,	L_66
+"tali.opcode"	,	L_107
+WTAP_ENCAP_MTP3	,	V_195
+ANSI_ROUTING_LABEL_LENGTH	,	V_95
+CHINESE_ITU_STANDARD	,	V_11
+"MTP3"	,	L_79
+mtp3_pc_to_str	,	F_4
+"Unstructured"	,	L_73
+"%u:%x"	,	L_6
+val_to_str_const	,	F_39
+"mtp3.dpc"	,	L_41
+find_dissector	,	F_58
+label	,	V_69
+ANSI_OPC_OFFSET	,	V_102
+"Could not determine Heuristic using %s"	,	L_12
+"mtp3"	,	L_80
+label_opc_item	,	V_74
+"SLS Spare"	,	L_52
+"Show MSU priority (national option, ITU and China ITU only)"	,	L_104
+FT_UINT32	,	V_175
+"mtp3.opc.network"	,	L_35
+hf_mtp3_itu_pc	,	V_84
+ITU_DPC_MASK	,	V_83
+ANSI_STANDARD	,	V_10
+hf	,	V_166
+"3-4-4-5"	,	L_77
+enum_val_t	,	T_14
+"OPC"	,	L_28
+hf_pc_string	,	V_37
+prefs_register_protocol	,	F_54
+itu_pc_structures	,	V_191
+"DPC"	,	L_40
+"Dashed"	,	L_71
+mtp3_options	,	V_189
+col_set_str	,	F_28
+ANSI_MEMBER_OFFSET	,	V_51
+"ni-hexadecimal"	,	L_68
+ANSI_NETWORK_OFFSET	,	V_48
+heur_mtp3_standard	,	F_31
+"Message Transfer Part Level 3"	,	L_78
+hf_mtp3_ansi_8_bit_sls	,	V_112
+hidden_item	,	V_44
+hf_mtp3_24bit_opc	,	V_106
+mtp3_standard	,	V_4
+proto_item_append_text	,	F_13
+ANSI_NCM_LENGTH	,	V_49
+hf_opc_string	,	V_78
+gen_item	,	V_154
+"OPC Cluster"	,	L_36
+mtp3_addr_to_str_buf	,	F_8
+ANSI_PRIORITY_MASK	,	V_174
+proto_register_subtree_array	,	F_51
+label_dpc_item	,	V_73
+proto_tree_add_string	,	F_12
+hf_mtp3_chinese_itu_sls	,	V_113
+"itu_priority"	,	L_103
+"Format for point code in the address columns"	,	L_102
+hf_mtp3_japan_pc	,	V_120
+ITU_PC_MASK	,	V_25
+dissect_mtp3_3byte_pc	,	F_10
+hf_pc	,	V_42
+MTP_SI_SCCP	,	V_145
+"PC"	,	L_30
+ett_mtp3_label_dpc	,	V_87
+mtp3_addr_pc_t	,	T_4
+proto_tree_add_item	,	F_23
+pinfo	,	V_68
+dissector_handle_t	,	T_15
+"Signalling Link Selector"	,	L_50
+mtp3_addr_dpc	,	V_54
+"japan_5_bit_sls"	,	L_97
+ANSI_MTP_PAYLOAD_OFFSET	,	V_136
+mtp3_tree	,	V_52
+SPARE_MASK	,	V_172
+ANSI_DPC_OFFSET	,	V_96
+JAPAN_5_BIT_SLS_MASK	,	V_183
+addr_dpc	,	V_162
+"MTP3 standard"	,	L_86
+dpc	,	V_70
+"4-3-4-3"	,	L_75
+VALS	,	F_46
+"OPC Member"	,	L_38
+prefs_register_bool_preference	,	F_55
+hf_mtp3_japan_5_bit_sls_spare	,	V_125
+reset_mtp3_standard	,	F_36
+MTP3_ADDR_FMT_HEX	,	V_28
+"mtp3.sls"	,	L_51
+mtp3_tap_rec_t	,	T_12
+"The SS7 standard used in MTP3 packets"	,	L_87
+"hexadecimal"	,	L_64
+"data"	,	L_108
+tvb_length	,	F_32
+FT_UINT8	,	V_167
+JAPAN_STANDARD	,	V_15
+proto_tree_add_text	,	F_18
+BASE_DEC	,	V_173
+"japan_pc_structure"	,	L_91
+tvb_new_subset	,	F_33
+CHINESE_ITU_SLS_MASK	,	V_187
+"chinese-itu"	,	L_58
+japan_pc_structure	,	V_16
+proto_item	,	T_9
+tap_queue_packet	,	F_44
+pc_tree	,	V_45
+ENC_NA	,	V_111
+"Hexadecimal"	,	L_65
+dissector_add_string	,	F_60
+JAPAN_4_BIT_SLS_SPARE_MASK	,	V_182
+"Use 5-bit SLS (Japan only)"	,	L_98
+addr_pc_p	,	V_22
+JAPAN_PC_MASK	,	V_26
+register_frame_end_routine	,	F_40
+NETWORK_INDICATOR_MASK	,	V_62
+"The structure of the pointcodes in Japan networks"	,	L_93
+ENC_LITTLE_ENDIAN	,	V_117
+wmem_alloc	,	F_5
+register_dissector_table	,	F_52
+HEURISTIC_FAILED_STANDARD	,	V_149
+mtp3_addr_fmt	,	V_23
+"Routing label"	,	L_10
+"%s"	,	L_14
+ITU_HEADER_LENGTH	,	V_146
+"0x%x"	,	L_8
+dissect_mtp3_sio	,	F_17
+JAPAN_SLS_SPARE_LENGTH	,	V_124
+hf_mtp3_itu_sls	,	V_90
+"This only works for SCCP traffic for now"	,	L_84
+hf_mtp3_dpc_member	,	V_99
+hf_pc_cluster	,	V_39
+JAPAN_4_BIT_SLS_MASK	,	V_181
+ett_mtp3	,	V_159
+ITU_STANDARD	,	V_5
+SET_ADDRESS	,	F_25
+JAPAN_ROUTING_LABEL_LENGTH	,	V_114
+"Decimal"	,	L_63
+MTP3_ADDR_FMT_NI_DEC	,	V_29
+"DATA "	,	L_11
+pc_string	,	V_46
+tvb_get_letohl	,	F_21
+"mtp3.ansi_dpc"	,	L_42
+ITU_PC_STRUCTURE_4_3_4_3	,	V_9
+tvb_get_letohs	,	F_24
+JAPAN_SLS_OFFSET	,	V_123
+JAPAN_PC_STRUCTURE_NONE	,	V_17
+guint	,	T_6
+offset	,	V_34
+ett	,	V_188
+DISSECTOR_ASSERT_NOT_REACHED	,	F_3
+wmem_packet_scope	,	F_6
+"mtp3.opc.cluster"	,	L_37
+"%u-%u-%u-%u"	,	L_3
+hf_pc_member	,	V_40
+label_tree	,	V_75
+tree	,	V_35
+hf_mtp3_japan_5_bit_sls	,	V_122
+payload_tvb	,	V_133
+packet_info	,	T_11
+tvb_get_letoh24	,	F_11
+looks_like_valid_sccp	,	F_34
+"ANSI Priority"	,	L_27
+"mtp3.opc.member"	,	L_39
+Standard_Type	,	V_128
+"MTP3 (Int. ITU)"	,	L_15
+"mtp3.ansi_opc"	,	L_32
+"Chinese ITU"	,	L_59
+ni	,	V_30
+"addr_format"	,	L_100
+mtp3_pc_to_str_buf	,	F_1
+proto_tree_add_uint	,	F_16
+"%u"	,	L_1
+"%u-%u-%u"	,	L_2
+"Use 5-bit (instead of 4-bit) SLS in Japan MTP3 packets"	,	L_99
+"Service indicator"	,	L_19
+dst	,	V_131
+tap_rec	,	V_151
+"Decode the spare bits of the SIO as the MSU priority (a national option in ITU)"	,	L_105
+"Address Format"	,	L_101
+proto_mtp3	,	V_155
+"itu"	,	L_54
+mtp3_show_itu_priority	,	V_64
+SIO_LENGTH	,	V_59
+"dashed"	,	L_70
+pref_mtp3_standard	,	V_150
+g_snprintf	,	F_2
+sio_item	,	V_56
+"ansi"	,	L_56
+hf_dpc	,	V_41
+"The structure of the pointcodes in ITU networks"	,	L_90
+buf_len	,	V_3
+PINFO_FD_NUM	,	F_35
+ITU_PC_STRUCTURE_NONE	,	V_7
+HFILL	,	V_170
+"decimal"	,	L_62
+"ANSI"	,	L_57
+dissector_try_uint	,	F_29
+hf_mtp3_ansi_5_bit_sls	,	V_108
+src	,	V_129
+"NI-Hexadecimal"	,	L_69
+gchar	,	T_2
+hf_mtp3_opc_member	,	V_105
+mtp3_pc_hash	,	F_9
+mtp3_sio_dissector_table	,	V_140
+mtp3_heuristic_standard	,	V_156
+ANSI_PC_MASK	,	V_27
+proto_item_set_len	,	F_42
+hf_mtp3_chinese_dpc	,	V_93
+pc	,	V_1
+hf_mtp3_japan_opc	,	V_118
+hf_mtp3_itu_priority	,	V_65
+ITU_MTP_PAYLOAD_OFFSET	,	V_135
+hf_mtp3_itu_dpc	,	V_85
+mtp3_standard_vals	,	V_157
+"ansi_5_bit_sls"	,	L_94
+"ITU"	,	L_55
+"Japan"	,	L_61
+SERVICE_INDICATOR_MASK	,	V_134
+"unknown"	,	L_13
+proto_tree	,	T_7
+mtp3_addr_opc	,	V_53

@@ -1,0 +1,104 @@
+dvb_data_mpe_tree	,	V_9
+"dvb_data_mpe.last_sect_num"	,	L_16
+hf_dvb_data_mpe_last_section_number	,	V_27
+proto_register_protocol	,	F_18
+tvb_composite_append	,	F_9
+"dvb_data_mpe.llc_snap_flag"	,	L_10
+"DVB-DATA MPE"	,	L_20
+"Current/Next Indicator"	,	L_11
+tvb_new_subset_remaining	,	F_13
+"Address Scrambling Control"	,	L_7
+col_set_str	,	F_2
+gint	,	T_8
+mac_tvb	,	V_10
+tvb	,	V_1
+COL_INFO	,	V_15
+"mpeg_sect.tid"	,	L_22
+"DVB-DATA"	,	L_1
+DVB_DATA_MPE_ADDRESS_SCRAMBLING_MASK	,	V_38
+cinfo	,	V_13
+proto_register_subtree_array	,	F_21
+"LLC SNAP Flag"	,	L_9
+"dvb_data_mpe.sect_num"	,	L_14
+array_length	,	F_20
+"Reserved"	,	L_3
+proto_tree_add_item	,	F_3
+hf_dvb_data_mpe_dst_mac	,	V_28
+call_dissector	,	F_14
+DVB_DATA_MPE_TID	,	V_46
+pinfo	,	V_2
+hf_dvb_data_mpe_current_next_indicator	,	V_24
+dissector_handle_t	,	T_9
+ip_handle	,	V_31
+"Section Number"	,	L_13
+llc_snap_flag	,	V_6
+"dvb_data_mpe.pload_scrambling"	,	L_6
+"MultiProtocol Encapsulation"	,	L_2
+hf_register_info	,	T_7
+dvb_rcs_cur_next_vals	,	V_39
+VALS	,	F_17
+DVB_DATA_MPE_CURRENT_NEXT_INDICATOR_MASK	,	V_40
+"dvb_data_mpe.reserved"	,	L_4
+tot_len	,	V_5
+COL_PROTOCOL	,	V_14
+dissect_dvb_data_mpe	,	F_1
+llc_handle	,	V_30
+FT_UINT8	,	V_33
+"ip"	,	L_23
+i	,	V_7
+BASE_DEC	,	V_41
+tvb_new_subset	,	F_6
+proto_item	,	T_6
+ENC_NA	,	V_17
+guint8	,	T_5
+ti	,	V_8
+BASE_NONE	,	V_43
+"Destination MAC address"	,	L_17
+"dvb_data_mpe.addr_scrambling"	,	L_8
+"DVB-DATA MultiProtocol Encapsulation"	,	L_19
+tvbuff_t	,	T_1
+DVB_DATA_MPE_RESERVED_MASK	,	V_35
+BASE_HEX	,	V_34
+col_add_str	,	F_11
+"Last Section Number"	,	L_15
+proto_item_add_subtree	,	F_4
+proto_register_field_array	,	F_19
+FT_BYTES	,	V_42
+guint	,	T_4
+offset	,	V_4
+ett	,	V_44
+hf_dvb_data_mpe_address_scrambling_control	,	V_22
+hf_dvb_data_mpe_section_number	,	V_26
+ett_dvb_data_mpe	,	V_18
+dissector_add_uint	,	F_24
+tree	,	V_3
+COL_RES_DL_DST	,	V_29
+data_tvb	,	V_12
+DVB_DATA_MPE_LLC_SNAP_FLAG_MASK	,	V_25
+proto_reg_handoff_dvb_data_mpe	,	F_22
+packet_info	,	T_2
+tvb_get_guint8	,	F_7
+proto_dvb_data_mpe	,	V_16
+hf_dvb_data_mpe_reserved	,	V_19
+"dvb_data_mpe.dst_mac"	,	L_18
+packet_mpeg_sect_header	,	F_5
+"dvb_data_mpe"	,	L_21
+hf_dvb_data_mpe_llc_snap_flag	,	V_23
+tvb_ether_to_str	,	F_12
+mac_bytes_tvb	,	V_11
+tvb_new_composite	,	F_8
+"llc"	,	L_24
+dvb_data_mpe_handle	,	V_45
+proto_register_dvb_data_mpe	,	F_16
+HFILL	,	V_36
+"mpeg_sect.cur_next_ind"	,	L_12
+DVB_DATA_MPE_PAYLOAD_SCRAMBLING_MASK	,	V_37
+find_dissector	,	F_25
+"Payload Scrambling Control"	,	L_5
+create_dissector_handle	,	F_23
+packet_mpeg_sect_crc	,	F_15
+tvb_composite_finalize	,	F_10
+ENC_BIG_ENDIAN	,	V_20
+hf_dvb_data_mpe_payload_scrambling_control	,	V_21
+proto_tree	,	T_3
+hf	,	V_32

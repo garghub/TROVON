@@ -1,0 +1,75 @@
+proto_reg_handoff_2dparityfec	,	V_36
+hfi_2dparityfec_ts_pro_mpeg_ext	,	V_24
+proto_register_protocol	,	F_8
+tvbuff_t	,	T_1
+"Row FEC - SNBase=%u, Offset=%u, NA=%u"	,	L_2
+prefs_register_protocol	,	F_13
+dissect_2dparityfec	,	F_1
+OffsetField	,	V_4
+col_set_str	,	F_3
+gint	,	T_7
+header_field_info	,	T_9
+proto_item_add_subtree	,	F_6
+module_t	,	T_8
+NAField	,	V_5
+"rtp.pt"	,	L_10
+hfi_2dparityfec_snbase_low	,	V_17
+tvb	,	V_1
+guint32	,	T_5
+offset	,	V_13
+hfi_2dparityfec_offset	,	V_28
+ett	,	V_34
+COL_INFO	,	V_10
+hfi_2dparityfec	,	V_14
+dissector_add_uint	,	F_16
+tree	,	V_3
+hfi	,	V_33
+packet_info	,	T_2
+handle_2dparityfec	,	V_38
+tvb_get_guint8	,	F_2
+hfi_2dparityfec_pt_recovery	,	V_21
+cinfo	,	V_8
+"Pro-MPEG Code of Practice #3 release 2 FEC Protocol"	,	L_4
+proto_register_fields	,	F_10
+proto_register_subtree_array	,	F_12
+dissect_fec	,	V_37
+array_length	,	F_11
+dissector_delete_uint	,	F_17
+SNBase	,	V_6
+proto_tree_add_item	,	F_5
+D	,	V_7
+pinfo	,	V_2
+col_add_fstr	,	F_4
+fec_rtp_payload_type	,	V_39
+hfi_2dparityfec_type	,	V_26
+"Enable this option to recognise all traffic on RTP dynamic payload type 96 (0x60) "	,	L_8
+hfi_2dparityfec_payload	,	V_31
+module_2dparityfec	,	V_32
+hfi_2dparityfec_rfc2733_ext	,	V_20
+hfi_2dparityfec_index	,	V_27
+"2dFEC"	,	L_1
+hfi_2dparityfec_ts_recovery	,	V_23
+prefs_register_bool_preference	,	F_14
+hfi_2dparityfec_row_flag	,	V_25
+"2dparityfec"	,	L_5
+COL_PROTOCOL	,	V_9
+proto_registrar_get_nth	,	F_9
+proto_register_2dparityfec	,	F_7
+"enable"	,	L_6
+create_dissector_handle	,	F_15
+"Decode Pro-MPEG FEC on RTP dynamic payload type 96"	,	L_7
+proto_item	,	T_6
+ett_2dparityfec	,	V_16
+"Column FEC - SNBase=%u, Offset=%u, NA=%u"	,	L_3
+hfi_2dparityfec_mask	,	V_22
+ENC_BIG_ENDIAN	,	V_18
+ENC_NA	,	V_15
+guint8	,	T_4
+hfi_2dparityfec_snbase_ext	,	V_30
+"as FEC data corresponding to Pro-MPEG Code of Practice #3 release 2"	,	L_9
+ti	,	V_11
+hfi_2dparityfec_length_recovery	,	V_19
+tree_2dparityfec	,	V_12
+proto_tree	,	T_3
+hfi_2dparityfec_na	,	V_29
+proto_2dparityfec	,	V_35

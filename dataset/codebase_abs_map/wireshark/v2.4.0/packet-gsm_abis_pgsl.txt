@@ -1,0 +1,292 @@
+"gsm_rlcmac_ul"	,	L_99
+pgsl_q_vals	,	V_134
+"TBF Identifier"	,	L_52
+proto_register_protocol	,	F_28
+"TFI"	,	L_50
+SUB_RLCMAC_DL	,	V_63
+GSM_RLC_MAC_MAGIC_NUMBER	,	V_84
+pgsl_msg_cause_vals	,	V_128
+"Version"	,	L_7
+len	,	V_71
+sub_handles	,	V_58
+gint	,	T_8
+tvb_new_child_real_data	,	F_8
+"Message Discriminator"	,	L_9
+SUB_RLCMAC_UL	,	V_59
+"The packets contain the optional Incremental Redundancy (IR) fields"	,	L_98
+hf_pgsl_codec_bqm	,	V_112
+TFS	,	F_27
+tvb	,	V_32
+guint32	,	T_14
+COL_INFO	,	V_81
+"ACK Requested"	,	L_24
+"gsm_abis_pgsl.a_fn_u"	,	L_20
+pool	,	V_39
+FT_BOOLEAN	,	V_127
+rlcmac_dissector	,	V_61
+"Per-TRX Sequence Number"	,	L_15
+"gsm_abis_pgsl.data_ind"	,	L_41
+hf_pgsl_ab_rxlev	,	V_53
+cinfo	,	V_75
+data_block_len_by_mcs	,	V_19
+"gsm_abis_pgsl.a_fn_d"	,	L_17
+"TN Bitmap"	,	L_11
+"gsm_abis_pgsl.gprs_parity"	,	L_65
+array_length	,	F_32
+rm	,	V_11
+"gsm_abis_pgsl.egprs_mean_bep"	,	L_71
+next_tvb	,	V_69
+"Incremental Redundancy"	,	L_97
+"gsm_abis_pgsl.ack_ind"	,	L_39
+abis_pgsl_ir	,	V_102
+"Access Burst Indicator"	,	L_89
+hf_pgsl_cause	,	V_119
+"gsm_abis_pgsl.msg_disc"	,	L_10
+col_append_str	,	F_24
+"Unknown (%u)"	,	L_6
+block_format	,	V_21
+"gsm_abis_pgsl.cs"	,	L_45
+"gsm_rlcmac_dl"	,	L_100
+" Invalid, RxLev %u"	,	L_4
+hf_pgsl_timing_offset	,	V_100
+hf_register_info	,	T_15
+"gsm_abis_pgsl.data_len"	,	L_33
+hf_pgsl_power_control	,	V_101
+aligned_buf	,	V_37
+PGSL_MSG_DLDATA_IND	,	V_92
+length_bytes	,	V_23
+hf_pgsl_ack_req	,	V_91
+"Power Control"	,	L_48
+guint16	,	T_11
+c	,	V_29
+COL_PROTOCOL	,	V_76
+is_uplink	,	V_12
+i	,	V_28
+rxlev	,	V_46
+abi	,	V_48
+"gsm_abis_pgsl.egprs_q"	,	L_77
+hf_pgsl_codec_cv_bep	,	V_114
+"gsm_abis_pgsl.codec_rxlev"	,	L_62
+hf_pgsl_codec_rxlev	,	V_110
+n_calls	,	V_13
+"GPRS Block Quality Measurement"	,	L_69
+cs	,	V_73
+proto_reg_handoff_abis_pgsl	,	F_35
+guint8	,	T_2
+pacch_tree	,	V_44
+ti	,	V_43
+BASE_NONE	,	V_136
+register_dissector	,	F_34
+hf_pgsl_ucm	,	V_98
+RLCMAC_CS2	,	V_5
+PGSL_MSG_STATUS_IND	,	V_118
+RLCMAC_CS1	,	V_4
+"TN Sequence Number"	,	L_29
+RLCMAC_CS4	,	V_7
+RLCMAC_CS3	,	V_6
+hf_pgsl_ab_acc_delay	,	V_54
+tvbuff_t	,	T_6
+"GSM A-bis P-GSL"	,	L_93
+"RxLev"	,	L_61
+hf_pgsl_cs	,	V_99
+BASE_HEX	,	V_125
+ett_pacch	,	V_52
+FT_UINT24	,	V_126
+gboolean	,	T_4
+hf_pgsl_data_ind	,	V_97
+"Coding Scheme Status"	,	L_60
+proto_item_add_subtree	,	F_12
+"Frame Number (Uplink)"	,	L_21
+module_t	,	T_16
+"Additional Info"	,	L_36
+acc_delay	,	V_49
+hf_pgsl_ack_ind	,	V_96
+proto_register_field_array	,	F_31
+clone_aligned_buffer_lsbf	,	F_3
+"EGPRS MEAN_BEP"	,	L_70
+"Aligned EGPRS data bits"	,	L_1
+"ir"	,	L_96
+hf_pgsl_tn_resource	,	V_93
+data_tvb	,	V_45
+tvb_get_ptr	,	F_7
+FT_UINT16	,	V_137
+"Codec CS"	,	L_58
+tvb_get_guint8	,	F_14
+"gsm_abis_pgsl.egprs_cv_bep"	,	L_74
+"EGPRS Data Block 2 Quality"	,	L_81
+"CCU TA Value"	,	L_22
+"gsm_abis_pgsl.ab.type"	,	L_92
+"Uplink Channel Mode"	,	L_42
+dissect_pgsl_access_burst	,	F_10
+hf_pgsl_msg_disc	,	V_80
+rlcmac_data	,	V_42
+hf_pgsl_data_len	,	V_105
+call_dissector_with_data	,	F_20
+"gsm_abis_pgsl.trx_seqno"	,	L_14
+hf_pgsl_codec_q1	,	V_116
+fn	,	V_74
+hf_pgsl_codec_q2	,	V_117
+num_calls	,	V_62
+RLCMAC_HDR_TYPE_2	,	V_9
+RLCMAC_HDR_TYPE_1	,	V_8
+RLCMAC_HDR_TYPE_3	,	V_10
+proto_register_abis_pgsl	,	F_25
+data_block_offsets	,	V_15
+"gsm_abis_pgsl.power_control"	,	L_49
+"gsm_abis_pgsl.ir_sign_type"	,	L_54
+data_block_bits	,	V_14
+"EGPRS Header Quality"	,	L_76
+"gsm_abis_pgsl.version"	,	L_8
+find_dissector	,	F_36
+msg_disc	,	V_70
+"P-GSL"	,	L_5
+hf_pgsl_version	,	V_79
+"EGPRS CV_BEP"	,	L_73
+"Timing Offset"	,	L_46
+"gsm_abis_pgsl"	,	L_95
+hf	,	V_121
+get_egprs_data_block	,	F_4
+"gsm_abis_pgsl.egprs_q1"	,	L_80
+hf_pgsl_ab_abi	,	V_55
+"gsm_abis_pgsl.ab.rxlev"	,	L_86
+prefs_register_protocol	,	F_29
+dissect_gprs_data	,	F_21
+"Estimated Accss Delay Deviation"	,	L_57
+BASE_EXT_STRING	,	V_132
+length_bits	,	V_33
+uplink	,	V_60
+hf_pgsl_codec_q	,	V_115
+col_set_str	,	F_23
+tvb_get_bits8	,	F_15
+pgsl_ir_sign_type_vals	,	V_131
+proto_abis_pgsl	,	V_77
+PGSL_MSG_DLDATA_REQ	,	V_85
+"Access Burst Type"	,	L_91
+last_c	,	V_30
+"Data Length"	,	L_32
+proto_item_append_text	,	F_17
+"gsm_abis_pgsl.ccu_ta"	,	L_23
+min_src_length_bytes	,	V_38
+"gsm_abis_pgsl.ack_req"	,	L_25
+"Receiver Level Measurement"	,	L_63
+GSM_RLC_MAC_EGPRS_BLOCK2	,	V_66
+"gsm_abis_pgsl.egprs_q2"	,	L_82
+GSM_RLC_MAC_EGPRS_BLOCK1	,	V_65
+hf_pgsl_ab_ab_type	,	V_56
+"Access Burst Rx Level"	,	L_85
+pgsl_ab_abi_vals	,	V_138
+"gsm_abis_pgsl.codec_delay"	,	L_56
+"gsm_abis_pgsl.cause"	,	L_35
+proto_register_subtree_array	,	F_33
+proto_tree_add_item_ret_uint	,	F_13
+val_to_str	,	F_18
+offset_bits	,	V_22
+hf_pgsl_ccu_ta	,	V_90
+initial_spare_bits	,	V_36
+ack_data_ind	,	V_72
+"gsm_abis_pgsl.ab.abi"	,	L_90
+proto_tree_add_item	,	F_11
+setup_rlc_mac_priv	,	F_2
+pinfo	,	V_34
+dissector_handle_t	,	T_12
+hf_pgsl_tn_bitmap	,	V_86
+hf_pgsl_codec_parity	,	V_111
+"EGPRS RLC/MAC Header Quality"	,	L_78
+flags	,	V_64
+_U_	,	V_67
+hf_pgsl_ir_tfi	,	V_103
+tvb_ensure_bytes_exist	,	F_5
+"gsm_abis_pgsl.ir_tfi"	,	L_51
+"IR Signalling Type"	,	L_53
+"ACK Indicator"	,	L_38
+RLCMAC_PRACH	,	V_3
+VALS	,	F_26
+"gsm_abis_pgsl.ucm"	,	L_43
+prefs_register_bool_preference	,	F_30
+extra_bits	,	V_27
+pgsl_tree	,	V_68
+ett_pgsl	,	V_78
+"gsm_abis_pgsl.codec_csy"	,	L_59
+gsm_a_rr_rxlev_vals_ext	,	V_133
+"GPRS Block Status Parity"	,	L_66
+FT_UINT8	,	V_122
+"TRX Sequence Number"	,	L_13
+"aFNu"	,	L_19
+"Variation Co-Efficient of BEP"	,	L_75
+BASE_DEC	,	V_123
+"gsm_abis_pgsl.pacch"	,	L_84
+hf_pgsl_ir_sign_type	,	V_104
+"Per-TN Sequence Number"	,	L_31
+proto_item	,	T_10
+frame_number	,	V_95
+ENC_NA	,	V_51
+RlcMacPrivateData_t	,	T_3
+"aFNd"	,	L_16
+pgsl_cs	,	V_1
+"Frame Number (Downlink)"	,	L_18
+"TN Resource"	,	L_26
+ENC_LITTLE_ENDIAN	,	V_89
+wmem_alloc	,	F_6
+pgsl_msg_disc_vals	,	V_82
+"gsm_abis_pgsl.ab.acc_delay"	,	L_88
+magic	,	V_83
+"gsm_abis_pgsl.tn_bitmap"	,	L_12
+data	,	T_13
+"0x%x"	,	L_3
+aligned_tvb	,	V_35
+"PACCH"	,	L_83
+"Timeslot Number"	,	L_28
+RLCMAC_block_format_t	,	T_1
+PGSL_MSG_ULDATA_IND	,	V_106
+hf_pgsl_addl_info	,	V_120
+"gsm_abis_pgsl.tn_resource"	,	L_27
+buffer	,	V_25
+mcs	,	V_20
+hf_pgsl_codec_mean_bep	,	V_113
+guint	,	T_5
+FT_NONE	,	V_135
+offset	,	V_40
+ett	,	V_139
+hf_pgsl_trx_seqno	,	V_87
+"Ericsson GSM A-bis P-GSL"	,	L_94
+tree	,	V_41
+"gsm_abis_pgsl.gprs_bqm"	,	L_68
+hf_pgsl_pacch	,	V_50
+dbl	,	V_17
+packet_info	,	T_7
+pgsl_ucm_vals	,	V_129
+dbo	,	V_18
+add_new_data_source	,	F_9
+nc	,	V_16
+dissect_abis_pgsl	,	F_22
+"Access Burst Access Delay"	,	L_87
+hf_pgsl_codec_cs	,	V_109
+" Valid, RxLev %u, Delay %u bits, Type %s"	,	L_2
+pgsl_cs_to_rlcmac_cs	,	F_1
+tbl	,	V_2
+proto_tree_add_uint	,	F_16
+"gsm_abis_pgsl.tn_seqno"	,	L_30
+"Mean Value of BEP"	,	L_72
+dst	,	V_31
+"GPRS BQM"	,	L_67
+"Codec Delay"	,	L_55
+"GPRS Parity"	,	L_64
+hf_pgsl_afnu	,	V_107
+"EGPRS Data Block 1 Quality"	,	L_79
+"gsm_abis_pgsl.timing_offset"	,	L_47
+tvb_new_subset_length	,	F_19
+pgsl_cs_vals	,	V_130
+hf_pgsl_tn_seqno	,	V_94
+hf_pgsl_afnd	,	V_88
+HFILL	,	V_124
+pgsl_ab_type_vals	,	V_57
+"gsm_abis_pgsl.addl_info"	,	L_37
+hdr_bytes	,	V_26
+src	,	V_24
+"Coding Scheme"	,	L_44
+"Data Indicator"	,	L_40
+pgsl_module	,	V_140
+"Cause"	,	L_34
+hf_pgsl_codec_delay	,	V_108
+abtype	,	V_47
+proto_tree	,	T_9

@@ -1,0 +1,208 @@
+"dsi.open_option"	,	L_38
+"%s %s (%u)"	,	L_4
+DSIFUNC_STAT	,	V_53
+proto_register_protocol	,	F_30
+hf_dsi_flags	,	V_41
+dsi_desegment	,	V_67
+DSIFUNC_OPEN	,	V_50
+tvb_new_subset_remaining	,	F_19
+len	,	V_7
+"dsi.data_offset"	,	L_18
+dsi_module	,	V_84
+"%u bytes"	,	L_7
+dsi_attn_flag_vals_ext	,	V_81
+tcp_dissect_pdus	,	F_27
+gint	,	T_1
+"Reserved for future use.  Should be set to zero."	,	L_26
+"dsi.attn_flag.msg"	,	L_49
+tvb	,	V_1
+guint32	,	T_10
+COL_INFO	,	V_36
+hf_dsi_attn_flag_crash	,	V_21
+val_to_str_ext	,	F_15
+FT_BOOLEAN	,	V_82
+tvb_reported_length_remaining	,	F_7
+proto_register_dsi	,	F_28
+hf_dsi_attn_flag_shutdown	,	V_20
+cinfo	,	V_34
+array_length	,	F_32
+"Reserved"	,	L_24
+call_dissector	,	F_20
+proto_reg_handoff_dsi	,	F_36
+hf_dsi_requestid	,	V_43
+"dsi.length"	,	L_22
+hf_register_info	,	T_12
+"dsi.attn_flag.bitmap"	,	L_58
+"Message"	,	L_48
+dsi_command	,	V_29
+dsi_open_type_vals	,	V_78
+seq	,	V_60
+guint16	,	T_6
+COL_PROTOCOL	,	V_35
+"dsi.flags"	,	L_9
+ett_dsi_open	,	V_8
+afp_server_status_handle	,	V_55
+guint8	,	T_5
+ti	,	V_6
+BASE_NONE	,	V_80
+tvb_length_remaining	,	F_25
+"Whether the DSI dissector should reassemble messages spanning multiple TCP segments."	,	L_64
+"Attention extended bitmap"	,	L_59
+tvb_get_ntohl	,	F_12
+tvbuff_t	,	T_2
+DSI_BLOCKSIZ	,	V_51
+"Data Stream Interface"	,	L_60
+tvb_get_ntohs	,	F_8
+"Total length of the data that follows the DSI header."	,	L_23
+"desegment"	,	L_62
+BASE_HEX	,	V_70
+hf_dsi_open_len	,	V_11
+proto_item_add_subtree	,	F_3
+hf_dsi_attn_flag_msg	,	V_22
+module_t	,	T_13
+reply	,	V_58
+"dsi.attn_flag.crash"	,	L_46
+proto_register_field_array	,	F_31
+hf_dsi_open_option	,	V_14
+FT_BYTES	,	V_79
+"Request ID"	,	L_14
+func_vals_ext	,	V_38
+proto_dsi	,	V_39
+dissector_add_uint	,	F_38
+dsi_code	,	V_31
+data_handle	,	V_63
+FT_UINT16	,	V_74
+tvb_get_guint8	,	F_4
+"Reassemble DSI messages spanning multiple TCP segments"	,	L_63
+"Indicates request or reply."	,	L_10
+DSIFUNC_ATTN	,	V_52
+DSIFL_REQUEST	,	V_44
+"Shutdown"	,	L_42
+call_dissector_with_data	,	F_22
+"Replay"	,	L_35
+"dsi"	,	L_61
+hf_dsi_offset	,	V_45
+DSIFUNC_WRITE	,	V_57
+dsi_reserved	,	V_32
+hf_dsi_command	,	V_42
+flag_vals	,	V_37
+asp_error_vals_ext	,	V_76
+hf_dsi_attn_flag	,	V_18
+FT_INT32	,	V_75
+"dsi.reserved"	,	L_25
+new_create_dissector_handle	,	F_37
+dissect_dsi	,	F_26
+find_dissector	,	F_39
+proto_tree_add_uint_format_value	,	F_18
+ENC_BIG_ENDIAN	,	V_10
+"Quantum"	,	L_32
+FT_UINT32	,	V_77
+"Data offset"	,	L_17
+hf_dsi_open_quantum	,	V_12
+hf	,	V_68
+dsi_flags	,	V_28
+hf_dsi_error	,	V_47
+"dsi.requestid"	,	L_15
+new_tvb	,	V_54
+dsi_tree	,	V_2
+"dsi.command"	,	L_12
+"Don't reconnect"	,	L_51
+"Open Session"	,	L_1
+prefs_register_protocol	,	F_34
+hf_dsi_attn_flag_bitmap	,	V_25
+"Represents a DSI command."	,	L_13
+DSIFL_REPLY	,	V_46
+BASE_EXT_STRING	,	V_73
+"DSI"	,	L_3
+col_set_str	,	F_10
+"Flags"	,	L_8
+"Attention flag, server is shutting down"	,	L_44
+col_clear	,	F_11
+"Number of minutes"	,	L_56
+"Attention flag, don't reconnect bit"	,	L_53
+"Replay cache size"	,	L_37
+proto_register_subtree_array	,	F_33
+gint32	,	T_9
+val_to_str	,	F_14
+"dsi.attn_flag.time"	,	L_55
+TCP_PORT_DSI	,	V_86
+"Crash"	,	L_45
+proto_tree_add_item	,	F_5
+flag	,	V_16
+hf_dsi_replay_cache_size	,	V_13
+pinfo	,	V_26
+col_add_fstr	,	F_13
+dissector_handle_t	,	T_14
+_U_	,	V_27
+dsi_length	,	V_4
+"Attention flag, server crash bit"	,	L_47
+hf_dsi_reserved	,	V_49
+"Open session option len"	,	L_31
+"Bitmap"	,	L_57
+ett_dsi_attn_flag	,	V_19
+VALS	,	F_29
+prefs_register_bool_preference	,	F_35
+"data"	,	L_67
+tvb_length	,	F_23
+FT_UINT8	,	V_69
+proto_tree_add_text	,	F_2
+BASE_DEC	,	V_72
+proto_item	,	T_4
+"Option"	,	L_27
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_65
+ENC_NA	,	V_15
+hf_dsi_attn_flag_time	,	V_24
+"afp_server_status"	,	L_69
+ett_dsi	,	V_40
+dsi_handle	,	V_85
+hf_dsi_open_type	,	V_9
+"Command"	,	L_11
+data	,	T_8
+"Unknown function (0x%02x)"	,	L_6
+plen	,	V_64
+"dsi.open_type"	,	L_28
+"Server attention flag"	,	L_41
+"dsi.open_quantum"	,	L_33
+dissect_dsi_attention	,	F_6
+dissect_dsi_open_session	,	F_1
+guint	,	T_11
+"Length"	,	L_21
+"Open session options (undecoded)"	,	L_39
+offset	,	V_3
+ett	,	V_83
+tree	,	V_5
+"Attention"	,	L_2
+"Open session option type."	,	L_29
+packet_info	,	T_7
+DSIFUNC_CMD	,	V_56
+"afp"	,	L_68
+proto_tree_add_uint	,	F_16
+DSIFL_MAX	,	V_65
+dsi_requestid	,	V_30
+code	,	V_61
+hf_dsi_attn_flag_reconnect	,	V_23
+hf_dsi_length	,	V_48
+"Attention flag, server message bit"	,	L_50
+"dsi.attn_flag.reconnect"	,	L_52
+HFILL	,	V_71
+"Keeps track of which request this is.  Replies must match a Request.  IDs must be generated in sequential order."	,	L_16
+"Server/Attention quantum"	,	L_34
+"Unknown flag (0x%02x)"	,	L_5
+"dsi.attn_flag"	,	L_40
+get_dsi_pdu_len	,	F_24
+command	,	V_59
+DSIFUNC_MAX	,	V_66
+proto_item_set_len	,	F_21
+"Error code"	,	L_19
+afp_handle	,	V_62
+"dsi.replay_cache"	,	L_36
+ett_dsi_attn	,	V_17
+aspinfo	,	V_33
+"dsi.open_len"	,	L_30
+proto_tree_add_int	,	F_17
+"dsi.error_code"	,	L_20
+"tcp.port"	,	L_66
+dissect_dsi_packet	,	F_9
+proto_tree	,	T_3
+"dsi.attn_flag.shutdown"	,	L_43
+"Minutes"	,	L_54

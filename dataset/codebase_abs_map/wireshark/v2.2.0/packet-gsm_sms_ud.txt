@@ -1,0 +1,221 @@
+gsm_sms_dissector_table	,	V_51
+"gsm_sms_ud.reassembled.in"	,	L_54
+proto_register_protocol	,	F_29
+hf_gsm_sms_udh_length	,	V_29
+"Identification of the message"	,	L_16
+"Short Message has multiple tail fragments"	,	L_42
+tvb_reported_length	,	F_6
+process_reassembled_data	,	F_16
+": message %u, part %u of %u"	,	L_1
+tvb_new_subset_remaining	,	F_19
+"GSM Short Message fragment overlaps with other fragment(s)"	,	L_38
+len	,	V_13
+gint	,	T_14
+port_number_udh_means_wsp	,	V_49
+"Port Number IE in UDH always triggers CL-WSP dissection"	,	L_67
+tvb	,	V_4
+top_tree	,	V_6
+guint32	,	T_7
+COL_INFO	,	V_44
+FT_BOOLEAN	,	V_73
+disallow_write	,	V_47
+parse_gsm_sms_ud_message	,	F_5
+tvb_reported_length_remaining	,	F_13
+"Short Message fragments"	,	L_30
+cinfo	,	V_43
+array_length	,	F_31
+hf_gsm_sms_udh_multiple_messages_msg_id	,	V_33
+"gsm_sms_ud.fragment"	,	L_34
+fragment_add_seq_check	,	F_15
+call_dissector	,	F_22
+DISSECTOR_ASSERT	,	F_41
+sm_data_len	,	V_15
+col_append_str	,	F_17
+hf_register_info	,	T_13
+"GSM SMS UD"	,	L_62
+proto_tree_add_bytes_format	,	F_24
+hf_gsm_sms_udh_ports_dst	,	V_36
+"gsm_sms_ud.udh.iei"	,	L_9
+guint16	,	T_10
+col_set_writable	,	F_21
+wsp_handle	,	V_50
+i	,	V_16
+reassembly_table_init	,	F_2
+guint8	,	T_5
+sm_reassembly_table	,	V_1
+ti	,	V_8
+BASE_NONE	,	V_69
+"Short Message fragment too long"	,	L_45
+"GSM Short Message fragment overlaps with conflicting data"	,	L_41
+hf_gsm_sms_udh_multiple_messages_msg_part	,	V_35
+" - Invalid format!"	,	L_2
+"Reassembled Short Message length"	,	L_56
+"Language"	,	L_27
+"Always try subdissection of the 1st fragment of a fragmented "	,	L_73
+register_dissector	,	F_36
+"Message parts"	,	L_17
+tvbuff_t	,	T_2
+tvb_get_ntohs	,	F_11
+BASE_HEX	,	V_60
+gboolean	,	T_8
+"Destination port"	,	L_25
+proto_item_add_subtree	,	F_9
+module_t	,	T_12
+"Short Message fragment count"	,	L_51
+"Reassembled Short Message"	,	L_4
+fragmented	,	V_41
+proto_register_field_array	,	F_30
+ett_gsm_sms	,	V_56
+"Prevent sub-dissectors from replacing column data with their "	,	L_79
+FT_BYTES	,	V_82
+fragment_head	,	T_9
+"Short Message body"	,	L_59
+FT_UINT16	,	V_64
+register_init_routine	,	F_37
+"GSM Short Message. If reassembly is possible, the Short Message "	,	L_74
+"Short Message defragmentation error"	,	L_48
+tvb_get_guint8	,	F_7
+tvb_captured_length	,	F_26
+fd_sm	,	V_18
+" (Short Message fragment %u of %u)"	,	L_6
+hf_gsm_sms_udh_ports_src	,	V_37
+sm_tree	,	V_3
+hf_gsm_sms_udh_national_single_shift	,	V_38
+proto_register_gsm_sms_ud	,	F_27
+hf_gsm_sms_ud_fragment_too_long_fragment	,	V_76
+hf_gsm_sms_udh_multiple_messages_msg_parts	,	V_34
+vals_udh_national_languages_locking_shift	,	V_66
+"Always decode a GSM Short Message as Connectionless WSP "	,	L_68
+sm_tvb	,	V_7
+hf_gsm_sms_ud_fragment_count	,	V_78
+"gsm_sms_ud"	,	L_63
+sm_len	,	V_14
+"GSM Short Message fragment has multiple tail fragments"	,	L_44
+ports_available	,	V_28
+"IE Id"	,	L_8
+proto_reg_handoff_gsm_sms_ud	,	F_39
+proto_gsm_sms_ud	,	V_55
+"Always try subdissection of 1st Short Message fragment"	,	L_72
+register_cleanup_routine	,	F_38
+ENC_BIG_ENDIAN	,	V_39
+"gsm_sms_ud.udh.national.locking_shift"	,	L_29
+FT_UINT32	,	V_79
+gsm_sms_ud_module	,	V_57
+"Name of the User Data Header Information Element."	,	L_10
+"gsm_sms_ud.short_msg"	,	L_60
+is_fragmented	,	V_17
+"Message part number"	,	L_20
+"gsm_sms_ud.fragment.error"	,	L_49
+hf	,	V_58
+hf_gsm_sms_ud_fragments	,	V_67
+prefs_register_protocol	,	F_34
+sm_frag_items	,	V_42
+frags	,	V_20
+col_append_fstr	,	F_18
+"gsm_sms_ud.fragment.multiple_tails"	,	L_43
+"gsm_sms_ud.fragment.overlap.conflicts"	,	L_40
+"if a Port Number Information Element is present "	,	L_69
+p_dst	,	V_27
+"own. Eg. Prevent WSP dissector overwriting SMPP information."	,	L_80
+hf_gsm_sms_udh_iei	,	V_31
+find_dissector_add_dependency	,	F_40
+reassembled	,	V_24
+proto_item_append_text	,	F_10
+"gsm_sms_ud.fragment.count"	,	L_52
+"gsm_sms_ud.udh.mm.msg_id"	,	L_15
+hf_gsm_sms_ud_reassembled_length	,	V_81
+"Length of the User Data Header (bytes)"	,	L_13
+dissect_gsm_sms_ud	,	F_25
+proto_register_subtree_array	,	F_32
+reassembly_table_destroy	,	F_4
+"Short Message fragment"	,	L_33
+proto_tree_add_item	,	F_12
+pinfo	,	V_5
+"GSM Short Message has been reassembled in this packet."	,	L_55
+ett_udh	,	V_30
+_U_	,	V_54
+udh_len	,	V_11
+"gsm_sms_ud.udh.mm.msg_parts"	,	L_18
+"Short Message fragment overlap"	,	L_36
+"wsp-cl"	,	L_81
+VALS	,	F_28
+ett_gsm_sms_ud_fragment	,	V_84
+prefs_register_bool_preference	,	F_35
+"GSM Short Message defragmentation error due to illegal fragments"	,	L_50
+"gsm_sms_ud.reassembled.length"	,	L_57
+"Message part (fragment) sequence number"	,	L_22
+FT_UINT8	,	V_59
+BASE_DEC	,	V_63
+proto_item	,	T_4
+hf_gsm_sms_ud_reassembled_in	,	V_80
+": source port %u, destination port %u"	,	L_3
+subtree	,	V_9
+ENC_NA	,	V_53
+hf_gsm_sms_ud_fragment_overlap_conflicts	,	V_74
+"gsm_sms_ud.fragment.too_long_fragment"	,	L_46
+"GSM Short Message fragments"	,	L_32
+"Unreassembled Short Message fragment %u of %u"	,	L_7
+hf_gsm_sms_ud_fragment_overlap	,	V_72
+register_dissector_table	,	F_33
+try_gsm_sms_ud_reassemble	,	V_23
+"Short Message fragment overlapping with conflicting data"	,	L_39
+data	,	T_11
+ett_gsm_sms_ud_fragments	,	V_85
+num	,	V_45
+"gsm_sms_ud.fragment.overlap"	,	L_37
+"Message identifier"	,	L_14
+"try_dissect_1st_fragment"	,	L_71
+"GSM Short Message Service User Data"	,	L_61
+"gsm_sms_ud.udh.mm.msg_part"	,	L_21
+"prevent_dissectors_chg_cols"	,	L_77
+save_fragmented	,	V_22
+vals_udh_national_languages_single_shift	,	V_65
+"entirety)."	,	L_76
+"GSM SMS port IE in UDH"	,	L_65
+guint	,	T_6
+FT_NONE	,	V_68
+ett	,	V_83
+sm_id	,	V_19
+addresses_reassembly_table_functions	,	V_2
+tree	,	V_10
+"Source port"	,	L_23
+tvb_bytes_exist	,	F_14
+"UDH Length"	,	L_11
+packet_info	,	T_3
+"Total number of message parts (fragments)"	,	L_19
+"GSM Short Message fragment"	,	L_35
+udh	,	V_12
+gsm_sms_ud_defragment_cleanup	,	F_3
+hf_gsm_sms_ud_fragment_error	,	V_77
+"Prevent sub-dissectors from changing column data"	,	L_78
+proto_tree_add_uint	,	F_8
+frag	,	V_21
+p_src	,	V_26
+col_get_writable	,	F_20
+"Reassembled in"	,	L_53
+gsm_sms_ud_defragment_init	,	F_1
+hf_gsm_sms_ud_short_msg	,	V_52
+try_dissect_1st_frag	,	V_46
+"may be dissected twice (once as a short frame, once in its "	,	L_75
+"gsm_sms_ud.fragments"	,	L_31
+"The total length of the reassembled payload"	,	L_58
+"gsm_sms_ud.udh.ports.dst"	,	L_26
+"GSM Short Message fragment data goes beyond the packet end"	,	L_47
+hf_gsm_sms_udh_national_locking_shift	,	V_40
+HFILL	,	V_62
+"gsm_sms_ud.udh.port"	,	L_64
+dissector_try_uint	,	F_23
+"gsm_sms_ud.udh.len"	,	L_12
+"port_number_udh_means_wsp"	,	L_66
+FT_FRAMENUM	,	V_71
+"gsm_sms_ud.udh.ports.src"	,	L_24
+vals_udh_iei	,	V_61
+hf_gsm_sms_ud_fragment_multiple_tails	,	V_75
+reassembled_in	,	V_25
+prevent_subdissectors_changing_columns	,	V_48
+ett_udh_ie	,	V_32
+" (Short Message Reassembled)"	,	L_5
+"gsm_sms_ud.udh.national.single_shift"	,	L_28
+"in the SMS User Data Header."	,	L_70
+proto_tree	,	T_1
+hf_gsm_sms_ud_fragment	,	V_70

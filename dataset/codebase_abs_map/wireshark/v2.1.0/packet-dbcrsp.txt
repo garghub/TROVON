@@ -1,0 +1,68 @@
+register_dissector	,	F_18
+docsis_tlv_handle	,	V_18
+data	,	T_4
+proto_register_protocol	,	F_14
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_6
+tvb_get_ntohs	,	F_2
+dbcrsp_item	,	V_5
+tvb_new_subset_remaining	,	F_9
+ett_docsis_dbcrsp	,	V_14
+gint	,	T_9
+docsis_conf_code	,	V_12
+proto_item_add_subtree	,	F_7
+proto_register_field_array	,	F_15
+dbcrsp_tree	,	V_6
+tvb	,	V_1
+"Transaction Id"	,	L_4
+ett	,	V_24
+COL_INFO	,	V_11
+"docsis_dbcrsp"	,	L_10
+transid	,	V_7
+dissector_add_uint	,	F_21
+"docsis_mgmt"	,	L_12
+tree	,	V_3
+"DOCSIS Dynamic Bonding Change Response"	,	L_8
+"docsis_dbcrsp.tranid"	,	L_5
+FT_UINT16	,	V_20
+packet_info	,	T_2
+tvb_get_guint8	,	F_3
+dissect_dbcrsp	,	F_1
+hf_docsis_dbcrsp_conf_code	,	V_17
+cinfo	,	V_10
+tvb_captured_length	,	F_11
+"docsis_dbcrsp.conf_code"	,	L_7
+proto_register_subtree_array	,	F_17
+val_to_str	,	F_5
+array_length	,	F_16
+next_tvb	,	V_9
+hf_docsis_dbcrsp_tranid	,	V_15
+proto_tree_add_item	,	F_8
+call_dissector	,	F_10
+pinfo	,	V_2
+col_add_fstr	,	F_4
+proto_register_docsis_dbcrsp	,	F_12
+dissector_handle_t	,	T_10
+proto_reg_handoff_docsis_dbcrsp	,	F_19
+_U_	,	V_4
+"Dynamic Bonding Change Response: Tran-Id = %u (%s)"	,	L_1
+"%d"	,	L_2
+hf_register_info	,	T_8
+VALS	,	F_13
+HFILL	,	V_22
+"docsis_tlv"	,	L_11
+"Confirmation Code"	,	L_6
+guint16	,	T_6
+"DOCSIS DBC-RSP"	,	L_9
+"Dynamic Bonding Change Response"	,	L_3
+FT_UINT8	,	V_23
+find_dissector	,	F_20
+BASE_DEC	,	V_21
+proto_item	,	T_5
+docsis_dbcrsp_handle	,	V_25
+ENC_BIG_ENDIAN	,	V_16
+guint8	,	T_7
+confcode	,	V_8
+proto_docsis_dbcrsp	,	V_13
+proto_tree	,	T_3
+hf	,	V_19

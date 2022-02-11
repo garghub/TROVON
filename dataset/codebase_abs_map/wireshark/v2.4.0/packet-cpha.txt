@@ -1,0 +1,196 @@
+"CPHA"	,	L_1
+proto_register_protocol	,	F_18
+"Seed"	,	L_59
+opcode_type_vals	,	V_17
+tvb_reported_length	,	F_2
+hf_ethernet_add	,	V_56
+state_vals	,	V_72
+"cpha.src_id"	,	L_23
+dissect_policy_change	,	F_15
+hf_seed	,	V_51
+"cpha.opcode"	,	L_15
+report_code_vals	,	V_69
+"cpha.ha_mode"	,	L_37
+FT_ETHER	,	V_74
+gint	,	T_8
+"Report code"	,	L_34
+"Filler"	,	L_28
+"Check Point High Availability Protocol"	,	L_78
+tvb	,	V_1
+"State node"	,	L_43
+ha_version_vals_ext	,	V_65
+COL_INFO	,	V_16
+FT_BOOLEAN	,	V_75
+"Ethernet Address"	,	L_49
+"Policy ID"	,	L_26
+cinfo	,	V_14
+array_length	,	F_20
+proto_reg_handoff_cpha	,	F_22
+"Protocol Version"	,	L_9
+hf_cpha_protocol_ver	,	V_23
+"Interface Trusted"	,	L_51
+"Interface Number"	,	L_76
+hf_policy_id	,	V_30
+"Interfaces up in the Inbound"	,	L_63
+hf_is_if_trusted	,	V_57
+hf_cluster_number	,	V_24
+hf_register_info	,	T_7
+"cpha.ethernet_addr"	,	L_50
+"cpha.dst_id"	,	L_25
+"Hash list length"	,	L_61
+guint16	,	T_6
+COL_PROTOCOL	,	V_15
+"cpha.filler"	,	L_29
+"Destination Machine ID"	,	L_24
+i	,	V_34
+"Cluster Number"	,	L_12
+ti	,	V_6
+BASE_NONE	,	V_67
+"cpha"	,	L_79
+hf_machine_states	,	V_41
+tvbuff_t	,	T_1
+opcode	,	V_10
+hf_dst_machine_id	,	V_29
+"Magic Number"	,	L_7
+tvb_get_ntohs	,	F_3
+BASE_HEX	,	V_61
+dissect_lb_conf	,	F_14
+proto_item_add_subtree	,	F_9
+"cpha.random_id"	,	L_21
+proto_register_field_array	,	F_19
+FT_BYTES	,	V_68
+hf_out_up_num	,	V_46
+hf_interface_states	,	V_43
+FT_UINT16	,	V_60
+"Random ID"	,	L_20
+FT_INT8	,	V_79
+"cpha.ifn"	,	L_77
+"HA mode"	,	L_36
+id_num	,	V_36
+"cpha.id_num"	,	L_33
+" - %s"	,	L_4
+"cpha.out_up"	,	L_68
+"cpha.version"	,	L_10
+"Machine Number"	,	L_57
+"cpha.cluster_number"	,	L_13
+"cpha.out_assume_up"	,	L_70
+hf_ha_mode	,	V_39
+"HA Time unit"	,	L_38
+hf_src_if_num	,	V_26
+hf_report_code	,	V_38
+ha_version	,	V_12
+"Machines States"	,	L_41
+magic_number	,	V_11
+FT_INT32	,	V_78
+"cpha.ha_time_unit"	,	L_39
+FT_INT16	,	V_77
+"cpha.cluster_last_packet"	,	L_72
+CPHA_MAGIC	,	V_13
+"cpha.reported_ifs"	,	L_48
+hf_num_reported_ifs	,	V_55
+ett_cphap	,	V_20
+dissect_my_state	,	F_11
+ENC_BIG_ENDIAN	,	V_22
+FT_UINT32	,	V_73
+"Interfaces assumed up in the Inbound"	,	L_65
+hf_in_up_num	,	V_44
+dissect_cpha	,	F_1
+hf	,	V_59
+"cpha.ip"	,	L_54
+"Interfaces up in the Outbound"	,	L_67
+hf_id_num	,	V_37
+"cpha.machine_num"	,	L_58
+BASE_EXT_STRING	,	V_64
+col_set_str	,	F_4
+hf_opcode	,	V_25
+FT_IPv4	,	V_76
+"cpha.in_up"	,	L_64
+proto_item_append_text	,	F_10
+hf_filler	,	V_31
+hf_random_id	,	V_27
+col_clear	,	F_5
+"cpha.in_assume_up"	,	L_66
+hf_slot_num	,	V_49
+proto_register_subtree_array	,	F_21
+val_to_str	,	F_7
+"HA Time unit (ms)"	,	L_40
+proto_tree_add_item	,	F_8
+"cpha.state_node"	,	L_44
+pinfo	,	V_2
+col_add_fstr	,	F_6
+dissector_handle_t	,	T_9
+cpha_handle	,	V_82
+"Data"	,	L_30
+_U_	,	V_4
+ntree	,	V_9
+hf_in_assumed_up_num	,	V_45
+"HA OpCode"	,	L_14
+"cpha.unknown_data"	,	L_31
+dissect_conf_reply	,	F_13
+hf_unknown_data	,	V_33
+VALS	,	F_17
+hf_magic_number	,	V_21
+"Time units ago"	,	L_73
+ha_mode_vals	,	V_70
+report_code	,	V_35
+nti	,	V_7
+FT_UINT8	,	V_71
+BASE_DEC	,	V_63
+dissect_probe	,	F_12
+proto_item	,	T_5
+cpha_tree	,	V_8
+ENC_NA	,	V_19
+hf_ifn	,	V_54
+"cpha.payload"	,	L_17
+status_vals	,	V_80
+hf_cluster_last_packet	,	V_48
+data	,	T_4
+"cpha.status"	,	L_75
+hf_payload	,	V_32
+"Reported Interfaces"	,	L_47
+"Slot Number"	,	L_55
+"Number of IDs reported"	,	L_32
+"cpha.if_trusted"	,	L_52
+hf_status	,	V_53
+hf_out_assumed_up_num	,	V_47
+"cpha.interface_states"	,	L_46
+"Last packet seen"	,	L_71
+hf_state_node	,	V_42
+FT_NONE	,	V_66
+offset	,	V_5
+"cpha.policy_id"	,	L_27
+ett	,	V_81
+tree	,	V_3
+"cpha.machine_states"	,	L_42
+"cpha.hash_len"	,	L_62
+packet_info	,	T_2
+"CPHAP Version"	,	L_11
+" (Cluster %d)"	,	L_6
+"Interface States"	,	L_45
+"Unknown %d"	,	L_3
+UDP_PORT_CPHA	,	V_83
+"IP Address"	,	L_53
+"Payload"	,	L_16
+" (Nodes %d)"	,	L_5
+"Source Interface"	,	L_18
+"cpha.src_if"	,	L_19
+"Interfaces assumed up in the Outbound"	,	L_69
+"Source Machine ID"	,	L_22
+"cpha.seed"	,	L_60
+HFILL	,	V_62
+hf_ip	,	V_58
+"Status"	,	L_74
+"cpha.magic_number"	,	L_8
+"cpha.slot_num"	,	L_56
+"udp.port"	,	L_80
+"cpha.report_code"	,	L_35
+create_dissector_handle	,	F_23
+hf_hash_len	,	V_52
+hf_machine_num	,	V_50
+hf_ha_time_unit	,	V_40
+dissector_add_uint_with_preference	,	F_24
+proto_register_cpha	,	F_16
+"CPHAv%d: %s"	,	L_2
+proto_cphap	,	V_18
+hf_src_machine_id	,	V_28
+proto_tree	,	T_3

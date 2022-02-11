@@ -1,0 +1,451 @@
+hf_t38_fragment_error	,	V_185
+reassembly_table_register	,	F_94
+"Where available, show which protocol and frame caused "	,	L_117
+tvb_reported_length	,	F_36
+process_reassembled_data	,	F_30
+hf_t38_type_of_msg	,	V_154
+"fec-data"	,	L_59
+"t38.fragments"	,	L_74
+last_seqnum	,	V_26
+"this T.38 stream to be created"	,	L_118
+p_t38_packet_conv	,	V_88
+"t38.malformed"	,	L_93
+NO_ADDR_B	,	V_15
+" Pack lost: %d, Pack burst lost: %d"	,	L_8
+guint32	,	T_4
+value_len	,	V_87
+FT_BOOLEAN	,	V_181
+hf_t38_Data_Field_item	,	V_161
+t38_conv_info	,	V_124
+t38_tcp_pdu_handle	,	V_140
+tvb_reported_length_remaining	,	F_33
+"t38.fragment"	,	L_76
+value_tvb	,	V_86
+size	,	V_39
+p_get_proto_data	,	F_63
+"Show stream setup information"	,	L_116
+p_conversation	,	V_8
+data_value	,	V_62
+ifp_packet_number	,	V_136
+array_length	,	F_89
+MAX_T38_DESC	,	V_78
+reassembly_table	,	T_8
+""	,	L_23
+"be dissected as RTP packet or T.38 packet. If enabled there is a risk that T.38 UDPTL "	,	L_104
+clear_address	,	F_2
+col_append_str	,	F_28
+" data:%s:"	,	L_4
+t38_tpkt_usage	,	V_137
+Type_of_msg_choice	,	V_64
+hf_register_info	,	T_21
+"T.38"	,	L_17
+"use_pre_corrigendum_asn1_specification"	,	L_97
+"t38.reassembled.in"	,	L_90
+"t38.error_recovery"	,	L_48
+setup_frame	,	V_17
+guint16	,	T_20
+address	,	T_2
+g_strlcpy	,	F_10
+"IFPPacket"	,	L_25
+"t38.fragment.error"	,	L_86
+tvb_memeql	,	F_16
+tvb_bytes_to_str	,	F_37
+BASE_NONE	,	V_152
+ett_t38_UDPTLPacket	,	V_108
+dissect_t38_Type_of_msg	,	F_24
+"show_setup_info"	,	L_115
+force_reassemble_seq	,	F_11
+addresses_equal	,	F_65
+"rtp"	,	L_119
+tvb_memcpy	,	F_15
+PROTO_ITEM_SET_GENERATED	,	F_82
+proto_item_add_subtree	,	F_73
+"TCP: IFPPacket"	,	L_21
+"t30-data"	,	L_35
+module_t	,	T_24
+t38_add_address	,	F_1
+init_t38_info_conv	,	F_62
+proto_register_field_array	,	F_88
+FT_BYTES	,	V_164
+ei	,	V_192
+additional_hdlc_data_field_counter	,	V_30
+dissect_t38_T_seq_number	,	F_45
+data_handle	,	V_82
+tvb_get_ptr	,	F_17
+hf_t38_reassembled_length	,	V_188
+Data_Field_item_sequence	,	V_92
+frame_num_first_t4_data	,	V_80
+"t38_udp"	,	L_96
+port	,	V_3
+tvb_captured_length	,	F_75
+hf_t38_fragment_too_long_fragment	,	V_184
+ett_t38_T_error_recovery	,	V_106
+fd	,	V_10
+call_dissector_with_data	,	F_31
+"Use the Pre-Corrigendum ASN.1 specification"	,	L_98
+"[RECEIVED END OF FRAGMENT W/OUT ANY FRAGMENT DATA]"	,	L_10
+"type-of-msg"	,	L_29
+RTP_VERSION	,	F_68
+dissect_per_choice	,	F_25
+t38_info_arr	,	V_116
+FT_STRING	,	V_176
+ett_t38_T_fec_data	,	V_102
+MAX_T38_SETUP_METHOD_SIZE	,	V_21
+hf_t38_UDPTLPacket_PDU	,	V_113
+dissect_t38_T_fec_info	,	F_56
+"t38.fragment.multiple_tails"	,	L_82
+hf_t38_fragment	,	V_179
+use_pre_corrigendum_asn1_specification	,	V_68
+"t30.hdlc"	,	L_120
+conversation_add_proto_data	,	F_9
+"t38.fec_data"	,	L_60
+" (HDLC fragment %u)"	,	L_14
+"Message has multiple tail fragments"	,	L_81
+"t38.seq_number"	,	L_44
+dissect_t38_T_error_recovery	,	F_57
+dissect_t38_tcp_pdu	,	F_76
+hf_t38_setup	,	V_145
+FT_UINT32	,	V_155
+hf_t38_fragment_multiple_tails	,	V_183
+visited	,	V_12
+"TCP streams\" in the TCP protocol settings."	,	L_111
+Data_Field_sequence_of	,	V_94
+data_frag_items	,	V_79
+hf	,	V_150
+"field-data"	,	L_41
+hf_t38_secondary_ifp_packets	,	V_169
+new_tvb	,	V_72
+seq_number	,	V_76
+"error-recovery"	,	L_47
+t38_conv	,	T_6
+show_setup_info	,	F_74
+fd_i	,	V_36
+hf_t38_setup_frame	,	V_148
+prefs_register_protocol	,	F_96
+dissect_t38_IFPPacket	,	F_44
+fragment_get	,	F_12
+col_append_fstr	,	F_19
+hf_t38_fec_npackets	,	V_172
+col_set_str	,	F_70
+t38_udp_handle	,	V_13
+NO_ADDR2	,	V_18
+id	,	V_34
+"t38.secondary_ifp_packets"	,	L_50
+hf_index	,	T_17
+hf_t38_fragment_count	,	V_186
+hf_t38_secondary_ifp_packets_item	,	V_170
+"Reassemble T.38 PDUs over TPKT over TCP"	,	L_107
+p_conv	,	V_118
+it	,	V_128
+reass_start_seqnum	,	V_24
+dissect_IFPPacket_PDU	,	F_59
+p_t38_packet_conv_info	,	V_53
+FD_OVERLAP	,	V_47
+val_to_str	,	F_22
+proto_tree_add_string	,	F_84
+"t38.IFPPacket_element"	,	L_26
+expert_t38	,	V_197
+"t38.setup-frame"	,	L_68
+Data_Field_item_num	,	V_70
+dissect_t38_UDPTLPacket	,	F_58
+"INTEGER"	,	L_58
+g_malloc	,	F_13
+"Message fragment too long"	,	L_83
+"t38.t30_data"	,	L_36
+VALS	,	F_86
+dissector_add_for_decode_as	,	F_103
+"Seq=%05u "	,	L_16
+prefs_register_bool_preference	,	F_97
+table	,	V_33
+"Frame that set up this stream"	,	L_69
+t38_tcp_handle	,	V_200
+"data"	,	L_121
+"Stream Method"	,	L_70
+BASE_DEC	,	V_156
+"Method used to set up this stream"	,	L_72
+"t38.setup"	,	L_65
+other_port	,	V_4
+dissect_t38_OCTET_STRING	,	F_54
+time_first_t4_data	,	V_29
+"To use this option, you must also enable \"Allow subdissectors to reassemble "	,	L_110
+"t38.reassembled.length"	,	L_92
+dissect_per_octet_string	,	F_35
+"Message fragment"	,	L_75
+primary_part	,	V_56
+in_error_pkt	,	V_97
+NO_PORT_B	,	V_16
+null_addr	,	V_7
+seq_num	,	V_40
+net_src	,	V_120
+"OpenType_IFPPacket"	,	L_53
+expert_register_protocol	,	F_91
+" (t4-data Reassembled: %d pack lost, %d pack burst lost)"	,	L_1
+dissect_per_sequence_of	,	F_43
+t38_tpkt_options	,	V_199
+dissect_per_sequence	,	F_41
+ett	,	V_189
+wmem_packet_scope	,	F_38
+FD_DEFRAGMENTED	,	V_42
+addresses_reassembly_table_functions	,	V_198
+T30ind_value	,	V_55
+packet_info	,	T_1
+"t38.fec_npackets"	,	L_57
+"Message defragmentation error"	,	L_85
+EXPFILL	,	V_195
+t38_T30_data_vals	,	V_61
+conversation_get_proto_data	,	F_6
+dissect_t38_udp	,	F_66
+"Reassembled in"	,	L_89
+ptype	,	V_121
+"secondary-ifp-packets"	,	L_49
+"[%s...]"	,	L_13
+hf_t38_fec_data_item	,	V_175
+"Reassembled T38 length"	,	L_91
+"Dissect possible RTP version 2 packets with RTP dissector"	,	L_102
+HFILL	,	V_153
+t38_Type_of_msg_vals	,	V_157
+PI_MALFORMED	,	V_193
+data_reassembly_table	,	V_75
+wmem_new	,	F_7
+tvb_free	,	F_18
+gchar	,	T_3
+create_dissector_handle	,	F_100
+reassembled_in	,	V_49
+net_dst	,	V_119
+asn1_ctx_t	,	T_13
+hf_t38_data_field	,	V_158
+"t38.setup-method"	,	L_71
+proto_register_protocol	,	F_87
+"t38.fec_data_item"	,	L_62
+actx	,	T_14
+MAX_T38_MESSAGES_IN_PACKET	,	V_115
+dissect_tpkt_encap	,	F_79
+dissect_per_integer	,	F_53
+t30_hdlc_handle	,	V_81
+T_error_recovery_choice	,	V_107
+tvb_new_subset_remaining	,	F_77
+len	,	V_45
+setup_frame_number	,	V_6
+" %s"	,	L_5
+gint	,	T_22
+ett_t38_Data_Field	,	V_93
+p_conversation_data	,	V_9
+"data-field"	,	L_31
+"field-type"	,	L_39
+t38_T_error_recovery_vals	,	V_168
+"[MALFORMED PACKET or wrong preference settings]"	,	L_20
+proto_register_t38	,	F_85
+hf_t38_fragment_overlap_conflicts	,	V_182
+src_t38_info	,	V_22
+tvb	,	T_12
+"UDPTLPacket"	,	L_27
+COL_INFO	,	V_52
+nstime_to_sec	,	F_39
+frag_msg	,	V_71
+dissect_t38_tcp	,	F_78
+" IFPPacket#%u"	,	L_22
+"t38.UDPTLPacket_element"	,	L_28
+proto_tree_add_expert_format	,	F_32
+cinfo	,	V_51
+last_fd	,	V_37
+PI_ERROR	,	V_194
+IFPPacket_sequence	,	V_96
+"Stream setup"	,	L_64
+register_tap	,	F_95
+next_tvb	,	V_135
+ASN1_ENC_PER	,	V_111
+T38_TPKT_ALWAYS	,	V_138
+hf_t38_fec_data	,	V_174
+hf_t38_t30_data	,	V_160
+call_dissector	,	F_69
+"packets with sequence number higher than 32767 may be dissected as RTP."	,	L_105
+asn1_ctx	,	V_110
+"tpkt_usage"	,	L_112
+prefs_register_enum_preference	,	F_98
+proto_reg_handoff_t38	,	F_99
+tvb_new_real_data	,	F_14
+COL_PROTOCOL	,	V_132
+key_ptr	,	V_125
+t38_setup_tree	,	V_143
+dissect_t38_Data_Field_item	,	F_40
+dissect_t38_INTEGER	,	F_52
+hf_t38_fragment_overlap	,	V_180
+"t38.t30_indicator"	,	L_34
+guint8	,	T_10
+dissect_t38_T_secondary_ifp_packets	,	F_51
+t38_module	,	V_196
+ti	,	V_144
+dissect_per_open_type	,	F_48
+Type_of_msg_value	,	V_65
+hf_t38_fragments	,	V_178
+tr	,	V_129
+register_dissector	,	F_93
+dissect_per_constrained_integer	,	F_46
+tvbuff_t	,	T_11
+proto_tree_add_protocol_format	,	F_72
+"Whether a UDP packet that looks like RTP version 2 packet will "	,	L_103
+conversation_set_dissector	,	F_5
+ett_t38_setup	,	V_146
+burst_lost	,	V_28
+gboolean	,	T_18
+T_fec_data_sequence_of	,	V_103
+dissect_possible_rtpv2_packets_as_rtp	,	V_130
+fragmented	,	V_74
+"t38"	,	L_95
+ei_t38_malformed	,	V_83
+t38_tap	,	V_98
+tvb_data	,	V_46
+hf_t38_field_type	,	V_162
+"Message fragments"	,	L_73
+fragment_head	,	T_7
+dissect_t38_T30_indicator	,	F_20
+reass_ID	,	V_23
+"Whether T.38 is used with TPKT for TCP"	,	L_114
+"Stream frame"	,	L_67
+p_t38_conv	,	V_84
+global_t38_show_setup_info	,	V_134
+p_add_proto_data	,	F_64
+tvb_get_guint8	,	F_67
+proto_tree_add_string_format	,	F_81
+"reassembly"	,	L_106
+"secondary-ifp-packets item"	,	L_51
+"t38.field_data"	,	L_42
+hf_t38_seq_number	,	V_165
+desc	,	V_117
+next	,	V_43
+dissect_t38_T30_data	,	F_23
+"Message fragment overlap"	,	L_77
+is_tpkt	,	F_80
+"t38.secondary_ifp_packets_item_element"	,	L_52
+hf_t38_reassembled_in	,	V_187
+ett_t38_IFPPacket	,	V_95
+ett_t38_Data_Field_item	,	V_91
+conversation_new	,	F_4
+t38_tpkt_reassembly	,	V_139
+"dissect_possible_rtpv2_packets_as_rtp"	,	L_101
+dissect_per_enumerated	,	F_21
+FT_INT32	,	V_173
+find_dissector	,	F_102
+FD_OVERLAPCONFLICT	,	V_48
+NO_BOUND	,	V_101
+"Reassembled T38"	,	L_9
+"when TPKT is used over TCP. "	,	L_109
+desc_comment	,	V_77
+"t38.fec_info_element"	,	L_55
+"t38.fragment.count"	,	L_88
+UDPTLPacket_sequence	,	V_109
+hf_t38_setup_method	,	V_149
+dissect_t38_T_primary_ifp_packet	,	F_47
+"Message fragment overlapping with conflicting data"	,	L_79
+fd_head	,	V_35
+seqnum_prev_data_field	,	V_31
+"Stream setup by %s (frame %u)"	,	L_24
+"ASN.1 specification (1998)."	,	L_100
+dst_t38_info	,	V_32
+item	,	V_147
+dfpos	,	V_38
+find_dissector_add_dependency	,	F_101
+"t38.data_field"	,	L_32
+t38_info_current	,	V_114
+col_clear	,	F_71
+dissect_t38_OpenType_IFPPacket	,	F_50
+asn1_ctx_init	,	F_60
+proto_register_subtree_array	,	F_90
+gint32	,	V_90
+t30ind_value	,	V_59
+"t38.type_of_msg"	,	L_30
+p_t38_conv_info	,	V_85
+"primary-ifp-packet"	,	L_45
+pinfo	,	V_1
+hf_t38_error_recovery	,	V_167
+proto_t38	,	V_20
+"t38.fragment.overlap.conflicts"	,	L_80
+flags	,	V_11
+_U_	,	V_54
+type_msg	,	V_66
+octet1	,	V_127
+dissect_t38_Data_Field	,	F_42
+ett_t38_Type_of_msg	,	V_63
+hf_t38_fec_info	,	V_171
+"fec-npackets"	,	L_56
+"OCTET_STRING"	,	L_63
+find_conversation	,	F_3
+"fec-info"	,	L_54
+dissect_t38_T_field_type	,	F_26
+fragment_item	,	T_9
+ett_t38	,	V_133
+" [Malformed?]"	,	L_11
+tap_queue_packet	,	F_49
+hf_t38_IFPPacket_PDU	,	V_112
+proto_item	,	T_19
+"t38.Data_Field_item_element"	,	L_38
+expert_register_field_array	,	F_92
+hf_t38_field_data	,	V_163
+"Stream setup, method and frame number"	,	L_66
+"No packet lost"	,	L_7
+ett_t38_T_secondary_ifp_packets	,	V_99
+hf_t38_primary_ifp_packet	,	V_166
+"TPKT used over TCP"	,	L_113
+"Whether the dissector should reassemble T.38 PDUs spanning multiple TCP segments "	,	L_108
+" t30ind: %s"	,	L_2
+NO_PORT2	,	V_19
+"t38.fragment.too_long_fragment"	,	L_84
+data	,	V_41
+"Malformed packet"	,	L_94
+num	,	V_50
+"fec-data item"	,	L_61
+ei_register_info	,	T_23
+save_fragmented	,	V_73
+"UDP: UDPTLPacket "	,	L_19
+conversation_t	,	T_5
+FT_NONE	,	V_151
+offset	,	V_44
+expert_module_t	,	T_25
+tree	,	T_16
+PT_UDP	,	V_14
+dissect_UDPTLPacket_PDU	,	F_61
+setup_method	,	V_5
+rel_ts	,	V_89
+hf_t38_t30_indicator	,	V_159
+t38_info	,	V_58
+rtp_handle	,	V_131
+"Data-Field item"	,	L_37
+"t30-indicator"	,	L_33
+destport	,	V_122
+proto_tree_add_uint	,	F_83
+"ITU-T Recommendation T.38"	,	L_18
+Data_value	,	V_60
+T_fec_info_sequence	,	V_105
+packet_lost	,	V_27
+g_snprintf	,	F_29
+"&lt;unknown&gt;"	,	L_3
+Data_Field_field_type_value	,	V_67
+ett_t38_T_fec_info	,	V_104
+"[%s]"	,	L_12
+" (t4-data fragment %u)"	,	L_15
+dissect_t38_T_fec_data	,	F_55
+"t38.field_type"	,	L_40
+"Message fragment count"	,	L_87
+t38_T30_indicator_vals	,	V_57
+wmem_file_scope	,	F_8
+addr	,	V_2
+ett_data_fragments	,	V_191
+reass_data_type	,	V_25
+" (t4-data Reassembled: No packet lost)"	,	L_6
+addr1	,	V_126
+t38_T_field_type_vals	,	V_69
+"udp.port"	,	L_123
+FT_FRAMENUM	,	V_177
+fragment_add_seq	,	F_27
+T_secondary_ifp_packets_sequence_of	,	V_100
+"t38.primary_ifp_packet_element"	,	L_46
+"seq-number"	,	L_43
+p_t38_conversation	,	V_142
+"t38.fragment.overlap"	,	L_78
+srcport	,	V_123
+ett_data_fragment	,	V_190
+"Whether the T.38 dissector should decode using the Pre-Corrigendum T.38 "	,	L_99
+T38_TPKT_NEVER	,	V_141
+"tcp.port"	,	L_122
+dissect_t38_T_field_data	,	F_34
+proto_tree	,	T_15

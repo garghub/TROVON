@@ -1,0 +1,163 @@
+dissect_ccid	,	F_1
+"Chain Parameter"	,	L_36
+enum_val_t	,	T_8
+SUB_DATA	,	V_22
+hf_ccid_bClockStatus	,	V_50
+"usbccid.bBWI"	,	L_45
+"NXP PN532 with ACS Pseudo-Header"	,	L_55
+proto_register_protocol	,	F_11
+PC_RDR_ESCAPE	,	V_29
+prefs_register_protocol	,	F_15
+"Reader to PC: Parameters"	,	L_20
+proto_ccid	,	V_11
+"Error"	,	L_34
+tvb_new_subset_remaining	,	F_7
+"PC to Reader: Mechanical"	,	L_15
+sub_handles	,	V_21
+PC_RDR_GET_PARAMS	,	V_30
+col_set_str	,	F_2
+gint	,	T_7
+IF_CLASS_SMART_CARD	,	V_69
+hf_ccid_bChainParameter	,	V_47
+"Clock Status"	,	L_40
+"Level Parameter"	,	L_46
+"Reader to PC: Slot Status"	,	L_19
+hf_ccid_bMessageType	,	V_14
+tvb	,	V_1
+item	,	V_4
+PC_RDR_SECURE	,	V_27
+COL_INFO	,	V_10
+"USB CCID"	,	L_56
+"CCID Payload"	,	L_62
+"Slot"	,	L_28
+hf_ccid_bSlot	,	V_18
+PC_RDR_SET_PARAMS	,	V_15
+"GSM SIM"	,	L_53
+cinfo	,	V_8
+hf_ccid_wLevelParameter	,	V_35
+"pn532"	,	L_54
+proto_register_subtree_array	,	F_14
+array_length	,	F_13
+cmd	,	V_6
+"Unknown type"	,	L_23
+next_tvb	,	V_7
+proto_tree_add_item	,	F_3
+call_dissector	,	F_8
+pinfo	,	V_2
+dissector_handle_t	,	T_10
+"Data"	,	L_49
+"gsm_sim"	,	L_52
+PC_RDR_T0APDU	,	V_28
+ett_ccid	,	V_13
+proto_register_ccid	,	F_9
+PC_RDR_DATA_CLOCK	,	V_43
+"PC to Reader: Set Data Rate and Clock Frequency"	,	L_17
+"Block Wait Time Integer"	,	L_44
+prefs_register_enum_preference	,	F_16
+"Reader to PC: Data Rate and Clock Frequency"	,	L_22
+hf_register_info	,	T_6
+VALS	,	F_10
+"PC to Reader: Reset Parameters"	,	L_12
+ccid_clock_states_vals	,	V_61
+hf_ccid_bProtocolNum	,	V_20
+sub_selected	,	V_36
+proto_reg_handoff_ccid	,	F_19
+"Generic ISO 7816"	,	L_51
+COL_PROTOCOL	,	V_9
+"data"	,	L_48
+FT_UINT8	,	V_55
+proto_tree_add_text	,	F_6
+BASE_DEC	,	V_59
+proto_item	,	T_4
+"usbccid"	,	L_57
+"usbccid.dwLength"	,	L_27
+RDR_PC_DATA_CLOCK	,	V_53
+ENC_NA	,	V_12
+guint8	,	T_5
+hf_ccid_bSeq	,	V_19
+"Packet Length"	,	L_26
+"PC to Reader: Escape"	,	L_10
+"usbccid.bSeq"	,	L_31
+"Voltage Level"	,	L_38
+ENC_LITTLE_ENDIAN	,	V_17
+register_dissector_table	,	F_17
+register_dissector	,	F_18
+"PC to Reader: Set Parameters"	,	L_4
+"usbccid.bSlot"	,	L_29
+"usbccid.bError"	,	L_35
+tvbuff_t	,	T_1
+RDR_PC_SLOT_STATUS	,	V_49
+"PC to Reader: Secure"	,	L_8
+"Data Structure Type"	,	L_42
+ccid_proto_structs_vals	,	V_62
+PC_RDR_GET_SLOT_STATUS	,	V_26
+hf_ccid_bError	,	V_46
+BASE_HEX	,	V_56
+PC_RDR_XFR_BLOCK	,	V_33
+"PC to Reader: Abort"	,	L_16
+SUB_GSM_SIM	,	V_65
+proto_item_add_subtree	,	F_4
+RDR_PC_PARAMS	,	V_51
+module_t	,	T_9
+"usbccid.bMessageType"	,	L_25
+proto_register_field_array	,	F_12
+PC_RDR_RESET_PARAMS	,	V_31
+"usbccid.bChainParameter"	,	L_37
+hf_ccid_bBWI	,	V_34
+"usbccid.bProtocolNum"	,	L_43
+ett	,	V_63
+P2P_DIR_RECV	,	V_48
+dissector_add_uint	,	F_21
+"usbccid.bPowerSelect"	,	L_39
+tree	,	V_3
+"USBCCID"	,	L_1
+"Reader to PC: Escape"	,	L_21
+"PC to Reader: T=0 APDU"	,	L_9
+"Sequence"	,	L_30
+packet_info	,	T_2
+"Reserved for Future Use"	,	L_3
+"iso7816"	,	L_50
+tvb_get_guint8	,	F_5
+PC_RDR_ICC_CLOCK	,	V_32
+"PC to Reader: ICC Power On"	,	L_5
+hf_ccid_dwLength	,	V_16
+"usbccid.bClockStatus"	,	L_41
+"usbccid.wLevelParameter"	,	L_47
+"PC to Reader: Get Slot Status"	,	L_7
+ccid_voltage_levels_vals	,	V_60
+"usbccid.payload"	,	L_61
+"prtype"	,	L_58
+"PC to Reader: Transfer Block"	,	L_14
+SUB_PN532_ACS_PSEUDO_APDU	,	V_37
+"PC -&gt; Reader Payload Type"	,	L_59
+"PC to Reader: Get Parameters"	,	L_11
+usb_ccid_bulk_handle	,	V_68
+pref_mod	,	V_66
+PC_RDR_ABORT	,	V_42
+"How commands from the PC to the reader are interpreted"	,	L_60
+PC_RDR_ICC_OFF	,	V_25
+"Message Type"	,	L_24
+"CCID Packet"	,	L_2
+hf_ccid_bStatus	,	V_45
+"PC to Reader: ICC Power Off"	,	L_6
+P2P_DIR_SENT	,	V_40
+"PC to Reader: ICC Clock"	,	L_13
+HFILL	,	V_58
+p2p_dir	,	V_39
+PC_RDR_MECH	,	V_41
+"Status"	,	L_32
+hf_ccid_bPowerSelect	,	V_24
+ccid_dissector_table	,	V_67
+find_dissector	,	F_20
+"usb.bulk"	,	L_63
+"Reader to PC: Data Block"	,	L_18
+ccid_tree	,	V_5
+RDR_PC_DATA_BLOCK	,	V_44
+"usbccid.bStatus"	,	L_33
+PC_RDR_ICC_ON	,	V_23
+SUB_ISO7816	,	V_38
+RDR_PC_ESCAPE	,	V_52
+sub_enum_vals	,	V_64
+ccid_messagetypes_vals	,	V_57
+proto_tree	,	T_3
+hf	,	V_54

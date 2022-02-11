@@ -1,0 +1,320 @@
+"ismacryp.unused"	,	L_67
+len_bits	,	V_96
+offset_struct	,	T_8
+"enc-mpeg4-generic"	,	L_150
+dissect_auheader	,	F_15
+random_access_indication	,	V_33
+proto_register_protocol	,	F_23
+pref_au_index_length	,	V_26
+"Padding_bitcount bits"	,	L_60
+"AU index"	,	L_38
+"user_defined_modes"	,	L_124
+"Indicates the number of bits on which the stream state field is encoded"	,	L_147
+"Set the length of the CTS delta field in the AU Header in bits"	,	L_138
+"The dynamic payload type which will be interpreted as ISMACryp"	,	L_78
+"Delta IV"	,	L_32
+"ISMACrypPaddingIndication (T/F)"	,	L_114
+gint	,	T_9
+header_len_bytes	,	V_61
+"rtp.pt"	,	L_152
+"ismacryp.cts_flag"	,	L_45
+tvb	,	V_1
+"ISMACryp v2.0"	,	L_69
+ismacryp_tree	,	V_16
+"ISMACryp Protocol"	,	L_73
+COL_INFO	,	V_8
+" bits: Length=%d bits"	,	L_21
+"ismacryp.stream_state"	,	L_53
+FT_BOOLEAN	,	V_108
+"RFC3640 mode"	,	L_120
+"AU_is_encrypted flag"	,	L_54
+ismacryp_v11_handle	,	V_118
+"ismacryp.au.size"	,	L_37
+"CTS flag"	,	L_44
+tvb_reported_length_remaining	,	F_18
+cinfo	,	V_5
+hf_ismacryp_header_byte	,	V_76
+"user mode"	,	L_6
+"Encrypted data"	,	L_12
+array_length	,	F_25
+"ismacryp.au.index"	,	L_39
+slice_indication	,	V_68
+selective_encryption	,	V_67
+"ismacryp.delta_iv"	,	L_33
+"ismacryp.au.index_delta"	,	L_41
+"mpeg4-video"	,	L_71
+"AU Header"	,	L_22
+MPEG4_VIDEO_MODE	,	V_38
+hf_ismacryp_au_is_encrypted	,	V_78
+dissect_ismacryp	,	F_6
+", Length= %d bytes"	,	L_13
+"ismacryp.au_is_encrypted"	,	L_55
+col_append_str	,	F_7
+"Set the length of the Delta IV in the ISMACryp AU Header in bytes"	,	L_97
+prefs_register_enum_preference	,	F_29
+"user_mode"	,	L_121
+hf_register_info	,	T_11
+"Message"	,	L_28
+hf_ismacryp_dts_delta	,	V_93
+", %s"	,	L_5
+guint16	,	T_7
+"ISMACryp v1.1"	,	L_68
+COL_PROTOCOL	,	V_6
+hf_ismacryp_slice_end	,	V_82
+"Padding bits"	,	L_62
+"Indicates whether or not padding information is present (T/F)"	,	L_115
+"ISMACryp v1.1 parameters declared in SDP"	,	L_91
+BASE_NONE	,	V_100
+" Manual version"	,	L_4
+"key_indicator_length"	,	L_98
+"ismacryp.header"	,	L_23
+"v20_parameters"	,	L_107
+hf_ismacryp_rap_flag	,	V_94
+proto_reg_handoff_ismacryp	,	V_113
+hf_ismacryp_padding	,	V_56
+ismacryp_header_tree	,	V_59
+" from RTP payload type, if present, is used or whether the"	,	L_87
+dynamic_payload_type	,	V_117
+header_len	,	V_62
+hf_ismacryp_stream_state	,	V_95
+"ismacryp.dts_delta"	,	L_47
+"ISMACrypKeyIndicatorLength (bytes)"	,	L_99
+tvbuff_t	,	T_1
+"AU Headers Length"	,	L_24
+"ismacryp.key_indicator"	,	L_35
+tvb_get_ntohs	,	F_14
+"Indicates whether or not slice start / end is present (T/F)"	,	L_112
+ett_ismacryp_header_byte	,	V_77
+" bytes: Length=%d bits"	,	L_20
+"Set the length of the Key Indicator in the ISMACryp AU Header in bytes"	,	L_100
+AU_HEADERS_LENGTH_SIZE	,	V_52
+"ismacryp"	,	L_75
+hf_ismacryp_header	,	V_74
+hf_ismacryp_delta_iv	,	V_85
+gboolean	,	T_10
+"ismacryp.padding"	,	L_63
+hf_ismacryp_au_index	,	V_88
+hf_ismacryp_unused_bits	,	V_79
+proto_item_add_subtree	,	F_12
+"Slice_start flag"	,	L_56
+module_t	,	T_13
+"User mode: RandomAccessIndication (T/F)"	,	L_143
+", KI=0x%s"	,	L_19
+"padding_indication"	,	L_113
+"rfc3640_mode"	,	L_119
+ismacryp_prefs_initialized	,	V_115
+nbpadding_bits	,	V_55
+proto_register_field_array	,	F_24
+FT_BYTES	,	V_106
+"Key Indicator"	,	L_34
+dissector_add_uint	,	F_35
+"ISMACrypKeyIndicatorPerAU (T/F)"	,	L_102
+"version"	,	L_79
+"ismacryp.cts_delta"	,	L_43
+padding_indication	,	V_69
+FT_UINT16	,	V_102
+mode_types	,	V_111
+proto_tree_add_bits_item	,	F_16
+"User mode: SizeLength (bits)"	,	L_128
+"Set the length of the DTS delta field in the AU Header in bits"	,	L_141
+tvb_captured_length	,	F_4
+offset_bytes	,	V_46
+ismacryp_item	,	V_15
+"Reserved bits"	,	L_64
+"does not match calculated size (%d bits) - check parameters!"	,	L_10
+" and to override the version if detected from RTP payload type:"	,	L_83
+dissector_delete_uint	,	F_34
+" in the AU Header (bits)"	,	L_148
+"The following option allows the version to be set manually"	,	L_82
+"ISMACryp v2.0 parameters declared in SDP"	,	L_109
+"au_index_delta_length"	,	L_133
+first_au_flag	,	V_65
+"au_index_length"	,	L_130
+dissect_ismacryp_common	,	F_3
+AVC_VIDEO_MODE	,	V_39
+"Set the length of the AU index in the AU Header in bits"	,	L_132
+override_flag	,	V_18
+bit_offset	,	V_66
+"Indicates whether or not the RAP field is present in the AU Header (T/F)"	,	L_144
+"ismacryp.reserved"	,	L_65
+"iv_length"	,	L_92
+"delta_iv_length"	,	L_95
+au_index_length	,	V_25
+"ISMACrypDeltaIVLength (bytes)"	,	L_96
+"au_size_length"	,	L_127
+val_to_str_const	,	F_9
+hf_ismacryp_dts_flag	,	V_92
+"Stream state"	,	L_52
+"random_access_indication"	,	L_142
+ENC_BIG_ENDIAN	,	V_53
+poffset	,	V_44
+"ISMACrypSelectiveEncryption (T/F)"	,	L_105
+V11	,	V_9
+"Codec mode selection (RFC3640 for ISMACryp v1.1 only):"	,	L_117
+"v11_parameters"	,	L_89
+version_types	,	V_110
+"ISMACRYP"	,	L_74
+hf_ismacryp_au_size	,	V_87
+hf	,	V_98
+hf_ismacryp_au_index_delta	,	V_89
+"stream_state_indication"	,	L_145
+enum_val_t	,	T_12
+pref_cts_delta_length	,	V_30
+", Delta IV=0x%s"	,	L_18
+"ismacryp.message"	,	L_29
+"User mode: DTSDeltaLength (bits)"	,	L_140
+au_index_delta_length	,	V_27
+prefs_register_protocol	,	F_27
+s_offset	,	V_43
+pref_random_access_indication	,	V_34
+"Header Byte"	,	L_26
+col_append_fstr	,	F_8
+V20	,	V_11
+"avc-video"	,	L_72
+FT_UINT64	,	V_107
+col_set_str	,	F_2
+"slice_indication"	,	L_110
+tvb_get_bits8	,	F_19
+"ismacryp.rap_flag"	,	L_51
+"ismacryp.slice_end"	,	L_59
+", IV=0x%s"	,	L_17
+nbmessage_bytes	,	V_45
+"User mode (T/F)"	,	L_122
+"ismacryp.header.byte"	,	L_27
+"IV"	,	L_30
+"AU index delta"	,	L_40
+"Manual version"	,	L_3
+hf_ismacryp_key_indicator	,	V_86
+proto_item_append_text	,	F_13
+" Error - zero bit AU header size - check parameters!"	,	L_14
+"text_override"	,	L_81
+proto_register_subtree_array	,	F_26
+offset_bits	,	V_47
+dts_delta_length	,	V_31
+"override_rtp_pt"	,	L_84
+AAC_HBR_MODE	,	V_37
+pref_dynamic_payload_type	,	V_114
+pref_au_size_length	,	V_24
+proto_tree_add_item	,	F_11
+ett_ismacryp_header	,	V_75
+"RAP flag"	,	L_50
+"ismacryp.iv"	,	L_31
+"Override RTP payload type for version"	,	L_85
+pinfo	,	V_2
+dissector_handle_t	,	T_14
+": Length=%d bytes"	,	L_16
+"ismacryp.padding_bitcount"	,	L_61
+PROTO_TAG_ISMACRYP_11	,	V_7
+_U_	,	V_4
+"Following parameters only valid and used for user mode:"	,	L_125
+delta_iv_length	,	V_73
+units_bit_bits	,	V_105
+"User mode: IndexDeltaLength (bits)"	,	L_134
+"AU parameters defined by the user"	,	L_126
+"DTS flag"	,	L_48
+"ISMACryp v1.1 parameters:"	,	L_90
+prefs_register_bool_preference	,	F_31
+"rtp_dyn_payload_type"	,	L_149
+"dynamic.payload.type"	,	L_76
+prefs_register_static_text_preference	,	F_30
+iv_length	,	V_70
+"ismacryp.dts_flag"	,	L_49
+hf_ismacryp_reserved_bits	,	V_80
+cts_flag	,	V_63
+BASE_DEC	,	V_103
+pref_user_mode	,	V_19
+hf_ismacryp_message	,	V_57
+proto_item	,	T_6
+hf_ismacryp_iv	,	V_84
+ett_ismacryp_message	,	V_58
+"cts_delta_length"	,	L_136
+ENC_NA	,	V_49
+ismacryp_module	,	V_112
+dissector_add_string	,	F_33
+" version above is used"	,	L_88
+pref_au_index_delta_length	,	V_28
+hf_ismacryp_slice_start	,	V_81
+"(PT=enc-mpeg4-generic)"	,	L_1
+": Length=%d bits"	,	L_11
+"ismacryp.au_headers.length"	,	L_25
+data	,	T_4
+"User mode: StreamStateIndication (number of bits)"	,	L_146
+dissect_ismacryp_v20	,	F_5
+"ISMACrypSliceIndication (T/F)"	,	L_111
+hf_ismacryp_au_headers_length	,	V_51
+"DTS delta"	,	L_46
+mode	,	V_20
+prefs_register_uint_preference	,	F_28
+deltabits	,	V_42
+"ISMACrypIVLength (bytes)"	,	L_93
+"User mode: IndexLength (bits)"	,	L_131
+hf_ismacryp_cts_delta	,	V_91
+"key_indicator_per_au_flag"	,	L_101
+key_indicator_length	,	V_71
+"codec_modes"	,	L_116
+"AU parameters set according to RFC3640 mode or user defined"	,	L_118
+hf_ismacryp_cts_flag	,	V_90
+"AU size"	,	L_36
+guint	,	T_5
+FT_NONE	,	V_99
+"ISMACryp version"	,	L_80
+ett	,	V_109
+PROTO_TAG_ISMACRYP_20	,	V_10
+version_type	,	V_12
+DISSECTOR_ASSERT_NOT_REACHED	,	F_10
+wmem_packet_scope	,	F_21
+dissect_ismacryp_v11	,	F_1
+ismacryp_v20_handle	,	V_119
+tree	,	V_3
+add_bits	,	F_17
+ismacryp_message_tree	,	V_17
+user_mode	,	V_22
+"ISMACryp v2.0 parameters:"	,	L_108
+packet_info	,	T_2
+pref_dts_delta_length	,	V_32
+hf_ismacryp_padding_bitcount	,	V_83
+ismacryp_version	,	V_13
+" Error - expected total AU headers size (%d bits) "	,	L_9
+tvb_bytes_to_str_punct	,	F_20
+"Indicates use of user mode instead of RFC3640 modes (T/F)"	,	L_123
+dts_flag	,	V_64
+"Unused bits"	,	L_66
+BASE_UNIT_STRING	,	V_104
+"enc-isoff-generic"	,	L_151
+"ISMACryp dynamic payload type"	,	L_77
+set_version	,	V_14
+"dts_delta_length"	,	L_139
+cts_delta_length	,	V_29
+"Set the length of the IV in the ISMACryp AU Header in bytes"	,	L_94
+proto_register_ismacryp	,	F_22
+": Length=8 bits"	,	L_15
+modetypenames	,	V_21
+totalbit_offset	,	V_54
+"CTS delta"	,	L_42
+au_headers_length	,	V_40
+totalbits	,	V_41
+"selective_encryption"	,	L_104
+"Slice_end flag"	,	L_58
+"Set the length of the AU delta index in the AU Header in bits"	,	L_135
+"Indicates whether or not selective encryption is enabled (T/F)"	,	L_106
+HFILL	,	V_101
+nbbitstotal	,	V_97
+key_indicator_per_au_flag	,	V_72
+", user mode"	,	L_7
+"ismacryp packet"	,	L_8
+"Indicates whether or not the ISMACryp version deduced"	,	L_86
+proto_ismacryp	,	V_48
+"aac-hbr"	,	L_70
+create_dissector_handle	,	F_32
+pref_stream_state_indication	,	V_36
+stream_state_indication	,	V_35
+"User mode: CTSDeltaLength (bits)"	,	L_137
+ismacryp_handle	,	V_116
+ett_ismacryp	,	V_50
+"ismacryp.slice_start"	,	L_57
+"Indicates whether or not the Key Indicator is present in all AU Headers (T/F)"	,	L_103
+"(PT=enc-isoff-generic)"	,	L_2
+au_size_length	,	V_23
+"Set the length of the AU size in the AU Header in bits"	,	L_129
+proto_tree	,	T_3
+ismacryp_header_byte_tree	,	V_60

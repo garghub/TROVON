@@ -1,0 +1,229 @@
+proto_register_protocol	,	F_29
+"fcip.flagsc"	,	L_20
+"Target port"	,	L_67
+fcip_tree	,	V_58
+hf_fcip_protocol	,	V_28
+"Special Frame Flag"	,	L_41
+tvb_new_subset_remaining	,	F_20
+"Version"	,	L_11
+hf_fcip_katov	,	V_52
+"EOF"	,	L_35
+gint	,	T_4
+fc_data_t	,	T_11
+"EOF (1's Complement)"	,	L_37
+tvb_fcwwn_to_str	,	F_12
+"FCIP (%s/%s)"	,	L_2
+fc_handle	,	V_83
+tvb	,	V_1
+hf_fcip_sof_c	,	V_71
+FCIP_EOFdt	,	V_21
+COL_INFO	,	V_86
+FT_BOOLEAN	,	V_96
+desegment_offset	,	V_14
+NXT_BYTE	,	V_10
+"Flags (1's Complement)"	,	L_19
+"fcip.nonce"	,	L_58
+"Time (secs)"	,	L_25
+FCIP_EOFdti	,	V_23
+cinfo	,	V_64
+hf_fcip_flags_c	,	V_40
+hf_fcip_src_wwn	,	V_45
+"fcip.version"	,	L_12
+"fcip.sofc"	,	L_34
+"fcip.pflagsc"	,	L_44
+array_length	,	F_31
+next_tvb	,	V_59
+check_port	,	V_53
+call_dissector	,	F_22
+hf_fcip_sof	,	V_70
+FCENCAP_PROTO_FCIP	,	V_33
+hf_fcip_conn_code	,	V_50
+col_append_str	,	F_24
+hf_fcip_pflags_special	,	V_36
+hf_register_info	,	T_13
+"Destination Fabric WWN"	,	L_47
+"fcip.framelenc"	,	L_24
+guint16	,	T_5
+COL_PROTOCOL	,	V_65
+"fcip.sof"	,	L_32
+sof_eof	,	V_74
+hf_fcip_framelen	,	V_39
+"FC/FCIP Entity Id"	,	L_49
+"Fibre Channel over IP"	,	L_59
+tvb_memeql	,	F_3
+guint8	,	T_8
+ti	,	V_57
+BASE_NONE	,	V_98
+fcip_eof_vals	,	V_68
+"Protocol (1's Complement)"	,	L_9
+tvb_length_remaining	,	F_2
+hf_fcip_pflags_changed	,	V_35
+tvbuff_t	,	T_2
+proto_tree_add_protocol_format	,	F_17
+hf_fcip_protocol_c	,	V_31
+"Port number used for FCIP"	,	L_68
+tvb_get_ntohs	,	F_4
+"desegment"	,	L_61
+BASE_HEX	,	V_94
+"fcip.eof"	,	L_36
+"fcip.katov"	,	L_56
+desegment_len	,	V_15
+gboolean	,	T_9
+proto_item_add_subtree	,	F_19
+module_t	,	T_14
+"fcip.flags"	,	L_18
+"fcip.dstwwn"	,	L_48
+proto_register_field_array	,	F_30
+FT_BYTES	,	V_99
+get_next_fcip_header_offset	,	F_1
+"Connection Usage Code"	,	L_53
+"fcip.framelen"	,	L_22
+hf_fcip_conn_flags	,	V_49
+"Reassemble FCIP messages spanning multiple TCP segments"	,	L_62
+data_handle	,	V_85
+FT_UINT16	,	V_95
+fcip_handle	,	V_102
+"fcip.conncode"	,	L_54
+"fcip.tusec"	,	L_28
+tvb_get_guint8	,	F_6
+hf_fcip_src_entity_id	,	V_46
+hf_fcip_pflags_c	,	V_37
+"Changed Flag"	,	L_39
+"fcip.pflags.ch"	,	L_40
+frame_len	,	V_5
+call_dissector_with_data	,	F_21
+"Frame Length (1's Complement)"	,	L_23
+FCIP_SOFf	,	V_79
+eofc	,	V_9
+FC_DATA_EOF_INVALID	,	V_82
+"fcip.proto"	,	L_8
+"fcip"	,	L_60
+hf_fcip_encap_crc	,	V_44
+heur_dissector_add	,	F_37
+FT_STRING	,	V_97
+"fcip.srcwwn"	,	L_46
+hf_fcip_eof	,	V_72
+"Whether the FCIP dissector should reassemble messages spanning multiple TCP segments."	,	L_63
+dissect_fcip_handle	,	F_25
+"Special Frame"	,	L_5
+"Connection Nonce"	,	L_57
+"FCIP"	,	L_1
+start	,	V_54
+find_dissector	,	F_40
+hf_fcip_eof_c	,	V_73
+"fcip.pflags.sf"	,	L_42
+hf_fcip_conn_nonce	,	V_48
+"fcip.srcid"	,	L_50
+ENC_BIG_ENDIAN	,	V_30
+fcip_sof_vals	,	V_67
+FT_UINT32	,	V_93
+hf_fcip_tsec	,	V_42
+pflags	,	V_55
+eof	,	V_8
+hf	,	V_88
+proto_fcip	,	V_66
+FCIP_EOFni	,	V_22
+FCIP_ENCAP_HEADER_LEN	,	V_11
+prefs_register_protocol	,	F_33
+"FCIP Encapsulation Word1"	,	L_15
+col_set_str	,	F_15
+"Flags"	,	L_17
+"SOF"	,	L_31
+ethertype	,	V_84
+fcip_header_8_bytes	,	V_17
+FC_DATA_SOF_FIRST_FRAME	,	V_78
+"(Changed)"	,	L_6
+hf_fcip_version	,	V_29
+"fcip.encap_word1"	,	L_16
+proto_register_subtree_array	,	F_32
+fcip_eof_t	,	T_6
+proto_tree_add_string	,	F_11
+val_to_str	,	F_18
+bytes_remaining	,	V_4
+proto_tree_add_item	,	F_9
+FCIP_IS_SF	,	F_16
+pinfo	,	V_2
+dissector_handle_t	,	T_15
+_U_	,	V_87
+FCIP_EOFrti	,	V_24
+dissect_fcip_sf	,	F_10
+FCIP_IS_CH	,	F_23
+can_desegment	,	V_13
+VALS	,	F_28
+prefs_register_bool_preference	,	F_34
+"fcip.protoc"	,	L_10
+"data"	,	L_71
+tvb_length	,	F_14
+FT_UINT8	,	V_89
+fcip_port	,	V_62
+BASE_DEC	,	V_90
+"SOF (1's Complement)"	,	L_33
+proto_item	,	T_10
+"Connection Usage Flags"	,	L_51
+ENC_NA	,	V_47
+"Version (1's Complement)"	,	L_13
+ett_fcip	,	V_69
+proto_register_fcip	,	F_27
+dissect_fcip	,	F_13
+"fcip.tsec"	,	L_26
+"NA"	,	L_4
+FCIP_SOFi3	,	V_75
+FCIP_SOFi2	,	V_76
+"fcip.eofc"	,	L_38
+FCIP_SOFi4	,	V_77
+data	,	T_12
+"0x%x"	,	L_3
+sof	,	V_56
+hf_fcip_encap_word1	,	V_34
+fcencap_proto_vals	,	V_91
+hf_fcip_framelen_c	,	V_41
+hf_fcip_flags	,	V_38
+protocol	,	V_27
+"Source Fabric WWN"	,	L_45
+prefs_register_uint_preference	,	F_35
+"tcp"	,	L_69
+guint	,	T_1
+"fcip.versionc"	,	L_14
+offset	,	V_3
+ett	,	V_100
+hf_fcip_version_c	,	V_32
+tree	,	V_26
+dissector_add_handle	,	F_39
+tvb_bytes_exist	,	F_5
+packet_info	,	T_3
+hf_fcip_dst_wwn	,	V_51
+fcip_module	,	V_101
+dissect_fcencap_header	,	F_7
+"Time (fraction)"	,	L_27
+"fc"	,	L_72
+"fcip.encap_crc"	,	L_30
+FC_DATA_SOF_SOFF	,	V_80
+proto_reg_handoff_fcip	,	F_36
+destport	,	V_63
+proto_tree_add_uint	,	F_8
+flen	,	V_6
+"fcip.connflags"	,	L_52
+DESEGMENT_ONE_MORE_SEGMENT	,	V_16
+hf_fcip_tusec	,	V_43
+"K_A_TOV"	,	L_55
+" To use this option, you must also enable"	,	L_64
+"Frame Length (in Words)"	,	L_21
+fcip_desegment	,	V_12
+"target_port"	,	L_66
+HFILL	,	V_92
+dissect_fcip_heur	,	F_26
+"Pflags (1's Complement)"	,	L_43
+FCIP_EOFn	,	V_18
+" \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_65
+FCIP_EOFa	,	V_25
+create_dissector_handle	,	F_38
+flen1	,	V_7
+"CRC"	,	L_29
+"Protocol"	,	L_7
+FCIP_EOFrt	,	V_20
+FCIP_EOFt	,	V_19
+fc_data	,	V_60
+srcport	,	V_61
+FC_DATA_EOF_LAST_FRAME	,	V_81
+"tcp.port"	,	L_70
+proto_tree	,	T_7

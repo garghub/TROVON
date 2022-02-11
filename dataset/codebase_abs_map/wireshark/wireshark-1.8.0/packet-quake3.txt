@@ -1,0 +1,243 @@
+"Connectionless "	,	L_30
+proto_register_protocol	,	F_33
+ett_quake3_server	,	V_45
+"Server IP Address"	,	L_47
+COMMAND_statusResponse	,	V_21
+tvb_reported_length	,	F_23
+check_col	,	F_30
+len	,	V_9
+"getmotdResponse"	,	L_12
+gint	,	T_12
+"getstatus"	,	L_3
+qport	,	V_75
+"Direction: %s"	,	L_29
+tvb	,	V_1
+guint32	,	T_7
+COMMAND_getserversResponse	,	V_38
+hf_quake3_connectionless_command	,	V_39
+"Current Sequence: %u (%s)"	,	L_23
+COL_INFO	,	V_92
+"udp.arena_port"	,	L_66
+FT_BOOLEAN	,	V_105
+hf_quake3_game_qport	,	V_76
+dissect_quake3	,	F_25
+tvb_reported_length_remaining	,	F_12
+proto_tree_add_ipv4	,	F_16
+cinfo	,	V_84
+quake3_module	,	V_107
+array_length	,	F_35
+next_tvb	,	V_77
+"Reliable"	,	L_54
+call_dissector	,	F_18
+hf_quake3_game	,	V_94
+server_item	,	V_43
+"quake3.connectionless.marker"	,	L_40
+proto_item_set_text	,	F_10
+col_append_str	,	F_31
+COMMAND_connect	,	V_30
+seq2_tree	,	V_71
+proto_tree_add_boolean	,	F_22
+"Sequence number of the last received packet"	,	L_58
+hf_register_info	,	T_11
+"Set the UDP base port for the Quake III Arena Server"	,	L_68
+COMMAND_getmotdResponse	,	V_33
+udp_port	,	V_42
+"quake3.server.addr"	,	L_46
+"Packet is reliable and may be retransmitted"	,	L_56
+guint16	,	T_9
+COL_PROTOCOL	,	V_85
+game_tree	,	V_54
+i	,	V_114
+"connect"	,	L_9
+"getIpAuthorize"	,	L_20
+guint8	,	T_6
+BASE_NONE	,	V_97
+"udp.master_port"	,	L_69
+COMMAND_rconResponse	,	V_31
+"statusResponse"	,	L_2
+"Packet Direction"	,	L_36
+"Server Address"	,	L_45
+tvb_length_remaining	,	F_9
+COMMAND_ipAuthorize	,	V_51
+tvb_get_ntohl	,	F_2
+COMMAND_challengeResponse	,	V_27
+"Sequence number of the current packet"	,	L_53
+tvbuff_t	,	T_1
+rel2	,	V_58
+tvb_get_ntohs	,	F_14
+rel1	,	V_57
+BASE_HEX	,	V_101
+gboolean	,	T_8
+"challengeResponse"	,	L_6
+proto_item_add_subtree	,	F_4
+module_t	,	T_13
+proto_register_field_array	,	F_34
+COMMAND_getmotd	,	V_35
+rest_length	,	V_59
+gbl_quake3_server_port	,	V_61
+dissector_add_uint	,	F_42
+"Sequence Number"	,	L_51
+data_handle	,	V_53
+FT_UINT16	,	V_104
+"quake3.game"	,	L_38
+"getinfo"	,	L_5
+dissect_quake3_GamePacket	,	F_20
+proto_register_quake3	,	F_32
+dissector_delete_uint	,	F_41
+seq1_item	,	V_64
+ett_quake3_game_svc	,	V_81
+COMMAND_getKeyAuthorize	,	V_49
+"getKeyAuthorize"	,	L_19
+text_item	,	V_6
+FT_STRING	,	V_102
+hf_quake3_game_seq2	,	V_73
+hf_quake3_game_seq1	,	V_68
+"Direction"	,	L_34
+ett_quake3_connectionless	,	V_16
+gbl_quake3_master_port	,	V_109
+DIR_M2C	,	V_34
+game_item	,	V_62
+proto_tree_add_none_format	,	F_28
+"Quake III Arena Master Server UDP Base Port"	,	L_70
+find_dissector	,	F_40
+hf_quake3_server_addr	,	V_46
+seq2_item	,	V_70
+COMMAND_rcon	,	V_32
+names_reliable	,	V_65
+ett_quake3	,	V_89
+dissect_quake3_client_commands	,	F_17
+FT_UINT32	,	V_99
+"getmotd"	,	L_13
+master_port	,	V_113
+ip_addr	,	V_41
+hf	,	V_95
+base	,	V_37
+hf_quake3_direction	,	V_90
+"rcon"	,	L_11
+hf_quake3_connectionless_text	,	V_18
+ett_quake3_game_clc	,	V_80
+"infoResponse"	,	L_4
+prefs_register_protocol	,	F_37
+hf_quake3_connectionless	,	V_93
+"Type: Game"	,	L_33
+col_set_str	,	F_26
+"getserversResponse"	,	L_14
+text	,	V_8
+quake3_tree	,	V_82
+proto_tree_add_uint_format	,	F_29
+FT_IPv4	,	V_103
+"Text: getserversResponse&lt;DATA&gt;"	,	L_15
+quake3_handle	,	V_111
+"Acknowledge Sequence: %u (%s)"	,	L_25
+c_item	,	V_79
+proto_register_subtree_array	,	F_36
+proto_tree_add_string	,	F_7
+val_to_str	,	F_11
+server_port	,	V_112
+tvb_get_nstringz0	,	F_6
+proto_tree_add_item	,	F_27
+"Server: %s:%u"	,	L_17
+pinfo	,	T_3
+dissector_handle_t	,	T_14
+"Text"	,	L_41
+_U_	,	V_2
+"Connectionless"	,	L_1
+seq1_tree	,	V_66
+ett_quake3_game	,	V_63
+"getservers"	,	L_18
+"quake3.game.rel1"	,	L_55
+COMMAND_infoResponse	,	V_25
+tvb_get_ipv4	,	F_13
+text_tree	,	V_7
+"quake3.connectionless.text"	,	L_42
+initialized	,	V_110
+hf_quake3_connectionless_marker	,	V_17
+"Set the UDP base port for the Quake III Arena Master Server"	,	L_71
+DIR_C2M	,	V_36
+"Server UDP Port"	,	L_50
+"data"	,	L_72
+"QUAKE3"	,	L_28
+proto_tree_add_text	,	F_3
+BASE_DEC	,	V_100
+tvb_new_subset	,	F_24
+proto_item	,	T_5
+"Quake III Arena Client Port"	,	L_63
+cl_tree	,	V_5
+ENC_NA	,	V_88
+hf_quake3_server_port	,	V_47
+"Game "	,	L_32
+"Game"	,	L_22
+"connectResponse"	,	L_8
+DIR_S2C	,	V_22
+DIR_C2S	,	V_24
+get_hostname	,	F_15
+"Command"	,	L_43
+"Marker"	,	L_39
+"quake3.connectionless"	,	L_37
+COMMAND_getinfo	,	V_26
+seq2	,	V_56
+names_direction	,	V_91
+"Quake III Arena Server UDP Base Port"	,	L_67
+seq1	,	V_55
+"getchallenge"	,	L_7
+COMMAND_getchallenge	,	V_28
+prefs_register_uint_preference	,	F_38
+COMMAND_getservers	,	V_48
+dissect_quake3_ConnectionlessPacket	,	F_1
+"quake3.connectionless.command"	,	L_44
+c_tree	,	V_78
+proto_quake3	,	V_87
+tvb_get_letohs	,	F_21
+"Client Commands"	,	L_26
+command_finished	,	V_14
+COMMAND_UNKNOWN	,	V_20
+COMMAND_getIpAuthorize	,	V_50
+guint	,	T_10
+FT_NONE	,	V_96
+offset	,	V_10
+ett	,	V_106
+DIR_UNKNOWN	,	V_52
+COMMAND_getstatus	,	V_23
+tree	,	V_3
+hf_quake3_game_rel1	,	V_69
+"Type: Connectionless"	,	L_31
+packet_info	,	T_2
+hf_quake3_game_rel2	,	V_74
+"ipAuthorize"	,	L_21
+"quake3.game.rel2"	,	L_59
+marker	,	V_11
+"Quake III Arena Network Protocol"	,	L_64
+destport	,	V_60
+"quake3"	,	L_65
+names_command	,	V_40
+proto_tree_add_uint	,	F_5
+"%u"	,	L_24
+ett_quake3_game_seq1	,	V_67
+ett_quake3_game_seq2	,	V_72
+"Server Port"	,	L_48
+command_len	,	V_13
+"Server Commands"	,	L_27
+server_tree	,	V_44
+proto_reg_handoff_quake3	,	V_108
+"quake3.game.qport"	,	L_62
+HFILL	,	V_98
+dir_item	,	V_83
+direction	,	V_4
+"quake3.game.seq2"	,	L_57
+"udp.port"	,	L_73
+"quake3.server.port"	,	L_49
+cl_item	,	V_15
+dissect_quake3_server_commands	,	F_19
+ett_quake3_connectionless_text	,	V_19
+create_dissector_handle	,	F_39
+command	,	V_12
+quake3_item	,	V_86
+proto_item_set_len	,	F_8
+"QPort"	,	L_61
+COMMAND_connectResponse	,	V_29
+"quake3.game.seq1"	,	L_52
+"rconResponse"	,	L_10
+"quake3.direction"	,	L_35
+"Unknown"	,	L_16
+proto_tree	,	T_4
+"Packet was reliable and may be retransmitted"	,	L_60

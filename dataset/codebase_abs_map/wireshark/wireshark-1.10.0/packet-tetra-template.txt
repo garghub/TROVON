@@ -1,0 +1,205 @@
+"Registers"	,	L_19
+proto_register_protocol	,	F_39
+"Channel 1"	,	L_25
+carriernumber	,	V_54
+len	,	V_2
+dissect_AACH_PDU	,	F_7
+gint	,	T_1
+"tetra.data"	,	L_17
+tvb	,	V_25
+"%d &gt; %d tetra-UNITDATA-IND"	,	L_5
+guint32	,	T_2
+COL_INFO	,	V_58
+FT_BOOLEAN	,	V_85
+TETRA_CHAN_SCH_F	,	V_4
+get_tx_pdu_length	,	F_2
+TETRA_CHAN_SCH_D	,	V_5
+get_rx_pdu_length	,	F_1
+cinfo	,	V_55
+"Channel 2"	,	L_28
+tetra_header_tree	,	V_32
+array_length	,	F_41
+TETRA_CHAN_TCH_2_4	,	V_10
+"tetra.crc"	,	L_47
+"%d &gt; %d tetra-UNITDATA-IND Done, Carrier: %d"	,	L_8
+bits_len	,	V_44
+hf_tetra_rvstr	,	V_35
+tetra_handle	,	V_71
+hf_tetra_channel2	,	V_51
+hf_tetra_channel1	,	V_50
+hf_tetra_channel3	,	V_52
+dissect_BNCH_PDU	,	F_19
+proto_tree_add_boolean	,	F_25
+"Channel 3"	,	L_30
+"tetra.channels"	,	L_23
+hf_register_info	,	T_11
+"Logical Channels"	,	L_22
+TETRA_CHAN_TCH_F	,	V_8
+TETRA_CHAN_TCH_H	,	V_9
+TETRA_CHAN_SCH_HU	,	V_13
+guint16	,	T_8
+COL_PROTOCOL	,	V_56
+hf_tetra_crc	,	V_46
+tetra_item	,	V_53
+i	,	V_30
+p	,	V_20
+ett_tetra	,	V_23
+guint8	,	T_7
+include_carrier_number	,	V_59
+"tetra PDU"	,	L_18
+BASE_NONE	,	V_77
+tetra_sub_item	,	V_18
+register_dissector	,	F_43
+dissect_tetra_UNITDATA_REQ	,	F_27
+proto_tetra	,	V_64
+"Receive Status Register"	,	L_37
+"PDU"	,	L_52
+tvbuff_t	,	T_3
+dir	,	V_14
+BASE_HEX	,	V_83
+TETRA_CHAN_BSCH	,	V_6
+tetra_dissect_pdu	,	F_3
+dissect_BSCH_PDU	,	F_18
+gboolean	,	T_9
+proto_item_add_subtree	,	F_6
+module_t	,	T_10
+"tetra.rxchannel1"	,	L_40
+proto_register_field_array	,	F_40
+FT_BYTES	,	V_86
+TETRA_DOWNLINK	,	V_24
+"tetra.rxchannel2"	,	L_41
+dissector_add_uint	,	F_36
+data_handle	,	V_70
+FT_UINT16	,	V_82
+tvb_get_guint8	,	F_8
+channels	,	V_29
+TETRA_CHAN_TCH_4_8	,	V_11
+ett_tetra_header	,	V_88
+recvchanneltypenames	,	V_84
+"Length of the PDU"	,	L_51
+"tetra.rxchannel3"	,	L_42
+"tetra.pdu"	,	L_53
+dissect_MAC_END_UPLINK_PDU	,	F_11
+proto_reg_handoff_tetra	,	F_33
+"TxR"	,	L_32
+"Channel count incorrect, must be &lt;= 3"	,	L_1
+dissect_MAC_FRAG120_PDU	,	F_15
+TETRA_CHAN_AACH	,	V_3
+find_dissector	,	F_34
+TETRA_CHAN_STCH	,	V_12
+tslot	,	V_63
+hf_tetra_header	,	V_66
+PI_WARN	,	V_38
+per_module	,	V_73
+byte_len	,	V_43
+txtimer	,	V_62
+rxreg	,	V_28
+hf_tetra	,	V_75
+dissect_MAC_ACCESS_PDU	,	F_16
+pdu_offset	,	V_31
+hf	,	V_74
+"TETRA Registers"	,	L_21
+pdu	,	V_15
+"tetra.rvster"	,	L_36
+"%d &gt; %d tetra-UNITDATA-REQ, Carrier: %d"	,	L_2
+"RvSteR"	,	L_35
+"tetra.timer"	,	L_44
+global_tetra_port	,	V_72
+txreg	,	V_48
+prefs_register_protocol	,	F_44
+hf_tetra_pdu	,	V_21
+remaining_bits	,	V_45
+col_set_str	,	F_29
+dissect_MAC_END_HU_PDU	,	F_17
+"%d &gt; %d MAC-Timer"	,	L_7
+proto_item_append_text	,	F_32
+" (Multiple frame: %d, Frame: %d, Slot: %d)"	,	L_13
+dissect_MAC_END_DOWN111_PDU	,	F_14
+col_clear	,	F_30
+dissect_MAC_END_DOWNLINK_PDU	,	F_10
+dissect_MAC_FRAG_PDU	,	F_12
+proto_register_subtree_array	,	F_42
+"tetra"	,	L_55
+ett_tetra_txreg	,	V_90
+"%d &gt; %d tetra-UNITDATA-REQ"	,	L_3
+proto_tree_add_item	,	F_4
+pinfo	,	V_17
+col_add_fstr	,	F_31
+"Data"	,	L_16
+hf_tetra_carriernumber	,	V_65
+initialized	,	V_69
+VALS	,	F_38
+dissect_MAC_ACCESS_DEFINE_PDU	,	F_13
+prefs_register_bool_preference	,	F_45
+"The data include carrier numbers"	,	L_57
+"tetra.len0"	,	L_50
+"%d &gt; %d Unknown command: %d"	,	L_12
+"data"	,	L_14
+tvb_length	,	F_5
+FT_UINT8	,	V_79
+BASE_DEC	,	V_80
+tvb_new_subset	,	F_26
+proto_item	,	T_6
+ENC_NA	,	V_22
+expert_add_info_format	,	F_24
+"Timer Register"	,	L_45
+hf_channel	,	V_39
+proto_register_tetra	,	F_37
+"%d &gt; %d tetra-UNITDATA-REQ Done"	,	L_11
+ENC_LITTLE_ENDIAN	,	V_68
+dissect_tetra	,	F_28
+"%d &gt; %d tetra-UNITDATA-IND, Carrier: %d"	,	L_4
+"Whether the captured data include carrier number"	,	L_58
+hf_tetra_len0	,	V_34
+"tetra.txchannel3"	,	L_31
+"Carrier Number"	,	L_38
+PROTO_TAG_tetra	,	V_57
+tetra_sub_tree	,	V_19
+channeltypenames	,	V_81
+dissect_MAC_END_UP114_PDU	,	F_20
+"%d &gt; %d tetra-UNITDATA-IND Done"	,	L_9
+hf_tetra_channels	,	V_36
+"Logical channels type"	,	L_27
+tvb_get_letohl	,	F_22
+"%d &gt; %d tetra-UNITDATA-REQ Done, Carrier: %d"	,	L_10
+hf_tetra_timer	,	V_67
+ett_tetra_text	,	V_91
+FT_NONE	,	V_76
+"Length"	,	L_49
+offset	,	V_27
+TETRA_UPLINK	,	V_47
+ett	,	V_87
+"CRC result"	,	L_48
+tree	,	V_16
+payload_tvb	,	V_33
+packet_info	,	T_5
+"The amount of logical channels"	,	L_24
+"tetra.carrier"	,	L_39
+destport	,	V_61
+proto_tree_add_uint	,	F_23
+dissect_tetra_UNITDATA_IND	,	F_21
+"tetra.txreg"	,	L_33
+dissect_MAC_RESOURCE_PDU	,	F_9
+"tetra.txchannel1"	,	L_26
+TETRA_CHAN_BNCH	,	V_7
+"TETRA Protocol"	,	L_54
+"Timer"	,	L_43
+channel_type	,	V_1
+PI_MALFORMED	,	V_37
+HFILL	,	V_78
+"TX Register"	,	L_34
+"include_carrier_number"	,	L_56
+"tetra.txchannel2"	,	L_29
+tetra_tree	,	V_26
+"udp.port"	,	L_15
+create_dissector_handle	,	F_35
+ett_tetra_length	,	V_89
+"CRC"	,	L_46
+"%d &gt; %d MAC-Timer, Carrier: %d"	,	L_6
+hf_tetra_txreg	,	V_49
+hf_tetra_rxchannel3	,	V_42
+srcport	,	V_60
+"tetra.header"	,	L_20
+proto_tree	,	T_4
+hf_tetra_rxchannel2	,	V_41
+hf_tetra_rxchannel1	,	V_40

@@ -1,0 +1,314 @@
+"gre.offset"	,	L_53
+"Indicates if the Routing and Checksum/Offset field are present"	,	L_31
+"gre.flags.ack"	,	L_43
+"gre.flags.reserved"	,	L_46
+proto_register_protocol	,	F_28
+"Generic Routing Encapsulation"	,	L_119
+gre_tree	,	V_45
+"Strict Source Route Bit"	,	L_38
+tvb_reported_length	,	F_16
+"The Address Family field contains a two octet value which indicates the syntax and semantics of the Routing Information field"	,	L_75
+ett_3gpp2_attr	,	V_17
+tvb_new_subset_remaining	,	F_22
+"Version"	,	L_47
+"gre.key"	,	L_56
+len	,	V_85
+"gre.key.payload_length"	,	L_59
+ett_gre	,	V_60
+ID_3GPP2_FLOW_CTRL	,	V_28
+"gre.3ggp2_fci"	,	L_94
+service_id_vals	,	V_131
+gint	,	T_11
+"gre.wccp.alternative_bucket_used"	,	L_105
+hf_gre_offset	,	V_87
+TFS	,	F_27
+tvb	,	V_1
+COL_INFO	,	V_52
+vec_t	,	T_9
+ei_gre_checksum_incorrect	,	V_86
+FT_BOOLEAN	,	V_111
+tvb_reported_length_remaining	,	F_21
+cinfo	,	V_50
+last_attrib	,	V_4
+array_length	,	F_30
+"SDI/DOS"	,	L_90
+expert_gre	,	V_137
+" [correct]"	,	L_18
+"Reserved"	,	L_6
+next_tvb	,	V_49
+"gre.wccp.redirect_header_valid"	,	L_107
+hf_gre_3ggp2_di	,	V_30
+call_dissector	,	F_24
+proto_gre	,	V_59
+"Short Data Indicator(SDI)/Data Over Signaling (DOS)"	,	L_92
+"gre.flags_and_version"	,	L_24
+ID_3GPP2_SDI_FLAG	,	V_23
+GRE_RECURSION	,	V_115
+"gre.flags.routing"	,	L_30
+"Generic Routing Encapsulation (%s)"	,	L_16
+"gre.key.call_id"	,	L_62
+"The Sequence Number field contains an unsigned 32 bit integer which is inserted by the encapsulator"	,	L_66
+hf_register_info	,	T_10
+hf_gre_flags_routing	,	V_64
+hf_gre_flags_strict_source_route	,	V_67
+gre_wccp_alternative_bucket_used_val	,	V_129
+is_wccp2	,	V_43
+"gre.routing.sre_offset"	,	L_77
+hf_gre_3ggp2_attrib_length	,	V_20
+"Payload Length"	,	L_58
+guint16	,	T_7
+COL_PROTOCOL	,	V_51
+"The Routing Information field contains data which may be used in routing this packet"	,	L_83
+"Alternative bucket index used to redirect the packet."	,	L_113
+"gre.sequence_number"	,	L_65
+IP_PROTO_GRE	,	V_139
+GRE_SEQUENCE	,	V_92
+"Contains the sequence number of the highest numbered GRE packet received by the sending peer for this user session"	,	L_69
+guint8	,	T_5
+"/%s"	,	L_10
+ti	,	V_9
+is_ppp	,	V_42
+BASE_NONE	,	V_122
+attrib_id	,	V_14
+start_offset	,	V_8
+"The protocol that is GRE encapsulated"	,	L_22
+"gre.routing"	,	L_71
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_14
+hf_gre_flags_reserved_ppp	,	V_70
+"Acknowledgment Number"	,	L_67
+tvb_get_ntohs	,	F_11
+hf_gre_wccp_dynamic_service	,	V_34
+BASE_HEX	,	V_109
+gboolean	,	T_3
+proto_item_add_subtree	,	F_3
+attr_item	,	V_5
+hf_gre_3ggp2_sdi	,	V_24
+fragmented	,	V_83
+proto_register_field_array	,	F_29
+FT_BYTES	,	V_124
+GRE_ACK	,	V_55
+ei	,	V_133
+dissector_add_uint	,	F_37
+gre_dissector_table	,	V_105
+"Indicates if the Key field is present"	,	L_34
+"Sequence Number"	,	L_64
+data_handle	,	V_106
+tvb_get_ptr	,	F_17
+hf_gre_routing_address_family	,	V_99
+FT_UINT16	,	V_108
+"Packet suitable for 1x SDB or HRPD DOS transmission"	,	L_5
+"ip.proto"	,	L_122
+tvb_get_guint8	,	F_4
+hf_gre_wccp_alternative_bucket	,	V_38
+r_tree	,	V_96
+hf_gre_wccp_redirect_header_valid	,	V_36
+ett_gre_wccp2_redirect_header	,	V_33
+hf_gre_routing	,	V_97
+"gre.ggp2_attrib_length"	,	L_89
+dissect_gre_wccp2_redirect_header	,	F_9
+"gre.ggp2_3ggp2_seg"	,	L_99
+" - %s"	,	L_4
+"TEMPORARY"	,	L_12
+"Protocol Type"	,	L_20
+"gre.wccp.dynamic_service"	,	L_103
+hf_gre_flags_recursion_control	,	V_68
+it_checksum	,	V_78
+flags_and_ver	,	V_41
+hf_gre_wccp_alternative_bucket_used	,	V_35
+expert_add_info	,	F_20
+"Routing Bit"	,	L_29
+GRE_WCCP	,	V_58
+"Flow Control Indicator"	,	L_93
+"gre.ack_number"	,	L_68
+GRE_CHECKSUM	,	V_74
+"Indicates if the Sequence Number field is present"	,	L_37
+"SRE Offset"	,	L_76
+hf_gre_routing_sre_offset	,	V_100
+"Service Group identifier"	,	L_110
+"gre.ggp2_attrib"	,	L_85
+"gre.flags.version"	,	L_48
+GRE_STRICTSOURCE	,	V_113
+"Key"	,	L_55
+length	,	V_76
+find_dissector	,	F_38
+PI_WARN	,	V_135
+cksum_vec	,	V_79
+hf_gre_ack_number	,	V_94
+"SRE Length"	,	L_78
+"gre.3ggp2_sdi"	,	L_91
+"gre.wccp.redirect_header"	,	L_101
+ptr	,	V_84
+dissect_gre_3gpp2_attribs	,	F_1
+ENC_BIG_ENDIAN	,	V_19
+hf_gre_3ggp2_seg	,	V_26
+atree	,	V_12
+reported_length	,	V_77
+hf_gre_flags_version	,	V_72
+FT_UINT32	,	V_120
+GRE_KEY	,	V_88
+"The offset field indicates the octet offset from the start of the Routing field to the first octet of the active Source Route Entry to be examined"	,	L_54
+hf	,	V_107
+"Service ID"	,	L_108
+"gre.routing.information"	,	L_82
+gre_3ggp2_attrib_id_vals	,	V_16
+hf_gre_flags_key	,	V_65
+hf_gre_3ggp2_attrib	,	V_10
+GRE_RESERVED_PPP	,	V_117
+"Alternative Bucket"	,	L_111
+proto_register_gre	,	F_25
+"gre.flags.key"	,	L_33
+col_set_str	,	F_12
+"Routing"	,	L_70
+ETHERTYPE_3GPP2	,	V_56
+"gre.routing.src_length"	,	L_79
+gre_wccp_dynamic_service_val	,	V_128
+gre_typevals	,	V_53
+"gre.ggp2_flow_disc"	,	L_98
+"gre.wccp.alternative_bucket"	,	L_112
+hf_gre_flags_ack	,	V_69
+fv_tree	,	V_46
+hf_gre_key_payload_length	,	V_89
+in_gre_pkt	,	V_104
+"XOFF"	,	L_9
+proto_item_append_text	,	F_7
+"gre.checksum.incorrect"	,	L_117
+hf_gre_routing_information	,	V_102
+"0x%04X (unknown)"	,	L_15
+"Recursion control"	,	L_40
+"Flags (Reserved)"	,	L_45
+"Primary Bucket"	,	L_114
+"Duration Indicator"	,	L_95
+hf_gre_3ggp2_attrib_id	,	V_18
+proto_register_subtree_array	,	F_31
+val_to_str	,	F_6
+hf_gre_flags_sequence_number	,	V_66
+"gre.flags.checksum"	,	L_27
+"Checksum"	,	L_49
+proto_tree_add_item	,	F_2
+in_cksum	,	F_18
+"gre.proto"	,	L_21
+pinfo	,	V_40
+col_add_fstr	,	F_13
+dissector_handle_t	,	T_14
+cksum	,	V_80
+flags	,	V_103
+"Encapsulated %s"	,	L_14
+gre_version	,	V_118
+hf_gre_wccp_redirect_header	,	V_32
+computed_cksum	,	V_81
+hf_gre_wccp_primary_bucket	,	V_39
+"Flags and Version"	,	L_23
+VALS	,	F_26
+"Routing Information"	,	L_81
+"Dynamic Service"	,	L_102
+PI_PROTOCOL	,	V_134
+gre_handle	,	V_138
+hf_gre_flags_reserved	,	V_71
+in_cksum_shouldbe	,	F_19
+gre_wccp_redirect_header_valid_val	,	V_130
+"data"	,	L_123
+gre_3ggp2_seg_vals	,	V_27
+tvb_length	,	F_15
+proto_reg_handoff_gre	,	F_35
+FT_UINT8	,	V_123
+"Flow ID"	,	L_97
+rh_tree	,	V_31
+proto_tree_add_text	,	F_5
+BASE_DEC	,	V_114
+"Call ID"	,	L_61
+ett_gre_flags	,	V_62
+proto_item	,	T_4
+expert_register_field_array	,	F_33
+gre_3ggp2_fci_val	,	V_126
+attr_tree	,	V_6
+"Acknowledgment"	,	L_42
+ENC_NA	,	V_11
+"The Checksum field contains the IP (one's complement) checksum of the GRE header and the payload packet"	,	L_51
+GRE_RESERVED	,	V_116
+GRE_ROUTING	,	V_75
+"Key Bit"	,	L_32
+"gre.wccp.primary_bucket"	,	L_115
+"Primary bucket index used to redirect the packet."	,	L_116
+"gre.ggp2_attrib_id"	,	L_87
+register_dissector_table	,	F_34
+hf_gre_key_call_id	,	V_90
+"gre.wccp.service_id"	,	L_109
+"The SRE Length field contains the number of octets in the SRE"	,	L_80
+"%s"	,	L_1
+"The Routing field is a list of Source Route Entries (SREs)"	,	L_72
+GRE_VERSION	,	V_119
+hf_gre_3ggp2_fci	,	V_29
+"%u (Unknown)"	,	L_2
+"gre.flags.strict_source_route"	,	L_39
+sre_length	,	V_48
+hf_gre_sequence_number	,	V_93
+ei_register_info	,	T_12
+ETHERTYPE_CDMA2000_A10_UBS	,	V_57
+expert_register_protocol	,	F_32
+hf_gre_routing_sre_length	,	V_101
+"gre.routing.address_family"	,	L_74
+"Incorrect GRE Checksum"	,	L_118
+guint	,	T_8
+FT_NONE	,	V_121
+"Length"	,	L_88
+offset	,	V_2
+ett	,	V_132
+"gre"	,	L_120
+expert_module_t	,	T_13
+tree	,	V_3
+hf_gre_key	,	V_91
+hf_gre_3ggp2_flow_disc	,	V_22
+sre_af	,	V_47
+"Redirect Header"	,	L_100
+packet_info	,	T_6
+"The GRE flags are encoded in the first two octets"	,	L_25
+hf_gre_wccp_service_id	,	V_37
+ID_3GPP2_SEG	,	V_25
+tfs_yes_no	,	V_112
+"Offset"	,	L_52
+gre_3ggp2_di_val	,	V_127
+"Address Family"	,	L_73
+" - 0x%x"	,	L_3
+ETHERTYPE_PPP	,	V_54
+"Contains the Peer's Call ID for the session to which this packet belongs."	,	L_63
+"gre.3ggp2_di"	,	L_96
+EXPFILL	,	V_136
+hf_gre_flags_and_version	,	V_61
+hf_gre_flags_checksum	,	V_63
+dissect_gre	,	F_10
+hf_gre_checksum	,	V_82
+attrib_length	,	V_15
+"INDEFINITE"	,	L_11
+"GRE"	,	L_13
+"gre.checksum"	,	L_50
+"Sequence Number Bit"	,	L_35
+gre_3ggp2_sdi_val	,	V_125
+"gre.flags.recursion_control"	,	L_41
+"Size of the payload, not including the GRE header"	,	L_60
+"gre.flags.sequence_number"	,	L_36
+ID_3GPP2_FLOW_DISCRIMINATOR	,	V_21
+"Alternative bucket used"	,	L_104
+" [incorrect, should be 0x%04x]"	,	L_19
+HFILL	,	V_110
+value	,	V_7
+ett_3gpp2_attribs	,	V_13
+dissector_try_uint	,	F_23
+"0x%04X - unknown"	,	L_17
+"XON"	,	L_8
+"GRE protocol type"	,	L_121
+"Indicates if the packet packet contains Acknowledgment Number to be used for acknowledging previously transmitted data"	,	L_44
+it_flags	,	V_44
+hf_gre_proto	,	V_73
+"Indicates if the Checksum field is present"	,	L_28
+create_dissector_handle	,	F_36
+"WCCP Redirect header is valid"	,	L_106
+"3GGP2 Attributes"	,	L_84
+proto_item_set_len	,	F_8
+"The Key field contains a four octet number which was inserted by the encapsulator"	,	L_57
+"0x%02X - Unknown"	,	L_7
+"Checksum Bit"	,	L_26
+it_routing	,	V_95
+"Type"	,	L_86
+ett_gre_routing	,	V_98
+proto_tree	,	T_2

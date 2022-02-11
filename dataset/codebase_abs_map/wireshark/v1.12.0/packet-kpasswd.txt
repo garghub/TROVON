@@ -1,0 +1,151 @@
+"Result: %u"	,	L_1
+"kpasswd.ChangePasswdData"	,	L_25
+proto_register_protocol	,	F_34
+hf_kpasswd_ap_req_data	,	V_6
+kpasswd_handle_udp	,	V_56
+"kpasswd.ap_req_len"	,	L_8
+dissect_kpasswd_udp	,	F_27
+prefs_register_protocol	,	F_38
+tvb_reported_length	,	F_14
+"kpasswd.message_len"	,	L_6
+"kpasswd.result"	,	L_13
+tvb_new_subset_remaining	,	F_22
+"Version"	,	L_10
+krb_rm	,	V_32
+tcp_dissect_pdus	,	F_31
+get_krb_pdu_len	,	V_44
+gint	,	T_8
+col_set_str	,	F_17
+hf_kpasswd_result_string	,	V_18
+"KPASSWD"	,	L_2
+"kpasswd.result_string"	,	L_15
+tvb	,	V_2
+TCP_PORT_KPASSWD	,	V_59
+guint32	,	T_10
+COL_INFO	,	V_16
+krb_rm_size	,	V_34
+"kpasswd.new_password"	,	L_17
+message_len	,	V_28
+it	,	V_4
+version	,	V_29
+dissect_kpasswd_tcp	,	F_30
+dissect_kpasswd_krb_priv_message	,	F_15
+tvb_reported_length_remaining	,	F_13
+dissect_kpasswd_common	,	F_16
+"Length of AP_REQ data"	,	L_9
+hf_kpasswd_krb_priv_message	,	V_21
+UDP_PORT_KPASSWD	,	V_58
+col_clear	,	F_18
+kpasswd_module	,	V_55
+cinfo	,	V_15
+asn1_ctx_init	,	F_6
+proto_register_subtree_array	,	F_37
+val_to_str	,	F_12
+array_length	,	F_36
+cb_rep	,	V_24
+cb_req	,	V_23
+next_tvb	,	V_31
+"Reassemble Kpasswd over TCP messages spanning multiple TCP segments"	,	L_31
+"Unknown command"	,	L_3
+proto_tree_add_item	,	F_2
+"kpasswd.krb_priv"	,	L_22
+pinfo	,	T_2
+hf_kpasswd_version	,	V_39
+dissector_handle_t	,	T_14
+_U_	,	V_1
+ENC_ASCII	,	V_19
+kpasswd_desegment	,	V_43
+asn1_ctx	,	V_10
+result	,	V_13
+"AP_REQ"	,	L_18
+"New Password"	,	L_16
+hf_register_info	,	T_12
+VALS	,	F_33
+prefs_register_bool_preference	,	F_39
+guint16	,	T_7
+"Kpasswd"	,	L_28
+COL_PROTOCOL	,	V_35
+"kpasswd"	,	L_29
+tvb_length	,	F_29
+BASE_DEC	,	V_47
+tvb_new_subset	,	F_25
+proto_item	,	T_5
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_33
+show_krb_recordmark	,	F_23
+ENC_NA	,	V_7
+proto_kpasswd	,	V_36
+BASE_NONE	,	V_51
+kpasswd_tree	,	V_27
+krb_reclen	,	V_33
+ap_req_len	,	V_30
+"KRB-PRIV"	,	L_21
+dissect_kpasswd_user_data_request	,	F_5
+tvb_get_ntohl	,	F_19
+data	,	T_11
+proto_register_kpasswd	,	F_32
+tvbuff_t	,	T_3
+tvb_get_ntohs	,	F_9
+"desegment"	,	L_30
+BASE_HEX	,	V_49
+parent_tree	,	V_3
+col_add_str	,	F_11
+"Message Length"	,	L_5
+proto_reg_handoff_kpasswd	,	F_40
+gboolean	,	T_9
+proto_item_add_subtree	,	F_3
+hf_kpasswd_newpassword	,	V_52
+module_t	,	T_13
+fragmented	,	V_42
+proto_register_field_array	,	F_35
+"kpasswd.ap_req"	,	L_19
+isrequest	,	V_20
+FT_NONE	,	V_53
+offset	,	V_9
+hf_kpasswd_ap_req_len	,	V_41
+ett	,	V_54
+hf_kpasswd_message_len	,	V_38
+dissector_add_uint	,	F_43
+tree	,	V_5
+"Result"	,	L_12
+hf_kpasswd_result	,	V_14
+dissect_kerberos_ChangePasswdData	,	F_7
+"AP_REQ structure"	,	L_20
+FT_UINT16	,	V_46
+packet_info	,	T_1
+ett_krb_priv_message	,	V_22
+"Continuation"	,	L_4
+tvb_get_guint8	,	F_21
+hf_kpasswd_ChangePasswdData	,	V_12
+vers_vals	,	V_40
+"Result String"	,	L_14
+kpasswd_result_types	,	V_17
+proto_tree_add_uint	,	F_10
+dissect_kerberos_main	,	F_4
+ett_ap_req_data	,	V_8
+"kpasswd.version"	,	L_11
+dissect_kpasswd_ap_req_data	,	F_1
+ASN1_ENC_BER	,	V_11
+have_rm	,	V_25
+"AP_REQ Length"	,	L_7
+FT_STRING	,	V_50
+kpasswd_item	,	V_26
+ett_kpasswd	,	V_37
+kerberos_rm_to_reclen	,	F_20
+HFILL	,	V_48
+"Change Password Data structure"	,	L_26
+new_create_dissector_handle	,	F_42
+val_to_str_const	,	F_24
+"udp.port"	,	L_34
+dissect_kpasswd_user_data_reply	,	F_8
+kpasswd_handle_tcp	,	V_57
+create_dissector_handle	,	F_41
+dissect_kpasswd_tcp_pdu	,	F_28
+proto_item_set_len	,	F_26
+"KRB-PRIV message"	,	L_23
+"MS Kpasswd"	,	L_27
+"ChangePasswdData"	,	L_24
+asn1_ctx_t	,	T_6
+"tcp.port"	,	L_35
+"Whether the Kpasswd dissector should reassemble messages spanning multiple TCP segments."	,	L_32
+proto_tree	,	T_4
+hf	,	V_45

@@ -1,0 +1,149 @@
+len_byte	,	V_43
+"gsm_um.arfcn"	,	L_32
+bsic	,	V_34
+len_left	,	V_42
+channel	,	V_17
+proto_register_protocol	,	F_15
+proto_gsm_um	,	V_22
+arfcn	,	V_1
+"gsm_um.channel"	,	L_27
+"gsm_um.direction"	,	L_25
+prefs_register_protocol	,	F_19
+"P-GSM 900"	,	L_1
+"Error"	,	L_40
+hf_gsm_um_error	,	V_37
+hf_gsm_um_direction	,	V_28
+uplink	,	V_3
+"GSM 480"	,	L_7
+col_set_str	,	F_3
+gint	,	T_9
+"gsm_a_dtap"	,	L_51
+band	,	V_2
+"gsm_um.band"	,	L_35
+"gsm_um"	,	L_47
+tvb	,	V_6
+"gsm_um.l2_pseudo_len"	,	L_45
+GSM_UM_CHANNEL_AGCH	,	V_21
+dtap_handle	,	V_45
+"PCH"	,	L_16
+"AGCH"	,	L_17
+MIN	,	F_12
+cinfo	,	V_11
+proto_register_subtree_array	,	F_18
+proto_tree_add_string	,	F_6
+"TDMA Frame"	,	L_38
+array_length	,	F_17
+gsm_um_module	,	V_59
+next_tvb	,	V_40
+hf_gsm_um_frequency	,	V_32
+"L2 Pseudo Length"	,	L_44
+proto_tree_add_item	,	F_4
+FT_STRINGZ	,	V_49
+call_dissector	,	F_13
+pinfo	,	V_7
+dissector_handle_t	,	T_11
+"ARFCN"	,	L_31
+hf_gsm_um_timeshift	,	V_38
+gsm_um_handle	,	V_60
+proto_reg_handoff_gsm_um	,	F_21
+dcs1800_gsm	,	V_5
+hf_register_info	,	T_8
+GSM_UM_CHANNEL_FACCH	,	V_26
+"GSM 450"	,	L_6
+"BCCH"	,	L_14
+prefs_register_bool_preference	,	F_20
+"Band"	,	L_34
+guint16	,	T_1
+COL_PROTOCOL	,	V_12
+"gsm_um.error"	,	L_41
+"data"	,	L_52
+tvb_length	,	F_9
+FT_UINT8	,	V_52
+BASE_DEC	,	V_53
+"gsm_um.frame"	,	L_39
+"Downlink"	,	L_22
+tvb_new_subset	,	F_11
+proto_item	,	T_6
+GSM_UM_CHANNEL_CCCH	,	V_19
+"gsm_um.bsic"	,	L_29
+ENC_NA	,	V_23
+guint8	,	T_7
+"GSM Um Interface"	,	L_46
+ti	,	V_10
+BASE_NONE	,	V_50
+"dcs1800"	,	L_48
+"%u.%03uMHz"	,	L_23
+tdma_frame	,	V_36
+hf_gsm_um_l2_pseudo_len	,	V_44
+downlink	,	V_4
+tvbuff_t	,	T_3
+"lapdm"	,	L_50
+"wtap_encap"	,	L_53
+COL_RES_DL_SRC	,	V_16
+"gsm_um.frequency"	,	L_37
+"Channel"	,	L_26
+timeshift	,	V_39
+proto_item_add_subtree	,	F_5
+module_t	,	T_10
+proto_register_field_array	,	F_16
+GSM_UM_CHANNEL_SACCH	,	V_25
+hf_gsm_um_arfcn	,	V_30
+guint	,	T_2
+ett	,	V_58
+dissector_add_uint	,	F_24
+"DCS 1800"	,	L_4
+"PCS 1900"	,	L_5
+tree	,	V_8
+COL_RES_DL_DST	,	V_15
+lapdm_handle	,	V_47
+"R-GSM 900"	,	L_3
+"FACCH"	,	L_19
+data_handle	,	V_46
+FT_UINT16	,	V_54
+packet_info	,	T_4
+"Broadcast"	,	L_13
+"gsm_um.timeshift"	,	L_43
+"Uplink"	,	L_21
+tvb_get_guint8	,	F_10
+GSM_UM_L2_PSEUDO_LEN	,	V_57
+"BSIC"	,	L_28
+"SDCCH"	,	L_20
+proto_tree_add_uint	,	F_7
+pseudo_header	,	V_13
+"GSM 850"	,	L_8
+"SACCH"	,	L_18
+hf_gsm_um_frame	,	V_35
+"Frequency"	,	L_36
+"Timeshift"	,	L_42
+pseudo_len	,	V_41
+decode_arfcn	,	F_1
+"MS"	,	L_12
+ett_gsm_um	,	V_24
+hf_gsm_um_channel	,	V_29
+"CCCH"	,	L_15
+"Treat ARFCN 512-810 as DCS 1800 rather than PCS 1900"	,	L_49
+WTAP_ENCAP_GSM_UM	,	V_61
+GSM_UM_CHANNEL_BCCH	,	V_18
+FT_STRING	,	V_55
+proto_register_gsm_um	,	F_14
+"Direction"	,	L_24
+dissect_gsm_um	,	F_2
+"E-GSM 900"	,	L_2
+gsm_um	,	V_14
+GSM_UM_CHANNEL_PCH	,	V_20
+HFILL	,	V_51
+"BTS"	,	L_11
+hf_gsm_um_bsic	,	V_33
+find_dissector	,	F_22
+create_dissector_handle	,	F_23
+hf_gsm_um_band	,	V_31
+proto_tree_add_uint_format_value	,	F_8
+"Absolute radio frequency channel number"	,	L_33
+FT_UINT32	,	V_56
+"Base station identity code"	,	L_30
+gsm_um_tree	,	V_9
+"GSM Um"	,	L_10
+GSM_UM_CHANNEL_SDCCH	,	V_27
+"Unknown"	,	L_9
+proto_tree	,	T_5
+hf	,	V_48

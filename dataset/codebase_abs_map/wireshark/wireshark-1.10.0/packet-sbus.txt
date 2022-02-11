@@ -1,0 +1,530 @@
+PI_CHAT	,	V_205
+SBUS_RD_USER_EEPROM_REGISTER	,	V_70
+"SAIA S-Bus"	,	L_220
+"S-Bus address"	,	L_55
+"sbus.flags.accu"	,	L_194
+"sbus.request_in"	,	L_218
+SBUS_RD_ABORT_BLOCK_STREAM	,	V_93
+ett_sbus	,	V_98
+"Request:  %s"	,	L_4
+sbus_helper2	,	V_52
+sbus_helper1	,	V_51
+tvb_reported_length	,	F_10
+"sbus.data_rtc"	,	L_104
+"sbus.sysinfo"	,	L_122
+retry_count	,	V_63
+"CRC 16"	,	L_186
+SBUS_WR_TIMER	,	V_125
+TFS	,	F_40
+hf_sbus_block_nr	,	V_159
+"Time passed since first request"	,	L_214
+guint32	,	T_7
+hf_sbus_command	,	V_107
+"File name"	,	L_176
+FT_BOOLEAN	,	V_224
+"Base address of bytes"	,	L_88
+hf_sbus_dest	,	V_106
+"Block size in bytes"	,	L_170
+"Program block type"	,	L_93
+"Firmware version of the PCD or module"	,	L_120
+array_length	,	F_43
+rdwrblock_vals	,	V_82
+request_key	,	V_55
+"Telegram attribute"	,	L_49
+"Web Server Request: %s (Seq No: %d)"	,	L_2
+"sbus.response_time"	,	L_212
+"CPU status"	,	L_142
+indx	,	V_3
+"sbus.fw_version"	,	L_119
+SBUS_RD_SBUS_STN_NBR	,	V_180
+"FIO Count (amount of bits)"	,	L_73
+col_append_str	,	F_25
+"sbus.rtc.date"	,	L_149
+"sbus.block.addr"	,	L_174
+"RTC calendar week and week day"	,	L_145
+"AID"	,	L_156
+"sbus.flags.error"	,	L_197
+hf_register_info	,	T_17
+SBUS_GET_PROGRAM_BLOCK_LIST	,	V_164
+"Trace buffer"	,	L_127
+"Unknown Command!"	,	L_8
+"Number of bytes to be written"	,	L_69
+"SAIA Ether-S-Bus version"	,	L_42
+F_INFO_B1	,	V_228
+guint16	,	T_13
+sbus_request_val	,	T_16
+i	,	V_27
+SBUS_RD_USER_MEMORY	,	V_138
+j	,	V_28
+"Block/Element nr"	,	L_94
+F_INFO_B2	,	V_229
+hf_sbus_rdwr_list_type	,	V_165
+cs	,	V_23
+hf_sbus_block_type	,	V_156
+"Base address of binary elements to read"	,	L_81
+BASE_NONE	,	V_223
+v	,	V_6
+w	,	V_7
+": (File: %s)"	,	L_6
+"Address inside block"	,	L_173
+SBUS_WR_REGISTER	,	V_124
+"Base address of EEPROM register"	,	L_82
+"RTC time (HHMMSS)"	,	L_151
+"The first request of this repeated request is in this frame"	,	L_219
+sbus_ack_nak_vals	,	V_95
+hf_sbus_week_day	,	V_135
+dt	,	V_21
+BASE_HEX	,	V_218
+PROTO_ITEM_SET_GENERATED	,	F_30
+hf_sbus_rdwr_telegram_sequence	,	V_155
+FT_UINT24	,	V_220
+sysinfo	,	V_74
+" (Retry)"	,	L_9
+proto_item_add_subtree	,	F_27
+SBUS_RD_CURRENT_BLOCK	,	V_195
+proto_register_field_array	,	F_42
+conversation	,	V_10
+F_ACCU	,	V_234
+"Number of binary elements to be written"	,	L_75
+"Data (bytes)"	,	L_27
+"sbus.block.filename"	,	L_177
+"PGU baud"	,	L_136
+"sbus.CPU_status"	,	L_143
+dissector_add_uint	,	F_48
+nstime_delta	,	F_32
+count	,	V_72
+"Data bytes"	,	L_106
+"Sequence"	,	L_46
+FT_UINT16	,	V_217
+et	,	V_20
+SBUS_RD_BLOCK_START_OF_STREAM	,	V_86
+"sbus.cmd"	,	L_59
+fd	,	V_61
+"Ether-S-Bus header"	,	L_18
+hf_sbus_rdwr_acknakcode	,	V_201
+sbus_rdwr_block_tlg	,	V_41
+SBUS_RD_WR_PCD_BLOCK	,	V_76
+SBUS_FIND_HISTORY	,	V_193
+sbus_request_hash	,	V_13
+g_hash_table_new	,	F_6
+"ACK/NAK code"	,	L_139
+FT_STRING	,	V_222
+"PCD type (short form)"	,	L_117
+SBUS_RD_INPUT	,	V_120
+SBUS_RD_BLOCK_DATA_BYTES	,	V_162
+SBUS_WR_OUTPUT	,	V_131
+SBUS_RESPONSE	,	V_66
+"Presence of EEPROM information on slot B2"	,	L_135
+"ACCU and arithmetic status"	,	L_29
+"sbus.pcd_type"	,	L_116
+"sbus.rtc.time"	,	L_152
+val_to_str_const	,	F_22
+length	,	V_15
+hf_sbus_attribut	,	V_105
+"sbus.sysinfo0.trace"	,	L_128
+ett_sbus_ether	,	V_99
+proto_register_sbus	,	F_38
+hf_sbus_flags_negative	,	V_188
+"Unknown response!"	,	L_12
+FT_UINT32	,	V_213
+hf_sbus_timeout	,	V_111
+"Read/write block telegram type"	,	L_165
+"Presence of EEPROM information on slot B1"	,	L_132
+"sbus.block.seq"	,	L_168
+find_or_create_conversation	,	F_13
+hf_sbus_time	,	V_137
+hf	,	V_212
+sbus_binarymasked	,	V_45
+SBUS_RD_PROGRAM_VERSION	,	V_182
+hi	,	V_22
+"Bad checksum"	,	L_36
+"sbus.seq"	,	L_47
+SBUS_WR_FLAG	,	V_130
+tmp_string	,	V_53
+hf_sbus_retry	,	V_108
+SBUS_RD_RTC	,	V_170
+crc_calc	,	F_1
+col_append_fstr	,	F_24
+col_set_str	,	F_18
+"Response: (%d byte)"	,	L_13
+"8 binaries"	,	L_114
+hf_sbus_sequence	,	V_104
+"SAIA S-Bus station address"	,	L_57
+hf_sbus_date	,	V_136
+"Unknown attribute"	,	L_17
+index	,	V_58
+hf_sbus_version	,	V_102
+"sbus.block.nakcode"	,	L_182
+"Name of file to in RD/WR block telegram"	,	L_178
+sbus_hash	,	F_3
+"sbus"	,	L_222
+proto_tree_add_string	,	F_36
+"N-flag"	,	L_199
+"Response time"	,	L_211
+"Data bytes (hex)"	,	L_109
+"W-count (raw)"	,	L_67
+dissector_handle_t	,	T_18
+"sbus.wcount_calc"	,	L_71
+"Web server sequence nr (PACK_N)"	,	L_160
+proto_sbus	,	V_96
+hf_sbus_display_register	,	V_169
+hf_sbus_fio_count	,	V_132
+req_frame	,	V_60
+SBUS_RD_SYSTEM_INFORMATION	,	V_73
+"Base address of 32 bit elements to read"	,	L_78
+hf_sbus_data_iof	,	V_133
+VALS	,	F_39
+"sbus.block_nr"	,	L_95
+tfs_sbus_flags	,	V_233
+hf_sbus_rdwr_telegram_type	,	V_154
+"Unknown Request!"	,	L_3
+hf_sbus_response_to	,	V_167
+"Get program block list, command type"	,	L_179
+tvb_length	,	F_8
+"Response in frame nr."	,	L_205
+proto_tree_add_text	,	F_28
+BASE_DEC	,	V_214
+hf_sbus_cpu_type	,	V_183
+"sbus.proto"	,	L_44
+ENC_NA	,	V_97
+"Year, month and day of the real time clock"	,	L_150
+"SAIA Ether-S-Bus telegram attribute, indicating type of telegram"	,	L_51
+hf_sbus_length	,	V_100
+SBUS_WR_ABORT_BLOCK_STREAM	,	V_90
+"Number of elements to be written"	,	L_72
+"sbus.addr_RTC"	,	L_77
+"Retry"	,	L_190
+"Command"	,	L_58
+hf_sbus_addr_rtc	,	V_118
+"Program block / DatatBlock number"	,	L_96
+"Date (YY/MM/DD): %02x/%02x/%02x"	,	L_23
+"Base address RTC"	,	L_76
+g_hash_table_lookup	,	F_15
+"%s"	,	L_15
+"Extended length (bytes)"	,	L_163
+"sbus.response_to"	,	L_209
+hf_sbus_sysinfo0_3	,	V_198
+"Read/write block telegram length"	,	L_161
+"Bad Checksum"	,	L_187
+hf_sbus_sysinfo0_4	,	V_199
+ethsbus_tree	,	V_25
+hf_sbus_sysinfo0_1	,	V_196
+hf_sbus_sysinfo0_2	,	V_197
+sbus_ack_code	,	V_47
+SBUS_REQUEST	,	V_59
+hf_sbus_sysinfo0_5	,	V_200
+"SAIA Ether-S-Bus telegram length"	,	L_39
+"sbus.flags.zflag"	,	L_203
+sbus_request_key	,	T_4
+"Response"	,	L_14
+"sbus.addr_EEPROM"	,	L_83
+guint	,	T_1
+"sbus.block_type"	,	L_92
+ett	,	V_240
+"This telegram isn't implemented in the dissector."	,	L_28
+"PCD Accumulator"	,	L_195
+"sbus.flags.nflag"	,	L_200
+F_ERROR	,	V_235
+"Base address of 32 bit EEPROM register to read or write"	,	L_84
+packet_info	,	T_8
+SBUS_RD_WR_CONFIGURATION_FILE	,	V_84
+"This RD/WR block telegram is not implemented"	,	L_5
+SBUS_RD_PCD_STATUS_CPU1	,	V_172
+SBUS_GET_BLOCK_SIZE	,	V_163
+SBUS_RD_PCD_STATUS_CPU0	,	V_171
+"ACK/NAK response for block write requests"	,	L_183
+SBUS_RD_PCD_STATUS_CPU3	,	V_174
+SBUS_RD_PCD_STATUS_CPU2	,	V_173
+sbus_handle	,	V_241
+sbus_equal	,	F_2
+ns	,	V_54
+"Availability of trace buffer feature"	,	L_129
+sbus_web_seq	,	V_38
+hf_sbus_web_seq	,	V_151
+"sbus.sysinfo0.mem"	,	L_125
+"sbus.fio_count"	,	L_74
+"Mem size info"	,	L_124
+SBUS_WR_USER_EEPROM_REGISTER	,	V_71
+hf_sbus_acknackcode	,	V_207
+crc	,	V_1
+"SAIA S-Bus command"	,	L_60
+SBUS_RD_PCD_STATUS_CPU5	,	V_176
+HFILL	,	V_215
+SBUS_RD_PCD_STATUS_CPU4	,	V_175
+hf_sbus_command_extension	,	V_146
+SBUS_RD_PCD_STATUS_CPU6	,	V_177
+hf_sbus_crc	,	V_208
+tfs_sbus_present	,	V_225
+request_val	,	V_57
+SBUS_RD_PCD_STATUS_OWN	,	V_178
+"SAIA PCD CPU status"	,	L_144
+"sbus.web.aid"	,	L_157
+"Not dissected, could not find request telegram"	,	L_33
+sbus_init_protocol	,	F_4
+"sbus.timeout"	,	L_215
+SBUS_RD_OUTPUT	,	V_121
+sbus_rdwr_length	,	V_49
+SBUS_RD_BLOCK_DATA_STREAM	,	V_161
+"R-count"	,	L_64
+"sbus.cmd_extn"	,	L_62
+proto_register_protocol	,	F_41
+SBUS_WR_START_OF_STREAM	,	V_83
+sbus_crc_calc	,	V_31
+sbus_rdwr_ack_nak	,	V_43
+SBUS_RD_INDEX_REGISTER	,	V_190
+"Checksum: 0x%04x (NOT correct)"	,	L_35
+sbus_rdwr_sequence	,	V_40
+sbus_show_bin	,	V_48
+check_col	,	F_20
+"sbus.len"	,	L_38
+"Command extension"	,	L_61
+"sbus.address"	,	L_56
+"The size of the block in bytes"	,	L_172
+"Version"	,	L_40
+"sbus.crc_bad"	,	L_188
+"ACCU"	,	L_193
+"Base address of bytes to read or write (68k address)"	,	L_90
+gint	,	T_2
+g_hash_table_insert	,	F_17
+FT_RELATIVE_TIME	,	V_239
+sbus_quint8_helper0	,	V_44
+webserver_aid_vals	,	V_81
+"sbus.addr_prog"	,	L_86
+"sbus.nakcode"	,	L_140
+tvb	,	V_14
+"Type of RD/WR block telegram"	,	L_167
+"Destination"	,	L_52
+COL_INFO	,	V_79
+"sbus.web.seq"	,	L_159
+hf_sbus_web_aid	,	V_150
+sbus_web_size	,	V_36
+"S-Bus binary data"	,	L_112
+SBUS_RD_BYTE	,	V_143
+cinfo	,	V_77
+PI_ERROR	,	V_210
+"PCD error flag"	,	L_198
+block_tlg	,	V_75
+SBUS_RD_TIMER	,	V_116
+F_TRACE	,	V_227
+sbusdata_tree	,	V_26
+"Calendar week: %x, Week day: %x"	,	L_24
+"System information number"	,	L_121
+hf_sbus_nbr_elements	,	V_194
+SBUS_WR_RTC	,	V_134
+abs_ts	,	V_65
+hf_sbus_rcount	,	V_117
+hf_sbus_rdwr_block_length_ext	,	V_152
+PROTO_ITEM_SET_HIDDEN	,	F_37
+proto_tree_add_boolean	,	F_29
+"Checksum: 0x%04x (correct)"	,	L_34
+"RTC date (YYMMDD)"	,	L_148
+"A bad checksum in the telegram"	,	L_189
+SBUS_DELETE_BLOCK	,	V_92
+"Web server command/status code (AID)"	,	L_158
+key	,	V_12
+COL_PROTOCOL	,	V_78
+SBUS_RD_INSTRUCTION_POINTER	,	V_192
+"This is a response to the Ether-S-Bus request in this frame"	,	L_210
+"Request in frame nr."	,	L_208
+guint8	,	T_12
+hf_sbus_address	,	V_181
+"SAIA S-Bus destination address"	,	L_54
+ti	,	V_19
+g_hash_table_destroy	,	F_5
+sbus_CPU_status	,	V_231
+v1	,	V_8
+v2	,	V_9
+"The address inside a block"	,	L_175
+"sbus.vers"	,	L_41
+tvb_get_ntohl	,	F_9
+"Time (HH:MM:SS): %02x:%02x:%02x"	,	L_22
+tvbuff_t	,	T_6
+tvb_get_ntohs	,	F_14
+"Repeated request telegram (due to wrong or missing answer)"	,	L_192
+"Request: %s"	,	L_7
+"sbus.web.size"	,	L_155
+ncrc	,	V_4
+gboolean	,	T_5
+F_MEMSIZE	,	V_226
+sbus_web_aid	,	V_37
+sbus_binaries	,	V_46
+"Unknown NAK response code!"	,	L_16
+"Base address of the user memory or program lines (read or write)"	,	L_87
+"SAIA S-Bus command extension"	,	L_63
+hf_sbus_flags_error	,	V_187
+sbus_tree	,	V_24
+"sbus.nbr_elements"	,	L_98
+req_time	,	V_64
+hf_sbus_flags_zero	,	V_189
+register_init_routine	,	F_45
+SBUS_WR_USER_MEMORY	,	V_141
+tvb_get_guint8	,	F_11
+" (Seq No: %d)"	,	L_11
+"Base address of user memory or program lines"	,	L_85
+"sbus.data_byte_hex"	,	L_110
+sbus_eth_len	,	V_30
+hf_sbus_response_time	,	V_166
+resp_frame	,	V_68
+PI_RESPONSE_CODE	,	V_204
+SBUS_ACKNAK	,	V_67
+hf_sbus_rdwr_file_name	,	V_158
+is_sbus_pdu	,	F_7
+hf_sbus_fw_version	,	V_184
+"Binary data: %08u"	,	L_21
+"Number of elements or characters"	,	L_99
+"Type of the Get Program Block list request"	,	L_181
+"Protocol type"	,	L_43
+new_create_dissector_handle	,	F_47
+"The response to this Ether-S-Bus request is in this frame"	,	L_207
+"SAIA Ether-S-Bus sequence number"	,	L_48
+"Slot B1"	,	L_130
+"sbus.data_iof"	,	L_113
+SBUS_WR_BYTE	,	V_144
+"Data (hex bytes)"	,	L_30
+sbus_att_vals	,	V_219
+"Web server packet size"	,	L_154
+ENC_BIG_ENDIAN	,	V_101
+"One regiser/timer of counter (32 bit value)"	,	L_105
+sbus_command_vals	,	V_87
+hf_sbus_addr_68k	,	V_142
+"SBUS"	,	L_221
+"Slot B2"	,	L_133
+"sbus.rcount"	,	L_65
+proto_tree_add_time	,	F_33
+hf_sbus_flags_accu	,	V_186
+F_NEGATIVE	,	V_236
+proto_reg_handoff_sbus	,	F_46
+hf_sbus_sysinfo_nr	,	V_148
+"Zero status flag"	,	L_204
+"Clock data"	,	L_25
+"Number of elements"	,	L_97
+hf_sbus_addr_iof	,	V_122
+"sbus.response_in"	,	L_206
+SBUS_WEB_SERVER_SERIAL_COMM	,	V_80
+"Firmware version"	,	L_118
+proto_tree_add_uint_format	,	F_35
+val	,	V_2
+hf_sbus_crc_bad	,	V_211
+"The PCD display register (32 bit value)"	,	L_102
+hf_sbus_wcount	,	V_127
+hf_sbus_protocol	,	V_103
+SBUS_WR_BLOCK_END_OF_STREAM	,	V_89
+"PCD Display register"	,	L_100
+col_clear	,	F_19
+"sbus.addr_IOF"	,	L_80
+SBUS_WR_BLOCK_DATA_STREAM	,	V_88
+"SAIA S-Bus ACK/NAK response"	,	L_141
+proto_register_subtree_array	,	F_44
+"Length (bytes)"	,	L_37
+"Sequence number of block data stream telegram"	,	L_169
+"sbus.att"	,	L_50
+"Checksum"	,	L_184
+"S-Bus 32-bit data"	,	L_103
+proto_tree_add_item	,	F_26
+"sbus.block.size"	,	L_171
+pinfo	,	V_16
+col_add_fstr	,	F_21
+"Data"	,	L_20
+"sbus.wcount"	,	L_68
+_U_	,	V_18
+hf_sbus_rdwr_block_length	,	V_153
+sbus_cmd_code	,	V_35
+"One byte from PCD"	,	L_108
+"The time between the first (identical) request and the repetition"	,	L_216
+"S-Bus"	,	L_1
+SBUS_RD_COUNTER	,	V_114
+"The time between the request and the response"	,	L_213
+F_PGU_BAUD	,	V_230
+rdwrblock_sts	,	V_94
+hf_sbus_data_byte_hex	,	V_191
+SBUS_WR_COUNTER	,	V_123
+SBUS_RD_PROGRAM_LINE	,	V_139
+SBUS_RD_STATUSFLAG_ACCU	,	V_185
+tvb_get_ephemeral_string	,	F_23
+"Error flag"	,	L_196
+"sbus.data_display_register"	,	L_101
+FT_UINT8	,	V_216
+"PCD type"	,	L_115
+gconstpointer	,	T_3
+proto_item	,	T_11
+SBUS_RD_REGISTER	,	V_115
+sbus_media_cnt	,	V_33
+"First request in frame nr."	,	L_217
+sbus_attribut	,	V_32
+"Telegram not acknowledged by PCD"	,	L_32
+"Time of the real time clock"	,	L_153
+"Negative status flag"	,	L_201
+SBUS_RD_WR_PROGRAM_BLOCK_FILE	,	V_85
+expert_add_info_format	,	F_31
+"sbus.retry"	,	L_191
+"SAIA Ether-S-Bus protocol type"	,	L_45
+SBUS_RD_WR_NAK_INVALID_SIZE	,	V_203
+sbus_rdwr_type	,	V_39
+sbus_rdwr_block_type	,	V_42
+"sbus.data_byte"	,	L_107
+ett_sbus_data	,	V_128
+"Repeated telegram (due to timeout?)"	,	L_19
+rdwrblock_list_type_vals	,	V_232
+data	,	T_10
+"One byte from PCD (hexadecimal)"	,	L_111
+"sbus.block.getlisttype"	,	L_180
+"Program lines"	,	L_26
+"sbus.block.length"	,	L_162
+num	,	V_62
+SBUS_RD_FLAG	,	V_119
+hf_sbus_data_byte	,	V_145
+PI_NOTE	,	V_110
+"Availability of PGU baud switch feature"	,	L_138
+nstime_t	,	T_14
+conversation_t	,	T_15
+PI_SEQUENCE	,	V_109
+hf_sbus_wcount_calculated	,	V_126
+offset	,	V_29
+"System information number (extension to command code)"	,	L_123
+tree	,	V_17
+hf_sbus_request_in	,	V_112
+"W-count (32 bit values)"	,	L_70
+sequence	,	V_11
+hf_sbus_web_size	,	V_149
+"sbus.addr_68k"	,	L_89
+new_request_key	,	V_56
+"Response: %s"	,	L_10
+proto_tree_add_uint	,	F_34
+PI_CHECKSUM	,	V_209
+"System info"	,	L_31
+"sbus.sysinfo0.b1"	,	L_131
+se_new	,	F_16
+SBUS_RD_WR_NAK	,	V_202
+"Base address IOF"	,	L_79
+sbus_fio_cnt	,	V_34
+"Calendar week and week day number of the real time clock"	,	L_147
+sbus_block_types	,	V_221
+crc_table	,	V_5
+"sbus.crc"	,	L_185
+SBUS_WR_BLOCK_DATA_BYTES	,	V_91
+"Z-flag"	,	L_202
+F_ZERO	,	V_237
+hf_sbus_rdwr_block_size	,	V_157
+hf_sbus_response_in	,	V_113
+"sbus.len_ext"	,	L_164
+"Number of elements expected in response"	,	L_66
+SBUS_RD_DISPLAY_REGISTER	,	V_168
+SBUS_RD_WR_UNKNOWN_BLOCK_TYPE	,	V_206
+"udp.port"	,	L_223
+"Block type"	,	L_91
+"sbus.sysinfo0.b2"	,	L_134
+FT_FRAMENUM	,	V_238
+hf_sbus_cpu_status	,	V_179
+hf_sbus_addr_eeprom	,	V_147
+"sbus.destination"	,	L_53
+sbus_helper	,	V_50
+dissect_sbus	,	F_12
+"sbus.sysinfo0.pgubaud"	,	L_137
+hf_sbus_data_rtc	,	V_129
+hf_sbus_addr_prog	,	V_140
+"sbus.rtc.week_day"	,	L_146
+"Availability of memory size information"	,	L_126
+cmd_code	,	V_69
+"sbus.block.tlgtype"	,	L_166
+proto_tree	,	T_9
+hf_sbus_rdwr_block_addr	,	V_160

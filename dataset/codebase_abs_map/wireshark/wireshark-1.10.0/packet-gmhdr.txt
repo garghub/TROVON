@@ -1,0 +1,226 @@
+hf_gmhdr_etype	,	V_53
+"Platform Id"	,	L_13
+is_802_2	,	V_46
+proto_register_protocol	,	F_24
+"gmhdr.srcport_g_plfm"	,	L_14
+hf_gmhdr_srcport_h_bid	,	V_39
+IEEE_802_3_MAX_LEN	,	V_50
+"Original Source Port Id"	,	L_24
+len	,	V_80
+GMHDR_SRCPORT_H_GID_MASK	,	V_99
+"Src Port"	,	L_10
+"decode_trailer_timestamp"	,	L_65
+"gmhdr.srcport_plfm"	,	L_40
+gint	,	T_14
+GMHDR_FTYPE_TIMESTAMP_GPS	,	V_28
+tvb	,	V_1
+GMHDR_SRCPORT_G_BID_MASK	,	V_90
+guint32	,	T_7
+"Original Platform Id"	,	L_15
+vec_t	,	T_12
+"Original Packet Size"	,	L_25
+extra_trailer	,	V_77
+"Port Id"	,	L_22
+GMHDR_FTYPE_PKTSIZE	,	V_24
+hf_gmhdr_len	,	V_51
+PI_ERROR	,	V_14
+"gmhdr.generic"	,	L_30
+array_length	,	F_26
+gmhdr_tree	,	V_3
+GMHDR_SRCPORT_G_PID_MASK	,	V_22
+dissect_gmhdr	,	F_9
+"gmhdr.timestamp"	,	L_28
+", Port: %d, Timestamp: %d:%d:%d.%d"	,	L_8
+"ethertype"	,	L_68
+dissect_gmtlv	,	F_1
+proto_register_gmhdr	,	F_22
+"Original CRC"	,	L_36
+gmtrailer_module	,	V_107
+gmhdr_summary_in_tree	,	V_48
+tm_hour	,	V_68
+hf_gmhdr_generic	,	V_42
+GMHDR_SRCPORT_H_SID_MASK	,	V_101
+hf_register_info	,	T_13
+guint16	,	T_6
+"gmhdr.srcport_pid"	,	L_46
+ett_gmhdr	,	V_49
+"gmhdr.pktsize"	,	L_26
+ti	,	V_6
+BASE_NONE	,	V_95
+"gmhdr.trailer"	,	L_48
+secs	,	V_66
+tl	,	V_9
+tm	,	V_62
+tvb_length_remaining	,	F_11
+hf_gmhdr_srcport_h_sid	,	V_40
+gmhdr_decode_timestamp_trailer	,	V_63
+GMHDR_FTYPE_TIMESTAMP_LOCAL	,	V_26
+tv	,	V_12
+hf_gmhdr_srcport_h_plfm	,	V_37
+tvb_get_ntohl	,	F_3
+trailer_len	,	V_55
+"gmtrailer.portid"	,	L_51
+tvbuff_t	,	T_1
+gmhdr_ftype_timestamp	,	V_32
+tvb_get_ntohs	,	F_2
+"GMHDR"	,	L_55
+BASE_HEX	,	V_84
+"Original Source Box Id"	,	L_21
+"gmhdr.len"	,	L_35
+"Trailer"	,	L_47
+FT_UINT24	,	V_83
+GMHDR_FTYPE_FCS	,	V_33
+gboolean	,	T_9
+proto_item_add_subtree	,	F_6
+gmtrailer_hf	,	V_103
+module_t	,	T_15
+comp_crc	,	V_59
+"gmhdr.srcport_g_bid"	,	L_20
+proto_register_field_array	,	F_25
+"Original Source Port"	,	L_12
+"Decode Gigamon HW timestamp and source id in trailer"	,	L_66
+hf_gmhdr_trailer	,	V_52
+FT_BYTES	,	V_94
+"Original Packet CRC"	,	L_38
+proto_reg_handoff_gmhdr	,	F_30
+"Time Stamp"	,	L_27
+dissector_add_uint	,	F_32
+pntohs	,	F_21
+"Box Id"	,	L_19
+ett_gmtrailer	,	V_71
+tvb_get_ptr	,	F_19
+FT_UINT16	,	V_91
+srcport_tree	,	V_7
+proto_gmtrailer	,	V_64
+tvb_get_guint8	,	F_10
+"gmhdr.srcport_bid"	,	L_42
+new_crc	,	V_58
+hf_gmhdr_srcport_g_plfm	,	V_18
+"gmhdr.srcport_g_gid"	,	L_17
+GMHDR_SRCPORT_H_PLFM_MASK	,	V_98
+"Whether the Gigamon trailer containing HW timestamp, source id and original CRC should be decoded"	,	L_67
+fl	,	V_8
+"Whether the Gigamon Trailer summary line should be shown in the protocol tree"	,	L_64
+"gmtrailer"	,	L_59
+heur_dissector_add	,	F_33
+GMHDR_SRCPORT_G_PLFM_MASK	,	V_88
+"gmhdr.srcport_gid"	,	L_41
+comp_cksum	,	V_76
+"Field length %u invalid"	,	L_1
+hf_gmhdr_srcport_g_gid	,	V_19
+val_to_str_const	,	F_8
+hf_gmtrailer_timestamp	,	V_74
+length	,	V_5
+dissect_gmtrailer	,	F_18
+ptr	,	V_81
+ENC_BIG_ENDIAN	,	V_16
+"Show Gigamon Trailer summary in protocol tree"	,	L_63
+"gmhdr"	,	L_56
+dissect_802_3	,	F_12
+FT_UINT32	,	V_97
+"gmhdr.crc"	,	L_37
+orig_crc	,	V_57
+hf	,	V_82
+GMHDR_SRCPORT_G_GID_MASK	,	V_89
+ENC_TIME_TIMESPEC	,	V_31
+"Ethertype"	,	L_33
+", CRC (Not Verified)"	,	L_5
+hf_gmhdr_pktsize	,	V_25
+"gmhdr.etype"	,	L_32
+prefs_register_protocol	,	F_28
+gmtrailer_ett	,	V_105
+gmtimev	,	V_61
+"Original Source Slot Id"	,	L_45
+GMHDR_SRCPORT_H_BID_MASK	,	V_100
+" (g%d)"	,	L_2
+GMHDR_FTYPE_SRCPORT_G	,	V_10
+dissect_gmtimestamp_trailer	,	F_14
+gmtrailer_tree	,	V_56
+ethertype	,	F_13
+GMHDR_SRCPORT_H_PID_MASK	,	V_102
+proto_item_append_text	,	F_7
+", Length: %u"	,	L_7
+hf_gmhdr_srcport_g_pid	,	V_21
+FT_ABSOLUTE_TIME	,	V_92
+CRC32C_SWAP	,	F_16
+"Gigamon Trailer"	,	L_57
+proto_register_subtree_array	,	F_27
+GMHDR_SRCPORT_G_PID_SHFT	,	V_23
+proto_tree_add_item	,	F_5
+in_cksum	,	F_20
+gmhdr_plfm_str	,	V_87
+pinfo	,	T_3
+dissector_handle_t	,	T_16
+cksum	,	V_75
+"Generic Field"	,	L_29
+_U_	,	V_2
+"gmtrailer.crc"	,	L_50
+"Origin Source Port"	,	L_52
+gmhdr_module	,	V_106
+"Show Gigamon header summary in protocol tree"	,	L_61
+VALS	,	F_23
+"gmhdr.srcport_sid"	,	L_44
+prefs_register_bool_preference	,	F_29
+"Whether the Gigamon header summary line should be shown in the protocol tree"	,	L_62
+"Gigamon Header"	,	L_54
+ETHERTYPE_GIGAMON	,	V_78
+GMHDR_FTYPE_SRCPORT_H	,	V_35
+hf_gmhdr_srcport_h	,	V_36
+"gmhdr.srcport_g"	,	L_11
+hf_gmhdr_srcport_g	,	V_15
+"; Source: %s"	,	L_3
+tvb_length	,	F_15
+BASE_DEC	,	V_86
+"eth.trailer"	,	L_69
+GMHDR_FTYPE_TIMESTAMP_1588	,	V_29
+tvblen	,	V_54
+hf_gmhdr_timestamp	,	V_30
+hf_gmhdr_srcport_h_gid	,	V_38
+ENC_NA	,	V_43
+ABSOLUTE_TIME_LOCAL	,	V_93
+"Slot Id"	,	L_43
+expert_add_info_format	,	F_4
+encap_proto	,	V_45
+"gmhdr.srcport"	,	L_39
+ett_srcport	,	V_17
+proto_gmhdr	,	V_47
+etype_vals	,	V_96
+data	,	T_10
+pid	,	V_11
+tm_min	,	V_69
+"Group Id"	,	L_16
+"summary_in_tree"	,	L_60
+tm_sec	,	V_70
+", Length: %u, Checksum: 0x%x"	,	L_9
+vec	,	V_79
+" [Id: %u, Length: %u]"	,	L_6
+hf_gmhdr_srcport_g_bid	,	V_20
+nstime_t	,	T_11
+"Original Source Group Id"	,	L_18
+"gmtrailer.timestamp"	,	L_53
+guint	,	T_5
+"Length"	,	L_34
+offset	,	V_4
+ett	,	V_104
+port_num	,	V_60
+tree	,	V_44
+packet_info	,	T_2
+hf_gmhdr_srcport_h_pid	,	V_41
+"GMHDR Trailer"	,	L_49
+hf_gmhdr_origcrc	,	V_34
+gmhdr_handle	,	V_108
+"gmhdr.srcport_g_pid"	,	L_23
+GMHDR_FTYPE_TIMESTAMP_NTP	,	V_27
+PI_MALFORMED	,	V_13
+HFILL	,	V_85
+create_dissector_handle	,	F_31
+gint16	,	T_8
+gmtrailer_summary_in_tree	,	V_65
+nsecs	,	V_67
+"Unknown"	,	L_4
+hf_gmtrailer_portid	,	V_73
+"Type"	,	L_31
+crc32_ccitt_tvb_seed	,	F_17
+hf_gmtrailer_origcrc	,	V_72
+proto_tree	,	T_4
+"GMTRAILER"	,	L_58

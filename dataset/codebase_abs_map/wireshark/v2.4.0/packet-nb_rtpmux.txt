@@ -1,0 +1,105 @@
+nb_rtpmux_cmp_rtp_tree	,	V_7
+dstport	,	V_12
+captured_length	,	V_15
+proto_register_protocol	,	F_18
+tvb_reported_length	,	F_4
+proto_tree_add_subtree	,	F_10
+"nb_rtpmux.length"	,	L_10
+"R bit"	,	L_11
+col_set_str	,	F_3
+gint	,	T_8
+"Compressed headers(T bit)"	,	L_5
+"nb_rtpmux.compressed"	,	L_6
+dissector_add_uint_range_with_preference	,	F_24
+tvb	,	V_1
+hf_nb_rtpmux_length	,	V_24
+find_dissector_add_dependency	,	F_25
+COL_INFO	,	V_32
+FT_BOOLEAN	,	V_35
+proto_item_append_text	,	F_11
+col_set_fence	,	F_15
+hf_nb_rtpmux_dstport	,	V_23
+"nb_rtpmux.cmp_rtp.sequence_no"	,	L_18
+tbit	,	V_17
+hf_nb_rtpmux_cmp_rtp_data	,	V_30
+tvb_reported_length_remaining	,	F_12
+cinfo	,	V_10
+"nb_rtpmux.cmp_rtp.data"	,	L_22
+proto_register_subtree_array	,	F_21
+array_length	,	F_20
+hf_nb_rtpmux_data	,	V_33
+next_tvb	,	V_16
+""	,	L_26
+"NB_RTPMUX"	,	L_1
+proto_tree_add_item	,	F_6
+"  | "	,	L_4
+call_dissector	,	F_16
+pinfo	,	V_2
+dissector_handle_t	,	T_10
+_U_	,	V_4
+ett_nb_rtpmux_cmp_rtp_hdr	,	V_27
+dissect_nb_rtpmux	,	F_1
+ett_nb_rtpmux	,	V_20
+col_append_str	,	F_14
+proto_nb_rtpmux	,	V_18
+"nb_rtpmux"	,	L_24
+hf_nb_rtpmux_compressed	,	V_21
+hf_register_info	,	T_9
+guint16	,	T_7
+COL_PROTOCOL	,	V_11
+FT_UINT8	,	V_39
+BASE_DEC	,	V_38
+"nb_rtpmux.dstport"	,	L_8
+proto_item	,	T_5
+"RTP Data"	,	L_21
+tvb_new_subset_length_caplen	,	F_13
+ENC_NA	,	V_19
+nb_rtpmux_handle	,	V_43
+ti	,	V_5
+BASE_NONE	,	V_41
+"rtp"	,	L_27
+"Timestamp"	,	L_19
+data	,	T_4
+"nb_rtpmux.data"	,	L_16
+tvbuff_t	,	T_1
+", Src Port: %u, Dst Port: %u Length: %u"	,	L_3
+tvb_get_ntohs	,	F_8
+hf_nb_r_bit	,	V_25
+hf_nb_rtpmux_cmp_rtp_timestamp	,	V_29
+gboolean	,	T_6
+proto_item_add_subtree	,	F_7
+hf_nb_rtpmux_cmp_rtp_sequence_no	,	V_28
+"Compressed RTP header"	,	L_2
+rtpdissector	,	V_31
+"nb_rtpmux.srcport"	,	L_14
+proto_register_field_array	,	F_19
+FT_BYTES	,	V_40
+hf_nb_rtpmux_srcport	,	V_26
+"Length"	,	L_9
+offset	,	V_8
+ett	,	V_42
+tree	,	V_3
+"Sequence Number"	,	L_17
+"nb_rtpmux.cmp_rtp.timestamp"	,	L_20
+proto_reg_handoff_nb_rtpmux	,	F_22
+FT_UINT16	,	V_37
+packet_info	,	T_2
+tvb_get_guint8	,	F_5
+tvb_captured_length	,	F_2
+"Src port"	,	L_13
+proto_tree_add_uint	,	F_9
+"Dst port"	,	L_7
+nb_rtpmux_tree	,	V_6
+"3GPP Nb Interface RTP Multiplex"	,	L_23
+proto_register_nb_rtpmux	,	F_17
+first_rtp_payload_seen	,	V_9
+HFILL	,	V_36
+"nb_rtpmux.r_bit"	,	L_12
+"RTP Packet"	,	L_15
+"udp.port"	,	L_25
+length	,	V_14
+create_dissector_handle	,	F_23
+ENC_BIG_ENDIAN	,	V_22
+srcport	,	V_13
+proto_tree	,	T_3
+hf	,	V_34

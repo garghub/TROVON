@@ -1,0 +1,62 @@
+"DOCSIS RNG-REQ"	,	L_12
+register_dissector	,	F_14
+data	,	T_4
+rngreq_tree	,	V_6
+proto_register_protocol	,	F_10
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_5
+tvb_get_ntohs	,	F_2
+"docsis_rngreq.sid"	,	L_5
+proto_docsis_rngreq	,	V_10
+col_set_str	,	F_4
+gint	,	T_8
+proto_item_add_subtree	,	F_6
+proto_register_field_array	,	F_11
+tvb	,	V_1
+ett	,	V_21
+COL_INFO	,	V_9
+dissector_add_uint	,	F_17
+"docsis_mgmt"	,	L_14
+tree	,	V_3
+"docsis_rngreq.pendcomp"	,	L_9
+it	,	V_5
+FT_UINT16	,	V_17
+packet_info	,	T_2
+"Ranging Request: SID = %u"	,	L_1
+cinfo	,	V_8
+tvb_captured_length	,	F_8
+proto_register_subtree_array	,	F_13
+ett_docsis_rngreq	,	V_11
+array_length	,	F_12
+proto_register_docsis_rngreq	,	F_9
+proto_tree_add_item	,	F_7
+pinfo	,	V_2
+col_add_fstr	,	F_3
+hf_docsis_rngreq_sid	,	V_12
+dissector_handle_t	,	T_9
+"Service Identifier"	,	L_4
+_U_	,	V_4
+hf_docsis_rngreq_down_chid	,	V_14
+"DOCSIS Range Request Message"	,	L_11
+sid	,	V_7
+hf_register_info	,	T_7
+dissect_rngreq	,	F_1
+proto_reg_handoff_docsis_rngreq	,	F_15
+HFILL	,	V_19
+"Initial Ranging Request SID = 0"	,	L_2
+guint16	,	T_6
+FT_UINT8	,	V_20
+find_dissector	,	F_16
+BASE_DEC	,	V_18
+"Upstream Channel ID"	,	L_10
+hf_docsis_rngreq_pend_compl	,	V_15
+proto_item	,	T_5
+"Ranging Request"	,	L_3
+ENC_BIG_ENDIAN	,	V_13
+"docsis_rngreq.downchid"	,	L_7
+"Downstream Channel ID"	,	L_6
+"docsis_rngreq"	,	L_13
+docsis_rngreq_handle	,	V_22
+"Pending Till Complete"	,	L_8
+proto_tree	,	T_3
+hf	,	V_16

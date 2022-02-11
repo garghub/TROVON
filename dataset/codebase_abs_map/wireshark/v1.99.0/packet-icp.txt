@@ -1,0 +1,110 @@
+tvb_get_string_enc	,	F_5
+"Object data"	,	L_4
+proto_register_protocol	,	F_22
+proto_tree_add_subtree	,	F_19
+pload_tree	,	V_3
+"option: ICP_FLAG_HIT_OBJ"	,	L_9
+"Version"	,	L_16
+CODE_ICP_OP_ERR	,	V_13
+request_number	,	V_23
+"icp.version"	,	L_17
+"icp.opcode"	,	L_15
+gint	,	T_4
+options	,	V_24
+col_set_str	,	F_10
+"Internet Cache Protocol"	,	L_22
+CODE_ICP_OP_DENIED	,	V_15
+tvb	,	V_1
+guint32	,	T_8
+CODE_ICP_OP_MISS	,	V_12
+COL_INFO	,	V_28
+CODE_ICP_OP_DECHO	,	V_10
+tvb_reported_length_remaining	,	F_8
+col_clear	,	F_11
+cinfo	,	V_26
+proto_register_subtree_array	,	F_25
+array_length	,	F_24
+proto_tree_add_item	,	F_16
+pinfo	,	V_17
+payload_tree	,	V_20
+message_length	,	V_22
+col_add_fstr	,	F_14
+dissector_handle_t	,	T_10
+ENC_ASCII	,	V_8
+"Request Number"	,	L_20
+icp_tree	,	V_19
+"Packet is fragmented, rest of object is in next udp packet"	,	L_5
+hf_register_info	,	T_9
+"Sender Host IP address %s"	,	L_12
+VALS	,	F_21
+ett_icp_payload	,	V_38
+guint16	,	T_5
+COL_PROTOCOL	,	V_27
+FT_UINT8	,	V_40
+proto_tree_add_text	,	F_2
+tvb_ip_to_str	,	F_3
+BASE_DEC	,	V_43
+proto_item	,	T_7
+ENC_NA	,	V_31
+guint8	,	T_3
+"option: ICP_FLAG_SCR_RTT RTT=%u"	,	L_11
+ti	,	V_21
+icp_handle	,	V_47
+"icp"	,	L_23
+tvb_get_ntohl	,	F_13
+dissect_icp	,	F_9
+tvbuff_t	,	T_1
+hf_icp_version	,	V_34
+tvb_strsize	,	F_4
+opcode	,	V_4
+tvb_get_ntohs	,	F_7
+"ICP"	,	L_6
+BASE_HEX	,	V_41
+stringlength	,	V_5
+objectlength	,	V_6
+CODE_ICP_OP_SECHO	,	V_9
+"option:ICP_FLAG_SRC_RTT"	,	L_10
+proto_reg_handoff_icp	,	F_26
+proto_item_add_subtree	,	F_17
+"Opcode: %s (%u), Req Nr: %u"	,	L_7
+proto_register_field_array	,	F_23
+UDP_PORT_ICP	,	V_48
+"icp.nr"	,	L_21
+"Length"	,	L_18
+offset	,	V_2
+ett	,	V_46
+wmem_packet_scope	,	F_6
+dissector_add_uint	,	F_28
+tree	,	V_18
+"Opcode"	,	L_14
+"icp.length"	,	L_19
+ett_icp	,	V_32
+"Requester Host Address %s"	,	L_1
+CODE_ICP_OP_QUERY	,	V_7
+FT_UINT16	,	V_44
+packet_info	,	T_6
+option_data	,	V_25
+tvb_get_guint8	,	F_12
+CODE_ICP_OP_HIT_OBJ	,	V_16
+proto_tree_add_uint	,	F_18
+"Payload"	,	L_13
+"URL: %s"	,	L_2
+hf_icp_opcode	,	V_33
+proto_register_icp	,	F_20
+HFILL	,	V_42
+dissect_icp_payload	,	F_1
+opcode_vals	,	V_29
+hf_icp_request_nr	,	V_37
+CODE_ICP_OP_HIT	,	V_11
+val_to_str_const	,	F_15
+"udp.port"	,	L_24
+hf_icp_length	,	V_36
+create_dissector_handle	,	F_27
+ENC_BIG_ENDIAN	,	V_35
+CODE_ICP_OP_MISS_NOFETCH	,	V_14
+FT_UINT32	,	V_45
+"Object length: %u"	,	L_3
+"Unknown"	,	L_8
+proto_icp	,	V_30
+proto_tree	,	T_2
+hf	,	V_39

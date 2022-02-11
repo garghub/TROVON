@@ -1,0 +1,59 @@
+"WiMax PKM-REQ/RSP (pkm)"	,	L_11
+hf_pkm_msg_pkm_id	,	V_16
+proto_register_protocol	,	F_12
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_4
+"wmx.macmgtmsgtype.pkm_req"	,	L_8
+tvb_reported_length	,	F_3
+gint	,	T_7
+proto_item_add_subtree	,	F_5
+"wmx.macmgtmsgtype.pkm_rsp"	,	L_9
+proto_register_field_array	,	F_13
+tvb	,	V_1
+payload_type	,	V_6
+hf_pkm_req_message_type	,	V_13
+guint	,	T_4
+offset	,	V_4
+tree	,	V_3
+MAC_MGMT_MSG_PKM_RSP	,	V_17
+packet_info	,	T_2
+vals_pkm_msg_code	,	V_23
+tvb_get_guint8	,	F_2
+hf_pkm_rsp_message_type	,	V_19
+tvb_len	,	V_5
+proto_register_subtree_array	,	F_15
+ett_mac_mgmt_msg_pkm_req_decoder	,	V_12
+array_length	,	F_14
+"Code"	,	L_3
+"WiMax PKM-REQ/RSP Messages"	,	L_10
+proto_tree_add_item	,	F_6
+pkm_tree	,	V_9
+pinfo	,	V_2
+dissect_mac_mgmt_msg_pkm_req_decoder	,	F_1
+pkm_item	,	V_8
+hf_pkm_msg_code	,	V_15
+ett_mac_mgmt_msg_pkm_rsp_decoder	,	V_18
+"wmx.pkm.msg_pkm_identifier"	,	L_6
+hf_pkm	,	V_20
+"Privacy Key Management Request (PKM-REQ) (%u bytes)"	,	L_1
+proto_mac_mgmt_msg_pkm_decoder	,	V_11
+hf_register_info	,	T_6
+"PKM Identifier"	,	L_5
+MAC_MGMT_MSG_PKM_REQ	,	V_10
+proto_register_mac_mgmt_msg_pkm	,	F_10
+dissect_mac_mgmt_msg_pkm_rsp_decoder	,	F_9
+VALS	,	F_11
+"Privacy Key Management Response (PKM-RSP) (%u bytes)"	,	L_2
+HFILL	,	V_24
+FT_UINT8	,	V_21
+length	,	V_7
+BASE_DEC	,	V_22
+tvb_new_subset	,	F_8
+proto_item	,	T_5
+ett_pkm	,	V_25
+ENC_BIG_ENDIAN	,	V_14
+"wmx.pkm"	,	L_12
+wimax_pkm_tlv_encoded_attributes_decoder	,	F_7
+"wmx.pkm.msg_code"	,	L_4
+"MAC Management Message Type"	,	L_7
+proto_tree	,	T_3

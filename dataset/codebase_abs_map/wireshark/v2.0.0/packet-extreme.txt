@@ -1,0 +1,494 @@
+" ID: %d, MAC: %s"	,	L_14
+"Sequence number"	,	L_43
+tvb_get_string_enc	,	F_10
+hf_edp_esrp_virtip	,	V_80
+hf_edp_elrp_unknown	,	V_139
+"Virtual chassis connections"	,	L_90
+"Display"	,	L_55
+"Info"	,	L_61
+"edp.esl"	,	L_157
+"edp.esl.role"	,	L_167
+hf_edp_vlan_name	,	V_69
+"edp.info.port"	,	L_68
+hf_edp_esl_linkid2	,	V_119
+"edp.eaps.sysmac"	,	L_146
+hf_edp_esl_linkid1	,	V_115
+"edp.info.version"	,	L_74
+FT_ETHER	,	V_187
+hf_edp_esrp_group	,	V_76
+"edp.esl.reserved0"	,	L_162
+TFS	,	F_40
+EDP_TYPE_ESRP	,	V_173
+guint32	,	T_10
+": ID %d"	,	L_8
+vec_t	,	T_12
+FT_BOOLEAN	,	V_184
+proto_register_edp	,	F_38
+"Slot"	,	L_64
+tlv_type	,	V_7
+"Element unknown to Wireshark"	,	L_205
+"edp.info.version.internal"	,	L_86
+display_item	,	V_15
+array_length	,	F_43
+"edp.eaps.ver"	,	L_139
+"edp.esl.reserved1"	,	L_164
+esrp_item	,	V_70
+hf_edp_tlv_type	,	V_13
+" %s%s (#%d)"	,	L_17
+"Software version"	,	L_75
+ENC_ASCII	,	V_20
+hf_edp_checksum_bad	,	V_165
+"Failed link ID 1"	,	L_173
+proto_reg_handoff_edp	,	F_47
+hf_edp_eaps	,	V_89
+EDP_TYPE_EAPS	,	V_174
+"VLAN IP address"	,	L_111
+hf_edp_elsm_subtype	,	V_133
+hf_register_info	,	T_13
+"ESL"	,	L_16
+esl_role_vals	,	V_200
+"IP addr"	,	L_109
+"llc.extreme_pid"	,	L_213
+"Virtual IP address"	,	L_129
+"Unknown (0x%02x)"	,	L_2
+guint16	,	T_7
+ett_edp_info	,	V_36
+checksum_bad	,	V_152
+eaps_type_vals	,	V_196
+"edp.esrp.state"	,	L_123
+"Failed link ID 2"	,	L_176
+"EAPS"	,	L_13
+BASE_NONE	,	V_185
+"edp.esl.rest"	,	L_191
+"Ports"	,	L_124
+"edp.esl.ver"	,	L_159
+"edp.esl.linkid2"	,	L_180
+hf_edp_vlan_flags_reserved	,	V_61
+hf_edp_esrp	,	V_73
+"Fail timer"	,	L_150
+computed_checksum	,	V_150
+hf_edp_seqno	,	V_166
+"Link ID 2"	,	L_179
+"edp.elrp"	,	L_200
+BASE_HEX	,	V_183
+"edp.esl.reserved4"	,	L_178
+PROTO_ITEM_SET_GENERATED	,	F_36
+hf_llc_extreme_pid	,	V_209
+proto_item_add_subtree	,	F_9
+dissect_display_tlv	,	F_8
+proto_register_field_array	,	F_42
+proto_edp	,	V_157
+FT_BYTES	,	V_190
+hf_edp_midtype	,	V_167
+"edp.esl.linkid1"	,	L_169
+ei	,	V_202
+hf_edp_reserved	,	V_160
+dissector_add_uint	,	F_49
+"Link ID 1"	,	L_168
+esrp_tree	,	V_71
+"edp.esrp.hello"	,	L_134
+FT_UINT16	,	V_182
+unknown_item	,	V_140
+"edp.esl.reserved5"	,	L_183
+"Extreme Link Status Monitoring element"	,	L_194
+"edp.unknown.data"	,	L_206
+port	,	V_31
+tvb_captured_length	,	F_30
+hf_edp_tlv_length	,	V_14
+" Unknown (0x%02x)"	,	L_18
+display_tree	,	V_16
+"edp.esl.sysmac"	,	L_163
+"Unknown element [0x%02x]"	,	L_21
+tvb_ether_to_str	,	F_24
+expert_add_info	,	F_19
+"edp.vlan.id"	,	L_106
+dissect_info_tlv	,	F_17
+"Failed ID 2"	,	L_174
+FT_STRING	,	V_189
+"Num Shared Links"	,	L_184
+hf_edp_esl	,	V_105
+hf_edp_esl_type	,	V_108
+edp_handle	,	V_208
+ett_edp_info_version	,	V_42
+sustaining	,	V_29
+null_item	,	V_22
+seqno	,	V_124
+esl_type_vals	,	V_198
+hf_edp_esl_sysmac	,	V_111
+"edp.version"	,	L_30
+"edp.info.vchassconn"	,	L_89
+length	,	T_4
+dissect_edp	,	F_29
+cksum_vec	,	V_155
+ett_edp_unknown	,	V_143
+"Failed ID 1"	,	L_171
+FT_UINT32	,	V_191
+"Flags-reserved"	,	L_99
+dissect_null_tlv	,	F_15
+elrp_item	,	V_135
+checksum_tree	,	V_148
+hf	,	V_178
+"edp.elsm.type"	,	L_195
+hf_edp_esrp_proto	,	V_75
+"Version (major1)"	,	L_76
+"Hello timer"	,	L_135
+vlan_name	,	V_54
+edp_type_vals	,	V_10
+hf_edp_info_version_internal	,	V_47
+"edp.elsm"	,	L_193
+col_append_fstr	,	F_20
+col_set_str	,	F_22
+"TLV type"	,	L_51
+"VLAN name"	,	L_113
+"Flags"	,	L_94
+FT_IPv4	,	V_193
+"EAPS: Ctrlvlan %d, Sysmac %s"	,	L_12
+"edp.esrp.proto"	,	L_117
+"edp.checksum_good"	,	L_38
+ett_edp_esrp	,	V_74
+hf_edp_info_port	,	V_38
+"Control Vlan ID"	,	L_143
+"Shared link ID 1"	,	L_170
+val_to_str	,	F_5
+proto_tree_add_string	,	F_14
+edp_tree	,	V_146
+hf_edp_eaps_fail	,	V_97
+"edp.short_tlv"	,	L_210
+"PID"	,	L_214
+esl_tree	,	V_103
+ett_edp	,	V_158
+dissector_handle_t	,	T_17
+"Marker 0x%02x, length %d, type %d = %s"	,	L_1
+"edp.esrp.prio"	,	L_121
+"ELRP"	,	L_20
+"[0x%02x]"	,	L_28
+hf_edp_eaps_type	,	V_92
+dissect_eaps_tlv	,	F_23
+hf_edp_esl_state	,	V_113
+"Last element"	,	L_209
+"Magic"	,	L_198
+"edp.vlan.ip"	,	L_110
+"Shared link ID 2"	,	L_181
+VALS	,	F_39
+SET_CKSUM_VEC_TVB	,	F_31
+FT_PROTOCOL	,	V_188
+"edp.tlv.type"	,	L_52
+info_item	,	V_33
+EDP_TYPE_INFO	,	V_171
+in_cksum_shouldbe	,	F_34
+BASE_DEC	,	V_180
+"Vlan element"	,	L_93
+ENC_NA	,	V_41
+"Flags-IP"	,	L_96
+flags_item	,	V_49
+ett_edp_eaps	,	V_90
+null_tree	,	V_23
+"Rest"	,	L_190
+hf_edp_length	,	V_161
+"ELSM %s%s(#%d)"	,	L_19
+hf_edp_display_string	,	V_21
+eaps_tree	,	V_86
+"edp.esrp.group"	,	L_119
+hf_edp_esrp_reserved	,	V_83
+"Name"	,	L_58
+hf_edp_tlv_marker	,	V_11
+hf_edp_esrp_sysmac	,	V_81
+"Number of active ports"	,	L_126
+"edp.eaps.helloseq"	,	L_154
+dissect_esrp_tlv	,	F_21
+expert_register_protocol	,	F_45
+"Version (sustaining)"	,	L_82
+"edp.eaps.reserved2"	,	L_156
+hf_edp_esl_linklist	,	V_122
+"TLV with invalid length: %u"	,	L_26
+ctrlvlanid	,	V_87
+EDP_TYPE_ESL	,	V_175
+ett	,	V_201
+wmem_packet_scope	,	F_11
+"True: checksum doesn't match packet content; False: matches content or not checked"	,	L_42
+"True: checksum matches packet content; False: doesn't match content or not checked"	,	L_39
+packet_info	,	T_2
+ett_edp_esl	,	V_106
+"edp.elrp.unknown"	,	L_203
+hf_edp_esl_linkrole	,	V_114
+"edp.eaps.reserved1"	,	L_152
+"Extreme Loop Recognition Protocol element"	,	L_201
+EXPFILL	,	V_205
+dissect_tlv_header	,	F_1
+"edp.info.vchassid"	,	L_71
+"edp.elsm.subtype"	,	L_197
+slot	,	V_32
+"edp.vlan.reserved2"	,	L_108
+esl_item	,	V_102
+ett_edp_checksum	,	V_163
+subtype	,	V_127
+hf_edp_info_version	,	V_43
+"Role"	,	L_166
+"Prio"	,	L_120
+"Version (major2)"	,	L_79
+HFILL	,	V_181
+PI_MALFORMED	,	V_203
+EDP_TYPE_ELRP	,	V_177
+"edp.eaps.reserved0"	,	L_145
+"Too few bytes left for TLV: %u (&lt; 4)"	,	L_25
+hf_edp_eaps_ctrlvlanid	,	V_93
+"EDP checksum"	,	L_35
+info_tree	,	V_34
+"Helloseq"	,	L_153
+gchar	,	T_9
+checksum_good	,	V_151
+"Virt chassis"	,	L_70
+create_dissector_handle	,	F_48
+proto_tree_add_subtree_format	,	F_4
+"ELSM"	,	L_192
+"edp.vlan.reserved1"	,	L_104
+"Version (internal)"	,	L_85
+ett_edp_display	,	V_19
+elsm_type_vals	,	V_128
+"Hello sequence"	,	L_155
+EDP_TYPE_ELSM	,	V_176
+"Unknown"	,	L_202
+hf_edp_elsm_magic	,	V_134
+"edp.vlan.name"	,	L_112
+"edp.vlan.flags.reserved"	,	L_100
+"Bad"	,	L_40
+"Reserved2"	,	L_107
+eaps_item	,	V_85
+proto_register_protocol	,	F_41
+hf_edp_eaps_sysmac	,	V_95
+"Subtype"	,	L_196
+hf_edp_esl_ctrlvlanid	,	V_109
+major2	,	V_28
+EDP_TYPE_VLAN	,	V_172
+major1	,	V_27
+"Machine ID type"	,	L_45
+"Vlan has IP address configured"	,	L_98
+dissect_elrp_tlv	,	F_27
+"Version"	,	L_29
+"TLV length"	,	L_53
+vlan_tree	,	V_52
+"edp.vlan.flags.ip"	,	L_97
+hf_edp_info_reserved	,	V_40
+" %s"	,	L_27
+gint	,	T_14
+"edp.esl.failed2"	,	L_175
+"edp.elsm.unknown"	,	L_199
+hf_edp_esl_numlinks	,	V_121
+"edp.info.slot"	,	L_65
+"Port"	,	L_67
+tvb	,	V_1
+"Good"	,	L_37
+ver_tree	,	V_26
+COL_INFO	,	V_65
+"edp.esrp.ports"	,	L_125
+"Display element"	,	L_57
+"edp.unknown"	,	L_204
+tlv_length	,	V_8
+"edp.eaps.hello"	,	L_147
+proto_tree_add_expert_format	,	F_37
+EDP_TYPE_DISPLAY	,	V_170
+"MIB II display string"	,	L_60
+cinfo	,	V_64
+PI_ERROR	,	V_204
+tfs_set_notset	,	V_192
+EDP_TYPE_NULL	,	V_169
+hf_edp_display	,	V_18
+"Reserved"	,	L_31
+"Reserved4"	,	L_177
+"Software version (major1)"	,	L_78
+hf_edp_unknown	,	V_142
+hf_edp_eaps_hello	,	V_96
+proto_tree_add_boolean	,	F_35
+"edp.esrp.virtip"	,	L_128
+"Originating port #"	,	L_69
+esl_state_vals	,	V_199
+"Originating slot #"	,	L_66
+"edp.vlan"	,	L_92
+hf_edp_esrp_hello	,	V_82
+COL_PROTOCOL	,	V_84
+"edp.esrp"	,	L_114
+"edp.tlv.marker"	,	L_50
+hf_edp_vlan_flags_ip	,	V_60
+"Reserved5"	,	L_182
+"edp.eaps.fail"	,	L_149
+guint8	,	T_6
+dissect_unknown_tlv	,	F_28
+"Group"	,	L_118
+ti	,	V_145
+tlv_marker	,	V_6
+"edp.eaps.vlanid"	,	L_142
+"Number of shared links in the network"	,	L_186
+hf_edp_info_vchassconn	,	V_48
+"edp.esl.failed1"	,	L_172
+"Ethernet Automatic Protection Switching element"	,	L_138
+esrp_state_vals	,	V_195
+vlan_id	,	V_53
+format_text	,	F_13
+"Sys MAC"	,	L_130
+dissect_vlan_tlv	,	F_18
+vlan_item	,	V_51
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_16
+tvb_get_ntohs	,	F_3
+flags_tree	,	V_50
+hf_edp_null	,	V_24
+gboolean	,	T_11
+"ESL: Ctrlvlan %d, Sysmac %s"	,	L_15
+"Data length"	,	L_33
+"Info: Slot/Port: %d/%d, Version: %d.%d.%d.%d"	,	L_5
+hf_edp_esl_reserved5	,	V_120
+dissect_elsm_tlv	,	F_26
+hf_edp_esl_reserved4	,	V_118
+last	,	V_153
+hf_edp_esl_reserved1	,	V_112
+hf_edp_esl_reserved0	,	V_110
+"ESRP"	,	L_11
+tvb_get_guint8	,	F_2
+hf_edp_vlan	,	V_55
+"TLV Marker"	,	L_49
+"State"	,	L_122
+hf_edp_midmac	,	V_168
+hf_edp_esl_ver	,	V_107
+hf_edp_vlan_flags_unknown	,	V_62
+"edp.tlv.length"	,	L_54
+"Software version (internal)"	,	L_87
+": \"%s\""	,	L_3
+":"	,	L_22
+hf_edp_elrp	,	V_137
+hf_edp_unknown_data	,	V_144
+"Checksum: 0x%04x [incorrect, should be 0x%04x]"	,	L_24
+proto_register_extreme_oui	,	F_50
+ett_edp_vlan_flags	,	V_59
+"edp.eaps.state"	,	L_151
+"Software version (sustaining)"	,	L_84
+data_length	,	V_154
+hf_edp_vlan_flags	,	V_58
+"Vlan"	,	L_91
+hf_edp_elsm	,	V_130
+ENC_BIG_ENDIAN	,	V_12
+dissect_esl_tlv	,	F_25
+"Info element"	,	L_63
+"edp.checksum"	,	L_36
+"edp.esl.linklist"	,	L_188
+"Null"	,	L_4
+elsm_tree	,	V_126
+"TLV is too short"	,	L_211
+"edp.info.version.sustaining"	,	L_83
+eaps_state_vals	,	V_197
+hf_edp_version	,	V_159
+PROTO_LONG_NAME	,	V_207
+"edp.display.string"	,	L_59
+ett_edp_null	,	V_25
+hf_edp_info_vchassid	,	V_39
+"Version: %u.%u.%u Internal: %u"	,	L_6
+hf_edp_checksum	,	V_162
+proto_tree_add_uint_format	,	F_33
+"Virtual chassis ID"	,	L_72
+"LLC Extreme OUI PID"	,	L_215
+"edp.null"	,	L_208
+proto_item_append_text	,	F_12
+hf_edp_esrp_ports	,	V_79
+unknown_tree	,	V_141
+"List of Shared Link IDs"	,	L_189
+ei_edp_short_tlv	,	V_57
+ett_edp_vlan	,	V_56
+"edp.vlan.flags"	,	L_95
+proto_register_subtree_array	,	F_44
+"edp.info"	,	L_62
+internal	,	V_30
+proto_tree_add_item	,	F_6
+in_cksum	,	F_32
+"edp.reserved"	,	L_32
+pinfo	,	T_3
+llc_add_oui	,	F_51
+_U_	,	V_2
+"Extreme Standby Router Protocol element"	,	L_115
+"edp.info.version.major2"	,	L_80
+checksum_item	,	V_147
+"edp.midtype"	,	L_46
+"System MAC address"	,	L_132
+"Hello"	,	L_133
+"edp.display"	,	L_56
+expert_edp	,	V_206
+"edp.esrp.reserved"	,	L_136
+FT_UINT8	,	V_179
+proto_item	,	T_8
+hf_edp_esl_failed2	,	V_117
+expert_register_field_array	,	F_46
+hf_edp_esl_failed1	,	V_116
+elrp_tree	,	V_136
+packet_checksum	,	V_149
+"Checksum: 0x%04x [correct]"	,	L_23
+"Flags-Unknown"	,	L_101
+"Machine MAC"	,	L_47
+hf_edp_esl_rest	,	V_123
+"Link List"	,	L_187
+OUI_EXTREME	,	V_211
+"EAPS shared link"	,	L_158
+hf_edp_info	,	V_35
+"edp.esrp.sysmac"	,	L_131
+"Connections"	,	L_88
+sysmac_str	,	V_88
+elsm_item	,	V_125
+"Software version (major2)"	,	L_81
+"edp.midmac"	,	L_48
+"edp.eaps.type"	,	L_141
+hf_edp_esrp_prio	,	V_77
+esrp_proto_vals	,	V_194
+ei_register_info	,	T_15
+hf_edp_eaps_helloseq	,	V_100
+PROTO_SHORT_NAME	,	V_156
+hf_edp_esrp_state	,	V_78
+group	,	V_72
+offset	,	V_3
+"edp.esl.state"	,	L_165
+expert_module_t	,	T_16
+tree	,	V_4
+"edp.eaps"	,	L_137
+hf_edp_info_slot	,	V_37
+display_name	,	V_17
+hf_edp_vlan_ip	,	V_68
+"edp.info.version.major1"	,	L_77
+hf_edp_vlan_id	,	V_66
+hf_edp_eaps_ver	,	V_91
+hf_edp_vlan_reserved1	,	V_63
+hf_edp_vlan_reserved2	,	V_67
+"edp.seqno"	,	L_44
+"edp"	,	L_212
+proto_tree_add_uint	,	F_7
+"edp.esl.vlanid"	,	L_161
+hf_edp_info_version_sustaining	,	V_46
+"edp.esl.numlinks"	,	L_185
+hf_edp_checksum_good	,	V_164
+"Reserved0"	,	L_144
+extreme_pid_vals	,	V_210
+elsm_subtype_vals	,	V_129
+tlv_tree	,	V_5
+"edp.checksum_bad"	,	L_41
+"Fail"	,	L_148
+"%d"	,	L_7
+hf_edp_elsm_type	,	V_132
+hf_edp_info_version_major2	,	V_45
+hf_edp_info_version_major1	,	V_44
+ett_edp_elsm	,	V_131
+edp_midtype_vals	,	V_186
+", Name \"%s\""	,	L_9
+"Reserved1"	,	L_103
+"End"	,	L_207
+"edp.vlan.flags.unknown"	,	L_102
+"Vlan ID"	,	L_105
+"VirtIP"	,	L_127
+numlinks	,	V_104
+ett_edp_tlv_header	,	V_9
+hf_edp_eaps_state	,	V_98
+"Protocol"	,	L_116
+"ESRP: Group %d"	,	L_10
+"edp.esl.type"	,	L_160
+hf_edp_eaps_reserved2	,	V_101
+hf_edp_eaps_reserved1	,	V_99
+hf_edp_eaps_reserved0	,	V_94
+"Type"	,	L_140
+"edp.info.reserved"	,	L_73
+proto_tree	,	T_5
+ett_edp_elrp	,	V_138
+"edp.length"	,	L_34

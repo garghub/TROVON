@@ -1,0 +1,110 @@
+"Channels"	,	L_19
+proto_register_protocol	,	F_13
+hf_tdmoe_flags	,	V_25
+prefs_register_protocol	,	F_17
+gint	,	T_8
+col_set_str	,	F_4
+"Flags"	,	L_10
+"TDMoE"	,	L_1
+tvb	,	V_1
+TDMOE_SIGBITS_BITMASK	,	V_29
+COL_INFO	,	V_17
+FT_BOOLEAN	,	V_40
+"Counter"	,	L_16
+cinfo	,	V_15
+proto_register_subtree_array	,	F_16
+"tdmoe.yellowalarm"	,	L_13
+gint32	,	T_7
+array_length	,	F_15
+"[YELLOW ALARM]"	,	L_3
+""	,	L_4
+proto_tree_add_item	,	F_7
+call_dissector	,	F_11
+pinfo	,	V_2
+col_add_fstr	,	F_5
+"d_channel"	,	L_25
+dissector_handle_t	,	T_11
+"lapd-bitstream"	,	L_29
+_U_	,	V_4
+flags	,	V_11
+"The TDMoE channel that contains the D-Channel."	,	L_27
+next_client	,	V_7
+tdmoe_tree	,	V_6
+"ethertype"	,	L_28
+"tdmoe.subaddress"	,	L_6
+hf_register_info	,	T_9
+lapd_handle	,	V_33
+tdmoe_handle	,	V_47
+guint16	,	T_6
+COL_PROTOCOL	,	V_16
+"Packet number"	,	L_18
+"data"	,	L_30
+tvb_length	,	F_2
+FT_UINT8	,	V_36
+"Samples per channel"	,	L_9
+hf_tdmoe_sig_bits	,	V_31
+BASE_DEC	,	V_37
+proto_item	,	T_5
+"TDMoE D-Channel"	,	L_26
+ett_tdmoe	,	V_21
+hf_tdmoe_subaddress	,	V_22
+ENC_NA	,	V_20
+hf_tdmoe_samples	,	V_24
+"tdmoe.samples"	,	L_8
+proto_register_tdmoe	,	F_12
+ti	,	V_5
+ett_tdmoe_flags	,	V_26
+BASE_NONE	,	V_43
+chan	,	V_14
+hf_tdmoe_packet_counter	,	V_27
+dissect_tdmoe	,	F_1
+"Yellow Alarm"	,	L_12
+data	,	T_4
+proto_tdmoe	,	V_19
+ETHERTYPE_TDMOE	,	V_48
+tvbuff_t	,	T_1
+"Subaddress: %d Channels: %d %s"	,	L_2
+"Digium TDMoE Protocol"	,	L_23
+tvb_get_ntohs	,	F_3
+proto_tree_add_bitmask	,	F_9
+BASE_HEX	,	V_39
+prefs_register_uint_preference	,	F_18
+hf_tdmoe_sig_bits_present	,	V_13
+hf_tdmoe_channels	,	V_28
+proto_item_add_subtree	,	F_8
+"tdmoe.channels"	,	L_20
+module_t	,	T_10
+proto_register_field_array	,	F_14
+FT_BYTES	,	V_42
+offset	,	V_10
+ett	,	V_44
+"tdmoe.sig_bits_present"	,	L_15
+dissector_add_uint	,	F_20
+tree	,	V_3
+"tdmoe"	,	L_24
+data_handle	,	V_34
+FT_UINT16	,	V_41
+packet_info	,	T_2
+"Subaddress"	,	L_5
+tvb_get_guint8	,	F_6
+channels	,	V_8
+subaddress	,	V_9
+tdmoe_module	,	V_45
+"tdmoe.flags"	,	L_11
+"Samples"	,	L_7
+proto_reg_handoff_tdmoe	,	V_46
+tvb_new_subset_length	,	F_10
+hf_tdmoe_yellow_alarm	,	V_12
+"Sig bits"	,	L_21
+pref_tdmoe_d_channel	,	V_32
+HFILL	,	V_38
+new_create_dissector_handle	,	F_19
+length	,	V_30
+"tdmoe.sig_bits"	,	L_22
+find_dissector	,	F_21
+ENC_BIG_ENDIAN	,	V_23
+"Sig bits present"	,	L_14
+"tdmoe.counter"	,	L_17
+TDMOE_YELLOW_ALARM_BITMASK	,	V_18
+proto_tree	,	T_3
+hf	,	V_35

@@ -1,0 +1,266 @@
+return_offset	,	V_26
+"\05\x04"	,	L_5
+"gss-api.segment.toolongfragment"	,	L_27
+BER_CLASS_APP	,	V_68
+proto_register_protocol	,	F_54
+tvb_reported_length	,	F_45
+find_protocol_by_id	,	F_8
+"Conflicting data in fragment overlap"	,	L_20
+wmem_tree_insert32	,	F_25
+tvb_new_chain	,	F_28
+ett_gssapi_segments	,	V_100
+tvb_new_subset_remaining	,	F_39
+len	,	V_31
+gssapi_frag_info_t	,	T_18
+gint	,	T_1
+g_hash_table_insert	,	F_9
+hf_gssapi_segment_error	,	V_94
+tvb	,	V_20
+"Unknown header (class=%d, pc=%d, tag=%d)"	,	L_6
+oid_tvb_local	,	V_75
+guint32	,	T_16
+appclass	,	V_35
+pd_save	,	V_44
+FT_BOOLEAN	,	V_90
+GET_MESSAGE	,	V_78
+"The frame where this pdu is reassembled"	,	L_36
+fragment_set_tot_len	,	F_46
+DCE_C_RPC_AUTHN_PROTOCOL_SPNEGO	,	V_111
+get_ber_identifier	,	F_34
+p_get_proto_data	,	F_41
+ind_field	,	V_37
+array_length	,	F_58
+"dns.tsig.mac"	,	L_53
+"Reassembled GSSAPI length"	,	L_37
+call_dissector	,	F_38
+gss_info	,	V_27
+hf_gssapi_segment_multiple_tails	,	V_92
+ett_gssapi	,	V_51
+asn1_ctx	,	V_43
+show_exception	,	F_49
+result	,	V_104
+"Fragment count"	,	L_32
+"Authentication credentials"	,	L_9
+hf_register_info	,	T_21
+"Defragmentation error"	,	L_29
+wrap_handle	,	V_15
+key	,	V_8
+spnego_krb5_wrap_handle	,	V_74
+i	,	V_10
+auth_tvb	,	V_102
+k	,	V_7
+reassembly_table_init	,	F_2
+tvb_memeql	,	F_40
+EXCEPT_CODE	,	V_77
+guint8	,	T_25
+BASE_NONE	,	V_83
+"ntlmssp_payload"	,	L_49
+start_offset	,	V_32
+tvb_length_remaining	,	F_36
+register_dissector	,	F_60
+ett_gssapi_segment	,	V_99
+"gss-api.segment.segments"	,	L_16
+"Fragment overlaps with other fragments"	,	L_19
+oid_tvb	,	V_30
+di	,	T_24
+tvbuff_t	,	T_7
+hf_gssapi_segment	,	V_85
+gssapi_decrypted_tvb	,	V_108
+CATCH_NONFATAL_ERRORS	,	F_48
+oid_start_offset	,	V_33
+len1	,	V_39
+PROTO_ITEM_SET_GENERATED	,	F_33
+DCE_C_AUTHN_LEVEL_PKT_INTEGRITY	,	V_113
+wrap_dissect_gssapi	,	F_64
+gboolean	,	T_10
+"Authentication verifier"	,	L_8
+dcerpc_info	,	T_23
+proto_is_protocol_enabled	,	F_47
+proto_item_add_subtree	,	F_22
+module_t	,	T_22
+proto_register_field_array	,	F_57
+conversation	,	V_29
+"GSSAPI Segment"	,	L_13
+tvb_data	,	V_62
+fragment_head	,	T_17
+gssapi_oid_hash	,	F_4
+gssapi_auth_fns	,	V_112
+data_tvb	,	V_103
+register_init_routine	,	F_63
+tvb_strneql	,	F_37
+p_add_proto_data	,	F_42
+"gss-api.reassembled.length"	,	L_38
+"gss-api.OID"	,	L_11
+hf_gssapi_oid	,	V_76
+fd	,	V_53
+hf_gssapi_reassembled_in	,	V_67
+dissect_gssapi	,	F_51
+hf_gssapi_segments	,	V_87
+DECRYPT_GSSAPI_DCE	,	V_106
+fi	,	V_41
+"gss.microsoft.com"	,	L_54
+oid_key	,	V_19
+"Fragment contained data past end of packet"	,	L_28
+g_hash_table_new	,	F_62
+do_reassembly	,	V_48
+gssapi_reassembly_init	,	F_1
+gint8	,	T_14
+"Reassembled GSSAPI"	,	L_1
+FT_STRING	,	V_82
+"ntlmssp"	,	L_48
+g_strdup	,	F_6
+"spnego-krb5-wrap"	,	L_52
+gssapi_lookup_oid_str	,	F_11
+register_dcerpc_auth_subdissector	,	F_69
+"OID"	,	L_10
+"Multiple tail fragments found"	,	L_23
+"Several tails were found when defragmenting the packet"	,	L_25
+conversation_add_proto_data	,	F_20
+"Reassemble fragmented GSSAPI blobs"	,	L_44
+find_dissector	,	F_68
+proto_register_gssapi	,	F_53
+register_ber_oid_dissector_handle	,	F_10
+hf_gssapi_segment_overlap_conflict	,	V_91
+FT_UINT32	,	V_96
+ntlmssp_payload_handle	,	V_70
+hf_gssapi_segment_count	,	V_95
+visited	,	V_55
+"gss-api.segment"	,	L_14
+comment	,	V_16
+find_or_create_conversation	,	F_15
+hf	,	V_81
+"GSSAPI Segments"	,	L_15
+gssapi_wrap_tvb	,	V_107
+fd_head	,	V_40
+hf_gssapi_reassembled_length	,	V_98
+prefs_register_protocol	,	F_55
+fragment_get	,	F_30
+frags	,	V_49
+is_verifier	,	V_23
+proto_gssapi	,	V_47
+item	,	V_24
+dcerpc_auth_info	,	T_27
+"gssapi"	,	L_46
+k1	,	V_3
+k2	,	V_4
+frag_tree_item	,	V_64
+ENDTRY	,	V_79
+handle	,	V_14
+it	,	V_66
+"Whether or not to try reassembling GSSAPI blobs spanning multiple (SMB/SessionSetup) PDUs"	,	L_45
+"Token object"	,	L_7
+get_ber_length	,	F_35
+asn1_ctx_init	,	F_14
+proto_register_subtree_array	,	F_59
+gint32	,	T_15
+"Fragment overlap"	,	L_17
+hash	,	V_9
+gssapi_oid_value	,	T_6
+first_frame	,	V_57
+proto_tree_add_item	,	F_21
+private_data	,	V_52
+dissector_handle_t	,	T_4
+pinfo	,	V_21
+flags	,	V_54
+_U_	,	V_80
+"GSS-API Generic Security Service Application Program Interface"	,	L_40
+new_register_dissector	,	F_61
+g_malloc	,	F_7
+"gss-api.segment.count"	,	L_33
+DCE_C_AUTHN_LEVEL_PKT_PRIVACY	,	V_114
+prefs_register_bool_preference	,	F_56
+gssapi_module	,	V_101
+tvb_length	,	F_27
+gconstpointer	,	T_2
+proto_tree_add_text	,	F_43
+BASE_DEC	,	V_97
+"Overlapping fragments contained conflicting data"	,	L_22
+proto_item	,	T_11
+gssapi_frag_items	,	V_65
+subtree	,	V_25
+ENC_NA	,	V_50
+"gss-api"	,	L_42
+dissector_add_string	,	F_70
+"\04\x04"	,	L_4
+"Fragment too long"	,	L_26
+"ntlmssp_data_only"	,	L_51
+proto_reg_handoff_gssapi	,	F_67
+key1	,	V_5
+key2	,	V_6
+g_hash_table_lookup	,	F_12
+frag_offset	,	V_60
+data	,	T_20
+dissect_gssapi_verf	,	F_52
+oidvalue	,	V_28
+num	,	V_59
+gss_tvb	,	V_42
+"\x01\x00\x00\x00"	,	L_3
+gssapi_init_oid	,	F_5
+wmem_tree_lookup32	,	F_24
+show_fragment_tree	,	F_31
+ntlmssp_handle	,	V_69
+gssapi_oids	,	V_18
+gssapi_encrypted_tvb	,	V_72
+drep	,	T_26
+TRY	,	F_23
+tag	,	V_38
+conversation_t	,	T_13
+guint	,	T_3
+FT_NONE	,	V_88
+ett	,	V_13
+offset	,	V_34
+addresses_reassembly_table_functions	,	V_2
+tree	,	V_22
+FD_DEFRAGMENTED	,	V_63
+done	,	V_58
+packet_info	,	T_8
+"gssapi_verf"	,	L_47
+gssapi_conv_info_t	,	T_12
+add_new_data_source	,	F_29
+"gss-api.segment.overlap"	,	L_18
+wmem_tree_new	,	F_19
+proto	,	V_12
+proto_tree_add_uint	,	F_32
+hf_gssapi_segment_too_long_fragment	,	V_93
+"This is a GSS-API Object Identifier"	,	L_12
+"Defragmentation error due to illegal fragments"	,	L_31
+fragment_add	,	F_26
+conversation_get_proto_data	,	F_16
+"NTLMSSP"	,	L_2
+oid	,	V_11
+"ntlmssp_verf"	,	L_50
+ASN1_ENC_BER	,	V_45
+"The total length of the reassembled payload"	,	L_39
+gssapi_reassembly_table	,	V_1
+gssapi_oid_equal	,	F_3
+"gss-api.segment.error"	,	L_30
+hf_gssapi_segment_overlap	,	V_89
+dissect_ber_object_identifier_str	,	F_44
+"gss-api.segment.multipletails"	,	L_24
+"GSS-API"	,	L_41
+wmem_file_scope	,	F_18
+gssapi_reassembly	,	V_56
+HFILL	,	V_84
+value	,	V_17
+"gss-api.segment.overlap.conflict"	,	L_21
+ntlmssp_verf_handle	,	V_71
+decrypt_gssapi_tvb	,	V_105
+wmem_new	,	F_17
+gchar	,	T_5
+"gss-api.reassembled_in"	,	L_35
+"gssapi_reassembly"	,	L_43
+gssapi_handle	,	V_109
+"Reassembled In"	,	L_34
+dissect_gssapi_work	,	F_13
+FT_FRAMENUM	,	V_86
+auth_info	,	T_28
+ntlmssp_data_only_handle	,	V_73
+reassembled_in	,	V_61
+proto_item_set_len	,	F_50
+pc	,	V_36
+wrap_dissect_gssapi_verf	,	F_65
+asn1_ctx_t	,	T_19
+DCE_C_AUTHN_LEVEL_CONNECT	,	V_110
+wrap_dissect_gssapi_payload	,	F_66
+gssapi_data_encrypted	,	V_46
+proto_tree	,	T_9

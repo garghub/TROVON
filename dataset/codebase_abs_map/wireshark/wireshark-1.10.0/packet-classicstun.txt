@@ -1,0 +1,253 @@
+REMOTE_ADDRESS	,	V_70
+"classicstun.att.family"	,	L_31
+proto_register_classicstun	,	F_30
+proto_register_protocol	,	F_33
+hf_classicstun_type	,	V_53
+"Error Code"	,	L_45
+"Attribute Length: %u (bogus, goes past the end of the message)"	,	L_6
+att_type	,	V_13
+CLASSICSTUN_HDR_LEN	,	V_23
+len	,	V_16
+att_length	,	V_14
+gint	,	T_16
+USERNAME	,	V_79
+FT_RELATIVE_TIME	,	V_117
+"classicstun.att.bandwidth"	,	L_61
+RESPONSE	,	V_48
+"Port"	,	L_35
+transaction_id	,	V_22
+TFS	,	F_32
+"classicstun.att.magic.cookie"	,	L_59
+tvb	,	V_1
+"classicstun.att.port"	,	L_36
+guint32	,	T_12
+COL_INFO	,	V_42
+"Error Class"	,	L_43
+FT_BOOLEAN	,	V_122
+"classicstun.response_to"	,	L_19
+classicstun_att_length	,	V_62
+LIFETIME	,	V_90
+CLASS_MASK	,	V_33
+"IP (XOR-d)"	,	L_49
+cinfo	,	V_40
+proto_tree_add_ipv4	,	F_26
+"Unknown Attribute"	,	L_41
+tfs_set_notset	,	V_123
+hf_classicstun_response_in	,	V_47
+"Attribute Length"	,	L_26
+array_length	,	F_35
+"classicstun.att.ipv6"	,	L_34
+classicstun_att_server_string	,	V_101
+"classicstun.att.change.ip"	,	L_38
+classicstun_trans	,	V_20
+"classicstun.att.unknown"	,	L_42
+ENC_ASCII	,	V_89
+abs_ts	,	V_39
+classicstun_att_change_port	,	V_78
+"classicstun.att.error.class"	,	L_44
+"Magic Cookie"	,	L_58
+"classicstun"	,	L_68
+classicstun_att_magic_cookie	,	V_93
+hf_register_info	,	T_15
+UNKNOWN_ATTRIBUTES	,	V_98
+"classicstun.att.lifetime"	,	L_57
+key	,	V_26
+"classicstun.type"	,	L_8
+guint16	,	T_6
+COL_PROTOCOL	,	V_41
+"classicstun.length"	,	L_10
+hf_classicstun_time	,	V_52
+i	,	V_17
+"IP"	,	L_32
+classicstun_att_value	,	V_84
+ta	,	V_6
+ett_classicstun_att	,	V_60
+"Connection Request Binding"	,	L_64
+att_tree	,	V_9
+ti	,	V_5
+REQUEST	,	V_34
+BASE_NONE	,	V_114
+"classicstun-heur"	,	L_69
+classicstun_att_error_number	,	V_87
+BANDWIDTH	,	V_94
+msg_length	,	V_11
+SOURCE_ADDRESS	,	V_65
+"Response In"	,	L_15
+"classicstun.time"	,	L_22
+"classicstun.att.connection_request_binding"	,	L_65
+tvb_get_ntohl	,	F_4
+hf_classicstun_id	,	V_55
+"classicstun.att.length"	,	L_27
+tvbuff_t	,	T_1
+tvb_get_ntohs	,	F_3
+MESSAGE_INTEGRITY	,	V_81
+BASE_HEX	,	V_111
+ett_classicstun	,	V_45
+PROTO_ITEM_SET_GENERATED	,	F_19
+"Message Length"	,	L_9
+gboolean	,	T_14
+classicstun_att_type	,	V_61
+proto_item_add_subtree	,	F_17
+proto_register_field_array	,	F_34
+att_type_tree	,	V_8
+conversation	,	V_18
+FT_BYTES	,	V_113
+"Attributes"	,	L_13
+se_tree_insert32_array	,	F_11
+nstime_delta	,	F_20
+g_htonl	,	F_28
+"classicstun.att.port-xord"	,	L_53
+msg_type_str	,	V_12
+req_time	,	V_38
+FT_UINT16	,	V_110
+tvb_get_guint8	,	F_25
+msg_type	,	V_10
+RESPONSE_ADDRESS	,	V_64
+ep_new	,	F_13
+fd	,	V_30
+classicstun_info	,	V_19
+"classicstun.att.change.port"	,	L_40
+"classicstun.att.type"	,	L_25
+REALM	,	V_83
+"Error Reason Phase"	,	L_47
+"CLASSICSTUN"	,	L_67
+heur_dissector_add	,	F_39
+"Message Type"	,	L_7
+FT_STRING	,	V_125
+XOR_MAPPED_ADDRESS	,	V_102
+proto_reg_handoff_classicstun	,	F_38
+SERVER	,	V_100
+se_tree_lookup32_array	,	F_12
+"Change Port"	,	L_39
+conversation_add_proto_data	,	F_10
+length	,	V_25
+"classicstun_pdus"	,	L_1
+ENC_BIG_ENDIAN	,	V_72
+FT_UINT32	,	V_126
+visited	,	V_32
+find_or_create_conversation	,	F_6
+"Message Transaction ID"	,	L_11
+"classicstun.att.ipv4"	,	L_33
+hf	,	V_109
+transaction_id_key	,	V_21
+classicstun_transaction_t	,	T_10
+proto_tree_add_time	,	F_21
+FT_IPv6	,	V_121
+col_set_str	,	F_14
+proto_classicstun	,	V_27
+proto_tree_add_uint_format	,	F_24
+FT_IPv4	,	V_120
+"CLASSIC-STUN"	,	L_2
+"Unknown (0x%04x)"	,	L_5
+"Time"	,	L_21
+MAPPED_ADDRESS	,	V_63
+classicstun_conv_info_t	,	T_9
+it	,	V_46
+classicstun_att_bandwidth	,	V_95
+"Change IP"	,	L_37
+attributes_family	,	V_119
+classicstun_att_data	,	V_97
+proto_register_subtree_array	,	F_36
+messages	,	V_24
+val_to_str	,	F_23
+ERROR_RESPONSE	,	V_49
+dissect_classicstun	,	F_1
+proto_tree_add_item	,	F_16
+"classicstun.att.data"	,	L_63
+pinfo	,	V_2
+col_add_fstr	,	F_15
+hf_classicstun_length	,	V_54
+"Data"	,	L_62
+_U_	,	V_4
+flags	,	V_31
+"This is a response to the CLASSICSTUN Request in this frame"	,	L_20
+classicstun_att_xor_ipv6	,	V_105
+"classicstun.att.error"	,	L_46
+new_register_dissector	,	F_37
+classicstun_att_xor_ipv4	,	V_104
+"Value"	,	L_28
+classicstun_att_family	,	V_71
+req_frame	,	V_35
+"classicstun.att.server"	,	L_55
+tvb_get_ipv4	,	F_27
+"Port (XOR-d)"	,	L_52
+classicstun_att_unknown	,	V_99
+VALS	,	F_31
+classicstun_att_error_reason	,	V_88
+ALTERNATE_SERVER	,	V_68
+"Lifetime"	,	L_56
+tvb_length	,	F_2
+DESTINATION_ADDRESS	,	V_69
+FT_UINT8	,	V_124
+proto_tree_add_text	,	F_22
+BASE_DEC	,	V_118
+proto_item	,	T_5
+"Server version"	,	L_54
+CONNECTION_REQUEST_BINDING	,	V_107
+try_val_to_str	,	F_5
+ENC_NA	,	V_44
+hf_classicstun_att	,	V_56
+classicstun_att_ipv6	,	V_75
+classicstun_att_ipv4	,	V_74
+attributes	,	V_59
+REQUESTED_ADDRESS_TYPE	,	V_106
+data	,	T_4
+"classicstun.response_in"	,	L_16
+dissect_classicstun_heur	,	F_29
+num	,	V_36
+ATTR_HDR_LEN	,	V_58
+"classicstun.att.value"	,	L_29
+hf_classicstun_response_to	,	V_51
+"Attribute Type"	,	L_24
+"tcp"	,	L_71
+"Request In"	,	L_18
+nstime_t	,	T_13
+conversation_t	,	T_8
+ett_classicstun_att_type	,	V_57
+CHANGED_ADDRESS	,	V_66
+guint	,	T_7
+FT_NONE	,	V_115
+offset	,	V_15
+ett	,	V_127
+pdus	,	V_28
+"The time between the Request and the Response"	,	L_23
+"Bandwidth"	,	L_60
+tree	,	V_3
+packet_info	,	T_2
+classicstun_att_xor_port	,	V_103
+rep_frame	,	V_37
+classicstun_tree	,	V_7
+PASSWORD	,	V_80
+classicstun_att_error_class	,	V_86
+DATA	,	V_96
+"classicstun.id"	,	L_12
+"udp"	,	L_70
+"Protocol Family"	,	L_30
+"classicstun.att.ipv6-xord"	,	L_51
+proto_tree_add_uint	,	F_18
+NONCE	,	V_82
+classicstun_att_port	,	V_73
+ns	,	V_50
+MAGIC_COOKIE	,	V_92
+conversation_get_proto_data	,	F_7
+CHANGE_REQUEST	,	V_76
+se_new	,	F_8
+emem_tree_key_t	,	T_11
+ERROR_CODE	,	V_85
+"Simple Traversal of UDP Through NAT"	,	L_66
+REFLECTED_FROM	,	V_67
+se_tree_create_non_persistent	,	F_9
+classicstun_att_lifetime	,	V_91
+HFILL	,	V_112
+"classicstun.att.error.reason"	,	L_48
+EMEM_TREE_TYPE_RED_BLACK	,	V_29
+"Attribute: %s"	,	L_4
+FT_FRAMENUM	,	V_116
+"classicstun.att.ipv4-xord"	,	L_50
+"Message: %s"	,	L_3
+classicstun_att_connection_request_binding	,	V_108
+transaction_id_first_word	,	V_43
+"The response to this CLASSICSTUN query is in this frame"	,	L_17
+classicstun_att_change_ip	,	V_77
+proto_tree	,	T_3
+"classicstun.att"	,	L_14

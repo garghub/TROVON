@@ -1,0 +1,667 @@
+interfaceSubclass	,	V_6
+parent	,	V_175
+hf_usb_configuration_remotewakeup	,	V_121
+USB_DT_DEVICE	,	V_134
+hf_usb_bAlternateSetting	,	V_55
+"relevant (0)"	,	L_27
+data_base	,	V_238
+"usb.bmAttributes.transfer"	,	L_179
+hf_usb_value	,	V_140
+"bDeviceClass"	,	L_132
+conv_info	,	V_199
+"usb.bMaxPacketSize0"	,	L_139
+hf_usb_bFunctionSubClass	,	V_104
+TFS	,	F_90
+guint32	,	T_5
+bmrequesttype_type_vals	,	V_274
+setup_flag	,	V_177
+dissect_usb_setup_clear_feature_response	,	F_11
+USB_DT_ENDPOINT	,	V_126
+FT_BOOLEAN	,	V_271
+"usb.bNumInterfaces"	,	L_195
+"IN"	,	L_7
+"INTERFACE DESCRIPTOR"	,	L_5
+"%s ('%c')"	,	L_24
+dissect_usb_setup_get_interface_response	,	F_46
+tvb_reported_length_remaining	,	F_82
+hf_usb_bInterfaceProtocol	,	V_67
+usb_addr	,	V_83
+"bFunctionSubClass"	,	L_227
+dissect_usb_setup_get_interface_request	,	F_45
+"bDeviceSubClass"	,	L_134
+array_length	,	F_93
+""	,	L_16
+"Application Data Length"	,	L_112
+hf_usb_bNumEndpoints	,	V_56
+"usb.urb_len"	,	L_71
+hf_usb_bString	,	V_51
+"ISO data length in bytes"	,	L_106
+"usb.bcdUSB"	,	L_131
+"usb.wMaxPacketSize.slots"	,	L_189
+"usb.time"	,	L_216
+power_item	,	V_112
+col_append_str	,	F_65
+"bRequest"	,	L_78
+hf_usb_bEndpointAttributeTransfer	,	V_91
+"usb"	,	L_233
+hf_register_info	,	T_21
+ENDPOINT_TYPE_ISOCHRONOUS	,	V_97
+dst_endpoint	,	V_14
+hf_usb_bConfigurationValue	,	V_26
+"URB usec"	,	L_66
+hf_usb_idVendor	,	V_39
+hf_usb_urb_ts_sec	,	V_169
+guint16	,	T_13
+address	,	T_4
+"Response in"	,	L_218
+hf_usb_index	,	V_143
+"USB"	,	L_31
+"Leftover Capture Data"	,	L_114
+"usb.bDeviceClass"	,	L_133
+i	,	V_237
+hf_usb_urb_len	,	V_172
+usb_address_t	,	T_12
+t	,	V_194
+u	,	V_46
+BASE_NONE	,	V_264
+"usb.bInterfaceSubClass"	,	L_167
+"  (%dmA)"	,	L_20
+dissect_linux_usb_common	,	F_71
+tfs_mustbeone	,	V_284
+hf_usb_urb_type	,	V_158
+"usb.bmRequestType.recipient"	,	L_121
+"Request in"	,	L_212
+hf_usb_bmAttributes	,	V_89
+"URB type"	,	L_40
+hf_usb_bcdDevice	,	V_41
+RQT_SETUP_RECIPIENT_INTERFACE	,	V_225
+"usb.bmAttributes.sync"	,	L_181
+hf_usb_iso_status	,	V_244
+"bConfigurationValue"	,	L_196
+"wtap_encap"	,	L_247
+tvb_memcpy	,	F_62
+"usb.iso.error_count"	,	L_95
+BASE_HEX	,	V_254
+hf_usb_bEndpointAddress	,	V_72
+PROTO_ITEM_SET_GENERATED	,	F_76
+"bInterfaceProtocol"	,	L_168
+"usb.configuration.bmAttributes"	,	L_175
+ett_descriptor_device	,	V_32
+endpoint_addr	,	V_227
+dst_addr	,	V_12
+iso_numdesc	,	V_233
+"bFirstInterface"	,	L_221
+proto_item_add_subtree	,	F_16
+module_t	,	T_20
+"usb.endpoint_number.direction"	,	L_48
+proto_register_field_array	,	F_92
+conversation	,	V_1
+hf_usb_idProduct	,	V_40
+FT_BYTES	,	V_269
+type_2	,	V_213
+dissector_add_uint	,	F_103
+nstime_delta	,	F_78
+dissect_usb_interface_descriptor	,	F_23
+hf_usb_wLANGID	,	V_49
+"Language Id"	,	L_126
+"try_heuristics"	,	L_242
+FT_UINT16	,	V_262
+dissect_usb_device_descriptor	,	F_18
+"ISO error count"	,	L_94
+"usb.LanguageId"	,	L_127
+setup_request_names_vals	,	V_223
+"bInterval"	,	L_190
+hf_usb_endpoint_direction	,	V_259
+"Data length [bytes]"	,	L_73
+fd	,	V_15
+"bInterfaceCount"	,	L_223
+wValue	,	V_218
+hf_usb_data_len	,	V_270
+USB_DT_INTERFACE_ASSOCIATION	,	V_127
+tfs_remotewakeup	,	V_286
+urb_type	,	V_198
+"%s Response"	,	L_35
+ett_configuration_bmAttributes	,	V_118
+"usb.idProduct"	,	L_143
+"Synchronisationtype"	,	L_180
+"  %sSELF-POWERED"	,	L_15
+"ISO descriptor status"	,	L_100
+FT_STRING	,	V_263
+hf_usb_request_unknown_class	,	V_230
+"Direction"	,	L_47
+ep_attrib_item	,	V_76
+"wFeatureSelector"	,	L_86
+endpoint_tree	,	V_70
+"ISO Data"	,	L_110
+conversation_add_proto_data	,	F_5
+dissect_usb_setup_set_interface_request	,	F_55
+AT_USB	,	V_86
+"bInterfaceNumber"	,	L_158
+"usb.wMaxPacketSize.size"	,	L_187
+hf_usb_iProduct	,	V_43
+"URB status"	,	L_68
+hf_usb_bEndpointAttributeSynchonisation	,	V_92
+FT_UINT32	,	V_265
+"USB endpoint number"	,	L_46
+hf_usb_configuration_bmAttributes	,	V_117
+old_offset	,	V_31
+visited	,	V_59
+setup	,	V_215
+transfer_type	,	V_150
+guint64	,	T_14
+"wStatus"	,	L_90
+hf	,	V_252
+hf_usb_bDescriptorType	,	V_28
+USB_DT_DEVICE_QUALIFIER	,	V_137
+hf_usb_length	,	V_25
+dissect_usb_setup_get_descriptor_request	,	F_38
+usb_conv_info_t	,	T_1
+hf_usb_iso_data	,	V_247
+"usb.bInterfaceNumber"	,	L_159
+hf_usb_bmRequestType_recipient	,	V_149
+usb_setup_dissector_table_t	,	T_18
+prefs_register_protocol	,	F_98
+"usb.bAlternateSetting"	,	L_161
+register_heur_dissector_list	,	F_97
+"usb.bFunctionClass"	,	L_226
+"iFunction"	,	L_231
+col_append_fstr	,	F_40
+tmp	,	V_210
+col_set_str	,	F_72
+"bNumConfigurations"	,	L_152
+ep_pktsize_tree	,	V_79
+hf_usb_language_id	,	V_133
+"usb.iso.iso_len"	,	L_105
+"bNumEndpoints"	,	L_162
+"Endpoint value"	,	L_50
+hf_usb_iSerialNumber	,	V_44
+index	,	V_48
+"USB device address"	,	L_55
+"usb.iProduct"	,	L_149
+ep_type	,	V_80
+transactions	,	V_8
+usb_bmAttributes_behaviour_vals	,	V_282
+dissect_usb_setup_get_status_response	,	F_48
+iso_pad	,	V_242
+dissect_usb_endpoint_descriptor	,	F_27
+"usb.bFunctionProtocol"	,	L_230
+"usb.bEndpointAddress.number"	,	L_210
+URB_ISOCHRONOUS	,	V_232
+"usb.bEndpointAddress.direction"	,	L_211
+"not present ('%c')"	,	L_30
+hf_usb_endpoint_number_value	,	V_261
+USB_DIR_IN	,	V_273
+hf_usb_bInterfaceSubClass	,	V_66
+"usb.iso.iso_off"	,	L_102
+proto_tree_add_string	,	F_22
+val_to_str	,	F_41
+"URB sec"	,	L_64
+"bcdUSB"	,	L_130
+hf_usb_iManufacturer	,	V_42
+dissect_usb_setup_set_configuration_response	,	F_52
+dissector_try_heuristic	,	F_83
+hf_usb_descriptor_index	,	V_129
+dissector_handle_t	,	T_23
+interface_num	,	V_52
+"CONTROL response data"	,	L_36
+"usb.iConfiguration"	,	L_199
+"usb.urb_type"	,	L_41
+hf_usb_wFrameNumber	,	V_144
+hf_usb_iFunction	,	V_106
+usb_transfer_type_and_direction_vals	,	V_162
+hf_usb_bmRequestType_direction	,	V_147
+"URB id"	,	L_38
+hf_usb_response_in	,	V_193
+get_descriptor	,	V_47
+"not relevant ('%c')"	,	L_28
+"usb.setup.bRequest"	,	L_79
+VALS	,	F_89
+prefs_register_bool_preference	,	F_99
+usb_tap	,	V_202
+usb_endpoint_direction_vals	,	V_260
+"Endpoint"	,	L_44
+"NOT "	,	L_17
+tvb_length	,	F_44
+dissect_usb_setup_set_feature_response	,	F_54
+"bLength"	,	L_128
+proto_tree_add_text	,	F_15
+BASE_DEC	,	V_257
+"Maximum Packet Size"	,	L_186
+usb_endpoint_fields	,	V_165
+"usb.setup.wIndex"	,	L_83
+"usb.bDeviceProtocol"	,	L_137
+"bNumInterfaces"	,	L_194
+"Self-Powered"	,	L_205
+URB_CONTROL	,	V_201
+ENC_NA	,	V_248
+"bcdDevice"	,	L_144
+"USB endpoint direction"	,	L_49
+flags_item	,	V_110
+hf_usb_wStatus	,	V_141
+header_len_64	,	V_191
+hf_usb_iso_error_count	,	V_234
+dissect_usb_setup_set_feature_request	,	F_53
+hf_usb_bLength	,	V_27
+URB_INTERRUPT	,	V_207
+setup_response_dissectors	,	V_231
+se_tree_lookup32	,	F_74
+"Offset [bytes]"	,	L_101
+"usb.iSerialNumber"	,	L_151
+"usb.transfer_type"	,	L_43
+"bInterfaceClass"	,	L_164
+proto_reg_handoff_usb	,	F_101
+hf_usb_setup_flag	,	V_167
+"attempting to dissect the packet using the \"usb.bulk\", \"usb.interrupt\" or "	,	L_245
+se_alloc0	,	F_3
+"USB control endpoint"	,	L_237
+next_type	,	V_123
+"usb.bmRequestType.type"	,	L_119
+"iSerialNumber"	,	L_150
+net_src	,	V_185
+USB_RECIPIENT	,	F_85
+usb_conv_info	,	V_2
+ett_endpoint_wMaxPacketSize	,	V_95
+usb_urb_status_vals	,	V_267
+"Must be 1"	,	L_202
+descriptor_type_vals	,	V_132
+linux_usb_handle	,	V_291
+hf_usb_transfer_type	,	V_160
+"Legacy USB 1.0 bus powered"	,	L_204
+src_endpoint	,	V_13
+"URB setup"	,	L_33
+tfs_endpoint_direction	,	V_287
+usb_langid_vals_ext	,	V_278
+hf_usb_data_flag	,	V_168
+hf_usb_device_address	,	V_142
+packet_info	,	T_3
+"iConfiguration"	,	L_198
+setup_request_dissectors	,	V_224
+"URB length in bytes"	,	L_72
+"USB bulk endpoint"	,	L_235
+"usb.wLANGID"	,	L_155
+"Unknown %d"	,	L_25
+"%s Request"	,	L_34
+usb_class_vals	,	V_279
+"bDescriptorType"	,	L_122
+"Time between Request and Response for USB cmds"	,	L_217
+ndesc	,	V_174
+dst	,	V_64
+"  %s"	,	L_6
+"GET DESCRIPTOR data (unknown descriptor type %u)"	,	L_23
+hf_usb_bNumConfigurations	,	V_38
+dissect_usb_interface_assn_descriptor	,	F_30
+hf_usb_bMaxPacketSize0	,	V_37
+conversation_get_proto_data	,	F_2
+"bString"	,	L_156
+ptype	,	V_17
+usb_feature_selector_vals	,	V_268
+USB_DT_INTERFACE	,	V_125
+hf_usb_wTotalLength	,	V_114
+URB_TRANSFER_IN	,	V_184
+"usb.request_in"	,	L_213
+usb_descriptor_dissector_table	,	V_128
+RQT_SETUP_RECIPIENT_ENDPOINT	,	V_226
+"bmRequestType"	,	L_76
+"USB device setup request is relevant (0) or not"	,	L_60
+"usb.bmRequestType.direction"	,	L_117
+wIndex	,	V_219
+"usb.urb_id"	,	L_39
+PI_MALFORMED	,	V_108
+HFILL	,	V_255
+hf_usb_urb_id	,	V_157
+dissector_try_uint	,	F_37
+"Status"	,	L_98
+interface_info	,	V_61
+src	,	V_63
+dissect_usb_setup_clear_feature_request	,	F_9
+PT_USB	,	V_187
+usb_isodesc	,	V_243
+se_tree_insert32	,	F_75
+"usb.data_flag"	,	L_62
+"usb.bulk"	,	L_234
+"  %sREMOTE-WAKEUP"	,	L_18
+create_dissector_handle	,	F_102
+"idVendor"	,	L_140
+hf_usb_bDeviceProtocol	,	V_36
+"usb.bDeviceSubClass"	,	L_135
+net_dst	,	V_186
+"wLANGID"	,	L_154
+proto_tree_add_int	,	F_69
+"usb.bInterfaceProtocol"	,	L_169
+IF_CLASS_UNKNOWN	,	V_5
+heur_interrupt_subdissector_list	,	V_208
+"usb.bDescriptorType"	,	L_123
+INTERFACE_PORT	,	V_62
+"usb.bInterval"	,	L_191
+try_heuristics	,	V_204
+proto_register_protocol	,	F_91
+hf_usb_request_in	,	V_196
+dissector	,	V_211
+dissect_usb_hid_get_report_descriptor	,	F_43
+"usb.wMaxPacketSize"	,	L_185
+check_col	,	F_39
+tvb_new_subset_remaining	,	F_36
+"Device"	,	L_53
+"wLength"	,	L_84
+len	,	V_45
+usb_control_dissector_table	,	V_229
+USB_DT_CONFIG	,	V_135
+"usb transactions"	,	L_1
+" %s"	,	L_21
+gint	,	T_22
+FT_RELATIVE_TIME	,	V_289
+"usb.bNumEndpoints"	,	L_163
+usb_trans_info_t	,	T_8
+tvb	,	V_20
+"USB descriptor"	,	L_241
+se_tree_lookup32_le	,	F_77
+"usb.setup.wFrameNumber"	,	L_93
+hf_usb_bFirstInterface	,	V_101
+"usb.bcdDevice"	,	L_145
+COL_INFO	,	V_131
+tfs_selfpowered	,	V_285
+hf_usb_iso_pad	,	V_249
+"Transfertype"	,	L_178
+hf_usb_urb_ts_usec	,	V_170
+header_len_64_bytes	,	V_176
+"usb.endpoint_number"	,	L_45
+alt_setting	,	V_53
+proto_tree_add_string_format_value	,	F_68
+str	,	V_50
+ENDPOINT_TYPE_INTERRUPT	,	V_96
+usb_bmAttributes_sync_vals	,	V_281
+cinfo	,	V_130
+PI_ERROR	,	V_109
+register_tap	,	F_100
+device	,	V_84
+hf_usb_bNumInterfaces	,	V_115
+next_tvb	,	V_124
+iso_off	,	V_240
+"UNKNOWN DESCRIPTOR"	,	L_12
+"usb.control"	,	L_236
+"usb.bString"	,	L_157
+"Padding added by the USB capture system"	,	L_116
+"usb.iManufacturer"	,	L_147
+dissect_usb_endpoint_address	,	F_25
+"bFunctionClass"	,	L_225
+abs_ts	,	V_190
+hf_usb_wInterface	,	V_24
+WTAP_ENCAP_USB_LINUX_MMAPPED	,	V_294
+"bmAttributes"	,	L_176
+endpoint	,	V_71
+"usb.urb_ts_sec"	,	L_65
+IF_CLASS_HID	,	V_139
+"usb.bus_id"	,	L_57
+bmrequesttype_recipient_vals	,	V_276
+"URB transfer type"	,	L_42
+IF_SUBCLASS_UNKNOWN	,	V_7
+"USB interrupt endpoint"	,	L_239
+"usb.descriptor"	,	L_240
+hf_usb_bEndpointAddress_number	,	V_75
+htolel	,	F_24
+"usb.data_len"	,	L_74
+"usb.setup.wLength"	,	L_85
+dissect_usb_descriptor_header	,	F_13
+"usb.bmRequestType"	,	L_77
+COL_PROTOCOL	,	V_180
+"Device setup request"	,	L_58
+"usb.bLength"	,	L_129
+URB_SUBMIT	,	V_183
+src_addr	,	V_11
+tvb_get_ephemeral_unicode_string	,	F_21
+hf_usb_wMaxPacketSize_size	,	V_99
+"usb.iso.iso_status"	,	L_99
+guint8	,	T_11
+"ISO data offset in bytes starting from the end of the last ISO descriptor"	,	L_103
+"INTERFACE ASSOCIATION DESCRIPTOR"	,	L_11
+ti	,	V_181
+"usb.bMaxPower"	,	L_201
+dissect_usb_setup_get_descriptor_response	,	F_42
+NO_ENDPOINT	,	V_81
+"Remote Wakeup"	,	L_207
+tvb_length_remaining	,	F_35
+bLength	,	V_107
+register_dissector	,	F_95
+usb_bmAttributes_transfer_vals	,	V_280
+hf_usb_bus_id	,	V_166
+tvbuff_t	,	T_7
+ep_pktsize_item	,	V_78
+proto_tree_add_protocol_format	,	F_73
+"usb.iFunction"	,	L_232
+"usb.bmAttributes"	,	L_177
+"URB bus id"	,	L_56
+"usb.setup_flag"	,	L_59
+tmp_addr	,	V_82
+proto_tree_add_bitmask	,	F_66
+"Invalid bLength: %u"	,	L_13
+parent_tree	,	V_29
+"wFrameNumber"	,	L_92
+hf_usb_bcdUSB	,	V_33
+flags_tree	,	V_111
+"bEndpointAddress"	,	L_172
+gboolean	,	T_15
+"Recipient"	,	L_120
+"Try to decode a packet using a heuristic sub-dissector before "	,	L_244
+ep_alloc	,	F_80
+"usb.DescriptorIndex"	,	L_125
+hf_usb_endpoint_number	,	V_163
+dissect_usb_string_descriptor	,	F_19
+"bDeviceProtocol"	,	L_136
+dissect_usb_setup_get_status_request	,	F_47
+"NO "	,	L_19
+"USB isodesc %u"	,	L_37
+USB_TYPE_MASK	,	V_275
+req_time	,	V_189
+URB_BULK	,	V_203
+tvb_get_guint8	,	F_20
+"present (0)"	,	L_29
+usb_hdr	,	V_182
+usb_wMaxPacketSize_slots_vals	,	V_283
+"DEVICE DESCRIPTOR"	,	L_3
+"usb.bFunctionSubClass"	,	L_228
+hf_usb_wMaxPacketSize_slots	,	V_98
+is_request	,	V_178
+RQT_SETUP_TYPE_CLASS	,	V_220
+hf_usb_urb_data_len	,	V_173
+"  Endpoint:%d"	,	L_9
+"iManufacturer"	,	L_146
+"USB URB"	,	L_32
+requesttype	,	V_216
+conversation_new	,	F_8
+usb_transfer_type_vals	,	V_258
+"usb.setup.wValue"	,	L_81
+FT_INT32	,	V_266
+"The response to this packet is in this packet"	,	L_220
+hf_usb_iInterface	,	V_68
+"usb.response_in"	,	L_219
+request_in	,	V_188
+"usb.bEndpointAddress"	,	L_173
+proto_usb	,	V_3
+"URB data length in bytes"	,	L_75
+"usb.bNumConfigurations"	,	L_153
+dissect_usb_unknown_descriptor	,	F_31
+hf_usb_iConfiguration	,	V_116
+"Unknown type %u"	,	L_22
+proto_tree_add_uint_format_value	,	F_64
+ENC_BIG_ENDIAN	,	V_161
+hf_usb_bInterfaceClass	,	V_57
+dissect_usb_setup_set_interface_response	,	F_56
+"\"usb.control\" dissector tables."	,	L_246
+"wValue"	,	L_80
+dissect_usb_setup_get_configuration_response	,	F_12
+hf_usb_bFunctionProtocol	,	V_105
+hf_usb_bMaxPower	,	V_122
+ett_usb_endpoint	,	V_164
+proto_tree_add_time	,	F_79
+"Transactions per microframe"	,	L_188
+tap_data	,	V_179
+"Descriptor Index"	,	L_124
+"usb.bInterfaceClass"	,	L_165
+"wInterface"	,	L_88
+"USB endpoint value"	,	L_52
+dissect_linux_usb_pseudo_header_ext	,	F_70
+usb_subtrees	,	V_290
+BASE_EXT_STRING	,	V_277
+FT_UINT64	,	V_253
+dissect_linux_usb_mmapped	,	F_87
+"iInterface"	,	L_170
+"usb.bmAttributes.behaviour"	,	L_183
+item	,	V_30
+"usb.setup.wFeatureSelector"	,	L_87
+urb_tree	,	V_236
+"usb.iso.numdesc"	,	L_97
+hf_usb_urb_status	,	V_171
+proto_item_append_text	,	F_26
+"bInterfaceSubClass"	,	L_166
+"usb.bFirstInterface"	,	L_222
+RQT_SETUP_TYPE_STANDARD	,	V_221
+ett_endpoint_bmAttributes	,	V_90
+interfaceClass	,	V_4
+hf_usb_configuration_legacy10buspowered	,	V_119
+"usb.iInterface"	,	L_171
+val64	,	V_156
+"Configuration bmAttributes"	,	L_174
+"Endpoint Number"	,	L_209
+tfs_bmrequesttype_direction	,	V_272
+proto_register_subtree_array	,	F_94
+hf_usb_bEndpointAddress_direction	,	V_74
+"ENDPOINT DESCRIPTOR"	,	L_10
+dissect_usb_setup_set_address_request	,	F_49
+"wIndex"	,	L_82
+"STRING DESCRIPTOR"	,	L_4
+"Number of ISO descriptors"	,	L_96
+hf_usb_iso_numdesc	,	V_235
+usb_trans_info	,	T_9
+hf_usb_bFunctionClass	,	V_103
+proto_tree_add_item	,	F_10
+flag	,	V_153
+pinfo	,	V_10
+col_add_fstr	,	F_84
+"CONFIGURATION DESCRIPTOR"	,	L_14
+"Data"	,	L_61
+_U_	,	V_18
+flags	,	V_58
+dissect_usb_bmrequesttype	,	F_59
+trans_info	,	V_200
+hf_usb_iso_off	,	V_245
+ep_attrib_tree	,	V_77
+hf_usb_bInterval	,	V_100
+"Unknown type %x"	,	L_26
+iso_status	,	V_239
+transfer_type_and_direction	,	V_152
+dissect_linux_usb_pseudo_header	,	F_61
+hf_usb_wFeatureSelector	,	V_22
+"USB data is present (0) or not"	,	L_63
+power	,	V_113
+hf_usb_time	,	V_197
+usb_setup_hdr	,	V_214
+dissect_usb_setup_synch_frame_request	,	F_57
+USB_TYPE	,	F_60
+"usb.iso.data"	,	L_111
+get_usb_conv_info	,	F_1
+hf_usb_bmRequestType	,	V_145
+"iProduct"	,	L_148
+find_conversation	,	F_7
+hf_usb_bInterfaceCount	,	V_102
+heur_control_subdissector_list	,	V_228
+dissect_usb_setup_synch_frame_response	,	F_58
+FT_UINT8	,	V_256
+hf_usb_capdata	,	V_250
+proto_item	,	T_10
+tap_queue_packet	,	F_81
+"usb.device_address"	,	L_54
+hf_usb_bInterfaceNumber	,	V_54
+expert_add_info_format	,	F_32
+endpoint_number	,	V_151
+"Padding"	,	L_107
+ENC_LITTLE_ENDIAN	,	V_23
+get_usb_conversation	,	F_6
+register_dissector_table	,	F_96
+linux_usb_mmapped_handle	,	V_292
+hf_usb_configuration_selfpowered	,	V_120
+"usb.wTotalLength"	,	L_193
+"DEVICE QUALIFIER DESCRIPTOR"	,	L_2
+data	,	V_85
+hf_usb_bEndpointAttributeBehaviour	,	V_93
+"usb.iso._pad"	,	L_108
+"bMaxPower"	,	L_200
+num	,	V_16
+if_port	,	V_60
+usb_setup_dissector	,	T_19
+"usb.interrupt"	,	L_238
+dissect_usb_setup_set_configuration_request	,	F_51
+"Behaviourtype"	,	L_182
+SET_ADDRESS	,	F_28
+"usb.urb_status"	,	L_69
+"Padding field of ISO descriptor structure"	,	L_109
+"usb.configuration.remotewakeup"	,	L_208
+USB_DT_RPIPE	,	V_138
+nstime_t	,	T_17
+tvb_get_letohs	,	F_34
+conversation_t	,	T_2
+USB_ADDR_LEN	,	V_87
+"Try heuristic sub-dissectors"	,	L_243
+"bFunctionProtocol"	,	L_229
+offset	,	V_21
+usb_tap_data_t	,	T_16
+tree	,	V_19
+"usb.setup.wInterface"	,	L_89
+"usb.data.length"	,	L_113
+"usb.capdata"	,	L_115
+val16	,	V_154
+hf_usb_iso_len	,	V_246
+"usb.idVendor"	,	L_141
+endpoint_item	,	V_69
+iso_len	,	V_241
+usb_bulk_dissector_table	,	V_206
+"idProduct"	,	L_142
+ett_usb_setup_bmrequesttype	,	V_146
+usb_urb_type_vals	,	V_159
+"Time from request"	,	L_215
+"usb.configuration.selfpowered"	,	L_206
+"usb.endpoint_number.endpoint"	,	L_51
+usb_module	,	V_251
+"wTotalLength"	,	L_192
+"usb.configuration.legacy10buspowered"	,	L_203
+destport	,	V_65
+USB_DT_STRING	,	V_136
+proto_tree_add_uint	,	F_67
+request	,	V_217
+hf_usb_wMaxPacketSize	,	V_94
+"Length [bytes]"	,	L_104
+"bAlternateSetting"	,	L_160
+proto_tree_add_uint64	,	F_63
+"OUT"	,	L_8
+heur_bulk_subdissector_list	,	V_205
+se_tree_create_non_persistent	,	F_4
+deltat	,	V_195
+hf_usb_request	,	V_222
+hf_usb_bmRequestType_type	,	V_148
+"usb.bConfigurationValue"	,	L_197
+"usb.bInterfaceCount"	,	L_224
+EMEM_TREE_TYPE_RED_BLACK	,	V_9
+"usb.setup.wStatus"	,	L_91
+"wMaxPacketSize"	,	L_184
+FT_FRAMENUM	,	V_288
+dissect_usb_device_qualifier_descriptor	,	F_14
+val32	,	V_155
+"bMaxPacketSize0"	,	L_138
+setup_tree	,	V_212
+proto_item_set_len	,	F_17
+WTAP_ENCAP_USB_LINUX	,	V_293
+ENDPOINT_TYPE	,	F_29
+"usb.urb_ts_usec"	,	L_67
+usb_interrupt_dissector_table	,	V_209
+hf_usb_bDeviceClass	,	V_34
+dissect_linux_usb	,	F_86
+dissect_usb_setup_set_address_response	,	F_50
+proto_register_usb	,	F_88
+srcport	,	V_88
+"The request to this packet is in this packet"	,	L_214
+ett_configuration_bEndpointAddress	,	V_73
+"URB length [bytes]"	,	L_70
+"Type"	,	L_118
+response_in	,	V_192
+proto_tree	,	T_6
+hf_usb_bDeviceSubClass	,	V_35
+dissect_usb_configuration_descriptor	,	F_33

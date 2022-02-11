@@ -1,0 +1,154 @@
+tvb_get_string_enc	,	F_53
+hf_zbee_zdp_out_cluster	,	V_28
+dissect_zbee_zdp_req_user_desc	,	F_16
+dissect_zbee_zdp_rsp_complex_desc	,	F_50
+", Device: 0x%04x, Profile: 0x%04x"	,	L_6
+dissect_zbee_zdp_req_match_desc	,	F_13
+hf_zbee_zdp_simple_length	,	V_50
+hf_zbee_zdp_disc_power_size	,	V_40
+hf_zbee_zdp_complex_length	,	V_58
+ett_zbee_zdp_power	,	V_46
+proto_tree_add_subtree	,	F_14
+dissect_zbee_zdp_req_store_power_desc	,	F_33
+" %s"	,	L_8
+dissect_zbee_zdp_req_ext_addr	,	F_8
+zdp_parse_server_flags	,	F_29
+hf_zbee_zdp_ext_addr	,	V_6
+dissect_zbee_zdp_rsp_system_server_disc	,	F_56
+dissect_zbee_zdp_req_store_simple_desc	,	F_36
+tvb	,	V_1
+cache	,	V_60
+profile	,	V_19
+hf_zbee_zdp_in_cluster	,	V_25
+simple_count	,	V_38
+hf_zbee_zdp_user	,	V_36
+version	,	V_14
+zdp_status_name	,	F_23
+", Status: %s"	,	L_10
+ep_count	,	V_47
+", Device: %s = 0x%04x"	,	L_15
+hf_zbee_zdp_ep_count	,	V_48
+hf_zbee_zdp_cache	,	V_61
+hf_zbee_zdp_user_length	,	V_35
+"Simple Descriptor Sizes"	,	L_12
+ett_zbee_zdp_node	,	V_45
+proto_tree_add_string	,	F_27
+device	,	V_10
+dissect_zbee_zdp_req_active_ep	,	F_12
+", # children %d :"	,	L_7
+ett_zbee_zdp_cinfo	,	V_29
+dissect_zbee_zdp_rsp_match_desc	,	F_49
+dissect_zbee_zdp_req_simple_desc	,	F_11
+status	,	V_32
+dissect_zbee_zdp_rsp_ext_simple_desc	,	F_64
+pinfo	,	V_2
+zdp_parse_simple_desc	,	F_37
+zdp_parse_cinfo	,	F_19
+ENC_ASCII	,	V_59
+zdp_parse_complex_desc	,	F_51
+dissect_zbee_zdp_rsp_remove_node_cache	,	F_62
+dissect_zbee_zdp_req_store_discovery	,	F_30
+ext_addr	,	V_5
+", Device: 0x%04x = %s"	,	L_16
+", Desc: \'%s\'"	,	L_19
+ett_zbee_zdp_assoc_device	,	V_54
+", Device: 0x%04x, Endpoint: %d"	,	L_3
+dissect_zbee_zdp_req_ext_simple_desc	,	F_40
+guint16	,	T_6
+ett_zbee_zdp_server	,	V_37
+", Device: 0x%04x"	,	L_2
+dissect_zbee_zdp_rsp_power_desc	,	F_46
+zdp_parse_power_desc	,	F_34
+dissect_zbee_zdp_rsp_user_desc	,	F_52
+dissect_zbee_zdp_req_power_desc	,	F_10
+i	,	V_16
+dissect_zbee_zdp_rsp_ext_active_ep	,	F_65
+dissect_zbee_zdp_rsp_nwk_addr	,	F_42
+hf_zbee_zdp_assoc_device_count	,	V_53
+n_children	,	V_30
+zdp_parse_node_desc	,	F_32
+zbee_parse_eui64	,	F_2
+ZBEE_ZDP_STATUS_SUCCESS	,	V_56
+dissect_zbee_zdp_req_find_node_cache	,	F_39
+guint8	,	V_8
+out_count	,	V_21
+dissect_zbee_zdp_rsp_find_node_cache	,	F_63
+zdp_dump_excess	,	F_7
+in_count	,	V_20
+dissect_zbee_zdp_rsp_store_node_desc	,	F_58
+dissect_zbee_zdp_req_store_node_desc	,	F_31
+"Active Endpoints"	,	L_13
+hf_zbee_zdp_disc_node_size	,	V_39
+dissect_zbee_zdp_rsp_active_ep	,	F_48
+wmem_alloc	,	F_25
+dissect_zbee_zdp_req_ext_active_ep	,	F_41
+hf_zbee_zdp_number_of_children	,	V_31
+dissect_zbee_zdp_req_set_user_desc	,	F_24
+dissect_zbee_zdp_rsp_user_desc_conf	,	F_54
+tvbuff_t	,	T_1
+dissect_zbee_zdp_req_remove_node_cache	,	F_38
+eui64_to_display	,	F_5
+hf_zbee_zdp_device	,	V_11
+tvb_memcpy	,	F_26
+dissect_zbee_zdp_rsp_simple_desc	,	F_47
+ZBEE_VERSION_2007	,	V_18
+zbee_append_info	,	F_4
+"Associated Device List"	,	L_14
+", Cache: 0x%04x"	,	L_20
+zbee_parse_uint	,	F_3
+", Device: 0x%04x, Desc: \'%s\'"	,	L_11
+assoc	,	V_52
+user_length	,	V_33
+field_tree	,	V_15
+ett_zbee_zdp_match_out	,	V_27
+guint	,	T_4
+"Matching Endpoint List"	,	L_18
+offset	,	V_4
+hf_zbee_zdp_profile	,	V_22
+dissect_zbee_zdp_req_nwk_addr	,	F_1
+wmem_packet_scope	,	F_6
+tree	,	V_3
+dissect_zbee_zdp_req_discovery_cache	,	F_17
+tvb_bytes_exist	,	F_43
+hf_zbee_zdp_out_count	,	V_26
+"Active Endpoint List"	,	L_17
+packet_info	,	T_2
+dissect_zbee_zdp_rsp_store_active_ep	,	F_60
+"Output Cluster List"	,	L_5
+sizeof_cluster	,	V_17
+ett_zbee_zdp_simple	,	V_51
+idx	,	V_62
+dissect_zbee_zdp_rsp_ext_addr	,	F_44
+dissect_zbee_zdp_rsp_node_desc	,	F_45
+hf_zbee_zdp_endpoint	,	V_13
+dissect_zbee_zdp_req_store_active_ep	,	F_35
+dissect_zbee_zdp_rsp_discovery_cache	,	F_55
+dissect_zbee_zdp_rsp_parent_annce	,	F_21
+hf_zbee_zdp_req_type	,	V_7
+dissect_zbee_zdp_req_complex_desc	,	F_15
+ett_zbee_zdp_match_in	,	V_24
+hf_zbee_zdp_disc_simple_size	,	V_44
+zdp_parse_status	,	F_22
+hf_zbee_zdp_disc_ep_count	,	V_41
+dissect_zbee_zdp_rsp_discovery_store	,	F_57
+hf_zbee_zdp_disc_simple_count	,	V_42
+hf_zbee_zdp_assoc_device	,	V_55
+endpt	,	V_12
+hf_zbee_zdp_index	,	V_9
+dissect_zbee_zdp_req_node_desc	,	F_9
+dissect_zbee_zdp_rsp_store_power_desc	,	F_59
+ett_zbee_zdp_endpoint	,	V_49
+dissect_zbee_zdp_parent_annce	,	F_20
+gchar	,	T_7
+length	,	V_57
+" %s ..."	,	L_9
+", Device: %s"	,	L_1
+dissect_zbee_zdp_req_system_server_disc	,	F_28
+ett_zbee_zdp_simple_sizes	,	V_43
+hf_zbee_zdp_in_count	,	V_23
+dissect_zbee_zdp_device_annce	,	F_18
+"Input Cluster List"	,	L_4
+guint64	,	T_5
+dissect_zbee_zdp_rsp_store_simple_desc	,	F_61
+user	,	V_34
+proto_tree	,	T_3

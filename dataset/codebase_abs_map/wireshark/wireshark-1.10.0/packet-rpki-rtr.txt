@@ -1,0 +1,172 @@
+"RPKI-Router Protocol"	,	L_49
+col_append_sep_str	,	F_10
+proto_register_protocol	,	F_18
+"Error Code"	,	L_39
+"The IPv6 prefix of the ROA"	,	L_35
+prefs_register_protocol	,	F_22
+rpki_rtr_port	,	V_73
+"rpki-rtr.prefix_length"	,	L_25
+hf_rpkirtr_ipv4_prefix	,	V_37
+FT_IPv6	,	V_63
+RPKI_RTR_SERIAL_NOTIFY_PDU	,	V_21
+"Version"	,	L_4
+"rpki-rtr.flags.aw"	,	L_23
+hf_rpkirtr_serial_number	,	V_25
+"Serial Number"	,	L_18
+tcp_dissect_pdus	,	F_14
+col_set_str	,	F_4
+gint	,	T_11
+rpki_rtr_tls_port	,	V_74
+"Flags"	,	L_20
+"Denoting the longest prefix allowed by the prefix.  This MUST NOT be less than the Prefix Length element"	,	L_29
+dissect_rpkirtr_pdu	,	F_3
+FT_IPv4	,	V_62
+hf_rpkirtr_error_pdu	,	V_46
+TFS	,	F_17
+tvb	,	V_2
+dissect_rpkirtr	,	F_13
+guint32	,	T_5
+COL_INFO	,	V_13
+RPKI_RTR_CACHE_RESET_PDU	,	V_27
+FT_BOOLEAN	,	V_60
+proto_item_append_text	,	F_12
+ett_flags	,	V_33
+RPKI_RTR_RESET_QUERY_PDU	,	V_26
+tvb_reported_length_remaining	,	F_6
+"IPv4 Prefix"	,	L_30
+"Flag AW"	,	L_22
+col_clear	,	F_5
+pdu_type	,	V_10
+get_rpkirtr_pdu_len	,	F_1
+cinfo	,	V_11
+proto_register_subtree_array	,	F_21
+val_to_str	,	F_11
+hf_rpkirtr_length	,	V_24
+array_length	,	F_20
+hf_rpkirtr_length_text	,	V_47
+rtr_pdu_type_vals	,	V_20
+"Reserved"	,	L_10
+hf_rpkirtr_max_length	,	V_36
+hf_rpkirtr_length_pdu	,	V_45
+hf_rpkirtr_prefix_length	,	V_35
+hf_rpkirtr_error_code	,	V_44
+proto_tree_add_item	,	F_7
+" (%s)"	,	L_3
+pinfo	,	T_3
+dissector_handle_t	,	T_13
+_U_	,	V_1
+"rpki-rtr.as_number"	,	L_37
+ENC_ASCII	,	V_49
+g_port_rpkirtr	,	V_68
+RPKI_RTR_IPV4_PREFIX_PDU	,	V_31
+"rpki-rtr.max_length"	,	L_28
+hf_register_info	,	T_10
+initialized	,	V_70
+VALS	,	F_16
+"rpkirtr"	,	L_50
+proto_register_rpkirtr	,	F_15
+"Prefix Length"	,	L_24
+rtr_error_code_vals	,	V_64
+ti_flags	,	V_7
+"rpki-rtr.ipv4_prefix"	,	L_31
+rpkirtr_handle	,	V_71
+len_pdu	,	V_42
+COL_PROTOCOL	,	V_12
+hf_rpkirtr_flags	,	V_32
+FT_UINT8	,	V_52
+BASE_DEC	,	V_53
+proto_item	,	T_7
+hf_rpkirtr_ipv6_prefix	,	V_40
+"rpki-rtr.session_id"	,	L_14
+ENC_NA	,	V_15
+RPKI_RTR_IPV6_PREFIX_PDU	,	V_39
+guint8	,	T_8
+ti	,	V_6
+BASE_NONE	,	V_56
+"RPKI-Router Protocol TCP port if other than the default"	,	L_53
+"rpki-rtr.serial_number"	,	L_19
+"RPKI-Router Protocol TCP TLS port if other than the default"	,	L_56
+"tcp.rpkirtr_tls.port"	,	L_54
+"Denoting the version of this protocol (currently 0)"	,	L_6
+"rpki-rtr.error_text"	,	L_48
+"Length of Encapsulated PDU"	,	L_41
+tvb_get_ntohl	,	F_2
+RPKI_RTR_ERROR_REPORT_PDU	,	V_41
+tvbuff_t	,	T_4
+"rpki-rtr.pdu_type"	,	L_8
+hf_rpkirtr_error_text	,	V_48
+"The IPv4 prefix of the ROA"	,	L_32
+"Value the count of the bytes in the entire PDU, including the eight bytes of header that end with the length field"	,	L_17
+BASE_HEX	,	V_59
+plen	,	V_4
+flags_tree	,	V_9
+prefs_register_uint_preference	,	F_23
+"Denoting the shortest prefix allowed for the prefix"	,	L_26
+gboolean	,	T_12
+"Max length"	,	L_27
+ssl_handle	,	V_72
+proto_item_add_subtree	,	F_8
+module_t	,	T_9
+"rpki-rtr.length"	,	L_16
+"RPKI-RTR TCP Port"	,	L_52
+proto_register_field_array	,	F_19
+FT_BYTES	,	V_55
+"rpki-rtr.length_text"	,	L_46
+hf_rpkirtr_version	,	V_17
+"Denoting the type of the PDU"	,	L_9
+guint	,	T_1
+"Length"	,	L_15
+offset	,	V_3
+ett	,	V_66
+dissector_add_uint	,	F_27
+tree	,	V_5
+proto_rpkirtr	,	V_14
+rpkirtr_tree	,	V_8
+"IPv6 Prefix"	,	L_33
+"ssl"	,	L_57
+RPKI_RTR_END_OF_DATA_PDU	,	V_30
+FT_UINT16	,	V_57
+"RPKI-RTR TCP TLS Port"	,	L_55
+packet_info	,	T_2
+"RPKI-RTR"	,	L_1
+tvb_get_guint8	,	F_9
+"rpki-rtr.length_pdu"	,	L_42
+g_port_rpkirtr_tls	,	V_69
+"rpki-rtr.error_pdu"	,	L_44
+"Autonomous System Number allowed to announce this prefix"	,	L_38
+"Unknown %d"	,	L_2
+"Must be zero"	,	L_12
+dissector_delete_uint	,	F_26
+proto_reg_handoff_rpkirtr	,	V_67
+"tcp.rpkirtr.port"	,	L_51
+hf_rpkirtr_flags_aw	,	V_34
+"rpki-rtr.version"	,	L_5
+hf_rpkirtr_pdu_type	,	V_19
+"Session ID"	,	L_13
+"Erroneous Text"	,	L_47
+hf_rpkirtr_session_id	,	V_23
+"rpki-rtr.flags"	,	L_21
+FT_STRING	,	V_65
+"rpki-rtr.error_code"	,	L_40
+tfs_flag_type_aw	,	V_61
+"AS Number"	,	L_36
+HFILL	,	V_54
+"Length of text"	,	L_45
+RPKI_RTR_SERIAL_QUERY_PDU	,	V_22
+find_dissector	,	F_25
+"rpki-rtr.ipv6_prefix"	,	L_34
+create_dissector_handle	,	F_24
+rpkirtr_module	,	V_50
+hf_rpkirtr_reserved	,	V_28
+len_text	,	V_43
+"Erroneous PDU"	,	L_43
+ENC_BIG_ENDIAN	,	V_18
+ett_rpkirtr	,	V_16
+FT_UINT32	,	V_58
+hf_rpkirtr_as_number	,	V_38
+"rpki-rtr.reserved"	,	L_11
+"tcp.port"	,	L_58
+proto_tree	,	T_6
+hf	,	V_51
+RPKI_RTR_CACHE_RESPONSE_PDU	,	V_29
+"PDU Type"	,	L_7

@@ -1,0 +1,234 @@
+"Service Record Handle List"	,	L_40
+"Attribute List"	,	L_31
+proto_register_protocol	,	F_46
+"Error Code"	,	L_54
+len	,	V_27
+" %s"	,	L_34
+dissect_sdp_service_search_response	,	F_38
+gint	,	T_11
+tvb	,	V_1
+guint32	,	T_3
+COL_INFO	,	V_18
+BTL2CAP_PSM_SDP	,	V_97
+"false"	,	L_21
+dissect_sdp_service_attribute_list_array	,	F_29
+"BTSDP"	,	L_66
+str	,	V_31
+size	,	V_4
+cinfo	,	V_17
+"%s \"%s\""	,	L_15
+array_length	,	F_50
+ATTR_ID_BT_PROFILE_DESCRIPTOR_LIST	,	V_52
+register_tap	,	F_48
+get_int_by_size	,	F_6
+chandle	,	V_87
+"0x%04x - 0x%04x"	,	L_6
+"Total count of service records"	,	L_58
+"{ "	,	L_24
+"Nil "	,	L_7
+strpos	,	V_30
+"unsigned int %d "	,	L_8
+hf_register_info	,	T_12
+"%s (0x%04x)"	,	L_3
+size_index	,	V_32
+ett_btsdp_attribute_idlist	,	V_15
+st	,	V_10
+guint16	,	T_8
+COL_PROTOCOL	,	V_73
+": %s"	,	L_14
+dissect_sdp_service_search_request	,	F_37
+guint8	,	T_2
+"Bluetooth SDP Protocol"	,	L_65
+t	,	V_7
+ti	,	V_9
+tvb_bytes_to_str	,	F_18
+vs_pduid	,	V_78
+start_offset	,	V_11
+tvb_length_remaining	,	F_35
+dissect_sdp_service_attribute	,	F_24
+ett_btsdp	,	V_76
+tvb_get_ntohl	,	F_4
+hf_ssr_current_count	,	V_68
+"PDU"	,	L_47
+"Attribute List Byte Count: %d"	,	L_37
+tvbuff_t	,	T_1
+hf_tid	,	V_83
+tvb_get_ntohs	,	F_3
+val_to_str_ext_const	,	F_22
+pdu_name	,	V_72
+"Data Element alternative"	,	L_23
+service_table	,	V_50
+BASE_HEX	,	V_90
+col_add_str	,	F_41
+gboolean	,	T_9
+ep_alloc	,	F_16
+proto_item_add_subtree	,	F_9
+proto_register_field_array	,	F_49
+"Transaction Id"	,	L_50
+"Service Attribute: id = %s (0x%x)"	,	L_27
+dissector_add_uint	,	F_55
+ti_av	,	V_44
+FT_UINT16	,	V_92
+tvb_get_guint8	,	F_2
+BTSDP_RFCOMM_PROTOCOL_UUID	,	V_55
+"Service Search Pattern"	,	L_33
+"Attribute Lists"	,	L_32
+ett_btsdp_service_search_pattern	,	V_65
+psm_guint8	,	V_62
+fd	,	V_46
+get_uint_by_size	,	F_5
+acl_handle	,	V_71
+ATTR_ID_GOEP_L2CAP_PSM_GROUP_ID_IP_SUBNET	,	V_60
+"btsdp.tid"	,	L_51
+"Unknown direction %d "	,	L_45
+"btsdp.ssr.total_count"	,	L_57
+ti_sa	,	V_43
+psm	,	V_61
+dissect_attribute_id_list	,	F_7
+"%s (0x%s) "	,	L_13
+ett_btsdp_des	,	V_40
+ett_btsdp_ssr	,	V_69
+"Maximum Attribute Byte Count: %d"	,	L_35
+attr_val	,	V_29
+"mapping of rfcomm channel/l2cap PSM to service uuid"	,	L_68
+"PDU type"	,	L_49
+"Service Record Handle: 0x%x"	,	L_38
+val_to_str_const	,	F_11
+"Parameter Length"	,	L_52
+length	,	V_3
+find_dissector	,	F_54
+ptr	,	V_34
+ENC_BIG_ENDIAN	,	V_20
+hf_pduid	,	V_77
+vs_service_classes_ext	,	V_35
+ATTR_ID_ADDITIONAL_PROTOCOL_DESCRIPTOR_LISTS	,	V_53
+" (0x%04x - 0x%04x) "	,	L_5
+"Attribute Value"	,	L_29
+"btsdp.pdu"	,	L_48
+service	,	V_22
+visited	,	V_48
+guint64	,	V_25
+hf	,	V_88
+curr_count	,	V_66
+pdu	,	V_70
+"SDP"	,	L_42
+channel	,	V_56
+dissect_sdp_service_attribute_request	,	F_36
+se_tree_create	,	F_52
+type_size	,	V_24
+col_append_fstr	,	F_12
+col_set_str	,	F_40
+btl2cap_data_t	,	V_85
+id	,	V_13
+MAX_SDP_LEN	,	F_20
+": %s (0x%x)"	,	L_46
+ATTR_ID_PROTOCOL_DESCRIPTOR_LIST	,	V_51
+val	,	V_21
+"Total Service Record Count"	,	L_56
+get_sdp_data_element	,	F_15
+"Attribute Lists Byte Count"	,	L_62
+var	,	V_37
+proto_item_append_text	,	F_25
+proto_register_btsdp	,	F_44
+service_item	,	V_49
+substr	,	V_39
+col_clear	,	F_42
+"Count of bytes in attribute list response"	,	L_64
+proto_register_subtree_array	,	F_51
+gint32	,	T_4
+"Attribute ID: %s (0x%x)"	,	L_28
+"btsdp.ssares.byte_count"	,	L_63
+uuid_name	,	V_33
+proto_tree_add_item	,	F_14
+flag	,	V_26
+hf_plen	,	V_84
+private_data	,	V_86
+proto_reg_handoff_btsdp	,	F_53
+pinfo	,	V_8
+col_add_fstr	,	F_43
+dissector_handle_t	,	T_13
+flags	,	V_47
+ATTR_ID_SERVICE_CLASS_ID_LIST	,	V_59
+"Continuation State"	,	L_36
+new_register_dissector	,	F_47
+BTSDP_L2CAP_PROTOCOL_UUID	,	V_54
+"String"	,	L_17
+VALS	,	F_45
+hf_ssr_total_count	,	V_67
+dissect_btsdp	,	F_39
+", value = %s"	,	L_30
+tvb_get_ephemeral_string	,	F_23
+bytes_to_go	,	V_12
+"%s "	,	L_18
+"Maximum Service Record Count: %d"	,	L_39
+FT_UINT8	,	V_89
+proto_tree_add_text	,	F_8
+BASE_DEC	,	V_93
+proto_item	,	T_7
+att_name	,	V_14
+tap_queue_packet	,	F_27
+off	,	V_6
+token	,	V_42
+btsdp_data_t	,	T_10
+ENC_NA	,	V_75
+"btsdp.ssr.current_count"	,	L_60
+dissect_sdp_service_attribute_list	,	F_28
+se_tree_lookup32	,	F_26
+"btsdp.error_code"	,	L_55
+first	,	V_38
+"%s"	,	L_19
+dissect_sdp_service_search_attribute_request	,	F_31
+service_val	,	V_23
+"0x%x"	,	L_41
+se_alloc0	,	F_32
+"Unknown service"	,	L_12
+"Rcvd "	,	L_44
+"Count of service records in this message"	,	L_61
+get_type_length	,	F_1
+protocol	,	V_57
+proto_btsdp	,	V_74
+"btsdp.len"	,	L_53
+"Current Service Record Count"	,	L_59
+offset	,	V_2
+ett	,	V_94
+"Sent "	,	L_43
+P2P_DIR_RECV	,	V_81
+tree	,	V_41
+"signed int %d "	,	L_10
+btsdp_handle	,	V_96
+packet_info	,	T_6
+tvb_get_ntoh64	,	F_17
+"%d "	,	L_11
+ett_btsdp_attribute	,	V_45
+btsdp_tap	,	V_63
+byte0	,	V_5
+dissect_sdp_service_attribute_response	,	F_34
+dissect_sdp_type	,	F_19
+vs_general_attribute_id	,	V_16
+"} "	,	L_26
+g_snprintf	,	F_21
+"btsdp"	,	L_67
+"URL"	,	L_16
+P2P_DIR_SENT	,	V_80
+", "	,	L_25
+HFILL	,	V_91
+value	,	V_28
+p2p_dir	,	V_79
+"Attribute ID List"	,	L_1
+"btl2cap.psm"	,	L_69
+EMEM_TREE_TYPE_RED_BLACK	,	V_95
+"%u "	,	L_9
+BTSDP_SECONDARY_CHANNEL_FLAG_MASK	,	V_58
+gchar	,	V_36
+se_tree_insert32	,	F_33
+proto_item_set_len	,	F_10
+"true"	,	L_20
+dissect_sdp_service_search_attribute_response	,	F_30
+hf_ssares_al_bytecount	,	V_64
+P2P_DIR_UNKNOWN	,	V_82
+"Unknown"	,	L_2
+hf_error_code	,	V_19
+" (%s) "	,	L_4
+proto_tree	,	T_5
+dissect_sdp_error_response	,	F_13
+"Data Element sequence"	,	L_22

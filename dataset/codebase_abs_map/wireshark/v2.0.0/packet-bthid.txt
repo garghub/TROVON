@@ -1,0 +1,179 @@
+" - Result Code: %s"	,	L_8
+"UnknownDirection "	,	L_6
+"bthid.parameter.reserved"	,	L_19
+proto_register_protocol	,	F_19
+hf_bthid_protocol_code	,	V_7
+prefs_register_protocol	,	F_26
+" - Protocol: %s"	,	L_13
+protocol_code_vals	,	V_11
+usb_hid_boot_mouse_input_report_handle	,	V_14
+tvb_new_subset_remaining	,	F_7
+col_append_fstr	,	F_4
+BTL2CAP_PSM_HID_CTRL	,	V_71
+hf_bthid_parameter_result_code	,	V_33
+gint	,	T_1
+col_set_str	,	F_10
+protocol_code	,	V_6
+tvb_captured_length_remaining	,	F_15
+"bthid.parameter.reserved_32"	,	L_20
+tvb	,	V_1
+"bthid.result_code"	,	L_28
+"This value of Control Operation is deprecated by HID 1.1"	,	L_44
+COL_INFO	,	V_10
+"usbhid.boot_report.keyboard.input"	,	L_55
+module	,	V_55
+expert_bthid	,	V_56
+"Parameter reserved"	,	L_18
+proto_item_append_text	,	F_16
+"bthid.parameter.reserved_2"	,	L_22
+"Report Id"	,	L_35
+report_type	,	V_5
+usb_hid_boot_keyboard_output_report_handle	,	V_12
+BTL2CAP_PSM_HID_INTR	,	V_72
+tvb_reported_length_remaining	,	F_14
+"bthid.idle_rate"	,	L_34
+bthid_tree	,	V_17
+col_clear	,	F_11
+dissect_hid_data	,	F_1
+cinfo	,	V_9
+proto_register_subtree_array	,	F_23
+array_length	,	F_22
+"Report Type"	,	L_23
+"bthid.parameter.reserved_31"	,	L_21
+"Transaction Type"	,	L_16
+"HID"	,	L_3
+proto_tree_add_item	,	F_2
+" - Idle Rate: %u.%03u ms"	,	L_15
+pinfo	,	V_2
+"Data"	,	L_41
+_U_	,	V_15
+" - Control Operation: %s"	,	L_10
+new_register_dissector	,	F_20
+"reserved"	,	L_9
+" (%u.%03u ms)"	,	L_14
+hf_bthid_parameter_reserved	,	V_49
+col_append_str	,	F_12
+hf_bthid_buffer_size	,	V_45
+"bthid.report_id"	,	L_36
+result_code_vals	,	V_34
+hf_bthid_parameter_report_type	,	V_41
+hf_register_info	,	T_11
+VALS	,	F_18
+dissector_add_for_decode_as	,	F_33
+prefs_register_bool_preference	,	F_28
+report_type_vals	,	V_43
+PI_PROTOCOL	,	V_67
+prefs_register_static_text_preference	,	F_27
+COL_PROTOCOL	,	V_27
+FT_UINT8	,	V_58
+BASE_DEC	,	V_61
+proto_item	,	T_7
+size_vals	,	V_42
+hf_bthid_protocol	,	V_50
+expert_register_field_array	,	F_25
+hf_bthid_idle_rate	,	V_54
+"bthid.parameter.size"	,	L_26
+ENC_NA	,	V_25
+dissector_add_string	,	F_31
+guint8	,	T_8
+"btl2cap.cid"	,	L_62
+ti	,	V_16
+BASE_NONE	,	V_64
+"Buffer Size"	,	L_37
+"usbhid.boot_report.mouse.input"	,	L_57
+ei_bthid_parameter_control_operation_deprecated	,	V_38
+hf_bthid_parameter_reserved_32	,	V_47
+ENC_LITTLE_ENDIAN	,	V_46
+hf_bthid_parameter_reserved_31	,	V_52
+"hid.version"	,	L_50
+"bthid.control_operation.deprecated"	,	L_43
+data	,	T_6
+"Rcvd "	,	L_5
+tvbuff_t	,	T_2
+protocol_vals	,	V_51
+BASE_HEX	,	V_59
+"Version of profile supported by this dissector."	,	L_52
+"bthid.transaction_type.deprecated"	,	L_45
+"bthid"	,	L_49
+protocol	,	V_20
+"bthid.data.protocol_code"	,	L_40
+show_deprecated	,	V_37
+ei_register_info	,	T_12
+expert_register_protocol	,	F_24
+" - Report Type: %s"	,	L_12
+"Show what is deprecated in HID 1.1"	,	L_54
+proto_reg_handoff_bthid	,	F_29
+proto_item_add_subtree	,	F_9
+idle_rate	,	V_21
+module_t	,	T_9
+"Control Operation"	,	L_29
+proto_register_field_array	,	F_21
+control_operation_vals	,	V_36
+guint	,	T_5
+FT_NONE	,	V_63
+offset	,	V_4
+ett	,	V_65
+ei	,	V_66
+"Sent "	,	L_4
+P2P_DIR_RECV	,	V_30
+expert_module_t	,	T_10
+dissector_add_uint	,	F_32
+tree	,	V_3
+"bthid.data"	,	L_42
+"Result Code"	,	L_27
+transaction_type	,	V_18
+FT_UINT16	,	V_62
+packet_info	,	T_3
+"bthid.protocol"	,	L_32
+"11"	,	L_59
+tvb_get_guint8	,	F_3
+"BT HID"	,	L_48
+"Idle Rate"	,	L_33
+" - %s"	,	L_1
+hf_bthid_parameter_size	,	V_39
+"unknown type"	,	L_2
+"usbhid.boot_report.keyboard.output"	,	L_56
+EXPFILL	,	V_69
+"Bluetooth HID Profile"	,	L_47
+call_dissector_with_data	,	F_6
+ett_bthid	,	V_26
+"bthid.transaction_type"	,	L_17
+expert_add_info	,	F_13
+hf_bthid_report_id	,	V_44
+bthid_handle	,	V_70
+"Unknown TransactionType"	,	L_7
+"bthid.control_operation"	,	L_30
+hf_bthid_transaction_type	,	V_31
+"1124"	,	L_60
+parameter	,	V_19
+P2P_DIR_SENT	,	V_29
+pitem	,	V_23
+proto_bthid	,	V_24
+HFILL	,	V_60
+p2p_dir	,	V_28
+"bthid.parameter.report_type"	,	L_24
+"btl2cap.psm"	,	L_61
+val_to_str_const	,	F_5
+ei_bthid_transaction_type_deprecated	,	V_53
+"bluetooth.uuid"	,	L_58
+dissect_bthid	,	F_8
+control_operation	,	V_22
+find_dissector	,	F_30
+" - Size: %s, Report Type: %s"	,	L_11
+"This Transaction Type is deprecated by HID 1.1"	,	L_46
+"Protocol Code"	,	L_39
+"Bluetooth Profile HID version: 1.1"	,	L_51
+PI_WARN	,	V_68
+hf_bthid_data	,	V_48
+"hid.deprecated"	,	L_53
+proto_register_bthid	,	F_17
+"bthid.buffer_size"	,	L_38
+ENC_BIG_ENDIAN	,	V_8
+hf_bthid_parameter_reserved_2	,	V_40
+"Protocol"	,	L_31
+hf_bthid_parameter_control_operation	,	V_35
+"Size"	,	L_25
+usb_hid_boot_keyboard_input_report_handle	,	V_13
+transaction_type_vals	,	V_32
+proto_tree	,	T_4
+hf	,	V_57

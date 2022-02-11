@@ -1,0 +1,173 @@
+tvb_get_string_enc	,	F_9
+proto_register_protocol	,	F_20
+found_start_needle	,	V_8
+"Response prefix"	,	L_26
+proto_tree_add_subtree	,	F_11
+col_append_fstr	,	F_8
+tag_start_offset	,	V_10
+gint	,	T_7
+col_set_str	,	F_16
+"Placeholder to dissect CTCP data"	,	L_37
+tvb	,	V_3
+irc_tree	,	V_56
+item	,	V_2
+ett_irc_request	,	V_32
+COL_INFO	,	V_38
+guchar	,	T_6
+hidden_item	,	V_45
+linelen	,	V_18
+"Response trailer"	,	L_34
+STR_ASCII	,	V_66
+response_tree	,	V_43
+hf_irc_response_command_param	,	V_55
+"Request prefix"	,	L_15
+datalen	,	V_5
+found_needle	,	V_28
+tvb_reported_length_remaining	,	F_17
+"Response has no command"	,	L_49
+ei_irc_numeric_request_command	,	V_39
+cinfo	,	V_37
+"Request"	,	L_7
+PI_ERROR	,	V_73
+proto_register_subtree_array	,	F_23
+found_end_needle	,	V_9
+"irc"	,	L_51
+array_length	,	F_22
+eop_offset	,	V_24
+tvb_find_line_end	,	F_18
+first_command_param	,	V_30
+dissect_irc	,	F_15
+proto_tree_add_item	,	F_4
+"Line of request message"	,	L_12
+" (%s)"	,	L_4
+pinfo	,	V_6
+"Prefix missing ending &lt;space&gt;"	,	L_43
+dissector_handle_t	,	T_13
+tag_end_offset	,	V_11
+"irc.request.trailer"	,	L_23
+dissect_irc_tag_data	,	F_1
+ENC_ASCII	,	V_16
+"IRC"	,	L_6
+"irc.response.trailer"	,	L_33
+"CTCP Data"	,	L_35
+hf_irc_ctcp	,	V_15
+found_tag_needle	,	V_29
+PROTO_ITEM_SET_HIDDEN	,	F_14
+"Request has no command"	,	L_45
+ei_irc_missing_end_delimiter	,	V_13
+hf_register_info	,	T_10
+"irc.request.prefix"	,	L_14
+"Response command"	,	L_28
+"Request trailer"	,	L_24
+"irc.request.command_parameter"	,	L_20
+next_offset	,	V_58
+hf_irc_request_command	,	V_36
+"Line of response message"	,	L_10
+PI_PROTOCOL	,	V_75
+guint16	,	T_9
+COL_PROTOCOL	,	V_59
+BASE_DEC	,	V_69
+"irc.prefix_missing_ending_space"	,	L_42
+request_item	,	V_21
+proto_item	,	T_2
+"Prefix"	,	L_13
+expert_register_field_array	,	F_25
+ENC_NA	,	V_17
+guint8	,	T_5
+ti	,	V_57
+"NOTICE"	,	L_1
+hf_irc_request_command_param	,	V_42
+"Tag data outside of NOTICE or PRIVMSG command"	,	L_41
+start_offset	,	V_22
+"irc.response.command"	,	L_27
+ei_irc_tag_data_invalid	,	V_14
+"irc.missing_end_delimiter"	,	L_38
+ei_irc_request_command	,	V_35
+"Command"	,	L_16
+hf_irc_response	,	V_47
+ei_irc_prefix_missing_ending_space	,	V_33
+hf_irc_response_trailer	,	V_53
+"irc.ctcp"	,	L_36
+command_tree	,	V_20
+tvbuff_t	,	T_3
+end_offset	,	V_23
+dissect_irc_request	,	F_5
+eocp_offset	,	V_26
+str_command	,	V_27
+"Trailer"	,	L_22
+proto_register_irc	,	F_19
+TAG_DELIMITER	,	V_12
+"irc.response.num_command"	,	L_29
+ei_register_info	,	T_11
+gboolean	,	T_8
+expert_register_protocol	,	F_24
+ei_irc_response_command	,	V_50
+ett_irc	,	V_63
+"PRIVMSG"	,	L_2
+"irc.response"	,	L_9
+"Command parameters"	,	L_5
+proto_item_add_subtree	,	F_6
+dissect_irc_response	,	F_12
+TCP_PORT_IRC	,	V_79
+proto_register_field_array	,	F_21
+"irc.tag_data_invalid"	,	L_40
+"Response"	,	L_8
+offset	,	V_4
+" "	,	L_3
+"Response command parameter"	,	L_32
+ett	,	V_70
+ei	,	V_71
+wmem_packet_scope	,	F_10
+"irc.request.command"	,	L_17
+expert_module_t	,	T_12
+dissector_add_uint	,	F_28
+"Request command parameter"	,	L_21
+tree	,	V_1
+"Response (numeric) command"	,	L_30
+ett_irc_response	,	V_48
+FT_UINT16	,	V_68
+packet_info	,	T_4
+"irc.response.command.missing"	,	L_48
+hf_irc_response_prefix	,	V_49
+tvb_get_guint8	,	F_7
+irc_handle	,	V_78
+hf_irc_request_trailer	,	V_40
+"Request command"	,	L_18
+match_uint	,	V_60
+expert_irc	,	V_77
+num_command	,	V_46
+destport	,	V_61
+"irc.request.command.missing"	,	L_44
+response_item	,	V_44
+proto_tree_add_uint	,	F_13
+EXPFILL	,	V_74
+ett_irc_request_command	,	V_41
+hf_irc_response_num_command	,	V_52
+proto_irc	,	V_62
+expert_add_info	,	F_3
+"irc.response.command_parameter"	,	L_31
+"Internet Relay Chat"	,	L_50
+"Parameter"	,	L_19
+TCP_PORT_DIRCPROXY	,	V_80
+FT_STRING	,	V_65
+"irc.request.command.numeric"	,	L_46
+proto_reg_handoff_irc	,	F_26
+HFILL	,	V_67
+PI_MALFORMED	,	V_72
+tvb_pbrk_guint8	,	F_2
+request_tree	,	V_19
+"irc.response.prefix"	,	L_25
+"Numeric command not allowed in request"	,	L_47
+create_dissector_handle	,	F_27
+PI_WARN	,	V_76
+hf_irc_response_command	,	V_51
+command	,	V_7
+ett_irc_response_command	,	V_54
+"irc.request"	,	L_11
+eoc_offset	,	V_25
+hf_irc_request_prefix	,	V_34
+hf_irc_request	,	V_31
+"tcp.port"	,	L_52
+proto_tree	,	T_1
+hf	,	V_64
+"Missing ending tag delimiter (0x01)"	,	L_39

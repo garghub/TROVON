@@ -1,0 +1,259 @@
+scsi_asc_val_ext	,	V_113
+"DVCID"	,	L_85
+DT_ELEM	,	V_48
+"Destination Address"	,	L_7
+proto_register_protocol	,	F_20
+"Second Destination Address"	,	L_11
+hf_scsi_smc_allocation_length	,	V_87
+"Code Set"	,	L_36
+hf_scsi_smc_except	,	V_44
+"Element Type Code"	,	L_61
+gint	,	T_12
+"AVOLTAG"	,	L_87
+tvb	,	V_1
+hf_scsi_smc_range	,	V_25
+elem_desc_len	,	V_79
+"scsi_smc.inenab"	,	L_93
+"scsi_smc.impexp"	,	L_95
+FT_BOOLEAN	,	V_105
+"scsi_smc.inv2"	,	L_18
+"scsi_smc.medium_flags"	,	L_14
+"scsi_smc.sda"	,	L_12
+"scsi_smc.curdata"	,	L_52
+"scsi_smc.additional_sense_code_qualifier"	,	L_76
+hf_scsi_smc_element_type_code	,	V_91
+"EXCEPT"	,	L_69
+"scsi_smc.starting_element_address"	,	L_49
+hf_scsi_smc_scsi_bus_address	,	V_63
+array_length	,	F_22
+"scsi_smc.cmc"	,	L_74
+I_E_ELEM	,	V_50
+hf_scsi_smc_cmc	,	V_51
+"Alternate Volume Identification"	,	L_100
+"SCSI_SMC"	,	L_106
+"scsi_smc.inv1"	,	L_16
+bytecnt	,	V_80
+hf_scsi_smc_dvcid	,	V_86
+"scsi_smc.ea"	,	L_29
+"Allocation Length"	,	L_53
+dissect_smc_initialize_element_status_with_range	,	F_6
+hf_register_info	,	T_11
+element_type_code_vals	,	V_112
+ett_scsi_move	,	V_32
+"ACCESS"	,	L_71
+guint16	,	T_10
+"scsi_smc.identifier_type"	,	L_39
+exchg_fields	,	V_7
+ident_len	,	V_42
+hf_scsi_smc_avoltag	,	V_93
+"Source Address"	,	L_5
+hf_vol_seq_num	,	V_34
+"scsi_smc.number_of_elements"	,	L_50
+"Additional Sense Code+Qualifier"	,	L_75
+"scsi_smc.lu_valid"	,	L_82
+p	,	V_36
+guint8	,	V_37
+"scsi_smc.identifier_length"	,	L_41
+"SVALID"	,	L_83
+"IMPEXP"	,	L_94
+dissect_smc_openclose_importexport_element	,	F_7
+"Primary Volume Sequence Number"	,	L_102
+BASE_NONE	,	V_110
+hf_scsi_smc_additional_sense_code_qualifier	,	V_56
+hf_scsi_smc_fda	,	V_13
+"scsi_smc.id_valid"	,	L_80
+tvbuff_t	,	T_1
+hf_scsi_smc_element_descriptor_length	,	V_94
+"scsi_smc.invert"	,	L_27
+tvb_get_ntohs	,	F_17
+"scsi_smc"	,	L_107
+tvb_memcpy	,	F_10
+proto_tree_add_bitmask	,	F_3
+BASE_HEX	,	V_99
+"SCSI Bus Address"	,	L_32
+hf_scsi_smc_invert	,	V_21
+hf_scsi_smc_byte_count_of_descriptor_data_available	,	V_95
+"scsi_smc.da"	,	L_8
+FT_UINT24	,	V_111
+"scsi_smc.pvoltag"	,	L_64
+gboolean	,	T_6
+"FULL"	,	L_88
+hf_scsi_smc_alternate_vol_tag_id	,	V_71
+dissect_smc_initialize_element_status	,	F_5
+dissect_smc_position_to_element	,	F_4
+"scsi_smc.identifier"	,	L_43
+proto_register_field_array	,	F_21
+FT_BYTES	,	V_109
+proto_reg_handoff_scsi_smc	,	F_24
+hf_scsi_smc_mta	,	V_10
+hf_scsi_smc_num_elements	,	V_28
+"scsi_smc.num_elements"	,	L_25
+hf_scsi_smc_sa	,	V_12
+dissect_scsi_smc_element	,	F_12
+"SMC Opcode"	,	L_1
+FT_UINT16	,	V_103
+"scsi_smc.byte_count_of_report_available"	,	L_60
+scsi_smc_vals_ext	,	V_101
+"scsi_smc.element_descriptor_length"	,	L_66
+tvb_get_guint8	,	F_13
+"Number of Elements Available"	,	L_57
+"scsi_smc.sa"	,	L_6
+"scsi_smc.vendor_specific_data"	,	L_45
+"scsi_smc.lun"	,	L_97
+hf_scsi_smc_voltag	,	V_81
+"Byte Count Of Descriptor Data Available"	,	L_67
+isreq	,	V_5
+"NOT BUS"	,	L_77
+"Medium Transport Address"	,	L_3
+"scsi_smc.source_storage_element_address"	,	L_35
+cdb_control_fields	,	V_19
+scsi_devid_idtype_val	,	V_108
+FT_STRING	,	V_114
+"scsi_smc.code_set"	,	L_37
+MT_ELEM	,	V_43
+hf_scsi_smc_first_element_address_reported	,	V_88
+hf_scsi_smc_inv1	,	V_8
+hf_scsi_smc_code_set	,	V_73
+hf_scsi_smc_inv2	,	V_9
+hf_scsi_smc_not_bus	,	V_59
+AVOLTAG	,	V_70
+"VOLTAG"	,	L_46
+"scsi_smc.byte_count_of_descriptor_data_available"	,	L_68
+"ID VALID"	,	L_79
+hf_scsi_smc_fast	,	V_24
+hf_scsi_smc_byte_count_of_report_available	,	V_90
+hf_scsi_smc_medium_flags	,	V_15
+move_fields	,	V_31
+hf_scsi_smc_full	,	V_46
+"INENAB"	,	L_92
+ett_scsi_range	,	V_27
+"scsi_smc.except"	,	L_70
+dissect_smc_readelementstatus	,	F_15
+ID_VALID	,	V_62
+"INV1"	,	L_15
+"scsi_smc.exenab"	,	L_91
+ENC_BIG_ENDIAN	,	V_11
+"INV2"	,	L_17
+dissect_smc_exchangemedium	,	F_1
+hf_scsi_smc_primary_vol_tag_id	,	V_68
+hf_vol_id	,	V_33
+"CURDATA"	,	L_51
+hf	,	V_96
+proto_scsi_smc	,	V_116
+PVOLTAG	,	V_67
+action_code_vals	,	V_106
+hf_scsi_smc_identifier	,	V_76
+"Identifier Type"	,	L_38
+hf_scsi_smc_number_of_elements_available	,	V_89
+hf_scsi_smc_pvoltag	,	V_92
+hf_scsi_smc_primary_vol_seq_num	,	V_69
+BASE_EXT_STRING	,	V_100
+SVALID	,	V_65
+hf_scsi_smc_ea	,	V_29
+"Flags"	,	L_13
+hf_scsi_smc_lun	,	V_58
+"PVOLTAG"	,	L_63
+"scsi_smc.fda"	,	L_10
+dissect_scsi_smc_volume_tag	,	F_9
+"cmc"	,	L_73
+"First Element Address Reported"	,	L_55
+dissect_smc_movemedium	,	F_8
+cdata	,	T_9
+"INVERT"	,	L_26
+scsi_devid_codeset_val	,	V_107
+hf_scsi_smc_range_flags	,	V_26
+proto_register_subtree_array	,	F_23
+proto_tree_add_string	,	F_11
+"scsi_smc.opcode"	,	L_2
+tvb_get_ntoh24	,	F_16
+"scsi_smc.svalid"	,	L_84
+proto_tree_add_item	,	F_2
+dissect_scsi_smc_elements	,	F_14
+pinfo	,	T_3
+"scsi_smc.alternate_vol_tag_id"	,	L_101
+_U_	,	V_2
+flags	,	V_41
+hf_scsi_smc_sda	,	V_14
+iscdb	,	V_6
+"Element Descriptor Length"	,	L_65
+"LU VALID"	,	L_81
+hf_scsi_smc_number_of_elements	,	V_84
+"scsi_smc.range"	,	L_23
+ett_scsi_exchange_medium	,	V_16
+"Source Storage Element Address"	,	L_34
+VALS	,	F_19
+"scsi_smc.access"	,	L_72
+"scsi_smc.number_of_elements_available"	,	L_58
+desc_bytecnt	,	V_78
+"Vendor-specific Data"	,	L_44
+FT_UINT8	,	V_98
+BASE_DEC	,	V_104
+hf_scsi_smc_lu_valid	,	V_61
+ENC_NA	,	V_45
+"scsi_smc.scsi_bus_address"	,	L_33
+hf_scsi_smc_starting_element_address	,	V_83
+"scsi_smc.primary_vol_seq_num"	,	L_103
+hf_scsi_smc_impexp	,	V_54
+hf_scsi_smc_da	,	V_22
+hf_scsi_smc_action_code	,	V_30
+"RANGE"	,	L_22
+"scsi_smc.action_code"	,	L_31
+"scsi_smc.allocation_length"	,	L_54
+hf_scsi_smc_source_storage_element_address	,	V_66
+"Number of Elements"	,	L_24
+"Starting Element Address"	,	L_48
+"scsi_smc.full"	,	L_89
+hf_scsi_smc_opcode	,	V_97
+"Element Address"	,	L_28
+"scsi_smc.fast"	,	L_21
+hf_scsi_smc_svalid	,	V_64
+"Identifier"	,	L_42
+"FAST"	,	L_20
+volid	,	V_35
+hf_scsi_smc_alternate_vol_seq_num	,	V_72
+scsi_task_data_t	,	T_8
+hf_scsi_smc_identifier_type	,	V_74
+hf_scsi_smc_exenab	,	V_53
+guint	,	T_5
+offset	,	V_4
+"scsi_smc.voltag"	,	L_47
+ett	,	V_115
+payload_len	,	T_7
+"scsi_smc.not_bus"	,	L_78
+tree	,	V_3
+"scsi_smc.first_element_address_reported"	,	L_56
+EXCEPT	,	V_55
+packet_info	,	T_2
+elem_type	,	V_39
+ett_scsi_control	,	V_18
+"EXENAB"	,	L_90
+"scsi_smc.alternate_vol_seq_num"	,	L_105
+hf_scsi_smc_id_valid	,	V_60
+"First Destination Address"	,	L_9
+pte_fields	,	V_20
+"scsi_smc.element_type_code"	,	L_62
+"scsi_smc.primary_vol_tag_id"	,	L_99
+voltag_flags	,	V_40
+hf_scsi_smc_curdata	,	V_85
+hf_scsi_smc_inenab	,	V_52
+hf_scsi_control	,	V_17
+"Alternate Volume Sequence Number"	,	L_104
+"scsi_smc.range_flags"	,	L_19
+"Action Code"	,	L_30
+proto_register_scsi_smc	,	F_18
+elem_bytecnt	,	V_38
+hf_scsi_smc_element_type_code_0F	,	V_82
+HFILL	,	V_102
+range_fields	,	V_23
+hf_scsi_smc_access	,	V_49
+hf_scsi_smc_vendor_specific_data	,	V_77
+"scsi_smc.dvcid"	,	L_86
+"Identifier Length"	,	L_40
+LU_VALID	,	V_57
+"Primary Volume Identification"	,	L_98
+ST_ELEM	,	V_47
+hf_scsi_smc_identifier_length	,	V_75
+"scsi_smc.mta"	,	L_4
+"Byte Count of Report Available"	,	L_59
+"LUN"	,	L_96
+proto_tree	,	T_4

@@ -1,0 +1,412 @@
+hf_netb	,	V_124
+hf_netb_fragment_multiple_tails	,	V_146
+reassembly_table_register	,	F_84
+NB_FLAGS	,	V_80
+"Sender's Node Address"	,	L_93
+"Conflicting data in fragment overlap"	,	L_107
+"Acknowledge expected"	,	L_79
+"netbios.flags.ack_expected"	,	L_80
+dissect_netb_name_resp	,	F_43
+FT_ETHER	,	V_143
+hf_netb_remote_ses_no	,	V_47
+NB_DATA_FIRST_MIDDLE	,	V_113
+TFS	,	F_74
+guint32	,	T_13
+"netbios.command"	,	L_32
+FT_BOOLEAN	,	V_134
+NB_LENGTH	,	V_99
+NB_LOCAL_SES	,	V_43
+"Caller's Name Type"	,	L_42
+tvb_reported_length_remaining	,	F_65
+NB_DATA_ONLY_LAST	,	V_114
+array_length	,	F_77
+"Name to be added"	,	L_17
+"netbios.name_type"	,	L_61
+hf_netb_fragment_overlap	,	V_144
+NB_DATAGRAM_BCAST	,	V_112
+"%s for %s&lt;%02x&gt;"	,	L_26
+hf_netb_flags_recv_cont_req	,	V_29
+hf_register_info	,	T_19
+"Defragmentation error"	,	L_116
+"Termination indicator"	,	L_64
+"netbios.termination_indicator"	,	L_65
+"Unknown (0x%02x)"	,	L_25
+guint16	,	T_12
+hf_netb_status_buffer_len	,	V_61
+i	,	V_8
+session_id	,	V_92
+"netbios.status_response"	,	L_103
+netbios_add_ses_confirm_flags	,	F_16
+"No LISTEN pending, or FIND.NAME response"	,	L_18
+"Sender's Name"	,	L_10
+tvb_memeql	,	F_39
+BASE_NONE	,	V_133
+"netbios.data2.frame"	,	L_86
+NB_SENDER_NAME	,	V_57
+"netbios.no_receive_flags"	,	L_51
+NB_DATAGRAM	,	V_111
+"NetBIOS 2.1, %u names received so far"	,	L_13
+dissect_netb_status_resp	,	F_44
+"Unknown NetBIOS command data"	,	L_129
+"Fragment overlaps with other fragments"	,	L_106
+SAP_NETBIOS	,	V_165
+NB_DATA1	,	V_49
+"NetBIOS 2.1, %u names sent so far"	,	L_20
+NB_DATA2	,	V_50
+dissect_netb_terminate_trace	,	F_37
+BASE_HEX	,	V_126
+col_add_str	,	F_63
+"netbios.data2"	,	L_84
+local_session	,	V_42
+"Name to add"	,	L_8
+dissect_netb_session_end	,	F_49
+proto_item_add_subtree	,	F_14
+hf_netb_resp_corrl	,	V_38
+module_t	,	T_21
+PI_UNDECODED	,	V_157
+proto_register_field_array	,	F_78
+netbios_data_first_middle_flags	,	F_12
+zeroes	,	V_62
+"netbios.fragment"	,	L_122
+ei	,	V_156
+dissector_add_uint	,	F_87
+"netbios.flags.ack"	,	L_76
+tvb_get_ptr	,	F_5
+FT_UINT16	,	V_129
+"netbios.resp_corrl"	,	L_41
+tvb_captured_length	,	F_71
+capture_dissector_handle_t	,	T_24
+"NetBIOS Version"	,	L_48
+fragment_add_seq_next	,	F_67
+"Status data length"	,	L_89
+"Fragment contained data past end of packet"	,	L_115
+"netbios.resync_indicator"	,	L_96
+FT_STRING	,	V_132
+"%s: %s&lt;%02x&gt; (%s)"	,	L_2
+hf_netb_local_session_no	,	V_67
+"Largest Frame"	,	L_54
+dissect_netb_add_name_resp	,	F_42
+hf_netb_state_of_name	,	V_70
+dissect_netb_datagram_bcast	,	F_40
+"Whether the NetBIOS dissector should defragment messages spanning multiple frames"	,	L_133
+NB_CALL_NAME_TYPE	,	V_41
+hf_netb_call_name_type	,	V_40
+netbios_add_name	,	F_8
+"netbios.status"	,	L_59
+hf_netbios_no_receive_flags_send_no_ack	,	V_35
+"Transmit Correlator"	,	L_38
+max_frame_size_vals	,	V_137
+"llc.dsap"	,	L_134
+label	,	V_15
+PI_WARN	,	V_158
+"DATA FIRST MIDDLE"	,	L_21
+name_type_str	,	V_19
+remote_session	,	V_45
+FT_UINT32	,	V_151
+"netbios.delimiter"	,	L_37
+hf	,	V_48
+hf_netb_datagram_mac	,	V_63
+"SEND.NO.ACK data received"	,	L_52
+name_char	,	V_11
+NB_ADD_NAME	,	V_104
+"Remote Session No."	,	L_70
+prefs_register_protocol	,	F_82
+"Data length exceeds maximum frame size"	,	L_85
+"netbios.fragment.overlap"	,	L_105
+register_heur_dissector_list	,	F_81
+data2_tree	,	V_73
+dissect_netb_receive_continue	,	F_53
+hf_netb_name_type	,	V_69
+col_set_str	,	F_59
+hf_netbios_no_receive_flags	,	V_34
+cmd_str	,	V_51
+"Flags"	,	L_50
+frag_tree_item	,	V_119
+"netbios.local_session"	,	L_69
+hf_netb_resync_indicator	,	V_53
+"netbios.state_of_name"	,	L_101
+hf_netb_version	,	V_32
+status_response	,	V_71
+"netbios.call_name_type"	,	L_43
+dissect_netb	,	V_100
+hf_netb_flags_ack	,	V_27
+dissector_try_heuristic	,	F_56
+dissector_handle_t	,	T_23
+ett_netb_name	,	V_20
+"Acknowledge with data"	,	L_77
+name_ret	,	V_6
+VALS	,	F_73
+"DATA ONLY LAST"	,	L_22
+status_request	,	V_59
+prefs_register_bool_preference	,	F_83
+netbios_reassembly_table	,	V_116
+"netbios.fragment.count"	,	L_120
+"netbios.version"	,	L_49
+"Local Session No."	,	L_68
+"netbios.flags.recv_cont_req"	,	L_82
+BASE_DEC	,	V_130
+"Header Length"	,	L_35
+hf_netb_local_ses_no	,	V_44
+ENC_NA	,	V_64
+proto_register_netbios	,	F_72
+nb_name_type_vals_ext	,	V_14
+"netbios.nb_name"	,	L_47
+netbios_defragment	,	V_115
+hf_netb_data2_user	,	V_78
+"Command"	,	L_31
+"%s"	,	L_3
+hf_netb_flags_ack_expected	,	V_28
+"netbios.status_request"	,	L_98
+hf_netb_flags	,	V_24
+"netbios"	,	L_130
+dissect_netb_session_alive	,	F_54
+"Name type"	,	L_60
+expert_netbios	,	V_161
+"Group name to add"	,	L_7
+expert_register_protocol	,	F_79
+"Status request"	,	L_97
+netb_version_str	,	V_135
+NB_RESP_CORL	,	V_39
+"LISTEN pending, but insufficient resources to establish session"	,	L_19
+field_tree	,	V_17
+nb_xmit_corrl	,	F_19
+"Length"	,	L_33
+ett	,	V_121
+"Re-sync indicator"	,	L_95
+dissect_netb_data_ack	,	F_45
+addresses_reassembly_table_functions	,	V_162
+"netbios.fragments"	,	L_124
+hf_netb_nb_name	,	V_21
+packet_info	,	T_14
+"defragment"	,	L_131
+hf_netb_max_data_recv_size	,	V_81
+"Reassemble fragmented NetBIOS messages spanning multiple frames"	,	L_132
+"Response Correlator"	,	L_40
+netbios_module	,	V_160
+ei_netb_unknown_command_data	,	V_55
+"NetBIOS Name Type"	,	L_44
+EXPFILL	,	V_159
+"Defragmentation error due to illegal fragments"	,	L_118
+netbios_no_receive_flags	,	F_18
+hf_netb_num_data_bytes_accepted	,	V_83
+"Receiver's Name"	,	L_14
+"Length of status buffer"	,	L_56
+cpinfo	,	V_2
+nb_data2	,	F_27
+nb_data1	,	F_26
+"netbios.status_buffer_len"	,	L_57
+hf_netb_datagram_bcast_mac	,	V_65
+"Number of data bytes accepted"	,	L_66
+HFILL	,	V_128
+"Status"	,	L_58
+"netbios.flags.ack_with_data"	,	L_78
+hf_netb_fragment_overlap_conflict	,	V_145
+name_type	,	V_9
+hf_netb_status_request	,	V_60
+create_dissector_handle	,	F_86
+proto_tree_add_subtree_format	,	F_9
+"NetBIOS Fragment"	,	L_121
+"netbios.flags"	,	L_72
+dissect_netb_data_first_middle	,	F_46
+pd	,	T_3
+nb_resp_corrl	,	F_20
+"Unknown"	,	L_1
+"Data length exceeds user's buffer"	,	L_87
+"NetBIOS Name"	,	L_46
+dissect_netb_receive_outstanding	,	F_52
+netbios_data_only_flags	,	F_15
+show_fragment_seq_tree	,	F_70
+proto_register_protocol	,	F_75
+NB_RECVER_NAME	,	V_58
+tvb_new_chain	,	F_68
+hf_netb_flags_ack_with_data	,	V_30
+tvb_new_subset_remaining	,	F_64
+len	,	T_5
+gint	,	T_18
+"Maximum data receive size"	,	L_62
+"netbios.xmit_corrl"	,	L_39
+"netbios.no_receive_flags.send_no_ack"	,	L_53
+dissect_netb_add_name	,	F_34
+tvb	,	V_13
+dissect_netb_status_query	,	F_36
+COL_INFO	,	V_98
+val_to_str_ext	,	F_61
+NB_XMIT_CORL	,	V_37
+hf_netb_data2	,	V_75
+hf_netb_cmd	,	V_109
+name_types	,	V_131
+MIN	,	F_60
+cinfo	,	V_96
+tfs_set_notset	,	V_141
+"netbios.reassembled.length"	,	L_126
+NETBIOS_NAME_LEN	,	V_10
+"NetBIOS Fragments"	,	L_123
+next_tvb	,	V_95
+hf_netb_hdr_len	,	V_107
+"Bad packet, no 0xEFFF marker"	,	L_24
+"netbios.datagram_mac"	,	L_92
+proto_reg_handoff_netbios	,	F_85
+"Fragment count"	,	L_119
+create_capture_dissector_handle	,	F_88
+nb_call_name_type	,	F_21
+"Status response"	,	L_102
+"netbios.num_data_bytes_accepted"	,	L_67
+COL_PROTOCOL	,	V_97
+hf_netb_fragment_too_long_fragment	,	V_147
+get_netbios_name	,	F_4
+command_name	,	V_90
+local_session_number	,	V_66
+"Sender's MAC Address"	,	L_91
+tf	,	V_23
+guint8	,	T_11
+NB_RMT_SES	,	V_46
+ti	,	V_87
+dissect_netbios	,	F_58
+ett_netb_status	,	V_76
+name_ptr	,	V_5
+"netbios.local_session_no"	,	L_99
+"DATA2 value"	,	L_83
+name_ret_len	,	V_7
+hf_netb_largest_frame	,	V_33
+dissect_netb_session_confirm	,	F_48
+NB_NAME_QUERY	,	V_102
+netbios_name_type_descr	,	F_6
+tvbuff_t	,	T_8
+hf_netb_termination_indicator	,	V_82
+NB_ADD_GROUP	,	V_105
+val_to_str_ext_const	,	F_7
+"netbios.largest_frame"	,	L_55
+netbios_add_session_init_flags	,	F_17
+gboolean	,	T_1
+dissect_netb_add_group_name	,	F_33
+fragmented	,	V_110
+dissect_netb_no_receive	,	F_51
+tvb_data	,	V_118
+"netbios.remote_session"	,	L_71
+fragment_head	,	T_17
+hf_netb_status	,	V_68
+"NetBIOS 1.x or 2.0"	,	L_11
+heur_dtbl_entry_t	,	T_15
+ett_netb_fragments	,	V_122
+tvb_get_guint8	,	F_23
+wtap_pseudo_header	,	V_3
+proto_tree_add_string_format	,	F_10
+name	,	V_91
+hf_netb_fragments	,	V_153
+next	,	V_117
+hf_netb_fragment_count	,	V_150
+proto_netbios	,	V_4
+"State of name"	,	L_100
+"Reassembled NetBIOS"	,	L_30
+"netbios.fragment.overlap.conflict"	,	L_108
+hf_netb_nb_name_type	,	V_22
+"No re-sync"	,	L_5
+dissect_netb_name_in_conflict	,	F_35
+call_data_dissector	,	F_57
+capture_netbios	,	F_1
+"Multiple tail fragments found"	,	L_110
+"Several tails were found when defragmenting the packet"	,	L_112
+hex_digits	,	V_12
+ett_netb_flags	,	V_26
+hf_netb_xmit_corrl	,	V_36
+hf_netb_delimiter	,	V_108
+"netbios.fragment.toolongfragment"	,	L_114
+capture_dissector_add_uint	,	F_89
+"RECEIVE_CONTINUE requested"	,	L_81
+proto_tree_add_uint_format_value	,	F_30
+"Delimiter"	,	L_36
+resync_indicator	,	V_52
+hdtbl_entry	,	V_84
+dissect_netbios_payload	,	F_55
+"Handle SEND.NO.ACK"	,	L_73
+netb_tree	,	V_86
+tfs_no_yes	,	V_136
+"netbios.flags.send_no_ack"	,	L_74
+fd_head	,	V_94
+dissect_netb_unknown	,	F_31
+BASE_EXT_STRING	,	V_127
+proto_tree_add_uint_format	,	F_11
+dissect_netb_datagram	,	F_38
+nb_remote_session	,	F_25
+guchar	,	T_2
+hf_netb_fragment_error	,	V_148
+"First '%s' following 'Receive Outstanding'"	,	L_6
+"netbios.datagram_bcast_mac"	,	L_94
+ett_netb	,	V_106
+proto_register_subtree_array	,	F_76
+"EFFF (NetBIOS)"	,	L_29
+"netbios.hdr_len"	,	L_34
+nb_local_session	,	F_22
+"Fragment overlap"	,	L_104
+netbios_frag_items	,	V_120
+proto_tree_add_item	,	F_13
+pinfo	,	V_54
+col_add_fstr	,	F_62
+_U_	,	V_1
+hf_netb_fragment	,	V_152
+nb_resync_indicator	,	F_28
+"Query Name"	,	L_16
+process_netbios_name	,	F_3
+hf_netb_data2_status	,	V_79
+dissect_netb_data_only_last	,	F_47
+"netbios.unknown_command_data"	,	L_128
+FT_UINT8	,	V_125
+"Overlapping fragments contained conflicting data"	,	L_109
+proto_item	,	T_10
+expert_register_field_array	,	F_80
+"0 (FIND.NAME request)"	,	L_15
+dissect_netb_session_init	,	F_50
+"netbios.fragment.multipletails"	,	L_111
+"Fragment too long"	,	L_113
+ENC_LITTLE_ENDIAN	,	V_25
+status_vals	,	V_138
+data	,	T_16
+NB_NAME_RESP	,	V_103
+"0x%02x (%s)"	,	L_4
+hf_netb_reassembled_length	,	V_155
+termination_indicator_vals	,	V_139
+ei_register_info	,	T_20
+"%s - %s&lt;%02x&gt;"	,	L_27
+save_fragmented	,	V_93
+tvb_get_letohs	,	F_29
+FT_NONE	,	V_154
+offset	,	T_4
+NB_COMMAND	,	V_56
+flags_allowed	,	V_142
+expert_module_t	,	T_22
+tree	,	V_16
+tvb_bytes_exist	,	F_66
+"Name In Conflict"	,	L_9
+add_new_data_source	,	F_69
+"Reassembled NetBIOS length"	,	L_125
+tfs_yes_no	,	V_140
+capture_packet_info_t	,	T_6
+hf_netb_status_response	,	V_74
+proto_tree_add_uint	,	F_24
+pseudo_header	,	T_7
+td2	,	V_72
+netbios_cap_handle	,	V_164
+cmd_vals_ext	,	V_101
+proto_tree_add_expert	,	F_32
+name_str	,	V_18
+netbios_heur_subdissector_list	,	V_85
+capture_dissector_increment_count	,	F_2
+"netbios.fragment.error"	,	L_117
+ett_netb_fragment	,	V_123
+netbios_handle	,	V_163
+"The total length of the reassembled payload"	,	L_127
+hdr_len	,	V_88
+"netbios.data2.user"	,	L_88
+"netbios.nb_name_type"	,	L_45
+"netbios.max_data_recv_size"	,	L_63
+"NetBIOS"	,	L_23
+dissect_netb_name_query	,	F_41
+hf_netb_data2_frame	,	V_77
+"netbios.data2.status"	,	L_90
+"%d bytes"	,	L_28
+FT_FRAMENUM	,	V_149
+command	,	V_89
+"NetBIOS 2.1, initial status request"	,	L_12
+hf_netb_flags_send_no_ack	,	V_31
+"Acknowledge"	,	L_75
+proto_tree	,	T_9

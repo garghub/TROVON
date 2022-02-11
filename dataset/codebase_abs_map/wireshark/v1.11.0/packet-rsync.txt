@@ -1,0 +1,146 @@
+ett_rsync	,	V_35
+proto_register_protocol	,	F_22
+"tcp_port"	,	L_30
+"rsync.motd"	,	L_21
+prefs_register_protocol	,	F_26
+rsync_conversation_data	,	V_19
+RSYNC_MODULE_LIST_QUERY	,	V_53
+hf_rsync_module_list_string	,	V_45
+proto_rsync	,	V_29
+client_state	,	V_30
+col_set_str	,	F_6
+gint	,	T_12
+rsync_module	,	V_62
+state	,	V_37
+"Client Query String"	,	L_16
+tvb	,	V_1
+COL_INFO	,	V_14
+"Server MOTD"	,	L_5
+"Set the TCP port for RSYNC messages"	,	L_32
+version	,	V_7
+"Magic Header"	,	L_12
+col_clear	,	F_7
+cinfo	,	V_13
+p_get_proto_data	,	F_15
+"rsync.response"	,	L_23
+proto_register_subtree_array	,	F_25
+hf_rsync_command_string	,	V_54
+array_length	,	F_24
+tvb_get_nstringz0	,	F_3
+"rsync.query"	,	L_17
+proto_tree_add_item	,	F_2
+pinfo	,	V_2
+col_add_fstr	,	F_4
+proto_reg_handoff_rsync	,	V_63
+"Data"	,	L_9
+_U_	,	V_17
+ENC_ASCII	,	V_10
+rsync_who	,	V_4
+"RSYNC"	,	L_4
+dissect_rsync_version_header	,	F_1
+"Client Command String"	,	L_24
+RSYNCD_EXIT_LEN	,	V_46
+"rsync.command"	,	L_25
+hf_register_info	,	T_11
+"Client"	,	L_3
+"rsync data"	,	L_26
+initialized	,	V_64
+"Module list"	,	L_8
+prefs_register_bool_preference	,	F_28
+rsync_desegment	,	V_55
+COL_PROTOCOL	,	V_25
+tvb_length	,	F_19
+RSYNC_DATA	,	V_44
+proto_item	,	T_8
+CLIENT	,	V_28
+"Authentication"	,	L_6
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_36
+RSYNC_SERV_INIT	,	V_33
+ENC_NA	,	V_11
+RSYNC_MODULE_LIST_QUERY_LEN	,	V_52
+ti	,	V_23
+hf_rsync_data	,	V_48
+BASE_NONE	,	V_58
+RSYNCD_EXIT	,	V_47
+tvb_length_remaining	,	F_18
+hf_rsync_hdr_version	,	V_12
+RSYNC_COMMAND	,	V_51
+data	,	T_10
+"rsync.data"	,	L_27
+tvbuff_t	,	T_1
+"Server Module List"	,	L_18
+"desegment"	,	L_33
+conversation_set_dissector	,	F_13
+"Whether the RSYNC dissector should reassemble messages spanning multiple TCP segments."	,	L_35
+prefs_register_uint_preference	,	F_27
+gboolean	,	T_5
+glb_rsync_tcp_port	,	V_27
+me	,	V_5
+proto_item_add_subtree	,	F_14
+module_t	,	T_13
+proto_register_field_array	,	F_23
+conversation	,	V_18
+RSYNC_MODULE_LIST	,	V_40
+FT_BYTES	,	V_60
+conversation_t	,	T_7
+hf_rsync_rsyncdok_string	,	V_43
+guint	,	T_9
+offset	,	V_6
+desegment	,	T_6
+ett	,	V_61
+RSYNCD_AUTHREQD_LEN	,	V_42
+dissector_add_uint	,	F_31
+tree	,	V_16
+packet_info	,	T_2
+"Client Command"	,	L_11
+p_add_proto_data	,	F_16
+tvb_strneql	,	F_17
+RSYNCD_MAGIC_HEADER_LEN	,	V_9
+dissector_delete_uint	,	F_30
+rsync_tree	,	V_3
+rsync_frame_data	,	V_21
+fd	,	V_36
+"Header Version"	,	L_14
+hf_rsync_hdr_magic	,	V_8
+RSYNCD_AUTHREQD	,	V_41
+buff_length	,	V_24
+conversation_data	,	V_20
+"RSYNCD Response String"	,	L_22
+conversation_get_proto_data	,	F_9
+"Reassemble RSYNC messages spanning multiple TCP segments"	,	L_34
+"%s Initialisation (Version %s)"	,	L_1
+FT_STRING	,	V_57
+"rsync.module_list"	,	L_19
+hf_rsync_motd_string	,	V_39
+SERVER	,	V_15
+dissect_rsync_encap	,	F_5
+"Server"	,	L_2
+dissect_rsync	,	F_20
+wmem_file_scope	,	F_11
+HFILL	,	V_59
+server_state	,	V_32
+"Server MOTD String"	,	L_20
+new_create_dissector_handle	,	F_29
+"RSYNC File Synchroniser"	,	L_28
+conversation_add_proto_data	,	F_12
+"Client Query"	,	L_10
+wmem_new	,	F_10
+rsync_handle	,	V_34
+gchar	,	T_4
+hf_rsync_query_string	,	V_50
+"rsync TCP Port"	,	L_31
+proto_register_rsync	,	F_21
+rsync_frame_data_p	,	V_22
+"rsync.hdr_version"	,	L_15
+RSYNC_SERV_MOTD	,	V_38
+"rsync.hdr_magic"	,	L_13
+RSYNC_INIT	,	V_31
+"Final module list"	,	L_7
+RSYNC_CLIENT_QUERY	,	V_49
+srcport	,	V_26
+find_or_create_conversation	,	F_8
+saved_rsync_tcp_port	,	V_65
+"tcp.port"	,	L_37
+proto_tree	,	T_3
+hf	,	V_56
+"rsync"	,	L_29

@@ -1,0 +1,89 @@
+register_dissector	,	F_20
+"gmr1.dtap"	,	L_16
+gmr1_pd_vals	,	V_30
+proto_register_protocol	,	F_18
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_9
+dtap_tree	,	V_11
+gmr1_get_msg_params	,	F_8
+gmr1_pd_e	,	V_21
+gmr1_pd_short_vals	,	V_20
+len	,	V_4
+col_append_fstr	,	F_6
+gint	,	T_7
+dtap_item	,	V_10
+proto_item_add_subtree	,	F_10
+"gsm_a_dtap"	,	L_19
+proto_register_field_array	,	F_19
+proto_tree_add_uint_format	,	F_12
+FT_BYTES	,	V_32
+"lapsat.sapi"	,	L_18
+tvb	,	V_1
+oct	,	V_12
+"GMR-1 DTAP - Message Type (0x%02x)"	,	L_4
+"Protocol Discriminator"	,	L_10
+"(%s) "	,	L_2
+guint32	,	T_4
+offset	,	V_5
+ett	,	V_34
+COL_INFO	,	V_19
+dissector_add_uint	,	F_23
+tree	,	V_3
+dtap_handle	,	V_36
+"(Unknown)"	,	L_9
+"gmr1.dtap.message_elements"	,	L_13
+packet_info	,	T_2
+proto_gmr1_dtap	,	V_22
+"gmr1_dtap"	,	L_17
+tvb_get_guint8	,	F_3
+proto_register_gmr1_dtap	,	F_14
+"GMR-1 DTAP - %s"	,	L_6
+tvb_captured_length	,	F_2
+cinfo	,	V_18
+proto_reg_handoff_gmr1_dtap	,	F_21
+ett_gmr1_dtap	,	V_23
+hf_gmr1_dtap_message_elements	,	V_25
+proto_register_subtree_array	,	F_16
+msg_func	,	V_6
+val_to_str	,	F_7
+array_length	,	F_17
+hf_idx	,	V_9
+proto_tree_add_uint	,	F_11
+"GMR-1 DTAP"	,	L_15
+proto_tree_add_item	,	F_13
+call_dissector	,	F_4
+pinfo	,	V_2
+dissector_handle_t	,	T_11
+GMR1_PD_EXT_MSK	,	V_14
+gsm_dtap_handle	,	V_17
+col_append_str	,	F_5
+"Unknown (%u)"	,	L_3
+" (DTAP) "	,	L_1
+hf_register_info	,	T_10
+VALS	,	F_15
+HFILL	,	V_31
+"%s "	,	L_7
+"Message elements"	,	L_12
+gchar	,	T_6
+FT_UINT8	,	V_28
+ett_gmr1_pd	,	V_35
+find_dissector	,	F_22
+BASE_DEC	,	V_29
+hf_gmr1_dtap_protocol_discriminator	,	V_24
+proto_item	,	T_8
+"Message Type: %s"	,	L_8
+GMR1_PD_EXT_VAL	,	V_15
+msg_str	,	V_7
+"gmr1.dtap.protocol_discriminator"	,	L_11
+"GEO-Mobile Radio (1) DTAP"	,	L_14
+ENC_NA	,	V_26
+guint8	,	T_9
+ett_tree	,	V_8
+pd	,	V_13
+dissect_gmr1_dtap	,	F_1
+BASE_NONE	,	V_33
+"Message Type (0x%02x) "	,	L_5
+GMR1_PD_RR	,	V_16
+gmr1_msg_func_t	,	T_5
+proto_tree	,	T_3
+hf	,	V_27

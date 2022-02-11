@@ -1,0 +1,728 @@
+EIGRP_TLV_PEER_TIDLIST	,	V_148
+"eigrp.attr.energy"	,	L_254
+"eigrp.stub_options.summary"	,	L_148
+"eigrp.flags"	,	L_64
+"eigrp.old_metric.tag"	,	L_190
+"Acknowledge number -- used to send messages reliably"	,	L_72
+"Version - Version of EIGRP packet format"	,	L_60
+"eigrp.attr.offset"	,	L_241
+FT_ETHER	,	V_289
+dissect_eigrp_ipv4_tlv	,	F_43
+EIGRP_PEER_ALLOWS_LEAKING	,	V_275
+hf_eigrp_extdata_tag	,	V_125
+TFS	,	F_69
+dissect_eigrp_peer_tidlist	,	F_19
+hf_eigrp_metric_flags_repl	,	V_71
+guint32	,	T_12
+ett_eigrp_tlv_attr	,	V_171
+"eigrp.opaque.flag.ext"	,	L_222
+vec_t	,	T_9
+FT_BOOLEAN	,	V_253
+EIGRP_TLV_PEER_STUBINFO	,	V_146
+"K1"	,	L_105
+"Administrative Route Tag"	,	L_209
+"Delay: Infinity"	,	L_45
+"Init"	,	L_84
+"eigrp.seq.ipv4addr"	,	L_136
+": %u"	,	L_11
+tvb_reported_length_remaining	,	F_11
+dissect_eigrp_nexthop	,	F_41
+size	,	V_58
+hf_eigrp_legacy_metric_load	,	V_120
+hf_eigrp_extdata_as	,	V_124
+"Type(EIGRP_EXTCOMM_RPM): xProto(%u) xMETRIC(%u)"	,	L_41
+eigrp_auth2string	,	V_24
+"How long to ignore lost HELLO's"	,	L_124
+EIGRP_EXTCOMM_RPM	,	V_166
+array_length	,	F_72
+"eigrp.ipv6.prefixlen"	,	L_261
+"eigrp.opcode"	,	L_62
+"eigrp.ipv4.nexthop"	,	L_257
+""	,	L_3
+"eigrp.tid"	,	L_156
+"in more than one AS. This field allows the gateway to"	,	L_82
+hf_eigrp_seq_ipv6addr	,	V_45
+"Type(EIGRP_EXTCOMM_SOO): AS(%u) TAG(%u)"	,	L_42
+"K2"	,	L_108
+EIGRP_EXTCOMM_SOO_ASFMT	,	V_167
+ipv6_addr_and_mask	,	F_30
+EIGRP_AUTH_TYPE_SHA256	,	V_35
+"Metric calculated from legacy TLVs"	,	L_244
+eigrp_flag_fields	,	V_222
+EIGRP_TLV_AT_CBL	,	V_152
+hf_register_info	,	T_13
+"eigrp.flags.init"	,	L_85
+"eigrp.old_metric.intag"	,	L_178
+"Delay reported by redistributing protocol"	,	L_217
+"NextHop Host"	,	L_264
+ti_prefixlen	,	V_75
+hf_eigrp_legacy_metric_delay	,	V_115
+hf_eigrp_saf_service	,	V_95
+hf_eigrp_legacy_metric_hopcount	,	V_118
+dissect_eigrp_metric_comm	,	F_49
+"which for a give routing/service table. A gateway can participate "	,	L_81
+guint16	,	T_6
+auth_type	,	V_22
+hf_eigrp_tlv_type	,	V_235
+"eigrp.ipx.nexthop_host"	,	L_265
+"eigrp.next_mcast_seq"	,	L_140
+"K3"	,	L_111
+"Internal Route Tag"	,	L_179
+"in the previous HELLO"	,	L_90
+e_in6_addr	,	V_81
+"eigrp.auth.digest"	,	L_132
+"Scaled Delay"	,	L_159
+"eigrp.metric.reserved"	,	L_238
+"NextHop Net"	,	L_262
+"Unknown Generic TLV (0x%04x)"	,	L_29
+EIGRP_EXTCOMM_VRHB	,	V_163
+BASE_NONE	,	V_263
+"select which set of topology tables to use."	,	L_83
+EIGRP_AF_IPX	,	V_136
+dissect_eigrp_metric_flags	,	F_23
+dissect_eigrp_next_mcast_seq	,	F_15
+EIGRP_TLV_ATALK	,	V_240
+"eigrp.prefixlen.invalid"	,	L_305
+"ipx.socket"	,	L_325
+dissect_eigrp_wide_metric_attr	,	F_50
+"Virtual Router ID"	,	L_73
+reach_ti	,	V_88
+"K4"	,	L_114
+ack	,	V_207
+opcode	,	V_203
+proto_eigrp	,	V_215
+"ddp.type"	,	L_324
+BASE_HEX	,	V_250
+hf_eigrp_stub_flags_leakmap	,	V_274
+dissect_eigrp_extdata	,	F_40
+"eigrp.ipv4.prefixlen"	,	L_259
+EIGRP_TLV_SW_VERSION	,	V_144
+col_add_str	,	F_60
+ei_eigrp_tlv_len	,	V_232
+FT_UINT24	,	V_279
+hf_eigrp_saf_data_type	,	V_99
+hf_eigrp_flags_restart	,	V_258
+proto_item_add_subtree	,	F_20
+"eigrp.metric.priority"	,	L_232
+hf_eigrp_tidlist_len	,	V_60
+"Receive-Only"	,	L_153
+proto_register_field_array	,	F_71
+"Cisco EIGRP"	,	L_52
+FT_BYTES	,	V_262
+"eigrp.old_metric.load"	,	L_175
+hf_eigrp_extdata_metric	,	V_130
+"Unreachable"	,	L_308
+ei	,	V_293
+"eigrp.flags.restart"	,	L_92
+"K5"	,	L_117
+dissector_add_uint	,	F_80
+"eigrp.ipx.routerid"	,	L_267
+dissect_eigrp_legacy_metric	,	F_38
+"Conditionally Received the next packet if address was in listed "	,	L_89
+"eigrp.tlv.len"	,	L_103
+tvb_get_ptr	,	F_64
+"Sequence"	,	L_67
+FT_UINT16	,	V_251
+"ip.proto"	,	L_323
+EIGRP_VRID_MASK	,	V_226
+"Unknown TLV (0x%04x)"	,	L_56
+eigrp_proto2string	,	V_284
+eigrp_saf_srv2string	,	V_94
+hf_eigrp_flags	,	V_220
+"percent packets successfully tx/rx"	,	L_173
+ip_to_str	,	F_28
+"K6"	,	L_119
+EIGRP_PEER_ALLOWS_SUMMARY	,	V_271
+hf_eigrp_attr_tag	,	V_178
+expert_add_info	,	F_5
+"Key ID"	,	L_127
+EIGRP_INIT_FLAG	,	V_255
+"Extended Metric Coefficient"	,	L_121
+"Route is Replicated"	,	L_198
+"EIGRP Release: %u.%u"	,	L_7
+hf_eigrp_nullpad	,	V_29
+"  =   %s"	,	L_19
+hf_eigrp_stub_flags_static	,	V_268
+"eigrp.opaque.flag.cd"	,	L_225
+"eigrp.attr.opcode"	,	L_239
+"Invalid auth len"	,	L_298
+dissect_eigrp_multi_protocol_tlv	,	F_54
+EIGRP_TLV_MP	,	V_243
+hf_eigrp_auth_type	,	V_25
+vrid	,	V_204
+EIGRP_SF_IPv6	,	V_134
+"Candidate-Default route"	,	L_226
+afi	,	V_85
+"Sub-Service"	,	L_274
+find_dissector_table	,	F_78
+val_to_str_const	,	F_8
+eigrp_tree	,	V_201
+EIGRP_SF_IPv4	,	V_132
+length	,	V_74
+"eigrp.old_metric.bw"	,	L_163
+hf_eigrp_vrid	,	V_225
+"eigrp.auth.keyid"	,	L_128
+PI_WARN	,	V_298
+cksum_vec	,	V_199
+"Route is Active"	,	L_195
+hf_eigrp_ipx_nexthop_net	,	V_137
+FT_UINT32	,	V_249
+"Multicast Sequence"	,	L_139
+service	,	V_91
+hf_eigrp_saf_reachability_port	,	V_103
+guint64	,	T_8
+"Hold Time"	,	L_122
+"eigrp.tidlist.flags"	,	L_183
+FT_GUID	,	V_290
+"SAF Message Data Type"	,	L_279
+IPX_SOCKET_EIGRP	,	V_306
+dissect_eigrp_seq_tlv	,	F_10
+"Destination: %s"	,	L_16
+hf	,	V_245
+tlv	,	V_140
+ti_auth_len	,	V_21
+EIGRP_EXTCOMM_SRLM	,	V_164
+hf_eigrp_afi	,	V_155
+hf_eigrp_stub_flags	,	V_52
+ipv4_addr_and_mask	,	F_27
+ett_eigrp_metric_flags	,	V_68
+G_GINT64_MODIFIER	,	V_195
+ei_eigrp_auth_len	,	V_33
+EIGRP_EOT_FLAG	,	V_261
+"Tag"	,	L_189
+"eigrp.peer_termination_graceful"	,	L_303
+"Connected"	,	L_143
+FT_IPv6	,	V_265
+"eigrp.stub_options.redist"	,	L_150
+"eigrp.stub_options.leakmap"	,	L_152
+reach_tree	,	V_89
+"AppleTalk Cable Range = %u-%u"	,	L_30
+hf_eigrp_attr_qenergy	,	V_183
+"NextHop Address = %u.%u"	,	L_32
+col_set_str	,	F_58
+"Flags"	,	L_14
+hf_eigrp_saf_reachability_afi	,	V_102
+"eigrp.tidlist"	,	L_181
+"NextHop"	,	L_256
+EIGRP_AUTH_TYPE_MD5_LEN	,	V_32
+FT_IPv4	,	V_264
+"eigrp.saf.service"	,	L_273
+k1	,	V_6
+"Route is replicated from different tableid"	,	L_200
+k2	,	V_7
+k3	,	V_8
+k4	,	V_9
+k5	,	V_10
+"eigrp.extdata.origrid"	,	L_202
+"eigrp.auth.length.invalid"	,	L_297
+hf_eigrp_attr_energy	,	V_185
+"eigrp.metric.hopcount"	,	L_237
+"Route Tag"	,	L_177
+EIGRP_AUTH_TYPE_NONE	,	V_37
+reach_tvb	,	V_90
+"eigrp.ack"	,	L_71
+"IPv6 Addr"	,	L_289
+"eigrp.tlv_type.unknown"	,	L_309
+val_to_str	,	F_61
+ti_addrlen	,	V_40
+"EIGRP"	,	L_50
+"Invalid auth type %u"	,	L_5
+hf_eigrp_ipv6_nexthop	,	V_135
+hf_eigrp_acknowledge	,	V_224
+dissector_handle_t	,	T_17
+"Checksum: 0x%02x [correct]"	,	L_54
+"eigrp.auth.keyseq"	,	L_130
+tok	,	V_113
+"Legacy Metric"	,	L_27
+VALS	,	F_68
+"eigrp.attr.scaled"	,	L_243
+ios_rel_minor	,	V_48
+"Route Source Withdraw"	,	L_194
+EIGRP_EXTCOMM_SOO_ADRFMT	,	V_168
+hf_eigrp_version	,	V_217
+"Nullpad"	,	L_293
+"eigrp.auth.type.invalid"	,	L_299
+tvb_length	,	F_63
+"%c %u:%u"	,	L_22
+proto_tree_add_text	,	F_12
+BASE_DEC	,	V_247
+"Service"	,	L_272
+tvb_new_subset	,	F_24
+"External Metric"	,	L_210
+"eigrp.saf.data.type"	,	L_278
+EIGRP_OPAQUE_CD	,	V_286
+ENC_NA	,	V_30
+"Delay: %"	,	L_46
+"Number of hops to destination"	,	L_170
+"Router ID of injecting router"	,	L_188
+hf_eigrp_tid	,	V_154
+dissect_eigrp_atalk_tlv	,	F_44
+"eigrp.metric.offset"	,	L_228
+"Corrupt TLV (Truncated prematurely)"	,	L_318
+"eigrp.saf.data.reachability.addr_hex"	,	L_292
+hf_eigrp_as	,	V_228
+"%s"	,	L_55
+EIGRP_EXTCOMM_VRR	,	V_161
+"Load Coefficient"	,	L_110
+hf_eigrp_attr_scaled	,	V_176
+EIGRP_ATTR_ENERGY	,	V_184
+"eigrp.auth.length"	,	L_126
+"eigrp.ipv6.nexthop"	,	L_260
+"External route"	,	L_223
+ei_eigrp_prefixlen	,	V_79
+"ipxsap"	,	L_321
+ei_eigrp_afi	,	V_158
+"Bad Checksum"	,	L_314
+"Conditional Receive"	,	L_87
+expert_register_protocol	,	F_74
+EIGRP_HEADER_LENGTH	,	V_208
+limit	,	V_67
+"eigrp.metric.reliability"	,	L_234
+"Key Sequence"	,	L_129
+"Invalid prefix length"	,	L_306
+"Type(EIGRP_EXTCOMM_VRR)): RES(0x%02x) RID(0x%04x)"	,	L_36
+hf_eigrp_seq_ipv4addr	,	V_44
+guint	,	T_11
+"Length"	,	L_102
+ett	,	V_292
+"Enhanced Interior Gateway Routing Protocol"	,	L_319
+wmem_packet_scope	,	F_36
+ett_eigrp_tlv_metric	,	V_93
+"Non-Active energy usage along path"	,	L_252
+"SAF Service "	,	L_20
+"route tag"	,	L_191
+packet_info	,	T_3
+ett_eigrp_stub_flags	,	V_53
+hf_eigrp_routerid	,	V_156
+hf_eigrp_next_mcast_seq	,	V_51
+hf_eigrp_tidlist_flags	,	V_59
+hf_eigrp_saf_data_sequence	,	V_110
+"Offset"	,	L_227
+"eigrp.saf.data.reachability.port"	,	L_284
+hf_eigrp_legacy_metric_intag	,	V_121
+"Route is External"	,	L_221
+EXPFILL	,	V_296
+"GUID"	,	L_276
+hf_eigrp_metric_load	,	V_192
+"IP Address"	,	L_135
+EIGRP_PEER_ALLOWS_RCVONLY	,	V_277
+"eigrp.old_metric.delay"	,	L_160
+ei_eigrp_tlv_type	,	V_149
+hf_eigrp_ipx_extdata_routerid	,	V_123
+"eigrp"	,	L_320
+attr_size	,	V_187
+dissect_eigrp_extdata_flags	,	F_21
+"Delay/Latency Coefficient"	,	L_113
+"eigrp.peer_termination"	,	L_295
+tvb_new_subset_length	,	F_66
+hf_eigrp_stub_flags_recvonly	,	V_276
+"eigrp.ipx.dest"	,	L_269
+"eigrp.atalk.routerid"	,	L_271
+"destination/attribute information"	,	L_230
+hf_eigrp_extdata_flag_cd	,	V_66
+dissect_eigrp	,	F_57
+dissect_eigrp_peer_stubinfo	,	F_16
+hf_eigrp_metric_hopcount	,	V_194
+HFILL	,	V_248
+PI_MALFORMED	,	V_297
+"Wide Metric"	,	L_44
+EIGRP_OPC_HELLO	,	V_212
+"eigrp.extdata.metric"	,	L_211
+hf_eigrp_seq_addrlen	,	V_42
+"TID List"	,	L_180
+ei_eigrp_checksum_bad	,	V_219
+"eigrp.tlv.len.invalid"	,	L_315
+hf_eigrp_opcode	,	V_218
+EIGRP_TLV_MTR_TIDLIST	,	V_231
+"u"	,	L_47
+xml_tvb	,	V_111
+dissect_eigrp_ipx_tlv	,	F_46
+EIGRP_TLV_PEER_TERMINATION	,	V_147
+"TID List Size"	,	L_184
+EIGRP_CR_FLAG	,	V_257
+eigrp_rel_minor	,	V_50
+test_string	,	V_112
+hf_eigrp_extdata_origrid	,	V_129
+hf_eigrp_legacy_metric_rel	,	V_119
+"eigrp.saf.guid"	,	L_277
+hf_eigrp_ipx_nexthop_host	,	V_138
+ei_eigrp_unreachable	,	V_80
+EIGRP_AF_IPv4	,	V_105
+"MTU, in octets"	,	L_167
+"eigrp.seq.ipv6addr"	,	L_138
+EIGRP_AF_IPv6	,	V_107
+tvb_get_string	,	F_35
+sub_ti	,	V_56
+proto_register_protocol	,	F_70
+hf_eigrp_metric_reserved	,	V_196
+EIGRP_ATTR_SCALED	,	V_175
+"Jitter"	,	L_247
+EIGRP_TLV_MTR	,	V_244
+"eigrp.old_metric.hopcount"	,	L_169
+tvb_new_subset_remaining	,	F_22
+"Bandwidth: %"	,	L_49
+"Version"	,	L_58
+len	,	V_198
+" %s"	,	L_2
+gint	,	T_14
+hf_eigrp_auth_len	,	V_26
+comm_type	,	V_159
+"Port"	,	L_283
+tvb	,	V_2
+"Destination"	,	L_268
+media_type_table	,	V_114
+COL_INFO	,	V_211
+EIGRP_TLV_EXTERNAL	,	V_151
+"eigrp.routerid"	,	L_187
+"eigrp.unreachable"	,	L_307
+"Hop Count"	,	L_168
+EIGRP_TLV_RANGEMASK	,	V_237
+"Autonomous System of redistributing protocol"	,	L_206
+dissect_eigrp_service	,	F_34
+"Flag - Initialization bit and is used in establishing "	,	L_65
+remaining	,	V_86
+hf_eigrp_saf_guid	,	V_97
+"eigrp.extdata.tag"	,	L_208
+sub_tree	,	V_57
+EIGRP_EXTCOMM_SAR	,	V_165
+"eigrp.afi"	,	L_158
+cinfo	,	V_209
+"eigrp.seq"	,	L_68
+"  %c   %s/%u"	,	L_17
+PI_ERROR	,	V_300
+"Unknown AFI"	,	L_312
+tfs_set_notset	,	V_254
+"Sequence number -- used to send messages reliably"	,	L_69
+hf_eigrp_ipx_extdata_metric	,	V_127
+"Virtual Router ID - For each Virtual Router, there is a separate topology "	,	L_75
+"Reserved"	,	L_213
+"eigrp.par.k2"	,	L_109
+": Cable range= %u-%u, Router ID= %u"	,	L_31
+call_dissector	,	F_65
+"eigrp.flags.eot"	,	L_96
+hf_eigrp_metric_mtu	,	V_193
+"External Delay"	,	L_215
+"eigrp.extdata.ipx_delay"	,	L_216
+"Number of 16bit words to reach the start of the"	,	L_229
+"Digest"	,	L_131
+proto_reg_handoff_eigrp	,	F_76
+dissect_eigrp_sw_version	,	F_14
+"EIGRP TLV version: %u.%u"	,	L_9
+"bandwidth, in units of 1 Kbit/sec"	,	L_164
+EIGRP_EXTCOMM_DAD	,	V_162
+EIGRP_AUTH_TYPE_SHA256_LEN	,	V_36
+"Source Withdraw"	,	L_192
+tvb_ipxnet_to_string	,	F_33
+ei_eigrp_seq_addrlen	,	V_46
+"eigrp.par.k1"	,	L_106
+hf_eigrp_saf_reachability_addr_ipv6	,	V_108
+IP_PROTO_EIGRP	,	V_304
+hf_eigrp_par_holdtime	,	V_18
+"eigrp.checksum.bad"	,	L_313
+hf_eigrp_saf_reachability_addr_ipv4	,	V_106
+COL_PROTOCOL	,	V_210
+EIGRP_SF_COMMON	,	V_139
+hf_eigrp_atalk_routerid	,	V_153
+eigrp_afi2string	,	V_278
+sub_offset	,	V_87
+"%c %s"	,	L_21
+"End Of Table"	,	L_95
+"TID List Flags"	,	L_182
+eigrp_opcode2string	,	V_214
+guint8	,	T_5
+ti	,	V_4
+dissect_eigrp_multi_topology_tlv	,	F_47
+"IPv4 Addr"	,	L_287
+EIGRP_OPAQUE_SRCWD	,	V_281
+dissect_eigrp_ipv4_addr	,	F_25
+tvb_length_remaining	,	F_26
+hf_eigrp_ipx_extdata_delay	,	V_128
+dissect_eigrp_ipx_addr	,	F_32
+EIGRP_OPC_IPXSAP	,	V_229
+"End-of-Table - Marks the end of the start-up UPDATES indicating the "	,	L_97
+"UPDATE packets during the nsf signaling period."	,	L_94
+"eigrp.ipx.nexthop_net"	,	L_263
+tvb_get_ntohl	,	F_13
+ti_auth_type	,	V_20
+"Addr"	,	L_291
+tvbuff_t	,	T_2
+"Reachability"	,	L_23
+"text/plain"	,	L_26
+proto_tree_add_protocol_format	,	F_62
+tvb_get_ntohs	,	F_7
+hf_eigrp_ipv6_prefixlen	,	V_83
+expert_eigrp	,	V_302
+proto_tree_add_bitmask	,	F_17
+hf_eigrp_attr_opcode	,	V_172
+hf_eigrp_saf_reachability_protocol	,	V_104
+EIGRP_TLV_IPX	,	V_241
+"External Flags"	,	L_13
+"AppleTalk Router ID"	,	L_270
+EIGRP_OPAQUE_EXT	,	V_285
+"eigrp.stub_options.recvonly"	,	L_154
+EIGRP_RS_FLAG	,	V_259
+eigrp_vrid2string	,	V_227
+"Q-Energy"	,	L_250
+"Autonomous system number - Each AS has a separate topology table "	,	L_80
+"eigrp.old_metric.mtu"	,	L_166
+EIGRP_ATTR_JITTER	,	V_180
+"eigrp.seq.addrlen.invalid"	,	L_301
+ipxsap_handle	,	V_230
+"Load"	,	L_174
+"Restart flag - Set in the HELLO and the initial "	,	L_93
+"Attributes"	,	L_43
+"Priority of the prefix for ordering transmission"	,	L_233
+"Type(EIGRP_EXTCOMM_VRHB): REL(%u) HOP(%u) SBW(%u)"	,	L_38
+G_GUINT64_CONSTANT	,	F_53
+unreachable	,	V_72
+"eigrp.metric.flags.repl"	,	L_199
+dissect_eigrp_peer_termination	,	F_18
+"eigrp.nullpad"	,	L_294
+"Topology"	,	L_155
+"Tag assigned by admin for dest"	,	L_246
+tvb_get_guint8	,	F_2
+": EIGRP=%u.%u"	,	L_8
+eigrp_saf_type2string	,	V_291
+dissect_eigrp_parameter	,	F_1
+ip_checksum	,	F_55
+hf_eigrp_metric_flags_active	,	V_70
+"Router ID of redistributing router"	,	L_203
+"IPX Address = %08x.%04x.%04x.%04x"	,	L_6
+PI_RESPONSE_CODE	,	V_294
+ett_eigrp_saf_reachability	,	V_101
+": Peer Termination"	,	L_1
+hf_eigrp_par_k6	,	V_17
+ei_eigrp_auth_type	,	V_39
+EIGRP_TLV_SEQ	,	V_143
+"eigrp.extdata.as"	,	L_205
+hf_eigrp_metric_flags_srcwd	,	V_69
+hf_eigrp_extdata_proto	,	V_126
+hf_eigrp_par_k1	,	V_11
+EIGRP_ATTR_TAG	,	V_177
+"eigrp.extdata.reserved"	,	L_214
+hf_eigrp_par_k2	,	V_13
+gint8	,	T_7
+hf_eigrp_par_k3	,	V_14
+hf_eigrp_par_k4	,	V_15
+hf_eigrp_par_k5	,	V_16
+"eigrp.afi.unknown"	,	L_311
+EIGRP_OPAQUE_ACTIVE	,	V_282
+"a new neighbor relationship"	,	L_66
+proto_register_eigrp	,	F_67
+"Leak-Map"	,	L_151
+dissect_eigrp_ipx_extdata	,	F_39
+"Number of 2 byte words of data"	,	L_242
+"eigrp.attr.tag"	,	L_245
+"eigrp.metric.flags.active"	,	L_196
+hf_eigrp_tidlist_tid	,	V_62
+big_num	,	V_188
+new_create_dissector_handle	,	F_79
+hf_eigrp_extdata_reserved	,	V_131
+sub_service	,	V_92
+find_dissector	,	F_77
+hf_eigrp_legacy_metric_mtu	,	V_117
+ptr	,	V_197
+"Restart"	,	L_91
+"eigrp.extdata.ipx_metric"	,	L_218
+ENC_BIG_ENDIAN	,	V_12
+"Invalid address length"	,	L_302
+hf_eigrp_stub_flags_connected	,	V_266
+EIGRP_OPAQUE_REPL	,	V_283
+hf_eigrp_legacy_metric_tag	,	V_157
+EIGRP_PEER_ALLOWS_REDIST	,	V_273
+"eigrp.metric.flags.srcwd"	,	L_193
+"Invalid auth type"	,	L_300
+ip_addr	,	V_73
+"AFI"	,	L_157
+"eigrp.saf.data.reachability.afi"	,	L_282
+"Static"	,	L_145
+"Summary"	,	L_147
+"Reliability Coefficient"	,	L_116
+sub_tvb	,	V_63
+"IPv6 Address"	,	L_137
+EIGRP_AUTH_TYPE_TEXT	,	V_38
+"Invalid prefix length %u, must be &lt;= 32"	,	L_15
+hf_eigrp_extdata_flag_ext	,	V_65
+EIGRP_ATTR_COMM	,	V_179
+"eigrp.saf.data.reachability.protocol"	,	L_286
+hf_eigrp_attr_jitter	,	V_181
+"eigrp.stub_options.connected"	,	L_144
+"eigrp.old_metric.rel"	,	L_172
+hf_eigrp_auth_digest	,	V_34
+": %u-%u"	,	L_34
+dissect_eigrp_general_tlv	,	F_42
+"Originating A.S."	,	L_204
+EIGRP_PEER_ALLOWS_STATIC	,	V_269
+ti_dst	,	V_76
+"eigrp.metric.mtu"	,	L_236
+EIGRP_TLV_AUTH	,	V_142
+"Type(EIGRP_EXTCOMM_DAD): AS(%u):SDLY(%u)"	,	L_37
+"eigrp.as"	,	L_79
+proto_item_append_text	,	F_4
+hf_eigrp_auth_keyid	,	V_27
+"Reliability"	,	L_171
+"Peer Termination (Graceful Shutdown)"	,	L_304
+hf_eigrp_saf_subservice	,	V_96
+col_clear	,	F_59
+hf_eigrp_ipv4_prefixlen	,	V_78
+dissect_eigrp_ipv6_tlv	,	F_45
+attr_opcode	,	V_170
+"Unknown OpCode (0x%04x)"	,	L_51
+tfs_true_false	,	V_280
+eigrp_tlv2string	,	V_233
+proto_register_subtree_array	,	F_73
+"Cable range = %u-%u"	,	L_33
+"eigrp.saf.data.reachability.addr_ipv4"	,	L_288
+"Originating RouterID"	,	L_201
+"Opcode - Operation code indicating the message type"	,	L_63
+"RouterID"	,	L_186
+proto_tree_add_item	,	F_3
+in_cksum	,	F_56
+"eigrp.stub_options.static"	,	L_146
+pinfo	,	V_3
+"Priority"	,	L_231
+EIGRP_TLV_GENERAL	,	V_238
+hf_eigrp_stub_flags_redist	,	V_272
+_U_	,	V_200
+ei_eigrp_tlv_trunc	,	V_43
+EIGRP_TLV_TYPEMASK	,	V_150
+"Route is Candidate Default"	,	L_224
+dissect_eigrp_wide_metric	,	F_51
+eigrp_stub_flag_fields	,	V_54
+"Type(EIGRP_EXTCOMM_EIGRP): Flag(0x%02x) Tag(%u)"	,	L_35
+"Stub Options"	,	L_141
+hf_eigrp_metric_rel	,	V_191
+eigrp_attr_opcode2string	,	V_287
+"Init - tells the neighbor to send its full topology table"	,	L_86
+"eigrp.saf.data.length"	,	L_280
+EIGRP_EXTCOMM_EIGRP	,	V_160
+cacl_checksum	,	V_206
+"Autonomous System"	,	L_78
+"Unknown TLV"	,	L_310
+"media_type"	,	L_322
+hf_eigrp_tlv_len	,	V_236
+"Corrupt TLV (Length field set to 0)"	,	L_316
+hf_eigrp_saf_data_length	,	V_100
+"Prefix Length"	,	L_258
+ei_eigrp_peer_termination	,	V_19
+GUID_LEN	,	V_98
+PI_PROTOCOL	,	V_299
+FT_UINT8	,	V_246
+hf_eigrp_metric_priority	,	V_190
+"Scaled BW"	,	L_162
+proto_item	,	T_4
+expert_register_field_array	,	F_75
+ett_eigrp_extdata_flags	,	V_64
+"Bandwidth: Infinity"	,	L_48
+EIGRP_AUTH_TYPE_MD5	,	V_31
+"Opcode - Operation code indicating the attribute type"	,	L_240
+expert_add_info_format	,	F_9
+"MTU"	,	L_165
+"eigrp.tlv.truncated"	,	L_317
+FT_IPXNET	,	V_288
+"Energy"	,	L_253
+"External Protocol ID"	,	L_219
+"eigrp.attr.jitter"	,	L_248
+first	,	V_77
+ett_eigrp_tlv_extdata	,	V_122
+"This field allows the gateway to select which set router to use."	,	L_77
+attr_offset	,	V_169
+"Invalid auth len %u"	,	L_4
+"eigrp.par.k4"	,	L_115
+EIGRP_ATTR_QENERGY	,	V_182
+data	,	T_10
+"Metric reported by redistributing protocol"	,	L_212
+"Bandwidth/Throughput Coefficient"	,	L_107
+ip6_to_str	,	F_31
+DDP_EIGRP	,	V_305
+ett_eigrp_tlv	,	V_234
+"eigrp.tlv_type"	,	L_100
+"eigrp.seq.addrlen"	,	L_134
+dissect_eigrp_ipv6_addr	,	F_29
+ett_eigrp	,	V_216
+hf_eigrp_flags_eot	,	V_260
+"eigrp.par.holdtime"	,	L_123
+"application/xml"	,	L_25
+"eigrp.auth.type"	,	L_125
+ei_register_info	,	T_15
+hf_eigrp_saf_reachability_addr_hex	,	V_109
+"eigrp.metric.load"	,	L_235
+"Address length"	,	L_133
+PI_NOTE	,	V_295
+auth_len	,	V_23
+ios_rel_major	,	V_47
+addr_len	,	V_41
+EIGRP_ATTR_NOOP	,	V_174
+"eigrp.par.k3"	,	L_112
+offset	,	V_5
+expert_module_t	,	T_16
+dissect_eigrp_auth_tlv	,	F_6
+"Invalid prefix length %u, must be &lt;= 128"	,	L_18
+tree	,	V_1
+"Opcode"	,	L_61
+"complete topology database has been sent to a new peer"	,	L_98
+"eigrp.extdata.proto"	,	L_220
+hf_eigrp_flags_condrecv	,	V_256
+"%d TIDs"	,	L_12
+tvb_get_ntoh64	,	F_52
+", TLV=%u.%u"	,	L_10
+"Checksum: 0x%02x [incorrect]"	,	L_53
+"eigrp.version"	,	L_59
+"eigrp.stub_options"	,	L_142
+eigrp_handle	,	V_303
+"eigrp.attr.qenergy"	,	L_251
+"TLV Length"	,	L_104
+hf_eigrp_metric_offset	,	V_189
+"TLV Type"	,	L_101
+hf_eigrp_stub_flags_summary	,	V_270
+hf_eigrp_legacy_metric_bw	,	V_116
+"Unknown TLV Group (0x%04x)"	,	L_57
+ett_eigrp_tidlist	,	V_61
+"eigrp.par.k6"	,	L_120
+EIGRP_OPC_ACK	,	V_213
+ett_eigrp_flags	,	V_221
+proto_tree_add_expert	,	F_48
+PI_CHECKSUM	,	V_301
+"External RouterID"	,	L_266
+tlv_tree	,	V_202
+EIGRP_TLV_NEXT_MCAST_SEQ	,	V_145
+"Peer Termination"	,	L_296
+hf_eigrp_ipv4_nexthop	,	V_133
+"Type(EIGRP_EXTCOMM_SRLM): RES(%u) LOAD(%u) MTU(%u)"	,	L_39
+"percent of channel occupied"	,	L_176
+" \t\r\n"	,	L_24
+dissector_try_string	,	F_37
+"eigrp.flags.condrecv"	,	L_88
+checksum	,	V_205
+EIGRP_TLV_IPv4	,	V_239
+"eigrp.tidlist.len"	,	L_185
+EIGRP_ATTR_HDRLEN	,	V_186
+EIGRP_TLV_IPv6	,	V_242
+addr	,	V_82
+"eigrp.saf.subservice"	,	L_275
+"External Data"	,	L_28
+"eigrp.par.k5"	,	L_118
+hf_eigrp_attr_offset	,	V_173
+"eigrp.saf.data.sequence"	,	L_281
+"Variation in path delay"	,	L_249
+"Type(EIGRP_EXTCOMM_SAR): xAS(%u) xRID(%u)"	,	L_40
+hf_eigrp_ipx_dest	,	V_84
+"table and routing/service table; even for matching AS. "	,	L_76
+EIGRP_TLV_PARAMETER	,	V_141
+EIGRP_PEER_ALLOWS_CONNECTED	,	V_267
+ei_eigrp_peer_termination_graceful	,	V_55
+hf_eigrp_flags_init	,	V_252
+"eigrp.vrid"	,	L_74
+"Route is currently in active state"	,	L_197
+"Protocol"	,	L_285
+hf_eigrp_auth_keyseq	,	V_28
+eigrp_rel_major	,	V_49
+hf_eigrp_sequence	,	V_223
+"Administrative Tag"	,	L_207
+"Acknowledge"	,	L_70
+"delay, in 39.1 nanosec interments"	,	L_161
+"Active energy usage along path"	,	L_255
+"Type"	,	L_99
+"Redistributed"	,	L_149
+"eigrp.saf.data.reachability.addr_ipv6"	,	L_290
+proto_tree	,	T_1

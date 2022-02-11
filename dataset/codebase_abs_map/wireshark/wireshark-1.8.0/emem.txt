@@ -1,0 +1,382 @@
+"using"	,	L_15
+parent	,	V_140
+stack	,	V_126
+emem_tree_node_t	,	T_16
+IN_TOKEN	,	V_115
+SHOW_EMEM_STATS	,	F_35
+THROW	,	F_32
+ep_stat	,	V_54
+gulong	,	V_104
+rand_state	,	V_3
+trees	,	V_29
+g_new	,	F_29
+len	,	V_6
+emem_strdup_vprintf	,	F_60
+PAGE_NOACCESS	,	V_87
+WS_MEM_ALIGN	,	V_94
+above	,	V_130
+rb_insert_case2	,	F_92
+wanted_alloc_len	,	V_171
+state	,	V_116
+rb_insert_case1	,	F_91
+tree_foreach_func	,	T_18
+rb_insert_case4	,	F_89
+rb_insert_case3	,	F_90
+defined	,	F_15
+"---------- Statistics ----------\n"	,	L_43
+rb_insert_case5	,	F_88
+"Average SE allocation size (incl. canaries): %6.2f\n"	,	L_44
+guint32	,	T_15
+debug_verify_pointers	,	V_30
+emem_alloc	,	F_43
+new_alloc_len	,	V_176
+g_stpcpy	,	F_70
+divx	,	V_161
+PROT_READ	,	V_76
+EMEM_CANARY_SIZE	,	V_8
+emem_tree_grandparent	,	F_84
+concat	,	V_121
+total_used	,	V_46
+emem_tree_insert32	,	F_93
+ap	,	V_12
+ep_strbuf_printf	,	F_119
+str	,	V_179
+node	,	V_136
+print_alloc_stats	,	F_22
+"No fully used chunks, nothing to do\n"	,	L_25
+MIN	,	F_114
+size	,	V_68
+left	,	V_138
+total_headers	,	V_50
+ep_packet_mem	,	V_17
+"WIRESHARK_DEBUG_EP_NO_CANARY"	,	L_3
+chunk_list	,	V_62
+lookup_or_insert32	,	F_94
+amount_free	,	V_57
+"---- Headers ----\n"	,	L_31
+emem_print_tree	,	F_109
+ep_strbuf_new_label	,	F_115
+"EMEM tree type:%d name:%s tree:%p\n"	,	L_57
+DISSECTOR_ASSERT	,	F_42
+se_strdup_vprintf	,	F_64
+"                Number of SE allocations: %10u\n"	,	L_38
+gpointer	,	T_11
+"WIRESHARK_DEBUG_SE_USE_CANARY"	,	L_7
+GetVersionEx	,	F_17
+intptr_t	,	V_90
+O_RDWR	,	V_43
+"\t= %u bytes used for headers\n"	,	L_34
+PROT_NONE	,	V_91
+canary_next	,	V_20
+pagesize	,	V_35
+emem_strdup	,	F_51
+se_tree	,	V_134
+key	,	V_135
+emem_tree_print_nodes	,	F_108
+use_canary	,	V_93
+sep	,	V_105
+se_strdup	,	F_54
+se_verify_pointer	,	F_26
+c	,	V_185
+d	,	V_153
+ch	,	V_163
+num_allocs	,	V_45
+emem_strndup	,	F_55
+i	,	V_2
+g_strlcpy	,	F_9
+emem_alloc_chunk	,	V_26
+g_free	,	F_31
+right	,	V_139
+k	,	V_157
+l	,	V_120
+asize	,	V_92
+"subtree"	,	L_54
+versinfo	,	V_37
+guint8	,	T_1
+"\t(    Chunk header size: %10lu\n"	,	L_32
+buf	,	V_64
+emem_tree_insert_string	,	F_104
+s	,	V_108
+u	,	V_142
+ep_free_all	,	F_72
+v	,	V_158
+strbuf	,	V_175
+num_chunks	,	V_44
+ITEM_LABEL_LENGTH	,	V_182
+MEM_COMMIT	,	V_72
+"        Average wasted bytes per allocation: %6.2f\n"	,	L_46
+USE_GUARD_PAGES	,	V_40
+g_rand_new	,	F_2
+total_allocation	,	V_47
+emem_tree_parent	,	F_83
+create_sub_tree	,	F_99
+fmt	,	V_11
+ud	,	V_151
+parent_tree	,	V_152
+pad	,	V_10
+DEBUG_INTENSE_CANARY_CHECKS	,	F_12
+gboolean	,	T_9
+payload	,	V_132
+sl_alloc0	,	F_50
+emem_tree_lookup32_array_le	,	F_103
+"    "	,	L_55
+sysinfo	,	V_34
+free_offset	,	V_66
+ep_alloc	,	F_44
+buf_end	,	V_83
+"\nAllocation distribution (sizes include canaries):\n"	,	L_49
+va_list	,	T_4
+ret	,	V_82
+"Not using"	,	L_14
+max_tokens	,	V_106
+"No memory allocated\n"	,	L_17
+DWORD	,	T_10
+count	,	V_100
+sep_len	,	V_111
+freed	,	V_97
+" Space used for headers + unused allocation: %8u\n"	,	L_47
+ep_memdup	,	F_58
+stderr	,	V_55
+"WIRESHARK_DEBUG_SE_NO_CHUNKS"	,	L_6
+g_error	,	F_8
+"\t= %u (%u including guard pages) total space used for buffers\n"	,	L_23
+ep_strbuf_new	,	F_113
+free_list	,	V_18
+used_for_canaries	,	V_49
+ep_stack_t	,	T_14
+grandparent	,	V_141
+name	,	V_133
+rb_color	,	V_143
+alloc	,	V_69
+ep_new	,	F_76
+ep_strbuf_append_printf	,	F_118
+emem_init	,	F_14
+frame	,	V_128
+next	,	V_19
+ep_check_canary_integrity	,	F_6
+"Using"	,	L_13
+amount_free_init	,	V_56
+ep_new0	,	F_77
+EMEM_CANARY_DATA_SIZE	,	V_4
+"WIRESHARK_DEBUG_EP_NO_CHUNKS"	,	L_2
+MAP_FAILED	,	V_80
+emem_free_all	,	F_71
+"\t= %u (%u including guard pages) bytes used for buffers\n"	,	L_35
+rotate_right	,	F_87
+pe_tree_create	,	F_97
+str_len	,	V_110
+emem_tree_t	,	T_13
+"---------- Allocations from the OS ----------\n"	,	L_30
+MEM_RELEASE	,	V_81
+"NODE:%p parent:%p left:0x%p right:%px key:%d data:%p\n"	,	L_56
+EMEM_TREE_NODE_IS_DATA	,	V_149
+npc	,	V_15
+canary	,	V_1
+allocation	,	V_9
+"\n-------- SE allocator statistics --------\n"	,	L_26
+emem_tree_lookup32_le	,	F_82
+length	,	V_155
+ep_verify_pointer	,	F_25
+key32	,	V_137
+"Total allocated from OS: %u\n\n"	,	L_24
+"size &gt; %5d: %8u\n"	,	L_51
+ep_stack_pop	,	F_79
+ptr	,	V_7
+"Total number of chunk allocations %u\n"	,	L_27
+PAGE_READWRITE	,	V_74
+total_no_chunks	,	V_59
+func	,	F_95
+there	,	V_13
+hdr	,	V_67
+"             Bytes used (incl. canaries): %10u\n"	,	L_39
+add_len	,	V_183
+memory_alloc	,	V_25
+debug_use_canary	,	V_23
+ep_strconcat	,	F_69
+emem_tree_foreach	,	F_107
+GRand	,	T_2
+g_rand_int_range	,	F_3
+sl_free_all	,	F_74
+"Total bytes allocated from the OS: %u\n\n"	,	L_36
+g_assert	,	F_21
+MAX_STRBUF_LEN	,	V_173
+gsize	,	T_12
+emem_tree	,	V_168
+"WIRESHARK_DEBUG_SCRUB_MEMORY"	,	L_9
+se_tree_create	,	F_80
+DEFAULT_STRBUF_LEN	,	V_174
+new_str	,	V_177
+allocator	,	F_52
+ep_strbuf_append_vprintf	,	F_117
+_WIN32	,	V_33
+free_offset_init	,	V_65
+PROT_WRITE	,	V_77
+tmp	,	V_162
+sysconf	,	F_18
+aligned	,	V_160
+ANON_FD	,	V_79
+alloc_len	,	V_178
+debug_use_memory_scrubber	,	V_32
+sl_alloc	,	F_46
+init	,	V_180
+VirtualProtect	,	F_40
+ANON_PAGE_MODE	,	V_78
+emem_destroy_chunk	,	F_36
+ep_strdup_vprintf	,	F_63
+scrubbed_value	,	V_70
+use_chunks	,	V_122
+ep_stack_push	,	F_78
+alloc_size	,	V_99
+OutOfMemoryError	,	V_75
+ep_alloc0	,	F_48
+emem_tree_uncle	,	F_85
+EMEM_TREE_NODE_IS_SUBTREE	,	V_156
+emem_create_chunk	,	F_28
+"not using"	,	L_16
+full_len	,	V_181
+next_size	,	F_110
+mem_chunk	,	V_96
+emem_verify_pointer	,	F_24
+se_strdup_printf	,	F_66
+"%s chunks, %s canaries, %s memory scrubber\n"	,	L_12
+uncle	,	V_146
+flags	,	V_159
+mem_canary	,	V_5
+se_init_chunk	,	F_13
+EMEM_PACKET_CHUNK_SIZE	,	V_58
+se_memdup	,	F_59
+IN_PAD	,	V_114
+g_malloc	,	F_34
+"---------- Allocations from the SE pool ----------\n"	,	L_37
+new_node	,	V_150
+emem_canary_next	,	F_4
+max_alloc_len	,	V_172
+INT_MAX	,	V_118
+emem_canary_pad	,	F_5
+ep_strbuf_append_c	,	F_120
+VirtualAlloc	,	F_30
+intense_canary_checking	,	V_16
+"WIRESHARK_ABORT_ON_OUT_OF_MEMORY"	,	L_52
+emem_create_chunk_gp	,	F_39
+NEED_DEV_ZERO	,	F_19
+g_vsnprintf	,	F_7
+total_free	,	V_48
+dwPlatformId	,	V_88
+"                 Bytes used for canaries: %10u\n"	,	L_40
+"%s chunks, %s canaries\n"	,	L_28
+munmap	,	F_38
+emem_canary_init	,	F_1
+"Per-packet memory corrupted\nbetween: %s\nand: %s"	,	L_1
+OSVERSIONINFO	,	V_39
+_ep_stack_frame_t	,	V_125
+rotate_left	,	F_86
+dwPageSize	,	V_36
+ep_strdup_printf	,	F_65
+emem_chunk_t	,	T_6
+tree_list	,	V_123
+ws_open	,	F_20
+dev_zero_fd	,	V_42
+"\n"	,	L_18
+GetSystemInfo	,	F_16
+"size &lt; %5d: %8u\n"	,	L_50
+"Bytes unused (wasted, incl. guard pages): %10u\n\n"	,	L_42
+data	,	V_127
+emem_tree_lookup_string	,	F_105
+cptr	,	V_63
+se_alloc0	,	F_49
+total_space_allocated_from_os	,	V_52
+ep_strdup	,	F_53
+curr_tok	,	V_117
+size_t	,	T_3
+"--&gt; %% overhead/waste: %4.2f\n"	,	L_48
+emem_header_t	,	T_7
+EMEM_TREE_RB_COLOR_RED	,	V_145
+splitted	,	V_107
+emem_tree_lookup32_array	,	F_102
+vec	,	V_112
+string1	,	V_119
+guint	,	T_8
+offset	,	V_71
+ws_memory_slab	,	V_95
+below	,	V_131
+DISSECTOR_ASSERT_NOT_REACHED	,	F_101
+level	,	V_169
+tree	,	V_124
+format	,	V_184
+se_alloc	,	F_45
+user_data	,	V_166
+ep_init_chunk	,	F_11
+emem_verify_pointer_list	,	F_23
+ep_alloc_array	,	F_68
+"WIRESHARK_SE_VERIFY_POINTERS"	,	L_8
+VirtualFree	,	F_37
+sl_free	,	F_47
+canary_last	,	V_21
+VER_PLATFORM_WIN32_WINDOWS	,	V_89
+se_packet_mem	,	V_31
+"&lt;NULL&gt;"	,	L_53
+used_list	,	V_28
+mprotect	,	F_41
+G_VA_COPY	,	F_61
+"\tChunk allocation size: %10u\n"	,	L_20
+g_printf_string_upper_bound	,	F_62
+emem_tree_lookup32	,	F_81
+"\n-------- EP allocator statistics --------\n"	,	L_11
+AT_START	,	V_113
+"\n---- Buffer space ----\n"	,	L_19
+ep_strndup	,	F_56
+ep_stack_new	,	F_75
+ep_strbuf_append	,	F_116
+here	,	V_14
+"WIRESHARK_DEBUG_EP_INTENSE_CANARY"	,	L_5
+"\t*     Number of chunks: %10u\n"	,	L_33
+"Average SE allocation size (excl. canaries): %6.2f\n"	,	L_45
+cur_alloc_len	,	V_170
+stop_traverse	,	V_167
+emem_alloc_glib	,	V_27
+dst	,	V_102
+ep_strbuf_truncate	,	F_121
+total_space_wasted	,	V_53
+ep_strbuf_sized_new	,	F_112
+"Bytes unused (wasted, excl. guard pages): %10u\n"	,	L_41
+EMEM_TREE_STRING_NOCASE	,	V_164
+chunk	,	V_51
+item_size	,	V_98
+emem_tree_key_t	,	T_17
+head	,	V_129
+ep_strsplit	,	F_67
+emem_tree_insert32_array	,	F_100
+is_subtree	,	V_148
+mem	,	V_22
+allocations	,	V_61
+se_tree_create_non_persistent	,	F_96
+oldprot	,	V_86
+tokens	,	V_109
+emem_tree_create_subtree	,	F_98
+"Memory corrupted"	,	L_29
+ep_strbuf_grow	,	F_111
+ap2	,	V_103
+dwOSVersionInfoSize	,	V_38
+EMEM_TREE_TYPE_RED_BLACK	,	V_147
+NUM_ALLOC_DIST	,	V_60
+emem_init_chunk	,	F_10
+src	,	V_101
+gchar	,	T_5
+next_tree	,	V_154
+debug_use_chunks	,	V_24
+"\t*    Number of chunks: %10u\n"	,	L_21
+EMEM_TREE_RB_COLOR_BLACK	,	V_144
+se_strndup	,	F_57
+"/dev/zero"	,	L_10
+"\t-------------------------------------------\n"	,	L_22
+prot2	,	V_85
+prot1	,	V_84
+se_free_all	,	F_73
+"WIRESHARK_EP_VERIFY_POINTERS"	,	L_4
+emem_tree_foreach_nodes	,	F_106
+callback	,	V_165
+MEM_RESERVE	,	V_73
+mmap	,	F_33
+_SC_PAGESIZE	,	V_41
+emem_scrub_memory	,	F_27
+emem_strbuf_t	,	T_19

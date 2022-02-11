@@ -1,0 +1,282 @@
+hf_lapsat_ctl_mii	,	V_44
+ett_lapsat_fragments	,	V_132
+"LPD"	,	L_35
+proto_register_protocol	,	F_30
+"Mobile Identity Indicator"	,	L_61
+"LAPSat Message fragment has multiple tail fragments"	,	L_82
+process_reassembled_data	,	F_24
+lapsat_addr_sst_vals	,	V_101
+addr_ti	,	V_50
+ett_lapsat_fragment	,	V_131
+hf_lapsat_fragment_too_long_fragment	,	V_124
+gint	,	T_12
+"Address Field"	,	L_21
+ctl	,	V_9
+tvb_new_child_real_data	,	F_20
+"LAPSat SAPI"	,	L_100
+tvb	,	V_3
+"Link Protocol Discriminator"	,	L_37
+guint32	,	V_34
+COL_INFO	,	V_32
+lapsat_ctl_s_ftype_vals	,	V_110
+"lapsat.address.si"	,	L_33
+pool	,	V_81
+FT_BOOLEAN	,	V_121
+"Final"	,	L_57
+lapsat_reassembly_table	,	V_1
+" (Fragment)"	,	L_20
+dissect_lapsat	,	F_14
+"lapsat.control.u_modifier_cmd"	,	L_48
+"LAPSat Payload"	,	L_18
+"LAPSat Message fragment"	,	L_73
+cinfo	,	V_31
+hf_lapsat_ctl_u_modifier_resp	,	V_42
+array_length	,	F_32
+"LAPSat Message fragment overlaps with conflicting data"	,	L_79
+"%s (0x%03x)"	,	L_16
+""	,	L_7
+DISSECTOR_ASSERT	,	F_18
+"N(R)"	,	L_51
+"lapsat.control.p"	,	L_56
+hf_lapsat_addr_sapi	,	V_74
+ett_lapsat_address	,	V_71
+col_append_str	,	F_27
+is_response	,	V_6
+hf_register_info	,	T_11
+hf_lapsat_ctl_ftype_i	,	V_45
+circuit_id	,	V_90
+"Payload last nibble"	,	L_62
+"lapsat"	,	L_98
+hf_lapsat_addr_lpd	,	V_76
+guint16	,	T_1
+"GREJ"	,	L_2
+COL_PROTOCOL	,	V_59
+"lapsat.fragment.overlap.conflicts"	,	L_78
+lapsat_addr_si_vals	,	V_104
+lapsat_defragment_cleanup	,	F_3
+reassembly_table_init	,	F_2
+cr	,	V_54
+"LAPSat Message defragmentation error due to illegal fragments"	,	L_88
+guint8	,	T_8
+BASE_NONE	,	V_115
+LAPSAT_CTL_MII	,	V_24
+"lapsat.address.lfi"	,	L_39
+"lapsat.control_field"	,	L_42
+"lapsat.fragments"	,	L_69
+register_dissector	,	F_34
+"lapsat.control.n_s"	,	L_54
+tvbuff_t	,	T_2
+LAPSAT_CTL_N_S_SHIFT	,	V_30
+tvb_get_ntohs	,	F_8
+hf_lapsat_addr_lfi	,	V_77
+"RR"	,	L_1
+BASE_HEX	,	V_98
+col_add_str	,	F_10
+payload	,	V_51
+fragment_id	,	V_86
+gboolean	,	T_10
+proto_item_add_subtree	,	F_12
+fragmented	,	V_88
+ctl_ti	,	V_8
+hlen	,	V_56
+proto_register_field_array	,	F_31
+"lapsat.control.mii"	,	L_60
+info	,	V_12
+" P"	,	L_6
+FT_BYTES	,	V_114
+hf_lapsat_addr_sst	,	V_72
+hf_lapsat_ctl_u_modifier_cmd	,	V_43
+"Message fragments"	,	L_68
+fragment_head	,	T_9
+hf_lapsat_fragment	,	V_118
+"lapsat.control.n_r"	,	L_52
+"LAPSat Message fragment data goes beyond the packet end"	,	L_85
+LAPSAT_HEADER_LEN	,	V_58
+dissect_control	,	F_5
+FT_UINT16	,	V_108
+register_init_routine	,	F_36
+tvb_get_guint8	,	F_17
+"MII"	,	L_59
+tvb_captured_length	,	F_15
+"UI"	,	L_13
+dissector_data	,	T_7
+LAPSAT_CTL_TYPE_S_U_MSK	,	V_14
+hf_lapsat_addr_si	,	V_75
+fragment_add_seq_next	,	F_23
+"Message fragment overlap"	,	L_74
+"lapsat.reassembled.in"	,	L_92
+"Segment Indicator"	,	L_34
+"lapsat.fragment_data"	,	L_67
+lapsat_ctl_u_modifier_vals_resp	,	V_112
+call_data_dissector	,	F_26
+"lapsat.address.sapi"	,	L_30
+"lapsat.address"	,	L_22
+"Fragment Data"	,	L_66
+addr_tree	,	V_48
+LAPSAT_CTL_U_MODIFIER_MSK	,	V_22
+LAPSAT_CTL_S_FTYPE_MSK	,	V_16
+proto_tree_add_uint_format_value	,	F_11
+hf_lapsat_fragment_multiple_tails	,	V_123
+"Message has multiple tail fragments"	,	L_80
+register_cleanup_routine	,	F_37
+ENC_BIG_ENDIAN	,	V_37
+"U%s, func=%s"	,	L_14
+proto_lapsat	,	V_67
+sapi	,	V_53
+FT_UINT32	,	V_127
+"Reassembled LAPSat"	,	L_19
+hf	,	V_96
+fd_m	,	V_84
+"Reassembled LAPSat length"	,	L_94
+"lapsat.control.f"	,	L_58
+LAPSAT_CTL_N_S_MSK	,	V_29
+"Message fragment overlapping with conflicting data"	,	L_77
+hf_lapsat_ctl_f	,	V_40
+"lapsat.address.lpd"	,	L_36
+"lapsat.fragment.count"	,	L_90
+"LAPSat"	,	L_17
+LAPSAT_CR	,	V_62
+ett_lapsat	,	V_69
+LAPSAT_DM	,	V_25
+LAPSAT_CTL_TYPE_S	,	V_15
+"LFI"	,	L_38
+col_set_str	,	F_16
+hf_lapsat_ctl_p	,	V_41
+LAPSAT_CTL_TYPE_U	,	V_21
+LAPSAT_UI	,	V_28
+reassembled	,	V_85
+LAPSAT_LPD_MSK	,	V_106
+lapsat_sapi_dissector_table	,	V_94
+proto_register_lapsat	,	F_28
+LAPSAT_CTL_TYPE_I	,	V_83
+frame_type	,	V_11
+LAPSAT_CTL_N_R_SHIFT	,	V_20
+LAPSAT_UA	,	V_27
+poll_final	,	V_10
+"lapsat.address.cr"	,	L_27
+"lapsat.address.sst"	,	L_24
+tvb_memdup	,	F_19
+true_false_vals	,	V_113
+LAPSAT_GREJ	,	V_18
+"S%s, func=%s, N(R)=%u"	,	L_4
+hf_lapsat_fragment_error	,	V_125
+proto_register_subtree_array	,	F_33
+reassembly_table_destroy	,	F_4
+"SI"	,	L_32
+hf_lapsat_ctl_ftype_s_u	,	V_36
+hf_lapsat_addr_cr	,	V_73
+hf_lapsat_ctl_s_ftype	,	V_38
+proto_tree_add_item	,	F_13
+"LAPSat Message fragment overlaps with other fragment(s)"	,	L_76
+pinfo	,	T_4
+"DM"	,	L_10
+_U_	,	V_4
+"Message fragment too long"	,	L_83
+" F"	,	L_5
+lapsat_ctl_ftype_vals	,	V_109
+"lapsat.control.u_modifier_resp"	,	L_50
+LAPSAT_RR	,	V_17
+VALS	,	F_29
+"lapsat.fragment.multiple_tails"	,	L_81
+LAPSAT_SAPI_SHIFT	,	V_61
+ctl_tree	,	V_7
+LAPSAT_SI	,	V_89
+FT_UINT8	,	V_97
+hf_lapsat_reassembled_in	,	V_128
+BASE_DEC	,	V_100
+tvb_new_subset	,	F_21
+"lapsat.fragment.too_long_fragment"	,	L_84
+proto_item	,	T_6
+LAPSAT_SABM	,	V_23
+ENC_NA	,	V_68
+hf_lapsat_payload_last_nibble	,	V_78
+lapsat_ti	,	V_49
+wmem_alloc	,	F_6
+"Command"	,	L_47
+register_dissector_table	,	F_35
+"C/R"	,	L_26
+"Message fragment"	,	L_71
+data	,	V_80
+LAPSAT_CTL_N_R_MSK	,	V_19
+num	,	V_92
+"Length Field Indicator"	,	L_40
+"Supervisory frame type"	,	L_45
+plen	,	V_57
+"N(S)"	,	L_53
+lapsat_addr_lpd_vals	,	V_105
+save_fragmented	,	V_87
+"Service access point identifier"	,	L_31
+"lapsat.fragment.error"	,	L_87
+hf_lapsat_reassembled_length	,	V_129
+LAPSAT_CTL_P_F	,	V_13
+lapsat_addr_sapi_vals	,	V_103
+"Frame type"	,	L_43
+"I%s, N(R)=%u, N(S)=%u"	,	L_15
+"SACCH status bit"	,	L_25
+"lapsat.sapi"	,	L_99
+"lapsat.control.s_ftype"	,	L_46
+"Response"	,	L_49
+FT_NONE	,	V_117
+"UA"	,	L_12
+ett	,	V_130
+wmem_packet_scope	,	F_7
+P2P_DIR_RECV	,	V_64
+addresses_reassembly_table_functions	,	V_2
+tree	,	V_5
+hf_lapsat_fragments	,	V_116
+"DISC"	,	L_11
+packet_info	,	T_3
+add_new_data_source	,	F_22
+"lapsat.control.ftype"	,	L_44
+lapsat_ctl_u_modifier_vals_cmd	,	V_111
+ett_lapsat_control	,	V_35
+"Message defragmentation error"	,	L_86
+hf_lapsat_addr	,	V_70
+"lapsat.payload.last_nibble"	,	L_63
+"LAPSat Message fragments"	,	L_70
+LAPSAT_SST	,	V_102
+"Reassembled in"	,	L_91
+DISSECTOR_TABLE_NOT_ALLOW_DUPLICATE	,	V_133
+hf_lapsat_fragment_overlap_conflicts	,	V_122
+"SABM, MII=0"	,	L_9
+"lapsat.fragment"	,	L_72
+"lapsat.length"	,	L_65
+hf_lapsat_fragment_count	,	V_126
+g_snprintf	,	F_9
+"The total length of the reassembled payload"	,	L_96
+LAPSAT_LFI	,	V_66
+"SST"	,	L_23
+P2P_DIR_SENT	,	V_65
+"Message fragment count"	,	L_89
+"lapsat.fragment.overlap"	,	L_75
+lapsat_frag_items	,	V_91
+addr	,	V_52
+HFILL	,	V_99
+"LAPSat Message has been reassembled in this packet."	,	L_93
+p2p_dir	,	V_63
+dissector_try_uint	,	F_25
+"Poll"	,	L_55
+hf_lapsat_fragment_overlap	,	V_120
+"Command/response bit"	,	L_28
+hf_lapsat_fragment_data	,	V_95
+"Link Access Procedure, Satellite channel (LAPSat)"	,	L_97
+control	,	V_55
+"Control Field"	,	L_41
+FT_FRAMENUM	,	V_119
+"SABM, MII=1"	,	L_8
+"SAPI"	,	L_29
+reassembled_in	,	V_93
+"Length Field"	,	L_64
+lapsat_defragment_init	,	F_1
+hf_lapsat_len	,	V_79
+lapsat_tree	,	V_47
+lapsat_addr_lfi_vals	,	V_107
+hf_lapsat_ctl	,	V_33
+LAPSAT_SAPI_MSK	,	V_60
+"Unknown"	,	L_3
+LAPSAT_CTL_TYPE_I_MSK	,	V_82
+LAPSAT_DISC	,	V_26
+hf_lapsat_ctl_n_s	,	V_46
+hf_lapsat_ctl_n_r	,	V_39
+proto_tree	,	T_5
+"lapsat.reassembled.length"	,	L_95

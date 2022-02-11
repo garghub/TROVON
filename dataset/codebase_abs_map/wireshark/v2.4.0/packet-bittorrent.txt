@@ -1,0 +1,233 @@
+"bittorrent.msg.length"	,	L_28
+tvb_get_string_enc	,	F_19
+hf_bittorrent_msg	,	V_31
+proto_register_protocol	,	F_35
+hf_bittorrent_version	,	V_74
+hf_bittorrent_prot_name	,	V_66
+"bittorrent.reserved"	,	L_20
+tvb_reported_length	,	F_26
+"Peer ID"	,	L_23
+tcp_dissect_pdus	,	F_28
+gint	,	T_14
+"bittorrent.piece.data"	,	L_45
+msgtype	,	V_14
+"KeepAlive"	,	L_3
+dissector_add_uint_range_with_preference	,	F_44
+dissect_bittorrent_welcome	,	F_18
+"Port"	,	L_52
+tvb	,	V_2
+hf_bittorrent_piece_length	,	V_47
+guint32	,	T_7
+COL_INFO	,	V_29
+"Reassemble BitTorrent messages spanning multiple TCP segments"	,	L_65
+"Reserved Extension Bytes"	,	L_19
+version	,	V_64
+"bittorrent.jpc.addr.length"	,	L_49
+tvb_reported_length_remaining	,	F_6
+": Len %u, %s"	,	L_4
+dissect_bittorrent_tcp_pdu	,	F_23
+get_bittorrent_pdu_length	,	F_1
+cinfo	,	V_28
+BITTORRENT_MESSAGE_BITFIELD	,	V_51
+array_length	,	F_37
+hf_azureus_jpc_session	,	V_62
+"bittorrent.info_hash"	,	L_22
+BITTORRENT_MESSAGE_CHOKE	,	V_21
+call_dissector	,	F_17
+"bittorrent.piece.index"	,	L_41
+"bittorrent.continuous_data"	,	L_59
+decode_client_information	,	V_70
+ENC_ASCII	,	V_37
+"bittorrent.jpc.port"	,	L_53
+col_append_str	,	F_24
+", Piece (Idx:0x%x)"	,	L_7
+"Decode the peer_id of the handshake messages"	,	L_69
+hf_register_info	,	T_13
+hf_bittorrent_bitfield_data	,	V_52
+"Message"	,	L_25
+guint16	,	T_9
+COL_PROTOCOL	,	V_76
+BITTORRENT_MESSAGE_REQUEST	,	V_43
+"bittorrent.version"	,	L_61
+i	,	V_9
+piece_index	,	V_16
+guint8	,	T_6
+tvb_memeql	,	F_3
+hf_bittorrent_piece_begin	,	V_46
+test_bittorrent_packet	,	F_29
+"Piece index"	,	L_40
+ti	,	V_15
+BASE_NONE	,	V_87
+bittorrent_desegment	,	V_79
+BITTORRENT_MESSAGE_INTERESTED	,	V_41
+register_dissector	,	F_39
+AZUREUS_MESSAGE_JPC_REPLY	,	V_63
+hf_azureus_msg	,	V_30
+tvb_get_ntohl	,	F_4
+format_text	,	F_22
+tvbuff_t	,	T_4
+"desegment"	,	L_64
+"Continuation data"	,	L_2
+conversation_set_dissector	,	F_32
+BASE_HEX	,	V_92
+"Message Length"	,	L_27
+gboolean	,	T_11
+proto_item_add_subtree	,	F_12
+module_t	,	T_15
+prio	,	V_13
+"bittorrent"	,	L_62
+proto_register_field_array	,	F_36
+conversation	,	V_80
+FT_BYTES	,	V_88
+"bittorrent.jpc.session"	,	L_55
+hf_bittorrent_piece_data	,	V_54
+"Bitfield data"	,	L_38
+DEFAULT_TCP_PORT_RANGE	,	V_97
+hf_azureus_jpc_addrlen	,	V_59
+AZUREUS_MESSAGE_HANDSHAKE	,	V_55
+azureus_priorities	,	V_91
+FT_UINT16	,	V_93
+BITTORRENT_MESSAGE_HAVE	,	V_50
+BITTORRENT_MESSAGE_PIECE	,	V_53
+tvb_get_guint8	,	F_2
+"bittorrent.msg.prio"	,	L_37
+"Message Priority"	,	L_36
+BITTORRENT_MESSAGE_CANCEL	,	V_44
+proto_tree_add_string_format	,	F_21
+tvb_captured_length	,	F_30
+name	,	V_23
+"Message Type Length"	,	L_33
+hf_bittorrent_prot_name_len	,	V_65
+amp_messages	,	V_22
+"Extended Message"	,	L_57
+heur_dissector_add	,	F_45
+"  "	,	L_14
+HEURISTIC_ENABLE	,	V_98
+", Len:0x%x"	,	L_8
+stringlen	,	V_19
+FT_STRING	,	V_86
+"Message Type"	,	L_29
+", Piece (Idx:0x%x,Begin:0x%x,Len:0x%x)"	,	L_6
+"bittorrent.jpc.addr"	,	L_51
+hf_bittorrent_extended	,	V_49
+length	,	V_4
+"decode_client"	,	L_68
+"bittorrent_tcp"	,	L_75
+hf_bittorrent_msg_type	,	V_39
+"bittorrent.piece.length"	,	L_47
+ENC_BIG_ENDIAN	,	V_34
+hf_bittorrent_sha1_hash	,	V_68
+FT_UINT32	,	V_90
+"bittorrent.msg"	,	L_26
+hf_bittorrent_port	,	V_48
+find_or_create_conversation	,	F_31
+hf_azureus_jpc_addr	,	V_60
+hf	,	V_82
+"bittorrent.msg.type"	,	L_30
+"bittorrent.msg.typelen"	,	L_34
+BITTORRENT_MESSAGE_NOT_INTERESTED	,	V_42
+"Handshake"	,	L_10
+"Protocol Name Length"	,	L_15
+prefs_register_protocol	,	F_40
+"bittorrent.protocol.name"	,	L_18
+col_append_fstr	,	F_15
+AZUREUS_MESSAGE_JPC_HELLO	,	V_58
+hf_azureus_jpc_port	,	V_61
+col_set_str	,	F_11
+hf_bittorrent_reserved	,	V_67
+id	,	V_72
+piece_length	,	V_18
+"Data in a piece"	,	L_44
+"bittorrent.peer_id"	,	L_24
+"bittorrent.extended"	,	L_58
+find_dissector_add_dependency	,	F_43
+guchar	,	V_75
+proto_item_append_text	,	F_13
+dissect_bittorrent	,	F_27
+col_set_fence	,	F_25
+hf_azureus_msg_prio	,	V_38
+"Begin offset of piece"	,	L_42
+proto_register_subtree_array	,	F_38
+"bencode"	,	L_71
+subtvb	,	V_20
+"Cache Address"	,	L_50
+proto_tree_add_item	,	F_10
+pinfo	,	T_3
+_U_	,	V_1
+dissect_bittorrent_message	,	F_7
+proto_reg_handoff_bittorrent	,	F_42
+"Piece Length"	,	L_46
+"bittorrent.tcp"	,	L_63
+VALS	,	F_34
+prefs_register_bool_preference	,	F_41
+"bittorrent.port"	,	L_56
+bittorrent_module	,	V_96
+FT_UINT8	,	V_83
+BASE_DEC	,	V_84
+proto_item	,	T_10
+try_val_to_str	,	F_9
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_67
+ENC_NA	,	V_27
+bittorrent_messages	,	V_25
+bencode_handle	,	V_57
+tvb_offset_exists	,	F_5
+proto_bittorrent	,	V_77
+"bittorrent.azureus_msg"	,	L_32
+BITTORRENT_MESSAGE_PORT	,	V_6
+data	,	T_5
+"Client version"	,	L_60
+hf_azureus_msg_type	,	V_36
+"bittorrent.protocol.name.length"	,	L_16
+hf_bittorrent_piece_index	,	V_45
+"Protocol Name"	,	L_17
+"SHA1 Hash of info dictionary"	,	L_21
+ett_bittorrent	,	V_78
+"Client is %s v%s"	,	L_11
+ver_len	,	V_73
+ett_peer_id	,	V_95
+"tcp"	,	L_73
+conversation_t	,	T_12
+BITTORRENT_MESSAGE_UNCHOKE	,	V_40
+guint	,	T_1
+FT_NONE	,	V_89
+offset	,	V_3
+ett	,	V_94
+hf_bittorrent_msg_len	,	V_33
+wmem_packet_scope	,	F_20
+isamp	,	V_10
+tree	,	V_8
+BITTORRENT_HEADER_LENGTH	,	V_5
+hf_bittorrent_peer_id	,	V_69
+tvb_bytes_exist	,	F_8
+packet_info	,	T_2
+"bittorrent.msg.bitfield"	,	L_39
+"Whether the BitTorrent dissector should reassemble messages spanning multiple TCP segments."	,	L_66
+"BitTorrent protocol"	,	L_1
+proto_register_bittorrent	,	F_33
+typelen	,	V_12
+mtree	,	V_11
+proto_tree_add_uint	,	F_14
+"Cache Address Length"	,	L_48
+AZUREUS_MESSAGE_PEER_EXCHANGE	,	V_56
+"Session ID"	,	L_54
+"bittorrent.msg.aztype"	,	L_35
+": Len:%u, %s"	,	L_5
+peer_id	,	V_71
+tvb_new_subset_length	,	F_16
+"bittorrent.piece.begin"	,	L_43
+"Enabling this will tell which BitTorrent client that produced the handshake message"	,	L_70
+"BitTorrent"	,	L_12
+HFILL	,	V_85
+value	,	V_24
+piece_begin	,	V_17
+hf_azureus_msg_type_len	,	V_35
+"BitTorrent over TCP"	,	L_74
+BITTORRENT_MESSAGE_EXTENDED	,	V_7
+"Azureus Message"	,	L_31
+"BitTorrent "	,	L_13
+", Idx:0x%x,Begin:0x%x,Len:0x%x"	,	L_9
+dissector_handle	,	V_81
+hf_bittorrent_continuous_data	,	V_26
+"tcp.port"	,	L_72
+proto_tree	,	T_8
+ett_bittorrent_msg	,	V_32

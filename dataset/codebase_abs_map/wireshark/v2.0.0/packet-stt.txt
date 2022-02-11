@@ -1,0 +1,395 @@
+hf_stt_flag_partial	,	V_75
+"stt.tcp.flags.ack"	,	L_46
+ett_stt_vlan	,	V_101
+"TCP Data"	,	L_7
+tvb_reported_length	,	F_13
+process_reassembled_data	,	F_8
+"stt.tcp.window"	,	L_56
+"stt.checksum"	,	L_89
+"%u bytes"	,	L_8
+"stt.pkt_id"	,	L_29
+stt_segment_cleanup	,	F_3
+"stt.checksum.bad"	,	L_95
+hf_segment_multiple_tails	,	V_147
+iph	,	V_126
+"Window"	,	L_55
+dissect_stt_flags	,	F_33
+"PCP"	,	L_78
+guint32	,	T_4
+vec_t	,	T_9
+"stt.vlan.id"	,	L_83
+FT_BOOLEAN	,	V_141
+l4_offset	,	V_86
+"reassemble"	,	L_140
+version	,	V_85
+tvb_reported_length_remaining	,	F_6
+stt_prefs	,	V_131
+"check_checksum"	,	L_143
+array_length	,	F_54
+"Context ID"	,	L_84
+"stt.version_unknown.expert"	,	L_132
+stt_item	,	V_79
+"Acknowledgement"	,	L_45
+"0x%04x"	,	L_2
+hf_stt_pkt_len	,	V_62
+hf_stt_tcp_urg	,	V_47
+", Context ID: 0x%"	,	L_16
+"stt.pkt_len"	,	L_25
+hf_register_info	,	T_14
+"Segment Offset"	,	L_26
+guint16	,	T_5
+checksum_bad	,	V_22
+eth_handle	,	V_124
+"stt.vlan.pcp"	,	L_79
+"ip"	,	L_148
+"Congestion Window Reduced (CWR)"	,	L_39
+"Segment too long"	,	L_109
+"Bad L4 Offset"	,	L_135
+BASE_NONE	,	V_139
+"Reassemble segmented STT packets"	,	L_141
+pkt_id	,	V_6
+"Segment overlap"	,	L_100
+"Segment overlaps with other segments"	,	L_102
+hf_stt_padding	,	V_109
+"Calculated Checksum"	,	L_97
+"Max Segment Size"	,	L_74
+BASE_HEX	,	V_134
+PROTO_ITEM_SET_GENERATED	,	F_24
+"stt.tcp.flags.rst"	,	L_50
+"stt.l4offset_bad.expert"	,	L_134
+" [validation disabled]"	,	L_6
+"The STT packet is reassembled in this frame"	,	L_124
+proto_item_add_subtree	,	F_22
+module_t	,	T_13
+hf_reassembled_length	,	V_156
+proto_register_field_array	,	F_55
+FT_BYTES	,	V_138
+hf_stt_tcp_rsvd	,	V_43
+ei	,	V_160
+g_htonl	,	F_15
+"Incorrect offset, should be equal to zero"	,	L_11
+"Incorrect max segment size, should be equal to zero"	,	L_13
+"Urgent Pointer"	,	L_57
+data_handle	,	V_125
+hf_stt_dport	,	V_61
+FT_UINT16	,	V_133
+hi_nibble	,	F_31
+phdr	,	V_27
+TCP_PORT_STT	,	V_129
+"Segment contained data past end of the packet"	,	L_111
+tvb_captured_length	,	F_48
+"Unknown version %u"	,	L_9
+STT_TCP_OFF_DPORT	,	V_128
+stt_reassembly_table	,	V_1
+expert_add_info	,	F_21
+hf_stt_version	,	V_90
+heur_dissector_add	,	F_63
+HEURISTIC_ENABLE	,	V_166
+"IPv4 packet"	,	L_65
+hf_stt_seg_off	,	V_63
+hf_stt_mss	,	V_98
+rx_bytes	,	V_111
+hf_reassembled_in	,	V_155
+dissect_tcp_flags	,	F_26
+STT_TCP_HDR_LEN	,	V_13
+hf_stt_flags	,	V_77
+"stt.segment.overlap"	,	L_101
+PI_WARN	,	V_165
+cksum_vec	,	V_26
+register_cleanup_routine	,	F_60
+"ECN-Echo"	,	L_41
+FT_UINT32	,	V_137
+guint64	,	T_10
+checksum_tree	,	V_16
+hf	,	V_132
+"Bad checksum"	,	L_129
+G_GINT64_MODIFIER	,	V_108
+"Reassembled PDU in frame"	,	L_122
+prefs_register_protocol	,	F_57
+"Reassembles greater than MTU sized STT packets broken into segments on transmit"	,	L_142
+frags	,	V_9
+"stt.segment.count"	,	L_116
+col_set_str	,	F_41
+"Flags"	,	L_33
+hf_stt_reserved_8	,	V_97
+"Data Offset"	,	L_31
+"stt.tcp"	,	L_30
+"stt.tcp.data_offset"	,	L_32
+ett_stt_flgs	,	V_78
+"Nonce"	,	L_37
+"stt.reserved"	,	L_73
+"stt.seg_off"	,	L_27
+pref_reassemble	,	V_121
+hf_stt_v	,	V_104
+hf_stt_tcp_data_offset	,	V_68
+" [incorrect, should be 0x%04x (maybe caused by \"TCP checksum offload\"?)]"	,	L_4
+proto_tree_add_item_ret_uint	,	F_35
+"stt.segments"	,	L_120
+hf_stt_tcp_cwr	,	V_45
+hf_stt_pkt_id	,	V_64
+"VLAN Priority %u, ID %u"	,	L_14
+hf_stt_tcp_rst	,	V_50
+"Segment count"	,	L_115
+"The expected STT checksum field as calculated from the STT segment"	,	L_99
+computed_cksum	,	V_20
+ett_stt_tcp_flags	,	V_54
+hf_stt_tcp_window	,	V_70
+"stt.dport"	,	L_23
+STT_V_MASK	,	V_106
+hf_segment_error	,	V_149
+AT_IPv4	,	V_33
+AT_IPv6	,	V_35
+VALS	,	F_50
+SET_CKSUM_VEC_TVB	,	F_17
+prefs_register_bool_preference	,	F_58
+"stt.tcp.flags.psh"	,	L_48
+"stt.flags.ipv4"	,	L_66
+in_cksum_shouldbe	,	F_20
+"stt"	,	L_139
+"data"	,	L_147
+BASE_DEC	,	V_136
+"Whether to validate the STT checksum or not."	,	L_145
+"STT Segments"	,	L_121
+"stt.reassembled_in"	,	L_123
+hf_stt_vlan_id	,	V_105
+ENC_NA	,	V_66
+attributes	,	V_88
+"TCP Data Offset should be 20 bytes"	,	L_131
+pref_check_checksum	,	V_25
+IP_PROTO_TCP	,	V_34
+"STT Segment"	,	L_117
+handle_segment	,	F_5
+"Reassembling error due to illegal segments"	,	L_114
+"Bad Checksum"	,	L_94
+expert_register_protocol	,	F_52
+"STT"	,	L_18
+"Conflicting data in segment overlap"	,	L_103
+"Unknown STT version %u"	,	L_10
+"L4 Offset"	,	L_71
+"stt.tcp.urg_ptr"	,	L_58
+hf_stt_tcp_ns	,	V_44
+pri_vals	,	V_142
+hf_stt_context_id	,	V_107
+ett	,	V_157
+addresses_reassembly_table_functions	,	V_2
+"True: checksum doesn't match packet content; False: matches content or not checked"	,	L_96
+"True: checksum matches packet content; False: doesn't match content or not checked"	,	L_93
+packet_info	,	T_2
+"stt.checksum.good"	,	L_92
+EXPFILL	,	V_163
+"stt.tcp.flags.ece"	,	L_42
+dst	,	V_32
+"STT Segment (ID: 0x%x Len: %hu, Off: %hu)"	,	L_19
+"stt.tcp.flags.fin"	,	L_54
+"stt.vlan"	,	L_77
+"stt.flags"	,	L_61
+"stt.segment.overlap.conflict"	,	L_104
+"Checksum partial"	,	L_67
+"stt.version"	,	L_60
+"stt.padding"	,	L_87
+"Stateless Transport Tunneling"	,	L_138
+"stt.flags.csum_verified"	,	L_70
+HFILL	,	V_135
+expert_stt	,	V_130
+"Reassembled STT Segments"	,	L_119
+"stt.tcp.flags.ns"	,	L_38
+src	,	V_29
+ett_stt_tcp_data	,	V_67
+checksum_good	,	V_21
+hf_stt_tcp_flags	,	V_53
+l4_offset_item	,	V_82
+hf_stt_tcp_psh	,	V_49
+hf_stt_tcp_syn	,	V_51
+"stt.tcp.flags.cwr"	,	L_40
+hf_stt_flag_rsvd	,	V_72
+context_id	,	V_89
+proto_register_protocol	,	F_51
+"stt.segment.multipletails"	,	L_107
+data_offset_item	,	V_58
+tvb_new_subset_remaining	,	F_45
+"Version"	,	L_59
+len	,	V_31
+vlan_tree	,	V_80
+dissect_stt_heur	,	F_47
+"Checksum verified"	,	L_69
+"VLAN ID"	,	L_82
+gint	,	T_15
+hf_stt_checksum_calculated	,	V_39
+"V flag"	,	L_80
+tvb	,	V_3
+STT_VLANID_MASK	,	V_102
+ett_segment	,	V_158
+COL_INFO	,	V_93
+"stt.mss_bad.expert"	,	L_136
+"Stateless Transport Tunneling over IP"	,	L_149
+hf_stt_tcp_ece	,	V_46
+cinfo	,	V_92
+hf_segment_overlap	,	V_145
+PI_ERROR	,	V_162
+" [unchecked, not all data available]"	,	L_5
+frag_data_len	,	V_11
+" [correct]"	,	L_3
+"Reserved"	,	L_35
+next_tvb	,	V_110
+ei_stt_checksum_bad	,	V_37
+call_dissector	,	F_46
+"stt.tcp.flags.rsvd"	,	L_36
+proto_item_set_text	,	F_30
+"x"	,	L_17
+frag_save	,	V_113
+dissect_stt_checksum	,	F_9
+PROTO_ITEM_SET_HIDDEN	,	F_38
+expected_cksum	,	V_36
+proto_tree_add_boolean	,	F_25
+sub_off	,	V_112
+ei_stt_l4_offset	,	V_96
+"stt.segment.toolongfragment"	,	L_110
+COL_PROTOCOL	,	V_115
+"stt.flags.tcp"	,	L_64
+hf_stt_checksum_bad	,	V_41
+dissect_stt	,	F_40
+"Stream ID"	,	L_20
+"stt.checksum.calculated"	,	L_98
+SET_CKSUM_VEC_PTR	,	F_14
+is_seg	,	V_114
+reassembly_table_init	,	F_2
+guint8	,	V_28
+"stt.reassembled.length"	,	L_126
+STT_PCP_MASK	,	V_143
+hf_stt_tcp_urg_ptr	,	V_71
+tvb_get_ntohl	,	F_43
+vlan_item	,	V_83
+tvbuff_t	,	T_1
+hf_stt_tcp_fin	,	V_52
+tvb_get_ntohs	,	F_10
+hf_segment_count	,	V_151
+proto_tree_add_bitmask	,	F_27
+"stt.data_offset_bad.expert"	,	L_130
+gboolean	,	T_7
+FLAG_OFFLOAD_MASK	,	V_95
+fragmented	,	V_24
+tcp_tree	,	V_56
+dissect_tcp_tree	,	F_28
+hf_stt_flag_ipv4	,	V_74
+fragment_head	,	T_6
+proto_register_stt	,	F_49
+hf_stt_checksum	,	V_23
+"stt.context_id"	,	L_85
+ett_segments	,	V_159
+more_frags	,	V_12
+register_init_routine	,	F_59
+tvb_get_guint8	,	F_32
+"Fin"	,	L_53
+ver_item	,	V_81
+"stt_ip"	,	L_150
+"Urgent"	,	L_43
+hf_stt_stream_id	,	V_60
+"eth"	,	L_146
+STT_TCP_OFF_PKT_ID	,	V_120
+"Packet ID"	,	L_28
+hf_segment_overlap_conflict	,	V_146
+"VLAN"	,	L_76
+ett_stt_checksum	,	V_38
+hf_segment_too_long_fragment	,	V_148
+hf_stt_checksum_good	,	V_40
+hf_stt_flag_verified	,	V_76
+find_dissector	,	F_62
+proto_tree_add_uint_format_value	,	F_11
+"stt.tcp.flags"	,	L_34
+ENC_BIG_ENDIAN	,	V_55
+proto_reg_handoff_stt	,	F_61
+"Destination Port"	,	L_22
+"stt.tcp.flags.syn"	,	L_52
+"Multiple tail segments found"	,	L_106
+"Reassembled STT length"	,	L_125
+hf_stt_pcp	,	V_103
+"Details at: http://www.wireshark.org/docs/wsug_html_chunked/ChAdvChecksums.html"	,	L_90
+"stt.mss"	,	L_75
+FT_UINT64	,	V_144
+proto_stt	,	V_116
+seg_off	,	V_8
+item	,	V_17
+ei_stt_data_offset_bad	,	V_69
+proto_item_append_text	,	F_19
+"Validate the STT checksum if possible"	,	L_144
+tcp_item	,	V_57
+ei_stt_ver_unknown	,	V_91
+col_clear	,	F_42
+"Reset"	,	L_49
+hf_stt_tcp_ack	,	V_48
+proto_register_subtree_array	,	F_56
+reassembly_table_destroy	,	F_4
+STT_HEADER_SIZE	,	V_123
+can_checksum	,	V_19
+"stt.l4offset"	,	L_72
+"Checksum"	,	L_88
+"Bad MSS"	,	L_137
+reasm_tvb	,	V_122
+hf_segments	,	V_153
+in_cksum	,	F_18
+proto_tree_add_item	,	F_29
+pinfo	,	V_4
+col_add_fstr	,	F_37
+flags	,	V_42
+"stt.flags.rsvd"	,	L_62
+"stt.tcp.flags.urg"	,	L_44
+STT_TCP_OFF_PKT_LEN	,	V_119
+dissect_stt_tree	,	F_34
+PI_PROTOCOL	,	V_164
+FT_UINT8	,	V_140
+ip_p	,	V_127
+proto_item	,	T_8
+expert_register_field_array	,	F_53
+"Reassembling error"	,	L_112
+ei_stt_mss	,	V_99
+pkt_len	,	V_7
+mss_item	,	V_84
+"Packet Length"	,	L_24
+expert_add_info_format	,	F_36
+"Padding"	,	L_86
+"Good Checksum"	,	L_91
+hf_stt_vlan	,	V_100
+"Overlapping segments contained conflicting data"	,	L_105
+"stt.segment.error"	,	L_113
+data	,	V_30
+fragment_add_check	,	F_7
+", Priority: %u, VLAN ID: %u"	,	L_15
+"stt.checksum_bad.expert"	,	L_128
+mss	,	V_87
+"Reassembled STT"	,	L_1
+ei_register_info	,	T_16
+"TCP payload"	,	L_63
+"Syn"	,	L_51
+"stt.segment"	,	L_118
+"Incorrect offset, should be greater than zero"	,	L_12
+hf_stt_tcp_data	,	V_65
+hf_stt_l4_offset	,	V_94
+FT_NONE	,	V_154
+offset	,	V_10
+DISSECTOR_ASSERT_NOT_REACHED	,	F_16
+expert_module_t	,	T_12
+tree	,	V_5
+ws_ip	,	T_11
+tvb_bytes_exist	,	F_12
+tvb_get_ntoh64	,	F_39
+"stt.flags.csum_partial"	,	L_68
+"stt.vlan.v"	,	L_81
+hf_segment	,	V_152
+proto_tree_add_uint	,	F_23
+stt_segment_init	,	F_1
+"Unknown version"	,	L_133
+PI_CHECKSUM	,	V_161
+hf_stt_flag_tcp	,	V_73
+ett_stt	,	V_117
+"The total length of the reassembled payload"	,	L_127
+"Several tails were found when reassembling the packet"	,	L_108
+checksum	,	V_18
+STT_TCP_OFF_SEG_OFF	,	V_118
+"Push"	,	L_47
+FT_FRAMENUM	,	V_150
+data_offset	,	V_59
+proto_item_set_len	,	F_44
+"stt.stream_id"	,	L_21
+stt_tree	,	V_15
+frag_items	,	V_14
+proto_tree	,	T_3

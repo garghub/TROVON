@@ -1,0 +1,400 @@
+"Options: (%u byte%s)"	,	L_41
+ett_dccp	,	V_86
+hf_dccp_checksum	,	V_103
+"Check the validity of the DCCP checksum when possible"	,	L_140
+hf_dccp_data_offset	,	V_93
+DCCP_HDR_LEN_MAX	,	V_134
+tvb_reported_length	,	F_35
+hf_dccp_service_code	,	V_119
+" (service=%u)"	,	L_33
+"Mandatory"	,	L_100
+"CCID3 Loss Event Rate"	,	L_112
+guint32	,	T_12
+proto_item_set_end	,	F_52
+dissect_feature_options	,	F_9
+vec_t	,	T_14
+"dccp.x"	,	L_65
+FT_BOOLEAN	,	V_147
+dccp_options_rvals	,	V_153
+"dccp.ndp_count"	,	L_86
+tvb_reported_length_remaining	,	F_54
+"check_checksum"	,	L_139
+array_length	,	F_60
+""	,	L_5
+"CCID option"	,	L_119
+offset_start	,	V_33
+"Reserved packet type: unable to dissect further"	,	L_127
+hf_dccp_options	,	V_135
+ett_dccp_feature	,	V_28
+"dccp.packet_type.reserved"	,	L_126
+"Unknown (%u)"	,	L_32
+hf_dccp_checksum_bad	,	V_104
+"0x%04x"	,	L_26
+hf_register_info	,	T_18
+proto_tree_add_bytes_format	,	F_23
+service_code	,	V_118
+seq	,	V_115
+"Elapsed Time"	,	L_91
+guint16	,	T_15
+hf_dccp_ack_res	,	V_121
+"dccp.slow_receiver"	,	L_103
+"Bad option length"	,	L_123
+e_dccphdr	,	T_10
+data3	,	V_127
+"dccp.ccid_option_data"	,	L_120
+data2	,	V_126
+data1	,	V_125
+i	,	V_27
+hf_dccp_data_checksum	,	V_54
+RVALS	,	F_57
+p	,	V_35
+" [%s]"	,	L_27
+hf_dccp_data1	,	V_129
+BASE_NONE	,	V_148
+"DCCP"	,	L_21
+hf_dccp_data3	,	V_131
+hf_dccp_data2	,	V_130
+x	,	V_109
+"%s("	,	L_1
+"Timestamp too long [%u != 4]"	,	L_12
+"Advertised header length (%u) is smaller than the minimum (%u) for Response"	,	L_34
+"CCVal"	,	L_51
+"Timestamp"	,	L_87
+ack	,	V_122
+hf_dccp_option_reserved	,	V_58
+plurality	,	F_51
+BASE_HEX	,	V_149
+dst_port_str	,	V_76
+col_add_lstr	,	F_33
+dccp_packet_type_vals	,	V_108
+proto_item_add_subtree	,	F_18
+module_t	,	T_17
+"dccp.padding"	,	L_99
+proto_register_field_array	,	F_59
+FT_BYTES	,	V_155
+ei	,	V_157
+dissector_add_uint	,	F_70
+g_htonl	,	F_38
+"Sequence Number"	,	L_66
+data_handle	,	V_17
+dccp_module	,	V_140
+tvb_get_ptr	,	F_8
+FT_UINT16	,	V_142
+"DCCP Options fields"	,	L_97
+"ip.proto"	,	L_142
+phdr	,	V_69
+tvb_captured_length	,	F_36
+")"	,	L_9
+wmem_new0	,	F_26
+"dccp.data3"	,	L_80
+expert_add_info	,	F_49
+"dccp.cscov"	,	L_54
+"dccp.srcport"	,	L_44
+rval_to_str_const	,	F_12
+"dccp.service_code"	,	L_72
+ett_dccp_options_item	,	V_40
+try_heuristic_first	,	V_14
+hf_dccp_ccid3_receive_rate	,	V_57
+proto_register_dccp	,	F_55
+val_to_str_const	,	F_44
+proto_tree_add_none_format	,	F_50
+"Datagram Congestion Control Protocol"	,	L_128
+"%u bytes/sec"	,	L_18
+PI_WARN	,	V_159
+cksum_vec	,	V_68
+FT_UINT32	,	V_151
+guint64	,	T_5
+"u)"	,	L_36
+hf	,	V_141
+"dccp.data1"	,	L_76
+tvb_get_ntoh_var	,	F_7
+G_GINT64_MODIFIER	,	V_31
+prefs_register_protocol	,	F_66
+register_heur_dissector_list	,	F_65
+dccph	,	T_11
+"dccp.port"	,	L_48
+col_append_fstr	,	F_45
+feature_number	,	V_24
+","	,	L_4
+col_set_str	,	F_29
+BASE_RANGE_STRING	,	V_152
+"Reset Code"	,	L_73
+"Data Offset"	,	L_49
+"dccp.data2"	,	L_78
+"Data 3"	,	L_79
+hidden_item	,	V_66
+"Acknowledgement Number"	,	L_69
+dccp_check_checksum	,	V_98
+"dccp.ack"	,	L_70
+val_to_str	,	F_48
+proto_dccp	,	V_84
+dissector_try_heuristic	,	F_4
+dissector_handle_t	,	T_21
+"CCID3 Loss Intervals"	,	L_114
+computed_cksum	,	V_70
+csum_coverage_len	,	V_72
+" %"	,	L_6
+dccp_reset_code_vals	,	V_132
+AT_IPv4	,	V_100
+AT_IPv6	,	V_102
+VALS	,	F_56
+hf_dccp_ccval	,	V_95
+SET_CKSUM_VEC_TVB	,	F_40
+prefs_register_bool_preference	,	F_67
+"dccp.ccid3_receive_rate"	,	L_117
+"Whether to check the validity of the DCCP checksum"	,	L_141
+in_cksum_shouldbe	,	F_43
+"data"	,	L_143
+BASE_DEC	,	V_146
+reported_len	,	V_71
+ENC_NA	,	V_42
+", Src Port: %s (%u), Dst Port: %s (%u)"	,	L_23
+" (Ack=%"	,	L_35
+"Advertised header length bad"	,	L_125
+hf_dccp_feature_number	,	V_30
+in_error_pkt	,	V_139
+"Data Dropped"	,	L_110
+ei_dccp_advertised_header_length_bad	,	V_112
+"dccp.init_cookie"	,	L_105
+cov	,	V_62
+hf_dccp_option_type	,	V_38
+"dccp.ack_res"	,	L_68
+hf_dccp_elapsed_time	,	V_53
+"Bad Checksum"	,	L_55
+"summary_in_tree"	,	L_131
+IP_PROTO_DCCP	,	V_101
+hf_dccp_mandatory	,	V_43
+expert_register_protocol	,	F_62
+dccp_port_to_display	,	F_32
+"0 (or max)"	,	L_16
+guint	,	T_7
+"Ack Vector [Nonce 1]"	,	L_108
+ett	,	V_156
+wmem_packet_scope	,	F_27
+"dccp.option.len.bad"	,	L_122
+hf_dccp_ccid_option_data	,	V_59
+packet_info	,	T_2
+"s"	,	L_42
+"registered to a specific port"	,	L_138
+"Wrong Timestamp Echo length"	,	L_13
+"dccp.ack_vector.nonce_1"	,	L_109
+hf_dccp_x	,	V_110
+ett_dccp_options	,	V_136
+EXPFILL	,	V_160
+"Checksum Coverage"	,	L_53
+dst	,	V_12
+advertised_dccp_header_len	,	V_73
+ptype	,	V_90
+"DCCP port"	,	L_130
+"Source Port"	,	L_43
+"Try to decode a packet using an heuristic sub-dissector before "	,	L_136
+HFILL	,	V_144
+PI_MALFORMED	,	V_161
+"dccp.ack_vector.nonce_0"	,	L_107
+low_port	,	V_8
+try_conversation_dissector	,	F_3
+"Advertised header length (%u) is larger than the maximum (%u)"	,	L_40
+dccp_summary_in_tree	,	V_85
+"Ack Vector [Nonce 0]"	,	L_106
+dissector_try_uint	,	F_5
+dccp_subdissector_table	,	V_16
+"dccp.elapsed_time"	,	L_92
+src	,	V_11
+gchar	,	T_16
+"dccp.type"	,	L_63
+proto_tree_add_subtree_format	,	F_11
+hf_dccp_option_unknown	,	V_60
+nbytes	,	V_18
+"u"	,	L_7
+"Option length incorrect, must be &gt;= 2"	,	L_10
+"Unknown"	,	L_39
+hf_dccp_slow_receiver	,	V_44
+sport	,	V_5
+option_item	,	V_36
+hf_dccp_timestamp	,	V_50
+offset_end	,	V_34
+"0x%04x [incorrect, should be 0x%04x]"	,	L_25
+proto_register_protocol	,	F_58
+tvb_new_subset_remaining	,	F_2
+len	,	V_61
+gint	,	T_6
+"dccp"	,	L_129
+tvb	,	V_1
+PT_DCCP	,	V_13
+dccp_item	,	V_25
+COL_INFO	,	V_81
+"Timestamp Echo"	,	L_89
+hf_dccp_res1	,	V_106
+cinfo	,	V_79
+"dccp.seq"	,	L_67
+hf_dccp_res2	,	V_114
+PI_ERROR	,	V_162
+"dccp.option_type"	,	L_82
+hf_dccp_ccid3_loss_event_rate	,	V_55
+register_tap	,	F_72
+"Reserved"	,	L_59
+next_tvb	,	V_7
+call_dissector	,	F_6
+"dccp.checksum_data"	,	L_94
+BASE_PT_DCCP	,	V_143
+high_port	,	V_9
+PROTO_ITEM_SET_HIDDEN	,	F_34
+proto_tree_add_boolean	,	F_42
+dccp_tap	,	V_137
+"0x%04x [correct]"	,	L_24
+"dccp.dstport"	,	L_46
+"dccp.res1"	,	L_60
+"dccp.timestamp"	,	L_88
+"dccp.mandatory"	,	L_101
+DCCP_GEN_HDR_LEN_X	,	V_111
+COL_PROTOCOL	,	V_80
+option_type	,	V_23
+"Extended Sequence Numbers"	,	L_64
+SET_CKSUM_VEC_PTR	,	F_37
+expert_dccp	,	V_163
+guint8	,	T_8
+"dccp.ccid3_loss_intervals"	,	L_115
+"Wrong CCID3 Loss Event Rate length"	,	L_17
+"Feature Number"	,	L_83
+" (code=%s)"	,	L_38
+"dccp.res2"	,	L_61
+"Option Type"	,	L_81
+hf_dccp_ack_vector_nonce_1	,	V_48
+hf_dccp_ack_vector_nonce_0	,	V_47
+dccp_csum_coverage	,	F_24
+"NDP Count"	,	L_85
+tvb_get_ntohl	,	F_21
+tvbuff_t	,	T_1
+tvb_get_ntohs	,	F_31
+src_port_str	,	V_75
+hf_dccp_type	,	V_107
+reserved2	,	V_113
+reserved1	,	V_105
+"dccp.options"	,	L_96
+"dccp.data_dropped"	,	L_111
+fragmented	,	V_99
+"dccp.option_reserved"	,	L_118
+"Data Checksum"	,	L_93
+"Source or Destination Port"	,	L_47
+"Wrong CCID3 Receive Rate length"	,	L_19
+heur_dtbl_entry_t	,	T_4
+" Seq=%"	,	L_30
+"Slow Receiver"	,	L_102
+option_len	,	V_22
+tvb_get_guint8	,	F_10
+cscov	,	V_63
+hf_dccp_cscov	,	V_96
+"NDP Count too long (max 6 bytes)"	,	L_11
+dccp_tree	,	V_65
+"Whether the DCCP summary line should be shown in the protocol tree"	,	L_133
+hf_dccp_ack	,	V_123
+"Data 2"	,	L_77
+"Init Cookie"	,	L_104
+"Unknown feature number"	,	L_2
+reset_code	,	V_124
+"Data 1"	,	L_75
+new_create_dissector_handle	,	F_69
+find_dissector	,	F_71
+"dccp.feature_number"	,	L_84
+proto_tree_add_uint_format_value	,	F_22
+"dccp.data_offset"	,	L_50
+heur_subdissector_list	,	V_15
+ptr	,	V_19
+ENC_BIG_ENDIAN	,	V_51
+"dccp.checksum_bad"	,	L_56
+hf_dccp_dstport	,	V_89
+"Destination Port"	,	L_45
+hdtbl_entry	,	V_10
+hf_dccp_data_dropped	,	V_49
+DCCP_GEN_HDR_LEN_NO_X	,	V_117
+"using a sub-dissector "	,	L_137
+"Advertised header length (%u) is smaller than the minimum (%u) for Reset"	,	L_37
+"Try heuristic sub-dissectors first"	,	L_135
+FT_UINT64	,	V_150
+"Wrong Elapsed Time length"	,	L_14
+dissect_options	,	F_15
+dccp_options_tree	,	V_21
+proto_item_append_text	,	F_14
+ip_dst	,	V_78
+proto_reg_handoff_dccp	,	F_68
+col_clear	,	F_30
+offset_item	,	V_67
+COL_ADD_LSTR_TERMINATOR	,	V_83
+proto_register_subtree_array	,	F_61
+hf_dccp_seq	,	V_116
+tvb_get_ntoh24	,	F_47
+"Checksum"	,	L_57
+hf_dccp_port	,	V_88
+"CCID3 Receive Rate"	,	L_116
+proto_tree_add_item	,	F_19
+in_cksum	,	F_41
+pinfo	,	V_3
+options_len	,	V_74
+_U_	,	V_32
+ip_src	,	V_77
+flags	,	V_138
+"dccp.advertised_header_length.bad"	,	L_124
+decode_dccp_ports	,	F_1
+dport	,	V_6
+"Wrong Data checksum length"	,	L_15
+hf_dccp_padding	,	V_41
+hf_dccp_reset_code	,	V_128
+feature_tree	,	V_26
+hf_dccp_timestamp_echo	,	V_52
+ei_dccp_packet_type_reserved	,	V_133
+"dccp.ccid3_loss_event_rate"	,	L_113
+hf_dccp_init_cookie	,	V_45
+ccval	,	V_94
+PI_PROTOCOL	,	V_158
+"dccp.ccval"	,	L_52
+FT_UINT8	,	V_145
+proto_item	,	T_9
+tap_queue_packet	,	F_53
+expert_register_field_array	,	F_63
+expert_add_info_format	,	F_16
+"Padding"	,	L_98
+hf_dccp_ccid3_loss_intervals	,	V_56
+register_dissector_table	,	F_64
+tvb_get_ntoh48	,	F_46
+data	,	T_13
+UTF8_RIGHTWARDS_ARROW	,	V_82
+"%s %d"	,	L_3
+hf_dccp_srcport	,	V_87
+option_tree	,	V_37
+SET_ADDRESS	,	F_28
+"dccp.timestamp_echo"	,	L_90
+"dccp.option_unknown"	,	L_121
+ei_register_info	,	T_19
+"Unknown Type"	,	L_28
+"CCID option %d"	,	L_20
+hf_dccp_ndp_count	,	V_46
+FT_NONE	,	V_154
+offset	,	V_2
+" "	,	L_22
+DISSECTOR_ASSERT_NOT_REACHED	,	F_39
+"Advertised header length (%u) is smaller than the minimum (%u)"	,	L_29
+"dccp.reset_code"	,	L_74
+expert_module_t	,	T_20
+tree	,	V_4
+"dccp.checksum"	,	L_58
+ei_dccp_option_len_bad	,	V_39
+dccp_handle	,	V_164
+"Service Code"	,	L_71
+destport	,	V_92
+"Options"	,	L_95
+proto_tree_add_uint	,	F_13
+proto_tree_add_uint64	,	F_20
+"%d"	,	L_8
+"Advertised header length (%u) is smaller than the minimum (%u) for %s"	,	L_31
+checksum	,	V_97
+value	,	V_20
+"Show DCCP summary in protocol tree"	,	L_132
+"try_heuristic_first"	,	L_134
+dccp_feature_numbers_rvals	,	V_29
+ack_reserved	,	V_120
+data_offset	,	V_64
+proto_item_set_len	,	F_17
+dissect_dccp	,	F_25
+srcport	,	V_91
+"Type"	,	L_62
+proto_tree	,	T_3

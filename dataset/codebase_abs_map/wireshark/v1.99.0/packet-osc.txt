@@ -1,0 +1,315 @@
+proto_register_protocol	,	F_34
+is_valid_path	,	F_1
+tvb_reported_length	,	F_25
+"osc.message.char"	,	L_70
+path	,	V_1
+"Open Sound Control Protocol"	,	L_108
+"%i bytes"	,	L_3
+get_osc_pdu_len	,	F_21
+len	,	V_10
+tcp_dissect_pdus	,	F_24
+gint	,	T_5
+OSC_NIL	,	V_47
+ett_osc_rgba	,	V_71
+OSC_SYMBOL	,	V_63
+tvb	,	V_6
+hf_osc_message_string_type	,	V_34
+guint32	,	T_8
+"Float"	,	L_32
+COL_INFO	,	V_109
+"RGBA"	,	L_72
+hf_osc_message_path_type	,	V_25
+"MIDI: Channel %2i, %s (0x%02x), 0x%02x, 0x%02x"	,	L_6
+pdu_len	,	V_112
+OSC_BLOB	,	V_35
+format_offset	,	V_18
+str	,	V_114
+"Boolean true value"	,	L_48
+size	,	V_101
+"Header"	,	L_20
+cinfo	,	V_107
+OSC_TRUE	,	V_43
+"Format"	,	L_26
+"MIDI status message"	,	L_95
+"Data2"	,	L_99
+"osc"	,	L_109
+ri	,	V_68
+array_length	,	F_36
+"osc.bundle"	,	L_9
+"Bang"	,	L_55
+"Symbol"	,	L_66
+hf_osc_message_type	,	V_20
+"osc.message.int32"	,	L_30
+hf_osc_message_int64_type	,	V_52
+"OSC"	,	L_7
+OSC_RGBA	,	V_67
+bi	,	V_36
+ENC_ASCII	,	V_26
+"Controller"	,	L_102
+"osc.message.true"	,	L_47
+"osc.message.false"	,	L_50
+sec	,	V_56
+dissect_osc_pdu_common	,	F_18
+"64bit integer value"	,	L_60
+OSC_MIDI	,	V_76
+ett_osc_message_header	,	V_24
+dissect_osc_tcp_pdu	,	F_22
+hf_register_info	,	T_15
+"Message"	,	L_17
+"Green color component"	,	L_80
+"MIDI"	,	L_87
+"Blob: %i bytes"	,	L_2
+blen	,	V_38
+bundle_tree	,	V_96
+"Bundle element size"	,	L_16
+COL_PROTOCOL	,	V_108
+tvb_get_const_stringz	,	F_5
+OSC_CHAR	,	V_65
+data2	,	V_83
+"osc.message.midi.data1"	,	L_97
+data1	,	V_82
+"osc.bundle.timetag"	,	L_12
+ett_osc_midi	,	V_89
+hf_osc_message_char_type	,	V_66
+"osc.message.midi.status"	,	L_94
+proto_osc	,	V_110
+"osc.message.rgba.blue"	,	L_82
+"Green"	,	L_78
+"osc.message.symbol"	,	L_67
+guint8	,	T_10
+ti	,	V_7
+BASE_NONE	,	V_120
+hf_osc_message_rgba_blue_type	,	V_74
+"Boolean false value"	,	L_51
+"osc.message.header.path"	,	L_24
+"Bundle"	,	L_8
+"32bit integer value"	,	L_31
+osc_udp_handle	,	V_117
+header_tree	,	V_12
+tvb_get_ntohl	,	F_10
+"osc.message.header"	,	L_21
+tvbuff_t	,	T_2
+tvb_strsize	,	F_9
+"osc.bundle.element.size"	,	L_15
+hf_osc_message_bang_type	,	V_50
+val_to_str_ext_const	,	F_14
+"OSC TCP Port"	,	L_111
+conversation_set_dissector	,	F_32
+ABSOLUTE_TIME_UTC	,	V_123
+hf_osc_message_blob_size_type	,	V_41
+BASE_HEX	,	V_132
+hf_osc_message_header_type	,	V_22
+"MIDI channel"	,	L_92
+gboolean	,	T_1
+"osc.message.midi.data2"	,	L_100
+proto_item_add_subtree	,	F_7
+module_t	,	T_16
+rem	,	V_14
+format_len	,	V_19
+proto_register_field_array	,	F_35
+conversation	,	V_113
+"Message structure"	,	L_19
+FT_BYTES	,	V_128
+"osc.message.blob"	,	L_39
+dissector_add_uint	,	F_44
+"Scheduled bundle execution time"	,	L_13
+ENC_TIME_NTP	,	V_62
+OSC_INT32	,	V_28
+status_str	,	V_77
+dissect_osc_message	,	F_4
+osc_tree	,	V_8
+"osc.message.header.format"	,	L_27
+"Infinity, Impulse or Bang value"	,	L_57
+blob_tree	,	V_37
+tvb_get_guint8	,	F_13
+MIDI_STATUS_CONTROLLER	,	V_85
+tvb_strneql	,	F_17
+FT_FLOAT	,	V_127
+tvb_captured_length	,	F_28
+dissector_delete_uint	,	F_43
+"osc.message.int64"	,	L_59
+"Message path"	,	L_25
+OSC_INT64	,	V_51
+hf_osc_message_midi_data2_type	,	V_95
+"osc.message.blob.data"	,	L_44
+"osc.message.midi.value"	,	L_106
+osc_tcp_handle	,	V_139
+hf_osc_message_rgba_green_type	,	V_73
+heur_dissector_add	,	F_42
+"Bundle structure"	,	L_10
+hf_osc_message_false_type	,	V_46
+hf_osc_message_midi_data1_type	,	V_94
+"Message header"	,	L_22
+FT_STRING	,	V_126
+OSC_FALSE	,	V_45
+"Character value"	,	L_71
+hf_osc_message_midi_channel_type	,	V_90
+end	,	V_15
+FT_INT32	,	V_124
+new_create_dissector_handle	,	F_40
+"Message: %s %s"	,	L_1
+"Alpha"	,	L_84
+hf_osc_message_symbol_type	,	V_64
+rgba_tree	,	V_69
+proto_tree_add_none_format	,	F_6
+path_offset	,	V_17
+bundle_str	,	V_97
+"Floating point value"	,	L_34
+ptr	,	V_2
+ENC_BIG_ENDIAN	,	V_30
+"Message format"	,	L_28
+FT_DOUBLE	,	V_130
+FT_UINT32	,	V_131
+"Red"	,	L_75
+slen	,	V_13
+midi_tree	,	V_79
+"Double"	,	L_61
+find_or_create_conversation	,	F_31
+"Blob"	,	L_38
+hf	,	V_118
+"Int64"	,	L_58
+"Nil value"	,	L_54
+"osc.message.midi"	,	L_88
+"Path"	,	L_23
+G_MAXINT	,	V_103
+channel	,	V_80
+"osc.message.float"	,	L_33
+"MIDI controller message"	,	L_104
+dissect_osc_tcp	,	F_23
+"osc.message.rgba.red"	,	L_76
+hf_osc_message_format_type	,	V_27
+prefs_register_protocol	,	F_38
+is_valid_format	,	F_3
+BASE_EXT_STRING	,	V_134
+col_set_str	,	F_19
+"osc.message.rgba"	,	L_73
+"Red color component"	,	L_77
+"osc.message.string"	,	L_36
+immediate_str	,	V_61
+dissect_osc_heur_udp	,	F_27
+proto_tree_add_int_format_value	,	F_11
+dissect_osc_udp	,	F_26
+ENDTRY	,	V_116
+"MIDI value"	,	L_89
+"osc.message.rgba.green"	,	L_79
+col_clear	,	F_20
+FT_ABSOLUTE_TIME	,	V_122
+proto_register_subtree_array	,	F_37
+gint32	,	T_7
+"osc.message.nil"	,	L_53
+proto_reg_handoff_osc	,	V_137
+status	,	V_81
+"osc.message.double"	,	L_62
+proto_tree_add_item	,	F_8
+immediate_fmt	,	V_60
+pinfo	,	V_104
+dissector_handle_t	,	T_17
+"Data"	,	L_43
+OSC_BANG	,	V_49
+hf_osc_message_rgba_red_type	,	V_72
+_U_	,	V_106
+hf_osc_message_double_type	,	V_54
+MIDI_control_ext	,	V_87
+"Value"	,	L_105
+"RGBA color value"	,	L_74
+valid	,	V_115
+hf_osc_message_midi_type	,	V_88
+hf_osc_message_true_type	,	V_44
+"String"	,	L_35
+ett_osc_message	,	V_21
+ett_osc_packet	,	V_111
+initialized	,	V_141
+dissector_add_for_decode_as	,	F_41
+"Binary blob size"	,	L_42
+path_len	,	V_16
+"Binary blob value"	,	L_40
+global_osc_tcp_port	,	V_138
+FT_UINT8	,	V_133
+BASE_DEC	,	V_125
+valid_format_chars	,	V_5
+proto_item	,	T_3
+hf_osc_message_int32_type	,	V_29
+MIDI_status_ext	,	V_84
+hf_osc_message_float_type	,	V_32
+hf_osc_message_rgba_alpha_type	,	V_75
+"Char"	,	L_69
+ENC_NA	,	V_23
+osc_tcp_port	,	V_140
+"Nil"	,	L_52
+"Timetag"	,	L_11
+OSC_TIMETAG	,	V_55
+"osc.message.midi.channel"	,	L_91
+proto_register_osc	,	F_33
+"osc.message"	,	L_18
+"Int32"	,	L_29
+FT_INT64	,	V_129
+"osc.message.midi.controller"	,	L_103
+hf_osc_bundle_type	,	V_98
+"osc.message.blob.size"	,	L_41
+data	,	T_12
+"MIDI controller value"	,	L_107
+"Set the TCP port for OSC"	,	L_112
+hf_osc_message_rgba_type	,	V_70
+control_str	,	V_86
+"True"	,	L_46
+message_tree	,	V_11
+"Alpha transparency component"	,	L_86
+prefs_register_uint_preference	,	F_39
+"Channel"	,	L_90
+TRY	,	F_29
+mi	,	V_78
+nstime_t	,	T_9
+conversation_t	,	T_14
+"osc.message.rgba.alpha"	,	L_85
+guint	,	T_13
+FT_NONE	,	V_119
+offset	,	V_9
+ett	,	V_135
+DISSECTOR_ASSERT_NOT_REACHED	,	F_15
+OSC_FLOAT	,	V_31
+format	,	V_4
+tree	,	V_105
+ett_osc_bundle	,	V_99
+"String value"	,	L_37
+hf_osc_message_midi_status_type	,	V_91
+invalid_path_chars	,	V_3
+hf_osc_bundle_element_size_type	,	V_102
+packet_info	,	T_11
+"Binary blob data"	,	L_45
+"Double value"	,	L_63
+"False"	,	L_49
+dissect_osc_bundle	,	F_16
+"Blue color component"	,	L_83
+hf_osc_message_midi_value_type	,	V_93
+hf_osc_message_timetag_type	,	V_59
+"MIDI data value 2"	,	L_101
+"udp"	,	L_113
+hf_osc_message_midi_controller_type	,	V_92
+g_ascii_isprint	,	F_2
+"osc.message.timetag"	,	L_64
+"NTP time value"	,	L_65
+ns	,	V_58
+CATCH_ALL	,	F_30
+osc_module	,	V_136
+OSC_STRING	,	V_33
+hf_osc_message_blob_type	,	V_39
+"MIDI: Channel %2i, %s (0x%02x), %s (0x%02x), 0x%02x"	,	L_5
+proto_tree_add_time_format_value	,	F_12
+hf_osc_bundle_timetag_type	,	V_100
+"Data1"	,	L_96
+"MIDI data value 1"	,	L_98
+hf_osc_message_blob_data_type	,	V_42
+HFILL	,	V_121
+frac	,	V_57
+"Blue"	,	L_81
+hf_osc_message_nil_type	,	V_48
+"Status"	,	L_93
+gchar	,	T_6
+"Symbol value"	,	L_68
+OSC_DOUBLE	,	V_53
+"Size"	,	L_14
+"osc.message.bang"	,	L_56
+"Unknown"	,	L_4
+ett_osc_blob	,	V_40
+"tcp.port"	,	L_110
+proto_tree	,	T_4

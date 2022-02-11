@@ -1,0 +1,100 @@
+SUB_DATA	,	V_34
+proto_register_protocol	,	F_16
+"Slot Rate"	,	L_7
+col_append_fstr	,	F_9
+sub_handles	,	V_33
+gint	,	T_8
+col_set_str	,	F_2
+tvb_captured_length_remaining	,	F_10
+tvb	,	V_1
+hf_tfp_hdr_delay_info	,	V_24
+hf_tfp_hdr_p	,	V_25
+"gsm_abis_tfp.seq_nr"	,	L_10
+"TS=%u, Seq=%u, %s, %s "	,	L_4
+guint32	,	T_6
+COL_INFO	,	V_30
+hf_tfp_hdr_m	,	V_27
+"Silence Indicator"	,	L_15
+FT_BOOLEAN	,	V_40
+hf_tfp_hdr_s	,	V_26
+hf_tfp_hdr_seq_nr	,	V_23
+tfp_packed_vals	,	V_39
+cinfo	,	V_15
+proto_register_subtree_array	,	F_19
+"GSM A-bis TFP"	,	L_23
+proto_tree_add_item_ret_uint	,	F_5
+val_to_str	,	F_8
+"gsm_abis_tfp.amr.rate"	,	L_22
+array_length	,	F_18
+next_tvb	,	V_13
+frame_bits	,	V_9
+"Marker bit"	,	L_17
+proto_tree_add_item	,	F_3
+call_dissector	,	F_13
+pinfo	,	V_2
+_U_	,	V_4
+"Unknown (%u)"	,	L_3
+"Air Timeslot Resource"	,	L_5
+tfp_slot_rate_vals	,	V_31
+hf_register_info	,	T_9
+proto_reg_handoff_abis_tfp	,	F_21
+VALS	,	F_15
+"Ericsson GSM A-bis TFP"	,	L_24
+hf_tfp_hdr_atsr	,	V_20
+"gsm_abis_tfp"	,	L_25
+COL_PROTOCOL	,	V_16
+"data"	,	L_26
+FT_UINT8	,	V_41
+BASE_DEC	,	V_37
+proto_item	,	T_5
+ENC_NA	,	V_18
+"Delay Information (ms)"	,	L_11
+guint8	,	T_7
+slot_rate	,	V_8
+ftype	,	V_12
+dissect_abis_tfp	,	F_1
+ti	,	V_5
+"gsm_abis_tfp.delay_info"	,	L_12
+register_dissector	,	F_20
+"%s"	,	L_2
+data	,	T_4
+tvbuff_t	,	T_1
+tfp_amr_len_rate_vals	,	V_42
+"gsm_abis_tfp.packing_scheme"	,	L_14
+"gsm_abis_tfp.marker"	,	L_18
+proto_item_add_subtree	,	F_4
+"gsm_abis_tfp.silence_ind"	,	L_16
+"gsm_abis_tfp.frame_type"	,	L_20
+proto_register_field_array	,	F_17
+len_remain	,	V_14
+"AMR Rate"	,	L_21
+proto_register_abis_tfp	,	F_14
+offset	,	V_7
+ett	,	V_43
+seq_nr	,	V_11
+tree	,	V_3
+"Sequence Number"	,	L_9
+tfp_tree	,	V_6
+hf_tfp_amr_rate	,	V_32
+FT_UINT16	,	V_36
+packet_info	,	T_2
+tvb_get_guint8	,	F_6
+hf_tfp_hdr_frame_type	,	V_28
+tfp_frame_type_vals	,	V_29
+proto_tree_add_uint	,	F_11
+tvb_new_subset_length	,	F_12
+HFILL	,	V_38
+"gsm_abis_tfp.slot_rate"	,	L_8
+"TFP"	,	L_1
+hf_tfp_hdr_slot_rate	,	V_22
+proto_abis_tfp	,	V_17
+find_dissector	,	F_22
+"Packing Scheme"	,	L_13
+proto_tree_add_uint_format_value	,	F_7
+ENC_BIG_ENDIAN	,	V_21
+ett_tfp	,	V_19
+"gsm_abis_tfp.atsr"	,	L_6
+proto_tree	,	T_3
+hf	,	V_35
+atsr	,	V_10
+"Frame Type"	,	L_19

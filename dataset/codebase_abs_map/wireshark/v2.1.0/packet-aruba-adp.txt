@@ -1,0 +1,84 @@
+"Transaction ID"	,	L_12
+"Aruba Discovery Protocol"	,	L_20
+data	,	T_4
+proto_register_protocol	,	F_14
+tvbuff_t	,	T_1
+hf_adp_version	,	V_15
+tvb_get_ntohs	,	F_6
+adp_type_val	,	V_27
+"Version"	,	L_6
+col_set_str	,	F_2
+FT_ETHER	,	V_28
+gint	,	T_8
+proto_item_add_subtree	,	F_5
+"adp.switch"	,	L_18
+UDP_PORT_ADP	,	V_33
+ADP_REQUEST	,	V_19
+proto_register_field_array	,	F_15
+hf_adp_mac	,	V_20
+FT_IPv4	,	V_30
+tvb	,	V_1
+"ADP Request Src MAC: %s"	,	L_2
+ADP_RESPONSE	,	V_21
+ett	,	V_31
+aruba_adp_tree	,	V_6
+COL_INFO	,	V_11
+"adp.version"	,	L_7
+dissector_add_uint	,	F_20
+tree	,	V_3
+"MAC address"	,	L_15
+proto_item_append_text	,	F_9
+"ADP"	,	L_1
+", Request Src MAC: %s"	,	L_3
+FT_UINT16	,	V_24
+packet_info	,	T_2
+switchip	,	V_8
+"Switch IP address"	,	L_19
+col_clear	,	F_3
+"ADP transaction ID"	,	L_14
+proto_reg_handoff_aruba_adp	,	F_18
+", Response Switch IP: %s"	,	L_5
+cinfo	,	V_9
+tvb_captured_length	,	F_11
+proto_register_subtree_array	,	F_17
+array_length	,	F_16
+"adp"	,	L_21
+"adp.type"	,	L_10
+proto_tree_add_item	,	F_4
+pinfo	,	V_2
+tvb_ether_to_str	,	F_7
+col_add_fstr	,	F_8
+dissector_handle_t	,	T_9
+"adp.mac"	,	L_16
+_U_	,	V_4
+ett_aruba_adp	,	V_14
+"adp.id"	,	L_13
+hf_adp_type	,	V_17
+"ADP Response Switch IP: %s"	,	L_4
+proto_register_aruba_adp	,	F_12
+hf_register_info	,	T_7
+"Switch IP"	,	L_17
+VALS	,	F_13
+HFILL	,	V_26
+proto_aruba_adp	,	V_12
+guint16	,	T_5
+COL_PROTOCOL	,	V_10
+"udp.port"	,	L_22
+gchar	,	T_6
+tvb_ip_to_str	,	F_10
+BASE_DEC	,	V_25
+"ADP type"	,	L_11
+create_dissector_handle	,	F_19
+mac_str	,	V_7
+"ADP version"	,	L_8
+dissect_aruba_adp	,	F_1
+ENC_BIG_ENDIAN	,	V_16
+ENC_NA	,	V_13
+ti	,	V_5
+BASE_NONE	,	V_29
+hf_adp_switchip	,	V_22
+"Type"	,	L_9
+proto_tree	,	T_3
+hf_adp_id	,	V_18
+hf	,	V_23
+adp_handle	,	V_32

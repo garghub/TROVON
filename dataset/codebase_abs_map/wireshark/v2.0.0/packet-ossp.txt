@@ -1,0 +1,245 @@
+treex	,	V_29
+"ossp.esmc.tlv_type"	,	L_55
+proto_register_protocol	,	F_28
+dissect_itu_ossp	,	F_11
+"ossp.esmc.timestamp"	,	L_65
+ossp_tree	,	V_8
+tvb_new_subset_remaining	,	F_9
+"Version"	,	L_39
+"ossp.itu.subtype"	,	L_37
+"Timestamp TLV Length must be == 0x%.4x"	,	L_21
+"ossp.esmc.tlv"	,	L_53
+gint	,	T_4
+ei_esmc_tlv_type_decoded_as_timestamp	,	V_68
+ql	,	V_32
+tvb_captured_length_remaining	,	F_21
+tvb	,	V_1
+"Version must claim compliance with Version 1 of this protocol"	,	L_72
+guint32	,	T_11
+COL_INFO	,	V_16
+padding_size	,	V_72
+"ossp.esmc.tlv_type.not_timestamp"	,	L_83
+ett_ossppdu	,	V_18
+ei_esmc_tlv_type_not_timestamp	,	V_67
+str	,	V_5
+hf_esmc_timestamp	,	V_70
+cinfo	,	V_14
+reserved	,	V_44
+"IEEE assigned Organizationally Unique Identifier"	,	L_35
+"Organization Specific Slow Protocol"	,	L_3
+PI_ERROR	,	V_94
+unused	,	V_51
+", %d %s%s"	,	L_25
+array_length	,	F_30
+"ossp.esmc.timestamp_valid_flag"	,	L_47
+"Reserved"	,	L_49
+"Unused"	,	L_58
+""	,	L_27
+ei_esmc_reserved_not_zero	,	V_46
+"slow.subtype"	,	L_90
+" (%s)"	,	L_4
+call_dissector	,	F_23
+"ossp.esmc.ql.invalid"	,	L_81
+"ossp"	,	L_89
+hf_esmc_event_flag	,	V_41
+col_append_str	,	F_25
+"TLV Type must be QL because QL TLV must be first in the ESMC PDU"	,	L_74
+"SSM Code"	,	L_61
+", Malformed PDU"	,	L_32
+ITU_OUI_2	,	V_13
+ITU_OUI_1	,	V_12
+dh_data	,	V_75
+hf_register_info	,	T_12
+"Event Flag"	,	L_42
+"TLV Type must be == Timestamp because Timestamp Valid Flag is set"	,	L_84
+timestamp	,	V_34
+expert_ossp	,	V_100
+", %s"	,	L_18
+guint16	,	T_8
+COL_PROTOCOL	,	V_15
+"This field indicates the version of ITU-T SG15 Q13 OSSP frame format"	,	L_41
+tree_a	,	V_35
+tree_b	,	V_48
+ITU_OUI_0	,	V_11
+hf_esmc_tlv_length	,	V_56
+"ossp.esmc.version.compliance"	,	L_71
+guint8	,	T_7
+tvb_memeql	,	F_10
+ti	,	V_24
+BASE_NONE	,	V_78
+hf_esmc_reserved_32	,	V_45
+"ossp.esmc.tlv_type.decoded_as_ql_type"	,	L_75
+" (Unknown OSSP organization)"	,	L_5
+"QL-INV%d"	,	L_19
+ossp_tvb	,	V_9
+tvb_get_ntohl	,	F_16
+"OUI"	,	L_33
+"Timestamp according to the \"whole nanoseconds\" part of the IEEE 1588 originTimestamp"	,	L_66
+"Subtype assigned by the ITU-T"	,	L_38
+esmc_quality_level_invalid_vals	,	V_88
+tvbuff_t	,	T_1
+": ESMC"	,	L_8
+esmc_quality_level_opt_1_vals_short	,	V_65
+proto_tree_add_protocol_format	,	F_5
+tvb_get_ntohs	,	F_12
+"This field contains necessary padding to achieve the minimum frame size of 64 bytes at least"	,	L_70
+"QL TLV Length must be == 0x%.4x"	,	L_16
+plurality	,	F_22
+BASE_HEX	,	V_81
+proto_register_ossp	,	F_26
+gboolean	,	T_9
+ett_esmc	,	V_36
+proto_item_add_subtree	,	F_6
+"OSSP"	,	L_1
+ossp_item	,	V_7
+PI_UNDECODED	,	V_96
+proto_register_field_array	,	F_29
+FT_BYTES	,	V_77
+ei	,	V_92
+dissector_add_uint	,	F_36
+"Time-critical"	,	L_13
+", TS:%d"	,	L_31
+FT_UINT16	,	V_80
+"Timestamp Valid Flag"	,	L_46
+tvb_get_guint8	,	F_14
+hf_esmc_tlv_ts_reserved	,	V_71
+hf_esmc_quality_level_invalid	,	V_63
+" [invalid]"	,	L_22
+"ossp.esmc.tlv_type.decoded_as_timestamp"	,	L_85
+ei_esmc_version_compliance	,	V_40
+", Event:%s"	,	L_12
+expert_add_info	,	F_18
+hf_esmc_version	,	V_38
+"Reserved bits must be set to all zero on transmitter"	,	L_11
+itu_oui	,	V_10
+esmc_timestamp_valid_flag_vals	,	V_84
+"ossp.esmc.tlv_type.ql_type_not_first"	,	L_73
+"Reserved. Set to all zero at the transmitter and ignored by the receiver"	,	L_51
+ESMC_ITU_SUBTYPE	,	V_28
+FT_INT32	,	V_89
+ESMC_QL_TLV_LENGTH	,	V_57
+"Let's decode as if this is QL TLV"	,	L_76
+" ESMC Event PDU from the ESMC Information PDU"	,	L_45
+length	,	V_50
+hf_esmc_tlv_type	,	V_52
+find_dissector	,	F_37
+"ossp.esmc.padding"	,	L_69
+PI_WARN	,	V_98
+proto_tree_add_uint_format_value	,	F_17
+esmc_quality_level_opt_1_vals	,	V_61
+"QL-INVALID-%d"	,	L_30
+ENC_BIG_ENDIAN	,	V_26
+"ossp.esmc.tlv_length.bad"	,	L_77
+FT_UINT32	,	V_85
+"Reserved bits must be set to all zero"	,	L_88
+oui_item	,	V_6
+hf	,	V_76
+hf_esmc_timestamp_valid_flag	,	V_43
+", Timestamp:%d"	,	L_24
+"Let's decode this TLV as if Length has valid value"	,	L_17
+esmc_tlv_type_vals	,	V_87
+"Let's decode as if this is Timestamp TLV"	,	L_86
+"ESMC"	,	L_7
+ei_esmc_tlv_ql_unused_not_zero	,	V_60
+"Information"	,	L_14
+hf_esmc_quality_level_opt_1	,	V_62
+pref_decode_esmc_timestamp	,	V_42
+col_append_fstr	,	F_24
+"Event:%s"	,	L_29
+col_set_str	,	F_3
+hf_esmc_padding	,	V_74
+"TLV Type must be == 0x%.2x (QL) because QL TLV must be first in the ESMC PDU"	,	L_15
+proto_item_append_text	,	F_8
+"ossp.oui"	,	L_34
+ett_itu_ossp	,	V_27
+proto_register_subtree_array	,	F_31
+gint32	,	T_10
+val_to_str	,	F_20
+"ossp.esmc.version"	,	L_40
+esmc_event_flag_vals	,	V_83
+"OUI: %s"	,	L_2
+dissect_esmc_pdu	,	F_13
+" (Unknown)"	,	L_6
+ossp_handle	,	V_101
+"ossp.esmc.tlv_ts_reserved"	,	L_67
+proto_tree_add_item	,	F_7
+pinfo	,	V_2
+col_add_fstr	,	F_4
+"TLV Type must be == 0x%.2x (Timestamp) because Timestamp Valid Flag is set"	,	L_20
+dissector_handle_t	,	T_15
+malformed	,	V_31
+"ESMC TLV"	,	L_52
+hf_esmc_tlv	,	V_47
+proto_ossp	,	V_17
+"This field is not used in QL TLV"	,	L_60
+hf_ossp_oui	,	V_19
+itu_ossp_tree	,	V_23
+event_flag	,	V_30
+"Invalid SSM message, unknown QL code"	,	L_82
+ESMC_TIMESTAMP_TLV_TYPE	,	V_66
+ei_esmc_tlv_type_ql_type_not_first	,	V_54
+VALS	,	F_27
+ei_esmc_tlv_type_decoded_as_ql_type	,	V_55
+"ossp.esmc.ql"	,	L_62
+PI_PROTOCOL	,	V_99
+proto_reg_handoff_ossp	,	F_34
+timestamp_valid_flag	,	V_33
+tvb_next	,	V_73
+"data"	,	L_91
+FT_UINT8	,	V_82
+OSSP_SUBTYPE	,	V_102
+BASE_DEC	,	V_90
+proto_item	,	T_6
+expert_register_field_array	,	F_33
+"Indicates validity (i.e. presence) of the Timestamp TLV"	,	L_48
+try_val_to_str	,	F_19
+ENC_NA	,	V_21
+"octet"	,	L_26
+expert_add_info_format	,	F_15
+"This bit distinguishes the critical, time sensitive behaviour of the"	,	L_44
+"ossp.esmc.tlv_ql_unused"	,	L_59
+"Padding"	,	L_68
+OUI_SIZE	,	V_20
+"Timestamp (ns)"	,	L_64
+"ossp.esmc.tlv_length"	,	L_57
+"QL TLV Length must be X"	,	L_78
+item_c	,	V_49
+item_b	,	V_37
+"ossp.esmc.reserved"	,	L_50
+"ossp.esmc.reserved_bits_must_be_set_to_all_zero"	,	L_87
+ei_register_info	,	T_13
+expert_register_protocol	,	F_32
+"Version must be 0x%.1x claim compliance with Version 1 of this protocol"	,	L_9
+hf_esmc_tlv_ql_unused	,	V_59
+PI_NOTE	,	V_97
+FT_NONE	,	V_86
+offset	,	V_4
+ett	,	V_91
+expert_module_t	,	T_14
+ei_esmc_quality_level_invalid	,	V_64
+tree	,	V_3
+ESMC_VERSION_1	,	V_39
+"Quality Level information"	,	L_63
+packet_info	,	T_2
+"s"	,	L_28
+"ossp.esmc.event_flag"	,	L_43
+", Timestamp: %d ns"	,	L_23
+"TLV Length"	,	L_56
+"TLV Type"	,	L_54
+EXPFILL	,	V_95
+"Unused bits of TLV must be all zeroes"	,	L_80
+subtype	,	V_22
+"0x%.7x"	,	L_10
+HFILL	,	V_79
+PI_MALFORMED	,	V_93
+"ITU-T OSSP Subtype"	,	L_36
+gchar	,	T_5
+create_dissector_handle	,	F_35
+ESMC_QL_TLV_TYPE	,	V_53
+hf_itu_subtype	,	V_25
+"ossp.esmc.tlv_ql_unused.not_zero"	,	L_79
+tvb_get_manuf_name	,	F_2
+ei_esmc_tlv_length_bad	,	V_58
+ESMC_TIMESTAMP_TLV_LENGTH	,	V_69
+proto_tree	,	T_3
+dissect_ossp_pdu	,	F_1

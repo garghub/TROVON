@@ -1,0 +1,119 @@
+proto_register_protocol	,	F_14
+"docsis_map.upchid"	,	L_11
+hf_docsis_map_upstream_chid	,	V_23
+hf_docsis_map_numie	,	V_26
+iuc_vals	,	V_38
+map_tree	,	V_16
+hf_docsis_map_offset	,	V_36
+hf_docsis_map_ack_time	,	V_29
+proto_reg_handoff_docsis_map	,	F_19
+"MAP Message"	,	L_3
+hf_docsis_map_alloc_start	,	V_28
+gint	,	T_10
+"docsis_map.rsvd"	,	L_30
+ie	,	V_11
+proto_tree_add_uint_format	,	F_9
+tvb	,	V_1
+"ACK Time (minislots)"	,	L_17
+item	,	V_15
+guint32	,	T_7
+COL_INFO	,	V_20
+proto_register_docsis_map	,	F_12
+"docsis_map.offset"	,	L_37
+it	,	V_14
+ucd_count	,	V_18
+cinfo	,	V_19
+proto_register_subtree_array	,	F_17
+val_to_str	,	F_10
+"Number of IE's"	,	L_12
+array_length	,	F_16
+"DOCSIS Upstream Bandwidth Allocation"	,	L_38
+dissect_map	,	F_1
+proto_tree_add_item	,	F_6
+"docsis_map"	,	L_40
+"docsis_map.ucdcount"	,	L_8
+pinfo	,	V_2
+col_add_fstr	,	F_3
+dissector_handle_t	,	T_11
+"docsis_map.numie"	,	L_13
+_U_	,	V_4
+"docsis_map.iuc"	,	L_35
+"docsis_map.rng_start"	,	L_20
+"SID = 0x%x (All CM's), IUC = %s, Offset = %u"	,	L_4
+"docsis_map.data_start"	,	L_24
+PROTO_ITEM_SET_HIDDEN	,	F_8
+ett_docsis_map	,	V_22
+"docsis_map.acktime"	,	L_18
+pos	,	V_7
+hf_docsis_map_rng_end	,	V_31
+hf_register_info	,	T_9
+VALS	,	F_13
+"Map UCD Count"	,	L_9
+guint16	,	T_6
+"Map Message:  Channel ID = %u (Telephony Return), UCD Count = %u, # IE's = %u"	,	L_2
+numie	,	V_6
+FT_UINT8	,	V_40
+i	,	V_5
+"Map Message:  Channel ID = %u (U%u), UCD Count = %u,  # IE's = %u"	,	L_1
+BASE_DEC	,	V_41
+"Upstream Channel ID"	,	L_10
+proto_item	,	T_8
+"docsis_map.data_end"	,	L_26
+"SID = %u, IUC = %s, Offset = %u"	,	L_6
+"Alloc Start Time (minislots)"	,	L_15
+"Data Backoff Start"	,	L_23
+guint8	,	T_5
+"Ranging Backoff Start"	,	L_19
+"UCD Count"	,	L_7
+register_dissector	,	F_18
+hf_docsis_map_rsvd	,	V_27
+"DOCSIS MAP"	,	L_39
+data	,	T_4
+tvb_get_ntohl	,	F_7
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_4
+"Interval Usage Code"	,	L_34
+BASE_HEX	,	V_44
+hf_docsis_map_rng_start	,	V_30
+hf_docsis_map_data_start	,	V_32
+proto_item_add_subtree	,	F_5
+proto_register_field_array	,	F_15
+offset	,	V_10
+upchid	,	V_17
+ett	,	V_45
+hf_docsis_map_ucd_count	,	V_25
+dissector_add_uint	,	F_21
+"Reserved Byte"	,	L_31
+"docsis_mgmt"	,	L_41
+tree	,	V_3
+packet_info	,	T_2
+tvb_get_guint8	,	F_2
+tvb_captured_length	,	F_11
+iuc	,	V_9
+"Offset"	,	L_36
+"docsis_map.ie"	,	L_28
+"docsis_map.sid"	,	L_33
+"Information Element"	,	L_27
+"Service Identifier"	,	L_32
+sid	,	V_8
+"%d"	,	L_5
+"docsis_map.allocstart"	,	L_16
+hf_docsis_map_iuc	,	V_35
+"docsis_map.rng_end"	,	L_22
+HFILL	,	V_42
+mask	,	V_13
+temp	,	V_12
+find_dissector	,	F_20
+hf_docsis_map_ie	,	V_37
+"Reserved [0x00]"	,	L_29
+docsis_map_handle	,	V_46
+"Number of Information Elements"	,	L_14
+ENC_BIG_ENDIAN	,	V_24
+hf_docsis_map_sid	,	V_34
+"Data Backoff End"	,	L_25
+FT_UINT32	,	V_43
+hf_docsis_map_data_end	,	V_33
+proto_docsis_map	,	V_21
+"Ranging Backoff End"	,	L_21
+proto_tree	,	T_3
+hf	,	V_39

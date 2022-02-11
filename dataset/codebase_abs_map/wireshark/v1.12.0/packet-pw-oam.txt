@@ -1,0 +1,82 @@
+register_dissector	,	F_15
+"Pseudo-Wire OAM Protocol"	,	L_23
+proto_register_protocol	,	F_11
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_2
+tvb_get_ntohs	,	F_8
+"pw_oam.refresh-timer"	,	L_4
+proto_pw_oam	,	V_6
+BASE_HEX	,	V_30
+ett_pw_oam_flags	,	V_26
+dissect_pw_status_tlv	,	F_1
+gint	,	T_3
+col_set_str	,	F_6
+proto_item_add_subtree	,	F_3
+"Flags"	,	L_7
+proto_register_field_array	,	F_12
+pw_tlv_type	,	V_17
+tvb	,	V_1
+"pw_oam.tlv-len"	,	L_17
+offset	,	V_3
+hf_pw_oam_tlv_reserved	,	V_8
+ett	,	V_35
+COL_INFO	,	V_20
+"Pseudo-Wire OAM"	,	L_21
+tree	,	V_2
+"pw_oam.flags"	,	L_8
+FT_BOOLEAN	,	V_33
+"PW Status Code"	,	L_20
+"PW-OAM "	,	L_22
+FT_UINT16	,	V_29
+hf_pw_oam_tlv_type	,	V_10
+packet_info	,	T_5
+ett_pw_oam	,	V_22
+col_clear	,	F_7
+ett_pw_oam_tlv_tree	,	V_7
+cinfo	,	V_18
+"pw_oam.code"	,	L_19
+"pw_oam.flags_a"	,	L_11
+proto_register_subtree_array	,	F_14
+"pw_oam.total-tlv-len"	,	L_6
+array_length	,	F_13
+"TLV Length"	,	L_5
+"OAM Flags"	,	L_9
+"Reserved"	,	L_13
+"TLV Type"	,	L_15
+proto_tree_add_item	,	F_4
+pinfo	,	V_13
+"Pseudo-Wire Status TLV"	,	L_1
+hf_pw_oam_flags_a	,	V_27
+"Acknowledgement"	,	L_10
+pw_oam_flags	,	V_16
+hf_pw_oam_total_tlv_len	,	V_24
+hf_pw_oam_code	,	V_12
+"pw_oam.tlv-type"	,	L_16
+pw_oam_code	,	V_34
+hf_pw_oam_flags	,	V_25
+hf_register_info	,	T_8
+VALS	,	F_10
+HFILL	,	V_31
+"pw_oam"	,	L_24
+pw_oam_tree	,	V_15
+"pw_oam.tlv-reserved"	,	L_14
+pw_oam_tlv_tree	,	V_5
+ti_flags	,	V_14
+"ACK bit"	,	L_12
+guint16	,	T_7
+COL_PROTOCOL	,	V_19
+FT_UINT8	,	V_32
+"Status code"	,	L_18
+"PW OAM"	,	L_2
+"Refresh-Timer"	,	L_3
+proto_item	,	T_4
+ENC_BIG_ENDIAN	,	V_9
+ENC_NA	,	V_21
+guint8	,	T_6
+proto_register_pw_oam	,	F_9
+ti	,	V_4
+hf_pw_oam_refresh_timer	,	V_23
+hf_pw_oam_tlv_len	,	V_11
+dissect_pw_oam	,	F_5
+proto_tree	,	T_2
+hf	,	V_28

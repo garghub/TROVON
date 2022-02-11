@@ -1,0 +1,442 @@
+tvb_get_string_enc	,	F_27
+"cas"	,	L_42
+OP_VERSION	,	V_44
+hf_version	,	V_145
+"Initial value"	,	L_93
+OP_ADD_Q	,	V_28
+ei_key_missing	,	V_59
+"memcache.extras.response"	,	L_101
+"Amount to add"	,	L_91
+"memcache.value"	,	L_100
+hf_total_body_length	,	V_90
+"END"	,	L_29
+"Extras length"	,	L_60
+hf_extras_length	,	V_82
+content_length	,	V_104
+"STORED"	,	L_32
+"Sub command"	,	L_104
+"memcache.opcode.unknown"	,	L_141
+guint32	,	T_6
+value_len	,	V_60
+"flush_all"	,	L_53
+dissect_memcache_text	,	F_47
+hf_name	,	V_139
+is_memcache_request_or_reply	,	F_35
+memcache_tree	,	V_66
+desegment_pdus	,	F_29
+datalen	,	V_119
+tvb_reported_length_remaining	,	F_32
+"Reassemble MEMCACHE headers spanning multiple TCP segments"	,	L_150
+"Request"	,	L_3
+hf_extras_unknown	,	V_50
+array_length	,	F_57
+"Unknown Extras"	,	L_96
+"Expiration"	,	L_89
+indx	,	V_154
+"memcache.value.missing"	,	L_137
+ENC_ASCII	,	V_56
+"memcache.value.invalid"	,	L_134
+get_memcache_pdu_len	,	F_1
+hf_data_type	,	V_83
+"Reserved value: %d"	,	L_20
+hf_magic	,	V_76
+hf_register_info	,	T_17
+"memcache.flags"	,	L_107
+guint16	,	T_12
+dissect_memcache_udp	,	F_51
+c	,	V_133
+hf_expiration	,	V_149
+"memcache.value.notexpected"	,	L_135
+i	,	V_100
+BASE_NONE	,	V_165
+body_len	,	V_4
+ei_magic_unknown	,	V_78
+orig_offset	,	V_117
+"NOT_FOUND"	,	L_35
+opcode	,	V_8
+next_token	,	V_96
+memcache_type	,	V_121
+BASE_HEX	,	V_166
+PROTO_ITEM_SET_GENERATED	,	F_20
+"incr"	,	L_44
+desegment_len	,	V_108
+proto_item_add_subtree	,	F_5
+module_t	,	T_19
+PI_UNDECODED	,	V_171
+ett_memcache	,	V_75
+proto_register_field_array	,	F_56
+"Unknown opcode (%d)"	,	L_15
+"memcache.udp"	,	L_148
+FT_BYTES	,	V_167
+ret	,	V_112
+"get"	,	L_39
+ett_extras	,	V_18
+"quit"	,	L_46
+"prepend"	,	L_51
+ei	,	V_170
+slabclass	,	V_134
+"memcache.reserved.expert"	,	L_145
+"EXISTS"	,	L_34
+tvb_get_ptr	,	F_25
+FT_UINT16	,	V_160
+prefs_register_range_preference	,	F_64
+memcache_item	,	V_67
+"%s %s must have Extras"	,	L_5
+tvb_captured_length	,	F_22
+short_pkt	,	V_127
+"Data version check"	,	L_84
+OP_GET	,	V_19
+expiration	,	V_147
+"memcache.tcp"	,	L_147
+"Length in bytes of the text key that follows the command extras"	,	L_65
+"Illegal Extras length, should be %d"	,	L_6
+"memcache.slabclass"	,	L_118
+"add"	,	L_41
+FT_STRING	,	V_168
+proto_memcache	,	V_74
+hf_extras	,	V_16
+"desegment_pdus"	,	L_155
+hf_key	,	V_55
+linep	,	V_130
+"Name of a stat"	,	L_122
+first_colon	,	V_128
+val_to_str_const	,	F_21
+ei_key_unknown	,	V_58
+"%s with status %s (%d) must have Value"	,	L_23
+PI_WARN	,	V_172
+is_request_or_response	,	V_153
+"Command code"	,	L_59
+"memcache.response"	,	L_112
+FT_UINT32	,	V_161
+MEMCACHE_HEADER_LEN	,	V_5
+"Total body length"	,	L_77
+guint64	,	T_16
+hf	,	V_156
+dissector_add_uint_range	,	F_68
+OP_STAT	,	V_49
+"Sub command if any"	,	L_106
+PFNAME	,	V_179
+"Length in bytes of extra + key + value"	,	L_79
+"memcache.extras.expiration"	,	L_90
+hf_value	,	V_63
+prefs_register_protocol	,	F_61
+ei_value_unknown	,	V_64
+hf_subcommand	,	V_137
+col_append_fstr	,	F_17
+col_set_str	,	F_12
+hf_opcode	,	V_79
+"Flags"	,	L_87
+OP_QUIT	,	V_42
+extras_tree	,	V_10
+"memcache.reserved"	,	L_72
+hf_response	,	V_146
+"decr"	,	L_45
+"delete"	,	L_49
+"Status of the response"	,	L_76
+"Magic number"	,	L_56
+OP_DELETE	,	V_40
+OP_GET_K	,	V_21
+OP_DELETE_Q	,	V_41
+dissect_memcache_message	,	F_34
+"set"	,	L_40
+"\"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_154
+val_to_str	,	F_7
+memcache_type_t	,	T_14
+tvb_find_line_end	,	F_24
+OP_GET_Q	,	V_20
+status	,	V_69
+"Unknown opcode: %d"	,	L_13
+", %s %s"	,	L_14
+"Stat name"	,	L_120
+"udp.ports"	,	L_163
+"desegment_headers"	,	L_149
+"Value"	,	L_99
+is_request_or_reply	,	V_120
+"memcache.extras.unknown"	,	L_95
+OP_VERBOSE	,	V_151
+"memcache.subcommand"	,	L_105
+can_desegment	,	V_113
+memcache_desegment_body	,	V_126
+hf_value_length	,	V_89
+"Magic"	,	L_54
+magic_vals	,	V_77
+memcache_tcp_handle	,	V_180
+VALS	,	F_53
+"memcache.command"	,	L_103
+prefs_register_bool_preference	,	F_62
+next_offset	,	V_102
+"replace"	,	L_50
+"%s "	,	L_26
+"Client does not expect a reply"	,	L_111
+BASE_DEC	,	V_158
+dissect_extras	,	F_3
+"Length in bytes of the value that follows the key"	,	L_68
+try_val_to_str	,	F_15
+ENC_NA	,	V_17
+dissect_value	,	F_10
+"append"	,	L_48
+ei_status_response	,	V_85
+"%s %s"	,	L_17
+"Command"	,	L_102
+"memcache.value.length"	,	L_67
+dissect_memcache_tcp	,	F_49
+OP_QUIT_Q	,	V_43
+hf_status	,	V_84
+memcache_desegment_headers	,	V_125
+expert_register_protocol	,	F_59
+"memcache.name"	,	L_121
+"Response"	,	L_4
+content_data_dissector	,	F_38
+guint	,	T_1
+hf_uint64_response	,	V_61
+ett	,	V_169
+wmem_packet_scope	,	F_28
+dissector_delete_uint_range	,	F_65
+packet_info	,	T_2
+ei_opcode_unknown	,	V_80
+hf_extras_expiration	,	V_31
+"memcache.extras"	,	L_86
+extras_item	,	V_11
+"Status: %d"	,	L_19
+OP_NO_OP	,	V_57
+"%u"	,	L_25
+EXPFILL	,	V_173
+"memcache.opaque"	,	L_81
+ei_extras_unknown	,	V_51
+incr_dissector	,	F_40
+hf_extras_delta	,	V_36
+"%s %s shall not have Value"	,	L_10
+"MEMCACHE TCP Port range"	,	L_162
+"%s: %s"	,	L_18
+range_convert_str	,	F_63
+HFILL	,	V_159
+"memcache.extras.missing"	,	L_128
+"memcache.extras.delta"	,	L_92
+"Status"	,	L_74
+gchar	,	V_124
+"VERSION"	,	L_31
+"Unknown status: %d"	,	L_22
+"tcp.ports"	,	L_161
+"DELETED"	,	L_36
+OP_REPLACE_Q	,	V_30
+bytes	,	V_94
+reqresp_dissector	,	V_122
+"Unknown"	,	L_24
+"Illegal Value length, should be 8"	,	L_9
+"memcache.key"	,	L_98
+"memcache.key.missing"	,	L_132
+occurrences	,	V_132
+"Opaque"	,	L_80
+desegment_body	,	V_110
+ei_reserved_value	,	V_88
+get_token_len	,	F_26
+proto_register_protocol	,	F_54
+"Unknown magic byte"	,	L_140
+"Version"	,	L_114
+len	,	V_155
+first_linelen	,	V_118
+tcp_dissect_pdus	,	F_50
+gint	,	T_8
+tvb_captured_length_remaining	,	F_31
+"memcache.extras.notexpected"	,	L_126
+tvb	,	V_2
+COL_INFO	,	V_73
+desegment_offset	,	V_107
+"Reserved value"	,	L_146
+proto_tree_add_expert_format	,	F_8
+proto_register_memcache	,	F_52
+"Stat value"	,	L_123
+hf_opaque	,	V_91
+cinfo	,	V_70
+"Opcode %d"	,	L_2
+PSNAME	,	V_72
+" To use this option, you must also enable \"Allow subdissectors"	,	L_159
+"memcache.cas"	,	L_83
+"shall not have Extras"	,	L_127
+"Reserved"	,	L_71
+"memcache.status"	,	L_75
+MEMCACHE_REQUEST	,	V_115
+OP_ADD	,	V_27
+"memcache.noreply"	,	L_110
+length_remaining	,	V_105
+" (%s)"	,	L_21
+hf_name_value	,	V_140
+"To use this option, you must also enable "	,	L_153
+proto_reg_handoff_memcache	,	V_182
+"must have Key"	,	L_133
+PNAME	,	V_178
+hf_cas	,	V_92
+OP_INCREMENT_Q	,	V_33
+dissect_key	,	F_9
+COL_PROTOCOL	,	V_71
+"noreply"	,	L_38
+"memcache.magic.unknown"	,	L_139
+"MEMCACHE UDP Port range"	,	L_164
+"Noreply"	,	L_109
+g_free	,	F_66
+"shall not have Value"	,	L_136
+guint8	,	T_9
+OP_PREPEND_Q	,	V_48
+"OK"	,	L_37
+ti	,	V_12
+OP_APPEND_Q	,	V_46
+orig_memcache_udp_port_range	,	V_187
+"%s %s shall not have Key"	,	L_7
+dissect_memcache	,	F_11
+"memcache.expiration"	,	L_108
+"Slab class"	,	L_117
+"NOT_STORED"	,	L_33
+tvb_get_ntohl	,	F_2
+format_text	,	F_37
+OP_SET_Q	,	V_26
+expert_memcache	,	V_177
+tvbuff_t	,	T_4
+tvb_get_ntohs	,	F_18
+"MEMCACHE Continuation"	,	L_27
+OP_REPLACE	,	V_29
+"memcache.extras.length"	,	L_61
+gboolean	,	T_10
+"memcache.magic"	,	L_55
+"Key Length"	,	L_63
+"memcache.extras.flags"	,	L_88
+hf_extras_flags	,	V_23
+"VALUE"	,	L_30
+"Value of a stat"	,	L_125
+"%s %s shall not have Extras"	,	L_1
+data_type_vals	,	V_162
+"version"	,	L_52
+"of a request spanning multiple TCP segments. "	,	L_152
+tvb_get_guint8	,	F_14
+OP_INCREMENT	,	V_32
+"Version of running memcache"	,	L_116
+PI_RESPONSE_CODE	,	V_174
+memcache_req_resp_hdrs_do_reassembly	,	F_33
+"Reassemble PDUs spanning multiple TCP segments"	,	L_156
+memcache_module	,	V_176
+MEMCACHE_UNKNOWN	,	V_123
+"Extras"	,	L_85
+desegment_headers	,	V_109
+"memcache.version"	,	L_115
+reported_length_remaining	,	V_106
+missing	,	V_15
+ei_value_missing	,	V_65
+"gets"	,	L_43
+MEMCACHE_DEFAULT_RANGE	,	V_184
+"Key"	,	L_97
+lineend	,	V_97
+ptr	,	V_152
+ENC_BIG_ENDIAN	,	V_24
+"memcache.data_type"	,	L_70
+orig_memcache_tcp_port_range	,	V_186
+range_copy	,	F_67
+"shall not have Key"	,	L_131
+get_response_dissector	,	F_43
+save_offset	,	V_13
+"must have Extras"	,	L_129
+response_chars	,	V_135
+FT_UINT64	,	V_163
+hf_slabclass	,	V_138
+OP_DECREMENT	,	V_34
+hf_flags	,	V_143
+guchar	,	T_13
+proto_item_append_text	,	F_16
+linelen	,	V_101
+col_set_fence	,	F_48
+"memcache.total_body_length"	,	L_78
+"Whether the MEMCACHE dissector should reassemble headers "	,	L_151
+" to reassemble TCP streams\" in the TCP protocol settings."	,	L_160
+"Unknown opcode"	,	L_142
+col_clear	,	F_13
+OP_CAS	,	V_148
+memcache_udp_handle	,	V_181
+proto_register_subtree_array	,	F_58
+content_length_found	,	V_95
+proto_tree_add_item	,	F_4
+pinfo	,	T_3
+col_add_fstr	,	F_36
+hf_command	,	V_136
+_U_	,	V_1
+flags	,	V_141
+tokenlen	,	V_99
+memcache_udp_port_range	,	V_185
+new_register_dissector	,	F_55
+OP_FLUSH_Q	,	V_39
+memcache_response_dissector	,	F_45
+last_colon	,	V_129
+get_payload_length	,	F_23
+"Response command"	,	L_113
+OP_APPEND	,	V_45
+" spanning multiple TCP segments."	,	L_158
+key_len	,	V_54
+"must have Value"	,	L_138
+"stats"	,	L_47
+MEMCACHE_RESPONSE	,	V_116
+ei_value_length	,	V_62
+FT_UINT8	,	V_157
+"memcache.opcode"	,	L_58
+"Reserved for future use"	,	L_73
+proto_item	,	T_11
+expert_register_field_array	,	F_60
+OP_DECREMENT_Q	,	V_35
+expert_add_info_format	,	F_6
+memcache_request_dissector	,	F_46
+OP_GET_K_Q	,	V_22
+"Slab class of a stat"	,	L_119
+"memcache.status.response"	,	L_143
+"%s %s must have Value"	,	L_11
+OP_PREPEND	,	V_47
+status_vals	,	V_86
+tvb_offset_exists	,	F_41
+magic	,	V_68
+bytes_val	,	V_98
+data	,	T_5
+OP_SET	,	V_25
+memcache_tcp_port_range	,	V_183
+OP_FLUSH	,	V_38
+"%s Request must have Key"	,	L_8
+ei_register_info	,	T_18
+"Unknown magic byte: %d"	,	L_12
+OP_GETS	,	V_144
+extras_len	,	V_7
+PI_NOTE	,	V_175
+"Length in bytes of the command extras"	,	L_62
+FT_NONE	,	V_164
+offset	,	V_3
+find_stat_colon	,	F_39
+expert_module_t	,	T_20
+tree	,	V_6
+"Opcode"	,	L_57
+ReqRespDissector	,	T_15
+token_number	,	V_93
+tvb_bytes_exist	,	F_30
+illegal	,	V_14
+"Error response"	,	L_144
+range_t	,	T_21
+"Whether the memcache dissector should reassemble PDUs"	,	L_157
+proto_tree_add_uint	,	F_19
+"Data type"	,	L_69
+request	,	V_9
+"memcache.key.length"	,	L_64
+DESEGMENT_ONE_MORE_SEGMENT	,	V_114
+proto_tree_add_uint64	,	F_44
+"STAT"	,	L_28
+"CAS"	,	L_82
+cas	,	V_142
+hf_extras_initial	,	V_37
+hf_key_length	,	V_81
+opcode_vals	,	V_52
+ei_extras_missing	,	V_53
+temp	,	V_131
+expect_content_length	,	V_111
+"memcache.extras.initial"	,	L_94
+"udp.port"	,	L_166
+hf_reserved	,	V_87
+"memcache.key.notexpected"	,	L_130
+data_offset	,	V_103
+"Value length"	,	L_66
+"memcache.name_value"	,	L_124
+"Unknown magic (%d)"	,	L_16
+stat_dissector	,	F_42
+"tcp.port"	,	L_165
+proto_tree	,	T_7
+hf_noreply	,	V_150

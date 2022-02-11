@@ -1,0 +1,192 @@
+hf_bfcp_floor_id	,	V_21
+proto_register_protocol	,	F_16
+hf_bfcp_hdr_r_bit	,	V_51
+"bfcp_tcp"	,	L_65
+"Error Code"	,	L_38
+"bfcp.transaction_id"	,	L_16
+"bfcp.attribute_length.too_small"	,	L_58
+prefs_register_protocol	,	F_18
+hf_bfcp_supp_attr	,	V_34
+gint	,	T_5
+col_set_str	,	F_9
+"bfcp.priority"	,	L_33
+dissect_bfcp_attributes	,	F_1
+"Conference ID"	,	L_13
+dissect_bfcp_heur	,	F_12
+hf_bfcp_req_by_id	,	V_38
+tvb	,	V_1
+item	,	V_7
+"User ID"	,	L_17
+COL_INFO	,	V_47
+bfcp_error_code_valuse	,	V_73
+ett_bfcp_attr	,	V_17
+FT_BOOLEAN	,	V_66
+"bfcp_udp"	,	L_68
+"Primitive"	,	L_9
+attr_start_offset	,	V_9
+tvb_reported_length_remaining	,	F_2
+str	,	V_42
+"bfcp.payload_length"	,	L_12
+hf_bfcp_conference_id	,	V_55
+hf_bfcp_user_disp_name	,	V_36
+cinfo	,	V_45
+PI_ERROR	,	V_78
+"bfcp"	,	L_61
+proto_register_subtree_array	,	F_22
+"Attribute Length"	,	L_25
+array_length	,	F_21
+hf_bfcp_padding	,	V_29
+bfcp_module	,	V_60
+hf_bfcp_user_id	,	V_57
+hf_bfcp_user_uri	,	V_37
+proto_tree_add_item	,	F_4
+primitive	,	V_41
+pinfo	,	V_2
+"Text"	,	L_40
+_U_	,	V_59
+"BFCP over TCP"	,	L_64
+"Fragmentation (F)"	,	L_7
+ENC_ASCII	,	V_31
+bfcp_handle	,	V_80
+prefs_initialized	,	V_82
+"Supported Primitive"	,	L_46
+first_byte	,	V_13
+"bfcp.beneficiary_id"	,	L_28
+hf_register_info	,	T_12
+"bfcp.attribute_type"	,	L_22
+"bfcp.req_by_i"	,	L_53
+VALS	,	F_15
+dissector_add_for_decode_as	,	F_26
+"bfcp.user_disp_name"	,	L_49
+"Version(ver)"	,	L_3
+"bfcp.error_specific_details"	,	L_57
+"Payload Length"	,	L_11
+"Transaction Responder (R)"	,	L_5
+read_attr	,	V_12
+COL_PROTOCOL	,	V_46
+map_bfcp_primitive	,	V_44
+proto_register_bfcp	,	F_14
+FT_UINT8	,	V_63
+"BFCP"	,	L_2
+BASE_DEC	,	V_64
+"bfcp.error_code"	,	L_39
+"BFCP over UDP"	,	L_67
+"enable"	,	L_62
+proto_item	,	T_4
+expert_register_field_array	,	F_24
+ei_bfcp_attribute_length_too_small	,	V_40
+try_val_to_str	,	F_8
+ENC_NA	,	V_28
+hf_bfcp_transaction_id	,	V_56
+guint8	,	T_6
+ti	,	V_6
+expert_add_info_format	,	F_6
+BASE_NONE	,	V_70
+"bfcp.attribute_length"	,	L_26
+"bfcp.queue_pos"	,	L_37
+hf_bfcp_error_specific_details	,	V_27
+dissect_bfcp	,	F_7
+hf_bfcp_primitive	,	V_53
+hf_bfcp_queue_pos	,	V_25
+"Padding"	,	L_54
+bfcp_attr_tree	,	V_8
+"bfcp.floor_id"	,	L_30
+"URI"	,	L_50
+register_dissector	,	F_17
+"Transaction ID"	,	L_15
+"BENEFICIARY-ID"	,	L_27
+hf_bfcp_floor_request_id	,	V_22
+"Requested-by ID"	,	L_52
+data	,	T_9
+pad_len	,	V_14
+"bfcp.ver"	,	L_4
+"Name"	,	L_48
+tvbuff_t	,	T_1
+"bfcp.conference_id"	,	L_14
+tvb_get_ntohs	,	F_11
+"Request Status"	,	L_34
+"Queue Position"	,	L_36
+ett_bfcp	,	V_49
+"bfcp.error_info_text"	,	L_41
+"FLOOR-REQUEST-ID"	,	L_31
+col_add_str	,	F_10
+"Error Specific Details"	,	L_56
+"Attribute Type"	,	L_21
+ei_register_info	,	T_13
+gboolean	,	T_8
+expert_register_protocol	,	F_23
+"tcp"	,	L_63
+proto_item_add_subtree	,	F_5
+module_t	,	T_10
+hf_bfcp_priority	,	V_23
+proto_register_field_array	,	F_20
+hf_bfcp_attribute_length	,	V_19
+hf_bfcp_status_info_text	,	V_33
+FT_BYTES	,	V_69
+hf_bfcp_error_info_text	,	V_30
+BFCP_OFFSET_PAYLOAD_LENGTH	,	V_58
+offset	,	V_4
+bfcp_payload_length	,	V_5
+hf_bfcp_hdr_f_bit	,	V_52
+"bfcp.hdr_f_bit"	,	L_8
+ett	,	V_75
+ei	,	V_76
+expert_module_t	,	T_11
+tree	,	V_3
+"bfcp.payload"	,	L_20
+hf_bfcp_supp_prim	,	V_35
+FT_UINT16	,	V_67
+"bfcp.request_status"	,	L_35
+proto_reg_handoff_bfcp	,	V_81
+packet_info	,	T_2
+"Mandatory bit(M)"	,	L_23
+"bfcp.attribute_types_m_bit"	,	L_24
+tvb_get_guint8	,	F_3
+hf_bfcp_payload_length	,	V_54
+tvb_captured_length	,	F_13
+"bfcp.padding"	,	L_55
+"udp"	,	L_66
+"bfcp.hdr_r_bit"	,	L_6
+"bfcp.floorrequest_id"	,	L_32
+HEURISTIC_DISABLE	,	V_83
+"bfcp.status_info_text"	,	L_43
+"bfcp.user_uri"	,	L_51
+EXPFILL	,	V_79
+hf_bfcp_attribute_types_m_bit	,	V_18
+"Payload"	,	L_19
+"bfcp.user_id"	,	L_18
+proto_bfcp	,	V_48
+"bfcp.supp_attr"	,	L_45
+heur_dissector_add	,	F_25
+hf_bfcp_part_prov_info_text	,	V_32
+hf_bfcp_request_status	,	V_24
+"bfcp.supp_primitive"	,	L_47
+FT_STRING	,	V_74
+"Attribute length is too small"	,	L_59
+map_bfcp_attribute_types	,	V_71
+HFILL	,	V_65
+PI_MALFORMED	,	V_77
+"Attribute length is too small (%d bytes)"	,	L_1
+prefs_register_obsolete_preference	,	F_19
+hf_bfcp_attribute_types	,	V_15
+hf_bfcp_error_code	,	V_26
+"FLOOR-ID"	,	L_29
+"bfcp.primitive"	,	L_10
+hf_bfcp_beneficiary_id	,	V_20
+map_bfcp_request_status	,	V_72
+hf_bfcp_payload	,	V_39
+"udp.port"	,	L_70
+gchar	,	T_7
+length	,	V_10
+attribute_type	,	V_11
+"Binary Floor Control Protocol"	,	L_60
+"bfcp.part_prov_info_text"	,	L_42
+bfcp_tree	,	V_43
+ENC_BIG_ENDIAN	,	V_16
+"Supported Attribute"	,	L_44
+FT_UINT32	,	V_68
+hf_bfcp_version	,	V_50
+expert_bfcp	,	V_61
+"tcp.port"	,	L_69
+proto_tree	,	T_3
+hf	,	V_62

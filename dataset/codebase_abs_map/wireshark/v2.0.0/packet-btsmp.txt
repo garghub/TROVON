@@ -1,0 +1,173 @@
+"AuthReq"	,	L_50
+"UnknownDirection "	,	L_15
+dissect_btsmp_key_dist	,	F_8
+"btsmp.key_dist_id"	,	L_45
+hf_btsmp_max_enc_key_size	,	V_46
+hf_btsmp_long_term_key	,	V_51
+initiator	,	V_17
+proto_register_protocol	,	F_21
+"btsmp.authreq"	,	L_51
+l2cap_data	,	V_33
+tvb_reported_length	,	F_17
+col_append_fstr	,	F_7
+ett_btsmp_auth_req	,	V_10
+hf_btsmp_key_dist_enc	,	V_21
+hf_btsmp_oob_data_flags	,	V_45
+gint	,	T_8
+btl2cap_data_t	,	T_9
+col_set_str	,	F_16
+FT_ETHER	,	V_68
+"Bonding Flags"	,	L_36
+"Identity Resolving Key"	,	L_32
+"btsmp.max_enc_key_size"	,	L_41
+tvb	,	V_1
+guint32	,	T_7
+"Id Key (IRK)"	,	L_44
+COL_INFO	,	V_16
+"MITM Flag"	,	L_38
+proto_item_append_text	,	F_5
+"BD_ADDR"	,	L_56
+hf_btsmp_io_capabilities	,	V_44
+dissect_btsmp	,	F_10
+"btsmp.key_dist_sign"	,	L_47
+cinfo	,	V_15
+", Initiator Key(s): "	,	L_7
+"btsmp.oob_data_flags"	,	L_25
+"Bluetooth Security Manager Protocol"	,	L_61
+proto_register_subtree_array	,	F_25
+hf_btsmp_key_dist_id	,	V_22
+array_length	,	F_24
+proto_register_btsmp	,	F_19
+"btsmp.cfm_value"	,	L_27
+hf_btsmp_cfm_value	,	V_47
+hf_btsmp_ediv	,	V_52
+hf_btsmp_signature_key	,	V_56
+proto_tree_add_item	,	F_3
+pinfo	,	V_3
+"btsmp.long_term_key"	,	L_31
+": "	,	L_16
+new_register_dissector	,	F_22
+col_append_str	,	F_9
+"No MITM"	,	L_5
+hf_btsmp_opcode	,	V_42
+"Reason"	,	L_20
+hf_bd_addr	,	V_55
+"OOB Data Flags"	,	L_24
+"btsmp.random_value"	,	L_29
+hf_register_info	,	T_10
+bonding_flag_vals	,	V_13
+proto_btl2cap	,	V_32
+bluetooth_address_type_vals	,	V_69
+adapter_id	,	V_29
+VALS	,	F_20
+"Max Encryption Key Size"	,	L_40
+"Encryption Key (LTK)"	,	L_42
+wmem_list_frame_data	,	F_12
+st	,	V_26
+COL_PROTOCOL	,	V_38
+"btsmp.address_type"	,	L_60
+hf_btsmp_authreq	,	V_8
+FT_UINT8	,	V_58
+hf_btsmp_bonding_flags	,	V_11
+": %s"	,	L_17
+io_capability_vals	,	V_61
+BASE_DEC	,	V_65
+"btsmp.bd_addr"	,	L_57
+proto_reg_handoff_btsmp	,	F_26
+proto_item	,	T_4
+reason_vals	,	V_50
+hf_btsmp_initiator_key_distribution	,	V_18
+ENC_NA	,	V_9
+guint8	,	T_5
+"btl2cap.cid"	,	L_64
+interface_id	,	V_28
+ti	,	V_25
+BASE_NONE	,	V_64
+"LTK "	,	L_9
+"btsmp.mitm_flag"	,	L_39
+ENC_LITTLE_ENDIAN	,	V_12
+BTL2CAP_FIXED_CID_SMP	,	V_72
+"%s"	,	L_3
+"Signature Key (CSRK)"	,	L_46
+data	,	V_24
+hf_btsmp_responder_key_distribution	,	V_19
+dissect_btsmp_auth_req	,	F_1
+"Rcvd "	,	L_14
+tvbuff_t	,	T_1
+"btsmp.ediv"	,	L_49
+", Responder Key(s): "	,	L_8
+opcode	,	V_27
+BASE_HEX	,	V_59
+"Bluetooth Device Address"	,	L_58
+GPOINTER_TO_INT	,	F_11
+gboolean	,	T_6
+"btsmp.opcode"	,	L_19
+"%s, %s"	,	L_6
+layers	,	V_31
+"Responder Key Distribution"	,	L_54
+proto_item_add_subtree	,	F_4
+proto_register_field_array	,	F_23
+FT_BYTES	,	V_63
+"btsmp.initiator_key_distribution"	,	L_53
+hf_btsmp_key_dist_sign	,	V_23
+"btsmp.reason"	,	L_21
+"Random Value"	,	L_28
+FT_NONE	,	V_67
+offset	,	V_2
+ett	,	V_70
+"Sent "	,	L_13
+P2P_DIR_RECV	,	V_41
+ett_btsmp_key_dist	,	V_20
+dissector_add_uint	,	F_27
+hf_address_type	,	V_54
+tree	,	V_4
+ti_param	,	V_5
+"Opcode"	,	L_18
+"Initiator Key Distribution"	,	L_52
+wmem_list_frame_prev	,	F_13
+"CSRK "	,	L_11
+FT_UINT16	,	V_66
+packet_info	,	T_2
+"MITM"	,	L_4
+proto_btsmp	,	V_36
+tvb_get_guint8	,	F_2
+"btsmp.bonding_flags"	,	L_37
+tvb_captured_length	,	F_15
+ett_btsmp	,	V_37
+"btsmp.id_resolving_key"	,	L_33
+btsmp_handle	,	V_71
+"btsmp.io_capability"	,	L_23
+"btsmp.key_dist_enc"	,	L_43
+st_param	,	V_6
+HCI_ADAPTER_DEFAULT	,	V_35
+hf_btsmp_mitm_flag	,	V_14
+"SMP"	,	L_12
+"IRK "	,	L_10
+"&lt;unknown&gt;"	,	L_2
+param	,	V_7
+hf_btsmp_random	,	V_48
+P2P_DIR_SENT	,	V_40
+"btsmp.responder_key_distribution"	,	L_55
+dissect_bd_addr	,	F_18
+HFILL	,	V_60
+"BT SMP"	,	L_62
+"%s, "	,	L_1
+HCI_INTERFACE_DEFAULT	,	V_34
+opcode_vals	,	V_43
+hf_btsmp_reason	,	V_49
+"Encrypted Diversifier (EDIV)"	,	L_48
+previous_proto	,	V_30
+p2p_dir	,	V_39
+hf_btsmp_id_resolving_key	,	V_53
+"Signature Key"	,	L_34
+val_to_str_const	,	F_6
+"btsmp"	,	L_63
+"btsmp.signature_key"	,	L_35
+"Confirm Value"	,	L_26
+wmem_list_tail	,	F_14
+"Address Type"	,	L_59
+"IO Capability"	,	L_22
+oob_data_flag_vals	,	V_62
+proto_tree	,	T_3
+hf	,	V_57
+"Long Term Key"	,	L_30

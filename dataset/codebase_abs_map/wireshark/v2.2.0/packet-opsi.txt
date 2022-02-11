@@ -1,0 +1,308 @@
+"Called station ID"	,	L_45
+"Accounting"	,	L_51
+opsi_opcode	,	V_38
+"SMC RAN name"	,	L_73
+hf_framed_routing_att	,	V_76
+hf_opsi_hook_id	,	V_46
+proto_register_protocol	,	F_32
+"Reassemble OPSI messages spanning multiple TCP segments"	,	L_100
+ett_opsi_accounting	,	V_124
+tvb_reported_length	,	F_27
+ett_opsi_called_station_id	,	V_121
+MAJOR_VERSION_OFFSET	,	V_42
+"Minor version"	,	L_9
+"Unknown attribute (%d)"	,	L_1
+tcp_dissect_pdus	,	F_29
+"opsi.attr.flags"	,	L_86
+gint	,	T_9
+"opsi.attr.designation_number"	,	L_60
+"OPSI flags"	,	L_85
+ett_opsi_smc_vpn_name	,	V_132
+"opsi.major"	,	L_8
+"opsi.attr.acct.session_id"	,	L_54
+tvb	,	V_1
+"opsi.attr.framed_filter"	,	L_40
+ett_opsi_nas_port	,	V_112
+ett_opsi_smc_vpn_id	,	V_131
+COL_INFO	,	V_36
+ei_opsi_unknown_attribute	,	V_28
+"Accounting session ID"	,	L_53
+ett_opsi_nas_identifier	,	V_123
+HEADER_LENGTH	,	V_52
+"Calling station ID"	,	L_47
+proto_register_opsi	,	F_30
+"SMC VPN name"	,	L_67
+ett_opsi_chap_password	,	V_110
+"opsi.session_id"	,	L_18
+proto_tree_add_expert_format	,	F_14
+hf_framed_netmask_att	,	V_74
+at	,	V_20
+attribute_length	,	V_24
+MIN	,	F_26
+"opsi.attr_too_short"	,	L_93
+cinfo	,	V_34
+"Whether the OPSI dissector should desegment all messages spanning multiple TCP segments"	,	L_101
+array_length	,	F_34
+"opsi.attr.called_station_id"	,	L_46
+"desegment_opsi_messages"	,	L_99
+"%s (%d)"	,	L_2
+hf_framed_compression_att	,	V_80
+hf_accounting_att	,	V_85
+"NAS IP address"	,	L_25
+ENC_ASCII	,	V_9
+hf_smc_ran_name_att	,	V_97
+ett_opsi_nas_port_id	,	V_129
+hf_nas_identifier_att	,	V_84
+min	,	V_16
+"opsi.attr.framed_mtu"	,	L_42
+hf_called_station_att	,	V_82
+hf_register_info	,	T_8
+dissect_opsi_pdu	,	F_18
+"Framed protocol"	,	L_31
+hf_smc_vpn_id_att	,	V_93
+"opsi.attr.user_name"	,	L_20
+hf_framed_filter_att	,	V_78
+"opsi.attr.smc_pop_name"	,	L_78
+middle	,	V_19
+COL_PROTOCOL	,	V_35
+OPSI_ATTRIBUTES_COUNT	,	V_27
+hf_smc_pop_id_att	,	V_98
+"SMC AAA ID"	,	L_63
+"OPSI application name"	,	L_87
+i	,	V_23
+ett_opsi_smc_pop_id	,	V_136
+ett_opsi_smc_stat_time	,	V_140
+HOOK_ID_OFFSET	,	V_47
+decode_string_attribute	,	F_1
+opsi_attributes	,	V_21
+hf_opsi_length	,	V_48
+hf_smc_id_att	,	V_100
+ti	,	V_25
+BASE_NONE	,	V_61
+col_append_sep_fstr	,	F_21
+secs	,	V_13
+dissect	,	F_16
+"opsi.attr.nas_port_id"	,	L_62
+"opsi"	,	L_98
+TCP_PORT_OPSI	,	V_151
+tvb_get_ntohl	,	F_8
+"Too short attribute!"	,	L_94
+hf_framed_mtu_att	,	V_79
+decode_ipv4_attribute	,	F_4
+hf_opsi_session_id	,	V_50
+hf_chap_challenge_att	,	V_87
+tvbuff_t	,	T_1
+dissect_opsi	,	F_28
+"opsi.attr.framed_netmask"	,	L_36
+tvb_get_ntohs	,	F_11
+"User name"	,	L_19
+BASE_HEX	,	V_68
+hf_nas_ip_add_att	,	V_64
+ett_opsi_nas_ip_address	,	V_111
+"SMC RAN IP address"	,	L_71
+proto_item_add_subtree	,	F_25
+module_t	,	T_11
+"opsi.length"	,	L_16
+proto_register_field_array	,	F_33
+ett_opsi_smc_pop_name	,	V_137
+ett_opsi_flags	,	V_141
+ei	,	V_143
+opsi_handle	,	V_150
+dissector_add_uint	,	F_42
+"opsi.attr.smc_aaa_id"	,	L_64
+PACKET_LENGTH_OFFSET	,	V_49
+"OPSI"	,	L_3
+"Framed address"	,	L_33
+opsi_module	,	V_148
+get_opsi_attribute_index	,	F_12
+FT_UINT16	,	V_58
+"opsi.attr_unknown"	,	L_91
+tvb_get_guint8	,	F_23
+ett_opsi_user_password	,	V_109
+ei_opsi_short_frame	,	V_33
+expert_opsi	,	V_149
+ett_opsi_framed_compression	,	V_120
+ett_opsi_framed_routing	,	V_117
+opsi_service_type_code	,	V_70
+hf_nas_port_id_att	,	V_91
+tree_text	,	V_30
+expert_add_info	,	F_2
+decode_longint_attribute	,	F_5
+hf_type_attribute	,	V_32
+opsi_nas_port_type_code	,	V_89
+FT_STRING	,	V_60
+hf_framed_address_att	,	V_73
+"NAS port"	,	L_27
+proto_reg_handoff_opsi	,	F_40
+opsi_tree	,	V_22
+"opsi.attr.smc_vpn_id"	,	L_66
+"opsi.attr.framed_protocol"	,	L_32
+ett_opsi_smc_id	,	V_138
+ett_opsi_chap_challenge	,	V_126
+"Operation code"	,	L_11
+length	,	V_7
+MINOR_VERSION_OFFSET	,	V_44
+PI_WARN	,	V_145
+"SMC receive time"	,	L_81
+ENC_BIG_ENDIAN	,	V_11
+"opsi.attr.smc_ran_ip"	,	L_72
+FT_UINT32	,	V_67
+hf_calling_station_att	,	V_83
+ett_opsi_framed_address	,	V_115
+"User password"	,	L_21
+"opsi.attr.chap_password"	,	L_24
+"opsi.attr.smc_pop_id"	,	L_76
+hf	,	V_54
+ett_opsi_framed_protocol	,	V_114
+"opsi.attr.accounting"	,	L_52
+ett_opsi_framed_filter	,	V_118
+hf_acct_session_id_att	,	V_86
+hf_opsi_opcode	,	V_45
+proto_tree_add_time	,	F_9
+"opsi.attr.smc_id"	,	L_80
+hf_opsi_major_version	,	V_41
+prefs_register_protocol	,	F_38
+"opsi.attr.smc_ran_name"	,	L_74
+"Service type"	,	L_29
+"CHAP password attribute"	,	L_23
+"&lt;Unknown opcode %d&gt;"	,	L_6
+col_set_str	,	F_19
+FT_IPv4	,	V_65
+hf_smc_ran_ip_att	,	V_96
+item	,	V_4
+"opsi.opcode"	,	L_12
+ett_opsi_application_name	,	V_142
+"Unknown attribute"	,	L_92
+col_set_fence	,	F_24
+hf_nas_port_att	,	V_66
+BASE_NETMASK	,	V_75
+decode_time_attribute	,	F_7
+"Short frame"	,	L_96
+col_clear	,	F_20
+FT_ABSOLUTE_TIME	,	V_102
+proto_register_subtree_array	,	F_35
+val_to_str	,	F_22
+"Framed routing"	,	L_37
+"SMC ID"	,	L_79
+decode_value_string_attribute	,	F_6
+"SMC POP name"	,	L_77
+hf_nas_port_type_att	,	V_88
+proto_tree_add_item	,	F_3
+"NAS port type"	,	L_57
+pinfo	,	V_2
+dissector_handle_t	,	T_13
+_U_	,	V_15
+ntree	,	V_26
+"CHAP challenge"	,	L_55
+ett_opsi_smc_ran_name	,	V_135
+"opsi.attr.smc_stat_time"	,	L_84
+ett_opsi_smc_ran_ip	,	V_134
+"opsi.attr.nas_ip_addr"	,	L_26
+"Designation number"	,	L_59
+hf_chap_password_att	,	V_63
+VALS	,	F_31
+hf_smc_receive_time_att	,	V_101
+ett_opsi_acct_session_id	,	V_125
+prefs_register_bool_preference	,	F_39
+ett_opsi_framed_netmask	,	V_116
+"Framed filter"	,	L_39
+"opsi.hook"	,	L_14
+PI_PROTOCOL	,	V_144
+max	,	V_17
+FT_UINT8	,	V_55
+BASE_DEC	,	V_56
+proto_item	,	T_4
+hf_password_att	,	V_62
+expert_register_field_array	,	F_37
+ENC_NA	,	V_10
+ABSOLUTE_TIME_LOCAL	,	V_103
+"opsi.attr.smc_vpn_name"	,	L_68
+ei_opsi_short_attribute	,	V_8
+hf_framed_protocol_att	,	V_71
+ett_opsi_nas_port_type	,	V_127
+ett_opsi_smc_ran_id	,	V_133
+hf_smc_vpn_name_att	,	V_94
+hf_smc_stat_time_att	,	V_104
+"SMC stat time"	,	L_83
+"NAS ID"	,	L_49
+"%s"	,	L_5
+"SMC POP id"	,	L_75
+data	,	T_7
+hf_service_type_att	,	V_69
+"opsi.attr.smc_ran_id"	,	L_70
+"SMC RAN ID"	,	L_69
+"opsi.attr_length"	,	L_90
+proto_opsi	,	V_39
+"opsi.attr.nas_id"	,	L_50
+hf_smc_ran_id_att	,	V_95
+ett_opsi_user_name	,	V_108
+hfValue	,	V_5
+ei_register_info	,	T_10
+expert_register_protocol	,	F_36
+opsi_framed_routing_code	,	V_77
+nstime_t	,	T_5
+SESSION_OFFSET	,	V_51
+guint	,	T_6
+"Length"	,	L_89
+offset	,	V_6
+ett	,	V_107
+expert_module_t	,	T_12
+tree	,	V_3
+hf_smc_pop_name_att	,	V_99
+ett_opsi_service_type	,	V_113
+ett_opsi_designation_number	,	V_128
+"opsi.attr.smc_receive_time"	,	L_82
+hf_opsi_flags_att	,	V_105
+packet_info	,	T_2
+"Hook ID"	,	L_13
+opsi_framed_compression_code	,	V_81
+ett_opsi_smc_receive_time	,	V_139
+"Major version"	,	L_7
+"opsi.attr.framed_address"	,	L_34
+CODE_OFFSET	,	V_37
+"Framed netmask"	,	L_35
+hf_smc_aaa_id_att	,	V_92
+"opsi.attr.application_name"	,	L_88
+"Framed MTU"	,	L_41
+EXPFILL	,	V_146
+"NAS port ID"	,	L_61
+"opsi.short_frame"	,	L_95
+ns	,	V_12
+tree_id	,	V_29
+opsi_desegment	,	V_53
+proto_tree_add_expert	,	F_17
+hf_opsi_application_name_att	,	V_106
+"Session ID"	,	L_17
+"opsi.attr.nas_port"	,	L_28
+"opsi.attr.framed_routing"	,	L_38
+"Open Policy Service Interface"	,	L_97
+"opsi.minor"	,	L_10
+get_opsi_pdu_len	,	F_10
+"SMC VPN ID"	,	L_65
+hf_opsi_attribute_length	,	V_31
+hf_user_name_att	,	V_59
+"opsi.attr.chap_challenge"	,	L_56
+ett_opsi	,	V_40
+", "	,	L_4
+HFILL	,	V_57
+PI_MALFORMED	,	V_147
+"opsi.attr.nas_port_type"	,	L_58
+ett_opsi_smc_aaa_id	,	V_130
+opsi_framed_protocol_code	,	V_72
+hf_opsi_minor_version	,	V_43
+attribute_type	,	V_18
+"Framed compression"	,	L_43
+create_dissector_handle	,	F_41
+proto_tree_add_subtree_format	,	F_15
+"opsi.attr.framed_compression"	,	L_44
+"opsi.attr.calling_station_id"	,	L_48
+ett_opsi_calling_station_id	,	V_122
+nsecs	,	V_14
+dissect_attributes	,	F_13
+hf_designation_num_att	,	V_90
+ett_opsi_framed_mtu	,	V_119
+"Message length"	,	L_15
+"tcp.port"	,	L_102
+"opsi.attr.service_type"	,	L_30
+proto_tree	,	T_3
+"opsi.attr.password"	,	L_22

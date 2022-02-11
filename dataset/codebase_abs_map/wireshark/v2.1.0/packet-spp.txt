@@ -1,0 +1,132 @@
+hf_spp_connection_control_sys	,	V_21
+spp_socket_dissector_table	,	V_44
+"Source Connection ID"	,	L_25
+proto_register_protocol	,	F_20
+"spp.alloc"	,	L_34
+tvb_new_subset_remaining	,	F_15
+"spp.ctl.attn"	,	L_20
+col_append_fstr	,	F_9
+"SPP"	,	L_11
+"Destination Connection ID"	,	L_27
+col_set_str	,	F_5
+" %s"	,	L_12
+gint	,	T_10
+spp_conn_ctrl	,	F_1
+tvb	,	V_7
+SPP_SEND_ACK	,	V_5
+COL_INFO	,	V_27
+"End-of-Message"	,	L_2
+"System Packet: Send Ack"	,	L_7
+proto_register_spp	,	F_19
+FT_BOOLEAN	,	V_49
+"spp.ctl"	,	L_16
+"spp.socket"	,	L_37
+hf_spp_dst_id	,	V_38
+tvb_reported_length_remaining	,	F_14
+spp_seq	,	V_17
+cinfo	,	V_25
+hf_spp_src_id	,	V_36
+proto_register_subtree_array	,	F_23
+array_length	,	F_22
+next_tvb	,	V_13
+proto_tree_add_item	,	F_6
+"Allocation Number"	,	L_33
+" (%s)"	,	L_13
+ctrl	,	V_1
+pinfo	,	V_8
+dissector_handle_t	,	T_11
+_U_	,	V_10
+ett_spp	,	V_31
+"End-of-Connection Acknowledgment"	,	L_10
+"Send Ack"	,	L_18
+hf_spp_seq_nr	,	V_39
+hf_register_info	,	T_9
+hf_spp_connection_control_send_ack	,	V_22
+guint16	,	T_8
+hf_spp_all_nr	,	V_41
+COL_PROTOCOL	,	V_26
+FT_UINT8	,	V_46
+BASE_DEC	,	V_51
+IDP_PACKET_TYPE_SPP	,	V_55
+proto_item	,	T_7
+ENC_NA	,	V_30
+guint8	,	T_1
+proto_reg_handoff_spp	,	F_25
+"Acknowledgment Required"	,	L_4
+ti	,	V_12
+"spp.ctl.eom"	,	L_22
+value_string	,	T_2
+SPP_HEADER_LEN	,	V_29
+"Sequenced Packet Protocol"	,	L_35
+register_dissector_table	,	F_24
+"End of Message"	,	L_21
+"System Packet"	,	L_6
+"idp.packet_type"	,	L_39
+data	,	T_6
+conn_vals	,	V_2
+tvbuff_t	,	T_3
+"Acknowledgment Number"	,	L_31
+SPP_EOM	,	V_3
+tvb_get_ntohs	,	F_13
+BASE_HEX	,	V_47
+"SPP socket"	,	L_38
+proto_spp	,	V_28
+proto_item_add_subtree	,	F_7
+"spp.type"	,	L_24
+proto_register_field_array	,	F_21
+"spp.ctl.send_ack"	,	L_19
+ett	,	V_52
+dissector_add_uint	,	F_27
+"Attention"	,	L_3
+"End-of-Connection"	,	L_9
+tree	,	V_9
+"Sequence Number"	,	L_29
+ett_spp_connctrl	,	V_33
+FT_UINT16	,	V_50
+packet_info	,	T_4
+hf_spp	,	V_45
+tvb_get_guint8	,	F_8
+high_socket	,	V_20
+"spp.dst"	,	L_28
+tvb_captured_length	,	F_17
+"%s (0x%02X)"	,	L_14
+conn_ctrl	,	V_14
+destport	,	V_43
+proto_tree_add_uint	,	F_12
+datastream_type	,	V_15
+"spp.ctl.sys"	,	L_17
+SPP_ATTN	,	V_4
+DISSECTOR_TABLE_NOT_ALLOW_DUPLICATE	,	V_53
+BMT_NO_FALSE	,	V_34
+hf_spp_ack_nr	,	V_40
+spp_handle	,	V_54
+"Datastream Type"	,	L_23
+call_data_dissector	,	F_18
+hf_spp_connection_control_eom	,	V_24
+spp_tree	,	V_11
+hf_spp_connection_control	,	V_32
+HFILL	,	V_48
+datastream_type_string	,	V_16
+dissector_try_uint	,	F_16
+"spp"	,	L_36
+val_to_str_const	,	F_2
+"Send Ack: End Message"	,	L_5
+create_dissector_handle	,	F_26
+dissect_spp	,	F_4
+hf_spp_connection_control_attn	,	V_23
+"Connection Control"	,	L_15
+proto_tree_add_uint_format_value	,	F_11
+proto_tree_add_bitmask_with_flags	,	F_10
+"spp.src"	,	L_26
+hf_spp_datastream_type	,	V_35
+ENC_BIG_ENDIAN	,	V_37
+"spp.seq"	,	L_30
+spp_datastream	,	F_3
+low_socket	,	V_19
+spp_msg_string	,	V_18
+"Data, No Ack Required"	,	L_1
+SPP_SYS_PACKET	,	V_6
+srcport	,	V_42
+"Unknown"	,	L_8
+"spp.ack"	,	L_32
+proto_tree	,	T_5

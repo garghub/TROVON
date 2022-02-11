@@ -1,0 +1,281 @@
+" - Server Credit Return: %u"	,	L_12
+"Callback Timeout"	,	L_43
+"Register"	,	L_47
+"bthcrp.register"	,	L_48
+proto_reg_handoff_bthcrp	,	F_37
+tvb_get_string	,	F_11
+"Timeout"	,	L_45
+"bthcrp.timeout"	,	L_46
+proto_register_protocol	,	F_25
+hf_bthcrp_control_number_of_bytes	,	V_37
+hf_bthcrp_notification_pdu_id	,	V_49
+"bthcrp.number_of_bytes"	,	L_54
+k_service_type	,	V_63
+tvb_new_subset_remaining	,	F_14
+gint	,	T_1
+"btl2cap.service"	,	L_99
+tvb	,	V_1
+"hcrp.data.psm"	,	L_94
+guint32	,	T_12
+COL_INFO	,	V_17
+FORCE_CLIENT_YES	,	V_94
+k_frame_number	,	V_65
+module	,	V_100
+FT_BOOLEAN	,	V_112
+"bthcrp.server_credit_granted"	,	L_58
+hf_bthcrp_control_pdu_id	,	V_14
+cinfo	,	V_16
+"Request"	,	L_2
+array_length	,	F_28
+"Reserved"	,	L_67
+next_tvb	,	V_46
+expert_bthcrp	,	V_101
+"Notification: %s"	,	L_25
+call_dissector	,	F_15
+"L2CAP PSM for Data"	,	L_95
+proto_bthcrp	,	V_71
+ENC_ASCII	,	V_40
+col_append_str	,	F_7
+"bthcrp.notification.pdu_id"	,	L_40
+prefs_register_enum_preference	,	F_35
+"hcrp.notification.psm"	,	L_96
+hf_register_info	,	T_16
+BTSDP_HCRP_SCAN_SERVICE_UUID	,	V_122
+hf_bthcrp_control_server_credit_return	,	V_28
+BTSDP_HARDCOPY_NOTIFICATION_PROTOCOL_UUID	,	V_91
+key	,	V_56
+guint16	,	T_7
+"bthcrp.status.not_error"	,	L_74
+COL_PROTOCOL	,	V_73
+"1284 ID"	,	L_49
+hf_bthcrp_control_status_reserved_20	,	V_35
+dissect_notification	,	F_16
+"bthcrp.control_parameter_length.bad"	,	L_78
+dissect_data	,	F_13
+"Client Credit Return"	,	L_59
+guint8	,	T_9
+interface_id	,	V_66
+"bthcrp.data"	,	L_77
+BASE_NONE	,	V_111
+"Parameter length is larger than payload length"	,	L_9
+hf_bthcrp_control_client_credit_query	,	V_29
+bthcrp_handle	,	V_119
+tvb_length_remaining	,	F_9
+"Transaction ID"	,	L_33
+proto_register_bthcrp	,	F_23
+"bthcrp.status.select"	,	L_72
+tvb_get_ntohl	,	F_10
+hf_bthcrp_control_status_paper_empty	,	V_32
+tvbuff_t	,	T_2
+service_info	,	V_70
+"bthcrp.status.paper_empty"	,	L_70
+"Parameter length is shorter than payload length"	,	L_8
+tvb_get_ntohs	,	F_3
+BASE_HEX	,	V_104
+gboolean	,	T_5
+proto_item_add_subtree	,	F_18
+module_t	,	T_14
+proto_register_field_array	,	F_27
+k_bd_addr_id	,	V_62
+"bthcrp.control.parameter_length"	,	L_36
+sdp_psm	,	V_84
+ei	,	V_115
+register_vals	,	V_42
+dissector_add_uint	,	F_39
+psm_notification	,	V_97
+data_handle	,	V_47
+dissect_control	,	F_1
+FT_UINT16	,	V_103
+"bthcrp"	,	L_84
+tvb_get_guint8	,	F_12
+"Number Of Bytes"	,	L_53
+hf_bthcrp_control_timeout	,	V_45
+fd	,	V_81
+cid	,	V_98
+"Server Credit Return"	,	L_61
+"L2CAP PSM for Control"	,	L_93
+"Unknown direction %d "	,	L_29
+expert_add_info	,	F_22
+psm	,	V_80
+timeout	,	V_9
+k_interface_id	,	V_57
+FT_STRING	,	V_110
+BTSDP_HCRP_SERVICE_UUID	,	V_123
+"bthcrp.1284_id"	,	L_50
+main_item	,	V_52
+remote_bd_addr_id	,	V_69
+prefs_register_obsolete_preference	,	F_34
+"Control: %s %s"	,	L_1
+FORCE_CLIENT_DEFAULT	,	V_93
+ett_bthcrp	,	V_72
+"Parameter Length"	,	L_35
+"hcrp.force_client"	,	L_89
+hf_bthcrp_control_server_credit_granted	,	V_26
+" - Timeout: %u"	,	L_22
+length	,	V_83
+find_dissector	,	F_38
+force_client	,	V_92
+PI_WARN	,	V_117
+ENC_BIG_ENDIAN	,	V_15
+FT_UINT32	,	V_107
+"Unexpected data"	,	L_81
+btsdp_get_service_info	,	F_21
+"BT HCRP"	,	L_83
+"hcrp.is_client"	,	L_88
+notification_register	,	V_11
+hf	,	V_102
+" (Vendor Specific)"	,	L_5
+hf_bthcrp_control_status_reserved_76	,	V_31
+force_client_enum	,	V_120
+"Length bad"	,	L_79
+channel	,	V_88
+"HCRP stream (CID: 0x%04X)"	,	L_30
+"bthcrp.client_credit_return"	,	L_60
+control_pdu_id	,	V_7
+prefs_register_protocol	,	F_32
+hf_bthcrp_control_start_byte	,	V_36
+l2cap_data	,	V_54
+number	,	V_12
+hf_bthcrp_control_status	,	V_22
+col_append_fstr	,	F_4
+"HCRP data stream"	,	L_23
+hf_bthcrp_control_register	,	V_41
+btl2cap_data_t	,	T_10
+col_set_str	,	F_19
+id	,	V_38
+" - CreditGranted: %u"	,	L_10
+"bthcrp.control.pdu_id"	,	L_32
+hf_bthcrp_data	,	V_23
+"Select"	,	L_71
+", Number Of Bytes: %u"	,	L_16
+is_local_psm	,	V_78
+proto_item_append_text	,	F_6
+"bthcrp.start_byte"	,	L_52
+"bthcrp.callback.timeout"	,	L_44
+"bthcrp.unexpected_data"	,	L_80
+k_adapter_id	,	V_58
+"If \"yes\" localhost will be treat as Client, \"no\" as Server"	,	L_91
+"Client Credit Granted"	,	L_55
+"bthcrp.client_credit_query"	,	L_64
+proto_register_subtree_array	,	F_29
+val_to_str	,	F_5
+"Start Byte"	,	L_51
+proto_tree_add_item	,	F_2
+pinfo	,	V_2
+col_add_fstr	,	F_20
+"bthcrp.server_credit_query"	,	L_66
+"bthcrp.control.transaction_id"	,	L_34
+"Data"	,	L_76
+"Client Credit Query"	,	L_63
+new_register_dissector	,	F_26
+BTSDP_L2CAP_PROTOCOL_UUID	,	V_79
+"Control PDU ID"	,	L_31
+hf_bthcrp_control_transaction_id	,	V_19
+hf_bthcrp_control_status_not_error	,	V_34
+"Force Client"	,	L_90
+dissect_bthcrp	,	F_17
+adapter_id	,	V_67
+VALS	,	F_24
+SDP_PSM_DEFAULT	,	V_77
+"Paper Empty"	,	L_69
+"hcrp.control.psm"	,	L_92
+" -  Register: %s"	,	L_18
+PI_PROTOCOL	,	V_116
+prefs_register_static_text_preference	,	F_33
+"Unknown PDU ID"	,	L_4
+k_sdp_psm	,	V_59
+"data"	,	L_98
+FT_UINT8	,	V_109
+"hcrp.version"	,	L_85
+BASE_DEC	,	V_108
+"Callback Context ID"	,	L_41
+proto_item	,	T_6
+expert_register_field_array	,	F_31
+ei_bthcrp_control_parameter_length	,	V_21
+main_tree	,	V_53
+"L2CAP PSM for Notification"	,	L_97
+ENC_NA	,	V_24
+" - Start Byte: %u"	,	L_15
+"bthcrp.client_credit_granted"	,	L_56
+"btl2cap.cid"	,	L_101
+expert_add_info_format	,	F_8
+"Bluetooth HCRP Profile"	,	L_82
+parameter_length	,	V_13
+hf_bthcrp_control_1284_id	,	V_39
+"bthcrp.status.reserved210"	,	L_75
+status_vals	,	V_106
+" - 1284 ID: %s"	,	L_17
+hf_bthcrp_control_callback_timeout	,	V_44
+data	,	V_51
+is_client_message	,	V_5
+num	,	V_82
+"Rcvd "	,	L_28
+BTSDP_HARDCOPY_DATA_CHANNEL_PROTOCOL_UUID	,	V_90
+remote_bd_addr_oui	,	V_68
+"Notification PDU ID"	,	L_39
+"Version of profile supported by this dissector."	,	L_87
+control_pdu_id_vals	,	V_18
+hf_bthcrp_callback_context_id	,	V_43
+protocol	,	V_55
+prefs_register_uint_preference	,	F_36
+hf_bthcrp_control_client_credit_granted	,	V_25
+ei_register_info	,	T_17
+"unknown register"	,	L_19
+expert_register_protocol	,	F_30
+k_service_channel	,	V_64
+" (Reserved)"	,	L_6
+" - Server Credit: %u"	,	L_14
+psm_control	,	V_95
+"Not Error"	,	L_73
+"Response"	,	L_3
+guint	,	T_8
+hf_bthcrp_control_parameter_length	,	V_20
+BTSDP_HARDCOPY_CONTROL_CHANNEL_PROTOCOL_UUID	,	V_89
+FT_NONE	,	V_113
+offset	,	V_4
+ett	,	V_114
+"Sent "	,	L_27
+P2P_DIR_RECV	,	V_76
+expert_module_t	,	T_15
+"bthcrp.control.status"	,	L_38
+BTSDP_HCRP_PRINT_SERVICE_UUID	,	V_121
+tree	,	V_3
+bd_addr_oui	,	V_86
+wmem_tree_key_t	,	T_11
+dissector_add_handle	,	F_40
+packet_info	,	T_3
+"bthcrp.callback.context_id"	,	L_42
+"Bluetooth Profile HCRP version: 1.2"	,	L_86
+" - Client Credit Return: %u"	,	L_11
+notification_pdu_id_vals	,	V_50
+"Notification: unexpected notification stream"	,	L_24
+EXPFILL	,	V_118
+ei_bthcrp_unexpected_data	,	V_99
+service_info_t	,	T_13
+" - Client Credit: %u"	,	L_13
+"Server Credit Query"	,	L_65
+hf_bthcrp_control_server_credit_query	,	V_30
+bd_addr_id	,	V_87
+k_bd_addr_oui	,	V_61
+credits	,	V_8
+P2P_DIR_SENT	,	V_75
+pitem	,	V_6
+", Callback ContextID: %u"	,	L_20
+psm_data_stream	,	V_96
+hf_bthcrp_control_client_credit_return	,	V_27
+k_direction	,	V_60
+HFILL	,	V_105
+"Parameter length is shorter than 2 in response"	,	L_7
+p2p_dir	,	V_74
+direction	,	V_85
+"btl2cap.psm"	,	L_100
+"Status"	,	L_37
+", Callback Timeout: %u"	,	L_21
+"bthcrp.server_credit_return"	,	L_62
+"Server Credit Granted"	,	L_57
+"bthcrp.status.reserved76"	,	L_68
+hf_bthcrp_control_status_select	,	V_33
+context_id	,	V_10
+notification_pdu_id	,	V_48
+"HCRP"	,	L_26
+proto_tree	,	T_4

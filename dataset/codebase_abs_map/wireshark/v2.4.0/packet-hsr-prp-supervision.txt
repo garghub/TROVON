@@ -1,0 +1,95 @@
+"Sequence number"	,	L_9
+"Path"	,	L_5
+ett_hsr_prp_supervision	,	V_16
+data	,	T_4
+"HSR Supervision"	,	L_3
+"PRP Supervision"	,	L_4
+"HSR_PRP_SUPERVISION"	,	L_26
+proto_register_protocol	,	F_13
+tvbuff_t	,	T_1
+proto_hsr_prp_supervision	,	V_14
+tvb_get_ntohs	,	F_5
+"hsr_prp_supervision.tlv.length"	,	L_14
+"RedBox MAC Address"	,	L_21
+hf_hsr_prp_supervision_source_mac_address	,	V_25
+"Version"	,	L_7
+"hsr_prp_supervision.red_box_mac_address"	,	L_22
+"TLV length"	,	L_13
+col_set_str	,	F_2
+FT_ETHER	,	V_34
+gint	,	T_9
+proto_item_add_subtree	,	F_4
+"TLV type"	,	L_11
+"hsr_prp_supervision.source_mac_address"	,	L_20
+proto_register_field_array	,	F_14
+tvb	,	V_1
+type_vals	,	V_33
+offset	,	V_10
+ett	,	V_36
+sup_version	,	V_9
+COL_INFO	,	V_13
+dissector_add_uint	,	F_19
+hsr_prp_supervision_tree	,	V_6
+"HSR or PRP Supervision"	,	L_2
+tree	,	V_3
+tlv_length	,	V_8
+hf_hsr_prp_supervision_seqno	,	V_20
+tlv_type	,	V_7
+FT_UINT16	,	V_29
+packet_info	,	T_2
+tvb_reported_length_remaining	,	F_6
+tvb_get_guint8	,	F_7
+"VDAN MAC Address"	,	L_23
+cinfo	,	V_11
+tvb_captured_length	,	F_10
+proto_reg_handoff_hsr_prp_supervision	,	F_17
+proto_register_subtree_array	,	F_16
+array_length	,	F_15
+"HSR/PRP Supervision (IEC62439 Part 3)"	,	L_25
+"hsr_prp_supervision"	,	L_27
+hf_hsr_prp_supervision_path	,	V_17
+proto_register_hsr_prp_supervision	,	F_11
+proto_tree_add_item	,	F_3
+pinfo	,	V_2
+dissector_handle_t	,	T_10
+"hsr_prp_supervision.vdan_mac_address"	,	L_24
+hf_hsr_prp_supervision_vdan_mac_address	,	V_27
+_U_	,	V_4
+"hsr_prp_supervision.source_mac_address_A"	,	L_16
+"ethertype"	,	L_28
+hf_hsr_prp_supervision_source_mac_address_A	,	V_23
+hf_hsr_prp_supervision_source_mac_address_B	,	V_24
+"Source MAC Address"	,	L_19
+"hsr_prp_supervision.version"	,	L_8
+"Source MAC Address A"	,	L_15
+hf_register_info	,	T_8
+hf_hsr_prp_supervision_tlv_length	,	V_22
+hf_hsr_prp_supervision_tlv_type	,	V_21
+VALS	,	F_12
+tvb_set_reported_length	,	F_9
+HFILL	,	V_31
+"hsr_prp_supervision.path"	,	L_6
+ETHERTYPE_PRP	,	V_38
+guint16	,	T_7
+COL_PROTOCOL	,	V_12
+hsr_prp_supervision_handle	,	V_37
+"HSR/PRP"	,	L_1
+FT_UINT8	,	V_32
+BASE_DEC	,	V_30
+create_dissector_handle	,	F_18
+"hsr_prp_supervision.source_mac_address_B"	,	L_18
+proto_item	,	T_5
+"hsr_prp_supervision.supervision_seqno"	,	L_10
+proto_item_set_len	,	F_8
+"hsr_prp_supervision.tlv.type"	,	L_12
+ENC_BIG_ENDIAN	,	V_18
+ENC_NA	,	V_15
+guint8	,	T_6
+ti	,	V_5
+BASE_NONE	,	V_35
+"Source MAC Address B"	,	L_17
+hf_hsr_prp_supervision_red_box_mac_address	,	V_26
+dissect_hsr_prp_supervision	,	F_1
+proto_tree	,	T_3
+hf	,	V_28
+hf_hsr_prp_supervision_version	,	V_19

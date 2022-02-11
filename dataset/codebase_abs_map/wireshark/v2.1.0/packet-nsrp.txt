@@ -1,0 +1,160 @@
+"NSRP Version"	,	L_5
+hf_nsrp_dst_unit	,	V_23
+proto_register_protocol	,	F_9
+hf_nsrp_msg_flag	,	V_19
+hf_nsrp_hst_group	,	V_27
+hf_nsrp_dummy	,	V_40
+"NSRP Length"	,	L_17
+"nsrp.reserved"	,	L_55
+"nsrp.checksum"	,	L_57
+"nsrp.msglen"	,	L_42
+"Version"	,	L_3
+hf_nsrp_msgflag	,	V_28
+"nsrp.ifnum"	,	L_71
+"nsrp.flag"	,	L_13
+gint	,	T_6
+col_set_str	,	F_2
+"nsrp.type"	,	L_7
+hf_nsrp_wst_group	,	V_26
+"nsrp.priority"	,	L_63
+msgtype	,	V_8
+proto_register_nsrp	,	F_7
+"Port"	,	L_18
+tvb	,	V_1
+"Destination"	,	L_23
+hf_nsrp_len	,	V_20
+COL_INFO	,	V_11
+"Flag"	,	L_12
+"NSRP HA Port"	,	L_20
+hf_nsrp_nr	,	V_33
+nsrp_msgtype_vals	,	V_50
+ETHERTYPE_NSRP	,	V_58
+"NSRP WST GROUP"	,	L_34
+cinfo	,	V_9
+hf_nsrp_total_size	,	V_31
+proto_register_subtree_array	,	F_12
+"NSRP MSG TOTAL MESSAGE"	,	L_49
+array_length	,	F_11
+"Reserved"	,	L_54
+"Checksum"	,	L_56
+nsrp_tree	,	V_6
+hf_nsrp_msglen	,	V_29
+proto_tree_add_item	,	F_3
+"Msg Length"	,	L_41
+pinfo	,	V_2
+"SOURCE UNIT INFORMATION"	,	L_28
+"Priority"	,	L_62
+dissector_handle_t	,	T_9
+hf_nsrp_msg_type	,	V_17
+"Data"	,	L_73
+"Msgflag"	,	L_38
+_U_	,	V_4
+hf_nsrp_not_used	,	V_22
+ENC_ASCII	,	V_37
+"ethertype"	,	L_78
+"nsrp.hst"	,	L_36
+"Nr"	,	L_52
+"Ifnum"	,	L_70
+"nsrp.msgtype"	,	L_30
+hf_nsrp_clust_id	,	V_18
+hf_nsrp_authflag	,	V_38
+hf_register_info	,	T_8
+"nsrp.nr"	,	L_53
+VALS	,	F_8
+dissect_nsrp	,	F_1
+"nsrp.totalsize"	,	L_48
+COL_PROTOCOL	,	V_10
+FT_UINT8	,	V_44
+BASE_DEC	,	V_45
+"Ns"	,	L_50
+proto_item	,	T_5
+"Wst group"	,	L_32
+ENC_NA	,	V_13
+guint8	,	T_7
+ti	,	V_5
+BASE_NONE	,	V_55
+"Source"	,	L_26
+"nsrp.ns"	,	L_51
+"NSRP PACKET CHECKSUM"	,	L_58
+"Dummy"	,	L_65
+"NSRP Auth Flag"	,	L_61
+data	,	T_4
+tvbuff_t	,	T_1
+hf_nsrp_data	,	V_36
+nsrp_msg_type_vals	,	V_47
+"nsrp.msgflag"	,	L_39
+"Total Size"	,	L_47
+"AuthFlag"	,	L_59
+"Juniper Netscreen Redundant Protocol"	,	L_76
+hf_nsrp_no_used	,	V_34
+nsrp_encflag_vals	,	V_52
+BASE_HEX	,	V_53
+"NSRP HST GROUP"	,	L_37
+"nsrp.src"	,	L_27
+"nsrp"	,	L_77
+"NSRP Protocol"	,	L_2
+nsrp_handle	,	V_57
+ett_nsrp	,	V_14
+"nsrp.clustid"	,	L_10
+proto_item_add_subtree	,	F_4
+proto_register_field_array	,	F_10
+"nsrp.haport"	,	L_19
+"PADDING"	,	L_75
+"Length"	,	L_15
+offset	,	V_7
+ett	,	V_56
+hf_nsrp_version	,	V_15
+dissector_add_uint	,	F_15
+"NSRP Message Type"	,	L_8
+"NSRP FLAG"	,	L_14
+"Not used"	,	L_21
+tree	,	V_3
+"NSRP"	,	L_1
+hf_nsrp_checksum	,	V_35
+FT_UINT16	,	V_48
+nsrp_flag_vals	,	V_51
+packet_info	,	T_2
+"Hst group"	,	L_35
+"NSRP IfNum"	,	L_72
+"MsgType"	,	L_29
+"nsrp.version"	,	L_4
+tvb_get_guint8	,	F_5
+tvb_captured_length	,	F_6
+"DESTINATION UNIT INFORMATION"	,	L_25
+"nsrp.data"	,	L_74
+"nsrp.length"	,	L_16
+"Clust ID"	,	L_9
+"nsrp.wst"	,	L_33
+"NSRP AUTH CHECKSUM"	,	L_69
+"NSRP MESSAGE LENGTH"	,	L_43
+"nsrp.authchecksum"	,	L_68
+hf_nsrp_ha_port	,	V_21
+"nsrp.dst"	,	L_24
+hf_nsrp_authchecksum	,	V_41
+hf_nsrp_ns	,	V_32
+proto_nsrp	,	V_12
+"nsrp.encflag"	,	L_45
+"Message Type"	,	L_31
+FT_STRING	,	V_54
+"NSRP Priority"	,	L_64
+HFILL	,	V_46
+"nsrp.dummy"	,	L_66
+"nsrp.authflag"	,	L_60
+"NSRP Dummy"	,	L_67
+hf_nsrp_priority	,	V_39
+proto_reg_handoff_nsrp	,	F_13
+"NSRP ENCRYPT FLAG"	,	L_46
+create_dissector_handle	,	F_14
+"Enc Flag"	,	L_44
+hf_nsrp_msgtype	,	V_25
+hf_nsrp_ifnum	,	V_42
+ENC_BIG_ENDIAN	,	V_16
+FT_UINT32	,	V_49
+"NSRP MSG FLAG"	,	L_40
+hf_nsrp_src_unit	,	V_24
+"nsrp.notused"	,	L_22
+"Type"	,	L_6
+"NSRP CLUST ID"	,	L_11
+proto_tree	,	T_3
+hf	,	V_43
+hf_nsrp_encflag	,	V_30

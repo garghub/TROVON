@@ -1,0 +1,160 @@
+STATUS_TYPE_MASK	,	V_19
+tvb_get_string	,	F_31
+proto_register_protocol	,	F_34
+proto_tree_add_time	,	F_29
+add_value_head	,	F_28
+status_fmt	,	V_11
+"Version: %u.%u"	,	L_4
+"%s: %u"	,	L_25
+add_octetstring_tree	,	F_18
+tvb_new_subset_remaining	,	F_13
+"%s: Invalid integer (length is %u, should be 4)"	,	L_19
+job_state_reason	,	V_57
+dissect_ipp	,	F_1
+proto_ipp	,	V_15
+col_set_str	,	F_2
+gint	,	T_12
+"printer-state"	,	L_21
+ett_ipp_as	,	V_38
+tvb	,	V_1
+"Unknown (0x%04x)"	,	L_6
+guint32	,	T_10
+COL_INFO	,	V_14
+"Time"	,	L_36
+"ipp"	,	L_39
+"Value: %s"	,	L_27
+cinfo	,	V_12
+FT_ABSOLUTE_TIME	,	V_60
+proto_register_subtree_array	,	F_37
+val_to_str	,	F_7
+array_length	,	F_36
+"Unknown Printer State"	,	L_22
+TAG_TYPE	,	F_14
+TAG_TYPE_DELIMITER	,	V_36
+proto_tree_add_item	,	F_3
+call_dissector	,	F_12
+pinfo	,	V_2
+dissector_handle_t	,	T_13
+"ipp.timestamp"	,	L_37
+TAG_TYPE_INTEGER	,	V_39
+"%s: Unknown integer type 0x%02x"	,	L_26
+"Status-code: %s"	,	L_12
+ipp_tree	,	V_4
+TAG_TYPE_OCTETSTRING	,	V_40
+"Unknown Job State"	,	L_24
+value_length	,	V_30
+hf_register_info	,	T_11
+"media_type"	,	L_40
+"Unknown Printer State (0x%02x)"	,	L_29
+"IPP"	,	L_1
+"IPP request"	,	L_2
+STATUS_REDIRECTION	,	V_22
+"Operation-id: %s"	,	L_5
+"Unknown (0x%02x)"	,	L_18
+as_tree	,	V_31
+guint16	,	T_6
+COL_PROTOCOL	,	V_13
+"data"	,	L_42
+tag_desc	,	V_28
+"application/ipp"	,	L_41
+proto_tree_add_text	,	F_5
+proto_item	,	T_4
+add_octetstring_value	,	F_19
+attr_tree	,	V_34
+ENC_NA	,	V_16
+ABSOLUTE_TIME_LOCAL	,	V_48
+dissector_add_string	,	F_41
+guint8	,	T_8
+tvb_memeql	,	F_24
+"Reserved (0x%02x)"	,	L_14
+ti	,	V_5
+"Redirection (0x%04x)"	,	L_9
+tvb_bytes_to_str	,	F_30
+http_dissector_add	,	F_40
+secs	,	V_53
+tvb_format_text	,	F_22
+start_offset	,	V_33
+"-time"	,	L_20
+status_vals	,	V_25
+tvb_offset_exists	,	F_11
+TAG_ENUM	,	V_46
+TAG_TYPE_CHARSTRING	,	V_41
+"Server error (0x%04x)"	,	L_11
+"Request ID: %u"	,	L_13
+"%s"	,	L_15
+tvb_get_ntohl	,	F_9
+format_text	,	F_25
+abs_time_secs_to_str	,	F_26
+tvbuff_t	,	T_1
+name_length	,	V_29
+printer_state_vals	,	V_49
+tvb_get_ntohs	,	F_8
+"job-state"	,	L_23
+tag_vals	,	V_35
+"Value: %s (%u)"	,	L_28
+match_port	,	V_9
+STATUS_SUCCESSFUL	,	V_20
+gboolean	,	T_5
+proto_item_add_subtree	,	F_4
+tag	,	V_27
+"%s: Invalid boolean (length is %u, should be 1)"	,	L_16
+nstime_t	,	T_9
+proto_register_field_array	,	F_35
+ett_ipp_attr	,	V_51
+STATUS_SERVER_ERROR	,	V_24
+TAG_BOOLEAN	,	V_43
+proto_register_ipp	,	F_33
+offset	,	V_6
+ett	,	V_62
+add_integer_value	,	F_17
+wmem_packet_scope	,	F_32
+tas	,	V_32
+tree	,	V_3
+"Name length: %u"	,	L_33
+data_handle	,	V_26
+tvb_get_ptr	,	F_23
+packet_info	,	T_2
+tvb_get_guint8	,	F_6
+destport	,	V_8
+is_request	,	V_7
+TAG_END_OF_ATTRIBUTES	,	V_37
+bool_vals	,	V_44
+status_code	,	V_10
+add_charstring_value	,	F_21
+bool_val	,	V_42
+"Unknown Job State (0x%02x)"	,	L_30
+ns	,	V_52
+"Client error (0x%04x)"	,	L_10
+nv	,	V_58
+"Tag: %s"	,	L_32
+add_integer_tree	,	F_16
+"%s: %s"	,	L_17
+parse_attributes	,	F_10
+name_val	,	V_47
+job_state_vals	,	V_50
+ett_ipp	,	V_17
+STATUS_CLIENT_ERROR	,	V_23
+HFILL	,	V_61
+operation_vals	,	V_18
+TAG_INTEGER	,	V_45
+"Internet Printing Protocol"	,	L_38
+val_to_str_const	,	F_27
+gchar	,	T_7
+"Informational (0x%04x)"	,	L_8
+proto_reg_handoff_ipp	,	F_38
+find_dissector	,	F_42
+printer_state_reason	,	V_56
+create_dissector_handle	,	F_39
+"IPP response"	,	L_3
+add_charstring_tree	,	F_20
+proto_item_set_len	,	F_15
+"Name: %s"	,	L_34
+"Successful (0x%04x)"	,	L_7
+nsecs	,	V_54
+hf_ipp_timestamp	,	V_55
+"Value: %u"	,	L_31
+ipp_handle	,	V_63
+STATUS_INFORMATIONAL	,	V_21
+proto_tree	,	T_3
+"Value length: %u"	,	L_35
+hf	,	V_59

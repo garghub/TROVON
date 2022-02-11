@@ -1,0 +1,476 @@
+hf_mux27010_controlchanneldetailedvaluepnna	,	V_126
+tvb_get_string_enc	,	F_20
+" (Response)"	,	L_13
+MUX27010_FRAMETYPE_CONTROL_FLAG_RR	,	V_60
+hf_mux27010_controlchanneldetailedvaluepnframetype	,	V_121
+ett_mux27010_address	,	V_148
+process_reassembled_data	,	F_31
+"N(R) Receive Number"	,	L_82
+PROTO_TAG_MUX27010	,	V_141
+"Flag Ended II"	,	L_48
+hf_mux27010_dlciaddressflag	,	V_45
+MUX27010_VALUE_CONTROLCHANNEL_TEST_VERSION	,	V_197
+"mux27010.controlchannel.value"	,	L_107
+FT_BOOLEAN	,	V_189
+known_frame_type	,	V_47
+"mux27010.fragments"	,	L_153
+hf_mux27010_extended_header_flag_ended_II	,	V_25
+"mux27010.controlchannel.value.detailedvaluepncl"	,	L_133
+hf_msg_fragment_count	,	V_218
+array_length	,	F_43
+"Direction not valid "	,	L_7
+"mux27010.ext_header.msg_number_III"	,	L_51
+COL_DEF_DST	,	V_38
+" [Split Msg]"	,	L_17
+MUX27010_EA_CONTROLCHANNEL_LENGTH_FLAG	,	V_91
+"mux27010.controlchannel.value.detailedvaluepnna"	,	L_141
+MUX27010_VALUE_CONTROLCHANNEL_MSC_V24_RING	,	V_202
+controlchannel_length_ea	,	V_90
+hf_mux27010_controlchannelealength	,	V_95
+ENC_ASCII	,	V_106
+"IEI coding"	,	L_108
+number_of_type_frames	,	V_79
+col_append_str	,	F_16
+"mux27010.ext_header.frequenz_number_I"	,	L_25
+"MUX27010 Protocol"	,	L_176
+"mux27010"	,	L_178
+hf_mux27010_extended_header_end_byte_II	,	V_24
+"mux27010.controlchannel.value.detailedvaluepnframesize"	,	L_139
+hf_mux27010_controlframetype	,	V_54
+"mux27010.fragment.too_long_fragment"	,	L_163
+dlci_number	,	V_40
+hf_register_info	,	T_9
+check_fcs	,	F_34
+"mux27010.ext_header.start_pos_I"	,	L_27
+cc	,	V_89
+guint16	,	T_4
+hf_mux27010_craddressflag	,	V_44
+"Start Byte III"	,	L_56
+i	,	V_5
+"Message Number III"	,	L_50
+"E/A Flag"	,	L_88
+"Frequenz Number I"	,	L_24
+cr	,	V_80
+"Control field"	,	L_76
+"mux27010.controlchannel.value.detailedvalue.response"	,	L_113
+BASE_NONE	,	V_194
+"mux27010.controlchannel.length"	,	L_103
+"Max. Frame Size"	,	L_138
+mux27010_handle	,	V_232
+"mux27010.controlchannel.value.detailedvaluepnframetype"	,	L_131
+MUX27010_FRAMETYPE_CONTROL_FLAG_NS	,	V_56
+MUX27010_FRAMETYPE_CONTROL_FLAG_NR	,	V_57
+"mux27010.fragment.error"	,	L_165
+MUX27010_FRAMETYPE_CONTROL_FLAG	,	V_48
+"N(S) Sequence Number"	,	L_80
+"wtap_encap"	,	L_179
+"Flag Ended I"	,	L_34
+BASE_HEX	,	V_184
+"mux27010.controlchannel.value.detailedvalues"	,	L_111
+"mux27010.information_str"	,	L_147
+hf_mux27010_address	,	V_147
+hf_mux27010_pfcontrolflag	,	V_65
+proto_item_add_subtree	,	F_26
+ett_mux27010_controlchannel	,	V_154
+proto_register_field_array	,	F_42
+getFrameInformation	,	F_19
+hf_mux27010_controlchanneleaframetype	,	V_84
+expert_mux27010	,	V_231
+hf_msg_fragment_multiple_tails	,	V_215
+ei	,	V_225
+dissector_add_uint	,	F_50
+"DLCI number (decimal)"	,	L_70
+"mux27010.controlchannel.length.length"	,	L_105
+FT_UINT16	,	V_187
+MUX27010_COMMAND_TEST_COMMAND	,	V_99
+msg_reassembly_table	,	V_174
+"Poll/Final bit"	,	L_84
+"mux27010.length.ealength"	,	L_89
+"mux27010.ext_header.start_byte_III"	,	L_57
+hf_mux27010_controlchanneldetailedvaluepnframesize	,	V_125
+hf_mux27010_extended_header_end_pos_III	,	V_30
+"mux27010.fragment.overlap"	,	L_157
+expert_add_info	,	F_36
+"ppp"	,	L_180
+ett_mux27010_control	,	V_150
+cc_type	,	V_139
+"mux27010.ext_header.end_pos_III"	,	L_59
+direction_in_out	,	V_34
+FT_STRING	,	V_193
+"mux27010.controlchannel.value.detailedvaluepntimer"	,	L_137
+"mux27010.controlchannel.value.detailedvaluemscdlci"	,	L_116
+"Direction"	,	L_64
+COL_DEF_SRC	,	V_37
+"mux27010.reassembled.length"	,	L_171
+msg_frag_items	,	V_175
+"Control Channel"	,	L_93
+val_to_str_const	,	F_12
+hf_mux27010_controlchanneldetailedvaluemscv24rtc	,	V_114
+hf_mux27010_controlchannel_detailedvalue_response	,	V_109
+PI_WARN	,	V_230
+"Message has multiple tail fragments"	,	L_160
+hf_mux27010_extended_header_start_pos_II	,	V_21
+"RTR"	,	L_121
+FT_UINT32	,	V_219
+hf_mux27010_controlchanneldetailedvaluemscv24rtr	,	V_115
+"Module"	,	L_4
+hf	,	V_182
+new_tvb	,	V_170
+MUX27010_FRAMETYPE_CONTROL_FLAG_SABM	,	V_49
+cctype	,	V_76
+"Reassembled Message"	,	L_16
+"mux27010.checksum_correct"	,	L_151
+controlchannel_psc	,	V_98
+"mux27010.controlchannel.value.detailedvaluemscv24.ring"	,	L_124
+"mux27010.controlchannel.value.detailedvaluemscbreak"	,	L_128
+"mux27010.fragment.multiple_tails"	,	L_161
+hf_mux27010_extended_header_start_byte_II	,	V_22
+"Start Byte II"	,	L_42
+"Information"	,	L_146
+"Max. Number of Retransmissions"	,	L_140
+col_append_fstr	,	F_9
+hf_mux27010_lengthframesize	,	V_70
+hf_mux27010_controlchanneldetailedvaluemscv24dcd	,	V_117
+col_set_str	,	F_7
+controlchannel_iei	,	V_97
+"Application"	,	L_6
+ett_mux27010_length	,	V_152
+"Message Number II"	,	L_36
+"Flag"	,	L_66
+byte	,	V_41
+hf_msg_reassembled_in	,	V_220
+frame_type	,	V_46
+"Frequenz Number II"	,	L_38
+hf_mux27010_information_str	,	V_129
+"End Byte I"	,	L_32
+proto_tree_add_string	,	F_23
+information_field	,	V_128
+hf_mux27010_extended_header_flag_ended_I	,	V_17
+"Message fragment too long"	,	L_162
+sizeMuxPPPHeader	,	V_4
+VALS	,	F_40
+hf_mux27010_extended_header_freq_number_II	,	V_20
+proto_register_mux27010	,	F_39
+"Address field"	,	L_68
+hf_mux27010_controlchannellength	,	V_157
+"Module       DLCI "	,	L_5
+"Extended Header"	,	L_18
+"mux27010.ext_header.size"	,	L_21
+hf_mux27010_eaaddressflag	,	V_43
+"mux27010.length.framesize"	,	L_92
+tf_ctr	,	V_135
+hf_mux27010_controlchanneldetailedvaluemscdlci	,	V_112
+BASE_DEC	,	V_186
+MUX27010_COMMAND_MODEM_STATUS_COMMAND	,	V_111
+"Length field"	,	L_86
+length_ea	,	V_67
+hf_mux27010_checksum_correct	,	V_179
+"mux27010.ext_header.flag_ended_III"	,	L_63
+proto_mux27010	,	V_142
+ENC_NA	,	V_105
+hf_mux27010	,	V_146
+"Resposne"	,	L_112
+hf_mux27010_extended_header_flag_ended_III	,	V_32
+command_vals	,	V_87
+"mux27010.controlchannel.value.detailedvaluetestcommandversion"	,	L_115
+"Message fragment"	,	L_154
+ett_mux27010_checksum	,	V_178
+"End Position I"	,	L_30
+hf_mux27010_controlchanneldetailedvaluemscv24fc	,	V_113
+"Command Type"	,	L_100
+hf_mux27010_extended_header_start_byte_III	,	V_29
+"mux27010.controlchannel.value.detailedvaluemscv24.rtr"	,	L_122
+MUX27010_VALUE_CONTROLCHANNEL_PN_PRIO	,	V_207
+hf_mux27010_controlchanneldetailedvaluemscbreak	,	V_118
+expert_register_protocol	,	F_46
+hf_mux27010_controlchanneldetailedvaluetestcommandversion	,	V_100
+MUX27010_VALUE_CONTROLCHANNEL_MSC_V24_RTC	,	V_200
+ett_mux27010_controlchannellength	,	V_158
+"mux27010.length.framesize_ea"	,	L_91
+field_tree	,	V_2
+"Length"	,	L_102
+ett	,	V_222
+wmem_packet_scope	,	F_21
+ett_msg_fragments	,	V_224
+addresses_reassembly_table_functions	,	V_181
+hf_mux27010_controlchanneldetailedvaluepntimer	,	V_124
+packet_info	,	T_5
+MUX27010_VALUE_CONTROLCHANNEL_MSC_V24_RTR	,	V_201
+MUX27010_FRAMESIZE_LENGTH_FLAG_EA	,	V_73
+"mux27010.controlchannel.frametype.crtype"	,	L_99
+"mux27010.controlchannel.value.detailedvaluemscv24.fc"	,	L_118
+"%d "	,	L_8
+field_tree_extended_header	,	V_137
+"mux27010.reassembled.in"	,	L_169
+"mux27010.ext_header.frequenz_number_II"	,	L_39
+"Message defragmentation error"	,	L_164
+MUX27010_FRAMETYPE_CONTROL_FLAG_UA	,	V_50
+getFrameLength	,	F_13
+"DCD"	,	L_125
+EXPFILL	,	V_228
+"mux27010.ext_header.end_byte_III"	,	L_61
+MUX27010_VALUE_CONTROLCHANNEL_PN_DLCI	,	V_204
+"mux27010.ext_header.msg_number_I"	,	L_23
+"Reassembled in"	,	L_168
+hf_mux27010_extended_header_freq_number_III	,	V_27
+mux27010_init	,	F_37
+"Detailed Values"	,	L_110
+hf_mux27010_control	,	V_149
+hf_mux27010_controlframetypens	,	V_58
+hf_mux27010_controlchanneldetailedvaluepndlci	,	V_120
+hf_mux27010_controlframetypenr	,	V_59
+msg_num	,	V_165
+"Convergence Layer"	,	L_132
+hf_mux27010_length	,	V_151
+HFILL	,	V_185
+PI_MALFORMED	,	V_226
+hf_mux27010_controlchanneldetailedvalue	,	V_108
+hf_mux27010_extended_header_start_pos_I	,	V_13
+proto_tree_add_subtree_format	,	F_28
+"Info length"	,	L_90
+"mux27010.address.dlciaddress"	,	L_71
+tf_extended_header	,	V_133
+"DLCI"	,	L_129
+hf_msg_fragments	,	V_209
+getExtendedHeader	,	F_1
+"Unknown"	,	L_10
+"mux27010.ext_header.start_pos_III"	,	L_55
+"Frame Type"	,	L_78
+"mux27010.fragment"	,	L_155
+proto_register_protocol	,	F_41
+hf_mux27010_ealengthflag	,	V_69
+"mux27010.fragment.overlap.conflicts"	,	L_159
+msg_flag	,	V_168
+"mux27010.address"	,	L_69
+"Value (ASCII)"	,	L_106
+tvb_new_subset_remaining	,	F_32
+"Version"	,	L_114
+" %s"	,	L_11
+gint	,	T_10
+hf_mux27010_extended_header_msg_number_II	,	V_19
+"mux27010.controlchannel.value.detailedvaluemscv24.dcd"	,	L_126
+ei_mux27010_message_illogical	,	V_172
+iei_coding_vals	,	V_195
+tvb	,	V_1
+"mux27010.fragment.count"	,	L_167
+hf_mux27010_extended_header_msg_number_I	,	V_11
+COL_INFO	,	V_63
+frag_msg	,	V_169
+hf_mux27010_checksum	,	V_177
+hf_mux27010_controlchanneldetailedvaluepnprio	,	V_123
+"mux27010.address.eaaddress"	,	L_73
+"Acknowledgment Timer (ms)"	,	L_136
+hf_mux27010_controlchannelcrframetype	,	V_85
+"mux27010.controlchannel.frametype.command"	,	L_101
+cinfo	,	V_36
+PI_ERROR	,	V_227
+"mux27010.controlchannel.value.detailedvaluepndlci"	,	L_130
+"Message start and end are illogical, aborting dissection"	,	L_173
+"Start Position III"	,	L_54
+fragment_add_seq_check	,	F_30
+hf_mux27010_extended_header_end_pos_I	,	V_15
+MUX27010_COMMAND_PARAMETER_NEGOTIATION	,	V_119
+"mux27010.control.frametype.ns"	,	L_81
+"C/R Address Flag"	,	L_74
+length_value	,	V_93
+call_dissector	,	F_33
+MUX27010_LENGTHFIELD_CONTROLCHANNEL_LENGTH_FLAG	,	V_94
+MUX27010_VALUE_CONTROLCHANNEL_TEST_IEI_TE	,	V_101
+"mux27010.ext_header.start_byte_I"	,	L_29
+"Start Position I"	,	L_26
+"EA Flag"	,	L_96
+proto_tree_add_boolean	,	F_35
+"mux27010.checksum_incorrect"	,	L_174
+hf_mux27010_controlchannel	,	V_153
+tf_addr	,	V_134
+controlchannel_type	,	V_75
+hf_mux27010_controlchanneldetailedvaluemscv24ring	,	V_116
+"mux27010.controlchannel.frametype"	,	L_95
+hf_mux27010_extended_header_end_byte_III	,	V_31
+ett_mux27010_controlchannelvalue	,	V_159
+COL_PROTOCOL	,	V_140
+MUX27010_FRAMESIZE_LENGTH_FLAG	,	V_71
+"Frequenz Number III"	,	L_52
+"mux27010.control.frametype.nr"	,	L_83
+hf_msg_fragment_overlap_conflicts	,	V_214
+ett_mux27010	,	V_143
+ett_mux27010_information	,	V_161
+hf_mux27010_extended_header_end_pos_II	,	V_23
+reassembly_table_init	,	F_38
+guint8	,	T_3
+tf	,	V_132
+ti	,	V_131
+MUX27010_VALUE_CONTROLCHANNEL_MSC_DCLI	,	V_198
+MUX27010_FRAMETYPE_CONTROL_FLAG_DISC	,	V_52
+register_dissector	,	F_45
+"Last Packet in Frequence"	,	L_2
+"mux27010.ext_header.frequenz_number_III"	,	L_53
+tvbuff_t	,	T_1
+MUX27010_PF_CONTROL_FLAG	,	V_192
+MUX27010_VALUE_CONTROLCHANNEL_PN_WINSIZE	,	V_208
+MUX27010_VALUE_CONTROLCHANNEL_PN_FRAMETYPE	,	V_205
+"mux27010.ext_header.flag_ended_II"	,	L_49
+tvb_get_ntohs	,	F_14
+MUX27010_DLCI_ADDRESS_FLAG	,	V_42
+field_tree_addr	,	V_39
+"mux27010.flag"	,	L_67
+"mux27010.ext_header.start_byte_II"	,	L_43
+WTAP_ENCAP_MUX27010	,	V_233
+"Application  DLCI "	,	L_3
+detailedvalue_response_vals	,	V_196
+hf_mux27010_extended_header_start_pos_III	,	V_28
+fragmented	,	V_173
+MUX27010_FRAMETYPE_CONTROL_FLAG_UIH	,	V_53
+MUX27010_EA_ADDRESS_FLAG	,	V_190
+ett_msg_fragment	,	V_223
+"Message fragments"	,	L_152
+fragment_head	,	T_8
+MUX27010_EXTENDED_HEADER_NOT_ENDED	,	V_18
+register_init_routine	,	F_48
+tvb_get_guint8	,	F_2
+"Message Number I"	,	L_22
+hf_mux27010_direction	,	V_35
+msg_start	,	V_166
+"mux27010.checksum"	,	L_149
+MUX27010_VALUE_CONTROLCHANNEL_TEST_IEI_MS	,	V_102
+"Flag Ended III"	,	L_62
+number_of_length_frames	,	V_92
+"mux27010.ext_header.end_byte_I"	,	L_33
+MUX27010_VALUE_CONTROLCHANNEL_MSC_V24_FC	,	V_199
+"Message fragment overlap"	,	L_156
+"Window Size for Error Recovery Mode"	,	L_142
+"End Byte II"	,	L_46
+"mux27010.controlchannel.length.ealength"	,	L_104
+getFrameControlData	,	F_10
+gint8	,	T_7
+hf_mux27010_extended_header	,	V_144
+"Information field"	,	L_144
+"mux27010.control"	,	L_77
+"Checksum: incorrect"	,	L_175
+" (Command)"	,	L_12
+MUX27010_FRAMETYPE_CONTROL_FLAG_REJ	,	V_62
+hf_mux27010_lengthframesize_ea	,	V_72
+pinfo_tmp	,	V_138
+"MUX27010"	,	L_177
+find_dissector	,	F_51
+"End Position III"	,	L_58
+"Correct"	,	L_150
+ENC_BIG_ENDIAN	,	V_7
+proto_reg_handoff_mux27010	,	F_49
+getControlChannelLength	,	F_17
+hf_mux27010_controlchanneldetailedvaluepncl	,	V_122
+"End Position II"	,	L_44
+"mux27010.ext_header.end_pos_I"	,	L_31
+"mux27010.controlchannel.frametype.eatype"	,	L_97
+MUX27010_VALUE_CONTROLCHANNEL_MSC_V24_DCD	,	V_203
+hf_msg_fragment	,	V_211
+msg_end	,	V_167
+"Message fragment overlapping with conflicting data"	,	L_158
+hf_mux27010_controlchannelframetypecommand	,	V_86
+getFrameAddress	,	F_8
+"Start Position II"	,	L_40
+hf_msg_fragment_overlap	,	V_213
+ei_mux27010_checksum_incorrect	,	V_180
+"mux27010.address.craddress"	,	L_75
+"mux27010.direction"	,	L_65
+proto_tree_add_uint_format	,	F_4
+hf_msg_fragment_error	,	V_217
+ett_mux27010_extended_header	,	V_145
+hf_mux27010_extended_header_size	,	V_6
+"RTC"	,	L_119
+col_clear	,	F_25
+"Reassembled length"	,	L_170
+proto_register_subtree_array	,	F_44
+"mux27010.ext_header.end_pos_II"	,	L_45
+controlchannel_type_ea	,	V_77
+hf_mux27010_controlchannelvalue	,	V_104
+"Checksum"	,	L_148
+proto_tree_add_item	,	F_3
+"mux27010.controlchannel.value.detailedvaluemscv24.rtc"	,	L_120
+pinfo	,	V_33
+col_add_fstr	,	F_11
+"Priority"	,	L_134
+direction_vals	,	V_188
+"End Byte III"	,	L_60
+hf_mux27010_controlchannelframetype	,	V_155
+"mux27010.information"	,	L_145
+next_tvb2	,	V_171
+"mux27010.ext_header.msg_number_II"	,	L_37
+"EA Address Flag"	,	L_72
+tmpLastByte	,	V_10
+"mux27010.ext_header.flag_ended_I"	,	L_35
+hf_mux27010_controlchannellengthfield	,	V_96
+hf_mux27010_information	,	V_160
+hf_msg_reassembled_length	,	V_221
+tmpOffsetEnd	,	V_163
+FT_UINT8	,	V_183
+g_strdelimit	,	F_22
+"Start Byte I"	,	L_28
+"Not Last Packet in Frequence"	,	L_1
+proto_item	,	T_6
+expert_register_field_array	,	F_47
+hf_mux27010_extended_header_start_byte_I	,	V_14
+hf_mux27010_extended_header_msg_number_III	,	V_26
+"C/R Flag"	,	L_98
+"mux27010.message_illogical"	,	L_172
+"Data: %i Byte(s)"	,	L_15
+mux27010_tree	,	V_136
+ett_mux27010_controlchannelframetype	,	V_156
+getFrameDirection	,	F_5
+"(%s)"	,	L_9
+MUX27010_FRAMETYPE_CONTROL_FLAG_UIH_E	,	V_55
+ei_register_info	,	T_11
+"mux27010.control.pfcontrol"	,	L_85
+hf_mux27010_extended_header_freq_number_I	,	V_12
+"mux27010.controlchannel.value.detailedvaluepnwinsize"	,	L_143
+FT_NONE	,	V_210
+offset	,	V_3
+MUX27010_EA_CONTROLCHANNEL_FRAMETYPE_FLAG	,	V_78
+expert_module_t	,	T_12
+tree	,	V_130
+"mux27010.control.frametype"	,	L_79
+dissect_mux27010	,	F_24
+tmpOffset	,	V_8
+MUX27010_COMMAND_POWER_SAVING_CONTROL	,	V_107
+tmpStartByte	,	V_9
+"FC"	,	L_117
+"RING"	,	L_123
+hf_mux27010_controlchannel_iei_coding	,	V_103
+proto_tree_add_uint	,	F_6
+MUX27010_COMMAND_NON_SUPPORTED_COMMAND_RESPONSE	,	V_110
+MUX27010_FRAMETYPE_CONTROL_FLAG_DM	,	V_51
+MUX27010_FRAMETYPE_CONTROL_FLAG_RNR	,	V_61
+field_tree_ctr	,	V_74
+proto_tree_add_expert	,	F_29
+PI_CHECKSUM	,	V_229
+"mux27010.controlchannel.value.iei_coding"	,	L_109
+"mux27010.ext_header.start_pos_II"	,	L_41
+length_info	,	V_66
+"mux27010.ext_header.end_byte_II"	,	L_47
+MUX27010_VALUE_CONTROLCHANNEL_PN_CL	,	V_206
+hf_mux27010_controlchanneldetailedvaluepnwinsize	,	V_127
+hf_msg_fragment_too_long_fragment	,	V_216
+"\r\n"	,	L_14
+"mux27010.length"	,	L_87
+"mux27010.ext_header"	,	L_19
+"Message fragment count"	,	L_166
+hf_mux27010_extended_header_end_byte_I	,	V_16
+MUX27010_CR_ADDRESS_FLAG	,	V_191
+MUX27010_EA_LENGTH_FLAG	,	V_68
+MUX27010_COMMAND_CONTROLCHANNEL_FRAMETYPE_FLAG	,	V_83
+ppp_handle	,	V_176
+"Break Signal"	,	L_127
+MUX27010_CR_CONTROLCHANNEL_FRAMETYPE_FLAG	,	V_81
+tmpOffsetBegin	,	V_162
+FT_FRAMENUM	,	V_212
+getControlChannelFrameType	,	F_15
+command	,	V_82
+"mux27010.controlchannel"	,	L_94
+"mux27010.controlchannel.value.detailedvaluepnprio"	,	L_135
+frame_type_vals	,	V_64
+proto_item_set_len	,	F_27
+msg_seqid	,	V_164
+"Header Size"	,	L_20
+controlchannel	,	V_88
+getControlChannelValues	,	F_18
+proto_tree	,	T_2

@@ -1,0 +1,70 @@
+"Whether the ULP dissector should reassemble messages spanning multiple TCP segments."	,	L_4
+PFNAME	,	V_16
+data	,	V_5
+dissect_ulp_tcp	,	F_3
+proto_register_protocol	,	F_7
+tvbuff_t	,	T_4
+tvb_get_ntohs	,	F_2
+prefs_register_protocol	,	F_12
+dissect_ULP_PDU_PDU	,	V_8
+"application/oma-supl-ulp"	,	L_13
+prefs_register_uint_preference	,	F_14
+gboolean	,	T_9
+tcp_dissect_pdus	,	F_4
+gint	,	T_7
+module_t	,	T_8
+ulp_module	,	V_12
+proto_register_field_array	,	F_9
+tvb	,	V_2
+guint	,	T_1
+offset	,	V_3
+ett	,	V_10
+dissector_add_uint	,	F_19
+proto_ulp	,	V_13
+tree	,	V_4
+packet_info	,	T_2
+"ULP UDP Port"	,	L_10
+PSNAME	,	V_15
+proto_register_subtree_array	,	F_11
+lpp_handle	,	V_26
+array_length	,	F_10
+proto_register_ulp	,	F_6
+"ULP TCP Port"	,	L_7
+dissector_delete_uint	,	F_18
+"ulp"	,	L_1
+"Reassemble ULP messages spanning multiple TCP segments"	,	L_3
+gbl_ulp_tcp_port	,	V_18
+pinfo	,	T_3
+dissector_handle_t	,	T_10
+"Set the UDP port for ULP messages (IANA registered port is 7275)"	,	L_11
+_U_	,	V_1
+ett_ulp	,	V_11
+"lpp"	,	L_15
+"desegment_ulp_messages"	,	L_2
+new_register_dissector	,	F_8
+PNAME	,	V_14
+ulp_udp_handle	,	V_22
+local_ulp_udp_port	,	V_24
+ulp_desegment	,	V_6
+hf_register_info	,	T_6
+"media_type"	,	L_12
+initialized	,	V_20
+prefs_register_bool_preference	,	F_13
+new_create_dissector_handle	,	F_17
+ulp_tcp_handle	,	V_21
+rrlp_handle	,	V_25
+tvb_length	,	F_5
+"udp.port"	,	L_9
+find_dissector	,	F_15
+gbl_ulp_udp_port	,	V_19
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_5
+dissector_add_string	,	F_16
+ULP_HEADER_SIZE	,	V_7
+proto_reg_handoff_ulp	,	V_17
+local_ulp_tcp_port	,	V_23
+get_ulp_pdu_len	,	F_1
+"tcp.port"	,	L_6
+"Set the TCP port for ULP messages (IANA registered port is 7275)"	,	L_8
+"rrlp"	,	L_14
+proto_tree	,	T_5
+hf	,	V_9

@@ -1,0 +1,221 @@
+evil_origins	,	V_85
+reason	,	V_70
+dissect_aim_userinfo	,	F_13
+"max receiver warn level"	,	L_17
+proto_register_protocol	,	F_39
+aim_get_buddyname	,	F_8
+text_length	,	V_51
+hf_aim_icbm_client_err_reason	,	V_71
+client_err_reason_types	,	V_88
+dissect_aim_msg_ack	,	F_33
+"Rendezvous NAK reason"	,	L_37
+tvb_new_subset_remaining	,	F_32
+"Version"	,	L_45
+"Extended Data"	,	L_8
+hf_aim_icbm_max_sender_warnlevel	,	V_29
+"Client Capabilities Flags"	,	L_47
+gint	,	T_13
+"aim_messaging.icbm.channel"	,	L_10
+"aim_messaging.clienterr.protocol_version"	,	L_46
+ICBM_CHANNEL_IM	,	V_22
+msg_tree	,	V_13
+TFS	,	F_38
+tvb	,	V_3
+aim_messaging_incoming_ch2_tlvs	,	V_25
+COL_INFO	,	V_21
+CLIENT_ERR__REASON_CHANNEL_SPECIFIC	,	V_72
+proto_reg_handoff_aim_messaging	,	F_43
+FT_BOOLEAN	,	V_91
+"Auto Message"	,	L_53
+"Max SNAC Size"	,	L_13
+hf_aim_rendezvous_extended_data_message_status_code	,	V_59
+"Rendezvous NAK reason length"	,	L_39
+"Old warning level"	,	L_27
+"Message Flags"	,	L_11
+cinfo	,	V_20
+aim_init_family	,	F_44
+aim_fnac_family_messaging	,	V_100
+tfs_set_notset	,	V_92
+plugin_uuid	,	V_64
+array_length	,	F_41
+dissect_aim_msg_outgoing	,	F_6
+rendezvous_nak_reason_types	,	V_86
+ICBM_CHANNEL_RENDEZVOUS	,	V_24
+Data2	,	V_45
+"aim_messaging.clienterr.reason"	,	L_44
+Data3	,	V_46
+Data4	,	V_47
+Data1	,	V_44
+hf_aim_rendezvous_extended_data_message_flags_auto	,	V_57
+"aim_messaging.icbm.extended_data.message.status_code"	,	L_58
+" to: %s"	,	L_1
+hf_aim_evil_warn_level	,	V_33
+"Reason"	,	L_43
+"Notification Cookie"	,	L_31
+flags_entry	,	V_50
+proto_tree_add_boolean	,	F_26
+hf_register_info	,	T_12
+hf_aim_icbm_channel	,	V_26
+dissect_aim_msg_evil_req	,	F_15
+aim_find_plugin	,	F_18
+"aim_messaging.icbm.extended_data.message.text_length"	,	L_62
+dissect_aim_plugin	,	F_19
+ti_flags	,	V_49
+guint16	,	T_2
+"aim_messaging.icbm.extended_data.message.flags"	,	L_50
+i	,	V_39
+extended_data_message_types	,	V_90
+guint8	,	T_11
+plugin	,	V_42
+ti	,	V_1
+BASE_NONE	,	V_84
+start_offset	,	V_63
+tvb_length_remaining	,	F_35
+rendezvous_msg_types	,	V_87
+"aim_messaging.rendezvous_nak_length"	,	L_40
+tvb_get_ntohl	,	F_20
+format_text	,	F_10
+tvbuff_t	,	T_4
+dissect_aim_tlv_value_extended_data	,	F_31
+tvb_get_ntohs	,	F_7
+tvb_memcpy	,	F_21
+BASE_HEX	,	V_78
+ti_extended_data	,	V_75
+dissect_aim_msg_params	,	F_14
+hf_aim_rendezvous_extended_data_message_type	,	V_53
+proto_item_add_subtree	,	F_2
+"Plugin: %s {%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x}"	,	L_2
+"Multiple Recipients Message"	,	L_55
+proto_register_field_array	,	F_40
+ett_aim_extended_data	,	V_65
+FT_BYTES	,	V_83
+hf_aim_message_channel_id	,	V_19
+hf_aim_rendezvous_extended_data_message_priority_code	,	V_60
+"aim_messaging.evil.warn_level"	,	L_28
+hf_aim_icbm_rendezvous_nak	,	V_74
+"aim_messaging.icbm.extended_data.message.flags.normal"	,	L_52
+hf_aim_icbm_notification_cookie	,	V_35
+FAMILY_MESSAGING	,	V_99
+"aim_messaging.rendezvous.msg_type"	,	L_42
+message_flags	,	V_48
+FT_UINT16	,	V_77
+EXTENDED_DATA_MFLAG_NORMAL	,	V_93
+tvb_get_guint8	,	F_24
+name	,	V_41
+hf_aim_icbm_min_msg_interval	,	V_31
+hf_aim_icbm_max_receiver_warnlevel	,	V_30
+dissect_aim_rendezvous_extended_message	,	F_23
+"aim_messaging.icbm.min_msg_interval"	,	L_20
+"Message Type"	,	L_41
+dissect_aim_msg_client_err	,	F_34
+"AIM Messaging"	,	L_63
+"aim_messaging.notification.cookie"	,	L_32
+buddyname_length	,	V_18
+dissect_aim_buddyname	,	F_11
+length	,	V_62
+"aim_messaging.icbmcookie"	,	L_22
+ett_aim_rendezvous_data	,	V_7
+ENC_BIG_ENDIAN	,	V_9
+"Notification Type"	,	L_35
+FT_UINT32	,	V_81
+MAX_BUDDYNAME_LENGTH	,	V_17
+hf_aim_icbm_msg_flags	,	V_27
+"Plugin-specific data"	,	L_7
+hf	,	V_76
+"Status Code"	,	L_57
+"aim_messaging.rendezvous_nak"	,	L_38
+channel	,	V_69
+ett_aim_extended_data_message_flags	,	V_55
+"Priority Code"	,	L_59
+dissect_aim_capability	,	F_4
+"New warning level"	,	L_29
+col_append_fstr	,	F_9
+aim_messaging_incoming_ch1_tlvs	,	V_23
+hf_aim_rendezvous_extended_data_message_flags_multi	,	V_58
+"Length: %d"	,	L_5
+hf_aim_icbm_cookie	,	V_10
+hf_aim_icbm_max_snac_size	,	V_28
+text	,	V_52
+proto_register_aim_messaging	,	F_36
+guchar	,	T_8
+hf_aim_rendezvous_msg_type	,	V_8
+hf_aim_icbm_rendezvous_nak_length	,	V_73
+hf_aim_rendezvous_extended_data_message_text_length	,	V_61
+"aim_messaging.clienterr.client_caps_flags"	,	L_48
+"aim_messaging.icbm.max_snac"	,	L_14
+"aim_messaging.evilreq.origin"	,	L_26
+"Send Evil Bit As"	,	L_25
+"aim_messaging.evil.new_warn_level"	,	L_30
+"aim_messaging.icbm.flags"	,	L_12
+proto_register_subtree_array	,	F_42
+subtvb	,	V_68
+channel_id	,	V_15
+is_uuid_null	,	F_30
+"aim_messaging.icbm.extended_data.message.flags.auto"	,	L_54
+EXTENDED_DATA_MFLAG_AUTO	,	V_94
+"aim_messaging.icbm.rendezvous.extended_data.message.flags.multi"	,	L_56
+proto_tree_add_item	,	F_3
+pinfo	,	V_4
+dissect_aim_msg_incoming	,	F_12
+_U_	,	V_2
+dissect_aim_msg_evil_repl	,	F_16
+"Normal Message"	,	L_51
+ett_aim_messaging	,	V_97
+icbm_channel_types	,	V_79
+"Text Length"	,	L_61
+VALS	,	F_37
+hf_aim_icbm_notification_channel	,	V_36
+"Minimum message interval (milliseconds)"	,	L_19
+dissect_aim_tlv_value_rendezvous	,	F_1
+hf_aim_icbm_evil	,	V_32
+tvb_get_ephemeral_string	,	F_28
+tvb_length	,	F_29
+FT_UINT8	,	V_89
+proto_tree_add_text	,	F_22
+BASE_DEC	,	V_82
+proto_item	,	T_1
+ENC_NA	,	V_11
+proto_aim_messaging	,	V_98
+"Message Channel ID"	,	L_23
+valueid	,	T_3
+hf_aim_rendezvous_extended_data_message_flags_normal	,	V_56
+e_uuid_t	,	T_10
+"aim_messaging.icbm.extended_data.message.priority_code"	,	L_60
+"ICBM Cookie"	,	L_21
+"Notification Channel"	,	L_33
+uuid	,	V_38
+aim_tlv	,	T_7
+"Channel"	,	L_9
+EXTENDED_DATA_MFLAG_MULTI	,	V_95
+aim_rendezvous_tlvs	,	V_12
+"Downcounter?"	,	L_6
+out_plugin_uuid	,	V_43
+"aim_messaging.icbm.max_receiver_warnlevel"	,	L_18
+tvb_get_letohs	,	F_27
+offset	,	V_5
+ett	,	V_96
+hf_aim_evil_new_warn_level	,	V_34
+"Max sender warn level"	,	L_15
+packet_info	,	T_5
+"aim_messaging.icbm.extended_data.message.type"	,	L_49
+entry	,	V_6
+hf_aim_icbm_notification_type	,	V_37
+"aim_messaging.notification.channel"	,	L_34
+aim_ch_tlvs	,	V_14
+known_client_plugins	,	V_40
+proto_tree_add_uint	,	F_25
+"aim_messaging.notification.type"	,	L_36
+dissect_aim_tlv_sequence	,	F_5
+"aim_messaging"	,	L_64
+hf_aim_icbm_client_err_client_caps_flags	,	V_67
+"Text: %s"	,	L_4
+"aim_messaging.icbm.max_sender_warn-level"	,	L_16
+"aim_messaging.channelid"	,	L_24
+aim_client_plugin	,	T_9
+HFILL	,	V_80
+buddyname	,	V_16
+hf_aim_icbm_client_err_protocol_version	,	V_66
+dissect_aim_msg_minityping	,	F_17
+hf_aim_rendezvous_extended_data_message_flags	,	V_54
+"Unknown"	,	L_3
+proto_tree	,	T_6

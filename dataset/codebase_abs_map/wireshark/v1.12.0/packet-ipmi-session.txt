@@ -1,0 +1,135 @@
+proto_register_protocol	,	F_19
+"ipmi_session.payloadtype.auth"	,	L_17
+"rmcp.class"	,	L_37
+col_append_fstr	,	F_7
+col_set_str	,	F_5
+hf_ipmi_session_payloadtype_auth	,	V_30
+gint	,	T_10
+hf_ipmi_session_oem_iana	,	V_32
+TFS	,	F_18
+tvb	,	V_1
+"OEM IANA"	,	L_20
+sess_tree	,	V_5
+guint32	,	T_6
+COL_INFO	,	V_22
+"IPMI v%s Session Wrapper, session ID 0x%x"	,	L_6
+FT_BOOLEAN	,	V_49
+hf_ipmi_session_trailer	,	V_43
+IPMI_AUTH_NONE	,	V_19
+"ipmi_session.payloadtype"	,	L_15
+"2.0+"	,	L_7
+cinfo	,	V_20
+proto_register_subtree_array	,	F_22
+array_length	,	F_21
+ipmi_handle	,	V_42
+"RMCP+"	,	L_1
+next_tvb	,	V_8
+"IPMI Session"	,	L_35
+""	,	L_10
+proto_reg_handoff_ipmi_session	,	F_23
+"ipmi_session.authtype"	,	L_13
+proto_tree_add_item	,	F_11
+s_tree	,	V_6
+call_dissector	,	F_14
+pinfo	,	V_2
+col_add_fstr	,	F_6
+dissector_handle_t	,	T_11
+RMCP_CLASS_IPMI	,	V_59
+_U_	,	V_4
+msg_len	,	V_13
+ipmi_payload_aut_val	,	V_50
+"Payload type: %s (0x%02x), %sencrypted, %sauthenticated"	,	L_9
+"Session ID 0x%x"	,	L_3
+hf_ipmi_session_authtype	,	V_26
+"Intelligent Platform Management Interface (Session Wrapper)"	,	L_34
+ipmi_payload_vals	,	V_23
+hf_register_info	,	T_9
+IPMI_AUTH_RMCPP	,	V_17
+VALS	,	F_17
+proto_ipmi_session	,	V_24
+COL_PROTOCOL	,	V_21
+"data"	,	L_38
+FT_UINT8	,	V_45
+session_id	,	V_9
+proto_tree_add_text	,	F_12
+BASE_DEC	,	V_55
+tvb_new_subset	,	F_13
+proto_item	,	T_5
+ENC_NA	,	V_33
+"Encryption"	,	L_18
+guint8	,	T_7
+hf_ipmi_session_id	,	V_35
+"not "	,	L_11
+ti	,	V_7
+BASE_NONE	,	V_53
+hf_ipmi_session_msg_len_2b	,	V_37
+"Authentication Code"	,	L_28
+"1.5"	,	L_8
+ENC_LITTLE_ENDIAN	,	V_27
+hf_ipmi_session_sequence	,	V_36
+ipmi_payload_enc_val	,	V_51
+payloadtype	,	V_11
+proto_register_ipmi_session	,	F_16
+data	,	T_4
+IPMI_IPMI_MESSAGE	,	V_41
+IPMI_OEM_EXPLICIT	,	V_18
+"Authenticated"	,	L_16
+tvbuff_t	,	T_1
+"Authentication Type"	,	L_12
+ipmi_session_handle	,	V_58
+proto_tree_add_protocol_format	,	F_9
+ett_ipmi_session	,	V_25
+authtype	,	V_10
+dissect_ipmi_session	,	F_1
+BASE_HEX	,	V_46
+"Message Length"	,	L_30
+gboolean	,	T_8
+hf_ipmi_session_msg_len_1b	,	V_39
+tvb_get_letohl	,	F_3
+proto_item_add_subtree	,	F_10
+hf_ipmi_session_payloadtype	,	V_31
+proto_register_field_array	,	F_20
+"ipmi"	,	L_39
+tvb_get_letohs	,	F_4
+FT_BYTES	,	V_52
+ipmi_authtype_vals	,	V_47
+offset	,	V_14
+ett	,	V_57
+dissector_add_uint	,	F_25
+tree	,	V_3
+"ipmi_session"	,	L_36
+data_handle	,	V_40
+FT_UINT16	,	V_56
+packet_info	,	T_2
+hf_ipmi_session_oem_payload_id	,	V_34
+hf_ipmi_session_payloadtype_enc	,	V_29
+tvb_get_guint8	,	F_2
+"IPMI"	,	L_2
+tvb_captured_length	,	F_15
+payloadtype_enc	,	V_16
+hf_ipmi_session_authcode	,	V_38
+msg_start	,	V_12
+"ipmi_session.trailer"	,	L_33
+"ipmi_session.sequence"	,	L_25
+"ipmi_session.payloadtype.enc"	,	L_19
+"Session ID"	,	L_26
+"IPMI Session Wrapper (trailer)"	,	L_32
+"ipmi_session.msg.len"	,	L_31
+"ipmi_session.oem.payloadid"	,	L_23
+HFILL	,	V_48
+"Session Sequence Number"	,	L_24
+"Payload Type"	,	L_14
+"ipmi_session.authcode"	,	L_29
+new_create_dissector_handle	,	F_24
+payloadtype_auth	,	V_15
+val_to_str_const	,	F_8
+"ipmi_session.id"	,	L_27
+find_dissector	,	F_26
+", payload type: %s"	,	L_4
+"OEM Payload ID"	,	L_22
+FT_UINT32	,	V_54
+"Unknown"	,	L_5
+ett_ipmi_session_payloadtype	,	V_28
+proto_tree	,	T_3
+hf	,	V_44
+"ipmi_session.oem.iana"	,	L_21

@@ -1,0 +1,205 @@
+blocksize	,	V_22
+TFTP_RRQ	,	V_38
+"tftp"	,	L_43
+tvb_get_string	,	F_19
+proto_register_protocol	,	F_38
+", Message: %s"	,	L_14
+proto_tftp	,	V_31
+gint	,	T_7
+tvb	,	V_1
+hf_tftp_transfer_type	,	V_39
+COL_INFO	,	V_20
+"blksize"	,	L_3
+value_len	,	V_8
+"(default "	,	L_47
+tvb_reported_length_remaining	,	F_22
+cinfo	,	V_19
+"TFTP source file name"	,	L_21
+array_length	,	F_40
+", %s=%s"	,	L_2
+"udp_ports"	,	L_44
+""	,	L_10
+FT_STRINGZ	,	V_73
+call_dissector	,	F_24
+tftp_info	,	V_6
+ENC_ASCII	,	V_16
+proto_reg_handoff_tftp	,	V_84
+"Unknown (%u)"	,	L_13
+"TFTP"	,	L_4
+global_tftp_port_range	,	V_53
+hf_register_info	,	T_12
+tftp_error_code_vals	,	V_49
+guint16	,	T_4
+hf_tftp_source_file	,	V_34
+COL_PROTOCOL	,	V_29
+TFTP_ERROR	,	V_47
+key_ptr	,	V_67
+g_free	,	F_51
+value_offset	,	V_9
+value_is_in_range	,	F_31
+ti	,	V_25
+BASE_NONE	,	V_74
+register_dissector	,	F_44
+tvbuff_t	,	T_1
+tvb_strsize	,	F_3
+opcode	,	V_5
+tvb_get_ntohs	,	F_13
+"tftp.type"	,	L_25
+conversation_set_dissector	,	F_34
+hf_tftp_error_string	,	V_50
+col_add_str	,	F_14
+PROTO_ITEM_SET_GENERATED	,	F_17
+gboolean	,	T_9
+"Error message"	,	L_33
+proto_item_add_subtree	,	F_6
+module_t	,	T_14
+proto_register_field_array	,	F_39
+conversation	,	V_52
+tftp_conv_info_t	,	T_5
+ei	,	V_76
+hf_tftp_blocknum	,	V_43
+hf_tftp_opcode	,	V_37
+data_tvb	,	V_44
+"Option value"	,	L_38
+TFTP_INFO	,	V_41
+data_handle	,	V_45
+FT_UINT16	,	V_70
+"Block"	,	L_27
+option_len	,	V_7
+prefs_register_range_preference	,	F_47
+PI_RESPONSE_CODE	,	V_77
+")"	,	L_48
+fd	,	V_55
+expert_add_info	,	F_10
+tftp_port_range	,	V_85
+heur_dissector_add	,	F_49
+conversation_new	,	F_33
+destination_file	,	V_35
+UDP_PORT_TFTP_RANGE	,	V_82
+conversation_add_proto_data	,	F_29
+i1	,	V_28
+find_dissector	,	F_48
+"TFTP port numbers"	,	L_45
+PI_WARN	,	V_78
+"TFTP blocksize out of range"	,	L_41
+find_or_create_conversation	,	F_26
+"Error string in case of TFTP error message"	,	L_35
+hf	,	V_69
+dissector_add_uint_range	,	F_50
+range_copy	,	F_52
+MAX_UDP_PORT	,	V_83
+prefs_register_protocol	,	F_46
+"TFTP transfer type"	,	L_26
+tftp_opcode_vals	,	V_30
+col_append_fstr	,	F_8
+opt_tree	,	V_13
+col_set_str	,	F_12
+options	,	V_66
+"tftp.blocksize_range"	,	L_40
+dissect_tftp_message	,	F_11
+"Unknown (0x%04x)"	,	L_5
+"Block number"	,	L_29
+dissect_tftp	,	F_30
+"Option: %s = %s"	,	L_1
+proto_register_subtree_array	,	F_41
+val_to_str	,	F_15
+proto_tree_add_string	,	F_16
+expert_tftp	,	V_81
+proto_tree_add_item	,	F_7
+"Data (%d bytes)"	,	L_15
+ett_tftp	,	V_32
+TFTP_WRQ	,	V_40
+pinfo	,	V_2
+_U_	,	V_51
+"stun"	,	L_50
+tftp_initialized	,	V_86
+tftp_tree	,	V_24
+" (last)"	,	L_9
+VALS	,	F_37
+"DESTINATION File"	,	L_22
+g_ascii_strcasecmp	,	F_9
+find_conversation	,	F_32
+", Block: %i%s"	,	L_8
+"data"	,	L_49
+proto_tree_add_text	,	F_5
+BASE_DEC	,	V_71
+optionname	,	V_10
+tvb_new_subset	,	F_23
+"tftp.destination_file"	,	L_23
+proto_item	,	T_6
+expert_register_field_array	,	F_43
+ENC_NA	,	V_17
+tftp_module	,	V_80
+"TFTP message type"	,	L_18
+tvb_format_text	,	F_4
+"tftp.opcode"	,	L_17
+tvb_offset_exists	,	F_2
+", File: %s"	,	L_6
+NO_PORT2	,	V_64
+data	,	T_10
+dissect_embeddedtftp_heur	,	F_25
+num	,	V_56
+NO_PORT_B	,	V_61
+"Trivial File Transfer Protocol"	,	L_42
+tftp_dissect_options	,	F_1
+hf_tftp_destination_file	,	V_36
+port1	,	V_68
+"Port numbers used for TFTP traffic "	,	L_46
+"tftp.block"	,	L_28
+ei_register_info	,	T_13
+expert_register_protocol	,	F_42
+"tftp.error.code"	,	L_31
+TFTP_OACK	,	V_21
+conversation_t	,	T_11
+hf_tftp_option_name	,	V_15
+"tftp.error.message"	,	L_34
+guint	,	T_8
+offset	,	V_3
+ett	,	V_75
+opt_item	,	V_12
+hf_tftp_error_code	,	V_48
+expert_module_t	,	T_15
+tree	,	V_4
+"Opcode"	,	L_16
+PT_UDP	,	V_59
+proto_register_tftp	,	F_36
+TFTP_DATA	,	V_42
+packet_info	,	T_2
+range_t	,	T_16
+blocknum	,	V_27
+destport	,	V_54
+proto_tree_add_uint	,	F_18
+"Source File"	,	L_19
+EXPFILL	,	V_79
+optionvalue	,	V_11
+dst	,	V_58
+tftp_handle	,	V_63
+conversation_get_proto_data	,	F_27
+"Option name"	,	L_36
+ptype	,	V_65
+ett_tftp_option	,	V_14
+source_file	,	V_33
+ei_tftp_blocksize_range	,	V_23
+range_convert_str	,	F_45
+TFTP_ACK	,	V_46
+"tftp.option.value"	,	L_39
+wmem_file_scope	,	F_20
+HFILL	,	V_72
+conversation_set_port2	,	F_35
+hf_tftp_option_value	,	V_18
+", Code: %s"	,	L_12
+src	,	V_57
+", Transfer type: %s"	,	L_7
+wmem_new	,	F_28
+"udp.port"	,	L_51
+"tftp.source_file"	,	L_20
+"Error code"	,	L_30
+"Error code in case of TFTP error message"	,	L_32
+"tftp.option.name"	,	L_37
+tvb_format_stringzpad	,	F_21
+bytes	,	V_26
+", Block: %i"	,	L_11
+srcport	,	V_60
+dissector_handle	,	V_62
+"Type"	,	L_24
+proto_tree	,	T_3

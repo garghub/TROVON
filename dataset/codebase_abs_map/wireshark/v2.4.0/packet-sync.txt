@@ -1,0 +1,142 @@
+hf_sync_total_nr_of_packet	,	V_34
+"sync.spare"	,	L_9
+"Relative time value for the starting time of a synchronisation sequence within the synchronisation period."	,	L_12
+"Number of elapsed SYNC PDUs cumulatively within the synchronisation sequence."	,	L_15
+type_item	,	V_7
+proto_register_protocol	,	F_20
+tvb_reported_length	,	F_14
+"Payload CRC"	,	L_27
+" [Calculated CRC 0x%x]"	,	L_3
+tvb_new_subset_remaining	,	F_10
+FT_UINT64	,	V_54
+col_set_str	,	F_3
+gint	,	V_40
+"Header CRC"	,	L_25
+ei_sync_type	,	V_43
+TYPE_0_LEN	,	V_21
+tvb	,	V_1
+item	,	V_6
+guint32	,	T_8
+find_dissector_add_dependency	,	F_28
+COL_INFO	,	V_19
+"sync.timestamp"	,	L_11
+proto_item_append_text	,	F_8
+"sync.type"	,	L_7
+sync_handle	,	V_65
+tvb_get_bits16	,	F_15
+cinfo	,	V_17
+proto_register_subtree_array	,	F_23
+array_length	,	F_22
+hf_sync	,	V_44
+"Cumulatively the number of the packets for the MBMS service within one synchronisation period."	,	L_21
+"MBMS synchronisation protocol"	,	L_2
+tvb_get_ntoh24	,	F_13
+"sync.elapsed_octet_ctr"	,	L_17
+next_tvb	,	V_16
+hf_sync_header_crc	,	V_36
+sync_type_vals	,	V_47
+""	,	L_4
+total_nr_of_packet	,	V_14
+proto_tree_add_item	,	F_5
+call_dissector	,	F_11
+pinfo	,	V_2
+ip_handle	,	V_38
+_U_	,	V_4
+"Length of Packet %u : %hu"	,	L_5
+"Total Number of Packet"	,	L_19
+hf_sync_packet_nr	,	V_32
+dissector_add_for_decode_as_with_preference	,	F_29
+hf_register_info	,	T_9
+hf_sync_type	,	V_28
+hf_sync_length_of_packet	,	V_42
+VALS	,	F_19
+"sync.packet_nr"	,	L_14
+"sync.pdu_type2"	,	L_31
+hf_sync_total_nr_of_octet	,	V_35
+spare	,	V_9
+timestamp	,	V_13
+PI_PROTOCOL	,	V_63
+"Unknown SYNC PDU type"	,	L_34
+guint16	,	T_7
+COL_PROTOCOL	,	V_18
+ei_sync_pdu_type2	,	V_39
+"Spare"	,	L_8
+"Total Number of Octet"	,	L_22
+FT_UINT8	,	V_45
+"ip"	,	L_36
+i	,	V_41
+BASE_DEC	,	V_46
+"sync.payload_crc"	,	L_28
+proto_item	,	T_5
+expert_register_field_array	,	F_25
+ENC_NA	,	V_22
+crc6_compute_tvb	,	F_9
+guint8	,	T_6
+ti	,	V_5
+BASE_NONE	,	V_57
+"sync.length_of_packet"	,	L_30
+dissect_sync	,	F_1
+ett_sync	,	V_27
+proto_register_sync	,	F_18
+TYPE_2_LEN	,	V_24
+packet_nr	,	V_10
+"Packet Number"	,	L_13
+register_dissector	,	F_26
+"Timestamp"	,	L_10
+data	,	T_4
+tvbuff_t	,	T_1
+ett_sync_array	,	V_58
+"sync.total_nr_of_packet"	,	L_20
+tvb_get_ntohs	,	F_4
+hf_sync_spare4	,	V_30
+BASE_HEX	,	V_55
+FT_UINT24	,	V_53
+ei_register_info	,	T_10
+"SYNC PDU type 2 unsupported"	,	L_32
+"sync"	,	L_35
+expert_register_protocol	,	F_24
+proto_item_add_subtree	,	F_6
+PI_UNDECODED	,	V_60
+proto_register_field_array	,	F_21
+offset	,	V_15
+ei	,	V_59
+expert_module_t	,	T_11
+tree	,	V_3
+"Elapsed Octet Counter"	,	L_16
+FT_UINT16	,	V_49
+packet_info	,	T_2
+tvb_get_guint8	,	F_2
+"sync.header_crc"	,	L_26
+proto_tree_add_string_format	,	F_16
+tvb_captured_length	,	F_17
+sync_tree	,	V_8
+packet_len1	,	V_11
+proto_reg_handoff_sync	,	F_27
+BASE_UNIT_STRING	,	V_50
+"Number of elapsed cumulative octets cumulatively within one synchronisation sequence."	,	L_18
+packet_len2	,	V_12
+proto_tree_add_uint	,	F_7
+hf_sync_timestamp	,	V_31
+hf_sync_elapsed_octet_ctr	,	V_33
+EXPFILL	,	V_62
+TYPE_3_LEN	,	V_25
+"SYNC"	,	L_1
+expert_add_info	,	F_12
+expert_sync	,	V_64
+FT_STRING	,	V_56
+HFILL	,	V_48
+units_milliseconds	,	V_51
+hf_sync_payload_crc	,	V_37
+"udp.port"	,	L_37
+TYPE_1_LEN	,	V_23
+PI_WARN	,	V_61
+"sync.total_nr_of_octet"	,	L_23
+"Cumulatively the number of the octets for the MBMS service within one synchronisation period."	,	L_24
+ENC_BIG_ENDIAN	,	V_29
+gint16	,	V_26
+FT_UINT32	,	V_52
+"sync.type.unknown"	,	L_33
+"Length of Packet"	,	L_29
+proto_sync	,	V_20
+proto_tree	,	T_3
+"PDU Type"	,	L_6

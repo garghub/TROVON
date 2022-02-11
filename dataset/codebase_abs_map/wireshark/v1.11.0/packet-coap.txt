@@ -1,0 +1,340 @@
+"Constrained Application Protocol"	,	L_115
+"option longer than the package"	,	L_18
+"Port number used for CoAP traffic"	,	L_119
+opt_delta_ext_len	,	V_55
+tvb_get_string	,	F_17
+proto_register_protocol	,	F_46
+tvb_reported_length	,	F_37
+"Version"	,	L_43
+"coap.opt.block_size"	,	L_104
+len	,	V_2
+gint	,	T_3
+"Content-type"	,	L_74
+dissect_coap_opt_uri_port	,	F_30
+opt_delta_ext	,	V_51
+": %d"	,	L_4
+"Invalid Option Range"	,	L_112
+tvb	,	V_4
+hf_coap_opt_unknown	,	V_91
+COL_INFO	,	V_115
+"Critical"	,	L_23
+ett_coap_payload	,	V_124
+"Unsafe"	,	L_25
+opt_length_ext_len	,	V_53
+str	,	V_1
+coap_block_number	,	V_37
+"Token"	,	L_49
+g_strlcat	,	F_20
+coap_length	,	V_47
+coap_ctype_str	,	V_32
+"coap.invalid_option_range"	,	L_111
+cinfo	,	V_113
+"coap.opt.payload_desc"	,	L_58
+"coap.invalid_option_number"	,	L_109
+array_length	,	F_8
+"Token Length"	,	L_47
+"Block Number"	,	L_99
+vals_code	,	V_109
+"coap.opt.desc"	,	L_62
+hf_coap_opt_block_mflag	,	V_40
+""	,	L_28
+COAP_OPT_BLOCK_SIZE	,	V_90
+payload_tree	,	V_117
+hf_coap_opt_ctype	,	V_69
+"CoAP port number"	,	L_118
+vals_ttype	,	V_108
+mid	,	V_99
+hf_coap_opt_accept	,	V_83
+", TKN:%s"	,	L_36
+"Unkown %d"	,	L_30
+hf_coap_opt_etag	,	V_74
+"Invalid Option Number %d"	,	L_1
+"coap.opt.block_number"	,	L_100
+min	,	V_15
+"Uri-Query"	,	L_105
+hf_register_info	,	T_10
+"Uri-Path"	,	L_91
+COAP_OPT_URI_HOST	,	V_75
+", MID:%u"	,	L_34
+COAP_OPT_URI_QUERY	,	V_86
+dissect_coap	,	F_36
+", %s"	,	L_35
+coap_handle	,	V_145
+COAP_OPT_BLOCK2	,	V_87
+guint16	,	T_9
+COAP_OPT_BLOCK1	,	V_88
+COL_PROTOCOL	,	V_114
+"coap.opt.uri_query"	,	L_106
+" (no Content-Format)"	,	L_41
+i	,	V_12
+": %s"	,	L_3
+hf_coap_opt_location_path	,	V_28
+"coap.token"	,	L_50
+"Opt Length extended"	,	L_70
+ett_coap	,	V_102
+"end-of-options marker found, but option delta isn't 15"	,	L_17
+guint8	,	T_1
+proto_register_coap	,	F_44
+dissect_coap_options_main	,	F_32
+BASE_NONE	,	V_131
+"Max-age"	,	L_76
+strbuf	,	V_57
+coap_is_str_ipv6addr	,	F_1
+opt_num	,	V_10
+hf_coap_opt_block_size	,	V_41
+orig_offset	,	V_56
+register_dissector	,	F_51
+opt_jump	,	V_48
+proto_reg_handoff_coap	,	V_142
+hf_coap_opt_uri_host	,	V_23
+tvb_get_ntohl	,	F_6
+hf_coap_token	,	V_112
+opt_length_ext_off	,	V_52
+"coap.opt.ctype"	,	L_75
+tvbuff_t	,	T_4
+"text/plain"	,	L_42
+hf_coap_opt_uri_query	,	V_27
+tvb_get_ntohs	,	F_4
+parent_tree	,	V_94
+hf_coap_opt_length_ext	,	V_67
+hf_coap_mid	,	V_107
+"coap.opt.max_age"	,	L_77
+gboolean	,	T_14
+proto_item_add_subtree	,	F_34
+module_t	,	T_12
+"coap.mid"	,	L_54
+proto_register_field_array	,	F_47
+"Unknown Type %d"	,	L_11
+FT_BYTES	,	V_130
+hf_coap_opt_name	,	V_60
+ei	,	V_136
+"Option length bad"	,	L_114
+"coap.opt.delta"	,	L_64
+dissector_add_uint	,	F_57
+hf_coap_payload_desc	,	V_125
+vals_ttype_short	,	V_116
+"More Flag"	,	L_101
+"Etag"	,	L_80
+", NoCacheKey"	,	L_27
+FT_UINT16	,	V_132
+"coap"	,	L_116
+portstr	,	V_43
+"#%u: %s"	,	L_19
+"&amp;"	,	L_10
+"coap.version"	,	L_44
+tvb_get_guint8	,	F_3
+ei_coap_option_length_bad	,	V_58
+port	,	V_42
+"coap.opt.proxy_uri"	,	L_79
+token_len	,	V_97
+dissector_delete_uint	,	F_56
+opt_length	,	V_11
+COAP_OPT_URI_PORT	,	V_77
+"coap.code"	,	L_52
+expert_coap	,	V_141
+payload_item	,	V_118
+dissect_coap_opt_proxy_uri	,	F_25
+hf_coap_opt_delta_ext	,	V_66
+opt_count	,	V_46
+COAP_OPT_ACCEPT	,	V_82
+"["	,	L_6
+":"	,	L_15
+"Block Size: %d (%d encoded)"	,	L_12
+gint8	,	T_8
+"Opt Delta"	,	L_63
+COAP_OPT_ETAG	,	V_73
+"coap://"	,	L_5
+"coap.opt.length"	,	L_68
+"End of "	,	L_38
+COAP_OPT_URI_PATH	,	V_79
+FT_STRING	,	V_133
+COAP_OPT_IF_MATCH	,	V_84
+hf_coap_opt_desc	,	V_62
+"coap.opt.unknown"	,	L_108
+"coap.opt.accept"	,	L_96
+coap_uri_str	,	V_24
+opt_delta_ext_off	,	V_54
+coap_token_str	,	V_111
+head_item	,	V_22
+"coap.opt.uri_port"	,	L_88
+"coap.opt.location_query"	,	L_90
+"Type %u, %s, %s%s"	,	L_22
+find_dissector_table	,	F_55
+val_to_str_const	,	F_33
+hf_coap_payload	,	V_123
+length	,	V_6
+find_dissector	,	F_54
+vals_ctype	,	V_33
+PI_WARN	,	V_138
+"Unknown Option"	,	L_21
+dissect_coap_opt_uri_path	,	F_21
+ENC_BIG_ENDIAN	,	V_64
+hf_coap_opt_if_match	,	V_85
+global_coap_port_number	,	V_143
+"coap.opt.delta_ext"	,	L_66
+hf_coap_opt_max_age	,	V_71
+": NUM:%d, M:%d, SZX:%d"	,	L_13
+FT_UINT32	,	V_134
+"Encoded Block Size"	,	L_103
+dissect_coap_opt_location_query	,	F_24
+colon	,	V_3
+COAP_OPT_LOCATION_QUERY	,	V_78
+COAP_OPT_CONTENT_TYPE	,	V_68
+hf	,	V_19
+"]"	,	L_7
+COAP_OPT_PROXY_URI	,	V_72
+"coap.option_length_bad"	,	L_113
+hf_coap_opt_uri_path	,	V_25
+"CoAP"	,	L_32
+prefs_register_protocol	,	F_52
+"coap.opt.location_path"	,	L_86
+col_append_fstr	,	F_41
+"CoAP Option Length"	,	L_69
+col_set_str	,	F_38
+encoded_block_size	,	V_35
+proto_tree_add_uint_format	,	F_29
+val	,	V_34
+vals_opt_type	,	V_59
+item	,	V_18
+coap_port_number	,	V_146
+hf_coap_opt_location_query	,	V_29
+coap_block_mflag	,	V_39
+coap_tree	,	V_45
+media_type_dissector_table	,	V_126
+"No-Op"	,	L_20
+"coap.opt.block_mflag"	,	L_102
+proto_item_append_text	,	F_13
+coap_uri_query	,	V_26
+coap_ctype_value	,	V_31
+"coap.type"	,	L_46
+col_clear	,	F_39
+ttype	,	V_96
+"Location-Query"	,	L_89
+proto_register_subtree_array	,	F_48
+hf_coap_opt_block_number	,	V_38
+proto_tree_add_string	,	F_19
+val_to_str	,	F_27
+"Code"	,	L_51
+tvb_get_ntoh24	,	F_5
+"Payload Desc"	,	L_57
+hf_coap_opt_proxy_uri	,	V_30
+proto_tree_add_item	,	F_12
+pinfo	,	V_8
+opt_length_ext	,	V_49
+col_add_fstr	,	F_40
+"CoAP Option Etag"	,	L_82
+dissector_handle_t	,	T_15
+"Location-Path"	,	L_85
+COAP_OPT_OBSERVE	,	V_80
+"Payload Content-Format: %s%s, Length: %u"	,	L_40
+"media_type"	,	L_120
+dissect_coap_opt_location_path	,	F_23
+VALS	,	F_45
+"coap.opt.length_ext"	,	L_71
+hf_coap_ttype	,	V_104
+"coap.opt.subscr_lifetime"	,	L_94
+"Proxy-Uri"	,	L_78
+"Lifetime"	,	L_93
+opt_delta	,	V_50
+max	,	V_16
+"?"	,	L_9
+"Opt Delta extended"	,	L_65
+dissect_coap_opt_uint	,	F_14
+FT_UINT8	,	V_127
+BASE_DEC	,	V_128
+tvb_new_subset	,	F_42
+dissect_coap_opt_hex_string	,	F_10
+proto_item	,	T_7
+dissect_coap_opt_ctype	,	F_26
+expert_register_field_array	,	F_50
+"Uri-Port"	,	L_87
+subtree	,	V_9
+ENC_NA	,	V_21
+expert_add_info_format	,	F_9
+"/"	,	L_8
+hf_coap_opt_length	,	V_65
+"Accept"	,	L_95
+hf_coap_code	,	V_106
+dissect_coap_opt_uri_host	,	F_16
+coi	,	V_13
+COAP_OPT_LOCATION_PATH	,	V_76
+"coap.opt.if_match"	,	L_98
+"%s"	,	L_33
+dissect_coap_options	,	F_35
+"coap.opt.uri_path"	,	L_92
+", %sBlock #%d"	,	L_37
+coap_get_opt_uint	,	F_2
+dissect_coap_opt_uri_query	,	F_22
+size_t	,	T_2
+"Opt Length"	,	L_67
+"coap.opt.name"	,	L_60
+"Message ID"	,	L_53
+hf_coap_version	,	V_103
+prefs_register_uint_preference	,	F_53
+"Uri-Host"	,	L_83
+ei_register_info	,	T_11
+expert_register_protocol	,	F_49
+"End of options marker"	,	L_72
+COAP_OPT_IF_NONE_MATCH	,	V_89
+"Invalid Option Range: %d (%d &lt; x &lt; %d)"	,	L_2
+guint	,	V_7
+offset	,	V_5
+"end-of-options marker found, but option length isn't 15"	,	L_16
+ett	,	V_135
+wmem_packet_scope	,	F_18
+expert_module_t	,	T_13
+hf_coap_opt_observe	,	V_81
+str_payload	,	V_122
+"If-Match"	,	L_97
+coap_opt_check	,	F_7
+payload_tvb	,	V_119
+packet_info	,	T_5
+ett_coap_option	,	V_61
+ei_coap_invalid_option_number	,	V_14
+tvb_bytes_to_str_punct	,	F_11
+coap_prefs_initialized	,	V_144
+hf_coap_token_len	,	V_105
+", %s, %s, MID:%u"	,	L_29
+"Unknown %d"	,	L_31
+DEFAULT_COAP_BLOCK_NUMBER	,	V_110
+proto_tree_add_uint	,	F_15
+"%u"	,	L_14
+EXPFILL	,	V_139
+code	,	V_98
+"Payload"	,	L_55
+"coap.opt.uri_host"	,	L_84
+hf_coap_opt_end_marker	,	V_93
+block_esize	,	V_36
+g_snprintf	,	F_31
+"coap.opt.etag"	,	L_81
+DEFAULT_COAP_CTYPE_VALUE	,	V_100
+coap_ctype_str_dis	,	V_121
+"udp_port"	,	L_117
+dissector_try_string	,	F_43
+ei_coap_invalid_option_range	,	V_17
+"Elective"	,	L_24
+HFILL	,	V_129
+"Opt Desc"	,	L_61
+PI_MALFORMED	,	V_137
+COAP_OPT_MAX_AGE	,	V_70
+"Opt Name"	,	L_59
+coap_root	,	V_95
+"coap.token_len"	,	L_48
+coap_module	,	V_140
+"udp.port"	,	L_121
+endmarker	,	V_92
+payload_length	,	V_120
+dissect_coap_opt_block	,	F_28
+hf_coap_opt_uri_port	,	V_44
+proto_coap	,	V_101
+nullstr	,	V_20
+"Invalid Option Number"	,	L_110
+"Safe"	,	L_26
+hf_coap_opt_delta	,	V_63
+"coap.payload"	,	L_56
+"Unknown"	,	L_107
+"Type"	,	L_45
+"coap.opt.end_marker"	,	L_73
+"tcp.port"	,	L_122
+proto_tree	,	T_6
+"text/plain; charset=utf-8"	,	L_39

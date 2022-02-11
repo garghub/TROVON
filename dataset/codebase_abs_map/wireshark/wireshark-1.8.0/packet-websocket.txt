@@ -1,0 +1,206 @@
+MAX_UNMASKED_LEN	,	V_10
+hf_ws_payload_close_mask	,	V_40
+proto_register_protocol	,	F_27
+fin	,	V_60
+"websocket.payload.text_mask"	,	L_47
+hf_ws_fin	,	V_67
+ett_ws_mask	,	V_27
+hf_ws_payload_length_ext_16	,	V_77
+tvb_new_subset_remaining	,	F_24
+" %s"	,	L_9
+gint	,	T_9
+"websocket.payload"	,	L_40
+tvb	,	V_1
+COL_INFO	,	V_64
+FT_BOOLEAN	,	V_81
+" Extended Payload Length (64 bits)"	,	L_15
+hf_ws_payload_ping_mask	,	V_48
+"websocket.payload.close"	,	L_55
+hf_ws_payload_text_unmask	,	V_32
+data_mask	,	V_8
+cinfo	,	V_62
+MASK_WS_MASK	,	V_74
+" if you want this supported"	,	L_7
+array_length	,	F_29
+WS_PONG	,	V_51
+hf_ws_payload_pong_mask	,	V_52
+"Reserved"	,	L_19
+MASK_WS_RSV	,	V_85
+""	,	L_12
+proto_register_websocket	,	F_25
+"Masking-Key"	,	L_36
+"websocket.rsv"	,	L_20
+ENC_ASCII	,	V_46
+hf_ws_payload_close_reason	,	V_45
+PROTO_ITEM_SET_HIDDEN	,	F_14
+"websocket.payload.binary_mask"	,	L_52
+"Reason"	,	L_60
+"Unknown Opcode"	,	L_10
+hf_register_info	,	T_8
+"websocket.payload.unmask"	,	L_42
+tvb_unmask	,	V_6
+tvb_new_real_data	,	F_4
+"Unmask Close"	,	L_57
+hf_ws_reserved	,	V_69
+hf_ws_payload	,	V_23
+COL_PROTOCOL	,	V_63
+"Defines the interpretation of the Payload data"	,	L_24
+i	,	V_7
+g_free	,	V_11
+tvb_unmasked	,	F_1
+"[FIN]"	,	L_11
+hf_ws_payload_length	,	V_75
+guint8	,	T_2
+hf_ws_mask	,	V_73
+ti	,	V_18
+BASE_NONE	,	V_90
+"websocket.payload.continue"	,	L_44
+pl_tree	,	V_19
+"Unmask Payload"	,	L_41
+"Defines whether the Payload data is masked"	,	L_27
+unmask_tvb	,	V_21
+"Pong"	,	L_66
+tvbuff_t	,	T_1
+"Unmasked Data (truncated)"	,	L_3
+opcode	,	V_14
+tvb_get_ntohs	,	F_22
+tvb_set_free_cb	,	F_5
+BASE_HEX	,	V_84
+PROTO_ITEM_SET_GENERATED	,	F_13
+proto_item_add_subtree	,	F_10
+MASK_WS_PAYLOAD_LEN	,	V_76
+PI_UNDECODED	,	V_56
+proto_register_field_array	,	F_28
+"Payload length %"	,	L_1
+FT_BYTES	,	V_89
+"websocket.payload.binary"	,	L_51
+hf_ws_payload_binary	,	V_38
+ti_len	,	V_59
+tvb_get_ptr	,	F_3
+WS_CLOSE	,	V_39
+FT_UINT16	,	V_87
+tvb_get_guint8	,	F_18
+"The length (16 bits) of the Payload data"	,	L_33
+"Fin"	,	L_16
+hf_ws_payload_text	,	V_34
+"websocket.payload.close.status_code"	,	L_59
+FT_STRING	,	V_92
+ws_close_status_code_vals	,	V_93
+"Unmasked Data"	,	L_4
+" code not implemented, Contact Wireshark developers"	,	L_6
+mask	,	V_15
+"WebSocket"	,	L_8
+hf_ws_payload_binary_mask	,	V_36
+"Close"	,	L_54
+val_to_str_const	,	F_20
+data_unmask	,	V_5
+hf_ws_masking_key	,	V_79
+"websocket"	,	L_72
+ENC_BIG_ENDIAN	,	V_44
+" Extended Payload Length (16 bits)"	,	L_14
+"u is too large to dissect"	,	L_2
+guint64	,	T_6
+proto_websocket	,	V_65
+hf_ws_payload_ping	,	V_50
+hf	,	V_80
+G_GINT64_MODIFIER	,	V_22
+"websocket.payload_length_ext_64"	,	L_34
+"Binary"	,	L_50
+col_append_fstr	,	F_19
+FT_UINT64	,	V_88
+col_set_str	,	F_17
+masking_key	,	V_4
+ett_ws_pl	,	V_25
+ws_opcode_vals	,	V_72
+"websocket.payload.ping_mask"	,	L_64
+dissect_websocket	,	F_16
+"websocket.opcode"	,	L_23
+proto_item_append_text	,	F_21
+"websocket.payload.close_mask"	,	L_56
+dissect_websocket_payload	,	F_6
+tvb_payload	,	V_61
+proto_register_subtree_array	,	F_30
+"websocket.payload.close_unmask"	,	L_58
+proto_tree_add_item	,	F_9
+ett_ws	,	V_66
+pinfo	,	V_12
+"Text"	,	L_45
+new_register_dissector	,	F_31
+"websocket.masking_key"	,	L_37
+g_malloc	,	F_2
+hf_ws_payload_unknown	,	V_55
+VALS	,	F_26
+"websocket.payload.pong"	,	L_67
+tvb_length	,	F_8
+"The length of the Payload data"	,	L_30
+hf_ws_payload_continue	,	V_29
+FT_UINT8	,	V_83
+proto_tree_add_text	,	F_7
+BASE_DEC	,	V_86
+proto_item	,	T_7
+WS_CONTINUE	,	V_28
+hf_ws_payload_pong	,	V_54
+ENC_NA	,	V_24
+hf_ws_payload_close	,	V_42
+"Ping"	,	L_62
+expert_add_info_format	,	F_15
+"websocket.fin"	,	L_17
+hf_ws_payload_unmask	,	V_26
+"Extended Payload length (16 bits)"	,	L_31
+"Continue"	,	L_43
+hf_ws_payload_close_status_code	,	V_43
+MASK_WS_FIN	,	V_68
+"websocket.payload_length"	,	L_29
+"websocket.payload_length_ext_16"	,	L_32
+"[MASKED]"	,	L_13
+"Text unmask"	,	L_48
+"websocket.payload.close.reason"	,	L_61
+"websocket.payload.ping_unmask"	,	L_65
+"websocket.payload.pong_mask"	,	L_68
+ws_tree	,	V_13
+"websocket.payload.binary_unmask"	,	L_53
+"Payload length"	,	L_28
+hf_ws_payload_text_mask	,	V_31
+PI_NOTE	,	V_57
+hf_ws_payload_binary_unmask	,	V_37
+MASK_WS_OPCODE	,	V_71
+FT_NONE	,	V_91
+"websocket.payload.unknown"	,	L_71
+offset	,	V_2
+"websocket.payload.ping"	,	L_63
+ett	,	V_94
+hf_ws_opcode	,	V_70
+tree	,	V_58
+"Opcode"	,	L_22
+unmasked_length	,	V_9
+"Dissector for Websocket Opcode (%d)"	,	L_5
+packet_info	,	T_4
+payload_length_32bit	,	V_16
+add_new_data_source	,	F_12
+tvb_get_ntoh64	,	F_23
+WS_PING	,	V_47
+"websocket.payload.pong_unmask"	,	L_69
+WS_BINARY	,	V_35
+hf_ws_payload_ping_unmask	,	V_49
+hf_ws_payload_length_ext_64	,	V_78
+"Must be zero"	,	L_21
+"websocket.mask"	,	L_26
+hf_ws_payload_pong_unmask	,	V_53
+ti_unmask	,	V_17
+tvb_set_child_real_data_tvbuff	,	F_11
+"websocket.payload.text_unmask"	,	L_49
+"Payload"	,	L_39
+"All frames sent from the client to the server are masked by a 32-bit value that is contained within the frame"	,	L_38
+"Indicates that this is the final fragment in a message"	,	L_18
+"Mask"	,	L_25
+HFILL	,	V_82
+"The length (64 bits) of the Payload data"	,	L_35
+gchar	,	T_3
+payload_length	,	V_3
+hf_ws_payload_close_unmask	,	V_41
+WS_TEXT	,	V_30
+"websocket.payload.text"	,	L_46
+mask_tree	,	V_20
+"Unknown"	,	L_70
+ENC_UTF_8	,	V_33
+proto_tree	,	T_5

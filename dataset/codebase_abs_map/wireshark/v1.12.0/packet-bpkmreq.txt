@@ -1,0 +1,65 @@
+register_dissector	,	F_16
+proto_register_protocol	,	F_12
+tvbuff_t	,	T_1
+bpkmreq_tree	,	V_5
+proto_tree_add_protocol_format	,	F_5
+"BPKM Code"	,	L_4
+"docsis_bpkmattr"	,	L_13
+hf_docsis_bpkmreq_ident	,	V_15
+tvb_new_subset_remaining	,	F_8
+gint	,	T_7
+"DOCSIS Baseline Privacy Key Management Request"	,	L_10
+proto_item_add_subtree	,	F_6
+ett_docsis_bpkmreq	,	V_12
+proto_register_field_array	,	F_13
+tvb	,	V_1
+code_field_vals	,	V_10
+ett	,	V_23
+COL_INFO	,	V_9
+dissector_add_uint	,	F_19
+"docsis_mgmt"	,	L_14
+tree	,	V_3
+"docsis_bpkmreq.length"	,	L_9
+it	,	V_4
+FT_UINT16	,	V_22
+docsis_bpkmreq_handle	,	V_24
+packet_info	,	T_2
+attrs_handle	,	V_17
+tvb_get_guint8	,	F_2
+proto_docsis_bpkmreq	,	V_11
+cinfo	,	V_8
+proto_register_subtree_array	,	F_15
+val_to_str	,	F_4
+array_length	,	F_14
+proto_register_docsis_bpkmreq	,	F_10
+code	,	V_6
+"BPKM Request (%s)"	,	L_1
+proto_tree_add_item	,	F_7
+"docsis_bpkmreq.ident"	,	L_7
+call_dissector	,	F_9
+pinfo	,	V_2
+col_add_fstr	,	F_3
+dissector_handle_t	,	T_8
+"DOCSIS BPKM-REQ"	,	L_11
+"docsis_bpkmreq"	,	L_12
+attrs_tvb	,	V_7
+"%d"	,	L_2
+"BPKM Length"	,	L_8
+hf_register_info	,	T_6
+VALS	,	F_11
+HFILL	,	V_21
+hf_docsis_bpkmreq_length	,	V_16
+hf_docsis_bpkmreq_code	,	V_13
+"BPKM Identifier"	,	L_6
+dissect_bpkmreq	,	F_1
+FT_UINT8	,	V_19
+find_dissector	,	F_18
+BASE_DEC	,	V_20
+proto_item	,	T_4
+"BPKM Request Message"	,	L_3
+ENC_BIG_ENDIAN	,	V_14
+guint8	,	T_5
+"docsis_bpkmreq.code"	,	L_5
+proto_reg_handoff_docsis_bpkmreq	,	F_17
+proto_tree	,	T_3
+hf	,	V_18

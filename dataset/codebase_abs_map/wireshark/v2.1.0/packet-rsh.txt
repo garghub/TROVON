@@ -1,0 +1,139 @@
+"Server username"	,	L_14
+proto_register_protocol	,	F_23
+rsh_tree	,	V_6
+fourth_packet_state	,	V_27
+prefs_register_protocol	,	F_27
+second_packet_number	,	V_15
+RSH_SERVER_USERNAME_LEN	,	V_45
+hf_rsh_server_client_data	,	V_53
+"rsh.stderr_port"	,	L_9
+"info_show_client_username"	,	L_25
+col_append_fstr	,	F_9
+"Command client is requesting the server to run"	,	L_19
+"rsh.client_username"	,	L_12
+"Server -&gt; Client Data"	,	L_6
+gint	,	T_7
+col_set_str	,	F_7
+state	,	V_18
+"Client username"	,	L_11
+NONE	,	V_24
+"Command to execute"	,	L_17
+"Command:%s "	,	L_4
+tvb	,	V_1
+rsh_hash_entry_t	,	T_10
+COL_INFO	,	V_30
+guchar	,	T_6
+hf_rsh_client_username	,	V_43
+field_stringz	,	V_7
+tvb_reported_length_remaining	,	F_14
+hf_rsh_server_username	,	V_46
+col_clear	,	F_8
+"rsh.client_server_data"	,	L_21
+WAIT_FOR_DATA	,	V_36
+proto_rsh	,	V_12
+cinfo	,	V_28
+isprint_string	,	F_19
+wmem_strdup	,	F_20
+proto_register_subtree_array	,	F_26
+proto_tree_add_string	,	F_18
+array_length	,	F_25
+proto_tree_add_item	,	F_10
+FT_STRINGZ	,	V_55
+pinfo	,	V_2
+dissector_handle_t	,	T_13
+_U_	,	V_4
+ENC_ASCII	,	V_37
+WAIT_FOR_CLIENT_USERNAME	,	V_41
+col_append_str	,	F_21
+hash_info	,	V_11
+"rsh.command"	,	L_18
+hf_register_info	,	T_11
+preference_info_show_command	,	V_33
+WAIT_FOR_COMMAND	,	V_47
+prefs_register_bool_preference	,	F_28
+COL_PROTOCOL	,	V_29
+WAIT_FOR_SERVER_USERNAME	,	V_44
+"User's identity on the client machine"	,	L_13
+"Controls the display of the session's server username in the info column.  This is only displayed if the packet containing it was seen during this capture session."	,	L_30
+RSH_CLIENT_USERNAME_LEN	,	V_42
+proto_item	,	T_5
+"Show server username in info column"	,	L_29
+ENC_NA	,	V_34
+ti	,	V_5
+BASE_NONE	,	V_56
+"Client -&gt; Server data"	,	L_5
+dissect_rsh	,	F_1
+"Client username:%s "	,	L_2
+isdigit_string	,	F_17
+rsh_handle	,	V_61
+"Controls the display of the command being run on the server by this session in the info column.  This is only displayed if the packet containing it was seen during this capture session."	,	L_33
+hf_rsh_command	,	V_49
+"Client port that is listening for stderr stream from server"	,	L_10
+data	,	T_4
+"Stderr port (optional)"	,	L_8
+"Server username:%s "	,	L_3
+num	,	V_14
+tvb_get_stringz_enc	,	F_15
+"rsh.server_client_data"	,	L_22
+tvbuff_t	,	T_1
+proto_register_rsh	,	F_22
+"User's identity on the server machine"	,	L_16
+"Show client username in info column"	,	L_26
+RSH_COMMAND_LEN	,	V_48
+client_username	,	V_20
+tvb_find_guint8	,	F_12
+"Client -&gt; Server Data"	,	L_20
+server_username	,	V_21
+proto_item_add_subtree	,	F_11
+module_t	,	T_12
+RSH_PORT	,	V_51
+proto_register_field_array	,	F_24
+conversation	,	V_10
+FT_BYTES	,	V_58
+conversation_t	,	T_9
+hf_rsh_stderr_port	,	V_39
+guint	,	T_8
+offset	,	V_9
+first_packet_number	,	V_13
+ett	,	V_59
+wmem_packet_scope	,	F_16
+dissector_add_uint	,	F_31
+tree	,	V_3
+packet_info	,	T_2
+tvb_captured_length	,	F_13
+fourth_packet_number	,	V_17
+third_packet_number	,	V_16
+destport	,	V_50
+hf_rsh_client_server_data	,	V_52
+"Session Establishment"	,	L_7
+second_packet_state	,	V_25
+proto_reg_handoff_rsh	,	F_29
+conversation_get_proto_data	,	F_3
+"rsh"	,	L_24
+"Show command in info column"	,	L_32
+rsh_module	,	V_60
+"Remote Shell"	,	L_23
+preference_info_show_server_username	,	V_32
+"rsh.server_username"	,	L_15
+"info_show_command"	,	L_31
+wmem_file_scope	,	F_5
+HFILL	,	V_57
+"Controls the display of the session's client username in the info column.  This is only displayed if the packet containing it was seen during this capture session."	,	L_27
+conversation_add_proto_data	,	F_6
+wmem_new	,	F_4
+WAIT_FOR_STDERR_PORT	,	V_19
+gchar	,	V_40
+length	,	V_8
+third_packet_state	,	V_26
+create_dissector_handle	,	F_30
+first_packet_state	,	V_23
+RSH_STDERR_PORT_LEN	,	V_38
+"info_show_server_username"	,	L_28
+command	,	V_22
+preference_info_show_client_username	,	V_31
+"RSH"	,	L_1
+find_or_create_conversation	,	F_2
+ett_rsh	,	V_35
+"tcp.port"	,	L_34
+proto_tree	,	T_3
+hf	,	V_54

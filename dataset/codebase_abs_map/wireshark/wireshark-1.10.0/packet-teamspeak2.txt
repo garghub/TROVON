@@ -1,0 +1,362 @@
+hf_ts2_badlogin	,	V_121
+"ts2"	,	L_125
+hf_ts2_codec	,	V_74
+hf_ts2_channel_id	,	V_52
+proto_register_protocol	,	F_49
+crc32_ccitt_tvb	,	F_40
+"ts2.registeredlogin"	,	L_28
+"ts2.fragment.multiple_tails"	,	L_98
+"Protocol String"	,	L_25
+check_col	,	F_14
+ts2_init	,	F_45
+"ts2.chaneltopic"	,	L_66
+process_reassembled_data	,	F_12
+hf_ts2_sessionkey	,	V_110
+TS2T_CHANNELLIST	,	V_40
+tvb_new_subset_remaining	,	F_16
+len	,	V_126
+"TS2"	,	L_5
+"Block Whispers"	,	L_81
+ts2_conversation	,	T_6
+gint	,	T_14
+ts2_standard_dissect	,	F_4
+hf_ts2_name	,	V_118
+tvb	,	V_1
+"Away"	,	L_83
+guint32	,	T_3
+frag_num	,	V_4
+COL_INFO	,	V_38
+"Sub-Channel"	,	L_41
+ts2_handle	,	V_163
+frag_msg	,	V_14
+FT_BOOLEAN	,	V_138
+"ts2.badlogin"	,	L_36
+" (Message fragment %u)"	,	L_3
+tvb_reported_length_remaining	,	F_42
+"Teamspeak2 Protocol"	,	L_123
+TS2T_PINGREPLY	,	V_113
+p_get_proto_data	,	F_6
+cinfo	,	V_37
+TS2_STATUS_AWAY	,	V_146
+"ts2.channel"	,	L_40
+hf_msg_fragment_count	,	V_157
+array_length	,	F_51
+next_tvb	,	V_13
+fragment_add_seq_check	,	F_10
+FT_STRINGZ	,	V_143
+ts2_parse_playerleft	,	F_22
+ENC_ASCII	,	V_56
+"ts2.playerstatusflags.blockwhispers"	,	L_82
+col_append_str	,	F_13
+hf_ts2_fragmentnumber	,	V_33
+hf_ts2_channel_subchannels	,	V_72
+crc32_ccitt_seed	,	F_41
+"Player Id"	,	L_69
+"CRC32 Checksum"	,	L_21
+TS2_STATUS_BLOCKWHISPERS	,	V_145
+ts2_standard_find_fragments	,	F_1
+hf_ts2_status_away	,	V_83
+TS2T_PLAYERKICKED	,	V_45
+hf_register_info	,	T_15
+hf_ts2_platform_string	,	V_116
+"Channel Password"	,	L_43
+"Mute"	,	L_87
+"Unknown (0x%02x)"	,	L_7
+"ts2.numberofplayers"	,	L_74
+guint16	,	T_9
+"ts2.fragment"	,	L_92
+COL_PROTOCOL	,	V_98
+"ts2.name"	,	L_30
+hf_msg_fragment_overlap_conflicts	,	V_153
+"ts2.playerstatusflags.channelcommander"	,	L_80
+" (Message Reassembled)"	,	L_2
+"ts2.numberofchannels"	,	L_76
+client_frag_size	,	V_30
+reassembly_table_init	,	F_46
+guint8	,	T_7
+hf_ts2_player_id	,	V_51
+ti	,	V_106
+BASE_NONE	,	V_137
+"ts2.playerstatusflags.away"	,	L_84
+"ts2.channelflags.unregistered"	,	L_110
+hf_ts2_max_users	,	V_77
+x	,	V_87
+tvb_length_remaining	,	F_11
+"ts2.sequencenum"	,	L_24
+ett_ts2_channel_flags	,	V_67
+"ts2.fragments"	,	L_90
+hf_ts2_seqnum	,	V_17
+"Unregistered"	,	L_109
+tvbuff_t	,	T_2
+"Channel Topic"	,	L_65
+dissect_ts2	,	F_35
+hf_ts2_status_mutemicrophone	,	V_84
+"ts2.crc32"	,	L_22
+"Session Key"	,	L_17
+zero	,	V_125
+BASE_HEX	,	V_132
+"ts2.serverwelcomemessage"	,	L_54
+"Resend Count"	,	L_77
+gboolean	,	T_1
+TS2_PORT	,	V_164
+"Number Of Channels"	,	L_75
+proto_item_add_subtree	,	F_28
+"Client id"	,	L_15
+fragmented	,	V_25
+"Nick"	,	L_33
+proto_register_field_array	,	F_50
+conversation	,	V_90
+" (Out Of Order, ignored)"	,	L_4
+FT_BYTES	,	V_139
+ret	,	V_7
+FT_UINT_STRING	,	V_136
+hf_msg_fragment_multiple_tails	,	V_154
+ett_msg_fragment	,	V_161
+"Message fragments"	,	L_89
+string_len	,	V_62
+dissector_add_uint	,	F_56
+ts2_parse_knownplayerupdate	,	F_21
+"Sequence Number"	,	L_23
+"ts2.channelflags.has_subchannels"	,	L_116
+hf_ts2_subchannel	,	V_60
+ett_ts2	,	V_107
+FT_UINT16	,	V_131
+register_init_routine	,	F_53
+ts2_parse_channellist	,	F_18
+p_add_proto_data	,	F_8
+msg_reassembly_table	,	V_35
+hf_item	,	V_123
+"ts2.channelorder"	,	L_120
+"Codec"	,	L_57
+fd	,	V_19
+icrc32	,	V_124
+"ts2.unknown"	,	L_38
+hf_ts2_channelpassword	,	V_61
+"Message fragment overlap"	,	L_93
+conversation_data	,	V_10
+TS2T_LOGINEND	,	V_46
+"ts2.class"	,	L_12
+hf_ts2_password	,	V_58
+"ts2.fragment.count"	,	L_104
+"Registered Login"	,	L_27
+TS2C_STANDARD	,	V_105
+conversation_new	,	F_33
+"ts2.type"	,	L_14
+msg_frag_items	,	V_36
+hf_ts2_player_status_flags	,	V_57
+TS2T_KNOWNPLAYERUPDATE	,	V_43
+"ts2.channelflags.moderated"	,	L_112
+"ts2.emptyspace"	,	L_46
+TS2C_CONNECTION	,	V_102
+conversation_add_proto_data	,	F_34
+"Has password"	,	L_113
+"Class: %s"	,	L_6
+"Message has multiple tail fragments"	,	L_97
+ENC_BIG_ENDIAN	,	V_69
+crc32_ccitt_tvb_offset_seed	,	F_43
+ts2_tree	,	V_9
+"ts2.chanelid"	,	L_62
+FT_UINT32	,	V_134
+frag_count	,	V_6
+visited	,	V_22
+proto_ts2	,	V_20
+hf_msg_fragment	,	V_150
+codecnames	,	V_141
+"Channel Flags"	,	L_59
+fragment_data	,	T_8
+hf	,	V_130
+new_tvb	,	V_12
+"Password"	,	L_31
+server_frag_num	,	V_28
+"TeamSpeak2"	,	L_124
+TS2T_CHANNELCHANGE	,	V_49
+hf_ts2_emptyspace	,	V_89
+"Message fragment overlapping with conflicting data"	,	L_95
+"ts2.maxusers"	,	L_122
+TS2C_ACK	,	V_99
+hf_ts2_unknown	,	V_53
+hf_msg_fragment_overlap	,	V_152
+col_append_fstr	,	F_15
+"ts2.reassembled.in"	,	L_106
+"Server Name"	,	L_51
+col_set_str	,	F_36
+"Default"	,	L_117
+ts2_get_conversation	,	F_30
+"ts2.playerstatusflags"	,	L_72
+"Ping Reply To"	,	L_19
+"ts2.protocolstring"	,	L_26
+proto_tree_add_uint_format	,	F_44
+hf_msg_fragment_error	,	V_156
+"Channel order"	,	L_119
+item	,	V_64
+hf_ts2_channel_order	,	V_76
+TS2T_NEWPLAYERJOINED	,	V_42
+TS2_STATUS_MUTEMICROPHONE	,	V_147
+"ts2.chaneldescription"	,	L_68
+hf_ts2_channel_description	,	V_80
+hf_msg_reassembled_in	,	V_158
+last_inorder_server_frame	,	V_26
+ts2_frag	,	T_10
+hf_ts2_channel_moderated	,	V_70
+last_inorder_frame	,	V_2
+"ts2.channelpassword"	,	L_44
+ep_alloc0	,	F_39
+"Fragment Number"	,	L_47
+hf_ts2_channel_unregistered	,	V_68
+ocrc32	,	V_127
+proto_register_subtree_array	,	F_52
+gint32	,	T_11
+val_to_str	,	F_38
+server_port	,	V_23
+"ts2.clientid"	,	L_16
+"Server Welcome Message"	,	L_53
+"Moderated"	,	L_111
+"ts2.password"	,	L_32
+"ts2.playerstatusflags.mute"	,	L_88
+proto_tree_add_item	,	F_5
+hf_ts2_channel	,	V_59
+pinfo	,	V_8
+col_add_fstr	,	F_37
+dissector_handle_t	,	T_16
+flags	,	V_21
+hf_ts2_status_channelcommander	,	V_81
+hf_ts2_server_welcome_message	,	V_122
+hf_ts2_type	,	V_109
+"ts2.fragment.error"	,	L_102
+hf_ts2_status_blockwhispers	,	V_82
+"ts2.subchannel"	,	L_42
+"Message fragment too long"	,	L_99
+TS2T_LOGINREQUEST	,	V_103
+"Parent Channel ID"	,	L_55
+"Has subchannels"	,	L_115
+hf_ts2_ackto	,	V_114
+TS2T_PLAYERLIST	,	V_41
+VALS	,	F_48
+server_frag_size	,	V_27
+hf_ts2_channel_flags	,	V_66
+"ts2.channelflags.default"	,	L_118
+"ts2.fragment.overlap.conflicts"	,	L_96
+"ts2.sessionkey"	,	L_18
+client_frag_num	,	V_31
+tvb_get_ephemeral_stringz	,	F_29
+hf_msg_reassembled_length	,	V_159
+find_conversation	,	F_31
+"Class"	,	L_11
+"Number Of Players"	,	L_73
+"ts2.channelflags.has_password"	,	L_114
+FT_UINT8	,	V_142
+"Channel Id"	,	L_61
+BASE_DEC	,	V_135
+TS2T_SWITCHCHANNEL	,	V_48
+proto_item	,	T_12
+last_inorder_client_frame	,	V_29
+"ts2.channelflags"	,	L_60
+ENC_NA	,	V_54
+subtree	,	V_63
+hf_ts2_server_name	,	V_120
+"Mute Microphone"	,	L_85
+"ts2.fragment.too_long_fragment"	,	L_100
+hf_ts2_nick	,	V_55
+TS2T_CHANGESTATUS	,	V_47
+"Channel Commander"	,	L_79
+"crc32: 0x%04x [correct]"	,	L_9
+ENC_LITTLE_ENDIAN	,	V_18
+"ts2.playerid"	,	L_70
+"Message fragment"	,	L_91
+"ts2.nick"	,	L_34
+num	,	V_91
+"Name"	,	L_29
+hf_ts2_number_of_players	,	V_88
+hf_ts2_parent_channel_id	,	V_75
+"Empty Space"	,	L_45
+"ts2.fragment.overlap"	,	L_94
+proto_reg_handoff_ts2	,	F_54
+outoforder	,	V_5
+"ts2.reassembled.length"	,	L_108
+TS2T_LOGINREPLY	,	V_119
+"Channel"	,	L_39
+save_fragmented	,	V_11
+klass	,	V_97
+"ts2.fragmentnumber"	,	L_48
+hf_ts2_channel_default	,	V_73
+"Channel Description"	,	L_67
+tvb_get_letohl	,	F_3
+TS2T_LOGINPART2	,	V_39
+"Type: %s, Class: %s"	,	L_8
+hf_ts2_resend_count	,	V_32
+ts2_parse_newplayerjoined	,	F_20
+tvb_get_letohs	,	F_2
+conversation_t	,	T_13
+ts2_parse_channelchange	,	F_26
+"ts2.chanelname"	,	L_64
+guint	,	V_128
+FT_NONE	,	V_140
+offset	,	V_50
+ett	,	V_160
+ts2_parse_loginpart2	,	F_17
+hf_ts2_class	,	V_108
+"crc32: 0x%04x [incorrect, should be 0x%04x]"	,	L_10
+ts2_add_statusflags	,	F_27
+ett_msg_fragments	,	V_162
+tree	,	V_96
+addresses_reassembly_table_functions	,	V_129
+hf_ts2_registeredlogin	,	V_117
+"Reassembled TeamSpeak2 length"	,	L_107
+classnames	,	V_100
+server_addr	,	V_104
+"Player Status Flags"	,	L_71
+packet_info	,	T_4
+"Reassembled TeamSpeak2"	,	L_1
+"ts2.ping_ackto"	,	L_20
+ts2_add_checked_crc32	,	F_9
+hf_ts2_channel_name	,	V_78
+"ts2.parentchannelid"	,	L_56
+"Message defragmentation error"	,	L_101
+destport	,	V_95
+"Platform String"	,	L_49
+ts2_parse_switchchannel	,	F_25
+"Bad Login"	,	L_35
+TS2T_PLAYERLEFT	,	V_44
+frag	,	V_16
+ts2_parse_loginend	,	F_23
+TS2_STATUS_CHANNELCOMMANDER	,	V_144
+dst	,	V_93
+TS2_STATUS_MUTE	,	V_148
+proto_register_ts2	,	F_47
+conversation_get_proto_data	,	F_32
+"Reassembled in"	,	L_105
+se_new	,	F_7
+hf_ts2_channel_topic	,	V_79
+ptype	,	V_94
+hf_ts2_clientid	,	V_111
+hf_msg_fragment_too_long_fragment	,	V_155
+hf_ts2_channel_password	,	V_71
+"ts2.codec"	,	L_58
+ts2_parse_playerlist	,	F_19
+frag_size	,	V_3
+"ts2.servername"	,	L_52
+ts2_parse_changestatus	,	F_24
+"ts2.resendcount"	,	L_78
+"ts2.platformstring"	,	L_50
+"Message fragment count"	,	L_103
+hf_ts2_status_mute	,	V_85
+hf_ts2_protocol_string	,	V_115
+HFILL	,	V_133
+src	,	V_92
+"udp.port"	,	L_126
+number_of_players	,	V_86
+create_dissector_handle	,	F_55
+FT_FRAMENUM	,	V_151
+"Channel Name"	,	L_63
+typenames	,	V_101
+"ts2.playerstatusflags.mutemicrophone"	,	L_86
+TS2T_PING	,	V_112
+hf_msg_fragments	,	V_149
+hf_ts2_crc32	,	V_34
+fragment_number	,	V_15
+srcport	,	V_24
+"Unknown"	,	L_37
+"Type"	,	L_13
+"Max users"	,	L_121
+hf_ts2_number_of_channels	,	V_65
+proto_tree	,	T_5

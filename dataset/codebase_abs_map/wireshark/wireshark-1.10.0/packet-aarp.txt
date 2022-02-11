@@ -1,0 +1,147 @@
+"Target ID"	,	L_34
+"chdlctype"	,	L_39
+"aarp.proto.size"	,	L_17
+proto_register_protocol	,	F_24
+op_str	,	V_15
+"AARP"	,	L_2
+AR_OP	,	V_30
+gint	,	T_3
+col_set_str	,	F_12
+FT_ETHER	,	V_65
+spa_str	,	V_21
+ar_pln	,	V_11
+"aarp.hard.size"	,	L_15
+AARP_HW_IS_ETHER	,	F_6
+tvb	,	V_1
+"Hardware size"	,	L_14
+ar_op	,	V_12
+ar_hln	,	V_10
+COL_INFO	,	V_25
+AR_HLN	,	V_28
+dissect_aarp	,	F_11
+"aarp"	,	L_37
+AARP_PRO_IS_ATALK	,	F_10
+node	,	V_3
+AARP_REQUEST	,	V_32
+"Sender ID"	,	L_26
+col_clear	,	F_13
+hf_aarp_src_proto_id	,	V_49
+"aarp.opcode"	,	L_19
+"Appletalk Address Resolution Protocol"	,	L_36
+cinfo	,	V_23
+"aarp.src.hw_mac"	,	L_23
+proto_aarp	,	V_39
+proto_register_subtree_array	,	F_27
+"Target MAC address"	,	L_30
+array_length	,	F_26
+ett_aarp	,	V_40
+proto_tree_add_bytes_format_value	,	F_21
+"Target protocol address"	,	L_32
+tvb_aarpproaddr_to_str	,	F_9
+cur	,	V_4
+sha_offset	,	V_16
+proto_tree_add_item	,	F_20
+proto_reg_handoff_aarp	,	F_28
+tvb_aarphrdaddr_to_str	,	F_5
+pinfo	,	V_6
+col_add_fstr	,	F_15
+dissector_handle_t	,	T_10
+hf_aarp_src_hw_mac	,	V_46
+"ethertype"	,	L_38
+"Hardware type"	,	L_10
+hf_aarp_dst_hw_mac	,	V_51
+hf_register_info	,	T_9
+AARP_PROBE_SWAPPED	,	V_37
+VALS	,	F_23
+"%s is at %s"	,	L_4
+hf_aarp_dst_hw	,	V_52
+"aarp.hard.type"	,	L_11
+AR_PLN	,	V_29
+hf_aarp_src_hw	,	V_47
+"Unknown AARP opcode 0x%04x"	,	L_6
+tvb_atalkid_to_str	,	F_1
+guint16	,	T_4
+COL_PROTOCOL	,	V_24
+ar_pro	,	V_9
+FT_UINT8	,	V_61
+hf_aarp_opcode	,	V_45
+spa_offset	,	V_17
+BASE_DEC	,	V_62
+"aarp.proto.type"	,	L_13
+proto_item	,	T_8
+MIN_AARP_HEADER_SIZE	,	V_31
+try_val_to_str	,	F_16
+"Sender protocol address"	,	L_24
+AARP_REPLY	,	V_34
+ENC_NA	,	V_48
+guint8	,	T_7
+op_vals	,	V_38
+tvb_bytes_to_str	,	F_8
+ar_hrd	,	V_8
+ti	,	V_14
+BASE_NONE	,	V_64
+sha_str	,	V_20
+"AppleTalk Address Resolution Protocol (%s)"	,	L_7
+"%d.%d"	,	L_1
+etype_vals	,	V_60
+"aarp.dst.hw_mac"	,	L_31
+"%s"	,	L_9
+tvbuff_t	,	T_2
+aarp_tree	,	V_13
+proto_tree_add_protocol_format	,	F_17
+"aarp.src.proto"	,	L_25
+"aarp.src.hw"	,	L_21
+tvb_get_ntohs	,	F_14
+BASE_HEX	,	V_57
+"Sender MAC address"	,	L_22
+"aarp.dst.proto"	,	L_33
+ep_alloc	,	F_2
+"AppleTalk Address Resolution Protocol (opcode 0x%04x)"	,	L_8
+proto_item_add_subtree	,	F_18
+tpa_offset	,	V_19
+proto_register_field_array	,	F_25
+FT_BYTES	,	V_63
+"aarp.dst.proto_id"	,	L_35
+tpa_str	,	V_22
+hf_aarp_proto_size	,	V_44
+hf_aarp_src_proto	,	V_50
+offset	,	V_2
+ett	,	V_66
+dissector_add_uint	,	F_30
+tree	,	V_7
+tha_offset	,	V_18
+"Opcode"	,	L_18
+hf_aarp_hard_type	,	V_41
+AARP_PROBE	,	V_36
+FT_UINT16	,	V_56
+packet_info	,	T_5
+ETHERTYPE_AARP	,	V_68
+tvb_get_guint8	,	F_3
+proto_register_aarp	,	F_22
+proto_tree_add_uint	,	F_19
+"aarp.dst.hw"	,	L_29
+aarp_handle	,	V_67
+"Is there a %s"	,	L_5
+tvb_ether_to_str	,	F_7
+"Sender hardware address"	,	L_20
+ad_len	,	V_5
+g_snprintf	,	F_4
+AARP_REQUEST_SWAPPED	,	V_33
+hf_aarp_dst_proto_id	,	V_53
+HFILL	,	V_59
+"Protocol size"	,	L_16
+"Protocol type"	,	L_12
+hrd_vals	,	V_58
+AR_PRO	,	V_27
+gchar	,	T_1
+hf_aarp_proto_type	,	V_42
+"aarp.src.proto_id"	,	L_27
+create_dissector_handle	,	F_29
+hf_aarp_hard_size	,	V_43
+"Target hardware address"	,	L_28
+AR_HRD	,	V_26
+hf_aarp_dst_proto	,	V_54
+AARP_REPLY_SWAPPED	,	V_35
+"Who has %s?  Tell %s"	,	L_3
+proto_tree	,	T_6
+hf	,	V_55

@@ -1,0 +1,78 @@
+register_dissector	,	F_13
+"DOCSIS Path Verify Response"	,	L_21
+hf_docsis_dpvrsp_start	,	V_18
+proto_register_protocol	,	F_9
+tvbuff_t	,	T_1
+dissect_dpvrsp	,	F_1
+proto_tree_add_protocol_format	,	F_5
+"Upstream Service Flow ID"	,	L_9
+tvb_get_ntohs	,	F_2
+proto_reg_handoff_docsis_dpvrsp	,	F_14
+"docsis_dpvrsp.dschan"	,	L_6
+"docsis_dpvrsp"	,	L_23
+proto_register_docsis_dpvrsp	,	F_8
+hf_docsis_dpvrsp_us_sf	,	V_16
+gint	,	T_8
+proto_item_add_subtree	,	F_6
+"Flags"	,	L_7
+"DOCSIS DPV-RSP"	,	L_22
+hf_docsis_dpvrsp_ts_end	,	V_21
+proto_register_field_array	,	F_10
+tvb	,	V_1
+"Transaction Id"	,	L_3
+ett	,	V_28
+COL_INFO	,	V_9
+transid	,	V_6
+dissector_add_uint	,	F_16
+"docsis_mgmt"	,	L_24
+tree	,	V_3
+hf_docsis_dpvrsp_flags	,	V_15
+it	,	V_4
+"End Reference Point"	,	L_15
+FT_UINT16	,	V_23
+packet_info	,	T_2
+tvb_get_guint8	,	F_3
+"Timestamp End"	,	L_19
+hf_docsis_dpvrsp_tranid	,	V_12
+cinfo	,	V_8
+proto_register_subtree_array	,	F_12
+"docsis_dpvrsp.tranid"	,	L_4
+"docsis_dpvrsp.start"	,	L_14
+array_length	,	F_11
+dpvrsp_tree	,	V_5
+"Timestamp Start"	,	L_17
+proto_tree_add_item	,	F_7
+"docsis_dpvrsp.flags"	,	L_8
+pinfo	,	V_2
+col_add_fstr	,	F_4
+dissector_handle_t	,	T_9
+dschan	,	V_7
+"DOCSIS Path Verify Response: Transaction-Id = %u DS-Ch %d"	,	L_1
+hf_docsis_dpvrsp_n	,	V_17
+"N (Measurement avaraging factor)"	,	L_11
+"DPV Response"	,	L_2
+"docsis_dpvrsp.ts_start"	,	L_18
+ett_docsis_dpvrsp	,	V_11
+"docsis_dpvrsp.end"	,	L_16
+hf_docsis_dpvrsp_end	,	V_19
+docsis_dpvrsp_handle	,	V_29
+hf_docsis_dpvrsp_dschan	,	V_14
+hf_register_info	,	T_7
+HFILL	,	V_25
+"docsis_dpvrsp.us_sf"	,	L_10
+"docsis_dpvrsp.ts_end"	,	L_20
+guint16	,	T_5
+FT_UINT8	,	V_26
+find_dissector	,	F_15
+BASE_DEC	,	V_24
+"Start Reference Point"	,	L_13
+proto_item	,	T_4
+proto_docsis_dpvrsp	,	V_10
+ENC_BIG_ENDIAN	,	V_13
+guint8	,	T_6
+"docsis_dpvrsp.n"	,	L_12
+FT_UINT32	,	V_27
+"Downstream Channel ID"	,	L_5
+hf_docsis_dpvrsp_ts_start	,	V_20
+proto_tree	,	T_3
+hf	,	V_22

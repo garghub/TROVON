@@ -1,0 +1,90 @@
+proto_vssmonitoring	,	V_21
+data	,	T_4
+tvb_get_ntohl	,	F_3
+trailer_len	,	V_8
+"Clock Source"	,	L_7
+proto_register_protocol	,	F_13
+tvbuff_t	,	T_1
+proto_tree_add_time	,	F_6
+"vssmonitoring.clksrc"	,	L_8
+vssmonitoring_time	,	V_9
+tvb_get_ntohs	,	F_10
+"VSS-Monitoring"	,	L_14
+prefs_register_protocol	,	F_17
+tvb_reported_length	,	F_2
+"vssmonitoring_eth"	,	L_18
+tm_min	,	V_27
+tm_sec	,	V_28
+"Src Port"	,	L_10
+tmp	,	V_13
+VSS_NS_MASK	,	V_18
+gint	,	T_10
+proto_item_add_subtree	,	F_5
+clksrc_vals	,	V_37
+module_t	,	T_11
+dissect_vssmonitoring	,	F_1
+nstime_t	,	T_6
+vssmonitoring_clksrc	,	V_10
+proto_register_field_array	,	F_14
+"VSS-Monitoring Source Port"	,	L_12
+tvb	,	V_1
+guint	,	T_5
+offset	,	V_7
+guint32	,	V_16
+ett	,	V_39
+"Time Stamp"	,	L_4
+tree	,	V_3
+proto_item_append_text	,	F_8
+CLKSRC_SHIFT	,	V_17
+ett_vssmonitoring	,	V_23
+FT_UINT16	,	V_38
+proto_reg_handoff_vssmonitoring	,	F_19
+packet_info	,	T_2
+", Timestamp: &lt;Not representable&gt;"	,	L_2
+proto_register_vssmonitoring	,	F_11
+tvb_get_guint8	,	F_9
+hf_vssmonitoring_time	,	V_24
+"VSS-Monitoring Clock Source"	,	L_9
+FT_ABSOLUTE_TIME	,	V_32
+proto_register_subtree_array	,	F_16
+array_length	,	F_15
+vssmonitoring_module	,	V_40
+fd	,	V_19
+proto_tree_add_uint	,	F_7
+", Source Port: %d"	,	L_3
+proto_tree_add_item	,	F_4
+pinfo	,	V_2
+_U_	,	V_4
+abs_ts	,	V_20
+heur_dissector_add	,	F_20
+"vssmonitoring.time"	,	L_5
+HEURISTIC_ENABLE	,	V_41
+tm_hour	,	V_26
+", Timestamp: %02d:%02d:%02d.%09ld"	,	L_1
+hf_register_info	,	T_9
+VALS	,	F_12
+vssmonitoring_tree	,	V_6
+HFILL	,	V_34
+"vssmonitoring"	,	L_15
+prefs_register_obsolete_preference	,	F_18
+guint16	,	T_8
+FT_UINT8	,	V_35
+"vssmonitoring.srcport"	,	L_11
+BASE_DEC	,	V_36
+"eth.trailer"	,	L_17
+"use_heuristics"	,	L_16
+"VSS-Monitoring ethernet trailer"	,	L_13
+vssmonitoring_srcport	,	V_11
+ENC_BIG_ENDIAN	,	V_30
+ENC_NA	,	V_22
+ABSOLUTE_TIME_LOCAL	,	V_33
+guint8	,	T_7
+nsecs	,	V_15
+hf_vssmonitoring_srcport	,	V_29
+hf_vssmonitoring_clksrc	,	V_25
+ti	,	V_5
+secs	,	V_14
+tm	,	V_12
+proto_tree	,	T_3
+hf	,	V_31
+"VSS-Monitoring Time Stamp"	,	L_6

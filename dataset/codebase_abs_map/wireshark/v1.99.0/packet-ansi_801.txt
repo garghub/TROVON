@@ -1,0 +1,544 @@
+"BS_LS_REV"	,	L_140
+"Desired pilot phase resolution"	,	L_122
+hf_ansi_801_session_end	,	V_160
+hf_ansi_801_pilot_ph_cap	,	V_101
+"NUM_DR_P: Number of data records in this part"	,	L_150
+"Reserved for future standardization"	,	L_41
+"ansi_801.for_req_type"	,	L_51
+"Coordinate type requested"	,	L_167
+hf_ansi_801_gps_capability_indicator	,	V_31
+for_pr_gps_almanac	,	F_17
+loc_tree	,	V_98
+"NUM_SV_P: Number of satellites in this part"	,	L_160
+gps_tree	,	V_97
+"ansi_801.session_end"	,	L_234
+"Half Chip Measurement Capability"	,	L_33
+"Angle of axis with respect to True North for pos uncertainty (LOC_UNCRTNTY_ANG)"	,	L_70
+"Clock bias (CLOCK_BIAS)"	,	L_88
+"ansi_801.pilot_ph_cap"	,	L_181
+"ansi_801.ref_bit_num"	,	L_149
+hf_ansi_801_coordinate_type_requested	,	V_88
+"One Sixteenth Chip Measurement Capability"	,	L_36
+TFS	,	F_60
+"Azimuth and elevation angle requested (AZ_EL_REQ)"	,	L_112
+rev_req_type_strings	,	V_27
+hf_ansi_801_reject_reason	,	V_29
+"Number Requests"	,	L_243
+guint32	,	T_4
+ANSI_801_REVERSE	,	V_212
+hf_ansi_801_gps_sensitivity_assistance	,	V_110
+"Data records"	,	L_158
+"ansi_801.dopp_req"	,	L_107
+hf_ansi_801_cancellation_type	,	V_25
+FT_BOOLEAN	,	V_195
+"Horizontal velocity magnitude (VELOCITY_HOR)"	,	L_80
+"Location Calculation Capable using GPS Ephemeris Assistance"	,	L_208
+"ansi_801.rev_request_length"	,	L_229
+"%d ppb (ns/s) (0x%04x)"	,	L_25
+"ansi_801.reerved_bits"	,	L_99
+hf_ansi_801_velocity_hor	,	V_65
+rev_req_gps_ephemeris	,	F_37
+hf_ansi_801_rev_sess_tag	,	V_171
+rev_pr_loc_response	,	F_44
+tfs_requested_not_requested	,	V_200
+array_length	,	F_65
+"Reject reason"	,	L_138
+"South"	,	L_12
+hf_ansi_801_az_el_req	,	V_87
+hf_ansi_801_reserved_bits	,	V_76
+"ansi_801.fix_type"	,	L_77
+"ansi_801.mob_sys_t_offset"	,	L_221
+rev_req_loc_response	,	F_39
+ett_gps	,	V_103
+hf_ansi_801_for_req_type	,	V_135
+hf_ansi_801_offset_req	,	V_10
+for_pr_gps_sense_ass	,	F_15
+num_bad_sv	,	V_78
+rev_pr_time_off_meas	,	F_45
+"ansi_801.pref_resp_qual"	,	L_115
+hf_ansi_801_lcc_using_gps_ephemeris_assistance	,	V_119
+rev_pr_can_ack	,	F_46
+"Reverse Response Type"	,	L_56
+hf_register_info	,	T_11
+NUM_REV_RSP_TYPE	,	V_210
+hf_ansi_801_gps_acquisition_assistance	,	V_111
+"ansi_a.pld"	,	L_252
+hf_ansi_801_fix_type	,	V_63
+i	,	V_77
+"Clock information included (CLOCK_INCL)"	,	L_86
+SHORT_DATA_CHECK	,	F_2
+"ansi_801.gps_navigation_message_bits"	,	L_189
+hf_ansi_801_ref_bit_num	,	V_34
+"TOTAL_PARTS: The total number of parts"	,	L_166
+"MOB_SYS_T_OFFSET"	,	L_220
+"ansi_801.session_source"	,	L_236
+"ansi_801.hybrid_gps_and_aflt_lcc"	,	L_203
+"Reverse Session Tag"	,	L_60
+BASE_NONE	,	V_194
+hf_ansi_801_loc_calc_cap	,	V_112
+"ansi_801.velocity_information"	,	L_129
+"ansi_801.alpha_and_beta_parameters"	,	L_172
+hf_ansi_801_bs_ls_rev	,	V_30
+"LOC_CALC_CAP"	,	L_198
+hf_ansi_801_lcc_capable_using_location_assistance_spherical	,	V_123
+rev_req_gps_alm_correction	,	F_40
+"APDC_ID: Autonomous position determination capability indicator: Autonomous Location Technology Identifier"	,	L_146
+"GPS Ephemeris"	,	L_190
+for_rsp_type_strings	,	V_141
+hf_ansi_801_dopp_req	,	V_84
+BASE_HEX	,	V_202
+FT_UINT24	,	V_199
+"Location Calculation Capable using GPS Almanac Assistance"	,	L_210
+hf_ansi_801_alpha_and_beta_parameters	,	V_90
+proto_item_add_subtree	,	F_43
+hf_ansi_801_rev_req_type	,	V_146
+"Height information"	,	L_125
+proto_register_field_array	,	F_64
+"Vertical velocity (VELOCITY_VER)"	,	L_84
+"ansi_801.rev_response_length"	,	L_230
+num_req	,	V_155
+"ansi_801.coordinate_type_requested"	,	L_168
+"ansi_801.gps_autonomous_acquisition_capable"	,	L_185
+dissector_add_uint	,	F_69
+"Capability not supported by the mobile station"	,	L_30
+rev_rsp_type_fcn	,	V_154
+"ansi_801.cancellation_type"	,	L_135
+"Quarter Chip Measurement Capability"	,	L_34
+hf_ansi_801_pref_resp_qual	,	V_6
+FT_UINT16	,	V_203
+"Session Source"	,	L_235
+hf_ansi_801_gps_ephemeris	,	V_108
+tfs_spherical_cartesian	,	V_204
+rev_pr_ms_information	,	F_42
+proto_register_ansi_801	,	F_59
+dissect_ansi_801_rev_message	,	F_55
+"ansi_801.num_bad_sv"	,	L_103
+"ansi_801.apdc_id"	,	L_147
+"ansi_801.rev_message_number_responses"	,	L_248
+hf_ansi_801_reserved8_F0	,	V_134
+"ansi_801.ref_pn"	,	L_219
+hf_ansi_801_lcc_using_location_assistance_cartesian	,	V_122
+hf_ansi_801_total_parts	,	V_38
+"ansi_801.loc_uncrtnty_p"	,	L_75
+ansi_801_tree	,	V_178
+hf_ansi_801_for_sess_tag	,	V_162
+hf_ansi_801_session_start	,	V_159
+hf_ansi_801_reserved8_E0	,	V_139
+hf_ansi_801_bad_sv_present	,	V_81
+val_to_str_const	,	F_10
+"No outstanding request element"	,	L_222
+rev_req_bs_alm	,	F_36
+"ansi_801.num_dr_p"	,	L_151
+"Data Message definition as specified in TSB-58"	,	L_43
+dissect_ansi_801	,	F_56
+"GPS Almanac"	,	L_192
+FT_UINT32	,	V_192
+"ansi_801.lcc_using_location_assistance.spherical"	,	L_217
+"ansi_801.lcc_using_gps_almanac_assistance"	,	L_211
+"%u SUBF_4_5_INCL ... Data records + Reserved"	,	L_9
+guint64	,	T_7
+hf_ansi_801_rev_request_length	,	V_148
+hf	,	V_188
+"WEEK_NUM: The GPS week number of the almanac"	,	L_162
+"ansi_801.data_records"	,	L_159
+"(%u) %s"	,	L_2
+"%s %s Link"	,	L_47
+hf_ansi_801_no_outstanding_request_element	,	V_127
+NUM_FOR_RSP_TYPE	,	V_208
+EXTRANEOUS_DATA_CHECK	,	F_4
+NUM_FOR_REQ_TYPE	,	V_207
+hf_ansi_801_long	,	V_59
+ansi_801_handle	,	V_211
+"Not computable"	,	L_18
+wmem_strdup_printf	,	F_27
+"ANSI IS-801 (Location Services (PLD))"	,	L_249
+hf_ansi_801_for_message_number_responses0F	,	V_170
+col_set_str	,	F_57
+fl_value	,	V_52
+"ansi_801.loc_uncrtnty_v"	,	L_97
+hf_ansi_801_height_incl	,	V_73
+"Cancellation Type"	,	L_134
+hf_ansi_801_for_request_length	,	V_137
+"PD Message Length"	,	L_239
+"Eighth Chip Measurement Capability"	,	L_35
+oct	,	V_17
+hf_ansi_801_velocity_incl	,	V_64
+hidden_item	,	V_158
+"ansi_801.bs_ls_rev"	,	L_141
+"REF_BIT_NUM"	,	L_148
+clock_incl	,	V_55
+"Bad GPS satellites present (BAD_SV_PRESENT)"	,	L_100
+offset_p	,	V_129
+"ansi_801.dr_size"	,	L_153
+for_reject	,	F_12
+"East"	,	L_15
+hf_ansi_801_use_action_time_indicator	,	V_18
+hf_ansi_801_subframes_4_and_5	,	V_91
+"ansi_801.for_response_length"	,	L_228
+"TOTAL_PARTS: Total number of parts"	,	L_156
+ansi_proto_name_short	,	V_181
+hf_ansi_801_add_dopp_req	,	V_85
+"MS_LS_REV"	,	L_176
+"Velocity information included (VELOCITY_INCL)"	,	L_78
+VALS	,	F_61
+"Hybrid GPS and AFLT Location Calculation Capable"	,	L_202
+"ansi_801.for_request_length"	,	L_225
+hf_ansi_801_reserved8_0F	,	V_26
+proto_tree_add_float_bits_format_value	,	F_25
+hf_ansi_801_rev_rsp_type	,	V_151
+"ansi_801.total_parts"	,	L_157
+hf_ansi_801_reject_request_type	,	V_28
+"Location Calculation Capable using Location Assistance - Spherical"	,	L_216
+ansi_801_item	,	V_177
+hf_ansi_801_rev_message_number_responsesF0	,	V_173
+proto_tree_add_text	,	F_16
+BASE_DEC	,	V_190
+hf_ansi_801_reserved8_01	,	V_21
+hf_ansi_801_reserved8_07	,	V_128
+"ansi_801.rev_message_number_requests"	,	L_247
+"GPS week number (8 least significant bits)"	,	L_29
+ENC_NA	,	V_19
+subtree	,	V_132
+bad_sv_prn_num	,	V_79
+hf_ansi_801_hybrid_gps_and_aflt_lcc	,	V_116
+hf_ansi_801_gps_almanac	,	V_109
+fix_type	,	V_53
+"Preferred response quality (PREF_RESP_QUAL)"	,	L_114
+for_req_pilot_ph_meas	,	F_5
+for_pr_bs_cap	,	F_13
+"Unsolicited response indicator"	,	L_226
+"Forward"	,	L_48
+"Use action time indicator"	,	L_130
+"%s"	,	L_5
+rev_reject	,	F_41
+for_req_type_fcn	,	V_138
+hf_ansi_801_gps_acq_cap	,	V_102
+"Advanced Forward Link Trilateration (AFLT) Location Calculation Capable"	,	L_212
+"ansi_801.rev_req_type"	,	L_55
+"ansi_801.add_dopp_req"	,	L_109
+"ansi_801.pd_message_type"	,	L_238
+hf_ansi_801_velocity_ver	,	V_67
+"GPS Autonomous Acquisition Capable"	,	L_184
+saved_offset	,	V_5
+guint	,	T_3
+"Length"	,	L_224
+ett	,	V_206
+wmem_packet_scope	,	F_28
+rev_req_gps_acq_ass	,	F_34
+"Time of almanac (in units of 4096 seconds)"	,	L_28
+hf_ansi_801_for_req_loc_velocity_information	,	V_15
+velocity_incl	,	V_54
+hf_ansi_801_aflt_lcc	,	V_121
+"CDMA system time at the time the solution is valid (TIME_REF_CDMA)"	,	L_64
+"ansi_801.reject_reason"	,	L_139
+"PD Message Type"	,	L_237
+hf_ansi_801_for_message_number_requests8	,	V_169
+"GPS Almanac Correction"	,	L_186
+packet_info	,	T_10
+"ansi_801.offset_req"	,	L_121
+bad_sv_present	,	V_80
+hf_ansi_801_total_parts32	,	V_46
+ett_rev_req_type	,	V_147
+hf_ansi_801_code_ph_par_req	,	V_86
+"%u"	,	L_27
+rev_req_gps_loc_ass	,	F_35
+tfs_desired_pilot_phase_resolution	,	V_201
+"Regulatory Services Indicator"	,	L_241
+"DR_SIZE: Data record size"	,	L_152
+"%d ns (0x%06x)"	,	L_24
+"ansi_801.action_time"	,	L_133
+hf_ansi_801_clock_bias	,	V_69
+"ansi_801.az_el_req"	,	L_113
+"APDC_ID: Autonomous position determination capability indicator: None"	,	L_6
+"ansi_801.week_num"	,	L_163
+hf_ansi_801_time_ref_cdma	,	V_57
+"ansi_801.bad_sv_present"	,	L_101
+"%.2f meters"	,	L_19
+"ansi_801.use_action_time_indicator"	,	L_131
+hf_ansi_801_reserved_24_7	,	V_11
+hf_ansi_801_ms_mode	,	V_100
+HFILL	,	V_191
+"MS_MODE"	,	L_178
+"ansi_801.pd_message_len"	,	L_240
+"%.5f degrees %s (0x%08x)"	,	L_11
+hf_ansi_801_reserved_24_F80000	,	V_104
+gchar	,	T_6
+"ansi_801.lat"	,	L_67
+"ansi_801.long"	,	L_69
+"GPS_ACQ_CAP"	,	L_182
+"Session End"	,	L_233
+"ansi_801.num_sv_p"	,	L_161
+hf_ansi_801_pd_message_len	,	V_165
+rem_len	,	V_157
+dissect_ansi_801_for_message	,	F_52
+"Available for manufacturer-specific Position Determination "	,	L_42
+hf_ansi_801_extended_base_station_almanac	,	V_89
+proto_ansi_801	,	V_182
+hf_ansi_801_reserved8_7F	,	V_22
+"ansi_801.lcc_using_gps_almanac_correction"	,	L_207
+proto_register_protocol	,	F_63
+rev_response	,	F_51
+for_req_loc_response	,	F_6
+"ansi_801.rev_sess_tag"	,	L_61
+"Number of bad GPS satellites (NUM_BAD_SV)"	,	L_102
+len	,	V_3
+height_incl	,	V_56
+gint	,	T_9
+"Longitude (LONG)"	,	L_68
+hf_ansi_801_for_response_length	,	V_144
+proto_tree_add_int_bits_format_value	,	F_30
+"Std dev of vertical error for pos uncertainty (LOC_UNCRTNTY_V)"	,	L_96
+tvb	,	V_1
+"%.3f degrees (0x%04x)"	,	L_22
+"ansi_801.gps_sensitivity_assistance"	,	L_195
+for_pr_gps_nav_msg_bits	,	F_19
+"GPS Acquisition Assistance"	,	L_196
+"%u frames (0x%04x)"	,	L_10
+"Reserved bit(s)"	,	L_98
+hf_ansi_801_sess_tag	,	V_163
+"Pre-programmed Location"	,	L_200
+str	,	V_23
+cinfo	,	V_179
+hf_ansi_801_num_sv_p16	,	V_47
+hf_ansi_801_clock_drift	,	V_71
+"ansi_801.ms_ls_rev"	,	L_177
+"Clock correction for GPS time"	,	L_126
+"Offset requested (OFFSET_REQ)"	,	L_120
+hf_ansi_801_bad_sv_prn_num	,	V_83
+hf_ansi_801_rev_req_loc_clock_correction_for_gps_time	,	V_93
+"ansi_801.heading"	,	L_83
+"Reserved"	,	L_1
+"Reserved/Proprietary/Future Data"	,	L_44
+ett_ansi_801	,	V_186
+"ansi_801.gps_almanac_correction"	,	L_187
+hf_ansi_801_lat	,	V_58
+"Forward Request Type"	,	L_50
+hf_ansi_801_loc_uncrtnty_a	,	V_61
+ett_rev_rsp_type	,	V_152
+"GPSC_ID: GPS capability indicator"	,	L_142
+"%s (%u)"	,	L_38
+PROTO_ITEM_SET_HIDDEN	,	F_53
+hf_ansi_801_gps_autonomous_acquisition_capable	,	V_105
+hf_ansi_801_num_dr_p	,	V_35
+rev_rsp_type_strings	,	V_150
+for_request	,	F_47
+"ansi_801.aflt_lcc"	,	L_213
+"ansi_801.clock_incl"	,	L_87
+hf_ansi_801_loc_uncrtnty_v	,	V_75
+ANSI_801_FORWARD	,	V_185
+hf_ansi_801_pre_programmed_location	,	V_114
+"ansi_801.gps_acq_cap"	,	L_183
+"ansi_801.velocity_ver"	,	L_85
+hf_ansi_801_loc_uncrtnty_p	,	V_62
+"ansi_801.loc_uncrtnty_ang"	,	L_71
+COL_PROTOCOL	,	V_180
+hf_ansi_801_num_sv_p32	,	V_42
+hf_ansi_801_for_req_loc_clock_correction_for_gps_time	,	V_14
+"ansi_801.num_fixes"	,	L_117
+"ansi_801.clock_correction_for_gps_time"	,	L_127
+hf_ansi_801_loc_uncrtnty_ang	,	V_60
+"GPS Sensitivity Assistance"	,	L_194
+hf_ansi_801_total_parts16	,	V_49
+hf_ansi_801_rev_req_loc_height_information	,	V_92
+"ansi_801.rev_rsp_type"	,	L_57
+guint8	,	T_5
+"ansi_801.velocity_incl"	,	L_79
+ti	,	V_96
+hf_ansi_801_for_rsp_type	,	V_142
+tvb_length_remaining	,	F_54
+hf_ansi_801_part_num16	,	V_48
+"Latitude (LAT)"	,	L_66
+register_dissector	,	F_67
+"ansi_801.autonomous_lcc"	,	L_205
+"Clock drift (CLOCK_DRIFT)"	,	L_90
+tvb_get_ntohl	,	F_18
+"ansi_801.loc_uncrtnty_a"	,	L_73
+NUM_INDIVIDUAL_PARAMS	,	F_62
+hf_ansi_801_part_num32	,	V_45
+hf_ansi_801_lcc_using_gps_almanac_correction	,	V_118
+"%u Data records + Reserved"	,	L_8
+"Height information included (HEIGHT_INCL)"	,	L_92
+"ansi_801.regulatory_services_indicator"	,	L_242
+pd_msg_type	,	V_130
+tvbuff_t	,	T_1
+"GPS Navigation Message Bits"	,	L_188
+proto_tree_add_protocol_format	,	F_58
+hf_ansi_801_data_records	,	V_39
+hf_ansi_801_unsolicited_response_indicator	,	V_140
+"ansi_801.part_num"	,	L_155
+"Doppler (0th order) term requested (DOPP_REQ)"	,	L_106
+"Data records (LSB) + Reserved"	,	L_7
+tvb_get_ntohs	,	F_20
+"ansi_map.pld"	,	L_251
+"%s (0x%02x)"	,	L_20
+"ansi_801.gps_capability_indicator"	,	L_143
+hf_ansi_801_dr_size	,	V_36
+"Additional Doppler terms requested (ADD_DOPP_REQ)"	,	L_108
+proto_tree_add_bits_item	,	F_31
+"Session Tag"	,	L_62
+"Height (HEIGHT)"	,	L_94
+tvb_get_guint8	,	F_8
+for_req_type_strings	,	V_24
+"ansi_801.code_ph_par_req"	,	L_111
+"ansi_801.toa"	,	L_165
+"ansi_801.height_information"	,	L_175
+FT_FLOAT	,	V_193
+rev_req_gps_nav_msg_bits	,	F_38
+match_uint	,	V_184
+"AFLTC_ID: Advanced forward link trilateration capability indicator"	,	L_144
+idx	,	V_131
+hf_ansi_801_reserved8_1F	,	V_95
+"ansi_801.for_message_number_responses"	,	L_246
+FT_INT24	,	V_197
+"ansi_801.clock_drift"	,	L_91
+"PILOT_PH_CAP"	,	L_180
+hf_ansi_801_gps_navigation_message_bits	,	V_107
+"Std dev of axis perpendicular to angle specified for pos uncertainty (LOC_UNCRTNTY_P)"	,	L_74
+rev_request	,	F_50
+"Extraneous Data"	,	L_46
+"ansi_801.lcc_using_location_assistance.cartesian"	,	L_215
+for_rsp_type_fcn	,	V_145
+"ansi_801.gps_acquisition_assistance"	,	L_197
+hf_ansi_801_session_source	,	V_161
+proto_tree_add_bits_ret_val	,	F_29
+"Number of fixes (NUM_FIXES)"	,	L_116
+num_rsp	,	V_156
+"ansi_801.time_ref_cdma"	,	L_65
+"Fix type (FIX_TYPE)"	,	L_76
+"ansi_801.clock_bias"	,	L_89
+"REF_PN"	,	L_218
+bit_offset	,	V_50
+FT_INT16	,	V_198
+"ansi_801.desired_pilot_phase_resolution"	,	L_123
+spare_bits	,	V_51
+proto_tree_add_uint_bits_format_value	,	F_23
+"Code phase parameters requested (CODE_PH_PAR_REQ)"	,	L_110
+"TIME_REF_MS:  The time of validity of the parameters reported in this response element."	,	L_37
+proto_tree_add_uint_format_value	,	F_11
+for_pr_loc_response	,	F_32
+"Reverse"	,	L_49
+ENC_BIG_ENDIAN	,	V_7
+"Reverse Request Type"	,	L_54
+ett_loc	,	V_113
+"Capability normally supported by the base station but temporarily not available or not enabled"	,	L_4
+hf_ansi_801_ref_pn	,	V_124
+"ansi_801.for_message_number_requests"	,	L_244
+"ansi_801"	,	L_250
+"Heading (HEADING)"	,	L_82
+"ansi_801.height_incl"	,	L_93
+"ansi_801.pre_programmed_location"	,	L_201
+hf_ansi_801_gps_almanac_correction	,	V_106
+hf_ansi_801_reserved_24_700	,	V_115
+"ansi_801.no_outstanding_request_element"	,	L_223
+"Alpha and Beta parameters"	,	L_171
+"ansi_801.reserved"	,	L_124
+tvb_get_bits8	,	F_26
+regulatory_services_indicator_vals	,	V_205
+proto_tree_add_uint_format	,	F_14
+hf_ansi_801_rev_message_number_requests8	,	V_174
+"Capability normally supported by the mobile station but temporarily not available or not enabled"	,	L_31
+item	,	V_133
+"TOA: The reference time of the almanac"	,	L_164
+"Satellite PRN number (SV_PRN_NUM)"	,	L_104
+"Reject request type"	,	L_136
+"Full Chip Measurement Capability"	,	L_32
+"ansi_801.gps_almanac"	,	L_193
+tvb_get_bits16	,	F_22
+"ansi_801.reject_request_type"	,	L_137
+hf_ansi_801_rev_message_number_requests16	,	V_172
+for_response	,	F_49
+"ansi_801.gps_ephemeris"	,	L_191
+hf_ansi_801_afltc_id	,	V_32
+hf_ansi_801_heading	,	V_66
+proto_register_subtree_array	,	F_66
+gint32	,	V_70
+"ansi_801.lcc_using_gps_ephemeris_assistance"	,	L_209
+"%.1f m/s (0x%02x)"	,	L_23
+hf_ansi_801_autonomous_location_calculation_capable	,	V_117
+proto_tree_add_item	,	F_3
+hf_ansi_801_desired_pilot_phase_resolution	,	V_12
+ansi_801_fix_type_vals	,	V_196
+pinfo	,	V_176
+"Data"	,	L_39
+"Location Calculation Capable using Location Assistance - Cartesian"	,	L_214
+rev_req_type_fcn	,	V_149
+"Position Determination Data Message"	,	L_40
+"ansi_801.extended_base_station_almanac"	,	L_170
+hf_ansi_801_mob_sys_t_offset	,	V_125
+for_req_cancel	,	F_9
+"%.5f degrees (0x%02x)"	,	L_16
+ett_for_rsp_type	,	V_143
+"Forward Response Type"	,	L_52
+"ansi_801.for_sess_tag"	,	L_59
+"Session Start"	,	L_231
+hf_ansi_801_reserved24_1	,	V_126
+hf_ansi_801_rev_response_length	,	V_153
+"Short Data (?)"	,	L_45
+hf_ansi_801_reserved24_3	,	V_16
+FT_UINT8	,	V_189
+hf_ansi_801_week_num	,	V_43
+"Velocity information"	,	L_128
+hf_ansi_801_clock_incl	,	V_68
+tvb_get_bits32	,	F_24
+proto_item	,	T_8
+"ansi_801.afltc_id"	,	L_145
+hf_ansi_801_rev_req_loc_velocity_information	,	V_94
+"Capability not supported by the base station"	,	L_3
+"Subframes 4 and 5"	,	L_173
+hf_ansi_801_ms_ls_rev	,	V_99
+hf_ansi_801_t_betw_fixes	,	V_9
+"ansi_801.bad_sv_prn_num"	,	L_105
+"Autonomous Location Calculation Capable"	,	L_204
+"North"	,	L_13
+"&gt; 12288.00 meters"	,	L_17
+"Time between fixes (T_BETW_FIXES) (in seconds)"	,	L_118
+pr_loc_response	,	F_21
+hf_ansi_801_for_message_number_responsesF0	,	V_168
+"ansi_801.for_rsp_type"	,	L_53
+hf_ansi_801_for_req_loc_height_information	,	V_13
+for_req_pseudo_meas	,	F_1
+"PART_NUM: The part number"	,	L_154
+ansi_proto_name	,	V_183
+hf_ansi_801_apdc_id	,	V_33
+"Location Calculation Capable using GPS Almanac Correction"	,	L_206
+hf_ansi_801_for_message_number_requests16	,	V_167
+hf_ansi_801_toa	,	V_44
+proto_reg_handoff_ansi_801	,	F_68
+"ansi_801.subframes_4_and_5"	,	L_174
+offset	,	V_4
+tree	,	V_2
+"West"	,	L_14
+hf_ansi_801_regulatory_services_indicator	,	V_166
+"ansi_801.session_start"	,	L_232
+"ansi_801.t_betw_fixes"	,	L_119
+"Forward Session Tag"	,	L_58
+"Extended base station almanac"	,	L_169
+for_req_time_off_meas	,	F_7
+"%d m (0x%04x)"	,	L_26
+"ansi_801.sess_tag"	,	L_63
+hf_ansi_801_lcc_using_gps_almanac_assistance	,	V_120
+"Action time"	,	L_132
+ett_for_req_type	,	V_136
+"Std dev of axis along angle specified for pos uncertainty (LOC_UNCRTNTY_A)"	,	L_72
+hf_ansi_801_num_bad_sv	,	V_82
+"ansi_801.height"	,	L_95
+"ansi_801.unsolicited_response_indicator"	,	L_227
+NUM_REV_REQ_TYPE	,	V_209
+for_pr_gps_sat_health	,	F_33
+hf_ansi_801_num_fixes	,	V_8
+value	,	V_41
+hf_ansi_801_action_time	,	V_20
+last_offset	,	V_187
+"ansi_801.velocity_hor"	,	L_81
+num_sv	,	V_40
+hf_ansi_801_pd_message_type	,	V_164
+hf_ansi_801_height	,	V_74
+try_val_to_str_idx	,	F_48
+"%.2f m/s (0x%04x)"	,	L_21
+"ansi_801.ms_mode"	,	L_179
+"Number Responses"	,	L_245
+gint16	,	V_72
+hf_ansi_801_rev_message_number_responses0F	,	V_175
+hf_ansi_801_part_num	,	V_37
+proto_tree	,	T_2
+"ansi_801.loc_calc_cap"	,	L_199

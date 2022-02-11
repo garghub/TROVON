@@ -1,0 +1,364 @@
+PI_CHAT	,	V_152
+tvb_get_string_enc	,	F_8
+pt	,	V_92
+err_corr	,	V_29
+proto_register_protocol	,	F_49
+"DCP-AF Payload Type"	,	L_132
+reassembly_table_register	,	F_56
+ett_af	,	V_94
+"PFT Payload"	,	L_115
+"RSz"	,	L_75
+tvb_reported_length	,	F_41
+process_reassembled_data	,	F_16
+tvb_new_subset_remaining	,	F_35
+len	,	V_103
+hf_edcp_pseq	,	V_71
+c_max	,	V_24
+gint	,	T_13
+tvb_new_child_real_data	,	F_24
+hf_edcp_crc	,	V_102
+tvb	,	V_1
+proto_pft	,	V_68
+ett_edcp	,	V_14
+dummy_data	,	V_51
+guint32	,	T_9
+COL_INFO	,	V_10
+findex	,	T_12
+"PFT Header CRC"	,	L_86
+hf_edcp_findex	,	V_73
+"dcp-pft.fragment.too_long_fragment"	,	L_101
+pool	,	V_58
+FT_BOOLEAN	,	V_126
+"Reassembly failed"	,	L_120
+" (Message fragment %u)"	,	L_10
+input	,	V_17
+proto_tree_add_expert_format	,	F_15
+hf_edcp_rs_ok	,	V_59
+cinfo	,	V_9
+PI_ERROR	,	V_150
+"The number of padding bytes in the last Reed Solomon block"	,	L_77
+"successfully decoded RS blocks"	,	L_112
+array_length	,	F_51
+"length"	,	L_32
+" (first)"	,	L_11
+fragment_add_seq_check	,	F_21
+next_tvb	,	V_67
+"RSk"	,	L_72
+deinterleaved	,	V_23
+"dcp-af.crc"	,	L_50
+proto_reg_handoff_dcp_etsi	,	F_43
+" (%s)"	,	L_14
+hf_edcp_crcflag	,	V_98
+ENC_ASCII	,	V_15
+"dcp-pft.dest"	,	L_82
+rsk	,	V_25
+col_append_str	,	F_28
+ett_edcp_fragment	,	V_146
+proto_tree_add_boolean	,	F_26
+"Ok"	,	L_15
+hf_tpl_tlv	,	V_112
+hf_register_info	,	T_18
+hf_edcp_fragment_error	,	V_139
+rsz	,	T_11
+proto_tree_add_bytes_format	,	F_42
+PFT_RS_P	,	V_31
+tvb_new_real_data	,	F_20
+pft_tree	,	V_65
+hf_edcp_hcrc_ok	,	V_86
+seq	,	V_32
+hf_edcp_len	,	V_96
+"dest addr"	,	L_81
+guint16	,	T_8
+COL_PROTOCOL	,	V_11
+c	,	V_84
+"DCP Tag Packet Layer"	,	L_129
+hf_edcp_rsk	,	V_78
+ci	,	V_82
+i	,	V_26
+"dcp-pft.reassembled.in"	,	L_107
+" (Message Reassembled)"	,	L_8
+"dcp-pft.fragment.overlap.conflicts"	,	L_97
+hf_edcp_hcrc	,	V_85
+hf_edcp_fragment_too_long_fragment	,	V_138
+guint8	,	T_6
+r	,	V_22
+wmem_alloc0	,	F_19
+ti	,	V_7
+BASE_NONE	,	V_120
+rs_deinterleave	,	F_11
+"dcp-etsi.reassembly_failed"	,	L_119
+"Frame is protected by CRC"	,	L_40
+header_len	,	V_83
+ett_tpl	,	V_108
+"dcp-pft.fragment"	,	L_93
+"DCP Sync"	,	L_131
+tvb_get_ntohl	,	F_37
+"RS decode OK"	,	L_110
+"T means Tag Packets, all other values reserved"	,	L_48
+"Addr"	,	L_66
+tvbuff_t	,	T_2
+hf_edcp_addrflag	,	V_76
+frag_edcp	,	V_62
+"Reassembled DCP (ETSI)"	,	L_3
+"DCP Application Framing Layer"	,	L_125
+tvb_get_ntohs	,	F_3
+got	,	V_42
+"want %d, got %d need %d"	,	L_4
+"dcp-pft.addr"	,	L_67
+BASE_HEX	,	V_128
+dissect_dcp_etsi	,	F_1
+"RS Error Corrected Data"	,	L_7
+"AF or PF"	,	L_31
+FT_UINT24	,	V_130
+"sync"	,	L_30
+expert_dcp_etsi	,	V_153
+gboolean	,	T_1
+reassembled_size	,	V_57
+"Major Protocol Revision"	,	L_43
+proto_item_add_subtree	,	F_7
+hf_edcp_maj	,	V_99
+fragments	,	V_41
+"DCP Protection, Fragmentation &amp; Transport Layer"	,	L_127
+fragmented	,	V_63
+proto_register_field_array	,	F_50
+"DCP-TPL Protocol Type &amp; Revision"	,	L_134
+FT_BYTES	,	V_143
+"dcp-pft"	,	L_128
+"dcp-pft.fragment.overlap"	,	L_95
+last	,	V_61
+"PFT Sequence No"	,	L_56
+ei	,	V_148
+tvb_data	,	V_48
+"Message fragments"	,	L_90
+rs_correct_data	,	F_12
+fragment_head	,	T_15
+hf_edcp_dest	,	V_81
+dissector_add_uint	,	F_47
+hf_edcp_fragments	,	V_131
+proto_dcp_etsi	,	V_12
+"dcp-af.len"	,	L_33
+"dcp-pft.len"	,	L_70
+dissect_tpl	,	F_40
+"dcp-pft.crc_ok"	,	L_88
+sync	,	V_5
+tvb_get_ptr	,	F_23
+FT_UINT16	,	V_125
+PFT_RS_N_MAX	,	V_30
+tvb_get_guint8	,	F_32
+hf_edcp_sync	,	V_70
+"dcp-tpl"	,	L_130
+tvb_captured_length	,	F_2
+hf_edcp_fragment_overlap	,	V_135
+fidx	,	V_21
+"dcp-pft.fragment.error"	,	L_103
+ett_edcp_fragments	,	V_147
+fd	,	V_43
+hf_edcp_fcount	,	V_74
+next	,	V_47
+real_payload_len	,	V_95
+dcp_tree	,	V_6
+"Message fragment overlap"	,	L_94
+"dcp-etsi.reassembly_info"	,	L_121
+"Minor Protocol Revision"	,	L_46
+dcp_frag_items	,	V_40
+heur_dissector_add	,	F_45
+current_findex	,	V_49
+HEURISTIC_ENABLE	,	V_117
+hf_edcp_fragment	,	V_133
+" (%d bytes in packet after end of AF frame)"	,	L_20
+FT_STRING	,	V_119
+tpl_dissector_table	,	V_113
+"dcp-af.crcflag"	,	L_39
+proto_af	,	V_93
+"Logical Frame Number"	,	L_37
+proto_tpl	,	V_107
+"Payload Type"	,	L_47
+PI_REASSEMBLE	,	V_149
+next_fragment_we_have	,	V_53
+"dcp-pft.fcount"	,	L_61
+"dcp-etsi.sync"	,	L_26
+eras_dec_rs	,	F_13
+proto_register_dcp_etsi	,	F_48
+"[Missing %d consecutive packets. Don't attempt reassembly]"	,	L_5
+hf_edcp	,	V_118
+"Message has multiple tail fragments"	,	L_98
+hf_af	,	V_122
+ENC_BIG_ENDIAN	,	V_72
+MAX_FRAG_GAP	,	V_54
+ei_edcp_reassembly_info	,	V_45
+ett_pft	,	V_69
+FT_UINT32	,	V_123
+"frame count"	,	L_35
+decoded_size	,	V_35
+"PFT Header CRC OK"	,	L_89
+"crc flag"	,	L_38
+MAX_FRAGMENTS	,	V_38
+"tag"	,	L_116
+new_tvb	,	V_37
+"payload"	,	L_113
+"Message fragment overlapping with conflicting data"	,	L_96
+fd_head	,	V_44
+dissect_af	,	F_36
+output	,	V_18
+ei_edcp_reassembly	,	V_39
+fragment_get	,	F_18
+dtvb	,	V_56
+col_append_fstr	,	F_29
+"dcp-pft.fragment.multiple_tails"	,	L_99
+"ETSI Distribution &amp; Communication Protocol (for DRM)"	,	L_123
+dissect_pft_fec_detailed	,	F_14
+"Major Revision"	,	L_41
+col_set_str	,	F_5
+"Minor Revision"	,	L_44
+"Fragment Count"	,	L_60
+dummytvb	,	V_52
+"dcp-pft.fec"	,	L_64
+" (Message Reassembly failure)"	,	L_9
+bits	,	V_109
+"Index of the fragment within one AF Packet"	,	L_59
+proto_item_append_text	,	F_34
+"AF"	,	L_27
+"dcp-af.crc_ok"	,	L_52
+"CRC OK"	,	L_51
+"Tag Packet"	,	L_118
+col_clear	,	F_4
+"dcp-pft.rsk"	,	L_73
+"dcp-pft.reassembled.length"	,	L_109
+real_len	,	V_88
+proto_register_subtree_array	,	F_52
+"%s (%u bits)"	,	L_22
+"dcp-af"	,	L_126
+"dcp-af.min"	,	L_45
+word	,	V_8
+tvb_get_ntoh24	,	F_31
+"dcp-pft.findex"	,	L_58
+hf_pft	,	V_129
+"fragment length"	,	L_69
+proto_tree_add_item	,	F_6
+pinfo	,	V_2
+dissector_handle_t	,	T_17
+"dcp-etsi"	,	L_124
+"DCP (ETSI) over UDP"	,	L_24
+_U_	,	V_4
+hf_edcp_crc_ok	,	V_104
+"dcp-pft.crc"	,	L_85
+"Message fragment too long"	,	L_100
+" (last)"	,	L_12
+"The length of the Reed Solomon data word"	,	L_74
+"Reassembled DCP (ETSI) length"	,	L_108
+"PFT CRC OK"	,	L_87
+"source addr"	,	L_78
+hf_edcp_pt	,	V_101
+"Fragment Index"	,	L_57
+"dcp-tpl.ptr"	,	L_133
+"dcp-pft.rsz"	,	L_76
+hf_edcp_reassembled_length	,	V_142
+" (wrong len claims %d is %d)"	,	L_19
+FT_UINT8	,	V_127
+fragment_item	,	T_16
+BASE_DEC	,	V_124
+proto_item	,	T_7
+expert_register_field_array	,	F_54
+hf_edcp_fragment_count	,	V_140
+tvb_new_subset_length_caplen	,	F_38
+ENC_NA	,	V_13
+dissector_add_string	,	F_46
+"dcp-tpl.tlv"	,	L_117
+tpl_tree	,	V_106
+fdx	,	V_34
+li	,	V_66
+wmem_alloc	,	F_17
+first	,	V_60
+dissect_pft	,	F_30
+tpl_handle	,	V_116
+"dcp-pft.fragment.count"	,	L_105
+register_dissector_table	,	F_55
+"Message fragment"	,	L_92
+index_out	,	V_28
+data	,	T_5
+fec	,	T_14
+"dcp-af.maj"	,	L_42
+rx_min	,	V_36
+dcp_reassembly_table	,	V_46
+"When set the optional transport header is present"	,	L_68
+"dcp-af.seq"	,	L_36
+hf_edcp_source	,	V_80
+hf_edcp_seq	,	V_97
+plen	,	V_19
+"[Reassembly of %d fragments not attempted]"	,	L_2
+"Number of fragments produced from this AF Packet"	,	L_62
+ei_register_info	,	T_19
+expert_register_protocol	,	F_53
+save_fragmented	,	V_87
+"Reassembly information"	,	L_122
+hf_edcp_rsz	,	V_79
+af_handle	,	V_114
+"PF"	,	L_28
+"PFT source identifier"	,	L_80
+tag	,	V_111
+"length in bytes of the payload"	,	L_34
+hf_edcp_pft_payload	,	V_89
+hf_edcp_min	,	V_100
+"dcp-pft.payload"	,	L_114
+"FEC"	,	L_63
+hf_edcp_plen	,	V_77
+"header CRC"	,	L_84
+ver	,	V_91
+"dcp-pft.rs_ok"	,	L_111
+guint	,	T_10
+FT_NONE	,	V_132
+offset	,	V_33
+"dcp-pft.seq"	,	L_55
+ett	,	V_145
+wmem_packet_scope	,	F_9
+payload_len	,	V_64
+expert_module_t	,	T_20
+tree	,	V_3
+addresses_reassembly_table_functions	,	V_154
+pft_handle	,	V_115
+packet_info	,	T_3
+add_new_data_source	,	F_25
+hf_edcp_fecflag	,	V_75
+dissect_pft_fragmented	,	F_27
+"udp"	,	L_23
+"Message defragmentation error"	,	L_102
+EXPFILL	,	V_151
+frag	,	V_50
+af_tree	,	V_90
+" (length error (%d))"	,	L_17
+"Reassembled in"	,	L_106
+"DCP-PFT"	,	L_13
+af_dissector_table	,	V_105
+"dcp-af.pt"	,	L_29
+"AF CRC OK"	,	L_53
+"bad"	,	L_16
+"dcp_etsi_udp"	,	L_25
+dissector_try_string	,	F_10
+"dcp-pft.fragments"	,	L_91
+"Message fragment count"	,	L_104
+decoded	,	V_55
+fcount	,	V_20
+HFILL	,	V_121
+"DCP-TPL"	,	L_21
+"length in bytes of the payload of this fragment"	,	L_71
+crc16_x25_ccitt_tvb	,	F_33
+"PFT destination identifier"	,	L_83
+dissector_try_uint	,	F_39
+"DCP (ETSI)"	,	L_1
+"When set the optional RS header is present"	,	L_65
+tvb_free	,	F_22
+"Deinterleaved"	,	L_6
+create_dissector_handle	,	F_44
+FT_FRAMENUM	,	V_134
+hf_edcp_fragment_multiple_tails	,	V_137
+hf_tpl	,	V_144
+"CRC"	,	L_49
+hf_edcp_fragment_overlap_conflicts	,	V_136
+dcp_dissector_table	,	V_16
+"dcp-pft.source"	,	L_79
+hf_edcp_reassembled_in	,	V_141
+bytes	,	V_110
+index_coded	,	V_27
+"Sequence No"	,	L_54
+proto_tree	,	T_4
+"DCP-AF"	,	L_18

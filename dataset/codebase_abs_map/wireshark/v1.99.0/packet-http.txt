@@ -1,0 +1,899 @@
+tvb_get_string_enc	,	F_100
+hf_http_sec_websocket_version	,	V_342
+g_new	,	F_123
+"Content-Length"	,	L_145
+res_framenum	,	V_81
+"http.response.code"	,	L_119
+"HTTP/Requests"	,	L_297
+push_req	,	F_37
+push_res	,	F_39
+proto_tree_add_format_text	,	F_62
+content_length	,	V_125
+"TCP port for protocols using HTTP"	,	L_284
+st_str_packets	,	V_38
+upgrade	,	V_128
+guint32	,	T_28
+"http.request_in"	,	L_218
+value_len	,	V_258
+pool	,	V_209
+"http.header.%s"	,	L_81
+hf_http_transfer_encoding	,	V_324
+g_ascii_strncasecmp	,	F_84
+p_get_proto_data	,	F_73
+g_ascii_isspace	,	F_134
+req_res	,	V_70
+array_length	,	F_139
+"Whether the HTTP dissector should use the "	,	L_261
+"http.proxy_authenticate"	,	L_128
+"http.sec_websocket_protocol"	,	L_205
+"MERGE"	,	L_54
+ENC_ASCII	,	V_196
+http_host	,	V_32
+col_append_str	,	F_184
+hf_register_info	,	T_30
+http_reqs_stats_tree_init	,	F_9
+"http.cookie"	,	L_169
+resp_grp	,	V_57
+"Cookie"	,	L_168
+same_name_next	,	V_251
+guint16	,	T_26
+c	,	V_4
+"This packet will be responded in the packet with this number"	,	L_222
+content_encoding	,	V_126
+i	,	V_27
+line_end_offset	,	V_254
+n	,	V_6
+o	,	V_7
+p	,	V_22
+"HTTP Response Reason Phrase"	,	L_123
+r	,	V_1
+wmem_alloc0	,	F_32
+BASE_NONE	,	V_249
+"A name/value HTTP cookie pair"	,	L_173
+v	,	V_23
+"HTTP/Load Distribution"	,	L_299
+hf_http_www_authenticate	,	V_319
+"http.transfer_encoding"	,	L_154
+addresses_equal	,	F_107
+orig_offset	,	V_91
+"OPTIONS"	,	L_63
+"CHECKIN"	,	L_64
+header_len	,	V_255
+proto_tag	,	V_83
+ett_http_header_item	,	V_282
+"http.next_response_in"	,	L_227
+proto_message_http	,	V_369
+headers_uat	,	V_362
+check_auth_ntlmssp	,	F_130
+tvb_memcpy	,	F_104
+rec	,	V_3
+PROTO_ITEM_SET_GENERATED	,	F_71
+"x-gzip"	,	L_26
+FT_UINT24	,	V_267
+tvb_ensure_captured_length_remaining	,	F_46
+"multipart/"	,	L_32
+layers	,	V_117
+proto_item_add_subtree	,	F_59
+conversation	,	V_67
+hf_http_sec_websocket_extensions	,	V_339
+"End of chunked encoding"	,	L_34
+FT_UINT16	,	V_266
+tvb_strneql	,	F_26
+"TRACE"	,	L_52
+req_resp_hdrs_do_reassembly	,	F_47
+port	,	V_309
+HDR_HOST	,	V_287
+st_str_responses	,	V_42
+"Last-Modified"	,	L_211
+response_code	,	V_28
+hf_http_next_response_in	,	V_161
+"and reassemble chunked data spanning multiple TCP segments. "	,	L_264
+HTTP_OTHERS	,	V_115
+"HTTP Response Status Code"	,	L_120
+chunk_subtree	,	V_214
+proto_register_message_http	,	F_185
+"GET"	,	L_41
+heur_dissector_add	,	F_188
+"gzip"	,	L_24
+FT_STRING	,	V_247
+http_req_stats_tree_init	,	F_15
+startframe	,	V_189
+"HTTP Connection"	,	L_167
+"decompress_body"	,	L_269
+stat_info	,	V_118
+linep	,	V_89
+"http.cookie_pair"	,	L_172
+headers	,	V_102
+special	,	V_273
+leading_crlf	,	V_112
+hf_http_next_request_in	,	V_160
+hf_http_response_line	,	V_262
+FT_UINT32	,	V_268
+"Credentials"	,	L_100
+st_str_requests	,	V_40
+visited	,	V_306
+"http_srv"	,	L_298
+find_or_create_conversation	,	F_30
+"http.user_agent"	,	L_160
+dissector_add_uint_range	,	F_155
+"HTTP Proxy Connect Hostname"	,	L_135
+"A table to define custom HTTP header for which fields can be setup and used for filtering/data extraction etc."	,	L_282
+uat_new	,	F_171
+"HTTP Set Cookie"	,	L_210
+http_stats_tree_packet	,	F_19
+register_heur_dissector_list	,	F_174
+number	,	V_72
+proto_tree_add_subtree	,	F_64
+tmp	,	V_264
+col_set_str	,	F_55
+"http.proxy_authorization"	,	L_131
+"HTTP Accept Encoding"	,	L_185
+"HTTP Upgrade header"	,	L_158
+"h2"	,	L_84
+"MKWORKSPACE"	,	L_74
+handle	,	V_105
+expert_http	,	V_361
+"\"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_258
+proto_tree_add_string	,	F_69
+st_str_reqs_by_srv_addr	,	V_16
+server_port	,	V_191
+hf_http_sec_websocket_accept	,	V_338
+dissector_handle_t	,	T_23
+"desegment_headers"	,	L_253
+base64_to_tvb	,	F_24
+"Custom HTTP headers fields Table"	,	L_279
+blurb	,	V_243
+content_type_parameters	,	V_123
+can_desegment	,	V_231
+"http.authorization"	,	L_125
+st_str_resp_400	,	V_52
+hf_http_prev_request_in	,	V_157
+ei_http_ssl_port	,	V_141
+hf_http_sec_websocket_key	,	V_340
+proto_register_http	,	F_157
+ett_http_encoded_entity	,	V_174
+nstime_set_unset	,	F_36
+"http.upgrade"	,	L_157
+"Reassemble HTTP bodies spanning multiple TCP segments"	,	L_260
+"Basic "	,	L_87
+hf_http_content_encoding	,	V_323
+err	,	V_2
+hf_http_request_line	,	V_263
+ett_http	,	V_135
+websocket_handle	,	V_307
+"SSDP"	,	L_11
+proto_tree_add_text	,	F_76
+stats_tree	,	T_4
+"http.accept_language"	,	L_181
+http_info_value_t	,	T_8
+subtree	,	V_205
+"HTTP Host"	,	L_164
+hf_http_request_full_uri	,	V_147
+ssl_dissector_delete	,	F_149
+"Accept"	,	L_174
+"http.accept"	,	L_175
+hf_http_server	,	V_336
+header_fields_initialize_cb	,	F_117
+"Notification"	,	L_91
+g_hash_table_lookup	,	F_116
+"LABEL"	,	L_53
+http_ssl_range	,	V_311
+"User-Agent"	,	L_159
+"Sec-WebSocket-Protocol"	,	L_204
+expert_register_protocol	,	F_161
+" (message/http)"	,	L_300
+kerberos_tvb	,	V_66
+"tcp"	,	L_304
+http_handle	,	V_230
+ERANGE	,	V_279
+hf_http_cookie	,	V_329
+st_node_other	,	V_55
+colon_offset	,	V_101
+st_str_reqs_by_http_host	,	V_18
+guint	,	T_10
+"http.accept_encoding"	,	L_184
+ett	,	V_348
+http_conv_t	,	T_13
+wmem_packet_scope	,	F_53
+st_node_reqs_by_http_host	,	V_17
+"HTTP Proxy-Authenticate header"	,	L_129
+packet_info	,	T_5
+"COPY"	,	L_44
+"Content-Type"	,	L_142
+uncomp_tvb	,	V_171
+hf_http_host	,	V_327
+EXPFILL	,	V_352
+hf_http_request_uri	,	V_197
+http_eo_t	,	T_24
+"NTLMSSP"	,	L_8
+ptype	,	V_137
+"Request URI"	,	L_109
+cookie_tree	,	V_292
+hf_http_set_cookie	,	V_343
+range_convert_str	,	F_168
+PI_MALFORMED	,	V_353
+"HTTP Last Modified"	,	L_213
+"http.cache_control"	,	L_190
+create_dissector_handle	,	F_181
+"desegment_body"	,	L_259
+http_eo_tap	,	V_175
+HDR_AUTHORIZATION	,	V_274
+"UNSUBSCRIBE"	,	L_77
+reqresp_dissector	,	V_99
+dissector_handle	,	V_229
+UAT_AFFECTS_FIELDS	,	V_366
+basic_request_dissector	,	F_98
+req_tree	,	V_100
+"Upgrade"	,	L_156
+get_token_len	,	F_99
+prev	,	V_75
+proto_register_protocol	,	F_159
+nstime_is_unset	,	F_77
+"UNCHECKOUT"	,	L_72
+save_private_data	,	V_165
+hostname	,	V_176
+tvb_new_subset_remaining	,	F_143
+len	,	V_253
+gint	,	T_18
+g_strsplit	,	F_108
+g_strstrip	,	F_3
+tvb	,	V_61
+"BASELINE-CONTROL"	,	L_80
+range_delete_http_ssl_callback	,	F_148
+desegment_offset	,	V_187
+"http.prev_response_in"	,	L_233
+"http.response_in"	,	L_221
+req_res_num	,	V_73
+"Sec-WebSocket-Key"	,	L_202
+st_node_resp_300	,	V_49
+PI_ERROR	,	V_357
+hf_http_date	,	V_334
+reqs_by_this_addr	,	V_25
+call_dissector	,	F_27
+"SSL/TLS Ports range"	,	L_278
+"http"	,	L_18
+http_tree	,	V_84
+UAT_FLD_CSTRING	,	F_158
+"http.host"	,	L_163
+PROTO_ITEM_SET_HIDDEN	,	F_75
+"HTTP Request Method"	,	L_108
+"HTTP Cache Control"	,	L_191
+"PROPPATCH"	,	L_69
+proto_tree_add_boolean	,	F_74
+"Host"	,	L_162
+check_auth_basic	,	F_131
+req_framenum	,	V_77
+COL_PROTOCOL	,	V_132
+decode_tcp_ports	,	F_112
+"DELETE"	,	L_55
+g_free	,	F_8
+"Hypertext Transfer Protocol"	,	L_252
+is_http	,	V_129
+HTTP_NOTIFICATION	,	V_152
+"using \"Content-Encoding: \""	,	L_272
+value_is_in_range	,	F_111
+guint8	,	T_29
+"Header name can't be empty"	,	L_1
+http_desegment_body	,	V_114
+http_dissector_add	,	F_176
+proto_get_frame_protocols	,	F_51
+g_str_has_prefix	,	F_138
+"Accept-Language"	,	L_180
+"HTTP Location"	,	L_197
+"Kerberos "	,	L_88
+"http.authbasic"	,	L_101
+"Prev request in frame"	,	L_229
+st_str_resp_100	,	V_46
+eo_info	,	V_108
+tvbuff_t	,	T_11
+resps_by_this_addr	,	V_26
+tvb_get_ntohs	,	F_42
+conversation_set_dissector	,	F_146
+"http.request.uri"	,	L_110
+"Request Method"	,	L_106
+"Chunk boundary"	,	L_37
+UAT_END_FIELDS	,	V_359
+"http.chat"	,	L_238
+stats_tree_create_pivot	,	F_18
+"custom_http_header_fields"	,	L_280
+header_field_t	,	T_1
+http_udp_handle	,	V_367
+from_server	,	V_225
+"http.port"	,	L_283
+range_empty	,	F_169
+"The full requested URI (including host name)"	,	L_117
+"UPDATE"	,	L_59
+"of a request spanning multiple TCP segments. "	,	L_256
+st_node_resp_500	,	V_53
+p_add_proto_data	,	F_38
+headers_t	,	T_22
+tvb_get_guint8	,	F_44
+"http.response.line"	,	L_103
+"Unencrypted HTTP protocol detected over encrypted port, could indicate a dangerous misconfiguration."	,	L_245
+proto_tree_add_string_format	,	F_128
+name	,	V_241
+next	,	V_76
+st_node_requests_by_host	,	V_34
+"http_req"	,	L_296
+FT_INT24	,	V_271
+"HTTP WWW-Authenticate header"	,	L_141
+"HTTP body subdissector failed, trying heuristic subdissector"	,	L_243
+st_str_requests_by_host	,	V_35
+HDR_COOKIE	,	V_291
+"ntlmssp"	,	L_293
+FT_INT32	,	V_272
+prefs_register_obsolete_preference	,	F_167
+FT_INT16	,	V_270
+"http.leading_crlf"	,	L_246
+"http.sec_websocket_extensions"	,	L_201
+find_dissector	,	F_180
+range_foreach	,	F_156
+resp_str	,	V_58
+heur_subdissector_list	,	V_185
+ptr	,	V_218
+"Accept Encoding"	,	L_183
+hf_http_response_code	,	V_200
+e_tree	,	V_172
+tree_item	,	V_281
+"RPC_OUT_DATA"	,	L_78
+chunks_decoded	,	V_167
+"Next request in frame"	,	L_223
+HTTP_RESPONSE	,	V_149
+ntlm_headers	,	V_297
+match_string	,	V_181
+"\"Content-length:\" value, if present, to reassemble "	,	L_262
+"HTTP X-Forwarded-For"	,	L_216
+"http.response.phrase"	,	L_122
+proto_tree_add_time	,	F_79
+hf_http_cache_control	,	V_335
+framenum	,	V_119
+"%s://%s%s"	,	L_16
+hf_http_content_length	,	V_283
+"TCP Ports"	,	L_274
+tvb_ptr	,	V_202
+"Full request URI"	,	L_115
+hf_http_proxy_authenticate	,	V_317
+"http.prev_request_in"	,	L_230
+conv_data	,	V_68
+http_dechunk_body	,	V_168
+item	,	V_222
+get_hf_for_header	,	F_115
+"gssapi"	,	L_294
+proto_item_append_text	,	F_89
+col_set_fence	,	F_144
+"LOCK"	,	L_45
+"BDELETE"	,	L_61
+request_uri	,	V_36
+have_tap_listener	,	F_90
+epan_dissect_t	,	T_6
+proto_tree_add_item	,	F_58
+pinfo	,	V_21
+col_add_fstr	,	F_56
+flags	,	V_305
+new_register_dissector	,	F_163
+dissected	,	V_106
+tvb_ensure_bytes_exist	,	F_54
+"M-"	,	L_39
+"Time since the request was send"	,	L_237
+"media_type"	,	L_285
+"message-http"	,	L_303
+TCP_PORT_SSDP	,	V_121
+"Leading CRLF previous message in the stream may have extra CRLF"	,	L_247
+find_conversation	,	F_109
+"the body of a request spanning multiple TCP segments, "	,	L_263
+header_fields_update_cb	,	F_1
+display	,	V_248
+"Response line"	,	L_102
+tap_queue_packet	,	F_91
+dissector_add_string	,	F_187
+st_node_resp_broken	,	V_43
+http_module	,	V_360
+HDR_CONTENT_ENCODING	,	V_285
+http_req_res_t	,	T_15
+hf_http_last_modified	,	V_344
+num_header_fields	,	V_244
+tvb_format_text	,	F_63
+http_tap	,	V_192
+"http.sec_websocket_accept"	,	L_199
+p_id	,	V_239
+register_dissector_table	,	F_173
+hf_http_accept_encoding	,	V_333
+"X-Forwarded-For"	,	L_214
+num	,	V_79
+"The previous HTTP request starts in packet number"	,	L_231
+header_desc	,	V_11
+" -&gt; %u bytes"	,	L_29
+"http_eo"	,	L_287
+tcpinfo	,	V_232
+ei_register_info	,	T_32
+proto_reg_handoff_http	,	F_179
+ei_http_subdissector_failed	,	V_184
+"HTTP"	,	L_12
+"TRUE if HTTP request"	,	L_99
+"The next HTTP response starts in packet number"	,	L_228
+PI_NOTE	,	V_355
+"Unknown (%d)"	,	L_6
+PI_SEQUENCE	,	V_350
+"identity"	,	L_21
+hf_size	,	V_238
+"http.request.version"	,	L_113
+dissect_message_http	,	F_183
+tree	,	V_62
+"HTTP Cookie"	,	L_170
+basic_headers	,	V_302
+"http.sec_websocket_key"	,	L_203
+st_node_resp_100	,	V_45
+g_ascii_isprint	,	F_43
+header_fields_copy_cb	,	F_6
+abbrev	,	V_242
+destport	,	V_140
+"HTTP chunked response"	,	L_33
+PI_SECURITY	,	V_356
+"RPC_IN_DATA"	,	L_76
+uat_t	,	T_36
+"http.proxy_connect_port"	,	L_137
+"HTTP Date"	,	L_188
+part	,	V_293
+ett_http_request	,	V_143
+request_method	,	V_30
+proto_tree_add_uint64	,	F_137
+"Request Version"	,	L_112
+"%d"	,	L_82
+"Server"	,	L_192
+"ssl.port"	,	L_276
+" [Error: Decompression failed]"	,	L_31
+"http.server"	,	L_193
+"udp.port"	,	L_292
+gssapi_handle	,	V_65
+http_port_add	,	F_178
+proto_item_set_len	,	F_96
+"POLL"	,	L_47
+hf_http_proxy_connect_port	,	V_227
+hf_http_sec_websocket_protocol	,	V_341
+chunk_offset	,	V_212
+"tcp.port"	,	L_90
+"http.sec_websocket_version"	,	L_207
+PI_CHAT	,	V_351
+TCP_DEFAULT_RANGE	,	V_363
+hf_http_response	,	V_154
+uat_field_t	,	T_33
+reqs_by_this_host	,	V_24
+"http.request.full_uri"	,	L_116
+proto_http	,	V_69
+tvb_new_child_real_data	,	F_105
+"TRUE if HTTP notification"	,	L_93
+body_dissected	,	V_169
+errno	,	V_278
+st_node_reqs	,	V_13
+FT_BOOLEAN	,	V_313
+datalen	,	V_103
+"Custom HTTP headers fields"	,	L_281
+tvb_reported_length_remaining	,	F_41
+"http.proxy_connect_host"	,	L_134
+"PUT"	,	L_42
+"Request"	,	L_97
+wmem_strdup	,	F_68
+wmem_strndup	,	F_114
+HDR_TRANSFER_ENCODING	,	V_286
+"http.content_type"	,	L_143
+indx	,	V_234
+DISSECTOR_ASSERT	,	F_103
+hf_http_content_length_header	,	V_321
+st_str_other	,	V_56
+"Connection"	,	L_165
+hf_http_request_method	,	V_195
+"%u %s"	,	L_5
+part_end	,	V_294
+stats_tree_register	,	F_182
+hf_http_accept_language	,	V_332
+hdrlen	,	V_299
+"http.referer"	,	L_178
+hf_http_referer	,	V_331
+range_add_http_ssl_callback	,	F_150
+"Set-Cookie"	,	L_208
+hf_http_request	,	V_162
+"Content-Encoding"	,	L_150
+"HTTP header name"	,	L_249
+header_tree	,	V_280
+media_handle	,	V_186
+next_token	,	V_193
+proto_reg_handoff_message_http	,	F_186
+st_node_reqs_by_srv_addr	,	V_15
+message_http_handle	,	V_371
+"HTTP Accept"	,	L_176
+desegment_len	,	V_188
+module_t	,	T_34
+"tcp_alternate_port"	,	L_273
+SE_COPY_ADDRESS	,	F_97
+raw_data	,	V_206
+proto_register_field_array	,	F_125
+e_ti	,	V_145
+hf_http_proxy_connect_host	,	V_226
+ei	,	V_349
+saved_port	,	V_220
+dissector_add_uint	,	F_177
+nstime_delta	,	F_78
+"HTTP response %u/%u"	,	L_19
+hf_http_cookie_pair	,	V_296
+"Request in frame"	,	L_217
+data_handle	,	V_170
+tvb_get_ptr	,	F_48
+prefs_register_range_preference	,	F_170
+FT_INT8	,	V_269
+"Cache-Control"	,	L_189
+first_loop	,	V_107
+tvb_captured_length	,	F_87
+"Authorization"	,	L_124
+"HTTP Request HTTP-Version"	,	L_114
+g_ascii_tolower	,	F_135
+"http.time"	,	L_236
+"Reassemble HTTP headers spanning multiple TCP segments"	,	L_254
+fd	,	V_78
+dissector_get_string_handle	,	F_92
+dissect_http_heur_tcp	,	F_145
+tick_stat_node	,	F_13
+hf_http_connection	,	V_328
+expert_add_info	,	F_61
+g_hash_table_new	,	F_121
+"HTTP/"	,	L_40
+header_fields	,	V_246
+"Kerberos Data"	,	L_9
+"Response Phrase"	,	L_121
+"http.date"	,	L_187
+is_ssl	,	V_95
+"Location"	,	L_195
+"Sec-WebSocket-Version"	,	L_206
+siz	,	T_3
+conversation_add_proto_data	,	F_34
+hf_http_upgrade	,	V_325
+PI_WARN	,	V_354
+HAVE_LIBZ	,	F_166
+proto_unregister_field	,	F_119
+"Whether to uncompress entity bodies that are compressed "	,	L_271
+"websocket"	,	L_290
+ei_http_chunked_and_length	,	V_284
+st_node_resps_by_srv_addr	,	V_19
+ett_http_chunked_response	,	V_208
+"HTTP Request-URI"	,	L_111
+"http.request"	,	L_98
+"The previous HTTP response starts in packet number"	,	L_234
+header_fields_hash	,	V_236
+"Response in frame"	,	L_220
+wmem_free	,	F_14
+"REPORT"	,	L_58
+hf	,	V_237
+req_res_tail	,	V_74
+"http.content_length_header"	,	L_146
+new_tvb	,	V_216
+"Status Code"	,	L_118
+dissect_http_message	,	F_40
+UDP_PORT_SSDP	,	V_368
+prefs_register_protocol	,	F_164
+part_len	,	V_295
+ws_base64_decode_inplace	,	F_141
+wmem_strdup_printf	,	F_67
+st_str_resp_300	,	V_50
+g_strfreev	,	F_113
+"HTTP Accept Language"	,	L_182
+text	,	V_142
+stats_tree_create_node	,	F_10
+hf_index	,	V_256
+"SEARCH"	,	L_56
+"WWW-Authenticate"	,	L_139
+hf_http_content_type	,	V_320
+ett_http_ntlmssp	,	V_301
+"Description of the value contained in the header"	,	L_251
+private_data_changed	,	V_166
+hidden_item	,	V_86
+hf_http_prev_response_in	,	V_158
+it	,	V_261
+hf_http_notification	,	V_153
+http_stats_tree_init	,	F_17
+"media"	,	L_289
+UAT_AFFECTS_DISSECTION	,	V_365
+val_to_str	,	F_21
+"http.content_length"	,	L_149
+tvb_find_line_end	,	F_45
+dissector_try_heuristic	,	F_95
+"http.x_forwarded_for"	,	L_215
+is_request_or_reply	,	V_94
+"CCM_POST"	,	L_67
+strings	,	V_221
+http_desegment_headers	,	V_113
+firstline	,	V_87
+prefs_register_bool_preference	,	F_165
+next_offset	,	V_88
+is_http_request_or_reply	,	F_49
+"%s "	,	L_13
+"Proxy-Connect-Port"	,	L_136
+"data"	,	L_288
+"NTLMSSP / GSSAPI Data"	,	L_7
+media_type_subdissector_table	,	V_182
+BASE_DEC	,	V_315
+tvb_new_subset	,	F_82
+uri	,	V_146
+ENC_NA	,	V_134
+"HTTP Content-Encoding header"	,	L_152
+"http.request.method"	,	L_107
+"TCP Ports range"	,	L_275
+try_desegment_body	,	V_116
+"HEAD"	,	L_10
+wmem_alloc	,	F_102
+"%s"	,	L_15
+"BMOVE"	,	L_50
+"HTTP Referer"	,	L_179
+push_req_res	,	F_35
+http_decompress_body	,	V_173
+size_t	,	T_2
+req_ts	,	V_71
+"Data chunk (%u octets)"	,	L_35
+"dechunk_body"	,	L_265
+st_str_resp_500	,	V_54
+header_field_info	,	T_31
+get_http_conversation_data	,	F_29
+hf_http_user_agent	,	V_326
+"https"	,	L_17
+HDR_CONTENT_LENGTH	,	V_277
+"Response"	,	L_94
+payload_len	,	V_178
+"http.chunkd_and_length"	,	L_240
+"http.subdissector_failed"	,	L_242
+"HTTP/1.1"	,	L_89
+server_addr	,	V_190
+dissector_delete_uint_range	,	F_153
+hf_http_basic	,	V_303
+http_type_t	,	T_20
+header	,	V_298
+http_tcp_range	,	V_228
+dst	,	V_31
+conversation_get_proto_data	,	F_31
+wmem_memdup	,	F_133
+UPGRADE_HTTP2	,	V_290
+dissector_get_uint_handle	,	F_93
+"Transfer-Encoding"	,	L_153
+HFILL	,	V_314
+"HTTP User-Agent header"	,	L_161
+src	,	V_33
+"BCOPY"	,	L_49
+wmem_new	,	F_52
+proto_registrar_get_nth	,	F_129
+gchar	,	T_9
+"HTTP request %u/%u"	,	L_20
+"MOVE"	,	L_46
+hfinfo	,	V_240
+proto_tree_add_subtree_format	,	F_88
+"Field desc"	,	L_250
+"http.notification"	,	L_92
+pi	,	V_150
+g_strdup_printf	,	F_5
+"Content-encoded entity body (%s): %u bytes"	,	L_28
+"http2"	,	L_291
+ei_http_leading_crlf	,	V_136
+ei_http_chat	,	V_144
+process_header	,	F_66
+global_http_tcp_range	,	V_310
+"Negotiate "	,	L_86
+hf_http_authorization	,	V_316
+st_str_resp_broken	,	V_44
+delta	,	V_155
+"NOTIFY"	,	L_60
+"Chunk size: %u octets"	,	L_36
+"RPC_CONNECT"	,	L_75
+g_hash_table_size	,	F_118
+have_content_length	,	V_124
+hf_id	,	V_235
+first_linelen	,	V_92
+g_hash_table_insert	,	F_124
+"http.set_cookie"	,	L_209
+FT_RELATIVE_TIME	,	V_347
+"Whether to reassemble bodies of entities that are transferred "	,	L_267
+curr	,	V_151
+tvb_captured_length_remaining	,	F_81
+"CHECKOUT"	,	L_66
+st_str_resps_by_srv_addr	,	V_20
+hf_http_response_in	,	V_163
+hdr_tree	,	V_300
+COL_INFO	,	V_133
+hf_http_location	,	V_337
+hf_http_response_phrase	,	V_201
+http_type	,	V_97
+"Proxy-Authorization"	,	L_130
+http2_handle	,	V_308
+str	,	V_59
+tvb_child_uncompress	,	F_86
+"Internet media type"	,	L_286
+"POST"	,	L_48
+filename	,	V_177
+HDR_AUTHENTICATE	,	V_275
+g_ascii_strtoll	,	F_136
+cinfo	,	V_131
+orig_datalen	,	V_203
+"MKCOL"	,	L_51
+http_payload_subdissector	,	F_106
+register_tap	,	F_175
+next_tvb	,	V_164
+check_auth_kerberos	,	F_132
+"using the \"Transfer-Encoding: chunked\" method"	,	L_268
+hf_http_proxy_authorization	,	V_318
+HDR_CONTENT_TYPE	,	V_276
+"To use this option, you must also enable "	,	L_257
+PT_TCP	,	V_138
+hf_http_request_in	,	V_159
+"http.last_modified"	,	L_212
+abs_ts	,	V_80
+proto_item_set_text	,	F_127
+"TRUE if HTTP response"	,	L_96
+"Reassemble chunked transfer-coded bodies"	,	L_266
+"http.ssl_port"	,	L_244
+payload_data	,	V_179
+g_new0	,	F_122
+http_reqs_stats_tree_packet	,	F_11
+st	,	V_12
+"HTTP/Packet Counter"	,	L_295
+"BPROPPATCH"	,	L_71
+g_str_hash	,	V_245
+value_offset	,	V_257
+header_name	,	V_5
+ett_message_http	,	V_370
+st_node_resp_400	,	V_51
+transfer_encoding	,	V_127
+"http.content_encoding"	,	L_151
+"OK"	,	L_3
+ti	,	V_85
+"HTTP Content-Length header"	,	L_147
+uri_port	,	V_219
+g_hash_table_destroy	,	F_120
+tvb_strncaseeql	,	F_140
+"Uncompressed entity body"	,	L_30
+format_text	,	F_57
+ntlmssp_tvb	,	V_63
+chunked_data_size	,	V_204
+"http.www_authenticate"	,	L_140
+"Uncompress entity bodies"	,	L_270
+prefs_register_uat_preference	,	F_172
+gboolean	,	T_19
+"Proxy-Connect-Hostname"	,	L_133
+up	,	V_260
+ip_str	,	V_29
+st_node_packets	,	V_37
+HTTP_REQUEST	,	V_148
+"ICY"	,	L_43
+ett_http_chunk_data	,	V_215
+heur_dtbl_entry_t	,	T_25
+"Cookie pair"	,	L_171
+"VERSION-CONTROL"	,	L_79
+hf_http_x_forwarded_for	,	V_345
+"De-chunked entity body"	,	L_23
+port_subdissector_table	,	V_183
+data_tvb	,	V_210
+"Continuation"	,	L_14
+"SSL/TLS Ports"	,	L_277
+match_uint	,	V_120
+"HTTP Authorization header"	,	L_126
+"Content length"	,	L_148
+HDR_UPGRADE	,	V_288
+proto_check_field_name	,	F_4
+"Date"	,	L_186
+PINFO_FD_VISITED	,	F_72
+"Formatted text"	,	L_239
+st_str_resp_200	,	V_48
+"http.location"	,	L_196
+":"	,	L_38
+ett_http_kerberos	,	V_304
+content_type	,	V_122
+chunk_string	,	V_213
+global_http_ssl_range	,	V_312
+same_name_prev_id	,	V_250
+"Prev response in frame"	,	L_232
+"The next HTTP request starts in packet number"	,	L_225
+g_strdup	,	F_2
+st_str_reqs	,	V_14
+"NTLM "	,	L_85
+ssl_dissector_add	,	F_151
+"WebSocket"	,	L_83
+header_fields_free_cb	,	F_7
+SSL_DEFAULT_RANGE	,	V_364
+"It is incorrect to specify a content-length header and chunked encoding together."	,	L_241
+lineend	,	V_90
+"Next response in frame"	,	L_226
+reported_length	,	V_110
+"PROPFIND"	,	L_65
+reinit_http	,	F_152
+"Media Type: message/http"	,	L_301
+hdtbl_entry	,	V_109
+range_copy	,	F_154
+"http.connection"	,	L_166
+st_node_responses	,	V_41
+dissect_http_kerberos	,	F_28
+"Referer"	,	L_177
+"Time since request"	,	L_235
+"Proxy-Authenticate"	,	L_127
+FT_UINT64	,	V_322
+conv	,	V_224
+dissect_http	,	F_142
+isHttpRequestOrReply	,	V_233
+guchar	,	T_17
+linelen	,	V_93
+chunked_encoding_dissector	,	F_85
+"HTTP Server"	,	L_194
+"CONNECT"	,	L_62
+proto_register_subtree_array	,	F_160
+"http.response"	,	L_95
+"UNLOCK"	,	L_57
+word	,	V_111
+"message/http"	,	L_302
+http_req_stats_tree_packet	,	F_16
+private_data	,	V_180
+_U_	,	V_8
+tokenlen	,	V_194
+"SUBSCRIBE"	,	L_68
+find_header_hf_value	,	F_126
+hf_http_accept	,	V_330
+PROTO_ITEM_SET_URL	,	F_70
+vals_status_code	,	V_60
+hf_http_time	,	V_156
+call_dissector_only	,	F_94
+"chunked"	,	L_22
+g_ascii_strcasecmp	,	F_83
+"x-deflate"	,	L_27
+basic_response_dissector	,	F_101
+FT_UINT8	,	V_265
+custom_header_uat_fields	,	V_358
+hf_http_version	,	V_198
+proto_item	,	T_16
+expert_register_field_array	,	F_162
+eh_ptr	,	V_252
+"HTTP Content-Type header"	,	L_144
+new_rec	,	V_9
+expert_add_info_format	,	F_65
+"HTTP Proxy Connect Port"	,	L_138
+"deflate"	,	L_25
+UPGRADE_WEBSOCKET	,	V_289
+chunk_size	,	V_211
+"MKACTIVITY"	,	L_73
+data	,	V_217
+"This packet is a response to the packet with this number"	,	L_219
+not_http	,	V_130
+ntlmssp_handle	,	V_64
+"http.request.line"	,	L_105
+nstime_t	,	T_27
+conversation_t	,	T_14
+response_code_chars	,	V_199
+offset	,	V_82
+expert_module_t	,	T_35
+ReqRespDissector	,	T_21
+add_new_data_source	,	F_25
+edt	,	T_7
+old_rec	,	V_10
+raw_len	,	V_207
+g_str_equal	,	F_50
+"Header name"	,	L_248
+proto_tree_add_uint	,	F_80
+"http.next_request_in"	,	L_224
+"HTTP Transfer-Encoding header"	,	L_155
+proto_tree_add_expert	,	F_60
+"Header name can't contain '%c'"	,	L_2
+"KO"	,	L_4
+g_snprintf	,	F_20
+stats_tree_tick_pivot	,	F_22
+PINFO_FD_NUM	,	F_110
+st_node_requests	,	V_39
+wmem_file_scope	,	F_33
+reported_datalen	,	V_104
+proxy_tree	,	V_223
+value	,	V_259
+"HTTP Proxy-Authorization header"	,	L_132
+saw_req_resp_or_header	,	V_96
+hdr_item	,	V_98
+"Request line"	,	L_104
+address_to_str	,	F_12
+"Sec-WebSocket-Accept"	,	L_198
+FT_FRAMENUM	,	V_346
+dissect_http_ntlmssp	,	F_23
+st_node_resp_200	,	V_47
+"Sec-WebSocket-Extensions"	,	L_200
+"BPROPFIND"	,	L_70
+srcport	,	V_139
+dissect_http_udp	,	F_147
+"Whether the HTTP dissector should reassemble headers "	,	L_255
+proto_tree	,	T_12

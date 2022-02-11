@@ -1,0 +1,51 @@
+"Transaction ID"	,	L_6
+proto_register_mac_mgmt_msg_dsx_rvd	,	F_7
+proto_register_protocol	,	F_8
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_4
+tvb_reported_length	,	F_3
+BASE_HEX	,	V_20
+ett_mac_mgmt_msg_dsx_rvd_decoder	,	V_11
+hf_dsx_rvd_message_type	,	V_12
+gint	,	T_8
+proto_item_add_subtree	,	F_5
+proto_register_field_array	,	F_9
+tvb	,	V_1
+payload_type	,	V_6
+guint	,	T_5
+offset	,	V_4
+hf_dsx_rvd_transaction_id	,	V_14
+ett	,	V_22
+tree	,	V_3
+FT_UINT16	,	V_21
+"WiMax DSX-RVD Message"	,	L_8
+packet_info	,	T_2
+tvb_get_guint8	,	F_2
+tvb_len	,	V_5
+proto_register_subtree_array	,	F_11
+"Confirmation code"	,	L_4
+array_length	,	F_10
+"wmx.dsx_rvd.transaction_id"	,	L_7
+proto_tree_add_item	,	F_6
+pinfo	,	T_3
+_U_	,	V_2
+"DSx Received (DSX-RVD) (%u bytes)"	,	L_1
+hf_dsx_rvd_confirmation_code	,	V_15
+"WiMax DSX-RVD (dsx)"	,	L_9
+hf_register_info	,	T_7
+HFILL	,	V_19
+dsx_rvd_item	,	V_7
+"wmx.dsx"	,	L_10
+FT_UINT8	,	V_17
+BASE_DEC	,	V_18
+MAC_MGMT_MSG_DSX_RVD	,	V_9
+proto_item	,	T_6
+dissect_mac_mgmt_msg_dsx_rvd_decoder	,	F_1
+ENC_BIG_ENDIAN	,	V_13
+"wmx.dsx_rvd.confirmation_code"	,	L_5
+hf_dsx_rvd	,	V_16
+"MAC Management Message Type"	,	L_2
+proto_mac_mgmt_msg_dsx_rvd_decoder	,	V_10
+dsx_rvd_tree	,	V_8
+proto_tree	,	T_4
+"wmx.macmgtmsgtype.dsx_rvd"	,	L_3

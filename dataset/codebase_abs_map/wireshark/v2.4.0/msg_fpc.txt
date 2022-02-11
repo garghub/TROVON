@@ -1,0 +1,73 @@
+data	,	T_5
+hf_fpc_power_adjust	,	V_17
+proto_register_protocol	,	F_10
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_3
+tvb_reported_length	,	F_2
+fpc_tree	,	V_9
+"Number of stations"	,	L_5
+"MAC Management Message, FPC"	,	L_1
+gint	,	T_11
+proto_item_add_subtree	,	F_4
+"wmx.mgmtmsg"	,	L_16
+"Basic CID"	,	L_3
+proto_register_field_array	,	F_11
+hf_fpc_basic_cid	,	V_16
+"wmx.fpc.power_measurement_frame"	,	L_11
+tvb	,	V_1
+proto_mac_mgmt_msg_fpc_decoder	,	V_12
+guint	,	T_6
+offset	,	V_4
+ett	,	V_27
+dissector_add_uint	,	F_16
+"The 8 LSB of the frame number in which the BS measured the power corrections referred to in the message"	,	L_12
+tree	,	V_3
+number_stations	,	V_6
+FT_UINT16	,	V_20
+packet_info	,	T_2
+hf_fpc_power_measurement_frame	,	V_18
+tvb_get_guint8	,	F_6
+FT_INT8	,	V_26
+FT_FLOAT	,	V_24
+tvb_captured_length	,	F_8
+tvb_len	,	V_7
+proto_register_subtree_array	,	F_13
+power_change	,	V_11
+array_length	,	F_12
+proto_register_mac_mgmt_msg_fpc	,	F_9
+proto_tree_add_float_format_value	,	F_7
+MAC_MGMT_MSG_FPC	,	V_29
+proto_tree_add_item	,	F_5
+dissect_mac_mgmt_msg_fpc_decoder	,	F_1
+pinfo	,	T_3
+dissector_handle_t	,	T_12
+gfloat	,	T_9
+" %.2f dB"	,	L_2
+_U_	,	V_2
+gint8	,	T_8
+"Power Adjust"	,	L_7
+"WiMax FPC Message"	,	L_13
+"wmx.fpc.power_adjust"	,	L_8
+"wmx.fpc"	,	L_15
+"Signed change in power level (incr of 0.25dB) that the SS shall apply to its current power setting"	,	L_9
+"Power measurement frame"	,	L_10
+hf_register_info	,	T_10
+"WiMax FPC (fpc)"	,	L_14
+HFILL	,	V_22
+value	,	V_10
+FT_UINT8	,	V_23
+proto_reg_handoff_mac_mgmt_msg_fpc	,	F_14
+i	,	V_5
+BASE_DEC	,	V_21
+create_dissector_handle	,	F_15
+proto_item	,	T_7
+ENC_BIG_ENDIAN	,	V_15
+ett_mac_mgmt_msg_fpc_decoder	,	V_13
+fpc_item	,	V_8
+fpc_handle	,	V_28
+BASE_NONE	,	V_25
+hf_fpc_number_of_stations	,	V_14
+proto_tree	,	T_4
+hf	,	V_19
+"wmx.fpc.basic_cid"	,	L_4
+"wmx.fpc.number_stations"	,	L_6

@@ -1,0 +1,317 @@
+"pptp.cause"	,	L_93
+echo_resulttype_vals	,	V_105
+hf_pptp_message_type	,	V_67
+"pptp.bearer_capabilities"	,	L_27
+hf_pptp_maximum_channels	,	V_13
+stop_resulttype_vals	,	V_104
+proto_register_protocol	,	F_34
+"Indicates the reason for the control connection being close"	,	L_48
+"Error Code"	,	L_44
+"This value indicates the reason for the disconnect"	,	L_116
+"pptp.framing_capabilities"	,	L_24
+tvb_new_subset_remaining	,	F_3
+len	,	V_57
+hf_pptp_dialed_number	,	V_42
+gint	,	T_6
+"pptp.dialing_number"	,	L_111
+proto_pptp	,	V_64
+"Number of improperly framed PPP packets received"	,	L_125
+tvb	,	V_1
+"Protocol version"	,	L_20
+"Indicates the result of the receipt of the Outgoing-Call-Request attempt"	,	L_91
+COL_INFO	,	V_61
+hf_pptp_length	,	V_66
+"pptp.packet_receive_window_size"	,	L_74
+"pptp"	,	L_147
+"An identifier assigned by the PNS to this session for the purpose of identifying this particular session in logged session information"	,	L_60
+dissect_out_req	,	F_14
+STOP_REQ	,	V_74
+"Minimum BPS"	,	L_61
+"pptp.call_serial_number"	,	L_59
+"Incorrect Magic Cookie"	,	L_145
+hf_pptp_control_result	,	V_18
+ECHO_REQ	,	V_76
+"A measure of the packet processing delay that might be imposed on data sent to the PNS from the PAC"	,	L_77
+"CRC Errors"	,	L_120
+bearertype_vals	,	V_98
+"pptp.alignment_errors"	,	L_136
+cinfo	,	V_59
+hf_pptp_stop_result	,	V_21
+array_length	,	F_36
+"Reserved"	,	L_17
+"pptp.control_message_type"	,	L_16
+"Bearer Type"	,	L_70
+hf_pptp_buffer_overruns	,	V_50
+call_dissector	,	F_2
+"Unknown control type (%d)"	,	L_3
+"Connect Speed"	,	L_95
+hf_pptp_maximum_bps	,	V_27
+ENC_ASCII	,	V_16
+ei_pptp_incorrect_magic_cookie	,	V_70
+"Firmware Revision"	,	L_32
+dissect_in_connected	,	F_18
+"Magic Cookie"	,	L_12
+"Phone Number"	,	L_81
+"Reason"	,	L_46
+"A 64 octet field containing the DNS name"	,	L_37
+"This constant value is used as a sanity check on received messages"	,	L_14
+hf_register_info	,	T_7
+"pptp.timeout_errors"	,	L_133
+dissect_disc_notify	,	F_20
+"pptp.framing_type"	,	L_68
+"pptp.dialed_number"	,	L_105
+"Number of time-outs since call was established"	,	L_134
+proto_reg_handoff_pptp	,	F_40
+"The lowest acceptable line speed (in bits/second) for this session"	,	L_63
+"Host Name"	,	L_35
+guint16	,	T_5
+dissect_set_link	,	F_22
+COL_PROTOCOL	,	V_60
+IN_CONNECTED	,	V_82
+dissect_stop_req	,	F_10
+"PPTP message type"	,	L_11
+"Indicates the result of the attempt to close the control connection"	,	L_50
+ERROR_NOTIFY	,	V_85
+"Control Message Type"	,	L_15
+ti	,	V_63
+BASE_NONE	,	V_96
+"The number to be dialed to establish the outgoing session"	,	L_83
+hf_pptp_framing_errors	,	V_48
+"A 64 octet field containing a vendor"	,	L_40
+"pptp.reserved"	,	L_18
+dissect_echo_req	,	F_12
+"pptp.protocol_version"	,	L_21
+"pptp.crc_errors"	,	L_121
+"Alignment Errors"	,	L_135
+hf_pptp_send_accm	,	V_53
+tvb_get_ntohl	,	F_29
+"Packet Receive Window Size"	,	L_73
+errortype_vals	,	V_102
+dissect_in_req	,	F_16
+tvbuff_t	,	T_1
+"pptp.send_accm"	,	L_139
+"The send ACCM value the client should use to process outgoing PPP packets"	,	L_140
+"Message type"	,	L_9
+tvb_get_ntohs	,	F_6
+control_message_type_vals	,	V_62
+BASE_HEX	,	V_94
+"Number of PPP frames received with CRC errors since session was established"	,	L_122
+col_add_str	,	F_26
+"Dialing Number"	,	L_110
+"Vendor Name"	,	L_38
+proto_item_add_subtree	,	F_28
+"Maximum Channels"	,	L_29
+"The number that was dialed by the caller"	,	L_106
+"Buffer overruns"	,	L_129
+"This value indicates the result of the Incoming-Call-Request attempt"	,	L_114
+proto_register_field_array	,	F_35
+FT_BYTES	,	V_95
+"The version of the PPTP protocol"	,	L_22
+"pptp.physical_channel_id"	,	L_99
+hf_pptp_firmware_revision	,	V_14
+dissect_stop_reply	,	F_11
+ei	,	V_109
+dissector_add_uint	,	F_42
+"This field contains the firmware revision"	,	L_34
+control_message_type	,	V_58
+"pptp.buffer_overruns"	,	L_130
+data_handle	,	V_5
+FT_UINT16	,	V_89
+"pptp.out_result"	,	L_90
+tvb_get_guint8	,	F_7
+"Framing Errors"	,	L_123
+"pptp.firmware_revision"	,	L_33
+expert_add_info	,	F_31
+"Maximum BPS"	,	L_64
+"The Receive ACCM value the client should use to process incoming PPP packets"	,	L_143
+"pptp.in_result"	,	L_113
+"Framing Capabilities"	,	L_23
+hf_pptp_crc_errors	,	V_47
+hf_pptp_host_name	,	V_15
+FT_STRING	,	V_99
+"Packet Processing Delay"	,	L_75
+"PPTP"	,	L_2
+pptp_tree	,	V_55
+"pptp.control_result"	,	L_42
+"Indicates the result of the command channel establishment attempt"	,	L_43
+"Phone Number Length"	,	L_78
+hf_pptp_control_message_type	,	V_71
+frametype_vals	,	V_97
+"A set of bits indicating the type of bearer"	,	L_28
+hf_pptp_dialing_number	,	V_43
+ECHO_REPLY	,	V_77
+"pptp.phone_number"	,	L_82
+control_resulttype_vals	,	V_101
+hf_pptp_echo_result	,	V_23
+find_dissector	,	F_43
+"pptp.error"	,	L_45
+PI_WARN	,	V_111
+proto_tree_add_uint_format_value	,	F_5
+"Send ACCM"	,	L_138
+ENC_BIG_ENDIAN	,	V_11
+"The actual number of valid digits in the Phone Number field"	,	L_80
+FT_UINT32	,	V_93
+"pptp.vendor_name"	,	L_39
+"Number of receive buffer over-runs since session was established"	,	L_128
+hf	,	V_88
+hf_pptp_reason	,	V_20
+hf_pptp_peer_call_id	,	V_35
+hf_pptp_timeout_errors	,	V_51
+dissect_pptp	,	F_23
+"pptp.bearer_type"	,	L_71
+CLEAR_REQ	,	V_83
+hf_pptp_subaddress	,	V_34
+OUT_REQ	,	V_78
+"pptp.receive_accm"	,	L_142
+"pptp.stop_result"	,	L_49
+dissect_cntrl_req	,	F_4
+hf_pptp_disc_result	,	V_45
+SET_LINK	,	V_86
+hf_pptp_dialing_number_length	,	V_41
+" (correct)"	,	L_4
+msgtype_vals	,	V_92
+hf_pptp_call_id	,	V_24
+col_set_str	,	F_24
+"pptp.host_name"	,	L_36
+"Physical Channel ID"	,	L_98
+hf_pptp_minimum_bps	,	V_26
+hf_pptp_packet_processing_delay	,	V_31
+"Call Serial Number"	,	L_58
+"pptp.call_id"	,	L_56
+"The actual connection speed used, in bits/second."	,	L_97
+"pptp.maximum_bps"	,	L_65
+item	,	V_56
+CNTRL_REPLY	,	V_73
+expert_pptp	,	V_113
+proto_item_append_text	,	F_30
+"pptp.hardware_overruns"	,	L_127
+IN_REPLY	,	V_81
+"Total length in octets of this PPTP message"	,	L_8
+"A unique identifier, unique to a particular PAC-PNS pair assigned by the PNS"	,	L_57
+"Dialed Number Length"	,	L_101
+in_resulttype_vals	,	V_107
+"Call Statistics"	,	L_117
+col_clear	,	F_25
+hf_pptp_physical_channel_id	,	V_39
+proto_register_subtree_array	,	F_37
+"pptp.length"	,	L_7
+val_to_str	,	F_27
+"Number of buffer over-runs detected since session was established"	,	L_131
+"pptp.phone_number_length"	,	L_79
+hf_pptp_receive_accm	,	V_54
+STOP_REPLY	,	V_75
+hf_pptp_call_serial_number	,	V_25
+proto_tree_add_item	,	F_8
+pinfo	,	V_3
+dissector_handle_t	,	T_10
+hf_pptp_reserved	,	V_8
+"pptp.reason"	,	L_47
+_U_	,	V_6
+out_resulttype_vals	,	V_106
+hf_pptp_hardware_overruns	,	V_49
+" (incorrect)"	,	L_5
+hf_pptp_bearer_type	,	V_28
+hf_pptp_phone_number_length	,	V_32
+"This field is an ASCII string containing vendor-specific call statistics that can be logged for diagnostic purpose"	,	L_119
+dissect_clear_req	,	F_19
+dissect_unknown	,	F_1
+"Hardware overruns"	,	L_126
+proto_register_pptp	,	F_32
+OUT_REPLY	,	V_79
+VALS	,	F_33
+"The number from which the call was placed"	,	L_112
+ett_pptp	,	V_65
+"pptp.echo_result"	,	L_53
+hf_pptp_framing_type	,	V_29
+disc_resulttype_vals	,	V_108
+hf_pptp_framing_capabilities	,	V_10
+PI_PROTOCOL	,	V_110
+"pptp.framing_errors"	,	L_124
+pptp_handle	,	V_114
+hf_pptp_out_result	,	V_36
+"data"	,	L_149
+"A value indicating the type of PPP framing to be used for this outgoing call"	,	L_69
+"pptp.subaddress"	,	L_85
+hf_pptp_phone_number	,	V_33
+FT_UINT8	,	V_100
+"This field is set to the value received in the Call ID field of the corresponding Outgoing-Call-Request message"	,	L_89
+"pptp.disc_result"	,	L_115
+BASE_DEC	,	V_90
+"Call ID"	,	L_55
+"Framing Type"	,	L_67
+"Point-to-Point Tunnelling Protocol"	,	L_146
+proto_item	,	T_4
+expert_register_field_array	,	F_39
+IN_REQ	,	V_80
+ENC_NA	,	V_9
+dissect_cntrl_reply	,	F_9
+"Dialing Number Length"	,	L_107
+hf_pptp_vendor_name	,	V_17
+hf_pptp_bearer_capabilities	,	V_12
+dissect_in_reply	,	F_17
+"A set of bits indicating the type of framing"	,	L_25
+hf_pptp_protocol_version	,	V_7
+"The total number of individual PPP sessions this PAC can support"	,	L_31
+"pptp.packet_processing_delay"	,	L_76
+hf_pptp_dialed_number_length	,	V_40
+dissect_error_notify	,	F_21
+"A value indicating the bearer capability required for this outgoing call"	,	L_72
+"A 64 octet field used to specify additional dialing information."	,	L_86
+hf_pptp_alignment_errors	,	V_52
+hf_pptp_identifier	,	V_22
+hf_pptp_in_result	,	V_44
+ei_register_info	,	T_8
+expert_register_protocol	,	F_38
+"pptp.type"	,	L_10
+"Identifier"	,	L_51
+"pptp.maximum_channels"	,	L_30
+"Length"	,	L_6
+offset	,	V_2
+ett	,	V_87
+expert_module_t	,	T_9
+tree	,	V_4
+"Result Code"	,	L_41
+"pptp.minimum_bps"	,	L_62
+packet_info	,	T_2
+hf_pptp_magic_cookie	,	V_68
+"Indicates the result of the receipt of the Echo-Request"	,	L_54
+"Subaddress"	,	L_84
+"Peer Call ID"	,	L_87
+"This field gives additional information"	,	L_94
+hf_pptp_cause	,	V_37
+"Cause Code"	,	L_92
+"The actual number of valid digits in the Dialing Number field"	,	L_109
+EXPFILL	,	V_112
+"pptp.connect_speed"	,	L_96
+"The actual number of valid digits in the Dialed Number field"	,	L_103
+"pptp.dialing_number_length"	,	L_108
+"pptp.magic_cookie.incorrect"	,	L_144
+MAGIC_COOKIE	,	V_69
+reasontype_vals	,	V_103
+"pptp.dialed_number_length"	,	L_102
+"pptp.call_Statistics"	,	L_118
+CNTRL_REQ	,	V_72
+"Bearer Capabilities"	,	L_26
+HFILL	,	V_91
+"pptp.peer_call_id"	,	L_88
+"Time-out Errors"	,	L_132
+"pptp.identifier"	,	L_52
+"The highest acceptable line speed (in bits/second) for this session"	,	L_66
+hf_pptp_packet_receive_window_size	,	V_30
+dissect_echo_reply	,	F_13
+hf_pptp_connect_speed	,	V_38
+"pptp.magic_cookie"	,	L_13
+"Dialed Number"	,	L_104
+dissect_out_reply	,	F_15
+DISC_NOTIFY	,	V_84
+create_dissector_handle	,	F_41
+"%u.%u"	,	L_1
+hf_pptp_call_statistics	,	V_46
+hf_pptp_error	,	V_19
+"Number of Alignment errors since call was established"	,	L_137
+TCP_PORT_PPTP	,	V_115
+"Receive ACCM"	,	L_141
+"tcp.port"	,	L_148
+"This field MUST be 0"	,	L_19
+proto_tree	,	T_3
+"This field is set by the PAC in a vendor-specific manner to the physical channel number used to place this call"	,	L_100

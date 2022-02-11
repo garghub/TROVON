@@ -1,0 +1,394 @@
+"GPRS LLC SAPI"	,	L_157
+fcs_status_t	,	T_10
+U_FORMAT	,	V_71
+llc_data_length	,	V_46
+ctrl_f_tree	,	V_52
+tvb_reported_length	,	F_4
+"llcgprs.romrl"	,	L_144
+"E bit"	,	L_58
+"llcgprs.xidxl"	,	L_103
+"llcgprs.tomhead"	,	L_150
+"llcgprs.xidlen1"	,	L_108
+"llcgprs.kmask"	,	L_80
+UI_MASK_NU	,	V_166
+"Reserved Type:%X"	,	L_4
+hf_llcgprs_S_fmt	,	V_117
+", UI, "	,	L_27
+TFS	,	F_29
+guint32	,	T_1
+FT_BOOLEAN	,	V_159
+"Unnumbered frame: %s"	,	L_32
+"k counter"	,	L_83
+"llcgprs.sackns"	,	L_85
+"llcgprs.xidlen2"	,	L_110
+I_FORMAT	,	V_68
+fcs_item	,	V_62
+"llcgprs.sapi"	,	L_37
+array_length	,	F_34
+"TOM Protocol Discriminator"	,	L_146
+tom_pd	,	V_109
+llcgprs_tree	,	V_7
+addr_fld	,	V_36
+proto_reg_handoff_llcgprs	,	F_39
+ctrl_fld_ui_s	,	V_43
+"N(R)"	,	L_86
+"Unknown (%u)"	,	L_11
+col_append_str	,	F_23
+U_XID	,	V_141
+hf_register_info	,	T_12
+"Remaining Length of TOM Protocol Header"	,	L_143
+"XL"	,	L_104
+"Transmitted unconfirmed sequence number"	,	L_57
+ctrl_fld_fb	,	V_38
+"U format"	,	L_50
+guint16	,	T_8
+"Spare"	,	L_95
+hf_llcgprs_PM_bit	,	V_129
+"Current send state variable"	,	L_124
+i	,	V_32
+hf_llcgprs_As	,	V_118
+"Information Field: Length = %u"	,	L_1
+k	,	V_60
+cp	,	V_4
+loop_count	,	V_100
+"I Format"	,	L_89
+UI_MASK_FMT	,	V_164
+"Address field  SAPI: %s"	,	L_16
+llc_data_reported_length	,	V_45
+"wtap_encap"	,	L_161
+hf_llcgprs_cr	,	V_88
+pd_bit	,	V_160
+BASE_HEX	,	V_162
+PROTO_ITEM_SET_GENERATED	,	F_20
+FT_UINT24	,	V_170
+proto_item_add_subtree	,	F_6
+module_t	,	T_14
+U_DM	,	V_135
+proto_register_field_array	,	F_33
+"llcgprs.ucom"	,	L_71
+"llcgprs.pf"	,	L_68
+dissector_add_uint	,	F_41
+"ignored"	,	L_79
+llc_gprs_dissect_xid	,	F_3
+data_handle	,	V_116
+tvb_get_ptr	,	F_2
+FT_UINT16	,	V_161
+xid_param_len_high	,	V_21
+"Supervisory format S"	,	L_78
+ciphered_ui_frame	,	V_63
+"Current receive state variable"	,	L_127
+ett_llcgprs_ctrlf	,	V_124
+"k"	,	L_81
+"Poll/Final bit"	,	L_69
+"Information format: %s: N(S) = %u,  N(R) = %u"	,	L_20
+"llcgprs.tomdata"	,	L_153
+hf_llcgprs_sspare	,	V_119
+"Logical Link Control GPRS"	,	L_155
+"Spare bits"	,	L_53
+UI_MASK_PM	,	V_76
+xid_tree	,	V_18
+item_len	,	V_11
+hf_llcgprs_rbyte	,	V_104
+"V(R)"	,	L_125
+"llcgprs.pd"	,	L_40
+length	,	V_55
+sapi	,	V_37
+hf_llcgprs_xid_byte	,	V_34
+FT_UINT32	,	V_171
+"TPD"	,	L_148
+hf_llcgprs_sapib	,	V_89
+hf	,	V_154
+"llcgprs.sacksfb"	,	L_88
+sndcp_xid_handle	,	V_30
+"Commands and Responses"	,	L_72
+hf_llcgprs_ucom	,	V_134
+"I Fmt Bit"	,	L_91
+prefs_register_protocol	,	F_37
+crc_calc	,	F_1
+", N(U) = %u"	,	L_28
+col_append_fstr	,	F_25
+tmp	,	V_12
+col_set_str	,	F_13
+sapi_abrv_ext	,	V_67
+hf_llcgprs_tom_pd	,	V_112
+"sndcpxid"	,	L_163
+epm	,	V_41
+"llcgprs.xidtype"	,	L_106
+"UI format"	,	L_47
+hf_llcgprs_frmr_cr	,	V_149
+hf_llcgprs_sapi	,	V_85
+hf_llcgprs_isack_sfb	,	V_98
+val_to_str	,	F_24
+"llcgprs.frmrspare"	,	L_120
+"Whether to autodetect the cipher bit (because it might be set on unciphered data)"	,	L_160
+uinfo_tree	,	V_17
+"XID parameter Type: L3 parameters"	,	L_2
+"Command/Response"	,	L_70
+hf_llcgprs_xid_len1	,	V_27
+hf_llcgprs_xid_len2	,	V_28
+dissector_handle_t	,	T_15
+"llcgprs.ia"	,	L_93
+ctrl_field_item	,	V_49
+hf_llcgprs_tom_rl	,	V_111
+"W1"	,	L_140
+U_DISC	,	V_136
+U_NULL	,	V_137
+hf_llcgprs_frmr_cf	,	V_145
+VALS	,	F_30
+", U, "	,	L_30
+prefs_register_bool_preference	,	F_38
+"llcgprs.as"	,	L_65
+proto_register_llcgprs	,	F_28
+"data"	,	L_162
+tvb_length	,	F_15
+"Command/Response bit"	,	L_44
+proto_tree_add_text	,	F_5
+BASE_DEC	,	V_156
+tvb_new_subset	,	F_9
+"llcgprs.tompd"	,	L_147
+hf_llcgprs_k	,	V_103
+"llcgprs.k"	,	L_82
+"W2"	,	L_137
+INIT_CRC24	,	V_79
+"SACK FRAME: length = %u"	,	L_26
+fld_vars	,	V_143
+", S, "	,	L_24
+"llcgprs.pm"	,	L_62
+"Parameter Byte"	,	L_113
+"llcgprs"	,	L_156
+llcgprs_module	,	V_173
+"W3"	,	L_134
+"Receive sequence number N(R)"	,	L_75
+"Undefined control field"	,	L_136
+"Ignore"	,	L_112
+ett_ui	,	V_20
+ad_f_tree	,	V_51
+guint	,	T_3
+"Length"	,	L_107
+info_len	,	V_19
+ett	,	V_172
+"Unconfirmed Information format - UI, N(U) = %u"	,	L_29
+a_bit	,	V_169
+packet_info	,	T_5
+ett_llcgprs_adf	,	V_86
+"Receive sequence number"	,	L_73
+"W4"	,	L_131
+byte1	,	V_9
+byte2	,	V_10
+"XID Parameter Type: %s - Value: %u"	,	L_3
+"llcgprs.xidspare"	,	L_111
+"llcgprs.frmrrfcf"	,	L_117
+crc_length	,	V_44
+UI_MASK_E	,	V_75
+nr	,	V_59
+ns	,	V_58
+"Ignore Bit"	,	L_97
+nu	,	V_42
+"Rejected command response"	,	L_130
+"llcgprs.e"	,	L_59
+gprs_llc_handle	,	V_174
+"FCS: 0x%06x  (incorrect, should be 0x%06x)"	,	L_13
+"llcgprs.sacknr"	,	L_87
+FCS_VALID	,	V_73
+"Control Field Octet"	,	L_116
+", I, "	,	L_17
+"RL"	,	L_145
+HFILL	,	V_158
+"llcgprs.cr"	,	L_45
+"TOM Header Byte"	,	L_149
+dissector_try_uint	,	F_26
+xid_param_type_str_ext	,	V_33
+"S format"	,	L_76
+hf_llcgprs_kmask	,	V_102
+"R Bitmap"	,	L_101
+"Rejected Frame Control Field"	,	L_34
+"Supervisory format: %s: N(R) = %u"	,	L_25
+SAPI_TOM2	,	V_105
+SAPI_TOM8	,	V_106
+hf_llcgprs_PF	,	V_133
+S_FORMAT	,	V_69
+"llcgprs.frmrw4"	,	L_132
+proto_register_protocol	,	F_31
+pme	,	V_123
+hf_llcgprs_pd	,	V_87
+"P/F bit"	,	L_67
+"TOM Message Capsule Byte"	,	L_152
+"FCS: 0x%06x (correct)"	,	L_12
+len	,	V_3
+gint	,	T_13
+"Filler"	,	L_121
+tvb	,	V_2
+COL_INFO	,	V_66
+"SAPI: %s"	,	L_8
+", N(R) = %u"	,	L_19
+"Encryption mode bit"	,	L_60
+"Info exceeded N201"	,	L_139
+"Protocol Discriminator_bit"	,	L_39
+MIN	,	F_17
+frame_format	,	V_39
+cinfo	,	V_64
+"llcgprs.xidbyte"	,	L_114
+next_tvb	,	V_54
+call_dissector	,	F_10
+u_ti	,	V_15
+proto_tree_add_boolean	,	F_22
+"Unknown/invalid code:%X"	,	L_31
+cr_bit	,	V_163
+COL_PROTOCOL	,	V_65
+"llcgprs.sackrbits"	,	L_100
+"llcgprs.iignore"	,	L_96
+hf_llcgprs_isack_ns	,	V_96
+FCS_NOT_VALID_DUE_TO_CIPHERING	,	V_80
+hf_llcgprs_isack_nr	,	V_97
+hf_llcgprs_tom_header	,	V_113
+"llcgprs.frmrcr"	,	L_129
+"X"	,	L_119
+guint8	,	T_7
+"llcgprs.nu"	,	L_56
+ti	,	V_47
+tmpx	,	V_91
+"llcgprs.s"	,	L_77
+hf_llcgprs_tom_data	,	V_114
+hf_llcgprs_izerobit	,	V_95
+pm_bit	,	V_168
+"XL Bit"	,	L_102
+"Rejected Frame CF"	,	L_118
+register_dissector	,	F_36
+N202	,	V_78
+"thb"	,	L_151
+tvb_get_ntohl	,	F_27
+"Service Access Point Identifier"	,	L_38
+tvbuff_t	,	T_2
+proto_tree_add_protocol_format	,	F_19
+"Ack Bit"	,	L_92
+val_to_str_ext_const	,	F_11
+tvb_get_ntohs	,	F_16
+tom_byte	,	V_107
+addres_field_item	,	V_48
+gboolean	,	T_11
+"SACK FRAME: k = %u"	,	L_22
+"llcgprs.nr"	,	L_74
+U_UA	,	V_138
+"U frame format"	,	L_52
+"llcgprs.ifmt"	,	L_90
+ui_ti	,	V_50
+"Ackn request bit"	,	L_64
+"Supervisory function bits"	,	L_42
+U_SABM	,	V_140
+tvb_get_guint8	,	F_7
+hf_llcgprs_Un	,	V_132
+hf_llcgprs_xid_type	,	V_26
+sndcp_xid_offset	,	V_24
+llcgprs_subdissector_table	,	V_115
+"I A Bit"	,	L_94
+sapi_t_ext	,	V_83
+cr_formats_unnumb	,	V_131
+proto_llcgprs	,	V_82
+xid_param_len_low	,	V_22
+fcs_status	,	V_57
+find_dissector	,	F_40
+loop_counter	,	V_14
+", k = %u"	,	L_21
+m_bits	,	V_61
+hf_llcgprs_frmr_vr	,	V_148
+UI_HDR_LENGTH	,	V_77
+location	,	V_13
+hf_llcgprs_frmr_vs	,	V_147
+hf_llcgprs_frmr_spare	,	V_146
+ignore_cipher_bit	,	V_130
+"Length continued"	,	L_109
+hf_llcgprs_sjsd	,	V_121
+"Invalid packet - Protocol Discriminator bit is set to 1"	,	L_7
+hf_llcgprs_frmr_w1	,	V_153
+"N(U)"	,	L_55
+hf_llcgprs_frmr_w2	,	V_152
+hf_llcgprs_frmr_w3	,	V_151
+BASE_EXT_STRING	,	V_157
+FCS_NOT_VALID	,	V_81
+remaining_length	,	V_108
+hf_llcgprs_frmr_w4	,	V_150
+proto_tree_add_uint_format	,	F_21
+"MS-SGSN LLC (Mobile Station - Serving GPRS Support Node Logical Link Control)  SAPI: %s"	,	L_10
+guchar	,	T_4
+hf_llcgprs_ia	,	V_94
+hf_llcgprs_sp_bits	,	V_126
+"V(S)"	,	L_122
+tompd_formats	,	V_110
+"No Information Field"	,	L_33
+proto_register_subtree_array	,	F_35
+ett_llcgprs_sframe	,	V_92
+WTAP_ENCAP_GPRS_LLC	,	V_175
+r_byte	,	V_101
+pinfo	,	V_6
+col_add_fstr	,	F_14
+dissect_llcgprs	,	F_12
+"Data"	,	L_115
+"llcgprs.ui"	,	L_48
+tbl_crc24	,	V_5
+UI_FORMAT	,	V_70
+"R Bitmap Bits"	,	L_99
+fcs	,	V_1
+"Protected mode bit"	,	L_63
+FT_UINT8	,	V_155
+"Acknowledgement request bit A"	,	L_66
+proto_item	,	T_6
+FCS_NOT_COMPUTED	,	V_74
+"Information Field Data"	,	L_35
+"llcgprs.s1s2"	,	L_43
+hf_llcgprs_U_fmt	,	V_125
+U_FRMR	,	V_142
+"llcgprs.ui_sp_bit"	,	L_54
+"LLE was in ABM when rejecting"	,	L_133
+register_dissector_table	,	F_32
+"C/R"	,	L_128
+"Invalid - info not permitted"	,	L_142
+"autodetect_cipher_bit"	,	L_158
+"tdb"	,	L_154
+e_bit	,	V_167
+ett_llcgprs	,	V_84
+"N(S)"	,	L_84
+UI_MASK_SPB	,	V_165
+"Unknown (%d)"	,	L_9
+"llcgprs.frmrw1"	,	L_141
+offset	,	V_40
+"UI frame format"	,	L_49
+"PM bit"	,	L_61
+tree	,	V_35
+"Autodetect cipher bit"	,	L_159
+sack_length	,	V_122
+tvb_get_letoh24	,	F_18
+xid_tvb	,	V_139
+"TOM Envelope - Protocol: %s"	,	L_23
+hf_llcgprs_xid_xl	,	V_25
+"llcgprs.u"	,	L_51
+"Protocol Discriminator bit (should be 0)"	,	L_41
+ui_tree	,	V_53
+proto_tree_add_uint	,	F_8
+kmask	,	V_99
+"XID Parameter Type: %s"	,	L_5
+"llcgprs.frmrvr"	,	L_126
+"llcgprs.sspare"	,	L_98
+"llcgprs.frmrw2"	,	L_138
+hf_llcgprs_xid_spare	,	V_29
+hf_llcgprs_E_bit	,	V_128
+"FCS: 0x%06x  (incorrect, maybe due to ciphering, calculated 0x%06x)"	,	L_14
+cr_formats_ipluss	,	V_90
+hf_llcgprs_NU	,	V_127
+hf_llcgprs_NR	,	V_120
+"FCS: Not enough data to compute the FCS"	,	L_15
+uinfo_field	,	V_16
+value	,	V_31
+cf_byte	,	V_144
+"llcgprs.frmrw3"	,	L_135
+hf_llcgprs_ifmt	,	V_93
+"llcgprs.frmrvs"	,	L_123
+", N(S) = %u"	,	L_18
+"SAPI"	,	L_36
+xid_param_len	,	V_8
+CRC_LENGTH	,	V_72
+"llcgprs.sapib"	,	L_46
+"GPRS-LLC"	,	L_6
+fcs_calc	,	V_56
+"Type"	,	L_105
+proto_tree	,	T_9
+sndcp_xid_tvb	,	V_23

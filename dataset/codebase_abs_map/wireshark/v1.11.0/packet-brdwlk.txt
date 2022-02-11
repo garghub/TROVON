@@ -1,0 +1,171 @@
+"Empty Frame"	,	L_26
+proto_register_protocol	,	F_26
+"Ctrl Char Inside Frame"	,	L_38
+PINFO_EOF_INVALID	,	V_57
+FCM_DELIM_SOFF	,	V_40
+ett_brdwlk_error	,	V_8
+hf_brdwlk_eof	,	V_58
+proto_reg_handoff_brdwlk	,	F_31
+tvb_reported_length	,	F_15
+"Error"	,	L_14
+"brdwlk"	,	L_40
+len	,	V_25
+tfs_error_jumbo	,	V_79
+"brdwlk.error.ctrl"	,	L_39
+"EOF"	,	L_12
+gint	,	T_6
+col_set_str	,	F_8
+"SOF"	,	L_10
+FCM_DELIM_EOFN	,	V_54
+TFS	,	F_25
+tvb	,	V_2
+item	,	V_4
+"  Packet Length Present"	,	L_1
+BRDWLK_HAS_PLEN	,	V_59
+COL_INFO	,	V_32
+"brdwlk.error.plp"	,	L_25
+FCM_DELIM_EOFT	,	V_56
+"brdwlk.plen"	,	L_23
+hidden_item	,	V_19
+"Boardwalk"	,	L_9
+FT_BOOLEAN	,	V_70
+proto_item_append_text	,	F_6
+"  No Data"	,	L_3
+tvb_reported_length_remaining	,	F_14
+"VSAN"	,	L_20
+"Original Packet Length"	,	L_22
+col_clear	,	F_9
+cinfo	,	V_30
+p_get_proto_data	,	F_16
+proto_register_subtree_array	,	F_29
+first_pkt	,	V_51
+array_length	,	F_28
+next_tvb	,	V_21
+dissect_brdwlk_err	,	F_1
+proto_tree_add_item	,	F_12
+call_dissector	,	F_21
+pinfo	,	V_17
+dissector_handle_t	,	T_10
+brdwlk_init	,	F_22
+flags	,	V_6
+brdwlk_handle	,	V_82
+"brdwlk.error.crc"	,	L_33
+"ethertype"	,	L_41
+tfs_error_ef	,	V_74
+PROTO_ITEM_SET_HIDDEN	,	F_18
+tfs_error_crc	,	V_77
+dissect_brdwlk	,	F_7
+proto_tree_add_boolean	,	F_5
+dropped_packets	,	V_29
+hf_brdwlk_error_jumbo	,	V_15
+hf_register_info	,	T_9
+hf_brdwlk_error	,	V_7
+ett_brdwlk	,	V_43
+VALS	,	F_24
+guint16	,	T_7
+COL_PROTOCOL	,	V_31
+"brdwlk.error.ef"	,	L_27
+"data"	,	L_42
+"brdwlk.error"	,	L_15
+sof_eof	,	V_38
+FT_UINT8	,	V_63
+hf_brdwlk_plen	,	V_60
+BASE_DEC	,	V_69
+hf_brdwlk_vsan	,	V_46
+tvb_new_subset	,	F_20
+hf_brdwlk_error_nd	,	V_11
+tfs_error_tr	,	V_76
+proto_item	,	T_3
+reported_len	,	V_26
+hf_brdwlk_error_ff	,	V_14
+hdrlen	,	V_24
+guint8	,	T_4
+tfs_error_plp	,	V_73
+ti	,	V_18
+BASE_NONE	,	V_71
+tvb_length_remaining	,	F_13
+"  Truncated"	,	L_4
+"Fifo Full"	,	L_34
+hf_brdwlk_sof	,	V_44
+tvb_get_ntohl	,	F_19
+tvbuff_t	,	T_2
+proto_tree_add_protocol_format	,	F_11
+sof	,	V_23
+hf_brdwlk_error_ctrl	,	V_16
+"Packet Dropped"	,	L_18
+tvb_get_ntohs	,	F_10
+"brdwlk.pktcnt"	,	L_17
+BASE_HEX	,	V_64
+brdwlk_eof_vals	,	V_67
+parent_tree	,	V_1
+plen	,	V_27
+proto_register_brdwlk	,	F_23
+gboolean	,	T_8
+fc_dissector_handle	,	V_61
+ETHERTYPE_BRDWALK	,	V_83
+hf_brdwlk_error_ef	,	V_10
+brdwlk_sof_vals	,	V_65
+proto_item_add_subtree	,	F_4
+vsan	,	V_33
+proto_register_field_array	,	F_27
+"Truncated"	,	L_30
+"brdwlk.error.tr"	,	L_31
+"brdwlk.vsan"	,	L_21
+offset	,	V_3
+ett	,	V_81
+"brdwlk.error.ff"	,	L_35
+dissector_add_uint	,	F_33
+tree	,	V_5
+"  Empty Frame"	,	L_2
+"  Ctrl Char Inside Frame"	,	L_8
+tfs_error_ff	,	V_78
+data_handle	,	V_84
+FT_UINT16	,	V_68
+register_init_routine	,	F_30
+packet_info	,	T_5
+hf_brdwlk_drop	,	V_53
+tvb_get_guint8	,	F_2
+p_add_proto_data	,	F_17
+hf_brdwlk_error_tr	,	V_12
+tfs_error_nd	,	V_75
+"fc"	,	L_43
+"  Bad FC CRC"	,	L_5
+PINFO_SOF_SOFF	,	V_41
+"No Data"	,	L_28
+"Jumbo FC Frame"	,	L_36
+"  Jumbo FC Frame"	,	L_7
+fd	,	V_48
+proto_tree_add_uint	,	F_3
+"brdwlk.eof"	,	L_13
+"brdwlk.drop"	,	L_19
+brdwlk_tree	,	V_20
+"  Fifo Full"	,	L_6
+packet_count	,	V_50
+hf_brdwlk_error_badcrc	,	V_13
+pkt_cnt	,	V_28
+HFILL	,	V_66
+"brdwlk.error.jumbo"	,	L_37
+tfs_error_ctrl	,	V_80
+"brdwlk.error.nd"	,	L_29
+find_dissector	,	F_34
+hf_brdwlk_error_plp	,	V_9
+create_dissector_handle	,	F_32
+"CRC"	,	L_32
+FCM_DELIM_SOFI2	,	V_35
+ENC_BIG_ENDIAN	,	V_45
+FCM_DELIM_SOFI3	,	V_34
+BRDWLK_MAX_PACKET_CNT	,	V_52
+FCM_DELIM_SOFI4	,	V_37
+hf_brdwlk_pktcnt	,	V_47
+proto_brdwlk	,	V_42
+FT_UINT32	,	V_72
+PINFO_EOF_LAST_FRAME	,	V_55
+FCM_DELIM_SOFI1	,	V_36
+"brdwlk.sof"	,	L_11
+visited	,	V_49
+"Packet Count"	,	L_16
+PINFO_SOF_FIRST_FRAME	,	V_39
+eof	,	V_22
+"Packet Length Present"	,	L_24
+proto_tree	,	T_1
+hf	,	V_62

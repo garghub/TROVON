@@ -1,0 +1,512 @@
+tvb_get_string_enc	,	F_13
+"Transaction ID: %u"	,	L_35
+"Service Location Protocol"	,	L_208
+"Reassemble SRVLOC messages spanning multiple TCP segments"	,	L_211
+"Attribute List"	,	L_132
+"Error Code"	,	L_42
+"srvloc.daadvert.slpspi"	,	L_170
+"URL Authentication"	,	L_77
+tfs_srvloc_flags_v2_reqmulti	,	V_209
+hf_srvloc_url_url	,	V_64
+FLAG_R_V2	,	V_210
+"srvloc.srvdereq.scopelistlen"	,	L_137
+"srvloc.flags_v1"	,	L_71
+srvloc_tree	,	V_45
+"Length of Service Type List"	,	L_111
+TFS	,	F_43
+attr_list2	,	F_23
+guint32	,	T_8
+type_len	,	V_41
+hf_srvloc_authblkv2_slpspi	,	V_23
+FT_BOOLEAN	,	V_198
+"srvloc.daadvert.attrlist"	,	L_168
+hf_srvloc_saadvert_attrlistlen	,	V_186
+version	,	V_73
+"srvloc.list.ipaddr"	,	L_199
+"srvloc.function"	,	L_65
+"Num Auths"	,	L_62
+reserved	,	V_66
+"srvloc.daadvert.timestamp"	,	L_161
+"XID"	,	L_45
+"Network: %s"	,	L_26
+array_length	,	F_46
+hf_srvloc_srvtypereq_nameauthlistlenall	,	V_137
+hf_srvloc_daadvert_slpspilen	,	V_176
+""	,	L_6
+hf_srvloc_srvdereg_taglist	,	V_113
+srvloc_flags	,	V_72
+"srvloc.srvreq.prlist"	,	L_108
+srvloc_errs_v2	,	V_126
+hf_srvloc_daadvert_attrlist	,	V_175
+ENC_ASCII	,	V_24
+"srvloc.authblkv2.slpspilen"	,	L_100
+"Error: %s"	,	L_37
+"srvloc.srvreq.slpspilen"	,	L_124
+proto_register_srvloc	,	F_41
+srvloc_tcp_handle	,	V_222
+"Do we want multicast?"	,	L_89
+tm_hour	,	V_13
+hf_srvloc_saadvert_attrlist	,	V_187
+"srvloc.attrreq.scopelist"	,	L_150
+"Length of the Scope List"	,	L_116
+hf_register_info	,	T_14
+tm_mon	,	V_11
+hf_srvloc_langtaglen	,	V_152
+expert_item	,	V_78
+srvloc_module	,	V_219
+"Auths"	,	L_171
+"srvloc.flags_v1.attribute_auth"	,	L_80
+guint16	,	T_4
+dissect_attrauthblk_v2	,	F_10
+c	,	V_55
+"srvloc.daadvert.attrlistlen"	,	L_167
+"Protocol: %s"	,	L_23
+i	,	V_33
+j	,	V_34
+srvloc_errs	,	V_105
+time_t	,	T_3
+ett_srvloc_attr	,	V_51
+"srvloc.flags_v2"	,	L_84
+BASE_NONE	,	V_195
+c_char1	,	V_36
+tfs_srvloc_flags_v1_url_auth	,	V_203
+x	,	V_56
+"srvloc"	,	L_209
+hf_srvloc_authblkv2_timestamp	,	V_21
+hf_srvloc_srvreg_scopelist	,	V_164
+"Is this a new registration?"	,	L_83
+hf_srvloc_srvreg_scopelistlen	,	V_163
+"Transaction ID"	,	L_47
+"Timestamp"	,	L_96
+"Previous Response List Length"	,	L_104
+"srvloc.pktlen"	,	L_67
+"To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_213
+attr_type	,	V_38
+hf_srvloc_attrreq_urllen	,	V_118
+hf_srvloc_daadvert_scopelistlen	,	V_132
+BASE_HEX	,	V_197
+col_add_str	,	F_30
+FT_UINT24	,	V_193
+proto_item_add_subtree	,	F_24
+module_t	,	T_17
+proto_register_field_array	,	F_45
+byte_array	,	V_37
+FLAG_F_V2	,	V_208
+hf_srvloc_srvtyperply_srvtype	,	V_144
+ei	,	V_215
+dissector_add_uint	,	F_54
+count	,	V_75
+encoding	,	V_28
+"srvloc.srvreq.attrlist"	,	L_133
+hf_srvloc_flags_v1_monolingual	,	V_92
+FT_UINT16	,	V_190
+"Service Type: %s"	,	L_20
+hf_srvloc_srvreq_slpspi	,	V_159
+")"	,	L_17
+"srvloc.srvreq.predicatelen"	,	L_120
+hf_srvloc_saadvert_url	,	V_183
+"srvloc.srvtyperply.srvtypelist"	,	L_190
+num_auths	,	V_67
+"Previous Response List"	,	L_107
+"srvloc.srvtypereq.scopelistlen"	,	L_182
+FT_STRING	,	V_194
+"srvloc.attrrply.attrlistlen"	,	L_157
+"URL lifetime"	,	L_56
+"Scope List Length"	,	L_114
+"srvloc.srvreq.attrlistlen"	,	L_131
+"srvloc.version"	,	L_69
+hf_srvloc_srvreq_predicate	,	V_101
+"Length of the Service Type"	,	L_185
+proto_reg_handoff_srvloc	,	F_52
+"srvloc.srvreq.scopelistlen"	,	L_115
+hf_srvloc_srvdereg_scopelist	,	V_167
+hf_srvloc_srvreq_predicatelen	,	V_100
+SAADVERT	,	V_181
+val_to_str_const	,	F_21
+"srvloc.attrrply.attrlist"	,	L_159
+"srvloc.saadvert.url"	,	L_192
+length	,	V_8
+"srvloc.saadvert.authcount"	,	L_197
+ascii_text	,	V_32
+dissect_url_entry_v1	,	F_25
+dissect_url_entry_v2	,	F_26
+hf_srvloc_saadvert_urllen	,	V_182
+"Service Type List"	,	L_112
+"Service Name Value"	,	L_201
+hf_srvloc_attrreq_prlistlen	,	V_116
+"srvloc.attrreq.prlistlen"	,	L_143
+tfs_srvloc_flags_overflow	,	V_199
+hf	,	V_27
+endianness	,	V_31
+ei_srvloc_error	,	V_104
+SRVREQ	,	V_97
+hf_srvloc_srvreq_slpspilen	,	V_158
+dissect_srvloc_tcp	,	F_38
+prefs_register_protocol	,	F_50
+"Socket"	,	L_9
+srvloc_desegment	,	V_189
+col_append_fstr	,	F_33
+tmp	,	V_46
+proto_srvloc	,	V_84
+col_set_str	,	F_28
+expert_status	,	V_79
+"Flags"	,	L_70
+"srvloc.authblkv2_len"	,	L_94
+FT_IPv4	,	V_213
+"srvloc.attrreq.scopelistlen"	,	L_149
+"Port: %d"	,	L_25
+"srvloc.srvtypereq.nameauthlist"	,	L_181
+"Block Structure Descriptor: %u"	,	L_3
+"srvloc.flags_v1.url_auth"	,	L_78
+hf_srvloc_function	,	V_87
+"srvloc.attrreq.taglistlen"	,	L_153
+FT_ABSOLUTE_TIME	,	V_211
+"Tag List"	,	L_141
+proto_tree_add_string	,	F_18
+val_to_str	,	F_31
+charsets	,	V_96
+hf_srvloc_srvtypereq_nameauthlistlen	,	V_138
+"srvloc.daadvert.authcount"	,	L_172
+dissector_handle_t	,	T_19
+hf_srvloc_srvreg_attrlistlen	,	V_108
+"Service Type Count: %u"	,	L_39
+"Naming Authority List Length (All Naming Authorities)"	,	L_179
+stamp	,	V_5
+hf_srvloc_srvtypereq_prlistlen	,	V_135
+"Length of the Naming Authority List"	,	L_178
+"Timestamp: %04d-%02d-%02d %02d:%02d:%07.4f UTC"	,	L_1
+"srvloc.saadvert.attrlist"	,	L_196
+", V2 XID - %u"	,	L_41
+VALS	,	F_42
+prefs_register_bool_preference	,	F_51
+hf_srvloc_langtag	,	V_153
+"srvloc.xid"	,	L_46
+"Predicate Length"	,	L_119
+"srvloc.daadvert.urllen"	,	L_163
+byte_value	,	V_44
+tvb_length	,	F_40
+"srvloc.srvtypereq.srvtypelen"	,	L_184
+cnt	,	V_57
+"SLP SPI Length"	,	L_99
+proto_tree_add_text	,	F_3
+BASE_DEC	,	V_191
+"Status: Too much data to pass inside this protocol. Resubmit request using a streaming protocol like TCP."	,	L_13
+"Predicate"	,	L_122
+attr_tree	,	V_59
+ENC_NA	,	V_25
+"Lang Tag Len"	,	L_50
+ABSOLUTE_TIME_LOCAL	,	V_212
+SRVREG	,	V_107
+hf_srvloc_attrreq_taglistlen	,	V_168
+hf_srvloc_flags_v1	,	V_89
+hf_srvloc_flags_v2	,	V_146
+wmem_alloc	,	F_15
+"Fresh Registration"	,	L_81
+TCP_PORT_SRVLOC	,	V_224
+SRVACK	,	V_114
+"srvloc.authblkv2_bsd"	,	L_91
+hf_srvloc_authblkv2_len	,	V_18
+hf_srvloc_error_v2	,	V_125
+hf_srvloc_srvtyperply_srvtypelen	,	V_143
+tm_year	,	V_10
+"srvloc.srvreq.scopelist"	,	L_118
+"Overflow"	,	L_72
+hf_srvloc_srvreg_srvtype	,	V_162
+tm_sec	,	V_9
+"Length of Authentication Block"	,	L_95
+expert_register_protocol	,	F_48
+function	,	V_74
+UDP_PORT_SRVLOC	,	V_223
+dissect_srvloc	,	F_27
+hf_srvloc_srvtypereq_scopelistlen	,	V_140
+"Function"	,	L_64
+"srvloc.srvreq.predicate"	,	L_123
+"srvloc.srvtypereq.prlistlen"	,	L_174
+hf_srvloc_authblkv2_bsd	,	V_16
+"Service URL"	,	L_146
+dissect_authblk_v2	,	F_6
+guint	,	T_13
+"Length"	,	L_93
+ett	,	V_214
+wmem_packet_scope	,	F_14
+"TCP"	,	L_11
+hf_srvloc_srvreg_attrlist	,	V_109
+srvloc_handle	,	V_221
+packet_info	,	T_11
+"Unknown Function Type"	,	L_207
+next_ext_off	,	V_76
+"Length of the Predicate"	,	L_121
+hf_srvloc_nextextoff	,	V_150
+EXPFILL	,	V_218
+"IP Address"	,	L_198
+"UDP"	,	L_12
+"svcname-ws"	,	L_16
+srvloc_ss	,	V_48
+srvloc_functions	,	V_83
+"URL"	,	L_60
+"srvloc.url.url"	,	L_61
+tm_mday	,	V_12
+SRVRPLY	,	V_102
+"srvloc.daadvert.scopelistlen"	,	L_165
+hf_srvloc_attrreq_url	,	V_119
+"srvloc.url.lifetime"	,	L_57
+"srvloc.daadvert.scopelist"	,	L_166
+"Authenticator length: %u"	,	L_4
+HFILL	,	V_192
+"srvloc.srvreq.srvtypelen"	,	L_110
+"Item %d"	,	L_19
+hf_srvloc_srvrply_svcname	,	V_50
+"srvloc.authblkv2.timestamp"	,	L_97
+"Multicast requested"	,	L_87
+"Next Extension Offset"	,	L_52
+ATTRRQST	,	V_115
+proto_tree_add_subtree_format	,	F_19
+"srvloc.err"	,	L_43
+"srvloc.attrreq.url"	,	L_147
+nsecs	,	V_19
+"srvloc.srvdereq.scopelist"	,	L_138
+"Attr Auths"	,	L_134
+"Unknown"	,	L_21
+"Unknown SRVLOC Error (0x%02x)"	,	L_38
+"srvloc.err.expert"	,	L_203
+"Whether the SRVLOC dissector should reassemble messages spanning multiple TCP segments. "	,	L_212
+"srvloc.langtag"	,	L_49
+"Dialect: %u"	,	L_32
+ATTRRPLY	,	V_124
+proto_register_protocol	,	F_44
+ENC_UCS_2	,	V_30
+"URL of service"	,	L_148
+"svcaddr-ws"	,	L_18
+attr_list	,	F_16
+hf_srvloc_daadvert_url	,	V_131
+"Version"	,	L_68
+hf_srvloc_attrreq_slpspi	,	V_171
+hf_srvloc_flags_v2_reqmulti	,	V_149
+tcp_dissect_pdus	,	F_39
+"srvloc.nextextoff"	,	L_53
+gint	,	T_15
+hf_srvloc_daadvert_urllen	,	V_130
+hf_srvloc_srvreq_srvtypelen	,	V_154
+tvb	,	V_1
+COL_INFO	,	V_82
+"srvloc.srvreq.srvtype"	,	L_129
+"Lang Tag"	,	L_48
+hf_srvloc_srvreq_srvtypelist	,	V_155
+hf_srvloc_saadvert_scopelistlen	,	V_184
+"TCP/UDP"	,	L_7
+"srvloc.function.unknown"	,	L_206
+proto_tree_add_expert_format	,	F_35
+"IP Address of SLP server"	,	L_200
+hf_srvloc_srvdereg_taglistlen	,	V_112
+"srvloc.url.numauths"	,	L_63
+proto_tree_add_ipv4	,	F_22
+cinfo	,	V_80
+"srvloc.srvtypereq.nameauthlistlen"	,	L_177
+PI_ERROR	,	V_217
+"%x"	,	L_24
+ei_srvloc_error_v2	,	V_160
+"Reserved"	,	L_54
+hf_srvloc_srvdereg_scopelistlen	,	V_166
+"srvloc.srvreq.slpspi"	,	L_125
+"srvloc.srvtyperply.srvtype"	,	L_186
+", V1 Transaction ID - %u"	,	L_36
+"Timestamp on DA Advert"	,	L_162
+"Communication Type: %s"	,	L_22
+SRVTYPERPLY	,	V_142
+hf_srvloc_xid	,	V_151
+proto_tree_add_boolean	,	F_32
+"Length of the Service Type List"	,	L_189
+ss	,	V_40
+svc	,	V_39
+COL_PROTOCOL	,	V_81
+"srvloc.flags_v2.overflow"	,	L_85
+"srvloc.srvreq.attrauthcount"	,	L_135
+srvloc_svc	,	V_47
+tfs_srvloc_flags_v1_attribute_auth	,	V_204
+lang_tag_len	,	V_77
+"BSD"	,	L_90
+guint8	,	T_6
+tf	,	V_71
+ti	,	V_58
+hf_srvloc_url_reserved	,	V_68
+secs	,	V_20
+value_string	,	T_9
+tm	,	V_4
+tvb_length_remaining	,	F_17
+"SLP SPI"	,	L_102
+ts	,	V_15
+"Length of Attribute List"	,	L_158
+tvb_get_ntohl	,	F_2
+hf_srvloc_attrrply_attrlist	,	V_128
+tvbuff_t	,	T_1
+hf_srvloc_url_numauths	,	V_69
+foffset	,	V_42
+hf_srvloc_attrreq_slpspilen	,	V_170
+"Service Type Length"	,	L_109
+tvb_get_ntohs	,	F_4
+gboolean	,	T_7
+hf_srvloc_attrreq_attrlistlen	,	V_122
+"srvloc.saadvert.scopelist"	,	L_194
+CHARSET_UTF_8	,	V_53
+"Unknown Function (%u)"	,	L_31
+hf_srvloc_srvtypereq_prlist	,	V_136
+"Timestamp on Authentication Block"	,	L_98
+"srvloc.srvreq.urlcount"	,	L_127
+hf_srvloc_srvtypereq_nameauthlist	,	V_139
+url_len	,	V_61
+"Naming Authority List"	,	L_180
+hf_srvloc_flags_v1_overflow	,	V_91
+"Note: Protocol dissection is aborted due to packet overflow. See overflow flag."	,	L_14
+tvb_get_guint8	,	F_20
+"srvloc.daadvert.slpspilen"	,	L_169
+PI_RESPONSE_CODE	,	V_216
+"srvloc.authblkv2.slpspi"	,	L_103
+SRVDEREG	,	V_111
+"Datagram"	,	L_10
+hf_srvloc_attrrply_attrauthcount	,	V_172
+"desegment_tcp"	,	L_210
+"srvloc.attrreq.taglist"	,	L_154
+"Can whole packet fit into a datagram?"	,	L_74
+"srvloc.langtaglen"	,	L_51
+hf_srvloc_authblkv2_slpspilen	,	V_22
+"Length of the SLP SPI"	,	L_101
+"srvloc.srvdereq.taglist"	,	L_142
+"DAADVERT Timestamp"	,	L_160
+hf_srvloc_error	,	V_103
+"Unknown Function Type: %d"	,	L_40
+"URL Length"	,	L_58
+"srvloc.saadvert.urllen"	,	L_191
+new_create_dissector_handle	,	F_53
+"srvloc.srvdereq.taglistlen"	,	L_140
+"Language: %s"	,	L_33
+hf_srvloc_srvreq_prlistlen	,	V_98
+start	,	V_54
+hf_srvloc_srvreg_attrauthcount	,	V_165
+tfs_srvloc_flags_fresh	,	V_205
+ENC_BIG_ENDIAN	,	V_17
+"Naming Authority List Length"	,	L_176
+"Scope List"	,	L_117
+hf_srvloc_srvreq_prlist	,	V_99
+SRVTYPERQST	,	V_134
+"Service Type"	,	L_128
+"srvloc.saadvert.scopelistlen"	,	L_193
+ett_srvloc_flags	,	V_90
+"Service Type List Length"	,	L_187
+hf_srvloc_attrreq_scopelistlen	,	V_120
+proto_tree_add_time	,	F_8
+hf_srvloc_flags_v1_attribute_auth	,	V_94
+seconds	,	V_6
+"Error"	,	L_204
+hf_srvloc_srvtyperply_srvtypelist	,	V_180
+hf_srvloc_attrrply_attrlistlen	,	V_127
+"Number of URLs"	,	L_126
+"="	,	L_15
+"srvloc.srvtypereq.prlist"	,	L_175
+unicode_to_bytes	,	F_12
+col_clear	,	F_29
+hf_srvloc_flags_v1_fresh	,	V_95
+expert_srvloc	,	V_220
+hf_srvloc_daadvert_attrlistlen	,	V_174
+proto_register_subtree_array	,	F_47
+"Number of Authentication Blocks"	,	L_173
+"srvloc.srvreq.srvtypelist"	,	L_113
+hf_srvloc_srvreq_scopelistlen	,	V_156
+tvb_get_ntoh24	,	F_36
+tfs_srvloc_flags_v1_monolingual	,	V_201
+proto_tree_add_item	,	F_7
+pinfo	,	V_70
+_U_	,	V_26
+flags	,	V_60
+dissect_authblk	,	F_1
+hf_srvloc_flags_v2_overflow	,	V_147
+"Tag List Length"	,	L_139
+ei_srvloc_function_unknown	,	V_145
+"IPX"	,	L_8
+prot	,	V_43
+hf_srvloc_saadvert_scopelist	,	V_185
+"srvloc.attrreq.prlist"	,	L_144
+hf_srvloc_version	,	V_86
+hf_srvloc_srvtypereq_scopelist	,	V_141
+"srvloc.srvrply.svcname"	,	L_202
+"srvloc.flags_v1.overflow."	,	L_73
+"Authentication block: %s"	,	L_5
+"srvloc.flags_v1.fresh"	,	L_82
+hf_srvloc_srvreg_srvtypelen	,	V_161
+FT_UINT8	,	V_196
+hf_srvloc_daadvert_slpspi	,	V_177
+proto_item	,	T_10
+expert_register_field_array	,	F_49
+"srvloc.srvreq.prlistlen"	,	L_105
+"srvloc.flags_v1.monolingual"	,	L_76
+"Packet Length"	,	L_66
+"Number of Attribute Authentication Blocks"	,	L_136
+"srvloc.attrreq.slpspi"	,	L_156
+expert_add_info_format	,	F_34
+"Block Structure Descriptor"	,	L_92
+tvb_format_text	,	F_5
+"srvloc.attrreq.attrlist"	,	L_152
+hf_srvloc_daadvert_authcount	,	V_178
+FLAG_U	,	V_65
+"srvloc.daadvert.url"	,	L_164
+data	,	T_12
+DAADVERT	,	V_129
+"Node: %s"	,	L_27
+tm_min	,	V_14
+hf_srvloc_flags_v2_fresh	,	V_148
+ei_register_info	,	T_16
+hf_srvloc_attrreq_prlist	,	V_117
+hf_srvloc_attrreq_attrlist	,	V_123
+nstime_t	,	T_5
+hf_srvloc_url_urllen	,	V_63
+hf_srvloc_add_ref_ip	,	V_52
+hf_srvloc_saadvert_authcount	,	V_188
+"srvloc.flags_v2.fresh"	,	L_86
+"srvloc.errv2"	,	L_44
+offset	,	V_2
+floatsec	,	V_7
+expert_module_t	,	T_18
+tree	,	V_3
+"Timestamp not representable"	,	L_2
+hf_srvloc_daadvert_scopelist	,	V_133
+"Attribute Authentication"	,	L_79
+"SRVLOC"	,	L_30
+hf_srvloc_url_lifetime	,	V_62
+hf_srvloc_flags_v1_url_auth	,	V_93
+CHARSET_ISO_10646_UCS_2	,	V_29
+add_v1_string	,	F_11
+hf_srvloc_srvrply_urlcount	,	V_106
+"Length of Previous Response List"	,	L_106
+proto_tree_add_uint	,	F_9
+"srvloc.attrreq.urllen"	,	L_145
+"srvloc.attrreq.attrlistlen"	,	L_151
+"Attribute List Length"	,	L_130
+"srvloc.flags_v2.reqmulti"	,	L_88
+"Socket: %s"	,	L_28
+"srvloc.saadvert.attrlistlen"	,	L_195
+hf_srvloc_daadvert_timestamp	,	V_173
+"srvloc.errv2.expert"	,	L_205
+srvloc_prot	,	V_49
+hf_srvloc_srvtyperply_srvtypelistlen	,	V_179
+"Item %d: %s"	,	L_29
+hf_srvloc_attrreq_taglist	,	V_169
+hf_srvloc_attrreq_scopelist	,	V_121
+hf_srvloc_srvreq_scopelist	,	V_157
+"Monolingual"	,	L_75
+get_srvloc_pdu_len	,	F_37
+"srvloc.url.reserved"	,	L_55
+"srvloc.srvtypereq.scopelist"	,	L_183
+"udp.port"	,	L_214
+"srvloc.url.urllen"	,	L_59
+c_char	,	V_35
+ett_srvloc	,	V_85
+FLAG_A	,	V_110
+hf_srvloc_pktlen	,	V_88
+"srvloc.srvtypereq.srvtypelistlen"	,	L_188
+FLAG_F	,	V_206
+FLAG_O_V2	,	V_207
+"Encoding: %u (%s)"	,	L_34
+FLAG_M	,	V_202
+FLAG_O	,	V_200
+"tcp.port"	,	L_215
+proto_tree	,	T_2
+"srvloc.attrreq.slpspilen"	,	L_155

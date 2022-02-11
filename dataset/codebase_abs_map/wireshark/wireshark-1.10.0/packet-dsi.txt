@@ -1,0 +1,376 @@
+"dsi.open_option"	,	L_129
+"%s %s (%u)"	,	L_28
+DSIFUNC_STAT	,	V_113
+proto_register_protocol	,	F_35
+"Address list: %d"	,	L_14
+hf_dsi_flags	,	V_101
+"dsi.utf8_server_name_len"	,	L_51
+dsi_desegment	,	V_129
+check_col	,	F_17
+"Support server message"	,	L_82
+DSIFUNC_OPEN	,	V_110
+utf_ofs	,	V_31
+tvb_new_subset_remaining	,	F_28
+len	,	V_7
+"dsi.data_offset"	,	L_42
+dsi_module	,	V_158
+dsi_attn_flag_vals_ext	,	V_156
+tcp_dissect_pdus	,	F_32
+gint	,	T_1
+"Reserved for future use.  Should be set to zero."	,	L_50
+hf_dsi_server_name	,	V_55
+"AFP version"	,	L_59
+"Address length."	,	L_111
+"dsi.server_flag.copyfile"	,	L_75
+AFPSRVRINFO_SRVSIGNATURE	,	V_58
+"Signature offset: %d"	,	L_8
+"Server icon bitmap"	,	L_65
+"dsi.attn_flag.msg"	,	L_140
+tvb	,	V_1
+guint32	,	T_9
+AFPSRVRINFO_SRVUTF8	,	V_61
+COL_INFO	,	V_96
+"UAM"	,	L_61
+hf_dsi_attn_flag_crash	,	V_21
+pd_save	,	V_117
+"Icon offset: %d"	,	L_7
+val_to_str_ext	,	F_22
+FT_BOOLEAN	,	V_144
+tvb_reported_length_remaining	,	F_7
+sub_tree	,	V_26
+node	,	V_72
+proto_register_dsi	,	F_33
+"Server support copyfile"	,	L_76
+hf_dsi_attn_flag_shutdown	,	V_20
+AFPSTATUS_MACHOFF	,	V_35
+"ddp: %u.%u:%u"	,	L_17
+cinfo	,	V_94
+"Server support UTF8 server name"	,	L_100
+"UAMS list: %d"	,	L_13
+"dsi.server_flag.notify"	,	L_90
+array_length	,	F_37
+"Reserved"	,	L_48
+"dsi.server_flag"	,	L_72
+"Version offset: %d"	,	L_5
+hf_dsi_server_flag_copyfile	,	V_42
+"Server type"	,	L_57
+hf_dsi_server_flag_reconnect	,	V_49
+hf_dsi_server_flag_directory	,	V_50
+call_dissector	,	F_27
+proto_reg_handoff_dsi	,	F_41
+hf_dsi_requestid	,	V_103
+AFPSTATUS_ICONOFF	,	V_38
+ENC_ASCII	,	V_57
+"dsi.length"	,	L_46
+"dsi.server_name"	,	L_56
+"ip: %s"	,	L_15
+"Server supports extended sleep"	,	L_106
+hf_dsi_server_flag_tcpip	,	V_47
+AFPSRVRINFO_TCPIP	,	V_59
+hf_register_info	,	T_11
+"dsi.attn_flag.bitmap"	,	L_149
+"Message"	,	L_139
+hf_dsi_server_addr_type	,	V_78
+dsi_command	,	V_88
+dsi_open_type_vals	,	V_155
+seq	,	V_120
+guint16	,	T_6
+COL_PROTOCOL	,	V_95
+"dsi.flags"	,	L_33
+"Server support notifications"	,	L_91
+"dsi.utf8_server_name"	,	L_54
+ett_dsi_open	,	V_8
+i	,	V_33
+"Support directory services"	,	L_95
+"Version list: %d"	,	L_12
+guint8	,	T_5
+ti	,	V_6
+BASE_NONE	,	V_141
+hf_dsi_server_icon	,	V_67
+hf_dsi_utf8_server_name_len	,	V_84
+"dsi.server_flag.ext_sleep"	,	L_105
+tvb_length_remaining	,	F_30
+hf_dsi_server_signature	,	V_68
+"Support server signature"	,	L_84
+"Whether the DSI dissector should reassemble messages spanning multiple TCP segments."	,	L_155
+"Attention extended bitmap"	,	L_150
+hf_dsi_server_flag_srv_msg	,	V_45
+tvb_get_ntohl	,	F_19
+"Address type."	,	L_114
+tvbuff_t	,	T_2
+DSI_BLOCKSIZ	,	V_111
+"UTF8 Server name"	,	L_53
+"Data Stream Interface"	,	L_151
+ett_dsi_addr_line	,	V_76
+ett_dsi_vers	,	V_63
+tvb_get_ntohs	,	F_8
+"Total length of the data that follows the DSI header."	,	L_47
+"desegment"	,	L_153
+ett_dsi_directory	,	V_80
+BASE_HEX	,	V_132
+hf_dsi_open_len	,	V_11
+hf_dsi_server_addr_value	,	V_79
+ett_dsi_uams	,	V_65
+"dsi.server_addr.len"	,	L_110
+proto_item_add_subtree	,	F_3
+hf_dsi_attn_flag_msg	,	V_22
+module_t	,	T_12
+reply	,	V_118
+AFPSRVRINFO_SRVNOTIFY	,	V_149
+"dsi.attn_flag.crash"	,	L_137
+proto_register_field_array	,	F_36
+AFPSRVRINFO_UUID	,	V_151
+hf_dsi_open_option	,	V_14
+AFPSTATUS_UAMSOFF	,	V_37
+FT_BYTES	,	V_143
+FT_UINT_STRING	,	V_142
+"Request ID"	,	L_38
+func_vals_ext	,	V_98
+proto_dsi	,	V_99
+dissector_add_uint	,	F_43
+dsi_code	,	V_90
+"dsi.server_signature"	,	L_70
+AFPSRVRINFO_SRVMSGS	,	V_148
+"Directory services offset: %d"	,	L_10
+"Don't allow save password"	,	L_80
+data_handle	,	V_124
+FT_UINT16	,	V_136
+"Server name"	,	L_55
+tvb_get_guint8	,	F_4
+"dsi.server_flag.utf8_name"	,	L_99
+"Reassemble DSI messages spanning multiple TCP segments"	,	L_154
+ett_dsi_status	,	V_34
+port	,	V_73
+"UTF8 server name offset: %d"	,	L_11
+"Indicates request or reply."	,	L_34
+"dsi.server_addr.type"	,	L_113
+DSIFUNC_ATTN	,	V_112
+AFPSTATUS_FLAGOFF	,	V_39
+DSIFL_REQUEST	,	V_104
+"ssh tunnel"	,	L_20
+"dsi.server_flag.reconnect"	,	L_93
+"Shutdown"	,	L_133
+tvb_ip6_to_str	,	F_12
+"Replay"	,	L_126
+"dsi"	,	L_152
+hf_dsi_offset	,	V_105
+"dsi.server_flag.no_save_passwd"	,	L_81
+DSIFUNC_WRITE	,	V_115
+hf_dsi_server_flag_uuid	,	V_52
+dsi_reserved	,	V_91
+hf_dsi_command	,	V_102
+AFPSRVRINFO_COPY	,	V_145
+flag_vals	,	V_97
+asp_error_vals_ext	,	V_138
+FT_STRING	,	V_140
+AFPSRVRINFO_EXT_SLEEP	,	V_152
+hf_dsi_attn_flag	,	V_18
+"Support fast copy"	,	L_107
+FT_INT32	,	V_137
+"dsi.reserved"	,	L_49
+dissect_dsi	,	F_31
+find_dissector	,	F_44
+"Network address offset: %d"	,	L_9
+ENC_BIG_ENDIAN	,	V_10
+"Quantum"	,	L_123
+AFPSRVRINFO_SRVRECONNECT	,	V_150
+FT_UINT32	,	V_139
+"Data offset"	,	L_41
+"Support TCP/IP"	,	L_86
+hf_dsi_open_quantum	,	V_12
+"dsi.server_icon"	,	L_64
+"dsi.server_type"	,	L_58
+"Server capabilities flag"	,	L_73
+"Server supports UUIDs"	,	L_103
+hf	,	V_130
+dsi_flags	,	V_87
+hf_dsi_error	,	V_107
+"dsi.requestid"	,	L_39
+new_tvb	,	V_116
+dsi_tree	,	V_2
+afp_server_addr_type_vals_ext	,	V_154
+"dsi.command"	,	L_36
+"Don't reconnect"	,	L_142
+hf_dsi_server_flag_fast_copy	,	V_54
+AFPSRVRINFO_NOSAVEPASSWD	,	V_147
+"Open Session"	,	L_1
+AFPSTATUS_PRELEN	,	V_56
+prefs_register_protocol	,	F_39
+hf_dsi_attn_flag_bitmap	,	V_25
+"Represents a DSI command."	,	L_37
+adr_tree	,	V_69
+DSIFL_REPLY	,	V_106
+BASE_EXT_STRING	,	V_135
+"DSI"	,	L_27
+tmp	,	V_70
+hf_dsi_server_directory	,	V_81
+col_set_str	,	F_16
+"dsi.server_flag.uuids"	,	L_102
+"Flags"	,	L_32
+hf_dsi_utf8_server_name	,	V_85
+proto_tree_add_uint_format	,	F_24
+"Support UTF8 server name"	,	L_98
+"dsi.server_flag.fast_copy"	,	L_108
+"Server support reconnect"	,	L_94
+"Flag"	,	L_71
+"Support extended sleep"	,	L_104
+"Attention flag, server is shutting down"	,	L_135
+"Directory service"	,	L_66
+"Length: %u bytes"	,	L_31
+nbe	,	V_32
+"Unknown type : %d"	,	L_24
+col_clear	,	F_18
+"ip6: %s"	,	L_22
+"Number of minutes"	,	L_147
+AFPSRVRINFO_SRVDIRECTORY	,	V_60
+"dns"	,	L_19
+"Attention flag, don't reconnect bit"	,	L_144
+"Replay cache size"	,	L_128
+proto_register_subtree_array	,	F_38
+proto_tree_add_string	,	F_14
+gint32	,	T_8
+val_to_str	,	F_21
+"Server support change password"	,	L_79
+"dsi.attn_flag.time"	,	L_146
+TCP_PORT_DSI	,	V_160
+"Support change password"	,	L_77
+hf_dsi_server_flag_notify	,	V_48
+"Crash"	,	L_136
+proto_tree_add_item	,	F_5
+flag	,	V_16
+hf_dsi_replay_cache_size	,	V_13
+private_data	,	V_122
+dir_ofs	,	V_30
+pinfo	,	V_86
+col_add_fstr	,	F_20
+"Support copyfile"	,	L_74
+dissector_handle_t	,	T_13
+"UAMS offset: %d"	,	L_6
+"Malformed address type %d"	,	L_21
+_U_	,	V_125
+dsi_length	,	V_4
+"Attention flag, server crash bit"	,	L_138
+hf_dsi_reserved	,	V_109
+"UTF8 server name length."	,	L_52
+AFPSRVRINFO_PASSWD	,	V_146
+"Value"	,	L_115
+"Get Status"	,	L_3
+"Open session option len"	,	L_122
+"Bitmap"	,	L_148
+ett_dsi_attn_flag	,	V_19
+"Address value"	,	L_117
+"dsi.server_flag.srv_sig"	,	L_85
+"dsi.server_addr.value"	,	L_116
+VALS	,	F_34
+prefs_register_bool_preference	,	F_40
+tvb_get_ephemeral_string	,	F_11
+"Server support fast copy"	,	L_109
+"data"	,	L_158
+"Server directory service"	,	L_68
+FT_UINT8	,	V_131
+AFPSRVRINFO_FASTBOZO	,	V_153
+proto_tree_add_text	,	F_2
+sign_ofs	,	V_28
+tvb_ip_to_str	,	F_10
+BASE_DEC	,	V_134
+tvb_new_subset	,	F_26
+proto_item	,	T_4
+"Option"	,	L_118
+"Server signature"	,	L_69
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_156
+ENC_NA	,	V_15
+hf_dsi_attn_flag_time	,	V_24
+hf_dsi_server_flag	,	V_40
+ett_dsi	,	V_100
+dsi_handle	,	V_159
+hf_dsi_open_type	,	V_9
+dissect_dsi_reply_get_status	,	F_9
+ofs	,	V_27
+"ip %s:%d"	,	L_16
+"Command"	,	L_35
+hf_dsi_server_flag_utf8_name	,	V_51
+hf_dsi_server_flag_passwd	,	V_43
+"UTF8 server name: %s"	,	L_26
+"Unknown function (0x%02x)"	,	L_30
+"Support UUIDs"	,	L_101
+plen	,	V_126
+"Server support TCP/IP"	,	L_88
+col_info	,	V_93
+"dsi.server_directory"	,	L_67
+"dsi.open_type"	,	L_119
+"Support server reconnect"	,	L_92
+net	,	V_71
+"Server attention flag"	,	L_132
+"dsi.open_quantum"	,	L_124
+dissect_dsi_attention	,	F_6
+"Server support directory services"	,	L_97
+dissect_dsi_open_session	,	F_1
+"Directory services list: %d"	,	L_25
+guint	,	T_10
+"Length"	,	L_45
+"Open session options (undecoded)"	,	L_130
+offset	,	V_3
+"Icon bitmap"	,	L_63
+ett	,	V_157
+"dsi.server_flag.srv_msg"	,	L_83
+"Machine offset: %d"	,	L_4
+tree	,	V_5
+"Attention"	,	L_2
+"dsi.server_flag.directory"	,	L_96
+hf_dsi_server_type	,	V_62
+"Open session option type."	,	L_120
+packet_info	,	T_7
+DSIFUNC_CMD	,	V_114
+"afp"	,	L_159
+hf_dsi_server_uams	,	V_66
+ulen	,	V_82
+adr_ofs	,	V_29
+hf_dsi_server_vers	,	V_64
+proto_tree_add_uint	,	F_13
+DSIFL_MAX	,	V_127
+"dsi.server_vers"	,	L_60
+"ip6 %s:%d"	,	L_23
+dsi_requestid	,	V_89
+code	,	V_121
+hf_dsi_attn_flag_reconnect	,	V_23
+hf_dsi_length	,	V_108
+hf_dsi_server_addr_len	,	V_77
+hf_dsi_server_flag_no_save_passwd	,	V_44
+"%s: %s"	,	L_18
+ett_dsi_utf8_name	,	V_83
+"Attention flag, server message bit"	,	L_141
+"dsi.attn_flag.reconnect"	,	L_143
+AFPSTATUS_VERSOFF	,	V_36
+INET6_ADDRLEN	,	V_75
+HFILL	,	V_133
+"Keeps track of which request this is.  Replies must match a Request.  IDs must be generated in sequential order."	,	L_40
+"Server/Attention quantum"	,	L_125
+"Unknown flag (0x%02x)"	,	L_29
+"Support server notifications"	,	L_89
+"dsi.attn_flag"	,	L_131
+create_dissector_handle	,	F_42
+hf_dsi_server_flag_ext_sleep	,	V_53
+ett_dsi_addr	,	V_74
+get_dsi_pdu_len	,	F_29
+command	,	V_119
+DSIFUNC_MAX	,	V_128
+"dsi.server_flag.passwd"	,	L_78
+proto_item_set_len	,	F_25
+"Error code"	,	L_43
+afp_handle	,	V_123
+hf_dsi_server_flag_srv_sig	,	V_46
+"dsi.replay_cache"	,	L_127
+ett_dsi_attn	,	V_17
+"dsi.server_uams"	,	L_62
+aspinfo	,	V_92
+"dsi.server_flag.tcpip"	,	L_87
+"Type"	,	L_112
+"dsi.open_len"	,	L_121
+ett_dsi_status_server_flag	,	V_41
+proto_tree_add_int	,	F_23
+"dsi.error_code"	,	L_44
+"tcp.port"	,	L_157
+dissect_dsi_packet	,	F_15
+proto_tree	,	T_3
+"dsi.attn_flag.shutdown"	,	L_134
+"Minutes"	,	L_145

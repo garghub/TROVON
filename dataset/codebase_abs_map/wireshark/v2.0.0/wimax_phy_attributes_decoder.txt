@@ -1,0 +1,69 @@
+register_dissector	,	F_9
+proto_wimax_phy_attributes_decoder	,	V_10
+"wmx.phy_attributes.num_of_slots"	,	L_16
+col_append_sep_str	,	F_2
+hf_phy_attributes_num_of_slots	,	V_19
+"wmx.phy_attributes.num_repeat"	,	L_12
+"wmx.phy_attributes.permbase"	,	L_6
+vals_encoding_types	,	V_28
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_4
+vals_subchannel_types	,	V_24
+tvb_reported_length	,	F_3
+BASE_HEX	,	V_26
+"Encoding Type"	,	L_9
+"PDU Burst Physical Attributes (%u bytes)"	,	L_2
+hf_phy_attributes_subchannelization_type	,	V_12
+gint	,	T_7
+proto_item_add_subtree	,	F_5
+ett_wimax_phy_attributes_decoder	,	V_11
+"wimax_phy_attributes_burst_handler"	,	L_19
+proto_register_field_array	,	F_10
+proto_wimax	,	V_31
+tvb	,	V_1
+vals_modulation_rates	,	V_27
+hf_phy_attributes_permbase	,	V_14
+guint	,	T_4
+offset	,	V_4
+"numRepeat"	,	L_11
+ett	,	V_30
+COL_INFO	,	V_9
+"Modulation Rate"	,	L_7
+"Subchannelization Type"	,	L_3
+tree	,	V_3
+FT_UINT16	,	V_29
+packet_info	,	T_2
+"wmx.phy_attributes.encoding_type"	,	L_10
+"wmx.phy_attributes.subchannel"	,	L_18
+cinfo	,	V_8
+tvb_len	,	V_5
+proto_register_subtree_array	,	F_12
+dissect_wimax_phy_attributes_decoder	,	F_1
+array_length	,	F_11
+hf_phy_attributes_subchannel	,	V_20
+"wmx.phy_attributes.modulation_rate"	,	L_8
+"wmx.phy_attributes.subchannelization_type"	,	L_4
+"Number Of Slots"	,	L_15
+proto_tree_add_item	,	F_6
+pinfo	,	V_2
+proto_register_wimax_phy_attributes	,	F_7
+hf_phy_attributes_symbol_offset	,	V_18
+hf_register_info	,	T_6
+"Subchannel"	,	L_17
+"PHY-attr"	,	L_1
+VALS	,	F_8
+HFILL	,	V_25
+hf_phy_attributes_num_repeat	,	V_17
+hf_phy_attributes_encoding_type	,	V_16
+phy_item	,	V_6
+FT_UINT8	,	V_22
+BASE_DEC	,	V_23
+phy_tree	,	V_7
+proto_item	,	T_5
+"Permbase"	,	L_5
+hf_phy_attributes_modulation_rate	,	V_15
+ENC_BIG_ENDIAN	,	V_13
+"wmx.phy_attributes.symbol_offset"	,	L_14
+"Symbol Offset"	,	L_13
+proto_tree	,	T_3
+hf	,	V_21

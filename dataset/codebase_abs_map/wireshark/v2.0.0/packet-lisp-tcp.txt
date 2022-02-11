@@ -1,0 +1,181 @@
+"Locator/ID Separation Protocol (Reliable Transport)"	,	L_53
+"Unknown type (%u)"	,	L_14
+G_GINT64_MODIFIER	,	V_23
+proto_register_protocol	,	F_25
+"TLV Message Type"	,	L_21
+"; "	,	L_12
+rid	,	V_9
+"lisp-tcp.message.data"	,	L_28
+", IID: %u"	,	L_1
+tvb_reported_length	,	F_22
+FT_IPv6	,	V_67
+"lisp-tcp.message.eid.afi"	,	L_30
+col_append_fstr	,	F_5
+len	,	V_37
+"lisp-tcp.message.rid"	,	L_45
+", Sub ID: %u"	,	L_2
+tcp_dissect_pdus	,	F_21
+" (correct)"	,	L_17
+FT_UINT64	,	V_65
+col_set_str	,	F_20
+gint	,	T_12
+id	,	V_38
+"Subscribe Message ID"	,	L_33
+"lisp-tcp.message.rloc.ipv4"	,	L_42
+", Site-ID: %"	,	L_5
+FT_IPv4	,	V_66
+tvb	,	V_1
+lisp_tcp_typevals	,	V_48
+guint32	,	T_7
+COL_INFO	,	V_19
+"Msg: %u, %s"	,	L_13
+"lisp-tcp.message.id"	,	L_26
+proto_item_append_text	,	F_4
+", Req ID: %u"	,	L_9
+INET_ADDRLEN	,	V_27
+" [%u] %s"	,	L_8
+"Message End Marker"	,	L_46
+col_clear	,	F_19
+cinfo	,	V_18
+PI_ERROR	,	V_75
+proto_register_subtree_array	,	F_28
+get_lisp_tcp_message_len	,	F_17
+"LISP Reliable Transport"	,	L_54
+val_to_str	,	F_7
+"Invalid message length (%u &lt; 8)"	,	L_11
+hf_lisp_tcp_message_data	,	V_33
+array_length	,	F_27
+afn_vals	,	V_63
+"Site-ID"	,	L_37
+"Work-in-progress"	,	L_10
+proto_tree_add_item	,	F_2
+"lisp-tcp.undecoded"	,	L_48
+pinfo	,	V_2
+iid	,	V_7
+expert_lisp_tcp	,	V_76
+_U_	,	V_36
+"Request Message ID"	,	L_44
+dissect_lisp_tcp_message	,	F_13
+new_register_dissector	,	F_31
+hf_lisp_tcp_message_end_marker	,	V_49
+proto_register_lisp_tcp	,	F_23
+hf_lisp_tcp_message_eid_afi	,	V_13
+LISP_MSG_HEADER_LEN	,	V_55
+hf_register_info	,	T_11
+"EID AFI"	,	L_29
+VALS	,	F_24
+"lisp-tcp.message.rloc.ipv6"	,	L_43
+PI_PROTOCOL	,	V_74
+guint16	,	T_5
+ei_lisp_tcp_undecoded	,	V_34
+COL_PROTOCOL	,	V_53
+err	,	V_10
+hf_lisp_tcp_message_id	,	V_47
+FT_UINT8	,	V_64
+lisp_tcp_membership_subscribe_errors	,	V_21
+tvb_ip_to_str	,	F_10
+BASE_DEC	,	V_58
+hf_lisp_tcp_message_iid	,	V_15
+proto_item	,	T_6
+hf_lisp_tcp_message_site_id	,	V_22
+expert_register_field_array	,	F_30
+lisp_tcp_desegment	,	V_54
+ENC_NA	,	V_28
+guint8	,	T_8
+"lisp-tcp.message.site_id"	,	L_38
+ett_lisp_tcp	,	V_43
+dissect_lisp_tcp_membership_message	,	F_1
+hf_lisp_tcp_message_err	,	V_20
+proto_lisp_tcp	,	V_42
+expert_add_info_format	,	F_12
+BASE_NONE	,	V_62
+col_append_sep_fstr	,	F_15
+"lisp-tcp.message.sid"	,	L_34
+tvb_get_ntohl	,	F_3
+data	,	T_10
+"RLOC AFI"	,	L_39
+ei_lisp_tcp_invalid_length	,	V_46
+"lisp-tcp.message.type"	,	L_20
+tvbuff_t	,	T_1
+"TLV Message Length"	,	L_24
+proto_reg_handoff_lisp_tcp	,	F_32
+tvb_get_ntohs	,	F_9
+"lisp-tcp.message.length"	,	L_23
+message_tree	,	V_3
+", Error code: %s"	,	L_3
+BASE_HEX	,	V_68
+", RLOC: %s"	,	L_7
+"Message ID"	,	L_25
+ei_register_info	,	T_13
+", Msg: %u, %s"	,	L_15
+expert_register_protocol	,	F_29
+til	,	V_40
+tim	,	V_6
+siteid	,	V_11
+proto_item_add_subtree	,	F_14
+PI_UNDECODED	,	V_71
+proto_register_field_array	,	F_26
+FT_BYTES	,	V_61
+"Invalid message length"	,	L_51
+guint	,	T_4
+"Length"	,	L_22
+offset	,	V_4
+ett	,	V_69
+ei	,	V_70
+lisp_tcp_handle	,	V_77
+expert_module_t	,	T_14
+dissector_add_uint	,	F_33
+data_len	,	V_5
+tree	,	V_35
+"Message Data"	,	L_27
+FT_UINT16	,	V_57
+"lisp-tcp.invalid_marker"	,	L_50
+packet_info	,	T_2
+"LISP"	,	L_18
+tvb_get_ntoh64	,	F_8
+tvb_get_guint8	,	F_6
+hf_lisp_tcp_message_rid	,	V_32
+MEMBERSHIP_BASE	,	V_16
+marker	,	V_39
+ei_lisp_tcp_invalid_marker	,	V_51
+"lisp-tcp.message.rloc.afi"	,	L_40
+LISP_MSG_END_MARKER	,	V_50
+mlen	,	V_52
+"Instance ID"	,	L_31
+EXPFILL	,	V_73
+tvb_ip6_to_str	,	F_11
+"Unknown error code (%u)"	,	L_4
+hf_lisp_tcp_message_length	,	V_45
+dissect_lisp_tcp	,	F_18
+"lisp-tcp.message.iid"	,	L_32
+"lisp-tcp.message.err"	,	L_36
+AFNUM_INET6	,	V_29
+"Invalid message end marker (0x%08x)"	,	L_16
+sid	,	V_8
+hf_lisp_tcp_message_type	,	V_44
+AFNUM_INET	,	V_25
+INET6_ADDRLEN	,	V_31
+HFILL	,	V_59
+hf_lisp_tcp_message_rloc_afi	,	V_24
+"Invalid message end marker"	,	L_52
+"RLOC"	,	L_41
+hf_lisp_tcp_message_rloc_ipv6	,	V_30
+hf_lisp_tcp_message_rloc_ipv4	,	V_26
+afi	,	V_12
+"lisp-tcp"	,	L_55
+"Not dissected yet (report to wireshark.org)"	,	L_49
+tiem	,	V_41
+PI_WARN	,	V_72
+"u"	,	L_6
+proto_item_set_len	,	F_16
+"Error code"	,	L_35
+ENC_BIG_ENDIAN	,	V_14
+LISP_CONTROL_PORT	,	V_78
+hf_lisp_tcp_message_sid	,	V_17
+FT_UINT32	,	V_60
+"lisp-tcp.message.end_marker"	,	L_47
+guint64	,	T_9
+"Type"	,	L_19
+"tcp.port"	,	L_56
+proto_tree	,	T_3
+hf	,	V_56

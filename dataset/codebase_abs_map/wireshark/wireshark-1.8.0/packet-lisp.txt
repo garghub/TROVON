@@ -1,0 +1,297 @@
+LOCAL_BIT_MASK	,	V_17
+itr_rloc_v6	,	V_66
+proto_register_protocol	,	F_35
+hf_lisp_mrep_res	,	V_80
+"lisp.records"	,	L_38
+"lisp.mreq.srceid_afi"	,	L_57
+"Mapping Version"	,	L_91
+itr_rloc_v4	,	V_65
+"Authentication Data"	,	L_83
+ett_lisp_record	,	V_73
+tvb_new_subset_remaining	,	F_9
+len	,	V_45
+lisp_tree	,	V_23
+gint	,	T_4
+authlen	,	V_82
+hf_lisp_mreq_flags_smr	,	V_53
+"lisp.type"	,	L_33
+TFS	,	F_34
+tvb	,	V_1
+guint32	,	T_7
+COL_INFO	,	V_39
+LISP_ECM_HEADER_LEN	,	V_97
+FT_BOOLEAN	,	V_119
+"lisp.mreq.flags.smri"	,	L_52
+MAP_NOT_RESERVED	,	V_140
+" (probed)"	,	L_4
+"lisp.mreg.authlen"	,	L_82
+cinfo	,	V_38
+proto_tree_add_ipv4	,	F_18
+reserved	,	V_71
+"M bit (Map-Reply present)"	,	L_43
+"lisp.ecm_res"	,	L_93
+proto_tree_add_ipv6	,	F_19
+tfs_set_notset	,	V_120
+"ipv6"	,	L_99
+"lisp.mreq.srceidv6"	,	L_62
+array_length	,	F_37
+dissect_lisp_map_register	,	F_21
+"Map-Reply record"	,	L_28
+LISP_MAP_ACT	,	V_36
+"Reserved"	,	L_89
+next_tvb	,	V_14
+dissect_lisp_map_request	,	F_17
+dissect_lisp_locator	,	F_1
+""	,	L_3
+call_dissector	,	F_10
+dissect_lisp_mapping	,	F_11
+rep_tvb	,	V_74
+"ITR-RLOC Count"	,	L_35
+"ITR-RLOC %d: %s"	,	L_20
+"ITR-RLOC Address"	,	L_63
+hf_lisp_mreq_srceid_afi	,	V_60
+prefix_v4	,	V_32
+"lisp.nonce"	,	L_40
+prefix_v6	,	V_33
+"Record %d: %s/%d"	,	L_23
+"lisp.mreq.flags.auth"	,	L_42
+m_prio	,	V_7
+hf_lisp_mrep_flags	,	V_131
+hf_register_info	,	T_10
+"lisp.mreg.keyid"	,	L_80
+"Unknown (0x%02x)"	,	L_31
+guint16	,	T_6
+prefix_mask	,	V_29
+COL_PROTOCOL	,	V_101
+"ip"	,	L_98
+i	,	V_25
+"Record Count"	,	L_37
+ipv4_handle	,	V_98
+e_in6_addr	,	V_12
+"s bit (SMR-invoked)"	,	L_51
+guint8	,	T_5
+hf_lisp_mreg_keyid	,	V_86
+ti	,	V_103
+BASE_NONE	,	V_129
+tvb_get_ntohl	,	F_12
+tvbuff_t	,	T_1
+loc_tvb	,	V_44
+tvb_get_ntohs	,	F_3
+BASE_HEX	,	V_118
+hf_lisp_mreg_flags_wmn	,	V_85
+col_add_str	,	F_30
+act	,	V_30
+FT_UINT24	,	V_113
+gboolean	,	T_9
+lisp_typevals	,	V_102
+proto_item_add_subtree	,	F_15
+tim	,	V_75
+prio	,	V_5
+tir	,	V_34
+"lisp.mreg.auth"	,	L_84
+proto_register_field_array	,	F_36
+"Source EID Address"	,	L_61
+FT_BYTES	,	V_139
+REACH_BIT_MASK	,	V_19
+hf_lisp_mrep_flags_probe	,	V_78
+"Unreachable"	,	L_6
+hf_lisp_mreq_srceid	,	V_62
+lisp_actions	,	V_35
+"Prefix length: %d"	,	L_25
+dissector_add_uint	,	F_41
+weight	,	V_6
+data_handle	,	V_22
+FT_UINT16	,	V_127
+MAP_REG_FLAG_M	,	V_137
+tvb_get_guint8	,	F_2
+MAP_REG_FLAG_P	,	V_136
+dissect_lisp_ecm	,	F_23
+"Unlimited"	,	L_14
+"No-Action"	,	L_8
+hf_lisp_mrep_flags_enlr	,	V_79
+LISP_MAP_REGISTER	,	V_110
+"Reserved bits"	,	L_53
+"lisp.irc"	,	L_36
+hf_lisp_mnot_authlen	,	V_92
+hf_lisp_ecm_res	,	V_96
+hf_lisp_mapping_ver	,	V_43
+MAP_REQ_FLAG_S	,	V_123
+"lisp.mreg.flags.pmr"	,	L_75
+hf_lisp_irc	,	V_57
+ip_to_str	,	F_6
+MAP_REQ_FLAG_P	,	V_122
+hf_lisp_nonce	,	V_59
+hf_lisp_mreg_authlen	,	V_87
+LISP_MAP_AUTH	,	V_37
+"Key ID"	,	L_79
+hf_lisp_mreg_flags_pmr	,	V_83
+"lisp.mapping.ver"	,	L_92
+"lisp.mreq.res"	,	L_54
+MAP_REQ_FLAG_s	,	V_125
+new_create_dissector_handle	,	F_40
+hf_lisp_mreg_flags	,	V_135
+hf_lisp_mreq_flags_mrp	,	V_51
+"E bit (Echo-Nonce locator reachability algorithm enabled)"	,	L_70
+mapver_offset	,	V_26
+hf_lisp_mnot_keyid	,	V_91
+MAP_REQ_FLAG_p	,	V_124
+MAP_REP_RESERVED	,	V_134
+"lisp.mreg.flags.wmn"	,	L_77
+find_dissector	,	F_42
+ipv6_handle	,	V_99
+"Source EID Address Family Indicator"	,	L_58
+"lisp.mreq.srcitr"	,	L_64
+ENC_BIG_ENDIAN	,	V_42
+FT_UINT32	,	V_141
+locator_v6	,	V_13
+AFNUM_RESERVED	,	V_61
+hf_lisp_mnot_auth	,	V_93
+proto_lisp	,	V_104
+hf_lisp_mreq_srceidv6	,	V_63
+"Unexpected Source EID AFI, cannot decode"	,	L_19
+locator_v4	,	V_11
+LISP_ECM	,	V_105
+"Illegal action value"	,	L_12
+hf	,	V_112
+"lisp.mreq.flags.probe"	,	L_46
+"S bit (Solicit-Map-Request)"	,	L_47
+hf_lisp_mreq_srcitrv6	,	V_70
+"lisp.mnot.auth"	,	L_88
+"Reachable"	,	L_5
+"LISP Control Message Type"	,	L_34
+"Reserved bits: 0x%02X"	,	L_24
+"Source EID"	,	L_59
+ip_ver	,	V_95
+FT_IPv6	,	V_130
+"lisp.mreq.flags.mrp"	,	L_44
+col_append_fstr	,	F_14
+"A bit (Authoritative)"	,	L_41
+hf_lisp_mreg_res	,	V_84
+FT_UINT64	,	V_117
+"lisp.mreg.res"	,	L_78
+col_set_str	,	F_27
+tvb_get_bits8	,	F_24
+"Flags"	,	L_67
+FT_IPv4	,	V_128
+"Unexpected ITR-RLOC-AFI, cannot decode"	,	L_22
+MAP_REG_RESERVED	,	V_138
+"lisp.mreg.flags"	,	L_73
+mrep	,	V_46
+lisp_handle	,	V_143
+"Source EID AFI"	,	L_56
+"Nonce"	,	L_39
+src_eid_afi	,	V_48
+INET_ADDRLEN	,	V_16
+col_clear	,	F_26
+lisp_itr_tree	,	V_67
+MAP_REQ_FLAG_A	,	V_121
+dissect_lisp_map_reply	,	F_20
+"lisp.mnot.authlen"	,	L_87
+proto_register_subtree_array	,	F_38
+val_to_str	,	F_29
+MAP_REQ_FLAG_M	,	V_49
+ett_lisp_mr	,	V_77
+itr_rec_cnt	,	V_47
+proto_tree_add_item	,	F_16
+pinfo	,	V_2
+rec_cnt	,	V_24
+col_add_fstr	,	F_28
+dissector_handle_t	,	T_11
+"lisp.mnot.keyid"	,	L_86
+flags	,	V_9
+hf_lisp_mreq_srcitr	,	V_69
+lisp_record_tree	,	V_72
+proto_register_lisp	,	F_32
+"Encapsulated %s"	,	L_30
+loc_afi	,	V_10
+tvb_get_ipv4	,	F_4
+tvb_get_ipv6	,	F_7
+LISP_MAP_REPLY	,	V_109
+VALS	,	F_33
+"lisp.mreq.flags.smr"	,	L_48
+"lisp.mreq.srceid"	,	L_60
+lisp_mapping_tree	,	V_3
+dissect_lisp	,	F_25
+LISP_MAP_REQUEST	,	V_108
+"data"	,	L_100
+tvb_length	,	F_31
+"Local "	,	L_2
+PROBE_BIT_MASK	,	V_18
+FT_UINT8	,	V_116
+proto_tree_add_text	,	F_5
+BASE_DEC	,	V_114
+dissect_lisp_map_notify	,	F_22
+proto_item	,	T_8
+lisp_mr_tree	,	V_76
+"lisp.mrep.flags.enlr"	,	L_71
+LISP_MAP_NOTIFY	,	V_111
+hf_lisp_mreq_flags_auth	,	V_50
+ENC_NA	,	V_89
+"lisp.mrep.res"	,	L_72
+"Locator/ID Separation Protocol"	,	L_94
+"lisp.mrep.flags.probe"	,	L_69
+hf_lisp_type	,	V_107
+ett_lisp	,	V_106
+hf_lisp_mreq_res	,	V_56
+"Authentication Data Length"	,	L_81
+hf_lisp_mnot_res	,	V_90
+ip6_to_str	,	F_8
+"M bit (Want-Map-Notify)"	,	L_76
+"Unexpected AFI, cannot decode"	,	L_7
+rec_tvb	,	V_81
+"Originating ITR RLOC Address"	,	L_65
+"lisp.mnot.res"	,	L_85
+prefix_afi	,	V_31
+"Not "	,	L_16
+hf_lisp_mreq_flags_pitr	,	V_54
+MAP_REQ_RESERVED	,	V_126
+itr_afi	,	V_64
+offset	,	V_4
+ett	,	V_142
+tree	,	V_94
+m_weight	,	V_8
+"Prefix AFI: %d"	,	L_26
+"%sRLOC: %s%s, %s, Priority/Weight: %d/%d, Multicast Priority/Weight: %d/%d"	,	L_1
+packet_info	,	T_2
+"LISP"	,	L_29
+"lisp.mreq.flags.pitr"	,	L_50
+"Must be zero"	,	L_55
+ett_lisp_itr	,	V_68
+proto_reg_handoff_lisp	,	F_39
+"Send-Map-Request"	,	L_10
+hf_lisp_mreq_flags_probe	,	V_52
+"lisp.mapping.res"	,	L_90
+hf_lisp_mreg_auth	,	V_88
+loc_cnt	,	V_28
+MAP_REP_FLAG_P	,	V_132
+ett_lisp_mapping	,	V_40
+"lisp.mreq.srcitrv6"	,	L_66
+hf_lisp_mapping_res	,	V_41
+"P bit (Proxy-Map-Reply)"	,	L_74
+"Prefix: %s"	,	L_27
+"Natively-Forward"	,	L_9
+AFNUM_INET6	,	V_20
+"P bit (Probe)"	,	L_45
+"p bit (Proxy ITR)"	,	L_49
+"lisp"	,	L_96
+" for %s/%d"	,	L_17
+"LISP Control"	,	L_95
+"%d"	,	L_15
+encapsulated	,	V_100
+AFNUM_INET	,	V_15
+INET6_ADDRLEN	,	V_21
+hf_lisp_records	,	V_58
+"ITR-RLOC-AFI: %d"	,	L_21
+HFILL	,	V_115
+"udp.port"	,	L_97
+"Drop"	,	L_11
+"(Source EID not present)"	,	L_18
+ttl	,	V_27
+hf_lisp_mreq_flags_smri	,	V_55
+LISP_CONTROL_PORT	,	V_144
+MAP_REP_FLAG_E	,	V_133
+g_strdup_printf	,	F_13
+"Type"	,	L_32
+"lisp.mrep.flags"	,	L_68
+"EID prefix: %s/%d, TTL: %s, %sAuthoritative, %s"	,	L_13
+proto_tree	,	T_3

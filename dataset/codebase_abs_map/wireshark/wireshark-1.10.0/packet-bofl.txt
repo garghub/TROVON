@@ -1,0 +1,64 @@
+pdu	,	V_7
+tvb_get_ntohl	,	F_6
+"BOFL"	,	L_1
+"PDU"	,	L_5
+proto_register_protocol	,	F_13
+tvbuff_t	,	T_1
+proto_register_bofl	,	F_12
+"incremental counter"	,	L_10
+bofl_handle	,	V_23
+BASE_HEX	,	V_19
+len	,	V_6
+col_append_fstr	,	F_9
+gint	,	T_5
+col_set_str	,	F_2
+"Wellfleet Breath of Life"	,	L_11
+proto_item_add_subtree	,	F_5
+proto_register_field_array	,	F_14
+tvb	,	V_1
+guint32	,	T_6
+ett	,	V_22
+COL_INFO	,	V_11
+dissector_add_uint	,	F_19
+"bofl.sequence"	,	L_9
+tree	,	V_3
+dissect_bofl	,	F_1
+proto_bofl	,	V_12
+ett_bofl	,	V_14
+"Sequence"	,	L_8
+packet_info	,	T_2
+hf_bofl_sequence	,	V_16
+sequence	,	V_8
+col_clear	,	F_3
+cinfo	,	V_9
+proto_register_subtree_array	,	F_16
+array_length	,	F_15
+proto_tree_add_uint	,	F_8
+proto_tree_add_item	,	F_4
+"bofl.pdu"	,	L_6
+pinfo	,	V_2
+col_add_fstr	,	F_7
+"Padding (%d byte)"	,	L_4
+dissector_handle_t	,	T_8
+bofl_tree	,	V_5
+proto_reg_handoff_bofl	,	F_17
+"ethertype"	,	L_13
+"PDU: 0x%08x"	,	L_2
+"bofl"	,	L_12
+hf_register_info	,	T_7
+" Sequence: %u"	,	L_3
+"PDU; normally equals 0x01010000 or 0x01011111"	,	L_7
+HFILL	,	V_20
+COL_PROTOCOL	,	V_10
+proto_tree_add_text	,	F_11
+BASE_DEC	,	V_21
+create_dissector_handle	,	F_18
+proto_item	,	T_4
+ETHER_TYPE_BOFL	,	V_24
+ENC_NA	,	V_13
+hf_bofl_pdu	,	V_15
+FT_UINT32	,	V_18
+ti	,	V_4
+tvb_length_remaining	,	F_10
+proto_tree	,	T_3
+hf	,	V_17

@@ -1,0 +1,257 @@
+proto_register_protocol	,	F_40
+TOP_RESERVED	,	V_112
+"PrincNameLength: %u"	,	L_18
+KINK_INTERR	,	V_109
+check_col	,	F_4
+gint	,	T_10
+ett_payload_kink_ap_rep	,	V_64
+ett_payload_kink_ap_req	,	V_57
+tvb_new_child_real_data	,	F_34
+qm	,	V_83
+kink_type_vals	,	V_20
+tvb	,	V_1
+"PRIVATE USE"	,	L_40
+guint32	,	T_6
+COL_INFO	,	V_19
+ett_payload_kink_encrypt	,	V_93
+hf_kink_type	,	V_24
+VERSION_BIT_SHIFT	,	V_26
+version	,	V_8
+tvb_reported_length_remaining	,	F_29
+MIN	,	F_32
+cinfo	,	V_17
+reserved	,	V_51
+decrypt_krb5_data	,	F_33
+array_length	,	F_42
+FRONT_FOUR_BIT	,	V_25
+payload_kink_ap_rep_tree	,	V_62
+"Reserved"	,	L_58
+next_tvb	,	V_94
+FROM_NP_TO_PL	,	V_92
+"This Payload Length is mismatch.: %u"	,	L_37
+"Next Payload"	,	L_64
+realm_name_length	,	V_70
+krb_ap_rep_length	,	V_63
+SECOND_FOUR_BIT	,	V_27
+princ_name_length	,	V_74
+"the transactionID of kink"	,	L_51
+"kink.reserved"	,	L_59
+hf_kink_checkSum	,	V_39
+"RealmNameLength: %u"	,	L_15
+hf_register_info	,	T_11
+"KINK_OK"	,	L_29
+KINK_PORT	,	V_130
+guint16	,	T_8
+KINK_TGT_REQ	,	V_45
+COL_PROTOCOL	,	V_18
+payload_kink_krb_error_tree	,	V_65
+dissect_kink	,	F_1
+KINK_TGT_REP	,	V_46
+"KINK_BADQMVERS"	,	L_35
+inner_next_pload	,	V_82
+g_free	,	V_96
+"RESERVED: %u"	,	L_8
+plaintext	,	V_95
+isakmp_dissect_payloads	,	F_30
+dissect_payload_kink_error	,	F_21
+"KINK_INTERR"	,	L_34
+time_t	,	T_9
+guint8	,	T_5
+"RESERVED"	,	L_39
+ti	,	V_4
+proto_register_kink	,	F_38
+BASE_NONE	,	V_125
+"ErrorCode: %s (%u)"	,	L_38
+KINK_KRB_ERROR_HEADER	,	V_68
+tvb_length_remaining	,	F_25
+ett_kink	,	V_23
+kink_next_payload	,	V_126
+"Transaction ID"	,	L_49
+KINK_BADQMVERS	,	V_110
+tvb_get_ntohl	,	F_11
+encrypt_length	,	V_90
+KINK_ERROR_LENGTH	,	V_103
+tvbuff_t	,	T_1
+tvb_get_ntohs	,	F_12
+"EPOCH: %s"	,	L_11
+"kink.type"	,	L_44
+ABSOLUTE_TIME_UTC	,	V_59
+tvb_set_free_cb	,	F_35
+"the next payload of kink"	,	L_66
+dissect_payload_kink_krb_error	,	F_16
+col_add_str	,	F_5
+"Checksum Length"	,	L_52
+dissect_payload_kink_not_defined	,	F_22
+proto_item_add_subtree	,	F_8
+reserved2	,	V_86
+isakmp_tvb	,	V_87
+A_BIT_SHIFT	,	V_35
+"decrypted kink encrypt"	,	L_26
+TO_REALM_NAME_LENGTH	,	V_71
+proto_register_field_array	,	F_41
+FT_BYTES	,	V_124
+"Payload Length: %u"	,	L_10
+control_payload	,	F_13
+dissector_add_uint	,	F_46
+krb_error_length	,	V_66
+FT_UINT16	,	V_121
+tvb_get_guint8	,	F_2
+hf_kink_next_payload	,	V_33
+"InnerNextPload: %u"	,	L_23
+error_code	,	V_100
+"kink.checkSumLength"	,	L_53
+hf_kink_length	,	V_28
+ett_kink_payload	,	V_128
+proto_reg_handoff_kink	,	F_44
+hf_kink_checkSumLength	,	V_32
+value_a_and_front_reserved	,	V_12
+inner_payload_length	,	V_91
+"QMVersion: %u.%u"	,	L_24
+"KINK_INVDOI"	,	L_31
+KINK_INVMAJ	,	V_107
+tgt_length	,	V_75
+payload_kink_error_tree	,	V_99
+value_a	,	V_14
+qmmin	,	V_85
+value_reserved	,	V_15
+length	,	V_80
+ett_payload_not_defined	,	V_116
+KINK_INVDOI	,	V_106
+"TGTlength: %u"	,	L_20
+KINK_ISAKMP	,	V_47
+"This Payload Length is too small.: %u"	,	L_9
+ENC_BIG_ENDIAN	,	V_29
+chsumlen	,	V_10
+KINK_PROTOERR	,	V_105
+major_version	,	V_6
+reported_length	,	V_81
+FRONT_TGT_REP_HEADER	,	V_77
+FT_UINT32	,	V_122
+"version: %u.%u"	,	L_3
+payload_kink_not_defined_tree	,	V_115
+hf	,	V_117
+"kink.length"	,	L_47
+dissect_decrypt_kink_encrypt	,	F_37
+payload_kink_isakmp_tree	,	V_78
+"kink.nextPayload"	,	L_65
+"KINK_AP_REQ"	,	L_7
+"KINK_KRB_ERROR"	,	L_13
+col_set_str	,	F_3
+KINK_DONE	,	V_41
+"kink.checkSum"	,	L_62
+"kink"	,	L_68
+ett_payload_kink_isakmp	,	V_88
+KINK_AP_REQ	,	V_42
+KINK_AP_REP	,	V_43
+kink_tree	,	V_5
+"KINK_AP_REP"	,	L_12
+"Not IPsec"	,	L_6
+hf_kink_transactionId	,	V_31
+PAYLOAD_HEADER	,	V_58
+proto_register_subtree_array	,	F_43
+val_to_str	,	F_6
+start_payload_offset	,	V_55
+SECOND_FIFTEEN_BIT	,	V_37
+"KINK_INVMAJ"	,	L_32
+"Checksum"	,	L_61
+doi	,	V_9
+"the check sum length of kink"	,	L_54
+proto_tree_add_item	,	F_7
+pinfo	,	V_2
+dissector_handle_t	,	T_12
+krb_ap_req_length	,	V_53
+TO_PAYLOAD_LENGTH	,	V_56
+"KINK_TGT_REP"	,	L_17
+PADDING	,	V_40
+"KINK"	,	L_1
+"KINK_ENCRYPT"	,	L_25
+VALS	,	F_39
+dissect_payload_kink_ap_req	,	F_14
+dissect_payload_kink_ap_rep	,	F_15
+"kink.A"	,	L_56
+char_error_code	,	V_101
+KINK_ERROR	,	V_49
+FT_UINT8	,	V_118
+"KINK_TGT_REQ"	,	L_14
+proto_tree_add_text	,	F_10
+BASE_DEC	,	V_119
+tvb_new_subset	,	F_24
+keytype	,	V_61
+proto_item	,	T_4
+"This Error Code is not Defined."	,	L_41
+ENC_NA	,	V_22
+KINK_OK	,	V_104
+ett_decrypt_kink_encrypt	,	V_98
+hf_kink_A	,	V_36
+dissect_payload_kink_encrypt	,	F_20
+tvb_format_text	,	F_28
+"KINK_PROTOERR"	,	L_30
+IPSEC	,	V_30
+value_a_and_reserved	,	V_13
+abs_time_secs_to_str	,	F_23
+ett_payload_kink_error	,	V_102
+"Kerberized Internet Negotiation of Key"	,	L_67
+"decrypted data"	,	L_28
+minor_version	,	V_7
+KINK_KRB_ERROR	,	V_44
+payload_kink_tgt_req_tree	,	V_69
+KINK_ENCRYPT	,	V_48
+"the length of the kink length"	,	L_48
+BOTTOM_RESERVED	,	V_111
+"the type of the kink"	,	L_45
+guint	,	T_7
+"Length"	,	L_46
+"A"	,	L_55
+offset	,	V_16
+isakmp_length	,	V_79
+ett	,	V_127
+tree	,	V_3
+packet_info	,	T_2
+"KINK_ISAKMP"	,	L_22
+dissect_payload_kink_tgt_req	,	F_17
+dissect_payload_kink_tgt_rep	,	F_18
+ett_payload_kink_krb_error	,	V_67
+add_new_data_source	,	F_36
+"Domain Of Interpretation: %s (%u)"	,	L_4
+kerberos_output_keytype	,	F_26
+"the checkSum of kink"	,	L_63
+"KINK_INVMIN"	,	L_33
+TOP_PRIVATE_USE	,	V_114
+proto_tree_add_uint	,	F_9
+dissect_kerberos_main	,	F_27
+"the A of kink"	,	L_57
+"Payload"	,	L_27
+"PrincName: %s"	,	L_19
+"KINK_ERROR"	,	L_36
+"the reserved of kink"	,	L_60
+timer	,	V_54
+qmmaj	,	V_84
+"kink.transactionId"	,	L_50
+dissect_payload_kink_isakmp	,	F_19
+HFILL	,	V_120
+kink_A_vals	,	V_123
+hf_kink_reserved	,	V_38
+KINK_INVMIN	,	V_108
+kink_handle	,	V_129
+payload_kink_tgt_rep_tree	,	V_73
+BOTTOM_PRIVATE_USE	,	V_113
+payload_kink_ap_req_tree	,	V_50
+"TGT: %s"	,	L_21
+"udp.port"	,	L_69
+next_payload	,	V_11
+krb_tvb	,	V_60
+create_dissector_handle	,	F_45
+"RealmName: %s"	,	L_16
+payload_length	,	V_52
+FRONT_ONE_BIT	,	V_34
+"UNKNOWN PAYLOAD"	,	L_42
+payload_kink_encrypt_tree	,	V_89
+proto_kink	,	V_21
+decrypt_kink_encrypt_tree	,	V_97
+"IPsec"	,	L_5
+ett_payload_kink_tgt_req	,	V_72
+ett_payload_kink_tgt_rep	,	V_76
+"Type"	,	L_43
+"unknown"	,	L_2
+HAVE_KERBEROS	,	F_31
+proto_tree	,	T_3

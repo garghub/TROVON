@@ -1,0 +1,155 @@
+AF_VSOCK_T_UNKNOWN	,	V_46
+AF_VSOCK_T_VIRTIO	,	V_48
+G_GINT64_MODIFIER	,	V_6
+proto_register_protocol	,	F_24
+hf_virtio_len	,	V_54
+"vsock.virtio.op"	,	L_35
+ett_vsock	,	V_29
+hf_vsock_payload	,	V_62
+hf_virtio_fwd_cnt	,	V_59
+tvb_reported_length	,	F_7
+"vsock.trans_len"	,	L_24
+proto_tree_add_subtree	,	F_17
+hf_virtio_src_cid	,	V_50
+col_append_fstr	,	F_18
+pletoh64	,	F_2
+virtio_tree	,	V_14
+"Transport"	,	L_21
+FT_UINT64	,	V_64
+col_set_str	,	F_16
+gint	,	T_11
+"AT_VSOCK"	,	L_42
+addrp	,	V_4
+hf_vsock_dst_cid	,	V_34
+"Flags"	,	L_36
+"vsock.virtio.src_cid"	,	L_27
+hf_vsock_src_cid	,	V_30
+tvb	,	V_8
+"vsock.virtio.dst_cid"	,	L_28
+"Buf alloc"	,	L_38
+guint32	,	T_8
+COL_INFO	,	V_26
+proto_item_append_text	,	F_13
+"Operation"	,	L_19
+"Fwd cnt"	,	L_40
+", Op: %s, Transport: %s"	,	L_4
+tvb_reported_length_remaining	,	F_19
+col_clear	,	F_8
+virtio_fwd_cnt	,	V_19
+vsock_address_type	,	V_33
+cinfo	,	V_25
+proto_register_subtree_array	,	F_27
+proto_vsock	,	V_27
+ett_virtio	,	V_49
+proto_tree_add_item_ret_uint	,	F_12
+val_to_str	,	F_14
+"[%s] %s"	,	L_6
+array_length	,	F_26
+"vsock.payload"	,	L_26
+"%"	,	L_2
+hf_vsock_t	,	V_41
+hf_virtio_src_port	,	V_52
+virtio_ti	,	V_12
+proto_tree_add_item	,	F_9
+AF_VSOCK_T_NO_INFO	,	V_47
+pinfo	,	V_9
+t_len	,	V_15
+col_add_fstr	,	F_15
+_U_	,	V_7
+"vsock.virtio.flags"	,	L_37
+"vSocket"	,	L_7
+hf_register_info	,	T_10
+proto_tree_add_bytes_format	,	F_20
+"vsock.dst_cid"	,	L_14
+VALS	,	F_22
+"vsock.virtio.type"	,	L_34
+guint16	,	T_9
+hf_virtio_op	,	V_56
+": %s, Op: %s, Buf alloc: %u, Fwd cnt: %u"	,	L_9
+address	,	T_1
+COL_PROTOCOL	,	V_45
+"vsock.virtio.len"	,	L_32
+virtio_buf_alloc	,	V_17
+"vsock.src_port"	,	L_16
+g_strlcpy	,	F_3
+BASE_DEC	,	V_65
+"host"	,	L_1
+proto_item	,	T_7
+ENC_NA	,	V_28
+buf	,	V_2
+guint8	,	T_3
+ti	,	V_11
+BASE_NONE	,	V_70
+hf_vsock_dst_port	,	V_38
+ENC_LITTLE_ENDIAN	,	V_31
+register_dissector	,	F_28
+data	,	V_5
+tvbuff_t	,	T_4
+virtio_type	,	V_21
+hf_vsock_t_len	,	V_42
+BASE_HEX	,	V_71
+af_vsockmon_op_names	,	V_43
+"vsock.dst_port"	,	L_18
+hf_virtio_type	,	V_55
+"vsock.virtio.buf_alloc"	,	L_39
+"Destination cid"	,	L_13
+"Destination port"	,	L_17
+vsock_addr_to_str	,	F_1
+proto_item_add_subtree	,	F_10
+af_vsockmon_t_names	,	V_44
+proto_register_field_array	,	F_25
+"Unknown (%d)"	,	L_5
+FT_BYTES	,	V_69
+"vsock.virtio.dst_prot"	,	L_30
+"Length"	,	L_31
+offset	,	V_23
+ett	,	V_72
+payload_len	,	V_16
+hf_virtio_flags	,	V_57
+tree	,	V_10
+proto_register_vsock	,	F_21
+"Source port"	,	L_15
+virtio_vsock_type_names	,	V_60
+FT_UINT16	,	V_68
+packet_info	,	T_5
+dissect_vsock	,	F_6
+set_address_tvb	,	F_11
+"vsock"	,	L_44
+vsock_addr_str_len	,	F_5
+"Virtio transport header"	,	L_8
+destport	,	V_39
+"vsock.src_cid"	,	L_12
+dst	,	V_35
+"Payload"	,	L_25
+vsock_tree	,	V_13
+VSOCK_MIN_LENGTH	,	V_24
+hf_virtio_dst_port	,	V_53
+g_snprintf	,	F_4
+"Transport length"	,	L_23
+hf_virtio_dst_cid	,	V_51
+"Payload (%uB)"	,	L_10
+buf_len	,	V_3
+addr	,	V_1
+HFILL	,	V_66
+"vsock.virtio.src_prot"	,	L_29
+virtio_op	,	V_20
+op	,	V_18
+address_type_dissector_register	,	F_23
+"vsock.virtio.fwd_cnt"	,	L_41
+src	,	V_32
+hf_virtio_buf_alloc	,	V_58
+gchar	,	T_2
+payload_offset	,	V_22
+"vsock.trans"	,	L_22
+"vSocket Address"	,	L_43
+"u"	,	L_3
+hf_vsock_op	,	V_40
+"Source cid"	,	L_11
+FT_UINT32	,	V_67
+srcport	,	V_37
+"vsock.op"	,	L_20
+"Type"	,	L_33
+hf_vsock_src_port	,	V_36
+virtio_vsock_op_names	,	V_61
+proto_tree	,	T_6
+hf	,	V_63

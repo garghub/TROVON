@@ -1,0 +1,91 @@
+conv_dissectors	,	V_42
+"conv.who_are_you2_rqst_actuid"	,	L_15
+di	,	V_5
+proto_register_protocol	,	F_11
+tvbuff_t	,	T_1
+hf_conv_who_are_you2_resp_seq	,	V_24
+hf_conv_who_are_you2_rqst_boot_time	,	V_22
+ett_conv	,	V_38
+BASE_EXT_STRING	,	V_32
+uuid_conv	,	V_40
+dcerpc_info	,	T_4
+drep	,	V_6
+"Boot time"	,	L_13
+dcerpc_init_uuid	,	F_16
+conv_dissect_who_are_you_resp	,	F_5
+gint	,	T_9
+hf_conv_who_are_you_rqst_boot_time	,	V_9
+"conv_who_are_you response seq:%u st:%s"	,	L_2
+cas_uuid	,	V_23
+proto_register_field_array	,	F_12
+tvb	,	V_1
+offset	,	V_2
+guint32	,	T_7
+ett	,	V_37
+COL_INFO	,	V_11
+"conv"	,	L_24
+tree	,	V_4
+val_to_str_ext	,	F_7
+proto_reg_handoff_conv	,	F_15
+"Sequence Number"	,	L_17
+hf_conv_who_are_you_resp_seq	,	V_18
+"Activity UID"	,	L_10
+"conv.who_are_you_rqst_actuid"	,	L_11
+"Operation"	,	L_6
+FT_UINT16	,	V_28
+"conv.who_are_you2_resp_casuuid"	,	L_21
+packet_info	,	T_2
+"conv.who_are_you2_resp_seq"	,	L_19
+cinfo	,	V_10
+FT_ABSOLUTE_TIME	,	V_35
+"Client's address space UUID"	,	L_20
+proto_register_subtree_array	,	F_14
+"conv_who_are_you2 request actuid: %08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x"	,	L_4
+hf_conv_who_are_you_rqst_actuid	,	V_8
+hf_conv_rc	,	V_19
+conv_dissect_who_are_you2_rqst	,	F_8
+array_length	,	F_13
+"UUID"	,	L_12
+"%u"	,	L_3
+ver_conv	,	V_41
+"conv.who_are_you2_rqst_boot_time"	,	L_16
+pinfo	,	V_3
+col_add_fstr	,	F_4
+proto_conv	,	V_39
+conv_dissect_who_are_you2_resp	,	F_9
+actuid	,	V_7
+dissect_ndr_uuid_t	,	F_2
+"CONV"	,	L_23
+hf_register_info	,	T_8
+"conv_who_are_you request actuid: %08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x"	,	L_1
+"DCE/RPC Conversation Manager"	,	L_22
+hf_conv_opnum	,	V_27
+HFILL	,	V_30
+seq	,	V_16
+hf_conv_who_are_you2_resp_casuuid	,	V_25
+st	,	V_17
+dissect_ndr_uint32	,	F_6
+"Status"	,	L_8
+"conv.who_are_you_rqst_boot_time"	,	L_14
+data4	,	V_15
+dissect_ndr_time_t	,	F_3
+data3	,	V_14
+data2	,	V_13
+"conv.status"	,	L_9
+data1	,	V_12
+BASE_DEC	,	V_29
+conv_dissect_who_are_you_rqst	,	F_1
+proto_register_conv	,	F_10
+"conv.who_are_you_resp_seq"	,	L_18
+hf_conv_who_are_you2_rqst_actuid	,	V_21
+"conv.opnum"	,	L_7
+ABSOLUTE_TIME_LOCAL	,	V_36
+guint8	,	T_5
+e_guid_t	,	T_6
+FT_UINT32	,	V_31
+BASE_NONE	,	V_34
+dce_error_vals_ext	,	V_20
+"conv_who_are_you2 response seq:%u st:%s cas:%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x"	,	L_5
+FT_GUID	,	V_33
+proto_tree	,	T_3
+hf	,	V_26

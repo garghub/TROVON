@@ -1,0 +1,206 @@
+proto_tree_get_root	,	F_4
+fcoib_tree	,	V_27
+proto_register_protocol	,	F_30
+hf_fcoib_sig	,	V_44
+PINFO_EOF_INVALID	,	V_65
+gPREF_QP	,	V_7
+proto_register_fcoib	,	F_28
+FCOIB_SOFf	,	V_60
+"Version"	,	L_20
+"fcoib.sig"	,	L_19
+"EOF"	,	L_16
+manual_addr_match	,	F_1
+gint	,	T_5
+FCOIB_SOFi2	,	V_57
+fc_handle	,	V_66
+tvb	,	V_9
+FCOIB_SOFi4	,	V_58
+errno	,	V_86
+FCOIB_SOFi3	,	V_56
+guint32	,	T_9
+FT_BOOLEAN	,	V_75
+"Side A of the manually-configured connection"	,	L_41
+version	,	V_15
+tvb_reported_length_remaining	,	F_5
+eof_offset	,	V_12
+cinfo	,	V_39
+PI_ERROR	,	V_49
+array_length	,	F_32
+next_tvb	,	V_29
+""	,	L_2
+call_dissector	,	F_27
+pref_address_types	,	V_80
+fcoib_module	,	V_68
+proto_tree_add_boolean	,	F_24
+prefs_register_enum_preference	,	F_37
+hf_register_info	,	T_11
+"addr_a_id"	,	L_45
+guint16	,	V_87
+COL_PROTOCOL	,	V_40
+hf_fcoib_crc_bad	,	V_51
+eof_str	,	V_21
+sof_eof	,	V_55
+"Enables dissecting packets between the manually configured source/destination as FCoIB traffic"	,	L_38
+i	,	V_85
+"fcoib"	,	L_31
+"Enable heuristic identification of FCoIB packets"	,	L_33
+"Address A"	,	L_40
+guint8	,	T_7
+ti	,	V_25
+crc32_802_tvb	,	F_16
+BASE_NONE	,	V_76
+tvb_length_remaining	,	F_11
+"CRC: [missing]"	,	L_13
+packet_match_manual	,	V_33
+FCOIB_VER_OFFSET	,	V_41
+tvb_get_ntohl	,	F_15
+crc_computed	,	V_31
+"fcoib.crc_good"	,	L_25
+tvbuff_t	,	T_3
+proto_tree_add_protocol_format	,	F_17
+BASE_HEX	,	V_71
+"Address B"	,	L_52
+PROTO_ITEM_SET_GENERATED	,	F_25
+FCOIB_HEADER_LEN	,	V_34
+" [bad FC CRC]"	,	L_6
+gboolean	,	T_1
+proto_item_add_subtree	,	F_18
+module_t	,	T_10
+proto_register_field_array	,	F_31
+"True: CRC doesn't match packet content; False: matches or not checked."	,	L_29
+inet_pton	,	F_43
+"Side B of the manually-configured connection"	,	L_53
+gPREF_MAN_EN	,	V_2
+crc_exists	,	V_30
+data_handle	,	V_67
+tvb_get_guint8	,	F_7
+proto_reg_handoff_fcoib	,	V_78
+PINFO_SOF_SOFF	,	V_61
+gPREF_TYPE	,	V_79
+"fcoib.sof"	,	L_15
+frame_len	,	V_14
+"CRC bad"	,	L_27
+crc_offset	,	V_11
+"Signature"	,	L_18
+heur_dissector_add	,	F_40
+sig	,	V_20
+hf_fcoib_eof	,	V_53
+"fcoib.crc_bad"	,	L_28
+"heur_en"	,	L_32
+"infiniband.payload"	,	L_59
+proto_fcoib	,	V_42
+find_dissector	,	F_41
+AF_INET6	,	V_90
+ENC_BIG_ENDIAN	,	V_54
+"CRC: %8.8x [valid]"	,	L_9
+FT_UINT32	,	V_73
+GID_SIZE	,	V_91
+eof	,	V_19
+hf	,	V_69
+"FCoIB %s(%s/%s) %d bytes%s%s"	,	L_8
+fcoib_sof_vals	,	V_37
+"LID/GID of address B"	,	L_56
+hf_fcoib_crc	,	V_47
+prefs_register_protocol	,	F_34
+FCOIB_EOFt	,	V_64
+" [invalid length]"	,	L_7
+"ID"	,	L_46
+gPREF_ID	,	V_81
+col_set_str	,	F_10
+FCOIB_EOFn	,	V_62
+"SOF"	,	L_14
+proto_tree_add_uint_format	,	F_20
+AT_IB	,	V_89
+"LID/GID of address A"	,	L_47
+item	,	V_26
+fcoib_eof_vals	,	V_38
+"Fibre Channel over Infiniband"	,	L_30
+"addr_a_type"	,	L_42
+"[error: should be %8.8x]"	,	L_11
+"CRC good"	,	L_24
+proto_register_subtree_array	,	F_33
+hf_fcoib_ver	,	V_45
+val_to_str	,	F_14
+bytes_remaining	,	V_17
+tvb_get_ntoh24	,	F_8
+hf_fcoib_sof	,	V_46
+proto_tree_add_item	,	F_26
+"addr_b_qp"	,	L_57
+pinfo	,	V_1
+ADDRESSES_EQUAL	,	F_2
+"none"	,	L_4
+initialized	,	V_82
+VALS	,	F_29
+proto_tree_set_appendix	,	F_22
+sof_str	,	V_22
+prefs_register_bool_preference	,	F_35
+prefs_register_static_text_preference	,	F_36
+FCOIB_TRAILER_LEN	,	V_35
+"QP Number"	,	L_49
+"data"	,	L_60
+FT_UINT8	,	V_70
+proto_tree_add_text	,	F_23
+BASE_DEC	,	V_74
+tvb_new_subset	,	F_12
+prefs_register_string_preference	,	F_38
+proto_item	,	T_8
+"When this option is enabled Wireshark will attempt to identify FCoIB packets automatically "	,	L_34
+"manual_en"	,	L_36
+expert_add_info_format	,	F_21
+"fcoib.eof"	,	L_17
+ep_strdup_printf	,	F_13
+"addr_b_type"	,	L_54
+"fcoib.ver"	,	L_21
+"0x%x"	,	L_5
+sof	,	V_18
+"True: CRC matches packet content; False: doesn't match or not checked."	,	L_26
+"fcoib.crc"	,	L_23
+SET_ADDRESS	,	F_42
+ett_fcoib	,	V_43
+prefs_register_uint_preference	,	F_39
+"QP Number for address A"	,	L_50
+gPREF_HEUR_EN	,	V_36
+ett_fcoib_crc	,	V_50
+hf_fcoib_crc_good	,	V_52
+ver	,	V_16
+guint	,	T_6
+not_parsed	,	V_84
+ett	,	V_77
+crc_msg	,	V_23
+error_occured	,	V_83
+tree	,	V_10
+tvb_bytes_exist	,	F_6
+packet_info	,	T_2
+"QP Number for address B"	,	L_58
+"fc"	,	L_61
+"ver %d "	,	L_3
+"Type of address specified"	,	L_44
+destport	,	V_8
+manual_addr	,	V_4
+proto_tree_add_uint	,	F_19
+manual_addr_data	,	V_88
+match_strval	,	F_9
+dst	,	V_5
+"Bad FC CRC %8.8x %8.x"	,	L_12
+PI_CHECKSUM	,	V_48
+"addr_b_id"	,	L_55
+crc_tree	,	V_28
+"addr_a_qp"	,	L_48
+"FCoIB"	,	L_1
+"addr_b"	,	L_51
+crc	,	V_32
+"Enable manual settings"	,	L_37
+"CRC: %8.8x "	,	L_10
+"based on some common features (may generate false positives)"	,	L_35
+HFILL	,	V_72
+sof_offset	,	V_13
+len_msg	,	V_24
+src	,	V_3
+dissect_fcoib	,	F_3
+"CRC"	,	L_22
+"addr_a"	,	L_39
+"Address Type"	,	L_43
+PINFO_EOF_LAST_FRAME	,	V_63
+srcport	,	V_6
+PINFO_SOF_FIRST_FRAME	,	V_59
+proto_tree	,	T_4

@@ -1,0 +1,278 @@
+dissect_fcfzs_gzm	,	F_23
+tfs_available_not_available	,	V_127
+proto_register_protocol	,	F_53
+dissect_fcfzs_gzc	,	F_15
+dissect_fcfzs_gzd	,	F_22
+fc_fzs_zonembr_type_val	,	V_121
+len	,	V_16
+hf_fcfzs_zonesetnmlen	,	V_17
+"No record of Exchg. Unable to decode MSG_ACC"	,	L_10
+"Soft Zone Set"	,	L_62
+gint	,	T_1
+g_hash_table_insert	,	F_44
+dissect_fcfzs_gzs	,	F_25
+hf_fcfzs_rjtdetail	,	V_58
+tvb_fcwwn_to_str	,	F_11
+TFS	,	F_52
+tvb	,	V_9
+fc_ct_rjt_code_vals	,	V_122
+COL_INFO	,	V_93
+"Vendor Specific Flags"	,	L_16
+FT_BOOLEAN	,	V_125
+FC_FZS_GZM	,	V_99
+dissect_fcfzs_arzs	,	F_28
+FC_FZS_GZS	,	V_101
+"FC FZS"	,	L_67
+fzs_handle	,	V_130
+cinfo	,	V_72
+dissect_fcfzs_arzm	,	F_30
+"fcfzs.zone.state"	,	L_61
+fcfzs_hash	,	F_2
+array_length	,	F_55
+FC_FZS_GZD	,	V_98
+FC_FZS_GZC	,	V_95
+dissect_fcfzs_arzd	,	F_32
+dissect_fcfzs	,	F_34
+call_dissector	,	F_49
+dissect_fcfzs_zoneset	,	F_6
+ett_fcfzs_gzc_flags	,	V_41
+proto_register_fcfzs	,	F_50
+ENC_ASCII	,	V_20
+"Capabilities"	,	L_52
+FCCT_MSG_RJT	,	V_83
+hf_fcfzs_mbrid	,	V_29
+"No record of Exchg. Unable to decode MSG_ACC/RJT"	,	L_13
+proto_tree_add_boolean	,	F_18
+hf_register_info	,	T_15
+FCCT_PRMBL_SIZE	,	V_74
+"fcfzs.gzc.flags.hard_zones"	,	L_55
+FC_FZS_ZONEMBR_DP	,	V_30
+key	,	V_6
+fcfzs_init_protocol	,	F_3
+hf_fcfzs_gest_vendor	,	V_50
+COL_PROTOCOL	,	V_73
+numzones	,	V_12
+i	,	V_14
+j	,	V_15
+ett_fcfzs	,	V_79
+fcfzs_conv_key_t	,	T_3
+guint8	,	T_8
+hf_fcfzs_gzc_vendor	,	V_45
+ti	,	V_62
+BASE_NONE	,	V_120
+v	,	V_1
+w	,	V_2
+FC_FZS_ZONEMBR_PWWN	,	V_27
+hf_fcfzs_mbrid_lun	,	V_33
+g_hash_table_destroy	,	F_4
+fc_ct_preamble	,	T_11
+"fcfzs.soft_zone_set.enforced"	,	L_63
+v1	,	V_3
+req_key	,	V_70
+v2	,	V_4
+fc_fzs_opcode_val	,	V_94
+tvb_get_ntohl	,	F_9
+dissect_fcfzs_gazs	,	F_24
+"fcfzs"	,	L_68
+tvbuff_t	,	T_5
+hf_fcfzs_nummbrs	,	V_54
+proto_tree_add_protocol_format	,	F_38
+opcode	,	V_65
+tvb_memcpy	,	F_36
+"  Soft Zones"	,	L_5
+BASE_HEX	,	V_114
+parent_tree	,	V_36
+"Unknown member type format"	,	L_3
+col_add_str	,	F_45
+FCCT_MSG_ACC	,	V_82
+gboolean	,	T_7
+FC_FZS_RZM	,	V_108
+proto_item_add_subtree	,	F_17
+hf_fcfzs_numzones	,	V_22
+FC_FZS_RZS	,	V_110
+proto_register_field_array	,	F_54
+conversation	,	V_67
+FC_FZS_ZONEMBR_PWWN_LUN	,	V_32
+FT_BYTES	,	V_124
+"fcfzs.gzc.flags"	,	L_53
+FC_FZS_AZM	,	V_106
+"fcct.server"	,	L_69
+dissector_add_uint	,	F_60
+FC_FZS_ZONEMBR_NWWN	,	V_28
+FC_FZS_AZS	,	V_104
+"Number of Zone Attribute Entries"	,	L_20
+data_handle	,	V_111
+FT_UINT16	,	V_113
+register_init_routine	,	F_57
+"Vendor Specific Reason"	,	L_46
+tvb_get_guint8	,	F_7
+proto_tree_add_string_format	,	F_12
+hf_fcfzs_mbrtype	,	V_26
+hf_fcfzs_gzc_flags	,	V_40
+FC_FZS_GZSN	,	V_97
+FC_FZS_AZD	,	V_107
+"fcfzs.zoneset.numattrs"	,	L_29
+FC_FZS_ADZS	,	V_102
+"fcfzs.gzc.flags.zoneset_db"	,	L_59
+fd	,	V_84
+hf_fcfzs_rjtvendor	,	V_59
+hf_fcfzs_zone_state	,	V_46
+g_hash_table_new	,	F_5
+isreq	,	V_37
+"fcfzs.reason"	,	L_43
+dissect_fcfzs_gest	,	F_20
+fchdr	,	V_71
+FT_STRING	,	V_119
+conversation_new	,	F_40
+proto_reg_handoff_fcfzs	,	F_58
+"Zone Server"	,	L_9
+"Number of Zone Set Attribute Entries"	,	L_28
+fc_fzs_rjt_code_val	,	V_123
+new_create_dissector_handle	,	F_59
+"Zone Set Name Length"	,	L_22
+failed_opcode	,	V_66
+find_dissector	,	F_61
+FC_FZS_RZD	,	V_109
+"fcfzs.zone.nummbrs"	,	L_35
+ENC_BIG_ENDIAN	,	V_18
+oxid	,	V_89
+FT_UINT32	,	V_116
+"Hard Zones"	,	L_54
+FC_FZS_ZONEMBR_FCID	,	V_31
+hf	,	V_112
+"Zone Member Identifier"	,	L_40
+numrec	,	V_51
+hf_fcfzs_nummbrentries	,	V_25
+fcfzs_conv_data_t	,	T_13
+col_set_str	,	F_35
+proto_fcfzs	,	V_78
+"Fibre Channel Fabric Zone Server"	,	L_66
+hf_fcfzs_soft_zone_set_enforced	,	V_48
+hf_fcfzs_opcode	,	V_80
+val	,	V_7
+"fcfzs.zone.numattrs"	,	L_21
+item	,	V_39
+proto_item_append_text	,	F_19
+index	,	V_92
+"fcfzs.gzc.vendor"	,	L_17
+hf_fcfzs_zonenmlen	,	V_23
+tfs_enforced_not_enforced	,	V_128
+cdata	,	V_68
+"fcfzs.zone.lun"	,	L_51
+"ZoneSet Database"	,	L_58
+ckey	,	V_69
+"Reason Code"	,	L_42
+proto_register_subtree_array	,	F_56
+proto_tree_add_string	,	F_10
+val_to_str	,	F_46
+ett_fcfzs_zone_state	,	V_47
+hf_fcfzs_gzc_flags_soft_zones	,	V_43
+tvb_get_ntoh24	,	F_13
+proto_tree_add_item	,	F_8
+pinfo	,	V_60
+col_add_fstr	,	F_48
+dissector_handle_t	,	T_16
+hf_fcfzs_hard_zone_set_enforced	,	V_49
+flags	,	V_38
+_U_	,	V_55
+dissect_fcfzs_azsd	,	F_27
+cthdr	,	V_64
+"Zone State"	,	L_60
+"  Hard Zone Set Enforced"	,	L_8
+"fcfzs.opcode"	,	L_15
+"  Soft Zone Set Enforced"	,	L_7
+FC_FZS_ZONEMBR_DP_LUN	,	V_34
+"fcfzs.gest.vendor"	,	L_19
+"Number of Zone Members"	,	L_34
+VALS	,	F_51
+dissect_fcfzs_dzs	,	F_29
+g_ntohs	,	F_37
+find_conversation	,	F_39
+"Number of Zones"	,	L_26
+"data"	,	L_70
+tvb_length	,	F_31
+"MSG_ACC (%s)"	,	L_11
+"Number of Zone Member Attribute Entries"	,	L_36
+FT_UINT8	,	V_118
+FC_FZS_DZS	,	V_105
+gconstpointer	,	T_2
+proto_tree_add_text	,	F_47
+FC_FZS_AZSD	,	V_103
+BASE_DEC	,	V_117
+"fcfzs.rjtvendor"	,	L_47
+proto_item	,	T_9
+tfs_supported_not_supported	,	V_126
+"Hard Zone Set"	,	L_64
+hf_fcfzs_zonesetname	,	V_19
+ENC_NA	,	V_21
+"Maximum/Residual Size"	,	L_48
+hf_fcfzs_gzc_flags_zoneset_db	,	V_44
+conv_idx	,	V_5
+dissect_fcfzs_gzsn	,	F_21
+g_hash_table_lookup	,	F_41
+"Soft Zones"	,	L_56
+NO_PORT2	,	V_91
+data	,	V_61
+"0x%x"	,	L_2
+hf_fcfzs_numzonesetattrs	,	V_52
+"fcfzs.gzc.flags.soft_zones"	,	L_57
+num	,	V_85
+"fcfzs.zone.namelen"	,	L_31
+in_id	,	V_76
+fcfzs_equal	,	F_1
+plen	,	V_56
+"fcfzs.zonembr.numattrs"	,	L_37
+hf_fcfzs_reason	,	V_57
+"Vendor Specific State"	,	L_18
+conversation_t	,	T_12
+guint	,	T_4
+hf_fcfzs_numzoneattrs	,	V_53
+fcfzs_tree	,	V_63
+offset	,	V_11
+" "	,	L_1
+ett	,	V_129
+tree	,	V_10
+"Opcode"	,	L_14
+"fcfzs.maxres_size"	,	L_49
+"fcfzs.hard_zone_set.enforced"	,	L_65
+"fcfzs.rjtdetail"	,	L_45
+hf_fcfzs_zonename	,	V_24
+"  ZoneSet Database Available"	,	L_6
+"Zone Name"	,	L_32
+packet_info	,	T_10
+revision	,	V_75
+"fcfzs.zonembr.idtype"	,	L_39
+FCCT_GSRVR_FZS	,	V_131
+maxres_size	,	V_77
+"fcfzs.zone.name"	,	L_33
+dissect_fcfzs_rjt	,	F_33
+FC_FZS_GAZS	,	V_100
+proto_tree_add_uint	,	F_16
+dissect_fcfzs_adzs	,	F_26
+tvb_fc_to_str	,	F_14
+dst	,	V_87
+ptype	,	V_88
+rxid	,	V_90
+"fcfzs.zone.mbrid"	,	L_41
+"Reason Code Explanation"	,	L_44
+fc_hdr	,	T_14
+nummbrs	,	V_13
+wmem_file_scope	,	F_43
+HFILL	,	V_115
+FC_FZS_ZONEMBR_FCID_LUN	,	V_35
+"Zone Set Name"	,	L_24
+fcfzs_req_hash	,	V_8
+"fcfzs.zoneset.numzones"	,	L_27
+"  Hard Zones"	,	L_4
+src	,	V_86
+wmem_new	,	F_42
+hf_fcfzs_gzc_flags_hard_zones	,	V_42
+FC_FZS_GEST	,	V_96
+"fcfzs.zoneset.name"	,	L_25
+hf_fcfzs_maxres_size	,	V_81
+"fcfzs.zoneset.namelen"	,	L_23
+"Zone Name Length"	,	L_30
+"LUN"	,	L_50
+proto_tree	,	T_6
+"Zone Member Identifier Type"	,	L_38
+"MSG_RJT (%s)"	,	L_12

@@ -1,0 +1,766 @@
+dissect_rsl_ie_rel_mode	,	F_30
+def	,	V_212
+"rsl.ho_ref"	,	L_108
+hf_rsl_rbit	,	V_24
+hf_rsl_a3a2	,	V_25
+dissect_rsl_ie_ch_needed	,	F_46
+"UIC IE"	,	L_58
+"rsl.ch_no_TN"	,	L_90
+ett_ie_req_ref	,	V_101
+"gsm_a_dtap"	,	L_254
+hf_rsl_local_port	,	V_228
+"rsl.speech_coding_alg"	,	L_165
+ett_ie_cbch_load_inf	,	V_159
+hf_rsl_cstat_rx_pkts	,	V_243
+TFS	,	F_84
+hf_rsl_timing_adv	,	V_117
+guint32	,	T_11
+"Resource Information IE"	,	L_28
+ett_ie_ms_timing_offset	,	V_143
+dissect_rsl_ie_emlpp_prio	,	F_57
+FT_BOOLEAN	,	V_337
+RSL_MSG_TYPE_IPAC_CRCX_ACK	,	V_248
+rsl_ipacc_rtp_csd_fmt_ir_vals	,	V_381
+"rsl.ms_fpc"	,	L_112
+"Timing Advance IE"	,	L_31
+"rsl.ipacc.rtp_csd_fmt_d"	,	L_219
+RSL_IE_STARTING_TIME	,	V_113
+tvb_reported_length_remaining	,	F_71
+"rsl.rxlev_sub_up"	,	L_120
+hf_rsl_phy_ctx	,	V_91
+hf_rsl_local_ip	,	V_226
+RSL_MSG_TYPE_IPAC_PDCH_DEACT	,	V_318
+hf_rsl_epc_mode	,	V_31
+"rsl.rtd"	,	L_92
+RSL_MSG_REL_REQ	,	V_262
+array_length	,	F_88
+"Descriptive group or broadcast call reference"	,	L_52
+RSL_MSG_CBCH_LOAD_IND	,	V_278
+RSL_IE_CH_MODE	,	V_39
+hf_rsl_delay_ind	,	V_194
+"rsl.meas_res_no"	,	L_185
+ett_ie_ms_pow	,	V_80
+dissect_rsl_ie_uplik_meas	,	F_35
+"rsl.key"	,	L_175
+"Channel Mode IE"	,	L_8
+de_d_gb_call_ref	,	F_53
+"rsl.phy_ctx"	,	L_134
+"Handover reference IE"	,	L_13
+"rsl.ipacc.cstat.rx_octets"	,	L_237
+"rsl.interf_band_reserved"	,	L_183
+"A3A2"	,	L_145
+"rsl"	,	L_245
+L3_INF_CCCH	,	V_71
+"rsl.msg_dsc"	,	L_78
+TLV_TYPE_UNKNOWN	,	V_219
+"Channel Ind"	,	L_204
+"TFO Status IE"	,	L_68
+RSL_MSG_SMS_BC_REQ	,	V_272
+hf_register_info	,	T_13
+dissect_rsl_ie_link_id	,	F_6
+global_rsl_use_nano_bts	,	V_321
+RSL_MSG_DELETE_IND	,	V_269
+dissect_rsl_ie_uic	,	F_58
+RSL_IE_ACCESS_DELAY	,	V_92
+"rsl.ipacc.remote_ip"	,	L_229
+rsl_msg_disc_vals	,	V_335
+hf_rsl_data_rte	,	V_49
+guint16	,	T_10
+RSL_IE_TIMING_ADV	,	V_115
+address	,	T_12
+ett_ie_L3_inf	,	V_70
+"RACH Load IE "	,	L_24
+"gsm_a_sacch"	,	L_255
+"Interf Band reserved bits"	,	L_182
+"rsl.ie_id"	,	L_84
+"EPC mode"	,	L_151
+ett_ie_paging_load	,	V_87
+"RACH Slot Count"	,	L_127
+BASE_NONE	,	V_349
+"rsl.sapi"	,	L_142
+"rsl.ipacc.rtp_csd_fmt_ir"	,	L_221
+rtd_item	,	V_189
+hf_rsl_remote_ip	,	V_222
+"rsl.timing_offset"	,	L_197
+RSL_MSG_NOT_CMD	,	V_279
+"RSL"	,	L_74
+"System Info Type"	,	L_194
+ett_ie_resource_inf	,	V_107
+"T bit"	,	L_79
+rsl_handle	,	V_396
+"MultiRate Control IE"	,	L_62
+"rsl.rxqual_sub_up"	,	L_124
+ett_ie_access_delay	,	V_93
+hf_rsl_tfo	,	V_197
+rsl_a1_2_vals	,	V_357
+RSL_IE_SMSCB_MESS	,	V_154
+dissect_rsl_ie_sup_codec_types	,	F_63
+"L1 Information IE"	,	L_14
+"Channel Identification IE"	,	L_5
+RSL_IE_PREPROC_PARAM	,	V_394
+hf_rsl_na	,	V_18
+hf_rsl_class	,	V_127
+RSL_IE_REQ_REF	,	V_100
+BASE_HEX	,	V_377
+"Channel description IE"	,	L_53
+"rsl.rbit"	,	L_144
+RSL_IE_SYS_INFO_TYPE	,	V_134
+RSL_MSG_LISTENER_DET	,	V_301
+RSL_MSG_HANDODET	,	V_286
+rsl_speech_coding_alg_vals	,	V_364
+"rsl.ipacc.cstat.ia_jitter"	,	L_241
+proto_item_add_subtree	,	F_4
+module_t	,	T_15
+"CBCH Load Information IE"	,	L_47
+"Encryption information IE"	,	L_11
+"Embedded message that contains the TFO configuration"	,	L_72
+hlen	,	V_208
+proto_register_field_array	,	F_87
+de_rr_ch_dsc	,	F_11
+FT_BYTES	,	V_348
+RSL_IE_IPAC_CONN_ID	,	V_238
+"TFO transparent container IE"	,	L_71
+RSL_MSG_RF_CHAN_REL	,	V_293
+rsl_na_vals	,	V_350
+"RXQUAL.FULL.up"	,	L_121
+dissector_add_uint	,	F_94
+"Time slot number (TN)"	,	L_89
+hf_rsl_rxlev_full_up	,	V_121
+RSL_MSG_TYPE_IPAC_PDCH_DEACT_NACK	,	V_320
+rtp_add_address	,	F_74
+RSL_IE_SMSCB_CH_IND	,	V_162
+ett_ie_sys_info_type	,	V_135
+FT_UINT16	,	V_342
+hf_rsl_ie_length	,	V_38
+TLV_TYPE_FIXED	,	V_213
+dissect_rsl_ie_ch_mode	,	F_12
+dissect_rsl_ie_rlm_cause	,	F_32
+RSL_MSG_TYPE_IPAC_PDCH_ACT_ACK	,	V_316
+dissect_rsl_ie_main_ch_ref	,	F_59
+"gsm_a_ccch"	,	L_253
+fd	,	V_251
+"rsl.fpc_epc_mode"	,	L_154
+"TFO"	,	L_95
+hf_rsl_prio	,	V_20
+rel_mode_vals	,	V_369
+ett_ie_rtd	,	V_192
+RSL_IE_LLP_APDU	,	V_198
+RSL_IE_IPAC_LOCAL_PORT	,	V_227
+dissect_rsl_ie_bs_power	,	F_8
+RSL_IE_IPAC_SPEECH_MODE	,	V_229
+dissect_rsl_ie_phy_ctx	,	F_26
+rsl_dtxd_vals	,	V_347
+dissect_rsl_ie_smscb_ch_ind	,	F_51
+"Channel rate and type"	,	L_162
+"DTXd"	,	L_115
+"Measurement result number IE"	,	L_34
+hf_rsl_rtp_payload	,	V_234
+dissect_rsl_ie_starting_time	,	F_33
+"Octets Sent"	,	L_232
+dissect_rsl_ie_ch_id	,	F_9
+"rsl.rxlev_full_up"	,	L_118
+RSL_IE_SUP_CODEC_TYPES	,	V_185
+ie_tree	,	V_7
+dissect_rsl_ie_codec_conf	,	F_64
+"Extension"	,	L_186
+RSL_IE_TFO_TRANSP_CONT	,	V_200
+"Activation Type IE "	,	L_3
+dissect_rsl_ie_cb_cmd_type	,	F_47
+RSL_MSG_TYPE_DATA_IND	,	V_257
+ett_ie_tfo_transp_cont	,	V_201
+length	,	V_34
+msg_disc	,	V_253
+ett_ie_grp_call_ref	,	V_166
+ett_ie_rel_mode	,	V_104
+"Speech coding algorithm"	,	L_164
+RSL_MSG_BS_POWER_CONTROL	,	V_295
+TLV_TYPE_T	,	V_215
+"unknown %u"	,	L_76
+FT_UINT32	,	V_383
+RSL_MSG_PREPROC_MEAS_RES	,	V_297
+RSL_MSG_REL_IND	,	V_264
+"ip.access Remote IP Address"	,	L_228
+rsl_ch_type_vals	,	V_351
+"rsl.ipacc.local_ip"	,	L_227
+rsl_emlpp_prio_vals	,	V_376
+dissect_rsl_ie_act_type	,	F_7
+hf_rsl_ra_if_data_rte	,	V_48
+ett_ie_message_id	,	V_132
+hf	,	V_332
+"rsl.na"	,	L_136
+RSL_IE_BS_POW	,	V_29
+RSL_IE_MS_ID	,	V_77
+hf_rsl_ms_power_lev	,	V_81
+RSL_MSG_TYPE_EST_REQ	,	V_259
+RSL_MSG_CHAN_ACTIV_ACK	,	V_281
+BASE_HEX_DEC	,	V_339
+ett_ie_ch_no	,	V_10
+hf_rsl_rxqual_full_up	,	V_123
+"Channel Description Tag"	,	L_6
+prefs_register_protocol	,	F_91
+"MS Power IE"	,	L_19
+RSL_MSG_TYPE_IPAC_HO_CAND_INQ	,	V_313
+col_append_fstr	,	F_80
+LAPD_GSM_SAPI_RA_SIG_PROC	,	V_397
+"Access Delay"	,	L_125
+col_set_str	,	F_78
+RSL_IE_FULL_IMM_ASS_INF	,	V_137
+RSL_MSG_R_T_D_REP	,	V_303
+RSL_IE_TFO_STATUS	,	V_195
+"T1'"	,	L_99
+FT_IPv4	,	V_382
+dissect_rsl_ie_tfo_status	,	F_67
+hf_rsl_cstat_avg_tx_dly	,	V_247
+"Physical Context"	,	L_133
+"Supported Codec Types IE"	,	L_63
+"rsl.bs_power"	,	L_156
+"rsl.ms_power_lev"	,	L_110
+L3_INF_OTHER	,	V_256
+RSL_IE_PREPROC_MEAS	,	V_395
+hf_rsl_paging_grp	,	V_85
+"Release Mode IE "	,	L_27
+hf_rsl_msg_slt_cnt	,	V_161
+"Actual Timing Advance"	,	L_113
+ett_ie_ch_mode	,	V_40
+dissect_rsl_ie_ms_timing_offset	,	F_42
+t_nt_bit_vals	,	V_365
+hf_rsl_ho_ref	,	V_62
+RSL_MSG_TYPE_IPAC_PDCH_DEACT_ACK	,	V_319
+RSL_MSG_REL_CONF	,	V_263
+hf_rsl_req_ref_ra	,	V_102
+dissect_rsl_ie_frame_no	,	F_14
+rsl_algorithm_id_vals	,	V_367
+ett_ie_rach_load	,	V_96
+RSL_MSG_TYPE_ERROR_IND	,	V_258
+"rsl.ipacc.speech_mode_m"	,	L_213
+dissector_handle_t	,	T_19
+dissect_rsl_ie_l1_inf	,	F_16
+RSL_IE_UPLINK_MEAS	,	V_118
+"rsl.ra_if_data_rte"	,	L_169
+"RXLEV.SUB.up"	,	L_119
+"RXLEV.FULL.up"	,	L_117
+"Channel Needed IE"	,	L_44
+hf_rsl_cstat_tx_pkts	,	V_241
+rsl_ipacc_rtp_csd_fmt_d_vals	,	V_380
+RSL_MSG_CHAN_ACTIV	,	V_280
+ett_ie_speech_mode	,	V_385
+RSL_IE_PAGING_LOAD	,	V_86
+tvb_get_ipv4	,	F_73
+rsl_fpc_epc_mode_vals	,	V_359
+ett_ie_codec_conf	,	V_188
+"RXQUAL.SUB.up"	,	L_123
+"Speech or data indicator != 1,2 or 3"	,	L_10
+AT_IPv4	,	V_249
+gsm_a_sacch_handle	,	V_75
+VALS	,	F_83
+rsl_ms_fpc_epc_mode_vals	,	V_346
+prefs_register_bool_preference	,	F_92
+RSL_IE_L3_INF	,	V_69
+RSL_IE_PAGING_GRP	,	V_83
+RSL_IE_RLM_CAUSE	,	V_110
+"GSM A-bis/IP"	,	L_73
+RSL_MSG_PAGING_CMD	,	V_270
+ett_ie_bs_power	,	V_30
+rsl_t_bit_vals	,	V_338
+"%s "	,	L_75
+rsl_speech_or_data_vals	,	V_362
+local_port	,	V_204
+_type	,	T_17
+proto_tree_add_text	,	F_3
+L3_INF_SACCH	,	V_74
+BASE_DEC	,	V_334
+tvb_new_subset	,	F_19
+hf_rsl_conn_id	,	V_239
+rsl_extension_bit_value	,	V_370
+"rsl.class"	,	L_189
+ENC_NA	,	V_54
+dissct_rsl_ipaccess_msg	,	F_70
+ett_ie_local_ip	,	V_389
+hf_rsl_emlpp_prio	,	V_176
+"lapd.gsm.sapi"	,	L_250
+RSL_MSG_TYPE_EST_CONF	,	V_260
+RSL_MSG_CHAN_ACTIV_N_ACK	,	V_282
+"Command"	,	L_206
+rsl_rbit_vals	,	V_353
+ett_ie_frame_no	,	V_56
+RSL_MSGDISC_IPACCESS	,	V_254
+"Hand-over reference"	,	L_107
+RSL_MSG_OVERLOAD	,	V_275
+"Release Mode"	,	L_178
+"Paging Buffer Space"	,	L_192
+RSL_MSG_CCCH_LOAD_IND	,	V_267
+RSL_MSG_SACCH_FILL	,	V_274
+RSL_IE_RESOURCE_INF	,	V_106
+RSL_IE_MULTIRATE_CONF	,	V_181
+RSL_MSG_BCCH_INFO	,	V_266
+dissect_rsl_ie_grp_call_ref	,	F_52
+RSL_IE_CAUSE	,	V_125
+rsl_epc_mode_vals	,	V_358
+ett_ie_full_bcch_inf	,	V_148
+"Mobile Allocation Tag+Length(0)"	,	L_7
+ie_offset	,	V_35
+RSL_IE_CODEC_CONF	,	V_187
+RSL_IE_LINK_ID	,	V_16
+RSL_MSG_CHANRQD	,	V_268
+"Use ipaccess nanoBTS specific definitions for RSL"	,	L_249
+guint	,	T_8
+"Length"	,	L_85
+ett	,	V_384
+"ip.access Remote RTP Port"	,	L_224
+RSL_IE_FRAME_NO	,	V_55
+"LLP APDU IE"	,	L_69
+"CBCH Load Type"	,	L_200
+dissect_rsl_ie_ho_ref	,	F_15
+RSL_IE_UIC	,	V_177
+"Packets Lost"	,	L_238
+"Codec Configuration IE"	,	L_65
+packet_info	,	T_2
+RSL_MSG_PRE_HANDO_NOTIF	,	V_304
+ett_ie_cause	,	V_126
+"FPC-EPC mode"	,	L_153
+hf_rsl_command	,	V_173
+RSL_MSG_SACCH_INFO_MODIFY	,	V_299
+"R"	,	L_143
+ett_ie_cmd_ind	,	V_172
+ett_ie_act_type	,	V_23
+"rsl.interf_band"	,	L_181
+rsl_ch_rate_and_type_vals_ext	,	V_363
+"rsl.paging_load"	,	L_193
+RSL_IE_L1_INF	,	V_63
+hf_rsl_rach_acc_cnt	,	V_99
+hf_rsl_a1_0	,	V_26
+hf_rsl_a1_1	,	V_27
+ett_ie_staring_time	,	V_114
+ett_ie_l1_inf	,	V_64
+"Erroneous Message IE "	,	L_41
+"rsl.msg_type"	,	L_82
+ett_ie_full_imm_ass_inf	,	V_138
+ett_ie_smscb_mess	,	V_155
+"gsm_cbch"	,	L_251
+dissect_rsl_ie_multirate_cntrl	,	F_62
+hf_rsl_a1_2	,	V_28
+"System Info Type IE"	,	L_36
+RSL_MSG_PHY_CONTEXT_REQ	,	V_291
+hf_rsl_rxlev_sub_up	,	V_122
+RSL_IE_IPAC_REMOTE_IP	,	V_221
+RSL_IE_RACH_LOAD	,	V_95
+rtcp_add_address	,	F_75
+hf_rsl_msg_dsc	,	V_329
+RSL_IE_CB_CMD_TYPE	,	V_152
+rsl_msg_type_vals_ext	,	V_326
+HFILL	,	V_336
+RSL_MSG_MR_CODEC_MOD_ACK	,	V_306
+"Algorithm Identifier"	,	L_172
+rsl_a1_0_vals	,	V_355
+hf_rsl_ch_no_Cbits	,	V_13
+hf_rsl_dtxd	,	V_120
+local_addr	,	V_203
+de_mid	,	F_22
+"gsm_cell_broadcast"	,	L_252
+"Physical Context IE "	,	L_22
+"Cause"	,	L_176
+ett_ie_ho_ref	,	V_61
+"ip.access Connection ID"	,	L_214
+"RLM Cause IE "	,	L_29
+"Paging Group"	,	L_190
+"rsl.cm_dtxu"	,	L_159
+RSL_MSG_MR_CODEC_MOD_REQ	,	V_305
+dissect_rsl_ie_ms_pow	,	F_23
+"C-bits"	,	L_87
+rsl_cbch_load_type_vals	,	V_374
+"ip.access RTP CSD Format IR"	,	L_220
+RSL_IE_CH_NO	,	V_9
+"Full Immediate Assign Info IE "	,	L_37
+"Delay IND"	,	L_93
+hf_rsl_timing_offset	,	V_144
+RSL_IE_MESSAGE_ID	,	V_131
+dissect_rsl_ie_sys_info_type	,	F_39
+RSL_IE_ACT_TYPE	,	V_22
+proto_register_protocol	,	F_86
+dissect_rsl_ie_cmd_ind	,	F_56
+"Main channel reference IE"	,	L_60
+"rsl.ipacc.speech_mode_s"	,	L_211
+"rsl.a1_1"	,	L_149
+tlv_def	,	V_209
+"Link Layer Service Data Unit ( L3 Message)"	,	L_17
+rsl_ch_needed_vals	,	V_373
+gsm_cbch_handle	,	V_141
+len	,	V_207
+"ip.access Local IP Address"	,	L_226
+"rsl.ch_ind"	,	L_205
+gint	,	T_14
+hf_rsl_extension_bit	,	V_46
+"rsl.alg_id"	,	L_173
+tvb	,	V_1
+"rsl.ipacc.cstat.tx_octets"	,	L_233
+top_tree	,	V_73
+"ip.access Speech Mode S"	,	L_210
+"Frame Number IE"	,	L_12
+COL_INFO	,	V_325
+rsl_delay_ind_vals	,	V_344
+hf_rsl_ch_no_TN	,	V_14
+val_to_str_ext	,	F_81
+RSL_MSG_RF_CHAN_REL_ACK	,	V_298
+"rsl.a1_0"	,	L_148
+"Channel Needed"	,	L_198
+TLV_TYPE_TLV	,	V_217
+RSL_MSG_TALKER_DET	,	V_300
+rsl_ipacc_spm_s_vals	,	V_378
+"rsl.ch_no_Cbits"	,	L_88
+"Facility Information Element as defined in 3GPP TS 44.071"	,	L_70
+"T2"	,	L_103
+ett_ie_sup_codec_types	,	V_186
+"MS Identity IE"	,	L_18
+ett_ie_ch_desc	,	V_168
+cinfo	,	V_323
+ett_ie_llp_apdu	,	V_199
+dissect_rsl_ie_enc_inf	,	F_13
+ett_ie_rlm_cause	,	V_111
+next_tvb	,	V_68
+RSL_MSG_UNIT_DATA_REQ	,	V_265
+"rsl.rxqual_full_up"	,	L_122
+"Power Level"	,	L_155
+"rsl.extension_bit"	,	L_187
+rsl_sys_info_type_vals_ext	,	V_372
+hf_rsl_t_nt_bit	,	V_47
+ett_ie_remote_port	,	V_388
+call_dissector	,	F_20
+RSL_IE_CBCH_LOAD_INF	,	V_158
+"Full BCCH Information IE"	,	L_42
+"FPC/EPC"	,	L_111
+hf_rsl_l1inf_power_lev	,	V_65
+hf_rsl_ie_id	,	V_11
+rsl_ch_no_Cbits_vals_ext	,	V_343
+"Starting Time IE"	,	L_30
+RSL_MSG_PHY_CONTEXT_CONF	,	V_292
+hf_rsl_sys_info_type	,	V_136
+"Paging Load IE"	,	L_21
+"rsl.data_rte"	,	L_171
+dissect_rsl_ie_paging_grp	,	F_24
+"T3"	,	L_101
+RSL_MSG_IMM_ASS_CMD	,	V_271
+hf_rsl_ms_fpc	,	V_82
+dissect_rsl_ie_resource_inf	,	F_31
+"Random Access Information (RA)"	,	L_97
+fixed_len	,	V_214
+ett_ie_conn_id	,	V_386
+"Message Identifier IE"	,	L_35
+"rsl.timing_adv"	,	L_106
+"rsl.rach_acc_cnt"	,	L_132
+rtd	,	V_190
+COL_PROTOCOL	,	V_324
+"Layer 3 message"	,	L_43
+rsl_dtx_vals	,	V_361
+hf_rsl_acc_delay	,	V_94
+RSL_IE_ERR_MSG	,	V_145
+RSL_IE_MULTIRATE_CNTRL	,	V_183
+src_addr	,	V_205
+l3_inf_t	,	T_9
+hf_rsl_meas_res_no	,	V_130
+ett_ie_smscb_inf	,	V_140
+RSL_MSG_MR_CODEC_MOD_PER	,	V_308
+rsl_class_vals	,	V_371
+hf_rsl_ch_type	,	V_19
+RSL_IE_PHY_CTX	,	V_89
+hf_rsl_cstat_ia_jitter	,	V_246
+"Uplink Measurements IE"	,	L_32
+guint8	,	T_7
+dissect_rsl_ie_rtd	,	F_65
+dissect_rsl	,	F_77
+"Group Channel Description"	,	L_54
+ett_ie_remote_ip	,	V_387
+ti	,	V_6
+"rsl.cbch_load_type"	,	L_201
+dissect_rsl_ie_access_delay	,	F_27
+tvb_length_remaining	,	F_76
+RSL_IE_BS_POWER_PARAM	,	V_393
+rsl_tree	,	V_322
+"Radio interface data rate"	,	L_168
+"L3 Information IE"	,	L_15
+dissect_rsl_ie_cbch_load_inf	,	F_49
+ett_ie_ch_needed	,	V_150
+tvbuff_t	,	T_1
+"rsl.T_bit"	,	L_80
+hf_rsl_speech_coding_alg	,	V_45
+"Message type"	,	L_81
+tvb_get_ntohs	,	F_18
+proto_register_rsl	,	F_82
+"eMLPP Priority"	,	L_208
+"MS Timing Offset IE"	,	L_40
+RSL_IE_CH_ID	,	V_36
+gboolean	,	T_5
+RSL_IE_CH_NEEDED	,	V_149
+dissect_rsl_ie_tfo_transp_cont	,	F_69
+"rsl.ipacc.cstat.tx_pkts"	,	L_231
+"Round Trip Delay (RTD)"	,	L_91
+hf_rsl_T_bit	,	V_330
+_fixed_len	,	T_18
+hf_rsl_alg_id	,	V_52
+ett_ie_timing_adv	,	V_116
+RSL_MSG_TYPE_IPAC_PDCH_ACT_NACK	,	V_317
+"rsl.req_ref_T2"	,	L_104
+"gsm_abis_rsl"	,	L_246
+hf_rsl_speech_or_data	,	V_43
+"rsl.ipacc.conn_id"	,	L_215
+"BS Power IE"	,	L_4
+ett_ie_uplink_meas	,	V_119
+gsm_a_dtap_handle	,	V_76
+"A1"	,	L_147
+dissect_rsl_ie_ms_id	,	F_21
+hf_rsl_rtd	,	V_193
+"Command indicator IE"	,	L_56
+RSL_MSG_MR_CODEC_MOD_NACK	,	V_307
+hf_rsl_sapi	,	V_21
+RSL_IE_NCH_DRX_INF	,	V_169
+"0 No resources required(All other values are reserved)"	,	L_9
+ett_ie_enc_inf	,	V_51
+hf_rsl_key	,	V_53
+"The amount of delay in message slots (1 to 15) that is needed immediately by BTS"	,	L_49
+hf_rsl_req_ref_T1prim	,	V_57
+"rsl.a3a2"	,	L_146
+RSL_IE_MEAS_RES_NO	,	V_128
+RSL_MSG_MS_POWER_CONTROL	,	V_294
+"Link Layer Service Data Unit ( L3 Message)(SACCH)"	,	L_16
+tvb_get_guint8	,	F_2
+"rsl.ch_rate_and_type"	,	L_163
+rsl_ie_type_vals_ext	,	V_341
+ett_ie_paging_grp	,	V_84
+dissect_rsl_ie_multirate_conf	,	F_60
+msg_type	,	V_202
+"rsl.tfo"	,	L_96
+"MS power level"	,	L_109
+ett_ie_meas_res_no	,	V_129
+hf_rsl_ch_ind	,	V_164
+RSL_MSG_TYPE_IPAC_MEAS_PP_DEF	,	V_312
+RSL_MSG_TFO_REP	,	V_309
+hf_rsl_rxqual_sub_up	,	V_124
+"rsl.req_ref_T1prim"	,	L_100
+"Timing Advance"	,	L_105
+proto_reg_handoff_rsl	,	V_331
+"rsl.a2_0"	,	L_150
+"Transparent indication"	,	L_166
+dissect_rsl_ie_err_msg	,	F_43
+"Packets Received"	,	L_234
+rsl_module	,	V_391
+hf_rsl_rtp_csd_fmt_d	,	V_236
+"ip.access RTP CSD Format D"	,	L_218
+"rsl.ipacc.remote_port"	,	L_225
+ett_ie_phy_ctx	,	V_90
+"rsl.speech_or_data"	,	L_161
+"Inter-arrival Jitter"	,	L_240
+de_rr_multirate_conf	,	F_61
+"rsl.rach_busy_cnt"	,	L_130
+hf_rsl_bs_power	,	V_33
+"DTXu"	,	L_158
+ett_ie_uic	,	V_178
+hf_rsl_bs_fpc_epc_mode	,	V_32
+rsl_rlm_bs_power_vals_ext	,	V_360
+new_create_dissector_handle	,	F_93
+"rsl.paging_grp"	,	L_191
+ett_ie_err_msg	,	V_146
+RSL_MSG_PREPROC_CONFIG	,	V_296
+hf_rsl_ch_rate_and_type	,	V_44
+"Not applicable (NA)"	,	L_135
+"KEY"	,	L_174
+ie_id	,	V_8
+ett_ie_tfo_status	,	V_196
+find_dissector	,	F_95
+dissect_rsl_ie_L3_inf	,	F_17
+hf_rsl_req_ref_T3	,	V_58
+"Measurement result number"	,	L_184
+hf_rsl_req_ref_T2	,	V_59
+dissect_rsl_ie_llp_apdu	,	F_68
+RSL_MSG_TFO_MOD_REQ	,	V_310
+rsl_ch_ind_vals	,	V_375
+ENC_BIG_ENDIAN	,	V_12
+"Radio Signalling Link (RSL)"	,	L_244
+"UIC"	,	L_59
+hf_rsl_remote_port	,	V_224
+"SMSCB Channel Indicator IE"	,	L_50
+"rsl.ipacc.cstat.lost_pkts"	,	L_239
+"Round Trip Delay IE"	,	L_66
+ett_ie_ch_id	,	V_37
+"Timing Offset"	,	L_196
+"Codec List"	,	L_64
+"rsl.req_ref_T3"	,	L_102
+"rsl.rel_mode"	,	L_179
+RSL_IE_EMLPP_PRIO	,	V_174
+"rsl.cm_dtxd"	,	L_157
+rsl_ra_if_data_rte_vals	,	V_366
+hf_rsl_paging_load	,	V_88
+RSL_IE_MS_POWER_PARAM	,	V_392
+RSL_MSG_CONN_FAIL	,	V_283
+RSL_IE_IPAC_CONN_STAT	,	V_240
+RSL_MSG_MODE_MODIFY_REQ	,	V_288
+hf_rsl_rtp_csd_fmt_ir	,	V_237
+RSL_IE_CH_DESC	,	V_167
+RSL_IE_HO_REF	,	V_60
+BASE_EXT_STRING	,	V_340
+"rsl.epc_mode"	,	L_152
+"ip.access RTP Payload Type"	,	L_216
+RSL_IE_SMSCB_INF	,	V_139
+"SMSCB Information IE "	,	L_39
+RSL_MSG_LOC_INF	,	V_311
+"rsl.delay_ind"	,	L_94
+gsm_cbs_handle	,	V_156
+TLV_TYPE_TV	,	V_216
+"Interf Band"	,	L_180
+gsm_a_ccch_handle	,	V_72
+RSL_MSG_MEAS_RES	,	V_287
+RSL_MSG_MODE_MODIFY_ACK	,	V_289
+"ip.access Local RTP Port"	,	L_222
+item	,	V_157
+RSL_MSG_TYPE_DATA_REQ	,	V_255
+"rsl.act_timing_adv"	,	L_114
+tdef	,	V_210
+proto_item_append_text	,	F_50
+"rsl.req_ref_ra"	,	L_98
+"Data rate"	,	L_170
+ett_ie_ms_id	,	V_78
+RSL_IE_CMD_IND	,	V_171
+proto_rsl	,	V_327
+col_clear	,	F_79
+RSL_IE_ENC_INF	,	V_50
+dissect_rsl_ie_cause	,	F_36
+"Link Identifier IE "	,	L_2
+proto_register_subtree_array	,	F_89
+RSL_MSG_SMS_BC_CMD	,	V_277
+hf_rsl_act_timing_adv	,	V_67
+RSL_MSG_DEACTIVATE_SACCH	,	V_284
+proto_tree_add_item	,	F_5
+RSL_MSG_RF_RES_IND	,	V_273
+pinfo	,	T_3
+"Priority"	,	L_139
+"use_ipaccess_rsl"	,	L_247
+_U_	,	V_2
+"RACH Access Count"	,	L_131
+new_register_dissector	,	F_90
+dissect_rsl_ie_timing_adv	,	F_34
+"rsl.sys_info_type"	,	L_195
+"Paging Group IE"	,	L_20
+ett_ie_link_id	,	V_17
+RSL_MSG_REMOTE_CODEC_CONF_REP	,	V_302
+"Access Delay IE "	,	L_23
+"rsl.prio"	,	L_140
+"rsl.ipacc.local_port"	,	L_223
+dissect_rsl_ie_rach_load	,	F_28
+dissect_rsl_ie_smscb_mess	,	F_48
+"rsl.dtxd"	,	L_116
+"rsl.sg_slt_cnt"	,	L_203
+"Packets Sent"	,	L_230
+"Cause IE"	,	L_33
+"MultiRate configuration IE"	,	L_61
+"Channel number IE "	,	L_1
+dissect_rsl_ie_smscb_inf	,	F_41
+RSL_MSG_ENCR_CMD	,	V_285
+"Class"	,	L_188
+dissect_rsl_ie_paging_load	,	F_25
+RSL_IE_FULL_MS_TIMING_OFFSET	,	V_142
+RSL_ATT_TLVDEF	,	F_85
+"Supplementary Information"	,	L_25
+FT_UINT8	,	V_333
+"rsl.ipacc.rtp_payload"	,	L_217
+is_mandatory	,	V_5
+"Use nanoBTS definitions"	,	L_248
+proto_item	,	T_6
+dissect_rsl_ie_message_id	,	F_38
+"Full Immediate Assign Info field"	,	L_38
+rsl_tfo_vals	,	V_345
+TLV_TYPE_TL16V	,	V_218
+dissect_rsl_ie_full_imm_ass_inf	,	F_40
+rsl_a3a2_vals	,	V_354
+RSL_MSG_TYPE_IPAC_HO_CAND_RESP	,	V_314
+"rsl.rach_slot_cnt"	,	L_128
+hf_rsl_cm_dtxu	,	V_42
+hf_rsl_cause	,	V_112
+hf_rsl_cbch_load_type	,	V_160
+ett_ie_local_port	,	V_220
+data	,	V_250
+octet	,	V_15
+num	,	V_252
+RSL_IE_IPAC_RTP_PAYLOAD2	,	V_233
+hf_rsl_cm_dtxd	,	V_41
+"NCH DRX information IE"	,	L_55
+rsl_a1_1_vals	,	V_356
+"Message Slot Count"	,	L_202
+"rsl.ipacc.cstat.rx_pkts"	,	L_235
+"Request Reference IE "	,	L_26
+hf_rsl_msg_type	,	V_133
+hf_rsl_rach_busy_cnt	,	V_98
+tag	,	V_206
+hf_rsl_speech_mode_s	,	V_230
+hf_rsl_speech_mode_m	,	V_231
+"Speech or data indicator"	,	L_160
+offset	,	V_4
+DISSECTOR_ASSERT_NOT_REACHED	,	F_72
+hf_rsl_cstat_rx_octs	,	V_244
+tree	,	V_3
+ett_ie_rtp_payload	,	V_390
+RSL_IE_MAIN_CH_REF	,	V_179
+"Group call reference IE"	,	L_51
+dissect_rsl_ie_ch_desc	,	F_54
+dissect_rsl_ie_req_ref	,	F_29
+hf_rsl_rel_mode	,	V_105
+rsl_ipacc_spm_m_vals	,	V_379
+_attr	,	T_16
+RSL_IE_RTD	,	V_191
+dissect_rsl_ie_ch_no	,	F_1
+RSL_IE_IPAC_LOCAL_IP	,	V_225
+"rsl.emlpp_prio"	,	L_209
+"rsl.ipacc.cstat.avg_tx_delay"	,	L_243
+proto_tree_add_uint	,	F_66
+rsl_att_tlvdef	,	V_211
+ett_ie_emlpp_prio	,	V_175
+hf_rsl_interf_band	,	V_108
+"rsl.cmd"	,	L_207
+ett_ie_multirate_cntrl	,	V_184
+"rsl.ie_length"	,	L_86
+"Octets Received"	,	L_236
+RSL_IE_GRP_CALL_REF	,	V_165
+"rsl.ch_needed"	,	L_199
+" ms"	,	L_67
+"rsl.cause"	,	L_177
+RSL_MSG_ERROR_REPORT	,	V_276
+"CB Command type IE"	,	L_45
+RSL_MSG_EST_IND	,	V_261
+rsl_prio_vals	,	V_352
+ett_ie_main_ch_ref	,	V_180
+ett_ie_nch_drx	,	V_170
+hf_rsl_cstat_lost_pkts	,	V_245
+hf_rsl_rach_slot_cnt	,	V_97
+rsl_rlm_cause_vals_ext	,	V_368
+"rsl.t_nt_bit"	,	L_167
+dissect_rsl_ie_full_bcch_inf	,	F_45
+"rsl.acc_del"	,	L_126
+dissct_rsl_msg	,	F_44
+"The amount of SMSCB messages (1 to 15) that are needed immediately by BTS"	,	L_48
+dissect_rsl_ie_nch_drx	,	F_55
+hf_rsl_cstat_tx_octs	,	V_242
+hf_rsl_l1inf_fpc	,	V_66
+"SMSCB Message IE"	,	L_46
+ett_rsl	,	V_328
+"Element identifier"	,	L_83
+hf_rsl_ch_needed	,	V_151
+"rsl.ch_type"	,	L_138
+"RACH Busy Count"	,	L_129
+"SAPI"	,	L_141
+RSL_IE_FULL_BCCH_INF	,	V_147
+RSL_MSG_MODE_MODIFY_NACK	,	V_290
+"ip.access Speech Mode M"	,	L_212
+proto_item_set_len	,	F_10
+RSL_IE_MS_POW	,	V_79
+ett_ie_cb_cmd_type	,	V_153
+dissect_rsl_ie_meas_res_no	,	F_37
+RSL_IE_IPAC_REMOTE_PORT	,	V_223
+"Message discriminator"	,	L_77
+ett_ie_smscb_ch_ind	,	V_163
+"eMLPP Priority IE"	,	L_57
+RSL_IE_IPAC_RTP_CSD_FMT	,	V_235
+"Average Tx Delay"	,	L_242
+RSL_IE_IPAC_RTP_PAYLOAD	,	V_232
+hf_rsl_interf_band_reserved	,	V_109
+ett_ie_multirate_conf	,	V_182
+proto_tree	,	T_4
+RSL_MSG_TYPE_IPAC_PDCH_ACT	,	V_315
+"channel type"	,	L_137
+RSL_IE_REL_MODE	,	V_103

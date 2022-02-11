@@ -1,0 +1,194 @@
+"fcsp.len"	,	L_10
+dissect_fcsp_dhchap_success	,	F_7
+fcauth_msgcode_vals	,	V_49
+proto_register_protocol	,	F_22
+proto_register_fcsp	,	F_20
+hf_auth_initiator_wwn	,	V_33
+"fcsp.dhchap.chalval"	,	L_53
+dissect_fcsp_auth_rjt	,	F_11
+ei_auth_fcap_undecoded	,	V_69
+gint	,	T_11
+dissect_fcsp_auth_negotiate	,	F_8
+tvb	,	V_1
+guint32	,	T_5
+COL_INFO	,	V_48
+fcauth_proto_type_vals	,	V_83
+"Responder Name (Unknown Type)"	,	L_29
+"Response Value"	,	L_56
+hf_auth_dhchap_chal_value	,	V_24
+cinfo	,	V_47
+fcauth_dhchap_dhgid_vals	,	V_86
+array_length	,	F_25
+"Protocol Version"	,	L_3
+"fcsp.dhchap.rspval"	,	L_57
+FC_AUTH_DHCHAP_SUCCESS	,	V_62
+"fcsp.flags"	,	L_8
+"Responder Name Type"	,	L_31
+hf_register_info	,	T_10
+hf_auth_dhchap_param_len	,	V_10
+"fcsp.dhchap.dhgid"	,	L_51
+"Responder Name (WWN)"	,	L_27
+guint16	,	T_4
+"Number of Usable Protocols"	,	L_21
+i	,	V_7
+hf_auth_flags	,	V_52
+hf_auth_dhchap_rsp_len	,	V_27
+guint8	,	T_9
+ti	,	V_44
+BASE_NONE	,	V_77
+"Transaction Identifier"	,	L_11
+FC_AUTH_FCPAP_COMPLETE	,	V_68
+"DH Value"	,	L_54
+"fcsp.initwwn"	,	L_14
+register_dissector	,	F_23
+hf_auth_dhchap_chal_len	,	V_23
+hf_auth_dhchap_val_len	,	V_25
+fcauth_rjtcode_vals	,	V_81
+tvb_get_ntohl	,	F_5
+hf_auth_rjt_codedet	,	V_42
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_16
+"fcsp.dhchap.paramlen"	,	L_47
+dissect_fcsp_dhchap_reply	,	F_6
+opcode	,	V_45
+tvb_get_ntohs	,	F_3
+hf_auth_initiator_name_type	,	V_31
+"fcsp.dhchap.hashtype"	,	L_49
+BASE_HEX	,	V_72
+col_add_str	,	F_14
+FC_AUTH_DHCHAP_PARAM_HASHLIST	,	V_11
+FC_AUTH_MSG_AUTH_NEGOTIATE	,	V_58
+proto_item_add_subtree	,	F_18
+PI_UNDECODED	,	V_89
+proto_register_field_array	,	F_24
+expert_fcsp	,	V_92
+FT_BYTES	,	V_78
+"fcsp.dhchap.challen"	,	L_35
+dissect_fcsp	,	F_12
+ei	,	V_88
+"DH Value Length"	,	L_36
+"Authentication Protocol Type"	,	L_40
+hf_auth_dhchap_dhvalue	,	V_26
+FC_AUTH_NAME_TYPE_WWN	,	V_19
+FT_UINT16	,	V_79
+"Hash Algorithm"	,	L_48
+"fcsp.dhchap.paramtype"	,	L_45
+fcauth_dhchap_hash_algo_vals	,	V_85
+tvb_get_guint8	,	F_13
+tvb_captured_length	,	F_17
+FC_AUTH_PROTO_TYPE_DHCHAP	,	V_38
+"Initiator Name Length"	,	L_19
+"fcsp.version"	,	L_4
+"Initiator Name Type"	,	L_17
+num_protos	,	V_30
+hf_auth_dhchap_param_tag	,	V_8
+"Protocol Parameters Length"	,	L_42
+"fcsp.initname"	,	L_16
+"Parameter Length"	,	L_46
+PI_WARN	,	V_90
+"FCAP Decoding Not Supported"	,	L_59
+"fcsp.fcap_undecoded"	,	L_58
+ENC_BIG_ENDIAN	,	V_9
+FT_UINT32	,	V_74
+"Initiator Name (WWN)"	,	L_13
+hf	,	V_70
+total_len	,	V_4
+hf_auth_msg_code	,	V_53
+hf_auth_responder_name_len	,	V_18
+"Challenge Value Length"	,	L_34
+param_len	,	V_6
+"fcsp.usableproto"	,	L_22
+"Flags"	,	L_7
+"fcsp.rspwwn"	,	L_28
+fcauth_rjtcode_detail_vals	,	V_82
+auth_param_tag	,	V_5
+hf_auth_responder_name_type	,	V_17
+hf_auth_usable_proto	,	V_35
+FC_AUTH_DHCHAP_CHALLENGE	,	V_60
+"fcsp.rspname"	,	L_30
+FC_AUTH_PROTO_TYPE_FCAP	,	V_39
+hf_auth_proto_ver	,	V_54
+fcauth_dhchap_param_vals	,	V_84
+"Reason Code"	,	L_23
+proto_register_subtree_array	,	F_26
+gint32	,	T_3
+val_to_str	,	F_15
+"FC-SP"	,	L_2
+"fcsp.proto"	,	L_41
+"fcsp.opcode"	,	L_6
+hf_auth_proto_param_len	,	V_36
+hf_auth_dhchap_rsp_value	,	V_28
+proto_tree_add_item	,	F_2
+pinfo	,	V_43
+"fcsp.tid"	,	L_12
+_U_	,	V_40
+fcauth_name_type_vals	,	V_80
+FC_AUTH_FCAP_CONFIRM	,	V_65
+FC_AUTH_DHCHAP_PARAM_DHgIDLIST	,	V_13
+"fcsp.initnametype"	,	L_18
+proto_type	,	V_29
+VALS	,	F_21
+FC_AUTH_FCPAP_INIT	,	V_66
+hf_auth_initiator_name_len	,	V_32
+hf_auth_dhchap_group_type	,	V_14
+"fcsp.dhchap.dhvalue"	,	L_55
+FT_UINT8	,	V_71
+BASE_DEC	,	V_75
+proto_item	,	T_8
+expert_register_field_array	,	F_28
+hf_auth_tid	,	V_56
+"DH Group"	,	L_50
+ENC_NA	,	V_21
+"fcsp.rjtcode"	,	L_24
+"Packet Length"	,	L_9
+"fcsp"	,	L_61
+hf_auth_proto_type	,	V_37
+data	,	T_7
+"0x%x"	,	L_1
+hf_auth_initiator_name	,	V_34
+"fcsp.rspnametype"	,	L_32
+dissect_fcsp_dhchap_challenge	,	F_4
+ei_register_info	,	T_12
+FC_AUTH_MSG_AUTH_REJECT	,	V_57
+expert_register_protocol	,	F_27
+FC_AUTH_MSG_AUTH_DONE	,	V_59
+hf_auth_responder_wwn	,	V_20
+offset	,	V_3
+ett	,	V_87
+expert_module_t	,	T_13
+tree	,	V_2
+tvb_bytes_exist	,	F_9
+FC_AUTH_FCPAP_ACCEPT	,	V_67
+packet_info	,	T_6
+"Parameter Tag"	,	L_44
+ett_fcsp	,	V_51
+"fcsp.dhchap.rsplen"	,	L_39
+proto_fcsp	,	V_50
+fcsp_tree	,	V_46
+"Response Value Length"	,	L_38
+FC_AUTH_DHCHAP_REPLY	,	V_61
+FC_AUTH_FCAP_REQUEST	,	V_63
+"fcsp.dhchap.vallen"	,	L_37
+"fcsp.protoparamlen"	,	L_43
+EXPFILL	,	V_91
+proto_tree_add_expert	,	F_19
+dissect_fcsp_dhchap_auth_param	,	F_1
+FC_AUTH_FCAP_ACKNOWLEDGE	,	V_64
+"Initiator Name (Unknown Type)"	,	L_15
+"Challenge Value"	,	L_52
+"Message Code"	,	L_5
+"Fibre Channel Security Protocol"	,	L_60
+FT_FCWWN	,	V_76
+"Reason Code Explanation"	,	L_25
+hf_auth_responder_name	,	V_22
+"fcsp.rjtcodet"	,	L_26
+name_len	,	V_16
+HFILL	,	V_73
+hf_auth_rjt_code	,	V_41
+"fcsp.initnamelen"	,	L_20
+name_type	,	V_15
+hf_auth_len	,	V_55
+dissect_fcsp_auth_done	,	F_10
+"fcsp.rspnamelen"	,	L_33
+proto_tree	,	T_2
+hf_auth_dhchap_hash_type	,	V_12

@@ -1,0 +1,134 @@
+hf_mplstp_fm_tlv_len	,	V_10
+fm_tlv_tree	,	V_4
+ett_mplstp_lock	,	V_24
+proto_register_protocol	,	F_14
+"Fault Condition Cleared"	,	L_42
+"mplstp_oam.global_id_tlv_type"	,	L_23
+dissect_mplstp_fm	,	F_11
+"mplstp_oam.flag_l"	,	L_39
+tvb_new_subset_remaining	,	F_9
+"Version"	,	L_4
+dissect_mplstp_fm_tlv	,	F_1
+"MPLS-TP FM"	,	L_3
+col_set_str	,	F_6
+gint	,	T_9
+"mplstp_oam.message.type"	,	L_33
+tlv_len	,	V_31
+FT_IPv4	,	V_50
+"mplstp_oam.if_num"	,	L_29
+tvb	,	V_1
+hf_mplstp_fm_flags_l	,	V_38
+dissect_bfd_mep	,	F_10
+hf_mplstp_fm_version	,	V_33
+hf_mplstp_fm_if_num	,	V_12
+COL_INFO	,	V_21
+"MPLS-TP FM Message Type"	,	L_34
+FT_BOOLEAN	,	V_54
+hf_mplstp_fm_total_tlv_len	,	V_41
+hf_mplstp_fm_flags_r	,	V_39
+proto_reg_handoff_mplstp_fm	,	F_23
+hf_mplstp_fm_reserved	,	V_34
+"FM TLV Length"	,	L_18
+"Fault-Management TLVs"	,	L_1
+col_clear	,	F_7
+cinfo	,	V_19
+"Type     : IF-ID TLV"	,	L_20
+proto_register_subtree_array	,	F_17
+array_length	,	F_16
+fm_tree	,	V_29
+"pwach.channel_type"	,	L_14
+"MPLS[-TP] Fault-Management "	,	L_44
+"Reserved"	,	L_6
+next_tvb	,	V_18
+"Node id"	,	L_26
+proto_tree_add_item	,	F_4
+pinfo	,	V_15
+dissector_handle_t	,	T_10
+hf_mplstp_fm_global_tlv_type	,	V_13
+hf_mplstp_fm_global_id	,	V_14
+_U_	,	V_16
+"Interface Number"	,	L_28
+hf_mplstp_fm_msg_type	,	V_35
+hf_register_info	,	T_8
+VALS	,	F_22
+"mplstp_oam.flags"	,	L_36
+"Type     : GLOBAL-ID TLV"	,	L_22
+ti_flags	,	V_28
+"Link Down Indication"	,	L_38
+"mplstp_oam.node_id"	,	L_27
+COL_PROTOCOL	,	V_20
+hf_mplstp_fm_refresh_timer	,	V_40
+"mplstp_oam.global_id"	,	L_31
+FT_UINT8	,	V_43
+BASE_DEC	,	V_47
+proto_item	,	T_3
+"MPLS-TP Lock-Instruct"	,	L_10
+ENC_NA	,	V_23
+guint8	,	T_7
+"mplstp_oam.if_id_tlv_type"	,	L_21
+ti	,	V_3
+BASE_NONE	,	V_51
+hf_mplstp_fm_node_id	,	V_11
+"Fault-Management (FM) Protocol"	,	L_45
+data	,	T_6
+"FM Condition Cleared"	,	L_40
+proto_mplstp_lock	,	V_22
+"mplstp_oam.total.tlv.len"	,	L_19
+ett_mplstp_fm	,	V_32
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_2
+"mplstp_oam.tlv_len"	,	L_25
+ett_mplstp_fm_tlv_tree	,	V_7
+BASE_HEX	,	V_44
+hf_mplstp_lock_reserved	,	V_26
+FT_UINT24	,	V_46
+proto_item_add_subtree	,	F_3
+proto_register_field_array	,	F_15
+guint	,	T_4
+lock_tree	,	V_17
+"Length"	,	L_24
+offset	,	V_5
+hf_mplstp_lock_version	,	V_25
+fm_flags	,	V_30
+ett	,	V_48
+dissector_add_uint	,	F_20
+tree	,	V_2
+hf_mplstp_fm_if_tlv_type	,	V_8
+packet_info	,	T_5
+proto_register_mplstp_fm	,	F_21
+tvb_get_guint8	,	F_12
+tvb_captured_length	,	F_8
+"mplstp_lock"	,	L_13
+dissect_mplstp_lock	,	F_5
+proto_mplstp_fm	,	V_6
+"FM Flags"	,	L_35
+mplstp_lock_handle	,	V_49
+"Global id"	,	L_30
+"MPLS-TP Fault-Management"	,	L_43
+"MPLS-TP FM Flags"	,	L_37
+"mplstp_fm"	,	L_46
+"mplstp_lock.reserved"	,	L_7
+"mplstp_lock.refresh-timer"	,	L_9
+"mplstp_oam.refresh.timer"	,	L_17
+"Message Type"	,	L_32
+"mplstp_oam.flag_r"	,	L_41
+"mplstp_lock.version"	,	L_5
+"mplstp_oam.version"	,	L_15
+HFILL	,	V_45
+proto_reg_handoff_mplstp_lock	,	F_18
+ett_mplstp_fm_flags	,	V_37
+hf_mplstp_fm_flags	,	V_36
+"Refresh-timer value"	,	L_8
+create_dissector_handle	,	F_19
+"MPLS-TP LI"	,	L_2
+"Lock-Instruct (LI) Protocol"	,	L_12
+mplstp_fm_handle	,	V_55
+ENC_BIG_ENDIAN	,	V_9
+hf_mplstp_lock_refresh_timer	,	V_27
+FT_UINT32	,	V_52
+"mplstp_oam.reserved"	,	L_16
+fm_msg_type	,	V_53
+proto_register_mplstp_lock	,	F_13
+proto_tree	,	T_2
+hf	,	V_42
+"MPLS[-TP] Lock-Instruct "	,	L_11

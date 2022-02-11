@@ -1,0 +1,114 @@
+"Timestamp recovery"	,	L_14
+proto_register_protocol	,	F_9
+"Row FEC - SNBase=%u, Offset=%u, NA=%u"	,	L_2
+prefs_register_protocol	,	F_13
+"SNBase low"	,	L_4
+OffsetField	,	V_4
+hf_2dparityfec_na	,	V_29
+col_set_str	,	F_3
+gint	,	T_7
+NAField	,	V_5
+"rtp.pt"	,	L_38
+tvb	,	V_1
+guint32	,	T_5
+COL_INFO	,	V_10
+FT_BOOLEAN	,	V_38
+hf_2dparityfec_type	,	V_26
+"Index"	,	L_22
+handle_2dparityfec	,	V_48
+hf_2dparityfec_pt_recovery	,	V_21
+cinfo	,	V_8
+proto_register_subtree_array	,	F_12
+array_length	,	F_11
+hf_2dparityfec_payload	,	V_31
+"2dparityfec.na"	,	L_27
+proto_tree_add_item	,	F_5
+D	,	V_7
+pinfo	,	V_2
+col_add_fstr	,	F_4
+dissector_handle_t	,	T_10
+hf_2dparityfec_rfc2733_ext	,	V_20
+"2dparityfec.snbase_ext"	,	L_29
+"FEC Payload"	,	L_30
+"Enable this option to recognise all traffic on RTP dynamic payload type 96 (0x60) "	,	L_36
+module_2dparityfec	,	V_32
+hf_2dparityfec_ts_recovery	,	V_23
+hf_register_info	,	T_9
+"RFC2733 Extension (E)"	,	L_8
+VALS	,	F_8
+prefs_register_bool_preference	,	F_14
+"SNBase ext"	,	L_28
+"2dparityfec.payload"	,	L_31
+COL_PROTOCOL	,	V_9
+FT_UINT8	,	V_39
+BASE_DEC	,	V_35
+hf_2dparityfec_index	,	V_27
+"enable"	,	L_34
+proto_item	,	T_6
+ett_2dparityfec	,	V_16
+fec_type_names	,	V_42
+"2dparityfec.tsr"	,	L_15
+"2dparityfec.snbase_low"	,	L_5
+ENC_NA	,	V_15
+guint8	,	T_4
+"2dparityfec.offset"	,	L_25
+ti	,	V_11
+BASE_NONE	,	V_44
+"Payload Type recovery"	,	L_10
+"Pro-MPEG Extension (X)"	,	L_16
+"2dparityfec.x"	,	L_17
+hf_2dparityfec_ts_pro_mpeg_ext	,	V_24
+tree_2dparityfec	,	V_12
+"NA"	,	L_26
+proto_2dparityfec	,	V_14
+hf_2dparityfec_length_recovery	,	V_19
+proto_reg_handoff_2dparityfec	,	V_46
+"2dparityfec.mask"	,	L_13
+"2dparityfec.type"	,	L_21
+tvbuff_t	,	T_1
+hf_2dparityfec_offset	,	V_28
+BASE_HEX	,	V_37
+dissect_2dparityfec	,	F_1
+FT_UINT24	,	V_40
+proto_item_add_subtree	,	F_6
+module_t	,	T_8
+hf_2dparityfec_snbase_low	,	V_17
+proto_register_field_array	,	F_10
+FT_BYTES	,	V_43
+offset	,	V_13
+ett	,	V_45
+dissector_add_uint	,	F_16
+"2dparityfec.e"	,	L_9
+tree	,	V_3
+"2dparityfec.ptr"	,	L_11
+FT_UINT16	,	V_34
+packet_info	,	T_2
+tvb_get_guint8	,	F_2
+"Pro-MPEG Code of Practice #3 release 2 FEC Protocol"	,	L_32
+"Offset"	,	L_24
+dissect_fec	,	V_47
+dissector_delete_uint	,	F_17
+SNBase	,	V_6
+"2dparityfec.d"	,	L_19
+"Row FEC (D)"	,	L_18
+"Length recovery"	,	L_6
+fec_rtp_payload_type	,	V_49
+"2dparityfec.lr"	,	L_7
+"2dFEC"	,	L_1
+"Mask"	,	L_12
+hf_2dparityfec_row_flag	,	V_25
+HFILL	,	V_36
+"2dparityfec.index"	,	L_23
+"2dparityfec"	,	L_33
+hf_2dparityfec_snbase_ext	,	V_30
+proto_register_2dparityfec	,	F_7
+create_dissector_handle	,	F_15
+"Decode Pro-MPEG FEC on RTP dynamic payload type 96"	,	L_35
+"Column FEC - SNBase=%u, Offset=%u, NA=%u"	,	L_3
+ENC_BIG_ENDIAN	,	V_18
+hf_2dparityfec_mask	,	V_22
+"as FEC data corresponding to Pro-MPEG Code of Practice #3 release 2"	,	L_37
+FT_UINT32	,	V_41
+"Type"	,	L_20
+proto_tree	,	T_3
+hf	,	V_33

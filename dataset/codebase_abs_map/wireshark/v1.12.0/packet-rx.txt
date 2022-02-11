@@ -1,0 +1,268 @@
+hf_rx_challenge	,	V_40
+hf_rx_maxpackets	,	V_58
+RX_PACKET_TYPE_DATA	,	V_84
+"rx.serviceid"	,	L_43
+rx_ack_type	,	V_105
+"rx.challenge"	,	L_66
+proto_register_protocol	,	F_30
+UDP_PORT_RX_AFS_BACKUPS	,	V_114
+"Destination Port: %s  "	,	L_5
+hf_rx_serial	,	V_51
+tvb_new_subset_remaining	,	F_26
+"Version"	,	L_67
+"rx.flags"	,	L_25
+"CHALLENGE  "	,	L_7
+hf_rx_flags_more_packets	,	V_64
+"rx.seq"	,	L_19
+gint	,	T_11
+"afs"	,	L_104
+hf_rx_reason	,	V_52
+tvb	,	V_1
+"Spare/Checksum"	,	L_40
+guint32	,	T_4
+COL_INFO	,	V_28
+FT_BOOLEAN	,	V_97
+version	,	V_25
+ett_rx_ack	,	V_46
+tvb_reported_length_remaining	,	F_17
+"rx.ticket_len"	,	L_89
+dissect_rx_flags	,	F_18
+cinfo	,	V_27
+rx_handle	,	V_110
+array_length	,	F_32
+"rx.num_acks"	,	L_58
+hf_rx_flags_request_ack	,	V_66
+"Last Packet"	,	L_30
+hf_rx_rwind	,	V_57
+next_tvb	,	V_85
+"Prev Packet"	,	L_51
+ett_rx_challenge	,	V_41
+"rx.version"	,	L_68
+"First Packet"	,	L_49
+"kvno"	,	L_86
+"ACK Packet"	,	L_63
+"Reason"	,	L_54
+"rx.flags.last_packet"	,	L_31
+"rx.reason"	,	L_55
+"rx.kvno"	,	L_87
+"rx.ticket"	,	L_92
+proto_tree_add_boolean	,	F_19
+hf_register_info	,	T_10
+"ACK Type"	,	L_60
+"Request Ack"	,	L_28
+seq	,	V_24
+"Interface MTU"	,	L_93
+"rx.inc_nonce"	,	L_73
+guint16	,	T_9
+COL_PROTOCOL	,	V_70
+RX_MORE_PACKETS	,	V_101
+ett_rx_abort	,	V_38
+hf_rx_userstatus	,	V_77
+"Max MTU"	,	L_95
+i	,	V_7
+hf_rx_level	,	V_22
+"Bufferspace"	,	L_44
+"Incremented Nonce"	,	L_74
+guint8	,	T_7
+hf_rx_maxmtu	,	V_55
+hf_rx_securityindex	,	V_18
+"Type Of ACKs"	,	L_62
+BASE_NONE	,	V_107
+secs	,	V_13
+tl	,	V_26
+hf_rx_callnumber	,	V_20
+tvb_length_remaining	,	F_16
+ts	,	V_12
+RX_PACKET_TYPE_ABORT	,	V_87
+"rx.cid"	,	L_15
+hf_rx_numacks	,	V_53
+tvb_get_ntohl	,	F_4
+tvbuff_t	,	T_1
+hf_rx_flags_free_packet	,	V_63
+"Inc Nonce"	,	L_72
+proto_tree_add_protocol_format	,	F_24
+tvb_get_ntohs	,	F_25
+"rx.flags.more_packets"	,	L_33
+BASE_HEX	,	V_96
+parent_tree	,	V_2
+dissect_rx_response_encrypted	,	F_1
+proto_item_add_subtree	,	F_3
+RX_LAST_PACKET	,	V_100
+proto_register_field_array	,	F_31
+FT_BYTES	,	V_108
+rxinfo	,	V_59
+"rx.epoch"	,	L_13
+"rx.encrypted"	,	L_84
+dissector_add_uint	,	F_37
+"Sequence Number"	,	L_18
+"Ticket len"	,	L_88
+FT_UINT16	,	V_103
+tvb_get_guint8	,	F_15
+"rx.min_level"	,	L_76
+hf_rx_prev_packet	,	V_50
+port	,	V_111
+cid	,	V_74
+"rx.type"	,	L_23
+hf_rx_flags	,	V_61
+RX_PACKET_TYPE_ACK	,	V_80
+"More Packets"	,	L_32
+hf_rx_response	,	V_31
+"rx.rwind"	,	L_98
+call_dissector_with_data	,	F_27
+hf_rx_abortcode	,	V_39
+dissect_rx_acks	,	F_14
+hf_rx_ticket	,	V_36
+"Call Number"	,	L_16
+hf_rx_epoch	,	V_15
+"Security Index"	,	L_38
+"rx.level"	,	L_78
+"RESPONSE  "	,	L_1
+hf_rx_inc_nonce	,	V_21
+"ABORT Packet"	,	L_81
+new_create_dissector_handle	,	F_36
+hf_rx_kvno	,	V_34
+find_dissector	,	F_35
+"ACK  "	,	L_8
+hf_rx_version	,	V_33
+"rx.prev"	,	L_52
+ENC_BIG_ENDIAN	,	V_17
+RX_PACKET_TYPE_ACKALL	,	V_81
+FT_UINT32	,	V_92
+"rx.bufferspace"	,	L_45
+hf_rx_nonce	,	V_42
+"rx.callnumber"	,	L_17
+proto_rx	,	V_71
+old_offset	,	V_6
+"Source Port: %s  "	,	L_4
+serviceid	,	V_69
+hf	,	V_88
+hf_rx_seq	,	V_75
+"Service ID"	,	L_42
+hf_rx_bufferspace	,	V_47
+"Free Packet"	,	L_34
+"ACKALL  "	,	L_11
+proto_tree_add_time	,	F_5
+"rx.first"	,	L_50
+"Min Level"	,	L_75
+"rx.abort_code"	,	L_102
+proto_reg_handoff_rx	,	F_34
+"rx.max_mtu"	,	L_96
+hf_rx_ack_type	,	V_54
+"rx.ack"	,	L_64
+col_set_str	,	F_22
+"Flags"	,	L_24
+"Max Packets"	,	L_99
+"Number Of ACKs"	,	L_59
+item	,	V_5
+"ABORT  "	,	L_6
+afs_handle	,	V_86
+"Nonce"	,	L_70
+ett_rx_flags	,	V_62
+"RX"	,	L_9
+"Client Initiated"	,	L_26
+"rx.maxskew"	,	L_48
+"rx"	,	L_103
+dissect_rx	,	F_20
+"rx.max_packets"	,	L_100
+col_clear	,	F_23
+hf_rx_ack	,	V_45
+hf_rx_type	,	V_76
+FT_ABSOLUTE_TIME	,	V_89
+"Version Of Challenge/Response"	,	L_69
+proto_register_subtree_array	,	F_33
+"ticket"	,	L_91
+RX_PACKET_TYPE_CHALLENGE	,	V_82
+"Reason For This ACK"	,	L_56
+ett_rx_response	,	V_32
+"rx.flags.client_init"	,	L_27
+RX_PACKET_TYPE_RESPONSE	,	V_83
+proto_tree_add_item	,	F_2
+pinfo	,	V_23
+col_add_fstr	,	F_9
+dissector_handle_t	,	T_12
+"Call: %lu  "	,	L_3
+flags	,	V_60
+_U_	,	V_68
+"CHALLENGE Packet"	,	L_65
+epoch	,	V_73
+"rx.spare"	,	L_41
+hf_rx_flags_last_packet	,	V_65
+hf_rx_encrypted	,	V_9
+tvb_ensure_bytes_exist	,	F_11
+"rwind"	,	L_97
+hf_rx_flags_clientinit	,	V_67
+VALS	,	F_29
+"Number Of Packets Available"	,	L_46
+hf_rx_min_level	,	V_43
+tvb_length	,	F_21
+hf_rx_serviceid	,	V_79
+FT_UINT8	,	V_94
+BASE_DEC	,	V_93
+proto_item	,	T_3
+"rx.response"	,	L_80
+UDP_PORT_RX_LOW	,	V_112
+ENC_NA	,	V_10
+ABSOLUTE_TIME_LOCAL	,	V_90
+"Serial"	,	L_20
+hf_rx_ticket_len	,	V_35
+"rx.serial"	,	L_21
+"Seq: %lu  "	,	L_2
+ep_udp_port_to_display	,	F_10
+hf_rx_abort	,	V_37
+RX_CLIENT_INITIATED	,	V_98
+"rx.flags.free_packet"	,	L_35
+data	,	T_8
+num	,	V_44
+"Max Skew"	,	L_47
+hf_rx_first_packet	,	V_49
+"Ticket Length"	,	L_90
+hf_rx_ifmtu	,	V_56
+dissect_rx_response	,	F_8
+UDP_PORT_RX_HIGH	,	V_113
+"CID"	,	L_14
+RX_FREE_PACKET	,	V_102
+"rx.if_mtu"	,	L_94
+nstime_t	,	T_5
+FT_NONE	,	V_106
+offset	,	V_3
+ett	,	V_109
+tree	,	V_4
+"Encrypted"	,	L_83
+rx_types	,	V_95
+packet_info	,	T_6
+"rx.ack_type"	,	L_61
+"rx.flags.request_ack"	,	L_29
+destport	,	V_30
+ett_rx_encrypted	,	V_11
+proto_tree_add_uint	,	F_6
+hf_rx_maxskew	,	V_48
+RX_MAXCALLS	,	V_19
+"Num ACKs"	,	L_57
+"Abort Code"	,	L_101
+"Epoch"	,	L_12
+"rx.userstatus"	,	L_37
+"Previous Packet"	,	L_53
+ett_rx	,	V_72
+RX_REQUEST_ACK	,	V_99
+dissect_rx_abort	,	F_12
+hf_rx_spare	,	V_78
+HFILL	,	V_91
+"RX Protocol"	,	L_10
+"User Status"	,	L_36
+rx_reason	,	V_104
+hf_rx_cid	,	V_16
+"udp.port"	,	L_105
+callnumber	,	V_8
+"Level"	,	L_77
+proto_item_set_len	,	F_7
+"rx.securityindex"	,	L_39
+"RESPONSE Packet"	,	L_79
+nsecs	,	V_14
+"rx.nonce"	,	L_71
+proto_register_rx	,	F_28
+srcport	,	V_29
+dissect_rx_challenge	,	F_13
+"Type"	,	L_22
+"rx.abort"	,	L_82
+proto_tree	,	T_2
+"Encrypted part of response packet"	,	L_85

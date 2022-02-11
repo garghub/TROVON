@@ -1,0 +1,214 @@
+gearman_module	,	V_100
+proto_register_protocol	,	F_27
+"Error Code"	,	L_57
+hf_gearman_complete_numerator	,	V_43
+GEARMAN_COMMAND_WORK_WARNING	,	V_72
+len	,	V_9
+"gearman.submit_job.epoch_time"	,	L_48
+GEARMAN_COMMAND_SUBMIT_JOB_SCHED	,	V_57
+tcp_dissect_pdus	,	F_24
+gint	,	T_6
+GEARMAN_COMMAND_JOB_CREATED	,	V_36
+"Known job"	,	L_51
+"Day of Month"	,	L_41
+gearman_desegment	,	V_90
+tvb	,	V_2
+guint32	,	T_7
+"gearman.job.running"	,	L_54
+COL_INFO	,	V_14
+"Error Text"	,	L_59
+"gearman.data_size"	,	L_18
+"Month"	,	L_43
+content_tree	,	V_11
+hf_gearman_pkt_type	,	V_24
+size	,	V_8
+cinfo	,	V_12
+hf_gearman_uniq_id	,	V_55
+array_length	,	F_29
+"Day of Week"	,	L_45
+"gearman.echo_text"	,	L_56
+GEARMAN_COMMAND_SUBMIT_JOB_HIGH_BG	,	V_51
+GEARMAN_COMMAND_SUBMIT_JOB_LOW	,	V_52
+FT_STRINGZ	,	V_98
+"gearman.submit_job_sched.day_of_month"	,	L_42
+ENC_ASCII	,	V_28
+hf_gearman_submit_job_sched_day_of_month	,	V_60
+"Desegment all Gearman messages spanning multiple TCP segments"	,	L_64
+"gearman.denominator"	,	L_36
+hf_register_info	,	T_9
+GEARMAN_COMMAND_ERROR	,	V_33
+COL_PROTOCOL	,	V_13
+i	,	V_81
+hf_gearman_err_code	,	V_34
+tvb_memeql	,	F_23
+ti	,	V_16
+BASE_NONE	,	V_93
+col_append_sep_fstr	,	F_7
+"gearman.data_content"	,	L_20
+start_offset	,	V_6
+hf_gearman_mgr_cmd	,	V_87
+"gearman.job.handle"	,	L_32
+"[%s] "	,	L_3
+tvb_get_ntohl	,	F_2
+command_tree	,	V_17
+tvbuff_t	,	T_4
+tvb_strsize	,	F_14
+hf_gearman_client_id	,	V_78
+GEARMAN_MAGIC_CODE_REQUEST	,	V_88
+"desegment"	,	L_63
+GEARMAN_COMMAND_CAN_DO_TIMEOUT	,	V_70
+hf_gearman_option_name	,	V_47
+proto_reg_handoff_gearman	,	F_33
+hf_gearman_job_handle	,	V_38
+GEARMAN_COMMAND_WORK_COMPLETE	,	V_73
+"Running Job"	,	L_53
+hf_gearman_echo_text	,	V_32
+"Complete Numerator"	,	L_33
+"Minute"	,	L_37
+content_item	,	V_10
+"Unknown (0x%08x)"	,	L_5
+proto_item_add_subtree	,	F_11
+module_t	,	T_10
+"Client ID"	,	L_25
+proto_register_field_array	,	F_28
+"Magic Code"	,	L_13
+hf_gearman_err_text	,	V_35
+dissector_add_uint	,	F_35
+GEARMAN_COMMAND_SUBMIT_JOB_EPOCH	,	V_63
+GEARMAN_COMMAND_SET_CLIENT_ID	,	V_77
+magic_code	,	V_7
+"gearman.func.arg"	,	L_30
+"gearman.opt.name"	,	L_22
+hf_gearman_argument	,	V_56
+GEARMAN_COMMAND_JOB_ASSIGN	,	V_65
+"gearman.func.name"	,	L_24
+tvb_strneql	,	F_19
+"[%s] %s(%d) LEN=%d"	,	L_6
+BASE_DEC_HEX	,	V_96
+"Gearman Protocol"	,	L_61
+hf_gearman_submit_job_sched_hour	,	V_59
+GEARMAN_COMMAND_WORK_STATUS	,	V_76
+GEARMAN_PORT	,	V_102
+FT_STRING	,	V_92
+GEARMAN_COMMAND_CANT_DO	,	V_69
+GEARMAN_COMMAND_WORK_DATA	,	V_71
+"Function Argument"	,	L_29
+hf_gearman_complete_denominator	,	V_44
+GEARMAN_COMMAND_CAN_DO	,	V_68
+"gearman.submit_job_sched.hour"	,	L_40
+gearman_command_names	,	V_15
+PI_WARN	,	V_80
+"Management Command"	,	L_11
+dissect_gearman	,	F_22
+hf_gearman_submit_job_epoch_time	,	V_64
+"Epoch Time"	,	L_47
+ENC_BIG_ENDIAN	,	V_25
+FT_UINT32	,	V_95
+"[MGR] %s"	,	L_8
+"gearman.mgr_cmd"	,	L_12
+GEARMAN_COMMAND_WORK_EXCEPTION	,	V_74
+hf_gearman_submit_job_sched_month	,	V_61
+get_gearman_pdu_len	,	F_1
+hf	,	V_91
+hf_gearman_data_content	,	V_27
+"Data Content"	,	L_19
+"Gearman"	,	L_1
+gearman_handle	,	V_101
+prefs_register_protocol	,	F_31
+GEARMAN_COMMAND_STATUS_RES	,	V_39
+hf_gearman_magic_code	,	V_23
+col_append_fstr	,	F_8
+hf_gearman_running_status	,	V_42
+col_set_str	,	F_4
+","	,	L_10
+ett_gearman_command	,	V_22
+"gearman.magic_code"	,	L_14
+"Data Length"	,	L_17
+GEARMAN_MGR_CMDS_COUNT	,	V_85
+"gearman.submit_job_sched.minute"	,	L_38
+"Echo Text"	,	L_55
+hf_gearman_data_size	,	V_26
+col_set_fence	,	F_16
+linelen	,	V_83
+"Complete Denominator"	,	L_35
+"gearman.uniq_id"	,	L_28
+"Unique ID"	,	L_27
+col_clear	,	F_5
+hf_gearman_func_namez	,	V_66
+proto_register_subtree_array	,	F_30
+val_to_str	,	F_9
+proto_tree_add_string	,	F_13
+hf_gearman_job_handlez	,	V_40
+tvb_find_line_end	,	F_18
+"Function Name"	,	L_23
+"Unknown command"	,	L_7
+proto_tree_add_item	,	F_10
+pinfo	,	T_3
+col_add_fstr	,	F_20
+dissector_handle_t	,	T_11
+"gearman.submit_job_sched.month"	,	L_44
+_U_	,	V_1
+"gearman.pkt_type"	,	L_16
+GEARMAN_COMMAND_SUBMIT_JOB_LOW_BG	,	V_53
+ett_gearman	,	V_21
+"gearman.submit_job_sched.day_of_week"	,	L_46
+GEARMAN_COMMAND_WORK_FAIL	,	V_37
+GEARMAN_MAGIC_CODE_RESPONSE	,	V_89
+hf_gearman_submit_job_sched_day_of_week	,	V_62
+VALS	,	F_26
+prefs_register_bool_preference	,	F_32
+GEARMAN_COMMAND_ECHO_RES	,	V_31
+next_offset	,	V_84
+GEARMAN_COMMAND_ECHO_REQ	,	V_30
+GEARMAN_COMMAND_JOB_ASSIGN_UNIQ	,	V_67
+PI_PROTOCOL	,	V_79
+tvb_get_ephemeral_string	,	F_6
+proto_tree_add_text	,	F_12
+BASE_DEC	,	V_97
+proto_item	,	T_8
+ENC_NA	,	V_20
+GEARMAN_COMMAND_OPTION_RES	,	V_46
+expert_add_info_format	,	F_15
+"gearman.client_id"	,	L_26
+GEARMAN_COMMAND_OPTION_REQ	,	V_45
+"Function Result"	,	L_49
+tvb_format_text	,	F_21
+"%s"	,	L_9
+"Packet Type"	,	L_15
+"%s(%d) LEN=%d"	,	L_4
+cmdlen	,	V_82
+hf_gearman_result	,	V_75
+proto_register_gearman	,	F_25
+hf_gearman_submit_job_sched_minute	,	V_58
+GEARMAN_COMMAND_SUBMIT_JOB_BG	,	V_49
+"Job Handle"	,	L_31
+"Hour"	,	L_39
+"gearman.func.result"	,	L_50
+dissect_management_packet	,	F_17
+guint	,	T_1
+offset	,	V_3
+ett	,	V_99
+tree	,	V_5
+GEARMAN_COMMAND_SUBMIT_JOB_HIGH	,	V_50
+hf_gearman_known_status	,	V_41
+"Whether the Gearman dissector should desegment all messages spanning multiple TCP segments"	,	L_65
+packet_info	,	T_2
+gearman_tree	,	V_18
+proto_gearman	,	V_19
+"gearman"	,	L_62
+"gearman.err.text"	,	L_60
+"gearman.job.known"	,	L_52
+"gearman.err.code"	,	L_58
+"gearman.numerator"	,	L_34
+ett_gearman_content	,	V_29
+GEARMAN_MGR_CMDS	,	V_86
+GEARMAN_COMMAND_SUBMIT_JOB	,	V_48
+HFILL	,	V_94
+" , "	,	L_2
+create_dissector_handle	,	F_34
+dissect_binary_packet	,	F_3
+"Option Name"	,	L_21
+GEARMAN_COMMAND_HEADER_SIZE	,	V_4
+hf_gearman_func_name	,	V_54
+"tcp.port"	,	L_66
+proto_tree	,	T_5

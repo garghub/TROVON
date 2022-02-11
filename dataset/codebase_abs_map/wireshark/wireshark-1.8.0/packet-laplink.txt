@@ -1,0 +1,106 @@
+UDP_PORT_LAPLINK	,	V_43
+dissect_laplink_tcp	,	F_16
+"UDP Ident"	,	L_3
+proto_register_protocol	,	F_20
+hf_laplink_tcp_length	,	V_24
+"laplink.tcp_data"	,	L_15
+prefs_register_protocol	,	F_24
+check_col	,	F_6
+tcp_dissect_pdus	,	F_17
+udp_ident_string	,	V_8
+gint	,	T_1
+col_set_str	,	F_5
+laplink_module	,	V_39
+tvb	,	V_1
+guint32	,	T_6
+COL_INFO	,	V_12
+"laplink.udp_ident"	,	L_4
+"Machine name"	,	L_8
+cinfo	,	V_10
+proto_register_subtree_array	,	F_23
+val_to_str	,	F_13
+array_length	,	F_22
+"desegment_laplink_over_tcp"	,	L_18
+"Unknown magic"	,	L_5
+"Reassemble Laplink over TCP messages spanning multiple TCP segments"	,	L_19
+laplink_udp_handle	,	V_40
+proto_tree_add_item	,	F_8
+FT_STRINGZ	,	V_33
+pinfo	,	V_2
+dissector_handle_t	,	T_11
+_U_	,	V_26
+ENC_ASCII	,	V_18
+get_laplink_pdu_len	,	F_15
+dissect_laplink_tcp_pdu	,	F_12
+hf_register_info	,	T_9
+VALS	,	F_19
+"laplink"	,	L_17
+prefs_register_bool_preference	,	F_25
+TCP_PORT_LAPLINK	,	V_42
+"laplink.tcp_length"	,	L_12
+laplink_tree	,	V_6
+COL_PROTOCOL	,	V_11
+dissect_laplink_udp	,	F_1
+tvb_length	,	F_11
+BASE_DEC	,	V_36
+proto_item	,	T_5
+ett_laplink	,	V_15
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_21
+ENC_NA	,	V_14
+hf_laplink_udp_ident	,	V_16
+ti	,	V_5
+BASE_NONE	,	V_34
+hf_laplink_tcp_ident	,	V_22
+"laplink.udp_name"	,	L_7
+laplink_desegment	,	V_28
+hf_laplink_tcp_data	,	V_25
+"laplink.tcp_ident"	,	L_10
+"Laplink"	,	L_1
+tvb_get_ntohl	,	F_3
+tvbuff_t	,	T_2
+"TCP TBA (%u)"	,	L_2
+tvb_get_ntohs	,	F_14
+BASE_HEX	,	V_31
+plen	,	V_27
+"Length of remaining payload"	,	L_13
+col_add_str	,	F_7
+proto_item_add_subtree	,	F_9
+module_t	,	T_10
+proto_register_field_array	,	F_21
+FT_BYTES	,	V_37
+proto_laplink	,	V_13
+guint	,	T_8
+offset	,	V_4
+ett	,	V_38
+laplink_tcp_magic	,	V_21
+dissector_add_uint	,	F_28
+tree	,	V_3
+tvb_bytes_exist	,	F_2
+proto_reg_handoff_laplink	,	F_26
+laplink_udp_magic	,	V_9
+"Unknown TCP data"	,	L_14
+FT_UINT16	,	V_35
+packet_info	,	T_3
+hf_laplink_udp_name	,	V_17
+"TCP Data payload length"	,	L_11
+proto_tree_add_uint	,	F_10
+match_strval	,	F_4
+proto_register_laplink	,	F_18
+laplink_tcp_handle	,	V_41
+"TCP data"	,	L_16
+HFILL	,	V_32
+new_create_dissector_handle	,	F_29
+"UDP Name"	,	L_6
+"udp.port"	,	L_23
+gchar	,	T_7
+length	,	V_19
+create_dissector_handle	,	F_27
+ENC_BIG_ENDIAN	,	V_23
+tcp_ident	,	V_20
+FT_UINT32	,	V_30
+"Whether the Laplink dissector should reassemble messages spanning multiple TCP segments."	,	L_20
+"TCP Ident"	,	L_9
+udp_ident	,	V_7
+"tcp.port"	,	L_22
+proto_tree	,	T_4
+hf	,	V_29

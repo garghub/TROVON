@@ -1,0 +1,97 @@
+" - DL-MAP IEs"	,	L_3
+WIMAX_HARQ_MAP_INDICATOR_MASK	,	V_20
+col_append_sep_str	,	F_4
+proto_wimax_harq_map_decoder	,	V_23
+nibble_offset	,	V_13
+ie_length	,	V_10
+tvb_reported_length	,	F_2
+gint	,	T_9
+"wmx.harq_map.msg_crc"	,	L_20
+proto_wimax	,	V_46
+tvb	,	V_1
+"wmx.harq_map.msg_length"	,	L_16
+guint32	,	T_7
+WIMAX_HARQ_MAP_MSG_LENGTH_MASK	,	V_31
+COL_INFO	,	V_22
+proto_item_append_text	,	F_9
+it	,	V_15
+proto_register_wimax_harq_map	,	F_17
+cinfo	,	V_21
+tvb_len	,	V_7
+",UL-MAP IEs"	,	L_4
+proto_register_subtree_array	,	F_18
+WIMAX_HARQ_MAP_DL_IE_COUNT_MASK	,	V_33
+calculated_crc	,	V_18
+array_length	,	F_19
+LSB_NIBBLE_MASK	,	V_36
+tvb_get_ntoh24	,	F_3
+"Reserved"	,	L_13
+proto_tree_add_item	,	F_8
+pinfo	,	V_2
+wimax_compact_ulmap_ie_decoder	,	F_11
+_U_	,	V_4
+hf_harq_map_indicator	,	V_25
+"HARQ UL-MAP Appended"	,	L_11
+hf_register_info	,	T_8
+"Map Message Length"	,	L_15
+"HARQ-MAP Message: "	,	L_1
+"wmx.harq_map.dl_ie_count"	,	L_18
+" - incorrect! (should be: 0x%x)"	,	L_8
+dissector_wimax_harq_map_decoder	,	F_1
+i	,	V_5
+WIMAX_HARQ_MAP_MSG_LENGTH_SHIFT	,	V_32
+WIMAX_HARQ_UL_MAP_APPENDED_MASK	,	V_35
+BASE_DEC	,	V_43
+first_24bits	,	V_19
+proto_item	,	T_6
+wimax_mac_calc_crc32	,	F_14
+"DL IE Count"	,	L_17
+"wimax_harq_map_handler"	,	L_21
+hf_harq_ul_map_appended	,	V_27
+"HARQ MAP Message CRC"	,	L_19
+register_dissector	,	F_21
+hf_harq_map_msg_length	,	V_29
+hf_harq_map	,	V_38
+data	,	T_4
+tvb_get_ntohl	,	F_13
+"HARQ-MAP Message (%u bytes)"	,	L_2
+tvbuff_t	,	T_1
+"wmx.harq_map.reserved"	,	L_14
+proto_tree_add_protocol_format	,	F_6
+hf_harq_map_msg_crc	,	V_37
+BASE_HEX	,	V_40
+FT_UINT24	,	V_39
+proto_item_add_subtree	,	F_7
+proto_register_field_array	,	F_20
+guint	,	T_5
+offset	,	V_6
+harq_map_item	,	V_11
+ett	,	V_45
+hf_harq_map_reserved	,	V_28
+tree	,	V_3
+dl_ie_count	,	V_9
+",CRC"	,	L_7
+hf_harq_dl_ie_count	,	V_30
+tvb_get_ptr	,	F_15
+packet_info	,	T_2
+ulmap_appended	,	V_16
+tvb_get_guint8	,	F_12
+"wmx.harq_map.ul_map_appended"	,	L_12
+tvb_captured_length	,	F_16
+"wmx.harq_map.indicator"	,	L_10
+WIMAX_HARQ_MAP_DL_IE_COUNT_SHIFT	,	V_34
+harq_map_msg_crc	,	V_17
+ett_wimax_harq_map_decoder	,	V_24
+harq_map_tree	,	V_12
+proto_tree_get_parent	,	F_5
+HFILL	,	V_41
+wimax_compact_dlmap_ie_decoder	,	F_10
+WIMAX_HARQ_MAP_RESERVED_MASK	,	V_42
+length	,	V_8
+",Padding"	,	L_5
+ENC_BIG_ENDIAN	,	V_26
+"Padding Nibble: 0x%x"	,	L_6
+FT_UINT32	,	V_44
+parent_item	,	V_14
+"HARQ MAP Indicator"	,	L_9
+proto_tree	,	T_3

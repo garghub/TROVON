@@ -1,0 +1,314 @@
+hf_compat_desc_length	,	V_44
+"dsmcc.dii.ack_period"	,	L_65
+"verify_crc"	,	L_117
+hf_dsmcc_reserved	,	V_102
+ett_dsmcc_header	,	V_27
+msg_error	,	V_118
+ssi	,	V_95
+hf_dsmcc_current_next_indicator	,	V_108
+proto_register_protocol	,	F_27
+"Adaptation Header"	,	L_1
+prot_disc	,	V_21
+"Verify the section CRC or checksum"	,	L_118
+"Compatibility Descriptor Length"	,	L_38
+"Version"	,	L_51
+len	,	V_24
+DSMCC_LENGTH_MASK	,	V_104
+"dsmcc.table_id_extension"	,	L_96
+hf_dsmcc_header_reserved	,	V_34
+gint	,	T_9
+hf_dsmcc_dii_t_c_download_window	,	V_68
+hf_dsmcc_adaptation_ca_length	,	V_17
+msg_id	,	V_25
+hf_dsmcc_ddb_reserved	,	V_84
+tvb	,	V_1
+top_tree	,	V_81
+DSMCC_TID_PRIVATE	,	V_115
+crc32_mpeg2_tvb_offset	,	F_20
+guint32	,	T_10
+"Session Syntax Indicator"	,	L_89
+dissect_dsmcc_un	,	F_18
+"mpeg_sect.tid"	,	L_120
+"dsmcc.checksum"	,	L_109
+tx_id	,	V_26
+DSMCC_RESERVED2_MASK	,	V_136
+"dsmcc.dii.carousel_download_scenario"	,	L_69
+"Unknown Adaptation Header"	,	L_3
+hf_desc_spec_data	,	V_50
+"dsmcc.type"	,	L_20
+sub_tree	,	V_7
+reserved	,	V_22
+cinfo	,	V_120
+PI_ERROR	,	V_15
+DSMCC_PRIVATE_MASK	,	V_134
+array_length	,	F_29
+"Block Number"	,	L_85
+"Reserved"	,	L_25
+hf_dsmcc_version_number	,	V_107
+call_dissector	,	F_10
+DSMCC_CURRENT_NEXT_INDICATOR_MASK	,	V_138
+hf_dsmcc_reserved2	,	V_106
+"Specifier Type"	,	L_45
+hf_dsmcc_dii_number_of_modules	,	V_70
+ENC_ASCII	,	V_77
+hf_dsmcc_private_indicator	,	V_101
+"Verified"	,	L_13
+"dsmcc.dii.compat.sub_count"	,	L_53
+"Module Info Length"	,	L_78
+dissect_dsmcc_adaptation_header	,	F_1
+hf_register_info	,	T_11
+hf_dsmcc_protocol_discriminator	,	V_28
+DSMCC_VERSION_NUMBER_MASK	,	V_137
+hf_dsmcc_dii_ack_period	,	V_67
+crc_start	,	V_91
+hf_desc_sub_desc_type	,	V_55
+"dsmcc.dii.compat.length"	,	L_44
+guint16	,	T_7
+sect_len	,	V_90
+ett_dsmcc_dii_module	,	V_71
+hf_dsmcc_table_id_extension	,	V_105
+COL_PROTOCOL	,	V_121
+"dsmcc.dii.compat.spec_data"	,	L_48
+"Module Absolute Path"	,	L_110
+i	,	V_37
+j	,	V_38
+"dsmcc.private_indicator"	,	L_92
+ett_dsmcc_payload	,	V_87
+RVALS	,	F_25
+hf_dsmcc_adaptation_ca_system_id	,	V_16
+guint8	,	T_6
+hf_desc_version	,	V_52
+mod_tree	,	V_63
+"dsmcc.download_id"	,	L_58
+BASE_NONE	,	V_140
+hf_dsmcc_dd_download_id	,	V_31
+"dsmcc.dii.private_data_length"	,	L_81
+"mpeg-dsmcc"	,	L_115
+"Adaptation Length"	,	L_27
+"Number of Modules"	,	L_70
+"Transaction ID"	,	L_23
+"dsmcc.ddb.block_num"	,	L_86
+dsmcc_module	,	V_142
+hf_dsmcc_type	,	V_29
+tvb_get_ntohl	,	F_14
+"mpeg_sect.crc"	,	L_107
+"Module Size"	,	L_74
+tvbuff_t	,	T_1
+"Compatibility Descriptor"	,	L_6
+dsmcc_handle	,	V_143
+"Descriptor Type"	,	L_42
+tvb_get_ntohs	,	F_8
+"dsmcc.dii.compat_desc_len"	,	L_39
+tid	,	V_89
+BASE_HEX	,	V_124
+"dsmcc.last_section_number"	,	L_105
+PROTO_ITEM_SET_GENERATED	,	F_6
+"Message Length"	,	L_29
+"Last Section Number"	,	L_104
+FT_UINT24	,	V_132
+"DSM-CC Header"	,	L_4
+gboolean	,	T_8
+proto_item_add_subtree	,	F_4
+dsmcc_payload_name_vals	,	V_133
+module_t	,	T_12
+proto_register_field_array	,	F_28
+"Model"	,	L_49
+FT_UINT_STRING	,	V_139
+dissector_add_uint	,	F_36
+count	,	V_41
+hf_desc_spec_type	,	V_49
+ett_dsmcc	,	V_97
+data_handle	,	V_18
+hf_dsmcc_transaction_id	,	V_33
+modules	,	V_58
+FT_UINT16	,	V_128
+"dsmcc.dii.compat.version"	,	L_52
+tvb_get_guint8	,	F_2
+hf_dsmcc_dii_download_id	,	V_64
+module_id	,	V_60
+compat_tree	,	V_42
+hf_dsmcc_crc	,	V_117
+"dsmcc.message_length"	,	L_30
+"dsmcc.dii.module_info_length"	,	L_79
+"Module Id: 0x%x, Version: %u, Size: %u"	,	L_9
+"dsmcc.adaptation_header.ca.reserved"	,	L_33
+"Authority"	,	L_112
+dissect_dsmcc_ts	,	F_19
+DSMCC_SSI_MASK	,	V_99
+"dsmcc.section_number"	,	L_103
+"dsmcc.current_next_indicator"	,	L_101
+dsmcc_header_type_vals	,	V_127
+ca_len	,	V_9
+hf_desc_type	,	V_47
+"Sub Descriptor"	,	L_7
+"dsmcc.dii.carousel_download_window"	,	L_67
+hf_etv_dii_authority	,	V_80
+DSMCC_TID_DESC_LIST	,	V_114
+"Adaptation Type"	,	L_31
+"Window Size"	,	L_62
+hf_dsmcc_section_number	,	V_109
+"dsmcc.dii.compat.sub_type"	,	L_54
+"dsmcc.ddb.reserved"	,	L_84
+hf_dsmcc_adaptation_length	,	V_35
+"dsmcc.ddb.module_id"	,	L_82
+download_header	,	V_20
+sub_count	,	V_39
+"mpeg_sect.ssi"	,	L_90
+find_dissector	,	F_37
+hf_etv_module_abs_path	,	V_76
+label	,	V_94
+ENC_BIG_ENDIAN	,	V_12
+dissect_dsmcc_header	,	F_11
+desc_sub_tree	,	V_43
+dissect_dsmcc_ddb	,	F_15
+FT_UINT32	,	V_129
+hf_dsmcc_last_section_number	,	V_110
+"dsmcc.message_id"	,	L_22
+"dsmcc.dii.window_size"	,	L_63
+"dsmcc.dii.block_size"	,	L_61
+hf	,	V_122
+"Carousel Download Scenario"	,	L_68
+"Invalid value - should be 0x11"	,	L_5
+"dsmcc.dii.module_id"	,	L_73
+"CRC 32"	,	L_106
+sub_tvb	,	V_4
+module_info_len	,	V_57
+hf_dsmcc_dii_private_data_length	,	V_79
+"dsmcc.transaction_id"	,	L_24
+"dsmcc.adaptation_header.ca.length"	,	L_36
+prefs_register_protocol	,	F_32
+adaptation_len	,	V_23
+hf_dsmcc_dii_block_size	,	V_65
+"dsmcc.dii.compat.sub_len"	,	L_56
+"dsmcc.dii.module_count"	,	L_71
+tmp	,	V_8
+"Table ID Extension"	,	L_95
+col_set_str	,	F_23
+proto_reg_handoff_dsmcc	,	F_34
+BASE_RANGE_STRING	,	V_126
+"dsmcc.adaptation_header.type"	,	L_32
+ett_dsmcc_adaptation_header	,	V_10
+proto_tree_add_uint_format	,	F_21
+"Protocol Discriminator"	,	L_17
+hf_dsmcc_ddb_module_id	,	V_82
+"Download ID"	,	L_57
+hf_dsmcc_dd_message_id	,	V_30
+ett_dsmcc_compat	,	V_46
+hf_dsmcc_dii_window_size	,	V_66
+"dsmcc.reserved2"	,	L_97
+sub_len	,	V_40
+"etv.dsmcc.dii.module_abs_path"	,	L_111
+"dsmcc.adaptation_length"	,	L_28
+"dsmcc.dii.module_size"	,	L_75
+proto_register_subtree_array	,	F_30
+val_to_str	,	F_17
+calculated_crc	,	V_93
+"dsmcc.dii.compat.spec_type"	,	L_46
+module_size	,	V_62
+"dsmcc.dii.compat.model"	,	L_50
+dissect_dsmcc_un_download	,	F_16
+"Checksum"	,	L_108
+dsmcc_dd_message_id_vals	,	V_86
+proto_tree_add_item	,	F_5
+DSMCC_TID_DD_MSG	,	V_113
+pinfo	,	V_2
+dissector_handle_t	,	T_13
+proto_register_dsmcc	,	F_24
+"Section Number"	,	L_102
+hf_desc_length	,	V_48
+"dsmcc.dii.compat.type"	,	L_43
+new_register_dissector	,	F_31
+hf_dsmcc_dii_module_version	,	V_74
+"Module ID"	,	L_72
+dissect_dsmcc	,	F_22
+hf_dsmcc_adaptation_ca_reserved	,	V_13
+dissect_dsmcc_dii	,	F_13
+VALS	,	F_26
+"dsmcc.version_number"	,	L_99
+prefs_register_bool_preference	,	F_33
+"dsmcc.dii.module_version"	,	L_77
+dsmcc_adaptation_header_vals	,	V_131
+hf_dsmcc_message_id	,	V_32
+ett_dsmcc_compat_sub_desc	,	V_54
+"data"	,	L_121
+FT_UINT8	,	V_123
+proto_tree_add_text	,	F_3
+BASE_DEC	,	V_130
+tvb_new_subset	,	F_9
+"dsmcc.adaptation_header.uid.reserved"	,	L_37
+proto_item	,	T_5
+hf_desc_sub_desc_len	,	V_56
+"mp2t-dsmcc"	,	L_116
+"Module Version"	,	L_76
+ENC_NA	,	V_78
+hf_dsmcc_message_length	,	V_36
+hf_compat_desc_count	,	V_45
+DSMCC_TID_UN_MSG	,	V_112
+expert_add_info_format	,	F_7
+hf_dsmcc_ddb_version	,	V_83
+"mpeg_sect.table_id"	,	L_88
+hf_desc_sub_desc_count	,	V_53
+"%s"	,	L_11
+hf_dsmcc_table_id	,	V_98
+"Table ID"	,	L_87
+"Message ID"	,	L_21
+hf_dsmcc_dii_t_c_download_scenario	,	V_69
+"Whether the section dissector should verify the CRC or checksum"	,	L_119
+hf_dsmcc_ddb_block_number	,	V_85
+hf_dsmcc_dii_module_info_length	,	V_75
+proto_dsmcc	,	V_96
+"ACK Period"	,	L_64
+hf_dsmcc_checksum	,	V_119
+guint	,	T_4
+"Length"	,	L_55
+offset	,	V_5
+ett	,	V_141
+"Unverified"	,	L_12
+tree	,	V_3
+"Invalid CRC"	,	L_8
+"dsmcc.header_reserved"	,	L_26
+hf_dsmcc_section_length	,	V_103
+"etv.dsmcc.dii.authority"	,	L_113
+module_version	,	V_61
+"dsmcc.adaptation_header.ca.system_id"	,	L_35
+"dsmcc.dii.download_id"	,	L_59
+packet_info	,	T_2
+"Block Size"	,	L_60
+"Private Indicator"	,	L_91
+"DSM-CC"	,	L_16
+DSMCC_TID_LLCSNAP	,	V_111
+"Current Next Indicator"	,	L_100
+dissect_dsmcc_dii_compat_desc	,	F_12
+"Specifier Data"	,	L_47
+"dsmcc.protocol"	,	L_18
+"CRC: 0x%08x [Failed Verification (Calculated: 0x%08x)]"	,	L_15
+hf_dsmcc_section_syntax_indicator	,	V_100
+hf_dsmcc_adaptation_user_id_reserved	,	V_19
+"dsmcc.ddb.version"	,	L_83
+"mpeg_sect.reserved"	,	L_93
+hf_desc_model	,	V_51
+"MPEG DSM-CC"	,	L_114
+"System ID"	,	L_34
+hf_dsmcc_dii_module_id	,	V_72
+crc	,	V_92
+"CRC: 0x%08x [%s]"	,	L_14
+"Private Data Length"	,	L_80
+"mpeg_sect.section_length"	,	L_94
+PI_MALFORMED	,	V_14
+HFILL	,	V_125
+"Invalid value - should be 0xff"	,	L_2
+"Carousel Download Window"	,	L_66
+"User Network Message - %s"	,	L_10
+private_data_len	,	V_59
+"Version Number"	,	L_98
+"Descriptor Length"	,	L_40
+create_dissector_handle	,	F_35
+dsmcc_sect_check_crc	,	V_116
+"dsmcc.dii.compat_desc_count"	,	L_41
+hf_dsmcc_adaptation_type	,	V_11
+hf_dsmcc_dii_module_size	,	V_73
+pi	,	V_6
+"Type"	,	L_19
+DSMCC_RESERVED_MASK	,	V_135
+proto_tree	,	T_3
+tree_in	,	V_88

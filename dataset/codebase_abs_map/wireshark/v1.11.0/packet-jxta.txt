@@ -1,0 +1,547 @@
+JXTA_UDP_SIG	,	V_20
+jxta_message_framing_tvb	,	V_16
+hf_jxta_welcome_peerid	,	V_86
+"Destination Address"	,	L_49
+jxta_welcome_initiator_item	,	V_81
+wmem_strbuf_new_label	,	F_57
+JXTA_MSGELEM_SIG	,	V_160
+JXTA_WELCOME_MSG_SIG	,	V_40
+jxta_tree	,	V_29
+"content-length"	,	L_11
+fullmediatype	,	V_212
+hf_jxta_element2_flag_sigOfEncoded	,	V_202
+"%d Messages, %s -&gt; %s"	,	L_16
+"jxta.message.element.flags.hasEncoding"	,	L_126
+initiator_address	,	V_53
+"jxta.message.element.namespaceid"	,	L_118
+proto_reg_handoff_jxta	,	V_241
+" * BAD *"	,	L_22
+content_length	,	V_18
+TFS	,	F_74
+dissect_jxta_udp	,	F_3
+guint32	,	T_6
+proto_item_set_end	,	F_22
+type_len	,	V_162
+"Welcome"	,	L_4
+hf_jxta_element2_namespaceid	,	V_203
+"Names Count"	,	L_104
+"jxta.message.element"	,	L_114
+FT_BOOLEAN	,	V_230
+"JXTA Message Framing Header Name"	,	L_78
+proto_message_jxta	,	V_138
+"jxta.message.element.signature"	,	L_115
+dissect_jxta_SCTP_heur	,	F_6
+ett_jxta_framing	,	V_104
+tvb_reported_length_remaining	,	F_11
+each_elem	,	V_127
+"URI Address (source or destination)"	,	L_31
+size	,	V_132
+" &lt;- "	,	L_8
+wmem_strdup	,	F_41
+wmem_strbuf_t	,	T_18
+array_length	,	F_79
+PT_NONE	,	V_62
+hf_jxta_element1_namespaceid	,	V_178
+get_peer_conversation	,	F_26
+""	,	L_19
+each_variable_token	,	V_95
+"JXTA UDP Message"	,	L_3
+hf_jxta_udpsig	,	V_36
+hf_jxta_welcome_pubAddr	,	V_85
+"jxta.udp"	,	L_1
+DISSECTOR_ASSERT	,	F_8
+ENC_ASCII	,	V_37
+col_append_str	,	F_40
+"JXTA Message Element Count"	,	L_112
+"UTF16BE"	,	L_98
+"application/x-jxta-msg"	,	L_183
+proto_jxta	,	V_28
+"Names Table Name"	,	L_107
+" \"%s\""	,	L_13
+hf_register_info	,	T_22
+dissect_jxta_message_framing	,	F_14
+jxta_welcome_tree	,	V_78
+msg_media_register_done	,	V_248
+guint16	,	T_17
+address	,	T_14
+dissect_jxta_welcome	,	F_25
+tvb_memeql	,	F_12
+"jxta.message.flags"	,	L_96
+"JXTA Connection Welcome Message Variable Parameter"	,	L_66
+tpt_ptype	,	V_45
+BASE_NONE	,	V_227
+encoding_len	,	V_164
+"jxta"	,	L_20
+"JXTA Message Framing"	,	L_72
+receiver_address	,	V_57
+hf_jxta_element_content_len	,	V_187
+hf_jxta_element2_flag_64bitlens	,	V_197
+"URI Source"	,	L_34
+"JXTA Message Flags"	,	L_97
+hf_jxta_framing_header_name	,	V_110
+media_handle	,	V_222
+JXTAMSG2_ELMFLAG_ENCODINGS	,	V_191
+"desegment"	,	L_166
+BASE_HEX	,	V_236
+dest_address	,	V_131
+PROTO_ITEM_SET_GENERATED	,	F_39
+desegment_len	,	V_11
+namespaceID	,	V_172
+jxta_tap_header	,	T_19
+ssl_handle	,	V_219
+dst_addr	,	V_117
+"JXTA Connection Welcome Message Preferred Message Version"	,	L_63
+proto_item_add_subtree	,	F_17
+"UCS32BE"	,	L_101
+module_t	,	T_21
+SE_COPY_ADDRESS	,	F_24
+proto_register_field_array	,	F_78
+conversation	,	V_15
+FT_BYTES	,	V_234
+ret	,	V_7
+proto_tree_set_visible	,	F_49
+"ssl"	,	L_25
+data_handle	,	V_223
+FT_UINT16	,	V_232
+"text/xml;charset=\"UTF-8\""	,	L_28
+"JXTA Message Element Name ID"	,	L_142
+"Initiator"	,	L_44
+jxta_welcome_tree_item	,	V_77
+"jxta.framing.header"	,	L_74
+"sctp.heuristic"	,	L_177
+hf_jxta_element2_nameid	,	V_204
+jxta_message_element_tvb	,	V_128
+"Address"	,	L_29
+fd	,	V_47
+framing_tree	,	V_102
+"Value Length"	,	L_79
+headername_offset	,	V_98
+jxta_msg_tree	,	V_135
+ett_jxta_elem	,	V_171
+hf_jxta_element2_mimeid	,	V_207
+"Signature"	,	L_39
+"jxta.message.element.flags"	,	L_120
+dissect_jxta_message_element_1	,	F_53
+heur_dissector_add	,	F_87
+dissect_jxta_message_element_2	,	F_54
+save_match_string	,	V_215
+FT_STRING	,	V_226
+"JXTA Message Element Flags"	,	L_121
+"JXTA UDP"	,	L_38
+ett_jxta_msg	,	V_139
+"jxta.welcome.variable"	,	L_65
+g_warning	,	F_55
+"URI Destination"	,	L_37
+wmem_strbuf_append	,	F_58
+jxta_module	,	V_224
+"JXTA Message Destination"	,	L_90
+conversation_add_proto_data	,	F_33
+find_dissector_table	,	F_84
+proto_tree_add_none_format	,	F_18
+"jxta.welcome.initiator"	,	L_45
+ascii_strdown_inplace	,	F_66
+"JXTA Message Element Flag -- sigOfEncoded"	,	L_139
+AT_NONE	,	V_65
+hf_jxta_framing	,	V_103
+gTCP_HEUR	,	V_244
+tap_header	,	V_129
+"jxta.message.element.encoding"	,	L_154
+FT_UINT32	,	V_238
+AT_URI	,	V_87
+"Element Count"	,	L_110
+find_or_create_conversation	,	F_7
+guint64	,	T_10
+hf	,	V_225
+"JXTA Message Framing Header Value Length"	,	L_81
+mime_ti	,	V_206
+hf_jxta_message_flag_ucs32be	,	V_154
+tpt_conv_data	,	V_39
+prefs_register_protocol	,	F_81
+tcp_register_done	,	V_250
+hf_uri_src	,	V_143
+"JXTA Message Names Table"	,	L_106
+hf_jxta_element	,	V_169
+"JXTA Message, %s -&gt; %s"	,	L_18
+" -&gt; "	,	L_7
+"JXTA Connection Welcome Message Initiator"	,	L_46
+ett_jxta_udp	,	V_34
+g_strfreev	,	F_43
+col_set_str	,	F_15
+"Enable to inspect UDP datagrams for JXTA messages."	,	L_173
+hf_jxta_message_sig	,	V_140
+"Flags"	,	L_95
+ett_jxta	,	V_30
+hf_jxta_message_names_count	,	V_155
+JXTA_WELCOME_MSG_VERSION_3_0	,	V_93
+variable_token	,	V_89
+media_type_dissector_table	,	V_221
+"Try to discover JXTA in TCP connections"	,	L_175
+"JXTA Connection Welcome Message Version"	,	L_69
+jxta_stream_conversation_data	,	T_13
+gDESEGMENT	,	V_22
+jxta_signature_element_tvb	,	V_167
+"JXTA Message Flag -- UCS32-BE Strings"	,	L_103
+"media"	,	L_182
+"jxta.framing.header.value"	,	L_83
+proto_tree_add_string	,	F_63
+"JXTA Message Framing Header"	,	L_75
+"udp.heuristic"	,	L_171
+"tcp.heuristic"	,	L_174
+tvb_find_line_end	,	F_34
+hf_jxta_welcome_initiator	,	V_82
+"Preferred Message Version"	,	L_61
+"Public Address"	,	L_52
+"JXTA Message Element Flag -- hasEncoding"	,	L_127
+dissector_handle_t	,	T_20
+each_name	,	V_124
+ADDRESSES_EQUAL	,	F_27
+" and enable \"Reassemble fragmented IP datagrams\" in the IP protocol settings."	,	L_170
+"Value"	,	L_82
+JXTA_MSG_VERSION_2	,	V_122
+JXTA_MSG_VERSION_1	,	V_121
+can_desegment	,	V_23
+"JXTA Message Source"	,	L_88
+"JXTA P2P"	,	L_159
+dissect_jxta_message	,	F_52
+token_offset	,	V_76
+dissect_jxta_UDP_heur	,	F_1
+"jxta.message"	,	L_161
+prefs_register_bool_preference	,	F_82
+found_addr	,	V_69
+hf_jxta_element1_flag_hasEncoding	,	V_182
+hf_jxta_message_flags	,	V_150
+"sigOfEncoded"	,	L_137
+"data"	,	L_181
+tvb_length	,	F_69
+framing_header_tree_item	,	V_106
+BASE_DEC	,	V_233
+tvb_new_subset	,	F_20
+"jxta.message.elements"	,	L_111
+ep_address_to_str	,	F_59
+msg_names_count	,	V_123
+hf_uri_dst	,	V_146
+ENC_NA	,	V_38
+hf_jxta_element2_encodingid	,	V_210
+"sctp"	,	L_186
+get_tpt_conversation	,	F_23
+wmem_alloc	,	F_65
+JXTAMSG2_ELMFLAG_TYPE	,	V_190
+"jxta.message.element.flags.hasType"	,	L_123
+jxta_msg_tree_item	,	V_134
+welcomeline	,	V_74
+NO_PORT_B	,	V_68
+"Name"	,	L_76
+JXTAMSG1_ELMFLAG_SIGNATURE	,	V_166
+hf_jxta_welcome_version	,	V_92
+save_desegment_offset	,	V_5
+hf_uri_addr	,	V_144
+"uint64Lens"	,	L_131
+ett_jxta_msg_flags	,	V_152
+proto_register_jxta	,	F_73
+"tcp"	,	L_185
+receiver_welcome_frame	,	V_54
+current_token	,	V_75
+content_len	,	V_165
+JXTAMSG2_ELMFLAG_SIGNATURE	,	V_193
+guint	,	T_7
+JXTA_WELCOME_MSG_VERSION_1_1	,	V_90
+ett	,	V_240
+wmem_packet_scope	,	F_36
+"jxta.message.version"	,	L_93
+"JXTA UDP Signature"	,	L_41
+headervalue_len	,	V_99
+"JXTA Message Element"	,	L_113
+packet_info	,	T_3
+hf_jxta_element2_flag_nameLiteral	,	V_198
+JXTAMSG1_ELMFLAG_ENCODING	,	V_163
+"udp"	,	L_184
+" (UNRECOGNIZED)"	,	L_9
+hf_jxta_framing_header_value_length	,	V_113
+uncomp_tvb	,	V_220
+"jxta.message.names"	,	L_105
+dissector_delete_string	,	F_86
+dst	,	V_60
+JXTAMSG2_ELMFLAG_UINT64_LENS	,	V_192
+conversation_get_proto_data	,	F_30
+ptype	,	V_46
+"jxta.message.element.flags.uint64Lens"	,	L_132
+init_done	,	V_246
+"jxta.framing.header.name"	,	L_77
+nameID	,	V_194
+tokens	,	V_72
+"JXTA Message Element Content Length"	,	L_158
+HFILL	,	V_228
+"No Propagate Flag"	,	L_58
+initiator_tpt_address	,	V_49
+src	,	V_50
+wmem_new	,	F_31
+gchar	,	T_11
+headernamelen	,	V_105
+hf_jxta_element_flags	,	V_179
+message_version	,	V_118
+"Element Name"	,	L_143
+"Reassemble JXTA messages spanning multiple UDP/TCP/SCTP segments"	,	L_167
+processed	,	V_17
+hf_jxta_udp	,	V_32
+JXTAMSG1_ELMFLAG_TYPE	,	V_161
+"JXTA Message Version"	,	L_94
+"Uncompressed Element Content"	,	L_27
+hf_jxta_message_flag_utf16be	,	V_153
+"JXTA Message Framing Header Value"	,	L_84
+dissect_jxta_stream	,	F_5
+hf_jxta_message_dst	,	V_145
+tvb_get_string	,	F_35
+proto_register_protocol	,	F_75
+name_ti	,	V_195
+save_private_data	,	V_217
+tvb_new_subset_remaining	,	F_13
+hf_jxta_element_encoding	,	V_186
+"Version"	,	L_67
+len	,	V_66
+first_linelen	,	V_71
+gint	,	T_8
+"Enable to inspect SCTP connections for JXTA conversations."	,	L_179
+"jxta.welcome.signature"	,	L_47
+g_strsplit	,	F_37
+tvb	,	V_1
+"Destination"	,	L_35
+"MIME ID"	,	L_146
+"JXTA"	,	L_2
+COL_INFO	,	V_73
+"application/octet-stream"	,	L_23
+jxta_udp_tree	,	V_33
+desegment_offset	,	V_10
+hf_jxta_welcome_msgVers	,	V_94
+tvb_child_uncompress	,	F_68
+":%d"	,	L_15
+"jxta.message.address"	,	L_85
+" To use this option you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings "	,	L_169
+initiator_welcome_frame	,	V_44
+"Header"	,	L_73
+cinfo	,	V_24
+"Namespace ID"	,	L_117
+hf_jxta_message_element_count	,	V_157
+tfs_set_notset	,	V_237
+JXTA_MSG_SIG	,	V_120
+"msg.mediatype"	,	L_163
+"jxta.message.element.flags.nameLiteral"	,	L_135
+hf_jxta_element1_flag_hasType	,	V_181
+"jxta.message.flags.UTF-16BE"	,	L_99
+register_tap	,	F_76
+"jxta.message.element.flags.hasSignature"	,	L_129
+"Enable to have correctly typed MIME media dissected as JXTA Messages."	,	L_165
+" (%s)"	,	L_21
+call_dissector	,	F_67
+hf_jxta_element_type	,	V_185
+headervaluelen	,	V_112
+"hasEncoding"	,	L_125
+headervalue_offset	,	V_100
+"jxta.message.names.name"	,	L_108
+PROTO_ITEM_SET_HIDDEN	,	F_64
+"JXTA Message Element Signature"	,	L_116
+proto_tree_add_boolean	,	F_38
+hf_jxta_welcome_destAddr	,	V_84
+"JXTA Message Names Table Name"	,	L_109
+hf_jxta_welcome_noProp	,	V_91
+message_start_offset	,	V_119
+"Framing"	,	L_70
+"Element Type"	,	L_152
+hf_jxta_framing_header	,	V_107
+dissect_jxta_TCP_heur	,	F_4
+hf_jxta_message_names_name	,	V_156
+COL_PROTOCOL	,	V_25
+col_set_writable	,	F_44
+"JXTA Message Element Encoding ID"	,	L_151
+hf_jxta_message_src	,	V_141
+"jxta.uri.src"	,	L_33
+Common_Exit	,	V_41
+src_addr	,	V_116
+"jxta.message.signature"	,	L_91
+initiator_tpt_port	,	V_51
+"jxta.message.element.name"	,	L_144
+hf_jxta_framing_header_value	,	V_114
+gSCTP_HEUR	,	V_245
+guint8	,	T_16
+"jxta.message.source"	,	L_87
+"Source"	,	L_32
+headers_len	,	V_58
+tvb_strncaseeql	,	F_47
+"application/x-jxta-tls-block"	,	L_24
+tvb_get_ntohl	,	F_2
+available	,	V_13
+tvbuff_t	,	T_2
+proto_tree_add_protocol_format	,	F_16
+tvb_get_ntohs	,	F_46
+"JXTA Message"	,	L_160
+conversation_set_dissector	,	F_10
+framing_tree_item	,	V_101
+"application/gzip"	,	L_26
+jxta_elem_flags_tree	,	V_174
+namespace_ti	,	V_173
+"JXTA Message Element Flag -- nameLiteral"	,	L_136
+gboolean	,	T_1
+src_address	,	V_130
+wmem_strbuf_append_printf	,	F_60
+FT_UINT_STRING	,	V_231
+ett_jxta_welcome	,	V_80
+jxta_msg_flags_tree	,	V_151
+jxta_elem_tree	,	V_170
+gMSG_MEDIA	,	V_242
+udp_register_done	,	V_249
+tvb_get_guint8	,	F_45
+JXTAMSG2_ELMFLAG_NAME_LITERAL	,	V_189
+"JXTA Message Framing Headers"	,	L_12
+ett_jxta_elem_1_flags	,	V_180
+"jxta.stream"	,	L_162
+tpt_conversation	,	V_63
+"PeerID"	,	L_55
+mediatype	,	V_175
+"jxta.uri.dst"	,	L_36
+hf_jxta_message_address	,	V_142
+needed	,	V_14
+hf_jxta_message_version	,	V_147
+hf_jxta_element_sig	,	V_177
+"jxta.message.element.nameid"	,	L_141
+gint8	,	V_111
+content_type	,	V_19
+sctp_register_done	,	V_251
+conversation_new	,	F_29
+hf_jxta_welcome	,	V_79
+encoding_ti	,	V_209
+"jxta.welcome.destAddr"	,	L_50
+new_create_dissector_handle	,	F_83
+find_dissector	,	F_9
+framing_header_tree	,	V_108
+ENC_BIG_ENDIAN	,	V_158
+tree_item	,	V_137
+"Variable Parameter"	,	L_64
+jxta_tap	,	V_133
+welcome_addr	,	V_42
+match_string	,	V_216
+"jxta.message.element.encodingid"	,	L_150
+ett_jxta_elem_2_flags	,	V_196
+initiator	,	V_43
+hf_jxta_element2_flag_hasSignature	,	V_200
+"JXTA Message Signature"	,	L_92
+"jxta.message.element.flags.sigOfEncoded"	,	L_138
+jxta_elem_tree_item	,	V_168
+hf_jxta_element_name	,	V_184
+parms_at	,	V_214
+FT_UINT64	,	V_239
+jxta_udp_tree_item	,	V_31
+names_count	,	V_188
+"Name ID"	,	L_140
+hf_jxta_element1_flag_hasSignature	,	V_183
+hf_jxta_welcome_variable	,	V_96
+ett_jxta_framing_header	,	V_109
+elem_count	,	V_126
+"Encoding ID"	,	L_149
+proto_item_append_text	,	F_42
+"JXTA Connection Welcome Message"	,	L_43
+"jxta.welcome.pubAddr"	,	L_53
+"jxta.welcome.msgVersion"	,	L_62
+"jxta.welcome.version"	,	L_68
+"Message, %s -&gt; %s"	,	L_17
+variable_tokens	,	V_88
+"jxta.udpsig"	,	L_40
+"hasType"	,	L_122
+proto_register_subtree_array	,	F_80
+names_table	,	V_136
+"JXTA Connection Welcome Message PeerID"	,	L_57
+proto_tree_add_item	,	F_19
+"jxta.uri.addr"	,	L_30
+private_data	,	V_218
+pinfo	,	V_2
+col_add_fstr	,	F_61
+encodingID	,	V_208
+_U_	,	V_4
+flags	,	V_148
+new_register_dissector	,	F_77
+hf_jxta_element2_flag_hasEncoding	,	V_201
+dissected	,	V_213
+"jxta.message.element.mimeid"	,	L_147
+"Register binary JXTA Message as a media type"	,	L_164
+"media_type"	,	L_180
+gint64	,	T_15
+"jxta.framing"	,	L_71
+"jxta.welcome"	,	L_42
+call_dissector_only	,	F_72
+find_conversation	,	F_28
+FT_UINT8	,	V_235
+proto_item	,	T_12
+tap_queue_packet	,	F_56
+flags_ti	,	V_149
+"JXTA Message Element Flag -- uint64Lens"	,	L_133
+"Failure processing message element #%d of %d of frame %d"	,	L_14
+headername_len	,	V_97
+dissector_add_string	,	F_85
+"JXTA Message Element Namespace ID"	,	L_119
+element_content_tvb	,	V_176
+tvb_format_text	,	F_50
+"JXTA Message Element Flag -- hasSignature"	,	L_130
+afterwelcome	,	V_70
+magic	,	V_8
+"jxta.message.destination"	,	L_89
+"hasSignature"	,	L_128
+data	,	T_5
+"nameLiteral"	,	L_134
+tree_offset	,	V_26
+num	,	V_48
+"jxta.welcome.noPropFlag"	,	L_59
+dissect_media	,	F_21
+UINT_MAX	,	V_21
+"JXTA Message Element MIME ID"	,	L_148
+"JXTA Message Address (source or destination)"	,	L_86
+create	,	V_67
+jxta_tree_item	,	V_27
+receiver_tpt_port	,	V_56
+"Try to discover JXTA in SCTP connections"	,	L_178
+"jxta.message.flags.UCS32BE"	,	L_102
+"JXTA Message Element Flag -- hasType"	,	L_124
+"jxta.message.element.content.length"	,	L_157
+conversation_t	,	T_9
+hf_jxta_element_content_len64	,	V_211
+FT_NONE	,	V_229
+"JXTA Connection Welcome Message No Propagate Flag"	,	L_60
+offset	,	V_12
+" "	,	L_5
+complete_messages	,	V_115
+"JXTA Message Element Name"	,	L_145
+"JXTA Connection Welcome Message, %s"	,	L_6
+message_jxta_handle	,	V_247
+tree	,	V_3
+jxta_message_tvb	,	V_35
+peer_conversation	,	V_59
+tvb_get_ntoh64	,	F_48
+add_new_data_source	,	F_70
+mimeID	,	V_205
+hf_jxta_element2_flag_hasType	,	V_199
+"JXTA Connection Welcome Message Public Address"	,	L_54
+"jxta.welcome.peerid"	,	L_56
+receiver_tpt_address	,	V_55
+destport	,	V_61
+proto_tree_add_uint	,	F_51
+stream_jxta_handle	,	V_64
+"JXTA Connection Welcome Message Signature"	,	L_48
+"JXTA Message Element Flag -- UTF16-BE Strings"	,	L_100
+gUDP_HEUR	,	V_243
+"Element Content Length"	,	L_156
+"Enable to inspect TCP connections for JXTA conversations."	,	L_176
+"jxta.framing.header.valuelen"	,	L_80
+dissector_try_string	,	F_71
+save_desegment_len	,	V_6
+wmem_file_scope	,	F_32
+name_len	,	V_125
+JXTA_UDP_MAGIC	,	V_9
+"content-type"	,	L_10
+ns_count	,	V_159
+"JXTA Message Element Encoding"	,	L_155
+"JXTA Connection Welcome Message Destination Address"	,	L_51
+hf_jxta_welcome_sig	,	V_83
+heur_dissector_delete	,	F_88
+"Try to discover JXTA in UDP datagrams"	,	L_172
+srcport	,	V_52
+wmem_strbuf_get_str	,	F_62
+"Whether the JXTA dissector should reassemble messages spanning multiple UDP/TCP/SCTP segments."	,	L_168
+"jxta.message.element.type"	,	L_153
+proto_tree	,	T_4

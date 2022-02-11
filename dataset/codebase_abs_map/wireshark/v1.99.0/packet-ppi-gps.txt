@@ -1,0 +1,307 @@
+hf_ppi_gps_version	,	V_58
+PPI_GEOTAG_LAT	,	V_79
+"ppi_gps.gpsflagss.frtk"	,	L_108
+ppi_ns_counter_to_gdouble	,	F_19
+"Time margin of error (secs)"	,	L_91
+pt	,	V_11
+"GPSTimestamp packet was received at"	,	L_82
+PPI_GPS_GPSFLAGS_FLAG2_DIFFGPS	,	F_26
+"Header length"	,	L_18
+"Time Error (s)"	,	L_89
+proto_register_protocol	,	F_33
+PPI_GPS_MASK_APPID	,	V_122
+"Vertical Error (m)"	,	L_86
+PPI_GEOTAG_APPID	,	V_99
+PPI_GPS_GPSFLAGS_FLAG7_MANUAL	,	F_31
+gint	,	T_5
+hf_ppi_gps_present_appspecific_num	,	V_25
+"Specifies if the fractional time field is present"	,	L_44
+"ppi_gps"	,	L_119
+hf_ppi_gps_gpsflags_flag1_gpsfix	,	V_71
+PPI_GEOTAG_DESCRIPTIONSTR	,	V_97
+"Invalid PPI-GPS length  (got %d, %d max\n)"	,	L_5
+tvb	,	V_1
+guint32	,	T_7
+" Lon:%f "	,	L_7
+COL_INFO	,	V_55
+FT_BOOLEAN	,	V_111
+PPI_GPS_MAXTAGLEN	,	V_63
+"Specifies if the application specific field id is present"	,	L_59
+version	,	V_31
+ett_ppi_gps_present	,	V_65
+dissect_ppi_gps	,	F_1
+hf_ppi_gps_ept	,	V_96
+"Length of header including version, pad, length and data fields"	,	L_20
+hf_ppi_gps_present	,	V_64
+hf_ppi_gps_epv	,	V_94
+ppi_fixed6_4_to_gdouble	,	F_16
+cinfo	,	V_54
+PPI_GEOTAG_ALT	,	V_83
+hf_ppi_gps_gpsflags_flag6_dead_reck	,	V_76
+PPI_GEOTAG_FRACTIONALTIME	,	V_90
+array_length	,	F_35
+" Alt_g:%f "	,	L_9
+hf_ppi_gps_eph	,	V_92
+"Header pad"	,	L_15
+"error_h"	,	L_45
+t_terr	,	V_50
+length_remaining	,	V_5
+gps_time_size	,	V_38
+"GPS:"	,	L_2
+"Specifies if the latitude field is present"	,	L_29
+"ppi_gps.present.appid"	,	L_58
+" (%s)"	,	L_10
+"Description"	,	L_54
+hf_ppi_gps_gpstime	,	V_89
+"Alt-gnd"	,	L_36
+PPI_GPS_GPSFLAGS_FLAG8_SIM	,	F_32
+PPI_GEOBASE_MIN_HEADER_LEN	,	V_62
+PPI_GPS_GPSFLAGS_FLAG6_DEAD_RECK	,	F_30
+t_alt_gnd	,	V_47
+"Horizontal margin of error (meters)"	,	L_85
+hf_register_info	,	T_11
+PPI_GEOTAG_APPDATA	,	V_101
+"ppi_gps.eph"	,	L_84
+"PPI Geotagging GPS tag decoder"	,	L_117
+PPI_GEOTAG_GPSFLAGS	,	V_67
+hf_ppi_gps_present_epv	,	V_22
+PPI_GPS_MASK_EPH	,	V_118
+hf_ppi_gps_present_ept	,	V_23
+ppi_gps_tree	,	V_7
+" Lat:%f "	,	L_6
+"error_v"	,	L_48
+"ppi_gps.gpstime"	,	L_81
+PPI_GPS_GPSFLAGS_FLAG3_PPS	,	F_27
+ti	,	V_10
+BASE_NONE	,	V_126
+hf_ppi_gps_present_eph	,	V_21
+gps_timestamp	,	V_37
+secs	,	V_52
+"GPStime"	,	L_39
+"PPS fix"	,	L_103
+register_dissector	,	F_39
+hf_ppi_gps_present_descr	,	V_24
+PPI_GEOTAG_EPH	,	V_91
+"ppi_gps.gpsflagss.dead_reck"	,	L_110
+" (invalid - minimum length is 8)"	,	L_4
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_7
+proto_tree_add_bitmask	,	F_12
+ABSOLUTE_TIME_UTC	,	V_128
+BASE_HEX	,	V_110
+"GPSFlags"	,	L_24
+hf_ppi_gps_present_appspecific_data	,	V_26
+proto_ppi_gps	,	V_56
+PPI_GPS_MASK_EPT	,	V_120
+"AppId"	,	L_57
+PPI_GPS_MASK_EPV	,	V_119
+"Differential GPS provided fix"	,	L_101
+proto_item_add_subtree	,	F_8
+proto_register_field_array	,	F_34
+FT_BYTES	,	V_130
+PPI_GPS_MASK_FRACTIME	,	V_88
+"ppi_gps.lat"	,	L_69
+"PPI GPS Decoder"	,	L_118
+ei	,	V_132
+"Version of ppi_gps header format"	,	L_14
+"ppi_gps.epv"	,	L_87
+FT_UINT16	,	V_108
+"ppi_gps.alt_gnd"	,	L_78
+hf_ppi_gps_alt	,	V_84
+hf_ppi_gps_present_gpsflags_flags	,	V_14
+gpsflags_flags	,	V_32
+tvb_get_guint8	,	F_3
+PPI_GEOTAG_EPV	,	V_93
+PPI_GEOTAG_EPT	,	V_95
+PPI_GPS_MASK_LON	,	V_114
+"Bitmask indicating which fields are present"	,	L_23
+"Specifies if there are any extensions to the header present"	,	L_65
+hf_ppi_gps_lat	,	V_80
+"Specifies if the (ASCII) description is present"	,	L_56
+"Vertical margin of error (meters)"	,	L_88
+"Specifies if the vertical error field present (epv)"	,	L_50
+"ppi_gps.present.alt_gnd"	,	L_37
+PPI_GPS_MASK_GPSTIME	,	V_117
+PPI_GPS_GPSFLAGS_FLAG0_NOFIX	,	F_24
+"ppi_gps.gpsflagss.diffgps"	,	L_102
+"ppi_gps.lon"	,	L_72
+alt_gnd	,	V_36
+PPI_GPS_GPSFLAGS_FLAG5_FLOATRTK	,	F_29
+hf_ppi_gps_lon	,	V_82
+FT_STRING	,	V_129
+PPI_GEOTAG_LON	,	V_81
+PPI_GPS_MASK_ALT_G	,	V_116
+hf_ppi_gps_length	,	V_61
+"Altitude packet was received at (relative to ground)"	,	L_79
+PPI_GEOTAG_GPSTIME	,	V_87
+" Alt:%f "	,	L_8
+PPI_GPS_MASK_LAT	,	V_113
+length	,	V_4
+ppi_fixed3_7_to_gdouble	,	F_14
+hf_ppi_gps_present_fractime	,	V_20
+"ppi_gps.gpsflagss.simulation"	,	L_114
+hf_ppi_gps_gpsflags_flags	,	V_68
+PI_WARN	,	V_134
+"ppi_gps.gpsflagss.nofix"	,	L_98
+curr_str	,	V_43
+"ppi_gps.present.unknown_bit"	,	L_115
+"ppi_gps.ept"	,	L_90
+FT_DOUBLE	,	V_125
+"manual fix"	,	L_111
+FT_UINT32	,	V_109
+"RTK fix"	,	L_105
+next_present	,	V_30
+"Error: PPI-GEOLOCATION-GPS: unknown bit (%d) set in present field."	,	L_11
+"Specifies if the horizontal error field is present (eph)"	,	L_47
+hf	,	V_104
+hf_ppi_gps_appspecific_data	,	V_102
+"ppi_gps.present.alt"	,	L_34
+"GPS provided fix"	,	L_99
+t_appspecific_num	,	V_51
+proto_tree_add_time	,	F_17
+bit	,	V_28
+"32-bit bitmask indicating type of GPS fix (GPS/INS/software/etc)"	,	L_26
+hf_ppi_gps_gpsflags_flag8_sim	,	V_78
+"No fix available"	,	L_97
+"ppi_gps.pad"	,	L_16
+PPI_GPS_MASK_ALT	,	V_115
+"Altitude packet was received at"	,	L_76
+"Longitude"	,	L_71
+eph	,	V_40
+"Specifies if the longitude field is present"	,	L_32
+hf_ppi_gps_gpsflags_flag2_diffgps	,	V_72
+"Alt"	,	L_33
+ept	,	V_42
+proto_item_append_text	,	F_11
+epv	,	V_41
+"ppi_gps.present.descr"	,	L_55
+"ppi_gps.version"	,	L_13
+"Error: PPI-GEOLOCATION-GPS: unknown bit set in present field."	,	L_116
+col_clear	,	F_2
+FT_ABSOLUTE_TIME	,	V_127
+"ppi_gps.gpsflagss.rtk"	,	L_106
+gpsflags_flags_tree	,	V_9
+hf_ppi_gps_present_alt_gnd	,	V_18
+"GPSTimestamp"	,	L_80
+proto_register_subtree_array	,	F_36
+proto_tree_add_string	,	F_21
+"Application Specific id"	,	L_93
+PPI_GPS_MASK_DESCRSTR	,	V_121
+proto_tree_add_item	,	F_10
+pinfo	,	V_2
+col_add_fstr	,	F_6
+hf_ppi_gps_gpsflags_flag7_manual	,	V_77
+"Specifies if the altitude-g field is present"	,	L_38
+"Latitude"	,	L_68
+lon	,	V_34
+already_processed_fractime	,	V_39
+"ppi_gps.present.gpstime"	,	L_40
+expert_ppi_gps	,	V_136
+my_pt	,	V_8
+hf_ppi_gps_alt_gnd	,	V_86
+"Specifies if the GPS time field is present"	,	L_41
+hf_ppi_gps_descstr	,	V_98
+ei_ppi_gps_present_bit	,	V_103
+"ppi_gps.gpsflagss.gps"	,	L_100
+"PPI_GPS Capture v%u, Length %u"	,	L_1
+"AppData"	,	L_60
+"Horizontal Error (m)"	,	L_83
+PI_PROTOCOL	,	V_133
+gdouble	,	T_8
+"Ext"	,	L_63
+PPI_GPS_GPSFLAGS_FLAG1_GPS	,	F_25
+FT_UINT8	,	V_105
+BASE_DEC	,	V_106
+"ppi_gps.present.ext"	,	L_64
+"Latitude packet was received at"	,	L_70
+hf_ppi_gps_present_ext	,	V_27
+proto_item	,	T_6
+"ppi_gps.present"	,	L_22
+expert_register_field_array	,	F_38
+PPI_GPS_MASK_EXT	,	V_124
+"ppi_gps.alt"	,	L_75
+PPI_GPS_MASK_GPSFLAGS	,	V_112
+ENC_NA	,	V_60
+"ppi_gps.present.ept"	,	L_52
+hf_ppi_gps_appspecific_num	,	V_100
+expert_add_info_format	,	F_22
+hf_ppi_gps_gpsflags_flag3_PPS	,	V_73
+"Lon"	,	L_30
+"Padding"	,	L_17
+ENC_LITTLE_ENDIAN	,	V_66
+t_verr	,	V_49
+"ppi_gps.appid"	,	L_94
+hf_ppi_gps_present_lon	,	V_16
+"ppi_gps.present.fractime"	,	L_43
+"Specifies if the estimed time error field is present (ept)"	,	L_53
+"Altitude"	,	L_74
+"Application specific data"	,	L_95
+"Header revision"	,	L_12
+t_lon	,	V_45
+"ppi_gps.appdata"	,	L_96
+hf_ppi_gps_present_gpstime	,	V_19
+gps_line	,	V_12
+ei_register_info	,	T_12
+expert_register_protocol	,	F_37
+tvb_get_letohl	,	F_5
+ett_ppi_gps_gpsflags_flags	,	V_69
+"ppi_gps.present.lon"	,	L_31
+proto_tree_add_double	,	F_15
+"ppi_gps.descr"	,	L_92
+nstime_t	,	T_9
+lat	,	V_33
+tvb_get_letohs	,	F_4
+"ppi_gps.length"	,	L_19
+"dead reckoning fix"	,	L_109
+guint	,	T_4
+offset	,	V_6
+"simulated fix"	,	L_113
+ett	,	V_131
+"Lat"	,	L_27
+expert_module_t	,	T_13
+"Longitude packet was received at"	,	L_73
+tree	,	V_3
+alt	,	V_35
+proto_register_ppi_gps	,	F_23
+hf_ppi_gps_pad	,	V_59
+hf_ppi_gps_gpsflags_flag5_floatRTK	,	V_75
+"error_t"	,	L_51
+"floatRTK fix"	,	L_107
+BITNO_32	,	F_13
+"ppi_gps.present.lat"	,	L_28
+packet_info	,	T_2
+ppi_gps_present_flags	,	V_13
+t_herr	,	V_48
+"Specifies if the application specific data field  is present"	,	L_62
+present	,	V_29
+proto_tree_add_uint	,	F_9
+"ppi_gps.present.epv"	,	L_49
+EXPFILL	,	V_135
+"Specifies if the altitude field is present"	,	L_35
+"ppi_gps.present.gpsflagss"	,	L_25
+"invalid version (got %d,  expected 1 or 2)"	,	L_3
+PPI_GPS_MASK_APPDATA	,	V_123
+"ppi_gps.present.appdata"	,	L_61
+t_alt	,	V_46
+"Present"	,	L_21
+PPI_GEOTAG_ALT_G	,	V_85
+ett_ppi_gps	,	V_57
+t_lat	,	V_44
+ppi_fixed3_6_to_gdouble	,	F_18
+HFILL	,	V_107
+"ppi_gps.gpsflagss.manual"	,	L_112
+hf_ppi_gps_gpsflags_flag0_nofix	,	V_70
+hf_ppi_gps_present_alt	,	V_17
+"Bitmask indicating GPS/INS/manual fix"	,	L_67
+gchar	,	T_10
+"Altitude_gnd"	,	L_77
+"ppi_gps.present.eph"	,	L_46
+"fractime"	,	L_42
+nsecs	,	V_53
+tvb_format_stringzpad	,	F_20
+hf_ppi_gps_present_lat	,	V_15
+hf_ppi_gps_gpsflags_flag4_RTK	,	V_74
+"ppi_gps.gpsflagss.pps"	,	L_104
+"ppi_gps.gpsflags"	,	L_66
+proto_tree	,	T_3
+PPI_GPS_GPSFLAGS_FLAG4_RTK	,	F_28

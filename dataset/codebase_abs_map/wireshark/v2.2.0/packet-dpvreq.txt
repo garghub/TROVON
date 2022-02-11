@@ -1,0 +1,81 @@
+register_dissector	,	F_14
+"docsis_dpvreq.dschan"	,	L_6
+"docsis_dpvreq"	,	L_23
+data	,	T_4
+proto_register_protocol	,	F_10
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_5
+"Upstream Service Flow ID"	,	L_9
+tvb_get_ntohs	,	F_2
+hf_docsis_dpvreq_start	,	V_19
+"docsis_dpvreq.us_sf"	,	L_10
+gint	,	T_9
+proto_item_add_subtree	,	F_6
+"Flags"	,	L_7
+hf_docsis_dpvreq_end	,	V_20
+proto_register_field_array	,	F_11
+ett_docsis_dpvreq	,	V_12
+tvb	,	V_1
+"Transaction Id"	,	L_3
+hf_docsis_dpvreq_dschan	,	V_15
+ett	,	V_29
+COL_INFO	,	V_10
+transid	,	V_7
+dissector_add_uint	,	F_17
+"docsis_mgmt"	,	L_24
+tree	,	V_3
+"docsis_dpvreq.start"	,	L_14
+it	,	V_5
+"End Reference Point"	,	L_15
+"docsis_dpvreq.tranid"	,	L_4
+FT_UINT16	,	V_24
+packet_info	,	T_2
+"docsis_dpvreq.ts_start"	,	L_18
+"DOCSIS Path Verify Request: Transaction-Id = %u DS-Ch %d"	,	L_1
+tvb_get_guint8	,	F_3
+proto_docsis_dpvreq	,	V_11
+"Timestamp End"	,	L_19
+cinfo	,	V_9
+tvb_captured_length	,	F_8
+proto_register_subtree_array	,	F_13
+hf_docsis_dpvreq_us_sf	,	V_17
+array_length	,	F_12
+"Timestamp Start"	,	L_17
+proto_tree_add_item	,	F_7
+pinfo	,	V_2
+col_add_fstr	,	F_4
+dissector_handle_t	,	T_10
+dschan	,	V_8
+_U_	,	V_4
+"N (Measurement avaraging factor)"	,	L_11
+"DOCSIS Path Verify Request"	,	L_21
+hf_docsis_dpvreq_tranid	,	V_13
+hf_docsis_dpvreq_ts_end	,	V_22
+"docsis_dpvreq.end"	,	L_16
+hf_docsis_dpvreq_flags	,	V_16
+hf_docsis_dpvreq_ts_start	,	V_21
+hf_register_info	,	T_8
+docsis_dpvreq_handle	,	V_30
+HFILL	,	V_26
+proto_register_docsis_dpvreq	,	F_9
+guint16	,	T_6
+hf_docsis_dpvreq_n	,	V_18
+"docsis_dpvreq.n"	,	L_12
+FT_UINT8	,	V_27
+find_dissector	,	F_16
+BASE_DEC	,	V_25
+"Start Reference Point"	,	L_13
+dpvreq_tree	,	V_6
+proto_item	,	T_5
+"docsis_dpvreq.ts_end"	,	L_20
+ENC_BIG_ENDIAN	,	V_14
+guint8	,	T_7
+FT_UINT32	,	V_28
+"DOCSIS DPV-REQ"	,	L_22
+"docsis_dpvreq.flags"	,	L_8
+"Downstream Channel ID"	,	L_5
+"DPV Request"	,	L_2
+dissect_dpvreq	,	F_1
+proto_tree	,	T_3
+hf	,	V_23
+proto_reg_handoff_docsis_dpvreq	,	F_15

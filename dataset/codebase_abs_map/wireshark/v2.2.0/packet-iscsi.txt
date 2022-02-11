@@ -1,0 +1,771 @@
+ett_iscsi	,	V_125
+iscsi_opcodes	,	V_248
+tvb_get_string_enc	,	F_10
+"iscsi.tsih"	,	L_206
+"iscsi.datasn"	,	L_160
+itl_nexus_t	,	T_16
+"version_03_compatible"	,	L_308
+"EventVendorCode"	,	L_261
+"iscsi.scsiresponse.o"	,	L_119
+ahs_length	,	V_160
+guint32	,	T_8
+pool	,	V_267
+"ISID"	,	L_174
+"(default "	,	L_303
+hf_iscsi_Login_Status	,	V_206
+iscsi_reject_reasons	,	V_119
+array_length	,	F_77
+"F"	,	L_73
+check_port	,	V_271
+"Header Digest"	,	L_58
+ENC_ASCII	,	V_32
+hf_iscsi_AHS_blob	,	V_166
+col_append_str	,	F_32
+hf_register_info	,	T_20
+guint16	,	T_15
+b	,	V_128
+address	,	T_4
+ett_iscsi_KeyValues	,	V_56
+hf_iscsi_ExpectedDataTransferLength	,	V_158
+"Restart Connection"	,	L_215
+immediate_data_offset	,	V_71
+cdb_buf	,	V_266
+p	,	V_7
+"iscsi.ahs.bidir.length"	,	L_33
+BASE_NONE	,	V_302
+"iscsi.scsiresponse.bidireadresidualcount"	,	L_137
+"Request in"	,	L_14
+"PingData"	,	L_44
+"Residual overflow"	,	L_126
+"iscsi.tsid"	,	L_203
+available_bytes	,	V_38
+ahs_cdb_offset	,	V_74
+first_exchange_frame	,	V_88
+opcode	,	V_57
+tvb_memcpy	,	F_51
+"iscsi.taskmanfun.response"	,	L_236
+FT_UINT24	,	V_331
+dissect_scsi_lun	,	F_41
+"TotalAHSLength"	,	L_91
+proto_item_add_subtree	,	F_37
+"I"	,	L_67
+"CRN"	,	L_85
+handleHeaderDigest	,	F_12
+"iscsi.snack.type"	,	L_275
+conversation	,	V_60
+hf_iscsi_ISID	,	V_193
+FT_BYTES	,	V_310
+itl	,	V_72
+hf_iscsi_TSIH	,	V_204
+hf_iscsi_TSID	,	V_203
+hf_iscsi_data_out_frame	,	V_261
+"VersionMax"	,	L_162
+itt	,	V_76
+hf_iscsi_SCSIResponse_BidiReadResidualCount	,	V_176
+FT_UINT16	,	V_305
+iscsi_conv_data_t	,	T_14
+port	,	V_5
+hf_iscsi_DataSN	,	V_212
+dissect_scsi_snsinfo	,	F_46
+BMT_NO_APPEND	,	V_220
+ahs_type_vals	,	V_309
+"iscsi.r2tsn"	,	L_234
+heur_dissector_add	,	F_87
+"Async Event Data"	,	L_52
+HEURISTIC_ENABLE	,	V_344
+scsi_status	,	V_62
+hf_iscsi_response_frame	,	V_262
+FT_STRING	,	V_337
+"iscsi.expcmdsn"	,	L_113
+"%d.%d.%d.%d"	,	L_1
+hf_iscsi_TaskManagementFunction_Function	,	V_177
+hf_iscsi_EventVendorCode	,	V_237
+"Status sequence number"	,	L_111
+ISCSI_OPCODE_TEXT_RESPONSE	,	V_210
+hf_iscsi_Text_C	,	V_209
+hf_iscsi_Text_F	,	V_208
+"iscsi.versionmin"	,	L_166
+FT_UINT32	,	V_307
+visited	,	V_19
+find_or_create_conversation	,	F_63
+addr_data	,	V_13
+hf_iscsi_DataDigest32	,	V_47
+"AHS Length"	,	L_29
+"SenseLength"	,	L_139
+hf_iscsi_Padding	,	V_53
+"Data In in"	,	L_20
+endOffset	,	V_49
+ISCSI_SCSI_DATA_FLAG_F	,	V_325
+"The Data In for this transaction is in this frame"	,	L_22
+tmf	,	V_112
+hf_iscsi_Login_NSG	,	V_187
+ISCSI_SCSI_DATA_FLAG_A	,	V_221
+proto_tree_add_subtree	,	F_21
+"iscsi.data_in_frame"	,	L_21
+hf_iscsi_CID	,	V_190
+col_set_str	,	F_23
+ISCSI_OPCODE_TASK_MANAGEMENT_FUNCTION	,	V_111
+"Bi-directional read residual overflow"	,	L_120
+"Flags"	,	L_70
+"Referenced task tag"	,	L_239
+"MaxCmdSN"	,	L_115
+ISCSI_SCSI_DATA_FLAG_S	,	V_97
+iscsi_session_t	,	T_9
+ISCSI_SCSI_DATA_FLAG_U	,	V_328
+ISCSI_SCSI_DATA_FLAG_O	,	V_329
+"iscsi.isid8"	,	L_175
+"Data Digest"	,	L_61
+proto_reg_handoff_iscsi	,	F_86
+ISCSI_OPCODE_LOGOUT_RESPONSE	,	V_224
+"Maximum supported protocol version"	,	L_164
+dataSegmentLen	,	V_48
+logoutReason	,	V_106
+can_desegment	,	V_296
+iscsi_login_status	,	V_104
+"O"	,	L_124
+"iscsi.isid.namingauthority"	,	L_182
+AT_IPv4	,	V_14
+"Parameter1"	,	L_264
+pgt	,	V_8
+"bogus_pdu_max_data_len"	,	L_297
+tvb_strnlen	,	F_9
+data_digest	,	V_46
+hf_iscsi_TargetTransferTag	,	V_139
+"Ignore packets that haven't set the F bit when they should have"	,	L_296
+"iscsi.scsicommand.F"	,	L_74
+"iscsi.parameter2"	,	L_268
+X_BIT	,	V_263
+pduLen	,	V_280
+"Time2Wait"	,	L_251
+hf_iscsi_data_in_frame	,	V_260
+"SCSI command reference number"	,	L_87
+bidir_data_length	,	V_85
+cdb_offset	,	V_65
+prefs_register_uint_preference	,	F_82
+iscsi_scsicommand_taskattrs	,	V_318
+"tcp"	,	L_316
+wmem_tree_lookup32_array_le	,	F_27
+guint	,	T_11
+ett	,	V_338
+wmem_packet_scope	,	F_3
+"Immediate delivery"	,	L_69
+ISCSI_OPCODE_VENDOR_SPECIFIC_T2	,	V_255
+ISCSI_OPCODE_VENDOR_SPECIFIC_T1	,	V_254
+ISCSI_OPCODE_VENDOR_SPECIFIC_T0	,	V_253
+packet_info	,	T_1
+"iscsi.parameter3"	,	L_271
+iscsi_protocol_version	,	V_107
+handleDataSegment	,	F_18
+"R"	,	L_76
+wmem_tree_new	,	F_65
+hf_iscsi_MaxCmdSN	,	V_146
+"Buffer offset"	,	L_157
+"iscsi.padding"	,	L_42
+snsl	,	V_235
+ISCSI_OPCODE_REJECT	,	V_117
+"Data Out in"	,	L_23
+dissect_scsi_payload	,	F_56
+hf_iscsi_Flags	,	V_152
+hf_iscsi_Parameter3	,	V_240
+"Total additional header segment length (4 byte words)"	,	L_93
+hf_iscsi_Parameter2	,	V_239
+"S"	,	L_147
+hf_iscsi_Parameter1	,	V_238
+"AsyncEvent"	,	L_258
+crc	,	V_41
+range_convert_str	,	F_83
+"Next expected status sequence number"	,	L_105
+"RefCmdSN"	,	L_240
+"StatSN"	,	L_109
+"iscsi.parameter1"	,	L_265
+ahs_type	,	V_161
+ISCSI_CSG_OPERATIONAL_NEGOTIATION	,	V_182
+"iscsi.statsn"	,	L_110
+"T"	,	L_208
+"AHS Extended CDB"	,	L_37
+reason	,	V_118
+"The response to this transaction is in this frame"	,	L_28
+hf_iscsi_SCSIData_O	,	V_215
+proto_register_protocol	,	F_74
+gulong	,	V_98
+hf_iscsi_SCSIData_S	,	V_217
+iscsi_session	,	V_35
+"Initiator part of session identifier - type"	,	L_180
+"0x%08x (Good CRC32)"	,	L_3
+hf_iscsi_SCSIData_U	,	V_216
+"Next expected command sequence number"	,	L_114
+"U"	,	L_127
+hf_iscsi_SCSIData_F	,	V_211
+len	,	V_15
+gint	,	T_6
+hf_iscsi_SCSIData_A	,	V_219
+"iscsi.snack.runlength"	,	L_281
+tvb	,	V_27
+desegment_offset	,	V_273
+"0x%08x (Bad CRC32, should be 0x%08x)"	,	L_4
+ISCSI_PROTOCOL_DRAFT09	,	V_134
+ISCSI_PROTOCOL_DRAFT08	,	V_108
+"Final PDU in text sequence"	,	L_228
+MIN	,	F_19
+"BidiReadResidualCount"	,	L_136
+"Ignore packets with bad F bit"	,	L_295
+"Negotiated protocol version"	,	L_170
+ISCSI_OPCODE_LOGIN_COMMAND	,	V_131
+ahsLen	,	V_147
+hf_iscsi_SCSIResponse_U	,	V_171
+" (%s)"	,	L_7
+hf_iscsi_SCSIResponse_O	,	V_170
+hf_iscsi_SCSIResponse_Status	,	V_173
+"W"	,	L_79
+proto_tree_add_boolean	,	F_39
+prefs_register_enum_preference	,	F_80
+data_in_frame	,	V_92
+hf_iscsi_Logout_Reason	,	V_223
+"iscsi.ahs.unknown_blob"	,	L_40
+data_out_frame	,	V_93
+"Unknown AHS blob"	,	L_39
+COL_PROTOCOL	,	V_78
+GUINT_TO_POINTER	,	F_30
+"iscsi.cid"	,	L_172
+"iscsi.scsidata.A"	,	L_145
+"iSCSI"	,	L_6
+ISCSI_OPCODE_SNACK_REQUEST	,	V_129
+ett_iscsi_ISID	,	V_194
+"Vendor Specific Data"	,	L_55
+"X"	,	L_64
+value_is_in_range	,	F_62
+"Reason for command rejection"	,	L_274
+hf_iscsi_ISID_Type	,	V_195
+"iscsi.expstatsn"	,	L_104
+guint8	,	T_12
+"enable_data_digests"	,	L_315
+"BegRun"	,	L_277
+"Target Ports Range"	,	L_301
+tvb_get_ntohl	,	F_15
+dissect_iscsi_handle	,	F_69
+"iscsi.time2retain"	,	L_254
+"iscsi.headerdigest32"	,	L_57
+tvbuff_t	,	T_7
+end_offset	,	V_66
+"Status class and detail"	,	L_223
+proto_tree_add_protocol_format	,	F_36
+tvb_get_ntohs	,	F_35
+conversation_set_dissector	,	F_7
+proto_tree_add_bitmask	,	F_42
+"BufferOffset"	,	L_155
+"Parameter3"	,	L_270
+"iscsi.isid"	,	L_177
+"iscsi.scsicommand.expecteddatatransferlength"	,	L_98
+hf_iscsi_SCSIResponse_u	,	V_169
+hf_iscsi_SCSIResponse_o	,	V_168
+iscsi_logout_response	,	V_278
+"PDU completes command"	,	L_75
+tvb_get_guint8	,	F_28
+"iscsi.eventvendorcode"	,	L_262
+"Parameter2"	,	L_267
+data_segment_len_padded	,	V_284
+"Bidirectional Read Data Length"	,	L_32
+"Opcode specific flags"	,	L_72
+"HeaderDigest"	,	L_56
+ISCSI_PROTOCOL_DRAFT12	,	V_156
+iscsi_module	,	V_299
+task_flags	,	V_83
+ISCSI_PROTOCOL_DRAFT13	,	V_109
+"Target part of session identifier"	,	L_204
+"iscsi.scsicommand.attr"	,	L_83
+"Data segment length (bytes)"	,	L_90
+textLen	,	V_55
+conversation_new	,	F_6
+iscsi_logout_reasons	,	V_110
+prefs_register_obsolete_preference	,	F_85
+data_segment_offset	,	V_283
+"iscsi.maxcmdsn"	,	L_116
+"Minimum supported protocol version"	,	L_167
+"The iSCSI protocol version"	,	L_286
+hf_iscsi_SCSIData_ResidualCount	,	V_222
+"iscsi.scsicommand.crn"	,	L_86
+proto_tree_add_uint_format_value	,	F_16
+extra_data	,	V_91
+hf_iscsi_ISID8	,	V_191
+hf_iscsi_DataSegmentLength	,	V_137
+headerLen	,	V_37
+last_exchange_frame	,	V_89
+"iscsi.asyncevent"	,	L_259
+proto_tree_add_time	,	F_49
+delta_time	,	V_257
+"Command writes to SCSI target"	,	L_81
+"enable_header_digests"	,	L_312
+"bogus_pdu_filter"	,	L_291
+proto_iscsi	,	V_124
+"iscsi.isid.b"	,	L_194
+iscsi_isid_type	,	V_330
+"iscsi.versionactive"	,	L_169
+"DesiredDataLength"	,	L_255
+"Key/Value Pairs"	,	L_5
+col_set_fence	,	F_55
+"Type of Additional header segment"	,	L_36
+cdata	,	V_67
+login_status	,	V_103
+"iscsi.isid.c"	,	L_197
+iscsi_system_port	,	V_288
+ISCSI_DIGEST_CRC32	,	V_40
+"Final PDU"	,	L_143
+"iscsi.scsiresponse.U"	,	L_128
+proto_tree_add_item	,	F_11
+wmem_tree_insert32_array	,	F_26
+pinfo	,	V_1
+hf_iscsi_HeaderDigest32	,	V_44
+"TargetTransferTag"	,	L_152
+flags	,	V_18
+"CDB+AHS"	,	L_11
+"Sense data length"	,	L_141
+"iscsi.keyvalue"	,	L_225
+"iscsi.isid.d"	,	L_200
+"ResidualCount"	,	L_106
+ett_iscsi_RejectHeader	,	V_249
+"ExpectedDataTransferLength"	,	L_97
+"iscsi.scsicommand.W"	,	L_80
+hf_iscsi_Opcode	,	V_126
+enable_bogosity_filter	,	V_289
+"Bi-directional read residual underflow"	,	L_123
+hf_iscsi_AHS_read_data_length	,	V_165
+ISCSI_DIGEST_AUTO	,	V_292
+hf_iscsi_vendor_specific_data	,	V_256
+"Padding"	,	L_41
+"Target session identifying handle"	,	L_207
+hf_iscsi_Login_X	,	V_185
+num	,	V_21
+"iscsi.totalahslength"	,	L_92
+"Residual count"	,	L_108
+hf_iscsi_Login_T	,	V_183
+ISCSI_OPCODE_TASK_MANAGEMENT_FUNCTION_RESPONSE	,	V_114
+"DataSN"	,	L_159
+scsi_data_in	,	V_214
+DISSECTOR_ASSERT_NOT_REACHED	,	F_68
+tree	,	T_3
+hf_iscsi_Login_C	,	V_184
+"target_ports"	,	L_300
+"Time from request"	,	L_17
+"Data sequence number"	,	L_161
+destport	,	V_287
+"TargetAddress"	,	L_2
+"First missed DataSN or StatSN"	,	L_279
+itlq	,	V_81
+"iscsi.scsidata.F"	,	L_142
+"iscsi.scsicommand.R"	,	L_77
+hf_iscsi_AHS_type	,	V_163
+"iscsi.login.nsg"	,	L_220
+"iscsi.reject.reason"	,	L_273
+hf_iscsi_R2TSN	,	V_232
+addr	,	V_4
+"iscsi.opcode"	,	L_63
+hf_iscsi_DesiredDataLength	,	V_233
+"Immediate Data"	,	L_49
+padding	,	V_52
+resp	,	V_115
+hf_iscsi_Reject_Reason	,	V_247
+proto_item_set_len	,	F_50
+"demand_good_f_bit"	,	L_294
+"iscsi.login.csg"	,	L_217
+"iscsi.time"	,	L_18
+MAX_TCP_PORT	,	V_343
+hf_iscsi_StatSN	,	V_144
+"iscsi.datadigest32"	,	L_60
+"iscsi.snack.begrun"	,	L_278
+"tcp.port"	,	L_319
+wmem_map_lookup	,	F_29
+"iscsi.isid.a"	,	L_191
+ISCSI_OPCODE_LOGOUT_COMMAND	,	V_105
+g_direct_hash	,	V_293
+lun	,	V_69
+hf_iscsi_VersionActive	,	V_205
+"When enabled, packets that appear bogus are ignored"	,	L_293
+dataLen	,	V_45
+"iscsi.scsiresponse.senselength"	,	L_140
+tvb_new_child_real_data	,	F_52
+TFS	,	F_73
+"Protocol version"	,	L_285
+"ExpDataSN"	,	L_230
+hf_iscsi_ISID_t	,	V_198
+FT_BOOLEAN	,	V_312
+"Initiator's task tag"	,	L_96
+tvb_reported_length_remaining	,	F_44
+text_len	,	V_29
+"System port number of iSCSI target"	,	L_307
+"iscsi.scsidata.S"	,	L_148
+"Async event type"	,	L_260
+wmem_strdup	,	F_2
+tvb_len	,	V_242
+scsi_status_val	,	V_101
+"Next expected data sequence number"	,	L_232
+"iscsi.isid.qualifier"	,	L_185
+cdb_tvb	,	V_265
+""	,	L_12
+ISCSI_OPCODE_R2T	,	V_231
+"Reason"	,	L_246
+"iscsi"	,	L_283
+hf_iscsi_ISID_d	,	V_202
+hf_iscsi_ISID_c	,	V_201
+hf_iscsi_ISID_b	,	V_200
+hf_iscsi_ISID_a	,	V_199
+"Time2Retain"	,	L_253
+"iscsi.refcmdsn"	,	L_241
+"Ping Data"	,	L_46
+"Response in"	,	L_26
+"ISID_Type"	,	L_178
+"RunLength"	,	L_280
+"iscsi.scsiresponse.O"	,	L_125
+hf_iscsi_ExpDataSN	,	V_175
+"R2TSN"	,	L_233
+"Attr"	,	L_82
+hf_iscsi_async_event_data	,	V_244
+"iscsi.ahs.type"	,	L_35
+"iscsi.targettransfertag"	,	L_153
+"Reason for logout"	,	L_248
+CRC32C_PRELOAD	,	V_42
+"Residual underflow"	,	L_129
+BASE_HEX	,	V_311
+desegment_len	,	V_274
+next_opcode	,	V_245
+"Whether the iSCSI dissector should reassemble messages spanning multiple TCP segments."	,	L_289
+module_t	,	T_19
+"PDU Contains SCSI command status"	,	L_149
+proto_register_field_array	,	F_76
+dataOffset	,	V_51
+nstime_delta	,	F_48
+"iscsi.scsidata.O"	,	L_151
+prefs_register_range_preference	,	F_84
+"SCSI command response value"	,	L_135
+senseLen	,	V_269
+ett_iscsi_CDB	,	V_339
+"R2T PDU Number"	,	L_235
+tvb_captured_length	,	F_59
+"Parameter 1"	,	L_266
+hf_iscsi_VersionMin	,	V_189
+dissect_scsi_cdb	,	F_54
+demand_good_f_bit	,	V_291
+")"	,	L_304
+"Expected length of data transfer"	,	L_99
+fd	,	V_17
+ett_iscsi_lun	,	V_340
+iscsi_meaning_A	,	V_326
+hf_iscsi_ping_data	,	V_142
+SCSI_DATA_READ	,	V_154
+hf_iscsi_SCSIResponse_Response	,	V_172
+"iscsi.vendorspecificdata"	,	L_54
+"Desired data length (bytes)"	,	L_257
+iscsi_asyncevents	,	V_122
+"KeyValue"	,	L_224
+original_offset	,	V_61
+iscsi_meaning_O	,	V_322
+"Parameter 2"	,	L_269
+iscsi_meaning_F	,	V_315
+hf_iscsi_ExpCmdSN	,	V_145
+iscsi_meaning_I	,	V_314
+iscsi_meaning_C	,	V_333
+iscsi_login_stage	,	V_335
+"Next stage"	,	L_221
+bogus_pdu_data_length_threshold	,	V_290
+conversation_add_proto_data	,	F_67
+i0	,	V_9
+dissect_iscsi	,	F_58
+i1	,	V_10
+length	,	V_79
+iscsi_meaning_W	,	V_317
+"iscsi_tcp"	,	L_318
+i2	,	V_11
+i3	,	V_12
+"Initiator part of session identifier - qualifier"	,	L_186
+iscsi_meaning_X	,	V_313
+iscsi_meaning_S	,	V_327
+iscsi_meaning_R	,	V_316
+iscsi_meaning_U	,	V_323
+iscsi_meaning_T	,	V_332
+iscsi_meaning_o	,	V_320
+"Parameter 3"	,	L_272
+hf	,	V_300
+iscsi_snack_types	,	V_277
+"target_system_port"	,	L_305
+ISCSI_OPCODE_SCSI_DATA_IN	,	V_95
+"ISID_Qualifier"	,	L_184
+"Target system port"	,	L_306
+iscsi_meaning_u	,	V_321
+prefs_register_protocol	,	F_79
+ISCSI_DIGEST_NONE	,	V_295
+col_append_fstr	,	F_33
+hf_iscsi_InitiatorTaskTag	,	V_138
+"iscsi.scsiresponse.residualcount"	,	L_107
+"Text incomplete"	,	L_213
+ISCSI_OPCODE_LOGIN_RESPONSE	,	V_102
+NO_ADDR2	,	V_23
+"iscsi.isid.t"	,	L_188
+"protocol_version"	,	L_284
+"Connection identifier"	,	L_173
+"o"	,	L_118
+val_to_str	,	F_34
+"bogus_pdu_max_digest_padding"	,	L_309
+"iscsi.data_out_frame"	,	L_24
+"AsyncEventData"	,	L_50
+"Event vendor code"	,	L_263
+ett_iscsi_Flags	,	V_153
+"iscsi.desireddatalength"	,	L_256
+hf_iscsi_SCSICommand_CRN	,	V_157
+"SCSI command status value"	,	L_132
+"Initiator part of session identifier - a"	,	L_192
+"Maximum acceptable command sequence number"	,	L_117
+"iscsi.immediatedata"	,	L_48
+iscsi_task_management_responses	,	V_116
+CSG_MASK	,	V_181
+ISCSI_OPCODE_ASYNC_MESSAGE	,	V_120
+"iscsi.taskmanfun.referencedtasktag"	,	L_238
+"header_digest_is_crc32c"	,	L_310
+ISCSI_OPCODE_NOP_OUT	,	V_133
+"InitiatorTaskTag"	,	L_94
+VALS	,	F_72
+dissector_add_for_decode_as	,	F_88
+prefs_register_bool_preference	,	F_81
+"Type of SNACK requested"	,	L_276
+ahs_offset	,	V_159
+BASE_DEC	,	V_306
+tvb_new_subset	,	F_45
+"Initiator part of session identifier - b"	,	L_195
+"iscsi.isid.type"	,	L_179
+try_val_to_str	,	F_47
+ENC_NA	,	V_34
+"iscsi.login.T"	,	L_209
+hf_iscsi_SenseLength	,	V_270
+dissect_iscsi_pdu	,	F_22
+paddedDataSegmentLength	,	V_68
+"Enable bogus pdu filter"	,	L_292
+iscsi_meaning_login_X	,	V_334
+wmem_alloc	,	F_4
+hf_iscsi_time	,	V_259
+ISCSI_OPCODE_SCSI_RESPONSE	,	V_94
+"Initiator part of session identifier - c"	,	L_198
+hf_iscsi_SCSICommand_R	,	V_149
+"VersionMin"	,	L_165
+limit	,	V_30
+"Function"	,	L_243
+hf_iscsi_SCSICommand_W	,	V_150
+hf_iscsi_VersionMax	,	V_188
+"Response"	,	L_133
+ISCSI_OPCODE_TEXT_COMMAND	,	V_207
+"iscsi.pingdata"	,	L_45
+hf_iscsi_SCSICommand_F	,	V_148
+"Time between the Command and the Response"	,	L_19
+"CSG"	,	L_216
+hf_iscsi_ISID_NamingAuthority	,	V_196
+"Initiator part of session identifier - d"	,	L_201
+hf_iscsi_snack_type	,	V_228
+"Acknowledge Requested"	,	L_146
+hf_iscsi_AsyncEvent	,	V_236
+dsl	,	V_234
+hf_iscsi_BufferOffset	,	V_213
+conversation_get_proto_data	,	F_64
+"SCSI task attributes"	,	L_84
+"iscsi.flags"	,	L_71
+"ISID_t"	,	L_187
+hf_iscsi_BegRun	,	V_229
+hf_iscsi_request_frame	,	V_258
+", "	,	L_13
+HFILL	,	V_303
+"ExpStatSN"	,	L_103
+ISCSI_OPCODE_SCSI_DATA_OUT	,	V_96
+"Status"	,	L_130
+wmem_new	,	F_5
+"ISID_NamingAuthority"	,	L_181
+proto_tree_add_bitmask_with_flags	,	F_43
+proto_register_iscsi	,	F_71
+"u"	,	L_121
+"iscsi.scsidata.U"	,	L_150
+"iscsi.login.X"	,	L_214
+"iscsi.X"	,	L_65
+"DataDigest"	,	L_59
+TARGET_OPCODE_BIT	,	V_127
+ISCSI_OPCODE_VENDOR_SPECIFIC_I1	,	V_251
+ISCSI_OPCODE_VENDOR_SPECIFIC_I0	,	V_250
+hf_iscsi_KeyValue	,	V_33
+"Treat packets whose data segment length is greater than this value as bogus"	,	L_299
+"Length of Additional header segment"	,	L_31
+hf_id	,	V_50
+SCSI_DEV_UNKNOWN	,	V_268
+FT_RELATIVE_TIME	,	V_304
+"Logout response"	,	L_250
+bytes_until_next_pdu	,	V_298
+tvb_captured_length_remaining	,	F_13
+"iscsi.scsiresponse.response"	,	L_134
+COL_INFO	,	V_100
+scsi_data_in_draft08	,	V_218
+"iscsi.request_frame"	,	L_15
+"iscsi.text.C"	,	L_229
+NSG_MASK	,	V_336
+"ReferencedTaskTag"	,	L_237
+hf_iscsi_RunLength	,	V_230
+tmpbyte	,	V_272
+cinfo	,	V_77
+"iscsi.logout.response"	,	L_249
+hf_iscsi_ExpStatSN	,	V_141
+"desegment_iscsi_messages"	,	L_287
+g_direct_equal	,	V_294
+"iscsi.expdatasn"	,	L_231
+hf_iscsi_RefCmdSN	,	V_179
+PT_TCP	,	V_22
+global_iscsi_port_range	,	V_285
+abs_ts	,	V_87
+iscsi_handle	,	V_25
+SCSI_DATA_WRITE	,	V_155
+secondPduByte	,	V_281
+hf_iscsi_Logout_Response	,	V_225
+want_pdu_tracking	,	V_297
+hf_iscsi_Time2Wait	,	V_226
+key	,	V_31
+"NSG"	,	L_219
+"Key/value pair"	,	L_226
+"The Data Out for this transaction is in this frame"	,	L_25
+hf_iscsi_ISID_Qualifier	,	V_197
+"TSID"	,	L_202
+tf	,	V_192
+hf_iscsi_Time2Retain	,	V_227
+ti	,	V_36
+ISCSI_OPCODE_SCSI_COMMAND	,	V_80
+tp	,	V_123
+badPdu	,	V_282
+"iscsi.asynceventdata"	,	L_51
+"header_digest_size"	,	L_311
+tt	,	V_26
+register_dissector	,	F_75
+iscsi_task_management_functions	,	V_113
+"Bogus pdu max data length threshold"	,	L_298
+iscsi_scsi_responses	,	V_324
+data_segment_len	,	V_59
+addTextKeys	,	F_8
+gboolean	,	T_13
+hf_iscsi_CmdSN	,	V_140
+"AHS Type"	,	L_34
+"DataSegmentLength"	,	L_88
+asyncEvent	,	V_121
+TCP_PORT_ISCSI_RANGE	,	V_342
+data_tvb	,	V_241
+"VendorSpecificData"	,	L_53
+"Command sequence number for command to be aborted"	,	L_242
+"data_digest_is_crc32c"	,	L_313
+hf_iscsi_AHS_extended_cdb	,	V_164
+BASE_DEC_HEX	,	V_319
+hf_iscsi_TaskManagementFunction_ReferencedTaskTag	,	V_178
+PINFO_FD_VISITED	,	F_24
+hf_iscsi_AHS_length	,	V_162
+"iscsi.text.F"	,	L_227
+"iscsi.datasegmentlength"	,	L_89
+"ExpCmdSN"	,	L_112
+"iSCSI over TCP"	,	L_317
+"iscsi.taskmanfun.function"	,	L_244
+"iscsi.bufferOffset"	,	L_156
+data_length	,	V_84
+dissect_scsi_rsp	,	F_57
+hf_iscsi_TaskManagementFunction_Response	,	V_180
+"Padding to 4 byte boundary"	,	L_43
+"iscsi.time2wait"	,	L_252
+ENC_BIG_ENDIAN	,	V_136
+handleDataSegmentAsTextKeys	,	F_20
+ISCSI_OPCODE_VENDOR_SPECIFIC_I2	,	V_252
+"ImmediateData"	,	L_47
+"Initiator part of session identifier"	,	L_176
+dissect_iscsi_heur	,	F_70
+"Requested task function"	,	L_245
+OPCODE_MASK	,	V_276
+"ISID_b"	,	L_193
+fc_time	,	V_86
+"VersionActive"	,	L_168
+ISCSI_OPCODE_NOP_IN	,	V_143
+hf_iscsi_immediate_data	,	V_167
+conv	,	V_20
+alloc_len	,	V_90
+val	,	V_3
+"ISID_c"	,	L_196
+hf_iscsi_TotalAHSLength	,	V_135
+crc32c_tvb_offset_calculate	,	F_14
+next_opcode_str	,	V_246
+"Command reads from SCSI target"	,	L_78
+"Current stage"	,	L_218
+proto_register_subtree_array	,	F_78
+"Range of iSCSI target ports"	,	L_302
+tvb_get_ntoh24	,	F_40
+"Reassemble iSCSI messages\nspanning multiple TCP segments"	,	L_288
+_U_	,	V_2
+"iscsi.ahs.extended_cdb"	,	L_38
+header_digest	,	V_39
+"Bi-directional read residual count"	,	L_138
+"Number of additional missing status PDUs in this run"	,	L_282
+"Initiator part of session identifier - naming authority"	,	L_183
+"iscsi.response_frame"	,	L_27
+"iscsi.ahs.length"	,	L_30
+"iscsi.login.status"	,	L_222
+iscsi_protocol_versions	,	V_341
+FT_UINT8	,	V_308
+"iscsi.login.C"	,	L_212
+scsi_opcode	,	V_82
+proto_item	,	T_10
+"ISID_a"	,	L_190
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_290
+ahs_cdb_length	,	V_73
+"data_digest_size"	,	L_314
+wmem_map_new	,	F_66
+"CmdSN"	,	L_100
+iscsi_dissect_TargetAddress	,	F_1
+"Command Retry"	,	L_66
+"Transit to next login stage"	,	L_210
+"iscsi.versionmax"	,	L_163
+NO_PORT2	,	V_24
+data	,	V_16
+"Initiator part of session identifier - t"	,	L_189
+"0x%x"	,	L_8
+"iscsi.I"	,	L_68
+handleDataDigest	,	F_17
+"CID"	,	L_171
+hf_iscsi_X	,	V_130
+tvb_get_letohl	,	F_60
+"Rejected Header"	,	L_10
+nstime_t	,	T_18
+tvb_get_letohs	,	F_61
+S_bit	,	V_63
+conversation_t	,	T_5
+"A"	,	L_144
+offset	,	V_28
+hf_iscsi_I	,	V_132
+immediate_data_length	,	V_70
+"Opcode"	,	L_62
+"Target transfer tag"	,	L_154
+wmem_tree_key_t	,	T_17
+hf_iscsi_SCSIResponse_ResidualCount	,	V_174
+sent	,	V_43
+add_new_data_source	,	F_53
+"Sequence number for this command"	,	L_102
+proto_tree_add_uint	,	F_38
+iscsi_desegment	,	V_279
+"iscsi.scsidata.readresidualcount"	,	L_158
+"ISID_d"	,	L_199
+digestsActive	,	V_54
+hf_iscsi_Login_CSG	,	V_186
+I_BIT	,	V_264
+"iscsi.scsiresponse.status"	,	L_131
+DESEGMENT_ONE_MORE_SEGMENT	,	V_275
+A_bit	,	V_64
+opcode_str	,	V_58
+wmem_file_scope	,	F_25
+"iSCSI (%s)"	,	L_9
+hf_iscsi_SCSICommand_Attr	,	V_151
+value	,	V_6
+"iscsi.scsiresponse.u"	,	L_122
+"C"	,	L_211
+"The request to this transaction is in this frame"	,	L_16
+wmem_map_insert	,	F_31
+"TSIH"	,	L_205
+FT_FRAMENUM	,	V_301
+data_offset	,	V_75
+tvb_rlen	,	V_243
+"iscsi.cmdsn"	,	L_101
+"iscsi.logout.reason"	,	L_247
+cmdset	,	V_99
+srcport	,	V_286
+proto_tree	,	T_2
+"iscsi.initiatortasktag"	,	L_95

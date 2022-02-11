@@ -1,0 +1,139 @@
+"Unparseable time"	,	L_4
+"dvb_eit.tsid"	,	L_20
+"Service ID"	,	L_7
+"\xFF\xFF\xFF\xFF\xFF"	,	L_3
+" (%02u:%02u:%02u)"	,	L_6
+proto_register_protocol	,	F_21
+proto_tree_add_time	,	F_12
+proto_mpeg_descriptor_loop_dissect	,	F_17
+"Current/Next Indicator"	,	L_13
+"dvb_eit"	,	L_41
+hf_dvb_eit_service_id	,	V_18
+"dvb_eit.evt.duration"	,	L_32
+col_set_str	,	F_2
+gint	,	T_9
+tvb	,	V_1
+hf_dvb_eit_version_number	,	V_21
+ett_dvb_eit_event	,	V_29
+COL_INFO	,	V_14
+"Event ID"	,	L_27
+"dvb_eit.last_tid"	,	L_26
+proto_item_append_text	,	F_14
+"mpeg_sect.tid"	,	L_42
+hf_dvb_eit_original_network_id	,	V_26
+dvb_eit_cur_next_vals	,	V_47
+"dvb_eit.evt.free_ca_mode"	,	L_36
+"dvb_eit.reserved"	,	L_10
+hf_dvb_eit_free_ca_mode	,	V_36
+cinfo	,	V_13
+FT_ABSOLUTE_TIME	,	V_49
+proto_register_subtree_array	,	F_24
+dvb_eit_running_status_vals	,	V_52
+"Free CA Mode"	,	L_35
+array_length	,	F_23
+"Reserved"	,	L_9
+DVB_EIT_VERSION_NUMBER_MASK	,	V_45
+"dvb_eit.version"	,	L_12
+proto_tree_add_item	,	F_3
+pinfo	,	V_2
+dissector_handle_t	,	T_10
+"Section Number"	,	L_15
+descriptor_len	,	V_6
+hf_dvb_eit_duration	,	V_34
+"dvb_eit.sect_num"	,	L_16
+hf_dvb_eit_transport_stream_id	,	V_25
+dvb_eit_event_tree	,	V_10
+"dvb_eit.cur_next_ind"	,	L_14
+dissect_dvb_eit	,	F_1
+DVB_EIT_DESCRIPTORS_LOOP_LENGTH_MASK	,	V_38
+hf_register_info	,	T_8
+VALS	,	F_20
+"Event Information Table (EIT)"	,	L_1
+"Original Network ID"	,	L_21
+guint16	,	T_5
+hf_dvb_eit_descriptors_loop_length	,	V_37
+MPEG_SECT_BCD44_TO_DEC	,	F_15
+"Descriptors Loop Length"	,	L_37
+FT_UINT8	,	V_43
+BASE_DEC	,	V_46
+proto_register_dvb_eit	,	F_19
+proto_item	,	T_6
+ENC_NA	,	V_16
+dvb_eit_free_ca_mode_vals	,	V_54
+tvb_memeql	,	F_9
+"Duration"	,	L_31
+ti	,	V_8
+"Segment Last Section Number"	,	L_23
+secs	,	V_32
+hf_dvb_eit_last_section_number	,	V_24
+DVB_EIT_RUNNING_STATUS_MASK	,	V_53
+"dvb_eit.evt.running_status"	,	L_34
+duration_item	,	V_11
+dvb_eit_tree	,	V_9
+packet_mpeg_sect_mjd_to_utc_time	,	F_10
+"DVB EIT"	,	L_40
+tvbuff_t	,	T_1
+DVB_EIT_TID_MAX	,	V_60
+tvb_get_ntohs	,	F_7
+tid	,	V_57
+ABSOLUTE_TIME_UTC	,	V_50
+BASE_HEX	,	V_41
+"Last Section Number"	,	L_17
+FT_UINT24	,	V_51
+hf_dvb_eit_reserved	,	V_20
+proto_item_add_subtree	,	F_4
+DVB_EIT_TID_MIN	,	V_59
+nstime_t	,	T_7
+proto_register_field_array	,	F_22
+guint	,	T_4
+offset	,	V_4
+ett	,	V_56
+"UTC Start Time"	,	L_29
+dissector_add_uint	,	F_27
+tree	,	V_3
+hf_dvb_eit_current_next_indicator	,	V_22
+"dvb_eit.evt.descr_loop_len"	,	L_38
+FT_UINT16	,	V_40
+packet_info	,	T_2
+"Transport Stream ID"	,	L_19
+proto_reg_handoff_dvb_eit	,	F_25
+start_time	,	V_12
+proto_tree_add_time_format	,	F_11
+tvb_get_guint8	,	F_16
+"Running Status"	,	L_33
+packet_mpeg_sect_header	,	F_5
+"Last Table ID"	,	L_25
+proto_dvb_eit	,	V_15
+DVB_EIT_RESERVED_MASK	,	V_44
+"dvb_eit.evt.id"	,	L_28
+"dvb_eit.sid"	,	L_8
+DVB_EIT_CURRENT_NEXT_INDICATOR_MASK	,	V_48
+proto_tree_add_time_format_value	,	F_13
+"dvb_eit.last_sect_num"	,	L_18
+"DVB Event Information Table"	,	L_39
+"Event 0x%04hx"	,	L_2
+HFILL	,	V_42
+"dvb_eit.original_nid"	,	L_22
+hf_dvb_eit_running_status	,	V_35
+"Version Number"	,	L_11
+length	,	V_5
+create_dissector_handle	,	F_26
+proto_tree_add_subtree_format	,	F_8
+dvb_eit_handle	,	V_58
+hf_dvb_eit_section_number	,	V_23
+packet_mpeg_sect_crc	,	F_6
+proto_item_set_len	,	F_18
+ENC_BIG_ENDIAN	,	V_19
+"Undefined (0xFFFFFFFFFF)"	,	L_5
+DVB_EIT_FREE_CA_MODE_MASK	,	V_55
+nsecs	,	V_33
+hf_dvb_eit_start_time	,	V_31
+"dvb_eit.segment_last_sect_num"	,	L_24
+hf_dvb_eit_event_id	,	V_30
+ett_dvb_eit	,	V_17
+evt_id	,	V_7
+hf_dvb_eit_last_table_id	,	V_28
+"dvb_eit.evt.start_time"	,	L_30
+proto_tree	,	T_3
+hf	,	V_39
+hf_dvb_eit_segment_last_section_number	,	V_27

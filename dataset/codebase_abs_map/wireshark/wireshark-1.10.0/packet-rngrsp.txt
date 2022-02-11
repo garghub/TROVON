@@ -1,0 +1,113 @@
+"Offset Freq Adjust (Hz)"	,	L_14
+THROW	,	F_12
+rngrsp_tree	,	V_5
+proto_register_protocol	,	F_15
+"docsis_rngrsp.poweradj"	,	L_12
+"Frequency Adjust"	,	L_16
+"DOCSIS RNG-RSP"	,	L_28
+"Upstream Channel ID Override"	,	L_25
+"docsis_rngrsp.freq_over"	,	L_23
+gint	,	T_6
+tvb	,	V_1
+RNGRSP_TRANSMIT_EQ_ADJ	,	V_28
+"docsis_rngrsp.xmit_eq_adj"	,	L_18
+"docsis_rngrsp.chid_override"	,	L_26
+COL_INFO	,	V_15
+it	,	V_4
+"DOCSIS Ranging Response"	,	L_27
+tvb_reported_length_remaining	,	F_9
+col_clear	,	F_4
+cinfo	,	V_14
+proto_register_subtree_array	,	F_18
+gint32	,	T_9
+array_length	,	F_17
+RNGRSP_DOWN_FREQ_OVER	,	V_33
+hf_docsis_rngrsp_down_freq_over	,	V_34
+"Power Level Adjust"	,	L_13
+proto_docsis_rngrsp	,	V_16
+"docsis_rngrsp.freqadj"	,	L_15
+"Ranging Response: SID = %u, Telephony Return"	,	L_2
+proto_tree_add_item	,	F_8
+"Timing Adjust"	,	L_10
+pinfo	,	V_2
+col_add_fstr	,	F_5
+dissector_handle_t	,	T_11
+"Timing Adjust (6.25us/64)"	,	L_8
+pwr	,	V_12
+"docsis_rngrsp.rng_stat"	,	L_21
+"Timing Equalisation Adjust"	,	L_19
+tlvlen	,	V_7
+pos	,	V_8
+"docsis_rngrsp.timingadj"	,	L_9
+hf_register_info	,	T_10
+RNGRSP_RANGING_STATUS	,	V_31
+VALS	,	F_14
+"Transmit Equalisation Adjust"	,	L_17
+ReportedBoundsError	,	V_23
+guint16	,	T_7
+FT_UINT8	,	V_41
+dissect_rngrsp	,	F_1
+BASE_DEC	,	V_39
+"Upstream Channel ID"	,	L_6
+"docsis_rngrsp"	,	L_29
+tlvtype	,	V_6
+proto_item	,	T_4
+ett_docsis_rngrsp	,	V_17
+ENC_NA	,	V_30
+guint8	,	T_5
+BASE_NONE	,	V_46
+docsis_rngrsp_handle	,	V_50
+"docsis_rngrsp.sid"	,	L_5
+register_dissector	,	F_19
+hf_docsis_rngrsp_upstream_chid	,	V_20
+tvb_get_ntohl	,	F_10
+hf_docsis_rngrsp_ranging_status	,	V_32
+tvbuff_t	,	T_1
+"docsis_rngrsp.upchid"	,	L_7
+proto_tree_add_protocol_format	,	F_6
+tvb_get_ntohs	,	F_2
+"Ranging Response"	,	L_3
+tim	,	V_13
+proto_item_add_subtree	,	F_7
+RNGRSP_UP_CHID_OVER	,	V_35
+hf_docsis_rngrsp_timing_adj	,	V_22
+proto_register_field_array	,	F_16
+FT_BYTES	,	V_45
+upchid	,	V_10
+ett	,	V_49
+dissector_add_uint	,	F_22
+"docsis_mgmt"	,	L_30
+tree	,	V_3
+FT_UINT16	,	V_38
+packet_info	,	T_2
+RNGRSP_TIMING	,	V_21
+rng_stat_vals	,	V_47
+tvb_get_guint8	,	F_3
+FT_INT8	,	V_43
+"Downstream Frequency Override (Hz)"	,	L_22
+hf_docsis_rngrsp_sid	,	V_18
+"Power Level Adjust (0.25dB units)"	,	L_11
+"Service Identifier"	,	L_4
+gint8	,	T_8
+RNGRSP_PWR_LEVEL_ADJ	,	V_24
+"Ranging Status"	,	L_20
+sid	,	V_11
+hf_docsis_rngrsp_power_adj	,	V_25
+HFILL	,	V_40
+FT_INT32	,	V_42
+FT_INT16	,	V_44
+length	,	V_9
+find_dissector	,	F_21
+proto_reg_handoff_docsis_rngrsp	,	F_20
+hf_docsis_rngrsp_upstream_ch_over	,	V_36
+"Downstream Frequency Override"	,	L_24
+"Ranging Response: SID = %u, Upstream Channel = %u (U%u)"	,	L_1
+ENC_BIG_ENDIAN	,	V_19
+proto_register_docsis_rngrsp	,	F_13
+hf_docsis_rngrsp_freq_adj	,	V_27
+FT_UINT32	,	V_48
+RNGRSP_OFFSET_FREQ_ADJ	,	V_26
+proto_tree_add_int	,	F_11
+proto_tree	,	T_3
+hf_docsis_rngrsp_xmit_eq_adj	,	V_29
+hf	,	V_37

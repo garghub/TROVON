@@ -1,0 +1,161 @@
+proto_register_fmp_notify	,	F_28
+ett_fmp_notify	,	V_70
+hf_fmp_notify_procedure	,	V_58
+proto_register_protocol	,	F_30
+hf_fmp_firstLogBlk	,	V_40
+FMP_REQUEST_QUEUED	,	V_19
+"Cookie for FMP_REQUEST_QUEUED Resp"	,	L_31
+FMP_NOMEM	,	V_8
+FMP_QUEUE_FULL	,	V_12
+proto_tree_add_subtree	,	F_7
+"fmp_notify.msgNum"	,	L_28
+"First Logical Block"	,	L_32
+dissect_rpc_uint32	,	F_3
+fmp_status_vals	,	V_63
+"Number Blocks Requested"	,	L_25
+FT_UINT64	,	V_67
+gint	,	T_9
+proto_fmp_notify	,	V_71
+tvb	,	V_1
+FMP_HOT_SESSION	,	V_15
+"fmp_notify.extentState"	,	L_18
+"Extent List"	,	L_3
+hf_fmp_msgNum	,	V_39
+guint32	,	T_7
+extListTree	,	V_54
+dissect_fmp_notify_extent	,	F_26
+rpc_init_prog	,	F_35
+totalLength	,	V_53
+ett_fmp_notify_hlist	,	V_35
+"fmp_notify.notify_procedure"	,	L_5
+FMP_DUPLICATE_OPEN	,	V_25
+"Reply Status"	,	L_8
+proto_register_subtree_array	,	F_33
+FMP_CLIENT_TERMINATED	,	V_17
+hf_fmp_handleListLen	,	V_36
+numExtents	,	V_52
+"fmp_notify.startOffset"	,	L_16
+array_length	,	F_32
+"fmp_notify.cookie"	,	L_30
+status	,	V_5
+hf_fmp_status	,	V_27
+hf_fmp_extentList_len	,	V_56
+ext_num	,	V_46
+proto_tree_add_item	,	F_5
+FMP_NOTIFY_ERROR	,	V_23
+pinfo	,	T_5
+"Extent (%u)"	,	L_2
+fmp_notify_proc_vals	,	V_61
+"Number of File Handles"	,	L_19
+_U_	,	V_30
+"fmp_notify.fmpFHandle"	,	L_38
+dissect_FMP_NOTIFY_RevokeAll_request	,	F_13
+"Reason"	,	L_39
+FMP_IOERROR	,	V_7
+hf_register_info	,	T_8
+"FMP/NOTIFY"	,	L_42
+rval	,	V_4
+VALS	,	F_29
+"fmp_notify.status"	,	L_7
+FMP_WRONG_HANDLE	,	V_24
+"Cookie"	,	L_29
+dissect_fmp_notify_extentList	,	F_19
+FMP_NOACCESS	,	V_9
+dissect_FMP_NOTIFY_revokeHandleList_reply	,	F_24
+dissect_fmp_notify_extentState	,	F_25
+hf_fmp_fsID	,	V_44
+i	,	V_33
+BASE_DEC	,	V_60
+FMP_REQUEST_CANCELLED	,	V_21
+FMP_PLUGIN_NOFUNC	,	V_26
+ett_fmp_extList	,	V_55
+fmpStat	,	T_3
+"Handle List"	,	L_1
+dissect_rpc_data	,	F_8
+"fmp_notify.firstLogBlk"	,	L_33
+FMP_NOTIFY_PROG	,	V_72
+dissect_rpc_uint64	,	F_16
+"Number Blocks"	,	L_11
+BASE_NONE	,	V_65
+extTree	,	V_47
+"File Mapping Protocol Nofity"	,	L_41
+fmp_notify_vers_info	,	V_73
+dissect_FMP_NOTIFY_DownGrade_request	,	F_9
+tvb_get_ntohl	,	F_2
+hf_fmp_revokeHandleListReason	,	V_28
+data	,	T_6
+"First Logical File Block"	,	L_34
+"fmp_notify"	,	L_43
+"File Size"	,	L_35
+tvbuff_t	,	T_1
+"Extent State"	,	L_17
+hf_fmp_extent_state	,	V_45
+dissect_FMP_NOTIFY_DownGrade_reply	,	F_10
+"fmp_notify.sessHandle"	,	L_22
+BASE_HEX	,	V_66
+FMP_WRONG_MSG_NUM	,	V_13
+FMP_FALL_BACK	,	V_20
+"fmp_notify.handleListLength"	,	L_20
+proto_register_field_array	,	F_31
+FT_BYTES	,	V_64
+dissect_FMP_NOTIFY_volFreeze_request	,	F_21
+offset	,	V_2
+FMP_OK	,	V_6
+FMP_SESSION_LOST	,	V_14
+"fmp_notify.volID"	,	L_14
+ett	,	V_69
+"fmp_notify.extentListLength"	,	L_10
+"fmp_notify.numBlks"	,	L_12
+tree	,	V_3
+dissect_handleList	,	F_6
+"Volume ID"	,	L_13
+hf_fmp_fmpFHandle	,	V_37
+"Extent List length"	,	L_9
+"Session Handle"	,	L_21
+dissect_FMP_NOTIFY_RequestDone_reply	,	F_20
+packet_info	,	T_4
+dissect_FMP_NOTIFY_volFreeze_reply	,	F_22
+hf_fmp_numBlks	,	V_49
+hf_fmp_sessionHandle	,	V_38
+dissect_fmp_notify_status	,	F_1
+FMP_COLD_SESSION	,	V_16
+fmp_revokeHandleListReason_vals	,	V_68
+hf_fmp_numBlksReq	,	V_41
+FMP_INVALIDARG	,	V_10
+hf_fmp_cookie	,	V_43
+dissect_FMP_NOTIFY_RequestDone_request	,	F_18
+hf_fmp_fileSize	,	V_42
+dissect_FMP_NOTIFY_FileSetEof_reply	,	F_17
+FMP_WRITER_LOST_BLK	,	V_18
+"fmp_notify.numBlksReq"	,	L_26
+hf_fmp_startOffset	,	V_51
+dissect_FMP_NOTIFY_FileSetEof_request	,	F_15
+dissect_FMP_NOTIFY_RevokeAll_reply	,	F_14
+hf_fmp_volID	,	V_50
+G_N_ELEMENTS	,	F_36
+handleListTree	,	V_34
+dissect_FMP_NOTIFY_RevokeList_request	,	F_11
+"fmp_notify.fsID"	,	L_24
+dissect_revokeHandleListReason	,	F_4
+numHandles	,	V_31
+HFILL	,	V_62
+listLength	,	V_32
+"Status"	,	L_6
+"Message Number"	,	L_27
+FMP_WRITER_ZEROED_BLK	,	V_22
+dissect_FMP_NOTIFY_revokeHandleList_request	,	F_23
+"fmp.revokeHandleListReason"	,	L_40
+proto_reg_handoff_fmp_notify	,	F_34
+"fmp_notify.fileSize"	,	L_36
+"FMP File Handle"	,	L_37
+dissect_FMP_NOTIFY_RevokeList_reply	,	F_12
+proto_tree_add_subtree_format	,	F_27
+FMP_FSFULL	,	V_11
+"File System ID"	,	L_23
+"Start Offset"	,	L_15
+ENC_BIG_ENDIAN	,	V_29
+FT_UINT32	,	V_59
+ett_fmp_ext	,	V_48
+"Procedure"	,	L_4
+proto_tree	,	T_2
+hf	,	V_57

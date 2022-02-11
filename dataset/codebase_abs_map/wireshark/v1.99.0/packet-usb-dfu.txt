@@ -1,0 +1,244 @@
+interfaceSubclass	,	V_14
+"Timeout"	,	L_28
+proto_register_protocol	,	F_29
+"usbdfu.data"	,	L_39
+"usbdfu.descriptor.bmAttributes.reserved"	,	L_43
+gint	,	T_1
+"Can Download"	,	L_50
+dissect_usb_dfu	,	F_9
+expert_module	,	V_85
+wmem_tree_lookup32_array	,	F_20
+tvb	,	V_1
+" Timeout=%u"	,	L_8
+"Interface"	,	L_22
+"Manifestation Tolerant"	,	L_46
+guint32	,	T_12
+COL_INFO	,	V_55
+k_frame_number	,	V_42
+module	,	V_84
+"usbdfu.descriptor.bmAttributes.ManifestationTolerant"	,	L_47
+wmem_epan_scope	,	F_28
+FT_BOOLEAN	,	V_98
+"iString"	,	L_34
+cinfo	,	V_49
+PI_ERROR	,	V_101
+wmem_tree_t	,	T_10
+"usbdfu.iString"	,	L_35
+array_length	,	F_31
+"Block Number"	,	L_26
+"Reserved"	,	L_42
+"Unused"	,	L_20
+is_setup	,	V_56
+ett_usb_dfu	,	V_48
+hf_setup_command	,	V_58
+col_append_str	,	F_22
+hf_setup_interface	,	V_65
+hf_usb_dfu_descriptor_wDetachTimeOut	,	V_25
+"usb.descriptor"	,	L_74
+hf_register_info	,	T_17
+hf_usb_dfu_descriptor_bmAttributes_ManifestationTolerant	,	V_22
+key	,	V_37
+dissect_usb_descriptor_header	,	F_7
+guint16	,	T_14
+COL_PROTOCOL	,	V_50
+p2p_dir_save	,	V_32
+": %s"	,	L_1
+"usbdfu.descriptor.bcdDFUVersion"	,	L_57
+guint8	,	T_6
+BASE_NONE	,	V_92
+tvb_length_remaining	,	F_15
+"usbdfu.descriptor"	,	L_41
+"usb.device"	,	L_76
+wmem_tree_new_autoreset	,	F_27
+descriptor_type	,	V_10
+command_tree	,	V_31
+tvbuff_t	,	T_2
+block_number	,	V_43
+"usb_dfu.unexpected_response"	,	L_58
+proto_reg_handoff_usb_dfu	,	F_38
+command_data	,	V_35
+val_to_str_ext_const	,	F_6
+BASE_HEX	,	V_94
+PROTO_ITEM_SET_GENERATED	,	F_24
+FT_UINT24	,	V_96
+"usb.protocol"	,	L_77
+hf_usb_dfu_descriptor	,	V_15
+descriptor_type_vals_ext	,	V_18
+proto_item_add_subtree	,	F_4
+hf_usb_dfu_descriptor_bcdDFUVersion	,	V_28
+device_address	,	V_39
+module_t	,	T_15
+proto_register_field_array	,	F_30
+"wTransferSize"	,	L_54
+ei	,	V_99
+dissector_add_uint	,	F_40
+"usbdfu.unused"	,	L_21
+"version"	,	L_71
+k_device_address	,	V_41
+FT_UINT16	,	V_93
+"usbdfu.response"	,	L_17
+tvb_get_guint8	,	F_2
+FT_INT8	,	V_95
+wmem_tree_lookup32_le	,	F_21
+"State"	,	L_30
+"USB DFU Specification 1.1"	,	L_72
+fd	,	V_44
+hf_setup_block_number	,	V_63
+"usbdfu.descriptor.bmAttributes.CanDownload"	,	L_51
+is_request	,	V_52
+"Can Upload"	,	L_48
+expert_add_info	,	F_8
+interface	,	V_57
+"bcdDFUVersion"	,	L_56
+"usbdfu.state"	,	L_31
+"usb_dfu.unexpected_data"	,	L_62
+bus_id	,	V_38
+"usbdfu.descriptor.bmAttributes.WillDetach"	,	L_45
+main_item	,	V_5
+new_create_dissector_handle	,	F_39
+hf_usb_dfu_descriptor_bmAttributes_reserved	,	V_20
+usf_dfu_descriptor_handle	,	V_107
+length	,	V_46
+PI_WARN	,	V_104
+"usb_dfu.invalid_command_for_request_type"	,	L_64
+hf_setup_unused	,	V_64
+hf_usb_dfu_descriptor_wTransferSize	,	V_27
+"Unexpected data"	,	L_63
+command_data_t	,	T_9
+setup_requesttype	,	V_59
+visited	,	V_70
+"usbdfu.descriptor.wDetachTimeOut"	,	L_53
+hf	,	V_86
+"usbdfu.descriptor.wTransferSize"	,	L_55
+ei_invalid_command_for_request_type	,	V_60
+usb_conv_info_t	,	T_7
+ett_command	,	V_75
+command_vals_ext	,	V_61
+prefs_register_protocol	,	F_36
+command_item	,	V_29
+col_append_fstr	,	F_12
+BASE_EXT_STRING	,	V_89
+col_set_str	,	F_10
+command_frame_number	,	V_71
+"Invalid command for this Request Type"	,	L_65
+hf_response	,	V_74
+"DFU Descriptor"	,	L_40
+"usbdfu.interface"	,	L_23
+usb_dfu_handle	,	V_106
+proto_item_append_text	,	F_5
+hf_setup_length	,	V_66
+interfaceClass	,	V_12
+hf_usb_dfu_descriptor_bmAttributes_CanDownload	,	V_24
+"usbdfu.block_number"	,	L_27
+proto_register_subtree_array	,	F_32
+gint32	,	T_13
+"Response: Unknown"	,	L_10
+IF_CLASS_APPLICATION_SPECIFIC	,	V_13
+proto_tree_add_item	,	F_3
+wmem_tree_insert32_array	,	F_19
+ei_unknown_data	,	V_73
+pinfo	,	V_2
+col_add_fstr	,	F_11
+dissector_handle_t	,	T_19
+"Data"	,	L_38
+flags	,	V_69
+hf_data	,	V_67
+new_register_dissector	,	F_33
+"Command Frame"	,	L_18
+hf_setup_timeout	,	V_62
+"usbdfu.command"	,	L_15
+" Block Number=%u"	,	L_9
+"usbdfu.timeout"	,	L_29
+"Version of protocol supported by this dissector."	,	L_73
+dissector_add_for_decode_as	,	F_41
+"usb_dfu"	,	L_70
+length_item	,	V_7
+PI_PROTOCOL	,	V_100
+prefs_register_static_text_preference	,	F_37
+ei_unexpected_response	,	V_83
+tvb_length	,	F_14
+FT_UINT8	,	V_87
+"Will Detach"	,	L_44
+hf_usb_dfu_descriptor_bmAttributes_CanUpload	,	V_23
+BASE_DEC	,	V_88
+proto_item	,	T_5
+ei_unexpected_data	,	V_68
+expert_register_field_array	,	F_35
+main_tree	,	V_6
+"Invalid Length"	,	L_67
+hf_command_in_frame	,	V_76
+ei_descriptor_invalid_length	,	V_19
+ENC_NA	,	V_16
+status_vals_ext	,	V_77
+ENC_LITTLE_ENDIAN	,	V_26
+"Command: %s"	,	L_7
+"Command"	,	L_14
+proto_usb_dfu	,	V_47
+"usbdfu"	,	L_69
+data	,	V_4
+num	,	V_45
+"Rcvd "	,	L_5
+" = %s"	,	L_13
+descriptor_length	,	V_9
+"Unknown direction "	,	L_6
+command_response	,	V_34
+hf_status	,	V_79
+proto_register_usb_dfu	,	F_26
+"usbdfu.command_frame"	,	L_19
+ei_register_info	,	T_18
+usb_conv_info	,	V_11
+expert_register_protocol	,	F_34
+PI_NOTE	,	V_103
+tvb_get_letohs	,	F_13
+hf_poll_timeout	,	V_80
+"Unknown data"	,	L_61
+"Response"	,	L_16
+"Length"	,	L_24
+FT_NONE	,	V_97
+offset	,	V_8
+ett	,	V_105
+P2P_DIR_RECV	,	V_54
+"Sent "	,	L_4
+"USB Device Firmware Upgrade "	,	L_68
+expert_module_t	,	T_16
+tree	,	V_3
+wmem_tree_key_t	,	T_11
+packet_info	,	T_3
+"usbdfu.poll_timeout"	,	L_37
+hf_usb_dfu_descriptor_bmAttributes_WillDetach	,	V_21
+tvb_get_letoh24	,	F_25
+"usbdfu.length"	,	L_25
+sub_item	,	V_30
+command_info	,	V_72
+"usb.product"	,	L_75
+"Response: %s"	,	L_11
+proto_tree_add_uint	,	F_23
+EXPFILL	,	V_102
+"usb_dfu.descriptor.invalid_length"	,	L_66
+proto_tree_add_expert	,	F_16
+"Poll Timeout"	,	L_36
+wmem_tree	,	V_36
+hf_iString	,	V_82
+hf_state	,	V_81
+"USB DFU"	,	L_3
+"usbdfu.descriptor.bmAttributes.CanUpload"	,	L_49
+P2P_DIR_SENT	,	V_53
+" = Status: %s, PollTimeout: %u ms, State: %s"	,	L_12
+ett_usb_dfu_descriptor	,	V_17
+wmem_file_scope	,	F_18
+HFILL	,	V_90
+p2p_dir	,	V_51
+"Unexpected response for this command"	,	L_59
+k_bus_id	,	V_40
+state_vals_ext	,	V_78
+"Status"	,	L_32
+wmem_new	,	F_17
+"usb_dfu.unknown_data"	,	L_60
+FT_FRAMENUM	,	V_91
+command	,	V_33
+"wDetachTimeOut"	,	L_52
+gint16	,	T_8
+"usbdfu.status"	,	L_33
+dissect_usb_dfu_descriptor	,	F_1
+"Unknown"	,	L_2
+proto_tree	,	T_4

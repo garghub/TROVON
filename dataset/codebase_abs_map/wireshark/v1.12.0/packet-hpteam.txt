@@ -1,0 +1,59 @@
+register_dissector	,	F_14
+"llc.hpteam_pid"	,	L_4
+hf_pid	,	V_14
+proto_register_protocol	,	F_9
+tvbuff_t	,	T_1
+hf_hpteam	,	V_13
+OUI_HP_2	,	V_24
+hpteam_handle	,	V_25
+BASE_HEX	,	V_17
+"HPTEAM"	,	L_8
+col_set_str	,	F_2
+gint	,	T_6
+proto_item_add_subtree	,	F_6
+proto_register_field_array	,	F_11
+FT_BYTES	,	V_21
+tvb	,	V_1
+hf_llc_hpteam_pid	,	V_15
+ett	,	V_23
+COL_INFO	,	V_6
+hpteam_item	,	V_8
+dissector_add_uint	,	F_17
+tree	,	V_3
+hpteam_tree	,	V_9
+"HP NIC Team"	,	L_1
+FT_UINT16	,	V_16
+packet_info	,	T_2
+"Proprietary Data"	,	L_5
+proto_reg_handoff_hpteam	,	F_15
+cinfo	,	V_4
+proto_register_hpteam	,	F_7
+proto_register_subtree_array	,	F_13
+dissect_hpteam	,	F_1
+array_length	,	F_12
+hpteam_pid_vals	,	V_18
+"PID"	,	L_3
+proto_tree_add_item	,	F_5
+pinfo	,	V_2
+col_add_fstr	,	F_3
+"HP NIC Teaming Heartbeat; Port MAC = %s"	,	L_2
+llc_add_oui	,	F_10
+dissector_handle_t	,	T_7
+proto_hpteam	,	V_10
+"LLC Hewlett Packard OUI PID"	,	L_10
+hf_data	,	V_20
+hf_register_info	,	T_5
+VALS	,	F_8
+"hpteam"	,	L_9
+HFILL	,	V_19
+COL_PROTOCOL	,	V_5
+find_dissector	,	F_16
+ep_address_to_str	,	F_4
+proto_item	,	T_4
+dl_src	,	V_7
+ENC_NA	,	V_11
+ett_hpteam	,	V_12
+BASE_NONE	,	V_22
+"HP NIC Teaming Heartbeat"	,	L_7
+proto_tree	,	T_3
+"hpteam.data"	,	L_6

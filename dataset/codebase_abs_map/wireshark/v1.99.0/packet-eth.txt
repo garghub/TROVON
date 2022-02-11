@@ -1,0 +1,383 @@
+capture_ipx	,	F_11
+hf_eth_ig	,	V_77
+captured_length	,	V_98
+"CCSDS Secondary Header Flag is set"	,	L_100
+dst_address	,	V_7
+"Set the condition that must be true for the CCSDS dissector to be called"	,	L_96
+is_802_2	,	V_47
+proto_register_protocol	,	F_64
+src_addr_name	,	V_51
+IEEE_802_3_MAX_LEN	,	V_37
+proto_tree_add_ether	,	F_28
+tvb_reported_length	,	F_49
+"eth.dst_resolved"	,	L_20
+"eth.src_not_group"	,	L_59
+tvb_new_subset_remaining	,	F_34
+"CCSDS Spare bit is cleared"	,	L_102
+len	,	V_30
+"Assume packets have FCS"	,	L_78
+dissect_eth_maybefcs	,	F_58
+add_conversation_table_data	,	F_3
+gint	,	T_19
+FT_ETHER	,	V_134
+register_conversation_table	,	F_77
+vip	,	V_13
+tvb_captured_length_remaining	,	F_44
+get_ether_name	,	F_17
+TFS	,	F_63
+tvb	,	V_43
+"Destination"	,	L_17
+guint32	,	T_21
+"Specifies if this is an individual (unicast) or group (broadcast/multicast) address"	,	L_58
+COL_INFO	,	V_67
+FT_BOOLEAN	,	V_145
+"0x%08x [incorrect, should be 0x%08x]"	,	L_14
+hf_eth_addr_resolved	,	V_74
+"but it cannot always guess correctly."	,	L_81
+tvb_reported_length_remaining	,	F_43
+CONV_FT_SRC_ADDRESS	,	V_3
+eth_trailer_length	,	V_128
+cinfo	,	V_60
+PI_ERROR	,	V_154
+"Ethernet II, Src: %s (%s), Dst: %s (%s)"	,	L_12
+array_length	,	F_66
+PT_NONE	,	V_23
+register_tap	,	F_76
+ETHERTYPE_UNK	,	V_39
+next_tvb	,	V_66
+"Address (resolved)"	,	L_35
+""	,	L_9
+call_dissector	,	F_35
+"ethertype"	,	L_106
+abs_ts	,	V_21
+col_append_str	,	F_56
+hf_eth_invalid_lentype	,	V_80
+add_ethernet_trailer	,	F_47
+PROTO_ITEM_SET_HIDDEN	,	F_31
+"0x%08x [correct]"	,	L_13
+CCSDS_bit	,	V_107
+proto_tree_add_boolean	,	F_55
+hf_register_info	,	T_22
+fw1_handle	,	V_88
+eth_check_fcs	,	V_121
+"FCS Good"	,	L_47
+packet_counts	,	T_10
+ehdr	,	V_15
+fh_tree	,	V_48
+"eth.padding"	,	L_39
+"Specifies if this is a locally administered or globally unique (IEEE assigned) address"	,	L_55
+guint16	,	T_11
+hf_eth_addr	,	V_73
+COL_PROTOCOL	,	V_61
+hostlist_talker_t	,	T_8
+src_addr	,	V_49
+"assume_fcs"	,	L_77
+"Destination Hardware Address (resolved)"	,	L_21
+eth_hostlist_packet	,	F_5
+ei_eth_invalid_lentype	,	V_81
+guint8	,	T_16
+"Source (resolved)"	,	L_24
+ti	,	V_46
+trailer_reported_length	,	V_113
+crc32_802_tvb	,	F_53
+BASE_NONE	,	V_135
+"Length field value goes past the end of the payload"	,	L_64
+ethertype_handle	,	V_97
+"Source"	,	L_22
+hf_eth_len	,	V_84
+"sll.ltype"	,	L_112
+"Ethernet Trailer or Checksum"	,	L_43
+"Invalid length/type: 0x%04x (%d)"	,	L_7
+"Ethernet checksum"	,	L_46
+fcs_len	,	V_45
+"Source Hardware Address"	,	L_23
+register_dissector	,	F_75
+"LG bit"	,	L_53
+tvb_get_ntohl	,	F_52
+"Describe the conditions that must be true for the CCSDS dissector to be called"	,	L_93
+"erf.types.type"	,	L_109
+proto_eth	,	V_68
+LINUX_SLL_P_ETHERNET	,	V_163
+tvbuff_t	,	T_13
+"ccsds_heuristic_header"	,	L_99
+proto_tree_add_protocol_format	,	F_25
+"of the frame, but before the (optional) FCS. Make sure it "	,	L_75
+"wtap_encap"	,	L_108
+tvb_get_ntohs	,	F_19
+"Whether to validate the Frame Check Sequence"	,	L_84
+BASE_HEX	,	V_140
+parent_tree	,	V_44
+"Trailer"	,	L_41
+PROTO_ITEM_SET_GENERATED	,	F_30
+gboolean	,	T_15
+total_trailer_length	,	V_129
+src_address	,	V_4
+dst_addr	,	V_50
+trailer_tvb	,	V_109
+dissect_eth_withoutfcs	,	F_59
+proto_item_add_subtree	,	F_27
+module_t	,	T_24
+eth_maybefcs_handle	,	V_158
+capture_eth	,	F_7
+"interpret_as_fw1_monitor"	,	L_85
+proto_register_field_array	,	F_65
+FT_BYTES	,	V_143
+hf_eth_padding	,	V_118
+ETHERTYPE_ETHBRIDGE	,	V_161
+ei	,	V_149
+ig_tfs	,	V_147
+"eth.fcs_bad.expert"	,	L_61
+dissector_add_uint	,	F_80
+ett_ether2	,	V_91
+heur_dtbl_entry_t	,	T_18
+"the Ethernet dissector will assume there has been added padding to the "	,	L_69
+"Fixed ethernet trailer length"	,	L_73
+data_handle	,	V_82
+tvb_get_ptr	,	F_16
+FT_UINT16	,	V_138
+hf_eth_dst_resolved	,	V_72
+tvb_get_guint8	,	F_22
+"Source or Destination Hardware Address (resolved)"	,	L_37
+tvb_captured_length	,	F_48
+dst_addr_name	,	V_52
+"CCSDS Version # is zero"	,	L_98
+"These are the conditions to match a payload against in order to determine if this\n"	,	L_89
+"ccsds_heuristic"	,	L_88
+real_trailer_tvb	,	V_116
+"Address"	,	L_33
+"IG bit"	,	L_56
+fd	,	V_18
+eth_interpret_as_fw1_monitor	,	V_87
+"Destination Hardware Address"	,	L_18
+check_is_802_2	,	F_36
+dissect_eth_withfcs	,	F_60
+"eth_withoutfcs"	,	L_103
+call_dissector_with_data	,	F_41
+"Ethernet II"	,	L_11
+"eth"	,	L_65
+etype_id	,	V_94
+expert_add_info	,	F_40
+ccsds_heuristic_length	,	V_100
+"ccsds_heuristic_bit"	,	L_101
+ehdr_num	,	V_54
+hf_eth_src_resolved	,	V_79
+padding_length	,	V_114
+FT_STRING	,	V_137
+capture_ethertype	,	F_13
+"frame before the trailer was added. Uncheck if a device added a trailer "	,	L_70
+eth_assume_padding	,	V_117
+" [ETHERNET FRAME CHECK SEQUENCE INCORRECT]"	,	L_15
+ett_eth_fcs	,	V_124
+ett_ieee8023	,	V_83
+etype	,	V_32
+"eth.type"	,	L_30
+pct	,	V_10
+addr_tree	,	V_57
+"Destination (resolved)"	,	L_19
+myaddress	,	V_25
+hf_eth_type	,	V_95
+ccsds_heuristic_bit	,	V_103
+CCSDS_ver	,	V_105
+eth_module	,	V_156
+"is a CCSDS (Consultative Committee for Space Data Systems) packet within\n"	,	L_90
+length	,	V_33
+"Source or Destination Hardware Address"	,	L_34
+find_dissector	,	F_79
+BYTES_ARE_IN_FRAME	,	F_8
+PI_WARN	,	V_151
+proto_tree_add_uint_format_value	,	F_54
+heur_subdissector_list	,	V_65
+ENC_BIG_ENDIAN	,	V_76
+"eth.ig"	,	L_57
+reported_length	,	V_99
+dissect_802_3	,	F_38
+FT_UINT32	,	V_144
+hdtbl_entry	,	V_59
+"Invalid length/type"	,	L_31
+checksum_tree	,	V_111
+hf	,	V_133
+"eth.len.past_end"	,	L_63
+BASE_HEX_DEC	,	V_142
+"Bad checksum"	,	L_62
+eth_trailer_subdissector_list	,	V_119
+"assume_padding"	,	L_66
+ei_eth_src_not_group	,	V_92
+"gets interpreted correctly."	,	L_76
+CONV_FILTER_INVALID	,	V_9
+prefs_register_protocol	,	F_71
+register_heur_dissector_list	,	F_70
+dissect_eth_common	,	F_14
+CATCH_BOUNDS_ERRORS	,	F_46
+"one or more of the conditions are checked."	,	L_92
+"ccsds_heuristic_length"	,	L_94
+"eth_withfcs"	,	L_104
+col_set_str	,	F_15
+"Assume short frames which include a trailer contain padding"	,	L_67
+conv_item_t	,	T_1
+tvb_get_bits8	,	F_45
+conv	,	V_1
+AT_ETHER	,	V_5
+conv_hash_t	,	T_6
+item	,	V_110
+guchar	,	T_9
+"eth.addr_resolved"	,	L_36
+ENDTRY	,	V_108
+ETHERNET_II_MIN_LEN	,	V_38
+trailer_id	,	V_96
+proto_register_subtree_array	,	F_67
+epan_dissect_t	,	T_4
+hf_eth_fcs	,	V_123
+"Validate the Ethernet checksum if possible"	,	L_83
+proto_tree_add_string	,	F_29
+"eth.dst"	,	L_2
+ERF_TYPE_ETH	,	V_162
+hash	,	V_14
+eth_assume_fcs	,	V_130
+ETHERNET_802_2	,	V_41
+other	,	V_36
+ETHERNET_802_3	,	V_40
+dissector_try_heuristic	,	F_21
+proto_tree_add_item	,	F_32
+"gre.proto"	,	L_111
+pinfo	,	V_11
+col_add_fstr	,	F_24
+dissector_handle_t	,	T_26
+_U_	,	V_12
+"ccsds_heuristic_version"	,	L_97
+dl_dst	,	V_63
+tvb_ensure_bytes_exist	,	F_50
+"eth.invalid_lentype"	,	L_32
+"Ethernet Unknown: Invalid length/type: 0x%04x (%d)"	,	L_5
+WTAP_ENCAP_ETHERNET	,	V_160
+CONV_FT_ANY_ADDRESS	,	V_8
+eth_tap	,	V_64
+fcs	,	V_122
+VALS	,	F_62
+dissector_add_for_decode_as	,	F_81
+proto_tree_set_appendix	,	F_57
+CCSDS_len	,	V_104
+prefs_register_bool_preference	,	F_72
+ethertype_data_t	,	T_17
+lg_tfs	,	V_146
+PI_PROTOCOL	,	V_150
+prefs_register_static_text_preference	,	F_74
+"eth.src"	,	L_1
+eth_conversation_packet	,	F_2
+"eth.fcs_good"	,	L_48
+CCSDS_head	,	V_106
+"data"	,	L_107
+addr_item	,	V_56
+"CCSDS Length in header matches payload size"	,	L_95
+eth_ct_dissector_info	,	V_22
+BASE_DEC	,	V_139
+"eth.trailer"	,	L_42
+tvb_new_subset	,	F_51
+"eth.src_resolved"	,	L_25
+proto_item	,	T_14
+tap_queue_packet	,	F_20
+expert_register_field_array	,	F_69
+dl_src	,	V_62
+sent_fcs	,	V_120
+filter	,	V_2
+pkt_len	,	V_19
+ENC_NA	,	V_90
+"check_fcs"	,	L_82
+"True: checksum doesn't matche packet content; False: does match content or not checked"	,	L_52
+hf_eth_fcs_bad	,	V_126
+expert_add_info_format	,	F_33
+"Some devices add trailing data to frames. When this setting is checked "	,	L_68
+"eth.len"	,	L_28
+ld	,	V_31
+expert_eth	,	V_157
+"Padding"	,	L_38
+"eth.fcs_bad"	,	L_51
+etype_vals	,	V_141
+hf_eth_dst	,	V_70
+"eth.addr"	,	L_3
+"Source MAC must not be a group address: IEEE 802.3-2002, Section 3.2.3(b)"	,	L_60
+SET_ADDRESS	,	F_18
+"0x%08x [validiation disabled]"	,	L_16
+"Source Hardware Address (resolved)"	,	L_26
+"eth.fcs"	,	L_45
+prefs_register_uint_preference	,	F_73
+ei_register_info	,	T_23
+expert_register_protocol	,	F_68
+host	,	V_24
+eth	,	V_132
+pit	,	V_26
+TRY	,	F_42
+ei_eth_len	,	V_86
+"Some Ethernet adapters and drivers include the FCS at the end of a packet, others do not.  "	,	L_79
+"Raw "	,	L_10
+eth_withoutfcs_handle	,	V_159
+"Ethernet Unknown, Src: %s (%s), Dst: %s (%s)"	,	L_6
+hf_eth_lg	,	V_75
+visible	,	V_89
+guint	,	T_20
+"Length"	,	L_27
+offset	,	V_29
+ett	,	V_148
+expert_module_t	,	T_25
+proto_reg_handoff_eth	,	F_78
+tree	,	V_55
+"Attempt to interpret as FireWall-1 monitor file"	,	L_86
+hf_eth_src	,	V_78
+"True: checksum matches packet content; False: doesn't match content or not checked"	,	L_49
+ethertype_data	,	V_58
+"Some TAPs add a fixed length ethernet trailer at the end "	,	L_74
+packet_info	,	T_3
+rel_ts	,	V_20
+"eth.lg"	,	L_54
+hf_eth_trailer	,	V_85
+"before the frame was padded."	,	L_71
+add_hostlist_table_data	,	F_6
+capture_isl	,	F_10
+edt	,	T_5
+ether_to_str	,	F_26
+eth_host_dissector_info	,	V_27
+dissect_isl	,	F_23
+has_fcs	,	V_115
+"Ethernet"	,	L_4
+pseudo_header	,	V_131
+EXPFILL	,	V_152
+dst	,	V_17
+trailer_length	,	V_112
+"FCS Bad"	,	L_50
+PI_CHECKSUM	,	V_153
+"trailer_length"	,	L_72
+"fw1"	,	L_105
+ethhdr_type	,	V_34
+"chdlc.protocol"	,	L_110
+ett_addr	,	V_71
+ett_ether	,	V_69
+"IEEE 802.3 Ethernet %s"	,	L_8
+capture_llc	,	F_12
+proto_register_eth	,	F_61
+"The Ethernet dissector attempts to guess whether a captured packet has an FCS, "	,	L_80
+eth_conv_get_filter_type	,	F_1
+proto_field_is_referenced	,	F_37
+HFILL	,	V_136
+PI_MALFORMED	,	V_155
+offset_after_ethertype	,	V_93
+ehdrs	,	V_53
+CONV_FT_DST_ADDRESS	,	V_6
+src	,	V_16
+"udp.port"	,	L_113
+ccsds_heuristic_version	,	V_101
+"Ethernet Padding"	,	L_40
+"an 802.3 packet. A packet is considered as a possible CCSDS packet only if\n"	,	L_91
+ei_eth_fcs_bad	,	V_127
+"Whether packets should be interpreted as coming from CheckPoint FireWall-1 monitor file if they look as if they do"	,	L_87
+pntoh16	,	F_9
+hf_eth_fcs_good	,	V_125
+ETHERNET_II	,	V_42
+pd	,	V_28
+PTREE_DATA	,	F_39
+conv_filter_type_e	,	T_2
+ETH_HEADER_SIZE	,	V_35
+ccsds_heuristic_header	,	V_102
+"Type"	,	L_29
+"Frame check sequence"	,	L_44
+eth_hdr	,	T_7
+proto_tree	,	T_12
+eth_host_get_filter_type	,	F_4

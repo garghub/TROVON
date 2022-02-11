@@ -1,0 +1,201 @@
+"Sequence number"	,	L_56
+col_append_sep_str	,	F_5
+"Exporter boot time"	,	L_30
+type_item	,	V_6
+proto_register_protocol	,	F_19
+"ipdr.capabilities"	,	L_19
+tvb_reported_length	,	F_12
+IPDR_CONNECT_RESPONSE	,	V_39
+"ipdr.session_id"	,	L_9
+"Version"	,	L_4
+tcp_dissect_pdus	,	F_16
+"ipdr.vendor_id"	,	L_23
+gint	,	T_9
+"ipdr.keepalive_interval"	,	L_21
+"ipdr.error_code"	,	L_27
+IPDR_CONNECT	,	V_33
+tvb	,	V_1
+"ipdr.template_id"	,	L_53
+guint32	,	T_6
+COL_INFO	,	V_17
+message_len	,	V_9
+FT_BOOLEAN	,	V_86
+hf_ipdr_reason_code	,	V_30
+proto_register_ipdr	,	F_17
+hf_ipdr_timestamp	,	V_65
+cinfo	,	V_16
+IPDR_GET_TEMPLATES	,	V_55
+array_length	,	F_21
+hf_ipdr_template_id	,	V_60
+"Description"	,	L_28
+IPDR_TEMPLATE_DATA	,	V_49
+ENC_ASCII	,	V_32
+"Capabilities"	,	L_18
+hf_ipdr_initiator_id	,	V_34
+hf_ipdr_ack_sequence_interval	,	V_46
+IPDR_GET_SESSIONS	,	V_52
+hf_register_info	,	T_8
+hf_ipdr_primary	,	V_44
+"ipdr.ack_sequence_interval"	,	L_51
+"Unknown (0x%02x)"	,	L_2
+COL_PROTOCOL	,	V_72
+hf_ipdr_exporter_boot_time	,	V_41
+"Document id"	,	L_54
+"Unknown message ID"	,	L_63
+hf_ipdr_dropped_record_count	,	V_43
+get_ipdr_message_len	,	F_9
+ti	,	V_5
+BASE_NONE	,	V_81
+IPDR_START_NEGOTIATION	,	V_26
+IPDR_MODIFY_TEMPLATE_RESPONSE	,	V_58
+"ipdr.reason_info"	,	L_39
+"Timestamp"	,	L_24
+tvb_get_ntohl	,	F_10
+hf_ipdr_keepalive_interval	,	V_37
+dissect_ipdr	,	F_11
+tvbuff_t	,	T_1
+"ipdr.ack_time_interval"	,	L_49
+"IPDR/SP"	,	L_3
+BASE_HEX	,	V_78
+hf_ipdr_version	,	V_14
+proto_item_add_subtree	,	F_3
+proto_register_field_array	,	F_20
+FT_BYTES	,	V_88
+FT_UINT_STRING	,	V_83
+hf_ipdr_message_len	,	V_21
+"Request id"	,	L_40
+ei	,	V_90
+dissector_add_uint	,	F_27
+FT_UINT16	,	V_82
+tvb_get_guint8	,	F_13
+tvb_captured_length	,	F_8
+IPDR_DATA_ACK	,	V_63
+expert_ipdr	,	V_94
+"ipdr.request_id"	,	L_41
+IPDR_GET_TEMPLATES_RESPONSE	,	V_56
+IPDR_SESSION_STOP	,	V_48
+hf_ipdr_flags	,	V_51
+expert_add_info	,	F_7
+"ipdr.dropped_record_count"	,	L_35
+"ipdr.initiator_id"	,	L_15
+ipdr_handle	,	V_95
+FT_STRING	,	V_84
+proto_reg_handoff_ipdr	,	F_25
+"Reason code"	,	L_36
+"Reason info"	,	L_38
+"ipdr.sequence_num"	,	L_57
+hf_ipdr_first_record_sequence_number	,	V_42
+IPDR_DISCONNECT	,	V_24
+IPDR_PORT	,	V_96
+"Config id"	,	L_42
+IPDR_START_NEGOTIATION_REJECT	,	V_27
+"ipdr.data_record"	,	L_61
+PI_WARN	,	V_92
+IPDR_ERROR	,	V_64
+ENC_BIG_ENDIAN	,	V_22
+"ipdr.primary"	,	L_47
+FT_UINT32	,	V_79
+IPDR_MODIFY_TEMPLATE	,	V_57
+hf_ipdr_session_id	,	V_19
+FT_GUID	,	V_87
+hf	,	V_74
+"ipdr.message_flags"	,	L_11
+"ipdr.first_record_sequence_number"	,	L_33
+"ipdr.exporter_boot_time"	,	L_31
+"First record sequence number"	,	L_32
+hf_ipdr_data_record	,	V_62
+hf_ipdr_capabilities	,	V_36
+IPDR_FLOW_START	,	V_23
+IPDR_REQUEST	,	V_68
+FT_UINT64	,	V_85
+col_set_str	,	F_14
+"Flags"	,	L_44
+IPDR_KEEP_ALIVE	,	V_28
+FT_IPv4	,	V_80
+"ipdr.flags"	,	L_45
+message_type	,	V_10
+"ACK time interval"	,	L_48
+"Vendor id"	,	L_22
+hf_ipdr_ack_time_interval	,	V_45
+"Initiator port"	,	L_16
+hf_ipdr_initiator_port	,	V_35
+col_clear	,	F_15
+proto_register_subtree_array	,	F_22
+"ipdr.initiator_port"	,	L_17
+proto_tree_add_item_ret_uint	,	F_4
+val_to_str	,	F_6
+IPDR_SESSION_START	,	V_40
+IPDR_FINAL_TEMPLATE_DATA_ACK	,	V_25
+"ipdr.description"	,	L_29
+proto_tree_add_item	,	F_2
+pinfo	,	V_2
+dissector_handle_t	,	T_12
+"Initiator id"	,	L_14
+_U_	,	V_4
+"Message flags"	,	L_10
+"Keep-alive interval"	,	L_20
+hf_ipdr_reason_info	,	V_31
+VALS	,	F_18
+PI_PROTOCOL	,	V_91
+FT_UINT8	,	V_75
+BASE_DEC	,	V_76
+"ipdr.message_len"	,	L_13
+"ipdr.message_id.unknown"	,	L_62
+proto_item	,	T_5
+expert_register_field_array	,	F_24
+hf_ipdr_request_id	,	V_53
+dissect_ipdr_message	,	F_1
+hf_ipdr_request_number	,	V_69
+ENC_NA	,	V_12
+"ACK sequence interval"	,	L_50
+"ipdr.config_id"	,	L_43
+hf_ipdr_description	,	V_67
+IPDR_HEADER_LEN	,	V_73
+data	,	T_4
+ei_ipdr_message_id	,	V_71
+hf_ipdr_message_flags	,	V_20
+proto_ipdr	,	V_11
+"ipdr.reason_code"	,	L_37
+hf_ipdr_vendor_id	,	V_38
+"Message id"	,	L_6
+ei_register_info	,	T_10
+hf_ipdr_sequence_num	,	V_61
+expert_register_protocol	,	F_23
+"ipdr.message_id"	,	L_7
+"Data record"	,	L_60
+IPDR_RESPONSE	,	V_70
+guint	,	T_7
+offset	,	V_8
+ett	,	V_89
+expert_module_t	,	T_11
+"ipdr.timestamp"	,	L_25
+tree	,	V_3
+"ipdr.document_id"	,	L_55
+hf_ipdr_config_id	,	V_50
+"ipdr.version"	,	L_5
+"ipdr.request_number"	,	L_59
+packet_info	,	T_2
+"Request number"	,	L_58
+EXPFILL	,	V_93
+"IPDR"	,	L_64
+ett_ipdr	,	V_13
+"Session id"	,	L_8
+hf_ipdr_error_code	,	V_66
+ipdr_tree	,	V_7
+hf_ipdr_document_id	,	V_47
+", "	,	L_1
+HFILL	,	V_77
+hf_ipdr_message_id	,	V_15
+IPDR_GET_SESSIONS_RESPONSE	,	V_54
+IPDR_DATA	,	V_59
+"Dropped record count"	,	L_34
+create_dissector_handle	,	F_26
+"ipdr"	,	L_65
+"Template id"	,	L_52
+"Error code"	,	L_26
+ipdr_message_type_vals	,	V_18
+"Primary"	,	L_46
+"Message length"	,	L_12
+IPDR_FLOW_STOP	,	V_29
+"tcp.port"	,	L_66
+proto_tree	,	T_3

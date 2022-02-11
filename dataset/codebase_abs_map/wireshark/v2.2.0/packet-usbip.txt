@@ -1,0 +1,330 @@
+busid	,	V_96
+dissect_device_list_response	,	F_9
+"Sequence number"	,	L_84
+proto_register_protocol	,	F_52
+FRAME_HEADER_LEN	,	V_112
+"Version of the protocol"	,	L_21
+tvb_reported_length	,	F_45
+dissect_import_request	,	F_14
+"Device List Response"	,	L_4
+wmem_tree_insert32	,	F_36
+"bDeviceClass"	,	L_51
+"Version"	,	L_19
+"Device"	,	L_71
+"Connected Speed"	,	L_43
+"Raw Data"	,	L_113
+tcp_dissect_pdus	,	F_46
+product_id	,	V_9
+gint	,	V_106
+"usbip.bConfigurationValue"	,	L_58
+tvb_captured_length_remaining	,	F_43
+dev_tree	,	V_31
+tvb	,	V_5
+hf_usbip_interval	,	V_50
+"Interface"	,	L_73
+intf_tree	,	V_30
+guint32	,	T_4
+" (%x) code not implemented, Contact"	,	L_12
+COL_INFO	,	V_3
+usb_urb_status_vals_ext	,	V_123
+"Device Number"	,	L_41
+"usbip.transfer_flags"	,	L_99
+"Operation"	,	L_22
+version	,	V_99
+tvb_reported_length_remaining	,	F_30
+"URB Unlink"	,	L_9
+cinfo	,	V_2
+PI_ERROR	,	V_136
+vendor_id	,	V_8
+"usbip.devid"	,	L_36
+"bDeviceSubClass"	,	L_53
+array_length	,	F_51
+trans	,	V_56
+OP_RET_SUBMIT	,	V_89
+devid	,	V_81
+expected_size	,	V_105
+"USBIP Protocol"	,	L_116
+hf_usbip_path	,	V_10
+hf_usbip_devid	,	V_93
+ENC_ASCII	,	V_11
+"USBIP Operation"	,	L_24
+hf_usbip_command	,	V_86
+hf_usbip_bDeviceProtocol	,	V_24
+hf_usbip_seqnum	,	V_59
+dissect_usb_common	,	F_38
+"Number of exported Devices"	,	L_31
+dissect_import_response	,	F_15
+"usbip.urb"	,	L_26
+hf_usbip_idVendor	,	V_18
+hf_register_info	,	T_13
+"Setup Data"	,	L_109
+usb_class_vals_ext	,	V_129
+"%s (0x%04x)"	,	L_2
+proto_tree_add_item_ret_int	,	F_29
+hf_usbip_idProduct	,	V_19
+guint16	,	T_12
+COL_PROTOCOL	,	V_101
+i	,	V_33
+j	,	V_35
+"usbip.setup"	,	L_110
+usbip_dissect_urb	,	F_33
+hf_usbip_bConfigurationValue	,	V_25
+guint8	,	T_6
+ti	,	V_62
+orig	,	V_78
+BASE_NONE	,	V_125
+"Transfer buffer length [bytes]"	,	L_101
+"Dissector for USBIP Command"	,	L_15
+"usbip.bInterfaceSubClass"	,	L_66
+num_of_devs	,	V_32
+USB_HEADER_USBIP	,	V_97
+"Return frame"	,	L_87
+operation	,	V_69
+"usbip.number_of_devices"	,	L_32
+"usbip.bDeviceSubClass"	,	L_54
+hf_usbip_transfer_flags	,	V_46
+tvb_get_ntohl	,	F_34
+USBIP_SUPPORTED_VERSION	,	V_103
+hf_usbip_vic_frame	,	V_63
+tvbuff_t	,	T_3
+"bConfigurationValue"	,	L_57
+dir	,	V_82
+ett_usbip	,	V_102
+tvb_get_ntohs	,	F_6
+val_to_str_ext_const	,	F_8
+hf_usbip_setup	,	V_51
+hf_usbip_device	,	V_37
+BASE_HEX	,	V_115
+hf_usbip_bNumInterfaces	,	V_27
+usbip_speed_vals_ext	,	V_126
+PROTO_ITEM_SET_GENERATED	,	F_12
+"bInterfaceProtocol"	,	L_67
+hf_usbip_urb_data	,	V_76
+"Devid"	,	L_35
+proto_item_add_subtree	,	F_13
+hf_usbip_ret_frame	,	V_92
+"Actual length"	,	L_78
+"usbip.vic_frame"	,	L_90
+"Import Response"	,	L_6
+proto_register_field_array	,	F_53
+conversation	,	V_67
+"usbip.operation"	,	L_23
+FT_BYTES	,	V_130
+"bDeviceProtocol"	,	L_55
+"Victim frame"	,	L_89
+"usbip.iso.error_count"	,	L_81
+ei	,	V_134
+hf_usbip_busnum	,	V_14
+ep	,	V_83
+ti_dev	,	V_29
+FT_UINT16	,	V_114
+"Sequence"	,	L_82
+OP_CMD_UNLINK	,	V_88
+tvb_get_guint8	,	F_10
+"ISO error count"	,	L_80
+hf_usbip_transfer_buffer_length	,	V_47
+get_usbip_message_len	,	F_41
+tvb_captured_length	,	F_42
+hf_usbip_actual_length	,	V_53
+unlink_seqnum	,	V_60
+"Frame which was forcefully cancelled"	,	L_91
+dissect_ret_unlink	,	F_20
+PINFO_FD_VISITED	,	F_35
+"usbip"	,	L_117
+seqnum	,	V_58
+OP_REQ_IMPORT	,	V_72
+"USBIP"	,	L_16
+"usbip.bDeviceClass"	,	L_52
+usbip_tree	,	V_100
+hf_usbip_bNumConfigurations	,	V_26
+num_of_intf	,	V_34
+FT_STRING	,	V_124
+"Interval"	,	L_75
+"Dissector for USBIP Operation"	,	L_11
+"Direction"	,	L_92
+"usbip.bNumConfigurations"	,	L_60
+ret_frame	,	V_65
+FT_INT32	,	V_121
+"Import Request"	,	L_5
+conversation_add_proto_data	,	F_27
+"usbip.dev_num"	,	L_42
+OP_REP_DEVLIST	,	V_75
+"usbip.busid"	,	L_38
+proto_tree_add_uint_format_value	,	F_7
+usbip_dissect_op	,	F_28
+ENC_BIG_ENDIAN	,	V_15
+"usbip.bus_num"	,	L_40
+"Command frame"	,	L_85
+hf_usbip_bcdDevice	,	V_21
+FT_UINT32	,	V_119
+"usbip.bcdDevice"	,	L_50
+"USB endpoint number"	,	L_97
+"USBIP URB Transaction"	,	L_27
+hf_usbip_busid	,	V_13
+find_or_create_conversation	,	F_22
+hf_usbip_error_count	,	V_54
+"USBIP Status"	,	L_30
+hf_usbip_operation	,	V_71
+hf	,	V_113
+dissect_cmd_submit	,	F_16
+"usbip.padding"	,	L_70
+"ISO Start frame"	,	L_104
+"usbip.bDeviceProtocol"	,	L_56
+"usbip.iso.num_of_packets"	,	L_108
+ti_intf	,	V_28
+hf_usbip_version	,	V_70
+"URB Submit"	,	L_7
+"Bus number"	,	L_39
+BASE_EXT_STRING	,	V_117
+"usbip.ret_frame"	,	L_88
+col_set_str	,	F_2
+"bNumConfigurations"	,	L_59
+"Dissector for USBIP Version"	,	L_17
+cmd_frame	,	V_64
+": Undecoded"	,	L_14
+hf_usbip_interface	,	V_39
+hf_usbip_start_frame	,	V_48
+"usbip.sequence_no"	,	L_83
+proto_register_usbip	,	F_47
+proto_item_append_text	,	F_32
+"bInterfaceSubClass"	,	L_65
+"USBIP Transferflag"	,	L_100
+USBIP_HEADER_LEN	,	V_109
+"usbip.bInterfaceClass"	,	L_64
+"For an ISO frame the actually selected frame to transmit"	,	L_106
+usbip_handle	,	V_139
+col_clear	,	F_40
+proto_register_subtree_array	,	F_54
+proto_tree_add_item_ret_uint	,	F_5
+gint32	,	T_10
+OP_RET_UNLINK	,	V_90
+"Number of ISO descriptors"	,	L_107
+hf_usbip_padding	,	V_44
+cmd	,	V_108
+usbip_operation_vals_ext	,	V_118
+"maximum time for the request on the server-side host controller"	,	L_77
+status	,	V_45
+ett_usbip_dev	,	V_38
+proto_tree_add_item	,	F_4
+"usbip.transfer_buffer_length"	,	L_102
+pinfo	,	V_1
+dissector_handle_t	,	T_16
+"Data"	,	L_111
+_U_	,	V_98
+"usbip.device"	,	L_72
+skip	,	V_107
+"usbip.iso.start_frame"	,	L_105
+"Unsupported element"	,	L_115
+"Device List Request"	,	L_1
+" Wireshark developers if you want this supported"	,	L_13
+OP_REP_IMPORT	,	V_73
+usbip_conv_info_t	,	T_7
+hf_usbip_bDeviceSubClass	,	V_23
+hf_usbip_number_devices	,	V_36
+dissect_usbip	,	F_44
+usbip_urb_vals_ext	,	V_120
+ei_usbip	,	V_77
+hf_usbip_speed	,	V_17
+hf_usbip_bInterfaceClass	,	V_41
+hf_usbip_status	,	V_52
+"usbip.actual_length"	,	L_79
+proto_reg_handoff_usbip	,	F_55
+VALS	,	F_48
+dissector_add_for_decode_as	,	F_57
+hf_usbip_direction	,	V_94
+usb_endpoint_direction_vals	,	V_132
+product	,	V_7
+"Endpoint"	,	L_95
+dissect_device_list_request	,	F_1
+FT_UINT8	,	V_128
+dissect_usbip_common	,	F_39
+"usbip.status"	,	L_29
+BASE_DEC	,	V_122
+usbip_trans	,	V_79
+proto_item	,	T_5
+expert_register_field_array	,	F_50
+"bNumInterfaces"	,	L_61
+ENC_NA	,	V_12
+"bcdDevice"	,	L_49
+"Busid"	,	L_37
+"USB endpoint direction"	,	L_94
+expert_add_info_format	,	F_31
+"URB Response"	,	L_8
+"usbip.speed"	,	L_44
+"Padding"	,	L_69
+"Command"	,	L_25
+"bInterfaceClass"	,	L_63
+data	,	T_11
+num	,	V_66
+"usbip.version"	,	L_20
+wmem_tree_lookup32	,	F_19
+"usbip.cmd_frame"	,	L_86
+expert_usbip	,	V_138
+"usbip.interval"	,	L_76
+ei_register_info	,	T_14
+expert_register_protocol	,	F_49
+proto_usbip	,	V_68
+"Transfer flags"	,	L_98
+hf_usbip_devnum	,	V_16
+conversation_t	,	T_9
+offset	,	V_6
+ett	,	V_133
+wmem_packet_scope	,	F_37
+pdus	,	V_61
+expert_module_t	,	T_15
+tree	,	V_4
+"System Path"	,	L_33
+OP_REQ_DEVLIST	,	V_74
+packet_info	,	T_1
+"usbip.system_path"	,	L_34
+"idProduct"	,	L_47
+"usbip.endpoint_number.direction"	,	L_93
+"usbip.idProduct"	,	L_48
+wmem_tree_new	,	F_26
+hf_usbip_bInterfaceSubClass	,	V_42
+OP_CMD_SUBMIT	,	V_87
+"usbip.interface"	,	L_74
+usbip_info	,	V_55
+hf_usbip_bInterfaceProtocol	,	V_43
+header	,	V_85
+"Data length in bytes"	,	L_103
+dissect_device	,	F_3
+"usbip.bNumInterfaces"	,	L_62
+proto_tree_add_uint	,	F_11
+EXPFILL	,	V_137
+hf_usbip_bDeviceClass	,	V_22
+"usbip.data"	,	L_112
+dissect_cmd_unlink	,	F_18
+conversation_get_proto_data	,	F_23
+hf_usbip_number_of_packets	,	V_49
+"usbip.endpoint_number"	,	L_96
+hf_usbip_cmd_frame	,	V_91
+victim	,	V_57
+wmem_file_scope	,	F_25
+HFILL	,	V_116
+PI_MALFORMED	,	V_135
+"usbip.idVendor"	,	L_46
+op	,	V_104
+"Status"	,	L_28
+usbip_get_usbip_conv	,	F_21
+ext_usb_vendors_vals	,	V_127
+"URB Unlink Response"	,	L_10
+usbip_header	,	V_84
+wmem_new	,	F_24
+" (%d.%d) not implemented, Contact"	,	L_18
+create_dissector_handle	,	F_56
+"idVendor"	,	L_45
+FT_FRAMENUM	,	V_131
+command	,	V_80
+"usbip.bInterfaceProtocol"	,	L_68
+ett_usbip_intf	,	V_40
+ext_usb_products_vals	,	V_20
+USBIP_DIR_OUT	,	V_110
+dissect_ret_submit	,	F_17
+usbip_transaction_t	,	T_8
+"usbip.unsupported_version"	,	L_114
+"Unknown"	,	L_3
+USBIP_DIR_IN	,	V_111
+"tcp.port"	,	L_118
+hf_usbip_ep	,	V_95
+proto_tree	,	T_2

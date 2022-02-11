@@ -1,0 +1,71 @@
+proto_mpeg_ca	,	V_10
+MPEG_CA_VERSION_NUMBER_MASK	,	V_24
+dissect_mpeg_ca	,	F_1
+hf_mpeg_ca_current_next_indicator	,	V_16
+proto_register_protocol	,	F_11
+tvbuff_t	,	T_1
+"mpeg_ca"	,	L_14
+proto_reg_handoff_mpeg_ca	,	F_15
+BASE_HEX	,	V_21
+"Current/Next Indicator"	,	L_6
+"Last Section Number"	,	L_10
+"mpeg_ca.reserved"	,	L_3
+FT_UINT24	,	V_20
+col_set_str	,	F_3
+gint	,	T_7
+proto_item_add_subtree	,	F_5
+"mpeg_ca.sect_num"	,	L_9
+proto_register_field_array	,	F_12
+tvb	,	V_1
+guint	,	T_4
+offset	,	V_4
+ett	,	V_29
+COL_INFO	,	V_9
+"mpeg_ca.last_sect_num"	,	L_11
+dissector_add_uint	,	F_17
+tree	,	V_3
+"mpeg_sect.tid"	,	L_15
+proto_register_mpeg_ca	,	F_9
+MPEG_CA_CURRENT_NEXT_INDICATOR_MASK	,	V_26
+packet_info	,	T_2
+MPEG_CA_TID	,	V_31
+hf_mpeg_ca_version_number	,	V_15
+"mpeg_ca.cur_next_ind"	,	L_7
+col_clear	,	F_2
+"Conditional Access Table (CA)"	,	L_1
+cinfo	,	V_8
+hf_mpeg_ca_reserved	,	V_13
+proto_register_subtree_array	,	F_14
+mpeg_ca_handle	,	V_30
+packet_mpeg_sect_header	,	F_6
+array_length	,	F_13
+"Reserved"	,	L_2
+proto_tree_add_item	,	F_4
+pinfo	,	V_2
+dissector_handle_t	,	T_8
+ett_mpeg_ca	,	V_12
+"Section Number"	,	L_8
+"MPEG2 Conditional Access Table"	,	L_12
+"mpeg_ca.version"	,	L_5
+hf_register_info	,	T_6
+VALS	,	F_10
+HFILL	,	V_23
+hf_mpeg_ca_section_number	,	V_17
+mpeg_ca_tree	,	V_7
+proto_mpeg_descriptor_dissect	,	F_7
+"Version Number"	,	L_4
+mpeg_ca_cur_next_vals	,	V_25
+FT_UINT8	,	V_27
+length	,	V_5
+BASE_DEC	,	V_28
+hf_mpeg_ca_last_section_number	,	V_18
+create_dissector_handle	,	F_16
+proto_item	,	T_5
+packet_mpeg_sect_crc	,	F_8
+ENC_BIG_ENDIAN	,	V_14
+ENC_NA	,	V_11
+"MPEG CA"	,	L_13
+ti	,	V_6
+proto_tree	,	T_3
+hf	,	V_19
+MPEG_CA_RESERVED_MASK	,	V_22

@@ -1,0 +1,90 @@
+proto_reg_handoff_pw_hdlc	,	F_19
+data	,	T_4
+"HDLC-like framing for PPP"	,	L_21
+"U frame"	,	L_2
+"S frame"	,	L_3
+pw_fr_handle	,	V_32
+fr_handle	,	V_5
+proto_register_protocol	,	F_15
+tvbuff_t	,	T_1
+item_address	,	V_8
+"pw_hdlc.pf_bit"	,	L_14
+BASE_HEX	,	V_26
+hf_pw_hdlc_frame	,	V_20
+hf_pw_hdlc_address_field	,	V_15
+tvb_new_subset_remaining	,	F_11
+"pw_hdlc_nocw_fr"	,	L_20
+proto_pw_hdlc_nocw_fr	,	V_31
+hf_pw_hdlc_control_field	,	V_17
+gint	,	T_8
+proto_item_add_subtree	,	F_7
+"C/R bit"	,	L_9
+"pw_hdlc.cr_bit"	,	L_10
+"pw_hdlc.control_field"	,	L_12
+"Frame type"	,	L_17
+proto_register_field_array	,	F_16
+proto_tree_add_uint_format	,	F_10
+"mpls.label"	,	L_24
+tvb	,	V_1
+item	,	V_7
+pw_hdlc_modifier_vals	,	V_29
+ett	,	V_30
+find_dissector_add_dependency	,	F_22
+tree	,	V_3
+packet_info	,	T_2
+tvb_reported_length_remaining	,	F_4
+tvb_get_guint8	,	F_5
+"HDLC PW, FR port mode (no CW)"	,	L_19
+tvb_captured_length	,	F_12
+proto_register_subtree_array	,	F_18
+"I frame"	,	L_4
+hf_pw_hdlc_modifier	,	V_22
+array_length	,	F_17
+"Poll/Final bit"	,	L_13
+dissect_pw_hdlc_nocw_hdlc_ppp	,	F_3
+"Address"	,	L_7
+proto_tree_add_uint	,	F_9
+"pw_hdlc.modifier"	,	L_16
+pw_ppp_handle	,	V_33
+proto_tree_add_item	,	F_6
+call_dissector	,	F_2
+pinfo	,	V_2
+dissector_handle_t	,	T_9
+"ppp"	,	L_25
+_U_	,	V_4
+"Modifier"	,	L_15
+dissect_pw_hdlc_nocw_fr	,	F_1
+item_control	,	V_9
+hf_register_info	,	T_7
+ett_pw_hdlc	,	V_14
+VALS	,	F_14
+dissector_add_for_decode_as	,	F_21
+proto_pw_hdlc_nocw_hdlc_ppp	,	V_12
+addr	,	V_10
+"Address field"	,	L_5
+HFILL	,	V_27
+ppp_handle	,	V_23
+"pw_hdlc.address_field"	,	L_6
+"fr"	,	L_26
+"pw_hdlc.address"	,	L_8
+"HDLC PW with PPP payload (no CW)"	,	L_22
+FT_UINT8	,	V_25
+BASE_DEC	,	V_28
+control	,	V_11
+create_dissector_handle	,	F_20
+proto_item	,	T_5
+proto_tree_add_uint_format_value	,	F_8
+"Control field"	,	L_11
+ENC_BIG_ENDIAN	,	V_16
+ENC_NA	,	V_13
+guint8	,	T_6
+proto_register_pw_hdlc	,	F_13
+hf_pw_hdlc_pf_bit	,	V_21
+"pw_hdlc.frame"	,	L_18
+hf_pw_hdlc_address	,	V_18
+hf_pw_hdlc_cr_bit	,	V_19
+"0x%x (All stations)"	,	L_1
+proto_tree	,	T_3
+tr	,	V_6
+hf	,	V_24
+"pw_hdlc_nocw_hdlc_ppp"	,	L_23

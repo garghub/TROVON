@@ -1,0 +1,170 @@
+"Connect ID"	,	L_38
+proto_register_protocol	,	F_23
+starteam_module	,	V_66
+STARTEAM_TEXT_MDH	,	V_23
+"Revision level"	,	L_32
+prefs_register_protocol	,	F_27
+starteamroot_tree	,	V_17
+proto_tree_add_subtree	,	F_15
+"starteam.mdh.reserved"	,	L_19
+starteam_tree	,	V_16
+col_append_fstr	,	F_8
+iOffsetLengths	,	V_51
+BASE_EXT_STRING	,	V_64
+"starteam.ph.dsize"	,	L_28
+tcp_dissect_pdus	,	F_18
+gint	,	T_5
+col_set_str	,	F_3
+ett_starteam_mdh	,	V_22
+"PH signature"	,	L_23
+get_starteam_pdu_len	,	F_16
+"Flags"	,	L_12
+"ID command ID"	,	L_46
+proto_reg_handoff_starteam	,	F_30
+hf_starteam_id_revision_level	,	V_39
+tvb	,	V_2
+guint32	,	T_6
+"Client timestamp"	,	L_9
+COL_INFO	,	V_11
+ett_starteam_ph	,	V_30
+val_to_str_ext	,	F_11
+proto_item_append_text	,	F_13
+ett_starteam_data	,	V_46
+STARTEAM_TEXT_PH	,	V_31
+iLengthData	,	V_53
+"PH packet size"	,	L_26
+col_clear	,	F_4
+cinfo	,	V_7
+"Packet size"	,	L_24
+"starteam.ph.psize"	,	L_25
+proto_register_subtree_array	,	F_26
+"starteam.mdh.keyid"	,	L_16
+"Data size"	,	L_27
+array_length	,	F_25
+iPreviousFrameNumber	,	V_1
+dissect_starteam_tcp	,	F_17
+"Reserved"	,	L_18
+"ID connect ID"	,	L_40
+"Command ID"	,	L_44
+"starteam.data"	,	L_54
+proto_tree_add_item	,	F_12
+FT_STRINGZ	,	V_61
+" (%s)"	,	L_5
+pinfo	,	V_3
+"Data"	,	L_53
+_U_	,	V_5
+STARTEAM_TEXT_ID	,	V_38
+ENC_ASCII	,	V_33
+col_append_str	,	F_5
+STARTEAM_MAGIC	,	V_14
+hf_register_info	,	T_11
+"starteam.mdh.flags"	,	L_13
+prefs_register_bool_preference	,	F_28
+"Unknown (0x%02x)"	,	L_4
+"MDH flags"	,	L_14
+COL_PROTOCOL	,	V_8
+tvb_length	,	F_6
+"PH data size"	,	L_29
+"ID component ID"	,	L_43
+"starteam.id.command"	,	L_45
+"ID command user ID"	,	L_52
+hf_starteam_ph_packet_size	,	V_34
+starteam_tcp_handle	,	V_55
+"MDH reserved"	,	L_20
+BASE_DEC	,	V_58
+proto_item	,	T_8
+hf_starteam_ph_signature	,	V_32
+dissect_starteam_heur	,	F_19
+" | "	,	L_2
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_59
+"MDH client timestamp"	,	L_11
+ENC_NA	,	V_20
+iLengthPacket	,	V_52
+"starteam.ph.flags"	,	L_30
+"Component ID"	,	L_41
+"starteam.id.commanduserid"	,	L_51
+ti	,	V_18
+BASE_NONE	,	V_62
+bRequest	,	V_13
+"starteam.id.component"	,	L_42
+dissect_starteam	,	F_2
+"MDH session tag"	,	L_8
+hf_starteam_ph_data_size	,	V_35
+tvb_length_remaining	,	F_9
+ENC_LITTLE_ENDIAN	,	V_25
+STARTEAM_TEXT_DATA	,	V_47
+"starteam.id.connect"	,	L_39
+"starteam.id.client"	,	L_36
+data	,	T_4
+tvb_get_ntohl	,	F_7
+num	,	V_10
+"Session tag"	,	L_6
+tvbuff_t	,	T_1
+"desegment"	,	L_56
+conversation_set_dissector	,	F_21
+"ID revision level"	,	L_34
+BASE_HEX	,	V_60
+gboolean	,	T_7
+"tcp"	,	L_60
+starteam_init	,	F_1
+hf_starteam_id_command	,	V_43
+tvb_get_letohl	,	F_10
+proto_item_add_subtree	,	F_14
+hf_starteam_mdh_reserved	,	V_29
+module_t	,	T_12
+iCommand	,	V_12
+"Client ID"	,	L_35
+proto_register_field_array	,	F_24
+conversation	,	V_54
+conversation_t	,	T_10
+"MDH key ID"	,	L_17
+guint	,	T_9
+offset	,	V_6
+ett	,	V_65
+hf_starteam_id_component	,	V_42
+tree	,	V_4
+hf_starteam_ph_data_flags	,	V_36
+"PH flags"	,	L_31
+FT_UINT16	,	V_63
+register_init_routine	,	F_29
+packet_info	,	T_2
+"starteam"	,	L_55
+starteam_opcode_vals_ext	,	V_15
+hf_starteam_mdh_ctimestamp	,	V_26
+proto_register_starteam	,	F_22
+hf_starteam_data_data	,	V_48
+hf_starteam_mdh_keyid	,	V_28
+"starteam.mdh.stag"	,	L_7
+"StarTeam"	,	L_1
+fd	,	V_9
+hf_starteam_id_client	,	V_40
+"starteam.id.commandtime"	,	L_48
+hf_starteam_mdh_flags	,	V_27
+"Key ID"	,	L_15
+"Signature"	,	L_21
+"Whether the StarTeam dissector should reassemble messages spanning multiple TCP segments."	,	L_58
+heur_dissector_add	,	F_31
+"Reassemble StarTeam messages spanning multiple TCP segments"	,	L_57
+starteam_desegment	,	V_50
+"starteam.id.level"	,	L_33
+"starteam.mdh.ctimestamp"	,	L_10
+ett_starteam_id	,	V_37
+HFILL	,	V_59
+"ID client ID"	,	L_37
+new_create_dissector_handle	,	F_32
+hf_starteam_mdh_session_tag	,	V_24
+hf_starteam_id_command_userid	,	V_45
+"starteam.ph.signature"	,	L_22
+proto_starteam	,	V_19
+"Command time"	,	L_47
+hf_starteam_id_connect	,	V_41
+iPDULength	,	V_49
+ett_starteam	,	V_21
+"Reply: %d bytes"	,	L_3
+"ID command time"	,	L_49
+FT_UINT32	,	V_57
+"Command user ID"	,	L_50
+hf_starteam_id_command_time	,	V_44
+find_or_create_conversation	,	F_20
+proto_tree	,	T_3
+hf	,	V_56

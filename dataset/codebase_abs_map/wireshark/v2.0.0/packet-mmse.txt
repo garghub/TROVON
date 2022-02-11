@@ -1,0 +1,389 @@
+"X-Mms-Previously-Sent-By"	,	L_142
+tvb_get_string_enc	,	F_10
+"mmse.message_id"	,	L_83
+hf_mmse_prev_sent_date_date	,	V_121
+length_len	,	V_47
+tvb_reported_length	,	F_30
+"Application header without corresponding encoding."	,	L_119
+"X-Mms-Message-Size"	,	L_85
+type_str	,	V_131
+"mmse.reply_charging_deadline.rel"	,	L_135
+MM_TID_HDR	,	V_19
+guint32	,	T_10
+"Forward Count"	,	L_145
+"mmse.message_type"	,	L_42
+"get_text_string(tvb = %p, offset = %u, **strval) - start\n"	,	L_1
+version	,	V_27
+"Status text of a MMS message retrieval."	,	L_125
+"mmse.message_size"	,	L_86
+array_length	,	F_46
+""	,	L_4
+"mmse.read_report"	,	L_95
+"mmse.message_class.str"	,	L_81
+hf_mmse_reply_charging_deadline_abs	,	V_101
+ENC_ASCII	,	V_10
+"Forward count of the previously sent MM."	,	L_147
+"Indicates the date that the MM has been previously sent."	,	L_153
+MM_QUOTE	,	V_5
+MM_FROM_HDR	,	V_64
+"Cc"	,	L_53
+"\tEnd(switch)\n"	,	L_33
+hf_register_info	,	T_11
+"mmse.reply_charging_id"	,	L_137
+MM_MID_HDR	,	V_69
+proto_tree_add_bytes_format	,	F_38
+"Content-Type: [from WSP dissector]\n"	,	L_34
+hf_mmse_report_allowed	,	V_79
+vals_reply_charging	,	V_150
+"Disclose sender identity to receiver or not."	,	L_107
+"&lt;Undecoded value for m-mbox-delete-conf&gt;"	,	L_20
+MM_REPLY_CHARGING_DEADLINE_HDR	,	V_100
+"X-Mms-Retrieve-Status"	,	L_120
+"MMS Message Encapsulation"	,	L_163
+hf_mmse_reply_charging_deadline_rel	,	V_102
+"X-Mms-Expiry"	,	L_70
+MM_RETRIEVE_TEXT_HDR	,	V_94
+BASE_NONE	,	V_137
+vals_yes_no	,	V_139
+col_append_sep_fstr	,	F_24
+"MMS-specific result of a message retrieval."	,	L_122
+"Carbon copy."	,	L_55
+"X-Mms-Delivery-Report"	,	L_62
+hf_mmse_delivery_report	,	V_56
+dissect_mmse	,	F_22
+"mmse.message_class.id"	,	L_79
+hf_mmse_expiry_abs	,	V_62
+BASE_HEX	,	V_134
+DebugLog	,	F_2
+"Header Byte array"	,	L_161
+tii	,	V_112
+MM_DREPORT_HDR	,	V_55
+"Unique reply charging identification of the message."	,	L_138
+"Free format (not encoded) header"	,	L_117
+proto_item_add_subtree	,	F_27
+"mmse.response_text"	,	L_103
+proto_register_field_array	,	F_45
+FT_BYTES	,	V_151
+"From"	,	L_75
+hf_mmse_expiry_rel	,	V_63
+"mmse.response_status"	,	L_100
+"mmse.previously_sent_date"	,	L_152
+count	,	V_9
+"mmse.read_status"	,	L_127
+hf_mmse_delivery_time_rel	,	V_60
+vals_retrieve_status	,	V_148
+hf_mmse_header_string	,	V_125
+hf_mmse_prev_sent_by_fwd_count	,	V_115
+"tree == NULL and PDU has no potential content\n"	,	L_39
+"Address"	,	L_148
+fd	,	V_22
+"The desired message delivery delay."	,	L_69
+vals_read_status	,	V_149
+" [3] Return(len) == %u\n"	,	L_3
+MM_MTYPE_HDR	,	V_17
+"Blind carbon copy."	,	L_52
+"mmse.to"	,	L_115
+"\tEnd(case)\n"	,	L_32
+heur_dissector_add	,	F_49
+HEURISTIC_ENABLE	,	V_155
+"%s (Forwarded-count=%u)"	,	L_22
+PDU_M_MBOX_DELETE_CONF	,	V_46
+"mmse.reply_charging_deadline.abs"	,	L_133
+proto_reg_handoff_mmse	,	F_48
+FT_STRING	,	V_136
+tmptime	,	V_51
+hf_mmse_subject	,	V_89
+"X-Mms-Message-Type"	,	L_41
+"Arrival timestamp of the message or sending timestamp."	,	L_61
+hf_mmse_retrieve_text	,	V_95
+length	,	V_8
+hf_mmse_delivery_time_abs	,	V_59
+abs_time_to_str	,	F_36
+"X-Mms-Reply-Charging-Deadline"	,	L_132
+"multipart_media_type"	,	L_170
+FT_UINT32	,	V_142
+hf	,	V_132
+"Whether a read report from every recipient is wanted."	,	L_93
+"X-Mms-Transaction-ID"	,	L_44
+vals_message_status	,	V_147
+wmem_strdup_printf	,	F_32
+col_set_str	,	F_20
+"Message-Id"	,	L_82
+fwd_count	,	V_108
+"mmse_wsp"	,	L_167
+"mmse.date"	,	L_60
+tvb_memdup	,	F_5
+field	,	V_7
+FT_ABSOLUTE_TIME	,	V_138
+"mmse.previously_sent_by.forward_count"	,	L_146
+add_post_data	,	F_41
+val_to_str	,	F_19
+proto_tree_add_string	,	F_31
+strval2	,	V_128
+MM_RREPLY_HDR	,	V_75
+"Header Uint Value"	,	L_157
+dissector_handle_t	,	T_13
+"A unique identifier for this transaction. Identifies request and corresponding response only."	,	L_46
+vers_string	,	V_39
+"mmse.header.string"	,	L_160
+hf_mmse_prev_sent_date	,	V_119
+"dissect_mmse_standalone() - START (Packet %u)\n"	,	L_6
+MM_BCC_HDR	,	V_41
+hf_mmse_ffheader	,	V_129
+"mmse.header.bytes"	,	L_162
+"MMS-specific result of a message submission or retrieval."	,	L_101
+VALS	,	F_43
+hf_mmse_sender_visibility	,	V_85
+"X-Mms-Priority"	,	L_88
+"mmse.content_location"	,	L_57
+"Current status of the message."	,	L_110
+cnt	,	V_58
+BASE_DEC	,	V_143
+peek	,	V_12
+try_val_to_str	,	F_17
+ENC_NA	,	V_31
+subtree	,	V_111
+ABSOLUTE_TIME_LOCAL	,	V_118
+MM_CTYPE_HDR	,	V_34
+MM_SUBJECT_HDR	,	V_88
+"Unknown field (0x%02x)"	,	L_23
+"Defines the location of the message."	,	L_58
+minor	,	V_38
+strval	,	V_3
+"mmse.previously_sent_date.date"	,	L_155
+vals_message_class	,	V_141
+vals_response_status	,	V_145
+"To"	,	L_114
+"\t\tUndecoded well-known header: %s\n"	,	L_24
+"mmse.read_reply"	,	L_92
+guint	,	T_1
+MM_PRIORITY_HDR	,	V_73
+vals_message_type	,	V_18
+ett	,	V_152
+wmem_packet_scope	,	F_6
+pdu_has_content	,	F_29
+hf_mmse_response_status	,	V_81
+packet_info	,	T_5
+length2	,	V_127
+hf_mmse_cc	,	V_44
+"%u"	,	L_18
+ett_mmse	,	V_32
+hf_mmse_read_report	,	V_77
+vals_priority	,	V_144
+"%s: %s"	,	L_31
+"Done!\n"	,	L_38
+HFILL	,	V_135
+"Status"	,	L_108
+"mmse.report_allowed"	,	L_97
+"MMSE"	,	L_8
+create_dissector_handle	,	F_50
+"%u.%u"	,	L_19
+"mmse.expiry.abs"	,	L_71
+nsecs	,	V_53
+"(MMS %s)"	,	L_12
+"%s: &lt;Well-known value 0x%02x&gt;"	,	L_25
+"Header String Value"	,	L_159
+proto_register_protocol	,	F_44
+"mmse.cc"	,	L_54
+"\tField =  0x%02X (offset = %u): %s\n"	,	L_16
+"Address of the message sender."	,	L_77
+"mmse.reply_charging"	,	L_130
+MM_TO_HDR	,	V_90
+byte_count	,	V_6
+get_long_integer	,	F_11
+tvb_new_subset_remaining	,	F_40
+len	,	V_4
+" (not decoded)"	,	L_26
+"X-Mms-Previously-Sent-Date"	,	L_151
+gint	,	T_12
+FT_RELATIVE_TIME	,	V_140
+tval	,	V_50
+"application/vnd.wap.mms-message"	,	L_169
+"The size of the message in octets."	,	L_87
+tvb	,	V_1
+proto_register_mmse	,	F_42
+MM_PREV_SENT_DATE_HDR	,	V_117
+COL_INFO	,	V_26
+"Unknown MMS header 0x%02X"	,	L_17
+"&lt;Value in general form&gt; (not decoded)"	,	L_29
+"The latest time of the recipient(s) to submit the Reply MM."	,	L_134
+str	,	V_123
+cinfo	,	V_24
+"X-Mms-Content-Location"	,	L_56
+"Response-Text"	,	L_102
+count1	,	V_109
+count2	,	V_110
+"mmse.retrieve_text"	,	L_124
+"Version of the protocol used."	,	L_49
+"mmse.from"	,	L_76
+MM_RETRIEVE_STATUS_HDR	,	V_92
+"mmse.mms_version"	,	L_48
+tmp_tvb	,	V_130
+MM_REPLY_CHARGING_SIZE_HDR	,	V_105
+hf_mmse_content_location	,	V_48
+hf_mmse_message_size	,	V_72
+dissect_mmse_encapsulated	,	F_23
+COL_PROTOCOL	,	V_25
+hf_mmse_date	,	V_54
+hf_mmse_from	,	V_65
+"&lt;insert address&gt;"	,	L_21
+guint8	,	T_3
+ti	,	V_28
+secs	,	V_52
+get_encoded_strval	,	F_9
+MM_RTEXT_HDR	,	V_82
+"mmse.previously_sent_date.forward_count"	,	L_154
+MM_CLOCATION_HDR	,	V_45
+MM_RALLOWED_HDR	,	V_78
+MM_REPLY_CHARGING_ID_HDR	,	V_103
+tvb_get_ntohl	,	F_14
+format_text	,	F_35
+"mmse.delivery_report"	,	L_63
+hf_mmse_message_id	,	V_70
+"MMS %s"	,	L_9
+"X-Mms-Read-Status"	,	L_126
+tvbuff_t	,	T_2
+"Subject of the message."	,	L_113
+tvb_strsize	,	F_3
+tvb_get_ntohs	,	F_12
+"mmse.subject"	,	L_112
+gboolean	,	T_4
+hf_mmse_header_bytes	,	V_126
+"Bcc"	,	L_50
+"wsp"	,	L_165
+MM_PREV_SENT_BY_HDR	,	V_107
+"mmse.expiry.rel"	,	L_73
+tvb_get_guint8	,	F_4
+proto_tree_add_string_format	,	F_34
+hf_mmse_reply_charging_id	,	V_104
+"Generating new TVB subset (offset = %u)\n"	,	L_36
+"Date"	,	L_59
+hf_mmse_prev_sent_date_fwd_count	,	V_120
+MM_EXPIRY_HDR	,	V_61
+hf_mmse_transaction_id	,	V_36
+add_content_type	,	F_39
+"Time when message expires and need not be delivered anymore."	,	L_72
+hf_mmse_prev_sent_by_address	,	V_116
+", Type: %s"	,	L_15
+"Response-Status"	,	L_99
+MM_REPLY_CHARGING_HDR	,	V_98
+"dissect_mmse_encapsulated() - START (Packet %u)\n"	,	L_10
+"mmse.header.uint"	,	L_158
+"mmse.previously_sent_by"	,	L_143
+"mmse.ffheader"	,	L_118
+hf_mmse_message_class_str	,	V_68
+hf_mmse_bcc	,	V_42
+"Unknown type %u"	,	L_7
+hf_mmse_prev_sent_by	,	V_113
+hf_mmse_reply_charging	,	V_99
+mmse_tree	,	V_29
+MM_READ_STATUS_HDR	,	V_96
+"%s: %s (Not decoded)"	,	L_27
+"Of what category is the message."	,	L_80
+"Whether a report of message delivery is wanted or not."	,	L_64
+"X-Mms-Delivery-Time"	,	L_65
+get_text_string	,	F_1
+"Indicates from whom the MM has been previously sent."	,	L_150
+"mmse.bcc"	,	L_51
+"MMS-specific message read status."	,	L_128
+"\t\tUndecoded literal header: %s\n"	,	L_30
+get_integer_value	,	F_15
+MM_CC_HDR	,	V_43
+proto_tree_add_time	,	F_33
+"Indicates that the MM has been previously sent by this user."	,	L_144
+"mmse.reply_charging_size"	,	L_140
+"Add POST data\n"	,	L_37
+hf_mmse_read_status	,	V_97
+"Specifies the transaction type. Effectively defines PDU."	,	L_43
+"X-Mms-Reply-Charging-Size"	,	L_139
+hf_mmse_response_text	,	V_83
+proto_tree_add_uint_format	,	F_37
+"mmse.previously_sent_by.address"	,	L_149
+val	,	V_11
+"Priority of the message."	,	L_90
+proto_item_append_text	,	F_26
+"Subject"	,	L_111
+message_type	,	V_21
+"X-Mms-Read-Reply"	,	L_91
+mmse_standalone_handle	,	V_153
+"dissect_mmse() - END\n"	,	L_40
+"mmse.retrieve_status"	,	L_121
+MM_VERSION_HDR	,	V_20
+"Additional information on MMS-specific result."	,	L_104
+proto_register_subtree_array	,	F_47
+"Sending of delivery report allowed or not."	,	L_98
+"Recipient(s) of the message."	,	L_116
+"MMS Message Encapsulation over WSP"	,	L_166
+"tree != NULL\n"	,	L_14
+get_value_length	,	F_7
+"Calling add_content_type() in WSP dissector\n"	,	L_35
+tvb_get_ntoh24	,	F_13
+dissect_mmse_standalone	,	F_18
+"The time at which message delivery is desired."	,	L_67
+MM_MSIZE_HDR	,	V_71
+proto_tree_add_item	,	F_25
+dissect_mmse_heur	,	F_16
+pinfo	,	V_13
+col_add_fstr	,	F_21
+MM_DTIME_HDR	,	V_57
+_U_	,	V_15
+"X-Mms-Retrieve-Text"	,	L_123
+"X-Mms-Report-Allowed"	,	L_96
+"X-Mms-Reply-Charging"	,	L_129
+hdr_name	,	V_122
+"media_type"	,	L_168
+"mmse.sender_visibility"	,	L_106
+"mmse.status"	,	L_109
+MM_DATE_HDR	,	V_49
+"X-Mms-Reply-Charging-Id"	,	L_136
+"dissect_mmse_heur()\n"	,	L_5
+FT_UINT8	,	V_133
+hf_mmse_read_reply	,	V_76
+proto_item	,	T_8
+"mmse.delivery_time.rel"	,	L_68
+"%s: "	,	L_28
+dissector_add_string	,	F_51
+MM_STATUS_HDR	,	V_86
+"Delay before message expires and need not be delivered anymore."	,	L_74
+"mmse.transaction_id"	,	L_45
+vals_sender_visibility	,	V_146
+proto_mmse	,	V_30
+"MMS-specific message reply charging method."	,	L_131
+data	,	T_7
+num	,	V_23
+mmse_encapsulated_handle	,	V_154
+hf_mmse_to	,	V_91
+major	,	V_37
+nstime_t	,	T_9
+hf_mmse_header_uint	,	V_124
+hf_mmse_message_type	,	V_33
+" [1] tvb_strsize(tvb, offset) == %u\n"	,	L_2
+offset	,	V_2
+" "	,	L_11
+"X-Mms-MMS-Version"	,	L_47
+"Unique identification of the message."	,	L_84
+MM_MCLASS_HDR	,	V_66
+pdut	,	V_16
+tvb_get_guintvar	,	F_8
+tree	,	V_14
+hf_mmse_status	,	V_87
+MM_RSTATUS_HDR	,	V_80
+"dissect_mmse() - START (Packet %u)\n"	,	L_13
+"mmse"	,	L_164
+"mmse.priority"	,	L_89
+"Sender-Visibility"	,	L_105
+proto_tree_add_uint	,	F_28
+vals_mm_header_names	,	V_35
+hf_mmse_retrieve_status	,	V_93
+"X-Mms-Message-Class"	,	L_78
+hf_mmse_mms_version	,	V_40
+"mmse.delivery_time.abs"	,	L_66
+MM_SVISIBILITY_HDR	,	V_84
+"The size of the reply charging in octets."	,	L_141
+"X-Mms-Read-Report"	,	L_94
+hf_mmse_priority	,	V_74
+"Time when the MM has been previously sent."	,	L_156
+ett_mmse_hdr_details	,	V_114
+hf_mmse_reply_charging_size	,	V_106
+hf_mmse_message_class_id	,	V_67
+proto_tree	,	T_6

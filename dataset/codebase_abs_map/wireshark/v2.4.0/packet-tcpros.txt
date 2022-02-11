@@ -1,0 +1,229 @@
+"tcpros.message.header.frame.len"	,	L_68
+"tcpros.message.payload"	,	L_73
+"ROS Message Header Stamp"	,	L_57
+proto_register_protocol	,	F_32
+tvb_reported_length	,	F_25
+"ROS Message Header Frame ID Length"	,	L_69
+hf_tcpros_connection_header_field_value	,	V_20
+len	,	V_30
+tcp_dissect_pdus	,	F_30
+gint	,	T_1
+consumed_len	,	V_25
+tvb	,	V_1
+is_rosmsg	,	F_22
+guint32	,	T_6
+COL_INFO	,	V_22
+desegment_offset	,	V_63
+hf_tcpros_message_body	,	V_51
+tvb_reported_length_remaining	,	F_2
+sub_tree	,	V_24
+"Header"	,	L_49
+cinfo	,	V_21
+hf_tcpros_clock	,	V_37
+array_length	,	F_34
+"tcpros.message.header.stamp.nsec"	,	L_62
+SIZE_OF_LENGTH_STAMP	,	V_34
+msg_len	,	V_61
+col_append_str	,	F_9
+sec	,	V_31
+"Seq: %d "	,	L_6
+"Message Header Field Value"	,	L_33
+"ROS Message Packet length"	,	L_45
+dissector_add_for_decode_as_with_preference	,	F_45
+hf_register_info	,	T_13
+"Message Header Field Content"	,	L_27
+seq	,	V_40
+"TCPROS"	,	L_9
+sep	,	V_8
+"TCPROS over TCP"	,	L_83
+COL_PROTOCOL	,	V_67
+ch	,	V_60
+i	,	V_59
+hf_tcpros_message_header_frame_value	,	V_46
+"Field Content"	,	L_25
+guint8	,	T_7
+hf_tcpros_connection_header_length	,	V_28
+ti	,	V_5
+BASE_NONE	,	V_71
+"ROS Message Header Stamp NSec"	,	L_63
+header_len	,	V_26
+"Timestamp: %d.%d "	,	L_4
+"Timestamp"	,	L_55
+dissect_ros_clock	,	F_13
+available	,	V_57
+tvbuff_t	,	T_2
+root_tree	,	V_23
+len1	,	V_55
+is_rosconnection_header	,	F_20
+len2	,	V_56
+conversation_set_dissector	,	F_42
+"Message Length"	,	L_43
+tvb_find_guint8	,	F_6
+gboolean	,	T_9
+desegment_len	,	V_64
+hf_tcpros_clock_length	,	V_38
+proto_item_add_subtree	,	F_5
+proto_tcpros	,	V_62
+module_t	,	T_14
+hf_tcpros_connection_header_field	,	V_11
+proto_register_field_array	,	F_33
+"Reassemble TCPROS messages spanning multiple TCP segments"	,	L_78
+conversation	,	V_82
+FT_BYTES	,	V_75
+"ROS Message Header Sequence"	,	L_54
+ret	,	V_9
+FT_UINT_STRING	,	V_76
+hf_tcpros_message_header_seq	,	V_43
+hf_tcpros_message_length	,	V_50
+string_len	,	V_58
+"Frame ID"	,	L_64
+hf_tcpros_message_header_stamp	,	V_33
+tvb_get_guint8	,	F_18
+tvb_captured_length	,	F_39
+dissect_tcpros_pdu	,	F_27
+"Header Content"	,	L_16
+"tcpros.header_content"	,	L_17
+proto_register_tcpros	,	F_31
+"tcpros.clock.length"	,	L_38
+test_tcpros	,	F_38
+gint8	,	T_10
+"ROS Message Header Stamp Sec"	,	L_60
+heur_dissector_add	,	F_46
+"tcpros.header_length"	,	L_14
+FT_STRING	,	V_77
+"Field"	,	L_19
+"Frame ID: '%s' "	,	L_7
+frame_str	,	V_41
+"tcpros.message.length"	,	L_44
+"Nanoseconds"	,	L_61
+SIZE_OF_LENGTH_FIELD	,	V_10
+is_tcp	,	T_11
+"ROS Connection"	,	L_10
+hf_tcpros_connection_header_field_name	,	V_19
+"Seconds"	,	L_58
+"ROS Message"	,	L_40
+dissect_tcpros	,	F_29
+"tcpros.header_field_value"	,	L_32
+dissect_ros_message	,	F_15
+hf_tcpros_message_payload	,	V_52
+FT_UINT32	,	V_73
+"Message Header Content"	,	L_18
+"tcpros.message"	,	L_41
+tcpros_module	,	V_81
+find_or_create_conversation	,	F_41
+is_con_header	,	V_54
+hf	,	V_69
+"tcpros.message.header.stamp"	,	L_56
+total_len	,	V_47
+"]"	,	L_3
+"ROS Clock"	,	L_34
+hf_tcpros_connection_header_field_data	,	V_16
+prefs_register_protocol	,	F_36
+nsec	,	V_32
+col_append_fstr	,	F_12
+","	,	L_2
+col_set_str	,	F_28
+"ROS Clock Packet length"	,	L_39
+ett_tcpros	,	V_14
+"Message Header Length"	,	L_15
+hf_tcpros_message	,	V_49
+"tcpros.message.header"	,	L_50
+"ROS Clock Packet"	,	L_36
+col_clear	,	F_24
+field	,	V_18
+FT_ABSOLUTE_TIME	,	V_78
+proto_register_subtree_array	,	F_35
+"TCP based Robot Operating System protocol (TCPROS)"	,	L_75
+"[ROS Msg] "	,	L_8
+"tcpros.clock"	,	L_35
+"Clock Length"	,	L_37
+"desegment_tcpros_messages"	,	L_77
+hf_tcpros_message_header_frame	,	V_44
+is_rosclock	,	F_21
+proto_reg_handoff_tcpros	,	F_43
+proto_tree_add_item	,	F_4
+pinfo	,	V_3
+"Message Content"	,	L_46
+dissect_ros_message_header	,	F_14
+_U_	,	V_53
+tcpros_handle	,	V_83
+hf_tcpros_connection_header	,	V_27
+"Value"	,	L_31
+dissect_tcpros_heur_tcp	,	F_40
+"Message Header Field Length"	,	L_24
+"tcpros.message.header.frame.value"	,	L_70
+prefs_register_bool_preference	,	F_37
+is_rosheaderfield	,	F_17
+"Whether the TCPROS dissector should reassemble messages spanning multiple TCP segments."	,	L_79
+BASE_DEC	,	V_74
+"[ROS Clock] "	,	L_5
+proto_item	,	T_5
+"tcpros.header"	,	L_11
+"Header Length"	,	L_13
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_80
+"ROS Message Packet"	,	L_42
+ENC_NA	,	V_17
+ABSOLUTE_TIME_LOCAL	,	V_79
+"ROS Message Header Frame ID Value"	,	L_71
+hf_tcpros_message_header_frame_length	,	V_45
+ENC_LITTLE_ENDIAN	,	V_13
+proto_tree_add_item_ret_string	,	F_7
+hf_tcpros_connection_header_content	,	V_29
+"tcpros"	,	L_76
+hf_tcpros_connection_header_field_length	,	V_15
+data	,	T_12
+dissect_ros_connection_header	,	F_10
+"Name"	,	L_28
+plen	,	V_66
+hf_tcpros_message_header_stamp_sec	,	V_35
+"ROS Message Header Frame ID"	,	L_66
+"tcp"	,	L_82
+"ROS Message Header"	,	L_51
+tvb_get_letohl	,	F_3
+"Field Length"	,	L_22
+conversation_t	,	T_15
+field_tree	,	V_6
+guint	,	T_8
+"Length"	,	L_67
+offset	,	V_4
+g_ascii_isalnum	,	F_19
+ett	,	V_80
+wmem_packet_scope	,	F_8
+payload_len	,	V_48
+tcpros_desegment	,	V_68
+tree	,	V_2
+"ROS Message Packet Body"	,	L_48
+"tcpros.header_field"	,	L_20
+packet_info	,	T_4
+frame_id_len	,	V_39
+HEURISTIC_DISABLE	,	V_84
+"tcpros.message.header.seq"	,	L_53
+hf_tcpros_message_header_stamp_nsec	,	V_36
+FT_UINT_BYTES	,	V_70
+"Message Header Field"	,	L_21
+"Payload"	,	L_72
+DESEGMENT_ONE_MORE_SEGMENT	,	V_65
+"TCPROS_tcp"	,	L_84
+"tcpros.message.body"	,	L_47
+HFILL	,	V_72
+"tcpros.header_field_name"	,	L_29
+dissect_ros_connection_header_field	,	F_1
+dissect_ros_common	,	F_23
+"Message Header Field Name"	,	L_30
+fLen	,	V_7
+"tcpros.message.header.stamp.sec"	,	L_59
+dissect_ros_message_header_stamp	,	F_11
+hf_tcpros_message_header	,	V_42
+"tcpros.header_field_data"	,	L_26
+"ROS Message Packet Payload"	,	L_74
+create_dissector_handle	,	F_44
+"tcpros.message.header.frame"	,	L_65
+get_tcpros_pdu_len	,	F_26
+is_connection_header	,	F_16
+"Sequence ID"	,	L_52
+"[ROS Conn] Metadata: ["	,	L_1
+ENC_UTF_8	,	V_12
+"Message Header"	,	L_12
+"tcp.port"	,	L_81
+"tcpros.header_field_length"	,	L_23
+proto_tree	,	T_3

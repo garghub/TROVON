@@ -1,0 +1,93 @@
+hf_opa_fe_length	,	V_18
+register_dissector	,	F_16
+proto_reg_handoff_opa_fe	,	V_31
+proto_tree_get_root	,	F_4
+data	,	T_4
+hf_opa_fe_magicnumber	,	V_14
+proto_register_opa_fe	,	F_14
+"opa.fe.length"	,	L_9
+proto_register_protocol	,	F_15
+tvbuff_t	,	T_1
+"Magic Number"	,	L_2
+FE_item	,	V_6
+prefs_register_protocol	,	F_20
+BASE_HEX	,	V_26
+fe_ssl_range	,	V_36
+hf_opa_fe_headerversion	,	V_17
+tvb_new_subset_remaining	,	F_8
+gboolean	,	T_10
+FT_UINT64	,	V_29
+gint	,	T_5
+col_set_str	,	F_2
+proto_item_add_subtree	,	F_6
+module_t	,	T_8
+"opa.fe.reserved64"	,	L_11
+proto_register_field_array	,	F_17
+dissector_add_uint_range_with_preference	,	F_25
+tvb	,	V_1
+range_add_fe_ssl_callback	,	F_12
+global_fe_ssl_range	,	V_32
+"Length"	,	L_8
+offset	,	V_5
+guint32	,	T_7
+ett	,	V_30
+COL_INFO	,	V_10
+wmem_epan_scope	,	F_22
+tree	,	V_3
+packet_info	,	T_2
+OPA_FE_SSL_RANGE	,	V_33
+"Omni-Path"	,	L_1
+opa_mad_handle	,	V_20
+prefs_register_range_preference	,	F_23
+"Reserved (64 bits)"	,	L_10
+col_clear	,	F_3
+"SSL/TLS Ports"	,	L_16
+cinfo	,	V_8
+tvb_captured_length	,	F_9
+port	,	V_21
+hf_opa_fe_Reserved64	,	V_19
+"opa.mad"	,	L_18
+opa_fe_handle	,	V_22
+"opa.fe.magicnumber"	,	L_3
+proto_register_subtree_array	,	F_19
+array_length	,	F_18
+FE_tree	,	V_7
+"Header Version"	,	L_6
+proto_tree_add_item	,	F_5
+call_dissector	,	F_7
+pinfo	,	V_2
+hf_opa_fe_length_oob	,	V_16
+_U_	,	V_4
+"SSL/TLS Ports range"	,	L_17
+opa_fe_module	,	V_23
+proto_opa_fe	,	V_11
+"Length OOB"	,	L_4
+"opa.fe.lengthoob"	,	L_5
+"opa.fe"	,	L_14
+"opa.fe.headerversion"	,	L_7
+hf_register_info	,	T_9
+range_convert_str	,	F_21
+"ssl.port"	,	L_15
+initialized	,	V_34
+"OPA FE"	,	L_13
+HFILL	,	V_27
+ssl_dissector_add	,	F_13
+COL_PROTOCOL	,	V_9
+find_dissector	,	F_24
+BASE_DEC	,	V_28
+ett_fe	,	V_13
+proto_item	,	T_6
+range_delete_fe_ssl_callback	,	F_10
+range_foreach	,	F_26
+OPA_FE_TCP_RANGE	,	V_35
+ENC_BIG_ENDIAN	,	V_15
+ENC_NA	,	V_12
+"Intel Omni-Path FE Header - Omni-Path Fabric Excutive Header"	,	L_12
+FT_UINT32	,	V_25
+ssl_dissector_delete	,	F_11
+dissect_opa_fe	,	F_1
+"tcp.port"	,	L_19
+wmem_free	,	F_27
+proto_tree	,	T_3
+hf	,	V_24
+range_copy	,	F_28

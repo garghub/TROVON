@@ -1,0 +1,78 @@
+noe_handle	,	V_8
+register_dissector	,	F_20
+"Setup RTP/RTCP conversations on Start RTP"	,	L_11
+"Universal Alcatel Protocol, %s"	,	L_2
+"ua3g"	,	L_14
+data	,	V_22
+"Universal Alcatel Protocol"	,	L_6
+num	,	V_25
+proto_register_protocol	,	F_19
+tvbuff_t	,	T_4
+" - UA3G Message ERR: Opcode (0x%02x) Unknown"	,	L_1
+proto_tree_add_protocol_format	,	F_8
+"System -&gt; Terminal"	,	L_3
+opcode	,	V_6
+tvb_get_ntohs	,	F_13
+prefs_register_protocol	,	F_23
+"noe"	,	L_13
+col_append_fstr	,	F_5
+TVB_SET_ADDRESS	,	F_12
+gint	,	T_5
+proto_item_add_subtree	,	F_9
+module_t	,	T_9
+ua_msg_module	,	V_27
+tvb_get_letohs	,	F_11
+ua3g_handle	,	V_9
+tvb	,	V_4
+proto_ua_msg	,	V_15
+offset	,	V_5
+guint32	,	T_8
+"UA"	,	L_5
+ett	,	V_28
+COL_INFO	,	V_11
+"ua"	,	L_7
+remote_rtp_port	,	V_20
+tree	,	V_2
+rtp_add_address	,	F_14
+data_handle	,	V_12
+packet_info	,	T_3
+tvb_get_guint8	,	F_6
+SYS_TO_TERM	,	V_16
+cinfo	,	V_10
+ett_ua_msg	,	V_17
+"ua_sys_to_term"	,	L_8
+proto_register_subtree_array	,	F_21
+"setup_conversations"	,	L_10
+array_length	,	F_22
+fd	,	V_24
+dissect_ua_term_to_sys	,	F_17
+call_dissector	,	F_2
+call_dissector_with_data	,	F_4
+pinfo	,	V_3
+"Setup RTP/RTCP conversations when parsing Start RTP messages"	,	L_12
+"ua_term_to_sys"	,	L_9
+ua_msg_tree	,	V_14
+setup_conversations_enabled	,	V_18
+tvb_new_subset_length	,	F_3
+suboffset	,	V_21
+TERM_TO_SYS	,	V_26
+AT_IPv4	,	V_23
+rtcp_add_address	,	F_15
+prefs_register_bool_preference	,	F_24
+remote_rtp_addr	,	V_19
+ua_msg_item	,	V_13
+direction	,	V_1
+address	,	T_7
+"data"	,	L_15
+length	,	V_7
+proto_reg_handoff_ua_msg	,	F_25
+find_dissector	,	F_26
+proto_item	,	T_6
+dissect_ua_sys_to_term	,	F_16
+_dissect_ua_msg	,	F_7
+"Terminal -&gt; System"	,	L_4
+uadecode	,	F_1
+tvb_offset_exists	,	F_10
+proto_register_ua_msg	,	F_18
+proto_tree	,	T_2
+e_ua_direction	,	T_1

@@ -1,0 +1,144 @@
+"udp.quics.port"	,	L_39
+"QUIC UDP port if other than the default"	,	L_38
+"quic.cid"	,	L_24
+G_GINT64_MODIFIER	,	V_37
+proto_register_protocol	,	F_17
+prefs_register_protocol	,	F_21
+quic_tree	,	V_7
+ett_quic	,	V_20
+"Version"	,	L_8
+"Must be Zero"	,	L_22
+FT_UINT64	,	V_50
+col_set_str	,	F_3
+gint	,	T_11
+puflags_tree	,	V_8
+proto_reg_handoff_quic	,	V_57
+hf_quic_puflags_seq	,	V_26
+TFS	,	F_15
+tvb	,	V_1
+len_cid	,	V_11
+ett_quic_prflags	,	V_56
+"quic.puflags.cid"	,	L_15
+hf_quic_puflags_vrsn	,	V_23
+"QUICS UDP Port"	,	L_40
+QUIC_MIN_LENGTH	,	V_15
+hf_quic_puflags	,	V_21
+COL_INFO	,	V_36
+hf_quic_puflags_rsv	,	V_27
+hf_quic_puflags_rst	,	V_24
+FT_BOOLEAN	,	V_44
+hf_quic_sequence	,	V_35
+"Reset"	,	L_11
+PUFLAGS_RST	,	V_46
+current_quic_port	,	V_63
+cinfo	,	V_16
+"Signifies that this packet also contains the version of the QUIC protocol"	,	L_10
+tvb_get_letoh64	,	F_8
+proto_register_subtree_array	,	F_20
+array_length	,	F_19
+g_quic_port	,	V_58
+PUFLAGS_RSV	,	V_49
+"Reserved"	,	L_20
+proto_tree_add_item	,	F_4
+pinfo	,	V_2
+col_add_fstr	,	F_11
+dissector_handle_t	,	T_13
+_U_	,	V_4
+ENC_ASCII	,	V_33
+"CID Length"	,	L_14
+PUFLAGS_VRSN	,	V_31
+quic_handle	,	V_61
+hf_quic_version	,	V_32
+hf_register_info	,	T_10
+initialized	,	V_60
+VALS	,	F_16
+"Quic Payload.."	,	L_33
+puflags_cid_vals	,	V_47
+seq	,	V_14
+proto_quic	,	V_18
+COL_PROTOCOL	,	V_17
+"QUIC"	,	L_1
+tvb_length	,	F_2
+FT_UINT8	,	V_41
+"The lower 8, 16, 32, or 48 bits of the sequence number"	,	L_30
+BASE_DEC	,	V_51
+"quic.puflags"	,	L_6
+proto_item	,	T_5
+tvb_get_letoh48	,	F_10
+ENC_NA	,	V_19
+guint8	,	T_7
+"udp.quic.port"	,	L_36
+ti	,	V_5
+BASE_NONE	,	V_53
+"32 bit opaque tag that represents the version of the QUIC"	,	L_27
+"quic.sequence"	,	L_29
+"quic.payload"	,	L_32
+g_quics_port	,	V_59
+hf_quic_payload	,	V_38
+ENC_LITTLE_ENDIAN	,	V_30
+len_seq	,	V_12
+"Signifies that this packet is a public reset packet"	,	L_13
+data	,	T_4
+"QUICS (Secure) UDP port if other than the default"	,	L_41
+tvbuff_t	,	T_1
+BASE_HEX	,	V_42
+puflags	,	V_10
+prefs_register_uint_preference	,	F_22
+gboolean	,	T_12
+"QUIC UDP Port"	,	L_37
+"CID"	,	L_23
+"QUIC (Quick UDP Internet Connections)"	,	L_34
+proto_item_add_subtree	,	F_5
+tvb_get_letohl	,	F_7
+module_t	,	T_9
+proto_register_quic	,	F_14
+proto_register_field_array	,	F_18
+tvb_get_letohs	,	F_9
+"quic.puflags.seq"	,	L_18
+FT_BYTES	,	V_54
+guint	,	T_6
+offset	,	V_9
+PUFLAGS_CID	,	V_28
+"quic.puflags.rsv"	,	L_21
+ett	,	V_55
+hf_quic_cid	,	V_29
+ett_quic_puflags	,	V_22
+dissector_add_uint	,	F_25
+tree	,	V_3
+dissect_quic_common	,	F_1
+quics_handle	,	V_62
+"Sequence"	,	L_28
+packet_info	,	T_2
+"Public Flags"	,	L_5
+"quic.version"	,	L_26
+"quic"	,	L_35
+tvb_get_guint8	,	F_6
+"Sequence Length"	,	L_17
+tfs_yes_no	,	V_45
+current_quics_port	,	V_64
+"Specifying per-packet public flags"	,	L_7
+dissector_delete_uint	,	F_24
+cid	,	V_13
+hf_quic_puflags_cid	,	V_25
+dissect_quics	,	F_13
+ti_puflags	,	V_6
+dissect_quic	,	F_12
+"Signifies the Length of CID"	,	L_16
+PUFLAGS_SEQ	,	V_34
+"Payload"	,	L_31
+"Connection ID 64 bit pseudo random number"	,	L_25
+FT_STRING	,	V_52
+HFILL	,	V_43
+new_create_dissector_handle	,	F_23
+"Signifies the Length of Sequence"	,	L_19
+"udp.port"	,	L_42
+quic_module	,	V_39
+"CID: %"	,	L_2
+"u"	,	L_4
+"u, Seq: %"	,	L_3
+"quic.puflags.reset"	,	L_12
+puflags_seq_vals	,	V_48
+guint64	,	T_8
+proto_tree	,	T_3
+hf	,	V_40
+"quic.puflags.version"	,	L_9

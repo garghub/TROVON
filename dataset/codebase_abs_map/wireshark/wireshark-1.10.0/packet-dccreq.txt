@@ -1,0 +1,151 @@
+"docsis_dccreq.init_tech"	,	L_24
+THROW	,	F_6
+"docsis_dccreq.sf_unsol_grant_tref"	,	L_40
+proto_register_protocol	,	F_14
+DCCREQ_DS_SYNC_SUB	,	V_23
+hf_docsis_dccreq_hmac_digest	,	V_57
+hf_docsis_dccreq_sf_sid_cur	,	V_30
+hf_docsis_dccreq_up_chan_id	,	V_41
+len	,	V_4
+hf_docsis_dccreq_said_sub_cur	,	V_49
+"SAID Sub - New Value"	,	L_29
+col_set_str	,	F_10
+FT_ETHER	,	V_69
+gint	,	T_8
+"docsis_dccreq.ds_freq"	,	L_10
+DCCREQ_DS_PARAMS	,	V_42
+tvb	,	V_1
+COL_INFO	,	V_36
+"CMTS Mac Address"	,	L_41
+"HMAC-DigestNumber"	,	L_45
+hf_docsis_dccreq_sf_unsol_grant_tref	,	V_33
+DCCREQ_SF_SID	,	V_29
+"DOCSIS DCC-REQ"	,	L_48
+"docsis_dccreq.ds_intlv_depth_j"	,	L_18
+cinfo	,	V_35
+"SYNC Substitution"	,	L_21
+proto_register_subtree_array	,	F_17
+array_length	,	F_16
+DCCREQ_DS_MOD_TYPE	,	V_14
+DCCREQ_DS_CHAN_ID	,	V_21
+"SF Sub - SFID New Value"	,	L_33
+hf_docsis_dccreq_key_seq_num	,	V_55
+proto_tree_add_item	,	F_5
+"Symbol Rate"	,	L_13
+DCCREQ_SF_SFID	,	V_26
+pinfo	,	V_34
+dissector_handle_t	,	T_9
+"docsis_dccreq.up_chan_id"	,	L_8
+"docsis_dccreq.sf_sid_new"	,	L_38
+pos	,	V_8
+DCCREQ_UCD_SUB	,	V_45
+"docsis_dccreq.ds_intlv_depth_i"	,	L_16
+hf_register_info	,	T_7
+DCCREQ_DS_FREQ	,	V_10
+proto_docsis_dccreq	,	V_37
+DCCREQ_DS_SYM_RATE	,	V_16
+VALS	,	F_13
+"DCC-REQ Message"	,	L_4
+ReportedBoundsError	,	V_13
+"docsis_dccreq.tran_id"	,	L_6
+guint16	,	T_3
+"2 DCC-REQ Downstream Params Encodings (Length = %u)"	,	L_1
+dcc_tree	,	V_7
+DCCREQ_DS_INTLV_DEPTH	,	V_18
+FT_UINT8	,	V_62
+proto_tree_add_text	,	F_2
+BASE_DEC	,	V_60
+proto_item	,	T_5
+"SAID Sub - Current Value"	,	L_27
+"SF Sub - SFID Current Value"	,	L_31
+ett_docsis_dccreq	,	V_38
+ENC_NA	,	V_47
+guint8	,	T_4
+BASE_NONE	,	V_68
+"Downstream Channel ID"	,	L_19
+"docsis_dccreq.ds_chan_id"	,	L_20
+tvb_length_remaining	,	F_9
+"docsis_dccreq.sf_sfid_new"	,	L_34
+hf_docsis_dccreq_init_tech	,	V_44
+"SF Sub - SID New Value"	,	L_37
+ds_sym_rate_vals	,	V_65
+hf_docsis_dccreq_ds_intlv_depth_j	,	V_20
+register_dissector	,	F_18
+proto_reg_handoff_docsis_dccreq	,	F_19
+ett_docsis_dccreq_ds_params	,	V_9
+"Transaction ID"	,	L_5
+"DCC-REQ Message: "	,	L_3
+hf_docsis_dccreq_ds_intlv_depth_i	,	V_19
+proto_register_docsis_dccreq	,	F_12
+"Interleaver Depth J Value"	,	L_17
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_11
+hf_docsis_dccreq_sf_sfid_cur	,	V_27
+"UCD Substitution"	,	L_25
+dissect_dccreq	,	F_8
+"Interleaver Depth I Value"	,	L_15
+proto_item_add_subtree	,	F_3
+ds_mod_type_vals	,	V_64
+DCCREQ_HMAC_DIGEST	,	V_56
+proto_register_field_array	,	F_15
+"docsis_dccreq.ds_mod_type"	,	L_12
+hf_docsis_dccreq_ds_mod_type	,	V_15
+"Up Channel ID"	,	L_7
+FT_BYTES	,	V_67
+"docsis_dccreq.said_sub_new"	,	L_30
+ett	,	V_70
+dissector_add_uint	,	F_21
+"docsis_mgmt"	,	L_50
+tree	,	V_2
+hf_docsis_dccreq_ds_sync_sub	,	V_24
+"Modulation Type"	,	L_11
+FT_UINT16	,	V_59
+packet_info	,	T_6
+hf_docsis_dccreq_sf_sid_new	,	V_31
+DCCREQ_SAID_SUB	,	V_48
+tvb_get_guint8	,	F_4
+"Initialization Technique"	,	L_23
+hf_docsis_dccreq_said_sub_new	,	V_50
+"docsis_dccreq.hmac_digest"	,	L_46
+hf_docsis_dccreq_ds_freq	,	V_11
+"docsis_dccreq.key_seq_num"	,	L_44
+ett_docsis_dccreq_sf_sub	,	V_25
+"docsis_dccreq.ucd_sub"	,	L_26
+"SF Sub - Unsolicited Grant Time Reference"	,	L_39
+init_tech_vals	,	V_66
+"DOCSIS Downstream Channel Change Request"	,	L_47
+"docsis_dccreq.cmts_mac_addr"	,	L_42
+"Frequency"	,	L_9
+"Auth Key Sequence Number"	,	L_43
+hf_docsis_dccreq_cmts_mac_addr	,	V_53
+DCCREQ_SF_SUB	,	V_51
+"docsis_dccreq.said_sub_cur"	,	L_28
+dissect_dccreq_sf_sub	,	F_7
+"docsis_dccreq.ds_sym_rate"	,	L_14
+"docsis_dccreq.sf_sfid_cur"	,	L_32
+hf_docsis_dccreq_tran_id	,	V_39
+HFILL	,	V_61
+DCCREQ_UP_CHAN_ID	,	V_40
+hf_docsis_dccreq_ucd_sub	,	V_46
+"docsis_dccreq.ds_sync_sub"	,	L_22
+"7 DCC-REQ Service Flow Substitution Encodings (Length = %u)"	,	L_2
+dissect_dccreq_ds_params	,	F_1
+start	,	V_3
+length	,	V_5
+find_dissector	,	F_20
+"SF Sub - SID Current Value"	,	L_35
+"docsis_dccreq.sf_sid_cur"	,	L_36
+"docsis_dccreq"	,	L_49
+hf_docsis_dccreq_ds_chan_id	,	V_22
+hf_docsis_dccreq_sf_sfid_new	,	V_28
+DCCREQ_INIT_TECH	,	V_43
+ENC_BIG_ENDIAN	,	V_12
+docsis_dccreq_handle	,	V_71
+dcc_item	,	V_6
+DCCREQ_SF_UNSOL_GRANT_TREF	,	V_32
+FT_UINT32	,	V_63
+hf_docsis_dccreq_ds_sym_rate	,	V_17
+proto_tree	,	T_2
+hf	,	V_58
+DCCREQ_CMTS_MAC_ADDR	,	V_52
+DCCREQ_KEY_SEQ_NUM	,	V_54

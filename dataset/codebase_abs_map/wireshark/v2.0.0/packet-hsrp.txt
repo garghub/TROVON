@@ -1,0 +1,278 @@
+"hsrp.adv.tlvlength"	,	L_47
+"hsrp2.group_state_tlv"	,	L_65
+proto_register_protocol	,	F_25
+"Authentication Data"	,	L_37
+"The current state of the router sending the message"	,	L_22
+tvb_new_subset_remaining	,	F_15
+"Version"	,	L_14
+len	,	V_4
+"Advertisement tlv type"	,	L_45
+"Adv type"	,	L_43
+"Passive Groups"	,	L_90
+ett_hsrp2_md5_auth_tlv	,	V_8
+gint	,	T_9
+FT_ETHER	,	V_107
+state	,	V_30
+hf_hsrp_reserved	,	V_51
+tvb	,	V_1
+"hsrp"	,	L_111
+guint32	,	T_8
+COL_INFO	,	V_36
+"The virtual IPv6 address used by this group"	,	L_86
+hf_hsrp_state	,	V_44
+active	,	V_84
+hf_hsrp2_virt_ip_addr_v6	,	V_83
+"hsrp.holdtime"	,	L_27
+"hsrp2.md5_auth_data"	,	L_106
+"hsrp.adv.reserved2"	,	L_60
+"hsrp2.priority"	,	L_81
+proto_tree_add_string_format_value	,	F_13
+tvb_reported_length_remaining	,	F_19
+hf_hsrp2_md5_ip_address	,	V_12
+"Op Code"	,	L_17
+cinfo	,	V_34
+"hsrp.adv.tlvtype"	,	L_44
+hf_hsrp2_interface_state_tlv	,	V_87
+array_length	,	F_27
+"Reserved"	,	L_35
+next_tvb	,	V_19
+auth_buf	,	V_33
+""	,	L_6
+"hsrp2.md5_flags"	,	L_97
+call_dissector	,	F_16
+"hsrp.auth_data"	,	L_38
+hf_hsrp2_priority	,	V_77
+offset2	,	V_62
+"Text Authentication TLV"	,	L_68
+hf_hsrp2_auth_data	,	V_94
+hf_hsrp2_hellotime	,	V_78
+hsrp2_md5_algorithm_vals	,	V_109
+process_hsrp_md5_tlv_sequence	,	F_1
+hf_register_info	,	T_13
+"hsrp.version"	,	L_15
+"MD5 Authentication Data"	,	L_105
+"hsrp2.md5_key_id"	,	L_103
+guint16	,	T_11
+COL_PROTOCOL	,	V_35
+"hsrp2.virt_ip_v6"	,	L_85
+hf_hsrp2_state	,	V_73
+"%sDefault (%s)"	,	L_8
+"Holdtime"	,	L_26
+"cisco"	,	L_9
+"Undefined"	,	L_98
+"MD5 Authentication TLV"	,	L_70
+"hsrp2.opcode"	,	L_62
+"Advertisement active group count"	,	L_55
+guint8	,	T_4
+hf_hsrp_adv_passivegrp	,	V_59
+ei_hsrp_unknown_tlv	,	V_63
+"Group"	,	L_32
+ti	,	V_5
+BASE_NONE	,	V_101
+"Sender's IP Address"	,	L_99
+md5_auth_tlv	,	V_6
+"hsrp.reserved"	,	L_36
+"hsrp2.state"	,	L_63
+HSRP_DEFAULT_HELLOTIME	,	V_46
+tvb_get_ntohl	,	F_21
+"BIA value of a sender interface"	,	L_78
+hf_hsrp_adv_length	,	V_55
+"hsrp.priority"	,	L_30
+tvbuff_t	,	T_1
+opcode	,	V_29
+"Type=%d Len=%d"	,	L_1
+tvb_get_ntohs	,	F_22
+tvb_memcpy	,	F_12
+"The approximate period between the Hello messages that the router sends"	,	L_25
+"hsrp.adv.activegrp"	,	L_54
+"Interface State TLV"	,	L_66
+"hsrp2.md5_auth_tlv"	,	L_71
+proto_item_add_subtree	,	F_4
+hf_hsrp2_holdtime	,	V_80
+"Virtual IP Address"	,	L_40
+hf_hsrp2_active_group	,	V_89
+group_state_tlv	,	V_66
+PI_UNDECODED	,	V_113
+proto_register_field_array	,	F_26
+hsrp_tree	,	V_2
+FT_BYTES	,	V_110
+"Adv state"	,	L_49
+"Non-"	,	L_7
+"Contains a clear-text 8 character reused password"	,	L_39
+ei	,	V_112
+"hsrp.virt_ip"	,	L_41
+dissector_add_uint	,	F_34
+g_htonl	,	F_7
+hf_hsrp_adv_state	,	V_56
+data_handle	,	V_61
+hf_hsrp2_virt_ip_addr	,	V_82
+"The virtual IP address used by this group"	,	L_42
+FT_UINT16	,	V_103
+tvb_get_guint8	,	F_2
+tvb_strneql	,	F_14
+HSRP_DEFAULT_HOLDTIME	,	V_48
+tvb_captured_length	,	F_17
+"State"	,	L_20
+ett_hsrp2_text_auth_tlv	,	V_93
+"MD5 digest string is contained."	,	L_107
+hsrpv1	,	V_20
+hsrpv2	,	V_22
+"hsrp.hellotime"	,	L_24
+"Cisco Hot Standby Router Protocol"	,	L_110
+hf_hsrp_adv_type	,	V_54
+"hsrp2.active_groups"	,	L_88
+"hsrp2.interface_state_tlv"	,	L_67
+HSRP2_DEFAULT_HOLDTIME	,	V_81
+FT_STRING	,	V_100
+"Used to elect the active and standby routers. Numerically higher priority wins vote"	,	L_31
+hf_hsrp2_md5_algorithm	,	V_9
+hf_hsrp2_group	,	V_75
+ipver	,	V_65
+new_create_dissector_handle	,	F_33
+"Hash Algorithm used by this group"	,	L_95
+proto_hsrp	,	V_40
+val_to_str_const	,	F_9
+HSRP2_DEFAULT_HELLOTIME	,	V_79
+find_dissector	,	F_32
+PI_WARN	,	V_114
+proto_tree_add_uint_format_value	,	F_3
+"Advertisement tlv length"	,	L_48
+ENC_BIG_ENDIAN	,	V_10
+hsrp_state_vals	,	V_38
+hf_hsrp_priority	,	V_49
+"Active group number which becomes the active router myself"	,	L_89
+FT_UINT32	,	V_105
+hf_hsrp_auth_data	,	V_52
+hsrp_opcode_vals	,	V_37
+"hsrp.adv.passivegrp"	,	L_57
+"IP Address of the sender interface"	,	L_101
+hf	,	V_96
+text_auth_tlv	,	V_91
+"Hellotime"	,	L_23
+hf_hsrp2_passive_group	,	V_90
+FT_IPv6	,	V_108
+col_append_fstr	,	F_10
+col_set_str	,	F_8
+"Group State TLV"	,	L_64
+dissect_hsrp	,	F_6
+FT_IPv4	,	V_102
+ett_hsrp2_interface_state_tlv	,	V_88
+expert_hsrp	,	V_95
+hf_hsrp2_md5_auth_data	,	V_14
+"hsrp.group"	,	L_33
+hf_hsrp_holdtime	,	V_47
+proto_register_subtree_array	,	F_28
+"Time that the current Hello message should be considered valid"	,	L_28
+hf_hsrp2_version	,	V_71
+proto_tree_add_item	,	F_5
+pinfo	,	V_16
+col_add_fstr	,	F_20
+"Priority"	,	L_29
+dissector_handle_t	,	T_15
+"hsrp2.text_auth_tlv"	,	L_69
+_U_	,	V_18
+"MD5 Algorithm"	,	L_93
+hf_hsrp_opcode	,	V_43
+"hsrp.opcode"	,	L_18
+AT_IPv4	,	V_28
+hf_hsrp2_md5_auth_tlv	,	V_7
+UDP_PORT_HSRP2_V6	,	V_26
+AT_IPv6	,	V_64
+proto_register_hsrp	,	F_23
+VALS	,	F_24
+hf_hsrp_group	,	V_50
+holdtime	,	V_32
+hf_hsrp_virt_ip_addr	,	V_53
+hf_hsrp2_identifier	,	V_76
+ett_hsrp	,	V_41
+interface_state_tlv	,	V_86
+"This field identifies the standby group"	,	L_34
+"Advertisement passive group count"	,	L_58
+"data"	,	L_112
+"Standby group number which doesn't become the active router myself"	,	L_92
+FT_UINT8	,	V_97
+BASE_DEC	,	V_98
+"The version of the HSRP messages"	,	L_16
+proto_item	,	T_5
+expert_register_field_array	,	F_30
+hf_hsrp2_text_auth_tlv	,	V_92
+"HSRPv2"	,	L_11
+"hsrp2.md5_algorithm"	,	L_94
+hf_hsrp2_group_state_tlv	,	V_67
+ENC_NA	,	V_15
+"hsrp2.auth_data"	,	L_82
+expert_add_info_format	,	F_18
+"Active Groups"	,	L_87
+hf_hsrp2_md5_key_id	,	V_13
+hsrp2_state_vals	,	V_69
+"%s"	,	L_12
+"MD5 Flags"	,	L_96
+data	,	T_7
+"Adv reserved1"	,	L_51
+HSRP_DST_IP_ADDR	,	V_21
+"hsrp.unknown_tlv"	,	L_108
+"The IP protocol version used in this hsrp message"	,	L_74
+"hsrp2.holdtime"	,	L_80
+ei_register_info	,	T_14
+expert_register_protocol	,	F_29
+proto_reg_handoff_hsrp	,	F_31
+"Identifier"	,	L_76
+hf_hsrp_hellotime	,	V_45
+"hsrp.md5_ip_address"	,	L_100
+guint	,	T_3
+offset	,	V_3
+"hsrp2.identifier"	,	L_77
+ett	,	V_111
+hsrp2_opcode_vals	,	V_68
+"Adv reserved2"	,	L_59
+"IP Ver."	,	L_72
+expert_module_t	,	T_12
+"Adv passive groups"	,	L_56
+tree	,	V_17
+hf_hsrp_adv_activegrp	,	V_58
+"Adv active groups"	,	L_53
+"Virtual IPv6 Address"	,	L_84
+packet_info	,	T_6
+HSRP2_DST_IP_ADDR	,	V_23
+"hsrp2.passive_groups"	,	L_91
+"MD5 Key ID"	,	L_102
+destport	,	V_24
+"hsrp.adv.state"	,	L_50
+proto_tree_add_uint	,	F_11
+"hsrp2.virt_ip"	,	L_83
+EXPFILL	,	V_115
+ett_hsrp2_group_state_tlv	,	V_70
+dst	,	V_27
+hf_hsrp2_ipversion	,	V_74
+hf_hsrp2_md5_flags	,	V_11
+" (state %s)"	,	L_4
+hsrp_handle	,	V_116
+"hsrp.adv.reserved1"	,	L_52
+"Adv length"	,	L_46
+"The type of message contained in this packet"	,	L_19
+"This field contains Key chain ID"	,	L_104
+UDP_PORT_HSRP	,	V_25
+"hsrp2.ipversion"	,	L_73
+HFILL	,	V_99
+hf_hsrp_adv_reserved1	,	V_57
+hf_hsrp_adv_reserved2	,	V_60
+"Unknown TLV sequence (HSRPv1)"	,	L_109
+"hsrp2.group"	,	L_75
+"udp.port"	,	L_113
+gchar	,	T_10
+"hsrp2.version"	,	L_61
+"Unknown TLV sequence in HSRPv1 dissection, Type=(%d) Len=(%d)"	,	L_10
+hsrp_adv_state_vals	,	V_39
+"%sDefault (%u)"	,	L_5
+hsrp_adv_type_vals	,	V_104
+passive	,	V_85
+hf_hsrp_version	,	V_42
+"Interface State TLV (Act=%d Pass=%d)"	,	L_13
+"hsrp.state"	,	L_21
+"HSRP"	,	L_2
+"Unknown"	,	L_3
+hsrp2_ipversion_vals	,	V_106
+hellotime	,	V_31
+"hsrp2.hellotime"	,	L_79
+proto_tree	,	T_2
+hf_hsrp2_opcode	,	V_72

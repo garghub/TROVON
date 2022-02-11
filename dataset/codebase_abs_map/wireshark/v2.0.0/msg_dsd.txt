@@ -1,0 +1,94 @@
+hf_dsd_transaction_id	,	V_15
+"Transaction ID"	,	L_13
+proto_reg_handoff_mac_mgmt_msg_dsd	,	F_22
+col_append_sep_str	,	F_9
+proto_register_protocol	,	F_18
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_3
+tlv_value_offset	,	V_7
+tvb_reported_length	,	F_2
+ett_mac_mgmt_msg_dsd_rsp_decoder	,	V_26
+BASE_HEX	,	V_30
+gint	,	T_5
+proto_item_add_subtree	,	F_4
+"WiMax DSD"	,	L_20
+"wmx.mgmtmsg"	,	L_22
+tlv_len	,	V_6
+proto_register_field_array	,	F_19
+dsd_tree	,	V_10
+FT_BYTES	,	V_34
+dissect_mac_mgmt_msg_dsd_req_decoder	,	F_1
+tvb	,	V_1
+guint	,	T_4
+offset	,	V_4
+ett	,	V_36
+COL_INFO	,	V_20
+hf_dsd_service_flow_id	,	V_17
+dissector_add_uint	,	F_24
+dsd_handle	,	V_37
+tree	,	V_3
+wimax_hmac_tuple_decoder	,	F_13
+"wmx.dsd.unknown_type"	,	L_18
+CMAC_TUPLE	,	V_24
+tlv_type	,	V_8
+FT_UINT16	,	V_33
+packet_info	,	T_2
+dsd_item	,	V_9
+ett_mac_mgmt_msg_dsd_req_decoder	,	V_14
+MAX_TLV_LEN	,	V_18
+"CMAC Tuple"	,	L_5
+hf_dsd_confirmation_code	,	V_27
+"wmx.dsd.transaction_id"	,	L_14
+"Dynamic Service Deletion Request (DSD-REQ)"	,	L_1
+cinfo	,	V_19
+tvb_len	,	V_5
+wimax_cmac_tuple_decoder	,	F_14
+dissect_mac_mgmt_msg_dsd_rsp_decoder	,	F_16
+proto_register_subtree_array	,	F_21
+add_tlv_subtree	,	F_15
+"Confirmation code"	,	L_9
+array_length	,	F_20
+"Unknown type"	,	L_17
+proto_register_mac_mgmt_msg_dsd	,	F_17
+tlv_info	,	V_12
+"Service Flow ID"	,	L_11
+"DSD-RSP TLV Type: %u (%u bytes, offset=%u, tvb_len=%u)"	,	L_8
+proto_tree_add_item	,	F_5
+pinfo	,	V_2
+dissector_handle_t	,	T_9
+tlv_tree	,	V_11
+get_tlv_value_offset	,	F_10
+tlv_info_t	,	T_7
+"DSD-REQ TLV error"	,	L_2
+hf_dsd_invalid_tlv	,	V_21
+"DSD RSP TLV error"	,	L_7
+"Dynamic Service Deletion Response (DSD-RSP)"	,	L_6
+MAC_MGMT_MSG_DSD_REQ	,	V_38
+"DSD-REQ TLV Type: %u (%u bytes, offset=%u, tvb_len=%u)"	,	L_3
+hf_register_info	,	T_8
+"Invalid TLV"	,	L_15
+"wmx.dsd.invalid_tlv"	,	L_16
+HFILL	,	V_31
+HMAC_TUPLE	,	V_23
+"HMAC Tuple"	,	L_4
+init_tlv_info	,	F_6
+MAC_MGMT_MSG_DSD_RSP	,	V_39
+proto_mac_mgmt_msg_dsd_decoder	,	V_13
+FT_UINT8	,	V_29
+"WiMax DSD Messages"	,	L_19
+"wmx.dsd.confirmation_code"	,	L_10
+get_tlv_length	,	F_8
+create_dissector_handle	,	F_23
+proto_item	,	T_6
+DEBUG	,	F_11
+ENC_BIG_ENDIAN	,	V_16
+ENC_NA	,	V_22
+get_tlv_type	,	F_7
+FT_UINT32	,	V_32
+BASE_NONE	,	V_35
+add_protocol_subtree	,	F_12
+hf_dsd_unknown_type	,	V_25
+"wmx.dsd.service_flow_id"	,	L_12
+"wmx.dsd"	,	L_21
+proto_tree	,	T_3
+hf	,	V_28

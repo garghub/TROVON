@@ -1,0 +1,254 @@
+ett_mpls_pw_ach	,	V_24
+"PW Associated Channel Version"	,	L_26
+", Label: %u (Flow Label)"	,	L_7
+dissector_pw_ach	,	V_36
+mpls_da_build_value	,	V_80
+proto_register_protocol	,	F_40
+proto_mpls	,	V_5
+dissector_try_uint_new	,	F_35
+register_decode_as	,	F_51
+", Exp: %u"	,	L_11
+tvb_reported_length	,	F_37
+tvb_new_subset_remaining	,	F_23
+hf_mpls_pw_mcw_length	,	V_42
+"pwach.ver"	,	L_25
+"mpls.invalid_label"	,	L_46
+gint	,	T_14
+MPLS_LABEL_MAX_RESERVED	,	V_54
+"PW Associated Channel Header"	,	L_15
+tvb	,	V_7
+JUNIPER_PROTO_IP6_MPLS	,	V_101
+dissect_bfd_mep	,	F_26
+"PW MPLS Control Word (generic/preferred)"	,	L_52
+guint32	,	T_5
+COL_INFO	,	V_50
+mpls_tree	,	V_51
+pool	,	V_4
+mpls_pw_mcw_tree	,	V_38
+hf_mpls_pw_mcw_sequence_number	,	V_43
+UDP_PORT_MPLS_OVER_UDP	,	V_105
+"mpls"	,	L_48
+tvb_reported_length_remaining	,	F_11
+p_get_proto_data	,	F_4
+cinfo	,	V_48
+PI_ERROR	,	V_76
+pw_ach_da	,	V_88
+"ipv6"	,	L_69
+array_length	,	F_42
+"Reserved"	,	L_27
+next_tvb	,	V_17
+decode_as_t	,	T_18
+call_dissector	,	F_28
+" (%s)"	,	L_9
+"Error processing Message"	,	L_42
+proto_reg_handoff_mpls	,	F_52
+"ethertype"	,	L_60
+gpointer	,	T_3
+PPP_MPLS_MULTI	,	V_97
+result	,	V_2
+found	,	V_45
+hf_register_info	,	T_13
+"Channel Type"	,	L_29
+"%s (0x%04x)"	,	L_3
+nibble	,	V_33
+guint16	,	T_11
+COL_PROTOCOL	,	V_49
+GUINT_TO_POINTER	,	F_16
+"ip"	,	L_70
+g_strlcpy	,	F_34
+decode_as_default_populate_list	,	V_83
+"MPLS"	,	L_5
+guint8	,	T_6
+mpls_bos_flowlabel	,	V_53
+mplsinfo	,	V_47
+ti	,	V_21
+SFLOW_245_HEADER_MPLS	,	V_103
+"Error: this byte is reserved and must be 0"	,	L_44
+build_valid_func	,	T_16
+hf_mpls_label	,	V_57
+"Generic/Preferred PW MPLS Control Word Flags"	,	L_34
+register_dissector	,	F_46
+"MPLS Experimental Bits"	,	L_18
+"l2tp.pw_type"	,	L_67
+mpls_pwac_types_ext	,	V_30
+tvbuff_t	,	T_4
+tvb_get_ntohs	,	F_14
+val_to_str_ext_const	,	F_22
+BASE_HEX	,	V_71
+gboolean	,	T_12
+decode_as_default_change	,	V_85
+"mpls.bottom"	,	L_21
+module_mpls	,	V_90
+proto_item_add_subtree	,	F_18
+"pwmcw.error_processing_message"	,	L_45
+module_t	,	T_20
+ETHERTYPE_MPLS	,	V_94
+mpls_da_values	,	V_81
+proto_register_field_array	,	F_41
+"sflow_245.header_protocol"	,	L_66
+res	,	V_22
+"Assume bottom of stack label as Flow label"	,	L_58
+ei	,	V_74
+dissector_add_uint	,	F_54
+"Sequence Number"	,	L_38
+FT_UINT16	,	V_72
+"ip.proto"	,	L_64
+tvb_get_guint8	,	F_9
+p_add_proto_data	,	F_15
+JUNIPER_PROTO_CLNP_MPLS	,	V_102
+tvb_captured_length	,	F_13
+dissector_pw_eth_heuristic	,	V_65
+"Lowest label is used to segregate flows inside a pseudowire"	,	L_59
+JUNIPER_PROTO_MPLS	,	V_99
+"pw_eth_heuristic"	,	L_71
+expert_add_info	,	F_20
+mplsf_info	,	V_66
+proto_pw_ach	,	V_6
+"MPLS protocol"	,	L_55
+mpls_pw_ach_tree	,	V_20
+ETHERTYPE_MPLS_MULTI	,	V_95
+dissect_pw_ach	,	F_10
+call_data_dissector	,	F_25
+prefs_register_obsolete_preference	,	F_49
+PPP_MPLS_UNI	,	V_96
+L2TPv3_PROTOCOL_MPLS	,	V_104
+pw_ach_prompt	,	F_6
+ei_mpls_pw_mcw_error_processing_message	,	V_37
+val_to_str_const	,	F_33
+find_dissector	,	F_53
+label	,	V_9
+hf_mpls_pw_ach_ver	,	V_25
+PI_WARN	,	V_79
+JUNIPER_PROTO_IP_MPLS	,	V_100
+proto_tree_add_uint_format_value	,	F_21
+mpls_pwcw_handle	,	V_93
+ENC_BIG_ENDIAN	,	V_26
+FT_UINT32	,	V_67
+decode_as_value_t	,	T_17
+dissector_ipv6	,	V_34
+", TTL: %u"	,	L_13
+"mplspref.payload"	,	L_56
+"Channel Version"	,	L_24
+expert_mpls	,	V_89
+"Generic Associated Channel Header"	,	L_14
+prefs_register_protocol	,	F_48
+set_actual_length	,	F_36
+"pwach.res.not_zero"	,	L_43
+"pwmcw.sequence_number"	,	L_39
+col_set_str	,	F_31
+", S: %u"	,	L_12
+"Flags"	,	L_32
+hf_mpls_exp	,	V_58
+mpls_subdissector_table	,	V_64
+"mpls.label"	,	L_17
+find_dissector_add_dependency	,	F_57
+proto_item_append_text	,	F_32
+IP_PROTO_MPLS_IN_IP	,	V_98
+dissect_mpls	,	F_30
+mpls_value	,	F_5
+proto_register_subtree_array	,	F_43
+"pwach.channel_type"	,	L_30
+decode_mpls_label	,	F_8
+dissect_pw_mcw	,	F_29
+MPLS_LABEL_GACH	,	V_61
+mpls_da	,	V_82
+proto_tree_add_item	,	F_17
+"gre.proto"	,	L_63
+pinfo	,	V_1
+dissector_handle_t	,	T_21
+"MPLS Label"	,	L_16
+"pwmcw.length"	,	L_36
+_U_	,	V_16
+mpls_prompt	,	F_1
+first_nibble	,	V_46
+ett_mpls	,	V_52
+hf_mpls_ttl	,	V_60
+octet2	,	V_14
+octet1	,	V_13
+octet0	,	V_12
+GPOINTER_TO_UINT	,	F_3
+PW_ACH	,	V_63
+"Reserved - Unknown"	,	L_10
+VALS	,	F_39
+dissector_add_for_decode_as	,	F_55
+", Label: %u"	,	L_8
+"mpls.ttl"	,	L_23
+prefs_register_bool_preference	,	F_50
+PI_PROTOCOL	,	V_78
+hf_mpls_bos	,	V_59
+FT_UINT8	,	V_70
+mpls_handle	,	V_92
+BASE_DEC	,	V_68
+proto_item	,	T_10
+expert_register_field_array	,	F_45
+ett_mpls_pw_mcw	,	V_40
+dissect_try_cw_first_nibble	,	F_27
+"MPLS TTL"	,	L_22
+ENC_NA	,	V_23
+"Generic/Preferred PW MPLS Control Word Length"	,	L_37
+pw_ach_da_values	,	V_87
+"pwach.res"	,	L_28
+MAX_DECODE_AS_PROMPT_LEN	,	V_3
+pw_ach_subdissector_table	,	V_31
+hf_mpls_pw_ach_channel_type	,	V_29
+"MPLS Bottom Of Label Stack"	,	L_20
+register_dissector_table	,	F_47
+data	,	T_8
+"MultiProtocol Label Switching Header"	,	L_51
+special_labels	,	V_56
+pw_ach_da_build_value	,	V_86
+ei_mpls_invalid_label	,	V_62
+ei_register_info	,	T_15
+decode_as_default_reset	,	V_84
+expert_register_protocol	,	F_44
+guint	,	T_9
+MPLS_LABEL_INVALID	,	V_44
+"Length"	,	L_35
+offset	,	V_8
+ett	,	V_73
+expert_module_t	,	T_19
+tree	,	V_15
+"ppp.protocol"	,	L_61
+packet_info	,	T_1
+"pwmcw.flags"	,	L_33
+"flowlabel_in_mpls_header"	,	L_57
+"pwmcw"	,	L_54
+proto_register_mpls	,	F_38
+"mpls.exp"	,	L_19
+hf_mpls_label_special	,	V_55
+"pwach.error_processing_message"	,	L_41
+proto_tree_add_uint	,	F_19
+"Generic PW (with CW)"	,	L_53
+EXPFILL	,	V_77
+dissector_ip	,	V_35
+proto_tree_add_expert	,	F_12
+bos	,	V_10
+"MPLS Label Switched Packet"	,	L_6
+hf_mpls_pw_mcw_flags	,	V_41
+DISSECTOR_TABLE_NOT_ALLOW_DUPLICATE	,	V_91
+"chdlc.protocol"	,	L_62
+"juniper.proto"	,	L_65
+g_snprintf	,	F_2
+"Generic/Preferred PW MPLS Control Word Sequence Number"	,	L_40
+ei_mpls_pw_ach_error_processing_message	,	V_19
+pw_ach_value	,	F_7
+channel_type	,	V_18
+ei_mpls_pw_ach_res	,	V_28
+HFILL	,	V_69
+PI_MALFORMED	,	V_75
+dissector_try_uint	,	F_24
+"Invalid Label"	,	L_47
+"udp.port"	,	L_68
+gchar	,	T_2
+ACH_TYPE_BFD_CV	,	V_32
+"Channel type 0x%x as"	,	L_2
+"pwach"	,	L_49
+"PW Associated Channel Type"	,	L_31
+create_dissector_handle	,	F_56
+ttl	,	V_11
+hf_mpls_pw_ach_res	,	V_27
+proto_pw_mcw	,	V_39
+"Unknown"	,	L_4
+"Data after label %u as"	,	L_1
+proto_tree	,	T_7
+"PW Associated Channel"	,	L_50

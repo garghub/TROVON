@@ -1,0 +1,97 @@
+"Update query opcode"	,	L_23
+proto_register_protocol	,	F_12
+"Dynamic DNS Tools Protocol"	,	L_29
+"Version"	,	L_11
+hf_ddtp_encrypt	,	V_16
+col_set_str	,	F_5
+gint	,	T_7
+"ddtp.status"	,	L_27
+FT_IPv4	,	V_35
+tvb	,	V_1
+"Unknown type : %u"	,	L_9
+COL_INFO	,	V_10
+"DDTP"	,	L_1
+col_clear	,	F_6
+cinfo	,	V_8
+ddtp_handle	,	V_39
+proto_register_subtree_array	,	F_15
+array_length	,	F_14
+"Unknown type"	,	L_8
+proto_tree_add_item	,	F_7
+pinfo	,	V_2
+dissector_handle_t	,	T_8
+DDTP_MESSAGE_ERROR	,	V_20
+_U_	,	V_4
+hf_ddtp_msgtype	,	V_19
+"Update reply status"	,	L_28
+hf_register_info	,	T_6
+"ddtp.ipaddr"	,	L_25
+VALS	,	F_11
+COL_PROTOCOL	,	V_9
+"ddtp.encrypt"	,	L_14
+tvb_length	,	F_2
+UDP_PORT_DDTP	,	V_40
+proto_tree_add_text	,	F_9
+BASE_DEC	,	V_30
+proto_item	,	T_5
+try_val_to_str	,	F_3
+ENC_NA	,	V_12
+"Alive Query"	,	L_5
+"Encryption"	,	L_13
+"ddtp"	,	L_30
+DDTP_ALIVE_REPLY	,	V_27
+ti	,	V_6
+BASE_NONE	,	V_36
+"Alive Reply"	,	L_7
+"Message Error"	,	L_2
+"Encrypted payload"	,	L_10
+dissect_ddtp	,	F_1
+data	,	T_4
+tvb_get_ntohl	,	F_4
+tvbuff_t	,	T_1
+"IP address"	,	L_24
+"Message type"	,	L_19
+proto_ddtp	,	V_11
+ddtp_tree	,	V_5
+vals_ddtp_version	,	V_7
+proto_item_add_subtree	,	F_8
+hf_ddtp	,	V_28
+proto_register_field_array	,	F_13
+"Hostid"	,	L_16
+hf_ddtp_version	,	V_14
+"ddtp.hostid"	,	L_17
+hf_ddtp_hostid	,	V_17
+ett	,	V_38
+dissector_add_uint	,	F_18
+tree	,	V_3
+"Opcode"	,	L_21
+DDTP_ALIVE_QUERY	,	V_26
+"ddtp.opcode"	,	L_22
+vals_ddtp_msgtype	,	V_33
+packet_info	,	T_2
+DDTP_ENCRYPT_PLAINTEXT	,	V_18
+hf_ddtp_ipaddr	,	V_23
+hf_ddtp_opcode	,	V_22
+vals_ddtp_status	,	V_37
+"Dummy : %u"	,	L_6
+hf_ddtp_status	,	V_25
+ett_ddtp	,	V_13
+proto_register_ddtp	,	F_10
+vals_ddtp_opcode	,	V_34
+"ddtp.msgtype"	,	L_20
+vals_ddtp_encrypt	,	V_32
+HFILL	,	V_31
+DDTP_UPDATE_QUERY	,	V_21
+"ddtp.version"	,	L_12
+"Host ID"	,	L_18
+proto_reg_handoff_ddtp	,	F_16
+new_create_dissector_handle	,	F_17
+"Status"	,	L_26
+"Update Reply"	,	L_4
+DDTP_UPDATE_REPLY	,	V_24
+"udp.port"	,	L_31
+"Encryption type"	,	L_15
+ENC_BIG_ENDIAN	,	V_15
+FT_UINT32	,	V_29
+proto_tree	,	T_3
+"Update Query"	,	L_3

@@ -1,0 +1,257 @@
+"docsis_ucd.burst.rsintblock"	,	L_101
+proto_register_protocol	,	F_15
+"docsis_ucd.mslotsize"	,	L_12
+"FEC (T) Codeword Parity Bits = 2^T"	,	L_78
+len	,	V_13
+gint	,	T_6
+"docsis_ucd.rnghoffestb"	,	L_47
+"Ranging Hold-Off (eMTA or EDVA)"	,	L_44
+"FEC Codeword Info Bytes (k)"	,	L_81
+"docsis_ucd.burst.scrambleronoff"	,	L_95
+tvb	,	V_1
+COL_INFO	,	V_17
+docsis_ucd_handle	,	V_112
+UCD_FEC_CODEWORD	,	V_71
+hf_docsis_rs_int_depth	,	V_85
+"Guard Time Size"	,	L_90
+"Type 2 UCD Message: Channel ID = %u (U%u)"	,	L_1
+"Burst Descriptor"	,	L_84
+hf_docsis_burst_preamble_len	,	V_66
+tvb_reported_length_remaining	,	F_2
+hf_docsis_burst_scrambler_seed	,	V_74
+ett_tlv	,	V_25
+UCD_RANGING_HOLD_OFF_PRIORITY_FIELD	,	V_45
+cinfo	,	V_16
+UCD_MAINTAIN_POWER_SPECTRAL_DENSITY	,	V_41
+PI_ERROR	,	V_108
+hf_docsis_ucd_rnghoff_emta	,	V_48
+hf_docsis_ucd_chan_class_id_rsvd	,	V_57
+UCD_MODULATION	,	V_61
+array_length	,	F_17
+symrate	,	V_15
+"docsis_ucd.burst.preambletype"	,	L_104
+hf_docsis_preamble_type	,	V_89
+"5 FEC (T)"	,	L_76
+tlv_item	,	V_12
+mod_vals	,	V_103
+tlvlen	,	V_7
+"Frequency (Hz)"	,	L_25
+hf_docsis_ucd_chan_class_id_emta	,	V_55
+"CM Ranging Class ID Extension"	,	L_50
+pos	,	V_4
+hf_register_info	,	T_7
+"Preamble Length (Bits)"	,	L_72
+hf_docsis_burst_scrambler_onoff	,	V_82
+"10 Last Codeword Length"	,	L_91
+UCD_EXT_PREAMBLE	,	V_37
+tlvtype	,	V_8
+proto_register_docsis_ucd	,	F_13
+UCD_MAX_BURST	,	V_75
+"docsis_ucd.rnghoffemta"	,	L_45
+guint8	,	T_4
+BASE_NONE	,	V_96
+"docsis_ucd.maintpower"	,	L_37
+"Downstream Channel ID"	,	L_13
+"docsis_ucd.rngidext"	,	L_51
+"Config Change Count"	,	L_8
+register_dissector	,	F_21
+"docsis_ucd.burst.rsintdepth"	,	L_98
+"docsis_ucd.rnghoffrsvd"	,	L_49
+dissect_ucd	,	F_1
+UCD_RS_INT_DEPTH	,	V_84
+"Ranging Required"	,	L_38
+"Reserved [0x000000]"	,	L_48
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_5
+UCD_RANGING_REQUIRED	,	V_43
+"Interval Usage Code"	,	L_62
+"Bad TLV length"	,	L_107
+hf_docsis_ucd_chan_class_id_cm	,	V_53
+BASE_HEX	,	V_100
+"Channel Class ID (eRouter)"	,	L_54
+"Preamble Pattern"	,	L_28
+UCD_RS_INT_BLOCK	,	V_86
+proto_item_add_subtree	,	F_6
+UCD_BURST_DESCR5	,	V_83
+ei_docsis_ucd_tlvlen_bad	,	V_31
+inhibit_allow_vals	,	V_101
+proto_register_field_array	,	F_16
+FT_BYTES	,	V_95
+"R-S Interleaver Block"	,	L_102
+"docsis_ucd.classidcm"	,	L_53
+upchid	,	V_14
+ei	,	V_106
+dissector_add_uint	,	F_24
+"docsis_mgmt"	,	L_111
+"Modulation Type"	,	L_66
+"Type 2 UCD Message: Channel ID = %u (Telephony Return)"	,	L_2
+FT_UINT16	,	V_104
+tvb_get_guint8	,	F_3
+hf_docsis_ucd_rnghoff_estb	,	V_49
+hf_docsis_ucd_down_chid	,	V_24
+"14 Preamble Type"	,	L_103
+"DOCSIS UCD"	,	L_109
+UCD_PREAMBLE_VAL_OFF	,	V_67
+"docsis_ucd.upchid"	,	L_7
+"Extended Preamble Superstring"	,	L_33
+"docsis_ucd"	,	L_110
+hf_docsis_ucd_mini_slot_size	,	V_23
+"Channel TLV length"	,	L_21
+"Channel Class ID (DSG/eSTB)"	,	L_58
+"docsis_ucd.rangingreq"	,	L_39
+UCD_PREAMBLE_TYPE	,	V_88
+"docsis_ucd.burst.last_cw_len"	,	L_92
+hf_docsis_ucd_frequency	,	V_33
+UCD_SYMBOL_RATE	,	V_29
+"docsis_ucd.scdma"	,	L_35
+hf_docsis_rs_int_block	,	V_87
+"docsis_ucd.preamble"	,	L_29
+hf_docsis_ucd_chan_class_id_estb	,	V_56
+"Ranging Hold-Off (CM)"	,	L_40
+hf_docsis_ucd_symbol_rate	,	V_30
+allow_inhibit_vals	,	V_99
+hf_docsis_ucd_rnghoff_id_ext	,	V_51
+hf_docsis_ucd_iuc	,	V_60
+"docsis_ucd.extpreamble"	,	L_32
+length	,	V_6
+"Channel TLV type"	,	L_18
+find_dissector	,	F_23
+"7 Scrambler Seed"	,	L_82
+"Wrong TLV length: %u"	,	L_5
+ENC_BIG_ENDIAN	,	V_21
+"docsis_ucd.confcngcnt"	,	L_9
+FT_UINT32	,	V_94
+"Mini Slot Size (6.25us TimeTicks)"	,	L_11
+hf_docsis_ucd_type	,	V_27
+endtlvpos	,	V_5
+"docsis_ucd.symrate"	,	L_23
+hf_docsis_burst_mod_type	,	V_62
+hf_docsis_ucd_preamble_pat	,	V_35
+hf	,	V_90
+UCD_DIFF_ENCODING	,	V_63
+hf_docsis_ucd_ranging_required	,	V_44
+"docsis_ucd.classidemta"	,	L_57
+channel_tlv_vals	,	V_26
+iuc_vals	,	V_102
+hf_docsis_ucd_config_ch_cnt	,	V_22
+"13 RS Interleaver Block Size"	,	L_100
+"Channel Class ID (CM)"	,	L_52
+last_cw_len_vals	,	V_105
+"Scrambler On/Off"	,	L_96
+proto_tree_add_subtree	,	F_8
+expert_docsis_ucd	,	V_111
+UCD_SCRAMBLER_SEED	,	V_73
+hf_docsis_burst_guard_time	,	V_78
+ett_docsis_ucd	,	V_19
+ucd_item	,	V_10
+"Ranging Hold-Off (DSG/eSTB)"	,	L_46
+"docsis_ucd.rnghofferouter"	,	L_43
+"R-S Interleaver Depth"	,	L_99
+proto_reg_handoff_docsis_ucd	,	F_22
+UCD_SCDMA_MODE_ENABLED	,	V_39
+"Preamble Superstring"	,	L_30
+proto_docsis_ucd	,	V_18
+"Symbol Rate (ksym/sec)"	,	L_22
+hf_docsis_ucd_length	,	V_28
+proto_register_subtree_array	,	F_18
+val_to_str	,	F_9
+hf_docsis_ucd_scdma_mode_enabled	,	V_40
+proto_tree_add_item	,	F_7
+"Symbol Rate"	,	L_24
+"docsis_ucd.burst.maxburst"	,	L_86
+pinfo	,	V_2
+col_add_fstr	,	F_4
+dissector_handle_t	,	T_10
+"Extended Preamble Pattern"	,	L_31
+"11 Scrambler On/Off"	,	L_94
+"docsis_ucd.type"	,	L_17
+"docsis_ucd.burst.scrambler_seed"	,	L_83
+UCD_FREQUENCY	,	V_32
+UCD_PREAMBLE_LEN	,	V_65
+on_off_vals	,	V_97
+VALS	,	F_14
+"docsis_ucd.rnghoffcm"	,	L_41
+FT_UINT8	,	V_91
+"Upstream Channel ID"	,	L_6
+BASE_DEC	,	V_92
+proto_item	,	T_5
+expert_register_field_array	,	F_20
+ENC_NA	,	V_36
+hf_docsis_burst_diff_encoding	,	V_64
+"1 Modulation Type"	,	L_64
+expert_add_info_format	,	F_12
+hf_docsis_burst_last_cw_len	,	V_80
+"docsis_ucd.burst.preamble_len"	,	L_71
+"Upstream Center Frequency"	,	L_27
+"docsis_ucd.length"	,	L_20
+"Preamble Offset (Bits)"	,	L_75
+"docsis_ucd.burst.fec"	,	L_77
+"8 Max Burst Size (Minislots)"	,	L_85
+"docsis_ucd.burst.guardtime"	,	L_89
+"docsis_ucd.burst.modtype"	,	L_65
+hf_docsis_ucd_rnghoff_cm	,	V_46
+hf_docsis_burst_fec	,	V_70
+"9 Guard Time Size (Symbol Times)"	,	L_88
+"Management Message"	,	L_15
+ei_register_info	,	T_8
+expert_register_protocol	,	F_19
+"docsis_ucd.classidext"	,	L_61
+hf_docsis_ucd_rnghoff_rsvd	,	V_50
+"docsis_ucd.downchid"	,	L_14
+"docsis_ucd.freq"	,	L_26
+"docsis_ucd.burst.preamble_off"	,	L_74
+"Max Burst Size (Minislots)"	,	L_87
+"Differential Encoding"	,	L_69
+hf_docsis_ucd_chan_class_id_id_ext	,	V_58
+"docsis_ucd.iuc"	,	L_63
+"Ranging Hold-Off (eRouter)"	,	L_42
+ett	,	V_110
+expert_module_t	,	T_9
+tree	,	V_3
+"docsis_ucd.burst.fec_codeword"	,	L_80
+UCD_FEC	,	V_69
+packet_info	,	T_2
+ucd_tree	,	V_9
+"3 Preamble Length (Bits)"	,	L_70
+hf_docsis_ucd_ext_preamble_pat	,	V_38
+"2 Differential Encoding"	,	L_67
+hf_docsis_ucd_rnghoff_erouter	,	V_47
+hf_docsis_burst_preamble_val_off	,	V_68
+"TLV Length"	,	L_19
+"6 FEC Codeword Info bytes (k)"	,	L_79
+"docsis_ucd.tlvlen.bad"	,	L_106
+"TLV Type"	,	L_16
+proto_tree_add_uint	,	F_10
+EXPFILL	,	V_109
+"4 Preamble Offset (Bits)"	,	L_73
+"Unknown TLV (%u)"	,	L_4
+UCD_PREAMBLE	,	V_34
+ranging_req_vals	,	V_98
+tlv_tree	,	V_11
+"UCD Message (Type 2)"	,	L_3
+UCD_LAST_CW_LEN	,	V_79
+hf_docsis_ucd_chan_class_id_erouter	,	V_54
+UCD_GUARD_TIME	,	V_77
+"Channel Class ID (eMTA or EDVA)"	,	L_56
+HFILL	,	V_93
+PI_MALFORMED	,	V_107
+"Last Codeword Length"	,	L_93
+"Preamble Type"	,	L_105
+"docsis_ucd.classiderouter"	,	L_55
+"docsis_ucd.burst.diffenc"	,	L_68
+"DOCSIS Upstream Channel Descriptor"	,	L_108
+hf_docsis_ucd_maintain_power_spectral_density	,	V_42
+"S-CDMA Mode Enabled"	,	L_34
+hf_docsis_ucd_upstream_chid	,	V_20
+proto_item_set_len	,	F_11
+"Configuration Change Count"	,	L_10
+"Maintain Power Spectral Density"	,	L_36
+"docsis_ucd.classidestb"	,	L_59
+"12 RS Interleaver Depth"	,	L_97
+UCD_RANGING_CHANNEL_CLASS_ID	,	V_52
+UCD_BURST_DESCR	,	V_59
+hf_docsis_burst_max_burst	,	V_76
+"docsis_ucd.classidrsvd"	,	L_60
+UCD_SCRAMBLER_ONOFF	,	V_81
+proto_tree	,	T_3
+hf_docsis_burst_fec_codeword	,	V_72

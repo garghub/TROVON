@@ -1,0 +1,680 @@
+hf_mgcp_req_dup_frame	,	V_150
+tvb_find_dot_line	,	F_11
+"Response Frame"	,	L_14
+"DLCX"	,	L_286
+"Maximum MGCP Datagram size"	,	L_223
+"RTCP ciphersuite"	,	L_79
+"mgcp.param.bearerinfo"	,	L_42
+", Duplicate Response %u"	,	L_303
+hf_mgcp_param_bearerinfo	,	V_83
+"Notified Entity"	,	L_55
+"D-QoS Reserve Destination (dq-rd)"	,	L_92
+"mgcp.param.reqevents"	,	L_141
+"mgcp.param.extension"	,	L_228
+"MDCX"	,	L_284
+dissect_mgcp	,	F_3
+"mgcp.param.quarantinehandling"	,	L_213
+proto_tree_add_format_text	,	F_30
+"Packetization period (p)"	,	L_62
+"Type of Service (r)"	,	L_119
+tempchar	,	V_178
+my_param	,	V_209
+hf_mgcp_param_secondendpointid	,	V_138
+hf_mgcp_param_localconnoptions_gc	,	V_104
+"Octets sent (P:OS)"	,	L_166
+"Remote Packets sent (PC/RPS)"	,	L_182
+mgcp_tap	,	V_163
+guint32	,	T_9
+hf_mgcp_param_localconnoptions_k	,	V_103
+"Remote Packets lost (PC/RPL)"	,	L_188
+FT_BOOLEAN	,	V_61
+hf_mgcp_param_localconnoptions_b	,	V_96
+hf_mgcp_param_localconnoptions_a	,	V_91
+"ModifyConnection"	,	L_285
+hf_mgcp_param_connectionparam_pcros	,	V_131
+hf_mgcp_param_localconnoptions_e	,	V_93
+hf_mgcp_rsp_dup	,	V_151
+g_ascii_strncasecmp	,	F_52
+"The response to this request is in frame %u"	,	L_305
+"Request"	,	L_6
+mgcp_tpkt_handle	,	V_165
+tvb_len	,	V_18
+"D-QoS Resource ID (dq-ri)"	,	L_95
+wmem_strdup	,	F_66
+"Gain Control (gc)"	,	L_104
+array_length	,	F_38
+"Optional Media Format"	,	L_115
+tvb_tokenbegin	,	V_211
+"MGCP Gateway UDP Port"	,	L_257
+""	,	L_1
+hf_mgcp_params	,	V_80
+gateway_tcp_port	,	V_166
+mgcp_calls	,	V_58
+"mgcp.rspframe"	,	L_15
+mgcp_prefs_initialized	,	V_164
+"mgcp.param.secondendpointid"	,	L_207
+"mgcp.param.connectionid"	,	L_48
+"mgcp.param.restartdelay"	,	L_150
+"Capabilities"	,	L_220
+ENC_ASCII	,	V_223
+hf_mgcp_param_connectionmode	,	V_115
+"udp.gateway_port"	,	L_256
+dissect_mgcp_connectionparams	,	F_81
+"Packetization period"	,	L_64
+"Packets lost (PL)"	,	L_173
+hf_register_info	,	T_13
+"mgcp.param.localconnectionoptions.dqri"	,	L_96
+hf_mgcp_req	,	V_60
+"Set the UDP port for gateway messages "	,	L_254
+ReportedBoundsError	,	V_194
+guint16	,	T_12
+hf_mgcp_param_signalreq	,	V_117
+"Requested Info"	,	L_211
+global_mgcp_callagent_udp_port	,	V_162
+c	,	V_174
+address	,	T_22
+"mgcp.param.connectionparam.pr"	,	L_168
+"mgcp.param.eventstates"	,	L_201
+"CreateConnection"	,	L_283
+g_strlcpy	,	F_62
+i	,	V_220
+hf_mgcp_param_quarantinehandling	,	V_140
+", Duplicate Request %u"	,	L_304
+k	,	V_7
+"Packets lost (P:PL)"	,	L_175
+"Remote Jitter (P:PC/RJI)"	,	L_193
+BASE_NONE	,	V_62
+hf_mgcp_param_eventstates	,	V_136
+hf_mgcp_param_maxmgcpdatagram	,	V_143
+typval	,	V_219
+hf_mgcp_param_localconnoptions_scrtp	,	V_94
+"SignalRequests (S)"	,	L_143
+"Octets received (OR)"	,	L_170
+"mgcp.time"	,	L_17
+"Timedelta between Request and Response"	,	L_18
+"Transaction ID"	,	L_25
+"Observed Events"	,	L_157
+"AUEP"	,	L_292
+"BearerInformation (B)"	,	L_41
+"mgcp.param.connectionmode"	,	L_138
+sdp_handle	,	V_54
+"mgcp.param.connectionparam.ps"	,	L_162
+"mgcp.param.localconnectionoptions.s"	,	L_69
+"mgcp.param.localconnectionoptions.scrtcp"	,	L_78
+"Silence Suppression (s)"	,	L_68
+"Media Gateway Control Protocol"	,	L_250
+rsp_num	,	V_208
+hf_mgcp_param_reqinfo	,	V_139
+"DeleteConnection"	,	L_287
+"mgcp.param.requestid"	,	L_57
+PROTO_ITEM_SET_GENERATED	,	F_71
+tii	,	V_28
+MGCP_REQUEST	,	V_195
+"mgcp.params"	,	L_36
+proto_item_add_subtree	,	F_10
+module_t	,	T_14
+is_rfc2234_alpha	,	F_53
+"X-"	,	L_319
+"sc-rtp"	,	L_327
+proto_register_field_array	,	F_37
+conversation	,	V_6
+hf_mgcp_param_localconnoptions_ofmtp	,	V_107
+"AuditConnection"	,	L_295
+ascii_tpkt	,	V_31
+"MGCP Gateway TCP Port"	,	L_253
+"PC/RPL"	,	L_317
+dissector_add_uint	,	F_50
+"mgcp.param.connectionparam.or"	,	L_171
+nstime_delta	,	F_72
+proto_reg_handoff_mgcp	,	V_158
+"mgcp.param.localconnectionoptions.t"	,	L_120
+"Response Code"	,	L_31
+"Reservation Direction"	,	L_127
+hf_mgcp_param_digitmap	,	V_120
+"k"	,	L_336
+"fxr/fx"	,	L_347
+"LocalConnectionOptions (L)"	,	L_59
+fd	,	V_199
+"mgcp.param.connectionparam.ji"	,	L_177
+"dq-rr"	,	L_335
+"mgcp.param.connectionparam.os"	,	L_165
+"Multiple Packetization period (mp)"	,	L_131
+hf_mgcp_param_connectionparam_pcrpl	,	V_132
+hf_mgcp_messagecount	,	V_29
+g_hash_table_new	,	F_33
+"*Experimental*"	,	L_300
+observedEvents	,	V_49
+hf_mgcp_param_connectionparam_pcrps	,	V_130
+FT_STRING	,	V_71
+"Vendor Extension"	,	L_194
+tokennum	,	V_183
+"mgcp.param.specificendpointid"	,	L_204
+responded	,	V_206
+"Requested Events"	,	L_142
+hf_mgcp_param_restartdelay	,	V_119
+"mgcp.param.localconnectionoptions.r"	,	L_117
+"mgcp.param.invalid"	,	L_234
+tvb_parse_param	,	F_55
+counter	,	V_177
+"SecondEndpointID (Z2)"	,	L_206
+mgcp_init_protocol	,	F_31
+"Digit Map"	,	L_154
+AT_NONE	,	V_193
+"Average inter-packet arrival jitter in milliseconds (P:JI)"	,	L_178
+sectionlen	,	V_14
+"PackageList (PL)"	,	L_224
+"sdp"	,	L_277
+"Local Connection Options"	,	L_61
+FT_UINT32	,	V_76
+"DigitMap (D)"	,	L_152
+mgcp_call_info_key	,	T_3
+"mgcp.param.localconnectionoptions.fxr"	,	L_135
+"mgcp.param.digitmap"	,	L_153
+"Package List"	,	L_226
+"tcp.callagent_port"	,	L_259
+"MGCP"	,	L_2
+hf_mgcp_req_endpoint	,	V_72
+"Second Connection Identifier"	,	L_52
+hf_uint	,	V_221
+hf	,	V_59
+"EndpointConfiguration"	,	L_281
+callagent_udp_port	,	V_169
+tvb_sectionbegin	,	V_17
+"mgcp.param.signalreq"	,	L_144
+prefs_register_protocol	,	F_42
+"SpecificEndpointID (Z)"	,	L_203
+"Gain Control"	,	L_106
+"Verb"	,	L_19
+"Specific Endpoint ID"	,	L_205
+request_available	,	V_46
+col_append_fstr	,	F_74
+tokenline	,	V_217
+col_set_str	,	F_7
+","	,	L_306
+hf_mgcp_param_localconnoptions_fxr	,	V_114
+"Set the UDP port for callagent messages "	,	L_265
+hf_mgcp_param_localconnoptions_nt	,	V_106
+req_num	,	V_47
+"mgcp.param.localconnectionoptions.dqrd"	,	L_93
+"mgcp.param.packagelist"	,	L_225
+k1	,	V_1
+k2	,	V_2
+hidden_item	,	V_185
+index	,	V_9
+"mgcp.param.localconnectionoptions.p"	,	L_63
+"NTFY"	,	L_290
+hf_mgcp_param_localconnoptions_esccd	,	V_97
+hf_mgcp_dup	,	V_148
+"Reason Code"	,	L_199
+"MGCP message should be displayed "	,	L_269
+"es-cci"	,	L_331
+"Bearer Information"	,	L_43
+"ConnectionMode (M)"	,	L_137
+proto_tree_add_string	,	F_65
+hf_mgcp_param_localconnoptions_escci	,	V_98
+hf_mgcp_param_detectedevents	,	V_141
+tvb_find_line_end	,	F_17
+"EPCF"	,	L_280
+dissector_handle_t	,	T_16
+"CRCX"	,	L_282
+"Call Id"	,	L_46
+hf_mgcp_param_observedevent	,	V_121
+is_duplicate	,	V_45
+hf_mgcp_param_connectionid	,	V_85
+"Frame containing original response"	,	L_249
+"Invalid Parameter"	,	L_233
+"Parameters"	,	L_35
+"p"	,	L_323
+"mgcp.param.localconnectionoptions.esccd"	,	L_84
+VALS	,	F_35
+mgcp_call_t	,	T_20
+prefs_register_bool_preference	,	F_44
+next_offset	,	V_224
+"Packets received (P:PR)"	,	L_169
+"Codecs"	,	L_67
+"Unknown parameter: %s"	,	L_320
+"Network Type (nt)"	,	L_110
+"Endpoint"	,	L_22
+hf_mgcp_version	,	V_74
+tvb_length	,	F_4
+BASE_DEC	,	V_77
+proto_tree_add_text	,	F_86
+tvb_new_subset	,	F_13
+hf_mgcp_param_localconnoptions_fmtp	,	V_105
+"EventStates (ES)"	,	L_200
+ENC_NA	,	V_26
+col_prepend_fstr	,	F_18
+"D-QoS Resource ID"	,	L_97
+"Reservation Confirmation (r-cnf)"	,	L_122
+"Reservation Direction (r-dir)"	,	L_125
+hf_mgcp_param_packagelist	,	V_144
+MGCP_OTHERS	,	V_40
+"MGCP (%i message)"	,	L_4
+tvb_find_null_line	,	F_24
+hf_mgcp_param_localconnoptions_mp	,	V_113
+"Extension Parameter"	,	L_229
+dissect_tpkt_mgcp	,	F_20
+"RestartMethod (RM)"	,	L_146
+"(if other than the default of 2727)"	,	L_262
+"Notify"	,	L_291
+"Name of the verb"	,	L_21
+"mgcp.param.localconnectionoptions.rsh"	,	L_129
+"mgcp.rsp.dup.frame"	,	L_248
+wmem_alloc	,	F_76
+key1	,	V_3
+"PC/RJI"	,	L_318
+key2	,	V_4
+"mgcp.param.localconnectionoptions.k"	,	L_102
+hf_mgcp_param_connectionparam_pcrji	,	V_133
+"%s"	,	L_5
+"Duplicate Message"	,	L_238
+g_hash_table_lookup	,	F_69
+"NotifiedEntity (N)"	,	L_53
+"mgcp.param.localconnectionoptions"	,	L_60
+mgcp_call_equal	,	F_1
+"PC/ROS"	,	L_316
+"Quarantine Handling"	,	L_214
+"mgcp.param.callid"	,	L_45
+"r"	,	L_341
+"mgcp.param.localconnectionoptions.mp"	,	L_132
+prefs_register_uint_preference	,	F_43
+"Remote Octets sent (PC/ROS)"	,	L_185
+global_mgcp_callagent_tcp_port	,	V_161
+"This is a response to a request in frame %u"	,	L_302
+new_mgcp_call_key	,	V_187
+mi	,	V_37
+rspcode	,	V_50
+"Response"	,	L_9
+hf_mgcp_req_frame	,	V_65
+guint	,	T_4
+hf_mgcp_param_extension	,	V_145
+ett	,	V_153
+"display_dissect_tree"	,	L_272
+wmem_packet_scope	,	F_58
+transid	,	V_5
+"ConnectionParameters (P)"	,	L_158
+"dq-ri"	,	L_334
+packet_info	,	T_6
+"s"	,	L_325
+hf_mgcp_param_localconnoptions_rsh	,	V_112
+hf_mgcp_param_callid	,	V_84
+old_lineend	,	V_210
+"RSIP"	,	L_296
+hf_string	,	V_222
+mgcp_handle	,	V_33
+"mgcp.param.restartmethod"	,	L_147
+ett_mgcp_param_connectionparam	,	V_155
+hf_mgcp_param_localconnoptions_dqgi	,	V_99
+code	,	V_41
+dst	,	V_202
+"mgcp.req.dup"	,	L_241
+"Bandwidth (b)"	,	L_80
+"Connection Mode"	,	L_139
+ptype	,	V_197
+"Remote Octets sent (P:PC/ROS)"	,	L_187
+"RequestedInfo (F)"	,	L_209
+"PC/RPS"	,	L_315
+hf_mgcp_req_verb	,	V_70
+"t"	,	L_342
+"r-sh"	,	L_345
+"mgcp.req.verb"	,	L_20
+"mgcp.param.localconnectionoptions.nt"	,	L_111
+hf_mgcp_param_localconnoptions_p	,	V_90
+hf_mgcp_param_localconnoptions_r	,	V_108
+tokens	,	V_218
+HFILL	,	V_63
+hf_mgcp_param_localconnoptions_t	,	V_109
+hf_mgcp_param_localconnoptions_s	,	V_92
+"mgcp.reqframe"	,	L_13
+hf_mgcp_rsp	,	V_64
+ett_mgcp_param	,	V_154
+"Request Identifier"	,	L_58
+src	,	V_201
+gchar	,	T_10
+"mgcp.param.observedevents"	,	L_156
+nsecs	,	V_44
+"mgcp.rsp.dup"	,	L_246
+code_with_verb	,	V_191
+"LA"	,	L_314
+"instead of (or in addition to) the "	,	L_270
+"Set the TCP port for gateway messages "	,	L_258
+"Event States"	,	L_202
+"MGCP Version"	,	L_30
+tvb_get_string	,	F_57
+THROW	,	F_61
+MAX_MGCP_MESSAGES_IN_PACKET	,	V_36
+pi_arr	,	V_38
+proto_register_protocol	,	F_36
+"display_raw_text"	,	L_266
+delta	,	V_189
+"mgcp.req"	,	L_7
+dissect_mgcp_params	,	F_25
+hf_mgcp_param_restartmethod	,	V_118
+is_mgcp_rspcode	,	F_6
+tvb_new_subset_remaining	,	F_28
+"Version"	,	L_28
+len	,	V_175
+"mgcp.param.secondconnectionid"	,	L_51
+"mgcp.param.connectionparam.x"	,	L_195
+"dq-rd"	,	L_333
+"SecondConnectionID (I2)"	,	L_50
+tvb_previous_offset	,	V_181
+gint	,	T_1
+g_hash_table_insert	,	F_78
+FT_RELATIVE_TIME	,	V_69
+num_messages	,	V_15
+g_strstrip	,	F_85
+tvb	,	V_10
+"Critical Extension Parameter"	,	L_232
+"Restart Delay"	,	L_151
+"display_mgcp_message_count"	,	L_273
+COL_INFO	,	V_24
+maxlength	,	V_170
+"D-QoS Resource Reservation"	,	L_100
+tvb_current_len	,	V_182
+"Optional Media Format (o-fmtp)"	,	L_113
+"Content Destination (es-ccd)"	,	L_83
+is_mgcp_verb	,	F_5
+"mgcp.param.localconnectionoptions.escci"	,	L_87
+"dissection tree"	,	L_271
+cinfo	,	V_22
+"Resource Reservation (r)"	,	L_116
+"True if MGCP request"	,	L_8
+register_tap	,	F_46
+next_tvb	,	V_34
+"ConnectionIdentifier (I)"	,	L_47
+mgcp_type_t	,	T_18
+"Media Format (fmtp)"	,	L_107
+call_dissector	,	F_29
+"mgcp.rsp.rspcode"	,	L_32
+PT_TCP	,	V_198
+abs_ts	,	V_207
+proto_item_set_text	,	F_80
+"Remote Packets sent (P:PC/RPS)"	,	L_184
+PROTO_ITEM_SET_HIDDEN	,	F_15
+"mgcp.req.endpoint"	,	L_23
+dissect_mgcp_localconnectionoptions	,	F_82
+proto_tree_add_boolean	,	F_67
+"PL"	,	L_312
+"Latency (LA)"	,	L_179
+"es-ccd"	,	L_330
+proto_register_mgcp	,	F_34
+"mgcp.param.localconnectionoptions.e"	,	L_72
+"Message"	,	L_299
+mgcp_call	,	V_188
+key	,	V_8
+"Echo Cancellation (e)"	,	L_71
+"DetectedEvents (T)"	,	L_215
+"Silence Suppression"	,	L_70
+COL_PROTOCOL	,	V_23
+hf_mgcp_time	,	V_68
+ett_mgcp	,	V_27
+"mgcp.param.localconnectionoptions.gc"	,	L_105
+"Connection Parameters"	,	L_160
+"Vendor Extension (P:X-*)"	,	L_196
+"Display the number of MGCP messages"	,	L_274
+"Specifies that the raw text of the "	,	L_268
+maxoffset	,	V_225
+"MGCP Callagent UDP Port"	,	L_264
+guint8	,	T_17
+buf	,	V_180
+ti	,	V_20
+secs	,	V_43
+g_hash_table_destroy	,	F_32
+"D-QoS GateID (dq-gi)"	,	L_89
+hf_mgcp_param_capabilities	,	V_142
+tvb_length_remaining	,	F_59
+"tcp.gateway_port"	,	L_252
+param_val_len	,	V_216
+"r-cnf"	,	L_343
+"mgcp.param.localconnectionoptions.rdir"	,	L_126
+tvbuff_t	,	T_5
+"Remote Jitter (PC/RJI)"	,	L_191
+"mgcp.transid"	,	L_26
+"MGCP Callagent TCP Port"	,	L_260
+"RestartInProgress"	,	L_297
+"mgcp.param.localconnectionoptions.dqgi"	,	L_90
+"Resource Reservation"	,	L_118
+parent_tree	,	V_214
+tvb_find_guint8	,	F_60
+hf_mgcp_param_localconnoptions	,	V_89
+gboolean	,	T_15
+hf_mgcp_rsp_dup_frame	,	V_152
+"mgcp.param.reasoncode"	,	L_198
+mgcp_type	,	V_39
+"mgcp.param.localconnectionoptions.ofmtp"	,	L_114
+"Signal Request"	,	L_145
+"RestartDelay (RD)"	,	L_149
+"mgcp"	,	L_251
+req_time	,	V_42
+register_init_routine	,	F_40
+tvb_get_guint8	,	F_54
+"Extension Parameter (non-critical)"	,	L_227
+proto_tree_add_string_format	,	F_64
+"mgcp.param.connectionparam.pcrpl"	,	L_189
+"MESG"	,	L_298
+mgcp_return_code_vals	,	V_78
+hf_mgcp_transid	,	V_73
+"mgcp.rsp"	,	L_10
+dissector_delete_uint	,	F_49
+"Duplicate Response"	,	L_245
+next	,	V_173
+is_asciitpkt	,	F_21
+tvb_skip_wsp	,	F_56
+"mgcp.param.localconnectionoptions.scrtp"	,	L_75
+"Content Destination"	,	L_85
+"mgcp.param.capabilities"	,	L_219
+":"	,	L_322
+"mgcp.param.detectedevents"	,	L_216
+hf_mgcp_param_localconnoptions_scrtcp	,	V_95
+hasDigitMap	,	V_52
+"Transaction ID of this message"	,	L_27
+conversation_new	,	F_75
+pi_current	,	V_35
+"CallId (C)"	,	L_44
+"mgcp.param.localconnectionoptions.a"	,	L_66
+"Average latency in milliseconds (P:LA)"	,	L_181
+prefs_register_obsolete_preference	,	F_45
+new_create_dissector_handle	,	F_48
+"RequestedEvents (R)"	,	L_140
+"Octets received (P:OR)"	,	L_172
+returnvalue	,	V_171
+"Set the TCP port for callagent messages "	,	L_261
+"udp.callagent_port"	,	L_263
+"RTCP ciphersuite (sc-rtcp)"	,	L_77
+find_dissector	,	F_47
+hf_mgcp_param_localconnoptions_rdir	,	V_111
+"PR"	,	L_310
+"ResponseAck (K)"	,	L_38
+tvb_sectionend	,	V_16
+"QuarantineHandling (Q)"	,	L_212
+tvb_linebegin	,	V_55
+"mgcp.param.rspack"	,	L_39
+"mgcp.param.localconnectionoptions.b"	,	L_81
+"MGCP Message Count"	,	L_235
+hf_mgcp_param_notifiedentity	,	V_87
+"mgcp.rsp.rspstring"	,	L_34
+"Resource Sharing (r-sh)"	,	L_128
+mgcp_tree	,	V_19
+"Content Identifier"	,	L_88
+"NotificationRequest"	,	L_289
+dissect_mgcp_firstline	,	F_23
+verb_description	,	V_190
+"Frame containing original request"	,	L_244
+proto_tree_add_time	,	F_73
+"AuditEndpoint"	,	L_293
+"RTP ciphersuite"	,	L_76
+"PS"	,	L_308
+hf_mgcp_rsp_rspcode	,	V_75
+dissect_mgcp_message	,	F_12
+"Capabilities (A)"	,	L_218
+"Display the number of MGCP messages "	,	L_275
+mgcp_param_ti	,	V_212
+"Extension Parameter (critical)"	,	L_230
+gateway_udp_port	,	V_167
+proto_mgcp	,	V_25
+"Original Request Frame"	,	L_242
+"ReasonCode (E)"	,	L_197
+proto_tree_add_uint_format	,	F_70
+global_mgcp_message_count	,	V_30
+global_mgcp_gateway_udp_port	,	V_160
+"Response Ack"	,	L_40
+"Duplicate Request"	,	L_240
+item	,	V_205
+"Encryption Key"	,	L_103
+hf_mgcp_param_reqevents	,	V_116
+mgcp_param_tree	,	V_213
+"Echo Cancellation"	,	L_73
+"="	,	L_307
+linelen	,	V_57
+hf_mgcp_param_rspack	,	V_82
+"OR"	,	L_311
+hf_mgcp_param_secondconnectionid	,	V_86
+signalReq	,	V_51
+plus_minus	,	V_179
+col_clear	,	F_8
+hf_mgcp_req_dup	,	V_149
+"RQNT"	,	L_288
+ett_mgcp_param_localconnectionoptions	,	V_156
+proto_register_subtree_array	,	F_39
+dissect_asciitpkt	,	F_22
+"Resource Sharing"	,	L_130
+verb_name	,	V_21
+tvb_get_nstringz0	,	F_51
+hf_mgcp_param_localconnoptions_rcnf	,	V_110
+word	,	V_172
+"Response String"	,	L_33
+"Packets received (PR)"	,	L_167
+mgcp_call_key	,	V_186
+"mgcp.param.connectionparam"	,	L_159
+proto_tree_add_item	,	F_9
+"RequestIdentifier (X)"	,	L_56
+pinfo	,	V_11
+col_add_fstr	,	F_16
+"Encryption Key (k)"	,	L_101
+_U_	,	V_13
+hf_mgcp_param_connectionparam_os	,	V_124
+hf_mgcp_param_connectionparam_or	,	V_126
+tokenlen	,	V_184
+"Codecs (a)"	,	L_65
+new_register_dissector	,	F_41
+"FXR (fxr/fx)"	,	L_134
+"OS"	,	L_309
+"Content Identifier (es-cci)"	,	L_86
+tvb_current_offset	,	V_176
+"Network Type"	,	L_112
+"found in a packet in the protocol column."	,	L_276
+wmem_strsplit	,	F_83
+"mgcp.param.connectionparam.pcrji"	,	L_192
+"D-QoS Resource Reservation (dq-rr)"	,	L_98
+"mgcp.param.maxmgcpdatagram"	,	L_222
+"Packets sent (P:PS)"	,	L_163
+"Connection Identifier"	,	L_49
+"Number of MGCP message in a packet"	,	L_237
+mgcp_call_hash	,	F_2
+"Octets sent (OS)"	,	L_164
+"mgcp.param.connectionparam.pcros"	,	L_186
+hf_mgcp_param_connectionparam_pl	,	V_127
+hf_mgcp_param_localconnoptions_dqrr	,	V_102
+"Display raw text for MGCP message"	,	L_267
+find_conversation	,	F_68
+g_ascii_strcasecmp	,	F_84
+"dq-gi"	,	L_332
+gconstpointer	,	T_2
+hf_mgcp_param_connectionparam_ps	,	V_123
+proto_item	,	T_11
+tap_queue_packet	,	F_79
+"mp"	,	L_346
+hf_mgcp_param_localconnoptions_dqri	,	V_101
+hf_mgcp_param_connectionparam_pr	,	V_125
+hf_mgcp_param_localconnoptions_dqrd	,	V_100
+"JI"	,	L_313
+"mgcp.param.localconnectionoptions.dqrr"	,	L_99
+"mgcp.dup"	,	L_239
+"TRUE if MGCP response"	,	L_11
+"mgcp.param.connectionparam.la"	,	L_180
+"gc"	,	L_337
+"AUCX"	,	L_294
+tvb_format_text	,	F_19
+mgcp_raw_text_add	,	F_27
+"Original Response Frame"	,	L_247
+tvb_lineend	,	V_56
+"a"	,	L_324
+data	,	T_8
+"FXR"	,	L_136
+mgcp_module	,	V_157
+"mgcp.param.localconnectionoptions.fmtp"	,	L_108
+num	,	V_200
+"Reservation Confirmation"	,	L_124
+"(if other than the default of 2427)"	,	L_255
+hf_mgcp_param_extension_critical	,	V_146
+hf_mgcp_param_requestid	,	V_88
+"mgcp.param.localconnectionoptions.rcnf"	,	L_123
+"r-dir"	,	L_344
+"MGCP parameters"	,	L_37
+"Restart Method"	,	L_148
+nstime_t	,	T_21
+"D-QoS GateID"	,	L_91
+"mgcp.param.connectionparam.pcrps"	,	L_183
+conversation_t	,	T_19
+"Second Endpoint ID"	,	L_208
+"b"	,	L_329
+FT_NONE	,	V_81
+offset	,	V_32
+"mgcp.messagecount"	,	L_236
+hf_mgcp_param_reasoncode	,	V_135
+"Bandwidth"	,	L_82
+"mgcp.req.dup.frame"	,	L_243
+tree	,	V_12
+global_mgcp_raw_text	,	V_53
+"mgcp.version"	,	L_29
+"Type of Service"	,	L_121
+"nt"	,	L_339
+hf_mgcp_param_connectionparam_ji	,	V_128
+"RTP ciphersuite (sc-rtp)"	,	L_74
+"Time from request"	,	L_16
+"sc-rtcp"	,	L_328
+"D-QoS Reserve Destination"	,	L_94
+"Malformed parameter: %s"	,	L_321
+"MaxMGCPDatagram (MD)"	,	L_221
+hf_mgcp_param_invalid	,	V_147
+destport	,	V_204
+hf_mgcp_param_specificendpoint	,	V_137
+"Remote Packets lost (P:PC/RPL)"	,	L_190
+callagent_tcp_port	,	V_168
+proto_tree_add_uint	,	F_14
+"MGCP (%i messages)"	,	L_3
+"Detected Events"	,	L_217
+MGCP_RESPONSE	,	V_196
+"fmtp"	,	L_338
+"ObservedEvents (O)"	,	L_155
+g_snprintf	,	F_63
+param_type_len	,	V_215
+"Request Frame"	,	L_12
+hf_mgcp_rsp_frame	,	V_67
+wmem_file_scope	,	F_77
+"mgcp.param.connectionparam.pl"	,	L_174
+"mgcp.param.notifiedentity"	,	L_54
+null_address	,	V_192
+"Multiple Packetization period"	,	L_133
+endpointId	,	V_48
+"udp.port"	,	L_279
+"Endpoint referenced by the message"	,	L_24
+"Jitter (JI)"	,	L_176
+"o-fmtp"	,	L_340
+FT_FRAMENUM	,	V_66
+"mgcp.param.reqinfo"	,	L_210
+proto_item_set_len	,	F_26
+"Packets sent (PS)"	,	L_161
+"%s (%s)"	,	L_301
+hf_mgcp_rsp_rspstring	,	V_79
+hf_mgcp_param_connectionparam	,	V_122
+global_mgcp_gateway_tcp_port	,	V_159
+hf_mgcp_param_connectionparam_x	,	V_134
+"mgcp.param.extensioncritical"	,	L_231
+"Media Format"	,	L_109
+srcport	,	V_203
+hf_mgcp_param_connectionparam_la	,	V_129
+"tcp.port"	,	L_278
+proto_tree	,	T_7
+"e"	,	L_326

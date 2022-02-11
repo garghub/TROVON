@@ -1,0 +1,359 @@
+"norm.nack.length"	,	L_115
+lctp	,	V_48
+fec_dissector	,	F_18
+ett_ptr	,	V_156
+"Start"	,	L_76
+"Negative-acknowledgment Oriented Reliable Multicast"	,	L_118
+"Header length"	,	L_18
+col_append_sep_str	,	F_42
+proto_register_protocol	,	F_61
+cc_flags_leave	,	V_88
+check_col	,	F_19
+dissect_norm_hdrext	,	F_21
+"Stream Data"	,	L_2
+"Info"	,	L_110
+nack_flags_info	,	V_61
+"grtt"	,	L_26
+dissect_norm_cmd	,	F_41
+"Version"	,	L_14
+len	,	V_46
+proto_register_norm	,	F_57
+gint	,	T_8
+streampayload	,	V_73
+"norm.type"	,	L_17
+"Unknown Ack Type (0x%04x)"	,	L_7
+"Payload Offset"	,	L_56
+object_transport_id	,	V_35
+ext	,	V_41
+tvb	,	V_15
+flag_tree	,	V_54
+"Repair Flag"	,	L_34
+"Object Transport ID"	,	L_48
+COL_INFO	,	V_37
+dissect_norm_cmd_cc	,	F_38
+module	,	V_4
+NORM_NACK	,	V_122
+"Unreliable Flag"	,	L_40
+FT_BOOLEAN	,	V_137
+"Try to decode UDP packets as NORM packets"	,	L_121
+"PLR"	,	L_72
+"CC Node ID"	,	L_66
+dissect_norm_cmd_flush	,	F_36
+version	,	V_113
+_fec_ptr	,	V_25
+tvb_reported_length_remaining	,	F_17
+RTT_MAX	,	V_9
+reserved	,	V_28
+cinfo	,	V_36
+cc_flags_plr	,	V_85
+"norm.cc_flags.clr"	,	L_71
+cc_rate	,	V_90
+NORM_FLAG_STREAM	,	V_72
+array_length	,	F_63
+"NACK Data"	,	L_1
+"Reserved"	,	L_52
+norm_tree	,	V_110
+_norm_hf	,	V_157
+dissect_feccode	,	F_16
+hdrext	,	V_50
+"NAck Flags"	,	L_104
+UnquantizeRtt	,	F_6
+dissect_norm	,	F_46
+"NAck Server"	,	L_96
+norm_prefs_register	,	F_3
+"norm.nack.flags"	,	L_105
+ack_type	,	V_92
+qrtt	,	V_7
+"Unknown Cmd Type (0x%04x)"	,	L_6
+cc_stus	,	V_79
+hf_register_info	,	T_13
+"norm.hlen"	,	L_19
+"norm.nack.grtt_sec"	,	L_99
+current_proto	,	V_111
+cmd_flavor	,	V_96
+guint16	,	T_4
+preferences	,	V_31
+"norm.payload.len"	,	L_55
+COL_PROTOCOL	,	V_112
+e	,	V_51
+backoff	,	V_17
+f	,	V_26
+g_array_free	,	F_28
+NORM_CMD_FLUSH	,	V_98
+mant	,	V_11
+i	,	V_39
+cc_sequence	,	V_77
+norm_prefs	,	V_2
+p	,	V_5
+"Segment"	,	L_106
+guint8	,	T_2
+ti	,	V_40
+BASE_NONE	,	V_134
+"Object"	,	L_112
+"Flavor"	,	L_58
+"norm.payload.offset"	,	L_57
+NORM_NACK_BLOCK	,	V_153
+UnquantizeSendRate	,	F_8
+"norm.flag.file"	,	L_43
+"Source ID"	,	L_22
+congestioncontrol	,	V_81
+dissect_norm_cmd_squelch	,	F_39
+tvb_get_ntohl	,	F_49
+nackdata	,	V_55
+NORM_INFO	,	V_118
+"norm.ack.source"	,	L_87
+"NAck Length"	,	L_114
+tvbuff_t	,	T_6
+tvb_get_ntohs	,	F_31
+"Ack ID"	,	L_90
+tif	,	V_52
+BASE_HEX	,	V_136
+payload	,	V_76
+gboolean	,	T_11
+encoding_id_present	,	V_33
+NORM_ACK	,	V_121
+proto_item_add_subtree	,	F_25
+module_t	,	T_1
+grtt	,	V_18
+cc_rtt	,	V_89
+NORM_FLAG_CC_START	,	V_149
+hlen	,	V_45
+proto_register_field_array	,	F_62
+"heuristic_norm"	,	L_120
+info	,	V_67
+proto_reg_handoff_norm	,	F_53
+"Msg Start Flag"	,	L_46
+send_rate	,	V_13
+fec_prefs_register	,	F_4
+"norm.backoff"	,	L_29
+GArray	,	T_10
+"norm.nack.flags.segment"	,	L_107
+"CLR"	,	L_70
+"norm.cc_flags.rtt"	,	L_75
+NORM_CMD_CC	,	V_97
+dissect_grrtetc	,	F_9
+preferences_initialized	,	V_125
+"Ack Source"	,	L_86
+lo_nibble	,	F_14
+"Sequence"	,	L_20
+FT_UINT16	,	V_132
+"Block"	,	L_108
+_norm_ett	,	V_158
+flavor	,	V_94
+hi_nibble	,	F_13
+"NAck GRTT usec"	,	L_100
+tvb_get_guint8	,	F_11
+cc_flags_rtt	,	V_86
+dissect_norm_nack	,	F_45
+g_array_new	,	F_22
+fec_info_column	,	F_20
+NORM_FLAG_REPAIR	,	V_138
+"norm.nack.server"	,	L_97
+dissect_norm_ack	,	F_44
+"Instance"	,	L_24
+nack_tree	,	V_53
+dissect_norm_cmd_ackreq	,	F_40
+"Version: %u (not supported)"	,	L_11
+ack_grtt_sec	,	V_105
+heur_dissector_add	,	F_56
+NORM_FLAG_CC_LEAVE	,	V_150
+NORM_FLAG_FILE	,	V_142
+"Message Type"	,	L_16
+"norm.nack.flags.object"	,	L_113
+"NAck GRTT Sec"	,	L_98
+gsizex	,	V_10
+"Group Size"	,	L_30
+rmt_ext_parse	,	F_23
+cc_flags	,	V_83
+payload_offset	,	V_75
+proto_tree_add_none_format	,	F_34
+nack_grtt_sec	,	V_108
+cc_transport_id	,	V_91
+cc_node_id	,	V_82
+"Stream Flag"	,	L_44
+_norm_prefs	,	V_1
+prefs	,	V_30
+ENC_BIG_ENDIAN	,	V_21
+FT_DOUBLE	,	V_135
+"norm.nack.flags.info"	,	L_111
+"Payload Len"	,	L_54
+FT_UINT32	,	V_145
+NORM_FLAG_CC_PLR	,	V_147
+"norm.payload"	,	L_117
+"norm.flavor"	,	L_59
+nack_flags_object	,	V_62
+global_norm_heur	,	V_124
+hf	,	V_19
+dissect_norm_data	,	F_33
+"norm.nack.grtt_usec"	,	L_101
+"norm.cc_sts"	,	L_63
+acktype	,	V_102
+"norm.flag.stream"	,	L_45
+"norm.ack.grtt_sec"	,	L_93
+gsize	,	V_22
+"Send Time secs"	,	L_62
+"CC RTT"	,	L_80
+"Info Flag"	,	L_38
+NORM_NACK_SEGMENT	,	V_152
+"norm.nack.flags.block"	,	L_109
+"Leave"	,	L_78
+prefs_register_protocol	,	F_65
+"norm.flags"	,	L_33
+"Congestion Control"	,	L_4
+"CC Rate"	,	L_82
+col_set_str	,	F_47
+"Ack GRTT usec"	,	L_94
+nack_flags	,	V_57
+msgstart	,	V_71
+"Flags"	,	L_32
+FT_IPv4	,	V_133
+g_array_index	,	F_26
+string_norm_nack_form	,	V_151
+RTT_MIN	,	V_8
+norm_prefs_save	,	F_5
+handle	,	V_126
+"norm.ack.id"	,	L_91
+ack_grtt_usec	,	V_106
+explicit	,	V_66
+col_clear	,	F_48
+"norm.ack.type"	,	L_89
+"File Flag"	,	L_42
+"Sorry, this dissector supports NORM version 1 only"	,	L_10
+"norm.flag.info"	,	L_39
+"RTT"	,	L_74
+proto_register_subtree_array	,	F_64
+val_to_str	,	F_43
+"Send Time usecs"	,	L_64
+NORM_CMD_REPAIR_ADV	,	V_100
+"CC Sequence"	,	L_60
+"norm.cc_flags"	,	L_69
+string_norm_type	,	V_117
+string_norm_cmd_type	,	V_95
+"norm.cc_stus"	,	L_65
+extension	,	V_49
+proto_tree_add_item	,	F_10
+flag	,	V_64
+"norm"	,	L_119
+pinfo	,	V_27
+col_add_fstr	,	F_50
+dissector_handle_t	,	T_12
+NORM_FLAG_UNRELIABLE	,	V_141
+_U_	,	V_38
+flags	,	V_58
+dissect_nack_data	,	F_29
+_lct_prefs	,	V_47
+"Ack Type"	,	L_88
+_ext	,	V_44
+hdrlen2bytes	,	F_24
+offset_old	,	V_42
+nack_flags_segment	,	V_59
+"Hdr Extension"	,	L_50
+file	,	V_69
+"Backoff"	,	L_28
+stream	,	V_70
+FEC_SUBTREE_ARRAY	,	F_60
+cc_flags_start	,	V_87
+VALS	,	F_58
+"norm.flag.repair"	,	L_35
+"norm.cc_transport_id"	,	L_85
+cc_sts	,	V_78
+prefs_register_bool_preference	,	F_66
+"norm.cc_flags.plr"	,	L_73
+"norm.ccsequence"	,	L_61
+NORM_NACK_OBJECT	,	V_155
+nack_length	,	V_63
+tvb_length	,	F_52
+FT_UINT8	,	V_129
+"norm.reserved"	,	L_53
+proto_tree_add_text	,	F_30
+BASE_DEC	,	V_130
+proto_item	,	T_9
+"norm.cc_rate"	,	L_83
+hf_ptr	,	V_128
+"CC Transport ID"	,	L_84
+fec_prefs_set_default	,	F_2
+ENC_NA	,	V_34
+"NORM"	,	L_8
+NORM_FLAG_CC_RTT	,	V_148
+"NAck FORM"	,	L_102
+norm_prefs_set_default	,	F_1
+"norm.hexext"	,	L_51
+cc_tree	,	V_80
+cc_flags_clr	,	V_84
+source_id	,	V_116
+"Check this to decode NORM traffic between clients"	,	L_122
+"norm.grtt"	,	L_27
+fec	,	V_3
+"norm.version"	,	L_15
+NORM_FLAG_CC_CLR	,	V_146
+NORM_FLAG_MSG_START	,	V_143
+"CC Flags"	,	L_68
+dissect_norm_cmd_repairadv	,	F_37
+p_old	,	V_6
+norm	,	V_24
+NORM_FLAG_EXPLICIT	,	V_139
+"norm.cc_node_id"	,	L_67
+"norm.flag.unreliable"	,	L_41
+"Ack GRTT Sec"	,	L_92
+"norm.instance_id"	,	L_25
+NORM_DATA	,	V_119
+"norm.nack.form"	,	L_103
+"Explicit Flag"	,	L_36
+proto_tree_add_double	,	F_12
+exponent	,	V_12
+string_norm_ack_type	,	V_104
+NORM_FLAG_INFO	,	V_140
+guint	,	T_3
+FT_NONE	,	V_144
+offset	,	V_16
+ett	,	V_29
+" "	,	L_5
+payload_len	,	V_74
+"norm.cc_flags.leave"	,	L_79
+tree	,	V_14
+dissector_add_handle	,	F_55
+"norm.flag.explicit"	,	L_37
+dissect_norm_heur	,	F_51
+packet_info	,	T_7
+preferences_old	,	V_127
+sequence	,	V_115
+instance_id	,	V_20
+"norm.ack.grtt_usec"	,	L_95
+byte1	,	V_123
+"udp"	,	L_13
+unreliable	,	V_68
+proto	,	V_114
+nack_server	,	V_107
+NORM_CMD_SQUELCH	,	V_99
+ack_id	,	V_93
+encoding_id	,	V_32
+proto_tree_add_uint	,	F_15
+repair	,	V_65
+"norm.object_transport_id"	,	L_49
+"norm.cc_rtt"	,	L_81
+dissect_norm_info	,	F_35
+"Payload"	,	L_116
+"norm.flag.msgstart"	,	L_47
+NORM_CMD_ACK_REQ	,	V_101
+ext_tree	,	V_43
+"norm.cc_flags.start"	,	L_77
+NORM_NACK_INFO	,	V_154
+UnquantizeGSize	,	F_7
+HFILL	,	V_131
+"Unknown Type (0x%04x)"	,	L_9
+"udp.port"	,	L_12
+NORM_CMD	,	V_120
+create_dissector_handle	,	F_54
+nack_form	,	V_56
+lct_ext_decode	,	F_27
+nack_grtt_usec	,	V_109
+proto_item_set_len	,	F_32
+"Payload (%u bytes)"	,	L_3
+_norm	,	V_23
+"norm.source_id"	,	L_23
+FEC_FIELD_ARRAY	,	F_59
+nack_flags_block	,	V_60
+ack_source	,	V_103
+"norm.sequence"	,	L_21
+"norm.gsize"	,	L_31
+proto_tree	,	T_5

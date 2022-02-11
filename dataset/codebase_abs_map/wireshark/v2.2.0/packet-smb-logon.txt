@@ -1,0 +1,331 @@
+hf_account_control	,	V_16
+"smb_netlogon.user_name"	,	L_28
+"SMB NETLOGON Update Type"	,	L_76
+"smb_netlogon.mailslot_name"	,	L_40
+proto_register_protocol	,	F_46
+"smb_netlogon.request_count"	,	L_78
+hf_domain_name	,	V_36
+"Server IP Address"	,	L_145
+dissect_smb_logon_LM20_resp	,	F_13
+LOGON_LAST_CMD	,	V_76
+"Workstation OS Version"	,	L_66
+hf_domain_guid	,	V_57
+hf_unknown8	,	V_64
+dissect_announce_change	,	F_20
+dissect_nt_sid	,	F_25
+"smb_netlogon.flags.homedir"	,	L_110
+gint	,	T_11
+ACC_FLAG_AUTO_LOCKED	,	V_90
+"smb_netlogon.flags.mns"	,	L_98
+"smb_netlogon.forest_dns_name"	,	L_37
+TFS	,	F_45
+tvb	,	V_1
+hf_update_type	,	V_55
+hf_random	,	V_44
+guint32	,	T_6
+COL_INFO	,	V_32
+"smb_netlogon.flags.autolock"	,	L_83
+FT_BOOLEAN	,	V_88
+"PDC Name"	,	L_42
+tvb_reported_length_remaining	,	F_16
+hf_db_index	,	V_47
+"SMB NETLOGON Client Site Name"	,	L_151
+cinfo	,	V_31
+ACC_FLAG_EXPIRE	,	V_92
+array_length	,	F_48
+"smb_netlogon.data"	,	L_153
+hf_flags_server_trust	,	V_7
+hf_signature	,	V_54
+"LM Token"	,	L_57
+dissect_smb_no_user	,	F_27
+"Client Site Name"	,	L_149
+"SMB NETLOGON Low Serial Number"	,	L_120
+hf_server_name	,	V_29
+"smb_netlogon.flags.workstation"	,	L_92
+"Unknown Command:%02x"	,	L_11
+"SMB NETLOGON Computer Name"	,	L_17
+hf_major_version	,	V_51
+"SMB NETLOGON Homedir Required"	,	L_111
+hf_flags_temp_dup_user	,	V_12
+"SMB NETLOGON NT Date/Time"	,	L_138
+hf_register_info	,	T_10
+"smb_netlogon.update"	,	L_75
+"Random"	,	L_124
+"smb_netlogon.domain.guid"	,	L_142
+hf_large_serial	,	V_48
+"smb_netlogon.flags.password"	,	L_107
+"smb_netlogon.lm_token"	,	L_58
+hf_unicode_computer_name	,	V_33
+"SMB NETLOGON NT Version"	,	L_53
+guint16	,	T_3
+COL_PROTOCOL	,	V_71
+hf_flags_workstation_trust	,	V_8
+hf_lmnt_token	,	V_21
+"smb_netlogon.large_serial"	,	L_134
+dissect_smb_pdc_startup	,	F_18
+"smb_netlogon.os_version"	,	L_67
+dissect_smb_pdc_query	,	F_14
+guint8	,	T_8
+"SMB NETLOGON Unicode PDC Name"	,	L_47
+hf_flags_mns_user	,	V_10
+ACC_FLAG_INTERDOMAIN_TRUST	,	V_98
+BASE_NONE	,	V_83
+"smb_netlogon.signature"	,	L_70
+"Request Count"	,	L_77
+"DB Count"	,	L_127
+"Domain GUID"	,	L_141
+"SMB NETLOGON Workstation Minor Version"	,	L_65
+ett_smb_account_flags	,	V_17
+register_dissector	,	F_50
+dissect_smb_relogon_resp	,	F_28
+dissect_smb_logon_request	,	F_8
+tvbuff_t	,	T_1
+"smb_netlogon.date_time"	,	L_72
+proto_tree_add_bitmask	,	F_2
+BASE_HEX	,	V_80
+"smb_netlogon.flags.enabled"	,	L_113
+tfs_flags_homedir_required	,	V_107
+ACC_FLAG_HOMEDIR_REQUIRED	,	V_108
+hf_forest_dns_name	,	V_59
+col_add_str	,	F_39
+"SMB NETLOGON Inter-domain Trust Account"	,	L_96
+hf_lm_token	,	V_20
+"Server DNS Name"	,	L_24
+"SMB NETLOGON Domain Name"	,	L_32
+"NT Date/Time"	,	L_136
+proto_item_add_subtree	,	F_41
+"Database Index"	,	L_130
+"Unicode PDC Name"	,	L_45
+proto_register_field_array	,	F_47
+commands	,	V_72
+"SMB NETLOGON Workstation Major Version"	,	L_62
+FT_BYTES	,	V_113
+"SMB NETLOGON Server Site Name"	,	L_148
+"smb_netlogon.unicode_pdc_name"	,	L_46
+tfs_flags_enabled	,	V_109
+"LM20 Token: 0x%04x (LanMan 2.0 or higher)"	,	L_1
+tfs_flags_interdomain_trust	,	V_97
+"smb_netlogon.major_version"	,	L_61
+tfs_flags_normal_user	,	V_101
+hf_pulse	,	V_43
+proto_smb_logon	,	V_73
+"smb_netlogon.server_site_name"	,	L_147
+"SMB NETLOGON LM Token"	,	L_59
+FT_UINT16	,	V_86
+"Temp Duplicate User"	,	L_103
+"SMB NETLOGON Normal User Account"	,	L_102
+"Domain DNS Name"	,	L_33
+tvb_get_guint8	,	F_38
+"SMB NETLOGON Random"	,	L_126
+tvb_captured_length	,	F_42
+tfs_flags_password_required	,	V_105
+name	,	V_30
+dissect_smb_logon_2	,	F_12
+hf_flags_enabled	,	V_15
+hf_user_name	,	V_24
+"smb_netlogon.flags.interdomain"	,	L_95
+"smb_netlogon.flags.server"	,	L_89
+"SMB NETLOGON DB Count"	,	L_129
+"SMB NETLOGON Database Index"	,	L_132
+hf_flags_autolock	,	V_5
+"Workstation Trust"	,	L_91
+"smb_netlogon"	,	L_155
+": host %s"	,	L_6
+"smb_netlogon.domain_dns_name"	,	L_34
+"Workstation Major Version"	,	L_60
+"Signature"	,	L_69
+"SMB NETLOGON Mailslot Name"	,	L_41
+"smb_netlogon.command"	,	L_13
+"SMB NETLOGON LMNT Token"	,	L_56
+"smb_netlogon.server_name"	,	L_22
+"SMB NETLOGON PDC Name"	,	L_44
+FT_STRING	,	V_82
+"smb_netlogon.db_count"	,	L_128
+hf_domain_sid_size	,	V_50
+dissect_smb_logon	,	F_35
+"smb_netlogon.client_site_name"	,	L_150
+dissect_smb_acc_update	,	F_29
+dissect_smb_logon_cmds	,	V_77
+info_count	,	V_37
+ACC_FLAG_NORMAL_USER	,	V_102
+"Autolock"	,	L_82
+proto_tree_add_uint_format_value	,	F_7
+ENC_BIG_ENDIAN	,	V_66
+"SMB NETLOGON Script Name"	,	L_50
+hf_request_count	,	V_26
+hf_flags_password_required	,	V_13
+FT_UINT32	,	V_84
+"User Name"	,	L_27
+display_LM_token	,	F_3
+hf_flags_expire	,	V_6
+"SMB NETLOGON Server Trust Account"	,	L_90
+dissect_smb_pdc_response_ads	,	F_32
+hf_flags_normal_user	,	V_11
+hf	,	V_78
+hf_unknown32	,	V_56
+"Server IP"	,	L_143
+"Password"	,	L_106
+"smb_netlogon.unknown"	,	L_140
+Token	,	V_19
+hf_date_time	,	V_42
+"SMB NETLOGON Is This Account Enabled"	,	L_114
+dissect_smb_sam_logon_req	,	F_26
+col_append_fstr	,	F_15
+smb_logon_tree	,	V_69
+"Server Name"	,	L_21
+FT_UINT64	,	V_87
+col_set_str	,	F_36
+"Normal User"	,	L_100
+hf_mailslot_name	,	V_25
+"SMB NETLOGON Large Serial Number"	,	L_135
+proto_tree_add_uint_format	,	F_5
+"Large Serial Number"	,	L_133
+FT_IPv4	,	V_114
+dissect_smb_pdc_failure	,	F_19
+item	,	V_70
+"SMB NETLOGON Domain DNS Name"	,	L_35
+display_LMNT_token	,	F_6
+"DBChange Info Structure: index %u"	,	L_8
+"Homedir"	,	L_109
+"Workstation Minor Version"	,	L_63
+tfs_flags_expire	,	V_91
+col_clear	,	F_37
+tfs_flags_autolock	,	V_89
+"smb_netlogon.pulse"	,	L_122
+"Unicode Computer Name"	,	L_18
+FT_ABSOLUTE_TIME	,	V_111
+proto_register_subtree_array	,	F_49
+val_to_str	,	F_40
+cmd	,	V_68
+"SMB NETLOGON Server DNS Name"	,	L_26
+"SMB NETLOGON Domain SID Size"	,	L_117
+"SMB NETLOGON Temp Duplicate User Account"	,	L_105
+proto_tree_add_item	,	F_10
+hf_db_count	,	V_45
+"Date/Time"	,	L_71
+pinfo	,	T_5
+hf_command	,	V_75
+dissect_smb_unknown	,	F_34
+ACC_FLAG_SERVER_TRUST	,	V_94
+"Data"	,	L_152
+ett_smb_logon	,	V_74
+flags	,	V_4
+_U_	,	V_22
+hf_data	,	V_67
+"Interdomain Trust"	,	L_94
+"smb_netlogon.server_ip"	,	L_144
+"Mailslot Name"	,	L_39
+"Update Type"	,	L_74
+"NT Version"	,	L_51
+"smb_netlogon.nt_version"	,	L_52
+dissect_ms_compressed_string	,	F_33
+VALS	,	F_44
+hf_server_dns_name	,	V_61
+hf_client_site_name	,	V_63
+"smb_netlogon.db_index"	,	L_131
+"0x%04x (Windows NT Networking)"	,	L_3
+"SMB NETLOGON Will Account Expire"	,	L_87
+hf_server_ip	,	V_65
+", domain %s"	,	L_7
+hf_flags_interdomain_trust	,	V_9
+FT_UINT8	,	V_79
+BASE_DEC	,	V_85
+proto_item	,	T_9
+"smb_netlogon.server_dns_name"	,	L_25
+hf_minor_version	,	V_52
+"smb_netlogon.lmnt_token"	,	L_55
+ENC_NA	,	V_58
+ABSOLUTE_TIME_LOCAL	,	V_112
+"Expire"	,	L_85
+ACC_FLAG_WORKSTATION_TRUST	,	V_96
+ACC_FLAG_MNS_USER	,	V_100
+dissect_smb_inter_resp	,	F_30
+"smb_netlogon.flags"	,	L_81
+ENC_LITTLE_ENDIAN	,	V_18
+"Command"	,	L_12
+ACC_FLAG_TEMP_DUP_USER	,	V_104
+data	,	T_7
+dissect_account_control	,	F_1
+hf_low_serial	,	V_41
+domain_sid_size	,	V_40
+ett_smb_db_info	,	V_46
+"smb_netlogon.domain_sid_size"	,	L_116
+"smb_netlogon.computer_name"	,	L_16
+"SMB NETLOGON Date/Time"	,	L_73
+"SMB NETLOGON Workstation Trust Account"	,	L_93
+"SMB NETLOGON Password Required"	,	L_108
+"Enabled"	,	L_112
+tvb_get_letohl	,	F_21
+dissect_smb_sam_logon_resp	,	F_31
+tfs_flags_temp_dup_user	,	V_103
+hf_unicode_pdc_name	,	V_35
+"smb_netlogon.script_name"	,	L_49
+hf_pdc_name	,	V_34
+tvb_get_letohs	,	F_4
+"SMB NETLOGON User Name"	,	L_29
+tfs_flags_workstation_trust	,	V_95
+"smb_netlogon.nt_date_time"	,	L_137
+offset	,	V_3
+hf_nt_date_time	,	V_49
+"smb_netlogon.pdc_name"	,	L_43
+"Script Name"	,	L_48
+ett	,	V_115
+hf_os_version	,	V_53
+"smb_netlogon.low_serial"	,	L_119
+tree	,	V_2
+hf_server_site_name	,	V_62
+packet_info	,	T_4
+"smb_netlogon.flags.normal"	,	L_101
+"SMB NETLOGON Pulse"	,	L_123
+"smb_netlogon.minor_version"	,	L_64
+ACC_FLAG_PASSWORD_REQUIRED	,	V_106
+hf_nt_version	,	V_27
+"smb_netlogon.domain_name"	,	L_31
+" from %s"	,	L_5
+tfs_flags_server_trust	,	V_93
+"Account control"	,	L_80
+proto_tree_add_uint	,	F_22
+hf_flags_homedir_required	,	V_14
+"SMB NETLOGON Account Autolock"	,	L_84
+"SMB NETLOGON MNS User Account"	,	L_99
+dissect_nt_64bit_time	,	F_24
+"SMB NETLOGON Server Name"	,	L_23
+ACC_FLAG_ENABLED	,	V_110
+"smb_netlogon.unicode_computer_name"	,	L_19
+display_ms_string	,	F_9
+"SMB NETLOGON Workstation OS Version"	,	L_68
+"Microsoft Windows Logon Protocol (Old)"	,	L_154
+"smb_netlogon.random"	,	L_125
+dissect_smb_logon_LM10_resp	,	F_11
+"Pulse"	,	L_121
+"LM10 Token: 0x%04x (WFW Networking)"	,	L_2
+"SMB NETLOGON Unicode Computer Name"	,	L_20
+"SMB_NETLOGON"	,	L_10
+"Domain SID Size"	,	L_115
+proto_register_smb_logon	,	F_43
+"Forest DNS Name"	,	L_36
+"smb_netlogon.flags.expire"	,	L_86
+HFILL	,	V_81
+"Computer Name"	,	L_15
+hf_computer_name	,	V_23
+info_tree	,	V_38
+"SMB NETLOGON Request Count"	,	L_79
+hf_domain_dns_name	,	V_60
+"SMB NETLOGON Forest DNS Name"	,	L_38
+proto_tree_add_subtree_format	,	F_23
+"Domain Name"	,	L_30
+"MNS User"	,	L_97
+"Low Serial Number"	,	L_118
+hf_script_name	,	V_28
+display_unicode_string	,	F_17
+"LMNT Token: 0x%04x (Unknown)"	,	L_4
+"SMB NETLOGON Command"	,	L_14
+tfs_flags_mns_user	,	V_99
+"Unknown"	,	L_139
+"Domain"	,	L_9
+"smb_netlogon.flags.temp_dup"	,	L_104
+"Server Trust"	,	L_88
+"LMNT Token"	,	L_54
+proto_tree	,	T_2
+db_index	,	V_39
+"Server Site Name"	,	L_146

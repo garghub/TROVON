@@ -1,0 +1,93 @@
+MPEG_PAT_VERSION_NUMBER_MASK	,	V_35
+hf_mpeg_pat_last_section_number	,	V_23
+"mpeg_pat.tsid"	,	L_4
+proto_register_protocol	,	F_12
+tvbuff_t	,	T_1
+"Program Map PID"	,	L_18
+"MPEG PAT"	,	L_21
+tvb_get_ntohs	,	F_6
+BASE_HEX	,	V_31
+"mpeg_pat.sect_num"	,	L_12
+"mpeg_pat.prog_map_pid"	,	L_19
+"Program 0x%04hx -&gt; PID 0x%04hx"	,	L_2
+mpeg_pat_cur_next_vals	,	V_37
+"Current/Next Indicator"	,	L_9
+"Last Section Number"	,	L_13
+MPEG_PAT_PROGRAM_RESERVED_MASK	,	V_40
+proto_reg_handoff_mpeg_pat	,	F_16
+col_set_str	,	F_2
+gint	,	T_8
+"mpeg_pat"	,	L_22
+proto_item_add_subtree	,	F_4
+"mpeg_pat.prog_num"	,	L_16
+proto_register_field_array	,	F_13
+"MPEG2 Program Association Table"	,	L_20
+MPEG_PAT_TID	,	V_43
+TFS	,	F_11
+tvb	,	V_1
+guint	,	T_4
+offset	,	V_4
+ett	,	V_41
+COL_INFO	,	V_13
+hf_mpeg_pat_section_number	,	V_22
+dissector_add_uint	,	F_18
+tree	,	V_3
+FT_BOOLEAN	,	V_36
+"mpeg_sect.tid"	,	L_23
+"Program Association Table (PAT)"	,	L_1
+hf_mpeg_pat_transport_stream_id	,	V_17
+hf_mpeg_pat_program_reserved	,	V_27
+"mpeg_pat.last_sect_num"	,	L_14
+FT_UINT16	,	V_30
+packet_info	,	T_2
+"Transport Stream ID"	,	L_3
+cinfo	,	V_12
+mpeg_pat_handle	,	V_42
+proto_register_subtree_array	,	F_15
+proto_register_mpeg_pat	,	F_10
+packet_mpeg_sect_header	,	F_5
+array_length	,	F_14
+hf_mpeg_pat_reserved	,	V_19
+"Reserved"	,	L_5
+MPEG_PAT_CURRENT_NEXT_INDICATOR_MASK	,	V_38
+proto_tree_add_item	,	F_3
+pinfo	,	V_2
+dissector_handle_t	,	T_9
+"Section Number"	,	L_11
+"Program Number"	,	L_15
+hf_register_info	,	T_7
+"mpeg_pat.cur_next_ind"	,	L_10
+HFILL	,	V_32
+hf_mpeg_pat_program_map_pid	,	V_28
+mpeg_pat_prog_tree	,	V_11
+hf_mpeg_pat_version_number	,	V_20
+"mpeg_pat.version"	,	L_8
+dissect_mpeg_pat	,	F_1
+hf_mpeg_pat_program_number	,	V_26
+guint16	,	T_5
+"mpeg_pat.prog_reserved"	,	L_17
+MPEG_PAT_PROGRAM_MAP_PID_MASK	,	V_24
+mpeg_pat_tree	,	V_9
+"Version Number"	,	L_7
+FT_UINT8	,	V_33
+length	,	V_5
+proto_tree_add_text	,	F_7
+BASE_DEC	,	V_39
+prog_pid	,	V_7
+create_dissector_handle	,	F_17
+hf_mpeg_pat_current_next_indicator	,	V_21
+MPEG_PAT_RESERVED_MASK	,	V_34
+proto_item	,	T_6
+ett_mpeg_pat	,	V_16
+packet_mpeg_sect_crc	,	F_8
+"mpeg_pat.reserved"	,	L_6
+prog_num	,	V_6
+proto_item_set_len	,	F_9
+ENC_BIG_ENDIAN	,	V_18
+proto_mpeg_pat	,	V_14
+ENC_NA	,	V_15
+ett_mpeg_pat_prog	,	V_25
+ti	,	V_8
+pi	,	V_10
+proto_tree	,	T_3
+hf	,	V_29

@@ -1,0 +1,104 @@
+proto_register_protocol	,	F_13
+"Set the destination UDP port Cisco wireless IDS messages"	,	L_28
+prefs_register_protocol	,	F_17
+CATCH_BOUNDS_ERRORS	,	F_10
+hf_cwids_channel	,	V_19
+cwids_tree	,	V_6
+col_set_str	,	F_2
+gint	,	T_6
+"Capture Version"	,	L_3
+"Version or format of record"	,	L_5
+tvb	,	V_1
+"cwids.caplen"	,	L_19
+dissect_cwids	,	F_1
+COL_INFO	,	V_12
+pd_save	,	V_9
+hf_cwids_version	,	V_16
+saved_udp_port	,	V_41
+ENDTRY	,	V_28
+"cwids.version"	,	L_4
+proto_register_cwids	,	F_12
+GET_MESSAGE	,	V_27
+cinfo	,	V_10
+proto_register_subtree_array	,	F_16
+array_length	,	F_15
+"cwids.unknown2"	,	L_13
+global_udp_port	,	V_39
+proto_tree_add_item	,	F_4
+private_data	,	V_24
+call_dissector	,	F_9
+pinfo	,	V_2
+"Original length"	,	L_15
+dissector_handle_t	,	T_8
+capturelen	,	V_8
+hf_cwids_reallength	,	V_21
+show_exception	,	F_11
+"Cwids: "	,	L_2
+hf_register_info	,	T_5
+initialized	,	V_42
+"Capture length"	,	L_18
+"cwids.unknown1"	,	L_7
+guint16	,	T_4
+COL_PROTOCOL	,	V_11
+FT_UINT8	,	V_35
+hf_cwids_capturelen	,	V_22
+BASE_DEC	,	V_31
+"Unknown3"	,	L_21
+tvb_new_subset	,	F_7
+ENC_NA	,	V_14
+EXCEPT_CODE	,	V_26
+"CWIDS"	,	L_1
+ti	,	V_5
+BASE_NONE	,	V_34
+cwids_handle	,	V_40
+"wlan"	,	L_29
+proto_reg_handoff_cwids	,	V_38
+tvb_length_remaining	,	F_3
+"Unknown2"	,	L_12
+ett_cwids	,	V_15
+tvbuff_t	,	T_1
+tvb_get_ntohs	,	F_6
+"Cisco Wireless IDS Captures"	,	L_24
+prefs_register_uint_preference	,	F_18
+"Channel"	,	L_9
+gboolean	,	T_10
+proto_item_add_subtree	,	F_5
+TRY	,	F_8
+module_t	,	T_7
+proto_register_field_array	,	F_14
+FT_BYTES	,	V_33
+"cwids.unknown3"	,	L_22
+guint	,	T_9
+offset	,	V_7
+ett	,	V_36
+dissector_add_uint	,	F_23
+"Unknown1"	,	L_6
+tree	,	V_3
+dissector_add_handle	,	F_20
+"1st Unknown block - timestamp?"	,	L_8
+"3rd Unknown block"	,	L_23
+wlan_tvb	,	V_4
+FT_UINT16	,	V_30
+packet_info	,	T_2
+"Channel for this capture"	,	L_11
+"CWIDS port"	,	L_27
+"cwids.channel"	,	L_10
+ieee80211_handle	,	V_25
+proto_cwids	,	V_13
+dissector_delete_uint	,	F_22
+"cwids"	,	L_25
+"cwids.reallen"	,	L_16
+"2nd Unknown block"	,	L_14
+hf_cwids_unknown3	,	V_23
+hf_cwids_unknown2	,	V_20
+hf_cwids_unknown1	,	V_18
+HFILL	,	V_32
+"udp.port"	,	L_26
+find_dissector	,	F_21
+"Captured bytes in record"	,	L_20
+create_dissector_handle	,	F_19
+ENC_BIG_ENDIAN	,	V_17
+cwids_module	,	V_37
+proto_tree	,	T_3
+hf	,	V_29
+"Original num bytes in frame"	,	L_17

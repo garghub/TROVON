@@ -1,0 +1,104 @@
+"Checksum = 0x%4x"	,	L_15
+"Autonomous System number"	,	L_29
+proto_register_protocol	,	F_16
+"Cisco Interior Gateway Routing Protocol"	,	L_30
+nsystem	,	V_11
+gint	,	T_5
+col_set_str	,	F_2
+"igrp"	,	L_31
+tvb	,	V_1
+igrp_handle	,	V_40
+COL_INFO	,	V_20
+version	,	V_5
+"Interior routes : %d"	,	L_12
+col_clear	,	F_3
+"Bandwidth   = %d"	,	L_19
+cinfo	,	V_18
+"Request"	,	L_3
+"Load        = %d"	,	L_22
+proto_register_igrp	,	F_15
+proto_register_subtree_array	,	F_19
+"Command       : %d %s"	,	L_9
+array_length	,	F_18
+tvb_get_ntoh24	,	F_14
+next_tvb	,	V_17
+"IGRP Version  : %d %s"	,	L_6
+proto_tree_add_item	,	F_8
+pinfo	,	V_2
+dissector_handle_t	,	T_9
+"Exterior routes : %d"	,	L_14
+ett_igrp_net	,	V_33
+"Autonomous System"	,	L_27
+hf_register_info	,	T_8
+AT_IPv4	,	V_27
+ett_igrp_vektor	,	V_29
+dissect_vektor_igrp	,	F_11
+"Hop count   = %d  hops"	,	L_23
+guint16	,	T_6
+hf_igrp_as	,	V_25
+COL_PROTOCOL	,	V_19
+ptr_addr	,	V_31
+"Reliability = %d"	,	L_21
+FT_UINT8	,	V_35
+"(Response)"	,	L_10
+proto_tree_add_text	,	F_7
+BASE_DEC	,	V_36
+tvb_new_subset	,	F_10
+proto_item	,	T_7
+guint8	,	T_4
+ti	,	V_14
+ninterior	,	V_10
+"Network     = %s"	,	L_17
+data	,	V_28
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_5
+opcode	,	V_6
+tvb_get_ntohs	,	F_9
+net_src	,	V_26
+"Update Release number"	,	L_26
+"MTU         = %d  bytes"	,	L_20
+ver_and_opcode	,	V_4
+proto_item_add_subtree	,	F_6
+"System routes   : %d"	,	L_13
+"igrp.as"	,	L_28
+proto_register_field_array	,	F_17
+dissect_igrp	,	F_1
+ipsrc	,	V_13
+"Response"	,	L_2
+offset	,	V_8
+"Cisco IGRP"	,	L_5
+" "	,	L_7
+ett	,	V_39
+dissector_add_uint	,	F_22
+tree	,	V_3
+"Delay       = %d"	,	L_18
+FT_UINT16	,	V_38
+packet_info	,	T_2
+ett_igrp	,	V_22
+"ip.proto"	,	L_32
+tvb_get_guint8	,	F_4
+proto_igrp	,	V_21
+" -  Unknown Version, The dissection may be inaccurate"	,	L_8
+ip_to_str	,	F_13
+hf_igrp_update	,	V_23
+nexterior	,	V_12
+igrp_vektor_tree	,	V_16
+"IGRP"	,	L_1
+network	,	V_7
+IP_PROTO_IGRP	,	V_41
+addr	,	V_32
+HFILL	,	V_37
+"igrp.update"	,	L_25
+igrp_tree	,	V_15
+"(Request)"	,	L_11
+create_dissector_handle	,	F_21
+"Unknown version or opcode"	,	L_4
+proto_tree_add_subtree_format	,	F_12
+"Entry for network %s"	,	L_16
+ENC_BIG_ENDIAN	,	V_24
+IGRP_HEADER_LENGTH	,	V_9
+"Update Release"	,	L_24
+proto_reg_handoff_igrp	,	F_20
+proto_tree	,	T_3
+hf	,	V_34
+IGRP_ENTRY_LENGTH	,	V_30

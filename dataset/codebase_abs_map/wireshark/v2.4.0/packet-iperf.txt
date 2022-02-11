@@ -1,0 +1,91 @@
+"iperf2.udp.sequence"	,	L_5
+register_dissector	,	F_15
+ett_iperf2	,	V_23
+data	,	T_5
+"iPerf2 Client Header"	,	L_1
+"iperf2.udp.sec"	,	L_7
+proto_register_protocol	,	F_11
+tvbuff_t	,	T_1
+"iPerf2 UDP Header"	,	L_3
+"iPerf2 sec"	,	L_6
+hf_iperf2_sequence	,	V_28
+"iPerf2 sequence"	,	L_4
+tvb_reported_length	,	F_5
+hf_iperf2_mwinband	,	V_12
+BASE_HEX	,	V_36
+proto_tree_add_subtree	,	F_2
+"iperf2.client.bandwidth"	,	L_19
+"iperf2_udp"	,	L_25
+dissect_iperf2	,	F_1
+col_set_str	,	F_6
+gint	,	T_8
+proto_item_add_subtree	,	F_8
+"iperf2"	,	L_23
+"Flags"	,	L_10
+proto_register_field_array	,	F_12
+tvb	,	V_1
+proto_reg_handoff_iperf2	,	F_16
+guint32	,	T_3
+offset	,	V_3
+ett	,	V_37
+COL_INFO	,	V_20
+"iperf2.client.bufferlen"	,	L_17
+"Bandwidth"	,	L_18
+tree	,	V_15
+ett_client_hdr	,	V_6
+"iperf2.client.numthreads"	,	L_13
+packet_info	,	T_4
+proto_register_iperf2	,	F_10
+"iperf2.client.num_bytes"	,	L_21
+"iperf2.udp.usec"	,	L_9
+col_clear	,	F_7
+"iPerf2 Packet Data"	,	L_22
+udp_tree	,	V_26
+cinfo	,	V_18
+client_tree	,	V_4
+proto_register_subtree_array	,	F_14
+IPERF2_UDP_HDR_SIZE	,	V_25
+array_length	,	F_13
+iperf2_handle_udp	,	V_39
+"iperf2.client.port"	,	L_15
+ett_udphdr	,	V_27
+IPERF2_HDR_SIZE	,	V_5
+dissect_iperf2_tcp	,	F_4
+proto_tree_add_item	,	F_3
+"Number of Threads"	,	L_12
+pinfo	,	V_14
+_U_	,	V_16
+hdr_size	,	V_24
+"Server Port"	,	L_14
+hf_iperf2_mport	,	V_10
+hf_iperf2_flags	,	V_7
+proto_iperf2	,	V_21
+hf_iperf2_usec	,	V_30
+dissector_add_for_decode_as_with_preference	,	F_17
+hf_register_info	,	T_7
+hf_iperf2_sec	,	V_29
+iperf2_handle_tcp	,	V_38
+HFILL	,	V_34
+"iPerf2"	,	L_2
+FT_INT32	,	V_32
+hf_iperf2_num_threads	,	V_9
+dissect_iperf2_udp	,	F_9
+COL_PROTOCOL	,	V_19
+"udp.port"	,	L_27
+BASE_DEC	,	V_33
+proto_item	,	T_6
+"Number of Bytes"	,	L_20
+iperf2_tree	,	V_2
+ENC_BIG_ENDIAN	,	V_8
+hf_iperf2_mamount	,	V_13
+ENC_NA	,	V_22
+"iperf2.client.flags"	,	L_11
+FT_UINT32	,	V_35
+"Buffer Len"	,	L_16
+ti	,	V_17
+"iperf2_tcp"	,	L_24
+"iPerf2 usec"	,	L_8
+hf_iperf2_bufferlen	,	V_11
+"tcp.port"	,	L_26
+proto_tree	,	T_2
+hf	,	V_31

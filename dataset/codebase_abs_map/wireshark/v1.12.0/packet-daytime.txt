@@ -1,0 +1,52 @@
+proto_register_protocol	,	F_9
+tvbuff_t	,	T_1
+"Daytime Protocol"	,	L_7
+col_set_str	,	F_2
+header_field_info	,	T_5
+gint	,	T_6
+proto_item_add_subtree	,	F_5
+tvb	,	V_1
+"Response"	,	L_3
+ett	,	V_18
+dissect_daytime	,	F_1
+COL_INFO	,	V_8
+dissector_add_uint	,	F_16
+ett_daytime	,	V_13
+tree	,	V_3
+"DAYTIME %s"	,	L_2
+hfi	,	V_17
+"daytime"	,	L_8
+packet_info	,	T_2
+cinfo	,	V_6
+"Request"	,	L_4
+proto_register_fields	,	F_11
+proto_register_subtree_array	,	F_13
+match_uint	,	V_10
+array_length	,	F_12
+proto_tree_add_item	,	F_4
+pinfo	,	V_2
+col_add_fstr	,	F_3
+daytime_tree	,	V_4
+"Type: Response"	,	L_5
+hfi_daytime_string	,	V_15
+ENC_ASCII	,	V_16
+proto_register_daytime	,	F_7
+HAVE_HFI_SECTION_INIT	,	F_8
+daytime_handle	,	V_20
+"Type: Request"	,	L_6
+proto_reg_handoff_daytime	,	F_15
+COL_PROTOCOL	,	V_7
+DAYTIME_PORT	,	V_14
+"DAYTIME"	,	L_1
+proto_registrar_get_nth	,	F_10
+"udp.port"	,	L_9
+proto_tree_add_text	,	F_6
+create_dissector_handle	,	F_14
+proto_item	,	T_4
+ENC_NA	,	V_12
+hfi_daytime	,	V_11
+ti	,	V_5
+srcport	,	V_9
+"tcp.port"	,	L_10
+proto_daytime	,	V_19
+proto_tree	,	T_3

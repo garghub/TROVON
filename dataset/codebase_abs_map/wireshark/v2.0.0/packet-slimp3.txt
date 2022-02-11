@@ -1,0 +1,225 @@
+"%u.%u (0x%0x)"	,	L_11
+proto_register_protocol	,	F_29
+tvb_reported_length	,	F_26
+", Length: %d bytes, Offset: %u bytes."	,	L_16
+old_protocol	,	V_15
+"slimp3.opcode"	,	L_22
+"Unknown (0x%0x)"	,	L_4
+"slimp3.hello_request_server_client"	,	L_67
+gint	,	T_6
+tvb	,	V_1
+proto_register_slimp3	,	F_27
+pointer	,	V_78
+COL_INFO	,	V_22
+hf_slimp3_i2c_request_server_client	,	V_61
+val_to_str_ext	,	F_15
+SLIMP3_DATA	,	V_64
+tvb_reported_length_remaining	,	F_17
+cinfo	,	V_20
+"slimp3.data.offset"	,	L_40
+array_length	,	F_31
+", %s, %d bytes at %u, Sequence: %u"	,	L_17
+SLIMP3_DISC_RSP	,	V_74
+"slimp3.data.length"	,	L_73
+"SLIMP3 control"	,	L_26
+", Server Address: %s. Server Port: %u"	,	L_19
+hf_slimp3_device_id	,	V_56
+"slimp3.display_command"	,	L_61
+"Length: %d bytes"	,	L_15
+"slimp3.i2c_request_server_client"	,	L_71
+"Firmware Revision"	,	L_37
+ett_slimp3	,	V_25
+col_append_str	,	F_22
+", 0x%0x"	,	L_6
+hf_slimp3_infrared_slimp3	,	V_38
+hf_register_info	,	T_13
+proto_tree_add_bytes_format	,	F_24
+", %s"	,	L_10
+guint16	,	T_7
+"slimp3.control"	,	L_25
+address	,	T_9
+COL_PROTOCOL	,	V_21
+hf_slimp3_data_write_pointer	,	V_70
+SLIMP3_DISC_REQ	,	V_73
+": %s"	,	L_9
+"I2C Request (Server --&gt; Client)"	,	L_70
+UDP_PORT_SLIMP3_V1	,	V_32
+UDP_PORT_SLIMP3_V2	,	V_28
+"slimp3.infrared"	,	L_34
+guint8	,	T_11
+ti	,	V_7
+BASE_NONE	,	V_93
+"Server Address"	,	L_47
+hf_slimp3_control	,	V_51
+tvb_get_ntohl	,	F_12
+"slimp3.data_ack.read_pointer"	,	L_53
+tvbuff_t	,	T_1
+opcode	,	V_10
+hf_slimp3_disc_rsp_server_ip	,	V_75
+tvb_get_ntohs	,	F_23
+tmp_addr	,	V_16
+BASE_HEX	,	V_89
+to_server	,	V_14
+col_add_str	,	F_6
+hf_slimp3_data_data	,	V_82
+gboolean	,	T_10
+SLIMP3_DISPLAY	,	V_43
+"%u ms"	,	L_7
+slimp3_handle	,	V_98
+proto_item_add_subtree	,	F_8
+"slimp3.data_req.offset"	,	L_56
+", JVC: %s"	,	L_5
+proto_reg_handoff_slimp3	,	F_33
+lcd_char	,	V_11
+proto_register_field_array	,	F_30
+FT_BYTES	,	V_96
+slimp3_ir_codes_slimp3_ext	,	V_39
+dissector_add_uint	,	F_35
+hf_slimp3_display_string	,	V_46
+hf_slimp3_data_length	,	V_66
+"slimp3.data.command"	,	L_42
+FT_UINT16	,	V_91
+"Sequence"	,	L_45
+tvb_get_guint8	,	F_3
+"Uptime"	,	L_27
+"slimp3.disc_rsp.server_port"	,	L_50
+"Infrared Code"	,	L_33
+"slimp3.uptime"	,	L_28
+hf_slimp3_disc_rsp_server_port	,	V_76
+hf_slimp3_display_unknown	,	V_49
+dissect_slimp3	,	F_1
+"Code identifier"	,	L_29
+"slimp3.display_delay"	,	L_58
+new_create_dissector_handle	,	F_34
+i1	,	V_8
+proto_tree_add_uint_format_value	,	F_13
+slimp3_display_fset8	,	V_48
+"I2C Response (Client --&gt; Server)"	,	L_68
+ENC_BIG_ENDIAN	,	V_36
+"SLIMP3 message type"	,	L_23
+hf_slimp3_fw_rev	,	V_57
+", Sequence: %u"	,	L_20
+FT_UINT32	,	V_87
+"slimp3.i2c_response_client_server"	,	L_69
+"Device ID"	,	L_35
+hf_slimp3_opcode	,	V_26
+hf	,	V_83
+"slimp3.display_unknown"	,	L_63
+lcd_str	,	V_12
+"slimp3.device_id"	,	L_36
+slimp3_ir_codes_jvc	,	V_41
+"slimp3.data.data"	,	L_75
+"slimp3.hello_response_client_server"	,	L_65
+"slimp3.code_id"	,	L_30
+"Requested offset"	,	L_55
+"Write Pointer"	,	L_43
+"slimp3.code_bits"	,	L_32
+col_append_fstr	,	F_14
+BASE_EXT_STRING	,	V_90
+col_set_str	,	F_5
+write_pointer	,	V_68
+AT_ETHER	,	V_30
+FT_IPv4	,	V_92
+"SliMP3"	,	L_1
+guchar	,	T_8
+proto_item_append_text	,	F_19
+proto_slimp3	,	V_23
+hf_slimp3_data_offset	,	V_67
+"slimp3.data.write_pointer"	,	L_44
+SLIMP3_CONTROL	,	V_50
+proto_register_subtree_array	,	F_32
+val_to_str	,	F_16
+", Response"	,	L_12
+proto_tree_add_item	,	F_7
+pinfo	,	V_2
+dissector_handle_t	,	T_14
+"Hello Response (Client --&gt; Server)"	,	L_64
+"Data"	,	L_74
+_U_	,	V_4
+SLIMP3_DATA_REQ	,	V_62
+ADDRESSES_EQUAL	,	F_11
+"SliMP3 Communication Protocol"	,	L_76
+hf_slimp3_display_delay	,	V_45
+"String"	,	L_59
+VALS	,	F_28
+lcd_strlen	,	V_18
+"%u sec (%u ticks)"	,	L_2
+", Request"	,	L_13
+hf_slimp3_data_command	,	V_69
+hf_slimp3_data_ack_sequence	,	V_81
+slimp3_opcode_vals	,	V_19
+offset_buffer	,	V_65
+"slimp3.display_string"	,	L_60
+slimp3_tree	,	V_6
+", Device ID: %u. Firmware: %u.%u"	,	L_18
+FT_UINT8	,	V_84
+hf_slimp3_infrared	,	V_42
+tvb_ip_to_str	,	F_25
+BASE_DEC	,	V_85
+proto_item	,	T_5
+dl_src	,	V_31
+try_val_to_str	,	F_4
+SLIMP3_I2C	,	V_59
+in_str	,	V_17
+ENC_NA	,	V_24
+SLIMP3_DATA_ACK	,	V_77
+MAX_LCD_STR_LEN	,	V_13
+"slimp3.data_ack.sequence"	,	L_54
+hf_slimp3_data_ack_read_pointer	,	V_80
+SLIMP3_IR	,	V_33
+tvb_offset_exists	,	F_21
+"Command"	,	L_41
+", Offset: %u bytes"	,	L_14
+"slimp3.disc_rsp.server_ip"	,	L_48
+data	,	T_4
+"slimp3.data.sequence"	,	L_46
+hf_slimp3_hello_response_client_server	,	V_55
+slimp3_mpg_control	,	V_72
+TVB_SET_ADDRESS	,	F_10
+hf_slimp3_data_sequence	,	V_71
+"slimp3"	,	L_77
+"Delay"	,	L_57
+slimp3_stream_control	,	V_52
+"Control Packet"	,	L_24
+guint	,	T_12
+FT_NONE	,	V_95
+"Length"	,	L_72
+offset	,	V_9
+ett	,	V_97
+hf_slimp3_code_id	,	V_35
+hf_slimp3_display_command	,	V_47
+tree	,	V_3
+"Opcode"	,	L_21
+hf_slimp3_hello_request_server_client	,	V_58
+tvb_bytes_exist	,	F_2
+packet_info	,	T_2
+slimp3_display_commands	,	V_94
+"%c"	,	L_8
+slimp3_ir_types	,	V_88
+hf_slimp3_i2c_response_client_server	,	V_60
+g_ascii_isprint	,	F_18
+"Buffer offset"	,	L_39
+destport	,	V_27
+"slimp3.fw_rev"	,	L_38
+proto_tree_add_uint	,	F_9
+", SLIMP3: %s"	,	L_3
+hf_slimp3_infrared_jvc	,	V_40
+"Server Port"	,	L_49
+opcode_str	,	V_5
+"slimp3.data_ack.write_pointer"	,	L_51
+hf_slimp3_data_ack_write_pointer	,	V_79
+HFILL	,	V_86
+value	,	V_44
+SLIMP3_HELLO	,	V_53
+hf_slimp3_uptime	,	V_34
+"Read Pointer"	,	L_52
+"udp.port"	,	L_78
+"Code bits"	,	L_31
+"Hello Request (Server --&gt; Client)"	,	L_66
+proto_item_set_len	,	F_20
+hf_slimp3_data_req_offset	,	V_63
+hf_slimp3_code_bits	,	V_37
+srcport	,	V_29
+"Unknown"	,	L_62
+fw_ver	,	V_54
+proto_tree	,	T_3

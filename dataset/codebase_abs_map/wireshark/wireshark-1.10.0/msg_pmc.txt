@@ -1,0 +1,94 @@
+hf_pmc_req_tx_power_level	,	V_14
+"Signed change in power level (incr of 0.25 dB) that the MS shall apply to the open loop power control formula in 8.4.10.3.2"	,	L_15
+pmc_rsp_tree	,	V_37
+"wmx.pmc_req.ul_tx_power_level"	,	L_10
+proto_mac_mgmt_msg_pmc_req_decoder	,	V_22
+MAC_MGMT_MSG_PMC_REQ	,	V_33
+"MAC Management Message, PMC-RSP (64)"	,	L_26
+"Signed change in power level (incr of 0.25 dB) that the MS shall apply to its current transmission power. When subchannelization is employed, the SS shall interpret as a required change to the Tx power density"	,	L_18
+proto_register_protocol	,	F_3
+tvbuff_t	,	T_2
+proto_tree_add_protocol_format	,	F_11
+tvb_reported_length	,	F_10
+BASE_HEX	,	V_21
+proto_mac_mgmt_msg_pmc_rsp_decoder	,	V_24
+pmc_req_item	,	V_31
+hf_pmc_rsp_power_adjust	,	V_19
+include_cor2_changes	,	V_42
+"wmx.macmgtmsgtype.pmc_rsp"	,	L_12
+"Power adjust"	,	L_16
+hf_pmc_rsp_message_type	,	V_15
+proto_item_add_subtree	,	F_12
+proto_register_field_array	,	F_4
+proto_register_mac_mgmt_msg_pmc_rsp	,	F_7
+"When the Tx power is different from slot to slot, the maximum value is reported"	,	L_11
+"Offset_BS per MS"	,	L_13
+tvb	,	V_25
+payload_type	,	V_30
+dissect_mac_mgmt_msg_pmc_req_decoder	,	F_8
+guint	,	T_6
+ett	,	V_23
+offset	,	V_28
+hf_pmc_req_reserved	,	V_13
+tree	,	V_27
+ett_mac_mgmt_msg_pmc_decoder	,	V_34
+FT_UINT16	,	V_7
+vals_pmc_req_pwr_cor2	,	V_12
+packet_info	,	T_3
+tvb_get_guint8	,	F_9
+FT_FLOAT	,	V_17
+tvb_len	,	V_29
+proto_register_subtree_array	,	F_6
+hf_pmc_rsp_start_frame	,	V_20
+power_change	,	V_40
+"wmx.pmc_req.power_control_mode"	,	L_6
+"UL Tx power level for the burst that carries this header"	,	L_9
+array_length	,	F_5
+hf_pmc_rsp_offset_BS_per_MS	,	V_16
+pmc_rsp_item	,	V_36
+"Power control mode change"	,	L_5
+"Reserved"	,	L_7
+"MAC Management Message, PMC-REQ (63)"	,	L_25
+proto_tree_add_float_format_value	,	F_15
+proto_tree_add_item	,	F_13
+pinfo	,	T_4
+"wmx.pmc"	,	L_24
+gfloat	,	T_10
+" %.2f dB"	,	L_27
+_U_	,	V_26
+"wmx.pmc_rsp.power_adjust"	,	L_17
+pwr_control_mode	,	V_38
+gint8	,	T_9
+"Confirmation"	,	L_3
+proto_register_mac_mgmt_msg_pmc_req	,	F_1
+hf_pmc_req_message_type	,	V_2
+dissect_mac_mgmt_msg_pmc_rsp_decoder	,	F_14
+MAC_MGMT_MSG_PMC_RSP	,	V_41
+"wmx.pmc_rsp.start_frame"	,	L_20
+"wmx.pmc_req.reserved"	,	L_8
+"Start frame"	,	L_19
+hf_register_info	,	T_1
+hf_pmc_req_confirmation	,	V_6
+VALS	,	F_2
+HFILL	,	V_5
+value	,	V_39
+"wmx.pmc_req.confirmation"	,	L_4
+"wmx.macmgtmsgtype.pmc_req"	,	L_2
+"WiMax PMC-REQ/RSP (pmc)"	,	L_23
+FT_UINT8	,	V_3
+hf_pmc_req_pwr_control_mode_change	,	V_9
+vals_pmc_req_confirmation	,	V_8
+BASE_DEC	,	V_4
+"WiMax PMC-REQ/RSP Messages"	,	L_22
+proto_item	,	T_7
+"wmx.pmc_rsp.offset_BS_per_MS"	,	L_14
+ENC_BIG_ENDIAN	,	V_35
+guint8	,	T_8
+vals_pmc_req_pwr	,	V_10
+BASE_NONE	,	V_18
+"MAC Management Message Type"	,	L_1
+hf_pmc_req_pwr_control_mode_change_cor2	,	V_11
+"Apply mode change from current frame when 6 LSBs of frame match this"	,	L_21
+pmc_req_tree	,	V_32
+hf	,	V_1
+proto_tree	,	T_5

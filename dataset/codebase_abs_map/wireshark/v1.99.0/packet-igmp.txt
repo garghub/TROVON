@@ -1,0 +1,376 @@
+"Querier's Query Interval Code"	,	L_76
+"igmp.mtrace.q_rtg_proto"	,	L_142
+"QRV=%d S=%s"	,	L_5
+proto_register_protocol	,	F_54
+hf_version	,	V_130
+"IGMP V0 Reply Pending, Retry in this many seconds"	,	L_52
+" - General query"	,	L_25
+tvb_reported_length	,	F_2
+hf_max_resp	,	V_25
+"igmp.mtrace.saddr"	,	L_106
+"IGMP V3 Auxiliary Data"	,	L_94
+"FwdTTL"	,	L_144
+"igmp.saddr"	,	L_81
+"igmp.mtrace.q_mbz"	,	L_148
+len	,	V_6
+" %s"	,	L_29
+"Forwarding Code"	,	L_155
+gint	,	T_12
+mtrace_fwd_code_vals	,	V_87
+"Forwarding information/error code"	,	L_157
+ett_igmp	,	V_103
+hf_max_resp_mant	,	V_28
+IGMP_V1_HOST_MEMBERSHIP_QUERY	,	V_63
+hf_reply_code	,	V_67
+"igmp.reply"	,	L_48
+TFS	,	F_53
+tvb	,	V_2
+"Total number of packets for this source-group pair"	,	L_140
+hf_maddr	,	V_48
+hf_mtrace_q_mbz	,	V_97
+"igmp.mtrace.q_s"	,	L_150
+dissect_igmp_v2	,	F_34
+guint32	,	T_9
+dissect_igmp_v1	,	F_35
+COL_INFO	,	V_14
+", general"	,	L_26
+dissect_igmp_v0	,	F_36
+dissect_igmp_v3_report	,	F_28
+vec_t	,	T_6
+"%s%s"	,	L_22
+FT_BOOLEAN	,	V_135
+maddr_str	,	V_40
+"Response TTL"	,	L_114
+tsecs	,	V_22
+tvb_reported_length_remaining	,	F_38
+hf_access_key	,	V_70
+"Traceroute Response"	,	L_32
+IGMP_V3_MEMBERSHIP_REPORT	,	V_110
+cinfo	,	V_13
+"IGMP"	,	L_38
+"igmp.mtrace.q_inpkt"	,	L_133
+hdrcksum	,	V_8
+array_length	,	F_56
+""	,	L_7
+dissect_v3_max_resp	,	F_17
+mtrace_rtg_vals	,	V_86
+" group %s"	,	L_30
+"igmp.group_type"	,	L_45
+"igmp.max_resp"	,	L_66
+"Response Address"	,	L_111
+IGMP_TRACEROUTE_QUERY_REQ	,	V_109
+"Aux Data"	,	L_92
+"Out pkts"	,	L_135
+col_append_str	,	F_30
+", %d block%s"	,	L_31
+" / Group %s, new source%s {"	,	L_18
+dissect_igap	,	F_49
+PROTO_ITEM_SET_HIDDEN	,	F_9
+"igmp.qqic"	,	L_75
+proto_tree_add_boolean	,	F_8
+hf_register_info	,	T_11
+IGMP_V2_MEMBERSHIP_REPORT	,	V_108
+true_string	,	V_33
+hf_mtrace_q_outaddr	,	V_90
+"igmp.version"	,	L_43
+IGMP_DVMRP	,	V_106
+"igmp.type"	,	L_40
+guint16	,	T_5
+COL_PROTOCOL	,	V_104
+"Query ID"	,	L_117
+hf_mtrace_q_prevrtr	,	V_91
+"Source Address"	,	L_80
+ett_sqrv_bits	,	V_29
+i	,	V_75
+"Multicast Address"	,	L_90
+"igmp.checksum_bad"	,	L_57
+guint8	,	T_8
+buf	,	V_73
+IGMP_TRACEROUTE_HDR_LEN	,	V_76
+"Aux Data Len, In units of 32bit words"	,	L_89
+"igmp.record_type"	,	L_86
+BASE_NONE	,	V_136
+"Maximum Response Time, Mantissa"	,	L_102
+"igmp.max_resp.exp"	,	L_98
+"Source mask length. 63 when forwarding on group state"	,	L_154
+"Unknown Type:0x%02x"	,	L_3
+tvb_length_remaining	,	F_15
+hf_mtrace_raddr	,	V_80
+ett_mtrace_block	,	V_85
+"MBZ"	,	L_147
+"igmp.aux_data_len"	,	L_88
+"TTL for Multicasted Responses"	,	L_116
+tvbuff_t	,	T_2
+IGMP_TYPE_0x24	,	V_114
+tvb_get_ntohs	,	F_3
+IGMP_TYPE_0x23	,	V_111
+"Max Resp Time"	,	L_65
+IGMP_TYPE_0x26	,	V_117
+IGMP_TYPE_0x25	,	V_116
+ett_max_resp	,	V_26
+plurality	,	F_40
+BASE_HEX	,	V_128
+parent_tree	,	V_19
+col_add_str	,	F_13
+proto_register_igmp	,	F_51
+"igmp.maddr"	,	L_91
+" / Group %s, unknown record type (?), sources {"	,	L_21
+"Access Key"	,	L_62
+"# hops"	,	L_103
+FT_UINT24	,	V_140
+IGMP_RGMP_LEAVE	,	V_124
+", source%s {"	,	L_28
+proto_item_add_subtree	,	F_20
+"%s (0x%02x)"	,	L_35
+fragmented	,	V_11
+proto_register_field_array	,	F_55
+commands	,	V_15
+FT_BYTES	,	V_138
+dissector_add_uint	,	F_60
+g_htonl	,	F_46
+adl	,	V_38
+ett_group_record	,	V_42
+dissect_igmp_mtrace	,	F_37
+FT_UINT16	,	V_134
+"Destination of Completed Traceroute Response"	,	L_113
+"ip.proto"	,	L_160
+tvb_get_guint8	,	F_18
+"IGMP Checksum"	,	L_55
+"IGMP V0 Identifier"	,	L_61
+hf_suppress	,	V_35
+"igmp.mtrace.q_id"	,	L_118
+block_tree	,	V_84
+dissect_msnip	,	F_47
+IGMP_V1_HOST_MEMBERSHIP_REPORT	,	V_105
+"Routing protocol between this and previous hop rtr"	,	L_143
+"Incoming Interface Address"	,	L_125
+ip_to_str	,	F_33
+"Query Arrival Time"	,	L_122
+"TTL required for forwarding"	,	L_146
+"Output packet count on outgoing interface"	,	L_137
+IGMP_RGMP_JOIN	,	V_123
+IGMP_TRACEROUTE_RSP_LEN	,	V_77
+"igmp.mtrace.q_total"	,	L_139
+"Bad IGMP Checksum"	,	L_58
+dissect_igmp_unknown	,	F_12
+hf_type	,	V_16
+hf_qqic	,	V_61
+"Receiver Address"	,	L_108
+"Header checksum: 0x%04x [correct]"	,	L_1
+IGMP_V1_PIM_ROUTING_MESSAGE	,	V_107
+hf_identifier	,	V_69
+val_to_str_const	,	F_25
+blocks	,	V_72
+"}"	,	L_24
+"Maximum Number of Hops to Trace"	,	L_105
+"Set if S,G packet count is for source network"	,	L_151
+"In itf addr"	,	L_123
+cksum_vec	,	V_9
+proto_tree_add_uint_format_value	,	F_19
+record_type	,	V_41
+hf_mtrace_saddr	,	V_79
+ENC_BIG_ENDIAN	,	V_45
+FT_UINT32	,	V_137
+"IGMP V0 Access Key"	,	L_64
+"Multicast Source for the Path Being Traced"	,	L_107
+hf_mtrace_rspaddr	,	V_81
+hf_qrv	,	V_36
+"igmp.mtrace.q_fwd_ttl"	,	L_145
+dissect_v3_sqrv_bits	,	F_21
+old_offset	,	V_37
+"Record Type"	,	L_85
+" / Join group %s for source%s {"	,	L_13
+"igmp.num_grp_recs"	,	L_83
+hf	,	V_126
+"%.1f sec (0x%02x)"	,	L_4
+hf_num_src	,	V_47
+hf_mtrace_resp_ttl	,	V_82
+IGMP_V3_QRV_MASK	,	V_30
+IGMP_V3_BLOCK_OLD_SOURCES	,	V_54
+" / Group %s, unknown record type (?)"	,	L_12
+"Traceroute Query"	,	L_33
+"igmp.max_resp.mant"	,	L_101
+col_append_fstr	,	F_26
+"Maximum Response Time, Exponent"	,	L_99
+" not"	,	L_17
+col_set_str	,	F_41
+hf_index	,	V_3
+"Query Arrival"	,	L_120
+IGMP_V3_MODE_IS_EXCLUDE	,	V_51
+"IGMP V0 Reply"	,	L_49
+"Number Of Group Records"	,	L_84
+"Src Mask"	,	L_152
+proto_tree_add_uint_format	,	F_7
+FT_IPv4	,	V_139
+"In pkts"	,	L_132
+hf_checksum_bad	,	V_58
+item	,	V_20
+hf_mtrace_q_outpkt	,	V_93
+hidden_item	,	V_10
+bits	,	V_21
+", specific for group %s"	,	L_27
+hf_aux_data	,	V_56
+"s not in"	,	L_16
+"Reply Pending"	,	L_50
+col_clear	,	F_43
+IGMP_IGAP_LEAVE	,	V_120
+"igmp.s"	,	L_69
+proto_register_subtree_array	,	F_57
+igmp_checksum	,	F_1
+val_to_str	,	F_14
+"igmp.mtrace.q_fwd_code"	,	L_156
+vs_group_type	,	V_132
+"Checksum"	,	L_53
+in_cksum	,	F_6
+proto_tree_add_item	,	F_16
+" / Leave group %s"	,	L_8
+pinfo	,	V_5
+dissector_handle_t	,	T_13
+cksum	,	V_7
+"Data"	,	L_95
+hf_mtrace_q_arrival	,	V_88
+hf_checksum	,	V_57
+IGMP_RGMP_HELLO	,	V_121
+hf_data	,	V_17
+IGMP_MAX_RESP_MANT	,	V_23
+IGMP_V2_LEAVE_GROUP	,	V_62
+MC_ALL_ROUTERS	,	V_115
+"Response data block: %s -&gt; %s,  Proto: %s,  Forwarding Code: %s"	,	L_36
+IGMP_RGMP_BYE	,	V_122
+MC_RGMP	,	V_125
+tvb_get_ipv4	,	F_32
+"IGMP V0 Type Of Group"	,	L_46
+"igmp.access_key"	,	L_63
+VALS	,	F_52
+SET_CKSUM_VEC_TVB	,	F_5
+proto_igmp	,	V_102
+proto_reg_handoff_igmp	,	F_58
+hf_num_grp_recs	,	V_59
+in_cksum_shouldbe	,	F_10
+"Must be zeroed on transmission and ignored on reception"	,	L_149
+tvb_length	,	F_4
+hf_record_type	,	V_44
+tfs_s	,	V_32
+hf_mtrace_q_rtg_proto	,	V_95
+FT_UINT8	,	V_127
+tvb_ip_to_str	,	F_24
+hf_mtrace_q_s	,	V_98
+dissect_rgmp	,	F_50
+BASE_DEC	,	V_131
+"Group Record : %s  %s"	,	L_6
+"igmp.identifier"	,	L_60
+proto_item	,	T_7
+vs_record_type	,	V_43
+"IGMP Version"	,	L_42
+"Querier's Robustness Value"	,	L_73
+hf_reply_pending	,	V_68
+hf_mtrace_q_src_mask	,	V_99
+"Exponent"	,	L_97
+"igmp.mtrace.q_outaddr"	,	L_127
+ENC_NA	,	V_18
+"Type Of Group"	,	L_44
+IGMP_V3_S	,	V_31
+"Identifier for this Traceroute Request"	,	L_119
+"Outgoing Interface Address"	,	L_128
+hf_mtrace_q_total	,	V_94
+"Suppress Router Side Processing"	,	L_70
+"Input packet count on incoming interface"	,	L_134
+hf_index_bad	,	V_4
+dissect_igmp_v3_query	,	F_31
+"Reply"	,	L_47
+IGMP_V0_CREATE_GROUP_REQUEST	,	V_65
+data	,	V_113
+dissect_pimv1	,	F_45
+hf_mtrace_q_fwd_code	,	V_100
+num	,	V_39
+"Traceroute Request"	,	L_34
+"igmp.mtrace.rspaddr"	,	L_112
+hf_group_type	,	V_66
+"QRV"	,	L_71
+"Mantissa"	,	L_100
+"Aux Data Len"	,	L_87
+typestr	,	V_71
+"IGMP Packet Type"	,	L_41
+"Bad Checksum"	,	L_56
+hf_mtrace_q_fwd_ttl	,	V_96
+IGMP_TRACEROUTE_RESPONSE	,	V_74
+igmp_handle	,	V_142
+IGMP_V3_CHANGE_TO_EXCLUDE_MODE	,	V_52
+"Identifier"	,	L_59
+"igmp.mtrace.q_arrival"	,	L_121
+PRINT_IGMP_VERSION	,	F_29
+IGMP_V3_CHANGE_TO_INCLUDE_MODE	,	V_50
+dissect_mrdisc	,	F_48
+IP_PROTO_IGMP	,	V_143
+"igmp.data"	,	L_96
+guint	,	T_4
+offset	,	V_12
+"igmp.mtrace.resp_ttl"	,	L_115
+ett	,	V_141
+hf_max_resp_exp	,	V_27
+tree	,	V_1
+vs_reply_code	,	V_133
+dissect_dvmrp	,	F_44
+hf_mtrace_q_inpkt	,	V_92
+"Num Src"	,	L_77
+hf_mtrace_max_hops	,	V_78
+packet_info	,	T_3
+"Previous-Hop Router Address"	,	L_131
+hf_mtrace_q_id	,	V_83
+"Multicast Receiver for the Path Being Traced"	,	L_110
+"s"	,	L_19
+" / Group %s, ALLOW_NEW_SOURCES but no source specified (?)"	,	L_10
+"igmp.qrv"	,	L_72
+hf_saddr	,	V_55
+"Max Response Time"	,	L_67
+"Rtg Protocol"	,	L_141
+" / Group %s, BLOCK_OLD_SOURCES but no source specified (?)"	,	L_11
+IGMP_MAX_RESP_EXP	,	V_24
+" / Group %s, block source%s {"	,	L_20
+proto_tree_add_uint	,	F_11
+code	,	V_64
+"igmp.mtrace.q_src_mask"	,	L_153
+dissect_igmp	,	F_42
+dst	,	V_101
+"igmp.reply.pending"	,	L_51
+hf_aux_data_len	,	V_46
+"igmp.mtrace.q_inaddr"	,	L_124
+" / Join group %s, for source%s {"	,	L_15
+"Number Of Sources"	,	L_79
+"igmp.mtrace.max_hops"	,	L_104
+"igmp.mtrace.q_prevrtr"	,	L_130
+g_snprintf	,	F_39
+" / Join group %s for any sources"	,	L_9
+"S"	,	L_68
+IGMP_IGAP_JOIN	,	V_118
+"S,G pkt count"	,	L_138
+MC_ALL_IGMPV3_ROUTERS	,	V_112
+IGMP_IGAP_QUERY	,	V_119
+", "	,	L_23
+HFILL	,	V_129
+dissect_v3_group_record	,	F_23
+"Out itf addr"	,	L_126
+IGMP_V3_MODE_IS_INCLUDE	,	V_49
+"igmp"	,	L_159
+"QQIC"	,	L_74
+"igmp.num_src"	,	L_78
+gchar	,	T_10
+"s in"	,	L_14
+false_string	,	V_34
+create_dissector_handle	,	F_59
+proto_tree_add_subtree_format	,	F_22
+"Previous rtr addr"	,	L_129
+"Internet Group Management Protocol"	,	L_158
+proto_item_set_len	,	F_27
+"Num Group Records"	,	L_82
+maddr	,	V_60
+"igmp.checksum"	,	L_54
+"igmp.aux_data"	,	L_93
+IGMP_V3_ALLOW_NEW_SOURCES	,	V_53
+"igmp.mtrace.q_outpkt"	,	L_136
+"igmp.mtrace.raddr"	,	L_109
+"Header checksum: 0x%04x [incorrect, should be 0x%04x]"	,	L_2
+"Unknown"	,	L_37
+"Type"	,	L_39
+proto_tree	,	T_1
+hf_mtrace_q_inaddr	,	V_89

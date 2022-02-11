@@ -1,0 +1,63 @@
+"application/oma-supl-ilp"	,	L_10
+local_ilp_port	,	V_21
+ilp_module	,	V_12
+PFNAME	,	V_16
+get_ilp_pdu_len	,	F_1
+data	,	V_5
+"Whether the ILP dissector should reassemble messages spanning multiple TCP segments."	,	L_4
+proto_register_protocol	,	F_7
+tvbuff_t	,	T_4
+"ILP TCP Port"	,	L_7
+tvb_get_ntohs	,	F_2
+prefs_register_protocol	,	F_12
+ilp_handle	,	V_20
+gbl_ilp_port	,	V_18
+proto_ilp	,	V_13
+prefs_register_uint_preference	,	F_14
+gboolean	,	T_9
+tcp_dissect_pdus	,	F_4
+gint	,	T_7
+module_t	,	T_8
+proto_register_field_array	,	F_9
+tvb	,	V_2
+guint	,	T_1
+offset	,	V_3
+ett	,	V_10
+"Reassemble ILP messages spanning multiple TCP segments"	,	L_3
+dissector_add_uint	,	F_18
+"ilp"	,	L_1
+tree	,	V_4
+packet_info	,	T_2
+proto_register_ilp	,	F_6
+ILP_HEADER_SIZE	,	V_7
+ilp_desegment	,	V_6
+tvb_captured_length	,	F_5
+PSNAME	,	V_15
+proto_register_subtree_array	,	F_11
+lpp_handle	,	V_23
+array_length	,	F_10
+dissector_delete_uint	,	F_17
+dissect_ILP_PDU_PDU	,	V_8
+pinfo	,	T_3
+ett_ilp	,	V_11
+dissector_handle_t	,	T_10
+_U_	,	V_1
+"lpp"	,	L_12
+new_register_dissector	,	F_8
+PNAME	,	V_14
+"desegment_ilp_messages"	,	L_2
+"Set the TCP port for ILP messages(IANA registered port is 7276)"	,	L_8
+hf_register_info	,	T_6
+"media_type"	,	L_9
+initialized	,	V_19
+prefs_register_bool_preference	,	F_13
+rrlp_handle	,	V_22
+find_dissector	,	F_15
+proto_reg_handoff_ilp	,	V_17
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_5
+dissector_add_string	,	F_16
+dissect_ilp_tcp	,	F_3
+"tcp.port"	,	L_6
+"rrlp"	,	L_11
+proto_tree	,	T_5
+hf	,	V_9

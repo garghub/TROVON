@@ -1,0 +1,151 @@
+"Bad checksum"	,	L_36
+ei_epon_dpoe_encrypted_data	,	V_39
+epon_handle	,	V_63
+ett_epon_checksum	,	V_55
+proto_register_protocol	,	F_19
+hf_epon_dpoe_keyid	,	V_30
+"Frame check sequence Status"	,	L_33
+tvb_new_subset_remaining	,	F_13
+"Logical Link ID"	,	L_29
+ei_epon_dpoe_bad	,	V_31
+"epon.dpoe.encrypted.expert"	,	L_39
+col_set_str	,	F_6
+"epon.llid"	,	L_28
+gint	,	T_10
+proto_register_epon	,	F_16
+TFS	,	F_17
+tvb	,	V_1
+item	,	V_7
+find_dissector_add_dependency	,	F_28
+COL_INFO	,	V_20
+hf_epon_dpoe_security	,	V_24
+FT_BOOLEAN	,	V_47
+proto_item_append_text	,	F_9
+"epon.checksum_bad.expert"	,	L_35
+ett_epon_sec	,	V_26
+cinfo	,	V_18
+"True, Key ID: %x"	,	L_4
+PI_ERROR	,	V_58
+proto_register_subtree_array	,	F_22
+"Encrypted data"	,	L_21
+array_length	,	F_21
+tvb_get_ntoh24	,	F_2
+"Reserved"	,	L_12
+next_tvb	,	V_9
+"EPON"	,	L_1
+proto_checksum_vals	,	V_53
+proto_tree_add_item	,	F_4
+call_dissector	,	F_14
+pinfo	,	V_2
+dissector_handle_t	,	T_12
+_U_	,	V_4
+col_append_str	,	F_12
+"epon.checksum.status"	,	L_34
+dissect_epon	,	F_1
+"LLID"	,	L_27
+proto_tree_add_checksum	,	F_11
+"epon.dpoe.encrypted"	,	L_16
+"DPoE security octet"	,	L_11
+hf_register_info	,	T_9
+VALS	,	F_18
+" [ENCRYPTED]"	,	L_8
+get_crc8_ieee8023_epon	,	F_10
+"DPoE encrypted data"	,	L_23
+COL_PROTOCOL	,	V_19
+"epon.dpoe.encrypted.data"	,	L_22
+FT_UINT8	,	V_43
+BASE_DEC	,	V_46
+proto_item	,	T_5
+expert_register_field_array	,	F_24
+ENC_NA	,	V_16
+sent_checksum	,	V_11
+ti	,	V_6
+BASE_NONE	,	V_49
+" (Encrypted: "	,	L_3
+"epon"	,	L_45
+"Unable to locate SLD or invalid byte sequence: preamble must start with 0xD555"	,	L_38
+"Bits 7-2 of DPoE security byte must be 010101 in 1G mode."	,	L_40
+data	,	T_4
+"epon.dpoe.keyid"	,	L_19
+"epon.dpoe.expert"	,	L_41
+tvbuff_t	,	T_1
+hf_epon_checksum	,	V_34
+"IEEE 802.3 EPON Preamble"	,	L_44
+ei_epon_dpoe_reserved_bad	,	V_28
+hf_epon_dpoe_reserved	,	V_27
+"wtap_encap"	,	L_46
+tvb_get_ntohs	,	F_3
+epon_tree	,	V_5
+dpoe_encrypted	,	V_14
+BASE_HEX	,	V_44
+sec_tree	,	V_8
+ei_register_info	,	T_11
+gboolean	,	T_7
+"DPoE security byte must be 0x55 if encryption is disabled."	,	L_42
+expert_register_protocol	,	F_23
+proto_item_add_subtree	,	F_7
+eth_maybefcs_handle	,	V_40
+PI_NOTE	,	V_62
+"Encryption enabled"	,	L_15
+PI_UNDECODED	,	V_61
+hf_epon_dpoe_encrypted_data	,	V_38
+proto_register_field_array	,	F_20
+FT_BYTES	,	V_48
+"Remaining data is encrypted and will not decode."	,	L_43
+ett_epon	,	V_21
+guint	,	T_6
+offset	,	V_12
+ett	,	V_54
+ei	,	V_56
+proto_epon	,	V_15
+expert_module_t	,	T_8
+dissector_add_uint	,	F_27
+tree	,	V_3
+"Mode"	,	L_24
+"EPON preamble checksum"	,	L_32
+"Broadcast/multicast if true, unicast if false"	,	L_26
+ei_epon_checksum_bad	,	V_36
+FT_UINT16	,	V_51
+packet_info	,	T_2
+"Specifies if this is an encrypted frame"	,	L_17
+"False"	,	L_5
+tvb_get_guint8	,	F_8
+hf_epon_dpoe_encrypted	,	V_29
+"DPoE security"	,	L_9
+tvb_captured_length	,	F_15
+ei_epon_sld_bad	,	V_17
+dpoe_sec_byte	,	V_13
+"Identification number of the key used to encrypt this frame"	,	L_20
+")"	,	L_6
+EXPFILL	,	V_59
+BASE_DEC_HEX	,	V_52
+PI_CHECKSUM	,	V_57
+expert_add_info	,	F_5
+"Key ID"	,	L_18
+"Reserved in 1G mode"	,	L_14
+"epon.mode"	,	L_25
+dpoe_keyid	,	V_22
+"epon.sld_bad.expert"	,	L_37
+proto_reg_handoff_epon	,	F_25
+WTAP_ENCAP_EPON	,	V_64
+checksum	,	V_10
+PROTO_CHECKSUM_VERIFY	,	V_37
+"EPON Preamble"	,	L_2
+HFILL	,	V_45
+PI_MALFORMED	,	V_60
+hf_epon_checksum_status	,	V_35
+epon_mode_tfs	,	V_50
+"epon.dpoe.sec"	,	L_10
+dpoe_reserved	,	V_23
+hf_epon_llid	,	V_33
+create_dissector_handle	,	F_26
+expert_epon	,	V_41
+" [EPON PREAMBLE CHECKSUM INCORRECT]"	,	L_7
+ENC_BIG_ENDIAN	,	V_25
+hf_epon_mode	,	V_32
+"epon.dpoe.reserved"	,	L_13
+"epon.checksum"	,	L_31
+"Frame check sequence"	,	L_30
+"eth_maybefcs"	,	L_47
+proto_tree	,	T_3
+hf	,	V_42

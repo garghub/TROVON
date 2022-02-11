@@ -1,0 +1,528 @@
+PI_CHAT	,	V_226
+hf_spdy_type	,	V_188
+SPDY_FLAG_SETTINGS_CLEAR_SETTINGS	,	V_59
+tvb_get_string_enc	,	F_76
+setting_id_str	,	V_160
+col_append_sep_str	,	F_90
+SPDY_SYN_REPLY	,	V_50
+dissect_spdy_window_update_payload	,	F_85
+hdr_host	,	V_119
+tvb_reported_length	,	F_45
+spdy_data_frame_t	,	T_14
+SPDY_FLAG_FIN	,	V_54
+hf_spdy_flags_clear_settings	,	V_58
+tvb_new_child_real_data	,	F_73
+"spdy.flags.clear_settings"	,	L_67
+", Request: %s %s://%s%s %s"	,	L_33
+dissect_spdy_data_payload	,	F_38
+body_dissected	,	V_79
+TFS	,	F_99
+guint32	,	T_9
+", %s: %u"	,	L_40
+FT_BOOLEAN	,	V_204
+"Assemble SPDY bodies that consist of multiple DATA frames"	,	L_128
+"spdy.priority"	,	L_86
+"spdy.version"	,	L_58
+"Slot"	,	L_90
+spdy_handle	,	V_229
+version	,	V_186
+datalen	,	V_36
+ei_spdy_invalid_frame_type	,	V_190
+", Status: %s"	,	L_37
+tvb_reported_length_remaining	,	F_74
+wmem_strbuf_t	,	T_25
+wmem_strdup	,	F_54
+" (FIN)"	,	L_2
+SPDY_FLAG_SETTINGS_PERSIST_VALUE	,	V_211
+g_ascii_isspace	,	F_68
+array_length	,	F_103
+copied_data	,	V_69
+"Unused"	,	L_87
+""	,	L_12
+MIN_SPDY_VERSION	,	V_193
+"spdy.header_block"	,	L_74
+ENC_ASCII	,	V_142
+dissect_spdy	,	F_93
+spdy_get_num_data_frames	,	F_25
+":version"	,	L_27
+dflist	,	V_38
+hf_register_info	,	T_29
+"spdy.data"	,	L_53
+hf_spdy_goaway_last_good_stream_id	,	V_172
+uncomp_ptr	,	V_131
+guint16	,	T_28
+content_encoding	,	V_24
+"Setting"	,	L_99
+": %s"	,	L_48
+cp	,	V_112
+ei_spdy_inflation_failed	,	V_132
+BASE_NONE	,	V_202
+df	,	V_33
+header_tree	,	V_136
+media_handle	,	V_92
+"Persist Value"	,	L_66
+header_tvb	,	V_115
+BASE_HEX	,	V_209
+FT_UINT24	,	V_213
+spdy_item	,	V_181
+proto_reg_handoff_spdy	,	F_112
+proto_item_add_subtree	,	F_37
+module_t	,	T_32
+PI_UNDECODED	,	V_219
+proto_register_field_array	,	F_102
+conversation	,	V_6
+FT_BYTES	,	V_201
+e_ti	,	V_81
+":path"	,	L_26
+Z_SYNC_FLUSH	,	V_103
+", ID: %u"	,	L_41
+spdy_eo_tap	,	V_231
+ei	,	V_218
+dissect_spdy_settings_payload	,	F_81
+data_frames	,	V_27
+tvb_get_ptr	,	F_58
+FT_UINT16	,	V_206
+"spdy.goaway_last_good_stream_id"	,	L_107
+"Window Update Delta"	,	L_110
+" #%u"	,	L_13
+tvb_captured_length	,	F_96
+g_ascii_tolower	,	F_69
+fd	,	V_73
+Z_NULL	,	V_17
+frame	,	V_30
+dissector_get_string_handle	,	F_55
+header_info_list	,	V_4
+wmem_new0	,	F_8
+call_dissector_with_data	,	F_56
+expert_add_info	,	F_72
+"Invalid SPDY frame type"	,	L_123
+heur_dissector_add	,	F_117
+media_str	,	V_72
+"gzip"	,	L_9
+"data frames into an entity body."	,	L_130
+frame_tree	,	V_39
+"spdy.numheaders"	,	L_94
+"decompress_body"	,	L_134
+spdy_conv_t	,	T_6
+conversation_add_proto_data	,	F_13
+"spdy.setting.value"	,	L_103
+find_dissector_table	,	F_116
+length	,	V_32
+next_out	,	V_101
+"Unidirectional"	,	L_65
+PI_WARN	,	V_224
+"spdy.malformed.frame_data"	,	L_114
+wmem_list_frame_t	,	T_18
+"assemble_data_frames"	,	L_127
+"Whether to uncompress entity bodies that are compressed "	,	L_136
+header_name_length	,	V_139
+FT_UINT32	,	V_216
+visited	,	V_74
+frame_type_name	,	V_180
+"Reset Status"	,	L_95
+find_or_create_conversation	,	F_6
+"Unknown(%d)"	,	L_39
+hf	,	V_200
+"spdy.flags"	,	L_62
+expert_spdy	,	V_228
+hi	,	V_111
+"Uncompress SPDY headers"	,	L_132
+goaway_status_names	,	V_174
+"Header block"	,	L_73
+header_block_len	,	V_110
+prefs_register_protocol	,	F_108
+hf_spdy_window_update_delta	,	V_177
+hf_spdy_control_bit	,	V_185
+hdr_version	,	V_118
+col_set_str	,	F_87
+"spdy.rst_stream_status"	,	L_96
+"Flags"	,	L_61
+hf_spdy_header	,	V_143
+hf_spdy_setting_value	,	V_168
+" (UNIDIRECTIONAL)"	,	L_3
+dissect_spdy_frame	,	F_86
+"spdy.associated.streamid"	,	L_84
+inflateEnd	,	F_2
+spdy_control_frame_info_t	,	T_20
+header_value	,	V_135
+hdr_scheme	,	V_120
+handle	,	V_62
+"Not enough frame data for header name size."	,	L_20
+frame_type	,	V_106
+spdy_decompress_header_block	,	F_57
+ping_id	,	V_169
+spdy_save_header_block	,	F_65
+tvb_memdup	,	F_40
+"media"	,	L_140
+header_block_length	,	V_113
+val_to_str	,	F_80
+dissector_handle_t	,	T_23
+", Stream: %d, Length: %d"	,	L_5
+"Value"	,	L_79
+"Associated Stream ID"	,	L_83
+"spdy.slot"	,	L_91
+content_type_parameters	,	V_26
+":host"	,	L_28
+goaway_status	,	V_171
+wmem_list_t	,	T_17
+VALS	,	F_100
+hf_spdy_goaway_status	,	V_173
+prefs_register_bool_preference	,	F_109
+uncomp_block	,	V_96
+hf_spdy_flags_fin	,	V_52
+"spdy.rst_stream.invalid"	,	L_118
+media_type_subdissector_table	,	V_90
+dissect_spdy_heur	,	F_97
+BASE_DEC	,	V_207
+"Persisted"	,	L_69
+rply_decompressor	,	V_14
+try_val_to_str	,	F_79
+ENC_NA	,	V_66
+"Invalid status code for GOAWAY: %u"	,	L_42
+spdy_init_protocol	,	F_3
+"SPDY"	,	L_45
+wmem_alloc	,	F_16
+frame_item	,	V_85
+ett_spdy	,	V_184
+"Invalid status code for GOAWAY"	,	L_121
+"Name"	,	L_77
+wmem_tree_lookup32	,	F_20
+"Not enough frame data: %d vs. %d"	,	L_49
+hf_spdy_length	,	V_192
+have_entire_body	,	V_71
+spdy_assemble_entity_bodies	,	V_75
+expert_register_protocol	,	F_105
+"tcp"	,	L_143
+"spdy.length"	,	L_72
+"spdy.setting.id"	,	L_102
+spdy_find_saved_header_block	,	F_66
+spdy_get_stream_info	,	F_19
+guint	,	T_15
+"Length"	,	L_71
+ett	,	V_217
+wmem_packet_scope	,	F_48
+packet_info	,	T_7
+header_info	,	V_108
+"Number of headers"	,	L_93
+http_type_t	,	T_10
+wmem_tree_new	,	F_15
+hptr	,	V_95
+"spdy.flags.persist_value"	,	L_68
+header	,	V_107
+uncomp_tvb	,	V_80
+"spdy_eo"	,	L_138
+EXPFILL	,	V_221
+SPDY_SETTINGS	,	V_57
+hf_spdy_streamid	,	V_43
+conversation_get_proto_data	,	F_7
+inflateInit	,	F_10
+wmem_memdup	,	F_64
+hf_spdy_slot	,	V_128
+spdy_tap	,	V_230
+SPDY_FLAG_UNIDIRECTIONAL	,	V_56
+tvb_new_subset_length	,	F_39
+hf_spdy_header_block	,	V_129
+dissector_get_uint_handle	,	F_53
+setting_value	,	V_161
+dissect_spdy_stream_id_field	,	F_32
+", "	,	L_47
+HFILL	,	V_203
+PI_MALFORMED	,	V_222
+wmem_list_count	,	F_27
+wmem_new	,	F_22
+ei_spdy_invalid_go_away	,	V_175
+gchar	,	T_11
+spdy_header_info_t	,	T_27
+proto_tree_add_subtree_format	,	F_46
+get_or_create_spdy_conversation_data	,	F_4
+"Invalid status code for RST_STREAM"	,	L_119
+dissect_spdy_ping_payload	,	F_83
+inflate	,	F_62
+ei_spdy_mal_frame_data	,	V_141
+ett_spdy_header_block	,	V_130
+"Content-encoded entity body (%s): %u bytes"	,	L_11
+dissect_spdy_flags	,	F_36
+" [Unsupported Version]"	,	L_50
+uLong	,	T_26
+type_item	,	V_182
+proto_register_protocol	,	F_101
+"spdy.inflation_failed"	,	L_112
+" (partial entity body)"	,	L_6
+"Not enough frame data"	,	L_115
+DIAG_OFF	,	F_60
+wmem_tree_insert32	,	F_18
+"SETTINGS frame too small [num_entries=%d]"	,	L_38
+"Version"	,	L_57
+tcp_dissect_pdus	,	F_95
+spdy_add_data_chunk	,	F_21
+gint	,	T_30
+wmem_strbuf_new	,	F_47
+":status"	,	L_30
+tvb	,	V_35
+"SETTINGS frame too small for number of entries field."	,	L_117
+COL_INFO	,	V_78
+z_const	,	F_59
+ett_spdy_header	,	V_144
+tvb_child_uncompress	,	F_44
+str	,	V_151
+"spdy_tcp"	,	L_145
+proto_tree_add_expert_format	,	F_50
+" [Error: Header decompression failed]"	,	L_18
+": %s: %s"	,	L_24
+"Header"	,	L_75
+cinfo	,	V_77
+PI_ERROR	,	V_220
+tfs_set_notset	,	V_210
+"Invalid SPDY control frame type: %d"	,	L_46
+wmem_list_append	,	F_23
+register_tap	,	F_111
+hf_spdy_num_settings	,	V_159
+TCP_PORT_SPDY	,	V_232
+next_tvb	,	V_67
+" (CLEAR)"	,	L_4
+hdr_method	,	V_116
+"spdy.setting"	,	L_100
+"spdy.reassembly_info"	,	L_124
+ett_spdy_flags	,	V_47
+SPDY_SYN_STREAM	,	V_49
+str_frames	,	V_86
+spdy_decompress_headers	,	V_11
+hdr_status	,	V_121
+"Unhandled SPDY frame type: %d"	,	L_51
+rqst_decompressor	,	V_12
+", Delta: %u"	,	L_44
+si	,	V_25
+spdy_stream_info_t	,	T_12
+tvb_new_real_data	,	F_31
+DIAG_ON	,	F_61
+wmem_list_frame_data	,	F_30
+"TRUE if SPDY control frame"	,	L_56
+COL_PROTOCOL	,	V_183
+num_data_frames	,	V_28
+"Not enough frame data for header value."	,	L_23
+"Stream ID"	,	L_81
+header_name	,	V_134
+"using \"Content-Encoding: \""	,	L_137
+proto_register_spdy	,	F_98
+g_strcmp0	,	F_77
+"Assembled from frames in packet(s)"	,	L_125
+guint8	,	T_13
+ti	,	V_150
+ei_spdy_mal_setting_frame	,	V_158
+"content-encoding"	,	L_32
+uncomp_length	,	V_94
+num_entries	,	V_155
+"spdy.flags.persisted"	,	L_70
+register_dissector	,	F_107
+hdr_offset	,	V_114
+spdy_decompress_body	,	V_83
+"Uncompressed entity body"	,	L_16
+tvb_get_ntohl	,	F_33
+"spdy.goaway_status"	,	L_109
+tvbuff_t	,	T_16
+tvb_get_ntohs	,	F_89
+"spdy.header.value"	,	L_80
+"Uncompress entity bodies"	,	L_135
+flags_tree	,	V_45
+adler	,	V_105
+gboolean	,	T_1
+SPDY_WINDOW_UPDATE	,	V_197
+wmem_strbuf_append_printf	,	F_49
+hf_spdy_setting	,	V_162
+"spdy.flags.fin"	,	L_64
+hf_spdy_priority	,	V_126
+SPDY_GOAWAY	,	V_196
+top_level_tree	,	T_22
+HTTP_REQUEST	,	V_147
+setting_id_names	,	V_166
+FT_UINT_STRING	,	V_215
+"Number of Settings"	,	L_97
+"Control frame"	,	L_54
+"spdy.unused"	,	L_88
+"http.port"	,	L_141
+data_tvb	,	V_68
+port_subdissector_table	,	V_88
+hdr_path	,	V_117
+rst_stream_status_names	,	V_153
+register_init_routine	,	F_110
+assembled_data	,	V_29
+hf_spdy_num_headers	,	V_133
+tvb_get_guint8	,	F_88
+"spdy.num_settings"	,	L_98
+message_info	,	V_64
+"spdy.streamid"	,	L_82
+match_uint	,	V_89
+"FIN"	,	L_63
+ti_setting	,	V_156
+"decompress_headers"	,	L_131
+wmem_allocator_t	,	T_2
+wmem_register_callback	,	F_11
+ei_spdy_reassembly_info	,	V_87
+content_type	,	V_22
+header_value_length	,	V_140
+window_update_delta	,	V_176
+hf_spdy_flags_unidirectional	,	V_55
+call_data_dissector	,	F_52
+"Whether to uncompress SPDY headers."	,	L_133
+hf_spdy_unused	,	V_127
+header_block_item	,	V_123
+ssl_dissector_add	,	F_114
+PI_REASSEMBLE	,	V_225
+"spdy.control_bit"	,	L_55
+setting_tree	,	V_157
+control_bit	,	V_179
+dissect_spdy_header_payload	,	F_70
+rst_status	,	V_149
+SPDY_RST_STREAM	,	V_194
+inflateSetDictionary	,	F_63
+ENC_BIG_ENDIAN	,	V_42
+e_tree	,	V_82
+"Inflation failed. Aborting."	,	L_113
+ett_spdy_setting	,	V_163
+SPDY_DATA	,	V_48
+HTTP_RESPONSE	,	V_148
+spdy_dictionary	,	V_18
+match_string	,	V_91
+hfindex	,	V_40
+":method"	,	L_25
+wmem_list_new	,	F_17
+framenum	,	V_34
+SPDY_CREDENTIAL	,	V_198
+uInt	,	V_19
+dictionary_id	,	V_16
+allocator	,	T_3
+"spdy.ping_id"	,	L_105
+stream_id	,	V_20
+"ID"	,	L_101
+", Response: %s %s"	,	L_34
+spdy_tree	,	V_60
+hf_spdy_flags	,	V_46
+conv_data	,	V_7
+hf_spdy_rst_stream_status	,	V_152
+"spdy.window_update_delta"	,	L_111
+num_headers	,	V_122
+"Invalid status code for RST_STREAM: %u"	,	L_35
+find_dissector_add_dependency	,	F_115
+streams	,	V_10
+proto_item_append_text	,	F_35
+spdy_proto	,	V_61
+z_streamp	,	V_3
+message_type	,	V_21
+col_set_fence	,	F_41
+SPDY_PING	,	V_195
+is_single_chunk	,	V_70
+col_clear	,	F_94
+"spdy.header"	,	L_76
+proto_register_subtree_array	,	F_104
+"Last Good Stream ID"	,	L_106
+ett_spdy_encoded_entity	,	V_84
+tvb_get_ntoh24	,	F_82
+inflate_end_cb	,	F_1
+proto_tree_add_item	,	F_34
+"spdy"	,	L_126
+pinfo	,	V_5
+"Priority"	,	L_85
+"Data"	,	L_52
+_U_	,	V_1
+flags	,	V_53
+dissected	,	V_63
+"Go Away Status"	,	L_108
+spdy_parse_content_type	,	F_67
+first_byte	,	V_199
+"media_type"	,	L_142
+spdy_module	,	V_227
+event	,	T_5
+header_block	,	V_109
+PI_PROTOCOL	,	V_223
+g_ascii_strcasecmp	,	F_43
+hf_spdy_version	,	V_187
+FT_UINT8	,	V_208
+"Assembled from %d frames in packet(s)%s"	,	L_14
+"Reserved for future use"	,	L_89
+proto_item	,	T_21
+expert_register_field_array	,	F_106
+flags_ti	,	V_44
+z_stream	,	V_13
+decomp	,	V_93
+expert_add_info_format	,	F_75
+"deflate"	,	L_10
+dissect_spdy_rst_stream_payload	,	F_78
+"spdy.type.invalid"	,	L_122
+spdy_increment_data_chunk_count	,	F_24
+wmem_list_head	,	F_29
+retcode	,	V_8
+hf_spdy_header_value	,	V_146
+data	,	V_31
+avail_in	,	V_100
+"Not enough frame data for header value size."	,	L_22
+spdy_assemble_data_frames	,	F_26
+num	,	V_76
+"spdy.goaway.invalid"	,	L_120
+SPDY_FLAG_SETTINGS_PERSISTED	,	V_212
+"Whether the SPDY dissector should reassemble multiple "	,	L_129
+" -&gt; %u bytes"	,	L_15
+"Not enough frame data for header name."	,	L_21
+"spdy.header.name"	,	L_78
+ei_register_info	,	T_31
+dissect_spdy_goaway_payload	,	F_84
+" Status=%s)"	,	L_43
+"SPDY over TCP"	,	L_144
+"Unknown (%d)"	,	L_36
+SPDY_STREAM_ID_MASK	,	V_41
+conversation_t	,	T_8
+ei_spdy_invalid_rst_stream	,	V_154
+"spdy.type"	,	L_60
+"Assembled entity body"	,	L_7
+hf_spdy_setting_id	,	V_167
+FT_NONE	,	V_214
+HAVE_ZLIB	,	F_5
+offset	,	V_37
+"identity"	,	L_8
+DISSECTOR_ASSERT_NOT_REACHED	,	F_71
+":scheme"	,	L_29
+hf_spdy_ping_id	,	V_170
+expert_module_t	,	T_33
+tree	,	V_178
+"Ping ID"	,	L_104
+user_data	,	V_2
+wmem_cb_event_t	,	T_4
+header_block_tree	,	V_124
+add_new_data_source	,	F_42
+http_message_info_t	,	T_24
+tfs_yes_no	,	V_205
+"Specifying the index in the server's CREDENTIAL vector of the client certificate to be used for this reques"	,	L_92
+spdy_save_stream_info	,	F_14
+hf_spdy_data	,	V_65
+hf_spdy_flags_persisted	,	V_165
+HEURISTIC_DISABLE	,	V_233
+avail_out	,	V_102
+Z_NEED_DICT	,	V_104
+", Stream: %u"	,	L_1
+SPDY_INVALID	,	V_189
+proto_spdy	,	V_9
+SPDY_HEADERS	,	V_51
+Z_OK	,	V_15
+header_value_offset	,	V_138
+hf_spdy_associated_streamid	,	V_125
+"spdy.malformed.setting_frame"	,	L_116
+header_name_offset	,	V_137
+wmem_file_scope	,	F_9
+" [Error: Decompression failed]"	,	L_17
+"Uncompressed headers"	,	L_19
+"content-type"	,	L_31
+Bytef	,	V_99
+hf_spdy_header_name	,	V_145
+next_in	,	V_98
+wmem_list_frame_next	,	F_28
+DECOMPRESS_BUFSIZE	,	V_97
+proto_item_set_len	,	F_91
+get_spdy_message_len	,	F_92
+dissector_add_uint_with_preference	,	F_113
+adler32	,	F_12
+content_type_params	,	V_23
+wmem_strbuf_get_str	,	F_51
+frame_type_names	,	V_191
+"Type"	,	L_59
+"tcp.port"	,	L_139
+proto_tree	,	T_19
+hf_spdy_flags_persist_value	,	V_164

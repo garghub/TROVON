@@ -1,0 +1,84 @@
+register_dissector	,	F_18
+"%s"	,	L_7
+channel	,	V_12
+proto_hci_h1	,	V_13
+proto_register_protocol	,	F_17
+tvbuff_t	,	T_1
+"wtap_encap"	,	L_18
+check_col	,	F_8
+"HCI Packet Type"	,	L_8
+BASE_HEX	,	V_27
+"HCI h1 pdu type"	,	L_16
+PROTO_ITEM_SET_GENERATED	,	F_11
+tvb_new_subset_remaining	,	F_12
+col_set_str	,	F_2
+" %s"	,	L_5
+gint	,	T_7
+proto_item_add_subtree	,	F_5
+"hci_h1.type"	,	L_9
+hf_hci_h1_direction	,	V_21
+proto_register_field_array	,	F_19
+tvb	,	V_1
+ett_hci_h1	,	V_15
+ett	,	V_31
+COL_INFO	,	V_9
+P2P_DIR_RECV	,	V_18
+WTAP_ENCAP_BLUETOOTH_HCI	,	V_33
+dissector_add_uint	,	F_25
+bthci	,	V_11
+tree	,	V_3
+proto_item_append_text	,	F_6
+"Unknown: %d"	,	L_3
+data_handle	,	V_23
+packet_info	,	T_2
+col_clear	,	F_3
+FT_INT8	,	V_29
+cinfo	,	V_7
+"HCI Packet Direction Sent/Rcvd/Unknown"	,	L_12
+" %s %s"	,	L_2
+proto_register_subtree_array	,	F_21
+val_to_str	,	F_7
+hci_h1_direction_vals	,	V_19
+array_length	,	F_20
+"Unknown 0x%02x"	,	L_4
+next_tvb	,	V_4
+pseudo_header	,	V_10
+proto_tree_add_item	,	F_4
+proto_reg_handoff_hci_h1	,	F_23
+call_dissector	,	F_14
+pinfo	,	V_2
+col_add_fstr	,	F_9
+dissector_handle_t	,	T_8
+"HCI_H1"	,	L_14
+"HCI"	,	L_1
+P2P_DIR_SENT	,	V_17
+hf_register_info	,	T_6
+"Direction"	,	L_10
+VALS	,	F_16
+HFILL	,	V_28
+p2p_dir	,	V_16
+dissector_try_uint	,	F_13
+"Bluetooth HCI"	,	L_13
+COL_PROTOCOL	,	V_8
+hci_h1_tree	,	V_6
+"data"	,	L_17
+dissect_hci_h1	,	F_1
+FT_UINT8	,	V_26
+find_dissector	,	F_24
+hci_h1_type_vals	,	V_20
+BASE_DEC	,	V_30
+proto_item	,	T_5
+hci_h1_table	,	V_22
+ENC_NA	,	V_14
+guint8	,	T_4
+"hci_h1"	,	L_15
+ti	,	V_5
+hci_h1_handle	,	V_32
+proto_tree_add_int	,	F_10
+hf_hci_h1_type	,	V_25
+proto_tree	,	T_3
+"%s %s"	,	L_6
+hf	,	V_24
+"hci_h1.direction"	,	L_11
+register_dissector_table	,	F_22
+proto_register_hci_h1	,	F_15

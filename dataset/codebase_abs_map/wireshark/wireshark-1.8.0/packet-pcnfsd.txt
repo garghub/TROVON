@@ -1,0 +1,139 @@
+"pcnfsd.procedure_v2"	,	L_12
+hf_pcnfsd_auth_password_obscure	,	V_28
+ident	,	V_15
+rpc_init_proc_table	,	F_29
+proto_register_protocol	,	F_23
+dissect_pcnfsd2_auth_reply	,	F_19
+pcnfsd2_proc_vals	,	V_48
+"pcnfsd"	,	L_46
+"Authentication Obscure Password"	,	L_23
+"Authentication Password"	,	L_6
+hf_pcnfsd_uid	,	V_8
+password	,	V_18
+len	,	V_13
+dissect_rpc_uint32	,	F_8
+gint	,	V_26
+"V2 Procedure"	,	L_11
+hf_pcnfsd_username	,	V_4
+tvb	,	V_1
+gids_i	,	V_33
+pcnfsd1_proc_vals	,	V_45
+"User ID"	,	L_32
+"pcnfsd.procedure_v1"	,	L_10
+guint32	,	T_3
+"pcnfsd.username"	,	L_43
+gitem	,	V_31
+"Group ID Count"	,	L_36
+rpc_init_prog	,	F_28
+"Authentication Clear Ident"	,	L_20
+dissect_pcnfsd2_dissect_mapreq_arg_item	,	F_7
+"Reply Status"	,	L_29
+proto_register_subtree_array	,	F_26
+val_to_str	,	F_6
+proto_tree_add_string	,	F_17
+array_length	,	F_25
+"Home Directory"	,	L_38
+pcnfsd1_proc	,	V_56
+proto_tree_add_item	,	F_20
+pinfo	,	T_5
+_U_	,	V_7
+newoffset	,	V_14
+proto_register_pcnfsd	,	F_21
+mapreq	,	V_5
+proto_item_set_text	,	F_18
+password_item	,	V_19
+"pcnfsd.auth.password.clear"	,	L_25
+ett_pcnfsd_gids	,	V_36
+hf_register_info	,	T_7
+"Authentication Clear Password"	,	L_26
+VALS	,	F_22
+maprstat	,	V_10
+hf_pcnfsd_comment	,	V_9
+"pcnfsd.uid"	,	L_33
+"Clear Ident"	,	L_18
+"PCNFSD"	,	L_45
+dissect_pcnfsd_mapreq	,	F_3
+dissect_rpc_list	,	F_10
+"pcnfsd.gids.count"	,	L_37
+ett_pcnfsd_auth_ident	,	V_22
+dissect_pcnfsd2_auth_call	,	F_14
+gtree	,	V_32
+proto_tree_add_text	,	F_5
+dissect_pcnfsd2_dissect_mapreq_res_item	,	F_11
+BASE_DEC	,	V_44
+pcnfsd2_proc	,	V_57
+proto_item	,	T_6
+ett_pcnfsd_auth_password	,	V_27
+"pcnfsd.def_umask"	,	L_41
+ett_pcnfsd	,	V_53
+hf_pcnfsd_procedure_v1	,	V_42
+"pcnfsd.auth.password.obscure"	,	L_22
+"def_umask"	,	L_40
+hf_pcnfsd_procedure_v2	,	V_47
+"pcnfsd.comment"	,	L_28
+BASE_NONE	,	V_50
+pcnfsd_decode_obscure	,	F_13
+hf_pcnfsd_auth_password_clear	,	V_29
+hf_pcnfsd_gid	,	V_35
+gids_count	,	V_30
+tvb_get_ntohl	,	F_4
+data	,	V_12
+"PC NFS"	,	L_44
+"pcnfsd.gid"	,	L_35
+dissect_pcnfsd2_mapid_reply	,	F_12
+"Obscure Ident"	,	L_15
+tvbuff_t	,	T_1
+hf_pcnfsd_auth_client	,	V_21
+PCNFSD_PROGRAM	,	V_55
+ident_tree	,	V_17
+BASE_OCT	,	V_51
+"User name"	,	L_42
+"pcnfsd.auth.ident.obscure"	,	L_16
+hf_pcnfsd_auth_ident_clear	,	V_25
+"pcnfsd.homedir"	,	L_39
+proto_item_add_subtree	,	F_15
+RPC_STRING_EMPTY	,	V_24
+proto_register_field_array	,	F_24
+dissect_rpc_string	,	F_2
+"pcnfsd.auth.ident.clear"	,	L_19
+offset	,	V_2
+dissect_pcnfsd2_mapid_call	,	F_9
+ett	,	V_52
+tree	,	V_3
+password_tree	,	V_20
+"Authentication Ident"	,	L_4
+"Authentication Obscure Ident"	,	L_17
+"V1 Procedure"	,	L_9
+"Authentication Ident: %s"	,	L_5
+packet_info	,	T_4
+"Clear Password"	,	L_24
+"pcnfsd.auth.client"	,	L_14
+hf_pcnfsd_def_umask	,	V_40
+proto_reg_handoff_pcnfsd	,	F_27
+"%u"	,	L_2
+"Request: %s (%u)"	,	L_1
+"pcnfsd.status"	,	L_30
+"Authentication Password: %s"	,	L_7
+FT_STRING	,	V_49
+HFILL	,	V_46
+"Group IDs: %d"	,	L_8
+"Status"	,	L_31
+hf_pcnfsd_gids_count	,	V_37
+names_maprstat	,	V_11
+"Comment"	,	L_27
+proto_item_set_len	,	F_16
+hf_pcnfsd_status	,	V_34
+ENC_BIG_ENDIAN	,	V_38
+proto_pcnfsd	,	V_54
+"Group ID"	,	L_34
+hf_pcnfsd_homedir	,	V_39
+"Authentication Client"	,	L_13
+FT_UINT32	,	V_43
+"Obscure Password"	,	L_21
+dissect_pcnfsd_username	,	F_1
+hf_pcnfsd_auth_ident_obscure	,	V_23
+names_mapreq	,	V_6
+proto_tree	,	T_2
+hf	,	V_41
+"Status: %s (%u)"	,	L_3
+ident_item	,	V_16

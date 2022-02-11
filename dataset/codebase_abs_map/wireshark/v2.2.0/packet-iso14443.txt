@@ -1,0 +1,557 @@
+ADDR_PICC	,	V_202
+crc16_iso14443a_tvb_offset	,	F_3
+"Minimum TR2"	,	L_84
+hf_iso14443_pwr_lvl_ind	,	V_191
+"iso14443.nad_supported"	,	L_95
+hf_iso14443_4_compl_sak	,	V_95
+"iso14443.s_block_cmd"	,	L_173
+tb1_it	,	V_103
+iso14443_block_type	,	V_173
+dissect_iso14443_cmd_type_block	,	F_32
+tvb_reported_length	,	F_49
+"iso14443.pwr_lvl_ind"	,	L_175
+"iso14443.fwi"	,	L_89
+has_cid	,	V_168
+ISO14443_EVT_DATA_PCD_TO_PICC	,	V_196
+"EOF"	,	L_148
+pi_uid	,	V_29
+"NAD following"	,	L_166
+"No chaining"	,	L_28
+rqst_frame	,	V_207
+hf_iso14443_propr_coding	,	V_31
+TFS	,	F_63
+"iso14443.i_block_chaining"	,	L_163
+hf_iso14443_uid_complete	,	V_96
+hf_iso14443_min_tr0	,	V_149
+FT_BOOLEAN	,	V_254
+"iso14443.rats_start"	,	L_111
+hf_iso14443_min_tr1	,	V_150
+hf_iso14443_app_data	,	V_56
+": Anticollision"	,	L_13
+version	,	V_232
+hf_iso14443_min_tr2	,	V_66
+tvb_reported_length_remaining	,	F_16
+circuit_add_proto_data	,	F_27
+"iso14443.event"	,	L_37
+hf_iso14443_resp_in	,	V_209
+"Compliant with ISO 14443-4"	,	L_86
+": Select"	,	L_15
+"TC(1) transmitted"	,	L_121
+array_length	,	F_66
+ett_iso14443_msg	,	V_225
+trans	,	V_211
+sf_str	,	V_21
+"Minimum TR0"	,	L_144
+"iso14443.length_field"	,	L_39
+"Wrong CRC"	,	L_185
+"iso14443.propr_coding"	,	L_49
+"iso14443.hist_bytes"	,	L_138
+hf_iso14443_atqb_start	,	V_54
+gpointer	,	V_194
+"Extended ATQB"	,	L_62
+"SEL"	,	L_99
+dissect_iso14443_attrib	,	F_30
+tfs_nak_ack	,	V_183
+hf_register_info	,	T_15
+circuit_new	,	F_26
+true_string	,	V_76
+"iso14443.application_data"	,	L_71
+hf_iso14443_uid_cln	,	V_91
+"iso14443.block_number"	,	L_171
+I_BLOCK_TYPE	,	V_177
+"Unknown (0x%02x)"	,	L_30
+guint16	,	T_7
+": RATS"	,	L_22
+dissect_iso14443_ats	,	F_25
+has_nad	,	V_169
+code_to_len	,	V_63
+"Minimum TR1"	,	L_146
+": %s"	,	L_3
+hf_iso14443_tl	,	V_115
+"iso14443.attrib_start"	,	L_139
+hf_iso14443_bit_frame_anticoll	,	V_37
+hf_iso14443_cid_supported	,	V_78
+t0_tree	,	V_105
+CMD_TYPE_UNKNOWN	,	V_221
+ISO14443_EVT_DATA_PICC_TO_PCD_CRC_DROPPED	,	V_224
+"iso14443.atqa_rfu"	,	L_47
+ett_iso14443_attr_p2	,	V_154
+t	,	V_193
+ett_iso14443_attr_p3	,	V_156
+BASE_NONE	,	V_253
+col_append_sep_fstr	,	F_33
+"iso14443.t0"	,	L_120
+t0_it	,	V_102
+ett_iso14443_attr_p1	,	V_148
+"iso14443.pcb"	,	L_160
+hf_iso14443_n	,	V_85
+"ISO 14443"	,	L_32
+hf_iso14443_short_frame	,	V_23
+"iso14443.ta1"	,	L_136
+"Response In"	,	L_40
+wmem_tree_new_autoreset	,	F_72
+p2_tree	,	V_143
+ett_iso14443_hdr	,	V_242
+"iso14443.num_afi_apps"	,	L_73
+"iso14443.nak"	,	L_169
+"Event"	,	L_36
+": ATQA 0x%04x"	,	L_5
+"wtap_encap"	,	L_192
+HAVE_TA1	,	V_123
+BASE_HEX	,	V_248
+PROTO_ITEM_SET_GENERATED	,	F_14
+proto_item_add_subtree	,	F_17
+packet_len	,	V_228
+proto_register_field_array	,	F_65
+"Start byte"	,	L_68
+FT_BYTES	,	V_259
+ret	,	V_223
+dissect_iso14443_cmd_type_wupa	,	F_8
+ei	,	V_264
+dissector_add_uint	,	F_75
+dissect_iso14443_cmd_type_wupb	,	F_20
+ISO14443_CIRCUIT_ID	,	V_111
+CMD_TYPE_UID	,	V_218
+FT_UINT16	,	V_250
+HAVE_TB1	,	V_125
+iso14443_tree	,	V_236
+expert_iso14443	,	V_268
+"RATS"	,	L_21
+wmem_tree_lookup32_le	,	F_47
+tvb_captured_length	,	F_54
+cid	,	V_134
+"iso14443.atqb_start"	,	L_69
+"iso14443.ct"	,	L_106
+"RFU"	,	L_46
+expert_add_info	,	F_7
+HAVE_TC1	,	V_129
+"Bit frame anticollision"	,	L_56
+pcb	,	V_161
+": HLTA"	,	L_11
+"PUPI"	,	L_140
+"iso14443.fsc"	,	L_130
+proto_register_iso14443	,	F_61
+offset_ver	,	V_229
+hf_iso14443_atqa_rfu1	,	V_30
+CRC_LEN	,	V_11
+"iso14443.resp_in"	,	L_41
+tfs_incomplete_complete	,	V_258
+hf_iso14443_atqa_rfu2	,	V_36
+CT_BYTE	,	V_88
+hf_iso14443_s_blk_cmd	,	V_186
+PI_WARN	,	V_266
+iso14443_set_addrs	,	F_37
+iso14443_type_t	,	T_5
+"iso14443.fsd"	,	L_115
+inf_tree	,	V_167
+FT_UINT32	,	V_255
+CMD_TYPE_HLTA	,	V_215
+ett_iso14443_prot_type	,	V_65
+hf	,	V_246
+"iso14443.total_num_apps"	,	L_75
+nad_supported	,	V_47
+"Bit rate capability"	,	L_78
+"NVB"	,	L_101
+iso14443_get_cmd_type	,	F_48
+ISO14443_A	,	V_8
+ISO14443_B	,	V_9
+bt_str	,	V_163
+proto_tree_add_subtree	,	F_51
+crc_calc	,	V_7
+col_set_str	,	F_12
+prot_inf_tree	,	V_43
+"SOF"	,	L_150
+offset_evt	,	V_230
+hf_iso14443_block_type	,	V_176
+"iso14443.cmd_type"	,	L_190
+"SAK"	,	L_16
+"iso14443.inf"	,	L_179
+"Select"	,	L_14
+"Block number"	,	L_170
+byte	,	V_203
+hf_iso14443_apf	,	V_81
+"Response To"	,	L_42
+hf_iso14443_hist_bytes	,	V_132
+"Application Family Identifier"	,	L_60
+hf_iso14443_tc1_transmitted	,	V_118
+it	,	V_204
+transactions	,	V_206
+"iso14443.ext_atqb"	,	L_63
+hf_iso14443_cid_following	,	V_179
+pcb_tree	,	V_166
+"N"	,	L_66
+prot_inf_len	,	V_53
+"ATS"	,	L_19
+val_to_str	,	F_34
+cmd	,	V_220
+"Anticollision prefix"	,	L_58
+circuit	,	V_97
+dissector_handle_t	,	T_18
+"iso14443.param4"	,	L_156
+VALS	,	F_62
+"iso14443.bcc"	,	L_110
+close_circuit	,	F_60
+dissect_iso14443	,	F_55
+hf_iso14443_crc	,	V_10
+hf_iso14443_resp_to	,	V_210
+"NAK/ACK"	,	L_168
+BASE_DEC	,	V_251
+"Length field"	,	L_38
+"Block number %d"	,	L_29
+ADDR_PCD	,	V_200
+try_val_to_str	,	F_10
+"iso14443.param3"	,	L_154
+prot_inf_it	,	V_40
+app_data_tree	,	V_42
+ENC_NA	,	V_90
+"Protocol info"	,	L_76
+"iso14443.block_type"	,	L_162
+iso14443_get_transaction	,	F_41
+"Command"	,	L_172
+"%s"	,	L_9
+"iso14443.tb1"	,	L_134
+hf_iso14443_fwi	,	V_68
+crc_recv	,	V_6
+"UID_CLn"	,	L_107
+wmem_tree_lookup32	,	F_43
+IS_DATA_TRANSFER	,	F_38
+"iso14443.apf"	,	L_59
+tc1_it	,	V_104
+prot_type_tree	,	V_44
+expert_register_protocol	,	F_68
+"iso14443.resp_to"	,	L_43
+"Total number of applications"	,	L_74
+ett_iso14443_ats_t0	,	V_117
+cid_supported	,	V_48
+ett_iso14443_inf	,	V_190
+"INF"	,	L_178
+guint	,	V_114
+ett	,	V_263
+"iso14443.max_frame_size_code"	,	L_81
+p3_tree	,	V_144
+atqa	,	V_28
+hf_iso14443_tb1_transmitted	,	V_119
+payload_tvb	,	V_238
+packet_info	,	T_3
+dissect_iso14443_crc	,	F_1
+hf_iso14443_bit_rate_cap	,	V_59
+fwi	,	V_50
+"iso14443.max_frame_size"	,	L_55
+"iso14443.tl"	,	L_118
+": SAK"	,	L_17
+EXPFILL	,	V_267
+fsci	,	V_100
+dst	,	V_201
+CMD_TYPE_WUPA	,	V_213
+"iso14443.tc1"	,	L_132
+hf_iso14443_prot_type	,	V_64
+" (wrong)"	,	L_2
+"Application data"	,	L_70
+dissect_iso14443_cmd_type_hlta	,	F_22
+"ISO/IEC 14443"	,	L_188
+"Application Data Coding"	,	L_92
+hf_iso14443_sof	,	V_152
+"iso14443.nad_following"	,	L_167
+P2P_DIR_SENT	,	V_20
+CMD_TYPE_WUPB	,	V_214
+"UID complete"	,	L_103
+": Response to Attrib"	,	L_26
+HFILL	,	V_249
+"ATQA"	,	L_4
+len_field	,	V_234
+"WUPB/REQB"	,	L_64
+mbli	,	V_158
+tb1_tree	,	V_106
+src	,	V_198
+wmem_new	,	F_44
+gchar	,	T_10
+"iso14443.uid_size"	,	L_53
+pi_uid_size	,	V_33
+create_dissector_handle	,	F_76
+S_BLOCK_TYPE	,	V_185
+"CRC"	,	L_180
+s_cmd	,	V_170
+"iso14443.crc"	,	L_181
+pi	,	V_51
+rem_len	,	V_46
+"ATQB"	,	L_6
+"Unknown ISO1443 command"	,	L_183
+hf_iso14443_fsc	,	V_122
+"iso14443.cmd.unknown"	,	L_182
+tc1_tree	,	V_107
+"Param 1"	,	L_142
+hf_iso14443_fsd	,	V_137
+proto_register_protocol	,	F_64
+dissector_try_uint_new	,	F_52
+"iso14443.ta1_transmitted"	,	L_126
+"iso14443.fsdi"	,	L_113
+wmem_tree_insert32	,	F_46
+"iso14443.mbli"	,	L_158
+tvb_new_subset_remaining	,	F_59
+"Version"	,	L_34
+AT_STRINGZ	,	V_199
+"iso14443.bit_rate_cap"	,	L_79
+gint	,	T_2
+CMD_TYPE_ATS	,	V_217
+"WTXM"	,	L_176
+tfs_iso_propr	,	V_257
+msg_tree	,	V_222
+tvb	,	V_1
+hf_iso14443_nak	,	V_184
+fsdi	,	V_133
+hdr_tree	,	V_237
+COL_INFO	,	V_26
+"Anticollision"	,	L_12
+"Param 2"	,	L_151
+wmem_epan_scope	,	F_73
+hf_iso14443_uid_bits	,	V_32
+p1_it	,	V_139
+"iso14443.uid_cln"	,	L_108
+tree_ti	,	V_235
+iso14443_s_block_cmd	,	V_187
+cinfo	,	V_25
+"iso14443"	,	L_189
+"iso14443.short_frame"	,	L_45
+tfs_set_notset	,	V_261
+t0	,	V_99
+hf_iso14443_4_compl_atqb	,	V_67
+"iso14443.adc"	,	L_93
+sfgi	,	V_101
+"Response to Attrib"	,	L_25
+tfs_compliant_not_compliant	,	V_256
+iso14443_event	,	V_239
+hf_iso14443_eof	,	V_151
+iso14443_cmd_type_table	,	V_226
+hf_iso14443_hdr_ver	,	V_243
+"iso14443.fsci"	,	L_128
+"iso14443.cid"	,	L_116
+hf_iso14443_mbli	,	V_160
+"Message"	,	L_31
+"iso14443.wupb"	,	L_65
+COL_PROTOCOL	,	V_240
+GUINT_TO_POINTER	,	F_28
+hf_iso14443_ct	,	V_89
+S_CMD_NONE	,	V_171
+iso14443_adc	,	V_52
+"NAD"	,	L_94
+"PCB"	,	L_159
+guint8	,	T_9
+hf_iso14443_afi	,	V_71
+"iso14443.pupi"	,	L_141
+circuit_t	,	T_12
+iso14443_cmd_t	,	T_14
+ti	,	V_15
+tl	,	V_98
+hf_iso14443_event	,	V_244
+hf_iso14443_fsci	,	V_121
+"CT"	,	L_105
+proto_iso14443	,	V_113
+register_dissector	,	F_71
+"iso14443.crc.wrong"	,	L_184
+offset_tl	,	V_108
+hf_iso14443_cid	,	V_138
+"iso14443.param2"	,	L_152
+tvbuff_t	,	T_1
+p2_it	,	V_140
+proto_tree_add_protocol_format	,	F_58
+app_data_it	,	V_39
+"iso14443.hlta"	,	L_98
+dissect_iso14443_uid_part	,	F_23
+tvb_get_ntohs	,	F_56
+p1_tree	,	V_142
+"Maximum frame size"	,	L_54
+gboolean	,	T_11
+hf_iso14443_num_afi_apps	,	V_72
+ei_iso14443_wrong_crc	,	V_13
+hf_iso14443_pcb	,	V_174
+"iso14443.protocol_type"	,	L_83
+iso14443_handle	,	V_269
+"BCC"	,	L_109
+tfs_not_required_required	,	V_260
+proto_tree_add_boolean_bits_format_value	,	F_19
+crc_dropped	,	V_38
+"iso14443.cid_supported"	,	L_97
+hf_iso14443_ta1_transmitted	,	V_120
+"iso14443.param1"	,	L_143
+"FWI"	,	L_88
+WTAP_ENCAP_ISO14443	,	V_271
+hf_iso14443_adc	,	V_69
+tvb_get_guint8	,	F_11
+circuit_get_proto_data	,	F_36
+msg_type	,	V_80
+resp_frame	,	V_208
+cmd_type_handle	,	V_270
+ett_iso14443_ats_tc1	,	V_131
+"iso14443.afi"	,	L_61
+PINFO_FD_VISITED	,	F_42
+crc_offset	,	V_2
+ett_iso14443	,	V_241
+"iso14443.nvb"	,	L_102
+"Historical bytes"	,	L_137
+"iso14443.tc1_transmitted"	,	L_122
+param	,	V_79
+": Attrib"	,	L_24
+"TA(1) transmitted"	,	L_125
+S_CMD_WTX	,	V_189
+"Protocol type"	,	L_82
+ett_iso14443_ats_tb1	,	V_127
+hf_iso14443_wupb	,	V_83
+hf_iso14443_sel	,	V_93
+event_str	,	V_233
+proto_tree_add_uint_bits_format_value	,	F_18
+dissect_iso14443_cmd_type_uid	,	F_24
+"FSC"	,	L_129
+ett_iso14443_pcb	,	V_175
+ENC_BIG_ENDIAN	,	V_24
+"HLTA"	,	L_10
+hf_iso14443_nad_following	,	V_180
+"Attrib"	,	L_23
+dissect_iso14443_cmd_type_attrib	,	F_31
+"iso14443.tb1_transmitted"	,	L_124
+ett_iso14443_app_data	,	V_70
+"Max frame size code"	,	L_80
+hl_resp_len	,	V_159
+R_BLOCK_TYPE	,	V_182
+inf_ti	,	V_165
+hf_iso14443_blk_num	,	V_181
+"iso14443.4_compliant"	,	L_87
+uid_size	,	V_18
+dissect_iso14443_msg	,	F_50
+"UID bits"	,	L_50
+block_type	,	V_162
+": ATS"	,	L_20
+"iso14443.n"	,	L_67
+hf_iso14443_rats_start	,	V_135
+hf_iso14443_bcc	,	V_92
+"FSD"	,	L_114
+hf_iso14443_total_num_apps	,	V_73
+"UID"	,	L_18
+" (correct)"	,	L_1
+ei_iso14443_uid_inval_size	,	V_35
+"Proprietary coding"	,	L_48
+crc_pi	,	V_5
+max_frame_size_code	,	V_49
+hf_iso14443_wtxm	,	V_192
+"iso14443.uid_bits"	,	L_51
+proto_item_append_text	,	F_6
+hf_iso14443_uid_size	,	V_34
+hf_iso14443_pupi	,	V_55
+"Format byte T0"	,	L_119
+"Short frame"	,	L_44
+": ATQB"	,	L_7
+col_clear	,	F_57
+"iso14443.protocol_info"	,	L_77
+tfs_true_false	,	V_262
+proto_register_subtree_array	,	F_67
+app_data_offset	,	V_45
+hf_iso14443_attrib_start	,	V_146
+"Interface byte TB1"	,	L_133
+hf_iso14443_max_frame_size_code	,	V_60
+ei_iso14443_unknown_cmd	,	V_227
+"Pseudo header"	,	L_33
+proto_tree_add_item	,	F_5
+"iso14443.bit_frame_anticoll"	,	L_57
+pinfo	,	V_3
+_U_	,	V_14
+iso14443_short_frame	,	V_22
+hl_inf_len	,	V_145
+first_byte	,	V_212
+GPOINTER_TO_UINT	,	F_21
+"iso14443.cid_following"	,	L_165
+prot_type_it	,	V_41
+pcb_ti	,	V_164
+inf_len	,	V_172
+dissect_iso14443_cmd_type_ats	,	F_29
+event	,	V_195
+PI_PROTOCOL	,	V_265
+proto_reg_handoff_iso14443	,	F_74
+p3_it	,	V_141
+"Power level indication"	,	L_174
+hf_iso14443_len_field	,	V_245
+FT_UINT8	,	V_247
+"FSDI"	,	L_112
+proto_item	,	T_6
+tfs_supported_not_supported	,	V_75
+expert_register_field_array	,	F_69
+hf_iso14443_inf	,	V_188
+CMD_TYPE_ATTRIB	,	V_216
+"Length byte TL"	,	L_117
+"Chaining"	,	L_27
+iso14443_trans	,	V_205
+find_circuit	,	F_35
+"Interface byte TC1"	,	L_131
+"iso14443.wtxm"	,	L_177
+ENC_LITTLE_ENDIAN	,	V_12
+register_dissector_table	,	F_70
+data	,	T_8
+num	,	V_112
+iso14443_transaction_t	,	T_13
+"Number of applications for this AFI"	,	L_72
+hf_iso14443_ext_atqb	,	V_82
+"iso14443.sel"	,	L_100
+"TB(1) transmitted"	,	L_123
+"iso14443.min_tr1"	,	L_147
+ei_register_info	,	T_16
+"UID size"	,	L_52
+"CID"	,	L_96
+"ISO14443 Command Type"	,	L_191
+ett_iso14443_prot_inf	,	V_58
+hf_iso14443_fsdi	,	V_136
+tvb_get_letohs	,	F_2
+"CID following"	,	L_164
+hf_iso14443_nvb	,	V_94
+offset	,	V_16
+P2P_DIR_RECV	,	V_27
+hf_iso14443_nad_supported	,	V_74
+expert_module_t	,	T_17
+hf_iso14443_max_frame_size	,	V_62
+tree	,	V_4
+"FSCI"	,	L_127
+hf_iso14443_tc1	,	V_130
+"iso14443.min_tr0"	,	L_145
+hf_iso14443_t0	,	V_116
+"iso14443.uid.invalid_size"	,	L_186
+CT_ISO14443	,	V_110
+uid_len	,	V_87
+hf_iso14443_param1	,	V_147
+crc16_ccitt_tvb_offset	,	F_4
+hf_iso14443_param3	,	V_155
+"iso14443.sfgi"	,	L_91
+hf_iso14443_param2	,	V_153
+hf_iso14443_param4	,	V_157
+proto_tree_add_uint	,	F_13
+hf_iso14443_i_blk_chaining	,	V_178
+hf_iso14443_prot_inf	,	V_57
+proto_tree_add_expert	,	F_53
+"Param 3"	,	L_153
+set_address	,	F_39
+offset_len_field	,	V_231
+hist_len	,	V_109
+"MBLI"	,	L_157
+iso14443_block_pcb	,	F_40
+"%d"	,	L_8
+hf_iso14443_tb1	,	V_126
+tfs_wupb_reqb	,	V_84
+LEN_CODE_MAX	,	V_61
+CMD_TYPE_BLOCK	,	V_219
+"iso14443.eof"	,	L_149
+proto_tree_get_parent	,	F_9
+wmem_file_scope	,	F_45
+"SFGI"	,	L_90
+p2p_dir	,	V_19
+"iso14443.uid_complete"	,	L_104
+"Param 4"	,	L_155
+"iso14443.hdr_version"	,	L_35
+false_string	,	V_77
+"Block type"	,	L_161
+FT_FRAMENUM	,	V_252
+"iso14443.min_tr2"	,	L_85
+"Invalid UID size"	,	L_187
+uid_bits	,	V_17
+hf_iso14443_ta1	,	V_124
+hf_iso14443_sfgi	,	V_128
+ISO14443_EVT_DATA_PCD_TO_PICC_CRC_DROPPED	,	V_197
+"Interface byte TA1"	,	L_135
+hf_iso14443_hlta	,	V_86
+proto_tree	,	T_4
+dissect_iso14443_atqb	,	F_15

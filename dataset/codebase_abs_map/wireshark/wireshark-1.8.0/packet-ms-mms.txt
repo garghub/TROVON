@@ -1,0 +1,368 @@
+dissect_msmms_command	,	F_4
+"Sequence number"	,	L_37
+pt	,	V_94
+hf_msmms_command_direction	,	V_43
+proto_register_protocol	,	F_44
+dissect_client_transport_info	,	F_18
+"Password encryption type length"	,	L_64
+"Tool version"	,	L_68
+server_version	,	V_105
+"msmms.command.strange-string"	,	L_91
+SERVER_COMMAND_START_SENDING_FROM	,	V_46
+"Prefix 1"	,	L_46
+"Version"	,	L_27
+"msmms.data.prerecorded-media-length"	,	L_87
+len	,	V_99
+gint	,	T_1
+"Packet length"	,	L_107
+ipaddr	,	V_86
+"UDP Sequence"	,	L_115
+to_server_command_vals	,	V_30
+hf_msmms_command_password_type	,	V_117
+tvb	,	V_1
+dissect_server_info	,	F_28
+NO_ADDR_B	,	V_145
+"msmms.data.packet-length"	,	L_108
+guint32	,	T_6
+COL_INFO	,	V_22
+"MSMMS command common header"	,	L_26
+desegment_offset	,	V_17
+"msmms.data.packet-id-type"	,	L_106
+"msmms.data.selection-stream-action"	,	L_99
+tvb_reported_length_remaining	,	F_7
+"Prefix 2"	,	L_52
+command_id	,	V_13
+cinfo	,	V_20
+hf_msmms_data_timing_pair_flag	,	V_82
+"msmms.command.to-client-id"	,	L_43
+server_file	,	V_123
+array_length	,	F_46
+PT_NONE	,	V_95
+broadcast_indexing_vals	,	V_164
+hf_msmms_command_to_server_id	,	V_41
+hf_msmms_command_client_player_info	,	V_119
+password_encryption_type_length	,	V_104
+""	,	L_3
+length_remaining	,	V_16
+"msmms.data.timing-pair.id"	,	L_125
+" (%s)"	,	L_16
+port_type	,	T_11
+SERVER_COMMAND_CANCEL_PROTOCOL	,	V_47
+"msmms.command.server-version-length"	,	L_59
+PT_TCP	,	V_69
+hf_msmms_data_packet_length	,	V_76
+ENC_ASCII	,	V_24
+server_version_length	,	V_101
+hf_msmms_command_length_remaining	,	V_37
+"msmms.command.to-server-id"	,	L_42
+PROTO_ITEM_SET_HIDDEN	,	F_10
+tool_version_length	,	V_102
+broadcast_liveness_vals	,	V_165
+fields_matched	,	V_89
+hf_register_info	,	T_14
+ett_msmms_command	,	V_27
+"msmms.command.length-remaining"	,	L_36
+"Command common header"	,	L_24
+"seq=%03u: %s %s"	,	L_9
+"msmms.command.server-version"	,	L_67
+hf_msmms_command_tool_version	,	V_115
+"Number of 4 byte fields in structure"	,	L_74
+guint16	,	T_7
+"msmms.data.timing-pair.flags"	,	L_123
+COL_PROTOCOL	,	V_21
+address	,	T_12
+"client"	,	L_7
+"msmms.data.command-id"	,	L_112
+hf_msmms_data_header_id	,	V_60
+"Stream id"	,	L_96
+"msmms.data.media-packet-length"	,	L_89
+hf_msmms_command_signature	,	V_33
+hf_msmms_data_timing_pair_seqno	,	V_79
+tvb_get_ephemeral_unicode_string	,	F_35
+n	,	V_136
+dissect_client_player_info	,	F_19
+hf_msmms_data	,	V_71
+sequence_number	,	V_12
+"Result flags"	,	L_80
+"Packet ID type"	,	L_105
+"msmms.data.timing-pair.flag"	,	L_127
+TO_SERVER	,	V_29
+guint8	,	T_9
+server_to_client_error_vals	,	V_161
+"Strange string"	,	L_90
+"msmms.command.tool-version-length"	,	L_61
+ti	,	V_9
+BASE_NONE	,	V_152
+"Password encryption type"	,	L_72
+"Data timing pair"	,	L_119
+hf_msmms_command_protocol_type	,	V_36
+stream_selection_action_vals	,	V_166
+"msmms.data.tcp-flags"	,	L_118
+"msmms.data.unparsed"	,	L_130
+player_info	,	V_118
+hf_msmms_command_prefix1	,	V_90
+hf_msmms_command_prefix2	,	V_91
+format_text	,	F_36
+"Microsoft Media Server"	,	L_131
+tvbuff_t	,	T_2
+"Time stamp (s)"	,	L_39
+"Command direction"	,	L_44
+conversation_set_dissector	,	F_41
+hf_msmms_command_stream_structure_count	,	V_132
+BASE_HEX	,	V_157
+FT_UINT24	,	V_168
+"Client transport info"	,	L_54
+desegment_len	,	V_18
+"msmms.data.timing-pair.sequence-number"	,	L_121
+proto_item_add_subtree	,	F_11
+"Data: seq=%05u, len=%05u"	,	L_14
+"Client ID"	,	L_76
+download_update_player_length	,	V_103
+"msmms.data.selection-stream-id"	,	L_97
+proto_register_field_array	,	F_45
+"msmms.data.header-id"	,	L_110
+"msmms.data.timing-pair"	,	L_120
+hf_msmms_command_server_version	,	V_114
+"msmms.command.common-header"	,	L_25
+"msmms.data.packet-to-resend"	,	L_114
+dissector_add_uint	,	F_51
+"msmms.command.length-remaining2"	,	L_41
+length_of_command	,	V_15
+ett_msmms_data_timing_packet_pair	,	V_78
+packet_length_found	,	V_67
+FT_UINT16	,	V_159
+"msmms.data.stream-selection-flags"	,	L_95
+"Packet to resend"	,	L_113
+to_client_command_vals	,	V_31
+proto_tree_add_string_format	,	F_13
+port	,	V_88
+fd	,	V_140
+hf_msmms_command_media_packet_length	,	V_129
+strange_string	,	V_130
+"msmms.command.download-update-player-url"	,	L_71
+"Stream structure count"	,	L_92
+dissect_transport_info_response	,	F_32
+proto_msmms	,	V_26
+hf_msmms_command_sequence_number	,	V_38
+SERVER_COMMAND_TRANSPORT_INFO	,	V_44
+FT_STRING	,	V_151
+"Prefix 1 Command Level"	,	L_50
+password_encryption_type	,	V_108
+tool_version	,	V_106
+conversation_new	,	F_40
+hf_msmms_command_broadcast_liveness	,	V_127
+"Protocol type"	,	L_33
+"msmms.command.password-encryption-type"	,	L_73
+transport_info	,	V_85
+"msmms.command"	,	L_22
+find_dissector	,	F_50
+"TCP flags"	,	L_117
+hf_msmms_command_length_remaining2	,	V_40
+"Header ID"	,	L_109
+AT_NONE	,	V_143
+FT_DOUBLE	,	V_158
+"MMS"	,	L_8
+hf_msmms_data_packet_id_type	,	V_73
+"Player info"	,	L_56
+FT_UINT32	,	V_155
+"msmms.command.player-info"	,	L_57
+"msmms.command.result-flags"	,	L_81
+"server"	,	L_6
+proto_register_msmms	,	F_42
+dissect_request_server_file	,	F_23
+proto_reg_handoff_msmms_command	,	F_49
+visited	,	V_142
+hf_msmms_command_prefix1_error	,	V_109
+hf	,	V_150
+"msmms.data"	,	L_103
+hf_msmms_data_timing_pair_id	,	V_81
+hf_msmms_data_command_id	,	V_62
+SERVER_COMMAND_CONNECT_INFO	,	V_45
+"Server file"	,	L_78
+"msmms.command.tool-version"	,	L_69
+hf_msmms_stream_selection_stream_id	,	V_134
+hf_msmms_command_header_packet_id_type	,	V_137
+"msmms.command.broadcast-liveness"	,	L_85
+col_append_fstr	,	F_17
+ett_msmms_command_common_header	,	V_32
+"ID"	,	L_124
+msmms_data_timing_pair	,	V_65
+col_set_str	,	F_8
+NO_ADDR2	,	V_147
+"Flags"	,	L_122
+"Pre-recorded media length (seconds)"	,	L_86
+hf_msmms_command_common_header	,	V_28
+"msmms.command.protocol-type"	,	L_34
+"Command signature"	,	L_29
+"Flag"	,	L_126
+guchar	,	V_93
+hf_msmms_command_timestamp	,	V_39
+hf_msmms_data_packet_to_resend	,	V_64
+p_conv	,	V_139
+"msmms.data.client-id"	,	L_77
+SERVER_COMMAND_NETWORK_TIMER_TEST_RESPONSE	,	V_50
+"msmms.command.prefix1"	,	L_47
+dissect_msmms_data_udp_command	,	F_5
+packet_length	,	V_66
+"Unparsed data"	,	L_129
+proto_register_subtree_array	,	F_47
+command_direction_vals	,	V_160
+gint32	,	T_8
+val_to_str	,	F_14
+proto_tree_add_string	,	F_33
+dissect_msmms_pdu	,	F_1
+msmms_common_command_tree	,	V_11
+"Command ID"	,	L_111
+hf_msmms_command_length	,	V_35
+proto_tree_add_item	,	F_9
+pinfo	,	V_2
+col_add_fstr	,	F_34
+"Data"	,	L_102
+dissect_media_stream_mbr_selector	,	F_25
+"Download update URL length"	,	L_62
+flags	,	V_141
+hf_msmms_command_update_url_length	,	V_112
+hf_msmms_command_version	,	V_154
+new_register_dissector	,	F_48
+SERVER_COMMAND_STOP_BUTTON_PRESSED	,	V_53
+hf_msmms_command_server_version_length	,	V_110
+"msmms.data.words-in-structure"	,	L_75
+"MSMMS command hidden filter"	,	L_23
+"msmms.command.version"	,	L_28
+hf_msmms_data_client_id	,	V_61
+hf_msmms_data_udp_sequence	,	V_74
+hf_msmms_command_update_url	,	V_116
+CLIENT_COMMAND_SENDING_HEADER_RESPONSE	,	V_57
+"msmms.command.server-file"	,	L_79
+AT_IPv4	,	V_98
+VALS	,	F_43
+"msmms.data.stream-structure-count"	,	L_93
+msmms_handle	,	V_149
+SERVER_COMMAND_MEDIA_STREAM_MBR_SELECTOR	,	V_51
+hf_msmms_data_unparsed	,	V_84
+"Stream selection flags"	,	L_94
+dissect_header_response	,	F_31
+dissect_start_sending_from_info	,	F_20
+tvb_get_ephemeral_string	,	F_15
+"msmms.command.password-encryption-type-length"	,	L_65
+find_conversation	,	F_39
+tvb_length	,	F_2
+hf_msmms_data_sequence_number	,	V_72
+download_update_player	,	V_107
+"msmms.command.sequence-number"	,	L_38
+FT_UINT8	,	V_163
+"msmms.data.sequence"	,	L_104
+hf_msmms_command_client_id	,	V_122
+BASE_DEC	,	V_156
+"--&gt;"	,	L_10
+proto_item	,	T_5
+"Server version"	,	L_66
+hf_msmms_data_timing_pair	,	V_77
+"msmms.command.client-transport-info"	,	L_55
+MSMMS_PORT	,	V_7
+ENC_NA	,	V_25
+command_dir	,	V_14
+hf_msmms_data_tcp_flags	,	V_75
+hf_msmms_command_password_type_length	,	V_113
+"msmms.command.broadcast-indexing"	,	L_83
+packet_number	,	V_63
+"msmms.command.prefix1-error-code"	,	L_49
+ENC_LITTLE_ENDIAN	,	V_34
+"msmms.data.udp-sequence"	,	L_116
+"Command"	,	L_21
+SERVER_COMMAND_TIMING_TEST_DATA_REQUEST	,	V_48
+NO_PORT2	,	V_148
+data	,	V_100
+"%s (to %s)"	,	L_4
+num	,	V_144
+NO_PORT_B	,	V_146
+null_addr	,	V_138
+"Server Version Length"	,	L_58
+dissect_timing_test_request	,	F_22
+SET_ADDRESS	,	F_38
+"Command length"	,	L_31
+protocol	,	V_87
+"msmms.command.timestamp"	,	L_40
+octets	,	V_96
+tvb_get_letohl	,	F_3
+hf_msmms_command_strange_string	,	V_131
+tvb_get_letohs	,	F_12
+conversation_t	,	T_13
+"msmms.command.length"	,	L_32
+guint	,	T_10
+FT_NONE	,	V_167
+offset	,	V_8
+ett	,	V_169
+"TCP"	,	L_19
+dissect_stop_button_pressed	,	F_27
+hf_msmms_command_number_of_words	,	V_121
+tree	,	V_3
+msmms_tree	,	V_10
+PT_UDP	,	V_5
+"Length until end (8-byte blocks)"	,	L_35
+hf_msmms_command_broadcast_indexing	,	V_126
+"msmms.command.download-update-player-url-length"	,	L_63
+packet_info	,	T_3
+dissect_msmms_data	,	F_6
+hf_msmms_data_timing_pair_packet_length	,	V_83
+dissect_header_request	,	F_26
+hf_msmms_stream_selection_flags	,	V_133
+"MSMMS"	,	L_1
+destport	,	V_6
+hf_msmms_command_client_transport_info	,	V_92
+"Command: "	,	L_2
+dissect_network_timer_test_response	,	F_24
+hf_msmms_command_recorded_media_length	,	V_128
+CLIENT_COMMAND_TRANSPORT_INFO_ACK	,	V_58
+"msmms.command.direction"	,	L_45
+"Broadcast indexing"	,	L_82
+hf_msmms_command_prefix1_command_level	,	V_120
+"UDP"	,	L_18
+msmms_data_add_address	,	F_37
+"msmms.data.timing-pair.packet-length"	,	L_128
+hf_msmms_stream_selection_action	,	V_135
+ptype	,	V_4
+DESEGMENT_ONE_MORE_SEGMENT	,	V_19
+media_result_flags_vals	,	V_162
+"Media packet length (bytes)"	,	L_88
+"Action"	,	L_98
+dissect_cancel_info	,	F_21
+tcp_flags_vals	,	V_70
+"%*c%*c%u.%u.%u.%u%*c%3s%*c%u"	,	L_17
+"msmms.command.prefix2"	,	L_53
+hf_msmms_command	,	V_23
+CLIENT_COMMAND_SERVER_INFO	,	V_54
+" (version='%s')"	,	L_20
+"Request to resend packet(s):"	,	L_12
+ett_msmms_data	,	V_59
+hf_msmms_command_tool_version_length	,	V_111
+"Header packet ID type"	,	L_100
+" %u"	,	L_13
+hf_msmms_data_timing_pair_flags	,	V_80
+addr	,	V_97
+HFILL	,	V_153
+"Tool Version Length"	,	L_60
+value	,	V_68
+CLIENT_COMMAND_TIMING_TEST_DATA_RESPONSE	,	V_55
+SERVER_COMMAND_REQUEST_SERVER_FILE	,	V_49
+SERVER_COMMAND_HEADER_REQUEST	,	V_52
+"Broadcast liveness"	,	L_84
+"Prefix 1 ErrorCode"	,	L_48
+"Download update player URL"	,	L_70
+"udp.port"	,	L_134
+hf_msmms_command_server_file	,	V_124
+CLIENT_COMMAND_MEDIA_DETAILS	,	V_56
+"msmms"	,	L_132
+"&lt;--"	,	L_11
+proto_item_set_len	,	F_16
+"msmms.command.signature"	,	L_30
+"msmms.data.header-packet-id-type"	,	L_101
+"msmms.command.prefix1-command-level"	,	L_51
+"Transport: (%s)"	,	L_15
+hf_msmms_command_result_flags	,	V_125
+"Unknown"	,	L_5
+"tcp.port"	,	L_133
+proto_tree	,	T_4
+dissect_timing_test_response	,	F_29
+hf_msmms_command_to_client_id	,	V_42
+dissect_media_details	,	F_30

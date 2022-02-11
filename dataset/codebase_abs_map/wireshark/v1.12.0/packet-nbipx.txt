@@ -1,0 +1,214 @@
+IPX_SOCKET_NETBIOS	,	V_79
+"nmpi.name_flags.in_use"	,	L_14
+proto_register_protocol	,	F_26
+hf_nbipx_session_src_conn_id	,	V_48
+"nmpi"	,	L_68
+tvb_reported_length	,	F_8
+"nmpi.conn_control.sys_packet"	,	L_24
+tvb_new_subset_remaining	,	F_20
+gint	,	T_9
+nmpi_tree	,	V_80
+name_type_flag_tree	,	V_14
+"Name type flag"	,	L_10
+TFS	,	F_25
+tvb	,	V_2
+guint32	,	T_3
+COL_INFO	,	V_24
+FT_BOOLEAN	,	V_69
+"In use"	,	L_13
+"nmpi.conn_control"	,	L_22
+proto_register_nmpi	,	F_35
+hf_nbipx_name_flags_registered	,	V_41
+"nmpi.name_flags.registered"	,	L_16
+"Destination connection ID"	,	L_35
+cinfo	,	V_22
+proto_reg_handoff_nbipx	,	F_30
+NETBIOS_NAME_LEN	,	V_17
+array_length	,	F_28
+hf_nbipx_conn_control	,	V_58
+"NMPI"	,	L_52
+next_tvb	,	V_20
+"Resend"	,	L_31
+proto_nbipx	,	V_32
+"Requested name"	,	L_65
+"Acknowledgement"	,	L_25
+"nmpi.conn_control.end_msg"	,	L_30
+hf_register_info	,	T_8
+"IPX Network: %s"	,	L_1
+hf_nbipx_session_dest_conn_id	,	V_49
+INAME_DELETE	,	V_87
+IPX_SOCKET_NWLINK_SMB_NAMEQUERY	,	V_98
+COL_PROTOCOL	,	V_23
+"nmpi.name_flags.deregistered"	,	L_20
+ipxh	,	V_21
+get_netbios_name	,	F_12
+dissect_conn_control	,	F_17
+i	,	V_4
+"Source connection ID"	,	L_33
+INAME_FOUND	,	V_89
+"nmpi.name_flags.group"	,	L_12
+"Sender's Name"	,	L_7
+guint8	,	V_7
+tf	,	V_15
+ti	,	V_12
+"ipx.socket"	,	L_51
+"nmpi.session.data_length"	,	L_44
+"Name Type: %s (0x%02x)"	,	L_63
+NBIPX_DIRECTED_DATAGRAM	,	V_56
+INAME_QUERY	,	V_88
+IPX_SOCKET_NWLINK_SMB_MAILSLOT	,	V_99
+tvbuff_t	,	T_2
+dissect_nbipx	,	F_5
+dissect_nmpi	,	F_33
+opcode	,	V_81
+tvb_memcpy	,	F_2
+BASE_HEX	,	V_67
+gboolean	,	T_5
+"Name %s&lt;%02x&gt; found"	,	L_56
+proto_item_add_subtree	,	F_11
+"Claim name %s&lt;%02x&gt;"	,	L_53
+IMSLOT_SEND	,	V_91
+"Data length"	,	L_43
+hf_nbipx_name_flags_group	,	V_39
+proto_register_field_array	,	F_27
+"nmpi.conn_control.attention"	,	L_28
+IMSLOT_FIND	,	V_92
+dissector_add_uint	,	F_32
+hf_nbipx_name_flags_deregistered	,	V_43
+nbipx_tree	,	V_11
+FT_UINT16	,	V_75
+hf_nbipx_session_data_length	,	V_53
+tvb_get_guint8	,	F_9
+"Mailslot name %s&lt;%02x&gt; found"	,	L_60
+"nmpi.conn_control.ack"	,	L_26
+name	,	V_16
+has_routes	,	V_10
+"nmpi.session.bytes_received"	,	L_48
+IMSG_HANGUP	,	V_90
+NBIPX_CHECK_NAME	,	V_29
+ipx_type	,	V_25
+"Duplicated"	,	L_17
+"nmpi.name_flags"	,	L_11
+NBIPX_SESSION_END_ACK	,	V_47
+proto_reg_handoff_nmpi	,	F_36
+tfs_required_not_required	,	V_74
+new_create_dissector_handle	,	F_31
+netbios_add_name	,	F_16
+val_to_str_const	,	F_14
+"NetBIOS over IPX"	,	L_49
+"Connection control"	,	L_21
+ett_nbipx_name_type_flags	,	V_38
+tfs_system_non_system	,	V_73
+tfs_group_unique_name	,	V_70
+"nmpi.packettype"	,	L_9
+dissect_netbios_payload	,	F_21
+hf	,	V_65
+hf_nbipx_session_send_seq_number	,	V_50
+"nmpi.session.recv_seq_number"	,	L_46
+"Source name"	,	L_66
+nmpi_handle	,	V_97
+"Messenger hangup on %s&lt;%02x&gt;"	,	L_57
+nmpi_opcode_vals	,	V_94
+col_set_str	,	F_6
+ipxhdr_t	,	T_7
+"Send sequence number"	,	L_37
+"Packet"	,	L_23
+nmpi_name_type_vals	,	V_95
+tfs_used_notused	,	V_71
+NBIPX_FIND_NAME	,	V_27
+"Find mailslot name %s&lt;%02x&gt;"	,	L_59
+col_clear	,	F_7
+proto_register_subtree_array	,	F_29
+"nmpi.conn_control.resend"	,	L_32
+hf_nbipx_conn_control_resend	,	V_64
+packet_type	,	V_13
+proto_tree_add_item	,	F_10
+pinfo	,	V_8
+col_add_fstr	,	F_13
+"nmpi.session.send_seq_number"	,	L_38
+dissector_handle_t	,	T_10
+"Mailslot write to %s&lt;%02x&gt;"	,	L_58
+ett_nbipx	,	V_34
+"nmpi.session.src_conn_id"	,	L_34
+NBIPX_SESSION_END	,	V_46
+NBIPX_NAME_IN_USE	,	V_30
+ipxnet_to_string	,	F_4
+VALS	,	F_24
+nbipx_handle	,	V_78
+"Name Management Protocol over IPX"	,	L_67
+"nmpi.session.dest_conn_id"	,	L_36
+"Unknown NMPI op 0x%02x: name %s&lt;%02x&gt;"	,	L_61
+hf_nbipx_session_recv_seq_number	,	V_54
+hf_nbipx_session_bytes_received	,	V_55
+tvb_length	,	F_22
+hf_nbipx_conn_control_attention	,	V_62
+FT_UINT8	,	V_66
+node_name	,	V_83
+"Delete name %s&lt;%02x&gt;"	,	L_54
+proto_tree_add_text	,	F_3
+BASE_DEC	,	V_76
+"Opcode: %s (0x%02x)"	,	L_62
+proto_item	,	T_6
+ENC_NA	,	V_33
+cc_tree	,	V_57
+ENC_LITTLE_ENDIAN	,	V_37
+tvb_offset_exists	,	F_19
+"End of message"	,	L_29
+"Packet Type"	,	L_8
+data	,	V_9
+"Registered"	,	L_15
+hf_nbipx_session_offset	,	V_52
+hf_nbipx_name_flags_duplicated	,	V_42
+proto_nmpi	,	V_84
+"Name"	,	L_5
+NBIPX_NAME_RECOGNIZED	,	V_28
+"Deregistered"	,	L_19
+nmpi_name_type	,	V_82
+IMSLOT_NAME	,	V_93
+router	,	V_6
+ett_nmpi_name_type_flags	,	V_96
+add_routers	,	F_1
+hf_nbipx_conn_control_sys_packet	,	V_60
+"Message ID: 0x%04x"	,	L_64
+proto_register_nbipx	,	F_23
+tvb_get_letohs	,	F_34
+offset	,	V_3
+ett	,	V_77
+tree	,	V_1
+"Attention"	,	L_27
+hf_nbipx_packettype	,	V_44
+hf_nbipx_conn_control_ack	,	V_61
+packet_info	,	T_4
+"Receive sequence number"	,	L_45
+tfs_yes_no	,	V_72
+"Offset"	,	L_41
+"nbipx"	,	L_50
+"Bytes received"	,	L_47
+hf_nbipx_session_total_data_length	,	V_51
+proto_tree_add_uint	,	F_15
+hf_nbipx_name_flags_in_use	,	V_40
+nbipx_data_stream_type_vals	,	V_35
+INAME_CLAIM	,	V_86
+NBIPX_SESSION_DATA	,	V_45
+"nmpi.session.total_data_length"	,	L_40
+IPX_PACKET_TYPE_WANBCAST	,	V_26
+has_payload	,	V_19
+"Receiver's Name"	,	L_6
+"nmpi.session.offset"	,	L_42
+"Total data length"	,	L_39
+ett_nmpi	,	V_85
+HFILL	,	V_68
+"nmpi.name_flags.duplicated"	,	L_18
+NBIPX_DEREGISTER_NAME	,	V_31
+name_type	,	V_18
+rtr_offset	,	V_5
+ett_nbipx_conn_ctrl	,	V_59
+create_dissector_handle	,	F_37
+hf_nbipx_name_flags	,	V_36
+hf_nbipx_conn_control_end_msg	,	V_63
+proto_item_set_len	,	F_18
+"%s %s&lt;%02x&gt;"	,	L_3
+"NBIPX"	,	L_2
+"Query name %s&lt;%02x&gt;"	,	L_55
+"Unknown"	,	L_4
+proto_tree	,	T_1

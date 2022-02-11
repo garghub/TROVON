@@ -1,0 +1,87 @@
+register_dissector	,	F_21
+tvb_get_ntohl	,	F_7
+proto_nwmtp	,	V_13
+G_MAXINT	,	V_24
+proto_register_protocol	,	F_17
+"MTP over NW UDP"	,	L_19
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_8
+ett_mwmtp	,	V_14
+"nwmtp.transp_type"	,	L_5
+tvb_reported_length	,	F_12
+len	,	V_10
+hf_nwmtp_data_index	,	V_18
+"nwmtp.data_type"	,	L_8
+gint	,	T_4
+col_set_str	,	F_2
+proto_item_add_subtree	,	F_9
+nwmtp_tree	,	V_9
+"nwmtp.data_length"	,	L_16
+proto_register_field_array	,	F_18
+"Use Context"	,	L_14
+tvb	,	V_1
+"Length"	,	L_15
+"Data Length"	,	L_17
+offset	,	V_4
+"NW MTP"	,	L_1
+guint32	,	T_7
+ett	,	V_32
+COL_INFO	,	V_7
+tree	,	V_3
+"nwmtp.link_index"	,	L_11
+hf_nwmtp_data_length	,	V_20
+"Link Index"	,	L_10
+FT_UINT16	,	V_30
+packet_info	,	T_2
+tvb_reported_length_remaining	,	F_4
+"NexusWare C7 UDP Protocol"	,	L_3
+col_clear	,	F_3
+tvb_get_guint8	,	F_6
+cinfo	,	V_5
+proto_register_subtree_array	,	F_20
+"nw_mtp"	,	L_20
+array_length	,	F_19
+"The Transport Type"	,	L_6
+next_tvb	,	V_11
+proto_tree_add_item	,	F_10
+mtp_handle	,	V_21
+call_dissector	,	F_13
+pinfo	,	V_2
+DISSECTOR_ASSERT	,	F_14
+"nwmtp.user_context"	,	L_13
+hf_nwmtp_data_type	,	V_17
+G_MAXUINT32	,	V_22
+tvb_new_subset_length	,	F_11
+nwmtp_data_type_vals	,	V_12
+hf_register_info	,	T_8
+proto_register_mwmtp	,	F_15
+VALS	,	F_16
+"NexusWare C7 MTP"	,	L_18
+dissector_add_for_decode_as	,	F_23
+dissect_nwmtp	,	F_1
+HFILL	,	V_29
+"Data Type"	,	L_7
+COL_PROTOCOL	,	V_6
+val_to_str_const	,	F_5
+nwmtp_handle	,	V_33
+"udp.port"	,	L_21
+gchar	,	T_5
+FT_UINT8	,	V_26
+find_dissector	,	F_24
+BASE_DEC	,	V_27
+proto_item	,	T_6
+proto_reg_handoff_nwmtp	,	F_22
+hf_nwmtp_transp_type	,	V_15
+"mtp3"	,	L_22
+hf_nwmtp_user_context	,	V_19
+"User Context"	,	L_12
+ENC_BIG_ENDIAN	,	V_16
+FT_UINT32	,	V_31
+ti	,	V_8
+"Unknown"	,	L_2
+"The Data Type"	,	L_9
+guint64	,	V_23
+"Transport Type"	,	L_4
+proto_tree	,	T_3
+hf	,	V_25
+nwmtp_transport_type_vals	,	V_28

@@ -1,0 +1,168 @@
+", Extended Addr: %s"	,	L_12
+dissect_zbee_zdp_rsp_mgmt_lqi	,	F_34
+"Routing Table"	,	L_48
+channel	,	V_9
+hf_zbee_zdp_channel_count	,	V_63
+", Permit Joining: Unknown"	,	L_30
+dissect_zbee_zdp_req_mgmt_permit_join	,	F_25
+"-%d"	,	L_42
+dissect_zbee_zdp_req_mgmt_direct_join	,	F_23
+dissect_zbee_zdp_rsp_mgmt_nwk_disc	,	F_29
+len	,	V_6
+hf_zbee_zdp_tx_total	,	V_61
+zdp_parse_nwk_desc	,	F_1
+hf_zbee_zdp_ext_addr	,	V_34
+energy	,	V_64
+tvb	,	V_2
+dissect_zbee_zdp_rsp_mgmt_rtg	,	F_35
+guint32	,	T_10
+profile	,	V_10
+proto_item_append_text	,	F_7
+superframe	,	V_13
+version	,	V_11
+", Idle Rx: Unknown"	,	L_20
+", Permit Joining: False"	,	L_28
+"Neighbor Table"	,	L_47
+ett_zbee_zdp_cache	,	V_56
+", Relationship: Sibling"	,	L_23
+zdp_status_name	,	F_33
+ZBEE_ZDP_MGMT_LEAVE_REJOIN	,	V_38
+", Status: %s"	,	L_46
+", %d"	,	L_41
+tvb_get_letoh64	,	F_2
+hf_zbee_zdp_leave_children	,	V_35
+dissect_zbee_zdp_rsp_mgmt_leave	,	F_38
+", Channel: %d"	,	L_3
+", Beacons Disabled"	,	L_5
+", Idle Rx: False"	,	L_18
+"{Extended PAN: %s"	,	L_10
+"Discovery Cache"	,	L_50
+device	,	V_18
+", Relationship: Parent"	,	L_21
+ett_zbee_zdp_cinfo	,	V_39
+status	,	V_26
+hf_zbee_zdp_leave_rejoin	,	V_37
+dissect_zbee_zdp_req_mgmt_nwk_disc	,	F_12
+ZBEE_ZDP_NWKUPDATE_CHANNEL_HOP	,	V_45
+pinfo	,	V_4
+zdp_parse_chanmask	,	F_28
+hf_zbee_zdp_update_id	,	V_43
+zdp_parse_cinfo	,	F_24
+flags	,	V_33
+", Status: Inactive}"	,	L_37
+hf_zbee_zdp_duration	,	V_31
+ext_addr	,	V_17
+proto_tree_add_boolean	,	F_21
+ext_pan	,	V_7
+addr64	,	V_57
+dissect_zbee_zdp_rsp_mgmt_permit_join	,	F_40
+ZBEE_ZDP_MGMT_LEAVE_CHILDREN	,	V_36
+dissect_zbee_zdp_req_mgmt_leave	,	F_19
+table_count	,	V_49
+guint16	,	T_7
+"{%s = 0x%04x}"	,	L_51
+zdp_parse_bind_table_entry	,	F_37
+proto_tree_add_text	,	F_3
+i	,	V_28
+j	,	V_59
+proto_item	,	T_5
+"None"	,	L_43
+", Status: Discovery Underway}"	,	L_35
+zbee_parse_eui64	,	F_20
+guint8	,	T_8
+depth	,	V_22
+"{PAN: 0x%04x"	,	L_11
+zdp_dump_excess	,	F_15
+ti	,	V_5
+"{Pan: %s"	,	L_1
+ett_zbee_zdp_bind	,	V_55
+tvb_length_remaining	,	F_31
+", Relationship: None"	,	L_24
+first	,	V_30
+", LQI: %d}"	,	L_31
+lqi	,	V_23
+zdp_parse_routing_table_entry	,	F_11
+", Depth: %d"	,	L_27
+ett_zbee_zdp_rtg	,	V_54
+"True"	,	L_8
+tvbuff_t	,	T_2
+", BeaconOrder: %d, SuperframeOrder: %d"	,	L_6
+", Profile: 0x%01x, Version: %d"	,	L_4
+ZBEE_ZDP_NWKUPDATE_SCAN_MAX	,	V_46
+dest	,	V_25
+"Binding Table"	,	L_49
+ZBEE_VERSION_2007	,	V_16
+"Channel %d Energy = 0x%02x"	,	L_52
+ZBEE_VERSION_2004	,	V_24
+dissect_zbee_zdp_req_mgmt_bind	,	F_18
+zbee_append_info	,	F_22
+gboolean	,	T_9
+zbee_parse_uint	,	F_14
+rel	,	V_20
+tvb_get_letohl	,	F_13
+proto_item_add_subtree	,	F_32
+pan	,	V_8
+tvb_get_letohs	,	F_5
+", Type: Coordinator"	,	L_14
+field_tree	,	V_48
+dissect_zbee_zdp_rsp_mgmt_direct_join	,	F_39
+guint	,	T_3
+offset	,	V_3
+idle_rx	,	V_19
+ett_zbee_zdp_lqi	,	V_53
+tree	,	V_1
+", Permit Joining: True"	,	L_29
+dissect_zbee_zdp_req_mgmt_rtg	,	F_17
+ZBEE_ZDP_NWKUPDATE_PARAMETERS	,	V_42
+dissect_zbee_zdp_rsp_mgmt_nwkupdate	,	F_42
+packet_info	,	T_4
+hf_zbee_zdp_significance	,	V_40
+"False"	,	L_9
+tvb_get_guint8	,	F_6
+", Relationship: Child"	,	L_22
+beacon	,	V_12
+channels	,	V_29
+", Next Hop: 0x%04x"	,	L_33
+"{Pan: 0x%04x"	,	L_2
+zdp_parse_neighbor_table_entry	,	F_9
+get_eui64_name	,	F_10
+hf_zbee_zdp_table_count	,	V_51
+", Type: Unknown"	,	L_17
+next	,	V_27
+", Type: Router"	,	L_15
+", Relationship: Previous Child"	,	L_25
+dissect_zbee_zdp_req_mgmt_lqi	,	F_16
+dissect_zbee_zdp_req_mgmt_nwkupdate	,	F_27
+", Status: Discovery Failed}"	,	L_36
+duration	,	V_41
+zdp_parse_status	,	F_30
+"%d"	,	L_40
+"Network List"	,	L_45
+dissect_zbee_zdp_rsp_mgmt_bind	,	F_36
+"{Destination: 0x%04x"	,	L_32
+", PermitJoining: %s}"	,	L_7
+hf_zbee_zdp_tx_fail	,	V_62
+", Status: Unknown}"	,	L_38
+hf_zbee_zdp_index	,	V_32
+zbee_stack_vers	,	V_15
+addr16	,	V_58
+channel_count	,	V_60
+dissect_zbee_zdp_req_mgmt_cache	,	F_26
+ett_zbee_zdp_nwk	,	V_52
+eui64_to_str	,	F_4
+"Scan Channels: "	,	L_39
+hf_zbee_zdp_manager	,	V_44
+hf_zbee_zdp_table_size	,	V_50
+", Addr: 0x%04x"	,	L_13
+", Status: Active}"	,	L_34
+", Type: End Device"	,	L_16
+dissect_zbee_zdp_rsp_mgmt_cache	,	F_41
+proto_item_set_len	,	F_8
+hf_zbee_zdp_scan_count	,	V_47
+", Device: %s"	,	L_44
+permit_joining	,	V_21
+permit	,	V_14
+", Idle Rx: True"	,	L_19
+", Relationship: Unknown"	,	L_26
+guint64	,	T_6
+proto_tree	,	T_1

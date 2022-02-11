@@ -1,0 +1,109 @@
+"7 Override Non-Channel-Specific Events"	,	L_31
+CM_CTRL_DS_EVENT	,	V_35
+hf_us_event_mask	,	V_20
+total_len	,	V_24
+THROW	,	F_5
+proto_register_protocol	,	F_12
+hf_us_event_ch_id	,	V_18
+hf_cmctrl_tlv_mute	,	V_28
+len	,	V_4
+hf_cmctrl_tlv_disable_fwd	,	V_34
+gint	,	T_8
+CM_CTRL_MUTE_TIMEOUT	,	V_29
+"TLV Data"	,	L_3
+tvb	,	V_1
+dissect_cmctrl_tlv	,	F_7
+CM_CTRL_US_EVENT	,	V_37
+it	,	V_22
+"cmctrl_tlv.ds_event.chid"	,	L_20
+"Downstream Status Event Enable Bitmask"	,	L_24
+ett_cmctrl_tlv_ds_event	,	V_8
+"cmctrl_tlv.ds_event.mask"	,	L_23
+tvb_reported_length_remaining	,	F_8
+"cmctrl_tlv.ds_event"	,	L_17
+".1 Upstream Channel ID"	,	L_25
+proto_register_subtree_array	,	F_15
+array_length	,	F_14
+proto_tree_add_item	,	F_4
+"Override Upstream Status Enable Event Mask (Length = %u)"	,	L_2
+pinfo	,	T_6
+"cmctrl_tlv.mute"	,	L_5
+_U_	,	V_21
+"4 Disable Forwarding"	,	L_13
+"cmctrl_tlv.us_event.chid"	,	L_26
+CM_CTRL_EVENT	,	V_38
+pos	,	V_7
+hf_register_info	,	T_9
+"CM Reinitialize"	,	L_12
+"Override Downstream Events"	,	L_18
+ReportedBoundsError	,	V_12
+CM_CTRL_DISABLE_FWD	,	V_33
+guint16	,	T_3
+"1 Upstream Channel RF Mute"	,	L_4
+hf_cmctrl_tlv_event	,	V_39
+FT_UINT8	,	V_41
+BASE_DEC	,	V_42
+"Upstream Channel ID"	,	L_27
+"Upstream Channel RF Mute"	,	L_6
+".2 Upstream Status Event Enable Bitmask"	,	L_28
+proto_item	,	T_7
+".1 Downstream Channel ID"	,	L_19
+"5 Override Downstream Events"	,	L_16
+hf_cmctrl_tlv_reinit	,	V_32
+ENC_NA	,	V_15
+guint8	,	T_4
+"Override Non-Channel-Specific Events"	,	L_33
+"3 CM Reinitialize"	,	L_10
+BASE_NONE	,	V_46
+"Disable Forwarding"	,	L_15
+dissect_ds_event	,	F_1
+"Downstream Channel ID"	,	L_21
+"cmctrl_tlv.mute_timeout"	,	L_8
+"DOCSIS CM-CTRL TLV's"	,	L_34
+register_dissector	,	F_16
+dissect_us_event	,	F_6
+"cmctrl_tlv.event"	,	L_32
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_9
+event_tree	,	V_6
+"cmctrl_tlv.disable_fwd"	,	L_14
+proto_item_add_subtree	,	F_10
+hf_cmctrl_tlv_mute_timeout	,	V_30
+proto_register_field_array	,	F_13
+US_EVENT_MASK	,	V_19
+FT_BYTES	,	V_45
+"cmctrl_tlv.reinit"	,	L_11
+".2 Downstream Status Event Enable Bitmask"	,	L_22
+ett	,	V_47
+CM_CTRL_REINIT	,	V_31
+tree	,	V_2
+DS_EVENT_CH_ID	,	V_9
+"DOCSIS CM-CTRL TLVs"	,	L_35
+packet_info	,	T_5
+"2 RF Mute Timeout Interval"	,	L_7
+"Upstream Status Event Enable Bitmask"	,	L_30
+tvb_get_guint8	,	F_3
+ett_cmctrl_tlv	,	V_26
+"RF Mute Timeout Interval"	,	L_9
+"cmctrl_tlv"	,	L_36
+ett_cmctrl_tlv_us_event	,	V_16
+proto_cmctrl_tlv	,	V_25
+tlv_tree	,	V_23
+proto_reg_handoff_cmctrl_tlv	,	F_17
+"Override Downstream Status Event Event Mask (Length = %u)"	,	L_1
+DS_EVENT_MASK	,	V_13
+HFILL	,	V_43
+hf_ds_event_mask	,	V_14
+hf_ds_event_ch_id	,	V_10
+proto_register_cmctrl_tlv	,	F_11
+start	,	V_3
+length	,	V_5
+proto_tree_add_subtree_format	,	F_2
+US_EVENT_CH_ID	,	V_17
+ENC_BIG_ENDIAN	,	V_11
+FT_UINT32	,	V_44
+hf_cmctrl_tlv_ds_event	,	V_36
+"cmctrl_tlv.us_event.mask"	,	L_29
+CM_CTRL_MUTE	,	V_27
+proto_tree	,	T_2
+hf	,	V_40

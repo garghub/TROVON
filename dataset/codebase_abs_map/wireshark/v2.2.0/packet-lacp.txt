@@ -1,0 +1,251 @@
+proto_register_protocol	,	F_21
+hf_lacp_actor_port	,	V_48
+"EFDCSGSA"	,	L_2
+"Expired"	,	L_53
+"The operational Key value assigned to the port associated with this link by the Partner"	,	L_72
+"Partner Key"	,	L_70
+hf_lacp_term_reserved	,	V_73
+LACPDU_FLAGS_COLLECTING	,	V_93
+FT_ETHER	,	V_80
+gint	,	T_11
+"lacp.partnerInfoLen"	,	L_62
+wmem_strbuf_new	,	F_2
+TFS	,	F_20
+tvb	,	V_6
+hf_lacp_flags_a_activity	,	V_17
+partner_flags	,	V_25
+hf_lacp_term_len	,	V_72
+guint32	,	T_1
+COL_INFO	,	V_36
+ett_lacp_a_flags	,	V_50
+FT_BOOLEAN	,	V_83
+"lacp.partnerSystem"	,	L_68
+hf_lacp_flags_a_distrib	,	V_22
+cinfo	,	V_34
+wmem_strbuf_t	,	T_2
+"lacp.actorSysPriority"	,	L_18
+"The priority assigned to this System by management or admin"	,	L_19
+hf_lacp_actor_state	,	V_49
+array_length	,	F_23
+"LACP Timeout"	,	L_40
+"Actor Information Length"	,	L_14
+"Reserved"	,	L_56
+""	,	L_1
+"slow.subtype"	,	L_111
+"Actor Port = %d "	,	L_6
+hf_lacp_actor_state_str	,	V_54
+hf_lacp_partner_reserved	,	V_66
+"Partner State"	,	L_79
+BMT_NO_TFS	,	V_52
+"lacp.partnerState.defaulted"	,	L_91
+"lacp.actorState.expired"	,	L_54
+hf_register_info	,	T_10
+"lacp.actorState.activity"	,	L_39
+hf_lacp_partner_key	,	V_60
+tfs_active_passive	,	V_84
+guint16	,	T_7
+COL_PROTOCOL	,	V_35
+i	,	V_5
+hf_lacp_partner_sys_priority	,	V_58
+buf	,	V_2
+guint8	,	T_8
+ti	,	V_15
+BASE_NONE	,	V_81
+hf_lacp_actor_sys	,	V_44
+"Partner System"	,	L_67
+hf_lacp_version_number	,	V_39
+hf_lacp_partner_port_priority	,	V_61
+tvbuff_t	,	T_3
+proto_tree_add_protocol_format	,	F_8
+LACPDU_FLAGS_DISTRIB	,	V_94
+"Partner Port Priority"	,	L_73
+"LACP"	,	L_3
+tvb_get_ntohs	,	F_14
+hf_lacp_partner_state_str	,	V_65
+BASE_HEX	,	V_76
+PROTO_ITEM_SET_GENERATED	,	F_17
+actor_flags	,	V_16
+"lacp.partnerState.timeout"	,	L_86
+proto_item_add_subtree	,	F_9
+"lacp.termInfo"	,	L_104
+proto_register_field_array	,	F_22
+FT_BYTES	,	V_98
+"Version %d.  "	,	L_5
+dissector_add_uint	,	F_27
+"Collecting"	,	L_46
+"lacp.actorState.aggregation"	,	L_43
+"lacp.version"	,	L_9
+FT_UINT16	,	V_78
+"TLV type = Collector"	,	L_95
+"The length of the Partner TLV"	,	L_63
+tvb_get_guint8	,	F_10
+"lacp.partnerState.distributing"	,	L_90
+tvb_captured_length	,	F_18
+"lacp.collectorInfo"	,	L_94
+tfs_short_long_timeout	,	V_86
+"lacp.actorState.collecting"	,	L_47
+"LACP Version Number"	,	L_8
+raw_octet	,	V_12
+tfs_enabled_disabled	,	V_92
+"Collector Information Length"	,	L_96
+raw_word	,	V_11
+hf_lacp_flags_p_sync	,	V_29
+tfs_aggregatable_individual	,	V_88
+BMT_NO_FALSE	,	V_53
+"Actor State Flags"	,	L_35
+"The length of the Actor TLV"	,	L_16
+hf_lacp_actor_type	,	V_40
+"lacp.partnerState.aggregation"	,	L_87
+FT_STRING	,	V_82
+hf_lacp_flags_p_expired	,	V_33
+"Distributing"	,	L_48
+"Aggregation"	,	L_42
+hf_lacp_actor_key	,	V_46
+"Defaulted"	,	L_50
+"The Partner's System ID encoded as a MAC address"	,	L_69
+hf_lacp_partner_sys	,	V_59
+hf_lacp_actor_port_priority	,	V_47
+ENC_BIG_ENDIAN	,	V_41
+"The priority assigned to the Partner System by management or admin"	,	L_66
+first_letters	,	V_4
+hf_lacp_flags_p_timeout	,	V_27
+"The priority assigned to the port by the Actor (via Management or Admin)"	,	L_28
+"lacp.actorPort"	,	L_30
+"lacp.actorKey"	,	L_24
+hf_lacp_partner_state	,	V_63
+"lacp"	,	L_110
+hf_lacp_flags_a_aggregation	,	V_19
+"The operational Key value assigned to the port by the Actor"	,	L_25
+proto_lacp	,	V_37
+hf	,	V_74
+"The port number associated with this link assigned to the port by the Partner (via Management or Admin)"	,	L_78
+hf_lacp_flags_p_distrib	,	V_31
+"lacp.partnerState.activity"	,	L_85
+hf_lacp_coll_max_delay	,	V_69
+hf_lacp_actor_info_len	,	V_42
+hf_lacp_coll_type	,	V_67
+LACPDU_FLAGS_ACTIVITY	,	V_85
+hf_lacp_partner_type	,	V_56
+"lacp.actorState.defaulted"	,	L_51
+col_append_fstr	,	F_11
+hf_lacp_actor_sys_priority	,	V_43
+"Actor Key"	,	L_23
+col_set_str	,	F_7
+wmem_strbuf_finalize	,	F_5
+"lacp.partnerInfo"	,	L_59
+"lacp.partnerPortPriority"	,	L_74
+"lacp.partnerState.collecting"	,	L_89
+"The max delay of the station tx'ing the LACPDU (in tens of usecs)"	,	L_101
+"lacp.actorState.str"	,	L_36
+"lacp.partnerState.synchronization"	,	L_88
+LACPDU_FLAGS_AGGREGATION	,	V_89
+LACPDU_FLAGS_SYNC	,	V_91
+"Partner Port = %d "	,	L_7
+"lacp.partnerKey"	,	L_71
+proto_register_subtree_array	,	F_24
+"Partner Information"	,	L_58
+proto_tree_add_string	,	F_16
+hf_lacp_coll_reserved	,	V_70
+proto_tree_add_item	,	F_13
+pinfo	,	V_7
+"Actor Port"	,	L_29
+dissector_handle_t	,	T_12
+"Link Aggregation Control Protocol"	,	L_4
+"Identifies the LACP version"	,	L_10
+"lacp.term_reserved"	,	L_109
+_U_	,	V_9
+"lacp.partnerPort"	,	L_77
+hf_lacp_actor_reserved	,	V_55
+"TLV type = Terminator"	,	L_105
+"The Actor's System ID encoded as a MAC address"	,	L_22
+lacpdu_item	,	V_14
+"lacp.collectorMaxDelay"	,	L_100
+"lacp.collectorInfoLen"	,	L_97
+"lacp.termLen"	,	L_107
+LACPDU_FLAGS_EXPIRED	,	V_97
+lacp_state_flags_to_str	,	F_1
+"Actor Information"	,	L_11
+hf_lacp_coll_info_len	,	V_68
+"Partner Information Length"	,	L_61
+"lacp.actorInfoLen"	,	L_15
+FT_UINT8	,	V_75
+"Terminator Length"	,	L_106
+"lacp.actorSystem"	,	L_21
+BASE_DEC	,	V_79
+LACPDU_FLAGS_TIMEOUT	,	V_87
+proto_item	,	T_9
+"lacp.partnerState"	,	L_80
+"Actor System Priority"	,	L_17
+"lacp.partnerState.str"	,	L_83
+"lacp.actorState"	,	L_33
+ENC_NA	,	V_45
+proto_register_lacp	,	F_19
+ett_lacp	,	V_38
+wmem_strbuf_append_c	,	F_4
+"1 = Actor Rx machine is using DEFAULT Partner info, 0 = using info in Rx'd LACPDU"	,	L_52
+"TLV type = Actor"	,	L_13
+"lacp.actorState.synchronization"	,	L_45
+dissect_lacp	,	F_6
+"The Partner's state flags as a string value"	,	L_84
+"Collector Max Delay"	,	L_99
+"LACP Activity"	,	L_38
+"lacp.partnerState.expired"	,	L_92
+proto_reg_handoff_lacp	,	F_25
+"lacp.partnerSysPriority"	,	L_65
+data	,	T_6
+flags_count	,	V_3
+hf_lacp_flags_p_aggregation	,	V_28
+hf_lacp_flags_a_defaulted	,	V_23
+ett_lacp_p_flags	,	V_64
+hf_lacp_flags_a_sync	,	V_20
+"The port number assigned to the port by the Actor (via Management or Admin)"	,	L_31
+BMT_NO_INT	,	V_51
+"The Partner's state variables for the port, encoded as bits within a single octet"	,	L_81
+hf_lacp_flags_a_collecting	,	V_21
+"lacp.actorPortPriority"	,	L_27
+"Partner Port"	,	L_76
+hf_lacp_flags_p_collecting	,	V_30
+"Actor Port Priority"	,	L_26
+offset	,	V_10
+ett	,	V_99
+wmem_packet_scope	,	F_3
+hf_lacp_term_type	,	V_71
+tree	,	V_8
+"Actor System"	,	L_20
+"The length of the Terminator TLV"	,	L_108
+packet_info	,	T_4
+"lacp.reserved"	,	L_57
+hf_lacp_flags_p_defaulted	,	V_32
+"lacp.actorState.distributing"	,	L_49
+tfs_yes_no	,	V_95
+"Actor State"	,	L_32
+"lacp.coll_reserved"	,	L_102
+hf_lacp_flags_p_activity	,	V_26
+proto_tree_add_uint	,	F_12
+"The priority assigned to the port by the Partner (via Management or Admin)"	,	L_75
+"Partner State Flags"	,	L_82
+"Partner System Priority"	,	L_64
+"1 = Actor Rx machine is EXPIRED, 0 = is NOT EXPIRED"	,	L_55
+"The length of the Collector TLV"	,	L_98
+LACP_SUBTYPE	,	V_101
+hf_lacp_partner_port	,	V_62
+"The Actor's state flags as a string value"	,	L_37
+lacp_handle	,	V_100
+HFILL	,	V_77
+value	,	V_1
+LACPDU_FLAGS_DEFAULTED	,	V_96
+hf_lacp_flags_a_expired	,	V_24
+tfs_in_sync_out_sync	,	V_90
+hf_lacp_flags_a_timeout	,	V_18
+"The Actor's state variables for the port, encoded as bits within a single octet"	,	L_34
+hf_lacp_partner_info_len	,	V_57
+create_dissector_handle	,	F_26
+proto_tree_add_bitmask_with_flags	,	F_15
+"lacp.actorInfo"	,	L_12
+"TLV type = Partner"	,	L_60
+"Collector Information"	,	L_93
+"Terminator Information"	,	L_103
+"lacp.actorState.timeout"	,	L_41
+lacpdu_tree	,	V_13
+"Synchronization"	,	L_44
+proto_tree	,	T_5

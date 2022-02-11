@@ -1,0 +1,207 @@
+proto_register_protocol	,	F_32
+process_reassembled_data	,	F_18
+hf_idmp_fragment_overlap	,	V_70
+len	,	V_54
+tcp_dissect_pdus	,	F_25
+gint	,	T_15
+"idmp.fragment.count"	,	L_35
+tvb	,	V_1
+ett_idmp_fragments	,	V_80
+top_tree	,	V_33
+" [IDMP fragment, %u byte%s, IDMP reassembly not enabled]"	,	L_7
+guint32	,	T_10
+COL_INFO	,	V_46
+FT_BOOLEAN	,	V_61
+"reassemble"	,	L_50
+idmp_module	,	V_81
+ros_op	,	V_12
+cinfo	,	V_37
+wmem_strdup	,	F_2
+PSNAME	,	V_83
+array_length	,	F_34
+"length"	,	L_15
+"Whether segmented IDMP datagrams should be reassembled."	,	L_52
+hf_idmp_fragment_overlap_conflicts	,	V_71
+""	,	L_4
+SESSION_DATA_STRUCTURE	,	V_6
+hf_idmp_reassembled_in	,	V_52
+call_idmp_oid_callback	,	F_1
+asn1_ctx	,	V_19
+PNAME	,	V_82
+"Reassembled IDMP length"	,	L_39
+rinfo	,	V_14
+hf_register_info	,	T_14
+hf_idmp_fragment	,	V_68
+hf_idmp_length	,	V_42
+hf_idmp_reassembled_length	,	V_76
+COL_PROTOCOL	,	V_38
+"idmp.fragment"	,	L_23
+"idmp.fragment.overlap"	,	L_25
+"idmp.fragment.overlap.conflicts"	,	L_27
+prefs_register_idmp	,	V_85
+reassembly_table_init	,	F_27
+hf_idmp_PDU	,	V_53
+BASE_NONE	,	V_62
+"idmp.fragment.multiple_tails"	,	L_29
+"Reassemble segmented IDMP datagrams"	,	L_51
+hf_idmp_fragment_multiple_tails	,	V_72
+register_dissector	,	F_36
+hf_idmp_segment_data	,	V_49
+tvb_get_ntohl	,	F_14
+dissect_idmp	,	F_7
+tvbuff_t	,	T_1
+idmp_reassembly_table	,	V_47
+"IDMP fragments"	,	L_20
+plurality	,	F_16
+parent_tree	,	V_17
+idmp_reassemble	,	V_44
+"final"	,	L_12
+gboolean	,	T_9
+hf_idmp_final	,	V_41
+"Reassemble IDMP messages spanning multiple TCP segments"	,	L_47
+proto_item_add_subtree	,	F_11
+"idmp.fragment.error"	,	L_33
+module_t	,	T_16
+fragmented	,	V_45
+" [%sIDMP fragment, %u byte%s]"	,	L_2
+proto_register_field_array	,	F_33
+FT_BYTES	,	V_77
+"IDMP fragment overlapping with conflicting data"	,	L_26
+hf_idmp_fragment_too_long_fragment	,	V_73
+fragment_head	,	T_11
+"IDM-PDU"	,	L_17
+dissector_add_uint	,	F_45
+dissect_idmp_IDM_PDU	,	F_21
+"version"	,	L_9
+register_init_routine	,	F_37
+tvb_get_guint8	,	F_13
+FT_INT8	,	V_58
+"idmp.BOOLEAN"	,	L_14
+tvb_captured_length	,	F_22
+name	,	V_16
+dissector_delete_uint	,	F_44
+"idmp.fragment.too_long_fragment"	,	L_31
+next	,	V_48
+fragment_add_seq_next	,	F_17
+"desegment_idmp_messages"	,	L_46
+session	,	V_7
+ros_info_t	,	T_4
+"idmp.length"	,	L_16
+"OSI/X.500"	,	L_45
+"idmp.reassembled.length"	,	L_40
+"This IDMP packet is reassembled in this frame"	,	L_38
+"idmp.INTEGER"	,	L_11
+idmp_frag_items	,	V_50
+"idmp.final"	,	L_13
+FT_INT32	,	V_63
+"idmp.pdu"	,	L_18
+find_dissector	,	F_43
+hf_idmp_fragment_count	,	V_75
+register_cleanup_routine	,	F_38
+ENC_BIG_ENDIAN	,	V_40
+FT_UINT32	,	V_64
+"idmp.PDU"	,	L_19
+"idmp"	,	L_44
+hf	,	V_57
+"Reassembled IDMP in frame"	,	L_36
+PFNAME	,	V_84
+fd_head	,	V_22
+ROS_OP_RESULT	,	V_10
+"(IDMP reassembly not enabled)"	,	L_8
+saved_protocolID	,	V_8
+protocolID	,	V_11
+col_append_fstr	,	F_15
+col_set_str	,	F_12
+conv	,	V_23
+"IDMP fragment too long"	,	L_30
+idmp_IDM_PDU_vals	,	V_65
+idmp_handle	,	V_87
+"IDMP has multiple tail fragments"	,	L_28
+item	,	V_18
+"IDMP defragmentation error"	,	L_32
+index	,	V_32
+"IDMP"	,	L_1
+"IDMP fragment"	,	L_22
+"Final "	,	L_3
+asn1_ctx_init	,	F_8
+hf_idmp_version	,	V_39
+proto_register_subtree_array	,	F_35
+reassembly_table_destroy	,	F_29
+proto_tree_add_bytes_format_value	,	F_20
+proto_tree_add_item	,	F_10
+private_data	,	V_43
+pinfo	,	V_3
+_U_	,	V_15
+call_ros_oid_callback	,	F_4
+register_ros_protocol_info	,	F_6
+"idmp.version"	,	L_10
+"IDMP TCP Port"	,	L_57
+VALS	,	F_31
+prefs_register_bool_preference	,	F_40
+find_conversation	,	F_9
+BASE_DEC	,	V_59
+proto_item	,	T_7
+"Reassembled IDMP"	,	L_6
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_49
+ENC_NA	,	V_35
+proto_reg_handoff_idm	,	F_42
+tcp_port	,	V_88
+dissect_idmp_tcp	,	F_24
+data	,	T_6
+num	,	V_26
+get_idmp_pdu_len	,	F_23
+proto_idmp	,	V_34
+prefs_register_uint_preference	,	F_41
+"IDMP segment data"	,	L_42
+"IDMP fragment overlap"	,	L_24
+conversation_t	,	T_12
+register_idmp_protocol_info	,	F_5
+guint	,	T_13
+FT_NONE	,	V_67
+offset	,	V_2
+ett	,	V_78
+dst_ref	,	V_24
+tree	,	V_5
+addresses_reassembly_table_functions	,	V_56
+idmp_final	,	V_20
+packet_info	,	T_2
+" \"Allow subdissectors to reassemble TCP streams\""	,	L_54
+"s"	,	L_5
+global_idmp_tcp_port	,	V_86
+proto	,	T_5
+destport	,	V_31
+"idmp.segment_data"	,	L_43
+"Whether the IDMP dissector should reassemble messages spanning multiple TCP segments."	,	L_48
+proto_tree_add_uint	,	F_19
+dst	,	V_28
+ROS_OP_BIND	,	V_9
+ptype	,	V_29
+oid	,	V_13
+"idmp.reassembled.in"	,	L_37
+prefs_register_protocol_subtree	,	F_39
+ASN1_ENC_BER	,	V_25
+"IDMP fragment count"	,	L_34
+"The total length of the reassembled payload"	,	L_41
+idmp_reassemble_init	,	F_26
+"Set the port for Internet Directly Mapped Protocol requests/responses"	,	L_58
+ett_idmp_fragment	,	V_79
+" To use this option, you must also enable"	,	L_53
+proto_register_idmp	,	F_30
+wmem_file_scope	,	F_3
+HFILL	,	V_60
+hf_idmp_fragments	,	V_66
+idmp_desegment	,	V_55
+ett_idmp	,	V_36
+op	,	V_4
+"idmp.fragments"	,	L_21
+idmp_length	,	V_21
+src	,	V_27
+idmp_reassemble_cleanup	,	F_28
+FT_FRAMENUM	,	V_69
+reassembled_in	,	V_51
+hf_idmp_fragment_error	,	V_74
+" in the TCP protocol settings."	,	L_55
+asn1_ctx_t	,	T_8
+srcport	,	V_30
+"tcp.port"	,	L_56
+proto_tree	,	T_3

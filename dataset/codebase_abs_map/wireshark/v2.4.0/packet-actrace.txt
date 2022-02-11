@@ -1,0 +1,209 @@
+"AC_TRACE"	,	L_1
+proto_register_protocol	,	F_30
+hf_actrace_isdn_direction	,	V_76
+tvb_reported_length	,	F_27
+frame_label	,	V_28
+"lapd"	,	L_62
+len	,	V_74
+"AB: %s"	,	L_11
+gint	,	T_8
+ett_actrace	,	V_14
+actrace_module	,	V_93
+tvb	,	V_1
+hf_actrace_cas_par1	,	V_48
+hf_actrace_cas_par0	,	V_41
+COL_INFO	,	V_11
+"DTMF: %u"	,	L_14
+dissect_actrace_isdn	,	F_8
+val_to_str_ext	,	F_14
+"MF: %u"	,	L_15
+hf_actrace_cas_current_state	,	V_33
+hf_actrace_cas_par2	,	V_50
+"actrace.cas.curr_state"	,	L_33
+"MF: DNIS digit"	,	L_16
+ACTRACE_ISDN	,	V_16
+hf_actrace_isdn_length	,	V_78
+cinfo	,	V_9
+"Trunk Number"	,	L_47
+wmem_strdup	,	F_21
+tvb_len	,	V_81
+array_length	,	F_32
+register_tap	,	F_36
+ACTRACE_CAS_EV_DTMF	,	V_59
+next_tvb	,	V_75
+call_dissector	,	F_26
+"MF: ANI digit"	,	L_17
+"%s|"	,	L_8
+"actrace.cas.par1"	,	L_44
+actrace_isdn_direction_vals	,	V_91
+SEND_TYPE_ANI	,	V_64
+hf_register_info	,	T_9
+lapd_handle	,	V_80
+proto_reg_handoff_actrace	,	F_37
+NOT_ACTRACE	,	V_8
+actrace_tree	,	V_5
+PSTN_TO_BLADE	,	V_79
+"actrace.isdn.length"	,	L_57
+bchannel	,	V_20
+COL_PROTOCOL	,	V_10
+hf_actrace_cas_next_state	,	V_35
+cas_frame_label	,	V_72
+"MF: %s"	,	L_13
+"actrace.cas.par0"	,	L_42
+actrace_cas_source_vals	,	V_88
+ti	,	V_6
+"actrace.cas.function"	,	L_40
+actrace_cas_pstn_event_vals_ext	,	V_42
+"Source"	,	L_30
+"actrace.isdn.trunk"	,	L_53
+is_actrace	,	F_2
+"MF: src_category"	,	L_18
+tvb_get_ntohl	,	F_10
+tvbuff_t	,	T_1
+"Event"	,	L_34
+source	,	V_21
+hf_actrace_cas_function	,	V_36
+"actrace.cas.time"	,	L_28
+val_to_str_ext_const	,	F_20
+tvb_get_ntohs	,	F_24
+dissect_actrace_cas	,	F_7
+"Parameter 0"	,	L_41
+"%d|"	,	L_9
+"actrace"	,	L_60
+proto_item_add_subtree	,	F_6
+module_t	,	T_10
+hf_actrace_isdn_trunk	,	V_77
+proto_register_field_array	,	F_31
+"AC_CAS"	,	L_2
+"MF: inter_exch_sw"	,	L_20
+"actrace.cas.trunk"	,	L_48
+"%s|%d|%s|%d|%s|"	,	L_3
+"actrace.cas.par2"	,	L_46
+"actrace.isdn.dir"	,	L_55
+tvb_captured_length	,	F_9
+"Parameter 1"	,	L_43
+"DTMF/MF: sending ANI"	,	L_22
+proto_register_actrace	,	F_28
+SEND_TYPE_ADDRESS	,	V_63
+proto_actrace	,	V_12
+"Parameter 2"	,	L_45
+"Direction"	,	L_54
+"Trunk:%d  Blade %s PSTN "	,	L_24
+FT_INT32	,	V_85
+prefs_register_obsolete_preference	,	F_35
+FT_INT16	,	V_90
+SEND_TYPE_INTER_EXCHANGE_SWITCH	,	V_67
+actrace_cas_event_ab_vals	,	V_57
+val_to_str_const	,	F_13
+actrace_cas_event_vals_ext	,	V_38
+"actrace.cas.bchannel"	,	L_50
+actrace_cas_mf_vals_ext	,	V_58
+hf	,	V_84
+"AC_ISDN"	,	L_23
+"actrace.cas.source"	,	L_31
+hf_actrace_cas_time	,	V_31
+actrace_cas_cause_vals_ext	,	V_49
+prefs_register_protocol	,	F_34
+col_append_fstr	,	F_12
+wmem_strdup_printf	,	F_18
+isdn_header	,	V_82
+BASE_EXT_STRING	,	V_89
+SEND_EVENT	,	V_40
+col_set_str	,	F_3
+ACTRACE_CAS	,	V_15
+actrace_handle	,	V_94
+SEND_DEST_NUM	,	V_46
+"ERROR"	,	L_12
+"actrace.cas.event"	,	L_35
+find_dissector_add_dependency	,	F_38
+"Time"	,	L_27
+proto_tree_add_int_format_value	,	F_15
+SEND_TYPE_SPECIFIC	,	V_62
+trunk	,	V_19
+CHANGE_COLLECT_TYPE	,	V_43
+col_clear	,	F_4
+proto_register_subtree_array	,	F_33
+gint32	,	T_6
+val_to_str	,	F_16
+proto_tree_add_item	,	F_5
+pinfo	,	V_2
+dissector_handle_t	,	T_11
+_U_	,	V_4
+"Next State"	,	L_37
+"Capture Time"	,	L_29
+"AudioCodes Trunk Trace"	,	L_58
+next_state	,	V_24
+ACTRACE_CAS_SOURCE_TABLE	,	V_61
+actrace_pi	,	V_69
+VALS	,	F_29
+"BChannel"	,	L_49
+event	,	V_22
+curr_state	,	V_23
+BASE_DEC	,	V_86
+"--&gt;"	,	L_26
+proto_item	,	T_5
+tap_queue_packet	,	F_23
+SEND_CAS	,	V_68
+BLADE_TO_PSTN	,	V_83
+ENC_NA	,	V_13
+col_prepend_fstr	,	F_17
+"Current State"	,	L_32
+hf_actrace_cas_event	,	V_34
+cas_bchannel	,	V_71
+"actrace.cas.conn_id"	,	L_52
+actrace_info_t	,	V_70
+"actrace.cas.next_state"	,	L_38
+SEND_MF	,	V_45
+"%s"	,	L_6
+ACTRACE_CAS_EV_00	,	V_56
+data	,	T_4
+par1	,	V_26
+par2	,	V_27
+SEND_TYPE_TRANSFER_CAPABILITY	,	V_66
+"New Event"	,	L_36
+hf_actrace_cas_trunk	,	V_51
+function	,	V_18
+actrace_cas_collect_type_vals	,	V_44
+"MF: trf_capability"	,	L_19
+"Function"	,	L_39
+par0	,	V_25
+"Unknown (%d)"	,	L_7
+actrace_cas_source_vals_short	,	V_37
+ACTRACE_CAS_EV_11	,	V_55
+"Length"	,	L_56
+offset	,	V_30
+ett	,	V_92
+"display_dissect_tree"	,	L_61
+wmem_packet_scope	,	F_19
+tree	,	V_3
+"ACtrace"	,	L_59
+packet_info	,	T_2
+ACTRACE_CAS_SOURCE_DSP	,	V_54
+UDP_PORT_ACTRACE	,	V_95
+dissect_actrace	,	F_1
+"ukn"	,	L_4
+hf_actrace_cas_connection_id	,	V_53
+actrace_cas_send_type_vals	,	V_47
+hf_actrace_cas_source	,	V_32
+"%d"	,	L_5
+tvb_new_subset_length	,	F_25
+actrace_protocol	,	V_7
+"t%db%d|"	,	L_10
+"DTMF/MF: sending DNIS"	,	L_21
+HFILL	,	V_87
+value	,	V_17
+direction	,	V_29
+wmem_new	,	F_22
+"udp.port"	,	L_63
+gchar	,	T_7
+hf_actrace_cas_bchannel	,	V_52
+ACTRACE_CAS_EV_FIRST_DIGIT	,	V_60
+create_dissector_handle	,	F_39
+"&lt;--"	,	L_25
+"Connection ID"	,	L_51
+SEND_TYPE_SOURCE_CATEGORY	,	V_65
+dissector_add_uint_with_preference	,	F_40
+actrace_tap	,	V_73
+actrace_cas_function_vals_ext	,	V_39
+proto_tree_add_int	,	F_11
+proto_tree	,	T_3

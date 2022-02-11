@@ -1,0 +1,292 @@
+MSRP_AUTHENTICATION_INFO	,	V_136
+"MSRP message should be displayed "	,	L_74
+"msrp.byte.range"	,	L_39
+proto_register_protocol	,	F_48
+"display_raw_text"	,	L_71
+"Content-Description"	,	L_46
+hf_msrp_response_line	,	V_93
+"Where available, show which protocol and frame caused "	,	L_78
+"Setup frame"	,	L_63
+save_private_data	,	V_107
+"msrp.from.path"	,	L_29
+tvb_new_subset_remaining	,	F_45
+ett_msrp_reqresp	,	V_95
+hf_msrp_end_line	,	V_110
+setup_frame_number	,	V_5
+gint	,	T_9
+have_body	,	V_79
+"Response: %s "	,	L_6
+tvb	,	V_24
+NO_ADDR_B	,	V_16
+guint32	,	T_4
+COL_INFO	,	V_90
+proto_item_set_end	,	F_44
+value_len	,	V_77
+"msrp.method"	,	L_19
+"Content-ID"	,	L_44
+tvb_reported_length_remaining	,	F_42
+proto_msrp	,	V_21
+p_get_proto_data	,	F_11
+cinfo	,	V_88
+"Show stream setup information"	,	L_77
+token_4_len	,	V_67
+is_msrp_response	,	V_68
+array_length	,	F_20
+"Stream setup"	,	L_60
+msrp_is_known_msrp_header	,	F_19
+next_tvb	,	V_85
+""	,	L_1
+"Transaction ID: %s"	,	L_8
+hf_msrp_data	,	V_105
+message_end_offset	,	V_72
+token_2_start	,	V_48
+hf_msrp_setup	,	V_33
+proto_reg_handoff_msrp	,	F_54
+space_offset	,	V_46
+PT_TCP	,	V_15
+ENC_ASCII	,	V_94
+MSRP_BYTE_RANGE	,	V_128
+MSRP_CONTENT_TYPE	,	V_104
+hf_register_info	,	T_13
+MSRP_FAILURE_REPORT	,	V_127
+MSRP_USE_PATH	,	V_133
+end_line_len	,	V_70
+"Use-Path"	,	L_50
+address	,	T_2
+c	,	V_76
+COL_PROTOCOL	,	V_89
+dissect_msrp_heur	,	F_34
+g_strlcpy	,	F_9
+i	,	V_40
+line_end_offset	,	V_71
+value_offset	,	V_75
+"Specifies that the raw text of the "	,	L_73
+semi_colon_offset	,	V_87
+th	,	V_55
+content_type_parameter_str	,	V_84
+ti	,	V_32
+BASE_NONE	,	V_118
+tvb_strncaseeql	,	F_21
+content_type_parameter_str_len	,	V_82
+"show_setup_info"	,	L_76
+tvb_length_remaining	,	F_32
+header_len	,	V_39
+hf_msrp_transactionID	,	V_96
+"From Path"	,	L_28
+tvb_get_ntohl	,	F_29
+tvbuff_t	,	T_6
+"Message Session Relay Protocol(as raw text)"	,	L_11
+"Message Session Relay Protocol"	,	L_69
+conversation_set_dissector	,	F_5
+hf_msrp_method	,	V_99
+PROTO_ITEM_SET_GENERATED	,	F_15
+token_1_len	,	V_47
+tvb_find_guint8	,	F_30
+gboolean	,	T_11
+hf_msrp_setup_method	,	V_37
+"msrp.transaction.id"	,	L_17
+proto_item_add_subtree	,	F_16
+"msrp.setup-frame"	,	L_64
+module_t	,	T_14
+proto_register_field_array	,	F_49
+conversation	,	V_51
+MSRP_STATUS	,	V_129
+global_msrp_raw_text	,	V_113
+"Transaction Id"	,	L_16
+end_line_offset	,	V_69
+MAX_MSRP_SETUP_METHOD_SIZE	,	V_23
+"Request: %s "	,	L_10
+FT_UINT16	,	V_120
+p_add_proto_data	,	F_13
+tvb_strneql	,	F_33
+tvb_get_guint8	,	F_36
+port	,	V_3
+proto_tree_add_string_format	,	F_14
+"msrp.www.authenticate"	,	L_53
+"Authorization"	,	L_54
+name	,	V_42
+"msrp.msg.hdr"	,	L_23
+"msrp.messageid"	,	L_33
+fd	,	V_10
+"msrp.data"	,	L_59
+tvb_raw_text_add	,	F_22
+"msrp.status"	,	L_41
+p_conv_packet_data	,	V_30
+"Method"	,	L_18
+heur_dissector_add	,	F_57
+"msrp.content.description"	,	L_47
+hf_header_array	,	V_103
+FT_STRING	,	V_117
+conversation_new	,	F_4
+"End Line"	,	L_24
+p_conv_data	,	V_9
+"Display raw text for MSRP message"	,	L_72
+conversation_add_proto_data	,	F_8
+find_dissector_table	,	F_58
+start	,	V_50
+find_dissector	,	F_55
+check_msrp_header	,	F_27
+ascii_strdown_inplace	,	F_43
+AT_NONE	,	V_13
+ENC_BIG_ENDIAN	,	V_45
+"msrp.content.id"	,	L_45
+"msrp.failure.report"	,	L_37
+"msrp.authentication.info"	,	L_57
+visited	,	V_12
+msrp_tree	,	V_57
+"msrp.setup"	,	L_61
+setup_method_set	,	V_22
+hf	,	V_116
+"msrp.status.code"	,	L_21
+show_setup_info	,	F_10
+MSRP_FROM_PATH	,	V_123
+token_4_start	,	V_66
+hf_msrp_status_code	,	V_97
+MSRP_AUTHORIZATION	,	V_135
+prefs_register_protocol	,	F_51
+msrp_add_address	,	F_1
+col_append_fstr	,	F_39
+msrp_headers_item	,	V_56
+msrp_setup_tree	,	V_31
+col_set_str	,	F_37
+"Stream setup by %s (frame %u)"	,	L_2
+NO_ADDR2	,	V_18
+hf_index	,	V_74
+"WWW-Authenticate"	,	L_52
+_msrp_conversation_info	,	V_8
+item	,	V_35
+token_2_len	,	V_63
+guchar	,	T_12
+"Col %s L=%u"	,	L_9
+media_type_dissector_table	,	V_109
+"To Path"	,	L_30
+linelen	,	V_44
+"msrp.content.disposition"	,	L_49
+p_conv	,	V_7
+"msrp.success.report"	,	L_35
+hf_msrp_msg_hdr	,	V_101
+msrp_end_tree	,	V_61
+"MSRP"	,	L_5
+ett_msrp	,	V_92
+proto_register_subtree_array	,	F_50
+hf_msrp_request_line	,	V_98
+proto_tree_add_string	,	F_18
+tvb_find_line_end	,	F_24
+dissect_msrp	,	F_35
+"Response Line"	,	L_14
+proto_tree_add_item	,	F_40
+private_data	,	V_108
+pinfo	,	V_1
+col_add_fstr	,	F_38
+"Data"	,	L_58
+flags	,	V_11
+MSRP_TO_PATH	,	V_124
+MSRP_MESSAGE_ID	,	V_125
+new_register_dissector	,	F_53
+"msrp.content.type"	,	L_43
+MSRP_SUCCESS_REPORT	,	V_126
+se_memdup	,	F_12
+msrp_headers	,	V_41
+raw_tree	,	V_59
+hf_msrp_cnt_flg	,	V_112
+"msrp.cnt.flg"	,	L_27
+"media_type"	,	L_82
+ett_raw_text	,	V_115
+ett_msrp_setup	,	V_34
+prefs_register_bool_preference	,	F_52
+next_offset	,	V_43
+tvb_get_ephemeral_string	,	F_41
+token_3_start	,	V_64
+content_type_len	,	V_81
+"Frame that set up this stream"	,	L_65
+find_conversation	,	F_3
+"%s "	,	L_7
+MSRP_CONTENT_DISPOSITION	,	V_132
+tvb_length	,	F_28
+"msrp"	,	L_70
+"in addition to the dissection tree"	,	L_75
+"Status code"	,	L_20
+"Byte Range"	,	L_38
+proto_tree_add_text	,	F_25
+BASE_DEC	,	V_121
+"Method used to set up this stream"	,	L_68
+proto_item	,	T_8
+"msrp.end.line"	,	L_25
+"Stream setup, method and frame number"	,	L_62
+ENC_NA	,	V_91
+"msrp.authorization"	,	L_55
+tvb_format_text	,	F_26
+ett_msrp_hdr	,	V_102
+"Authentication-Info"	,	L_56
+tvb_offset_exists	,	F_23
+"Success Report"	,	L_34
+"%s"	,	L_3
+NO_PORT2	,	V_19
+parameter_offset	,	V_86
+num	,	V_14
+se_alloc0	,	F_7
+NO_PORT_B	,	V_17
+null_addr	,	V_6
+"msrp.response.line"	,	L_15
+MSRP_CONTENT_ID	,	V_130
+SET_ADDRESS	,	F_2
+global_msrp_show_setup_info	,	V_100
+"Message ID"	,	L_32
+net_src	,	V_27
+"tcp"	,	L_81
+msrp_hdr_tree	,	V_60
+"this MSRP stream to be created"	,	L_79
+ett_msrp_end_line	,	V_111
+MSRP_WWW_AUTHENTICATE	,	V_134
+colon_offset	,	V_73
+conversation_t	,	T_5
+guint	,	T_10
+FT_NONE	,	V_122
+offset	,	V_38
+ett	,	V_114
+tree	,	V_25
+dissector_add_handle	,	F_56
+hf_msrp_setup_frame	,	V_36
+setup_method	,	V_4
+token_3_len	,	V_65
+msrp_handle	,	V_20
+packet_info	,	T_1
+msrp_module	,	V_138
+media_type_str_lower_case	,	V_83
+MSRP_HDR_LEN	,	V_49
+"Content-Type"	,	L_42
+destport	,	V_28
+proto_tree_add_uint	,	F_17
+proto_register_msrp	,	F_47
+"Request Line"	,	L_12
+reqresp_tree	,	V_58
+dst	,	V_53
+conversation_get_proto_data	,	F_6
+ptype	,	V_54
+"Content-Disposition"	,	L_48
+"Continuation-flag"	,	L_26
+"msrp.request.line"	,	L_13
+"msrp.to.path"	,	L_31
+"msrp.setup-method"	,	L_67
+dissector_try_string	,	F_46
+"Failure Report"	,	L_36
+addr	,	V_2
+HFILL	,	V_119
+value	,	V_78
+find_end_line	,	F_31
+MSRP_CONTENT_DISCRIPTION	,	V_131
+ett_msrp_data	,	V_106
+"Status"	,	L_40
+src	,	V_52
+"Setup Method"	,	L_66
+gchar	,	T_3
+"-------"	,	L_4
+"msrp.use.path"	,	L_51
+FT_FRAMENUM	,	V_137
+found_match	,	V_80
+net_dst	,	V_26
+msrp_data_tree	,	V_62
+srcport	,	V_29
+"Message Header"	,	L_22
+"tcp.port"	,	L_80
+proto_tree	,	T_7

@@ -1,0 +1,322 @@
+hf_lapd_checksum_bad	,	V_110
+proto_register_protocol	,	F_49
+proto_reg_handoff_lapd	,	V_156
+check_col	,	F_28
+"Second Address Extension bit"	,	L_38
+tvb_new_subset_remaining	,	F_42
+"lapd"	,	L_70
+addr_ti	,	V_55
+gint	,	T_9
+tei	,	V_66
+"Address Field"	,	L_21
+MAX_LAPD_PACKET_LEN	,	V_9
+state	,	V_3
+tvb_new_child_real_data	,	F_16
+lapd	,	V_83
+"rtp.pt"	,	L_84
+byte_state_a	,	V_47
+crc16_ccitt_tvb	,	F_38
+TFS	,	F_48
+tvb	,	V_10
+byte_state_b	,	V_48
+COL_INFO	,	V_73
+FT_BOOLEAN	,	V_132
+OUT_OF_SYNC	,	V_30
+g_memdup	,	F_15
+we_network	,	V_85
+lapd_header_len	,	V_61
+"Final"	,	L_47
+"lapd.control.s_ftype"	,	L_50
+lapd_cf_items_ext	,	V_106
+p_get_proto_data	,	F_10
+cinfo	,	V_71
+PI_ERROR	,	V_23
+tfs_set_notset	,	V_133
+start_byte_state	,	V_38
+array_length	,	F_51
+next_tvb	,	V_68
+pref_lapd_rtp_payload_type	,	V_157
+LAPD_EA1	,	V_125
+call_dissector	,	F_45
+proto_lapd	,	V_18
+checksum_calculated	,	V_60
+"TEI"	,	L_33
+"N(R)"	,	L_41
+is_response	,	V_67
+dissect_lapd_bitstream	,	F_8
+proto_tree_add_boolean	,	F_6
+dissect_lapd_full	,	F_19
+new_byte	,	F_2
+hf_register_info	,	T_14
+XDLC_S_FTYPE_MASK	,	V_141
+hf_lapd_ftype_s_u	,	V_150
+lapd_handle	,	V_161
+lapd_ppi	,	V_31
+"User"	,	L_14
+guint16	,	T_13
+COL_PROTOCOL	,	V_72
+"LAPD"	,	L_6
+"lapd.control.ftype"	,	L_56
+i	,	V_26
+convo_data	,	V_33
+g_free	,	V_50
+cr	,	V_64
+guint8	,	T_7
+BASE_NONE	,	V_153
+"lapd.cr"	,	L_28
+WTAP_ENCAP_LAPD	,	V_162
+tvb_length_remaining	,	F_13
+buff	,	V_28
+lapd_sapi_dissector_table	,	V_115
+"TEI:%02u "	,	L_8
+"Local Network"	,	L_9
+"lapd.address"	,	L_22
+register_dissector	,	F_53
+"Decoded LAPD bitstream"	,	L_2
+"Service Access Point Identifier"	,	L_26
+available	,	V_27
+tvbuff_t	,	T_2
+"wtap_encap"	,	L_81
+tvb_get_ntohs	,	F_27
+COL_RES_DL_SRC	,	V_89
+tvb_set_free_cb	,	F_17
+BASE_HEX	,	V_122
+PROTO_ITEM_SET_GENERATED	,	F_33
+lapd_log_abort	,	F_3
+gboolean	,	T_8
+proto_item_add_subtree	,	F_5
+module_t	,	T_15
+"First Address Extension bit"	,	L_32
+proto_register_field_array	,	F_50
+conversation	,	V_32
+"LAPD GSM SAPI"	,	L_73
+"lapd.control.p"	,	L_46
+addr_b	,	V_41
+"Use GSM SAPI values"	,	L_75
+hf_lapd_abort	,	V_21
+addr_a	,	V_39
+dissector_add_uint	,	F_59
+data_len	,	V_8
+COL_RES_DL_DST	,	V_90
+"Remote Network"	,	L_12
+"Abort"	,	L_66
+data_handle	,	V_114
+hf_lapd_p_ext	,	V_135
+hf_lapd_cr	,	V_99
+FT_UINT16	,	V_121
+tvb_get_guint8	,	F_14
+p_add_proto_data	,	F_21
+XDLC_CONTROL_LEN	,	F_35
+lapd_module	,	V_155
+checksum_offset	,	V_62
+hf_lapd_ea1	,	V_100
+hf_lapd_ea2	,	V_102
+lapd_sapi_vals	,	V_123
+full_byte	,	V_4
+dissector_delete_uint	,	F_60
+"Address"	,	L_23
+fd	,	V_37
+g_htons	,	F_39
+"lapd.abort"	,	L_67
+XDLC_I_MASK	,	V_149
+"lapd.tei"	,	L_34
+XDLC_N_R_EXT_MASK	,	V_128
+hf_lapd_u_modifier_cmd	,	V_142
+LAPD_SAPI	,	V_77
+COPY_ADDRESS	,	F_22
+"Network"	,	L_13
+XDLC_P_F_EXT	,	V_136
+"Checksum: 0x%04x [incorrect, should be 0x%04x]"	,	L_16
+"Direction"	,	L_19
+"Link Access Procedure, Channel D (LAPD)"	,	L_69
+bit_offset	,	V_5
+addr_tree	,	V_53
+dissect_xdlc_control	,	F_34
+conversation_add_proto_data	,	F_23
+hf_lapd_u_modifier_resp	,	V_145
+find_dissector	,	F_58
+PI_WARN	,	V_112
+ptr	,	V_1
+hf_lapd_checksum_good	,	V_109
+hf_lapd_p	,	V_131
+sapi	,	V_65
+"Terminal Endpoint Identifier"	,	L_35
+ones	,	V_6
+find_or_create_conversation	,	F_9
+hf_lapd_f	,	V_137
+dissect_lapd	,	F_24
+lnk_t	,	V_80
+lapd_bitstream_states	,	V_2
+checksum_tree	,	V_54
+hf	,	V_116
+new_tvb	,	V_29
+"Details at: http://www.wireshark.org/docs/wsug_html_chunked/ChAdvChecksums.html"	,	L_59
+prev_byte_state	,	V_35
+ett_lapd	,	V_20
+bit	,	V_25
+hf_lapd_ftype_s_u_ext	,	V_152
+prefs_register_protocol	,	F_55
+lapd_convo_data_t	,	T_12
+"EA2"	,	L_36
+dstname	,	V_70
+"lapd.checksum_bad"	,	L_64
+col_append_fstr	,	F_30
+col_set_str	,	F_25
+forward_stream	,	V_36
+"RTP payload type for embedded LAPD"	,	L_78
+lapd_bitstream_handle	,	V_159
+"lapd.control.n_r"	,	L_42
+proto_tree_add_uint_format	,	F_40
+has_crc	,	V_52
+init	,	V_158
+"lapd.control.u_modifier_cmd"	,	L_52
+byte	,	V_24
+XDLC_P_F	,	V_134
+col_set_fence	,	F_31
+"lapd.direction"	,	L_20
+modifier_vals_cmd	,	V_143
+XDLC_U_MODIFIER_MASK	,	V_144
+"EA1"	,	L_30
+hf_lapd_f_ext	,	V_138
+col_clear	,	F_26
+hf_lapd_gsm_sapi	,	V_97
+hf_lapd_control	,	V_103
+"lapd.checksum"	,	L_58
+proto_register_subtree_array	,	F_52
+"lapd.control.u_modifier_resp"	,	L_54
+"lapd.control.n_s"	,	L_44
+"Checksum"	,	L_57
+proto_tree_add_item	,	F_4
+pinfo	,	V_11
+col_add_fstr	,	F_29
+dissector_handle_t	,	T_16
+"lapd-bitstream"	,	L_82
+hf_lapd_checksum	,	V_107
+ADDRESSES_EQUAL	,	F_12
+lapd_ti	,	V_16
+"lapd.checksum_good"	,	L_61
+port_a	,	V_43
+ett_lapd_checksum	,	V_108
+port_b	,	V_45
+lapd_byte_state	,	V_34
+VALS	,	F_47
+prefs_register_bool_preference	,	F_56
+lapd_direction_vals	,	V_119
+LAPD_TEI	,	V_75
+lapd_ppi_t	,	T_10
+PI_PROTOCOL	,	V_22
+"?"	,	L_5
+"lapd.sapi"	,	L_25
+"data"	,	L_83
+tvb_length	,	F_37
+"Command/Response bit"	,	L_29
+FT_UINT8	,	V_117
+BASE_DEC	,	V_118
+fill_lapd_byte_state	,	F_1
+tvb_new_subset	,	F_41
+proto_item	,	T_6
+lapd_byte_state_t	,	T_1
+" | "	,	L_18
+ENC_NA	,	V_19
+"Checksum: 0x%04x [correct]"	,	L_15
+XDLC_N_S_EXT_MASK	,	V_130
+hf_lapd_n_s	,	V_129
+expert_add_info_format	,	F_7
+ett_lapd_control	,	V_104
+hf_lapd_n_r	,	V_127
+"lapd.ea1"	,	L_31
+"LAPD SAPI"	,	L_71
+"lapd.gsm.sapi"	,	L_72
+pkttype	,	V_84
+XDLC_IS_INFORMATION	,	F_43
+"Good Checksum"	,	L_60
+"Command"	,	L_51
+register_dissector_table	,	F_54
+msg	,	V_14
+"C/R"	,	L_27
+"rtp_payload_type"	,	L_77
+"%s"	,	L_1
+data	,	V_7
+checksum_ti	,	V_56
+"lapd.ea2"	,	L_37
+LAPD_CR	,	V_74
+ftype_vals	,	V_148
+ett_lapd_address	,	V_95
+lapd_rtp_payload_type	,	V_160
+"Supervisory frame type"	,	L_49
+"Bad Checksum"	,	L_63
+"N(S)"	,	L_43
+prefs_register_uint_preference	,	F_57
+hf_lapd_sapi	,	V_98
+FLAGS	,	V_51
+"Frame type"	,	L_55
+"Local User"	,	L_11
+lapd_cf_items	,	V_105
+"use_gsm_sapi_values"	,	L_74
+conversation_t	,	T_11
+"Response"	,	L_53
+modifier_vals_resp	,	V_146
+guint	,	T_5
+offset	,	V_13
+ett	,	V_154
+P2P_DIR_RECV	,	V_86
+hf_lapd_ftype_i	,	V_147
+tree	,	V_12
+"True: checksum doesn't match packet content; False: matches content or not checked"	,	L_65
+"Remote User"	,	L_10
+"True: checksum matches packet content; False: doesn't match content or not checked"	,	L_62
+packet_info	,	T_3
+add_new_data_source	,	F_18
+DATA	,	V_49
+stype_vals	,	V_140
+LAPD_SAPI_SHIFT	,	V_78
+hf_lapd_tei	,	V_101
+destport	,	V_46
+LAPD_EA2	,	V_126
+proto_tree_add_uint	,	F_32
+"%u"	,	L_7
+pseudo_header	,	V_82
+"Bad FCS"	,	L_17
+hf_lapd_address	,	V_94
+dst	,	V_42
+PI_CHECKSUM	,	V_111
+XDLC_S_U_MASK	,	V_151
+conversation_get_proto_data	,	F_11
+se_new	,	F_20
+"from 96 to 127. Set it to 0 to disable."	,	L_80
+"RTP payload type for embedded LAPD. It must be one of the dynamic types "	,	L_79
+P2P_DIR_SENT	,	V_87
+checksum	,	V_59
+"Abort! 7 ones!"	,	L_4
+addr	,	V_63
+HFILL	,	V_120
+hf_lapd_s_ftype	,	V_139
+lapd_gsm_sapi_vals	,	V_124
+direction	,	V_57
+p2p_dir	,	V_88
+"True: there is an Abort sequence, 7 ones in a row, or 6 ones in a row that aren't equal to 0x7e"	,	L_68
+WTAP_ENCAP_LINUX_LAPD	,	V_81
+dissector_try_uint	,	F_44
+lapd_gsm_sapi_dissector_table	,	V_113
+"Poll"	,	L_45
+"lapd.control"	,	L_40
+src	,	V_40
+control	,	V_58
+"Control Field"	,	L_39
+global_lapd_gsm_sapis	,	V_96
+"SAPI"	,	L_24
+"Use SAPI values as specified in TS 48 056"	,	L_76
+proto_item_set_len	,	F_36
+COL_TEI	,	V_79
+lapd_tree	,	V_15
+srcname	,	V_69
+"Abort! 6 ones that don't match 0x7e!"	,	L_3
+"lapd.control.f"	,	L_48
+hf_lapd_direction	,	V_93
+pi	,	V_17
+srcport	,	V_44
+LAPD_TEI_SHIFT	,	V_76
+P2P_DIR_UNKNOWN	,	V_92
+proto_register_lapd	,	F_46
+direction_ti	,	V_91
+proto_tree	,	T_4

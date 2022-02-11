@@ -1,0 +1,330 @@
+", PDU: Invoke (%u)"	,	L_13
+reason	,	V_77
+dissect_wtp_common	,	F_13
+", PDU count: %u"	,	L_3
+proto_register_protocol	,	F_45
+vals_tpi_type	,	V_116
+ett_wsp_fragments	,	V_133
+"wtp.reassembled.in"	,	L_108
+", PDU: Segmented Result (%u)"	,	L_24
+b0	,	V_31
+dataLen	,	V_48
+tvb_reported_length	,	F_18
+process_reassembled_data	,	F_34
+"Conflicting data in fragment overlap"	,	L_93
+"Trailer Flags"	,	L_44
+tvb_new_subset_remaining	,	F_37
+"Version"	,	L_52
+gint	,	T_5
+"wtp-udp"	,	L_121
+proto_wtp	,	V_51
+vHeader	,	V_36
+str_index	,	V_30
+TFS	,	F_43
+tvb	,	V_11
+guint32	,	T_10
+COL_INFO	,	V_56
+"wtp.fragment.multipletails"	,	L_97
+FT_BOOLEAN	,	V_101
+"TID Response"	,	L_48
+vals_transaction_trailer	,	V_105
+hf_wtp_header_Abort_reason_provider	,	V_78
+tvb_reported_length_remaining	,	F_31
+"wtp.RID"	,	L_47
+TIDNew_truth	,	V_109
+pdu_type	,	F_6
+MIN	,	F_24
+cinfo	,	V_55
+PROVIDER	,	V_76
+array_length	,	F_47
+"Reserved"	,	L_58
+"wtp.continue_flag"	,	L_41
+"wtp.header.sequence"	,	L_70
+hf_wtp_header_Inv_flag_TIDNew	,	V_69
+hf_wtp_header_Ack_flag_TVETOK	,	V_74
+hf_wtp_header_Abort_reason_user	,	V_81
+call_dissector	,	F_35
+col_append_str	,	F_19
+vals_transaction_classes	,	V_73
+tmp_tvb	,	V_87
+"Fragment count"	,	L_105
+continue_truth	,	V_102
+hf_register_info	,	T_13
+vals_wtp_pdu_type	,	V_58
+"Defragmentation error"	,	L_102
+wtp_tvb	,	V_53
+tCon	,	V_85
+guint16	,	T_8
+", Retransmission"	,	L_27
+COL_PROTOCOL	,	V_96
+wsp_handle	,	V_93
+RID_truth	,	V_106
+"Re-transmission Indicator"	,	L_46
+vals_abort_type	,	V_112
+"wtp"	,	L_119
+ACK	,	V_6
+i	,	V_43
+"Undefined"	,	L_15
+", Reason: %s (%u)"	,	L_20
+TID	,	V_46
+"Sequence number of this packet"	,	L_80
+reassembly_table_init	,	F_2
+", PDU concatenation"	,	L_1
+guint8	,	T_7
+hf_wtp_header_flag_RID	,	V_64
+ti	,	V_38
+BASE_NONE	,	V_115
+"WTP+WSP"	,	L_35
+wtp_fromudp_handle	,	V_135
+"wtp.pdu_type"	,	L_43
+"%s (WTP payload reassembled in packet %u)"	,	L_33
+register_dissector	,	F_49
+"Transaction ID"	,	L_50
+hf_wtp_fragment_overlap	,	V_119
+"Fragment overlaps with other fragments"	,	L_92
+tvbuff_t	,	T_2
+c_pdulen	,	V_50
+tvb_get_ntohs	,	F_26
+val_to_str_ext_const	,	F_29
+"wtp.abort.reason.provider"	,	L_67
+ett_tpilist	,	V_19
+"Reassembled WTP"	,	L_29
+BASE_HEX	,	V_104
+"Tve/Tok flag"	,	L_62
+gboolean	,	T_11
+"WTP"	,	L_118
+NEGATIVE_ACK	,	V_9
+proto_item_add_subtree	,	F_11
+"wtp.tpi.opt"	,	L_82
+hf_wtp_tpi_psn	,	V_25
+SEGMENTED_RESULT	,	V_8
+fragmented	,	V_91
+proto_register_field_array	,	F_46
+FT_BYTES	,	V_114
+"wtp.tpi"	,	L_76
+szInfo	,	V_27
+dataOffset	,	V_47
+hf_wtp_tpi_opt	,	V_22
+fragment_head	,	T_9
+dissector_add_uint	,	F_55
+stderr	,	V_59
+hf_wtp_payload	,	V_94
+"wtp.abort.reason.user"	,	L_68
+", Type: Provider (%u)"	,	L_19
+FT_UINT16	,	V_98
+register_init_routine	,	F_50
+tvb_get_guint8	,	F_8
+tvb_captured_length	,	F_10
+", Missing Packets: %u"	,	L_26
+"dissect_wtp: (4) tree was %p\n"	,	L_28
+"Missing Packets"	,	L_71
+clsTransaction	,	V_41
+"WTP packet %u: tree = %p, pdu = %s (%u) length: %u\n"	,	L_4
+"wtp.payload"	,	L_74
+hf_wtp_reassembled_in	,	V_127
+", PDU: Abort (%u)"	,	L_18
+"dissect_wtp: offCur = %d\n"	,	L_12
+"Sub PDU size"	,	L_37
+" R"	,	L_9
+vals_version	,	V_108
+"Identification of the Transport Information Item"	,	L_77
+"TIDNew"	,	L_54
+"Fragment contained data past end of packet"	,	L_101
+returned_length	,	V_29
+psn	,	V_45
+ett_wtp	,	V_60
+ett_header	,	V_132
+"dissect_wtp: (7) Returned from proto_tree_add_item\n"	,	L_11
+hf_wtp_header_missing_packets	,	V_84
+", Transaction Class: %s (%u)"	,	L_14
+hf_wtp_fragment_error	,	V_123
+"WTP: Packet %u %s -&gt; %d: wsp_tvb = %p, fd_wtp = %p, frame = %u\n"	,	L_30
+"Multiple tail fragments found"	,	L_96
+"Several tails were found when defragmenting the packet"	,	L_98
+val_to_str_const	,	F_28
+", Packet Sequence Number: %u"	,	L_23
+fRID	,	V_33
+find_dissector	,	F_54
+"Abort Type"	,	L_64
+"Reassembled"	,	L_31
+hf_wtp_fragment_multiple_tails	,	V_121
+register_cleanup_routine	,	F_51
+"wtp.header.TIDNew"	,	L_55
+ENC_BIG_ENDIAN	,	V_66
+"Not reassembled"	,	L_32
+"Packet sequence number"	,	L_78
+FT_UINT32	,	V_126
+"wtp.header.missing_packets"	,	L_72
+hf_wtp_reassembled_length	,	V_128
+"wtp.fragment.error"	,	L_103
+hf	,	V_97
+"PDU Type"	,	L_42
+hf_wtp_fragment	,	V_129
+"wtp.sub_pdu_size"	,	L_38
+"wtp.inv.transaction_class"	,	L_61
+wtp_reassembly_table	,	V_1
+"wtp.abort.type"	,	L_65
+"Information"	,	L_87
+fCon	,	V_32
+col_append_fstr	,	F_36
+BASE_EXT_STRING	,	V_113
+"WTP Fragment"	,	L_113
+col_set_str	,	F_39
+hf_wtp_fragment_too_long_fragment	,	V_122
+"wtp.reassembled.length"	,	L_111
+dissect_wtp_fromwtls	,	F_41
+"Transaction Class"	,	L_60
+cbHeader	,	V_35
+"wtp.tpi.info"	,	L_88
+"%s (Unreassembled fragment %u)"	,	L_34
+tByte	,	V_13
+"wtp.fragment"	,	L_114
+"Option Value"	,	L_84
+find_dissector_add_dependency	,	F_53
+tpiLen	,	V_86
+proto_item_append_text	,	F_17
+"Abort Reason"	,	L_66
+vals_tpi_opt	,	V_117
+col_clear	,	F_40
+tLen	,	V_15
+"dissect_wtp: cbHeader = %d\n"	,	L_10
+proto_register_subtree_array	,	F_48
+reassembly_table_destroy	,	F_4
+val_to_str	,	F_22
+"wtp.fragment.count"	,	L_106
+"Fragment overlap"	,	L_90
+proto_tree_add_item	,	F_12
+hf_wtp_header_flag_TID_response	,	V_65
+"wtp.fragments"	,	L_116
+ett_wtp_fragment	,	V_134
+tType	,	V_14
+pinfo	,	V_26
+dissector_handle_t	,	T_14
+hf_wtp_fragment_overlap_conflict	,	V_120
+hf_wtp_header_Inv_TransactionClass	,	V_72
+_U_	,	V_95
+"The information being send by this TPI"	,	L_89
+SZINFO_SIZE	,	F_14
+ett_wtp_sub_pdu_tree	,	V_52
+"wtp.fragment.overlap.conflict"	,	L_94
+retransmission_indicator	,	F_5
+hf_wtp_tpi_info	,	V_20
+VALS	,	F_44
+c_fieldlen	,	V_49
+subTree	,	V_16
+"WTLS+WTP+WSP"	,	L_36
+"gsm_sms.udh.port"	,	L_125
+"wtp-wtls"	,	L_120
+", PDU: Negative Ack (%u)"	,	L_25
+offCur	,	V_28
+wtp_frag_items	,	V_92
+FT_UINT8	,	V_103
+BASE_DEC	,	V_99
+"wtp.inv.reserved"	,	L_59
+"Overlapping fragments contained conflicting data"	,	L_95
+proto_item	,	T_3
+"Option"	,	L_81
+ENC_NA	,	V_21
+wtp_defragment_init	,	F_1
+transaction_class	,	F_27
+"wtp.TID"	,	L_51
+"Wireless Transaction Protocol"	,	L_117
+"Fragment too long"	,	L_99
+"wtp.header.UP"	,	L_57
+INVOKE	,	V_4
+ENC_LITTLE_ENDIAN	,	V_23
+wmem_alloc	,	F_15
+"Reassembled WTP length"	,	L_110
+abortType	,	V_37
+fTTR	,	V_34
+data	,	T_12
+"wtp.header.version"	,	L_53
+octet	,	V_3
+hf_wtp_header_Inv_flag_UP	,	V_70
+", PDU: Segmented Invoke (%u)"	,	L_22
+num	,	V_57
+UDP_PORT_WTP_WSP	,	V_136
+hf_wtp_header_flag_TID	,	V_67
+" Class %d"	,	L_7
+fd_wtp	,	V_88
+"TPI"	,	L_75
+", PDU: Result (%u)"	,	L_16
+hf_wtp_header_flag_continue	,	V_61
+save_fragmented	,	V_90
+"The given option for this TPI"	,	L_83
+hf_wtp_header_Inv_version	,	V_68
+", PDU: ACK (%u)"	,	L_17
+"wtp.tpi.psn"	,	L_79
+", Type: User (%u)"	,	L_21
+guint	,	T_6
+FT_NONE	,	V_118
+offset	,	V_12
+wtp_tree	,	V_39
+ett	,	V_131
+wmem_packet_scope	,	F_16
+proto_register_wtp	,	F_42
+pdut	,	V_40
+addresses_reassembly_table_functions	,	V_2
+tree	,	V_10
+numMissing	,	V_42
+tvb_bytes_exist	,	F_32
+UP_truth	,	V_110
+packet_info	,	T_4
+"WTP Fragments"	,	L_115
+"Size of Sub-PDU (bytes)"	,	L_39
+"wtp.trailer_flags"	,	L_45
+"wtp.tpi.opt.val"	,	L_85
+vals_abort_reason_provider	,	V_79
+proto_tree_add_uint	,	F_9
+"Defragmentation error due to illegal fragments"	,	L_104
+hf_wtp_tpi_type	,	V_18
+" (%u)"	,	L_8
+"Payload"	,	L_73
+"The value that is supplied with this option"	,	L_86
+"Reassembled in"	,	L_107
+hf_wtp_fragment_count	,	V_125
+"WTP fragments are reassembled in the given packet"	,	L_109
+g_snprintf	,	F_23
+tvb_new_subset_length	,	F_20
+"The total length of the reassembled payload"	,	L_112
+transmission_trailer	,	F_25
+"Unknown PDU type 0x%x"	,	L_5
+dissect_wtp_fromudp	,	F_38
+", "	,	L_2
+HFILL	,	V_100
+"wtp.ack.tvetok"	,	L_63
+vals_wsp_reason_codes_ext	,	V_82
+SEGMENTED_INVOKE	,	V_7
+"gsm_sms_ud.udh.port"	,	L_124
+wtp_defragment_cleanup	,	F_3
+hf_wtp_tpi_optval	,	V_24
+"U/P flag"	,	L_56
+"wtp.fragment.toolongfragment"	,	L_100
+"udp.port"	,	L_123
+wtp_handle_tpi	,	F_7
+hf_wtp_header_Inv_Reserved	,	V_71
+hf_wtp_header_sequence_number	,	V_83
+hf_wtp_header_Abort_type	,	V_75
+FT_FRAMENUM	,	V_124
+USER	,	V_80
+hf_wtp_header_sub_pdu_size	,	V_54
+DEBUG	,	F_21
+reassembled_in	,	V_89
+"wtp.TID.response"	,	L_49
+wsp_tvb	,	V_44
+proto_item_set_len	,	F_30
+fragment_add_seq	,	F_33
+"wsp-co"	,	L_122
+"Packet Sequence Number"	,	L_69
+tid_response_truth	,	V_107
+proto_reg_handoff_wtp	,	F_52
+"WTP %s"	,	L_6
+pi	,	V_17
+TVETOK_truth	,	V_111
+hf_wtp_header_pdu_type	,	V_62
+"Continue Flag"	,	L_40
+RESULT	,	V_5
+hf_wtp_fragments	,	V_130
+proto_tree	,	T_1
+"wtp.fragment.overlap"	,	L_91
+hf_wtp_header_flag_Trailer	,	V_63

@@ -1,0 +1,167 @@
+tvb_get_string_enc	,	F_2
+" (%ld.%09ds)"	,	L_14
+"Channel ID"	,	L_23
+proto_register_protocol	,	F_23
+"ZigBee Encapsulation Protocol"	,	L_45
+proto_tree_add_time	,	F_17
+"zep.channel_id"	,	L_24
+prefs_register_protocol	,	F_27
+tvb_reported_length	,	F_8
+"Protocol ID String"	,	L_41
+gPREF_zep_udp_port	,	V_64
+col_set_str	,	F_9
+gint	,	T_11
+hf_zep_seqno	,	V_41
+"LQI/CRC Mode"	,	L_29
+tvb	,	V_1
+ntp_time	,	V_26
+device_id	,	V_18
+COL_INFO	,	V_29
+"Encapsulated ZigBee Packet [Channel]=%i [Length]=%i"	,	L_3
+"zep"	,	L_46
+proto_register_zep	,	F_22
+FT_BOOLEAN	,	V_56
+proto_item_append_text	,	F_18
+ieee_packet_len	,	V_9
+version	,	V_15
+ZEP_V2_ACK_LEN	,	V_23
+cinfo	,	V_27
+FT_ABSOLUTE_TIME	,	V_58
+lastPort	,	V_66
+proto_register_subtree_array	,	F_26
+"%i (Ack)"	,	L_10
+"ZEPv2"	,	L_2
+"The ID of the device that detected this packet."	,	L_28
+array_length	,	F_25
+"Protocol Version"	,	L_18
+channel_id	,	V_17
+"ZigBee Encapsulation Protocol, Channel: %i, Length: %i"	,	L_5
+"Reserved"	,	L_13
+next_tvb	,	V_5
+proto_tree_add_item	,	F_13
+call_dissector	,	F_20
+"ZEP UDP port"	,	L_48
+pinfo	,	V_2
+dissector_handle_t	,	T_8
+col_add_fstr	,	F_10
+"Data"	,	L_12
+lqi_mode	,	V_19
+"zep.lqi_mode"	,	L_30
+_U_	,	V_4
+ieee802154_ccfcs_handle	,	V_48
+ENC_ASCII	,	V_13
+"LQI/CRC Mode: %s"	,	L_7
+zep_tree	,	V_8
+"wpan_cc24xx"	,	L_53
+"ieee802154_ccfcs"	,	L_54
+"ZEP"	,	L_1
+hf_register_info	,	T_10
+hf_zep_device_id	,	V_36
+ett_zep	,	V_31
+hf_zep_timestamp	,	V_43
+ZEP_PREAMBLE	,	V_14
+"LQI"	,	L_9
+COL_PROTOCOL	,	V_28
+hf_zep_channel_id	,	V_35
+ieee802154_handle	,	V_47
+"%i (%s)"	,	L_11
+"zep.device_id"	,	L_27
+proto_reg_handoff_zep	,	V_63
+ZEP_LENGTH_MASK	,	V_21
+"data"	,	L_55
+FT_UINT8	,	V_52
+h	,	V_68
+BASE_DEC	,	V_53
+proto_tree_add_boolean_format	,	F_15
+proto_item	,	T_5
+ENC_NA	,	V_33
+ABSOLUTE_TIME_LOCAL	,	V_59
+guint8	,	T_6
+"The version of the sniffer."	,	L_20
+BASE_NONE	,	V_57
+"Link Quality Indication"	,	L_32
+"Ack, Sequence Number: %i"	,	L_4
+secs	,	V_44
+zep_module	,	V_50
+"ieee802154"	,	L_52
+register_dissector	,	F_29
+"Timestamp"	,	L_34
+data	,	T_4
+tvb_get_ntohl	,	F_6
+lqi	,	V_20
+"The logical channel on which this packet was detected."	,	L_25
+tvbuff_t	,	T_1
+ZEP_V1_HEADER_LEN	,	V_16
+proto_tree_add_protocol_format	,	F_11
+proto_zep	,	V_30
+"zep.time"	,	L_35
+next_dissector	,	V_12
+"Set the port for ZEP Protocol\n"	,	L_49
+tvb_get_ntohs	,	F_5
+"ZigBee Encapsulation Protocol, Ack"	,	L_6
+"zep.seqno"	,	L_37
+hf_zep_ieee_length	,	V_46
+prefs_register_uint_preference	,	F_28
+gboolean	,	T_12
+"Default port is 17754"	,	L_50
+dissect_zep	,	F_1
+proto_item_add_subtree	,	F_12
+ZEP_V2_TYPE_DATA	,	V_42
+module_t	,	T_9
+proto_register_field_array	,	F_24
+FT_BYTES	,	V_61
+"Length"	,	L_38
+ett	,	V_62
+wmem_packet_scope	,	F_3
+dissector_add_uint	,	F_32
+zep_info	,	T_7
+tree	,	V_3
+zep_data	,	V_11
+"Sequence Number"	,	L_36
+hf_zep_protocol_id	,	V_32
+"Determines what format the last two bytes of the MAC frame use."	,	L_31
+data_handle	,	V_49
+ZEP_V2_TYPE_ACK	,	V_22
+ntp_to_nstime	,	F_7
+FT_UINT16	,	V_55
+packet_info	,	T_2
+tvb_get_guint8	,	F_4
+proto_root	,	V_6
+tvb_captured_length	,	F_21
+"zep.type"	,	L_22
+hf_zep_lqi	,	V_38
+dissector_delete_uint	,	F_31
+hf_zep_lqi_mode	,	V_37
+"zep.reserved_field"	,	L_44
+proto_tree_add_uint	,	F_14
+"Reserved Fields"	,	L_43
+inited	,	V_67
+"Byte"	,	L_16
+"Bytes"	,	L_17
+hf_zep_reserved_field	,	V_39
+tvb_new_subset_length	,	F_19
+FT_STRING	,	V_60
+ZEP_V2_HEADER_LEN	,	V_25
+"%i %s"	,	L_15
+hf_zep_version	,	V_34
+HFILL	,	V_54
+"zep.protocol_id"	,	L_42
+zep_header_len	,	V_10
+seqno	,	V_24
+"udp.port"	,	L_47
+find_dissector	,	F_30
+"The length (in bytes) of the encapsulated IEEE 802.15.4 MAC frame."	,	L_40
+proto_tree_add_uint_format_value	,	F_16
+"CRC"	,	L_8
+hf_zep_type	,	V_40
+nsecs	,	V_45
+"zep.version"	,	L_19
+"Device ID"	,	L_26
+zep_handle	,	V_65
+pi	,	V_7
+"Type"	,	L_21
+"zep.lqi"	,	L_33
+"wpan"	,	L_51
+proto_tree	,	T_3
+hf	,	V_51
+"zep.length"	,	L_39

@@ -1,0 +1,274 @@
+"Discarded PDU"	,	L_27
+proto_register_protocol	,	F_36
+"clnp.checksum"	,	L_41
+hf_clnp_segment_overlap	,	V_103
+"clnp.segment.toolongsegment"	,	L_60
+process_reassembled_data	,	F_27
+nlpid_vals	,	V_97
+tvb_new_subset_remaining	,	F_8
+"Version"	,	L_32
+"Reassembled CLNP in frame"	,	L_71
+clnp_reassembled_table	,	V_79
+clnp_reassemble	,	V_77
+gint	,	T_13
+cnf_hdr_len	,	V_7
+ERP_NPDU	,	V_93
+reassembled_table_init	,	F_33
+dst_len	,	V_21
+"ositp"	,	L_85
+tvb	,	V_1
+segment_offset	,	V_16
+"Segment offset      : %6u"	,	L_23
+proto_register_clnp	,	F_34
+"SA"	,	L_48
+"S "	,	L_5
+COL_INFO	,	V_35
+FT_BOOLEAN	,	V_104
+"reassemble"	,	L_82
+calc_checksum	,	F_19
+g_strlcat	,	F_12
+cinfo	,	V_33
+always_decode_transport	,	V_84
+array_length	,	F_38
+"clnp.type"	,	L_37
+du_id	,	V_15
+next_tvb	,	V_30
+call_dissector	,	F_9
+npdu_type_abbrev_vals	,	V_53
+"PDU Type     : 0x%02x (%s%s)"	,	L_8
+cnf_cksum	,	V_17
+"DAL"	,	L_42
+"Report error if PDU discarded"	,	L_14
+P_CLNP_VERS	,	V_44
+clnp_heur_subdissector_list	,	V_86
+clnp_module	,	V_120
+hf_register_info	,	T_12
+"Holding Time"	,	L_34
+P_CLNP_TYPE	,	V_51
+proto_tree_add_bytes_format	,	F_21
+hf_clnp_src_length	,	V_69
+"Checksum     : 0x%04x (incorrect)"	,	L_19
+"Unknown (0x%02x)"	,	L_4
+guint16	,	T_6
+cksum_status	,	V_18
+COL_PROTOCOL	,	V_34
+clnp_segment_table	,	V_78
+src_addr	,	V_25
+"Segment too long"	,	L_59
+"clnp.segment.count"	,	L_66
+guint8	,	T_5
+hf_clnp_type	,	V_57
+ti	,	V_5
+BASE_NONE	,	V_102
+ett_clnp_segments	,	V_118
+tvb_length_remaining	,	F_30
+"Segment overlap"	,	L_50
+discpdu_tree	,	V_27
+register_dissector	,	F_40
+"Segment overlaps with other segments"	,	L_52
+hf_clnp_segment	,	V_112
+" DA : %s"	,	L_20
+"clnp.segment.overlap.conflict"	,	L_54
+tvbuff_t	,	T_1
+"clnp.segment.overlap"	,	L_51
+ISO8473_V1	,	V_45
+tvb_get_ntohs	,	F_18
+"Segmentation not permitted"	,	L_11
+"tp_nsap_selector"	,	L_78
+BASE_HEX	,	V_96
+gboolean	,	T_10
+"Checksum     : 0x%04x (correct)"	,	L_18
+dst_addr	,	V_24
+proto_item_add_subtree	,	F_6
+"Reassembly error due to illegal segments"	,	L_64
+module_t	,	T_14
+cnf_proto_id	,	V_6
+fragmented	,	V_76
+proto_register_field_array	,	F_37
+FT_BYTES	,	V_101
+dissector_add_uint	,	F_49
+NLPID_ISO8473_CLNP	,	V_122
+"This CLNP packet is reassembled in this frame"	,	L_73
+data_handle	,	V_43
+src_len	,	V_20
+P_CLNP_ADDRESS_PART	,	V_66
+tvb_get_ptr	,	F_20
+FT_UINT16	,	V_100
+register_init_routine	,	F_42
+dissect_clnp	,	F_1
+tvb_get_guint8	,	F_4
+"Always try to decode NSDU as transport PDUs"	,	L_81
+P_CLNP_SEGLEN	,	V_60
+"Last segment"	,	L_13
+"Segment contained data past end of packet"	,	L_61
+P_CLNP_TTL	,	V_49
+"Inactive subset"	,	L_2
+P_CLNP_CKSUM	,	V_61
+print_nsap_net	,	F_22
+find_dissector	,	F_47
+ERQ_NPDU	,	V_92
+hf_clnp_id	,	V_41
+ett_clnp_type	,	V_58
+proto_reg_handoff_clnp	,	F_46
+FT_UINT32	,	V_111
+fragment_data	,	T_11
+hf	,	V_94
+"PDU Type"	,	L_36
+"Multiple tail segments found"	,	L_56
+hf_clnp_dest	,	V_68
+"clnp.segment.multipletails"	,	L_57
+opt_len	,	V_23
+fd_head	,	V_29
+CNF_SEG_OK	,	V_54
+CKSUM_OK	,	V_64
+prefs_register_protocol	,	F_43
+register_heur_dissector_list	,	F_41
+"clnp.len"	,	L_31
+cnf_vers	,	V_8
+col_set_str	,	F_2
+"x.25.spi"	,	L_89
+proto_tree_add_uint_format	,	F_7
+"More segments"	,	L_12
+clnp_frag_items	,	V_80
+"always_decode_transport"	,	L_80
+cnf_type	,	V_10
+nsel	,	V_22
+"clnp"	,	L_77
+"osinl"	,	L_88
+guchar	,	T_8
+CKSUM_NOT_OK	,	V_65
+npdu_type_vals	,	V_59
+hf_clnp_segment_overlap_conflict	,	V_105
+"%s NPDU %s"	,	L_16
+col_clear	,	F_3
+tp_nsap_selector	,	V_83
+"Reassemble segmented CLNP datagrams"	,	L_83
+clnp_handle	,	V_91
+proto_register_subtree_array	,	F_39
+val_to_str	,	F_11
+ositp_handle	,	V_85
+"Segmentation permitted"	,	L_10
+"Checksum"	,	L_40
+CNF_MORE_SEGS	,	V_55
+"Data unit identifier: %06u"	,	L_22
+"clnp.dsap.len"	,	L_43
+proto_tree_add_item	,	F_5
+dissector_try_heuristic	,	F_29
+"SAL"	,	L_46
+"Total length        : %6u"	,	L_24
+pinfo	,	V_2
+col_add_fstr	,	F_17
+flags	,	V_89
+"CLNP Segments"	,	L_69
+"Segment count"	,	L_65
+"clnp.nlpi"	,	L_29
+"Holding Time : %u (%u.%u secs)"	,	L_3
+"Network Layer Protocol Identifier"	,	L_28
+CNF_TYPE	,	V_52
+"CLNP Segment"	,	L_67
+"clnp.reassembled.length"	,	L_75
+P_CLNP_HDR_LEN	,	V_46
+VALS	,	F_35
+" SA : %s"	,	L_21
+cksum_status_t	,	T_7
+prefs_register_bool_preference	,	F_45
+"clnp.segments"	,	L_70
+"HDR Length"	,	L_30
+hf_clnp_src	,	V_70
+"data"	,	L_87
+segment_length	,	V_14
+tvb_length	,	F_16
+FT_UINT8	,	V_95
+proto_tree_add_text	,	F_13
+BASE_DEC	,	V_99
+"Checksum     : 0x%04x"	,	L_17
+hf_clnp_segment_count	,	V_110
+next_length	,	V_26
+hf_clnp_ttl	,	V_50
+proto_item	,	T_4
+"CLNP"	,	L_1
+AT_OSI	,	V_72
+decode_boolean_bitfield	,	F_14
+hf_clnp_segment_too_long_segment	,	V_107
+ENC_NA	,	V_39
+"PDU length"	,	L_38
+"ositp_inactive"	,	L_86
+"Don't report error if PDU discarded"	,	L_15
+type_tree	,	V_13
+hf_clnp_version	,	V_48
+"clnp.version"	,	L_33
+"Fragmented %s NPDU %s(off=%u)"	,	L_26
+"clnp.ssap"	,	L_49
+tvb_offset_exists	,	F_28
+ER_NPDU	,	V_87
+cnf_ttl	,	V_9
+"Overlapping segments contained conflicting data"	,	L_55
+clnp_tree	,	V_4
+proto_clnp	,	V_38
+"%s"	,	L_9
+clnp_reassemble_init	,	F_31
+hf_clnp_reassembled_length	,	V_116
+in_error_pkt	,	V_90
+NLPID_NULL	,	V_37
+fragment_add_check	,	F_26
+P_CLNP_PROTO_ID	,	V_36
+hf_clnp_dest_length	,	V_67
+"Reassembly error"	,	L_62
+SET_ADDRESS	,	F_23
+ett_clnp_disc_pdu	,	V_88
+prefs_register_uint_preference	,	F_44
+net_src	,	V_71
+"clnp.dsap"	,	L_45
+save_fragmented	,	V_32
+hf_clnp_checksum	,	V_63
+decode_enumerated_bitfield	,	F_15
+"Reassembled CLNP length"	,	L_74
+"Conflicting data in segment overlap"	,	L_53
+hf_clnp_segment_error	,	V_108
+flag_string	,	V_11
+guint	,	T_9
+"clnp.pdu.len"	,	L_39
+"clnp.segment"	,	L_68
+FT_NONE	,	V_114
+offset	,	V_19
+ett	,	V_117
+hf_clnp_segments	,	V_113
+"clnp.reassembled_in"	,	L_72
+tree	,	V_3
+"Reassembled CLNP"	,	L_25
+pdu_type_string	,	V_12
+tvb_bytes_exist	,	F_25
+update_col_info	,	V_31
+packet_info	,	T_2
+"E "	,	L_7
+"M "	,	L_6
+proto_tree_add_uint	,	F_10
+ett_clnp	,	V_40
+ett_clnp_segment	,	V_119
+dst	,	V_75
+"clnp.segment.error"	,	L_63
+"clnp.ssap.len"	,	L_47
+PROTO_STRING_CLNP	,	V_121
+hf_clnp_pdu_length	,	V_62
+"The total length of the reassembled payload"	,	L_76
+ositp_inactive_handle	,	V_42
+MD_NPDU	,	V_82
+hf_clnp_segment_multiple_tails	,	V_106
+"Several tails were found when reassembling the packet"	,	L_58
+HFILL	,	V_98
+dissect_osi_options	,	F_24
+src	,	V_73
+CNF_ERR_OK	,	V_56
+save_in_error_pkt	,	V_28
+hf_clnp_length	,	V_47
+create_dissector_handle	,	F_48
+FT_FRAMENUM	,	V_109
+hf_clnp_reassembled_in	,	V_115
+"NSAP selector for Transport Protocol (last byte in hex)"	,	L_79
+"DA"	,	L_44
+net_dst	,	V_74
+"clnp.ttl"	,	L_35
+"Whether segmented CLNP datagrams should be reassembled"	,	L_84
+DT_NPDU	,	V_81
+fragment_table_init	,	F_32
+proto_tree	,	T_3

@@ -1,0 +1,336 @@
+" (SP: %4i, NP: %4i)"	,	L_6
+"Signal Power in dBm"	,	L_16
+"btbredr_rf.packet_header.arqn"	,	L_62
+"btbredr_rf.incorrect_packet_header_or_hec"	,	L_111
+hec_item	,	V_19
+payload_transport_rate_payload_vals	,	V_139
+proto_register_protocol	,	F_23
+dissector_try_uint_new	,	F_17
+"btbredr_rf.data"	,	L_77
+packet_type_acl_br_vals	,	V_83
+FLAGS_BREDR_PAYLOAD_DECRYPTED	,	V_124
+"btbredr_rf.flags"	,	L_71
+"MIC Pass"	,	L_79
+packet_type_str	,	V_26
+hf_flags_crc_checked	,	V_112
+hf_whitened_data	,	V_128
+tvb_reported_length	,	F_19
+"Flow Control"	,	L_59
+hf_uncertain_rf_channel	,	V_36
+packet_type_csb_edr_vals	,	V_93
+tvb_new_subset_remaining	,	F_16
+"RF Channel"	,	L_10
+gint	,	T_6
+"Invalid Reference Upper Address Part"	,	L_47
+"btbredr_rf.flags.hec_check"	,	L_90
+tvb_captured_length_remaining	,	F_18
+"Packet Header"	,	L_51
+expert_module	,	V_130
+tvb	,	V_8
+guint32	,	T_3
+"BR or EDR Payload Decrypted"	,	L_99
+"btbredr_rf.flags.noise_power_valid"	,	L_102
+COL_INFO	,	V_45
+FT_BOOLEAN	,	V_143
+hf_packet_header_acknowledge_indication	,	V_100
+ett_flags	,	V_106
+hf_flags_reserved_15_14	,	V_107
+cinfo	,	V_32
+hf_packet_header_lt_addr	,	V_66
+"Incorrect Packet Header or HEC"	,	L_112
+"btbredr_rf.corrected_payload_bits"	,	L_38
+hf_access_address_offenses	,	V_44
+"btbredr_rf.whitened.data"	,	L_73
+array_length	,	F_25
+"btbredr_rf.packet_type.sco.br"	,	L_117
+"btbredr_rf.rf_channel"	,	L_11
+payload_transport_rate_transport_vals	,	V_46
+"BT Packet Type for CSB EDR"	,	L_130
+"Reserved"	,	L_53
+"MIC Checked"	,	L_81
+"btbredr_rf.packet_type.esco.br"	,	L_119
+"BT Packet Type for eSCO EDR"	,	L_122
+next_tvb	,	V_125
+"btbredr_rf.lower_address_part"	,	L_40
+payload_transport_rate_payload_abbrev_vals	,	V_47
+""	,	L_5
+packet_type_sco_br_vals	,	V_70
+TRANSPORT_eSCO	,	V_72
+"btbredr_rf.payload_transport_rate.payload"	,	L_34
+"btbredr_rf.invalid.signal_power"	,	L_18
+packet_type_csb_br_vals	,	V_90
+"btbredr_rf.flags.bredr_payload_decrypted"	,	L_100
+"btbredr_rf.flags.pkt_hdr_and_br_edr_payload_dewhitened"	,	L_106
+hf_flags_br_edr_data_present	,	V_117
+"HEC Pass"	,	L_87
+hf_invalid_noise_power	,	V_43
+ei_reserved_not_zero	,	V_108
+hf_register_info	,	T_16
+hf_whitened_packet_header	,	V_62
+hf_packet_header_type_csb_br	,	V_89
+guint16	,	T_4
+COL_PROTOCOL	,	V_33
+hf_flags_signal_power_valid	,	V_121
+"btbredr_rf.packet_header.lt_addr"	,	L_56
+i	,	V_7
+"BT Packet Type for ACL EDR"	,	L_126
+hf_invalid_reference_lower_address_part	,	V_57
+"btbredr_rf.packet_header"	,	L_52
+hf_corrected_header_bits	,	V_52
+"btbredr_rf.payload_transport_rate.ignored"	,	L_29
+guint8	,	T_1
+hf_packet_header_type_sco_br	,	V_69
+BASE_NONE	,	V_146
+packet_type_table	,	V_27
+" (SP: %4i)"	,	L_7
+hf_flags_packet_header_and_br_edr_payload_dewhitened	,	V_122
+"btbredr_rf.invalid.noise_power"	,	L_23
+"Lower Address Part"	,	L_39
+register_dissector	,	F_27
+hf_payload_transport_rate_transport	,	V_137
+"btbredr_rf.flags.crc_pass"	,	L_84
+header_tree	,	V_17
+"BR or EDR Data Present"	,	L_95
+hf_packet_header_flow_control	,	V_99
+"btbredr_rf.corrected_header_bits"	,	L_36
+"btbredr_rf.payload_transport_rate.transport"	,	L_32
+"btbredr_rf.packet_header.hec"	,	L_68
+check_hec	,	F_2
+tvbuff_t	,	T_7
+WTAP_ENCAP_BLUETOOTH_BREDR_BB	,	V_156
+hf_flags_reference_lower_address_part_valid	,	V_118
+proto_tree_add_bitmask	,	F_12
+hf_reference_lower_address_part	,	V_56
+BASE_HEX	,	V_136
+header_data	,	V_5
+btbredr_rf_handle	,	V_154
+flags_tree	,	V_15
+FT_UINT24	,	V_142
+gboolean	,	T_2
+"BT Packet Header is ignored and there is no payload"	,	L_30
+proto_item_add_subtree	,	F_5
+ett_btbredr_rf	,	V_31
+packet_type_acl_edr_table	,	V_87
+"Acknowledge Indication"	,	L_63
+proto_register_field_array	,	F_24
+TRANSPORT_ACL	,	V_81
+packet_type_esco_br_vals	,	V_74
+"btbredr_rf.packet_header.reserved"	,	L_54
+ei	,	V_149
+dissector_add_uint	,	F_32
+"Sequence Number"	,	L_66
+proto_register_btbredr_rf	,	F_21
+"HEC Checked"	,	L_89
+hf_rf_channel	,	V_37
+PAYLOAD_EDR_2	,	V_76
+PAYLOAD_EDR_3	,	V_77
+FT_UINT16	,	V_144
+"btbredr_rf.flags.reference_lower_address_part_valid"	,	L_98
+tvb_get_guint8	,	F_9
+FT_INT8	,	V_135
+ei_packet_header_with_hec_not_checked	,	V_104
+"btbredr_rf.noise_power"	,	L_20
+tvb_captured_length	,	F_7
+"BT Packet Type for SCO BR"	,	L_118
+"BT BR/EDR RF"	,	L_2
+hf_flags_mic_pass	,	V_109
+"Signal Power"	,	L_14
+PAYLOAD_BR	,	V_68
+FLAGS_REFERENCE_UPPER_ADDRES_PART_VALID	,	V_58
+"btbredr_rf.packet_header_with_hec_not_checked"	,	L_113
+"Reserved values are not zeros"	,	L_110
+dissector_table_t	,	T_13
+FLAGS_NOISE_POWER_VALID	,	V_41
+expert_add_info	,	F_14
+"Payload Transport Rate: Ignored"	,	L_28
+"btbredr_rf.flags.rf_channel_aliasing"	,	L_94
+"btbredr_rf.unexpected_data"	,	L_107
+"Transport: %s (%s), RF Channel: %s%2u"	,	L_3
+hf_packet_header_type_any	,	V_96
+gint8	,	T_5
+hf_packet_header	,	V_63
+"btbredr_rf.packet_type.acl.edr"	,	L_125
+"btbredr_rf"	,	L_116
+ett_bluetooth_header	,	V_64
+"Corrected Header Bits"	,	L_35
+hf_flags_reference_upper_addres_part_valid	,	V_115
+"Bluetooth Pseudoheader for BR/EDR"	,	L_115
+hf_reference_upper_addres_part	,	V_59
+hf_packet_header_type_acl_edr	,	V_85
+"Reference Upper Address Part Valid"	,	L_91
+", Packet Type: %s"	,	L_9
+FT_INT16	,	V_140
+val_to_str_const	,	F_11
+"Access Address Offenses"	,	L_24
+"Payload Transport Rate"	,	L_26
+"CRC Checked"	,	L_85
+PI_WARN	,	V_151
+"bluetooth.encap"	,	L_131
+"btbredr_rf.packet_header.flow_control"	,	L_60
+FT_UINT32	,	V_141
+hf_flags_bredr_payload_decrypted	,	V_119
+hf_flags_hec_checked	,	V_114
+hf_flags_noise_power_valid	,	V_120
+"Packet Header with HEC is not checked"	,	L_114
+hf	,	V_131
+"btbredr_rf.flags.mic_check"	,	L_82
+"Reference Lower Address Part Valid"	,	L_97
+"btbredr_rf.flags.signal_power_valid"	,	L_104
+"~"	,	L_4
+hec	,	V_4
+header_item	,	V_16
+packet_type_csb_br_table	,	V_91
+hf_payload_transport_rate	,	V_49
+"Noise Power in dBm"	,	L_21
+"btbredr_rf.flags.mic_pass"	,	L_80
+tvb_get_guint16	,	F_8
+"Corrected Payload Bits"	,	L_37
+"btbredr_rf.reference_upper_addres_part"	,	L_46
+col_append_fstr	,	F_15
+"Whitened Data"	,	L_72
+"Transport"	,	L_31
+packet_type_sco_br_table	,	V_71
+"Invalid Reference Lower Address Part"	,	L_43
+col_set_str	,	F_6
+"Flags"	,	L_70
+"HEC"	,	L_67
+hf_flags_mic_checked	,	V_110
+hf_packet_header_type_csb_edr	,	V_92
+dissect_btbredr_rf	,	F_3
+hf_packet_header_sequence_number	,	V_101
+hf_flags	,	V_105
+hf_packet_header_header_error_check	,	V_102
+FLAGS_RF_CHANNEL_ALIASING	,	V_35
+"btbredr_rf.whitened.packet_header"	,	L_50
+hf_payload_transport_rate_ignored	,	V_48
+packet_type_any_vals	,	V_97
+hf_lower_address_part	,	V_54
+packet_type_csb_edr_table	,	V_94
+"BT Packet Type for ACL BR"	,	L_124
+TRANSPORT_CSB	,	V_88
+proto_register_subtree_array	,	F_26
+hf_invalid_signal_power	,	V_40
+TRANSPORT_ANY	,	V_95
+packet_type	,	V_24
+"Whitened Packet Header"	,	L_49
+hf_noise_power	,	V_42
+"btbredr_rf.packet_header.type"	,	L_58
+"Noise Power Valid"	,	L_101
+ett_packet_header	,	V_148
+"btbredr_rf.packet_header.seqn"	,	L_65
+proto_tree_add_item	,	F_4
+proto_btbredr_rf	,	V_29
+pinfo	,	V_9
+payload_and_transport	,	V_23
+col_add_fstr	,	F_10
+"Reference Upper Address Part"	,	L_45
+"Data"	,	L_76
+hf_x	,	V_21
+flags	,	V_22
+hf_data	,	V_126
+proto_reg_handoff_btbredr_rf	,	F_31
+"ARQN"	,	L_61
+"btbredr_rf.flags.crc_check"	,	L_86
+hf_packet_header_type_esco_edr	,	V_78
+hf_flags_hec_pass	,	V_113
+"Uncertain RF Channel"	,	L_12
+tvb_get_guint32	,	F_13
+hf_flags_crc_pass	,	V_111
+"Unexpected data, BR or EDR Data Present flag is set to False"	,	L_108
+VALS	,	F_22
+"btbredr_rf.packet_type.csb.edr"	,	L_129
+ei_incorrect_packet_header_or_hec	,	V_103
+"btbredr_rf.access_address_offenses"	,	L_25
+btbredr_rf_tree	,	V_13
+PI_PROTOCOL	,	V_150
+TRANSPORT_SCO	,	V_67
+uap	,	V_2
+FT_UINT8	,	V_132
+BASE_DEC	,	V_133
+hf_flags_rf_channel_aliasing	,	V_116
+lfsr	,	V_6
+proto_item	,	T_10
+ei_unexpected_data	,	V_129
+expert_register_field_array	,	F_30
+ENC_NA	,	V_30
+flags_item	,	V_14
+FLAGS_BR_EDR_DATA_PRESENT	,	V_123
+hf_packet_header_type_acl_br	,	V_82
+ENC_LITTLE_ENDIAN	,	V_34
+register_dissector_table	,	F_28
+"btbredr_rf.flags.reserved.15_14"	,	L_78
+"Signal Power Valid"	,	L_103
+data	,	V_11
+reserved_item	,	V_18
+"btbredr_rf.payload_transport_rate"	,	L_27
+"SEQN"	,	L_64
+"btbredr_rf.reserved_not_zero"	,	L_109
+"btbredr_rf.packet_type.acl.br"	,	L_123
+"btbredr_rf.flags.reference_upper_addres_part_valid"	,	L_92
+hf_packet_header_type_esco_br	,	V_73
+"btbredr_rf.flags.bredr_data_present"	,	L_96
+ei_register_info	,	T_17
+expert_register_protocol	,	F_29
+"btbredr_rf.uncertain_rf_channel"	,	L_13
+"Encrypted Data"	,	L_74
+PI_NOTE	,	V_153
+"btbredr_rf.invalid.reference_upper_addres_part"	,	L_48
+ett_payload_transport_rate	,	V_50
+packet_type_esco_edr_table	,	V_80
+"btbredr_rf.encrypted.data"	,	L_75
+FT_NONE	,	V_145
+offset	,	V_20
+ett	,	V_147
+expert_module_t	,	T_15
+" (NP: %4i)"	,	L_8
+tree	,	V_10
+packet_type_esco_br_table	,	V_75
+packet_info	,	T_8
+FLAGS_REFERENCE_LOWER_ADDRESS_PART_VALID	,	V_55
+"btbredr_rf.packet_type.csb.br"	,	L_127
+"LT_ADDR"	,	L_55
+header	,	V_3
+packet_type_acl_edr_vals	,	V_86
+"BT Packet Type for CSB BR"	,	L_128
+"btbredr_rf.invalid.reference_lower_address_part"	,	L_44
+"btbredr_rf.packet_type.esco.edr"	,	L_121
+hfx_payload_transport_rate	,	V_51
+EXPFILL	,	V_152
+packet_type_acl_br_table	,	V_84
+hf_corrected_payload_bits	,	V_53
+"btbredr_rf.signal_power"	,	L_15
+bluetooth_data_t	,	T_14
+proto_tree_add_expert	,	F_20
+"Payload"	,	L_33
+DISSECTOR_TABLE_NOT_ALLOW_DUPLICATE	,	V_155
+"Header Error Check"	,	L_69
+hf_payload_transport_rate_payload	,	V_138
+"Packet Header and BR/EDR Payload Dewhitened"	,	L_105
+"Reference Lower Address Part"	,	L_41
+hf_encrypted_data	,	V_127
+hf_signal_power	,	V_39
+FLAGS_PACKET_HEADER_AND_BR_EDR_PAYLOAD_DEWHITENED	,	V_61
+"Invalid Signal Power"	,	L_17
+HFILL	,	V_134
+value	,	V_1
+hf_packet_header_type	,	V_98
+packet_type_esco_edr_vals	,	V_79
+reverse_bits	,	F_1
+btbredr_rf_item	,	V_12
+"Noise Power"	,	L_19
+gchar	,	T_12
+"BT Packet Type for eSCO BR"	,	L_120
+PACKET_TYPE_UNKNOWN	,	V_25
+"btbredr_rf.reference_lower_address_part"	,	L_42
+"RF Channel Aliasing"	,	L_93
+FLAGS_SIGNAL_POWER_VALID	,	V_38
+gint16	,	T_11
+hf_packet_header_reserved	,	V_65
+bluetooth_data	,	V_28
+hf_invalid_reference_upper_addres_part	,	V_60
+"Unknown"	,	L_1
+"btbredr_rf.flags.hec_pass"	,	L_88
+"Type"	,	L_57
+proto_tree	,	T_9
+"Invalid Noise Power"	,	L_22
+"CRC Pass"	,	L_83

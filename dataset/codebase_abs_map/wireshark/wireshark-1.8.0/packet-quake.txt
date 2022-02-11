@@ -1,0 +1,243 @@
+"quake.control.server_info.num_player"	,	L_54
+"Maximal Number of Players"	,	L_56
+control_tree	,	V_42
+"seq 0x%x"	,	L_13
+"quake.control.player_info.address"	,	L_76
+proto_register_protocol	,	F_33
+tvb_reported_length	,	F_17
+check_col	,	F_20
+quake_tree	,	V_64
+hf_quake_CCREP_PLAYER_INFO_name	,	V_30
+"Version"	,	L_28
+"Player Frags"	,	L_72
+hf_quake_CCREP_SERVER_INFO_address	,	V_20
+gint	,	T_3
+"Port"	,	L_38
+tvb	,	V_1
+dissect_quake_CCREP_ACCEPT	,	F_7
+guint32	,	T_6
+CCREQ_RULE_INFO	,	V_57
+"Quake Server UDP Port"	,	L_87
+COL_INFO	,	V_48
+"Unreliable"	,	L_11
+hf_quake_CCREP_SERVER_INFO_max_player	,	V_24
+"Pants"	,	L_67
+hf_quake_CCREQ_RULE_INFO_lastrule	,	V_13
+cinfo	,	V_47
+quake_handle	,	V_17
+"Frags"	,	L_70
+array_length	,	F_35
+"End Of Message"	,	L_10
+next_tvb	,	V_44
+CCREP_RULE_INFO	,	V_62
+hf_quake_control_command	,	V_53
+FT_STRINGZ	,	V_92
+Initialized	,	V_99
+call_dissector	,	F_25
+proto_register_quake	,	F_31
+"quake.header.length"	,	L_17
+"quake.control.player_info.connect_time"	,	L_74
+ENC_ASCII	,	V_6
+colors	,	V_25
+names_colors	,	V_94
+"Reason"	,	L_41
+hf_register_info	,	T_10
+"quake.header.flags"	,	L_15
+ett_quake	,	V_72
+"quake.control.player_info.frags"	,	L_71
+dissect_quake	,	F_26
+"Rule Name"	,	L_80
+CCREP_SERVER_INFO	,	V_60
+c	,	V_16
+COL_PROTOCOL	,	V_68
+CCREQ_SERVER_INFO	,	V_55
+"quake.control.player_info.name"	,	L_59
+"quake.control.rule_info.value"	,	L_82
+guint8	,	T_8
+ti	,	V_4
+BASE_NONE	,	V_93
+"Server Address"	,	L_46
+hf_quake_header_length	,	V_83
+"Player Address"	,	L_77
+"quake.control.server_info.address"	,	L_45
+dissect_quake_CCREP_PLAYER_INFO	,	F_14
+tvb_get_ntohl	,	F_29
+hf_quake_CCREP_PLAYER_INFO_frags	,	V_35
+tvbuff_t	,	T_1
+conversation_set_dissector	,	F_10
+BASE_HEX	,	V_87
+"quake.control.server_info.max_player"	,	L_57
+flags_tree	,	V_74
+"quake.control.server_info.server"	,	L_48
+gboolean	,	T_12
+hf_quake_CCREQ_CONNECT_game	,	V_5
+hf_quake_CCREP_PLAYER_INFO_colors	,	V_31
+proto_item_add_subtree	,	F_15
+"Player Colors"	,	L_63
+module_t	,	T_11
+proto_register_field_array	,	F_34
+hf_quake_CCREP_PLAYER_INFO_connect_time	,	V_36
+"Control %s: %s"	,	L_3
+"quake.control.player_info.colors"	,	L_62
+rest_length	,	V_43
+hf_quake_CCREQ_PLAYER_INFO_player	,	V_12
+dissector_add_uint	,	F_42
+dissect_quake_CCREQ_CONNECT	,	F_1
+"Sequence Number"	,	L_21
+data_handle	,	V_63
+hf_quake_CCREQ_CONNECT_version	,	V_8
+FT_UINT16	,	V_86
+"Sequence"	,	L_19
+hf_quake_CCREP_RULE_INFO_rule	,	V_38
+tvb_get_guint8	,	F_19
+CCREP_ACCEPT	,	V_58
+port	,	V_15
+dissector_delete_uint	,	F_41
+"Address"	,	L_44
+hf_quake_CCREP_SERVER_INFO_map	,	V_22
+color_pants	,	V_27
+"quake"	,	L_85
+hf_quake_CCREP_ACCEPT_port	,	V_18
+"quake.control.rule_info.rule"	,	L_79
+gbl_quakeServerPort	,	V_98
+NETFLAG_EOM	,	V_80
+"quake.control.connect.version"	,	L_29
+"quake.control.rule_info.lastrule"	,	L_36
+color_shirt	,	V_26
+length	,	V_65
+find_dissector	,	F_40
+NETFLAG_UNRELIABLE	,	V_81
+"Pants Color"	,	L_69
+colors_tree	,	V_29
+CCREQ_PLAYER_INFO	,	V_56
+names_control_direction	,	V_50
+FT_UINT32	,	V_90
+NETFLAG_NAK	,	V_79
+find_or_create_conversation	,	F_9
+CCREP_REJECT	,	V_59
+hf_quake_CCREQ_SERVER_INFO_game	,	V_10
+"quake.control.player_info.colors.shirt"	,	L_65
+hf	,	V_85
+"Quake Network Protocol"	,	L_84
+hf_quake_CCREP_PLAYER_INFO_colors_shirt	,	V_33
+dissect_quake_control	,	F_18
+"Player Connect Time"	,	L_75
+dissect_quake_CCREP_RULE_INFO	,	F_16
+prefs_register_protocol	,	F_37
+"No Acknowledgment"	,	L_9
+"quake.control.player_info.player"	,	L_34
+proto_quake	,	V_71
+"Server Name"	,	L_49
+col_set_str	,	F_27
+"Player Name"	,	L_60
+"Flags"	,	L_14
+"Rule"	,	L_78
+"Shirt Color"	,	L_66
+"Rule Value"	,	L_83
+quake_module	,	V_96
+CCREQ_CONNECT	,	V_54
+dissect_quake_CCREQ_RULE_INFO	,	F_6
+"quake.control.accept.port"	,	L_39
+ett_quake_flags	,	V_76
+"Last Rule Name"	,	L_37
+col_clear	,	F_28
+"-"	,	L_7
+proto_register_subtree_array	,	F_36
+"Current Number of Players"	,	L_55
+val_to_str	,	F_22
+"quake.control.reject.reason"	,	L_42
+"Game Protocol Version Number"	,	L_30
+proto_tree_add_item	,	F_2
+pinfo	,	V_14
+col_add_fstr	,	F_21
+"Data"	,	L_6
+hf_quake_CCREP_REJECT_reason	,	V_19
+flags	,	V_66
+NETFLAG_ACK	,	V_78
+hf_quake_CCREP_SERVER_INFO_server	,	V_21
+"quake.control.server_info.version"	,	L_32
+"Value"	,	L_81
+hf_quake_CCREP_SERVER_INFO_num_player	,	V_23
+dissect_quake_CCREP_SERVER_INFO	,	F_13
+hf_quake_CCREP_PLAYER_INFO_address	,	V_37
+VALS	,	F_32
+names_control_command	,	V_49
+"quake.control.player_info.colors.pants"	,	L_68
+dissect_quake_CCREQ_SERVER_INFO	,	F_4
+"data"	,	L_89
+FT_UINT8	,	V_91
+"Map Name"	,	L_52
+hf_quake_CCREP_RULE_INFO_value	,	V_39
+proto_tree_add_text	,	F_23
+BASE_DEC	,	V_89
+tvb_new_subset	,	F_24
+"Player"	,	L_33
+proto_item	,	T_4
+"Acknowledgment"	,	L_8
+decode_boolean_bitfield	,	F_30
+ENC_NA	,	V_7
+"Connect Time"	,	L_73
+flags_item	,	V_73
+"QUAKE"	,	L_4
+"Game"	,	L_25
+colors_item	,	V_28
+"quake.control.command"	,	L_23
+ENC_LITTLE_ENDIAN	,	V_9
+hf_quake_CCREP_PLAYER_INFO_colors_pants	,	V_34
+"%s %s"	,	L_1
+"Command"	,	L_22
+ServerPort	,	V_100
+quake_item	,	V_70
+hf_quake_CCREQ_SERVER_INFO_version	,	V_11
+"Control"	,	L_12
+"%s"	,	L_5
+"Name"	,	L_58
+"Colors"	,	L_61
+control_item	,	V_51
+"Map"	,	L_50
+dissect_quake_CCREQ_PLAYER_INFO	,	F_5
+"Shirt"	,	L_64
+"Game Data Port"	,	L_40
+prefs_register_uint_preference	,	F_38
+NETFLAG_LENGTH_MASK	,	V_69
+tvb_get_letohl	,	F_8
+"Game Name"	,	L_27
+conversation_t	,	T_7
+"Reject Reason"	,	L_43
+guint	,	T_9
+"Length"	,	L_16
+offset	,	V_3
+ett	,	V_95
+ett_quake_control	,	V_52
+NETFLAG_DATA	,	V_77
+hf_quake_header_flags	,	V_75
+tree	,	V_2
+proto_reg_handoff_quake	,	V_97
+"Set the UDP port for the Quake Server"	,	L_88
+packet_info	,	T_5
+sequence	,	V_67
+"Control Command"	,	L_24
+proto_tree_add_uint	,	F_11
+"%u"	,	L_2
+"quake.control.connect.game"	,	L_26
+ett_quake_control_colors	,	V_32
+"full data length"	,	L_18
+CCREQ	,	V_46
+dissect_quake_CCREP_REJECT	,	F_12
+CCREP	,	V_45
+"Number of Players"	,	L_53
+"Last Rule"	,	L_35
+proto_item_get_len	,	F_3
+"quake.header.sequence"	,	L_20
+"Server"	,	L_47
+HFILL	,	V_88
+direction	,	V_41
+"udp.port"	,	L_86
+"quake.control.server_info.game"	,	L_31
+create_dissector_handle	,	F_39
+hf_quake_header_sequence	,	V_84
+command	,	V_40
+"quake.control.server_info.map"	,	L_51
+CCREP_PLAYER_INFO	,	V_61
+NETFLAG_CTL	,	V_82
+proto_tree	,	T_2

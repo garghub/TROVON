@@ -1,0 +1,269 @@
+proto_register_btbnep	,	F_26
+"UnknownDirection "	,	L_11
+"btbnep"	,	L_76
+hf_btbnep_invalid_lentype	,	V_78
+is_802_2	,	V_83
+proto_register_protocol	,	F_29
+"Unknown Control Type"	,	L_26
+IEEE_802_3_MAX_LEN	,	V_74
+tvb_new_subset_remaining	,	F_23
+gint	,	T_8
+FT_ETHER	,	V_109
+hf_btbnep_src	,	V_71
+extension_type_vals	,	V_104
+unknown_control_type	,	V_7
+TFS	,	F_28
+tvb	,	V_1
+"Destination"	,	L_48
+"Extension Type"	,	L_22
+"Specifies if this is an individual (unicast) or group (broadcast/multicast) address"	,	L_68
+COL_INFO	,	V_17
+module	,	V_97
+val_to_str_ext	,	F_8
+FT_BOOLEAN	,	V_103
+extension_flag	,	V_36
+"UIDD Size"	,	L_28
+tvb_reported_length_remaining	,	F_20
+"btbnep.source_service_uuid"	,	L_33
+response_message	,	V_11
+cinfo	,	V_16
+hf_btbnep_extension_type	,	V_39
+PI_ERROR	,	V_119
+array_length	,	F_32
+"Unknown type"	,	L_2
+"btbnep.destination_service_uuid"	,	L_31
+next_tvb	,	V_85
+"btbnep.invalid_lentype.expert"	,	L_71
+" (%s)"	,	L_4
+call_dissector	,	F_22
+copy_address_shallow	,	F_16
+"Invalid length/type: 0x%04x (%u)"	,	L_13
+ei_btbnep_len_past_end	,	V_86
+"ethertype"	,	L_84
+"Extension Length"	,	L_24
+col_append_str	,	F_14
+hf_btbnep_lg	,	V_66
+extension_length	,	V_38
+hf_register_info	,	T_14
+"btbnep.type"	,	L_59
+fh_tree	,	V_92
+"Specifies if this is a locally administered or globally unique (IEEE assigned) address"	,	L_65
+hf_btbnep_dst	,	V_63
+guint16	,	T_7
+ett_btbnep	,	V_51
+COL_PROTOCOL	,	V_52
+"btbnep.filter_net_type_response_message"	,	L_36
+btbnep_handle	,	V_120
+"Multicast Address Start"	,	L_44
+guint8	,	T_6
+dissect_extension	,	F_9
+ti	,	V_77
+BASE_NONE	,	V_108
+"Length field value goes past the end of the payload"	,	L_73
+"btbnep.invalid_lentype"	,	L_57
+ethertype_handle	,	V_96
+"Source"	,	L_51
+extension_type	,	V_37
+fcs_len	,	V_95
+"Source Hardware Address"	,	L_53
+register_dissector	,	F_30
+"LG bit"	,	L_63
+"Network Protocol Type Range Start"	,	L_40
+tvbuff_t	,	T_1
+hf_btbnep_control_type	,	V_14
+tvb_get_ntohs	,	F_6
+BASE_HEX	,	V_101
+"List Length"	,	L_38
+gboolean	,	T_10
+hf_btbnep_multicast_address_start	,	V_32
+"+E"	,	L_12
+"Unknown uuid"	,	L_5
+proto_item_add_subtree	,	F_11
+module_t	,	T_12
+uuid_src	,	V_10
+proto_register_field_array	,	F_31
+bluetooth_uuid_vals_ext	,	V_23
+ei	,	V_114
+ig_tfs	,	V_112
+dissector_add_uint	,	F_42
+hf_btbnep_filter_multi_addr_response_message	,	V_34
+"btbnep.filter_multi_addr_response_message"	,	L_37
+dissect_control	,	F_1
+FT_UINT16	,	V_105
+" - Unknown(%s)"	,	L_3
+tvb_get_guint8	,	F_3
+set_address_tvb	,	F_15
+"btbnep.network_type_end"	,	L_43
+" - %s"	,	L_1
+uuid_dst	,	V_9
+"Address"	,	L_60
+"IG bit"	,	L_66
+"Response Message"	,	L_34
+"btbnep.lg"	,	L_64
+"Destination Hardware Address"	,	L_50
+call_dissector_with_data	,	F_25
+etype_id	,	V_93
+expert_add_info	,	F_17
+hf_btbnep_type	,	V_81
+hf_btbnep_source_service_uuid	,	V_24
+"btbnep.len.past_end"	,	L_72
+"BT BNEP"	,	L_75
+"llc"	,	L_83
+call_data_dissector	,	F_24
+"btbnep.bnep_type"	,	L_17
+etype	,	V_90
+bnep_type	,	V_45
+"btbnep.len"	,	L_55
+addr_tree	,	V_48
+val_to_str_const	,	F_5
+ei_btbnep_invalid_lentype	,	V_79
+"Source or Destination Hardware Address"	,	L_62
+PI_WARN	,	V_116
+ENC_BIG_ENDIAN	,	V_15
+" - Type: %s"	,	L_14
+"btbnep.src"	,	L_52
+hf_btbnep_extension_flag	,	V_40
+reported_length	,	V_84
+"Invalid length/type"	,	L_56
+hf	,	V_99
+BASE_HEX_DEC	,	V_110
+"Extension Flag"	,	L_18
+hf_btbnep_setup_connection_response_message	,	V_25
+prefs_register_protocol	,	F_36
+" - dst: &lt;%s&gt;, src: &lt;%s&gt;"	,	L_6
+"btbnep.extension_flag"	,	L_19
+hf_btbnep_network_type_end	,	V_29
+BNEP_TYPE_CONTROL	,	V_73
+"Multicast Address End"	,	L_46
+col_append_fstr	,	F_4
+col_set_str	,	F_12
+AT_ETHER	,	V_61
+BTL2CAP_PSM_BNEP	,	V_121
+"ipx"	,	L_82
+find_dissector_add_dependency	,	F_40
+"Source Service UUID"	,	L_32
+proto_item_append_text	,	F_7
+"btbnep.dst"	,	L_49
+filter_net_type_response_message_vals	,	V_31
+ei_btbnep_src_not_group_address	,	V_72
+col_clear	,	F_13
+ETHERNET_II_MIN_LEN	,	V_76
+trailer_id	,	V_94
+proto_register_subtree_array	,	F_33
+"bnep.version"	,	L_77
+hf_btbnep_addr	,	V_65
+control_type_vals	,	V_18
+hf_btbnep_uuid_size	,	V_20
+expert_btbnep	,	V_98
+proto_tree_add_item	,	F_2
+BNEP_TYPE_COMPRESSED_ETHERNET_SOURCE_ONLY	,	V_68
+pinfo	,	V_2
+_U_	,	V_42
+hf_btbnep_extension_length	,	V_41
+setup_connection_response_message_vals	,	V_26
+dl_dst	,	V_60
+"btbnep.uknown_control_type"	,	L_27
+"Destination Service UUID"	,	L_30
+"Version of protocol supported by this dissector."	,	L_79
+"1116"	,	L_87
+VALS	,	F_27
+dissector_add_for_decode_as	,	F_43
+prefs_register_bool_preference	,	F_38
+"bnep.top_dissect"	,	L_80
+ethertype_data_t	,	T_11
+lg_tfs	,	V_111
+PI_PROTOCOL	,	V_115
+prefs_register_static_text_preference	,	F_37
+"btbnep.setup_connection_response_message"	,	L_35
+llc_handle	,	V_87
+addr_item	,	V_47
+FT_UINT8	,	V_100
+BASE_DEC	,	V_106
+proto_item	,	T_4
+hf_btbnep_network_type_start	,	V_28
+hf_btbnep_filter_net_type_response_message	,	V_30
+expert_register_field_array	,	F_35
+dl_src	,	V_69
+ENC_NA	,	V_22
+dissector_add_string	,	F_41
+"btl2cap.cid"	,	L_90
+"1117"	,	L_88
+expert_add_info_format	,	F_18
+list_length	,	V_12
+top_dissect	,	V_80
+"btbnep.extension_length"	,	L_25
+"btbnep.ig"	,	L_67
+etype_vals	,	V_82
+"BNEP Type"	,	L_16
+bnep_type_vals	,	V_57
+"Control Type"	,	L_20
+proto_reg_handoff_btbnep	,	F_39
+data	,	T_9
+BNEP_TYPE_GENERAL_ETHERNET	,	V_58
+"Rcvd "	,	L_10
+"btbnep.multicast_address_end"	,	L_47
+"btbnep.src.not_group_address"	,	L_69
+"Dissecting the top protocols"	,	L_81
+"Source MAC must not be a group address: IEEE 802.3-2002, Section 3.2.3(b)"	,	L_70
+"btbnep.multicast_address_start"	,	L_45
+"btbnep.network_type_start"	,	L_41
+ei_register_info	,	T_15
+expert_register_protocol	,	F_34
+length_ti	,	V_49
+control_type	,	V_6
+guint	,	T_5
+FT_NONE	,	V_107
+"Length"	,	L_54
+offset	,	V_4
+ett	,	V_113
+"Sent "	,	L_9
+P2P_DIR_RECV	,	V_55
+expert_module_t	,	T_13
+tree	,	V_3
+tvb_bytes_exist	,	F_19
+"btbnep.addr"	,	L_61
+ethertype_data	,	V_89
+packet_info	,	T_2
+i_item	,	V_13
+"btbnep.uuid_size"	,	L_29
+filter_multi_addr_response_message_vals	,	V_35
+hf_btbnep_ig	,	V_67
+"1115"	,	L_86
+uuid_size	,	V_8
+hf_btbnep_unknown_control_type	,	V_19
+hf_btbnep_multicast_address_end	,	V_33
+hf_btbnep_bnep_type	,	V_56
+EXPFILL	,	V_117
+dst	,	V_62
+"Unknown response message"	,	L_7
+proto_btbnep	,	V_50
+hf_btbnep_destination_service_uuid	,	V_21
+"btbnep.extension_type"	,	L_23
+"btbnep.list_length"	,	L_39
+ett_addr	,	V_64
+hf_btbnep_len	,	V_75
+tvb_new_subset_length	,	F_21
+BNEP_TYPE_COMPRESSED_ETHERNET_DESTINATION_ONLY	,	V_59
+"Network Protocol Type Range End"	,	L_42
+"Bluetooth Protocol BNEP version: 1.0"	,	L_78
+P2P_DIR_SENT	,	V_54
+pitem	,	V_5
+"Bluetooth BNEP Protocol"	,	L_74
+HFILL	,	V_102
+PI_MALFORMED	,	V_118
+len_type	,	V_46
+p2p_dir	,	V_53
+offset_after_ethertype	,	V_91
+"btl2cap.psm"	,	L_89
+"BNEP"	,	L_8
+"btbnep.control_type"	,	L_21
+src	,	V_70
+"bluetooth.uuid"	,	L_85
+dissect_btbnep	,	F_10
+btbnep_tree	,	V_44
+pi	,	V_43
+ipx_handle	,	V_88
+hf_btbnep_list_length	,	V_27
+"Type"	,	L_58
+"unknown"	,	L_15
+proto_tree	,	T_3

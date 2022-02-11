@@ -1,0 +1,175 @@
+hf_ypserv_servesdomain	,	V_13
+"ypserv.prog"	,	L_51
+"ypserv.peer"	,	L_41
+proto_register_protocol	,	F_37
+"ypserv.value"	,	L_59
+" FIRST reply"	,	L_15
+" CLEAR call"	,	L_19
+"Port to use for XFR Callback"	,	L_55
+"Yellow Pages Service"	,	L_66
+dissect_first_call	,	F_17
+dissect_next_call	,	F_20
+"ypserv.procedure_v2"	,	L_33
+hf_ypserv_map	,	V_16
+col_append_fstr	,	F_5
+dissect_rpc_uint32	,	F_3
+hf_ypserv_domain	,	V_12
+hf_ypserv_key	,	V_17
+" %s"	,	L_2
+gint	,	T_10
+"V2 Procedure"	,	L_32
+"ypserv.transid"	,	L_48
+"More"	,	L_42
+FT_IPv4	,	V_46
+"Port"	,	L_53
+TFS	,	F_36
+tvb	,	V_1
+" MATCH call"	,	L_9
+"ypserv.xfrstat"	,	L_65
+hf_ypserv_procedure_v2	,	V_40
+hf_ypserv_procedure_v1	,	V_35
+guint32	,	T_8
+COL_INFO	,	V_11
+"ypserv.status"	,	L_61
+dissect_order_reply	,	F_32
+FT_BOOLEAN	,	V_44
+proto_item_append_text	,	F_6
+rpc_init_prog	,	F_42
+str	,	V_15
+ypstat	,	V_9
+sub_tree	,	V_20
+cinfo	,	V_10
+dissect_master_call	,	F_29
+proto_register_subtree_array	,	F_40
+dissect_all_call	,	F_28
+gint32	,	T_5
+val_to_str	,	F_4
+array_length	,	F_39
+" FIRST call"	,	L_14
+" MASTER reply"	,	L_26
+status	,	V_6
+"Host Transport ID"	,	L_47
+proto_tree_add_item	,	F_12
+" DOMAIN_NONACK reply"	,	L_8
+"Serves Domain"	,	L_36
+pinfo	,	T_3
+_U_	,	V_3
+hf_ypserv_port	,	V_29
+"Value"	,	L_58
+dissect_domain_nonack_call	,	F_9
+dissect_domain_reply	,	F_11
+col_append_str	,	F_15
+"YP Map Parameters"	,	L_62
+" MATCH reply"	,	L_13
+hf_ypserv_value	,	V_18
+" DOMAIN_NONACK call"	,	L_5
+"Program Number"	,	L_50
+hf_register_info	,	T_9
+VALS	,	F_35
+" 0x%08x"	,	L_28
+hf_ypserv_transid	,	V_27
+err	,	V_7
+YPSERV_PROGRAM	,	V_53
+hf_ypserv_xfrstat	,	V_30
+more	,	V_31
+"Map Name"	,	L_38
+BASE_DEC	,	V_37
+proto_item	,	T_7
+proto_register_ypserv	,	F_34
+ENC_NA	,	V_23
+" Error:%s"	,	L_3
+ett_ypserv_map_parms	,	V_24
+BASE_NONE	,	V_43
+"ypserv.procedure_v1"	,	L_31
+start_offset	,	V_21
+" MAPLIST reply"	,	L_29
+hf_ypserv_map_parms	,	V_22
+dissect_domain_call	,	F_7
+"Xfrstat"	,	L_64
+"%s"	,	L_12
+tvb_get_ntohl	,	F_2
+data	,	T_6
+dissect_next_reply	,	F_19
+"ypserv.map"	,	L_39
+num	,	V_33
+tvbuff_t	,	T_1
+dissect_order_call	,	F_27
+"ypserv.ordernum"	,	L_45
+"Unknown error:%u"	,	L_1
+"ypserv.more"	,	L_43
+"ypserv.map_parms"	,	L_63
+" CLEAR reply"	,	L_20
+"ypserv.servesdomain"	,	L_37
+"%s/"	,	L_11
+"Peer Name"	,	L_40
+hf_ypserv_status	,	V_8
+proto_item_add_subtree	,	F_22
+dissect_all_reply	,	F_30
+" ORDER call"	,	L_22
+"YPSERV"	,	L_67
+proto_register_field_array	,	F_38
+dissect_rpc_string	,	F_8
+ypserv2_proc_vals	,	V_41
+FT_NONE	,	V_48
+offset	,	V_2
+"Host Transport ID to use for XFR Callback"	,	L_49
+ett	,	V_50
+" %s/"	,	L_10
+" ALL reply"	,	L_25
+tree	,	V_4
+dissect_match_call	,	F_14
+hf_ypserv_peer	,	V_26
+" XFR call"	,	L_18
+"V1 Procedure"	,	L_30
+dissect_clear_call	,	F_24
+packet_info	,	T_2
+rstatus	,	V_5
+hf_ypserv_prog	,	V_28
+"ypserv.domain"	,	L_35
+dissect_first_reply	,	F_18
+" MAPLIST call"	,	L_6
+proto_ypserv	,	V_52
+sub_item	,	V_19
+tfs_yes_no	,	V_45
+dissect_clear_reply	,	F_25
+ypserv1_proc_vals	,	V_38
+dissect_domain_nonack_reply	,	F_13
+dissect_match_reply	,	F_16
+hf_ypserv_more	,	V_32
+" DOMAIN call"	,	L_4
+" MASTER call"	,	L_24
+"Program Number to use for XFR Callback"	,	L_52
+dissect_xfr_call	,	F_21
+" DOMAIN reply"	,	L_7
+ett_ypserv	,	V_51
+dissect_master_reply	,	F_31
+dissect_xfr_reply	,	F_26
+"ypserv.port"	,	L_54
+G_N_ELEMENTS	,	F_43
+FT_STRING	,	V_42
+dissect_maplist_call	,	F_10
+" NEXT reply"	,	L_16
+ypserv_vers_info	,	V_54
+HFILL	,	V_39
+FT_INT32	,	V_47
+"ypserv.key"	,	L_57
+"Status"	,	L_60
+hf_ypserv_ordernum	,	V_25
+" XFR reply"	,	L_21
+"Key"	,	L_56
+dissect_maplist_reply	,	F_33
+"Order Number"	,	L_44
+dissect_ypserv_status	,	F_1
+xfrstat	,	V_49
+proto_item_set_len	,	F_23
+"ypserv"	,	L_68
+ENC_BIG_ENDIAN	,	V_14
+FT_UINT32	,	V_36
+" ORDER reply"	,	L_27
+proto_reg_handoff_ypserv	,	F_41
+" NEXT call"	,	L_17
+" ALL call"	,	L_23
+"Domain"	,	L_34
+"Order Number for XFR"	,	L_46
+proto_tree	,	T_4
+hf	,	V_34

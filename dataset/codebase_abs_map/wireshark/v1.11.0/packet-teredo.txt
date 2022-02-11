@@ -1,0 +1,149 @@
+teredo_tap	,	V_44
+"Authentication value length"	,	L_10
+"Authentication value length (AU-len)"	,	L_12
+th_authdlen	,	V_12
+col_append_sep_str	,	F_2
+proto_register_protocol	,	F_23
+"teredo.orig"	,	L_26
+"teredo.auth.conf"	,	L_23
+prefs_register_protocol	,	F_28
+th_cidlen	,	V_11
+"Origin IPv4 address"	,	L_30
+tvb_new_subset_remaining	,	F_13
+proto_teredo	,	V_41
+col_set_str	,	F_17
+th_ip_v_hl	,	V_43
+gint	,	T_11
+"relays"	,	L_38
+FT_IPv4	,	V_56
+val	,	V_46
+tvb	,	V_1
+th_indtyp	,	V_10
+COL_INFO	,	V_9
+col_clear	,	F_18
+cinfo	,	V_8
+proto_tree_add_ipv4	,	F_11
+proto_register_subtree_array	,	F_26
+parse_teredo_orig	,	F_7
+"ipv6"	,	L_39
+array_length	,	F_25
+th_conf	,	V_25
+teredo_dissector_table	,	V_35
+register_tap	,	F_33
+hf_teredo_orig	,	V_26
+"Teredo Authentication header"	,	L_5
+next_tvb	,	V_34
+"Client identifier length"	,	L_7
+proto_tree_add_item	,	F_4
+hf_teredo_auth_idlen	,	V_17
+call_dissector	,	F_15
+pinfo	,	V_2
+dissector_handle_t	,	T_13
+_U_	,	V_45
+"Client identifier length (ID-len)"	,	L_9
+proto_register_teredo	,	F_22
+hf_teredo_auth_id	,	V_20
+tvb_get_ipv4	,	F_10
+ett_teredo_auth	,	V_16
+hf_register_info	,	T_10
+teredoh_count	,	V_39
+"teredo.orig.addr"	,	L_31
+parse_teredo_auth	,	F_1
+teredo_tree	,	V_37
+"teredo.auth.id"	,	L_14
+prefs_register_bool_preference	,	F_29
+"Nonce value"	,	L_19
+guint16	,	V_30
+COL_PROTOCOL	,	V_40
+"Teredo "	,	L_34
+FT_UINT8	,	V_52
+"teredo.auth.value"	,	L_17
+BASE_DEC	,	V_53
+"Authentication header"	,	L_2
+proto_item	,	T_6
+tap_queue_packet	,	F_19
+hf_teredo_auth_value	,	V_21
+teredo_handle	,	V_59
+teredohstruct	,	V_38
+ENC_NA	,	V_15
+hf_teredo_orig_port	,	V_29
+guint8	,	T_9
+ti	,	V_13
+BASE_NONE	,	V_50
+hf_teredo_auth_conf	,	V_23
+"teredo.auth"	,	L_6
+hf_teredo_auth_nonce	,	V_22
+th_orgport	,	V_28
+teredoh	,	V_5
+"Origin indication"	,	L_3
+tvb_length_remaining	,	F_21
+"Confirmation byte"	,	L_22
+register_dissector_table	,	F_27
+"teredo.auth.nonce"	,	L_20
+"Authentication value"	,	L_16
+UDP_PORT_TEREDO	,	V_60
+data	,	T_8
+tvbuff_t	,	T_1
+th_nonce	,	V_24
+global_teredo_heur	,	V_47
+tvb_get_ntohs	,	F_8
+tvb_memcpy	,	F_6
+"heuristic_teredo"	,	L_35
+dissect_teredo	,	F_16
+gboolean	,	T_7
+proto_item_add_subtree	,	F_5
+th_header	,	V_33
+module_t	,	T_12
+"Client identifier (ID)"	,	L_15
+"Authentication value (hash)"	,	L_18
+proto_register_field_array	,	F_24
+"Check this to decode IPv6 traffic between Teredo clients and "	,	L_37
+FT_BYTES	,	V_54
+guint	,	T_5
+FT_NONE	,	V_49
+offset	,	V_4
+e_teredohdr	,	T_4
+ett	,	V_57
+dissector_add_uint	,	F_34
+tree	,	V_3
+"Teredo IPv6 over UDP tunneling"	,	L_32
+data_handle	,	V_36
+FT_UINT16	,	V_55
+packet_info	,	T_2
+hf_teredo_auth_aulen	,	V_19
+th_iporgaddr	,	V_31
+tvb_get_guint8	,	F_3
+"Nonce value prevents spoofing Teredo server."	,	L_21
+dissect_teredo_heur	,	F_20
+"udp"	,	L_41
+"Teredo Origin Indication"	,	L_27
+"teredo"	,	L_33
+proto_tree_add_uint	,	F_9
+proto_reg_handoff_teredo	,	F_30
+"teredo.orig.port"	,	L_29
+"Client identifier"	,	L_13
+heur_dissector_add	,	F_35
+hf_teredo_auth	,	V_14
+"Teredo"	,	L_4
+hf_teredo_orig_addr	,	V_32
+", "	,	L_1
+HFILL	,	V_51
+decode_teredo_ports	,	F_12
+dissector_try_uint	,	F_14
+ett_teredo	,	V_42
+teredo_module	,	V_58
+"Teredo Origin Indication header"	,	L_25
+"udp.port"	,	L_40
+"Confirmation byte is zero upon successful authentication."	,	L_24
+find_dissector	,	F_32
+"teredo.auth.idlen"	,	L_8
+create_dissector_handle	,	F_31
+"teredo.auth.aulen"	,	L_11
+idlen	,	V_6
+aulen	,	V_7
+ENC_BIG_ENDIAN	,	V_18
+"Try to decode UDP packets as Teredo IPv6"	,	L_36
+"Origin UDP port"	,	L_28
+ett_teredo_orig	,	V_27
+proto_tree	,	T_3
+hf	,	V_48

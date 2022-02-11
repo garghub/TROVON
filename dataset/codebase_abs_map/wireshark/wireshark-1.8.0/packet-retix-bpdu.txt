@@ -1,0 +1,59 @@
+register_dissector	,	F_14
+"Hello Time"	,	L_9
+proto_register_protocol	,	F_10
+tvbuff_t	,	T_1
+proto_register_retix_bpdu	,	F_9
+check_col	,	F_4
+"R-STP"	,	L_1
+"rstp.bridge.hw"	,	L_6
+"Max Age"	,	L_7
+"rstp.forward"	,	L_12
+hf_retix_bpdu_hello_time	,	V_16
+col_set_str	,	F_2
+hf_retix_bpdu_max_age	,	V_14
+FT_ETHER	,	V_19
+gint	,	T_5
+proto_item_add_subtree	,	F_8
+proto_register_field_array	,	F_11
+ett_retix_bpdu	,	V_11
+tvb	,	V_1
+"Bridge MAC"	,	L_5
+ett	,	V_24
+COL_INFO	,	V_8
+hf_retix_bpdu_bridge_mac	,	V_13
+"rbpdu"	,	L_15
+tree	,	V_3
+proto_retix_bpdu	,	V_9
+retix_bpdu_tree	,	V_4
+FT_UINT16	,	V_22
+packet_info	,	T_2
+proto_reg_handoff_retix_bpdu	,	F_15
+col_clear	,	F_3
+"Root MAC"	,	L_3
+"rstp.hello"	,	L_10
+cinfo	,	V_6
+proto_register_subtree_array	,	F_13
+array_length	,	F_12
+"r-stp"	,	L_14
+proto_tree_add_item	,	F_7
+pinfo	,	V_2
+col_add_fstr	,	F_5
+tvb_ether_to_str	,	F_6
+"Forward Delay"	,	L_11
+"Bridge MAC %s"	,	L_2
+hf_retix_bpdu_root_mac	,	V_12
+hf_register_info	,	T_4
+"rstp.maxage"	,	L_8
+hf_retix_bpdu_forward_delay	,	V_17
+HFILL	,	V_21
+COL_PROTOCOL	,	V_7
+BASE_DEC	,	V_23
+ENC_BIG_ENDIAN	,	V_15
+"rstp.root.hw"	,	L_4
+ENC_NA	,	V_10
+ti	,	V_5
+BASE_NONE	,	V_20
+dissect_retix_bpdu	,	F_1
+proto_tree	,	T_3
+hf	,	V_18
+"Retix Spanning Tree Protocol"	,	L_13

@@ -1,0 +1,71 @@
+register_dissector	,	F_13
+"Bonded Ranging Request: MD-DS-SG-ID = %u (0x%X)"	,	L_1
+hf_docsis_bintrngreq_capflags_encrypt	,	V_15
+BASE_HEX_DEC	,	V_24
+"docsis_bintrngreq.capflags"	,	L_4
+"DS Chan ID"	,	L_14
+proto_register_protocol	,	F_9
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_4
+tvb_get_ntohs	,	F_2
+proto_docsis_bintrngreq	,	V_10
+BASE_HEX	,	V_21
+hf_docsis_bintrngreq_capflags	,	V_12
+"Early Authentication and Encryption supported"	,	L_10
+gint	,	T_7
+proto_item_add_subtree	,	F_6
+dissect_bintrngreq	,	F_1
+"MD-DS-SG-ID"	,	L_11
+proto_register_field_array	,	F_10
+tvb	,	V_1
+hf_docsis_bintrngreq_mddsgid	,	V_16
+"Pre-3.0 DOCSIS fragmentation is supported prior to registration"	,	L_7
+"docsis_bintrngreq.upchid"	,	L_17
+offset	,	V_9
+ett	,	V_25
+COL_INFO	,	V_8
+md_ds_sg_id	,	V_6
+dissector_add_uint	,	F_16
+"docsis_bintrngreq.capflags.encrypt"	,	L_9
+"docsis_mgmt"	,	L_21
+tree	,	V_3
+FT_BOOLEAN	,	V_23
+"DOCSIS Bonded Initial Ranging Message"	,	L_18
+"Capability Flags"	,	L_3
+packet_info	,	T_2
+"MAC Domain Downstream Service Group Identifier"	,	L_13
+cinfo	,	V_7
+proto_register_docsis_bintrngreq	,	F_8
+proto_register_subtree_array	,	F_12
+array_length	,	F_11
+"docsis_bintrngreq.capflags.frag"	,	L_6
+"docsis_bintrngreq"	,	L_20
+proto_tree_add_item	,	F_7
+pinfo	,	V_2
+col_add_fstr	,	F_3
+dissector_handle_t	,	T_8
+"Bonded Initial Ranging Request"	,	L_2
+proto_reg_handoff_docsis_bintrngreq	,	F_14
+bintrngreq_tree	,	V_5
+hf_docsis_bintrngreq_up_chid	,	V_18
+hf_docsis_bintrngreq_capflags_frag	,	V_14
+"docsis_bintrngreq.downchid"	,	L_15
+"DOCSIS B-INT-RNG-REQ"	,	L_19
+hf_register_info	,	T_6
+"Pre-3.0 Fragmentation"	,	L_5
+HFILL	,	V_22
+bintrngreq_item	,	V_4
+"Early Auth. &amp; Encrypt"	,	L_8
+guint16	,	T_5
+"docsis_bintrngreq.mddsgid"	,	L_12
+"US Chan ID"	,	L_16
+FT_UINT8	,	V_20
+find_dissector	,	F_15
+hf_docsis_bintrngreq_down_chid	,	V_17
+proto_item	,	T_4
+ett_docsis_bintrngreq	,	V_11
+ENC_BIG_ENDIAN	,	V_13
+docsis_bintrngreq_handle	,	V_26
+tvb_length_remaining	,	F_5
+proto_tree	,	T_3
+hf	,	V_19

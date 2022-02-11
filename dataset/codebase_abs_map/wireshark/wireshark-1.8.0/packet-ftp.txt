@@ -1,0 +1,181 @@
+get_token_len	,	F_17
+proto_ftp_data	,	V_68
+"ftp.response"	,	L_11
+is_epasv_response	,	V_26
+proto_register_protocol	,	F_31
+parse_extended_pasv_response	,	F_4
+response_table_ext	,	V_78
+dissect_ftpdata	,	F_27
+tvb_reported_length	,	F_28
+BASE_EXT_STRING	,	V_77
+delimiter	,	V_12
+gint	,	T_9
+col_set_str	,	F_6
+"ftp.request.arg"	,	L_18
+FT_IPv4	,	V_79
+tvb	,	V_13
+guint32	,	T_3
+"NAT is active SIP and passive IP different"	,	L_31
+COL_INFO	,	V_39
+guchar	,	T_2
+hidden_item	,	V_20
+"ftp.passive.port"	,	L_27
+FT_BOOLEAN	,	V_71
+linelen	,	V_1
+ftp_data_tree	,	V_66
+"ftp"	,	L_42
+"ftp.active.nat"	,	L_39
+"Passive IP address (check NAT)"	,	L_25
+cinfo	,	V_37
+"Request"	,	L_4
+proto_tree_add_ipv4	,	F_20
+ett_ftp_data	,	V_69
+proto_register_subtree_array	,	F_35
+array_length	,	F_34
+tvb_get_nstringz0	,	F_18
+tvb_find_line_end	,	F_7
+"ftp.response.code"	,	L_20
+"Active IP NAT"	,	L_38
+"FTP"	,	L_2
+proto_tree_add_item	,	F_11
+"ftp.active.port"	,	L_36
+"File Transfer Protocol (FTP)"	,	L_41
+pinfo	,	V_14
+col_add_fstr	,	F_9
+dissector_handle_t	,	T_14
+TCP_PORT_FTPDATA	,	V_83
+tokenlen	,	V_28
+PT_TCP	,	V_62
+ENC_ASCII	,	V_47
+ADDRESSES_EQUAL	,	F_22
+"PORT"	,	L_7
+PROTO_ITEM_SET_HIDDEN	,	F_14
+ftp_ip_address	,	V_31
+proto_tree_add_boolean	,	F_13
+hf_ftp_response_arg	,	V_50
+hf_register_info	,	T_13
+AT_IPv4	,	V_53
+dissect_ftp	,	F_5
+next_offset	,	V_27
+guint16	,	T_4
+c	,	V_5
+address	,	T_11
+COL_PROTOCOL	,	V_38
+find_conversation	,	F_23
+"FTP Data: %u bytes"	,	L_9
+tvb_length	,	F_29
+"ftp.passive.ip"	,	L_24
+delimiters_seen	,	V_11
+i	,	V_6
+proto_tree_add_text	,	F_15
+BASE_DEC	,	V_76
+proto_item	,	T_8
+"ftp.request"	,	L_13
+n	,	V_10
+p	,	V_4
+is_port_request	,	V_24
+ENC_NA	,	V_41
+guint8	,	V_54
+ti	,	V_19
+BASE_NONE	,	V_72
+ett_ftp_reqresp	,	V_45
+"FTP-DATA"	,	L_8
+hf_ftp_pasv_ip	,	V_56
+tvb_format_text	,	F_16
+hf_ftp_active_nat	,	V_55
+tvb_offset_exists	,	F_26
+"Passive IP address"	,	L_23
+register_dissector	,	F_32
+ftp_ip	,	V_2
+hf_ftp_request	,	V_43
+"%s"	,	L_6
+NO_PORT2	,	V_64
+"TRUE if FTP response"	,	L_12
+"Passive FTP server port"	,	L_28
+format_text	,	F_10
+num	,	V_60
+"Active IP address"	,	L_32
+NO_PORT_B	,	V_63
+tvbuff_t	,	T_5
+"FTP Data"	,	L_43
+next_token	,	V_29
+"Response arg"	,	L_21
+"Active port"	,	L_35
+hf_ftp_request_command	,	V_46
+SET_ADDRESS	,	F_21
+conversation_set_dissector	,	F_25
+gboolean	,	T_1
+"FTP Data: %s"	,	L_10
+code_str	,	V_23
+proto_item_add_subtree	,	F_12
+proto_register_ftp	,	F_30
+"TRUE if FTP request"	,	L_14
+"ftp.response.arg"	,	L_22
+"Passive port"	,	L_26
+"Passive IP NAT"	,	L_29
+proto_register_field_array	,	F_33
+conversation	,	V_33
+ett_ftp	,	V_42
+proto_reg_handoff_ftp	,	F_36
+ftp_handle	,	V_82
+ret	,	V_9
+conversation_t	,	T_12
+"Response"	,	L_5
+parse_port_pasv	,	F_1
+offset	,	V_21
+ett	,	V_81
+ftp_port	,	V_3
+"Active FTP client IP address"	,	L_34
+dissector_add_uint	,	F_38
+g_htonl	,	F_3
+"NAT is active"	,	L_40
+tree	,	V_15
+tvb_get_ptr	,	F_8
+FT_UINT16	,	V_80
+packet_info	,	T_6
+is_pasv_response	,	V_25
+port	,	V_8
+"Request command"	,	L_15
+"ftp.active.cip"	,	L_33
+match_uint	,	V_35
+ep_strndup	,	F_2
+destport	,	V_36
+fd	,	V_59
+proto_tree_add_uint	,	F_19
+ftp_nat	,	V_32
+is_request	,	V_16
+ftp_tree	,	V_17
+reqresp_tree	,	V_18
+"Response code"	,	L_19
+code	,	V_22
+dst	,	V_61
+"ftp.request.command"	,	L_16
+hf_ftp_active_ip	,	V_51
+proto_ftp	,	V_40
+hf_ftp_response_code	,	V_48
+"Active FTP client port"	,	L_37
+"%s: %s"	,	L_3
+FT_STRING	,	V_74
+conversation_new	,	F_24
+hf_ftp_pasv_port	,	V_57
+hf_ftp_response	,	V_44
+hf_ftp_request_arg	,	V_49
+HFILL	,	V_73
+ftpdata_handle	,	V_65
+"Request arg"	,	L_17
+TCP_PORT_FTP	,	V_84
+src	,	V_34
+gchar	,	T_10
+data_length	,	V_67
+find_dissector	,	F_37
+ip_address	,	V_7
+"ftp-data"	,	L_44
+hf_ftp_pasv_nat	,	V_58
+hf_ftp_active_port	,	V_52
+"ftp.passive.nat"	,	L_30
+"%d,%d,%d,%d,%d,%d"	,	L_1
+FT_UINT32	,	V_75
+pasv_ip	,	V_30
+"tcp.port"	,	L_45
+proto_tree	,	T_7
+hf	,	V_70

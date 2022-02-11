@@ -1,0 +1,218 @@
+get_write_list_size	,	F_5
+proto_reg_handoff_rpcordma	,	V_97
+RC_SEND_ONLY	,	V_80
+"rpcordma.msg_type"	,	L_19
+proto_register_protocol	,	F_35
+"Position in XDR"	,	L_32
+tvb_reported_length	,	F_23
+segment_count	,	V_7
+"Flow Control"	,	L_16
+"rpcordma.segment_count"	,	L_35
+tvb_new_subset_remaining	,	F_28
+"Version"	,	L_14
+len	,	V_37
+"Reply chunk (count: %u)"	,	L_8
+gint	,	T_11
+"Read list"	,	L_20
+ett_rpcordma_write_list	,	V_32
+tvb	,	V_1
+"rpcrdma_infiniband"	,	L_60
+guint32	,	T_3
+packet_is_rpcordma	,	F_22
+COL_INFO	,	V_57
+"RDMA length"	,	L_28
+ett_rpcordma_read_chunk	,	V_12
+hf_rpcordma_writes_count	,	V_31
+hf_rpcordma_reply_count	,	V_34
+"rpcordma.reply_count"	,	L_25
+"rpcordma.rdma_handle"	,	L_27
+MIN_RPCRDMA_HDR_SZ	,	V_41
+size	,	V_36
+cinfo	,	V_55
+parse_rdma_header	,	F_20
+read_list	,	V_9
+"XID"	,	L_12
+array_length	,	F_37
+next_tvb	,	V_51
+""	,	L_5
+hf_rpcordma_rdma_align	,	V_67
+call_dissector	,	F_29
+hf_rpcordma_segment_count	,	V_30
+MIN_RPCRDMA_MSG_SZ	,	V_43
+hf_register_info	,	T_10
+"addr_a_id"	,	L_51
+"Write chunk (%u segment%s)"	,	L_4
+COL_PROTOCOL	,	V_56
+"RDMA offset"	,	L_30
+hf_rpcordma_rdma_handle	,	V_15
+i	,	V_24
+ti	,	V_52
+num_chunks	,	V_6
+RDMA_SEND_INVALIDATE	,	V_86
+tvb_get_ntohl	,	F_2
+RDMA_MSG	,	V_42
+tvbuff_t	,	T_2
+reply_chunk	,	V_33
+hf_rpcordma_vers_low	,	V_71
+opcode	,	V_84
+"rpcordma.rdma_offset"	,	L_31
+dissect_rpcrdma_write_chunk	,	F_17
+BASE_HEX	,	V_90
+"%s XID 0x%x"	,	L_10
+gboolean	,	T_6
+segment	,	V_25
+infinibandinfo	,	V_74
+proto_item_add_subtree	,	F_14
+module_t	,	T_9
+get_reply_chunk_count	,	F_8
+proto_register_field_array	,	F_36
+info	,	V_75
+"rpcordma.rdma_thresh"	,	L_39
+"iwarp_ddp_rdmap"	,	L_62
+RDMA_NOMSG	,	V_46
+max_offset	,	V_2
+dissect_rpcrdma_read_list	,	F_12
+"RDMA handle"	,	L_26
+msg_type	,	V_40
+rpc_handler	,	V_66
+"rpcordma.rdma_length"	,	L_29
+hf_rpcordma_flow_control	,	V_64
+"rpcrdma_iwarp"	,	L_64
+RC_SEND_MIDDLE	,	V_78
+"RDMA threshold"	,	L_38
+rpcordma_tree	,	V_53
+heur_dissector_add	,	F_41
+HEURISTIC_ENABLE	,	V_98
+dissect_rpcrdma_iwarp_heur	,	F_32
+"Message Type"	,	L_18
+"Read list (count: %u)"	,	L_2
+hf_rpcordma_errcode	,	V_69
+"rpcordma.vers_low"	,	L_43
+"RDMA segment %u"	,	L_3
+call_data_dissector	,	F_30
+hf_rpcordma_vers	,	V_63
+opCode	,	V_76
+prefs_register_obsolete_preference	,	F_40
+ett_rpcordma_read_list	,	V_22
+"infiniband.payload"	,	L_58
+rpcordma_err	,	V_94
+get_write_chunk_size	,	F_4
+start	,	V_5
+"RPCoRDMA"	,	L_9
+dissect_rpcrdma	,	F_24
+write_list	,	V_27
+ERR_CHUNK	,	V_73
+MIN_RPCRDMA_MSGP_SZ	,	V_45
+ENC_BIG_ENDIAN	,	V_14
+chunk_count	,	V_19
+hf_rpcordma_xid	,	V_62
+FT_UINT32	,	V_89
+ett_rpcordma_reply_chunk	,	V_35
+hf	,	V_88
+get_read_list_size	,	F_1
+"rpcordma.flow_control"	,	L_17
+prefs_register_protocol	,	F_39
+FT_UINT64	,	V_93
+dissect_rpcrdma_read_chunk	,	F_9
+col_set_str	,	F_25
+"rpcordma.position"	,	L_33
+"RPC over RDMA"	,	L_46
+proto_tree_add_uint_format	,	F_13
+val	,	V_54
+item	,	V_20
+"rpcordma.writes_count"	,	L_23
+find_dissector_add_dependency	,	F_44
+"addr_a_type"	,	L_50
+ERR_VERS	,	V_70
+ett_rpcordma_segment	,	V_26
+RDMA_MSGP	,	V_44
+RC_SEND_LAST	,	V_79
+read_chunk	,	V_10
+rpcordma_module	,	V_87
+"RPC-over-RDMA on Infiniband"	,	L_59
+proto_register_subtree_array	,	F_38
+val_to_str	,	F_27
+hf_rpcordma_position	,	V_13
+"rpcordma.xid"	,	L_13
+hf_rpcordma_message_type	,	V_65
+proto_tree_add_item	,	F_11
+"Version low"	,	L_42
+"addr_b_qp"	,	L_56
+get_chunk_lists_size	,	F_21
+pinfo	,	V_49
+col_add_fstr	,	F_26
+_U_	,	V_50
+hf_rpcordma_reads_count	,	V_21
+hf_rpcordma_rdma_length	,	V_16
+VALS	,	F_34
+dissector_add_for_decode_as	,	F_42
+RDMA_ERROR	,	V_48
+"Reply list"	,	L_24
+"RPC-over-RDMA on iWARP"	,	L_63
+proto_rpcordma	,	V_59
+ett_rpcordma_write_chunk	,	V_29
+BASE_DEC	,	V_92
+"Write chunk segment count"	,	L_34
+proto_item	,	T_5
+ett_rpcordma	,	V_61
+"manual_en"	,	L_48
+ENC_NA	,	V_60
+"rpcordma"	,	L_47
+dissect_rpcrdma_write_list	,	F_18
+hf_rpcordma_rdma_thresh	,	V_68
+"addr_b_type"	,	L_54
+chunk_size	,	V_8
+"rpcordma.reads_count"	,	L_21
+data	,	T_8
+get_read_list_chunk_count	,	F_3
+value_follows	,	V_4
+dissect_rpcrdma_segment	,	F_16
+RC_SEND_ONLY_INVAL	,	V_82
+xid	,	V_39
+RC_SEND_FIRST	,	V_77
+RDMA_DONE	,	V_47
+"Unknown (%d)"	,	L_11
+hf_rpcordma_vers_high	,	V_72
+guint	,	T_1
+offset	,	V_3
+ett	,	V_95
+RDMA_SEND	,	V_85
+tree	,	V_18
+dissect_rpcrdma_ib_heur	,	F_31
+"target_ports"	,	L_57
+packet_info	,	T_7
+"s"	,	L_6
+proto_register_rpcordma	,	F_33
+position	,	V_11
+write_chunk	,	V_23
+"rpcordma.rdma_align"	,	L_37
+"addr_b_id"	,	L_55
+"rpcordma.errcode"	,	L_41
+rdmapinfo	,	V_83
+hf_rpcordma_rdma_offset	,	V_17
+"addr_a_qp"	,	L_52
+"Write list (count: %u)"	,	L_7
+"addr_b"	,	L_53
+get_write_list_chunk_count	,	F_6
+HFILL	,	V_91
+"Read chunk: (position %u)"	,	L_1
+"rpcordma.version"	,	L_15
+get_reply_chunk_size	,	F_7
+"infiniband"	,	L_61
+selection_size	,	V_28
+RC_SEND_LAST_INVAL	,	V_81
+create_dissector_handle	,	F_43
+proto_tree_add_subtree_format	,	F_10
+"rpc"	,	L_65
+dissect_rpcrdma_reply_chunk	,	F_19
+proto_item_set_len	,	F_15
+"Error code"	,	L_40
+"addr_a"	,	L_49
+"Write list"	,	L_22
+"rpcordma.vers_high"	,	L_45
+ett_rpcordma_chunk	,	V_96
+"RDMA align"	,	L_36
+rpcordma_message_type	,	V_58
+"Version high"	,	L_44
+proto_tree	,	T_4
+xid_rpc	,	V_38

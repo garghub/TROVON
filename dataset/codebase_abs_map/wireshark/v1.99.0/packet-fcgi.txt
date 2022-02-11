@@ -1,0 +1,167 @@
+tvb_get_string_enc	,	F_4
+"fcgi.id"	,	L_16
+col_append_sep_str	,	F_18
+dissect_begin_request	,	F_7
+proto_register_protocol	,	F_30
+namelen	,	V_7
+hf_fcgi_padding_data	,	V_53
+"fcgi.begin_request.flags"	,	L_28
+prefs_register_protocol	,	F_34
+proto_tree_add_subtree	,	F_8
+"fcgi"	,	L_38
+"Version"	,	L_11
+len	,	V_4
+"fcgi.content.length"	,	L_18
+"%s = %s"	,	L_1
+tcp_dissect_pdus	,	F_27
+"Content Length"	,	L_17
+gint	,	T_3
+col_set_str	,	F_16
+"Flags"	,	L_27
+tvb	,	V_1
+guint32	,	T_5
+dissect_fcgi	,	F_26
+COL_INFO	,	V_33
+hf_fcgi_content_length	,	V_44
+FT_BOOLEAN	,	V_63
+proto_item_append_text	,	F_21
+col_set_fence	,	F_20
+ett_fcgi_params	,	V_25
+"fcgi.content.data"	,	L_22
+"Set the TCP port for FastCGI traffic"	,	L_41
+br_tree	,	V_13
+col_clear	,	F_17
+proto_fcgi	,	V_38
+cinfo	,	V_31
+"TCP port for FCGI"	,	L_40
+proto_register_subtree_array	,	F_33
+dissect_fcgi_record	,	F_15
+val_to_str	,	F_19
+hf_fcgi_type	,	V_42
+array_length	,	F_32
+"Get Values:"	,	L_7
+er_tree	,	V_20
+"FCGI"	,	L_8
+ett_fcgi	,	V_40
+"fcgi.begin_request.keep_conn"	,	L_30
+"fcgi.type"	,	L_14
+"fcgi.padding.length"	,	L_20
+proto_tree_add_item	,	F_9
+" (%s)"	,	L_10
+pinfo	,	V_28
+gvr_tree	,	V_27
+_U_	,	V_30
+ENC_ASCII	,	V_11
+new_register_dissector	,	F_36
+"Unknown (%u)"	,	L_9
+"Application Status"	,	L_31
+dissect_abort_request	,	F_10
+hf_register_info	,	T_11
+initialized	,	V_73
+VALS	,	F_29
+dissector_add_for_decode_as	,	F_37
+application_roles	,	V_61
+hf_fcgi_nv_name	,	V_12
+record_types	,	V_34
+"FastCGI"	,	L_37
+guint16	,	T_4
+COL_PROTOCOL	,	V_32
+tvb_length	,	F_24
+FT_UINT8	,	V_55
+"FCGI_KEEP_CONN"	,	L_29
+protocol_statuses	,	V_66
+BASE_DEC	,	V_56
+fcgi_module	,	V_69
+dissect_get_values	,	F_13
+proto_item	,	T_9
+"fcgi.version"	,	L_12
+ENC_NA	,	V_39
+guint8	,	T_8
+ti	,	V_35
+BASE_NONE	,	V_60
+hf_fcgi_begin_request_role	,	V_15
+start_offset	,	V_6
+proto_reg_handoff_fcgi	,	V_70
+"Padding Data"	,	L_23
+dissect_end_request	,	F_11
+gv_tree	,	V_26
+tcp_port	,	V_71
+"%s"	,	L_2
+p_tree	,	V_24
+tvb_get_ntohl	,	F_3
+data	,	T_7
+tvbuff_t	,	T_1
+end_offset	,	V_5
+"fcgi.nv_name"	,	L_36
+hf_fcgi_id	,	V_43
+"fcgi.begin_request.role"	,	L_26
+tvb_get_ntohs	,	F_23
+BASE_HEX	,	V_62
+FCGI_KEEP_CONN	,	V_64
+plen	,	V_37
+prefs_register_uint_preference	,	F_35
+FCGI_ABORT_REQUEST	,	V_47
+gboolean	,	T_13
+proto_item_add_subtree	,	F_22
+module_t	,	T_12
+proto_register_field_array	,	F_31
+FT_BYTES	,	V_59
+"Request ID"	,	L_15
+guint	,	T_10
+offset	,	V_3
+ett	,	V_68
+wmem_packet_scope	,	F_5
+dissect_get_values_result	,	F_14
+dissector_add_uint	,	F_39
+tree	,	V_29
+FCGI_GET_VALUES	,	V_50
+FCGI_GET_VALUES_RESULT	,	V_51
+"fcgi.padding.data"	,	L_24
+ett_fcgi_abort_request	,	V_19
+FT_UINT16	,	V_58
+dissect_nv_pairs	,	F_1
+packet_info	,	T_6
+hf_fcgi_end_request_app_status	,	V_22
+tvb_get_guint8	,	F_2
+get_fcgi_record_len	,	F_25
+"Params:"	,	L_6
+hf_fcgi_padding_length	,	V_45
+hf_fcgi_begin_request_keep_conn	,	V_18
+proto_tree_add_string_format	,	F_6
+proto_register_fcgi	,	F_28
+name	,	V_9
+hf_fcgi_begin_request_flags	,	V_17
+dissector_delete_uint	,	F_38
+"End Request:"	,	L_5
+"fcgi.end_request.app_status"	,	L_32
+"Padding Length"	,	L_19
+"Content Data"	,	L_21
+"fcgi.end_request.protocol_status"	,	L_34
+hf_fcgi_content_data	,	V_52
+dissect_params	,	F_12
+saved_tcp_port	,	V_74
+FT_STRING	,	V_67
+fcgi_handle	,	V_72
+ett_fcgi_end_request	,	V_21
+"Role"	,	L_25
+"Protocol Status"	,	L_33
+"Begin Request:"	,	L_3
+HFILL	,	V_57
+value	,	V_10
+"Abort Request:"	,	L_4
+FCGI_BEGIN_REQUEST	,	V_46
+ett_fcgi_begin_request	,	V_14
+hf_fcgi_version	,	V_41
+fcgi_tree	,	V_2
+ENC_BIG_ENDIAN	,	V_16
+FT_UINT32	,	V_65
+valuelen	,	V_8
+FCGI_PARAMS	,	V_49
+"NV Pair name"	,	L_35
+hf_fcgi_end_request_protocol_status	,	V_23
+"Type"	,	L_13
+clen	,	V_36
+FCGI_END_REQUEST	,	V_48
+"tcp.port"	,	L_39
+proto_tree	,	T_2
+hf	,	V_54

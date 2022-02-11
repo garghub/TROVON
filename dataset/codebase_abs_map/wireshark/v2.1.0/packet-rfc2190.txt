@@ -1,0 +1,153 @@
+hf_rfc2190_srcformat	,	V_22
+"Vertical motion vector 2"	,	L_63
+"rfc2190.gobn"	,	L_49
+proto_register_protocol	,	F_21
+"Temporal Reference for B frames"	,	L_39
+hf_rfc2190_quant	,	V_31
+tvb_new_subset_remaining	,	F_10
+col_set_str	,	F_3
+hf_rfc2190_ftype	,	V_17
+"rfc2190.dbq"	,	L_37
+gint	,	T_8
+ett_rfc2190	,	V_16
+"rtp.pt"	,	L_6
+hf_rfc2190_advanced_prediction	,	V_26
+tvb	,	V_1
+"Temporal Reference for the B frame as defined by H.263"	,	L_41
+"Vertical motion vector 1"	,	L_57
+find_dissector_add_dependency	,	F_16
+"Temporal Reference for the P frame as defined by H.263"	,	L_44
+"Macroblock address"	,	L_51
+COL_INFO	,	V_13
+"The address within the GOB of the first MB in the packet, counting from zero in scan order."	,	L_53
+"rfc2190.advanced_prediction"	,	L_34
+PT_H263	,	V_41
+"H.263 "	,	L_1
+FT_BOOLEAN	,	V_44
+"Differential quantization parameter"	,	L_36
+"MODE B "	,	L_3
+h263_srcformat_vals	,	V_48
+hf_rfc2190_pbframes	,	V_19
+"rfc2190.vmv2"	,	L_64
+"Horizontal motion vector predictor for block number 3 in the first MB in this packet when four motion vectors are used with the advanced prediction option."	,	L_62
+cinfo	,	V_11
+proto_register_subtree_array	,	F_19
+"Quantization value for the first MB coded at the starting of the packet."	,	L_47
+array_length	,	F_20
+"F"	,	L_9
+next_tvb	,	V_9
+proto_tree_add_item	,	F_5
+hf_rfc2190_sbit	,	V_20
+call_dissector	,	F_11
+pinfo	,	V_2
+dissector_handle_t	,	T_6
+_U_	,	V_4
+"Syntax-based Arithmetic Coding option for current picture"	,	L_32
+"rfc2190.ebit"	,	L_19
+col_append_str	,	F_4
+"Reserved field"	,	L_66
+"rfc2190.vmv1"	,	L_58
+proto_rfc2190	,	V_14
+proto_tree_add_boolean	,	F_9
+hf_register_info	,	T_7
+"Source format specifies the resolution of the current picture."	,	L_23
+"Start bit position specifies number of most significant bits that shall be ignored in the first data byte."	,	L_17
+VALS	,	F_18
+"rfc2190.unrestricted_motion_vector"	,	L_28
+"rfc2190.r"	,	L_67
+"Horizontal motion vector predictor for the first MB in this packet"	,	L_56
+COL_PROTOCOL	,	V_12
+hf_rfc2190_rr	,	V_38
+FT_UINT8	,	V_46
+"MODE C "	,	L_4
+"Advanced prediction option"	,	L_33
+"RFC2190"	,	L_72
+BASE_DEC	,	V_47
+"rfc2190.ftype"	,	L_10
+proto_item	,	T_5
+rfc2190_tree	,	V_6
+"rfc2190.tr"	,	L_43
+hf_rfc2190_unrestricted_motion_vector	,	V_24
+ENC_NA	,	V_15
+ti	,	V_5
+hf_rfc2190_picture_coding_type	,	V_23
+"Temporal Reference for P frames"	,	L_42
+"Advanced Prediction option for current picture"	,	L_35
+register_dissector	,	F_23
+data	,	T_4
+hf_rfc2190_trb	,	V_29
+"GOB number in effect at the start of the packet."	,	L_50
+"rfc2190.mba"	,	L_52
+"rfc2190.hmv2"	,	L_61
+tvbuff_t	,	T_1
+"Horizontal motion vector 1"	,	L_54
+"Indicates the mode of the payload header (MODE A or B/C)"	,	L_11
+hf_rfc2190_r	,	V_27
+hf_rfc2190_dbq	,	V_28
+"Vertical motion vector predictor for block number 3 in the first MB in this packet when four motion vectors are used with the advanced prediction option."	,	L_65
+AST_FORMAT_H263	,	V_42
+proto_item_add_subtree	,	F_6
+hf_rfc2190_vmv2	,	V_37
+hf_rfc2190_vmv1	,	V_35
+"rfc2190.sbit"	,	L_16
+"Differential quantization parameter used to calculate quantizer for the B frame based on quantizer for the P frame, when PB-frames option is used."	,	L_38
+proto_register_field_array	,	F_22
+h263_handle	,	V_39
+"End bit position specifies number of least significant bits that shall be ignored in the last data byte."	,	L_20
+offset	,	V_7
+hf_rfc2190_tr	,	V_30
+ett	,	V_50
+dissector_add_uint	,	F_15
+"rfc2190.hmv1"	,	L_55
+"Unrestricted Motion Vector option for current picture"	,	L_29
+tree	,	V_3
+"Vertical motion vector predictor for the first MB in this packet"	,	L_59
+"rfc2190.srcformat"	,	L_22
+"Horizontal motion vector 2"	,	L_60
+hf_rfc2190_ebit	,	V_21
+rfc2190_handle	,	V_40
+"Syntax-based arithmetic coding"	,	L_30
+FT_UINT16	,	V_49
+packet_info	,	T_2
+proto_tree_add_bits_item	,	F_7
+"Picture coding type, intra-coded (false) or inter-coded (true)"	,	L_26
+tvb_get_guint8	,	F_2
+rfc2190_version	,	V_8
+tvb_captured_length	,	F_12
+"Quantizer"	,	L_45
+"Reserved field 2"	,	L_69
+"Optional PB-frames mode as defined by H.263 (MODE C)"	,	L_14
+"p/b frame"	,	L_12
+"SRC format"	,	L_21
+proto_tree_add_uint	,	F_8
+"rfc2190"	,	L_5
+"rfc2190.syntax_based_arithmetic"	,	L_31
+"H.263 RTP Payload header (RFC2190)"	,	L_71
+"rfc2190.trb"	,	L_40
+"GOB Number"	,	L_48
+"rfc2190.pbframes"	,	L_13
+hf_rfc2190_hmv1	,	V_34
+hf_rfc2190_hmv2	,	V_36
+hdr_len	,	V_10
+proto_reg_handoff_rfc2190	,	F_13
+HFILL	,	V_45
+hf_rfc2190_gobn	,	V_32
+hf_rfc2190_mba	,	V_33
+"h263data"	,	L_8
+hf_rfc2190_syntax_based_arithmetic	,	V_25
+"rfc2190.rr"	,	L_70
+"Start bit position"	,	L_15
+"rfc2190.quant"	,	L_46
+"End bit position"	,	L_18
+"iax2.codec"	,	L_7
+find_dissector	,	F_14
+"Inter-coded frame"	,	L_24
+"MODE A "	,	L_2
+"Motion vector"	,	L_27
+ENC_BIG_ENDIAN	,	V_18
+"rfc2190.picture_coding_type"	,	L_25
+proto_register_rfc2190	,	F_17
+proto_tree	,	T_3
+hf	,	V_43
+"Reserved field that should contain zeroes"	,	L_68
+dissect_rfc2190	,	F_1

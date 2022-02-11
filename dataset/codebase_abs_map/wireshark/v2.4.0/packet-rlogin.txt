@@ -1,0 +1,204 @@
+tvb_get_string_enc	,	F_19
+proto_register_protocol	,	F_38
+hf_control_message	,	V_41
+", (User information)"	,	L_1
+proto_register_rlogin	,	F_36
+tvb_reported_length	,	F_35
+gint	,	T_5
+state	,	V_11
+tvb_captured_length_remaining	,	F_14
+"rlogin.client_startup_flag"	,	L_16
+"X Pixels"	,	L_39
+tvb	,	V_2
+guint32	,	T_8
+COL_INFO	,	V_21
+"rlogin.window_size"	,	L_32
+"User name: %s, "	,	L_7
+"Terminal-type"	,	L_23
+NAME_LEN	,	V_17
+str	,	V_53
+ett_rlogin	,	V_35
+cinfo	,	V_20
+PI_ERROR	,	V_92
+hf_window_info_x_pixels	,	V_68
+array_length	,	F_40
+"Client-user-name"	,	L_19
+rlogin_hash_entry_t	,	T_1
+" (%s)"	,	L_2
+user_name	,	V_19
+RLOGIN_PORT	,	V_10
+ENC_ASCII	,	V_40
+col_append_str	,	F_6
+"Magic Cookie"	,	L_29
+term_len	,	V_54
+hf_register_info	,	T_13
+"rlogin.window_size.y_pixels"	,	L_42
+user_info_item	,	V_31
+hf_user_info_client_user_name	,	V_51
+ett_rlogin_window_x_pixels	,	V_78
+hf_user_info	,	V_49
+guint16	,	T_10
+COL_PROTOCOL	,	V_72
+slash_offset	,	V_48
+"Control Message"	,	L_10
+"Control message"	,	L_27
+guint8	,	V_18
+ti	,	V_28
+BASE_NONE	,	V_82
+rlogin_handle	,	V_94
+"Rlogin"	,	L_6
+"User info (%s)"	,	L_4
+ett_rlogin_window_rows	,	V_76
+tvbuff_t	,	T_2
+tvb_strsize	,	F_17
+hf_window_info	,	V_62
+tvb_get_ntohs	,	F_25
+tvb_memcpy	,	F_5
+BASE_HEX	,	V_85
+rlogin_state_machine	,	F_1
+"rlogin.window_size.cols"	,	L_38
+proto_reg_handoff_rlogin	,	F_44
+tvb_find_guint8	,	F_18
+gboolean	,	T_9
+ti_offset	,	V_30
+proto_item_add_subtree	,	F_9
+hf_window_info_ss	,	V_65
+"Terminal-speed"	,	L_25
+"rlogin.window_size.x_pixels"	,	L_40
+"Server-user-name"	,	L_21
+"rlogin.control_message"	,	L_28
+proto_register_field_array	,	F_39
+conversation	,	V_71
+"rlogin.window_size.ss"	,	L_34
+ei	,	V_90
+window_tree	,	V_27
+FT_UINT16	,	V_88
+tvb_get_guint8	,	F_3
+hf_user_info_terminal_speed	,	V_58
+tvb_captured_length	,	F_2
+proto_tree_add_string_format	,	F_15
+"rlogin.data"	,	L_44
+fd	,	V_6
+hf_user_info_terminal_type	,	V_57
+expert_add_info	,	F_23
+"Rlogin Protocol"	,	L_47
+bytes_to_copy	,	V_73
+stringlen	,	V_5
+FT_STRING	,	V_81
+str_len	,	V_29
+hf_window_info_cols	,	V_67
+"Terminal Info"	,	L_11
+"Rows"	,	L_35
+conversation_add_proto_data	,	F_31
+val_to_str_const	,	F_12
+length	,	V_4
+"rlogin.startup_info_received_flag"	,	L_18
+ENC_BIG_ENDIAN	,	V_42
+"User Info"	,	L_13
+control_message_vals	,	V_43
+FT_UINT32	,	V_86
+visited	,	V_8
+ett_rlogin_window	,	V_63
+find_or_create_conversation	,	F_27
+hf	,	V_80
+info_framenum	,	V_15
+rlogin_tree	,	V_25
+col_append_fstr	,	F_11
+col_set_str	,	F_32
+hf_magic_cookie	,	V_64
+NONE	,	V_13
+"Window size marker"	,	L_33
+hf_user_info_server_user_name	,	V_52
+"Startup info received flag"	,	L_17
+"rlogin.user_info"	,	L_14
+col_clear	,	F_34
+window_info_item	,	V_32
+proto_register_subtree_array	,	F_41
+USER_INFO_WAIT	,	V_14
+proto_tree_add_item	,	F_8
+urgent_offset	,	V_37
+pinfo	,	V_3
+proto_rlogin	,	V_33
+col_add_fstr	,	F_33
+dissector_handle_t	,	T_15
+columns	,	V_61
+"Data"	,	L_43
+flags	,	V_7
+hf_data	,	V_39
+hash_info	,	V_1
+VALS	,	F_37
+"rlogin.terminal_speed.invalid"	,	L_45
+term_len_valid	,	V_55
+"rlogin.client_user_name"	,	L_20
+FT_UINT8	,	V_84
+BASE_DEC	,	V_87
+rlogin_display	,	F_7
+proto_item	,	T_7
+expert_register_field_array	,	F_43
+tvb_strnlen	,	F_4
+"rlogin.terminal_speed"	,	L_26
+"rlogin"	,	L_48
+ENC_NA	,	V_34
+expert_rlogin	,	V_74
+" (rows=%u, cols=%u)"	,	L_5
+hf_window_info_y_pixels	,	V_69
+tvb_format_text	,	F_16
+tvb_offset_exists	,	F_13
+"Window Info"	,	L_31
+"rlogin.magic_cookie"	,	L_30
+"Client startup flag"	,	L_15
+data	,	V_70
+"Terminal length must be a string containing an integer"	,	L_46
+num	,	V_16
+"rlogin.terminal_type"	,	L_24
+tcpinfo	,	V_23
+control_byte	,	V_38
+ei_register_info	,	T_14
+hf_startup_info_received_flag	,	V_45
+expert_register_protocol	,	F_42
+urgent_pointer	,	V_36
+"rlogin.window_size.rows"	,	L_36
+conversation_t	,	T_11
+DONE	,	V_12
+ett_rlogin_window_y_pixels	,	V_79
+guint	,	T_4
+FT_NONE	,	V_89
+offset	,	V_24
+info_len	,	V_47
+ett	,	V_75
+wmem_packet_scope	,	F_20
+expert_module_t	,	T_12
+ett_rlogin_window_cols	,	V_77
+tree	,	V_22
+tvb_bytes_exist	,	F_24
+packet_info	,	T_3
+"Startup info received"	,	L_9
+destport	,	V_9
+proto_tree_add_uint	,	F_22
+EXPFILL	,	V_93
+"Start Handshake"	,	L_8
+ett_rlogin_user_info	,	V_50
+conversation_get_proto_data	,	F_28
+hf_client_startup_flag	,	V_46
+user_info_tree	,	V_26
+ei_rlogin_termlen_invalid	,	V_59
+"Y Pixels"	,	L_41
+IS_TH_URG	,	F_10
+wmem_file_scope	,	F_30
+HFILL	,	V_83
+PI_MALFORMED	,	V_91
+ws_strtou32	,	F_21
+dissect_rlogin	,	F_26
+wmem_new	,	F_29
+create_dissector_handle	,	F_45
+rows	,	V_60
+"Columns"	,	L_37
+hf_window_info_rows	,	V_66
+dissector_add_uint_with_preference	,	F_46
+srcport	,	V_44
+pi	,	V_56
+"Unknown"	,	L_3
+"Data: %s"	,	L_12
+"tcp.port"	,	L_49
+"rlogin.server_user_name"	,	L_22
+proto_tree	,	T_6

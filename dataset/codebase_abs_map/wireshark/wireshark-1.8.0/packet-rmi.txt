@@ -1,0 +1,162 @@
+proto_register_protocol	,	F_23
+hf_rmi_epid_length	,	V_37
+check_col	,	F_5
+"RMI Protocol Version"	,	L_17
+"Serialization Data"	,	L_10
+tvb_new_subset_remaining	,	F_18
+"Version"	,	L_15
+len	,	V_11
+"RMI Endpointidentifier Length"	,	L_29
+"Java Serialization Magic"	,	L_37
+"RMI Inputstream Message Token"	,	L_23
+gint	,	T_5
+col_set_str	,	F_2
+"Port"	,	L_33
+tvb	,	V_1
+epid_hostname	,	V_16
+hf_rmi_epid_port	,	V_40
+COL_INFO	,	V_20
+"RMI Outputstream Message token"	,	L_26
+hf_rmi_magic	,	V_31
+guchar	,	T_10
+"[Empty]"	,	L_9
+version	,	V_10
+datalen	,	V_9
+"rmi.version"	,	L_16
+cinfo	,	V_18
+SER_STREAM_MAGIC	,	V_52
+epid_len	,	V_17
+proto_register_subtree_array	,	F_26
+val_to_str	,	F_10
+proto_tree_add_string	,	F_17
+hf_rmi_outputmessage	,	V_42
+array_length	,	F_25
+tvb_find_line_end	,	F_3
+CONTINUATION	,	V_57
+ett_rmi_epid_hostname	,	V_73
+next_tvb	,	V_6
+"rmi.endpoint_id.port"	,	L_34
+"UniqueIdentifier"	,	L_11
+proto_tree_add_item	,	F_11
+rmi_tree	,	V_5
+RMI_OUTPUTSTREAM_MESSAGE_PING	,	V_56
+pinfo	,	V_2
+col_add_fstr	,	F_7
+dissector_handle_t	,	T_12
+rmitype	,	V_15
+col_append_str	,	F_9
+RMI_OUTPUTSTREAM_MESSAGE_CALL	,	V_43
+RMI_OUTPUTMESSAGE	,	V_23
+"RMI Endpointindentifier Port"	,	L_35
+hf_register_info	,	T_11
+"Magic"	,	L_12
+VALS	,	F_22
+"JRMI, Version: %d, "	,	L_2
+dissect_ser	,	F_19
+rmi_handle	,	V_75
+next_offset	,	V_8
+get_rmi_type	,	F_4
+"Java Serialization Version"	,	L_39
+"Output Stream Message"	,	L_24
+guint16	,	T_6
+"rmi"	,	L_41
+COL_PROTOCOL	,	V_19
+hf_rmi_epid_hostname	,	V_39
+FT_UINT8	,	V_64
+ett_rmi_epid_length	,	V_72
+ett_rmi_epid_port	,	V_74
+proto_tree_add_text	,	F_15
+BASE_DEC	,	V_63
+ser_magic	,	V_50
+proto_item	,	T_4
+"rmi.magic"	,	L_13
+"Hostname"	,	L_30
+ENC_NA	,	V_29
+"Input Stream Message"	,	L_21
+guint8	,	T_7
+"Serialization"	,	L_43
+ti	,	V_4
+BASE_NONE	,	V_66
+RMI_OUTPUTSTREAM	,	V_21
+tvb_format_text	,	F_16
+"RMI Protocol Type"	,	L_20
+"Unknown message"	,	L_5
+ITEM_LABEL_LENGTH	,	V_38
+ett_rmi_version	,	V_69
+tvb_get_ntohl	,	F_14
+data	,	V_51
+"EndPointIdentifier"	,	L_8
+ett_rmi_magic	,	V_68
+tvbuff_t	,	T_1
+RMI_INPUTSTREAM_MESSAGE_RETURNDATA	,	V_41
+hf_rmi_version	,	V_32
+tvb_get_ntohs	,	F_6
+rmi_protocol_str	,	V_22
+proto_reg_handoff_rmi	,	F_27
+dissect_rmi	,	F_1
+tvb_memcpy	,	F_20
+BASE_HEX	,	V_60
+ett_ser	,	V_47
+"RMI"	,	L_1
+"Serialization data, Version: %d"	,	L_6
+"serialization"	,	L_44
+rmi_input_message_str	,	V_26
+proto_item_add_subtree	,	F_12
+RMI_INPUTSTREAM_MESSAGE_PINGACK	,	V_55
+"rmi.endpoint_id.hostname"	,	L_31
+proto_register_field_array	,	F_24
+rmi_type	,	T_8
+RMI_INPUTSTREAM	,	V_25
+guint	,	T_9
+ett_rmi	,	V_30
+"Length"	,	L_27
+offset	,	V_7
+ett	,	V_67
+"Unknown protocol"	,	L_3
+dissector_add_uint	,	F_29
+tree	,	V_3
+"JRMI, "	,	L_4
+FT_UINT16	,	V_62
+packet_info	,	T_2
+"rmi.ser.version"	,	L_38
+"Continuation"	,	L_7
+tvb_get_guint8	,	F_8
+port	,	V_12
+"rmi.ser.magic"	,	L_36
+proto	,	V_14
+RMI_MAGIC	,	V_53
+"rmi.endpoint_id.length"	,	L_28
+proto_tree_add_uint	,	F_13
+RMI_INPUTSTREAM_MESSAGE_ACK	,	V_36
+"rmi.inputstream.message"	,	L_22
+proto_register_rmi	,	F_21
+"RMI Header Magic"	,	L_14
+SERIALIZATION_DATA	,	V_27
+proto_ser	,	V_46
+ett_rmi_inputmessage	,	V_70
+TCP_PORT_RMI	,	V_76
+FT_STRING	,	V_65
+ett_rmi_outputmessage	,	V_71
+hf_ser_version	,	V_49
+"Java RMI"	,	L_40
+"RMI Endpointidentifier Hostname"	,	L_32
+RMI_OUTPUTSTREAM_MESSAGE_DGCACK	,	V_44
+HFILL	,	V_61
+hf_rmi_protocol	,	V_34
+RMI_INPUTSTREAM_MESSAGE_NOTSUPPORTED	,	V_54
+"rmi.outputstream.message"	,	L_25
+"Java Serialization"	,	L_42
+rmi_output_message_str	,	V_24
+create_dissector_handle	,	F_28
+ser_tree	,	V_45
+message	,	V_13
+ENC_BIG_ENDIAN	,	V_33
+proto_rmi	,	V_28
+"Protocol"	,	L_18
+FT_UINT32	,	V_59
+hf_rmi_inputmessage	,	V_35
+"tcp.port"	,	L_45
+hf_ser_magic	,	V_48
+proto_tree	,	T_3
+hf	,	V_58
+"rmi.protocol"	,	L_19

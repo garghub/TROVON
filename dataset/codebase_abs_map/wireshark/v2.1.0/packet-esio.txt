@@ -1,0 +1,159 @@
+esio_tlg_types	,	V_56
+hi	,	V_45
+hf_esio_src_stn_id	,	V_36
+hf_esio_rio_tlgs_lost	,	V_49
+proto_register_protocol	,	F_19
+"esio.vers"	,	L_13
+ei_esio_telegram_lost	,	V_52
+hf_esio_rio_sts	,	V_48
+hf_esio_transaction_id	,	V_33
+esio_transfer_dest_id	,	V_17
+proto_tree_add_subtree	,	F_13
+esio_data_tree	,	V_10
+hf_esio_rio_flags	,	V_51
+"Version"	,	L_12
+"Status length (bytes)"	,	L_36
+gint	,	T_7
+col_set_str	,	F_6
+expert_esio	,	V_67
+ett_esio_transfer_data	,	V_39
+"RIO status"	,	L_38
+hf_esio_data_nbr	,	V_37
+"Data transfer to ID: %d "	,	L_8
+esio_transfer_length	,	V_16
+"esio.data.length"	,	L_31
+tvb	,	V_1
+guint32	,	T_10
+COL_INFO	,	V_22
+"Transfer header"	,	L_7
+ett_esio	,	V_27
+dissect_esio	,	F_5
+esio_handle	,	V_68
+proto_esio	,	V_25
+"Nbr. of data transfers"	,	L_22
+hf_esio_rio_diag	,	V_50
+col_clear	,	F_7
+esio_nbr_data_transfers	,	V_13
+"esio.data.destination_id"	,	L_29
+"esio.data"	,	L_33
+cinfo	,	V_20
+"esio.data.transfer_id"	,	L_27
+"Source station ID"	,	L_18
+proto_register_subtree_array	,	F_22
+"Length (bytes)"	,	L_14
+array_length	,	F_21
+hf_esio_data	,	V_44
+proto_tree_add_item	,	F_11
+"Ether-S-I/O header"	,	L_6
+pinfo	,	V_2
+col_add_fstr	,	F_9
+dissector_handle_t	,	T_14
+"Data"	,	L_32
+"Lost telegrams to RIO"	,	L_40
+_U_	,	V_4
+"Data destination ID"	,	L_28
+proto_reg_handoff_esio	,	F_25
+"esio.sts.rio_sts"	,	L_39
+col_append_str	,	F_10
+hf_esio_data_transfer_id	,	V_40
+hf_esio_sts_size	,	V_47
+"Telegram type"	,	L_10
+hf_register_info	,	T_11
+ESIO_TRANSFER	,	V_23
+ett_esio_transfer_header	,	V_34
+esio_transfer_header_tree	,	V_8
+VALS	,	F_18
+hf_esio_tlg_id	,	V_35
+"esio.len"	,	L_15
+guint16	,	T_9
+COL_PROTOCOL	,	V_21
+"esio.transfer.tlg_id"	,	L_21
+FT_UINT8	,	V_60
+i	,	V_11
+"Unknown telegram"	,	L_5
+BASE_DEC	,	V_58
+proto_item	,	T_6
+expert_register_field_array	,	F_24
+" ..."	,	L_3
+ENC_NA	,	V_26
+guint8	,	T_8
+ti	,	V_5
+ESIO_STATUS	,	V_24
+"Transaction ID"	,	L_16
+data	,	T_5
+tvb_get_ntohl	,	F_8
+hf_esio_data_flags	,	V_38
+esio_telegram_type	,	V_14
+"Transfer header flags"	,	L_24
+tvbuff_t	,	T_2
+proto_register_esio	,	F_17
+esio_data_tansfer_tree	,	V_9
+tvb_get_ntohs	,	F_14
+esio_sts_types	,	V_61
+BASE_HEX	,	V_55
+ei_register_info	,	T_12
+gboolean	,	T_1
+expert_register_protocol	,	F_23
+"Telegram ID"	,	L_20
+"esio.sts.length"	,	L_37
+proto_item_add_subtree	,	F_12
+"ESIO"	,	L_1
+PI_NOTE	,	V_65
+proto_register_field_array	,	F_20
+"RIO flags"	,	L_44
+hf_esio_sts_type	,	V_46
+PI_SEQUENCE	,	V_64
+offset	,	V_12
+ett	,	V_62
+ei	,	V_63
+"esio"	,	L_49
+expert_module_t	,	T_13
+dissector_add_uint	,	F_27
+"Data transfer: Src ID: %d, Dst ID(s): %d"	,	L_2
+tree	,	V_3
+esio_dst_id	,	V_19
+"esio.data.nbr"	,	L_23
+"esio.data.flags"	,	L_25
+FT_UINT16	,	V_54
+"esio.telegram_lost"	,	L_46
+packet_info	,	T_3
+esio_src_id	,	V_18
+"Data bytes "	,	L_9
+tvb_strneql	,	F_3
+tvb_get_guint8	,	F_4
+"esio.sts.rio_flags"	,	L_45
+"Data transfer length"	,	L_30
+tvb_captured_length	,	F_2
+"esio.transaction_id"	,	L_17
+hf_esio_type	,	V_29
+"Status type"	,	L_34
+EXPFILL	,	V_66
+esio_header_tree	,	V_7
+"SAIA Ether-S-I/O protocol"	,	L_48
+expert_add_info	,	F_16
+hf_esio_version	,	V_31
+"Telegram(s) lost"	,	L_47
+"esio.type"	,	L_11
+ett_esio_header	,	V_28
+hf_esio_length	,	V_32
+"Data transfer ID"	,	L_26
+esio_tree	,	V_6
+"Status/diag telegram: Src ID: %d"	,	L_4
+HFILL	,	V_57
+ett_esio_data	,	V_43
+"RIO diagnostics"	,	L_42
+is_esio_pdu	,	F_1
+"udp.port"	,	L_50
+create_dissector_handle	,	F_26
+proto_tree_add_subtree_format	,	F_15
+"esio.sts.rio_diag"	,	L_43
+ENC_BIG_ENDIAN	,	V_30
+hf_esio_data_dest_id	,	V_41
+esio_tlg_type	,	V_15
+"esio.src_stn_id"	,	L_19
+"esio.sts.type"	,	L_35
+FT_UINT32	,	V_59
+"esio.sts.rio_lost_tlg"	,	L_41
+proto_tree	,	T_4
+hf	,	V_53
+hf_esio_data_length	,	V_42

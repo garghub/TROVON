@@ -1,0 +1,391 @@
+g_direct_hash	,	V_175
+"iuup.procedure.malformed"	,	L_119
+hf_iuup_payload	,	V_19
+"[action:%u] "	,	L_11
+tvb_reported_length	,	F_8
+"Payload CRC"	,	L_33
+"Mode Version"	,	L_38
+hf_iuup_init_ipti	,	V_56
+hf_iuup_payload_crc	,	V_75
+"Version  5"	,	L_94
+ei_iuup_error_response	,	V_102
+"iuup.delay"	,	L_55
+"Error Cause"	,	L_42
+guint32	,	T_8
+"[proc:%u] "	,	L_12
+"Version 16"	,	L_72
+hf_iuup_error_distance	,	V_139
+iuup_item	,	V_78
+"Undecoded payload"	,	L_112
+ei_iuup_hdr_crc_bad	,	V_70
+"IPTIs"	,	L_4
+proc_item	,	V_80
+"Advance"	,	L_56
+array_length	,	F_56
+"iuup.error_response"	,	L_113
+"Version  4"	,	L_96
+"iuup.support_mode"	,	L_71
+DISSECTOR_ASSERT	,	F_2
+col_append_str	,	F_40
+"Unknown (%u)"	,	L_13
+"RFCI"	,	L_28
+"RFCI Data Pdu Type"	,	L_49
+"Version 15"	,	L_74
+PROC_TIME	,	V_119
+ack_item	,	V_81
+iuup_procedures	,	V_154
+"Frame Number"	,	L_23
+hf_register_info	,	T_14
+circuit_id	,	V_15
+"Version  3"	,	L_98
+guint16	,	T_12
+c	,	V_36
+global_dynamic_payload_type	,	V_145
+"Spare"	,	L_51
+"iuup.header_crc"	,	L_32
+i	,	V_12
+n	,	V_47
+"Version 14"	,	L_76
+rfcis	,	V_24
+"iuup.errorevt_cause"	,	L_46
+"Malformed Time Align"	,	L_118
+BASE_NONE	,	V_158
+second_octet	,	V_83
+"Version  2"	,	L_100
+ett_rfci	,	V_38
+"iuup.spare_bytes"	,	L_53
+"iuup.rfci.init"	,	L_107
+dissect_iuup_heur	,	F_43
+"iuup.payload_data"	,	L_69
+"Version 13"	,	L_78
+BASE_HEX	,	V_152
+col_add_str	,	F_36
+PROTO_ITEM_SET_GENERATED	,	F_41
+hf_iuup_init_ti	,	V_52
+proto_item_add_subtree	,	F_13
+module_t	,	T_16
+"Version  1"	,	L_102
+PI_UNDECODED	,	V_169
+proto_register_field_array	,	F_55
+"Time Align"	,	L_47
+FT_BYTES	,	V_157
+ei	,	V_165
+ett_iuup	,	V_94
+dissector_add_uint	,	F_50
+"Version 12"	,	L_80
+FT_UINT16	,	V_146
+phdr	,	V_85
+tvb_captured_length	,	F_39
+hf_iuup_rfci_subflow	,	V_33
+ett_payload_subflows	,	V_31
+dissect_iuup_payload	,	F_7
+wmem_new0	,	F_16
+"Version 11"	,	L_82
+"IuUP dynamic payload type"	,	L_132
+expert_add_info	,	F_12
+hf_iuup_spare_ff	,	V_117
+hf_iuup_time_align	,	V_129
+"Circuit ID"	,	L_19
+"iuup.circuit_id"	,	L_20
+proto_iuup	,	V_93
+"Chain Indicator"	,	L_66
+ett_payload	,	V_27
+hf_iuup_init_rfci	,	V_42
+"iuup.rfci"	,	L_29
+iuup_ti_vals	,	V_161
+"Version 10"	,	L_84
+hf_iuup_rfci_ratectl	,	V_65
+length	,	V_71
+"iuup.framenum_t14"	,	L_37
+hf_iuup_procedure_indicator	,	V_109
+PI_WARN	,	V_170
+" [incorrect]"	,	L_6
+FT_UINT32	,	V_159
+PDUTYPE_DATA_WITH_CRC	,	V_98
+"Procedure"	,	L_40
+"TI"	,	L_60
+hf	,	V_2
+update_crc10_by_bytes_iuup	,	F_28
+"PDU Type"	,	L_21
+"Bad checksum"	,	L_109
+iuup_payload_pdu_type	,	V_156
+prefs_register_protocol	,	F_63
+proto_tree_add_subtree	,	F_14
+"iuup.procedure"	,	L_41
+col_append_fstr	,	F_38
+col_set_str	,	F_33
+proto_register_iuup	,	F_51
+"Header CRC"	,	L_31
+first_octet	,	V_82
+id	,	V_26
+ACKNACK_MASK	,	V_110
+"Frame Quality Classification"	,	L_27
+oct	,	V_35
+ei_iuup_procedure_indicator	,	V_121
+"iuup.hdr.crc.bad"	,	L_108
+bits	,	V_6
+masks	,	V_8
+tvb_memdup	,	F_3
+"iuup.payload.undecoded"	,	L_111
+"iuup.advance"	,	L_57
+val_to_str	,	F_37
+iuup_handle	,	V_144
+hf_iuup_circuit_id	,	V_91
+hf_iuup_data_pdu_type	,	V_60
+ACKNACK_RESERVED	,	V_124
+iuup_colinfo_pdu_types	,	V_97
+"two_byte_pseudoheader"	,	L_128
+iuup_fqcs	,	V_151
+"iuup.subflows"	,	L_64
+"iuup.ack"	,	L_36
+VALS	,	F_52
+"iuup"	,	L_123
+prefs_register_bool_preference	,	F_64
+" (%i Bits)"	,	L_1
+ei_iuup_ack_nack	,	V_125
+"rtp_dyn_payload_type"	,	L_14
+iuup_circuit_t	,	T_9
+iuup_acknack_vals	,	V_153
+BASE_DEC	,	V_147
+num_of_subflows	,	V_29
+ACKNACK_PROC	,	V_126
+"RAB sub-Flow Combination Indicator"	,	L_30
+ENC_NA	,	V_20
+"iuup.p"	,	L_105
+"%s"	,	L_5
+hf_iuup_fqc	,	V_100
+"iuup.chain_ind"	,	L_67
+hf_iuup_advance	,	V_135
+"iuup.delta"	,	L_59
+"Two byte pseudoheader"	,	L_129
+ei_iuup_pdu_type	,	V_141
+hf_iuup_init_rfci_lri	,	V_39
+"iuup.pdu_type.malformed"	,	L_121
+prefs_register_uint_preference	,	F_65
+expert_register_protocol	,	F_58
+"Whether IuUP Payload bits should be dissected"	,	L_127
+"FN: %x RFCI: %u"	,	L_9
+"Delay"	,	L_54
+"Frame Direction"	,	L_17
+"Timing Information"	,	L_62
+guint	,	T_4
+ett	,	V_164
+wmem_packet_scope	,	F_4
+hf_iuup_error_cause_val	,	V_123
+two_byte_pseudoheader	,	V_89
+iuup_proto_tree_add_bits	,	F_1
+packet_info	,	T_6
+rfci	,	V_17
+proto_tree_add_float	,	F_42
+hf_iuup_spare_03	,	V_116
+pdutype	,	V_84
+"dissect_payload"	,	L_125
+EXPFILL	,	V_168
+"iuup.error_distance"	,	L_45
+hf_iuup_init_rfci_ind	,	V_37
+HFS_RFCI	,	F_53
+"Subflows"	,	L_63
+"iuup.support_mode.version11"	,	L_83
+"iuup.data_pdu_type"	,	L_50
+tvb_new_subset_length	,	F_34
+"iuup.support_mode.version12"	,	L_81
+HFILL	,	V_148
+PI_MALFORMED	,	V_172
+"iuup.pdu_type"	,	L_22
+PDUTYPE_DATA_NO_CRC	,	V_104
+"iuup.support_mode.version10"	,	L_85
+FQC_MASK	,	V_101
+expert_iuup	,	V_174
+pi	,	V_11
+support_tree	,	V_49
+hf_iuup_hdr_crc	,	V_69
+iuup_module	,	V_173
+pt	,	V_34
+proto_register_protocol	,	F_54
+"Delta Time"	,	L_58
+find_iuup	,	F_44
+"iuup.support_mode.version14"	,	L_77
+iuup_colinfo_acknack_vals	,	V_111
+PROC_ERROR	,	V_120
+tvb_new_subset_remaining	,	F_45
+len	,	V_9
+hf_iuup_spare_bytes	,	V_137
+PROC_INIT	,	V_115
+gint	,	V_134
+hf_iuup_errorevt_cause_val	,	V_140
+"rtp.pt"	,	L_16
+tvb	,	V_3
+COL_INFO	,	V_96
+ett_rfciinds	,	V_64
+" RFCI %u"	,	L_10
+add_payload_crc	,	F_31
+wmem_epan_scope	,	F_62
+add_hdr_crc	,	F_27
+"iuup.support_mode.version13"	,	L_79
+cinfo	,	V_87
+PI_ERROR	,	V_167
+dissect_fields	,	V_21
+"iuup.time_align.malformed"	,	L_117
+g_direct_equal	,	V_176
+ei_iuup_payload_crc_bad	,	V_76
+"VND.3GPP.IUFP"	,	L_15
+"Malformed Ack/Nack"	,	L_116
+proto_item_set_text	,	F_19
+"Malformed PDU Type"	,	L_122
+hf_iuup_mode_versions_a	,	V_59
+"iuup.support_mode.version16"	,	L_73
+last_rfci	,	V_46
+hf_iuup_rfci	,	V_103
+PDUTYPE_MASK	,	V_92
+COL_PROTOCOL	,	V_88
+GUINT_TO_POINTER	,	F_11
+crc_item	,	V_68
+PROC_RATE	,	V_118
+ta	,	V_128
+"iuup.support_mode.version15"	,	L_75
+guint8	,	T_5
+buf	,	V_7
+ti	,	V_48
+update_crc10_by_bytes	,	F_30
+hdrcrc6	,	V_86
+"Unknown PDU Type(%u) "	,	L_8
+"iuup.framenum"	,	L_24
+iuup_error_causes	,	V_138
+register_dissector	,	F_60
+tvbuff_t	,	T_3
+tvb_get_ntohs	,	F_21
+hf_iuup_frame_number	,	V_99
+dissect_rfcis	,	F_15
+gboolean	,	T_11
+hf_iuup_delta	,	V_132
+flow_tree	,	V_30
+iuup_colinfo_procedures	,	V_113
+pdutype_item	,	V_79
+crccheck	,	V_67
+"iuup.support_mode.version9"	,	L_87
+"Dissect IuUP Payload bits"	,	L_126
+ett_time	,	V_130
+subflows	,	V_28
+tvb_get_guint8	,	F_18
+FT_FLOAT	,	V_160
+"iuup.payload_crc"	,	L_34
+subflow_len	,	V_43
+wmem_map_remove	,	F_24
+PI_RESPONSE_CODE	,	V_171
+iuup_prefs_initialized	,	V_142
+dissector_delete_uint	,	F_49
+"iuup.support_mode.version8"	,	L_89
+hf_iuup_mode_version	,	V_108
+iuup_init_chain_ind_vals	,	V_162
+next	,	V_25
+extra_8bits	,	V_74
+hf_iuup_init_subflows_per_rfci	,	V_53
+"iuup.error_cause"	,	L_43
+"Iu UP Mode Versions Supported"	,	L_70
+call_data_dissector	,	F_46
+bit_offset	,	V_5
+"iuup.support_mode.version7"	,	L_91
+"RFCI %i Initialization"	,	L_3
+"Ack/Nack"	,	L_35
+hf_iuup_direction	,	V_90
+ENC_BIG_ENDIAN	,	V_40
+"iuup.time_align"	,	L_48
+iptis_tree	,	V_50
+"Error DISTANCE"	,	L_44
+inds_tree	,	V_62
+"iuup.support_mode.version6"	,	L_93
+iuup_error_distances	,	V_155
+"IuUP"	,	L_7
+PDUTYPE_DATA_CONTROL_PROC	,	V_105
+ei_iuup_time_align	,	V_136
+hf_iuup_spare_e0	,	V_51
+circuits	,	V_22
+hf_iuup_ack_nack	,	V_106
+hf_iuup_frame_number_t14	,	V_107
+"iuup.support_mode.version5"	,	L_95
+"iuup.support_mode.version4"	,	L_97
+hf_iuup_init_rfci_flow_len	,	V_45
+proto_item_append_text	,	F_6
+extra_16bits	,	V_73
+hf_iuup_pdu_type	,	V_95
+"Number of RFCI Indicators"	,	L_104
+proto_register_subtree_array	,	F_57
+tvb_in	,	V_77
+"iuup.ack.malformed"	,	L_115
+"iuup.support_mode.version3"	,	L_99
+proto_tree_add_item	,	F_9
+pinfo	,	V_13
+_U_	,	V_14
+"The dynamic payload type which will be interpreted as IuUP"	,	L_133
+hf_iuup_mode_versions	,	V_57
+crc10	,	V_72
+hf_iuup_delay	,	V_131
+"iuup.ti"	,	L_61
+dissect_iuup	,	F_32
+update_crc10_by_bytes_tvb	,	F_29
+"dynamic.payload.type"	,	L_131
+sum_len	,	V_44
+"iuup.support_mode.version2"	,	L_101
+"iuup.spare"	,	L_52
+"iuup.direction"	,	L_18
+FT_UINT8	,	V_149
+saved_dynamic_payload_type	,	V_143
+ACKNACK_NACK	,	V_122
+iuup_rfci_t	,	T_10
+proto_item	,	T_1
+"FQC"	,	L_25
+expert_register_field_array	,	F_59
+iuup_circuit	,	V_16
+"Number of Subflows"	,	L_65
+dissector_add_string	,	F_48
+"The payload contains a two byte pseudoheader indicating direction and circuit_id"	,	L_130
+iuup_pdu_types	,	V_150
+PROCEDURE_MASK	,	V_112
+iuup_mode_version_support	,	V_163
+"iuup.support_mode.version1"	,	L_103
+data	,	T_13
+ei_iuup_payload_undecoded	,	V_23
+"iuup.mode"	,	L_39
+num	,	V_61
+ei_register_info	,	T_15
+"Malformed Procedure"	,	L_120
+hf_iuup_init_rfci_li	,	V_41
+"RFCI Initialization"	,	L_106
+offset	,	V_4
+"Version  9"	,	L_86
+expert_module_t	,	T_17
+tree	,	V_1
+"find_iuup"	,	L_124
+proto_tree_add_bytes	,	F_5
+"Error response"	,	L_114
+ett_ipti	,	V_55
+ett_support	,	V_58
+"Payload Data"	,	L_68
+"Version  8"	,	L_88
+proto_tree_add_uint	,	F_22
+hf_iuup_num_rfci_ind	,	V_63
+"iuup.fqc"	,	L_26
+subflow	,	V_32
+gfloat	,	V_133
+PI_CHECKSUM	,	V_166
+wmem_map_new_autoreset	,	F_61
+iuup_tree	,	V_66
+rfci_id	,	T_7
+"Version  7"	,	L_90
+wmem_file_scope	,	F_17
+last_offset	,	V_18
+wmem_map_insert	,	F_25
+ACKNACK_ACK	,	V_114
+update_crc6_by_bytes	,	F_35
+proto_reg_handoff_iuup	,	F_47
+proto_item_set_len	,	F_20
+hf_iuup_init_chain_ind	,	V_54
+"iuup.payload.crc.bad"	,	L_110
+dissect_iuup_ratectl	,	F_26
+"Version  6"	,	L_92
+"Payload Frame"	,	L_2
+dissect_iuup_init	,	F_23
+wmem_map_lookup	,	F_10
+proto_tree	,	T_2
+shifted_buffer	,	V_10
+time_tree	,	V_127

@@ -1,0 +1,110 @@
+tvb_get_string_enc	,	F_4
+dissect_tivoconnect_tcp	,	F_13
+proto_register_protocol	,	F_16
+"tivoconnect.identity"	,	L_31
+tvb_reported_length	,	F_12
+"tivoconnect.platform"	,	L_25
+"Version"	,	L_36
+"Machine"	,	L_27
+"tivoconnect.services"	,	L_34
+gint	,	T_6
+col_set_str	,	F_6
+tvb	,	V_1
+proto_tivoconnect	,	V_17
+"Services"	,	L_33
+"method"	,	L_6
+packet_machine	,	V_8
+COL_INFO	,	V_12
+dissect_tivoconnect_udp	,	F_14
+proto_item_append_text	,	F_10
+"System software version"	,	L_38
+"Protocol Flavor supported by the originator"	,	L_20
+"Platform"	,	L_24
+field	,	V_16
+"System platform, either tcd(TiVo) or pc(Computer)"	,	L_26
+cinfo	,	V_10
+proto_register_subtree_array	,	F_19
+array_length	,	F_18
+"Discovery Connection"	,	L_3
+"List of available services on the system"	,	L_35
+tivoconnect_tcp_handle	,	V_35
+proto_tree_add_item	,	F_7
+FT_STRINGZ	,	V_31
+" (%s)"	,	L_14
+pinfo	,	V_2
+col_add_fstr	,	F_11
+dissector_handle_t	,	T_11
+_U_	,	V_29
+ENC_ASCII	,	V_9
+"Human-readable system name"	,	L_29
+"Unique serial number for the system"	,	L_32
+packet_identity	,	V_7
+", ID:%s"	,	L_15
+hf_register_info	,	T_10
+"tivoconnect.flavor"	,	L_19
+"%s ID:%s"	,	L_17
+ett_tivoconnect	,	V_19
+", %s"	,	L_12
+COL_PROTOCOL	,	V_11
+"TiVoConnect"	,	L_2
+g_ascii_strcasecmp	,	F_9
+proto_item	,	T_7
+ENC_NA	,	V_18
+ti	,	V_13
+BASE_NONE	,	V_32
+hf_tivoconnect_machine	,	V_25
+"Flavor"	,	L_18
+tvb_strncaseeql	,	F_2
+"Identity"	,	L_30
+fieldlen	,	V_21
+"\n"	,	L_5
+hf_tivoconnect_services	,	V_27
+"%s %s"	,	L_13
+data	,	T_9
+"tivoconnect.method"	,	L_22
+"tivoconnect.version"	,	L_37
+"%s %s (%s)"	,	L_16
+tvbuff_t	,	T_1
+"swversion"	,	L_11
+"services"	,	L_10
+hf_tivoconnect_identity	,	V_26
+gboolean	,	T_4
+proto_item_add_subtree	,	F_8
+"tivoconnect"	,	L_1
+"platform"	,	L_7
+proto_register_field_array	,	F_17
+guint	,	T_8
+offset	,	V_15
+"identity"	,	L_9
+ett	,	V_34
+wmem_packet_scope	,	F_5
+hf_tivoconnect_flavor	,	V_22
+dissector_add_uint	,	F_22
+tree	,	V_3
+hf_tivoconnect_version	,	V_28
+packet_info	,	T_2
+dissect_tivoconnect	,	F_1
+tvb_captured_length	,	F_3
+proto_reg_handoff_tivoconnect	,	F_20
+"Method"	,	L_21
+"Discovery Beacon"	,	L_4
+hf_tivoconnect_platform	,	V_24
+"machine"	,	L_8
+HFILL	,	V_33
+value	,	V_20
+"Packet was delivered via UDP(broadcast) or TCP(connected)"	,	L_23
+new_create_dissector_handle	,	F_21
+is_tcp	,	V_4
+"udp.port"	,	L_40
+gchar	,	T_5
+length	,	V_5
+proto_register_tivoconnect	,	F_15
+tivoconnect_udp_handle	,	V_36
+proto_name	,	V_6
+"tivoconnect.machine"	,	L_28
+"TiVoConnect Discovery Protocol"	,	L_39
+tivoconnect_tree	,	V_14
+hf_tivoconnect_method	,	V_23
+"tcp.port"	,	L_41
+proto_tree	,	T_3
+hf	,	V_30

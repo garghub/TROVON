@@ -1,0 +1,176 @@
+SID_ULP_TCP	,	V_54
+ISER_RSV	,	V_17
+vers	,	V_10
+"Read STag"	,	L_21
+proto_register_protocol	,	F_17
+ISER_HELLO	,	V_18
+prefs_register_protocol	,	F_21
+tvb_reported_length	,	F_2
+ISER_ISCSI_HDR_SZ	,	V_12
+ISER_ISCSI_CTRL	,	V_14
+tvb_new_subset_remaining	,	F_9
+FT_UINT64	,	V_71
+col_set_str	,	F_4
+gint	,	T_12
+"iSER"	,	L_1
+ett_iser_flags	,	V_28
+conv	,	V_41
+"Flags"	,	L_4
+"iSER-ORD"	,	L_27
+"iser.flags.wsv"	,	L_12
+"iser.write_base_offset"	,	L_20
+tvb	,	V_1
+NO_ADDR_B	,	V_49
+guint32	,	V_56
+find_dissector_add_dependency	,	F_30
+COL_INFO	,	V_22
+"iser_infiniband"	,	L_51
+"addr_a_type"	,	L_37
+wmem_epan_scope	,	F_25
+proto_iser	,	V_23
+FT_BOOLEAN	,	V_66
+"(default "	,	L_47
+dissect_iser	,	F_11
+"iSER Infiniband"	,	L_50
+ISER_SPECIFIC_MASK	,	V_15
+col_clear	,	F_5
+"iSER HelloRply"	,	L_3
+"Heuristic matching preferences removed.  Use Infiniband protocol preferences or Decode As."	,	L_32
+cinfo	,	V_20
+"iser.write_stag"	,	L_18
+ett_iser	,	V_26
+hf_iser_RSV_f	,	V_65
+proto_register_subtree_array	,	F_20
+hf_iser_write_stag	,	V_31
+array_length	,	F_19
+"infiniband.mad.cm.private"	,	L_52
+"Range of iSER target ports"	,	L_46
+next_tvb	,	V_5
+hf_iser_ord	,	V_39
+proto_tree_add_item	,	F_6
+"addr_b_qp"	,	L_43
+call_dissector	,	F_10
+pinfo	,	V_2
+_U_	,	V_4
+flags	,	V_9
+hf_iser_REJ_f	,	V_68
+flags_fields	,	V_29
+"iscsi"	,	L_56
+hf_register_info	,	T_11
+"iSER-IRD"	,	L_25
+"addr_a_id"	,	L_38
+VALS	,	F_16
+dissector_add_for_decode_as	,	F_28
+ISER_WSV	,	V_16
+"To force iSER dissection use Decode As"	,	L_34
+prefs_register_static_text_preference	,	F_22
+COL_PROTOCOL	,	V_21
+find_conversation	,	F_12
+proto_get_id_by_filter_name	,	F_31
+FT_UINT8	,	V_60
+convo_data	,	V_42
+"Read STag Valid"	,	L_10
+proto_item	,	T_5
+value_is_in_range	,	F_14
+"iser.ird"	,	L_26
+hf_iser_opcode_f	,	V_63
+"manual_en"	,	L_35
+ENC_NA	,	V_25
+"iser.flags.opcode"	,	L_7
+guint8	,	T_7
+hf_iser_WSV_f	,	V_67
+"iser_ib_private"	,	L_54
+ti	,	V_6
+proto_reg_handoff_iser	,	V_74
+"iSER Hello"	,	L_2
+iscsi_handler	,	V_40
+ENC_LITTLE_ENDIAN	,	V_30
+"Target Ports Range"	,	L_45
+"addr_b_type"	,	L_41
+iser_tree	,	V_7
+conversation_infiniband_data	,	T_9
+ISER_HELLORPLY	,	V_19
+"Write Base Offset"	,	L_19
+data	,	T_4
+hf_iser_flags	,	V_27
+num	,	V_43
+"iSER in PrivateData of CM packets"	,	L_53
+NO_PORT_B	,	V_50
+proto_register_iser	,	F_15
+tvbuff_t	,	T_1
+opcode	,	V_11
+"WSV"	,	L_11
+proto_tree_add_bitmask	,	F_8
+hf_iser_read_va	,	V_35
+BASE_HEX	,	V_61
+ISER_HDR_SZ	,	V_24
+iser_module	,	V_58
+proto_item_add_subtree	,	F_7
+module_t	,	T_10
+proto_register_field_array	,	F_18
+hellorply_flags_fields	,	V_38
+conversation_t	,	T_8
+guint	,	T_6
+offset	,	V_8
+ett	,	V_73
+"iser.flags"	,	L_5
+"iser.ord"	,	L_28
+tree	,	V_3
+"Opcode"	,	L_6
+"REJ"	,	L_14
+"RSV"	,	L_8
+"target_ports"	,	L_44
+FT_UINT16	,	V_72
+packet_info	,	T_2
+prefs_register_range_preference	,	F_26
+hf_iser_ird	,	V_37
+tvb_get_guint8	,	F_3
+"Target reject connection"	,	L_16
+"Write STag Valid"	,	L_13
+")"	,	L_48
+destport	,	V_48
+hf_iser_write_va	,	V_33
+dissect_packet	,	F_1
+dst	,	V_45
+ISER_REJ	,	V_69
+"addr_b_id"	,	L_42
+conversation_get_proto_data	,	F_13
+"iser"	,	L_30
+ISER_OPCODE_MASK	,	V_13
+SID_MASK	,	V_53
+"iser.read_base_offset"	,	L_24
+iser_flags_opcode	,	V_64
+heur_dissector_add	,	F_27
+HEURISTIC_ENABLE	,	V_77
+"addr_a_qp"	,	L_39
+"Simple heuristics can still be enable (may generate false positives) through Infiniband protocol preferences."	,	L_33
+"addr_b"	,	L_40
+hello_flags_fields	,	V_36
+service_id	,	V_52
+range_convert_str	,	F_24
+proto_ib	,	V_51
+HFILL	,	V_62
+prefs_register_obsolete_preference	,	F_23
+SID_PORT_MASK	,	V_57
+"infiniband.payload"	,	L_49
+src	,	V_44
+"iser.read_stag"	,	L_22
+"infiniband"	,	L_55
+"Read Base Offset"	,	L_23
+create_dissector_handle	,	F_29
+ENC_BIG_ENDIAN	,	V_32
+"Write STag"	,	L_17
+"iser.flags.rej"	,	L_15
+"addr_a"	,	L_36
+"use_decode_as"	,	L_31
+FT_UINT32	,	V_70
+PT_IBQP	,	V_46
+TCP_PORT_ISER_RANGE	,	V_75
+"iSCSI Extensions for RDMA"	,	L_29
+MAX_TCP_PORT	,	V_76
+hf_iser_read_stag	,	V_34
+srcport	,	V_47
+gPORT_RANGE	,	V_55
+"iser.flags.rsv"	,	L_9
+proto_tree	,	T_3
+hf	,	V_59

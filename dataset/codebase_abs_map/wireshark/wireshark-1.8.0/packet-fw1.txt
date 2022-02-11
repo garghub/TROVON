@@ -1,0 +1,114 @@
+"Whether the Firewall-1 monitor file includes UUID information"	,	L_24
+proto_register_protocol	,	F_21
+hf_fw1_chain	,	V_32
+prefs_register_protocol	,	F_25
+check_col	,	F_12
+col_set_str	,	F_5
+gint	,	T_10
+"fw1.uuid"	,	L_13
+tvb	,	V_4
+"Interface"	,	L_10
+guint32	,	T_5
+COL_INFO	,	V_19
+ethertype	,	F_18
+iface_len	,	V_12
+str	,	V_24
+col_clear	,	F_6
+COL_IF_DIR	,	V_23
+cinfo	,	V_17
+proto_register_subtree_array	,	F_24
+interface_anzahl	,	V_2
+hf_fw1_trailer	,	V_37
+array_length	,	F_23
+tvb_get_nstringz0	,	F_9
+"UUID"	,	L_12
+"  %c%c %s %c%c"	,	L_3
+proto_tree_add_item	,	F_16
+pinfo	,	V_5
+ep_strbuf_new_label	,	F_4
+ENC_ASCII	,	V_30
+found	,	V_15
+hf_register_info	,	T_9
+"with_uuid"	,	L_22
+VALS	,	F_20
+prefs_register_bool_preference	,	F_26
+fh_tree	,	V_8
+chain	,	V_10
+guint16	,	T_6
+COL_PROTOCOL	,	V_18
+hf_fw1_uuid	,	V_34
+i	,	V_1
+g_free	,	F_2
+BASE_DEC	,	V_43
+proto_item	,	T_4
+"Monitor file includes UUID"	,	L_23
+ENC_NA	,	V_31
+fw1_iflist_with_chain	,	V_20
+"iflist_with_chain"	,	L_25
+ti	,	V_7
+BASE_NONE	,	V_40
+hf_fw1_interface	,	V_33
+"FW1 Monitor"	,	L_1
+etype_vals	,	V_46
+register_dissector	,	F_27
+"%s"	,	L_5
+"fw1.type"	,	L_15
+"    %s  "	,	L_4
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_14
+tvb_get_ntohs	,	F_17
+"fw1.chain"	,	L_9
+BASE_HEX	,	V_45
+"Show FireWall-1 summary in protocol tree"	,	L_20
+col_add_str	,	F_13
+"summary_in_tree"	,	L_19
+hf_fw1_direction	,	V_29
+gboolean	,	T_8
+ep_alloc	,	F_8
+proto_item_add_subtree	,	F_15
+module_t	,	T_11
+proto_register_field_array	,	F_22
+"Whether the FireWall-1 summary line should be shown in the protocol tree"	,	L_21
+fw1_with_uuid	,	V_21
+ett	,	V_47
+fw1_init	,	F_1
+tree	,	V_6
+fw1_summary_in_tree	,	V_25
+"Interface list includes chain position"	,	L_26
+"FW-1"	,	L_17
+FT_UINT16	,	V_44
+register_init_routine	,	F_28
+packet_info	,	T_2
+ett_fw1	,	V_28
+tvb_get_guint8	,	F_7
+"Whether the interface list includes the chain position"	,	L_27
+"fw1.direction"	,	L_7
+header	,	V_14
+dissect_fw1	,	F_3
+ep_strbuf_append_printf	,	F_11
+MAX_INTERFACES	,	V_22
+"Checkpoint FW-1"	,	L_16
+"FW1"	,	L_2
+p_interfaces	,	V_3
+interface_name	,	V_11
+"fw1"	,	L_18
+FT_STRING	,	V_39
+"Chain Position"	,	L_8
+"Direction"	,	L_6
+g_strdup	,	F_10
+etype	,	V_13
+HFILL	,	V_41
+direction	,	V_9
+"fw1.interface"	,	L_11
+hf_fw1_type	,	V_36
+proto_fw1	,	V_26
+fw1_module	,	V_48
+ENC_BIG_ENDIAN	,	V_35
+FT_UINT32	,	V_42
+ETH_HEADER_SIZE	,	V_27
+"Type"	,	L_14
+proto_register_fw1	,	F_19
+fw1_header	,	V_16
+proto_tree	,	T_3
+emem_strbuf_t	,	T_7
+hf	,	V_38

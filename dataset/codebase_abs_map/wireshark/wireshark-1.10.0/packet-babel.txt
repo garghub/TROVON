@@ -1,0 +1,179 @@
+babel_tree	,	V_22
+prefix	,	V_1
+proto_register_protocol	,	F_23
+hf_babel_message_prefix	,	V_58
+format_address	,	F_1
+hf_babel_message_plen	,	V_67
+MESSAGE_HELLO	,	V_49
+hf_babel_message_seqno	,	V_50
+hf_babel_message_ae	,	V_57
+"%s/%u"	,	L_2
+"Version"	,	L_14
+len	,	V_9
+col_append_fstr	,	F_16
+a_r	,	V_13
+"babel.message.type"	,	L_23
+"Rxcost (from the point of vue of the sender)"	,	L_39
+col_set_str	,	F_11
+" %s"	,	L_5
+gint	,	T_10
+"NH: %s"	,	L_9
+total_length	,	V_35
+"Flags"	,	L_42
+proto_tree_add_uint_format	,	F_18
+"Address: %s"	,	L_8
+tvb	,	V_14
+ae	,	V_5
+COL_INFO	,	V_27
+"babel.message.metric"	,	L_50
+dissect_babel	,	F_8
+"Nonce"	,	L_26
+proto_babel	,	V_28
+"Hop Count"	,	L_51
+babel_handle	,	V_82
+version	,	V_23
+rc	,	V_54
+MESSAGE_ACK_REQ	,	V_45
+cinfo	,	V_25
+MESSAGE_NH	,	V_61
+proto_register_subtree_array	,	F_26
+omitted	,	V_6
+MESSAGE_UPDATE	,	V_63
+messages	,	V_39
+array_length	,	F_25
+v6_prefix	,	V_20
+v4_prefix	,	V_19
+MESSAGE_PAD1	,	V_38
+proto_tree_add_item	,	F_13
+"Interval (in centiseconds)"	,	L_30
+pinfo	,	V_15
+col_add_fstr	,	F_12
+dissector_handle_t	,	T_11
+_U_	,	V_17
+flags	,	V_64
+"babel"	,	L_54
+MESSAGE_ACK	,	V_48
+"Address Encoding"	,	L_33
+hf_babel_message_length	,	V_43
+hf_register_info	,	T_9
+"Magic"	,	L_11
+hf_babel_magic	,	V_31
+VALS	,	F_22
+"Message"	,	L_19
+hf_babel_version	,	V_32
+MESSAGE_MH_REQUEST	,	V_70
+"Prefix Length"	,	L_44
+"Babel Message"	,	L_21
+a	,	V_12
+p_r	,	V_10
+guint16	,	T_8
+hf_babel_message	,	V_40
+COL_PROTOCOL	,	V_26
+tvb_length	,	F_9
+FT_UINT8	,	V_73
+"babel.message.nonce"	,	L_27
+i	,	V_21
+proto_tree_add_text	,	F_20
+BASE_DEC	,	V_74
+e_in6_addr	,	V_3
+proto_item	,	T_6
+"babel.message.length"	,	L_25
+p	,	V_7
+"babel.message.ae"	,	L_34
+ENC_NA	,	V_29
+subtree	,	V_52
+guint8	,	T_7
+MESSAGE_REQUEST	,	V_69
+ti	,	V_18
+bodylen	,	V_24
+BASE_NONE	,	V_80
+proto_reg_handoff_babel	,	F_27
+hf_babel_message_type	,	V_42
+hf_babel_message_interval	,	V_47
+ep_strdup_printf	,	F_5
+MESSAGE_ROUTER_ID	,	V_59
+"Seqno"	,	L_31
+hf_babel_message_omitted	,	V_68
+"Babel"	,	L_3
+network_prefix	,	F_6
+data	,	T_5
+UDP_PORT_BABEL	,	V_83
+ett_subtree	,	V_56
+ip6_to_str	,	F_3
+"babel.message.interval"	,	L_29
+"Message %s (%u)"	,	L_7
+"babel.message"	,	L_20
+"babel.message.prefix"	,	L_36
+"babel.message.omitted"	,	L_47
+"babel.message.hopcount"	,	L_52
+format_prefix	,	F_4
+tvbuff_t	,	T_2
+dp	,	V_8
+tvb_get_ntohs	,	F_15
+message_tree	,	V_36
+"Omitted Bytes"	,	L_46
+BASE_HEX	,	V_77
+plen	,	V_4
+"babel.version"	,	L_15
+"Message Length"	,	L_24
+"Version %u"	,	L_4
+ett_message	,	V_41
+proto_item_add_subtree	,	F_14
+proto_register_field_array	,	F_24
+FT_BYTES	,	V_79
+guint	,	T_1
+MESSAGE_PADN	,	V_44
+ett	,	V_81
+"Babel Routing Protocol"	,	L_53
+dissector_add_uint	,	F_29
+tree	,	V_16
+"babel.magic"	,	L_12
+"Router ID"	,	L_40
+tvb_get_ptr	,	F_19
+FT_UINT16	,	V_76
+packet_info	,	T_3
+tvb_get_guint8	,	F_10
+v4prefix	,	V_2
+network_address	,	F_7
+addr_str	,	V_53
+nh	,	V_62
+ip_to_str	,	F_2
+hf_babel_message_rxcost	,	V_55
+"Version of the Babel protocol"	,	L_16
+"Prefix: %s"	,	L_10
+hf_babel_message_hopcount	,	V_71
+"babel.message.seqno"	,	L_32
+"babel.bodylen"	,	L_18
+aes	,	V_78
+hf_babel_message_routerid	,	V_60
+hf_babel_message_flags	,	V_65
+"Number of bytes omitted from the prefix"	,	L_48
+"corrupt"	,	L_1
+"Message Type"	,	L_22
+"Interval"	,	L_28
+ett_babel	,	V_30
+HFILL	,	V_75
+"Body Length"	,	L_17
+proto_register_babel	,	F_21
+"Magic value 42"	,	L_13
+"babel.message.rxcost"	,	L_38
+"babel.message.plen"	,	L_45
+new_create_dissector_handle	,	F_28
+MESSAGE_IHU	,	V_51
+hf_babel_message_metric	,	V_66
+val_to_str_const	,	F_17
+"udp.port"	,	L_55
+"Metric"	,	L_49
+"Raw Prefix"	,	L_35
+message	,	V_37
+ENC_BIG_ENDIAN	,	V_34
+pb	,	V_11
+hf_babel_bodylen	,	V_33
+UDP_PORT_BABEL_OLD	,	V_84
+"babel.message.routerid"	,	L_41
+"babel.message.flags"	,	L_43
+hf_babel_message_nonce	,	V_46
+"unknown"	,	L_6
+proto_tree	,	T_4
+hf	,	V_72
+"Rxcost"	,	L_37

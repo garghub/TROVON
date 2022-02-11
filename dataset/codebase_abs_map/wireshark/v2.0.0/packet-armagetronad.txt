@@ -1,0 +1,122 @@
+"armagetronad.descriptor_id"	,	L_10
+wmem_strbuf_get_len	,	F_21
+proto_register_protocol	,	F_27
+gsize	,	T_10
+"armagetronad"	,	L_28
+descriptor	,	V_14
+"SenderID"	,	L_21
+hf_armagetronad_descriptor_id	,	V_19
+armagetronad_tree	,	V_26
+tmp	,	V_6
+gint	,	T_3
+col_set_str	,	F_18
+tvb_captured_length_remaining	,	F_2
+msg_tree	,	V_13
+wmem_strbuf_new	,	F_17
+tvb	,	V_1
+COL_INFO	,	V_31
+"Descriptor"	,	L_9
+"DataLen"	,	L_15
+"The actual data (array of shorts in network order)"	,	L_20
+armagetronad_handle	,	V_45
+tvb_reported_length_remaining	,	F_20
+"armagetronad.message_id"	,	L_13
+col_clear	,	F_19
+"armagetronad.sender_id"	,	L_22
+sender	,	V_27
+cinfo	,	V_29
+wmem_strbuf_t	,	T_6
+proto_register_subtree_array	,	F_30
+proto_tree_add_string	,	F_9
+val_to_str	,	F_11
+"The ID of the descriptor (the command)"	,	L_11
+array_length	,	F_29
+""	,	L_5
+proto_tree_add_item	,	F_14
+pinfo	,	V_23
+col_add_fstr	,	F_23
+dissector_handle_t	,	T_12
+"Data"	,	L_18
+_U_	,	V_24
+new_register_dissector	,	F_31
+add_message_data	,	F_5
+"Unknown (%u)"	,	L_1
+"Armagetronad"	,	L_6
+hf_armagetronad_msg_subtree	,	V_17
+hf_register_info	,	T_11
+proto_register_armagetronad	,	F_25
+VALS	,	F_26
+"Message"	,	L_24
+"The ID of the sender (0x0000 for the server)"	,	L_23
+UDP_PORT_MASTER	,	V_47
+guint16	,	T_7
+COL_PROTOCOL	,	V_30
+i	,	V_7
+ACK	,	V_16
+BASE_DEC	,	V_38
+message_id	,	V_11
+proto_item	,	T_8
+ENC_NA	,	V_33
+"ACK %d messages"	,	L_2
+"[%s] from 0x%04x"	,	L_8
+ti	,	V_25
+BASE_NONE	,	V_42
+wmem_alloc	,	F_7
+"The ID of the message (to ack it)"	,	L_14
+msg	,	V_12
+data	,	V_5
+tvbuff_t	,	T_2
+proto_reg_handoff_armagetronad	,	F_32
+tvb_get_ntohs	,	F_3
+tvb_memcpy	,	F_6
+"The length of the data (in shorts)"	,	L_17
+BASE_HEX	,	V_40
+ett_message	,	V_18
+"A message"	,	L_26
+gboolean	,	T_1
+wmem_strbuf_append_printf	,	F_15
+proto_item_add_subtree	,	F_13
+hf_armagetronad_sender_id	,	V_35
+proto_register_field_array	,	F_28
+info	,	V_9
+is_armagetronad_packet	,	F_1
+hf_armagetronad_data	,	V_8
+FT_NONE	,	V_43
+offset	,	V_2
+ett	,	V_44
+wmem_packet_scope	,	F_8
+dissector_add_uint	,	F_34
+data_len	,	V_3
+tree	,	V_4
+"MessageID"	,	L_12
+tvb_bytes_exist	,	F_4
+hf_armagetronad_message_id	,	V_21
+FT_UINT16	,	V_37
+packet_info	,	T_9
+ett_armagetronad	,	V_34
+proto_armagetronad	,	V_32
+UDP_PORT_ARMAGETRONAD	,	V_46
+"armagetronad.data_len"	,	L_16
+"Message 0x%04x [%s]"	,	L_3
+descriptor_id	,	V_10
+descriptors	,	V_15
+FT_STRING	,	V_41
+"No message"	,	L_7
+HFILL	,	V_39
+"%s, "	,	L_4
+add_message	,	F_10
+"udp.port"	,	L_29
+gchar	,	T_5
+proto_tree_add_none_format	,	F_12
+hf_armagetronad_data_len	,	V_22
+find_dissector	,	F_33
+"armagetronad.message"	,	L_25
+ENC_BIG_ENDIAN	,	V_20
+wmem_strbuf_truncate	,	F_22
+"armagetronad.data"	,	L_19
+new_len	,	V_28
+"The Armagetron Advanced OpenGL Tron clone"	,	L_27
+wmem_strbuf_get_str	,	F_24
+dissect_armagetronad	,	F_16
+proto_tree	,	T_4
+hf	,	V_36

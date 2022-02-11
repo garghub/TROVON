@@ -1,0 +1,113 @@
+new_tvb	,	V_8
+"Sequence number"	,	L_19
+"Password"	,	L_14
+"nasdaq-soup.seq_number"	,	L_20
+proto_register_protocol	,	F_18
+"; "	,	L_2
+"nasdaq-itch"	,	L_29
+prefs_register_protocol	,	F_22
+"nasdaq-soup.session"	,	L_17
+hf_nasdaq_soup_seq_number	,	V_14
+proto_register_nasdaq_soup	,	F_16
+"nasdaq_soup"	,	L_25
+gint	,	T_7
+col_set_str	,	F_10
+dissect_nasdaq_soup_packet	,	F_1
+"End Of Packet"	,	L_21
+dissector_add_uint_range_with_preference	,	F_27
+tvb	,	V_1
+find_dissector_add_dependency	,	F_26
+hf_nasdaq_soup_text	,	V_12
+COL_INFO	,	V_33
+"nasdaq-soup.message"	,	L_9
+desegment_offset	,	V_28
+linelen	,	V_6
+col_set_fence	,	F_13
+col_clear	,	F_11
+cinfo	,	V_31
+proto_register_subtree_array	,	F_21
+val_to_str	,	F_14
+nasdaq_soup_type	,	V_7
+array_length	,	F_20
+tvb_find_line_end	,	F_8
+"Session"	,	L_16
+""	,	L_31
+proto_tree_add_item	,	F_3
+call_dissector	,	F_5
+pinfo	,	V_2
+nasdaq_soup_module	,	V_45
+proto_reg_handoff_nasdaq_soup	,	F_24
+_U_	,	V_21
+"Login Reject Code"	,	L_6
+ENC_ASCII	,	V_10
+col_append_str	,	F_12
+dissect_nasdaq_soup	,	F_6
+can_desegment	,	V_27
+hf_register_info	,	T_8
+VALS	,	F_17
+"Message"	,	L_8
+hf_nasdaq_soup_message	,	V_17
+prefs_register_bool_preference	,	F_23
+next_offset	,	V_24
+hf_nasdaq_soup_session	,	V_13
+COL_PROTOCOL	,	V_32
+proto_item	,	T_6
+ENC_NA	,	V_11
+"nasdaq-soup.password"	,	L_15
+guint8	,	T_4
+ti	,	V_22
+BASE_NONE	,	V_43
+tvb_offset_exists	,	F_7
+"Packet Type"	,	L_4
+FT_CHAR	,	V_38
+"nasdaq-soup.text"	,	L_11
+data	,	T_5
+hf_nasdaq_soup_username	,	V_18
+tvbuff_t	,	T_1
+hf_nasdaq_soup_packet_type	,	V_9
+"desegment"	,	L_26
+"NASDAQ-SOUP"	,	L_24
+BASE_HEX	,	V_39
+parent_tree	,	V_3
+message_types_val	,	V_34
+nasdaq_soup_desegment	,	V_26
+desegment_len	,	V_29
+nasdaq_soup_tree	,	V_23
+hf_nasdaq_soup_packet_eol	,	V_20
+proto_item_add_subtree	,	F_15
+module_t	,	T_9
+reject_code_val	,	V_41
+proto_register_field_array	,	F_19
+"Debug Text"	,	L_10
+nasdaq_itch_handle	,	V_16
+offset	,	V_5
+ett	,	V_44
+tree	,	V_4
+"Nasdaq-SoupTCP version 2.0"	,	L_23
+packet_info	,	T_2
+tvb_get_guint8	,	F_2
+"Unknown packet type (0x%02x)"	,	L_3
+tvb_captured_length	,	F_9
+nasdaq_soup_handle	,	V_46
+hf_nasdaq_soup_reject_code	,	V_15
+"Session ID"	,	L_18
+DESEGMENT_ONE_MORE_SEGMENT	,	V_30
+"nasdaq-soup.packet_eol"	,	L_22
+tvb_new_subset_length	,	F_4
+FT_STRING	,	V_42
+"nasdaq-soup.packet_type"	,	L_5
+HFILL	,	V_40
+ett_nasdaq_soup	,	V_36
+"nasdaq-soup.reject_code"	,	L_7
+hf_nasdaq_soup_password	,	V_19
+"Reassemble Nasdaq-SoupTCP messages spanning multiple TCP segments"	,	L_27
+create_dissector_handle	,	F_25
+counter	,	V_25
+"Nasdaq-SOUP"	,	L_1
+"User Name"	,	L_12
+proto_nasdaq_soup	,	V_35
+"nasdaq-soup.username"	,	L_13
+"Whether the Nasdaq-SoupTCP dissector should reassemble messages spanning multiple TCP segments."	,	L_28
+"tcp.port"	,	L_30
+proto_tree	,	T_3
+hf	,	V_37

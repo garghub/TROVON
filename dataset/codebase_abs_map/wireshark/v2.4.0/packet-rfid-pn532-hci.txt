@@ -1,0 +1,135 @@
+"pn532_hci.postamble"	,	L_26
+usb_conv_info_t	,	T_8
+proto_register_protocol	,	F_16
+"Invalid Data Checksum"	,	L_32
+"pn532_hci.expert.invalid_length_checksum"	,	L_29
+"pn532_hci.ignored"	,	L_28
+prefs_register_protocol	,	F_23
+"pn532_hci.packet_code"	,	L_10
+"pn532_hci.specific_application_level_error_code"	,	L_24
+hf_extended_length	,	V_25
+gint	,	T_1
+col_set_str	,	F_3
+tvb_captured_length_remaining	,	F_2
+expert_module	,	V_39
+tvb	,	V_1
+find_dissector_add_dependency	,	F_26
+COL_INFO	,	V_15
+"Ignored"	,	L_27
+module	,	V_38
+"pn532_hci.extended_length"	,	L_14
+"pn532_hci.length_checksum.status"	,	L_18
+"Invalid Length Checksum"	,	L_30
+col_clear	,	F_4
+cinfo	,	V_13
+proto_register_subtree_array	,	F_20
+"pn532"	,	L_38
+"Extended Information Frame"	,	L_3
+array_length	,	F_19
+"Specific Application Level Error Code"	,	L_23
+next_tvb	,	V_8
+hf_specific_application_level_error_code	,	V_24
+PROTO_CHECKSUM_ZERO	,	V_30
+proto_checksum_vals	,	V_48
+proto_tree_add_item	,	F_5
+hf_length	,	V_35
+pinfo	,	V_2
+"Preamble"	,	L_5
+dissect_pn532_hci	,	F_1
+"pn532_hci.expert.invalid_data_checksum"	,	L_31
+proto_tree_add_checksum	,	F_10
+"Extended Length"	,	L_13
+"Version of protocol supported by this dissector."	,	L_37
+hf_register_info	,	T_11
+hf_data_checksum	,	V_32
+hf_length_checksum	,	V_26
+VALS	,	F_15
+dissector_add_for_decode_as	,	F_28
+"PN532 HCI protocol version is based on: \"UM0701-02; PN532 User Manual\""	,	L_36
+proto_register_pn532_hci	,	F_14
+PI_PROTOCOL	,	V_51
+hf_packet_code	,	V_23
+prefs_register_static_text_preference	,	F_24
+guint16	,	T_6
+COL_PROTOCOL	,	V_14
+"Packet Code"	,	L_9
+hf_length_checksum_status	,	V_27
+FT_UINT8	,	V_46
+"pn532_hci.data_checksum"	,	L_20
+BASE_DEC	,	V_47
+proto_item	,	T_5
+expert_register_field_array	,	F_22
+main_tree	,	V_6
+ENC_NA	,	V_17
+guint8	,	T_7
+hf_preamble	,	V_19
+BASE_NONE	,	V_42
+"usb.device"	,	L_40
+register_dissector	,	F_17
+"Normal Information Frame"	,	L_4
+"pn532_hci.preamble"	,	L_6
+data	,	V_4
+"PN532_HCI"	,	L_1
+tvbuff_t	,	T_2
+hf_ignored	,	V_37
+tvb_get_ntohs	,	F_7
+BASE_HEX	,	V_45
+ei_register_info	,	T_12
+"usb.protocol"	,	L_41
+usb_conv_info	,	V_12
+expert_register_protocol	,	F_21
+"Postamble"	,	L_25
+proto_item_add_subtree	,	F_6
+hf_data_checksum_status	,	V_33
+module_t	,	T_9
+"pn532_hci"	,	L_34
+proto_register_field_array	,	F_18
+hf_start_code	,	V_20
+FT_BYTES	,	V_41
+"Data Checksum"	,	L_19
+"Length"	,	L_11
+"Data Checksum Status"	,	L_21
+offset	,	V_7
+ett	,	V_49
+ei	,	V_50
+expert_module_t	,	T_10
+dissector_add_uint	,	F_27
+tree	,	V_3
+"version"	,	L_35
+hf_postable	,	V_36
+FT_UINT16	,	V_44
+packet_info	,	T_3
+pn532_handle	,	V_31
+"pn532_hci.start_code"	,	L_8
+tvb_get_guint8	,	F_9
+"pn532_hci.length_checksum"	,	L_16
+ei_invalid_data_checksum	,	V_34
+"usb.product"	,	L_39
+"Length Checksum Status"	,	L_17
+EXPFILL	,	V_53
+proto_pn532_hci	,	V_16
+packet_code_vals	,	V_22
+call_dissector_with_data	,	F_12
+proto_tree_add_expert	,	F_13
+pn532_hci_handle	,	V_54
+tvb_new_subset_length	,	F_11
+checksum	,	V_11
+PROTO_CHECKSUM_VERIFY	,	V_29
+"pn532_hci.data_checksum.status"	,	L_22
+ei_invalid_length_checksum	,	V_28
+HFILL	,	V_43
+main_item	,	V_5
+"pn532_hci.length"	,	L_12
+"Unknown frame"	,	L_2
+packet_code	,	V_9
+proto_reg_handoff_pn532_hci	,	F_25
+val_to_str_const	,	F_8
+"NXP PN532 HCI"	,	L_33
+length	,	V_10
+ett_pn532_hci	,	V_18
+PI_WARN	,	V_52
+"Length Checksum"	,	L_15
+ENC_BIG_ENDIAN	,	V_21
+proto_tree	,	T_4
+hf	,	V_40
+"Start Code"	,	L_7

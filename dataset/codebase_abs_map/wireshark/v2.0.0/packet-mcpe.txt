@@ -1,0 +1,114 @@
+mcpe_dissect_detail_payload_0x40	,	F_5
+hf_mcpe_general_packet_number	,	V_9
+proto_register_protocol	,	F_18
+single_packet	,	V_4
+"mcpe.packet_payload"	,	L_14
+prefs_register_protocol	,	F_22
+tvb_reported_length	,	F_14
+"Type %#x%s"	,	L_5
+"MCPE Packet ID"	,	L_7
+hf_mcpe_general_packet_payload	,	V_15
+"MCPE single packet (boolean)"	,	L_21
+gint	,	T_3
+col_set_str	,	F_8
+"MCPE Unknown field"	,	L_19
+mcpe_dissect_0xC0	,	F_16
+"MCPE Payload length in *bits*"	,	L_15
+tvb	,	V_1
+raknet_tree	,	V_2
+COL_INFO	,	V_25
+"mcpe.packet_number"	,	L_12
+proto_item_append_text	,	F_12
+proto_reg_handoff_mcpe	,	V_41
+sub_tree	,	V_21
+col_clear	,	F_9
+cinfo	,	V_23
+"MCPE Packet number"	,	L_11
+payload_encoding	,	V_13
+proto_register_subtree_array	,	F_21
+raknet_dissector	,	V_43
+array_length	,	F_20
+""	,	L_4
+proto_tree_add_item	,	F_2
+pinfo	,	V_17
+col_add_fstr	,	F_11
+dissector_handle_t	,	T_11
+_U_	,	V_29
+"mcpe.unknown"	,	L_20
+packet_desc	,	V_19
+"MCPE Packet payload count"	,	L_17
+mcpe_dissect_0xA0	,	F_15
+mcpe_dissect_detail_payload	,	F_6
+hf_register_info	,	T_9
+"mcpe.payload_encoding"	,	L_10
+COL_PROTOCOL	,	V_24
+"mcpe.single_packet"	,	L_22
+proto_mcpe	,	V_26
+FT_UINT8	,	V_31
+BASE_DEC	,	V_35
+mcpe_module	,	V_40
+mcpe_udp_port_requested	,	V_42
+"mcpe.payload_length_bits"	,	L_16
+proto_item	,	T_7
+ENC_NA	,	V_16
+guint8	,	T_6
+"MCPE Payload encoding"	,	L_9
+ti	,	V_22
+BASE_NONE	,	V_37
+hf_mcpe_0xC0_single_packet	,	V_8
+hf_mcpe_general_packet_payload_length	,	V_11
+" (ACK)"	,	L_3
+data	,	T_8
+mcpe_dissect_detail_payload_0x00	,	F_4
+"raknet.packet_id"	,	L_29
+tvbuff_t	,	T_1
+BASE_HEX	,	V_32
+FT_UINT24	,	V_34
+prefs_register_uint_preference	,	F_23
+mcpe_gen_handle	,	V_46
+gboolean	,	T_4
+packet_id	,	V_20
+hf_mcpe_0xC0_unknown	,	V_6
+proto_item_add_subtree	,	F_10
+module_t	,	T_10
+proto_register_field_array	,	F_19
+", Packet id %#x"	,	L_6
+FT_BYTES	,	V_36
+guint	,	T_12
+offset	,	V_3
+ett	,	V_39
+"mcpe"	,	L_24
+dissector_add_uint	,	F_27
+hf_mcpe_payload_encoding	,	V_14
+mcpe_dissect_detail_0xA0	,	F_1
+tree	,	V_18
+"mcpe.type"	,	L_8
+FT_UINT16	,	V_38
+packet_info	,	T_5
+tvb_get_guint8	,	F_3
+last_server_port	,	V_44
+"Minecraft Pocket Edition"	,	L_23
+dissector_delete_uint	,	F_24
+proto_register_mcpe	,	F_17
+"MCPE Server UDP Port"	,	L_26
+hf_mcpe_general_packet_payload_count	,	V_12
+init_done	,	V_45
+item_size	,	V_5
+"Set the UDP port for the MCPE Server"	,	L_27
+"raknet"	,	L_28
+mcpe_info	,	F_7
+HFILL	,	V_33
+hf_mcpe_packet_id	,	V_28
+" (NACK)"	,	L_2
+new_create_dissector_handle	,	F_26
+"udp.port"	,	L_25
+"mcpe.payload_count"	,	L_18
+find_dissector	,	F_25
+ett_mcpe	,	V_27
+mcpe_tree	,	V_10
+ENC_BIG_ENDIAN	,	V_7
+"MCPE"	,	L_1
+mcpe_dissect	,	F_13
+"MCPE Packet Payload"	,	L_13
+proto_tree	,	T_2
+hf	,	V_30

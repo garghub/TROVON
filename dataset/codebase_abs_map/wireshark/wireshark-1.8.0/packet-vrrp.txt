@@ -1,0 +1,157 @@
+"Non-default backup priority"	,	L_7
+"vrrp.reserved_mbz"	,	L_37
+hf_vrrp_virt_rtr_id	,	V_35
+"Auth Type"	,	L_30
+"IPv6 Address"	,	L_44
+proto_register_protocol	,	F_25
+"IP address associated with the virtual router"	,	L_43
+check_col	,	F_5
+hf_vrrp_ver_type	,	V_30
+tvb_reported_length	,	F_15
+FT_IPv6	,	V_63
+len	,	V_47
+gint	,	T_4
+col_set_str	,	F_2
+"Authentication string: `%s'"	,	L_11
+"Time interval (in seconds) between ADVERTISEMENTS"	,	L_35
+"vrrp.type"	,	L_19
+proto_tree_add_uint_format	,	F_10
+"VRRP version"	,	L_17
+FT_IPv4	,	V_61
+tvb	,	V_1
+guint32	,	T_7
+vrrp_tree	,	V_17
+COL_INFO	,	V_14
+proto_register_vrrp	,	F_23
+vec_t	,	T_6
+VRRP_TYPE_MASK	,	V_58
+priority	,	V_19
+hf_vrrp_type	,	V_34
+hf_vrrp_version	,	V_33
+hf_vrrp_reserved_mbz	,	V_40
+"vrrp.auth_type"	,	L_31
+col_clear	,	F_3
+"vrrp.version"	,	L_16
+cinfo	,	V_12
+proto_register_subtree_array	,	F_28
+val_to_str	,	F_12
+"VRRP message version and type"	,	L_12
+"vrrp.ip_addr"	,	L_42
+array_length	,	F_27
+tvb_get_nstringz0	,	F_22
+"Reserved"	,	L_36
+auth_buf	,	V_25
+"vrrp"	,	L_48
+proto_tree_add_item	,	F_8
+in_cksum	,	F_19
+pinfo	,	V_2
+col_add_fstr	,	F_6
+"Priority"	,	L_24
+dissector_handle_t	,	T_12
+cksum	,	V_23
+"The authentication method being utilized"	,	L_32
+"Virtual Rtr ID"	,	L_21
+"Sending VRRP router's priority for the virtual router"	,	L_26
+computed_cksum	,	V_24
+"vrrp.typever"	,	L_13
+"VRRP protocol version"	,	L_15
+hf_vrrp_auth_type	,	V_42
+hf_register_info	,	T_11
+AT_IPv6	,	V_11
+VALS	,	F_24
+"VRRP version and type"	,	L_14
+vrrp_len	,	V_5
+"VRRP"	,	L_1
+auth_type	,	V_21
+guint16	,	T_10
+COL_PROTOCOL	,	V_13
+in_cksum_shouldbe	,	F_21
+"VRRP type"	,	L_20
+tvb_length	,	F_16
+FT_UINT8	,	V_54
+proto_tree_add_text	,	F_20
+BASE_DEC	,	V_55
+"Addr Count"	,	L_27
+"vrrp.virt_rtr_id"	,	L_22
+proto_item	,	T_9
+ver_type_tree	,	V_18
+ENC_NA	,	V_28
+guint8	,	T_5
+hf_vrrp_short_adver_int	,	V_41
+"Checksum: 0x%04x [correct]"	,	L_8
+ti	,	V_15
+BASE_NONE	,	V_62
+"vrrp.ipv6_addr"	,	L_45
+hf_vrrp_adver_int	,	V_43
+"Announcement"	,	L_3
+"%s (v%u)"	,	L_2
+tv	,	V_16
+"IPv6 address associated with the virtual router"	,	L_46
+"Version %u, Packet type %u (%s)"	,	L_4
+vrrp_handle	,	V_65
+data	,	V_46
+hf_vrrp_ip	,	V_51
+tvbuff_t	,	T_1
+hf_vrrp_ip6	,	V_50
+tvb_get_ntohs	,	F_14
+addr_count	,	V_20
+gboolean	,	T_8
+dissect_vrrp	,	F_1
+proto_item_add_subtree	,	F_9
+fragmented	,	V_44
+VRRP_AUTH_TYPE_SIMPLE_TEXT	,	V_52
+proto_vrrp	,	V_27
+proto_register_field_array	,	F_26
+"vrrp.addr_count"	,	L_28
+offset	,	V_4
+ett	,	V_64
+"Virtual Router Redundancy Protocol"	,	L_47
+VRRP_AUTH_DATA_LEN	,	V_26
+vrrp_type_vals	,	V_31
+"The number of addresses contained in this VRRP advertisement"	,	L_29
+dissector_add_uint	,	F_31
+g_htonl	,	F_17
+tree	,	V_3
+lo_nibble	,	F_11
+ett_vrrp_ver_type	,	V_32
+tvb_get_ptr	,	F_18
+FT_UINT16	,	V_60
+packet_info	,	T_2
+hi_nibble	,	F_7
+"ip.proto"	,	L_49
+phdr	,	V_8
+tvb_get_guint8	,	F_4
+vrrp_auth_vals	,	V_59
+"Must be zero"	,	L_38
+"vrrp.prio"	,	L_25
+"Adver Int"	,	L_33
+"vrrp.short_adver_int"	,	L_39
+"Time interval (in centiseconds) between ADVERTISEMENTS"	,	L_40
+hf_vrrp_prio	,	V_37
+proto_tree_add_uint	,	F_13
+"Checksum: 0x%04x"	,	L_10
+"IP Address"	,	L_41
+dst	,	V_48
+"Priority: %u (%s)"	,	L_6
+is_ipv6	,	V_9
+ver_type	,	V_6
+"Checksum: 0x%04x [incorrect, should be 0x%04x]"	,	L_9
+ett_vrrp	,	V_29
+vrrp_prio_vals	,	V_38
+HFILL	,	V_56
+hf_vrrp_addr_count	,	V_39
+proto_reg_handoff_vrrp	,	F_29
+src	,	V_10
+create_dissector_handle	,	F_30
+cksum_vec	,	V_7
+ptr	,	V_45
+ENC_BIG_ENDIAN	,	V_36
+VRRP_AUTH_TYPE_NONE	,	V_22
+"VRRP packet type"	,	L_18
+"vrrp.adver_int"	,	L_34
+"Virtual router this packet is reporting status for"	,	L_23
+"Unknown"	,	L_5
+VRRP_VERSION_MASK	,	V_57
+proto_tree	,	T_3
+IP_PROTO_VRRP	,	V_49
+hf	,	V_53

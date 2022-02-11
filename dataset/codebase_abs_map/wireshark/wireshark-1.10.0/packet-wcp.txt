@@ -1,0 +1,248 @@
+INIT_ACK	,	V_47
+proto_wcp	,	V_39
+proto_register_protocol	,	F_39
+src_buf	,	V_80
+tvb_reported_length	,	F_9
+check_col	,	F_15
+tvb_new_subset_remaining	,	F_21
+"Long Compression"	,	L_68
+len	,	V_20
+gint	,	V_25
+tvb_new_child_real_data	,	F_35
+"fr.ietf"	,	L_77
+tvb	,	V_1
+hf_wcp_long_len	,	V_89
+COL_INFO	,	V_36
+circuit_add_proto_data	,	F_29
+"wcp.short_len"	,	L_65
+sub_tree	,	V_75
+"Packet Checksum"	,	L_19
+"Wellfleet Compression"	,	L_74
+"wcp.checksum"	,	L_18
+wcp_handle	,	V_108
+cinfo	,	V_34
+p_get_proto_data	,	F_32
+hf_wcp_alg	,	V_14
+ext_cmd	,	V_31
+PI_ERROR	,	V_85
+array_length	,	F_41
+next_tvb	,	V_33
+"Compressed byte flag"	,	L_60
+call_dissector	,	F_23
+hf_wcp_compressed_data	,	V_82
+WCP_EXT_CMD	,	V_99
+"Algorithm #3"	,	L_40
+"ethertype"	,	L_78
+"Algorithm #2"	,	L_37
+"Alg 2"	,	L_35
+hf_register_info	,	T_13
+circuit_new	,	F_26
+circuit_id	,	V_66
+hf_wcp_pib	,	V_17
+CONNECT_ACK	,	V_45
+seq	,	V_32
+wcp_header_len	,	V_28
+", %s"	,	L_3
+guint16	,	T_9
+COL_PROTOCOL	,	V_35
+hf_wcp_short_run	,	V_91
+i	,	V_77
+ETHERTYPE_WCP	,	V_110
+wcp_uncompress	,	F_22
+guint8	,	T_7
+circuit_t	,	T_10
+"Algorithm #1"	,	L_34
+ti	,	V_27
+BASE_NONE	,	V_104
+INIT_REQ	,	V_46
+"Alg 1"	,	L_32
+WCP_CMD	,	V_97
+"Compressed Data"	,	L_55
+"Algorithm"	,	L_46
+tvbuff_t	,	T_1
+tvb_get_ntohs	,	F_4
+tvb_memcpy	,	F_11
+"Can't find uncompressed data"	,	L_6
+BASE_HEX	,	V_96
+col_add_str	,	F_16
+ext_cmd_string	,	V_38
+proto_item_add_subtree	,	F_20
+"wcp.off"	,	L_62
+buf_end	,	V_24
+wcp_tree	,	V_26
+proto_register_field_array	,	F_40
+"wcp.compressed_data"	,	L_56
+FT_BYTES	,	V_106
+CONNECT_REQ	,	V_44
+"Raw compressed data"	,	L_57
+"Algorithm Count"	,	L_31
+dissector_add_uint	,	F_46
+pntohs	,	F_31
+hf_wcp_cmd	,	V_42
+hf_wcp_long_run	,	V_86
+"Sequence Number"	,	L_16
+"Algorithm #4"	,	L_43
+FT_UINT16	,	V_100
+buf_ptr	,	V_19
+tvb_get_guint8	,	F_2
+p_add_proto_data	,	F_34
+"TID"	,	L_20
+"Initiator"	,	L_24
+circuit_get_proto_data	,	F_27
+"Alg"	,	L_44
+"wcp"	,	L_75
+"Uncompressed data exceeds maximum buffer length (%d &gt; %d)"	,	L_5
+x25	,	V_71
+get_wcp_window_ptr	,	F_10
+fd	,	V_51
+"History Size"	,	L_49
+WCP_OFFSET_MASK	,	V_105
+MAX_WCP_BUF_LEN	,	V_62
+"wcp.ext_cmd"	,	L_12
+"WCP"	,	L_1
+MAX_WIN_BUF_LEN	,	V_23
+fr_uncompressed_handle	,	V_55
+hf_wcp_seq_size	,	V_8
+src_tvb	,	V_73
+hf_wcp_comp_bits	,	V_93
+hf_wcp_ext_cmd	,	V_43
+"wcp.hist"	,	L_48
+ett_wcp	,	V_41
+"SEQ"	,	L_14
+val_to_str_const	,	F_17
+find_dissector	,	F_44
+ENC_BIG_ENDIAN	,	V_90
+"Revision"	,	L_22
+"Long Compression type"	,	L_70
+visited	,	V_53
+comp_flag_bits	,	V_79
+hf	,	V_94
+"PIB"	,	L_53
+"Short Compression"	,	L_71
+"Compression Command"	,	L_10
+hf_wcp_chksum	,	V_54
+wcp_save_data	,	F_8
+ett_wcp_comp_data	,	V_83
+"wcp.seq_size"	,	L_27
+"wcp.alg"	,	L_45
+dissect_wcp_init	,	F_6
+col_append_fstr	,	F_18
+tmp	,	V_61
+col_set_str	,	F_13
+FROM_DCE	,	V_72
+alg_cnt	,	V_4
+dissect_wcp	,	F_12
+NLPID_COMPRESSED	,	V_109
+"Per Packet Compression"	,	L_52
+cd_item	,	V_76
+"wcp.rev"	,	L_23
+"wcp.alg_cnt"	,	L_30
+hf_wcp_rev	,	V_6
+col_clear	,	F_14
+"Short Compression type"	,	L_73
+"Uncompressed WCP"	,	L_7
+"Alg Count"	,	L_29
+"fr_uncompressed"	,	L_76
+proto_register_subtree_array	,	F_42
+cmd	,	V_30
+"Compress Flag"	,	L_58
+"Compressed length"	,	L_66
+"Checksum"	,	L_17
+"wcp.init"	,	L_25
+proto_tree_add_item	,	F_19
+circuit	,	V_63
+hf_wcp_tid	,	V_5
+pinfo	,	V_18
+dissector_handle_t	,	T_14
+flags	,	V_52
+hf_wcp_offset	,	V_88
+dissect_wcp_reset	,	F_7
+wcp_pdata_t	,	T_12
+proto_register_wcp	,	F_37
+VALS	,	F_38
+dissect_wcp_con_req	,	F_1
+FT_UINT8	,	V_95
+cnt	,	V_78
+BASE_DEC	,	V_102
+hf_wcp_alg_d	,	V_13
+hf_wcp_alg_c	,	V_12
+hf_wcp_alg_b	,	V_11
+proto_item	,	T_8
+"wcp.ppc"	,	L_51
+hf_wcp_alg_a	,	V_10
+hf_wcp_ppc	,	V_16
+ENC_NA	,	V_40
+cmd_string	,	V_37
+hf_wcp_seq	,	V_50
+expert_add_info_format	,	F_30
+"wcp.cmd"	,	L_9
+find_circuit	,	F_25
+dissect_wcp_con_ack	,	F_5
+"Command"	,	L_8
+"Extended Compression Command"	,	L_13
+num	,	V_67
+"Source offset"	,	L_61
+size_t	,	T_6
+"wcp.long_len"	,	L_67
+"Sequence Size"	,	L_28
+"Alg 4"	,	L_41
+RESET_ACK	,	V_49
+buffer	,	V_22
+"wcp.long_comp"	,	L_69
+ett_wcp_field	,	V_87
+RESET_REQ	,	V_48
+cd_tree	,	V_74
+WCP_SEQ	,	V_101
+guint	,	T_3
+FT_NONE	,	V_103
+offset	,	V_2
+ett	,	V_107
+"wcp.flag"	,	L_59
+tree	,	V_3
+wcp_circuit_data_t	,	T_11
+"Compress Length"	,	L_64
+packet_info	,	T_4
+wcp_window_t	,	T_5
+decompressed_entry	,	F_24
+add_new_data_source	,	F_36
+ctype	,	V_65
+"Alg 3"	,	L_38
+"wcp.tid"	,	L_21
+"wcp.short_comp"	,	L_72
+"wcp.alg4"	,	L_42
+hf_wcp_alg_cnt	,	V_9
+hf_wcp_init	,	V_7
+"Compressed data exceeds maximum buffer length (%d &gt; %d)"	,	L_4
+send	,	V_69
+proto_tree_add_uint	,	F_3
+REPORT_DISSECTOR_BUG	,	F_33
+pseudo_header	,	V_70
+"wcp.pib"	,	L_54
+dst	,	V_57
+"wcp.alg2"	,	L_36
+se_new	,	F_28
+pdata_ptr	,	V_81
+recv	,	V_68
+"Extended Command"	,	L_11
+wcp_circuit_data	,	V_64
+"Seq Size"	,	L_26
+"wcp.alg3"	,	L_39
+PI_MALFORMED	,	V_84
+HFILL	,	V_98
+temp	,	V_29
+proto_reg_handoff_wcp	,	F_43
+src	,	V_56
+"wcp.alg1"	,	L_33
+buf_cur	,	V_21
+"wcp.seq"	,	L_15
+buf_start	,	V_58
+create_dissector_handle	,	F_45
+data_offset	,	V_59
+"PerPackComp"	,	L_50
+"Data source offset"	,	L_63
+data_cnt	,	V_60
+"Unknown"	,	L_2
+hf_wcp_hist_size	,	V_15
+hf_wcp_short_len	,	V_92
+"History"	,	L_47
+proto_tree	,	T_2

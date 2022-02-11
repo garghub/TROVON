@@ -1,0 +1,205 @@
+col_append_sep_str	,	F_7
+MQTT_SSL_DEFAULT_PORT	,	V_103
+proto_register_protocol	,	F_23
+"Version"	,	L_39
+hf_mqtt_will_topic	,	V_51
+tcp_dissect_pdus	,	F_19
+gint	,	T_10
+hf_mqtt_pubmsg	,	V_63
+TFS	,	F_21
+tvb	,	V_2
+"Will Flag"	,	L_50
+COL_INFO	,	V_12
+val_to_str_ext	,	F_8
+FT_BOOLEAN	,	V_85
+dissect_mqtt_data	,	F_17
+tvb_reported_length_remaining	,	F_15
+cinfo	,	V_10
+MQTT_MASK_MSG_TYPE	,	V_84
+tfs_set_notset	,	V_86
+array_length	,	F_26
+"Connect Flags"	,	L_41
+ti_mqtt	,	V_15
+hf_mqtt_conflag_will_retain	,	V_43
+hf_mqtt_keep_alive	,	V_48
+msg_len	,	V_4
+MQTT_DISCONNECT	,	V_75
+hf_mqtt_qos_level	,	V_32
+hf_register_info	,	T_12
+GET_MQTT_PDU_LEN	,	F_3
+"Connection Ack"	,	L_17
+"Message"	,	L_33
+"mqtt.willmsg"	,	L_28
+"Unknown (0x%02x)"	,	L_3
+MQTT_CONMASK_RETAIN	,	V_96
+guint16	,	T_11
+COL_PROTOCOL	,	V_11
+"Keep Alive"	,	L_56
+MQTT_CONMASK_RESERVED	,	V_99
+"mqtt.conflag.willflag"	,	L_51
+hf_mqtt_msgid	,	V_62
+"mqtt.protoname"	,	L_36
+mqtt_flag_tree	,	V_18
+guint8	,	T_8
+mqtt_msgtype_vals_ext	,	V_13
+hf_mqtt_passwd	,	V_56
+ti	,	V_14
+BASE_NONE	,	V_95
+MQTT_PUBLISH	,	V_59
+"Granted Qos"	,	L_21
+register_dissector	,	F_24
+tvbuff_t	,	T_4
+mqtt_len_offset	,	V_22
+"Will Message"	,	L_27
+hf_mqtt_msg_type	,	V_29
+tvb_get_ntohs	,	F_14
+BASE_HEX	,	V_82
+hf_mqtt_conflag_user	,	V_41
+MQTT_CONMASK_QOS	,	V_97
+len_offset	,	V_5
+proto_item_add_subtree	,	F_10
+hf_mqtt_conflag_will_qos	,	V_44
+MQTT_MASK_DUP_FLAG	,	V_87
+MQTT_MASK_QOS	,	V_61
+mqtt_conack_vals	,	V_91
+"Client ID"	,	L_37
+proto_register_field_array	,	F_25
+hf_mqtt_conflag_passwd	,	V_42
+hf_mqtt_client_id	,	V_49
+"mqtt"	,	L_59
+"Msg Len"	,	L_5
+"mqtt.username"	,	L_30
+dissector_add_uint	,	F_29
+MQTT_PINGRESP	,	V_74
+hf_mqtt_proto_ver	,	V_38
+mqtt_str_len	,	V_21
+FT_UINT16	,	V_90
+mqtt_msg_len	,	V_20
+tvb_get_guint8	,	F_5
+tvb_captured_length	,	F_16
+mqtt_con_flags	,	V_19
+MQTT_HDR_SIZE_BEFORE_LEN	,	V_6
+"User Name Flag"	,	L_43
+hf_mqtt	,	V_77
+"Will Topic"	,	L_25
+MQTT_CONNACK	,	V_57
+get_mqtt_pdu_len	,	F_1
+hf_mqtt_will_msg	,	V_52
+ett_mqtt_hdr	,	V_25
+"Header Flags"	,	L_7
+"Message Type"	,	L_9
+FT_STRING	,	V_94
+MQTT_CONMASK_CLEANSESS	,	V_98
+"mqtt.kalive"	,	L_57
+reassemble_mqtt_over_tcp	,	V_76
+ssl_dissector_add	,	F_30
+mqtt_tree	,	V_16
+MQTT_PUBREL	,	V_70
+mqtt_handle	,	V_101
+proto_tree_add_uint_format_value	,	F_12
+ENC_BIG_ENDIAN	,	V_30
+MQTT_PUBREC	,	V_69
+"mqtt.conack.val"	,	L_18
+"mqtt.conflag.uname"	,	L_44
+mqtt_msg_type	,	V_9
+"User Name"	,	L_29
+ett_mqtt	,	V_100
+MQTT_MASK_RETAIN	,	V_89
+MQTT_PUBACK	,	V_68
+guint64	,	T_6
+"MQTT"	,	L_1
+proto_register_mqtt	,	F_20
+"DUP Flag"	,	L_11
+MQTT_UNSUBSCRIBE	,	V_66
+"Message Identifier"	,	L_19
+"Password"	,	L_31
+proto_reg_handoff_mqtt	,	F_28
+MQTT_MASK_CONACK	,	V_92
+"MQ Telemetry Transport Protocol"	,	L_58
+"mqtt.conflag.cleansess"	,	L_53
+proto_tree_add_subtree	,	F_11
+BASE_EXT_STRING	,	V_83
+FT_UINT64	,	V_78
+col_set_str	,	F_6
+"mqtt.passwd"	,	L_32
+"mqtt.len"	,	L_6
+"mqtt.qos"	,	L_14
+dissect_uleb128	,	F_2
+"mqtt.msg"	,	L_34
+ett_mqtt_msg	,	V_26
+"mqtt.clientid"	,	L_38
+"(Reserved)"	,	L_54
+hf_mqtt_conflag_reserved	,	V_47
+col_clear	,	F_18
+proto_register_subtree_array	,	F_27
+"mqtt.retain"	,	L_16
+"mqtt.conflags"	,	L_42
+hf_mqtt_conack	,	V_58
+proto_tree_add_item	,	F_9
+pinfo	,	T_3
+MQTT_SUBSCRIBE	,	V_64
+_U_	,	V_1
+hf_mqtt_conflag_clean_sess	,	V_46
+"Clean Session Flag"	,	L_52
+mqtt_msg_tree	,	V_17
+VALS	,	F_22
+hf_mqtt_topic	,	V_60
+"Password Flag"	,	L_45
+MQTT_UNSUBACK	,	V_72
+MQTT_CONMASK_PASSWD	,	V_55
+FT_UINT8	,	V_81
+mqtt_fixed_hdr	,	V_8
+MQTT_PINGREQ	,	V_73
+"mqtt.msgtype"	,	L_10
+BASE_DEC	,	V_79
+proto_item	,	T_9
+hf_mqtt_msg_len	,	V_34
+ENC_NA	,	V_24
+hf_mqtt_retain	,	V_33
+proto_mqtt	,	V_23
+"mqtt.topic"	,	L_24
+"mqtt.conflag.passwd"	,	L_46
+"mqtt.hdrflags"	,	L_8
+mqtt_qos_vals	,	V_88
+data	,	T_5
+"0x%02x (%s)"	,	L_4
+"Protocol Name"	,	L_35
+MQTT_CONMASK_USER	,	V_53
+"QOS Level"	,	L_13
+"mqtt.conflag.reserved"	,	L_55
+hf_mqtt_conflag_will_flag	,	V_45
+hf_mqtt_conflags	,	V_39
+ett_mqtt_hdr_flags	,	V_28
+"mqtt.conflag.retain"	,	L_48
+MQTT_MASK_SUBQOS	,	V_93
+guint	,	T_1
+offset	,	V_3
+tree	,	V_7
+"Retain"	,	L_15
+ett_mqtt_con_flags	,	V_40
+"Will Retain"	,	L_47
+"mqtt.conflag.qos"	,	L_49
+"Topic"	,	L_23
+packet_info	,	T_2
+"mqtt.suback.id"	,	L_22
+hf_mqtt_hdrflags	,	V_27
+hf_mqtt_proto_name	,	V_36
+hf_mqtt_username	,	V_54
+"mqtt.msgid"	,	L_20
+"mqtt.dupflag"	,	L_12
+MQTT_CONNECT	,	V_35
+"mqtt.ver"	,	L_40
+proto_tree_add_uint64	,	F_13
+hf_mqtt_dup_flag	,	V_31
+hf_mqtt_subqos	,	V_65
+MQTT_DEFAULT_PORT	,	V_102
+", "	,	L_2
+HFILL	,	V_80
+"mqtt.willtopic"	,	L_26
+MQTT_CONMASK_WILLFLAG	,	V_50
+MQTT_SUBACK	,	V_67
+MQTT_PUBCOMP	,	V_71
+ENC_UTF_8	,	V_37
+"tcp.port"	,	L_60
+proto_tree	,	T_7
+dissect_mqtt	,	F_4

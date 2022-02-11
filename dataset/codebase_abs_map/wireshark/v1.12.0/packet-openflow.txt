@@ -1,0 +1,99 @@
+proto_register_openflow	,	F_17
+OFP_VERSION_1_0	,	V_9
+proto_register_protocol	,	F_19
+OFP_VERSION_1_3	,	V_11
+OFP_VERSION_1_4	,	V_13
+prefs_register_protocol	,	F_23
+tvb_reported_length	,	F_10
+"Whether the OpenFlow dissector should reassemble messages spanning multiple TCP segments."	,	L_16
+"Version"	,	L_3
+tcp_dissect_pdus	,	F_12
+col_set_str	,	F_5
+"ports in addition to the one supplied by "	,	L_12
+tvb	,	V_2
+OFP_LEGACY2_PORT	,	V_23
+guint32	,	V_25
+COL_INFO	,	V_8
+version	,	V_5
+col_clear	,	F_6
+cinfo	,	V_6
+dissect_openflow_tcp_pdu	,	F_3
+array_length	,	F_22
+"openflow_v1"	,	L_19
+"openflow.version"	,	L_4
+proto_tree_add_item	,	F_8
+call_dissector	,	F_7
+pinfo	,	T_3
+_U_	,	V_1
+new_register_dissector	,	F_20
+currentPort	,	V_37
+openflow_desegment	,	V_17
+"OpenFlow TCP port"	,	L_7
+hf_register_info	,	T_10
+initialized	,	V_36
+VALS	,	F_18
+get_openflow_pdu_length	,	F_1
+prefs_register_bool_preference	,	F_25
+"Try to decode OpenFlow on other common ports"	,	L_10
+proto_reg_handoff_openflow	,	V_35
+openflow_v4_handle	,	V_12
+COL_PROTOCOL	,	V_7
+FT_UINT8	,	V_29
+proto_tree_add_text	,	F_9
+OFP_HEADER_LEN	,	V_18
+g_openflow_port	,	V_26
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_17
+guint8	,	T_7
+"OpenFlow"	,	L_1
+openflow_module	,	V_33
+"openflow"	,	L_5
+data	,	T_6
+"user above (6653 is the IANA assigned port)."	,	L_13
+"openflow_v5"	,	L_21
+tvbuff_t	,	T_4
+tvb_get_ntohs	,	F_2
+"desegment"	,	L_14
+conversation_set_dissector	,	F_16
+BASE_HEX	,	V_30
+prefs_register_uint_preference	,	F_24
+gboolean	,	T_8
+"Try to decode OpenFlow on several common "	,	L_11
+"tcp"	,	L_18
+module_t	,	T_11
+proto_register_field_array	,	F_21
+conversation	,	V_19
+conversation_t	,	T_9
+guint	,	T_1
+offset	,	V_3
+dissector_add_uint	,	F_29
+"heuristic"	,	L_9
+tree	,	V_4
+packet_info	,	T_2
+tvb_get_guint8	,	F_4
+tvb_captured_length	,	F_13
+dissect_openflow	,	F_11
+destport	,	V_21
+dissector_delete_uint	,	F_28
+OFP_LEGACY_PORT	,	V_22
+"Reassemble OpenFlow messages spanning multiple TCP segments"	,	L_15
+openflow_version_values	,	V_31
+heur_dissector_add	,	F_27
+OFP_IANA_PORT	,	V_24
+proto_openflow	,	V_34
+openflow_handle	,	V_27
+"Unsuported version not dissected"	,	L_2
+openflow_v1_handle	,	V_10
+HFILL	,	V_32
+openflow_v5_handle	,	V_14
+new_create_dissector_handle	,	F_26
+"openflow_v4"	,	L_20
+find_dissector	,	F_30
+hf_openflow_version	,	V_15
+openflow_heur_enabled	,	V_20
+dissect_openflow_heur	,	F_14
+ENC_BIG_ENDIAN	,	V_16
+" OpenFlow TCP port (6653 is the IANA assigned port)"	,	L_8
+find_or_create_conversation	,	F_15
+"tcp.port"	,	L_6
+proto_tree	,	T_5
+hf	,	V_28

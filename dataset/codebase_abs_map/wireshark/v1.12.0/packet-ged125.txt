@@ -1,0 +1,565 @@
+hf_ged125_service_control_value	,	V_57
+"ged125.dtmf_menu_keys"	,	L_197
+"ged125.length.bad"	,	L_254
+"Operational Status"	,	L_28
+GED125_SET_CALL_VARIABLES_EVENT_VALUE	,	V_180
+"Error Code"	,	L_144
+tvb_reported_length	,	F_20
+"ged125.dtmf_termination_key"	,	L_169
+hf_ged125_CallsHandledToday	,	V_160
+"A code that identifies the event detected by the VRU"	,	L_143
+"ged125.use_polled_feed"	,	L_51
+"Service_Control-&gt;%s DIALOGUE_ID=%u LEN=%u"	,	L_5
+"Current availability of the service"	,	L_97
+"Primary Call ID"	,	L_204
+hf_ged125_simulator_reset_event	,	V_195
+GED125_INIT_SERVICE_CTRL_VRU_VALUE	,	V_85
+"Start Of Day"	,	L_119
+dissect_ged125_base_messages	,	F_19
+TFS	,	F_29
+"The ID of the secondary (outbound) call being conferenced"	,	L_209
+hf_ged125_Barge_In_Allowed	,	V_104
+guint32	,	T_5
+ett_ged125_floating	,	V_32
+global_tcp_port_ged125	,	V_235
+FT_BOOLEAN	,	V_206
+"ged125"	,	L_265
+"ged125.min_length"	,	L_188
+hf_ged125_Cause_just_for_release_message	,	V_95
+size	,	V_14
+hf_ged125_Data_Playback_Type	,	V_27
+proto_register_ged125	,	F_27
+hf_ged125_floating_cause_code	,	V_42
+array_length	,	F_32
+GED125_MICROAPP_PLAY_CONTINUE_VALUE	,	V_105
+GED125_CANCEL_VALUE	,	V_92
+Data_Playback_Type	,	V_223
+"SendSeqNo"	,	L_18
+"ged125.media_protocol"	,	L_230
+"Only relevant if Data Playback Type is one of the time formats. "	,	L_239
+ENC_ASCII	,	V_26
+hf_ged125_Data_Playback_Formats	,	V_28
+GED125_HEARTBEAT_REQ_VALUE	,	V_144
+"Number of seconds that the VRU clock lags the ICM clock"	,	L_222
+"Set up the TCP port for GED125 (default is 5000)"	,	L_268
+hf_register_info	,	T_13
+"ged125.calls_in_today"	,	L_69
+hf_ged125_CallsOutNow	,	V_84
+"The ID of the primary (inbound) call being conferenced"	,	L_206
+hf_ged125_TrunkGroupID	,	V_67
+"DTMF Menu Keys"	,	L_196
+"All Trunks In Use Time Today"	,	L_84
+"Type of media"	,	L_231
+"ged125.trunk_count.invalid"	,	L_262
+guint16	,	T_7
+"ged125.operational_status.conditions_prevent_call"	,	L_250
+"ged125.floating_unspec"	,	L_227
+"Status: Indicates cause of failure"	,	L_38
+"Trunk Status"	,	L_90
+"ged125.diverted_in_today"	,	L_111
+"The current local time zone delta, expressed in seconds."	,	L_26
+"Max Length of Digits"	,	L_190
+"Reassemble GED125 bodies spanning multiple TCP segments"	,	L_270
+"caller enters invalid data"	,	L_186
+"Indicates if the VRU supports the Event Data Feed"	,	L_49
+hf_ged125_Number_of_No_Entry_Tries	,	V_110
+BASE_NONE	,	V_219
+"The cumulative amount of time (secs) spent handling calls on the service this day"	,	L_109
+"ged125.call_vars_mask"	,	L_224
+hf_ged125_CallVarsMask	,	V_197
+GED125_DIVERTED_EVENT_VALUE	,	V_176
+GED125_OPEN_CONF_VALUE	,	V_138
+"ged125.all_trunks_in_use_time_today"	,	L_85
+"ged125.call_out_now"	,	L_102
+hf_ged125_Microapp_Error_Code	,	V_118
+"ged125.handle_time_today"	,	L_108
+"ged125.new_service_id"	,	L_211
+"Data Playback Format"	,	L_237
+"Number of times VRU should repeat the 'Get data' cycle when the caller "	,	L_181
+BASE_HEX	,	V_209
+"ged125.uchar_array_index"	,	L_242
+hf_ged125_DTMF_Termination_Key	,	V_107
+"ged125.service_control_value.unknown"	,	L_258
+status_code_Label_values	,	V_213
+"Array index of an ECC field"	,	L_243
+proto_ged125	,	V_127
+proto_item_add_subtree	,	F_12
+module_t	,	T_12
+"ged125.use_service_control"	,	L_60
+GED125_RUN_SCRIPT_RESULT_VALUE	,	V_70
+proto_register_field_array	,	F_31
+FT_BYTES	,	V_218
+hf_ged125_LabelType	,	V_73
+"ged125.floating_payload"	,	L_133
+"The number of outbound calls currently in progress on the service"	,	L_103
+service_control_dissect	,	F_16
+ei	,	V_226
+dissector_add_uint	,	F_42
+hf_ged125_CallsInNow	,	V_83
+"Errors running script"	,	L_136
+count	,	V_17
+"ged125.sendseqno_and_dialogueid"	,	L_256
+FT_UINT16	,	V_207
+hf_ged125_DialogueID_num	,	V_51
+GED125_REGISTER_VARIABLES_VALUE	,	V_196
+"GED125 TCP Port"	,	L_267
+"A flag indicating that the affected trunks have been placed into "	,	L_152
+"ged125.operational_status.invalid_message"	,	L_252
+hf_ged125_floating_media_protocol	,	V_22
+"Float Message"	,	L_1
+"ged125.error_code"	,	L_145
+float_tree	,	V_31
+expert_add_info	,	F_4
+"ged125.conference_call_id"	,	L_202
+"Indicates which keypad keys represent valid menu choices"	,	L_198
+"An ID assigned by the VRU to this trunk group, in the range 0 to 65535"	,	L_64
+proto_reg_handoff_ged125	,	F_40
+hf_ged125_NewCallID	,	V_179
+FT_STRING	,	V_210
+ett_ged125_service_control_data	,	V_58
+hf_ged125_NewServiceID	,	V_177
+"ged125.request_id"	,	L_157
+"The current UTC time (VRU clock)"	,	L_23
+"No Entry Timeout"	,	L_172
+hf_ged125_DTMF_Menu_Keys	,	V_116
+GED125_VRU_STATUS_EVENT_VALUE	,	V_181
+"have been in use on incoming calls this day"	,	L_80
+"ged125.call_in_now"	,	L_99
+length	,	V_20
+GED125_CLOSE_REQ_VALUE	,	V_149
+"Data Playback Type"	,	L_235
+"ged125.use_call_routing"	,	L_54
+PI_WARN	,	V_230
+"ged125.primary_call_id"	,	L_205
+GED125_ORIGINATED_EVENT_VALUE	,	V_169
+hf_ged125_UsePolledFeed	,	V_140
+hf_ged125_ErrorCode	,	V_77
+GED125_INIT_VRU_DATA_EVENT_VALUE	,	V_164
+FT_UINT32	,	V_201
+hf_ged125_floating_payload_strg	,	V_24
+ged125_handle	,	V_234
+"ged125.time_zone_delta"	,	L_25
+hf	,	V_200
+hf_ged125_VersionNumber	,	V_136
+hf_ged125_ConferenceCallID	,	V_173
+hf_ged125_OperationalStatus	,	V_7
+GED125_SERVICE_CONTROL_VALUE	,	V_193
+"Service ID"	,	L_92
+hf_ged125_Number_of_Invalid_Entry_Tries	,	V_111
+"ECC VAR Tag"	,	L_134
+hf_ged125_floating_uchar_array_index	,	V_39
+GED125_OPEN_REQ_VALUE	,	V_135
+GED125_INIT_DATA_CONF_VALUE	,	V_148
+ett_ged125_header	,	V_129
+prefs_register_protocol	,	F_37
+"ged125.library_designator"	,	L_233
+"Handle Time Today"	,	L_107
+hf_ged125_TimeZoneDelta	,	V_87
+col_set_str	,	F_21
+"Time Zone Delta"	,	L_24
+GED125_TRKGRP_STATUS_EVENT_VALUE	,	V_182
+hf_ged125_CallsInToday	,	V_153
+"ged125.microapp_error_code"	,	L_200
+"ged125.operational_status"	,	L_29
+"Determines how many seconds a caller is allowed to start entering data"	,	L_174
+hf_ged125_InServiceTimeToday	,	V_155
+val_to_str	,	F_14
+"Message value"	,	L_12
+old_ged125_tcp_port	,	V_236
+"ged125.ecc_var_tag"	,	L_135
+"ged125.max_length"	,	L_191
+"ged125.service_features"	,	L_130
+floating_fields	,	F_10
+DialogueID	,	V_48
+data_tree	,	V_46
+hf_ged125_ServiceID	,	V_68
+"(typically # key). The value is a bit map"	,	L_171
+"ged125.value"	,	L_13
+"Number of Invalid Entry Tries"	,	L_183
+"ged125.barge_in_allowed"	,	L_163
+hf_ged125_floating_payload_ECC_tag	,	V_38
+VALS	,	F_28
+"The UTC time at which the initial snapshot was taken"	,	L_118
+GED125_SIMULATOR_RESET_EVENT_VALUE	,	V_194
+prefs_register_bool_preference	,	F_39
+"The InvokeID of the previously issued request to be cancelled"	,	L_158
+"Interdigit Timeout"	,	L_175
+hf_ged125_AllTrunksInUseTimeToday	,	V_158
+hf_ged125_InService	,	V_183
+tvb_length	,	F_22
+"ged125.floating_field"	,	L_127
+proto_tree_add_text	,	F_11
+GED125_MICROAPP_PLAY_VALUE	,	V_102
+BASE_DEC	,	V_202
+"Call ID"	,	L_123
+"ged125.diverted_out_today"	,	L_114
+GED125_VRU_STATUS_VALUE	,	V_91
+try_val_to_str	,	F_25
+ENC_NA	,	V_25
+hf_ged125_DivertedOutToday	,	V_163
+"Termination Call Details"	,	L_167
+GED125_SERVICE_STATUS_VALUE	,	V_89
+ged125_module	,	V_199
+hf_ged125_ServiceAvailable	,	V_90
+"ged125.send_seq_no"	,	L_19
+GED125_INIT_SERVICE_CTRL_TRKGRP_VALUE	,	V_79
+"Call In Now"	,	L_98
+"In Use Outbound Time Today"	,	L_81
+"An ID assigned to the resultant conference call by the VRU"	,	L_203
+error_codes	,	V_205
+hf_ged125_InvokeID	,	V_62
+"Interface number requested by the Peripheral Gateway,"	,	L_41
+"Degraded call processing"	,	L_249
+"ged125.use_event_feed"	,	L_48
+"%s"	,	L_2
+"ged125.len"	,	L_11
+ei_ged125_TrunkCount_invalid	,	V_152
+GED125_NEW_CALL_VALUE	,	V_65
+"Same as the corresponding req. mess"	,	L_35
+"Indicates if the VRU supports the Call Routing Interface"	,	L_55
+expert_ged125	,	V_233
+prefs_register_uint_preference	,	F_38
+"Send sequence for the sent message"	,	L_20
+expert_register_protocol	,	F_34
+hf_ged125_No_Entry_Timeout	,	V_108
+"ged125.cause_code"	,	L_46
+"The cumulative number of calls diverted from another service to this service this day"	,	L_112
+"ged125.simulator_reset_event"	,	L_216
+"Indicates whether Automatic Speech Recognition should be enabled for this request"	,	L_195
+"ged125.available_now"	,	L_96
+"ged125.invoke_id"	,	L_34
+"Library Designator"	,	L_232
+guint	,	T_10
+ett	,	V_225
+"Microapp Error Code"	,	L_199
+"service (True) or removed from service (False)"	,	L_153
+Data_Playback_Formats	,	V_224
+get_ged125_pdu_len	,	F_18
+packet_info	,	T_2
+"It should contain PLAYBACK_FORMAT_OTHER in all other cases"	,	L_240
+"Label Type"	,	L_138
+StatusVariable_funk	,	F_5
+"Idle Timeout (ms)"	,	L_43
+"ged125.trunk_number"	,	L_89
+"Unknown Service-Control Message Sub-type, aborting dissection"	,	L_259
+"Unknown %d"	,	L_3
+GED125_MICROAPP_CONTEXT_VALUE	,	V_99
+GED125_ROUTE_REQUEST_EVENT_VALUE	,	V_185
+"Calls Out Today"	,	L_71
+hf_ged125_Min_Length	,	V_112
+EXPFILL	,	V_229
+"ged125.number_of_no_entry_tries"	,	L_180
+"Terminates a variable length string of DTMF digits "	,	L_170
+"GED125 Message"	,	L_9
+"Status Variable"	,	L_31
+hf_ged125_value	,	V_130
+"GED125 Header"	,	L_8
+vals_status_code_call_cleared	,	V_216
+"ASR Allowed"	,	L_193
+hf_ged125_ToBeContinued	,	V_103
+"Media Protocol"	,	L_229
+"doesn't enter any data"	,	L_182
+ged125_header_tree	,	V_122
+HFILL	,	V_203
+PI_MALFORMED	,	V_231
+"ged125.asr_allowed"	,	L_194
+"Status"	,	L_36
+z_tree	,	V_16
+"ged125.interdigit_timeout"	,	L_176
+"Version Number"	,	L_39
+hf_ged125_StartOfDay	,	V_167
+hf_ged125_TrunkStatus	,	V_19
+vals_service_control_message_subvalues	,	V_54
+"Conditions prevent call processing"	,	L_251
+GED125_DIALOGUE_FAILURE_EVENT_VALUE	,	V_78
+"desegment_body"	,	L_269
+"ged125.version_number"	,	L_40
+"Number of No Entry Tries"	,	L_179
+"Unknown data type"	,	L_228
+floating_media_protocol_vals	,	V_221
+ett_ged125_message	,	V_131
+"The cumulative amount of time (sec) that all trunks in the trunk group "	,	L_86
+"Service-Control Header"	,	L_4
+"Indicates if the VRU supports the Service Control Interface"	,	L_61
+ei_ged125_OperationalStatus_degraded_call_processing	,	V_11
+"ged125.call_release"	,	L_148
+GED125_INIT_SERVICE_CTRL_SERVICE_VALUE	,	V_81
+GED125_MICROAPP_COLLECT_DATA_VALUE	,	V_106
+"Call Out Now"	,	L_101
+hf_ged125_floating_payload_uint	,	V_41
+ett_ged125	,	V_128
+"Whether the GED125 dissector should desegment all messages spanning multiple TCP segments"	,	L_271
+"ged125.in_use_inbound_time_today"	,	L_79
+hf_ged125_SendSeqNo_num	,	V_55
+hf_ged125_AvailableNow	,	V_82
+status_code_microcapp_error_codes	,	V_217
+media_protocol	,	V_21
+"ged125.current_time"	,	L_22
+"ged125.data_playback_format"	,	L_238
+proto_register_protocol	,	F_30
+GED125_TIME_SYNCH_REQ_VALUE	,	V_190
+GED125_ROUTE_END_VALUE	,	V_189
+"Invoke ID"	,	L_33
+"ged125.event_id"	,	L_142
+"tcp_port"	,	L_266
+"Cause code"	,	L_45
+GED125_RUN_SCRIPT_REQ_VALUE	,	V_69
+"Error: Invalid message"	,	L_253
+tcp_dissect_pdus	,	F_26
+"A bit map, with the least significant bit referring to Call Variable1"	,	L_225
+gint	,	T_4
+"%s %u bytes"	,	L_7
+GED125_ROUTE_END_EVENT_VALUE	,	V_188
+msg_tree	,	V_44
+"to a different time if the VRU has restarted"	,	L_122
+tvb	,	V_1
+"Use Service Control"	,	L_59
+GED125_TRKGRP_STATUS_VALUE	,	V_88
+COL_INFO	,	V_53
+ei_ged125_OperationalStatus_loss_redundant_component	,	V_10
+hf_ged125_SecondaryCallID	,	V_175
+"Barge In Allowed"	,	L_162
+GED125_TEMPORARY_CONNECT_VALUE	,	V_100
+"ged125.in_service_time_today"	,	L_75
+cinfo	,	V_52
+"Trunk Number"	,	L_88
+PI_ERROR	,	V_232
+"before the system assumes the caller is finished"	,	L_178
+hf_ged125_length	,	V_36
+hf_ged125_floating_payload_bool	,	V_43
+hf_ged125_ServiceFeatures	,	V_64
+"ged125.call_handled_today"	,	L_105
+"ged125.use_time_synch"	,	L_57
+"Diverted In Today"	,	L_110
+"Normal Operation"	,	L_245
+trunk_funk_without_status	,	F_6
+hf_ged125_UseServiceControl	,	V_143
+ged125_message_tree	,	V_123
+"Sub-Service Control Message value"	,	L_14
+"ged125.call_id"	,	L_124
+hf_ged125_DivertedInToday	,	V_162
+"In Service Time Today"	,	L_74
+COL_PROTOCOL	,	V_125
+GED125_INIT_SERVICE_CTRL_END_VALUE	,	V_61
+"have been in service this day"	,	L_77
+"New Call ID"	,	L_213
+hf_ged125_RequestID	,	V_93
+hf_ged125_floating_CauseCode	,	V_171
+"ged125.idle_timeout"	,	L_44
+guint8	,	T_8
+base_message_values	,	V_126
+"ged125.status"	,	L_37
+ti	,	V_6
+ei_ged125_OperationalStatus_normal	,	V_9
+hf_ged125_UseEventFeed	,	V_139
+GED125_NEW_DIALOGUE_VALUE	,	V_96
+GED125_MICROAPP_RESULT_VALUE	,	V_117
+"An ID assigned to the call by the VRU"	,	L_125
+"The type of the label returned in the following field"	,	L_140
+"Incorrect size given in the packet (corrupted)"	,	L_255
+hf_ged125_EventID	,	V_75
+"ged125.call_cleared_code"	,	L_166
+tvb_get_ntohl	,	F_2
+"Use Time Synch"	,	L_56
+tvbuff_t	,	T_1
+hf_ged125_Interdigit_Timeout	,	V_109
+"Unspec floating data-type"	,	L_226
+"ged125.start_of_day"	,	L_120
+"Both SendSeqNo &amp; DialogueID must be NULL because at least one is NULL"	,	L_257
+"VRU Time Lag"	,	L_220
+"Available Now"	,	L_95
+"A bit mask that is a logical OR of the Service Control features supported by the VRU"	,	L_131
+"Use Event Feed"	,	L_47
+"Corresponds to midnight local time at the VRU (UTC). However, this may refer "	,	L_121
+vals_floating_point_types	,	V_34
+"defines the version of all messages in the message set"	,	L_42
+GED125_INIT_SERVICE_CTRL_DATA_VALUE	,	V_63
+"Request ID"	,	L_156
+ged125_tree	,	V_30
+"Use Call Routing"	,	L_53
+GED125_DIALOGUE_FAILURE_CONF_VALUE	,	V_76
+"Call Cleared Code"	,	L_165
+"ged125.trunk_group_id.bad_range"	,	L_260
+GED125_REQUEST_INSTRUCTION_VALUE	,	V_66
+hf_ged125_UseTimeSynch	,	V_142
+"ged125.operational_status.loss_redundant_component"	,	L_246
+"Package Length"	,	L_10
+tvb_get_guint8	,	F_9
+"Call Vars Mask"	,	L_223
+ged125_desegment_body	,	V_198
+GED125_DELIVERED_EVENT_VALUE	,	V_168
+ei_ged125_OperationalStatus_conditions_prevent_call	,	V_12
+"Init Data Time"	,	L_116
+dissector_delete_uint	,	F_41
+GED125_HEARTBEAT_CONF_VALUE	,	V_145
+"Service Available"	,	L_154
+hf_ged125_ResultCode	,	V_71
+hf_ged125_StatusVariable	,	V_15
+"ged125.trunk_status"	,	L_91
+"Diverted Out Today"	,	L_113
+"ged125.cross_ref_id"	,	L_218
+"The cumulative number of calls handled on the service this day"	,	L_106
+"System or Application"	,	L_234
+hf_ged125_floating_payload_unspec	,	V_40
+hf_ged125_ASR_Allowed	,	V_114
+"Field"	,	L_126
+"ged125.to_be_continued"	,	L_160
+FT_INT32	,	V_204
+"Dialogue Id"	,	L_16
+"Determines how many seconds the caller is allowed between digits, "	,	L_177
+"Calls In Today"	,	L_68
+"Cross Reference ID"	,	L_217
+hf_ged125_TrunkNumber	,	V_18
+GED125_FAILURE_EVENT_VALUE	,	V_134
+trunk_funk	,	F_7
+Cause_just_for_release_message_vals	,	V_215
+"Number of times VRU should repeat the 'Get data' cycle when the "	,	L_185
+ENC_BIG_ENDIAN	,	V_8
+hf_ged125_UseCallRouting	,	V_141
+GED125_RELEASE_VALUE	,	V_94
+"ged125.no_entry_timeout"	,	L_173
+GED125_TIME_SYNCH_CONF_VALUE	,	V_192
+"have been in use on outgoing calls this day"	,	L_83
+GED125_CONFERENCED_EVENT_VALUE	,	V_172
+floating_media_library_designator_vals	,	V_222
+"A cross-reference identifier assigned by the VRU to this call routing dialogue"	,	L_219
+"Cisco GED-125 Protocol"	,	L_264
+ei_ged125_trunk_group_id	,	V_151
+hf_ged125_HandleTimeToday	,	V_161
+"ged125.number_of_invalid_entry_tries"	,	L_184
+"The number of trunks configured in this message. TrunkCount may not exceed 1024"	,	L_67
+hf_ged125_Status	,	V_133
+GED125_INIT_SERVICE_DATA_EVENT_VALUE	,	V_159
+dissect_ged125	,	F_24
+"Floating Payload"	,	L_132
+GED125_INIT_DATA_END_EVENT_VALUE	,	V_165
+message_item	,	V_121
+hf_ged125_InUseInboundTimeToday	,	V_156
+"The number of inbound calls currently in progress on the service."	,	L_100
+proto_tree_add_uint_format	,	F_13
+GED125_NEW_TRANSACTION_EVENT_VALUE	,	V_178
+"Use Polled Feed"	,	L_50
+"ged125.label_type"	,	L_139
+GED125_CONNECT_TO_RESOURCE_VALUE	,	V_98
+"In Use Inbound Time Today"	,	L_78
+"ged125.in_use_outbound_time_today"	,	L_82
+"Event ID"	,	L_141
+"ged125.new_call_id"	,	L_214
+"Operational Status of the VRU"	,	L_30
+message_type	,	V_124
+GED125_CALL_CLEARED_EVENT_VALUE	,	V_170
+"Trunk Group ID"	,	L_62
+"Minimum number of digits expected from the caller"	,	L_189
+GED125_INIT_SERVICE_CTRL_REQ_VALUE	,	V_59
+GED125_ROUTE_SELECT_VALUE	,	V_187
+"This value is added to a UTC time to form a time in the local time zone"	,	L_27
+"ged125.service_available"	,	L_155
+"The cumulative number of calls diverted from this service to another service this day"	,	L_115
+"DTMF Termination Key"	,	L_168
+hf_ged125_InitDataTime	,	V_166
+GED125_CONNECT_VALUE	,	V_72
+hf_ged125_CallsOutToday	,	V_154
+"ged125.status_variable"	,	L_32
+mess_type	,	V_47
+"Min Length of Digits"	,	L_187
+tfs_true_false	,	V_212
+ett_ged125_service_control_header	,	V_50
+proto_register_subtree_array	,	F_33
+"Loss of redundant component or other transparent failure; still fully functional for call processing"	,	L_247
+gint32	,	T_9
+"ged125.secondary_call_id"	,	L_208
+proto_tree_add_item	,	F_3
+pinfo	,	V_2
+col_add_fstr	,	F_17
+_U_	,	V_120
+"ged125.call_out_today"	,	L_72
+new_register_dissector	,	F_36
+"Indicates if the VRU supports the Time Synchronization Interface"	,	L_58
+"Simulator Reset Event"	,	L_215
+"Trunk Count"	,	L_65
+hf_ged125_floating_library_designator	,	V_23
+"To Be Continued"	,	L_159
+"ged125.operational_status.normal"	,	L_244
+GED125_MICROAPP_MENU_VALUE	,	V_115
+hf_ged125_CurrentTime_num	,	V_86
+"The cumulative number of inbound calls that have arrived on the trunk group this day"	,	L_70
+PI_PROTOCOL	,	V_227
+ei_ged125_length_bad	,	V_37
+"ged125.dialogue_id"	,	L_17
+"GED125"	,	L_6
+FT_UINT8	,	V_220
+"The cumulative number of outbound calls that have been placed on the trunk group this day"	,	L_73
+proto_item	,	T_6
+"ged125.trunk_count"	,	L_66
+"ged125.in_service"	,	L_151
+expert_register_field_array	,	F_35
+"New Service ID"	,	L_210
+"Invalid number of trunks (max is 1023)"	,	L_263
+"Secondary Call ID"	,	L_207
+floating_type	,	V_29
+hf_ged125_IdleTimeout	,	V_137
+"ged125.result_code"	,	L_137
+"ged125.service_id"	,	L_93
+hf_ged125_TrunkCount	,	V_80
+"ged125.vru_time_lag"	,	L_221
+data	,	T_11
+hf_ged125_VRUTimeLag	,	V_191
+hf_ged125_PrimaryCallID	,	V_174
+"Current Time"	,	L_21
+"Service Features"	,	L_129
+hf_ged125_Max_Length	,	V_113
+ei_register_info	,	T_14
+"ged125.data_playback_type"	,	L_236
+PI_NOTE	,	V_228
+GED125_INIT_DATA_REQ_VALUE	,	V_147
+service_tree	,	V_45
+hf_ged125_CrossRefID	,	V_186
+FT_NONE	,	V_211
+offset	,	V_4
+ett_ged125_float_field	,	V_35
+ei_ged125_service_control_value_unknown	,	V_119
+expert_module_t	,	T_15
+"The cumulative amount of time (sec) that trunks in the trunk group "	,	L_76
+tree	,	V_3
+hf_ged125_floating	,	V_33
+GED125_SERVICE_STATUS_EVENT_VALUE	,	V_184
+"The ID of the new service to which the call was diverted"	,	L_212
+OperationalStatus_funk	,	F_1
+"were simultaneously busy this day"	,	L_87
+hf_ged125_CallID	,	V_97
+"Shows the type of floating field"	,	L_128
+"A flag which indicates whether additional MICROAPP_PLAY_CONTINUE messages will follow"	,	L_161
+GED125_INIT_TRKGRP_DATA_EVENT_VALUE	,	V_150
+"A status code indicating the cause of the failure"	,	L_146
+hf_ged125_InUseOutboundTimeToday	,	V_157
+"An ID assigned by the VRU to this service"	,	L_94
+"In Service"	,	L_150
+proto_tree_add_uint	,	F_15
+ei_ged125_sendseqno_and_dialogueid	,	V_56
+Media_Specifier_dissect	,	F_8
+"ged125.service_control"	,	L_15
+GED125_CLOSE_CONF_VALUE	,	V_146
+"ged125.operational_status.degraded_call_processing"	,	L_248
+GED125_FAILURE_CONF_VALUE	,	V_132
+GED125_INIT_SERVICE_CTRL_CONF_VALUE	,	V_60
+"Indicates whether caller is allowed to interrupt playing"	,	L_164
+GED125_EVENT_REPORT_VALUE	,	V_74
+status_code_trunk_status	,	V_208
+value	,	V_5
+"TrunkGroupID must be between 0-65535"	,	L_261
+SendSeqNo	,	V_49
+"Cause of Release"	,	L_147
+status_code_event_reportcodes	,	V_214
+GED125_RESOURCE_CONNECTED_VALUE	,	V_101
+proto_item_set_len	,	F_23
+"ged125.trunk_group_id"	,	L_63
+ei_ged125_OperationalStatus_invalid_message	,	V_13
+"The reason the call was released"	,	L_149
+"Uchar-Array Index"	,	L_241
+"Conference Call ID"	,	L_201
+"Indicates if the VRU supports the Polled Data Feed."	,	L_52
+"ged125.init_data_time"	,	L_117
+"tcp.port"	,	L_272
+"Calls Handled Today"	,	L_104
+proto_tree	,	T_3
+"Maximum number of digits expected from the caller"	,	L_192

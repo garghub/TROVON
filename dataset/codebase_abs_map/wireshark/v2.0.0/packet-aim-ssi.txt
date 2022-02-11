@@ -1,0 +1,122 @@
+proto_reg_handoff_aim_ssi	,	F_28
+hf_aim_fnac_subtype_ssi_allow_auth	,	V_37
+proto_register_protocol	,	F_24
+proto_tree_add_time	,	F_16
+proto_aim_ssi	,	V_50
+hf_aim_fnac_subtype_ssi_numitems	,	V_28
+dissect_aim_snac_ssi_list	,	F_17
+tvb_reported_length	,	F_8
+dissect_aim_snac_ssi_auth_request	,	F_19
+proto_tree_add_subtree	,	F_9
+"aim_ssi.fnac.buddyname"	,	L_12
+aim_fnac_family_ssi_types	,	V_47
+"SSI Last Change Time"	,	L_7
+FAMILY_SSI	,	V_51
+gint	,	T_2
+"aim_ssi.fnac.last_change_time"	,	L_8
+dissect_ssi_ssi_items	,	F_7
+hf_aim_fnac_subtype_ssi_last_change_time	,	V_27
+dissect_ssi_ssi_item	,	F_6
+dissect_aim_snac_ssi_time_and_items_num	,	F_14
+tlv_len	,	V_8
+hf_aim_fnac_subtype_ssi_buddyname	,	V_11
+tvb	,	V_1
+ssi_tree	,	V_22
+"SSI Buddy type"	,	L_17
+"aim_ssi.fnac.numitems"	,	L_6
+"aim_ssi.fnac.tlvlen"	,	L_20
+size	,	V_20
+FT_ABSOLUTE_TIME	,	V_43
+aim_init_family	,	F_29
+proto_register_subtree_array	,	F_27
+ett_ssi	,	V_49
+proto_register_aim_ssi	,	F_22
+array_length	,	F_26
+"aim_ssi.fnac.auth_unkn"	,	L_27
+reason_length	,	V_32
+hf_aim_fnac_subtype_ssi_buddyname_len8	,	V_33
+proto_tree_add_item	,	F_4
+aim_fnac_family_ssi	,	V_52
+pinfo	,	T_4
+"aim_ssi.fnac.version"	,	L_4
+"AIM Server Side Info"	,	L_30
+_U_	,	V_4
+hf_aim_fnac_subtype_ssi_bid	,	V_15
+"SSI Object count"	,	L_5
+hf_register_info	,	T_9
+aim_client_tlvs	,	V_18
+dissect_aim_ssi_rightsinfo	,	F_10
+hf_aim_fnac_subtype_ssi_tlvlen	,	V_17
+VALS	,	F_23
+"SSI Buddy ID"	,	L_15
+"aim_ssi"	,	L_32
+hf_aim_fnac_subtype_ssi_version	,	V_31
+dissect_aim_snac_ssi_auth_reply	,	F_21
+guint16	,	T_6
+FT_UINT8	,	V_39
+hf_aim_fnac_subtype_ssi_buddyname_len	,	V_9
+i	,	V_30
+"aim_ssi.fnac.reason_len"	,	L_23
+ENC_NA	,	V_13
+ABSOLUTE_TIME_LOCAL	,	V_44
+guint8	,	T_8
+calc_ssi_entry_size	,	F_1
+BASE_NONE	,	V_46
+secs	,	V_25
+"aim_ssi.fnac.reason"	,	L_25
+"aim_ssi.fnac.allow_auth_flag"	,	L_29
+tvb_get_ntohl	,	F_15
+hf_aim_fnac_subtype_ssi_reason_str_len	,	V_34
+tvbuff_t	,	T_1
+dissect_aim_tlv	,	F_5
+"Allow flag"	,	L_28
+tvb_get_ntohs	,	F_2
+ssi_entry	,	V_5
+BASE_HEX	,	V_40
+hf_aim_fnac_subtype_ssi_gid	,	V_14
+"aim_ssi.fnac.bid"	,	L_16
+"SSI Entry"	,	L_1
+nstime_t	,	T_7
+proto_register_field_array	,	F_25
+offset	,	V_2
+ett	,	V_48
+tree	,	V_19
+"aim_ssi.fnac.type"	,	L_18
+FT_UINT16	,	V_42
+packet_info	,	T_3
+"AIM SSI"	,	L_31
+tvb_get_guint8	,	F_20
+aim_ssi_rightsinfo_tlvs	,	V_23
+num_items	,	V_29
+ssi_entry_size	,	V_3
+hf_aim_fnac_subtype_ssi_type	,	V_16
+"SSI Entry %u"	,	L_2
+"SSI TLV Len"	,	L_19
+"aim_ssi.fnac.buddyname_len8"	,	L_21
+"Reason Message"	,	L_24
+endoffset	,	V_7
+hf_aim_fnac_subtype_ssi_grant_auth_unkn	,	V_36
+"SSI Version"	,	L_3
+"Buddy Name"	,	L_11
+dissect_aim_tlv_sequence	,	F_11
+FT_STRING	,	V_45
+tmptime	,	V_24
+hf_aim_fnac_subtype_ssi_reason_str	,	V_35
+ett_aim_ssi	,	V_21
+HFILL	,	V_41
+dissect_ssi_item	,	F_3
+"SSI Buddy Group ID"	,	L_13
+buddyname_length	,	V_6
+dissect_aim_buddyname	,	F_13
+proto_tree_add_subtree_format	,	F_18
+"aim_ssi.fnac.buddyname_len"	,	L_10
+ENC_BIG_ENDIAN	,	V_10
+"SSI Buddy Name length"	,	L_9
+nsecs	,	V_26
+dissect_aim_ssi_was_added	,	F_12
+"Unknown"	,	L_26
+ENC_UTF_8	,	V_12
+"aim_ssi.fnac.gid"	,	L_14
+proto_tree	,	T_5
+hf	,	V_38
+"Reason Message length"	,	L_22

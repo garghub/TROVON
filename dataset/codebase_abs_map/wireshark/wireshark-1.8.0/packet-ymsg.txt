@@ -1,0 +1,137 @@
+hf_ymsg_content	,	V_37
+"ymsg.vendor"	,	L_13
+keylen	,	V_18
+proto_register_protocol	,	F_22
+"Content-line"	,	L_29
+prefs_register_protocol	,	F_26
+check_col	,	F_9
+"Reassemble YMSG messages spanning multiple TCP segments"	,	L_40
+"Version"	,	L_9
+tcp_dissect_pdus	,	F_7
+col_set_str	,	F_8
+gint	,	T_8
+"Unknown Service: %u"	,	L_3
+tvb	,	V_1
+hf_ymsg_version	,	V_29
+"ymsg.service"	,	L_18
+hf_ymsg_session_id	,	V_35
+dissect_ymsg	,	F_4
+COL_INFO	,	V_23
+"ymsg.content-line"	,	L_30
+proto_item_append_text	,	F_15
+col_set_fence	,	F_19
+"Content"	,	L_26
+"%s:%s"	,	L_8
+"Vendor ID"	,	L_12
+content_tree	,	V_15
+ett_ymsg_content_line	,	V_43
+proto_ymsg	,	V_26
+cinfo	,	V_21
+proto_register_subtree_array	,	F_25
+"Data portion of the packet"	,	L_28
+val_to_str	,	F_11
+"ymsg"	,	L_38
+"ymsg.session_id"	,	L_24
+array_length	,	F_24
+hf_ymsg_vendor	,	V_31
+""	,	L_7
+"Content line key"	,	L_33
+proto_tree_add_item	,	F_13
+"ymsg.content-line.key"	,	L_32
+" (%s)"	,	L_5
+pinfo	,	V_4
+col_add_fstr	,	F_10
+_U_	,	V_9
+ENC_ASCII	,	V_38
+ett_ymsg	,	V_28
+"Value"	,	L_34
+proto_reg_handoff_ymsg	,	F_28
+"Message Type Flags"	,	L_22
+content_line_tree	,	V_41
+ymsg_module	,	V_55
+valbuf	,	V_17
+hf_ymsg_content_line	,	V_42
+hf_register_info	,	T_7
+VALS	,	F_21
+prefs_register_bool_preference	,	F_27
+COL_PROTOCOL	,	V_22
+tvb_length	,	F_5
+"Unknown Status: %u"	,	L_4
+"ymsg.version"	,	L_10
+"ymsg.content"	,	L_27
+BASE_DEC	,	V_48
+"Service"	,	L_17
+proto_item	,	T_6
+"Packet version identifier"	,	L_11
+dissect_ymsg_pdu	,	V_8
+"%s (status=%s)   "	,	L_2
+ENC_NA	,	V_27
+tvb_memeql	,	F_6
+"Packet Length"	,	L_15
+"Yahoo YMSG Messenger Protocol"	,	L_37
+ti	,	V_13
+"ymsg.len"	,	L_16
+BASE_NONE	,	V_53
+tvb_format_text	,	F_17
+ymsg_service_vals	,	V_24
+tvb_length_remaining	,	F_2
+ENC_LITTLE_ENDIAN	,	V_36
+"Whether the YMSG dissector should reassemble messages spanning multiple TCP segments. "	,	L_41
+get_ymsg_pdu_len	,	V_7
+tvb_get_ntohl	,	F_12
+get_content_item_length	,	F_1
+tvbuff_t	,	T_1
+hf_ymsg_content_line_key	,	V_44
+tvb_get_ntohs	,	F_3
+"desegment"	,	L_39
+YAHOO_HEADER_SIZE	,	V_11
+BASE_HEX	,	V_51
+plen	,	V_10
+origoffset	,	V_3
+gboolean	,	T_2
+content_item	,	V_14
+"ymsg.content-line.value"	,	L_35
+"tcp"	,	L_44
+proto_item_add_subtree	,	F_14
+module_t	,	T_9
+content_len	,	V_20
+ymsg_desegment	,	V_6
+proto_register_field_array	,	F_23
+guint	,	T_5
+offset	,	V_2
+ett	,	V_54
+tree	,	V_5
+"ymsg.status"	,	L_21
+hf_ymsg_content_line_value	,	V_45
+hf_ymsg_service	,	V_33
+FT_UINT16	,	V_47
+packet_info	,	T_3
+"Content line value"	,	L_36
+vallen	,	V_19
+proto_register_ymsg	,	F_20
+"To use this option, you must also enable"	,	L_42
+proto_tree_add_string_format	,	F_18
+ett_ymsg_content	,	V_39
+hf_ymsg_len	,	V_32
+hf_ymsg_status	,	V_34
+"Session ID"	,	L_23
+ymsg_tree	,	V_12
+"Vendor identifier"	,	L_14
+ymsg_status_vals	,	V_25
+heur_dissector_add	,	F_29
+FT_STRING	,	V_52
+"YMSG"	,	L_1
+HFILL	,	V_49
+ti_2	,	V_40
+"Status"	,	L_20
+val_to_str_const	,	F_16
+"Key"	,	L_31
+" \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_43
+keybuf	,	V_16
+"Connection ID"	,	L_25
+ENC_BIG_ENDIAN	,	V_30
+FT_UINT32	,	V_50
+"Unknown"	,	L_6
+"Service Type"	,	L_19
+proto_tree	,	T_4
+hf	,	V_46

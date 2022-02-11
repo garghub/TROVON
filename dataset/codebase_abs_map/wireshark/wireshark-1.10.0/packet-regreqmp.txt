@@ -1,0 +1,61 @@
+"Reg-Req-Mp Sid"	,	L_5
+register_dissector	,	F_13
+docsis_tlv_handle	,	V_15
+"Fragment Sequence Number"	,	L_9
+"Number of Fragments"	,	L_6
+proto_register_protocol	,	F_9
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_3
+"docsis_regreqmp.number_of_fragments"	,	L_7
+hf_docsis_regreqmp_sid	,	V_11
+"REG-REQ-MP Message"	,	L_2
+tvb_new_subset_remaining	,	F_6
+col_set_str	,	F_2
+gint	,	T_6
+proto_item_add_subtree	,	F_4
+proto_register_field_array	,	F_10
+tvb	,	V_1
+dissect_regreqmp	,	F_1
+ett	,	V_21
+COL_INFO	,	V_8
+dissector_add_uint	,	F_16
+ett_docsis_regreqmp	,	V_10
+"docsis_mgmt"	,	L_16
+tree	,	V_3
+"Reg-Req-Mp Fragment Sequence Number"	,	L_11
+it	,	V_4
+proto_docsis_regreqmp	,	V_9
+FT_UINT16	,	V_17
+packet_info	,	T_2
+"Reg-Req-Mp Number of Fragments"	,	L_8
+"docsis_regreqmp.fragment_sequence_number"	,	L_10
+cinfo	,	V_7
+proto_register_subtree_array	,	F_12
+array_length	,	F_11
+next_tvb	,	V_6
+proto_tree_add_item	,	F_5
+call_dissector	,	F_7
+pinfo	,	V_2
+dissector_handle_t	,	T_7
+hf_docsis_regreqmp_number_of_fragments	,	V_13
+"Sid"	,	L_3
+regreqmp_tree	,	V_5
+hf_docsis_regreqmp_fragment_sequence_number	,	V_14
+hf_register_info	,	T_5
+HFILL	,	V_19
+docsis_regreqmp_handle	,	V_22
+"docsis_tlv"	,	L_15
+"DOCSIS Registration Request Multipart"	,	L_12
+FT_UINT8	,	V_20
+find_dissector	,	F_15
+proto_register_docsis_regreqmp	,	F_8
+BASE_DEC	,	V_18
+proto_reg_handoff_docsis_regreqmp	,	F_14
+proto_item	,	T_4
+ENC_BIG_ENDIAN	,	V_12
+"REG-REQ-MP Message:"	,	L_1
+"DOCSIS Reg-Req-Mp"	,	L_13
+"docsis_regreqmp.sid"	,	L_4
+"docsis_regreqmp"	,	L_14
+proto_tree	,	T_3
+hf	,	V_16

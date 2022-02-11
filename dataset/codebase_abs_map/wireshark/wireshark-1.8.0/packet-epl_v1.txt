@@ -1,0 +1,187 @@
+hf_epl_v1_asnd_device_variant	,	V_35
+"IN Data"	,	L_47
+proto_register_protocol	,	F_19
+"epl_v1.eoc.netcommand"	,	L_49
+hf_epl_v1_soc_net_command_parameter	,	V_10
+"epl_v1.src"	,	L_14
+hf_epl_v1_pres_wa	,	V_22
+dissect_epl_v1	,	F_10
+"epl_v1.soc.netcommand.parameter"	,	L_26
+EPL_V1_AINV	,	V_57
+dissect_epl_v1_soc	,	F_1
+len	,	V_14
+gint	,	T_1
+col_set_str	,	F_12
+ett_epl_v1	,	V_64
+"epl_v1.preq.data"	,	L_33
+"ER (Error)"	,	L_42
+hf_epl_v1_asnd_poll_in_size	,	V_36
+"epl_v1.pres.ex"	,	L_37
+hf_epl_v1_pres_in_data	,	V_26
+hf_epl_v1_pres_poll_size_in	,	V_25
+tvb	,	V_2
+"PReq   dest = %3d   src = %3d   "	,	L_4
+"Destination"	,	L_11
+COL_INFO	,	V_49
+EPL_V1_EOC	,	V_54
+hf_epl_v1_pres_ex	,	V_20
+"epl_v1.asnd.poll.in.size"	,	L_67
+hf_epl_v1_pres_ms	,	V_19
+hf_epl_v1_ainv_channel	,	V_27
+hf_epl_v1_dest	,	V_66
+hf_epl_v1_pres_er	,	V_23
+hf_epl_v1_asnd_size	,	V_30
+"epl_v1.soc.nettime"	,	L_22
+col_clear	,	F_13
+"epl_v1.soa.netcommand.parameter"	,	L_50
+"epl_v1.soc.ps"	,	L_18
+hf_epl_v1_asnd_hardware_revision	,	V_33
+cinfo	,	V_47
+"RD (Ready)"	,	L_28
+dissect_epl_v1_preq	,	F_4
+EPL_V1_AINV_IDENT	,	V_31
+proto_register_subtree_array	,	F_22
+epl_v1_dest	,	V_42
+dissect_epl_v1_pres	,	F_6
+val_to_str	,	F_15
+array_length	,	F_21
+"Net Command"	,	L_19
+epl_v1_tree	,	V_1
+hf_epl_v1_soc_ms	,	V_4
+proto_tree_add_item	,	F_2
+hf_epl_v1_preq_out_data	,	V_18
+EPL_V1_SRC_OFFSET	,	V_52
+"MS (Multiplexed Slot)"	,	L_15
+EPL_V1_SERVICE_OFFSET	,	V_50
+pinfo	,	V_39
+col_add_fstr	,	F_14
+dissector_handle_t	,	T_9
+"Data"	,	L_56
+hf_epl_v1_asnd_node_id	,	V_32
+"ethertype"	,	L_72
+"WA (Warning)"	,	L_40
+hf_epl_v1_soc_net_time	,	V_8
+EPL_V1_DEST_OFFSET	,	V_51
+"epl_v1.pres.er"	,	L_43
+hf_register_info	,	T_8
+"RS (Request to Send)"	,	L_38
+asnd_channel_number_vals	,	V_62
+"epl_v1.soc.cycletime"	,	L_24
+VALS	,	F_18
+hf_epl_v1_preq_poll_size_out	,	V_17
+EPL_V1_ASND_CHANNEL_OFFSET	,	V_61
+hf_epl_v1_soc_ps	,	V_6
+hf_epl_v1_eoc_net_command	,	V_12
+guint16	,	T_4
+dissect_epl_v1_ainv	,	F_7
+"epl_v1.asnd.hardware.revision"	,	L_61
+COL_PROTOCOL	,	V_48
+tvb_length	,	F_11
+FT_UINT8	,	V_69
+hf_epl_v1_preq_ms	,	V_15
+proto_reg_handoff_epl_v1	,	F_23
+"Service"	,	L_9
+BASE_DEC	,	V_70
+"epl_v1.pres.rs"	,	L_39
+epl_v1_src	,	V_43
+epl_v1_asnd_ch	,	V_45
+proto_item	,	T_7
+"PS (Prescaled Slot)"	,	L_17
+ENC_NA	,	V_11
+guint8	,	T_5
+ti	,	V_46
+BASE_NONE	,	V_77
+hf_epl_v1_asnd_poll_out_size	,	V_37
+"Source"	,	L_13
+"Cycle Time"	,	L_23
+ENC_LITTLE_ENDIAN	,	V_5
+"epl_v1"	,	L_71
+hf_epl_v1_eoc_net_command_parameter	,	V_13
+ainv_channel_number_vals	,	V_59
+"EoC    dest = %3d   src = %3d   "	,	L_3
+"epl_v1.service"	,	L_10
+"epl_v1.asnd.data"	,	L_57
+tvbuff_t	,	T_3
+EPL_V1_ASND	,	V_60
+"Poll IN Size"	,	L_66
+"epl_v1.pres.pollsize"	,	L_46
+"NodeID"	,	L_58
+"epl_v1.asnd.poll.out.size"	,	L_69
+hf_epl_v1_pres_rs	,	V_21
+"EPL_V1"	,	L_1
+EPL_V1_AINV_CHANNEL_OFFSET	,	V_58
+"Channel"	,	L_51
+"Poll Size OUT"	,	L_30
+"Hardware Revision"	,	L_60
+proto_item_add_subtree	,	F_16
+dissect_epl_v1_eoc	,	F_3
+proto_register_field_array	,	F_20
+tvb_get_letohs	,	F_5
+"epl_v1.soc.netcommand"	,	L_20
+FT_BYTES	,	V_76
+"Net Time"	,	L_21
+"epl_v1.preq.rd"	,	L_29
+"EX (Exception)"	,	L_36
+proto_epl_v1	,	V_63
+offset	,	V_3
+ett	,	V_79
+epl_v1_service	,	V_41
+hf_epl_v1_pres_rd	,	V_24
+dissector_add_uint	,	F_25
+"Device Variant"	,	L_64
+tree	,	V_40
+hf_epl_v1_src	,	V_67
+"epl_v1.preq.ms"	,	L_27
+FT_UINT16	,	V_73
+"epl_v1.pres.ms"	,	L_35
+epl_v1_asnd_channel	,	V_28
+packet_info	,	T_6
+tvb_get_guint8	,	F_9
+"epl_v1.asnd.node_id"	,	L_59
+"AInv   dest = %3d   src = %3d   channel = %s   "	,	L_6
+"epl_v1.pres.rd"	,	L_44
+"epl_v1.ainv.channel"	,	L_52
+hf_epl_v1_asnd_channel	,	V_29
+"epl_v1.preq.pollsize"	,	L_31
+"SoC    dest = %3d   src = %3d   "	,	L_2
+"PRes   dest = %3d   src = %3d   "	,	L_5
+hf_epl_v1_service	,	V_65
+"Firmware Version"	,	L_62
+hf_epl_v1_soc_powerlink_cycle_time	,	V_9
+service_vals	,	V_71
+hf_epl_v1_asnd_data	,	V_38
+ETHERTYPE_EPL_V1	,	V_81
+"epl_v1.pres.wa"	,	L_41
+"epl_v1.pres.data"	,	L_48
+"Net Command Parameter"	,	L_25
+"unknown Channel (%d)"	,	L_7
+EPL_V1_SOC	,	V_53
+"ASnd   dest = %3d   src = %3d   channel = %s   "	,	L_8
+"epl_v1.asnd.size"	,	L_55
+EPL_V1_PREQ	,	V_55
+EPL_V1_PRES	,	V_56
+HFILL	,	V_72
+new_create_dissector_handle	,	F_24
+hf_epl_v1_asnd_firmware_version	,	V_34
+hf_epl_v1_preq_rd	,	V_16
+proto_register_epl_v1	,	F_17
+"epl_v1.asnd.channel"	,	L_53
+dissect_epl_v1_asnd	,	F_8
+"epl_v1.asnd.device.variant"	,	L_65
+eoc_net_command_vals	,	V_78
+hf_epl_v1_soc_net_command	,	V_7
+"Poll Size IN"	,	L_45
+"OUT Data"	,	L_32
+"epl_v1.soc.ms"	,	L_16
+epl_v1_handle	,	V_80
+FT_UINT32	,	V_75
+"epl_v1.dest"	,	L_12
+"Size"	,	L_54
+"Poll OUT Size"	,	L_68
+epl_v1_ainv_ch	,	V_44
+"ETHERNET Powerlink V1.0"	,	L_70
+"MS (Multiplexed)"	,	L_34
+proto_tree	,	T_2
+hf	,	V_68
+"epl_v1.asnd.firmware.version"	,	L_63
+soc_net_command_vals	,	V_74

@@ -1,0 +1,221 @@
+", Control Bit Vector: 0x%02x, Source Node: %i"	,	L_12
+ett_udp_nm	,	V_72
+"Active Wakeup"	,	L_22
+proto_register_protocol	,	F_40
+"User data name"	,	L_34
+uat_field_t	,	T_19
+tvb_reported_length	,	F_28
+g_new	,	F_20
+"NM_user_data_fields"	,	L_54
+nm_handle	,	V_94
+g_hash_table_size	,	F_15
+hf_id	,	V_22
+user_data_fields_update_cb	,	F_1
+gint	,	T_8
+g_hash_table_insert	,	F_21
+"swap_ctrl_and_src"	,	L_48
+"and the Control Bit Vector is the second byte. "	,	L_51
+"Name of user data field"	,	L_35
+g_strstrip	,	F_3
+TFS	,	F_37
+tvb	,	V_52
+"The User Data"	,	L_33
+guint32	,	T_6
+COL_INFO	,	V_70
+FT_BOOLEAN	,	V_51
+"Relevant bits of the user data field in the UDP-NM message (uint32)"	,	L_43
+cinfo	,	V_68
+"NM Coordinator Sleep"	,	L_19
+"Description what the masked bits mean"	,	L_45
+array_length	,	F_23
+"NM Coordinator Sleep Bit"	,	L_21
+tfs_udp_nm_control_pni	,	V_88
+UAT_FLD_DEC	,	F_39
+"Control Bit Vector"	,	L_13
+user_data_fields_copy_cb	,	F_5
+ctrl_bit_vector	,	V_58
+"nm.ctrl"	,	L_14
+UAT_FLD_CSTRING	,	F_38
+G_MAXUINT32	,	V_9
+proto_deregister_field	,	F_16
+"Active Wakeup Bit"	,	L_24
+hf_udp_nm_control_bit_vector	,	V_75
+user_data_fields_free_cb	,	F_7
+dissector_add_for_decode_as_with_preference	,	F_47
+hf_register_info	,	T_9
+g_new0	,	F_19
+"User data mask"	,	L_42
+key	,	V_21
+"Source Node Identifier"	,	L_28
+same_name_next	,	V_43
+proto_register_udp_nm	,	F_36
+c	,	V_4
+COL_PROTOCOL	,	V_69
+g_int64_hash	,	V_37
+g_free	,	F_8
+i	,	V_27
+g_str_hash	,	V_35
+"Partial Network Information Bit"	,	L_27
+n	,	V_10
+o	,	V_11
+"NM User Data Fields Table"	,	L_53
+r	,	V_1
+BASE_NONE	,	V_49
+ti	,	V_54
+g_hash_table_destroy	,	F_17
+msg_length	,	V_57
+hf_udp_nm_control_bit_vector_nm_coord_sleep	,	V_64
+offset_ctrl_bit_vector	,	V_60
+tfs_udp_nm_control_sleep_bit	,	V_86
+hf_udp_nm_control_bit_vector_active_wakeup	,	V_65
+tvbuff_t	,	T_11
+"%i-%i-%i-%s"	,	L_7
+user_data_fields	,	V_42
+udp_nm_subtree	,	V_56
+proto_tree_add_bitmask	,	F_32
+num_user_data_fields	,	V_34
+BASE_HEX	,	V_83
+rec	,	V_3
+hf_udp_nm_source_node_identifier	,	V_73
+prefs_register_uat_preference	,	F_44
+gboolean	,	T_1
+offset_src_node_id	,	V_61
+proto_item_add_subtree	,	F_30
+module_t	,	T_17
+UAT_END_FIELDS	,	V_91
+bitmask	,	V_41
+"The Control Bit Vector"	,	L_15
+proto_register_field_array	,	F_24
+FT_BYTES	,	V_47
+ret	,	V_19
+user_data_fields_hash_hf	,	V_23
+ett_dummy	,	V_29
+"User Data"	,	L_31
+"length of user data field can't be greater 4 Bytes (name: %s offset: %i length: %i)"	,	L_2
+proto_reg_handoff_udp_nm	,	F_45
+"A table to define user defined fields in the NM payload"	,	L_57
+udf_offset	,	V_7
+tvb_get_guint8	,	F_33
+user_data_post_update_cb	,	F_14
+name	,	V_45
+"Repeat Message Request"	,	L_16
+"nm.src"	,	L_29
+user_data_fields_hash_ett	,	V_25
+proto_check_field_name	,	F_4
+"Partial Network Information"	,	L_25
+"nm.ctrl.nm_coord_sleep"	,	L_20
+g_hash_table_new	,	F_18
+"Control Bit Vector: 0x%02x, Source Node: 0x%02x"	,	L_11
+udf_value_desc	,	V_16
+same_name_prev_id	,	V_44
+g_strdup	,	F_6
+"udp_nm_user_data_fields"	,	L_55
+siz	,	T_4
+length	,	V_18
+tfs_udp_nm_control_active_wakeup	,	V_87
+proto_udp_nm	,	V_32
+ENC_BIG_ENDIAN	,	V_74
+"nm"	,	L_47
+"NM"	,	L_10
+"nm.ctrl.pni"	,	L_26
+"nm.user_data.%s.%s"	,	L_9
+"Length of the user data field in the UDP-NM message (uint32)"	,	L_41
+guint64	,	T_5
+get_ett_for_user_data	,	F_13
+hf	,	V_26
+dissect_udp_nm	,	F_25
+"nm.user_data"	,	L_32
+ett_id	,	V_24
+uat_new	,	F_43
+"Description of user data field"	,	L_37
+prefs_register_protocol	,	F_41
+get_hf_for_user_data	,	F_11
+hf_udp_nm	,	V_81
+"Name of user data field can't contain '%c'"	,	L_6
+tmp	,	V_28
+col_set_str	,	F_26
+udf_mask	,	V_8
+calc_hf_key	,	F_10
+"Using this parameter they can be swapped"	,	L_52
+proto_item_append_text	,	F_35
+col_clear	,	F_27
+"The identification of the sending node"	,	L_30
+proto_register_subtree_array	,	F_22
+g_udp_nm_swap_first_fields	,	V_67
+UAT_AFFECTS_DISSECTION	,	V_92
+proto_tree_add_item_ret_uint	,	F_31
+proto_tree_add_item	,	F_29
+pinfo	,	T_13
+col_add_fstr	,	F_34
+dissector_handle_t	,	T_20
+udf_name	,	V_6
+hf_udp_nm_control_bit_vector_repeat_msg_req	,	V_63
+_U_	,	V_12
+udf_desc	,	V_15
+blurb	,	V_50
+ett_udp_nm_user_data	,	V_78
+strings	,	V_40
+"nm.ctrl.repeat_msg_req"	,	L_17
+user_data_field_t	,	T_2
+"offset of user data field can't be short than 2 (name: %s offset: %i length: %i)"	,	L_3
+"Swap Source Node Identifier and Control Bit Vector"	,	L_49
+dissector_add_for_decode_as	,	F_48
+prefs_register_bool_preference	,	F_42
+src_node_id	,	V_59
+err	,	V_2
+display	,	V_48
+FT_UINT8	,	V_82
+calc_ett_key	,	F_9
+hf_udp_nm_user_data	,	V_77
+BASE_DEC	,	V_89
+"Offset of the user data field in the UDP-NM message (uint32)"	,	L_39
+proto_item	,	T_16
+tfs_udp_nm_control_rep_msg_req	,	V_85
+new_rec	,	V_13
+ENC_NA	,	V_71
+udp_nm_module	,	V_79
+p_id	,	V_33
+g_hash_table_lookup	,	F_12
+data	,	T_15
+"nm.ctrl.active_wakeup"	,	L_23
+"User Data Field Configuration"	,	L_56
+"can.subdissector"	,	L_59
+size_t	,	T_3
+control_bits	,	V_62
+"User data length"	,	L_40
+guint	,	T_10
+offset	,	V_17
+ett	,	V_30
+hf_size	,	V_31
+tree	,	V_53
+g_int64_equal	,	V_38
+user_data_uat_fields	,	V_90
+packet_info	,	T_12
+user_data_fields_uat	,	V_80
+"The Repeat Message Request Bit"	,	L_18
+"mask can only be up to 32bits (name: %s)"	,	L_4
+"User data offset"	,	L_38
+udp_nm_tree	,	V_55
+old_rec	,	V_14
+"Network Management"	,	L_46
+udf	,	V_20
+abbrev	,	V_46
+g_str_equal	,	V_36
+"User data value"	,	L_44
+"nm.user_data.%s"	,	L_8
+hf_udp_nm_control_bit_vector_pni	,	V_66
+uat_t	,	T_18
+"User data desc"	,	L_36
+"In the standard the Source Node Identifier is the first byte "	,	L_50
+ett_udp_nm_cbv	,	V_76
+"Name of user data field can't be empty"	,	L_5
+HFILL	,	V_84
+"udp.port"	,	L_58
+gchar	,	T_7
+"length of user data field can't be 0 Bytes (name: %s offset: %i length: %i)"	,	L_1
+hfinfo	,	V_39
+create_dissector_handle	,	F_46
+udf_length	,	V_5
+g_strdup_printf	,	F_2
+UAT_AFFECTS_FIELDS	,	V_93
+proto_tree	,	T_14

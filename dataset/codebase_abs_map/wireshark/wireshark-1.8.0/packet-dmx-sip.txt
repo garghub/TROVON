@@ -1,0 +1,120 @@
+"dmx_sip.dmx_universe_nr"	,	L_13
+"Checksum of prev. packet"	,	L_8
+proto_register_protocol	,	F_13
+"dmx_sip.checksum_good"	,	L_37
+byte_count	,	V_12
+"dmx_sip.seq_nr"	,	L_11
+hf_dmx_sip_sec_dev_id	,	V_32
+hf_dmx_sip_trailer	,	V_40
+"dmx_sip.dmx_nr_packets"	,	L_21
+col_set_str	,	F_4
+hf_dmx_sip_checksum_good	,	V_38
+gint	,	T_7
+" [incorrect, should be 0x%02x]"	,	L_3
+hf_dmx_sip_seq_nr	,	V_25
+"True: checksum doesn't match packet content; False: matches content"	,	L_41
+hf_dmx_sip_fourth_dev_id	,	V_34
+tvb	,	V_1
+"dmx-sip"	,	L_44
+item	,	V_15
+COL_INFO	,	V_10
+"Byte Count"	,	L_4
+FT_BOOLEAN	,	V_50
+proto_item_append_text	,	F_8
+hf_dmx_sip_third_dev_id	,	V_33
+col_clear	,	F_5
+"dmx_sip.prev_packet_checksum"	,	L_9
+cinfo	,	V_8
+"dmx_sip.fourth_dev_id"	,	L_29
+proto_register_subtree_array	,	F_16
+"5th Device's ID"	,	L_30
+hf_dmx_sip_control_bit_field	,	V_23
+array_length	,	F_15
+" [correct]"	,	L_2
+"Number of Packets"	,	L_20
+"Reserved"	,	L_32
+"Checksum"	,	L_34
+proto_tree_add_item	,	F_6
+hf_dmx_sip_checksum	,	V_37
+pinfo	,	V_6
+sum	,	V_3
+"SIP sequence nr."	,	L_10
+"4th Device's ID"	,	L_28
+hf_dmx_sip_prev_packet_checksum	,	V_24
+"dmx_sip.checksum_bad"	,	L_40
+proto_tree_add_boolean	,	F_9
+hf_register_info	,	T_6
+"dmx_sip.reserved"	,	L_33
+"True: checksum matches packet content; False: doesn't match content"	,	L_38
+"DMX SIP"	,	L_1
+COL_PROTOCOL	,	V_9
+tvb_length	,	F_11
+"Control Bit Field"	,	L_6
+FT_UINT8	,	V_43
+i	,	V_5
+BASE_DEC	,	V_44
+proto_item	,	T_5
+ENC_NA	,	V_41
+guint8	,	T_1
+checksum_shouldbe	,	V_14
+proto_register_dmx_sip	,	F_12
+ti	,	V_17
+BASE_NONE	,	V_49
+"dmx_sip.dmx_packet_len"	,	L_19
+dissect_dmx_sip	,	F_3
+"Software Version"	,	L_16
+"Good Checksum"	,	L_36
+hf_dmx_sip_dmx_proc_level	,	V_27
+register_dissector	,	F_17
+dmx_sip_checksum	,	F_1
+proto_dmx_sip	,	V_18
+hf_dmx_sip_orig_dev_id	,	V_31
+proto_reg_handoff_dmx_sip	,	F_18
+"1st Device's ID"	,	L_22
+"dmx_sip.orig_dev_id"	,	L_23
+tvbuff_t	,	T_2
+"dmx_sip.third_dev_id"	,	L_27
+BASE_HEX	,	V_46
+"Bad Checksum"	,	L_39
+"Trailer"	,	L_42
+PROTO_ITEM_SET_GENERATED	,	F_10
+"dmx_sip.dmx_software_version"	,	L_17
+"DMX512 processing level"	,	L_14
+"dmx_sip.trailer"	,	L_43
+proto_item_add_subtree	,	F_7
+proto_register_field_array	,	F_14
+hf_dmx_sip_fifth_dev_id	,	V_35
+FT_BYTES	,	V_48
+hf_dmx_sip_reserved	,	V_36
+offset	,	V_11
+ett	,	V_51
+tree	,	V_7
+hf_dmx_sip_byte_count	,	V_21
+FT_UINT16	,	V_47
+"3rd Device's ID"	,	L_26
+packet_info	,	T_3
+dmx_sip_tree	,	V_19
+hf_dmx_sip_dmx_nr_packets	,	V_30
+"dmx_sip.control_bit_field"	,	L_7
+"Standard Packet Len"	,	L_18
+tvb_get_guint8	,	F_2
+hf_dmx_sip_dmx_universe_nr	,	V_26
+"dmx_sip.fifth_dev_id"	,	L_31
+hf_dmx_sip_dmx_packet_len	,	V_29
+"DMX512 universe nr."	,	L_12
+"2nd Device's ID"	,	L_24
+"dmx_sip.sec_dev_id"	,	L_25
+hf_dmx_sip_dmx_software_version	,	V_28
+checksum	,	V_13
+ett_dmx_sip	,	V_20
+HFILL	,	V_45
+"dmx_sip.checksum"	,	L_35
+"dmx_sip.byte_count"	,	L_5
+length	,	V_2
+hf_dmx_sip_checksum_bad	,	V_39
+ENC_BIG_ENDIAN	,	V_22
+DMX_SC_SIP	,	V_4
+proto_tree	,	T_4
+checksum_tree	,	V_16
+hf	,	V_42
+"dmx_sip.dmx_proc_level"	,	L_15

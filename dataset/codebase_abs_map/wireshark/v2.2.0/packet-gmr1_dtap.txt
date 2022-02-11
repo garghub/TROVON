@@ -1,0 +1,92 @@
+register_dissector	,	F_20
+"gmr1.dtap"	,	L_16
+data	,	T_4
+gmr1_pd_vals	,	V_31
+proto_register_protocol	,	F_18
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_9
+dtap_tree	,	V_12
+gmr1_get_msg_params	,	F_8
+gmr1_pd_e	,	V_22
+gmr1_pd_short_vals	,	V_21
+len	,	V_5
+col_append_fstr	,	F_6
+gint	,	T_8
+dtap_item	,	V_11
+proto_item_add_subtree	,	F_10
+"gsm_a_dtap"	,	L_19
+proto_register_field_array	,	F_19
+proto_tree_add_uint_format	,	F_12
+FT_BYTES	,	V_33
+"lapsat.sapi"	,	L_18
+tvb	,	V_1
+oct	,	V_13
+"GMR-1 DTAP - Message Type (0x%02x)"	,	L_4
+"Protocol Discriminator"	,	L_10
+"(%s) "	,	L_2
+guint32	,	T_5
+offset	,	V_6
+ett	,	V_35
+find_dissector_add_dependency	,	F_24
+COL_INFO	,	V_20
+dissector_add_uint	,	F_23
+tree	,	V_3
+dtap_handle	,	V_37
+"(Unknown)"	,	L_9
+"gmr1.dtap.message_elements"	,	L_13
+packet_info	,	T_2
+proto_gmr1_dtap	,	V_23
+"gmr1_dtap"	,	L_17
+tvb_get_guint8	,	F_3
+proto_register_gmr1_dtap	,	F_14
+"GMR-1 DTAP - %s"	,	L_6
+tvb_captured_length	,	F_2
+cinfo	,	V_19
+proto_reg_handoff_gmr1_dtap	,	F_21
+ett_gmr1_dtap	,	V_24
+hf_gmr1_dtap_message_elements	,	V_26
+proto_register_subtree_array	,	F_16
+msg_func	,	V_7
+val_to_str	,	F_7
+array_length	,	F_17
+hf_idx	,	V_10
+proto_tree_add_uint	,	F_11
+"GMR-1 DTAP"	,	L_15
+proto_tree_add_item	,	F_13
+call_dissector	,	F_4
+pinfo	,	V_2
+dissector_handle_t	,	T_12
+_U_	,	V_4
+GMR1_PD_EXT_MSK	,	V_15
+gsm_dtap_handle	,	V_18
+col_append_str	,	F_5
+"Unknown (%u)"	,	L_3
+" (DTAP) "	,	L_1
+hf_register_info	,	T_11
+VALS	,	F_15
+HFILL	,	V_32
+"%s "	,	L_7
+"Message elements"	,	L_12
+gchar	,	T_7
+FT_UINT8	,	V_29
+ett_gmr1_pd	,	V_36
+find_dissector	,	F_22
+BASE_DEC	,	V_30
+hf_gmr1_dtap_protocol_discriminator	,	V_25
+proto_item	,	T_9
+"Message Type: %s"	,	L_8
+GMR1_PD_EXT_VAL	,	V_16
+msg_str	,	V_8
+"gmr1.dtap.protocol_discriminator"	,	L_11
+"GEO-Mobile Radio (1) DTAP"	,	L_14
+ENC_NA	,	V_27
+guint8	,	T_10
+ett_tree	,	V_9
+pd	,	V_14
+dissect_gmr1_dtap	,	F_1
+BASE_NONE	,	V_34
+"Message Type (0x%02x) "	,	L_5
+GMR1_PD_RR	,	V_17
+gmr1_msg_func_t	,	T_6
+proto_tree	,	T_3
+hf	,	V_28

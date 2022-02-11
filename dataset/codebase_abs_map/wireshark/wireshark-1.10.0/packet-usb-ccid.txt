@@ -1,0 +1,139 @@
+dissect_ccid	,	F_1
+"Chain Parameter"	,	L_18
+enum_val_t	,	T_8
+SUB_DATA	,	V_23
+hf_ccid_bClockStatus	,	V_43
+"usbccid.bBWI"	,	L_27
+"NXP PN532 with ACS Pseudo-Header"	,	L_37
+proto_register_protocol	,	F_14
+prefs_register_protocol	,	F_18
+proto_ccid	,	V_11
+"Error"	,	L_16
+tvb_new_subset_remaining	,	F_10
+col_append_fstr	,	F_6
+sub_handles	,	V_22
+PC_RDR_GET_PARAMS	,	V_28
+col_set_str	,	F_2
+gint	,	T_7
+IF_CLASS_SMART_CARD	,	V_60
+hf_ccid_bChainParameter	,	V_40
+"Clock Status"	,	L_22
+"Level Parameter"	,	L_28
+hf_ccid_bMessageType	,	V_14
+tvb	,	V_1
+item	,	V_4
+COL_INFO	,	V_10
+"USB CCID"	,	L_38
+"CCID Payload"	,	L_44
+"Slot"	,	L_10
+hf_ccid_bSlot	,	V_19
+PC_RDR_SET_PARAMS	,	V_16
+"GSM SIM"	,	L_35
+cinfo	,	V_8
+hf_ccid_wLevelParameter	,	V_31
+"pn532"	,	L_36
+proto_register_subtree_array	,	F_17
+array_length	,	F_16
+cmd	,	V_6
+next_tvb	,	V_7
+proto_tree_add_item	,	F_3
+call_dissector	,	F_11
+pinfo	,	V_2
+dissector_handle_t	,	T_10
+"Data"	,	L_31
+"gsm_sim"	,	L_34
+ett_ccid	,	V_13
+proto_register_ccid	,	F_12
+"Block Wait Time Integer"	,	L_26
+prefs_register_enum_preference	,	F_19
+hf_register_info	,	T_6
+VALS	,	F_13
+ccid_clock_states_vals	,	V_52
+hf_ccid_bProtocolNum	,	V_21
+sub_selected	,	V_32
+proto_reg_handoff_ccid	,	F_22
+"Generic ISO 7816"	,	L_33
+COL_PROTOCOL	,	V_9
+"data"	,	L_30
+FT_UINT8	,	V_45
+proto_tree_add_text	,	F_8
+BASE_DEC	,	V_50
+proto_item	,	T_4
+"usbccid"	,	L_39
+"usbccid.dwLength"	,	L_9
+ENC_NA	,	V_12
+guint8	,	T_5
+hf_ccid_bSeq	,	V_20
+"Packet Length"	,	L_8
+"usbccid.bSeq"	,	L_13
+"Voltage Level"	,	L_20
+ENC_LITTLE_ENDIAN	,	V_18
+register_dissector_table	,	F_20
+register_dissector	,	F_21
+"usbccid.bSlot"	,	L_11
+"usbccid.bError"	,	L_17
+tvbuff_t	,	T_1
+ccid_opcode_vals	,	V_47
+RDR_PC_SLOT_STATUS	,	V_42
+"Data Structure Type"	,	L_24
+ccid_proto_structs_vals	,	V_53
+PC_RDR_GET_SLOT_STATUS	,	V_27
+hf_ccid_bError	,	V_39
+BASE_HEX	,	V_46
+PC_RDR_XFR_BLOCK	,	V_29
+SUB_GSM_SIM	,	V_56
+proto_item_add_subtree	,	F_4
+tvb_get_letohl	,	F_9
+module_t	,	T_9
+"usbccid.bMessageType"	,	L_7
+proto_register_field_array	,	F_15
+"usbccid.bChainParameter"	,	L_19
+hf_ccid_bBWI	,	V_30
+"usbccid.bProtocolNum"	,	L_25
+ett	,	V_54
+P2P_DIR_RECV	,	V_41
+dissector_add_uint	,	F_24
+"usbccid.bPowerSelect"	,	L_21
+tree	,	V_3
+"USBCCID"	,	L_1
+"Sequence"	,	L_12
+packet_info	,	T_2
+"Reserved for Future Use"	,	L_5
+"iso7816"	,	L_32
+tvb_get_guint8	,	F_5
+hf_ccid_dwLength	,	V_17
+"usbccid.bClockStatus"	,	L_23
+"usbccid.wLevelParameter"	,	L_29
+" - %s"	,	L_3
+ccid_voltage_levels_vals	,	V_51
+"usbccid.payload"	,	L_43
+"prtype"	,	L_40
+SUB_PN532_ACS_PSEUDO_APDU	,	V_33
+"PC -&gt; Reader Payload Type"	,	L_41
+usb_ccid_bulk_handle	,	V_59
+pref_mod	,	V_57
+"How commands from the PC to the reader are interpreted"	,	L_42
+PC_RDR_ICC_OFF	,	V_26
+"Message Type"	,	L_6
+"CCID Packet"	,	L_2
+hf_ccid_bStatus	,	V_38
+P2P_DIR_SENT	,	V_36
+HFILL	,	V_48
+p2p_dir	,	V_35
+"Status"	,	L_14
+hf_ccid_bPowerSelect	,	V_25
+ccid_dissector_table	,	V_58
+val_to_str_const	,	F_7
+find_dissector	,	F_23
+"usb.bulk"	,	L_45
+ccid_tree	,	V_5
+RDR_PC_DATA_BLOCK	,	V_37
+"usbccid.bStatus"	,	L_15
+PC_RDR_ICC_ON	,	V_24
+FT_UINT32	,	V_49
+SUB_ISO7816	,	V_34
+sub_enum_vals	,	V_55
+ccid_messagetypes_vals	,	V_15
+"Unknown"	,	L_4
+proto_tree	,	T_3
+hf	,	V_44

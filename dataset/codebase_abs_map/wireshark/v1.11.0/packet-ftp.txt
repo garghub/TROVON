@@ -1,0 +1,270 @@
+get_token_len	,	F_21
+parse_eprt_request	,	F_6
+proto_ftp_data	,	V_104
+proto_register_protocol	,	F_42
+eprt_ip	,	V_15
+parse_extended_pasv_response	,	F_8
+response_table_ext	,	V_114
+hf_ftp_epsv_port	,	V_99
+dissect_ftpdata	,	F_34
+pasv_offset	,	V_4
+tvb_reported_length	,	F_35
+gint	,	T_7
+"ftp.request.arg"	,	L_23
+"0123456789abcdef.:"	,	L_2
+tvb	,	V_32
+guint32	,	T_3
+"NAT is active SIP and passive IP different"	,	L_36
+COL_INFO	,	V_60
+FT_BOOLEAN	,	V_107
+"ftp"	,	L_71
+isvalid_rfc2428_delimiter	,	F_5
+"Passive IP address (check NAT)"	,	L_30
+MIN	,	F_37
+cinfo	,	V_58
+"Request"	,	L_5
+proto_tree_add_ipv4	,	F_24
+proto_tree_add_ipv6	,	F_30
+wmem_strndup	,	F_2
+array_length	,	F_45
+"Active IP NAT"	,	L_43
+"FTP"	,	L_3
+"ftp.active.port"	,	L_41
+" (%s)"	,	L_14
+"ftp.eprt.af"	,	L_47
+af_str	,	V_24
+TCP_PORT_FTPDATA	,	V_127
+PT_TCP	,	V_83
+hf_ftp_eprt_ip	,	V_88
+ENC_ASCII	,	V_68
+"Extended passive port"	,	L_63
+"PORT"	,	L_8
+PROTO_ITEM_SET_HIDDEN	,	F_18
+proto_tree_add_boolean	,	F_17
+hf_register_info	,	T_14
+hf_ftp_eprt_port	,	V_91
+guint16	,	T_4
+c	,	V_8
+address	,	T_12
+COL_PROTOCOL	,	V_59
+e	,	V_31
+"FTP Data: %u bytes"	,	L_13
+forbidden	,	V_13
+delimiters_seen	,	V_18
+i	,	V_9
+n	,	V_22
+p	,	V_7
+guint8	,	V_75
+ti	,	V_38
+BASE_NONE	,	V_108
+fieldlen	,	V_20
+"Passive IP address"	,	L_28
+register_dissector	,	F_43
+ITEM_LABEL_LENGTH	,	V_105
+"Extended passive FTP server IPv4 address"	,	L_59
+format_text	,	F_14
+lastn	,	V_23
+tvbuff_t	,	T_8
+next_token	,	V_49
+hf_ftp_request_command	,	V_67
+conversation_set_dissector	,	F_29
+PROTO_ITEM_SET_GENERATED	,	F_32
+gboolean	,	T_1
+code_str	,	V_42
+proto_item_add_subtree	,	F_16
+"TRUE if FTP request"	,	L_19
+ip_str	,	V_25
+"ftp.response.arg"	,	L_27
+"Passive port"	,	L_31
+proto_register_field_array	,	F_44
+eprt_ip_len	,	V_17
+conversation	,	V_54
+ett_ftp	,	V_63
+ftp_handle	,	V_126
+ret	,	V_12
+parse_port_pasv	,	F_1
+ei	,	V_121
+"Active FTP client IP address"	,	L_39
+dissector_add_uint	,	F_51
+g_htonl	,	F_4
+inet_pton	,	F_7
+"NAT is active"	,	L_45
+"Invalid EPRT arguments"	,	L_10
+hf_ftp_epsv_ipv6	,	V_98
+tvb_get_ptr	,	F_12
+FT_UINT16	,	V_116
+is_pasv_response	,	V_45
+check_chars	,	V_103
+tvb_get_guint8	,	F_38
+expert_ftp	,	V_125
+port	,	V_11
+"ftp.active.cip"	,	L_38
+match_uint	,	V_56
+fd	,	V_80
+ftp_nat	,	V_53
+is_request	,	V_35
+ftp_tree	,	V_36
+"Response code"	,	L_24
+expert_add_info	,	F_31
+ftp_port_len	,	V_6
+hf_ftp_active_ip	,	V_72
+proto_ftp	,	V_61
+hf_ftp_response_code	,	V_69
+FT_STRING	,	V_110
+conversation_new	,	F_28
+pt_str	,	V_30
+hf_ftp_request_arg	,	V_70
+"Extended active IPv6 address"	,	L_51
+data_length	,	V_101
+find_dissector	,	F_50
+ip_address	,	V_10
+PI_WARN	,	V_123
+hf_ftp_pasv_nat	,	V_79
+AF_INET6	,	V_29
+hf_ftp_active_port	,	V_73
+FT_UINT32	,	V_111
+hf	,	V_106
+"Extended passive FTP server port"	,	L_65
+eprt_af	,	V_14
+"ftp.response"	,	L_16
+"ftp.eprt.ip"	,	L_49
+is_epasv_response	,	V_46
+FT_IPv6	,	V_119
+BASE_EXT_STRING	,	V_113
+delimiter	,	V_19
+col_set_str	,	F_10
+"Extended active FTP client IPv6 address"	,	L_53
+eprt_af_vals	,	V_118
+FT_IPv4	,	V_115
+item	,	V_92
+guchar	,	T_2
+hidden_item	,	V_39
+"ftp.passive.port"	,	L_32
+proto_item_append_text	,	F_39
+linelen	,	V_1
+"EPSV arguments must have the form (|||&lt;port&gt;|)"	,	L_69
+AF_INET	,	V_27
+"ftp.active.nat"	,	L_44
+field	,	V_21
+proto_register_subtree_array	,	F_46
+tvb_get_nstringz0	,	F_22
+tvb_find_line_end	,	F_11
+"ftp.response.code"	,	L_25
+is_text	,	V_102
+proto_tree_add_item	,	F_15
+"File Transfer Protocol (FTP)"	,	L_70
+pinfo	,	V_33
+col_add_fstr	,	F_13
+"EPRT"	,	L_9
+dissector_handle_t	,	T_17
+tokenlen	,	V_48
+ADDRESSES_EQUAL	,	F_26
+hf_ftp_eprt_af	,	V_87
+"Extended active FTP client IPv4 address"	,	L_50
+ftp_ip_address	,	V_52
+hf_ftp_response_arg	,	V_71
+AT_IPv4	,	V_74
+dissect_ftp	,	F_9
+AT_IPv6	,	V_90
+VALS	,	F_41
+"Extended passive IPv4 address"	,	L_57
+next_offset	,	V_47
+eprt_offset	,	V_51
+find_conversation	,	F_27
+tvb_length	,	F_36
+"ftp.passive.ip"	,	L_29
+FT_UINT8	,	V_117
+proto_tree_add_text	,	F_19
+BASE_DEC	,	V_112
+"ftp.epsv.args_invalid"	,	L_68
+ei_ftp_eprt_args_invalid	,	V_93
+proto_item	,	T_11
+expert_register_field_array	,	F_48
+"ftp.request"	,	L_18
+"Extended passive IPv6 address"	,	L_60
+is_port_request	,	V_43
+"ftp.epsv.port"	,	L_64
+ENC_NA	,	V_62
+ei_ftp_epsv_args_invalid	,	V_100
+"ftp.epsv.ipv6"	,	L_61
+"EPRT arguments must have the form: |&lt;family&gt;|&lt;addr&gt;|&lt;port&gt;|"	,	L_67
+"Extended active port"	,	L_54
+ett_ftp_reqresp	,	V_66
+"FTP-DATA"	,	L_12
+"ftp.eprt.ipv6"	,	L_52
+hf_ftp_pasv_ip	,	V_77
+tvb_format_text	,	F_20
+hf_ftp_active_nat	,	V_76
+"ftp.eprt.port"	,	L_55
+tvb_offset_exists	,	F_33
+ftp_ip	,	V_2
+hf_ftp_request	,	V_64
+"%s"	,	L_7
+NO_PORT2	,	V_85
+"TRUE if FTP response"	,	L_17
+"Passive FTP server port"	,	L_33
+EPRT_AF_IPv4	,	V_26
+data	,	V_96
+" (%u bytes data)"	,	L_15
+EPRT_AF_IPv6	,	V_28
+num	,	V_81
+"Active IP address"	,	L_37
+NO_PORT_B	,	V_84
+is_eprt_request	,	V_44
+"FTP Data"	,	L_72
+"Response arg"	,	L_26
+"Active port"	,	L_40
+SET_ADDRESS	,	F_25
+ei_register_info	,	T_15
+expert_register_protocol	,	F_47
+proto_register_ftp	,	F_40
+"Extended active IP address"	,	L_48
+"Passive IP NAT"	,	L_34
+proto_reg_handoff_ftp	,	F_49
+conversation_t	,	T_13
+"Response"	,	L_6
+guint	,	T_5
+"Extended active FTP client listener port"	,	L_56
+offset	,	V_40
+ett	,	V_120
+wmem_packet_scope	,	F_3
+ftp_port	,	V_3
+expert_module_t	,	T_16
+tree	,	V_34
+addr_it	,	V_94
+packet_info	,	T_9
+"Request command"	,	L_20
+hf_ftp_epsv_ip	,	V_97
+destport	,	V_57
+"Extended active address family"	,	L_46
+proto_tree_add_uint	,	F_23
+EXPFILL	,	V_124
+reqresp_tree	,	V_37
+code	,	V_41
+dst	,	V_82
+ftp_ip_len	,	V_5
+"ftp.request.command"	,	L_21
+"ftp.epsv.ip"	,	L_58
+"ftp.eprt.args_invalid"	,	L_66
+eprt_ipv6	,	V_16
+"Active FTP client port"	,	L_42
+"%s: %s"	,	L_4
+hf_ftp_pasv_port	,	V_78
+hf_ftp_response	,	V_65
+"Extended passive FTP server IPv6 address"	,	L_62
+addr	,	V_95
+HFILL	,	V_109
+PI_MALFORMED	,	V_122
+ftpdata_handle	,	V_86
+"Request arg"	,	L_22
+TCP_PORT_FTP	,	V_128
+src	,	V_55
+gchar	,	T_6
+"ftp-data"	,	L_73
+"ftp.passive.nat"	,	L_35
+"%d,%d,%d,%d,%d,%d"	,	L_1
+"Invalid EPSV arguments"	,	L_11
+pasv_ip	,	V_50
+hf_ftp_eprt_ipv6	,	V_89
+"tcp.port"	,	L_74
+proto_tree	,	T_10

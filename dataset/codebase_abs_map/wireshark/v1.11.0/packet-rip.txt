@@ -1,0 +1,155 @@
+"Seq num: %u"	,	L_11
+dissect_rip	,	F_1
+"Password"	,	L_39
+proto_rip	,	V_17
+proto_register_protocol	,	F_22
+"Next Hop router for this route"	,	L_32
+"Zero Padding"	,	L_12
+prefs_register_protocol	,	F_26
+"Routing Information Protocol"	,	L_44
+ett_auth_vec	,	V_51
+"Next Hop"	,	L_30
+"Digest Offset: %u"	,	L_8
+AFVAL_IP	,	V_27
+"Version"	,	L_18
+family_vals	,	V_57
+hf_rip_metric	,	V_37
+hf_rip_ip	,	V_38
+gint	,	T_7
+col_set_str	,	F_2
+proto_reg_handoff_rip	,	V_63
+hf_rip_family	,	V_32
+"RIPv2 Routing Domain"	,	L_25
+"Routing Domain"	,	L_23
+FT_IPv4	,	V_58
+val	,	V_41
+tvb	,	V_1
+guint32	,	T_9
+COL_INFO	,	V_14
+ett_rip	,	V_19
+"Authentication type"	,	L_36
+version	,	V_8
+UDP_PORT_RIP	,	V_65
+tvb_reported_length_remaining	,	F_12
+col_clear	,	F_3
+hf_rip_command	,	V_20
+"Route Tag"	,	L_42
+cinfo	,	V_12
+proto_register_subtree_array	,	F_25
+val_to_str	,	F_7
+"Authentication: %s"	,	L_6
+array_length	,	F_24
+dissect_rip_authentication	,	F_15
+rip_vektor_tree	,	V_29
+"rip.next_hop"	,	L_31
+rip_tree	,	V_5
+proto_tree_add_item	,	F_8
+pinfo	,	V_2
+dissector_handle_t	,	T_12
+"display_routing_domain"	,	L_46
+"rip.route_tag"	,	L_43
+ENC_ASCII	,	V_48
+"Unknown (%u)"	,	L_7
+"Auth Data Len: %u"	,	L_10
+rip_auth_type	,	V_44
+"Version of the RIP protocol"	,	L_20
+hf_rip_version	,	V_21
+hf_register_info	,	T_10
+rip_module	,	V_62
+dissect_unspec_rip_vektor	,	F_13
+VALS	,	F_21
+proto_register_rip	,	F_20
+prefs_register_bool_preference	,	F_27
+"rip.command"	,	L_16
+"Unknown address family %u"	,	L_3
+"rip"	,	L_45
+"What type of RIP Command is this"	,	L_17
+guint16	,	T_6
+COL_PROTOCOL	,	V_13
+FT_UINT8	,	V_53
+proto_tree_add_text	,	F_16
+tvb_ip_to_str	,	F_18
+BASE_DEC	,	V_54
+proto_item	,	T_4
+"RIP"	,	L_1
+"rip.family"	,	L_22
+ENC_NA	,	V_18
+guint8	,	T_5
+ti	,	V_6
+metric	,	V_30
+BASE_NONE	,	V_59
+hf_rip_next_hop	,	V_36
+command_vals	,	V_16
+"Authentication password"	,	L_41
+hf_rip_auth_passwd	,	V_47
+"Command"	,	L_15
+tvb_get_ntohl	,	F_17
+trailer_len	,	V_10
+hf_rip_routing_domain	,	V_24
+digest_off	,	V_42
+tvbuff_t	,	T_1
+"Unknown command (%u)"	,	L_2
+tvb_get_ntohs	,	F_11
+authtype	,	V_40
+"Display the third and forth bytes of the RIPv2 header as the Routing Domain field (introduced in RFC 1388 [January 1993] and obsolete as of RFC 1723 [November 1994])"	,	L_48
+RIPv2	,	V_22
+col_add_str	,	F_5
+gboolean	,	T_8
+"rip.auth.passwd"	,	L_40
+proto_item_add_subtree	,	F_9
+module_t	,	T_11
+version_vals	,	V_15
+proto_register_field_array	,	F_23
+"Metric for this route"	,	L_35
+offset	,	V_4
+ett	,	V_61
+dissector_add_uint	,	F_29
+"Address not specified, Metric: %u"	,	L_4
+tree	,	V_3
+hf_rip_netmask	,	V_35
+pref_display_routing_domain	,	V_23
+FT_UINT16	,	V_56
+packet_info	,	T_2
+tvb_get_guint8	,	F_4
+tvb_bytes_to_str_punct	,	F_19
+rip_handle	,	V_64
+"Address Family"	,	L_21
+proto_tree_add_uint	,	F_10
+RIP_HEADER_LENGTH	,	V_25
+AFVAL_UNSPEC	,	V_26
+"rip.auth.type"	,	L_37
+"IP Address"	,	L_26
+"IP Address: %s, Metric: %u"	,	L_5
+"Type of authentication"	,	L_38
+ett_rip_vec	,	V_31
+rip_authentication_tree	,	V_39
+"rip.version"	,	L_19
+dissect_ip_rip_vektor	,	F_14
+"Key ID: %u"	,	L_9
+MD5_AUTH_DATA_LEN	,	V_50
+"Authentication Data Trailer"	,	L_13
+FT_STRING	,	V_60
+AUTH_PASSWORD	,	V_46
+"rip.metric"	,	L_34
+"rip.routing_domain"	,	L_24
+HFILL	,	V_55
+"Netmask"	,	L_28
+RIP_ENTRY_LENGTH	,	V_28
+"Display Routing Domain field"	,	L_47
+hf_rip_auth	,	V_45
+"rip.netmask"	,	L_29
+AUTH_KEYED_MSG_DIGEST	,	V_49
+val_to_str_const	,	F_6
+"udp.port"	,	L_49
+is_md5_auth	,	V_11
+"Metric"	,	L_33
+create_dissector_handle	,	F_28
+auth_data_len	,	V_43
+command	,	V_7
+ENC_BIG_ENDIAN	,	V_33
+"Authentication Data: %s"	,	L_14
+hf_rip_route_tag	,	V_34
+family	,	V_9
+proto_tree	,	T_3
+hf	,	V_52
+"rip.ip"	,	L_27

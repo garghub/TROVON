@@ -1,0 +1,313 @@
+"Unhandled response command (report this, please)"	,	L_100
+dissect_request_resolve	,	F_31
+tvb_get_string_enc	,	F_34
+hf_msproxy_address_offset	,	V_104
+"Destination Address"	,	L_37
+server_int_port	,	V_29
+"msproxy.bindport"	,	L_54
+proto_register_protocol	,	F_57
+"Connect Acknowledge"	,	L_21
+"msproxy.command"	,	L_36
+"Version"	,	L_67
+"msproxy.application"	,	L_82
+conv_info	,	V_72
+gint	,	T_10
+msproxy_handle	,	V_131
+"msproxy.seq_num"	,	L_76
+tvb	,	V_1
+dissect_tcp_bind_ack	,	F_47
+"Destination"	,	L_59
+guint32	,	T_5
+COL_INFO	,	V_19
+add_msproxy_conversation	,	F_13
+"Client message: %s"	,	L_34
+MSPROXY_BINDINFO	,	V_60
+cinfo	,	V_17
+proto_tree_add_ipv4	,	F_9
+dissect_msproxy	,	F_52
+display_application_name	,	F_19
+array_length	,	F_59
+"msproxy"	,	L_102
+hf_msproxy_client_computer_name	,	V_71
+port_type	,	V_35
+MSPROXY_AUTH_2_ACK	,	V_53
+PT_TCP	,	V_21
+"msproxy.client_id"	,	L_66
+DISSECTOR_ASSERT	,	F_3
+ENC_ASCII	,	V_42
+"Authentication Acknowledge"	,	L_9
+"msproxy.server_id"	,	L_70
+ett_msproxy	,	V_23
+hf_register_info	,	T_11
+msproxy_sub_handle	,	V_36
+"Bind Info Acknowledge"	,	L_19
+MSPROXY_SESSIONEND	,	V_68
+"msproxy.command.unhandled"	,	L_99
+MSPROXY_TCP_BIND	,	V_57
+"Host Name"	,	L_91
+COL_PROTOCOL	,	V_18
+hf_msproxy_server_ext_addr	,	V_82
+remote_port	,	V_25
+decode_tcp_ports	,	F_10
+dissect_udp_assoc	,	F_37
+"Connect"	,	L_20
+dissect_auth	,	F_26
+decode_udp_ports	,	F_11
+ti	,	V_9
+BASE_NONE	,	V_121
+"msproxy.user_name"	,	L_84
+dst_port	,	V_38
+"msproxy.server_int_addr"	,	L_48
+"Server Address"	,	L_57
+"msproxy.clntport"	,	L_42
+"MS Proxy Protocol"	,	L_101
+hf_msproxy_cmd	,	V_96
+msproxy_tree	,	V_113
+MSPROXY_USERINFO	,	V_47
+"Host Name: %.*s"	,	L_28
+MSPROXY_HELLO_ACK	,	V_107
+"Client Port"	,	L_41
+"msproxy.rwsp_signature"	,	L_78
+"Bind Port"	,	L_53
+tvbuff_t	,	T_1
+MSPROXY_AUTH_2	,	V_52
+ei_msproxy_unhandled	,	V_98
+tvb_get_ntohs	,	F_25
+"Unhandled request command (report this, please)"	,	L_30
+proto_msproxy	,	V_16
+conversation_set_dissector	,	F_15
+BASE_HEX	,	V_123
+"msproxy.resolvaddr"	,	L_64
+"User name"	,	L_83
+hf_msproxy_server_id	,	V_92
+dst_addr	,	V_37
+MSPROXY_UDPASSOCIATE	,	V_64
+proto_item_add_subtree	,	F_7
+"%s (0x%02x)"	,	L_29
+MSPROXY_BIND_AUTHFAILED	,	V_110
+PI_UNDECODED	,	V_127
+proto_register_field_array	,	F_58
+conversation	,	V_7
+MSPROXY_CONNECT	,	V_62
+dissect_udp_bind	,	F_36
+ei_msproxy_unknown	,	V_111
+ei	,	V_126
+dissector_add_uint	,	F_65
+"Sequence Number"	,	L_75
+redirect_info	,	V_6
+"Server message: %s"	,	L_33
+hf_msproxy_clntport	,	V_76
+FT_UINT16	,	V_117
+dissect_bind_info	,	F_48
+tvb_get_guint8	,	F_32
+"MSproxy"	,	L_32
+tvb_captured_length	,	F_12
+"Client computer name"	,	L_87
+MSPROXY_CONNECT_AUTHFAILED	,	V_109
+proto_register_msproxy	,	F_56
+"Address"	,	L_63
+fd	,	V_32
+dissect_udpassociate_ack	,	F_43
+dissect_bind	,	F_24
+MSPROXY_LISTEN	,	V_59
+"Authentication 2"	,	L_10
+hf_msproxy_host_name	,	V_86
+expert_add_info	,	F_51
+hf_msproxy_serveraddr	,	V_100
+"Server External Port"	,	L_45
+FT_STRING	,	V_125
+cmd_item	,	V_88
+MSPROXY_RESOLVE	,	V_54
+conversation_new	,	F_14
+"TCP stream"	,	L_2
+"Server Internal Port"	,	L_49
+remote_addr	,	V_27
+"TCP Bind"	,	L_15
+"msproxy.server_ack"	,	L_72
+hf_msproxy_server_ack	,	V_93
+conversation_add_proto_data	,	F_18
+hash_entry_t	,	T_9
+hf_msproxy_bindport	,	V_75
+dissect_connect_ack	,	F_46
+length	,	V_40
+MSPROXY_AUTH_2_ACK2	,	V_108
+PI_WARN	,	V_128
+hf_msproxy_rwsp_signature	,	V_95
+proto_tree_add_uint_format_value	,	F_39
+MSPROXY_CONNREFUSED	,	V_112
+"UDP Bind"	,	L_23
+ptr	,	V_5
+ENC_BIG_ENDIAN	,	V_74
+"User Info"	,	L_6
+"msproxy.nt_domain"	,	L_94
+FT_UINT32	,	V_122
+visited	,	V_34
+"Destination Port"	,	L_39
+find_or_create_conversation	,	F_54
+"Client Id"	,	L_65
+hf_msproxy_server_int_addr	,	V_102
+hf	,	V_116
+MSPROXY_CONNECTED	,	V_67
+hf_msproxy_application_name	,	V_70
+msproxy_sub_dissector	,	F_1
+"Connected"	,	L_25
+"msproxy.server_ext_addr"	,	L_44
+"msproxy.boundport"	,	L_56
+"msproxy.serverport"	,	L_52
+clnt_port	,	V_28
+dissect_msproxy_request_1	,	F_23
+dissect_bind_info_ack	,	F_30
+hf_msproxy_server_int_port	,	V_80
+col_set_str	,	F_5
+dissect_user_info_2	,	F_22
+"Application"	,	L_81
+get_msproxy_cmd_name	,	F_21
+hf_msproxy_dstport	,	V_24
+hf_msproxy_application	,	V_41
+hf_msproxy_req_resolve_length	,	V_85
+FT_IPv4	,	V_120
+col_clear	,	F_53
+MSPROXY_UDP_BIND_REQ	,	V_65
+dissect_msproxy_response_4	,	F_45
+proto_register_subtree_array	,	F_60
+new_conv_info	,	V_31
+cmd	,	V_43
+"UDP packets"	,	L_3
+UDP_PORT_MSPROXY	,	V_114
+"Listen"	,	L_17
+proto_tree_add_item	,	F_6
+pinfo	,	V_2
+hf_msproxy_client_id	,	V_89
+col_add_fstr	,	F_55
+dissector_handle_t	,	T_14
+_U_	,	V_4
+flags	,	V_33
+"Client ack"	,	L_73
+hf_msproxy_boundport	,	V_77
+hash_info	,	V_30
+MSPROXY_AUTH	,	V_50
+hf_msproxy_serverport	,	V_99
+tvb_get_ipv4	,	F_29
+name_tree	,	V_83
+"Bind"	,	L_14
+"Hello"	,	L_4
+"Resolve"	,	L_12
+find_conversation	,	F_2
+FT_UINT8	,	V_124
+"msproxy.dstport"	,	L_40
+"Resolve Acknowledge"	,	L_13
+BASE_DEC	,	V_118
+"msproxy.unknown"	,	L_97
+"Bind or Associate Acknowledge"	,	L_24
+proto_item	,	T_8
+hf_msproxy_bindaddr	,	V_73
+expert_register_field_array	,	F_62
+"Bound Port Id"	,	L_61
+"Authentication"	,	L_8
+"Bound Port"	,	L_55
+"msproxy.bindaddr"	,	L_60
+tvb_strnlen	,	F_20
+"MS Proxy"	,	L_1
+ENC_NA	,	V_22
+expert_add_info_format	,	F_40
+ENC_LITTLE_ENDIAN	,	V_90
+dissect_msproxy_response	,	F_50
+"Command"	,	L_35
+dissect_user_info_ack	,	F_42
+"TCP Bind Acknowledge"	,	L_16
+data	,	T_4
+num	,	V_10
+"Server id"	,	L_69
+"0x%02x (%s)"	,	L_31
+MSPROXY_RESOLVE_ACK	,	V_55
+dissect_resolve	,	F_49
+hf_msproxy_user_name	,	V_69
+"msproxy.client_ack"	,	L_74
+"msproxy.serveraddr"	,	L_58
+"msproxy.bindid"	,	L_62
+"Address offset"	,	L_95
+"NTLMSSP signature"	,	L_79
+FROM_SERVER	,	V_48
+ei_register_info	,	T_12
+expert_register_protocol	,	F_61
+"UDP Associate"	,	L_22
+hf_msproxy_seq_num	,	V_94
+"msproxy.version"	,	L_68
+"Application name"	,	L_85
+proto_reg_handoff_msproxy	,	F_64
+conversation_t	,	T_7
+addr_offset	,	V_103
+"Server External Address"	,	L_43
+"Length"	,	L_89
+offset	,	V_39
+ett	,	V_115
+wmem_packet_scope	,	F_35
+expert_module_t	,	T_13
+"msproxy.server_ext_port"	,	L_46
+tree	,	V_3
+PT_UDP	,	V_87
+"msproxy.address_offset"	,	L_96
+hf_msproxy_ntlmssp_signature	,	V_78
+dissect_hello_ack	,	F_41
+packet_info	,	T_2
+MSPROXY_HELLO_2	,	V_45
+MSPROXY_UDPASSOCIATE_ACK	,	V_66
+"msproxy.server_int_port"	,	L_50
+ett_msproxy_name	,	V_84
+proto	,	V_20
+expert_msproxy	,	V_130
+destport	,	V_15
+dissect_auth_1_ack	,	F_44
+"Server ack"	,	L_71
+"msproxy.ntlmssp_signature"	,	L_80
+proto_tree_add_uint	,	F_8
+EXPFILL	,	V_129
+hf_msproxy_nt_domain	,	V_101
+dissect_msproxy_request	,	F_38
+dst	,	V_12
+"msproxy.dstaddr"	,	L_38
+"NT domain"	,	L_93
+conversation_get_proto_data	,	F_4
+ptype	,	V_13
+dissect_tcp_bind	,	F_27
+"Server Port"	,	L_51
+MSPROXY_AUTH_1_ACK	,	V_51
+redirect_entry_t	,	T_6
+"msproxy.client_computer_name"	,	L_88
+MSPROXY_TCP_BIND_ACK	,	V_58
+"Bind Info"	,	L_18
+dissect_request_connect	,	F_28
+"RWSP signature"	,	L_77
+MSPROXY_HELLO	,	V_46
+MSPROXY_USERINFO_ACK	,	V_49
+wmem_file_scope	,	F_17
+"Authentication 2 Acknowledge"	,	L_11
+"Hello Acknowledge"	,	L_5
+HFILL	,	V_119
+direction	,	V_44
+hf_msproxy_server_ext_port	,	V_81
+hf_msproxy_resolvaddr	,	V_105
+"msproxy.req_resolve.length"	,	L_90
+hf_msproxy_version	,	V_91
+"msproxy.host_name"	,	L_92
+src	,	V_11
+"msproxy.application_name"	,	L_86
+wmem_new	,	F_16
+"udp.port"	,	L_103
+create_dissector_handle	,	F_63
+proto_tree_add_subtree_format	,	F_33
+"Session End"	,	L_26
+msp_tree	,	V_8
+"User Info Acknowledge"	,	L_7
+"No know information (help wanted)"	,	L_98
+MSPROXY_CONNECT_ACK	,	V_63
+hf_msproxy_dstaddr	,	V_26
+"Server Internal Address"	,	L_47
+MSPROXY_BINDINFO_ACK	,	V_61
+srcport	,	V_14
+MSPROXY_BIND	,	V_56
+"Unknown"	,	L_27
+hf_msproxy_client_ack	,	V_106
+FROM_CLIENT	,	V_97
+proto_tree	,	T_3
+hf_msproxy_bind_id	,	V_79

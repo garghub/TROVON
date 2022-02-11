@@ -1,0 +1,129 @@
+mpeg_sect_module	,	V_63
+MPEG_SECT_SYNTAX_INDICATOR_MASK	,	V_30
+"verify_crc"	,	L_21
+"CRC 32"	,	L_17
+msg_error	,	V_39
+ssi	,	V_11
+proto_register_protocol	,	F_23
+bcd_time_offset	,	V_4
+MPEG_SECT_LENGTH_MASK	,	V_28
+"mpeg_sect"	,	L_20
+proto_mpeg_sect	,	V_51
+prefs_register_protocol	,	F_28
+len	,	V_15
+utc_time	,	V_3
+tmp	,	V_14
+gint	,	T_1
+col_set_str	,	F_17
+proto_tree_add_uint_format	,	F_12
+tvb	,	V_1
+crc32_mpeg2_tvb_offset	,	F_11
+guint32	,	T_10
+COL_INFO	,	V_50
+proto_register_mpeg_sect	,	F_21
+proto_item_append_text	,	F_20
+"mpeg_sect.tid"	,	L_10
+section_length	,	V_43
+"MPEG SECT Table ID"	,	L_24
+"MPEG SECT"	,	L_6
+reserved	,	V_12
+mpeg_sect_check_crc	,	V_37
+cinfo	,	V_48
+PI_ERROR	,	V_41
+proto_register_subtree_array	,	F_27
+calculated_crc	,	V_35
+array_length	,	F_26
+items	,	V_13
+"Reserved"	,	L_13
+proto_tree_add_item	,	F_8
+pinfo	,	V_31
+col_add_fstr	,	F_18
+packet_mpeg_sect_header_extra	,	F_7
+PACKET_MPEG_SECT_PI__LENGTH	,	V_26
+"MPEG2 Section"	,	L_19
+"Verified"	,	L_2
+sec	,	V_7
+min	,	V_6
+hf_mpeg_sect_syntax_indicator	,	V_23
+hf_mpeg_sect_table_id	,	V_20
+hf_register_info	,	T_11
+VALS	,	F_22
+"Syntax indicator"	,	L_11
+"Verify the section CRC"	,	L_22
+prefs_register_bool_preference	,	F_29
+ett_mpeg_sect	,	V_53
+sect_len	,	V_10
+COL_PROTOCOL	,	V_49
+MPEG_SECT_BCD44_TO_DEC	,	F_4
+FT_UINT8	,	V_55
+i	,	V_18
+BASE_DEC	,	V_60
+"mpeg_sect.syntax_indicator"	,	L_12
+"mpeg_sect.len"	,	L_16
+proto_item	,	T_8
+mpeg_sect_tid_dissector_table	,	V_47
+ENC_NA	,	V_52
+guint8	,	T_4
+expert_add_info_format	,	F_14
+ti	,	V_45
+secs	,	V_8
+PACKET_MPEG_SECT_PI__TABLE_ID	,	V_19
+"Whether the section dissector should verify the CRC"	,	L_23
+register_dissector_table	,	F_30
+register_dissector	,	F_24
+tvb_get_ntohl	,	F_10
+packet_mpeg_sect_mjd_to_utc_time	,	F_1
+"mpeg_sect.crc"	,	L_18
+"Table ID"	,	L_9
+syntax_indicator	,	V_44
+tvbuff_t	,	T_2
+table_id	,	V_42
+tvb_get_ntohs	,	F_3
+BASE_HEX	,	V_56
+PROTO_ITEM_SET_GENERATED	,	F_13
+gboolean	,	T_7
+dissect_mpeg_sect	,	F_15
+proto_item_add_subtree	,	F_19
+hf_mpeg_sect_length	,	V_27
+module_t	,	T_12
+nstime_t	,	T_3
+proto_register_field_array	,	F_25
+guint	,	T_5
+" Table_ID=0x%02x"	,	L_8
+"Length"	,	L_15
+offset	,	V_2
+ett	,	V_62
+PACKET_MPEG_SECT_PI__RESERVED	,	V_24
+"Unverified"	,	L_1
+tree	,	V_9
+"Invalid CRC"	,	L_5
+PACKET_MPEG_SECT_PI__SIZE	,	V_17
+FT_UINT16	,	V_59
+packet_info	,	T_9
+tvb_get_guint8	,	F_5
+nstime_set_zero	,	F_2
+packet_mpeg_sect_header	,	F_6
+"CRC: 0x%08x [Failed Verification (Calculated: 0x%08x)]"	,	L_4
+MPEG_SECT_RESERVED_MASK	,	V_29
+"mpeg_sect.reserved"	,	L_14
+PACKET_MPEG_SECT_PI__SSI	,	V_22
+hour	,	V_5
+crc	,	V_34
+"CRC: 0x%08x [%s]"	,	L_3
+end	,	V_33
+hf_mpeg_sect_reserved	,	V_25
+PI_MALFORMED	,	V_40
+HFILL	,	V_58
+dissector_try_uint	,	F_16
+"Table ID 0x%02x"	,	L_7
+start	,	V_32
+mpeg_sect_table_id_vals	,	V_57
+label	,	V_36
+packet_mpeg_sect_crc	,	F_9
+ENC_BIG_ENDIAN	,	V_21
+FT_UINT32	,	V_61
+hf_mpeg_sect_crc	,	V_38
+pi	,	V_16
+mpeg_sect_tree	,	V_46
+proto_tree	,	T_6
+hf	,	V_54

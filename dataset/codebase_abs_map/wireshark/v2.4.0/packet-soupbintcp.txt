@@ -1,0 +1,188 @@
+this_seq	,	V_15
+"Sequence number"	,	L_34
+tvb_get_string_enc	,	F_10
+sub_tvb	,	V_48
+"Password"	,	L_27
+"Request to begin (re)transmission of Sequenced Data at this "	,	L_42
+proto_register_protocol	,	F_36
+prefs_register_protocol	,	F_40
+register_heur_dissector_list	,	F_42
+hf_soupbintcp_next_seq_num	,	V_39
+", SeqNum=%u"	,	L_7
+tvb_new_subset_remaining	,	F_27
+"soupbintcp.packet_length"	,	L_10
+col_append_fstr	,	F_20
+hf_soupbintcp_username	,	V_43
+tcp_dissect_pdus	,	F_33
+ei_soupbintcp_next_seq_num_invalid	,	V_40
+gint	,	T_10
+col_set_str	,	F_6
+conv_data	,	V_4
+conv	,	V_11
+"soupbintcp.session"	,	L_31
+dissector_add_uint_range_with_preference	,	F_47
+soupbintcp_module	,	V_68
+hf_soupbintcp_packet_length	,	V_34
+tvb	,	V_1
+COL_INFO	,	V_23
+"soupbintcp"	,	L_49
+hf_soupbintcp_seq_num	,	V_42
+hf_soupbintcp_text	,	V_37
+"Sequence number of next Sequenced Data message to be delivered"	,	L_39
+"Reassemble SoupBinTCP messages spanning multiple TCP segments"	,	L_51
+proto_item_append_text	,	F_23
+soupbintcp_handle	,	V_69
+pkt_name	,	V_6
+proto_tree_add_string_format_value	,	F_25
+cinfo	,	V_21
+p_get_proto_data	,	F_19
+dissect_soupbintcp_tcp	,	F_32
+PI_ERROR	,	V_66
+proto_register_subtree_array	,	F_39
+gint32	,	T_4
+val_to_str	,	F_5
+"Request to begin (re)transmission is an invalid string"	,	L_48
+hf_soupbintcp_packet_type	,	V_36
+array_length	,	F_38
+"Session"	,	L_30
+""	,	L_55
+proto_tree_add_item	,	F_21
+dissector_try_heuristic	,	F_28
+pinfo	,	V_2
+"%u (Calculated)"	,	L_8
+_U_	,	V_50
+"Login Reject Code"	,	L_15
+ENC_ASCII	,	V_24
+"Unknown (%u)"	,	L_1
+soupbintcp_desegment	,	V_51
+proto_register_soupbintcp	,	F_34
+hf_register_info	,	T_15
+VALS	,	F_35
+"Message"	,	L_18
+"Requested sequence number"	,	L_40
+prefs_register_bool_preference	,	F_41
+key	,	V_17
+get_soupbintcp_pdu_len	,	F_29
+", %s"	,	L_4
+guint16	,	T_8
+COL_PROTOCOL	,	V_22
+find_conversation	,	F_16
+seq_num_valid	,	V_8
+"soupbintcp.message"	,	L_19
+"Content of SoupBinTCP frame"	,	L_20
+"Packet length, in bytes, NOT including these two bytes."	,	L_11
+BASE_DEC	,	V_55
+"User's login password"	,	L_29
+"soupbintcp.seq_num"	,	L_35
+proto_item	,	T_6
+"X"	,	L_5
+"next message generated"	,	L_44
+expert_register_field_array	,	F_44
+ENC_NA	,	V_32
+hf_soupbintcp_reject_code	,	V_41
+guint8	,	T_9
+"Packet Length"	,	L_9
+ti	,	V_9
+BASE_NONE	,	V_61
+proto_reg_handoff_soupbintcp	,	F_45
+wmem_alloc	,	F_13
+"Packet Type"	,	L_12
+FT_CHAR	,	V_57
+"soupbintcp.req_seq_num.invalid"	,	L_45
+data	,	T_13
+num	,	V_25
+tvbuff_t	,	T_1
+seq_num	,	V_7
+tvb_get_ntohs	,	F_3
+"desegment"	,	L_50
+"soupbintcp.next_seq_num.invalid"	,	L_47
+"soupbintcp.password"	,	L_28
+proto_soupbintcp	,	V_31
+BASE_HEX	,	V_58
+"SoupBinTCP"	,	L_2
+col_add_str	,	F_7
+"soupbintcp.text"	,	L_22
+ei_register_info	,	T_16
+gboolean	,	T_5
+expert_register_protocol	,	F_43
+proto_item_add_subtree	,	F_22
+expert_soupbinttcp	,	V_52
+module_t	,	T_17
+reject_code_val	,	V_59
+proto_register_field_array	,	F_37
+FT_BYTES	,	V_60
+"Debug Text"	,	L_21
+conversation_t	,	T_7
+ei_soupbintcp_req_seq_num_invalid	,	V_46
+"Free-form, human-readable text"	,	L_23
+guint	,	T_11
+offset	,	V_14
+ett	,	V_63
+ei	,	V_64
+wmem_packet_scope	,	F_11
+expert_module_t	,	T_14
+tree	,	V_3
+hf_soupbintcp_req_seq_num	,	V_45
+heur_dtbl_entry_t	,	T_12
+pdu_data	,	V_5
+"Message type code"	,	L_14
+FT_UINT16	,	V_54
+"User's login name"	,	L_26
+packet_info	,	T_2
+tvb_raw_offset	,	F_2
+tvb_get_guint8	,	F_4
+p_add_proto_data	,	F_18
+tvb_captured_length	,	F_31
+"Whether the SoupBinTCP dissector should reassemble messages "	,	L_52
+destport	,	V_30
+EXPFILL	,	V_67
+pkt_type	,	V_13
+PINFO_FD_VISITED	,	F_8
+dst	,	V_27
+"soupbintcp.next_seq_num"	,	L_38
+hf_soupbintcp_message	,	V_47
+"Login reject reason code"	,	L_17
+expert_add_info	,	F_26
+conversation_get_proto_data	,	F_17
+ptype	,	V_28
+ett_soupbintcp	,	V_33
+"%d"	,	L_6
+"Session identifier, or send all spaces to log into the currently "	,	L_32
+"Calculated sequence number for this message"	,	L_36
+"Next sequence number"	,	L_37
+FT_STRING	,	V_62
+ws_strtoi32	,	F_24
+conversation_new	,	F_12
+expected_len	,	V_12
+"soupbintcp.reject_code"	,	L_16
+wmem_file_scope	,	F_14
+"sequence number, or, if zero, to begin transmission with the "	,	L_43
+HFILL	,	V_56
+PI_MALFORMED	,	V_65
+"soupbintcp.req_seq_num"	,	L_41
+dissect_soupbintcp_tcp_pdu	,	F_30
+ws_strtou32	,	F_9
+src	,	V_26
+conversation_add_proto_data	,	F_15
+soupbintcp_tree	,	V_10
+"Sequence number of next Sequenced Data message to be delivered is an invalid string"	,	L_46
+create_dissector_handle	,	F_46
+"soupbintcp.username"	,	L_25
+hf_soupbintcp_session	,	V_38
+heur_subdissector_list	,	V_49
+"soupbintcp.packet_type"	,	L_13
+dissect_soupbintcp_common	,	F_1
+ENC_BIG_ENDIAN	,	V_35
+"active session"	,	L_33
+pkt_type_val	,	V_20
+"User Name"	,	L_24
+next_seq	,	V_16
+pi	,	V_19
+srcport	,	V_29
+hdtbl_entry	,	V_18
+"spanning multiple TCP segments."	,	L_53
+"tcp.port"	,	L_54
+proto_tree	,	T_3
+", SeqNum = %u"	,	L_3
+hf_soupbintcp_password	,	V_44
+hf	,	V_53

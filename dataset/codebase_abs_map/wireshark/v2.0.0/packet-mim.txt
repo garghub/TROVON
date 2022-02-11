@@ -1,0 +1,179 @@
+slid	,	V_36
+"Cisco FabricPath, Src: %03x.%02x.%04x, Dst: %s"	,	L_1
+FP_PROTO_COL_NAME	,	V_44
+dest_ig	,	V_41
+proto_register_protocol	,	F_25
+hf_s_hmac	,	V_57
+FP_OOO_MASK	,	V_82
+ETHERTYPE_DCE	,	V_5
+FP_TTL_MASK	,	V_70
+prefs_register_protocol	,	F_26
+proto_tree_add_ether	,	F_18
+address_with_resolution_to_str	,	F_15
+tvb_new_subset_remaining	,	F_20
+fp_addr_tree	,	V_31
+hf_ftag	,	V_58
+hf_ig	,	V_21
+"FTAG field identifying forwarding distribution tree."	,	L_16
+ssswid	,	V_35
+col_set_str	,	F_9
+FT_ETHER	,	V_66
+gint	,	T_12
+AT_ETHER	,	V_49
+"Source or Destination Port index on switch in FabricPath network"	,	L_31
+"Destination Hierarchical MAC"	,	L_10
+FP_HMAC_SSWID_MASK	,	V_12
+TFS	,	F_24
+tvb	,	V_1
+FP_EID_MASK	,	V_16
+"The remaining hop count for this frame"	,	L_19
+"Specifies if this is an individual (unicast) or group (broadcast/multicast) address"	,	L_37
+COL_INFO	,	V_45
+hf_swid	,	V_23
+FT_BOOLEAN	,	V_76
+hmac_src	,	V_33
+hf_sswid	,	V_25
+"End Node ID"	,	L_26
+"Destination: %03x.%02x.%04x"	,	L_3
+cinfo	,	V_42
+"cfp.d_hmac"	,	L_9
+proto_register_subtree_array	,	F_30
+array_length	,	F_29
+"I/G bit"	,	L_35
+hf_eid	,	V_17
+next_tvb	,	V_32
+eid	,	V_15
+FP_FTAG_MASK	,	V_69
+proto_tree_add_item	,	F_8
+call_dissector	,	F_21
+"cfp.s_hmac"	,	L_6
+"MC Destination"	,	L_11
+pinfo	,	V_2
+hf_d_hmac	,	V_54
+_U_	,	V_4
+"cfp.ul"	,	L_33
+swid	,	V_8
+"cfp.ooodl"	,	L_39
+"FTAG"	,	L_14
+prefs_initialized	,	V_86
+FP_HMAC_LEN	,	V_56
+FP_HEADER_SIZE	,	V_51
+FP_HMAC_SWID_MASK	,	V_11
+dswid	,	V_37
+"cfp.swid"	,	L_21
+hf_register_info	,	T_11
+"Source Hierarchical MAC"	,	L_7
+"cfp.eid"	,	L_27
+ul_tfs	,	V_77
+"cfp.ig"	,	L_36
+"Specifies if this is a locally administered or globally unique (IEEE assigned) address"	,	L_34
+guint16	,	T_6
+COL_PROTOCOL	,	V_43
+address	,	T_10
+GUINT64_TO_BE	,	F_11
+FP_SWID_MASK	,	V_73
+FT_UINT8	,	V_74
+hf_ttl	,	V_60
+BASE_DEC	,	V_68
+"Cisco FabricPath End node ID"	,	L_28
+"CFP"	,	L_42
+"switch-id"	,	L_20
+"enable"	,	L_44
+FP_SSWID_LEN	,	V_26
+proto_item	,	T_8
+"Switch-id/nickname of switch in FabricPath network"	,	L_22
+fp_add_hmac	,	F_6
+"OOO/DL Bit"	,	L_38
+ENC_NA	,	V_20
+guint8	,	T_9
+hf_ooodl	,	V_22
+FP_LID_LEN	,	V_28
+ti	,	V_29
+BASE_NONE	,	V_64
+FP_PROTO_COL_INFO	,	V_46
+"cfp.ftag"	,	L_15
+"cfp"	,	L_43
+"cfp.ttl"	,	L_18
+tvb_get_ntoh48	,	F_10
+FP_FTAG_LEN	,	V_59
+data	,	T_5
+hf_lid	,	V_27
+fp_is_ig_set	,	F_4
+"cfp.sswid"	,	L_24
+lid	,	V_10
+tvbuff_t	,	T_2
+proto_tree_add_protocol_format	,	F_14
+"sub-switch-id"	,	L_23
+proto_fp	,	V_50
+proto_register_mim	,	F_23
+dlid	,	V_39
+tvb_get_ntohs	,	F_2
+dissect_fp_heur	,	F_1
+"Sub-switch-id of switch in FabricPath network"	,	L_25
+SET_ADDRESS	,	F_13
+hf_ul	,	V_19
+FP_HMAC_IG_MASK	,	V_7
+FT_UINT24	,	V_71
+gboolean	,	T_1
+"Source LID"	,	L_29
+eth_dissector	,	V_61
+dst_addr	,	V_40
+"cfp.d_hmac_mc"	,	L_12
+FP_UL_MASK	,	V_78
+proto_item_add_subtree	,	F_17
+module_t	,	T_13
+proto_register_field_array	,	F_28
+dissect_fp	,	F_3
+dsswid	,	V_38
+FP_3B_EID_MASK	,	V_75
+visible	,	V_47
+FT_NONE	,	V_63
+offset	,	V_14
+ett	,	V_83
+"Cisco FabricPath over Ethernet"	,	L_46
+FP_BF_LEN	,	V_18
+wmem_packet_scope	,	F_16
+ig_tfs	,	V_79
+tree	,	V_3
+FT_UINT16	,	V_67
+packet_info	,	T_3
+"fp_eth"	,	L_47
+"Specifies Out of Order Delivery OK in destination address and Do Not Learn when set in source address"	,	L_40
+"Source: %03x.%02x.%04x"	,	L_4
+tvb_captured_length	,	F_22
+ether_addr	,	V_48
+fp_get_hmac_addr	,	F_5
+fp_tree	,	V_30
+ooodl_tfs	,	V_81
+HEURISTIC_DISABLE	,	V_87
+"cfp.lid"	,	L_30
+proto_tree_add_uint	,	F_7
+BASE_DEC_HEX	,	V_72
+"eth"	,	L_45
+FP_HMAC_LID_MASK	,	V_13
+ett_hmac	,	V_55
+hmac_dst	,	V_34
+"Source HMAC"	,	L_5
+FP_IG_MASK	,	V_80
+proto_reg_handoff_fabricpath	,	V_85
+heur_dissector_add	,	F_31
+hmac	,	V_6
+HFILL	,	V_65
+"Cisco FabricPath, Src: %03x.%02x.%04x, Dst: %03x.%02x.%04x"	,	L_2
+prefs_register_obsolete_preference	,	F_27
+ett_mim	,	V_52
+"Cisco FabricPath"	,	L_41
+"U/L bit"	,	L_32
+proto_tree_add_none_format	,	F_19
+mim_module	,	V_84
+find_dissector	,	F_32
+"Multicast Destination Address"	,	L_13
+ENC_BIG_ENDIAN	,	V_24
+"Destination HMAC"	,	L_8
+PTREE_DATA	,	F_12
+hf_d_hmac_mc	,	V_53
+sswid	,	V_9
+guint64	,	T_7
+proto_tree	,	T_4
+hf	,	V_62
+"TTL"	,	L_17

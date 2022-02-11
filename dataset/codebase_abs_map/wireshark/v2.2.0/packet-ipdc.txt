@@ -1,0 +1,216 @@
+hf_ipdc_ascii	,	V_52
+"data trailing end of tags"	,	L_43
+tag_description_ext	,	V_48
+last_ipdc_port_pref	,	V_95
+proto_register_protocol	,	F_33
+des	,	V_11
+len	,	V_17
+tcp_dissect_pdus	,	F_30
+gint	,	T_9
+"ipdc"	,	L_50
+"Invalid IP address length"	,	L_48
+tvb	,	V_2
+"Reassemble IPDC messages spanning multiple TCP segments"	,	L_52
+guint32	,	T_10
+"%s (0x%2.2x): %u"	,	L_7
+COL_INFO	,	V_30
+hf_ipdc_trans_id	,	V_43
+hf_ipdc_data_trailing_end_of_tags	,	V_47
+"N(r)"	,	L_13
+proto_tree_add_expert_format	,	F_22
+"IPDC"	,	L_2
+cinfo	,	V_28
+IPDC_UNKNOWN	,	V_50
+array_length	,	F_35
+"Unknown type"	,	L_45
+gshort	,	T_11
+proto_register_ipdc	,	F_31
+""	,	L_1
+call_dissector	,	F_25
+ipdc_tcp_handle	,	V_96
+trans_id	,	V_26
+DISSECTOR_ASSERT	,	F_15
+"ipdc.ns"	,	L_17
+hf_register_info	,	T_13
+proto_tree_add_bytes_format	,	F_26
+TRANS_ID_SIZE_IPDC	,	V_38
+"ipdc.trans_id_size"	,	L_24
+guint16	,	T_12
+"%s (0x%2.2x): Invalid IP address length %u"	,	L_9
+COL_PROTOCOL	,	V_29
+i	,	V_18
+encoding_type_vals	,	V_71
+hf_ipdc_message_code	,	V_44
+"N(s)"	,	L_16
+ti	,	V_6
+message_code	,	V_27
+BASE_NONE	,	V_81
+value_string	,	T_8
+enum_val	,	V_12
+line_status_vals	,	V_63
+"Transaction ID"	,	L_25
+tvb_get_ntohl	,	F_11
+"ASCII value"	,	L_29
+expert_ipdc	,	V_92
+tvbuff_t	,	T_4
+tvb_get_ntohs	,	F_2
+val_to_str_ext_const	,	F_14
+tvb_memcpy	,	F_16
+trans_id_size	,	V_25
+BASE_HEX	,	V_79
+"Protocol ID"	,	L_21
+proto_item_add_subtree	,	F_8
+hf_ipdc_nr	,	V_34
+module_t	,	T_15
+hf_ipdc_ns	,	V_36
+hf_ipdc_protocol_id	,	V_41
+proto_register_field_array	,	F_34
+FT_BYTES	,	V_80
+ipdc_module	,	V_91
+"Line Status value"	,	L_35
+ei	,	V_87
+ett_ipdc_tag	,	V_45
+dissector_add_uint	,	F_45
+IPDC_STR_LEN	,	V_14
+hf_ipdc_enctype	,	V_70
+FT_UINT16	,	V_78
+IPDC_TAG	,	F_18
+ipdc_tree	,	V_7
+tvb_get_guint8	,	F_4
+dissect_ipdc_tcp	,	F_29
+proto_tree_add_string_format	,	F_17
+tvb_captured_length	,	F_27
+IPDC_LINESTATUS	,	V_60
+"ipdc.ipv4.invalid_length"	,	L_47
+dissector_delete_uint	,	F_42
+"IPv4 value"	,	L_33
+proto_reg_handoff_ipdc	,	V_93
+IPDC_UINT	,	V_53
+FT_STRING	,	V_82
+ipdc_port_pref	,	V_94
+tmp_tag	,	V_21
+"ipdc.trans_id"	,	L_26
+IPDC_CHANNELSTATUS	,	V_61
+"Whether the IPDC dissector should reassemble messages spanning multiple TCP segments."	,	L_53
+"Channel Status value"	,	L_37
+val_to_str_const	,	F_12
+"ipdc.channel_status"	,	L_38
+"IP Device Control (SS7 over IP)"	,	L_49
+PI_WARN	,	V_89
+ipdc_desegment	,	V_73
+ENC_BIG_ENDIAN	,	V_35
+FT_UINT32	,	V_83
+"ipdc.enctype"	,	L_40
+"%s (0x%2.2x): %s:%u"	,	L_8
+hf_ipdc_channel_status	,	V_66
+hf	,	V_74
+"Transmit sequence number"	,	L_18
+tmp_tag_text	,	V_13
+proto_tree_add_ipv4_format	,	F_20
+"ipdc.message_code"	,	L_28
+prefs_register_protocol	,	F_39
+"r=%u s=%u "	,	L_3
+proto_tree_add_subtree	,	F_13
+val_ptr	,	V_15
+col_append_fstr	,	F_6
+col_set_str	,	F_5
+proto_tree_add_uint_format	,	F_19
+FT_IPv4	,	V_84
+find_dissector_add_dependency	,	F_44
+q931_tvb	,	V_10
+"0x%2.2x: %s"	,	L_12
+"ipdc.ascii"	,	L_30
+col_set_fence	,	F_10
+"ipdc.uint"	,	L_32
+IPDC_IPA	,	V_57
+TEXT_UNDEFINED	,	V_40
+"Message code"	,	L_27
+proto_register_subtree_array	,	F_36
+get_ipdc_pdu_len	,	F_1
+q931_handle	,	V_68
+"%s (0x%2.2x)"	,	L_10
+status	,	V_19
+proto_tree_add_item	,	F_7
+pinfo	,	T_3
+dissector_handle_t	,	T_17
+_U_	,	V_1
+dissect_ipdc_tcp_pdu	,	F_28
+ett_ipdc_line_status	,	V_62
+hf_ipdc_type_unknown	,	V_72
+tag_tree	,	V_8
+VALS	,	F_32
+prefs_register_bool_preference	,	F_40
+hf_ipdc_line_status	,	V_65
+PI_PROTOCOL	,	V_88
+hf_ipdc_uint	,	V_56
+FT_UINT8	,	V_75
+tvb_ip_to_str	,	F_21
+BASE_DEC	,	V_76
+proto_item	,	T_7
+channel_status_vals	,	V_64
+expert_register_field_array	,	F_38
+hf_ptr	,	V_16
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_54
+ENC_NA	,	V_32
+ipdc_tag_types	,	V_49
+IPDC_BYTE	,	V_54
+IPDC_ENCTYPE	,	V_69
+hf_ipdc_payload_len	,	V_37
+data	,	T_5
+"ipdc.data_trailing_end_of_tags"	,	L_44
+tag_enum_type_ext	,	V_55
+prefs_register_uint_preference	,	F_41
+ei_register_info	,	T_14
+expert_register_protocol	,	F_37
+"ipdc.end_of_tags"	,	L_42
+"Payload length"	,	L_19
+tag	,	V_20
+"ipdc.ipv4"	,	L_34
+IPDC_Q931	,	V_67
+"ipdc.nr"	,	L_14
+guint	,	T_1
+FT_NONE	,	V_85
+offset	,	V_3
+IPDC_ASCII	,	V_51
+ett	,	V_86
+payload_len	,	V_24
+expert_module_t	,	T_16
+tree	,	V_5
+"Enctype value"	,	L_39
+"%s (0x%2.2x) %.2u: %u (%s)"	,	L_11
+packet_info	,	T_2
+hf_ipdc_end_of_tags	,	V_46
+"Receive sequence number"	,	L_15
+"IPDC monitoring port"	,	L_56
+raw_len	,	V_4
+proto_ipdc	,	V_31
+"Transaction ID size"	,	L_23
+dissect_ipdc_common	,	F_3
+"ipdc.length"	,	L_20
+proto_tree_add_uint	,	F_9
+EXPFILL	,	V_90
+nr	,	V_22
+ns	,	V_23
+"Set the IPDC monitoring port"	,	L_57
+ett_ipdc	,	V_33
+ei_ipdc_ipv4	,	V_59
+message_code_vals	,	V_39
+tvb_new_subset_length	,	F_24
+HFILL	,	V_77
+"IPDC tags"	,	L_5
+"%s (0x%2.2x): %s"	,	L_6
+"desegment_ipdc_messages"	,	L_51
+"TID=%x %s "	,	L_4
+"ipdc.protocol_id"	,	L_22
+"ipdc.line_status"	,	L_36
+"Byte/UINT value"	,	L_31
+create_dissector_handle	,	F_43
+proto_tree_add_subtree_format	,	F_23
+"q931"	,	L_58
+"end of tags"	,	L_41
+hf_ipdc_trans_id_size	,	V_42
+hf_ipdc_ipv4	,	V_58
+line_tree	,	V_9
+"tcp.port"	,	L_55
+proto_tree	,	T_6
+"ipdc.type_unknown"	,	L_46

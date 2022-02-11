@@ -1,0 +1,339 @@
+"Whether the DHCP failover dissector should reassemble messages spanning multiple TCP segments."	,	L_123
+dissect_dhcpfo_pdu	,	F_3
+"dhcpfo.clienthardwareaddress"	,	L_76
+"TLS Request"	,	L_111
+proto_register_protocol	,	F_30
+message_digest_type	,	V_27
+tvb_reported_length	,	F_17
+arp_hrd_vals	,	V_143
+TCP_PORT_DHCPFO	,	V_155
+"%u (bogus, must be &lt;= length of message)"	,	L_4
+"Message digest type: %u, not allowed"	,	L_36
+tcp_dissect_pdus	,	F_27
+gint	,	T_15
+"dhcpfo.ftddns"	,	L_78
+"FTDDNS"	,	L_77
+serverflag	,	V_13
+"Payload Offset"	,	L_45
+"Receive timer"	,	L_103
+lease_expiration_time	,	V_17
+"sending server ip-address"	,	L_67
+tvb	,	V_2
+"Protocol version"	,	L_101
+", %u"	,	L_14
+guint32	,	T_9
+COL_INFO	,	V_42
+hf_dhcpfo_ftddns	,	V_83
+"dhcpfo.graceexpirationtime"	,	L_90
+"dhcpfo.messagedigest"	,	L_106
+DHCP_FO_PD_GRACE_EXPIRATION_TIME	,	V_97
+cinfo	,	V_40
+", \"%s\""	,	L_15
+hf_dhcpfo_client_hw_type	,	V_80
+"Xid"	,	L_49
+array_length	,	F_32
+server_state_vals	,	V_104
+"Reject reason"	,	L_79
+"assigned ip address"	,	L_65
+"Reassemble DHCP failover messages spanning multiple TCP segments"	,	L_122
+payload_tree	,	V_9
+hf_dhcpfo_time	,	V_53
+ei_dhcpfo_message_digest_type_not_allowed	,	V_119
+"Reject reason is not 1 byte long"	,	L_18
+"dhcpfo.message_digest_type_not_allowed"	,	L_117
+ENC_ASCII	,	V_78
+", %u seconds"	,	L_20
+DHCP_FO_PD_TLS_REQUEST	,	V_123
+get_dhcpfo_pdu_len	,	F_1
+"Unknown (%u)"	,	L_40
+hf_dhcpfo_server_state	,	V_105
+"Message digest type not allowed"	,	L_118
+htype	,	V_25
+"dhcpfo.leaseexpirationtime"	,	L_88
+expert_dhcpfo	,	V_153
+ett_dhcpfo	,	V_45
+hf_register_info	,	T_14
+"Message"	,	L_81
+grace_expiration_time_str	,	V_32
+max_unacked_bndupd	,	V_38
+hf_dhcpfo_payload_data	,	V_58
+dhcpfo_module	,	V_152
+hf_dhcpfo_vendor_option	,	V_110
+", %s"	,	L_22
+guint16	,	T_8
+COL_PROTOCOL	,	V_41
+"dhcpfo.type"	,	L_44
+"Protocol version is not 1 byte long"	,	L_37
+DHCP_FO_PD_CLIENT_IDENTIFIER	,	V_75
+"Message digest type"	,	L_109
+DHCP_FO_PD_CLIENT_HARDWARE_ADDRESS	,	V_79
+"dhcpfo"	,	L_120
+tls_request	,	V_12
+guint8	,	T_12
+proto_reg_handoff_dhcpfo	,	F_38
+ti	,	V_5
+hf_dhcpfo_tls_request	,	V_125
+BASE_NONE	,	V_139
+"dhcpfo.bad_length"	,	L_115
+secs	,	V_51
+client_last_transaction_time	,	V_20
+tls_request_vals	,	V_124
+DHCP_FO_PD_CLIENT_LAST_TRANSACTION_TIME	,	V_99
+DHCP_FO_PD_REPLY_OPTION	,	V_128
+tvb_get_ntohl	,	F_12
+DHCP_FO_PD_ADDRESSES_TRANSFERRED	,	V_73
+format_text	,	F_24
+potential_expiration_time_str	,	V_33
+tvbuff_t	,	T_4
+hf_dhcpfo_vendor_class	,	V_92
+opcode	,	V_23
+DHCP_FO_PD_ASSIGNED_IP_ADDRESS	,	V_68
+tvb_get_ntohs	,	F_2
+"desegment"	,	L_121
+hf_dhcpfo_grace_expiration_time	,	V_98
+"UNKNOWN FLAGS"	,	L_30
+"dhcpfo.sendingserveripaddress"	,	L_68
+BASE_HEX	,	V_137
+DHCP_FO_PD_VENDOR_CLASS	,	V_91
+hf_dhcpfo_binding_status	,	V_67
+DHCP_FO_PD_SERVERFLAG	,	V_106
+"dhcpfo.optionlength"	,	L_60
+gboolean	,	T_11
+"sending server ip address is not 4 bytes long"	,	L_12
+proto_item_add_subtree	,	F_7
+module_t	,	T_17
+ei_dhcpfo_bad_length	,	V_69
+DHCP_FO_PD_REJECT_REASON	,	V_84
+proto_register_field_array	,	F_31
+bogus_poffset	,	V_22
+hf_dhcpfo_message_digest	,	V_120
+FT_BYTES	,	V_138
+ett_fo_option	,	V_61
+", %s (%d)"	,	L_9
+grace_expiration_time	,	V_18
+ei	,	V_148
+hf_dhcpfo_max_unacked_bndupd	,	V_112
+lease_expiration_time_str	,	V_31
+hf_dhcpfo_xid	,	V_55
+hf_dhcpfo_option_length	,	V_64
+DHCP_FO_PD_POTENTIAL_EXPIRATION_TIME	,	V_95
+FT_UINT16	,	V_131
+tvb_get_guint8	,	F_10
+"dhcpfo.mclt"	,	L_84
+DHCP_FO_PD_REQUEST_OPTION	,	V_127
+hf_dhcpfo_reject_reason	,	V_86
+"DHCP Style Option"	,	L_55
+"Max unacked BNDUPD is not 4 bytes long"	,	L_31
+", type not allowed"	,	L_35
+"dhcpfo.message"	,	L_82
+"Vendor option"	,	L_97
+hf_dhcpfo_lease_expiration_time	,	V_94
+"dhcpfo.length"	,	L_42
+receive_timer	,	V_39
+DHCP_FO_PD_MCLT	,	V_89
+"Message Type"	,	L_43
+FT_STRING	,	V_142
+DHCP_FO_PD_TLS_REPLY	,	V_126
+DHCP_FO_PD_HASH_BUCKET_ASSIGNMENT	,	V_115
+"Message digest is too short"	,	L_33
+"Max unacked BNDUPD"	,	L_99
+server_state	,	V_37
+"dhcpfo.clienthardwaretype"	,	L_74
+val_to_str_const	,	F_11
+hf_dhcpfo_option_code	,	V_63
+length	,	V_11
+PI_WARN	,	V_150
+proto_tree_add_uint_format_value	,	F_9
+"Unknown Option"	,	L_8
+"dhcpfo.starttimeofstate"	,	L_96
+ENC_BIG_ENDIAN	,	V_56
+poffset	,	V_14
+"dhcpfo.bindingstatus"	,	L_62
+", %s (%u)"	,	L_7
+FT_UINT32	,	V_136
+"hardware address is too short"	,	L_16
+", %s "	,	L_11
+potential_expiration_time	,	V_19
+"Receive timer is not 4 bytes long"	,	L_32
+dhcpfo_tree	,	V_8
+hf	,	V_130
+"dhcpfo.protocolversion"	,	L_102
+"MCLT"	,	L_83
+hf_dhcpfo_poffset	,	V_50
+"Hash bucket assignment"	,	L_107
+"Last transaction time is not 4 bytes long"	,	L_25
+"dhcpfo.time"	,	L_48
+failover_vals	,	V_49
+"Serverflag is not 1 byte long"	,	L_29
+reject_reason_vals	,	V_85
+prefs_register_protocol	,	F_36
+"Client Hardware Address"	,	L_75
+tvb_arphrdaddr_to_str	,	F_22
+"Additional Header Bytes"	,	L_51
+"dhcpfo.rejectreason"	,	L_80
+col_append_fstr	,	F_16
+"dhcpfo.serverstatus"	,	L_64
+"dhcpfo.vendorclass"	,	L_86
+col_set_str	,	F_4
+" xid: %x"	,	L_6
+hf_dhcpfo_potential_expiration_time	,	V_96
+start_time_of_state_str	,	V_35
+FT_IPv4	,	V_141
+"dhcpfo.poffset"	,	L_46
+identifier	,	V_76
+"Option Code"	,	L_57
+ett_fo_payload	,	V_59
+"dhcpfo.xid"	,	L_50
+"Time"	,	L_47
+"addresses transferred"	,	L_69
+hf_dhcpfo_start_time_of_state	,	V_102
+"dhcpfo.tls_request"	,	L_112
+proto_item_append_text	,	F_18
+hf_dhcpfo_hash_bucket_assignment	,	V_116
+"dhcpfo.clientlasttransactiontime"	,	L_94
+DHCP_FO_PD_BINDING_STATUS	,	V_65
+col_clear	,	F_5
+"dhcpfo.vendoroption"	,	L_98
+"Start time of state is not 4 bytes long"	,	L_26
+FT_ABSOLUTE_TIME	,	V_135
+hf_dhcpfo_message	,	V_88
+proto_register_subtree_array	,	F_33
+"Potential expiration time is not 4 bytes long"	,	L_23
+proto_tree_add_string	,	F_23
+val_to_str	,	F_25
+binding_status_vals	,	V_66
+binding_status	,	V_28
+", HMAC-MD5"	,	L_34
+proto_tree_add_item	,	F_6
+"DHCPFO"	,	L_1
+pinfo	,	T_3
+dissector_handle_t	,	T_19
+_U_	,	V_1
+"dhcpfo.serverflag"	,	L_114
+"%u (bogus, must be &gt;= %u)"	,	L_2
+", %s, %s"	,	L_17
+"dhcpfo.hashbucketassignment"	,	L_108
+"dhcpfo.message_digest_type"	,	L_110
+"dhcpfo.optioncode"	,	L_58
+DHCP_FO_PD_START_TIME_OF_STATE	,	V_101
+VALS	,	F_29
+DHCP_FO_PD_SENDING_SERVER_IP_ADDRESS	,	V_71
+"Lease expiration time"	,	L_87
+prefs_register_bool_preference	,	F_37
+"Client last transaction time"	,	L_93
+"server status is not 1 byte long"	,	L_27
+"dhcpfo.payloaddata"	,	L_54
+PI_PROTOCOL	,	V_149
+"Grace expiration time is not 4 bytes long"	,	L_24
+"dhcpfo.dhcpstyleoption"	,	L_56
+hf_dhcpfo_dhcp_style_option	,	V_60
+"addresses transferred is not 4 bytes long"	,	L_13
+FT_UINT8	,	V_134
+tvb_ip_to_str	,	F_20
+BASE_DEC	,	V_132
+vendor_class_str	,	V_29
+proto_item	,	T_7
+expert_register_field_array	,	F_35
+serverflag_vals	,	V_107
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_124
+ENC_NA	,	V_44
+ABSOLUTE_TIME_LOCAL	,	V_54
+hf_dhcpfo_additional_HB	,	V_57
+expert_add_info_format	,	F_19
+hf_dhcpfo_mclt	,	V_90
+"dhcpfo.assignedipaddress"	,	L_66
+"Serverflag"	,	L_113
+DHCP_FO_PD_MESSAGE	,	V_87
+hf_dhcpfo_client_identifier	,	V_77
+"dhcpfo.additionalheaderbytes"	,	L_52
+"assigned ip address is not 4 bytes long"	,	L_10
+proto_tree_add_item_ret_string	,	F_21
+"dhcpfo.maxunackedbndupd"	,	L_100
+"%s"	,	L_5
+hf_dhcpfo_serverflag	,	V_108
+DHCP_FO_PD_VENDOR_OPTION	,	V_109
+data	,	T_5
+abs_time_secs_to_str	,	F_14
+hf_dhcpfo_length	,	V_47
+"MCLT is not 4 bytes long"	,	L_19
+option_tree	,	V_10
+start_time_of_state	,	V_21
+xid	,	V_15
+dhcpfo_desegment	,	V_129
+ei_register_info	,	T_16
+expert_register_protocol	,	F_34
+htype_str	,	V_30
+"dhcpfo.addressestransferred"	,	L_70
+DHCP_FO_PD_RECEIVE_TIMER	,	V_113
+"Message digest"	,	L_105
+nstime_t	,	T_10
+hf_dhcpfo_protocol_version	,	V_122
+"Potential expiration time"	,	L_91
+hf_dhcpfo_receive_timer	,	V_114
+"DHCP Failover"	,	L_119
+guint	,	T_1
+FT_NONE	,	V_140
+"Length"	,	L_59
+"Bad length"	,	L_116
+offset	,	V_3
+hf_dhcpfo_addresses_transferred	,	V_74
+hf_dhcpfo_client_hardware_address	,	V_81
+"TLS request is not 2 bytes long"	,	L_39
+ett	,	V_147
+wmem_packet_scope	,	F_15
+hf_dhcpfo_client_last_transaction_time	,	V_100
+expert_module_t	,	T_18
+tree	,	V_4
+reject_reason	,	V_26
+DHCPFO_FL_HDR_LEN	,	V_46
+mclt	,	V_36
+packet_info	,	T_2
+"Unknown Packet"	,	L_3
+"server status"	,	L_63
+proto_dhcpfo	,	V_43
+"Payload Data"	,	L_53
+BASE_UNIT_STRING	,	V_144
+proto_tree_add_uint	,	F_8
+DHCP_FO_PD_LEASE_EXPIRATION_TIME	,	V_93
+"Grace expiration time"	,	L_89
+EXPFILL	,	V_151
+"dhcpfo.receivetimer"	,	L_104
+DHCP_FO_PD_SERVERSTATE	,	V_103
+option_length	,	V_24
+DHCP_FO_PD_PROTOCOL_VERSION	,	V_121
+dhcpfo_handle	,	V_154
+"Vendor class"	,	L_85
+hf_dhcpfo_assigned_ip_address	,	V_70
+hf_dhcpfo_sending_server_ip_address	,	V_72
+"Client Identifier"	,	L_71
+message_digest_type_vals	,	V_146
+proto_tree_add_time_format_value	,	F_13
+DHCP_FO_PD_MAX_UNACKED_BNDUPD	,	V_111
+"dhcpfo.potentialexpirationtime"	,	L_92
+oi	,	V_7
+HFILL	,	V_133
+", version: %u"	,	L_38
+timex	,	V_16
+units_second_seconds	,	V_145
+option_code_vals	,	V_62
+client_last_transaction_time_str	,	V_34
+DHCP_FO_PD_MESSAGE_DIGEST	,	V_117
+hf_dhcpfo_type	,	V_48
+gchar	,	T_13
+hf_dhcpfo_message_digest_type	,	V_118
+create_dissector_handle	,	F_39
+DHCP_FO_PD_FTDDNS	,	V_82
+proto_register_dhcpfo	,	F_28
+"dhcpfo.clientidentifier"	,	L_72
+nsecs	,	V_52
+"Start time of state"	,	L_95
+dissector_add_uint_with_preference	,	F_40
+dissect_dhcpfo	,	F_26
+pi	,	V_6
+"Unknown"	,	L_28
+"Message length"	,	L_41
+"Type"	,	L_61
+"tcp.port"	,	L_125
+proto_tree	,	T_6
+"Client Hardware Type"	,	L_73
+"Lease expiration time is not 4 bytes long"	,	L_21

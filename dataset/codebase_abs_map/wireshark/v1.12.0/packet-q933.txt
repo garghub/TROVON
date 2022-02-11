@@ -1,0 +1,423 @@
+Q933_IS_SLOT_MAP	,	V_81
+modem_type	,	V_11
+"%s mode of operation"	,	L_21
+dlci_status	,	V_72
+"Requested end-to-end transit delay"	,	L_91
+"q933.uil1"	,	L_132
+"National use (0x%02X)"	,	L_8
+l1_done	,	V_22
+"User information layer 2 protocol: %s"	,	L_32
+Q933_CAUSE_INVALID_IE_CONTENTS	,	V_59
+Q933_IE_TRANSIT_NETWORK_SEL	,	V_152
+dissect_q933_segmented_message_ie	,	F_1
+TFS	,	F_42
+"%s isn't 3 octets long"	,	L_89
+"Packet window size: %u"	,	L_38
+guint32	,	T_4
+value_len	,	V_90
+FT_BOOLEAN	,	V_179
+Q933_CAUSE_MT_NONEX_OR_UNIMPL	,	V_60
+hf_q933_report_type	,	V_66
+"q933.screening_ind"	,	L_146
+tvb_reported_length_remaining	,	F_40
+Q933_IE_LOW_LAYER_COMPAT	,	V_145
+uil3_protocol	,	V_13
+"User-specified layer 2 protocol information: 0x%02X"	,	L_33
+"Protocol discriminator: %s"	,	L_107
+array_length	,	F_46
+Q933_IE_PVC_STATUS	,	V_173
+dissect_q933_report_type_ie	,	F_15
+""	,	L_12
+"Unknown (0x%02X)"	,	L_18
+"First segment: %u segments remaining"	,	L_2
+q933_info_element_vals	,	V_141
+hf_q933_link_verf_rxseq	,	V_70
+ENC_ASCII	,	V_100
+dissect_q933_high_layer_compat_ie	,	F_31
+"Unknown (0x%X)"	,	L_25
+"q933.cause_location"	,	L_138
+"Network identification plan: %s"	,	L_84
+dissect_q933_ia5_ie	,	F_33
+hf_q933_uil1	,	V_21
+hf_register_info	,	T_9
+"Network service: %s"	,	L_42
+"User"	,	L_43
+Q933_IE_E2E_TRANSIT_DELAY	,	V_154
+"Unknown (0x%02x)"	,	L_108
+Q933_IE_SEGMENTED_MESSAGE	,	V_143
+guint16	,	T_5
+NLPID_Q_933	,	V_6
+Q933_REJ_IE_MISSING	,	V_52
+"Normal"	,	L_47
+"Status: %s"	,	L_60
+"%s: %u ms"	,	L_87
+q933_l1_parity_vals	,	V_26
+Q933_UIL3_ISO_8208	,	V_34
+q933_repeat_indication_vals	,	V_140
+Q933_CAUSE_QOS_UNAVAILABLE	,	V_47
+BASE_NONE	,	V_180
+q933_cause_condition_vals	,	V_48
+"Map element"	,	L_78
+"Repeat indicator: %s"	,	L_115
+"Asynchronous"	,	L_15
+tvb_memcpy	,	F_37
+BASE_HEX	,	V_177
+col_add_str	,	F_39
+"explicitly"	,	L_63
+"Network identification: %s"	,	L_85
+rejection_reason	,	V_42
+proto_item_add_subtree	,	F_36
+q933_uil3_vals	,	V_31
+proto_register_field_array	,	F_45
+Q933_IE_SO_IDENTIFIER_MASK	,	V_132
+FT_BYTES	,	V_182
+"User rate: %s"	,	L_17
+"Information element: %s"	,	L_54
+Q933_IE_LINK_INTEGRITY_VERF	,	V_171
+"Locking"	,	L_114
+dissector_add_uint	,	F_51
+Q933_CAUSE_MAND_IE_MISSING	,	V_57
+"Basic"	,	L_67
+"Indicated channel is %s"	,	L_68
+dissect_q933_reverse_charge_ind_ie	,	F_27
+tfs_call_ref_flag	,	V_181
+q933_l1_user_rate_vals	,	V_23
+Q933_CAUSE_REC_TIMER_EXP	,	V_63
+"Protocol discriminator"	,	L_119
+"Mode: %s"	,	L_36
+"Presentation indicator"	,	L_147
+Q933_CAUSE_INCOMPATIBLE_DEST	,	V_56
+"Maximum end-to-end transit delay"	,	L_92
+FT_STRING	,	V_194
+ie_tree	,	V_113
+Q933_IE_SHIFT	,	V_133
+NLPID_Q_2931	,	V_8
+val_to_str_const	,	F_18
+label	,	V_88
+Q933_UIL3_TR_9577	,	V_38
+"Synchronous"	,	L_16
+q933_odd_even_indicator_vals	,	V_103
+hf_q933_information_transfer_capability	,	V_18
+"Abnormal"	,	L_46
+hf	,	V_175
+identifier_offset	,	V_75
+Q933_NOT_BASIC_CHANNEL	,	V_78
+dissect_q933_user_user_ie	,	F_32
+Q933_PROTOCOL_DISCRIMINATOR_IA5	,	V_109
+"Called party number digits"	,	L_153
+"RX Sequence"	,	L_161
+l2_done	,	V_28
+ett_q933_ie	,	V_142
+"Rate adaption header %sincluded"	,	L_19
+"Call reference value length"	,	L_133
+Q933_REJ_USER_SPECIFIC	,	V_51
+dissect_q933_link_integrity_verf_ie	,	F_16
+q933_basic_channel_selection_vals	,	V_80
+"Insufficient information element: %s"	,	L_52
+col_set_str	,	F_35
+"%s interface"	,	L_65
+"q933.number_type"	,	L_142
+"Interface identifier: %s"	,	L_73
+bad_length	,	V_91
+"%s shift to codeset %u: %s"	,	L_112
+info_element_len	,	V_118
+dissect_q933_protocol_discriminator	,	F_4
+locked_codeset	,	V_120
+"Display information"	,	L_118
+val_to_str	,	F_10
+"Coding standard"	,	L_125
+q933_rejection_reason_vals	,	V_50
+dissector_handle_t	,	T_11
+tvb_bytes_to_ep_str	,	F_7
+dissect_q933_number_ie	,	F_28
+hf_q933_discriminator	,	V_7
+q933_codeset_vals	,	V_136
+dissect_q933_pl_binary_parameters_ie	,	F_26
+VALS	,	F_43
+q933_extension_ind_value	,	V_193
+uil2_protocol	,	V_12
+Q933_IE_SHIFT_CODESET	,	V_135
+Q933_IE_HIGH_LAYER_COMPAT	,	V_166
+"Half"	,	L_30
+Q933_IE_PROGRESS_INDICATOR	,	V_150
+"Condition: %s"	,	L_48
+proto_tree_add_text	,	F_2
+"Transfer mode"	,	L_129
+BASE_DEC	,	V_187
+"q933.cause_value"	,	L_140
+ENC_NA	,	V_101
+Q933_IE_CALLED_PARTY_NUMBER	,	V_162
+Q933_CAUSE_UNALLOC_NUMBER	,	V_45
+Q933_IE_CALL_STATE	,	V_148
+"Diagnostic: %s"	,	L_53
+"Call state: %s"	,	L_58
+q933_info_element_vals0	,	V_53
+"User information: %s"	,	L_109
+Q933_IE_REVERSE_CHARGE_IND	,	V_157
+hf_q933_coding_standard	,	V_16
+"%s"	,	L_45
+"Q.2931"	,	L_6
+q933_high_layer_characteristics_vals	,	V_105
+q933_protocol_discriminator_vals	,	V_108
+Q933_IE_BEARER_CAPABILITY	,	V_144
+q933_progress_description_vals	,	V_84
+Q933_ITU_STANDARDIZED_CODING	,	V_15
+Q933_IE_CAUSE	,	V_146
+hf_q933_connected_number	,	V_161
+ett	,	V_196
+wmem_packet_scope	,	F_13
+dissect_q933_pvc_status_ie	,	F_17
+"q933.call_ref"	,	L_124
+packet_info	,	T_6
+Q933_REJ_IE_INSUFFICIENT	,	V_54
+"q933.coding_standard"	,	L_126
+"Recommendation: %s"	,	L_41
+identifier_len	,	V_76
+"Transit delay"	,	L_93
+hf_q933_transfer_mode	,	V_20
+"Location: %s"	,	L_80
+"Message type: %s"	,	L_55
+dissect_q933_ns_facilities_ie	,	F_21
+txseq	,	V_67
+CS0	,	V_137
+CS5	,	V_169
+"Protocol sensitive"	,	L_22
+Q933_IE_CALLING_PARTY_NUMBER	,	V_158
+"%s: %s"	,	L_110
+"required"	,	L_69
+q933_address_inclusion_vals	,	V_30
+"Timer: %.3s"	,	L_56
+HFILL	,	V_178
+q933_message_type_vals	,	V_62
+q933_presentation_indicator_vals	,	V_192
+dissect_q933_progress_indicator_ie	,	F_20
+"q933.information_transfer_capability"	,	L_128
+dissect_q933_td_selection_and_int_ie	,	F_25
+discriminator	,	V_5
+"Data bits: %s"	,	L_26
+Q933_IE_SO_MASK	,	V_131
+"Extension indicator"	,	L_149
+q933_not_basic_channel_selection_vals	,	V_79
+Q933_IE_ANSI_REPORT_TYPE	,	V_170
+"Layer 1 is %s"	,	L_14
+q933_uil1_vals	,	V_186
+"Unknown"	,	L_61
+"numbering plan"	,	L_143
+"Data: %s"	,	L_10
+"Call reference value"	,	L_123
+"Bit transparent"	,	L_23
+"q933.connected_number.digits"	,	L_156
+"preferred"	,	L_70
+"Cause location"	,	L_137
+tvb_get_string	,	F_12
+Q933_UIL3_X223	,	V_35
+proto_register_protocol	,	F_44
+dissect_q933_cause_ie	,	F_11
+hf_q933_call_ref_flag	,	V_127
+q933_l1_data_bits_vals	,	V_25
+nlpid_vals	,	V_39
+len	,	V_3
+Q933_AUDIOVISUAL	,	V_106
+gint	,	T_10
+Q933_IE_TD_SELECTION_AND_INT	,	V_155
+dissect_q933_call_state_ie	,	F_14
+q933_audiovisual_characteristics_vals	,	V_107
+dissect_q933_e2e_transit_delay_ie	,	F_24
+hf_q933_message_type	,	V_130
+tvb	,	V_1
+COL_INFO	,	V_129
+rxseq	,	V_68
+report_type	,	V_65
+"Network identification length: %u"	,	L_82
+"Calling party number digits"	,	L_151
+"Channel is indicated by %s"	,	L_74
+Q933_UIL3_X25_PL	,	V_33
+Q933_CAUSE_NO_ROUTE_TO_DEST	,	V_46
+cinfo	,	V_122
+"implicitly"	,	L_64
+Q933_IE_DISPLAY	,	V_153
+"User information layer 1 protocol"	,	L_131
+"Default packet size: %u octets"	,	L_39
+Q933_IE_CHANNEL_IDENTIFICATION	,	V_149
+"Indicated channel is %sthe D-channel"	,	L_71
+"Segmented message type: %u"	,	L_4
+proto_tree_add_boolean	,	F_9
+"Additional layer 3 protocol information: %s"	,	L_40
+proto_q933	,	V_124
+"q933.disc"	,	L_120
+"%s confirmation"	,	L_96
+q933_l1_stop_bits_vals	,	V_24
+dissect_q933_party_subaddr_ie	,	F_30
+hf_q933_numbering_plan	,	V_95
+COL_PROTOCOL	,	V_123
+"Request indicated/request accepted"	,	L_95
+"Progress description: %s"	,	L_81
+"Q.933"	,	L_5
+"Full"	,	L_29
+"Rejection reason: %s"	,	L_49
+"TX Sequence"	,	L_159
+proto_reg_handoff_q933	,	F_49
+"Type of network identification: %s"	,	L_83
+coding_standard	,	V_10
+non_locking_shift	,	V_121
+guint8	,	T_3
+"Non-locking"	,	L_113
+ti	,	V_112
+hf_q933_call_ref	,	V_128
+"slot map"	,	L_75
+register_dissector	,	F_48
+"High layer characteristics identification: %s"	,	L_104
+q933_subaddress_type_vals	,	V_102
+q933_reverse_charging_indication_vals	,	V_93
+hf_q933_calling_party_number	,	V_159
+tvbuff_t	,	T_1
+call_ref	,	V_115
+"Message type"	,	L_135
+q933_information_transfer_capability_vals	,	V_184
+"Extended audiovisual characteristics identification: %s"	,	L_105
+gboolean	,	T_8
+Q933_CAUSE_MSG_INCOMPAT_W_CS	,	V_61
+q933_tree	,	V_111
+"Multiple frame establishment %ssupported"	,	L_20
+netid_len	,	V_85
+"Modem type: Network-specific rules 0x%02X"	,	L_31
+"Screening indicator"	,	L_145
+Q933_IE_CONNECTED_NUMBER	,	V_160
+q933_number_type_vals	,	V_189
+tvb_get_guint8	,	F_3
+q933_cause_recommendation_vals	,	V_44
+Q933_IE_USER_USER	,	V_167
+"Extended high layer characteristics identification: %s"	,	L_106
+hf_q933_cause_location	,	V_43
+dlci_len	,	V_73
+"Provider"	,	L_44
+q933_redirection_reason_vals	,	V_99
+dlci	,	V_71
+q933_handle	,	V_197
+"End-to-end"	,	L_98
+"Link-by-link"	,	L_97
+"Number type"	,	L_141
+Q933_IE_VL_EXTENSION	,	V_19
+"Reason for redirection: %s"	,	L_100
+Q933_IE_CALLED_PARTY_SUBADDR	,	V_165
+hf_cause_value	,	V_40
+dissect_q933	,	F_34
+"q933.report_type"	,	L_158
+Q933_INTERFACE_IDENTIFIED	,	V_77
+hf_q933_cause_value	,	V_147
+"Stop bits: %s"	,	L_24
+characteristics	,	V_104
+Q933_IE_ANSI_PVC_STATUS	,	V_174
+call_ref_len	,	V_114
+"fr.osinl"	,	L_164
+"DLCI: %u"	,	L_59
+"Cumulative transit delay"	,	L_90
+l3_done	,	V_32
+info_element	,	V_117
+find_dissector	,	F_50
+Q933_CAUSE_IE_NONEX_OR_UNIMPL	,	V_58
+Q933_IE_ANSI_LINK_INTEGRITY_VERF	,	V_172
+proto_tree_add_uint_format_value	,	F_5
+Q933_IE_REPORT_TYPE	,	V_168
+"Cause value"	,	L_139
+"Address inclusion: %s"	,	L_34
+"Parity: %s"	,	L_27
+hf_q933_presentation_ind	,	V_98
+q933_transfer_mode_vals	,	V_185
+"q933.presentation_ind"	,	L_148
+hf_q933_screening_ind	,	V_97
+"%s duplex"	,	L_28
+hfindex	,	V_94
+"Network-specific facility specification: %s"	,	L_86
+"Default packet size: %u"	,	L_37
+dissect_q933_channel_identification_ie	,	F_19
+"Interface %s identified"	,	L_62
+"q933.called_party_number.digits"	,	L_154
+"Connected party number digits"	,	L_155
+"q933.link_verification.txseq"	,	L_160
+"Call reference flag"	,	L_121
+Q933_UIL2_USER_SPEC	,	V_29
+"Missing information element: %s"	,	L_51
+"No request/request denied"	,	L_94
+"Segmented message: length is %d, should be 2"	,	L_1
+"Type of subaddress: %s"	,	L_101
+"Length: %u"	,	L_117
+ett_q933	,	V_125
+Q933_CAUSE_CALL_REJECTED	,	V_49
+message_type	,	V_116
+dissect_q933_bearer_capability_ie	,	F_6
+hf_q933_call_ref_len	,	V_126
+"q933.calling_party_number.digits"	,	L_152
+proto_register_subtree_array	,	F_47
+q933_call_state_vals	,	V_64
+hf_q933_called_party_number	,	V_163
+"number"	,	L_76
+add_l3_info	,	V_14
+"User specific diagnostic: %s"	,	L_50
+proto_tree_add_item	,	F_29
+pinfo	,	V_110
+"%s type: %s"	,	L_77
+"%s goes past end of information element"	,	L_88
+q933_element_type_vals	,	V_82
+cause_value	,	V_41
+"Diagnostics: %s"	,	L_57
+"q933.message_type"	,	L_136
+q933_uil2_vals	,	V_27
+"q933.transfer_mode"	,	L_130
+"Report type"	,	L_157
+hf_q933_extension_ind	,	V_17
+"Not basic"	,	L_66
+FT_UINT8	,	V_176
+proto_item	,	T_7
+hf_q933_link_verf_txseq	,	V_69
+"Unknown message type (0x%02X)"	,	L_111
+"not "	,	L_13
+codeset	,	V_119
+"Channel selection: %s"	,	L_72
+q933_numbering_plan_vals	,	V_190
+tvb_format_text	,	F_22
+q933_cause_code_vals	,	V_188
+"q933.call_ref_flag"	,	L_122
+"q933.link_verification.rxseq"	,	L_162
+Q933_UIL3_USER_SPEC	,	V_37
+Q933_IE_PL_BINARY_PARAMETERS	,	V_156
+octet	,	V_9
+Q933_IE_REPEAT_INDICATOR	,	V_138
+"Reserved (0x%02X)"	,	L_9
+"User information layer 3 protocol: %s"	,	L_35
+q933_mode_vals	,	V_36
+"Channel"	,	L_79
+proto_register_q933	,	F_41
+q933_pvc_status_vals	,	V_74
+"Network layer or layer 3 protocol (0x%02X)"	,	L_7
+q933_netid_plan_vals	,	V_87
+q933_netid_type_vals	,	V_86
+past_end	,	V_92
+offset	,	V_2
+dissect_q933_guint16_value	,	F_23
+q933_coding_standard_vals	,	V_183
+"Reverse charging indication: %s"	,	L_99
+tree	,	V_4
+Q933_IE_NETWORK_SPECIFIC_FACIL	,	V_151
+proto_tree_add_bytes	,	F_38
+"q933"	,	L_163
+Q933_IE_CALLING_PARTY_SUBADDR	,	V_164
+q933_screening_indicator_vals	,	V_191
+proto_tree_add_uint	,	F_8
+"Subaddress: %s"	,	L_103
+Q933_CAUSE_ACCESS_INFO_DISC	,	V_55
+q933_report_type_vals	,	V_195
+Q933_IE_SHIFT_NON_LOCKING	,	V_134
+"Out-band negotiation %spossible"	,	L_11
+Q933_IE_SO_IE_MASK	,	V_139
+hf_q933_number_type	,	V_96
+"q933.numbering_plan"	,	L_144
+value	,	V_89
+"q933.extension_ind"	,	L_150
+"Unknown information element (0x%02X)"	,	L_116
+"Information transfer capability"	,	L_127
+q933_cause_location_vals	,	V_83
+"q933.call_ref_len"	,	L_134
+"Not first segment: %u segments remaining"	,	L_3
+proto_tree	,	T_2
+"Odd/even indicator: %s"	,	L_102

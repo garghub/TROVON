@@ -1,0 +1,180 @@
+"v="	,	L_18
+proto_register_protocol	,	F_25
+mangle	,	V_56
+check_col	,	F_5
+is_comp	,	V_9
+"compressed and encrypted"	,	L_14
+tvb_new_subset_remaining	,	F_20
+"Version"	,	L_47
+MCAST_SAP_AUTH_TYPE_MASK	,	V_79
+"Session Announcement Protocol"	,	L_53
+"Payload type: %.*s"	,	L_19
+proto_register_sap	,	F_22
+col_set_str	,	F_2
+ett_sap_flags	,	V_34
+gint	,	T_8
+"Flags"	,	L_20
+"sap.auth"	,	L_41
+"sap.flags.c"	,	L_38
+"Originating source address type"	,	L_28
+ett_sap	,	V_32
+MCAST_SAP_BIT_E	,	V_25
+TFS	,	F_24
+tvb	,	V_1
+proto_reg_handoff_sap	,	F_29
+MCAST_SAP_BIT_C	,	V_26
+"Bits in the beginning of the SAP header"	,	L_22
+guint32	,	T_7
+"Auth data"	,	L_42
+COL_INFO	,	V_22
+sap_tree	,	V_18
+FT_BOOLEAN	,	V_67
+"Authentication Length: %u"	,	L_5
+"sap.auth.flags.t"	,	L_51
+"Padding Bit"	,	L_48
+"sap.flags.t"	,	L_32
+MCAST_SAP_BIT_T	,	V_24
+"Authentication data pad count: %u byte%s"	,	L_13
+col_clear	,	F_3
+MCAST_SAP_BIT_R	,	V_70
+cinfo	,	V_20
+tfs_set_notset	,	V_69
+proto_register_subtree_array	,	F_28
+sdi	,	V_42
+array_length	,	F_27
+remaining_len	,	V_57
+"Message Identifier Hash: 0x%x"	,	L_6
+"Reserved"	,	L_29
+next_tvb	,	V_15
+""	,	L_10
+"Authentication data padding: (%u byte%s)"	,	L_12
+proto_tree_add_item	,	F_7
+call_dissector	,	F_21
+pinfo	,	V_2
+col_add_fstr	,	F_6
+hf_sap_flags_r	,	V_37
+dissector_handle_t	,	T_10
+saf_tree	,	V_45
+hf_sap_flags_t	,	V_38
+"Encryption Bit"	,	L_34
+MCAST_SAP_AUTH_BIT_P	,	V_55
+mcast_sap_ver	,	V_66
+proto_sap	,	V_30
+mcast_sap_auth_pad	,	V_77
+"Authentication data"	,	L_40
+hf_sap_flags_a	,	V_36
+proto_tree_add_boolean	,	F_10
+hf_sap_flags_c	,	V_40
+si	,	V_16
+hf_sap_flags_e	,	V_39
+hf_register_info	,	T_9
+VALS	,	F_23
+"sap.flags.e"	,	L_35
+"Authentication data flags"	,	L_43
+MCAST_SAP_BIT_A	,	V_23
+mcast_sap_auth_ver	,	V_76
+tvb_get_ephemeral_string	,	F_19
+"Auth type"	,	L_52
+guint16	,	T_5
+COL_PROTOCOL	,	V_21
+FT_UINT8	,	V_62
+proto_tree_add_text	,	F_11
+tvb_ip_to_str	,	F_14
+hf_auth_flags	,	V_50
+"sap.flags.v"	,	L_24
+BASE_DEC	,	V_65
+"sap.auth.flags"	,	L_44
+proto_item	,	T_6
+e_in6_addr	,	V_29
+tvb_strnlen	,	F_18
+"sap.auth.flags.v"	,	L_46
+ENC_NA	,	V_31
+ett_sap_auth	,	V_49
+"Bogus authentication length (%d) or pad length (%d)"	,	L_8
+"Announcement type"	,	L_33
+"Encryption"	,	L_36
+guint8	,	T_4
+sap_flags_tree	,	V_19
+MCAST_SAP_VERSION_MASK	,	V_27
+mcast_sap_crypt_type	,	V_72
+BASE_NONE	,	V_75
+hf_auth_data	,	V_48
+hf_sap_flags_v	,	V_35
+"Announcement"	,	L_4
+tvb_length_remaining	,	F_17
+sap_version	,	V_5
+"%s (v%u)"	,	L_2
+ett_sap_authf	,	V_51
+pad_len	,	V_47
+sdp_handle	,	V_60
+tvbuff_t	,	T_1
+"Authentication Type"	,	L_50
+sa_tree	,	V_44
+tvb_get_ntohs	,	F_12
+plurality	,	F_15
+BASE_HEX	,	V_63
+proto_item_add_subtree	,	F_8
+auth_len	,	V_12
+"Compression"	,	L_39
+proto_register_field_array	,	F_26
+addr_len	,	V_10
+mcast_sap_message_type	,	V_71
+FT_NONE	,	V_74
+mcast_sap_auth_type	,	V_78
+offset	,	V_4
+ett	,	V_80
+dissector_add_uint	,	F_31
+auth_flags	,	V_14
+tree	,	V_3
+hf_sap_flags	,	V_33
+"Originating Source: %s"	,	L_7
+"compressed"	,	L_16
+packet_info	,	T_2
+"s"	,	L_11
+tvb_get_guint8	,	F_4
+"The rest of the packet is %s"	,	L_17
+tvb_strneql	,	F_16
+"sap.auth.flags.p"	,	L_49
+"encrypted"	,	L_15
+"sap"	,	L_54
+mcast_sap_address_type	,	V_68
+proto_tree_add_uint	,	F_9
+vers_flags	,	V_11
+"Deletion"	,	L_3
+tvb_ip6_to_str	,	F_13
+sap_handle	,	V_81
+mcast_sap_comp_type	,	V_73
+MCAST_SAP_VERSION_SHIFT	,	V_28
+"SAP"	,	L_1
+is_ipv6	,	V_6
+tmp1	,	V_13
+sif	,	V_17
+"3 bit version field in the SAP header"	,	L_25
+"Message Type"	,	L_31
+UDP_PORT_SAP	,	V_82
+is_del	,	V_7
+"Authentication subheader: (%u byte%s)"	,	L_9
+dissect_sap	,	F_1
+sai	,	V_43
+"Auth flags"	,	L_45
+HFILL	,	V_64
+"sap.flags.a"	,	L_27
+hf_auth_flags_v	,	V_52
+has_pad	,	V_46
+"Version Number"	,	L_23
+"udp.port"	,	L_55
+"Compression Bit"	,	L_37
+find_dissector	,	F_32
+hf_auth_flags_p	,	V_53
+create_dissector_handle	,	F_30
+is_enc	,	V_8
+auth_data_len	,	V_41
+"sap.flags.r"	,	L_30
+hf_auth_flags_t	,	V_54
+"sdp"	,	L_56
+"sap.flags"	,	L_21
+pt_string_len	,	V_59
+pt_len	,	V_58
+"Address Type"	,	L_26
+proto_tree	,	T_3
+hf	,	V_61

@@ -1,0 +1,173 @@
+slid	,	V_35
+mim_enable_dissector	,	V_83
+FP_PROTO_COL_NAME	,	V_43
+dest_ig	,	V_40
+proto_register_protocol	,	F_24
+hf_s_hmac	,	V_54
+FP_OOO_MASK	,	V_79
+ETHERTYPE_DCE	,	V_4
+FP_TTL_MASK	,	V_67
+prefs_register_protocol	,	F_25
+proto_tree_add_ether	,	F_17
+tvb_new_subset_remaining	,	F_19
+fp_addr_tree	,	V_30
+hf_ftag	,	V_55
+hf_ig	,	V_20
+"FTAG field identifying forwarding distribution tree."	,	L_15
+ssswid	,	V_34
+col_set_str	,	F_9
+FT_ETHER	,	V_63
+gint	,	T_10
+"Source or Destination Port index on switch in FabricPath network"	,	L_30
+"Destination Hierarchical MAC"	,	L_10
+FP_HMAC_SSWID_MASK	,	V_11
+get_ether_name	,	F_14
+TFS	,	F_23
+tvb	,	V_1
+FP_EID_MASK	,	V_15
+"The remaining hop count for this frame"	,	L_18
+"Specifies if this is an individual (unicast) or group (broadcast/multicast) address"	,	L_36
+COL_INFO	,	V_44
+hf_swid	,	V_22
+FT_BOOLEAN	,	V_73
+hmac_src	,	V_32
+hf_sswid	,	V_24
+"End Node ID"	,	L_25
+"Destination: %03x.%02x.%04x"	,	L_3
+cinfo	,	V_41
+"cfp.d_hmac"	,	L_9
+proto_register_subtree_array	,	F_29
+"Enable this dissector (default is false)"	,	L_45
+array_length	,	F_28
+"I/G bit"	,	L_34
+hf_eid	,	V_16
+next_tvb	,	V_31
+eid	,	V_14
+FP_FTAG_MASK	,	V_66
+proto_tree_add_item	,	F_8
+call_dissector	,	F_20
+"cfp.s_hmac"	,	L_6
+"MC Destination"	,	L_11
+pinfo	,	V_2
+hf_d_hmac	,	V_51
+"cfp.ul"	,	L_32
+swid	,	V_7
+"cfp.ooodl"	,	L_38
+"FTAG"	,	L_13
+prefs_initialized	,	V_84
+FP_HMAC_LEN	,	V_53
+FP_HEADER_SIZE	,	V_48
+FP_HMAC_SWID_MASK	,	V_10
+dswid	,	V_36
+"cfp.swid"	,	L_20
+hf_register_info	,	T_9
+"Source Hierarchical MAC"	,	L_7
+"cfp.eid"	,	L_26
+ul_tfs	,	V_74
+prefs_register_bool_preference	,	F_26
+"cfp.ig"	,	L_35
+"Specifies if this is a locally administered or globally unique (IEEE assigned) address"	,	L_33
+guint16	,	T_5
+COL_PROTOCOL	,	V_42
+GUINT64_TO_BE	,	F_11
+tvb_length	,	F_21
+FP_SWID_MASK	,	V_70
+FT_UINT8	,	V_71
+hf_ttl	,	V_57
+BASE_DEC	,	V_65
+"Cisco FabricPath End node ID"	,	L_27
+"CFP"	,	L_41
+"switch-id"	,	L_19
+"enable"	,	L_43
+FP_SSWID_LEN	,	V_25
+proto_item	,	T_7
+"Switch-id/nickname of switch in FabricPath network"	,	L_21
+fp_add_hmac	,	F_6
+"OOO/DL Bit"	,	L_37
+ENC_NA	,	V_19
+guint8	,	T_8
+hf_ooodl	,	V_21
+FP_LID_LEN	,	V_27
+ti	,	V_28
+BASE_NONE	,	V_61
+FP_PROTO_COL_INFO	,	V_45
+"cfp.ftag"	,	L_14
+"cfp"	,	L_42
+"cfp.ttl"	,	L_17
+tvb_get_ntoh48	,	F_10
+FP_FTAG_LEN	,	V_56
+hf_lid	,	V_26
+fp_is_ig_set	,	F_4
+"cfp.sswid"	,	L_23
+lid	,	V_9
+tvbuff_t	,	T_2
+proto_tree_add_protocol_format	,	F_13
+"sub-switch-id"	,	L_22
+proto_fp	,	V_47
+proto_register_mim	,	F_22
+dlid	,	V_38
+tvb_get_ntohs	,	F_2
+dissect_fp_heur	,	F_1
+"Sub-switch-id of switch in FabricPath network"	,	L_24
+hf_ul	,	V_18
+FP_HMAC_IG_MASK	,	V_6
+FT_UINT24	,	V_68
+gboolean	,	T_1
+"Source LID"	,	L_28
+eth_dissector	,	V_58
+dst_addr	,	V_39
+FP_UL_MASK	,	V_75
+proto_item_add_subtree	,	F_16
+module_t	,	T_11
+"Cisco FabricPath, Src: %03x.%02x.%04x, Dst: %s (%s)"	,	L_1
+proto_register_field_array	,	F_27
+dissect_fp	,	F_3
+dsswid	,	V_37
+FP_3B_EID_MASK	,	V_72
+visible	,	V_46
+FT_NONE	,	V_60
+offset	,	V_13
+ett	,	V_80
+FP_BF_LEN	,	V_17
+ig_tfs	,	V_76
+tree	,	V_3
+FT_UINT16	,	V_64
+packet_info	,	T_3
+"Specifies Out of Order Delivery OK in destination address and Do Not Learn when set in source address"	,	L_39
+"Source: %03x.%02x.%04x"	,	L_4
+fp_get_hmac_addr	,	F_5
+fp_tree	,	V_29
+ether_to_str	,	F_15
+ooodl_tfs	,	V_78
+"cfp.lid"	,	L_29
+proto_tree_add_uint	,	F_7
+BASE_DEC_HEX	,	V_69
+"Enable dissector"	,	L_44
+"eth"	,	L_46
+FP_HMAC_LID_MASK	,	V_12
+ett_hmac	,	V_52
+hmac_dst	,	V_33
+"Source HMAC"	,	L_5
+FP_IG_MASK	,	V_77
+proto_reg_handoff_fabricpath	,	V_82
+heur_dissector_add	,	F_30
+hmac	,	V_5
+HFILL	,	V_62
+"Cisco FabricPath, Src: %03x.%02x.%04x, Dst: %03x.%02x.%04x"	,	L_2
+ett_mim	,	V_49
+"Cisco FabricPath"	,	L_40
+"U/L bit"	,	L_31
+proto_tree_add_none_format	,	F_18
+mim_module	,	V_81
+find_dissector	,	F_31
+"Multicast Destination Address"	,	L_12
+ENC_BIG_ENDIAN	,	V_23
+"Destination HMAC"	,	L_8
+PTREE_DATA	,	F_12
+hf_d_hmac_mc	,	V_50
+sswid	,	V_8
+proto_set_decoding	,	F_32
+guint64	,	T_6
+proto_tree	,	T_4
+hf	,	V_59
+"TTL"	,	L_16

@@ -1,0 +1,133 @@
+"tpcp.cid"	,	L_25
+"tpcp.type"	,	L_10
+"%s id %d CPort %s CIP %s SIP %s"	,	L_4
+proto_register_protocol	,	F_19
+UDP_PORT_TPCP	,	V_57
+TF_TPCP_DONTREDIRECT	,	V_49
+hf_tpcp_flags_xon	,	V_15
+TF_TPCP_XOFF	,	V_51
+tpcp_handle	,	V_56
+"UDP/TCP"	,	L_14
+"Version"	,	L_6
+hf_tpcp_flags_xoff	,	V_16
+"tpcp.flags.xon"	,	L_21
+col_set_str	,	F_2
+gint	,	T_10
+id	,	V_8
+"Flags"	,	L_12
+hf_tpcp_signature	,	V_36
+FT_IPv4	,	V_52
+TFS	,	F_18
+tvb	,	V_1
+guint32	,	T_8
+"Client Source IP address"	,	L_28
+COL_INFO	,	V_19
+FT_BOOLEAN	,	V_46
+"XOFF"	,	L_22
+"tpcp.signature"	,	L_37
+tpcp_tree	,	V_5
+version	,	V_7
+"tpcp.flags.redir"	,	L_18
+col_clear	,	F_3
+hf_tpcp_id	,	V_29
+cinfo	,	V_17
+proto_register_tpcp	,	F_16
+tfs_set_notset	,	V_47
+proto_register_subtree_array	,	F_22
+"tpcp.caddr"	,	L_29
+array_length	,	F_21
+hf_tpcp_flags	,	V_27
+tpcp_flags	,	V_12
+proto_tree_add_item	,	F_7
+hf_tpcp_rasaddr	,	V_35
+pinfo	,	V_2
+col_add_fstr	,	F_13
+dissector_handle_t	,	T_11
+_U_	,	V_4
+"tpcp.flags.tcp"	,	L_15
+"tpcp.vaddr"	,	L_33
+TF_TPCP_XON	,	V_50
+hf_register_info	,	T_9
+VALS	,	F_17
+"tpcp.flags"	,	L_13
+guint16	,	T_7
+TF_TPCP_UDPTCP	,	V_48
+COL_PROTOCOL	,	V_18
+hf_tpcp_type	,	V_26
+saddr	,	V_11
+FT_UINT8	,	V_41
+BASE_DEC	,	V_42
+hf_tpcp_saddr	,	V_33
+proto_item	,	T_5
+ENC_NA	,	V_25
+guint8	,	T_6
+caddr	,	V_10
+ti	,	V_6
+BASE_NONE	,	V_53
+"tpcp.saddr"	,	L_31
+"No Redirect"	,	L_17
+ep_udp_port_to_display	,	F_11
+hf_tpcp_caddr	,	V_32
+"Client indent"	,	L_24
+"tpcp.cport"	,	L_27
+"tpcp.rasaddr"	,	L_35
+"%s"	,	L_3
+data	,	T_4
+tvb_get_ntohl	,	F_12
+"tpcp.flags.xoff"	,	L_23
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_5
+proto_tpcp	,	V_22
+tvb_get_ntohs	,	F_9
+proto_tree_add_bitmask	,	F_8
+hf_tpcp_flags_redir	,	V_14
+BASE_HEX	,	V_45
+hf_tpcp_flags_tcp	,	V_13
+TPCP_VER_1_LENGTH	,	V_38
+TPCP_VER_2_LENGTH	,	V_39
+proto_item_add_subtree	,	F_6
+proto_register_field_array	,	F_20
+"Alteon WebSystems - Transparent Proxy Cache Protocol"	,	L_2
+type_vals	,	V_37
+ett_tpcp_flags	,	V_28
+ett	,	V_55
+"RAS server IP address"	,	L_34
+dissector_add_uint	,	F_25
+dissect_tpcp	,	F_1
+tree	,	V_3
+hf_tpcp_version	,	V_24
+FT_UINT16	,	V_44
+packet_info	,	T_2
+"Virtual Server IP address"	,	L_32
+tvb_get_guint8	,	F_4
+"TPCP"	,	L_1
+"TPCP version"	,	L_8
+"Client Source Port"	,	L_26
+cport	,	V_9
+hf_tpcp_cport	,	V_31
+ip_to_str	,	F_15
+"Alteon - Transparent Proxy Cache Protocol"	,	L_38
+"Server IP address"	,	L_30
+TPCP_VER_1	,	V_20
+"Signature"	,	L_36
+ett_tpcp	,	V_23
+proto_reg_handoff_tpcp	,	F_23
+"tpcp.version"	,	L_7
+HFILL	,	V_43
+"PDU type"	,	L_11
+hf_tpcp_vaddr	,	V_34
+"Protocol type"	,	L_16
+new_create_dissector_handle	,	F_24
+"XON"	,	L_20
+val_to_str_const	,	F_14
+"udp.port"	,	L_40
+"tpcp"	,	L_39
+proto_tree_add_uint_format_value	,	F_10
+ENC_BIG_ENDIAN	,	V_30
+FT_UINT32	,	V_54
+TPCP_VER_2	,	V_21
+"Unknown"	,	L_5
+"Type"	,	L_9
+proto_tree	,	T_3
+hf	,	V_40
+"Don't redirect client"	,	L_19

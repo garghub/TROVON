@@ -1,0 +1,87 @@
+proto_vssmonitoring	,	V_21
+tvb_get_ntohl	,	F_3
+trailer_len	,	V_7
+"Clock Source"	,	L_6
+proto_register_protocol	,	F_13
+tvbuff_t	,	T_1
+proto_tree_add_time	,	F_6
+"vssmonitoring.clksrc"	,	L_7
+vssmonitoring_time	,	V_8
+tvb_get_ntohs	,	F_10
+"VSS-Monitoring"	,	L_13
+prefs_register_protocol	,	F_17
+tvb_reported_length	,	F_2
+tm_min	,	V_27
+tm_sec	,	V_28
+"Src Port"	,	L_9
+tmp	,	V_12
+VSS_NS_MASK	,	V_17
+gint	,	T_9
+proto_item_add_subtree	,	F_5
+clksrc_vals	,	V_36
+module_t	,	T_10
+dissect_vssmonitoring	,	F_1
+nstime_t	,	T_5
+vssmonitoring_clksrc	,	V_9
+proto_register_field_array	,	F_14
+"whether it contains VSS-Monitoring time- and port-stamps."	,	L_18
+"VSS-Monitoring Source Port"	,	L_11
+tvb	,	V_1
+guint	,	T_4
+offset	,	V_6
+guint32	,	V_15
+ett	,	V_37
+"Time Stamp"	,	L_3
+tree	,	V_3
+proto_item_append_text	,	F_8
+CLKSRC_SHIFT	,	V_16
+ett_vssmonitoring	,	V_23
+proto_reg_handoff_vssmonitoring	,	F_19
+packet_info	,	T_2
+proto_register_vssmonitoring	,	F_11
+tvb_get_guint8	,	F_9
+hf_vssmonitoring_time	,	V_24
+"VSS-Monitoring Clock Source"	,	L_8
+FT_ABSOLUTE_TIME	,	V_31
+"When enabled, Wireshark will do a check on the trailer data to verify"	,	L_17
+proto_register_subtree_array	,	F_16
+array_length	,	F_15
+vssmonitoring_module	,	V_38
+fd	,	V_19
+proto_tree_add_uint	,	F_7
+", Source Port: %d"	,	L_2
+proto_tree_add_item	,	F_4
+"Use heuristics to verify if trailer contains VSS-Monitoring data"	,	L_16
+pinfo	,	V_2
+abs_ts	,	V_20
+heur_dissector_add	,	F_20
+"vssmonitoring.time"	,	L_4
+tm_hour	,	V_26
+", Timestamp: %02d:%02d:%02d.%09ld"	,	L_1
+hf_register_info	,	T_8
+VALS	,	F_12
+vssmonitoring_tree	,	V_5
+HFILL	,	V_33
+prefs_register_bool_preference	,	F_18
+"vssmonitoring"	,	L_14
+guint16	,	T_7
+vssmonitoring_use_heuristics	,	V_18
+FT_UINT8	,	V_34
+"vssmonitoring.srcport"	,	L_10
+BASE_DEC	,	V_35
+"eth.trailer"	,	L_19
+"use_heuristics"	,	L_15
+"VSS-Monitoring ethernet trailer"	,	L_12
+vssmonitoring_srcport	,	V_10
+ENC_NA	,	V_22
+ABSOLUTE_TIME_LOCAL	,	V_32
+guint8	,	T_6
+nsecs	,	V_14
+hf_vssmonitoring_srcport	,	V_29
+hf_vssmonitoring_clksrc	,	V_25
+ti	,	V_4
+secs	,	V_13
+tm	,	V_11
+proto_tree	,	T_3
+hf	,	V_30
+"VSS-Monitoring Time Stamp"	,	L_5

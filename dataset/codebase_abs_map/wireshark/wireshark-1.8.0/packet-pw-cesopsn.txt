@@ -1,0 +1,160 @@
+"Sequence number"	,	L_31
+"pwcesopsn.cw"	,	L_20
+proto_register_protocol	,	F_26
+"Bad Length: must be 0 if CESoPSN packet size (%d) is &gt; 64"	,	L_15
+check_col	,	F_5
+col_append_fstr	,	F_13
+PWC_DEMUX_UDP	,	V_20
+pwc_longname_pw_cesopsn	,	V_73
+gint	,	T_5
+col_set_str	,	F_6
+pwc_vals_cw_r_bit	,	V_67
+"mpls.label"	,	L_42
+demux	,	V_4
+tvb	,	V_40
+item	,	V_10
+"CESoPSN payload: none found. Size of payload must be &lt;&gt; 0"	,	L_16
+COL_INFO	,	V_18
+"pwcesopsn.cw.bits03"	,	L_22
+padding_size	,	V_8
+proto_reg_handoff_pw_cesopsn	,	F_31
+" for basic CESoPSN mode"	,	L_12
+"pwcesopsn.payload.len"	,	L_36
+"TDM payload"	,	L_33
+shortname	,	V_17
+"pwcesopsn.cw.lm"	,	L_24
+tvb_reported_length_remaining	,	F_2
+col_clear	,	F_11
+"CW:Suspect, "	,	L_4
+cinfo	,	V_15
+PI_ERROR	,	V_14
+"Fragmentation"	,	L_27
+proto_register_subtree_array	,	F_29
+"Reserved combination of L and Modifier bits"	,	L_10
+array_length	,	F_28
+"TDM payload length"	,	L_35
+ett_array	,	V_72
+"pw_padding"	,	L_41
+proto_tree_add_item	,	F_3
+call_dissector	,	F_19
+pinfo	,	V_2
+"Malformed: PW packet is too small"	,	L_2
+PWC_PAY_SIZE_BAD	,	V_35
+pwc_demux_type_t	,	T_4
+PWC_CW_SUSPECT_LM	,	V_32
+"pw_cesopsn_udp"	,	L_39
+col_append_str	,	F_12
+payload_size_from_packet	,	V_25
+", Padding:%d"	,	L_7
+PROTO_ITEM_SET_HIDDEN	,	F_21
+LABEL_INVALID	,	V_74
+"pwcesopsn"	,	L_37
+hf_cw_lm	,	V_48
+hf_register_info	,	T_9
+"PW packet size (%d) is too small to carry sensible information"	,	L_1
+VALS	,	F_25
+"Bits 0..3 of Control Word must be 0"	,	L_9
+COL_PROTOCOL	,	V_16
+cw_len	,	V_24
+"Fragmentation of payload is not allowed"	,	L_11
+"data"	,	L_40
+FT_UINT8	,	V_64
+BASE_DEC	,	V_65
+tvb_new_subset	,	F_18
+proto_item	,	T_7
+"CESoPSN packet payload size must be multiple of 8"	,	L_18
+PWC_CW_BAD_LEN_MUST_BE_0	,	V_29
+dissect_try_cw_first_nibble	,	F_7
+ENC_NA	,	V_12
+guint8	,	T_8
+"octet"	,	L_8
+"CW:Bad, "	,	L_3
+expert_add_info_format	,	F_4
+BASE_NONE	,	V_62
+dissect_pw_cesopsn	,	F_1
+PWC_ANYOF_CW_BAD	,	V_36
+"pwcesopsn.payload"	,	L_34
+item3	,	V_45
+"L+M bits"	,	L_23
+register_dissector	,	F_30
+item2	,	V_41
+tvb_get_ntohl	,	F_15
+cw_lm	,	V_30
+hf_payload	,	V_56
+tvbuff_t	,	T_1
+"pwcesopsn.cw.length"	,	L_30
+tvb_original	,	V_1
+BASE_HEX	,	V_66
+PWC_CW_BAD_FRAG	,	V_23
+dissect_pw_cesopsn_udp	,	F_23
+proto_item_add_subtree	,	F_17
+PI_NOTE	,	V_55
+"Control Word"	,	L_19
+PI_UNDECODED	,	V_49
+proto_register_field_array	,	F_27
+pwc_item_append_cw	,	F_14
+FT_BYTES	,	V_70
+payload_size_from_cw	,	V_26
+FT_NONE	,	V_61
+"Length"	,	L_29
+l_bit	,	V_33
+ett	,	V_39
+DISSECTOR_ASSERT_NOT_REACHED	,	F_8
+dissector_add_uint	,	F_33
+dissect_pw_cesopsn_mpls	,	F_22
+tree	,	V_3
+"pw_cesopsn_mpls"	,	L_38
+dissector_add_handle	,	F_34
+PWC_CW_BAD_PAYLEN_GT_PACKET	,	V_28
+"Payload size:Bad, "	,	L_5
+pwc_item_append_text_n_items	,	F_16
+data_handle	,	V_57
+PWC_CW_BAD_BITS03	,	V_22
+FT_UINT16	,	V_69
+packet_info	,	T_2
+hf_cw_frg	,	V_52
+"pwcesopsn.cw.frag"	,	L_28
+tvb_get_guint8	,	F_9
+hf_cw_len	,	V_53
+"Bad Length: must be &lt;= than PSN packet size (%d)"	,	L_14
+proto	,	V_11
+pwc_vals_cw_frag	,	V_68
+"TDM octets:%d"	,	L_6
+hf_cw	,	V_43
+PWC_DEMUX_MPLS	,	V_19
+match_strval	,	F_10
+pw_padding_handle	,	V_59
+PWC_PACKET_PROPERTIES_T_INITIALIZER	,	V_21
+"R bit: Local CE-bound IWF"	,	L_25
+"Bits 0 to 3"	,	L_21
+tree2	,	V_38
+tree3	,	V_44
+hf_payload_l	,	V_58
+proto_register_pw_cesopsn	,	F_24
+"Bad Length: too small, must be &gt; %d"	,	L_13
+PI_MALFORMED	,	V_13
+HFILL	,	V_63
+FT_INT32	,	V_71
+PWC_CW_BAD_PAYLEN_LT_0	,	V_27
+PWC_SIZEOF_CW	,	V_42
+hf_cw_bits03	,	V_46
+vals_cw_lm	,	V_31
+"pwcesopsn.cw.rbit"	,	L_26
+"udp.port"	,	L_43
+pwc_packet_properties_t	,	T_6
+PWC_ANYOF_CW_SUSPECT	,	V_37
+"CESoPSN payload: omitted to conserve bandwidth"	,	L_17
+find_dissector	,	F_32
+PI_WARN	,	V_50
+hf_cw_seq	,	V_54
+encaps_size	,	V_5
+ENC_BIG_ENDIAN	,	V_47
+m_bits	,	V_34
+packet_size	,	V_6
+hf_cw_r	,	V_51
+payload_size	,	V_7
+proto_tree_add_int	,	F_20
+proto_tree	,	T_3
+properties	,	V_9
+hf	,	V_60
+"pwcesopsn.cw.seqno"	,	L_32

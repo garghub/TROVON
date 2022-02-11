@@ -1,0 +1,138 @@
+dissect_cbs_data_coding_scheme	,	F_19
+p_rev	,	V_5
+proto_register_protocol	,	F_27
+"bmc.message_id"	,	L_11
+bit	,	V_35
+"Length of CBS Schedule Period"	,	L_20
+"BMC"	,	L_1
+tvb_new_subset_remaining	,	F_20
+len	,	V_9
+dissect_bmc_schedule_message	,	F_15
+"Serial Number"	,	L_12
+"bmc.message_description_type"	,	L_25
+gint	,	T_5
+col_set_str	,	F_2
+"bmc.broadcast_address"	,	L_29
+tvb_new_child_real_data	,	F_9
+proto_tree_add_uint_format	,	F_23
+tvb	,	V_1
+MESSAGE_TYPE_CBS_MESSAGE	,	V_22
+COL_INFO	,	V_15
+message_type	,	V_4
+"bmc.data_coding_scheme"	,	L_15
+dissect_bmc_cbs_message	,	F_14
+"bmc.future_extension_bitmap"	,	L_33
+col_clear	,	F_3
+length_of_cbs_schedule_period	,	V_29
+cinfo	,	V_13
+proto_register_subtree_array	,	F_31
+val_to_str	,	F_13
+hf_bmc_cb_data41	,	V_50
+array_length	,	F_30
+"Offset to CTCH BS index of first transmission"	,	L_26
+proto_tree_add_item	,	F_4
+"Message Description"	,	L_5
+pinfo	,	V_2
+col_add_fstr	,	F_12
+_U_	,	V_25
+new_register_dissector	,	F_28
+"Reserved 0x%02x"	,	L_4
+hf_bmc_new_message_bitmap	,	V_39
+future_extension_bitmap	,	V_31
+hf_register_info	,	T_7
+"bmc.new_message_bitmap"	,	L_23
+"CB Data"	,	L_16
+"Data Coding Scheme"	,	L_14
+dissect_umts_cell_broadcast_message	,	F_21
+COL_PROTOCOL	,	V_14
+message_description_type	,	V_30
+"bmc.serial_number"	,	L_13
+tvb_length	,	F_6
+hf_bmc_message_description_type	,	V_41
+FT_UINT8	,	V_52
+i	,	V_8
+proto_tree_add_text	,	F_22
+BASE_DEC	,	V_53
+proto_item	,	T_6
+"bmc.offset_to_begin_ctch_bs_index"	,	L_19
+"Message Description Type"	,	L_24
+ENC_NA	,	V_17
+guint8	,	T_4
+new_message_bitmap_len	,	V_28
+cell_broadcast_tvb	,	V_26
+ti	,	V_10
+BASE_NONE	,	V_60
+"bmc.length_of_cbs_schedule_period"	,	L_21
+"Offset to Begin CTCH Block Set Index"	,	L_18
+"bmc.ctch_bs_index"	,	L_37
+tvb_length_remaining	,	F_25
+hf_bmc_future_extension_bitmap	,	V_45
+dissect_cbs_message_identifier	,	F_17
+"%s"	,	L_3
+"CB Data41"	,	L_30
+ett_bmc	,	V_18
+tvbuff_t	,	T_1
+hf_bmc_length_of_cbs_schedule_period	,	V_38
+"bmc.offset_to_ctch_bs_index_of_first_transmission"	,	L_27
+message_description_tree	,	V_36
+dissect_bmc_cbs41_message	,	F_16
+BASE_HEX	,	V_56
+hf_bmc_offset_to_begin_ctch_bs_index	,	V_37
+"Message ID"	,	L_10
+proto_item_add_subtree	,	F_5
+hf_bmc_length_of_serial_number_list	,	V_46
+hf_bmc_message_type	,	V_19
+ep_tvb_memdup	,	F_7
+proto_register_field_array	,	F_29
+bmc_tree	,	V_11
+"bmc.cb_data41"	,	L_31
+"CTCH BS Index"	,	L_36
+FT_BYTES	,	V_59
+saved_offset	,	V_27
+MESSAGE_TYPE_CBS41_MESSAGE	,	V_24
+dissect_bmc	,	F_1
+offset	,	V_7
+ett	,	V_61
+MESSAGE_TYPE_SCHEDULE_MESSAGE	,	V_23
+"Broadcast Address"	,	L_28
+tree	,	V_3
+FT_UINT16	,	V_55
+packet_info	,	T_2
+"New Message Bitmap"	,	L_22
+add_new_data_source	,	F_10
+entry	,	V_33
+tvb_get_guint8	,	F_11
+hf_bmc_broadcast_address	,	V_49
+message_type_vals	,	V_21
+"bmc"	,	L_39
+hf_bmc_serial_number	,	V_47
+hf_bmc_cb_data	,	V_58
+BIT_SWAP	,	F_8
+hf_bmc_offset_to_ctch_bs_index_of_first_transmission	,	V_44
+bit_reversed_tvb	,	V_12
+"bmc.cb_data"	,	L_17
+ett_bmc_message_description	,	V_40
+hf_bmc_message_id	,	V_43
+"Message Type"	,	L_8
+reversing_buffer	,	V_6
+"Bit-reversed Data"	,	L_2
+dissect_cbs_serial_number	,	F_18
+HFILL	,	V_54
+"Future Extension Bitmap"	,	L_32
+mask	,	V_34
+proto_bmc	,	V_16
+"Broadcast/Multicast Control"	,	L_38
+"bmc.length_of_serial_number_list"	,	L_35
+hf_bmc_data_coding_scheme	,	V_57
+length_of_serial_number_list	,	V_32
+proto_item_set_len	,	F_24
+ENC_BIG_ENDIAN	,	V_20
+proto_register_bmc	,	F_26
+message_description_type_vals	,	V_42
+hf_bmc_ctch_bs_index	,	V_48
+"Unknown"	,	L_7
+"bmc.message_type"	,	L_9
+"Length of Serial Number List"	,	L_34
+proto_tree	,	T_3
+hf	,	V_51
+"Message %d Message Description Type: %s (%d)"	,	L_6

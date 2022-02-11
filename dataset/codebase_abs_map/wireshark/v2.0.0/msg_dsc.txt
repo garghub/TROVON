@@ -1,0 +1,60 @@
+dsc_item	,	V_5
+register_dissector	,	F_14
+proto_reg_handoff_mac_mgmt_msg_dsc	,	F_15
+"Transaction ID"	,	L_6
+proto_register_protocol	,	F_10
+tvbuff_t	,	T_1
+dsc_tree	,	V_6
+proto_tree_add_protocol_format	,	F_2
+"WiMax DSC Messages"	,	L_8
+"Dynamic Service Change Response (DSC-RSP)"	,	L_2
+ett_mac_mgmt_msg_dsc_rsp_decoder	,	V_11
+tvb_new_subset_remaining	,	F_6
+gint	,	T_7
+proto_item_add_subtree	,	F_3
+hf_dsc_confirmation_code	,	V_12
+"wmx.dsc.transaction_id"	,	L_7
+"wmx.mgmtmsg"	,	L_12
+proto_register_field_array	,	F_11
+dissect_mac_mgmt_msg_dsc_ack_decoder	,	F_8
+tvb	,	V_1
+guint	,	T_4
+ett_mac_mgmt_msg_dsc_req_decoder	,	V_8
+offset	,	V_4
+ett	,	V_19
+dissector_add_uint	,	F_17
+tree	,	V_3
+dissect_mac_mgmt_msg_dsc_req_decoder	,	F_1
+FT_UINT16	,	V_18
+packet_info	,	T_2
+proto_register_subtree_array	,	F_13
+ett_mac_mgmt_msg_dsc_ack_decoder	,	V_13
+"Confirmation code"	,	L_4
+array_length	,	F_12
+wimax_common_tlv_encoding_decoder	,	F_5
+dissect_mac_mgmt_msg_dsc_rsp_decoder	,	F_7
+proto_register_mac_mgmt_msg_dsc	,	F_9
+MAC_MGMT_MSG_DSC_ACK	,	V_23
+proto_tree_add_item	,	F_4
+pinfo	,	V_2
+dissector_handle_t	,	T_8
+"Dynamic Service Change Acknowledge (DSC-ACK)"	,	L_3
+MAC_MGMT_MSG_DSC_REQ	,	V_21
+hf_register_info	,	T_6
+"Dynamic Service Change Request (DSC-REQ)"	,	L_1
+"wmx.dsc"	,	L_10
+HFILL	,	V_17
+hf_dsc_transaction_id	,	V_9
+proto_mac_mgmt_msg_dsc_decoder	,	V_7
+FT_UINT8	,	V_15
+dsc_handle	,	V_20
+BASE_DEC	,	V_16
+"wmx.dsc.confirmation_code"	,	L_5
+create_dissector_handle	,	F_16
+proto_item	,	T_5
+ENC_BIG_ENDIAN	,	V_10
+"mac_mgmt_msg_dsc_rsp_handler"	,	L_11
+MAC_MGMT_MSG_DSC_RSP	,	V_22
+"WiMax DSC"	,	L_9
+proto_tree	,	T_3
+hf	,	V_14

@@ -1,0 +1,86 @@
+register_dissector	,	F_16
+"Transaction ID"	,	L_4
+"DOCSIS DCC-RSP"	,	L_17
+"docsis_dccrsp"	,	L_18
+THROW	,	F_6
+proto_register_protocol	,	F_12
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_10
+proto_docsis_dccrsp	,	V_19
+DCCRSP_CM_JUMP_TIME_START	,	V_14
+len	,	V_4
+"Jump Time Start"	,	L_10
+"docsis_dccrsp.key_seq_num"	,	L_13
+FT_UINT64	,	V_35
+col_set_str	,	F_9
+"docsis_dccrsp.tran_id"	,	L_5
+"docsis_dccrsp.cm_jump_time_start"	,	L_11
+gint	,	T_8
+proto_item_add_subtree	,	F_3
+proto_register_field_array	,	F_13
+FT_BYTES	,	V_36
+dissect_dccrsp	,	F_7
+DCCRSP_HMAC_DIGEST	,	V_26
+tvb	,	V_1
+ett_docsis_dccrsp	,	V_20
+ett	,	V_38
+COL_INFO	,	V_18
+hf_docsis_dccrsp_cm_jump_time_start	,	V_15
+"docsis_dccrsp.conf_code"	,	L_7
+dissector_add_uint	,	F_19
+"docsis_mgmt"	,	L_19
+tree	,	V_2
+"docsis_dccrsp.hmac_digest"	,	L_15
+"2 DCC-RSP CM Time Jump Encodings (Length = %u)"	,	L_1
+hf_docsis_dccrsp_cm_jump_time_length	,	V_11
+"HMAC-DigestNumber"	,	L_14
+DCCRSP_KEY_SEQ_NUM	,	V_24
+FT_UINT16	,	V_30
+packet_info	,	T_6
+tvb_get_guint8	,	F_4
+dissect_dccrsp_cm_jump_time	,	F_1
+"Jump Time Length"	,	L_8
+cinfo	,	V_17
+DCCRSP_CM_JUMP_TIME	,	V_23
+proto_register_subtree_array	,	F_15
+array_length	,	F_14
+"DCC-RSP Message"	,	L_3
+"docsis_dccrsp.cm_jump_time_length"	,	L_9
+proto_tree_add_item	,	F_5
+pinfo	,	V_16
+dissector_handle_t	,	T_9
+DCCRSP_CM_JUMP_TIME_LENGTH	,	V_10
+hf_docsis_dccrsp_key_seq_num	,	V_25
+proto_register_docsis_dccrsp	,	F_11
+"Auth Key Sequence Number"	,	L_12
+"DCC-RSP Message: "	,	L_2
+pos	,	V_8
+hf_register_info	,	T_7
+proto_reg_handoff_docsis_dccrsp	,	F_17
+"DOCSIS Downstream Channel Change Response"	,	L_16
+hf_docsis_dccrsp_conf_code	,	V_22
+HFILL	,	V_32
+"Confirmation Code"	,	L_6
+ReportedBoundsError	,	V_13
+guint16	,	T_3
+dcc_tree	,	V_7
+FT_UINT8	,	V_33
+start	,	V_3
+length	,	V_5
+find_dissector	,	F_18
+proto_tree_add_text	,	F_2
+BASE_DEC	,	V_31
+ett_docsis_dccrsp_cm_jump_time	,	V_9
+proto_item	,	T_5
+hf_docsis_dccrsp_tran_id	,	V_21
+ENC_BIG_ENDIAN	,	V_12
+ENC_NA	,	V_28
+guint8	,	T_4
+dcc_item	,	V_6
+FT_UINT32	,	V_34
+BASE_NONE	,	V_37
+tvb_length_remaining	,	F_8
+docsis_dccrsp_handle	,	V_39
+hf_docsis_dccrsp_hmac_digest	,	V_27
+proto_tree	,	T_2
+hf	,	V_29

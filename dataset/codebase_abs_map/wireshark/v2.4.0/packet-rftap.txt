@@ -1,0 +1,283 @@
+hf_rftap_signal_power	,	V_52
+RFTAP_TAG_DISSECTOR_NAME	,	V_70
+"Signal Power Present"	,	L_37
+"Time standard is Unix Time"	,	L_49
+"rftap.nomfreq"	,	L_77
+"rftap.time"	,	L_101
+"Specifies if the Frequency Offset field is present"	,	L_33
+proto_register_protocol	,	F_29
+"rftap.lon"	,	L_110
+tvb_get_letohieee_double	,	F_10
+tvb_new_subset_remaining	,	F_23
+len	,	V_8
+hf_rftap_fixed_header	,	V_34
+gint	,	T_14
+"rftap.present.field15"	,	L_68
+"Specifies if the Time field is present"	,	L_54
+tvb	,	V_1
+guint32	,	T_3
+COL_INFO	,	V_85
+"Specifies if the DLT (Data Link Type) field is present"	,	L_24
+"rftap.present.noise"	,	L_41
+"Actual (measured) carrier frequency, in Hertz (not necessarily center frequency)"	,	L_75
+hf_rftap_len	,	V_39
+FT_BOOLEAN	,	V_100
+hf_rftap_freqofs	,	V_50
+subdissector_tvb	,	V_78
+hf_rftap_magic	,	V_37
+"dB"	,	L_2
+RFTAP_TAG_SIGNAL_POWER	,	V_51
+hf_rftap_duration	,	V_65
+cinfo	,	V_83
+ett_rftap	,	V_89
+"rftap.present.power"	,	L_38
+"DLT Present"	,	L_22
+array_length	,	F_31
+"%.0f seconds"	,	L_5
+"rftap.qual"	,	L_92
+"Noise power, in dB or dBm units: wikipedia.org/wiki/DBm"	,	L_87
+tag_flags	,	V_13
+hf_rftap_present_nomfreq	,	V_20
+"Reserved Field 13 Present"	,	L_61
+tag_len	,	V_12
+"Name of sub-dissector used for packet data (alternative to DLT field)"	,	L_117
+proto_tree_add_float_format_value	,	F_9
+hf_rftap_latitude	,	V_67
+ENC_ASCII	,	V_72
+hf_rftap_longitude	,	V_68
+RFTAP_TAG_TIME_IS_UNIX_TIME	,	V_59
+clear_address	,	F_20
+hf_rftap_signal_quality	,	V_58
+"Specifies if the Location field is present"	,	L_60
+"rftap.timefrac"	,	L_98
+hf_rftap_present_dlt	,	V_18
+hf_register_info	,	T_15
+"Specifies if the time standard is Unix Time: wikipedia.org/wiki/Unix_time"	,	L_51
+"rftap.present.field13"	,	L_62
+COL_PROTOCOL	,	V_84
+hf_rftap_power_is_in_dbm	,	V_22
+"Specifies if the Power is specified in dBm units"	,	L_36
+"RFtap flags"	,	L_21
+guint8	,	T_4
+hf_rftap_present_reserved_field_14	,	V_32
+subdissector_handle	,	V_80
+"rftap.present.duration"	,	L_56
+hf_rftap_present_reserved_field_15	,	V_33
+ti	,	V_75
+BASE_NONE	,	V_94
+hf_rftap_present_reserved_field_13	,	V_31
+"rftap.present.nomfreq"	,	L_29
+"rftap.present.field14"	,	L_65
+RFTAP_MAGIC	,	V_82
+"rftap.present.dlt"	,	L_23
+register_dissector	,	F_33
+"Specifies if the Frequency field is present"	,	L_27
+"%.9f seconds"	,	L_6
+"rftap.present.time"	,	L_53
+header_tree	,	V_6
+"rftap.dlt"	,	L_71
+"Frequency Present"	,	L_25
+"RFtap Fixed header"	,	L_10
+tvbuff_t	,	T_1
+"Specifies if the Reserved Field 13 is present"	,	L_63
+proto_tree_add_protocol_format	,	F_22
+"Specifies if the Duration field is present"	,	L_57
+BASE_HEX	,	V_97
+float_val	,	V_15
+"Signal to Noise ratio (decibel units): wikipedia.org/wiki/Signal-to-noise_ratio"	,	L_90
+ti_header	,	V_5
+gboolean	,	T_13
+"rftap.power"	,	L_83
+proto_tree_add_double_format_value	,	F_11
+"rftap.len"	,	L_17
+tag_id	,	V_11
+proto_item_add_subtree	,	F_3
+"rftap.freq"	,	L_74
+"Specifies if the Reserved Field 15 is present"	,	L_69
+proto_register_field_array	,	F_30
+"rftap.present.qual"	,	L_47
+rftap_len	,	V_79
+hf_rftap_noise_power	,	V_54
+FT_UINT16	,	V_99
+rftap_tvb	,	V_77
+tvb_get_guint8	,	F_12
+FT_FLOAT	,	V_104
+"Time (integer part)"	,	L_94
+proto_register_rftap	,	F_28
+tvb_captured_length	,	F_16
+"Signal Power"	,	L_82
+hf_rftap_time_frac	,	V_62
+"Frequency Offset Present"	,	L_31
+units_degree_degrees	,	V_106
+"RFtap signature: wikipedia.org/wiki/File_format#Magic_number"	,	L_15
+"Signal Quality"	,	L_91
+call_dissector_with_data	,	F_24
+"rftap.timeint"	,	L_95
+"The event time, in seconds, since epoch: wikipedia.org/wiki/Epoch_(reference_date)"	,	L_102
+hf_rftap_snr	,	V_56
+"SNR"	,	L_88
+RFTAP_TAG_SIGNAL_QUALITY	,	V_57
+heur_dissector_add	,	F_36
+HEURISTIC_ENABLE	,	V_109
+hf_rftap_present_time	,	V_28
+"rftap.lat"	,	L_107
+FT_STRING	,	V_108
+RFTAP_TAG_FREQ_OFS	,	V_49
+call_data_dissector	,	F_26
+"Duration Present"	,	L_55
+"The integer part of event time, in seconds, since epoch: wikipedia.org/wiki/Epoch_(reference_date)"	,	L_96
+hf_rftap_present_snr	,	V_25
+"%.2f dB"	,	L_4
+"Data Link Type (DLT) of the encapsulated packet: www.tcpdump.org/linktypes.html"	,	L_72
+"RFtap Protocol"	,	L_118
+find_dissector	,	F_25
+dlt	,	V_3
+ett_rftap_flags	,	V_41
+FT_DOUBLE	,	V_101
+FT_UINT32	,	V_96
+RFTAP_TAG_NOM_FREQ	,	V_47
+"rftap.fixedheader"	,	L_11
+guint64	,	T_7
+"Reserved Field 14 Present"	,	L_64
+hf	,	V_92
+proto_rftap	,	V_88
+RFTAP_TAG_POWER_IS_IN_DBM	,	V_42
+hf_rftap_freq	,	V_46
+"%.6f seconds"	,	L_7
+"Specifies if the Signal Quality field is present"	,	L_48
+"Signal power, in dB or dBm units: wikipedia.org/wiki/DBm"	,	L_84
+"rftap.present.location"	,	L_59
+"rftap.present.freqofs"	,	L_32
+"rftap.isdbm"	,	L_35
+"Longitude"	,	L_109
+col_set_str	,	F_18
+RFTAP_TAG_SNR	,	V_55
+"Flags"	,	L_19
+"Altitude of receiver, in meters, using WGS 84 datum: wikipedia.org/wiki/World_Geodetic_System"	,	L_114
+"Time Present"	,	L_52
+rftap_tree	,	V_76
+ett_rftap_fixed_header	,	V_36
+RFTAP_TAG_NOISE_POWER	,	V_53
+"RFtap"	,	L_119
+find_dissector_add_dependency	,	F_35
+hf_rftap_flags	,	V_40
+"Time"	,	L_100
+"Signal Quality Present"	,	L_46
+hf_rftap_present_noise_power	,	V_24
+col_clear	,	F_19
+"rftap.present.freq"	,	L_26
+"SNR Present"	,	L_43
+proto_register_subtree_array	,	F_32
+gint32	,	T_6
+proto_tree_add_item_ret_uint	,	F_7
+"The fractional part of event time, in seconds, since epoch: wikipedia.org/wiki/Epoch_(reference_date)"	,	L_99
+proto_tree_add_item	,	F_2
+"Longitude of receiver (-180..180 degrees), using WGS 84 datum: wikipedia.org/wiki/World_Geodetic_System"	,	L_111
+pinfo	,	V_73
+dissector_handle_t	,	T_12
+"Frequency Offset"	,	L_79
+flags	,	V_9
+_U_	,	V_74
+"Latitude"	,	L_106
+hf_rftap_time_int	,	V_61
+hf_rftap_time	,	V_63
+"rftap.isunixtime"	,	L_50
+"Nominal Frequency"	,	L_76
+proto_tree_add_bitmask_ret_uint64	,	F_6
+"rftap.magic"	,	L_14
+"RFTAP"	,	L_8
+"Magic"	,	L_13
+"dBm"	,	L_1
+hf_rftap_time_is_unix_time	,	V_27
+"Noise Power Present"	,	L_40
+"rftap"	,	L_120
+"Specifies if the SNR field is present"	,	L_45
+hf_rftap_present_duration	,	V_29
+gdouble	,	T_8
+"Power is in dBm Units"	,	L_34
+power_units	,	V_16
+hf_rftap_present_freq	,	V_19
+"Nominal Frequency Present"	,	L_28
+BASE_DEC	,	V_98
+proto_item	,	T_5
+proto_reg_handoff_rftap	,	F_34
+tvb_new_subset_length_caplen	,	F_21
+ENC_NA	,	V_35
+hf_rftap_present_signal_power	,	V_23
+"Duration"	,	L_103
+hf_rftap_present_location	,	V_30
+hf_rftap_dlt	,	V_44
+"Nominal carrier frequency, in Hertz (the ideal frequency, ignoring freq errors)"	,	L_78
+ENC_LITTLE_ENDIAN	,	V_38
+units_hz	,	V_103
+proto_tree_add_item_ret_string	,	F_13
+"Dissector Name"	,	L_115
+"Specifies if the Signal Power field is present"	,	L_39
+"Data Link Type (DLT)"	,	L_70
+"Signal quality, arbitrary units from 0.0 (worst) to 1.0 (best)"	,	L_93
+dissect_rftap_header	,	F_1
+data	,	T_11
+"Specifies if the Reserved Field 14 is present"	,	L_66
+"Altitude"	,	L_112
+"Carrier frequency offset, in Hertz: wikipedia.org/wiki/Carrier_frequency_offset"	,	L_81
+RFTAP_TAG_LOCATION	,	V_66
+flag_bit	,	V_10
+"rftap.dissector"	,	L_116
+subdissector_name	,	V_4
+"Latitude of receiver (-90..90 degrees), using WGS 84 datum: wikipedia.org/wiki/World_Geodetic_System"	,	L_108
+RFTAP_TAG_TIME	,	V_60
+tvb_get_letohl	,	F_17
+"rftap.flags"	,	L_20
+"Reserved Field 15 Present"	,	L_67
+units_meter_meters	,	V_107
+tvb_get_letohs	,	F_4
+RFTAP_TAG_DURATION	,	V_64
+hf_rftap_present_freqofs	,	V_21
+FT_NONE	,	V_93
+"Length"	,	L_16
+offset	,	V_7
+ett	,	V_91
+wmem_packet_scope	,	F_14
+tree	,	V_2
+pcap_pktdata_handle	,	V_90
+"RFtap Fixed 8-byte Header"	,	L_12
+"The duration of the event (packet), in seconds"	,	L_105
+"rftap.alt"	,	L_113
+"%.2f %s"	,	L_3
+"Specifies if the Nominal Frequency field is present"	,	L_30
+RFTAP_TAG_DLT	,	V_43
+packet_info	,	T_10
+"rftap.snr"	,	L_89
+"udp"	,	L_122
+BASE_UNIT_STRING	,	V_102
+dissect_rftap	,	F_15
+proto_tree_add_uint	,	F_5
+double_val	,	V_14
+tvb_get_letohieee_float	,	F_8
+dst	,	V_87
+"Location Present"	,	L_58
+hf_rftap_altitude	,	V_69
+gfloat	,	T_9
+"Frequency"	,	L_73
+dissect_rftap_heur	,	F_27
+"Length (in bytes) of entire rftap header, including tagged (optional) parameters"	,	L_18
+hf_rftap_subdissector_name	,	V_71
+"rftap.duration"	,	L_104
+"rftap.present.snr"	,	L_44
+"pcap_pktdata"	,	L_121
+hf_rftap_present_signal_quality	,	V_26
+HFILL	,	V_95
+subdissector_dlt	,	V_81
+units_second_seconds	,	V_105
+RFTAP_TAG_FREQ	,	V_45
+src	,	V_86
+"Noise Power"	,	L_85
+hf_rftap_nomfreq	,	V_48
+"rftap.freqofs"	,	L_80
+"RFtap over UDP"	,	L_123
+"Time (fractional part)"	,	L_97
+"rftap.noise"	,	L_86
+"Specifies if the Noise Power field is present"	,	L_42
+flag_fields	,	V_17
+"RFtap Protocol (%d bytes)"	,	L_9
+proto_tree	,	T_2

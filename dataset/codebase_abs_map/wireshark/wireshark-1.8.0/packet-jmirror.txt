@@ -1,0 +1,90 @@
+global_jmirror_udp_port	,	V_36
+BASE_HEX_DEC	,	V_32
+"Juniper Packet Mirror"	,	L_10
+tvb_get_ntohl	,	F_8
+"Jmirror"	,	L_1
+proto_register_jmirror	,	F_15
+proto_register_protocol	,	F_16
+tvbuff_t	,	T_2
+hdlc_handle	,	V_10
+proto_tree_add_protocol_format	,	F_10
+prefs_register_protocol	,	F_17
+jmirror_handle	,	V_39
+jmirror_hf	,	V_30
+prefs_register_uint_preference	,	F_18
+"jmirror.sid"	,	L_8
+col_set_str	,	F_7
+gint	,	T_8
+proto_item_add_subtree	,	F_11
+hf_jmirror_sid	,	V_27
+module_t	,	T_6
+hf_jmirror_mid	,	V_25
+proto_register_field_array	,	F_19
+MIRROR_ID_SZ	,	V_21
+tvb	,	V_1
+guint	,	T_9
+offset	,	V_2
+COL_INFO	,	V_22
+dissector_add_uint	,	F_25
+sidval	,	V_15
+tree	,	V_12
+tvb_bytes_exist	,	F_2
+lo_nibble	,	F_5
+"Session Identifier"	,	L_7
+midval	,	V_14
+proto_reg_handoff_jmirror	,	V_35
+packet_info	,	T_3
+hi_nibble	,	F_4
+tvb_get_guint8	,	F_3
+byte1	,	V_5
+byte0	,	V_4
+cinfo	,	V_19
+byte3	,	V_7
+byte2	,	V_6
+proto_register_subtree_array	,	F_21
+SESSION_ID_SZ	,	V_28
+"jmirror"	,	L_11
+"ipv6"	,	L_16
+MIRROR_HDR_SZ	,	V_3
+array_length	,	F_20
+dissector_delete_uint	,	F_24
+get_heuristic_handle	,	F_1
+jmirror_ett	,	V_34
+proto_jmirror	,	V_23
+next_tvb	,	V_18
+proto_tree_add_item	,	F_12
+call_dissector	,	F_14
+dissector_handle_t	,	T_1
+pinfo	,	V_11
+col_add_fstr	,	F_9
+"MID: 0X%08x (%d), SID: 0x%08x (%d)"	,	L_2
+"Set the port for JMirror Port (if other than the default of 30030)"	,	L_14
+"Unique identifier of the mirrored session"	,	L_6
+jmirror_inited	,	V_37
+hf_register_info	,	T_7
+HFILL	,	V_33
+dissect_jmirror	,	F_6
+"Jmirror Identifier"	,	L_4
+new_create_dissector_handle	,	F_22
+COL_PROTOCOL	,	V_20
+"udp.port"	,	L_12
+find_dissector	,	F_23
+"ip"	,	L_15
+ett_jmirror	,	V_24
+tvb_new_subset	,	F_13
+"jmirror.mid"	,	L_5
+ipv4_handle	,	V_8
+ipv6_handle	,	V_9
+proto_item	,	T_5
+jmirror_tree	,	V_17
+ENC_BIG_ENDIAN	,	V_26
+FT_UINT32	,	V_31
+ti	,	V_16
+jmirror_module	,	V_29
+"Juniper Packet Mirror, MID: 0x%08x (%d), SID: 0x%08x (%d)"	,	L_3
+dissector_handle	,	V_13
+"JMirror UDP Port"	,	L_13
+jmirror_udp_port	,	V_38
+proto_tree	,	T_4
+"Unique identifier of the user session"	,	L_9
+"pw_hdlc_nocw_hdlc_ppp"	,	L_17

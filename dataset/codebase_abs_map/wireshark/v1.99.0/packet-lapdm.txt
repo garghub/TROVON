@@ -1,0 +1,247 @@
+hf_lapdm_u_modifier_cmd	,	V_91
+"LPD"	,	L_13
+proto_register_protocol	,	F_21
+hf_lapdm_reassembled_in	,	V_115
+XDLC_N_S_MASK	,	V_82
+"Length indicator"	,	L_47
+process_reassembled_data	,	F_14
+addr_ti	,	V_10
+len	,	V_16
+gint	,	T_10
+"Address Field"	,	L_4
+"LAPDm"	,	L_1
+TFS	,	F_20
+tvb	,	V_3
+"Link Protocol Discriminator"	,	L_15
+guint32	,	T_8
+COL_INFO	,	V_67
+"More data bit"	,	L_44
+FT_BOOLEAN	,	V_84
+"reassemble"	,	L_82
+"Whether the dissector should defragment LAPDm messages spanning multiple packets."	,	L_84
+"Final"	,	L_27
+" (Fragment)"	,	L_3
+hf_lapdm_fragment	,	V_106
+MIN	,	F_11
+hf_lapdm_fragment_error	,	V_112
+cinfo	,	V_23
+LAPDM_EL	,	V_101
+array_length	,	F_23
+lapdm_ti	,	V_9
+"lapdm.cr"	,	L_11
+call_dissector	,	F_16
+"N(R)"	,	L_21
+col_append_str	,	F_17
+is_response	,	V_21
+hf_register_info	,	T_9
+XDLC_S_FTYPE_MASK	,	V_90
+circuit_id	,	V_60
+"lapdm.address_field"	,	L_5
+"lapdm.control.u_modifier_resp"	,	L_34
+XDLC_I	,	V_53
+COL_PROTOCOL	,	V_24
+"lapdm.m"	,	L_43
+m	,	V_18
+reassembly_table_init	,	F_2
+cr	,	V_14
+guint8	,	T_5
+BASE_NONE	,	V_104
+ett_lapdm_fragments	,	V_119
+hf_lapdm_fragments	,	V_105
+register_dissector	,	F_25
+tvbuff_t	,	T_1
+"lapdm.el"	,	L_40
+proto_reg_handoff_lapdm	,	F_30
+lapdm_ea_vals	,	V_74
+BASE_HEX	,	V_71
+hf_lapdm_fragment_data	,	V_68
+gboolean	,	T_6
+payload	,	V_19
+fragment_id	,	V_57
+LAPDM_LEN	,	V_48
+proto_item_add_subtree	,	F_8
+module_t	,	T_11
+"Reassembled LAPDm"	,	L_2
+"Command/response field bit"	,	L_12
+fragmented	,	V_59
+"LAPDm Message has been reassembled in this packet."	,	L_75
+proto_register_field_array	,	F_22
+hf_lapdm_f	,	V_87
+"Message fragments"	,	L_50
+fragment_head	,	T_7
+"lapdm.control.n_r"	,	L_22
+"LAPDm Message fragment overlaps with conflicting data"	,	L_61
+"Link Access Procedure, Channel Dm (LAPDm)"	,	L_79
+data_handle	,	V_66
+register_init_routine	,	F_29
+tvb_get_guint8	,	F_6
+lapdm_el_vals	,	V_100
+lapdm_module	,	V_120
+"lapdm.reassembled.in"	,	L_74
+hf_lapdm_control	,	V_38
+hf_lapdm_m	,	V_44
+"Address"	,	L_6
+fd	,	V_62
+hf_lapdm_p	,	V_83
+XDLC_I_MASK	,	V_52
+lapdm_frag_items	,	V_61
+hf_lapdm_n_s	,	V_81
+hf_lapdm_n_r	,	V_79
+LAPDM_EA	,	V_75
+fragment_add_seq_next	,	F_13
+"Message fragment overlap"	,	L_56
+"lapdm.control.n_s"	,	L_24
+proto_lapdm	,	V_29
+"lapdm.control.s_ftype"	,	L_30
+hf_lapdm_ftype_s_u	,	V_98
+"lapdm.fragment.multiple_tails"	,	L_63
+hf_lapdm_fragment_count	,	V_113
+"lapdm.lpd"	,	L_14
+LAPDM_M_SHIFT	,	V_51
+"Fragment Data"	,	L_48
+addr_tree	,	V_7
+"lapdm.control.p"	,	L_26
+dissect_xdlc_control	,	F_10
+length_tree	,	V_8
+length	,	V_13
+find_dissector	,	F_31
+lapdm_reassembly_table	,	V_1
+"EL"	,	L_39
+hf_lapdm_fragment_multiple_tails	,	V_110
+"Message has multiple tail fragments"	,	L_62
+sapi	,	V_15
+FT_UINT32	,	V_114
+LAPDM_CR	,	V_25
+ett_lapdm_control	,	V_39
+hf	,	V_69
+"lapdm.fragment_data"	,	L_49
+hf_lapdm_address	,	V_32
+fd_m	,	V_55
+available_length	,	V_20
+lapdm_m_vals	,	V_102
+"Message fragment overlapping with conflicting data"	,	L_59
+hf_lapdm_sapi	,	V_35
+prefs_register_protocol	,	F_27
+hf_lapdm_reassembled_length	,	V_116
+proto_register_lapdm	,	F_18
+"M"	,	L_42
+col_set_str	,	F_5
+hf_lapdm_s_ftype	,	V_88
+"lapdm.sapi"	,	L_17
+hf_lapdm_el	,	V_45
+"lapdm.fragment.too_long_fragment"	,	L_66
+dissect_lapdm	,	F_3
+"Reassemble fragmented LAPDm packets"	,	L_83
+reassembled	,	V_56
+"lapdm.reassembled.length"	,	L_77
+LAPDM_LPD	,	V_77
+XDLC_P_F	,	V_86
+modifier_vals_cmd	,	V_92
+"lapdm.fragment.overlap"	,	L_57
+XDLC_U_MODIFIER_MASK	,	V_93
+"lapdm.length_field"	,	L_38
+XDLC_N_R_MASK	,	V_80
+"LAPDm Message fragment has multiple tail fragments"	,	L_64
+lapdm_defragment_init	,	F_1
+tfs_true_false	,	V_85
+hf_lapdm_length	,	V_41
+"LAPDm Message fragment"	,	L_55
+proto_register_subtree_array	,	F_24
+ett_lapdm_fragment	,	V_118
+hf_lapdm_fragment_overlap	,	V_108
+proto_tree_add_item	,	F_7
+hf_lapdm_lpd	,	V_34
+pinfo	,	V_4
+"lapdm.control_field"	,	L_20
+reassemble_lapdm	,	V_54
+"Address field extension bit"	,	L_9
+"Message fragment too long"	,	L_65
+lapdm_tree	,	V_6
+LAPDM_HEADER_LEN	,	V_22
+VALS	,	F_19
+"LAPDm Message defragmentation error due to illegal fragments"	,	L_70
+prefs_register_bool_preference	,	F_28
+"LAPDm Message fragments"	,	L_52
+"data"	,	L_85
+tvb_length	,	F_4
+FT_UINT8	,	V_70
+BASE_DEC	,	V_73
+tvb_new_subset	,	F_12
+proto_item	,	T_4
+ENC_NA	,	V_30
+hf_lapdm_fragment_too_long_fragment	,	V_111
+"Command"	,	L_31
+register_dissector_table	,	F_26
+"C/R"	,	L_10
+"Message fragment"	,	L_53
+"lapdm.fragment.count"	,	L_72
+lapdm_cf_items	,	V_40
+num	,	V_63
+ett_lapdm_address	,	V_33
+ftype_vals	,	V_97
+"lapdm"	,	L_80
+"lapdm.length"	,	L_46
+"Supervisory frame type"	,	L_29
+"N(S)"	,	L_23
+lapdm_sapi_vals	,	V_78
+save_fragmented	,	V_58
+length_ti	,	V_11
+ett_lapdm_length	,	V_42
+LAPDM_SAPI	,	V_46
+"Service access point identifier"	,	L_18
+"lapdm.fragment"	,	L_54
+"Frame type"	,	L_35
+"Response"	,	L_33
+modifier_vals_resp	,	V_95
+hf_lapdm_ftype_i	,	V_96
+"Length"	,	L_45
+FT_NONE	,	V_103
+ett	,	V_117
+P2P_DIR_RECV	,	V_27
+addresses_reassembly_table_functions	,	V_2
+tree	,	V_5
+packet_info	,	T_2
+hf_lapdm_u_modifier_resp	,	V_94
+"EA"	,	L_7
+"lapdm.control.f"	,	L_28
+"LAPDm SAPI"	,	L_81
+lapdm_sapi_dissector_table	,	V_65
+LAPDM_SAPI_SHIFT	,	V_47
+stype_vals	,	V_89
+"Message defragmentation error"	,	L_68
+"Reassembled LAPDm length"	,	L_76
+proto_tree_add_uint	,	F_9
+"lapdm.fragment.overlap.conflicts"	,	L_60
+LAPDM_LEN_SHIFT	,	V_49
+XDLC_S_U_MASK	,	V_99
+"Reassembled in"	,	L_73
+"lapdm.control.u_modifier_cmd"	,	L_32
+"lapdm.control.ftype"	,	L_36
+lapdm_lpd_vals	,	V_76
+"The total length of the reassembled payload"	,	L_78
+hf_lapdm_cr	,	V_36
+P2P_DIR_SENT	,	V_28
+"Message fragment count"	,	L_71
+hf_lapdm_fragment_overlap_conflicts	,	V_109
+addr	,	V_12
+HFILL	,	V_72
+ett_lapdm	,	V_31
+LAPDM_M	,	V_50
+p2p_dir	,	V_26
+dissector_try_uint	,	F_15
+"Poll"	,	L_25
+"Length indicator field extension bit"	,	L_41
+hf_lapdm_ea	,	V_37
+"lapdm.fragments"	,	L_51
+"LAPDm Message fragment data goes beyond the packet end"	,	L_67
+control	,	V_17
+"Control Field"	,	L_19
+FT_FRAMENUM	,	V_107
+"SAPI"	,	L_16
+reassembled_in	,	V_64
+"Length Field"	,	L_37
+"LAPDm Message fragment overlaps with other fragment(s)"	,	L_58
+"lapdm.fragment.error"	,	L_69
+"lapdm.ea"	,	L_8
+proto_tree	,	T_3
+hf_lapdm_len	,	V_43

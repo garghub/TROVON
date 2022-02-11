@@ -1,0 +1,285 @@
+"Indicating the number of bytes that the sender can transmit in addition to the existing flow control window"	,	L_98
+"Max concurrent streams"	,	L_68
+"End Stream"	,	L_32
+ti_settings	,	V_43
+col_append_sep_str	,	F_22
+proto_register_protocol	,	F_36
+MAGIC_FRAME_LENGTH	,	V_78
+"http2.flags.r"	,	L_46
+"http2.flags.r3"	,	L_50
+http2_error_codes_vals	,	V_116
+tvb_new_subset_remaining	,	F_26
+hf_http2_flags_end_push_promise	,	V_21
+tcp_dissect_pdus	,	F_33
+gint	,	T_12
+dissect_http2_rst_stream	,	F_9
+"Flow Control Options"	,	L_74
+"The error code indicates the reason for closing the connection"	,	L_92
+tvb	,	V_1
+"End Push Promise"	,	L_41
+hf_http2_settings_unknown	,	V_56
+guint32	,	T_7
+streamid	,	V_74
+COL_INFO	,	V_80
+hf_http2_magic	,	V_81
+"http2.priority"	,	L_59
+FT_BOOLEAN	,	V_106
+"Flags are assigned semantics specific to the indicated frame type"	,	L_31
+"Indicates the sender's initial window size (in bytes) for stream level flow control"	,	L_73
+tvb_reported_length_remaining	,	F_7
+"http2.flags.r2"	,	L_49
+"Header"	,	L_83
+cinfo	,	V_79
+"The length of the frame payload (The 8 octets of the frame header are not included)"	,	L_16
+"Promised-Stream-ID"	,	L_80
+"http2.window_update.window_size_increment"	,	L_97
+array_length	,	F_38
+"Reserved"	,	L_20
+next_tvb	,	V_72
+HTTP2_PING	,	V_23
+call_dissector	,	F_27
+expert_http2	,	V_123
+"http2.goway.r"	,	L_88
+ENC_ASCII	,	V_38
+http2_tree	,	V_3
+"Unknown (%u)"	,	L_2
+dissect_http2_header_flags	,	F_1
+hf_http2_settings_identifier	,	V_48
+"http2.ping"	,	L_86
+hf_register_info	,	T_10
+hf_http2_push_promise_promised_stream_id	,	V_58
+"Settings"	,	L_63
+hf_http2_push_promise_r	,	V_57
+hf_http2_window_update_window_size_increment	,	V_68
+ti_flags	,	V_5
+hf_http2_unknown	,	V_89
+guint16	,	T_8
+COL_PROTOCOL	,	V_91
+" (draft-06)"	,	L_11
+"The semantics of this bit are undefined and the bit MUST remain unset (0) when sending and MUST be ignored when receiving"	,	L_22
+hf_http2_r	,	V_85
+hf_http2_flags_priority	,	V_16
+"http2.flags.epp"	,	L_42
+guint8	,	T_1
+tvb_memeql	,	F_21
+ti	,	V_71
+BASE_NONE	,	V_96
+col_append_sep_fstr	,	F_25
+"Unknown type (%d)"	,	L_8
+"http2.flags.pr"	,	L_39
+"http2.flags.r4"	,	L_51
+hf_http2_goaway_last_stream_id	,	V_64
+HTTP2_RST_STREAM	,	V_28
+tvb_get_ntohl	,	F_14
+dissect_http2	,	F_29
+"Pong"	,	L_43
+tvbuff_t	,	T_2
+"http2.push_promise.header"	,	L_84
+MASK_HTTP2_STREAMID	,	V_87
+HTTP2_GOAWAY	,	V_30
+dissect_http2_continuation	,	F_19
+HTTP2_FLAGS_R	,	V_110
+tvb_get_ntohs	,	F_24
+hf_http2_push_promise_header	,	V_59
+BASE_HEX	,	V_102
+flags_tree	,	V_6
+"http2.flags"	,	L_30
+FT_UINT24	,	V_117
+proto_item_add_subtree	,	F_3
+"http2.settings.flow_control_options"	,	L_75
+proto_register_field_array	,	F_37
+FT_BYTES	,	V_105
+ei_http2_flags_epp_old	,	V_20
+" : %u"	,	L_3
+ei	,	V_118
+"http2.pong"	,	L_87
+ett_http2_header	,	V_76
+data_handle	,	V_88
+hf_http2_type	,	V_83
+FT_UINT16	,	V_98
+hf_http2_priority_r	,	V_39
+dissect_http2_ping	,	F_16
+tvb_get_guint8	,	F_4
+HTTP2_FLAGS_EH	,	V_108
+hf_http2_flags_reserved1	,	V_13
+" - %s"	,	L_1
+hf_http2_flags_reserved3	,	V_17
+hf_http2_flags_reserved2	,	V_26
+hf_http2_flags_reserved4	,	V_22
+HTTP2_FLAGS_ES	,	V_107
+"http2.r"	,	L_21
+expert_add_info	,	F_5
+"Continuation Header"	,	L_99
+FRAME_HEADER_LENGTH	,	V_90
+"http2.flags.po"	,	L_44
+"http2.flags.r1"	,	L_48
+FT_STRING	,	V_104
+"Stream"	,	L_12
+"Priority for the stream (0 is the highest priority)"	,	L_55
+hf_http2_window_update_r	,	V_67
+get_http2_message_len	,	F_28
+"http2.settings.initial_window_size"	,	L_72
+"Initial Windows Size"	,	L_71
+HTTP2_PUSH_PROMISE	,	V_18
+"HyperText Transfer Protocol 2"	,	L_104
+length	,	V_73
+find_dissector	,	F_44
+"A 31-bit stream identifier"	,	L_25
+PI_WARN	,	V_120
+"Stream Identifier"	,	L_23
+hf_http2_ping	,	V_62
+FT_UINT32	,	V_101
+"Set indicates that this frame ends the sequence of header block fragments necessary to provide a complete set of headers"	,	L_37
+"http2.flags.eh"	,	L_36
+ett_http2	,	V_93
+"Identifies the stream the endpoint intends to start sending frames for"	,	L_82
+hf	,	V_94
+"http2.unknown"	,	L_28
+"http2.flags.es"	,	L_33
+dissect_http2_settings	,	F_10
+hf_http2_headers_priority	,	V_36
+HTTP2_FLAGS_PO	,	V_60
+HTTP2_FLAGS_EPP_OLD	,	V_19
+HTTP2_FLAGS_PR	,	V_34
+HTTP2_FLAGS_EPP	,	V_109
+hf_http2_settings_flow_control_options	,	V_55
+dissect_http2_push_promise	,	F_15
+"Error"	,	L_60
+"http2.rst_stream.error"	,	L_61
+proto_reg_handoff_http2	,	F_43
+dissect_http2_window_update	,	F_18
+col_set_str	,	F_31
+"http2.push_promise.r"	,	L_79
+hf_http2_flags_end_stream	,	V_12
+hf_http2_settings_r	,	V_47
+"Flags"	,	L_29
+"http2.settings.id"	,	L_67
+"http2.goaway.last_stream_id"	,	L_89
+HTTP2_SETTINGS	,	V_29
+HTTP2_SETTINGS_MAX_CONCURRENT_STREAMS	,	V_50
+hf_http2_length	,	V_82
+hf_http2_priority	,	V_40
+hf_http2_settings_max_concurrent_streams	,	V_51
+dissect_http2_pdu	,	F_20
+hf_http2_flags	,	V_8
+dissect_http2_headers	,	F_6
+HTTP2_FLAGS_R1	,	V_111
+proto_item_append_text	,	F_12
+HTTP2_FLAGS_R2	,	V_112
+HTTP2_FLAGS_R3	,	V_113
+HTTP2_FLAGS_R4	,	V_114
+col_clear	,	F_32
+"Indicates the maximum number of concurrent streams that the sender will allow"	,	L_70
+": Magic"	,	L_6
+"http2.goaway.addata"	,	L_94
+"http2.settings.max_concurrent_streams"	,	L_69
+proto_register_subtree_array	,	F_39
+val_to_str	,	F_13
+tvb_get_ntoh24	,	F_11
+proto_tree_add_item	,	F_2
+"http2.settings.r"	,	L_65
+pinfo	,	V_2
+hf_http2_flags_reserved	,	V_32
+"Priority"	,	L_38
+flags	,	V_7
+_U_	,	V_33
+kMagicHello	,	V_77
+dissect_http2_goaway	,	F_17
+new_register_dissector	,	F_42
+"Settings Identifier"	,	L_66
+"End Headers"	,	L_35
+HTTP2_SETTINGS_INITIAL_WINDOW_SIZE	,	V_52
+"Magic"	,	L_5
+VALS	,	F_35
+"Contains a header block fragment"	,	L_101
+hf_http2_headers_r	,	V_35
+PI_PROTOCOL	,	V_119
+"The error code indicates why the stream is being terminated"	,	L_62
+"Deprecated End Push Promise flags (Now need to use 0x04)"	,	L_103
+hf_http2_goaway_r	,	V_63
+"http2.priority.r"	,	L_58
+hf_http2_goaway_addata	,	V_66
+"data"	,	L_105
+tvb_length	,	F_30
+FT_UINT8	,	V_100
+"http2.streamid"	,	L_24
+HTTP2_WINDOW_UPDATE	,	V_31
+BASE_DEC	,	V_99
+hf_http2	,	V_75
+proto_item	,	T_6
+expert_register_field_array	,	F_41
+"HTTP2"	,	L_10
+"(Must be zero)"	,	L_47
+ENC_NA	,	V_9
+"http2.push_promise.promised_stream_id"	,	L_81
+"http2.settings"	,	L_64
+hf_http2_pong	,	V_61
+"Ping"	,	L_85
+"Unknown Settings"	,	L_77
+http2_settings_vals	,	V_49
+"http2.continuation.header"	,	L_100
+HTTP2_CONTINUATION	,	V_25
+": %s, Stream ID: %u, Length %u"	,	L_9
+"The frame type determines how the remainder of the frame header and payload are interpreted"	,	L_19
+"Additional Debug Data"	,	L_93
+HTTP2_DATA	,	V_11
+dissect_http2_priority	,	F_8
+"%s"	,	L_7
+"Indicates flow control options"	,	L_76
+data	,	T_9
+HTTP2_HEADERS	,	V_14
+ei_register_info	,	T_11
+HTTP2_PRIORITY	,	V_27
+expert_register_protocol	,	F_40
+"http2.headers"	,	L_57
+http2_type_vals	,	V_84
+"Window Size Increment"	,	L_96
+guint	,	T_5
+ett_http2_settings	,	V_46
+FT_NONE	,	V_95
+"Length"	,	L_14
+offset	,	V_4
+ett	,	V_122
+expert_module_t	,	T_13
+tree	,	V_70
+hf_http2_settings	,	V_45
+"http2.length"	,	L_15
+packet_info	,	T_3
+hf_http2_settings_initial_window_size	,	V_53
+"http2.magic"	,	L_26
+hf_http2_flags_pong	,	V_24
+"Must be zero"	,	L_53
+"http2.settings.unknown"	,	L_78
+"Set indicates that this frame is the last that the endpoint will send for the identified stream"	,	L_34
+settingsid	,	V_42
+hf_http2_headers	,	V_37
+"http2.window_update.r"	,	L_95
+EXPFILL	,	V_121
+proto_http2	,	V_92
+"Set indicates that the first four octets of this frame contain a single reserved bit and a 31-bit priority"	,	L_40
+settings_tree	,	V_44
+HTTP2_SETTINGS_FLOW_CONTROL_OPTIONS	,	V_54
+"http2.headers.priority"	,	L_54
+"http2.flags.epp_old"	,	L_102
+hf_http2_continuation_header	,	V_69
+hf_http2_goaway_error	,	V_65
+", "	,	L_4
+HFILL	,	V_97
+"http2.type"	,	L_18
+MASK_HTTP2_PRIORITY	,	V_115
+"Contains the highest numbered stream identifier for which the sender of the GOAWAY frame has received frames on and might have taken some action on"	,	L_90
+"http2.goaway.error"	,	L_91
+hf_http2_flags_end_headers	,	V_15
+"Headers"	,	L_56
+ett_http2_flags	,	V_10
+proto_item_set_len	,	F_23
+MASK_HTTP2_RESERVED	,	V_103
+"http2.headers.r"	,	L_52
+hf_http2_rst_stream_error	,	V_41
+"Unknown"	,	L_27
+"Type"	,	L_17
+"Set indicates that this PING frame is a PING response"	,	L_45
+proto_register_http2	,	F_34
+proto_tree	,	T_4
+hf_http2_streamid	,	V_86
+"http2"	,	L_13

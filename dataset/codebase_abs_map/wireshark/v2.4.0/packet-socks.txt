@@ -1,0 +1,333 @@
+socks_udp_dissector	,	F_12
+" GSSAPI Authentication failure"	,	L_22
+tvb_get_string_enc	,	F_5
+gssapi_command_table	,	V_146
+clientV5Command	,	V_72
+get_tcp_conversation_data	,	F_55
+proto_register_protocol	,	F_69
+socks_tree	,	V_24
+get_address_v5	,	F_8
+"Socks Protocol"	,	L_85
+tvb_reported_length	,	F_66
+"Version"	,	L_32
+"SOCKS v4a Remote Domain Name"	,	L_44
+len	,	V_9
+gint	,	T_17
+save_can_desegment	,	V_123
+hf_socks_ping_results	,	V_118
+state	,	V_46
+proto_tree_add_format_text	,	F_52
+ipaddr	,	V_53
+tvb_captured_length_remaining	,	F_50
+tcp_analysis	,	V_124
+"socks.version"	,	L_33
+"Port"	,	L_59
+tvb	,	V_2
+guint32	,	T_10
+"socks.password"	,	L_70
+COL_INFO	,	V_35
+hf_socks_cmd	,	V_58
+"socks.remote_name"	,	L_72
+serverBindReply	,	V_92
+version	,	V_131
+str	,	V_10
+tvb_reported_length_remaining	,	F_38
+cinfo	,	V_33
+p_get_proto_data	,	F_28
+proto_tree_add_ipv4	,	F_64
+proto_tree_add_ipv6	,	F_65
+hf_socks_password	,	V_80
+array_length	,	F_71
+"Reserved"	,	L_57
+"socks.auth_accepted_method"	,	L_62
+new_state_info	,	V_65
+hf_server_accepted_auth_method	,	V_86
+"socks.auth_method"	,	L_56
+clientDone	,	V_95
+FT_STRINGZ	,	V_148
+"No authentication"	,	L_1
+serverDone	,	V_97
+"socks.results"	,	L_51
+"socks.auth_method_count"	,	L_54
+ett_socks_auth	,	V_69
+ENC_ASCII	,	V_11
+DISSECTOR_ASSERT	,	F_14
+" Connect to server request"	,	L_16
+col_append_str	,	F_43
+client_display_socks_v5	,	F_33
+authentication_method	,	V_77
+hf_socks_reserved	,	V_73
+socks_udp_handle	,	V_44
+hf_register_info	,	T_18
+udp_port	,	V_42
+serverGssApiReply	,	V_89
+seq	,	V_128
+guint16	,	T_14
+address	,	T_7
+COL_PROTOCOL	,	V_34
+clear_in_socks_dissector_flag	,	F_53
+"Accepted Auth Method"	,	L_61
+display_address	,	F_2
+serverCommandReply	,	V_90
+i	,	V_63
+hf_client_port	,	V_74
+e_in6_addr	,	V_135
+"socks"	,	L_86
+"Traceroute Results"	,	L_83
+guint8	,	T_4
+decode_udp_ports	,	F_21
+s	,	V_120
+ti	,	V_25
+CLEANUP_PUSH	,	F_56
+BASE_NONE	,	V_143
+"socks.traceroute_end_command"	,	L_82
+"GSSAPI"	,	L_2
+hf_server_auth_status	,	V_88
+" Connect Response"	,	L_17
+TRACERT_COMMAND	,	V_106
+"Ping Results"	,	L_79
+"0x%0x (%s)"	,	L_13
+GSS_API_AUTHENTICATION	,	V_81
+"socks.ping_results"	,	L_80
+tvbuff_t	,	T_2
+hf_socks_remote_name	,	V_12
+proto_tree_add_protocol_format	,	F_17
+tvb_strsize	,	F_32
+tvb_get_ntohs	,	F_19
+tvb_memcpy	,	F_31
+"Client Authentication Methods"	,	L_11
+conversation_set_dissector	,	F_26
+"User name"	,	L_67
+PROTO_ITEM_SET_GENERATED	,	F_63
+gboolean	,	T_15
+tcpd	,	V_125
+dst_addr	,	V_18
+proto_item_add_subtree	,	F_18
+proto_register_socks	,	F_67
+auth_status	,	V_85
+clientWaitForAuthReply	,	V_75
+proto_register_field_array	,	F_70
+conversation	,	V_23
+hf_socks_ver	,	V_57
+find_line_end	,	F_51
+FT_BYTES	,	V_145
+hf_v4a_dns_name	,	V_60
+"private method"	,	L_6
+"Version: 5, UDP Associated packet"	,	L_10
+socks_handle	,	V_134
+cmd_strings	,	V_103
+tvb_get_ptr	,	F_49
+FT_UINT16	,	V_147
+a_type	,	V_5
+"Remote Address"	,	L_34
+get_auth_method_name	,	F_1
+tvb_get_guint8	,	F_3
+set_address_tvb	,	F_9
+p_add_proto_data	,	F_60
+nxtseq	,	V_129
+"socks.ping_end_command"	,	L_78
+port	,	V_41
+tvb_captured_length	,	F_22
+sock_state_t	,	T_13
+BIND_COMMAND	,	V_107
+dissect_tcp_payload	,	F_57
+"no acceptable method"	,	L_7
+fd	,	V_108
+AuthTree	,	V_66
+"Traceroute: End command"	,	L_81
+serverStart	,	V_61
+new_udp_conversation	,	F_23
+wmem_new0	,	F_61
+clientError	,	V_102
+"Method"	,	L_55
+hf_socks_traceroute_results	,	V_119
+display_socks_v4	,	F_30
+FT_STRING	,	V_151
+Number	,	V_1
+str_len	,	V_54
+conversation_new	,	F_24
+client	,	V_48
+"socks.traceroute_results"	,	L_84
+"socks.gssapi.data"	,	L_39
+conversation_add_proto_data	,	F_25
+hf_socks_ip6_dst	,	V_13
+val_to_str_const	,	F_46
+"socks.port"	,	L_60
+lineend	,	V_112
+proto_tree_add_uint_format_value	,	F_40
+ptr	,	V_22
+hf_socks_ping_end_command	,	V_116
+ENC_BIG_ENDIAN	,	V_7
+"Remote name"	,	L_71
+hf_socks_reserved2	,	V_37
+dataend	,	V_111
+CLEANUP_CALL_AND_POP	,	V_130
+proto_socks	,	V_32
+visited	,	V_110
+start_done_frame	,	V_132
+hf	,	V_138
+ClientState	,	V_45
+eol	,	V_113
+"Remote Port"	,	L_46
+"Password"	,	L_69
+G_MAXINT	,	V_133
+display_ping_and_tracert	,	F_48
+" Command Request - %s"	,	L_18
+TCP_PORT_SOCKS	,	V_115
+hf_client_auth_method	,	V_71
+FT_IPv6	,	V_144
+proto_tree_add_subtree	,	F_34
+serverState	,	V_96
+"socks.reserved"	,	L_58
+col_append_fstr	,	F_45
+"Socks"	,	L_9
+col_set_str	,	F_16
+socks_hash_entry_t	,	T_6
+proto_tree_add_uint_format	,	F_36
+hf_socks_traceroute_end_command	,	V_117
+FT_IPv4	,	V_142
+USER_NAME_AUTHENTICATION	,	V_79
+reply_table_v5	,	V_150
+reply_table_v4	,	V_149
+serverInitReply	,	V_76
+" (failure)"	,	L_14
+"Ping: End command"	,	L_77
+hf_socks_dstport	,	V_40
+guchar	,	T_16
+hf_server_remote_host_port	,	V_93
+" Command Response: Bind remote host info"	,	L_25
+proto_item_append_text	,	F_41
+linelen	,	V_114
+"Fragment Number"	,	L_75
+"IANA assigned"	,	L_5
+save_server_state	,	F_29
+"socks.remote_host_port"	,	L_66
+proto_register_subtree_array	,	F_72
+proto_tree_add_string	,	F_7
+", Remote Port: %u"	,	L_31
+server_port	,	V_55
+proto_reg_handoff_socks	,	F_73
+save_client_state	,	F_27
+server	,	V_51
+", Results"	,	L_27
+"Version: %d"	,	L_28
+proto_tree_add_item	,	F_4
+num_auth_methods	,	V_67
+pinfo	,	V_20
+col_add_fstr	,	F_62
+"socks.dstport"	,	L_47
+" GSSAPI Authentication reply"	,	L_23
+call_next_dissector	,	F_54
+_U_	,	V_21
+server_display_socks_v5	,	F_39
+PING_COMMAND	,	V_105
+flags	,	V_109
+address_type_table	,	V_152
+"socks.dstV6"	,	L_37
+saved_can_desegment	,	V_127
+hash_info	,	V_15
+can_desegment	,	V_126
+"Remote Address(ipv6)"	,	L_36
+"socks.username"	,	L_68
+AT_IPv4	,	V_17
+AT_IPv6	,	V_19
+VALS	,	F_68
+"socks.auth_status"	,	L_64
+find_conversation	,	F_13
+start_of_frame	,	V_101
+ServerState	,	V_50
+FT_UINT8	,	V_139
+NO_AUTHENTICATION	,	V_78
+serverNoInit	,	V_52
+BASE_DEC	,	V_140
+proto_item	,	T_12
+hf_socks_ip_dst	,	V_8
+state_machine_v4	,	F_42
+ENC_NA	,	V_14
+UDP_ASSOCIATE_COMMAND	,	V_104
+clientState	,	V_94
+"GSSAPI data"	,	L_38
+"Command"	,	L_48
+udp_remote_port	,	V_39
+"socks.address_type"	,	L_74
+"SOCKS/GSSAPI data length"	,	L_42
+data	,	T_9
+auth	,	V_68
+"socks.command"	,	L_49
+num	,	V_26
+" Command Response - %s"	,	L_24
+" User authentication reply"	,	L_21
+CONNECT_COMMAND	,	V_99
+dissect_socks	,	F_58
+hf_socks_fragment_number	,	V_38
+"Method[%u]: %u (%s)"	,	L_12
+tcpinfo	,	V_122
+hf_socks_username	,	V_59
+hf_client_auth_method_count	,	V_70
+ett_socks_name	,	V_137
+hf_socks_results_5	,	V_91
+hf_socks_results_4	,	V_62
+hf_gssapi_payload	,	V_84
+"Results(V5)"	,	L_52
+"Username/Password"	,	L_3
+"Remote Host Port"	,	L_65
+conversation_t	,	T_11
+hf_gssapi_command	,	V_82
+guint	,	T_1
+FT_NONE	,	V_153
+offset	,	V_3
+ett	,	V_136
+wmem_packet_scope	,	F_6
+clientNoInit	,	V_49
+"socks.fragment_number"	,	L_76
+tree	,	V_4
+"Chap"	,	L_4
+PT_UDP	,	V_43
+hf_gssapi_length	,	V_83
+clientStart	,	V_56
+tvb_bytes_exist	,	F_37
+packet_info	,	T_8
+", Ping Req"	,	L_29
+" Connect to server response"	,	L_20
+"socks.dst"	,	L_35
+"socks.gssapi.length"	,	L_43
+destport	,	V_31
+hf_socks_address_type	,	V_6
+proto_tree_add_uint	,	F_20
+"SOCKS/GSSAPI command"	,	L_40
+dst	,	V_28
+AuthMethodStr	,	V_64
+conversation_get_proto_data	,	F_15
+ptype	,	V_29
+client_state_machine_v5	,	F_44
+"Bad method number (not 0-0xff)"	,	L_8
+copy_address_wmem	,	F_10
+"socks.gssapi.command"	,	L_41
+wmem_file_scope	,	F_11
+addr	,	V_16
+serverError	,	V_100
+HFILL	,	V_141
+"Results(V4)"	,	L_50
+"Status"	,	L_63
+server_state_machine_v5	,	F_47
+src	,	V_27
+"socks.v4a_dns_name"	,	L_45
+"Authentication Method Count"	,	L_53
+wmem_new	,	F_59
+gchar	,	T_5
+", Traceroute Req"	,	L_30
+ett_socks	,	V_36
+in_socks_dissector_flag	,	V_121
+create_dissector_handle	,	F_74
+command	,	V_98
+proto_item_set_len	,	F_35
+serverUserReply	,	V_87
+"Address Type"	,	L_73
+state_info	,	V_47
+dissector_add_uint_with_preference	,	F_75
+srcport	,	V_30
+"Unknown"	,	L_19
+"tcp.port"	,	L_87
+proto_tree	,	T_3
+" (success)"	,	L_15
+", Terminate Request"	,	L_26

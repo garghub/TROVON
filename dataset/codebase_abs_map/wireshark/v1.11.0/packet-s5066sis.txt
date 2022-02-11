@@ -1,0 +1,405 @@
+ett_s5066_servicetype	,	V_129
+"Destination Address"	,	L_153
+"Size of non-received block"	,	L_101
+"s5066sis.24.unused"	,	L_113
+"s5066sis.25.err_ptr"	,	L_123
+"s5066sis.12.sapid"	,	L_63
+hf_s5066_11_sapid	,	V_59
+hf_s5066_st_txmode	,	V_17
+s5066_edition_one	,	V_135
+"S5066"	,	L_156
+hf_s5066_ad_size	,	V_12
+guint32	,	T_10
+"Transmission Mode"	,	L_86
+s5066_hard_link_type	,	V_37
+s5066_tree	,	V_174
+hf_s5066_24_sapid	,	V_103
+"s5066sis.03.mtu"	,	L_34
+"edition_one"	,	L_143
+"s5066sis.12.type"	,	L_61
+array_length	,	F_5
+"s5066sis.type"	,	L_8
+"Address size (1/2 Bytes)"	,	L_9
+"Message Body"	,	L_73
+hf_s5066_03_sapid	,	V_29
+hf_s5066_25_err_ptr	,	V_112
+"s5066sis.09.sapid"	,	L_52
+"s5066sis.09.type"	,	L_50
+hf_s5066_01_rank	,	V_27
+"Reason"	,	L_35
+"s5066sis.22.data"	,	L_107
+"s5066sis.23.sapid"	,	L_109
+hf_s5066_20_ttl	,	V_79
+hf_register_info	,	T_1
+"s5066sis.27.sapid"	,	L_133
+"Unknown (0x%02x)"	,	L_158
+s5066_05_reason	,	V_35
+s5066_23_reason	,	V_98
+guint16	,	T_12
+hf_s5066_25_err_blocks	,	V_111
+i	,	V_156
+hf_s5066_11_remote_status	,	V_55
+hf_s5066_08_link_priority	,	V_43
+s5066_11_remote_status	,	V_56
+hf_s5066_20_priority	,	V_77
+BASE_NONE	,	V_16
+s5066_27_reason	,	V_122
+s5066_09_reason	,	V_46
+"s5066sis.10.type"	,	L_54
+hf_s5066_09_link_priority	,	V_48
+" This edition was never formally approved and is very rare. The common edition is edition 1.2."	,	L_146
+hf_s5066_08_sapid	,	V_44
+hf_s5066_13_reason	,	V_63
+hf_s5066_18_body	,	V_73
+BASE_HEX	,	V_4
+FT_UINT24	,	V_80
+s5066_size_offset	,	V_143
+" The default is to use reassembly."	,	L_142
+"s5066sis.27.data"	,	L_135
+proto_item_add_subtree	,	F_16
+"s5066sis.09.reason"	,	L_49
+module_t	,	T_3
+"(Unused)"	,	L_29
+hf_s5066_19_body	,	V_76
+proto_register_field_array	,	F_4
+FT_BYTES	,	V_74
+proto_s5066	,	V_132
+hf_s5066_21_nrx_size	,	V_92
+hf_s5066_22_data	,	V_96
+dissector_add_uint	,	F_13
+dissect_s5066_address	,	F_14
+"s5066sis.03.unused"	,	L_32
+g_htonl	,	F_20
+s5066_tree_pdu	,	V_175
+"s5066sis.01.sapid"	,	L_26
+"Remote node status"	,	L_44
+hf_s5066_10_reason	,	V_50
+data_handle	,	V_141
+FT_UINT16	,	V_3
+"s5066sis.st.retries"	,	L_24
+hf_s5066_21_src_sapid	,	V_85
+s5066_tcp_handle	,	V_138
+"Address"	,	L_13
+"s5066sis.size"	,	L_6
+"s5066sis.10.reason"	,	L_53
+"(Part of) Rejected data"	,	L_111
+"Rank"	,	L_27
+hf_s5066_21_size	,	V_86
+hf_s5066_22_unused	,	V_93
+"Message Type"	,	L_71
+hf_s5066_22_size	,	V_95
+"s5066sis.10.priority"	,	L_55
+hf_s5066_09_link_type	,	V_47
+"s5066sis.20.sapid"	,	L_79
+"desegment_pdus"	,	L_139
+"s5066sis.06.type"	,	L_39
+"Sap ID"	,	L_25
+hf_s5066_25_nrx_size	,	V_116
+s5066_pdu_type	,	V_11
+s5066_st_extended	,	V_24
+tx_mode	,	V_158
+"s5066sis.08.priority"	,	L_47
+hf	,	V_1
+"PDU Type"	,	L_7
+"STANAG 5066 (SIS layer)"	,	L_136
+s5066_tree_servicetype	,	V_152
+hf_s5066_12_link_type	,	V_60
+"s5066sis.21.size"	,	L_90
+"Size of error block"	,	L_95
+"s5066sis.11.status"	,	L_57
+prefs_register_protocol	,	F_7
+"s5066sis.24.ttl"	,	L_115
+"Service type"	,	L_154
+"s5066sis.13.reason"	,	L_64
+"s5066sis.13.sapid"	,	L_67
+hf_s5066_21_priority	,	V_82
+col_set_str	,	F_51
+"s5066sis.25.nrx_size"	,	L_127
+"Reassemble S5066 SIS PDUs spanning multiple TCP segments"	,	L_140
+FT_IPv4	,	V_15
+"s5066sis.25.txmode"	,	L_119
+"s5066sis.21.nrx_ptr"	,	L_100
+saved_s5066_port	,	V_139
+hf_s5066_21_err_ptr	,	V_88
+dissect_s5066_27	,	F_47
+dissect_s5066_26	,	F_46
+dissect_s5066_25	,	F_45
+hf_s5066_st_retries	,	V_25
+dissect_s5066_24	,	F_44
+dissect_s5066_23	,	F_43
+"s5066sis.27.size"	,	L_134
+val_to_str	,	F_53
+hf_s5066_27_sapid	,	V_123
+hf_s5066_11_link_type	,	V_57
+s5066_13_reason	,	V_64
+hf_s5066_01_unused	,	V_28
+"s5066sis.27.reason"	,	L_132
+dissector_handle_t	,	T_5
+hf_s5066_13_sapid	,	V_67
+"s5066sis.21.priority"	,	L_84
+"s5066sis.21.err_size"	,	L_96
+dissect_s5066_22	,	F_42
+dissect_s5066_21	,	F_38
+"s5066sis.08.sapid"	,	L_48
+dissect_s5066_20	,	F_37
+"s5066sis.06.priority"	,	L_41
+hf_s5066_09_reason	,	V_45
+hf_s5066_24_unused	,	V_102
+s5066_tree_address	,	V_149
+dissect_s5066_19	,	F_36
+dissect_s5066_18	,	F_35
+"s5066sis.26.size"	,	L_130
+hf_s5066_version	,	V_6
+dissect_s5066_14	,	F_34
+dissect_s5066_13	,	F_33
+dissect_s5066_12	,	F_32
+VALS	,	F_2
+"s5066sis.08.type"	,	L_46
+hf_s5066_26_sapid	,	V_118
+prefs_register_bool_preference	,	F_8
+hf_s5066_23_size	,	V_100
+get_s5066_pdu_len	,	F_48
+"data"	,	L_151
+no_err_blocks	,	V_159
+tvb_length	,	F_49
+dissect_s5066_11	,	F_31
+BASE_DEC	,	V_9
+proto_tree_add_text	,	F_15
+dissect_s5066_10	,	F_30
+tvb_new_subset	,	F_55
+dissect_s5066_08	,	F_28
+dissect_s5066_07	,	F_27
+ENC_NA	,	V_155
+dissect_s5066_06	,	F_26
+dissect_s5066_05	,	F_25
+dissect_s5066_04	,	F_24
+dissect_s5066_03	,	F_23
+dissect_s5066_01	,	F_22
+hf_s5066_19_type	,	V_75
+dissect_s5066_09	,	F_29
+"Delivery order"	,	L_19
+"Dissect edition 1.0 of STANAG 5066"	,	L_144
+"s5066sis.21.dest_sapid"	,	L_85
+hf_s5066_st_extended	,	V_23
+"s5066sis.25.size"	,	L_121
+hf_s5066_14_reason	,	V_70
+"Remote Sap ID"	,	L_42
+prefs_register_uint_preference	,	F_9
+hf_s5066_21_tx_mode	,	V_84
+hf_s5066_25_size	,	V_110
+guint	,	T_6
+ett	,	V_126
+hf_s5066_ad_group	,	V_13
+hf_s5066_21_err_blocks	,	V_87
+s5066_module	,	V_131
+hf_s5066_20_sapid	,	V_78
+"s5066sis.20.size"	,	L_83
+packet_info	,	T_13
+hf_s5066_06_link_priority	,	V_38
+"s5066sis.19.type"	,	L_75
+non_arq_w_errors	,	V_161
+"s5066sis.23.size"	,	L_110
+hf_s5066_23_sapid	,	V_99
+"Destination Sap ID"	,	L_78
+"Whether the S5066 SIS dissector should dissect this edition of the STANAG."	,	L_145
+"s5066sis.14.reason"	,	L_70
+hf_s5066_ad_address	,	V_14
+"s5066sis.address.size"	,	L_10
+"s5066sis.18.type"	,	L_72
+HFILL	,	V_5
+"s5066sis.24.sapid"	,	L_114
+"Status"	,	L_68
+hf_s5066_13_link_type	,	V_65
+"s5066sis.sync"	,	L_2
+create_dissector_handle	,	F_10
+hf_s5066_25_nrx_ptr	,	V_115
+"s5066sis.20.priority"	,	L_77
+", PDU type %s"	,	L_159
+hf_s5066_14_status	,	V_68
+pdu_size	,	V_153
+"s5066sis.25.dest_sapid"	,	L_118
+"s5066sis.22.size"	,	L_105
+hf_s5066_22_sapid	,	V_94
+hf_s5066_12_link_priority	,	V_61
+proto_register_protocol	,	F_3
+"Extended field"	,	L_21
+hf_s5066_27_data	,	V_125
+"s5066sis.21.txmode"	,	L_87
+"Source Sap ID"	,	L_88
+tcp_dissect_pdus	,	F_50
+gint	,	T_2
+s5066_desegment	,	V_134
+tvb	,	V_144
+"Pointer to error block"	,	L_93
+COL_INFO	,	V_173
+hf_s5066_24_ttl	,	V_104
+"s5066sis.10.sapid"	,	L_56
+"s5066sis.24.size"	,	L_116
+"s5066sis.01.unused"	,	L_30
+hf_s5066_18_type	,	V_72
+"s5066sis.18.body"	,	L_74
+pdu_type	,	V_170
+MIN	,	F_56
+"s5066sis.23.data"	,	L_112
+proto_tree_add_ipv4	,	F_19
+cinfo	,	V_171
+next_tvb	,	V_167
+"s5066sis.21.nrx_blocks"	,	L_98
+Initialized	,	V_137
+ti_s5066	,	V_165
+call_dissector	,	F_57
+"Transmission mode"	,	L_15
+hf_s5066_27_reason	,	V_121
+"s5066sis.23.reason"	,	L_108
+hf_s5066_25_nrx_blocks	,	V_114
+" This number is registered with IANA.)"	,	L_150
+"Number of errored blocks"	,	L_91
+hf_s5066_23_reason	,	V_97
+ett_s5066_address	,	V_130
+"s5066sis.09.priority"	,	L_51
+hf_s5066_21_err_size	,	V_89
+hf_s5066_09_sapid	,	V_49
+COL_PROTOCOL	,	V_172
+d_pdu_size	,	V_157
+"Source Address"	,	L_152
+hf_s5066_21_dest_sapid	,	V_83
+hf_s5066_04_reason	,	V_32
+guint8	,	T_11
+"s5066sis.01.rank"	,	L_28
+ti	,	V_148
+"Minimum number of retransmissions"	,	L_23
+hf_s5066_20_size	,	V_81
+tvb_get_ntohl	,	F_18
+hf_s5066_08_link_type	,	V_42
+"s5066sis.st.extended"	,	L_22
+tvbuff_t	,	T_7
+hf_s5066_25_tx_mode	,	V_108
+source	,	V_147
+tvb_get_ntohs	,	F_40
+"s5066sis.22.unused"	,	L_103
+gboolean	,	T_4
+"s5066sis.25.nrx_ptr"	,	L_126
+"Sync preamble"	,	L_1
+"s5066sis.address.group"	,	L_12
+"U_PDU Size"	,	L_82
+"s5066sis.13.type"	,	L_65
+s5066_08_remote_status	,	V_41
+hf_s5066_03_mtu	,	V_31
+"s5066sis.03.sapid"	,	L_31
+hf_s5066_13_link_priority	,	V_66
+s5066_st_txmode	,	V_18
+"STANAG 5066 SIS"	,	L_137
+tvb_get_guint8	,	F_39
+"Hardlink type"	,	L_38
+dissect_s5066_tcp	,	V_140
+s5066_st_delivery_confirmation	,	V_20
+dissector_delete_uint	,	F_12
+"s5066sis.14.status"	,	L_69
+"PDU type %s"	,	L_157
+hf_s5066_12_sapid	,	V_62
+hf_s5066_03_unused	,	V_30
+hf_s5066_27_size	,	V_124
+"s5066sis.20.ttl"	,	L_81
+hf_s5066_25_unused	,	V_106
+hf_s5066_06_sapid	,	V_39
+hf_s5066_23_data	,	V_101
+body_size	,	V_154
+"s5066sis.06.sapid"	,	L_43
+hf_s5066_10_link_type	,	V_52
+"STANAG 5066 SIS TCP Port"	,	L_148
+"s5066sis.st.confirm"	,	L_18
+hf_s5066_11_link_priority	,	V_58
+"s5066sis.version"	,	L_4
+find_dissector	,	F_11
+"s5066sis.11.type"	,	L_58
+hf_s5066_10_sapid	,	V_54
+hf_s5066_sync_word	,	V_2
+ENC_BIG_ENDIAN	,	V_151
+hf_s5066_21_nrx_ptr	,	V_91
+reported_length	,	V_169
+"s5066sis.21.src_sapid"	,	L_89
+proto_reg_handoff_s5066	,	V_133
+hf_s5066_10_link_priority	,	V_53
+"(Part of) Confirmed data"	,	L_106
+s5066_14_reason	,	V_71
+"Whether the S5066 SIS dissector should reassemble PDUs spanning multiple TCP segments."	,	L_141
+s5066_14_status	,	V_69
+available_length	,	V_168
+"s5066sis"	,	L_138
+hf_s5066_st_delivery_order	,	V_21
+"s5066sis.25.err_blocks"	,	L_122
+"s5066sis.12.priority"	,	L_62
+hf_s5066_01_sapid	,	V_26
+"s5066sis.11.sapid"	,	L_60
+hf_s5066_26_data	,	V_120
+proto_register_s5066	,	F_1
+hf_s5066_21_nrx_blocks	,	V_90
+"s5066sis.26.data"	,	L_131
+s5066_04_reason	,	V_33
+"s5066sis.25.src_sapid"	,	L_120
+", (Field should not be present. Rockwell Collins v2.1 or earlier.) "	,	L_155
+hf_s5066_25_dest_sapid	,	V_107
+"s5066sis.04.reason"	,	L_36
+"s5066sis.21.err_blocks"	,	L_92
+proto_item_append_text	,	F_41
+"S5066 version"	,	L_3
+hf_s5066_26_unused	,	V_117
+proto_register_subtree_array	,	F_6
+proto_tree_add_item	,	F_17
+hf_s5066_type	,	V_10
+"Priority"	,	L_40
+pinfo	,	T_14
+col_add_fstr	,	F_52
+global_s5066_port	,	V_136
+"s5066sis.21.err_ptr"	,	L_94
+_U_	,	V_162
+"Pointer to non-received block"	,	L_99
+"s5066sis.25.unused"	,	L_117
+hf_s5066_05_reason	,	V_34
+"s5066sis.22.sapid"	,	L_104
+s5066_st_delivery_order	,	V_22
+ett_s5066_pdu	,	V_128
+"s5066sis.26.sapid"	,	L_129
+"s5066sis.08.status"	,	L_45
+hf_s5066_26_size	,	V_119
+"Group address"	,	L_11
+FT_UINT8	,	V_7
+dissect_s5066_common	,	V_164
+proto_item	,	T_9
+dissect_s5066_servicetype	,	F_21
+"s5066sis.11.priority"	,	L_59
+"MTU"	,	L_33
+"Time-To-Live (x2 seconds)"	,	L_80
+"s5066sis.st.txmode"	,	L_16
+"s5066sis.21.nrx_size"	,	L_102
+"s5066sis.26.unused"	,	L_128
+"Number of non-received blocks"	,	L_97
+hf_s5066_24_size	,	V_105
+ett_s5066	,	V_127
+plen	,	V_163
+hf_s5066_size	,	V_8
+hf_s5066_st_delivery_confirmation	,	V_19
+offset	,	V_145
+tree	,	V_146
+"s5066sis.st.order"	,	L_20
+hf_s5066_25_err_size	,	V_113
+no_nrx_blocks	,	V_160
+"s5066sis.address.address"	,	L_14
+"s5066sis.25.nrx_blocks"	,	L_125
+hf_s5066_06_link_type	,	V_36
+"s5066sis.13.priority"	,	L_66
+s5066_header_size	,	V_142
+"Set the port for STANAG 5066 SIS. (If other than the default 5066."	,	L_149
+ti_pdu	,	V_166
+"Delivery confirmation"	,	L_17
+hf_s5066_25_src_sapid	,	V_109
+addr	,	V_150
+"s5066sis.19.body"	,	L_76
+hf_s5066_08_remote_status	,	V_40
+"s5066sis.05.reason"	,	L_37
+"S_Primitive size"	,	L_5
+proto_item_set_len	,	F_54
+s5066_10_reason	,	V_51
+"s5066sis.25.err_size"	,	L_124
+"tcp.port"	,	L_147
+proto_tree	,	T_8

@@ -1,0 +1,154 @@
+"Version not supported"	,	L_33
+dissect_ziop_heur	,	F_21
+"ziop.flags"	,	L_18
+proto_register_protocol	,	F_26
+dissect_ziop_tcp	,	F_17
+hf_ziop_original_length	,	V_34
+"ziop.message_size"	,	L_24
+tvb_reported_length	,	F_2
+"ZIOPHeader compressor_id"	,	L_28
+hf_ziop_compressor_id	,	V_33
+"ziop_tcp"	,	L_40
+"Version %u.%u"	,	L_2
+tcp_dissect_pdus	,	F_20
+col_set_str	,	F_3
+gint	,	T_11
+get_ziop_pdu_len	,	F_13
+"ZIOPHeader message_type"	,	L_22
+"ziop"	,	L_36
+expert_ziop	,	V_62
+tvb	,	V_1
+"Zipped Inter-ORB Protocol"	,	L_34
+"ZIOPHeader flags"	,	L_19
+COL_INFO	,	V_17
+ett_ziop	,	V_20
+"ZIOPHeader magic"	,	L_10
+message_type	,	V_8
+proto_ziop	,	V_18
+col_clear	,	F_4
+cinfo	,	V_14
+ziop_tcp_handle	,	V_46
+"ZIOPHeader giop_minor_version"	,	L_16
+proto_register_subtree_array	,	F_29
+val_to_str	,	F_12
+array_length	,	F_28
+"ziop.compressor_id"	,	L_27
+"ziop.version_not_supported"	,	L_32
+proto_tree_add_item	,	F_5
+call_dissector	,	F_10
+pinfo	,	V_2
+col_add_fstr	,	F_8
+hf_ziop_magic	,	V_21
+_U_	,	V_4
+flags	,	V_11
+PT_TCP	,	V_43
+ENC_ASCII	,	V_22
+new_register_dissector	,	F_32
+"none"	,	L_1
+ei_ziop_version	,	V_26
+"Unknown message type (0x%02x)"	,	L_7
+ziop_compressor_ids	,	V_56
+"ZIOPHeader message_size"	,	L_25
+hf_register_info	,	T_10
+"Header magic"	,	L_8
+VALS	,	F_25
+dissector_add_for_decode_as	,	F_35
+PI_PROTOCOL	,	V_59
+"Version %u.%u not supported"	,	L_3
+COL_PROTOCOL	,	V_15
+tot_len	,	V_40
+"data"	,	L_41
+FT_UINT8	,	V_51
+hf_ziop_message_size	,	V_32
+stream_is_big_endian	,	V_36
+"Header minor version"	,	L_14
+BASE_DEC	,	V_54
+proto_item	,	T_7
+expert_register_field_array	,	F_31
+message_size	,	V_35
+ENC_NA	,	V_19
+guint8	,	T_6
+tvb_memeql	,	F_14
+ti	,	V_10
+expert_add_info_format	,	F_9
+BASE_NONE	,	V_49
+ziop_tree	,	V_9
+proto_reg_handoff_ziop	,	F_33
+ENC_LITTLE_ENDIAN	,	V_28
+hf_ziop_flags	,	V_29
+data	,	T_4
+tvb_get_ntohl	,	F_15
+"Header original length"	,	L_29
+"ziop.original_length"	,	L_30
+tvbuff_t	,	T_1
+"0x%02x (%s)"	,	L_5
+proto_register_ziop	,	F_24
+conversation_set_dissector	,	F_23
+BASE_OCT	,	V_52
+"Header major version"	,	L_11
+ei_register_info	,	T_12
+"ZIOP %u.%u %s"	,	L_6
+gboolean	,	T_8
+"Header size"	,	L_23
+expert_register_protocol	,	F_30
+byte_order	,	V_12
+"tcp"	,	L_38
+proto_item_add_subtree	,	F_6
+tvb_get_letohl	,	F_16
+"Header flags"	,	L_17
+proto_register_field_array	,	F_27
+conversation	,	V_41
+ziop_desegment	,	V_39
+"Header compressor id"	,	L_26
+conversation_t	,	T_9
+guint	,	T_5
+offset	,	V_5
+ett	,	V_57
+ei	,	V_58
+expert_module_t	,	T_13
+tree	,	V_3
+"ZIOP original_length"	,	L_31
+data_handle	,	V_27
+"Header type"	,	L_20
+FT_UINT16	,	V_55
+packet_info	,	T_2
+hf_ziop_message_type	,	V_30
+"ZIOP over TCP"	,	L_39
+tvb_get_guint8	,	F_7
+GIOP_MAGIC_NUMBER	,	V_38
+giop_version_major	,	V_6
+tvb_captured_length	,	F_19
+giop_version_minor	,	V_7
+hf_ziop_giop_version_minor	,	V_25
+hf_ziop_giop_version_major	,	V_23
+fd	,	V_44
+EXPFILL	,	V_61
+ptype	,	V_42
+dissect_ziop	,	F_1
+heur_dissector_add	,	F_36
+HEURISTIC_ENABLE	,	V_63
+"little-endian"	,	L_4
+giop_message_types	,	V_31
+"ZIOPHeader giop_major_version"	,	L_13
+FT_STRING	,	V_48
+"ziop.giop_version_minor"	,	L_15
+ZIOP_HEADER_SIZE	,	V_37
+dissect_giop	,	F_18
+"ziop.magic"	,	L_9
+HFILL	,	V_50
+"ziop.giop_version_major"	,	L_12
+new_create_dissector_handle	,	F_34
+ZIOP_MAGIC	,	V_16
+"udp.port"	,	L_37
+find_dissector	,	F_37
+label	,	V_13
+PI_WARN	,	V_60
+"ZIOP"	,	L_35
+proto_tree_add_uint_format_value	,	F_11
+"ziop.message_type"	,	L_21
+ENC_BIG_ENDIAN	,	V_24
+FT_UINT32	,	V_53
+visited	,	V_45
+find_or_create_conversation	,	F_22
+proto_tree	,	T_3
+hf	,	V_47

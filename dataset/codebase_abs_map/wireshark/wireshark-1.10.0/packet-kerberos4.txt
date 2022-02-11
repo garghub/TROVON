@@ -1,0 +1,181 @@
+"krb4.byte_order"	,	L_20
+AUTH_MSG_DIE	,	V_56
+UDP_PORT_KRB4	,	V_74
+hf_krb4_m_type	,	V_41
+proto_register_protocol	,	F_24
+proto_tree_add_time	,	F_7
+"Realm"	,	L_25
+check_col	,	F_15
+"Version"	,	L_10
+hf_krb4_instance	,	V_15
+col_append_fstr	,	F_16
+"Length: %d"	,	L_2
+tlen	,	V_29
+hf_krb4_request_blob	,	V_34
+col_set_str	,	F_20
+gint	,	T_12
+"krb4.name"	,	L_22
+hf_index	,	V_2
+proto_tree_add_uint_format	,	F_8
+tvb	,	V_4
+hf_krb4_request_length	,	V_32
+item	,	V_37
+"Unknown (0x%04x)"	,	L_6
+AUTH_MSG_SAFE	,	V_54
+AUTH_MSG_APPL_ERR	,	V_55
+guint32	,	T_8
+COL_INFO	,	V_43
+"%s%s"	,	L_3
+proto_item_append_text	,	F_18
+AUTH_MSG_APPL_REQUEST_MUTUAL	,	V_51
+"Ticket Blob"	,	L_52
+version	,	V_9
+"Encrypted Blob"	,	L_56
+col_clear	,	F_21
+hf_krb4_version	,	V_60
+cinfo	,	V_42
+"Msg Type"	,	L_13
+FT_ABSOLUTE_TIME	,	V_68
+hf_krb4_byte_order	,	V_45
+"krb4.request.blob"	,	L_55
+proto_register_subtree_array	,	F_28
+"krb4.version"	,	L_11
+val_to_str	,	F_17
+array_length	,	F_27
+hf_krb4_encrypted_blob	,	V_28
+""	,	L_5
+AUTH_MSG_KDC_REPLY	,	V_49
+AUTH_MSG_APPL_REQUEST	,	V_50
+proto_tree_add_item	,	F_2
+FT_STRINGZ	,	V_66
+" (%s)"	,	L_8
+pinfo	,	T_2
+dissector_handle_t	,	T_13
+"Length of request"	,	L_51
+hf_krb4_ticket_length	,	V_31
+_U_	,	V_1
+"Request Length"	,	L_49
+ENC_ASCII	,	V_6
+dissect_krb4	,	F_19
+new_register_dissector	,	F_25
+"krb4.instance"	,	L_24
+"Exp Date"	,	L_29
+dissect_krb4_kdc_reply	,	F_9
+rlen	,	V_30
+hf_register_info	,	T_11
+"krb4.length"	,	L_44
+"Time Sec"	,	L_27
+VALS	,	F_23
+"Lifetime"	,	L_33
+COL_PROTOCOL	,	V_59
+"Byte Order"	,	L_19
+byte_order_vals	,	V_46
+FT_UINT8	,	V_62
+"Kvno"	,	L_40
+"krb4.encrypted_blob"	,	L_57
+BASE_DEC	,	V_63
+AUTH_MSG_KDC_REQUEST	,	V_48
+proto_register_krb4	,	F_22
+proto_item	,	T_9
+dissect_krb4_appl_request	,	F_12
+"Service Name"	,	L_36
+ENC_NA	,	V_7
+ABSOLUTE_TIME_LOCAL	,	V_69
+guint8	,	T_7
+"TRANSARC-"	,	L_4
+"krb4.m_type"	,	L_17
+BASE_NONE	,	V_67
+secs	,	V_17
+"krb4.auth_msg_type"	,	L_14
+"krb4.kvno"	,	L_41
+"krb4.request.length"	,	L_50
+tvb_get_ntohl	,	F_6
+data	,	T_10
+hf_krb4_kvno	,	V_25
+lifetime	,	V_11
+AUTH_MSG_ERR_REPLY	,	V_52
+"M Type"	,	L_16
+"Name"	,	L_21
+tvbuff_t	,	T_4
+opcode	,	V_47
+tvb_get_ntohs	,	F_11
+"Ticket Length"	,	L_46
+hf_krb4_ticket_blob	,	V_33
+"Lifetime (in 5 min units)"	,	L_35
+"krb4.ticket.blob"	,	L_53
+BASE_HEX	,	V_65
+"krb4.realm"	,	L_26
+parent_tree	,	V_36
+m_type_vals	,	V_44
+"krb4.req_date"	,	L_32
+"Lifetime: %d (%d minutes)"	,	L_1
+gboolean	,	T_5
+"Service Instance"	,	L_38
+hf_krb4_length	,	V_27
+tvb_get_letohl	,	F_5
+proto_item_add_subtree	,	F_14
+"Key Version No"	,	L_42
+ett_krb4	,	V_58
+proto_reg_handoff_krb4	,	F_29
+nstime_t	,	T_6
+"krb4.lifetime"	,	L_34
+proto_register_field_array	,	F_26
+tvb_get_letohs	,	F_10
+FT_BYTES	,	V_71
+"Length of ticket"	,	L_48
+"Length"	,	L_43
+offset	,	V_5
+ett	,	V_72
+" %s%s"	,	L_7
+"krb4.s_name"	,	L_37
+dissector_add_uint	,	F_31
+dissect_krb4_auth_msg_type	,	F_13
+tree	,	V_3
+"krb4.s_instance"	,	L_39
+hf_krb4_auth_msg_type	,	V_39
+"Unknown blob only present in Transarc packets"	,	L_60
+packet_info	,	T_1
+tvb_get_guint8	,	F_3
+dissect_krb4_string	,	F_1
+"Length of encrypted blob"	,	L_45
+"Req Date"	,	L_31
+"krb4"	,	L_62
+TRANSARC_SPECIAL_VERSION	,	V_12
+hf_krb4_unknown_transarc_blob	,	V_13
+"Request Blob"	,	L_54
+little_endian	,	V_8
+krb4_handle	,	V_73
+hf_krb4_s_instance	,	V_22
+"Instance"	,	L_23
+"Unknown Transarc Blob"	,	L_58
+"KRB4"	,	L_9
+hf_krb4_s_name	,	V_21
+AUTH_MSG_PRIVATE	,	V_53
+hf_krb4_time_sec	,	V_19
+"Kerberos(v4) version number"	,	L_12
+"Message Type/Byte Order"	,	L_15
+"Message Type"	,	L_18
+"krb4.exp_date"	,	L_30
+hf_krb4_exp_date	,	V_24
+proto_krb4	,	V_57
+"krb4.time_sec"	,	L_28
+"krb4.unknown_transarc_blob"	,	L_59
+auth_msg_type	,	V_38
+HFILL	,	V_64
+"Kerberos v4"	,	L_61
+hf_krb4_req_date	,	V_35
+"udp.port"	,	L_63
+hf_krb4_name	,	V_14
+length	,	V_23
+find_dissector	,	F_30
+ett_krb4_auth_msg_type	,	V_40
+time_sec	,	V_10
+ENC_BIG_ENDIAN	,	V_26
+nsecs	,	V_18
+FT_UINT32	,	V_70
+hf_krb4_lifetime	,	V_20
+dissect_krb4_kdc_request	,	F_4
+hf_krb4_realm	,	V_16
+proto_tree	,	T_3
+hf	,	V_61
+"krb4.ticket.length"	,	L_47

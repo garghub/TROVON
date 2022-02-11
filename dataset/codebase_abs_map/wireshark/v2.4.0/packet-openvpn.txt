@@ -1,0 +1,249 @@
+hf_openvpn_hmac	,	V_38
+"Reassembled message length"	,	L_60
+proto_register_protocol	,	F_33
+pref_tls_auth_override	,	V_36
+hf_openvpn_fragment_overlap_conflicts	,	V_92
+reassembly_table_register	,	F_38
+"openvpn.fragment.count"	,	L_57
+process_reassembled_data	,	F_21
+"openvpn.mpidarrayelement"	,	L_37
+"Peer ID"	,	L_20
+dissect_openvpn_msg_common	,	F_2
+msg_length_remaining	,	V_17
+tcp_dissect_pdus	,	F_29
+gint	,	T_3
+"Packet-ID Array"	,	L_6
+ett_openvpn	,	V_69
+tvb_captured_length_remaining	,	F_19
+tvb	,	V_3
+guint32	,	T_2
+COL_INFO	,	V_25
+"HMAC"	,	L_24
+frag_msg	,	V_19
+FT_BOOLEAN	,	V_91
+"openvpn.plen"	,	L_13
+" The default value is TRUE."	,	L_82
+tvb_reported_length_remaining	,	F_15
+"openvpn.rsessionid"	,	L_31
+"Message Packet-ID"	,	L_32
+"openvpn.fragment.multiple_tails"	,	L_51
+P_KEY_ID_MASK	,	V_78
+cinfo	,	V_22
+PSNAME	,	V_24
+hf_openvpn_data	,	V_55
+"openvpn.opcode"	,	L_17
+array_length	,	F_35
+proto_reg_handoff_openvpn	,	F_42
+call_dissector	,	F_24
+openvpn_message_types	,	V_26
+hf_openvpn_mpid_arraylength	,	V_46
+col_append_str	,	F_22
+PNAME	,	V_102
+"If the parameter --tls-auth is used, the following preferences must also be defined."	,	L_69
+"openvpn.tcp"	,	L_63
+hf_openvpn_fragment	,	V_88
+hf_register_info	,	T_12
+", Opcode: %s, Key ID: %d"	,	L_3
+ti2	,	V_14
+"Unknown (0x%02x)"	,	L_4
+c	,	V_2
+COL_PROTOCOL	,	V_23
+hf_openvpn_sessionid	,	V_35
+i	,	V_45
+hf_openvpn_mpid	,	V_51
+"openvpn.fragments"	,	L_43
+openvpn_tree	,	V_5
+guint8	,	T_8
+"openvpn.udp"	,	L_62
+ti	,	V_67
+BASE_NONE	,	V_82
+"openvpn.mpidarraylength"	,	L_35
+"packet-id for replay protection includes optional time_t timestamp?"	,	L_77
+register_dissector	,	F_37
+msg_mpid	,	V_11
+tvb_get_ntohl	,	F_14
+"If tls-auth detection fails, you can choose to override detection and set tls-auth yourself"	,	L_66
+tvbuff_t	,	T_4
+"Fragment bytes"	,	L_40
+"Unknown Messagetype"	,	L_2
+tvb_get_ntohs	,	F_26
+BASE_HEX	,	V_76
+parent_tree	,	V_6
+FT_UINT24	,	V_79
+gboolean	,	T_1
+ssl_handle	,	V_64
+"openvpn.hmac"	,	L_25
+proto_item_add_subtree	,	F_11
+module_t	,	T_13
+fragmented	,	V_56
+proto_register_field_array	,	F_34
+FT_BYTES	,	V_81
+"Message Packet-ID Array Element"	,	L_36
+"Net Time"	,	L_28
+P_DATA_V2	,	V_32
+dissect_openvpn_udp	,	F_30
+P_DATA_V1	,	V_34
+"openvpn.data"	,	L_39
+tls_auth	,	V_8
+hf_openvpn_fragment_error	,	V_95
+" (Message fragment %d) "	,	L_11
+"Message fragments"	,	L_42
+fragment_head	,	T_10
+"openvpn.sessionid"	,	L_23
+proto_register_openvpn	,	F_31
+"override tls-auth detection"	,	L_65
+"ssl"	,	L_83
+FT_UINT16	,	V_72
+tvb_get_guint8	,	F_13
+pref_long_format	,	V_42
+msg_reassembly_table	,	V_57
+tvb_captured_length	,	F_17
+openvpn_predict_tlsauth_arraylength	,	V_13
+next	,	V_58
+proto_openvpn	,	V_68
+fragment_add_seq_next	,	F_20
+"Message fragment overlap"	,	L_46
+" This option is only evaluated if tls_auth_hmac_size &gt; 0.\n"	,	L_81
+"Key ID"	,	L_18
+"openvpn.pid"	,	L_27
+hf_openvpn_net_time	,	V_43
+dissect_openvpn_msg_tcp	,	F_27
+pid_arraylength	,	V_44
+hf_openvpn_pdu_type	,	V_27
+openvpn_keyid	,	V_9
+"tls_auth_detection_override"	,	L_64
+openvpn_tcp_handle	,	V_105
+"openvpn.net_time"	,	L_29
+msg_sessionid	,	V_12
+val_to_str_const	,	F_7
+hf_openvpn_reassembled_in	,	V_63
+hf_openvpn_peerid	,	V_33
+"Message has multiple tail fragments"	,	L_50
+ENC_BIG_ENDIAN	,	V_28
+"openvpn.fragment.overlap.conflicts"	,	L_49
+FT_UINT32	,	V_83
+hf_openvpn_fragment_bytes	,	V_59
+ett_openvpn_packetarray	,	V_47
+hf	,	V_71
+hf_openvpn_opcode	,	V_30
+" (Message Reassembled "	,	L_10
+new_tvb	,	V_20
+"Reassembled Message"	,	L_9
+PFNAME	,	V_103
+"size of the HMAC header in bytes"	,	L_71
+"Packet-ID"	,	L_26
+"Message fragment overlapping with conflicting data"	,	L_48
+"openvpn.keyid"	,	L_19
+"openvpn.mpid"	,	L_33
+"openvpn.peerid"	,	L_21
+"MessageType: %s"	,	L_1
+prefs_register_protocol	,	F_39
+proto_tree_add_subtree	,	F_16
+col_append_fstr	,	F_6
+FT_UINT64	,	V_80
+col_set_str	,	F_3
+tvb_get_bits8	,	F_5
+"openvpn.fragment.too_long_fragment"	,	L_53
+hf_openvpn_fragment_overlap	,	V_90
+ett_openvpn_fragment	,	V_99
+"openvpn.type"	,	L_15
+hf_openvpn_mpid_arrayelement	,	V_48
+hf_openvpn_fragment_multiple_tails	,	V_93
+"Reassembled message in frame"	,	L_58
+find_dissector_add_dependency	,	F_43
+pref_tls_auth	,	V_37
+proto_item_append_text	,	F_8
+col_clear	,	F_4
+openvpn_udp_handle	,	V_104
+FT_ABSOLUTE_TIME	,	V_84
+proto_register_subtree_array	,	F_36
+val_to_str	,	F_9
+"openvpn.reassembled.in"	,	L_59
+"If the parameter --tls-auth is used, a HMAC header is being inserted.\n"	,	L_72
+hf_openvpn_rsessionid	,	V_49
+dissect_openvpn_tcp	,	F_28
+proto_tree_add_item	,	F_10
+"Data (%d bytes)"	,	L_7
+data_tree	,	V_53
+pinfo	,	V_4
+"Data"	,	L_38
+_U_	,	V_65
+check_for_valid_hmac	,	F_1
+"openvpn.fragment_bytes"	,	L_41
+"Message fragment too long"	,	L_52
+openvpn_opcode	,	V_10
+"openvpn.reassembled.length"	,	L_61
+OPENVPN_PORT	,	V_107
+VALS	,	F_32
+"Remote Session ID"	,	L_30
+hf_openvpn_fragment_count	,	V_96
+" This field can either be 4 bytes or 8 bytes including an optional time_t timestamp long.\n"	,	L_80
+prefs_register_bool_preference	,	F_40
+hf_openvpn_keyid	,	V_31
+"Message Packet-ID Array Length"	,	L_34
+"openvpn.fragment.error"	,	L_55
+P_CONTROL_V1	,	V_52
+msg_lastframe	,	V_18
+FT_UINT8	,	V_75
+BASE_DEC	,	V_73
+"The default HMAC algorithm is SHA-1 which generates a 160 bit HMAC,"	,	L_73
+proto_item	,	T_9
+tvb_get_bits32	,	F_12
+"openvpn.fragment"	,	L_45
+ett_openvpn_type	,	V_29
+ENC_NA	,	V_40
+ABSOLUTE_TIME_LOCAL	,	V_85
+"Packet Length"	,	L_12
+type_tree	,	V_16
+"If the parameter --tls-auth is used, an additional packet-id for replay protection"	,	L_78
+"Message fragment"	,	L_44
+data	,	T_11
+num	,	V_61
+ett_openvpn_data	,	V_54
+get_msg_length	,	F_25
+P_ACK_V1	,	V_50
+"tls_auth"	,	L_67
+prefs_register_uint_preference	,	F_41
+save_fragmented	,	V_21
+"long_format"	,	L_76
+guint	,	T_7
+packetarray_tree	,	V_15
+FT_NONE	,	V_87
+offset	,	V_7
+ett	,	V_98
+tree	,	V_66
+"Opcode"	,	L_16
+addresses_reassembly_table_functions	,	V_106
+packet_info	,	T_5
+"Message fragment (%d bytes)"	,	L_8
+hf_openvpn_pid	,	V_41
+"tls_auth_hmac_size"	,	L_70
+"The value must be between 20 (160 bits) and 64 (512 bits)."	,	L_75
+hf_openvpn_fragment_too_long_fragment	,	V_94
+hf_openvpn_plen	,	V_70
+"Message defragmentation error"	,	L_54
+"openvpn.fragment.overlap"	,	L_47
+" is inserted after the HMAC signature."	,	L_79
+proto_tree_add_uint	,	F_23
+P_OPCODE_MASK	,	V_77
+ett_openvpn_fragments	,	V_100
+" [opcode/key_id]"	,	L_5
+hf_openvpn_reassembled_length	,	V_97
+"Session ID"	,	L_22
+" therefore 20 bytes should be ok.\n"	,	L_74
+tls_auth_hmac_size	,	V_39
+hmac	,	V_1
+"Message fragment count"	,	L_56
+openvpn_frag_items	,	V_60
+HFILL	,	V_74
+"udp.port"	,	L_85
+proto_tree_add_subtree_format	,	F_18
+FT_FRAMENUM	,	V_89
+reassembled_in	,	V_62
+dissector_add_uint_with_preference	,	F_44
+hf_openvpn_fragments	,	V_86
+"Type"	,	L_14
+"tcp.port"	,	L_84
+proto_tree	,	T_6
+openvpn_module	,	V_101
+"--tls-auth used?"	,	L_68

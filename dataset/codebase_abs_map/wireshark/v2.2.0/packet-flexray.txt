@@ -1,0 +1,217 @@
+PI_CHAT	,	V_86
+"flexray.ti"	,	L_13
+proto_register_protocol	,	F_25
+dissector_try_uint_new	,	F_20
+register_decode_as	,	F_32
+symbol_length	,	V_17
+ett_flexray	,	V_30
+"flexray.ch"	,	L_15
+flexray_da	,	V_91
+gint	,	T_9
+"flexray.malformed_symbol_frame"	,	L_52
+ei_flexray_frame_header	,	V_43
+TFS	,	F_24
+tvb	,	V_4
+hf_flexray_hcrc	,	V_53
+"Frame Payload is malformed"	,	L_51
+COL_INFO	,	V_26
+FT_BOOLEAN	,	V_66
+"FlexRay Frame"	,	L_28
+flexray_tree	,	V_7
+cinfo	,	V_24
+PI_ERROR	,	V_83
+array_length	,	F_27
+error_flag	,	V_18
+"Frame End Sequence error"	,	L_22
+next_tvb	,	V_11
+hf_flexray_ppi	,	V_73
+decode_as_t	,	T_18
+"flexray.cod_err"	,	L_25
+"%s:"	,	L_3
+"flexray.ppi"	,	L_31
+gpointer	,	T_4
+result	,	V_2
+"flexray.eff"	,	L_17
+"FlexRay Protocol"	,	L_63
+proto_reg_handoff_flexray	,	F_34
+hf_flexray_fid	,	V_50
+"Coding error"	,	L_24
+hf_register_info	,	T_14
+flexray_da_build_value	,	V_89
+"Unknown (0x%02x)"	,	L_4
+cc	,	V_52
+FLEXRAY_HEADER_LENGTH	,	V_42
+COL_PROTOCOL	,	V_25
+"FLEXRAY next level dissector"	,	L_64
+hf_flexray_error_flags_field	,	V_38
+ch	,	V_27
+ei_flexray_stfi_flag	,	V_48
+"flexray.error_flag"	,	L_56
+decode_as_default_populate_list	,	V_92
+guint8	,	T_10
+ti	,	V_6
+"Error Flag is set"	,	L_57
+sfi	,	V_19
+"   %s"	,	L_7
+dissect_flexray	,	F_4
+build_valid_func	,	T_16
+error_flags_tree	,	V_9
+register_dissector	,	F_31
+hf_flexray_nfi	,	V_47
+tvbuff_t	,	T_5
+"Startup Frame Indicator"	,	L_36
+"wtap_encap"	,	L_65
+tvb_get_ntohs	,	F_15
+"Frame CRC error"	,	L_18
+proto_tree_add_bitmask	,	F_13
+BASE_HEX	,	V_64
+"Symbol Frame is malformed"	,	L_53
+hf_flexray_cod_err	,	V_71
+FT_UINT24	,	V_79
+gboolean	,	T_11
+hf_flexray_tss_viol	,	V_72
+decode_as_default_change	,	V_94
+proto_item_add_subtree	,	F_10
+proto_register_field_array	,	F_26
+"flexray.sl"	,	L_47
+ei	,	V_81
+dissector_add_uint	,	F_36
+hf_flexray_fcrc_err	,	V_68
+hf_flexray_hcrc_err	,	V_69
+"Frame ID"	,	L_38
+FT_UINT16	,	V_77
+tvb_get_guint8	,	F_8
+tvb_captured_length	,	F_7
+"Next level protocol as"	,	L_1
+type_info_tree	,	V_8
+hf_flexray_measurement_header_field	,	V_31
+flexray_channel	,	V_67
+expert_add_info	,	F_14
+" CC %2d"	,	L_6
+"Network"	,	L_61
+ei_flexray_error_flag	,	V_41
+"Null Frame"	,	L_32
+stfi	,	V_20
+subdissector_table	,	V_56
+call_subdissector	,	V_22
+proto_flexray	,	V_28
+"Payload preamble Indicator"	,	L_30
+call_data_dissector	,	F_21
+"flexray.mhf"	,	L_11
+flexray_prompt	,	F_1
+flexray_identifier	,	T_12
+"Packet is a Symbol Frame"	,	L_55
+flexray_handle	,	V_96
+PI_WARN	,	V_88
+"   NF"	,	L_8
+ENC_BIG_ENDIAN	,	V_32
+"flexray.hcrc"	,	L_43
+decode_as_value_t	,	T_17
+FT_UINT32	,	V_95
+"Symbol length"	,	L_46
+ei_flexray_symbol_frame	,	V_58
+"Header CRC error"	,	L_20
+hf	,	V_62
+"Cycle Counter"	,	L_44
+"flexray.fcrc_err"	,	L_19
+ei_flexray_frame_payload	,	V_55
+"Measurement Header"	,	L_10
+frame_length	,	V_12
+ett_flexray_frame	,	V_45
+col_append_fstr	,	F_16
+col_set_str	,	F_5
+"Header CRC"	,	L_42
+hf_flexray_ti	,	V_35
+hf_flexray_frame_field	,	V_44
+id	,	V_49
+"flexray.fes_err"	,	L_23
+"flexray.ff"	,	L_29
+frame_fields	,	V_46
+frame_type	,	V_16
+col_clear	,	F_6
+proto_register_subtree_array	,	F_28
+val_to_str	,	F_12
+ett_flexray_error_flags	,	V_39
+proto_tree_add_item	,	F_9
+pinfo	,	T_2
+col_add_fstr	,	F_11
+dissector_handle_t	,	T_19
+_U_	,	V_1
+"Frame Header is malformed"	,	L_49
+"FLEXRAY"	,	L_2
+FLEXRAY_FRAME	,	V_37
+flexray_reported_payload_length	,	V_15
+VALS	,	F_23
+"flexray.tss_viol"	,	L_27
+PI_PROTOCOL	,	V_87
+"Type Index"	,	L_12
+proto_register_flexray	,	F_22
+"flexray.stfi_flag"	,	L_58
+FT_UINT8	,	V_63
+hf_flexray_ch	,	V_34
+BASE_DEC	,	V_78
+proto_item	,	T_8
+"flexray.pl"	,	L_41
+expert_register_field_array	,	F_30
+ENC_NA	,	V_29
+hf_flexray_cc	,	V_54
+FLEXRAY_SYMBOL	,	V_57
+MAX_DECODE_AS_PROMPT_LEN	,	V_3
+flexray_id	,	V_23
+hf_flexray_sl	,	V_59
+"TSS violation"	,	L_26
+flexray_value	,	F_3
+hf_flexray_fes_err	,	V_70
+ei_flexray_symbol_header	,	V_60
+register_dissector_table	,	F_33
+"flexray.nfi"	,	L_33
+data	,	T_7
+"flexray.hcrc_err"	,	L_21
+flexray_current_payload_length	,	V_14
+"flexray.cc"	,	L_45
+flexray_nfi	,	V_74
+expert_flexray	,	V_61
+"Channel"	,	L_14
+ei_register_info	,	T_15
+decode_as_default_reset	,	V_93
+expert_register_protocol	,	F_29
+hf_flexray_pl	,	V_51
+"Payload length"	,	L_40
+"flexray.symbol_frame"	,	L_54
+PI_SEQUENCE	,	V_85
+ett	,	V_80
+wmem_packet_scope	,	F_18
+expert_module_t	,	T_13
+"flexray.frame_header"	,	L_48
+tree	,	V_5
+hf_flexray_stfi	,	V_76
+packet_info	,	T_1
+"Sync Frame Indicator"	,	L_34
+"flexray.malformed_frame_payload"	,	L_50
+nfi	,	V_21
+tvb_bytes_to_str_punct	,	F_17
+" SL %3d"	,	L_9
+"flexray.sfi"	,	L_35
+EXPFILL	,	V_84
+hf_flexray_sfi	,	V_75
+"flexray"	,	L_60
+"flexray.fid"	,	L_39
+"A startup frame must always be a sync frame"	,	L_59
+flexray_type_names	,	V_36
+g_snprintf	,	F_2
+flexray_frame_tree	,	V_10
+tvb_new_subset_length	,	F_19
+flexray_da_values	,	V_90
+" ID %4d"	,	L_5
+"Error Flags"	,	L_16
+"flexray.stfi"	,	L_37
+ett_flexray_measurement_header	,	V_33
+error_fields	,	V_40
+HFILL	,	V_65
+PI_MALFORMED	,	V_82
+WTAP_ENCAP_FLEXRAY	,	V_97
+flexray_frame_length	,	V_13
+gchar	,	T_3
+create_dissector_handle	,	F_35
+"flexray.subdissector"	,	L_62
+proto_tree	,	T_6

@@ -1,0 +1,343 @@
+"Constrained Application Protocol"	,	L_133
+opt_hlen	,	V_19
+" allowed by the spec 12"	,	L_22
+"Payload Content-Format: %s%s, Length: %u, offset: %u"	,	L_46
+"CoAP Option Encoded Block Size"	,	L_127
+"Port number used for CoAP traffic"	,	L_137
+"CoAP Option Block Number"	,	L_121
+proto_register_protocol	,	F_47
+tvb_reported_length	,	F_39
+"CoAP Option Content Type"	,	L_83
+"Version"	,	L_48
+"coap.opt.block_size"	,	L_126
+len	,	V_2
+gint	,	T_3
+"Content-type"	,	L_81
+dissect_coap_opt_uri_port	,	F_29
+": %d"	,	L_4
+tvb	,	V_4
+hf_coap_opt_unknown	,	V_90
+"end-of-options marker found, but OC isn't 15"	,	L_16
+COL_INFO	,	V_110
+"Critical"	,	L_28
+ett_coap_payload	,	V_118
+"CoAP Option Acceptable Content Type"	,	L_115
+"Unsafe"	,	L_30
+str	,	V_1
+coap_block_number	,	V_41
+"Token"	,	L_110
+g_strlcat	,	F_18
+coap_length	,	V_51
+coap_ctype_str	,	V_35
+cinfo	,	V_108
+"CoAP Transaction Type"	,	L_53
+"coap.opt.payload_desc"	,	L_64
+array_length	,	F_8
+"Block Number"	,	L_119
+vals_code	,	V_106
+"coap.opt.desc"	,	L_70
+hf_coap_opt_block_mflag	,	V_44
+""	,	L_33
+COAP_OPT_BLOCK_SIZE	,	V_89
+payload_tree	,	V_112
+hf_coap_opt_ctype	,	V_67
+", %s, %s, TID:%u"	,	L_35
+"CoAP port number"	,	L_136
+vals_ttype	,	V_105
+hf_coap_opt_accept	,	V_82
+", TKN:%s"	,	L_42
+"Unkown %d"	,	L_36
+hf_coap_opt_etag	,	V_72
+"Invalid Option Number %d"	,	L_1
+"coap.opt.block_number"	,	L_120
+min	,	V_16
+"Uri-Query"	,	L_128
+hf_register_info	,	T_9
+"Uri-Path"	,	L_105
+"CoAP Option Uri-Query"	,	L_104
+"end-of-options marker"	,	L_17
+COAP_OPT_URI_HOST	,	V_73
+COAP_OPT_URI_QUERY	,	V_85
+dissect_coap	,	F_38
+", %s"	,	L_41
+coap_handle	,	V_134
+COAP_OPT_BLOCK2	,	V_86
+guint16	,	T_8
+COAP_OPT_BLOCK1	,	V_87
+COL_PROTOCOL	,	V_109
+"coap.ocount"	,	L_55
+"coap.opt.uri_query"	,	L_129
+" (no Content-Format)"	,	L_47
+"CoAP Transaction ID"	,	L_62
+i	,	V_12
+": %s"	,	L_3
+hf_coap_opt_location_path	,	V_29
+"CoAP Option Uri-Port"	,	L_101
+ett_coap	,	V_99
+", TID:%u"	,	L_40
+guint8	,	T_1
+proto_register_coap	,	F_45
+dissect_coap_options_main	,	F_31
+"CoAP Option Count"	,	L_56
+BASE_NONE	,	V_125
+"Max-age"	,	L_84
+strbuf	,	V_57
+coap_is_str_ipv6addr	,	F_1
+opt_num	,	V_10
+hf_coap_opt_block_size	,	V_45
+register_dissector	,	F_50
+opt_jump	,	V_52
+"Transaction ID"	,	L_60
+proto_reg_handoff_coap	,	V_131
+hf_coap_opt_uri_host	,	V_24
+tvb_get_ntohl	,	F_6
+"coap.opt.ctype"	,	L_82
+tvbuff_t	,	T_4
+hf_coap_opt_uri_query	,	V_28
+"CoAP Option Jump"	,	L_74
+dp	,	V_21
+tvb_get_ntohs	,	F_4
+tid	,	V_95
+parent_tree	,	V_91
+"Opt Count"	,	L_54
+"coap.opt.max_age"	,	L_85
+gboolean	,	T_11
+"CoAP Option Uri-Host"	,	L_95
+proto_item_add_subtree	,	F_33
+module_t	,	T_10
+proto_register_field_array	,	F_48
+"Unknown Type %d"	,	L_11
+FT_BYTES	,	V_127
+hf_coap_opt_name	,	V_60
+"coap.opt.delta"	,	L_76
+dissector_add_uint	,	F_56
+hf_coap_payload_desc	,	V_117
+vals_ttype_short	,	V_111
+"More Flag"	,	L_122
+"CoAP Version"	,	L_50
+"Etag"	,	L_90
+", NoCacheKey"	,	L_32
+FT_UINT16	,	V_123
+"CoAP Option If-Match"	,	L_118
+"coap"	,	L_134
+portstr	,	V_47
+"#%u: %s"	,	L_24
+"&amp;"	,	L_10
+"coap.version"	,	L_49
+tvb_get_guint8	,	F_3
+port	,	V_46
+"coap.opt.proxy_uri"	,	L_88
+dissector_delete_uint	,	F_55
+opt_length	,	V_11
+COAP_OPT_URI_PORT	,	V_75
+"coap.code"	,	L_58
+"CoAP Option Delta"	,	L_77
+payload_item	,	V_113
+dissect_coap_opt_proxy_uri	,	F_23
+opt_count	,	V_50
+COAP_OPT_ACCEPT	,	V_81
+"["	,	L_6
+":"	,	L_15
+"Block Size: %d (%d encoded)"	,	L_12
+"Opt Delta"	,	L_75
+"Coap Unknown Option"	,	L_132
+COAP_OPT_ETAG	,	V_71
+"coap://"	,	L_5
+"coap.opt.length"	,	L_79
+"End of "	,	L_44
+COAP_OPT_URI_PATH	,	V_77
+FT_STRING	,	V_124
+COAP_OPT_IF_MATCH	,	V_83
+hf_coap_opt_desc	,	V_62
+"coap.opt.unknown"	,	L_131
+"coap.opt.accept"	,	L_114
+coap_uri_str	,	V_25
+hf_coap_opt_token	,	V_33
+"CoAP Option Token"	,	L_112
+FT_INT32	,	V_128
+coap_token_str	,	V_32
+head_item	,	V_23
+"coap.opt.uri_port"	,	L_100
+"coap.opt.location_query"	,	L_103
+"Type %u, %s, %s%s"	,	L_27
+max_hlen	,	V_55
+find_dissector_table	,	F_54
+val_to_str_const	,	F_32
+length	,	V_6
+find_dissector	,	F_53
+vals_ctype	,	V_36
+proto_tree_add_uint_bits_format_value	,	F_36
+PI_WARN	,	V_15
+"Unknown Option"	,	L_26
+dissect_coap_opt_uri_path	,	F_19
+ENC_BIG_ENDIAN	,	V_64
+hf_coap_opt_if_match	,	V_84
+global_coap_port_number	,	V_132
+hf_coap_opt_max_age	,	V_69
+": NUM:%d, M:%d, SZX:%d"	,	L_13
+FT_UINT32	,	V_126
+"Encoded Block Size"	,	L_125
+dissect_coap_opt_location_query	,	F_22
+colon	,	V_3
+COAP_OPT_LOCATION_QUERY	,	V_76
+"Invalid length: coap payload length(%d) &lt; offset(%d)"	,	L_23
+COAP_OPT_CONTENT_TYPE	,	V_66
+hf	,	V_20
+"coap.opt.token"	,	L_111
+"]"	,	L_7
+COAP_OPT_PROXY_URI	,	V_70
+hf_coap_opt_uri_path	,	V_26
+"CoAP"	,	L_38
+prefs_register_protocol	,	F_51
+"coap.opt.location_path"	,	L_97
+col_append_fstr	,	F_43
+"CoAP Option Length"	,	L_80
+col_set_str	,	F_40
+encoded_block_size	,	V_38
+"Option Jump (0xf1): %d"	,	L_18
+proto_tree_add_uint_format	,	F_28
+val	,	V_37
+vals_opt_type	,	V_59
+item	,	V_18
+"Invalid Option Length: all %d bits are set, which is not"	,	L_21
+coap_port_number	,	V_135
+hf_coap_opt_location_query	,	V_30
+dp2	,	V_40
+coap_block_mflag	,	V_43
+coap_tree	,	V_49
+media_type_dissector_table	,	V_119
+"No-Op"	,	L_25
+"coap.opt.block_mflag"	,	L_123
+proto_item_append_text	,	F_13
+coap_uri_query	,	V_27
+coap_ctype_value	,	V_34
+"coap.type"	,	L_52
+col_clear	,	F_41
+"CoAP Option Description"	,	L_71
+ttype	,	V_93
+"Location-Query"	,	L_102
+proto_register_subtree_array	,	F_49
+hf_coap_opt_block_number	,	V_42
+proto_tree_add_string	,	F_12
+val_to_str	,	F_26
+"Code"	,	L_57
+tvb_get_ntoh24	,	F_5
+"Payload Desc"	,	L_63
+hf_coap_opt_proxy_uri	,	V_31
+proto_tree_add_item	,	F_34
+pinfo	,	V_8
+hf_coap_opt_jump	,	V_58
+col_add_fstr	,	F_42
+"CoAP Option Etag"	,	L_92
+"CoAP Option Uri-Path"	,	L_98
+dissector_handle_t	,	T_12
+hf_coap_opt_count	,	V_102
+"CoAP Option Observe"	,	L_109
+"Location-Path"	,	L_96
+COAP_OPT_OBSERVE	,	V_78
+"media_type"	,	L_138
+dissect_coap_opt_location_path	,	F_21
+hf_coap_tid	,	V_104
+VALS	,	F_46
+hf_coap_ttype	,	V_101
+"CoAP Option Max-age"	,	L_86
+"coap.opt.subscr_lifetime"	,	L_108
+"Proxy-Uri"	,	L_87
+tvb_get_ephemeral_string	,	F_17
+"Lifetime"	,	L_107
+"CoAP Option Block More Size"	,	L_124
+tmp_length	,	V_53
+max	,	V_17
+"?"	,	L_9
+dissect_coap_opt_uint	,	F_14
+FT_UINT8	,	V_120
+BASE_DEC	,	V_121
+tvb_new_subset	,	F_35
+dissect_coap_opt_hex_string	,	F_10
+proto_item	,	T_7
+dissect_coap_opt_ctype	,	F_25
+"Uri-Port"	,	L_99
+jump_length	,	V_54
+subtree	,	V_9
+ENC_NA	,	V_98
+expert_add_info_format	,	F_9
+"/"	,	L_8
+hf_coap_opt_length	,	V_65
+"Accept"	,	L_113
+hf_coap_code	,	V_103
+dissect_coap_opt_uri_host	,	F_16
+coi	,	V_13
+COAP_OPT_LOCATION_PATH	,	V_74
+"Opt Jump"	,	L_72
+"CoAP Payload Description"	,	L_65
+"coap.opt.if_match"	,	L_117
+"%s"	,	L_39
+dissect_coap_options	,	F_37
+"coap.opt.uri_path"	,	L_106
+", %sBlock #%d"	,	L_43
+coap_get_opt_uint	,	F_2
+dissect_coap_opt_uri_query	,	F_20
+size_t	,	T_2
+"Opt Length"	,	L_78
+"CoAP Method or Response Code"	,	L_59
+"coap.opt.name"	,	L_67
+dissect_coap_opt_token	,	F_24
+hf_coap_version	,	V_100
+prefs_register_uint_preference	,	F_52
+"Uri-Host"	,	L_93
+COAP_OPT_IF_NONE_MATCH	,	V_88
+"Invalid Option Range: %d (%d &lt; x &lt; %d)"	,	L_2
+"coap.opt.jump"	,	L_73
+"Option Jump (0xf3): %d"	,	L_20
+guint	,	V_7
+offset	,	V_5
+ett	,	V_129
+hf_coap_opt_observe	,	V_79
+str_payload	,	V_116
+"If-Match"	,	L_116
+coap_opt_check	,	F_7
+payload_tvb	,	V_114
+packet_info	,	T_5
+ett_coap_option	,	V_61
+tvb_bytes_to_str_punct	,	F_11
+"CoAP Option Proxy-Uri"	,	L_89
+coap_prefs_initialized	,	V_133
+"Unknown %d"	,	L_37
+DEFAULT_COAP_BLOCK_NUMBER	,	V_107
+"CoAP Option Name"	,	L_68
+tvb_lenbuf	,	V_56
+COAP_OPT_TOKEN	,	V_80
+proto_tree_add_uint	,	F_15
+"%u"	,	L_14
+"Option Jump (0xf2): %d"	,	L_19
+code	,	V_94
+"coap.opt.uri_host"	,	L_94
+block_esize	,	V_39
+g_snprintf	,	F_30
+"%d"	,	L_34
+"coap.opt.etag"	,	L_91
+DEFAULT_COAP_CTYPE_VALUE	,	V_96
+"udp_port"	,	L_135
+dissector_try_string	,	F_44
+PI_MALFORMED	,	V_14
+"Elective"	,	L_29
+HFILL	,	V_122
+"Opt Desc"	,	L_69
+COAP_OPT_MAX_AGE	,	V_68
+"Opt Name"	,	L_66
+coap_root	,	V_92
+coap_module	,	V_130
+"udp.port"	,	L_139
+payload_length	,	V_115
+dissect_coap_opt_block	,	F_27
+hf_coap_opt_uri_port	,	V_48
+"coap.tid"	,	L_61
+proto_coap	,	V_97
+nullstr	,	V_22
+"Safe"	,	L_31
+hf_coap_opt_delta	,	V_63
+"Unknown"	,	L_130
+"Type"	,	L_51
+"tcp.port"	,	L_140
+proto_tree	,	T_6
+"text/plain; charset=utf-8"	,	L_45

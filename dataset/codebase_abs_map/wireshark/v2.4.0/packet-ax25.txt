@@ -1,0 +1,194 @@
+"Destination callsign"	,	L_11
+proto_register_protocol	,	F_31
+XDLC_N_S_MASK	,	V_57
+tvb_new_subset_remaining	,	F_21
+len	,	V_41
+"n(s)"	,	L_44
+gint	,	T_11
+TFS	,	F_29
+tvb	,	V_1
+"Destination"	,	L_9
+"Via callsign 1"	,	L_17
+COL_INFO	,	V_20
+proto_item_set_end	,	F_20
+IP_PROTO_AX25	,	V_80
+FT_BOOLEAN	,	V_59
+"Final"	,	L_48
+FT_AX25	,	V_48
+cinfo	,	V_18
+tfs_set_notset	,	V_60
+array_length	,	F_34
+"ax25.ctl.p"	,	L_47
+next_tvb	,	V_17
+"Via callsign 2"	,	L_20
+register_capture_dissector_table	,	F_37
+copy_address_shallow	,	F_10
+"n(r)"	,	L_42
+is_response	,	V_11
+", Ver: %s"	,	L_5
+"ax25"	,	L_59
+ax25_tree	,	V_6
+hf_register_info	,	T_10
+XDLC_S_FTYPE_MASK	,	V_65
+"Unknown (0x%02x)"	,	L_7
+l_offset	,	V_45
+", %s"	,	L_6
+"Via callsign 3"	,	L_23
+COL_PROTOCOL	,	V_19
+AT_AX25	,	V_27
+register_capture_dissector	,	F_38
+"AX.25 protocol ID"	,	L_60
+"Control field"	,	L_41
+guint8	,	T_6
+", Src: %s, Dst: %s"	,	L_2
+ti	,	V_5
+BASE_NONE	,	V_49
+ax25_dissector_table	,	V_39
+"Source"	,	L_12
+ett_ax25_ctl	,	V_35
+ax25_cap_handle	,	V_78
+"Via callsign 4"	,	L_26
+info_buffer	,	V_9
+register_dissector	,	F_32
+AX25_MAX_DIGIS	,	V_32
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_6
+"wtap_encap"	,	L_61
+ett_ax25	,	V_22
+BASE_HEX	,	V_52
+parent_tree	,	V_3
+"Protocol ID"	,	L_56
+"Amateur Radio AX.25"	,	L_58
+"ax25.dst"	,	L_10
+gboolean	,	T_7
+"V?.?"	,	L_4
+proto_item_add_subtree	,	F_7
+proto_register_field_array	,	F_33
+hf_ax25_pid	,	V_38
+dissector_add_uint	,	F_40
+pid_vals	,	V_37
+"ip.proto"	,	L_62
+set_address_tvb	,	F_9
+tvb_get_guint8	,	F_11
+XDLC_CONTROL_LEN	,	F_15
+wtap_pseudo_header	,	V_43
+tvb_captured_length	,	F_24
+"ax25.ctl.n_s"	,	L_45
+XDLC_I_MASK	,	V_68
+"AX.25"	,	L_1
+"ax25.ctl.u_resp"	,	L_55
+ax25_cf_items	,	V_36
+proto_ax25	,	V_21
+call_data_dissector	,	F_23
+hf_ax25_dst	,	V_23
+"ax25.ctl.n_r"	,	L_43
+dissect_xdlc_control	,	F_14
+hf_ax25_ftype_i	,	V_66
+capture_dissector_add_uint	,	F_41
+BYTES_ARE_IN_FRAME	,	F_26
+"ax25.ctl.u_cmd"	,	L_54
+"ax25.src"	,	L_13
+hf_ax25_ftype_s	,	V_63
+"ax25.ctl.ftype_i"	,	L_52
+hf	,	V_47
+"ax25.ctl.f"	,	L_49
+"Via 2"	,	L_18
+hf_ax25_ctl	,	V_34
+AX25_HEADER_SIZE	,	V_46
+hf_ax25_via	,	V_33
+col_append_fstr	,	F_17
+"ax25.via1"	,	L_16
+col_set_str	,	F_4
+"Protocol identifier"	,	L_57
+"ax25.ctl.ftype_su"	,	L_53
+guchar	,	T_8
+XDLC_P_F	,	V_61
+proto_item_append_text	,	F_12
+AX25_ADDR_LEN	,	V_24
+"Via 3"	,	L_21
+modifier_vals_cmd	,	V_72
+XDLC_U_MODIFIER_MASK	,	V_73
+col_clear	,	F_5
+XDLC_N_R_MASK	,	V_55
+"ax25.via2"	,	L_19
+proto_register_subtree_array	,	F_35
+hf_ax25_src	,	V_29
+val_to_str	,	F_18
+AX25_P_NO_L3	,	V_14
+try_capture_dissector	,	F_27
+proto_tree_add_item	,	F_8
+pinfo	,	V_2
+_U_	,	V_4
+dl_dst	,	V_26
+dissect_ax25	,	F_1
+"ax25.via3"	,	L_22
+VALS	,	F_30
+via_index	,	V_8
+"ax25.ctl"	,	L_40
+FT_UINT8	,	V_51
+BASE_DEC	,	V_54
+proto_item	,	T_5
+hf_ax25_u_resp	,	V_74
+"Via 1"	,	L_15
+dl_src	,	V_30
+proto_register_ax25	,	F_28
+"Source callsign"	,	L_14
+dst_ssid	,	V_16
+ENC_NA	,	V_25
+"ax25.via4"	,	L_25
+XDLC_IS_INFORMATION	,	F_16
+wmem_alloc	,	F_2
+register_dissector_table	,	F_36
+"Control"	,	L_39
+data	,	T_4
+"Via 6"	,	L_30
+ftype_vals	,	V_67
+pid	,	V_13
+"ax25.via5"	,	L_28
+"Via 7"	,	L_33
+"Frame type"	,	L_50
+"Via callsign 5"	,	L_29
+hf_ax25_p	,	V_58
+modifier_vals_resp	,	V_75
+capture_ax25	,	F_25
+offset	,	V_7
+ett	,	V_76
+wmem_packet_scope	,	F_3
+proto_reg_handoff_ax25	,	F_39
+"ax25.pid"	,	L_8
+hf_ax25_u_cmd	,	V_71
+packet_info	,	T_2
+hf_ax25_f	,	V_62
+"ax25.via6"	,	L_31
+"Via 8"	,	L_36
+stype_vals	,	V_64
+"ax25.ctl.ftype_s"	,	L_51
+capture_packet_info_t	,	T_9
+"Via callsign 6"	,	L_32
+proto_tree_add_uint	,	F_19
+pseudo_header	,	V_44
+dst	,	V_28
+hf_ax25_n_r	,	V_53
+hf_ax25_n_s	,	V_56
+XDLC_S_U_MASK	,	V_70
+WTAP_ENCAP_AX25	,	V_79
+"Via 4"	,	L_24
+ax25_handle	,	V_77
+hf_ax25_ftype_su	,	V_69
+cpinfo	,	V_42
+ax25_version	,	V_10
+HFILL	,	V_50
+"ax25.via7"	,	L_34
+"Via callsign 7"	,	L_35
+dissector_try_uint	,	F_22
+"Poll"	,	L_46
+src	,	V_31
+address_to_str	,	F_13
+"Via 5"	,	L_27
+control	,	V_12
+pd	,	V_40
+src_ssid	,	V_15
+"Via callsign 8"	,	L_38
+"V2.0+"	,	L_3
+"ax25.via8"	,	L_37
+proto_tree	,	T_3

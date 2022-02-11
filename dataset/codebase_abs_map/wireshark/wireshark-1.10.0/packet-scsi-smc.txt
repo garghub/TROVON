@@ -1,0 +1,178 @@
+scsi_asc_val_ext	,	V_47
+proto_scsi_smc	,	V_71
+"Source Storage Element Address: %u"	,	L_13
+DT_ELEM	,	V_45
+"Destination Address"	,	L_42
+PVOLTAG	,	V_51
+action_code_vals	,	V_69
+proto_register_protocol	,	F_23
+"Second Destination Address"	,	L_46
+SVALID	,	V_50
+"%s: Volume Identification = \"%s\", Volume Sequence Number = %u"	,	L_1
+hf_scsi_smc_ea	,	V_29
+gint	,	T_12
+"SCSI Bus Address: %u"	,	L_11
+"Identifier: %s"	,	L_21
+"Flags"	,	L_48
+"Element Address: %u"	,	L_2
+tvb	,	V_1
+"scsi_smc.fda"	,	L_45
+hf_scsi_smc_range	,	V_25
+dissect_scsi_smc_volume_tag	,	F_9
+"Unknown (0x%04x)"	,	L_7
+"Allocation Length: %u"	,	L_28
+elem_desc_len	,	V_56
+val_to_str_ext	,	F_15
+FT_BOOLEAN	,	V_68
+"scsi_smc.inv2"	,	L_53
+"Number of Elements: %u"	,	L_26
+"scsi_smc.medium_flags"	,	L_49
+dissect_smc_movemedium	,	F_8
+"Byte Count of Report Available: %u"	,	L_31
+"scsi_smc.sda"	,	L_47
+cdata	,	T_9
+"INVERT"	,	L_61
+scsi_devid_codeset_val	,	V_53
+hf_scsi_smc_range_flags	,	V_26
+proto_register_subtree_array	,	F_26
+val_to_str	,	F_16
+array_length	,	F_25
+"scsi_smc.opcode"	,	L_37
+tvb_get_ntoh24	,	F_20
+"NOT BUS: %u, ID VALID: %u, LU VALID: 1, LUN: %u"	,	L_8
+"SVALID: 0"	,	L_14
+I_E_ELEM	,	V_46
+proto_tree_add_item	,	F_2
+dissect_scsi_smc_elements	,	F_18
+pinfo	,	T_3
+_U_	,	V_2
+flags	,	V_40
+"ACCESS: %u, EXCEPT: %u, FULL: %u"	,	L_4
+"SCSI_SMC"	,	L_67
+hf_scsi_smc_sda	,	V_14
+iscdb	,	V_6
+"ID VALID: 0, LU VALID: 0"	,	L_10
+"scsi_smc.inv1"	,	L_51
+bytecnt	,	V_58
+"scsi_smc.ea"	,	L_64
+"scsi_smc.range"	,	L_58
+ett_scsi_exchange_medium	,	V_16
+dissect_smc_initialize_element_status_with_range	,	F_6
+"cmc: %u, INENAB: %u, EXENAB: %u, ACCESS: %u, EXCEPT: %u, IMPEXP: %u, FULL: %u"	,	L_5
+element_type_code_vals	,	V_59
+"Byte Count Of Descriptor Data Available: %u"	,	L_35
+hf_register_info	,	T_11
+VALS	,	F_22
+ett_scsi_move	,	V_32
+"Unknown (0x%02x)"	,	L_18
+desc_bytecnt	,	V_55
+guint16	,	T_10
+exchg_fields	,	V_7
+ident_len	,	V_41
+"ID VALID: 1, LU VALID: 0"	,	L_9
+FT_UINT8	,	V_62
+"Source Address"	,	L_40
+proto_tree_add_text	,	F_11
+"Identifier Type: %s"	,	L_19
+BASE_DEC	,	V_67
+"Unknown (0x%x)"	,	L_24
+p	,	V_35
+"Code Set: %s"	,	L_17
+"Number of Elements Available: %u"	,	L_30
+guint8	,	V_36
+dissect_smc_openclose_importexport_element	,	F_7
+tvb_bytes_to_str	,	F_17
+hf_scsi_smc_da	,	V_22
+hf_scsi_smc_action_code	,	V_30
+scsi_smc_vals	,	V_64
+"RANGE"	,	L_57
+hf_scsi_smc_fda	,	V_13
+"scsi_smc.action_code"	,	L_66
+"Number of Elements"	,	L_59
+"First Element Address Reported: %u"	,	L_29
+tvbuff_t	,	T_1
+"scsi_smc.invert"	,	L_62
+tvb_get_ntohs	,	F_12
+"scsi_smc"	,	L_68
+tvb_memcpy	,	F_10
+proto_tree_add_bitmask	,	F_3
+BASE_HEX	,	V_63
+hf_scsi_smc_invert	,	V_21
+"VOLTAG: %u, Element Type Code: %s"	,	L_23
+"scsi_smc.da"	,	L_43
+hf_scsi_smc_opcode	,	V_61
+gboolean	,	T_6
+"Element Address"	,	L_63
+"scsi_smc.fast"	,	L_56
+dissect_smc_initialize_element_status	,	F_5
+"FAST"	,	L_55
+dissect_smc_position_to_element	,	F_4
+volid	,	V_34
+proto_register_field_array	,	F_24
+scsi_task_data_t	,	T_8
+"SVALID: 1, INVERT: %u"	,	L_12
+"Vendor-specific Data: %s"	,	L_22
+guint	,	T_5
+proto_reg_handoff_scsi_smc	,	F_27
+offset	,	V_4
+ett	,	V_70
+payload_len	,	T_7
+hf_scsi_smc_mta	,	V_10
+tree	,	V_3
+hf_scsi_smc_num_elements	,	V_28
+"scsi_smc.num_elements"	,	L_60
+EXCEPT	,	V_43
+"Primary Volume Tag Information"	,	L_15
+hf_scsi_smc_sa	,	V_12
+dissect_scsi_smc_element	,	F_13
+"SMC Opcode"	,	L_36
+FT_UINT16	,	V_66
+packet_info	,	T_2
+elem_type	,	V_38
+ett_scsi_control	,	V_18
+tvb_get_guint8	,	F_14
+"Identifier Length: %u"	,	L_20
+"First Destination Address"	,	L_44
+pte_fields	,	V_20
+name	,	V_33
+"scsi_smc.sa"	,	L_41
+voltag_flags	,	V_39
+"Element Type Code: %s"	,	L_32
+isreq	,	V_5
+"Medium Transport Address"	,	L_38
+"CURDATA: %u, DVCID: %u"	,	L_27
+hf_scsi_control	,	V_17
+cdb_control_fields	,	V_19
+numelem	,	V_57
+scsi_devid_idtype_val	,	V_54
+"scsi_smc.range_flags"	,	L_54
+MT_ELEM	,	V_42
+"PVOLTAG: %u, AVOLTAG: %u"	,	L_33
+"Action Code"	,	L_65
+hf_scsi_smc_inv1	,	V_8
+hf_scsi_smc_inv2	,	V_9
+proto_register_scsi_smc	,	F_21
+AVOLTAG	,	V_52
+"Starting Element Address: %u"	,	L_25
+elem_bytecnt	,	V_37
+HFILL	,	V_65
+range_fields	,	V_23
+hf_scsi_smc_fast	,	V_24
+"Alternate Volume Tag Information"	,	L_16
+"Element Descriptor Length: %u"	,	L_34
+hf_scsi_smc_medium_flags	,	V_15
+LU_VALID	,	V_48
+move_fields	,	V_31
+ett_scsi_range	,	V_27
+"Additional Sense Code+Qualifier: %s"	,	L_6
+dissect_smc_readelementstatus	,	F_19
+ID_VALID	,	V_49
+"INV1"	,	L_50
+ENC_BIG_ENDIAN	,	V_11
+"INV2"	,	L_52
+"EXCEPT: %u, FULL: %u"	,	L_3
+dissect_smc_exchangemedium	,	F_1
+ST_ELEM	,	V_44
+"scsi_smc.mta"	,	L_39
+proto_tree	,	T_4
+hf	,	V_60

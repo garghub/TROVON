@@ -1,0 +1,288 @@
+"quake2.game.client.command.move"	,	L_65
+proto_register_protocol	,	F_49
+quake2_tree	,	V_109
+CLC_MOVE	,	V_59
+tvb_reported_length	,	F_33
+"quake2.game.seq2"	,	L_46
+hf_quake2_connectionless_text	,	V_10
+tvb_new_subset_remaining	,	F_34
+len	,	V_5
+hf_quake2_game_client_command_move_lframe	,	V_29
+gint	,	T_15
+"Impulse"	,	L_76
+tvb_captured_length_remaining	,	F_5
+"Server to Client"	,	L_28
+qport	,	V_104
+"Direction: %s"	,	L_19
+"Quake II Client Command Move"	,	L_61
+tvb	,	V_1
+"quake2.game.client.command.move.lightlevel"	,	L_81
+guint32	,	T_6
+CLC_NOP	,	V_58
+SVC_BAD	,	V_65
+"Current Sequence: %u (%s)"	,	L_14
+ett_quake2_game_clc	,	V_107
+COL_INFO	,	V_112
+FT_BOOLEAN	,	V_128
+SVC_DISCONNECT	,	V_71
+Q_VALUE	,	V_16
+dissect_quake2	,	F_39
+sub_tree	,	V_32
+clc_tree	,	V_49
+cinfo	,	V_110
+BUTTON_ATTACK	,	F_17
+CM_ANGLE1	,	F_9
+Q_OFFSET	,	V_15
+impulse	,	V_24
+"Move %u"	,	L_2
+array_length	,	F_51
+dissect_quake2_GamePacket	,	F_37
+CM_ANGLE3	,	F_11
+CM_ANGLE2	,	F_10
+next_tvb	,	V_50
+hf_quake2_game_client_command	,	V_54
+"Reliable"	,	L_43
+"Quake II Network Protocol"	,	L_82
+"quake2.game.rel2"	,	L_48
+" (%s)"	,	L_11
+movebits_item	,	V_30
+"quake2.game.client.command.move.angles"	,	L_67
+ENC_ASCII	,	V_11
+server_cmd_type	,	V_62
+col_append_str	,	F_43
+CLC_USERINFO	,	V_60
+seq2_tree	,	V_100
+proto_tree_add_boolean	,	F_38
+hf_quake2_game_qport	,	V_105
+"Sequence number of the last received packet"	,	L_47
+hf_register_info	,	T_14
+"quake2"	,	L_24
+hf_quake2_game_server_command	,	V_63
+"Packet is reliable and may be retransmitted"	,	L_45
+ett_quake2_game_seq2	,	V_101
+quake2_handle	,	V_133
+guint16	,	T_8
+ett_quake2_game_seq1	,	V_96
+COL_PROTOCOL	,	V_111
+"quake2.game.rel1"	,	L_44
+game_tree	,	V_85
+hf_quake2_s2c	,	V_117
+hf_quake2_c2s	,	V_118
+i	,	V_14
+SVC_TEMP_ENTITY	,	V_68
+lightlevel	,	V_22
+SVC_DOWNLOAD	,	V_80
+ett_quake2_connectionless	,	V_8
+"quake2.game.client.command.move.movement"	,	L_71
+guint8	,	T_7
+client_cmd_type	,	V_51
+hf_quake2_userinfo	,	V_47
+BASE_NONE	,	V_126
+x	,	T_11
+hf_quake2_game_client_command_move	,	V_35
+hf_quake2_game_seq1	,	V_98
+" (%hd)"	,	L_6
+hf_quake2_game_seq2	,	V_102
+" (Use)"	,	L_9
+tvb_get_ntohl	,	F_2
+hf_quake2_game_rel1	,	V_99
+"quake2.game.client.command.move.lframe"	,	L_63
+hf_quake2_game_rel2	,	V_103
+"Sequence number of the current packet"	,	L_42
+BUTTON_USE	,	F_18
+dissect_quake2_ConnectionlessPacket	,	F_1
+tvbuff_t	,	T_1
+SVC_PACKETENTITIES	,	V_82
+tvb_strsize	,	F_29
+rel2	,	V_89
+rel1	,	V_88
+BASE_HEX	,	V_127
+hf_quake2_game_client_command_move_bitfield_movement_side	,	V_43
+col_add_str	,	F_41
+gbl_quake2ServerPort	,	V_91
+CLC_STRINGCMD	,	V_61
+proto_item_add_subtree	,	F_27
+proto_register_field_array	,	F_50
+ett_quake2_game	,	V_94
+ett_quake2_game_clc_cmd_move_bitfield	,	V_38
+rest_length	,	V_53
+dissector_add_uint	,	F_56
+"Sequence Number"	,	L_40
+"quake2.game.client.command.move.chksum"	,	L_60
+"Bitfield"	,	L_64
+"Angles (yaw)"	,	L_68
+"Msec"	,	L_78
+tvb_get_guint8	,	F_21
+Q_SIZE	,	V_17
+tvb_captured_length	,	F_44
+proto_register_quake2	,	F_47
+"Angles (pitch)"	,	L_66
+"quake2.userinfo"	,	L_33
+SVC_FRAME	,	V_84
+MOVES	,	F_8
+" Connectionless"	,	L_20
+" (Any)"	,	L_10
+SVC_MUZZLEFLASH	,	V_66
+apply_quake2_prefs	,	F_45
+hf_quake2_connectionless_marker	,	V_9
+FT_STRING	,	V_125
+"quake2.game.qport"	,	L_51
+hf_quake2_game_client_command_move_msec	,	V_36
+call_data_dissector	,	F_36
+SVC_SOUND	,	V_73
+" (%d"	,	L_4
+"quake2.s2c"	,	L_29
+cmd_type_item	,	V_52
+ett_quake2_game_svc_cmd	,	V_132
+"quake2.c2s"	,	L_27
+hf_quake2_game_client_command_move_bitfield_buttons	,	V_45
+CLC_BAD	,	V_57
+names_reliable	,	V_97
+"quake2.game.seq1"	,	L_41
+ENC_BIG_ENDIAN	,	V_27
+hf_quake2_game_client_command_move_bitfield_impulse	,	V_46
+ett_quake2	,	V_116
+FT_UINT32	,	V_122
+"quake2.game"	,	L_31
+lastframe	,	V_13
+msec	,	V_23
+bit_item	,	V_31
+hf	,	V_121
+SVC_STUFFTEXT	,	V_75
+PROTO_CHECKSUM_NO_FLAGS	,	V_28
+CM_SIDE	,	F_13
+"quake2.game.client.command.move.impulse"	,	L_77
+CM_BUTTONS	,	F_15
+"Movement (up)"	,	L_73
+dissect_quake2_client_commands	,	F_31
+SVC_PRINT	,	V_74
+prefs_register_protocol	,	F_53
+proto_tree_add_subtree	,	F_3
+SVC_CENTERPRINT	,	V_79
+"Type: Game"	,	L_23
+col_set_str	,	F_40
+ett_quake2_game_clc_cmd	,	V_56
+CM_FORWARD	,	F_12
+" (Attack)"	,	L_8
+proto_tree_add_uint_format	,	F_42
+dissect_quake2_client_commands_uinfo	,	F_28
+SVC_SPAWNBASELINE	,	V_78
+bits	,	V_19
+proto_item_append_text	,	F_26
+hf_quake2_game_client_command_move_bitfield_movement_fwd	,	V_42
+"quake2.connectionless"	,	L_30
+hf_quake2_game_client_command_move_bitfield_angles1	,	V_39
+hf_quake2_game_client_command_move_bitfield_angles2	,	V_40
+SVC_MUZZLEFLASH2	,	V_67
+hf_quake2_game_client_command_move_bitfield_angles3	,	V_41
+dissect_quake2_server_commands	,	F_35
+"Acknowledge Sequence: %u (%s)"	,	L_15
+dissect_quake2_client_commands_stringcmd	,	F_30
+" = %.2f deg)"	,	L_5
+"Lightlevel"	,	L_80
+proto_register_subtree_array	,	F_52
+"Client to Server"	,	L_26
+val_to_str	,	F_32
+SVC_DELTAPACKETENTITIES	,	V_83
+SVC_CONFIGSTRING	,	V_77
+"Checksum"	,	L_59
+"quake2.game.client.command"	,	L_54
+proto_tree_add_item	,	F_6
+"Angles (roll)"	,	L_69
+CM_UP	,	F_14
+pinfo	,	T_3
+dissector_handle_t	,	T_16
+SVC_PLAYERINFO	,	V_81
+"QUAKE2"	,	L_18
+"Text"	,	L_38
+_U_	,	V_2
+"Connectionless"	,	L_1
+seq1_tree	,	V_95
+names_client_cmd	,	V_55
+dissect_quake2_client_commands_move	,	F_7
+hf_quake2_game_client_command_move_lightlevel	,	V_37
+proto_tree_add_checksum	,	F_23
+"quake2.command"	,	L_35
+names_server_cmd	,	V_64
+VALS	,	F_48
+hf_quake2_game_client_command_move_bitfield_movement_up	,	V_44
+"Movement (fwd)"	,	L_70
+hf_quake2_command	,	V_48
+PORT_MASTER	,	V_134
+"Quake II Client Command"	,	L_55
+BUTTON_ANY	,	F_19
+FT_UINT8	,	V_129
+"quake2.game.server.command"	,	L_57
+BASE_DEC	,	V_123
+"quake2.connectionless.marker"	,	L_37
+proto_item	,	T_10
+ett_quake2_game_svc	,	V_108
+cl_tree	,	V_4
+ENC_NA	,	V_12
+"quake2.game.client.command.move.msec"	,	L_79
+SVC_NOP	,	V_70
+"Game"	,	L_13
+"Last Frame"	,	L_62
+"Quake II Server Command"	,	L_58
+DIR_C2S	,	V_92
+DIR_S2C	,	V_93
+movement	,	V_18
+"Command"	,	L_34
+"quake2.connectionless.text"	,	L_39
+"Marker"	,	L_36
+data	,	T_13
+seq2	,	V_87
+names_direction	,	V_113
+seq1	,	V_86
+hf_quake2_game_client_command_move_vals	,	V_130
+ett_quake2_game_clc_cmd_move_moves	,	V_34
+SVC_LAYOUT	,	V_69
+" (%d)"	,	L_7
+" Game"	,	L_22
+tvb_get_letohl	,	F_20
+SVC_RECONNECT	,	V_72
+c_tree	,	V_106
+proto_quake2	,	V_115
+"Quake II Client Port"	,	L_52
+tvb_get_letohs	,	F_22
+"Client Commands"	,	L_16
+field_tree	,	V_33
+guint	,	T_12
+offset	,	V_6
+ett	,	V_131
+tree	,	V_3
+SVC_SERVERDATA	,	V_76
+"Type: Connectionless"	,	L_21
+packet_info	,	T_2
+hf_quake2_game_client_command_move_chksum	,	V_26
+quake2_item	,	V_114
+marker	,	V_7
+"Server Command"	,	L_56
+destport	,	V_90
+"Userinfo"	,	L_32
+proto_tree_add_uint	,	F_4
+SHORT2ANGLE	,	F_24
+"%u"	,	L_12
+hf_quake2_connectionless	,	V_119
+"Client Command Type"	,	L_53
+angles	,	V_20
+"Server Commands"	,	L_17
+proto_reg_handoff_quake2	,	F_54
+"quake2.game.client.command.move.buttons"	,	L_75
+HFILL	,	V_124
+direction	,	T_5
+move	,	V_25
+buttons	,	V_21
+prefs_get_uint_value	,	F_46
+"Buttons"	,	L_74
+"udp.port"	,	L_25
+hf_quake2_game	,	V_120
+"Movement (side)"	,	L_72
+create_dissector_handle	,	F_55
+proto_tree_add_subtree_format	,	F_25
+" (no moves)"	,	L_3
+gint16	,	T_9
+"QPort"	,	L_50
+CM_IMPULSE	,	F_16
+proto_tree	,	T_4
+"Packet was reliable and may be retransmitted"	,	L_49

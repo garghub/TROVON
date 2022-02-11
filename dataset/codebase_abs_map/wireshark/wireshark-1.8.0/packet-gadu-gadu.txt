@@ -1,0 +1,387 @@
+get_gadu_gadu_pdu_len	,	F_73
+GG_RECV_MSG80	,	V_113
+hf_gadu_gadu_status_descr	,	V_80
+hf_gadu_gadu_status_ip	,	V_76
+"gadu-gadu.len"	,	L_47
+"gadu-gadu.msg_ack.seq"	,	L_113
+GG_NOTIFY_FIRST	,	V_127
+"xml"	,	L_123
+guint32	,	T_2
+"Welcome"	,	L_32
+hf_gadu_gadu_msg_ack_status	,	V_71
+"gadu-gadu.msg80.offset_plain"	,	L_81
+"Image size"	,	L_97
+tvb_reported_length_remaining	,	F_10
+dissect_gadu_gadu_login_ok80	,	F_37
+array_length	,	F_83
+hf_gadu_gadu_header_type_recv	,	V_103
+""	,	L_2
+"Contact: %u"	,	L_28
+TCP_PORT_GADU_GADU	,	V_160
+"Description"	,	L_100
+ENC_ASCII	,	V_60
+gadu_gadu_conv_data	,	V_1
+g_string_append_unichar	,	F_14
+dissect_gadu_gadu_disconnect_ack	,	F_22
+"UIN"	,	L_84
+"Receive status list (8.0)"	,	L_22
+xml_handle	,	V_90
+dissect_gadu_gadu	,	F_74
+hf_register_info	,	T_14
+dissect_gadu_gadu_list_empty	,	F_53
+uin	,	V_3
+gadu_gadu_userlist_request_type_vals	,	V_154
+hf_gadu_gadu_msg_time	,	V_65
+"Login hash type"	,	L_50
+ch	,	V_28
+i	,	V_54
+dissect_gadu_gadu_status60	,	F_47
+"IP"	,	L_91
+"Unknown (0x%x)"	,	L_5
+dissect_gadu_gadu_welcome	,	F_62
+"Gadu-Gadu"	,	L_38
+"Login fail (8.0)"	,	L_13
+"Login hash"	,	L_52
+t	,	V_37
+BASE_NONE	,	V_147
+contact_tree	,	V_85
+GG_STATUS_INVISIBLE_DESCR	,	V_20
+GG_LOGIN_HASH_GG32	,	V_47
+GG_DISCONNECT_ACK	,	V_107
+dissect_gadu_gadu_send_msg	,	F_42
+hf_gadu_gadu_msg80_offset_plain	,	V_69
+"To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_121
+"desegment"	,	L_118
+BASE_HEX	,	V_141
+PROTO_ITEM_SET_GENERATED	,	F_28
+proto_item_add_subtree	,	F_58
+GG_STATUS80	,	V_117
+module_t	,	T_15
+gadu_gadu_handle	,	V_159
+proto_register_field_array	,	F_82
+GG_LOGIN70	,	V_124
+FT_BYTES	,	V_146
+dissect_gadu_gadu_login	,	F_29
+GG_STATUS77	,	V_116
+GG_ADD_NOTIFY	,	V_129
+"Gadu-Gadu Protocol"	,	L_116
+"gadu-gadu.status.remote_ip"	,	L_92
+dissector_add_uint	,	F_87
+dissect_gadu_gadu_send_msg80	,	F_45
+gadu_gadu_packets_type_send	,	V_137
+FT_UINT16	,	V_150
+hf_gadu_gadu_login_hash	,	V_48
+fd	,	V_7
+GG_LOGIN80	,	V_125
+dissect_gadu_gadu_remove_notify	,	F_55
+g_string_new	,	F_11
+FT_STRING	,	V_148
+GG_STATUS60	,	V_115
+org_offset	,	V_26
+"Login request (&lt; 6.0)"	,	L_6
+conversation_add_proto_data	,	F_5
+GG_REMOVE_NOTIFY	,	V_130
+length	,	V_36
+GG_SEND_MSG	,	V_132
+"Client status"	,	L_54
+"Receive status (8.0)"	,	L_21
+FT_UINT32	,	V_140
+find_or_create_conversation	,	F_2
+"Message recipient"	,	L_70
+hf	,	V_139
+hf_gadu_gadu_data	,	V_55
+"Message text"	,	L_78
+"gadu-gadu.msg.sender"	,	L_69
+hf_gadu_gadu_login_local_ip	,	V_50
+"gadu-gadu.login.status"	,	L_55
+"Unknown send packet: %.2x"	,	L_40
+prefs_register_protocol	,	F_80
+dissect_gadu_gadu_msg_attr	,	F_39
+hf_gadu_gadu_msg_recipient	,	V_61
+col_set_str	,	F_21
+dissect_gadu_gadu_login80_failed	,	F_38
+hf_gadu_gadu_new_status_desc	,	V_82
+FT_IPv4	,	V_149
+dissect_gadu_gadu_notify_last	,	F_60
+"gadu-gadu.msg.time"	,	L_75
+"gadu-gadu.status.description"	,	L_101
+FT_ABSOLUTE_TIME	,	V_151
+GG_ERA_OMNIX_MASK	,	V_57
+"Receive message (&lt; 8.0)"	,	L_14
+hf_gadu_gadu_status_version	,	V_78
+proto_tree_add_string	,	F_26
+val_to_str	,	F_27
+"Send message (&lt; 8.0)"	,	L_15
+"Whether the Gadu-Gadu dissector should reassemble messages spanning multiple TCP segments."	,	L_120
+hash	,	V_44
+status	,	V_14
+gadu_gadu_msg_ack_status_vals	,	V_156
+dissector_handle_t	,	T_16
+"Login success (&lt; 8.0)"	,	L_10
+"gadu-gadu.login.local_port"	,	L_63
+dissect_gadu_gadu_login_protocol	,	F_24
+dissect_gadu_gadu_recv_msg80	,	F_44
+VALS	,	F_78
+prefs_register_bool_preference	,	F_81
+GG_DISCONNECTING	,	V_106
+tvb_length	,	F_76
+proto_tree_add_text	,	F_57
+BASE_DEC	,	V_143
+hf_gadu_gadu_status_img_size	,	V_79
+"Login success (8.0)"	,	L_12
+GG_LIST_EMPTY	,	V_126
+ENC_NA	,	V_31
+ABSOLUTE_TIME_LOCAL	,	V_152
+hf_gadu_gadu_login_uin	,	V_45
+dissect_gadu_gadu_login_hash	,	F_32
+"Send message (8.0)"	,	L_17
+"Uncompressed userlist"	,	L_34
+"Message attribute offset"	,	L_82
+"%s"	,	L_1
+"New status (8.0)"	,	L_24
+GG_USERLIST_REPLY80	,	V_120
+"Maximum image size in KB"	,	L_99
+size_t	,	T_11
+dissect_gadu_gadu_login_ok	,	F_35
+"gadu-gadu.status.image_size"	,	L_98
+"gadu-gadu.contact.type"	,	L_87
+GG_LOGIN80_FAILED	,	V_111
+gadu_gadu_module	,	V_158
+g_string_free	,	F_16
+dissect_gadu_gadu_send_msg_ack	,	F_46
+hf_gadu_gadu_msg_ack_recipient	,	V_72
+gadu_gadu_desegment	,	V_138
+GG_USERLIST_REQUEST80	,	V_136
+guint	,	T_13
+ett	,	V_157
+hf_gadu_gadu_welcome_seed	,	V_87
+packet_info	,	T_1
+"Receive status (7.7)"	,	L_20
+uncomp_tvb	,	V_89
+hash_type	,	V_53
+hf_gadu_gadu_msg_uin	,	V_62
+"Message plaintext offset"	,	L_80
+dst	,	V_10
+dissect_gadu_gadu_ping	,	F_61
+conversation_get_proto_data	,	F_3
+ptype	,	V_11
+"gadu-gadu.msg_ack.recipient"	,	L_112
+gadu_gadu_get_conversation_data	,	F_6
+GG_STATUS_FFC_DESCR	,	V_16
+P2P_DIR_SENT	,	V_100
+dissect_gadu_gadu_stringz_cp1250	,	F_9
+HFILL	,	V_142
+GG_USERLIST_GET_REPLY	,	V_94
+dissect_gadu_gadu_userlist_reply80	,	F_68
+"Status"	,	L_89
+"Request type"	,	L_104
+src	,	V_9
+hf_gadu_gadu_status_port	,	V_77
+proto_register_gadu_gadu	,	F_77
+"Packet Type (recv)"	,	L_43
+g_string_append_c	,	F_13
+hf_gadu_gadu_msg_seq	,	V_64
+"Packet Data"	,	L_114
+"Notify list (last)"	,	L_30
+proto_register_protocol	,	F_79
+"Seed"	,	L_108
+"Version"	,	L_95
+len	,	V_29
+dissect_gadu_gadu_login70	,	F_33
+tcp_dissect_pdus	,	F_75
+gint	,	T_10
+"0x%.8x"	,	L_7
+"Message status"	,	L_110
+dissect_gadu_gadu_disconnecting	,	F_20
+dissect_gadu_gadu_notify_common	,	F_56
+"Port"	,	L_93
+tvb	,	V_21
+COL_INFO	,	V_34
+remain	,	V_88
+GG_STATUS_AVAIL_DESCR	,	V_17
+proto_tree_add_string_format_value	,	F_15
+hf_gadu_gadu_login_hash_type	,	V_46
+dissect_gadu_gadu_notify_reply80	,	F_50
+str	,	V_27
+tvb_child_uncompress	,	F_64
+GG_LOGIN_OK80	,	V_109
+dissect_gadu_gadu_login80	,	F_34
+hf_gadu_gadu_login80_lang	,	V_59
+cinfo	,	V_33
+FT_STRINGZ	,	V_153
+hf_gadu_gadu_userlist_request_type	,	V_91
+dissect_gadu_gadu_new_status	,	F_51
+ett_gadu_gadu	,	V_102
+abs_ts	,	V_68
+PROTO_ITEM_SET_HIDDEN	,	F_41
+dissect_gadu_gadu_pdu	,	F_69
+hf_gadu_gadu_header_type_send	,	V_104
+GG_USERLIST_PUT	,	V_92
+"Userlist reply (8.0)"	,	L_37
+COL_PROTOCOL	,	V_101
+GG_LOGIN_HASH_SHA1	,	V_56
+GG_STATUS_DND_DESCR	,	V_19
+"gadu-gadu.login80.lang"	,	L_65
+proto_reg_handoff_gadu_gadu	,	F_85
+"Client language"	,	L_64
+hf_gadu_gadu_msg80_offset_attr	,	V_70
+guint8	,	T_9
+"gadu-gadu.userlist.reply_type"	,	L_107
+ti	,	V_38
+gadu_gadu_hash_type_vals	,	V_145
+"gadu-gadu.send"	,	L_44
+"Notify list remove"	,	L_27
+"Receive message (8.0)"	,	L_16
+dissect_gadu_gadu_recv_msg	,	F_40
+tvbuff_t	,	T_5
+GG_LOGIN	,	V_123
+gboolean	,	T_4
+GG_RECV_MSG	,	V_112
+GG_STATUS_NOT_AVAIL_DESCR	,	V_15
+GG_SEND_MSG_ACK	,	V_114
+GG_SEND_MSG80	,	V_133
+"Login fail (&lt; 8.0)"	,	L_11
+"gadu-gadu.welcome.seed"	,	L_109
+hf_gadu_gadu_header_length	,	V_105
+"gadu-gadu.data"	,	L_115
+tvb_get_guint8	,	F_12
+hf_gadu_gadu_login_protocol	,	V_40
+match_uint	,	V_97
+"gadu-gadu.login.uin"	,	L_49
+"Userlist XML data: [Error: Decompression failed] (or no libz)"	,	L_35
+"Disconnecting"	,	L_3
+"Userlist request (8.0)"	,	L_36
+dissect_gadu_gadu_uint32_string_utf8	,	F_17
+hf_gadu_gadu_msg_text	,	V_67
+hf_gadu_gadu_login_status	,	V_49
+gadu_gadu_packets_type_recv	,	V_122
+hf_gadu_gadu_contact_type	,	V_84
+dissect_gadu_gadu_userlist80_compressed	,	F_63
+"Message acknowledge"	,	L_18
+"gadu-gadu.login.hash"	,	L_53
+GG_WELCOME	,	V_119
+gadu_gadu_create_conversation	,	F_1
+"gadu-gadu.status.remote_port"	,	L_94
+"Packet Type (send)"	,	L_45
+new_create_dissector_handle	,	F_86
+GG_HAS_AUDIO_MASK	,	V_58
+gadu_gadu_userlist_reply_type_vals	,	V_155
+find_dissector	,	F_88
+hf_gadu_gadu_login_local_port	,	V_52
+hf_gadu_gadu_msg_sender	,	V_63
+target	,	V_35
+ENC_BIG_ENDIAN	,	V_51
+"Notify list add"	,	L_26
+"Login request (8.0)"	,	L_9
+gg_conv	,	V_5
+"Client local IP"	,	L_60
+hfindex	,	V_22
+"Notify list (empty)"	,	L_25
+proto_tree_add_time	,	F_43
+GG_PING	,	V_131
+GG_NEW_STATUS80	,	V_135
+GG_NOTIFY_LAST	,	V_128
+"Message sender"	,	L_68
+"gadu-gadu.recv"	,	L_42
+"gadu-gadu.login.hash_type"	,	L_51
+conv	,	V_4
+dissect_gadu_gadu_userlist_request80	,	F_67
+gunichar2	,	T_7
+"gadu-gadu.msg.seq"	,	L_73
+"gadu-gadu.new_status.status"	,	L_102
+gadu_gadu_status_has_descr	,	F_8
+GString	,	T_8
+pkt_name	,	V_121
+hf_gadu_gadu_userlist_reply_type	,	V_93
+col_clear	,	F_70
+ett_gadu_gadu_contact	,	V_86
+"gadu-gadu.login.version"	,	L_59
+proto_register_subtree_array	,	F_84
+"Reply type"	,	L_106
+proto_tree_add_bytes_format_value	,	F_31
+dissect_gadu_gadu_notify_first	,	F_59
+"Unknown recv packet: %.2x"	,	L_39
+"gadu-gadu.status.status"	,	L_90
+proto_tree_add_item	,	F_25
+pinfo	,	V_2
+col_add_fstr	,	F_72
+"gadu-gadu.new_status.description"	,	L_103
+_U_	,	V_32
+_tvb_memcpy_reverse	,	F_23
+"Client local port"	,	L_62
+hf_gadu_gadu_status_uin	,	V_74
+dissect_gadu_gadu_login_failed	,	F_36
+hf_gadu_gadu_status_status	,	V_75
+table_cp1250	,	V_25
+call_dissector_only	,	F_66
+"Message sender or recipient"	,	L_66
+find_conversation	,	F_7
+hf_gadu_gadu_contact_uin	,	V_83
+FT_UINT8	,	V_144
+proto_item	,	T_12
+"Ping"	,	L_31
+GG_NOTIFY_REPLY80	,	V_118
+"Packet Length"	,	L_46
+"Login request (7.0)"	,	L_8
+hf_gadu_gadu_new_status_status	,	V_81
+GG_LOGIN_OK	,	V_108
+"gadu-gadu"	,	L_117
+ENC_LITTLE_ENDIAN	,	V_41
+proto_gadu_gadu	,	V_6
+"gadu-gadu.msg.text"	,	L_79
+"Disconnect acknowledge (&lt; 10.0)"	,	L_4
+"Packet Type"	,	L_41
+tvb_get_ephemeral_string_enc	,	F_19
+"Client version"	,	L_58
+"gadu-gadu.msg.recipient"	,	L_71
+num	,	V_8
+"New status (&lt; 8.0)"	,	L_23
+"gadu-gadu.msg_ack.status"	,	L_111
+dissect_gadu_gadu_add_notify	,	F_54
+protocol	,	V_39
+GG_LOGIN_FAILED	,	V_110
+tvb_get_letohl	,	F_18
+conversation_t	,	T_3
+"Message time"	,	L_74
+offset	,	V_24
+P2P_DIR_RECV	,	V_99
+tree	,	V_23
+dissect_gadu_gadu_status80	,	F_49
+hf_gadu_gadu_msg_class	,	V_66
+GG_STATUS_BUSY_DESCR	,	V_18
+"gadu-gadu.msg80.offset_attributes"	,	L_83
+"gadu-gadu.contact.uin"	,	L_85
+add_new_data_source	,	F_65
+dissect_gadu_gadu_status77	,	F_48
+"Message sequence number"	,	L_72
+"Message class"	,	L_76
+destport	,	V_13
+"Notify list"	,	L_29
+proto_tree_add_uint	,	F_30
+pkt_type	,	V_96
+match_strval	,	F_71
+"gadu-gadu.login.local_ip"	,	L_61
+"gadu-gadu.msg.class"	,	L_77
+gadu_gadu_version_vals	,	V_43
+se_new	,	F_4
+"gadu-gadu.msg.uin"	,	L_67
+"gadu-gadu.login.protocol"	,	L_57
+"Client protocol"	,	L_56
+"Receive status (6.0)"	,	L_19
+dissect_gadu_gadu_new_status80	,	F_52
+p2p_dir	,	V_98
+"Userlist XML data: [Decompression succeeded]"	,	L_33
+"gadu-gadu.status.uin"	,	L_88
+hf_gadu_gadu_login_version	,	V_42
+gadu_gadu_tree	,	V_95
+GG_NEW_STATUS	,	V_134
+hf_gadu_gadu_msg_ack_seq	,	V_73
+"gadu-gadu.status.version"	,	L_96
+"gadu-gadu.userlist.request_type"	,	L_105
+srcport	,	V_12
+"Client UIN"	,	L_48
+ENC_UTF_8	,	V_30
+"Type"	,	L_86
+"tcp.port"	,	L_122
+proto_tree	,	T_6
+"Reassemble Gadu-Gadu messages spanning multiple TCP segments"	,	L_119

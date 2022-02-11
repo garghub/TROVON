@@ -1,0 +1,246 @@
+year	,	V_23
+"elcom.initiator"	,	L_35
+proto_register_protocol	,	F_28
+" &lt;&lt;--- meaning WHAT?"	,	L_12
+"ELCOM"	,	L_14
+" Security info: "	,	L_9
+tvb_reported_length	,	F_18
+check_col	,	F_19
+arg_offset	,	V_4
+"Version"	,	L_55
+" Release"	,	L_21
+gint	,	T_1
+hf_elcom_userdata_pduid	,	V_31
+"Port"	,	L_40
+"elcom.userdata.response.controlfield"	,	L_62
+tvb	,	V_3
+COL_INFO	,	V_60
+hf_port	,	V_7
+FT_BOOLEAN	,	V_96
+"elcom.datarequest.grouptype"	,	L_69
+length_ok	,	V_53
+"elcom.datarequest.groupsize"	,	L_76
+"elcom.leftover"	,	L_84
+cinfo	,	V_58
+"Request"	,	L_16
+proto_reg_handoff_elcom	,	F_32
+"Endian"	,	L_36
+array_length	,	F_30
+""	,	L_18
+hf_suff	,	V_8
+" (%s)"	,	L_4
+"leftover ="	,	L_13
+ENC_ASCII	,	V_18
+proto_elcom	,	V_69
+suffix_vals	,	V_20
+col_append_str	,	F_22
+"elcom.responder"	,	L_45
+sec	,	V_28
+lenbytes	,	V_22
+PROTO_ITEM_SET_HIDDEN	,	F_24
+"Reason"	,	L_63
+min	,	V_27
+proto_tree_add_boolean	,	F_23
+hf_elcom_response	,	V_72
+hf_register_info	,	T_10
+dissect_lower_address	,	F_1
+"elcom.type"	,	L_33
+hf_elcom_datarequest_result	,	V_43
+guint16	,	T_6
+COL_PROTOCOL	,	V_59
+"Group Index1"	,	L_77
+"ELCOM Communication Protocol"	,	L_85
+TCP_PORT_ELCOM	,	V_114
+"IP"	,	L_38
+ti_arg	,	V_1
+"Suffix"	,	L_42
+hf_elcom_datarequest_groupsize	,	V_46
+guint8	,	T_4
+elcom_tree	,	V_54
+ti	,	V_14
+BASE_NONE	,	V_97
+hf_endian	,	V_5
+elcom_handle	,	V_113
+hf_elcom_userdata_cf	,	V_35
+"Group Index2"	,	L_79
+tvb_length_remaining	,	F_4
+" &lt;&lt;--- meaning WHAT??"	,	L_27
+datarequest_result_vals	,	V_111
+hf_elcom_datarequest	,	V_92
+userdata_pduid_vals	,	V_107
+tvbuff_t	,	T_3
+ett_elcom_userdata	,	V_89
+tvb_get_ntohs	,	F_10
+len1	,	V_10
+len2	,	V_11
+BASE_HEX	,	V_102
+elcom_msg_type	,	V_57
+hf_elcom_initiator_suff	,	V_81
+"elcom.userdata.response.restartcode"	,	L_60
+gboolean	,	T_8
+proto_item_add_subtree	,	F_2
+"elcom.datarequest"	,	L_67
+proto_register_field_array	,	F_29
+proto_register_elcom	,	F_26
+hf_elcom_datarequest_grouppriority	,	V_45
+FT_UINT_STRING	,	V_106
+"User Data"	,	L_50
+SUFFIX_LEN	,	V_16
+hf_elcom_request	,	V_71
+" Invalid structure"	,	L_1
+" (invalid)"	,	L_3
+dissector_add_uint	,	F_34
+P_DATRQ	,	V_68
+FT_UINT16	,	V_99
+hf_elcom_responder_endian	,	V_84
+tvb_get_guint8	,	F_3
+month	,	V_24
+"Initiator"	,	L_34
+"elcom.userdata"	,	L_51
+"Data Request"	,	L_66
+hf_elcom_initiator_port	,	V_80
+"&lt;&lt;-- WHAT?"	,	L_5
+is_request	,	V_52
+tree2	,	V_39
+hf_elcom_length	,	V_73
+hf_elcom_datarequest_groupnumber	,	V_44
+hf_elcom_type	,	V_74
+"Group Type"	,	L_68
+"Group Size"	,	L_75
+"elcom.response"	,	L_28
+elcom_show_hex	,	V_36
+"Obkect Name"	,	L_81
+val_to_str_const	,	F_8
+proto_tree_add_none_format	,	F_11
+userdata_version_vals	,	V_108
+userdata_result_vals	,	V_109
+ett_elcom_responder	,	V_83
+ENC_BIG_ENDIAN	,	V_17
+"elcom.userdata.pduid"	,	L_54
+msec	,	V_29
+hf	,	V_95
+" Data"	,	L_22
+" &lt;-- '0' = no restart etc."	,	L_7
+hf_elcom_datarequest_grouptype	,	V_40
+"elcom.release.reason"	,	L_64
+datarequest_grouptype_vals	,	V_110
+col_append_fstr	,	F_21
+"elcom.length"	,	L_31
+hf_elcom_release_result	,	V_91
+col_set_str	,	F_16
+ett_elcom_initiator	,	V_77
+" %02x"	,	L_10
+FT_IPv4	,	V_105
+hf_elcom_responder_suff	,	V_87
+hidden_item	,	V_55
+"elcom.initiator.suffix"	,	L_43
+proto_item_append_text	,	F_5
+"elcom.datarequest.grouppriority"	,	L_74
+LOWADR_LEN	,	V_15
+col_clear	,	F_17
+proto_register_subtree_array	,	F_31
+val_to_str	,	F_25
+hf_elcom_userdata_restmark	,	V_34
+"elcom.release.result"	,	L_65
+proto_tree_add_item	,	F_6
+"Control Field: %4d-%02d-%02d %02d:%02d:%02d.%d"	,	L_8
+"elcom.datarequest.groupindex2"	,	L_80
+pinfo	,	V_51
+col_add_fstr	,	F_20
+dissector_handle_t	,	T_11
+" Response"	,	L_24
+" (incorrect)"	,	L_19
+elcom_len	,	V_56
+"Responder"	,	L_44
+hf_elcom_userdata_result	,	V_33
+ett_elcom	,	V_70
+VALS	,	F_27
+"elcom.datarequest.result"	,	L_70
+ett_elcom_datarequest	,	V_93
+"%s Len=%d%s"	,	L_15
+tvb_get_ephemeral_string	,	F_7
+"elcom.datarequest.groupindex1"	,	L_78
+tvb_length	,	F_15
+" %s Connect"	,	L_20
+FT_UINT8	,	V_101
+proto_tree_add_text	,	F_13
+" Request"	,	L_23
+BASE_DEC	,	V_100
+oidlen	,	V_38
+proto_item	,	T_2
+dissect_userdata	,	F_9
+TC_RSP	,	V_42
+ENC_NA	,	V_50
+"elcom.userdata.result"	,	L_58
+hf_elcom_datarequest_groupindex1	,	V_47
+hf_elcom_datarequest_groupindex2	,	V_48
+hf_elcom_initiator_ip	,	V_79
+P_RELRS	,	V_67
+"elcom.responder.suffix"	,	L_49
+P_RELRQ	,	V_66
+hf_elcom_userdata	,	V_88
+hf_elcom_userdata_version	,	V_32
+ENC_LITTLE_ENDIAN	,	V_19
+hf_elcom_responder_port	,	V_86
+"elcom.initiator.endian"	,	L_37
+"Group Number"	,	L_71
+dissect_elcom	,	F_14
+"elcom"	,	L_86
+hf_elcom_responder	,	V_82
+suffix	,	V_12
+dissect_datarequest	,	F_12
+match_port	,	V_61
+P_CONRS	,	V_64
+"Restart marking"	,	L_59
+"elcom.responder.endian"	,	L_46
+P_CONRQ	,	V_63
+TOTAL_LEN	,	V_65
+day	,	V_25
+TC_REQ	,	V_41
+"Response"	,	L_17
+type_vals	,	V_75
+guint	,	T_9
+"Length"	,	L_30
+FT_NONE	,	V_103
+offset	,	V_9
+ett	,	V_112
+tree	,	V_13
+"Result"	,	L_57
+"elcom.initiator.port"	,	L_41
+packet_info	,	T_7
+" Not IPV4 address"	,	L_2
+" %03o"	,	L_11
+" (2 bytes, should be 1 byte)"	,	L_6
+"Unknown %d"	,	L_26
+destport	,	V_62
+"PDU-ID"	,	L_53
+flen	,	V_21
+"elcom.responder.ip"	,	L_47
+gtype	,	V_37
+"Strange Leftover"	,	L_83
+hf_elcom_release_reason	,	V_90
+"Group Priority"	,	L_73
+"elcom.datarequest.groupnumber"	,	L_72
+hf_elcom_strangeleftover	,	V_94
+hour	,	V_26
+endian_vals	,	V_104
+hf_elcom_datarequest_oid	,	V_49
+hf_elcom_initiator	,	V_76
+hf_elcom_userdata_length	,	V_30
+"elcom.initiator.ip"	,	L_39
+HFILL	,	V_98
+hf_ip	,	V_6
+"elcom.request"	,	L_29
+"elcom.datarequest.oid"	,	L_82
+hf_elcom_responder_ip	,	V_85
+"elcom.userdata.length"	,	L_52
+ett_arg	,	V_2
+"Control Field"	,	L_61
+create_dissector_handle	,	F_33
+hf_elcom_initiator_endian	,	V_78
+"elcom.responder.port"	,	L_48
+" ( %s)"	,	L_25
+"Type"	,	L_32
+"elcom.userdata.version"	,	L_56
+"tcp.port"	,	L_87
+proto_tree	,	T_5

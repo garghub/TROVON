@@ -1,0 +1,316 @@
+"portcontrol.map.req_sug_external_port"	,	L_59
+hf_option_p64_ipv4_prefix_length	,	V_121
+"portcontrol.option.filter.remote_peer_port"	,	L_90
+OPT_PREFER_FAILURE	,	V_104
+proto_register_protocol	,	F_23
+"nat-pmp"	,	L_111
+hf_version	,	V_17
+ropcode	,	V_47
+"nat-pmp.external_port"	,	L_25
+"Requested Port Mapping Lifetime in Seconds"	,	L_29
+"Unknown option: %d"	,	L_8
+hf_peer_nonce	,	V_83
+"Version"	,	L_9
+ett_pcp	,	V_53
+hf_peer_remote_peer_port	,	V_91
+gint	,	T_6
+ipv4_prefix_count	,	V_119
+"portcontrol.option.filter.remote_peer_ip"	,	L_91
+EXTERNAL_ADDRESS_REQUEST	,	V_21
+ett_opcode	,	V_68
+TFS	,	F_22
+tvb	,	V_1
+COL_INFO	,	V_13
+"Mapped External Port"	,	L_26
+hf_pcp_result_code	,	V_64
+FT_BOOLEAN	,	V_134
+"nat-pmp.external_ip"	,	L_18
+"portcontrol.map.internal_port"	,	L_57
+"portcontrol.option.p64.length"	,	L_95
+"portcontrol.opcode.unknown"	,	L_107
+version	,	V_37
+tvb_reported_length_remaining	,	F_16
+"portcontrol.option.third_party.internal_ip"	,	L_86
+hf_peer_reserved	,	V_85
+cinfo	,	V_11
+"Request"	,	L_33
+"nat-pmp.opcode"	,	L_12
+expert_pcp	,	V_151
+hf_external_port_mapped	,	V_34
+array_length	,	F_25
+start_opcode_offset	,	V_45
+hf_result_code	,	V_23
+"Reserved"	,	L_19
+"portcontrol.version"	,	L_32
+"portcontrol.result_code"	,	L_41
+pcp_opcode_vals	,	V_136
+PCP_PORT	,	V_155
+hf_map_protocol	,	V_74
+proto_pcp	,	V_52
+pcp_handle	,	V_153
+"Description"	,	L_92
+"PCP v2"	,	L_5
+hf_option_third_party_internal_ip	,	V_103
+"portcontrol.reserved"	,	L_42
+"portcontrol.peer.rsp_assigned_ext_ip"	,	L_77
+"portcontrol.map.rsp_assigned_external_port"	,	L_63
+hf_option_p64_length	,	V_116
+is_response	,	V_50
+PROTO_ITEM_SET_HIDDEN	,	F_13
+hf_map_nonce	,	V_73
+proto_tree_add_boolean	,	F_12
+hf_option_p64_ipv4_address	,	V_122
+option_sub_tree	,	V_41
+hf_register_info	,	T_11
+OPT_PREFIX64	,	V_113
+PCP_STATUS_PORT	,	V_154
+hf_option_length	,	V_101
+OPT_FILTER	,	V_105
+"Requested Port Mapping Lifetime"	,	L_27
+"portcontrol.peer.protocol"	,	L_67
+", %s"	,	L_2
+guint16	,	T_8
+COL_PROTOCOL	,	V_12
+hf_option_code	,	V_98
+"Requested Lifetime"	,	L_44
+"portcontrol.option.p64.prefix64"	,	L_97
+"PCP v1"	,	L_4
+hf_option	,	V_96
+": %s"	,	L_7
+"Port Control"	,	L_113
+"Internal Port"	,	L_22
+"portcontrol.map.reserved"	,	L_56
+"Suffix"	,	L_98
+hf_peer_rsp_assigned_ext_ip	,	V_90
+guint8	,	T_7
+ti	,	V_6
+BASE_NONE	,	V_132
+start_offset	,	V_8
+ANNOUNCE_REQUEST	,	V_69
+proto_nat_pmp	,	V_14
+"Suggested External Port"	,	L_58
+"portcontrol.option.p64.ipv4_prefix_count"	,	L_101
+hf_peer_rsp_assigned_external_port	,	V_89
+"nat-pmp.opcode.unknown"	,	L_105
+tvbuff_t	,	T_1
+opcode	,	V_10
+tvb_get_ntohs	,	F_17
+"Indicates Request (0) or Response (1)"	,	L_39
+hf_pcp_version	,	V_54
+hf_peer_protocol	,	V_84
+col_add_str	,	F_9
+FT_UINT24	,	V_140
+gboolean	,	T_9
+hf_map_internal_port	,	V_76
+proto_item_add_subtree	,	F_5
+hf_option_filter_remote_peer_port	,	V_108
+hf_map_reserved1	,	V_75
+proto_register_field_array	,	F_24
+"portcontrol.peer.internal_port"	,	L_69
+FT_BYTES	,	V_138
+"portcontrol.option.filter.prefix_length"	,	L_89
+hf_pcp_r	,	V_56
+"portcontrol.options"	,	L_79
+dissector_add_uint	,	F_31
+"portcontrol.option.filter.reserved"	,	L_87
+FT_UINT16	,	V_128
+"portcontrol.response"	,	L_36
+tvb_get_guint8	,	F_6
+hf_request	,	V_58
+dissect_portcontrol	,	F_19
+dissect_portcontrol_pdu	,	F_11
+PI_RESPONSE_CODE	,	V_146
+pcp_ropcode_vals	,	V_55
+PEER_RESPONSE	,	V_82
+hf_map_rsp_assigned_external_port	,	V_79
+"portcontrol.request"	,	L_34
+ei_pcp_option_unknown	,	V_123
+MAP_RESPONSE	,	V_72
+"portcontrol.epoch_time"	,	L_51
+FT_STRING	,	V_142
+EXTERNAL_ADDRESS_RESPONSE	,	V_22
+hf_external_ip	,	V_25
+p64_length	,	V_114
+"portcontrol.peer.nonce"	,	L_66
+new_create_dissector_handle	,	F_30
+MAP_UDP_REQUEST	,	V_26
+"portcontrol.option.p64.suffix"	,	L_99
+"portcontrol.peer.req_sug_external_ip"	,	L_71
+PI_WARN	,	V_147
+proto_register_nat_pmp	,	F_20
+"Epoch Time"	,	L_50
+ENC_BIG_ENDIAN	,	V_18
+poffset	,	V_115
+pcp_result_vals	,	V_137
+FT_UINT32	,	V_130
+hf_epoch_time	,	V_66
+"Assigned External IP Address"	,	L_64
+hf	,	V_124
+hf_option_description	,	V_111
+"nat-pmp.version"	,	L_10
+"portcontrol.map.protocol"	,	L_55
+dissect_nat_pmp	,	F_1
+hf_map_req_sug_external_port	,	V_77
+MAP_REQUEST	,	V_71
+FT_IPv6	,	V_139
+"Mapping Nonce"	,	L_52
+op_str	,	V_51
+MAP_TCP_REQUEST	,	V_27
+"portcontrol.map.rsp_assigned_ext_ip"	,	L_65
+hf_reserved2	,	V_59
+hf_client_ip	,	V_61
+hf_reserved1	,	V_63
+col_set_str	,	F_2
+hf_opcode	,	V_20
+hf_option_filter_reserved	,	V_106
+PEER_REQUEST	,	V_81
+"Prefix64"	,	L_96
+"portcontrol.option.length"	,	L_84
+FT_IPv4	,	V_131
+"portcontrol.rsp_reserved"	,	L_43
+ei_pcp_opcode_unknown	,	V_93
+hf_peer_remote_peer_ip	,	V_92
+"nat-pmp.pml"	,	L_28
+hf_response	,	V_62
+"portcontrol.option.p64.ipv4_address"	,	L_104
+proto_item_append_text	,	F_7
+"Unknown opcode"	,	L_106
+col_clear	,	F_3
+OPT_THIRD_PARTY	,	V_102
+hf_peer_req_sug_ext_ip	,	V_88
+hf_option_p64_ipv4_prefix_count	,	V_120
+proto_register_subtree_array	,	F_26
+"Client IP Address"	,	L_48
+nat_pmp_handle	,	V_152
+val_to_str	,	F_8
+ett_suboption	,	V_97
+"portcontrol"	,	L_114
+"portcontrol.peer.reserved"	,	L_68
+pcp_option_vals	,	V_99
+"Unknown opcode: %d"	,	L_3
+proto_tree_add_item	,	F_4
+pcp_ett	,	V_143
+pinfo	,	V_2
+dissector_handle_t	,	T_14
+_U_	,	V_4
+OPT_DESCRIPTION	,	V_110
+"portcontrol.client_ip"	,	L_49
+ett_nat_pmp	,	V_16
+suboption_ti	,	V_44
+ei_natpmp_opcode_unknown	,	V_36
+opcode_ti	,	V_42
+hf_pmlis	,	V_35
+hf_map_rsp_assigned_ext_ip	,	V_80
+"Port Control Protocol"	,	L_112
+VALS	,	F_21
+"Prefix Length"	,	L_88
+"portcontrol.peer.remote_peer_ip"	,	L_75
+"Lifetime"	,	L_46
+tfs_request_response	,	V_135
+hf_req_lifetime	,	V_60
+hf_map_req_sug_ext_ip	,	V_78
+pcp_hf	,	V_133
+FT_UINT8	,	V_125
+"Requested External Port"	,	L_24
+proto_tree_add_text	,	F_15
+BASE_DEC	,	V_126
+"Seconds Since Start of Epoch"	,	L_15
+"Remote Peer IP Address"	,	L_74
+"portcontrol.map.nonce"	,	L_53
+"Port Mapping Lifetime in Seconds"	,	L_31
+nat_pmp_tree	,	V_5
+proto_item	,	T_5
+"Option"	,	L_80
+expert_register_field_array	,	F_28
+hf_options	,	V_94
+"portcontrol.lifetime_rsp"	,	L_47
+"Assigned External Port"	,	L_62
+try_val_to_str	,	F_14
+ENC_NA	,	V_15
+ett_option	,	V_95
+hf_rpmlis	,	V_31
+hf_sssoe	,	V_24
+expert_add_info_format	,	F_10
+"portcontrol.opcode"	,	L_40
+"Port Mapping Lifetime"	,	L_30
+"Option Length"	,	L_83
+hf_external_port_requested	,	V_30
+MAP_TCP_RESPONSE	,	V_33
+"Internal IP Address"	,	L_85
+"nat-pmp.internal_port"	,	L_23
+option_ti	,	V_43
+pcp_ei	,	V_149
+hf_option_filter_remote_peer_ip	,	V_109
+"%s"	,	L_6
+proto_reg_handoff_nat_pmp	,	F_29
+data	,	T_4
+"nat-pmp.reserved"	,	L_20
+"portcontrol.option.reserved"	,	L_82
+"IPv4 Prefix Count"	,	L_100
+"External IP Address"	,	L_17
+option_tree	,	V_40
+"IPv4 Prefix Length"	,	L_102
+start_option_offset	,	V_46
+"portcontrol.peer.remote_peer_port"	,	L_73
+ei_register_info	,	T_12
+"nat-pmp.sssoe"	,	L_16
+expert_register_protocol	,	F_27
+hf_peer_internal_port	,	V_86
+hf_internal_port	,	V_29
+hf_rsp_lifetime	,	V_65
+"nat-pmp.result_code"	,	L_14
+"Response"	,	L_35
+FT_NONE	,	V_141
+"Length"	,	L_94
+offset	,	V_9
+ett	,	V_144
+expert_module_t	,	T_13
+tree	,	V_3
+"Opcode"	,	L_11
+"Result Code"	,	L_13
+result_vals	,	V_129
+"IPv4 Address"	,	L_103
+dissector_add_handle	,	F_32
+packet_info	,	T_2
+"portcontrol.map.req_sug_external_ip"	,	L_61
+"NAT Port Mapping Protocol"	,	L_110
+"R"	,	L_37
+"portcontrol.r"	,	L_38
+"portcontrol.peer.req_sug_external_port"	,	L_70
+hf_peer_req_sug_external_port	,	V_87
+MAP_UDP_RESPONSE	,	V_32
+"Options"	,	L_78
+option	,	V_48
+ANNOUNCE_RESPONSE	,	V_70
+EXPFILL	,	V_148
+op_ti	,	V_7
+option_length	,	V_49
+hf_option_reserved	,	V_100
+expert_nat_pmp	,	V_150
+hf_option_p64_suffix	,	V_118
+hf_option_p64_prefix64	,	V_117
+"portcontrol.lifetime_req"	,	L_45
+"portcontrol.option"	,	L_81
+pcp_tree	,	V_38
+HFILL	,	V_127
+opcode_vals	,	V_19
+"portcontrol.option.unknown"	,	L_108
+hf_reserved12	,	V_67
+"portcontrol.peer.rsp_assigned_external_port"	,	L_76
+"NAT-PMP"	,	L_1
+"Remote Peer Port"	,	L_72
+"udp.port"	,	L_115
+hf_reserved	,	V_28
+gchar	,	T_10
+natpmp_ei	,	V_145
+proto_item_set_len	,	F_18
+"Suggested External IP Address"	,	L_60
+opcode_tree	,	V_39
+"Protocol"	,	L_54
+"Unknown option"	,	L_109
+hf_option_filter_prefix_length	,	V_107
+"Reserved (must be zero)"	,	L_21
+ENC_UTF_8	,	V_112
+"portcontrol.option.description"	,	L_93
+proto_tree	,	T_3
+hf_pcp_opcode	,	V_57

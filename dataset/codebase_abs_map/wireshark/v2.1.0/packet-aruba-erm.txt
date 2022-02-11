@@ -1,0 +1,223 @@
+"aruba_erm.orig_len"	,	L_8
+data_rate	,	V_32
+dissect_aruba_erm	,	F_8
+proto_register_protocol	,	F_32
+register_decode_as	,	F_43
+"aruba_erm.incl_len"	,	L_6
+tvb_new_subset_remaining	,	F_15
+gint	,	T_5
+"aruba_erm_type1"	,	L_32
+peek_handle	,	V_25
+aruba_erm_tree	,	V_3
+tvb	,	V_1
+"type.captured"	,	L_51
+guint32	,	T_9
+COL_INFO	,	V_17
+"ARUBA ERM PPI (Type 4)"	,	L_40
+"aruba_erm"	,	L_23
+"Data Rate: %.1f Mb/s"	,	L_1
+dissect_aruba_erm_pcap	,	F_1
+cinfo	,	V_14
+aruba_erm_prompt	,	F_28
+PI_ERROR	,	V_64
+"aruba_erm_type2"	,	L_35
+array_length	,	F_38
+next_tvb	,	V_23
+decode_as_t	,	T_19
+call_dissector	,	F_16
+signal_percent	,	V_45
+has_channel	,	V_42
+aruba_erm_payload_da_build_value	,	V_68
+gpointer	,	T_13
+"ARUBA ERM AIRMAGNET (Type 2)"	,	L_34
+hf_aruba_erm_data_rate	,	V_39
+result	,	V_49
+"Signal strength (Percentage)"	,	L_18
+"wlan_radio"	,	L_52
+wlan_withfcs_handle	,	V_24
+hf_register_info	,	T_14
+wlan_radio_handle	,	V_47
+guint16	,	T_10
+COL_PROTOCOL	,	V_15
+GUINT_TO_POINTER	,	F_19
+"aruba_erm.type"	,	L_25
+"Signal Strength [percent]"	,	L_16
+g_free	,	F_47
+"ARUBA ERM PEEK (type 1)"	,	L_31
+decode_as_default_populate_list	,	V_71
+aruba_erm_handle	,	V_89
+ti	,	V_13
+BASE_NONE	,	V_59
+secs	,	V_6
+"aruba_erm_type0"	,	L_29
+build_valid_func	,	T_17
+"ARUBA ERM PCAP+RADIO (Type 3)"	,	L_37
+ts	,	V_5
+fcs_len	,	V_46
+tvb_get_ntohl	,	F_2
+dissect_aruba_erm_type5	,	F_27
+dissect_aruba_erm_type4	,	F_26
+dissect_aruba_erm_type3	,	F_21
+tvbuff_t	,	T_1
+"Aruba Networks encapsulated remote mirroring - AIRMAGNET (Type 2)"	,	L_33
+tvb_get_ntohs	,	F_22
+"Data Rate"	,	L_9
+PHDR_802_11_PHY_UNKNOWN	,	V_37
+PROTO_ITEM_SET_GENERATED	,	F_24
+"wlan_withfcs"	,	L_53
+"Aruba Networks encapsulated remote mirroring - PEEK (Type 5)"	,	L_42
+gboolean	,	T_22
+decode_as_default_change	,	V_73
+dissect_aruba_erm_type2	,	F_20
+proto_item_add_subtree	,	F_7
+dissect_aruba_erm_type1	,	F_17
+dissect_aruba_erm_type0	,	F_13
+module_t	,	T_16
+"aruba_erm.time"	,	L_4
+PI_UNDECODED	,	V_63
+"Aruba Networks encapsulated remote mirroring - PPI (Type 4)"	,	L_39
+proto_register_field_array	,	F_37
+ei	,	V_62
+hf_aruba_erm_incl_len	,	V_9
+expert_aruba_erm	,	V_74
+"aruba_erm.signal_strength"	,	L_17
+datapad	,	V_35
+FT_UINT16	,	V_57
+"peekremote"	,	L_55
+prefs_register_range_preference	,	F_35
+phdr	,	V_29
+FT_FLOAT	,	V_58
+tvb_captured_length	,	F_12
+call_dissector_with_data	,	F_18
+"Packet Capture Timestamp"	,	L_3
+hf_aruba_erm_data_rate_gen	,	V_40
+"Aruba ERM payload as"	,	L_2
+proto_tree_add_float_format	,	F_23
+call_data_dissector	,	F_11
+prefs_register_obsolete_preference	,	F_36
+ti_data_rate	,	V_31
+"aruba_erm.airmagnet"	,	L_19
+ei_aruba_erm_decode	,	V_22
+ENC_BIG_ENDIAN	,	V_10
+FT_UINT32	,	V_55
+decode_as_value_t	,	T_18
+aruba_erm_value	,	F_30
+hf	,	V_51
+range_copy	,	F_48
+dissector_add_uint_range	,	F_49
+"Airmagnet (type 2) is no yet supported (Please use other type)"	,	L_20
+"aruba_erm.decode"	,	L_21
+hf_aruba_erm_channel	,	V_41
+channel	,	V_33
+proto_tree_add_time	,	F_3
+MAX_UDP_PORT	,	V_83
+prefs_register_protocol	,	F_34
+PROTO_LONG_NAME	,	V_75
+"aruba_erm.data_rate"	,	L_10
+col_set_str	,	F_6
+"Set the UDP port numbers (typically the range 5555 to 5560) used for Aruba Networks"	,	L_48
+find_dissector_add_dependency	,	F_44
+has_data_rate	,	V_38
+"Data rate (1/2 Mb/s)"	,	L_11
+FT_ABSOLUTE_TIME	,	V_52
+proto_register_subtree_array	,	F_39
+proto_tree_add_item_ret_uint	,	F_25
+dissect_aruba_erm_common	,	F_5
+"udp.ports"	,	L_46
+proto_tree_add_item	,	F_4
+pinfo	,	T_3
+_U_	,	V_2
+"802.11 channel number that this frame was sent/received on"	,	L_15
+initialized	,	V_88
+dissector_add_for_decode_as	,	F_50
+aruba_erm_payload_da_values	,	V_69
+"ARUBA ERM PCAP (Type 0)"	,	L_28
+ppi_handle	,	V_48
+ieee_802_11_phdr	,	V_28
+FT_UINT8	,	V_60
+BASE_DEC	,	V_56
+proto_item	,	T_7
+expert_register_field_array	,	F_41
+"ARUBA ERM PEEK-NG (type 5)"	,	L_43
+ENC_NA	,	V_19
+ABSOLUTE_TIME_LOCAL	,	V_53
+"Packet Length"	,	L_7
+MAX_DECODE_AS_PROMPT_LEN	,	V_50
+hf_aruba_erm_time	,	V_8
+register_dissector_table	,	F_42
+phy	,	V_36
+data	,	T_8
+proto_aruba_erm	,	V_18
+has_signal_percent	,	V_44
+"Aruba Networks encapsulated remote mirroring - PEEK (Type 1)"	,	L_30
+ett_aruba_erm	,	V_20
+"Channel"	,	L_13
+ei_register_info	,	T_15
+decode_as_default_reset	,	V_72
+"aruba_erm_type5"	,	L_44
+"0"	,	L_45
+expert_register_protocol	,	F_40
+"Packet Captured Length"	,	L_5
+"aruba_erm.data_rate_gen"	,	L_12
+"ARUBA_ERM"	,	L_26
+"Aruba Networks encapsulated remote mirroring - PCAP+RADIO (Type 3)"	,	L_36
+PROTO_SHORT_NAME	,	V_16
+signal_strength	,	V_30
+PI_NOTE	,	V_66
+nstime_t	,	T_6
+ei_aruba_erm_airmagnet	,	V_27
+IS_ARUBA	,	V_26
+guint	,	T_11
+offset	,	V_4
+proto_register_aruba_erm	,	F_31
+ett	,	V_61
+expert_module_t	,	T_20
+tree	,	V_12
+aruba_erm_payload_da	,	V_70
+dissector_delete_uint_range	,	F_46
+aruba_erm_subdissector_table	,	V_21
+packet_info	,	T_2
+aruba_erm_port_range	,	V_86
+"ARUBA_ERM UDP Port numbers"	,	L_47
+range_t	,	T_21
+aruba_erm_handle_type0	,	V_90
+aruba_erm_handle_type1	,	V_91
+aruba_erm_handle_type4	,	V_94
+"Aruba Networks encapsulated remote mirroring - PCAP (Type 0)"	,	L_27
+aruba_erm_handle_type5	,	V_95
+"Aruba ERM Type"	,	L_24
+aruba_erm_handle_type2	,	V_92
+hf_aruba_erm_signal_strength	,	V_43
+aruba_erm_handle_type3	,	V_93
+EXPFILL	,	V_65
+" encapsulated remote mirroring frames;\n"	,	L_49
+proto_tree_add_expert	,	F_10
+DISSECTOR_TABLE_NOT_ALLOW_DUPLICATE	,	V_85
+"aruba_erm.channel"	,	L_14
+hf_aruba_erm_orig_len	,	V_11
+global_aruba_erm_port_range	,	V_82
+g_snprintf	,	F_29
+proto_aruba_erm_type4	,	V_80
+proto_aruba_erm_type5	,	V_81
+"Use Decode AS (Aruba ERM Type) for decoding payload"	,	L_22
+"aruba_erm_type3"	,	L_38
+range_convert_str	,	F_33
+"0 (default) means that the ARUBA_ERM dissector is not active\n"	,	L_50
+HFILL	,	V_54
+proto_aruba_erm_type0	,	V_76
+proto_aruba_erm_type1	,	V_77
+proto_aruba_erm_type2	,	V_78
+proto_aruba_erm_type3	,	V_79
+dissector_try_uint	,	F_9
+proto_reg_handoff_aruba_erm	,	V_84
+"udp.port"	,	L_56
+gchar	,	T_12
+"ppi"	,	L_54
+create_dissector_handle	,	F_45
+decrypted	,	V_34
+aruba_erm_radio_port_range	,	V_87
+proto_item_set_len	,	F_14
+nsecs	,	V_7
+"aruba_erm_type4"	,	L_41
+aruba_erm_module	,	V_67
+proto_tree	,	T_4

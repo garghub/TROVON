@@ -1,0 +1,177 @@
+dissect_SuccessfulOutcomeValue	,	F_8
+PFNAME	,	V_63
+bssgp_handle	,	V_77
+ranap_ies_p1_dissector_table	,	V_15
+proto_register_protocol	,	F_28
+dissector_try_uint_new	,	F_2
+"RANAP-PROTOCOL-EXTENSION"	,	L_17
+"Attempt to dissect RRC-Container"	,	L_32
+"ranap.ies.pair.first"	,	L_12
+prefs_register_protocol	,	F_34
+ranap_item	,	V_25
+tvb_reported_length	,	F_20
+FT_IPv6	,	V_55
+ranap_ies_dissector_table	,	V_13
+proto_register_ranap	,	F_27
+RANAP_MAX_PC	,	V_47
+col_set_str	,	F_12
+"transportLayerAddress IPv4"	,	L_3
+gint	,	T_14
+ranap_proc_imsg_dissector_table	,	V_20
+dissect_ranap	,	F_11
+FT_IPv4	,	V_51
+hf_ranap_transportLayerAddress_nsap	,	V_56
+dissect_UnsuccessfulOutcomeValue	,	F_9
+"sccp_ssn"	,	L_28
+"bssgp"	,	L_37
+tvb	,	V_1
+find_dissector_add_dependency	,	F_37
+pool	,	V_33
+"ranap.ies.pair.second"	,	L_14
+"RANAP"	,	L_1
+"rrc.t_to_srnc_cont"	,	L_35
+str	,	V_40
+"RANAP over SCCP"	,	L_40
+pdu_type	,	V_14
+cinfo	,	V_28
+glbl_dissect_container	,	V_71
+wmem_strdup	,	F_18
+PSNAME	,	V_62
+proto_register_subtree_array	,	F_31
+val_to_str	,	F_17
+local_ranap_sccp_ssn	,	V_73
+array_length	,	F_30
+word	,	V_43
+"RANAP-ELEMENTARY-PROCEDURE SuccessfulOutcome"	,	L_21
+ett_ranap_TransportLayerAddress_nsap	,	V_60
+ranap_module	,	V_48
+proto_tree_add_item	,	F_13
+"rrc.s_to_trnc_cont"	,	L_34
+ProcedureCode	,	V_7
+pinfo	,	V_2
+dissect_InitiatingMessageValue	,	F_7
+_U_	,	V_4
+id_Source_ToTarget_TransparentContainer	,	V_10
+dissect_RANAP_PDU_PDU	,	F_16
+PNAME	,	V_61
+"ranap"	,	L_9
+MSG_TYPE_OFFSET	,	F_24
+"RANAP NAS PDU"	,	L_27
+id_RelocationPreparation	,	V_8
+"RANAP-PROTOCOL-IES-PAIR SecondValue"	,	L_15
+hf_register_info	,	T_13
+ranap_ProcedureCode_vals	,	V_41
+initialized	,	V_72
+IMSG	,	V_19
+"transportLayerAddress IPv6"	,	L_5
+prefs_register_bool_preference	,	F_36
+ranap_ies_p2_dissector_table	,	V_16
+key	,	V_6
+"SCCP SSN for RANAP"	,	L_29
+curr_layer_num	,	V_34
+ranap_proc_uout_dissector_table	,	V_23
+guint16	,	T_10
+"RANAP-ELEMENTARY-PROCEDURE Outcome"	,	L_25
+COL_PROTOCOL	,	V_29
+ranap_proc_sout_dissector_table	,	V_22
+ranap_proc_out_dissector_table	,	V_24
+"RANAP-PROTOCOL-IES-PAIR FirstValue"	,	L_13
+FT_UINT8	,	V_68
+RANAP_MSG_MIN_LENGTH	,	V_46
+BASE_DEC	,	V_66
+proto_item	,	T_6
+co	,	V_35
+ProtocolExtensionID	,	V_18
+sccp_msg_info_t	,	T_7
+"Attempt to dissect RRC message embedded in RRC-Container IE"	,	L_33
+ENC_NA	,	V_31
+guint8	,	T_9
+dissect_OutcomeValue	,	F_10
+BASE_NONE	,	V_52
+"rrc.irat.ho_to_utran_cmd"	,	L_36
+global_ranap_sccp_ssn	,	V_70
+"RANAP over SUA"	,	L_43
+"transportLayerAddress NSAP"	,	L_7
+register_dissector_table	,	F_33
+"ranap.transportLayerAddress_ipv4"	,	L_4
+"RANAP-ELEMENTARY-PROCEDURE UnsuccessfulOutcome"	,	L_23
+register_dissector	,	F_32
+data	,	T_4
+tvbuff_t	,	T_1
+"The SCCP SubSystem Number for RANAP (default 142)"	,	L_30
+SPECIAL	,	V_12
+tvb_get_ntohs	,	F_26
+ett_ranap_TransportLayerAddress	,	V_59
+rrc_s_to_trnc_handle	,	V_74
+prefs_register_uint_preference	,	F_35
+gboolean	,	T_5
+payload	,	V_37
+proto_item_add_subtree	,	F_14
+assoc	,	V_36
+CRIT_OFFSET	,	F_23
+module_t	,	T_12
+dissect_sccp_ranap_heur	,	F_21
+proto_register_field_array	,	F_29
+ranap_tree	,	V_26
+ett_ranap	,	V_32
+FT_BYTES	,	V_57
+ret	,	V_5
+"Unknown RANAP"	,	L_2
+guint	,	T_11
+"ranap.nas_pdu"	,	L_26
+offset	,	V_45
+ett	,	V_58
+"sccp"	,	L_39
+dissector_add_uint	,	F_40
+"ranap.proc.uout"	,	L_22
+tree	,	V_3
+dissect_ProtocolIEFieldValue	,	F_1
+proto_ranap	,	V_30
+packet_info	,	T_2
+dissect_ProtocolIEFieldPairFirstValue	,	F_4
+"ranap.transportLayerAddress_ipv6"	,	L_6
+p_add_proto_data	,	F_15
+tvb_get_guint8	,	F_25
+dissect_ProtocolIEFieldPairSecondValue	,	F_5
+tvb_captured_length	,	F_3
+SCCP_PLOAD_RANAP	,	V_38
+nas_pdu_dissector_table	,	V_67
+dissector_delete_uint	,	F_39
+"ranap.proc.imsg"	,	L_18
+"RANAP-PROTOCOL-IES"	,	L_11
+dissect_ProtocolExtensionFieldExtensionValue	,	F_6
+hf_ranap_transportLayerAddress_ipv6	,	V_54
+"ranap.proc.sout"	,	L_20
+"dissect_rrc_container"	,	L_31
+proto_reg_handoff_ranap	,	V_69
+hf_ranap_transportLayerAddress_ipv4	,	V_50
+heur_dissector_add	,	F_41
+ranap_handle	,	V_64
+HEURISTIC_ENABLE	,	V_78
+"ranap.extension"	,	L_16
+sccp_msg_lcl	,	V_27
+wmem_file_scope	,	F_19
+LENGTH_OFFSET	,	F_22
+"ranap.proc.out"	,	L_24
+HFILL	,	V_53
+SOUT	,	V_21
+temp	,	V_42
+"ranap_sccp"	,	L_41
+ProtocolIE_ID	,	V_9
+id_Target_ToSource_TransparentContainer	,	V_11
+rrc_ho_to_utran_cmd	,	V_76
+gchar	,	T_8
+length	,	V_44
+"RANAP-ELEMENTARY-PROCEDURE InitiatingMessage"	,	L_19
+find_dissector	,	F_38
+label	,	V_39
+ranap_extension_dissector_table	,	V_17
+"sua"	,	L_42
+rrc_t_to_srnc_handle	,	V_75
+"ranap.transportLayerAddress_NSAP"	,	L_8
+FT_UINT32	,	V_65
+"ranap.ies"	,	L_10
+"ranap_sua"	,	L_44
+"sccp.ssn"	,	L_38
+proto_tree	,	T_3
+hf	,	V_49

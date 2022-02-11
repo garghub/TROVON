@@ -1,0 +1,138 @@
+"netmon_802_11.op_mode.ap"	,	L_20
+"802.11b"	,	L_8
+"netmon_802_11.length"	,	L_14
+hf_netmon_802_11_timestamp	,	V_38
+"Header length"	,	L_13
+channel	,	V_13
+"netmon_802_11.version"	,	L_12
+proto_register_protocol	,	F_17
+"%u Mhz"	,	L_3
+hf_netmon_802_11_datarate	,	V_37
+"netmon_802_11.phy_type"	,	L_26
+tvb_new_subset_remaining	,	F_13
+FT_UINT64	,	V_57
+col_set_str	,	F_2
+gint	,	T_12
+hf_netmon_802_11_length	,	V_26
+tvb	,	V_1
+"802.11a"	,	L_7
+guint32	,	T_8
+COL_INFO	,	V_18
+proto_tree_add_int_format_value	,	F_12
+"Data rate"	,	L_33
+version	,	V_10
+"NetMon 802.11"	,	L_38
+"netmon_802_11"	,	L_39
+"Operation mode"	,	L_15
+col_clear	,	F_3
+opmode_tree	,	V_6
+cinfo	,	V_16
+proto_register_subtree_array	,	F_20
+gint32	,	T_9
+proto_netmon_802_11	,	V_21
+array_length	,	F_19
+next_tvb	,	V_8
+"Station mode"	,	L_17
+proto_tree_add_item	,	F_7
+call_dissector	,	F_14
+pinfo	,	V_2
+col_add_fstr	,	F_6
+dissector_handle_t	,	T_13
+_U_	,	V_4
+flags	,	V_12
+hf_netmon_802_11_frequency	,	V_35
+skip	,	V_19
+"WLAN"	,	L_1
+"NetMon WLAN Capture v%u, Length %u"	,	L_2
+hf_netmon_802_11_rssi	,	V_36
+"netmon_802_11.op_mode.on"	,	L_24
+ett_netmon_802_11	,	V_23
+"Extensible station mode"	,	L_21
+hf_register_info	,	T_11
+"netmon_802_11.rssi"	,	L_32
+OP_MODE_MON	,	V_55
+VALS	,	F_16
+ett_netmon_802_11_op_mode	,	V_28
+hf_netmon_802_11_op_mode_ap	,	V_30
+guint16	,	T_7
+rssi	,	V_14
+COL_PROTOCOL	,	V_17
+"802.11g"	,	L_9
+OP_MODE_AP	,	V_53
+"RSSI"	,	L_31
+FT_UINT8	,	V_46
+hf_netmon_802_11_op_mode_sta_ext	,	V_31
+BASE_DEC	,	V_47
+"NetMon 802.11 capture header"	,	L_37
+proto_item	,	T_5
+hf_netmon_802_11_channel	,	V_34
+ENC_NA	,	V_22
+guint8	,	T_6
+ti	,	V_7
+value_string	,	T_10
+"wlan"	,	L_40
+ENC_LITTLE_ENDIAN	,	V_25
+"PHY type"	,	L_25
+"Timestamp"	,	L_35
+data	,	T_4
+tvbuff_t	,	T_1
+dissect_netmon_802_11	,	F_1
+"Header revision"	,	L_11
+"wtap_encap"	,	L_41
+BASE_HEX	,	V_51
+"netmon_802_11.op_mode.sta"	,	L_18
+"netmon_802_11.op_mode.sta_ext"	,	L_22
+"Channel"	,	L_27
+"netmon_802_11.datarate"	,	L_34
+PHY_TYPE_11A	,	V_41
+PHY_TYPE_11B	,	V_42
+"netmon_802_11.frequency"	,	L_30
+proto_item_add_subtree	,	F_8
+tvb_get_letohl	,	F_9
+hf_netmon_802_11_phy_type	,	V_33
+MIN_HEADER_LEN	,	V_20
+proto_register_field_array	,	F_18
+tvb_get_letohs	,	F_5
+"802.11n"	,	L_10
+hf_netmon_802_11_op_mode_mon	,	V_32
+OP_MODE_STA_EXT	,	V_54
+offset	,	V_9
+ett	,	V_58
+dissector_add_uint	,	F_24
+tree	,	V_3
+FT_UINT16	,	V_49
+packet_info	,	T_2
+"%f Mb/s"	,	L_6
+hf_netmon_802_11_version	,	V_24
+"netmon_802_11.op_mode"	,	L_16
+tvb_get_guint8	,	F_4
+hf_netmon_802_11_op_mode_sta	,	V_29
+"%d dBm"	,	L_4
+OP_MODE_STA	,	V_52
+ieee80211_handle	,	V_39
+proto_tree_add_uint	,	F_10
+"Center frequency"	,	L_29
+wlan_tree	,	V_5
+phy_type	,	V_40
+"AP mode"	,	L_19
+rate	,	V_15
+"Monitor mode"	,	L_23
+HFILL	,	V_48
+hf_netmon_802_11_op_mode	,	V_27
+FT_INT32	,	V_56
+"netmon_802_11.timestamp"	,	L_36
+new_create_dissector_handle	,	F_23
+WTAP_ENCAP_IEEE_802_11_NETMON	,	V_60
+proto_reg_handoff_netmon_802_11	,	F_21
+length	,	V_11
+find_dissector	,	F_22
+PHY_TYPE_11N	,	V_44
+PHY_TYPE_11G	,	V_43
+proto_tree_add_uint_format_value	,	F_11
+FT_UINT32	,	V_50
+proto_register_netmon_802_11	,	F_15
+"netmon_802_11.channel"	,	L_28
+"Unknown"	,	L_5
+netmon_802_11_handle	,	V_59
+proto_tree	,	T_3
+hf	,	V_45

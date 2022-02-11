@@ -1,0 +1,212 @@
+x_bit	,	V_68
+nsapi_abrv	,	V_65
+proto_register_protocol	,	F_27
+hf_npdu_fragments	,	V_88
+"sndcp.segment"	,	L_37
+check_col	,	F_13
+process_reassembled_data	,	F_21
+"Conflicting data in fragment overlap"	,	L_44
+tvb_new_subset_remaining	,	F_16
+len	,	V_18
+m_bit	,	V_72
+gint	,	T_6
+"N-PDU Fragments"	,	L_66
+ett_sndcp_compression_field	,	V_46
+"Spare bit (should be 0)"	,	L_21
+"npdu.reassembled.length"	,	L_62
+TFS	,	F_26
+tvb	,	V_3
+guint32	,	T_10
+COL_INFO	,	V_32
+npdu_reassembly_table	,	V_1
+FT_BOOLEAN	,	V_67
+"N-PDU Fragment"	,	L_64
+"npdu.reassembled.in"	,	L_59
+cinfo	,	V_30
+"Network Layer Service Access Point Identifier"	,	L_18
+"llcgprs.sapi"	,	L_70
+array_length	,	F_29
+next_tvb	,	V_16
+fragment_add_seq_check	,	F_19
+npdu_field_tree	,	V_29
+hf_npdu_fragment_too_long_fragment	,	V_80
+call_dissector	,	F_17
+"sndcp.dcomp"	,	L_30
+hf_npdu_fragment	,	V_87
+t_bit	,	V_71
+col_append_str	,	F_23
+"npdu.fragment.toolongfragment"	,	L_51
+"Acknowledged mode, N-PDU %d"	,	L_8
+hf_sndcp_pcomp	,	V_48
+"sndcp.x"	,	L_20
+proto_tree_add_boolean	,	F_10
+"Fragment count"	,	L_56
+hf_register_info	,	T_11
+"npdu.fragment.overlap.conflict"	,	L_45
+"Defragmentation error"	,	L_53
+nsapi_t	,	V_74
+comp_field	,	V_7
+guint16	,	T_5
+COL_PROTOCOL	,	V_31
+"ip"	,	L_71
+reassembly_table_init	,	F_2
+"N-PDU"	,	L_39
+"Segment"	,	L_36
+guint8	,	T_4
+hf_npdu_reassembled_length	,	V_86
+ti	,	V_22
+BASE_NONE	,	V_77
+nsapi	,	V_9
+hf_sndcp_npdu1	,	V_50
+"Reassembled N-PDU length"	,	L_61
+hf_sndcp_npdu2	,	V_52
+tvb_length_remaining	,	F_18
+hf_npdu_fragment_count	,	V_83
+f_bit	,	V_70
+register_dissector	,	F_31
+"Data and Protocol compression"	,	L_6
+"Fragment overlaps with other fragments"	,	L_43
+tvbuff_t	,	T_1
+tvb_get_ntohs	,	F_15
+"Address field  NSAPI: %d"	,	L_2
+proto_sndcp	,	V_33
+"SN-UNITDATA N-PDU %d (segment %d)"	,	L_9
+gboolean	,	T_7
+segment	,	V_14
+hf_npdu_fragment_error	,	V_81
+"Segment number"	,	L_38
+proto_item_add_subtree	,	F_7
+hf_npdu_fragment_overlap	,	V_76
+fragmented	,	V_58
+proto_register_field_array	,	F_28
+MASK_M	,	V_37
+dissector_add_uint	,	F_35
+more_frags	,	V_20
+MASK_F	,	V_36
+"npdu.fragment.count"	,	L_57
+data_handle	,	V_54
+FT_UINT16	,	V_75
+register_init_routine	,	F_32
+"SNDCP"	,	L_1
+"npdu.fragment.multipletails"	,	L_48
+tvb_get_guint8	,	F_8
+"Protocol compression"	,	L_5
+"sndcp.pcomp"	,	L_33
+"sndcp.m"	,	L_28
+fd	,	V_60
+"sndcp.nsapi"	,	L_17
+proto_reg_handoff_sndcp	,	F_33
+"sndcp.nsapib"	,	L_35
+"Fragment contained data past end of packet"	,	L_52
+"First segment indicator bit"	,	L_22
+hf_npdu_reassembled_in	,	V_85
+npdu_field_item	,	V_25
+compression_field_tree	,	V_28
+"sndcp.npdu"	,	L_40
+MASK_X	,	V_69
+dcomp	,	V_10
+MASK_T	,	V_38
+"sndcp"	,	L_69
+npdu_field1	,	V_8
+"Multiple tail fragments found"	,	L_47
+npdu_field2	,	V_15
+"Several tails were found when defragmenting the packet"	,	L_49
+find_dissector	,	F_34
+FT_UINT32	,	V_84
+"npdu.fragment.error"	,	L_54
+fragment_data	,	T_9
+hf	,	V_62
+hf_sndcp_segment	,	V_51
+npdu_tvb	,	V_17
+ett_sndcp_address_field	,	V_40
+"N-PDU fragments are reassembled in the given packet"	,	L_60
+"NSAPI"	,	L_16
+hf_sndcp_dcomp	,	V_47
+col_append_fstr	,	F_22
+col_set_str	,	F_4
+proto_tree_add_uint_format	,	F_9
+compression_vals	,	V_73
+ett_npdu_fragments	,	V_92
+pcomp	,	V_11
+col_clear	,	F_5
+proto_register_subtree_array	,	F_30
+"Fragment overlap"	,	L_41
+proto_tree_add_item	,	F_6
+pinfo	,	V_4
+col_add_fstr	,	F_14
+dissector_handle_t	,	T_12
+ip_handle	,	V_53
+npdu_frag_items	,	V_59
+"No compression"	,	L_3
+ett_sndcp_npdu_field	,	V_49
+sndcp_tree	,	V_26
+address_field_tree	,	V_27
+compression_field_item	,	V_24
+"More bit"	,	L_27
+VALS	,	F_25
+" (Unreassembled fragment %u)"	,	L_14
+proto_register_sndcp	,	F_24
+"Spare bit"	,	L_19
+"npdu.fragments"	,	L_67
+"data"	,	L_72
+FT_UINT8	,	V_63
+proto_tree_add_text	,	F_12
+BASE_DEC	,	V_64
+"Overlapping fragments contained conflicting data"	,	L_46
+proto_item	,	T_8
+ENC_NA	,	V_34
+hf_npdu_fragment_multiple_tails	,	V_79
+"npdu.fragment.overlap"	,	L_42
+dissect_sndcp	,	F_3
+"Fragment too long"	,	L_50
+fd_npdu	,	V_55
+first	,	V_19
+"sndcp.f"	,	L_23
+"npdu.fragment"	,	L_65
+ett_sndcp	,	V_35
+num	,	V_61
+save_fragmented	,	V_57
+"SN-PDU Type"	,	L_26
+" (N-PDU payload reassembled in packet %u)"	,	L_12
+"DCOMP"	,	L_29
+FT_NONE	,	V_89
+offset	,	V_12
+" (Unreassembled fragment)"	,	L_15
+ett	,	V_90
+addresses_reassembly_table_functions	,	V_2
+tree	,	V_5
+"Reassembled N-PDU"	,	L_11
+"PCOMP"	,	L_32
+hf_npdu_fragment_overlap_conflict	,	V_78
+packet_info	,	T_2
+hf_sndcp_t	,	V_43
+hf_sndcp_nsapib	,	V_45
+hf_sndcp_x	,	V_41
+hf_sndcp_m	,	V_44
+"Protocol compression coding"	,	L_34
+"Data compression"	,	L_4
+sndcp_defragment_init	,	F_1
+proto_tree_add_uint	,	F_11
+"Defragmentation error due to illegal fragments"	,	L_55
+hf_sndcp_f	,	V_42
+fragment_add	,	F_20
+"Payload"	,	L_13
+"Reassembled in"	,	L_58
+"Unacknowledged mode, N-PDU %d (segment %d)"	,	L_10
+"The total length of the reassembled payload"	,	L_63
+address_field_item	,	V_23
+addr_field	,	V_6
+HFILL	,	V_66
+"sndcp.t"	,	L_25
+sndcp_handle	,	V_93
+npdu	,	V_13
+"Data compression coding"	,	L_31
+hf_sndcp_nsapi	,	V_39
+ett_npdu_fragment	,	V_91
+"SN-DATA N-PDU %d"	,	L_7
+"Subnetwork Dependent Convergence Protocol"	,	L_68
+FT_FRAMENUM	,	V_82
+reassembled_in	,	V_56
+unack	,	V_21
+"Type"	,	L_24
+proto_tree	,	T_3

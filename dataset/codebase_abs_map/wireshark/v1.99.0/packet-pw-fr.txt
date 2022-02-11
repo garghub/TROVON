@@ -1,0 +1,139 @@
+"Sequence number"	,	L_31
+"pwfr.packet_size_too_small"	,	L_34
+"FR BECN"	,	L_18
+proto_register_protocol	,	F_18
+col_append_fstr	,	F_9
+": 0x%.8"	,	L_7
+gint	,	T_4
+col_set_str	,	F_5
+"pwfr.length"	,	L_30
+payload_size_packet	,	V_23
+packet_quality	,	V_14
+vals_frg	,	V_48
+"mpls.label"	,	L_44
+"FR DE bit"	,	L_21
+tvb	,	V_1
+item	,	V_15
+PQ_CW_BAD_BITS03	,	V_9
+COL_INFO	,	V_21
+"pwfr.fecn"	,	L_16
+proto_item_append_text	,	F_10
+ei_cw_bits03	,	V_31
+"FR payload size must be non-zero"	,	L_12
+"pwfr.payload.size_invalid"	,	L_38
+item_headline	,	V_26
+"pw_fr"	,	L_43
+tvb_reported_length_remaining	,	F_2
+col_clear	,	F_8
+fr_stripped_address_handle	,	V_42
+cinfo	,	V_19
+PQ_PAYLOAD_SIZE_ZERO	,	V_13
+tvb_payload	,	V_41
+PI_ERROR	,	V_55
+"Fragmentation"	,	L_27
+proto_register_subtree_array	,	F_21
+hf_cw_fecn	,	V_32
+array_length	,	F_20
+"FR FECN"	,	L_15
+payload_padding	,	V_6
+ei_payload_size_invalid	,	V_38
+proto_tree_add_item	,	F_3
+call_dissector	,	F_15
+pinfo	,	V_2
+dissector_handle_t	,	T_9
+"x"	,	L_8
+"pwfr.cr"	,	L_25
+proto_encaps	,	V_16
+"FR Backward Explicit Congestion Notification bit"	,	L_20
+hf_cw_de	,	V_34
+hf_register_info	,	T_6
+"FR Discard Eligibility bit"	,	L_23
+G_GINT32_MODIFIER	,	V_27
+"pwfr.padding"	,	L_33
+"pwfr.becn"	,	L_19
+VALS	,	F_17
+dissector_add_for_decode_as	,	F_27
+"Bits 0..3 of Control Word must be 0"	,	L_37
+expert_pwfr	,	V_57
+COL_PROTOCOL	,	V_20
+cw_len	,	V_22
+hf_cw_cr	,	V_35
+"Bad Length: greater than FR payload size (%d)"	,	L_9
+FT_UINT8	,	V_44
+h	,	V_58
+BASE_DEC	,	V_47
+proto_item	,	T_5
+expert_register_field_array	,	F_23
+proto_reg_handoff_pw_fr	,	F_25
+dissect_try_cw_first_nibble	,	F_6
+ENC_NA	,	V_17
+payload_size_cw	,	V_24
+subtree	,	V_25
+"Bad Length: must be 0 if FR PW packet size (%d) is &gt;= 64"	,	L_11
+expert_add_info_format	,	F_4
+BASE_NONE	,	V_51
+PQ_CW_BAD_LEN_GT_PACKET	,	V_10
+"Padding"	,	L_32
+ei_cw_packet_size_too_small	,	V_18
+register_dissector	,	F_24
+"pwfr.de"	,	L_22
+tvb_get_ntohl	,	F_11
+"%d payload octets"	,	L_5
+"pwfr.bits03"	,	L_14
+tvbuff_t	,	T_1
+"CW:Malformed, "	,	L_4
+BASE_HEX	,	V_45
+ei_register_info	,	T_7
+expert_register_protocol	,	F_22
+"pwfr.cw.bits03.not_zero"	,	L_36
+"pwfr.frag"	,	L_28
+"Bad Length: must be non-zero if FR PW packet size (%d) is &lt; 64"	,	L_10
+proto_item_add_subtree	,	F_12
+"FR frame Command/Response bit"	,	L_26
+proto_register_field_array	,	F_19
+FT_BYTES	,	V_50
+"Length"	,	L_29
+ett	,	V_52
+ei	,	V_53
+expert_module_t	,	T_8
+tree	,	V_3
+"FR Frame C/R"	,	L_24
+PQ_CW_BAD_LEN_MUST_BE_ZERO	,	V_11
+FT_UINT16	,	V_49
+packet_info	,	T_2
+hf_cw_frg	,	V_36
+hf_cw_padding	,	V_40
+tvb_get_guint8	,	F_7
+hf_cw_becn	,	V_33
+hf_cw_len	,	V_37
+proto_register_pw_fr	,	F_16
+"PW packet is smaller than PW encapsulation header"	,	L_35
+PQ_CW_BAD_LEN_MUST_BE_NONZERO	,	V_12
+dissect_pw_fr	,	F_1
+"PW Frame Relay DLCI Control Word"	,	L_40
+EXPFILL	,	V_56
+PQ_CW_BAD	,	V_8
+expert_add_info	,	F_13
+"Bits 0 to 3"	,	L_13
+"PW packet (%d) is smaller than PW encapsulation header (%d)"	,	L_1
+tvb_new_subset_length	,	F_14
+"FR PW"	,	L_2
+"FR Forward Explicit Congestion Notification bit"	,	L_17
+HFILL	,	V_46
+PI_MALFORMED	,	V_54
+"Frame Relay DLCI PW"	,	L_41
+"Malformed: PW packet &lt; PW encapsulation header"	,	L_3
+hf_cw_bits03	,	V_29
+find_dissector	,	F_26
+hf_cw_seq	,	V_39
+"pwfr"	,	L_42
+", %d padding"	,	L_6
+ett_encaps	,	V_28
+encaps_size	,	V_7
+ENC_BIG_ENDIAN	,	V_30
+packet_size	,	V_4
+"Bad Length: greater than FR payload size"	,	L_39
+payload_size	,	V_5
+"fr_stripped_address"	,	L_45
+proto_tree	,	T_3
+hf	,	V_43

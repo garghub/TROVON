@@ -1,0 +1,86 @@
+"ax4000.seq"	,	L_14
+proto_reg_handoff_ax4000	,	F_17
+ax_timestamp	,	V_10
+"ax4000.port"	,	L_4
+"Timestamp"	,	L_11
+proto_register_ax4000	,	F_12
+proto_register_protocol	,	F_13
+tvbuff_t	,	T_1
+IP_PROTO_AX4000	,	V_34
+tvb_get_ntohs	,	F_5
+BASE_HEX	,	V_31
+ax4000_handle	,	V_33
+ax4000_tree	,	V_5
+col_append_fstr	,	F_7
+"AX4000"	,	L_1
+"Port Number"	,	L_3
+col_set_str	,	F_2
+gint	,	T_9
+ax_seq	,	V_9
+tvb_get_letohl	,	F_6
+proto_item_add_subtree	,	F_9
+ax_chassis	,	V_7
+"ax4000.timestamp"	,	L_12
+proto_register_field_array	,	F_14
+tvb_get_letohs	,	F_11
+ax_index	,	V_8
+ett_ax4000	,	V_16
+tvb	,	V_1
+hf_ax4000_fill	,	V_19
+guint32	,	T_7
+ett	,	V_32
+COL_INFO	,	V_13
+"ax4000.index"	,	L_10
+dissector_add_uint	,	F_19
+tree	,	V_3
+"Sequence Number"	,	L_13
+FT_UINT16	,	V_29
+packet_info	,	T_2
+"ax4000.chassis"	,	L_6
+"Index"	,	L_9
+"ax4000"	,	L_18
+"ip.proto"	,	L_19
+col_clear	,	F_3
+tvb_get_guint8	,	F_4
+cinfo	,	V_11
+proto_register_subtree_array	,	F_16
+hf_ax4000_index	,	V_21
+AX4000_TCP_PORT	,	V_35
+array_length	,	F_15
+"Chss:%u Prt:%u Idx:%u Seq:0x%08x TS:%.6f[msec]"	,	L_2
+hf_ax4000_port	,	V_17
+proto_tree_add_uint	,	F_10
+proto_tree_add_item	,	F_8
+hf_ax4000_crc	,	V_24
+pinfo	,	V_2
+dissector_handle_t	,	T_10
+hf_ax4000_chassis	,	V_18
+"Chassis Number"	,	L_5
+AX4000_UDP_PORT	,	V_36
+"ax4000.crc"	,	L_16
+hf_register_info	,	T_8
+"AX/4000 Test Block"	,	L_17
+proto_ax4000	,	V_14
+HFILL	,	V_28
+hf_ax4000_seq	,	V_23
+guint16	,	T_6
+COL_PROTOCOL	,	V_12
+"udp.port"	,	L_21
+FT_UINT8	,	V_26
+BASE_DEC	,	V_27
+create_dissector_handle	,	F_18
+proto_item	,	T_4
+dissect_ax4000	,	F_1
+ENC_BIG_ENDIAN	,	V_20
+ENC_NA	,	V_15
+guint8	,	T_5
+hf_ax4000_timestamp	,	V_22
+"Fill Type"	,	L_7
+FT_UINT32	,	V_30
+ti	,	V_4
+ax_port	,	V_6
+"tcp.port"	,	L_20
+"ax4000.fill"	,	L_8
+"CRC (unchecked)"	,	L_15
+proto_tree	,	T_3
+hf	,	V_25

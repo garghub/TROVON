@@ -1,0 +1,165 @@
+"pwsatop.cw.frag"	,	L_33
+"Sequence number"	,	L_36
+proto_register_protocol	,	F_26
+check_col	,	F_9
+"SAToP payload: omitted to conserve bandwidth"	,	L_15
+col_append_fstr	,	F_12
+"pwsatop.cw.rbit"	,	L_29
+PWC_DEMUX_UDP	,	V_26
+PAY_LIKE_OCTET_ALIGNED_T1	,	V_14
+payload_properties	,	V_15
+gint	,	T_5
+col_set_str	,	F_5
+"Bad Length: must be 0 if SAToP packet size (%d) is &gt; 64"	,	L_13
+"pwsatop.payload"	,	L_39
+pwc_longname_pw_satop	,	V_74
+pwc_vals_cw_r_bit	,	V_68
+" (looks like T1)"	,	L_17
+"mpls.label"	,	L_47
+demux	,	V_4
+tvb	,	V_40
+item	,	V_16
+COL_INFO	,	V_24
+padding_size	,	V_8
+"pwsatop.cw.bits03"	,	L_25
+proto_item_append_text	,	F_18
+"pw_satop_mpls"	,	L_43
+"TDM payload"	,	L_38
+shortname	,	V_23
+tvb_reported_length_remaining	,	F_2
+col_clear	,	F_10
+cinfo	,	V_21
+PI_ERROR	,	V_20
+PAY_NO_IDEA	,	V_10
+"Fragmentation"	,	L_32
+proto_register_subtree_array	,	F_29
+array_length	,	F_28
+"TDM payload length"	,	L_40
+ett_array	,	V_73
+"SAToP payload: none found. Size of payload must be &lt;&gt; 0"	,	L_14
+"Reserved"	,	L_30
+""	,	L_20
+"pw_padding"	,	L_46
+proto_tree_add_item	,	F_3
+call_dissector	,	F_19
+pinfo	,	V_2
+"Malformed: PW packet is too small"	,	L_2
+PWC_PAY_SIZE_BAD	,	V_36
+proto_reg_handoff_pw_satop	,	F_31
+pwc_demux_type_t	,	T_4
+" (looks like octet-aligned T1)"	,	L_19
+col_append_str	,	F_11
+payload_size_from_packet	,	V_31
+", Padding:%d"	,	L_6
+PROTO_ITEM_SET_HIDDEN	,	F_21
+LABEL_INVALID	,	V_75
+hf_register_info	,	T_8
+"Payload size:0 (Bad)"	,	L_4
+"PW packet size (%d) is too small to carry sensible information"	,	L_1
+VALS	,	F_25
+"Bits 0..3 of Control Word must be 0"	,	L_8
+"pw_satop_udp"	,	L_44
+COL_PROTOCOL	,	V_22
+cw_len	,	V_30
+"data"	,	L_45
+FT_UINT8	,	V_65
+"RSV bits of Control Word must be 0"	,	L_9
+BASE_DEC	,	V_66
+tvb_new_subset	,	F_17
+proto_item	,	T_7
+PWC_CW_BAD_LEN_MUST_BE_0	,	V_35
+dissect_pw_satop	,	F_1
+dissect_try_cw_first_nibble	,	F_6
+ENC_NA	,	V_18
+"octet"	,	L_7
+"CW:Bad, "	,	L_3
+s	,	V_57
+expert_add_info_format	,	F_4
+BASE_NONE	,	V_63
+PWC_ANYOF_CW_BAD	,	V_37
+item3	,	V_45
+PWC_CW_BAD_RSV	,	V_28
+register_dissector	,	F_30
+item2	,	V_41
+"%s"	,	L_21
+tvb_get_ntohl	,	F_14
+"Fragmentation of payload is not allowed for SAToP"	,	L_10
+"pwsatop.payload.len"	,	L_41
+hf_payload	,	V_56
+tvbuff_t	,	T_1
+tvb_original	,	V_1
+"pwsatop.cw.seqno"	,	L_37
+PWC_CW_BAD_FRAG	,	V_29
+PAY_LIKE_E3_T3	,	V_13
+proto_item_add_subtree	,	F_16
+PI_NOTE	,	V_55
+" (looks like E3/T3)"	,	L_18
+"Control Word"	,	L_22
+PI_UNDECODED	,	V_54
+proto_register_field_array	,	F_27
+pwc_item_append_cw	,	F_13
+"L bit: TDM payload state"	,	L_26
+FT_BYTES	,	V_71
+payload_size_from_cw	,	V_32
+FT_NONE	,	V_62
+"pwsatop.cw.lbit"	,	L_27
+"Length"	,	L_34
+ett	,	V_39
+DISSECTOR_ASSERT_NOT_REACHED	,	F_7
+proto_register_pw_satop	,	F_24
+dissector_add_uint	,	F_33
+tree	,	V_3
+"pwsatop.cw"	,	L_23
+dissector_add_handle	,	F_34
+PWC_CW_BAD_PAYLEN_GT_PACKET	,	V_34
+pwc_item_append_text_n_items	,	F_15
+"pwsatop.cw.length"	,	L_35
+data_handle	,	V_58
+PWC_CW_BAD_BITS03	,	V_27
+"pwsatop.cw.rsv"	,	L_31
+FT_UINT16	,	V_70
+packet_info	,	T_2
+hf_cw_frg	,	V_51
+tvb_get_guint8	,	F_8
+hf_cw_len	,	V_52
+"Bad Length: must be &lt;= than PSN packet size (%d)"	,	L_12
+pwc_vals_cw_l_bit	,	V_67
+proto	,	V_17
+pwc_vals_cw_frag	,	V_69
+"TDM octets:%d"	,	L_5
+hf_cw	,	V_43
+PWC_DEMUX_MPLS	,	V_25
+"pwsatopcw"	,	L_42
+pw_padding_handle	,	V_60
+"R bit: Local CE-bound IWF"	,	L_28
+"Bits 0 to 3"	,	L_24
+tree2	,	V_38
+tree3	,	V_44
+hf_payload_l	,	V_59
+dissect_pw_satop_mpls	,	F_22
+PAY_LIKE_E1	,	V_11
+"Bad Length: too small, must be &gt; %d"	,	L_11
+PI_MALFORMED	,	V_19
+HFILL	,	V_64
+dissect_pw_satop_udp	,	F_23
+FT_INT32	,	V_72
+PWC_CW_BAD_PAYLEN_LT_0	,	V_33
+PWC_SIZEOF_CW	,	V_42
+hf_cw_bits03	,	V_46
+"udp.port"	,	L_48
+pwc_packet_properties_t	,	T_6
+find_dissector	,	F_32
+PAY_LIKE_T1	,	V_12
+hf_cw_seq	,	V_53
+encaps_size	,	V_5
+ENC_BIG_ENDIAN	,	V_47
+hf_cw_rsv	,	V_50
+" (looks like E1)"	,	L_16
+packet_size	,	V_6
+hf_cw_r	,	V_49
+payload_size	,	V_7
+proto_tree_add_int	,	F_20
+hf_cw_l	,	V_48
+proto_tree	,	T_3
+properties	,	V_9
+hf	,	V_61

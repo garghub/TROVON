@@ -1,0 +1,161 @@
+wmem_strbuf_get_len	,	F_21
+dissect_miop	,	F_4
+"MIOP"	,	L_2
+wmem_strbuf_new_label	,	F_5
+proto_register_protocol	,	F_28
+"miop.number_of_packets"	,	L_30
+"Unique Id length exceeds max value"	,	L_41
+miop_handle	,	V_59
+number_of_packets	,	V_16
+"PacketHeader packet_number"	,	L_28
+"miop.unique_id"	,	L_36
+"Version %u.%u"	,	L_3
+tvb_new_subset_remaining	,	F_24
+"Version"	,	L_17
+hdr_version	,	V_10
+col_set_str	,	F_8
+gint	,	T_15
+"Flags"	,	L_20
+proto_miop	,	V_23
+"miop.version.not_supported"	,	L_38
+tvb	,	V_1
+guint32	,	T_9
+COL_INFO	,	V_22
+"%s%s"	,	L_8
+expert_miop	,	V_58
+ei_miop_unique_id_len_exceed_max_value	,	V_38
+"Unreliable Multicast Inter-ORB Protocol"	,	L_42
+packet_length	,	V_14
+col_clear	,	F_9
+proto_tree_add_expert_format	,	F_14
+cinfo	,	V_20
+wmem_strbuf_t	,	T_13
+proto_register_subtree_array	,	F_31
+array_length	,	F_30
+hf_miop_number_of_packets	,	V_35
+""	,	L_10
+"MIOP over UDP"	,	L_46
+proto_tree_add_item	,	F_12
+pinfo	,	T_4
+col_add_fstr	,	F_11
+dissect_miop_heur_check	,	F_1
+"PacketHeader magic"	,	L_16
+_U_	,	V_2
+flags	,	V_13
+ENC_ASCII	,	V_30
+"none"	,	L_1
+proto_register_miop	,	F_27
+"miop"	,	L_43
+dissector_add_for_decode_as_with_preference	,	F_36
+flags_strbuf	,	V_19
+hf_register_info	,	T_14
+"Magic"	,	L_14
+"PacketHeader number_of_packets"	,	L_31
+proto_reg_handoff_miop	,	F_35
+ett_miop	,	V_25
+"PacketHeader hdr_version"	,	L_19
+guint16	,	T_12
+tot_len	,	V_3
+COL_PROTOCOL	,	V_21
+hf_miop_packet_length	,	V_33
+"miop.unique_id_len.exceed_max_value"	,	L_40
+FT_UINT8	,	V_45
+"miop.magic"	,	L_15
+BASE_DEC	,	V_49
+dissect_miop_heur	,	F_26
+proto_item	,	T_10
+expert_register_field_array	,	F_33
+"Unique Id length (%u) exceeds max value (%u)"	,	L_13
+ENC_NA	,	V_24
+guint8	,	T_11
+"MIOP %u.%u Packet s=%d (%u of %u)"	,	L_5
+"last message"	,	L_11
+ti	,	V_9
+expert_add_info_format	,	F_23
+BASE_NONE	,	V_43
+"miop.packet_length"	,	L_24
+packet_number	,	V_15
+"miop.flags"	,	L_21
+"PacketHeader flags"	,	L_22
+"miop.packet_number"	,	L_27
+ENC_LITTLE_ENDIAN	,	V_27
+magic	,	V_4
+register_dissector	,	F_34
+"miop_udp"	,	L_47
+data	,	T_7
+tvb_get_ntohl	,	F_3
+"UniqueId id"	,	L_37
+tvbuff_t	,	T_2
+"0x%02x (%s)"	,	L_12
+tvb_get_ntohs	,	F_15
+MIOP_MAX_UNIQUE_ID_LENGTH	,	V_37
+BASE_OCT	,	V_47
+BASE_HEX	,	V_46
+hf_miop_magic	,	V_29
+hf_miop_unique_id	,	V_39
+"PacketNumber"	,	L_26
+ei_register_info	,	T_16
+gboolean	,	T_1
+hf_miop_hdr_version	,	V_31
+expert_register_protocol	,	F_32
+byte_order	,	V_17
+"UniqueIdLength"	,	L_32
+wmem_strbuf_append_printf	,	F_20
+proto_item_add_subtree	,	F_13
+tvb_get_letohl	,	F_17
+"MIOP version %u.%u not supported"	,	L_4
+PI_UNDECODED	,	V_54
+proto_register_field_array	,	F_29
+tvb_get_letohs	,	F_16
+FT_BYTES	,	V_51
+"NumberOfPackets"	,	L_29
+guint	,	T_8
+"Length"	,	L_23
+offset	,	V_7
+ett	,	V_52
+ei	,	V_53
+wmem_packet_scope	,	F_6
+hf_miop_flags	,	V_32
+expert_module_t	,	T_17
+tree	,	T_6
+ei_miop_version_not_supported	,	V_26
+version_major	,	V_11
+payload_tvb	,	V_40
+FT_UINT16	,	V_48
+packet_info	,	T_3
+version_minor	,	V_12
+tvb_get_guint8	,	F_10
+tvb_captured_length	,	F_2
+"udp"	,	L_45
+hf_miop_packet_number	,	V_34
+hf_miop_unique_id_len	,	V_36
+EXPFILL	,	V_56
+miop_tree	,	V_8
+unique_id_len	,	V_18
+"UniqueId"	,	L_35
+MIOP_MAGIC	,	V_6
+"miop.unique_id_len"	,	L_33
+heur_dissector_add	,	F_37
+HEURISTIC_ENABLE	,	V_60
+"little-endian"	,	L_7
+FT_STRING	,	V_42
+MIOP_HEADER_SIZE	,	V_5
+wmem_strbuf_append	,	F_7
+dissect_giop	,	F_25
+", "	,	L_9
+HFILL	,	V_44
+PI_MALFORMED	,	V_57
+"UniqueId length"	,	L_34
+"miop.hdr_version"	,	L_18
+"udp.port"	,	L_44
+"%u.%u"	,	L_6
+PI_WARN	,	V_55
+proto_tree_add_uint_format_value	,	F_18
+ENC_BIG_ENDIAN	,	V_28
+wmem_strbuf_truncate	,	F_19
+FT_UINT32	,	V_50
+"PacketHeader packet_length"	,	L_25
+"MIOP version not supported"	,	L_39
+wmem_strbuf_get_str	,	F_22
+proto_tree	,	T_5
+hf	,	V_41

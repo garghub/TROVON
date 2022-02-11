@@ -1,0 +1,97 @@
+pdu	,	V_18
+hf_ipsictl_type	,	V_28
+proto_register_protocol	,	F_11
+"ipsictl.length"	,	L_12
+remaining_length	,	V_11
+"ipsictl.type"	,	L_15
+col_set_str	,	F_7
+gint	,	T_8
+"PDUS=%d, Seq=0x%04x-0x%04x"	,	L_3
+tvb	,	V_1
+last_sequence	,	V_16
+COL_INFO	,	V_34
+"Initialization"	,	L_4
+tvb_reported_length_remaining	,	F_2
+hf_ipsictl_length	,	V_27
+"ipsictl.magic"	,	L_9
+"ipsictl.sequence"	,	L_18
+cinfo	,	V_32
+proto_register_subtree_array	,	F_14
+array_length	,	F_13
+proto_tree_add_item	,	F_3
+pinfo	,	V_2
+col_add_fstr	,	F_8
+dissector_handle_t	,	T_9
+"Data"	,	L_23
+"IPSICTL Magic"	,	L_10
+_U_	,	V_4
+dissect_ipsictl	,	F_1
+proto_register_ipsictl	,	F_10
+hf_register_info	,	T_7
+"Magic"	,	L_8
+"PDUS=%d, Seq=0x%04x"	,	L_2
+first_sequence	,	V_15
+guint16	,	T_6
+COL_PROTOCOL	,	V_33
+BASE_DEC	,	V_37
+proto_item	,	T_5
+ENC_NA	,	V_21
+field1	,	V_17
+ti	,	V_7
+BASE_NONE	,	V_41
+proto_reg_handoff_ipsictl	,	F_15
+hf_ipsictl_sequence	,	V_29
+llength	,	V_10
+"IPSICTL Sequence"	,	L_19
+magic	,	V_12
+ett_ipsictl	,	V_22
+data	,	T_4
+"PDU"	,	L_5
+tvbuff_t	,	T_1
+tvb_get_ntohs	,	F_5
+"IPSICTL data"	,	L_25
+BASE_HEX	,	V_39
+pdu_tree	,	V_6
+proto_item_add_subtree	,	F_4
+"ipsictl"	,	L_26
+ett_ipsictl_pdu	,	V_25
+hf_ipsictl_data	,	V_31
+proto_register_field_array	,	F_12
+FT_BYTES	,	V_40
+"IPSICTL Type"	,	L_16
+"Length"	,	L_11
+offset	,	V_8
+ett	,	V_42
+loffset	,	V_9
+tree	,	V_3
+"IPSICTL PDU"	,	L_7
+FT_UINT16	,	V_36
+"Sequence"	,	L_17
+packet_info	,	T_2
+"ipsictl.field1"	,	L_21
+sequence	,	V_14
+"ipsictl.data"	,	L_24
+tvb_captured_length	,	F_9
+hf_ipsictl_field1	,	V_30
+"IPSICTL Field1"	,	L_22
+haspdus	,	V_19
+proto_tree_add_uint	,	F_6
+"ipsictl.pdu"	,	L_6
+"Field1"	,	L_20
+"IPSICTL Length"	,	L_13
+proto_ipsictl	,	V_20
+hf_ipsictl_magic	,	V_26
+HFILL	,	V_38
+ipsictl_tree	,	V_5
+hf_ipsictl_pdu	,	V_24
+"IPSICTL"	,	L_1
+length	,	V_13
+create_dissector_handle	,	F_16
+IPSICTL_PDU_MAGIC	,	V_23
+ipsictl_handle	,	V_43
+dissector_add_uint_with_preference	,	F_17
+"Type"	,	L_14
+"tcp.port"	,	L_27
+IPSICTL_PORT	,	V_44
+proto_tree	,	T_3
+hf	,	V_35

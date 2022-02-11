@@ -1,0 +1,127 @@
+proto_register_protocol	,	F_18
+proto_tree_add_time	,	F_7
+hf_who_whoent	,	V_39
+"Version"	,	L_4
+hf_who_sendtime	,	V_23
+col_set_str	,	F_2
+gint	,	T_9
+whoent_num	,	V_36
+"who.loadav_15"	,	L_19
+proto_tree_add_uint_format	,	F_15
+tvb	,	V_1
+MAX_NUM_WHOENTS	,	V_38
+"User ID"	,	L_26
+"who.boottime"	,	L_21
+guint32	,	T_7
+COL_INFO	,	V_14
+hf_who_boottime	,	V_30
+"%s: %.02f %.02f %.02f"	,	L_2
+"who.timeon"	,	L_29
+"who.entry"	,	L_23
+hf_who_recvtime	,	V_24
+tvb_reported_length_remaining	,	F_14
+proto_register_who	,	F_17
+col_clear	,	F_3
+cinfo	,	V_12
+ett_whoent	,	V_41
+FT_ABSOLUTE_TIME	,	V_50
+proto_register_subtree_array	,	F_21
+proto_tree_add_string	,	F_10
+array_length	,	F_20
+whoent_ti	,	V_32
+hf_who_timeon	,	V_44
+idle_secs	,	V_37
+proto_tree_add_item	,	F_4
+pinfo	,	V_2
+col_add_fstr	,	F_12
+dissector_handle_t	,	T_10
+SIZE_OF_WHOENT	,	V_40
+ENC_ASCII	,	V_25
+dissect_whoent	,	F_13
+"who.loadav_5"	,	L_15
+hf_who_idle	,	V_45
+"Idle: %s"	,	L_3
+"who"	,	L_33
+"Time Idle"	,	L_30
+hf_register_info	,	T_8
+"who.uid"	,	L_27
+"Receive Time"	,	L_10
+"WHO"	,	L_1
+COL_PROTOCOL	,	V_13
+FT_UINT8	,	V_47
+who_ti	,	V_6
+BASE_DEC	,	V_48
+proto_item	,	T_4
+"Who"	,	L_32
+who_tree	,	V_5
+"Hostname"	,	L_12
+ENC_NA	,	V_17
+hf_who_loadav_5	,	V_27
+ABSOLUTE_TIME_LOCAL	,	V_51
+guint8	,	T_5
+ett_who	,	V_18
+BASE_NONE	,	V_53
+"Time On"	,	L_28
+secs	,	V_22
+proto_reg_handoff_who	,	F_22
+out_line	,	V_34
+hf_who_uid	,	V_43
+ts	,	V_11
+tvb_get_ntohl	,	F_6
+tvbuff_t	,	T_1
+UDP_PORT_WHO	,	V_59
+"who.recvtime"	,	L_11
+hf_who_vers	,	V_19
+loadav_5	,	V_8
+proto_item_add_subtree	,	F_5
+proto_tree_add_double	,	F_11
+hf_who_type	,	V_21
+nstime_t	,	T_6
+proto_register_field_array	,	F_19
+"who.loadav_10"	,	L_17
+proto_who	,	V_16
+FT_NONE	,	V_55
+offset	,	V_4
+ett	,	V_57
+wmem_packet_scope	,	F_9
+dissector_add_uint	,	F_24
+tree	,	V_3
+packet_info	,	T_2
+tvb_get_stringzpad	,	F_8
+loadav_10	,	V_9
+"Send Time"	,	L_8
+"Boot Time"	,	L_20
+loadav_15	,	V_10
+line_offset	,	V_33
+server_name	,	V_7
+"who.sendtime"	,	L_9
+hf_who_tty	,	V_42
+"Who utmp Entry"	,	L_22
+whoent_tree	,	V_31
+hf_who_hostname	,	V_26
+time_secs_to_ep_str	,	F_16
+who_handle	,	V_58
+"who.hostname"	,	L_13
+FT_STRING	,	V_52
+"TTY Name"	,	L_24
+HFILL	,	V_49
+"udp.port"	,	L_34
+out_name	,	V_35
+"who.tty"	,	L_25
+"who.idle"	,	L_31
+"Load Average Over Past 10 Minutes"	,	L_16
+create_dissector_handle	,	F_23
+hf_who_loadav_10	,	V_28
+"who.vers"	,	L_5
+hf_who_loadav_15	,	V_29
+"who.type"	,	L_7
+ENC_BIG_ENDIAN	,	V_20
+FT_DOUBLE	,	V_54
+nsecs	,	V_15
+FT_UINT32	,	V_56
+"Type"	,	L_6
+"Load Average Over Past  5 Minutes"	,	L_14
+proto_tree	,	T_3
+hf	,	V_46
+"Load Average Over Past 15 Minutes"	,	L_18
+dissect_who	,	F_1

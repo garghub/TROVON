@@ -1,0 +1,432 @@
+tvb_get_string_enc	,	F_38
+hf_fracsec	,	V_93
+"Number of PMU blocks included in the frame"	,	L_95
+"Unlocked time"	,	L_121
+PROTOCOL_ABBREV	,	V_190
+TFS	,	F_62
+data_statb15names	,	V_177
+guint32	,	T_5
+proto_synphasor	,	V_57
+ai	,	V_36
+FT_BOOLEAN	,	V_170
+", not dissected because of wrong checksum"	,	L_7
+p_get_proto_data	,	F_46
+"Station #%i: \"%s\""	,	L_17
+array_length	,	F_66
+hf_sync	,	V_76
+"%"	,	L_26
+A	,	V_34
+HEADER	,	V_72
+ENC_ASCII	,	V_105
+hf_sync_frtype	,	V_79
+ett_conf_format	,	V_107
+col_append_str	,	F_54
+station_tree	,	V_102
+hf_frsize	,	V_81
+V	,	V_35
+hf_register_info	,	T_21
+data_statb11names	,	V_181
+temp_tree	,	V_75
+"synphasor.conf.analog_format"	,	L_100
+" of unknown type"	,	L_10
+", %s"	,	L_3
+data_format	,	T_17
+guint16	,	T_3
+ett_conf_phnam	,	V_161
+i	,	V_13
+j	,	V_96
+time_t	,	T_14
+CFG2	,	V_53
+"Trigger detected"	,	L_117
+CFG1	,	V_73
+s	,	V_136
+t	,	V_85
+BASE_NONE	,	V_169
+imag	,	V_145
+current_udp_port	,	V_197
+RTACSER_PAYLOAD_SYNPHASOR	,	V_199
+command_tree	,	V_135
+tvb_memcpy	,	F_6
+BASE_HEX	,	V_164
+wmem_array_append_one	,	F_8
+FT_UINT24	,	V_173
+fnom	,	V_16
+proto_item_add_subtree	,	F_25
+module_t	,	T_22
+PROTOCOL_SHORT_NAME	,	V_47
+dissect_CHNAM	,	F_41
+proto_register_field_array	,	F_65
+conversation	,	V_54
+dissector_add_uint	,	F_72
+"Synchrophasor UDP port"	,	L_129
+station_item	,	V_101
+oldoffset	,	V_104
+"PMU error"	,	L_111
+FT_UINT16	,	V_163
+"Synchrophasor TCP port"	,	L_133
+"synphasor.frsize"	,	L_78
+dissect_command_frame	,	F_31
+format_ph	,	V_27
+fd	,	V_50
+frame	,	V_5
+block_tree	,	V_123
+"synphasor.frtype"	,	L_74
+dissect_DIGITAL	,	F_53
+ett_data_stat	,	V_125
+"1 frame per %"	,	L_28
+synphasor_module	,	V_188
+G_PI	,	V_150
+phasor_notation_e	,	T_18
+phasor_tree	,	V_146
+"Header Frame"	,	L_9
+"synphasor.conf.phasor_format"	,	L_102
+data_item	,	V_116
+dissect_tcp	,	F_34
+synphasor_udp_handle	,	V_191
+"synphasor.version"	,	L_76
+"Mask for status word #%u: "	,	L_65
+"Time Quality indicator code"	,	L_89
+conversation_add_proto_data	,	F_20
+val_to_str_const	,	F_16
+hf_data_statb05to04	,	V_132
+length	,	V_147
+hf_timeqal_timequalindic	,	V_92
+hf_conf_fnom	,	V_112
+"Analog values format"	,	L_99
+hf_conf_cfgcnt	,	V_113
+"synphasor.conf.numpmu"	,	L_96
+config_item	,	V_94
+visited	,	V_52
+anunit	,	V_15
+find_or_create_conversation	,	F_17
+data_statb05to04names	,	V_183
+", %10.2f%c"	,	L_44
+dissect_udp	,	F_32
+hf	,	V_162
+ett_command	,	V_137
+wmem_array_new	,	F_4
+"Configuration data"	,	L_14
+"synphasor.soc"	,	L_82
+"Actual frequency value: %fHz"	,	L_46
+prefs_register_protocol	,	F_68
+tmp	,	V_114
+"Trigger reason"	,	L_123
+wmem_array_get_count	,	F_47
+col_set_str	,	F_14
+data_statb14names	,	V_178
+block	,	V_17
+id	,	V_8
+CMD	,	V_74
+"Flags"	,	L_35
+global_pref_udp_port	,	V_193
+num_pmu	,	V_3
+hf_timeqal_lsdir	,	V_89
+dissect_DIGUNIT	,	F_44
+frame_type	,	V_43
+reported_size	,	V_120
+"Set the port number for synchrophasor frames over TCP"	,	L_134
+ett_conf_phconv	,	V_154
+phasors	,	V_18
+proto_tree_add_string	,	F_36
+dissect_ANALOG	,	F_52
+DEGREE	,	F_58
+ett_data_digital	,	V_153
+"synphasor.data.t_unlock"	,	L_122
+data_tree	,	V_117
+dissector_handle_t	,	T_23
+"Leap second pending"	,	L_87
+fnum	,	V_55
+mag	,	V_140
+idcode	,	V_2
+"Configuration changed"	,	L_119
+conf_fnomnames	,	V_176
+G_GINT32_FORMAT	,	V_157
+VALS	,	F_61
+polar	,	V_29
+"Data format in data frame"	,	L_18
+tvb_length	,	F_12
+tvbsize	,	V_44
+ett_timequal	,	V_88
+cnt	,	V_148
+proto_tree_add_text	,	F_27
+BASE_DEC	,	V_166
+tvb_new_subset	,	F_28
+"Digital status label"	,	L_24
+ENC_NA	,	V_70
+"Nominal line freqency"	,	L_105
+"Phasor #%u: \"%s\""	,	L_43
+"Command"	,	L_125
+ett_data	,	V_118
+"%s"	,	L_1
+", using frame number %"	,	L_31
+num_dg	,	V_12
+hf_soc	,	V_87
+soc	,	V_86
+"SOC time stamp (UTC)"	,	L_81
+size_t	,	T_16
+prefs_register_uint_preference	,	F_69
+config_blocks	,	V_6
+phasor_notation	,	V_28
+hf_conf_timebase	,	V_98
+"Masks for digital status words (%u)"	,	L_64
+"%s #%i: \"%s\""	,	L_70
+"Unknown data"	,	L_41
+conf_anconvnames	,	V_156
+guint	,	T_7
+ett	,	V_185
+wmem_packet_scope	,	F_39
+analog_tree	,	V_151
+hf_timeqal_lsocc	,	V_90
+config_frame	,	T_1
+real	,	V_144
+packet_info	,	T_8
+unit	,	V_33
+"synphasor.conf.cfgcnt"	,	L_108
+sub_item	,	V_67
+"Ampere"	,	L_59
+G_GINT16_MODIFIER	,	V_159
+"normal state: 0x%04"	,	L_66
+", %"	,	L_15
+"%Y-%m-%d %H:%M:%S"	,	L_12
+dst	,	V_60
+conversation_get_proto_data	,	F_18
+ptype	,	V_61
+"Volt"	,	L_60
+"Set the port number for synchrophasor frames over UDP"	,	L_130
+rect	,	V_30
+"udp_port"	,	L_128
+"synphasor.sync"	,	L_72
+crc	,	V_38
+check_crc	,	F_9
+"synphasor.data.CFGchange"	,	L_120
+", "	,	L_38
+HFILL	,	V_165
+num_an	,	V_11
+hf_data_statb15	,	V_126
+hf_data_statb13	,	V_128
+hf_data_statb14	,	V_127
+hf_data_statb11	,	V_130
+src	,	V_59
+hf_data_statb12	,	V_129
+wmem_new	,	F_2
+hf_timeqal_lspend	,	V_91
+hf_data_statb10	,	V_131
+"Frequency deviation from nominal: %"	,	L_48
+" as configuration frame"	,	L_32
+proto_tree_add_subtree_format	,	F_40
+format_fr	,	V_24
+"mHz (actual frequency: %.3fHz)"	,	L_49
+temp_item	,	V_66
+analogs	,	V_20
+pi	,	V_31
+"Frame Type"	,	L_73
+"Resolution of fractional second time stamp"	,	L_93
+"synphasor.timeqal.lsdir"	,	L_84
+proto_register_protocol	,	F_63
+dissect_common	,	F_11
+data_statb13names	,	V_179
+"tcp_port"	,	L_132
+"Version"	,	L_75
+len	,	V_39
+tcp_dissect_pdus	,	F_35
+notation	,	V_143
+gint	,	T_4
+G_GUINT16_FORMAT	,	V_100
+data_statb03to00names	,	V_184
+ett_frtype	,	V_78
+tvb	,	V_1
+"Fraction of second (raw)"	,	L_91
+COL_INFO	,	V_48
+ett_conf_dgnam	,	V_187
+config_block	,	V_7
+str	,	V_103
+cinfo	,	V_45
+ett_conf_anconv	,	V_155
+hf_idcode	,	V_82
+"synphasor"	,	L_127
+ett_data_block	,	V_124
+"synphasor.timeqal.lsocc"	,	L_86
+" 0x%04x [correct]"	,	L_11
+FT_STRINGZ	,	V_168
+hf_sync_version	,	V_80
+global_pref_tcp_port	,	V_194
+"Time quality flags"	,	L_13
+proto_item_set_text	,	F_37
+"x"	,	L_67
+hf_conf_formatb2	,	V_109
+hf_conf_formatb1	,	V_110
+hf_conf_formatb3	,	V_108
+framesize	,	V_68
+COL_PROTOCOL	,	V_46
+format_flags	,	V_9
+dissect_single_phasor	,	F_55
+ett_conf_dgmask	,	V_158
+guint8	,	T_11
+buf	,	V_83
+phunit	,	V_14
+"Data valid"	,	L_109
+tm	,	V_84
+conf_formatb123names	,	V_174
+"Digital status words (%u)"	,	L_55
+PROTOCOL_NAME	,	V_189
+", no configuration frame found"	,	L_33
+"Data sorting"	,	L_115
+"Rate of change of frequency: %fHz/s"	,	L_47
+proto_reg_handoff_synphasor	,	V_192
+tvb_get_ntohl	,	F_7
+tvbuff_t	,	T_2
+"#%u factor: %u * 10^-5, unit: %s"	,	L_58
+tvb_get_ntohs	,	F_5
+config_frame_fast	,	F_1
+format_an	,	V_26
+"Framesize"	,	L_77
+gboolean	,	T_6
+"Number of analog values: %u"	,	L_20
+"Factor for analog value #%i: %s"	,	L_62
+hf_conf_formatb0	,	V_111
+"Synchronization word"	,	L_71
+"synphasor.conf.dfreq_format"	,	L_98
+tvb_get_guint8	,	F_13
+p_add_proto_data	,	F_22
+name	,	V_22
+"synphasor.fracsec"	,	L_92
+"synphasor.command"	,	L_126
+", value: %"	,	L_63
+analog_info	,	V_21
+dissect_header	,	F_26
+dissector_delete_uint	,	F_71
+ett_conf_annam	,	V_186
+"rtacser.data"	,	L_138
+dissect_config_frame	,	F_30
+"FREQ/DFREQ format"	,	L_97
+G_GINT16_FORMAT	,	V_115
+dissect_data_frame	,	F_29
+dissect_PHUNIT	,	F_42
+hf_conf_numpmu	,	V_99
+new_create_dissector_handle	,	F_70
+dissect_DFREQ	,	F_51
+timequalcodes	,	V_172
+"Digital status word #%u: 0x%04x"	,	L_56
+"Number of digital status words: %u"	,	L_21
+ENC_BIG_ENDIAN	,	V_77
+"Command data"	,	L_36
+"Phasor format"	,	L_101
+"Measurement data"	,	L_30
+"Configuration change count"	,	L_107
+ett_conf	,	V_97
+"Leap second direction"	,	L_83
+sub_tvb	,	V_69
+prefix	,	V_160
+num_ph	,	V_10
+ett_synphasor	,	V_71
+"synphasor.conf.timebase"	,	L_94
+conf	,	V_64
+"Checksum:"	,	L_6
+ANGLE	,	F_57
+" 0x%04x [incorrect]"	,	L_8
+command_item	,	V_134
+conversation_delete_proto_data	,	F_19
+conv	,	V_32
+command_names	,	V_139
+", invalid packet type"	,	L_4
+proto_register_synphasor	,	F_60
+phase	,	V_141
+data_statb12names	,	V_180
+proto_item_append_text	,	F_24
+wmem_array_index	,	F_48
+block_item	,	V_122
+ett_conf_station	,	V_106
+proto_register_subtree_array	,	F_67
+gint32	,	T_20
+"synphasor.conf.fnom"	,	L_106
+proto_tree_add_item	,	F_23
+pinfo	,	V_40
+col_add_fstr	,	F_15
+hf_command	,	V_138
+"Data"	,	L_5
+conf_formatb0names	,	V_175
+"%7.2f"	,	L_45
+_U_	,	V_42
+flags	,	V_51
+" (conversation factor: %#06x)"	,	L_54
+new_register_dissector	,	F_64
+", valid bits: 0x%04"	,	L_68
+current_tcp_port	,	V_198
+"synphasor.data.trigger"	,	L_118
+initialized	,	V_195
+"Analog value"	,	L_23
+"Phasors (%u)"	,	L_42
+find_conversation	,	F_21
+", %.3f"	,	L_53
+" PMU(s) included"	,	L_16
+"synphasor.data.valid"	,	L_110
+FT_UINT8	,	V_171
+"Analog values (%u)"	,	L_51
+proto_item	,	T_13
+dissect_ANUNIT	,	F_43
+config_tree	,	V_95
+"synphasor.data.sync"	,	L_114
+"Rate of transmission: "	,	L_25
+"synphasor.data.PMUerror"	,	L_112
+computedcrc	,	V_37
+"Phasor notation"	,	L_103
+ett_data_analog	,	V_152
+"Phasor name"	,	L_22
+"Analog values conversation factors (%u)"	,	L_61
+data	,	T_10
+"synphasor.data.trigger_reason"	,	L_124
+num	,	V_56
+" second(s)"	,	L_29
+"synphasor.data.sorting"	,	L_116
+CHNAM_LEN	,	V_23
+"Number of phasors: %u"	,	L_19
+"Time synchronized"	,	L_113
+"Analog value #%u: \"%s\""	,	L_52
+G_GUINT32_FORMAT	,	V_121
+floating_point	,	V_25
+conversation_t	,	T_12
+offset	,	V_4
+"synphasor.timeqal.lspend"	,	L_88
+"synphasor.idcode"	,	L_80
+tree	,	V_41
+format	,	V_142
+"PMU/DC ID number"	,	L_79
+"Phasor conversation factors (%u)"	,	L_57
+"%ss (%u)"	,	L_69
+synphasor_tcp_handle	,	V_196
+"Leap second occurred"	,	L_85
+DATA	,	V_58
+destport	,	V_63
+", but size not multiple of 16-bit word"	,	L_40
+"(if other than the default of 4713)"	,	L_131
+"synphasor.conf.phasor_notation"	,	L_104
+hf_data_statb03to00	,	V_133
+gfloat	,	T_19
+BLOCKSIZE	,	F_49
+data_statb10names	,	V_182
+"Extended frame data"	,	L_39
+tvb_get_ntohieee_float	,	F_56
+wmem_file_scope	,	F_3
+crc16_x25_ccitt_tvb	,	F_10
+config_found	,	V_119
+versionnames	,	V_167
+phasor_info	,	V_19
+get_pdu_length	,	F_33
+synphasor_tree	,	V_65
+"udp.port"	,	L_136
+" frame(s) per second"	,	L_27
+dissect_PHASORS	,	F_50
+ett_data_phasors	,	V_149
+try_rval_to_str	,	F_59
+proto_item_set_len	,	F_45
+typenames	,	V_49
+gint16	,	T_15
+"invalid packet type"	,	L_2
+"synphasor.timeqal.timequalindic"	,	L_90
+srcport	,	V_62
+"Station: \"%s\""	,	L_34
+"invalid command"	,	L_37
+"tcp.port"	,	L_137
+proto_tree	,	T_9
+"Rate of change of frequency: %.3fHz/s"	,	L_50
+"(if other than the default of 4712)"	,	L_135

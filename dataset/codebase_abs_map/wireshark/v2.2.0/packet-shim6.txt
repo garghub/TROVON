@@ -1,0 +1,338 @@
+SHIM6_OPT_FII	,	V_49
+"Number of locators in Locator List"	,	L_97
+"Reserved2"	,	L_51
+"Destination Address"	,	L_58
+col_append_sep_str	,	F_25
+proto_register_protocol	,	F_37
+shim	,	V_96
+SHIM6_OPT_LOCPREF	,	V_40
+advance	,	V_113
+len	,	V_3
+hf_shim6_reserved2	,	V_77
+hf_shim6_validator	,	V_38
+gint	,	T_5
+"Packet Context Tag"	,	L_11
+"Total Length"	,	L_84
+ct_str	,	V_55
+" bytes"	,	L_21
+"shim6.loc.prio"	,	L_105
+TFS	,	F_36
+tvb	,	V_1
+sta	,	V_71
+ip6s_p	,	V_99
+"shim6.nxt"	,	L_26
+COL_INFO	,	V_102
+vec_t	,	T_3
+FT_BOOLEAN	,	V_126
+hf_shim6_loc_prio	,	V_24
+proto_tree_add_expert_format	,	F_9
+cinfo	,	V_101
+PI_ERROR	,	V_144
+"Probes Received"	,	L_15
+"shim6.rulid"	,	L_71
+array_length	,	F_39
+dissect_shimopts	,	F_11
+"Reserved"	,	L_49
+ett_shim6_proto	,	V_106
+proto_checksum_vals	,	V_132
+ett_shim6_loc_pref	,	V_22
+"shim6.p"	,	L_33
+"Sender ULID"	,	L_67
+"Validator"	,	L_112
+hf_shim6_precvd	,	V_90
+"Extension header length in octets"	,	L_31
+SHIM6_BITMASK_CT	,	V_56
+col_append_str	,	F_33
+hf_shim6_opt_loclist	,	V_10
+"shim6.pdata"	,	L_65
+"%s (%u)"	,	L_20
+PROTO_ITEM_SET_HIDDEN	,	F_31
+SHIM6_TYPE_PROBE	,	V_86
+hf_shim6_opt_loc_verif_methods	,	V_14
+PROTO_CHECKSUM_IN_CKSUM	,	V_120
+hf_register_info	,	T_14
+"Unknown REAP State"	,	L_13
+hf_shim6_type	,	V_114
+"Weight"	,	L_107
+guint16	,	T_1
+"Probes Sent"	,	L_14
+dissect_shimctrl	,	F_21
+"Source Address"	,	L_55
+ipprotostr	,	F_29
+"ipv6.nxt"	,	L_127
+hf_shim6_padding	,	V_15
+SHIM6_BITMASK_PROTOCOL	,	V_130
+expert_shim6	,	V_147
+"Shim6 Probe Nonce"	,	L_63
+p	,	V_9
+"Shim6 Probe Source Address"	,	L_57
+guint8	,	T_10
+hf_shim6_ct	,	V_74
+"shim6.type"	,	L_37
+ti	,	V_29
+hf_shim6_sulid	,	V_47
+BASE_NONE	,	V_128
+col_append_sep_fstr	,	F_26
+shim6_protocol	,	V_129
+"Option Type"	,	L_75
+"Receiver ULID"	,	L_70
+"Locator Preferences Weight"	,	L_109
+SHIM6_OPT_LOCLIST	,	V_39
+tvbuff_t	,	T_2
+"shim6.cga_signature"	,	L_117
+SHIM6_TYPE_R1BIS	,	V_81
+tvb_get_ntohs	,	F_12
+tvb_memcpy	,	F_24
+dissect_shim6_opt_loc_pref	,	F_8
+BASE_HEX	,	V_131
+shimverifmethods	,	V_139
+PROTO_ITEM_SET_GENERATED	,	F_15
+SHIM6_TYPE_R2	,	V_80
+SHIM6_BITMASK_STA	,	V_91
+SHIM6_TYPE_R1	,	V_76
+gboolean	,	T_11
+SHIM6_TYPE_UPD_REQ	,	V_83
+ei_shim6_opt_elemlen_invalid	,	V_21
+"shim6.reserved2"	,	L_52
+proto_item_add_subtree	,	F_27
+"shim6.padding"	,	L_119
+"shim6.proto"	,	L_39
+SHIM6_BITMASK_PRECVD	,	V_88
+ett_shim6_probe_sent	,	V_66
+proto_register_field_array	,	F_38
+FT_BYTES	,	V_135
+"Forked Instance Identifier"	,	L_110
+SHIM6_TYPE_UPD_ACK	,	V_84
+dissector_add_uint	,	F_45
+count	,	V_7
+"shim6.loc.flags"	,	L_102
+ti_len	,	V_97
+"shim6.rnonce"	,	L_48
+FT_UINT16	,	V_125
+probes_sent	,	V_72
+shim6_checksum	,	F_1
+tvb_get_guint8	,	F_6
+hf_shim6_locator	,	V_18
+"Checksum Status"	,	L_43
+"Option Critical Bit"	,	L_78
+SHIM6_OPT_ULIDPAIR	,	V_45
+hf_item	,	V_52
+"Shim6 Receiver ULID"	,	L_72
+probes_tree	,	V_59
+BASE_DEC_HEX	,	V_134
+"Context Tag"	,	L_34
+"shim6.opt.locnum"	,	L_96
+"shim6.psent"	,	L_54
+"Locator"	,	L_92
+"Content Length Option"	,	L_83
+"Message Type"	,	L_36
+"Probe %u"	,	L_8
+"Length of Elements in Locator Preferences Option"	,	L_100
+ett_shim6_verif_methods	,	V_13
+"shim6.pnonce"	,	L_62
+val_to_str_const	,	F_13
+proto_tree_add_none_format	,	F_19
+"shim6.checksum"	,	L_41
+ett_shim6_probes_rcvd	,	V_63
+SHIM6_TYPE_I2BIS	,	V_82
+"shim6.ct"	,	L_35
+proto_shim6	,	V_105
+label	,	V_53
+SHIM6_TYPE_KEEPALIVE	,	V_85
+cksum_vec	,	V_4
+proto_tree_add_uint_format_value	,	F_22
+"shim6.sulid"	,	L_68
+ENC_BIG_ENDIAN	,	V_11
+FT_UINT32	,	V_133
+proto_register_shim6	,	F_34
+"Shim6 Sender ULID"	,	L_69
+"Shim6 Checksum"	,	L_42
+ei_shim6_checksum_bad	,	V_118
+"TRUE: option is critical, FALSE: option is not critical"	,	L_80
+"Locators"	,	L_2
+hf_shim6_loc_weight	,	V_25
+ett_shim6_option	,	V_30
+"shim6.cga_parameter_data_structure"	,	L_115
+"Bad checksum"	,	L_123
+hf_shim6_p	,	V_111
+total_len	,	V_27
+ip6s_len	,	V_98
+hf_shim6_checksum_status	,	V_117
+"Extension header length in 8-octet words (minus 1)"	,	L_29
+"Shim6 Probe Destination Address"	,	L_60
+ett_shim6_locators	,	V_17
+FT_IPv6	,	V_136
+proto_tree_add_subtree	,	F_7
+hf_shim6_rnonce	,	V_78
+"Responder Nonce"	,	L_47
+wmem_strdup_printf	,	F_17
+opt_tree	,	V_5
+"shim6.precvd"	,	L_53
+tmp	,	V_54
+"Content Length"	,	L_81
+"Flags"	,	L_101
+SHIM6_BITMASK_P	,	V_100
+dissect_shim6_ct	,	F_16
+ip6_shim	,	V_95
+"Locator Preferences %u"	,	L_4
+dissect_shim6_probes	,	F_20
+ei_shim6	,	V_142
+guchar	,	T_9
+csum	,	V_112
+"Nonce"	,	L_61
+proto_item_append_text	,	F_30
+"Locator List Generation"	,	L_90
+SHIM6_BITMASK_OPT_TYPE	,	V_31
+hf_shim6_opt_total_len	,	V_36
+"%s: %02X %02X %02X %02X %02X %02X"	,	L_6
+hf_shim6_opt_locnum	,	V_12
+"Responder Context Tag"	,	L_10
+"shim6.psrc"	,	L_56
+ip6s_nxt	,	V_108
+"Initiator Nonce"	,	L_45
+IP_PROTO_SHIM6	,	V_149
+"Shim6 Option Type"	,	L_77
+proto_register_subtree_array	,	F_40
+"Invalid element length"	,	L_121
+"Checksum"	,	L_40
+hf_shim6_opt_fii	,	V_50
+ett_probe	,	V_62
+"shim6.opt.type"	,	L_76
+"Locator Verification Method"	,	L_89
+in_cksum	,	F_3
+proto_tree_add_item	,	F_5
+pinfo	,	V_19
+"Priority"	,	L_104
+dissector_handle_t	,	T_17
+"Data"	,	L_64
+"Shim6"	,	L_125
+hf_shim6_opt_critical	,	V_34
+optlen	,	V_8
+_U_	,	V_94
+hf_shim6	,	V_121
+"shim6.opt.len"	,	L_82
+"shim6.loc.weight"	,	L_108
+hf_shim6_proto	,	V_115
+proto_reg_handoff_shim6	,	F_43
+SHIM6_OPT_CGAPDM	,	V_41
+" [Shim6 CHECKSUM INCORRECT]"	,	L_24
+"shim6.validator"	,	L_113
+hf_shim6_inonce	,	V_75
+proto_tree_add_checksum	,	F_32
+"Locator Preferences Flags"	,	L_103
+offsetof	,	F_28
+VALS	,	F_35
+SET_CKSUM_VEC_TVB	,	F_2
+shimoptvals	,	V_32
+shim6_handle	,	V_148
+"Invalid element length: %u"	,	L_3
+hf_shim6_opt_elemlen	,	V_20
+"Shim6 (Payload)"	,	L_17
+FT_UINT8	,	V_122
+"shim6.reserved"	,	L_50
+"Shim6 Locator"	,	L_94
+BASE_DEC	,	V_123
+"shim6.opt.total_len"	,	L_85
+proto_item	,	T_8
+expert_register_field_array	,	F_42
+hf_shim6_psent	,	V_89
+hf_shim6_opt_len	,	V_35
+"CGA Signature"	,	L_116
+subtree	,	V_6
+ENC_NA	,	V_16
+hf_shim6_pdata	,	V_70
+"Unknown Option Type"	,	L_5
+SHIM6_OPT_CGASIG	,	V_43
+"Padding"	,	L_118
+"Element Length"	,	L_98
+"shim6.pdst"	,	L_59
+"shim6.checksum_bad.expert"	,	L_122
+"shim6.opt.elemlen"	,	L_99
+"Locator Preferences Priority"	,	L_106
+"%s"	,	L_7
+data	,	T_13
+"Shim6 Protocol"	,	L_124
+shimctrlvals	,	V_104
+"shim6.opt.fii"	,	L_111
+ett_probes	,	V_61
+hf_shim6_nxt	,	V_107
+"Receiver Context Tag: %02x %02x %02x %02x %02x %02x"	,	L_23
+"Verification Method"	,	L_87
+hf_shim6_psrc	,	V_67
+ei_register_info	,	T_15
+expert_register_protocol	,	F_41
+ett_shim6_cksum	,	V_141
+ett_shim6_probe_rcvd	,	V_64
+hf_shim6_cga_signature	,	V_44
+hf_shim6_len_oct	,	V_110
+"Shim6 (%s)"	,	L_18
+"Initiator Context Tag"	,	L_9
+"shim6.opt.verif_method"	,	L_88
+hf_shim6_checksum	,	V_116
+guint	,	T_6
+"Length"	,	L_27
+FT_NONE	,	V_127
+offset	,	V_2
+wmem_packet_scope	,	F_18
+hf_shim6_len	,	V_109
+expert_module_t	,	T_16
+tree	,	V_26
+" (%d bytes)"	,	L_22
+"Locator Verification Methods"	,	L_1
+packet_info	,	T_7
+SHIM6_BITMASK_TYPE	,	V_103
+tfs_yes_no	,	V_137
+SHIM6_TYPE_I1	,	V_73
+shimreapstates	,	V_92
+hf_shim6_pdst	,	V_68
+SHIM6_BITMASK_CRITICAL	,	V_138
+SHIM6_TYPE_I2	,	V_79
+"P Bit"	,	L_32
+proto_tree_add_uint	,	F_14
+probes_rcvd	,	V_58
+hf_shim6_opt_type	,	V_33
+"shim6.len_oct"	,	L_30
+EXPFILL	,	V_145
+hf_shim6_reap	,	V_93
+"CGA Parameter Data Structure"	,	L_114
+PI_CHECKSUM	,	V_146
+"shim6.locator"	,	L_93
+SHIM6_OPT_RESPVAL	,	V_37
+hf_shim6_reserved	,	V_46
+"Total Option Length"	,	L_86
+"shim6.opt.critical"	,	L_79
+"Num Locators"	,	L_95
+"shim6.checksum.status"	,	L_44
+PROTO_CHECKSUM_VERIFY	,	V_119
+SHIM6_BITMASK_PSENT	,	V_87
+"Next Header"	,	L_25
+HFILL	,	V_124
+PI_MALFORMED	,	V_143
+" , "	,	L_16
+ett_shim6_probes_sent	,	V_65
+padding	,	V_28
+dissect_shim6	,	F_23
+"Shim6 Probe Data"	,	L_66
+probe_tree	,	V_60
+gchar	,	T_12
+hf_shim6_rulid	,	V_48
+hf_shim6_cga_parameter_data_structure	,	V_42
+"Receiver Context Tag"	,	L_12
+"shim6.opt.elemlen.invalid"	,	L_120
+create_dissector_handle	,	F_44
+proto_tree_add_subtree_format	,	F_10
+hf_shim6_pnonce	,	V_69
+"shim6.reap"	,	L_74
+"shim6.len"	,	L_28
+"shim6.inonce"	,	L_46
+"REAP State"	,	L_73
+nbr_probe	,	V_57
+"Protocol"	,	L_38
+shim_tree	,	V_51
+hf_shim6_loc_flag	,	V_23
+"Unknown"	,	L_19
+"shim6"	,	L_126
+dissect_shim6_opt_loclist	,	F_4
+proto_tree	,	T_4
+"shim6.opt.loclist"	,	L_91
+ett_shim6	,	V_140

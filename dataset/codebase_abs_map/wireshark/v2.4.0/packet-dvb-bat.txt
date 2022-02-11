@@ -1,0 +1,113 @@
+"dvb_bat.ts_loop_len"	,	L_20
+proto_register_protocol	,	F_14
+proto_mpeg_descriptor_loop_dissect	,	F_7
+"dvb_bat.ts.reserved"	,	L_25
+hf_dvb_bat_original_network_id	,	V_35
+"Current/Next Indicator"	,	L_9
+transport_stream_tree	,	V_13
+ts_loop_end	,	V_7
+"Transport Stream Loop Length"	,	L_19
+col_set_str	,	F_2
+gint	,	T_9
+tvb	,	V_1
+COL_INFO	,	V_15
+ett_dvb_bat_transport_stream	,	V_33
+"mpeg_sect.tid"	,	L_30
+ts_loop_len	,	V_10
+"dvb_bat.bouquet_id"	,	L_4
+hf_dvb_bat_current_next_indicator	,	V_23
+cinfo	,	V_14
+proto_register_subtree_array	,	F_17
+DVB_BAT_VERSION_NUMBER_MASK	,	V_44
+array_length	,	F_16
+ett_dvb_bat	,	V_18
+"Reserved"	,	L_5
+ts_id	,	V_8
+proto_tree_add_item	,	F_3
+pinfo	,	V_2
+dissector_handle_t	,	T_10
+"Section Number"	,	L_11
+_U_	,	V_4
+DVB_BAT_RESERVED1_MASK	,	V_43
+descriptor_len	,	V_9
+dvb_bat_handle	,	V_52
+"dvb_bat"	,	L_29
+proto_register_dvb_bat	,	F_12
+hf_register_info	,	T_8
+"dvb_bat.ts.desc_len"	,	L_26
+VALS	,	F_13
+"dvb_bat.reserved1"	,	L_6
+"Original Network ID"	,	L_23
+guint16	,	T_6
+DVB_BAT_TID	,	V_53
+FT_UINT8	,	V_42
+BASE_DEC	,	V_45
+proto_item	,	T_7
+ENC_NA	,	V_17
+hf_dvb_bat_section_number	,	V_24
+hf_dvb_bat_transport_descriptors_length	,	V_37
+ti	,	V_11
+proto_reg_handoff_dvb_bat	,	F_18
+"Transport Stream 0x%04x"	,	L_2
+"dvb_bat.ts.id"	,	L_22
+data	,	T_4
+DVB_BAT_TRANSPORT_STREAM_LOOP_LENGTH_MASK	,	V_29
+tvbuff_t	,	T_1
+"dvb_bat.bouquet_desc_len"	,	L_17
+DVB_BAT_RESERVED4_MASK	,	V_50
+hf_dvb_bat_version_number	,	V_22
+tvb_get_ntohs	,	F_6
+BASE_HEX	,	V_40
+"Last Section Number"	,	L_13
+hf_dvb_bat_bouquet_id	,	V_19
+proto_item_add_subtree	,	F_4
+"dvb_bat.reserved3"	,	L_18
+"DVB Bouquet Association Table"	,	L_27
+proto_register_field_array	,	F_15
+dissect_dvb_bat	,	F_1
+"Bouquet Descriptors Length"	,	L_16
+guint	,	T_5
+offset	,	V_5
+ett	,	V_51
+dissector_add_uint	,	F_20
+tree	,	V_3
+FT_UINT16	,	V_39
+packet_info	,	T_2
+"Transport Stream ID"	,	L_21
+DVB_BAT_RESERVED2_MASK	,	V_48
+DVB_BAT_TRANSPORT_DESCRIPTORS_LENGTH_MASK	,	V_32
+DVB_BAT_BOUQUET_DESCRIPTORS_LENGTH_MASK	,	V_26
+tvb_captured_length	,	F_11
+"dvb_bat.last_sect_num"	,	L_14
+packet_mpeg_sect_header	,	F_5
+hf_dvb_bat_bouquet_descriptors_length	,	V_28
+"dvb_bat.reserved2"	,	L_15
+"dvb_bat.cur_next_ind"	,	L_10
+hf_dvb_bat_transport_stream_id	,	V_34
+dvb_bat_cur_next_vals	,	V_46
+HFILL	,	V_41
+"DVB BAT"	,	L_28
+hf_dvb_bat_last_section_number	,	V_25
+"dvb_bat.sect_num"	,	L_12
+hf_dvb_bat_reserved4	,	V_36
+DVB_BAT_CURRENT_NEXT_INDICATOR_MASK	,	V_47
+DVB_BAT_RESERVED3_MASK	,	V_49
+"Bouquet Association Table (BAT)"	,	L_1
+hf_dvb_bat_reserved2	,	V_27
+"Version Number"	,	L_7
+hf_dvb_bat_reserved3	,	V_30
+length	,	V_6
+"dvb_bat.version"	,	L_8
+create_dissector_handle	,	F_19
+hf_dvb_bat_transport_stream_loop_length	,	V_31
+proto_tree_add_subtree_format	,	F_8
+packet_mpeg_sect_crc	,	F_9
+"dvb_bat.ts.original_nid"	,	L_24
+proto_item_set_len	,	F_10
+ENC_BIG_ENDIAN	,	V_20
+dvb_bat_tree	,	V_12
+"Bouquet ID"	,	L_3
+proto_dvb_bat	,	V_16
+hf_dvb_bat_reserved1	,	V_21
+proto_tree	,	T_3
+hf	,	V_38

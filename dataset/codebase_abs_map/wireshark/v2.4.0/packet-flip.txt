@@ -1,0 +1,186 @@
+proto_flip	,	V_40
+ett_flip_payload	,	V_68
+dissect_flip_chksum_hdr	,	F_4
+proto_register_protocol	,	F_27
+register_decode_as	,	F_34
+ett_flip_chksum	,	V_15
+"NSN FLIP, FlowID %s"	,	L_12
+prefs_register_protocol	,	F_32
+proto_tree_add_subtree	,	F_6
+"flip.chksum.etype"	,	L_33
+flip_tvb	,	V_28
+flip_module	,	V_69
+gint	,	T_11
+col_set_str	,	F_12
+ext_hdr_type	,	V_50
+flip_handle	,	V_76
+"Extension header indicated, but not enough data"	,	L_16
+"flip.basic.len"	,	L_30
+"Basic Header Packet Length"	,	L_31
+"Checksum Header Spare"	,	L_37
+"FLIP Payload"	,	L_42
+flip_value	,	F_3
+flip_len	,	V_36
+TFS	,	F_25
+tvb	,	V_4
+chksum_hdr_ext	,	V_11
+"Extension Type"	,	L_32
+"forced_decode"	,	L_51
+guint32	,	T_9
+COL_INFO	,	V_23
+vec_t	,	T_14
+FT_BOOLEAN	,	V_59
+"flip.basic.flowid"	,	L_24
+dissect_flip	,	F_11
+"Invalid length in basic header: %d bytes"	,	L_15
+"Invalid extension header type 0x%02x"	,	L_17
+cinfo	,	V_22
+proto_register_subtree_array	,	F_30
+chksum_hdr_chksum	,	V_12
+val_to_str	,	F_14
+array_length	,	F_29
+bytes_handled	,	V_51
+FLIP_BASIC_HDR_LEN	,	V_39
+"Checksum Header Extension Type"	,	L_34
+"Reserved"	,	L_20
+"Checksum"	,	L_39
+"Incorrect"	,	L_7
+"heur_enabled_protocols"	,	L_47
+ett_flip	,	V_41
+decode_as_t	,	T_19
+proto_tree_add_item	,	F_9
+in_cksum	,	F_20
+pinfo	,	T_2
+col_add_fstr	,	F_10
+"Basic Header Sequence Number"	,	L_28
+dissector_handle_t	,	T_20
+_U_	,	V_1
+"ethertype"	,	L_52
+gpointer	,	T_4
+result	,	V_2
+hf_flip_basic_e	,	V_43
+DISSECT_FLIP_EXIT	,	V_48
+is_faulty_frame	,	V_37
+chksum_tvb	,	V_52
+"0x%08x"	,	L_11
+hf_flip_chksum_etype	,	V_16
+hf_register_info	,	T_15
+VALS	,	F_26
+SET_CKSUM_VEC_TVB	,	F_19
+guint16	,	T_7
+COL_PROTOCOL	,	V_38
+"Spare"	,	L_35
+FLIP_EXTENSION_HDR_MIN_LEN	,	V_49
+hf_flip_basic_seqnum	,	V_46
+BASE_DEC	,	V_63
+proto_item	,	T_13
+decode_as_default_populate_list	,	V_73
+basic_hdr_tree	,	V_27
+proto_reg_handoff_flip	,	F_35
+flip_tree	,	V_26
+"FLIP"	,	L_9
+guint8	,	T_10
+MAX_DECODE_AS_PROMPT_LEN	,	V_3
+ti	,	V_25
+chksum_hdr_tree	,	V_8
+"Decode FLIP payload protocol as"	,	L_1
+build_valid_func	,	T_17
+register_dissector_table	,	F_31
+"%s"	,	L_3
+tvb_get_ntohl	,	F_5
+data	,	T_12
+"Length mismatch: frame %d bytes, hdr %d bytes"	,	L_14
+"flip.chksum.chksum"	,	L_40
+"FlowID %s"	,	L_10
+"Basic Header"	,	L_13
+hf_flip_basic_len	,	V_47
+tvbuff_t	,	T_5
+proto_tree_add_protocol_format	,	F_16
+"heur_decode_rtcp"	,	L_49
+"FlowID"	,	L_23
+flip_da	,	V_72
+BASE_HEX	,	V_64
+dw	,	V_9
+decode_as_default_reset	,	V_74
+gboolean	,	T_8
+ett_flip_basic	,	V_42
+vec	,	V_54
+"flip.chksum.e"	,	L_38
+decode_as_default_change	,	V_75
+bytes_dissected	,	V_13
+proto_item_add_subtree	,	F_17
+basic_hdr_flow_id	,	V_31
+module_t	,	T_16
+ETHERTYPE_FLIP	,	V_77
+proto_register_field_array	,	F_28
+hf_flip_basic_flowid	,	V_45
+proto_register_flip	,	F_24
+chksum_hdr_etype	,	V_10
+offset	,	V_14
+ett	,	V_67
+payload_len	,	V_34
+dissector_add_uint	,	F_37
+data_len	,	V_56
+"flip"	,	L_41
+"decoding_mode"	,	L_46
+tree	,	V_5
+"flip.chksum.spare"	,	L_36
+hf_flip_chksum_e	,	V_20
+"Basic Header Reserved"	,	L_22
+payload_tvb	,	V_55
+FT_UINT16	,	V_65
+packet_info	,	T_1
+hf_flip_chksum_chksum	,	V_21
+tvb_get_guint8	,	F_18
+FLIP_CHKSUM_HDR_LEN	,	V_24
+tvb_captured_length	,	F_13
+tfs_yes_no	,	V_60
+basic_hdr_ext	,	V_30
+g_htons	,	F_21
+basic_hdr_len	,	V_32
+frame_len	,	V_35
+BASE_DEC_HEX	,	V_66
+flip_da_build_value	,	V_70
+computed_chksum	,	V_6
+"heur_decode_rtp"	,	L_48
+hf_flip_chksum_spare	,	V_18
+flip_prompt	,	F_1
+"Checksum 0x%04x [%s] (computed 0x%04x)"	,	L_8
+g_snprintf	,	F_2
+ext_hdr_follows_ptr	,	V_7
+tvb_new_subset_length	,	F_15
+subdissector_table	,	V_57
+flip_etype	,	V_17
+hf_flip_basic_reserved	,	V_44
+"flip.basic.seqnum"	,	L_27
+call_data_dissector	,	F_23
+"flip.basic.reserved"	,	L_21
+"FLIP payload"	,	L_45
+HFILL	,	V_61
+prefs_register_obsolete_preference	,	F_33
+FLIP_CHKSUM	,	V_53
+dissector_try_uint	,	F_22
+"flip.basic.e"	,	L_19
+"flip.payload"	,	L_43
+val_to_str_const	,	F_8
+"Extension Header Follows"	,	L_18
+flip_da_values	,	V_71
+gchar	,	T_3
+"NSN FLIP"	,	L_44
+create_dissector_handle	,	F_36
+"Seqnum"	,	L_26
+"Len"	,	L_29
+proto_tree_add_uint_format_value	,	F_7
+"Correct"	,	L_6
+ENC_BIG_ENDIAN	,	V_19
+ext_hdr	,	V_33
+"forced_protocol"	,	L_50
+"0x%04x [%s] (computed 0x%04x)"	,	L_5
+"Basic Header Flow ID"	,	L_25
+FT_UINT32	,	V_62
+decode_as_value_t	,	T_18
+"Unknown"	,	L_4
+"Checksum Header"	,	L_2
+proto_tree	,	T_6
+hf	,	V_58
+dw1	,	V_29

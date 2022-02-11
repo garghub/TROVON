@@ -1,0 +1,85 @@
+", __VERSION__);(NL)#endif /* llvm */(NL)#elif defined(__HP_aCC)(NL)	g_string_append_printf(str, "	,	L_20
+"\n%s"	,	L_12
+" in Visual C++.)(NL)	 * XXX? Should we just output the compiler version?(NL)	 */(NL)    int compiler_major_version = (_MSC_FULL_VER / 10000000), visual_studio_ver;(NL)(NL)    if (compiler_major_version &lt; 19) {(NL)        visual_studio_ver = compiler_major_version - 6;(NL)    }else{(NL)        visual_studio_ver = compiler_major_version - 5;(NL)    }(NL)(NL)    g_string_append_printf(str, "	,	L_29
+" is called at the end to append any additional(NL) * information; this is required in order to, for example, put the(NL) * Portaudio information at the end of the string, as we currently(NL) * don't use Portaudio in TShark.(NL) */(NL)GString *(NL)get_runtime_version_info(void (*additional_info)(GString *))(NL){(NL)	GString *str;(NL)	gchar *lang;(NL)(NL)	str = g_string_new("	,	L_41
+size_t	,	T_2
+g_string_append	,	F_2
+", __VERSION__);(NL)#elif defined(__llvm__)(NL)	g_string_append_printf(str, "	,	L_18
+nExIds	,	V_10
+", __INTEL_COMPILER % 10);(NL)#ifdef __INTEL_COMPILER_BUILD_DATE(NL)	g_string_sprinta(str, "	,	L_26
+"(64-bit) "	,	L_7
+len	,	V_5
+_WIN32	,	F_16
+" VCSVERSION "	,	L_49
+"GLib (version unknown)"	,	L_11
+" VCSBRANCH "	,	L_50
+", __VERSION__);(NL)#else /* boring old GCC */(NL)	g_string_append_printf(str, "	,	L_19
+GlobalMemoryStatusEx	,	F_17
+get_mem_info	,	F_15
+HAVE_ZLIB	,	F_4
+guint32	,	T_4
+" "	,	L_16
+",(NL)	    (__SUNPRO_C &gt;&gt; 8) &amp; 0xF, (__SUNPRO_C &gt;&gt; 4) &amp; 0xF);(NL)	if ((__SUNPRO_C &amp; 0xF) != 0)(NL)		g_string_append_printf(str, "	,	L_36
+");(NL)#endif(NL)}(NL)(NL)/* XXX - is the setlocale() return string opaque? For glibc the separator is ';' */(NL)static gchar *(NL)get_locale(void)(NL){(NL)	const gchar *lang;(NL)	gchar **locv, *loc;(NL)(NL)	lang = setlocale(LC_ALL, NULL);(NL)	if (lang == NULL) {(NL)		return NULL;(NL)	}(NL)(NL)	locv = g_strsplit(lang, "	,	L_38
+", statex.ullTotalPhys/(1024*1024));(NL)#endif(NL)}(NL)(NL)/*(NL) * Get compiler information, and append it to the GString.(NL) */(NL)static void(NL)get_compiler_info(GString *str)(NL){(NL)	/*(NL)	 * See https://sourceforge.net/apps/mediawiki/predef/index.php?title=Compilers(NL)	 * information on various defined strings.(NL)	 *(NL)	 * GCC's __VERSION__ is a nice text string for humans to(NL)	 * read.  The page at sourceforge.net largely describes(NL)	 * numeric #defines that encode the version; if the compiler(NL)	 * doesn't also offer a nice printable string, we try prettifying(NL)	 * the number somehow.(NL)	 */(NL)#if defined(__GNUC__) &amp;&amp; defined(__VERSION__)(NL)	/*(NL)	 * Clang and llvm-gcc also define __GNUC__ and __VERSION__;(NL)	 * distinguish between them.(NL)	 */(NL)#if defined(__clang__)(NL)	g_string_append_printf(str, "	,	L_17
+",(NL)                   visual_studio_ver,(NL)			       (_MSC_FULL_VER / 100000) % 100);(NL)#  if (_MSC_FULL_VER % 100000) != 0(NL)	g_string_append_printf(str, "	,	L_30
+GString	,	T_1
+CPUBrandString	,	V_9
+", __HP_aCC);(NL)#elif defined(__xlC__)(NL)	g_string_append_printf(str, "	,	L_21
+",(NL)			       _MSC_FULL_VER % 10000);(NL)#  endif(NL)# endif(NL)	g_string_append_printf(str, "	,	L_33
+get_zlib_compiled_version_info	,	F_3
+", lang);(NL)		g_free(lang);(NL)	}(NL)	else {(NL)		g_string_append(str, "	,	L_43
+",(NL)	    __INTEL_COMPILER_BUILD_DATE / 10000,(NL)	    (__INTEL_COMPILER_BUILD_DATE / 100) % 100,(NL)	    __INTEL_COMPILER_BUILD_DATE % 100);(NL)#endif /* __INTEL_COMPILER_BUILD_DATE */(NL)	g_string_append_printf(str, "	,	L_27
+str	,	V_1
+GLIB_MAJOR_VERSION	,	F_11
+",(NL)	    (__xlC__ &gt;&gt; 8) &amp; 0xFF, __xlC__ &amp; 0xFF);(NL)#ifdef __IBMC__(NL)	if ((__IBMC__ % 10) != 0)(NL)		g_string_append_printf(str, "	,	L_22
+");(NL)(NL)	get_os_version_info(str);(NL)(NL)	/*(NL)	 * Locale.(NL)	 *(NL)	 * This returns the C language's locale information; this(NL)	 * returns the locale that's actually in effect, even if(NL)	 * it doesn't happen to match the settings of any of the(NL)	 * locale environment variables.(NL)	 *(NL)	 * XXX - what happens on Windows?  If nobody's explicitly(NL)	 * overridden any of the environment variables, does this(NL)	 * reflect the locale settings in the OS?  If so, does(NL)	 * that include the code page?  (We're not using UTF-16(NL)	 * for output to files or the console; using code page(NL)	 * 65001, i.e. UTF-8, as your system code page probably(NL)	 * works best with Wireshark.)(NL)	 */(NL)	if ((lang = get_locale()) != NULL) {(NL)		g_string_append_printf(str, "	,	L_42
+", __IBMC__ % 10);(NL)#endif /* __IBMC__ */(NL)	g_string_append_printf(str, "	,	L_23
+dwLength	,	V_13
+"Compiled "	,	L_5
+");(NL)#elif defined(_MSC_FULL_VER)(NL)# if _MSC_FULL_VER &gt; 99999999(NL)	/* Quote from the web:(NL)	 * Bakersfield: DevDiv's upper management determines the scheduling of new major versions.(NL)	 * They also decided to increment the product version from 12 (for VS 2013) to 14 (for VS 2015).(NL)	 * However, the C++ compiler's version incremented normally, from 18 to 19.(NL)	 * (It's larger because the C++ compiler predates the "	,	L_28
+" G_GINT64_MODIFIER "	,	L_15
+append_info	,	F_8
+MEMORYSTATUSEX	,	T_5
+"(32-bit) "	,	L_6
+",(NL)	    (_MSC_VER / 100) - 6, _MSC_VER % 100);(NL)#elif defined(__SUNPRO_C)(NL)	g_string_append_printf(str, "	,	L_35
+CPUInfo	,	V_8
+get_compiled_version_info	,	F_6
+"with "	,	L_9
+_U_	,	V_11
+", __SUNPRO_C &amp; 0xF);(NL)	g_string_append_printf(str, "	,	L_37
+statex	,	V_12
+", zlibVersion());(NL)#endif(NL)(NL)	g_string_append(str, "	,	L_45
+", -1);(NL)	loc = g_strjoinv("	,	L_39
+", locv);(NL)	g_strfreev(locv);(NL)	return loc;(NL)}(NL)(NL)/*(NL) * Get various library run-time versions, and the OS version, and append(NL) * them to the specified GString.(NL) *(NL) * "	,	L_40
+GLIB_MINOR_VERSION	,	V_6
+point	,	V_2
+ws_cpuid_sse42	,	F_14
+g_string_new	,	F_9
+"GLib %d.%d.%d"	,	L_10
+");(NL)#elif defined(_MSC_VER)(NL)	/* _MSC_FULL_VER not defined, but _MSC_VER defined */(NL)	g_string_append_printf(str, "	,	L_34
+",(NL)	    __INTEL_COMPILER / 100, (__INTEL_COMPILER / 10) % 10);(NL)	if ((__INTEL_COMPILER % 10) != 0)(NL)		g_string_append_printf(str, "	,	L_25
+",(NL)	       prog_name_str, get_ws_vcs_version_info(), get_copyright_info(),(NL)	       comp_info_str-&gt;str, runtime_info_str-&gt;str);(NL)}(NL)(NL)/*(NL) * Return a version number string for Wireshark, including, for builds(NL) * from a tree checked out from Wireshark's version control system,(NL) * something identifying what version was checked out.(NL) */(NL)const char *(NL)get_ws_vcs_version_info(void)(NL){(NL)#ifdef VCSVERSION(NL)	return VERSION "	,	L_48
+"with zlib "	,	L_2
+", "	,	L_8
+"without zlib"	,	L_4
+");(NL)(NL)	/* CPU Info */(NL)	get_cpu_info(str);(NL)(NL)	/* Get info about installed memory Windows only */(NL)	get_mem_info(str);(NL)(NL)	/* Compiler info */(NL)	get_compiler_info(str);(NL)(NL)	end_string(str);(NL)(NL)	return str;(NL)}(NL)(NL)void(NL)show_version(const gchar *prog_name_str, GString *comp_info_str,(NL)	     GString *runtime_info_str)(NL){(NL)	printf("	,	L_46
+gchar	,	T_3
+GLIB_MICRO_VERSION	,	V_7
+end_string	,	F_1
+" (with SSE4.2)"	,	L_13
+",(NL)			       (_MSC_FULL_VER / 1000000) - 6,(NL)			       (_MSC_FULL_VER / 10000) % 100);(NL)#  if (_MSC_FULL_VER % 10000) != 0(NL)	g_string_append_printf(str, "	,	L_32
+"with zlib (version unknown)"	,	L_3
+", with ""	,	L_14
+g_string_append_printf	,	F_10
+get_cpu_info	,	F_12
+p	,	V_3
+prepend_info	,	F_7
+q	,	V_4
+");(NL)#elif defined(__INTEL_COMPILER)(NL)	g_string_append_printf(str, "	,	L_24
+",(NL)			       _MSC_FULL_VER % 100000);(NL)#  endif(NL)# else(NL)	g_string_append_printf(str, "	,	L_31
+ZLIB_VERSION	,	F_5
+ws_cpuid	,	F_13
+"\n"	,	L_1
+"(NL)	       "	,	L_47
+");(NL)	}(NL)(NL)(NL)	/* Additional application-dependent information */(NL)	if (additional_info)(NL)		(*additional_info)(str);(NL)(NL)	/* zlib */(NL)#if defined(HAVE_ZLIB) &amp;&amp; !defined(_WIN32)(NL)	g_string_append_printf(str, "	,	L_44

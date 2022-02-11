@@ -1,0 +1,307 @@
+hf_a21_auth_chall_para_rand_value	,	V_35
+parent	,	V_60
+A21_IEI_REFERENCE_CELL_ID	,	V_96
+"a21.service_option"	,	L_88
+proto_register_protocol	,	F_37
+"a21.ie_data_not_dissected_yet"	,	L_102
+length_len	,	V_76
+tvb_reported_length	,	F_28
+"a21.mn_id_esn"	,	L_29
+"A21 Cause Value"	,	L_48
+A21_IEI_A21_1X_MESSAGE_TRANSMISSION_CONTROL	,	V_90
+tvb_new_subset_remaining	,	F_30
+hf_a21_gcsna_status	,	V_56
+gint	,	V_15
+"a21.mn_id_type_of_identity"	,	L_25
+a21_event_vals	,	V_70
+"Cell"	,	L_63
+"ESN"	,	L_28
+tvb	,	V_1
+A21_IEI_PILOT_LIST	,	V_86
+"Simul Xmit with Next"	,	L_34
+COL_INFO	,	V_99
+priority_incl	,	V_50
+hf_a21_additional_event_info	,	V_72
+A21_IEI_SERVICE_OPTION	,	V_93
+a21_module	,	V_122
+a21_service_option_vals	,	V_119
+dissect_a21_ie_common	,	F_27
+A21_IEI_GCSNA_PDU	,	V_80
+"Odd/Even Indicator"	,	L_22
+cinfo	,	V_97
+"%s : "	,	L_6
+"a21.gcsna_status_gec"	,	L_93
+"a21.gcsna_status_status_incl"	,	L_95
+"Call Priority"	,	L_98
+hf_a21_pilot_list_num_of_pilots	,	V_32
+array_length	,	F_39
+hf_a21_msg_tran_ctrl_protocol_revision	,	V_27
+"Reserved"	,	L_30
+"Record %u"	,	L_4
+call_dissector	,	F_19
+ie_type	,	V_75
+"a21.reference_cell_id_cell"	,	L_64
+a21_tree	,	V_59
+record_tree	,	V_39
+"A21 Correlation ID"	,	L_10
+hf_a21_mob_sub_info_record_id	,	V_42
+ett_a21_record_content	,	V_41
+"a21.reserved"	,	L_31
+hf_register_info	,	T_12
+A21_IEI_1X_LAC_ENCAPSULATED_PDU	,	V_84
+hf_a21_mscid_switch_number	,	V_64
+"a21.allowed_foward_link_message"	,	L_59
+dissect_a21	,	F_31
+guint16	,	T_7
+hf_a21_reference_cell_id_cell	,	V_65
+COL_PROTOCOL	,	V_98
+hf_a21_reserved	,	V_22
+i	,	V_36
+"Band Class"	,	L_77
+"Sector"	,	L_65
+"a21.gcsna_status_call_priority"	,	L_99
+tc	,	V_5
+"Current Band Subclass"	,	L_75
+"a21.mscid_market_id"	,	L_51
+guint8	,	T_9
+hf_a21_gcsna_status_call_priority	,	V_57
+event_id	,	V_68
+dissect_a21_unknown	,	F_25
+ti	,	V_79
+hf_a21_gcsna_pdu_length	,	V_83
+BASE_NONE	,	V_111
+"a21.gcsna_status"	,	L_97
+"Random Number Type"	,	L_83
+a21_prefs_initialized	,	V_131
+"a21.msg_tran_ctrl_protocol_revision"	,	L_41
+tvbuff_t	,	T_1
+hf_a21_pilot_list_value	,	V_33
+dissect_a21_event	,	F_22
+"All Band Classes Included"	,	L_73
+"Event"	,	L_54
+"Record Length"	,	L_69
+tvb_get_ntohs	,	F_29
+dissect_a21_correlation_id	,	F_1
+"Paging Message"	,	L_32
+hf_a21_mn_id_msid_value	,	V_17
+col_add_str	,	F_34
+FT_UINT24	,	V_112
+ie_tvb	,	V_77
+gboolean	,	T_17
+"a21.msg_tran_ctrl_simul_xmit_with_next"	,	L_35
+"a21.mob_sub_info_re_con_all_band_inc"	,	L_74
+proto_item_add_subtree	,	F_3
+"Number of Pilots"	,	L_44
+a21_random_number_type_vals	,	V_118
+module_t	,	T_13
+proto_register_a21	,	F_35
+proto_register_field_array	,	F_38
+"A21 Element Identifier"	,	L_12
+FT_BYTES	,	V_113
+"a21.auth_chall_para_rand_num_type"	,	L_84
+"3G1X Parameters"	,	L_100
+A21_IEI_MOBILE_IDENTITY	,	V_88
+ei	,	V_124
+dissector_add_uint	,	F_46
+status_incl	,	V_51
+a21_gcsna_status_vals	,	V_120
+hf_a21_gcsna_status_reserved	,	V_52
+hf_a21_msg_tran_ctrl_3GXLogicalChannel	,	V_26
+FT_UINT16	,	V_115
+"a21.mob_sub_info_re_con_all_sub_band_inc"	,	L_80
+"Record Content"	,	L_71
+tvb_get_guint8	,	F_5
+ei_a21_ie_data_not_dissected_yet	,	V_74
+"a21.3G1X_parameters"	,	L_101
+hf_a21_msg_tran_ctrl_simul_xmit_with_next	,	V_24
+"AckRequired"	,	L_36
+"a21.mn_id_msid_value"	,	L_19
+"a21.gcsna_pdu_length"	,	L_60
+dissector_delete_uint	,	F_47
+"a21.mob_sub_info_record_content"	,	L_72
+"GEC"	,	L_92
+record_item	,	V_40
+tvb_bcd_dig_to_wmem_packet_str	,	F_6
+"a21.correlation_id"	,	L_11
+"a21.gcsna_status_priority_incl"	,	L_91
+"RAND Value"	,	L_85
+"Message Type"	,	L_8
+FT_STRING	,	V_110
+ie_tree	,	V_78
+dissect_a21_authentication_challenge_parameter	,	F_14
+A21_IEI_A21_MOBILE_SUBSCRIPTION_INFORMATION	,	V_94
+hf_a21	,	V_104
+proto_reg_handoff_a21	,	V_128
+hf_a21_element_length	,	V_11
+"Identity Digit 1"	,	L_20
+"a21.auth_chall_para_rand_value"	,	L_86
+val_to_str_const	,	F_23
+ett_a21_ie	,	V_82
+length	,	T_8
+find_dissector	,	F_48
+gcsna_handle	,	V_62
+"All Band Subclasses Included"	,	L_79
+hf_a21_mob_sub_info_record_length	,	V_43
+dissect_a21_1x_parameters	,	F_12
+"a21.length"	,	L_15
+"a21"	,	L_105
+ENC_BIG_ENDIAN	,	V_8
+hf_a21_gcsna_status_priority_incl	,	V_53
+"a21.mn_id_identity_digit_1"	,	L_21
+record_id	,	V_37
+"a21.msg_tran_ctrl_3GXLogicalChannel"	,	L_39
+FT_UINT32	,	V_109
+record_len	,	V_38
+A21_IEI_A21_EVENT	,	V_92
+"a21.element_identifier"	,	L_13
+"a21.1x_lac_en_pdu"	,	L_43
+hf_a21_service_option	,	V_73
+"A21"	,	L_7
+"gcsna"	,	L_109
+hf_a21_imsi	,	V_21
+"Priority Incl"	,	L_90
+new_tvb	,	V_58
+a21_element_type_vals	,	V_81
+hf_a21_mn_id_odd_even_indicator	,	V_18
+dissect_a21_mobile_subscription_information	,	F_15
+prefs_register_protocol	,	F_43
+a21_additional_event_info_vals	,	V_116
+ett_a21_array	,	V_121
+hf_a21_corr_id_corr_value	,	V_12
+FT_UINT64	,	V_108
+"Subclass Length"	,	L_81
+"Service Option"	,	L_87
+col_set_str	,	F_32
+"a21.pilot_list_num_of_pilots"	,	L_45
+hf_a21_allowed_foward_link_message	,	V_71
+dissect_a21_1x_lac_encapsulated_pdu	,	F_11
+item	,	T_6
+"a21.mn_id_odd_even_indicator"	,	L_23
+hf_a21_element_identifier	,	V_10
+proto_item_append_text	,	F_8
+message_type	,	T_10
+hf_a21_reference_cell_id_sector	,	V_66
+col_clear	,	F_33
+a21_cause_vals	,	V_114
+"a21.additional_event_info"	,	L_57
+"a21.reference_cell_id_sector"	,	L_66
+proto_register_subtree_array	,	F_40
+proto_tree_add_string	,	F_7
+a21_record_identifier_vals	,	V_117
+hf_a21_corr_id	,	V_7
+saved_a21_udp_port	,	V_132
+hf_a21_msg_tran_ctrl_ackrequired	,	V_25
+A21_IEI_A21_CAUSE	,	V_91
+proto_tree_add_item	,	F_2
+"a21.mob_sub_info_record_id"	,	L_68
+dissect_a21_gcsna_status	,	F_16
+pinfo	,	T_3
+dissector_handle_t	,	T_16
+_U_	,	V_2
+"a21.msg_tran_ctrl_ackrequired"	,	L_37
+dissect_a21_reference_cell_id	,	F_20
+"IE data not dissected yet"	,	L_103
+hf_a21_gcsna_status_status_incl	,	V_55
+hf_a21_1x_lac_en_pdu	,	V_28
+dissect_a21_service_option	,	F_24
+hf_a21_gcsna_status_gec	,	V_54
+hf_a21_mn_id_type_of_identity	,	V_16
+VALS	,	F_36
+a21_handle	,	V_130
+hf_a21_mob_sub_info_re_sub_cls_len	,	V_48
+"Pilot List Value"	,	L_46
+PI_PROTOCOL	,	V_125
+"Correlation Value"	,	L_16
+"a21.mob_sub_info_re_band_class"	,	L_78
+FT_UINT8	,	V_105
+proto_tree_add_text	,	F_9
+BASE_DEC	,	V_106
+"Switch Number"	,	L_52
+tvb_new_subset	,	F_18
+proto_item	,	T_5
+expert_register_field_array	,	F_42
+"3GXLogicalChannel"	,	L_38
+ENC_NA	,	V_30
+hf_a21_gcsna_content	,	V_61
+"GCSNA Content"	,	L_61
+imsi_str	,	V_14
+hf_a21_mn_id_identity_digit_1	,	V_19
+dissect_a21_1x_message_transmission_control	,	F_10
+"a21.gcsna_status_reserved"	,	L_89
+"a21.gcsna_content"	,	L_62
+"%s"	,	L_1
+dissect_a21_cause	,	F_21
+dissect_a21_mobile_identity	,	F_4
+A21_IEI_A21_1X_PARAMETERS	,	V_85
+num	,	V_31
+hf_a21_mob_sub_info_re_con_all_sub_band_inc	,	V_47
+hf_a21_mob_sub_info_record_content	,	V_49
+hf_a21_mn_id_esn	,	V_20
+ett_a21	,	V_102
+"Random Number Type Reserved"	,	L_3
+hf_a21_event	,	V_69
+"a21.pilot_list_value"	,	L_47
+prefs_register_uint_preference	,	F_44
+ei_register_info	,	T_15
+"UDP port used by A21, usually 23272"	,	L_108
+expert_register_protocol	,	F_41
+"Type of Identity Reserved"	,	L_2
+PI_NOTE	,	V_126
+identity_type	,	V_13
+hf_a21_mob_sub_info_re_con_curr_band_sub	,	V_45
+hf_a21_cause_value	,	V_67
+"Length"	,	L_14
+guint	,	T_18
+offset	,	V_4
+"ProtocolRevision"	,	L_40
+"a21.mob_sub_info_re_con_curr_band_sub"	,	L_76
+expert_module_t	,	T_14
+tree	,	V_3
+"Status Incl"	,	L_94
+"a21.event"	,	L_55
+"Additional Event Info"	,	L_56
+packet_info	,	T_2
+hf_a21_mob_sub_info_re_con_all_band_inc	,	V_44
+"A21 Protocol"	,	L_104
+"A21 UDP Port"	,	L_107
+"Allowed Forward Link Messages"	,	L_58
+expert_a21	,	V_123
+"a21.corr_id_corr_value"	,	L_17
+hf_a21_mscid_market_id	,	V_63
+A21_IEI_CORRELATION_ID	,	V_87
+A21_IEI_AUTHENTICATION_CHALLENGE_PARAMETER	,	V_89
+EXPFILL	,	V_127
+"a21.message_type"	,	L_9
+dissect_a21_gcsna_pdu	,	F_17
+"Type of Identity"	,	L_24
+proto_tree_add_expert	,	F_26
+corr_tree	,	V_6
+proto_a21	,	V_101
+"a21.imsi"	,	L_27
+"1x LAC Encapsulated PDU"	,	L_42
+"IMSI(International Mobile Subscriber Identity number)"	,	L_26
+hf_a21_3G1X_parameters	,	V_29
+"a21.cause_value"	,	L_49
+"MSID Value"	,	L_18
+"a21.mob_sub_info_re_sub_cls_len"	,	L_82
+HFILL	,	V_107
+"Status"	,	L_96
+"Record Identifier"	,	L_67
+"a21.mscid_switch_number"	,	L_53
+"udp.port"	,	L_106
+ett_a21_corr_id	,	V_9
+gchar	,	T_11
+"a21.mob_sub_info_record_length"	,	L_70
+create_dissector_handle	,	F_45
+a21_udp_port	,	V_129
+A21_IEI_GCSNA_STATUS	,	V_95
+"a21.msg_tran_ctrl_paging_msg"	,	L_33
+dissect_a21_pilot_list	,	F_13
+hf_a21_auth_chall_para_rand_num_type	,	V_34
+a21_message_type_vals	,	V_100
+"Market ID"	,	L_50
+hf_a21_mob_sub_info_re_band_class	,	V_46
+hf_a21_msg_tran_ctrl_paging_msg	,	V_23
+"Unknown"	,	L_5
+proto_tree	,	T_4
+hf_a21_message_type	,	V_103

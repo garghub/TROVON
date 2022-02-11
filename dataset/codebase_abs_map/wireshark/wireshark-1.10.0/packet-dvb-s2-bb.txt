@@ -1,0 +1,327 @@
+hf_dvb_s2_gse_totlength	,	V_42
+"3 "	,	L_5
+"Start"	,	L_78
+proto_register_protocol	,	F_22
+ett_gse	,	V_155
+hf_dvb_s2_modeadapt_acm	,	V_101
+dvb_s2_bb_tree	,	V_59
+"dvb-s2_modeadapt.frameno"	,	L_34
+"Data Field Length"	,	L_65
+"GSE Header (start/stop/length)"	,	L_77
+proto_reg_handoff_dvb_s2_modeadapt	,	V_156
+tvb_new_subset_remaining	,	F_10
+len	,	V_2
+hf_dvb_s2_bb_dfl	,	V_83
+"dvb-s2_bb.syncd"	,	L_70
+gint	,	T_12
+FT_ETHER	,	V_150
+"Total Length"	,	L_99
+TFS	,	F_19
+"dvb-s2_modeadapt.cni"	,	L_31
+tvb	,	V_9
+"Transmission Roll-off factor"	,	L_56
+gse_proto	,	V_17
+COL_INFO	,	V_24
+hf_dvb_s2_modeadapt_frameno	,	V_109
+FT_BOOLEAN	,	V_116
+hf_dvb_s2_modeadapt_acm_fecframe	,	V_104
+BIT_IS_SET	,	F_9
+gse_hdr	,	V_15
+"RO"	,	L_54
+DVB_S2_GSE_CRC32_LEN	,	V_53
+"Baseband "	,	L_8
+"dvb-s2_bb.matype1.acm"	,	L_46
+cinfo	,	V_23
+hf_dvb_s2_gse_crc32	,	V_55
+"Stop Indicator"	,	L_83
+"CNI"	,	L_32
+"ipv6"	,	L_127
+DVB_S2_GSE_MINSIZE	,	V_52
+array_length	,	F_24
+hf_dvb_s2_gse_data	,	V_54
+"MATYPE2: reserved"	,	L_10
+next_tvb	,	V_22
+call_dissector	,	F_11
+"GSE Frame User Data"	,	L_107
+DVB_S2_GSE_HDR_LENGTH_MASK	,	V_26
+hf_dvb_s2_bb_crc	,	V_88
+hf_dvb_s2_gse_proto	,	V_43
+col_append_str	,	F_4
+DVB_S2_BB_ACM_MASK	,	V_133
+new_off	,	V_13
+"Extension Header"	,	L_102
+"Constant Coding and Modulation or Adaptive Coding and Modulation"	,	L_47
+"UPL"	,	L_60
+hf_dvb_s2_bb_matype1_ro	,	V_77
+hf_register_info	,	T_11
+"dvb-s2_modeadapt.acmcmd.modcod"	,	L_28
+dissect_dvb_s2_bb	,	F_14
+"PDU Data"	,	L_105
+"Label Type Indicator"	,	L_86
+tfs_modeadapt_fecframe	,	V_117
+guint16	,	T_6
+COL_PROTOCOL	,	V_65
+DVB_S2_MODEADAPT_OFFS_CNI	,	V_108
+"dvb-s2_gse.crc"	,	L_108
+"full_decode"	,	L_122
+"ip"	,	L_126
+i	,	V_5
+"Single Input Stream or Multiple Input Stream"	,	L_44
+hf_dvb_s2_bb_matype1_mis	,	V_73
+"GSE Length"	,	L_89
+RVALS	,	F_21
+p	,	V_1
+guint8	,	T_3
+tf	,	V_19
+"CRC-32"	,	L_109
+ti	,	V_18
+BASE_NONE	,	V_151
+DVB_S2_GSE_HDR_LABELTYPE_POS1	,	V_39
+DVB_S2_GSE_HDR_LABELTYPE_POS2	,	V_40
+proto_dvb_s2_bb	,	V_66
+hf_dvb_s2_modeadapt_acm_modcod	,	V_106
+DVB_S2_BB_OFFS_SYNC	,	V_85
+tfs_modeadapt_pilots	,	V_119
+hf_dvb_s2_gse_label3	,	V_45
+"DFL: %d bits (%d bytes)"	,	L_12
+ett_dvb_s2_modeadapt_acm	,	V_103
+"User Packet Length"	,	L_62
+ett_dvb_s2_gse	,	V_29
+tvbuff_t	,	T_2
+tvb_get_ntohs	,	F_5
+hf_dvb_s2_gse_label6	,	V_44
+"dvb-s2_modeadapt.acmcmd.pilots"	,	L_25
+BASE_HEX	,	V_114
+DVB_S2_MODEADAPT_SYNCBYTE	,	V_95
+FT_UINT24	,	V_152
+gboolean	,	T_1
+proto_item_add_subtree	,	F_7
+"dvb-s2_bb.matype1.npd"	,	L_52
+"BB "	,	L_7
+module_t	,	T_10
+proto_register_field_array	,	F_23
+DVB_S2_MODEADAPT_OFFS_SYNCBYTE	,	V_94
+"Das Sync Byte"	,	L_18
+FT_BYTES	,	V_153
+DVB_S2_BB_MIS_POS	,	V_69
+DVB_S2_MODEADAPT_OUTSIZE	,	V_97
+"dvb-s2_gse.fragid"	,	L_97
+data_len	,	V_16
+check_crc8	,	F_1
+bb_data_len	,	V_62
+tfs_bb_issyi	,	V_134
+FT_UINT16	,	V_140
+"DVB-S2-BB"	,	L_114
+dvb_s2_enable	,	V_157
+tvb_get_guint8	,	F_2
+"dvb-s2_gse.hdr.start"	,	L_79
+DVB_S2_BB_MIS_MASK	,	V_131
+"dvb-s2_bb.sync"	,	L_67
+DVB_S2_BB_OFFS_UPL	,	V_80
+"Protocol Type"	,	L_92
+gse_labeltype	,	V_146
+ETHERTYPE_IP	,	V_48
+"0 "	,	L_6
+"dvb-s2_modeadapt.acmcmd"	,	L_20
+input8	,	V_56
+"NPD"	,	L_51
+"SYNC"	,	L_66
+hf_bb	,	V_127
+DVB_S2_GSE_HDR_LABELTYPE_MASK	,	V_147
+hf_dvb_s2_modeadapt_acm_pilot	,	V_105
+tfs_bb_npd	,	V_136
+heur_dissector_add	,	F_28
+dvb_s2_modeadapt_module	,	V_111
+hf_dvb_s2_gse_hdr_length	,	V_36
+gse_proto_str	,	V_149
+"Fragment ID"	,	L_98
+dvb_s2_bb_matype1_tree	,	V_60
+"Pilots configuration"	,	L_24
+bb_gs	,	V_128
+"Distance to first user packet"	,	L_71
+DVB_S2_BB_ISSYI_MASK	,	V_135
+"dvb-s2_bb.matype1.ro"	,	L_55
+hf_dvb_s2_bb_matype1_gs	,	V_72
+find_dissector	,	F_29
+hf_dvb_s2_gse_fragid	,	V_41
+ipv6_handle	,	V_51
+"MATYPE2: Input Stream Identifier (ISI): %d"	,	L_9
+ENC_BIG_ENDIAN	,	V_33
+"DVB-S2 Modeadaption Header"	,	L_110
+FT_UINT32	,	V_154
+"Stream Input"	,	L_39
+"dvb-s2_gse.hdr"	,	L_76
+DVB_S2_MODEADAPT_FECFRAME_MASK	,	V_118
+hf_dvb_s2_bb_syncd	,	V_86
+"MATYPE2"	,	L_57
+"Null-packet deletion enabled"	,	L_53
+"Frag ID"	,	L_96
+bb_ro	,	V_138
+prefs_register_protocol	,	F_26
+DVB_S2_BB_NPD_MASK	,	V_137
+"dvb-s2_bb.matype2"	,	L_58
+ett_dvb_s2_bb	,	V_67
+BASE_EXT_STRING	,	V_122
+tmp	,	V_7
+ETHERTYPE_IPv6	,	V_50
+DVB_S2_BB_OFFS_CRC	,	V_58
+col_set_str	,	F_17
+BASE_RANGE_STRING	,	V_148
+"Checksum: incorrect! (0x%2.2x)"	,	L_14
+proto_tree_add_uint_format	,	F_15
+"DVB-S2 "	,	L_15
+hf_dvb_s2_bb_sync	,	V_84
+dvb_s2_modeadapt_len	,	V_90
+tfs_bb_acm	,	V_132
+byte	,	V_93
+"DVB-S2-GSE"	,	L_117
+"MATYPE1"	,	L_36
+"dvb-s2_gse.label"	,	L_94
+"dvb-s2_gse.data"	,	L_106
+"Start Indicator"	,	L_80
+hf_dvb_s2_bb_upl	,	V_81
+"Sync Byte"	,	L_16
+dissect_dvb_s2_modeadapt	,	F_16
+"dvb-s2_gse.hdr.length"	,	L_88
+"DVB-S2 Baseband Frame"	,	L_113
+"dvb-s2_bb.upl"	,	L_61
+"Enable dissection of GSE data"	,	L_123
+proto_register_subtree_array	,	F_25
+DVB_S2_MODEADAPT_OFFS_ACMBYTE	,	V_102
+hf_dvb_s2_modeadapt_cni	,	V_107
+hf_modeadapt	,	V_112
+proto_tree_add_item	,	F_6
+dissect_dvb_s2_gse	,	F_3
+pinfo	,	V_12
+"6 "	,	L_4
+ip_handle	,	V_49
+hf_dvb_s2_bb_matype2	,	V_79
+_U_	,	V_89
+"MATYPE2 Header Field"	,	L_59
+hf_dvb_s2_bb_matype1	,	V_70
+dvb_s2_full_dissection	,	V_47
+ett_dvb_s2_modeadapt	,	V_99
+crc8_table	,	V_8
+DVB_S2_BB_OFFS_DFL	,	V_82
+tfs_gse_ss	,	V_143
+DVB_S2_GSE_HDR_START_POS	,	V_37
+prefs_initialized	,	V_158
+"dvb-s2_gse.hdr.labeltype"	,	L_85
+DVB_S2_BB_GS_MASK	,	V_129
+"GSE header"	,	L_75
+VALS	,	F_20
+prefs_register_bool_preference	,	F_27
+proto_dvb_s2_gse	,	V_27
+modeadapt_esno_ext	,	V_125
+hf_dvb_s2_modeadapt_sync	,	V_100
+tvb_length	,	F_13
+ett_dvb_s2_bb_matype1	,	V_71
+"MATYPE1 Header Field"	,	L_38
+flag_is_ms	,	V_64
+FT_UINT8	,	V_113
+"dvb-s2_gse.proto"	,	L_91
+hf_dvb_s2_gse_hdr_labeltype	,	V_35
+"Pilots"	,	L_26
+BASE_DEC	,	V_121
+"dvb-s2_gse.exthdr"	,	L_103
+"enable"	,	L_119
+"Modcod"	,	L_29
+"dvb-s2_gse.hdr.stop"	,	L_82
+proto_item	,	T_7
+"Label Field"	,	L_95
+DVB_S2_GSE_HDR_STOP_MASK	,	V_145
+ENC_NA	,	V_28
+"fno"	,	L_35
+"dvb-s2_gse.totlength"	,	L_100
+"dvb-s2_bb.matype1"	,	L_37
+"ISSYI"	,	L_48
+"User Packet Length: %d bits (%d bytes)"	,	L_11
+"ACM command"	,	L_19
+tfs_bb_mis	,	V_130
+hf_dvb_s2_gse_hdr	,	V_30
+hf_gse	,	V_142
+DVB_S2_GSE_HDR_STOP_POS	,	V_38
+"dvb-s2_bb.crc"	,	L_73
+"Frame number"	,	L_33
+"dvb-s2_bb.matype1.issyi"	,	L_49
+"Modcod indicator"	,	L_27
+ett_dvb_s2_gse_hdr	,	V_31
+"Check this to enable full protocol dissection of data above GSE Layer"	,	L_124
+data	,	T_9
+"Input Stream Synchronization Indicator"	,	L_50
+"DFL"	,	L_63
+DVB_S2_BB_OFFS_SYNCD	,	V_87
+"GSE"	,	L_1
+"DVB-S2"	,	L_111
+"FEC frame size"	,	L_21
+"GSE Total Frame Length"	,	L_101
+DVB_S2_MODEADAPT_MODCODS_MASK	,	V_124
+"Stop"	,	L_81
+"Checksum: correct (0x%2.2x)"	,	L_13
+"Enable DVB-S2 dissector"	,	L_121
+proto_register_dvb_s2_modeadapt	,	F_18
+hf_dvb_s2_gse_hdr_start	,	V_32
+"SYNCD"	,	L_69
+"FEC"	,	L_23
+hf_dvb_s2_gse_hdr_stop	,	V_34
+"Carrier to Noise [dB]"	,	L_30
+"(frag) "	,	L_3
+guint	,	T_8
+"Length"	,	L_87
+"optional Extension Header"	,	L_104
+offset	,	V_3
+" "	,	L_2
+hf_dvb_s2_bb_matype1_acm	,	V_74
+BIT_IS_CLEAR	,	F_8
+tree	,	V_11
+sub_dissected	,	V_63
+"Copy of the User Packet Sync-byte"	,	L_68
+"dvb-s2_modeadapt"	,	L_112
+packet_info	,	T_5
+DVB_S2_MODEADAPT_OFFS_FNO	,	V_110
+DVB_S2_BB_HEADER_LEN	,	V_57
+"dvb-s2_bb"	,	L_115
+DVB_S2_MODEADAPT_INSIZE	,	V_96
+"Label Type"	,	L_84
+"DVB-S2 GSE Packet"	,	L_116
+"udp"	,	L_125
+DVB_S2_GSE_HDR_START_MASK	,	V_144
+"Label"	,	L_93
+DVB_S2_BB_RO_MASK	,	V_139
+hf_dvb_s2_gse_exthdr	,	V_46
+test_dvb_s2_crc	,	F_12
+proto_dvb_s2_modeadapt	,	V_98
+"dvb-s2_bb.matype1.mis"	,	L_43
+"Transport Stream Input or Generic Stream Input"	,	L_41
+"Enable dissector"	,	L_120
+received_fcs	,	V_4
+modeadapt_modcods_ext	,	V_123
+"CRC-8"	,	L_74
+DVB_S2_GSE_OFFS_HDR	,	V_25
+"dvb-s2_bb.matype1.gs"	,	L_40
+"Input Stream"	,	L_42
+cur_off	,	V_10
+dvb_s2_gse_hdr_tree	,	V_21
+"Coding and Modulation"	,	L_45
+frag_len	,	V_14
+crc	,	V_6
+dvb_s2_gse_tree	,	V_20
+HFILL	,	V_115
+"dvb-s2_modeadapt.sync"	,	L_17
+ett_modeadapt	,	V_126
+"dvb-s2_bb.dfl"	,	L_64
+dvb_s2_modeadapt_tree	,	V_91
+ett_bb	,	V_141
+input16	,	V_61
+DVB_S2_BB_OFFS_MATYPE2	,	V_78
+"CRC"	,	L_72
+DVB_S2_BB_OFFS_MATYPE1	,	V_68
+hf_dvb_s2_bb_matype1_npd	,	V_76
+"Protocol"	,	L_90
+"dvb-s2_modeadapt.acmcmd.fecframe"	,	L_22
+"dvb-s2_gse"	,	L_118
+proto_set_decoding	,	F_30
+hf_dvb_s2_bb_matype1_issyi	,	V_75
+proto_tree	,	T_4
+dvb_s2_modeadapt_acm_tree	,	V_92
+DVB_S2_MODEADAPT_PILOTS_MASK	,	V_120

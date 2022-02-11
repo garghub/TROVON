@@ -1,0 +1,302 @@
+"Ack"	,	L_16
+proto_register_protocol	,	F_46
+hf_quakeworld_game_qport	,	V_112
+tvb_reported_length	,	F_34
+password	,	V_79
+tvb_new_subset_remaining	,	F_35
+"Version"	,	L_51
+len	,	V_43
+gint	,	T_3
+" %s"	,	L_22
+"Server to Client"	,	L_39
+qport	,	V_57
+"Direction: %s"	,	L_30
+tvb	,	V_20
+ett_quakeworld_game_clc	,	V_115
+guint32	,	T_8
+"Current Sequence: %u (%s)"	,	L_24
+COL_INFO	,	V_92
+A2C_PRINT	,	V_89
+FT_BOOLEAN	,	V_137
+skipwhite	,	V_7
+version	,	V_56
+hf_quakeworld_connectionless_connect_version	,	V_70
+remaining	,	V_81
+cmd_argv_length	,	V_13
+text_len	,	V_15
+sub_tree	,	V_37
+"quakeworld.connectionless"	,	L_41
+"quakeworld.connectionless.rcon.password"	,	L_72
+g_strlcat	,	F_23
+cinfo	,	V_91
+wmem_strdup	,	F_22
+"quakeworld.game.rel2"	,	L_83
+PI_ERROR	,	V_141
+valueend	,	V_35
+array_length	,	F_48
+"Protocol Version"	,	L_53
+Cmd_Argv_start	,	F_7
+next_tvb	,	V_113
+""	,	L_1
+argument_tree	,	V_62
+"quakeworld.s2c"	,	L_40
+"Reliable"	,	L_78
+"quakeworld.connectionless.arguments"	,	L_50
+hf_quakeworld_s2c	,	V_124
+hf_quakeworld_c2s	,	V_125
+"quakeworld.c2s"	,	L_38
+ENC_ASCII	,	V_50
+MAX_ARGS	,	V_19
+hf_quakeworld_connectionless_rcon_command	,	V_84
+col_append_str	,	F_41
+seq2_tree	,	V_108
+S2C_CHALLENGE	,	V_90
+proto_tree_add_boolean	,	F_32
+hf_quakeworld_game_seq2	,	V_110
+hf_quakeworld_game_seq1	,	V_106
+"Sequence number of the last received packet"	,	L_82
+arg	,	V_9
+hf_register_info	,	T_12
+"quakeworld.game.rel1"	,	L_79
+"Print"	,	L_20
+"quakeworld"	,	L_35
+"Infostring"	,	L_59
+ett_quakeworld_game_seq1	,	V_104
+"quakeworld.connectionless.text"	,	L_46
+ett_quakeworld_game_seq2	,	V_109
+"Packet is reliable and may be retransmitted"	,	L_80
+COM_Parse	,	F_1
+guint16	,	T_9
+hf_quakeworld_connectionless_connect_infostring	,	V_73
+c	,	V_5
+ett_quakeworld_connectionless_connect_infostring	,	V_74
+COL_PROTOCOL	,	V_119
+"Invalid connectionless command"	,	L_88
+game_tree	,	V_93
+com_token	,	V_6
+Cmd_TokenizeString	,	F_9
+ett_key_value	,	V_24
+i	,	V_80
+"Infostring Key"	,	L_67
+"connect"	,	L_9
+"ping"	,	L_3
+"Connect"	,	L_10
+guint8	,	T_7
+"quakeworld.connectionless.connect.infostring"	,	L_60
+BASE_NONE	,	V_135
+keyvaluesep	,	V_33
+A2A_ACK	,	V_86
+"Key/Value"	,	L_62
+tvb_get_ntohl	,	F_14
+"Sequence number of the current packet"	,	L_77
+tvb_get_stringz_enc	,	F_17
+tvbuff_t	,	T_1
+rel2	,	V_97
+rel1	,	V_96
+BASE_HEX	,	V_133
+"log"	,	L_7
+col_add_str	,	F_38
+ett_quakeworld_connectionless	,	V_48
+gboolean	,	T_4
+"quakeworld.connectionless.connect.infostring.value"	,	L_69
+proto_item_add_subtree	,	F_12
+cmd_argc	,	V_8
+"quakeworld.connectionless.connect.version"	,	L_52
+hf_quakeworld_connectionless_connect_infostring_value	,	V_78
+proto_register_field_array	,	F_47
+hf_quakeworld_connectionless_connect_qport	,	V_71
+expert_quakeworld	,	V_128
+"Log"	,	L_8
+rest_length	,	V_98
+ei	,	V_139
+dissector_add_uint	,	F_55
+data_len	,	V_2
+"Sequence Number"	,	L_75
+"Challenge from the server"	,	L_58
+valuepos	,	V_31
+"Client Command"	,	L_19
+tvb_captured_length	,	F_42
+dissect_id_infostring	,	F_10
+"QUAKEWORLD"	,	L_29
+token_len	,	V_4
+" Connectionless"	,	L_31
+text_item	,	V_52
+expert_add_info	,	F_20
+argument_item	,	V_63
+end_of_info	,	V_29
+"quakeworld.game.seq2"	,	L_81
+FT_STRING	,	V_134
+call_data_dissector	,	F_26
+"status"	,	L_5
+hf_key	,	V_26
+"Key and Value"	,	L_64
+com_token_length	,	V_18
+FT_INT32	,	V_136
+dissect_quakeworld_server_commands	,	F_27
+dissect_quakeworld_GamePacket	,	F_28
+quakeworld_tree	,	V_118
+dissect_quakeworld_ConnectionlessPacket	,	F_13
+hf_quakeworld_connectionless_rcon_password	,	V_83
+apply_quakeworld_prefs	,	F_43
+"Key"	,	L_65
+start	,	V_16
+dissect_quakeworld	,	F_36
+cmd_argv	,	V_11
+Cmd_Argv_length	,	F_8
+names_reliable	,	V_105
+Cmd_Argv	,	F_6
+"quakeworld.game.seq1"	,	L_76
+FT_UINT32	,	V_130
+ett_quakeworld_game	,	V_102
+hf_quakeworld_connectionless_connect_infostring_key	,	V_77
+hf	,	V_129
+"Get Challenge"	,	L_12
+"QuakeWorld Network Protocol"	,	L_89
+"Password"	,	L_71
+Cmd_Argc	,	F_5
+hf_key_value	,	V_25
+"Challenge"	,	L_21
+"quakeworld.connectionless.command"	,	L_48
+hf_quakeworld_connectionless_connect_infostring_key_value	,	V_76
+"rcon"	,	L_13
+"Connected"	,	L_18
+hf_value	,	V_27
+prefs_register_protocol	,	F_50
+proto_tree_add_subtree	,	F_15
+col_append_fstr	,	F_24
+"Type: Game"	,	L_34
+cmd_argv_start	,	V_12
+hf_quakeworld_connectionless_command	,	V_64
+cmd_null_string	,	V_10
+col_set_str	,	F_37
+hf_quakeworld_connectionless_text	,	V_53
+text	,	V_14
+proto_tree_add_uint_format	,	F_40
+"Infostring with additional variables"	,	L_61
+"quakeworld.connectionless.rcon.command"	,	L_74
+quakeworld_item	,	V_121
+quakeworld_handle	,	V_143
+"quakeworld.game.qport"	,	L_85
+"Acknowledge Sequence: %u (%s)"	,	L_26
+proto_register_subtree_array	,	F_49
+"Client to Server"	,	L_37
+proto_tree_add_string	,	F_11
+val_to_str	,	F_31
+ws_strtou16	,	F_19
+"quakeworld.connectionless.connect.infostring.key_value"	,	L_63
+g_ascii_iscntrl	,	F_4
+proto_tree_add_item	,	F_39
+pinfo	,	V_38
+dissector_handle_t	,	T_14
+"Text"	,	L_45
+"Connectionless"	,	L_2
+seq1_tree	,	V_103
+_U_	,	V_117
+"Rcon Password"	,	L_73
+"Value"	,	L_68
+"QuakeWorld Client Port"	,	L_86
+keylength	,	V_32
+text_tree	,	V_41
+"Arguments"	,	L_49
+"quakeworld.connectionless.marker"	,	L_44
+info_item	,	V_68
+ett_quakeworld	,	V_123
+PORT_MASTER	,	V_144
+hf_quakeworld_connectionless_connect_challenge	,	V_72
+"QPort of the client"	,	L_56
+ei_quakeworld_connectionless_command_invalid	,	V_67
+BASE_DEC	,	V_131
+hf_quakeworld_game_rel1	,	V_107
+hf_quakeworld_game_rel2	,	V_111
+proto_item	,	T_5
+expert_register_field_array	,	F_52
+version_valid	,	V_59
+A2A_PING	,	V_85
+"quakeworld.connectionless.connect.infostring.key"	,	L_66
+cl_tree	,	V_40
+ENC_NA	,	V_51
+ett_quakeworld_connectionless_connect_infostring_key_value	,	V_75
+"Ping"	,	L_4
+"Game"	,	L_23
+DIR_C2S	,	V_55
+DIR_S2C	,	V_101
+valuelength	,	V_34
+wmem_alloc	,	F_2
+"Remote Command"	,	L_14
+"Command"	,	L_47
+"Marker"	,	L_43
+proto_reg_handoff_quakeworld	,	F_53
+data	,	V_1
+seq2	,	V_95
+names_direction	,	V_120
+seq1	,	V_94
+"Infostring Value"	,	L_70
+"quakeworld.connectionless.command.invalid"	,	L_87
+"getchallenge"	,	L_11
+S2C_CONNECTION	,	V_87
+ei_register_info	,	T_13
+expert_register_protocol	,	F_51
+hf_quakeworld_connectionless_arguments	,	V_65
+" Game"	,	L_33
+tvb_get_letohl	,	F_29
+c_tree	,	V_114
+proto_register_quakeworld	,	F_45
+tvb_get_letohs	,	F_33
+"Client Commands"	,	L_27
+proto_quakeworld	,	V_122
+command_finished	,	V_47
+A2C_CLIENT_COMMAND	,	V_88
+guint	,	T_10
+offset	,	V_22
+" "	,	L_15
+ett	,	V_138
+wmem_packet_scope	,	F_3
+expert_module_t	,	T_11
+tree	,	V_21
+hf_quakeworld_connectionless_marker	,	V_49
+"Type: Connectionless"	,	L_32
+packet_info	,	T_6
+sub_item	,	V_36
+marker	,	V_44
+destport	,	V_99
+proto_tree_add_uint	,	F_16
+challenge_valid	,	V_61
+"%u"	,	L_25
+EXPFILL	,	V_142
+newpos	,	V_28
+keypos	,	V_30
+hf_quakeworld_connectionless	,	V_126
+ett_quakeworld_connectionless_arguments	,	V_66
+command_len	,	V_45
+qport_valid	,	V_60
+"Server Commands"	,	L_28
+infostring	,	V_23
+ett_quakeworld_connectionless_text	,	V_54
+HFILL	,	V_132
+PI_MALFORMED	,	V_140
+gbl_quakeworldServerPort	,	V_100
+direction	,	V_39
+ws_strtou32	,	F_18
+"quakeworld.connectionless.connect.qport"	,	L_55
+token_start	,	V_3
+"Status"	,	L_6
+prefs_get_uint_value	,	F_44
+hf_quakeworld_game	,	V_127
+info_tree	,	V_69
+"udp.port"	,	L_36
+com_token_start	,	V_17
+"quakeworld.connectionless.connect.challenge"	,	L_57
+create_dissector_handle	,	F_54
+proto_tree_add_subtree_format	,	F_30
+ett_quakeworld_game_svc	,	V_116
+command	,	V_46
+"QPort"	,	L_54
+dissect_quakeworld_client_commands	,	F_25
+pi	,	V_42
+challenge	,	V_58
+"Unknown"	,	L_17
+"quakeworld.game"	,	L_42
+proto_tree_add_int	,	F_21
+MAX_TEXT_SIZE	,	V_82
+proto_tree	,	T_2
+"Packet was reliable and may be retransmitted"	,	L_84

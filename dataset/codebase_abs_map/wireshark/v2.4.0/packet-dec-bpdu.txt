@@ -1,0 +1,141 @@
+"dec_stp.flags"	,	L_10
+ETHERTYPE_DEC_LB	,	V_68
+"dec_stp.hello"	,	L_32
+proto_register_protocol	,	F_16
+BPDU_ROOT_PATH_COST	,	V_37
+set_actual_length	,	F_7
+BPDU_ROOT_PRI	,	V_33
+"Max Age"	,	L_33
+"dec_stp.flags.short_timers"	,	L_12
+BPDU_VERSION	,	V_26
+col_set_str	,	F_2
+FT_ETHER	,	V_64
+gint	,	T_8
+"Root Path Cost"	,	L_21
+BPDU_HELLO_TIME	,	V_47
+TFS	,	F_15
+"dec_stp.root.pri"	,	L_18
+tvb	,	V_1
+hf_dec_bpdu_flags_short_timers	,	V_9
+COL_INFO	,	V_14
+"Message Age"	,	L_29
+FT_BOOLEAN	,	V_58
+BPDU_FLAGS	,	V_27
+bpdu_type_vals	,	V_16
+hf_dec_bpdu_type	,	V_24
+proto_reg_handoff_dec_bpdu	,	F_20
+proto_register_dec_bpdu	,	F_13
+"Root Priority"	,	L_17
+col_clear	,	F_3
+"Topology Change"	,	L_15
+"dec_stp.forward"	,	L_36
+hf_dec_bpdu_bridge_pri	,	V_38
+cinfo	,	V_12
+proto_register_subtree_array	,	F_19
+val_to_str	,	F_6
+array_length	,	F_18
+"Topology Change Acknowledgment"	,	L_13
+protocol_id_vals	,	V_55
+hf_dec_bpdu_max_age	,	V_48
+hf_dec_bpdu_proto_id	,	V_21
+hf_dec_bpdu_root_pri	,	V_32
+proto_tree_add_item	,	F_8
+"dec_stp.root.cost"	,	L_22
+pinfo	,	V_2
+"Forward Delay"	,	L_35
+dissector_handle_t	,	T_9
+"dec_stp.root.mac"	,	L_20
+_U_	,	V_4
+"Unknown BPDU type (%u)"	,	L_2
+"ethertype"	,	L_39
+BMT_NO_TFS	,	V_31
+BPDU_BRIDGE_PRI	,	V_39
+"dec_stp"	,	L_38
+ett_dec_bpdu	,	V_20
+hf_dec_bpdu_version_id	,	V_25
+BPDU_DEC_CODE	,	V_22
+hf_register_info	,	T_7
+VALS	,	F_14
+"dec_stp.version"	,	L_8
+"DEC Spanning Tree Protocol"	,	L_37
+COL_PROTOCOL	,	V_13
+FT_UINT8	,	V_53
+BASE_DEC	,	V_57
+proto_item	,	T_6
+hf_dec_bpdu_port_id	,	V_42
+ENC_NA	,	V_19
+BPDU_FORWARD_DELAY	,	V_51
+guint8	,	T_5
+ti	,	V_7
+BASE_NONE	,	V_65
+hf_dec_bpdu_flags_tcack	,	V_10
+BPDU_MESSAGE_AGE	,	V_45
+"dec_stp.bridge.pri"	,	L_24
+"dec_stp.protocol"	,	L_4
+"dec_stp.flags.tcack"	,	L_14
+"Protocol Identifier"	,	L_3
+BPDU_TYPE	,	V_15
+data	,	T_4
+"Hello Time"	,	L_31
+hf_dec_bpdu_root_cost	,	V_36
+tvbuff_t	,	T_1
+hf_dec_bpdu_forward_delay	,	V_50
+bpdu_flags	,	V_8
+BASE_HEX	,	V_54
+"Port identifier"	,	L_27
+col_add_str	,	F_5
+BPDU_PORT_IDENTIFIER	,	V_43
+"BPDU flags"	,	L_9
+proto_item_add_subtree	,	F_9
+proto_dec_bpdu	,	V_18
+hf_dec_bpdu_bridge_mac	,	V_40
+hf_dec_bpdu_msg_age	,	V_44
+proto_register_field_array	,	F_17
+BPDU_FLAGS_TC	,	V_62
+"dec_stp.bridge.mac"	,	L_26
+"Bridge MAC"	,	L_25
+ett	,	V_66
+DEC_BPDU_SIZE	,	V_17
+dissector_add_uint	,	F_22
+bpdu_type	,	V_5
+tree	,	V_3
+BPDU_ROOT_MAC	,	V_35
+"Bridge Priority"	,	L_23
+"dec_stp.port"	,	L_28
+hf_dec_bpdu_hello_time	,	V_46
+"ppp.protocol"	,	L_41
+FT_UINT16	,	V_63
+packet_info	,	T_2
+tvb_get_guint8	,	F_4
+"Root MAC"	,	L_19
+tvb_captured_length	,	F_12
+tfs_yes_no	,	V_59
+BPDU_BRIDGE_MAC	,	V_41
+"dec_stp.max_age"	,	L_34
+BPDU_MAX_AGE	,	V_49
+proto_tree_add_uint	,	F_10
+bpdu_tree	,	V_6
+ett_dec_bpdu_flags	,	V_29
+"Use short timers"	,	L_11
+hf_dec_bpdu_root_mac	,	V_34
+hf_dec_bpdu_flags_tc	,	V_11
+BMT_NO_FALSE	,	V_30
+"dec_stp.type"	,	L_6
+BPDU_FLAGS_TCACK	,	V_61
+"dec_stp.msg_age"	,	L_30
+"chdlc.protocol"	,	L_40
+"BPDU Type"	,	L_5
+"BPDU Version"	,	L_7
+dec_bpdu_handle	,	V_67
+PPP_DEC_LB	,	V_69
+HFILL	,	V_56
+dissect_dec_bpdu	,	F_1
+create_dissector_handle	,	F_21
+proto_tree_add_bitmask_with_flags	,	F_11
+ENC_BIG_ENDIAN	,	V_23
+BPDU_FLAGS_SHORT_TIMERS	,	V_60
+"dec_stp.flags.tc"	,	L_16
+"DEC_STP"	,	L_1
+proto_tree	,	T_3
+hf_dec_bpdu_flags	,	V_28
+hf	,	V_52

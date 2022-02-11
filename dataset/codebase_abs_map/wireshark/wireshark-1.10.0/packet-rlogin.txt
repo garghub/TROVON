@@ -1,0 +1,180 @@
+proto_register_protocol	,	F_33
+info_framenum	,	V_15
+hf_control_message	,	V_42
+rlogin_tree	,	V_25
+", (User information)"	,	L_1
+proto_register_rlogin	,	F_31
+check_col	,	F_10
+col_append_fstr	,	F_11
+gint	,	T_5
+col_set_str	,	F_28
+state	,	V_11
+NONE	,	V_13
+"rlogin.client_startup_flag"	,	L_17
+"X Pixels"	,	L_38
+tvb	,	V_2
+"Window size marker"	,	L_32
+COL_INFO	,	V_21
+hf_user_info_server_user_name	,	V_53
+"Startup info received flag"	,	L_18
+"rlogin.window_size"	,	L_31
+"User name: %s, "	,	L_8
+"rlogin.user_info"	,	L_15
+"Terminal-type"	,	L_24
+NAME_LEN	,	V_17
+col_clear	,	F_30
+ett_rlogin	,	V_35
+cinfo	,	V_20
+window_info_item	,	V_32
+proto_register_subtree_array	,	F_36
+hf_window_info_x_pixels	,	V_63
+USER_INFO_WAIT	,	V_14
+array_length	,	F_35
+"Client-user-name"	,	L_20
+rlogin_hash_entry_t	,	T_1
+proto_tree_add_item	,	F_8
+urgent_offset	,	V_38
+" (%s)"	,	L_2
+private_data	,	V_65
+pinfo	,	V_3
+proto_rlogin	,	V_33
+col_add_fstr	,	F_29
+dissector_handle_t	,	T_11
+user_name	,	V_19
+columns	,	V_57
+"Data"	,	L_42
+flags	,	V_7
+RLOGIN_PORT	,	V_10
+ENC_ASCII	,	V_41
+hf_data	,	V_40
+col_append_str	,	F_6
+hash_info	,	V_1
+hf_register_info	,	T_10
+VALS	,	F_32
+"rlogin.window_size.y_pixels"	,	L_41
+user_info_item	,	V_31
+urgent	,	V_36
+hf_user_info_client_user_name	,	V_52
+ett_rlogin_window_x_pixels	,	V_72
+hf_user_info	,	V_50
+guint16	,	T_8
+COL_PROTOCOL	,	V_67
+tvb_length	,	F_2
+"rlogin.client_user_name"	,	L_21
+FT_UINT8	,	V_78
+slash_offset	,	V_49
+proto_tree_add_text	,	F_21
+"Control Message"	,	L_11
+BASE_DEC	,	V_81
+rlogin_display	,	F_7
+proto_item	,	T_7
+"Control message"	,	L_28
+tvb_strnlen	,	F_4
+"rlogin.terminal_speed"	,	L_27
+"rlogin"	,	L_45
+ENC_NA	,	V_34
+guint8	,	V_18
+ti	,	V_28
+BASE_NONE	,	V_76
+rlogin_handle	,	V_84
+" (rows=%u, cols=%u)"	,	L_6
+"Rlogin"	,	L_7
+hf_window_info_y_pixels	,	V_64
+tvb_format_text	,	F_16
+"Magic Cookie: (0xff, 0xff)"	,	L_5
+tvb_length_remaining	,	F_14
+tvb_offset_exists	,	F_13
+"Window Info"	,	L_30
+"Client startup flag"	,	L_16
+"User info (%s)"	,	L_4
+ett_rlogin_window_rows	,	V_70
+num	,	V_16
+"rlogin.terminal_type"	,	L_25
+tvbuff_t	,	T_2
+tvb_strsize	,	F_17
+hf_window_info	,	V_58
+tvb_get_ntohs	,	F_22
+tvb_memcpy	,	F_5
+BASE_HEX	,	V_79
+rlogin_state_machine	,	F_1
+tcpinfo	,	V_23
+control_byte	,	V_39
+"rlogin.window_size.cols"	,	L_37
+proto_reg_handoff_rlogin	,	F_37
+tvb_find_guint8	,	F_18
+hf_startup_info_received_flag	,	V_46
+urgent_pointer	,	V_37
+"rlogin.window_size.rows"	,	L_35
+ti_offset	,	V_30
+proto_item_add_subtree	,	F_9
+hf_window_info_ss	,	V_60
+"Terminal-speed"	,	L_26
+"rlogin.window_size.x_pixels"	,	L_39
+"Server-user-name"	,	L_22
+"rlogin.control_message"	,	L_29
+proto_register_field_array	,	F_34
+conversation	,	V_66
+"rlogin.window_size.ss"	,	L_33
+conversation_t	,	T_9
+DONE	,	V_12
+ett_rlogin_window_y_pixels	,	V_73
+guint	,	T_4
+FT_NONE	,	V_82
+offset	,	V_24
+info_len	,	V_48
+ett	,	V_69
+ett_rlogin_window_cols	,	V_71
+dissector_add_uint	,	F_39
+tree	,	V_22
+window_tree	,	V_27
+tvb_bytes_exist	,	F_20
+FT_UINT16	,	V_83
+packet_info	,	T_3
+tvb_get_guint8	,	F_3
+hf_user_info_terminal_speed	,	V_55
+proto_tree_add_string_format	,	F_15
+"rlogin.data"	,	L_43
+"Startup info received"	,	L_10
+destport	,	V_9
+fd	,	V_6
+proto_tree_add_uint	,	F_19
+hf_user_info_terminal_type	,	V_54
+"Start Handshake"	,	L_9
+ett_rlogin_user_info	,	V_51
+"Rlogin Protocol"	,	L_44
+conversation_get_proto_data	,	F_25
+bytes_to_copy	,	V_68
+hf_client_startup_flag	,	V_47
+user_info_tree	,	V_26
+se_new	,	F_26
+stringlen	,	V_5
+FT_STRING	,	V_75
+str_len	,	V_29
+hf_window_info_cols	,	V_62
+"Terminal Info"	,	L_12
+"Y Pixels"	,	L_40
+"Rows"	,	L_34
+HFILL	,	V_77
+dissect_rlogin	,	F_23
+conversation_add_proto_data	,	F_27
+val_to_str_const	,	F_12
+length	,	V_4
+"rlogin.startup_info_received_flag"	,	L_19
+create_dissector_handle	,	F_38
+rows	,	V_56
+"Columns"	,	L_36
+ENC_BIG_ENDIAN	,	V_43
+"User Info"	,	L_14
+control_message_vals	,	V_44
+hf_window_info_rows	,	V_61
+FT_UINT32	,	V_80
+visited	,	V_8
+ett_rlogin_window	,	V_59
+srcport	,	V_45
+"Unknown"	,	L_3
+find_or_create_conversation	,	F_24
+"Data: %s"	,	L_13
+"tcp.port"	,	L_46
+"rlogin.server_user_name"	,	L_23
+proto_tree	,	T_6
+hf	,	V_74

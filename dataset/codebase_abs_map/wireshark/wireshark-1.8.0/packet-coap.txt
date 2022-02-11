@@ -1,0 +1,285 @@
+"Constrained Application Protocol"	,	L_102
+opt_hlen	,	V_39
+proto_register_protocol	,	F_34
+"COAP Proxy-Uri"	,	L_56
+"COAP If-Match"	,	L_86
+tvb_reported_length	,	F_28
+"COAP Uri-Port"	,	L_68
+"Version"	,	L_27
+"coap.opt.block_size"	,	L_94
+len	,	V_2
+"COAP Encoded Block Size"	,	L_95
+"COAP URI Path"	,	L_65
+gint	,	T_7
+"Content-type"	,	L_48
+tvb	,	V_4
+guint32	,	T_8
+COL_INFO	,	V_84
+ett_coap_payload	,	V_99
+coap_content_type	,	V_22
+", Result: %d"	,	L_9
+str	,	V_1
+"Token"	,	L_78
+g_strlcat	,	F_4
+coap_length	,	V_80
+cinfo	,	V_82
+"COAP Uri-Host"	,	L_62
+dissect_coap_opt_port	,	F_16
+array_length	,	F_36
+"Block Number"	,	L_87
+vals_code	,	V_92
+hf_coap_opt_block_mflag	,	V_71
+""	,	L_23
+payload_tree	,	V_94
+hf_coap_opt_ctype	,	V_46
+vals_ttype	,	V_89
+hf_coap_opt_accept	,	V_66
+"COAP Method or Response Code"	,	L_38
+hf_coap_opt_etag	,	V_52
+", TID: %u, Length: %u"	,	L_20
+"coap.opt.block_number"	,	L_88
+ctype_str_default	,	V_98
+"Uri-Query"	,	L_96
+hf_register_info	,	T_12
+"Uri-Path"	,	L_72
+COAP_OPT_URI_HOST	,	V_14
+COAP_OPT_URI_QUERY	,	V_17
+dissect_coap	,	F_25
+", %s"	,	L_19
+coap_handle	,	V_116
+COAP_OPT_BLOCK2	,	V_70
+guint16	,	T_11
+"COAP port number"	,	L_105
+COAP_OPT_BLOCK1	,	V_72
+COL_PROTOCOL	,	V_83
+"coap.opt.uri_query"	,	L_97
+"coap.opt.if_none_match"	,	L_100
+hf_coap_opt_location_path	,	V_55
+i	,	V_81
+"Option #%u: %s (Type: %u)"	,	L_13
+"COAP Token"	,	L_80
+ett_coap	,	V_86
+guint8	,	T_1
+proto_register_coap	,	F_32
+"Delta"	,	L_42
+"Max-age"	,	L_51
+BASE_NONE	,	V_108
+coap_is_str_ipv6addr	,	F_1
+hf_coap_opt_block_size	,	V_32
+register_dissector	,	F_38
+"Transaction ID"	,	L_39
+proto_reg_handoff_coap	,	V_113
+hf_coap_opt_uri_host	,	V_53
+"coap.opt.ctype"	,	L_49
+tvbuff_t	,	T_3
+block_number	,	V_29
+"text/plain"	,	L_25
+hf_coap_opt_uri_query	,	V_69
+tvb_get_ntohs	,	F_13
+tid	,	V_79
+parent_tree	,	V_75
+"coap.opt.max_age"	,	L_52
+gboolean	,	T_14
+proto_item_add_subtree	,	F_22
+module_t	,	T_13
+proto_register_field_array	,	F_35
+FT_BYTES	,	V_109
+"coap.opt.delta"	,	L_43
+dissector_add_uint	,	F_44
+"More Flag"	,	L_90
+"Etag"	,	L_57
+FT_UINT16	,	V_105
+"coap"	,	L_103
+" (default)"	,	L_10
+portstr	,	V_33
+"coap.version"	,	L_28
+tvb_get_guint8	,	F_8
+"COAP Option Length"	,	L_47
+"coap.opt.proxy_uri"	,	L_55
+dissector_delete_uint	,	F_43
+opt_length	,	V_8
+COAP_OPT_URI_PORT	,	V_56
+"/?"	,	L_5
+"COAP Version"	,	L_29
+"coap.code"	,	L_37
+payload_item	,	V_95
+opt_count	,	V_37
+COAP_OPT_ACCEPT	,	V_65
+"["	,	L_2
+":"	,	L_12
+COAP_OPT_ETAG	,	V_51
+"coap://"	,	L_1
+"coap.opt.length"	,	L_46
+"End of "	,	L_24
+COAP_OPT_URI_PATH	,	V_16
+"COAP URI Query"	,	L_71
+FT_STRING	,	V_107
+COAP_OPT_IF_MATCH	,	V_67
+"Invalid Option Length: %d"	,	L_6
+"coap.opt.accept"	,	L_82
+hf_coap_opt_token	,	V_64
+"COAP"	,	L_17
+block_size	,	V_28
+FT_INT32	,	V_110
+"coap.opt.uri_port"	,	L_67
+"coap.opt.location_query"	,	L_70
+find_dissector_table	,	F_42
+coap_content_type_value	,	V_21
+find_dissector	,	F_41
+vals_ctype	,	V_23
+proto_tree_add_uint_bits_format_value	,	F_24
+PI_WARN	,	V_20
+"Unknown Option"	,	L_15
+ENC_BIG_ENDIAN	,	V_24
+hf_coap_opt_if_match	,	V_68
+hf_coap_opt_if_none_match	,	V_74
+global_coap_port_number	,	V_114
+hf_coap_opt_max_age	,	V_48
+"Invalid length: coap_length(%d) &lt; offset(%d)"	,	L_21
+hoststr	,	V_11
+FT_UINT32	,	V_106
+"Encoded Block Size"	,	L_93
+colon	,	V_3
+COAP_OPT_LOCATION_QUERY	,	V_58
+COAP_OPT_CONTENT_TYPE	,	V_45
+hf	,	V_101
+"coap.opt.token"	,	L_79
+hfindex	,	V_9
+"]"	,	L_3
+COAP_OPT_PROXY_URI	,	V_49
+hf_coap_opt_uri_path	,	V_60
+prefs_register_protocol	,	F_39
+"coap.opt.location_path"	,	L_64
+col_append_fstr	,	F_30
+col_set_str	,	F_26
+encoded_block_size	,	V_27
+"COAP Etag"	,	L_59
+val	,	V_26
+vals_opt_type	,	V_41
+item	,	V_25
+"COAP Option Delta"	,	L_44
+"Option Count"	,	L_33
+coap_port_number	,	V_117
+coap_tree	,	V_36
+hf_coap_opt_location_query	,	V_59
+media_type_dissector_table	,	V_100
+"No-Op"	,	L_14
+"coap.opt.block_mflag"	,	L_91
+proto_item_append_text	,	F_11
+"coap.type"	,	L_31
+col_clear	,	F_27
+"COAP Uri-Path"	,	L_74
+ttype	,	V_77
+"Location-Query"	,	L_69
+proto_register_subtree_array	,	F_37
+hf_coap_opt_block_number	,	V_31
+val_to_str	,	F_9
+" (s)"	,	L_8
+"Code"	,	L_36
+tvb_get_ntoh24	,	F_14
+hf_coap_opt_proxy_uri	,	V_50
+"Payload Content-Type: %s%s, Length: %u, offset: %u"	,	L_26
+proto_tree_add_item	,	F_3
+"If-None-Match"	,	L_99
+pinfo	,	T_5
+col_add_fstr	,	F_29
+dissector_handle_t	,	T_15
+hf_coap_opt_count	,	V_90
+_U_	,	V_5
+"Location-Path"	,	L_63
+opt_code	,	V_10
+COAP_OPT_OBSERVE	,	V_61
+"media_type"	,	L_107
+hf_coap_tid	,	V_93
+VALS	,	F_33
+hf_coap_ttype	,	V_88
+"coap.opt.subscr_lifetime"	,	L_76
+"Proxy-Uri"	,	L_54
+tvb_get_ephemeral_string	,	F_5
+"Lifetime"	,	L_75
+opt_delta	,	V_38
+dissect_coap_opt_string	,	F_2
+FT_UINT8	,	V_102
+"COAP Max-age"	,	L_53
+proto_tree_add_text	,	F_21
+BASE_DEC	,	V_103
+tvb_new_subset	,	F_23
+"COAP Acceptable Content Type"	,	L_83
+dissect_coap_opt_ctype	,	F_6
+proto_item	,	T_9
+ep_address_to_str	,	F_19
+"COAP Observe"	,	L_77
+"Uri-Port"	,	L_66
+subtree	,	V_6
+ENC_NA	,	V_13
+"/"	,	L_4
+expert_add_info_format	,	F_7
+hf_coap_opt_length	,	V_44
+"Accept"	,	L_81
+hf_coap_code	,	V_91
+"COAP Uri-Query"	,	L_98
+"coap.optcount"	,	L_34
+COAP_OPT_LOCATION_PATH	,	V_54
+"COAP If-None-Match"	,	L_101
+"coap.opt.if_match"	,	L_85
+"%s"	,	L_18
+dissect_coap_options	,	F_20
+"coap.opt.uri_path"	,	L_73
+", %sBlock #%d"	,	L_22
+"COAP Option Count"	,	L_35
+size_t	,	T_2
+"COAP Block Number"	,	L_89
+hf_coap_version	,	V_87
+prefs_register_uint_preference	,	F_40
+"Uri-Host"	,	L_60
+COAP_OPT_IF_NONE_MATCH	,	V_73
+guint	,	T_10
+"Length"	,	L_45
+offset	,	V_7
+ett	,	V_111
+hf_coap_opt_observe	,	V_62
+"COAP Block More Size"	,	L_92
+"If-Match"	,	L_84
+"COAP Content Type"	,	L_50
+payload_tvb	,	V_96
+packet_info	,	T_4
+ett_coap_option	,	V_42
+"Port number used for COAP traffic"	,	L_106
+coap_prefs_initialized	,	V_115
+"Unknown %d"	,	L_7
+destport	,	V_34
+tvb_lenbuf	,	V_40
+COAP_OPT_TOKEN	,	V_63
+proto_tree_add_uint	,	F_17
+"%u"	,	L_11
+code	,	V_78
+"coap.opt.uri_host"	,	L_61
+g_snprintf	,	F_18
+"%d"	,	L_16
+"coap.opt.etag"	,	L_58
+"udp_port"	,	L_104
+dissector_try_string	,	F_31
+opt_ctype	,	V_18
+PI_MALFORMED	,	V_19
+HFILL	,	V_104
+COAP_OPT_MAX_AGE	,	V_47
+coap_root	,	V_76
+coap_module	,	V_112
+"udp.port"	,	L_108
+block_mflag	,	V_30
+payload_length	,	V_97
+uri_string	,	V_15
+dissect_coap_opt_block	,	F_12
+hf_coap_opt_uri_port	,	V_57
+"coap.tid"	,	L_40
+proto_coap	,	V_85
+dissect_coap_opt_time	,	F_10
+net_dst	,	V_35
+"COAP Transaction Type"	,	L_32
+hf_coap_opt_delta	,	V_43
+ENC_UTF_8	,	V_12
+"Type"	,	L_30
+proto_tree_add_int	,	F_15
+"tcp.port"	,	L_109
+proto_tree	,	T_6
+"COAP Transaction ID"	,	L_41

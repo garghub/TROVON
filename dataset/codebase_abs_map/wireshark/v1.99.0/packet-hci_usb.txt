@@ -1,0 +1,199 @@
+proto_register_protocol	,	F_26
+"Bluetooth HCI USB Transport"	,	L_43
+hf_bthci_usb_setup_value	,	V_28
+process_reassembled_data	,	F_20
+wmem_tree_insert32	,	F_11
+tvb_new_subset_remaining	,	F_8
+"wLength"	,	L_39
+len	,	V_61
+hf_bthci_usb_setup_request	,	V_26
+gint	,	T_1
+bthci_acl_handle	,	V_65
+tvb	,	V_1
+guint32	,	T_8
+hf_bthci_usb_packet_unknown_fragment	,	V_66
+request_vals_ext	,	V_90
+COL_INFO	,	V_24
+module	,	V_69
+wmem_epan_scope	,	F_25
+presence_flags	,	V_35
+FT_BOOLEAN	,	V_78
+"hci_usb"	,	L_44
+hf_bthci_usb_packet_fragment	,	V_59
+cinfo	,	V_18
+hf_msg_fragment_count	,	V_83
+"bthci_sco"	,	L_51
+array_length	,	F_28
+"hci_usb.packet.complete"	,	L_30
+next_tvb	,	V_10
+fragment_add_seq_check	,	F_15
+is_setup	,	V_25
+fragment_get_reassembled_id	,	F_17
+"Sent"	,	L_2
+col_append_str	,	F_19
+"bRequest"	,	L_33
+endpoint	,	V_33
+hf_register_info	,	T_12
+tvb_ensure_length_remaining	,	F_14
+COL_PROTOCOL	,	V_19
+p2p_dir_save	,	V_12
+bthci_sco_handle	,	V_67
+hf_msg_fragment_overlap_conflicts	,	V_79
+session_id	,	V_13
+reassembly_table_init	,	F_23
+"hci_usb.msg.fragments"	,	L_8
+interface_id	,	V_37
+hf_bthci_usb_setup_adapter_id	,	V_29
+max_disconnect_in_frame	,	V_41
+BASE_NONE	,	V_73
+"bthci_cmd"	,	L_48
+ett_hci_usb	,	V_17
+"hci_usb.msg.fragment.count"	,	L_22
+tvb_length_remaining	,	F_16
+"Unknown Data"	,	L_41
+"usb.device"	,	L_54
+wmem_tree_new_autoreset	,	F_24
+"hci_usb.msg.reassembled.length"	,	L_26
+tvbuff_t	,	T_2
+ttree	,	V_5
+" Fragment"	,	L_5
+BASE_HEX	,	V_92
+PROTO_ITEM_SET_GENERATED	,	F_18
+"hci_usb.data"	,	L_42
+"usb.protocol"	,	L_53
+fragment_id	,	V_54
+chandle_to_bdaddr_table	,	V_43
+proto_item_add_subtree	,	F_3
+device_address	,	V_32
+module_t	,	T_11
+proto_register_field_array	,	F_27
+hf_msg_fragment_multiple_tails	,	V_80
+"Message fragments"	,	L_7
+fragment_head	,	T_9
+dissector_add_uint	,	F_35
+FT_UINT16	,	V_91
+phdr	,	V_34
+tvb_get_guint8	,	F_12
+hf_bthci_usb_packet_complete	,	V_60
+proto_hci_usb	,	V_15
+"hci_usb.msg.fragment.multiple_tails"	,	L_16
+fd	,	V_49
+"hci_usb.msg.fragment.error"	,	L_20
+"hci_usb.msg.fragment.overlap"	,	L_12
+is_request	,	V_21
+"Bluetooth HCI USB Transport from Core 4.0"	,	L_46
+call_dissector_with_data	,	F_21
+"Message fragment overlap"	,	L_11
+proto_register_hci_usb	,	F_22
+"Rcvd"	,	L_3
+"hci_usb.msg.fragment.overlap.conflicts"	,	L_14
+bus_id	,	V_31
+HCI_INTERFACE_DEFAULT	,	V_38
+"hci_usb.packet.fragment"	,	L_28
+find_dissector	,	F_34
+"Message has multiple tail fragments"	,	L_15
+"HCI_USB"	,	L_1
+FT_UINT32	,	V_84
+visited	,	V_51
+"hci_usb.setup.bRequest"	,	L_34
+hci_data_t	,	T_7
+hf_msg_fragment	,	V_75
+hf	,	V_70
+"wValue"	,	L_35
+fragment_info_t	,	T_10
+bthci_cmd_handle	,	V_63
+usb_conv_info_t	,	T_6
+"Message fragment overlapping with conflicting data"	,	L_13
+"bthci_acl"	,	L_50
+prefs_register_protocol	,	F_31
+hf_msg_fragment_overlap	,	V_77
+titem	,	V_6
+"bthci_usb.version"	,	L_45
+BASE_EXT_STRING	,	V_89
+remaining_length	,	V_55
+bdaddr_to_name_table	,	V_44
+col_set_str	,	F_4
+"Packet Complete"	,	L_29
+hci_usb_msg_frag_items	,	V_62
+hf_msg_fragment_error	,	V_82
+hci_usb_handle	,	V_97
+bthci_evt_handle	,	V_64
+reassembled	,	V_14
+hf_msg_reassembled_in	,	V_86
+proto_register_subtree_array	,	F_29
+proto_tree_add_item	,	F_2
+localhost_name	,	V_46
+pinfo	,	V_2
+col_add_fstr	,	F_5
+flags	,	V_50
+new_register_dissector	,	F_30
+PT_BLUETOOTH	,	V_48
+"Message fragment too long"	,	L_17
+"Version of protocol supported by this dissector."	,	L_47
+WTAP_HAS_INTERFACE_ID	,	V_36
+"Adapter ID"	,	L_37
+adapter_id	,	V_39
+dissector_add_for_decode_as	,	F_36
+prefs_register_static_text_preference	,	F_32
+hci_data	,	V_11
+hf_msg_reassembled_length	,	V_87
+hci_usb_reassembly_table	,	V_56
+adapter_disconnect_in_frame	,	V_40
+hf_bthci_usb_data	,	V_68
+FT_UINT8	,	V_88
+BASE_DEC	,	V_85
+proto_item	,	T_5
+"hci_usb.msg.reassembled.in"	,	L_24
+ENC_NA	,	V_16
+fragment_info_table	,	V_53
+"Unknown direction"	,	L_4
+"Reassembled MP2T length"	,	L_25
+ENC_LITTLE_ENDIAN	,	V_27
+"hci_usb.setup.wLength"	,	L_40
+ett_hci_usb_msg_fragment	,	V_94
+"Message fragment"	,	L_9
+data	,	V_4
+num	,	V_57
+"hci_usb.msg.fragment.too_long_fragment"	,	L_18
+wmem_tree_lookup32	,	F_9
+usb_conv_info	,	V_9
+tvb_get_letohs	,	F_13
+"hci_usb.msg.fragment"	,	L_10
+FT_NONE	,	V_72
+offset	,	V_8
+ett	,	V_93
+P2P_DIR_RECV	,	V_23
+wmem_packet_scope	,	F_7
+tree	,	V_3
+addresses_reassembly_table_functions	,	V_96
+packet_info	,	T_3
+proto_reg_handoff_hci_usb	,	F_33
+localhost_bdaddr	,	V_45
+"usb.product"	,	L_52
+ett_hci_usb_msg_fragments	,	V_95
+"Message defragmentation error"	,	L_19
+"Packet Fragment"	,	L_27
+"hci_usb.packet.unknown_fragment"	,	L_32
+hf_bthci_usb_setup_length	,	V_30
+"Reassembled in"	,	L_23
+ptype	,	V_47
+hf_msg_fragment_too_long_fragment	,	V_81
+dissect_hci_usb	,	F_1
+P2P_DIR_SENT	,	V_22
+pitem	,	V_7
+"Message fragment count"	,	L_21
+wmem_file_scope	,	F_10
+HFILL	,	V_74
+p2p_dir	,	V_20
+"hci_usb.setup.wValue"	,	L_36
+wmem_new	,	F_6
+"Reassembled HCI_USB"	,	L_6
+FT_FRAMENUM	,	V_76
+"Unknown Packet Fragment"	,	L_31
+reassembled_in	,	V_58
+"hci_usb.setup.adapter_id"	,	L_38
+chandle_sessions	,	V_42
+hf_msg_fragments	,	V_71
+fragment_info	,	V_52
+"bthci_evt"	,	L_49
+proto_tree	,	T_4

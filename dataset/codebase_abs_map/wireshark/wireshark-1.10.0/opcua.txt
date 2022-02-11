@@ -1,0 +1,183 @@
+"MSG"	,	L_31
+"CLO"	,	L_33
+new_tvb	,	V_74
+"Reassembled Message"	,	L_34
+"opcua.fragment.too_long_fragment"	,	L_12
+"opcua.fragment.error"	,	L_14
+ett_opcua_fragment	,	V_23
+"ACK"	,	L_29
+proto_register_protocol	,	F_2
+parseError	,	V_50
+"Message fragment overlapping with conflicting data"	,	L_7
+FRAME_HEADER_LEN	,	V_37
+MSG_ERROR	,	V_49
+opcua_initialized	,	V_84
+prefs_register_protocol	,	F_17
+parseOpenSecureChannel	,	V_54
+process_reassembled_data	,	F_32
+fragment_get	,	F_28
+transport_tree	,	V_64
+tvb_new_subset_remaining	,	F_34
+col_append_fstr	,	F_33
+tcp_dissect_pdus	,	F_22
+opcua_num	,	V_68
+gint	,	T_2
+registerApplicationLayerTypes	,	F_5
+col_set_str	,	F_23
+parseMessage	,	V_52
+g_NumServices	,	V_78
+registerServiceTypes	,	F_9
+msgtype	,	V_41
+bParseService	,	V_61
+ett_opcua_transport	,	V_20
+"opcua.fragment.multiple_tails"	,	L_10
+proto_opcua	,	V_26
+tvb	,	V_33
+guint32	,	T_14
+COL_INFO	,	V_57
+FT_BOOLEAN	,	V_9
+registerComplexTypes	,	F_8
+frag_msg	,	V_70
+OPCUA_PORT	,	V_28
+g_szMessageTypes	,	V_58
+hf_opcua_fragments	,	V_2
+ett_opcua_fragments	,	V_24
+parseCloseSecureChannel	,	V_56
+" (Message fragment %u)"	,	L_35
+ett_opcua_nodeid	,	V_22
+pfctParse	,	V_39
+cinfo	,	V_43
+"HEL"	,	L_28
+"Reassembled length"	,	L_19
+proto_register_subtree_array	,	F_11
+global_tcp_ports_opcua	,	V_27
+gint32	,	T_8
+array_length	,	F_12
+hf_opcua_fragment	,	V_6
+next_tvb	,	V_60
+fragment_add_seq_check	,	F_30
+hf_opcua_fragment_error	,	V_13
+fragment_get_reassembled_id	,	F_29
+proto_tree_add_item	,	F_25
+pinfo	,	T_6
+col_add_fstr	,	F_36
+MSG_INVALID	,	V_42
+_U_	,	V_32
+indx	,	V_77
+hf_opcua_fragment_overlap_conflicts	,	V_10
+proto_register_opcua	,	F_1
+"Message fragment too long"	,	L_11
+tcp_ports_opcua	,	V_85
+"OPN"	,	L_32
+hf_register_info	,	T_1
+dissect_opcua	,	F_21
+bMoreFragments	,	V_73
+opcua_handle	,	V_83
+"ERR"	,	L_30
+opcua_seqid	,	V_67
+COL_PROTOCOL	,	V_44
+registerSecurityLayerTypes	,	F_4
+BASE_DEC	,	V_16
+g_free	,	F_43
+registerEnumTypes	,	F_7
+parseAcknowledge	,	V_48
+proto_item	,	T_12
+"OpcUa"	,	L_22
+reassembly_table_init	,	F_15
+ENC_NA	,	V_65
+tvb_memeql	,	F_24
+guint8	,	T_13
+"The TCP ports for the OPC UA TCP Binary Protocol"	,	L_27
+MSG_ACKNOWLEDGE	,	V_47
+hf_opcua_fragment_multiple_tails	,	V_11
+BASE_NONE	,	V_4
+"OPC UA TCP Ports"	,	L_26
+ti	,	V_63
+ep_strdup_printf	,	F_14
+hf_opcua_fragment_count	,	V_14
+tvb_length_remaining	,	F_31
+"opcua.fragment.overlap.conflicts"	,	L_8
+ett_opcua_extensionobject	,	V_21
+"Message fragment"	,	L_3
+"opcua"	,	L_23
+register_tcp_port	,	F_37
+hf_opcua_reassembled_in	,	V_17
+MSG_OPENSECURECHANNEL	,	V_53
+tvbuff_t	,	T_7
+"opcua.reassembled.length"	,	L_20
+opcua_reassembly_table	,	V_29
+"opcua.fragments"	,	L_2
+unregister_tcp_port	,	F_39
+hf_opcua_fragment_too_long_fragment	,	V_12
+registerFieldTypes	,	F_10
+plen	,	V_35
+"tcp_ports"	,	L_25
+gboolean	,	T_11
+g_requesttypes	,	V_79
+tvb_get_letohl	,	F_20
+proto_item_add_subtree	,	F_26
+module_t	,	T_3
+fragmented	,	V_72
+"opcua.fragment.overlap"	,	L_6
+proto_register_field_array	,	F_16
+FctParse	,	T_10
+MessageType	,	V_40
+parseHello	,	V_46
+bSaveFragmented	,	V_71
+FT_NONE	,	V_3
+guint	,	T_4
+ett	,	V_19
+offset	,	V_34
+"Message fragments"	,	L_1
+dissector_add_uint	,	F_38
+parseService	,	F_35
+addresses_reassembly_table_functions	,	V_30
+tree	,	V_36
+bIsLastFragment	,	V_62
+chunkType	,	V_66
+registerTransportLayerTypes	,	F_3
+packet_info	,	T_5
+prefs_register_range_preference	,	F_18
+tvb_get_guint8	,	F_27
+"%s: %s (Message Reassembled)"	,	L_37
+port	,	V_82
+range_t	,	T_16
+hf_opcua_reassembled_length	,	V_18
+iServiceId	,	V_59
+opcua_frag_items	,	V_76
+"Message defragmentation error"	,	L_13
+dissector_delete_uint	,	F_40
+"%u"	,	L_24
+next	,	V_75
+"opcua.reassembled.in"	,	L_18
+"Message fragment overlap"	,	L_5
+dissect_opcua_message	,	V_38
+"Reassembled in"	,	L_17
+strptr	,	V_81
+"opcua.fragment"	,	L_4
+opcua_module	,	V_25
+"%s: %s"	,	L_36
+MSG_MESSAGE	,	V_51
+get_opcua_message_len	,	F_19
+range_convert_str	,	F_13
+MSG_CLOSESECURECHANNEL	,	V_55
+"Message fragment count"	,	L_15
+HFILL	,	V_5
+value	,	V_80
+"OpcUa Binary Protocol"	,	L_21
+create_dissector_handle	,	F_41
+FT_FRAMENUM	,	V_7
+range_foreach	,	F_42
+"Message has multiple tail fragments"	,	L_9
+"opcua.fragment.count"	,	L_16
+proto_reg_handoff_opcua	,	V_31
+MSG_HELLO	,	V_45
+registerSimpleTypes	,	F_6
+hf_opcua_fragment_overlap	,	V_8
+FT_UINT32	,	V_15
+"tcp.port"	,	L_38
+opcua_seqnum	,	V_69
+hf	,	V_1
+proto_tree	,	T_9
+fragment_data	,	T_15
+range_copy	,	F_44

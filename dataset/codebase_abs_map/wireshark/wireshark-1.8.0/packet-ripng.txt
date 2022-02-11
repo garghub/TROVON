@@ -1,0 +1,97 @@
+proto_register_protocol	,	F_15
+ripng_handle	,	V_37
+check_col	,	F_3
+FT_IPv6	,	V_33
+"Version"	,	L_10
+"Must be Zero"	,	L_15
+col_set_str	,	F_2
+gint	,	T_6
+tvb	,	V_1
+"Destination"	,	L_20
+COL_INFO	,	V_11
+proto_item_append_text	,	F_11
+tvb_reported_length_remaining	,	F_10
+"/%u"	,	L_5
+col_clear	,	F_4
+ett_ripng_rte	,	V_21
+"Route Tag"	,	L_21
+cinfo	,	V_9
+proto_register_subtree_array	,	F_18
+"RIPng"	,	L_1
+val_to_str	,	F_6
+array_length	,	F_17
+" Metric: %u"	,	L_6
+hf_ripng_rte_metric	,	V_25
+"Reserved"	,	L_13
+ripng_tree	,	V_5
+"ripng.reserved"	,	L_14
+proto_tree_add_item	,	F_8
+pinfo	,	V_2
+col_add_fstr	,	F_5
+dissector_handle_t	,	T_7
+"Unknown (%u)"	,	L_3
+"Provides a method of separating internal RIPng routes (routes for networks within the RIPng routing domain) from external RIPng routes, which may have been imported from an EGP or another IGP"	,	L_23
+" Command %s, Version %u"	,	L_2
+hf_register_info	,	T_5
+VALS	,	F_14
+"Prefix Length"	,	L_24
+"ripng.rte.prefix_length"	,	L_25
+COL_PROTOCOL	,	V_10
+dissect_ripng	,	F_1
+FT_UINT8	,	V_27
+BASE_DEC	,	V_28
+"ripng"	,	L_30
+proto_item	,	T_4
+cmdvals	,	V_12
+proto_register_ripng	,	F_13
+ENC_NA	,	V_14
+"Route Table Entry"	,	L_16
+ti	,	V_7
+BASE_NONE	,	V_31
+hf_ripng_version	,	V_18
+hf_ripng_rte_prefix_length	,	V_24
+"Command"	,	L_7
+tvbuff_t	,	T_1
+"ripng.rte"	,	L_17
+hf_ripng_reserved	,	V_19
+"ripng.rte.route_tag"	,	L_22
+"Used to specify the purpose of this message"	,	L_9
+BASE_HEX	,	V_35
+hf_ripng_rte	,	V_20
+"The length in bits of the significant part of the prefix starting from the left of the prefix"	,	L_26
+ett_ripng	,	V_15
+rte_tree	,	V_6
+proto_item_add_subtree	,	F_9
+proto_register_field_array	,	F_16
+FT_BYTES	,	V_30
+FT_NONE	,	V_32
+offset	,	V_4
+proto_ripng	,	V_13
+ett	,	V_36
+dissector_add_uint	,	F_21
+tree	,	V_3
+"IPv6 Prefix"	,	L_18
+hf_ripng_cmd	,	V_16
+FT_UINT16	,	V_34
+packet_info	,	T_2
+tvb_get_guint8	,	F_7
+"ripng.cmd"	,	L_8
+"Version of RIPng"	,	L_12
+UDP_PORT_RIPNG	,	V_38
+tvb_ip6_to_str	,	F_12
+rte_ti	,	V_8
+"The current metric for the destination; the value 16 (infinity) indicates that the destination is not reachable"	,	L_29
+proto_reg_handoff_ripng	,	F_19
+": IPv6 Prefix: %s"	,	L_4
+HFILL	,	V_29
+"ripng.version"	,	L_11
+"udp.port"	,	L_31
+hf_ripng_rte_ipv6_prefix	,	V_22
+"Metric"	,	L_27
+create_dissector_handle	,	F_20
+hf_ripng_rte_route_tag	,	V_23
+"ripng.rte.ipv6_prefix"	,	L_19
+ENC_BIG_ENDIAN	,	V_17
+"ripng.rte.metric"	,	L_28
+proto_tree	,	T_3
+hf	,	V_26

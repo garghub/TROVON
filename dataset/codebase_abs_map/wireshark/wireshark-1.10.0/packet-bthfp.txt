@@ -1,0 +1,61 @@
+register_dissector	,	F_10
+"AT Command"	,	L_7
+"BT HFP"	,	L_9
+hf_at_cmd	,	V_15
+proto_register_protocol	,	F_9
+tvbuff_t	,	T_1
+proto_bthfp	,	V_9
+BTSDP_HFP_GW_SERVICE_UUID	,	V_24
+ett_bthfp	,	V_11
+bthfp_handle	,	V_22
+"bthfp.atcmd"	,	L_6
+col_set_str	,	F_3
+gint	,	T_7
+proto_item_add_subtree	,	F_5
+proto_register_field_array	,	F_11
+tvb	,	V_1
+guint	,	T_5
+"AT Cmd"	,	L_5
+ett	,	V_21
+"Bluetooth Handsfree Profile"	,	L_8
+COL_INFO	,	V_12
+dissector_add_uint	,	F_16
+tree	,	V_3
+dissector_add_handle	,	F_17
+packet_info	,	T_2
+cinfo	,	V_7
+proto_register_subtree_array	,	F_13
+proto_reg_handoff_bthfp	,	F_14
+"%s \"%s\""	,	L_2
+array_length	,	F_12
+proto_tree_add_item	,	F_4
+pinfo	,	V_2
+col_add_fstr	,	F_6
+dissector_handle_t	,	T_8
+"bthfp"	,	L_10
+ENC_ASCII	,	V_16
+"Sent"	,	L_3
+FT_STRING	,	V_18
+dissect_bthfp	,	F_1
+"Rcvd"	,	L_4
+P2P_DIR_SENT	,	V_14
+hf_register_info	,	T_6
+proto_register_bthfp	,	F_8
+HFILL	,	V_20
+p2p_dir	,	V_13
+st	,	V_5
+COL_PROTOCOL	,	V_8
+"btrfcomm.channel"	,	L_12
+tvb_length	,	F_2
+length	,	V_6
+find_dissector	,	F_15
+proto_item	,	T_4
+"btrfcomm.service"	,	L_11
+ENC_NA	,	V_10
+"HFP"	,	L_1
+ti	,	V_4
+BASE_NONE	,	V_19
+BTSDP_HFP_SERVICE_UUID	,	V_23
+tvb_format_text	,	F_7
+proto_tree	,	T_3
+hf	,	V_17

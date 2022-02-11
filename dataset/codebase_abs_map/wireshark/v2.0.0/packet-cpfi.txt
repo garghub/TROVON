@@ -1,0 +1,222 @@
+CPFI_SOURCE_SHIFT	,	V_26
+"cpfi.EOFtype"	,	L_31
+proto_register_protocol	,	F_23
+"from LCM?"	,	L_27
+dst_str	,	V_27
+hf_cpfi_EOF_type	,	V_57
+tvb_reported_length	,	F_20
+"cpfi.src_instance"	,	L_36
+ett_cpfi_header	,	V_17
+message_tvb	,	V_58
+CPFI_FROM_LCM_MASK	,	V_95
+gint	,	T_7
+fc_data_t	,	T_8
+tvb_captured_length_remaining	,	F_13
+"cpfi.fromLCM"	,	L_26
+"Port"	,	L_45
+fc_handle	,	V_73
+CPFI_OPM_ERROR_MASK	,	V_94
+tvb	,	V_1
+guint32	,	T_4
+COL_INFO	,	V_83
+"cpfi.SOFtype"	,	L_18
+CPFI_FRAME_TYPE_SHIFT	,	V_72
+proto_register_cpfi	,	F_21
+FT_BOOLEAN	,	V_93
+hf_cpfi_SOF_type	,	V_50
+dst_instance	,	V_11
+tvb_reported_length_remaining	,	F_14
+"Header"	,	L_1
+left	,	V_30
+cinfo	,	V_82
+array_length	,	F_25
+"arrow_ctl"	,	L_62
+"cpfi.src_port"	,	L_48
+dstmac	,	V_28
+hf_cpfi_dest	,	V_49
+DISSECTOR_ASSERT	,	F_6
+hf_cpfi_t_src_port	,	V_41
+PROTO_ITEM_SET_HIDDEN	,	F_9
+CPFI_DEST_SHIFT	,	V_19
+hf_register_info	,	T_10
+"cpfi.dst_port"	,	L_50
+srcmac	,	V_22
+"cpfi.OPMerror"	,	L_23
+"OPM Error?"	,	L_24
+"cpfi.port"	,	L_46
+"Set the port for InstanceToInstance messages (if other"	,	L_60
+hf_cpfi_t_board	,	V_38
+"Word two"	,	L_7
+sof_eof	,	V_76
+g_strlcpy	,	F_5
+l_to_r_arrow	,	V_34
+right	,	V_33
+ett_cpfi_footer	,	V_55
+CPFI_FRAME_TYPE_MASK	,	V_71
+guint8	,	T_5
+"CRC-32"	,	L_28
+BASE_NONE	,	V_99
+"speed"	,	L_20
+dst_port	,	V_13
+hf_cpfi_OPM_error	,	V_52
+cpfi_init_complete	,	V_104
+tvb_get_ntohl	,	F_4
+"srcTDA"	,	L_12
+"%u.%u.%u"	,	L_3
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_2
+"CPFI"	,	L_52
+header_tvb	,	V_60
+BASE_HEX	,	V_87
+" on the left, and the arrow moves to distinguish source from dest."	,	L_66
+gboolean	,	T_11
+CPFI_DEST_MASK	,	V_18
+proto_item_add_subtree	,	F_3
+module_t	,	T_9
+proto_register_field_array	,	F_24
+FT_BYTES	,	V_98
+CPFI_EOF_TYPE_MASK	,	V_97
+word1	,	V_4
+dissector_add_uint	,	F_33
+dissect_cpfi	,	F_12
+" than the default of 5001)"	,	L_61
+"cpfi.word_one"	,	L_6
+"cpfi.dst_instance"	,	L_38
+dissector_delete_uint	,	F_32
+cpfi_udp_port	,	V_106
+src_str	,	V_21
+call_dissector_with_data	,	F_17
+"Instance"	,	L_33
+CPFI_SOF_TYPE_MASK	,	V_90
+gbl_cpfi_ttot_udp_port	,	V_103
+FC_DATA_EOF_INVALID	,	V_79
+r_to_l_arrow	,	V_32
+sof_type_vals	,	V_89
+eof_type_vals	,	V_96
+new_create_dissector_handle	,	F_31
+length	,	V_65
+find_dissector	,	F_30
+proto_reg_handoff_cpfi	,	V_101
+hf_cpfi_CRC_32	,	V_56
+"cpfi.instance"	,	L_34
+src_port	,	V_9
+ENC_BIG_ENDIAN	,	V_46
+reported_length	,	V_66
+cpfi_handle	,	V_105
+FT_UINT32	,	V_86
+"EOF Type"	,	L_32
+"cpfi.src_board"	,	L_42
+"Destination Port"	,	L_49
+"Destination Board"	,	L_43
+hf_cpfi_frame_type	,	V_47
+"cpfi"	,	L_53
+"Source TDA (10 bits)"	,	L_14
+extra_tree	,	V_14
+hf	,	V_85
+cpfi_arrow_moves	,	V_29
+dst_board	,	V_12
+" When enabled, keeps the 'lowest valued' endpoint of the src-dest pair"	,	L_65
+src_board	,	V_8
+"EOFtype"	,	L_30
+prefs_register_protocol	,	F_27
+"SOFtype"	,	L_17
+src_instance	,	V_7
+"Word one"	,	L_5
+"CPFI UDP Port"	,	L_55
+hf_cpfi_speed	,	V_51
+"fromLCM"	,	L_25
+AT_ETHER	,	V_23
+"Cross Point Frame Injector"	,	L_51
+"udp.port2"	,	L_58
+hf_cpfi_word_one	,	V_45
+"SOF Type"	,	L_19
+ethertype	,	V_80
+hidden_item	,	V_35
+proto_item_append_text	,	F_18
+frame_type	,	V_69
+FC_DATA_SOF_FIRST_FRAME	,	V_77
+body_length	,	V_67
+direction_and_port_string	,	V_81
+proto_register_subtree_array	,	F_26
+"Destination Instance"	,	L_37
+"cpfi.frmtype"	,	L_10
+hf_cpfi_word_two	,	V_54
+"cpfi.crc-32"	,	L_29
+proto_tree_add_item	,	F_10
+pinfo	,	V_2
+dissector_handle_t	,	T_12
+_U_	,	V_59
+"Control the way the '--&gt;' is displayed."	,	L_64
+cpfi_item	,	V_63
+hf_cpfi_from_LCM	,	V_53
+VALS	,	F_22
+prefs_register_bool_preference	,	F_29
+hf_cpfi_t_src_board	,	V_39
+" is always on the left."	,	L_68
+tvb_new_subset	,	F_16
+proto_item	,	T_6
+extra_item	,	V_15
+ENC_NA	,	V_74
+col_prepend_fstr	,	F_19
+"cpfi.dstTDA"	,	L_16
+CPFI_SOURCE_MASK	,	V_25
+hf_cpfi_t_src_instance	,	V_37
+cpfi_module	,	V_84
+"Source Instance"	,	L_35
+" than the default of 5000)"	,	L_57
+reported_body_length	,	V_68
+"Enable Active Arrow Control"	,	L_63
+body_tvb	,	V_61
+proto_cpfi	,	V_16
+data	,	V_24
+arrow	,	V_31
+dissect_cpfi_footer	,	F_11
+cpfi_ttot_udp_port	,	V_107
+"Source Board"	,	L_41
+prefs_register_uint_preference	,	F_28
+" When disabled, keeps the arrow pointing right so the source of the frame"	,	L_67
+"OPMerror"	,	L_22
+gbl_cpfi_udp_port	,	V_102
+"cpfi.word_two"	,	L_8
+"Set the port for CPFI messages (if other"	,	L_56
+guint	,	T_13
+ett	,	V_100
+tree	,	V_3
+"cpfi.speed"	,	L_21
+proto_tree_add_bytes	,	F_8
+hf_cpfi_t_dst_board	,	V_43
+packet_info	,	T_2
+" CPFI"	,	L_2
+"fc"	,	L_69
+hf_cpfi_t_dst_port	,	V_44
+"FrmType"	,	L_9
+"Board"	,	L_39
+dst	,	V_10
+"cpfi.dst_board"	,	L_44
+FIRST_TIO_CARD_ADDRESS	,	V_20
+hf_cpfi_t_instance	,	V_36
+"InstanceToInstance UDP Port"	,	L_59
+"dstTDA"	,	L_15
+footer_tvb	,	V_62
+"Source Port"	,	L_47
+ett_cpfi	,	V_75
+g_snprintf	,	F_7
+tvb_new_subset_length	,	F_15
+hf_cpfi_t_dst_instance	,	V_42
+cpfi_tree	,	V_64
+speed_vals	,	V_91
+HFILL	,	V_88
+CPFI_SPEED_MASK	,	V_92
+hf_cpfi_t_port	,	V_40
+hf_cpfi_source	,	V_48
+src	,	V_6
+"udp.port"	,	L_54
+tda	,	V_5
+"cpfi.board"	,	L_40
+fc_data	,	V_70
+"cpfi.srcTDA"	,	L_13
+FC_DATA_EOF_LAST_FRAME	,	V_78
+"Footer"	,	L_4
+proto_tree	,	T_3
+dissect_cpfi_header	,	F_1
+"Frame Type"	,	L_11

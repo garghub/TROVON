@@ -1,0 +1,363 @@
+"Register"	,	L_40
+hf_packet_id	,	V_121
+ett_unregister	,	V_80
+"PacketID"	,	L_59
+"Timeout"	,	L_94
+proto_register_protocol	,	F_52
+hf_resp_index	,	V_62
+hf_version	,	V_115
+"Instance Registration"	,	L_42
+ett_getnext	,	V_64
+dissect_add_caps_pdu	,	F_36
+dissect_idx_alloc_pdu	,	F_34
+".1.3.6.1.%d"	,	L_1
+VB_GAUGE32	,	V_52
+PDU_HDR_LEN	,	V_63
+"Version"	,	L_32
+len	,	V_12
+"getBulk Max repetition"	,	L_123
+tcp_dissect_pdus	,	F_48
+VB_TIMETICK	,	V_49
+"header type"	,	L_37
+gint	,	T_12
+"agentx.session_id"	,	L_54
+"Register-PDU"	,	L_18
+dissect_agentx_pdu	,	F_39
+TFS	,	F_50
+tvb	,	V_1
+guint32	,	T_4
+COL_INFO	,	V_110
+"agentx.u.priority"	,	L_113
+FT_BOOLEAN	,	V_145
+ett_flags	,	V_118
+"sysUptime: %s"	,	L_12
+version	,	V_97
+"TransactionID"	,	L_56
+str	,	V_13
+NORLES	,	F_17
+hf_unreg_timeout	,	V_81
+INSTANCE_REGISTRATION	,	V_147
+pdu_type	,	V_33
+ANY_INDEX	,	V_149
+agentx_tree	,	V_94
+cinfo	,	V_108
+array_length	,	F_54
+NORLEL	,	F_2
+"agentx.o.timeout"	,	L_95
+NEW_INDEX	,	V_148
+dissect_rem_caps_pdu	,	F_37
+"Unregister Priority"	,	L_114
+""	,	L_4
+AGENTX_TESTSET_PDU	,	V_129
+"agentx.oid_include"	,	L_74
+VB_OSTR	,	V_47
+vtag_values_ext	,	V_158
+ett_ping	,	V_87
+"agentx.packet_id"	,	L_60
+"Register Priority"	,	L_104
+ENC_ASCII	,	V_9
+hf_reg_prio	,	V_77
+trans_id	,	V_99
+"response index"	,	L_84
+NETWORK_BYTE_ORDER	,	V_37
+"Get-PDU"	,	L_14
+AGENTX_ADD_AGENT_CAPS_PDU	,	V_137
+VB_NOSUCHINST	,	V_56
+AGENTX_INDEX_DEALLOC_PDU	,	V_136
+"agentx.oid"	,	L_76
+"Reason"	,	L_97
+hf_oid_sub	,	V_28
+proto_tree_add_boolean	,	F_11
+signed_time_msecs_to_str	,	F_21
+"agentx.transaction_id"	,	L_57
+hf_register_info	,	T_11
+"Response-PDU"	,	L_11
+ett_notify	,	V_86
+"IndexAllocate-PDU"	,	L_23
+"Any Index Requested"	,	L_48
+"agentx.v.val32"	,	L_89
+AGENTX_NOTIFY_PDU	,	V_133
+"agentx.flags.anyindex"	,	L_47
+guint16	,	T_6
+COL_PROTOCOL	,	V_109
+"response error"	,	L_81
+dissect_idx_dealloc_pdu	,	F_35
+i	,	V_16
+session_id	,	V_98
+VB_NULL	,	V_54
+ett_getbulk	,	V_67
+"agentx.r.uptime"	,	L_78
+guint8	,	T_3
+hf_ostring_len	,	V_7
+dissect_unregister_pdu	,	F_30
+dissect_agentx	,	F_47
+BASE_NONE	,	V_154
+"getBulk Num. repeaters"	,	L_120
+hf_flags_register	,	V_103
+"New Index Requested"	,	L_45
+start_offset	,	V_32
+hf_close_reason	,	V_74
+"val64"	,	L_93
+OID_IS_INCLUSIVE	,	V_155
+ett_response	,	V_59
+"Transaction ID"	,	L_58
+"Unregister timeout"	,	L_112
+"agentx.r.upper_bound"	,	L_109
+"Range_subid"	,	L_105
+"agentx.type"	,	L_36
+tvbuff_t	,	T_1
+"Octet String Length"	,	L_68
+get_agentx_pdu_len	,	F_38
+proto_tree_add_protocol_format	,	F_44
+"agentx.r.index"	,	L_83
+AGENTX_TCP_PORT	,	V_167
+val_to_str_ext_const	,	F_42
+proto_tree_add_bitmask	,	F_46
+"Agent Extensibility (AgentX) Protocol: %s, sid=%d, tid=%d, packid=%d, plen=%d"	,	L_30
+proto_item_add_subtree	,	F_45
+proto_register_field_array	,	F_53
+"Number subids"	,	L_69
+"(null)"	,	L_3
+t_item	,	V_96
+dissect_register_pdu	,	F_29
+".%d"	,	L_2
+"Close-PDU"	,	L_17
+"agentx"	,	L_124
+AGENTX_REM_AGENT_CAPS_PDU	,	V_138
+"Value(64)"	,	L_91
+close_reasons	,	V_160
+hf_session_id	,	V_119
+dissect_octet_string	,	F_1
+encoding	,	V_36
+"agentx.flags"	,	L_39
+hf_ostring	,	V_8
+"agentx.version"	,	L_33
+FT_UINT16	,	V_156
+tvb_get_guint8	,	F_9
+" (Inclusive)"	,	L_5
+"OID include"	,	L_73
+"agentx.r.priority"	,	L_103
+tvb_captured_length	,	F_43
+AGENTX_COMMITSET_PDU	,	V_130
+"Testset-PDU"	,	L_20
+"agentx.ostring_len"	,	L_67
+" (Exclusive)"	,	L_6
+OID_USAGE	,	V_18
+VB_NOSUCHOBJ	,	V_55
+pdu_flags	,	V_102
+VB_ENDOFMIB	,	V_57
+"Value Representation"	,	L_10
+"agentx.flags.context"	,	L_50
+hf_unreg_prio	,	V_82
+"Resp. index"	,	L_82
+hf_reg_ubound	,	V_79
+type_values_ext	,	V_111
+NON_DEFAULT_CONTEXT	,	V_65
+AGENTX_PING_PDU	,	V_134
+"Packet ID"	,	L_61
+timeout	,	V_70
+FT_STRING	,	V_153
+dissect_varbind	,	F_16
+"agentx.flags.newindex"	,	L_44
+ett_obj_ident	,	V_27
+ett_search_range	,	V_162
+"GetBulk-PDU"	,	L_15
+VB_OPAQUE	,	V_46
+hf_open_timeout	,	V_72
+"GetNext-PDU"	,	L_13
+hf_type	,	V_116
+"Unregister range_subid"	,	L_116
+"agentx.oid_prefix"	,	L_72
+"sessionID"	,	L_53
+"OID"	,	L_75
+hf_val64	,	V_40
+"agentx.gb.nrepeat"	,	L_119
+"vtag"	,	L_87
+AGENTX_GET_PDU	,	V_34
+AGENTX_OPEN_PDU	,	V_123
+AGENTX_CLOSE_PDU	,	V_124
+hf_oid_include	,	V_30
+ett_get	,	V_66
+"Register upper bound"	,	L_110
+p_noct	,	V_6
+ENC_BIG_ENDIAN	,	V_38
+"New Index"	,	L_43
+"agentx.c.reason"	,	L_98
+"agentx.u.range_subid"	,	L_115
+dissect_testset_pdu	,	F_31
+FT_UINT32	,	V_152
+"agentx.r.timeout"	,	L_100
+dissect_response_pdu	,	F_19
+slen	,	V_14
+"agentx.v.tag"	,	L_86
+"val32"	,	L_90
+hf	,	V_140
+AGENTX_INDEX_ALLOC_PDU	,	V_135
+"Variable type"	,	L_85
+prefix	,	V_15
+ett_idxdalloc	,	V_89
+AGENTX_GETBULK_PDU	,	V_128
+"Value(32)"	,	L_88
+"Unregister-PDU"	,	L_19
+hf_vtag	,	V_44
+"agentx.u.timeout"	,	L_111
+"Repeaters"	,	L_118
+ett_idxalloc	,	V_88
+proto_tree_add_subtree	,	F_18
+ett_pdu_hdr	,	V_114
+"sysUpTime"	,	L_77
+"agentx.payload_len"	,	L_63
+BASE_EXT_STRING	,	V_144
+"Ping-PDU"	,	L_22
+tlen	,	V_17
+FT_UINT64	,	V_159
+VB_OID	,	V_45
+col_set_str	,	F_40
+VB_IPADDR	,	V_48
+"Flags"	,	L_38
+"Register timeout"	,	L_101
+"agentx.n_subid"	,	L_70
+proto_tree_add_uint_format	,	F_20
+resp_errors_ext	,	V_157
+"header version"	,	L_34
+hf_flags	,	V_117
+hf_reg_timeout	,	V_76
+"agentx.flags.byteorder"	,	L_52
+convert_oid_to_str	,	F_6
+hf_flags_context	,	V_106
+ett_open	,	V_71
+"Object Identifier: %s%s%s"	,	L_9
+VB_INT	,	V_51
+hf_gbulk_mrepeat	,	V_69
+proto_register_subtree_array	,	F_55
+ett_agentx	,	V_113
+proto_tree_add_string	,	F_12
+tfs_agentx_context	,	V_150
+tvb_get_ntoh24	,	F_27
+agentx_handle	,	V_166
+dissect_get_pdu	,	F_24
+hf_val32	,	V_41
+proto_tree_add_item	,	F_5
+"RemoveAgentCaps-PDU"	,	L_26
+"  (Range End) "	,	L_8
+dissect_val64	,	F_14
+pinfo	,	T_8
+col_add_fstr	,	F_41
+"Priority"	,	L_102
+dissector_handle_t	,	T_13
+AGENTX_RESPONSE_PDU	,	V_139
+flags	,	V_4
+_U_	,	V_92
+range	,	V_23
+hf_unreg_rsid	,	V_83
+PADDING	,	F_3
+dissect_ping_pdu	,	F_33
+hf_oid_prefix	,	V_29
+OID_END_RANGE	,	V_26
+VB_COUNTER64	,	V_53
+vtag	,	V_42
+oid_usage	,	V_19
+AGENTX_UNREGISTER_PDU	,	V_126
+"Any Index"	,	L_46
+hf_gbulk_nrepeat	,	V_68
+VALS	,	F_51
+dissect_getnext_pdu	,	F_23
+"(Range Start) "	,	L_7
+hf_payload_len	,	V_122
+"Byte Order"	,	L_51
+"agentx.ostring"	,	L_65
+FT_UINT8	,	V_141
+BASE_DEC	,	V_142
+dissect_search_range	,	F_13
+proto_item	,	T_10
+ett_remcap	,	V_91
+str_oid	,	V_22
+"Max Repetition"	,	L_121
+"agentx.r.range_subid"	,	L_106
+ENC_NA	,	V_10
+subtree	,	V_21
+OID_START_RANGE	,	V_25
+ENC_LITTLE_ENDIAN	,	V_39
+proto_register_agentx	,	F_49
+"agentx.flags.register"	,	L_41
+ett_commitset	,	V_163
+data	,	T_9
+hf_flags_byteorder	,	V_107
+OID_EXACT	,	V_35
+"OID prefix"	,	L_71
+"Open-PDU"	,	L_16
+"OString len"	,	L_66
+plen	,	V_93
+"Non-default Context"	,	L_49
+packet_id	,	V_100
+proto_agentx	,	V_112
+"Payload length"	,	L_62
+"open timeout"	,	L_96
+dissect_getbulk_pdu	,	F_25
+"close reason"	,	L_99
+dissect_open_pdu	,	F_26
+pdu_hdr_tree	,	V_95
+hf_oid_str	,	V_31
+guint	,	T_5
+offset	,	V_3
+ett	,	V_161
+wmem_packet_scope	,	F_22
+payload_len	,	V_101
+"agentx.gb.mrepeat"	,	L_122
+dissect_close_pdu	,	F_28
+dissect_val32	,	F_15
+tree	,	V_2
+packet_info	,	T_7
+"Notify-PDU"	,	L_21
+hf_resp_uptime	,	V_60
+tfs_yes_no	,	V_146
+"agentx.r.error"	,	L_80
+hf_unreg_ubound	,	V_84
+ett_testset	,	V_85
+proto_tree_add_uint	,	F_4
+hf_flags_newindex	,	V_104
+ett_addcap	,	V_90
+ett_register	,	V_75
+ett_close	,	V_73
+AGENTX_GETNEXT_PDU	,	V_127
+AGENTX_REGISTER_PDU	,	V_125
+"Session ID"	,	L_55
+"Upper bound"	,	L_108
+proto_reg_handoff_agentx	,	F_56
+oid	,	V_11
+g_snprintf	,	F_7
+inclusion	,	V_24
+ett_undoset	,	V_164
+"PDU Header: Type[%u], len=%d, sid=%d, tid=%d, packid=%d"	,	L_31
+"Octet String"	,	L_64
+hf_reg_rsid	,	V_78
+"Resp. error"	,	L_79
+"agentx.v.val64"	,	L_92
+hf_trans_id	,	V_120
+HFILL	,	V_143
+"Register range_subid"	,	L_107
+"agentx.u.upper_bound"	,	L_117
+n_subid	,	V_20
+hf_flags_anyindex	,	V_105
+dissect_notify_pdu	,	F_32
+r_uptime	,	V_58
+"AddAgentCaps-PDU"	,	L_25
+create_dissector_handle	,	F_57
+proto_tree_add_subtree_format	,	F_10
+AGENTX_UNDOSET_PDU	,	V_131
+hf_resp_error	,	V_61
+"AgentX"	,	L_27
+tfs_agentx_byteorder	,	V_151
+ett_valrep	,	V_43
+dissect_object_id	,	F_8
+"%s: sid=%d, tid=%d, packid=%d, plen=%d"	,	L_28
+n_oct	,	V_5
+"IndexDeallocate-PDU"	,	L_24
+dissector_add_uint_with_preference	,	F_58
+ett_cleanupset	,	V_165
+"Type"	,	L_35
+"unknown"	,	L_29
+"tcp.port"	,	L_125
+AGENTX_CLEANUPSET_PDU	,	V_132
+proto_tree	,	T_2
+VB_COUNTER32	,	V_50

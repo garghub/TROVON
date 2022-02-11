@@ -1,0 +1,93 @@
+register_dissector	,	F_14
+dissect_tte_pcf	,	F_1
+"Reserved 1"	,	L_17
+proto_register_protocol	,	F_10
+tvbuff_t	,	T_1
+TTE_PCF_TC_LENGTH	,	V_29
+hf_tte_pcf_sd	,	V_23
+"Protocol Control Frame"	,	L_3
+"tte.pcf.sp"	,	L_12
+proto_reg_handoff_tte_pcf	,	F_15
+BASE_HEX	,	V_36
+"tte.pcf.ic"	,	L_6
+hf_tte_pcf	,	V_31
+pcf_type_str_vals	,	V_39
+hf_tte_pcf_res1	,	V_40
+FT_UINT64	,	V_41
+col_set_str	,	F_4
+gint	,	T_7
+proto_item_add_subtree	,	F_7
+hf_tte_pcf_res0	,	V_37
+proto_register_field_array	,	F_11
+FT_BYTES	,	V_32
+tvb	,	V_1
+sync_priority	,	V_6
+ett	,	V_42
+COL_INFO	,	V_15
+dissector_add_uint	,	F_17
+tree	,	V_3
+TTE_PCF_LENGTH	,	V_8
+tte_pcf_root_item	,	V_4
+ETHERTYPE_TTE_PCF	,	V_44
+tte_pcf_tree	,	V_5
+packet_info	,	T_2
+tvb_get_guint8	,	F_3
+"tte.pcf"	,	L_4
+hf_tte_pcf_ic	,	V_19
+cinfo	,	V_13
+proto_register_subtree_array	,	F_13
+"tte.pcf.sd"	,	L_14
+"tte.pcf.type"	,	L_16
+TTE_PCF_MN_LENGTH	,	V_10
+sync_domain	,	V_7
+hf_tte_pcf_mn	,	V_21
+array_length	,	F_12
+tte_pcf_handle	,	V_43
+"Sync Priority"	,	L_11
+"Transparent Clock"	,	L_19
+proto_tte_pcf	,	V_16
+TTE_PCF_TYPE_LENGTH	,	V_26
+proto_tree_add_item	,	F_6
+pinfo	,	V_2
+col_add_fstr	,	F_5
+dissector_handle_t	,	T_8
+"TTE PCF"	,	L_22
+"tte.pcf.mn"	,	L_8
+hf_tte_pcf_type	,	V_25
+ett_tte_pcf	,	V_18
+"ethertype"	,	L_24
+"Integration Cycle"	,	L_5
+"tte_pcf"	,	L_23
+"Sync Domain: 0x%02X  Sync Priority: 0x%02X"	,	L_2
+hf_register_info	,	T_6
+TTE_PCF_SD_LENGTH	,	V_24
+VALS	,	F_9
+TTE_PCF_RES1_LENGTH	,	V_28
+TTE_PCF_RES0_LENGTH	,	V_11
+HFILL	,	V_34
+"tte.pcf.res1"	,	L_18
+"tte.pcf.tc"	,	L_20
+COL_PROTOCOL	,	V_14
+hf_tte_pcf_tc	,	V_27
+tvb_length	,	F_2
+TTE_PCF_SP_LENGTH	,	V_12
+FT_UINT8	,	V_38
+find_dissector	,	F_16
+proto_item	,	T_4
+"Membership New"	,	L_7
+TTE_PCF_IC_LENGTH	,	V_9
+"Reserved 0"	,	L_9
+proto_register_tte_pcf	,	F_8
+ENC_BIG_ENDIAN	,	V_20
+ENC_NA	,	V_17
+guint8	,	T_5
+FT_UINT32	,	V_35
+"PCF"	,	L_1
+BASE_NONE	,	V_33
+hf_tte_pcf_sp	,	V_22
+"tte.pcf.res0"	,	L_10
+"Sync Domain"	,	L_13
+"TTEthernet Protocol Control Frame"	,	L_21
+"Type"	,	L_15
+proto_tree	,	T_3
+hf	,	V_30

@@ -1,0 +1,69 @@
+register_dissector	,	F_18
+docsis_tlv_handle	,	V_18
+data	,	T_4
+proto_docsis_dsarsp	,	V_13
+hf_docsis_dsarsp_response	,	V_17
+proto_register_protocol	,	F_14
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_6
+hf_docsis_dsarsp_tranid	,	V_15
+tvb_get_ntohs	,	F_2
+tvb_new_subset_remaining	,	F_9
+"Dynamic Service Add Response ID = %u (%s)"	,	L_1
+gint	,	T_9
+docsis_conf_code	,	V_12
+proto_item_add_subtree	,	F_7
+proto_register_field_array	,	F_15
+tvb	,	V_1
+"Transaction Id"	,	L_4
+ett	,	V_24
+COL_INFO	,	V_11
+transid	,	V_7
+dissector_add_uint	,	F_21
+"docsis_mgmt"	,	L_13
+tree	,	V_3
+it	,	V_5
+FT_UINT16	,	V_20
+packet_info	,	T_2
+tvb_get_guint8	,	F_3
+cinfo	,	V_10
+tvb_captured_length	,	F_11
+proto_register_subtree_array	,	F_17
+val_to_str	,	F_5
+array_length	,	F_16
+next_tvb	,	V_9
+docsis_dsarsp_handle	,	V_25
+proto_tree_add_item	,	F_8
+dsarsp_tree	,	V_6
+call_dissector	,	F_10
+pinfo	,	V_2
+col_add_fstr	,	F_4
+dissector_handle_t	,	T_10
+"docsis_dsarsp"	,	L_11
+"Service Identifier"	,	L_6
+_U_	,	V_4
+"DSA Response"	,	L_3
+"docsis_dsarsp.confcode"	,	L_8
+"%d"	,	L_2
+ett_docsis_dsarsp	,	V_14
+hf_register_info	,	T_8
+"DOCSIS Dynamic Service Addition Response"	,	L_9
+VALS	,	F_13
+HFILL	,	V_22
+"docsis_tlv"	,	L_12
+"Confirmation Code"	,	L_7
+guint16	,	T_6
+proto_reg_handoff_docsis_dsarsp	,	F_19
+FT_UINT8	,	V_23
+find_dissector	,	F_20
+"docsis_dsarsp.tranid"	,	L_5
+BASE_DEC	,	V_21
+proto_item	,	T_5
+ENC_BIG_ENDIAN	,	V_16
+dissect_dsarsp	,	F_1
+guint8	,	T_7
+response	,	V_8
+"DOCSIS DSA-RSP"	,	L_10
+proto_register_docsis_dsarsp	,	F_12
+proto_tree	,	T_3
+hf	,	V_19

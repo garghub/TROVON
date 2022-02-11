@@ -1,0 +1,148 @@
+j1939_address_vals_ext	,	V_4
+"j1939.pdu_format"	,	L_22
+"j1939.data"	,	L_30
+"Destination Address"	,	L_26
+proto_register_protocol	,	F_30
+dissector_try_uint_new	,	F_21
+"PDU Format"	,	L_21
+tvb_reported_length	,	F_5
+guint32_to_str_buf	,	F_24
+proto_tree_add_subtree	,	F_20
+"%d (Arbitrary)"	,	L_3
+col_append_fstr	,	F_17
+gint	,	T_7
+col_set_str	,	F_7
+"j1939.data_page"	,	L_20
+hf_j1939_pgn	,	V_44
+id	,	V_21
+msg_tree	,	V_13
+tvb	,	V_5
+"PGN: %d"	,	L_6
+"%d (%s)"	,	L_1
+guint32	,	T_2
+COL_INFO	,	V_25
+J1939_col_filter_str	,	F_26
+proto_register_j1939	,	F_28
+pool	,	V_37
+J1939_addr_len	,	F_27
+"J1939 Address"	,	L_35
+hf_j1939_extended_data_page	,	V_32
+CF_FUNC	,	F_29
+col_clear	,	F_8
+cinfo	,	V_23
+dest_addr	,	V_20
+proto_register_subtree_array	,	F_33
+array_length	,	F_32
+"j1939.group_extension"	,	L_28
+"Reserved"	,	L_2
+dissect_j1939	,	F_4
+addrdata	,	V_49
+proto_tree_add_item	,	F_9
+pinfo	,	V_6
+col_add_fstr	,	F_16
+"Priority"	,	L_13
+dissector_handle_t	,	T_12
+"Data"	,	L_29
+_U_	,	V_50
+DISSECTOR_ASSERT	,	F_6
+"J1939"	,	L_4
+"j1939.dst_addr"	,	L_10
+hf_j1939_data_page	,	V_33
+result	,	V_1
+j1939_address_type	,	V_39
+"j1939.src_addr"	,	L_9
+pgn	,	V_18
+hf_register_info	,	T_11
+dissector_add_for_decode_as	,	F_38
+"Message"	,	L_8
+"Data Page"	,	L_19
+can_identifier	,	V_15
+"j1939.can_id"	,	L_12
+"j1939.pgn"	,	L_16
+COL_PROTOCOL	,	V_24
+hf_j1939_data	,	V_46
+address	,	T_9
+"j1939.ex_data_page"	,	L_18
+"Source Address"	,	L_25
+src_addr	,	V_19
+BASE_DEC	,	V_56
+"Group Extension"	,	L_27
+proto_item	,	T_6
+hf_j1939_src_addr	,	V_36
+"SAE J1939"	,	L_31
+ENC_NA	,	V_27
+guint8	,	T_8
+buf	,	V_47
+"AT_J1939"	,	L_34
+ti	,	V_9
+BASE_NONE	,	V_59
+"   %s"	,	L_7
+wmem_alloc	,	F_14
+register_dissector_table	,	F_34
+"PGN Handle"	,	L_33
+ITEM_LABEL_LENGTH	,	V_3
+data	,	V_8
+"can.subdissector"	,	L_36
+tvbuff_t	,	T_3
+BASE_CUSTOM	,	V_57
+j1939_fmt_address	,	F_1
+"PDU Specific"	,	L_23
+val_to_str_ext_const	,	F_3
+"j1939"	,	L_32
+"Extended Data Page"	,	L_17
+can_id	,	V_16
+BASE_HEX	,	V_54
+"j1939.pdu_specific"	,	L_24
+PROTO_ITEM_SET_GENERATED	,	F_13
+"CAN Identifier"	,	L_11
+gboolean	,	T_10
+hf_j1939_group_extension	,	V_41
+proto_item_add_subtree	,	F_10
+proto_register_field_array	,	F_31
+FT_BYTES	,	V_58
+hf_j1939_pdu_specific	,	V_35
+offset	,	V_14
+ett	,	V_61
+wmem_packet_scope	,	F_19
+tree	,	V_7
+j1939_handle	,	V_62
+packet_info	,	T_4
+hf_j1939_priority	,	V_31
+proto_j1939	,	V_26
+tvb_bytes_to_str_punct	,	F_18
+tvb_captured_length	,	F_22
+J1939_addr_to_str	,	F_23
+ett_j1939	,	V_28
+subdissector_pgn_table	,	V_45
+j1939_tree	,	V_11
+proto_tree_add_uint	,	F_12
+dst	,	V_42
+"j1939.priority"	,	L_14
+set_address	,	F_15
+hf_j1939_can_id	,	V_30
+proto_reg_handoff_j1939	,	F_36
+g_snprintf	,	F_2
+J1939_addr_str_len	,	F_25
+can_tree	,	V_12
+buf_len	,	V_48
+addr	,	V_2
+HFILL	,	V_55
+is_src	,	V_51
+hf_j1939_dst_addr	,	V_40
+address_type_dissector_register	,	F_35
+src	,	V_38
+gchar	,	T_1
+data_length	,	V_17
+"PGN"	,	L_15
+create_dissector_handle	,	F_37
+proto_tree_add_subtree_format	,	F_11
+J1939_CANID_MASK	,	V_22
+can_id_item	,	V_10
+ett_j1939_can	,	V_29
+FT_UINT32	,	V_53
+"CAN Identifier: 0x%08x"	,	L_5
+hf_j1939_pdu_format	,	V_34
+ett_j1939_message	,	V_43
+proto_tree	,	T_5
+hf	,	V_52
+BASE_ALLOW_ZERO	,	V_60

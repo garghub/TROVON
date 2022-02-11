@@ -1,0 +1,118 @@
+"normal"	,	L_4
+proto_register_cnip	,	F_15
+"cnip"	,	L_31
+"CN/IP Protocol"	,	L_32
+hf_cnip_exth	,	V_25
+proto_register_protocol	,	F_17
+DATA_PACKET	,	V_32
+tvb_new_subset_remaining	,	F_11
+"Version"	,	L_9
+gint	,	T_4
+col_set_str	,	F_2
+hf_cnip_vcode	,	V_28
+"Packet length"	,	L_7
+"urgent"	,	L_3
+tvb	,	V_1
+hf_cnip_pf	,	V_26
+"Packet type"	,	L_11
+ett_pf	,	V_27
+hf_cnip_pf_pcode	,	V_12
+COL_INFO	,	V_15
+"cnip.len"	,	L_8
+type_tuple	,	V_17
+col_clear	,	F_3
+cnip_handle	,	V_49
+cinfo	,	V_13
+cnip_dissector_table	,	V_33
+proto_register_subtree_array	,	F_20
+"Protocol Flags"	,	L_15
+array_length	,	F_19
+"cnip.tstamp"	,	L_27
+next_tvb	,	V_4
+pf_fields	,	V_10
+proto_tree_add_item	,	F_7
+call_dissector	,	F_14
+pinfo	,	V_2
+col_add_fstr	,	F_5
+dissector_handle_t	,	T_8
+hf_cnip_type	,	V_24
+"This dissector doesn't yet decode packets of type %s (0x%x)"	,	L_6
+"Priority: %s Type: %s"	,	L_2
+"Ext. Header Size"	,	L_13
+hf_register_info	,	T_5
+VALS	,	F_16
+hf_cnip_sessid	,	V_29
+hf_cnip_len	,	V_21
+"Vendor Code"	,	L_20
+pf_pcode	,	V_7
+COL_PROTOCOL	,	V_14
+"data"	,	L_33
+FT_UINT8	,	V_40
+BASE_DEC	,	V_38
+expert_register_field_array	,	F_22
+ENC_NA	,	V_19
+"cnip.seqno"	,	L_25
+"cnip.pf"	,	L_16
+ti	,	V_8
+expert_add_info_format	,	F_13
+register_dissector_table	,	F_23
+ei_cnip_type_unknown	,	V_34
+tvbuff_t	,	T_1
+"cnip.protocol"	,	L_19
+"This dissector doesn't yet decode packets of type"	,	L_29
+proto_tree_add_bitmask	,	F_9
+BASE_HEX	,	V_41
+"CN/IP"	,	L_1
+ei_register_info	,	T_6
+expert_register_protocol	,	F_21
+expert_cnip	,	V_48
+proto_item_add_subtree	,	F_8
+PI_UNDECODED	,	V_45
+proto_register_field_array	,	F_18
+offset	,	V_5
+ett	,	V_43
+ei	,	V_44
+exth_len	,	V_6
+"Time Stamp"	,	L_26
+expert_module_t	,	T_7
+dissector_add_uint	,	F_27
+hf_cnip_tstamp	,	V_31
+dissect_cnip	,	F_1
+tree	,	V_3
+ett_cnip	,	V_20
+"cnip.vendorcode"	,	L_21
+"Sequence Number"	,	L_24
+proto_cnip	,	V_18
+"cnip.exth"	,	L_14
+data_handle	,	V_35
+FT_UINT16	,	V_37
+packet_info	,	T_2
+tvb_get_guint8	,	F_4
+destport	,	V_16
+EXPFILL	,	V_47
+hf_cnip_ver	,	V_23
+"Session ID"	,	L_22
+"cnip.sessid"	,	L_23
+proto_reg_handoff_cnip	,	F_24
+HFILL	,	V_39
+"cnip.ver"	,	L_10
+cnip_tree	,	V_9
+"cnip.type.unknown"	,	L_28
+dissector_try_uint	,	F_12
+val_to_str_const	,	F_6
+"udp.port"	,	L_34
+find_dissector	,	F_26
+"Protocol Code"	,	L_18
+create_dissector_handle	,	F_25
+PI_WARN	,	V_46
+"Component Network over IP"	,	L_30
+proto_item_set_len	,	F_10
+"cnip.sec"	,	L_17
+ENC_BIG_ENDIAN	,	V_22
+hf_cnip_seqno	,	V_30
+"cnip.type"	,	L_12
+FT_UINT32	,	V_42
+"Unknown"	,	L_5
+hf_cnip_pf_sec	,	V_11
+proto_tree	,	T_3
+hf	,	V_36

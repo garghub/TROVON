@@ -1,0 +1,214 @@
+dissect_snp_lsp_entries_clv	,	F_13
+proto_register_protocol	,	F_30
+"isis.csnp.clv.type"	,	L_30
+"isis.csnp.pdu_length"	,	L_12
+"isis.psnp.pdu_length"	,	L_51
+opts	,	V_32
+len	,	V_35
+ett_isis_psnp_clv_checksum	,	V_100
+"isis.csnp.authentication"	,	L_36
+"isis.psnp.short_packet"	,	L_56
+gint	,	T_10
+tvb	,	V_1
+"isis.psnp"	,	L_58
+hf_isis_psnp_clv_type	,	V_62
+COL_INFO	,	V_42
+clv_l1_psnp_opts	,	V_65
+ett_isis_csnp_clv_instance_identifier	,	V_82
+"isis.type"	,	L_50
+proto_tree_add_expert_format	,	F_7
+"Remaining Lifetime"	,	L_23
+cinfo	,	V_36
+proto_isis_psnp	,	V_55
+PI_ERROR	,	V_86
+array_length	,	F_32
+"Unknown authentication type"	,	L_46
+hf_isis_csnp_pdu_length	,	V_40
+"IP Authentication"	,	L_33
+proto_register_isis_csnp	,	F_29
+ENC_ASCII	,	V_10
+ett_isis_csnp_clv_unknown	,	V_45
+hf_register_info	,	T_9
+"Long packet"	,	L_44
+"End LSP-ID"	,	L_17
+dissect_isis_psnp	,	F_26
+"isis.csnp.short_packet"	,	L_41
+"isis.csnp.authentication.unknown"	,	L_45
+dissect_psnp_ip_authentication_clv	,	F_5
+guint16	,	T_5
+COL_PROTOCOL	,	V_37
+tvb_print_system_id	,	F_22
+ISIS_TYPE_L2_PSNP	,	V_104
+PROTO_CHECKSUM_NOT_PRESENT	,	V_20
+"isis.csnp.source_id"	,	L_14
+ti	,	V_16
+BASE_NONE	,	V_72
+clv_l2_psnp_opts	,	V_66
+"packet header length %d went beyond packet"	,	L_9
+isis_dissect_clvs	,	F_23
+isis_clv_handle_t	,	T_7
+"Short SNP header entry (%d vs %d)"	,	L_3
+tvbuff_t	,	T_1
+dissect_isis_l1_csnp	,	F_24
+tvb_get_ntohs	,	F_8
+BASE_HEX	,	V_74
+ett_isis_csnp_lsp_entry	,	V_25
+"ISIS PSNP"	,	L_10
+dissect_isis_l2_csnp	,	F_25
+proto_item_add_subtree	,	F_19
+"isis.csnp.lsp_checksum"	,	L_26
+PI_UNDECODED	,	V_90
+proto_register_field_array	,	F_31
+FT_BYTES	,	V_77
+ei	,	V_84
+dissector_add_uint	,	F_37
+ei_isis_csnp_long_packet	,	V_23
+FT_UINT16	,	V_68
+"Supported ITID"	,	L_39
+header_length	,	V_33
+tvb_captured_length	,	F_12
+hf_isis_psnp_ip_authentication	,	V_12
+"isis.csnp.end_lsp_id"	,	L_18
+FT_SYSTEM_ID	,	V_71
+ett_isis_csnp	,	V_39
+"isis.csnp.lsp_remain_life"	,	L_24
+PROTO_STRING_PSNP	,	V_102
+ISIS_TYPE_L1_PSNP	,	V_103
+expert_isis_psnp	,	V_101
+"isis.psnp.source_id"	,	L_52
+"LSP checksum"	,	L_25
+ett_isis_psnp_clv_authentication	,	V_98
+FT_STRING	,	V_76
+hf_isis_csnp_clv_length	,	V_47
+length	,	V_6
+"Start LSP-ID"	,	L_15
+PI_WARN	,	V_89
+proto_isis_csnp	,	V_38
+ENC_BIG_ENDIAN	,	V_19
+"Short packet"	,	L_42
+FT_UINT32	,	V_73
+"isis.psnp.clv.unknown"	,	L_57
+hf_isis_csnp_checksum	,	V_18
+proto_reg_handoff_isis_csnp	,	F_36
+"isis.csnp.lsp_seq_num"	,	L_22
+"isis.psnp.clv.length"	,	L_54
+"Packet length %d went beyond packet"	,	L_2
+hf	,	V_67
+system_id_len	,	V_52
+PROTO_CHECKSUM_NO_FLAGS	,	V_22
+hf_isis_csnp_start_lsp_id	,	V_43
+ett_isis_csnp_clv_lsp_entries	,	V_79
+PROTO_STRING_CSNP	,	V_93
+proto_register_isis_psnp	,	F_39
+psnp_tree	,	V_54
+id_length	,	T_4
+hf_isis_csnp_authentication	,	V_7
+hf_isis_csnp_lsp_id	,	V_26
+ett_isis_psnp	,	V_56
+proto_tree_add_subtree	,	F_14
+isis_dissect_instance_identifier_clv	,	F_16
+col_append_fstr	,	F_21
+"isis.csnp"	,	L_49
+dissect_snp_checksum_clv	,	F_6
+col_set_str	,	F_18
+osi_check_and_get_checksum	,	F_10
+"isis.csnp.long_packet"	,	L_43
+"isis.csnp.ip_authentication"	,	L_34
+proto_register_subtree_array	,	F_33
+ett_isis_psnp_clv_ip_authentication	,	V_99
+dissect_isis_csnp	,	F_17
+", Start LSP-ID: %s"	,	L_7
+"Checksum"	,	L_27
+proto_tree_add_item	,	F_4
+hf_isis_csnp_ip_authentication	,	V_9
+pinfo	,	V_2
+_U_	,	V_5
+"ISIS CSNP"	,	L_5
+ett_isis_psnp_lsp_entry	,	V_97
+isis_data_t	,	T_8
+cacl_checksum	,	V_15
+proto_tree_add_checksum	,	F_9
+ei_isis_psnp_short_packet	,	V_60
+hf_isis_csnp_instance_identifier	,	V_30
+ei_isis_psnp_clv_unknown	,	V_64
+PI_PROTOCOL	,	V_88
+FT_UINT8	,	V_75
+BASE_DEC	,	V_69
+ISIS_TYPE_L2_CSNP	,	V_95
+proto_item	,	T_6
+", Source-ID: %s"	,	L_6
+expert_register_field_array	,	F_35
+"Authentication"	,	L_35
+ENC_NA	,	V_11
+subtree	,	V_24
+"PDU length"	,	L_11
+expert_add_info_format	,	F_11
+hf_isis_csnp_supported_itid	,	V_31
+"LSP-ID"	,	L_19
+clv_l1_csnp_opts	,	V_51
+expert_isis_csnp	,	V_92
+data	,	V_49
+"isis.csnp.iid"	,	L_38
+proto_reg_handoff_isis_psnp	,	F_40
+"isis.psnp.long_packet"	,	L_55
+"LSP Entry"	,	L_4
+dissect_snp_authentication_clv	,	F_1
+csnp_tree	,	V_34
+ei_isis_csnp_authentication	,	V_8
+"isis.csnp.supported_itid"	,	L_40
+ei_register_info	,	T_11
+expert_register_protocol	,	F_34
+"Source-ID"	,	L_13
+hf_isis_csnp_source_id	,	V_41
+PI_NOTE	,	V_91
+hf_isis_psnp_clv_length	,	V_63
+ett_isis_psnp_clv_lsp_entries	,	V_96
+pdu_length	,	V_13
+"LSP Sequence Number"	,	L_21
+"Length"	,	L_31
+"isis.csnp.clv.unknown"	,	L_47
+offset	,	V_4
+ett	,	V_78
+hf_isis_psnp_source_id	,	V_58
+hf_isis_csnp_lsp_checksum	,	V_29
+ett_isis_csnp_clv_ip_authentication	,	V_81
+expert_module_t	,	T_12
+tree	,	V_3
+dissect_isis_l1_psnp	,	F_27
+packet_info	,	T_2
+ISIS_TYPE_L1_CSNP	,	V_94
+"isis.csnp.clv.length"	,	L_32
+ett_isis_csnp_clv_authentication	,	V_80
+"isis.csnp.start_lsp_id"	,	L_16
+ett_isis_csnp_clv_checksum	,	V_83
+hf_isis_csnp_lsp_seq_num	,	V_27
+hf_isis_psnp_pdu_length	,	V_57
+proto_tree_add_uint	,	F_20
+EXPFILL	,	V_87
+hf_isis_csnp_end_lsp_id	,	V_44
+"isis.psnp.clv.type"	,	L_53
+", End LSP-ID: %s"	,	L_8
+"incorrect checksum length (%u), should be (2)"	,	L_1
+ett_isis_psnp_clv_unknown	,	V_61
+ei_isis_csnp_clv_unknown	,	V_48
+checksum	,	V_14
+PROTO_CHECKSUM_VERIFY	,	V_21
+hf_isis_csnp_clv_type	,	V_46
+HFILL	,	V_70
+PI_MALFORMED	,	V_85
+isis	,	V_50
+ei_isis_csnp_short_packet	,	V_17
+create_dissector_handle	,	F_38
+clv_l2_csnp_opts	,	V_53
+"Instance Identifier"	,	L_37
+hf_isis_csnp_lsp_remain_life	,	V_28
+ei_isis_psnp_long_packet	,	V_59
+dissect_snp_instance_identifier_clv	,	F_15
+"isis.csnp.checksum"	,	L_28
+"Unknown option"	,	L_48
+"isis.csnp.lsp_id"	,	L_20
+dissect_csnp_ip_authentication_clv	,	F_3
+"Type"	,	L_29
+isis_dissect_authentication_clv	,	F_2
+proto_tree	,	T_3
+dissect_isis_l2_psnp	,	F_28

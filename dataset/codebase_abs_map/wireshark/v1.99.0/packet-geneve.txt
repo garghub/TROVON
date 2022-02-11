@@ -1,0 +1,205 @@
+"Generic Network Virtualization Encapsulation"	,	L_59
+type_item	,	V_15
+"geneve.option.flags"	,	L_49
+proto_register_protocol	,	F_33
+tvb_new_subset_remaining	,	F_27
+"Version"	,	L_24
+len	,	V_13
+"Generic Network Virtualization Encapsuation, VNI: 0x%06x"	,	L_21
+"%u bytes"	,	L_15
+gint	,	T_8
+"geneve.flags.reserved"	,	L_35
+tvb	,	V_10
+flag_tree	,	V_18
+"geneve.option.length"	,	L_52
+ett_geneve_unknown_opt	,	V_23
+hf_geneve_option_type	,	V_26
+COL_INFO	,	V_51
+"Critical"	,	L_10
+FT_BOOLEAN	,	V_75
+"Virtual Network Identifier (VNI)"	,	L_38
+"Operations, Administration and Management Frame"	,	L_30
+proto_tree_add_expert_format	,	F_18
+cinfo	,	V_49
+array_length	,	F_3
+"Reserved"	,	L_34
+next_tvb	,	V_45
+""	,	L_23
+"Critical Option"	,	L_47
+" (%s)"	,	L_13
+call_dissector	,	F_29
+hf_geneve_flag_critical	,	V_63
+"ethertype"	,	L_62
+proto_item_set_text	,	F_10
+hf_geneve_vni	,	V_66
+OPT_FLAGS_SHIFT	,	V_28
+PROTO_ITEM_SET_HIDDEN	,	F_12
+"geneve.vni"	,	L_39
+hf_register_info	,	T_7
+geneve_tree	,	V_35
+"geneve.option.type"	,	L_46
+"geneve.option.class"	,	L_44
+guint16	,	T_3
+COL_PROTOCOL	,	V_50
+ett_geneve_opt_flags	,	V_30
+i	,	V_4
+opts_tree	,	V_11
+RVALS	,	F_32
+guint8	,	T_1
+rsvd_item	,	V_44
+ti	,	V_43
+BASE_NONE	,	V_79
+"%s (length of %u is past end of options)"	,	L_17
+proto_register_geneve	,	F_30
+"0x%04x (unknown)"	,	L_20
+tvbuff_t	,	T_4
+proto_tree_add_protocol_format	,	F_24
+tvb_get_ntohs	,	F_17
+BASE_HEX	,	V_74
+FT_UINT24	,	V_77
+proto_item_add_subtree	,	F_11
+hf_geneve_option_length	,	V_32
+hf_geneve_flag_oam	,	V_62
+"geneve"	,	L_60
+proto_register_field_array	,	F_34
+FT_BYTES	,	V_78
+geneve_handle	,	V_87
+ett_geneve	,	V_55
+ei	,	V_82
+dissector_add_uint	,	F_40
+flag_item	,	V_2
+opt_class	,	V_6
+data_handle	,	V_69
+"Unknown, Class: %s (0x%04x) Type: 0x%02x"	,	L_8
+FT_UINT16	,	V_76
+tvb_get_guint8	,	F_13
+name	,	V_8
+"geneve.option.flags.reserved"	,	L_50
+opts_len	,	V_48
+proto_geneve	,	V_53
+")"	,	L_7
+"Protocol Type"	,	L_36
+hf_geneve_option_flags_reserved	,	V_31
+rval_to_str_const	,	F_7
+"geneve.flags.oam"	,	L_31
+"RSVD"	,	L_6
+OPT_TYPE_CRITICAL	,	V_20
+find_dissector_table	,	F_42
+find_dissector	,	F_43
+format_unknown_option_name	,	F_4
+dissect_geneve	,	F_19
+proto_tree_add_uint_format_value	,	F_15
+"Unknown Option"	,	L_53
+ENC_BIG_ENDIAN	,	V_25
+hf_geneve_flag_reserved	,	V_64
+ver_opt	,	V_46
+"geneve.version"	,	L_25
+hf_geneve_proto_type	,	V_65
+hf	,	V_70
+proto_reg_handoff_geneve	,	F_38
+opt_len	,	V_37
+OPT_LEN_MASK	,	V_40
+bit	,	V_5
+"Critical Options Present"	,	L_32
+wmem_strdup_printf	,	F_5
+opt_tree	,	V_17
+class_id_names	,	V_9
+hf_geneve_version	,	V_56
+col_set_str	,	F_20
+BASE_RANGE_STRING	,	V_80
+"Flags"	,	L_28
+HDR_OPTS_LEN_MASK	,	V_58
+"geneve.option.length.invalid"	,	L_57
+hidden_item	,	V_16
+proto_item_append_text	,	F_2
+ethertype_dissector_table	,	V_68
+"geneve.flags"	,	L_29
+col_clear	,	F_21
+proto_register_subtree_array	,	F_35
+val_to_str	,	F_23
+"geneve.proto_type"	,	L_37
+tvb_get_ntoh24	,	F_25
+"Options Length"	,	L_26
+hf_geneve_flags	,	V_60
+proto_tree_add_item	,	F_9
+pinfo	,	V_34
+col_add_fstr	,	F_22
+dissector_handle_t	,	T_11
+flags	,	V_1
+"Encapsulated %s"	,	L_19
+", OAM"	,	L_22
+expert_geneve	,	V_86
+proto_type	,	V_47
+VALS	,	F_31
+dissector_add_for_decode_as	,	F_41
+"Class"	,	L_43
+"geneve.option.unknown.data"	,	L_56
+"data"	,	L_63
+hf_geneve_reserved	,	V_67
+FT_UINT8	,	V_71
+BASE_DEC	,	V_72
+proto_item	,	T_2
+expert_register_field_array	,	F_37
+ENC_NA	,	V_22
+hf_geneve_option_flags	,	V_29
+dissect_geneve_options	,	F_16
+"Invalid length for option"	,	L_58
+"CRIT"	,	L_2
+etype_vals	,	V_52
+UDP_PORT_GENEVE	,	V_88
+ett_geneve_flags	,	V_61
+"%s"	,	L_4
+FLAG_OAM	,	V_54
+"geneve.reserved"	,	L_40
+"geneve.option.type.critical"	,	L_48
+"geneve.options"	,	L_42
+"geneve.options_length"	,	L_27
+ei_register_info	,	T_9
+expert_register_protocol	,	F_36
+ei_geneve_opt_len_invalid	,	V_41
+VER_SHIFT	,	V_57
+PI_NOTE	,	V_84
+hf_geneve_opt_unknown_data	,	V_33
+print_flags	,	F_1
+"Length"	,	L_51
+PI_SEQUENCE	,	V_83
+offset	,	V_12
+ett	,	V_81
+wmem_packet_scope	,	F_6
+opt_item	,	V_14
+expert_module_t	,	T_10
+tree	,	V_42
+"Options: (%u bytes)"	,	L_16
+packet_info	,	T_6
+hf_geneve_option_class	,	V_24
+" ("	,	L_3
+"geneve.option.unknown"	,	L_54
+hf_geneve_options	,	V_38
+proto_tree_add_uint	,	F_14
+EXPFILL	,	V_85
+critical	,	V_19
+ett_geneve_options	,	V_39
+"Geneve"	,	L_18
+"Non-critical"	,	L_11
+"Geneve Options"	,	L_41
+hf_geneve_option_type_critical	,	V_27
+flag_names	,	V_3
+"Option Data"	,	L_55
+hf_geneve_opt_len	,	V_59
+", "	,	L_5
+HFILL	,	V_73
+dissector_try_uint	,	F_28
+"geneve.flags.critical"	,	L_33
+"udp.port"	,	L_61
+create_dissector_handle	,	F_39
+"OAM"	,	L_1
+hf_geneve_opt_unknown	,	V_21
+" (RSVD)"	,	L_14
+"%s (%s)"	,	L_12
+proto_item_set_len	,	F_26
+dissect_unknown_option	,	F_8
+opt_type	,	V_7
+"Unknown"	,	L_9
+"Type"	,	L_45
+proto_tree	,	T_5
+opts_item	,	V_36

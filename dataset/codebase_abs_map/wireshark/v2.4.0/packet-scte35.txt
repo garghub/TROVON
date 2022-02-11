@@ -1,0 +1,455 @@
+"scte35_si.component_count"	,	L_46
+proto_reg_handoff_scte35_splice_insert	,	F_31
+descriptor_offset	,	V_163
+hf_component_splice_time_reserved	,	V_49
+"scte35_splice_schedule.splice.avail_num"	,	L_91
+rv_encryption_algorithm	,	V_192
+scte35_segmentation_type_id	,	V_205
+"Preroll"	,	L_133
+component_tree	,	V_46
+tvb_reported_length	,	F_2
+"Duration Flag"	,	L_79
+"scte35.splice_descriptor.component_count"	,	L_161
+hf_splice_command_type	,	V_182
+"Event Cancel Indicator"	,	L_72
+"scte35.splice_descriptor.segment_num"	,	L_177
+hf_splice_event_cancel_indicator	,	V_98
+tfs_section_syntax_indicator	,	V_187
+TFS	,	F_46
+guint32	,	T_10
+hf_private_indicator	,	V_167
+"scte35.splice_descriptor.psf"	,	L_147
+FT_BOOLEAN	,	V_23
+dissect_scte35_dtmf_descriptor	,	F_36
+"mpeg_sect.tid"	,	L_188
+encrypted_packet	,	V_157
+"scte35_si.avails_expected"	,	L_62
+"Segmentation Event ID"	,	L_141
+hf_encryption_algorithm	,	V_172
+"Private Bytes"	,	L_17
+sdf	,	V_124
+tvb_len	,	V_5
+"scte35_private_command"	,	L_21
+dissect_component	,	F_22
+array_length	,	F_11
+"Protocol Version"	,	L_108
+proto_register_scte35_private_command	,	F_19
+ett_scte35_splice_info_section	,	V_176
+ENC_ASCII	,	V_118
+hf_descriptor_segmentation_upid_length	,	V_141
+hf_register_info	,	T_8
+component_count	,	V_55
+"SCTE-35 Private Command Identifier"	,	L_22
+descriptor_tvb	,	V_146
+cancel_flag	,	V_52
+tfs_descriptor_blackout	,	V_201
+hf_component_tag	,	V_47
+guint16	,	T_11
+i	,	V_161
+encrypt_flags	,	V_170
+"Delivery not Restricted"	,	L_150
+RVALS	,	F_47
+"scte35_si.cancelled"	,	L_31
+component	,	V_57
+"DTMF Reserved"	,	L_137
+event_id	,	V_56
+st_tree	,	V_59
+"Archive Allowed"	,	L_156
+"scte35_si.splice_time.pts"	,	L_44
+hf_descriptor_segmentation_duration_flag	,	V_131
+"Program Splice Flag"	,	L_77
+"Component Tag"	,	L_47
+hf_splice_time_reserved	,	V_72
+df	,	V_54
+splice_event_flags	,	V_89
+"Segments Expected"	,	L_178
+BASE_HEX	,	V_26
+"Segmentation Type"	,	L_174
+proto_item_add_subtree	,	F_6
+proto_register_field_array	,	F_12
+rv_splice_command_type	,	V_193
+FT_BYTES	,	V_39
+hf_break_duration_auto_return	,	V_75
+"scte35.splice_descriptor.dtmf_count"	,	L_136
+dissector_add_uint	,	F_15
+FT_UINT16	,	V_81
+"scte35_splice_schedule.splice.event_cancel_indicator"	,	L_73
+hf_descriptor_segmentation_type_id	,	V_143
+"Encrypted Packet"	,	L_110
+tfs_encrypted_packet	,	V_189
+"Device Restrictions"	,	L_158
+"scte35_si.duration_flag"	,	L_38
+"scte35.splice_descriptor.dtmf_reserved"	,	L_138
+"scte35_time.splice.reserved"	,	L_7
+hf_descriptor_provider_avail_id	,	V_112
+"UPID Length"	,	L_170
+"scte35_si.break.auto_return"	,	L_53
+hf_descriptor_delivery_not_restricted_flag	,	V_132
+"Encrypted CRC32"	,	L_180
+"Component %d"	,	L_68
+sif	,	V_42
+"scte35_splice_schedule.splice_count"	,	L_70
+SCTE35_AVAIL_DESCRIPTOR	,	V_152
+FT_STRING	,	V_195
+FT_UINT40	,	V_190
+"Duration Present"	,	L_37
+hf_e_crc32	,	V_184
+scte35_cmd_dissector_table	,	V_186
+"Program Splice Time"	,	L_27
+hf_identifier	,	V_35
+component_tag	,	V_44
+min_length	,	V_6
+splice	,	V_85
+hf_descriptor_archive_allow_flag	,	V_136
+splice_info_tree	,	V_162
+length	,	V_148
+"Command Length"	,	L_120
+tfs_descriptor_sdf	,	V_198
+"Cancel Indicator"	,	L_143
+"Program Splice Point"	,	L_35
+hf_splice_break_duration_auto_return	,	V_104
+dissect_scte35_avail_descriptor	,	F_35
+hf_splice_avail_num	,	V_108
+hf_splice_component_utc_splice_time	,	V_103
+splice_length	,	V_86
+tfs_private_indicator	,	V_188
+FT_UINT32	,	V_38
+hf_splice_insert_event_id	,	V_68
+hf_time_specified	,	V_16
+hf_avail_num	,	V_79
+"SCTE-35 Splice Information"	,	L_184
+"UTC Splice Time"	,	L_82
+hf	,	V_22
+"scte35_splice_schedule.splice.duration_flag"	,	L_80
+"Control Word Index"	,	L_116
+ett_private_command	,	V_34
+"scte35.splice_descriptor.web_delivery_allowed"	,	L_153
+hf_descriptor_component_pts_offset	,	V_122
+"Tag"	,	L_125
+"scte35.crc"	,	L_183
+proto_tree_add_subtree	,	F_28
+proto_reg_handoff_scte35_splice_schedule	,	F_34
+"scte35_splice_schedule.splice.program_splice_flag"	,	L_78
+hf_break_duration_reserved	,	V_76
+col_set_str	,	F_43
+BASE_RANGE_STRING	,	V_191
+"Component Count"	,	L_45
+hf_splice_duration_flag	,	V_92
+"Future"	,	L_2
+"Time Signal (%s)"	,	L_1
+hf_component_count	,	V_74
+dnr	,	V_125
+hf_encrypted_packet	,	V_171
+tfs_descriptor_cancel_indicator	,	V_196
+proto_tree_add_item_ret_uint	,	F_17
+time_specified_flag	,	V_8
+hf_descriptor_component_tag	,	V_120
+"scte35.splice_descriptor.length"	,	L_128
+dissector_handle_t	,	T_9
+"scte35_si.splice_time.reserved"	,	L_43
+dissect_scte35_splice_info	,	F_41
+tfs_descriptor_archive	,	V_202
+hf_descriptor_preroll	,	V_114
+hf_descriptor_segment_num	,	V_144
+"scte35.tier"	,	L_119
+hf_splice_program_splice_flag	,	V_91
+"scte35.private"	,	L_104
+SCTE35_TABLE_ID	,	V_207
+"Splice %d"	,	L_67
+"scte35_splice_schedule.splice.component_count"	,	L_84
+SCTE35_SEGMENTATION_DESCRIPTOR	,	V_154
+hf_descriptor_dtmf_reserved	,	V_116
+dtmf_count	,	V_113
+BASE_DEC	,	V_28
+"scte35_splice_schedule.splice.break_duration.reserved"	,	L_88
+new_event_fields	,	V_60
+cancel_indicator	,	V_123
+descriptor_loop_length	,	V_160
+proto_register_scte35_time_signal	,	F_7
+dissected_length	,	V_51
+pc_tree	,	V_32
+ENC_NA	,	V_14
+"Auto Return"	,	L_52
+subtree	,	V_119
+dissect_scte35_segmentation_descriptor	,	F_38
+"scte35.protocol_version"	,	L_109
+proto_scte35	,	V_175
+"SCTE35 SI"	,	L_64
+"SCTE35 PC"	,	L_20
+proto_register_scte35	,	F_45
+proto_tree_add_bitmask_list	,	F_26
+hf_tier	,	V_180
+"Cancellation"	,	L_25
+dissect_scte35_time_signal	,	F_1
+ett_scte35_splice_insert	,	V_67
+tfs_descriptor_web	,	V_200
+table_id	,	V_156
+"Command Type"	,	L_122
+"DTMF Count"	,	L_135
+hf_descriptor_event_id	,	V_127
+"Descriptor Loop Length"	,	L_123
+hf_splice_utc_splice_time	,	V_100
+"No Regional Blackout"	,	L_154
+section_flags	,	V_165
+"scte35_si.break.duration"	,	L_56
+"scte35.syntax_indicator"	,	L_102
+"Identifier"	,	L_15
+"Segmentation Duration"	,	L_166
+"Web Delivery Allowed"	,	L_152
+"scte35.splice_descriptor.upid"	,	L_173
+"Length"	,	L_127
+ett	,	V_20
+ett_scte35_time_signal_splice_time	,	V_21
+hf_cw_index	,	V_179
+hf_descriptor_web_delivery_allowed_flag	,	V_134
+"scte35.splice_command_length"	,	L_121
+packet_info	,	T_2
+"scte35_si.component.pts"	,	L_51
+"Private Indicator"	,	L_103
+"SCTE-35 Command"	,	L_187
+"Table 0x%02x"	,	L_98
+"SCTE-35 Splice Schedule"	,	L_93
+"scte35_si.upid"	,	L_58
+tsf	,	V_45
+"scte35.splice_descriptor.upid_length"	,	L_171
+"Private Command (0x%08x)"	,	L_14
+"Authorisation Tier"	,	L_118
+private_identifier_table	,	V_37
+"Splice Count"	,	L_69
+hf_descriptor_psf	,	V_130
+hf_splice_command_length	,	V_181
+"scte35.splice_descriptor.dtmf"	,	L_140
+scte35_si_handle	,	V_82
+tvb_new_subset_length	,	F_39
+"UPID"	,	L_172
+scte35_handle	,	V_206
+HFILL	,	V_24
+"DTMF"	,	L_139
+dissector_try_uint	,	F_18
+scte35_segmentation_upid_type	,	V_204
+"scte35"	,	L_186
+create_dissector_handle	,	F_14
+proto_tree_add_subtree_format	,	F_23
+"scte35.len"	,	L_107
+dissect_scte35_component	,	F_37
+"PTS Adjustment"	,	L_114
+"Descriptor %d (0x%02x)"	,	L_96
+"UPID Type"	,	L_168
+"scte35.splice_descriptor.segments_expected"	,	L_179
+"scte35_splice_schedule.splice.component.utc_splice_time"	,	L_86
+"Provider Avail ID"	,	L_131
+hf_splice_time_pts_time	,	V_73
+"scte35_si"	,	L_65
+hf_descriptor_no_regional_blackout_flag	,	V_135
+proto_register_protocol	,	F_9
+"scte35_si.break.reserved"	,	L_54
+dissector_try_uint_new	,	F_44
+dissector	,	V_110
+dissect_scte35_splice_insert	,	F_24
+"Segmentation Duration Flag"	,	L_148
+"Out of Network Indicator"	,	L_75
+tvb_new_subset_remaining	,	F_29
+"Unique Program ID"	,	L_57
+"scte35_splice_schedule.splice.component.tag"	,	L_85
+"scte35.splice_descriptor.provider_avail_id"	,	L_132
+gint	,	T_5
+"scte35_si.component.tag"	,	L_48
+"scte35_splice_schedule"	,	L_95
+command_length	,	V_159
+hf_section_syntax_indicator	,	V_166
+hf_descriptor_component_reserved	,	V_121
+"scte35.desc_len"	,	L_124
+tvb	,	V_1
+hf_descriptor_device_restrictions	,	V_137
+COL_INFO	,	V_12
+hf_descriptor_segmentation_upid	,	V_142
+hf_private_byte	,	V_36
+"scte35.ecrc32"	,	L_181
+"scte35.splice_descriptor.tag"	,	L_126
+cinfo	,	V_11
+"scte35_si.splice_time.time_specified"	,	L_42
+"scte35.splice_descriptor.reserved1"	,	L_160
+scte35_private_command_handle	,	V_40
+"Reserved"	,	L_6
+"scte35_si.psf"	,	L_36
+dissect_scte35_splice_descriptor	,	F_40
+hf_crc32	,	V_185
+"scte35.splice_command_type"	,	L_13
+hf_descriptor_component_count	,	V_138
+"scte35.encrypted_packet"	,	L_111
+proto_register_scte35_splice_schedule	,	F_33
+hf_descriptor_loop_length	,	V_183
+"scte35.splice_descriptor.reserved0"	,	L_145
+"scte35.splice_descriptor.component.reserved"	,	L_163
+"scte35_time.splice.time_specified"	,	L_5
+"SCTE35 TS"	,	L_11
+upid_length	,	V_126
+COL_PROTOCOL	,	V_174
+"Program Segmentation Flag"	,	L_146
+"SCTE-35 Private Command"	,	L_19
+"PTS Offset"	,	L_164
+guint8	,	T_6
+"scte35_splice_schedule.splice.out_of_network_indicator"	,	L_76
+ti	,	V_9
+"scte35.reserved"	,	L_105
+hf_protocol_version	,	V_178
+tfs_descriptor_psf	,	V_197
+"SCTE-35 Splice Insert"	,	L_63
+"scte35.splice_descriptor.archive_allowed"	,	L_157
+"Encryption Algorithm"	,	L_112
+register_dissector	,	F_48
+hf_avails_expected	,	V_80
+tvb_get_ntohl	,	F_25
+tvbuff_t	,	T_1
+"Component %d (0x%02x)"	,	L_23
+hf_component_splice_time_pts_time	,	V_50
+"Out of Network"	,	L_33
+tvb_get_ntohs	,	F_42
+"Immediate"	,	L_3
+"scte35.splice_descriptor.device_restrictions"	,	L_159
+"scte35_time"	,	L_12
+hf_splice_descriptor_tag	,	V_149
+"scte35.tid"	,	L_100
+G_GUINT64_CONSTANT	,	F_8
+"Descriptor ID"	,	L_129
+"scte35.splice_descriptor.dnr"	,	L_151
+scte35_device_restrictions	,	V_203
+"scte35.splice_descriptor.component.tag"	,	L_162
+"SCTE35 SS"	,	L_94
+tvb_get_guint8	,	F_3
+"scte35_si.avail"	,	L_60
+idx	,	V_43
+"scte35.splice_descriptor.upid_type"	,	L_169
+psf	,	V_53
+"scte35.encryption_algorithm"	,	L_113
+"scte35.splice_descriptor.segmentation_duration"	,	L_167
+"scte35_private_command.private_byte"	,	L_18
+"Avail Number"	,	L_59
+"Avails Expected"	,	L_61
+hf_time_reserved	,	V_18
+"scte35_si.event_id"	,	L_29
+"SCTE 35"	,	L_185
+hf_splice_reserved1	,	V_93
+"scte35.splice_descriptor.component.pts_offset"	,	L_165
+hf_splice_reserved0	,	V_99
+dissect_scte35_private_command	,	F_16
+"scte35_splice_schedule.splice.reserved0"	,	L_74
+"SCTE-35 Time Signal"	,	L_10
+hf_splice_component_tag	,	V_102
+hf_splice_break_duration_duration	,	V_106
+"scte35_private_command.identifier"	,	L_16
+ENC_BIG_ENDIAN	,	V_17
+"scte35_time.splice.pts"	,	L_9
+"scte35_splice_schedule.splice.reserved1"	,	L_81
+hf_component_splice_time_tsf	,	V_48
+proto_scte35_splice_schedule	,	V_94
+ss_tree	,	V_87
+proto_reg_handoff_scte35	,	F_49
+"Section Syntax Identifier"	,	L_101
+hf_splice_descriptor_identifier	,	V_151
+FT_UINT64	,	V_27
+hf_reserved1	,	V_65
+SCTE35_CMD_SPLICE_INSERT	,	V_83
+SCTE35_DTMF_DESCRIPTOR	,	V_153
+hf_reserved0	,	V_70
+hf_splice_out_of_network	,	V_90
+tvb_get_bits8	,	F_27
+splice_count	,	V_84
+"scte35_si.reserved1"	,	L_41
+"Segment Number"	,	L_176
+identifier	,	V_31
+hf_unique_program_id	,	V_78
+"Time Specified"	,	L_4
+"Event ID"	,	L_28
+"Section length"	,	L_106
+proto_reg_handoff_scte35_private_command	,	F_21
+"scte35_si.component.reserved"	,	L_50
+rv_splice_descriptor_tag	,	V_194
+hf_descriptor_reserved0	,	V_129
+hf_splice_event_id	,	V_97
+hf_descriptor_reserved1	,	V_133
+command_type	,	V_158
+scte35_time_handle	,	V_29
+hf_descriptor_dtmf	,	V_117
+proto_register_subtree_array	,	F_10
+"scte35_splice_schedule.splice.event_id"	,	L_71
+proto_tree_add_item	,	F_5
+pinfo	,	V_2
+col_add_fstr	,	F_4
+SCTE35_CMD_TIME_SIGNAL	,	V_30
+_U_	,	V_4
+"scte35_splice_schedule.splice.break_duration.auto_return"	,	L_87
+hf_break_duration_duration	,	V_77
+SCTE35_CMD_SPLICE_SCHEDULE	,	V_111
+"scte35.splice_descriptor.identifier"	,	L_130
+"Splice Immediate"	,	L_39
+"scte35_splice_schedule.splice.utc_splice_time"	,	L_83
+hf_time_pts	,	V_19
+"scte35.splice_descriptor.cancel_indicator"	,	L_144
+FT_UINT8	,	V_25
+hf_splice_immediate_flag	,	V_64
+hf_pts_adjustment	,	V_173
+hf_splice_avails_expected	,	V_109
+proto_item	,	T_7
+hf_descriptor_segments_expected	,	V_145
+"Duration"	,	L_55
+"PTS Time"	,	L_8
+hf_descriptor_segmentation_duration	,	V_139
+proto_scte35_si	,	V_66
+hf_splice_break_duration_reserved	,	V_105
+hf_table_id	,	V_177
+"Cancelled"	,	L_30
+proto_private_command	,	V_33
+register_dissector_table	,	F_20
+data	,	T_4
+"scte35_splice_schedule.splice.avails_expected"	,	L_92
+"SCTE-35"	,	L_97
+"scte35.splice_descriptor.preroll"	,	L_134
+"Table ID"	,	L_99
+"Splice Schedule (%d splices)"	,	L_66
+hf_splice_component_count	,	V_101
+"scte35.splice_descriptor.no_regional_blackout"	,	L_155
+hf_splice_count	,	V_96
+"CRC32"	,	L_182
+SCTE35_CMD_PRIVATE_COMMAND	,	V_41
+tag	,	V_147
+hf_splice_cancel_indicator	,	V_69
+"scte35.splice_descriptor.event_id"	,	L_142
+"scte35.cw_index"	,	L_117
+hf_descriptor_cancel_indicator	,	V_128
+offset	,	V_7
+"scte35_si.splice_immediate"	,	L_40
+"scte35.pts_adjustment"	,	L_115
+tree	,	V_3
+SCTE35_SI_MIN_LEN	,	V_155
+"Splice %s Event 0x%08x"	,	L_24
+ett_scte35_splice_schedule	,	V_95
+hf_descriptor_dtmf_count	,	V_115
+proto_scte35_time	,	V_13
+"scte35.splice_descriptor.segmentation_type_id"	,	L_175
+sp_tree	,	V_88
+"scte35_si.component.time_specified"	,	L_49
+command_tvb	,	V_164
+hf_splice_time_specified_flag	,	V_71
+"Insertion"	,	L_26
+"scte35_splice_schedule.splice.break_duration.duration"	,	L_89
+ett_scte35_time_signal	,	V_15
+"scte35_si.out_of_net"	,	L_34
+proto_register_scte35_splice_insert	,	F_30
+hf_program_splice_flag	,	V_62
+"scte35_splice_schedule.splice.unique_program_id"	,	L_90
+hf_section_length	,	V_169
+tfs_descriptor_dnr	,	V_199
+proto_reg_handoff_scte35_time_signal	,	F_13
+hf_reserved	,	V_168
+dissect_scte35_splice_schedule	,	F_32
+hf_splice_unique_program_id	,	V_107
+si_tree	,	V_58
+hf_duration_flag	,	V_63
+hf_descriptor_segmentation_upid_type	,	V_140
+hf_out_of_network_indicator	,	V_61
+"scte35_si.reserved0"	,	L_32
+"scte35.splice_descriptor.sdf"	,	L_149
+proto_tree	,	T_3
+hf_splice_descriptor_length	,	V_150
+time_tree	,	V_10

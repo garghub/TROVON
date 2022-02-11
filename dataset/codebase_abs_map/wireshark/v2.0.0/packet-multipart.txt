@@ -1,0 +1,246 @@
+index_of_char	,	F_9
+"mime_multipart.type"	,	L_10
+tvb_get_string_enc	,	F_2
+value_str	,	V_54
+"multipart/mixed"	,	L_63
+hf_multipart_trailer	,	V_80
+imf_find_field_end	,	F_28
+"Content-Length Header"	,	L_28
+proto_register_protocol	,	F_48
+"Content-Language"	,	L_23
+"Remove base64 encoding from bodies"	,	L_55
+tvb_reported_length	,	F_4
+get_multipart_info	,	F_13
+POS_CONTENT_LENGTH	,	V_91
+multipart_module	,	V_93
+"Content-Length"	,	L_26
+len	,	V_17
+"MIME Multipart Media Encapsulation"	,	L_47
+gint	,	T_3
+proto_tree_add_format_text	,	F_29
+"Remove any base64 content-transfer encoding from bodies. "	,	L_56
+ett_multipart_body	,	V_49
+"name="	,	L_5
+tvb	,	V_5
+COL_INFO	,	V_79
+"Content-Encoding Header"	,	L_19
+multipart_headers	,	V_82
+m_info	,	V_23
+str	,	V_16
+tvb_reported_length_remaining	,	F_21
+g_ascii_strncasecmp	,	F_12
+boundary_len	,	V_28
+filename	,	V_45
+cinfo	,	V_78
+wmem_strdup	,	F_33
+PI_ERROR	,	V_99
+sep_seen	,	V_13
+g_ascii_isspace	,	F_11
+proto_reg_handoff_multipart	,	F_56
+array_length	,	F_46
+content_encoding_str	,	V_44
+cleanup_multipart_info	,	F_16
+" (%s)"	,	L_4
+call_dissector	,	F_39
+"base64"	,	L_7
+POS_CONTENT_DISPOSITION	,	V_60
+POS_CONTENT_ID	,	V_89
+lws	,	V_14
+ENC_ASCII	,	V_6
+POS_CONTENT_LANGUAGE	,	V_90
+tmp_tvb	,	V_62
+hf_register_info	,	T_11
+"mime_multipart.header.content-type"	,	L_33
+key	,	V_19
+"The multipart dissector could not find the required boundary parameter."	,	L_46
+c	,	V_10
+is_known_multipart_header	,	F_30
+g_free	,	F_17
+i	,	V_81
+POS_CONTENT_TRANSFER_ENCODING	,	V_58
+p	,	V_9
+multipart_media_subdissector_table	,	V_65
+q	,	V_12
+ett_multipart_main	,	V_96
+guint8	,	T_5
+ti	,	V_41
+BASE_NONE	,	V_86
+multipart_info_t	,	T_4
+body_len	,	V_61
+dissect_multipart	,	F_41
+"Content-Encoding"	,	L_17
+POS_CONTENT_ENCODING	,	V_88
+boundary_start	,	V_34
+hf_multipart_first_boundary	,	V_36
+media_handle	,	V_68
+mimetypename	,	V_46
+tvbuff_t	,	T_1
+"Encapsulated multipart part"	,	L_12
+"Trailer"	,	L_43
+PROTO_ITEM_SET_GENERATED	,	F_44
+"multipart/"	,	L_69
+gboolean	,	T_6
+proto_item_add_subtree	,	F_27
+hf_multipart_preamble	,	V_39
+module_t	,	T_12
+header_str	,	V_52
+proto_register_field_array	,	F_49
+FT_BYTES	,	V_92
+ret	,	V_11
+display_unknown_body_as_text	,	V_101
+ei	,	V_97
+hf_multipart_boundary	,	V_71
+"display_unknown_body_as_text"	,	L_50
+"This supports export of the body and its further dissection."	,	L_57
+data_handle	,	V_69
+body_part_start	,	V_38
+"RFC 2045: Content-Transfer-Encoding Header"	,	L_31
+tvb_strneql	,	F_20
+proto_tree_add_string_format	,	F_31
+find_first_boundary	,	F_18
+name	,	V_3
+"mime_multipart.last_boundary"	,	L_40
+type_ti	,	V_72
+"Content-Type Header"	,	L_34
+parameters	,	V_18
+body_start	,	V_42
+hf_multipart_part	,	V_48
+POS_CONTENT_TYPE	,	V_56
+"multipart/alternative"	,	L_65
+process_preamble	,	F_24
+call_dissector_with_data	,	F_38
+"mime_multipart.boundary"	,	L_42
+"Content-Id"	,	L_20
+save_match_string	,	V_67
+hf_header_array	,	V_55
+FT_STRING	,	V_85
+lines	,	V_7
+"mime_multipart.part"	,	L_13
+"MIME multipart"	,	L_48
+new_create_dissector_handle	,	F_59
+find_dissector_table	,	F_58
+start	,	V_21
+find_dissector	,	F_57
+compact_name	,	V_83
+expert_multipart	,	V_94
+"multipart/report"	,	L_67
+"multipart_media_type"	,	L_58
+base64_decode	,	F_1
+"Content-Transfer-Encoding"	,	L_29
+colon	,	V_15
+hf	,	V_84
+first_colon_offset	,	V_8
+hf_multipart_last_boundary	,	V_70
+match_string	,	V_24
+wmem_ascii_strdown	,	F_34
+cr_offset	,	V_59
+"mime_multipart.header.content-transfer-encoding"	,	L_30
+keylen	,	V_22
+prefs_register_protocol	,	F_53
+"Display bodies without media type as text"	,	L_51
+dummy	,	V_25
+remove_base64_encoding	,	V_64
+hf_index	,	V_53
+multipart_handle	,	V_102
+find_parameter	,	F_10
+media_type_dissector_table	,	V_66
+proto_item_append_text	,	F_35
+col_set_fence	,	F_45
+"--"	,	L_2
+"media"	,	L_61
+unfold_and_compact_mime_header	,	F_7
+proto_register_subtree_array	,	F_50
+proto_tree_add_string	,	F_43
+tvb_find_line_end	,	F_22
+"Content-Language Header"	,	L_25
+"mime_multipart.header.content-language"	,	L_24
+proto_tree_add_item	,	F_25
+pinfo	,	V_1
+dissector_handle_t	,	T_15
+content_type_str	,	V_43
+"Internet media type (for multipart processing)"	,	L_59
+"Preamble"	,	L_37
+base64_to_tvb	,	F_5
+"mime_multipart.header.content-encoding"	,	L_18
+dissected	,	V_63
+"mime_multipart.header.content-length"	,	L_27
+g_malloc	,	F_14
+b64_tvb	,	V_2
+"multipart/signed"	,	L_68
+"media_type"	,	L_62
+last_boundary	,	V_30
+find_next_boundary	,	F_23
+g_strndup	,	F_15
+prefs_register_bool_preference	,	F_54
+next_offset	,	V_32
+last_field	,	V_47
+"Last boundary"	,	L_39
+PI_PROTOCOL	,	V_98
+" as raw text (may cause problems with binary data)."	,	L_53
+"data"	,	L_60
+proto_item	,	T_8
+expert_register_field_array	,	F_52
+"multipart/related"	,	L_64
+ENC_NA	,	V_37
+subtree	,	V_40
+dissector_add_string	,	F_60
+boundary_length	,	V_27
+", Type: %s, Boundary: \"%s\""	,	L_8
+tvb_format_text	,	F_32
+tvb_offset_exists	,	F_19
+wmem_alloc	,	F_8
+register_dissector_table	,	F_55
+"%s"	,	L_3
+proto_multipart	,	V_75
+data	,	V_4
+"mime_multipart.preamble"	,	L_38
+"Boundary"	,	L_41
+line_len	,	V_33
+ei_register_info	,	T_14
+boundary_line_len	,	V_29
+expert_register_protocol	,	F_51
+retlen	,	V_20
+"RFC 2183: Content-Disposition Header"	,	L_16
+"mime_multipart"	,	L_49
+colon_offset	,	V_50
+guint	,	T_10
+offset	,	V_31
+ett	,	V_95
+wmem_packet_scope	,	F_3
+expert_module_t	,	T_13
+tree	,	V_35
+"filename="	,	L_6
+"Display multipart bodies with no media type dissector"	,	L_52
+proto_register_multipart	,	F_47
+packet_info	,	T_2
+add_new_data_source	,	F_6
+"Content-Type"	,	L_32
+ett_multipart	,	V_76
+ei_multipart_no_required_boundary_parameter	,	V_74
+boundary	,	V_26
+EXPFILL	,	V_100
+"mime_multipart.first_boundary"	,	L_36
+proto_tree_add_expert	,	F_42
+hdr_str	,	V_51
+"mime_multipart.header.content-id"	,	L_21
+header_start	,	V_73
+"Content-Disposition"	,	L_14
+semicolon_offset	,	V_57
+tvb_new_subset_length	,	F_36
+dissector_try_string	,	F_37
+"multipart/form-data"	,	L_66
+"MIME multipart encapsulation type"	,	L_11
+HFILL	,	V_87
+"boundary="	,	L_1
+"remove_base64_encoding"	,	L_54
+gchar	,	T_9
+proto_item_set_len	,	F_40
+"RFC 2045: Content-Id Header"	,	L_22
+"mime_multipart.trailer"	,	L_44
+hf_multipart_type	,	V_77
+"mime_multipart.header.content-disposition"	,	L_15
+process_body_part	,	F_26
+"mime_multipart.no_required_boundary_parameter"	,	L_45
+"Type"	,	L_9
+"First boundary"	,	L_35
+proto_tree	,	T_7

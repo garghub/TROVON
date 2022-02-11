@@ -1,0 +1,182 @@
+hf_cmp_tcptrans_poll_ref	,	V_31
+PFNAME	,	V_58
+"Type of InfoTypeAndValue"	,	L_7
+"cmp.type.oid"	,	L_6
+cmp_tcp_handle	,	V_66
+proto_register_protocol	,	F_24
+proto_tree_add_time	,	F_15
+actx	,	V_3
+"cmp.tcptrans.poll_ref"	,	L_15
+cmp_desegment	,	V_42
+"tcp_style_http_alternate_port"	,	L_40
+prefs_register_protocol	,	F_28
+proto_tree_add_subtree	,	F_10
+dissect_cmp_tcp	,	F_17
+"Version"	,	L_23
+cmp_alternate_tcp_style_http_port	,	V_62
+"Cryptlib-PKIBoot"	,	L_51
+tcp_dissect_pdus	,	F_19
+col_set_str	,	F_5
+gint	,	T_12
+"Reassemble CMP-over-TCP messages spanning multiple TCP segments"	,	L_30
+CMP_TYPE_FINALMSGREP	,	V_39
+"InfoType"	,	L_5
+"Flags"	,	L_26
+"TCP transport Polling Reference"	,	L_16
+hf_cmp_tcptrans_len	,	V_23
+"CMP"	,	L_1
+"cmp.tcptrans.type"	,	L_12
+tvb	,	V_1
+CMP_TYPE_PKIMSG	,	V_29
+item	,	V_11
+guint32	,	T_6
+COL_INFO	,	V_19
+"cmp.tcptrans10.flags"	,	L_27
+"Decode this TCP port\'s traffic as TCP-transport-style CMP-over-HTTP. Set to \"0\" to disable. "	,	L_42
+"HMAC SHA-1"	,	L_55
+hf_cmp_tcptrans10_version	,	V_26
+proto_cmp	,	V_20
+hf_cmp_tcptrans_next_poll_ref	,	V_38
+pdu_len	,	V_8
+"application/x-pkixcmp"	,	L_45
+"TCP transport Next Polling Reference"	,	L_19
+CMP_TYPE_NEGPOLLREP	,	V_36
+"cmp.tcptrans.ttcb"	,	L_21
+tvb_reported_length_remaining	,	F_14
+pdu_type	,	V_9
+get_cmp_pdu_len	,	F_16
+cinfo	,	V_17
+FT_ABSOLUTE_TIME	,	V_52
+asn1_ctx_init	,	F_4
+PSNAME	,	V_57
+proto_register_subtree_array	,	F_27
+"TCP transport Time to check Back"	,	L_22
+dissect_cmp_PKIMessage	,	F_2
+"PKIXCMP"	,	L_2
+val_to_str	,	F_12
+"Polling Reference"	,	L_14
+array_length	,	F_26
+CMP_TYPE_POLLREQ	,	V_35
+CMP_TYPE_POLLREP	,	V_30
+next_tvb	,	V_7
+proto_tree_add_item	,	F_6
+"Decode this TCP port\'s traffic as CMP-over-HTTP. Set to \"0\" to disable. "	,	L_38
+"1.3.6.1.4.1.3029.3.1.2"	,	L_52
+"1.3.6.1.5.5.8.1.2"	,	L_56
+pinfo	,	V_4
+dissector_handle_t	,	T_15
+_U_	,	V_6
+"Alternate TCP port"	,	L_34
+cmp_module	,	V_55
+asn1_ctx	,	V_14
+"HMAC RIPEMD-160"	,	L_59
+PNAME	,	V_56
+"Decode this TCP port\'s traffic as CMP. Set to \"0\" to disable."	,	L_35
+hf_register_info	,	T_11
+"media_type"	,	L_43
+VALS	,	F_23
+"cmp.tcptrans.length"	,	L_9
+prefs_register_bool_preference	,	F_29
+"1.3.6.1.4.1.3029.3.1.1"	,	L_50
+"1.3.6.1.5.5.8.1.1"	,	L_54
+COL_PROTOCOL	,	V_18
+FT_UINT8	,	V_50
+BASE_DEC	,	V_49
+cmp_alternate_http_port_prev	,	V_68
+tvb_new_subset	,	F_13
+"TCP transport Length of PDU in bytes"	,	L_10
+"application/x-pkixcmp-poll"	,	L_47
+proto_item	,	T_9
+"HMAC MD5"	,	L_53
+ENC_NA	,	V_21
+ABSOLUTE_TIME_LOCAL	,	V_53
+dissector_add_string	,	F_32
+guint8	,	T_7
+hf_cmp_tcptrans_type	,	V_25
+ti	,	V_12
+BASE_NONE	,	V_46
+"Alternate HTTP port"	,	L_37
+http_dissector_add	,	F_36
+cmp_pdu_types	,	V_28
+secs	,	V_32
+ts	,	V_10
+"http_alternate_port"	,	L_36
+hf_cmp_tcptrans10_flags	,	V_27
+data	,	T_5
+tvb_get_ntohl	,	F_8
+"0x%x"	,	L_4
+"1.3.6.1.5.5.8.1.4"	,	L_60
+proto_register_cmp	,	F_22
+TCP_PORT_CMP	,	V_70
+tvbuff_t	,	T_1
+"To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_32
+oid_add_from_string	,	F_34
+CMP_TYPE_ERRORMSGREP	,	V_40
+"desegment"	,	L_29
+"TCP transport"	,	L_3
+BASE_HEX	,	V_51
+parent_tree	,	V_5
+plen	,	V_41
+"Cryptlib-presence-check"	,	L_49
+col_add_str	,	F_11
+prefs_register_uint_preference	,	F_30
+gboolean	,	T_14
+"application/pkixcmp-poll"	,	L_46
+dissect_cmp_tcp_pdu	,	F_3
+proto_item_add_subtree	,	F_7
+module_t	,	T_13
+"tcp_alternate_port"	,	L_33
+nstime_t	,	T_8
+proto_register_field_array	,	F_25
+"application/pkixcmp"	,	L_44
+cmp_alternate_tcp_style_http_port_prev	,	V_69
+guint	,	T_10
+"Length"	,	L_8
+offset	,	V_15
+ett	,	V_54
+"1.3.6.1.5.5.8.1.3"	,	L_58
+cmp_alternate_tcp_port	,	V_60
+dissector_add_uint	,	F_33
+tree	,	V_2
+"http.port"	,	L_61
+"cmp.tcptrans.next_poll_ref"	,	L_18
+cmp_tcp_style_http_handle	,	V_65
+tvb_bytes_exist	,	F_18
+packet_info	,	T_4
+tvb_get_guint8	,	F_9
+"TCP transport PDU Type"	,	L_13
+tvb_captured_length	,	F_20
+tcptrans_tree	,	V_13
+"Whether the CMP-over-TCP dissector should reassemble messages spanning multiple TCP segments. "	,	L_31
+dissector_delete_uint	,	F_35
+"TCP transport version"	,	L_25
+inited	,	V_63
+cmp_alternate_http_port	,	V_61
+"Next Polling Reference"	,	L_17
+ASN1_ENC_BER	,	V_16
+"HMAC TIGER"	,	L_57
+hf_cmp_type_oid	,	V_44
+"TCP transport flags"	,	L_28
+hf_cmp_tcptrans_ttcb	,	V_34
+"cmp.tcptrans10.version"	,	L_24
+FT_STRING	,	V_45
+CMP_TYPE_PARTIALMSGREP	,	V_37
+HFILL	,	V_47
+dissect_cmp_http	,	F_21
+cmp_alternate_tcp_port_prev	,	V_67
+new_create_dissector_handle	,	F_31
+"Time to check Back"	,	L_20
+ENC_BIG_ENDIAN	,	V_24
+"Use this if the Content-Type is not set correctly."	,	L_39
+dissect_cmp_pdu	,	F_1
+nsecs	,	V_33
+"Alternate TCP-style-HTTP port"	,	L_41
+FT_UINT32	,	V_48
+cmp_http_handle	,	V_64
+asn1_ctx_t	,	T_3
+ett_cmp	,	V_22
+proto_reg_handoff_cmp	,	V_59
+"Type"	,	L_11
+"tcp.port"	,	L_48
+proto_tree	,	T_2
+hf	,	V_43

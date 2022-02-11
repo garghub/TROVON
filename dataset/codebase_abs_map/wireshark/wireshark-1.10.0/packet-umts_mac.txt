@@ -1,0 +1,398 @@
+rlc_info	,	T_15
+" (CTCH)"	,	L_20
+ctmux	,	V_39
+" (Unknown RACH TCTF)"	,	L_15
+"Logical Channel ID"	,	L_68
+tvb_new_child_real_data	,	F_48
+number_of_mac_is_sdus	,	V_146
+"mac.fdd.edch.type2"	,	L_92
+"PCCH"	,	L_2
+guint32	,	T_18
+MAC_IS_MIDDLE	,	V_113
+"C-RNTI (UEID)"	,	L_61
+pdu_len	,	V_172
+ehs	,	V_171
+p_get_proto_data	,	F_23
+"SS interpretation: The last MAC-is SDU of the MAC-is PDU is a complete MAC-d PDU or MAC-c PDU. The first MAC-is SDU of the MAC-is PDU is the last segment of a MAC-d PDU or MAC-c PDU."	,	L_42
+array_length	,	F_72
+"mac.fdd.pch"	,	L_89
+umts_mac_is_info	,	T_21
+dissect_mac_fdd_pch	,	F_14
+li_size	,	V_162
+com_context_id	,	V_161
+sdu	,	V_117
+rlc_ps_dtch_handle	,	V_83
+DISSECTOR_ASSERT	,	F_39
+"TSN size in bits, either 6 or 14 bit"	,	L_96
+bp	,	V_106
+gpointer	,	T_22
+get_sdu	,	F_49
+deciphered	,	V_165
+ett_mac_edch	,	V_167
+hf_register_info	,	T_24
+"mac.edch.type2.sdu"	,	L_79
+mac_module	,	V_177
+macis_pdu_tree	,	V_149
+ciphered	,	V_164
+a	,	V_2
+b	,	V_3
+guint16	,	T_8
+ch	,	V_9
+tail	,	V_116
+f	,	V_122
+MAC_UEID_TYPE_URNTI	,	V_33
+" (DCCH)"	,	L_8
+i	,	V_123
+rrc_handle	,	V_99
+"mac.edch.type2.tsn"	,	L_76
+dissect_mac_fdd_fach	,	F_28
+BASE_NONE	,	V_190
+reassemble	,	F_43
+x	,	V_4
+y	,	V_5
+maclength	,	V_130
+tvb_new_octet_aligned	,	F_26
+ett_mac_dch	,	V_102
+lchid	,	V_6
+tvb_memcpy	,	F_40
+BASE_HEX	,	V_182
+PROTO_ITEM_SET_GENERATED	,	F_13
+col_add_str	,	F_21
+rach_tree	,	V_58
+add_to_tree	,	F_50
+proto_item_add_subtree	,	F_17
+sdus	,	V_124
+module_t	,	T_23
+proto_register_field_array	,	F_71
+"Octet-Aligned BCCH Data"	,	L_22
+FT_BYTES	,	V_191
+"rlc.dcch"	,	L_100
+FT_UINT16	,	V_186
+ueid_type_vals	,	V_185
+fd	,	V_62
+g_hash_table_new_full	,	F_67
+"MACd-FlowID"	,	L_66
+mac_is_channel	,	T_4
+hf_mac_is_fraglink	,	V_134
+proto_register_umts_mac	,	F_68
+g_hash_table_new	,	F_45
+"SS interpretation: The first MAC-is SDU of the MAC-is PDU is a complete MAC-d PDU or MAC-c PDU. The last MAC-is SDU of the MAC-is PDU is the first segment of a MAC-d PDU or MAC-c PDU."	,	L_44
+"[This MAC-is SDU is the first segment of a MAC-d PDU or MAC-c PDU.]"	,	L_36
+cur_chan	,	V_69
+content	,	V_76
+mac_logical_channel_vals	,	V_188
+mac_tsn_size	,	V_155
+g_warning	,	F_35
+get_body_parts	,	F_55
+"mac.fdd.fach"	,	L_88
+"Unknown EDCH Content"	,	L_49
+rlc_ctch_handle	,	V_94
+dissect_mac_fdd_rach	,	F_20
+ett_mac	,	V_179
+val_to_str_const	,	F_22
+length	,	V_107
+MAC_CONTENT_DCCH	,	V_78
+counter	,	V_133
+MAC_TSN_6BITS	,	V_176
+p_fp_info	,	V_152
+FT_UINT32	,	V_187
+" (Unknown RACH DCCH/DTCH Content)"	,	L_13
+visited	,	V_142
+mac_is_sdu	,	T_19
+ett_mac_edch_type2	,	V_153
+hf	,	V_180
+urnti	,	V_35
+new_tvb	,	V_131
+body_parts	,	T_17
+channel	,	V_126
+ett_mac_pch	,	V_52
+MAC_CCCH	,	V_71
+prefs_register_protocol	,	F_76
+rlc_ccch_handle	,	V_73
+tctf	,	V_15
+col_set_str	,	F_15
+total_length	,	V_118
+MAX_TSN	,	V_128
+lchId_type_table	,	V_77
+TCTF_BCCH_FACH_FDD	,	V_16
+TCTF_CCCH_FACH_FDD	,	V_19
+"rlc.ccch"	,	L_98
+" (CS DTCH)"	,	L_12
+frame_num	,	V_10
+hsdsch_entity	,	V_170
+find_head	,	F_53
+TCTF_MTCH_FACH_FDD	,	V_18
+"Octet-Aligned DTCH Data"	,	L_11
+"Reassembled MAC-is SDU"	,	L_33
+g_malloc	,	F_38
+" (PCCH)"	,	L_3
+"[This MAC-is SDU is a middle segment of a MAC-d PDU or MAC-c PDU.]"	,	L_37
+"mac.transport_channel_id"	,	L_71
+MAC_CONTENT_CS_DTCH	,	V_84
+VALS	,	F_69
+mac_is_fragment_hash	,	F_5
+head_length	,	V_143
+tvb_length	,	F_31
+proto_tree_add_text	,	F_24
+se_new0	,	F_32
+BASE_DEC	,	V_184
+tvb_new_subset	,	F_52
+" (Unknown DCH Content)"	,	L_31
+subframe_bytes	,	V_147
+rlcinf	,	V_29
+ENC_NA	,	V_51
+mac_is_add_fragment	,	F_57
+"TSN"	,	L_75
+MAC_CTCH	,	V_93
+hf_mac_macdflowd_id	,	V_174
+g_hash_table_lookup	,	F_44
+lchId_rlc_map	,	V_75
+"SS interpretation: The first MAC-is SDU of the MAC-is PDU is a complete MAC-d PDU or MAC-c PDU. The last MAC-is SDU of the MAC-is PDU is a complete MAC-d PDU or MAC-c PDU."	,	L_40
+" (BCCH)"	,	L_21
+"mac.logical_channel_id"	,	L_69
+mode	,	V_74
+PI_DEBUG	,	V_92
+"Frame: %u, payload: %u-%u (%u bytes) (TSN: %u)"	,	L_35
+fach_tree	,	V_86
+"tsn_size"	,	L_94
+"Unknown RACH DCCH/DTCH Content"	,	L_14
+hf_mac_edch_type2_ss	,	V_154
+guint	,	T_5
+ett	,	V_178
+hsdsch_tree	,	V_168
+MAC_IS_TAIL	,	V_115
+"-is PDU (SS=%u, TSN=%u, %u bytes in %u SDU fragments)"	,	L_51
+no_sdus	,	V_140
+MAC_BCCH	,	V_95
+packet_info	,	T_10
+dch_tree	,	V_101
+call_rlc	,	F_59
+hf_mac_ueid_type	,	V_31
+"Unknown DCH Content"	,	L_32
+get_mac_tsn_size	,	F_1
+proto_reg_handoff_umts_mac	,	F_78
+frag	,	V_12
+"mac"	,	L_86
+tsn_size_enumvals	,	V_193
+tsn	,	V_11
+head	,	V_112
+sdulength	,	V_158
+"TSN size"	,	L_95
+hf_mac_channel	,	V_53
+bpa	,	V_136
+"mac.fdd.hsdsch"	,	L_93
+" (Logical channel=%u, Len=%u)"	,	L_50
+PI_MALFORMED	,	V_65
+" Unimplemented FACH Content type!"	,	L_23
+HFILL	,	V_183
+"Octet-Aligned HSDSCH Data"	,	L_52
+fach_fdd_tctf_vals	,	V_89
+"rlc.ps_dtch"	,	L_101
+body_parts_array	,	V_120
+"UEID Type"	,	L_59
+"MAC"	,	L_1
+chan_tf_size	,	V_72
+pi	,	V_148
+"Frame is missing logical channel"	,	L_30
+proto_register_protocol	,	F_70
+TCTF_DCCH_DTCH_RACH_FDD	,	V_68
+"Unknown RACH TCTF "	,	L_16
+tvb_new_subset_remaining	,	F_30
+"Reassembled in frame"	,	L_82
+mac_is_fragment_equal	,	F_4
+gint	,	T_1
+g_hash_table_insert	,	F_46
+hf_mac_fach_fdd_tctf	,	V_91
+MAC_UEID_TYPE_CRNTI	,	V_37
+msgtype	,	V_97
+"[This MAC-is SDU is a complete MAC-d PDU or MAC-c PDU]"	,	L_39
+tvb	,	V_23
+TCTF_DCCH_DTCH_FACH_FDD	,	V_17
+rrcinf	,	V_88
+COL_INFO	,	V_48
+"Target Channel Type Field"	,	L_55
+proto_umts_mac	,	V_50
+mac_is_fragment	,	T_6
+cinfo	,	V_46
+mac_is_copy	,	F_41
+PI_ERROR	,	V_66
+frag_lookup_key	,	V_129
+next_tvb	,	V_57
+call_dissector	,	F_19
+MAC_IS_HEAD	,	V_111
+rach_fdd_tctf_vals	,	V_60
+MAC_PCCH	,	V_54
+"Octet-Aligned DCCH Data"	,	L_9
+RRC_MESSAGE_TYPE_BCCH_FACH	,	V_98
+prefs_register_enum_preference	,	F_77
+pos	,	V_100
+MAC_CONTENT_PS_DTCH	,	V_81
+" (Unknown EDCH Content)"	,	L_48
+key	,	V_8
+ss	,	V_138
+rrc_info	,	V_87
+COL_PROTOCOL	,	V_47
+middle	,	V_114
+g_free	,	F_42
+sdu_no	,	V_139
+"SS"	,	L_72
+guint8	,	T_7
+ti	,	V_49
+"Unknown HSDSCH Content"	,	L_54
+mac_init	,	F_66
+mac_is_channel_equal	,	F_2
+g_hash_table_destroy	,	F_65
+register_dissector	,	F_74
+"mac.fdd.edch"	,	L_91
+"This is a faked logical channel id!"	,	L_29
+tvbuff_t	,	T_9
+"SS interpretation: The MAC-is SDU is a middle segment of a MAC-d PDU or MAC-c PDU."	,	L_47
+"MAC frame missing frame information!"	,	L_28
+gboolean	,	T_2
+bitoffs	,	V_26
+TCTF_MSCH_FACH_FDD	,	V_21
+fragments	,	V_127
+hf_mac_lch_id	,	V_43
+"mac.ueid_type"	,	L_60
+"mac.logical_channel"	,	L_65
+"mac.ct"	,	L_58
+register_init_routine	,	F_75
+proto_tree_add_bits_item	,	F_9
+"mac.tctf"	,	L_56
+tvb_get_guint8	,	F_29
+p_add_proto_data	,	F_33
+fach_fdd_tctf	,	F_6
+find_tail	,	F_54
+"Transport Channel ID"	,	L_70
+ss_interpretation	,	F_58
+pch_tree	,	V_44
+next	,	V_110
+"Segmentation Status"	,	L_74
+umts_mac_info	,	T_14
+"mac.edch.type2.ss"	,	L_73
+macdflow_id	,	V_175
+TCTF_CCCH_RACH_FDD	,	V_70
+bit_offs	,	V_14
+proto_rlc	,	V_64
+"Transmission Sequence Number"	,	L_77
+"Unknown TCTF"	,	L_4
+MAC_DTCH	,	V_82
+"MACinf == NULL"	,	L_26
+global_mac_tsn_size	,	V_1
+hf_mac_rach_fdd_tctf	,	V_67
+"Unknown FACH Content for this transportblock"	,	L_19
+"mac.macd_flowid"	,	L_67
+find_dissector	,	F_79
+MAC_DCCH	,	V_79
+" (Unknown FACH Content)"	,	L_24
+ueid_type	,	V_30
+ENC_BIG_ENDIAN	,	V_32
+hdr	,	V_13
+hf_mac_edch_type2_tsn	,	V_156
+ett_mac_rach	,	V_61
+" (Unknown HSDSCH Content)"	,	L_53
+fpinf	,	V_27
+mac_is_fragments	,	V_137
+proto_rrc	,	V_96
+tvb_get_bits8	,	F_8
+proto_tree_add_uint_format	,	F_51
+proto_item_append_text	,	F_18
+dissect_mac_fdd_dch	,	F_34
+tvb_get_bits16	,	F_11
+hf_mac_trch_id	,	V_104
+rlc_dcch_handle	,	V_80
+proto_register_subtree_array	,	F_73
+tctf_len	,	V_85
+"C/T"	,	L_57
+proto_tree_add_item	,	F_16
+dissect_mac_fdd_edch_type2	,	F_60
+pinfo	,	T_11
+fp_info	,	T_13
+"Data"	,	L_80
+TCTF_MCCH_FACH_FDD	,	V_20
+_U_	,	V_24
+flags	,	V_141
+MAC_CONTENT_CCCH	,	V_173
+"mac.is.reasmin"	,	L_83
+"SS interpretation: The MAC-is SDU of the MAC-is PDU is the last segment of a MAC-d PDU or MAC-c PDU."	,	L_43
+cur_tb	,	V_36
+dissect_mac_fdd_edch	,	F_62
+macis_sdu_tree	,	V_150
+edch_tree	,	V_166
+init_frag	,	F_36
+FT_UINT8	,	V_181
+gconstpointer	,	T_3
+"CS DTCH Is not implemented"	,	L_17
+tvb_get_bits32	,	F_10
+proto_item	,	T_16
+reverse	,	V_119
+"Frame"	,	L_84
+hf_mac_crnti	,	V_38
+rlc_pcch_handle	,	V_55
+ett_mac_fach	,	V_90
+head_tsn	,	V_121
+"[Reassembled MAC-is SDU]"	,	L_34
+expert_add_info_format	,	F_25
+hf_mac_edch_type2_sdu	,	V_159
+se_alloc_array	,	F_56
+GHashTable	,	T_20
+hf_mac_urnti	,	V_34
+fake_chid	,	V_103
+ett_mac_hsdsch	,	V_169
+chan	,	V_56
+rbid	,	V_41
+data	,	V_109
+"mac.fdd.dch"	,	L_90
+num	,	V_132
+proto_fp	,	V_63
+"SS interpretation: The first MAC-is SDU of the MAC-is PDU is the last segment of a MAC-d PDU or MAC-c PDU and the last MAC-is SDU of MAC-is PDU is the first segment of a MAC-d PDU or MAC-c PDU."	,	L_46
+" (CCCH)"	,	L_6
+"rrc"	,	L_102
+c_t	,	V_59
+ueid	,	V_7
+RLC_LI_7BITS	,	V_163
+"fpinf == NULL"	,	L_27
+ett_mac_edch_type2_sdu	,	V_160
+FT_NONE	,	V_189
+offset	,	V_108
+tree	,	V_25
+TCTF_CTCH_FACH_FDD	,	V_22
+se_alloc	,	F_47
+"SS interpretation: The MAC-is SDU of the MAC-is PDU is a complete MAC-d PDU or MAC-c PDU."	,	L_41
+"MAC-is SDU"	,	L_78
+add_new_data_source	,	F_27
+"mac.edch.type2.sdu.data"	,	L_81
+" Unknown FACH Content"	,	L_25
+tail_length	,	V_144
+macinf	,	V_28
+"Octet-Aligned CCCH Data"	,	L_7
+hf_mac_ct	,	V_42
+"Cannot dissect MAC frame because per-frame info is missing"	,	L_5
+mac_is_sdus_hash_destroy	,	F_64
+" (PS DTCH)"	,	L_10
+proto_tree_add_uint	,	F_12
+"[This MAC-is SDU is the last segment of a MAC-d PDU or MAC-c PDU.]"	,	L_38
+hf_mac_is_reasmin	,	V_135
+"mac.is.fraglink"	,	L_85
+mac_is_channel_hash	,	F_3
+"mac.ueid"	,	L_62
+"mac.fdd.rach"	,	L_87
+"SS interpretation: The MAC-is SDU of the MAC-is PDU is the first segment of a MAC-d PDU or MAC-c PDU."	,	L_45
+se_new	,	F_37
+"Logical Channel Type"	,	L_64
+"U-RNTI (UEID)"	,	L_63
+" (Unknown FACH Content"	,	L_18
+"rlc.ctch"	,	L_99
+dissect_mac_fdd_hsdsch	,	F_63
+trchid	,	V_105
+channel_type	,	V_45
+mac_is_info	,	V_151
+temp	,	V_40
+mac_is_sdus	,	V_125
+hf_mac_edch_type2_sdu_data	,	V_145
+tree_add_common_dcch_dtch_fields	,	F_7
+FT_FRAMENUM	,	V_192
+proto_item_set_len	,	F_61
+"rlc.pcch"	,	L_97
+asm_tvb	,	V_157
+proto_tree	,	T_12

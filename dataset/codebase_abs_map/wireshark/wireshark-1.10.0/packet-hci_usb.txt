@@ -1,0 +1,176 @@
+fragment_info_t	,	T_11
+proto_register_protocol	,	F_29
+"Bluetooth HCI USB Transport"	,	L_41
+"Message fragment overlapping with conflicting data"	,	L_20
+"bthci_acl"	,	L_11
+HCI_INTERFACE_USB	,	V_31
+"hci_usb adaper/frame to name"	,	L_40
+"hci_usb bdaddr to name"	,	L_38
+prefs_register_protocol	,	F_34
+process_reassembled_data	,	F_23
+se_tree_create	,	F_28
+hf_msg_fragment_overlap	,	V_60
+titem	,	V_6
+tvb_new_subset_remaining	,	F_11
+"bthci_usb.version"	,	L_43
+col_append_fstr	,	F_22
+len	,	V_49
+remaining_length	,	V_45
+bdaddr_to_name_table	,	V_34
+gint	,	T_6
+col_set_str	,	F_3
+usb_data_t	,	T_7
+hci_usb_msg_frag_items	,	V_50
+hf_msg_fragment_error	,	V_65
+hci_usb_handle	,	V_76
+tvb	,	V_1
+"Unknown Fragment"	,	L_12
+guint32	,	T_9
+reassembled	,	V_15
+COL_INFO	,	V_18
+pd_save	,	V_11
+module	,	V_52
+FT_BOOLEAN	,	V_61
+hf_msg_reassembled_in	,	V_69
+"hci_usb"	,	L_42
+col_clear	,	F_4
+"hci_usb fragment_info"	,	L_36
+cinfo	,	V_16
+hf_msg_fragment_count	,	V_66
+"bthci_sco"	,	L_13
+proto_register_subtree_array	,	F_32
+array_length	,	F_31
+"Fragment"	,	L_5
+next_tvb	,	V_10
+fragment_add_seq_check	,	F_18
+fragment_get_reassembled_id	,	F_19
+proto_tree_add_item	,	F_7
+private_data	,	V_19
+localhost_name	,	V_36
+call_dissector	,	F_24
+pinfo	,	V_2
+col_add_fstr	,	F_6
+dissector_handle_t	,	T_14
+_U_	,	V_4
+flags	,	V_40
+new_register_dissector	,	F_33
+"Sent"	,	L_2
+PT_BLUETOOTH	,	V_38
+endpoint	,	V_29
+"Message fragment too long"	,	L_24
+"Version of protocol supported by this dissector."	,	L_45
+hf_register_info	,	T_13
+adapter_id	,	V_32
+tvb_ensure_length_remaining	,	F_17
+prefs_register_static_text_preference	,	F_35
+hci_data	,	V_12
+hf_msg_reassembled_length	,	V_70
+COL_PROTOCOL	,	V_17
+hci_usb_reassembly_table	,	V_46
+p2p_dir_save	,	V_13
+hf_bthci_usb_data	,	V_51
+hf_msg_fragment_overlap_conflicts	,	V_62
+session_id	,	V_14
+proto_tree_add_text	,	F_20
+BASE_DEC	,	V_68
+proto_item	,	T_5
+"hci_usb.msg.reassembled.in"	,	L_31
+reassembly_table_init	,	F_27
+ENC_NA	,	V_25
+fragment_info_table	,	V_43
+"hci_usb.msg.fragments"	,	L_15
+interface_id	,	V_30
+"bthci_cmd"	,	L_9
+BASE_NONE	,	V_56
+"Unknown direction"	,	L_4
+ett_hci_usb	,	V_26
+"Reassembled MP2T length"	,	L_32
+"hci_usb.msg.fragment.count"	,	L_29
+tvb_length_remaining	,	F_2
+"Unknown Data"	,	L_34
+"usb.device"	,	L_48
+se_tree_lookup32	,	F_12
+ett_hci_usb_msg_fragment	,	V_72
+usb_data	,	V_9
+"Message fragment"	,	L_16
+data	,	T_4
+"hci_usb.msg.reassembled.length"	,	L_33
+num	,	V_47
+tvbuff_t	,	T_1
+ttree	,	V_5
+"hci_usb.msg.fragment.too_long_fragment"	,	L_25
+" Fragment"	,	L_6
+col_add_str	,	F_5
+PROTO_ITEM_SET_GENERATED	,	F_21
+"Complete"	,	L_7
+"hci_usb.data"	,	L_35
+"usb.protocol"	,	L_47
+fragment_id	,	V_44
+chandle_to_bdaddr_table	,	V_33
+proto_item_add_subtree	,	F_8
+device_address	,	V_28
+module_t	,	T_12
+proto_register_field_array	,	F_30
+tvb_get_letohs	,	F_16
+"hci_usb.msg.fragment"	,	L_17
+FT_NONE	,	V_55
+hf_msg_fragment_multiple_tails	,	V_63
+offset	,	V_8
+ett	,	V_71
+P2P_DIR_RECV	,	V_23
+wmem_packet_scope	,	F_10
+"Message fragments"	,	L_14
+dissector_add_uint	,	F_37
+tree	,	V_3
+addresses_reassembly_table_functions	,	V_74
+dissector_add_handle	,	F_38
+packet_info	,	T_2
+"hci_usb adapter/chandle to bdaddr"	,	L_37
+tvb_get_guint8	,	F_15
+proto_reg_handoff_hci_usb	,	F_36
+localhost_bdaddr	,	V_35
+"usb.product"	,	L_46
+ett_hci_usb_msg_fragments	,	V_73
+proto_hci_usb	,	V_24
+"Message defragmentation error"	,	L_26
+"hci_usb.msg.fragment.multiple_tails"	,	L_23
+fd	,	V_39
+"hci_usb.msg.fragment.error"	,	L_27
+"hci_usb.msg.fragment.overlap"	,	L_19
+"Bluetooth HCI USB Transport from Core 4.0"	,	L_44
+"Message fragment overlap"	,	L_18
+proto_register_hci_usb	,	F_26
+"Reassembled in"	,	L_30
+"hci_usb adaper/frame to bdaddr"	,	L_39
+ptype	,	V_37
+hf_msg_fragment_too_long_fragment	,	V_64
+dissect_hci_usb	,	F_1
+"Rcvd"	,	L_3
+P2P_DIR_SENT	,	V_22
+"hci_usb.msg.fragment.overlap.conflicts"	,	L_21
+pitem	,	V_7
+"Message fragment count"	,	L_28
+bus_id	,	V_27
+wmem_file_scope	,	F_13
+HFILL	,	V_57
+p2p_dir	,	V_20
+direction	,	V_21
+EMEM_TREE_TYPE_RED_BLACK	,	V_75
+wmem_new	,	F_9
+se_tree_insert32	,	F_14
+find_dissector	,	F_25
+"Reassembled HCI_USB"	,	L_8
+FT_FRAMENUM	,	V_59
+reassembled_in	,	V_48
+"Message has multiple tail fragments"	,	L_22
+"HCI_USB"	,	L_1
+FT_UINT32	,	V_67
+hf_msg_fragments	,	V_54
+fragment_info	,	V_42
+visited	,	V_41
+hci_data_t	,	T_8
+hf_msg_fragment	,	V_58
+"bthci_evt"	,	L_10
+proto_tree	,	T_3
+fragment_data	,	T_10
+hf	,	V_53

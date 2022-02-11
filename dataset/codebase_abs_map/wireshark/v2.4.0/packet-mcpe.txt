@@ -1,0 +1,246 @@
+tvb_get_string_enc	,	F_10
+hf_mcpe_message_id	,	V_75
+"MCPE Compressed batch body"	,	L_41
+proto_register_protocol	,	F_49
+dissector_try_uint_new	,	F_31
+"\xFE"	,	L_10
+ei_mcpe_encrypted_packet	,	V_77
+tvb_reported_length	,	F_25
+mcpe_message_names	,	V_80
+"MCPE Packet ID"	,	L_16
+tvb_new_subset_remaining	,	F_44
+hf_mcpe_batch_record_length	,	V_55
+gint	,	T_6
+"mcpe.decompression.failed"	,	L_51
+state	,	V_3
+mcpe_dissect_string	,	F_7
+tvb	,	V_9
+"mcpe.packet.id"	,	L_17
+guint32	,	T_9
+COL_INFO	,	V_49
+raknet_delete_udp_dissector	,	F_58
+"mcpe.protocol.version"	,	L_25
+proto_reg_handoff_mcpe	,	V_99
+hf_mcpe_UTF8_string	,	V_20
+hf_mcpe_login	,	V_34
+cinfo	,	V_48
+hf_mcpe_login_data_length	,	V_30
+batch_tvb	,	V_42
+PI_ERROR	,	V_95
+mcpe_packet_names	,	V_59
+array_length	,	F_33
+"MCPE Batch record"	,	L_47
+hf_mcpe_client_data_JWT	,	V_37
+mcpe_dissect_batch	,	F_27
+"MCPE packet decompression failed"	,	L_52
+" (%s)"	,	L_5
+hf_mcpe_server_token	,	V_40
+record_tree	,	V_52
+DISSECTOR_ASSERT	,	F_42
+hf_mcpe_byte_string	,	V_23
+col_append_str	,	F_28
+mcpe_init_message_names	,	F_32
+hf_register_info	,	T_14
+"MCPE Public key"	,	L_35
+"MCPE Protocol version"	,	L_24
+"mcpe.batch.record.length"	,	L_46
+"mcpe.batch.length"	,	L_40
+mcpe_session_state_t	,	T_1
+COL_PROTOCOL	,	V_73
+"MCPE UTF-8 String"	,	L_20
+proto_mcpe	,	V_4
+hf_mcpe_login_data	,	V_31
+i	,	V_62
+mcpe_module	,	V_89
+guint8	,	T_10
+"MCPE Compressed login data"	,	L_28
+hf_mcpe_batch_body	,	V_44
+ti	,	V_12
+mcpe_dissect_server_to_client_handshake	,	F_26
+BASE_NONE	,	V_85
+ei_mcpe_unknown_packet_id	,	V_61
+dissect_mcpe_heur	,	F_38
+register_dissector	,	F_54
+"MCPE String length"	,	L_18
+tvbuff_t	,	T_5
+tvb_get_ntohs	,	F_9
+"mcpe.batch.records"	,	L_44
+BASE_HEX	,	V_79
+PROTO_ITEM_SET_GENERATED	,	F_23
+col_add_str	,	F_43
+dissect_mcpe	,	F_46
+gboolean	,	T_12
+proto_item_add_subtree	,	F_13
+module_t	,	T_15
+PI_UNDECODED	,	V_91
+proto_register_field_array	,	F_52
+conversation	,	V_2
+FT_BYTES	,	V_86
+"mcpe.string.UTF8"	,	L_21
+ei	,	V_90
+"mcpe.login"	,	L_30
+"mcpe"	,	L_56
+dissector_add_uint	,	F_59
+mcpe_packet_dissectors	,	V_60
+mcpe_dissect_login	,	F_17
+encoding	,	V_11
+packet_tvb	,	V_71
+"mcpe.message.id"	,	L_15
+mcpe_packet_handlers	,	V_63
+tvb_strneql	,	F_35
+tvb_get_guint8	,	F_36
+last_server_port	,	V_101
+tvb_captured_length	,	F_21
+"Unknown packet ID: %#x"	,	L_7
+vs	,	V_65
+"MCPE over RakNet"	,	L_62
+expert_add_info	,	F_24
+"mcpe.batch.record"	,	L_48
+"MCPE Byte string"	,	L_22
+gint8	,	T_13
+heur_dissector_add	,	F_61
+HEURISTIC_ENABLE	,	V_104
+FT_STRING	,	V_84
+"MCPE packets"	,	L_57
+mcpe_handle	,	V_72
+hf_mcpe_packet_id	,	V_58
+"MCPE Batch record length"	,	L_45
+encryption_starts_after	,	V_6
+record_tvb	,	V_51
+ett_mcpe_batch	,	V_47
+"MCPE Chain JSON"	,	L_31
+conversation_add_proto_data	,	F_6
+length	,	V_14
+hf_mcpe_public_key	,	V_39
+PI_DECRYPTION	,	V_96
+PI_WARN	,	V_92
+"mcpe.chain.JSON"	,	L_32
+mcpe_tree	,	V_69
+ENC_BIG_ENDIAN	,	V_29
+"MCPE"	,	L_11
+FT_UINT32	,	V_82
+string_tree	,	V_13
+packet_size	,	V_76
+find_or_create_conversation	,	F_2
+hf	,	V_8
+ett_mcpe_string	,	V_18
+"]"	,	L_9
+"MCPE Server token"	,	L_37
+prefs_register_protocol	,	F_56
+col_set_str	,	F_40
+"mcpe.unknown.id"	,	L_49
+raknet_add_udp_dissector	,	F_62
+proto_item_append_text	,	F_22
+"mcpe.client.data.JWT"	,	L_34
+handle	,	V_68
+proto_tree_add_bytes_with_length	,	F_16
+tvb_memdup	,	F_15
+record_length	,	V_50
+col_clear	,	F_41
+test_mcpe_heur	,	F_34
+proto_register_subtree_array	,	F_53
+proto_tree_add_string	,	F_12
+proto_tree_add_item_ret_uint	,	F_18
+val_to_str	,	F_30
+proto_tree_add_item	,	F_14
+pinfo	,	V_1
+dissector_handle_t	,	V_67
+decomp_length	,	V_32
+"Encrypted packet"	,	L_12
+_U_	,	V_24
+"MCPE Decompressed batch"	,	L_3
+dissected	,	V_54
+hf_mcpe_batch_records	,	V_46
+expert_mcpe	,	V_98
+"MCPE Compressed login data length"	,	L_26
+VALS	,	F_48
+call_dissector_only	,	F_45
+login_tree	,	V_33
+dissector_fp	,	V_103
+FT_UINT8	,	V_78
+"mcpe.server.token"	,	L_38
+BASE_DEC	,	V_83
+mcpe_udp_port_requested	,	V_100
+message_id	,	V_70
+proto_item	,	T_8
+expert_register_field_array	,	F_51
+ENC_NA	,	V_21
+comp_length	,	V_26
+"MCPE Decompressed batch records"	,	L_43
+ENC_LITTLE_ENDIAN	,	V_16
+wmem_alloc	,	F_4
+tvb_uncompress	,	F_19
+register_dissector_table	,	F_55
+"mcpe_raknet"	,	L_63
+length_width	,	V_15
+data	,	T_11
+batch_tree	,	V_45
+num	,	V_41
+hf_mcpe_chain_JSON	,	V_36
+"mcpe.batch.body"	,	L_42
+prefs_register_uint_preference	,	F_57
+ei_register_info	,	T_16
+packet_id	,	V_53
+expert_register_protocol	,	F_50
+tvb_get_letohl	,	F_8
+ett_mcpe_login	,	V_35
+PI_NOTE	,	V_97
+hf_mcpe_batch_record	,	V_56
+mcpe_get_session_state	,	F_1
+conversation_t	,	T_3
+guint	,	T_7
+FT_NONE	,	V_87
+offset	,	V_10
+raknet_conversation_set_dissector	,	F_39
+ett	,	V_88
+wmem_packet_scope	,	F_11
+expert_module_t	,	T_17
+tree	,	V_7
+hf_mcpe_string_length	,	V_19
+packet_info	,	T_2
+add_new_data_source	,	F_20
+"Minecraft Pocket Edition"	,	L_55
+ei_mcpe_decompression_failed	,	V_38
+EXPFILL	,	V_93
+login_tvb	,	V_27
+hf_mcpe_batch_length	,	V_43
+"MCPE Compressed batch length"	,	L_39
+"Unknown ID: %#x"	,	L_6
+" (%u octets)"	,	L_2
+hf_mcpe_protocol_version	,	V_28
+proto_register_mcpe	,	F_47
+"MCPE Server UDP Port"	,	L_59
+conversation_get_proto_data	,	F_3
+strptr	,	V_66
+", Encrypted packet (%d octets)"	,	L_13
+"MCPE Message ID"	,	L_14
+init_done	,	V_102
+item_size	,	V_25
+"Set the UDP port for the MCPE Server"	,	L_60
+"mcpe.login.data"	,	L_29
+"MCPE unknown packet ID"	,	L_50
+tvb_new_subset_length	,	F_29
+"mcpe.public.key"	,	L_36
+"raknet"	,	L_61
+"mcpe.encrypted"	,	L_53
+dissector_get_uint_handle	,	F_37
+wmem_file_scope	,	F_5
+", "	,	L_8
+HFILL	,	V_81
+PI_MALFORMED	,	V_94
+value	,	V_64
+"MCPE encrypted packet"	,	L_54
+"mcpe.string.bytes"	,	L_23
+"udp.port"	,	L_58
+ett_mcpe_batch_record	,	V_57
+"mcpe.login.data.length"	,	L_27
+" ["	,	L_4
+create_dissector_handle	,	F_60
+ett_mcpe	,	V_74
+"MCPE Client data JWT"	,	L_33
+"MCPE Decompressed login data"	,	L_1
+"mcpe.string.length"	,	L_19
+encrypted	,	V_5
+bytes	,	V_22
+ENC_UTF_8	,	V_17
+proto_tree	,	T_4

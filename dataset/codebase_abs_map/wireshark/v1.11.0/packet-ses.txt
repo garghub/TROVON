@@ -1,0 +1,465 @@
+Connect_Accept_Item	,	V_125
+"Data separation function unit"	,	L_56
+SESSION_USER_ABORT	,	V_48
+hf_ses_segment_overlap	,	V_215
+User_Data	,	V_124
+"ses.duplex"	,	L_79
+"protocol error"	,	L_6
+"Reassemble session packets "	,	L_151
+saved_private_data	,	V_9
+hf_ses_segment_multiple_tails	,	V_217
+"ses.reassembled.length"	,	L_147
+hf_initial_serial_number	,	V_84
+process_reassembled_data	,	F_35
+"Protocol Version 2"	,	L_88
+SES_EXT_CONT	,	V_191
+"ses.release_token_setting"	,	L_97
+guint32	,	T_9
+"Able to receive extended concatenated SPDU"	,	L_50
+proto_item_set_end	,	F_28
+FT_BOOLEAN	,	V_186
+hf_enclosure_item_options_flags	,	V_87
+ros_op	,	V_136
+tvb_reported_length_remaining	,	F_29
+p_get_proto_data	,	F_24
+"SES segment overlap"	,	L_131
+hf_session_exception_report	,	V_60
+RESYNCHRONIZE_FUNCTION_UNIT	,	V_201
+array_length	,	F_46
+Reason_Code	,	V_102
+ses_vals	,	V_140
+hf_release_token	,	V_39
+""	,	L_24
+hf_ses_type	,	V_143
+SESSION_DATA_STRUCTURE	,	V_7
+ENC_ASCII	,	V_85
+"Unknown (%u)"	,	L_13
+Serial_Number	,	V_100
+hf_register_info	,	T_13
+dissect_ses	,	F_37
+SES_TYPED_DATA	,	V_149
+guint16	,	T_2
+Additional_Reference_Information	,	V_34
+"Reassembled SES"	,	L_26
+NEGOTIATED_RELEASE_FUNCTION_UNIT	,	V_199
+"ses.proposed_tsdu_maximum_size_r2i"	,	L_85
+dissect_ses_heur	,	F_52
+hf_large_initial_serial_number	,	V_114
+dissect_spdu	,	F_22
+hf_second_initial_serial_number	,	V_112
+EXCEPT_CODE	,	V_13
+hf_data_token	,	V_42
+ses_category0_vals	,	V_144
+hf_second_serial_number	,	V_110
+BASE_NONE	,	V_185
+"ses.activity_management"	,	L_69
+"ses.initial_serial_number"	,	L_91
+abort_type	,	V_47
+"Expedited data function unit"	,	L_76
+token_setting_vals	,	V_210
+hf_version_number_options_flags	,	V_79
+hf_synchronize_minor_token_setting	,	V_96
+"no reason"	,	L_7
+"desegment"	,	L_150
+"ses.second_initial_serial_number"	,	L_116
+hf_proposed_tsdu_maximum_size_i2r	,	V_75
+plurality	,	F_33
+BASE_HEX	,	V_192
+col_add_str	,	F_23
+proto_register_ses	,	F_42
+proto_item_add_subtree	,	F_15
+module_t	,	T_14
+proto_register_field_array	,	F_45
+conversation	,	V_156
+Second_Serial_Number	,	V_109
+FT_BYTES	,	V_184
+proto_reg_handoff_ses	,	F_55
+"CLSP"	,	L_157
+"Common Reference"	,	L_37
+"ses.activity_identifier"	,	L_106
+hf_additional_reference_information	,	V_35
+data_handle	,	V_170
+Second_Initial_Serial_Number	,	V_111
+FT_UINT16	,	V_183
+param_type	,	V_19
+hf_ses_type_0	,	V_146
+SES_MAJOR_SYNC_POINT	,	V_150
+"ses.common_reference"	,	L_38
+"ses.segment.too_long_segment"	,	L_138
+fd	,	V_151
+enclosure_item_flags	,	V_20
+fragment_add_seq_next	,	F_34
+DUPLEX_FUNCTION_UNIT	,	V_205
+"Typed data function unit"	,	L_60
+"Activity management function unit"	,	L_68
+session	,	V_8
+"Parameter length doesn't fit in parameter"	,	L_18
+"cotp_is"	,	L_156
+ses_rtse_reassemble	,	V_152
+MAJOR_SYNCHRONIZE_FUNCTION_UNIT	,	V_202
+heur_dissector_add	,	F_57
+Session_Requirement	,	V_57
+"Activity Identifier"	,	L_105
+reason_code	,	V_103
+hf_symmetric_synchronize_function_unit	,	V_62
+FT_STRING	,	V_209
+"ses.large_initial_serial_number"	,	L_118
+"ses.data_token_setting"	,	L_104
+EXCEPTION_FUNCTION_UNIT	,	V_197
+"ses.enclosure.flags"	,	L_124
+SYMMETRIC_SYNCHRONIZE_FUNCTION_UNIT	,	V_195
+val_to_str_const	,	F_19
+"ses.capability_data"	,	L_65
+hf_ses_reassembled_length	,	V_223
+Called_Session_Selector	,	V_107
+"Protocol Version 1"	,	L_86
+FT_UINT32	,	V_221
+ses_pres_ctx_id	,	V_153
+Activity_Identifier	,	V_98
+hf	,	V_179
+"beginning of SSDU"	,	L_92
+hf_ses_reassembled_in	,	V_222
+Token_Setting_Item	,	V_93
+pg_tree	,	V_117
+prefs_register_protocol	,	F_49
+Token_Item	,	V_36
+ses_desegment	,	V_155
+Version_Number	,	V_78
+"Parameter group inside parameter group"	,	L_21
+"ses"	,	L_149
+col_set_str	,	F_38
+"Flags"	,	L_52
+hf_activity_management_function_unit	,	V_67
+hf_data_token_setting	,	V_97
+DATA_TOKEN	,	V_190
+hf_ses_segments	,	V_212
+"SES"	,	L_28
+SES_GIVE_TOKENS	,	V_175
+ENDTRY	,	V_15
+index	,	V_166
+"ses.end_of_SSDU"	,	L_95
+TSDU_Maximum_Size	,	V_74
+"SES segment data"	,	L_125
+"This SES packet is reassembled in this frame"	,	L_145
+val_to_str	,	F_17
+"ses.called_session_selector"	,	L_112
+"end of SSDU"	,	L_94
+hf_synchronize_minor_token	,	V_41
+"implementation restriction"	,	L_8
+Calling_Session_Selector	,	V_105
+"Large Initial Serial Number"	,	L_117
+pres_handle	,	V_10
+"synchronize minor token"	,	L_45
+SESSION_PROVIDER_ABORT	,	V_49
+VALS	,	F_43
+prefs_register_bool_preference	,	F_50
+"transport connection is kept"	,	L_4
+NON_TOKENS_SPDU	,	V_177
+spdu_type	,	V_134
+"Negotiated release function unit"	,	L_66
+"ses.negotiated_release"	,	L_67
+"data"	,	L_153
+tvb_length	,	F_36
+proto_tree_add_text	,	F_2
+BASE_DEC	,	V_181
+"ses.data_token"	,	L_48
+tvb_new_subset	,	F_3
+PROTOCOL_VERSION_2	,	V_208
+reason_vals	,	V_104
+PROTOCOL_VERSION_1	,	V_207
+hf_token_item_options_flags	,	V_37
+try_val_to_str	,	F_53
+ENC_NA	,	V_29
+hf_minor_resynchronize_function_unit	,	V_70
+"pres"	,	L_154
+hf_session_user_req_flags	,	V_58
+"ses.resynchronize"	,	L_71
+ett_protocol_version_flags	,	V_80
+"Capability function unit"	,	L_64
+"SES segment"	,	L_129
+"%s"	,	L_14
+PROTO_STRING_CLSES	,	V_232
+has_user_information	,	V_21
+"data token setting"	,	L_103
+TWO_BYTE_LEN	,	V_18
+Initial_Serial_Number	,	V_83
+ett_ses	,	V_142
+"ses.additional_reference_information"	,	L_40
+Common_Reference	,	V_32
+implementation_restriction	,	V_52
+TRY	,	F_4
+call_pres_dissector	,	F_1
+Large_Initial_Serial_Number	,	V_113
+"Length"	,	L_31
+guint	,	V_231
+ett	,	V_224
+"Symmetric synchronize function unit"	,	L_58
+addresses_reassembly_table_functions	,	V_178
+"ses.segment.data"	,	L_126
+"Proposed TSDU Maximum Size, Initiator to Responder"	,	L_82
+"ses.segment.overlap.conflicts"	,	L_134
+packet_info	,	T_3
+TOKENS_SPDU	,	V_176
+"s"	,	L_25
+"ses.major.token"	,	L_44
+dissect_parameters	,	F_21
+" (%d byte%s)"	,	L_23
+pres_ctx_id	,	V_133
+"data  token"	,	L_49
+dst	,	V_162
+CATCH_ALL	,	F_6
+"Calling Session Selector"	,	L_109
+MAJOR_ACTIVITY_TOKEN	,	V_188
+ptype	,	V_163
+"Parameter length: %u"	,	L_20
+proto_ses	,	V_145
+"major/activity token"	,	L_43
+tokens	,	V_129
+HFILL	,	V_182
+PROTO_STRING_SES	,	V_228
+"ses.version.flags"	,	L_122
+"Second Serial Number"	,	L_113
+src	,	V_161
+"Minor resynchronize function unit"	,	L_74
+wmem_new	,	F_25
+"SES segment count"	,	L_141
+"cotp"	,	L_155
+asn1_ctx_t	,	T_8
+"Unknown"	,	L_16
+"SPDU Type"	,	L_29
+"data token"	,	L_47
+"major/activity token setting"	,	L_100
+hf_beginning_of_SSDU	,	V_90
+proto_register_protocol	,	F_44
+hf_large_second_initial_serial_number	,	V_116
+save_private_data	,	V_132
+"release token"	,	L_41
+tvb_new_subset_remaining	,	F_30
+len	,	V_17
+"ses.minor_resynchronize"	,	L_75
+ses_tree	,	V_128
+gint	,	T_12
+"ses.segments"	,	L_128
+tvb	,	V_1
+hf_major_activity_token	,	V_40
+"ses.proposed_tsdu_maximum_size_i2r"	,	L_83
+COL_INFO	,	V_139
+get_item_len	,	F_8
+frag_msg	,	V_157
+"ses.large_second_initial_serial_number"	,	L_120
+GET_MESSAGE	,	V_14
+hf_calling_ss_user_reference	,	V_31
+ett_connect_protocol_options_flags	,	V_55
+cinfo	,	V_138
+hf_ses_segment_count	,	V_220
+"ses.length"	,	L_32
+"transport connection is released"	,	L_3
+hf_called_session_selector	,	V_108
+next_tvb	,	V_11
+"Additional Reference Information"	,	L_39
+call_dissector	,	F_5
+HALF_DUPLEX_FUNCTION_UNIT	,	V_206
+proto_clses	,	V_141
+show_exception	,	F_7
+asn1_ctx	,	V_25
+fragment_len	,	V_158
+"ses.segment.multiple_tails"	,	L_136
+proto_tree_add_boolean	,	F_16
+hf_resynchronize_function_unit	,	V_68
+ett_enclosure_item_flags	,	V_88
+hf_connect_protocol_options_flags	,	V_54
+COL_PROTOCOL	,	V_173
+TYPED_DATA_FUNCTION_UNIT	,	V_196
+Called_SS_user_Reference	,	V_27
+Extended_User_Data	,	V_123
+rtse_reassemble	,	V_137
+"Initial Serial Number"	,	L_90
+is_clsp	,	V_171
+reassembly_table_init	,	F_41
+guint8	,	T_6
+tf	,	V_23
+ti	,	V_119
+hf_ses_segment	,	V_213
+"major/activity setting"	,	L_98
+"ses.symm_sync"	,	L_59
+register_dissector	,	F_51
+"ses.segment.count"	,	L_142
+tvbuff_t	,	T_1
+"Large Second Initial Serial Number"	,	L_119
+"ses.half_duplex"	,	L_81
+tvb_get_ntohs	,	F_10
+parent_tree	,	V_229
+"cltp"	,	L_159
+flags_tree	,	V_24
+Calling_SS_user_Reference	,	V_30
+gboolean	,	T_5
+hf_common_reference	,	V_33
+"ses.connect.flags"	,	L_121
+dissect_parameter	,	F_11
+ett_ses_param	,	V_122
+"ses.calling_ss_user_reference"	,	L_36
+Transport_Disconnect	,	V_43
+ses_reassembly_table	,	V_168
+"ses.type"	,	L_30
+hf_end_of_SSDU	,	V_89
+fragment_head	,	T_11
+register_init_routine	,	F_48
+tvb_get_guint8	,	F_9
+p_add_proto_data	,	F_27
+SES_DATA_TRANSFER	,	V_147
+connectionless	,	V_130
+"SES segment too long"	,	L_137
+ett_ses_segment	,	V_225
+DATA_SEPARATION_FUNCTION_UNIT	,	V_194
+flags8	,	V_44
+"User data"	,	L_1
+"Parameter type: %s"	,	L_17
+hf_expedited_data_resynchronize_function_unit	,	V_71
+"ses.expedited_data"	,	L_77
+"ses.synchronize_token"	,	L_46
+ett_ses_req_options_flags	,	V_59
+"ses.segment.overlap"	,	L_132
+"clsp"	,	L_158
+"Calling SS User Reference"	,	L_35
+Linking_Information	,	V_127
+parameters_len	,	V_131
+SES_EXCEPTION_REPORT	,	V_193
+param_vals	,	V_121
+hf_ses_segment_data	,	V_167
+hf_ses_length	,	V_154
+"Major resynchronize function unit"	,	L_72
+hf_able_to_receive_extended_concatenated_SPDU	,	V_56
+hf_serial_number	,	V_101
+"ses.segment.error"	,	L_140
+find_dissector	,	F_56
+BEGINNING_SPDU	,	V_92
+hf_activity_identifier	,	V_99
+hf_data_separation_function_unit	,	V_61
+ENC_BIG_ENDIAN	,	V_76
+"ses.second_serial_number"	,	L_114
+hf_typed_data_function_unit	,	V_63
+"Proposed TSDU Maximum Size, Responder to Initiator"	,	L_84
+param_str	,	V_120
+"release token setting"	,	L_96
+hf_duplex_function_unit	,	V_72
+ses_reassemble_init	,	F_40
+"Second Initial Serial Number"	,	L_115
+param_tree	,	V_6
+hf_calling_session_selector	,	V_106
+"Serial Number"	,	L_107
+"ses.begininng_of_SSDU"	,	L_93
+param_len	,	V_3
+ses_frag_items	,	V_169
+"ses.req.flags"	,	L_53
+"Reassembled SES in frame"	,	L_143
+"ses.serial_number"	,	L_108
+hf_capability_function_unit	,	V_65
+"ses.typed_data"	,	L_61
+proto_item_append_text	,	F_32
+"synchronize-minor token setting"	,	L_101
+hf_release_token_setting	,	V_94
+hf_protocol_version_1	,	V_82
+col_clear	,	F_39
+hf_ses_segment_error	,	V_219
+hf_protocol_version_2	,	V_81
+"Unknown SPDU type (0x%02x)"	,	L_22
+"ses.tken_item.flags"	,	L_123
+asn1_ctx_init	,	F_12
+proto_register_subtree_array	,	F_47
+pg_len	,	V_118
+no_reason	,	V_51
+dissect_parameter_group	,	F_18
+"ses.protocol_version2"	,	L_89
+proto_tree_add_item	,	F_13
+private_data	,	V_12
+pinfo	,	V_4
+Large_Second_Initial_Serial_Number	,	V_115
+flags	,	V_22
+"Called SS User Reference"	,	L_33
+_U_	,	V_230
+ett_token_item_flags	,	V_38
+"Session exception report"	,	L_54
+hf_negotiated_release_function_unit	,	V_66
+"ses.exception_report."	,	L_55
+hf_proposed_tsdu_maximum_size_r2i	,	V_77
+"Parameter length: %u, should be &lt;= %u"	,	L_19
+"ses.major_activity_token_setting"	,	L_99
+"ses.synchronize_minor_token_setting"	,	L_102
+RELEASE_TOKEN	,	V_187
+protocol_error	,	V_50
+"ses.called_ss_user_reference"	,	L_34
+len_len	,	V_16
+"Called Session Selector"	,	L_111
+hf_ses_segment_overlap_conflicts	,	V_216
+"ses.protocol_version1"	,	L_87
+find_conversation	,	F_31
+"ses.data_sep"	,	L_57
+FT_UINT8	,	V_180
+ett_ses_segments	,	V_226
+hf_major_resynchronize_function_unit	,	V_69
+"ses.major_resynchronize"	,	L_73
+proto_item	,	T_7
+hf_half_duplex_function_unit	,	V_73
+"ses.connect.f1"	,	L_51
+MINOR_SYNCHRONIZE_FUNCTION_UNIT	,	V_203
+"SES segment overlapping with conflicting data"	,	L_133
+"Length is %u, should be 4"	,	L_10
+"Whether the session dissector should reassemble messages spanning multiple SES segments"	,	L_152
+hf_ses_segment_too_long_segment	,	V_218
+data	,	T_15
+num	,	V_160
+CLSES_UNIT_DATA	,	V_172
+"ses.release_token"	,	L_42
+"SES desegmentation error"	,	L_139
+proto_register_clses	,	F_58
+"SES segments"	,	L_127
+EXPEDITED_DATA_FUNCTION_UNIT	,	V_204
+conversation_t	,	T_10
+FT_NONE	,	V_211
+offset	,	V_2
+SYNCHRONIZE_MINOR_TOKEN	,	V_189
+Protocol_Options	,	V_53
+CAPABILITY_DATA_FUNCTION_UNIT	,	V_198
+tree	,	V_5
+hf_called_ss_user_reference	,	V_28
+tvb_bytes_exist	,	F_54
+"CLSES"	,	L_27
+"Length is %u, should be &gt;= 1"	,	L_11
+"ses.calling_session_selector"	,	L_110
+hf_exception_function_unit	,	V_64
+ses_id	,	V_159
+"Duplex functional unit"	,	L_78
+destport	,	V_165
+"Half-duplex functional unit"	,	L_80
+proto_tree_add_uint	,	F_14
+"Length is %u, should be 2"	,	L_9
+"Reassembled SES length"	,	L_146
+"user abort"	,	L_5
+"Resynchronize function unit"	,	L_70
+SES_EXPEDITED	,	V_148
+"Reason Code: %s"	,	L_12
+"SES has multiple tail segments"	,	L_135
+ASN1_ENC_BER	,	V_26
+"The total length of the reassembled payload"	,	L_148
+"Unknown parameter type (0x%02x)"	,	L_15
+wmem_file_scope	,	F_26
+EnclosureItem	,	V_86
+"ses.reassembled.in"	,	L_144
+hf_major_activity_token_setting	,	V_95
+"Length is %u, should be 1"	,	L_2
+Connection_Identifier	,	V_126
+SES_PLEASE_TOKENS	,	V_174
+"Exception function unit"	,	L_62
+proto_reg_handoff_clses	,	F_59
+ses_module	,	V_227
+FT_FRAMENUM	,	V_214
+ACTIVITY_MANAGEMENT_FUNCTION_UNIT	,	V_200
+proto_item_set_len	,	F_20
+END_SPDU	,	V_91
+transport_connection_is_released	,	V_45
+user_abort	,	V_46
+SESSION_NO_ABORT	,	V_135
+srcport	,	V_164
+"ses.segment"	,	L_130
+proto_tree	,	T_4
+"ses.exception_data"	,	L_63

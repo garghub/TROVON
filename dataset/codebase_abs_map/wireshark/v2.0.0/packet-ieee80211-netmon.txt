@@ -1,0 +1,180 @@
+"netmon_802_11.op_mode.ap"	,	L_24
+PHDR_802_11_HAS_CHANNEL	,	V_67
+data_rate	,	V_75
+"802.11b"	,	L_11
+"netmon_802_11.length"	,	L_18
+hf_netmon_802_11_timestamp	,	V_78
+"Header length"	,	L_17
+channel	,	V_16
+"netmon_802_11.version"	,	L_16
+proto_register_protocol	,	F_20
+PHDR_802_11_PHY_11AC	,	V_62
+"%u Mhz"	,	L_4
+hf_netmon_802_11_datarate	,	V_73
+"netmon_802_11.phy_type"	,	L_30
+"802.11 IR"	,	L_9
+tvb_new_subset_remaining	,	F_16
+FT_UINT64	,	V_92
+gint	,	T_8
+col_set_str	,	F_2
+PHDR_802_11_PHY_11_DSSS	,	V_48
+hf_netmon_802_11_length	,	V_30
+tvb	,	V_1
+"802.11a"	,	L_10
+guint32	,	T_7
+COL_INFO	,	V_22
+proto_tree_add_int_format_value	,	F_14
+presence_flags	,	V_44
+ieee80211_chan_to_mhz	,	F_12
+"Data rate"	,	L_37
+version	,	V_12
+"NetMon 802.11"	,	L_42
+"netmon_802_11"	,	L_43
+"Operation mode"	,	L_19
+col_clear	,	F_3
+opmode_tree	,	V_8
+cinfo	,	V_20
+tvb_get_letoh64	,	F_15
+proto_register_subtree_array	,	F_23
+gint32	,	T_9
+proto_netmon_802_11	,	V_25
+array_length	,	F_22
+next_tvb	,	V_10
+PHY_TYPE_HT	,	V_58
+"Station mode"	,	L_21
+proto_tree_add_item	,	F_7
+pinfo	,	V_2
+col_add_fstr	,	F_6
+dissector_handle_t	,	T_13
+flags	,	V_15
+hf_netmon_802_11_frequency	,	V_69
+skip	,	V_23
+tsf_timestamp	,	V_77
+"WLAN"	,	L_1
+"NetMon WLAN Capture v%u, Length %u"	,	L_2
+hf_netmon_802_11_rssi	,	V_70
+"netmon_802_11.op_mode.on"	,	L_28
+PHDR_802_11_HAS_SIGNAL_DBM	,	V_71
+ett_netmon_802_11	,	V_27
+"wlan_radio"	,	L_44
+"Extensible station mode"	,	L_25
+PHY_TYPE_VHT	,	V_61
+PHY_TYPE_IR_BASEBAND	,	V_45
+hf_register_info	,	T_12
+"netmon_802_11.rssi"	,	L_36
+"802.11 DSSS"	,	L_8
+OP_MODE_MON	,	V_90
+VALS	,	F_19
+PHY_TYPE_FHSS	,	V_40
+ett_netmon_802_11_op_mode	,	V_32
+hf_netmon_802_11_op_mode_ap	,	V_34
+phy_info	,	V_42
+PHY_TYPE_OFDM	,	V_52
+guint16	,	T_6
+rssi	,	V_18
+COL_PROTOCOL	,	V_21
+"802.11g"	,	L_12
+OP_MODE_AP	,	V_88
+ieee_802_11_phdr	,	V_5
+"RSSI"	,	L_35
+FT_UINT8	,	V_81
+hf_netmon_802_11_op_mode_sta_ext	,	V_35
+info_11_fhss	,	V_43
+BASE_DEC	,	V_82
+"NetMon 802.11 capture header"	,	L_41
+proto_item	,	T_4
+hf_netmon_802_11_channel	,	V_65
+PHDR_802_11_PHY_11_IR	,	V_46
+PHDR_802_11_HAS_TSF_TIMESTAMP	,	V_76
+calc_channel	,	V_17
+ENC_NA	,	V_26
+guint8	,	T_5
+ti	,	V_9
+value_string	,	T_11
+info_11ac	,	V_63
+ENC_LITTLE_ENDIAN	,	V_29
+"PHY type"	,	L_29
+phy	,	V_38
+"Timestamp"	,	L_39
+data	,	V_4
+tvbuff_t	,	T_1
+dissect_netmon_802_11	,	F_1
+"Header revision"	,	L_15
+"wtap_encap"	,	L_45
+frequency	,	V_66
+BASE_HEX	,	V_86
+"netmon_802_11.op_mode.sta"	,	L_22
+"netmon_802_11.op_mode.sta_ext"	,	L_26
+PHDR_802_11_PHY_UNKNOWN	,	V_39
+PHDR_802_11_PHY_11_FHSS	,	V_41
+PHY_TYPE_HR_DSSS	,	V_49
+"Channel"	,	L_31
+"netmon_802_11.datarate"	,	L_38
+"netmon_802_11.frequency"	,	L_34
+proto_item_add_subtree	,	F_8
+tvb_get_letohl	,	F_9
+PHDR_802_11_HAS_DATA_RATE	,	V_74
+hf_netmon_802_11_phy_type	,	V_64
+MIN_HEADER_LEN	,	V_24
+"802.11 FHSS"	,	L_7
+proto_register_field_array	,	F_21
+tvb_get_letohs	,	F_5
+"802.11n"	,	L_13
+hf_netmon_802_11_op_mode_mon	,	V_36
+info_11n	,	V_60
+signal_dbm	,	V_72
+OP_MODE_STA_EXT	,	V_89
+guint	,	T_10
+offset	,	V_11
+ett	,	V_93
+dissector_add_uint	,	F_27
+tree	,	V_3
+info_11g	,	V_57
+info_11b	,	V_51
+FT_UINT16	,	V_84
+packet_info	,	T_2
+info_11a	,	V_54
+"%f Mb/s"	,	L_6
+hf_netmon_802_11_version	,	V_28
+"netmon_802_11.op_mode"	,	L_20
+phdr	,	V_6
+tvb_get_guint8	,	F_4
+hf_netmon_802_11_op_mode_sta	,	V_33
+"%d dBm"	,	L_5
+OP_MODE_STA	,	V_87
+"802.11ac"	,	L_14
+proto_tree_add_uint	,	F_11
+PHY_TYPE_DSSS	,	V_47
+ieee80211_mhz_to_chan	,	F_13
+call_dissector_with_data	,	F_17
+"Center frequency"	,	L_33
+wlan_tree	,	V_7
+phy_type	,	V_14
+"AP mode"	,	L_23
+rate	,	V_19
+"Monitor mode"	,	L_27
+PHY_TYPE_UNKNOWN	,	V_37
+ieee80211_radio_handle	,	V_79
+HFILL	,	V_83
+hf_netmon_802_11_op_mode	,	V_31
+FT_INT32	,	V_91
+"netmon_802_11.timestamp"	,	L_40
+new_create_dissector_handle	,	F_26
+PHDR_802_11_PHY_11G	,	V_56
+WTAP_ENCAP_IEEE_802_11_NETMON	,	V_95
+PHDR_802_11_PHY_11N	,	V_59
+proto_reg_handoff_netmon_802_11	,	F_24
+length	,	V_13
+find_dissector	,	F_25
+PHDR_802_11_PHY_11B	,	V_50
+PHDR_802_11_PHY_11A	,	V_53
+proto_tree_add_uint_format_value	,	F_10
+PHY_TYPE_ERP	,	V_55
+FT_UINT32	,	V_85
+PHDR_802_11_HAS_FREQUENCY	,	V_68
+proto_register_netmon_802_11	,	F_18
+"netmon_802_11.channel"	,	L_32
+"Unknown"	,	L_3
+netmon_802_11_handle	,	V_94
+proto_tree	,	T_3
+hf	,	V_80

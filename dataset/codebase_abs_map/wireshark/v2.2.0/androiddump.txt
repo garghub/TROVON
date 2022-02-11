@@ -1,0 +1,350 @@
+api_level	,	V_165
+ps	,	V_135
+captured_length	,	V_28
+"arg {number=3}{call=--verbose}{display=Verbose/Debug output on console}{type=boolean}{default=false}\n"	,	L_81
+DLT_BLUETOOTH_H4_WITH_PHDR	,	V_9
+bpf_u_int32	,	V_35
+adb_server_ip	,	V_111
+INTERFACE_ANDROID_WIFI_TCPDUMP	,	V_110
+list_config	,	F_43
+len	,	V_36
+"%s-%s"	,	L_17
+"WARNING: Error on socket: &lt;%s&gt;\n"	,	L_44
+" closed connection(NL)         so cannot send next command after them, there is need to reconnect */(NL)(NL)    sock = adb_connect(adb_server_ip, adb_server_tcp_port);(NL)    if (sock == INVALID_SOCKET)(NL)        return EXIT_CODE_INVALID_SOCKET_INTERFACES_LIST;(NL)(NL)    device_list = adb_send_and_receive(sock, adb_devices, packet, sizeof(packet), &amp;device_length);(NL)    closesocket(sock);(NL)(NL)    if (!device_list) {(NL)        errmsg_print("	,	L_34
+errno	,	V_75
+" and "	,	L_33
+EXIT_CODE_INVALID_INTERFACE	,	V_185
+guint32	,	V_46
+devices	,	V_127
+"ERROR: Error while sending &lt;%s&gt; to ADB"	,	L_16
+presence_flags	,	V_44
+INTERFACE_ANDROID_LOGCAT_TEXT_MAIN	,	V_105
+i_opt	,	V_186
+getprop	,	V_129
+EXIT_CODE_ERROR_WHILE_SENDING_ADB_PACKET_1	,	V_88
+extcap_base_register_interface_ext	,	F_37
+packet	,	V_113
+"OKAY"	,	L_14
+version	,	V_132
+sockaddr_in	,	V_65
+sin_port	,	V_69
+g_ascii_strtoll	,	F_32
+"ERROR: Error while receiving by ADB for &lt;%s&gt;"	,	L_15
+WTAP_FILE_TYPE_SUBTYPE_PCAP_NSEC	,	V_25
+";(NL)    const char            *adb_devices            = "	,	L_26
+";(NL)    const char            *adb_hcidump_version    = "	,	L_28
+sdk	,	V_133
+ro	,	V_130
+device	,	V_154
+""	,	L_25
+EXIT_CODE_BAD_SIZE_OF_ASSEMBLED_ADB_PACKET_5	,	V_176
+EXIT_CODE_BAD_SIZE_OF_ASSEMBLED_ADB_PACKET_6	,	V_178
+adb_tcpdump_help	,	V_162
+EXIT_CODE_BAD_SIZE_OF_ASSEMBLED_ADB_PACKET_7	,	V_179
+EXIT_CODE_BAD_SIZE_OF_ASSEMBLED_ADB_PACKET_8	,	V_182
+EXIT_CODE_BAD_SIZE_OF_ASSEMBLED_ADB_PACKET_9	,	V_183
+"Help\n"	,	L_83
+"Android Logcat Crash"	,	L_51
+"%s %s %s"	,	L_18
+"  --%s%s\n"	,	L_90
+REC_TYPE_PACKET	,	V_53
+"arg {number=4}{call=--bt-local-ip}{display=Bluetooth Local IP Address}{type=string}{default=127.0.0.1}\n"	,	L_76
+"arg {number=6}{call=--verbose}{display=Verbose/Debug output on console}{type=boolean}{default=false}\n"	,	L_78
+INVALID_SOCKET	,	V_74
+INTERFACE_ANDROID_BLUETOOTH_BTSNOOP_NET	,	V_100
+result	,	V_84
+tmp_buffer	,	V_86
+"ERROR: Cannot save lipcap dump file"	,	L_2
+R	,	V_195
+"WARNING: Error while getting Bluetooth application process id by &lt;%s&gt; "	,	L_58
+";(NL)    const char            *adb_tcpdump_help       = "	,	L_31
+connect	,	F_23
+su	,	V_197
+c	,	V_198
+EXTCAP_ENCAP_ETHERNET	,	V_12
+pcap_t	,	T_1
+h	,	V_141
+uint32_t	,	T_5
+g_free	,	F_39
+ifdisplay	,	V_97
+l	,	V_128
+time_t	,	T_4
+"ERROR: Cannot open system TCP socket: %s"	,	L_6
+n	,	V_155
+g_ascii_strtoull	,	F_42
+INTERFACE_ANDROID_LOGCAT_SYSTEM	,	V_102
+"tcpdump version"	,	L_42
+adb_send_and_read	,	F_33
+guint8	,	V_60
+"ERROR: Error while completing adb packet for transport"	,	L_40
+sin_family	,	V_67
+interface_id	,	V_93
+s	,	V_121
+"VERBOSE: Android hcidump version for %s is %s\n"	,	L_56
+t	,	V_196
+pcap_pkthdr	,	V_32
+secs	,	V_47
+tv_usec	,	V_39
+wtap_dump_flush	,	F_13
+register_interfaces	,	F_40
+EXIT_CODE_BAD_SIZE_OF_ASSEMBLED_ADB_PACKET_1	,	V_161
+EXIT_CODE_BAD_SIZE_OF_ASSEMBLED_ADB_PACKET_2	,	V_163
+EXIT_CODE_BAD_SIZE_OF_ASSEMBLED_ADB_PACKET_3	,	V_167
+ts	,	V_37
+EXIT_CODE_BAD_SIZE_OF_ASSEMBLED_ADB_PACKET_4	,	V_171
+"ERROR: Unknown Wiretap encapsulation"	,	L_3
+"ERROR: Cannot dump: %s"	,	L_5
+";(NL)    const char                    *adb_transport_serial_templace = "	,	L_94
+" androiddump --extcap-interface=INTERFACE --extcap-dlts\n"	,	L_86
+"Android Bluetooth External Parser"	,	L_66
+");(NL)(NL)        return EXIT_CODE_CANNOT_GET_INTERFACES_LIST;(NL)    }(NL)(NL)    device_list[device_length] = '\0';(NL)    pos = (char *) device_list;(NL)(NL)    while (pos &lt; (char *) (device_list + device_length)) {(NL)        prev_pos = pos;(NL)        pos = strchr(pos, ' ');(NL)        i_pos = pos;(NL)        result = (int) (pos - prev_pos);(NL)        pos = strchr(pos, '\n') + 1;(NL)        if (result &gt;= (int) sizeof(serial_number)) {(NL)            verbose_print("	,	L_35
+"WARNING: Error while setting adb transport for &lt;%s&gt;\n"	,	L_41
+EXIT_CODE_UNKNOWN_ENCAPSULATION_WIRETAP	,	V_23
+"ERROR: incorrect length"	,	L_9
+"BluetoothH4"	,	L_19
+model_name	,	V_94
+gboolean	,	T_2
+"\n Parameters:\n"	,	L_89
+"%s\" &lt;%s&gt;\n"	,	L_39
+EXIT_CODE_CANNOT_SAVE_LIBPCAP_DUMP	,	V_18
+adb	,	V_142
+INTERFACE_ANDROID_LOGCAT_RADIO	,	V_103
+errmsg_print	,	F_4
+gssize	,	T_3
+";(NL)    const char                    *adb_shell_hcidump = "	,	L_95
+adb_send_and_receive	,	F_29
+getsockname	,	F_27
+";(NL)    const char            *adb_ps_droid_bluetooth = "	,	L_29
+bthci	,	V_56
+socklen_t	,	T_7
+"ERROR: Error while sending &lt;%s&gt; to ADB daemon"	,	L_11
+"arg {number=2}{call=--logcat-text}{display=Use text logcat}{type=boolean}{default=false}\n"	,	L_80
+pack_flags	,	V_51
+list	,	V_145
+WARNING	,	V_149
+"Android Logcat System"	,	L_48
+shell	,	V_122
+"[=arg]"	,	L_92
+name	,	V_188
+"ERROR: Invalid interface: &lt;%s&gt;"	,	L_82
+buffer_length	,	V_81
+data_str	,	V_173
+has_arg	,	V_189
+";(NL)    const char            *adb_api_level          = "	,	L_27
+socket_handle_t	,	T_6
+"Android Logcat Events"	,	L_50
+android	,	V_139
+"WARNING: Error while getting hcidump version by &lt;%s&gt; (%p len=%"	,	L_53
+used_buffer_length	,	V_83
+tcpdump	,	V_140
+"ERROR: Broken socket connection while fetching reply status for &lt;%s&gt;"	,	L_12
+interface	,	V_1
+GUINT16_FROM_BE	,	F_28
+INTERFACE_ANDROID_LOGCAT_TEXT_EVENTS	,	V_108
+"VERBOSE: Btsnoop Net Port for %s is %s\n"	,	L_68
+Processing	,	V_159
+"arg {number=3}{call=--bt-forward-socket}{display=Forward Bluetooth Socket}{type=boolean}{default=false}\n"	,	L_75
+");(NL)(NL)        verbose_print("	,	L_38
+";(NL)    const char            *adb_ps_bluetooth_app   = "	,	L_30
+"ERROR: No interface specified."	,	L_71
+" androiddump --extcap-interface=INTERFACE --extcap-config\n"	,	L_87
+EXIT_CODE_ERROR_WHILE_RECEIVING_ADB_PACKET_DATA	,	V_90
+client	,	V_79
+ignore	,	V_153
+")\n"	,	L_54
+nanoseconds	,	V_31
+VERBOSE	,	V_158
+"%*s %s"	,	L_61
+"Android WiFi"	,	L_43
+PCAP_TSTAMP_PRECISION_NANO	,	V_16
+wtap_pkthdr	,	V_42
+serial_number_length	,	V_160
+device_list	,	V_116
+interfaces	,	V_147
+capture_android_bluetooth_hcidump	,	F_45
+fifo	,	V_4
+data_length	,	V_82
+length	,	V_64
+dumper	,	V_17
+INTERFACE_ANDROID_BLUETOOTH_EXTERNAL_PARSER	,	V_99
+pcap_open_dead_with_tstamp_precision	,	F_5
+reported_length	,	V_29
+interface_prefix	,	V_2
+rec_type	,	V_52
+optional_argument	,	V_191
+disable_interface	,	V_166
+hdr	,	V_43
+INTERFACE_ANDROID_LOGCAT_MAIN	,	V_101
+adb_ps_droid_bluetooth	,	V_172
+longopts	,	V_187
+Cannot	,	V_143
+adb_server_tcp_port	,	V_112
+INTERFACE_ANDROID_LOGCAT_TEXT_RADIO	,	V_107
+"Cannot connect to ADB: &lt;%s&gt; Please check that adb daemon is running.\n"	,	L_7
+extcap_conf	,	V_92
+INTERFACE_ANDROID_BLUETOOTH_HCIDUMP	,	V_98
+number	,	V_151
+seconds	,	V_30
+adb_transport	,	V_193
+_WIN32	,	F_24
+"22A8"	,	L_67
+IPPROTO_TCP	,	V_73
+"arg {number=5}{call=--bt-local-tcp-port}{display=Bluetooth Local TCP Port}{type=integer}{range=0,65535}{default=4330}{tooltip=Used to do \"adb forward tcp:LOCAL_TCP_PORT tcp:SERVER_TCP_PORT\"}\n"	,	L_77
+own_pcap_bluetooth_h4_header	,	V_58
+"ERROR: Error while completing adb packet"	,	L_45
+" androiddump --extcap-interface=INTERFACE --fifo=PATH_FILENAME --capture \n"	,	L_88
+err_info	,	V_41
+EXIT_CODE_CANNOT_SAVE_WIRETAP_DUMP	,	V_26
+extcap_dumper_dump	,	F_14
+wtap_dump	,	F_18
+model	,	V_156
+"Android Bluetooth Btsnoop Net"	,	L_70
+");(NL)        if (model_pos) {(NL)            device_pos = g_strstr_len(i_pos, pos - i_pos, "	,	L_36
+"arg {number=1}{call=--adb-server-tcp-port}{display=ADB Server TCP Port}{type=integer}{range=0,65535}{default=5037}\n"	,	L_73
+WTAP_ENCAP_WIRESHARK_UPPER_PDU	,	V_21
+verbose_print	,	F_25
+";(NL)    const char                    *adb_shell_su_hcidump = "	,	L_96
+adb_ps_bluetooth_app	,	V_180
+AF_INET	,	V_68
+"VERBOSE: Btsnoop Net Port for %s is unknown\n"	,	L_69
+extcap_dumper_open	,	F_2
+"VERBOSE: Android Bluetooth application PID for %s is unknown\n"	,	L_60
+status	,	V_85
+server	,	V_66
+"ERROR getsockname: %s"	,	L_8
+adb_hcidump_version	,	V_169
+SET_DATA	,	F_16
+ANDROIDDUMP_USE_LIBPCAP	,	F_3
+adb_service	,	V_80
+sockaddr	,	V_76
+sin_addr	,	V_70
+encap	,	V_5
+";(NL)    char                   serial_number[SERIAL_NUMBER_LENGTH_MAX];(NL)    size_t                 serial_number_length;(NL)    char                   model_name[MODEL_NAME_LENGTH_MAX];(NL)    int                    result;(NL)    char                  *pos;(NL)    char                  *i_pos;(NL)    char                  *model_pos;(NL)    char                  *device_pos;(NL)    char                  *prev_pos;(NL)    int                    api_level;(NL)    int                    disable_interface;(NL)(NL)/* NOTE: It seems that "	,	L_32
+"VERBOSE: Bluedroid External Parser Port for %s is %s\n"	,	L_64
+unknown	,	V_157
+DLT_WIRESHARK_UPPER_PDU	,	V_11
+WTAP_ENCAP_ETHERNET	,	V_22
+opt_comment	,	V_49
+INTERFACE_ANDROID_LOGCAT_EVENTS	,	V_104
+wtap_dump_open	,	F_12
+too	,	V_152
+pcap	,	V_7
+get	,	V_144
+"Android Logcat Main"	,	L_47
+"=&lt;arg&gt;"	,	L_91
+"ERROR: Unknown encapsulation"	,	L_1
+proc	,	V_124
+err	,	V_19
+"ERROR: Cannot save dump file"	,	L_4
+serial_number	,	V_95
+"10EA"	,	L_63
+extcap_base_register_interface	,	F_38
+verbose	,	V_78
+help	,	F_44
+Serial	,	V_150
+"ERROR: Broken socket connection while reading reply for &lt;%s&gt;"	,	L_13
+device_length	,	V_117
+"VERBOSE: Android Bluetooth application PID for %s is %s\n"	,	L_62
+caplen	,	V_34
+"Android Logcat Radio"	,	L_49
+pcap_dump	,	F_15
+wtap_register_plugin_types	,	F_10
+com	,	V_138
+pcap_header	,	V_33
+adb_connect	,	F_19
+data	,	V_192
+adb_check_port_templace	,	V_177
+tv_sec	,	V_38
+adb_api_level	,	V_164
+pid	,	V_174
+pcap_dump_flush	,	F_7
+size_t	,	T_8
+required_argument	,	V_190
+HAVE_PLUGINS	,	F_9
+EXTCAP_ENCAP_WIRESHARK_UPPER_PDU	,	V_10
+INTERFACE_ANDROID_LOGCAT_TEXT_CRASH	,	V_109
+pcap_dump_open	,	F_6
+server_ip	,	V_61
+s_addr	,	V_71
+host	,	V_119
+from	,	V_148
+buffer	,	V_27
+EXIT_CODE_GENERIC	,	V_168
+net	,	V_125
+"Upper PDU"	,	L_21
+"arg {number=2}{call=--verbose}{display=Verbose/Debug output on console}{type=boolean}{default=false}\n"	,	L_79
+";(NL)    int                            result;(NL)    char                          *serial_number = NULL;(NL)    size_t                         serial_number_length = 0;(NL)    time_t                         ts = 0;(NL)    unsigned int                   captured_length;(NL)    gint64                         hex;(NL)    char                          *hex_data;(NL)    char                          *new_hex_data;(NL)    own_pcap_bluetooth_h4_header  *h4_header;(NL)    gint64                         raw_length = 0;(NL)    gint64                         frame_length;(NL)    int                            ms = 0;(NL)    struct tm                      date;(NL)    char                           direction_character;(NL)    int                            try_next = 0;(NL)(NL)    SET_DATA(h4_header, value_own_pcap_bluetooth_h4_header, packet);(NL)(NL)    extcap_dumper = extcap_dumper_open(fifo, EXTCAP_ENCAP_BLUETOOTH_H4_WITH_PHDR);(NL)(NL)    sock = adb_connect(adb_server_ip, adb_server_tcp_port);(NL)    if (sock == INVALID_SOCKET)(NL)        return EXIT_CODE_INVALID_SOCKET_3;(NL)(NL)    if (is_specified_interface(interface, INTERFACE_ANDROID_BLUETOOTH_HCIDUMP) &amp;&amp;(NL)            strlen(interface) &gt; strlen(INTERFACE_ANDROID_BLUETOOTH_HCIDUMP) + 1) {(NL)        serial_number = interface + strlen(INTERFACE_ANDROID_BLUETOOTH_HCIDUMP) + 1;(NL)        serial_number_length = strlen(serial_number);(NL)    }(NL)(NL)    if (!serial_number) {(NL)        result = adb_send(sock, adb_transport);(NL)        if (result) {(NL)            errmsg_print("	,	L_97
+SOCKET_ERROR	,	V_77
+"(%p len=%"	,	L_59
+server_tcp_port	,	V_62
+"%04x""	,	L_23
+extcap_dumper	,	V_3
+EXIT_CODE_ERROR_WHILE_RECEIVING_ADB_PACKET_STATUS	,	V_89
+EXIT_CODE_UNKNOWN_ENCAPSULATION_LIBPCAP	,	V_14
+EXIT_CODE_INVALID_SOCKET_2	,	V_181
+EXIT_CODE_INVALID_SOCKET_1	,	V_175
+PACKET_LENGTH	,	V_15
+display_name	,	V_96
+hcidump	,	V_134
+"VERBOSE: Bluedroid External Parser Port for %s is unknown\n"	,	L_65
+sent	,	V_57
+" androiddump --extcap-interfaces [--adb-server-ip=&lt;arg&gt;] [--adb-server-tcp-port=&lt;arg&gt;]\n"	,	L_85
+EXTCAP_ENCAP_BLUETOOTH_H4_WITH_PHDR	,	V_8
+WTAP_HAS_TS	,	V_45
+new_interface	,	F_35
+WTAP_ENCAP_BLUETOOTH_H4_WITH_PHDR	,	V_20
+"Bluetooth HCI UART transport layer plus pseudo-header"	,	L_20
+DLT_EN10MB	,	V_13
+GINT32_FROM_BE	,	F_17
+send	,	F_30
+inet_addr	,	F_21
+"Ethernet"	,	L_22
+pseudo_header	,	V_55
+G_GSSIZE_FORMAT	,	V_170
+"VERBOSE: Android API Level for %s is %i\n"	,	L_46
+" Usage:\n"	,	L_84
+adb_send	,	F_34
+");(NL)            if (device_pos &amp;&amp; device_pos - model_pos - 6 - 1 &lt; MODEL_NAME_LENGTH_MAX) {(NL)                memcpy(model_name, model_pos + 6, device_pos - model_pos - 6 - 1);(NL)                model_name[device_pos - model_pos - 6 - 1] = '\0';(NL)            }(NL)        }(NL)(NL)        if (model_name[0] == '\0')(NL)            strcpy(model_name, "	,	L_37
+INTERFACE_ANDROID_LOGCAT_TEXT_SYSTEM	,	V_106
+"ERROR: Error while setting adb transport for &lt;%s&gt;"	,	L_52
+GINT16_TO_BE	,	F_20
+droid	,	V_136
+"VERBOSE: Android hcidump version for %s is unknown\n"	,	L_55
+encap_ext	,	V_6
+"arg {number=2}{call=--bt-server-tcp-port}{display=Bluetooth Server TCP Port}{type=integer}{range=0,65535}{default=4330}\n"	,	L_74
+adb_transport_serial_templace	,	V_118
+";(NL)    const char            *adb_check_port_templace       = "	,	L_24
+g_snprintf	,	F_41
+SOCK_STREAM	,	V_72
+recv	,	F_31
+cat	,	V_123
+of	,	V_146
+register_all_wiretap_modules	,	F_11
+direction	,	V_54
+tcp	,	V_126
+pkt_encap	,	V_59
+helpful_packet	,	V_114
+EXIT_CODE_NO_INTERFACE_SPECIFIED	,	V_184
+"Android Bluetooth Hcidump"	,	L_57
+gchar	,	T_10
+EXIT_CODE_SUCCESS	,	V_91
+transport	,	V_120
+any	,	V_194
+"arg {number=0}{call=--adb-server-ip}{display=ADB Server IP Address}{type=string}{default=127.0.0.1}\n"	,	L_72
+is_specified_interface	,	F_1
+u_char	,	V_40
+sock	,	V_63
+extcap_parameters	,	T_9
+nsecs	,	V_48
+bluetooth	,	V_137
+"0012""	,	L_93
+build	,	V_131
+drop_count	,	V_50
+closesocket	,	F_26
+"VERBOSE: Client port %u\n"	,	L_10
+response	,	V_115
+init_open_routines	,	F_8
+adb_service_length	,	V_87
+wtap	,	V_24
+socket	,	F_22
+g_strdup_printf	,	F_36

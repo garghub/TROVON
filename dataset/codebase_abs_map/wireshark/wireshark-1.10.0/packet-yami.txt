@@ -1,0 +1,225 @@
+"Parameter value (int)"	,	L_57
+proto_register_protocol	,	F_25
+FRAME_HEADER_LEN	,	V_72
+"Parameter value (string)"	,	L_63
+", %u parameters: "	,	L_29
+YAMI_TYPE_NESTED	,	V_47
+tvb_get_letohieee_double	,	F_9
+YAMI_TYPE_INTEGER_ARRAY	,	V_42
+len	,	V_71
+"YAMI"	,	L_30
+tcp_dissect_pdus	,	F_21
+", Type: binary, Value: %s"	,	L_11
+"%g, "	,	L_23
+gint	,	T_12
+global_yami_config_udp_port	,	V_91
+hf_yami_message_id	,	V_66
+val_offset	,	V_29
+tvb	,	V_1
+guint32	,	T_4
+COL_INFO	,	V_63
+"yami.param.value_long"	,	L_58
+FT_BOOLEAN	,	V_82
+", Type: double[], %u items: {"	,	L_22
+", Type: unknown (%d)!"	,	L_28
+val_len	,	V_30
+YAMI_TYPE_LONGLONG_ARRAY	,	V_43
+cinfo	,	V_61
+tvb_get_letoh64	,	F_8
+"yami.message_header_size"	,	L_38
+array_length	,	F_27
+"Header message"	,	L_41
+"F"	,	L_15
+"%"	,	L_20
+yami_module	,	V_88
+yami_prefs_initialized	,	V_92
+ENC_ASCII	,	V_14
+frame_size	,	V_60
+"YAMI TCP Port"	,	L_73
+hf_yami_message_hdr	,	V_52
+ett_yami_msg_hdr	,	V_54
+"yami.param"	,	L_46
+proto_tree_add_boolean	,	F_13
+"Frame Number"	,	L_35
+hf_register_info	,	T_13
+dissect_yami_parameter	,	F_1
+hf_yami_param	,	V_11
+COL_PROTOCOL	,	V_62
+", Type: integer, Value: %d"	,	L_6
+": %s"	,	L_1
+i	,	V_37
+j	,	V_38
+"Items count"	,	L_68
+YAMI_TYPE_BINARY_ARRAY	,	V_46
+YAMI_TYPE_STRING	,	V_28
+guint8	,	T_8
+r	,	V_40
+ti	,	V_7
+BASE_NONE	,	V_79
+par_ti	,	V_4
+"Parameters count"	,	L_66
+", Type: long, Value: %"	,	L_7
+"yami.param.value_bool"	,	L_54
+orig_offset	,	V_5
+" (last frame)"	,	L_31
+tvbuff_t	,	T_1
+"To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_81
+"Frame Payload Size"	,	L_39
+"desegment"	,	L_78
+gboolean	,	T_10
+"yami.params_count"	,	L_67
+proto_item_add_subtree	,	F_3
+", Type: integer[], %u items: {"	,	L_17
+module_t	,	T_14
+proto_register_field_array	,	F_26
+FT_BYTES	,	V_85
+", Type: string, Value: \"%s\""	,	L_10
+", Type: nested, %u parameters: "	,	L_27
+"Data message"	,	L_43
+dissector_add_uint	,	F_34
+count	,	V_36
+"yami.msg_data"	,	L_44
+hf_yami_frame_payload_size	,	V_69
+tvb_get_ptr	,	F_10
+name	,	V_8
+yami_data_tree	,	V_50
+dissector_delete_uint	,	F_33
+global_yami_config_tcp_port	,	V_90
+", (YAMI Frame Size: %d)"	,	L_32
+FT_STRING	,	V_80
+"yami.param.type"	,	L_51
+yami_desegment	,	V_73
+"Parameter value (double)"	,	L_61
+frame_payload_size	,	V_59
+"%s, "	,	L_2
+FT_INT32	,	V_75
+new_create_dissector_handle	,	F_32
+YAMI_TYPE_BOOLEAN	,	V_18
+YAMI_TYPE_INTEGER	,	V_21
+"}"	,	L_16
+hf_yami_param_value_str	,	V_31
+", Type: string[], %u items: {"	,	L_24
+FT_DOUBLE	,	V_84
+bytes_to_str	,	F_11
+yami_udp_port	,	V_95
+FT_UINT32	,	V_86
+proto_yami	,	V_64
+"\"%s\", "	,	L_25
+YAMI_TYPE_DOUBLE_ARRAY	,	V_44
+"Parameter type"	,	L_52
+hf	,	V_74
+yami_handle	,	V_93
+"yami.param.name"	,	L_48
+"The UDP port on which YAMI messages will be read(5000)"	,	L_77
+G_GINT64_MODIFIER	,	V_24
+"Parameter value (bool)"	,	L_55
+"Parameter name"	,	L_49
+"Parameter value (long)"	,	L_59
+YAMI_TYPE_LONGLONG	,	V_23
+prefs_register_protocol	,	F_29
+"yami.param.value_bin"	,	L_64
+hf_yami_param_value_bool	,	V_20
+tmp	,	V_41
+yami_tree	,	V_56
+"Parameter value (binary)"	,	L_65
+col_set_str	,	F_17
+"Whether the YAMI dissector should reassemble messages spanning multiple TCP segments."	,	L_80
+val	,	V_19
+"yami.param.value_double"	,	L_60
+"yami.items_count"	,	L_69
+proto_item_append_text	,	F_6
+hf_yami_param_value_int	,	V_22
+get_yami_message_len	,	F_19
+"%d, "	,	L_18
+col_clear	,	F_18
+proto_register_subtree_array	,	F_28
+proto_tree_add_string	,	F_7
+gint32	,	T_5
+hf_yami_message_data	,	V_51
+proto_tree_add_bytes_format_value	,	F_12
+repr	,	V_33
+proto_tree_add_item	,	F_2
+", Type: boolean, Value: %s"	,	L_3
+pinfo	,	V_55
+dissector_handle_t	,	T_15
+_U_	,	V_70
+"Value"	,	L_53
+yami_param	,	V_6
+YAMI_TYPE_DOUBLE	,	V_26
+gint64	,	T_6
+VALS	,	F_24
+prefs_register_bool_preference	,	F_31
+hf_yami_param_value_double	,	V_27
+", Type: boolean[], %u items: {"	,	L_13
+"Message Header Size"	,	L_37
+hf_yami_param_name	,	V_15
+dissect_yami	,	F_20
+gdouble	,	T_7
+"d, "	,	L_21
+"yami.param.value_str"	,	L_62
+YAMI_TYPE_BOOLEAN_ARRAY	,	V_35
+hf_yami_items_count	,	V_39
+tvb_length	,	F_22
+BASE_DEC	,	V_76
+proto_item	,	T_3
+frame_number	,	V_57
+"yami.param.value_int"	,	L_56
+ett_yami	,	V_65
+ENC_NA	,	V_12
+proto_register_yami	,	F_23
+hf_yami_message_header_size	,	V_68
+"Reassemble YAMI messages spanning multiple TCP segments"	,	L_79
+name_offset	,	V_9
+ENC_LITTLE_ENDIAN	,	V_17
+FT_INT64	,	V_83
+"YAMI Protocol"	,	L_70
+"The TCP port on which YAMI messages will be read(3000)"	,	L_74
+"YAMI UDP Port"	,	L_76
+hf_yami_param_value_long	,	V_25
+"%s"	,	L_12
+proto_reg_handoff_yami	,	V_89
+tvb_get_ephemeral_string_enc	,	F_5
+data	,	V_49
+"True"	,	L_4
+"Name"	,	L_47
+YAMI_TYPE_STRING_ARRAY	,	V_45
+"yami.frame_number"	,	L_36
+"Message ID"	,	L_33
+prefs_register_uint_preference	,	F_30
+dissect_yami_data	,	F_15
+hf_yami_frame_number	,	V_67
+tvb_get_letohl	,	F_4
+yami_tcp_port	,	V_94
+guint	,	T_9
+FT_NONE	,	V_78
+offset	,	V_3
+ett	,	V_87
+tree	,	V_2
+ett_yami_param	,	V_13
+packet_info	,	T_11
+"yami.message_id"	,	L_34
+"False"	,	L_5
+yami_param_type_vals	,	V_81
+hf_yami_params_count	,	V_48
+ett_yami_msg_data	,	V_53
+message_header_size	,	V_58
+hf_yami_param_type	,	V_16
+YAMI_TYPE_BINARY	,	V_32
+", Type: double, Value: %g"	,	L_9
+"yami"	,	L_71
+hf_yami_param_value_bin	,	V_34
+"Parameter"	,	L_45
+", Type: long long[], %u items: {"	,	L_19
+name_len	,	V_10
+HFILL	,	V_77
+dissect_yami_pdu	,	F_16
+"d"	,	L_8
+"udp.port"	,	L_75
+", Type: binary[], %u items: {"	,	L_26
+"yami.msg_hdr"	,	L_42
+proto_item_set_len	,	F_14
+"T"	,	L_14
+"Type"	,	L_50
+"yami.frame_payload_size"	,	L_40
+"tcp.port"	,	L_72
+proto_tree	,	T_2

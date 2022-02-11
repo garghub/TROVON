@@ -1,0 +1,124 @@
+j1939_address_vals_ext	,	V_4
+"j1939.pdu_format"	,	L_20
+"j1939.data"	,	L_30
+"Destination Address"	,	L_25
+proto_register_protocol	,	F_22
+dissector_try_uint_new	,	F_19
+"PDU Format"	,	L_19
+tvb_reported_length	,	F_5
+"%d (Arbitrary)"	,	L_3
+col_append_fstr	,	F_17
+gint	,	T_7
+col_set_str	,	F_7
+"j1939.data_page"	,	L_18
+hf_j1939_pgn	,	V_44
+id	,	V_21
+msg_tree	,	V_13
+tvb	,	V_5
+"PGN: %d"	,	L_6
+"%d (%s)"	,	L_1
+guint32	,	T_2
+COL_INFO	,	V_25
+proto_register_j1939	,	F_21
+pool	,	V_37
+hf_j1939_extended_data_page	,	V_32
+col_clear	,	F_8
+AT_J1939	,	V_39
+cinfo	,	V_23
+dest_addr	,	V_20
+proto_register_subtree_array	,	F_25
+array_length	,	F_24
+"j1939.group_extension"	,	L_28
+"Reserved"	,	L_2
+dissect_j1939	,	F_4
+proto_tree_add_item	,	F_9
+pinfo	,	V_6
+col_add_fstr	,	F_16
+"Priority"	,	L_11
+"Data"	,	L_29
+DISSECTOR_ASSERT	,	F_6
+"J1939"	,	L_4
+new_register_dissector	,	F_26
+"j1939.dst_addr"	,	L_26
+hf_j1939_data_page	,	V_33
+result	,	V_1
+"j1939.src_addr"	,	L_24
+pgn	,	V_18
+hf_register_info	,	T_9
+"Message"	,	L_8
+"Data Page"	,	L_17
+can_identifier	,	V_15
+"j1939.can_id"	,	L_10
+"j1939.pgn"	,	L_14
+COL_PROTOCOL	,	V_24
+hf_j1939_data	,	V_46
+tvb_length	,	F_20
+"j1939.ex_data_page"	,	L_16
+"Source Address"	,	L_23
+src_addr	,	V_19
+proto_tree_add_text	,	F_11
+BASE_DEC	,	V_51
+"Group Extension"	,	L_27
+proto_item	,	T_6
+hf_j1939_src_addr	,	V_36
+"SAE J1939"	,	L_31
+ENC_NA	,	V_27
+guint8	,	T_8
+ti	,	V_9
+tvb_bytes_to_ep_str_punct	,	F_18
+BASE_NONE	,	V_54
+"   %s"	,	L_7
+wmem_alloc	,	F_14
+register_dissector_table	,	F_27
+"PGN Handle"	,	L_33
+ITEM_LABEL_LENGTH	,	V_3
+data	,	V_8
+tvbuff_t	,	T_3
+BASE_CUSTOM	,	V_52
+j1939_fmt_address	,	F_1
+"PDU Specific"	,	L_21
+val_to_str_ext_const	,	F_3
+"j1939"	,	L_32
+SET_ADDRESS	,	F_15
+"Extended Data Page"	,	L_15
+can_id	,	V_16
+BASE_HEX	,	V_49
+"j1939.pdu_specific"	,	L_22
+PROTO_ITEM_SET_GENERATED	,	F_13
+"CAN Identifier"	,	L_9
+hf_j1939_group_extension	,	V_41
+proto_item_add_subtree	,	F_10
+proto_register_field_array	,	F_23
+FT_BYTES	,	V_53
+hf_j1939_pdu_specific	,	V_35
+offset	,	V_14
+ett	,	V_55
+tree	,	V_7
+packet_info	,	T_4
+hf_j1939_priority	,	V_31
+proto_j1939	,	V_26
+ett_j1939	,	V_28
+subdissector_pgn_table	,	V_45
+j1939_tree	,	V_11
+proto_tree_add_uint	,	F_12
+dst	,	V_42
+"j1939.priority"	,	L_12
+hf_j1939_can_id	,	V_30
+g_snprintf	,	F_2
+can_tree	,	V_12
+addr	,	V_2
+HFILL	,	V_50
+hf_j1939_dst_addr	,	V_40
+src	,	V_38
+gchar	,	T_1
+data_length	,	V_17
+"PGN"	,	L_13
+J1939_CANID_MASK	,	V_22
+can_id_item	,	V_10
+ett_j1939_can	,	V_29
+FT_UINT32	,	V_48
+"CAN Identifier: 0x%08x"	,	L_5
+hf_j1939_pdu_format	,	V_34
+ett_j1939_message	,	V_43
+proto_tree	,	T_5
+hf	,	V_47

@@ -1,0 +1,185 @@
+PROTO_CHECKSUM_NO_FLAGS	,	V_60
+"Bogus ESIS length (%u, must be &gt;= %u)"	,	L_7
+tmpl	,	V_20
+type_item	,	V_33
+proto_register_protocol	,	F_26
+esis_handle	,	V_85
+hf_esis_type	,	V_51
+proto_tree_add_subtree	,	F_10
+nlpid_vals	,	V_69
+"Version"	,	L_15
+len	,	V_1
+"Number of Source Addresses (SA, Format: NSAP)"	,	L_26
+"esis.ver.unknown"	,	L_44
+"BSNPAL"	,	L_36
+col_set_str	,	F_14
+gint	,	T_10
+hf_esis_sal	,	V_13
+"%2u Octets"	,	L_1
+expert_esis	,	V_83
+variable_len	,	V_35
+ESIS_ESH_PDU	,	V_62
+"ESIS"	,	L_6
+"esis.bsnpal"	,	L_37
+"esis.da"	,	L_41
+tvb	,	V_2
+"esis"	,	L_50
+"SA"	,	L_30
+guint32	,	T_8
+COL_INFO	,	V_40
+"Unknown ESIS version"	,	L_45
+"esis.res"	,	L_18
+"osinl.incl"	,	L_51
+"###  Subnetwork Address Section ###"	,	L_4
+proto_esis	,	V_41
+ett_esis_area_addr	,	V_12
+version	,	V_31
+c0	,	V_56
+"esis.dal"	,	L_35
+c1	,	V_57
+dissect_esis	,	F_13
+col_clear	,	F_15
+ett_esis	,	V_42
+cinfo	,	V_38
+PI_ERROR	,	V_82
+proto_register_subtree_array	,	F_29
+proto_tree_add_string	,	F_6
+hf_esis_netl	,	V_18
+subnet_tree	,	V_22
+val_to_str	,	F_21
+hf_esis_da	,	V_25
+array_length	,	F_28
+"Checksum"	,	L_24
+hf_esis_bsnpa	,	V_28
+PROTO_CHECKSUM_ZERO	,	V_59
+proto_tree_add_item	,	F_12
+"SAL"	,	L_28
+ESIS_REQUIRED_VERSION	,	V_48
+pinfo	,	V_4
+dissector_handle_t	,	T_13
+proto_reg_handoff_esis	,	F_33
+_U_	,	V_30
+"esis.length.invalid"	,	L_46
+"DAL"	,	L_34
+esis_dissect_esh_pdu	,	F_1
+esis_dissect_redirect_pdu	,	F_11
+"esis.type"	,	L_20
+"esis.chksum"	,	L_25
+"%u seconds"	,	L_9
+"Network Layer Protocol Identifier"	,	L_11
+proto_tree_add_checksum	,	F_18
+"### Network Entity Title Section ###"	,	L_2
+"esis.net"	,	L_39
+hf_register_info	,	T_9
+"Holding Time"	,	L_21
+hf_esis_number_of_source_addresses	,	V_11
+"PDU Length"	,	L_13
+ESIS_RD_PDU	,	V_64
+VALS	,	F_25
+netl	,	V_15
+holdtime	,	V_36
+"BSNPA"	,	L_42
+PI_PROTOCOL	,	V_78
+PROTO_STRING_ESIS	,	V_84
+guint16	,	T_7
+COL_PROTOCOL	,	V_39
+"NET"	,	L_38
+esis_tree	,	V_34
+hf_esis_reserved	,	V_50
+FT_UINT8	,	V_67
+BASE_DEC	,	V_71
+PROTO_CHECKSUM_NOT_PRESENT	,	V_55
+osi_calc_checksum	,	F_19
+proto_item	,	T_5
+expert_register_field_array	,	F_31
+"Unknown (0x%x)"	,	L_10
+hf_esis_holdtime	,	V_53
+ENC_NA	,	V_29
+hf_esis_nlpi	,	V_43
+guint8	,	T_1
+"Unknown ESIS packet type"	,	L_49
+ti	,	V_9
+expert_add_info_format	,	F_16
+BASE_NONE	,	V_74
+dest_tree	,	V_21
+NLPID_ISO9542_ESIS	,	V_86
+register_dissector	,	F_32
+"esis.ver"	,	L_16
+data	,	T_6
+"Unknown ESIS version (%u vs %u)"	,	L_8
+"esis.netl"	,	L_33
+tvbuff_t	,	T_2
+ei_esis_length	,	V_46
+tvb_get_ntohs	,	F_17
+ei_esis_type	,	V_65
+proto_register_esis	,	F_24
+hf_esis_checksum	,	V_54
+BASE_HEX	,	V_68
+col_add_str	,	F_20
+ei_register_info	,	T_11
+expert_register_protocol	,	F_30
+proto_item_add_subtree	,	F_4
+ett_esis_network	,	V_17
+hf_esis_bsnpal	,	V_27
+proto_register_field_array	,	F_27
+offset	,	V_6
+ett	,	V_76
+ei	,	V_77
+expert_module_t	,	T_12
+dissector_add_uint	,	F_35
+tree	,	V_3
+"esis.sal"	,	L_29
+"esis.number_of_source_addresses"	,	L_27
+OSI_PDU_TYPE_MASK	,	V_52
+FT_UINT16	,	V_72
+packet_info	,	T_4
+esis_dissect_ish_pdu	,	F_9
+"s"	,	L_23
+tvb_get_guint8	,	F_2
+tvb_captured_length	,	F_23
+ett_esis_dest_addr	,	V_23
+esis_vals	,	V_61
+ESIS_ISH_PDU	,	V_63
+FT_SYSTEM_ID	,	V_75
+proto_tree_add_uint	,	F_3
+EXPFILL	,	V_80
+"NETL"	,	L_32
+"esis.bsnpa"	,	L_43
+hf_esis_length	,	V_45
+"### No Network Entity Title Section ###"	,	L_5
+hf_esis_version	,	V_47
+expert_add_info	,	F_22
+"esis.nlpi"	,	L_12
+hf_esis_dal	,	V_24
+"Reserved(==0)"	,	L_17
+"esis.length"	,	L_14
+no_sa	,	V_7
+"esis.type.unknown"	,	L_48
+"esis.sa"	,	L_31
+FT_STRING	,	V_73
+hf_esis_net	,	V_19
+checksum	,	V_37
+PROTO_CHECKSUM_VERIFY	,	V_58
+"Bogus ESIS length"	,	L_47
+network_tree	,	V_16
+HFILL	,	V_70
+PI_MALFORMED	,	V_81
+esis_area_tree	,	V_5
+print_nsap_net	,	F_7
+sal	,	V_8
+dissect_osi_options	,	F_8
+length	,	V_32
+find_dissector	,	F_34
+PI_WARN	,	V_79
+proto_tree_add_uint_format_value	,	F_5
+hf_esis_sa	,	V_14
+ENC_BIG_ENDIAN	,	V_44
+ei_esis_version	,	V_49
+"esis.htime"	,	L_22
+ESIS_HDR_FIXED_LENGTH	,	V_10
+"DA"	,	L_40
+"### Destination Address Section ###"	,	L_3
+ett_esis_subnetwork	,	V_26
+proto_tree	,	T_3
+hf	,	V_66
+"PDU Type"	,	L_19

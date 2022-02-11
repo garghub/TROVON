@@ -1,0 +1,180 @@
+hf_ipxwan_compression_slots	,	V_58
+"Routing Type"	,	L_32
+"Number of Options"	,	L_24
+OPT_COMPRESSION	,	V_54
+"ipxwan.nlsp_raw_throughput_data.request_size"	,	L_45
+proto_register_protocol	,	F_19
+"Compression Type"	,	L_52
+proto_register_ipxwan	,	F_17
+"Delta Time"	,	L_46
+delta_time	,	V_15
+check_col	,	F_7
+hf_ipxwan_common_network_number	,	V_42
+"ipxwan.identifier"	,	L_17
+hf_ipxwan_packet_type	,	V_26
+col_set_str	,	F_2
+hf_ipxwan_wan_link_delay	,	V_41
+FT_ETHER	,	V_75
+gint	,	T_9
+hf_ipxwan_router_name	,	V_43
+"ipxwan.num_options"	,	L_25
+proto_tree_add_uint_format	,	F_15
+"Bogus length: %u, should be &gt;= 3"	,	L_15
+"ipxwan.node_id"	,	L_21
+"ipxwan.accept_option"	,	L_29
+"ipxwan.compression.options"	,	L_55
+tvb	,	V_1
+hf_ipxwan_routing_type	,	V_39
+dissect_ipxwan	,	F_1
+guint32	,	T_7
+COL_INFO	,	V_19
+"ipxwan.option_num"	,	L_27
+"ipxwan.sequence_number"	,	L_23
+hf_ipxwan_num_options	,	V_30
+option_number	,	V_9
+ipxwan_routing_type_vals	,	V_73
+col_clear	,	F_3
+delay	,	V_13
+"Bogus length: %u, should be 54"	,	L_6
+cinfo	,	V_17
+"ipxwan.compression.type"	,	L_53
+PI_ERROR	,	V_38
+"Bogus length: %u, should be 6"	,	L_13
+proto_register_subtree_array	,	F_22
+val_to_str	,	F_9
+array_length	,	F_21
+ipxwan_handle	,	V_79
+"Extended Node ID"	,	L_48
+packet_type	,	V_7
+hf_ipxwan_compression_type	,	V_55
+"Node ID"	,	L_20
+proto_tree_add_item	,	F_4
+"Option: %s"	,	L_3
+OPT_RIP_SAP_INFO_EXCHANGE	,	V_40
+pinfo	,	V_2
+dissector_handle_t	,	T_10
+proto_ipxwan	,	V_20
+hf_ipxwan_accept_option	,	V_34
+"ipxwan.node_number"	,	L_51
+ENC_ASCII	,	V_24
+"ipxwan"	,	L_64
+"WAN Link Delay: %ums"	,	L_7
+"ipxwan.nlsp_raw_throughput_data.delta_time"	,	L_47
+"Unknown (%u)"	,	L_4
+"Option parameters"	,	L_58
+hf_register_info	,	T_8
+"WAN Link Delay"	,	L_34
+VALS	,	F_18
+ipxwan_tree	,	V_5
+"Bogus length: %u, should be &gt;= 1"	,	L_14
+hf_ipxwan_option_value	,	V_62
+hf_ipxwan_padding	,	V_61
+guint16	,	T_6
+COL_PROTOCOL	,	V_18
+"Delay: %uus"	,	L_9
+hf_ipxwan_compression_parameters	,	V_59
+"Option Number"	,	L_26
+"ipxwan.option_value"	,	L_63
+"ipxwan.extended_node_id"	,	L_49
+hf_ipxwan_extended_node_id	,	V_51
+FT_UINT8	,	V_67
+proto_tree_add_text	,	F_11
+BASE_DEC	,	V_68
+"Option Data Length"	,	L_30
+"Compression options"	,	L_54
+hf_ipxwan_sequence_number	,	V_29
+hf_ipxwan_throughput	,	V_46
+proto_item	,	T_4
+OPT_ROUTING_TYPE	,	V_36
+ENC_NA	,	V_21
+guint8	,	T_5
+ti	,	V_4
+ipxwan_packet_type_vals	,	V_25
+expert_add_info_format	,	F_14
+BASE_NONE	,	V_65
+FT_IPXNET	,	V_74
+ipxwan_accept_option_vals	,	V_71
+"Bogus length: %u, should be 4"	,	L_12
+"Throughput: %uus"	,	L_10
+"Padding"	,	L_60
+"ipxwan.nlsp_information.throughput"	,	L_43
+"Node Number"	,	L_50
+"ipx.socket"	,	L_65
+"Packet Type"	,	L_18
+tvb_get_ntohl	,	F_16
+tvbuff_t	,	T_1
+ett_ipxwan_option	,	V_32
+OPT_NLSP_INFORMATION	,	V_44
+option_tree	,	V_10
+tvb_get_ntohs	,	F_12
+BASE_HEX	,	V_70
+"Request Size"	,	L_44
+col_add_str	,	F_8
+hf_ipxwan_node_id	,	V_27
+"ipxwan.packet_type"	,	L_19
+hf_ipxwan_option_num	,	V_33
+proto_item_add_subtree	,	F_5
+hf_ipxwan_delta_time	,	V_49
+"Identifier"	,	L_16
+"Bogus length: %u, should be 1"	,	L_5
+throughput	,	V_14
+OPT_PAD	,	V_60
+proto_register_field_array	,	F_20
+"Delay"	,	L_40
+FT_BYTES	,	V_77
+proto_reg_handoff_ipxwan	,	F_23
+"ipxwan.routing_type"	,	L_33
+offset	,	V_6
+ett	,	V_78
+option_data_len	,	V_11
+dissector_add_uint	,	F_25
+tree	,	V_3
+hf_ipxwan_request_size	,	V_48
+"Sequence Number"	,	L_22
+"Unknown packet type %u"	,	L_2
+"Option value"	,	L_62
+hf_ipxwan_delay	,	V_45
+"ipxwan.compression.parameters"	,	L_59
+FT_UINT16	,	V_72
+packet_info	,	T_2
+tvb_get_guint8	,	F_6
+hf_ipxwan_option_data_len	,	V_35
+"ipxwan.compression.slots"	,	L_57
+"ipxwan.padding"	,	L_61
+"ipxwan.rip_sap_info_exchange.wan_link_delay"	,	L_35
+OPT_EXTENDED_NODE_ID	,	V_50
+proto_tree_add_uint	,	F_10
+hf_ipxwan_identifier	,	V_23
+ipxwan_option_num_vals	,	V_31
+hf_ipxwan_node_number	,	V_53
+"Accept Option"	,	L_28
+compression_type	,	V_16
+"Throughput"	,	L_42
+FT_STRING	,	V_64
+hf_ipxwan_compression_options	,	V_57
+PI_MALFORMED	,	V_37
+HFILL	,	V_66
+OPT_NLSP_RAW_THROUGHPUT_DATA	,	V_47
+"Number of compression slots"	,	L_56
+"ipxwan.rip_sap_info_exchange.router_name"	,	L_39
+IPX_SOCKET_IPXWAN	,	V_80
+"ipxwan.rip_sap_info_exchange.common_network_number"	,	L_37
+"Delta Time: %uus"	,	L_11
+"Common Network Number"	,	L_36
+"ipxwan.option_data_len"	,	L_31
+create_dissector_handle	,	F_24
+num_options	,	V_8
+ett_ipxwan	,	V_22
+COMP_TYPE_TELEBIT	,	V_56
+proto_item_set_len	,	F_13
+ENC_BIG_ENDIAN	,	V_28
+ipxwan_compression_type_vals	,	V_76
+FT_UINT32	,	V_69
+"Bogus length: %u, should be 8"	,	L_8
+"ipxwan.nlsp_information.delay"	,	L_41
+OPT_NODE_NUMBER	,	V_52
+"Router Name"	,	L_38
+"IPX WAN"	,	L_1
+proto_tree	,	T_3
+wan_link_delay	,	V_12
+hf	,	V_63

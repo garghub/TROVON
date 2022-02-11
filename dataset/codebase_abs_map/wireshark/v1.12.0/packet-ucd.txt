@@ -1,0 +1,210 @@
+"docsis_ucd.burst.rsintblock"	,	L_70
+THROW	,	F_12
+proto_register_protocol	,	F_15
+"docsis_ucd.mslotsize"	,	L_12
+"FEC (T) Codeword Parity Bits = 2^T"	,	L_47
+hf_docsis_scdma_scrambler_onoff	,	V_69
+len	,	V_13
+gint	,	T_6
+"FEC Codeword Info Bytes (k)"	,	L_50
+"docsis_ucd.burst.scrambleronoff"	,	L_64
+tvb	,	V_1
+"SCDMA Framer Interleaving Step Size"	,	L_83
+COL_INFO	,	V_17
+docsis_ucd_handle	,	V_90
+hf_docsis_tcm_enabled	,	V_75
+UCD_FEC_CODEWORD	,	V_49
+hf_docsis_rs_int_depth	,	V_63
+"Guard Time Size"	,	L_59
+"Burst Descriptor"	,	L_53
+hf_docsis_burst_preamble_len	,	V_44
+tvb_reported_length_remaining	,	F_2
+hf_docsis_burst_scrambler_seed	,	V_52
+ett_tlv	,	V_26
+cinfo	,	V_16
+UCD_MODULATION	,	V_39
+array_length	,	F_17
+symrate	,	V_15
+"UCD Message"	,	L_3
+"docsis_ucd.burst.preambletype"	,	L_73
+hf_docsis_preamble_type	,	V_67
+hf_docsis_scdma_framer_int_step_size	,	V_73
+"5 FEC (T)"	,	L_45
+tlv_item	,	V_12
+mod_vals	,	V_84
+tlvlen	,	V_7
+"Frequency (Hz)"	,	L_25
+pos	,	V_4
+hf_register_info	,	T_7
+"Preamble Length (Bits)"	,	L_41
+hf_docsis_burst_scrambler_onoff	,	V_60
+"10 Last Codeword Length"	,	L_60
+"SCDMA Scrambler On/Off"	,	L_77
+ReportedBoundsError	,	V_31
+UCD_SCDMA_FRAMER_INT_STEP_SIZE	,	V_72
+tlvtype	,	V_8
+proto_register_docsis_ucd	,	F_13
+UCD_MAX_BURST	,	V_53
+guint8	,	T_4
+BASE_NONE	,	V_82
+"Downstream Channel ID"	,	L_13
+"Config Change Count"	,	L_8
+register_dissector	,	F_19
+"docsis_ucd.burst.rsintdepth"	,	L_67
+dissect_ucd	,	F_1
+UCD_RS_INT_DEPTH	,	V_62
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_5
+"Interval Usage Code"	,	L_31
+BASE_HEX	,	V_87
+"docsis_ucd.burst.tcmenabled"	,	L_85
+"Preamble Pattern"	,	L_28
+UCD_RS_INT_BLOCK	,	V_64
+proto_item_add_subtree	,	F_6
+UCD_BURST_DESCR5	,	V_61
+proto_register_field_array	,	F_16
+FT_BYTES	,	V_81
+"R-S Interleaver Block"	,	L_71
+UCD_SCMDA_SCRAMBLER_ONOFF	,	V_68
+upchid	,	V_14
+dissector_add_uint	,	F_22
+"docsis_mgmt"	,	L_90
+"Modulation Type"	,	L_35
+FT_UINT16	,	V_86
+tvb_get_guint8	,	F_3
+UCD_TCM_ENABLED	,	V_74
+hf_docsis_ucd_down_chid	,	V_24
+"14 Preamble Type"	,	L_72
+"DOCSIS UCD"	,	L_88
+UCD_PREAMBLE_VAL_OFF	,	V_45
+"docsis_ucd.upchid"	,	L_7
+"docsis_ucd"	,	L_89
+hf_docsis_ucd_mini_slot_size	,	V_23
+"Channel TLV length"	,	L_21
+UCD_PREAMBLE_TYPE	,	V_66
+"docsis_ucd.burst.last_cw_len"	,	L_61
+hf_docsis_ucd_frequency	,	V_33
+UCD_SYMBOL_RATE	,	V_29
+hf_docsis_rs_int_block	,	V_65
+hf_docsis_scdma_codes_per_subframe	,	V_71
+"docsis_ucd.preamble"	,	L_29
+"15 SCDMA Scrambler On/Off"	,	L_75
+hf_docsis_ucd_symbol_rate	,	V_30
+hf_docsis_ucd_iuc	,	V_38
+length	,	V_6
+"Channel TLV type"	,	L_18
+find_dissector	,	F_21
+"7 Scrambler Seed"	,	L_51
+ENC_BIG_ENDIAN	,	V_21
+"docsis_ucd.confcngcnt"	,	L_9
+FT_UINT32	,	V_80
+"Mini Slot Size (6.25us TimeTicks)"	,	L_11
+hf_docsis_ucd_type	,	V_27
+endtlvpos	,	V_5
+"docsis_ucd.symrate"	,	L_23
+hf_docsis_burst_mod_type	,	V_40
+hf_docsis_ucd_preamble_pat	,	V_35
+hf	,	V_76
+UCD_DIFF_ENCODING	,	V_41
+channel_tlv_vals	,	V_25
+iuc_vals	,	V_83
+hf_docsis_ucd_config_ch_cnt	,	V_22
+"13 RS Interleaver Block Size"	,	L_69
+last_cw_len_vals	,	V_88
+"Scrambler On/Off"	,	L_65
+"17 SDMA Framer Int Step Size"	,	L_81
+UCD_SCRAMBLER_SEED	,	V_51
+"18 TCM Enable"	,	L_84
+hf_docsis_burst_guard_time	,	V_56
+ett_docsis_ucd	,	V_19
+ucd_item	,	V_10
+"UCD Message:  Channel ID = %u (U%u)"	,	L_1
+"R-S Interleaver Depth"	,	L_68
+proto_reg_handoff_docsis_ucd	,	F_20
+"Preamble Superstring"	,	L_30
+proto_docsis_ucd	,	V_18
+"Symbol Rate (ksym/sec)"	,	L_22
+hf_docsis_ucd_length	,	V_28
+proto_register_subtree_array	,	F_18
+val_to_str	,	F_9
+proto_tree_add_item	,	F_7
+"Symbol Rate"	,	L_24
+"docsis_ucd.burst.maxburst"	,	L_55
+pinfo	,	V_2
+col_add_fstr	,	F_4
+"16 SCDMA Codes per Subframe"	,	L_78
+dissector_handle_t	,	T_8
+UCD_SCDMA_CODES_PER_SUBFRAME	,	V_70
+"11 Scrambler On/Off"	,	L_63
+"docsis_ucd.burst.scdmascrambleronoff"	,	L_76
+"docsis_ucd.type"	,	L_17
+"docsis_ucd.burst.scrambler_seed"	,	L_52
+UCD_FREQUENCY	,	V_32
+UCD_PREAMBLE_LEN	,	V_43
+on_off_vals	,	V_85
+VALS	,	F_14
+FT_UINT8	,	V_77
+proto_tree_add_text	,	F_8
+"Upstream Channel ID"	,	L_6
+BASE_DEC	,	V_78
+proto_item	,	T_5
+ENC_NA	,	V_36
+hf_docsis_burst_diff_encoding	,	V_42
+"1 Modulation Type"	,	L_33
+hf_docsis_burst_last_cw_len	,	V_58
+"docsis_ucd.burst.preamble_len"	,	L_40
+"Upstream Center Frequency"	,	L_27
+"docsis_ucd.length"	,	L_20
+"Preamble Offset (Bits)"	,	L_44
+"docsis_ucd.burst.fec"	,	L_46
+"8 Max Burst Size (Minislots)"	,	L_54
+"%s"	,	L_4
+"SCDMA Codes per Subframe"	,	L_80
+"docsis_ucd.burst.guardtime"	,	L_58
+"docsis_ucd.burst.scdmacodespersubframe"	,	L_79
+"docsis_ucd.burst.modtype"	,	L_34
+hf_docsis_burst_fec	,	V_48
+"TCM Enabled"	,	L_86
+"9 Guard Time Size (Symbol Times)"	,	L_57
+"Management Message"	,	L_15
+"docsis_ucd.downchid"	,	L_14
+"docsis_ucd.freq"	,	L_26
+"docsis_ucd.burst.preamble_off"	,	L_43
+"Max Burst Size (Minislots)"	,	L_56
+"Differential Encoding"	,	L_38
+"docsis_ucd.iuc"	,	L_32
+"docsis_ucd.burst.scdmaframerintstepsize"	,	L_82
+ett	,	V_89
+tree	,	V_3
+"docsis_ucd.burst.fec_codeword"	,	L_49
+UCD_FEC	,	V_47
+packet_info	,	T_2
+ucd_tree	,	V_9
+"3 Preamble Length (Bits)"	,	L_39
+"2 Differential Encoding"	,	L_36
+hf_docsis_burst_preamble_val_off	,	V_46
+"TLV Length"	,	L_19
+"6 FEC Codeword Info bytes (k)"	,	L_48
+"TLV Type"	,	L_16
+proto_tree_add_uint	,	F_10
+"UCD Message:  Channel ID = %u (Telephony Return)"	,	L_2
+"4 Preamble Offset (Bits)"	,	L_42
+"Unknown TLV (%u)"	,	L_5
+UCD_PREAMBLE	,	V_34
+tlv_tree	,	V_11
+UCD_LAST_CW_LEN	,	V_57
+UCD_GUARD_TIME	,	V_55
+HFILL	,	V_79
+"Last Codeword Length"	,	L_62
+"Preamble Type"	,	L_74
+"docsis_ucd.burst.diffenc"	,	L_37
+"DOCSIS Upstream Channel Descriptor"	,	L_87
+hf_docsis_ucd_upstream_chid	,	V_20
+proto_item_set_len	,	F_11
+"Configuration Change Count"	,	L_10
+"12 RS Interleaver Depth"	,	L_66
+UCD_BURST_DESCR	,	V_37
+hf_docsis_burst_max_burst	,	V_54
+UCD_SCRAMBLER_ONOFF	,	V_59
+proto_tree	,	T_3
+hf_docsis_burst_fec_codeword	,	V_50

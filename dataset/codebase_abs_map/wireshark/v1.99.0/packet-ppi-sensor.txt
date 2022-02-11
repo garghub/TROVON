@@ -1,0 +1,243 @@
+"ppi_sensor"	,	L_92
+pt	,	V_11
+"Header length"	,	L_21
+"ppi_sensor.present.ext"	,	L_58
+proto_register_protocol	,	F_37
+"ppi_sensor.present.val_z"	,	L_40
+"val_z"	,	L_39
+proto_register_ppi_sensor	,	F_23
+"Specifies if the sensor type field  is present"	,	L_29
+" %s"	,	L_10
+gint	,	T_11
+type_str	,	V_15
+PPI_SENSOR_MASK_APPDATA	,	F_35
+hf_ppi_sensor_present_sensortype	,	V_18
+"ppi_sensor.appid"	,	L_83
+tvb	,	V_4
+guint32	,	T_5
+COL_INFO	,	V_41
+FT_BOOLEAN	,	V_84
+"Specifies if the description string is present"	,	L_50
+"Specifies if the application specific field id is present"	,	L_53
+"Version of ppi_sensor header format"	,	L_17
+version	,	V_7
+"Invalid PPI-Sensor length  (got %d, %d max\n)"	,	L_7
+"Sensor: %s %f %s"	,	L_12
+"Length of header including version, pad, length and data fields"	,	L_23
+"val_y"	,	L_36
+"Val_T"	,	L_75
+"ppi_sensor.present.descr"	,	L_49
+base_10_expt	,	F_1
+ppi_fixed6_4_to_gdouble	,	F_18
+cinfo	,	V_40
+"PPI Sensor Header v%u, Length %u"	,	L_4
+array_length	,	F_39
+"Header pad"	,	L_18
+length_remaining	,	V_9
+" (%s)"	,	L_13
+"Description"	,	L_48
+"ppi_sensor.present.val_x"	,	L_34
+proto_item_set_text	,	F_16
+"Scaling factor"	,	L_65
+PPI_GEOBASE_MIN_HEADER_LEN	,	V_48
+"val_x"	,	L_33
+"ScaleFactor"	,	L_63
+sensor_line	,	V_14
+hf_register_info	,	T_10
+"PPI sensor decoder"	,	L_90
+"Value total (dimensionless)"	,	L_77
+"ppi_sensor.present.unknown_bit"	,	L_88
+"Specifies if the sensor scale factor field is present"	,	L_32
+guint16	,	T_9
+hf_ppi_sensor_present_ext	,	V_28
+"Specifies if the BeamID field is present"	,	L_41
+unit_str	,	V_16
+"ppi_sensor.present.val_y"	,	L_37
+hf_ppi_sensor_length	,	V_47
+PPI_SENSOR_SCALEFACTOR	,	V_57
+ti	,	V_13
+PPI_SENSOR_MASK_MODELSTR	,	F_32
+BASE_NONE	,	V_87
+"SensorType"	,	L_60
+val_t	,	V_36
+"Error: PPI-ANTENNA: unknown bit set in present field."	,	L_89
+register_dissector	,	F_43
+hf_ppi_sensor_appspecific_data	,	V_74
+"ppi_sensor.present.sensortype"	,	L_28
+" (invalid - minimum length is 8)"	,	L_6
+tvbuff_t	,	T_2
+PPI_SENSOR_APPDATA	,	V_73
+proto_tree_add_protocol_format	,	F_8
+PPI_SENSOR_MASK_DESCSTR	,	F_33
+"Margin of error"	,	L_80
+"ppi_sensor.val_e"	,	L_79
+proto_tree_add_bitmask	,	F_13
+BASE_HEX	,	V_83
+"Unknown Unit"	,	L_9
+"ppi_sensor.present.val_e"	,	L_46
+hf_ppi_sensor_present_val_e	,	V_24
+"Error: PPI-SENSOR: unknown bit (%d) set in present field."	,	L_14
+"sensortype"	,	L_27
+proto_item_add_subtree	,	F_9
+"PPI sensor Decoder"	,	L_91
+proto_register_field_array	,	F_38
+FT_BYTES	,	V_89
+ret	,	V_2
+ei	,	V_91
+"ppi_sensor.present"	,	L_25
+"Application-specific identifier"	,	L_84
+"ppi_sensor.sensortype"	,	L_61
+"appdata"	,	L_54
+FT_UINT16	,	V_81
+"ppi_sensor.val_t"	,	L_76
+tvb_get_guint8	,	F_4
+sensor_type_str	,	V_54
+FT_INT8	,	V_85
+curr_native_val	,	V_38
+"Bitmask indicating which fields are present"	,	L_26
+"Specifies if there are any extensions to the header present"	,	L_59
+hf_ppi_sensor_descstr	,	V_70
+"ppi_sensor.present.val_t"	,	L_43
+provide_frac	,	V_3
+PPI_SENSOR_MASK_APPID	,	F_34
+FT_STRING	,	V_88
+proto_ppi_sensor	,	V_42
+sensor_unit_str	,	V_55
+"Specifies if the sensor val_x field is present"	,	L_35
+hf_ppi_sensor_present_val_t	,	V_23
+c_val	,	V_35
+val_to_str_const	,	F_15
+length	,	V_8
+hf_ppi_sensor_present_val_x	,	V_20
+hf_ppi_sensor_present_val_y	,	V_21
+hf_ppi_sensor_present_val_z	,	V_22
+PI_WARN	,	V_93
+curr_str	,	V_39
+ppi_sensor_tree	,	V_10
+ENC_BIG_ENDIAN	,	V_46
+"Sensor: %s"	,	L_11
+FT_DOUBLE	,	V_86
+ett_ppi_sensor_present	,	V_51
+FT_UINT32	,	V_82
+next_present	,	V_31
+PPI_SENSOR_VAL_E	,	V_67
+hf	,	V_77
+"ppi_sensor.descr"	,	L_81
+PPI_SENSOR_VAL_T	,	V_65
+"ppi_sensor.pad"	,	L_19
+t_appspecific_num	,	V_37
+PPI_SENSOR_VAL_Y	,	V_61
+PPI_SENSOR_VAL_Z	,	V_63
+bit	,	V_29
+PPI_SENSOR_VAL_X	,	V_59
+"Value in X-dimesion"	,	L_68
+"Unknown Sensor type"	,	L_8
+PPI_SENSOR_MASK_SERIALNUM	,	F_31
+"ppi_sensor.val_y"	,	L_70
+hf_ppi_sensor_present_appspecific_data	,	V_27
+hf_ppi_sensor_present	,	V_50
+hf_ppi_sensor_pad	,	V_45
+proto_item_append_text	,	F_12
+ett_ppi_sensor	,	V_43
+"appid"	,	L_51
+col_clear	,	F_3
+"Unknown unit"	,	L_2
+hf_ppi_sensor_val_e	,	V_68
+proto_register_subtree_array	,	F_40
+proto_tree_add_string	,	F_21
+"Application Specific id"	,	L_82
+"ppi_sensor.val_x"	,	L_67
+hf_ppi_sensor_val_y	,	V_62
+hf_ppi_sensor_val_x	,	V_60
+proto_tree_add_item	,	F_11
+hf_ppi_sensor_val_z	,	V_64
+"Value in Y-dimension"	,	L_71
+pinfo	,	V_5
+col_add_fstr	,	F_7
+hf_ppi_sensor_val_t	,	V_66
+PPI_SENSOR_MAXTAGLEN	,	V_49
+PPI_SENSOR_SENSORTYPE	,	V_53
+"Specifies if the val_e field is present"	,	L_47
+"ext"	,	L_57
+my_pt	,	V_12
+"scalefactor"	,	L_30
+"ppi_sensor.scalefactor"	,	L_64
+"Val_Y"	,	L_69
+dissect_ppi_sensor	,	F_2
+power	,	V_1
+scalefactor	,	V_34
+PI_PROTOCOL	,	V_92
+gdouble	,	T_1
+"Specifies if the val_t field is present"	,	L_44
+PPI_SENSOR_MASK_SENSORTYPE	,	F_24
+FT_UINT8	,	V_78
+"ppi_sensor.present.appid"	,	L_52
+hf_ppi_sensor_scalefactor	,	V_58
+BASE_DEC	,	V_79
+"ppi_sensor.version"	,	L_16
+"ppi_sensor.appdata"	,	L_86
+proto_item	,	T_7
+expert_register_field_array	,	F_42
+hf_ppi_sensor_present_descstr	,	V_25
+PPI_SENSOR_MASK_EXT	,	F_36
+ENC_NA	,	V_75
+"Value in Z-dimension"	,	L_74
+"Specifies if the sensor val_y field is present"	,	L_38
+expert_add_info_format	,	F_22
+ei_ppi_sensor_present_bit	,	V_76
+"Val_Z"	,	L_72
+"Padding"	,	L_20
+"ppi_sensor.val_z"	,	L_73
+ENC_LITTLE_ENDIAN	,	V_52
+ppi_sensor_present_flags	,	V_17
+"PPI Sensor info v%u, Length %u "	,	L_3
+"Application specific data"	,	L_85
+"Header revision"	,	L_15
+hf_ppi_sensor_present_scalefactor	,	V_19
+ei_register_info	,	T_12
+expert_register_protocol	,	F_41
+tvb_get_letohl	,	F_6
+proto_tree_add_double	,	F_19
+"ppi_sensor.present.scalefactor"	,	L_31
+tvb_get_letohs	,	F_5
+guint	,	T_6
+offset	,	V_32
+"val_e"	,	L_45
+ett	,	V_90
+hf_ppi_sensor_sensortype	,	V_56
+expert_module_t	,	T_13
+tree	,	V_6
+"Application-specific data"	,	L_87
+PPI_SENSOR_MASK_SCALEFACTOR	,	F_25
+BITNO_32	,	F_14
+PPI_SENSOR_APPID	,	V_71
+packet_info	,	T_3
+hf_ppi_sensor_version	,	V_44
+"Val_X"	,	L_66
+"ppi_sensor.present.appdata"	,	L_55
+"Specifies if the application specific data field  is present"	,	L_56
+present	,	V_30
+proto_tree_add_uint	,	F_10
+EXPFILL	,	V_94
+"Val_E"	,	L_78
+hf_ppi_sensor_appspecific_num	,	V_72
+"invalid version (got %d,  expected 1 or 2)"	,	L_5
+"Present"	,	L_24
+"Unknown sensor"	,	L_1
+"val_t"	,	L_42
+HFILL	,	V_80
+PPI_SENSOR_MASK_VAL_X	,	F_26
+PPI_SENSOR_MASK_VAL_Y	,	F_27
+PPI_SENSOR_MASK_VAL_T	,	F_29
+sensortype	,	V_33
+gchar	,	T_8
+hf_ppi_sensor_present_appspecific_num	,	V_26
+"ppi_sensor.length"	,	L_22
+PPI_SENSOR_MASK_VAL_Z	,	F_28
+expert_ppi_sensor	,	V_95
+tvb_format_stringzpad	,	F_20
+PPI_SENSOR_MASK_VAL_E	,	F_30
+proto_tree_add_int	,	F_17
+PPI_SENSOR_DESCSTR	,	V_69
+"Type of sensor"	,	L_62
+proto_tree	,	T_4

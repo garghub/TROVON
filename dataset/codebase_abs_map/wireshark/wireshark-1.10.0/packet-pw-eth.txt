@@ -1,0 +1,91 @@
+register_dissector	,	F_23
+dissect_pw_eth_cw	,	F_1
+proto_pw_eth_heuristic	,	V_31
+proto_register_protocol	,	F_19
+tvbuff_t	,	T_1
+"pw_eth_nocw"	,	L_17
+tvb_get_ntohs	,	F_5
+proto_pw_eth_cw	,	V_9
+hf_pw_eth	,	V_16
+tvb_get_manuf_name_if_known	,	F_15
+tvb_new_subset_remaining	,	F_11
+pw_eth_tree	,	V_6
+hf_pw_eth_cw	,	V_8
+gboolean	,	T_7
+gint	,	T_11
+proto_item_add_subtree	,	F_9
+"PW (ethernet)"	,	L_3
+proto_register_field_array	,	F_20
+proto_tree_add_uint_format	,	F_10
+eth_withoutfcs_handle	,	V_15
+"mpls.label"	,	L_20
+looks_like_plain_eth	,	F_14
+tvb	,	V_1
+dissect_pw_eth_heuristic	,	F_16
+MPLS_LABEL_INVALID	,	V_33
+guint32	,	T_6
+dissect_pw_eth_nocw	,	F_13
+ett	,	V_29
+"pwethheuristic"	,	L_15
+ethertype	,	V_14
+dissector_add_uint	,	F_26
+tree	,	V_3
+FT_BOOLEAN	,	V_24
+FT_UINT16	,	V_27
+packet_info	,	T_2
+tvb_reported_length_remaining	,	F_2
+tvb_get_guint8	,	F_17
+proto_reg_handoff_pw_eth	,	F_24
+proto_register_subtree_array	,	F_22
+manuf_name_da	,	V_18
+"Ethernet PW (with CW)"	,	L_10
+proto_register_pw_eth	,	F_18
+array_length	,	F_21
+"pweth"	,	L_4
+"PW sequence number (ethernet)"	,	L_7
+next_tvb	,	V_4
+"eth_withoutfcs"	,	L_19
+proto_tree_add_item	,	F_8
+call_dissector	,	F_12
+pw_eth_handle_cw	,	V_22
+pinfo	,	V_2
+dissector_handle_t	,	T_12
+"pw_eth_heuristic"	,	L_18
+"Error processing Message"	,	L_1
+_U_	,	V_17
+first_nibble	,	V_20
+"pwethnocw"	,	L_13
+"Ethernet PW (CW heuristic)"	,	L_14
+manuf_name_sa	,	V_19
+"pweth.cw.sequence_number"	,	L_8
+PROTO_ITEM_SET_HIDDEN	,	F_7
+"pwethcw"	,	L_11
+proto_tree_add_boolean	,	F_6
+hf_register_info	,	T_10
+"PW Ethernet Control Word"	,	L_9
+HFILL	,	V_26
+guint16	,	T_4
+"pweth.cw"	,	L_6
+gchar	,	T_8
+find_dissector	,	F_25
+proto_tree_add_text	,	F_3
+BASE_DEC	,	V_28
+pw_eth_handle_nocw	,	V_21
+"Sequence Number: %d"	,	L_2
+proto_item	,	T_5
+sequence_number	,	V_5
+dissect_try_cw_first_nibble	,	F_4
+ENC_NA	,	V_10
+guint8	,	T_9
+etype_save	,	V_13
+"PW Control Word (ethernet)"	,	L_5
+ti	,	V_7
+BASE_NONE	,	V_25
+ett_pw_eth	,	V_11
+proto_pw_eth_nocw	,	V_30
+"Ethernet PW (no CW)"	,	L_12
+pw_eth_handle_heuristic	,	V_32
+hf_pw_eth_cw_sequence_number	,	V_12
+"pw_eth_cw"	,	L_16
+proto_tree	,	T_3
+hf	,	V_23

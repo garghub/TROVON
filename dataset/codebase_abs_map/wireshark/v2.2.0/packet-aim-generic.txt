@@ -1,0 +1,243 @@
+"Rate Change Message"	,	L_49
+ett_generic_serverready	,	V_95
+dissect_aim_userinfo	,	F_33
+hf_generic_ratechange_msg	,	V_50
+hf_generic_ext_status_flags	,	V_69
+proto_register_protocol	,	F_46
+dissect_rate_class	,	F_1
+"Requested Service"	,	L_13
+"Requested services"	,	L_9
+"aim_generic.family"	,	L_18
+"aim_generic"	,	L_81
+"Version"	,	L_19
+hf_generic_evil_new_warn_level	,	V_61
+gint	,	T_13
+hf_generic_ext_status_length	,	V_70
+hf_generic_rateinfo_numclasses	,	V_22
+hf_generic_version	,	V_43
+TFS	,	F_45
+tvb	,	V_1
+hf_generic_rateinfo_numpairs	,	V_30
+guint32	,	T_9
+dissect_aim_generic_evil	,	F_32
+dissect_aim_generic_motd	,	F_22
+FT_BOOLEAN	,	V_87
+"AIM Generic"	,	L_80
+dissect_aim_generic_clientver_req	,	F_36
+"Family"	,	L_17
+tvb_reported_length_remaining	,	F_12
+CF_FUNC	,	F_44
+aim_init_family	,	F_51
+tfs_set_notset	,	V_88
+"AIM Generic Service"	,	L_79
+array_length	,	F_48
+"aim_generic.privilege_flags"	,	L_54
+aim_get_family	,	F_8
+hf_generic_motd_motdtype	,	V_47
+dissect_aim_generic_selfinfo_repl	,	F_29
+"aim_generic.rateinfo.class.alertlevel"	,	L_30
+result	,	V_72
+proto_aim_generic	,	V_96
+aim_family	,	T_6
+dissect_aim_generic_rateinfoack	,	F_23
+ext_status_flags	,	V_92
+hf_register_info	,	T_12
+"%s (0x%04x)"	,	L_8
+"%s (0x%x)"	,	L_12
+guint16	,	T_5
+"Warning level"	,	L_59
+FAMILY_GENERIC	,	V_97
+i	,	V_17
+j	,	V_27
+n	,	V_51
+"aim_generic.rateinfo.class.lasttime"	,	L_40
+guint8	,	T_10
+"Alert Level"	,	L_29
+ti	,	V_40
+BASE_NONE	,	V_90
+"aim_generic.client_verification.hash"	,	L_70
+ITEM_LABEL_LENGTH	,	V_74
+tvbuff_t	,	T_1
+BASE_CUSTOM	,	V_80
+hf_generic_ext_status_data	,	V_71
+"Last Time"	,	L_39
+tvb_get_ntohs	,	F_4
+"Families to migrate"	,	L_11
+proto_tree_add_bitmask	,	F_28
+"Acknowledged Rate Class"	,	L_47
+BASE_HEX	,	V_77
+"aim_generic.ext_status.flags"	,	L_74
+FT_UINT24	,	V_82
+hf_generic_rateinfo_windowsize	,	V_7
+dissect_aim_tlv_list	,	F_31
+dissect_aim_generic_clientready	,	F_11
+proto_item_add_subtree	,	F_13
+dissect_aim_generic_ratechange	,	F_24
+"aim_generic.ext_status.data"	,	L_78
+ext_status_types	,	V_91
+proto_register_field_array	,	F_47
+dissect_aim_generic_service_req	,	F_16
+FT_BYTES	,	V_89
+dissect_aim_generic_capack	,	F_21
+hf_generic_priv_flags	,	V_57
+hf_generic_idle_time	,	V_62
+"Rate Groups"	,	L_3
+"%s (0x%04x), Subtype: %s (0x%04x)"	,	L_5
+famnum	,	V_73
+FT_UINT16	,	V_76
+aim_onlinebuddy_tlvs	,	V_60
+"Idle time (seconds)"	,	L_63
+"Rate Class 0x%02x"	,	L_2
+tvb_get_guint8	,	F_39
+class_tree	,	V_4
+name	,	V_36
+gen_tree	,	V_37
+"Extended Status Length"	,	L_75
+dissect_aim_generic_redirect	,	F_18
+"aim_generic.migrate.numfams"	,	L_52
+"Window Size"	,	L_25
+"Privilege flags"	,	L_53
+dissect_aim_generic_ext_status_req	,	F_35
+ett_generic_rateinfo_class	,	V_25
+dissect_aim_buddyname	,	F_30
+hf_generic_client_ver_req_offset	,	V_63
+length	,	V_67
+proto_tree_add_uint_format_value	,	F_10
+ENC_BIG_ENDIAN	,	V_6
+"aim_generic.rateinfo.class.disconnectlevel"	,	L_34
+FT_UINT32	,	V_83
+hf_generic_allow_member_see	,	V_56
+"aim_generic.privilege_flags.allow_idle"	,	L_56
+ett_generic_rateinfo_classes	,	V_23
+family	,	V_33
+hf_generic_client_ver_req_hash	,	V_65
+"aim_generic.rateinfo.class.limitlevel"	,	L_32
+hf	,	V_75
+"Extended Status Type"	,	L_71
+hf_generic_rateinfo_clearlevel	,	V_8
+hf_generic_rateinfo_maxlevel	,	V_13
+hf_generic_ext_status_type	,	V_68
+"aim_generic.servicereq.service"	,	L_14
+hf_generic_rateinfo_disconnectlevel	,	V_11
+"aim_generic.selfinfo.warn_level"	,	L_60
+"DLL Version"	,	L_21
+"Limit Level"	,	L_31
+"Max Level"	,	L_37
+dissect_aim_generic_migration_req	,	F_26
+"New warning level"	,	L_61
+proto_tree_add_subtree	,	F_6
+"aim_generic.privilege_flags.allow_member"	,	L_58
+aim_motd_tlvs	,	V_48
+"Extended Status Flags"	,	L_73
+proto_tree_add_uint_format	,	F_17
+"Allow other users to see idle time"	,	L_55
+family_id	,	V_31
+"Rate Group 0x%02x"	,	L_4
+"Client Verification MD5 Hash"	,	L_69
+"Accepted requested services"	,	L_10
+hf_generic_allow_idle_see	,	V_55
+"Current Level"	,	L_35
+aim_snac_generic_motd_motdtypes	,	V_79
+group_tree	,	V_21
+"Number of Rateinfo Classes"	,	L_23
+proto_register_subtree_array	,	F_49
+hf_generic_rateinfo_limitlevel	,	V_10
+"Available Rate Classes"	,	L_1
+"Class ID"	,	L_43
+"aim_generic.rateinfo.class.maxlevel"	,	L_38
+"aim_generic.ext_status.type"	,	L_72
+ett_generic_rateinfo_groups	,	V_26
+numpairs	,	V_28
+dissect_aim_generic_clientpauseack	,	F_25
+hf_generic_rateinfo_currentlevel	,	V_12
+proto_tree_add_item	,	F_2
+"aim_generic.rateinfo.class.window_size"	,	L_26
+pinfo	,	T_3
+_U_	,	V_2
+flags	,	V_54
+"Allow other users to see how long account has been a member"	,	L_57
+"aim_generic.client_verification.length"	,	L_68
+hf_generic_rateinfo_alertlevel	,	V_9
+dissect_aim_generic_setidle	,	F_34
+proto_reg_handoff_aim_generic	,	F_50
+hf_generic_rateinfo_lasttime	,	V_14
+aim_client_tlvs	,	V_46
+VALS	,	F_43
+hf_generic_rateinfo_curstate	,	V_15
+dissect_generic_rateinfo	,	F_3
+"aim_generic.rateinfoack.class"	,	L_48
+"Client Verification Request Offset"	,	L_65
+"aim_generic.ratechange.msg"	,	L_50
+FT_UINT8	,	V_84
+rateinfo_states	,	V_85
+hf_generic_servicereq_service	,	V_45
+"aim_generic.version"	,	L_20
+BASE_DEC	,	V_81
+proto_item	,	T_8
+subtree	,	V_41
+ENC_NA	,	V_66
+ett_generic	,	V_94
+"Current State"	,	L_41
+hf_generic_migration_numfams	,	V_52
+"Client Verification Request Length"	,	L_67
+numclasses	,	V_18
+ett_generic_migratefamilies	,	V_53
+classes_tree	,	V_19
+"Clear Level"	,	L_27
+"aim_generic.client_verification.offset"	,	L_66
+ett_generic_rateinfo_group	,	V_29
+dissect_aim_generic_ext_status_repl	,	F_38
+"Disconnect Level"	,	L_33
+ett_generic_clientready_item	,	V_42
+hf_generic_rateinfoack_group	,	V_49
+"MOTD Type"	,	L_15
+"aim_generic.dll_version"	,	L_22
+ett_generic_priv_flags	,	V_58
+hf_generic_selfinfo_warninglevel	,	V_59
+aim_get_subtype	,	F_9
+"Extended Status Data"	,	L_77
+"aim_generic.rateinfo.class.currentlevel"	,	L_36
+subtype_id	,	V_32
+groups_tree	,	V_20
+hf_generic_client_ver_req_length	,	V_64
+"aim_generic.rateinfo.class.numpairs"	,	L_46
+offset	,	V_3
+ett	,	V_93
+hf_generic_dll_version	,	V_44
+tree	,	V_16
+aim_subtype	,	T_7
+ett_generic_clientready	,	V_39
+packet_info	,	T_2
+entry	,	V_38
+"aim_generic.motd.motdtype"	,	L_16
+"Number of families to migrate"	,	L_51
+proto_register_aim_generic	,	F_42
+"aim_generic.ext_status.length"	,	L_76
+proto_tree_add_uint	,	F_5
+hf_generic_family	,	V_35
+dissect_aim_generic_setprivflags	,	F_27
+"Number of Family/Subtype pairs"	,	L_45
+"Supported services"	,	L_7
+hf_generic_rateinfo_classid	,	V_5
+"aim_generic.rateinfo.class.id"	,	L_44
+dissect_aim_tlv_sequence	,	F_19
+g_snprintf	,	F_41
+subtype	,	V_34
+aim_generic_family	,	F_40
+HFILL	,	V_78
+dissect_aim_generic_capabilities	,	F_20
+aim_fnac_family_generic	,	V_98
+"aim_generic.idle_time"	,	L_64
+dissect_aim_generic_serverready	,	F_15
+gchar	,	T_11
+proto_tree_add_subtree_format	,	F_7
+"aim_generic.rateinfo.class.clearlevel"	,	L_28
+"aim_generic.rateinfo.class.curstate"	,	L_42
+proto_item_set_len	,	F_14
+ratechange_msgs	,	V_86
+myid	,	V_24
+"Unknown"	,	L_6
+dissect_aim_generic_clientver_repl	,	F_37
+"aim_generic.evil.new_warn_level"	,	L_62
+proto_tree	,	T_4
+"aim_generic.rateinfo.numclasses"	,	L_24

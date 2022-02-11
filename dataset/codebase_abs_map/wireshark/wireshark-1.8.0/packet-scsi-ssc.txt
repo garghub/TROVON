@@ -1,0 +1,267 @@
+hf_scsi_ssc_opcode	,	V_94
+proto_register_scsi_ssc	,	F_37
+"Dest Type"	,	L_80
+"scsi.ssc.long"	,	L_53
+verify16_fields	,	V_32
+"Number of Bytes in Buffer: %"	,	L_27
+proto_register_protocol	,	F_39
+"First Block Location: %u"	,	L_13
+hf_scsi_ssc_format	,	V_79
+"scsi_ssc"	,	L_102
+rewind_fields	,	V_51
+hf_scsi_ssc_formatmedium_flags	,	V_77
+check_col	,	F_2
+recover_fields	,	V_19
+gint	,	T_11
+ett_scsi_formatmedium	,	V_78
+"LONG"	,	L_52
+"scsi.ssc.bam"	,	L_84
+tvb	,	V_1
+"scsi.ssc.bt"	,	L_77
+dissect_ssc_erase16	,	F_29
+COL_INFO	,	V_11
+FT_BOOLEAN	,	V_106
+dissect_ssc_readblocklimits	,	F_20
+cinfo	,	V_10
+BCU	,	V_86
+"Partition Number: %u"	,	L_18
+"Format"	,	L_62
+hf_scsi_ssc_lbi	,	V_71
+"Media"	,	L_97
+"BOP: %u, EOP: %u, MPU: %u, BPU: %u"	,	L_17
+"IMMED"	,	L_50
+array_length	,	F_41
+loadunload_fields	,	V_41
+"HOLD"	,	L_67
+"Last Block Location: %u"	,	L_14
+format_vals	,	V_107
+hf_scsi_ssc_partition	,	V_25
+hf_scsi_ssc_verify	,	V_76
+hf_scsi_ssc_locate10_loid	,	V_59
+formatmedium_fields	,	V_75
+"Set Number: %"	,	L_22
+"BYTCMP"	,	L_92
+hf_register_info	,	T_12
+hf_scsi_ssc_bam_flags	,	V_63
+"scsi.ssc.lcs"	,	L_49
+"Unknown (0x%02x)"	,	L_11
+"File Number: %"	,	L_21
+"EOT"	,	L_69
+hf_scsi_ssc_fcs	,	V_28
+bam_fields	,	V_61
+"scsi.ssc.verify"	,	L_59
+"scsi.ssc.hold"	,	L_68
+dissect_ssc_erase6	,	F_28
+"scsi.ssc.cpv"	,	L_100
+guint8	,	T_10
+proto_reg_handoff_scsi_ssc	,	F_43
+"Service Action: %s"	,	L_10
+rd_fields	,	V_20
+tvb_get_ntohl	,	F_35
+hf_scsi_ssc_cp	,	V_56
+dissect_ssc_reportdensitysupport	,	F_8
+tvbuff_t	,	T_1
+"scsi.ssc.space6.count"	,	L_39
+ett_scsi_bam	,	V_64
+tvb_get_ntohs	,	F_23
+"Count"	,	L_38
+proto_tree_add_bitmask	,	F_5
+plurality	,	F_22
+BASE_HEX	,	V_96
+hf_scsi_ssc_bam	,	V_62
+FT_UINT24	,	V_99
+hf_scsi_ssc_medium_type	,	V_21
+loadunload_immed_fields	,	V_40
+gboolean	,	T_6
+"scsi.ssc.locate16.loid"	,	L_37
+"byte"	,	L_4
+"BYTORD"	,	L_90
+"Logical Block Identifier"	,	L_56
+"scsi.ssc.media"	,	L_98
+"scsi.ssc.partition"	,	L_55
+proto_register_field_array	,	F_40
+hf_scsi_ssc_bt	,	V_55
+read6_fields	,	V_7
+"Granularity: %u (%u %s)"	,	L_3
+"scsi.ssc.erase_immed"	,	L_51
+"IMMED: %u, LONG: %u"	,	L_8
+"scsi.ssc.loadunload_flags"	,	L_66
+"scsi.ssc.verify16_immed"	,	L_94
+"Capacity Proportion Value"	,	L_99
+dissect_ssc_readreverse16	,	F_15
+hf_scsi_ssc_loadunload_immed_flags	,	V_46
+dissect_ssc_space16	,	F_31
+FT_UINT16	,	V_105
+dissect_ssc_readreverse6	,	F_9
+"scsi.ssc.eot"	,	L_70
+tvb_get_guint8	,	F_19
+"Logical Identifier"	,	L_36
+ett_scsi_read6	,	V_13
+dissect_ssc_verify6	,	F_14
+dissect_ssc_readposition	,	F_33
+"SSC Opcode"	,	L_28
+dissect_ssc_write16	,	F_11
+"Parameter Len: %u"	,	L_9
+"scsi.ssc.loadunload_immed_flags"	,	L_65
+"BT"	,	L_76
+erase16_fields	,	V_66
+hf_scsi_ssc_erase_immed	,	V_67
+FT_INT24	,	V_103
+proto_scsi_ssc	,	V_110
+isreq	,	V_5
+write6_fields	,	V_38
+"SCSI_SSC"	,	L_101
+"scsi.ssc.dest_type"	,	L_81
+cdb_control_fields	,	V_18
+hf_scsi_ssc_erase_flags	,	V_69
+"Minimum Block Length Limit: %u bytes"	,	L_7
+"scsi.ssc.bytord"	,	L_91
+"Number of Blocks in Buffer: %u"	,	L_15
+hf_scsi_ssc_lcs	,	V_29
+hf_scsi_ssc_space16_count	,	V_74
+hf_scsi_ssc_rdwr6_xferlen	,	V_15
+"Immed"	,	L_64
+service_action	,	V_81
+dissect_ssc_writefilemarks16	,	F_12
+"BAM"	,	L_83
+"Medium Type"	,	L_95
+"scsi.ssc.medium_type"	,	L_96
+ett_scsi_locate	,	V_58
+wf6_fields	,	V_39
+"scsi.ssc.sili"	,	L_87
+ENC_BIG_ENDIAN	,	V_14
+FT_UINT32	,	V_101
+"scsi.ssc.erase_flags"	,	L_45
+"scsi.ssc.read6_flags"	,	L_85
+"scsi.ssc.opcode"	,	L_29
+hf	,	V_93
+rr6_fields	,	V_23
+dest_type_vals	,	V_108
+"Transfer Length"	,	L_30
+G_GINT64_MODIFIER	,	V_91
+"LCS"	,	L_48
+dissect_ssc_writefilemarks6	,	F_17
+hf_scsi_ssc_loadunload_flags	,	V_48
+"scsi.ssc.rdwr10.xferlen"	,	L_43
+dissect_ssc_read6	,	F_1
+MPU	,	V_90
+col_append_fstr	,	F_3
+BYCU	,	V_87
+"bytes"	,	L_5
+FT_UINT64	,	V_102
+"scsi.ssc.bytcmp"	,	L_93
+"Last Block Location: %"	,	L_26
+"Flags"	,	L_44
+hf_scsi_ssc_dest_type	,	V_60
+hf_scsi_ssc_bytord	,	V_24
+dissect_ssc_verify16	,	F_13
+"Number of Bytes in Buffer: %u"	,	L_16
+hf_scsi_ssc_load	,	V_45
+"Maximum Block Length Limit: %u bytes"	,	L_6
+"scsi.ssc.lbi"	,	L_57
+"Block Number: %"	,	L_19
+ett_scsi_loadunload	,	V_49
+cdata	,	T_9
+dissect_ssc_write6	,	F_16
+"FCS"	,	L_46
+hf_scsi_ssc_space6_count	,	V_73
+granularity	,	V_50
+proto_register_subtree_array	,	F_42
+val_to_str	,	F_34
+"Code"	,	L_40
+tvb_get_ntoh24	,	F_4
+verify6_fields	,	V_36
+"scsi.ssc.immed"	,	L_60
+dissect_ssc_locate10	,	F_26
+"BOP: %u, EOP: %u, BCU: %u, BYCU: %u, MPU: %u, BPU: %u, PERR: %u"	,	L_23
+"LOAD"	,	L_73
+proto_tree_add_item	,	F_6
+pinfo	,	T_3
+_U_	,	V_2
+flags	,	V_65
+rr16_fields	,	V_37
+iscdb	,	V_6
+hf_scsi_ssc_immed	,	V_31
+hf_scsi_ssc_rdwr10_xferlen	,	V_80
+hf_scsi_ssc_locate16_loid	,	V_26
+space6_code_vals	,	V_104
+hf_scsi_ssc_capacity_prop_value	,	V_53
+VALS	,	F_38
+EXTENDED_FORM	,	V_92
+hf_scsi_ssc_media	,	V_22
+scsi_ssc_vals	,	V_97
+"(Len: %u)"	,	L_1
+FT_UINT8	,	V_95
+proto_tree_add_text	,	F_21
+BASE_DEC	,	V_100
+hf_scsi_ssc_ver16_verlen	,	V_35
+"(Immed: %u)"	,	L_2
+"Additional Length: %u"	,	L_24
+"RETEN"	,	L_71
+dissect_ssc_locate16	,	F_27
+"scsi.ssc.locate10.loid"	,	L_35
+"scsi.ssc.format"	,	L_63
+"scsi.ssc.load"	,	L_74
+dissect_ssc_rewind	,	F_24
+hf_scsi_ssc_locate_flags	,	V_57
+"BOP: %u, EOP: %u, BCU: %u, BYCU: %u, BPU: %u, PERR: %u"	,	L_12
+ett_scsi_erase	,	V_70
+wf16_fields	,	V_30
+hf_scsi_ssc_space6_code	,	V_72
+SHORT_FORM_BLOCK_ID	,	V_84
+hf_scsi_ssc_bytcmp	,	V_34
+"scsi.ssc.reten"	,	L_72
+hf_scsi_ssc_long	,	V_68
+service_action_vals	,	V_82
+dissect_ssc_loadunload	,	F_18
+"scsi.ssc.formatmedium_flags"	,	L_61
+"scsi.ssc.locate_flags"	,	L_75
+"scsi.ssc.cp"	,	L_79
+"scsi.ssc.fcs"	,	L_47
+"scsi.ssc.fixed"	,	L_89
+scsi_task_data_t	,	T_8
+hf_scsi_ssc_eot	,	V_43
+"Partition"	,	L_54
+guint	,	T_5
+SHORT_FORM_VENDOR_SPECIFIC	,	V_85
+offset	,	V_4
+dissect_ssc_recoverbuffereddata	,	F_7
+ett	,	V_109
+payload_len	,	T_7
+dissect_ssc_setcapacity	,	F_25
+locate_fields	,	V_54
+"scsi.ssc.rdwr6.xferlen"	,	L_31
+tree	,	V_3
+"scsi.ssc.bam_flags"	,	L_82
+"scsi.ssc.verify16.verify_len"	,	L_33
+"Verification Length"	,	L_32
+hf_scsi_ssc_read6_flags	,	V_12
+packet_info	,	T_2
+tvb_get_ntoh64	,	F_36
+ett_scsi_control	,	V_17
+"Logical Object Identifier"	,	L_34
+"scsi.ssc.space16.count"	,	L_42
+ett_scsi_loadunload_immed	,	V_47
+itlq	,	V_83
+"VERIFY"	,	L_58
+dissect_ssc_space6	,	F_30
+"FIXED"	,	L_88
+BPU	,	V_88
+hf_scsi_ssc_sili	,	V_8
+"scsi.ssc.space6.code"	,	L_41
+hf_scsi_ssc_hold	,	V_42
+hf_scsi_ssc_fixed	,	V_9
+sc_fields	,	V_52
+hf_scsi_control	,	V_16
+dissect_ssc_formatmedium	,	F_32
+LONG_FORM	,	V_89
+"First Block Location: %"	,	L_25
+HFILL	,	V_98
+hf_scsi_ssc_reten	,	V_44
+write16_fields	,	V_27
+"CP"	,	L_78
+dissect_ssc_read16	,	F_10
+"u"	,	L_20
+hf_scsi_ssc_verify16_immed	,	V_33
+"SILI"	,	L_86
+proto_tree	,	T_4

@@ -1,0 +1,197 @@
+reason	,	V_5
+"PAL Capabilities"	,	L_3
+"btamp.min_latency"	,	L_60
+proto_register_protocol	,	F_33
+ett_btamp	,	V_51
+"Command Data"	,	L_23
+"Command Code"	,	L_14
+gint	,	T_9
+hf_btamp_amp_assoc_size	,	V_32
+hf_btamp_cmd_ident	,	V_55
+tvb	,	V_1
+hf_btamp_pal_caps_mask	,	V_29
+COL_INFO	,	V_46
+"PAL Capabilities Mask"	,	L_51
+"btamp.ctrl_entry"	,	L_35
+FT_BOOLEAN	,	V_75
+"Command Identifier"	,	L_17
+cinfo	,	V_42
+"MPS/MTU"	,	L_28
+array_length	,	F_36
+ti_controller_entry	,	V_11
+"Remote Controller ID"	,	L_39
+hf_btamp_controllers	,	V_13
+col_append_str	,	F_30
+"btamp.ctrl_type"	,	L_44
+"Reason"	,	L_26
+"btamp.cmd_length"	,	L_21
+hf_register_info	,	T_8
+hf_btamp_controller_type	,	V_16
+guint16	,	T_5
+create_status_vals	,	V_72
+COL_PROTOCOL	,	V_43
+hf_btamp_controller_id	,	V_15
+"btamp.rej_reason"	,	L_27
+hf_btamp_pal_caps_guaranteed	,	V_31
+guint8	,	T_7
+ti	,	V_49
+BASE_NONE	,	V_61
+hf_btamp_mtu	,	V_8
+"btamp.create_status"	,	L_49
+tvb_length_remaining	,	F_9
+btamp_controller_entry_tree	,	V_12
+"Controller ID"	,	L_41
+"Max Guaranteed Bandwidth"	,	L_57
+ti_controller_list	,	V_19
+"btamp.command"	,	L_12
+tvbuff_t	,	T_1
+"btamp.status"	,	L_48
+"btamp"	,	L_66
+BASE_HEX	,	V_64
+col_add_str	,	F_23
+ett_btamp_caps	,	V_30
+proto_item_add_subtree	,	F_7
+"Minimum latency"	,	L_59
+proto_register_field_array	,	F_35
+"Total Bandwidth"	,	L_55
+FT_BYTES	,	V_77
+dissector_add_uint	,	F_40
+hf_btamp_controller_status	,	V_17
+proto_register_btamp	,	F_31
+FT_UINT16	,	V_66
+tvb_get_guint8	,	F_26
+"Extended Features"	,	L_31
+"btamp.lctrl_id"	,	L_38
+"Assoc Size"	,	L_61
+idx	,	V_10
+"Controller Type"	,	L_43
+"Guaranteed Service type"	,	L_53
+"Controller Status"	,	L_45
+"Unknown direction %d "	,	L_7
+dissect_changeresponse	,	F_11
+hf_btamp_cmd_length	,	V_56
+"btamp.total_bw"	,	L_56
+proto_reg_handoff_btamp	,	F_38
+hf_btamp_extfeatures	,	V_9
+disc_status_vals	,	V_74
+"btamp.guaranteed_type"	,	L_54
+proto_tree_add_none_format	,	F_6
+length	,	V_18
+find_dissector	,	F_39
+"Command Length"	,	L_20
+FT_UINT32	,	V_76
+"btamp.assoc"	,	L_64
+btamp_controller_list_tree	,	V_20
+"Extended Features Mask"	,	L_33
+hf	,	V_59
+"Entry: %u"	,	L_1
+"btamp.cmd_code"	,	L_15
+"L2CAP Command Identifier"	,	L_19
+"btamp.pal_caps_mask"	,	L_52
+"Unknown PDU (%u)"	,	L_10
+"btamp.rctrl_id"	,	L_40
+hf_btamp_command	,	V_52
+ti_command	,	V_38
+col_set_str	,	F_22
+proto_btamp	,	V_50
+"L2CAP Command Data"	,	L_25
+dissect_getampassocresponse	,	F_16
+"btamp.max_guaran_bw"	,	L_58
+proto_item_append_text	,	F_28
+dissect_discoverrequest	,	F_4
+"btamp.cmd_data"	,	L_24
+col_clear	,	F_24
+proto_register_subtree_array	,	F_37
+val_to_str	,	F_29
+hf_btamp_rcontroller_id	,	V_36
+hf_btamp_status	,	V_25
+ett_btamp_controller_list	,	V_22
+proto_tree_add_item	,	F_3
+dissect_getampassocrequest	,	F_14
+pinfo	,	T_3
+col_add_fstr	,	F_25
+dissector_handle_t	,	T_10
+controller_type_vals	,	V_68
+_U_	,	V_3
+"btamp.ctrl_list"	,	L_36
+new_register_dissector	,	F_34
+hf_btamp_lcontroller_id	,	V_35
+dissect_createphysicalrequest	,	F_17
+controller_status_vals	,	V_69
+"btamp.extfeatures"	,	L_32
+VALS	,	F_32
+btamp_handle	,	V_79
+btamp_cmd_tree	,	V_39
+"btamp.mps"	,	L_29
+"btamp.ctrl_status"	,	L_46
+dissect_changenotify	,	F_10
+"Local Controller ID"	,	L_37
+"Assoc"	,	L_63
+FT_UINT8	,	V_63
+BASE_DEC	,	V_65
+proto_item	,	T_6
+reason_vals	,	V_67
+dissect_discphysicalchanrequest	,	F_19
+hf_btamp_cmd_data	,	V_57
+ENC_NA	,	V_34
+"btl2cap.cid"	,	L_67
+ett_btamp_cmd	,	V_53
+hf_btamp_disc_status	,	V_73
+cmd_length	,	V_41
+"btamp.cmd_ident"	,	L_18
+"Bluetooth AMP Packet"	,	L_65
+btamp_controller_tree	,	V_24
+ENC_LITTLE_ENDIAN	,	V_7
+status_vals	,	V_70
+"btamp.disc_status"	,	L_50
+"Command"	,	L_11
+"%s"	,	L_9
+hf_btamp_max_guaran_bw	,	V_27
+btamp_tree	,	V_37
+"Rcvd "	,	L_6
+dissect_createphysicalresponse	,	F_18
+dissect_controller_entry	,	F_5
+hf_btamp_rej_reason	,	V_6
+hf_btamp_cmd_code	,	V_54
+hf_btamp_amp_assoc	,	V_33
+dissect_getinforesponse	,	F_13
+"L2CAP Command"	,	L_13
+tvb_get_letohs	,	F_2
+hf_btamp_total_bw	,	V_26
+dissect_btamp	,	F_21
+command_code_vals	,	V_58
+FT_NONE	,	V_60
+offset	,	V_2
+ett	,	V_78
+"Sent "	,	L_5
+P2P_DIR_RECV	,	V_47
+"MPS/MTU Size"	,	L_30
+dissect_discoverresponse	,	F_8
+tree	,	V_4
+dissect_discphysicalchanresponse	,	F_20
+packet_info	,	T_2
+"Controller entry"	,	L_34
+BTL2CAP_FIXED_CID_AMP_MAN	,	V_80
+dissect_comrej	,	F_1
+"L2CAP Command Length"	,	L_22
+"Command: "	,	L_8
+ti_controller	,	V_23
+dissect_getinforequest	,	F_12
+"Controller list"	,	L_2
+dissect_ampassoc	,	F_15
+P2P_DIR_SENT	,	V_45
+HFILL	,	V_62
+ett_btamp_controller_entry	,	V_14
+"AMP"	,	L_4
+hf_btamp_create_status	,	V_71
+p2p_dir	,	V_44
+"Status"	,	L_47
+hf_btamp_controller_list	,	V_21
+"L2CAP Command Code"	,	L_16
+"btamp.ctrl_id"	,	L_42
+hf_btamp_min_latency	,	V_28
+proto_item_set_len	,	F_27
+"btamp.assoc_size"	,	L_62
+P2P_DIR_UNKNOWN	,	V_48
+cmd_code	,	V_40
+proto_tree	,	T_4

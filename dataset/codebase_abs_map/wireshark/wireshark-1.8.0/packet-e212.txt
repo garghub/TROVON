@@ -1,0 +1,77 @@
+proto_register_e212	,	F_11
+"Mobile Country Code (MCC)"	,	L_9
+octet	,	V_7
+proto_register_protocol	,	F_12
+tvbuff_t	,	T_2
+mcc_mnc_str	,	V_17
+mcc	,	V_8
+val_to_str_ext_const	,	F_6
+"MNC contains non-decimal digits"	,	L_8
+match_strval_ext	,	F_10
+"Mobile Network Code (MNC): %s (%03u)"	,	L_2
+"Mobile Subscriber Identification Number (MSIN)"	,	L_15
+BASE_EXT_STRING	,	V_28
+gboolean	,	T_5
+hf_E212_mcc	,	V_18
+"e212"	,	L_20
+proto_register_field_array	,	F_13
+proto_tree_add_uint_format	,	F_5
+dissect_e212_mcc_mnc_in_address	,	F_9
+tvb	,	V_1
+mcc_mnc_codes_ext	,	V_22
+"MCC %u %s, MNC %02u %s"	,	L_7
+mnc3	,	V_15
+item	,	V_16
+mnc2	,	V_14
+dissect_e212_mcc_mnc_ep_str	,	F_1
+offset	,	V_4
+guint32	,	T_9
+proto_e212	,	V_33
+dissect_e212_mcc_mnc	,	F_8
+"Mobile Subscriber Identification Number(MSIN)"	,	L_17
+tree	,	V_3
+"e212.mcc"	,	L_10
+"Mobile network code (MNC)"	,	L_12
+"E.212"	,	L_19
+FT_UINT16	,	V_26
+packet_info	,	T_3
+"Mobile Network Code (MNC): %s (%02u)"	,	L_6
+tvb_get_guint8	,	F_2
+hf_E212_msin	,	V_30
+array_length	,	F_14
+mnc1	,	V_13
+proto_tree_add_uint	,	F_3
+""	,	L_5
+long_mnc	,	V_24
+"MCC contains non-decimal digits"	,	L_1
+little_endian	,	V_5
+"e212.msin"	,	L_16
+pinfo	,	V_2
+"MCC %u %s, MNC %03u %s"	,	L_4
+FT_STRING	,	V_31
+hf_register_info	,	T_10
+E212_codes_ext	,	V_23
+PI_MALFORMED	,	V_19
+HFILL	,	V_29
+guint16	,	T_7
+mnc	,	V_9
+"ITU-T E.212 number"	,	L_18
+"e212.mnc"	,	L_13
+gchar	,	T_1
+BASE_DEC	,	V_27
+"Mobile network code"	,	L_14
+PI_WARN	,	V_20
+proto_item	,	T_8
+guint8	,	T_6
+"Mobile Country Code MCC"	,	L_11
+mcc3	,	V_12
+expert_add_info_format	,	F_4
+BASE_NONE	,	V_32
+mcc2	,	V_11
+hf_E212_mnc	,	V_21
+mcc1	,	V_10
+"Unknown"	,	L_3
+ep_strdup_printf	,	F_7
+start_offset	,	V_6
+proto_tree	,	T_4
+hf	,	V_25

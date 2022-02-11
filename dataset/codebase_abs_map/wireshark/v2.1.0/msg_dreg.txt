@@ -1,0 +1,166 @@
+DREG_PAGING_CYCLE_REQUEST	,	V_27
+"Consider Paging Preference of each Service Flow in resource retention"	,	L_1
+"PAGING CYCLE"	,	L_9
+"wmx.dreg.retain_ms_service_tod"	,	L_32
+"DREG-CMD sub-TLV's"	,	L_56
+dreg_cmd_item	,	V_66
+col_append_sep_str	,	F_17
+proto_register_protocol	,	F_5
+hf_dreg_paging_cycle	,	V_7
+"wmx.dreg.consider_paging_preference"	,	L_2
+"Retain MS service and operation information associated with Full service"	,	L_19
+"wmx.dreg.unknown_tlv_value"	,	L_41
+"wmx.dreg.req_duration"	,	L_18
+tvb_reported_length	,	F_11
+vals_dreg_cmd_action_cor2	,	V_42
+hf_dreg_paging_group_id	,	V_10
+hf_dreg_retain_ms_service_reg	,	V_19
+"DREG-REQ Action code"	,	L_37
+dreg_req_item	,	V_55
+hf_dreg_req_reserved	,	V_46
+"wmx.dreg.paging_controller_id"	,	L_8
+gint	,	T_2
+FT_ETHER	,	V_38
+"wmx.mgmtmsg"	,	L_57
+tlv_len	,	V_5
+DREG_MAC_HASH_SKIP_THRESHOLD	,	V_25
+ett_mac_mgmt_msg_dreg_decoder	,	V_60
+tvb	,	V_3
+COL_INFO	,	V_63
+proto_item_append_text	,	F_22
+"MAC Management Message, DREG-CMD"	,	L_54
+tlv_type	,	V_2
+"CMAC Tuple"	,	L_51
+hf_dreg_paging_offset	,	V_9
+"Retain MS service and operational information associated with Time of Day"	,	L_31
+cinfo	,	V_62
+tvb_len	,	V_54
+"wmx.dreg.retain_ms_service_reg"	,	L_26
+proto_register_subtree_array	,	F_8
+proto_register_mac_mgmt_msg_dreg_cmd	,	F_9
+vals_dreg_cmd_action	,	V_40
+array_length	,	F_7
+hf_dreg_cmd_action	,	V_39
+"Reserved"	,	L_35
+vals_dreg_req_code	,	V_45
+proto_tree_add_item	,	F_2
+MAC_MGMT_MSG_DREG_REQ	,	V_70
+pinfo	,	V_50
+dissector_handle_t	,	T_11
+dissect_mac_mgmt_msg_dreg_cmd_decoder	,	F_24
+_U_	,	V_52
+proto_reg_handoff_mac_mgmt_msg_dreg	,	F_25
+"DREG-REQ sub-TLV's"	,	L_52
+"Value"	,	L_40
+"Retain MS service and operational information associated with TFTP messages"	,	L_29
+tlv_info_t	,	T_9
+DREG_REQ_DURATION	,	V_11
+proto_register_mac_mgmt_msg_dreg_req	,	F_3
+"WiMax DREG-REQ Messages"	,	L_42
+"Paging-group-ID"	,	L_13
+"REQ-duration (Waiting value for the DREG-REQ message re-transmission in frames)"	,	L_17
+"WiMax DREG-REQ"	,	L_43
+hf_register_info	,	T_5
+"wmx.dreg.paging_cycle"	,	L_10
+"Retain MS service and operational information associated with REG-REQ/RSP"	,	L_25
+VALS	,	F_4
+"MAC Hash Skip Threshold"	,	L_5
+"wmx.dreg.retain_ms_service_network_address"	,	L_22
+hf_dreg_retain_ms_service_tod	,	V_21
+"HMAC Tuple"	,	L_50
+hf_dreg_retain_ms_service_full_service	,	V_23
+FT_UINT8	,	V_31
+"wmx.dreg.paging_group_id"	,	L_14
+hmac_found	,	V_59
+BASE_DEC	,	V_32
+get_tlv_length	,	F_16
+tlv_offset	,	V_4
+"wmx.dreg_cmd.action"	,	L_34
+proto_item	,	T_8
+DREG_PAGING_CONTROLLER_ID	,	V_13
+ENC_NA	,	V_15
+hf_dreg_cmd_action_cor2	,	V_41
+"Paging Controller ID"	,	L_7
+"wmx.dreg.retain_ms_service_tftp"	,	L_30
+"wmx.dreg_req.action"	,	L_38
+BASE_NONE	,	V_36
+"wmx.dreg_req"	,	L_44
+"WiMax DREG-CMD"	,	L_46
+hf_paging_controller_id	,	V_14
+"WiMax DREG-CMD Messages"	,	L_45
+add_protocol_subtree	,	F_19
+DREG_PAGING_INFO	,	V_6
+hf_dreg_cmd_reserved	,	V_43
+"wmx.dreg_cmd"	,	L_47
+dreg_handle	,	V_69
+proto_mac_mgmt_msg_dreg_req_decoder	,	V_47
+data	,	T_7
+tvbuff_t	,	T_3
+hf_dreg_paging_cycle_request	,	V_28
+proto_tree_add_protocol_format	,	F_12
+"DREG-CMD TLV error"	,	L_55
+include_cor2_changes	,	V_68
+gboolean	,	T_10
+dreg_cmd_tree	,	V_67
+"Retain MS service and operational information associated with PKM-REQ/RSP"	,	L_23
+"Retain MS service and operational information associated with SBC-REQ/RSP"	,	L_27
+dreg_req_tree	,	V_56
+proto_item_add_subtree	,	F_13
+hf_dreg_retain_ms_service_network_address	,	V_20
+hf_tlv_value	,	V_29
+proto_register_field_array	,	F_6
+FT_BYTES	,	V_35
+hf_dreg_invalid_tlv	,	V_34
+guint	,	T_4
+ett	,	V_48
+offset	,	V_53
+"wmx.dreg.retain_ms_service_pkm"	,	L_24
+dissector_add_uint	,	F_27
+hf_dreg_consider_paging_pref	,	V_24
+hf_dreg_req_duration	,	V_12
+tree	,	V_51
+wimax_hmac_tuple_decoder	,	F_20
+" (HMAC Tuple is missing !)"	,	L_53
+MAC_MGMT_MSG_DREG_CMD	,	V_71
+CMAC_TUPLE	,	V_65
+dissect_mac_mgmt_msg_dreg_req_decoder	,	F_10
+FT_UINT16	,	V_37
+packet_info	,	T_6
+MAX_TLV_LEN	,	V_61
+hf_dreg_retain_ms_service_sbc	,	V_17
+tvb_captured_length	,	F_23
+wimax_cmac_tuple_decoder	,	F_21
+"wmx.dreg.paging_offset"	,	L_16
+tlv_info	,	V_58
+"wmx.dreg_req.action_reserved"	,	L_39
+hf_mac_hash_skip_threshold	,	V_26
+dissect_dreg_tlv	,	F_1
+"DREG-REQ TLV error"	,	L_49
+dreg_tree	,	V_1
+"Paging Cycle Request"	,	L_11
+"PAGING OFFSET"	,	L_15
+tlv_tree	,	V_57
+"DREG-CMD Action code"	,	L_33
+get_tlv_value_offset	,	F_18
+"wmx.dreg.invalid_tlv"	,	L_4
+hf_dreg_retain_ms_service_tftp	,	V_22
+hf_dreg_retain_ms_service_pkm	,	V_18
+"Invalid TLV"	,	L_3
+"wmx.dreg.mac_hash_skip_threshold"	,	L_6
+"wmx.dreg.retain_ms_service_sbc"	,	L_28
+"wmx.dreg_cmd.action_reserved"	,	L_36
+DREG_IDLE_MODE_RETAIN_INFO	,	V_16
+HFILL	,	V_33
+proto_mac_mgmt_msg_dreg_cmd_decoder	,	V_49
+HMAC_TUPLE	,	V_64
+init_tlv_info	,	F_14
+"wmx.dreg.paging_cycle_request"	,	L_12
+"Retain MS service and operational information associated with Network Address"	,	L_21
+create_dissector_handle	,	F_26
+hf_dreg_req_action	,	V_44
+ENC_BIG_ENDIAN	,	V_8
+get_tlv_type	,	F_15
+"MAC Management Message, DREG-REQ"	,	L_48
+"wmx.dreg.retain_ms_full_service"	,	L_20
+proto_tree	,	T_1
+hf	,	V_30

@@ -1,0 +1,227 @@
+tvb_get_string_enc	,	F_3
+hf_xdmcp_client_address_ipv6	,	V_40
+hf_xdmcp_session_id	,	V_77
+"xdmcp.connection_address_ipv4"	,	L_60
+"xdmcp.session_running"	,	L_66
+hf_xdmcp_client_address_ipv4	,	V_39
+hf_xdmcp_client_port_u16	,	V_43
+proto_register_protocol	,	F_27
+hf_xdmcp_authentication_data_len	,	V_73
+ett_xdmcp_authorization_names	,	V_18
+"Version"	,	L_11
+len	,	V_6
+gint	,	T_1
+"X Display Manager Control Protocol"	,	L_69
+connection_ti	,	V_64
+"Authorization data"	,	L_57
+ctypes_len	,	V_56
+tvb	,	V_3
+"Protocol version"	,	L_13
+COL_INFO	,	V_29
+"Length of the remaining message"	,	L_18
+version	,	V_22
+"xdmcp.connection_address_bytes"	,	L_62
+str	,	V_5
+XDMCP_INDIRECT_QUERY	,	V_48
+expert_xdmcp	,	V_107
+cinfo	,	V_27
+alen	,	V_37
+hf_xdmcp_manufacturer_display_id_len	,	V_75
+array_length	,	F_29
+"Client port Length"	,	L_46
+"xdmcp.connection_address_ipv6"	,	L_61
+hf_length	,	V_9
+XDMCP_FAILED	,	V_85
+ENC_ASCII	,	V_7
+hf_xdmcp_display_class	,	V_82
+XDMCP_DECLINE	,	V_80
+"Authentication data"	,	L_53
+dissect_xdmcp	,	F_13
+ett_xdmcp	,	V_31
+ett_xdmcp_connection	,	V_67
+XDMCP_ALIVE	,	V_87
+hf_register_info	,	T_9
+"xdmcp.authentication_data"	,	L_54
+"Error: Connection type/address arrays don't match"	,	L_68
+"Connections (%d)"	,	L_5
+proto_register_xdmcp	,	F_25
+"xdmcp"	,	L_70
+COL_PROTOCOL	,	V_28
+": %s"	,	L_7
+XDMCP_UNWILLING	,	V_52
+n	,	V_58
+ett_xdmcp_connections	,	V_63
+"xdmcp.length"	,	L_17
+guint8	,	T_8
+"xdmcp.display_class"	,	L_39
+hf_xdmcp_authentication_name	,	V_17
+ti	,	V_24
+BASE_NONE	,	V_95
+XDMCP_REQUEST	,	V_53
+"xdmcp.authorization_data_len"	,	L_56
+"Client Address"	,	L_40
+"Manufacturer display ID"	,	L_34
+"xdmcp.authentication_name"	,	L_20
+"Authentication data Length"	,	L_51
+tvbuff_t	,	T_3
+opcode	,	V_23
+tvb_get_ntohs	,	F_2
+hf_xdmcp_client_port_bytes	,	V_44
+"xdmcp.hostname"	,	L_24
+BASE_HEX	,	V_93
+col_add_str	,	F_18
+"xdmcp.manufacturer_display_id"	,	L_35
+proto_item_add_subtree	,	F_16
+proto_register_field_array	,	F_28
+"xdmcp.connection_type"	,	L_64
+FT_BYTES	,	V_97
+"Connection %d"	,	L_6
+ei	,	V_103
+"Authorization data Length"	,	L_55
+xdmcp_add_bytes	,	F_6
+FT_UINT16	,	V_90
+xdmcp_add_string	,	F_1
+"Session running"	,	L_65
+tvb_get_guint8	,	F_9
+caddrs_len	,	V_57
+"xdmcp.display_number"	,	L_31
+"Address"	,	L_59
+hf_xdmcp_length	,	V_35
+tvb_ip6_to_str	,	F_23
+expert_add_info	,	F_20
+hf_xdmcp_authorization_data	,	V_78
+session_running	,	V_88
+FT_STRING	,	V_94
+"xdmcp.version"	,	L_12
+"Session identifier"	,	L_29
+"Authentication names (%d)"	,	L_1
+anames_tree	,	V_12
+XDMCP_PROTOCOL_VERSION	,	V_26
+"xdmcp.manufacturer_display_id_len"	,	L_33
+"Client port"	,	L_48
+"xdmcp.client_port_len"	,	L_47
+hf_xdmcp_hostname	,	V_50
+PI_WARN	,	V_105
+clist_tree	,	V_54
+proto_tree_add_uint_format_value	,	F_24
+"No"	,	L_10
+ENC_BIG_ENDIAN	,	V_10
+FT_UINT32	,	V_96
+"Manufacturer display ID Length"	,	L_32
+ett_xdmcp_authentication_names	,	V_16
+hf_xdmcp_client_address_bytes	,	V_41
+caddrs_offset	,	V_60
+proto_reg_handoff_xdmcp	,	F_33
+hf_xdmcp_status	,	V_51
+hf	,	V_2
+XDMCP_ACCEPT	,	V_76
+"xdmcp.client_port_bytes"	,	L_49
+hf_xdmcp_connection_address_ipv4	,	V_69
+XDMCP_MANAGE	,	V_81
+hf_xdmcp_opcode	,	V_33
+"xdmcp.client_address_ipv4"	,	L_41
+FT_IPv6	,	V_99
+family_vals	,	V_100
+xdmcp_handle	,	V_108
+col_set_str	,	F_14
+XDMCP_REFUSE	,	V_84
+FT_IPv4	,	V_98
+clist_ti	,	V_55
+"Authentication name"	,	L_19
+"Unknown (0x%04x)"	,	L_4
+proto_xdmcp	,	V_30
+proto_item_append_text	,	F_21
+XDMCP_WILLING	,	V_49
+"xdmcp.client_address_ipv6"	,	L_42
+anames_len	,	V_14
+col_clear	,	F_15
+hf_xdmcp_authorization_name	,	V_19
+proto_register_subtree_array	,	F_30
+proto_tree_add_string	,	F_5
+val_to_str	,	F_19
+hf_xdmcp_manufacturer_display_id	,	V_74
+anames_start_offset	,	V_15
+hf_xdmcp_display_number	,	V_61
+hf_xdmcp_client_port_len	,	V_45
+proto_tree_add_item	,	F_7
+pinfo	,	V_20
+dissector_handle_t	,	T_12
+_U_	,	V_21
+hf_xdmcp_version	,	V_32
+"Authorization name"	,	L_21
+"Yes"	,	L_9
+hf_byte	,	V_8
+hf_xdmcp_display_class_len	,	V_83
+VALS	,	F_26
+"xdmcp.client_address_bytes"	,	L_43
+"Display class"	,	L_38
+PI_PROTOCOL	,	V_104
+"xdmcp.display_class_len"	,	L_37
+FT_UINT8	,	V_101
+tvb_ip_to_str	,	F_22
+BASE_DEC	,	V_91
+proto_item	,	T_5
+"xdmcp.client_port"	,	L_50
+expert_register_field_array	,	F_32
+hf_xdmcp_authentication_data	,	V_72
+"Hostname"	,	L_23
+ENC_NA	,	V_11
+XDMCP_QUERY	,	V_47
+"%s"	,	L_8
+data	,	T_7
+"xdmcp.session_id"	,	L_28
+UDP_PORT_XDMCP	,	V_109
+"xdmcp.status"	,	L_26
+plen	,	V_38
+hf_xdmcp_connection_type	,	V_68
+"xdmcp.authorization_name"	,	L_22
+ei_register_info	,	T_10
+expert_register_protocol	,	F_31
+"xdmcp.client_address_bytes_len"	,	L_45
+hf_xdmcp_session_running	,	V_89
+anames_ti	,	V_13
+guint	,	T_4
+XDMCP_BROADCAST_QUERY	,	V_46
+offset	,	V_4
+ett	,	V_102
+wmem_packet_scope	,	F_4
+expert_module_t	,	T_11
+tree	,	V_1
+"Opcode"	,	L_14
+XDMCP_KEEPALIVE	,	V_86
+xdmcp_tree	,	V_25
+XDMCP_FORWARD_QUERY	,	V_36
+"Authorization names (%d)"	,	L_2
+packet_info	,	T_6
+xdmcp_add_authorization_names	,	F_12
+hf_xdmcp_authorization_data_len	,	V_79
+ctype	,	V_66
+"Client Address Length"	,	L_44
+proto_tree_add_uint	,	F_17
+connection_tree	,	V_65
+EXPFILL	,	V_106
+"xdmcp.authorization_data"	,	L_58
+"Display class Length"	,	L_36
+"Session ID"	,	L_27
+"xdmcp.authentication_data_len"	,	L_52
+"XDMCP"	,	L_3
+hf_xdmcp_connection_address_bytes	,	V_71
+"Display number"	,	L_30
+"xdmcp.conn_address_mismatch"	,	L_67
+HFILL	,	V_92
+opcode_vals	,	V_34
+xdmcp_add_authentication_names	,	F_8
+hf_xdmcp_client_address_bytes_len	,	V_42
+"Status"	,	L_25
+"udp.port"	,	L_71
+create_dissector_handle	,	F_34
+proto_tree_add_subtree_format	,	F_10
+proto_item_set_len	,	F_11
+ctypes_start_offset	,	V_59
+hf_xdmcp_connection_address_ipv6	,	V_70
+dissector_add_uint_with_preference	,	F_35
+"xdmcp.opcode"	,	L_15
+"Message length"	,	L_16
+"Type"	,	L_63
+proto_tree	,	T_2
+ei_xdmcp_conn_address_mismatch	,	V_62

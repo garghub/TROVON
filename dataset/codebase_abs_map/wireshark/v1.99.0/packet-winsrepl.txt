@@ -1,0 +1,334 @@
+"WINS Replication Reason"	,	L_57
+reason	,	V_11
+"WREPL_REPL_UPDATE2"	,	L_26
+"WINS Replication Max Version"	,	L_66
+"WINS Address List"	,	L_10
+THROW	,	F_22
+WREPL_REPL_INFORM2	,	V_97
+proto_register_protocol	,	F_43
+"WINS Replication Opcode"	,	L_42
+"WINS Replication Major Version"	,	L_54
+stop_item	,	V_12
+dissect_winsrepl_update	,	F_29
+tcp_dissect_pdus	,	F_40
+gint	,	V_58
+"WREPL_REPLICATION"	,	L_17
+hf_winsrepl_addr_list_num_ips	,	V_44
+", WREPL_REPL_INFORM"	,	L_29
+"WINS Name"	,	L_13
+"Name Flags"	,	L_91
+tvb	,	V_98
+"winsrepl.owner_type"	,	L_71
+guint32	,	T_5
+COL_INFO	,	V_90
+"winsrepl.name_len"	,	L_89
+FT_BOOLEAN	,	V_129
+"reassemble"	,	L_125
+dissect_winsrepl_wins_ip	,	F_13
+pdu_len	,	V_114
+hf_winsrepl_owner_type	,	V_23
+"WINS Replication IP Owner"	,	L_81
+dissect_winsrepl_inform2	,	F_32
+"WINS Replication Owner Address"	,	L_63
+sub_tree	,	V_16
+"Message_Type"	,	L_46
+hf_winsrepl_start_major_version	,	V_10
+proto_tree_add_ipv4	,	F_15
+cinfo	,	V_89
+"winsrepl.name_flags"	,	L_92
+get_winsrepl_pdu_len	,	F_38
+PI_ERROR	,	V_134
+"WREPL_REPL_TABLE_REPLY"	,	L_6
+NETBIOS_NAME_LEN	,	V_53
+hf_winsrepl_name_flags_rectype	,	V_63
+array_length	,	F_45
+"winsrepl.repl_cmd"	,	L_59
+"Reason"	,	L_55
+proto_tree_add_boolean	,	F_27
+",WREPL_REPL_UPDATE2"	,	L_27
+hf_register_info	,	T_9
+"Local"	,	L_100
+"WINS Replication Name Flags Local Flag"	,	L_102
+hf_winsrepl_name_group_flag	,	V_68
+winsrepl_tvb	,	V_1
+", %s"	,	L_11
+ReportedBoundsError	,	V_60
+COL_PROTOCOL	,	V_103
+hf_winsrepl_name_flags_static	,	V_67
+get_netbios_name	,	F_25
+i	,	V_26
+": %s"	,	L_9
+WREPL_REPL_SEND_REPLY	,	V_93
+addr_list_tree	,	V_39
+hf_winsrepl_ip_owner	,	V_34
+guint8	,	V_36
+", WREPL_REPL_TABLE_QUERY"	,	L_19
+"Name Len"	,	L_88
+ti	,	V_46
+wrepl_mess_type	,	V_101
+BASE_NONE	,	V_125
+rectype_vals	,	V_127
+"winsrepl"	,	L_124
+", WREPL_REPL_TABLE_REPLY"	,	L_20
+dissect_winsrepl_update2	,	F_30
+"WINS Replication Packet Size"	,	L_39
+tvb_get_ntohl	,	F_5
+dissect_winsrepl_stop	,	F_4
+ett_winsrepl_table_reply	,	V_27
+winsrepl_reassemble	,	V_115
+tvbuff_t	,	T_1
+hf_winsrepl_name_flags_local	,	V_65
+hf_winsrepl_name_flags_hosttype	,	V_66
+BASE_HEX	,	V_120
+partner_count	,	V_25
+parent_tree	,	V_99
+stop_tree	,	V_13
+flags_tree	,	V_49
+"winsrepl.size"	,	L_38
+"WREPL_STOP_ASSOCIATION"	,	L_2
+winsrepl_offset	,	V_3
+"WINS Replication Min Version"	,	L_69
+hosttype_vals	,	V_130
+"winsrepl.unknown"	,	L_116
+proto_item_add_subtree	,	F_26
+WREPL_NAME_TYPE_NORMAL_GROUP	,	V_73
+module_t	,	T_11
+WREPL_NAME_TYPE_MASK	,	V_71
+owner_tree	,	V_18
+proto_register_field_array	,	F_46
+recstate_vals	,	V_128
+WREPL_REPL_SEND_REQUEST	,	V_92
+WREPL_REPL_TABLE_REPLY	,	V_91
+"WINS Replication Num IPs"	,	L_87
+ei	,	V_132
+dissector_add_uint	,	F_53
+ett_winsrepl_owner	,	V_19
+ett_winsrepl_name	,	V_56
+repl_tree	,	V_83
+"winsrepl.minor_version"	,	L_50
+FT_UINT16	,	V_122
+WREPL_REPL_INFORM	,	V_96
+"Assoc_Ctx"	,	L_43
+hf_winsrepl_name_flags	,	V_61
+"Initiator"	,	L_76
+expert_winsrepl	,	V_137
+dissect_winsrepl	,	F_39
+"WINS Replication Name Version Id"	,	L_114
+idx	,	V_17
+message_type_vals	,	V_121
+", WREPL_REPL_SEND_REPLY"	,	L_23
+"WINS Replication Num Names"	,	L_120
+hf_winsrepl_ip_ip	,	V_35
+winsrepl_handle	,	V_138
+"Num IPs"	,	L_85
+ip_to_str	,	F_16
+"winsrepl.min_version"	,	L_68
+expert_add_info	,	F_21
+WREPL_START_ASSOCIATION_REPLY	,	V_111
+"WREPL_START_ASSOCIATION_REPLY"	,	L_34
+"WINS (Windows Internet Name Service) Replication"	,	L_123
+"Name Group Flag"	,	L_109
+wrepl_replication_cmd	,	V_84
+"Owner Address"	,	L_61
+ett_winsrepl	,	V_106
+"winsrepl.message_type"	,	L_47
+hf_winsrepl_owner_address	,	V_20
+"IP Owner"	,	L_79
+new_create_dissector_handle	,	F_52
+proto_winsrepl	,	V_104
+dissect_winsrepl_wins_address_list	,	F_17
+netbios_add_name	,	F_24
+proto_register_winsrepl	,	F_41
+"winsrepl.name_flags.static"	,	L_107
+"winsrepl.name_len.invalid"	,	L_121
+ENC_BIG_ENDIAN	,	V_8
+"WINS Replication Name Flags Record Type"	,	L_96
+"Unknown IP"	,	L_115
+"WREPL_REPL_SEND_REQUEST"	,	L_21
+"WINS Replication Minor Version"	,	L_51
+"Min Version"	,	L_67
+FT_UINT32	,	V_117
+old_offset	,	V_40
+", WREPL_STOP_ASSOCIATION"	,	L_36
+"Record Type"	,	L_94
+winsrepl_tree	,	V_4
+hf_winsrepl_owner_max_version	,	V_21
+addr_list_item	,	V_38
+"WINS Replication Name Len"	,	L_90
+hf	,	V_116
+"Static"	,	L_106
+hf_winsrepl_stop_reason	,	V_15
+num_names	,	V_78
+"WREPL_REPL_SEND_REPLY"	,	L_16
+ett_winsrepl_addr_list	,	V_43
+hf_winsrepl_owner_min_version	,	V_22
+"WINS Replication Name Flags Record State"	,	L_99
+"WINS Replication Name Group Flag"	,	L_111
+dissect_winsrepl_send_request	,	F_12
+"WINS Replication Name Flags Static Flag"	,	L_108
+"winsrepl.name_version_id"	,	L_113
+prefs_register_protocol	,	F_49
+"Reassemble WINS-Replication messages spanning multiple TCP segments"	,	L_126
+proto_tree_add_subtree	,	F_2
+"WREPL_REPL_TABLE_QUERY"	,	L_18
+"WREPL_REPL_INFORM"	,	L_28
+"winsrepl.owner_address"	,	L_62
+"WINS-Replication"	,	L_32
+FT_UINT64	,	V_126
+col_set_str	,	F_34
+ett_winsrepl_send_reply	,	V_79
+hf_winsrepl_table_partner_count	,	V_28
+FT_IPv4	,	V_124
+WREPL_STOP_ASSOCIATION	,	V_112
+repl_item	,	V_82
+WREPL_REPL_UPDATE	,	V_94
+"winsrepl.opcode"	,	L_41
+ett_winsrepl_stop	,	V_14
+"winsrepl.reason"	,	L_56
+ip	,	V_42
+proto_item_append_text	,	F_7
+dissect_winsrepl_replication	,	F_33
+hf_winsrepl_table_initiator	,	V_29
+", WREPL_REPL_SEND_REQUEST"	,	L_22
+ett_winsrepl_start	,	V_6
+num_ips	,	V_41
+col_clear	,	F_36
+mess_type	,	V_102
+"Partner Count"	,	L_73
+proto_register_subtree_array	,	F_44
+table_tree	,	V_24
+"winsrepl.num_names"	,	L_119
+"WINS Name [%u]"	,	L_12
+hf_winsrepl_reply_num_names	,	V_80
+"WINS Replication Message_Type"	,	L_48
+hf_winsrepl_name_flags_recstate	,	V_64
+proto_tree_add_item	,	F_3
+"WINS Replication IP Address"	,	L_84
+pinfo	,	V_2
+"winsrepl.major_version"	,	L_53
+dissector_handle_t	,	T_13
+_U_	,	T_2
+ip_tree	,	V_32
+flags	,	V_55
+winsrepl_module	,	V_136
+"Record State"	,	L_97
+"WREPL_REPL_INFORM2"	,	L_30
+hf_winsrepl_name_version_id	,	V_70
+dissect_winsrepl_table_query	,	F_8
+tvb_get_ipv4	,	F_14
+hf_winsrepl_start_minor_version	,	V_9
+WREPL_NAME_TYPE_MULTIHOMED	,	V_75
+name_tree	,	V_47
+VALS	,	F_42
+prefs_register_bool_preference	,	F_50
+"WREPL_START_ASSOCIATION"	,	L_1
+dissect_winsrepl_inform	,	F_31
+"Owner Type"	,	L_70
+start_tree	,	V_5
+replication_cmd_vals	,	V_123
+dissect_winsrepl_table_reply	,	F_11
+dissect_winsrepl_wins_owner	,	F_9
+winsrepl_item	,	V_81
+tvb_length	,	F_37
+"winsrepl.name_flags.recstate"	,	L_98
+hf_winsrepl_name_len	,	V_57
+BASE_DEC	,	V_118
+"Replication Command"	,	L_58
+proto_item	,	T_6
+expert_register_field_array	,	F_48
+", WREPL_REPL_UPDATE"	,	L_25
+" To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings."	,	L_128
+ENC_NA	,	V_105
+hf_winsrepl_opcode	,	V_108
+"winsrepl.name_group_flag"	,	L_110
+flags_item	,	V_48
+"WINS IP [%u]"	,	L_7
+dissect_winsrepl_wins_name	,	F_20
+WREPL_REPL_TABLE_QUERY	,	V_88
+ENC_LITTLE_ENDIAN	,	V_69
+"WINS Replication Unknown IP"	,	L_117
+data	,	T_7
+"Name"	,	L_14
+"WINS IP"	,	L_8
+dissect_winsrepl_pdu	,	F_35
+WREPL_REPLICATION	,	V_113
+"WREPL_REPL_UPDATE"	,	L_24
+proto_reg_handoff_winsrepl	,	F_51
+hf_winsrepl_replication_command	,	V_87
+", WREPL_START_ASSOCIATION"	,	L_33
+"WINS Replication Initiator"	,	L_78
+"WINS Replication Name Flags Host Type"	,	L_105
+ei_register_info	,	T_10
+WREPL_REPL_UPDATE2	,	V_95
+expert_register_protocol	,	F_47
+WREPL_NAME_TYPE_SPECIAL_GROUP	,	V_74
+", WREPL_REPL_INFORM2"	,	L_31
+"Bad name length"	,	L_122
+ett_winsrepl_replication	,	V_86
+tvb_get_letohl	,	F_18
+hf_winsrepl_mess_type	,	V_109
+"WINS Replication Partner Count"	,	L_75
+"Whether the WINS-Replication dissector should reassemble messages spanning multiple TCP segments."	,	L_127
+"winsrepl.name_flags.rectype"	,	L_95
+": %s&lt;%02x&gt;"	,	L_15
+guint	,	T_8
+offset	,	V_100
+ett	,	V_131
+"WINS Replication Name Flags"	,	L_93
+expert_module_t	,	T_12
+"Opcode"	,	L_40
+"winsrepl.num_ips"	,	L_86
+rep_tree	,	V_77
+"winsrepl.name_flags.local"	,	L_101
+packet_info	,	T_3
+"Major Version"	,	L_52
+ei_winsrepl_name_len	,	V_59
+proto_tree_add_uint	,	F_6
+EXPFILL	,	V_135
+name_item	,	V_45
+"WINS Owner"	,	L_5
+"IP Address"	,	L_82
+"Num Names"	,	L_118
+WREPL_START_ASSOCIATION	,	V_110
+name_str	,	V_52
+"winsrepl.ip_owner"	,	L_80
+glb_winsrepl_tcp_port	,	V_139
+WREPL_NAME_TYPE_UNIQUE	,	V_72
+"winsrepl.assoc_ctx"	,	L_44
+ett_winsrepl_flags	,	V_62
+hf_winsrepl_size	,	V_107
+"Packet Size"	,	L_37
+"Name Version Id"	,	L_112
+ip_item	,	V_31
+tvb_new_subset_length	,	F_23
+"winsrepl.initiator"	,	L_77
+name_tvb	,	V_50
+"Minor Version"	,	L_49
+"WINS Replication Command"	,	L_60
+hf_winsrepl_name_unknown	,	V_76
+name_len	,	V_51
+"winsrepl.ip_address"	,	L_83
+addr	,	V_30
+HFILL	,	V_119
+PI_MALFORMED	,	V_133
+"WINS Owner [%u]"	,	L_4
+dissect_winsrepl_send_reply	,	F_28
+"winsrepl.max_version"	,	L_65
+"winsrepl.partner_count"	,	L_74
+name_type	,	V_54
+"WINS Replication Assoc_Ctx"	,	L_45
+"winsrepl.name_flags.hosttype"	,	L_104
+", WREPL_START_ASSOCIATION_REPLY"	,	L_35
+"Max Version"	,	L_64
+"WINS Replication Owner Type"	,	L_72
+proto_tree_add_subtree_format	,	F_10
+hf_winsrepl_assoc_ctx	,	V_7
+command	,	V_85
+proto_item_set_len	,	F_19
+ett_winsrepl_ip	,	V_33
+"Host Type"	,	L_103
+dissect_winsrepl_start	,	F_1
+parent_item	,	V_37
+", Reason: 0x%08X"	,	L_3
+"tcp.port"	,	L_129
+proto_tree	,	T_4

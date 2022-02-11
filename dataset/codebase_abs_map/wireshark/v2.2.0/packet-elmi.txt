@@ -1,0 +1,229 @@
+hf_elmi_uni_id	,	V_15
+"CE-VLAN ID/EVC Map Sequence"	,	L_34
+proto_register_protocol	,	F_20
+hf_elmi_sub_user_prio_6	,	V_42
+hf_elmi_sub_user_prio_5	,	V_41
+elmi_info_elem_tag	,	V_49
+"elmi.sub_info.eir_mult"	,	L_69
+hf_elmi_sub_user_prio_7	,	V_43
+"Version"	,	L_8
+len	,	V_6
+gint	,	T_1
+hf_elmi_sub_user_prio_0	,	V_36
+hf_elmi_sub_user_prio_2	,	V_38
+"elmi.message_type"	,	L_11
+elmi_evc_type	,	V_96
+"User Priority 5"	,	L_84
+hf_elmi_sub_user_prio_1	,	V_37
+hf_elmi_sub_info_color_mode_flag	,	V_25
+hf_elmi_sub_user_prio_4	,	V_40
+proto_elmi	,	V_76
+hf_elmi_sub_user_prio_3	,	V_39
+TFS	,	F_19
+tvb	,	V_1
+ett_elmi_sub_info_elem	,	V_9
+SUB_TAG_UNI_ID	,	V_14
+COL_INFO	,	V_74
+hf_default_evc	,	V_69
+"elmi.sub_info.uni_id"	,	L_45
+FT_BOOLEAN	,	V_91
+hf_elmi_report_type	,	V_53
+tvb_reported_length_remaining	,	F_16
+cinfo	,	V_73
+tfs_set_notset	,	V_93
+"Data instance"	,	L_22
+array_length	,	F_22
+"Reserved"	,	L_24
+"User Priority 6"	,	L_86
+"elmi.sub_info.eir_mag"	,	L_67
+offset_start	,	V_4
+info_elem_tree	,	V_47
+"elmi.sub_info.bw_prio0"	,	L_75
+ENC_ASCII	,	V_16
+"ethertype"	,	L_92
+hf_elmi_uni_status	,	V_61
+"User Priority 3"	,	L_80
+hf_register_info	,	T_9
+"Per CoS bit values"	,	L_56
+"elmi.sub_info.bw_prio1"	,	L_77
+COL_PROTOCOL	,	V_75
+"EBS Multiplier"	,	L_72
+"elmi.sub_info.coupling_flag"	,	L_55
+hf_elmi_evc_status	,	V_64
+guint8	,	T_4
+hf_elmi_ver	,	V_78
+BASE_NONE	,	V_95
+ett_elmi_info_elem	,	V_48
+SUB_TAG_EVC_PRM	,	V_18
+TAG_VLAN_EVC	,	V_65
+elmi_msg_type	,	V_80
+"User Priority 4"	,	L_82
+"elmi.sub_info.len"	,	L_43
+SUB_TAG_BW_PRO	,	V_24
+"elmi.sub_info.bw_prio2"	,	L_79
+"Sub-Info Element :"	,	L_40
+tvbuff_t	,	T_2
+proto_tree_add_protocol_format	,	F_11
+"Message type"	,	L_10
+BASE_HEX	,	V_85
+"User Priority 1"	,	L_76
+"Default EVC"	,	L_38
+"Last Information Element"	,	L_32
+"elmi.rcv_seq_num"	,	L_21
+proto_item_add_subtree	,	F_13
+hf_elmi_info_elem_len	,	V_51
+proto_register_field_array	,	F_21
+ret	,	V_46
+"elmi.sub_info.bw_prio3"	,	L_81
+tree_pi	,	V_7
+"Information element: %s"	,	L_3
+dissector_add_uint	,	F_26
+SUB_TAG_EVC_ID	,	V_20
+SUB_TAG_EVC_MAP	,	V_22
+FT_UINT16	,	V_89
+tvb_get_guint8	,	F_2
+TAG_EVC_STATUS	,	V_62
+"User Priority 2"	,	L_78
+tvb_captured_length	,	F_12
+dissect_elmi_sub_info_elem	,	F_1
+"elmi.snd_seq_num"	,	L_19
+msg_type	,	V_72
+hf_elmi_dat_inst	,	V_59
+"elmi.map.seq"	,	L_35
+TAG_DATA_INST	,	V_57
+"elmi.sub_info.bw_prio4"	,	L_83
+"Ethernet Local Management Interface (E-LMI)"	,	L_5
+"elmi.sub_info.per_cos_bit"	,	L_57
+hf_elmi_sub_eir_multiplier	,	V_33
+FT_STRING	,	V_94
+"elmi"	,	L_91
+val_to_str_const	,	F_4
+"Sub-information element: %s"	,	L_1
+"elmi.sub_info.bw_prio5"	,	L_85
+"EBS Magnitude"	,	L_70
+ETHERTYPE_ELMI	,	V_101
+ENC_BIG_ENDIAN	,	V_12
+"elmi.sub_info.ebs_mag"	,	L_71
+"User Priority 0"	,	L_74
+FT_UINT32	,	V_87
+"elmi.sub_info.evc_id"	,	L_49
+sub_info_elem_tree	,	V_8
+hf_elmi_msg_type	,	V_79
+"elmi.info_element.tag"	,	L_13
+hf_elmi_sub_ebs_multiplier	,	V_35
+hf	,	V_81
+"elmi.sub_info.cbs_mult"	,	L_65
+"elmi.data_instance"	,	L_23
+"elmi.evc.refid"	,	L_29
+"elmi.map_type"	,	L_27
+"Tag"	,	L_12
+"elmi.sub_info.bw_prio6"	,	L_87
+"EIR Magnitude"	,	L_66
+col_append_fstr	,	F_14
+dissect_elmi	,	F_8
+col_set_str	,	F_10
+"Send sequence number"	,	L_18
+"elmi.sub_info.tag"	,	L_41
+tfs_applicable_not_applicable	,	V_98
+"Ethernet Local Management Interface"	,	L_90
+"Coupling Flag"	,	L_54
+dissect_elmi_info_elem	,	F_7
+tfs_used_notused	,	V_97
+"CBS Multiplier"	,	L_64
+hf_elmi_rcv_seq_num	,	V_56
+"elmi.sub_info.vlan_id"	,	L_51
+elmi_report_type	,	V_86
+"elmi.sub_info.bw_prio7"	,	L_89
+hf_elmi_ce_vlan_id	,	V_23
+col_clear	,	F_9
+hf_map_seq	,	V_67
+proto_register_subtree_array	,	F_23
+val_to_str	,	F_15
+"elmi.evc.status"	,	L_31
+"Sub-Info Length"	,	L_42
+"EVC Reference Id"	,	L_28
+hf_elmi_reserved	,	V_58
+proto_tree_add_item	,	F_5
+elmi_handle	,	V_100
+hf_elmi_evc_id	,	V_21
+pinfo	,	T_7
+dissector_handle_t	,	T_10
+_U_	,	V_44
+hf_elmi_info_elem	,	V_50
+"elmi.sub_info.cbs_mag"	,	L_63
+elmi_evc_status_type	,	V_90
+TAG_UNI_STATUS	,	V_60
+"elmi.report_type"	,	L_17
+ett_elmi	,	V_77
+"CE-VLAN ID"	,	L_50
+proto_register_elmi	,	F_17
+VALS	,	F_18
+"Report type"	,	L_16
+FT_UINT8	,	V_82
+"elmi.sub_info.ebs_mult"	,	L_73
+BASE_DEC	,	V_83
+proto_item	,	T_5
+hf_elmi_snd_seq_num	,	V_55
+ENC_NA	,	V_17
+elmi_tree	,	V_71
+hf_elmi_sub_info_per_cos_bit	,	V_27
+"%s"	,	L_6
+data	,	T_8
+elmi_vlan_id_evc_map_type	,	V_88
+hf_elmi_sub_cbs_multiplier	,	V_31
+elmi_sub_info_elem_tag	,	V_10
+hf_elmi_evc_refid	,	V_63
+"CE-VLAN ID/EVC Map Type"	,	L_26
+"EVC Status Type"	,	L_30
+"UNI Identifier"	,	L_44
+"CIR Magnitude"	,	L_58
+"E-LMI"	,	L_4
+"elmi.sub_info.cir_mult"	,	L_61
+hf_elmi_evc_type	,	V_19
+proto_reg_handoff_elmi	,	F_24
+tag	,	V_45
+"CIR Multiplier"	,	L_60
+"Length"	,	L_14
+offset	,	V_2
+ett	,	V_99
+tree	,	V_3
+hf_elmi_sub_info_elem_len	,	V_13
+packet_info	,	T_6
+"Color Mode Flag"	,	L_52
+"Receive sequence number"	,	L_20
+"elmi.sub_info.evc_type"	,	L_47
+tfs_yes_no	,	V_92
+"EVC Type"	,	L_46
+sub_tag	,	V_5
+"elmi.map.last_ie"	,	L_33
+hf_elmi_sub_cir_multiplier	,	V_29
+hf_elmi_sub_cir_magnitude	,	V_28
+"elmi.map.priority"	,	L_37
+"elmi.sub_info.cir_mag"	,	L_59
+hf_elmi_sub_eir_magnitude	,	V_32
+hf_elmi_sub_info_elem	,	V_11
+"elmi.reserved"	,	L_25
+"EVC Identifier"	,	L_48
+TAG_REPORT_TYPE	,	V_52
+"CBS Magnitude"	,	L_62
+"elmi.info_element.length"	,	L_15
+hf_priority	,	V_68
+HFILL	,	V_84
+"elmi.map.evc"	,	L_39
+"User Priority 7"	,	L_88
+TAG_SEQ_NUM	,	V_54
+"elmi.version"	,	L_9
+"Priority Tagged"	,	L_36
+create_dissector_handle	,	F_25
+proto_tree_add_subtree_format	,	F_3
+"EIR Multiplier"	,	L_68
+proto_item_set_len	,	F_6
+hf_elmi_sub_ebs_magnitude	,	V_34
+"unknown (0x%x)"	,	L_7
+hf_elmi_sub_info_coupling_flag	,	V_26
+pi	,	V_70
+"unknown"	,	L_2
+hf_elmi_sub_cbs_magnitude	,	V_30
+proto_tree	,	T_3
+hf_last_ie	,	V_66
+"elmi.sub_info.color_mode_flag"	,	L_53

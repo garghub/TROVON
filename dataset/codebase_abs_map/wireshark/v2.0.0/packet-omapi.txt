@@ -1,0 +1,136 @@
+proto_register_omapi	,	F_18
+"Unknown opcode (0x%04x)"	,	L_4
+hf_omapi_auth_len	,	V_20
+"Header length"	,	L_8
+col_append_sep_str	,	F_15
+"omapi.empty_string"	,	L_41
+proto_register_protocol	,	F_20
+hf_omapi_obj_name_len	,	V_34
+", Opcode: %s"	,	L_5
+"Version"	,	L_6
+"Handle"	,	L_16
+"ID"	,	L_18
+"omapi.no_value"	,	L_43
+dissect_omapi	,	F_1
+col_set_str	,	F_2
+gint	,	T_8
+"omapi.message_end_tag"	,	L_45
+tvb	,	V_1
+"omapi.handle"	,	L_17
+omapi_tree	,	V_5
+guint32	,	T_6
+COL_INFO	,	V_12
+proto_item_append_text	,	F_11
+hf_omapi_msg_value	,	V_32
+"omapi.object_value_length"	,	L_35
+tvb_reported_length_remaining	,	F_7
+ptvcursor_free	,	F_8
+col_clear	,	F_3
+cinfo	,	V_10
+authlength	,	V_7
+omapi_opcode_vals	,	V_21
+proto_register_subtree_array	,	F_23
+val_to_str	,	F_16
+"Message value"	,	L_28
+array_length	,	F_22
+proto_tree_add_item	,	F_4
+pinfo	,	V_2
+dissector_handle_t	,	T_9
+"Status message"	,	L_2
+ENC_ASCII	,	V_28
+hf_omapi_obj_value_len	,	V_36
+"omapi.obj_name_length"	,	L_31
+col_append_str	,	F_13
+"Empty string"	,	L_40
+"Message value length"	,	L_26
+"OMAPI"	,	L_1
+hf_register_info	,	T_7
+VALS	,	F_19
+hf_omapi_version	,	V_16
+msglength	,	V_8
+"omapi.msg_value"	,	L_29
+"Authentication length"	,	L_12
+COL_PROTOCOL	,	V_11
+"omapi.authlength"	,	L_13
+"omapi.msg_value_length"	,	L_27
+", Status message"	,	L_3
+BASE_DEC	,	V_42
+proto_item	,	T_4
+"Object value"	,	L_36
+ENC_NA	,	V_14
+"Object name"	,	L_32
+ti	,	V_4
+ptvcursor_current_offset	,	F_14
+BASE_NONE	,	V_46
+hf_omapi_msg_name_len	,	V_26
+"Authentication ID"	,	L_10
+hf_omapi_hlength	,	V_18
+"Object value length"	,	L_34
+hf_omapi_signature	,	V_39
+"omapi.hlength"	,	L_9
+"Message name"	,	L_24
+"omapi.signature"	,	L_39
+"omapi.obj_name"	,	L_33
+ptvcursor_t	,	T_5
+tvb_get_ntohl	,	F_12
+"ISC Object Management API"	,	L_48
+tvbuff_t	,	T_1
+tvb_get_ntohs	,	F_17
+"omapi.version"	,	L_7
+"Object name length"	,	L_30
+hf_omapi_empty_string	,	V_30
+"omapi.opcode"	,	L_15
+"Message end tag"	,	L_44
+"omapi.id"	,	L_19
+proto_item_add_subtree	,	F_5
+proto_register_field_array	,	F_21
+hf_omapi_auth_id	,	V_19
+FT_BYTES	,	V_47
+FT_NONE	,	V_48
+ett_omapi	,	V_15
+ett	,	V_49
+DISSECTOR_ASSERT_NOT_REACHED	,	F_9
+dissector_add_uint	,	F_26
+proto_reg_handoff_omapi	,	F_24
+tree	,	V_3
+"Opcode"	,	L_14
+"Response ID"	,	L_20
+hf_omapi_msg_name	,	V_27
+hf_omapi_rid	,	V_25
+FT_UINT16	,	V_44
+packet_info	,	T_2
+omapi_handle	,	V_50
+hf_omapi_message_end_tag	,	V_33
+"Message name length"	,	L_22
+cursor	,	V_6
+"omapi.object_end_tag"	,	L_47
+hf_omapi_id	,	V_24
+"omapi.authid"	,	L_11
+"omapi.obj_value"	,	L_37
+hf_omapi_opcode	,	V_22
+"Signature"	,	L_38
+hf_omapi_msg_value_len	,	V_29
+ptvcursor_new	,	F_6
+proto_omapi	,	V_13
+ptvcursor_add	,	F_10
+FT_STRING	,	V_45
+OMAPI_PORT	,	V_51
+"Object end tag"	,	L_46
+"omapi.rid"	,	L_21
+HFILL	,	V_43
+objlength	,	V_9
+"omapi"	,	L_49
+"No value"	,	L_42
+"omapi.msg_name_length"	,	L_23
+create_dissector_handle	,	F_25
+hf_omapi_obj_value	,	V_37
+hf_omapi_obj_name	,	V_35
+ENC_BIG_ENDIAN	,	V_17
+hf_omapi_object_end_tag	,	V_38
+FT_UINT32	,	V_41
+hf_omapi_handle	,	V_23
+hf_omapi_no_value	,	V_31
+"omapi.msg_name"	,	L_25
+"tcp.port"	,	L_50
+proto_tree	,	T_3
+hf	,	V_40

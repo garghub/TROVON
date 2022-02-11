@@ -1,0 +1,128 @@
+"Locator/ID Separation Protocol (Data)"	,	L_34
+hf_lisp_data_lsb8	,	V_41
+hf_lisp_data_srcmapver	,	V_36
+proto_register_protocol	,	F_13
+"lisp-data.flags.lsb"	,	L_11
+LISP_DATA_FLAGS_WIDTH	,	V_51
+ip_ver	,	V_6
+"Invalid flag combination: if E is set, N MUST be set"	,	L_3
+tvb_new_subset_remaining	,	F_8
+gint	,	T_4
+col_set_str	,	F_3
+"LISP Data"	,	L_35
+tvb_get_bits8	,	F_9
+"Flags"	,	L_5
+hf_lisp_data_flags_res	,	V_27
+hf_lisp_data_lsb	,	V_42
+TFS	,	F_12
+tvb	,	V_1
+"I bit (Instance ID present)"	,	L_16
+COL_INFO	,	V_15
+ett_lisp_data_mapver	,	V_35
+"N bit (Nonce present)"	,	L_8
+"lisp-data.flags.nonce"	,	L_9
+"Source Map-Version"	,	L_25
+LISP_DATA_PORT	,	V_60
+FT_BOOLEAN	,	V_50
+"Nonce"	,	L_21
+hf_lisp_data_flags_mv	,	V_25
+proto_lisp_data	,	V_16
+proto_register_lisp_data	,	F_11
+cinfo	,	V_13
+tfs_set_notset	,	V_52
+proto_register_subtree_array	,	F_16
+"ipv6"	,	L_39
+hf_lisp_data_flags_lsb	,	V_23
+lisp_data_mapver_tree	,	V_33
+array_length	,	F_15
+"Reserved"	,	L_18
+next_tvb	,	V_7
+proto_tree_add_item	,	F_4
+call_dissector	,	F_10
+pinfo	,	V_2
+dissector_handle_t	,	T_8
+flags	,	V_5
+proto_reg_handoff_lisp_data	,	F_17
+"lisp-data.mapver"	,	L_24
+"V bit (Map-Version present)"	,	L_14
+ett_lisp_data	,	V_18
+lisp_data_flags_tree	,	V_11
+"Locator-Status-Bits"	,	L_31
+hf_lisp_data_flags_nonce	,	V_22
+hf_register_info	,	T_7
+"lisp-data.nonce"	,	L_22
+lisp_data_handle	,	V_59
+"lisp-data.lsb"	,	L_32
+COL_PROTOCOL	,	V_14
+"data"	,	L_40
+tvb_length	,	F_2
+FT_UINT8	,	V_47
+"lisp-data.dstmapver"	,	L_28
+"ip"	,	L_38
+proto_tree_add_text	,	F_7
+BASE_DEC	,	V_56
+hf_lisp_data_flags_enr	,	V_24
+ipv4_handle	,	V_43
+"lisp-data.lsb8"	,	L_33
+proto_item	,	T_6
+lisp_data_tree	,	V_10
+ENC_NA	,	V_17
+guint8	,	T_5
+ti	,	V_8
+"lisp-data.srcmapver"	,	L_26
+"Invalid flag combination: N and V can't be set both"	,	L_4
+"lisp-data.iid"	,	L_30
+tvbuff_t	,	T_1
+"L bit (Locator-Status-Bits field enabled)"	,	L_10
+LISP_DATA_FLAG_V	,	V_30
+tif	,	V_9
+BASE_HEX	,	V_48
+"lisp-data.flags.iid"	,	L_17
+FT_UINT24	,	V_54
+"lisp-data.flags.enr"	,	L_13
+LISP_DATA_FLAG_L	,	V_40
+dissect_lisp_data	,	F_1
+LISP_DATA_FLAG_N	,	V_29
+proto_item_add_subtree	,	F_5
+LISP_DATA_FLAG_I	,	V_38
+"E bit (Echo-Nonce-Request)"	,	L_12
+proto_register_field_array	,	F_14
+LISP_DATA_FLAG_E	,	V_28
+tiv	,	V_32
+"lisp-data"	,	L_36
+offset	,	V_4
+ett	,	V_58
+dissector_add_uint	,	F_19
+tree	,	V_3
+"lisp-data.flags.mv"	,	L_15
+data_handle	,	V_45
+packet_info	,	T_2
+"LISP"	,	L_1
+hf_lisp_data_flags_iid	,	V_26
+"lisp-data.flags.res"	,	L_19
+tvb_get_guint8	,	F_6
+"LISP Encapsulation Header"	,	L_2
+"Must be zero"	,	L_20
+hf_lisp_data_iid	,	V_39
+hf_lisp_data_mapver	,	V_34
+"Instance ID"	,	L_29
+BASE_DEC_HEX	,	V_55
+LISP_DATA_HEADER_LEN	,	V_12
+hf_lisp_data_nonce	,	V_31
+"Map-Version"	,	L_23
+HFILL	,	V_49
+new_create_dissector_handle	,	F_18
+"Destination Map-Version"	,	L_27
+"udp.port"	,	L_37
+hf_lisp_data_flags	,	V_19
+find_dissector	,	F_20
+ett_lisp_data_flags	,	V_21
+ipv6_handle	,	V_44
+LISP_DATA_FLAG_RES	,	V_53
+ENC_BIG_ENDIAN	,	V_20
+hf_lisp_data_dstmapver	,	V_37
+FT_UINT32	,	V_57
+"LISP Data Header Flags"	,	L_7
+proto_tree	,	T_3
+hf	,	V_46
+"lisp-data.flags"	,	L_6

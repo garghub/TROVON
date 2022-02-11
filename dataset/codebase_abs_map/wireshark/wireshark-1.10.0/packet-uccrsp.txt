@@ -1,0 +1,50 @@
+register_dissector	,	F_13
+uccrsp_tree	,	V_5
+hf_docsis_uccrsp_upchid	,	V_11
+proto_register_protocol	,	F_9
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_5
+"UCC Response"	,	L_2
+"Upstream Channel Change response  Channel ID = %u (U%u)"	,	L_1
+"docsis_uccrsp"	,	L_7
+gint	,	T_7
+proto_item_add_subtree	,	F_6
+proto_docsis_uccrsp	,	V_9
+proto_register_field_array	,	F_10
+tvb	,	V_1
+docsis_uccrsp_handle	,	V_18
+ett	,	V_17
+COL_INFO	,	V_8
+dissector_add_uint	,	F_16
+"docsis_mgmt"	,	L_8
+tree	,	V_3
+it	,	V_4
+packet_info	,	T_2
+tvb_get_guint8	,	F_2
+col_clear	,	F_3
+cinfo	,	V_7
+ett_docsis_uccrsp	,	V_10
+proto_register_subtree_array	,	F_12
+array_length	,	F_11
+"DOCSIS Upstream Channel Change Response"	,	L_5
+proto_tree_add_item	,	F_7
+proto_register_docsis_uccrsp	,	F_8
+pinfo	,	V_2
+col_add_fstr	,	F_4
+dissector_handle_t	,	T_8
+proto_reg_handoff_docsis_uccrsp	,	F_14
+"Upstream Channel Id"	,	L_3
+dissect_uccrsp	,	F_1
+hf_register_info	,	T_6
+HFILL	,	V_16
+"docsis_uccrsp.upchid"	,	L_4
+FT_UINT8	,	V_14
+find_dissector	,	F_15
+BASE_DEC	,	V_15
+proto_item	,	T_4
+chid	,	V_6
+"DOCSIS UCC-RSP"	,	L_6
+ENC_BIG_ENDIAN	,	V_12
+guint8	,	T_5
+proto_tree	,	T_3
+hf	,	V_13

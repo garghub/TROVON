@@ -1,0 +1,538 @@
+"bssap_plus.iei"	,	L_34
+BSSAP_ALERT_REQUEST	,	V_202
+BSSAP_GPRS_DETACH_ACK	,	V_208
+prot_disc	,	V_85
+"Length indicator"	,	L_35
+"bssap.ie_data"	,	L_103
+"Information requested"	,	L_118
+"PTMSI"	,	L_124
+"IMEISV IE"	,	L_63
+"PTMSI IE"	,	L_85
+"gsm_bssmap_le"	,	L_5
+TFS	,	F_74
+"Unknown parameter 0x%x (%u byte%s)"	,	L_4
+BSSAP_LOCATION_UPDATE_REQUEST	,	V_190
+guint32	,	T_3
+hf_bssap_tmsi_ie	,	V_151
+"bssap.mobile_station_state_ie"	,	L_84
+check_ie	,	F_26
+FT_BOOLEAN	,	V_243
+"bssap.mobile_id_ie"	,	L_80
+dissect_bssap_channel_needed	,	F_33
+"IMSI"	,	L_114
+hf_bssap_reject_cause_ie	,	V_140
+hf_bssap_imsi_det_from_gprs_serv_type	,	V_117
+PARAMETER_LENGTH	,	V_36
+hf_bssap_sgsn_number	,	V_150
+"IEI"	,	L_33
+"bssap.Gs_cause"	,	L_109
+hf_bssap_type_of_number	,	V_148
+array_length	,	F_78
+"TOM Protocol Discriminator"	,	L_130
+""	,	L_2
+hf_bssap_channel_needed_ie	,	V_82
+dissect_bssap_plus	,	F_68
+ie_type	,	V_67
+"bssap.cn_id"	,	L_141
+dgt	,	V_60
+BSSAP_ULINK_TNL_PLD_CTR_AND_INF	,	V_189
+hf_register_info	,	T_13
+"For the sake of sub-dissectors registering to accept data "	,	L_153
+dissect_bssap_ulink_tunnel_payload_control_and_info	,	F_64
+BSSAP_LOCATION_UPDATE_REJECT	,	V_199
+BSSAP_EMLPP_PRIORITY	,	V_181
+BSAP	,	V_263
+"Mobile identity IE"	,	L_79
+"SGSN number IE"	,	L_92
+guint16	,	T_5
+hf_bssap_dlci_cc	,	V_23
+"Spare"	,	L_23
+global_bssap_ssn	,	V_265
+bssap_item	,	V_50
+i	,	V_63
+digit_str	,	V_64
+co	,	V_54
+"Global CN-Id"	,	L_136
+hf_bssap_pdu_type	,	V_42
+BASE_NONE	,	V_248
+length_length	,	V_38
+BSSAP_SGSN_NUMBER	,	V_188
+"bssap.type_of_number"	,	L_40
+BSSAP_IMEISV	,	V_196
+dissect_bssap_sgsn_number	,	F_61
+ett_bssap_loc_inf_age	,	V_126
+"gsm_or_lb_interface"	,	L_156
+number_tvb	,	V_144
+bssap_or_bsap_options	,	V_262
+plurality	,	F_4
+BASE_HEX	,	V_230
+"bssap.mobile_station_state"	,	L_123
+BSSAP_PAGING_REQUEST	,	V_175
+col_add_str	,	F_69
+hf_bssap_mm_information_ie	,	V_128
+dissect_bssap_service_area_id	,	F_60
+ett_bssap_tmsi_status	,	V_155
+"bssap.loc_inf_age"	,	L_121
+hf_bssap_plus_ie_len	,	V_79
+ie_tvb	,	V_104
+payload	,	V_56
+sccp_info	,	V_52
+BSSAP_PDU_TYPE_DTAP	,	V_44
+proto_item_add_subtree	,	F_11
+ie_len	,	V_68
+module_t	,	T_12
+hf_bssap_extension	,	V_147
+de_cell_id	,	F_32
+proto_register_field_array	,	F_77
+CC_MASK	,	V_235
+FT_BYTES	,	V_250
+bssap_pdu_type_acro_values	,	V_48
+dissector_add_uint	,	F_87
+dissect_bssap_MM_information	,	F_50
+"bsap.dlci.cc"	,	L_22
+data_handle	,	V_18
+"PLMN-Id"	,	L_138
+FT_UINT16	,	V_255
+de_lai	,	F_48
+ett_bssap_ptmsi	,	V_138
+de_rej_cause	,	F_59
+hf_bssap_ulink_tnl_pld_cntrl_amd_inf_ie	,	V_157
+"bssap.loc_upd_type_ie"	,	L_58
+ett_bssap_erroneous_msg	,	V_96
+dissect_bssap_gprs_erroneous_msg	,	F_37
+ett_bssap_reject_cause	,	V_141
+"BSAP"	,	L_11
+heur_dissector_add	,	F_84
+"Message Type"	,	L_17
+FT_STRING	,	V_247
+"bssap.tmsi"	,	L_127
+ett_bassp_imei	,	V_106
+proto_bssap	,	V_58
+ie_tree	,	V_71
+BSSAP_TMSI_REALLOCATION_COMPLETE	,	V_201
+"Control Channel"	,	L_20
+"Extension"	,	L_37
+bsap_cc_values	,	V_236
+"ssn"	,	L_159
+ett_bssap_imsi	,	V_113
+val_to_str_const	,	F_20
+BSSAP_RESET_INDICATION	,	V_213
+length	,	V_6
+bssap_cc_values	,	V_234
+ett_bssap_service_area_id	,	V_143
+ett_bssap_vlr_number	,	V_160
+hf_bssap_mobile_stn_cls_mrk1_ie	,	V_132
+"Extraneous data"	,	L_15
+"bssap.imei_ie"	,	L_62
+dissect_bssap_gprs_location_update_type	,	F_38
+"Location information age IE"	,	L_75
+"Cell global identity IE"	,	L_45
+ett_bssap_mm_information	,	V_129
+ett_bssap_tmsi	,	V_152
+BSSAP_MOBILE_ID	,	V_198
+hf	,	V_228
+"BSSAP"	,	L_10
+BSSAP_IMEI	,	V_219
+BSSAP_MM_INFORMATION	,	V_222
+enum_val_t	,	T_14
+"Subsystem number used for BSSAP"	,	L_160
+"bssap.pdu_type"	,	L_18
+"bssap.emlpp_prio_ie"	,	L_54
+BSSAP_PDU_TYPE_BSSMAP	,	V_13
+prefs_register_protocol	,	F_80
+BSSAP_GLOBAL_CN_ID	,	V_182
+"bssap.loc_inf_age_ie"	,	L_76
+"bssap.tmsi_status_ie"	,	L_97
+dtap_mm_mm_info	,	F_51
+"BSSAP+"	,	L_14
+col_append_fstr	,	F_19
+"bssap.channel_needed_ie"	,	L_48
+"bssap.tunnel_prio"	,	L_135
+"IMEISV"	,	L_112
+col_set_str	,	F_22
+"Cell global identity"	,	L_142
+"bssap.imsi_ie"	,	L_66
+dissect_bssap_emlpp_priority	,	F_36
+oct	,	V_21
+"Information requested IE"	,	L_71
+hf_bssap_plus_ie_data	,	V_97
+dissect_bssap_imsi	,	F_43
+dissect_e212_mcc_mnc	,	F_67
+hf_bssap_dlci_spare	,	V_24
+dissect_bssap_mobile_id	,	F_52
+"bssap.imsi_det_from_gprs_serv_type"	,	L_117
+dlci_tree	,	V_20
+dgt_set_t	,	T_9
+"bssap.imesiv"	,	L_64
+"bssap.msi_det_from_gprs_serv_type_ie"	,	L_68
+"bssap.global_cn_id"	,	L_137
+proto_tree_add_string	,	F_41
+de_ms_cm_1	,	F_55
+dissect_bssap_mobile_stn_cls_mrk1	,	F_54
+"bssap.service_area_id_ie"	,	L_90
+BSSAP_SERVICE_AREA_ID	,	V_195
+"IMSI IE"	,	L_65
+message_length	,	V_3
+dissector_handle_t	,	T_15
+BSSAP_GS_CAUSE	,	V_184
+hf_bssap_Gs_cause_ie	,	V_101
+BSSAP_PTMSI	,	V_218
+SPARE_MASK	,	V_237
+"bssap.tmsi_status"	,	L_129
+ett_bssap_dlci	,	V_22
+dissect_bssap_location_information_age	,	F_49
+ett_bssap_cell_global_id	,	V_76
+hf_bssap_length	,	V_30
+VALS	,	F_73
+"TMSI status IE"	,	L_96
+"bssap.dlci.sapi"	,	L_28
+dissect_bssap_tmsi	,	F_62
+hf_bssap_cell_global_id	,	V_80
+ett_bssap_mobile_station_state	,	V_135
+"%s "	,	L_8
+rrlp_handle	,	V_91
+ett_bssap_imsi_det_from_gprs_serv_type	,	V_116
+dissect_bssap_Gs_cause	,	F_39
+"data"	,	L_166
+tvb_length	,	F_2
+dissect_bssap_ptmsi	,	F_57
+BSSAP_MOBILE_STATUS	,	V_223
+proto_tree_add_text	,	F_3
+BASE_DEC	,	V_241
+tvb_new_subset	,	F_16
+ett_bssap_imsi_det_from_non_gprs_serv_type	,	V_119
+plmn_item	,	V_161
+"bssap.plmn_id"	,	L_139
+ENC_NA	,	V_75
+ett_bssap_emlpp_prio	,	V_93
+ett_bssap_gprs_loc_upd	,	V_99
+ett_bssap_sgsn_nr	,	V_146
+BSSAP_VLR_NUMBER	,	V_177
+"rrlp"	,	L_167
+BSSAP_IMSI_DETACH_INDICATION	,	V_209
+bssap_mobile_station_state_values	,	V_256
+dissect_bssap_message	,	F_18
+dissect_bssap_vlr_number	,	F_65
+"E: Cipher Request"	,	L_132
+PDU_TYPE_LENGTH	,	V_41
+hf_bssap_info_req	,	V_122
+"bsap.pdu_type"	,	L_19
+"Reject cause IE"	,	L_87
+bssap_info_req_values	,	V_254
+dissect_bssap_var_parameter	,	F_17
+bssap_tom_prot_disc_values	,	V_258
+prefs_register_uint_preference	,	F_82
+hf_bssap_info_req_ie	,	V_120
+hf_bssap_service_area_id_ie	,	V_142
+assoc	,	V_55
+dissect_bssap_imsi_det_from_non_gprs_serv_type	,	F_45
+parameter_type	,	V_31
+ett_bssap_info_req	,	V_121
+guint	,	T_11
+"Length"	,	L_30
+ett	,	V_260
+"IMSI detach from non-GPRS service IE"	,	L_69
+hf_bssap_mobile_station_state_ie	,	V_134
+"bssap.msi_det_from_non_gprs_serv_type_ie"	,	L_70
+packet_info	,	T_6
+"s"	,	L_3
+BSSAP_GPRS_DETACH_INDICATION	,	V_206
+dissect_bssap_loc_area_id	,	F_47
+hf_bssap_sgsn_nr_ie	,	V_145
+ett_bssap_global_cn	,	V_166
+"bssap.info_req_ie"	,	L_72
+hf_bssap_plus_ie	,	V_77
+ett_bssap_channel_needed	,	V_83
+hf_bssap_e_bit	,	V_89
+hf_bssap_global_cn_id	,	V_167
+hf_bssap_tunnel_prio	,	V_90
+BSSAP_UPLINK_TUNNEL_REQUEST	,	V_187
+global_cn_id_tree	,	V_164
+hf_bsap_dlci_rsvd	,	V_27
+"CN-Id"	,	L_140
+BSSAP_MM_INFORMATION_REQUEST	,	V_221
+gsm_a_dtap_type_of_number_values	,	V_245
+"MM information IE"	,	L_77
+hf_bsap_dlci_sapi	,	V_28
+"Gs Cause IE"	,	L_59
+HFILL	,	V_232
+"bsap.dlci.rsvd"	,	L_26
+"bssap.tmsi_ie"	,	L_95
+dissect_bssap	,	F_21
+"bssap.vlr_number_ie"	,	L_99
+dissector_try_uint	,	F_9
+BSSAP_LOCATION_UPDATE_ACCEPT	,	V_197
+"TMSI status"	,	L_128
+bssap_tree	,	V_2
+de_mid	,	F_53
+create_dissector_handle	,	F_85
+dissect_bssap_dlink_tunnel_payload_control_and_info	,	F_35
+parameter_tvb	,	V_34
+PARAMETER_DATA	,	V_37
+"Downlink Tunnel Payload Control and Info IE"	,	L_49
+BSSAP_IMSI_DET_FROM_NON_GPRS_SERV_TYPE	,	V_210
+BSSAP_GPRS_LOC_UPD_TYPE	,	V_191
+BSSAP_TMSI_STATUS	,	V_194
+"Unknown"	,	L_9
+"Lb"	,	L_147
+"sccp.ssn"	,	L_168
+hf_bsap_pdu_type	,	V_43
+dissect_bssap_reject_cause	,	F_58
+proto_register_protocol	,	F_75
+"gsm_a_bssmap"	,	L_6
+"IMEI IE"	,	L_61
+message_tvb	,	V_1
+"bssap.dlci.spare"	,	L_24
+hf_bssap_imei_ie	,	V_105
+check_optional_ie	,	F_28
+BSSAP	,	V_10
+gint	,	T_8
+BSSAP_INFO_REQ	,	V_216
+"lb"	,	L_146
+plmn_tree	,	V_162
+BSSAP_DOWNLINK_TUNNEL_REQUEST	,	V_185
+hf_bssap_loc_inf_age	,	V_127
+tvb	,	V_4
+bsap_dissector_handle	,	V_14
+COL_INFO	,	V_47
+"bssap.global_cn_id_ie"	,	L_101
+val_to_str_ext	,	F_27
+unpack_digits	,	F_24
+BSSAP_MOBILE_STN_STATE	,	V_220
+"Mobile station state IE"	,	L_83
+ett_bssap_mobile_stn_cls_mrk1	,	V_133
+"Mobile station classmark 1 IE"	,	L_81
+BSSAP_ALERT_ACK	,	V_203
+gsm_a_dtap_numbering_plan_id_values	,	V_246
+pdu_type	,	V_8
+"GSM A"	,	L_145
+cinfo	,	V_46
+SCCP_PLOAD_BSSAP	,	V_57
+hf_bssap_tmsi_status	,	V_156
+GSM_INTERFACE	,	V_15
+BSSAP_LOC_AREA_ID	,	V_179
+"bsap_or_bssap"	,	L_151
+"Reserved"	,	L_25
+next_tvb	,	V_84
+dissect_bssap_mobile_station_state	,	F_56
+bsap_dissector_table	,	V_17
+hf_bssap_imsi	,	V_114
+call_dissector	,	F_8
+BSSAP_MS_INFORMATION_REQUEST	,	V_215
+"bssap.cell_global_id"	,	L_143
+cgi_tree	,	V_73
+dissect_bssap_data_param	,	F_6
+bssap_plus_handle	,	V_267
+"Identify to sub-dissector as"	,	L_152
+bssap_or_bsap_global	,	V_9
+hf_bssap_tmsi	,	V_153
+"bssap.loc_area_id_ie"	,	L_74
+hf_bssap_tom_prot_disc	,	V_88
+"bssap.mobile_stn_cls_mrk1_ie"	,	L_82
+prefs_register_enum_preference	,	F_81
+"bssap.erroneous_msg_ie"	,	L_56
+"TMSI"	,	L_126
+COL_PROTOCOL	,	V_51
+"bssap.ptmsi"	,	L_125
+hf_bssap_mobile_id_ie	,	V_130
+skip_first	,	V_61
+hf_bssap_global_cn_id_ie	,	V_165
+"BSSAP/BSAP"	,	L_150
+BSSAP_REJECT_CAUSE	,	V_200
+"bssap.dlci.cc"	,	L_21
+guint8	,	T_4
+ett_bssap_global_cn_id	,	V_168
+"Identify the BSSAP interface"	,	L_157
+hf_bssap_gprs_loc_upd_type	,	V_100
+"TMSI IE"	,	L_94
+tvb_length_remaining	,	F_70
+BSSAP_MOBILE_STN_CLS_MRK1	,	V_193
+de_rr_chnl_needed	,	F_34
+hf_bssap_call_priority	,	V_94
+register_dissector	,	F_76
+"VLR number IE"	,	L_98
+BSSAP_CHANNEL_NEEDED	,	V_180
+tvbuff_t	,	T_1
+proto_tree_add_protocol_format	,	F_23
+"bssap_plus.ie_len"	,	L_36
+"eMLPP Priority"	,	L_104
+LB_INTERFACE	,	V_12
+dissect_bssap_parameter	,	F_15
+gboolean	,	T_10
+ep_alloc	,	F_25
+dlci_item	,	V_19
+"bssap.mm_information"	,	L_78
+proto_reg_handoff_bssap	,	V_264
+hf_bssap_mobile_station_state	,	V_136
+"from the BSSAP/BSAP dissector, this defines whether it is "	,	L_154
+dissect_bssap_imsi_det_from_gprs_serv_type	,	F_44
+"bsap"	,	L_149
+"sccp"	,	L_164
+PARAMETER_DLCI	,	V_35
+"bssap"	,	L_148
+ett_bassp_imesiv	,	V_110
+"Gs cause"	,	L_108
+ett_bssap_dlink_tnl_pld_cntrl_amd_inf	,	V_87
+hf_bssap_cn_id	,	V_171
+tvb_get_guint8	,	F_12
+"GPRS location update type IE"	,	L_57
+"bssap.reject_cause_ie"	,	L_88
+"bssap.e_bit"	,	L_133
+dissector_delete_uint	,	F_86
+"bssap.dlink_tnl_pld_cntrl_amd_inf_ie"	,	L_50
+"GSM-A is the interface between the BSC and the MSC. Lb is the interface between the BSC and the SMLC."	,	L_158
+global_cn_id_item	,	V_163
+"bssap_plus.msg_type"	,	L_32
+"Global CN-Id IE"	,	L_100
+Dgt1_9_bcd	,	V_107
+ett_bssap_mobile_id	,	V_131
+"bsap.dlci.sapi"	,	L_29
+gsm_or_lb_interface_options	,	V_261
+BSSAP_IMSI_DET_FROM_GPRS_SERV_TYPE	,	V_207
+dissect_bssap_dlci_param	,	F_10
+BSSAP_MS_INFORMATION_RESPONSE	,	V_217
+bssap_sapi_values	,	V_238
+BSSAP_ERRONEOUS_MSG	,	V_224
+"bssap.imei"	,	L_111
+"gsm a"	,	L_144
+ett_bssap_loc_area_id	,	V_124
+hf_bsap_dlci_cc	,	V_26
+"Type of number"	,	L_39
+BSSAP_LOC_INF_AGE	,	V_211
+"bssap.ulink_tnl_pld_cntrl_amd_inf_ie"	,	L_52
+data_length	,	V_29
+find_dissector	,	F_7
+proto_register_bssap	,	F_72
+ENC_BIG_ENDIAN	,	V_78
+"sua"	,	L_165
+LENGTH_LENGTH	,	V_39
+"bssap.gprs_loc_upd_type"	,	L_107
+bsap_sapi_values	,	V_240
+hf_bssap_imesiv_ie	,	V_109
+hf_bssap_vlr_number_ie	,	V_159
+BSSAP_PAGING_REJECT	,	V_183
+"bssap.Gs_cause_ie"	,	L_60
+dissect_bssap_heur	,	F_71
+"bssap.length"	,	L_31
+bssap_plus_ie_id_values_ext	,	V_69
+ett_bssap_plmn	,	V_170
+"bssap.number_plan"	,	L_42
+bssap_extension_value	,	V_244
+dissect_bssap_cell_global_id	,	F_29
+dissect_bssap_info_req	,	F_46
+PDU_TYPE_OFFSET	,	V_40
+BASE_EXT_STRING	,	V_242
+hf_bssap_plmn_id	,	V_169
+hf_bssap_imsi_det_from_gprs_serv_type_ie	,	V_115
+ett_bassp_Gs_cause	,	V_102
+hf_bssap_tmsi_status_ie	,	V_154
+"bssap.cell_global_id_ie"	,	L_46
+item	,	V_70
+bssap_plus_message_type_values_ext	,	V_174
+"bssap.Tom_prot_disc"	,	L_131
+message_type	,	V_172
+expected_ie	,	V_66
+"bssap.imsi"	,	L_115
+hf_bssap_numbering_plan_id	,	V_149
+hf_bssap_gprs_loc_upd_type_ie	,	V_98
+BSSAP_ALERT_REJECT	,	V_204
+"bssap.extension"	,	L_38
+proto_register_subtree_array	,	F_79
+"BSSAP Message Type"	,	L_162
+bssap_plus_GPRS_loc_upd_type_values	,	V_252
+proto_tree_add_item	,	F_30
+pinfo	,	V_7
+BSSAP_TMSI	,	V_178
+BSSAP_IMSI_DETACH_ACK	,	V_212
+_U_	,	V_226
+dissect_bssap_imesiv	,	F_42
+out	,	V_65
+bssap_tmsi_flag	,	V_257
+"GPRS location update type"	,	L_106
+bssap_pdu_type_values	,	V_231
+old_bssap_ssn	,	V_268
+"SGSN number"	,	L_43
+"IMSI detach from GPRS service type"	,	L_116
+"IMEI"	,	L_110
+"IE Data"	,	L_102
+"AgeOfLocationInformation in minutes"	,	L_120
+dissect_bssap_length_param	,	F_14
+dissect_bssap_global_cn_id	,	F_66
+initialized	,	V_266
+SAPI_MASK	,	V_239
+bsap_pdu_type_acro_values	,	V_49
+hf_bssap_loc_inf_age_ie	,	V_125
+BSSAP_IMSI	,	V_176
+"identified as BSSAP or BSAP."	,	L_155
+"Uplink Tunnel Payload Control and Info IE"	,	L_51
+"bssap.sgsn_number"	,	L_44
+FT_UINT8	,	V_229
+de_gmm_rai	,	F_31
+proto_item	,	T_7
+"Mandatory IE %s expected but IE %s Found"	,	L_12
+"Tunnel Priority"	,	L_134
+"Mobile station classmark 1"	,	L_91
+hf_bssap_plus_message_type	,	V_173
+parameter_length	,	V_33
+hf_bssap_ptmsi	,	V_139
+hf_bssap_imsi_det_from_non_gprs_serv_type_ie	,	V_118
+register_dissector_table	,	F_83
+data	,	V_53
+octet	,	V_62
+BSSAP_MS_UNREACHABLE	,	V_225
+"Numbering plan identification"	,	L_41
+hf_bssap_Gs_cause	,	V_103
+"bssap.call_priority"	,	L_105
+dissect_bssap_unknown_param	,	F_5
+"Conditional IE"	,	L_16
+bsap_pdu_type_values	,	V_233
+bssap_module	,	V_227
+gsm_or_lb_interface_global	,	V_11
+dissect_bssap_imei	,	F_40
+"bssap.sgsn_nr_ie"	,	L_93
+hf_bssap_imei	,	V_108
+BSSAP_DLINK_TNL_PLD_CTR_AND_INF	,	V_186
+dissect_bssap_tmsi_status	,	F_63
+FT_NONE	,	V_249
+offset	,	V_32
+hf_bssap_loc_area_id_ie	,	V_123
+bssap_dissector_table	,	V_16
+tree	,	V_5
+ett_bssap_cgi	,	V_81
+"Unknown %u"	,	L_13
+"IMSI detach from GPRS service type IE"	,	L_67
+"Service area identification IE"	,	L_89
+bssap_call_priority_values	,	V_251
+hf_bssap_emlpp_prio_ie	,	V_92
+hf_bssap_gprs_erroneous_msg_ie	,	V_95
+"Erroneous message IE"	,	L_55
+hf_bssap_cell_global_id_ie	,	V_74
+"Channel needed IE"	,	L_47
+"bssap.ptmsi_ie"	,	L_86
+proto_tree_add_uint	,	F_13
+hf_bssap_imeisv	,	V_111
+cgi_item	,	V_72
+ett_bssap_ulink_tnl_pld_cntrl_amd_inf	,	V_158
+"bssap.info_req"	,	L_119
+"Data Link Connection Identifier"	,	L_7
+hf_bssap_imsi_ie	,	V_112
+"Unknown message (%u byte%s)"	,	L_1
+ett_bssap	,	V_59
+bssap_Gs_cause_values	,	V_253
+dissect_bssap_unknown_message	,	F_1
+"Location area identifier IE"	,	L_73
+BSSAP_CELL_GBL_ID	,	V_192
+"Set Subsystem number used for BSSAP/BSSAP+"	,	L_161
+hf_bssap_ptmsi_ie	,	V_137
+hf_bssap_dlci_sapi	,	V_25
+"bssap.imeisv"	,	L_113
+DLCI_LENGTH	,	V_45
+"SAPI"	,	L_27
+"Mobile station state"	,	L_122
+bssap_E_flag	,	V_259
+"eMLPP Priority IE"	,	L_53
+BSSAP_MS_ACTIVITY_INDICATION	,	V_205
+"BSAP Message Type"	,	L_163
+hf_bssap_dlink_tnl_pld_cntrl_amd_inf_ie	,	V_86
+proto_tree	,	T_2
+BSSAP_RESET_ACK	,	V_214

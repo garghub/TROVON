@@ -1,0 +1,930 @@
+partial_state_str	,	V_1
+"Addr: %u      n %u"	,	L_37
+hf_udvm_j	,	V_205
+hf_sigcomp_loading_h	,	V_217
+"Displays the decompressed message as text"	,	L_415
+proto_tree_add_format_text	,	F_75
+"Addr: %u      output_start %u"	,	L_104
+"byte copy"	,	L_303
+guint32	,	T_7
+"sigcomp.sha1_digest"	,	L_337
+pool	,	V_148
+"%Operand 2[memory address]"	,	L_222
+tbit	,	V_283
+"Start value"	,	L_271
+dissect_udvm_multitype_operand	,	F_70
+"Calculated SHA-1"	,	L_319
+"Data handed to the Sigcomp dissector"	,	L_353
+array_length	,	F_81
+"Starting to remove escape digits"	,	L_342
+state_instruction	,	V_22
+"%Partial identifier length"	,	L_197
+"display.bytecode"	,	L_407
+SIGCOMP_INSTR_STATE_ACCESS	,	V_218
+"Output start"	,	L_231
+H	,	V_89
+msg_len	,	V_286
+"               Getting value: %u (0x%x) From Addr: %u"	,	L_1
+"Unknown (%u)"	,	L_120
+col_append_str	,	F_64
+hf_sigcomp_decompression_failure	,	V_154
+hf_udvm_lower_bound	,	V_213
+result	,	V_51
+p_id_start	,	V_17
+hf_register_info	,	T_16
+"Invalid shift value"	,	L_378
+"sigcomp.udvm.position"	,	L_252
+"sigcomp.decompression_failure"	,	L_316
+"NACK Version"	,	L_277
+hf_sigcomp_udvm_bytecode	,	V_322
+"     Loading bytes at %u Value %u 0x%x"	,	L_35
+guint16	,	T_5
+next_operand_address	,	V_95
+hf_sigcomp_nack_memory_size	,	V_319
+"%Uncompressed"	,	L_266
+i	,	V_39
+j	,	V_124
+hf_sigcomp_remaining_bytes	,	V_347
+k	,	V_26
+m	,	V_87
+n	,	V_25
+hf_udvm_output_length_addr	,	V_345
+wmem_alloc0	,	F_26
+SIGCOMP_INSTR_NOT	,	V_163
+UDVM_MEMORY_SIZE	,	V_34
+output_length	,	V_133
+STATE_BUFFER_SIZE	,	V_31
+"               Loading H: %u (0x%x) at Addr: %u,j = %u remaining_bits: %u"	,	L_86
+BASE_NONE	,	V_365
+SIGCOMP_INSTR_END_MESSAGE	,	V_234
+x	,	V_88
+sigcomp_tcp_handle	,	V_390
+buff	,	V_16
+msg_tvb	,	V_274
+ref_destination	,	V_130
+"T bit"	,	L_141
+header_len	,	V_81
+" (output_start, output_length)"	,	L_103
+"sigcomp.addr"	,	L_350
+udvm2_tvb	,	V_275
+"              End of SigComp message indication found (0xFFFF)"	,	L_124
+" ($operand_1, operand_2)"	,	L_16
+udvm_tvb	,	V_273
+hf_sigcomp_loading_value	,	V_209
+"Addr: %u ## AND (operand_1=%u, operand_2=%u)"	,	L_11
+upper_bound_n	,	V_127
+opcode	,	V_304
+hf_udvm_destination	,	V_208
+tvb_memcpy	,	F_57
+PROTO_ITEM_SET_GENERATED	,	F_59
+"%Start value"	,	L_269
+state_buffer_table	,	V_4
+" (partial_identifier_start, partial_identifier_length)"	,	L_101
+proto_item_add_subtree	,	F_54
+"sigcomp.current_instruction"	,	L_314
+"Addr: %u ## JUMP (@address=%u)"	,	L_62
+"              Illegal escape code"	,	L_123
+FT_BYTES	,	V_364
+SIGCOMP_INSTR_STATE_CREATE	,	V_225
+"Returned feedback item length"	,	L_158
+dissect_sigcomp_common	,	F_55
+FT_UINT16	,	V_368
+"Addr: %u       partial_identifier_start %u"	,	L_88
+ei_sigcomp_tcp_fragment	,	V_270
+ei_sigcomp_failed_to_access_state_wireshark_udvm_diagnostic	,	V_296
+"Addr: %u      offset %u"	,	L_51
+"Addr: %u ## STATE-FREE (partial_identifier_start=%u, partial_identifier_length=%u)"	,	L_102
+"Address"	,	L_185
+"State retention priority"	,	L_247
+"Addr %u Invalid instruction: %u (0x%x)"	,	L_118
+at_address_1	,	V_121
+at_address_2	,	V_122
+state_length	,	V_20
+at_address_3	,	V_123
+"Compression ratio (decompressed / compressed) %"	,	L_157
+sip_sdp_static_dictionaty_for_sigcomp	,	V_10
+"Remaining bytes"	,	L_361
+FT_STRING	,	V_366
+"%Bits"	,	L_257
+expert_sigcomp	,	V_387
+"Addr: %u      Destination %u"	,	L_43
+ei_sigcomp_sigcomp_message_decompression_failure	,	V_156
+"Addr: %u      state_instruction %u"	,	L_113
+"sigcomp.message_length"	,	L_370
+ett_sigcomp_udvm_exe	,	V_298
+hf_sigcomp_destination	,	V_321
+proto_tree_add_none_format	,	F_35
+hf_sigcomp_byte_code_length	,	V_143
+"Addr: %u ## OR (operand_1=%u, operand_2=%u)"	,	L_13
+bits_still_required	,	V_67
+returned_feedback_field	,	V_282
+"sigcomp.length"	,	L_145
+destination_address_encoding_vals_ext	,	V_370
+"Addr: %u       state_begin %u"	,	L_90
+register_cleanup_routine	,	F_89
+"sigcomp.udvm.at.address"	,	L_184
+hf_sigcomp_sha1_digest	,	V_239
+FT_UINT32	,	V_367
+"sigcomp.accessing_state"	,	L_306
+"sigcomp.loading_h"	,	L_330
+hf_sigcomp_returned_feedback_item_len	,	V_291
+dissect_sigcomp	,	F_56
+" %u (0x%x) bytes"	,	L_137
+decompress	,	V_295
+"Uploaded UDVM bytecode"	,	L_164
+"sigcomp.all_remaining_parameters"	,	L_389
+hf_udvm_address	,	V_185
+col_set_str	,	F_51
+" (state_length, state_address, state_instruction,minimum_access_length, state_retention_priority)"	,	L_96
+"Output value"	,	L_332
+SIGCOMP_INSTR_SUBTRACT	,	V_168
+"sigcomp.failed_to_access_state_wireshark_udvm_diagnostic"	,	L_387
+"Addr: %u ## INPUT-HUFFMAN (destination=%u, @address=%u, #n=%u, bits_1, lower_1,upper_1, unc_1, ... , bits_%d, lower_%d,upper_%d, unc_%d)"	,	L_79
+"Wireshark UDVM diagnostic"	,	L_317
+value_2	,	V_120
+"byte_copy_right = %u"	,	L_30
+value_1	,	V_119
+"sigcomp.nack.cycles_per_bit"	,	L_295
+"Reason Code"	,	L_279
+proto_tree_add_string	,	F_13
+hf_udvm_start_value	,	V_197
+hf_sigcomp_nack_pc	,	V_310
+"%Position"	,	L_251
+"Addr: %u ## LSHIFT (operand_1=%u, operand_2=%u)"	,	L_17
+"NACK SHA-1 Hash of failed message"	,	L_290
+udvm_state_create	,	F_15
+"sigcomp.udvm.bits"	,	L_258
+"sigcomp.decompression_failure_expert"	,	L_383
+"               Addr: %5u State value: %u (0x%x) ASCII(%s)"	,	L_100
+"sigcomp.udvm.start.address.addr"	,	L_212
+"sigcomp.udvm_execution_stated"	,	L_368
+ett_sigcomp	,	V_261
+SIGCOMP_INSTR_INPUT_BYTES	,	V_207
+dissector_handle_t	,	T_21
+"sigcomp.calculated_sha_1"	,	L_320
+hf_sigcomp_udvm_instr	,	V_335
+dummy_buff	,	V_40
+"Value"	,	L_192
+"Addr: %u ## DIVIDE (operand_1=%u, operand_2=%u)"	,	L_23
+"Addr: %u ## REMAINDER (operand_1=%u, operand_2=%u)"	,	L_24
+can_desegment	,	V_251
+udvm_exe_item	,	V_277
+"sigcomp.message_decompressed"	,	L_341
+SIGCOMP_INSTR_JUMP	,	V_199
+decode_udvm_multitype_operand	,	F_20
+"maximum_UDVM_cycles"	,	L_363
+"Literal number"	,	L_189
+SIGCOMP_INSTR_INPUT_HUFFMAN	,	V_211
+udvm_state_access	,	F_10
+dissect_sigcomp_tcp	,	F_49
+"sigcomp.num_state_create"	,	L_335
+operand_address	,	V_42
+SIGCOMP_INSTR_LSHIFT	,	V_164
+"sigcomp.returned.feedback.item.len"	,	L_159
+ei_sigcomp_nack_failed_op_code	,	V_308
+g_hash_table_lookup	,	F_14
+"### Creating state ###"	,	L_338
+"sigcomp.tcp_fragment"	,	L_385
+"Addr: %u ## STATE-ACCESS(31) (partial_identifier_start=%u, partial_identifier_length=%u,state_begin=%u, state_length=%u, state_address=%u, state_instruction=%u)"	,	L_94
+"used_udvm_cycles"	,	L_365
+"Medium-detail"	,	L_396
+"%Destination"	,	L_179
+stack_fill	,	V_97
+"Returned feedback item"	,	L_149
+hf_sigcomp_remaining_message_bytes	,	V_294
+"sigcomp.nack.state_id"	,	L_292
+"%State retention priority"	,	L_245
+out_buff	,	V_86
+"               H(%u) = H(%u) + uncompressed_n(%u) - lower_bound_n(%u)"	,	L_85
+expert_register_protocol	,	F_83
+"sigcomp.returned.feedback.item"	,	L_148
+"Addr: %u      position %u"	,	L_27
+print_flags	,	V_80
+"Addr: %u      length %u"	,	L_75
+"sigcomp.getting_value"	,	L_308
+guint	,	T_8
+"medium-detail"	,	L_395
+ett	,	V_375
+wmem_packet_scope	,	F_11
+"Failed to Access state Wireshark UDVM diagnostic: %s"	,	L_130
+SIGCOMP_INSTR_LOAD	,	V_184
+old_input_bit_order	,	V_59
+hf_udvm_output_length	,	V_232
+"Getting value"	,	L_307
+"Addr: %u ## COPY-OFFSET (offset=%u, length=%u, $destination=%u)"	,	L_52
+"%Upper bound"	,	L_263
+packet_info	,	T_10
+"%State address[memory address]"	,	L_211
+STATE_MIN_ACCESS_LEN	,	V_33
+"%Output_length[memory address]"	,	L_237
+"Offset"	,	L_274
+"sigcomp.udvm.length"	,	L_175
+"sigcomp.req.feedback.loc"	,	L_240
+EXPFILL	,	V_380
+"sigcomp.udvm.j"	,	L_225
+ptype	,	V_271
+"high-detail"	,	L_397
+"Addr: %u ## INPUT-BYTES length=%u, destination=%u, @address=%u)"	,	L_72
+"Addr: %u      Value %5u      - Loading bytes at %5u Value %5u 0x%x"	,	L_39
+length_encoding_vals	,	V_363
+PI_MALFORMED	,	V_383
+hf_sigcomp_data_for_sigcomp_dissector	,	V_269
+hf_udvm_operand_2_addr	,	V_336
+create_dissector_handle	,	F_91
+"SigComp message Decompression failure"	,	L_380
+hf_udvm_uncompressed	,	V_215
+"%Minimum access length"	,	L_242
+" (offset, length, $destination)"	,	L_50
+hf_udvm_state_length_addr	,	V_342
+" (partial_identifier_start, partial_identifier_length,state_begin, state_length, state_address, state_instruction)"	,	L_87
+hf_udvm_addr_output_start	,	V_344
+"Unknown"	,	L_135
+hf_sigcomp_end_of_sigcomp_message_indication_found	,	V_266
+SIGCOMP_INSTR_MULTIPLY	,	V_169
+hf_state_begin	,	V_221
+buf_size_real	,	V_27
+value1	,	V_54
+hf_sigcomp_calculated_sha_1	,	V_183
+start_value	,	V_138
+"Addr: %u ## MEMSET (address=%u, length=%u, start_value=%u, offset=%u)"	,	L_58
+proto_register_protocol	,	F_78
+state_length_buff	,	V_102
+show_instr_detail_level	,	V_141
+" (address, length, start_value, offset)"	,	L_56
+len	,	V_284
+"sigcomp.set_hu"	,	L_328
+gint	,	T_6
+GCRY_MD_SHA1	,	V_180
+hf_sigcomp_decompress_instruction	,	V_160
+"sigcomp.udvm.value"	,	L_191
+"               Copying value: %u (0x%x) to Addr: %u"	,	L_46
+SIGCOMP_INSTR_COPY	,	V_191
+"State address"	,	L_210
+tvb	,	V_14
+"Destination"	,	L_162
+"%Output_start[memory address]"	,	L_232
+SIGCOMP_INSTR_STATE_FREE	,	V_229
+hf_udvm_offset	,	V_195
+hf_sigcomp_sha1buff	,	V_238
+desegment_offset	,	V_253
+sigcomp_cleanup_udvm	,	F_8
+"Remaining SigComp message"	,	L_355
+hf_sigcomp_addr_value	,	V_267
+decompress_sigcomp_message	,	F_25
+state_address	,	V_21
+PI_ERROR	,	V_384
+"Escape digit found"	,	L_344
+"Addr: %u ## INPUT-BITS length=%u, destination=%u, @address=%u)"	,	L_76
+hf_udvm_state_instr	,	V_224
+bytecode	,	V_44
+handle_now	,	V_181
+call_dissector	,	F_66
+reason_ti	,	V_303
+bits_n	,	V_125
+"sigcomp.data_for_sigcomp_dissector"	,	L_354
+proto_raw_sigcomp	,	V_356
+PRESENCE_STATE_LENGTH	,	V_11
+prefs_register_enum_preference	,	F_87
+cycles_per_bit	,	V_107
+"%Offset[memory address]"	,	L_275
+"sigcomp.memory_size"	,	L_298
+COL_PROTOCOL	,	V_257
+"Low-detail"	,	L_394
+g_free	,	V_7
+"@Address(mem_add_of_inst + D) mod 2^16)"	,	L_183
+"Addr: %u ## CALL (@address=%u)"	,	L_66
+guint8	,	T_2
+SIGCOMP_INSTR_PUSH	,	V_189
+"sigcomp.message_decompression_failure"	,	L_379
+nack_version	,	V_287
+SIGCOMP_INSTR_RSHIFT	,	V_166
+udvm_tree	,	V_57
+start_offset	,	V_91
+"sigcomp.byte_copy"	,	L_304
+item2	,	V_330
+memmory_addr	,	V_52
+hf_udvm_output_start	,	V_231
+"Addr"	,	L_313
+tvbuff_t	,	T_3
+"Preference whether to Dissect the UDVM code or not"	,	L_406
+hf_sigcomp_loading_result	,	V_161
+tvb_get_ntohs	,	F_50
+"sigcomp.udvm.upper.bound"	,	L_264
+byte_copy_left	,	V_29
+hf_udvm_operand_2	,	V_159
+dissect_udvm_reference_operand_memory	,	F_19
+"Number of bytes remaining in message"	,	L_154
+"sigcomp.loading_value"	,	L_326
+hf_udvm_operand_1	,	V_158
+"Addr: %u      state_retention_priority %u"	,	L_115
+"sigcomp.decompress_instruction"	,	L_300
+"sigcomp.creating_state"	,	L_339
+"Execution of this instruction is NOT implemented"	,	L_382
+state_instruction_buff	,	V_104
+"Addr: %u      @Address %u"	,	L_61
+input_address	,	V_62
+sip_sdp_buff	,	V_2
+" (value_1, value_2, @address_1, @address_2, @address_3)"	,	L_63
+"sigcomp.copying_bytes_literally"	,	L_352
+"sigcomp.sha1buff"	,	L_358
+"Raw_SigComp"	,	L_402
+udvm_instruction_code_vals_ext	,	V_152
+tvb_get_guint8	,	F_23
+hf_sigcomp_t_bit	,	V_288
+"sigcomp.udvm_instruction"	,	L_360
+"All remaining parameters = 0(Not in the uploaded code as UDVM buffer initialized to Zero"	,	L_390
+"sigcomp.udvm.uncompressed"	,	L_267
+prev_p_bit	,	V_71
+"$Destination[memory address]"	,	L_254
+"UDVM instruction"	,	L_359
+hf_sigcomp_accessing_state	,	V_35
+"Addr: %u ## OUTPUT (output_start=%u, output_length=%u)"	,	L_106
+"Sigcomp T bit"	,	L_143
+"Instruction"	,	L_299
+tvb_raw_text_add	,	F_63
+"Loading value"	,	L_325
+"%Address"	,	L_186
+dissect_udvm_bytecode	,	F_68
+"Msg format 2"	,	L_133
+"sigcomp.udvm.instr"	,	L_167
+"Addr: %u ## MULTIPLY (operand_1=%u, operand_2=%u)"	,	L_22
+"%Returned parameters location"	,	L_248
+"sigcomp.min.acc.len"	,	L_243
+hf_sigcomp_set_hu	,	V_216
+"sigcomp.udvm.addr.length"	,	L_178
+"%Partial identifier start"	,	L_194
+"              Addr: %u tvb value(0x%0x) "	,	L_125
+p_bit	,	V_70
+"End of SigComp message indication found"	,	L_348
+proto_tree_add_uint_format_value	,	F_72
+print_in_loop	,	V_99
+gcry_md_close	,	F_39
+hf_udvm_addr_value	,	V_338
+ei_sigcomp_invalid_shift_value	,	V_165
+"sigcomp.execution_of_this_instruction_is_not_implemented"	,	L_381
+"Addr: %u      operand_1 %u"	,	L_9
+"sigcomp.escape_digit_found"	,	L_345
+used_udvm_cycles	,	V_106
+"0 (Not in the uploaded code as UDVM buffer initialized to Zero"	,	L_139
+"Addr: %u ## STATE-CREATE(32) (state_length=%u, state_address=%u, state_instruction=%u,minimum_access_length=%u, state_retention_priority=%u)"	,	L_99
+SIGCOMP_INSTR_INPUT_BITS	,	V_210
+remaining_bits	,	V_60
+"               Copying value: %5u (0x%x) from Addr: %u to Addr: %u"	,	L_55
+proto_tree_add_uint_format	,	F_24
+code_length	,	V_92
+hf_partial_identifier_start	,	V_219
+item	,	V_329
+"Uncompressed"	,	L_268
+presence_buff	,	V_3
+find_dissector_add_dependency	,	F_92
+"SHA1 digest"	,	L_336
+proto_item_append_text	,	F_34
+col_set_fence	,	F_65
+"No-Printout"	,	L_392
+"%Output_length"	,	L_234
+col_clear	,	F_52
+"              Copying %u bytes literally"	,	L_126
+gint32	,	V_37
+"sigcomp.nack.failed_op_code.expert"	,	L_373
+"about execution of UDVM instructions; "	,	L_421
+display_bytecode_vals	,	V_372
+proto_tree_add_item	,	F_12
+pinfo	,	V_78
+"sigcomp.invalid_instruction"	,	L_375
+"Addr: %u      returned_parameters_location %u"	,	L_110
+byte_copy_right	,	V_28
+"               Loading result %u at %u"	,	L_20
+"UDVM instruction code"	,	L_166
+raw_tree	,	V_353
+SIGCOMP_INSTR_COPY_OFFSET	,	V_194
+unescaped_tvb	,	V_247
+"Remaining %u bytes starting at UDVM addr %u (0x%x)- State information ?"	,	L_140
+SIGCOMP_INSTR_RETURN	,	V_203
+"State length"	,	L_205
+hf_sigcomp_nack_reason_code	,	V_306
+hf_sigcomp_instruction_code	,	V_146
+"Addr: %u      Value %u"	,	L_33
+" (value, position, length, @address)"	,	L_69
+reverse	,	V_74
+SIGCOMP_NACK_STATE_TOO_SHORT	,	V_314
+hf_sigcomp_used_udvm_cycles	,	V_242
+hf_sigcomp_current_instruction	,	V_151
+"               Output value: %u (0x%x) ASCII(%s) from Addr: %u ,output to dispatcher position %u"	,	L_107
+outside_huffman_boundaries	,	V_98
+gcry_md_open	,	F_38
+tvb_offset_exists	,	F_73
+"sigcomp.compression-ratio"	,	L_156
+"Addr: %u ## NOT (operand_1=%u)"	,	L_15
+SIGCOMP_NACK_STATE_NOT_FOUND	,	V_312
+"Addr: %u      uncompressed_n %u"	,	L_83
+"sigcomp.udvm.addr.j"	,	L_228
+udvm_state_free	,	F_16
+display_bytecode	,	V_348
+" (position, length, $destination)"	,	L_47
+"sigcomp.udvm.ref.destination"	,	L_255
+hf_udvm_literal_num	,	V_188
+"sigcomp.ret.param.loc"	,	L_249
+ei_register_info	,	T_17
+"               Loading value: %u (0x%x) at Addr: %u"	,	L_73
+proto_register_sigcomp	,	F_76
+"Code length"	,	L_160
+PI_NOTE	,	V_385
+bits_to_use	,	V_72
+decomp_tvb	,	V_85
+"Addr: %u      operand_2 %u"	,	L_10
+SIGCOMP_INSTR_DIVIDE	,	V_170
+"DECOMPRESSION FAILURE"	,	L_384
+udvm_bytecode_item	,	V_276
+extra_bytes_available	,	V_69
+FT_NONE	,	V_371
+PI_SEQUENCE	,	V_378
+"Addr: %u       state_retention_priority %u"	,	L_98
+tree	,	V_15
+proto_tree_add_bytes	,	F_58
+sha1_handle	,	V_111
+"sigcomp.nack.sha1"	,	L_289
+p_id_length	,	V_18
+"Addr: %u ## COMPARE (value_1=%u, value_2=%u, @address_1=%u, @address_2=%u, @address_3=%u)"	,	L_64
+"Addr: %u      start_value %u"	,	L_57
+"Operand 2"	,	L_221
+"%State address"	,	L_208
+hf_sigcomp_illegal_escape_code	,	V_265
+"######### UDVM instruction %u at UDVM-address %u (0x%x) #########"	,	L_138
+lsb	,	V_75
+"%Offset"	,	L_272
+"sigcomp.udvm.start.value"	,	L_270
+"preference whether to decompress message or not"	,	L_413
+"Decompress message"	,	L_412
+"Addr: %u       state_address %u"	,	L_92
+SIGCOMP_INSTR_OUTPUT	,	V_230
+"no_of_state_create"	,	L_334
+"NACK State ID (6 - 20 bytes)"	,	L_293
+"SigComp NACK"	,	L_374
+"%Requested feedback location"	,	L_239
+"sigcomp.nack.pc"	,	L_286
+"Level of detail of UDVM execution:"	,	L_419
+sha1_digest_buf	,	V_110
+"Remaining SigComp message bytes"	,	L_152
+addr	,	V_116
+no_of_state_create	,	V_101
+"Unescaped Data handed to the SigComp dissector"	,	L_128
+"sigcomp.udvm.execution-trace"	,	L_169
+"%Value[memory address]"	,	L_193
+"udp.port"	,	L_425
+hf_sigcomp_code_len	,	V_320
+byte_code_state_len	,	V_82
+temp_data16	,	V_50
+"sigcomp.nack.ver"	,	L_278
+"UDVM execution trace"	,	L_168
+"tcp.port"	,	L_424
+ei_sigcomp_decompression_failure	,	V_244
+display_lit_bytecode_vals	,	V_374
+"preference whether to display the bytecode in "	,	L_409
+SIGCOMP_INSTR_SWITCH	,	V_204
+"NACK Reason Code"	,	L_281
+hf_udvm_ref_dest	,	V_178
+"Set Hu"	,	L_327
+tvb_reported_length	,	F_62
+"sigcomp.udvm.start.instr"	,	L_214
+"Addr: %u ## LOAD (%%address=%u, %%value=%u)"	,	L_34
+sip_sdp_state_identifier	,	V_9
+tvb_new_child_real_data	,	F_31
+dissector_add_uint_range_with_preference	,	F_93
+"Addr: %u ## %s(%d)"	,	L_4
+" (%%address, #n, value_0, ..., value_n-1)"	,	L_36
+hf_sigcomp_partial_state	,	V_293
+"sigcomp.udvm.literal-num"	,	L_188
+" (value)"	,	L_40
+tvb_reported_length_remaining	,	F_27
+hf_sigcomp_starting_to_remove_escape_digits	,	V_263
+hf_udvm_execution_trace	,	V_297
+state_minimum_access_length_buff	,	V_105
+hf_sigcomp_byte_copy	,	V_179
+gcry_md_hash_buffer	,	F_45
+"State begin"	,	L_202
+HASH_SHA1_LENGTH	,	V_182
+"sigcomp.destination"	,	L_163
+"DECOMPRESSION-FAILURE"	,	L_315
+display_udvm_bytecode	,	V_349
+hf_sigcomp_compression_ratio	,	V_300
+proto_tree_add_bytes_format	,	F_37
+"Returned parameters location"	,	L_250
+temp_data	,	V_48
+"%j"	,	L_224
+partial_state_len	,	V_281
+"UDVM EXECUTION STARTED"	,	L_367
+hf_sigcomp_wireshark_udvm_diagnostic	,	V_155
+dissect_udvm_code	,	V_324
+"Addr: %u       state_instruction %u"	,	L_93
+"Addr: %u ## MULTILOAD (%%address=%u, #n=%u, value_0, ..., value_%d)"	,	L_38
+"UDVM bytecode"	,	L_170
+"sigcomp.invalid_shift_value"	,	L_377
+hf_sigcomp_sigcomp_message_decompressed	,	V_241
+operand	,	V_45
+msg_length	,	V_333
+hf_sigcomp_getting_value	,	V_73
+"sigcomp.udvm.byte-code"	,	L_165
+SIGCOMP_INSTR_MULTILOAD	,	V_187
+hf_sigcomp_escape_digit_found	,	V_264
+"State ID (6 - 20 bytes)"	,	L_291
+crc16_ccitt_seed	,	F_43
+BASE_HEX	,	V_362
+desegment_len	,	V_254
+"Sigcomp length"	,	L_146
+"j"	,	L_226
+module_t	,	T_18
+PI_UNDECODED	,	V_382
+proto_register_field_array	,	F_80
+hf_udvm_value	,	V_186
+"Memory size"	,	L_297
+"sigcomp.udvm.start.address"	,	L_209
+maximum_UDVM_cycles	,	V_108
+"(reference)Destination"	,	L_256
+"sigcomp.byte_code_length"	,	L_372
+ei	,	V_377
+SIGCOMP_INSTR_COPY_LITERAL	,	V_193
+"  NACK reason=%s, opcode=%s"	,	L_136
+is_memory_address	,	V_332
+"Cycles Per Bit"	,	L_294
+"DECOMPRESSION FAILURE: %s"	,	L_119
+sigcomp_module	,	V_386
+tvb_captured_length	,	F_61
+hf_sigcomp_load_bytecode_into_udvm_start	,	V_145
+partial_state	,	V_30
+g_hash_table_new_full	,	F_2
+"%Destination[memory address]"	,	L_181
+expert_add_info	,	F_36
+hf_sigcomp_nack_sha1	,	V_311
+"Addr: %u      state_length %u"	,	L_111
+state_identifier	,	V_38
+"INVALID INSTRUCTION"	,	L_5
+presence_static_dictionary_for_sigcomp	,	V_13
+uncompressed_n	,	V_128
+"sigcomp.nack.reason"	,	L_280
+"     Loading result %u at %u"	,	L_12
+"%Operand 2"	,	L_219
+sigcomp_handle	,	V_389
+"               byte_copy_left = %u byte_copy_right = %u"	,	L_54
+"Partial state id length"	,	L_144
+"Signaling Compression"	,	L_399
+"display.udvm.code"	,	L_404
+"Position"	,	L_253
+output_address	,	V_94
+"Invalid instruction"	,	L_376
+length	,	V_63
+"Addr: %u      output_length %u"	,	L_105
+PI_WARN	,	V_379
+"Display the bytecode of operands"	,	L_408
+"Addr: %u      upper_bound_n %u"	,	L_82
+proto_reg_handoff_sigcomp	,	F_90
+wmem_free	,	F_7
+hf	,	V_358
+"'No-Printout' = UDVM executes silently, then increasing detail "	,	L_420
+SIGCOMP_NACK_BYTECODES_TOO_LARGE	,	V_318
+"Bits"	,	L_259
+enum_val_t	,	T_20
+"sigcomp.udvm.state.begin"	,	L_201
+udvm_print_detail_level	,	V_262
+prefs_register_protocol	,	F_85
+"Lower_bound"	,	L_262
+"sigcomp.loading_result"	,	L_302
+"Loading result"	,	L_301
+col_append_fstr	,	F_67
+at_address	,	V_114
+"Addr: %u      $destination %u"	,	L_29
+"Failed to Access state Wireshark UDVM diagnostic"	,	L_388
+"sigcomp.used_udvm_cycles"	,	L_366
+"preference whether to display the decompressed message "	,	L_416
+print_level_2	,	V_139
+print_level_1	,	V_65
+operand_1	,	V_117
+print_level_3	,	V_140
+hf_udvm_reference_bytecode	,	V_351
+operand_2	,	V_118
+state_buff	,	V_32
+sip_handle	,	V_302
+"Minimum access length"	,	L_244
+decomp_dispatch_get_bits	,	F_22
+returned_parameters_location	,	V_137
+proto_tree_add_bytes_with_length	,	F_42
+ei_sigcomp_all_remaining_parameters_zero	,	V_346
+SIGCOMP_INSTR_SHA_1	,	V_175
+"Msg format 1"	,	L_129
+test_bits	,	V_46
+" (operand_1, operand_2)"	,	L_8
+SIGCOMP_INSTR_OR	,	V_162
+g_hash_table_remove	,	F_17
+val_to_str	,	F_48
+hf_udvm_addr_offset	,	V_339
+tvb_find_line_end	,	F_74
+"%State instruction"	,	L_213
+"Load bytecode into UDVM starting at"	,	L_309
+"sigcomp.udvm.offset"	,	L_273
+"Dissect the UDVM code"	,	L_405
+"sigcomp.storing_value"	,	L_324
+hf_udvm_bits	,	V_212
+saved_can_desegment	,	V_252
+g_malloc	,	F_3
+SIGCOMP_INSTR_REMAINDER	,	V_171
+ett_raw_text	,	V_357
+VALS	,	F_77
+"%Output_start"	,	L_229
+hf_udvm_state_ret_pri	,	V_227
+prefs_register_bool_preference	,	F_86
+next_offset	,	V_354
+"#n"	,	L_187
+addr_item	,	V_112
+hf_sigcomp_nack_ver	,	V_305
+hf_udvm_state_address	,	V_223
+BASE_DEC	,	V_360
+"$Operand 1[memory address]"	,	L_216
+"sigcomp.udvm.lower.bound"	,	L_261
+ENC_NA	,	V_36
+hf_sigcomp_returned_feedback_item	,	V_292
+"Instruction code"	,	L_311
+"sigcomp.end_of_sigcomp_message_indication_found"	,	L_349
+"               Loading value: %u (0x%x) at Addr: %u, remaining_bits: %u"	,	L_77
+"sigcomp.illegal_escape_code"	,	L_347
+"/"	,	L_132
+instruction	,	V_327
+"sigcomp.udvm.partial.identifier.length"	,	L_198
+wmem_alloc	,	F_29
+hf_sigcomp_remaining_sigcomp_message	,	V_325
+lower_bound_n	,	V_126
+"              Escape digit found (0xFF)"	,	L_122
+"     Storing value: %u (0x%x) at Addr: %u"	,	L_59
+current_instruction	,	V_93
+instruction_no	,	V_328
+"Loading H"	,	L_329
+proto_sigcomp	,	V_260
+"UDVM EXECUTION STARTED at Address: %u Message size %u"	,	L_3
+SIGCOMP_INSTR_COMPARE	,	V_201
+"sigcomp.udvm.addr.destination"	,	L_182
+input_bit_order	,	V_66
+"Addr: %u      destination %u"	,	L_48
+"as raw text or not"	,	L_417
+SIGCOMP_INSTR_SORT_ASCENDING	,	V_172
+"Length"	,	L_176
+stack_location	,	V_96
+hf_udvm_length	,	V_177
+hf_sigcomp_storing_value	,	V_198
+hf_udvm_position	,	V_176
+"sigcomp.udvm.partial.identifier.start"	,	L_195
+current_address	,	V_53
+position	,	V_129
+"sigcomp.starting_to_remove_escape_digits"	,	L_343
+"Addr: %u       partial_identifier_length %u"	,	L_89
+"State/ExecutionTrace"	,	L_131
+"               byte_copy_left = %u byte_copy_right = %u position= %u"	,	L_53
+"sigcomp.remaining_sigcomp_message"	,	L_356
+execute_next_instruction	,	V_149
+hf_sigcomp_udvm_execution_stated	,	V_147
+tvb_new_subset_length	,	F_60
+"Decompressed SigComp message"	,	L_117
+ett_raw	,	V_376
+"sigcomp.partial.state.identifier"	,	L_151
+display_ref_bytecode_vals	,	V_373
+HFILL	,	V_361
+_data	,	T_13
+hf_udvm_at_address	,	V_200
+"%State begin"	,	L_200
+gchar	,	T_1
+"SigComp NACK (reason=%s, opcode=%s)"	,	L_134
+hf_sigcomp_nack_cycles_per_bit	,	V_317
+"sigcomp"	,	L_400
+"Reference $ Operand 1"	,	L_218
+"TCP Fragment"	,	L_386
+is_addr	,	T_15
+"Addr: %u       state_length %u"	,	L_91
+"Partial identifier length"	,	L_199
+"Addr: %u      Address %u"	,	L_32
+state_begin	,	V_19
+ei_sigcomp_invalid_instruction	,	V_243
+hf_sigcomp_state_value	,	V_228
+"Compression ratio (%)"	,	L_155
+byte_code_id_len	,	V_83
+"sigcomp.udvm.operand.2"	,	L_220
+"sha1buff"	,	L_357
+hf_sigcomp_copying_value	,	V_192
+"Addr: %u       minimum_access_length %u"	,	L_97
+decompression_failure	,	V_150
+"sigcomp.output_value"	,	L_333
+" length, destination, @address)"	,	L_71
+"                  Addr: %u tvb value(0x%0x) "	,	L_127
+message_tvb	,	V_56
+"%State length"	,	L_203
+hf_id	,	V_23
+g_hash_table_insert	,	F_5
+tvb_captured_length_remaining	,	F_53
+next_opreand_address	,	V_55
+UDVM_address	,	V_331
+"sigcomp.instruction_code"	,	L_312
+"sigcomp.udvm.operand.1"	,	L_217
+top_tree	,	V_250
+"Addr: %u      requested_feedback_location %u"	,	L_109
+COL_INFO	,	V_258
+sigcomp_udvm_tree	,	V_278
+hf_sigcomp_creating_state	,	V_240
+"sigcomp.max_udvm_cycles"	,	L_364
+"Addr: %u ## DECOMPRESSION-FAILURE(0)"	,	L_6
+proto_tree_add_expert_format	,	F_47
+cinfo	,	V_256
+"sigcomp.output.start"	,	L_230
+SIGCOMP_NACK_ID_NOT_UNIQUE	,	V_313
+"low-detail"	,	L_393
+"sigcomp.udvm.lit.bytecode"	,	L_173
+"              Addr: %u Instruction code(0x%02x) "	,	L_2
+PT_TCP	,	V_272
+dissect_udvm_literal_operand	,	F_71
+"%Lower bound"	,	L_260
+"Partial state identifier"	,	L_150
+"Illegal escape code"	,	L_346
+" (start, n, k))"	,	L_25
+"sigcomp.load_bytecode_into_udvm_start"	,	L_310
+"Addr: %u      state_address %u"	,	L_112
+"%Length[memory address]"	,	L_177
+hf_udvm_addr_length	,	V_337
+"OPCODE of failed instruction"	,	L_282
+try_again	,	V_259
+"no-printout"	,	L_391
+g_str_hash	,	V_5
+result_dest	,	V_49
+sigcomp_nack_reason_code_vals_ext	,	V_309
+"Copying bytes literally"	,	L_351
+ti	,	V_113
+"show.udvm.execution"	,	L_418
+g_hash_table_destroy	,	F_9
+"Addr: %u ## RSHIFT (operand_1=%u, operand_2=%u)"	,	L_18
+"sigcomp.code.len"	,	L_161
+register_dissector	,	F_79
+requested_feedback_location	,	V_136
+"Storing value"	,	L_323
+format_text	,	F_44
+"Returned_feedback item"	,	L_147
+"sigcomp.udvm.multyt.bytecode"	,	L_171
+val_to_str_ext_const	,	F_30
+"Message Length"	,	L_369
+gboolean	,	T_9
+hf_udvm_req_feedback_loc	,	V_235
+hf_sigcomp_message_length	,	V_142
+"               byte_copy_right = %u, byte_copy_left = %u"	,	L_95
+"Addr: %u ## POP (address=%u)"	,	L_42
+"%State length[memory address]"	,	L_206
+sigcomp_udvm_exe_tree	,	V_279
+hf_udvm_addr_destination	,	V_341
+"Addr: %u ## PUSH (value=%u)"	,	L_41
+"PC of failed instruction"	,	L_285
+"raw_sigcomp"	,	L_403
+"sigcomp.udvm.state.length"	,	L_204
+"sigcomp.udvm.operand.2.addr"	,	L_223
+"Addr: %u ## END-MESSAGE (requested_feedback_location=%u, returned_parameters_location=%u, state_length=%u, state_address=%u, state_instruction=%u, minimum_access_length=%u, state_retention_priority=%u)"	,	L_116
+register_init_routine	,	F_88
+"sigcomp.addr.output.start"	,	L_233
+SIGCOMP_INSTR_MEMSET	,	V_196
+"SIGCOMP"	,	L_121
+SIGCOMP_INSTR_ADD	,	V_167
+input_bits	,	V_61
+destination	,	V_115
+sigcomp_tree	,	V_246
+" (requested_feedback_location,state_instruction, minimum_access_length,state_retention_priority)"	,	L_108
+gint8	,	T_14
+sha1buff	,	V_109
+"Addr: %u      j %u"	,	L_68
+"Addr: %u      Length %u"	,	L_28
+hf_sigcomp_nack_failed_op_code	,	V_307
+hf_udvm_upper_bound	,	V_214
+SIP_SDP_STATE_LENGTH	,	V_8
+bytecode_offset	,	V_280
+"sigcomp.state_value"	,	L_331
+g_strdup	,	F_6
+"State instruction"	,	L_215
+"Addr: %u      minimum_access_length %u"	,	L_114
+"sigcomp.udvm.destination"	,	L_180
+hf_sigcomp_max_udvm_cycles	,	V_144
+" (#n, j, @address_0, @address_1, ... , @address_n-1))"	,	L_67
+" (%%address, %%value)"	,	L_31
+"sigcomp.nack.failed_op_code"	,	L_283
+"SHA-1 Hash of failed message"	,	L_288
+"sigcomp.udvm.addr.offset"	,	L_276
+" (position, length, destination)"	,	L_26
+hf_partial_identifier_length	,	V_220
+ENC_BIG_ENDIAN	,	V_289
+bytes_to_str	,	F_4
+start_address	,	V_326
+ei_sigcomp_execution_of_this_instruction_is_not_implemented	,	V_173
+msg_end	,	V_64
+output_start	,	V_132
+"Byte code length"	,	L_371
+SIGCOMP_INSTR_POP	,	V_190
+" (length, destination, @address)"	,	L_74
+SIGCOMP_INSTR_SORT_DESCENDING	,	V_174
+hf_udvm_multitype_bytecode	,	V_352
+BASE_EXT_STRING	,	V_369
+hf_sigcomp_nack_state_id	,	V_315
+" ($operand_1)"	,	L_14
+"sigcomp.udvm.state.length.addr"	,	L_207
+"NACK PC of failed instruction"	,	L_287
+state_retention_priority	,	V_135
+udvm_mem_dest	,	V_79
+" (@address)"	,	L_60
+hf_sigcomp_udvm_instruction	,	V_334
+SIGCOMP_INSTR_CALL	,	V_202
+instruction_address	,	V_100
+linelen	,	V_355
+"               Set H(%u) := H(%u) * 2^bits_j(%u) + k(%u)"	,	L_84
+hf_sigcomp_len	,	V_290
+SIGCOMP_NACK_CYCLES_EXHAUSTED	,	V_316
+"sigcomp.t.bit"	,	L_142
+"Decompressed SigComp message as raw text"	,	L_401
+oldH	,	V_90
+"Addr: %u ## COPY (position=%u, length=%u, destination=%u)"	,	L_44
+hf_udvm_addr_j	,	V_340
+"Partial identifier start"	,	L_196
+proto_register_subtree_array	,	F_82
+result_code	,	V_24
+"SigComp message Decompressed"	,	L_340
+dissect_udvm_reference_operand	,	F_69
+"Decompressed SigComp message(Incomplete)"	,	L_7
+hf_udvm_state_length	,	V_222
+"               byte_copy_right = %u"	,	L_45
+"Warning! CPU intense at high detail"	,	L_422
+udvm_detail_vals	,	V_388
+_U_	,	V_41
+compression_ratio	,	V_299
+hf_sigcomp_copying_bytes_literally	,	V_268
+"Addr: %u      lower_bound_n %u"	,	L_81
+result_code_vals	,	V_245
+"sigcomp.remaining-bytes"	,	L_153
+decode_udvm_address_operand	,	F_21
+hf_sigcomp_num_state_create	,	V_237
+"Copying value"	,	L_321
+PI_PROTOCOL	,	V_381
+bytecode_len	,	V_285
+"sigcomp.wireshark_udvm_diagnostic"	,	L_318
+display_raw_txt	,	V_301
+udvm_start_ip	,	V_84
+FT_UINT8	,	V_359
+"sigcomp.output.length"	,	L_235
+"sigcomp.output.length.addr"	,	L_238
+proto_item	,	T_12
+expert_register_field_array	,	F_84
+SIGCOMP_INSTR_CRC	,	V_206
+"sigcomp.udvm.ref.bytecode"	,	L_172
+presence_state_identifier	,	V_12
+multy_offset	,	V_131
+" (destination, @address, #n, bits_1, lower_bound_1,upper_bound_1, uncompressed_1, ... , bits_n, lower_bound_n,upper_bound_n, uncompressed_n)"	,	L_78
+expert_add_info_format	,	F_46
+SIGCOMP_INSTR_AND	,	V_157
+SIGCOMP_TCP_PORT_RANGE	,	V_391
+msb	,	V_76
+bytecode_tvb	,	V_77
+gcry_md_read	,	F_41
+SIGCOMP_INSTR_DECOMPRESSION_FAILURE	,	V_153
+data	,	V_248
+octet	,	V_68
+"%Value"	,	L_190
+"sigcomp.remaining_bytes"	,	L_362
+"Requested feedback location"	,	L_241
+hf_sigcomp_output_value	,	V_233
+"Addr: %u ## COPY-LITERAL (position=%u, length=%u, $destination=%u)"	,	L_49
+"UDVM operands or not"	,	L_410
+"NACK Cycles Per Bit"	,	L_296
+decode_udvm_literal_operand	,	F_18
+"decomp.msg"	,	L_411
+sigcomp_init_udvm	,	F_1
+"NACK OPCODE of failed instruction"	,	L_284
+offset	,	V_47
+expert_module_t	,	T_19
+state_address_buff	,	V_103
+hf_udvm_min_acc_len	,	V_226
+"%Length"	,	L_174
+ett_sigcomp_udvm	,	V_323
+add_new_data_source	,	F_32
+"### Accessing state ###"	,	L_305
+g_str_equal	,	V_6
+"sip"	,	L_423
+proto_tree_add_uint	,	F_28
+"Addr: %u ## SUBTRACT (operand_1=%u, operand_2=%u)"	,	L_21
+"sigcomp.udvm.state.ret.pri"	,	L_246
+proto_tree_add_expert	,	F_33
+"Upper bound"	,	L_265
+DESEGMENT_ONE_MORE_SEGMENT	,	V_255
+"Calculated CRC %u"	,	L_70
+hf_udvm_state_address_addr	,	V_343
+bit_order	,	V_58
+gcry_md_write	,	F_40
+"display.decomp.msg.as.txt"	,	L_414
+minimum_access_length	,	V_134
+value	,	V_43
+gcry_md_hd_t	,	T_11
+"sigcomp.copying_value"	,	L_322
+"Output length"	,	L_236
+end_off_message	,	V_249
+" (@address) (PUSH addr )"	,	L_65
+"Addr: %u      bits_n %u"	,	L_80
+"Addr: %u ## ADD (operand_1=%u, operand_2=%u)"	,	L_19
+hf_udvm_literal_bytecode	,	V_350
+"High-detail"	,	L_398
+hf_udvm_ret_param_loc	,	V_236
+"%j[memory address]"	,	L_227
+proto_tree	,	T_4

@@ -1,0 +1,98 @@
+proto_register_protocol	,	F_14
+"Conflict Count"	,	L_20
+MAAP_REQ_COUNT_OFFSET	,	V_15
+col_append_fstr	,	F_7
+FT_UINT64	,	V_42
+col_set_str	,	F_2
+FT_ETHER	,	V_43
+gint	,	T_7
+proto_register_maap	,	F_12
+tvb	,	V_1
+"Data Length"	,	L_10
+hf_maap_data_length	,	V_27
+COL_INFO	,	V_9
+MAAP_DATA_LEN_MASK	,	V_41
+col_clear	,	F_3
+maap_item	,	V_5
+cinfo	,	V_7
+proto_register_subtree_array	,	F_17
+val_to_str	,	F_6
+array_length	,	F_16
+MAAP_START_OFFSET	,	V_20
+maap_handle	,	V_46
+MAAP_CONFLICT_START_ADDR_OFFSET	,	V_17
+maap_msg_type_vals	,	V_11
+"maap.message_type"	,	L_7
+proto_tree_add_item	,	F_10
+pinfo	,	V_2
+col_add_fstr	,	F_5
+dissector_handle_t	,	T_8
+hf_maap_version	,	V_25
+"%s:"	,	L_2
+"maap.req_count"	,	L_17
+"MAAP Version"	,	L_8
+hf_register_info	,	T_6
+VALS	,	F_13
+dissect_maap	,	F_1
+MAAP_MSG_TYPE_PROBE	,	V_12
+MAAP_STREAM_ID_OFFSET	,	V_29
+"maap.version"	,	L_9
+COL_PROTOCOL	,	V_8
+FT_UINT8	,	V_35
+MAAP_MSG_TYPE_DEFEND	,	V_16
+"Stream ID"	,	L_12
+proto_item	,	T_5
+"Unknown Type(0x%02x)"	,	L_3
+hf_maap_stream_id	,	V_28
+ENC_NA	,	V_21
+guint8	,	T_4
+hf_maap_conflict_start_addr	,	V_32
+BASE_NONE	,	V_44
+"Request Count"	,	L_16
+" req_start=%s, cnt=%d"	,	L_4
+MAAP_CONFLICT_COUNT_OFFSET	,	V_18
+MAAP_VERSION_MASK	,	V_39
+tvbuff_t	,	T_1
+"maap.conflict_count"	,	L_21
+tvb_get_ntohs	,	F_9
+BASE_HEX	,	V_36
+MAAP_MSG_TYPE_MASK	,	V_37
+ett_maap	,	V_22
+proto_item_add_subtree	,	F_11
+hf_maap_req_start_addr	,	V_30
+proto_register_field_array	,	F_15
+MAAP_MSG_TYPE_ANNOUNCE	,	V_13
+hf_maap_conflict_count	,	V_33
+MAAP_REQ_START_ADDR_OFFSET	,	V_14
+ett	,	V_45
+dissector_add_uint	,	F_20
+tree	,	V_3
+FT_UINT16	,	V_40
+packet_info	,	T_2
+"maap.req_start_addr"	,	L_15
+"Conflict Start Address"	,	L_18
+tvb_get_guint8	,	F_4
+" conflict_start=%s, cnt=%d"	,	L_5
+"ieee1722.subtype"	,	L_24
+"MAAP"	,	L_1
+"IEEE 1722 MAAP Protocol"	,	L_22
+tvb_ether_to_str	,	F_8
+MAAP_VERSION_OFFSET	,	V_26
+"maap.stream_id"	,	L_13
+"Message Type"	,	L_6
+"maap.conflict_start_addr"	,	L_19
+maap_tree	,	V_6
+HFILL	,	V_38
+proto_maap	,	V_19
+MAAP_MSG_TYPE_OFFSET	,	V_10
+proto_reg_handoff_maap	,	F_18
+hf_maap_req_count	,	V_31
+"maap.data_length"	,	L_11
+create_dissector_handle	,	F_19
+hf_maap_message_type	,	V_23
+"Requested Start Address"	,	L_14
+"maap"	,	L_23
+ENC_BIG_ENDIAN	,	V_24
+maap_msg_type	,	V_4
+proto_tree	,	T_3
+hf	,	V_34

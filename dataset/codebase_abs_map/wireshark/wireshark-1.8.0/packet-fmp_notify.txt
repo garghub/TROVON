@@ -1,0 +1,166 @@
+reason	,	V_28
+proto_register_fmp_notify	,	F_25
+ett_fmp_notify	,	V_61
+rpc_init_proc_table	,	F_33
+hf_fmp_notify_procedure	,	V_49
+proto_register_protocol	,	F_27
+hf_fmp_firstLogBlk	,	V_43
+FMP_REQUEST_QUEUED	,	V_19
+"Cookie for FMP_REQUEST_QUEUED Resp"	,	L_30
+FMP_NOMEM	,	V_8
+FMP_QUEUE_FULL	,	V_12
+"fmp_notify.msgNum"	,	L_26
+"First Logical Block"	,	L_31
+dissect_rpc_uint32	,	F_3
+fmp_status_vals	,	V_54
+"Number Blocks Requested"	,	L_23
+FT_UINT64	,	V_59
+gint	,	T_9
+proto_fmp_notify	,	V_64
+tvb	,	V_1
+FMP_HOT_SESSION	,	V_15
+"Extent List"	,	L_42
+hf_fmp_msgNum	,	V_42
+guint32	,	T_10
+extListTree	,	V_78
+dissect_fmp_notify_extent	,	F_35
+FMP_LIST_GROUP_QUOTA_EXCEEDED	,	V_30
+rpc_init_prog	,	F_32
+totalLength	,	V_76
+ett_fmp_notify_hlist	,	V_38
+"fmp_notify.notify_procedure"	,	L_8
+FMP_DUPLICATE_OPEN	,	V_25
+"Reply Status"	,	L_11
+proto_register_subtree_array	,	F_30
+FMP_CLIENT_TERMINATED	,	V_17
+hf_fmp_handleListLen	,	V_39
+numExtents	,	V_75
+array_length	,	F_29
+"fmp_notify.fsBlkSz"	,	L_21
+"fmp_notify.cookie"	,	L_29
+status	,	V_5
+"LIST_GROUP_QUOTA_EXCEEDED"	,	L_3
+hf_fmp_status	,	V_27
+revokeHandleListReason	,	T_4
+hf_fmp_extentList_len	,	V_79
+ext_num	,	V_69
+"FMP Message Number"	,	L_27
+FMP_NOTIFY_ERROR	,	V_23
+pinfo	,	T_6
+"Extent (%u)"	,	L_41
+fmp_notify_proc_vals	,	V_52
+"Number of File Handles"	,	L_14
+_U_	,	V_32
+"fmp_notify.fmpFHandle"	,	L_37
+FMP_LIST_USER_QUOTA_EXCEEDED	,	V_29
+"Number File Handles"	,	L_12
+dissect_FMP_NOTIFY_RevokeAll_request	,	F_13
+FMP_LIST_SERVER_RESOURCE_LOW	,	V_31
+FMP_IOERROR	,	V_7
+hf_register_info	,	T_8
+"FMP/NOTIFY"	,	L_39
+rval	,	V_4
+VALS	,	F_26
+"fmp_notify.status"	,	L_10
+"FMP Session Handle"	,	L_17
+FMP_WRONG_HANDLE	,	V_24
+"Cookie"	,	L_28
+"File System Block Size"	,	L_22
+dissect_fmp_notify_extentList	,	F_19
+FMP_NOACCESS	,	V_9
+dissect_FMP_NOTIFY_revokeHandleList_reply	,	F_24
+dissect_fmp_notify_extentState	,	F_34
+hf_fmp_fsID	,	V_47
+proto_tree_add_text	,	F_5
+i	,	V_35
+handleListItem	,	V_36
+BASE_DEC	,	V_51
+FMP_REQUEST_CANCELLED	,	V_21
+FMP_PLUGIN_NOFUNC	,	V_26
+proto_item	,	T_7
+ett_fmp_extList	,	V_62
+fmpStat	,	T_3
+"Handle List"	,	L_6
+dissect_rpc_data	,	F_8
+"fmp_notify.firstLogBlk"	,	L_32
+FMP_NOTIFY_PROG	,	V_65
+"LIST_SERVER_RESOURCE_LOW"	,	L_4
+dissect_rpc_uint64	,	F_16
+BASE_NONE	,	V_56
+"Reason: %s"	,	L_1
+extTree	,	V_71
+"File Mapping Protocol Nofity"	,	L_38
+dissect_FMP_NOTIFY_DownGrade_request	,	F_9
+tvb_get_ntohl	,	F_2
+"First Logical File Block"	,	L_33
+"fmp_notify"	,	L_40
+"File Size"	,	L_34
+tvbuff_t	,	T_1
+hf_fmp_fsBlkSz	,	V_58
+hf_fmp_extent_state	,	V_68
+dissect_FMP_NOTIFY_DownGrade_reply	,	F_10
+"fmp_notify.sessHandle"	,	L_16
+BASE_HEX	,	V_57
+FMP_WRONG_MSG_NUM	,	V_13
+FMP_FALL_BACK	,	V_20
+fmp_notify2_proc	,	V_67
+"fmp_notify.handleListLength"	,	L_13
+proto_item_add_subtree	,	F_7
+proto_register_field_array	,	F_28
+FT_BYTES	,	V_55
+dissect_FMP_NOTIFY_volFreeze_request	,	F_21
+offset	,	V_2
+FMP_OK	,	V_6
+FMP_SESSION_LOST	,	V_14
+ett	,	V_60
+"LIST_USER_QUOTA_EXCEEDED"	,	L_2
+extListItem	,	V_77
+tree	,	V_3
+dissect_handleList	,	F_6
+hf_fmp_fmpFHandle	,	V_40
+"Session Handle"	,	L_15
+dissect_FMP_NOTIFY_RequestDone_reply	,	F_20
+packet_info	,	T_5
+dissect_FMP_NOTIFY_volFreeze_reply	,	F_22
+hf_fmp_numBlks	,	V_72
+hf_fmp_sessionHandle	,	V_41
+dissect_fmp_notify_status	,	F_1
+FMP_COLD_SESSION	,	V_16
+"FS Block Size"	,	L_20
+hf_fmp_numBlksReq	,	V_44
+FMP_INVALIDARG	,	V_10
+hf_fmp_cookie	,	V_46
+dissect_FMP_NOTIFY_RequestDone_request	,	F_18
+hf_fmp_fileSize	,	V_45
+dissect_FMP_NOTIFY_FileSetEof_reply	,	F_17
+FMP_WRITER_LOST_BLK	,	V_18
+"fmp_notify.numBlksReq"	,	L_24
+hf_fmp_startOffset	,	V_74
+dissect_FMP_NOTIFY_FileSetEof_request	,	F_15
+dissect_FMP_NOTIFY_RevokeAll_reply	,	F_14
+hf_fmp_volID	,	V_73
+handleListTree	,	V_37
+dissect_FMP_NOTIFY_RevokeList_request	,	F_11
+"fmp_notify.fsID"	,	L_19
+dissect_revokeHandleListReason	,	F_4
+numHandles	,	V_33
+HFILL	,	V_53
+listLength	,	V_34
+"Status"	,	L_9
+"Message Number"	,	L_25
+FMP_WRITER_ZEROED_BLK	,	V_22
+dissect_FMP_NOTIFY_revokeHandleList_request	,	F_23
+proto_reg_handoff_fmp_notify	,	F_31
+"fmp_notify.fileSize"	,	L_35
+"FMP File Handle"	,	L_36
+dissect_FMP_NOTIFY_RevokeList_reply	,	F_12
+FMP_FSFULL	,	V_11
+"File System ID"	,	L_18
+FMP_NOTIFY_VERSION_2	,	V_66
+FT_UINT32	,	V_50
+extItem	,	V_70
+ett_fmp_ext	,	V_63
+"Unknown Reason"	,	L_5
+"Procedure"	,	L_7
+proto_tree	,	T_2
+hf	,	V_48
