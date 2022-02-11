@@ -1,0 +1,1 @@
+int main ( void )\r\n{\r\nvoid * V_1 , * V_2 ;\r\nT_1 V_3 , V_4 ;\r\nif ( F_1 ( & V_1 , & V_2 ) )\r\nreturn 1 ;\r\nV_3 = V_2 - V_1 ;\r\nwhile ( V_3 ) {\r\nV_4 = fwrite ( V_1 , 1 , V_3 , stdout ) ;\r\nif ( ! V_4 )\r\nreturn 1 ;\r\nV_1 += V_4 ;\r\nV_3 -= V_4 ;\r\n}\r\nif ( fflush ( stdout ) )\r\nreturn 1 ;\r\nreturn 0 ;\r\n}

@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\nunsigned int V_1 ;\r\nF_2 ( F_3 ( V_2 ) | 0x0303 , V_2 ) ;\r\nF_2 ( 0x0000 , V_3 ) ;\r\nF_2 ( 0x0000 , V_4 ) ;\r\nV_1 = F_3 ( V_5 ) ;\r\nV_1 &= ~ ( 1 << V_6 ) ;\r\nF_2 ( V_1 , V_5 ) ;\r\nF_4 ( V_7 ) ;\r\nF_4 ( V_8 ) ;\r\n}

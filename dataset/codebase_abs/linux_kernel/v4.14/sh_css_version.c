@@ -1,0 +1,1 @@
+enum V_1\r\nF_1 ( char * V_2 , int V_3 )\r\n{\r\nif ( V_3 <= ( int ) strlen ( V_4 ) + ( int ) strlen ( F_2 () ) + 5 )\r\nreturn V_5 ;\r\nstrcpy ( V_2 , V_4 ) ;\r\nstrcat ( V_2 , L_1 ) ;\r\nstrcat ( V_2 , F_2 () ) ;\r\nstrcat ( V_2 , L_2 ) ;\r\nreturn V_6 ;\r\n}

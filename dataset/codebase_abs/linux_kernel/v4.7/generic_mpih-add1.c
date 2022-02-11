@@ -1,0 +1,1 @@
+T_1\r\nF_1 ( T_2 V_1 , T_2 V_2 ,\r\nT_2 V_3 , T_3 V_4 )\r\n{\r\nT_1 V_5 , V_6 , V_7 ;\r\nT_3 V_8 ;\r\nV_8 = - V_4 ;\r\nV_2 -= V_8 ;\r\nV_3 -= V_8 ;\r\nV_1 -= V_8 ;\r\nV_7 = 0 ;\r\ndo {\r\nV_6 = V_3 [ V_8 ] ;\r\nV_5 = V_2 [ V_8 ] ;\r\nV_6 += V_7 ;\r\nV_7 = V_6 < V_7 ;\r\nV_6 += V_5 ;\r\nV_7 += V_6 < V_5 ;\r\nV_1 [ V_8 ] = V_6 ;\r\n} while ( ++ V_8 );\r\nreturn V_7 ;\r\n}

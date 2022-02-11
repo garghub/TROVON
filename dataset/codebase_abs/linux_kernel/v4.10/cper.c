@@ -1,0 +1,41 @@
+T_1 F_1 ( void )
+{
+static T_2 V_1 ;
+if ( ! F_2 ( & V_1 ) )
+F_3 ( & V_1 , ( ( T_1 ) F_4 () ) << 32 ) ;
+return F_5 ( & V_1 ) ;
+}
+const char * F_6 ( unsigned int V_2 )
+{
+return V_2 < F_7 ( V_3 ) ?
+V_3 [ V_2 ] : L_1 ;
+}
+void F_8 ( const char * V_4 , unsigned int V_5 ,
+const char * const V_6 [] , unsigned int V_7 )
+{
+int V_8 , V_9 = 0 ;
+const char * V_10 ;
+char V_11 [ 84 ] ;
+for ( V_8 = 0 ; V_8 < V_7 ; V_8 ++ ) {
+if ( ! ( V_5 & ( 1U << V_8 ) ) )
+continue;
+V_10 = V_6 [ V_8 ] ;
+if ( ! V_10 )
+continue;
+if ( V_9 && V_9 + strlen ( V_10 ) + 2 > 80 ) {
+F_9 ( L_2 , V_11 ) ;
+V_9 = 0 ;
+}
+if ( ! V_9 )
+V_9 = snprintf ( V_11 , sizeof( V_11 ) , L_3 , V_4 , V_10 ) ;
+else
+V_9 += snprintf ( V_11 + V_9 , sizeof( V_11 ) - V_9 , L_4 , V_10 ) ;
+}
+if ( V_9 )
+F_9 ( L_2 , V_11 ) ;
+}
+static void F_10 ( const char * V_4 ,
+const struct V_12 * V_13 )
+{
+if ( V_13 -> V_14 & V_15 )
+F_9 ( L_5processor_type: %d, %s\nL_6unknownL_7%sL_8processor_isa: %d, %s\nL_9unknownL_10%sL_8error_type: 0x%02x\nL_11%sL_8operation: %d, %s\nL_12unknownL_13%sL_8flags: 0x%02x\nL_14%sL_8level: %d\nL_15%sL_8version_info: 0x%016llx\nL_16%sL_8processor_id: 0x%016llx\nL_17%sL_8target_address: 0x%016llx\nL_18%sL_8requestor_id: 0x%016llx\nL_19%sL_8responder_id: 0x%016llx\nL_20%sL_8IP: 0x%016llx\nL_21unknownL_22no errorL_22single-bit ECCL_22multi-bit ECCL_22single-symbol chipkill ECCL_22multi-symbol chipkill ECCL_22master abortL_22target abortL_22parity errorL_22watchdog timeoutL_22invalid addressL_22mirror BrokenL_22memory sparingL_22scrub corrected errorL_22scrub uncorrected errorL_22physical memory map-out eventL_23unknownL_24node: %d L_25card: %d L_26module: %d L_27rank: %d L_28bank: %d L_29device: %d L_30row: %d L_31column: %d L_32bit_position: %d L_33requestor_id: 0x%016llx L_34responder_id: 0x%016llx L_35target_id: 0x%016llx L_36DIMM location: %s %s L_37DIMM location: not present. DMI handle: 0x%.4x L_38%sL_39%sL_40valid bits set for fields beyond structure\nL_41%sL_8error_status: 0x%016llx\nL_42%sL_8physical_address: 0x%016llx\nL_43%sL_8physical_address_mask: 0x%016llx\nL_44%s%s\nL_45%sL_8error_type: %d, %s\nL_46%s%s\nL_47PCIe end pointL_22legacy PCI end pointL_22unknownL_22unknownL_22root portL_22upstream switch portL_22downstream switch portL_22PCIe to PCI/PCI-X bridgeL_22PCI/PCI-X to PCIe bridgeL_22root complex integrated endpoint deviceL_22root complex event collectorL_48%sL_8port_type: %d, %s\nL_49unknownL_50%sL_8version: %d.%d\nL_51%sL_8command: 0x%04x , status: 0x%04x\nL_52%sL_8device_id: %04x:%02x:%02x.%x\nL_53%sL_8slot: %d\nL_54%sL_8secondary_bus: 0x%02x\nL_55%sL_8vendor_id: 0x%04x , device_id: 0x%04x\nL_56%sL_8class_code: %02x%02x%02x\nL_57%sL_8serial number: 0x%04x , 0x%04x\nL_58%sL_8bridge: secondary_status: 0x%04x , control: 0x%04x\nL_59%sL_8Error %d, type: %s\nL_60%sL_8fru_id: %pUl\nL_61%sL_8fru_text: %.20s\nL_62%s%sL_63%sL_8section_type: general processor error\nL_64%sL_8section_type: memory error\nL_65%sL_8section_type: PCIe error\nL_66%sL_8section type: unknown, %pUl\nL_67error section length is too small\nL_68%s%s\nL_69It has been corrected by h/w L_70and requires no further actionL_71%sL_8event severity: %s\nL_72%s%s"

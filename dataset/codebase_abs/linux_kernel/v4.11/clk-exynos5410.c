@@ -1,0 +1,1 @@
+static void T_1 F_1 ( struct V_1 * V_2 )\r\n{\r\nstruct V_3 * V_4 = F_2 ( V_2 , 0 ) ;\r\nif ( ! F_3 ( V_4 ) && F_4 ( V_4 ) == 24 * V_5 )\r\nV_6 [ V_7 ] . V_8 = V_9 ;\r\nF_5 ( V_2 , & V_10 ) ;\r\nF_6 ( L_1 ) ;\r\n}

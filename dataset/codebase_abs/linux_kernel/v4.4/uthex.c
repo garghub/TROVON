@@ -1,0 +1,1 @@
+char F_1 ( T_1 integer , T_2 V_1 )\r\n{\r\nreturn ( V_2 [ ( integer >> V_1 ) & 0xF ] ) ;\r\n}\r\nT_3 F_2 ( int V_3 )\r\n{\r\nif ( V_3 <= 0x39 ) {\r\nreturn ( ( T_3 ) ( V_3 - 0x30 ) ) ;\r\n}\r\nif ( V_3 <= 0x46 ) {\r\nreturn ( ( T_3 ) ( V_3 - 0x37 ) ) ;\r\n}\r\nreturn ( ( T_3 ) ( V_3 - 0x57 ) ) ;\r\n}

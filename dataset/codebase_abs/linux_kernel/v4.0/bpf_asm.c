@@ -1,0 +1,1 @@
+int main ( int V_1 , char * * V_2 )\r\n{\r\nT_1 * V_3 = V_4 ;\r\nbool V_5 = false ;\r\nint V_6 ;\r\nfor ( V_6 = 1 ; V_6 < V_1 ; V_6 ++ ) {\r\nif ( ! strncmp ( L_1 , V_2 [ V_6 ] , 2 ) ) {\r\nV_5 = true ;\r\ncontinue;\r\n}\r\nV_3 = fopen ( V_2 [ V_6 ] , L_2 ) ;\r\nif ( ! V_3 ) {\r\nV_3 = V_4 ;\r\ncontinue;\r\n}\r\nbreak;\r\n}\r\nF_1 ( V_3 , V_5 ) ;\r\nreturn 0 ;\r\n}

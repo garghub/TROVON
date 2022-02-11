@@ -1,0 +1,1 @@
+static int F_1 ( T_1 V_1 )\r\n{\r\nif ( ! F_2 ( V_2 ) )\r\nreturn 0 ;\r\nswitch ( V_1 ) {\r\ncase V_3 :\r\nF_3 () ;\r\nbreak;\r\ndefault:\r\nreturn - V_4 ;\r\n}\r\nreturn 0 ;\r\n}\r\nvoid T_2 F_4 ( void )\r\n{\r\nF_5 ( & V_5 ) ;\r\n}

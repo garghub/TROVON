@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\nvoid T_2 * V_1 ;\r\nif ( F_2 ( L_1 ) ||\r\nF_2 ( L_2 ) ||\r\nF_2 ( L_3 ) ||\r\nF_2 ( L_4 ) ) {\r\nV_1 = F_3 ( V_2 , 0x04 ) ;\r\nF_4 ( V_3 , V_1 ) ;\r\nF_5 ( V_1 ) ;\r\n}\r\nF_6 ( NULL ) ;\r\nF_7 () ;\r\n}

@@ -1,0 +1,15 @@
+struct V_1 * F_1 ( struct V_2 * V_3 , T_1 V_4 )
+{
+struct V_1 * V_5 ;
+V_5 = F_2 ( V_3 , V_6 ) ;
+if ( V_5 ) {
+V_5 -> V_7 = F_3 ( V_3 -> V_8 ) ?
+F_4 ( V_3 , V_4 ) : V_4 ;
+V_5 -> V_9 = F_5 ( V_5 -> V_7 , V_6 ) ;
+if ( ! V_5 -> V_9 ) {
+F_6 ( V_3 , V_5 ) ;
+V_5 = NULL ;
+}
+}
+return V_5 ;
+}

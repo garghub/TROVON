@@ -1,0 +1,1 @@
+void F_1 ( struct V_1 * V_2 , T_1 V_3 )\r\n{\r\nstruct V_4 * V_5 ;\r\nstruct V_6 * V_7 ;\r\nif ( ! V_2 )\r\nreturn;\r\nV_5 = V_2 -> V_5 ;\r\nV_7 = & V_5 -> V_8 ;\r\nif ( F_2 ( V_7 , V_9 ) ) {\r\n#ifdef F_3\r\nF_4 ( V_5 , V_2 , V_3 ) ;\r\n#endif\r\n} else\r\nF_5 ( V_5 , V_2 -> V_10 , V_3 ) ;\r\n}

@@ -1,0 +1,1 @@
+void F_1 (\r\nstruct V_1 * V_2 ,\r\nenum V_3 V_4 ,\r\nT_1 V_5 ,\r\nT_1 V_6 ,\r\nT_1 V_7\r\n)\r\n{\r\nstruct V_8 * V_9 = V_2 -> V_9 ;\r\nF_2 ( V_9 , V_4 , V_5 , V_6 , V_7 ) ;\r\n}\r\nT_1 F_3 (\r\nstruct V_1 * V_2 ,\r\nenum V_3 V_4 ,\r\nT_1 V_5 ,\r\nT_1 V_6\r\n)\r\n{\r\nstruct V_8 * V_9 = V_2 -> V_9 ;\r\nreturn F_4 ( V_9 , V_4 , V_5 , V_6 ) ;\r\n}

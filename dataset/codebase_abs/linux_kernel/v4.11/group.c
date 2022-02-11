@@ -1,0 +1,1 @@
+bool F_1 ( bool * V_1 )\r\n{\r\nint V_2 ;\r\nif ( F_2 ( L_1 , & V_2 ) < 0 )\r\nreturn false ;\r\nif ( V_2 > 0 ) {\r\n* V_1 = true ;\r\nreturn false ;\r\n}\r\nreturn true ;\r\n}\r\nvoid F_3 ( void )\r\n{\r\nfprintf ( V_3 ,\r\nL_2\r\nL_3 ) ;\r\n}

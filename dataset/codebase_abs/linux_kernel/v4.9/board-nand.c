@@ -1,0 +1,1 @@
+void F_1 ( struct V_1 * V_2 , int V_3 , unsigned int V_4 )\r\n{\r\nstruct V_5 * V_6 = F_2 ( V_2 ) ;\r\nunsigned long V_7 ;\r\nif ( V_3 == V_8 )\r\nreturn;\r\nV_7 = ( V_4 & V_9 ) ? 0x02 : 0 ;\r\nif ( V_4 & V_10 )\r\nV_7 |= 0x04 ;\r\nF_3 ( V_3 , V_6 -> V_11 + V_7 ) ;\r\n}

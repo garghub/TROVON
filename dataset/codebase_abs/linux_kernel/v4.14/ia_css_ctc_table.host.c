@@ -1,0 +1,1 @@
+void\r\nF_1 ( void )\r\n{\r\n#if F_2 ( V_1 )\r\nmemcpy ( V_2 . V_3 . V_4 , V_5 ,\r\nsizeof( V_5 ) ) ;\r\nV_2 . V_6 = V_7 ;\r\n#else\r\nmemcpy ( V_2 . V_3 . V_8 , V_5 ,\r\nsizeof( V_5 ) ) ;\r\nV_2 . V_6 = 1IA_CSS_VAMEM_TYPE_1 ;\r\n#endif\r\n}

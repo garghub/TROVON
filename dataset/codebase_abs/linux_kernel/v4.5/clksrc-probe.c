@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\nstruct V_1 * V_2 ;\r\nconst struct V_3 * V_4 ;\r\nT_2 V_5 ;\r\nunsigned V_6 = 0 ;\r\nF_2 (np, __clksrc_of_table, &match) {\r\nif ( ! F_3 ( V_2 ) )\r\ncontinue;\r\nV_5 = V_4 -> V_7 ;\r\nV_5 ( V_2 ) ;\r\nV_6 ++ ;\r\n}\r\nV_6 += F_4 ( V_8 ) ;\r\nif ( ! V_6 )\r\nF_5 ( L_1 , V_9 ) ;\r\n}

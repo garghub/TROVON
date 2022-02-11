@@ -1,0 +1,1 @@
+int F_1 ( const char * V_1 , const char * V_2 ,\r\nT_1 V_3 )\r\n{\r\nint V_4 ;\r\nint V_5 ;\r\nV_4 = F_2 ( V_1 , V_6 ) ;\r\nif ( V_4 < 0 ) {\r\nF_3 ( L_1 , V_1 ) ;\r\nreturn - 1 ;\r\n}\r\nV_5 = F_4 ( V_4 , V_2 , V_3 ) ;\r\nif ( V_5 < 0 ) {\r\nF_3 ( L_2 , V_1 ) ;\r\nF_5 ( V_4 ) ;\r\nreturn - 1 ;\r\n}\r\nF_5 ( V_4 ) ;\r\nreturn 0 ;\r\n}

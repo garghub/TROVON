@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\nif ( strstr ( V_1 , L_1 ) ) {\r\nif ( strstr ( V_1 , L_2 ) )\r\nV_2 = V_3 ;\r\nelse if ( strstr ( V_1 , L_3 ) )\r\nV_2 = V_4 ;\r\nelse if ( strstr ( V_1 , L_4 ) )\r\nV_2 = V_5 ;\r\nelse\r\nV_2 = V_6 ;\r\nstrcat ( V_1 , L_5 ) ;\r\nstrcat ( V_1 , F_2 () ) ;\r\nstrcat ( V_1 , L_6 ) ;\r\n}\r\n}

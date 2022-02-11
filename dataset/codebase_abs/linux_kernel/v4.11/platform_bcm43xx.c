@@ -1,0 +1,1 @@
+static int T_1 F_1 ( void )\r\n{\r\nint V_1 ;\r\nV_2 . V_3 = F_2 ( V_4 ) ;\r\nV_1 = F_3 ( & V_5 ) ;\r\nif ( V_1 ) {\r\nF_4 ( L_1 , V_6 ) ;\r\nreturn V_1 ;\r\n}\r\nreturn 0 ;\r\n}\r\nstatic void T_1 * F_5 ( void * V_7 )\r\n{\r\nint V_1 ;\r\nV_1 = F_1 () ;\r\nif ( V_1 )\r\nreturn NULL ;\r\nF_6 ( L_2 ) ;\r\nreturn NULL ;\r\n}

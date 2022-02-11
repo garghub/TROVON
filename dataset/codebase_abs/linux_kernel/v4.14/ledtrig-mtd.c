@@ -1,0 +1,1 @@
+void F_1 ( void )\r\n{\r\nunsigned long V_1 = V_2 ;\r\nF_2 ( V_3 ,\r\n& V_1 , & V_1 , 0 ) ;\r\nF_2 ( V_4 ,\r\n& V_1 , & V_1 , 0 ) ;\r\n}\r\nstatic int T_1 F_3 ( void )\r\n{\r\nF_4 ( L_1 , & V_3 ) ;\r\nF_4 ( L_2 , & V_4 ) ;\r\nreturn 0 ;\r\n}

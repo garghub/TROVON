@@ -1,0 +1,1 @@
+int T_1 F_1 ( void )\r\n{\r\nint V_1 , V_2 = 0 ;\r\nF_2 ( V_3 , V_4 ) ;\r\nF_3 ( V_4 ) ;\r\nfor ( V_1 = 0 ; V_1 < F_4 ( V_5 ) ; V_1 ++ ) {\r\nV_2 = F_5 ( & V_5 [ V_1 ] ) ;\r\nF_6 ( V_6 L_1 , V_1 , V_2 ) ;\r\nif ( V_2 ) {\r\nF_7 ( & V_5 [ V_1 ] ) ;\r\nbreak;\r\n}\r\n}\r\nif ( V_2 )\r\nF_6 ( V_7 L_2\r\nL_3 ) ;\r\nreturn V_2 ;\r\n}

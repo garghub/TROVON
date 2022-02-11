@@ -1,0 +1,1 @@
+static int F_1 ( struct V_1 * V_1 , bool V_2 )\r\n{\r\nif ( ! V_1 )\r\nreturn 0 ;\r\nif ( V_2 )\r\nreturn F_2 ( V_1 ) ;\r\nelse\r\nreturn F_3 ( V_1 ) ;\r\n}\r\nvoid T_1 F_4 (\r\nstruct V_3 * V_4 )\r\n{\r\nif ( ! V_4 )\r\nreturn;\r\nV_4 -> V_5 = F_1 ;\r\n}

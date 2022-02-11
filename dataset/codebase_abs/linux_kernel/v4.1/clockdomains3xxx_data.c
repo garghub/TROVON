@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\nstruct V_1 * * V_2 ;\r\nunsigned int V_3 ;\r\nif ( ! F_2 () )\r\nreturn;\r\nF_3 ( & V_4 ) ;\r\nF_4 ( V_5 ) ;\r\nV_3 = F_5 () ;\r\nif ( V_3 == V_6 || V_3 == V_7 ) {\r\nF_4 ( V_8 ) ;\r\nF_6 ( V_9 ) ;\r\n} else {\r\nF_4 ( V_10 ) ;\r\nV_2 = ( V_3 == V_11 ) ?\r\nV_12 : V_13 ;\r\nF_4 ( V_2 ) ;\r\nF_6 ( V_14 ) ;\r\n}\r\nF_7 () ;\r\n}

@@ -1,0 +1,1 @@
+void F_1 ( unsigned long * args )\r\n{\r\nunsigned long V_1 ;\r\nF_2 ( V_1 ) ;\r\nF_3 ( ( unsigned long ) V_2 ) ;\r\nF_4 ( & V_3 ) ;\r\nF_5 ( 1 ) ;\r\nF_6 ( args ) ;\r\nF_5 ( 0 ) ;\r\nF_7 ( & V_3 ) ;\r\nF_3 ( V_1 ) ;\r\n}\r\nvoid F_8 ( void * V_4 , void * V_5 )\r\n{\r\nV_6 . V_7 = ( void ( * ) ( long * ) ) V_4 ;\r\n}

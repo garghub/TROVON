@@ -1,0 +1,1 @@
+struct V_1 * F_1 ( struct V_2 * V_3 , int V_4 , int V_5 )\r\n{\r\nstruct V_1 * V_6 ;\r\nV_6 = F_2 ( V_3 , V_7 ) ;\r\nif ( V_6 ) {\r\nV_6 -> V_8 = V_4 ? : V_5 ;\r\nV_6 -> V_9 = F_3 ( V_6 -> V_8 , V_7 ) ;\r\nif ( ! V_6 -> V_9 ) {\r\nF_4 ( V_3 , V_6 ) ;\r\nV_6 = NULL ;\r\n}\r\n}\r\nreturn V_6 ;\r\n}

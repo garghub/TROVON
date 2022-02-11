@@ -1,0 +1,1 @@
+static T_1 F_1 ( struct V_1 * V_2 ,\r\nstruct V_3 * V_4 ,\r\nchar * V_5 )\r\n{\r\nstruct V_6 * V_7 = F_2 ( V_2 ) ;\r\nT_2 V_8 = 0 ;\r\nT_2 V_9 = 0 ;\r\nT_2 V_10 = 0 ;\r\nF_3 ( V_7 , & V_8 , & V_9 , & V_10 ) ;\r\nreturn sprintf ( V_5 , L_1 , V_8 , V_9 ,\r\nV_10 ) ;\r\n}

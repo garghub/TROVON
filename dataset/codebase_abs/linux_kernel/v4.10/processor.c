@@ -1,0 +1,210 @@
+static void
+F_1 ( unsigned long V_1 )
+{
+}
+static int F_2 ( struct V_2 * V_3 )
+{
+unsigned long V_4 ;
+unsigned long V_5 ;
+struct V_6 * V_7 ;
+struct V_8 T_1 V_9 ;
+#ifdef F_3
+if ( F_4 () >= V_10 ) {
+F_5 ( V_11 L_1 ) ;
+return 1 ;
+}
+#else
+if ( V_12 . V_13 > 0 ) {
+F_5 ( V_11 L_2 ) ;
+return 1 ;
+}
+#endif
+V_5 = V_12 . V_13 ;
+V_4 = V_3 -> V_14 . V_15 ;
+#ifdef F_6
+if ( F_7 () ) {
+T_2 V_16 ;
+unsigned long V_17 ;
+T_3 * V_18 ;
+V_18 = F_8 ( sizeof ( * V_18 ) , V_19 ) ;
+if ( ! V_18 )
+F_9 ( L_3 ) ;
+V_16 = F_10 ( & V_17 , V_3 -> V_20 ,
+V_3 -> V_21 , V_22 , V_18 ) ;
+F_11 ( V_23 != V_16 ) ;
+F_11 ( V_3 -> V_24 != V_18 -> V_24 ) ;
+F_11 ( V_3 -> V_25 != V_18 -> V_26 ) ;
+V_4 = V_18 -> V_27 [ 0 ] ;
+F_12 ( V_18 ) ;
+V_16 = F_13 ( & T_1 , V_3 -> V_14 . V_15 ) ;
+F_11 ( V_23 != V_16 ) ;
+F_14 ( L_4
+L_5 ,
+V_5 , T_1 . V_28 , T_1 . V_29 ,
+& V_3 -> V_14 . V_15 ) ;
+#undef V_30
+#ifdef V_30
+if ( T_1 . V_28 >= V_31 ) {
+F_5 ( V_32 L_6
+L_7
+L_8 ,
+& V_3 -> V_14 . V_15 , T_1 . V_28 , V_31 ) ;
+V_12 . V_13 -- ;
+return 1 ;
+} else {
+V_5 = T_1 . V_28 ;
+}
+#endif
+}
+#endif
+V_7 = & F_15 ( V_33 , V_5 ) ;
+V_12 . V_13 ++ ;
+if ( V_5 )
+memset ( V_7 , 0 , sizeof( struct V_6 ) ) ;
+V_7 -> V_34 = V_34 ;
+V_7 -> V_3 = V_3 ;
+V_7 -> V_14 = V_3 -> V_14 . V_15 ;
+V_7 -> V_5 = V_5 ;
+V_7 -> V_4 = V_4 ;
+#ifdef F_3
+F_1 ( V_5 ) ;
+#endif
+#if 0
+if (cpuid) {
+struct irqaction actions[];
+actions = kmalloc(sizeof(struct irqaction)*MAX_CPU_IRQ, GFP_ATOMIC);
+if (!actions) {
+actions = cpu_irq_actions[0];
+}
+cpu_irq_actions[cpuid] = actions;
+}
+#endif
+#ifdef F_3
+if ( V_5 ) {
+F_16 ( V_5 , true ) ;
+F_17 ( V_5 ) ;
+}
+#endif
+return 0 ;
+}
+void T_4 F_18 ( void )
+{
+memset ( & V_12 , 0 , sizeof( V_12 ) ) ;
+V_12 . V_35 = 100 * V_36 -> V_37 ;
+#define V_7 ((unsigned long *)&boot_cpu_data.pdc.model)
+if ( F_19 ( & V_12 . V_38 . V_39 ) == V_23 )
+F_5 ( V_11
+L_9 ,
+V_7 [ 0 ] , V_7 [ 1 ] , V_7 [ 2 ] , V_7 [ 3 ] , V_7 [ 4 ] , V_7 [ 5 ] , V_7 [ 6 ] , V_7 [ 7 ] , V_7 [ 8 ] ) ;
+#undef V_7
+if ( F_20 ( & V_12 . V_38 . V_40 , 0 ) == V_23 )
+F_5 ( V_11 L_10 ,
+V_12 . V_38 . V_40 ) ;
+if ( F_21 ( & V_12 . V_38 . V_5 ) == V_23 )
+F_5 ( V_11 L_11 ,
+( V_12 . V_38 . V_5 >> 5 ) & 127 ,
+V_12 . V_38 . V_5 & 31 ,
+V_12 . V_38 . V_5 ) ;
+if ( F_22 ( & V_12 . V_38 . V_41 ) == V_23 )
+F_5 ( V_11 L_12 ,
+V_12 . V_38 . V_41 ) ;
+if ( F_23 ( V_12 . V_38 . V_42 ) == V_23 )
+F_5 ( V_11 L_13 ,
+V_12 . V_38 . V_42 ) ;
+V_12 . V_43 = V_12 . V_38 . V_39 . V_43 ;
+V_12 . V_44 = V_12 . V_38 . V_39 . V_44 ;
+V_12 . V_45 = F_24 ( V_12 . V_43 ) ;
+V_12 . V_46 = V_47 [ V_12 . V_45 ] [ 0 ] ;
+V_12 . V_48 = V_47 [ V_12 . V_45 ] [ 1 ] ;
+#ifdef F_25
+V_49 = ( V_12 . V_45 == V_50 ) ||
+( V_12 . V_45 == V_51 ) ;
+#endif
+}
+int F_26 ( int V_1 )
+{
+int V_52 ;
+struct V_53 V_54 ;
+F_27 () ;
+V_52 = V_53 ( & V_54 ) ;
+if( V_52 >= 0 && V_54 . V_55 ) {
+F_28 ( V_54 . V_55 , 10 ) ;
+F_15 ( V_33 , V_1 ) . V_56 = V_54 . V_57 ;
+F_15 ( V_33 , V_1 ) . V_58 = V_54 . V_39 ;
+if ( V_1 == 0 )
+F_5 ( V_11 L_14 ,
+V_1 , V_54 . V_57 , V_54 . V_39 ) ;
+asm volatile ("fstd %fr0,8(%sp)");
+} else {
+F_5 ( V_32 L_15
+L_16
+#ifdef F_6
+L_17
+#endif
+, V_54 . V_55 ) ;
+#ifdef F_6
+F_29 ( 100 ) ;
+F_9 ( L_18 ) ;
+#endif
+}
+F_1 ( V_1 ) ;
+return V_52 ;
+}
+int
+F_30 ( struct V_59 * V_60 , void * V_61 )
+{
+unsigned long V_62 ;
+F_31 (cpu) {
+const struct V_6 * V_63 = & F_15 ( V_33 , V_62 ) ;
+#ifdef F_3
+if ( 0 == V_63 -> V_14 )
+continue;
+#endif
+F_32 ( V_60 , L_19
+L_20 ,
+V_62 , V_12 . V_48 ) ;
+F_32 ( V_60 , L_21 , V_12 . V_46 ) ;
+F_32 ( V_60 , L_22 ,
+V_12 . V_35 / 1000000 ,
+V_12 . V_35 % 1000000 ) ;
+F_32 ( V_60 , L_23 ) ;
+if ( V_12 . V_38 . V_41 & V_64 )
+F_33 ( V_60 , L_24 ) ;
+if ( V_12 . V_38 . V_41 & V_65 )
+F_33 ( V_60 , L_25 ) ;
+if ( V_12 . V_38 . V_41 & V_66 )
+F_33 ( V_60 , L_26 ) ;
+switch ( V_12 . V_38 . V_41 & V_67 ) {
+case V_68 :
+F_33 ( V_60 , L_27 ) ;
+break;
+case V_69 :
+F_33 ( V_60 , L_28 ) ;
+break;
+case V_70 :
+F_33 ( V_60 , L_29 ) ;
+break;
+}
+F_32 ( V_60 , L_30 , V_12 . V_38 . V_41 ) ;
+F_32 ( V_60 , L_31
+L_32 ,
+V_12 . V_38 . V_42 ,
+V_63 -> V_3 ?
+V_63 -> V_3 -> V_71 : L_33 ) ;
+F_32 ( V_60 , L_34
+L_35 ,
+V_12 . V_43 ,
+V_12 . V_44 ) ;
+F_34 ( V_60 ) ;
+F_32 ( V_60 , L_36 ,
+V_63 -> V_34 / ( 500000 / V_72 ) ,
+( V_63 -> V_34 / ( 5000 / V_72 ) ) % 100 ) ;
+F_32 ( V_60 , L_37 ,
+V_12 . V_38 . V_39 . V_73 ) ;
+}
+return 0 ;
+}
+void T_4 F_35 ( void )
+{
+F_36 ( & V_74 ) ;
+}

@@ -1,0 +1,1 @@
+void F_1 ( struct V_1 * V_2 )\r\n{\r\nV_2 -> V_3 = V_4 ;\r\nV_2 -> V_5 = V_6 ;\r\n}\r\nstatic bool V_4 ( struct V_7 * V_8 , struct V_9 * V_10 ,\r\nenum V_11 type , unsigned int V_12 )\r\n{\r\nreturn true ;\r\n}\r\nstatic void V_6 ( struct V_7 * V_8 )\r\n{\r\n}

@@ -1,0 +1,1 @@
+int F_1 ( void )\r\n{\r\nint V_1 ;\r\nV_2:\r\nV_1 = F_2 ( V_3 , V_4 ) ;\r\nif ( V_1 >= V_4 )\r\nreturn - V_5 ;\r\nif ( F_3 ( V_1 , V_3 ) )\r\ngoto V_2;\r\nreturn V_1 ;\r\n}\r\nvoid T_1 F_4 ( void )\r\n{\r\nint V_6 ;\r\nfor ( V_6 = 0 ; V_6 <= 16 ; V_6 ++ )\r\nF_5 ( F_3 ( V_6 , V_3 ) ) ;\r\n}\r\nvoid F_6 ( unsigned int V_1 )\r\n{\r\nF_7 () ;\r\nF_8 ( V_1 , V_3 ) ;\r\nF_9 () ;\r\n}

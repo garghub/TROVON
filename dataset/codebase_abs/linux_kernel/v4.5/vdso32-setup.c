@@ -1,0 +1,1 @@
+static int T_1 F_1 ( char * V_1 )\r\n{\r\nV_2 = F_2 ( V_1 , NULL , 0 ) ;\r\nif ( V_2 > 1 )\r\nF_3 ( L_1 ) ;\r\nreturn 1 ;\r\n}\r\nint T_1 F_4 ( void )\r\n{\r\nF_5 ( & V_3 ) ;\r\nreturn 0 ;\r\n}\r\nstatic T_1 int F_6 ( void )\r\n{\r\nF_7 ( V_4 ) ;\r\nreturn 0 ;\r\n}

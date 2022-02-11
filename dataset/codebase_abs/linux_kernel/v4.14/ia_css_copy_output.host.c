@@ -1,0 +1,1 @@
+void\r\nF_1 (\r\nstruct V_1 * V_2 ,\r\nconst struct V_3 * V_4 ,\r\nunsigned V_5 )\r\n{\r\n( void ) V_5 ;\r\nV_2 -> V_6 = V_4 -> V_6 ;\r\n}\r\nvoid\r\nF_2 (\r\nconst struct V_7 * V_8 ,\r\nbool V_6 )\r\n{\r\nstruct V_3 V_9 = V_10 ;\r\nV_9 . V_6 = V_6 ;\r\nF_3 ( V_8 , & V_9 ) ;\r\n}

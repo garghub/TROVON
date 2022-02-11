@@ -1,0 +1,1 @@
+int F_1 ( const struct V_1 * V_2 )\r\n{\r\nif ( V_2 -> V_3 != V_4 )\r\nreturn 0 ;\r\nif ( V_2 -> V_5 & 3 )\r\nreturn 0 ;\r\nreturn 1 ;\r\n}\r\nvoid F_2 ( const struct V_1 * V_2 )\r\n{\r\nunsigned int V_6 = V_7 ;\r\nF_3 ( V_6 ) ;\r\n}

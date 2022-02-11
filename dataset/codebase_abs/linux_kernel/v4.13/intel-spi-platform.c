@@ -1,0 +1,20 @@
+static int F_1 ( struct V_1 * V_2 )
+{
+struct V_3 * V_4 ;
+struct V_5 * V_6 ;
+struct V_7 * V_8 ;
+V_4 = F_2 ( & V_2 -> V_9 ) ;
+if ( ! V_4 )
+return - V_10 ;
+V_8 = F_3 ( V_2 , V_11 , 0 ) ;
+V_6 = F_4 ( & V_2 -> V_9 , V_8 , V_4 ) ;
+if ( F_5 ( V_6 ) )
+return F_6 ( V_6 ) ;
+F_7 ( V_2 , V_6 ) ;
+return 0 ;
+}
+static int F_8 ( struct V_1 * V_2 )
+{
+struct V_5 * V_6 = F_9 ( V_2 ) ;
+return F_10 ( V_6 ) ;
+}

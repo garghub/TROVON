@@ -1,0 +1,1 @@
+static void F_1 ( int V_1 , int V_2 )\r\n{\r\nF_2 ( 0x200 , 0xffffc0c2 ) ;\r\n}\r\nstatic int T_1 F_3 ( void )\r\n{\r\nreturn F_4 ( V_3 ,\r\nF_5 ( V_3 ) ) ;\r\n}\r\nvoid T_1 F_6 ( void )\r\n{\r\nF_7 ( & V_4 ) ;\r\n}\r\nvoid T_1 F_8 ( void )\r\n{\r\nF_9 ( V_5 ,\r\nF_5 ( V_5 ) ) ;\r\n}

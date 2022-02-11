@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\n#if F_2 ( V_1 )\r\nT_2 V_2 ;\r\nF_3 ( 0x1f , V_3 ) ;\r\nV_2 = F_4 ( V_4 ) ;\r\nV_2 &= 0x3f3f ;\r\nF_5 ( V_2 , V_4 ) ;\r\n#endif\r\n}\r\nstatic void T_1 F_6 ( void )\r\n{\r\nF_3 ( F_7 ( V_5 ) | 0xf0 , V_5 ) ;\r\n}\r\nvoid T_1 F_8 ( char * V_6 , int V_7 )\r\n{\r\nV_8 = V_9 ;\r\nF_6 () ;\r\nF_1 () ;\r\n}

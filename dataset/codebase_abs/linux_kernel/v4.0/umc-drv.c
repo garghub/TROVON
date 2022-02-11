@@ -1,0 +1,1 @@
+int F_1 ( struct V_1 * V_2 , struct V_3 * V_3 ,\r\nconst char * V_4 )\r\n{\r\nV_2 -> V_5 . V_6 = V_2 -> V_6 ;\r\nV_2 -> V_5 . V_7 = V_3 ;\r\nV_2 -> V_5 . V_4 = V_4 ;\r\nV_2 -> V_5 . V_8 = & V_9 ;\r\nreturn F_2 ( & V_2 -> V_5 ) ;\r\n}\r\nvoid F_3 ( struct V_1 * V_2 )\r\n{\r\nF_4 ( & V_2 -> V_5 ) ;\r\n}

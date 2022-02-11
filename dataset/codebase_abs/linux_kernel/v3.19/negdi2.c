@@ -1,0 +1,1 @@
+T_1 F_1 ( T_1 V_1 )\r\n{\r\nunion V_2 V_3 ;\r\nunion V_2 V_4 ;\r\nV_4 . V_5 = V_1 ;\r\nV_3 . V_6 . V_7 = - V_4 . V_6 . V_7 ;\r\nV_3 . V_6 . V_8 = - V_4 . V_6 . V_8 - ( ( V_9 ) V_3 . V_6 . V_7 > 0 ) ;\r\nreturn V_3 . V_5 ;\r\n}

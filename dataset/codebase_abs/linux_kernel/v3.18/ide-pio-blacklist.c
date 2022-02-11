@@ -1,0 +1,1 @@
+int F_1 ( char * V_1 )\r\n{\r\nstruct V_2 * V_3 ;\r\nfor ( V_3 = V_4 ; V_3 -> V_5 != NULL ; V_3 ++ ) {\r\nif ( strncmp ( V_3 -> V_5 , V_1 , strlen ( V_3 -> V_5 ) ) == 0 )\r\nreturn V_3 -> V_6 ;\r\n}\r\nreturn - 1 ;\r\n}

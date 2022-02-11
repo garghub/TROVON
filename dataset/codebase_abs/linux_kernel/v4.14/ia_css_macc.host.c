@@ -1,0 +1,1 @@
+void\r\nF_1 (\r\nstruct V_1 * V_2 ,\r\nconst struct V_3 * V_4 ,\r\nunsigned V_5 )\r\n{\r\n( void ) V_5 ;\r\nV_2 -> exp = V_4 -> exp ;\r\n}\r\nvoid\r\nF_2 (\r\nconst struct V_3 * V_6 ,\r\nunsigned V_7 )\r\n{\r\nF_3 ( V_7 ,\r\nL_1 ,\r\nV_6 -> exp ) ;\r\n}

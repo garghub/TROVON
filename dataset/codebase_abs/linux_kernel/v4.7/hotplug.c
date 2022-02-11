@@ -1,0 +1,1 @@
+static inline void F_1 ( unsigned int V_1 )\r\n{\r\nfor (; ; ) {\r\n__asm__ __volatile__("dsb\n\t" "wfi\n\t"\r\n: : : "memory");\r\nif ( V_2 == F_2 ( V_1 ) ) {\r\nbreak;\r\n}\r\n}\r\n}\r\nvoid F_3 ( unsigned int V_1 )\r\n{\r\nF_1 ( V_1 ) ;\r\n}

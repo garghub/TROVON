@@ -1,0 +1,1 @@
+int F_1 ( unsigned int V_1 , unsigned int type )\r\n{\r\nstruct V_2 * V_3 ;\r\nstruct V_4 * V_5 ;\r\nint V_6 ;\r\nV_6 = - V_7 ;\r\nV_3 = F_2 ( V_1 ) ;\r\nif ( V_3 && V_3 -> V_8 ) {\r\nV_5 = V_3 -> V_8 ;\r\nif ( V_5 -> V_9 ) {\r\nstruct V_10 * V_11 = F_3 ( V_1 ) ;\r\nV_6 = V_5 -> V_9 ( F_4 ( V_11 ) , type ) ;\r\n}\r\n}\r\nreturn V_6 ;\r\n}

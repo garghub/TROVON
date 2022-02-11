@@ -1,0 +1,1 @@
+void F_1 ( const char * V_1 , const char * V_2 , ... )\r\n{\r\nstruct V_3 V_4 = {\r\n. V_2 = V_2 ,\r\n} ;\r\nT_1 args ;\r\nva_start ( args , V_2 ) ;\r\nV_4 . V_5 = & args ;\r\nF_2 ( L_1 , V_1 , & V_4 ) ;\r\nF_3 ( V_1 , & V_4 ) ;\r\nva_end ( args ) ;\r\n}

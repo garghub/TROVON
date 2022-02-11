@@ -1,0 +1,1 @@
+static int F_1 ( const struct V_1 * V_1 )\r\n{\r\nstruct V_2 * V_3 = F_2 ( F_3 ( V_1 ) ) ;\r\nreturn F_4 ( V_3 ) <= 0 ;\r\n}\r\nstatic int F_5 ( struct V_2 * V_3 )\r\n{\r\nreturn 1000000 ;\r\n}\r\nstatic int F_6 ( struct V_4 * V_5 )\r\n{\r\nreturn F_7 ( & V_6 ) ;\r\n}\r\nstatic int F_8 ( struct V_4 * V_5 )\r\n{\r\nF_9 ( & V_6 ) ;\r\nreturn 0 ;\r\n}

@@ -1,0 +1,1 @@
+void F_1 ( char V_1 )\r\n{\r\nT_1 V_2 ;\r\nCHAR V_3 = V_1 ;\r\nF_2 () ;\r\nF_3 ( 1 , & V_3 , 1 , & V_2 ) ;\r\nF_4 () ;\r\n}\r\nchar F_5 ( void )\r\n{\r\nT_1 V_2 ;\r\nCHAR V_1 ;\r\nF_2 () ;\r\nF_6 ( 0 , & V_1 , 1 , & V_2 ) ;\r\nF_4 () ;\r\nreturn V_1 ;\r\n}

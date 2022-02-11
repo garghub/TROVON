@@ -1,0 +1,1 @@
+int F_1 ( void )\r\n{\r\nstruct V_1 V_2 , V_3 ;\r\nT_1 V_4 ;\r\nF_2 ( & V_2 ) ;\r\nV_2 . V_5 = 0xc0 ;\r\nF_3 ( 0x15 , & V_2 , & V_3 ) ;\r\nif ( V_3 . V_6 & V_7 )\r\nreturn - 1 ;\r\nF_4 ( V_3 . V_8 ) ;\r\nV_4 = F_5 ( V_3 . V_9 ) ;\r\nif ( V_4 > sizeof( V_10 . V_11 ) )\r\nV_4 = sizeof( V_10 . V_11 ) ;\r\nF_6 ( & V_10 . V_11 , V_3 . V_9 , V_4 ) ;\r\nreturn 0 ;\r\n}

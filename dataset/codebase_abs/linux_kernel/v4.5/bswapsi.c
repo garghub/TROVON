@@ -1,0 +1,1 @@
+unsigned int F_1 ( unsigned int V_1 )\r\n{\r\nreturn ( ( ( V_1 ) & 0xff000000 ) >> 24 ) |\r\n( ( ( V_1 ) & 0x00ff0000 ) >> 8 ) |\r\n( ( ( V_1 ) & 0x0000ff00 ) << 8 ) |\r\n( ( ( V_1 ) & 0x000000ff ) << 24 ) ;\r\n}

@@ -1,0 +1,1 @@
+T_1 long\r\nF_1 ( unsigned * V_1 , unsigned * V_2 , struct V_3 * V_4 )\r\n{\r\nunsigned int V_5 ;\r\nV_5 = F_2 () ;\r\nif ( V_1 )\r\n* V_1 = V_5 & V_6 ;\r\nif ( V_2 )\r\n* V_2 = V_5 >> 12 ;\r\nreturn 0 ;\r\n}

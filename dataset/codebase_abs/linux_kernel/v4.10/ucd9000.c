@@ -1,0 +1,141 @@
+static int F_1 ( struct V_1 * V_2 , int V_3 )
+{
+int V_4 = 0 ;
+struct V_5 * V_6
+= F_2 ( F_3 ( V_2 ) ) ;
+if ( V_6 -> V_7 [ V_3 ] [ 3 ] & 1 )
+V_4 |= V_8 ;
+V_4 |= ( V_6 -> V_7 [ V_3 ] [ 3 ] & 0x06 ) >> 1 ;
+return V_4 ;
+}
+static int F_4 ( struct V_1 * V_2 , int V_9 , int V_10 )
+{
+int V_11 = 0 ;
+int V_4 ;
+switch ( V_10 ) {
+case V_12 :
+if ( V_9 > 0 )
+return - V_13 ;
+V_11 = F_1 ( V_2 , 0 ) ;
+if ( V_11 < 0 )
+return V_11 ;
+V_4 = V_11 << 4 ;
+V_11 = F_1 ( V_2 , 1 ) ;
+if ( V_11 < 0 )
+return V_11 ;
+V_4 |= V_11 ;
+V_11 = V_4 ;
+break;
+case V_14 :
+if ( V_9 > 0 )
+return - V_13 ;
+V_11 = F_1 ( V_2 , 2 ) ;
+if ( V_11 < 0 )
+return V_11 ;
+V_4 = V_11 << 4 ;
+V_11 = F_1 ( V_2 , 3 ) ;
+if ( V_11 < 0 )
+return V_11 ;
+V_4 |= V_11 ;
+V_11 = V_4 ;
+break;
+default:
+V_11 = - V_15 ;
+break;
+}
+return V_11 ;
+}
+static int F_5 ( struct V_1 * V_2 ,
+const struct V_16 * V_17 )
+{
+T_1 V_18 [ V_19 + 1 ] ;
+struct V_5 * V_6 ;
+struct V_20 * V_21 ;
+const struct V_16 * V_22 ;
+int V_23 , V_11 ;
+if ( ! F_6 ( V_2 -> V_24 ,
+V_25 |
+V_26 ) )
+return - V_27 ;
+V_11 = F_7 ( V_2 , V_28 ,
+V_18 ) ;
+if ( V_11 < 0 ) {
+F_8 ( & V_2 -> V_29 , L_1 ) ;
+return V_11 ;
+}
+V_18 [ V_11 ] = '\0' ;
+F_9 ( & V_2 -> V_29 , L_2 , V_18 ) ;
+for ( V_22 = V_30 ; V_22 -> V_31 [ 0 ] ; V_22 ++ ) {
+if ( ! strncasecmp ( V_22 -> V_31 , V_18 , strlen ( V_22 -> V_31 ) ) )
+break;
+}
+if ( ! V_22 -> V_31 [ 0 ] ) {
+F_8 ( & V_2 -> V_29 , L_3 ) ;
+return - V_27 ;
+}
+if ( V_17 -> V_32 != V_33 && V_17 -> V_32 != V_22 -> V_32 )
+F_10 ( & V_2 -> V_29 ,
+L_4 ,
+V_17 -> V_31 , V_22 -> V_31 ) ;
+V_6 = F_11 ( & V_2 -> V_29 , sizeof( struct V_5 ) ,
+V_34 ) ;
+if ( ! V_6 )
+return - V_35 ;
+V_21 = & V_6 -> V_21 ;
+V_11 = F_12 ( V_2 , V_36 ) ;
+if ( V_11 < 0 ) {
+F_8 ( & V_2 -> V_29 ,
+L_5 ) ;
+return V_11 ;
+}
+V_21 -> V_37 = V_11 ;
+if ( ! V_21 -> V_37 ) {
+F_8 ( & V_2 -> V_29 , L_6 ) ;
+return - V_27 ;
+}
+V_21 -> V_38 [ 0 ] = V_39 ;
+V_11 = F_7 ( V_2 , V_40 ,
+V_18 ) ;
+if ( V_11 <= 0 ) {
+F_8 ( & V_2 -> V_29 , L_7 ) ;
+return - V_27 ;
+}
+for ( V_23 = 0 ; V_23 < V_11 ; V_23 ++ ) {
+int V_9 = F_13 ( V_18 [ V_23 ] ) ;
+if ( V_9 >= V_21 -> V_37 )
+continue;
+switch ( F_14 ( V_18 [ V_23 ] ) ) {
+case V_41 :
+case V_42 :
+V_21 -> V_38 [ V_9 ] |= V_43
+| V_44 ;
+break;
+case V_45 :
+V_21 -> V_38 [ V_9 ] |= V_46
+| V_47 ;
+break;
+case V_48 :
+V_21 -> V_38 [ V_9 ] |= V_49
+| V_50 ;
+break;
+default:
+break;
+}
+}
+if ( V_22 -> V_32 == V_51 ) {
+for ( V_23 = 0 ; V_23 < V_52 ; V_23 ++ ) {
+F_15 ( V_2 ,
+V_53 , V_23 ) ;
+V_11 = F_7 ( V_2 ,
+V_54 ,
+V_6 -> V_7 [ V_23 ] ) ;
+if ( V_11 < 0 )
+return V_11 ;
+}
+F_15 ( V_2 , V_53 , 0 ) ;
+V_21 -> V_55 = F_4 ;
+V_21 -> V_38 [ 0 ] |= V_56 | V_57
+| V_58 | V_59 ;
+}
+return F_16 ( V_2 , V_22 , V_21 ) ;
+}

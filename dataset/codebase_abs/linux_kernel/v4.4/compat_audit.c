@@ -1,0 +1,1 @@
+int F_1 ( int V_1 , unsigned V_2 )\r\n{\r\nswitch ( V_2 ) {\r\n#ifdef F_2\r\ncase F_2 :\r\nreturn 2 ;\r\n#endif\r\n#ifdef F_3\r\ncase F_3 :\r\nreturn 3 ;\r\n#endif\r\n#ifdef F_4\r\ncase F_4 :\r\nreturn 4 ;\r\n#endif\r\ncase V_3 :\r\nreturn 5 ;\r\ndefault:\r\nreturn 1 ;\r\n}\r\n}

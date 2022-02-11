@@ -1,0 +1,1 @@
+static T_1 F_1 ( int V_1 , void * V_2 )\r\n{\r\nV_3 . V_4 ( & V_3 ) ;\r\nreturn V_5 ;\r\n}\r\nvoid T_2 F_2 ( void )\r\n{\r\nF_3 ( true ) ;\r\nF_4 ( 0 , & V_6 ) ;\r\n}\r\nstatic int T_2 F_5 ( void )\r\n{\r\nif ( F_6 () > 1 )\r\nreturn 0 ;\r\nreturn F_7 () ;\r\n}

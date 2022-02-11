@@ -1,0 +1,1 @@
+unsigned long F_1 ( struct V_1 * V_2 )\r\n{\r\nstruct V_1 * V_3 ;\r\nconst unsigned int * V_4 = NULL ;\r\nF_2 ( V_2 ) ;\r\nwhile ( V_2 ) {\r\nV_4 = F_3 ( V_2 , L_1 , NULL ) ;\r\nif ( V_4 )\r\nbreak;\r\nV_3 = F_4 ( V_2 ) ;\r\nF_5 ( V_2 ) ;\r\nV_2 = V_3 ;\r\n}\r\nF_5 ( V_2 ) ;\r\nreturn V_4 ? * V_4 : 0 ;\r\n}

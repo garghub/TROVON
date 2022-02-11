@@ -1,0 +1,1 @@
+void F_1 ( void )\r\n{\r\nmemcpy ( & V_1 , F_2 ( V_2 ) , sizeof( struct V_3 ) ) ;\r\nif ( V_1 . V_4 != V_5 )\r\nV_1 . V_6 = - 1 ;\r\nif ( V_1 . V_7 != V_8 )\r\nV_1 . V_9 = - 1 ;\r\nif ( V_1 . V_10 != V_11 )\r\nV_1 . V_12 [ 0 ] = - 1 ;\r\nif ( V_1 . V_13 != V_14 )\r\nV_1 . V_15 = - 1 ;\r\nif ( V_1 . V_16 != V_17 )\r\nV_1 . V_18 = - 1 ;\r\n}

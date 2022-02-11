@@ -1,0 +1,1 @@
+long\r\nF_1 ( const char * V_1 , long V_2 )\r\n{\r\nlong V_3 , V_4 ;\r\nif ( ! V_5 )\r\nreturn V_2 ;\r\nfor ( V_3 = V_2 ; V_3 > 0 ; V_3 -= V_4 )\r\n{\r\nV_4 = F_2 ( 0 , V_1 , V_3 ) ;\r\nV_4 &= 0xffffffff ;\r\nV_1 += V_4 ;\r\n}\r\nreturn V_2 ;\r\n}

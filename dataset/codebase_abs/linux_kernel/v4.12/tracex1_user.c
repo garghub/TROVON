@@ -1,0 +1,1 @@
+int main ( int V_1 , char * * V_2 )\r\n{\r\nT_1 * V_3 ;\r\nchar V_4 [ 256 ] ;\r\nsnprintf ( V_4 , sizeof( V_4 ) , L_1 , V_2 [ 0 ] ) ;\r\nif ( F_1 ( V_4 ) ) {\r\nprintf ( L_2 , V_5 ) ;\r\nreturn 1 ;\r\n}\r\nV_3 = F_2 ( L_3 , L_4 ) ;\r\n( void ) V_3 ;\r\nF_3 () ;\r\nreturn 0 ;\r\n}

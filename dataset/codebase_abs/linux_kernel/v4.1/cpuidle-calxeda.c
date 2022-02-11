@@ -1,0 +1,1 @@
+static int F_1 ( unsigned long V_1 )\r\n{\r\nconst struct V_2 V_3 = {\r\n. type = V_4 ,\r\n} ;\r\nreturn V_5 . V_6 ( V_3 , F_2 ( V_7 ) ) ;\r\n}\r\nstatic int F_3 ( struct V_8 * V_9 ,\r\nstruct V_10 * V_11 ,\r\nint V_12 )\r\n{\r\nF_4 () ;\r\nV_6 ( 0 , F_1 ) ;\r\nF_5 () ;\r\nreturn V_12 ;\r\n}\r\nstatic int F_6 ( struct V_13 * V_14 )\r\n{\r\nreturn F_7 ( & V_15 , NULL ) ;\r\n}

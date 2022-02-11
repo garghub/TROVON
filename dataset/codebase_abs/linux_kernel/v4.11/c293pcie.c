@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\nstruct V_1 * V_1 = F_2 ( NULL , 0 , V_2 |\r\nV_3 , 0 , 256 , L_1 ) ;\r\nF_3 ( V_1 == NULL ) ;\r\nF_4 ( V_1 ) ;\r\n}\r\nstatic void T_1 F_5 ( void )\r\n{\r\nif ( V_4 . V_5 )\r\nV_4 . V_5 ( L_2 , 0 ) ;\r\nF_6 () ;\r\nF_7 ( V_6 L_3 ) ;\r\n}\r\nstatic int T_1 F_8 ( void )\r\n{\r\nif ( F_9 ( L_4 ) )\r\nreturn 1 ;\r\nreturn 0 ;\r\n}

@@ -1,0 +1,1 @@
+int F_1 ( struct V_1 * V_2 )\r\n{\r\nreturn F_2 ( V_2 , & V_3 , 0 ) ;\r\n}\r\nint F_3 ( struct V_1 * V_2 ,\r\nstruct V_4 * V_5 ,\r\nchar * V_6 , char * V_7 )\r\n{\r\n* V_5 = V_3 ;\r\nV_5 -> V_8 = V_2 -> V_9 ;\r\nV_5 -> V_10 [ 0 ] = V_6 ;\r\nV_5 -> V_10 [ 1 ] = V_7 ;\r\nreturn F_2 ( V_2 , V_5 , 0 ) ;\r\n}\r\nvoid F_4 ( struct V_1 * V_2 )\r\n{\r\nreturn F_5 ( V_2 ) ;\r\n}

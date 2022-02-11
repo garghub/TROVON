@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\nconst int V_1 = 12 ;\r\nint V_2 ;\r\nV_2 = F_2 ( V_1 , V_3 , L_1 ) ;\r\nif ( V_2 )\r\nF_3 ( L_2 , V_2 ) ;\r\nelse\r\nF_4 ( V_1 ) ;\r\n}\r\nvoid T_1 F_5 ( void )\r\n{\r\nenum V_4 V_5 = F_6 () ;\r\nswitch ( V_5 ) {\r\ncase V_6 :\r\nF_1 () ;\r\nbreak;\r\ndefault:\r\nbreak;\r\n}\r\n}

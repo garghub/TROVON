@@ -1,0 +1,1 @@
+static int F_1 ( const struct V_1 * V_2 )\r\n{\r\nreturn V_2 -> V_3 ;\r\n}\r\nstatic void F_2 ( const struct V_1 * V_2 , int V_4 )\r\n{\r\n}\r\nstatic int T_1 F_3 ( void )\r\n{\r\nif ( ! F_4 () )\r\nreturn 0 ;\r\nF_5 ( 0xffffff , V_5 ) ;\r\nif ( F_6 () )\r\nreturn 0 ;\r\nF_7 ( & V_6 , & V_7 ) ;\r\nF_7 ( & V_8 , & V_7 ) ;\r\nreturn 0 ;\r\n}

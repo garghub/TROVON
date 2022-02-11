@@ -1,0 +1,1 @@
+static void T_1 F_1 ( unsigned int V_1 )\r\n{\r\nF_2 ( V_1 ) ;\r\nF_3 () ;\r\n}\r\nstatic int F_4 ( unsigned int V_2 ,\r\nstruct V_3 * V_4 )\r\n{\r\nif ( F_5 () & F_6 ( 21 ) ) {\r\nF_7 ( L_1 , V_2 ) ;\r\nreturn - V_5 ;\r\n}\r\nreturn F_8 ( V_2 , V_4 ) ;\r\n}

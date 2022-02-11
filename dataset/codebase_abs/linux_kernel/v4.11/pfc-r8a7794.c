@@ -1,0 +1,1 @@
+static int F_1 ( struct V_1 * V_2 , unsigned int V_3 , T_1 * V_4 )\r\n{\r\n* V_4 = 0xe606006c ;\r\nswitch ( V_3 & 0x1f ) {\r\ncase 6 : return 23 ;\r\ncase 7 : return 16 ;\r\ncase 14 : return 15 ;\r\ncase 15 : return 8 ;\r\ncase 0 ... 5 :\r\ncase 8 ... 13 :\r\nreturn 22 - ( V_3 & 0x1f ) ;\r\ncase 16 ... 23 :\r\nreturn 47 - ( V_3 & 0x1f ) ;\r\n}\r\nreturn - V_5 ;\r\n}

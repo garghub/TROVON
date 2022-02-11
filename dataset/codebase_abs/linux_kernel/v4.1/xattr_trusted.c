@@ -1,0 +1,18 @@
+static int F_1 ( struct V_1 * V_1 , const char * V_2 ,
+void * V_3 , T_1 V_4 , int type )
+{
+return F_2 ( V_1 , V_2 , V_3 , V_4 ,
+V_5 ,
+V_6 ) ;
+}
+static int F_3 ( struct V_1 * V_1 , const char * V_2 ,
+const void * V_3 , T_1 V_4 , int V_7 , int type )
+{
+return F_4 ( V_1 , V_2 , V_3 , V_4 , V_7 ,
+V_5 , V_6 ) ;
+}
+static T_1 F_5 ( struct V_1 * V_1 , char * V_8 ,
+T_1 V_9 , const char * V_2 , T_1 V_10 , int type )
+{
+return - V_11 ;
+}

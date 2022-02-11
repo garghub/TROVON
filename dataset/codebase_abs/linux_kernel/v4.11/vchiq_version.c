@@ -1,0 +1,1 @@
+const char * F_1 ( void )\r\n{\r\nreturn V_1 ;\r\n}\r\nconst char * F_2 ( void )\r\n{\r\nreturn V_2 ;\r\n}\r\nconst char * F_3 ( void )\r\n{\r\nreturn V_3 ;\r\n}\r\nconst char * F_4 ( void )\r\n{\r\nreturn V_4 ;\r\n}

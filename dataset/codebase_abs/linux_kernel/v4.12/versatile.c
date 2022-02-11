@@ -1,0 +1,1 @@
+static T_1 T_2 F_1 ( void )\r\n{\r\nreturn F_2 ( V_1 ) ;\r\n}\r\nstatic int T_3 F_3 ( struct V_2 * V_3 )\r\n{\r\nvoid T_4 * V_4 = F_4 ( V_3 , 0 ) ;\r\nif ( ! V_4 )\r\nreturn - V_5 ;\r\nV_1 = V_4 + V_6 ;\r\nF_5 ( F_1 , 32 , 24000000 ) ;\r\nreturn 0 ;\r\n}

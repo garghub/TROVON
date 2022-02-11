@@ -1,0 +1,1 @@
+int T_1 F_1 ( unsigned int V_1 , unsigned int V_2 )\r\n{\r\nV_3 . V_4 = V_1 > 510 ? 255 : V_1 / 2 ;\r\nV_3 . V_2 = ( V_2 + 1 ) / 2 ;\r\nreturn F_2 ( & V_5 ) ;\r\n}\r\nint T_1 F_1 ( unsigned int V_1 , unsigned int V_2 )\r\n{\r\nreturn 0 ;\r\n}\r\nint T_1 F_3 ( struct V_6 * V_7 )\r\n{\r\nV_8 . V_9 . V_10 = V_7 ;\r\nreturn F_2 ( & V_8 ) ;\r\n}

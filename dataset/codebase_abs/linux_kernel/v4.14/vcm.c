@@ -1,0 +1,1 @@
+int F_1 ( struct V_1 * V_2 )\r\n{\r\nconst struct V_3 * V_4 ;\r\nV_4 = F_2 () ;\r\nif ( NULL == V_4 )\r\nreturn - V_5 ;\r\nreturn V_4 -> V_6 ( V_2 , 1 ) ;\r\n}\r\nint F_3 ( struct V_1 * V_2 )\r\n{\r\nconst struct V_3 * V_4 ;\r\nV_4 = F_2 () ;\r\nif ( NULL == V_4 )\r\nreturn - V_5 ;\r\nreturn V_4 -> V_6 ( V_2 , 0 ) ;\r\n}

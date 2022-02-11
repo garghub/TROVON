@@ -1,0 +1,1 @@
+void\r\nF_1 ( struct V_1 * V_2 )\r\n{\r\nassert ( V_2 != NULL ) ;\r\n#if F_2 ( V_3 ) || F_2 ( V_4 )\r\nV_2 -> V_5 = F_3 ( V_6 ) / V_7 ;\r\n#else\r\n#error "Unknown GDC version"\r\n#endif\r\nV_2 -> V_8 = true ;\r\n#if F_2 ( V_9 )\r\nV_2 -> V_10 = V_11 ;\r\n#elif F_2 ( V_12 )\r\nV_2 -> V_10 = V_13 ;\r\n#else\r\n#error "Unknown VAMEM version"\r\n#endif\r\n}

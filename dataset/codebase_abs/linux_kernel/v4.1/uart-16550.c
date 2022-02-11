@@ -1,0 +1,1 @@
+static inline unsigned int F_1 ( int V_1 )\r\n{\r\nreturn * ( ( volatile V_2 * ) F_2 ( V_1 ) ) & 0xFF ;\r\n}\r\nstatic inline void F_3 ( int V_1 , int V_3 )\r\n{\r\n* ( ( volatile V_2 * ) F_2 ( V_1 ) ) = V_3 & 0xFF ;\r\n}\r\nvoid putc ( char V_4 )\r\n{\r\nint V_5 = 1000000 ;\r\nwhile ( ( ( F_1 ( V_6 ) & V_7 ) == 0 ) && ( V_5 -- > 0 ) )\r\n;\r\nF_3 ( V_8 , V_4 ) ;\r\n}

@@ -1,0 +1,1 @@
+bool F_1 ( const struct V_1 * V_2 ,\r\nconst struct V_1 * V_3 )\r\n{\r\n#if V_4 == V_5\r\nunsigned long V_6 = F_2 ( F_3 ( V_2 -> V_7 ) ) ;\r\nunsigned long V_8 = F_2 ( F_3 ( V_3 -> V_7 ) ) ;\r\nreturn F_4 ( V_2 , V_3 ) &&\r\n( ( V_6 == V_8 ) || ( ( V_6 + 1 ) == V_8 ) ) ;\r\n#else\r\nreturn 0 ;\r\n#endif\r\n}

@@ -1,0 +1,1 @@
+unsigned int F_1 ( unsigned int V_1 )\r\n{\r\nswitch ( ( V_1 & 0xf00f ) ) {\r\ncase 0x0000 :\r\ncase 0x0001 :\r\ncase 0x3001 :\r\nreturn 4 ;\r\n}\r\nswitch ( ( V_1 & 0xf08f ) ) {\r\ncase 0x3009 :\r\nreturn 4 ;\r\n}\r\nreturn 2 ;\r\n}

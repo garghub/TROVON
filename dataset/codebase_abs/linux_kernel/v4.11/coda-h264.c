@@ -1,0 +1,1 @@
+int F_1 ( int V_1 , char * V_2 )\r\n{\r\nint V_3 ;\r\nint V_4 ;\r\nV_4 = V_1 - ( V_1 & ~ 0x7 ) ;\r\nif ( V_4 == 0 )\r\nreturn 0 ;\r\nV_3 = V_5 [ V_4 ] ;\r\nmemcpy ( V_2 , V_6 , V_3 ) ;\r\n* ( V_2 + V_3 - 1 ) = 0x80 ;\r\nreturn V_3 ;\r\n}

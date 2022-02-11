@@ -1,0 +1,1 @@
+void F_1 ( T_1 * V_1 , const char * V_2 , int line )\r\n{\r\nint V_3 = 5 * V_4 ;\r\nif ( F_2 ( V_1 ) < 0 ) {\r\nF_3 ( L_1 , F_2 ( V_1 ) , V_2 , line ) ;\r\nreturn;\r\n}\r\nwhile ( F_2 ( V_1 ) > 0 ) {\r\nif ( V_3 == 0 ) {\r\nF_3 ( L_2 , F_2 ( V_1 ) , V_2 , line ) ;\r\nbreak;\r\n}\r\nF_4 ( 1 ) ;\r\nV_3 -- ;\r\n}\r\n}

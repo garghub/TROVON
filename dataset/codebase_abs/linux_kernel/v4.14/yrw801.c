@@ -1,0 +1,1 @@
+int F_1 ( struct V_1 * V_2 )\r\n{\r\nchar V_3 [ 15 ] ;\r\nF_2 ( V_2 , V_3 , 0x001200 , 15 ) ;\r\nif ( memcmp ( V_3 , L_1 , 15 ) )\r\nreturn - V_4 ;\r\nF_2 ( V_2 , V_3 , 0x1ffffe , 2 ) ;\r\nif ( V_3 [ 0 ] != 0x01 )\r\nreturn - V_4 ;\r\nF_3 ( L_2 , V_3 [ 0 ] , V_3 [ 1 ] ) ;\r\nreturn 0 ;\r\n}

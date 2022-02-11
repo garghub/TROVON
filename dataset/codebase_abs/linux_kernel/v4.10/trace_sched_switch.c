@@ -1,0 +1,72 @@
+static void
+F_1 ( void * V_1 , bool V_2 ,
+struct V_3 * V_4 , struct V_3 * V_5 )
+{
+if ( F_2 ( ! V_6 ) )
+return;
+F_3 ( V_4 ) ;
+F_3 ( V_5 ) ;
+}
+static void
+F_4 ( void * V_1 , struct V_3 * V_7 )
+{
+if ( F_2 ( ! V_6 ) )
+return;
+F_3 ( V_8 ) ;
+}
+static int F_5 ( void )
+{
+int V_9 ;
+V_9 = F_6 ( F_4 , NULL ) ;
+if ( V_9 ) {
+F_7 ( L_1
+L_2 ) ;
+return V_9 ;
+}
+V_9 = F_8 ( F_4 , NULL ) ;
+if ( V_9 ) {
+F_7 ( L_1
+L_3 ) ;
+goto V_10;
+}
+V_9 = F_9 ( F_1 , NULL ) ;
+if ( V_9 ) {
+F_7 ( L_4
+L_5 ) ;
+goto V_11;
+}
+return V_9 ;
+V_11:
+F_10 ( F_4 , NULL ) ;
+V_10:
+F_11 ( F_4 , NULL ) ;
+return V_9 ;
+}
+static void F_12 ( void )
+{
+F_13 ( F_1 , NULL ) ;
+F_10 ( F_4 , NULL ) ;
+F_11 ( F_4 , NULL ) ;
+}
+static void F_14 ( void )
+{
+F_15 ( & V_12 ) ;
+if ( ! ( V_6 ++ ) )
+F_5 () ;
+F_16 ( & V_12 ) ;
+}
+static void F_17 ( void )
+{
+F_15 ( & V_12 ) ;
+if ( ! ( -- V_6 ) )
+F_12 () ;
+F_16 ( & V_12 ) ;
+}
+void F_18 ( void )
+{
+F_14 () ;
+}
+void F_19 ( void )
+{
+F_17 () ;
+}

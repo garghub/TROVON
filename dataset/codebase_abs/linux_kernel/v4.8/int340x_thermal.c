@@ -1,0 +1,1 @@
+static int F_1 ( struct V_1 * V_2 ,\r\nconst struct V_3 * V_4 )\r\n{\r\nif ( F_2 ( V_5 ) )\r\nF_3 ( V_2 ) ;\r\nelse if ( F_2 ( V_6 ) &&\r\nV_4 -> V_7 == V_8 )\r\nF_3 ( V_2 ) ;\r\nreturn 1 ;\r\n}\r\nvoid T_1 F_4 ( void )\r\n{\r\nF_5 ( & V_9 ) ;\r\n}

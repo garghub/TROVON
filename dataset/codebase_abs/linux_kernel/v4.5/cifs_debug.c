@@ -1,0 +1,502 @@
+void
+F_1 ( char * V_1 , void * V_2 , int V_3 )
+{
+F_2 ( L_1 , V_1 , V_3 , V_2 ) ;
+F_3 ( V_4 , L_2 , V_5 , 16 , 4 ,
+V_2 , V_3 , true ) ;
+}
+void F_4 ( const char * V_6 , ... )
+{
+struct V_7 V_8 ;
+T_1 args ;
+va_start ( args , V_6 ) ;
+V_8 . V_6 = V_6 ;
+V_8 . V_9 = & args ;
+F_5 ( L_3 , & V_8 ) ;
+va_end ( args ) ;
+}
+void F_6 ( void * V_10 )
+{
+#ifdef F_7
+struct V_11 * V_12 = (struct V_11 * ) V_10 ;
+F_8 ( V_13 , L_4 ,
+V_12 -> V_14 , V_12 -> V_15 . V_16 ,
+V_12 -> V_17 , V_12 -> V_18 , V_12 -> V_19 , V_12 -> V_20 ) ;
+F_8 ( V_13 , L_5 , V_12 , F_9 ( V_12 ) ) ;
+#endif
+}
+void F_10 ( struct V_21 * V_22 )
+{
+#ifdef F_7
+struct V_23 * V_24 ;
+struct V_25 * V_26 ;
+if ( V_22 == NULL )
+return;
+F_8 ( V_13 , L_6 ) ;
+F_11 ( & V_27 ) ;
+F_12 (tmp, &server->pending_mid_q) {
+V_26 = F_13 ( V_24 , struct V_25 , V_28 ) ;
+F_8 ( V_13 , L_7 ,
+V_26 -> V_29 ,
+F_14 ( V_26 -> V_30 ) ,
+V_26 -> V_31 ,
+V_26 -> V_32 ,
+V_26 -> V_33 ) ;
+#ifdef F_15
+F_8 ( V_13 , L_8 ,
+V_26 -> V_34 ,
+V_26 -> V_35 ,
+V_26 -> V_36 ,
+V_37 ) ;
+#endif
+F_8 ( V_13 , L_9 ,
+V_26 -> V_38 , V_26 -> V_39 ) ;
+if ( V_26 -> V_35 ) {
+F_6 ( V_26 -> V_35 ) ;
+F_1 ( L_10 ,
+V_26 -> V_35 , 62 ) ;
+}
+}
+F_16 ( & V_27 ) ;
+#endif
+}
+static int F_17 ( struct V_40 * V_41 , void * V_42 )
+{
+struct V_23 * V_43 , * V_44 , * V_45 ;
+struct V_25 * V_26 ;
+struct V_21 * V_22 ;
+struct V_46 * V_47 ;
+struct V_48 * V_49 ;
+int V_50 , V_51 ;
+T_2 V_52 ;
+F_18 ( V_41 ,
+L_11
+L_12 ) ;
+F_19 ( V_41 , L_13 , V_53 ) ;
+F_19 ( V_41 , L_14 ) ;
+#ifdef F_20
+F_19 ( V_41 , L_15 ) ;
+#endif
+#ifdef F_21
+F_19 ( V_41 , L_16 ) ;
+#endif
+#ifdef F_22
+F_19 ( V_41 , L_17 ) ;
+#endif
+#ifdef F_23
+F_19 ( V_41 , L_18 ) ;
+#endif
+#ifdef F_24
+F_19 ( V_41 , L_19 ) ;
+#endif
+#ifdef F_25
+F_19 ( V_41 , L_20 ) ;
+#endif
+#ifdef F_26
+F_19 ( V_41 , L_21 ) ;
+#endif
+F_27 ( V_41 , '\n' ) ;
+F_19 ( V_41 , L_22 , V_54 ) ;
+F_19 ( V_41 , L_23 ) ;
+V_50 = 0 ;
+F_11 ( & V_55 ) ;
+F_12 (tmp1, &cifs_tcp_ses_list) {
+V_22 = F_13 ( V_43 , struct V_21 ,
+V_56 ) ;
+V_50 ++ ;
+F_12 (tmp2, &server->smb_ses_list) {
+V_47 = F_13 ( V_44 , struct V_46 ,
+V_57 ) ;
+if ( ( V_47 -> V_58 == NULL ) ||
+( V_47 -> V_59 == NULL ) ||
+( V_47 -> V_60 == NULL ) ) {
+F_19 ( V_41 , L_24
+L_25 , V_50 , V_47 -> V_61 ) ;
+} else {
+F_19 ( V_41 ,
+L_26
+L_27
+L_28 ,
+V_50 , V_47 -> V_61 , V_47 -> V_58 ,
+V_47 -> V_62 , V_47 -> V_59 , V_47 -> V_60 ,
+V_47 -> V_63 , V_47 -> V_64 ) ;
+}
+F_19 ( V_41 , L_29
+L_30 ,
+V_22 -> V_65 , V_22 -> V_66 ,
+V_22 -> V_67 , F_28 ( V_22 ) ) ;
+#ifdef F_15
+F_19 ( V_41 , L_31 ,
+F_29 ( & V_22 -> V_68 ) ,
+F_29 ( & V_22 -> V_69 ) ) ;
+#endif
+F_18 ( V_41 , L_32 ) ;
+V_51 = 0 ;
+F_12 (tmp3, &ses->tcon_list) {
+V_49 = F_13 ( V_45 , struct V_48 ,
+V_70 ) ;
+++ V_51 ;
+V_52 = F_30 ( V_49 -> V_71 . V_72 ) ;
+F_19 ( V_41 , L_33 , V_51 ,
+V_49 -> V_73 , V_49 -> V_74 ) ;
+if ( V_49 -> V_75 ) {
+F_19 ( V_41 , L_34 ,
+V_49 -> V_75 ) ;
+}
+F_19 ( V_41 , L_35
+L_36 ,
+F_30 ( V_49 -> V_71 . V_76 ) ,
+F_30 ( V_49 -> V_77 . V_78 ) ,
+F_30 ( V_49 -> V_77 . V_79 ) ,
+V_49 -> V_80 ) ;
+if ( V_52 == V_81 )
+F_18 ( V_41 , L_37 ) ;
+else if ( V_52 == V_82 )
+F_18 ( V_41 , L_38 ) ;
+else
+F_19 ( V_41 , L_39 , V_52 ) ;
+if ( V_22 -> V_83 -> V_84 )
+V_22 -> V_83 -> V_84 ( V_41 , V_49 ) ;
+if ( V_49 -> V_85 )
+F_18 ( V_41 , L_40 ) ;
+F_27 ( V_41 , '\n' ) ;
+}
+F_18 ( V_41 , L_41 ) ;
+F_11 ( & V_27 ) ;
+F_12 (tmp3, &server->pending_mid_q) {
+V_26 = F_13 ( V_45 , struct V_25 ,
+V_28 ) ;
+F_19 ( V_41 , L_42
+L_43 ,
+V_26 -> V_29 ,
+F_14 ( V_26 -> V_30 ) ,
+V_26 -> V_31 ,
+V_26 -> V_32 ,
+V_26 -> V_33 ) ;
+}
+F_16 ( & V_27 ) ;
+}
+}
+F_16 ( & V_55 ) ;
+F_27 ( V_41 , '\n' ) ;
+return 0 ;
+}
+static int F_31 ( struct V_86 * V_86 , struct V_87 * V_87 )
+{
+return F_32 ( V_87 , F_17 , NULL ) ;
+}
+static T_3 F_33 ( struct V_87 * V_87 ,
+const char T_4 * V_88 , T_5 V_89 , T_6 * V_90 )
+{
+char V_91 ;
+bool V_92 ;
+int V_93 ;
+struct V_23 * V_43 , * V_44 , * V_45 ;
+struct V_21 * V_22 ;
+struct V_46 * V_47 ;
+struct V_48 * V_49 ;
+V_93 = F_34 ( V_91 , V_88 ) ;
+if ( V_93 )
+return V_93 ;
+if ( F_35 ( & V_91 , & V_92 ) == 0 ) {
+#ifdef F_15
+F_36 ( & V_94 , 0 ) ;
+F_36 ( & V_95 , 0 ) ;
+#endif
+F_11 ( & V_55 ) ;
+F_12 (tmp1, &cifs_tcp_ses_list) {
+V_22 = F_13 ( V_43 , struct V_21 ,
+V_56 ) ;
+F_12 (tmp2, &server->smb_ses_list) {
+V_47 = F_13 ( V_44 , struct V_46 ,
+V_57 ) ;
+F_12 (tmp3, &ses->tcon_list) {
+V_49 = F_13 ( V_45 ,
+struct V_48 ,
+V_70 ) ;
+F_36 ( & V_49 -> V_96 , 0 ) ;
+if ( V_22 -> V_83 -> V_97 )
+V_22 -> V_83 -> V_97 ( V_49 ) ;
+}
+}
+}
+F_16 ( & V_55 ) ;
+}
+return V_89 ;
+}
+static int F_37 ( struct V_40 * V_41 , void * V_42 )
+{
+int V_50 ;
+struct V_23 * V_43 , * V_44 , * V_45 ;
+struct V_21 * V_22 ;
+struct V_46 * V_47 ;
+struct V_48 * V_49 ;
+F_19 ( V_41 ,
+L_44 ,
+V_98 . V_99 ) ;
+F_19 ( V_41 , L_45 ,
+V_100 . V_99 ) ;
+F_19 ( V_41 , L_46 ,
+V_101 . V_99 ,
+V_102 + V_103 . V_99 ) ;
+F_19 ( V_41 , L_47 ,
+V_104 . V_99 , V_105 ) ;
+#ifdef F_15
+F_19 ( V_41 , L_48 ,
+F_29 ( & V_94 ) ,
+F_29 ( & V_95 ) ) ;
+#endif
+F_19 ( V_41 , L_49 , F_29 ( & V_106 ) ) ;
+F_19 ( V_41 ,
+L_50 ,
+V_107 . V_99 , V_108 . V_99 ) ;
+F_19 ( V_41 ,
+L_51 ,
+V_109 , V_110 ) ;
+V_50 = 0 ;
+F_11 ( & V_55 ) ;
+F_12 (tmp1, &cifs_tcp_ses_list) {
+V_22 = F_13 ( V_43 , struct V_21 ,
+V_56 ) ;
+F_12 (tmp2, &server->smb_ses_list) {
+V_47 = F_13 ( V_44 , struct V_46 ,
+V_57 ) ;
+F_12 (tmp3, &ses->tcon_list) {
+V_49 = F_13 ( V_45 ,
+struct V_48 ,
+V_70 ) ;
+V_50 ++ ;
+F_19 ( V_41 , L_52 , V_50 , V_49 -> V_73 ) ;
+if ( V_49 -> V_85 )
+F_18 ( V_41 , L_40 ) ;
+F_19 ( V_41 , L_53 ,
+F_29 ( & V_49 -> V_96 ) ) ;
+if ( V_22 -> V_83 -> V_111 )
+V_22 -> V_83 -> V_111 ( V_41 , V_49 ) ;
+}
+}
+}
+F_16 ( & V_55 ) ;
+F_27 ( V_41 , '\n' ) ;
+return 0 ;
+}
+static int F_38 ( struct V_86 * V_86 , struct V_87 * V_87 )
+{
+return F_32 ( V_87 , F_37 , NULL ) ;
+}
+void
+F_39 ( void )
+{
+V_112 = F_40 ( L_54 , NULL ) ;
+if ( V_112 == NULL )
+return;
+F_41 ( L_55 , 0 , V_112 , & V_113 ) ;
+#ifdef F_42
+F_41 ( L_56 , 0 , V_112 , & V_114 ) ;
+#endif
+F_41 ( L_57 , 0 , V_112 , & V_115 ) ;
+F_41 ( L_58 , 0 , V_112 , & V_116 ) ;
+F_41 ( L_59 , 0 , V_112 ,
+& V_117 ) ;
+F_41 ( L_60 , 0 , V_112 ,
+& V_118 ) ;
+F_41 ( L_61 , 0 , V_112 ,
+& V_119 ) ;
+}
+void
+F_43 ( void )
+{
+if ( V_112 == NULL )
+return;
+F_44 ( L_55 , V_112 ) ;
+F_44 ( L_57 , V_112 ) ;
+F_44 ( L_58 , V_112 ) ;
+#ifdef F_42
+F_44 ( L_56 , V_112 ) ;
+#endif
+F_44 ( L_60 , V_112 ) ;
+F_44 ( L_59 , V_112 ) ;
+F_44 ( L_61 , V_112 ) ;
+F_44 ( L_54 , NULL ) ;
+}
+static int F_45 ( struct V_40 * V_41 , void * V_42 )
+{
+F_19 ( V_41 , L_62 , V_120 ) ;
+return 0 ;
+}
+static int F_46 ( struct V_86 * V_86 , struct V_87 * V_87 )
+{
+return F_32 ( V_87 , F_45 , NULL ) ;
+}
+static T_3 F_47 ( struct V_87 * V_87 , const char T_4 * V_88 ,
+T_5 V_89 , T_6 * V_90 )
+{
+char V_91 ;
+bool V_92 ;
+int V_93 ;
+V_93 = F_34 ( V_91 , V_88 ) ;
+if ( V_93 )
+return V_93 ;
+if ( F_35 ( & V_91 , & V_92 ) == 0 )
+V_120 = V_92 ;
+else if ( ( V_91 > '1' ) && ( V_91 <= '9' ) )
+V_120 = ( int ) ( V_91 - '0' ) ;
+return V_89 ;
+}
+static int F_48 ( struct V_40 * V_41 , void * V_42 )
+{
+F_19 ( V_41 , L_62 , V_121 ) ;
+return 0 ;
+}
+static int F_49 ( struct V_86 * V_86 , struct V_87 * V_87 )
+{
+return F_32 ( V_87 , F_48 , NULL ) ;
+}
+static T_3 F_50 ( struct V_87 * V_87 ,
+const char T_4 * V_88 , T_5 V_89 , T_6 * V_90 )
+{
+char V_91 ;
+bool V_92 ;
+int V_93 ;
+V_93 = F_34 ( V_91 , V_88 ) ;
+if ( V_93 )
+return V_93 ;
+V_93 = F_35 ( & V_91 , & V_92 ) ;
+if ( V_93 )
+return V_93 ;
+V_121 = V_92 ;
+return V_89 ;
+}
+static int F_51 ( struct V_40 * V_41 , void * V_42 )
+{
+F_19 ( V_41 , L_62 , V_122 ) ;
+return 0 ;
+}
+static int F_52 ( struct V_86 * V_86 , struct V_87 * V_87 )
+{
+return F_32 ( V_87 , F_51 , NULL ) ;
+}
+static T_3 F_53 ( struct V_87 * V_87 ,
+const char T_4 * V_88 , T_5 V_89 , T_6 * V_90 )
+{
+char V_91 ;
+bool V_92 ;
+int V_93 ;
+V_93 = F_34 ( V_91 , V_88 ) ;
+if ( V_93 )
+return V_93 ;
+V_93 = F_35 ( & V_91 , & V_92 ) ;
+if ( V_93 )
+return V_93 ;
+V_122 = V_92 ;
+return V_89 ;
+}
+static int F_54 ( struct V_40 * V_41 , void * V_42 )
+{
+F_19 ( V_41 , L_62 , V_123 ) ;
+return 0 ;
+}
+static int F_55 ( struct V_86 * V_86 , struct V_87 * V_87 )
+{
+return F_32 ( V_87 , F_54 , NULL ) ;
+}
+static T_3 F_56 ( struct V_87 * V_87 , const char T_4 * V_88 ,
+T_5 V_89 , T_6 * V_90 )
+{
+char V_91 ;
+bool V_92 ;
+int V_93 ;
+V_93 = F_34 ( V_91 , V_88 ) ;
+if ( V_93 )
+return V_93 ;
+V_93 = F_35 ( & V_91 , & V_92 ) ;
+if ( V_93 )
+return V_93 ;
+V_123 = V_92 ;
+return V_89 ;
+}
+static int F_57 ( struct V_40 * V_41 , void * V_42 )
+{
+F_19 ( V_41 , L_63 , V_124 ) ;
+return 0 ;
+}
+static int F_58 ( struct V_86 * V_86 , struct V_87 * V_87 )
+{
+return F_32 ( V_87 , F_57 , NULL ) ;
+}
+static void
+F_59 ( unsigned int * V_125 )
+{
+unsigned int V_126 = * V_125 & V_127 ;
+if ( ( * V_125 & V_128 ) == V_128 )
+* V_125 = V_128 ;
+else if ( ( * V_125 & V_129 ) == V_129 )
+* V_125 = V_129 ;
+else if ( ( * V_125 & V_130 ) == V_130 )
+* V_125 = V_130 ;
+else if ( ( * V_125 & V_131 ) == V_131 )
+* V_125 = V_131 ;
+else if ( V_132 &&
+( * V_125 & V_132 ) == V_132 )
+* V_125 = V_132 ;
+else if ( V_133 &&
+( * V_125 & V_133 ) == V_133 )
+* V_125 = V_133 ;
+* V_125 |= V_126 ;
+}
+static T_3 F_60 ( struct V_87 * V_87 ,
+const char T_4 * V_88 , T_5 V_89 , T_6 * V_90 )
+{
+int V_93 ;
+unsigned int V_125 ;
+char V_134 [ 12 ] ;
+char V_91 ;
+bool V_92 ;
+if ( ( V_89 < 1 ) || ( V_89 > 11 ) )
+return - V_135 ;
+memset ( V_134 , 0 , 12 ) ;
+if ( F_61 ( V_134 , V_88 , V_89 ) )
+return - V_136 ;
+if ( V_89 < 3 ) {
+V_91 = V_134 [ 0 ] ;
+if ( F_35 ( & V_91 , & V_92 ) == 0 ) {
+V_124 = V_92 ? V_137 : V_138 ;
+return V_89 ;
+} else if ( ! isdigit ( V_91 ) ) {
+F_8 ( V_13 , L_64 ,
+V_134 ) ;
+return - V_135 ;
+}
+}
+V_93 = F_62 ( V_134 , 0 , & V_125 ) ;
+if ( V_93 ) {
+F_8 ( V_13 , L_64 ,
+V_134 ) ;
+return V_93 ;
+}
+F_8 ( V_139 , L_65 , V_125 ) ;
+if ( V_125 == 0 ) {
+F_8 ( V_13 , L_64 , V_134 ) ;
+return - V_135 ;
+}
+if ( V_125 & ~ V_140 ) {
+F_8 ( V_13 , L_66 ,
+V_125 & ~ V_140 ) ;
+return - V_135 ;
+}
+F_59 ( & V_125 ) ;
+V_124 = V_125 ;
+if ( V_124 & V_127 ) {
+V_124 |= V_141 ;
+F_8 ( V_139 , L_67 ) ;
+} else if ( ( V_124 & V_141 ) == 0 ) {
+F_8 ( V_139 , L_68 ) ;
+}
+return V_89 ;
+}
+inline void F_39 ( void )
+{
+}
+inline void F_43 ( void )
+{
+}

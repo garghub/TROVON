@@ -1,0 +1,1 @@
+T_1 F_1 ( T_2 V_1 , T_2 V_2 )\r\n{\r\nT_1 V_3 = 0x00 ;\r\nswitch ( V_1 ) {\r\ncase 6 :\r\nV_3 = - 34 - ( 2 * V_2 ) ;\r\nbreak;\r\ncase 4 :\r\nV_3 = - 14 - ( 2 * V_2 ) ;\r\nbreak;\r\ncase 1 :\r\nV_3 = 6 - ( 2 * V_2 ) ;\r\nbreak;\r\ncase 0 :\r\nV_3 = 16 - ( 2 * V_2 ) ;\r\nbreak;\r\ndefault:\r\nbreak;\r\n}\r\nreturn V_3 ;\r\n}

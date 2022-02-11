@@ -1,0 +1,1 @@
+static inline struct V_1 * F_1 ( void )\r\n{\r\nstruct V_2 * V_2 ;\r\nT_1 V_3 ;\r\nV_3 = ( V_4 == V_5 ) ? F_2 () : V_4 ;\r\nV_2 = (struct V_2 * ) F_3 ( V_3 ) -> V_6 ;\r\nreturn & V_2 -> V_7 . V_8 ;\r\n}\r\nvoid F_4 ( char V_9 )\r\n{\r\nstruct V_1 * V_10 = F_1 () ;\r\nwhile ( ( V_10 -> V_11 & 0x20 ) == 0 ) ;\r\nV_10 -> V_12 = V_9 ;\r\n}

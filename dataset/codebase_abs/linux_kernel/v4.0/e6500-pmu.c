@@ -1,0 +1,1 @@
+static T_1 F_1 ( T_1 V_1 )\r\n{\r\nT_2 V_2 = ( T_2 ) V_1 ;\r\nif ( V_2 >= V_3 ||\r\n( V_1 & ( V_4 | V_5 ) ) )\r\nreturn 0 ;\r\nreturn V_6 ;\r\n}\r\nstatic int F_2 ( void )\r\n{\r\nif ( ! V_7 -> V_8 ||\r\nstrcmp ( V_7 -> V_8 , L_1 ) )\r\nreturn - V_9 ;\r\nreturn F_3 ( & V_10 ) ;\r\n}

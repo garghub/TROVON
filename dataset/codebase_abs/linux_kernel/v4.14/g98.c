@@ -1,0 +1,1 @@
+void\r\nF_1 ( struct V_1 * V_2 )\r\n{\r\nstruct V_3 * V_4 = V_2 -> V_5 . V_6 . V_4 ;\r\nF_2 ( V_4 , 0x084010 , 0x0000ffd2 ) ;\r\nF_2 ( V_4 , 0x08401c , 0x0000fff2 ) ;\r\n}\r\nint\r\nF_3 ( struct V_3 * V_4 , int V_7 ,\r\nstruct V_8 * * V_9 )\r\n{\r\nreturn F_4 ( & V_10 , V_4 , V_7 , V_9 ) ;\r\n}

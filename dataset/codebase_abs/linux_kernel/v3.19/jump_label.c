@@ -1,0 +1,1 @@
+void F_1 ( struct V_1 * V_2 ,\r\nenum V_3 type )\r\n{\r\nT_1 * V_4 = ( T_1 * ) ( unsigned long ) V_2 -> V_5 ;\r\nif ( type == V_6 )\r\nF_2 ( V_4 , V_2 -> V_7 , 0 ) ;\r\nelse\r\nF_3 ( V_4 , V_8 ) ;\r\n}

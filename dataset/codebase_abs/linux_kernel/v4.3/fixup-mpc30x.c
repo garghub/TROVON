@@ -1,0 +1,1 @@
+int T_1 F_1 ( const struct V_1 * V_2 , T_2 V_3 , T_2 V_4 )\r\n{\r\nif ( V_3 == 30 )\r\nreturn V_5 [ F_2 ( V_2 -> V_6 ) ] ;\r\nreturn V_7 [ V_3 ] ;\r\n}\r\nint F_3 ( struct V_1 * V_2 )\r\n{\r\nreturn 0 ;\r\n}

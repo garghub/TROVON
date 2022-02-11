@@ -1,0 +1,1 @@
+T_1 F_1 ( T_1 V_1 , T_2 V_2 , int V_3 )\r\n{\r\nint V_4 ;\r\nV_2 &= ( 1ull << V_3 ) - 1 ;\r\nV_3 = ( V_3 + 3 ) & ~ 0x3 ;\r\nfor ( V_4 = V_3 - 4 ; V_4 >= 0 ; V_4 -= 4 )\r\nV_1 = V_5 [ V_1 ^ ( ( V_2 >> V_4 ) & 0xf ) ] ;\r\nreturn V_1 ;\r\n}

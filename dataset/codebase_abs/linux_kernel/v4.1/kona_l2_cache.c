@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\nunsigned int V_1 ;\r\nint V_2 ;\r\nV_2 = F_2 () ;\r\nif ( V_2 ) {\r\nF_3 ( L_1 ,\r\nV_2 ) ;\r\nreturn;\r\n}\r\nV_1 = F_4 ( V_3 , 0 , 0 , 0 , 0 ) ;\r\nif ( V_1 != V_4 ) {\r\nF_5 ( L_2 ,\r\nV_1 ) ;\r\nreturn;\r\n}\r\nV_2 = F_6 ( 0 , ~ 0 ) ;\r\nif ( V_2 )\r\nF_5 ( L_3 , V_2 ) ;\r\n}

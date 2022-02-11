@@ -1,0 +1,1 @@
+static int F_1 ( void )\r\n{\r\nT_1 V_1 ;\r\nV_1 = F_2 ( F_3 ( V_2 + V_3 ) ) ;\r\nswitch ( V_1 ) {\r\ncase 0x00 :\r\nreturn V_4 ;\r\ncase 0x01 :\r\nreturn V_5 ;\r\ndefault:\r\nreturn V_6 ;\r\n}\r\n}\r\nint F_4 ( void )\r\n{\r\nif ( V_7 == - 1 )\r\nV_7 = F_1 () ;\r\nreturn V_7 ;\r\n}

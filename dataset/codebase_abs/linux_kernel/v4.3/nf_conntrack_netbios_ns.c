@@ -1,0 +1,1 @@
+static int F_1 ( struct V_1 * V_2 , unsigned int V_3 ,\r\nstruct V_4 * V_5 , enum V_6 V_7 )\r\n{\r\nreturn F_2 ( V_2 , V_3 , V_5 , V_7 , V_8 ) ;\r\n}\r\nstatic int T_1 F_3 ( void )\r\n{\r\nV_9 . V_8 = V_8 ;\r\nreturn F_4 ( & V_10 ) ;\r\n}\r\nstatic void T_2 F_5 ( void )\r\n{\r\nF_6 ( & V_10 ) ;\r\n}

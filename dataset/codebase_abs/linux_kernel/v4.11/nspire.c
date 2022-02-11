@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\nF_2 () ;\r\n}\r\nstatic void T_1 F_3 ( void )\r\n{\r\nF_4 ( NULL , V_1 , NULL ) ;\r\n}\r\nstatic void F_5 ( enum V_2 V_3 , const char * V_4 )\r\n{\r\nvoid T_2 * V_5 = F_6 ( V_6 , V_7 ) ;\r\nif ( ! V_5 )\r\nreturn;\r\nF_7 ( 2 , V_5 + V_8 ) ;\r\n}

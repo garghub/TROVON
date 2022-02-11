@@ -1,0 +1,1 @@
+int\r\nfabs ( T_1 * V_1 , T_1 * V_2 )\r\n{\r\nV_1 [ 0 ] = V_2 [ 0 ] & 0x7fffffff ;\r\nV_1 [ 1 ] = V_2 [ 1 ] ;\r\n#ifdef F_1\r\nF_2 ( L_1 , V_3 , V_1 , V_2 ) ;\r\nF_3 ( V_1 ) ;\r\nF_2 ( L_2 ) ;\r\n#endif\r\nreturn 0 ;\r\n}

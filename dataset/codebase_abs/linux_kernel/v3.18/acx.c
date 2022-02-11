@@ -1,0 +1,1 @@
+int F_1 ( struct V_1 * V_2 , T_1 V_3 )\r\n{\r\nstruct V_4 * V_5 ;\r\nint V_6 ;\r\nV_5 = F_2 ( sizeof( * V_5 ) , V_7 ) ;\r\nif ( ! V_5 ) {\r\nV_6 = - V_8 ;\r\ngoto V_9;\r\n}\r\nV_5 -> V_3 = F_3 ( V_3 ) ;\r\nV_6 = F_4 ( V_2 , V_10 ,\r\nV_5 , sizeof( * V_5 ) ) ;\r\nif ( V_6 < 0 ) {\r\nF_5 ( L_1 , V_6 ) ;\r\ngoto V_9;\r\n}\r\nV_9:\r\nF_6 ( V_5 ) ;\r\nreturn V_6 ;\r\n}

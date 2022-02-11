@@ -1,0 +1,1 @@
+struct V_1 * F_1 ( enum V_2 type ,\r\nstruct V_3 * V_4 )\r\n{\r\nswitch ( V_4 -> V_5 -> V_6 ) {\r\ncase V_7 :\r\nreturn F_2 ( type , V_4 ) ;\r\ncase V_8 :\r\nreturn F_3 ( type , V_4 ) ;\r\n}\r\nreturn NULL ;\r\n}

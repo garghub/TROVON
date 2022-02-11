@@ -1,0 +1,1 @@
+int T_1 F_1 ( void )\r\n{\r\nreturn 0 ;\r\n}\r\nvoid F_2 ( void )\r\n{\r\n}\r\nvoid * F_3 ( struct V_1 * V_2 , struct V_3 * V_4 )\r\n{\r\nvoid * V_5 = V_4 ;\r\nif ( ! V_4 ) {\r\nF_4 ( V_2 ,\r\nL_1 ) ;\r\nreturn NULL ;\r\n}\r\nreturn V_5 ;\r\n}

@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\nF_2 () ;\r\nV_1 . V_2 = F_3 ( 0 ) ;\r\nV_1 . V_3 = F_3 ( 0 ) + V_4 - 1 ;\r\n* V_5 |= V_6 ;\r\n* V_7 = * V_5 ;\r\nif ( F_4 () ) {\r\nV_8 [ 0 ] . V_9 =\r\n( char * ) ( V_10 + V_11 ) ;\r\nV_8 [ 0 ] . V_12 = V_13 ;\r\nV_8 [ 0 ] . V_14 = V_15 ;\r\n}\r\nF_5 ( V_16 , F_6 ( V_16 ) ) ;\r\n}

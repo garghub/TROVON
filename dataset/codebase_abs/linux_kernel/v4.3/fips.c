@@ -1,0 +1,1 @@
+static int F_1 ( char * V_1 )\r\n{\r\nV_2 = ! ! F_2 ( V_1 , NULL , 0 ) ;\r\nF_3 ( V_3 L_1 ,\r\nV_2 ? L_2 : L_3 ) ;\r\nreturn 1 ;\r\n}\r\nstatic void F_4 ( void )\r\n{\r\nV_4 = F_5 ( V_5 ) ;\r\n}\r\nstatic void F_6 ( void )\r\n{\r\nF_7 ( V_4 ) ;\r\n}\r\nstatic int T_1 F_8 ( void )\r\n{\r\nF_4 () ;\r\nreturn 0 ;\r\n}\r\nstatic void T_2 F_9 ( void )\r\n{\r\nF_6 () ;\r\n}

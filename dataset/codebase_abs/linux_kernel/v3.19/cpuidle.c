@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\nswitch ( F_2 () ) {\r\ncase V_1 :\r\nif ( F_3 ( V_2 ) )\r\nF_4 () ;\r\nbreak;\r\ncase V_3 :\r\nif ( F_3 ( V_4 ) )\r\nF_5 () ;\r\nbreak;\r\ncase V_5 :\r\ncase V_6 :\r\nif ( F_3 ( V_7 ) ||\r\nF_3 ( V_8 ) )\r\nF_6 () ;\r\nbreak;\r\n}\r\n}\r\nvoid F_7 ( void )\r\n{\r\nswitch ( F_2 () ) {\r\ncase V_1 :\r\nif ( F_3 ( V_2 ) )\r\nF_8 () ;\r\nbreak;\r\n}\r\n}

@@ -1,0 +1,1 @@
+int F_1 ( struct V_1 * V_1 ,\r\nunsigned V_2 , unsigned V_3 )\r\n{\r\nunsigned int V_4 = V_5 ;\r\nif ( ( V_2 == 2 ) && ( V_3 == 2 ) )\r\nV_4 = F_2 ( V_1 ,\r\nV_6 ) ;\r\nif ( V_4 != V_5 )\r\nreturn - V_7 ;\r\nreturn 0 ;\r\n}

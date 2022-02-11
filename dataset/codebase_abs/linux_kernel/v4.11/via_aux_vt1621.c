@@ -1,0 +1,1 @@
+void F_1 ( struct V_1 * V_2 )\r\n{\r\nstruct V_3 V_4 = {\r\n. V_2 = V_2 ,\r\n. V_5 = 0x20 ,\r\n. V_6 = V_6 } ;\r\nT_1 V_7 ;\r\nif ( ! F_2 ( & V_4 , 0x1B , & V_7 , 1 ) || V_7 != 0x02 )\r\nreturn;\r\nF_3 ( V_8 L_1 , V_6 ) ;\r\nF_4 ( & V_4 ) ;\r\n}

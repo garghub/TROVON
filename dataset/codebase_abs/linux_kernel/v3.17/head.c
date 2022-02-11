@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\nunsigned int V_1 , V_2 ;\r\nif ( F_2 () )\r\nreturn;\r\nV_1 = * ( unsigned short * ) F_3 ( V_3 ) ;\r\nV_1 <<= 10 ;\r\nV_2 = F_4 () ;\r\nif ( V_2 < V_4 )\r\nV_2 = V_5 ;\r\nif ( V_1 < V_4 )\r\nV_1 = V_5 ;\r\nV_1 = F_5 ( V_1 , V_2 ) ;\r\nV_1 = F_5 ( V_1 , V_5 ) ;\r\nF_6 ( V_1 , 0x100000 - V_1 ) ;\r\n}

@@ -1,0 +1,1 @@
+enum V_1 F_1 ( void )\r\n{\r\nenum V_1 V_2 = V_3 ;\r\nV_2 = F_2 ( V_4 ) ;\r\nif ( V_2 == V_3 )\r\nV_2 = F_2 ( V_5 ) ;\r\nif ( V_2 == V_3 )\r\nV_2 = F_2 ( V_6 ) ;\r\nif ( V_2 != V_3 )\r\nF_3 () ;\r\nreturn V_2 ;\r\n}\r\nvoid F_3 ( void )\r\n{\r\nF_4 ( V_6 ) ;\r\nF_4 ( V_5 ) ;\r\nF_4 ( V_4 ) ;\r\n}

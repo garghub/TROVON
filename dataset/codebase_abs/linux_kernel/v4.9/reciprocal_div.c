@@ -1,0 +1,1 @@
+struct V_1 V_1 ( T_1 V_2 )\r\n{\r\nstruct V_1 V_3 ;\r\nT_2 V_4 ;\r\nint V_5 ;\r\nV_5 = F_1 ( V_2 - 1 ) ;\r\nV_4 = ( ( 1ULL << 32 ) * ( ( 1ULL << V_5 ) - V_2 ) ) ;\r\nF_2 ( V_4 , V_2 ) ;\r\n++ V_4 ;\r\nV_3 . V_4 = ( T_1 ) V_4 ;\r\nV_3 . V_6 = F_3 ( V_5 , 1 ) ;\r\nV_3 . V_7 = F_4 ( V_5 - 1 , 0 ) ;\r\nreturn V_3 ;\r\n}

@@ -1,0 +1,1 @@
+static const char * F_1 ( struct V_1 * V_2 )\r\n{\r\nreturn L_1 ;\r\n}\r\nstatic const char * F_2 ( struct V_1 * V_2 )\r\n{\r\nreturn L_2 ;\r\n}\r\nstatic bool F_3 ( struct V_1 * V_2 )\r\n{\r\nreturn true ;\r\n}\r\nstatic bool F_4 ( struct V_1 * V_2 )\r\n{\r\nstruct V_3 * V_4 = F_5 ( V_2 ) ;\r\nstruct V_5 * V_6 = F_6 ( V_4 -> V_7 ) ;\r\nreturn V_6 -> V_8 >= V_4 -> V_9 ;\r\n}

@@ -1,0 +1,1 @@
+static void T_1 F_1 ( struct V_1 * V_2 )\r\n{\r\nstruct V_1 * V_3 ;\r\nvoid (* F_2)( struct V_1 * , void T_2 * );\r\nconst struct V_4 * V_5 ;\r\nvoid T_2 * V_6 = F_3 ( V_2 , 0 ) ;\r\nif ( ! V_6 )\r\nreturn;\r\nF_4 (np, childnp) {\r\nV_5 = F_5 ( V_7 , V_3 ) ;\r\nif ( ! V_5 )\r\ncontinue;\r\nF_2 = V_5 -> V_8 ;\r\nF_2 ( V_3 , V_6 ) ;\r\n}\r\n}

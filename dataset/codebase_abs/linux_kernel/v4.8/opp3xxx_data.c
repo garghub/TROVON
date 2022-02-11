@@ -1,0 +1,1 @@
+int T_1 F_1 ( void )\r\n{\r\nint V_1 = - V_2 ;\r\nif ( ! F_2 () )\r\nreturn V_1 ;\r\nif ( F_3 () )\r\nV_1 = F_4 ( V_3 ,\r\nF_5 ( V_3 ) ) ;\r\nelse\r\nV_1 = F_4 ( V_4 ,\r\nF_5 ( V_4 ) ) ;\r\nreturn V_1 ;\r\n}

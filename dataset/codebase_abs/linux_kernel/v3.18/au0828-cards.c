@@ -1,0 +1,139 @@
+static void F_1 ( void * V_1 , int V_2 )
+{
+struct V_3 * V_4 = V_1 ;
+if ( V_2 == 1 )
+F_2 ( V_4 , V_5 , 0x10 ) ;
+else
+F_3 ( V_4 , V_5 , 0x10 ) ;
+}
+int F_4 ( void * V_1 , int V_6 , int V_7 , int V_8 )
+{
+struct V_3 * V_4 = V_1 ;
+F_5 ( 1 , L_1 , V_9 ) ;
+switch ( V_4 -> V_10 ) {
+case V_11 :
+case V_12 :
+case V_13 :
+case V_14 :
+if ( V_7 == 0 ) {
+F_3 ( V_4 , V_15 , 2 ) ;
+F_6 ( 10 ) ;
+F_2 ( V_4 , V_15 , 2 ) ;
+F_6 ( 10 ) ;
+return 0 ;
+} else {
+F_7 ( L_2 , V_9 ) ;
+return - V_16 ;
+}
+break;
+}
+return 0 ;
+}
+static void F_8 ( struct V_3 * V_4 , T_1 * V_17 )
+{
+struct V_18 V_19 ;
+F_9 ( & V_4 -> V_20 , & V_19 , V_17 ) ;
+V_4 -> V_21 . V_22 = V_19 . V_22 ;
+switch ( V_19 . V_23 ) {
+case 72000 :
+case 72001 :
+case 72101 :
+case 72201 :
+case 72211 :
+case 72221 :
+case 72231 :
+case 72241 :
+case 72251 :
+case 72261 :
+case 72271 :
+case 72281 :
+case 72301 :
+case 72500 :
+break;
+default:
+F_10 ( L_3 ,
+V_9 , V_19 . V_23 ) ;
+break;
+}
+F_11 ( L_4 ,
+V_9 , V_19 . V_23 ) ;
+}
+void F_12 ( struct V_3 * V_4 )
+{
+static T_1 V_24 [ 256 ] ;
+F_5 ( 1 , L_1 , V_9 ) ;
+V_4 -> V_21 = V_25 [ V_4 -> V_10 ] ;
+if ( V_4 -> V_26 == 0 ) {
+V_4 -> V_20 . V_27 = 0xa0 >> 1 ;
+F_13 ( & V_4 -> V_20 , V_24 , sizeof( V_24 ) ) ;
+}
+switch ( V_4 -> V_10 ) {
+case V_11 :
+case V_12 :
+case V_13 :
+case V_28 :
+if ( V_4 -> V_26 == 0 )
+F_8 ( V_4 , V_24 + 0xa0 ) ;
+break;
+}
+F_14 ( V_4 ) ;
+}
+void F_14 ( struct V_3 * V_4 )
+{
+#ifdef F_15
+struct V_29 V_30 ;
+struct V_31 * V_32 ;
+unsigned int V_33 = V_34 ;
+if ( F_16 ( 0 ) . type != V_35 ) {
+V_32 = F_17 ( & V_4 -> V_36 , & V_4 -> V_37 ,
+L_5 , 0x8e >> 1 , NULL ) ;
+if ( V_32 == NULL )
+F_7 ( L_6 ) ;
+}
+if ( V_4 -> V_21 . V_22 != V_38 && V_4 -> V_21 . V_39 ) {
+V_32 = F_17 ( & V_4 -> V_36 , & V_4 -> V_37 ,
+L_7 , V_4 -> V_21 . V_40 , NULL ) ;
+if ( V_32 == NULL )
+F_7 ( L_8 ) ;
+V_30 . V_33 = V_33 ;
+V_30 . type = V_4 -> V_21 . V_22 ;
+V_30 . V_27 = V_4 -> V_21 . V_40 ;
+V_30 . V_41 = F_4 ;
+F_18 ( & V_4 -> V_36 , 0 , V_42 , V_43 ,
+& V_30 ) ;
+}
+#endif
+}
+void F_19 ( struct V_3 * V_4 )
+{
+F_5 ( 1 , L_1 , V_9 ) ;
+switch ( V_4 -> V_10 ) {
+case V_11 :
+case V_12 :
+case V_13 :
+case V_28 :
+F_20 ( V_4 , V_44 , 0x02 ) ;
+F_20 ( V_4 , V_45 , 0x80 | 0x20 | 0x10 ) ;
+F_20 ( V_4 , V_15 , 0x0 ) ;
+F_20 ( V_4 , V_5 , 0x0 ) ;
+F_21 ( 50 ) ;
+F_20 ( V_4 , V_5 , 0x80 ) ;
+F_21 ( 50 ) ;
+F_20 ( V_4 , V_15 , 0x02 ) ;
+F_20 ( V_4 , V_5 , 0x80 | 0x20 ) ;
+F_21 ( 250 ) ;
+break;
+case V_14 :
+F_20 ( V_4 , V_44 , 0x02 ) ;
+F_20 ( V_4 , V_45 , 0xa0 ) ;
+F_20 ( V_4 , V_15 , 0x0 ) ;
+F_20 ( V_4 , V_5 , 0x0 ) ;
+F_21 ( 100 ) ;
+F_20 ( V_4 , V_44 , 0x02 ) ;
+F_20 ( V_4 , V_45 , 0xa0 ) ;
+F_20 ( V_4 , V_15 , 0x02 ) ;
+F_20 ( V_4 , V_5 , 0xa0 ) ;
+F_21 ( 250 ) ;
+break;
+}
+}

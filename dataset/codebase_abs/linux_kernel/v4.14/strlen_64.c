@@ -1,0 +1,1 @@
+T_1 strlen ( const char * V_1 )\r\n{\r\nconst T_2 V_2 = ( T_2 ) V_1 ;\r\nconst T_3 * V_3 = ( const T_3 * ) ( V_2 & - 8 ) ;\r\nT_3 V_4 = * V_3 | F_1 ( V_2 ) ;\r\nT_3 V_5 ;\r\nwhile ( ( V_5 = F_2 ( V_4 , 0 ) ) == 0 )\r\nV_4 = * ++ V_3 ;\r\nreturn ( ( const char * ) V_3 ) + ( F_3 ( V_5 ) >> 3 ) - V_1 ;\r\n}

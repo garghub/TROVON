@@ -1,0 +1,1 @@
+void F_1 ( unsigned int V_1 )\r\n{\r\nV_2 = V_1 ;\r\n}\r\nvoid F_2 ( struct V_3 * V_4 , int V_5 )\r\n{\r\nif ( V_5 & V_6 ) {\r\nF_3 ( V_7 , F_4 ( V_7 ) ) ;\r\n} else if ( V_5 & V_8 ) {\r\nF_3 ( V_9 , F_4 ( V_9 ) ) ;\r\n} else if ( V_5 & V_10 ) {\r\nF_3 ( V_11 , F_4 ( V_11 ) ) ;\r\n} else\r\nF_5 () ;\r\n}

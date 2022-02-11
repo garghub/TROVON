@@ -1,0 +1,1 @@
+static int F_1 ( void * V_1 ,\r\nconst struct V_2 * V_3 , T_1 V_4 )\r\n{\r\nreturn F_2 ( V_1 , ( const unsigned char * ) & V_3 -> V_5 ,\r\nV_4 ) ;\r\n}\r\nint F_3 ( struct V_6 * V_7 , const char * V_8 )\r\n{\r\nstruct V_9 V_10 ;\r\nV_10 . V_1 = V_7 ;\r\nV_10 . V_11 = F_1 ;\r\nreturn F_4 ( & V_7 -> V_12 , & V_10 , V_8 ) ;\r\n}

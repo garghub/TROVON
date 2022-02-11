@@ -1,0 +1,1 @@
+T_1 F_1 ( T_1 V_1 )\r\n{\r\nT_2 V_2 ;\r\nT_1 V_3 = 0 ;\r\nfor ( V_2 = 0 ; V_2 < V_4 ; V_2 ++ ) {\r\nif ( V_1 == V_5 [ V_2 ] . V_1 ) {\r\nV_3 = V_5 [ V_2 ] . V_6 ;\r\nbreak;\r\n}\r\n}\r\nif ( V_2 == V_4 )\r\nV_3 = 2412 ;\r\nreturn V_3 ;\r\n}

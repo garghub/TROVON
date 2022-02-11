@@ -1,0 +1,1 @@
+int F_1 ( T_1 * V_1 , const char * V_2 )\r\n{\r\nchar V_3 [ V_4 ] ;\r\nsnprintf ( V_3 , V_4 , L_1 ,\r\n( int ) strlen ( V_2 ) - 2 , V_2 + 1 ) ;\r\nif ( F_2 ( V_3 , ( unsigned long long * ) V_1 ) < 0 )\r\nreturn - 1 ;\r\nreturn 0 ;\r\n}

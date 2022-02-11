@@ -1,0 +1,1 @@
+void T_1 * F_1 ( unsigned long V_1 , unsigned long V_2 , int V_3 )\r\n{\r\nreturn ( void T_1 * ) V_1 ;\r\n}\r\nvoid F_2 ( void volatile T_1 * V_4 )\r\n{\r\n}\r\nvoid F_3 ( void * V_4 , unsigned long V_2 , int V_5 )\r\n{\r\n}

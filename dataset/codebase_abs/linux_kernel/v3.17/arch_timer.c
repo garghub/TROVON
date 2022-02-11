@@ -1,0 +1,1 @@
+static unsigned long F_1 ( void )\r\n{\r\nreturn F_2 () ;\r\n}\r\nstatic void T_1 F_3 ( void )\r\n{\r\nV_1 . V_2 = F_1 ;\r\nV_1 . V_3 = F_4 () ;\r\nF_5 ( & V_1 ) ;\r\n}\r\nint T_1 F_6 ( void )\r\n{\r\nT_2 V_4 = F_4 () ;\r\nif ( V_4 == 0 )\r\nreturn - V_5 ;\r\nF_3 () ;\r\nreturn 0 ;\r\n}

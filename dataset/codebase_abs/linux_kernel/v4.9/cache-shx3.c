@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\nunsigned int V_1 ;\r\nV_1 = F_2 ( V_2 ) ;\r\nif ( V_3 . V_4 . V_5 || V_3 . V_6 . V_5 ) {\r\nV_1 |= V_7 ;\r\nV_3 . V_6 . V_5 = 0 ;\r\nV_3 . V_4 . V_5 = 0 ;\r\nF_3 ( L_1 ) ;\r\n}\r\n#ifdef F_4\r\nV_1 |= V_8 ;\r\n#endif\r\nF_5 ( V_1 , V_2 ) ;\r\n}

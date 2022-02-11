@@ -1,0 +1,1 @@
+static void F_1 ( struct V_1 * V_2 , int V_3 )\r\n{\r\nunsigned int V_4 ;\r\nV_4 = F_2 ( V_5 ) ;\r\nF_3 ( V_6 L_1 , V_7 , V_3 ) ;\r\nif ( V_3 )\r\nV_4 |= V_8 ;\r\nelse\r\nV_4 &= ~ V_8 ;\r\nF_4 ( V_4 , V_5 ) ;\r\n}\r\nvoid T_1 F_5 ( void )\r\n{\r\nint V_9 ;\r\nV_9 = F_6 ( & V_10 ) ;\r\nif ( V_9 < 0 )\r\nF_3 ( V_11 L_2 ) ;\r\nelse\r\nF_1 ( NULL , 1 ) ;\r\n}

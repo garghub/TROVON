@@ -1,0 +1,1 @@
+static int T_1 F_1 ( struct V_1 * V_2 )\r\n{\r\nconst struct V_3 * V_4 ;\r\nT_2 V_5 ;\r\nint error ;\r\nerror = F_2 ( & V_5 ) ;\r\nif ( error )\r\nreturn error ;\r\nV_4 = & V_6 [ F_3 ( V_5 ) ] ;\r\nreturn F_4 ( V_4 , 3 , V_5 ) ;\r\n}

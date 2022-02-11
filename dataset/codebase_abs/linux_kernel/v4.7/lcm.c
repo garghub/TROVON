@@ -1,0 +1,1 @@
+unsigned long F_1 ( unsigned long V_1 , unsigned long V_2 )\r\n{\r\nif ( V_1 && V_2 )\r\nreturn ( V_1 / F_2 ( V_1 , V_2 ) ) * V_2 ;\r\nelse\r\nreturn 0 ;\r\n}\r\nunsigned long F_3 ( unsigned long V_1 , unsigned long V_2 )\r\n{\r\nunsigned long V_3 = F_1 ( V_1 , V_2 ) ;\r\nif ( V_3 )\r\nreturn V_3 ;\r\nreturn ( V_2 ? : V_1 ) ;\r\n}

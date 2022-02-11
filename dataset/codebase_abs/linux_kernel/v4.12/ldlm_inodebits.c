@@ -1,0 +1,1 @@
+void F_1 ( const union V_1 * V_2 ,\r\nunion V_3 * V_4 )\r\n{\r\nV_4 -> V_5 . V_6 = V_2 -> V_5 . V_6 ;\r\n}\r\nvoid F_2 ( const union V_3 * V_4 ,\r\nunion V_1 * V_2 )\r\n{\r\nmemset ( V_2 , 0 , sizeof( * V_2 ) ) ;\r\nV_2 -> V_5 . V_6 = V_4 -> V_5 . V_6 ;\r\n}

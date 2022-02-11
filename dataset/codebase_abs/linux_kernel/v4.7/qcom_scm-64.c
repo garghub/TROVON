@@ -1,0 +1,1 @@
+int F_1 ( void * V_1 , const T_1 * V_2 )\r\n{\r\nreturn - V_3 ;\r\n}\r\nint F_2 ( void * V_1 , const T_1 * V_2 )\r\n{\r\nreturn - V_3 ;\r\n}\r\nvoid F_3 ( T_2 V_4 )\r\n{\r\n}\r\nint F_4 ( T_2 V_5 , T_2 V_6 )\r\n{\r\nreturn - V_3 ;\r\n}\r\nint F_5 ( struct V_7 * V_8 , T_2 V_9 , T_2 * V_10 )\r\n{\r\nreturn - V_3 ;\r\n}

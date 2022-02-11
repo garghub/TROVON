@@ -1,0 +1,1 @@
+static unsigned long F_1 ( const struct V_1 * V_2 ,\r\nconst struct V_3 * V_4 )\r\n{\r\nstruct V_5 * V_6 = F_2 ( V_4 -> V_7 ) ;\r\nreturn F_3 ( & V_6 -> V_8 ) > 0 ? ~ 0UL >> 2 : 0 ;\r\n}\r\nint F_4 ( const struct V_1 * V_2 , struct V_9 * V_10 ,\r\nstruct V_11 * V_12 , const struct V_13 * V_14 )\r\n{\r\nreturn F_5 ( V_2 , V_10 , V_12 , V_14 , & V_15 ) ;\r\n}

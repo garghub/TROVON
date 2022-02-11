@@ -1,0 +1,1 @@
+T_1 long F_1 ( void )\r\n{\r\nF_2 ( L_1\r\nL_2 ,\r\nV_1 -> V_2 , V_1 -> V_3 ) ;\r\nreturn - V_4 ;\r\n}\r\nint F_3 ( T_2 V_5 , struct V_6 * V_7 )\r\n{\r\nswitch ( V_5 ) {\r\ncase V_8 :\r\nF_4 ( V_7 ) ;\r\nbreak;\r\ncase V_9 :\r\nF_5 ( V_7 ) ;\r\nbreak;\r\ncase V_10 :\r\nF_6 ( V_7 ) ;\r\nbreak;\r\ndefault:\r\nreturn - V_11 ;\r\n}\r\nreturn 0 ;\r\n}

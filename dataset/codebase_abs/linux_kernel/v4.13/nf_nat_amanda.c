@@ -1,0 +1,48 @@
+static unsigned int F_1 ( struct V_1 * V_2 ,
+enum V_3 V_4 ,
+unsigned int V_5 ,
+unsigned int V_6 ,
+unsigned int V_7 ,
+struct V_8 * exp )
+{
+char V_9 [ sizeof( L_1 ) ] ;
+T_1 V_10 ;
+exp -> V_11 . V_12 . V_10 = exp -> V_13 . V_14 . V_15 . V_12 . V_10 ;
+exp -> V_16 = V_17 ;
+exp -> V_18 = V_19 ;
+for ( V_10 = F_2 ( exp -> V_11 . V_12 . V_10 ) ; V_10 != 0 ; V_10 ++ ) {
+int V_20 ;
+exp -> V_13 . V_14 . V_15 . V_12 . V_10 = F_3 ( V_10 ) ;
+V_20 = F_4 ( exp ) ;
+if ( V_20 == 0 )
+break;
+else if ( V_20 != - V_21 ) {
+V_10 = 0 ;
+break;
+}
+}
+if ( V_10 == 0 ) {
+F_5 ( V_2 , exp -> V_22 , L_2 ) ;
+return V_23 ;
+}
+sprintf ( V_9 , L_3 , V_10 ) ;
+if ( ! F_6 ( V_2 , exp -> V_22 , V_4 ,
+V_5 , V_6 , V_7 ,
+V_9 , strlen ( V_9 ) ) ) {
+F_5 ( V_2 , exp -> V_22 , L_4 ) ;
+F_7 ( exp ) ;
+return V_23 ;
+}
+return V_24 ;
+}
+static void T_2 F_8 ( void )
+{
+F_9 ( V_25 , NULL ) ;
+F_10 () ;
+}
+static int T_3 F_11 ( void )
+{
+F_12 ( V_25 != NULL ) ;
+F_9 ( V_25 , F_1 ) ;
+return 0 ;
+}

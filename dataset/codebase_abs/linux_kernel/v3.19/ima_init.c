@@ -1,0 +1,75 @@
+static int T_1 F_1 ( void )
+{
+static const char V_1 [] = L_1 ;
+const char * V_2 = L_2 ;
+struct V_3 * V_4 ;
+struct V_5 V_6 , * V_7 = & V_6 ;
+int V_8 = - V_9 ;
+int V_10 = 0 ;
+struct {
+struct V_11 V_12 ;
+char V_13 [ V_14 ] ;
+} V_15 ;
+memset ( V_7 , 0 , sizeof( * V_7 ) ) ;
+memset ( & V_15 , 0 , sizeof( V_15 ) ) ;
+V_7 -> V_16 = & V_15 . V_12 ;
+V_7 -> V_16 -> V_17 = V_18 ;
+V_7 -> V_16 -> V_19 = V_20 ;
+if ( V_21 ) {
+V_8 = F_2 ( & V_15 . V_12 ) ;
+if ( V_8 < 0 ) {
+V_2 = L_3 ;
+goto V_22;
+}
+}
+V_8 = F_3 ( V_7 , NULL , V_23 ,
+NULL , 0 , & V_4 ) ;
+if ( V_8 < 0 ) {
+V_2 = L_4 ;
+goto V_22;
+}
+V_8 = F_4 ( V_4 , V_10 , NULL ,
+V_23 ) ;
+if ( V_8 < 0 ) {
+F_5 ( V_4 ) ;
+V_2 = L_5 ;
+goto V_22;
+}
+return 0 ;
+V_22:
+F_6 ( V_24 , NULL , V_23 , V_1 ,
+V_2 , V_8 , 0 ) ;
+return V_8 ;
+}
+void T_1 F_7 ( void )
+{
+int V_25 = V_26 & V_27 ;
+V_26 &= ~ V_25 ;
+F_8 ( V_28 , V_29 ) ;
+V_26 |= V_25 ;
+}
+int T_1 F_9 ( void )
+{
+T_2 V_30 [ V_14 ] ;
+int V_31 ;
+V_21 = 0 ;
+V_31 = F_10 ( V_32 , 0 , V_30 ) ;
+if ( V_31 == 0 )
+V_21 = 1 ;
+if ( ! V_21 )
+F_11 ( L_6 ) ;
+V_31 = F_12 ( V_28 ) ;
+if ( V_31 )
+return V_31 ;
+V_31 = F_13 () ;
+if ( V_31 )
+return V_31 ;
+V_31 = F_14 () ;
+if ( V_31 != 0 )
+return V_31 ;
+V_31 = F_1 () ;
+if ( V_31 != 0 )
+return V_31 ;
+F_15 () ;
+return F_16 () ;
+}

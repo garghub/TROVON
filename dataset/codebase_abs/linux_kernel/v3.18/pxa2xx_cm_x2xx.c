@@ -1,0 +1,1 @@
+static int T_1 F_1 ( void )\r\n{\r\nint V_1 = - V_2 ;\r\nif ( F_2 () && F_3 () )\r\nV_1 = F_4 () ;\r\nelse if ( F_2 () && F_5 () )\r\nV_1 = F_6 () ;\r\nreturn V_1 ;\r\n}\r\nstatic void T_2 F_7 ( void )\r\n{\r\nif ( F_2 () && F_3 () )\r\nF_8 () ;\r\nelse if ( F_2 () && F_5 () )\r\nF_9 () ;\r\n}

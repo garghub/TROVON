@@ -1,0 +1,1 @@
+int F_1 ( int V_1 , const T_1 * V_2 )\r\n{\r\nint V_3 = F_2 ( V_1 , V_2 ) ;\r\nif ( V_3 == V_4 )\r\nV_3 = F_3 ( V_2 ) ;\r\nreturn V_3 ;\r\n}\r\nint F_4 ( const T_1 * V_5 )\r\n{\r\nint V_6 , V_7 = V_8 ;\r\nV_6 = F_5 ( * V_5 ) ;\r\nif ( V_6 )\r\nV_7 = F_6 ( V_5 -> V_9 ,\r\nF_7 () % V_6 , V_4 ) ;\r\nreturn V_7 ;\r\n}

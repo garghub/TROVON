@@ -1,0 +1,1 @@
+T_1 F_1 ( T_2 V_1 , T_3 V_2 )\r\n{\r\nreturn F_2 ( V_3 + V_1 + V_2 ) ;\r\n}\r\nvoid F_3 ( T_1 V_4 , T_2 V_1 , T_3 V_2 )\r\n{\r\nF_4 ( V_4 , V_3 + V_1 + V_2 ) ;\r\n}\r\nT_1 F_5 ( T_2 V_1 , T_3 V_2 )\r\n{\r\nreturn F_2 ( V_5 + V_1 + V_2 ) ;\r\n}\r\nvoid F_6 ( T_1 V_4 , T_2 V_1 , T_3 V_2 )\r\n{\r\nF_4 ( V_4 , V_5 + V_1 + V_2 ) ;\r\n}

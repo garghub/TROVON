@@ -1,0 +1,1 @@
+static void T_1 * F_1 ( void * V_1 )\r\n{\r\nstatic short V_2 ;\r\nstruct V_3 * V_4 = V_1 ;\r\nint V_5 = F_2 ( L_1 ) ;\r\nint V_6 = F_2 ( L_2 ) ;\r\nif ( V_5 < 0 )\r\nreturn NULL ;\r\nif ( V_6 < 0 )\r\nreturn NULL ;\r\nV_4 -> V_7 = V_5 + V_8 ;\r\nV_2 = V_6 + V_8 ;\r\nreturn & V_2 ;\r\n}

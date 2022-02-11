@@ -1,0 +1,1 @@
+int F_1 ( struct V_1 * V_2 )\r\n{\r\nstruct V_3 {\r\nT_1 V_4 ;\r\nT_1 V_5 ;\r\n} V_6 ;\r\nV_6 . V_4 = F_2 () ;\r\nV_6 . V_5 = 0x12345678 ;\r\nF_3 ( V_2 , & V_7 , 0 , & V_6 , sizeof( V_6 ) ) ;\r\nreturn 0 ;\r\n}

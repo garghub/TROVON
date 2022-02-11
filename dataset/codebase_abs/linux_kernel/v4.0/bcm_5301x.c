@@ -1,0 +1,1 @@
+static int F_1 ( unsigned long V_1 , unsigned int V_2 ,\r\nstruct V_3 * V_4 )\r\n{\r\nif ( V_2 == 0x1c06 && V_5 ) {\r\nV_5 = false ;\r\nF_2 ( L_1 ,\r\nV_1 , V_2 ) ;\r\nreturn 0 ;\r\n}\r\nreturn 1 ;\r\n}\r\nstatic void T_1 F_3 ( void )\r\n{\r\nF_4 ( 16 + 6 , F_1 , V_6 , V_7 ,\r\nL_2 ) ;\r\n}

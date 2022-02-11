@@ -1,0 +1,1 @@
+static int T_1 F_1 ( char * V_1 , int * V_2 )\r\n{\r\nint V_3 ;\r\nif ( V_4 ) {\r\nF_2 ( L_1 ) ;\r\nreturn 0 ;\r\n}\r\n* V_2 = 0 ;\r\nV_3 = F_3 ( V_1 ) ;\r\nif ( V_3 == - V_5 )\r\nF_2 ( L_2 , V_1 ) ;\r\nelse if ( ! V_3 )\r\nV_4 = 1 ;\r\nreturn 0 ;\r\n}

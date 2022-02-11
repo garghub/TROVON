@@ -1,0 +1,1 @@
+const struct V_1 * F_1 ( T_1 V_2 , T_1 V_3 )\r\n{\r\nconst struct V_1 * V_4 = NULL ;\r\nint V_5 ;\r\nfor ( V_5 = F_2 ( V_6 ) - 1 ; V_5 >= 0 ; V_5 -- ) {\r\nif ( ( V_6 [ V_5 ] . V_2 == V_2 ) &&\r\n( V_6 [ V_5 ] . V_3 == V_3 ) ) {\r\nV_4 = & V_6 [ V_5 ] ;\r\nbreak;\r\n}\r\n}\r\nreturn V_4 ;\r\n}

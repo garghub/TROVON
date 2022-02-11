@@ -1,0 +1,1 @@
+static void\r\nF_1 ( struct V_1 * V_2 )\r\n{\r\nstruct V_3 * V_4 = V_2 -> V_5 . V_4 ;\r\nF_2 ( V_4 , 0x10a3c0 , 0x00000001 , 0x00000001 ) ;\r\nF_2 ( V_4 , 0x10a3c0 , 0x00000001 , 0x00000000 ) ;\r\n}\r\nint\r\nF_3 ( struct V_3 * V_4 , int V_6 , struct V_1 * * V_7 )\r\n{\r\nreturn F_4 ( & V_8 , V_4 , V_6 , V_7 ) ;\r\n}

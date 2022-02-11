@@ -1,0 +1,1 @@
+void T_1 F_1 ( void )\r\n{\r\n#ifdef F_2\r\nV_1 = ( unsigned long )\r\nF_3 ( V_2 , V_3 ) ;\r\n#endif\r\nF_4 () ;\r\nF_5 () ;\r\nF_6 ( ( unsigned long )\r\nF_3 ( V_4 , V_5 ) ) ;\r\n#ifdef F_7\r\nF_8 () ;\r\n#else\r\nF_9 () ;\r\n#endif\r\nF_10 () ;\r\nF_11 ( & V_6 ) ;\r\n}\r\nvoid T_1 F_12 ( void )\r\n{\r\n}

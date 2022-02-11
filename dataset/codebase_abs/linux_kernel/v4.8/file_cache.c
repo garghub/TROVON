@@ -1,0 +1,1 @@
+int F_1 ( struct V_1 * V_1 , T_1 V_2 , int V_3 )\r\n{\r\nstruct V_4 * V_5 = V_1 -> V_6 -> V_7 ;\r\nstruct V_8 * V_9 = F_2 ( V_5 -> V_10 ,\r\nV_2 , V_3 ) ;\r\nint V_11 = V_9 -> error ;\r\nif ( V_11 )\r\nERROR ( L_1 , V_2 ,\r\nV_3 ) ;\r\nelse\r\nF_3 ( V_1 , V_9 , V_9 -> V_12 , 0 ) ;\r\nF_4 ( V_9 ) ;\r\nreturn V_11 ;\r\n}

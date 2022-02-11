@@ -1,0 +1,1 @@
+static void T_1 F_1 ( void )\r\n{\r\nF_2 ( & V_1 ) ;\r\nF_3 ( 1 , V_2 , F_4 ( V_2 ) ) ;\r\n}\r\nstatic void T_1 F_5 ( void )\r\n{\r\nF_6 () ;\r\n}\r\nstatic T_1 void F_7 ( void )\r\n{\r\nstruct V_3 * V_4 = & V_3 ;\r\nF_8 ( V_5 ,\r\nF_4 ( V_5 ) ) ;\r\nF_1 () ;\r\nF_9 ( V_6 ) ;\r\nV_4 -> V_7 -> V_8 = V_9 ;\r\nF_10 ( 0 , 0 ) ;\r\nF_11 ( V_10 ) ;\r\nF_11 ( V_11 ) ;\r\n}

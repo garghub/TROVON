@@ -1,0 +1,1 @@
+void F_1 ( int V_1 , struct V_2 * V_3 ,\r\nvoid (* F_2)( struct V_2 * V_3 , T_1 time ,\r\nunsigned int V_4 ) )\r\n{\r\nif ( F_3 ( ! V_3 || ! F_2 ) )\r\nreturn;\r\nif ( F_3 ( F_4 ( V_5 , V_1 ) ) )\r\nreturn;\r\nV_3 -> F_2 = F_2 ;\r\nF_5 ( F_4 ( V_5 , V_1 ) , V_3 ) ;\r\n}\r\nvoid F_6 ( int V_1 )\r\n{\r\nF_5 ( F_4 ( V_5 , V_1 ) , NULL ) ;\r\n}

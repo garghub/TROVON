@@ -1,0 +1,1 @@
+static int F_1 ( const struct V_1 * V_2 ,\r\nstruct V_3 * V_3 , const char * V_4 ,\r\nvoid * V_5 , T_1 V_6 )\r\n{\r\nreturn F_2 ( V_3 , V_4 , V_5 , V_6 ,\r\nV_7 ,\r\nV_8 ) ;\r\n}\r\nstatic int F_3 ( const struct V_1 * V_2 ,\r\nstruct V_3 * V_3 , const char * V_4 ,\r\nconst void * V_5 , T_1 V_6 , int V_9 )\r\n{\r\nreturn F_4 ( V_3 , V_4 , V_5 , V_6 , V_9 ,\r\nV_7 , V_8 ) ;\r\n}

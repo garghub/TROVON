@@ -1,0 +1,1 @@
+int F_1 ( T_1 * V_1 , unsigned int V_2 )\r\n{\r\nchar V_3 [ 32 ] ;\r\nint V_4 ;\r\nsnprintf ( V_3 , sizeof( V_3 ) , L_1 , V_2 ) ;\r\nV_4 = F_2 ( ( V_5 ) V_3 , 0 ) ;\r\nif ( V_4 < 0 ) {\r\nV_1 -> V_4 = - 1 ;\r\nif ( V_4 >= V_6 && V_4 <= V_7 )\r\nreturn V_4 ;\r\nelse\r\nreturn - V_8 ;\r\n}\r\nV_1 -> V_4 = V_4 ;\r\nreturn 0 ;\r\n}

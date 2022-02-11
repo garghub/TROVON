@@ -1,0 +1,1 @@
+static int T_1 F_1 ( void )\r\n{\r\nint V_1 = 0 ;\r\nif ( F_2 () ) {\r\nF_3 ( F_4 ( V_2 ) ) ;\r\nF_5 ( V_3 ) ;\r\nF_6 ( & V_4 ,\r\n& V_5 ,\r\nsizeof( V_5 ) ) ;\r\nV_1 = F_7 ( & V_4 ) ;\r\n}\r\nif ( F_8 () )\r\nF_5 ( V_6 ) ;\r\nreturn 0 ;\r\n}

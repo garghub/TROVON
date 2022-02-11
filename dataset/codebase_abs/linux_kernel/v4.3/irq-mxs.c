@@ -1,0 +1,38 @@
+static void F_1 ( struct V_1 * V_2 )
+{
+F_2 ( V_3 ,
+V_4 + V_5 ) ;
+}
+static void F_3 ( struct V_1 * V_2 )
+{
+F_2 ( V_6 ,
+V_4 + F_4 ( V_2 -> V_7 ) ) ;
+}
+static void F_5 ( struct V_1 * V_2 )
+{
+F_2 ( V_6 ,
+V_4 + F_6 ( V_2 -> V_7 ) ) ;
+}
+T_1 void T_2 F_7 ( struct V_8 * V_9 )
+{
+T_3 V_10 ;
+V_10 = F_8 ( V_4 + V_11 ) ;
+F_2 ( V_10 , V_4 + V_12 ) ;
+F_9 ( V_13 , V_10 , V_9 ) ;
+}
+static int F_10 ( struct V_14 * V_2 , unsigned int V_15 ,
+T_4 V_16 )
+{
+F_11 ( V_15 , & V_17 , V_18 ) ;
+return 0 ;
+}
+static int T_5 F_12 ( struct V_19 * V_20 ,
+struct V_19 * V_21 )
+{
+V_4 = F_13 ( V_20 , 0 ) ;
+F_14 ( ! V_4 ) ;
+F_15 ( V_4 + V_22 ) ;
+V_13 = F_16 ( V_20 , V_23 ,
+& V_24 , NULL ) ;
+return V_13 ? 0 : - V_25 ;
+}

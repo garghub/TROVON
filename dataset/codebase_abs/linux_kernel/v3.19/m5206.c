@@ -1,0 +1,1 @@
+void T_1 F_1 ( char * V_1 , int V_2 )\r\n{\r\n#if F_2 ( V_3 )\r\nmemcpy ( V_1 , ( char * ) 0xf0004000 , V_2 ) ;\r\nV_1 [ V_2 - 1 ] = 0 ;\r\n#endif\r\nV_4 = V_5 ;\r\nF_3 ( 25 , V_6 ) ;\r\nF_3 ( 28 , V_7 ) ;\r\nF_3 ( 31 , V_8 ) ;\r\n}

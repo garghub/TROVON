@@ -1,0 +1,1 @@
+static void F_1 ( struct V_1 * V_2 )\r\n{\r\nstruct V_3 * V_4 = F_2 ( V_2 ) ;\r\nF_3 ( V_2 -> V_5 , V_4 ) ;\r\nF_4 ( V_2 -> V_5 ) ;\r\n}\r\nstatic void F_5 ( struct V_1 * V_2 ) { }\r\nstatic unsigned int F_6 ( struct V_1 * V_2 )\r\n{\r\nreturn 0 ;\r\n}

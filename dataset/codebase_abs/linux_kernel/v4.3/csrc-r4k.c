@@ -1,0 +1,1 @@
+static T_1 F_1 ( struct V_1 * V_2 )\r\n{\r\nreturn F_2 () ;\r\n}\r\nstatic T_2 T_3 F_3 ( void )\r\n{\r\nreturn F_2 () ;\r\n}\r\nint T_4 F_4 ( void )\r\n{\r\nif ( ! V_3 || ! V_4 )\r\nreturn - V_5 ;\r\nV_6 . V_7 = 200 + V_4 / 10000000 ;\r\nF_5 ( & V_6 , V_4 ) ;\r\nF_6 ( F_3 , 32 , V_4 ) ;\r\nreturn 0 ;\r\n}

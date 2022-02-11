@@ -1,0 +1,1 @@
+int\r\nF_1 ( struct V_1 * V_2 , struct V_3 * * V_4 )\r\n{\r\nstruct V_5 * V_6 = V_2 -> V_7 . V_6 ;\r\nT_1 V_8 = F_2 ( V_6 , 0x10020c ) & 0xff000000 ;\r\nT_1 V_9 = F_2 ( V_6 , 0x100200 ) ;\r\nenum V_10 type ;\r\nif ( V_9 & 0x00000001 )\r\ntype = V_11 ;\r\nelse\r\ntype = V_12 ;\r\nreturn F_3 ( & V_13 , V_2 , type , V_8 , 0 , V_4 ) ;\r\n}

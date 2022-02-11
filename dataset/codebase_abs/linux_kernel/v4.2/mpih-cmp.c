@@ -1,0 +1,1 @@
+int F_1 ( T_1 V_1 , T_1 V_2 , T_2 V_3 )\r\n{\r\nT_2 V_4 ;\r\nT_3 V_5 , V_6 ;\r\nfor ( V_4 = V_3 - 1 ; V_4 >= 0 ; V_4 -- ) {\r\nV_5 = V_1 [ V_4 ] ;\r\nV_6 = V_2 [ V_4 ] ;\r\nif ( V_5 != V_6 )\r\ngoto V_7;\r\n}\r\nreturn 0 ;\r\nV_7:\r\nreturn ( V_5 > V_6 ) ? 1 : - 1 ;\r\n}

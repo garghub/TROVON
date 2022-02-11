@@ -1,0 +1,1 @@
+void F_1 ( struct V_1 * V_2 )\r\n{\r\nunsigned int V_3 ;\r\nV_2 -> V_4 [ 0 ] = 0 ;\r\nV_2 -> V_4 [ 1 ] = 1 ;\r\nV_2 -> V_4 [ 2 ] = 2 ;\r\nV_2 -> V_4 [ 3 ] = 3 ;\r\nV_2 -> V_5 = 0xFF03020100 ;\r\nfor ( V_3 = 0 ; V_3 < 4 ; V_3 ++ )\r\nV_2 -> V_6 [ V_3 ] . V_7 = NULL ;\r\n}

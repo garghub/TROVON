@@ -1,0 +1,1 @@
+int F_1 ( struct V_1 * V_2 ,\r\nstruct V_3 * V_4 ,\r\nbool (* F_2)( struct V_5 * V_6 , void * V_7 ) )\r\n{\r\n* V_4 = V_8 ;\r\nV_4 -> V_9 = F_2 ;\r\nreturn F_3 ( V_2 , V_4 ,\r\nV_10 |\r\nV_11 ) ;\r\n}

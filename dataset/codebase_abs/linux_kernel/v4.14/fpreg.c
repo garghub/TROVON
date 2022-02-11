@@ -1,0 +1,158 @@
+unsigned long
+F_1 ( unsigned long V_1 )
+{
+unsigned long V_2 ;
+switch ( V_1 ) {
+case 0 : F_2 ( 0 , V_2 ) ; break;
+case 1 : F_2 ( 1 , V_2 ) ; break;
+case 2 : F_2 ( 2 , V_2 ) ; break;
+case 3 : F_2 ( 3 , V_2 ) ; break;
+case 4 : F_2 ( 4 , V_2 ) ; break;
+case 5 : F_2 ( 5 , V_2 ) ; break;
+case 6 : F_2 ( 6 , V_2 ) ; break;
+case 7 : F_2 ( 7 , V_2 ) ; break;
+case 8 : F_2 ( 8 , V_2 ) ; break;
+case 9 : F_2 ( 9 , V_2 ) ; break;
+case 10 : F_2 ( 10 , V_2 ) ; break;
+case 11 : F_2 ( 11 , V_2 ) ; break;
+case 12 : F_2 ( 12 , V_2 ) ; break;
+case 13 : F_2 ( 13 , V_2 ) ; break;
+case 14 : F_2 ( 14 , V_2 ) ; break;
+case 15 : F_2 ( 15 , V_2 ) ; break;
+case 16 : F_2 ( 16 , V_2 ) ; break;
+case 17 : F_2 ( 17 , V_2 ) ; break;
+case 18 : F_2 ( 18 , V_2 ) ; break;
+case 19 : F_2 ( 19 , V_2 ) ; break;
+case 20 : F_2 ( 20 , V_2 ) ; break;
+case 21 : F_2 ( 21 , V_2 ) ; break;
+case 22 : F_2 ( 22 , V_2 ) ; break;
+case 23 : F_2 ( 23 , V_2 ) ; break;
+case 24 : F_2 ( 24 , V_2 ) ; break;
+case 25 : F_2 ( 25 , V_2 ) ; break;
+case 26 : F_2 ( 26 , V_2 ) ; break;
+case 27 : F_2 ( 27 , V_2 ) ; break;
+case 28 : F_2 ( 28 , V_2 ) ; break;
+case 29 : F_2 ( 29 , V_2 ) ; break;
+case 30 : F_2 ( 30 , V_2 ) ; break;
+case 31 : F_2 ( 31 , V_2 ) ; break;
+default: return 0 ;
+}
+return V_2 ;
+}
+void
+F_3 ( unsigned long V_1 , unsigned long V_2 )
+{
+switch ( V_1 ) {
+case 0 : F_4 ( 0 , V_2 ) ; break;
+case 1 : F_4 ( 1 , V_2 ) ; break;
+case 2 : F_4 ( 2 , V_2 ) ; break;
+case 3 : F_4 ( 3 , V_2 ) ; break;
+case 4 : F_4 ( 4 , V_2 ) ; break;
+case 5 : F_4 ( 5 , V_2 ) ; break;
+case 6 : F_4 ( 6 , V_2 ) ; break;
+case 7 : F_4 ( 7 , V_2 ) ; break;
+case 8 : F_4 ( 8 , V_2 ) ; break;
+case 9 : F_4 ( 9 , V_2 ) ; break;
+case 10 : F_4 ( 10 , V_2 ) ; break;
+case 11 : F_4 ( 11 , V_2 ) ; break;
+case 12 : F_4 ( 12 , V_2 ) ; break;
+case 13 : F_4 ( 13 , V_2 ) ; break;
+case 14 : F_4 ( 14 , V_2 ) ; break;
+case 15 : F_4 ( 15 , V_2 ) ; break;
+case 16 : F_4 ( 16 , V_2 ) ; break;
+case 17 : F_4 ( 17 , V_2 ) ; break;
+case 18 : F_4 ( 18 , V_2 ) ; break;
+case 19 : F_4 ( 19 , V_2 ) ; break;
+case 20 : F_4 ( 20 , V_2 ) ; break;
+case 21 : F_4 ( 21 , V_2 ) ; break;
+case 22 : F_4 ( 22 , V_2 ) ; break;
+case 23 : F_4 ( 23 , V_2 ) ; break;
+case 24 : F_4 ( 24 , V_2 ) ; break;
+case 25 : F_4 ( 25 , V_2 ) ; break;
+case 26 : F_4 ( 26 , V_2 ) ; break;
+case 27 : F_4 ( 27 , V_2 ) ; break;
+case 28 : F_4 ( 28 , V_2 ) ; break;
+case 29 : F_4 ( 29 , V_2 ) ; break;
+case 30 : F_4 ( 30 , V_2 ) ; break;
+case 31 : F_4 ( 31 , V_2 ) ; break;
+}
+}
+unsigned long
+F_5 ( unsigned long V_1 )
+{
+unsigned long V_2 ;
+switch ( V_1 ) {
+case 0 : F_6 ( 0 , V_2 ) ; break;
+case 1 : F_6 ( 1 , V_2 ) ; break;
+case 2 : F_6 ( 2 , V_2 ) ; break;
+case 3 : F_6 ( 3 , V_2 ) ; break;
+case 4 : F_6 ( 4 , V_2 ) ; break;
+case 5 : F_6 ( 5 , V_2 ) ; break;
+case 6 : F_6 ( 6 , V_2 ) ; break;
+case 7 : F_6 ( 7 , V_2 ) ; break;
+case 8 : F_6 ( 8 , V_2 ) ; break;
+case 9 : F_6 ( 9 , V_2 ) ; break;
+case 10 : F_6 ( 10 , V_2 ) ; break;
+case 11 : F_6 ( 11 , V_2 ) ; break;
+case 12 : F_6 ( 12 , V_2 ) ; break;
+case 13 : F_6 ( 13 , V_2 ) ; break;
+case 14 : F_6 ( 14 , V_2 ) ; break;
+case 15 : F_6 ( 15 , V_2 ) ; break;
+case 16 : F_6 ( 16 , V_2 ) ; break;
+case 17 : F_6 ( 17 , V_2 ) ; break;
+case 18 : F_6 ( 18 , V_2 ) ; break;
+case 19 : F_6 ( 19 , V_2 ) ; break;
+case 20 : F_6 ( 20 , V_2 ) ; break;
+case 21 : F_6 ( 21 , V_2 ) ; break;
+case 22 : F_6 ( 22 , V_2 ) ; break;
+case 23 : F_6 ( 23 , V_2 ) ; break;
+case 24 : F_6 ( 24 , V_2 ) ; break;
+case 25 : F_6 ( 25 , V_2 ) ; break;
+case 26 : F_6 ( 26 , V_2 ) ; break;
+case 27 : F_6 ( 27 , V_2 ) ; break;
+case 28 : F_6 ( 28 , V_2 ) ; break;
+case 29 : F_6 ( 29 , V_2 ) ; break;
+case 30 : F_6 ( 30 , V_2 ) ; break;
+case 31 : F_6 ( 31 , V_2 ) ; break;
+default: return 0 ;
+}
+return V_2 ;
+}
+void
+F_7 ( unsigned long V_1 , unsigned long V_2 )
+{
+switch ( V_1 ) {
+case 0 : F_8 ( 0 , V_2 ) ; break;
+case 1 : F_8 ( 1 , V_2 ) ; break;
+case 2 : F_8 ( 2 , V_2 ) ; break;
+case 3 : F_8 ( 3 , V_2 ) ; break;
+case 4 : F_8 ( 4 , V_2 ) ; break;
+case 5 : F_8 ( 5 , V_2 ) ; break;
+case 6 : F_8 ( 6 , V_2 ) ; break;
+case 7 : F_8 ( 7 , V_2 ) ; break;
+case 8 : F_8 ( 8 , V_2 ) ; break;
+case 9 : F_8 ( 9 , V_2 ) ; break;
+case 10 : F_8 ( 10 , V_2 ) ; break;
+case 11 : F_8 ( 11 , V_2 ) ; break;
+case 12 : F_8 ( 12 , V_2 ) ; break;
+case 13 : F_8 ( 13 , V_2 ) ; break;
+case 14 : F_8 ( 14 , V_2 ) ; break;
+case 15 : F_8 ( 15 , V_2 ) ; break;
+case 16 : F_8 ( 16 , V_2 ) ; break;
+case 17 : F_8 ( 17 , V_2 ) ; break;
+case 18 : F_8 ( 18 , V_2 ) ; break;
+case 19 : F_8 ( 19 , V_2 ) ; break;
+case 20 : F_8 ( 20 , V_2 ) ; break;
+case 21 : F_8 ( 21 , V_2 ) ; break;
+case 22 : F_8 ( 22 , V_2 ) ; break;
+case 23 : F_8 ( 23 , V_2 ) ; break;
+case 24 : F_8 ( 24 , V_2 ) ; break;
+case 25 : F_8 ( 25 , V_2 ) ; break;
+case 26 : F_8 ( 26 , V_2 ) ; break;
+case 27 : F_8 ( 27 , V_2 ) ; break;
+case 28 : F_8 ( 28 , V_2 ) ; break;
+case 29 : F_8 ( 29 , V_2 ) ; break;
+case 30 : F_8 ( 30 , V_2 ) ; break;
+case 31 : F_8 ( 31 , V_2 ) ; break;
+}
+}

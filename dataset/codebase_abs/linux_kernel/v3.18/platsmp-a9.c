@@ -1,0 +1,1 @@
+static int T_1 F_1 ( unsigned int V_1 ,\r\nstruct V_2 * V_3 )\r\n{\r\nint V_4 , V_5 ;\r\nF_2 ( L_1 , V_1 ) ;\r\nV_5 = F_3 ( V_1 ) ;\r\nif ( F_4 ( L_2 ) )\r\nF_5 ( V_6 ) ;\r\nelse\r\nF_6 ( V_5 , V_6 ) ;\r\nF_7 () ;\r\nV_4 = F_8 ( V_5 ) ;\r\nif ( V_4 ) {\r\nF_9 ( L_3 , V_4 ) ;\r\nreturn V_4 ;\r\n}\r\nF_10 ( F_11 ( V_1 ) ) ;\r\nreturn 0 ;\r\n}

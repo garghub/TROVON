@@ -1,0 +1,1 @@
+static int F_1 ( struct V_1 * V_2 , struct V_3 * V_4 ,\r\nstruct V_5 * V_6 , T_1 V_7 )\r\n{\r\nswitch ( V_6 -> V_8 ) {\r\ncase V_9 :\r\ncase V_10 :\r\ncase V_11 :\r\ncase V_12 :\r\nif ( V_7 < - 1 ) {\r\nF_2 ( V_4 -> V_13 -> V_14 , V_6 -> type ,\r\nV_6 -> V_8 , - 1 ) ;\r\nreturn 1 ;\r\n}\r\nbreak;\r\n}\r\nreturn 0 ;\r\n}

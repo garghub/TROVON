@@ -1,0 +1,1 @@
+static void F_1 ( struct V_1 * V_2 , unsigned int V_3 )\r\n{\r\nif ( V_2 -> V_4 == 0xA4400000 ) {\r\nF_2 ( F_3 ( V_5 ) & 0xffc0 , V_5 ) ;\r\nF_2 ( F_3 ( V_6 ) & 0x0fff , V_6 ) ;\r\n} else if ( V_2 -> V_4 == 0xA4410000 )\r\nF_2 ( F_3 ( V_6 ) & 0xf003 , V_6 ) ;\r\n}

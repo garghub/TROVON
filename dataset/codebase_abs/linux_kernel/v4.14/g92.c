@@ -1,0 +1,1 @@
+int\r\nF_1 ( struct V_1 * V_2 )\r\n{\r\nif ( ( F_2 ( V_2 , 0x460 ) & 0x200 ) == 0x200 )\r\nreturn 2 ;\r\nreturn 1 ;\r\n}\r\nint\r\nF_3 ( struct V_3 * V_4 , int V_5 , struct V_1 * * V_6 )\r\n{\r\nreturn F_4 ( & V_7 , V_4 , V_5 , V_6 ) ;\r\n}

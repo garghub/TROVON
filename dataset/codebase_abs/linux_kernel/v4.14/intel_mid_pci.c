@@ -1,0 +1,187 @@
+static int F_1 ( struct V_1 * V_2 , unsigned int V_3 )
+{
+int V_4 ;
+T_1 V_5 = 0 , V_6 ;
+V_4 = V_7 ;
+if ( ! V_8 )
+return 0 ;
+while ( V_4 ) {
+if ( V_8 -> V_9 ( F_2 ( V_2 ) , V_2 -> V_10 ,
+V_3 , V_4 , 4 , & V_5 ) )
+return 0 ;
+if ( F_3 ( V_5 ) == 0x0000 ||
+F_3 ( V_5 ) == 0xffff )
+break;
+if ( F_3 ( V_5 ) == V_11 ) {
+V_8 -> V_9 ( F_2 ( V_2 ) , V_2 -> V_10 ,
+V_3 , V_4 + 4 , 4 , & V_6 ) ;
+if ( ( V_6 & 0xffff ) == V_12 )
+return V_4 ;
+}
+V_4 = F_4 ( V_5 ) ;
+}
+return 0 ;
+}
+static int F_5 ( struct V_1 * V_2 , unsigned int V_3 ,
+int V_13 , int V_14 , T_1 V_15 , int V_16 )
+{
+T_1 V_17 ;
+unsigned int V_18 , V_19 ;
+int V_20 = ( V_13 - V_21 ) >> 2 ;
+V_18 = F_2 ( V_2 ) ;
+V_19 = V_2 -> V_10 ;
+if ( V_15 == ~ 0 && V_14 == 4 ) {
+unsigned long V_22 ;
+V_8 -> V_9 ( V_18 , V_19 , V_3 ,
+V_16 + 8 + ( V_20 * 4 ) , 4 , & V_17 ) ;
+if ( V_17 ) {
+V_22 = V_17 - 1 ;
+V_22 |= V_22 >> 1 ;
+V_22 |= V_22 >> 2 ;
+V_22 |= V_22 >> 4 ;
+V_22 |= V_22 >> 8 ;
+V_22 |= V_22 >> 16 ;
+V_22 ++ ;
+V_22 = ~ ( V_22 - 1 ) ;
+} else {
+V_22 = 0 ;
+}
+return V_8 -> V_23 ( V_18 , V_19 , V_3 , V_13 , 4 ,
+V_22 ) ;
+}
+return V_8 -> V_23 ( V_18 , V_19 , V_3 , V_13 , V_14 , V_15 ) ;
+}
+static bool F_6 ( unsigned int V_2 , unsigned int V_3 , int V_13 )
+{
+if ( V_13 >= 0x100 || V_13 == V_24 || V_13 == V_25 )
+return false ;
+if ( V_2 == 0 && ( V_3 == F_7 ( 2 , 0 )
+|| V_3 == F_7 ( 0 , 0 )
+|| V_3 == F_7 ( 3 , 0 ) ) )
+return true ;
+return false ;
+}
+static int F_8 ( struct V_1 * V_2 , unsigned int V_3 , int V_26 ,
+int V_17 , T_1 * V_27 )
+{
+if ( F_6 ( V_2 -> V_10 , V_3 , V_26 ) )
+return V_28 . V_9 ( F_2 ( V_2 ) , V_2 -> V_10 ,
+V_3 , V_26 , V_17 , V_27 ) ;
+return V_8 -> V_9 ( F_2 ( V_2 ) , V_2 -> V_10 ,
+V_3 , V_26 , V_17 , V_27 ) ;
+}
+static int F_9 ( struct V_1 * V_2 , unsigned int V_3 , int V_26 ,
+int V_17 , T_1 V_27 )
+{
+int V_16 ;
+if ( V_26 == V_29 )
+return 0 ;
+V_16 = F_1 ( V_2 , V_3 ) ;
+if ( V_16 &&
+( V_26 >= V_21 && V_26 <= V_30 ) ) {
+return F_5 ( V_2 , V_3 , V_26 , V_17 , V_27 ,
+V_16 ) ;
+}
+if ( F_6 ( V_2 -> V_10 , V_3 , V_26 ) )
+return V_28 . V_23 ( F_2 ( V_2 ) , V_2 -> V_10 ,
+V_3 , V_26 , V_17 , V_27 ) ;
+return V_8 -> V_23 ( F_2 ( V_2 ) , V_2 -> V_10 , V_3 ,
+V_26 , V_17 , V_27 ) ;
+}
+static int F_10 ( struct V_31 * V_32 )
+{
+struct V_33 V_34 ;
+int V_35 ;
+int V_36 ;
+T_2 V_37 ;
+if ( V_32 -> V_38 && V_32 -> V_39 > 0 )
+return 0 ;
+V_36 = F_11 ( V_32 , V_40 , & V_37 ) ;
+if ( V_36 < 0 ) {
+F_12 ( & V_32 -> V_32 , L_1 , V_36 ) ;
+return V_36 ;
+}
+switch ( F_13 () ) {
+case V_41 :
+V_35 = V_42 ;
+if ( V_37 == 0 ) {
+if ( V_32 -> V_43 == V_44 )
+return - V_45 ;
+if ( V_32 -> V_43 != V_46 )
+return 0 ;
+}
+break;
+default:
+V_35 = V_47 ;
+break;
+}
+F_14 ( & V_34 , F_15 ( & V_32 -> V_32 ) , 1 , V_35 ) ;
+V_36 = F_16 ( V_37 , V_48 , & V_34 ) ;
+if ( V_36 < 0 )
+return V_36 ;
+V_32 -> V_39 = V_36 ;
+V_32 -> V_38 = 1 ;
+return 0 ;
+}
+static void F_17 ( struct V_31 * V_32 )
+{
+if ( ! F_18 ( & V_32 -> V_32 ) && V_32 -> V_38 &&
+V_32 -> V_39 > 0 ) {
+F_19 ( V_32 -> V_39 ) ;
+V_32 -> V_38 = 0 ;
+}
+}
+int T_3 F_20 ( void )
+{
+F_21 ( L_2 ) ;
+F_22 () ;
+V_49 = F_10 ;
+V_50 = F_17 ;
+V_51 = V_52 ;
+V_53 = 1 ;
+return 1 ;
+}
+static void F_23 ( struct V_31 * V_32 )
+{
+if ( ! V_53 )
+return;
+if ( F_6 ( V_32 -> V_2 -> V_10 , V_32 -> V_3 , V_54 ) )
+return;
+V_32 -> V_55 = 0 ;
+}
+static void F_24 ( struct V_31 * V_32 )
+{
+T_4 V_56 ;
+F_25 ( V_32 , V_32 -> V_57 + V_58 , & V_56 ) ;
+V_32 -> V_59 = ( V_60 V_61 ) ( V_56 & V_62 ) ;
+F_26 ( V_32 , V_63 ) ;
+}
+static void F_27 ( struct V_31 * V_32 )
+{
+int V_64 ;
+if ( ! V_53 )
+return;
+V_64 = F_28 ( V_32 ) ;
+if ( V_64 < 0 )
+return;
+F_24 ( V_32 ) ;
+}
+static void F_29 ( struct V_31 * V_32 )
+{
+unsigned long V_16 ;
+T_1 V_17 ;
+int V_65 ;
+if ( ! V_53 )
+return;
+if ( V_32 -> V_66 < V_7 + 4 )
+return;
+V_16 = F_1 ( V_32 -> V_2 , V_32 -> V_3 ) ;
+if ( ! V_16 || F_7 ( 2 , 0 ) == V_32 -> V_3 ||
+F_7 ( 2 , 2 ) == V_32 -> V_3 )
+return;
+for ( V_65 = 0 ; V_65 < V_67 ; V_65 ++ ) {
+F_30 ( V_32 , V_16 + 8 + ( V_65 * 4 ) , & V_17 ) ;
+V_32 -> V_68 [ V_65 ] . V_69 = V_32 -> V_68 [ V_65 ] . V_70 + V_17 - 1 ;
+V_32 -> V_68 [ V_65 ] . V_71 |= V_72 ;
+}
+}

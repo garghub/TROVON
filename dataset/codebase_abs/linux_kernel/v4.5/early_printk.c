@@ -1,0 +1,1 @@
+static void F_1 ( const char * V_1 , unsigned V_2 )\r\n{\r\nwhile ( V_2 -- > 0 ) {\r\nif ( * V_1 == '\n' )\r\nF_2 ( '\r' ) ;\r\nF_2 ( * V_1 ) ;\r\nV_1 ++ ;\r\n}\r\n}\r\nstatic void F_3 ( struct V_3 * V_4 , const char * V_1 , unsigned V_2 )\r\n{\r\nF_1 ( V_1 , V_2 ) ;\r\n}\r\nstatic int T_1 F_4 ( char * V_5 )\r\n{\r\nV_6 = & V_7 ;\r\nF_5 ( & V_7 ) ;\r\nreturn 0 ;\r\n}

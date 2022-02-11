@@ -1,0 +1,1 @@
+int T_1 F_1 ( const struct V_1 * V_2 )\r\n{\r\nif ( V_1 )\r\nreturn - V_3 ;\r\nif ( ! V_2 )\r\nreturn - V_4 ;\r\nV_1 = F_2 ( V_2 , sizeof( * V_2 ) , V_5 ) ;\r\nif ( ! V_1 )\r\nreturn - V_6 ;\r\nreturn 0 ;\r\n}\r\nstruct V_1 * F_3 ( void )\r\n{\r\nif ( ! V_1 )\r\nreturn F_4 ( - V_7 ) ;\r\nreturn V_1 ;\r\n}

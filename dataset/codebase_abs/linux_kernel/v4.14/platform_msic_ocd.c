@@ -1,0 +1,1 @@
+static void T_1 * F_1 ( void * V_1 )\r\n{\r\nstatic struct V_2 V_3 ;\r\nint V_4 ;\r\nV_4 = F_2 ( L_1 ) ;\r\nif ( V_4 < 0 )\r\nreturn NULL ;\r\nV_3 . V_4 = V_4 ;\r\nV_5 . V_6 = & V_3 ;\r\nreturn F_3 ( V_1 , V_7 ) ;\r\n}
