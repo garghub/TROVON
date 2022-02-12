@@ -1,0 +1,1 @@
+BIO_METHOD *BIO_s_socket(void)\r\n{\r\nreturn(&methods_sockp);\r\n}\r\nBIO_METHOD *BIO_s_fd(void)\r\n{\r\nreturn(&methods_fdp);\r\n}\r\nstatic int sock_gets(BIO *bp, char *buf,int size)\r\n{\r\nreturn(-1);\r\n}

@@ -1,0 +1,117 @@
+static int
+export_pdu_packet(void *tapdata, packet_info *pinfo, epan_dissect_t *edt _U_, const void *data)
+{
+const exp_pdu_data_t *exp_pdu_data = (const exp_pdu_data_t *)data;
+exp_pdu_t *exp_pdu_tap_data = (exp_pdu_t *)tapdata;
+struct wtap_pkthdr pkthdr;
+int err;
+int buffer_len;
+guint8 *packet_buf;
+memset(&pkthdr, 0, sizeof(struct wtap_pkthdr));
+buffer_len = exp_pdu_data->tvb_captured_length + exp_pdu_data->tlv_buffer_len;
+packet_buf = (guint8 *)g_malloc(buffer_len);
+if(exp_pdu_data->tlv_buffer_len > 0){
+memcpy(packet_buf, exp_pdu_data->tlv_buffer, exp_pdu_data->tlv_buffer_len);
+g_free(exp_pdu_data->tlv_buffer);
+}
+if(exp_pdu_data->tvb_length > 0){
+tvb_memcpy(exp_pdu_data->pdu_tvb, packet_buf+exp_pdu_data->tlv_buffer_len, 0, exp_pdu_data->tvb_length);
+}
+pkthdr.rec_type = REC_TYPE_PACKET;
+pkthdr.ts.secs = pinfo->fd->abs_ts.secs;
+pkthdr.ts.nsecs = pinfo->fd->abs_ts.nsecs;
+pkthdr.caplen = buffer_len;
+pkthdr.len = exp_pdu_data->tvb_reported_length + exp_pdu_data->tlv_buffer_len;
+pkthdr.pkt_encap = exp_pdu_tap_data->pkt_encap;
+pkthdr.opt_comment = g_strdup(pinfo->pkt_comment);
+pkthdr.presence_flags = WTAP_HAS_CAP_LEN|WTAP_HAS_INTERFACE_ID|WTAP_HAS_TS|WTAP_HAS_PACK_FLAGS;
+wtap_dump(exp_pdu_tap_data->wdh, &pkthdr, packet_buf, &err);
+g_free(packet_buf);
+g_free(pkthdr.opt_comment);
+return FALSE;
+}
+static void
+exp_pdu_file_open(exp_pdu_t *exp_pdu_tap_data)
+{
+int import_file_fd;
+char *tmpname, *capfile_name;
+int err;
+wtapng_section_t *shb_hdr;
+wtapng_iface_descriptions_t *idb_inf;
+wtapng_if_descr_t int_data;
+GString *os_info_str;
+char appname[100];
+import_file_fd = create_tempfile(&tmpname, "Wireshark_PDU_");
+capfile_name = g_strdup(tmpname);
+os_info_str = g_string_new("");
+get_os_version_info(os_info_str);
+g_snprintf(appname, sizeof(appname), "Wireshark %s", get_ws_vcs_version_info());
+shb_hdr = g_new(wtapng_section_t,1);
+shb_hdr->section_length = -1;
+shb_hdr->opt_comment = g_strdup_printf("Dump of PDUs from %s", cfile.filename);
+shb_hdr->shb_hardware = NULL;
+shb_hdr->shb_os = os_info_str->str;
+g_string_free(os_info_str, FALSE);
+shb_hdr->shb_user_appl = appname;
+idb_inf = g_new(wtapng_iface_descriptions_t,1);
+idb_inf->interface_data = g_array_new(FALSE, FALSE, sizeof(wtapng_if_descr_t));
+int_data.wtap_encap = WTAP_ENCAP_WIRESHARK_UPPER_PDU;
+int_data.time_units_per_second = 1000000;
+int_data.link_type = wtap_wtap_encap_to_pcap_encap(WTAP_ENCAP_WIRESHARK_UPPER_PDU);
+int_data.snap_len = WTAP_MAX_PACKET_SIZE;
+int_data.if_name = g_strdup("Fake IF, PDU->Export");
+int_data.opt_comment = NULL;
+int_data.if_description = NULL;
+int_data.if_speed = 0;
+int_data.if_tsresol = 6;
+int_data.if_filter_str = NULL;
+int_data.bpf_filter_len = 0;
+int_data.if_filter_bpf_bytes = NULL;
+int_data.if_os = NULL;
+int_data.if_fcslen = -1;
+int_data.num_stat_entries = 0;
+int_data.interface_statistics = NULL;
+g_array_append_val(idb_inf->interface_data, int_data);
+exp_pdu_tap_data->wdh = wtap_dump_fdopen_ng(import_file_fd, WTAP_FILE_TYPE_SUBTYPE_PCAPNG, WTAP_ENCAP_WIRESHARK_UPPER_PDU, WTAP_MAX_PACKET_SIZE, FALSE, shb_hdr, idb_inf, &err);
+if (exp_pdu_tap_data->wdh == NULL) {
+open_failure_alert_box(capfile_name, err, TRUE);
+goto end;
+}
+cf_retap_packets(&cfile);
+if (!wtap_dump_close(exp_pdu_tap_data->wdh, &err)) {
+write_failure_alert_box(capfile_name, err);
+}
+remove_tap_listener(exp_pdu_tap_data);
+if (cf_open(&cfile, capfile_name, WTAP_TYPE_AUTO, TRUE , &err) != CF_OK) {
+open_failure_alert_box(capfile_name, err, FALSE);
+goto end;
+}
+switch (cf_read(&cfile, FALSE)) {
+case CF_READ_OK:
+case CF_READ_ERROR:
+break;
+case CF_READ_ABORTED:
+break;
+}
+end:
+g_free(capfile_name);
+}
+gboolean
+do_export_pdu(const char *filter, gchar *tap_name, exp_pdu_t *exp_pdu_tap_data)
+{
+GString *error_string;
+error_string = register_tap_listener(tap_name,
+exp_pdu_tap_data,
+filter,
+TL_REQUIRES_NOTHING,
+NULL,
+export_pdu_packet,
+NULL);
+if (error_string){
+simple_dialog(ESD_TYPE_ERROR, ESD_BTN_OK, "%s", error_string->str);
+g_string_free(error_string, TRUE);
+return FALSE;
+}
+exp_pdu_file_open(exp_pdu_tap_data);
+return TRUE;
+}

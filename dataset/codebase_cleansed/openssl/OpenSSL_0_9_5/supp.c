@@ -1,0 +1,1 @@
+void des_cblock_print_file(const_des_cblock *cb, FILE *fp)\r\n{\r\nint i;\r\nconst unsigned int *p = (const unsigned int *)cb;\r\nfprintf(fp, " 0x { ");\r\nfor (i = 0; i < 8; i++) {\r\nfprintf(fp, "%x", p[i]);\r\nif (i != 7) fprintf(fp, ", ");\r\n}\r\nfprintf(fp, " }");\r\n}

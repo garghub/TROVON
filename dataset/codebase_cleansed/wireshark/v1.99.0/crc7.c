@@ -1,0 +1,1 @@
+guint8 crc7update(guint8 crc, const unsigned char *data, int data_len)\r\n{\r\nunsigned int tbl_idx;\r\nwhile (data_len--) {\r\ntbl_idx = ((crc >> 0) ^ *data) & 0xff;\r\ncrc = (crc_table[tbl_idx] ^ (crc << (8 - 1))) & (0x7f << 1);\r\ndata++;\r\n}\r\nreturn crc & (0x7f << 1);\r\n}

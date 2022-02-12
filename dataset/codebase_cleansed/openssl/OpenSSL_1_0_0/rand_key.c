@@ -1,0 +1,1 @@
+int DES_random_key(DES_cblock *ret)\r\n{\r\ndo\r\n{\r\nif (RAND_bytes((unsigned char *)ret, sizeof(DES_cblock)) != 1)\r\nreturn (0);\r\n} while (DES_is_weak_key(ret));\r\nDES_set_odd_parity(ret);\r\nreturn (1);\r\n}

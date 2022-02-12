@@ -1,0 +1,634 @@
+static void
+gbl_symbols_new(void)
+{
+DISSECTOR_ASSERT(gbl_symbols_array == NULL);
+gbl_symbols_array = g_array_new(TRUE, TRUE, sizeof(value_string));
+}
+static void
+gbl_symbols_free(void)
+{
+value_string_ext_free(gbl_symbols_vs_ext);
+gbl_symbols_vs_ext = NULL;
+if (gbl_symbols_array != NULL) {
+value_string *vs_p;
+guint i;
+vs_p = (value_string *)(void *)gbl_symbols_array->data;
+for (i=0; i<gbl_symbols_array->len; i++) {
+g_free((gchar *)vs_p[i].strptr);
+}
+g_array_free(gbl_symbols_array, TRUE);
+gbl_symbols_array = NULL;
+}
+}
+static void
+gbl_symbols_array_append(guint32 hash, gchar *symbol)
+{
+value_string vs = {hash, symbol};
+DISSECTOR_ASSERT(gbl_symbols_array != NULL);
+g_array_append_val(gbl_symbols_array, vs);
+}
+static gint
+gbl_symbols_compare_vs(gconstpointer a, gconstpointer b)
+{
+const value_string *vsa = (const value_string *)a;
+const value_string *vsb = (const value_string *)b;
+if(vsa->value > vsb->value)
+return 1;
+if(vsa->value < vsb->value)
+return -1;
+return 0;
+}
+static void
+gbl_symbols_vs_ext_new(void)
+{
+DISSECTOR_ASSERT(gbl_symbols_vs_ext == NULL);
+DISSECTOR_ASSERT(gbl_symbols_array != NULL);
+g_array_sort(gbl_symbols_array, gbl_symbols_compare_vs);
+gbl_symbols_vs_ext = value_string_ext_new((value_string *)(void *)gbl_symbols_array->data,
+gbl_symbols_array->len+1,
+"etch-global-symbols" );
+}
+static gint32
+get_byte_length(guint8 typecode)
+{
+switch (typecode) {
+case ETCH_TC_NULL:
+case ETCH_TC_NONE:
+case ETCH_TC_BOOLEAN_FALSE:
+case ETCH_TC_BOOLEAN_TRUE:
+case ETCH_TC_EMPTY_STRING:
+case ETCH_TC_MIN_TINY_INT:
+case ETCH_TC_MAX_TINY_INT:
+return 0;
+break;
+case ETCH_TC_BYTE:
+return 1;
+break;
+case ETCH_TC_SHORT:
+return 2;
+break;
+case ETCH_TC_INT:
+case ETCH_TC_FLOAT:
+return 4;
+break;
+case ETCH_TC_LONG:
+case ETCH_TC_DOUBLE:
+return 8;
+break;
+case ETCH_TC_BYTES:
+case ETCH_TC_ARRAY:
+case ETCH_TC_STRING:
+case ETCH_TC_STRUCT:
+case ETCH_TC_CUSTOM:
+case ETCH_TC_ANY:
+return -1;
+break;
+default:
+return 0;
+break;
+}
+}
+static void
+add_symbols_of_file(const char *filename)
+{
+FILE *pFile;
+pFile = ws_fopen(filename, "r");
+if (pFile != NULL) {
+char line[256];
+while (fgets(line, sizeof line, pFile) != NULL) {
+unsigned int hash;
+size_t length, pos;
+length = strlen(line);
+if (length < 10)
+continue;
+pos = length - 1;
+while (pos > 0 && (line[pos] == 0xD || line[pos] == 0xA)) {
+pos--;
+}
+line[pos + 1] = '\0';
+if (sscanf(&line[0], "%x", &hash) != 1)
+continue;
+pos = strcspn(line, ",");
+if ((line[pos] != '\0') && (line[pos+1] !='\0'))
+gbl_symbols_array_append(hash,
+g_strdup_printf("%." ETCH_MAX_SYMBOL_LENGTH "s", &line[pos+1]));
+}
+fclose(pFile);
+}
+}
+static void
+read_hashed_symbols_from_dir(const char *dirname)
+{
+WS_DIR *dir;
+WS_DIRENT *file;
+const char *name;
+char *filename;
+GError *err_p = NULL;
+if(gbl_current_keytab_folder != NULL) {
+g_free(gbl_current_keytab_folder);
+gbl_current_keytab_folder = NULL;
+}
+gbl_symbols_free();
+if ((dirname == NULL) || (dirname[0] == '\0'))
+return;
+if ((dir = ws_dir_open(dirname, 0, &err_p)) != NULL) {
+gbl_symbols_new();
+gbl_current_keytab_folder = g_strdup(dirname);
+while ((file = ws_dir_read_name(dir)) != NULL) {
+name = ws_dir_get_name(file);
+if (g_str_has_suffix(file, ".ewh")) {
+filename =
+g_strdup_printf("%s" G_DIR_SEPARATOR_S "%s", dirname,
+name);
+add_symbols_of_file(filename);
+g_free(filename);
+}
+}
+ws_dir_close(dir);
+gbl_symbols_vs_ext_new();
+}else{
+report_failure("%s", err_p->message);
+g_error_free(err_p);
+}
+}
+static guint8
+read_type(unsigned int *offset, tvbuff_t *tvb, proto_tree *etch_tree)
+{
+guint32 type_code;
+const gchar *type_as_string;
+type_code = tvb_get_guint8(tvb, *offset);
+type_as_string = val_to_str(type_code, tc_lookup_table, "Etch TypeCode: 0x%02x");
+proto_tree_add_text(etch_tree, tvb, *offset, 1, "%s", type_as_string);
+(*offset)++;
+return type_code;
+}
+static void
+read_array_type(unsigned int *offset, tvbuff_t *tvb, proto_tree *etch_tree)
+{
+guint32 type_code;
+type_code = tvb_get_guint8(tvb, *offset);
+read_type(offset, tvb, etch_tree);
+if (type_code == ETCH_TC_CUSTOM) {
+read_type(offset, tvb, etch_tree);
+proto_tree_add_item(etch_tree, hf_etch_value, tvb, *offset, 4,
+ENC_BIG_ENDIAN);
+(*offset) += 4;
+}
+}
+static guint32
+read_length(unsigned int *offset, tvbuff_t *tvb, proto_tree *etch_tree)
+{
+guint32 length;
+int length_of_array_length_type;
+guint8 tiny;
+tiny = tvb_get_guint8(tvb, *offset);
+if ( tiny <= ETCH_TC_MAX_TINY_INT
+|| tiny >= ETCH_TC_MIN_TINY_INT) {
+length = tiny;
+length_of_array_length_type = 1;
+} else {
+guint8 type_code;
+type_code = read_type(offset, tvb, etch_tree);
+length_of_array_length_type = get_byte_length(type_code);
+switch (length_of_array_length_type) {
+case 1:
+length = tvb_get_guint8(tvb, *offset);
+break;
+case 2:
+length = tvb_get_ntohs(tvb, *offset);
+break;
+case 4:
+length = tvb_get_ntohl(tvb, *offset);
+break;
+default:
+return 0;
+}
+}
+proto_tree_add_item(etch_tree, hf_etch_length, tvb, *offset,
+length_of_array_length_type, ENC_BIG_ENDIAN);
+(*offset) += length_of_array_length_type;
+if (*offset + length < *offset) {
+length = tvb_reported_length_remaining(tvb, *offset);
+}
+return length;
+}
+static void
+read_array(unsigned int *offset, tvbuff_t *tvb, proto_tree *etch_tree)
+{
+int length;
+read_type(offset, tvb, etch_tree);
+read_array_type(offset, tvb, etch_tree);
+proto_tree_add_item(etch_tree, hf_etch_dim, tvb, *offset, 1, ENC_NA);
+(*offset)++;
+length = read_length(offset, tvb, etch_tree);
+for (; length > 0; length--) {
+read_value(offset, tvb, etch_tree, hf_etch_value);
+}
+read_type(offset, tvb, etch_tree);
+}
+static void
+read_bytes(unsigned int *offset, tvbuff_t *tvb, proto_tree *etch_tree)
+{
+int length;
+read_type(offset, tvb, etch_tree);
+length = read_length(offset, tvb, etch_tree);
+proto_tree_add_item(etch_tree, hf_etch_bytes, tvb, *offset, length,
+ENC_NA);
+(*offset) += length;
+}
+static void
+read_string(unsigned int *offset, tvbuff_t *tvb, proto_tree *etch_tree)
+{
+int byteLength;
+read_type(offset, tvb, etch_tree);
+byteLength = read_length(offset, tvb, etch_tree);
+proto_tree_add_item(etch_tree, hf_etch_string, tvb, *offset,
+byteLength, ENC_ASCII|ENC_NA);
+(*offset) += byteLength;
+}
+static void
+read_number(unsigned int *offset, tvbuff_t *tvb, proto_tree *etch_tree,
+int asWhat, guint8 type_code)
+{
+int byteLength;
+read_type(offset, tvb, etch_tree);
+byteLength = get_byte_length(type_code);
+if (byteLength > 0) {
+proto_item *ti;
+const gchar *symbol = NULL;
+guint32 hash = 0;
+gbl_symbol_buffer = wmem_strbuf_new_label(wmem_packet_scope());
+if (byteLength == 4) {
+hash = tvb_get_ntohl(tvb, *offset);
+symbol = try_val_to_str_ext(hash, gbl_symbols_vs_ext);
+if(symbol != NULL) {
+asWhat = hf_etch_symbol;
+gbl_have_symbol = TRUE;
+wmem_strbuf_append_printf(gbl_symbol_buffer,"%s",symbol);
+}
+}
+ti = proto_tree_add_item(etch_tree, asWhat, tvb, *offset,
+byteLength, ENC_BIG_ENDIAN);
+*offset += byteLength;
+if (symbol != NULL) {
+proto_item_append_text(ti, " (0x%08x) %s", hash, symbol);
+}
+}
+}
+static int
+read_value(unsigned int *offset, tvbuff_t *tvb, proto_tree *etch_tree,
+int asWhat)
+{
+guint8 type_code;
+type_code = tvb_get_guint8(tvb, *offset);
+if (type_code <= ETCH_TC_MAX_TINY_INT ||
+type_code >= ETCH_TC_MIN_TINY_INT) {
+proto_tree_add_item(etch_tree, asWhat, tvb, *offset, 1, ENC_BIG_ENDIAN);
+(*offset)++;
+return type_code;
+}
+switch(type_code) {
+case ETCH_TC_CUSTOM:
+read_struct(offset, tvb, etch_tree, 1);
+break;
+case ETCH_TC_ARRAY:
+read_array(offset, tvb, etch_tree);
+break;
+case ETCH_TC_STRING:
+read_string(offset, tvb, etch_tree);
+break;
+case ETCH_TC_FLOAT:
+read_number(offset, tvb, etch_tree, hf_etch_float, type_code);
+break;
+case ETCH_TC_DOUBLE:
+read_number(offset, tvb, etch_tree, hf_etch_double, type_code);
+break;
+case ETCH_TC_SHORT:
+read_number(offset, tvb, etch_tree, hf_etch_short, type_code);
+break;
+case ETCH_TC_INT:
+read_number(offset, tvb, etch_tree, hf_etch_int, type_code);
+break;
+case ETCH_TC_LONG:
+read_number(offset, tvb, etch_tree, hf_etch_long, type_code);
+break;
+case ETCH_TC_BYTE:
+read_number(offset, tvb, etch_tree, hf_etch_byte, type_code);
+break;
+case ETCH_TC_BYTES:
+read_bytes(offset, tvb, etch_tree);
+break;
+default:
+read_number(offset, tvb, etch_tree, asWhat, type_code);
+}
+return 0;
+}
+static void
+read_struct(unsigned int *offset, tvbuff_t *tvb, proto_tree *etch_tree,
+int add_type_field)
+{
+proto_item *ti;
+proto_tree *new_tree;
+int length;
+int i;
+ti = proto_tree_add_item(etch_tree, hf_etch_struct, tvb, *offset,
+tvb_length(tvb) - *offset, ENC_NA);
+new_tree = proto_item_add_subtree(ti, ett_etch_struct);
+if (add_type_field) {
+read_type(offset, tvb, new_tree);
+}
+read_value(offset, tvb, new_tree, hf_etch_value);
+length = read_value(offset, tvb, new_tree, hf_etch_length);
+for (i = 0; i < length; i++) {
+read_key_value(offset, tvb, new_tree);
+}
+read_type(offset, tvb, new_tree);
+}
+static void
+read_key_value(unsigned int *offset, tvbuff_t *tvb, proto_tree *etch_tree)
+{
+proto_tree *new_tree;
+proto_tree *new_tree_bck;
+proto_item *ti, *parent_ti;
+gbl_have_symbol = FALSE;
+parent_ti =
+proto_tree_add_item(etch_tree, hf_etch_keyvalue, tvb, *offset, 1,
+ENC_NA);
+new_tree_bck = new_tree =
+proto_item_add_subtree(parent_ti, ett_etch_keyvalue);
+ti = proto_tree_add_item(new_tree, hf_etch_keyname, tvb, *offset, 0,
+ENC_NA);
+new_tree = proto_item_add_subtree(ti, ett_etch_key);
+read_value(offset, tvb, new_tree, hf_etch_value);
+if(gbl_have_symbol == TRUE){
+proto_item_append_text(parent_ti, " (");
+proto_item_append_text(parent_ti, "%s", wmem_strbuf_get_str(gbl_symbol_buffer));
+proto_item_append_text(parent_ti, ")");
+}
+ti = proto_tree_add_item(new_tree_bck, hf_etch_valuename, tvb, *offset,
+0, ENC_NA);
+new_tree = proto_item_add_subtree(ti, ett_etch_value);
+read_value(offset, tvb, new_tree, hf_etch_value);
+}
+static wmem_strbuf_t*
+get_column_info(tvbuff_t *tvb)
+{
+int byte_length;
+guint8 type_code;
+wmem_strbuf_t *result_buf;
+int my_offset = 0;
+result_buf = wmem_strbuf_new_label(wmem_packet_scope());
+my_offset += (4 + 4 + 1);
+type_code = tvb_get_guint8(tvb, my_offset);
+byte_length = get_byte_length(type_code);
+my_offset++;
+if (byte_length == 4) {
+const gchar *symbol;
+guint32 hash;
+hash = tvb_get_ntohl(tvb, my_offset);
+symbol = try_val_to_str_ext(hash, gbl_symbols_vs_ext);
+if (symbol != NULL) {
+wmem_strbuf_append_printf(result_buf, "%s()", symbol);
+}
+}
+return result_buf;
+}
+static int
+dissect_etch_message(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void* data _U_)
+{
+wmem_strbuf_t *colInfo = NULL;
+if (pinfo->cinfo || tree) {
+colInfo = get_column_info(tvb);
+}
+if (pinfo->cinfo) {
+col_set_str(pinfo->cinfo, COL_PROTOCOL, "ETCH");
+gbl_pdu_counter++;
+if (pinfo->fd->num != gbl_old_frame_num) {
+col_clear(pinfo->cinfo, COL_INFO);
+gbl_pdu_counter = 0;
+}
+gbl_old_frame_num = pinfo->fd->num;
+col_set_writable(pinfo->cinfo, TRUE);
+col_append_fstr(pinfo->cinfo, COL_INFO, "%s ", wmem_strbuf_get_str(colInfo));
+}
+if (tree) {
+unsigned int offset;
+proto_item *ti;
+proto_tree *etch_tree;
+ti = proto_tree_add_protocol_format(tree, proto_etch, tvb, 0, -1,
+"ETCH Protocol: %s", wmem_strbuf_get_str(colInfo));
+offset = 9;
+etch_tree = proto_item_add_subtree(ti, ett_etch);
+proto_tree_add_item(etch_tree, hf_etch_sig, tvb, 0, 4, ENC_BIG_ENDIAN);
+proto_tree_add_item(etch_tree, hf_etch_length, tvb, 4, 4, ENC_BIG_ENDIAN);
+proto_tree_add_item(etch_tree, hf_etch_version, tvb, 8, 1, ENC_NA);
+read_struct(&offset, tvb, etch_tree, 0);
+}
+return tvb_length(tvb);
+}
+static guint
+get_etch_message_len(packet_info *pinfo _U_, tvbuff_t *tvb, int offset)
+{
+return tvb_get_ntohl(tvb, offset + 4) + 8;
+}
+static int
+dissect_etch(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data)
+{
+if (tvb_length(tvb) < 4) {
+return 0;
+}
+if (tvb_memeql(tvb, 0, etch_magic, 4) == -1) {
+return 0;
+}
+tcp_dissect_pdus(tvb, pinfo, tree, TRUE, 8, get_etch_message_len,
+dissect_etch_message, data);
+if (gbl_pdu_counter > 0) {
+col_set_writable(pinfo->cinfo, TRUE);
+col_prepend_fstr(pinfo->cinfo, COL_INFO, "[%d] ", gbl_pdu_counter + 1);
+}
+return 1;
+}
+static void
+etch_dissector_init(void)
+{
+gbl_pdu_counter = 0;
+gbl_old_frame_num = 0xFFFFFFFF;
+}
+void proto_register_etch(void)
+{
+module_t *etch_module;
+static hf_register_info hf[] = {
+{&hf_etch_sig,
+{"Etch Signature", "etch.signature",
+FT_UINT32, BASE_HEX,
+NULL, 0x0,
+NULL, HFILL}
+},
+{&hf_etch_length,
+{"Etch Length", "etch.msglength",
+FT_UINT64, BASE_DEC,
+NULL, 0x0,
+NULL, HFILL}
+},
+{&hf_etch_dim,
+{"Etch Dim", "etch.dim",
+FT_UINT8, BASE_DEC,
+NULL, 0x0,
+NULL, HFILL}
+},
+{&hf_etch_version,
+{"Etch Version", "etch.version",
+FT_UINT8, BASE_DEC,
+NULL, 0x0,
+NULL, HFILL}
+},
+#if 0
+{&hf_etch_typecode,
+{"Etch TypeCode", "etch.typecode",
+FT_STRING, BASE_NONE,
+NULL, 0x0,
+NULL, HFILL}
+},
+#endif
+{&hf_etch_value,
+{"Etch Value", "etch.value",
+FT_UINT64, BASE_DEC,
+NULL, 0x0,
+NULL, HFILL}
+},
+{&hf_etch_bytes,
+{"Etch Bytes", "etch.bytes",
+FT_BYTES, BASE_NONE,
+NULL, 0x0,
+NULL, HFILL}
+},
+{&hf_etch_byte,
+{"Etch Byte", "etch.byte",
+FT_INT8, BASE_DEC,
+NULL, 0x0,
+NULL, HFILL}
+},
+{&hf_etch_short,
+{"Etch Short", "etch.short",
+FT_INT16, BASE_DEC,
+NULL, 0x0,
+NULL, HFILL}
+},
+{&hf_etch_int,
+{"Etch Int", "etch.int",
+FT_INT32, BASE_DEC,
+NULL, 0x0,
+NULL, HFILL}
+},
+{&hf_etch_long,
+{"Etch Long", "etch.long",
+FT_INT64, BASE_DEC,
+NULL, 0x0,
+NULL, HFILL}
+},
+{&hf_etch_float,
+{"Etch Float", "etch.float",
+FT_FLOAT, BASE_NONE,
+NULL, 0x0,
+NULL, HFILL}
+},
+{&hf_etch_double,
+{"Etch Double", "etch.double",
+FT_DOUBLE, BASE_NONE,
+NULL, 0x0,
+NULL, HFILL}
+},
+{&hf_etch_keyvalue,
+{"Etch keyValue", "etch.keyvalue",
+FT_NONE, BASE_NONE,
+NULL, 0x0,
+NULL, HFILL}
+},
+#if 0
+{&hf_etch_key,
+{"Etch key", "etch.key",
+FT_BYTES, BASE_NONE,
+NULL, 0x0,
+NULL, HFILL}
+},
+#endif
+{&hf_etch_symbol,
+{"Etch symbol", "etch.symbol",
+FT_UINT32, BASE_HEX,
+NULL, 0x0,
+NULL, HFILL}
+},
+{&hf_etch_struct,
+{"Etch Struct", "etch.struct",
+FT_BYTES, BASE_NONE,
+NULL, 0x0,
+NULL, HFILL}
+},
+{&hf_etch_string,
+{"Etch String", "etch.string",
+FT_STRING, BASE_NONE,
+NULL, 0x0,
+NULL, HFILL}
+},
+{&hf_etch_keyname,
+{"Etch key", "etch.keyname",
+FT_NONE, BASE_NONE,
+NULL, 0x0,
+NULL, HFILL}
+},
+{&hf_etch_valuename,
+{"Etch value", "etch.valuename",
+FT_NONE, BASE_NONE,
+NULL, 0x0,
+NULL, HFILL}
+},
+};
+static gint *ett[] = {
+&ett_etch,
+&ett_etch_struct,
+&ett_etch_keyvalue,
+&ett_etch_key,
+&ett_etch_value,
+};
+proto_etch = proto_register_protocol("Apache Etch Protocol",
+"Etch",
+"etch"
+);
+proto_register_field_array(proto_etch, hf, array_length(hf));
+proto_register_subtree_array(ett, array_length(ett));
+etch_handle = new_register_dissector("etch", dissect_etch, proto_etch);
+register_init_routine(&etch_dissector_init);
+etch_module = prefs_register_protocol(proto_etch,
+proto_reg_handoff_etch);
+prefs_register_directory_preference(etch_module, "file",
+"Apache Etch symbol folder",
+"Place the hash/symbol files "
+"(generated by the Apache Etch compiler) "
+"ending with .ewh here",
+&gbl_keytab_folder);
+prefs_register_uint_preference(etch_module, "tcp.port",
+"Etch TCP Port",
+"Etch TCP port",
+10,
+&gbl_etch_port);
+}
+void proto_reg_handoff_etch(void)
+{
+static gboolean etch_prefs_initialized = FALSE;
+static guint old_etch_port = 0;
+if(!etch_prefs_initialized) {
+heur_dissector_add("tcp", dissect_etch, proto_etch);
+etch_prefs_initialized = TRUE;
+}
+if(old_etch_port != 0 && old_etch_port != gbl_etch_port){
+dissector_delete_uint("tcp.port", old_etch_port, etch_handle);
+}
+if(gbl_etch_port != 0 && old_etch_port != gbl_etch_port) {
+dissector_add_uint("tcp.port", gbl_etch_port, etch_handle);
+}
+old_etch_port = gbl_etch_port;
+if((gbl_keytab_folder == NULL) || (gbl_current_keytab_folder == NULL) ||
+(strcmp(gbl_keytab_folder, gbl_current_keytab_folder) != 0)) {
+read_hashed_symbols_from_dir(gbl_keytab_folder);
+}
+}

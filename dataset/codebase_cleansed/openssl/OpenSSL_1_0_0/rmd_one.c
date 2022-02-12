@@ -1,0 +1,1 @@
+unsigned char *RIPEMD160(const unsigned char *d, size_t n,\r\nunsigned char *md)\r\n{\r\nRIPEMD160_CTX c;\r\nstatic unsigned char m[RIPEMD160_DIGEST_LENGTH];\r\nif (md == NULL) md=m;\r\nif (!RIPEMD160_Init(&c))\r\nreturn NULL;\r\nRIPEMD160_Update(&c,d,n);\r\nRIPEMD160_Final(md,&c);\r\nOPENSSL_cleanse(&c,sizeof(c));\r\nreturn(md);\r\n}

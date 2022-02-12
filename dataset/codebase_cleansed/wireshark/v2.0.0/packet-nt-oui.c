@@ -1,0 +1,1 @@
+void\r\nproto_register_nortel_oui(void)\r\n{\r\nstatic hf_register_info hf[] = {\r\n{ &hf_llc_nortel_pid,\r\n{ "PID", "llc.nortel_pid", FT_UINT16, BASE_HEX,\r\nVALS(nortel_pid_vals), 0x0, NULL, HFILL }\r\n}\r\n};\r\nllc_add_oui(OUI_NORTEL, "llc.nortel_pid", "LLC Nortel OUI PID", hf);\r\n}

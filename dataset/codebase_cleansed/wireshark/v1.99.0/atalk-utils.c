@@ -1,0 +1,1 @@
+gchar *\r\natalk_addr_to_str(const struct atalk_ddp_addr *addrp)\r\n{\r\ngchar *cur;\r\ncur=(gchar *)ep_alloc(14);\r\natalk_addr_to_str_buf(addrp, cur, 14);\r\nreturn cur;\r\n}\r\nvoid\r\natalk_addr_to_str_buf(const struct atalk_ddp_addr *addrp, gchar *buf, int buf_len)\r\n{\r\ng_snprintf(buf, buf_len, "%u.%u", addrp->net, addrp->node );\r\n}

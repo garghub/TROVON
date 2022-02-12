@@ -1,0 +1,1 @@
+void Camellia_ctr128_encrypt(const unsigned char *in, unsigned char *out,\r\nsize_t length, const CAMELLIA_KEY *key,\r\nunsigned char ivec[CAMELLIA_BLOCK_SIZE],\r\nunsigned char ecount_buf[CAMELLIA_BLOCK_SIZE],\r\nunsigned int *num)\r\n{\r\nCRYPTO_ctr128_encrypt(in,out,length,key,ivec,ecount_buf,num,(block128_f)Camellia_encrypt);\r\n}

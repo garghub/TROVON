@@ -1,0 +1,1 @@
+gint32 strip_trailing_blanks(guint8* a_str, guint32 a_size)\r\n{\r\ngint32 i = 0;\r\nif (a_str != NULL)\r\n{\r\nfor (i = a_size - 1; i >= 0; i--)\r\n{\r\nif (a_str[i] != ' ' && a_str[i] != '\0')\r\nbreak;\r\nelse\r\na_str[i] = '\0';\r\n}\r\n}\r\nreturn i;\r\n}

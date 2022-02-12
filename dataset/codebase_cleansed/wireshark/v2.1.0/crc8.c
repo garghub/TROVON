@@ -1,0 +1,1 @@
+static guint8 crc8_precompiled(guint8 *buf, guint32 len, guint8 seed, const guint8 crc_table[])\r\n{\r\nguint8 crc;\r\ncrc = seed;\r\nwhile(len-- > 0)\r\ncrc = crc_table[(guint8)(*buf++) ^ crc];\r\nreturn crc;\r\n}\r\nguint8 crc8_0x2F(guint8 *buf, guint32 len, guint8 seed)\r\n{\r\nreturn crc8_precompiled(buf, len, seed, crc8_precompiled_2F);\r\n}

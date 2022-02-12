@@ -1,0 +1,1 @@
+int DHparams_print_fp(FILE *fp, const DH *x)\r\n{\r\nBIO *b;\r\nint ret;\r\nif ((b=BIO_new(BIO_s_file())) == NULL)\r\n{\r\nDHerr(DH_F_DHPARAMS_PRINT_FP,ERR_R_BUF_LIB);\r\nreturn(0);\r\n}\r\nBIO_set_fp(b,fp,BIO_NOCLOSE);\r\nret=DHparams_print(b, x);\r\nBIO_free(b);\r\nreturn(ret);\r\n}

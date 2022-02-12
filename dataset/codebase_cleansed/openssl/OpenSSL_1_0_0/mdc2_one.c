@@ -1,0 +1,1 @@
+unsigned char *MDC2(const unsigned char *d, size_t n, unsigned char *md)\r\n{\r\nMDC2_CTX c;\r\nstatic unsigned char m[MDC2_DIGEST_LENGTH];\r\nif (md == NULL) md=m;\r\nif (!MDC2_Init(&c))\r\nreturn NULL;\r\nMDC2_Update(&c,d,n);\r\nMDC2_Final(md,&c);\r\nOPENSSL_cleanse(&c,sizeof(c));\r\nreturn(md);\r\n}

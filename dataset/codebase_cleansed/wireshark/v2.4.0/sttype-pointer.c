@@ -1,0 +1,1 @@
+void\r\nsttype_register_pointer(void)\r\n{\r\nstatic sttype_t field_type = {\r\nSTTYPE_FIELD,\r\n"FIELD",\r\nNULL,\r\nNULL,\r\nNULL\r\n};\r\nstatic sttype_t fvalue_type = {\r\nSTTYPE_FVALUE,\r\n"FVALUE",\r\nNULL,\r\nNULL,\r\nNULL\r\n};\r\nsttype_register(&field_type);\r\nsttype_register(&fvalue_type);\r\n}

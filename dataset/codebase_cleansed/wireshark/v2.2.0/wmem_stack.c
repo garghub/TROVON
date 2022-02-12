@@ -1,0 +1,1 @@
+void *\r\nwmem_stack_peek(const wmem_stack_t *stack)\r\n{\r\nwmem_list_frame_t *frame;\r\nframe = wmem_list_head(stack);\r\ng_assert(frame);\r\nreturn wmem_list_frame_data(frame);\r\n}\r\nvoid *\r\nwmem_stack_pop(wmem_stack_t *stack)\r\n{\r\nvoid *data;\r\ndata = wmem_stack_peek(stack);\r\nwmem_list_remove(stack, data);\r\nreturn data;\r\n}

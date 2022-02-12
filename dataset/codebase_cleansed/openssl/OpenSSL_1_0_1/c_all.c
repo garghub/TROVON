@@ -1,0 +1,1 @@
+void OPENSSL_add_all_algorithms_noconf(void)\r\n{\r\nOPENSSL_cpuid_setup();\r\nOpenSSL_add_all_ciphers();\r\nOpenSSL_add_all_digests();\r\n#ifndef OPENSSL_NO_ENGINE\r\n# if defined(__OpenBSD__) || defined(__FreeBSD__) || defined(HAVE_CRYPTODEV)\r\nENGINE_setup_bsd_cryptodev();\r\n# endif\r\n#endif\r\n}

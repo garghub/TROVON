@@ -1,0 +1,1 @@
+static int sig_cb(int operation, ASN1_VALUE **pval, const ASN1_ITEM *it)\r\n{\r\nif(operation == ASN1_OP_NEW_PRE) {\r\nDSA_SIG *sig;\r\nsig = OPENSSL_malloc(sizeof(DSA_SIG));\r\nsig->r = NULL;\r\nsig->s = NULL;\r\n*pval = (ASN1_VALUE *)sig;\r\nif(sig) return 2;\r\nDSAerr(DSA_F_SIG_CB, ERR_R_MALLOC_FAILURE);\r\nreturn 0;\r\n}\r\nreturn 1;\r\n}

@@ -1,0 +1,1 @@
+void AES_ecb_encrypt(const unsigned char *in, unsigned char *out,\r\nconst AES_KEY *key, const int enc) {\r\nassert(in && out && key);\r\nassert((AES_ENCRYPT == enc)||(AES_DECRYPT == enc));\r\nif (AES_ENCRYPT == enc)\r\nAES_encrypt(in, out, key);\r\nelse\r\nAES_decrypt(in, out, key);\r\n}

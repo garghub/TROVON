@@ -1,0 +1,1 @@
+static int camellia_init_key(EVP_CIPHER_CTX *ctx, const unsigned char *key,\r\nconst unsigned char *iv, int enc)\r\n{\r\nint ret;\r\nret=Camellia_set_key(key, ctx->key_len * 8, ctx->cipher_data);\r\nif(ret < 0)\r\n{\r\nEVPerr(EVP_F_CAMELLIA_INIT_KEY,EVP_R_CAMELLIA_KEY_SETUP_FAILED);\r\nreturn 0;\r\n}\r\nreturn 1;\r\n}

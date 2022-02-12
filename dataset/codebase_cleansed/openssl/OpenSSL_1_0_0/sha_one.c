@@ -1,0 +1,1 @@
+unsigned char *SHA(const unsigned char *d, size_t n, unsigned char *md)\r\n{\r\nSHA_CTX c;\r\nstatic unsigned char m[SHA_DIGEST_LENGTH];\r\nif (md == NULL) md=m;\r\nif (!SHA_Init(&c))\r\nreturn NULL;\r\nSHA_Update(&c,d,n);\r\nSHA_Final(md,&c);\r\nOPENSSL_cleanse(&c,sizeof(c));\r\nreturn(md);\r\n}

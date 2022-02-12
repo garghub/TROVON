@@ -1,0 +1,1 @@
+static int copy_bag_attr(PKCS12_SAFEBAG *bag, EVP_PKEY *pkey, int nid)\r\n{\r\nint idx;\r\nX509_ATTRIBUTE *attr;\r\nidx = EVP_PKEY_get_attr_by_NID(pkey, nid, -1);\r\nif (idx < 0)\r\nreturn 1;\r\nattr = EVP_PKEY_get_attr(pkey, idx);\r\nif (!X509at_add1_attr(&bag->attrib, attr))\r\nreturn 0;\r\nreturn 1;\r\n}

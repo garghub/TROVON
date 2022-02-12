@@ -1,0 +1,1 @@
+unsigned char *SHA(const unsigned char *d, unsigned long n, unsigned char *md)\r\n{\r\nSHA_CTX c;\r\nstatic unsigned char m[SHA_DIGEST_LENGTH];\r\nif (md == NULL) md=m;\r\nSHA_Init(&c);\r\nSHA_Update(&c,d,n);\r\nSHA_Final(md,&c);\r\nmemset(&c,0,sizeof(c));\r\nreturn(md);\r\n}

@@ -1,0 +1,76 @@
+static gint
+dissect_hci_h1(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data)
+{
+guint8 type;
+tvbuff_t *next_tvb;
+proto_item *ti = NULL;
+proto_tree *hci_h1_tree = NULL;
+bluetooth_data_t *bluetooth_data;
+bluetooth_data = (bluetooth_data_t *) data;
+col_set_str(pinfo->cinfo, COL_PROTOCOL, "HCI");
+col_clear(pinfo->cinfo, COL_INFO);
+DISSECTOR_ASSERT(bluetooth_data->previous_protocol_data_type == BT_PD_BTHCI);
+type = bluetooth_data->previous_protocol_data.bthci->channel;
+if (tree) {
+ti = proto_tree_add_item(tree, proto_hci_h1, tvb, 0, 0, ENC_NA);
+hci_h1_tree = proto_item_add_subtree(ti, ett_hci_h1);
+if(pinfo->p2p_dir == P2P_DIR_SENT ||
+pinfo->p2p_dir == P2P_DIR_RECV)
+proto_item_append_text(hci_h1_tree, " %s %s",
+val_to_str(pinfo->p2p_dir,
+hci_h1_direction_vals, "Unknown: %d"),
+val_to_str(type,
+hci_h1_type_vals,
+"Unknown 0x%02x"));
+else
+proto_item_append_text(hci_h1_tree, " %s",
+val_to_str(type,
+hci_h1_type_vals,
+"Unknown 0x%02x"));
+}
+if(pinfo->p2p_dir == P2P_DIR_SENT ||
+pinfo->p2p_dir == P2P_DIR_RECV)
+col_add_fstr(pinfo->cinfo, COL_INFO, "%s %s",
+val_to_str(pinfo->p2p_dir,
+hci_h1_direction_vals, "Unknown: %d"),
+val_to_str(type, hci_h1_type_vals,
+"Unknown 0x%02x"));
+else
+col_add_fstr(pinfo->cinfo, COL_INFO, "%s",
+val_to_str(type, hci_h1_type_vals,
+"Unknown 0x%02x"));
+ti = proto_tree_add_int(hci_h1_tree, hf_hci_h1_direction, tvb, 0, 0, pinfo->p2p_dir);
+PROTO_ITEM_SET_GENERATED(ti);
+next_tvb = tvb_new_subset_remaining(tvb, 0);
+if (!dissector_try_uint_new(hci_h1_table, type, next_tvb, pinfo, tree, TRUE, bluetooth_data)) {
+call_dissector(data_handle, next_tvb, pinfo, tree);
+}
+return tvb_reported_length(tvb);
+}
+void
+proto_register_hci_h1(void)
+{
+static hf_register_info hf[] = {
+{ &hf_hci_h1_direction,
+{ "Direction", "hci_h1.direction",
+FT_INT8, BASE_DEC, VALS(hci_h1_direction_vals), 0x0,
+"HCI Packet Direction Sent/Rcvd/Unknown", HFILL }
+}
+};
+static gint *ett[] = {
+&ett_hci_h1,
+};
+proto_hci_h1 = proto_register_protocol("Bluetooth HCI H1",
+"HCI_H1", "hci_h1");
+hci_h1_handle = new_register_dissector("hci_h1", dissect_hci_h1, proto_hci_h1);
+proto_register_field_array(proto_hci_h1, hf, array_length(hf));
+proto_register_subtree_array(ett, array_length(ett));
+hci_h1_table = register_dissector_table("hci_h1.type",
+"HCI h1 pdu type", FT_UINT8, BASE_HEX);
+}
+void
+proto_reg_handoff_hci_h1(void)
+{
+data_handle = find_dissector("data");
+dissector_add_uint("bluetooth.encap", WTAP_ENCAP_BLUETOOTH_HCI, hci_h1_handle);
+}

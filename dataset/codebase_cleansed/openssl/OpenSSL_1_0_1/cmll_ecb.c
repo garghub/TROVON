@@ -1,0 +1,1 @@
+void Camellia_ecb_encrypt(const unsigned char *in, unsigned char *out,\r\nconst CAMELLIA_KEY *key, const int enc)\r\n{\r\nassert(in && out && key);\r\nassert((CAMELLIA_ENCRYPT == enc)||(CAMELLIA_DECRYPT == enc));\r\nif (CAMELLIA_ENCRYPT == enc)\r\nCamellia_encrypt(in, out, key);\r\nelse\r\nCamellia_decrypt(in, out, key);\r\n}

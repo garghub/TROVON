@@ -1,0 +1,1210 @@
+static int dissect_iso14443_crc(tvbuff_t *tvb, gint crc_offset,
+packet_info *pinfo, proto_tree *tree, iso14443_type_t type)
+{
+proto_item *crc_pi;
+guint16 crc_recv, crc_calc;
+crc_recv = tvb_get_letohs(tvb, crc_offset);
+if (type == ISO14443_A)
+crc_calc = crc16_iso14443a_tvb_offset(tvb, 0, crc_offset);
+else if (type == ISO14443_B)
+crc_calc = crc16_ccitt_tvb_offset(tvb, 0, crc_offset);
+else
+return -1;
+crc_pi = proto_tree_add_item(tree, hf_iso14443_crc,
+tvb, crc_offset, CRC_LEN, ENC_LITTLE_ENDIAN);
+proto_item_append_text(crc_pi, crc_recv==crc_calc ?
+" (correct)" : " (wrong)");
+if (crc_recv != crc_calc)
+expert_add_info(pinfo, crc_pi, &ei_iso14443_wrong_crc);
+return CRC_LEN;
+}
+static int
+dissect_iso14443_cmd_type_wupa(tvbuff_t *tvb, packet_info *pinfo,
+proto_tree *tree, void *data _U_)
+{
+proto_item *ti = proto_tree_get_parent(tree);
+gint offset = 0;
+guint8 uid_bits, uid_size = 0;
+if (pinfo->p2p_dir == P2P_DIR_SENT) {
+const gchar *sf_str;
+sf_str = try_val_to_str(
+tvb_get_guint8(tvb, 0), iso14443_short_frame);
+proto_tree_add_item(tree, hf_iso14443_short_frame,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset++;
+if (sf_str) {
+proto_item_append_text(ti, ": %s", sf_str);
+col_set_str(pinfo->cinfo, COL_INFO, sf_str);
+}
+}
+else if (pinfo->p2p_dir == P2P_DIR_RECV) {
+guint16 atqa;
+proto_item *pi_uid;
+atqa = tvb_get_letohs(tvb, offset);
+col_set_str(pinfo->cinfo, COL_INFO, "ATQA");
+proto_item_append_text(ti, ": ATQA 0x%04x", atqa);
+proto_tree_add_item(tree, hf_iso14443_atqa_rfu1,
+tvb, offset, 2, ENC_LITTLE_ENDIAN);
+proto_tree_add_item(tree, hf_iso14443_propr_coding,
+tvb, offset, 2, ENC_LITTLE_ENDIAN);
+uid_bits = (atqa & 0xC0) >> 6;
+if (uid_bits == 0x00)
+uid_size = 4;
+else if (uid_bits == 0x01)
+uid_size = 7;
+else if (uid_bits == 0x02)
+uid_size = 10;
+pi_uid = proto_tree_add_item(tree, hf_iso14443_uid_bits,
+tvb, offset, 2, ENC_LITTLE_ENDIAN);
+if (uid_size != 0) {
+proto_item *pi_uid_size;
+pi_uid_size = proto_tree_add_uint(tree, hf_iso14443_uid_size,
+tvb, offset+1, 1, uid_size);
+PROTO_ITEM_SET_GENERATED(pi_uid_size);
+}
+else {
+expert_add_info(pinfo, pi_uid, &ei_iso14443_uid_inval_size);
+}
+proto_tree_add_item(tree, hf_iso14443_atqa_rfu2,
+tvb, offset, 2, ENC_LITTLE_ENDIAN);
+proto_tree_add_item(tree, hf_iso14443_bit_frame_anticoll,
+tvb, offset, 2, ENC_LITTLE_ENDIAN);
+offset += 2;
+}
+return offset;
+}
+static int dissect_iso14443_atqb(tvbuff_t *tvb, gint offset,
+packet_info *pinfo, proto_tree *tree, gboolean crc_dropped)
+{
+proto_item *ti = proto_tree_get_parent(tree);
+proto_item *app_data_it, *prot_inf_it, *prot_type_it;
+proto_tree *app_data_tree, *prot_inf_tree, *prot_type_tree;
+gint app_data_offset, rem_len;
+gboolean nad_supported, cid_supported;
+guint8 max_frame_size_code, fwi;
+proto_item *pi;
+gboolean iso14443_adc;
+guint8 prot_inf_len = 0;
+col_set_str(pinfo->cinfo, COL_INFO, "ATQB");
+proto_item_append_text(ti, ": ATQB");
+proto_tree_add_item(tree, hf_iso14443_atqb_start,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset++;
+proto_tree_add_item(tree, hf_iso14443_pupi,
+tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+app_data_offset = offset;
+app_data_it = proto_tree_add_item(tree, hf_iso14443_app_data,
+tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+rem_len = tvb_reported_length_remaining(tvb, offset);
+if (!crc_dropped) {
+if (rem_len == 5 || rem_len == 6)
+prot_inf_len = rem_len - 2;
+}
+else if (rem_len == 3 || rem_len == 4)
+prot_inf_len = rem_len;
+prot_inf_it = proto_tree_add_item(tree, hf_iso14443_prot_inf,
+tvb, offset, prot_inf_len, ENC_BIG_ENDIAN);
+prot_inf_tree = proto_item_add_subtree(
+prot_inf_it, ett_iso14443_prot_inf);
+proto_tree_add_item(prot_inf_tree, hf_iso14443_bit_rate_cap,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset++;
+max_frame_size_code = (tvb_get_guint8(tvb, offset) & 0xF0) >> 4;
+proto_tree_add_uint_bits_format_value(prot_inf_tree,
+hf_iso14443_max_frame_size_code,
+tvb, offset*8, 4, max_frame_size_code, "%d",
+max_frame_size_code);
+if (max_frame_size_code < LEN_CODE_MAX) {
+pi = proto_tree_add_uint(prot_inf_tree, hf_iso14443_max_frame_size,
+tvb, offset, 1, code_to_len[max_frame_size_code]);
+PROTO_ITEM_SET_GENERATED(pi);
+}
+prot_type_it = proto_tree_add_item(prot_inf_tree, hf_iso14443_prot_type,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+prot_type_tree = proto_item_add_subtree(
+prot_type_it, ett_iso14443_prot_type);
+proto_tree_add_item(prot_type_tree, hf_iso14443_min_tr2,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(prot_type_tree, hf_iso14443_4_compl_atqb,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset++;
+fwi = (tvb_get_guint8(tvb, offset) & 0xF0) >> 4;
+proto_tree_add_uint_bits_format_value(prot_inf_tree, hf_iso14443_fwi,
+tvb, offset*8, 4, fwi, "%d", fwi);
+iso14443_adc = tvb_get_guint8(tvb, offset) & 0x04;
+proto_tree_add_item(prot_inf_tree, hf_iso14443_adc,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+if (iso14443_adc) {
+app_data_tree = proto_item_add_subtree(
+app_data_it, ett_iso14443_app_data);
+proto_tree_add_item(app_data_tree, hf_iso14443_afi,
+tvb, app_data_offset, 1, ENC_BIG_ENDIAN);
+app_data_offset++;
+app_data_offset += 2;
+proto_tree_add_item(app_data_tree, hf_iso14443_num_afi_apps,
+tvb, app_data_offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(app_data_tree, hf_iso14443_total_num_apps,
+tvb, app_data_offset, 1, ENC_BIG_ENDIAN);
+}
+nad_supported = tvb_get_guint8(tvb, offset) & 0x02;
+proto_tree_add_boolean_bits_format_value(prot_inf_tree,
+hf_iso14443_nad_supported, tvb, 8*offset+6, 1, nad_supported,
+"%s", nad_supported ?
+tfs_supported_not_supported.true_string :
+tfs_supported_not_supported.false_string);
+cid_supported = tvb_get_guint8(tvb, offset) & 0x01;
+proto_tree_add_boolean_bits_format_value(prot_inf_tree,
+hf_iso14443_cid_supported, tvb, 8*offset+7, 1, cid_supported,
+"%s", cid_supported ?
+tfs_supported_not_supported.true_string :
+tfs_supported_not_supported.false_string);
+offset++;
+if (prot_inf_len>3)
+offset++;
+if (!crc_dropped)
+offset += dissect_iso14443_crc(tvb, offset, pinfo, tree, ISO14443_B);
+return offset;
+}
+static int
+dissect_iso14443_cmd_type_wupb(tvbuff_t *tvb, packet_info *pinfo,
+proto_tree *tree, void *data)
+{
+proto_item *ti = proto_tree_get_parent(tree);
+gboolean crc_dropped = (gboolean)GPOINTER_TO_UINT(data);
+gint offset = 0;
+guint8 param;
+const char *msg_type;
+if (pinfo->p2p_dir == P2P_DIR_SENT) {
+proto_tree_add_item(tree, hf_iso14443_apf,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset++;
+proto_tree_add_item(tree, hf_iso14443_afi,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset++;
+param = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(tree, hf_iso14443_ext_atqb,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(tree, hf_iso14443_wupb,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+msg_type = (param & 0x08) ?
+tfs_wupb_reqb.true_string : tfs_wupb_reqb.false_string;
+col_set_str(pinfo->cinfo, COL_INFO, msg_type);
+proto_item_append_text(ti, ": %s", msg_type);
+proto_tree_add_uint_bits_format_value(tree, hf_iso14443_n,
+tvb, offset*8+5, 3, (guint8)pow(2, param&0x07),
+"%d", (guint8)pow(2, param&0x07));
+offset++;
+if (!crc_dropped)
+offset += dissect_iso14443_crc(tvb, offset, pinfo, tree, ISO14443_B);
+}
+else if (pinfo->p2p_dir == P2P_DIR_RECV) {
+offset = dissect_iso14443_atqb(tvb, offset, pinfo, tree, crc_dropped);
+}
+return offset;
+}
+static int
+dissect_iso14443_cmd_type_hlta(tvbuff_t *tvb, packet_info *pinfo,
+proto_tree *tree, void *data)
+{
+gboolean crc_dropped = (gboolean)GPOINTER_TO_UINT(data);
+proto_item *ti = proto_tree_get_parent(tree);
+gint offset = 0;
+col_set_str(pinfo->cinfo, COL_INFO, "HLTA");
+proto_item_append_text(ti, ": HLTA");
+proto_tree_add_item(tree, hf_iso14443_hlta,
+tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+if (!crc_dropped)
+offset += dissect_iso14443_crc(tvb, offset, pinfo, tree, ISO14443_A);
+return offset;
+}
+static int dissect_iso14443_uid_part(
+tvbuff_t *tvb, gint offset, packet_info *pinfo _U_, proto_tree *tree)
+{
+guint8 uid_len = 4;
+if (tvb_get_guint8(tvb, offset) == CT_BYTE) {
+proto_tree_add_item(tree, hf_iso14443_ct, tvb, offset, 1, ENC_NA);
+offset++;
+uid_len = 3;
+}
+proto_tree_add_item(tree, hf_iso14443_uid_cln, tvb, offset, uid_len, ENC_NA);
+offset += uid_len;
+proto_tree_add_item(tree, hf_iso14443_bcc, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset++;
+return offset;
+}
+static int
+dissect_iso14443_cmd_type_uid(tvbuff_t *tvb, packet_info *pinfo,
+proto_tree *tree, void *data)
+{
+gboolean crc_dropped = (gboolean)GPOINTER_TO_UINT(data);
+proto_item *ti = proto_tree_get_parent(tree);
+gint offset = 0;
+if (pinfo->p2p_dir == P2P_DIR_SENT) {
+proto_tree_add_item(tree, hf_iso14443_sel,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset++;
+proto_tree_add_item(tree, hf_iso14443_nvb,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset++;
+if (tvb_reported_length_remaining(tvb, offset) == 0) {
+col_set_str(pinfo->cinfo, COL_INFO, "Anticollision");
+proto_item_append_text(ti, ": Anticollision");
+}
+else {
+col_set_str(pinfo->cinfo, COL_INFO, "Select");
+proto_item_append_text(ti, ": Select");
+offset = dissect_iso14443_uid_part(tvb, offset, pinfo, tree);
+if (!crc_dropped)
+offset += dissect_iso14443_crc(tvb, offset, pinfo, tree, ISO14443_A);
+}
+}
+else if (pinfo->p2p_dir == P2P_DIR_RECV) {
+if (tvb_reported_length_remaining(tvb, offset) <= 3) {
+col_set_str(pinfo->cinfo, COL_INFO, "SAK");
+proto_item_append_text(ti, ": SAK");
+proto_tree_add_item(tree, hf_iso14443_4_compl_sak,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(tree, hf_iso14443_uid_complete,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset++;
+if (!crc_dropped)
+offset += dissect_iso14443_crc(tvb, offset, pinfo, tree, ISO14443_A);
+}
+else if (tvb_reported_length_remaining(tvb, offset) == 5) {
+col_set_str(pinfo->cinfo, COL_INFO, "UID");
+offset = dissect_iso14443_uid_part(tvb, offset, pinfo, tree);
+}
+}
+return offset;
+}
+static int dissect_iso14443_ats(tvbuff_t *tvb, gint offset,
+packet_info *pinfo, proto_tree *tree, gboolean crc_dropped)
+{
+proto_item *ti = proto_tree_get_parent(tree);
+circuit_t *circuit;
+guint8 tl, t0 = 0, fsci, fwi, sfgi;
+proto_item *t0_it, *tb1_it, *tc1_it, *pi;
+proto_tree *t0_tree, *tb1_tree, *tc1_tree;
+gint offset_tl, hist_len;
+gboolean nad_supported, cid_supported;
+col_set_str(pinfo->cinfo, COL_INFO, "ATS");
+proto_item_append_text(ti, ": ATS");
+circuit = circuit_new(CT_ISO14443, ISO14443_CIRCUIT_ID, pinfo->num);
+circuit_add_proto_data(circuit,
+proto_iso14443, GUINT_TO_POINTER((guint)ISO14443_A));
+offset_tl = offset;
+tl = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(tree, hf_iso14443_tl,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset++;
+if (tl >= 2) {
+t0 = tvb_get_guint8(tvb, offset);
+t0_it = proto_tree_add_item(tree, hf_iso14443_t0,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+t0_tree = proto_item_add_subtree(t0_it, ett_iso14443_ats_t0);
+proto_tree_add_item(t0_tree, hf_iso14443_tc1_transmitted,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(t0_tree, hf_iso14443_tb1_transmitted,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(t0_tree, hf_iso14443_ta1_transmitted,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+fsci = t0 & 0x0F;
+proto_tree_add_item(t0_tree, hf_iso14443_fsci,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+if (fsci < LEN_CODE_MAX) {
+pi = proto_tree_add_uint(t0_tree, hf_iso14443_fsc,
+tvb, offset, 1, code_to_len[fsci]);
+PROTO_ITEM_SET_GENERATED(pi);
+}
+offset++;
+}
+if (t0 & HAVE_TA1) {
+proto_tree_add_item(tree, hf_iso14443_ta1,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset++;
+}
+if (t0 & HAVE_TB1) {
+tb1_it = proto_tree_add_item(tree, hf_iso14443_tb1,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+tb1_tree = proto_item_add_subtree(tb1_it, ett_iso14443_ats_tb1);
+fwi = (tvb_get_guint8(tvb, offset) & 0xF0) >> 4;
+proto_tree_add_uint_bits_format_value(tb1_tree, hf_iso14443_fwi,
+tvb, offset*8, 4, fwi, "%d", fwi);
+sfgi = tvb_get_guint8(tvb, offset) & 0x0F;
+proto_tree_add_uint_bits_format_value(tb1_tree, hf_iso14443_sfgi,
+tvb, offset*8+4, 4, sfgi, "%d", sfgi);
+offset++;
+}
+if (t0 & HAVE_TC1) {
+tc1_it = proto_tree_add_item(tree, hf_iso14443_tc1,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+tc1_tree = proto_item_add_subtree(tc1_it, ett_iso14443_ats_tc1);
+cid_supported = tvb_get_guint8(tvb, offset) & 0x02;
+proto_tree_add_boolean_bits_format_value(tc1_tree,
+hf_iso14443_cid_supported, tvb, 8*offset+6, 1, cid_supported,
+"%s", cid_supported ?
+tfs_supported_not_supported.true_string :
+tfs_supported_not_supported.false_string);
+nad_supported = tvb_get_guint8(tvb, offset) & 0x01;
+proto_tree_add_boolean_bits_format_value(tc1_tree,
+hf_iso14443_nad_supported, tvb, 8*offset+7, 1, nad_supported,
+"%s", nad_supported ?
+tfs_supported_not_supported.true_string :
+tfs_supported_not_supported.false_string);
+offset++;
+}
+hist_len = tl - (offset - offset_tl);
+if (hist_len > 0) {
+proto_tree_add_item(tree, hf_iso14443_hist_bytes,
+tvb, offset, hist_len, ENC_NA);
+offset += hist_len;
+}
+if (!crc_dropped)
+offset += dissect_iso14443_crc(tvb, offset, pinfo, tree, ISO14443_A);
+return offset;
+}
+static int
+dissect_iso14443_cmd_type_ats(tvbuff_t *tvb, packet_info *pinfo,
+proto_tree *tree, void *data)
+{
+gboolean crc_dropped = (gboolean)GPOINTER_TO_UINT(data);
+proto_item *ti = proto_tree_get_parent(tree);
+gint offset = 0;
+guint8 fsdi, cid;
+proto_item *pi;
+if (pinfo->p2p_dir == P2P_DIR_SENT) {
+col_set_str(pinfo->cinfo, COL_INFO, "RATS");
+proto_item_append_text(ti, ": RATS");
+proto_tree_add_item(tree, hf_iso14443_rats_start,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset++;
+fsdi = tvb_get_guint8(tvb, offset) >> 4;
+proto_tree_add_uint_bits_format_value(tree, hf_iso14443_fsdi,
+tvb, offset*8, 4, fsdi, "%d", fsdi);
+if (fsdi < LEN_CODE_MAX) {
+pi = proto_tree_add_uint(tree, hf_iso14443_fsd,
+tvb, offset, 1, code_to_len[fsdi]);
+PROTO_ITEM_SET_GENERATED(pi);
+}
+cid = tvb_get_guint8(tvb, offset) & 0x0F;
+proto_tree_add_uint_bits_format_value(tree, hf_iso14443_cid,
+tvb, offset*8+4, 4, cid, "%d", cid);
+offset++;
+if (!crc_dropped)
+offset += dissect_iso14443_crc(tvb, offset, pinfo, tree, ISO14443_A);
+}
+else if (pinfo->p2p_dir == P2P_DIR_RECV) {
+offset = dissect_iso14443_ats(tvb, offset, pinfo, tree, crc_dropped);
+}
+return offset;
+}
+static int dissect_iso14443_attrib(tvbuff_t *tvb, gint offset,
+packet_info *pinfo, proto_tree *tree, gboolean crc_dropped)
+{
+proto_item *ti = proto_tree_get_parent(tree);
+proto_item *p1_it, *p2_it, *p3_it, *pi;
+proto_tree *p1_tree, *p2_tree, *p3_tree;
+guint8 max_frame_size_code;
+gint hl_inf_len;
+col_set_str(pinfo->cinfo, COL_INFO, "Attrib");
+proto_item_append_text(ti, ": Attrib");
+proto_tree_add_item(tree, hf_iso14443_attrib_start,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset++;
+proto_tree_add_item(tree, hf_iso14443_pupi,
+tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+p1_it = proto_tree_add_item(tree, hf_iso14443_param1,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+p1_tree = proto_item_add_subtree( p1_it, ett_iso14443_attr_p1);
+proto_tree_add_item(p1_tree, hf_iso14443_min_tr0,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(p1_tree, hf_iso14443_min_tr1,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(p1_tree, hf_iso14443_eof,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(p1_tree, hf_iso14443_sof,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset++;
+p2_it = proto_tree_add_item(tree, hf_iso14443_param2,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+p2_tree = proto_item_add_subtree( p2_it, ett_iso14443_attr_p2);
+max_frame_size_code = tvb_get_guint8(tvb, offset) & 0x0F;
+proto_tree_add_uint_bits_format_value(p2_tree,
+hf_iso14443_max_frame_size_code,
+tvb, offset*8+4, 4, max_frame_size_code, "%d",
+max_frame_size_code);
+if (max_frame_size_code < LEN_CODE_MAX) {
+pi = proto_tree_add_uint(p2_tree, hf_iso14443_max_frame_size,
+tvb, offset, 1, code_to_len[max_frame_size_code]);
+PROTO_ITEM_SET_GENERATED(pi);
+}
+offset++;
+p3_it = proto_tree_add_item(tree, hf_iso14443_param3,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+p3_tree = proto_item_add_subtree(p3_it, ett_iso14443_attr_p3);
+proto_tree_add_item(p3_tree, hf_iso14443_min_tr2,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(p3_tree, hf_iso14443_4_compl_atqb,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset++;
+proto_tree_add_item(tree, hf_iso14443_param4,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset++;
+hl_inf_len = crc_dropped ?
+tvb_reported_length_remaining(tvb, offset) :
+tvb_reported_length_remaining(tvb, offset) - CRC_LEN;
+if (hl_inf_len > 0) {
+offset += hl_inf_len;
+}
+if (!crc_dropped)
+offset += dissect_iso14443_crc(tvb, offset, pinfo, tree, ISO14443_B);
+return offset;
+}
+static int
+dissect_iso14443_cmd_type_attrib(tvbuff_t *tvb, packet_info *pinfo,
+proto_tree *tree, void *data)
+{
+gboolean crc_dropped = (gboolean)GPOINTER_TO_UINT(data);
+proto_item *ti = proto_tree_get_parent(tree);
+gint offset = 0;
+guint8 mbli, cid;
+gint hl_resp_len;
+circuit_t *circuit;
+if (pinfo->p2p_dir == P2P_DIR_SENT) {
+offset = dissect_iso14443_attrib(
+tvb, offset, pinfo, tree, crc_dropped);
+}
+else if (pinfo->p2p_dir == P2P_DIR_RECV) {
+col_set_str(pinfo->cinfo, COL_INFO, "Response to Attrib");
+proto_item_append_text(ti, ": Response to Attrib");
+circuit = circuit_new(CT_ISO14443, ISO14443_CIRCUIT_ID, pinfo->num);
+circuit_add_proto_data(circuit,
+proto_iso14443, GUINT_TO_POINTER((guint)ISO14443_B));
+mbli = tvb_get_guint8(tvb, offset) >> 4;
+proto_tree_add_uint_bits_format_value(tree, hf_iso14443_mbli,
+tvb, offset*8, 4, mbli, "%d", mbli);
+cid = tvb_get_guint8(tvb, offset) & 0x0F;
+proto_tree_add_uint_bits_format_value(tree, hf_iso14443_cid,
+tvb, offset*8+4, 4, cid, "%d", cid);
+offset++;
+hl_resp_len = crc_dropped ?
+tvb_reported_length_remaining(tvb, offset) :
+tvb_reported_length_remaining(tvb, offset) - CRC_LEN;
+if (hl_resp_len > 0) {
+offset += hl_resp_len;
+}
+if (!crc_dropped)
+offset += dissect_iso14443_crc(tvb, offset, pinfo, tree, ISO14443_B);
+}
+return offset;
+}
+static int
+dissect_iso14443_cmd_type_block(tvbuff_t *tvb, packet_info *pinfo,
+proto_tree *tree, void *data)
+{
+gboolean crc_dropped = (gboolean)GPOINTER_TO_UINT(data);
+proto_item *ti = proto_tree_get_parent(tree);
+gint offset = 0;
+guint8 pcb, block_type;
+const gchar *bt_str;
+proto_item *pcb_ti, *inf_ti;
+proto_tree *pcb_tree, *inf_tree;
+gboolean has_cid, has_nad = FALSE;
+guint8 s_cmd = S_CMD_NONE;
+guint8 inf_len;
+pcb = tvb_get_guint8(tvb, offset);
+block_type = (pcb & 0xC0) >> 6;
+bt_str = try_val_to_str(block_type, iso14443_block_type);
+if (bt_str) {
+proto_item_append_text(ti, ": %s", bt_str);
+col_set_str(pinfo->cinfo, COL_INFO, bt_str);
+}
+has_cid = ((pcb & 0x08) != 0);
+pcb_ti = proto_tree_add_item(tree, hf_iso14443_pcb,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+pcb_tree = proto_item_add_subtree(pcb_ti, ett_iso14443_pcb);
+proto_tree_add_item(pcb_tree, hf_iso14443_block_type,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+switch (block_type) {
+case I_BLOCK_TYPE:
+col_append_sep_fstr(pinfo->cinfo, COL_INFO, NULL,
+(pcb & 0x10) ? "Chaining" : "No chaining");
+proto_tree_add_item(pcb_tree, hf_iso14443_i_blk_chaining,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(pcb_tree, hf_iso14443_cid_following,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+has_nad = ((pcb & 0x40) != 0);
+proto_tree_add_item(pcb_tree, hf_iso14443_nad_following,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+col_append_sep_fstr(pinfo->cinfo, COL_INFO, NULL,
+"Block number %d", pcb & 0x01);
+proto_tree_add_item(pcb_tree, hf_iso14443_blk_num,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+break;
+case R_BLOCK_TYPE:
+col_append_sep_fstr(pinfo->cinfo, COL_INFO, NULL,
+"%s", (pcb & 0x10) ?
+tfs_nak_ack.true_string : tfs_nak_ack.false_string);
+proto_tree_add_item(pcb_tree, hf_iso14443_nak,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(pcb_tree, hf_iso14443_cid_following,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+col_append_sep_fstr(pinfo->cinfo, COL_INFO, NULL,
+"Block number %d", pcb & 0x01);
+proto_tree_add_item(pcb_tree, hf_iso14443_blk_num,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+break;
+case S_BLOCK_TYPE:
+s_cmd = (pcb & 0x30) >> 4;
+proto_tree_add_item(pcb_tree, hf_iso14443_s_blk_cmd,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+col_append_sep_fstr(pinfo->cinfo, COL_INFO, NULL, "%s",
+val_to_str(s_cmd, iso14443_s_block_cmd,
+"Unknown (0x%02x)"));
+proto_tree_add_item(pcb_tree, hf_iso14443_cid_following,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+break;
+default:
+break;
+}
+offset++;
+if (has_cid)
+offset++;
+if (has_nad)
+offset++;
+switch (block_type) {
+case I_BLOCK_TYPE:
+inf_len = crc_dropped ?
+tvb_reported_length_remaining(tvb, offset) :
+tvb_reported_length_remaining(tvb, offset) - 2;
+break;
+case S_BLOCK_TYPE:
+inf_len = 1;
+break;
+default:
+inf_len = 0;
+break;
+}
+if (inf_len > 0) {
+inf_ti = proto_tree_add_item(tree, hf_iso14443_inf,
+tvb, offset, inf_len, ENC_NA);
+if (block_type == S_BLOCK_TYPE) {
+if (s_cmd == S_CMD_WTX) {
+inf_tree = proto_item_add_subtree(inf_ti, ett_iso14443_inf);
+if (pinfo->p2p_dir == P2P_DIR_RECV) {
+proto_tree_add_item(inf_tree, hf_iso14443_pwr_lvl_ind,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+}
+proto_tree_add_item(inf_tree, hf_iso14443_wtxm,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+}
+}
+offset += inf_len;
+}
+if (!crc_dropped) {
+iso14443_type_t t;
+circuit_t *circuit;
+circuit = find_circuit(CT_ISO14443, ISO14443_CIRCUIT_ID, pinfo->num);
+if (circuit) {
+t = (iso14443_type_t)GPOINTER_TO_UINT(
+(gpointer)circuit_get_proto_data(circuit, proto_iso14443));
+offset += dissect_iso14443_crc(tvb, offset, pinfo, tree, t);
+}
+}
+return offset;
+}
+static gint
+iso14443_set_addrs(guint8 event, packet_info *pinfo)
+{
+if (!IS_DATA_TRANSFER(event))
+return -1;
+if (event == ISO14443_EVT_DATA_PCD_TO_PICC ||
+event == ISO14443_EVT_DATA_PCD_TO_PICC_CRC_DROPPED) {
+set_address(&pinfo->src, AT_STRINGZ,
+(int)strlen(ADDR_PCD)+1, ADDR_PCD);
+set_address(&pinfo->dst, AT_STRINGZ,
+(int)strlen(ADDR_PICC)+1 , ADDR_PICC);
+pinfo->p2p_dir = P2P_DIR_SENT;
+}
+else {
+set_address(&pinfo->src, AT_STRINGZ,
+(int)strlen(ADDR_PICC)+1 , ADDR_PICC);
+set_address(&pinfo->dst, AT_STRINGZ,
+(int)strlen(ADDR_PCD)+1, ADDR_PCD);
+pinfo->p2p_dir = P2P_DIR_RECV;
+}
+return 1;
+}
+static inline gboolean
+iso14443_block_pcb(guint8 byte)
+{
+if ((byte & 0xE2) == 0x02) {
+return TRUE;
+}
+else if ((byte & 0xE6) == 0xA2) {
+return TRUE;
+}
+else if ((byte & 0xC7) == 0xC2) {
+return TRUE;
+}
+return FALSE;
+}
+static iso14443_transaction_t *
+iso14443_get_transaction(packet_info *pinfo, proto_tree *tree)
+{
+proto_item *it;
+iso14443_transaction_t *iso14443_trans = NULL;
+if (pinfo->p2p_dir == P2P_DIR_SENT) {
+if (PINFO_FD_VISITED(pinfo)) {
+iso14443_trans = (iso14443_transaction_t *)wmem_tree_lookup32(
+transactions, pinfo->num);
+if (iso14443_trans && iso14443_trans->rqst_frame==pinfo->num &&
+iso14443_trans->resp_frame!=0) {
+it = proto_tree_add_uint(tree, hf_iso14443_resp_in,
+NULL, 0, 0, iso14443_trans->resp_frame);
+PROTO_ITEM_SET_GENERATED(it);
+}
+}
+else {
+iso14443_trans = wmem_new(wmem_file_scope(), iso14443_transaction_t);
+iso14443_trans->rqst_frame = pinfo->num;
+iso14443_trans->resp_frame = 0;
+wmem_tree_insert32(transactions,
+iso14443_trans->rqst_frame, (void *)iso14443_trans);
+}
+}
+else if (pinfo->p2p_dir == P2P_DIR_RECV) {
+iso14443_trans = (iso14443_transaction_t *)wmem_tree_lookup32_le(
+transactions, pinfo->num);
+if (iso14443_trans && iso14443_trans->resp_frame==0) {
+iso14443_trans->resp_frame = pinfo->num;
+}
+if (iso14443_trans && iso14443_trans->resp_frame == pinfo->num) {
+it = proto_tree_add_uint(tree, hf_iso14443_resp_to,
+NULL, 0, 0, iso14443_trans->rqst_frame);
+PROTO_ITEM_SET_GENERATED(it);
+}
+}
+return iso14443_trans;
+}
+static iso14443_cmd_t iso14443_get_cmd_type(
+tvbuff_t *tvb, packet_info *pinfo, iso14443_transaction_t *trans)
+{
+guint8 first_byte;
+first_byte = tvb_get_guint8(tvb, 0);
+if (pinfo->p2p_dir == P2P_DIR_SENT) {
+if (tvb_reported_length(tvb) == 1) {
+return CMD_TYPE_WUPA;
+}
+else if (first_byte == 0x05) {
+return CMD_TYPE_WUPB;
+}
+else if (first_byte == 0x50) {
+return CMD_TYPE_HLTA;
+}
+else if (first_byte == 0x1D) {
+return CMD_TYPE_ATTRIB;
+}
+else if (first_byte == 0xE0) {
+return CMD_TYPE_ATS;
+}
+else if ((first_byte & 0xF8) == 0x90) {
+return CMD_TYPE_UID;
+}
+else if (iso14443_block_pcb(first_byte)) {
+return CMD_TYPE_BLOCK;
+}
+}
+else if (pinfo->p2p_dir == P2P_DIR_RECV) {
+if (trans->cmd != CMD_TYPE_UNKNOWN) {
+return trans->cmd;
+}
+else if (iso14443_block_pcb(first_byte)) {
+return CMD_TYPE_BLOCK;
+}
+}
+return CMD_TYPE_UNKNOWN;
+}
+static gint
+dissect_iso14443_msg(tvbuff_t *tvb, packet_info *pinfo,
+proto_tree *tree, guint8 event)
+{
+gboolean crc_dropped = FALSE;
+iso14443_transaction_t *iso14443_trans;
+iso14443_cmd_t cmd;
+proto_tree *msg_tree;
+gint ret;
+if (event == ISO14443_EVT_DATA_PICC_TO_PCD_CRC_DROPPED ||
+event == ISO14443_EVT_DATA_PCD_TO_PICC_CRC_DROPPED) {
+crc_dropped = TRUE;
+}
+iso14443_trans = iso14443_get_transaction(pinfo, tree);
+if (!iso14443_trans)
+return -1;
+cmd = iso14443_get_cmd_type(tvb, pinfo, iso14443_trans);
+if (cmd != CMD_TYPE_UNKNOWN)
+iso14443_trans->cmd = cmd;
+msg_tree = proto_tree_add_subtree(
+tree, tvb, 0, -1, ett_iso14443_msg, NULL, "Message");
+ret = dissector_try_uint_new(iso14443_cmd_type_table, cmd,
+tvb, pinfo, msg_tree, FALSE, GUINT_TO_POINTER((guint)crc_dropped));
+if (ret == 0) {
+proto_tree_add_expert(tree, pinfo, &ei_iso14443_unknown_cmd,
+tvb, 0, tvb_captured_length(tvb));
+ret = tvb_captured_length(tvb);
+}
+return ret;
+}
+static int dissect_iso14443(tvbuff_t *tvb,
+packet_info *pinfo, proto_tree *tree, void *data _U_)
+{
+gint packet_len;
+gint offset = 0, offset_ver, offset_evt, offset_len_field;
+gint ret;
+guint8 version, event;
+const gchar *event_str;
+guint16 len_field;
+proto_item *tree_ti;
+proto_tree *iso14443_tree, *hdr_tree;
+tvbuff_t *payload_tvb;
+circuit_t *circuit;
+if (tvb_captured_length(tvb) < 4)
+return 0;
+offset_ver = offset;
+version = tvb_get_guint8(tvb, offset++);
+if (version != 0)
+return 0;
+offset_evt = offset;
+event = tvb_get_guint8(tvb, offset++);
+event_str = try_val_to_str(event, iso14443_event);
+if (!event_str)
+return 0;
+packet_len = tvb_reported_length(tvb);
+offset_len_field = offset;
+len_field = tvb_get_ntohs(tvb, offset);
+if (len_field != (packet_len-4))
+return 0;
+offset += 2;
+col_set_str(pinfo->cinfo, COL_PROTOCOL, "ISO 14443");
+col_clear(pinfo->cinfo, COL_INFO);
+tree_ti = proto_tree_add_protocol_format(tree, proto_iso14443,
+tvb, 0, tvb_reported_length(tvb), "ISO 14443");
+iso14443_tree = proto_item_add_subtree(tree_ti, ett_iso14443);
+hdr_tree = proto_tree_add_subtree(iso14443_tree,
+tvb, 0, offset, ett_iso14443_hdr, NULL, "Pseudo header");
+proto_tree_add_item(hdr_tree, hf_iso14443_hdr_ver,
+tvb, offset_ver, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(hdr_tree, hf_iso14443_event,
+tvb, offset_evt, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(hdr_tree, hf_iso14443_len_field,
+tvb, offset_len_field, 2, ENC_BIG_ENDIAN);
+if (IS_DATA_TRANSFER(event)) {
+iso14443_set_addrs(event, pinfo);
+payload_tvb = tvb_new_subset_remaining(tvb, offset);
+ret = dissect_iso14443_msg(payload_tvb, pinfo, iso14443_tree, event);
+if (ret > 0)
+offset += ret;
+}
+else {
+col_set_str(pinfo->cinfo, COL_INFO, event_str);
+circuit = find_circuit(CT_ISO14443, ISO14443_CIRCUIT_ID, pinfo->num);
+if (circuit)
+close_circuit(circuit, pinfo->num);
+}
+return offset;
+}
+void
+proto_register_iso14443(void)
+{
+static hf_register_info hf[] = {
+{ &hf_iso14443_hdr_ver,
+{ "Version", "iso14443.hdr_version",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_event,
+{ "Event", "iso14443.event",
+FT_UINT8, BASE_HEX, VALS(iso14443_event), 0, NULL, HFILL }
+},
+{ &hf_iso14443_len_field,
+{ "Length field", "iso14443.length_field",
+FT_UINT16, BASE_DEC, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_resp_in,
+{ "Response In", "iso14443.resp_in",
+FT_FRAMENUM, BASE_NONE, NULL, 0x0, NULL, HFILL }
+},
+{ &hf_iso14443_resp_to,
+{ "Response To", "iso14443.resp_to",
+FT_FRAMENUM, BASE_NONE, NULL, 0x0, NULL, HFILL }
+},
+{ &hf_iso14443_short_frame,
+{ "Short frame", "iso14443.short_frame",
+FT_UINT8, BASE_HEX, VALS(iso14443_short_frame), 0, NULL, HFILL }
+},
+{ &hf_iso14443_atqa_rfu1,
+{ "RFU", "iso14443.atqa_rfu",
+FT_UINT16, BASE_HEX, NULL, 0xF000, NULL, HFILL }
+},
+{ &hf_iso14443_atqa_rfu2,
+{ "RFU", "iso14443.atqa_rfu",
+FT_UINT16, BASE_HEX, NULL, 0x0020, NULL, HFILL }
+},
+{ &hf_iso14443_propr_coding,
+{ "Proprietary coding", "iso14443.propr_coding",
+FT_UINT16, BASE_HEX, NULL, 0x0F00, NULL, HFILL }
+},
+{ &hf_iso14443_uid_bits,
+{ "UID bits", "iso14443.uid_bits",
+FT_UINT16, BASE_HEX, NULL, 0x00C0, NULL, HFILL }
+},
+{ &hf_iso14443_uid_size,
+{ "UID size", "iso14443.uid_size",
+FT_UINT8, BASE_DEC, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_max_frame_size,
+{ "Maximum frame size", "iso14443.max_frame_size",
+FT_UINT16, BASE_DEC, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_bit_frame_anticoll,
+{ "Bit frame anticollision", "iso14443.bit_frame_anticoll",
+FT_UINT16, BASE_HEX, NULL, 0x001F, NULL, HFILL }
+},
+{ &hf_iso14443_apf,
+{ "Anticollision prefix", "iso14443.apf",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_afi,
+{ "Application Family Identifier", "iso14443.afi",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_ext_atqb,
+{ "Extended ATQB", "iso14443.ext_atqb", FT_BOOLEAN, 8,
+TFS(&tfs_supported_not_supported), 0x10, NULL, HFILL }
+},
+{ &hf_iso14443_wupb,
+{ "WUPB/REQB", "iso14443.wupb",
+FT_BOOLEAN, 8, TFS(&tfs_wupb_reqb), 0x08, NULL, HFILL }
+},
+{ &hf_iso14443_n,
+{ "N", "iso14443.n",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_atqb_start,
+{ "Start byte", "iso14443.atqb_start",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_app_data,
+{ "Application data", "iso14443.application_data",
+FT_UINT32, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_num_afi_apps,
+{ "Number of applications for this AFI", "iso14443.num_afi_apps",
+FT_UINT8, BASE_DEC, NULL, 0xF0, NULL, HFILL }
+},
+{ &hf_iso14443_total_num_apps,
+{ "Total number of applications", "iso14443.total_num_apps",
+FT_UINT8, BASE_DEC, NULL, 0x0F, NULL, HFILL }
+},
+{ &hf_iso14443_prot_inf,
+{ "Protocol info", "iso14443.protocol_info",
+FT_UINT32, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_bit_rate_cap,
+{ "Bit rate capability", "iso14443.bit_rate_cap",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_max_frame_size_code,
+{ "Max frame size code", "iso14443.max_frame_size_code",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_prot_type,
+{ "Protocol type", "iso14443.protocol_type",
+FT_UINT8, BASE_HEX, NULL, 0x0F, NULL, HFILL }
+},
+{ &hf_iso14443_min_tr2,
+{ "Minimum TR2", "iso14443.min_tr2",
+FT_UINT8, BASE_HEX, NULL, 0x06, NULL, HFILL }
+},
+{ &hf_iso14443_4_compl_atqb,
+{ "Compliant with ISO 14443-4", "iso14443.4_compliant", FT_BOOLEAN, 8,
+TFS(&tfs_compliant_not_compliant), 0x01, NULL, HFILL }
+},
+{ &hf_iso14443_fwi,
+{ "FWI", "iso14443.fwi", FT_UINT8, BASE_DEC,
+NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_sfgi,
+{ "SFGI", "iso14443.sfgi", FT_UINT8, BASE_DEC,
+NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_adc,
+{ "Application Data Coding", "iso14443.adc", FT_BOOLEAN, 8,
+TFS(&tfs_iso_propr), 0x04, NULL, HFILL }
+},
+{ &hf_iso14443_nad_supported,
+{ "NAD", "iso14443.nad_supported", FT_BOOLEAN, 8,
+TFS(&tfs_supported_not_supported), 0, NULL, HFILL }
+},
+{ &hf_iso14443_cid_supported,
+{ "CID", "iso14443.cid_supported", FT_BOOLEAN, 8,
+TFS(&tfs_supported_not_supported), 0, NULL, HFILL }
+},
+{ &hf_iso14443_hlta,
+{ "HLTA", "iso14443.hlta",
+FT_UINT16, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_sel,
+{ "SEL", "iso14443.sel",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_nvb,
+{ "NVB", "iso14443.nvb",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_4_compl_sak,
+{ "Compliant with ISO 14443-4", "iso14443.4_compliant", FT_BOOLEAN, 8,
+TFS(&tfs_compliant_not_compliant), 0x20, NULL, HFILL }
+},
+{ &hf_iso14443_uid_complete,
+{ "UID complete", "iso14443.uid_complete", FT_BOOLEAN, 8,
+TFS(&tfs_incomplete_complete), 0x04, NULL, HFILL }
+},
+{ &hf_iso14443_ct,
+{ "CT", "iso14443.ct",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_uid_cln,
+{ "UID_CLn", "iso14443.uid_cln",
+FT_BYTES, BASE_NONE, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_bcc,
+{ "BCC", "iso14443.bcc",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_rats_start,
+{ "Start byte", "iso14443.rats_start",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_fsdi,
+{ "FSDI", "iso14443.fsdi",
+FT_UINT8, BASE_DEC, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_fsd,
+{ "FSD", "iso14443.fsd",
+FT_UINT16, BASE_DEC, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_cid,
+{ "CID", "iso14443.cid",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_tl,
+{ "Length byte TL", "iso14443.tl",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_t0,
+{ "Format byte T0", "iso14443.t0",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_tc1_transmitted,
+{ "TC(1) transmitted", "iso14443.tc1_transmitted",
+FT_BOOLEAN, 8, NULL, HAVE_TC1, NULL, HFILL }
+},
+{ &hf_iso14443_tb1_transmitted,
+{ "TB(1) transmitted", "iso14443.tb1_transmitted",
+FT_BOOLEAN, 8, NULL, HAVE_TB1, NULL, HFILL }
+},
+{ &hf_iso14443_ta1_transmitted,
+{ "TA(1) transmitted", "iso14443.ta1_transmitted",
+FT_BOOLEAN, 8, NULL, HAVE_TA1, NULL, HFILL }
+},
+{ &hf_iso14443_fsci,
+{ "FSCI", "iso14443.fsci",
+FT_UINT8, BASE_DEC, NULL, 0x0F, NULL, HFILL }
+},
+{ &hf_iso14443_fsc,
+{ "FSC", "iso14443.fsc",
+FT_UINT16, BASE_DEC, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_tc1,
+{ "Interface byte TC1", "iso14443.tc1",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_tb1,
+{ "Interface byte TB1", "iso14443.tb1",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_ta1,
+{ "Interface byte TA1", "iso14443.ta1",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_hist_bytes,
+{ "Historical bytes", "iso14443.hist_bytes",
+FT_BYTES, BASE_NONE, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_attrib_start,
+{ "Start byte", "iso14443.attrib_start",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_pupi,
+{ "PUPI", "iso14443.pupi",
+FT_UINT32, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_param1,
+{ "Param 1", "iso14443.param1",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_min_tr0,
+{ "Minimum TR0", "iso14443.min_tr0",
+FT_UINT8, BASE_HEX, NULL, 0xC0, NULL, HFILL }
+},
+{ &hf_iso14443_min_tr1,
+{ "Minimum TR1", "iso14443.min_tr1",
+FT_UINT8, BASE_HEX, NULL, 0x30, NULL, HFILL }
+},
+{ &hf_iso14443_eof,
+{ "EOF", "iso14443.eof", FT_BOOLEAN, 8,
+TFS(&tfs_not_required_required), 0x08, NULL, HFILL }
+},
+{ &hf_iso14443_sof,
+{ "SOF", "iso14443.eof", FT_BOOLEAN, 8,
+TFS(&tfs_not_required_required), 0x04, NULL, HFILL }
+},
+{ &hf_iso14443_param2,
+{ "Param 2", "iso14443.param2",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_param3,
+{ "Param 3", "iso14443.param3",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_param4,
+{ "Param 4", "iso14443.param4",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_mbli,
+{ "MBLI", "iso14443.mbli",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_pcb,
+{ "PCB", "iso14443.pcb",
+FT_UINT8, BASE_HEX, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_block_type,
+{ "Block type", "iso14443.block_type", FT_UINT8,
+BASE_HEX, VALS(iso14443_block_type), 0xC0, NULL, HFILL }
+},
+{ &hf_iso14443_i_blk_chaining,
+{ "Chaining", "iso14443.i_block_chaining", FT_BOOLEAN, 8,
+TFS(&tfs_set_notset), 0x10, NULL, HFILL }
+},
+{ &hf_iso14443_cid_following,
+{ "CID following", "iso14443.cid_following", FT_BOOLEAN, 8,
+TFS(&tfs_true_false), 0x08, NULL, HFILL }
+},
+{ &hf_iso14443_nad_following,
+{ "NAD following", "iso14443.nad_following", FT_BOOLEAN, 8,
+TFS(&tfs_true_false), 0x04, NULL, HFILL }
+},
+{ &hf_iso14443_nak,
+{ "NAK/ACK", "iso14443.nak", FT_BOOLEAN, 8,
+TFS(&tfs_nak_ack), 0x10, NULL, HFILL }
+},
+{ &hf_iso14443_blk_num,
+{ "Block number", "iso14443.block_number",
+FT_UINT8, BASE_DEC, NULL, 0x01, NULL, HFILL }
+},
+{ &hf_iso14443_s_blk_cmd,
+{ "Command", "iso14443.s_block_cmd", FT_UINT8,
+BASE_HEX, VALS(iso14443_s_block_cmd), 0x30, NULL, HFILL }
+},
+{ &hf_iso14443_pwr_lvl_ind,
+{ "Power level indication", "iso14443.pwr_lvl_ind",
+FT_UINT8, BASE_HEX, NULL, 0xC0, NULL, HFILL }
+},
+{ &hf_iso14443_wtxm,
+{ "WTXM", "iso14443.wtxm",
+FT_UINT8, BASE_DEC, NULL, 0x3F, NULL, HFILL }
+},
+{ &hf_iso14443_inf,
+{ "INF", "iso14443.inf",
+FT_BYTES, BASE_NONE, NULL, 0, NULL, HFILL }
+},
+{ &hf_iso14443_crc,
+{ "CRC", "iso14443.crc",
+FT_UINT16, BASE_HEX, NULL, 0, NULL, HFILL }
+}
+};
+static gint *ett[] = {
+&ett_iso14443,
+&ett_iso14443_hdr,
+&ett_iso14443_msg,
+&ett_iso14443_app_data,
+&ett_iso14443_prot_inf,
+&ett_iso14443_prot_type,
+&ett_iso14443_ats_t0,
+&ett_iso14443_ats_tb1,
+&ett_iso14443_ats_tc1,
+&ett_iso14443_attr_p1,
+&ett_iso14443_attr_p2,
+&ett_iso14443_attr_p3,
+&ett_iso14443_pcb,
+&ett_iso14443_inf
+};
+static ei_register_info ei[] = {
+{ &ei_iso14443_unknown_cmd,
+{ "iso14443.cmd.unknown", PI_PROTOCOL, PI_WARN,
+"Unknown ISO1443 command", EXPFILL }
+},
+{ &ei_iso14443_wrong_crc,
+{ "iso14443.crc.wrong", PI_PROTOCOL, PI_WARN, "Wrong CRC", EXPFILL }
+},
+{ &ei_iso14443_uid_inval_size,
+{ "iso14443.uid.invalid_size", PI_PROTOCOL, PI_WARN,
+"Invalid UID size", EXPFILL }
+}
+};
+expert_module_t* expert_iso14443;
+proto_iso14443 = proto_register_protocol(
+"ISO/IEC 14443", "ISO 14443", "iso14443");
+proto_register_field_array(proto_iso14443, hf, array_length(hf));
+proto_register_subtree_array(ett, array_length(ett));
+expert_iso14443 = expert_register_protocol(proto_iso14443);
+expert_register_field_array(expert_iso14443, ei, array_length(ei));
+iso14443_cmd_type_table = register_dissector_table(
+"iso14443.cmd_type", "ISO14443 Command Type",
+proto_iso14443, FT_UINT8, BASE_DEC);
+iso14443_handle =
+register_dissector("iso14443", dissect_iso14443, proto_iso14443);
+transactions = wmem_tree_new_autoreset(wmem_epan_scope(), wmem_file_scope());
+}
+void
+proto_reg_handoff_iso14443(void)
+{
+dissector_handle_t cmd_type_handle;
+dissector_add_uint("wtap_encap", WTAP_ENCAP_ISO14443, iso14443_handle);
+cmd_type_handle = create_dissector_handle(
+dissect_iso14443_cmd_type_wupa, proto_iso14443);
+dissector_add_uint("iso14443.cmd_type", CMD_TYPE_WUPA, cmd_type_handle);
+cmd_type_handle = create_dissector_handle(
+dissect_iso14443_cmd_type_wupb, proto_iso14443);
+dissector_add_uint("iso14443.cmd_type", CMD_TYPE_WUPB, cmd_type_handle);
+cmd_type_handle = create_dissector_handle(
+dissect_iso14443_cmd_type_hlta, proto_iso14443);
+dissector_add_uint("iso14443.cmd_type", CMD_TYPE_HLTA, cmd_type_handle);
+cmd_type_handle = create_dissector_handle(
+dissect_iso14443_cmd_type_uid, proto_iso14443);
+dissector_add_uint("iso14443.cmd_type", CMD_TYPE_UID, cmd_type_handle);
+cmd_type_handle = create_dissector_handle(
+dissect_iso14443_cmd_type_ats, proto_iso14443);
+dissector_add_uint("iso14443.cmd_type", CMD_TYPE_ATS, cmd_type_handle);
+cmd_type_handle = create_dissector_handle(
+dissect_iso14443_cmd_type_attrib, proto_iso14443);
+dissector_add_uint("iso14443.cmd_type", CMD_TYPE_ATTRIB, cmd_type_handle);
+cmd_type_handle = create_dissector_handle(
+dissect_iso14443_cmd_type_block, proto_iso14443);
+dissector_add_uint("iso14443.cmd_type", CMD_TYPE_BLOCK, cmd_type_handle);
+}

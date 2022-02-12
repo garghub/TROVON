@@ -1,0 +1,1 @@
+void ERR_load_RSAREF_strings(void)\r\n{\r\nstatic int init=1;\r\nif (init)\r\n{\r\ninit=0;\r\n#ifndef NO_ERR\r\nERR_load_strings(ERR_LIB_RSAREF,RSAREF_str_functs);\r\nERR_load_strings(ERR_LIB_RSAREF,RSAREF_str_reasons);\r\n#endif\r\n}\r\n}

@@ -1,0 +1,1 @@
+PKCS8_PRIV_KEY_INFO *PKCS8_decrypt(X509_SIG *p8, const char *pass, int passlen)\r\n{\r\nreturn PKCS12_item_decrypt_d2i(p8->algor, ASN1_ITEM_rptr(PKCS8_PRIV_KEY_INFO), pass,\r\npasslen, p8->digest, 1);\r\n}

@@ -1,0 +1,1 @@
+void func(a,b)\r\nTYPE *a;\r\nTYPE b;\r\n{\r\nprintf("%ld -1 == %ld\n",a[0],b);\r\n}\r\nmain()\r\n{\r\nTYPE data[5]={1L,2L,3L,4L,5L};\r\nTYPE *p;\r\nint i;\r\np=data;\r\nfor (i=0; i<4; i++)\r\n{\r\nfunc(p,*(p++));\r\n}\r\n}

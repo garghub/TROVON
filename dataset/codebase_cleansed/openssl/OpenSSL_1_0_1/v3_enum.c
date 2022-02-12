@@ -1,0 +1,1 @@
+char *i2s_ASN1_ENUMERATED_TABLE(X509V3_EXT_METHOD *method,\r\nASN1_ENUMERATED *e)\r\n{\r\nENUMERATED_NAMES *enam;\r\nlong strval;\r\nstrval = ASN1_ENUMERATED_get(e);\r\nfor(enam = method->usr_data; enam->lname; enam++) {\r\nif(strval == enam->bitnum) return BUF_strdup(enam->lname);\r\n}\r\nreturn i2s_ASN1_ENUMERATED(method, e);\r\n}

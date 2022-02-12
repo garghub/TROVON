@@ -1,0 +1,181 @@
+static void
+dissect_omapi(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
+{
+proto_item *ti;
+proto_tree *omapi_tree;
+ptvcursor_t* cursor;
+guint32 authlength;
+guint32 msglength;
+guint32 objlength;
+col_set_str(pinfo->cinfo, COL_PROTOCOL, "OMAPI");
+col_clear(pinfo->cinfo, COL_INFO);
+ti = proto_tree_add_item(tree, proto_omapi, tvb, 0, -1, ENC_NA);
+omapi_tree = proto_item_add_subtree(ti, ett_omapi);
+cursor = ptvcursor_new(omapi_tree, tvb, 0);
+if (tvb_reported_length_remaining(tvb, 0) < 8)
+{
+DISSECTOR_ASSERT_NOT_REACHED();
+}
+else if (tvb_reported_length_remaining(tvb, 0) < 24)
+{
+ptvcursor_add(cursor, hf_omapi_version, 4, ENC_BIG_ENDIAN);
+ptvcursor_add(cursor, hf_omapi_hlength, 4, ENC_BIG_ENDIAN);
+col_set_str(pinfo->cinfo, COL_INFO, "Status message");
+proto_item_append_text(ti, ", Status message");
+return;
+}
+else if ( !(tvb_get_ntohl(tvb, 8) || tvb_get_ntohl(tvb, 12)) )
+{
+ptvcursor_add(cursor, hf_omapi_version, 4, ENC_BIG_ENDIAN);
+ptvcursor_add(cursor, hf_omapi_hlength, 4, ENC_BIG_ENDIAN);
+col_append_str(pinfo->cinfo, COL_INFO, "Status message");
+proto_item_append_text(ti, ", Status message");
+}
+ptvcursor_add(cursor, hf_omapi_auth_id, 4, ENC_BIG_ENDIAN);
+authlength = tvb_get_ntohl(tvb, ptvcursor_current_offset(cursor));
+ptvcursor_add(cursor, hf_omapi_auth_len, 4, ENC_BIG_ENDIAN);
+col_append_sep_str(pinfo->cinfo, COL_INFO, NULL,
+val_to_str(tvb_get_ntohl(tvb, ptvcursor_current_offset(cursor)), omapi_opcode_vals, "Unknown opcode (0x%04x)"));
+proto_item_append_text(ti, ", Opcode: %s",
+val_to_str(tvb_get_ntohl(tvb, ptvcursor_current_offset(cursor)), omapi_opcode_vals, "Unknown opcode (0x%04x)"));
+ptvcursor_add(cursor, hf_omapi_opcode, 4, ENC_BIG_ENDIAN);
+ptvcursor_add(cursor, hf_omapi_handle, 4, ENC_BIG_ENDIAN);
+ptvcursor_add(cursor, hf_omapi_id, 4, ENC_BIG_ENDIAN);
+ptvcursor_add(cursor, hf_omapi_rid, 4, ENC_BIG_ENDIAN);
+msglength = tvb_get_ntohs(tvb, ptvcursor_current_offset(cursor));
+while (msglength)
+{
+ptvcursor_add(cursor, hf_omapi_msg_name_len, 2, ENC_BIG_ENDIAN);
+ptvcursor_add(cursor, hf_omapi_msg_name, msglength, ENC_ASCII|ENC_NA);
+msglength = tvb_get_ntohl(tvb, ptvcursor_current_offset(cursor));
+ptvcursor_add(cursor, hf_omapi_msg_value_len, 4, ENC_BIG_ENDIAN);
+if (msglength == 0)
+{
+proto_tree_add_text(omapi_tree, tvb, 0, 0, "Empty string");
+}
+else if (msglength == (guint32)~0)
+{
+proto_tree_add_text(omapi_tree, tvb, 0, 0, "No value");
+}
+else
+{
+ptvcursor_add(cursor, hf_omapi_msg_value, msglength, ENC_ASCII|ENC_NA);
+}
+msglength = tvb_get_ntohs(tvb, ptvcursor_current_offset(cursor));
+}
+proto_tree_add_text(omapi_tree, tvb, ptvcursor_current_offset(cursor), 2, "Message end tag");
+ptvcursor_advance(cursor, 2);
+objlength = tvb_get_ntohs(tvb, ptvcursor_current_offset(cursor));
+while (objlength)
+{
+ptvcursor_add(cursor, hf_omapi_obj_name_len, 2, ENC_BIG_ENDIAN);
+ptvcursor_add(cursor, hf_omapi_obj_name, objlength, ENC_ASCII|ENC_NA);
+objlength = tvb_get_ntohl(tvb, ptvcursor_current_offset(cursor));
+ptvcursor_add(cursor, hf_omapi_obj_value_len, 4, ENC_BIG_ENDIAN);
+if (objlength == 0)
+{
+proto_tree_add_text(omapi_tree, tvb, 0, 0, "Empty string");
+}
+else if (objlength == (guint32)~0)
+{
+proto_tree_add_text(omapi_tree, tvb, 0, 0, "No value");
+}
+else
+{
+ptvcursor_add(cursor, hf_omapi_obj_value, objlength, ENC_NA);
+}
+objlength = tvb_get_ntohs(tvb, ptvcursor_current_offset(cursor));
+}
+proto_tree_add_text(omapi_tree, tvb, ptvcursor_current_offset(cursor), 2, "Object end tag");
+ptvcursor_advance(cursor, 2);
+if (authlength > 0) {
+ptvcursor_add(cursor, hf_omapi_signature, authlength, ENC_NA);
+}
+}
+void
+proto_register_omapi(void)
+{
+static hf_register_info hf[] = {
+{ &hf_omapi_version,
+{ "Version", "omapi.version",
+FT_UINT32, BASE_DEC, NULL, 0x0,
+NULL, HFILL }},
+{ &hf_omapi_hlength,
+{ "Header length", "omapi.hlength",
+FT_UINT32, BASE_DEC, NULL, 0x0,
+NULL, HFILL }},
+{ &hf_omapi_auth_id,
+{ "Authentication ID", "omapi.authid",
+FT_UINT32, BASE_DEC, NULL, 0x0,
+NULL, HFILL }},
+{ &hf_omapi_auth_len,
+{ "Authentication length", "omapi.authlength",
+FT_UINT32, BASE_DEC, NULL, 0x0,
+NULL, HFILL }},
+{ &hf_omapi_opcode,
+{ "Opcode", "omapi.opcode",
+FT_UINT32, BASE_DEC, VALS(omapi_opcode_vals), 0x0,
+NULL, HFILL }},
+{ &hf_omapi_handle,
+{ "Handle", "omapi.handle",
+FT_UINT32, BASE_DEC, NULL, 0x0,
+NULL, HFILL }},
+{ &hf_omapi_id,
+{ "ID", "omapi.id",
+FT_UINT32, BASE_DEC, NULL, 0x0,
+NULL, HFILL }},
+{ &hf_omapi_rid,
+{ "Response ID", "omapi.rid",
+FT_UINT32, BASE_DEC, NULL, 0x0,
+NULL, HFILL }},
+{ &hf_omapi_msg_name_len,
+{ "Message name length", "omapi.msg_name_length",
+FT_UINT16, BASE_DEC, NULL, 0x0,
+NULL, HFILL }},
+{ &hf_omapi_msg_name,
+{ "Message name", "omapi.msg_name",
+FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL }},
+{ &hf_omapi_msg_value_len,
+{ "Message value length", "omapi.msg_value_length",
+FT_UINT32, BASE_DEC, NULL, 0x0,
+NULL, HFILL }},
+{ &hf_omapi_msg_value,
+{ "Message value", "omapi.msg_value",
+FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL }},
+{ &hf_omapi_obj_name_len,
+{ "Object name length", "omapi.obj_name_length",
+FT_UINT16, BASE_DEC, NULL, 0x0,
+NULL, HFILL }},
+{ &hf_omapi_obj_name,
+{ "Object name", "omapi.obj_name",
+FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL }},
+{ &hf_omapi_obj_value_len,
+{ "Object value length", "omapi.object_value_length",
+FT_UINT32, BASE_DEC, NULL, 0x0,
+NULL, HFILL }},
+{ &hf_omapi_obj_value,
+{ "Object value", "omapi.obj_value",
+FT_BYTES, BASE_NONE, NULL, 0x0,
+NULL, HFILL }},
+{ &hf_omapi_signature,
+{ "Signature", "omapi.signature",
+FT_BYTES, BASE_NONE, NULL, 0x0,
+NULL, HFILL }}
+};
+static gint *ett[] = {
+&ett_omapi
+};
+proto_omapi = proto_register_protocol("ISC Object Management API", "OMAPI", "omapi");
+proto_register_field_array(proto_omapi, hf, array_length(hf));
+proto_register_subtree_array(ett, array_length(ett));
+}
+void
+proto_reg_handoff_omapi(void)
+{
+dissector_handle_t omapi_handle;
+omapi_handle = create_dissector_handle(dissect_omapi, proto_omapi);
+dissector_add_uint("tcp.port", OMAPI_PORT, omapi_handle);
+}

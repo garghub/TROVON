@@ -1,0 +1,76 @@
+int X509_ATTRIBUTE_set1_data(X509_ATTRIBUTE *attr, int attrtype,
+const void *data, int len)
+{
+ASN1_TYPE *ttmp = NULL;
+ASN1_STRING *stmp = NULL;
+int atype = 0;
+if (!attr)
+return 0;
+if (attrtype & MBSTRING_FLAG) {
+stmp = ASN1_STRING_set_by_NID(NULL, data, len, attrtype,
+OBJ_obj2nid(attr->object));
+if (!stmp) {
+X509err(X509_F_X509_ATTRIBUTE_SET1_DATA, ERR_R_ASN1_LIB);
+return 0;
+}
+atype = stmp->type;
+} else if (len != -1) {
+if ((stmp = ASN1_STRING_type_new(attrtype)) == NULL)
+goto err;
+if (!ASN1_STRING_set(stmp, data, len))
+goto err;
+atype = attrtype;
+}
+if (attrtype == 0) {
+ASN1_STRING_free(stmp);
+return 1;
+}
+if ((ttmp = ASN1_TYPE_new()) == NULL)
+goto err;
+if ((len == -1) && !(attrtype & MBSTRING_FLAG)) {
+if (!ASN1_TYPE_set1(ttmp, attrtype, data))
+goto err;
+} else {
+ASN1_TYPE_set(ttmp, atype, stmp);
+stmp = NULL;
+}
+if (!sk_ASN1_TYPE_push(attr->set, ttmp))
+goto err;
+return 1;
+err:
+X509err(X509_F_X509_ATTRIBUTE_SET1_DATA, ERR_R_MALLOC_FAILURE);
+ASN1_TYPE_free(ttmp);
+ASN1_STRING_free(stmp);
+return 0;
+}
+int X509_ATTRIBUTE_count(const X509_ATTRIBUTE *attr)
+{
+if (attr == NULL)
+return 0;
+return sk_ASN1_TYPE_num(attr->set);
+}
+ASN1_OBJECT *X509_ATTRIBUTE_get0_object(X509_ATTRIBUTE *attr)
+{
+if (attr == NULL)
+return (NULL);
+return (attr->object);
+}
+void *X509_ATTRIBUTE_get0_data(X509_ATTRIBUTE *attr, int idx,
+int atrtype, void *data)
+{
+ASN1_TYPE *ttmp;
+ttmp = X509_ATTRIBUTE_get0_type(attr, idx);
+if (!ttmp)
+return NULL;
+if (atrtype != ASN1_TYPE_get(ttmp)) {
+X509err(X509_F_X509_ATTRIBUTE_GET0_DATA, X509_R_WRONG_TYPE);
+return NULL;
+}
+return ttmp->value.ptr;
+}
+ASN1_TYPE *X509_ATTRIBUTE_get0_type(X509_ATTRIBUTE *attr, int idx)
+{
+if (attr == NULL)
+return NULL;
+return sk_ASN1_TYPE_value(attr->set, idx);
+}

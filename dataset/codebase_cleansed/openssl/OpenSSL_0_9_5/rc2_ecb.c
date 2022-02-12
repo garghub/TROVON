@@ -1,0 +1,1 @@
+void RC2_ecb_encrypt(unsigned char *in, unsigned char *out, RC2_KEY *ks,\r\nint encrypt)\r\n{\r\nunsigned long l,d[2];\r\nc2l(in,l); d[0]=l;\r\nc2l(in,l); d[1]=l;\r\nif (encrypt)\r\nRC2_encrypt(d,ks);\r\nelse\r\nRC2_decrypt(d,ks);\r\nl=d[0]; l2c(l,out);\r\nl=d[1]; l2c(l,out);\r\nl=d[0]=d[1]=0;\r\n}

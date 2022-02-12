@@ -1,0 +1,1 @@
+static int init(EVP_MD_CTX *ctx)\r\n{ return MD2_Init(ctx->md_data); }\r\nstatic int update(EVP_MD_CTX *ctx,const void *data,size_t count)\r\n{ return MD2_Update(ctx->md_data,data,count); }\r\nstatic int final(EVP_MD_CTX *ctx,unsigned char *md)\r\n{ return MD2_Final(md,ctx->md_data); }\r\nconst EVP_MD *EVP_md2(void)\r\n{\r\nreturn(&md2_md);\r\n}

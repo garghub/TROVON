@@ -1,0 +1,140 @@
+guint randpkt_example_count(void)
+{
+return array_length(examples);
+}
+randpkt_example* randpkt_find_example(int type)
+{
+int num_entries = array_length(examples);
+int i;
+for (i = 0; i < num_entries; i++) {
+if (examples[i].produceable_type == type) {
+return &examples[i];
+}
+}
+fprintf(stderr, "randpkt: Internal error. Type %d has no entry in examples table.\n",
+type);
+return NULL;
+}
+void randpkt_loop(randpkt_example* example, guint64 produce_count)
+{
+guint i, j;
+int err;
+guint len_random;
+guint len_this_pkt;
+gchar* err_info;
+union wtap_pseudo_header* ps_header;
+guint8* buffer;
+struct wtap_pkthdr* pkthdr;
+pkthdr = g_new0(struct wtap_pkthdr, 1);
+buffer = (guint8*)g_malloc0(65536);
+pkthdr->rec_type = REC_TYPE_PACKET;
+pkthdr->presence_flags = WTAP_HAS_TS;
+pkthdr->pkt_encap = example->sample_wtap_encap;
+ps_header = &pkthdr->pseudo_header;
+if (example->pseudo_buffer)
+memcpy(ps_header, example->pseudo_buffer, example->pseudo_length);
+if (example->sample_buffer)
+memcpy(buffer, example->sample_buffer, example->sample_length);
+for (i = 0; i < produce_count; i++) {
+if (example->produce_max_bytes > 0) {
+len_random = g_rand_int_range(pkt_rand, 0, example->produce_max_bytes + 1);
+}
+else {
+len_random = 0;
+}
+len_this_pkt = example->sample_length + len_random;
+pkthdr->caplen = len_this_pkt;
+pkthdr->len = len_this_pkt;
+pkthdr->ts.secs = i;
+for (j = example->pseudo_length; j < (int) sizeof(*ps_header); j++) {
+((guint8*)ps_header)[j] = g_rand_int_range(pkt_rand, 0, 0x100);
+}
+for (j = example->sample_length; j < len_this_pkt; j++) {
+if ((int) (100.0*g_rand_double(pkt_rand)) < 3 && j < (len_random - 3)) {
+memcpy(&buffer[j], "%s", 3);
+j += 2;
+} else {
+buffer[j] = g_rand_int_range(pkt_rand, 0, 0x100);
+}
+}
+if (!wtap_dump(example->dump, pkthdr, buffer, &err, &err_info)) {
+cfile_write_failure_message("randpkt", NULL,
+example->filename, err, err_info, 0,
+WTAP_FILE_TYPE_SUBTYPE_PCAP);
+}
+}
+g_free(pkthdr);
+g_free(buffer);
+}
+gboolean randpkt_example_close(randpkt_example* example)
+{
+int err;
+gboolean ok = TRUE;
+if (!wtap_dump_close(example->dump, &err)) {
+cfile_close_failure_message(example->filename, err);
+ok = FALSE;
+}
+if (pkt_rand != NULL) {
+g_rand_free(pkt_rand);
+pkt_rand = NULL;
+}
+return ok;
+}
+int randpkt_example_init(randpkt_example* example, char* produce_filename, int produce_max_bytes)
+{
+int err;
+if (pkt_rand == NULL) {
+pkt_rand = g_rand_new();
+}
+wtap_init();
+if (strcmp(produce_filename, "-") == 0) {
+example->dump = wtap_dump_open_stdout(WTAP_FILE_TYPE_SUBTYPE_PCAP,
+example->sample_wtap_encap, produce_max_bytes, FALSE , &err);
+example->filename = "the standard output";
+} else {
+example->dump = wtap_dump_open(produce_filename, WTAP_FILE_TYPE_SUBTYPE_PCAP,
+example->sample_wtap_encap, produce_max_bytes, FALSE , &err);
+example->filename = produce_filename;
+}
+if (!example->dump) {
+cfile_dump_open_failure_message("randpkt", produce_filename,
+err, WTAP_FILE_TYPE_SUBTYPE_PCAP);
+return WRITE_ERROR;
+}
+if (produce_max_bytes <= example->sample_length) {
+fprintf(stderr, "randpkt: Sample packet length is %d, which is greater than "
+"or equal to\n", example->sample_length);
+fprintf(stderr, "your requested max_bytes value of %d\n", produce_max_bytes);
+return INVALID_LEN;
+} else {
+example->produce_max_bytes = produce_max_bytes - example->sample_length;
+}
+return EXIT_SUCCESS;
+}
+int randpkt_parse_type(char *string)
+{
+int num_entries = array_length(examples);
+int i;
+if (!string) {
+return examples[g_random_int_range(0, num_entries)].produceable_type;
+}
+for (i = 0; i < num_entries; i++) {
+if (g_strcmp0(examples[i].abbrev, string) == 0) {
+return examples[i].produceable_type;
+}
+}
+fprintf(stderr, "randpkt: Type %s not known.\n", string);
+return -1;
+}
+void randpkt_example_list(char*** abbrev_list, char*** longname_list)
+{
+unsigned i;
+unsigned list_num;
+list_num = randpkt_example_count();
+*abbrev_list = g_new0(char*, list_num + 1);
+*longname_list = g_new0(char*, list_num + 1);
+for (i = 0; i < list_num; i++) {
+(*abbrev_list)[i] = g_strdup(examples[i].abbrev);
+(*longname_list)[i] = g_strdup(examples[i].longname);
+}
+}

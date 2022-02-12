@@ -1,0 +1,1 @@
+void ERR_load_TS_strings(void)\r\n{\r\n#ifndef OPENSSL_NO_ERR\r\nif (ERR_func_error_string(TS_str_functs[0].error) == NULL)\r\n{\r\nERR_load_strings(0,TS_str_functs);\r\nERR_load_strings(0,TS_str_reasons);\r\n}\r\n#endif\r\n}

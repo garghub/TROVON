@@ -1,0 +1,190 @@
+static long ssl2_default_timeout(void)
+{
+return(300);
+}
+SSL_METHOD *sslv2_base_method(void)
+{
+return(&SSLv2_data);
+}
+int ssl2_num_ciphers(void)
+{
+return(SSL2_NUM_CIPHERS);
+}
+SSL_CIPHER *ssl2_get_cipher(unsigned int u)
+{
+if (u < SSL2_NUM_CIPHERS)
+return(&(ssl2_ciphers[SSL2_NUM_CIPHERS-1-u]));
+else
+return(NULL);
+}
+int ssl2_pending(SSL *s)
+{
+return(s->s2->ract_data_length);
+}
+int ssl2_new(SSL *s)
+{
+SSL2_STATE *s2;
+if ((s2=Malloc(sizeof *s2)) == NULL) goto err;
+memset(s2,0,sizeof *s2);
+if ((s2->rbuf=Malloc(
+SSL2_MAX_RECORD_LENGTH_2_BYTE_HEADER+2)) == NULL) goto err;
+if ((s2->wbuf=Malloc(
+SSL2_MAX_RECORD_LENGTH_2_BYTE_HEADER+2)) == NULL) goto err;
+s->s2=s2;
+ssl2_clear(s);
+return(1);
+err:
+if (s2 != NULL)
+{
+if (s2->wbuf != NULL) Free(s2->wbuf);
+if (s2->rbuf != NULL) Free(s2->rbuf);
+Free(s2);
+}
+return(0);
+}
+void ssl2_free(SSL *s)
+{
+SSL2_STATE *s2;
+if(s == NULL)
+return;
+s2=s->s2;
+if (s2->rbuf != NULL) Free(s2->rbuf);
+if (s2->wbuf != NULL) Free(s2->wbuf);
+memset(s2,0,sizeof *s2);
+Free(s2);
+s->s2=NULL;
+}
+void ssl2_clear(SSL *s)
+{
+SSL2_STATE *s2;
+unsigned char *rbuf,*wbuf;
+s2=s->s2;
+rbuf=s2->rbuf;
+wbuf=s2->wbuf;
+memset(s2,0,sizeof *s2);
+s2->rbuf=rbuf;
+s2->wbuf=wbuf;
+s2->clear_text=1;
+s->packet=s2->rbuf;
+s->version=SSL2_VERSION;
+s->packet_length=0;
+}
+long ssl2_ctrl(SSL *s, int cmd, long larg, char *parg)
+{
+int ret=0;
+switch(cmd)
+{
+case SSL_CTRL_GET_SESSION_REUSED:
+ret=s->hit;
+break;
+default:
+break;
+}
+return(ret);
+}
+long ssl2_callback_ctrl(SSL *s, int cmd, void (*fp)())
+{
+return(0);
+}
+long ssl2_ctx_ctrl(SSL_CTX *ctx, int cmd, long larg, char *parg)
+{
+return(0);
+}
+long ssl2_ctx_callback_ctrl(SSL_CTX *ctx, int cmd, void (*fp)())
+{
+return(0);
+}
+SSL_CIPHER *ssl2_get_cipher_by_char(const unsigned char *p)
+{
+static int init=1;
+static SSL_CIPHER *sorted[SSL2_NUM_CIPHERS];
+SSL_CIPHER c,*cp= &c,**cpp;
+unsigned long id;
+int i;
+if (init)
+{
+CRYPTO_w_lock(CRYPTO_LOCK_SSL);
+for (i=0; i<SSL2_NUM_CIPHERS; i++)
+sorted[i]= &(ssl2_ciphers[i]);
+qsort( (char *)sorted,
+SSL2_NUM_CIPHERS,sizeof(SSL_CIPHER *),
+FP_ICC ssl_cipher_ptr_id_cmp);
+CRYPTO_w_unlock(CRYPTO_LOCK_SSL);
+init=0;
+}
+id=0x02000000L|((unsigned long)p[0]<<16L)|
+((unsigned long)p[1]<<8L)|(unsigned long)p[2];
+c.id=id;
+cpp=(SSL_CIPHER **)OBJ_bsearch((char *)&cp,
+(char *)sorted,
+SSL2_NUM_CIPHERS,sizeof(SSL_CIPHER *),
+(int (*)())ssl_cipher_ptr_id_cmp);
+if ((cpp == NULL) || !(*cpp)->valid)
+return(NULL);
+else
+return(*cpp);
+}
+int ssl2_put_cipher_by_char(const SSL_CIPHER *c, unsigned char *p)
+{
+long l;
+if (p != NULL)
+{
+l=c->id;
+if ((l & 0xff000000) != 0x02000000) return(0);
+p[0]=((unsigned char)(l>>16L))&0xFF;
+p[1]=((unsigned char)(l>> 8L))&0xFF;
+p[2]=((unsigned char)(l ))&0xFF;
+}
+return(3);
+}
+void ssl2_generate_key_material(SSL *s)
+{
+unsigned int i;
+MD5_CTX ctx;
+unsigned char *km;
+unsigned char c='0';
+#ifdef CHARSET_EBCDIC
+c = os_toascii['0'];
+#endif
+km=s->s2->key_material;
+for (i=0; i<s->s2->key_material_length; i+=MD5_DIGEST_LENGTH)
+{
+MD5_Init(&ctx);
+MD5_Update(&ctx,s->session->master_key,s->session->master_key_length);
+MD5_Update(&ctx,&c,1);
+c++;
+MD5_Update(&ctx,s->s2->challenge,s->s2->challenge_length);
+MD5_Update(&ctx,s->s2->conn_id,s->s2->conn_id_length);
+MD5_Final(km,&ctx);
+km+=MD5_DIGEST_LENGTH;
+}
+}
+void ssl2_return_error(SSL *s, int err)
+{
+if (!s->error)
+{
+s->error=3;
+s->error_code=err;
+ssl2_write_error(s);
+}
+}
+void ssl2_write_error(SSL *s)
+{
+unsigned char buf[3];
+int i,error;
+buf[0]=SSL2_MT_ERROR;
+buf[1]=(s->error_code>>8)&0xff;
+buf[2]=(s->error_code)&0xff;
+error=s->error;
+s->error=0;
+i=ssl2_write(s,&(buf[3-error]),error);
+if (i < 0)
+s->error=error;
+else if (i != s->error)
+s->error=error-i;
+}
+int ssl2_shutdown(SSL *s)
+{
+s->shutdown=(SSL_SENT_SHUTDOWN|SSL_RECEIVED_SHUTDOWN);
+return(1);
+}

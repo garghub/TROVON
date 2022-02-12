@@ -1,0 +1,1 @@
+main()\r\n{\r\nASN1_TYPE *at;\r\nchar buf[512];\r\nint n;\r\nlong l;\r\nat=ASN1_TYPE_new();\r\nn=ASN1_TYPE_set_int_octetstring(at,98736,"01234567",8);\r\nprintf("%d\n",n);\r\nn=ASN1_TYPE_get_int_octetstring(at,&l,buf,8);\r\nbuf[8]='\0';\r\nprintf("%ld %d %d\n",l,n,buf[8]);\r\nbuf[8]='\0';\r\nprintf("%s\n",buf);\r\nERR_load_crypto_strings();\r\nERR_print_errors_fp(stderr);\r\n}

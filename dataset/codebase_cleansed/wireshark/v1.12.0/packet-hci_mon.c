@@ -1,0 +1,159 @@
+static gint
+dissect_hci_mon(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data _U_)
+{
+proto_tree *hci_mon_item;
+proto_item *hci_mon_tree;
+proto_item *sub_item;
+gint offset = 0;
+guint16 opcode;
+guint16 adapter_id;
+hci_data_t *hci_data;
+tvbuff_t *next_tvb;
+adapter_id = pinfo->pseudo_header->btmon.adapter_id;
+opcode = pinfo->pseudo_header->btmon.opcode;
+if (opcode == 0x00 || opcode == 0x01)
+pinfo->p2p_dir = P2P_DIR_RECV;
+else if (opcode % 2)
+pinfo->p2p_dir = P2P_DIR_RECV;
+else
+pinfo->p2p_dir = P2P_DIR_SENT;
+hci_mon_item = proto_tree_add_item(tree, proto_hci_mon, tvb, offset, -1, ENC_NA);
+hci_mon_tree = proto_item_add_subtree(hci_mon_item, ett_hci_mon);
+col_set_str(pinfo->cinfo, COL_PROTOCOL, "HCI_MON");
+if (opcode == 0x00 || opcode == 0x01)
+col_set_str(pinfo->cinfo, COL_INFO, "Info ");
+else switch (pinfo->p2p_dir) {
+case P2P_DIR_SENT:
+col_set_str(pinfo->cinfo, COL_INFO, "Sent ");
+break;
+case P2P_DIR_RECV:
+col_set_str(pinfo->cinfo, COL_INFO, "Rcvd ");
+break;
+default:
+col_add_fstr(pinfo->cinfo, COL_INFO, "Unknown direction ");
+break;
+}
+sub_item = proto_tree_add_uint(hci_mon_tree, hf_adapter_id, tvb, offset, 0, adapter_id);
+PROTO_ITEM_SET_GENERATED(sub_item);
+sub_item = proto_tree_add_uint(hci_mon_tree, hf_opcode, tvb, offset, 0, opcode);
+PROTO_ITEM_SET_GENERATED(sub_item);
+col_append_fstr(pinfo->cinfo, COL_INFO, "Adapter Id: %u, Opcode: %s",
+adapter_id, val_to_str_ext_const(opcode, &opcode_vals_ext, "Unknown"));
+hci_data = (hci_data_t *) wmem_new(wmem_packet_scope(), hci_data_t);
+if (pinfo->phdr->presence_flags & WTAP_HAS_INTERFACE_ID)
+hci_data->interface_id = pinfo->phdr->interface_id;
+else
+hci_data->interface_id = HCI_INTERFACE_DEFAULT;
+hci_data->adapter_id = adapter_id;
+hci_data->chandle_to_bdaddr_table = chandle_to_bdaddr_table;
+hci_data->bdaddr_to_name_table = bdaddr_to_name_table;
+hci_data->localhost_bdaddr = localhost_bdaddr;
+hci_data->localhost_name = localhost_name;
+pinfo->ptype = PT_BLUETOOTH;
+next_tvb = tvb_new_subset_remaining(tvb, offset);
+switch(opcode) {
+case 0x00:
+proto_tree_add_item(hci_mon_tree, hf_bus, tvb, offset, 1, ENC_NA);
+offset += 1;
+proto_tree_add_item(hci_mon_tree, hf_type, tvb, offset, 1, ENC_NA);
+offset += 1;
+offset = dissect_bd_addr(hf_bd_addr, hci_mon_tree, tvb, offset);
+proto_tree_add_item(hci_mon_tree, hf_name, tvb, offset, 8, ENC_NA | ENC_ASCII);
+offset += 8;
+break;
+case 0x01:
+break;
+case 0x02:
+call_dissector_with_data(bthci_cmd_handle, next_tvb, pinfo, tree, hci_data);
+offset = tvb_length(tvb);
+break;
+case 0x03:
+call_dissector_with_data(bthci_evt_handle, next_tvb, pinfo, tree, hci_data);
+offset = tvb_length(tvb);
+break;
+case 0x04:
+case 0x05:
+call_dissector_with_data(bthci_acl_handle, next_tvb, pinfo, tree, hci_data);
+offset = tvb_length(tvb);
+break;
+case 0x06:
+case 0x07:
+call_dissector_with_data(bthci_sco_handle, next_tvb, pinfo, tree, hci_data);
+offset = tvb_length(tvb);
+break;
+}
+if (tvb_length_remaining(tvb, offset) > 0) {
+proto_tree_add_expert(hci_mon_tree, pinfo, &ei_unknown_data, tvb, offset, -1);
+offset = tvb_length(tvb);
+}
+if (opcode == 0x01)
+return 1;
+return offset;
+}
+void
+proto_register_hci_mon(void)
+{
+module_t *module;
+expert_module_t *expert_module;
+static hf_register_info hf[] = {
+{ &hf_adapter_id,
+{ "Adapter ID", "hci_mon.adapter_id",
+FT_UINT16, BASE_DEC, NULL, 0x00,
+NULL, HFILL }
+},
+{ &hf_opcode,
+{ "Opcode", "hci_mon.opcode",
+FT_UINT16, BASE_HEX | BASE_EXT_STRING, &opcode_vals_ext, 0x00,
+NULL, HFILL }
+},
+{ &hf_type,
+{ "Type", "hci_mon.type",
+FT_UINT8, BASE_HEX | BASE_EXT_STRING, &type_vals_ext, 0x00,
+NULL, HFILL }
+},
+{ &hf_bus,
+{ "Bus", "hci_mon.bus",
+FT_UINT8, BASE_HEX | BASE_EXT_STRING, &bus_vals_ext, 0x00,
+NULL, HFILL }
+},
+{ &hf_bd_addr,
+{ "BD_ADDR", "hci_mon.bd_addr",
+FT_ETHER, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_name,
+{ "Adapter Name", "hci_mon.adapter_name",
+FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+}
+};
+static ei_register_info ei[] = {
+{ &ei_unknown_data, { "hci_mon.unknown_data", PI_PROTOCOL, PI_WARN, "Unknown data", EXPFILL }},
+};
+static gint *ett[] = {
+&ett_hci_mon,
+};
+chandle_to_bdaddr_table = wmem_tree_new_autoreset(wmem_epan_scope(), wmem_file_scope());
+bdaddr_to_name_table = wmem_tree_new_autoreset(wmem_epan_scope(), wmem_file_scope());
+localhost_bdaddr = wmem_tree_new_autoreset(wmem_epan_scope(), wmem_file_scope());
+localhost_name = wmem_tree_new_autoreset(wmem_epan_scope(), wmem_file_scope());
+proto_hci_mon = proto_register_protocol("Bluetooth Linux Monitor Transport", "HCI_MON", "hci_mon");
+proto_register_field_array(proto_hci_mon, hf, array_length(hf));
+proto_register_subtree_array(ett, array_length(ett));
+hci_mon_handle = new_register_dissector("hci_mon", dissect_hci_mon, proto_hci_mon);
+expert_module = expert_register_protocol(proto_hci_mon);
+expert_register_field_array(expert_module, ei, array_length(ei));
+module = prefs_register_protocol(proto_hci_mon, NULL);
+prefs_register_static_text_preference(module, "bthci_mon.version",
+"Bluetooth Linux Monitor Transport introduced in BlueZ 5.x",
+"Version of protocol supported by this dissector.");
+}
+void
+proto_reg_handoff_hci_mon(void)
+{
+bthci_cmd_handle = find_dissector("bthci_cmd");
+bthci_evt_handle = find_dissector("bthci_evt");
+bthci_acl_handle = find_dissector("bthci_acl");
+bthci_sco_handle = find_dissector("bthci_sco");
+dissector_add_uint("wtap_encap", WTAP_ENCAP_BLUETOOTH_LINUX_MONITOR, hci_mon_handle);
+}

@@ -1,0 +1,1 @@
+main()\r\n{\r\nf(5);\r\nf(0);\r\n}\r\nint f(a)\r\nint a;\r\n{\r\nswitch(a&7)\r\n{\r\ncase 7:\r\nprintf("7\n");\r\ncase 6:\r\nprintf("6\n");\r\ncase 5:\r\nprintf("5\n");\r\ncase 4:\r\nprintf("4\n");\r\ncase 3:\r\nprintf("3\n");\r\ncase 2:\r\nprintf("2\n");\r\ncase 1:\r\nprintf("1\n");\r\n#ifdef FIX_BUG\r\ncase 0:\r\n;\r\n#endif\r\n}\r\n}

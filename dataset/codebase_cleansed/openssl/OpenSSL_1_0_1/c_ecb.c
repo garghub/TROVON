@@ -1,0 +1,1 @@
+void CAST_ecb_encrypt(const unsigned char *in, unsigned char *out,\r\nconst CAST_KEY *ks, int enc)\r\n{\r\nCAST_LONG l,d[2];\r\nn2l(in,l); d[0]=l;\r\nn2l(in,l); d[1]=l;\r\nif (enc)\r\nCAST_encrypt(d,ks);\r\nelse\r\nCAST_decrypt(d,ks);\r\nl=d[0]; l2n(l,out);\r\nl=d[1]; l2n(l,out);\r\nl=d[0]=d[1]=0;\r\n}

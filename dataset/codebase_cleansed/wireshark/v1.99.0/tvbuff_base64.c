@@ -1,0 +1,1 @@
+tvbuff_t *\r\nbase64_to_tvb(tvbuff_t *parent, const char *base64)\r\n{\r\ntvbuff_t *tvb;\r\nchar *data = g_strdup(base64);\r\ngint len;\r\nlen = (gint) ws_base64_decode_inplace(data);\r\ntvb = tvb_new_child_real_data(parent, (const guint8 *)data, len, len);\r\ntvb_set_free_cb(tvb, g_free);\r\nreturn tvb;\r\n}

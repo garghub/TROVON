@@ -1,0 +1,1 @@
+static int ocsp_check_delegated(X509 *x, int flags)\r\n{\r\nX509_check_purpose(x, -1, 0);\r\nif ((x->ex_flags & EXFLAG_XKUSAGE) &&\r\n(x->ex_xkusage & XKU_OCSP_SIGN))\r\nreturn 1;\r\nOCSPerr(OCSP_F_OCSP_CHECK_DELEGATED, OCSP_R_MISSING_OCSPSIGNING_USAGE);\r\nreturn 0;\r\n}

@@ -1,0 +1,524 @@
+extern wtap_open_return_val erf_open(wtap *wth, int *err, gchar **err_info)
+{
+int i, n, records_for_erf_check = RECORDS_FOR_ERF_CHECK;
+int valid_prev = 0;
+char *s;
+erf_timestamp_t prevts,ts;
+erf_header_t header;
+guint32 mc_hdr;
+guint16 eth_hdr;
+guint32 packet_size;
+guint16 rlen;
+guint64 erf_ext_header;
+guint8 type;
+gboolean r;
+gchar * buffer;
+memset(&prevts, 0, sizeof(prevts));
+if ((s = getenv("ERF_RECORDS_TO_CHECK")) != NULL) {
+if ((n = atoi(s)) > 0 && n < 101) {
+records_for_erf_check = n;
+}
+}
+for (i = 0; i < records_for_erf_check; i++) {
+if (!wtap_read_bytes_or_eof(wth->fh,&header,sizeof(header),err,err_info)) {
+if (*err == 0) {
+break;
+}
+if (*err == WTAP_ERR_SHORT_READ) {
+if (i < MIN_RECORDS_FOR_ERF_CHECK) {
+return WTAP_OPEN_NOT_MINE;
+} else {
+break;
+}
+} else {
+return WTAP_OPEN_ERROR;
+}
+}
+rlen=g_ntohs(header.rlen);
+if (rlen < 16) {
+return WTAP_OPEN_NOT_MINE;
+}
+packet_size = rlen - (guint32)sizeof(header);
+if (packet_size > WTAP_MAX_PACKET_SIZE) {
+return WTAP_OPEN_NOT_MINE;
+}
+if ((header.type & 0x7F) == ERF_TYPE_PAD) {
+if (file_seek(wth->fh, packet_size, SEEK_CUR, err) == -1) {
+return WTAP_OPEN_ERROR;
+}
+continue;
+}
+if ((header.type & 0x7F) == 0 || (header.type & 0x7F) > ERF_TYPE_MAX ) {
+return WTAP_OPEN_NOT_MINE;
+}
+if ((header.type & 0x7F) > ERF_TYPE_INFINIBAND_LINK) {
+return WTAP_OPEN_NOT_MINE;
+}
+if ((ts = pletoh64(&header.ts)) < prevts) {
+if ( ((prevts-ts)>>32) > 1 ) {
+return WTAP_OPEN_NOT_MINE;
+}
+}
+if ( (valid_prev) && (ts > prevts) && (((ts-prevts)>>32) > 3600*24*7) ) {
+return WTAP_OPEN_NOT_MINE;
+}
+memcpy(&prevts, &ts, sizeof(prevts));
+type = header.type;
+while (type & 0x80){
+if (!wtap_read_bytes(wth->fh,&erf_ext_header,sizeof(erf_ext_header),err,err_info)) {
+if (*err == WTAP_ERR_SHORT_READ) {
+return WTAP_OPEN_NOT_MINE;
+}
+return WTAP_OPEN_ERROR;
+}
+packet_size -= (guint32)sizeof(erf_ext_header);
+memcpy(&type, &erf_ext_header, sizeof(type));
+}
+switch(header.type & 0x7F) {
+case ERF_TYPE_MC_HDLC:
+case ERF_TYPE_MC_RAW:
+case ERF_TYPE_MC_ATM:
+case ERF_TYPE_MC_RAW_CHANNEL:
+case ERF_TYPE_MC_AAL5:
+case ERF_TYPE_MC_AAL2:
+case ERF_TYPE_COLOR_MC_HDLC_POS:
+case ERF_TYPE_AAL2:
+if (!wtap_read_bytes(wth->fh,&mc_hdr,sizeof(mc_hdr),err,err_info)) {
+if (*err == WTAP_ERR_SHORT_READ) {
+return WTAP_OPEN_NOT_MINE;
+}
+return WTAP_OPEN_ERROR;
+}
+packet_size -= (guint32)sizeof(mc_hdr);
+break;
+case ERF_TYPE_ETH:
+case ERF_TYPE_COLOR_ETH:
+case ERF_TYPE_DSM_COLOR_ETH:
+if (!wtap_read_bytes(wth->fh,&eth_hdr,sizeof(eth_hdr),err,err_info)) {
+if (*err == WTAP_ERR_SHORT_READ) {
+return WTAP_OPEN_NOT_MINE;
+}
+return WTAP_OPEN_ERROR;
+}
+packet_size -= (guint32)sizeof(eth_hdr);
+break;
+default:
+break;
+}
+if (packet_size > WTAP_MAX_PACKET_SIZE) {
+return WTAP_OPEN_NOT_MINE;
+}
+buffer=(gchar *)g_malloc(packet_size);
+r = wtap_read_bytes(wth->fh, buffer, packet_size, err, err_info);
+g_free(buffer);
+if (!r) {
+if (*err != WTAP_ERR_SHORT_READ) {
+return WTAP_OPEN_ERROR;
+}
+if (i < MIN_RECORDS_FOR_ERF_CHECK) {
+return WTAP_OPEN_NOT_MINE;
+}
+}
+valid_prev = 1;
+}
+if (file_seek(wth->fh, 0L, SEEK_SET, err) == -1) {
+return WTAP_OPEN_ERROR;
+}
+wth->file_type_subtype = WTAP_FILE_TYPE_SUBTYPE_ERF;
+wth->snapshot_length = 0;
+wth->file_encap = WTAP_ENCAP_ERF;
+wth->subtype_read = erf_read;
+wth->subtype_seek_read = erf_seek_read;
+wth->file_tsprec = WTAP_TSPREC_NSEC;
+erf_populate_interfaces(wth);
+return WTAP_OPEN_MINE;
+}
+static gboolean erf_read(wtap *wth, int *err, gchar **err_info,
+gint64 *data_offset)
+{
+erf_header_t erf_header;
+guint32 packet_size, bytes_read;
+*data_offset = file_tell(wth->fh);
+do {
+if (!erf_read_header(wth->fh,
+&wth->phdr, &erf_header,
+err, err_info, &bytes_read, &packet_size)) {
+return FALSE;
+}
+if (!wtap_read_packet_bytes(wth->fh, wth->frame_buffer, packet_size,
+err, err_info))
+return FALSE;
+} while ( erf_header.type == ERF_TYPE_PAD );
+return TRUE;
+}
+static gboolean erf_seek_read(wtap *wth, gint64 seek_off,
+struct wtap_pkthdr *phdr, Buffer *buf,
+int *err, gchar **err_info)
+{
+erf_header_t erf_header;
+guint32 packet_size;
+if (file_seek(wth->random_fh, seek_off, SEEK_SET, err) == -1)
+return FALSE;
+do {
+if (!erf_read_header(wth->random_fh, phdr, &erf_header,
+err, err_info, NULL, &packet_size))
+return FALSE;
+} while ( erf_header.type == ERF_TYPE_PAD );
+return wtap_read_packet_bytes(wth->random_fh, buf, packet_size,
+err, err_info);
+}
+static gboolean erf_read_header(FILE_T fh,
+struct wtap_pkthdr *phdr,
+erf_header_t *erf_header,
+int *err,
+gchar **err_info,
+guint32 *bytes_read,
+guint32 *packet_size)
+{
+union wtap_pseudo_header *pseudo_header = &phdr->pseudo_header;
+guint32 mc_hdr;
+guint8 erf_exhdr[8];
+guint64 erf_exhdr_sw;
+guint8 type = 0;
+guint16 eth_hdr;
+guint32 skiplen = 0;
+int i = 0;
+int max = sizeof(pseudo_header->erf.ehdr_list)/sizeof(struct erf_ehdr);
+if (!wtap_read_bytes_or_eof(fh, erf_header, sizeof(*erf_header), err, err_info)) {
+return FALSE;
+}
+if (bytes_read != NULL) {
+*bytes_read = sizeof(*erf_header);
+}
+*packet_size = g_ntohs(erf_header->rlen) - (guint32)sizeof(*erf_header);
+if (*packet_size > WTAP_MAX_PACKET_SIZE) {
+*err = WTAP_ERR_BAD_FILE;
+*err_info = g_strdup_printf("erf: File has %u-byte packet, bigger than maximum of %u",
+*packet_size, WTAP_MAX_PACKET_SIZE);
+return FALSE;
+}
+if (*packet_size == 0) {
+if ((erf_header->type & 0x7F) != ERF_TYPE_PAD) {
+*err = WTAP_ERR_BAD_FILE;
+*err_info = g_strdup_printf("erf: File has 0 byte packet");
+return FALSE;
+}
+}
+{
+guint64 ts = pletoh64(&erf_header->ts);
+phdr->rec_type = REC_TYPE_PACKET;
+phdr->presence_flags = WTAP_HAS_TS|WTAP_HAS_CAP_LEN|WTAP_HAS_INTERFACE_ID;
+phdr->ts.secs = (long) (ts >> 32);
+ts = ((ts & 0xffffffff) * 1000 * 1000 * 1000);
+ts += (ts & 0x80000000) << 1;
+phdr->ts.nsecs = ((int) (ts >> 32));
+if (phdr->ts.nsecs >= 1000000000) {
+phdr->ts.nsecs -= 1000000000;
+phdr->ts.secs += 1;
+}
+phdr->interface_id = (erf_header->flags & 0x03);
+}
+memset(&pseudo_header->erf, 0, sizeof(pseudo_header->erf));
+pseudo_header->erf.phdr.ts = pletoh64(&erf_header->ts);
+pseudo_header->erf.phdr.type = erf_header->type;
+pseudo_header->erf.phdr.flags = erf_header->flags;
+pseudo_header->erf.phdr.rlen = g_ntohs(erf_header->rlen);
+pseudo_header->erf.phdr.lctr = g_ntohs(erf_header->lctr);
+pseudo_header->erf.phdr.wlen = g_ntohs(erf_header->wlen);
+type = erf_header->type;
+while (type & 0x80){
+if (!wtap_read_bytes(fh, &erf_exhdr, sizeof(erf_exhdr),
+err, err_info))
+return FALSE;
+if (bytes_read != NULL)
+*bytes_read += (guint32)sizeof(erf_exhdr);
+*packet_size -= (guint32)sizeof(erf_exhdr);
+skiplen += (guint32)sizeof(erf_exhdr);
+erf_exhdr_sw = pntoh64(erf_exhdr);
+if (i < max)
+memcpy(&pseudo_header->erf.ehdr_list[i].ehdr, &erf_exhdr_sw, sizeof(erf_exhdr_sw));
+type = erf_exhdr[0];
+i++;
+}
+switch (erf_header->type & 0x7F) {
+case ERF_TYPE_IPV4:
+case ERF_TYPE_IPV6:
+case ERF_TYPE_RAW_LINK:
+case ERF_TYPE_INFINIBAND:
+case ERF_TYPE_INFINIBAND_LINK:
+#if 0
+{
+phdr->len = g_htons(erf_header->wlen);
+phdr->caplen = g_htons(erf_header->wlen);
+}
+return TRUE;
+#endif
+break;
+case ERF_TYPE_PAD:
+case ERF_TYPE_HDLC_POS:
+case ERF_TYPE_COLOR_HDLC_POS:
+case ERF_TYPE_DSM_COLOR_HDLC_POS:
+case ERF_TYPE_ATM:
+case ERF_TYPE_AAL5:
+break;
+case ERF_TYPE_ETH:
+case ERF_TYPE_COLOR_ETH:
+case ERF_TYPE_DSM_COLOR_ETH:
+if (!wtap_read_bytes(fh, &eth_hdr, sizeof(eth_hdr), err, err_info))
+return FALSE;
+if (bytes_read != NULL)
+*bytes_read += (guint32)sizeof(eth_hdr);
+*packet_size -= (guint32)sizeof(eth_hdr);
+skiplen += (guint32)sizeof(eth_hdr);
+pseudo_header->erf.subhdr.eth_hdr = g_htons(eth_hdr);
+break;
+case ERF_TYPE_MC_HDLC:
+case ERF_TYPE_MC_RAW:
+case ERF_TYPE_MC_ATM:
+case ERF_TYPE_MC_RAW_CHANNEL:
+case ERF_TYPE_MC_AAL5:
+case ERF_TYPE_MC_AAL2:
+case ERF_TYPE_COLOR_MC_HDLC_POS:
+case ERF_TYPE_AAL2:
+if (!wtap_read_bytes(fh, &mc_hdr, sizeof(mc_hdr), err, err_info))
+return FALSE;
+if (bytes_read != NULL)
+*bytes_read += (guint32)sizeof(mc_hdr);
+*packet_size -= (guint32)sizeof(mc_hdr);
+skiplen += (guint32)sizeof(mc_hdr);
+pseudo_header->erf.subhdr.mc_hdr = g_htonl(mc_hdr);
+break;
+case ERF_TYPE_IP_COUNTER:
+case ERF_TYPE_TCP_FLOW_COUNTER:
+default:
+*err = WTAP_ERR_UNSUPPORTED;
+*err_info = g_strdup_printf("erf: unknown record encapsulation %u",
+erf_header->type);
+return FALSE;
+}
+{
+phdr->len = g_htons(erf_header->wlen);
+phdr->caplen = MIN( g_htons(erf_header->wlen),
+g_htons(erf_header->rlen) - (guint32)sizeof(*erf_header) - skiplen );
+}
+if (*packet_size > WTAP_MAX_PACKET_SIZE) {
+*err = WTAP_ERR_BAD_FILE;
+*err_info = g_strdup_printf("erf: File has %u-byte packet, bigger than maximum of %u",
+*packet_size, WTAP_MAX_PACKET_SIZE);
+return FALSE;
+}
+return TRUE;
+}
+static int wtap_wtap_encap_to_erf_encap(int encap)
+{
+unsigned int i;
+for(i = 0; i < NUM_ERF_ENCAPS; i++){
+if(erf_to_wtap_map[i].wtap_encap_value == encap)
+return erf_to_wtap_map[i].erf_encap_value;
+}
+return -1;
+}
+static gboolean erf_write_phdr(wtap_dumper *wdh, int encap, const union wtap_pseudo_header *pseudo_header, int * err)
+{
+guint8 erf_hdr[sizeof(struct erf_mc_phdr)];
+guint8 erf_subhdr[((sizeof(struct erf_mc_hdr) > sizeof(struct erf_eth_hdr))?
+sizeof(struct erf_mc_hdr) : sizeof(struct erf_eth_hdr))];
+guint8 ehdr[8*MAX_ERF_EHDR];
+size_t size = 0;
+size_t subhdr_size = 0;
+int i = 0;
+guint8 has_more = 0;
+switch(encap){
+case WTAP_ENCAP_ERF:
+memset(&erf_hdr, 0, sizeof(erf_hdr));
+phtolell(&erf_hdr[0], pseudo_header->erf.phdr.ts);
+erf_hdr[8] = pseudo_header->erf.phdr.type;
+erf_hdr[9] = pseudo_header->erf.phdr.flags;
+phtons(&erf_hdr[10], pseudo_header->erf.phdr.rlen);
+phtons(&erf_hdr[12], pseudo_header->erf.phdr.lctr);
+phtons(&erf_hdr[14], pseudo_header->erf.phdr.wlen);
+size = sizeof(struct erf_phdr);
+switch(pseudo_header->erf.phdr.type & 0x7F) {
+case ERF_TYPE_MC_HDLC:
+case ERF_TYPE_MC_RAW:
+case ERF_TYPE_MC_ATM:
+case ERF_TYPE_MC_RAW_CHANNEL:
+case ERF_TYPE_MC_AAL5:
+case ERF_TYPE_MC_AAL2:
+case ERF_TYPE_COLOR_MC_HDLC_POS:
+phtonl(&erf_subhdr[0], pseudo_header->erf.subhdr.mc_hdr);
+subhdr_size += (int)sizeof(struct erf_mc_hdr);
+break;
+case ERF_TYPE_ETH:
+case ERF_TYPE_COLOR_ETH:
+case ERF_TYPE_DSM_COLOR_ETH:
+phtons(&erf_subhdr[0], pseudo_header->erf.subhdr.eth_hdr);
+subhdr_size += (int)sizeof(struct erf_eth_hdr);
+break;
+default:
+break;
+}
+break;
+default:
+return FALSE;
+}
+if (!wtap_dump_file_write(wdh, erf_hdr, size, err))
+return FALSE;
+wdh->bytes_dumped += size;
+has_more = pseudo_header->erf.phdr.type & 0x80;
+if(has_more){
+do{
+phtonll(ehdr+(i*8), pseudo_header->erf.ehdr_list[i].ehdr);
+if(i == MAX_ERF_EHDR-1) ehdr[i*8] = ehdr[i*8] & 0x7F;
+has_more = ehdr[i*8] & 0x80;
+i++;
+}while(has_more && i < MAX_ERF_EHDR);
+if (!wtap_dump_file_write(wdh, ehdr, 8*i, err))
+return FALSE;
+wdh->bytes_dumped += 8*i;
+}
+if(!wtap_dump_file_write(wdh, erf_subhdr, subhdr_size, err))
+return FALSE;
+wdh->bytes_dumped += subhdr_size;
+return TRUE;
+}
+static gboolean erf_dump(
+wtap_dumper *wdh,
+const struct wtap_pkthdr *phdr,
+const guint8 *pd,
+int *err,
+gchar **err_info _U_)
+{
+const union wtap_pseudo_header *pseudo_header = &phdr->pseudo_header;
+union wtap_pseudo_header other_phdr;
+int encap;
+gint64 alignbytes = 0;
+int i;
+int round_down = 0;
+gboolean must_add_crc = FALSE;
+guint32 crc32 = 0x00000000;
+if (phdr->rec_type != REC_TYPE_PACKET) {
+*err = WTAP_ERR_UNWRITABLE_REC_TYPE;
+return FALSE;
+}
+if(phdr->caplen > WTAP_MAX_PACKET_SIZE) {
+*err = WTAP_ERR_PACKET_TOO_LARGE;
+return FALSE;
+}
+if(wdh->encap == WTAP_ENCAP_PER_PACKET){
+encap = phdr->pkt_encap;
+}else{
+encap = wdh->encap;
+}
+if(encap == WTAP_ENCAP_ERF){
+alignbytes = wdh->bytes_dumped + pseudo_header->erf.phdr.rlen;
+if(!erf_write_phdr(wdh, encap, pseudo_header, err)) return FALSE;
+if(!wtap_dump_file_write(wdh, pd, phdr->caplen, err)) return FALSE;
+wdh->bytes_dumped += phdr->caplen;
+while(wdh->bytes_dumped < alignbytes){
+if(!wtap_dump_file_write(wdh, "", 1, err)) return FALSE;
+wdh->bytes_dumped++;
+}
+return TRUE;
+}
+other_phdr.erf.phdr.ts = ((guint64) phdr->ts.secs << 32) + (((guint64) phdr->ts.nsecs <<32) / 1000 / 1000 / 1000);
+other_phdr.erf.phdr.type = wtap_wtap_encap_to_erf_encap(encap);
+other_phdr.erf.phdr.flags = 0x4;
+other_phdr.erf.phdr.lctr = 0;
+other_phdr.erf.phdr.rlen = phdr->caplen+16;
+other_phdr.erf.phdr.wlen = phdr->len;
+switch(other_phdr.erf.phdr.type){
+case ERF_TYPE_ETH:
+other_phdr.erf.phdr.rlen += 2;
+if (pseudo_header->eth.fcs_len != 4) {
+if(!(phdr->caplen < phdr->len)){
+crc32 = crc32_ccitt_seed(pd, phdr->caplen, 0xFFFFFFFF);
+other_phdr.erf.phdr.rlen += 4;
+other_phdr.erf.phdr.wlen += 4;
+must_add_crc = TRUE;
+}
+}
+break;
+case ERF_TYPE_HDLC_POS:
+if(!(phdr->caplen < phdr->len)){
+crc32 = crc32_ccitt_seed(pd, phdr->caplen, 0xFFFFFFFF);
+other_phdr.erf.phdr.rlen += 4;
+other_phdr.erf.phdr.wlen += 4;
+must_add_crc = TRUE;
+}
+break;
+default:
+break;
+}
+alignbytes = (8 - (other_phdr.erf.phdr.rlen % 8)) % 8;
+if(phdr->caplen < phdr->len){
+round_down = (8 - (guint)alignbytes) % 8;
+other_phdr.erf.phdr.rlen -= round_down;
+}else{
+other_phdr.erf.phdr.rlen += (gint16)alignbytes;
+}
+if(!erf_write_phdr(wdh, WTAP_ENCAP_ERF, &other_phdr, err)) return FALSE;
+if(!wtap_dump_file_write(wdh, pd, phdr->caplen - round_down, err)) return FALSE;
+wdh->bytes_dumped += phdr->caplen - round_down;
+if(must_add_crc){
+if(!wtap_dump_file_write(wdh, &crc32, 4, err)) return FALSE;
+wdh->bytes_dumped += 4;
+}
+if(round_down == 0){
+for(i = (gint16)alignbytes; i > 0; i--){
+if(!wtap_dump_file_write(wdh, "", 1, err)) return FALSE;
+wdh->bytes_dumped++;
+}
+}
+return TRUE;
+}
+int erf_dump_can_write_encap(int encap)
+{
+if(encap == WTAP_ENCAP_PER_PACKET)
+return 0;
+if (wtap_wtap_encap_to_erf_encap(encap) == -1)
+return WTAP_ERR_UNWRITABLE_ENCAP;
+return 0;
+}
+int erf_dump_open(wtap_dumper *wdh, int *err)
+{
+wdh->subtype_write = erf_dump;
+switch(wdh->file_type_subtype){
+case WTAP_FILE_TYPE_SUBTYPE_ERF:
+wdh->tsprecision = WTAP_TSPREC_NSEC;
+break;
+default:
+*err = WTAP_ERR_UNWRITABLE_FILE_TYPE;
+return FALSE;
+break;
+}
+return TRUE;
+}
+int erf_populate_interfaces(wtap *wth)
+{
+wtapng_if_descr_t int_data;
+int i;
+if (!wth)
+return -1;
+memset(&int_data, 0, sizeof(int_data));
+int_data.wtap_encap = WTAP_ENCAP_ERF;
+int_data.time_units_per_second = 1000000000;
+int_data.link_type = wtap_wtap_encap_to_pcap_encap(WTAP_ENCAP_ERF);
+int_data.snap_len = 65535;
+int_data.opt_comment = NULL;
+int_data.if_speed = 0;
+int_data.if_tsresol = 0x09;
+int_data.if_filter_str = NULL;
+int_data.bpf_filter_len = 0;
+int_data.if_filter_bpf_bytes = NULL;
+int_data.if_os = NULL;
+int_data.if_fcslen = 0;
+int_data.num_stat_entries = 0;
+int_data.interface_statistics = NULL;
+for (i=0; i<4; i++) {
+int_data.if_name = g_strdup_printf("Port %c", 'A'+i);
+int_data.if_description = g_strdup_printf("ERF Interface Id %d (Port %c)", i, 'A'+i);
+g_array_append_val(wth->interface_data, int_data);
+}
+return 0;
+}

@@ -1,0 +1,1 @@
+guint16\r\nupdate_crc10_by_bytes_tvb(guint16 crc10, tvbuff_t *tvb, int offset, int len)\r\n{\r\nconst guint8 *buf;\r\ntvb_ensure_bytes_exist(tvb, offset, len);\r\nbuf = tvb_get_ptr(tvb, offset, len);\r\nreturn update_crc10_by_bytes(crc10, buf, len);\r\n}

@@ -1,0 +1,1 @@
+void SEED_ofb128_encrypt(const unsigned char *in, unsigned char *out,\r\nsize_t len, const SEED_KEY_SCHEDULE *ks,\r\nunsigned char ivec[SEED_BLOCK_SIZE], int *num)\r\n{\r\nCRYPTO_ofb128_encrypt(in,out,len,ks,ivec,num,(block128_f)SEED_encrypt);\r\n}

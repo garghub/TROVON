@@ -1,0 +1,54 @@
+static int dissect_aim_chat_userinfo_list(tvbuff_t *tvb, packet_info *pinfo, proto_tree *chat_tree)
+{
+int offset = 0;
+while(tvb_reported_length_remaining(tvb, offset) > 0) {
+offset = dissect_aim_userinfo(tvb, pinfo, offset, chat_tree);
+}
+return offset;
+}
+static int dissect_aim_chat_outgoing_msg(tvbuff_t *tvb, packet_info *pinfo, proto_tree *chat_tree _U_)
+{
+guint8 *buddyname;
+guchar *msg;
+int buddyname_length;
+msg=(guchar *)wmem_alloc(wmem_packet_scope(), 1000);
+buddyname_length = aim_get_buddyname( &buddyname, tvb, 30 );
+aim_get_message( msg, tvb, 40 + buddyname_length, tvb_reported_length(tvb)
+- 40 - buddyname_length );
+col_append_fstr(pinfo->cinfo, COL_INFO, " -> %s", msg);
+return tvb_reported_length(tvb);
+}
+static int dissect_aim_chat_incoming_msg(tvbuff_t *tvb, packet_info *pinfo, proto_tree *chat_tree)
+{
+guint8 *buddyname;
+guchar *msg;
+int buddyname_length;
+msg=(guchar *)wmem_alloc(wmem_packet_scope(), 1000);
+buddyname_length = aim_get_buddyname( &buddyname, tvb, 30 );
+aim_get_message( msg, tvb, 36 + buddyname_length, tvb_reported_length(tvb)
+- 36 - buddyname_length );
+col_append_fstr(pinfo->cinfo, COL_INFO, "from: %s", buddyname);
+col_append_fstr(pinfo->cinfo, COL_INFO, " -> %s", msg);
+proto_tree_add_string(chat_tree, hf_aim_chat_screen_name, tvb, 31, buddyname_length, buddyname);
+return tvb_reported_length(tvb);
+}
+void
+proto_register_aim_chat(void)
+{
+static hf_register_info hf[] = {
+{ &hf_aim_chat_screen_name,
+{ "Screen Name", "aim_chat.screen_name", FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL },
+},
+};
+static gint *ett[] = {
+&ett_aim_chat,
+};
+proto_aim_chat = proto_register_protocol("AIM Chat Service", "AIM Chat", "aim_chat");
+proto_register_field_array(proto_aim_chat, hf, array_length(hf));
+proto_register_subtree_array(ett, array_length(ett));
+}
+void
+proto_reg_handoff_aim_chat(void)
+{
+aim_init_family(proto_aim_chat, ett_aim_chat, FAMILY_CHAT, aim_fnac_family_chat);
+}

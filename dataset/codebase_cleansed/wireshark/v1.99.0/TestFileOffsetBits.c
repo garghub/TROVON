@@ -1,0 +1,1 @@
+int main(int argc, char **argv)\r\n{\r\n#define LARGE_OFF_T (((off_t) 1 << 62) - 1 + ((off_t) 1 << 62))\r\nint off_t_is_large[ (LARGE_OFF_T % 2147483629 == 721 && LARGE_OFF_T % 2147483647 == 1) ? 1 : -1 ];\r\nreturn 0;\r\n}

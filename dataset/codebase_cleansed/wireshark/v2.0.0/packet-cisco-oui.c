@@ -1,0 +1,1 @@
+void\r\nproto_register_cisco_oui(void)\r\n{\r\nstatic hf_register_info hf[] = {\r\n{ &hf_llc_cisco_pid,\r\n{ "PID", "llc.cisco_pid", FT_UINT16, BASE_HEX,\r\nVALS(cisco_pid_vals), 0x0, "Protocol ID", HFILL }\r\n}\r\n};\r\nllc_add_oui(OUI_CISCO, "llc.cisco_pid", "LLC Cisco OUI PID", hf);\r\n}

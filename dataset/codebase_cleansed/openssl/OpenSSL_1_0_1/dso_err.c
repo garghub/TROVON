@@ -1,0 +1,1 @@
+void ERR_load_DSO_strings(void)\r\n{\r\n#ifndef OPENSSL_NO_ERR\r\nif (ERR_func_error_string(DSO_str_functs[0].error) == NULL)\r\n{\r\nERR_load_strings(0,DSO_str_functs);\r\nERR_load_strings(0,DSO_str_reasons);\r\n}\r\n#endif\r\n}

@@ -1,0 +1,1 @@
+void dispatchService(proto_tree *tree, tvbuff_t *tvb, packet_info *pinfo, gint *pOffset, int ServiceId)\r\n{\r\nint indx = 0;\r\nwhile (indx < g_NumServices)\r\n{\r\nif (g_arParserTable[indx].iRequestId == ServiceId)\r\n{\r\n(*g_arParserTable[indx].pParser)(tree, tvb, pinfo, pOffset);\r\nbreak;\r\n}\r\nindx++;\r\n}\r\n}

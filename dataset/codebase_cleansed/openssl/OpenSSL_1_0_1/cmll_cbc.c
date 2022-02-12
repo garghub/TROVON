@@ -1,0 +1,1 @@
+void Camellia_cbc_encrypt(const unsigned char *in, unsigned char *out,\r\nsize_t len, const CAMELLIA_KEY *key,\r\nunsigned char *ivec, const int enc)\r\n{\r\nif (enc)\r\nCRYPTO_cbc128_encrypt(in,out,len,key,ivec,(block128_f)Camellia_encrypt);\r\nelse\r\nCRYPTO_cbc128_decrypt(in,out,len,key,ivec,(block128_f)Camellia_decrypt);\r\n}

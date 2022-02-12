@@ -1,0 +1,1 @@
+void\r\nproto_register_iana_oui(void)\r\n{\r\nstatic hf_register_info hf[] = {\r\n{ &hf_llc_iana_pid,\r\n{ "PID", "llc.iana_pid", FT_UINT16, BASE_HEX,\r\nVALS(iana_pid_vals), 0x0, NULL, HFILL }\r\n}\r\n};\r\nllc_add_oui(OUI_IANA, "llc.iana_pid", "LLC IANA OUI PID", hf, -1);\r\n}

@@ -1,0 +1,9097 @@
+static const char *
+val_to_str_err_code(guint8 errclass, guint8 code)
+{
+switch (errclass) {
+case 1:
+return (val_to_str_const(code, names_err_code_vfd_state, "Unknown"));
+case 2:
+return (val_to_str_const(code, names_err_code_appl_ref, "Unknown"));
+case 3:
+return (val_to_str_const(code, names_err_code_def, "Unknown"));
+case 4:
+return (val_to_str_const(code, names_err_code_res, "Unknown"));
+case 5:
+return (val_to_str_ext_const(code, &names_err_code_srv_ext, "Unknown"));
+case 6:
+return (val_to_str_ext_const(code, &names_err_code_access_ext, "Unknown"));
+case 7:
+return (val_to_str_const(code, names_err_code_od, "Unknown"));
+case 8:
+return (val_to_str_const(code, names_err_code_other, "Unknown"));
+case 9:
+return (val_to_str_const(code, names_err_code_reject, "Unknown"));
+case 10:
+return (val_to_str_ext_const(code,
+&names_err_code_h1_sm_reason_code_ext, "Unknown"));
+case 11:
+return (val_to_str_const(code, names_err_code_fms_init, "Unknown"));
+default:
+return ("Unknown");
+}
+}
+static void
+dissect_ff_msg_fda_open_sess_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FDA Open Session Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fda_open_sess_req, NULL, "FDA Open Session Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_req_sess_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_req_max_buf_siz, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_req_max_msg_len, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_req_reserved, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_req_nma_conf_use, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_req_inactivity_close_time, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_req_transmit_delay_time, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_req_pd_tag, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fda_open_sess_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FDA Open Session Response");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fda_open_sess_rsp, NULL, "FDA Open Session Response");
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_rsp_sess_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_rsp_max_buf_siz, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_rsp_max_msg_len, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_rsp_reserved, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_rsp_nma_conf_use, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_rsp_inactivity_close_time, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_rsp_transmit_delay_time, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_rsp_pd_tag, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fda_open_sess_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FDA Open Session Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fda_open_sess_err, NULL, "FDA Open Session Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fda_open_sess_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_open_sess_err_additional_desc, tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fda_idle_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FDA Idle Request");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fda_idle_req, NULL, "FDA Idle Request");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fda_idle_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FDA Idle Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fda_idle_rsp, NULL, "FDA Idle Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fda_idle_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FDA Idle Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fda_idle_err, NULL, "FDA Idle Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fda_idle_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fda_idle_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_idle_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_idle_err_additional_desc, tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_sm_find_tag_query_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "SM Find Tag Query Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_sm_find_tag_query_req, NULL, "SM Find Tag Query Request");
+proto_tree_add_item(sub_tree,
+hf_ff_sm_find_tag_query_req_query_type, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree, hf_ff_reserved24, tvb, offset, 3, ENC_BIG_ENDIAN);
+offset += 3;
+length -= 3;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_find_tag_query_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_find_tag_query_req_tag, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_find_tag_query_req_vfd_tag, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_sm_find_tag_reply_req_dup_detection_state(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+static const int * dup_flags[] = {
+&hf_ff_sm_find_tag_reply_dup_reserved,
+&hf_ff_sm_find_tag_reply_dup_pd_tag,
+&hf_ff_sm_find_tag_reply_dup_device,
+NULL
+};
+proto_tree_add_bitmask(tree, tvb, offset, hf_ff_sm_find_tag_reply_dup, ett_ff_sm_find_tag_reply_req_dup_detection_state, dup_flags, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_sm_find_tag_reply_req_list_of_fda_addr_selectors(tvbuff_t *tvb,
+gint offset, proto_tree *tree, guint16 value)
+{
+proto_tree *sub_tree;
+guint d;
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree_format(tree, tvb, offset, 2 * value,
+ett_ff_sm_find_tag_reply_req_list_of_fda_addr_selectors, NULL,
+"List of FDA Address Selectors (%u bytes)", 2 * value);
+for (d = 0; d < value; d++) {
+proto_tree_add_item(sub_tree,
+hf_ff_sm_find_tag_reply_req_fda_addr_selector,
+tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+}
+}
+static void
+dissect_ff_msg_sm_find_tag_reply_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint16 NumOfFDAAddrSelectors;
+col_set_str(pinfo->cinfo, COL_INFO, "SM Find Tag Reply Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_sm_find_tag_reply_req, NULL, "SM Find Tag Reply Request");
+proto_tree_add_item(sub_tree,
+hf_ff_sm_find_tag_reply_req_query_type, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_find_tag_reply_req_h1_node_addr, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_find_tag_reply_req_fda_addr_link_id, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_find_tag_reply_req_vfd_ref, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_find_tag_reply_req_od_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_find_tag_reply_req_ip_addr, tvb, offset, 16, ENC_NA);
+offset += 16;
+length -= 16;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_find_tag_reply_req_od_ver, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_find_tag_reply_req_dev_id, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_find_tag_reply_req_pd_tag, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+dissect_ff_msg_sm_find_tag_reply_req_dup_detection_state(tvb,
+offset, sub_tree);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_find_tag_reply_req_reserved, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+NumOfFDAAddrSelectors = tvb_get_ntohs(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_sm_find_tag_reply_req_num_of_fda_addr_selectors,
+tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+if (NumOfFDAAddrSelectors) {
+dissect_ff_msg_sm_find_tag_reply_req_list_of_fda_addr_selectors(tvb,
+offset, sub_tree, NumOfFDAAddrSelectors);
+offset += 2 * NumOfFDAAddrSelectors;
+length -= 2 * NumOfFDAAddrSelectors;
+}
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_sm_id_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "SM Identify Request");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_sm_id_req, NULL, "SM Identify Request");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_sm_id_rsp_h1_node_addr(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+proto_tree *sub_tree;
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree_format(tree, tvb, offset, 2,
+ett_ff_sm_id_rsp_h1_node_addr, NULL, "H1 Node Address Version Number (%u bytes)", 2);
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_rsp_h1_node_addr_ver_num_h1_node_addr,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_rsp_h1_node_addr_ver_num_ver_num, tvb, offset, 1, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_sm_id_rsp_entries_node_addr(tvbuff_t *tvb,
+gint offset, proto_tree *tree, guint32 value)
+{
+proto_tree *sub_tree;
+guint d;
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree_format(tree, tvb, offset, 4 * value,
+ett_ff_sm_id_rsp_entries_node_addr, NULL, "Version Number List (%u bytes)", 4 * value);
+for (d = 0; d < value * 2; d++) {
+dissect_ff_msg_sm_id_rsp_h1_node_addr(tvb, offset, sub_tree);
+offset += 2;
+}
+}
+static void
+dissect_ff_msg_sm_id_rsp_h1_live_list(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+proto_tree *sub_tree;
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree_format(tree, tvb, offset, 4,
+ett_ff_sm_id_rsp_h1_live_list, NULL, "H1 Live-list Version Number (%u bytes)", 4);
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_rsp_h1_live_list_h1_link_id, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_rsp_h1_live_list_reserved, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_rsp_h1_live_list_ver_num, tvb, offset, 1, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_sm_id_rsp_entries_link_id(tvbuff_t *tvb,
+gint offset, proto_tree *tree, guint32 value)
+{
+proto_tree *sub_tree;
+guint d;
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree_format(tree, tvb, offset, 4 * value,
+ett_ff_sm_id_rsp_entries_h1_live_list, NULL, "Version Number List (%u bytes)", 4 * value);
+for (d = 0; d < value; d++) {
+dissect_ff_msg_sm_id_rsp_h1_live_list(tvb, offset, sub_tree);
+offset += 4;
+}
+}
+static void
+dissect_ff_msg_sm_id_rsp_smk_state(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+static const int * state_flags[] = {
+&hf_ff_sm_id_rsp_smk_state_name,
+&hf_ff_sm_id_rsp_smk_state_sync,
+NULL
+};
+proto_tree_add_bitmask(tree, tvb, offset, hf_ff_sm_id_rsp_smk_state, ett_ff_sm_id_rsp_smk_state, state_flags, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_sm_id_rsp_dev_type(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+static const int * device_flags[] = {
+&hf_ff_sm_id_rsp_dev_type_link,
+&hf_ff_sm_id_rsp_dev_type_iogateway,
+&hf_ff_sm_id_rsp_dev_type_hse,
+&hf_ff_sm_id_rsp_dev_type_h1,
+&hf_ff_sm_id_rsp_dev_type_reserved,
+&hf_ff_sm_id_rsp_dev_type_redundant_caps,
+NULL
+};
+proto_tree_add_bitmask(tree, tvb, offset, hf_ff_sm_id_rsp_dev_type, ett_ff_sm_id_rsp_dev_type, device_flags, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_sm_id_rsp_dev_redundancy_state(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+static const int * state_flags[] = {
+&hf_ff_sm_id_rsp_dev_redundancy_state_reserved,
+&hf_ff_sm_id_rsp_dev_redundancy_state_role,
+&hf_ff_sm_id_rsp_dev_redundancy_state_type,
+NULL
+};
+proto_tree_add_bitmask(tree, tvb, offset, hf_ff_sm_id_rsp_dev_redundancy_state, ett_ff_sm_id_rsp_dev_redundancy_state, state_flags, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_sm_id_rsp_dup_detection_state(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+static const int * dup_flags[] = {
+&hf_ff_sm_id_rsp_dup_detection_state_reserved,
+&hf_ff_sm_id_rsp_dup_detection_state_pd_tag,
+&hf_ff_sm_id_rsp_dup_detection_state_device,
+NULL
+};
+proto_tree_add_bitmask(tree, tvb, offset, hf_ff_sm_id_rsp_dup_detection_state, ett_ff_sm_id_rsp_dup_detection_state, dup_flags, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_sm_id_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree, guint32 FDAAddress)
+{
+proto_tree *sub_tree;
+guint32 NumOfEntriesInVerNumList;
+col_set_str(pinfo->cinfo, COL_INFO, "SM Identify Response");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_sm_id_rsp, NULL, "SM Identify Response");
+dissect_ff_msg_sm_id_rsp_smk_state(tvb, offset, sub_tree);
+offset += 1;
+length -= 1;
+dissect_ff_msg_sm_id_rsp_dev_type(tvb, offset, sub_tree);
+offset += 1;
+length -= 1;
+dissect_ff_msg_sm_id_rsp_dev_redundancy_state(tvb,
+offset, sub_tree);
+offset += 1;
+length -= 1;
+dissect_ff_msg_sm_id_rsp_dup_detection_state(tvb,
+offset, sub_tree);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_rsp_dev_idx, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_rsp_max_dev_idx, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_rsp_operational_ip_addr, tvb, offset, 16, ENC_NA);
+offset += 16;
+length -= 16;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_rsp_dev_id, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_rsp_pd_tag, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_rsp_hse_repeat_time, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_rsp_lr_port, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_rsp_reserved, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_rsp_annunc_ver_num, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_rsp_hse_dev_ver_num, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+NumOfEntriesInVerNumList = tvb_get_ntohl(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_rsp_num_of_entries, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (NumOfEntriesInVerNumList) {
+guint16 LinkId;
+LinkId = (guint16)(FDAAddress >> 16);
+if (LinkId) {
+dissect_ff_msg_sm_id_rsp_entries_node_addr(tvb,
+offset, sub_tree, NumOfEntriesInVerNumList);
+} else {
+dissect_ff_msg_sm_id_rsp_entries_link_id(tvb,
+offset, sub_tree, NumOfEntriesInVerNumList);
+}
+offset += 4 * NumOfEntriesInVerNumList;
+length -= 4 * NumOfEntriesInVerNumList;
+}
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_sm_id_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "SM Identify Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_sm_id_err, NULL, "SM Identify Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_sm_id_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_id_err_additional_desc, tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_sm_clear_addr_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "SM Clear Address Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_sm_id_err, NULL, "SM Clear Address Request");
+proto_tree_add_item(sub_tree,
+hf_ff_sm_clear_addr_req_dev_id, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_clear_addr_req_pd_tag, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_clear_addr_req_interface_to_clear, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree, hf_ff_reserved24, tvb, offset, 3, ENC_BIG_ENDIAN);
+offset += 3;
+length -= 3;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_sm_clear_addr_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "SM Clear Address Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_sm_clear_addr_rsp, NULL, "SM Clear Address Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_sm_clear_addr_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "SM Clear Address Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_sm_clear_addr_err, NULL, "SM Clear Address Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_sm_clear_addr_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_sm_clear_addr_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_clear_addr_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_clear_addr_err_additional_desc, tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_sm_set_assign_info_req_dev_redundancy_state(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+static const int * state_flags[] = {
+&hf_ff_sm_set_assign_info_req_dev_redundancy_state_reserved,
+&hf_ff_sm_set_assign_info_req_dev_redundancy_state_role,
+&hf_ff_sm_set_assign_info_req_dev_redundancy_state_type,
+NULL
+};
+proto_tree_add_bitmask(tree, tvb, offset, hf_ff_sm_set_assign_info_req_dev_redundancy_state, ett_ff_sm_set_assign_info_req_dev_redundancy_state, state_flags, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_sm_set_assign_info_req_clear_dup_detection_state(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+static const int * state_flags[] = {
+&hf_ff_sm_set_assign_info_req_clear_dup_detection_state_reserved,
+&hf_ff_sm_set_assign_info_req_clear_dup_detection_state_pd_tag,
+&hf_ff_sm_set_assign_info_req_clear_dup_detection_state_device_index,
+NULL
+};
+proto_tree_add_bitmask(tree, tvb, offset, hf_ff_sm_set_assign_info_req_clear_dup_detection_state, ett_ff_sm_set_assign_info_req_clear_dup_detection_state, state_flags, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_sm_set_assign_info_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "SM Set Assignment Info Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_sm_set_assign_info_req, NULL, "SM Set Assignment Info Request");
+proto_tree_add_item(sub_tree,
+hf_ff_sm_set_assign_info_req_dev_id, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_set_assign_info_req_pd_tag, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_set_assign_info_req_h1_new_addr, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+dissect_ff_msg_sm_set_assign_info_req_dev_redundancy_state(tvb,
+offset, sub_tree);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_set_assign_info_req_lr_port, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_set_assign_info_req_hse_repeat_time, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_set_assign_info_req_dev_idx, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_set_assign_info_req_max_dev_idx, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_set_assign_info_req_operational_ip_addr,
+tvb, offset, 16, ENC_NA);
+offset += 16;
+length -= 16;
+proto_tree_add_item(sub_tree, hf_ff_reserved24, tvb, offset, 3, ENC_BIG_ENDIAN);
+offset += 3;
+length -= 3;
+dissect_ff_msg_sm_set_assign_info_req_clear_dup_detection_state(tvb,
+offset, sub_tree);
+offset += 1;
+length -= 1;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_sm_set_assign_info_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "SM Set Assignment Info Response");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_sm_set_assign_info_rsp, NULL, "SM Set Assignment Info Response");
+proto_tree_add_item(sub_tree,
+hf_ff_sm_set_assign_info_rsp_reserved, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_set_assign_info_rsp_max_dev_idx, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_set_assign_info_rsp_hse_repeat_time, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_sm_set_assign_info_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "SM Set Assignment Info Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_sm_set_assign_info_err, NULL, "SM Set Assignment Info Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_sm_set_assign_info_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_sm_set_assign_info_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_set_assign_info_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_set_assign_info_err_additional_desc, tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_sm_clear_assign_info_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "SM Clear Assignment Info Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_sm_clear_assign_info_req, NULL, "SM Clear Assignment Info Request");
+proto_tree_add_item(sub_tree,
+hf_ff_sm_clear_assign_info_req_dev_id, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_clear_assign_info_req_pd_tag, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_sm_clear_assign_info_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "SM Clear Assignment Info Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_sm_clear_assign_info_rsp, NULL, "SM Clear Assignment Info Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_sm_clear_assign_info_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "SM Clear Assignment Info Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_sm_clear_assign_info_err, NULL, "SM Clear Assignment Info Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_sm_clear_assign_info_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_sm_clear_assign_info_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_clear_assign_info_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_clear_assign_info_err_additional_desc, tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_sm_dev_annunc_req_h1_node_addr(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+proto_tree *sub_tree;
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree_format(tree, tvb, offset, 2,
+ett_ff_sm_dev_annunc_req_h1_node_addr, NULL, "H1 Node Address Version Number (%u bytes)", 2);
+proto_tree_add_item(sub_tree,
+hf_ff_sm_dev_annunc_req_h1_node_addr_ver_num_h1_node_addr,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_dev_annunc_req_h1_node_addr_ver_num_ver_num,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_sm_dev_annunc_req_entries_node_addr(tvbuff_t *tvb,
+gint offset, proto_tree *tree, guint32 value)
+{
+proto_tree *sub_tree;
+guint d;
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree_format(tree, tvb, offset, 4 * value,
+ett_ff_sm_dev_annunc_req_entries_node_addr, NULL, "Version Number List (%u bytes)", 4 * value);
+for (d = 0; d < value * 2; d++) {
+dissect_ff_msg_sm_dev_annunc_req_h1_node_addr(tvb, offset, sub_tree);
+offset += 2;
+}
+}
+static void
+dissect_ff_msg_sm_dev_annunc_req_h1_live_list(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+proto_tree *sub_tree;
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree_format(tree, tvb, offset, 4,
+ett_ff_sm_dev_annunc_req_h1_live_list, NULL, "H1 Live-list Version Number (%u bytes)", 4);
+proto_tree_add_item(sub_tree,
+hf_ff_sm_dev_annunc_req_h1_live_list_h1_link_id, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_dev_annunc_req_h1_live_list_reserved, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_dev_annunc_req_h1_live_list_ver_num, tvb, offset, 1, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_sm_dev_annunc_req_entries_link_id(tvbuff_t *tvb,
+gint offset, proto_tree *tree, guint32 value)
+{
+proto_tree *sub_tree;
+guint d;
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree_format(tree, tvb, offset, 4 * value,
+ett_ff_sm_dev_annunc_req_entries_h1_live_list, NULL, "Version Number List (%u bytes)", 4 * value);
+for (d = 0; d < value; d++) {
+dissect_ff_msg_sm_dev_annunc_req_h1_live_list(tvb, offset, sub_tree);
+offset += 4;
+}
+}
+static void
+dissect_ff_msg_sm_dev_annunc_req_smk_state(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+static const int * state_flags[] = {
+&hf_ff_sm_dev_annunc_req_smk_state_name,
+&hf_ff_sm_dev_annunc_req_smk_state_sync,
+NULL
+};
+proto_tree_add_bitmask(tree, tvb, offset, hf_ff_sm_dev_annunc_req_smk_state, ett_ff_sm_dev_annunc_req_smk_state, state_flags, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_sm_dev_annunc_req_dev_type(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+static const int * device_flags[] = {
+&hf_ff_sm_dev_annunc_req_dev_type_link,
+&hf_ff_sm_dev_annunc_req_dev_type_iogateway,
+&hf_ff_sm_dev_annunc_req_dev_type_hse,
+&hf_ff_sm_dev_annunc_req_dev_type_h1,
+&hf_ff_sm_dev_annunc_req_dev_type_reserved,
+&hf_ff_sm_dev_annunc_req_dev_type_redundant_caps,
+NULL
+};
+proto_tree_add_bitmask(tree, tvb, offset, hf_ff_sm_dev_annunc_req_dev_type, ett_ff_sm_dev_annunc_req_dev_type, device_flags, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_sm_dev_annunc_req_dev_redundancy_state(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+static const int * device_flags[] = {
+&hf_ff_sm_dev_annunc_req_dev_redundancy_state_reserved,
+&hf_ff_sm_dev_annunc_req_dev_redundancy_state_role,
+&hf_ff_sm_dev_annunc_req_dev_redundancy_state_type,
+NULL
+};
+proto_tree_add_bitmask(tree, tvb, offset, hf_ff_sm_dev_annunc_req_dev_redundancy_state, ett_ff_sm_dev_annunc_req_dev_redundancy_state, device_flags, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_sm_dev_annunc_req_dup_detection_state(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+static const int * state_flags[] = {
+&hf_ff_sm_dev_annunc_req_dup_detection_state_reserved,
+&hf_ff_sm_dev_annunc_req_dup_detection_state_pd_tag,
+&hf_ff_sm_dev_annunc_req_dup_detection_state_device,
+NULL
+};
+proto_tree_add_bitmask(tree, tvb, offset, hf_ff_sm_dev_annunc_req_dup_detection_state, ett_ff_sm_dev_annunc_req_dup_detection_state, state_flags, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_sm_dev_annunc_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree, guint32 FDAAddress)
+{
+proto_tree *sub_tree;
+guint32 NumOfEntriesInVerNumList;
+col_set_str(pinfo->cinfo, COL_INFO, "SM Device Annunciation Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_sm_dev_annunc_req, NULL, "SM Device Annunciation Request");
+dissect_ff_msg_sm_dev_annunc_req_smk_state(tvb, offset, sub_tree);
+offset += 1;
+length -= 1;
+dissect_ff_msg_sm_dev_annunc_req_dev_type(tvb,
+offset, sub_tree);
+offset += 1;
+length -= 1;
+dissect_ff_msg_sm_dev_annunc_req_dev_redundancy_state(tvb,
+offset, sub_tree);
+offset += 1;
+length -= 1;
+dissect_ff_msg_sm_dev_annunc_req_dup_detection_state(tvb,
+offset, sub_tree);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_dev_annunc_req_dev_idx, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_dev_annunc_req_max_dev_idx, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_dev_annunc_req_operational_ip_addr, tvb, offset, 16, ENC_NA);
+offset += 16;
+length -= 16;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_dev_annunc_req_dev_id, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_dev_annunc_req_pd_tag, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_dev_annunc_req_hse_repeat_time, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_dev_annunc_req_lr_port, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_dev_annunc_req_reserved, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_dev_annunc_req_annunc_ver_num, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_sm_dev_annunc_req_hse_dev_ver_num, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+NumOfEntriesInVerNumList = tvb_get_ntohl(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_sm_dev_annunc_req_num_of_entries, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (NumOfEntriesInVerNumList) {
+guint16 LinkId;
+LinkId = (guint16)(FDAAddress >> 16);
+if (LinkId) {
+dissect_ff_msg_sm_dev_annunc_req_entries_node_addr(tvb,
+offset, sub_tree, NumOfEntriesInVerNumList);
+} else {
+dissect_ff_msg_sm_dev_annunc_req_entries_link_id(tvb,
+offset, sub_tree, NumOfEntriesInVerNumList);
+}
+offset += 4 * NumOfEntriesInVerNumList;
+length -= 4 * NumOfEntriesInVerNumList;
+}
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_init_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Initiate Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_init_req, NULL, "FMS Initiate Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_req_conn_opt, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_req_access_protection_supported_calling,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_req_passwd_and_access_grps_calling,
+tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_req_ver_od_calling, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_req_prof_num_calling, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_req_pd_tag, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_init_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Initiate Response");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_init_rep, NULL, "FMS Initiate Response");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_rsp_ver_od_called, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_rsp_prof_num_called, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_init_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Initiate Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_init_err, NULL, "FMS Initiate Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_init_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_err_additional_desc, tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_abort_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Abort Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_abort_req, NULL, "FMS Abort Request");
+proto_tree_add_item(sub_tree, hf_ff_fms_abort_req_detail, tvb, offset, 16, ENC_NA);
+offset += 16;
+length -= 16;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_abort_req_abort_id, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_abort_req_reason_code, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_abort_req_reserved, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_status_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Status Request");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_status_req, NULL, "FMS Status Request");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_status_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Status Response");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_status_rsp, NULL, "FMS Status Response");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_status_rsp_logical_status, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_status_rsp_physical_status, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_status_rsp_reserved, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree, hf_ff_fms_status_rsp_local_detail, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_status_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Status Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_status_err, NULL, "FMS Status Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_status_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_status_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_status_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_status_err_additional_desc, tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_unsolicited_status_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Unsolicited Status Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_unsolicited_status_req, NULL, "FMS Unsolicited Status Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_unsolicited_status_req_logical_status, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_unsolicited_status_req_physical_status,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_unsolicited_status_req_reserved, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree, hf_ff_fms_unsolicited_status_req_local_detail, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_id_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Identify Request");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_id_req, NULL, "FMS Identify Request");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_id_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Identify Response");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_id_rsp, NULL, "FMS Identify Response");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_id_rsp_vendor_name, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_id_rsp_model_name, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_id_rsp_revision, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_id_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Identify Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_id_err, NULL, "FMS Identify Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_id_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_id_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_id_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree, hf_ff_fms_id_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_get_od_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Get OD Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_get_od_req, NULL, "FMS Get OD Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_get_od_req_all_attrs, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_get_od_req_start_idx_flag, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_get_od_req_reserved, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_get_od_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_get_od_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Get OD Response");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_get_od_rsp, NULL, "FMS Get OD Response");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_get_od_rsp_more_follows, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_get_od_rsp_num_of_obj_desc, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_get_od_rsp_reserved, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_fms_get_od_rsp_object_descriptions, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_get_od_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Get OD Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_get_od_err, NULL, "FMS Get OD Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_get_od_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_get_od_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_get_od_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree, hf_ff_fms_get_od_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_init_put_od_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Initiate Put OD Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_init_put_od_req, NULL, "FMS Initiate Put OD Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_put_od_req_reserved, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_put_od_req_consequence, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_init_put_od_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Initiate Put OD Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_init_put_od_rsp, NULL, "FMS Initiate Put OD Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_init_put_od_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Initiate Put OD Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_init_put_od_err, NULL, "FMS Initiate Put OD Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_put_od_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_init_put_od_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_put_od_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree, hf_ff_fms_init_put_od_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_put_od_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Put OD Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_put_od_req, NULL, "FMS Put OD Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_put_od_req_num_of_obj_desc, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree, hf_ff_reserved24, tvb, offset, 3, ENC_BIG_ENDIAN);
+offset += 3;
+length -= 3;
+proto_tree_add_item(sub_tree, hf_ff_fms_put_od_req_object_descriptions, tvb, offset, length, ENC_NA);
+}
+static void
+dissect_ff_msg_fms_put_od_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Put OD Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_put_od_rsp, NULL, "FMS Put OD Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_put_od_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Put OD Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_put_od_err, NULL, "FMS Put OD Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_put_od_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_put_od_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_put_od_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree, hf_ff_fms_put_od_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_terminate_put_od_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Terminate Put OD Request");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_terminate_put_od_req, NULL, "FMS Terminate Put OD Request");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_terminate_put_od_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Terminate Put OD Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_terminate_put_od_rsp, NULL, "FMS Terminate Put OD Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_terminate_put_od_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Terminate Put OD Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_terminate_put_od_err, NULL, "FMS Terminate Put OD Error");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_terminate_put_od_err_index, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_terminate_put_od_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_fms_terminate_put_od_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_terminate_put_od_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_terminate_put_od_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_generic_init_download_sequence_req(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Generic Initiate Download Sequence Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_gen_init_download_seq_req, NULL, "FMS Generic Initiate Download Sequence Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_gen_init_download_seq_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_generic_init_download_sequence_rsp(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Generic Initiate Download Sequence Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_gen_init_download_seq_rep, NULL, "FMS Generic Initiate Download Sequence Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_generic_init_download_sequence_err(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Generic Initiate Download Sequence Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_gen_init_download_seq_err, NULL, "FMS Generic Initiate Download Sequence Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_gen_init_download_seq_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_fms_gen_init_download_seq_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_gen_init_download_seq_err_additional_code,
+tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_gen_init_download_seq_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_generic_download_segment_req(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Generic Download Segment Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_gen_download_seg_req, NULL, "FMS Generic Download Segment Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_gen_download_seg_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_gen_download_seg_req_more_follows, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree, hf_ff_reserved24, tvb, offset, 3, ENC_BIG_ENDIAN);
+offset += 3;
+length -= 3;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_fms_gen_download_seg_req_load_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_generic_download_segment_rsp(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Generic Download Segment Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_gen_download_seg_rsp, NULL, "FMS Generic Download Segment Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_generic_download_segment_err(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Generic Download Segment Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_gen_download_seg_err, NULL, "FMS Generic Download Segment Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_gen_download_seg_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_fms_gen_download_seg_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_gen_download_seg_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_gen_download_seg_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_generic_terminate_download_sequence_req(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Generic Terminate Download Sequence Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_gen_terminate_download_seq_req, NULL, "FMS Generic Terminate Download Sequence Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_gen_terminate_download_seq_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_generic_terminate_download_sequence_rsp(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Generic Terminate Download Sequence Response");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_gen_terminate_download_seq_rsp, NULL, "FMS Generic Terminate Download Sequence Response");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_gen_terminate_download_seq_rsp_final_result,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree, hf_ff_reserved24, tvb, offset, 3, ENC_BIG_ENDIAN);
+offset += 3;
+length -= 3;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_generic_terminate_download_sequence_err(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Generic Terminate Download Sequence Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_gen_terminate_download_seq_err, NULL, "FMS Generic Terminate Download Sequence Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_gen_terminate_download_seq_err_err_class,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_fms_gen_terminate_download_seq_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_gen_terminate_download_seq_err_additional_code,
+tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_gen_terminate_download_seq_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_init_download_sequence_req(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Initiate Download Sequence Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_init_download_seq_req, NULL, "FMS Initiate Download Sequence Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_download_seq_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_init_download_sequence_rsp(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Initiate Download Sequence Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_init_download_seq_rsp, NULL, "FMS Initiate Download Sequence Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_init_download_sequence_err(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Initiate Download Sequence Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_init_download_seq_err, NULL, "FMS Initiate Download Sequence Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_download_seq_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_fms_init_download_seq_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_download_seq_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_download_seq_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_download_segment_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Download Segment Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_download_seg_req, NULL, "FMS Download Segment Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_download_seg_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_download_segment_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Download Segment Response");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_download_seg_rsp, NULL, "FMS Download Segment Response");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_download_seg_rsp_more_follows, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree, hf_ff_reserved24, tvb, offset, 3, ENC_BIG_ENDIAN);
+offset += 3;
+length -= 3;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_fms_download_seg_rsp_load_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_download_segment_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Download Segment Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_download_seg_err, NULL, "FMS Download Segment Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_download_seg_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_download_seg_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_download_seg_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_download_seg_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_terminate_download_sequence_req(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Terminate Download Sequence Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_terminate_download_seq_req, NULL, "FMS Terminate Download Sequence Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_terminate_download_seq_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree, hf_ff_reserved24, tvb, offset, 3, ENC_BIG_ENDIAN);
+offset += 3;
+length -= 3;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_terminate_download_seq_req_final_result,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_terminate_download_sequence_rsp(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Terminate Download Sequence Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_terminate_download_seq_rsp, NULL, "FMS Terminate Download Sequence Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_terminate_download_sequence_err(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Terminate Download Sequence Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_terminate_download_seq_err, NULL, "FMS Terminate Download Sequence Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_terminate_download_seq_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_fms_terminate_download_seq_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_terminate_download_seq_err_additional_code,
+tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_terminate_download_seq_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_init_upload_seq_req(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Initiate Upload Sequence Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_init_upload_seq_req, NULL, "FMS Initiate Upload Sequence Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_upload_seq_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_init_upload_seq_rsp(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Initiate Upload Sequence Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_init_upload_seq_rsp, NULL, "FMS Initiate Upload Sequence Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_init_upload_seq_err(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Initiate Upload Sequence Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_init_upload_seq_err, NULL, "FMS Initiate Upload Sequence Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_upload_seq_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_init_upload_seq_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_init_upload_seq_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree, hf_ff_fms_init_upload_seq_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_upload_segment_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Upload Segment Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_upload_seg_req, NULL, "FMS Upload Segment Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_upload_seg_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_upload_segment_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Upload Segment Response");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_upload_seg_rsp, NULL, "FMS Upload Segment Response");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_upload_seg_rsp_more_follows, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree, hf_ff_reserved24, tvb, offset, 3, ENC_BIG_ENDIAN);
+offset += 3;
+length -= 3;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_fms_upload_seg_rsp_final_result, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_upload_segment_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Upload Segment Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_upload_seg_err, NULL, "FMS Upload Segment Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_upload_seg_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_upload_seg_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_upload_seg_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_upload_seg_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_terminate_upload_seq_req(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Terminate Upload Sequence Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_terminate_upload_seq_req, NULL, "FMS Terminate Upload Sequence Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_terminate_upload_seq_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_terminate_upload_seq_rsp(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Terminate Upload Sequence Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_terminate_upload_seq_rsp, NULL, "FMS Terminate Upload Sequence Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_terminate_upload_seq_err(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Terminate Upload Sequence Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_terminate_upload_seq_err, NULL, "FMS Terminate Upload Sequence Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_terminate_upload_seq_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_fms_terminate_upload_seq_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_terminate_upload_seq_err_additional_code,
+tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_terminate_upload_seq_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_req_dom_download_req(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Request Domain Download Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_req_dom_download_req, NULL, "FMS Request Domain Download Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_req_dom_download_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree,
+hf_ff_fms_req_dom_download_req_additional_info,
+tvb, offset, length, ENC_ASCII|ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_req_dom_download_rsp(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Request Domain Download Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_req_dom_download_rsp, NULL, "FMS Request Domain Download Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_req_dom_download_err(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Request Domain Download Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_req_dom_download_err, NULL, "FMS Request Domain Download Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_req_dom_download_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_fms_req_dom_download_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_req_dom_download_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_req_dom_download_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_req_dom_upload_req(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Request Domain Upload Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_req_dom_upload_req, NULL, "FMS Request Domain Upload Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_req_dom_upload_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree,
+hf_ff_fms_req_dom_upload_req_additional_info,
+tvb, offset, length, ENC_ASCII|ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_req_dom_upload_rsp(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Request Domain Upload Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_req_dom_upload_rsp, NULL, "FMS Request Domain Upload Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_req_dom_upload_err(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Request Domain Upload Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_req_dom_upload_err, NULL, "FMS Request Domain Upload Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_req_dom_upload_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_req_dom_upload_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_req_dom_upload_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_req_dom_upload_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_create_pi_req_dom_idxes(tvbuff_t *tvb,
+gint offset, proto_tree *tree, guint16 value)
+{
+proto_tree *sub_tree;
+guint d;
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree_format(tree, tvb, offset, 4 * value,
+ett_ff_fms_create_pi_req_list_of_dom_idxes, NULL, "List Of Domain Indexes (%u bytes)", 4 * value);
+for (d = 0; d < value; d++) {
+proto_tree_add_item(sub_tree,
+hf_ff_fms_create_pi_req_dom_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+}
+}
+static void
+dissect_ff_msg_fms_create_pi_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint16 NumOfDomIdxes;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Create Program Invocation Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_create_pi_req, NULL, "FMS Create Program Invocation Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_create_pi_req_reusable, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_create_pi_req_reserved, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+NumOfDomIdxes = tvb_get_ntohs(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_create_pi_req_num_of_dom_idxes, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+if (NumOfDomIdxes) {
+dissect_ff_msg_fms_create_pi_req_dom_idxes(tvb,
+offset, sub_tree, NumOfDomIdxes);
+offset += 4 * NumOfDomIdxes;
+length -= 4 * NumOfDomIdxes;
+}
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_create_pi_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Create Program Invocation Response");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_create_pi_rsp, NULL, "FMS Create Program Invocation Response");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_create_pi_rsp_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_create_pi_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Create Program Invocation Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_create_pi_err, NULL, "FMS Create Program Invocation Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_create_pi_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_create_pi_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_create_pi_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_create_pi_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_del_pi_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Delete Program Invocation Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_del_pi_req, NULL, "FMS Delete Program Invocation Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_del_pi_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_del_pi_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Delete Program Invocation Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_del_pi_rsp, NULL, "FMS Delete Program Invocation Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_del_pi_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Delete Program Invocation Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_del_pi_err, NULL, "FMS Delete Program Invocation Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_del_pi_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_del_pi_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_del_pi_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_del_pi_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_start_pi_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Start Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_start_req, NULL, "FMS Start Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_start_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_fms_start_req_execution_argument, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_start_pi_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Start Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_start_rsp, NULL, "FMS Start Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_start_pi_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Start Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_start_err, NULL, "FMS Start Error");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_start_err_pi_state, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree, hf_ff_reserved24, tvb, offset, 3, ENC_BIG_ENDIAN);
+offset += 3;
+length -= 3;
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_start_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_start_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_start_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree, hf_ff_fms_start_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_stop_pi_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Stop Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_stop_req, NULL, "FMS Stop Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_stop_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_stop_pi_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Stop Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_stop_rsp, NULL, "FMS Stop Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_stop_pi_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Stop Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_stop_err, NULL, "FMS Stop Error");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_stop_err_pi_state, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree, hf_ff_reserved24, tvb, offset, 3, ENC_BIG_ENDIAN);
+offset += 3;
+length -= 3;
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_stop_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_stop_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_stop_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree, hf_ff_fms_stop_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_resume_pi_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Resume Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_resume_req, NULL, "FMS Resume Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_resume_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_fms_resume_req_execution_argument, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_resume_pi_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Resume Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_resume_rsp, NULL, "FMS Resume Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_resume_pi_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Resume Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_resume_err, NULL, "FMS Resume Error");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_resume_err_pi_state, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree, hf_ff_reserved24, tvb, offset, 3, ENC_BIG_ENDIAN);
+offset += 3;
+length -= 3;
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_resume_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_resume_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_resume_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree, hf_ff_fms_resume_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_reset_pi_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Reset Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_reset_req, NULL, "FMS Reset Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_reset_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_reset_pi_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Reset Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_reset_rsp, NULL, "FMS Reset Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_reset_pi_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Reset Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_reset_err, NULL, "FMS Reset Error");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_reset_err_pi_state, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree, hf_ff_reserved24, tvb, offset, 3, ENC_BIG_ENDIAN);
+offset += 3;
+length -= 3;
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_reset_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_reset_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_reset_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree, hf_ff_fms_reset_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_kill_pi_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Kill Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_kill_req, NULL, "FMS Kill Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_kill_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_kill_pi_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Kill Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_kill_rsp, NULL, "FMS Kill Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_kill_pi_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Kill Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_kill_err, NULL, "FMS Kill Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_kill_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_kill_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_kill_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree, hf_ff_fms_kill_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_read_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Read Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_read_req, NULL, "FMS Read Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_read_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_read_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Read Response");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_read_rsp, NULL, "FMS Read Response");
+proto_tree_add_item(sub_tree, hf_ff_data, tvb, offset, length, ENC_NA);
+}
+static void
+dissect_ff_msg_fms_read_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Read Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_read_err, NULL, "FMS Read Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_read_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_read_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_read_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree, hf_ff_fms_read_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_read_subindex_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Read with Subindex Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_read_with_subidx_req, NULL, "FMS Read with Subindex Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_read_with_subidx_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_read_with_subidx_req_subidx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_read_subindex_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Read with Subindex Response");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_read_with_subidx_rsp, NULL, "FMS Read with Subindex Response");
+proto_tree_add_item(sub_tree, hf_ff_data, tvb, offset, length, ENC_NA);
+}
+static void
+dissect_ff_msg_fms_read_subindex_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Read with Subindex Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_read_with_subidx_err, NULL, "FMS Read with Subindex Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_read_with_subidx_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_fms_read_with_subidx_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_read_with_subidx_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_read_with_subidx_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_write_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Write Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_write_req, NULL, "FMS Write Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_write_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_write_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Write Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_write_rsp, NULL, "FMS Write Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_write_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Write Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length, ett_ff_fms_write_err, NULL, "FMS Write Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_write_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_fms_write_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_write_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree, hf_ff_fms_write_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_write_subindex_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Write with Subindex Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_write_with_subidx_req, NULL, "FMS Write with Subindex Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_write_with_subidx_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_write_with_subidx_req_subidx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_write_subindex_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Write with Subindex Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_write_with_subidx_rsp, NULL, "FMS Write with Subindex Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_write_subindex_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Write with Subindex Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_write_with_subidx_err, NULL, "FMS Write with Subindex Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_write_with_subidx_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_fms_write_with_subidx_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_write_with_subidx_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_write_with_subidx_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_def_variable_list_req_list_of_idxes(tvbuff_t *tvb,
+gint offset, proto_tree *tree, guint32 value)
+{
+proto_tree *sub_tree;
+guint d;
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree_format(tree, tvb, offset, 4 * value,
+ett_ff_fms_def_variable_list_req_list_of_idxes, NULL, "List Of Indexes (%u bytes)", 4 * value);
+for (d = 0; d < value; d++) {
+proto_tree_add_item(sub_tree,
+hf_ff_fms_def_variable_list_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+}
+}
+static void
+dissect_ff_msg_fms_def_variable_list_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint32 NumOfIndexes;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Define Variable List Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_def_variable_list_req, NULL, "FMS Define Variable List Request");
+NumOfIndexes = tvb_get_ntohl(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_def_variable_list_req_num_of_idxes, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (NumOfIndexes) {
+dissect_ff_msg_fms_def_variable_list_req_list_of_idxes(tvb,
+offset, sub_tree, NumOfIndexes);
+offset += 4 * NumOfIndexes;
+length -= 4 * NumOfIndexes;
+}
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_def_variable_list_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Define Variable List Response");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_def_variable_list_rsp, NULL, "FMS Define Variable List Response");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_def_variable_list_rsp_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_def_variable_list_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Define Variable List Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_def_variable_list_err, NULL, "FMS Define Variable List Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_def_variable_list_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_fms_def_variable_list_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_def_variable_list_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_def_variable_list_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_del_variable_list_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Delete Variable List Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_del_variable_list_req, NULL, "FMS Delete Variable List Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_del_variable_list_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_del_variable_list_rsp(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Delete Variable List Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_del_variable_list_rsp, NULL, "FMS Delete Variable List Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_del_variable_list_err(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Delete Variable List Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_del_variable_list_err, NULL, "FMS Delete Variable List Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_del_variable_list_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_fms_del_variable_list_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_del_variable_list_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_del_variable_list_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_info_report_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Information Report Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_info_report_req, NULL, "FMS Information Report Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_info_report_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_info_report_subindex_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Information Report with Subindex Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_info_report_with_subidx_req, NULL, "FMS Information Report with Subindex Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_info_report_with_subidx_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_info_report_with_subidx_req_subidx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_info_report_change_req(tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Information Report On Change Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_info_report_on_change_req, NULL, "FMS Information Report On Change Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_info_report_on_change_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_info_report_change_subindex_req(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Information Report On Change with Subindex Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_info_report_on_change_with_subidx_req, NULL, "FMS Information Report On Change with Subindex Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_info_report_on_change_with_subidx_req_idx,
+tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_info_report_on_change_with_subidx_req_subidx,
+tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_ev_notification_req(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Event Notification Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_ev_notification_req, NULL, "FMS Event Notification Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_ev_notification_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_ev_notification_req_ev_num, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_alter_alter_ev_condition_monitoring_req(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Alter Event Condition Monitoring Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_alter_ev_condition_monitoring_req, NULL, "FMS Alter Event Condition Monitoring Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_alter_ev_condition_monitoring_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree, hf_ff_reserved24, tvb, offset, 3, ENC_BIG_ENDIAN);
+offset += 3;
+length -= 3;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_alter_ev_condition_monitoring_req_enabled,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_alter_alter_ev_condition_monitoring_rsp(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Alter Event Condition Monitoring Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_alter_ev_condition_monitoring_rsp, NULL, "FMS Alter Event Condition Monitoring Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_alter_alter_ev_condition_monitoring_err(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Alter Event Condition Monitoring Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_alter_ev_condition_monitoring_err, NULL, "FMS Alter Event Condition Monitoring Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_alter_ev_condition_monitoring_err_err_class,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_fms_alter_ev_condition_monitoring_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_alter_ev_condition_monitoring_err_additional_code,
+tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_alter_ev_condition_monitoring_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_ack_ev_notification_req(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Acknowledge Event Notification Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_ack_ev_notification_req, NULL, "FMS Acknowledge Event Notification Request");
+proto_tree_add_item(sub_tree,
+hf_ff_fms_ack_ev_notification_req_idx, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_ack_ev_notification_req_ev_num, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_ack_ev_notification_rsp(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Acknowledge Event Notification Response");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_ack_ev_notification_rsp, NULL, "FMS Acknowledge Event Notification Response");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_fms_ack_ev_notification_err(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "FMS Acknowledge Event Notification Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_fms_ack_ev_notification_err, NULL, "FMS Acknowledge Event Notification Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_fms_ack_ev_notification_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_fms_ack_ev_notification_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_ack_ev_notification_err_additional_code,
+tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_fms_ack_ev_notification_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_lr_get_info_req(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "LAN Redundancy Get Information Request");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_lr_get_info_req, NULL, "LAN Redundancy Get Information Request");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_lr_get_info_rsp_lr_flags(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+static const int * lan_flags[] = {
+&hf_ff_lr_get_info_rsp_lr_flags_reserved,
+&hf_ff_lr_get_info_rsp_lr_flags_load_balance,
+&hf_ff_lr_get_info_rsp_lr_flags_diag,
+&hf_ff_lr_get_info_rsp_lr_flags_multi_recv,
+&hf_ff_lr_get_info_rsp_lr_flags_cross_cable,
+&hf_ff_lr_get_info_rsp_lr_flags_multi_trans,
+NULL
+};
+proto_tree_add_bitmask(tree, tvb, offset, hf_ff_lr_get_info_rsp_lr_flags, ett_ff_lr_get_info_rsp_lr_flags, lan_flags, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_lr_get_info_rsp(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 MaxMsgNumDiff;
+col_set_str(pinfo->cinfo, COL_INFO, "LAN Redundancy Get Information Response");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_lr_get_info_rsp, NULL, "LAN Redundancy Get Information Response");
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_info_rsp_lr_attrs_ver, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+MaxMsgNumDiff = tvb_get_guint8(tvb, offset);
+switch (MaxMsgNumDiff) {
+case 0:
+case 1:
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_lr_get_info_rsp_lr_max_msg_num_diff,
+tvb, offset, 1, MaxMsgNumDiff,
+"Do not detect a fault (%u)",
+MaxMsgNumDiff);
+break;
+default:
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_info_rsp_lr_max_msg_num_diff,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+}
+offset += 1;
+length -= 1;
+dissect_ff_msg_lr_get_info_rsp_lr_flags(tvb, offset, sub_tree);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_info_rsp_reserved, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_info_rsp_diagnostic_msg_intvl, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_info_rsp_aging_time, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_info_rsp_diagnostic_msg_if_a_send_addr,
+tvb, offset, 16, ENC_NA);
+offset += 16;
+length -= 16;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_info_rsp_diagnostic_msg_if_a_recv_addr,
+tvb, offset, 16, ENC_NA);
+offset += 16;
+length -= 16;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_info_rsp_diagnostic_msg_if_b_send_addr,
+tvb, offset, 16, ENC_NA);
+offset += 16;
+length -= 16;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_info_rsp_diagnostic_msg_if_b_recv_addr,
+tvb, offset, 16, ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_lr_get_info_err(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "LAN Redundancy Get Information Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_lr_get_info_err, NULL, "LAN Redundancy Get Information Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_info_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_lr_get_info_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_info_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_info_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_lr_put_info_req_lr_flags(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+static const int * lan_flags[] = {
+&hf_ff_lr_put_info_req_lr_flags_reserved,
+&hf_ff_lr_put_info_req_lr_flags_load_balance,
+&hf_ff_lr_put_info_req_lr_flags_diag,
+&hf_ff_lr_put_info_req_lr_flags_multi_recv,
+&hf_ff_lr_put_info_req_lr_flags_cross_cable,
+&hf_ff_lr_put_info_req_lr_flags_multi_trans,
+NULL
+};
+proto_tree_add_bitmask(tree, tvb, offset, hf_ff_lr_put_info_req_lr_flags, ett_ff_lr_put_info_req_lr_flags, lan_flags, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_lr_put_info_req(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 MaxMsgNumDiff;
+col_set_str(pinfo->cinfo, COL_INFO, "LAN Redundancy Put Information Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_lr_put_info_req, NULL, "LAN Redundancy Put Information Request");
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_req_lr_attrs_ver, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+MaxMsgNumDiff = tvb_get_guint8(tvb, offset);
+switch (MaxMsgNumDiff) {
+case 0:
+case 1:
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_lr_put_info_req_lr_max_msg_num_diff,
+tvb, offset, 1, MaxMsgNumDiff,
+"Do not detect a fault (%u)",
+MaxMsgNumDiff);
+break;
+default:
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_req_lr_max_msg_num_diff,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+}
+offset += 1;
+length -= 1;
+dissect_ff_msg_lr_put_info_req_lr_flags(tvb, offset, sub_tree);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_req_reserved, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_req_diagnostic_msg_intvl, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_req_aging_time, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_req_diagnostic_msg_if_a_send_addr,
+tvb, offset, 16, ENC_NA);
+offset += 16;
+length -= 16;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_req_diagnostic_msg_if_a_recv_addr,
+tvb, offset, 16, ENC_NA);
+offset += 16;
+length -= 16;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_req_diagnostic_msg_if_b_send_addr,
+tvb, offset, 16, ENC_NA);
+offset += 16;
+length -= 16;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_req_diagnostic_msg_if_b_recv_addr,
+tvb, offset, 16, ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_lr_put_info_rsp_lr_flags(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+static const int * lan_flags[] = {
+&hf_ff_lr_put_info_rsp_lr_flags_reserved,
+&hf_ff_lr_put_info_rsp_lr_flags_load_balance,
+&hf_ff_lr_put_info_rsp_lr_flags_diag,
+&hf_ff_lr_put_info_rsp_lr_flags_multi_recv,
+&hf_ff_lr_put_info_rsp_lr_flags_cross_cable,
+&hf_ff_lr_put_info_rsp_lr_flags_multi_trans,
+NULL
+};
+proto_tree_add_bitmask(tree, tvb, offset, hf_ff_lr_put_info_rsp_lr_flags, ett_ff_lr_put_info_rsp_lr_flags, lan_flags, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_lr_put_info_rsp(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 MaxMsgNumDiff;
+col_set_str(pinfo->cinfo, COL_INFO, "LAN Redundancy Put Information Response");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_lr_put_info_rsp, NULL, "LAN Redundancy Put Information Response");
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_rsp_lr_attrs_ver, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+MaxMsgNumDiff = tvb_get_guint8(tvb, offset);
+switch (MaxMsgNumDiff) {
+case 0:
+case 1:
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_lr_put_info_rsp_lr_max_msg_num_diff,
+tvb, offset, 1, MaxMsgNumDiff,
+"Do not detect a fault (%u)",
+MaxMsgNumDiff);
+break;
+default:
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_rsp_lr_max_msg_num_diff,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+}
+offset += 1;
+length -= 1;
+dissect_ff_msg_lr_put_info_rsp_lr_flags(tvb, offset, sub_tree);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_rsp_reserved, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_rsp_diagnostic_msg_intvl, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_rsp_aging_time, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_rsp_diagnostic_msg_if_a_send_addr,
+tvb, offset, 16, ENC_NA);
+offset += 16;
+length -= 16;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_rsp_diagnostic_msg_if_a_recv_addr,
+tvb, offset, 16, ENC_NA);
+offset += 16;
+length -= 16;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_rsp_diagnostic_msg_if_b_send_addr,
+tvb, offset, 16, ENC_NA);
+offset += 16;
+length -= 16;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_rsp_diagnostic_msg_if_b_recv_addr,
+tvb, offset, 16, ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_lr_put_info_err(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "LAN Redundancy Put Information Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_lr_put_info_err, NULL, "LAN Redundancy Put Information Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree, hf_ff_lr_put_info_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_put_info_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+return;
+}
+static void
+dissect_ff_msg_lr_get_statistics_req(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+col_set_str(pinfo->cinfo, COL_INFO, "LAN Redundancy Get Statistics Request");
+if (!tree) {
+return;
+}
+if (length) {
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_lr_get_statistics_req, NULL, "LAN Redundancy Get Statistics Request");
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_lr_get_statistics_rsp_x_cable_stat(tvbuff_t *tvb,
+gint offset, proto_tree *tree, guint32 value)
+{
+proto_tree *sub_tree;
+guint d;
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree_format(tree, tvb, offset, 4 * value,
+ett_ff_lr_get_statistics_rsp_list_of_x_cable_stat, NULL,
+"List of Crossed Cable Status (%u bytes)", 4 * value);
+for (d = 0; d < value; d++) {
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_statistics_rsp_x_cable_stat, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+}
+}
+static void
+dissect_ff_msg_lr_get_statistics_rsp(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint32 NumXcableStat;
+col_set_str(pinfo->cinfo, COL_INFO, "LAN Redundancy Get Statistics Response");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_lr_get_statistics_rsp, NULL, "LAN Redundancy Get Statistics Response");
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_statistics_rsp_num_diag_svr_ind_recv_a,
+tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_statistics_rsp_num_diag_svr_ind_miss_a,
+tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_statistics_rsp_num_rem_dev_diag_recv_fault_a,
+tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_statistics_rsp_num_diag_svr_ind_recv_b,
+tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_statistics_rsp_num_diag_svr_ind_miss_b,
+tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_statistics_rsp_num_rem_dev_diag_recv_fault_b,
+tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+NumXcableStat = tvb_get_ntohl(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_statistics_rsp_num_x_cable_stat, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+if (NumXcableStat) {
+dissect_ff_msg_lr_get_statistics_rsp_x_cable_stat(tvb,
+offset, sub_tree, NumXcableStat);
+offset += 4 * NumXcableStat;
+length -= 4 * NumXcableStat;
+}
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_lr_get_statistics_err(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint8 ErrorClass;
+guint8 ErrorCode;
+const char *error_code;
+col_set_str(pinfo->cinfo, COL_INFO, "LAN Redundancy Get Statistics Error");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_lr_get_statistics_err, NULL, "LAN Redundancy Get Statistics Error");
+ErrorClass = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_statistics_err_err_class, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+ErrorCode = tvb_get_guint8(tvb, offset);
+error_code = val_to_str_err_code(ErrorClass, ErrorCode);
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_lr_get_statistics_err_err_code,
+tvb, offset, 1, ErrorCode,
+"%s (%u)", error_code, ErrorCode);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_statistics_err_additional_code, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_get_statistics_err_additional_desc,
+tvb, offset, 16, ENC_ASCII|ENC_NA);
+offset += 16;
+length -= 16;
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_diagnostic_msg_req_dup_detection_stat(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+static const int * dup_flags[] = {
+&hf_ff_lr_diagnostic_msg_req_dup_detection_state_reserved,
+&hf_ff_lr_diagnostic_msg_req_dup_detection_state_pd_tag,
+&hf_ff_lr_diagnostic_msg_req_dup_detection_state_device,
+NULL
+};
+proto_tree_add_bitmask(tree, tvb, offset, hf_ff_lr_diagnostic_msg_req_dup_detection_state, ett_ff_lr_diagnostic_msg_req_dup_detection_stat, dup_flags, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_diagnostic_msg_req_if_a_to_a_status(tvbuff_t *tvb,
+gint offset, proto_tree *tree, guint32 value)
+{
+proto_tree *sub_tree;
+guint d;
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree_format(tree, tvb, offset, 4 * value,
+ett_ff_lr_diagnostic_msg_req_a_to_a_status, NULL,
+"List of Interface AtoA Statuses (%u bytes)", 4 * value);
+for (d = 0; d < value; d++) {
+proto_tree_add_item(sub_tree,
+hf_ff_lr_diagnostic_msg_req_if_a_to_a_status,
+tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+}
+}
+static void
+dissect_ff_msg_diagnostic_msg_req_if_b_to_a_status(tvbuff_t *tvb,
+gint offset, proto_tree *tree, guint32 value)
+{
+proto_tree *sub_tree;
+guint d;
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree_format(tree, tvb, offset, 4 * value,
+ett_ff_lr_diagnostic_msg_req_b_to_a_status, NULL,
+"List of Interface BtoA Statuses (%u bytes)", 4 * value);
+for (d = 0; d < value; d++) {
+proto_tree_add_item(sub_tree,
+hf_ff_lr_diagnostic_msg_req_if_b_to_a_status,
+tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+}
+}
+static void
+dissect_ff_msg_diagnostic_msg_req_if_a_to_b_status(tvbuff_t *tvb,
+gint offset, proto_tree *tree, guint32 value)
+{
+proto_tree *sub_tree;
+guint d;
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree_format(tree, tvb, offset, 4 * value,
+ett_ff_lr_diagnostic_msg_req_a_to_b_status, NULL,
+"List of Interface AtoB Statuses (%u bytes)", 4 * value);
+for (d = 0; d < value; d++) {
+proto_tree_add_item(sub_tree,
+hf_ff_lr_diagnostic_msg_req_if_a_to_b_status,
+tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+}
+}
+static void
+dissect_ff_msg_diagnostic_msg_req_if_b_to_b_status(tvbuff_t *tvb,
+gint offset, proto_tree *tree, guint32 value)
+{
+proto_tree *sub_tree;
+guint d;
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree_format(tree, tvb, offset, 4 * value,
+ett_ff_lr_diagnostic_msg_req_b_to_b_status, NULL,
+"List of Interface BtoB Statuses (%u bytes)", 4 * value);
+for (d = 0; d < value; d++) {
+proto_tree_add_item(sub_tree,
+hf_ff_lr_diagnostic_msg_req_if_b_to_b_status,
+tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+}
+}
+static void
+dissect_ff_msg_diagnostic_msg_req(
+tvbuff_t *tvb, gint offset,
+guint32 length, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *sub_tree;
+guint16 DeviceIndex;
+guint16 NumOfInterfaceStatuses;
+col_set_str(pinfo->cinfo, COL_INFO, "Diagnostic Message Request");
+if (!tree) {
+return;
+}
+sub_tree = proto_tree_add_subtree(tree, tvb, offset, length,
+ett_ff_lr_diagnostic_msg_req, NULL, "Diagnostic Message Request");
+DeviceIndex = tvb_get_ntohs(tvb, offset);
+if (DeviceIndex) {
+proto_tree_add_item(sub_tree,
+hf_ff_lr_diagnostic_msg_req_dev_idx, tvb, offset, 2, ENC_BIG_ENDIAN);
+} else {
+proto_tree_add_uint_format_value(sub_tree,
+hf_ff_lr_diagnostic_msg_req_dev_idx,
+tvb, offset, 2, DeviceIndex,
+"Index not assigned (%u)", DeviceIndex);
+}
+offset += 2;
+length -= 2;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_diagnostic_msg_req_num_of_network_ifs,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_diagnostic_msg_req_transmission_if, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_diagnostic_msg_req_diagnostic_msg_intvl,
+tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+length -= 4;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_diagnostic_msg_req_pd_tag, tvb, offset, 32, ENC_ASCII|ENC_NA);
+offset += 32;
+length -= 32;
+proto_tree_add_item(sub_tree,
+hf_ff_lr_diagnostic_msg_req_reserved, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+length -= 1;
+dissect_ff_msg_diagnostic_msg_req_dup_detection_stat(tvb,
+offset, sub_tree);
+offset += 1;
+length -= 1;
+NumOfInterfaceStatuses = tvb_get_ntohs(tvb, offset);
+proto_tree_add_item(sub_tree,
+hf_ff_lr_diagnostic_msg_req_num_of_if_statuses, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+length -= 2;
+if (NumOfInterfaceStatuses) {
+dissect_ff_msg_diagnostic_msg_req_if_a_to_a_status(tvb,
+offset, sub_tree, NumOfInterfaceStatuses);
+offset += 4 * NumOfInterfaceStatuses;
+length -= 4 * NumOfInterfaceStatuses;
+dissect_ff_msg_diagnostic_msg_req_if_b_to_a_status(tvb,
+offset, sub_tree, NumOfInterfaceStatuses);
+offset += 4 * NumOfInterfaceStatuses;
+length -= 4 * NumOfInterfaceStatuses;
+dissect_ff_msg_diagnostic_msg_req_if_a_to_b_status(tvb,
+offset, sub_tree, NumOfInterfaceStatuses);
+offset += 4 * NumOfInterfaceStatuses;
+length -= 4 * NumOfInterfaceStatuses;
+dissect_ff_msg_diagnostic_msg_req_if_b_to_b_status(tvb,
+offset, sub_tree, NumOfInterfaceStatuses);
+offset += 4 * NumOfInterfaceStatuses;
+length -= 4 * NumOfInterfaceStatuses;
+}
+if (length) {
+proto_tree_add_item(sub_tree, hf_ff_unknown_data, tvb, offset, length, ENC_NA);
+}
+}
+static void
+dissect_ff_msg_body(tvbuff_t *tvb, gint offset, guint32 length,
+packet_info *pinfo, proto_tree *tree,
+guint8 ProtocolAndType, guint8 Service, guint32 FDAAddress)
+{
+proto_item *hidden_item;
+guint16 message = 0;
+message = ((guint16)ProtocolAndType) << 8;
+message |= (guint16)Service;
+switch (message) {
+case FDA_MSG_SESSION_OPEN_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fda, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fda_open_sess, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fda_open_sess_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fda_open_sess_req(tvb, offset, length,
+pinfo, tree);
+break;
+case FDA_MSG_SESSION_OPEN_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fda, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fda_open_sess, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fda_open_sess_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fda_open_sess_rsp(tvb, offset, length,
+pinfo, tree);
+break;
+case FDA_MSG_SESSION_OPEN_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fda, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fda_open_sess, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fda_open_sess_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fda_open_sess_err(tvb, offset, length,
+pinfo, tree);
+break;
+case FDA_MSG_SESSION_IDLE_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fda, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fda_idle, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fda_idle_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fda_idle_req(tvb, offset, length,
+pinfo, tree);
+break;
+case FDA_MSG_SESSION_IDLE_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fda, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fda_idle, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fda_idle_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fda_idle_rsp(tvb, offset, length,
+pinfo, tree);
+break;
+case FDA_MSG_SESSION_IDLE_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fda, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fda_idle, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fda_idle_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fda_idle_err(tvb, offset, length,
+pinfo, tree);
+break;
+case SM_MSG_FIND_TAG_QUERY_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_find_tag_query, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_find_tag_query_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_sm_find_tag_query_req(tvb, offset, length,
+pinfo, tree);
+break;
+case SM_MSG_FIND_TAG_REPLY_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_find_tag_reply, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_find_tag_reply_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_sm_find_tag_reply_req(tvb, offset, length,
+pinfo, tree);
+break;
+case SM_MSG_IDENTIFY_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_id, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_id_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_sm_id_req(tvb, offset, length,
+pinfo, tree);
+break;
+case SM_MSG_IDENTIFY_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_id, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_id_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_sm_id_rsp(tvb, offset, length,
+pinfo, tree, FDAAddress);
+break;
+case SM_MSG_IDENTIFY_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_id, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_id_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_sm_id_err(tvb, offset, length,
+pinfo, tree);
+break;
+case SM_MSG_CLEAR_ADDRESS_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_clear_addr, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_clear_addr_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_sm_clear_addr_req(tvb, offset, length,
+pinfo, tree);
+break;
+case SM_MSG_CLEAR_ADDRESS_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_clear_addr, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_clear_addr_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_sm_clear_addr_rsp(tvb, offset, length,
+pinfo, tree);
+break;
+case SM_MSG_CLEAR_ADDRESS_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_clear_addr, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_clear_addr_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_sm_clear_addr_err(tvb, offset, length,
+pinfo, tree);
+break;
+case SM_MSG_SET_ASSIGNMENT_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_set_assign_info, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_set_assign_info_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_sm_set_assign_info_req(tvb, offset,
+length, pinfo, tree);
+break;
+case SM_MSG_SET_ASSIGNMENT_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_set_assign_info, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_set_assign_info_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_sm_set_assign_info_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case SM_MSG_SET_ASSIGNMENT_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_set_assign_info, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_set_assign_info_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_sm_set_assign_info_err(tvb, offset,
+length, pinfo, tree);
+break;
+case SM_MSG_CLEAR_ASSIGNMENT_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_clear_assign_info, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_clear_assign_info_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_sm_clear_assign_info_req(tvb, offset,
+length, pinfo, tree);
+break;
+case SM_MSG_CLEAR_ASSIGNMENT_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_clear_assign_info, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_clear_assign_info_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_sm_clear_assign_info_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case SM_MSG_CLEAR_ASSIGNMENT_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_clear_assign_info, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_clear_assign_info_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_sm_clear_assign_info_err(tvb, offset,
+length, pinfo, tree);
+break;
+case SM_MSG_DEVICE_ANNUNCIATION_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_dev_annunc, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_sm_dev_annunc_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_sm_dev_annunc_req(tvb, offset,
+length, pinfo, tree, FDAAddress);
+break;
+case FMS_MSG_INITIATE_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_init_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_INITIATE_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_init_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_INITIATE_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_init_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_ABORT_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_abort, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_abort_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_abort_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_STATUS_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_status, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_status_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_status_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_STATUS_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_status, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_status_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_status_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_STATUS_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_status, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_status_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_status_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_UNSOLICITED_STATUS_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_unsolicited_status, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_unsolicited_status_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_unsolicited_status_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_IDENTIFY_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_id, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_id_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_id_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_IDENTIFY_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_id, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_id_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_id_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_IDENTIFY_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_id, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_id_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_id_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_GET_OD_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_get_od, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_get_od_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_get_od_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_GET_OD_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_get_od, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_get_od_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_get_od_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_GET_OD_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_get_od, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_get_od_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_get_od_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_INITIATE_PUT_OD_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_put_od, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_put_od_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_init_put_od_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_INITIATE_PUT_OD_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_put_od, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_put_od_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_init_put_od_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_INITIATE_PUT_OD_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_put_od, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_put_od_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_init_put_od_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_PUT_OD_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_put_od, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_put_od_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_put_od_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_PUT_OD_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_put_od, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_put_od_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_put_od_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_PUT_OD_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_put_od, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_put_od_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_put_od_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_TERMINATE_PUT_OD_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_terminate_put_od, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_terminate_put_od_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_terminate_put_od_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_TERMINATE_PUT_OD_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_terminate_put_od, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_terminate_put_od_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_terminate_put_od_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_TERMINATE_PUT_OD_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_terminate_put_od, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_terminate_put_od_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_terminate_put_od_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_GENERIC_INITIATE_DOWNLOAD_SEQUENCE_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_gen_init_download_seq, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_gen_init_download_seq_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_generic_init_download_sequence_req(
+tvb, offset, length, pinfo, tree);
+break;
+case FMS_MSG_GENERIC_INITIATE_DOWNLOAD_SEQUENCE_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_gen_init_download_seq, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_gen_init_download_seq_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_generic_init_download_sequence_rsp(
+tvb, offset, length, pinfo, tree);
+break;
+case FMS_MSG_GENERIC_INITIATE_DOWNLOAD_SEQUENCE_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_gen_init_download_seq, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_gen_init_download_seq_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_generic_init_download_sequence_err(
+tvb, offset, length, pinfo, tree);
+break;
+case FMS_MSG_GENERIC_DOWNLOAD_SEGMENT_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_gen_download_seg, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_gen_download_seg_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_generic_download_segment_req(tvb,
+offset, length, pinfo, tree);
+break;
+case FMS_MSG_GENERIC_DOWNLOAD_SEGMENT_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_gen_download_seg, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_gen_download_seg_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_generic_download_segment_rsp(tvb,
+offset, length, pinfo, tree);
+break;
+case FMS_MSG_GENERIC_DOWNLOAD_SEGMENT_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_gen_download_seg, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_gen_download_seg_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_generic_download_segment_err(tvb,
+offset, length, pinfo, tree);
+break;
+case FMS_MSG_GENERIC_TERMINATE_DOWNLOAD_SEQUENCE_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_gen_terminate_download_seq, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_gen_terminate_download_seq_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_generic_terminate_download_sequence_req(
+tvb, offset, length, pinfo, tree);
+break;
+case FMS_MSG_GENERIC_TERMINATE_DOWNLOAD_SEQUENCE_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_gen_terminate_download_seq, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_gen_terminate_download_seq_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_generic_terminate_download_sequence_rsp(
+tvb, offset, length, pinfo, tree);
+break;
+case FMS_MSG_GENERIC_TERMINATE_DOWNLOAD_SEQUENCE_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_gen_terminate_download_seq, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_gen_terminate_download_seq_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_generic_terminate_download_sequence_err(
+tvb, offset, length, pinfo, tree);
+break;
+case FMS_MSG_INITIATE_DOWNLOAD_SEQUENCE_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_download_seq, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_download_seq_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_init_download_sequence_req(tvb,
+offset, length, pinfo, tree);
+break;
+case FMS_MSG_INITIATE_DOWNLOAD_SEQUENCE_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_download_seq, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_download_seq_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_init_download_sequence_rsp(tvb,
+offset, length, pinfo, tree);
+break;
+case FMS_MSG_INITIATE_DOWNLOAD_SEQUENCE_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_download_seq, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_download_seq_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_init_download_sequence_err(tvb,
+offset, length, pinfo, tree);
+break;
+case FMS_MSG_DOWNLOAD_SEGMENT_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_download_seg, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_download_seg_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_download_segment_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_DOWNLOAD_SEGMENT_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_download_seg, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_download_seg_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_download_segment_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_DOWNLOAD_SEGMENT_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_download_seg, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_download_seg_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_download_segment_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_TERMINATE_DOWNLOAD_SEQUENCE_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_terminate_download_seq, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_terminate_download_seq_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_terminate_download_sequence_req(tvb,
+offset, length, pinfo, tree);
+break;
+case FMS_MSG_TERMINATE_DOWNLOAD_SEQUENCE_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_terminate_download_seq, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_terminate_download_seq_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_terminate_download_sequence_rsp(tvb,
+offset, length, pinfo, tree);
+break;
+case FMS_MSG_TERMINATE_DOWNLOAD_SEQUENCE_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_terminate_download_seq, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_terminate_download_seq_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_terminate_download_sequence_err(tvb,
+offset, length, pinfo, tree);
+break;
+case FMS_MSG_INITIATE_UPLOAD_SEQUENCE_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_upload_seq, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_upload_seq_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_init_upload_seq_req(tvb,
+offset, length, pinfo, tree);
+break;
+case FMS_MSG_INITIATE_UPLOAD_SEQUENCE_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_upload_seq, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_upload_seq_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_init_upload_seq_rsp(tvb,
+offset, length, pinfo, tree);
+break;
+case FMS_MSG_INITIATE_UPLOAD_SEQUENCE_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_upload_seq, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_init_upload_seq_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_init_upload_seq_err(tvb,
+offset, length, pinfo, tree);
+break;
+case FMS_MSG_UPLOAD_SEGMENT_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_upload_seg, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_upload_seg_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_upload_segment_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_UPLOAD_SEGMENT_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_upload_seg, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_upload_seg_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_upload_segment_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_UPLOAD_SEGMENT_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_upload_seg, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_upload_seg_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_upload_segment_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_TERMINATE_UPLOAD_SEQUENCE_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_terminate_upload_seq, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_terminate_upload_seq_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_terminate_upload_seq_req(tvb,
+offset, length, pinfo, tree);
+break;
+case FMS_MSG_TERMINATE_UPLOAD_SEQUENCE_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_terminate_upload_seq, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_terminate_upload_seq_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_terminate_upload_seq_rsp(tvb,
+offset, length, pinfo, tree);
+break;
+case FMS_MSG_TERMINATE_UPLOAD_SEQUENCE_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_terminate_upload_seq, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_terminate_upload_seq_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_terminate_upload_seq_err(tvb,
+offset, length, pinfo, tree);
+break;
+case FMS_MSG_REQUEST_DOMAIN_DOWNLOAD_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_req_dom_download, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_req_dom_download_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_req_dom_download_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_REQUEST_DOMAIN_DOWNLOAD_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_req_dom_download, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_req_dom_download_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_req_dom_download_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_REQUEST_DOMAIN_DOWNLOAD_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_req_dom_download, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_req_dom_download_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_req_dom_download_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_REQUEST_DOMAIN_UPLOAD_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_req_dom_upload, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_req_dom_upload_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_req_dom_upload_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_REQUEST_DOMAIN_UPLOAD_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_req_dom_upload, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_req_dom_upload_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_req_dom_upload_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_REQUEST_DOMAIN_UPLOAD_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_req_dom_upload, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_req_dom_upload_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_req_dom_upload_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_CREATE_PI_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_create_pi, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_create_pi_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_create_pi_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_CREATE_PI_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_create_pi, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_create_pi_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_create_pi_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_CREATE_PI_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_create_pi, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_create_pi_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_create_pi_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_DELETE_PI_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_del_pi, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_del_pi_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_del_pi_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_DELETE_PI_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_del_pi, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_del_pi_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_del_pi_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_DELETE_PI_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_del_pi, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_del_pi_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_del_pi_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_START_PI_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_start, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_start_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_start_pi_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_START_PI_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_start, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_start_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_start_pi_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_START_PI_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_start, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_start_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_start_pi_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_STOP_PI_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_stop, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_stop_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_stop_pi_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_STOP_PI_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_stop, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_stop_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_stop_pi_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_STOP_PI_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_stop, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_stop_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_stop_pi_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_RESUME_PI_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_resume, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_resume_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_resume_pi_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_RESUME_PI_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_resume, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_resume_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_resume_pi_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_RESUME_PI_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_resume, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_resume_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_resume_pi_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_RESET_PI_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_reset, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_reset_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_reset_pi_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_RESET_PI_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_reset, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_reset_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_reset_pi_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_RESET_PI_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_reset, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_reset_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_reset_pi_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_KILL_PI_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_kill, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_kill_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_kill_pi_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_KILL_PI_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_kill, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_kill_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_kill_pi_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_KILL_PI_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_kill, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_kill_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_kill_pi_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_READ_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_read, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_read_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_read_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_READ_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_read, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_read_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_read_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_READ_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_read, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_read_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_read_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_READ_SUBINDEX_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_read_with_subidx, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_read_with_subidx_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_read_subindex_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_READ_SUBINDEX_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_read_with_subidx, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_read_with_subidx_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_read_subindex_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_READ_SUBINDEX_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_read_with_subidx, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_read_with_subidx_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_read_subindex_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_WRITE_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_write, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_write_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_write_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_WRITE_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_write, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_write_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_write_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_WRITE_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_write, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_write_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_write_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_WRITE_SUBINDEX_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_write_with_subidx, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_write_with_subidx_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_write_subindex_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_WRITE_SUBINDEX_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_write_with_subidx, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_write_with_subidx_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_write_subindex_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_WRITE_SUBINDEX_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_write_with_subidx, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_write_with_subidx_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_write_subindex_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_DEFINE_VARIABLE_LIST_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_def_variable_list, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_def_variable_list_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_def_variable_list_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_DEFINE_VARIABLE_LIST_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_def_variable_list, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_def_variable_list_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_def_variable_list_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_DEFINE_VARIABLE_LIST_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_def_variable_list, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_def_variable_list_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_def_variable_list_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_DELETE_VARIABLE_LIST_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_del_variable_list, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_del_variable_list_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_del_variable_list_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_DELETE_VARIABLE_LIST_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_del_variable_list, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_del_variable_list_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_del_variable_list_rsp(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_DELETE_VARIABLE_LIST_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_del_variable_list, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_del_variable_list_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_del_variable_list_err(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_INFO_REPORT_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_info_report, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_info_report_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_info_report_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_INFO_REPORT_SUBINDEX_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_info_report_with_subidx, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_info_report_with_subidx_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_info_report_subindex_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_INFO_REPORT_CHANGE_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_info_report_on_change, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_info_report_on_change_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_info_report_change_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_INFO_REPORT_CHANGE_SUBINDEX_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_info_report_on_change_with_subidx, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_info_report_on_change_with_subidx_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_info_report_change_subindex_req(tvb,
+offset, length, pinfo, tree);
+break;
+case FMS_MSG_EVENT_NOTIFICATION_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_ev_notification, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_ev_notification_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_ev_notification_req(tvb, offset,
+length, pinfo, tree);
+break;
+case FMS_MSG_ALTER_EVENT_CONDITION_MONITORING_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_alter_ev_condition_monitoring, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_alter_ev_condition_monitoring_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_alter_alter_ev_condition_monitoring_req(
+tvb, offset, length, pinfo, tree);
+break;
+case FMS_MSG_ALTER_EVENT_CONDITION_MONITORING_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_alter_ev_condition_monitoring, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_alter_ev_condition_monitoring_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_alter_alter_ev_condition_monitoring_rsp(
+tvb, offset, length, pinfo, tree);
+break;
+case FMS_MSG_ALTER_EVENT_CONDITION_MONITORING_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_alter_ev_condition_monitoring, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_alter_ev_condition_monitoring_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_alter_alter_ev_condition_monitoring_err(
+tvb, offset, length, pinfo, tree);
+break;
+case FMS_MSG_ACKNOWLEDGE_EVENT_NOTIFICATION_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_ack_ev_notification, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_ack_ev_notification_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_ack_ev_notification_req(tvb,
+offset, length, pinfo, tree);
+break;
+case FMS_MSG_ACKNOWLEDGE_EVENT_NOTIFICATION_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_ack_ev_notification, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_ack_ev_notification_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_ack_ev_notification_rsp(tvb,
+offset, length, pinfo, tree);
+break;
+case FMS_MSG_ACKNOWLEDGE_EVENT_NOTIFICATION_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_ack_ev_notification, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_fms_ack_ev_notification_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_fms_ack_ev_notification_err(tvb,
+offset, length, pinfo, tree);
+break;
+case LAN_MSG_GET_INFO_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_get_info, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_get_info_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_lr_get_info_req(tvb,
+offset, length, pinfo, tree);
+break;
+case LAN_MSG_GET_INFO_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_get_info, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_get_info_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_lr_get_info_rsp(tvb,
+offset, length, pinfo, tree);
+break;
+case LAN_MSG_GET_INFO_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_get_info, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_get_info_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_lr_get_info_err(tvb,
+offset, length, pinfo, tree);
+break;
+case LAN_MSG_PUT_INFO_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_put_info, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_put_info_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_lr_put_info_req(tvb,
+offset, length, pinfo, tree);
+break;
+case LAN_MSG_PUT_INFO_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_put_info, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_put_info_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_lr_put_info_rsp(tvb,
+offset, length, pinfo, tree);
+break;
+case LAN_MSG_PUT_INFO_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_put_info, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_put_info_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_lr_put_info_err(tvb,
+offset, length, pinfo, tree);
+break;
+case LAN_MSG_GET_STATISTICS_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_get_statistics, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_get_statistics_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_lr_get_statistics_req(tvb,
+offset, length, pinfo, tree);
+break;
+case LAN_MSG_GET_STATISTICS_RSP:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_get_statistics, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_get_statistics_rsp, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_lr_get_statistics_rsp(tvb,
+offset, length, pinfo, tree);
+break;
+case LAN_MSG_GET_STATISTICS_ERR:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_get_statistics, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_get_statistics_err, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_lr_get_statistics_err(tvb,
+offset, length, pinfo, tree);
+break;
+case LAN_MSG_DIAG_REQ:
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_diagnostic_msg, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+hidden_item = proto_tree_add_boolean(tree,
+hf_ff_lr_diagnostic_msg_req, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+dissect_ff_msg_diagnostic_msg_req(tvb,
+offset, length, pinfo, tree);
+break;
+default:
+col_add_fstr(pinfo->cinfo, COL_INFO,
+"Unknown Service (Protocol Id: %u, Confirmed Msg Type: %u) "
+"(%s Service Id = %u)",
+(ProtocolAndType & PROTOCOL_MASK) >> 2,
+ProtocolAndType & TYPE_MASK,
+(Service & SERVICE_CONFIRMED_FLAG_MASK)?
+"Confirmed": "Unconfirmed",
+Service & SERVICE_SERVICE_ID_MASK);
+if (length) {
+proto_tree_add_item(tree, hf_ff_unknown_service, tvb, offset, length, ENC_NA);
+}
+}
+}
+static void
+dissect_ff_msg_trailer(tvbuff_t *tvb,
+gint offset, guint32 length, proto_tree *tree, guint8 Options)
+{
+proto_tree *sub_tree;
+proto_item *hidden_item;
+if (!tree) {
+return;
+}
+hidden_item = proto_tree_add_boolean(tree, hf_ff_fda_msg_trailer, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+sub_tree = proto_tree_add_subtree(tree,
+tvb, offset, length, ett_ff_fda_msg_trailer, NULL, "FDA Message Trailer");
+if (Options & OPTION_MESSAGE_NUMBER_MASK) {
+proto_tree_add_item(sub_tree,
+hf_ff_fda_msg_trailer_msg_num, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+}
+if (Options & OPTION_INVOKE_ID_MASK) {
+proto_tree_add_item(sub_tree,
+hf_ff_fda_msg_trailer_invoke_id, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+}
+if (Options & OPTION_TIME_STAMP_MASK) {
+proto_tree_add_item(sub_tree,
+hf_ff_fda_msg_trailer_time_stamp, tvb, offset, 8, ENC_BIG_ENDIAN);
+offset += 8;
+}
+if (Options & OPTION_EXTENDED_CNTRL_MASK) {
+proto_tree_add_item(sub_tree,
+hf_ff_fda_msg_trailer_extended_control_field,
+tvb, offset, 4, ENC_BIG_ENDIAN);
+}
+}
+static void
+dissect_ff_msg_hdr_srv(tvbuff_t *tvb,
+gint offset, proto_tree *tree, guint8 proto_and_type, guint8 service)
+{
+proto_tree *sub_tree;
+proto_item *ti;
+if (!tree) {
+return;
+}
+ti = proto_tree_add_uint(tree, hf_ff_hdr_srv, tvb, offset, 1, service);
+sub_tree = proto_item_add_subtree(ti, ett_ff_fda_msg_hdr_srv);
+proto_tree_add_item(sub_tree, hf_ff_hdr_srv_confirm_flag, tvb, offset, 1, ENC_BIG_ENDIAN);
+switch (proto_and_type & PROTOCOL_MASK) {
+case PROTOCOL_FDA:
+if (service & SERVICE_CONFIRMED_FLAG_MASK) {
+proto_tree_add_item(sub_tree, hf_ff_hdr_srv_fda_service_id_confirm, tvb, offset, 1, ENC_BIG_ENDIAN);
+} else {
+proto_tree_add_item(sub_tree, hf_ff_hdr_srv_fda_service_id_unconfirm, tvb, offset, 1, ENC_BIG_ENDIAN);
+}
+break;
+case PROTOCOL_SM:
+if (service & SERVICE_CONFIRMED_FLAG_MASK) {
+proto_tree_add_item(sub_tree, hf_ff_hdr_srv_sm_service_id_confirm, tvb, offset, 1, ENC_BIG_ENDIAN);
+} else {
+proto_tree_add_item(sub_tree, hf_ff_hdr_srv_sm_service_id_unconfirm, tvb, offset, 1, ENC_BIG_ENDIAN);
+}
+break;
+case PROTOCOL_FMS:
+if (service & SERVICE_CONFIRMED_FLAG_MASK) {
+proto_tree_add_item(sub_tree, hf_ff_hdr_srv_fms_service_id_confirm, tvb, offset, 1, ENC_BIG_ENDIAN);
+} else {
+proto_tree_add_item(sub_tree, hf_ff_hdr_srv_fms_service_id_unconfirm, tvb, offset, 1, ENC_BIG_ENDIAN);
+}
+break;
+case PROTOCOL_LAN:
+if (service & SERVICE_CONFIRMED_FLAG_MASK) {
+proto_tree_add_item(sub_tree, hf_ff_hdr_srv_lan_service_id_confirm, tvb, offset, 1, ENC_BIG_ENDIAN);
+} else {
+proto_tree_add_item(sub_tree, hf_ff_hdr_srv_lan_service_id_unconfirm, tvb, offset, 1, ENC_BIG_ENDIAN);
+}
+break;
+default:
+proto_tree_add_item(sub_tree, hf_ff_hdr_srv_service_id, tvb, offset, 1, ENC_BIG_ENDIAN);
+}
+}
+static void
+dissect_ff_msg_hdr_proto_and_type(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+static const int * header[] = {
+&hf_ff_hdr_proto_id,
+&hf_ff_hdr_confirm_msg_type,
+NULL
+};
+proto_tree_add_bitmask(tree, tvb, offset, hf_ff_hdr_proto_confirm, ett_ff_fda_msg_hdr_proto_and_type, header, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_hdr_opts(tvbuff_t *tvb,
+gint offset, proto_tree *tree)
+{
+static const int * options[] = {
+&hf_ff_hdr_opts_msg_num,
+&hf_ff_hdr_opts_invoke_id,
+&hf_ff_hdr_opts_timestamp,
+&hf_ff_hdr_opts_reserved,
+&hf_ff_hdr_opts_ext_ctrl,
+&hf_ff_hdr_opts_pad,
+NULL
+};
+proto_tree_add_bitmask(tree, tvb, offset, hf_ff_hdr_opts, ett_ff_fda_msg_hdr_opts, options, ENC_BIG_ENDIAN);
+}
+static void
+dissect_ff_msg_hdr(tvbuff_t *tvb,
+proto_tree *tree, guint8 ProtocolAndType, guint8 Service)
+{
+proto_tree *sub_tree;
+proto_item *hidden_item;
+gint offset = 0;
+if (!tree) {
+return;
+}
+hidden_item = proto_tree_add_boolean(tree, hf_ff_fda_msg_hdr, tvb, 0, 0, 1);
+PROTO_ITEM_SET_HIDDEN(hidden_item);
+sub_tree = proto_tree_add_subtree(tree,
+tvb, offset, 12, ett_ff_fda_msg_hdr, NULL, "FDA Message Header");
+proto_tree_add_item(sub_tree,
+hf_ff_fda_msg_hdr_ver, tvb, offset, 1, ENC_BIG_ENDIAN);
+offset += 1;
+dissect_ff_msg_hdr_opts(tvb, offset, sub_tree);
+offset += 1;
+dissect_ff_msg_hdr_proto_and_type(tvb,
+offset, sub_tree);
+offset += 1;
+dissect_ff_msg_hdr_srv(tvb,
+offset, sub_tree, ProtocolAndType, Service);
+offset += 1;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_msg_hdr_fda_addr, tvb, offset, 4, ENC_BIG_ENDIAN);
+offset += 4;
+proto_tree_add_item(sub_tree,
+hf_ff_fda_msg_hdr_len, tvb, offset, 4, ENC_BIG_ENDIAN);
+}
+static int
+dissect_ff(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void* data _U_)
+{
+proto_tree *sub_tree;
+proto_item *ti;
+gint offset = 0;
+guint8 Options = 0;
+guint8 ProtocolAndType = 0;
+guint8 Service = 0;
+guint32 FDAAddress = 0;
+guint32 length = 0;
+guint32 trailer_len = 0;
+col_set_str(pinfo->cinfo, COL_PROTOCOL, "FF");
+Options = tvb_get_guint8(tvb, 1);
+ProtocolAndType = tvb_get_guint8(tvb, 2);
+Service = tvb_get_guint8(tvb, 3);
+FDAAddress = tvb_get_ntohl(tvb, 4);
+length = tvb_get_ntohl(tvb, 8);
+ti = proto_tree_add_item(tree, proto_ff, tvb, offset, length, ENC_NA);
+sub_tree = proto_item_add_subtree(ti, ett_ff);
+if (Options & OPTION_MESSAGE_NUMBER_MASK) {
+length -= 4;
+trailer_len += 4;
+}
+if (Options & OPTION_INVOKE_ID_MASK) {
+length -= 4;
+trailer_len += 4;
+}
+if (Options & OPTION_TIME_STAMP_MASK) {
+length -= 8;
+trailer_len += 8;
+}
+if (Options & OPTION_EXTENDED_CNTRL_MASK) {
+length -= 4;
+trailer_len += 4;
+}
+dissect_ff_msg_hdr(tvb, sub_tree, ProtocolAndType, Service);
+offset += 12;
+length -= 12;
+dissect_ff_msg_body(tvb, offset, length, pinfo, sub_tree,
+ProtocolAndType, Service, FDAAddress);
+offset += length;
+if (trailer_len) {
+dissect_ff_msg_trailer(tvb,
+offset, trailer_len, sub_tree, Options);
+}
+return tvb_captured_length(tvb);
+}
+static guint
+get_ff_pdu_len(packet_info *pinfo _U_, tvbuff_t *tvb, int offset, void *data _U_)
+{
+return (tvb_get_ntohl(tvb, offset + 8));
+}
+static int
+dissect_ff_tcp(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data)
+{
+tcp_dissect_pdus(tvb, pinfo, tree, ff_desegment,
+12, get_ff_pdu_len, dissect_ff, data);
+return tvb_reported_length(tvb);
+}
+static int
+dissect_ff_udp(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data)
+{
+guint32 length;
+if (tvb_captured_length(tvb) < 12)
+return 0;
+length = tvb_get_ntohl(tvb, 8);
+if ((length > tvb_reported_length(tvb)) ||
+(length < 12))
+return 0;
+dissect_ff(tvb, pinfo, tree, data);
+return tvb_reported_length(tvb);
+}
+void
+proto_register_ff(void)
+{
+static hf_register_info hf[] = {
+{ &hf_ff_fda_msg_hdr,
+{ "Message Header", "ff.hdr",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_msg_hdr_ver,
+{ "FDA Message Version", "ff.hdr.ver",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_msg_hdr_fda_addr,
+{ "FDA Address", "ff.hdr.fda_addr",
+FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_msg_hdr_len,
+{ "Message Length", "ff.hdr.len",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_unknown_data,
+{ "Unknown data", "ff.unknown_data",
+FT_BYTES, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_data,
+{ "Data", "ff.data",
+FT_BYTES, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_reserved24,
+{ "Reserved", "ff.reserved",
+FT_UINT24, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_unknown_service,
+{ "Unknown service", "ff.unknown_service",
+FT_BYTES, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_msg_trailer,
+{ "Message Trailer", "ff.trailer",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_msg_trailer_msg_num,
+{ "Message Number", "ff.trailer.msg_num",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_msg_trailer_invoke_id,
+{ "Invoke Id", "ff.trailer.invoke_id",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_msg_trailer_time_stamp,
+{ "Time Stamp", "ff.trailer.time_stamp",
+FT_UINT64, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_msg_trailer_extended_control_field,
+{ "Extended Control Field", "ff.trailer.extended_control_field",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda,
+{ "FDA Session Management Service", "ff.fda",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_hdr_srv,
+{ "Service", "ff.hdr_srv",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_hdr_srv_confirm_flag,
+{ "Confirmed Flag", "ff.hdr_srv.confirm_flag",
+FT_BOOLEAN, 8, TFS(&tfs_confirmed_unconfirmed), SERVICE_CONFIRMED_FLAG_MASK, NULL, HFILL } },
+{ &hf_ff_hdr_srv_service_id,
+{ "Service Id (Unknown)", "ff.hdr_srv.service_id",
+FT_UINT8, BASE_DEC, NULL, SERVICE_SERVICE_ID_MASK, NULL, HFILL } },
+{ &hf_ff_hdr_srv_fda_service_id_confirm,
+{ "Service Id", "ff.hdr_srv.fda.service_id.confirm",
+FT_UINT8, BASE_DEC, VALS(names_fda_confirmed), SERVICE_SERVICE_ID_MASK, NULL, HFILL } },
+{ &hf_ff_hdr_srv_fda_service_id_unconfirm,
+{ "Service Id", "ff.hdr_srv.fda.service_id.unconfirm",
+FT_UINT8, BASE_DEC, VALS(names_fda_unconfirmed), SERVICE_SERVICE_ID_MASK, NULL, HFILL } },
+{ &hf_ff_hdr_srv_sm_service_id_confirm,
+{ "Service Id", "ff.hdr_srv.sm.service_id.confirm",
+FT_UINT8, BASE_DEC, VALS(names_sm_confirmed), SERVICE_SERVICE_ID_MASK, NULL, HFILL } },
+{ &hf_ff_hdr_srv_sm_service_id_unconfirm,
+{ "Service Id", "ff.hdr_srv.sm.service_id.unconfirm",
+FT_UINT8, BASE_DEC, VALS(names_sm_unconfirmed), SERVICE_SERVICE_ID_MASK, NULL, HFILL } },
+{ &hf_ff_hdr_srv_fms_service_id_confirm,
+{ "Service Id", "ff.hdr_srv.fms.service_id.confirm",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_fms_confirmed_ext, SERVICE_SERVICE_ID_MASK, NULL, HFILL } },
+{ &hf_ff_hdr_srv_fms_service_id_unconfirm,
+{ "Service Id", "ff.hdr_srv.fms.service_id.unconfirm",
+FT_UINT8, BASE_DEC, VALS(names_fms_unconfirmed), SERVICE_SERVICE_ID_MASK, NULL, HFILL } },
+{ &hf_ff_hdr_srv_lan_service_id_confirm,
+{ "Service Id", "ff.hdr_srv.lan.service_id.confirm",
+FT_UINT8, BASE_DEC, VALS(names_lan_confirmed), SERVICE_SERVICE_ID_MASK, NULL, HFILL } },
+{ &hf_ff_hdr_srv_lan_service_id_unconfirm,
+{ "Service Id", "ff.hdr_srv.lan.service_id.unconfirm",
+FT_UINT8, BASE_DEC, VALS(names_lan_unconfirmed), SERVICE_SERVICE_ID_MASK, NULL, HFILL } },
+{ &hf_ff_hdr_proto_id,
+{ "Service Id", "ff.hdr.proto_id",
+FT_UINT8, BASE_DEC, VALS(names_proto), PROTOCOL_MASK, NULL, HFILL } },
+{ &hf_ff_hdr_confirm_msg_type,
+{ "Service Id", "ff.hdr.confirm_msg_type",
+FT_UINT8, BASE_DEC, VALS(names_type), TYPE_MASK, NULL, HFILL } },
+{ &hf_ff_hdr_proto_confirm,
+{ "Protocol Id And Confirmed Msg Type", "ff.hdr.proto_confirm",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_hdr_opts_msg_num,
+{ "Message Number in the Trailer", "ff.hdr.opts.msg_num",
+FT_BOOLEAN, 8, TFS(&tfs_present_not_present), OPTION_MESSAGE_NUMBER_MASK, NULL, HFILL } },
+{ &hf_ff_hdr_opts_invoke_id,
+{ "Invoke Id in the Trailer", "ff.hdr.opts.invoke_id",
+FT_BOOLEAN, 8, TFS(&tfs_present_not_present), OPTION_INVOKE_ID_MASK, NULL, HFILL } },
+{ &hf_ff_hdr_opts_timestamp,
+{ "Time Stamp in the Trailer", "ff.hdr.opts.timestamp",
+FT_BOOLEAN, 8, TFS(&tfs_present_not_present), OPTION_TIME_STAMP_MASK, NULL, HFILL } },
+{ &hf_ff_hdr_opts_reserved,
+{ "Reserved", "ff.hdr.opts.reserved",
+FT_UINT8, BASE_HEX, NULL, OPTION_RESERVED_MASK, NULL, HFILL } },
+{ &hf_ff_hdr_opts_ext_ctrl,
+{ "Extended Control in the Trailer", "ff.hdr.opts.ext_ctrl",
+FT_BOOLEAN, 8, TFS(&tfs_present_not_present), OPTION_EXTENDED_CNTRL_MASK, NULL, HFILL } },
+{ &hf_ff_hdr_opts_pad,
+{ "Pad Length", "ff.hdr.opts.pad",
+FT_UINT8, BASE_HEX, NULL, OPTION_PAD_LENGTH_MASK, NULL, HFILL } },
+{ &hf_ff_hdr_opts,
+{ "Options", "ff.hdr.opts",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess,
+{ "FDA Open Session", "ff.fda.open_sess",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_req,
+{ "FDA Open Session Request", "ff.fda.open_sess.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_req_sess_idx,
+{ "Session Index", "ff.fda.open_sess.req.sess_idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_req_max_buf_siz,
+{ "Max Buffer Size", "ff.fda.open_sess.req.max_buf_siz",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_req_max_msg_len,
+{ "Max Message Length", "ff.fda.open_sess.req.max_msg_len",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_req_reserved,
+{ "Reserved", "ff.fda.open_sess.req.reserved",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_req_nma_conf_use,
+{ "NMA Configuration Use", "ff.fda.open_sess.req.nma_conf_use",
+FT_UINT8, BASE_DEC, VALS(names_nma_conf_use), 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_req_inactivity_close_time,
+{ "Inactivity Close Time",
+"ff.fda.open_sess.req.inactivity_close_time",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_req_transmit_delay_time,
+{ "Transmit Delay Time", "ff.fda.open_sess.req.transmit_delay_time",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_req_pd_tag,
+{ "PD Tag", "ff.fda.open_sess.req.pd_tag",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_rsp,
+{ "FDA Open Session Response", "ff.fda.open_sess.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_rsp_sess_idx,
+{ "Session Index", "ff.fda.open_sess.rsp.sess_idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_rsp_max_buf_siz,
+{ "Max Buffer Size", "ff.fda.open_sess.rsp.max_buf_siz",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_rsp_max_msg_len,
+{ "Max Message Length", "ff.fda.open_sess.rsp.max_msg_len",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_rsp_reserved,
+{ "Reserved", "ff.fda.open_sess.rsp.reserved",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_rsp_nma_conf_use,
+{ "NMA Configuration Use", "ff.fda.open_sess.rsp.nma_conf_use",
+FT_UINT8, BASE_DEC, VALS(names_nma_conf_use), 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_rsp_inactivity_close_time,
+{ "Inactivity Close Time",
+"ff.fda.open_sess.rsp.inactivity_close_time",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_rsp_transmit_delay_time,
+{ "Transmit Delay Time", "ff.fda.open_sess.rsp.transmit_delay_time",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_rsp_pd_tag,
+{ "PD Tag", "ff.fda.open_sess.rsp.pd_tag",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_err,
+{ "FDA Open Session Error", "ff.fda.open_sess.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_err_err_class,
+{ "Error Class", "ff.fda.open_sess.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_err_err_code,
+{ "Error Code", "ff.fda.open_sess.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_err_additional_code,
+{ "Additional Code", "ff.fda.open_sess.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_open_sess_err_additional_desc,
+{ "Additional Description", "ff.fda.open_sess.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_idle,
+{ "FDA Idle", "ff.fda.idle",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_idle_req,
+{ "FDA Idle Request", "ff.fda.idle.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_idle_rsp,
+{ "FDA Idle Response", "ff.fda.idle.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_idle_err,
+{ "FDA Idle Error", "ff.fda.idle.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_idle_err_err_class,
+{ "Error Class", "ff.fda.idle.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_idle_err_err_code,
+{ "Error Code", "ff.fda.idle.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_idle_err_additional_code,
+{ "Additional Code", "ff.fda.idle.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fda_idle_err_additional_desc,
+{ "Additional Description", "ff.fda.idle.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm,
+{ "SM Service", "ff.sm",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_query,
+{ "SM Find Tag Query", "ff.sm.find_tag_query",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_query_req,
+{ "SM Find Tag Query Request", "ff.sm.find_tag_query.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_query_req_query_type,
+{ "Query Type", "ff.sm.find_tag_query.req.query_type",
+FT_UINT8, BASE_DEC, VALS(names_query_type), 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_query_req_idx,
+{ "Element Id or VFD Reference or Device Index",
+"ff.sm.find_tag_query.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_query_req_tag,
+{ "PD Tag or Function Block Tag", "ff.sm.find_tag_query.req.tag",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_query_req_vfd_tag,
+{ "VFD Tag", "ff.sm.find_tag_query.req.vfd_tag",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_reply,
+{ "SM Find Tag Reply", "ff.sm.find_tag_reply",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_reply_req,
+{ "SM Find Tag Reply Request", "ff.sm.find_tag_reply.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_reply_req_query_type,
+{ "Query Type", "ff.sm.find_tag_reply.req.query_type",
+FT_UINT8, BASE_DEC, VALS(names_query_type), 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_reply_req_h1_node_addr,
+{ "Queried Object H1 Node Address",
+"ff.sm.find_tag_reply.req.h1_node_addr",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_reply_req_fda_addr_link_id,
+{ "Queried Object FDA Address Link Id",
+"ff.sm.find_tag_reply.req.fda_addr_link_id",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_reply_req_vfd_ref,
+{ "Queried Object VFD Reference",
+"ff.sm.find_tag_reply.req.vfd_ref",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_reply_req_od_idx,
+{ "Queried Object OD Index", "ff.sm.find_tag_reply.req.od_idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_reply_req_ip_addr,
+{ "Queried Object IP Address", "ff.sm.find_tag_reply.req.ip_addr",
+FT_IPv6, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_reply_req_od_ver,
+{ "Queried Object OD Version", "ff.sm.find_tag_reply.req.od_ver",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_reply_req_dev_id,
+{ "Queried Object Device ID", "ff.sm.find_tag_reply.req.dev_id",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_reply_req_pd_tag,
+{ "Queried Object PD Tag", "ff.sm.find_tag_reply.req.pd_tag",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_reply_req_reserved,
+{ "Reserved", "ff.sm.find_tag_reply.req.reserved",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_reply_req_num_of_fda_addr_selectors,
+{ "Number Of FDA Address Selectors",
+"ff.sm.find_tag_reply.req.num_of_fda_addr_selectors",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_reply_req_fda_addr_selector,
+{ "FDA Address Selector",
+"ff.sm.find_tag_reply.req.fda_addr_selector.fda_addr_selector",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_reply_dup_reserved,
+{ "Reserved",
+"ff.sm.find_tag_reply.dup_reserved",
+FT_UINT8, BASE_HEX, NULL, 0xFC, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_reply_dup_pd_tag,
+{ "Duplicate PD Tag",
+"ff.sm.find_tag_reply.dup_pd_tag",
+FT_BOOLEAN, 8, TFS(&tfs_detected_not_detected), 0x02, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_reply_dup_device,
+{ "Duplicate Device Index",
+"ff.sm.find_tag_reply.dup_device",
+FT_BOOLEAN, 8, TFS(&tfs_detected_not_detected), 0x01, NULL, HFILL } },
+{ &hf_ff_sm_find_tag_reply_dup,
+{ "Duplicate Detection State",
+"ff.sm.find_tag_reply.dup",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id,
+{ "SM Identify", "ff.sm.id",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_req,
+{ "SM Identify Request", "ff.sm.id.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp,
+{ "SM Identify Response", "ff.sm.id.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_dev_idx,
+{ "Device Index", "ff.sm.id.rsp.dev_idx",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_max_dev_idx,
+{ "Max Device Index", "ff.sm.id.rsp.max_dev_idx",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_operational_ip_addr,
+{ "Operational IP Address", "ff.sm.id.rsp.operational_ip_addr",
+FT_IPv6, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_dev_id,
+{ "Device ID", "ff.sm.id.rsp.dev_id",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_pd_tag,
+{ "PD Tag", "ff.sm.id.rsp.pd_tag",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_hse_repeat_time,
+{ "HSE Repeat Time", "ff.sm.id.rsp.hse_repeat_time",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_lr_port,
+{ "LAN Redundancy Port", "ff.sm.id.rsp.lr_port",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_reserved,
+{ "Reserved", "ff.sm.id.rsp.reserved",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_annunc_ver_num,
+{ "Annunciation Version Number", "ff.sm.id.rsp.annunc_ver_num",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_hse_dev_ver_num,
+{ "HSE Device Version Number", "ff.sm.id.rsp.hse_dev_ver_num",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_num_of_entries,
+{ "Number of Entries in Version Number List",
+"ff.sm.id.rsp.num_of_entries",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_h1_live_list_h1_link_id,
+{ "H1 Link Id", "ff.sm.id.rsp.h1_live_list.h1_link_id",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_h1_live_list_reserved,
+{ "Reserved", "ff.sm.id.rsp.h1_live_list.reserved",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_h1_live_list_ver_num,
+{ "Version Number", "ff.sm.id.rsp.h1_live_list.ver_num",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_h1_node_addr_ver_num_h1_node_addr,
+{ "H1 Node Address",
+"ff.sm.id.rsp.h1_node_addr_ver_num.h1_node_addr",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_h1_node_addr_ver_num_ver_num,
+{ "Version Number", "ff.sm.id.rsp.h1_node_addr_ver_num.ver_num",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_smk_state_name,
+{ "Name", "ff.sm.id.rsp.smk_state_name",
+FT_UINT8, BASE_DEC, VALS(names_smk_state), 0xFE, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_smk_state_sync,
+{ "Synchronized with SNTP Time Server", "ff.sm.id.rsp.smk_state_sync",
+FT_BOOLEAN, 8, TFS(&tfs_yes_no), 0x01, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_smk_state,
+{ "SMK State", "ff.sm.id.rsp.smk_state",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_dev_type_link,
+{ "Linking Device", "ff.sm.id.rsp.dev_type.link",
+FT_BOOLEAN, 8, TFS(&tfs_yes_no), 0x80, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_dev_type_iogateway,
+{ "I/O Gateway", "ff.sm.id.rsp.dev_type.iogateway",
+FT_BOOLEAN, 8, TFS(&tfs_yes_no), 0x40, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_dev_type_hse,
+{ "HSE Field Device", "ff.sm.id.rsp.dev_type.hse",
+FT_BOOLEAN, 8, TFS(&tfs_yes_no), 0x20, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_dev_type_h1,
+{ "H1 Device", "ff.sm.id.rsp.dev_type.h1",
+FT_BOOLEAN, 8, TFS(&tfs_yes_no), 0x10, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_dev_type_reserved,
+{ "Reserved", "ff.sm.id.rsp.dev_type.reserved",
+FT_UINT8, BASE_HEX, NULL, 0x08, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_dev_type_redundant_caps,
+{ "Redundant Device Type Capability", "ff.sm.id.rsp.dev_type.redundant_caps",
+FT_UINT8, BASE_DEC, VALS(names_dev_type), 0x07, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_dev_type,
+{ "Device Type", "ff.sm.id.rsp.dev_type",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_dev_redundancy_state_reserved,
+{ "Reserved", "ff.sm.id.rsp.dev_redundancy_state.reserved",
+FT_UINT8, BASE_HEX, NULL, 0xF0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_dev_redundancy_state_role,
+{ "Device Redundancy Role", "ff.sm.id.rsp.dev_redundancy_state.role",
+FT_UINT8, BASE_DEC, VALS(names_dev_redundancy_role), 0x0C, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_dev_redundancy_state_type,
+{ "Assigned Redundant Device Type", "ff.sm.id.rsp.dev_redundancy_state.type",
+FT_UINT8, BASE_DEC, VALS(names_assigned_redundant_dev_type), 0x03, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_dev_redundancy_state,
+{ "Device Redundancy State", "ff.sm.id.rsp.dev_redundancy_state",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_dup_detection_state_reserved,
+{ "Reserved", "ff.sm.id.rsp.dup_detection_state.reserved",
+FT_UINT8, BASE_HEX, NULL, 0xFC, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_dup_detection_state_pd_tag,
+{ "Duplicate PD Tag", "ff.sm.id.rsp.dup_detection_state.pd_tag",
+FT_BOOLEAN, 8, TFS(&tfs_detected_not_detected), 0x02, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_dup_detection_state_device,
+{ "Duplicate Device Index", "ff.sm.id.rsp.dup_detection_state.device",
+FT_BOOLEAN, 8, TFS(&tfs_detected_not_detected), 0x01, NULL, HFILL } },
+{ &hf_ff_sm_id_rsp_dup_detection_state,
+{ "Duplicate Detection State", "ff.sm.id.rsp.dup_detection_state",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_err,
+{ "SM Identify Error", "ff.sm.id.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_err_err_class,
+{ "Error Class", "ff.sm.id.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_err_err_code,
+{ "Error Code", "ff.sm.id.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_err_additional_code,
+{ "Additional Code", "ff.sm.id.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_id_err_additional_desc,
+{ "Additional Description", "ff.sm.id.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_addr,
+{ "SM Clear Address", "ff.sm.clear_addr",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_addr_req,
+{ "SM Clear Address Request", "ff.sm.clear_addr.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_addr_req_dev_id,
+{ "Device ID", "ff.sm.clear_addr.req.dev_id",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_addr_req_pd_tag,
+{ "PD Tag", "ff.sm.clear_addr.req.pd_tag",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_addr_req_interface_to_clear,
+{ "Interface to Clear", "ff.sm.clear_addr.req.interface_to_clear",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_addr_rsp,
+{ "SM Clear Address Response", "ff.sm.clear_addr.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_addr_err,
+{ "SM Clear Address Error", "ff.sm.clear_addr.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_addr_err_err_class,
+{ "Error Class", "ff.sm.clear_addr.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_addr_err_err_code,
+{ "Error Code", "ff.sm.clear_addr.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_addr_err_additional_code,
+{ "Additional Code", "ff.sm.clear_addr.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_addr_err_additional_desc,
+{ "Additional Description", "ff.sm.clear_addr.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info,
+{ "SM Set Assignment Info", "ff.sm.set_assign_info",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_req_dev_redundancy_state_reserved,
+{ "Reserved", "ff.sm.set_assign_info.req_dev_redundancy_state.reserved",
+FT_UINT8, BASE_HEX, NULL, 0xF0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_req_dev_redundancy_state_role,
+{ "Type D-2 Device Redundancy Role", "ff.sm.set_assign_info.req_dev_redundancy_state.role",
+FT_UINT8, BASE_DEC, VALS(names_type_d2_dev_redundancy_role), 0x0C, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_req_dev_redundancy_state_type,
+{ "Assigned Device Redundancy Type", "ff.sm.set_assign_info.req_dev_redundancy_state.type",
+FT_UINT8, BASE_DEC, VALS(names_assigned_redundant_dev_type), 0x03, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_req_dev_redundancy_state,
+{ "Device Redundancy State", "ff.sm.set_assign_info.req_dev_redundancy_state",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_req_clear_dup_detection_state_reserved,
+{ "Reserved", "ff.sm.set_assign_info.req_clear_dup_detection_state.reserved",
+FT_UINT8, BASE_HEX, NULL, 0xFC, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_req_clear_dup_detection_state_pd_tag,
+{ "Duplicate PD Tag Detected", "ff.sm.set_assign_info.req_clear_dup_detection_state.pd_tag",
+FT_BOOLEAN, 8, TFS(&tfs_do_not_clear_clear), 0x02, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_req_clear_dup_detection_state_device_index,
+{ "Duplicate Device Index Detected", "ff.sm.set_assign_info.req_clear_dup_detection_state.device_index",
+FT_BOOLEAN, 8, TFS(&tfs_do_not_clear_clear), 0x01, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_req_clear_dup_detection_state,
+{ "Clear Duplicate Detection State", "ff.sm.set_assign_info.req_clear_dup_detection_state",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_req,
+{ "SM Set Assignment Info Request", "ff.sm.set_assign_info.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_req_dev_id,
+{ "Device ID", "ff.sm.set_assign_info.req.dev_id",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_req_pd_tag,
+{ "PD Tag", "ff.sm.set_assign_info.req.pd_tag",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_req_h1_new_addr,
+{ "H1 New Address", "ff.sm.set_assign_info.req.h1_new_addr",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_req_lr_port,
+{ "LAN Redundancy Port",
+"ff.sm.set_assign_info.req.lr_port",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_req_hse_repeat_time,
+{ "HSE Repeat Time", "ff.sm.set_assign_info.req.hse_repeat_time",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_req_dev_idx,
+{ "Device Index", "ff.sm.set_assign_info.req.dev_idx",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_req_max_dev_idx,
+{ "Max Device Index", "ff.sm.set_assign_info.req.max_dev_idx",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_req_operational_ip_addr,
+{ "Operational IP Address",
+"ff.sm.set_assign_info.req.operational_ip_addr",
+FT_IPv6, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_rsp,
+{ "SM Set Assignment Info Response", "ff.sm.set_assign_info.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_rsp_reserved,
+{ "Reserved", "ff.sm.set_assign_info.rsp.reserved",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_rsp_max_dev_idx,
+{ "Max Device Index", "ff.sm.set_assign_info.rsp.max_dev_idx",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_rsp_hse_repeat_time,
+{ "HSE Repeat Time", "ff.sm.set_assign_info.rsp.hse_repeat_time",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_err,
+{ "SM Set Assignment Info Error", "ff.sm.set_assign_info.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_err_err_class,
+{ "Error Class", "ff.sm.set_assign_info.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_err_err_code,
+{ "Error Code", "ff.sm.set_assign_info.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_err_additional_code,
+{ "Additional Code", "ff.sm.set_assign_info.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_set_assign_info_err_additional_desc,
+{ "Additional Description",
+"ff.sm.set_assign_info.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_assign_info,
+{ "SM Clear Assignment Info", "ff.sm.clear_assign_info",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_assign_info_req,
+{ "SM Clear Assignment Info Request", "ff.sm.clear_assign_info.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_assign_info_req_dev_id,
+{ "Device ID", "ff.sm.clear_assign_info.req.dev_id",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_assign_info_req_pd_tag,
+{ "PD Tag", "ff.sm.clear_assign_info.req.pd_tag",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_assign_info_rsp,
+{ "SM Clear Assignment Info Response",
+"ff.sm.clear_assign_info.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_assign_info_err,
+{ "SM Clear Assignment Info Error", "ff.sm.clear_assign_info.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_assign_info_err_err_class,
+{ "Error Class", "ff.sm.clear_assign_info.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_assign_info_err_err_code,
+{ "Error Code", "ff.sm.clear_assign_info.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_assign_info_err_additional_code,
+{ "Additional Code", "ff.sm.clear_assign_info.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_clear_assign_info_err_additional_desc,
+{ "Additional Description",
+"ff.sm.clear_assign_info.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc,
+{ "SM Device Annunciation", "ff.sm.dev_annunc",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req,
+{ "SM Device Annunciation Request", "ff.sm.dev_annunc.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_dev_idx,
+{ "Device Index", "ff.sm.dev_annunc.req.dev_idx",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_max_dev_idx,
+{ "Max Device Index", "ff.sm.dev_annunc.req.max_dev_idx",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_operational_ip_addr,
+{ "Operational IP Address",
+"ff.sm.dev_annunc.req.operational_ip_addr",
+FT_IPv6, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_dev_id,
+{ "Device ID", "ff.sm.dev_annunc.req.dev_id",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_pd_tag,
+{ "PD Tag", "ff.sm.dev_annunc.req.pd_tag",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_hse_repeat_time,
+{ "HSE Repeat Time", "ff.sm.dev_annunc.req.hse_repeat_time",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_lr_port,
+{ "LAN Redundancy Port", "ff.sm.dev_annunc.req.lr_port",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_reserved,
+{ "Reserved", "ff.sm.dev_annunc.req.reserved",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_annunc_ver_num,
+{ "Annunciation Version Number",
+"ff.sm.dev_annunc.req.annunc_ver_num",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_hse_dev_ver_num,
+{ "HSE Device Version Number",
+"ff.sm.dev_annunc.req.hse_dev_ver_num",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_num_of_entries,
+{ "Number of Entries in Version Number List",
+"ff.sm.dev_annunc.req.num_of_entries",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_h1_live_list_h1_link_id,
+{ "H1 Link Id", "ff.sm.dev_annunc.req.h1_live_list.h1_link_id",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_h1_live_list_reserved,
+{ "Reserved", "ff.sm.dev_annunc.req.h1_live_list.reserved",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_h1_live_list_ver_num,
+{ "Version Number", "ff.sm.dev_annunc.req.h1_live_list.ver_num",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_h1_node_addr_ver_num_h1_node_addr,
+{ "H1 Node Address",
+"ff.sm.dev_annunc.req.h1_node_addr_ver_num.h1_node_addr",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_h1_node_addr_ver_num_ver_num,
+{ "Version Number",
+"ff.sm.dev_annunc.req.h1_node_addr_ver_num.ver_num",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_smk_state_name,
+{ "Name", "ff.sm.dev_annunc.req.smk_state_name",
+FT_UINT8, BASE_DEC, VALS(names_smk_state), 0xFE, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_smk_state_sync,
+{ "Synchronized with SNTP Time Server", "ff.sm.dev_annunc.req.smk_state_sync",
+FT_BOOLEAN, 8, TFS(&tfs_yes_no), 0x01, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_smk_state,
+{ "SMK State", "ff.sm.dev_annunc.req.smk_state",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_dev_type_link,
+{ "Linking Device", "ff.sm.dev_annunc.req.dev_type.link",
+FT_BOOLEAN, 8, TFS(&tfs_yes_no), 0x80, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_dev_type_iogateway,
+{ "I/O Gateway", "ff.sm.dev_annunc.req.dev_type.iogateway",
+FT_BOOLEAN, 8, TFS(&tfs_yes_no), 0x40, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_dev_type_hse,
+{ "HSE Field Device", "ff.sm.dev_annunc.req.dev_type.hse",
+FT_BOOLEAN, 8, TFS(&tfs_yes_no), 0x20, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_dev_type_h1,
+{ "H1 Device", "ff.sm.dev_annunc.req.dev_type.h1",
+FT_BOOLEAN, 8, TFS(&tfs_yes_no), 0x10, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_dev_type_reserved,
+{ "Reserved", "ff.sm.dev_annunc.req.dev_type.reserved",
+FT_UINT8, BASE_HEX, NULL, 0x08, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_dev_type_redundant_caps,
+{ "Redundant Device Type Capability", "ff.sm.dev_annunc.req.dev_type.redundant_caps",
+FT_UINT8, BASE_DEC, VALS(names_dev_type), 0x07, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_dev_type,
+{ "Device Type", "ff.sm.dev_annunc.req.dev_type",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_dev_redundancy_state_reserved,
+{ "Reserved", "ff.sm.dev_annunc.req_dev_redundancy_state.reserved",
+FT_UINT8, BASE_HEX, NULL, 0xF0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_dev_redundancy_state_role,
+{ "Type D-2 Device Redundancy Role", "ff.sm.dev_annunc.req_dev_redundancy_state.role",
+FT_UINT8, BASE_DEC, VALS(names_type_d2_dev_redundancy_role), 0x0C, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_dev_redundancy_state_type,
+{ "Assigned Device Redundancy Type", "ff.sm.dev_annunc.req_dev_redundancy_state.type",
+FT_UINT8, BASE_DEC, VALS(names_assigned_redundant_dev_type), 0x03, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_dev_redundancy_state,
+{ "Device Redundancy State", "ff.sm.dev_annunc.req_dev_redundancy_state",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_dup_detection_state_reserved,
+{ "Reserved", "ff.sm.dev_annunc.req.dup_detection_state.reserved",
+FT_UINT8, BASE_HEX, NULL, 0xFC, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_dup_detection_state_pd_tag,
+{ "Duplicate PD Tag", "ff.sm.dev_annunc.req.dup_detection_state.pd_tag",
+FT_BOOLEAN, 8, TFS(&tfs_detected_not_detected), 0x02, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_dup_detection_state_device,
+{ "Duplicate Device Index", "ff.sm.dev_annunc.req.dup_detection_state.device",
+FT_BOOLEAN, 8, TFS(&tfs_detected_not_detected), 0x01, NULL, HFILL } },
+{ &hf_ff_sm_dev_annunc_req_dup_detection_state,
+{ "Duplicate Detection State", "ff.sm.dev_annunc.req.dup_detection_state",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms,
+{ "FMS Service", "ff.fms",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init,
+{ "FMS Initiate", "ff.fms.init",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_req,
+{ "FMS Initiate Request", "ff.fms.init.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_req_conn_opt,
+{ "Connect Option", "ff.fms.init.req.conn_opt",
+FT_UINT8, BASE_DEC, VALS(names_conn_opt), 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_req_access_protection_supported_calling,
+{ "Access Protection Supported Calling",
+"ff.fms.init.req.access_protection_supported_calling",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_req_passwd_and_access_grps_calling,
+{ "Password and Access Groups Calling",
+"ff.fms.init.req.passwd_and_access_grps_calling",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_req_ver_od_calling,
+{ "Version OD Calling", "ff.fms.init.req.ver_od_calling",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_req_prof_num_calling,
+{ "Profile Number Calling", "ff.fms.init.req.prof_num_calling",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_req_pd_tag,
+{ "PD Tag", "ff.fms.init.req.pd_tag",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_rsp,
+{ "FMS Initiate Response", "ff.fms.init.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_rsp_ver_od_called,
+{ "Version OD Called", "ff.fms.init.rsp.ver_od_called",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_rsp_prof_num_called,
+{ "Profile Number Called", "ff.fms.init.rsp.prof_num_called",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_err,
+{ "FMS Initiate Error", "ff.fms.init.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_err_err_class,
+{ "Error Class", "ff.fms.init.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_err_err_code,
+{ "Error Code", "ff.fms.init.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_err_additional_code,
+{ "Additional Code", "ff.fms.init.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_err_additional_desc,
+{ "Additional Description", "ff.fms.init.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_abort,
+{ "FMS Abort", "ff.fms.abort",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_abort_req,
+{ "FMS Abort Request", "ff.fms.abort.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_abort_req_detail,
+{ "Abort Detail", "ff.fms.abort.req.detail",
+FT_BYTES, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_abort_req_abort_id,
+{ "Abort Identifier", "ff.fms.abort.req.abort_id",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_abort_req_reason_code,
+{ "Reason Code", "ff.fms.abort.req.reason_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_abort_req_reserved,
+{ "Reserved", "ff.fms.abort.req.reserved",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_status,
+{ "FMS Status", "ff.fms.status",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_status_req,
+{ "FMS Status Request", "ff.fms.status.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_status_rsp,
+{ "FMS Status Response", "ff.fms.status.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_status_rsp_logical_status,
+{ "Logical Status", "ff.fms.status.rsp.logical_status",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_status_rsp_physical_status,
+{ "Physical Status", "ff.fms.status.rsp.physical_status",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_status_rsp_reserved,
+{ "Reserved", "ff.fms.status.rsp.reserved",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_status_rsp_local_detail,
+{ "Local Detail", "ff.fms.status.rsp.local_detail",
+FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_status_err,
+{ "FMS Status Error", "ff.fms.status.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_status_err_err_class,
+{ "Error Class", "ff.fms.status.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_status_err_err_code,
+{ "Error Code", "ff.fms.status.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_status_err_additional_code,
+{ "Additional Code", "ff.fms.status.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_status_err_additional_desc,
+{ "Additional Description", "ff.fms.status.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_unsolicited_status,
+{ "FMS Unsolicited Status", "ff.fms.unsolicited_status",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_unsolicited_status_req,
+{ "FMS Unsolicited Status Request", "ff.fms.unsolicited_status.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_unsolicited_status_req_logical_status,
+{ "Logical Status", "ff.fms.unsolicited_status.req.logical_status",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_unsolicited_status_req_physical_status,
+{ "Physical Status",
+"ff.fms.unsolicited_status.req.physical_status",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_unsolicited_status_req_reserved,
+{ "Reserved", "ff.fms.unsolicited_status.req.reserved",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_unsolicited_status_req_local_detail,
+{ "Local Detail", "ff.fms.unsolicited_status.req.local_detail",
+FT_UINT32, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_id,
+{ "FMS Identify", "ff.fms.id",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_id_req,
+{ "FMS Identify Request", "ff.fms.id.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_id_rsp,
+{ "FMS Identify Response", "ff.fms.id.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_id_rsp_vendor_name,
+{ "Vendor Name", "ff.fms.id.rsp.vendor_name",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_id_rsp_model_name,
+{ "Model Name", "ff.fms.id.rsp.model_name",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_id_rsp_revision,
+{ "Revision", "ff.fms.id.rsp.revision",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_id_err,
+{ "FMS Identify Error", "ff.fms.id.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_id_err_err_class,
+{ "Error Class", "ff.fms.id.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_id_err_err_code,
+{ "Error Code", "ff.fms.id.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_id_err_additional_code,
+{ "Additional Code", "ff.fms.id.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_id_err_additional_desc,
+{ "Additional Description", "ff.fms.id.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_get_od,
+{ "FMS Get OD", "ff.fms.get_od",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_get_od_req,
+{ "FMS Get OD Request", "ff.fms.get_od.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_get_od_req_all_attrs,
+{ "All Attributes", "ff.fms.get_od.req.all_attrs",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_get_od_req_start_idx_flag,
+{ "Start Index Flag", "ff.fms.get_od.req.start_idx_flag",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_get_od_req_reserved,
+{ "Reserved", "ff.fms.get_od.req.reserved",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_get_od_req_idx,
+{ "Index", "ff.fms.get_od.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_get_od_rsp,
+{ "FMS Get OD Response", "ff.fms.get_od.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_get_od_rsp_more_follows,
+{ "More Follows", "ff.fms.get_od.rsp.more_follows",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_get_od_rsp_num_of_obj_desc,
+{ "Number of Object Descriptions",
+"ff.fms.get_od.rsp.num_of_obj_desc",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_get_od_rsp_reserved,
+{ "Reserved", "ff.fms.get_od.rsp.reserved",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_get_od_rsp_object_descriptions,
+{ "List of Object Descriptions", "ff.fms.get_od.rsp.object_descriptions",
+FT_BYTES, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_get_od_err,
+{ "FMS Get OD Error", "ff.fms.get_od.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_get_od_err_err_class,
+{ "Error Class", "ff.fms.get_od.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_get_od_err_err_code,
+{ "Error Code", "ff.fms.get_od.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_get_od_err_additional_code,
+{ "Additional Code", "ff.fms.get_od.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_get_od_err_additional_desc,
+{ "Additional Description", "ff.fms.get_od.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_put_od,
+{ "FMS Initiate Put OD", "ff.fms.init_put_od",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_put_od_req,
+{ "FMS Initiate Put OD Request", "ff.fms.init_put_od.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_put_od_req_reserved,
+{ "Reserved", "ff.fms.init_put_od.req.reserved",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_put_od_req_consequence,
+{ "Consequence", "ff.fms.init_put_od.req.consequence",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_put_od_rsp,
+{ "FMS Initiate Put OD Response", "ff.fms.init_put_od.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_put_od_err,
+{ "FMS Initiate Put OD Error", "ff.fms.init_put_od.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_put_od_err_err_class,
+{ "Error Class", "ff.fms.init_put_od.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_put_od_err_err_code,
+{ "Error Code", "ff.fms.init_put_od.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_put_od_err_additional_code,
+{ "Additional Code", "ff.fms.init_put_od.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_put_od_err_additional_desc,
+{ "Additional Description",
+"ff.fms.init_put_od.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_put_od,
+{ "FMS Put OD", "ff.fms.put_od",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_put_od_req,
+{ "FMS Put OD Request", "ff.fms.put_od.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_put_od_req_num_of_obj_desc,
+{ "Number of Object Descriptions",
+"ff.fms.put_od.req.num_of_obj_desc",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_put_od_req_object_descriptions,
+{ "List of Object Descriptions", "ff.fms.put_od.req.object_descriptions",
+FT_BYTES, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_put_od_rsp,
+{ "FMS Put OD Response", "ff.fms.put_od.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_put_od_err,
+{ "FMS Put OD Error", "ff.fms.put_od.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_put_od_err_err_class,
+{ "Error Class", "ff.fms.put_od.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_put_od_err_err_code,
+{ "Error Code", "ff.fms.put_od.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_put_od_err_additional_code,
+{ "Additional Code", "ff.fms.put_od.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_put_od_err_additional_desc,
+{ "Additional Description", "ff.fms.put_od.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_put_od,
+{ "FMS Terminate Put OD", "ff.fms.terminate_put_od",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_put_od_req,
+{ "FMS Terminate Put OD Request", "ff.fms.terminate_put_od.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_put_od_rsp,
+{ "FMS Terminate Put OD Response", "ff.fms.terminate_put_od.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_put_od_err,
+{ "FMS Terminate Put OD Error", "ff.fms.terminate_put_od.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_put_od_err_index,
+{ "Index", "ff.fms.terminate_put_od.err.index",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_put_od_err_err_class,
+{ "Error Class", "ff.fms.terminate_put_od.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_put_od_err_err_code,
+{ "Error Code", "ff.fms.terminate_put_od.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_put_od_err_additional_code,
+{ "Additional Code", "ff.fms.terminate_put_od.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_put_od_err_additional_desc,
+{ "Additional Description",
+"ff.fms.terminate_put_od.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_init_download_seq,
+{ "FMS Generic Initiate Download Sequence",
+"ff.fms.gen_init_download_seq",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_init_download_seq_req,
+{ "FMS Generic Initiate Download Sequence Request",
+"ff.fms.gen_init_download_seq.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_init_download_seq_req_idx,
+{ "Index",
+"ff.fms.gen_init_download_seq.req.idx",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_init_download_seq_rsp,
+{ "FMS Generic Initiate Download Sequence Response",
+"ff.fms.gen_init_download_seq.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_init_download_seq_err,
+{ "FMS Generic Initiate Download Sequence Error",
+"ff.fms.gen_init_download_seq.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_init_download_seq_err_err_class,
+{ "Error Class", "ff.fms.gen_init_download_seq.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_init_download_seq_err_err_code,
+{ "Error Code", "ff.fms.gen_init_download_seq.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_init_download_seq_err_additional_code,
+{ "Additional Code",
+"ff.fms.gen_init_download_seq.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_init_download_seq_err_additional_desc,
+{ "Additional Description",
+"ff.fms.gen_init_download_seq.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_download_seg,
+{ "FMS Generic Download Segment", "ff.fms.gen_download_seg",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_download_seg_req,
+{ "FMS Generic Download Segment Request",
+"ff.fms.gen_download_seg.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_download_seg_req_idx,
+{ "Index", "ff.fms.gen_download_seg.req.idx",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_download_seg_req_more_follows,
+{ "More Follows", "ff.fms.gen_download_seg.req.more_follows",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_download_seg_req_load_data,
+{ "Load Data", "ff.fms.gen_download_seg.req.load_data",
+FT_BYTES, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_download_seg_rsp,
+{ "FMS Generic Download Segment Response",
+"ff.fms.gen_download_seg.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_download_seg_err,
+{ "FMS Generic Download Segment Error",
+"ff.fms.gen_download_seg.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_download_seg_err_err_class,
+{ "Error Class", "ff.fms.gen_download_seg.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_download_seg_err_err_code,
+{ "Error Code", "ff.fms.gen_download_seg.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_download_seg_err_additional_code,
+{ "Additional Code", "ff.fms.gen_download_seg.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_download_seg_err_additional_desc,
+{ "Additional Description",
+"ff.fms.gen_download_seg.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_terminate_download_seq,
+{ "FMS Generic Terminate Download Sequence",
+"ff.fms.gen_terminate_download_seq",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_terminate_download_seq_req,
+{ "FMS Generic Terminate Download Sequence Request",
+"ff.fms.gen_terminate_download_seq.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_terminate_download_seq_req_idx,
+{ "Index", "ff.fms.gen_terminate_download_seq.req.idx",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_terminate_download_seq_rsp,
+{ "FMS Generic Terminate Download Sequence Response",
+"ff.fms.gen_terminate_download_seq.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_terminate_download_seq_rsp_final_result,
+{ "Final Result",
+"ff.fms.gen_terminate_download_seq.rsp.final_result",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_terminate_download_seq_err,
+{ "FMS Generic Terminate Download Sequence Error",
+"ff.fms.gen_terminate_download_seq.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_terminate_download_seq_err_err_class,
+{ "Error Class", "ff.fms.gen_terminate_download_seq.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_terminate_download_seq_err_err_code,
+{ "Error Code", "ff.fms.gen_terminate_download_seq.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_terminate_download_seq_err_additional_code,
+{ "Additional Code",
+"ff.fms.gen_terminate_download_seq.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_gen_terminate_download_seq_err_additional_desc,
+{ "Additional Description",
+"ff.fms.gen_terminate_download_seq.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_download_seq,
+{ "FMS Initiate Download Sequence",
+"ff.fms.init_download_seq",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_download_seq_req,
+{ "FMS Initiate Download Sequence Request",
+"ff.fms.init_download_seq.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_download_seq_req_idx,
+{ "Index", "ff.fms.init_download_seq.req.idx",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_download_seq_rsp,
+{ "FMS Initiate Download Sequence Response",
+"ff.fms.init_download_seq.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_download_seq_err,
+{ "FMS Initiate Download Sequence Error",
+"ff.fms.init_download_seq.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_download_seq_err_err_class,
+{ "Error Class", "ff.fms.init_download_seq.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_download_seq_err_err_code,
+{ "Error Code", "ff.fms.init_download_seq.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_download_seq_err_additional_code,
+{ "Additional Code", "ff.fms.init_download_seq.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_download_seq_err_additional_desc,
+{ "Additional Description",
+"ff.fms.init_download_seq.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_download_seg,
+{ "FMS Download Segment", "ff.fms.download_seg",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_download_seg_req,
+{ "FMS Download Segment Request", "ff.fms.download_seg.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_download_seg_req_idx,
+{ "Index", "ff.fms.download_seg.req.idx",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_download_seg_rsp,
+{ "FMS Download Segment Response", "ff.fms.download_seg.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_download_seg_rsp_more_follows,
+{ "Final Result", "ff.fms.download_seg.rsp.more_follows",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_download_seg_rsp_load_data,
+{ "Load Data", "ff.fms.download_seg.rsp.load_data",
+FT_BYTES, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_download_seg_err,
+{ "FMS Download Segment Error", "ff.fms.download_seg.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_download_seg_err_err_class,
+{ "Error Class", "ff.fms.download_seg.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_download_seg_err_err_code,
+{ "Error Code", "ff.fms.download_seg.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_download_seg_err_additional_code,
+{ "Additional Code", "ff.fms.download_seg.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_download_seg_err_additional_desc,
+{ "Additional Description",
+"ff.fms.download_seg.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_download_seq,
+{ "FMS Terminate Download Sequence",
+"ff.fms.terminate_download_seq",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_download_seq_req,
+{ "FMS Terminate Download Sequence Request",
+"ff.fms.terminate_download_seq.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_download_seq_req_idx,
+{ "Index", "ff.fms.terminate_download_seq.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_download_seq_req_final_result,
+{ "Final Result", "ff.fms.terminate_download_seq.req.final_result",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_download_seq_rsp,
+{ "FMS Terminate Download Sequence Response",
+"ff.fms.terminate_download_seq.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_download_seq_err,
+{ "FMS Terminate Download Sequence Error",
+"ff.fms.terminate_download_seq.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_download_seq_err_err_class,
+{ "Error Class", "ff.fms.terminate_download_seq.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_download_seq_err_err_code,
+{ "Error Code", "ff.fms.terminate_download_seq.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_download_seq_err_additional_code,
+{ "Additional Code",
+"ff.fms.terminate_download_seq.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_download_seq_err_additional_desc,
+{ "Additional Description",
+"ff.fms.terminate_download_seq.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_upload_seq,
+{ "FMS Initiate Upload Sequence", "ff.fms.init_upload_seq",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_upload_seq_req,
+{ "FMS Initiate Upload Sequence Request",
+"ff.fms.init_upload_seq.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_upload_seq_req_idx,
+{ "Index", "ff.fms.init_upload_seq.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_upload_seq_rsp,
+{ "FMS Initiate Upload Sequence Response",
+"ff.fms.init_upload_seq.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_upload_seq_err,
+{ "FMS Initiate Upload Sequence Error",
+"ff.fms.init_upload_seq.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_upload_seq_err_err_class,
+{ "Error Class", "ff.fms.init_upload_seq.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_upload_seq_err_err_code,
+{ "Error Code", "ff.fms.init_upload_seq.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_upload_seq_err_additional_code,
+{ "Additional Code", "ff.fms.init_upload_seq.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_init_upload_seq_err_additional_desc,
+{ "Additional Description",
+"ff.fms.init_upload_seq.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_upload_seg,
+{ "FMS Upload Segment", "ff.fms.upload_seg",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_upload_seg_req,
+{ "FMS Upload Segment Request", "ff.fms.upload_seg.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_upload_seg_req_idx,
+{ "Index", "ff.fms.upload_seg.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_upload_seg_rsp,
+{ "FMS Upload Segment Response", "ff.fms.upload_seg.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_upload_seg_rsp_more_follows,
+{ "More Follows", "ff.fms.upload_seg.rsp.more_follows",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_upload_seg_rsp_final_result,
+{ "Final Result", "ff.fms.upload_seg.rsp.final_result",
+FT_BYTES, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_upload_seg_err,
+{ "FMS Upload Segment Error", "ff.fms.upload_seg.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_upload_seg_err_err_class,
+{ "Error Class", "ff.fms.upload_seg.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_upload_seg_err_err_code,
+{ "Error Code", "ff.fms.upload_seg.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_upload_seg_err_additional_code,
+{ "Additional Code", "ff.fms.upload_seg.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_upload_seg_err_additional_desc,
+{ "Additional Description", "ff.fms.upload_seg.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_upload_seq,
+{ "FMS Terminate Upload Sequence",
+"ff.fms.terminate_upload_seq",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_upload_seq_req,
+{ "FMS Terminate Upload Sequence Request",
+"ff.fms.terminate_upload_seq.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_upload_seq_req_idx,
+{ "Index", "ff.fms.terminate_upload_seq.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_upload_seq_rsp,
+{ "FMS Terminate Upload Sequence Response",
+"ff.fms.terminate_upload_seq.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_upload_seq_err,
+{ "FMS Terminate Upload Sequence Error",
+"ff.fms.terminate_upload_seq.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_upload_seq_err_err_class,
+{ "Error Class", "ff.fms.terminate_upload_seq.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_upload_seq_err_err_code,
+{ "Error Code", "ff.fms.terminate_upload_seq.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_upload_seq_err_additional_code,
+{ "Additional Code",
+"ff.fms.terminate_upload_seq.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_terminate_upload_seq_err_additional_desc,
+{ "Additional Description",
+"ff.fms.terminate_upload_seq.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_download,
+{ "FMS Request Domain Download", "ff.fms.req_dom_download",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_download_req,
+{ "FMS Request Domain Download Request",
+"ff.fms.req_dom_download.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_download_req_idx,
+{ "Index", "ff.fms.req_dom_download.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_download_req_additional_info,
+{ "Additional Description",
+"ff.fms.req_dom_download.req.additional_info",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_download_rsp,
+{ "FMS Request Domain Download Response",
+"ff.fms.req_dom_download.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_download_err,
+{ "FMS Request Domain Download Error",
+"ff.fms.req_dom_download.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_download_err_err_class,
+{ "Error Class", "ff.fms.req_dom_download.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_download_err_err_code,
+{ "Error Code", "ff.fms.req_dom_download.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_download_err_additional_code,
+{ "Additional Code", "ff.fms.req_dom_download.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_download_err_additional_desc,
+{ "Additional Description",
+"ff.fms.req_dom_download.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_upload,
+{ "FMS Request Domain Upload", "ff.fms.req_dom_upload",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_upload_req,
+{ "FMS Request Domain Upload Request", "ff.fms.req_dom_upload.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_upload_req_idx,
+{ "Index", "ff.fms.req_dom_upload.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_upload_req_additional_info,
+{ "Additional Description",
+"ff.fms.req_dom_upload.req.additional_info",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_upload_rsp,
+{ "FMS Request Domain Upload Response", "ff.fms.req_dom_upload.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_upload_err,
+{ "FMS Request Domain Upload Error", "ff.fms.req_dom_upload.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_upload_err_err_class,
+{ "Error Class", "ff.fms.req_dom_upload.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_upload_err_err_code,
+{ "Error Code", "ff.fms.req_dom_upload.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_upload_err_additional_code,
+{ "Additional Code", "ff.fms.req_dom_upload.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_req_dom_upload_err_additional_desc,
+{ "Additional Description",
+"ff.fms.req_dom_upload.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_create_pi,
+{ "FMS Create Program Invocation", "ff.fms.create_pi",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_create_pi_req,
+{ "FMS Create Program Invocation Request", "ff.fms.create_pi.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_create_pi_req_reusable,
+{ "Reusable", "ff.fms.create_pi.req.reusable",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_create_pi_req_reserved,
+{ "Reserved", "ff.fms.create_pi.req.reserved",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_create_pi_req_num_of_dom_idxes,
+{ "Number of Domain Indexes",
+"ff.fms.create_pi.req.num_of_dom_idxes",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_create_pi_req_dom_idx,
+{ "Domain Index", "ff.fms.create_pi.req.list_of_dom_idxes.dom_idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_create_pi_rsp,
+{ "FMS Create Program Invocation Response", "ff.fms.create_pi.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_create_pi_rsp_idx,
+{ "Index", "ff.fms.create_pi.rsp.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_create_pi_err,
+{ "FMS Create Program Invocation Error", "ff.fms.create_pi.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_create_pi_err_err_class,
+{ "Error Class", "ff.fms.create_pi.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_create_pi_err_err_code,
+{ "Error Code", "ff.fms.create_pi.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_create_pi_err_additional_code,
+{ "Additional Code",
+"ff.fms.create_pi.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_create_pi_err_additional_desc,
+{ "Additional Description",
+"ff.fms.create_pi.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_del_pi ,
+{ "FMS Delete Program Invocation", "ff.fms.del_pi",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_del_pi_req,
+{ "FMS Delete Program Invocation Request", "ff.fms.del_pi.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_del_pi_req_idx,
+{ "Index", "ff.fms.del_pi.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_del_pi_rsp,
+{ "FMS Delete Program Invocation Response", "ff.fms.del_pi.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_del_pi_err,
+{ "FMS Delete Program Invocation Error", "ff.fms.del_pi.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_del_pi_err_err_class,
+{ "Error Class", "ff.fms.del_pi.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_del_pi_err_err_code,
+{ "Error Code", "ff.fms.del_pi.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_del_pi_err_additional_code,
+{ "Additional Code",
+"ff.fms.del_pi.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_del_pi_err_additional_desc,
+{ "Additional Description",
+"ff.fms.del_pi.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_start,
+{ "FMS Start", "ff.fms.start",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_start_req,
+{ "FMS Start Request", "ff.fms.start.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_start_req_idx,
+{ "Index", "ff.fms.start.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_start_req_execution_argument,
+{ "Execution Argument", "ff.fms.start.req.execution_argument",
+FT_BYTES, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_start_rsp,
+{ "FMS Start Response", "ff.fms.start.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_start_err,
+{ "FMS Start Error", "ff.fms.start.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_start_err_pi_state,
+{ "Pi State", "ff.fms.start.err.pi_state",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_start_err_err_class,
+{ "Error Class", "ff.fms.start.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_start_err_err_code,
+{ "Error Code", "ff.fms.start.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_start_err_additional_code,
+{ "Additional Code", "ff.fms.start.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_start_err_additional_desc,
+{ "Additional Description", "ff.fms.start.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_stop,
+{ "FMS Stop", "ff.fms.stop",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_stop_req,
+{ "FMS Stop Request", "ff.fms.stop.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_stop_req_idx,
+{ "Index", "ff.fms.stop.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_stop_rsp,
+{ "FMS Stop Response", "ff.fms.stop.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_stop_err,
+{ "FMS Stop Error", "ff.fms.stop.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_stop_err_pi_state,
+{ "Pi State", "ff.fms.stop.err.pi_state",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_stop_err_err_class,
+{ "Error Class", "ff.fms.stop.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_stop_err_err_code,
+{ "Error Code", "ff.fms.stop.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_stop_err_additional_code,
+{ "Additional Code", "ff.fms.stop.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_stop_err_additional_desc,
+{ "Additional Description", "ff.fms.stop.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_resume,
+{ "FMS Resume", "ff.fms.resume",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_resume_req,
+{ "FMS Resume Request", "ff.fms.resume.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_resume_req_idx,
+{ "Index", "ff.fms.resume.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_resume_req_execution_argument,
+{ "Execution Argument", "ff.fms.resume.req.execution_argument",
+FT_BYTES, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_resume_rsp,
+{ "FMS Resume Response", "ff.fms.resume.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_resume_err,
+{ "FMS Resume Error", "ff.fms.resume.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_resume_err_pi_state,
+{ "Pi State", "ff.fms.resume.err.pi_state",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_resume_err_err_class,
+{ "Error Class", "ff.fms.resume.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_resume_err_err_code,
+{ "Error Code", "ff.fms.resume.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_resume_err_additional_code,
+{ "Additional Code", "ff.fms.resume.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_resume_err_additional_desc,
+{ "Additional Description", "ff.fms.resume.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_reset,
+{ "FMS Reset", "ff.fms.reset",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_reset_req,
+{ "FMS Reset Request", "ff.fms.reset.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_reset_req_idx,
+{ "Index", "ff.fms.reset.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_reset_rsp,
+{ "FMS Reset Response", "ff.fms.reset.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_reset_err,
+{ "FMS Reset Error", "ff.fms.reset.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_reset_err_pi_state,
+{ "Pi State", "ff.fms.reset.err.pi_state",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_reset_err_err_class,
+{ "Error Class", "ff.fms.reset.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_reset_err_err_code,
+{ "Error Code", "ff.fms.reset.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_reset_err_additional_code,
+{ "Additional Code", "ff.fms.reset.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_reset_err_additional_desc,
+{ "Additional Description", "ff.fms.reset.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_kill,
+{ "FMS Kill", "ff.fms.kill",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_kill_req,
+{ "FMS Kill Request", "ff.fms.kill.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_kill_rsp,
+{ "FMS Kill Response", "ff.fms.kill.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_kill_err,
+{ "FMS Kill Error", "ff.fms.kill.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_kill_req_idx,
+{ "Index", "ff.fms.kill.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_kill_err_err_class,
+{ "Error Class", "ff.fms.kill.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_kill_err_err_code,
+{ "Error Code", "ff.fms.kill.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_kill_err_additional_code,
+{ "Additional Code", "ff.fms.kill.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_kill_err_additional_desc,
+{ "Additional Description", "ff.fms.kill.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read,
+{ "FMS Read", "ff.fms.read",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read_req,
+{ "FMS Read Request", "ff.fms.read.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read_req_idx,
+{ "Index", "ff.fms.read.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read_rsp,
+{ "FMS Read Response", "ff.fms.read.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read_err,
+{ "FMS Read Error", "ff.fms.read.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read_err_err_class,
+{ "Error Class", "ff.fms.read.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read_err_err_code,
+{ "Error Code", "ff.fms.read.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read_err_additional_code,
+{ "Additional Code", "ff.fms.read.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read_err_additional_desc,
+{ "Additional Description", "ff.fms.read.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read_with_subidx,
+{ "FMS Read with Subindex", "ff.fms.read_with_subidx",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read_with_subidx_req,
+{ "FMS Read with Subindex Request", "ff.fms.read_with_subidx.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read_with_subidx_req_idx,
+{ "Index", "ff.fms.read_with_subidx.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read_with_subidx_req_subidx,
+{ "Index", "ff.fms.read_with_subidx.req.subidx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read_with_subidx_rsp,
+{ "FMS Read with Subindex Response", "ff.fms.read_with_subidx.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read_with_subidx_err,
+{ "FMS Read with Subindex Error", "ff.fms.read_with_subidx.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read_with_subidx_err_err_class,
+{ "Error Class", "ff.fms.read_with_subidx.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read_with_subidx_err_err_code,
+{ "Error Code", "ff.fms.read_with_subidx.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read_with_subidx_err_additional_code,
+{ "Additional Code", "ff.fms.read_with_subidx.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_read_with_subidx_err_additional_desc,
+{ "Additional Description",
+"ff.fms.read_with_subidx.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write,
+{ "FMS Write", "ff.fms.write",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write_req,
+{ "FMS Write Request", "ff.fms.write.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write_req_idx,
+{ "Index", "ff.fms.write.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write_rsp,
+{ "FMS Write Response", "ff.fms.write.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write_err,
+{ "FMS Write Error", "ff.fms.write.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write_err_err_class,
+{ "Error Class", "ff.fms.write.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write_err_err_code,
+{ "Error Code", "ff.fms.write.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write_err_additional_code,
+{ "Additional Code", "ff.fms.write.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write_err_additional_desc,
+{ "Additional Description", "ff.fms.write.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write_with_subidx,
+{ "FMS Write with Subindex", "ff.fms.write_with_subidx",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write_with_subidx_req,
+{ "FMS Write with Subindex Request", "ff.fms.write_with_subidx.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write_with_subidx_req_idx,
+{ "Index", "ff.fms.write_with_subidx.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write_with_subidx_req_subidx,
+{ "Index", "ff.fms.write_with_subidx.req.subidx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write_with_subidx_rsp,
+{ "FMS Write with Subindex Response",
+"ff.fms.write_with_subidx.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write_with_subidx_err,
+{ "FMS Write with Subindex Error", "ff.fms.write_with_subidx.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write_with_subidx_err_err_class,
+{ "Error Class", "ff.fms.write_with_subidx.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write_with_subidx_err_err_code,
+{ "Error Code", "ff.fms.write_with_subidx.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write_with_subidx_err_additional_code,
+{ "Additional Code", "ff.fms.write_with_subidx.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_write_with_subidx_err_additional_desc,
+{ "Additional Description",
+"ff.fms.write_with_subidx.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_def_variable_list,
+{ "FMS Define Variable List", "ff.fms.def_variable_list",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_def_variable_list_req,
+{ "FMS Define Variable List Request",
+"ff.fms.def_variable_list.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_def_variable_list_req_num_of_idxes,
+{ "Number of Indexes", "ff.fms.def_variable_list.req.num_of_idxes",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_def_variable_list_req_idx,
+{ "Index", "ff.fms.def_variable_list.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_def_variable_list_rsp,
+{ "FMS Define Variable List Response",
+"ff.fms.def_variable_list.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_def_variable_list_rsp_idx,
+{ "Index", "ff.fms.def_variable_list.rsp.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_def_variable_list_err,
+{ "FMS Define Variable List Error", "ff.fms.def_variable_list.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_def_variable_list_err_err_class,
+{ "Error Class", "ff.fms.def_variable_list.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_def_variable_list_err_err_code,
+{ "Error Code", "ff.fms.def_variable_list.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_def_variable_list_err_additional_code,
+{ "Additional Code", "ff.fms.def_variable_list.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_def_variable_list_err_additional_desc,
+{ "Additional Description",
+"ff.fms.def_variable_list.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_del_variable_list,
+{ "FMS Delete Variable List", "ff.fms.del_variable_list",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_del_variable_list_req,
+{ "FMS Delete Variable List Request",
+"ff.fms.del_variable_list.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_del_variable_list_req_idx,
+{ "Index", "ff.fms.del_variable_list.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_del_variable_list_rsp,
+{ "FMS Delete Variable List Response",
+"ff.fms.del_variable_list.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_del_variable_list_err,
+{ "FMS Delete Variable List Error", "ff.fms.del_variable_list.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_del_variable_list_err_err_class,
+{ "Error Class", "ff.fms.del_variable_list.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_del_variable_list_err_err_code,
+{ "Error Code", "ff.fms.del_variable_list.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_del_variable_list_err_additional_code,
+{ "Additional Code", "ff.fms.del_variable_list.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_del_variable_list_err_additional_desc,
+{ "Additional Description",
+"ff.fms.del_variable_list.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_info_report,
+{ "FMS Information Report", "ff.fms.info_report",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_info_report_req,
+{ "FMS Information Report Request", "ff.fms.info_report.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_info_report_req_idx,
+{ "Index", "ff.fms.info_report.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_info_report_with_subidx,
+{ "FMS Information Report with Subindex",
+"ff.fms.info_report_with_subidx",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_info_report_with_subidx_req,
+{ "FMS Information Report with Subindex Request",
+"ff.fms.info_report_with_subidx.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_info_report_with_subidx_req_idx,
+{ "Index", "ff.fms.info_report_with_subidx.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_info_report_with_subidx_req_subidx,
+{ "Subindex", "ff.fms.info_report_with_subidx.req.subidx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_info_report_on_change,
+{ "FMS Information Report On Change with Subindex",
+"ff.fms.info_report_on_change",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_info_report_on_change_req,
+{ "FMS Information Report On Change with Subindex Request",
+"ff.fms.info_report_on_change.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_info_report_on_change_req_idx,
+{ "Index", "ff.fms.info_report_on_change.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_info_report_on_change_with_subidx,
+{ "FMS Information Report On Change",
+"ff.fms.info_report_on_change_with_subidx",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_info_report_on_change_with_subidx_req,
+{ "FMS Information Report On Change Request",
+"ff.fms.info_report_on_change_with_subidx.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_info_report_on_change_with_subidx_req_idx,
+{ "Index", "ff.fms.info_report_on_change_with_subidx.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_info_report_on_change_with_subidx_req_subidx,
+{ "Subindex", "ff.fms.info_report_on_change_with_subidx.req.subidx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_ev_notification,
+{ "FMS Event Notification", "ff.fms.ev_notification",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_ev_notification_req,
+{ "FMS Event Notification Request", "ff.fms.ev_notification.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_ev_notification_req_idx,
+{ "Index", "ff.fms.ev_notification.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_ev_notification_req_ev_num,
+{ "Event Number", "ff.fms.ev_notification.req.ev_num",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_alter_ev_condition_monitoring,
+{ "FMS Alter Event Condition Monitoring",
+"ff.fms.alter_ev_condition_monitoring",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_alter_ev_condition_monitoring_req,
+{ "FMS Alter Event Condition Monitoring Request",
+"ff.fms.alter_ev_condition_monitoring.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_alter_ev_condition_monitoring_req_idx,
+{ "Index", "ff.fms.alter_ev_condition_monitoring.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_alter_ev_condition_monitoring_req_enabled,
+{ "Enabled", "ff.fms.alter_ev_condition_monitoring.req.enabled",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_alter_ev_condition_monitoring_rsp,
+{ "FMS Alter Event Condition Monitoring Response",
+"ff.fms.alter_ev_condition_monitoring.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_alter_ev_condition_monitoring_err,
+{ "FMS Alter Event Condition Monitoring Error",
+"ff.fms.alter_ev_condition_monitoring.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_alter_ev_condition_monitoring_err_err_class,
+{ "Error Class",
+"ff.fms.alter_ev_condition_monitoring.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_alter_ev_condition_monitoring_err_err_code,
+{ "Error Code", "ff.fms.alter_ev_condition_monitoring.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_alter_ev_condition_monitoring_err_additional_code,
+{ "Additional Code",
+"ff.fms.alter_ev_condition_monitoring.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_alter_ev_condition_monitoring_err_additional_desc,
+{ "Additional Description",
+"ff.fms.alter_ev_condition_monitoring.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_ack_ev_notification,
+{ "FMS Acknowledge Event Notification",
+"ff.fms.ack_ev_notification",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_ack_ev_notification_req,
+{ "FMS Acknowledge Event Notification Request",
+"ff.fms.ack_ev_notification.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_ack_ev_notification_req_idx,
+{ "Index", "ff.fms.ack_ev_notification.req.idx",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_ack_ev_notification_req_ev_num,
+{ "Event Number", "ff.fms.ack_ev_notification.req.ev_num",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_ack_ev_notification_rsp,
+{ "FMS Acknowledge Event Notification Response",
+"ff.fms.ack_ev_notification.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_ack_ev_notification_err,
+{ "FMS Acknowledge Event Notification Error",
+"ff.fms.ack_ev_notification.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_ack_ev_notification_err_err_class,
+{ "Error Class", "ff.fms.ack_ev_notification.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_ack_ev_notification_err_err_code,
+{ "Error Code", "ff.fms.ack_ev_notification.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_ack_ev_notification_err_additional_code,
+{ "Additional Code",
+"ff.fms.ack_ev_notification.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_fms_ack_ev_notification_err_additional_desc,
+{ "Additional Description",
+"ff.fms.ack_ev_notification.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr,
+{ "LAN Redundancy Service", "ff.lr",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_info,
+{ "LAN Redundancy Get Information",
+"ff.lr.get_info",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_info_req,
+{ "LAN Redundancy Get Information Request",
+"ff.lr.get_info.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_info_rsp,
+{ "LAN Redundancy Get Information Response",
+"ff.lr.get_info.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_info_rsp_lr_attrs_ver,
+{ "LAN Redundancy Attributes Version",
+"ff.lr.get_info.rsp.lr_attrs_ver",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_info_rsp_lr_max_msg_num_diff,
+{ "Max Message Number Difference",
+"ff.lr.get_info.rsp.max_msg_num_diff",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_info_rsp_reserved,
+{ "Reserved",
+"ff.lr.get_info.rsp.reserved",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_info_rsp_diagnostic_msg_intvl,
+{ "Diagnostic Message Interval",
+"ff.lr.get_info.rsp.diagnostic_msg_intvl",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_info_rsp_aging_time,
+{ "Aging Time",
+"ff.lr.get_info.rsp.aging_time",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_info_rsp_diagnostic_msg_if_a_send_addr,
+{ "Diagnostic Message Interface A Send Address",
+"ff.lr.get_info.rsp.diagnostic_msg_if_a_send_addr",
+FT_IPv6, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_info_rsp_diagnostic_msg_if_a_recv_addr,
+{ "Diagnostic Message Interface A Receive Address",
+"ff.lr.get_info.rsp.diagnostic_msg_if_a_recv_addr",
+FT_IPv6, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_info_rsp_diagnostic_msg_if_b_send_addr,
+{ "Diagnostic Message Interface B Send Address",
+"ff.lr.get_info.rsp.diagnostic_msg_if_b_send_addr",
+FT_IPv6, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_info_rsp_diagnostic_msg_if_b_recv_addr,
+{ "Diagnostic Message Interface B Receive Address",
+"ff.lr.get_info.rsp.diagnostic_msg_if_b_recv_addr",
+FT_IPv6, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_info_rsp_lr_flags_reserved,
+{ "Reserved",
+"ff.lr.get_info.rsp.lr_flags.reserved",
+FT_UINT8, BASE_HEX, NULL, 0xE0, NULL, HFILL } },
+{ &hf_ff_lr_get_info_rsp_lr_flags_load_balance,
+{ "Load Balancing",
+"ff.lr.get_info.rsp.lr_flags.load_balance",
+FT_BOOLEAN, 8, TFS(&tfs_enabled_disabled), 0x10, NULL, HFILL } },
+{ &hf_ff_lr_get_info_rsp_lr_flags_diag,
+{ "Diagnosis Using Own Messages",
+"ff.lr.get_info.rsp.lr_flags.diag",
+FT_BOOLEAN, 8, TFS(&tfs_enabled_disabled), 0x08, NULL, HFILL } },
+{ &hf_ff_lr_get_info_rsp_lr_flags_multi_recv,
+{ "Single Multicast Message Reception Interface",
+"ff.lr.get_info.rsp.lr_flags.multi_recv",
+FT_BOOLEAN, 8, TFS(&tfs_enabled_disabled), 0x04, NULL, HFILL } },
+{ &hf_ff_lr_get_info_rsp_lr_flags_cross_cable,
+{ "Crossed Cable Detection",
+"ff.lr.get_info.rsp.lr_flags.cross_cable",
+FT_BOOLEAN, 8, TFS(&tfs_enabled_disabled), 0x02, NULL, HFILL } },
+{ &hf_ff_lr_get_info_rsp_lr_flags_multi_trans,
+{ "Single Multicast Message Transmission Interface",
+"ff.lr.get_info.rsp.lr_flags.multi_trans",
+FT_BOOLEAN, 8, TFS(&tfs_enabled_disabled), 0x01, NULL, HFILL } },
+{ &hf_ff_lr_get_info_rsp_lr_flags,
+{ "LAN Redundancy Flags",
+"ff.lr.get_info.rsp.lr_flags",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_info_err,
+{ "LAN Redundancy Get Information Error",
+"ff.lr.get_info.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_info_err_err_class,
+{ "Error Class", "ff.lr.get_info.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_info_err_err_code,
+{ "Error Code", "ff.lr.get_info.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_info_err_additional_code,
+{ "Additional Code",
+"ff.lr.get_info.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_info_err_additional_desc,
+{ "Additional Description",
+"ff.lr.get_info.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info,
+{ "LAN Redundancy Put Information", "ff.lr.put_info",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_req,
+{ "LAN Redundancy Put Information Request", "ff.lr.put_info.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_req_lr_attrs_ver,
+{ "LAN Redundancy Attributes Version",
+"ff.lr.put_info.req.lr_attrs_ver",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_req_lr_max_msg_num_diff,
+{ "Max Message Number Difference",
+"ff.lr.put_info.req.max_msg_num_diff",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_req_reserved,
+{ "Reserved",
+"ff.lr.put_info.req.reserved",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_req_diagnostic_msg_intvl,
+{ "Diagnostic Message Interval",
+"ff.lr.put_info.req.diagnostic_msg_intvl",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_req_aging_time,
+{ "Aging Time",
+"ff.lr.put_info.req.aging_time",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_req_diagnostic_msg_if_a_send_addr,
+{ "Diagnostic Message Interface A Send Address",
+"ff.lr.put_info.req.diagnostic_msg_if_a_send_addr",
+FT_IPv6, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_req_diagnostic_msg_if_a_recv_addr,
+{ "Diagnostic Message Interface A Receive Address",
+"ff.lr.put_info.req.diagnostic_msg_if_a_recv_addr",
+FT_IPv6, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_req_diagnostic_msg_if_b_send_addr,
+{ "Diagnostic Message Interface B Send Address",
+"ff.lr.put_info.req.diagnostic_msg_if_b_send_addr",
+FT_IPv6, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_req_diagnostic_msg_if_b_recv_addr,
+{ "Diagnostic Message Interface B Receive Address",
+"ff.lr.put_info.req.diagnostic_msg_if_b_recv_addr",
+FT_IPv6, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_req_lr_flags_reserved,
+{ "Reserved",
+"ff.lr.put_info.req.lr_flags.reserved",
+FT_UINT8, BASE_HEX, NULL, 0xE0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_req_lr_flags_load_balance,
+{ "Load Balancing",
+"ff.lr.put_info.req.lr_flags.load_balance",
+FT_BOOLEAN, 8, TFS(&tfs_enabled_disabled), 0x10, NULL, HFILL } },
+{ &hf_ff_lr_put_info_req_lr_flags_diag,
+{ "Diagnosis Using Own Messages",
+"ff.lr.put_info.req.lr_flags.diag",
+FT_BOOLEAN, 8, TFS(&tfs_enabled_disabled), 0x08, NULL, HFILL } },
+{ &hf_ff_lr_put_info_req_lr_flags_multi_recv,
+{ "Single Multicast Message Reception Interface",
+"ff.lr.put_info.req.lr_flags.multi_recv",
+FT_BOOLEAN, 8, TFS(&tfs_enabled_disabled), 0x04, NULL, HFILL } },
+{ &hf_ff_lr_put_info_req_lr_flags_cross_cable,
+{ "Crossed Cable Detection",
+"ff.lr.put_info.req.lr_flags.cross_cable",
+FT_BOOLEAN, 8, TFS(&tfs_enabled_disabled), 0x02, NULL, HFILL } },
+{ &hf_ff_lr_put_info_req_lr_flags_multi_trans,
+{ "Single Multicast Message Transmission Interface",
+"ff.lr.put_info.req.lr_flags.multi_trans",
+FT_BOOLEAN, 8, TFS(&tfs_enabled_disabled), 0x01, NULL, HFILL } },
+{ &hf_ff_lr_put_info_req_lr_flags,
+{ "LAN Redundancy Flags",
+"ff.lr.put_info.req.lr_flags",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_rsp,
+{ "LAN Redundancy Put Information Response",
+"ff.lr.put_info.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_rsp_lr_attrs_ver,
+{ "LAN Redundancy Attributes Version",
+"ff.lr.put_info.rsp.lr_attrs_ver",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_rsp_lr_max_msg_num_diff,
+{ "Max Message Number Difference",
+"ff.lr.put_info.rsp.max_msg_num_diff",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_rsp_reserved,
+{ "Reserved",
+"ff.lr.put_info.rsp.reserved",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_rsp_diagnostic_msg_intvl,
+{ "Diagnostic Message Interval",
+"ff.lr.put_info.rsp.diagnostic_msg_intvl",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_rsp_aging_time,
+{ "Aging Time",
+"ff.lr.put_info.rsp.aging_time",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_rsp_diagnostic_msg_if_a_send_addr,
+{ "Diagnostic Message Interface A Send Address",
+"ff.lr.put_info.rsp.diagnostic_msg_if_a_send_addr",
+FT_IPv6, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_rsp_diagnostic_msg_if_a_recv_addr,
+{ "Diagnostic Message Interface A Receive Address",
+"ff.lr.put_info.rsp.diagnostic_msg_if_a_recv_addr",
+FT_IPv6, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_rsp_diagnostic_msg_if_b_send_addr,
+{ "Diagnostic Message Interface B Send Address",
+"ff.lr.put_info.rsp.diagnostic_msg_if_b_send_addr",
+FT_IPv6, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_rsp_diagnostic_msg_if_b_recv_addr,
+{ "Diagnostic Message Interface B Receive Address",
+"ff.lr.put_info.rsp.diagnostic_msg_if_b_recv_addr",
+FT_IPv6, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_rsp_lr_flags_reserved,
+{ "Reserved",
+"ff.lr.put_info.rsp.lr_flags.reserved",
+FT_UINT8, BASE_HEX, NULL, 0xE0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_rsp_lr_flags_load_balance,
+{ "Load Balancing",
+"ff.lr.put_info.rsp.lr_flags.load_balance",
+FT_BOOLEAN, 8, TFS(&tfs_enabled_disabled), 0x10, NULL, HFILL } },
+{ &hf_ff_lr_put_info_rsp_lr_flags_diag,
+{ "Diagnosis Using Own Messages",
+"ff.lr.put_info.rsp.lr_flags.diag",
+FT_BOOLEAN, 8, TFS(&tfs_enabled_disabled), 0x08, NULL, HFILL } },
+{ &hf_ff_lr_put_info_rsp_lr_flags_multi_recv,
+{ "Single Multicast Message Reception Interface",
+"ff.lr.put_info.rsp.lr_flags.multi_recv",
+FT_BOOLEAN, 8, TFS(&tfs_enabled_disabled), 0x04, NULL, HFILL } },
+{ &hf_ff_lr_put_info_rsp_lr_flags_cross_cable,
+{ "Crossed Cable Detection",
+"ff.lr.put_info.rsp.lr_flags.cross_cable",
+FT_BOOLEAN, 8, TFS(&tfs_enabled_disabled), 0x02, NULL, HFILL } },
+{ &hf_ff_lr_put_info_rsp_lr_flags_multi_trans,
+{ "Single Multicast Message Transmission Interface",
+"ff.lr.put_info.rsp.lr_flags.multi_trans",
+FT_BOOLEAN, 8, TFS(&tfs_enabled_disabled), 0x01, NULL, HFILL } },
+{ &hf_ff_lr_put_info_rsp_lr_flags,
+{ "LAN Redundancy Flags",
+"ff.lr.put_info.rsp.lr_flags",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_err,
+{ "LAN Redundancy Put Information Error", "ff.lr.put_info.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_err_err_class,
+{ "Error Class", "ff.lr.put_info.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_err_err_code,
+{ "Error Code", "ff.lr.put_info.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_err_additional_code,
+{ "Additional Code",
+"ff.lr.put_info.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_put_info_err_additional_desc,
+{ "Additional Description",
+"ff.lr.put_info.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_statistics,
+{ "LAN Redundancy Get Statistics",
+"ff.lr.get_statistics",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_statistics_req,
+{ "LAN Redundancy Get Statistics Request",
+"ff.lr.get_statistics.req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_statistics_rsp,
+{ "LAN Redundancy Get Statistics Response",
+"ff.lr.get_statistics.rsp",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_statistics_rsp_num_diag_svr_ind_recv_a,
+{ "Error Code", "ff.lr.get_statistics.rsp.num_diag_svr_ind_recv_a",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_statistics_rsp_num_diag_svr_ind_miss_a,
+{ "Error Code", "ff.lr.get_statistics.rsp.num_diag_svr_ind_miss_a",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_statistics_rsp_num_rem_dev_diag_recv_fault_a,
+{ "Error Code",
+"ff.lr.get_statistics.rsp.num_rem_dev_diag_recv_fault_a",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_statistics_rsp_num_diag_svr_ind_recv_b,
+{ "Error Code", "ff.lr.get_statistics.rsp.num_diag_svr_ind_recv_b",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_statistics_rsp_num_diag_svr_ind_miss_b,
+{ "Error Code", "ff.lr.get_statistics.rsp.num_diag_svr_ind_miss_b",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_statistics_rsp_num_rem_dev_diag_recv_fault_b,
+{ "Error Code",
+"ff.lr.get_statistics.rsp.num_rem_dev_diag_recv_fault_b",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_statistics_rsp_num_x_cable_stat,
+{ "Error Code", "ff.lr.get_statistics.rsp.num_x_cable_stat",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_statistics_rsp_x_cable_stat,
+{ "Error Code", "ff.lr.get_statistics.rsp.x_cable_stat",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_statistics_err,
+{ "LAN Redundancy Get Statistics Error",
+"ff.lr.get_statistics.err",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_statistics_err_err_class,
+{ "Error Class", "ff.lr.get_statistics.err.err_class",
+FT_UINT8, BASE_DEC|BASE_EXT_STRING, &names_err_class_ext, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_statistics_err_err_code,
+{ "Error Code", "ff.lr.get_statistics.err.err_code",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_statistics_err_additional_code,
+{ "Additional Code",
+"ff.lr.get_statistics.err.additional_code",
+FT_INT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_get_statistics_err_additional_desc,
+{ "Additional Description",
+"ff.lr.get_statistics.err.additional_desc",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_diagnostic_msg,
+{ "Diagnostic Message", "ff.lr.diagnostic_msg",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_diagnostic_msg_req,
+{ "Diagnostic Message Request", "ff.lr.diagnostic_msg_req",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_diagnostic_msg_req_dev_idx,
+{ "Device Index", "ff.lr.diagnostic_msg.req.dev_idx",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_diagnostic_msg_req_num_of_network_ifs,
+{ "Number of Network Interfaces",
+"ff.lr.diagnostic_msg.req.num_of_network_ifs",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_diagnostic_msg_req_transmission_if,
+{ "Transmission Interface",
+"ff.lr.diagnostic_msg.req.transmission_if",
+FT_UINT8, BASE_DEC, VALS(names_transmission_interface), 0x0, NULL, HFILL } },
+{ &hf_ff_lr_diagnostic_msg_req_diagnostic_msg_intvl,
+{ "Diagnostic Message Interval",
+"ff.lr.diagnostic_msg.req.diagnostic_msg_intvl",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_diagnostic_msg_req_pd_tag,
+{ "PD Tag", "ff.lr.diagnostic_msg.req.pd_tag",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_diagnostic_msg_req_reserved,
+{ "Reserved", "ff.lr.diagnostic_msg.req.reserved",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_diagnostic_msg_req_num_of_if_statuses,
+{ "Number of Interface Statuses",
+"ff.lr.diagnostic_msg.req.num_of_if_statuses",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_diagnostic_msg_req_if_a_to_a_status,
+{ "Interface AtoA Status",
+"ff.lr.diagnostic_msg.req.if_a_to_a_status",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_diagnostic_msg_req_if_b_to_a_status,
+{ "Interface BtoA Status",
+"ff.lr.diagnostic_msg.req.if_b_to_a_status",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_diagnostic_msg_req_if_a_to_b_status,
+{ "Interface AtoB Status",
+"ff.lr.diagnostic_msg.req.if_a_to_b_status",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_diagnostic_msg_req_if_b_to_b_status,
+{ "Interface BtoB Status",
+"ff.lr.diagnostic_msg.req.if_b_to_b_status",
+FT_UINT32, BASE_DEC, NULL, 0x0, NULL, HFILL } },
+{ &hf_ff_lr_diagnostic_msg_req_dup_detection_state_reserved,
+{ "Reserved", "ff.lr.diagnostic_msg.req.dup_detection_state.reserved",
+FT_UINT8, BASE_HEX, NULL, 0xFC, NULL, HFILL } },
+{ &hf_ff_lr_diagnostic_msg_req_dup_detection_state_pd_tag,
+{ "Duplicate PD Tag", "ff.lr.diagnostic_msg.req.dup_detection_state.pd_tag",
+FT_BOOLEAN, 8, TFS(&tfs_detected_not_detected), 0x02, NULL, HFILL } },
+{ &hf_ff_lr_diagnostic_msg_req_dup_detection_state_device,
+{ "Duplicate Device Index", "ff.lr.diagnostic_msg.req.dup_detection_state.device",
+FT_BOOLEAN, 8, TFS(&tfs_detected_not_detected), 0x01, NULL, HFILL } },
+{ &hf_ff_lr_diagnostic_msg_req_dup_detection_state,
+{ "Duplicate Detection State", "ff.lr.diagnostic_msg.req.dup_detection_state",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL } },
+};
+static gint *ett[] = {
+&ett_ff,
+&ett_ff_fda_msg_hdr,
+&ett_ff_fda_msg_hdr_proto_and_type,
+&ett_ff_fda_msg_hdr_opts,
+&ett_ff_fda_msg_hdr_srv,
+&ett_ff_fda_msg_trailer,
+&ett_ff_fda_open_sess_req,
+&ett_ff_fda_open_sess_rsp,
+&ett_ff_fda_open_sess_err,
+&ett_ff_fda_idle_req,
+&ett_ff_fda_idle_rsp,
+&ett_ff_fda_idle_err,
+&ett_ff_sm_find_tag_query_req,
+&ett_ff_sm_find_tag_reply_req,
+&ett_ff_sm_find_tag_reply_req_dup_detection_state,
+&ett_ff_sm_find_tag_reply_req_list_of_fda_addr_selectors,
+&ett_ff_sm_id_req,
+&ett_ff_sm_id_rsp,
+&ett_ff_sm_id_rsp_smk_state,
+&ett_ff_sm_id_rsp_dev_type,
+&ett_ff_sm_id_rsp_dev_redundancy_state,
+&ett_ff_sm_id_rsp_dup_detection_state,
+&ett_ff_sm_id_rsp_entries_h1_live_list,
+&ett_ff_sm_id_rsp_h1_live_list,
+&ett_ff_sm_id_rsp_entries_node_addr,
+&ett_ff_sm_id_rsp_h1_node_addr,
+&ett_ff_sm_id_err,
+&ett_ff_sm_clear_addr_req,
+&ett_ff_sm_clear_addr_rsp,
+&ett_ff_sm_clear_addr_err,
+&ett_ff_sm_set_assign_info_req,
+&ett_ff_sm_set_assign_info_req_dev_redundancy_state,
+&ett_ff_sm_set_assign_info_req_clear_dup_detection_state,
+&ett_ff_sm_set_assign_info_rsp,
+&ett_ff_sm_set_assign_info_err,
+&ett_ff_sm_clear_assign_info_req,
+&ett_ff_sm_clear_assign_info_rsp,
+&ett_ff_sm_clear_assign_info_err,
+&ett_ff_sm_dev_annunc_req,
+&ett_ff_sm_dev_annunc_req_smk_state,
+&ett_ff_sm_dev_annunc_req_dev_type,
+&ett_ff_sm_dev_annunc_req_dev_redundancy_state,
+&ett_ff_sm_dev_annunc_req_dup_detection_state,
+&ett_ff_sm_dev_annunc_req_entries_h1_live_list,
+&ett_ff_sm_dev_annunc_req_h1_live_list,
+&ett_ff_sm_dev_annunc_req_entries_node_addr,
+&ett_ff_sm_dev_annunc_req_h1_node_addr,
+&ett_ff_fms_init_req,
+&ett_ff_fms_init_rep,
+&ett_ff_fms_init_err,
+&ett_ff_fms_abort_req,
+&ett_ff_fms_status_req,
+&ett_ff_fms_status_rsp,
+&ett_ff_fms_status_err,
+&ett_ff_fms_unsolicited_status_req,
+&ett_ff_fms_id_req,
+&ett_ff_fms_id_rsp,
+&ett_ff_fms_id_err,
+&ett_ff_fms_get_od_req,
+&ett_ff_fms_get_od_rsp,
+&ett_ff_fms_get_od_err,
+&ett_ff_fms_init_put_od_req,
+&ett_ff_fms_init_put_od_rsp,
+&ett_ff_fms_init_put_od_err,
+&ett_ff_fms_put_od_req,
+&ett_ff_fms_put_od_rsp,
+&ett_ff_fms_put_od_err,
+&ett_ff_fms_terminate_put_od_req,
+&ett_ff_fms_terminate_put_od_rsp,
+&ett_ff_fms_terminate_put_od_err,
+&ett_ff_fms_gen_init_download_seq_req,
+&ett_ff_fms_gen_init_download_seq_rep,
+&ett_ff_fms_gen_init_download_seq_err,
+&ett_ff_fms_gen_download_seg_req,
+&ett_ff_fms_gen_download_seg_rsp,
+&ett_ff_fms_gen_download_seg_err,
+&ett_ff_fms_gen_terminate_download_seq_req,
+&ett_ff_fms_gen_terminate_download_seq_rsp,
+&ett_ff_fms_gen_terminate_download_seq_err,
+&ett_ff_fms_init_download_seq_req,
+&ett_ff_fms_init_download_seq_rsp,
+&ett_ff_fms_init_download_seq_err,
+&ett_ff_fms_download_seg_req,
+&ett_ff_fms_download_seg_rsp,
+&ett_ff_fms_download_seg_err,
+&ett_ff_fms_terminate_download_seq_req,
+&ett_ff_fms_terminate_download_seq_rsp,
+&ett_ff_fms_terminate_download_seq_err,
+&ett_ff_fms_init_upload_seq_req,
+&ett_ff_fms_init_upload_seq_rsp,
+&ett_ff_fms_init_upload_seq_err,
+&ett_ff_fms_upload_seg_req,
+&ett_ff_fms_upload_seg_rsp,
+&ett_ff_fms_upload_seg_err,
+&ett_ff_fms_terminate_upload_seq_req,
+&ett_ff_fms_terminate_upload_seq_rsp,
+&ett_ff_fms_terminate_upload_seq_err,
+&ett_ff_fms_req_dom_download_req,
+&ett_ff_fms_req_dom_download_rsp,
+&ett_ff_fms_req_dom_download_err,
+&ett_ff_fms_req_dom_upload_req,
+&ett_ff_fms_req_dom_upload_rsp,
+&ett_ff_fms_req_dom_upload_err,
+&ett_ff_fms_create_pi_req,
+&ett_ff_fms_create_pi_req_list_of_dom_idxes,
+&ett_ff_fms_create_pi_rsp,
+&ett_ff_fms_create_pi_err,
+&ett_ff_fms_del_pi_req,
+&ett_ff_fms_del_pi_rsp,
+&ett_ff_fms_del_pi_err,
+&ett_ff_fms_start_req,
+&ett_ff_fms_start_rsp,
+&ett_ff_fms_start_err,
+&ett_ff_fms_stop_req,
+&ett_ff_fms_stop_rsp,
+&ett_ff_fms_stop_err,
+&ett_ff_fms_resume_req,
+&ett_ff_fms_resume_rsp,
+&ett_ff_fms_resume_err,
+&ett_ff_fms_reset_req,
+&ett_ff_fms_reset_rsp,
+&ett_ff_fms_reset_err,
+&ett_ff_fms_kill_req,
+&ett_ff_fms_kill_rsp,
+&ett_ff_fms_kill_err,
+&ett_ff_fms_read_req,
+&ett_ff_fms_read_rsp,
+&ett_ff_fms_read_err,
+&ett_ff_fms_read_with_subidx_req,
+&ett_ff_fms_read_with_subidx_rsp,
+&ett_ff_fms_read_with_subidx_err,
+&ett_ff_fms_write_req,
+&ett_ff_fms_write_rsp,
+&ett_ff_fms_write_err,
+&ett_ff_fms_write_with_subidx_req,
+&ett_ff_fms_write_with_subidx_rsp,
+&ett_ff_fms_write_with_subidx_err,
+&ett_ff_fms_def_variable_list_req,
+&ett_ff_fms_def_variable_list_req_list_of_idxes,
+&ett_ff_fms_def_variable_list_rsp,
+&ett_ff_fms_def_variable_list_err,
+&ett_ff_fms_del_variable_list_req,
+&ett_ff_fms_del_variable_list_rsp,
+&ett_ff_fms_del_variable_list_err,
+&ett_ff_fms_info_report_req,
+&ett_ff_fms_info_report_with_subidx_req,
+&ett_ff_fms_info_report_on_change_req,
+&ett_ff_fms_info_report_on_change_with_subidx_req,
+&ett_ff_fms_ev_notification_req,
+&ett_ff_fms_alter_ev_condition_monitoring_req,
+&ett_ff_fms_alter_ev_condition_monitoring_rsp,
+&ett_ff_fms_alter_ev_condition_monitoring_err,
+&ett_ff_fms_ack_ev_notification_req,
+&ett_ff_fms_ack_ev_notification_rsp,
+&ett_ff_fms_ack_ev_notification_err,
+&ett_ff_lr_get_info_req,
+&ett_ff_lr_get_info_rsp,
+&ett_ff_lr_get_info_rsp_lr_flags,
+&ett_ff_lr_get_info_err,
+&ett_ff_lr_put_info_req,
+&ett_ff_lr_put_info_req_lr_flags,
+&ett_ff_lr_put_info_rsp,
+&ett_ff_lr_put_info_rsp_lr_flags,
+&ett_ff_lr_put_info_err,
+&ett_ff_lr_get_statistics_req,
+&ett_ff_lr_get_statistics_rsp,
+&ett_ff_lr_get_statistics_rsp_list_of_x_cable_stat,
+&ett_ff_lr_get_statistics_err,
+&ett_ff_lr_diagnostic_msg_req,
+&ett_ff_lr_diagnostic_msg_req_dup_detection_stat,
+&ett_ff_lr_diagnostic_msg_req_a_to_a_status,
+&ett_ff_lr_diagnostic_msg_req_b_to_a_status,
+&ett_ff_lr_diagnostic_msg_req_a_to_b_status,
+&ett_ff_lr_diagnostic_msg_req_b_to_b_status,
+};
+proto_ff = proto_register_protocol("FOUNDATION Fieldbus", "FF", "ff");
+proto_register_field_array(proto_ff, hf, array_length(hf));
+proto_register_subtree_array(ett, array_length(ett));
+}
+void
+proto_reg_handoff_ff(void)
+{
+ff_udp_handle = create_dissector_handle(dissect_ff_udp, proto_ff);
+ff_tcp_handle = create_dissector_handle(dissect_ff_tcp, proto_ff);
+dissector_add_uint("udp.port", UDP_PORT_FF_ANNUNC, ff_udp_handle);
+dissector_add_uint("udp.port", UDP_PORT_FF_FMS, ff_udp_handle);
+dissector_add_uint("tcp.port", TCP_PORT_FF_FMS, ff_tcp_handle);
+dissector_add_uint("udp.port", UDP_PORT_FF_SM, ff_udp_handle);
+dissector_add_uint("udp.port", UDP_PORT_FF_LR_PORT, ff_udp_handle);
+}

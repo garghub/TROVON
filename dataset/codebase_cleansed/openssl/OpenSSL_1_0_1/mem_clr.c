@@ -1,0 +1,1 @@
+void OPENSSL_cleanse(void *ptr, size_t len)\r\n{\r\nunsigned char *p = ptr;\r\nsize_t loop = len, ctr = cleanse_ctr;\r\nwhile(loop--)\r\n{\r\n*(p++) = (unsigned char)ctr;\r\nctr += (17 + ((size_t)p & 0xF));\r\n}\r\np=memchr(ptr, (unsigned char)ctr, len);\r\nif(p)\r\nctr += (63 + (size_t)p);\r\ncleanse_ctr = (unsigned char)ctr;\r\n}

@@ -1,0 +1,1 @@
+void SEED_cfb128_encrypt(const unsigned char *in, unsigned char *out,\r\nsize_t len, const SEED_KEY_SCHEDULE *ks,\r\nunsigned char ivec[SEED_BLOCK_SIZE], int *num, int enc)\r\n{\r\nCRYPTO_cfb128_encrypt(in,out,len,ks,ivec,num,enc,(block128_f)SEED_encrypt);\r\n}

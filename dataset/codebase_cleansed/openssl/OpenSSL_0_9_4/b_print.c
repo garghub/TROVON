@@ -1,0 +1,1 @@
+int BIO_printf (BIO *bio, ...)\r\n{\r\nva_list args;\r\nchar *format;\r\nint ret;\r\nMS_STATIC char hugebuf[1024*2];\r\nva_start(args, bio);\r\nformat=va_arg(args, char *);\r\nhugebuf[0]='\0';\r\nvsprintf(hugebuf,format,args);\r\nret=BIO_write(bio,hugebuf,strlen(hugebuf));\r\nva_end(args);\r\nreturn(ret);\r\n}

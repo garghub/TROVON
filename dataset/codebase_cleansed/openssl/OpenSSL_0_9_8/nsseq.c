@@ -1,0 +1,1 @@
+static int nsseq_cb(int operation, ASN1_VALUE **pval, const ASN1_ITEM *it)\r\n{\r\nif(operation == ASN1_OP_NEW_POST) {\r\nNETSCAPE_CERT_SEQUENCE *nsseq;\r\nnsseq = (NETSCAPE_CERT_SEQUENCE *)*pval;\r\nnsseq->type = OBJ_nid2obj(NID_netscape_cert_sequence);\r\n}\r\nreturn 1;\r\n}

@@ -1,0 +1,1 @@
+void RC5_32_ecb_encrypt(const unsigned char *in, unsigned char *out,\r\nRC5_32_KEY *ks, int encrypt)\r\n{\r\nunsigned long l,d[2];\r\nc2l(in,l); d[0]=l;\r\nc2l(in,l); d[1]=l;\r\nif (encrypt)\r\nRC5_32_encrypt(d,ks);\r\nelse\r\nRC5_32_decrypt(d,ks);\r\nl=d[0]; l2c(l,out);\r\nl=d[1]; l2c(l,out);\r\nl=d[0]=d[1]=0;\r\n}

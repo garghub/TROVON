@@ -1,0 +1,1 @@
+void inc(a)\r\nint *a;\r\n{\r\n(*a)++;\r\n}\r\nmain()\r\n{\r\nint p=0;\r\n#ifdef FIXBUG\r\nint dummy;\r\n#endif\r\nwhile (p<3)\r\n{\r\nfprintf(stderr,"%08X\n",p);\r\ninc(&p);\r\n#ifdef FIXBUG\r\ndummy+=p;\r\n#endif\r\n}\r\n}

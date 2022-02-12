@@ -1,0 +1,1 @@
+static int init(EVP_MD_CTX *ctx)\r\n{ return 1; }\r\nstatic int update(EVP_MD_CTX *ctx,const void *data,size_t count)\r\n{ return 1; }\r\nstatic int final(EVP_MD_CTX *ctx,unsigned char *md)\r\n{ return 1; }\r\nconst EVP_MD *EVP_md_null(void)\r\n{\r\nreturn(&null_md);\r\n}

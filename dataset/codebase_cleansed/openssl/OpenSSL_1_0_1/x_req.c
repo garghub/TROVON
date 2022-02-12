@@ -1,0 +1,1 @@
+static int rinf_cb(int operation, ASN1_VALUE **pval, const ASN1_ITEM *it,\r\nvoid *exarg)\r\n{\r\nX509_REQ_INFO *rinf = (X509_REQ_INFO *)*pval;\r\nif(operation == ASN1_OP_NEW_POST) {\r\nrinf->attributes = sk_X509_ATTRIBUTE_new_null();\r\nif(!rinf->attributes) return 0;\r\n}\r\nreturn 1;\r\n}

@@ -1,0 +1,1 @@
+void\r\nproto_register_force10_oui(void)\r\n{\r\nstatic hf_register_info hf[] = {\r\n{ &hf_llc_force10_pid,\r\n{ "PID", "llc.force10_pid", FT_UINT16, BASE_HEX,\r\nVALS(force10_pid_vals), 0x0, NULL, HFILL }\r\n}\r\n};\r\nllc_add_oui(OUI_FORCE10, "llc.force10_pid", "LLC FORCE10 OUI PID", hf, -1);\r\n}

@@ -1,0 +1,1 @@
+static int SetBlobCmp(const void *elem1, const void *elem2 )\r\n{\r\nconst MYBLOB *b1 = (const MYBLOB *)elem1;\r\nconst MYBLOB *b2 = (const MYBLOB *)elem2;\r\nint r;\r\nr = memcmp(b1->pbData, b2->pbData,\r\nb1->cbData < b2->cbData ? b1->cbData : b2->cbData);\r\nif(r != 0)\r\nreturn r;\r\nreturn b1->cbData-b2->cbData;\r\n}

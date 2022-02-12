@@ -1,0 +1,1357 @@
+static int
+dissect_authblk(tvbuff_t *tvb, int offset, proto_tree *tree)
+{
+struct tm *stamp;
+time_t seconds;
+double floatsec;
+guint16 length;
+seconds = (time_t)(tvb_get_ntohl(tvb, offset) - 2208988800u);
+stamp = gmtime(&seconds);
+if (stamp != NULL) {
+floatsec = stamp->tm_sec + tvb_get_ntohl(tvb, offset + 4) / 4294967296.0;
+proto_tree_add_text(tree, tvb, offset, 8,
+"Timestamp: %04d-%02d-%02d %02d:%02d:%07.4f UTC",
+stamp->tm_year + 1900, stamp->tm_mon + 1,
+stamp->tm_mday, stamp->tm_hour, stamp->tm_min,
+floatsec);
+} else {
+proto_tree_add_text(tree, tvb, offset, 8, "Timestamp not representable");
+}
+proto_tree_add_text(tree, tvb, offset + 8, 2, "Block Structure Descriptor: %u",
+tvb_get_ntohs(tvb, offset + 8));
+length = tvb_get_ntohs(tvb, offset + 10);
+proto_tree_add_text(tree, tvb, offset + 10, 2, "Authenticator length: %u",
+length);
+offset += 12;
+proto_tree_add_text(tree, tvb, offset, length, "Authentication block: %s",
+tvb_format_text(tvb, offset, length));
+offset += length;
+return offset;
+}
+static int
+dissect_authblk_v2(tvbuff_t *tvb, int offset, proto_tree *tree)
+{
+guint16 length;
+nstime_t ts;
+proto_tree_add_item(tree, hf_srvloc_authblkv2_bsd, tvb, offset, 2, ENC_BIG_ENDIAN);
+proto_tree_add_item(tree, hf_srvloc_authblkv2_len, tvb, offset+2, 2, ENC_BIG_ENDIAN);
+ts.nsecs = 0;
+ts.secs = tvb_get_ntohl(tvb, offset + 4);
+proto_tree_add_time(tree, hf_srvloc_authblkv2_timestamp, tvb, offset+4, 4, &ts);
+length = tvb_get_ntohs(tvb, offset + 8);
+proto_tree_add_uint(tree, hf_srvloc_authblkv2_slpspilen, tvb, offset + 8, 2, length);
+offset += 10;
+proto_tree_add_item(tree, hf_srvloc_authblkv2_slpspi, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+return offset;
+}
+static int
+dissect_attrauthblk_v2(tvbuff_t *tvb _U_, int offset, proto_tree *tree _U_)
+{
+return offset;
+}
+static void
+add_v1_string(proto_tree *tree, int hf, tvbuff_t *tvb, int offset, int length,
+guint16 encoding)
+{
+switch (encoding) {
+case CHARSET_ISO_10646_UCS_2:
+proto_tree_add_item(tree, hf, tvb, offset, length, ENC_UCS_2|ENC_BIG_ENDIAN);
+break;
+default:
+proto_tree_add_item(tree, hf, tvb, offset, length, ENC_ASCII|ENC_NA);
+break;
+}
+}
+static const guint8*
+unicode_to_bytes(tvbuff_t *tvb, int offset, int length, gboolean endianness)
+{
+const guint8 *ascii_text = tvb_get_string_enc(wmem_packet_scope(), tvb, offset, length, ENC_ASCII);
+int i, j = 0;
+guint8 c_char, c_char1;
+guint8 *byte_array;
+if (length < 1)
+return "";
+if (endianness) {
+byte_array = (guint8 *)wmem_alloc(wmem_packet_scope(), length*2 + 1);
+for (i = length; i > 0; i--) {
+c_char = ascii_text[i];
+if (c_char != 0) {
+i--;
+c_char1 = ascii_text[i];
+if (c_char1 == 0) {
+i--;
+c_char1 = ascii_text[i];
+}
+byte_array[j] = c_char1;
+j++;
+byte_array[j] = c_char;
+j++;
+}
+}
+}
+else
+{
+byte_array = (guint8 *)wmem_alloc(wmem_packet_scope(), length + 1);
+for (i = 0; i < length; i++) {
+c_char = ascii_text[i];
+if (c_char != 0) {
+byte_array[j] = c_char;
+j++;
+}
+}
+}
+byte_array[j]=0;
+return byte_array;
+}
+static void
+attr_list(proto_tree *tree, int hf, tvbuff_t *tvb, int offset, int length,
+guint16 encoding)
+{
+const char *attr_type;
+int i, svc, ss, type_len, foffset=offset;
+guint32 prot;
+const guint8 *byte_value;
+proto_tree *srvloc_tree;
+char *tmp;
+static const value_string srvloc_svc[] = {
+{ 50, "TCP/UDP" },
+{ 54, "IPX" },
+{ 0, NULL }
+};
+static const value_string srvloc_ss[] = {
+{ 49, "Socket" },
+{ 50, "Datagram" },
+{ 0, NULL }
+};
+static const value_string srvloc_prot[] = {
+{ 54, "TCP" },
+{ 17, "UDP" },
+{ 1000, "IPX" },
+{ 0, NULL }
+};
+switch (encoding) {
+case CHARSET_ISO_10646_UCS_2:
+while (offset+2<length) {
+offset += 2;
+if (tvb_length_remaining(tvb, 4)<length) {
+proto_tree_add_text(tree, tvb, offset, -1, "Status: Too much data to pass inside this protocol. Resubmit request using a streaming protocol like TCP.");
+proto_tree_add_text(tree, tvb, offset, -1, "Note: Protocol dissection is aborted due to packet overflow. See overflow flag.");
+break;
+}
+tmp = tvb_get_string_enc(wmem_packet_scope(), tvb, offset, length-offset, ENC_UCS_2|ENC_BIG_ENDIAN);
+type_len = (int)strcspn(tmp, "=");
+attr_type = tvb_get_string_enc(wmem_packet_scope(), tvb, offset, type_len*2, ENC_UCS_2|ENC_BIG_ENDIAN);
+proto_tree_add_string(tree, hf, tvb, offset, type_len*2, attr_type);
+offset += (type_len*2)+2;
+if (strcmp(attr_type, "svcname-ws")==0) {
+tmp = tvb_get_string_enc(wmem_packet_scope(), tvb, offset, length-offset, ENC_UCS_2|ENC_BIG_ENDIAN);
+type_len = (int)strcspn(tmp, ")");
+add_v1_string(tree, hf_srvloc_srvrply_svcname, tvb, offset, type_len*2, encoding);
+offset += (type_len*2)+4;
+attr_type = "";
+} else if (strcmp(attr_type, "svcaddr-ws")==0) {
+i=1;
+for (foffset = offset; foffset<length; foffset += 2) {
+srvloc_tree = proto_tree_add_subtree_format(tree, tvb, foffset, -1, ett_srvloc_attr, NULL, "Item %d", i);
+svc = tvb_get_guint8(tvb, foffset+1);
+proto_tree_add_text(srvloc_tree, tvb, foffset+1, 1,
+"Service Type: %s", val_to_str_const(svc, srvloc_svc, "Unknown"));
+ss = tvb_get_guint8(tvb, foffset+5);
+proto_tree_add_text(srvloc_tree, tvb, foffset+5, 1,
+"Communication Type: %s", val_to_str_const(ss, srvloc_ss, "Unknown"));
+foffset += 9;
+if (svc == 50) {
+if (tvb_get_guint8(tvb, foffset)==54) {
+prot = tvb_get_guint8(tvb, foffset);
+proto_tree_add_text(srvloc_tree, tvb, foffset, 1,
+"Protocol: %s", val_to_str_const(prot, srvloc_prot, "Unknown"));
+foffset += 2;
+}
+else
+{
+byte_value = unicode_to_bytes(tvb, foffset, 4, FALSE);
+prot = (guint32)strtoul(byte_value, NULL, 10);
+proto_tree_add_text(srvloc_tree, tvb, foffset, 4,
+"Protocol: %s", val_to_str_const(prot, srvloc_prot, "Unknown"));
+foffset += 4;
+}
+}
+else
+{
+byte_value = unicode_to_bytes(tvb, foffset, 8, FALSE);
+prot = (guint32)strtoul(byte_value, NULL, 10);
+proto_tree_add_text(srvloc_tree, tvb, foffset, 8,
+"Protocol: %s", val_to_str_const(prot, srvloc_prot, "Unknown"));
+foffset += 8;
+}
+if (svc == 50) {
+byte_value = unicode_to_bytes(tvb, foffset, 16, TRUE);
+sscanf(byte_value,"%x",&prot);
+proto_tree_add_ipv4(srvloc_tree, hf_srvloc_add_ref_ip, tvb, foffset+2, 16, prot);
+byte_value = unicode_to_bytes(tvb, foffset+18, 8, FALSE);
+sscanf(byte_value,"%x",&prot);
+proto_tree_add_text(srvloc_tree, tvb, foffset+18, 8, "Port: %d", prot);
+}
+else
+{
+byte_value = unicode_to_bytes(tvb, foffset+2, 16, FALSE);
+sscanf(byte_value,"%x",&prot);
+proto_tree_add_text(srvloc_tree, tvb, foffset+2, 16, "Network: %s", byte_value);
+byte_value = unicode_to_bytes(tvb, foffset+18, 24, FALSE);
+sscanf(byte_value,"%x",&prot);
+proto_tree_add_text(srvloc_tree, tvb, foffset+18, 24, "Node: %s", byte_value);
+byte_value = unicode_to_bytes(tvb, foffset+42, 8, FALSE);
+sscanf(byte_value,"%x",&prot);
+proto_tree_add_text(srvloc_tree, tvb, foffset+42, 8, "Socket: %s", byte_value);
+}
+i++;
+foffset += 57;
+}
+offset = foffset;
+attr_type = "";
+}
+if (strcmp(attr_type, "svcaddr-ws")!=0 && strcmp(attr_type, "svcname-ws")!=0 && strcmp(attr_type, "")!=0) {
+break;
+}
+}
+break;
+case CHARSET_UTF_8:
+type_len = (int)strcspn(tvb_get_string_enc(wmem_packet_scope(), tvb, offset, length, ENC_ASCII), "=");
+attr_type = unicode_to_bytes(tvb, offset+1, type_len-1, FALSE);
+proto_tree_add_string(tree, hf, tvb, offset+1, type_len-1, attr_type);
+i=1;
+for (foffset = offset + (type_len); foffset<length; foffset++) {
+srvloc_tree = proto_tree_add_subtree_format(tree, tvb, foffset, -1, ett_srvloc_attr, NULL, "Item %d", i);
+svc = tvb_get_guint8(tvb, foffset+1);
+proto_tree_add_text(srvloc_tree, tvb, foffset+1, 1,
+"Service Type: %s", val_to_str_const(svc, srvloc_svc, "Unknown"));
+ss = tvb_get_guint8(tvb, foffset+3);
+proto_tree_add_text(srvloc_tree, tvb, foffset+3, 1,
+"Communication Type: %s", val_to_str_const(ss, srvloc_ss, "Unknown"));
+foffset += 5;
+if (svc == 50) {
+if (tvb_get_guint8(tvb, foffset)==54) {
+prot = tvb_get_guint8(tvb, foffset);
+proto_tree_add_text(srvloc_tree, tvb, foffset, 1,
+"Protocol: %s", val_to_str_const(prot, srvloc_prot, "Unknown"));
+foffset += 1;
+}
+else
+{
+byte_value = unicode_to_bytes(tvb, foffset, 2, FALSE);
+prot = (guint32)strtoul(byte_value, NULL, 10);
+proto_tree_add_text(srvloc_tree, tvb, foffset, 2,
+"Protocol: %s", val_to_str_const(prot, srvloc_prot, "Unknown"));
+foffset += 2;
+}
+}
+else
+{
+byte_value = unicode_to_bytes(tvb, foffset, 4, FALSE);
+prot = (guint32)strtoul(byte_value, NULL, 10);
+proto_tree_add_text(srvloc_tree, tvb, foffset, 4,
+"Protocol: %s", val_to_str_const(prot, srvloc_prot, "Unknown"));
+foffset += 4;
+}
+if (svc == 50) {
+byte_value = unicode_to_bytes(tvb, foffset, 8, TRUE);
+sscanf(byte_value,"%x",&prot);
+proto_tree_add_ipv4(srvloc_tree, hf_srvloc_add_ref_ip, tvb, foffset+1, 8, prot);
+byte_value = unicode_to_bytes(tvb, foffset+9, 4, FALSE);
+sscanf(byte_value,"%x",&prot);
+proto_tree_add_text(srvloc_tree, tvb, foffset+9, 4, "Port: %d", prot);
+}
+else
+{
+byte_value = unicode_to_bytes(tvb, foffset+1, 8, FALSE);
+sscanf(byte_value,"%x",&prot);
+proto_tree_add_text(srvloc_tree, tvb, foffset+1, 8, "Network: %s", byte_value);
+byte_value = unicode_to_bytes(tvb, foffset+9, 12, FALSE);
+sscanf(byte_value,"%x",&prot);
+proto_tree_add_text(srvloc_tree, tvb, foffset+9, 12, "Node: %s", byte_value);
+byte_value = unicode_to_bytes(tvb, foffset+21, 4, FALSE);
+sscanf(byte_value,"%x",&prot);
+proto_tree_add_text(srvloc_tree, tvb, foffset+21, 4, "Socket: %s", byte_value);
+}
+i++;
+foffset += 28;
+}
+break;
+default:
+proto_tree_add_item(tree, hf, tvb, offset, length, ENC_ASCII|ENC_NA);
+break;
+}
+}
+static void
+attr_list2(proto_tree *tree, int hf, tvbuff_t *tvb, int offset, int length, guint16 encoding _U_)
+{
+guint8 *start;
+guint8 c;
+guint32 x;
+guint32 cnt;
+proto_item *ti;
+proto_tree *attr_tree;
+ti = proto_tree_add_item(tree, hf, tvb, offset, length, ENC_ASCII|ENC_NA);
+attr_tree = proto_item_add_subtree(ti, ett_srvloc_attr);
+start = tvb_get_string_enc(wmem_packet_scope(), tvb, offset, length, ENC_ASCII);
+cnt = 0;
+x = 0;
+c = start[x];
+while (c) {
+if (c == ',') {
+cnt++;
+start[x] = 0;
+proto_tree_add_text(attr_tree, tvb, offset, x, "Item %d: %s", cnt, start);
+offset += x+1;
+start += x+1;
+x = 0;
+c = start[x];
+} else {
+x++;
+c = start[x];
+}
+}
+if (x) {
+cnt++;
+proto_tree_add_text(attr_tree, tvb, offset, x, "Item %d: %s", cnt, start);
+}
+}
+static int
+dissect_url_entry_v1(tvbuff_t *tvb, int offset, proto_tree *tree,
+guint16 encoding, guint16 flags)
+{
+guint16 url_len;
+proto_tree_add_item(tree, hf_srvloc_url_lifetime, tvb, offset, 2,
+ENC_BIG_ENDIAN);
+offset += 2;
+url_len = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(tree, hf_srvloc_url_urllen, tvb, offset, 2,
+url_len);
+offset += 2;
+add_v1_string(tree, hf_srvloc_url_url, tvb, offset, url_len, encoding);
+offset += url_len;
+if ( (flags & FLAG_U) == FLAG_U )
+offset = dissect_authblk(tvb, offset, tree);
+return offset;
+}
+static int
+dissect_url_entry_v2(tvbuff_t *tvb, int offset, proto_tree *tree)
+{
+guint8 reserved;
+guint16 url_len;
+guint8 num_auths;
+reserved = tvb_get_guint8(tvb, offset);
+proto_tree_add_uint(tree, hf_srvloc_url_reserved, tvb, offset, 1,
+reserved);
+offset += 1;
+proto_tree_add_item(tree, hf_srvloc_url_lifetime, tvb, offset, 2,
+ENC_BIG_ENDIAN);
+offset += 2;
+url_len = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(tree, hf_srvloc_url_urllen, tvb, offset, 2,
+url_len);
+offset += 2;
+proto_tree_add_item(tree, hf_srvloc_url_url, tvb, offset, url_len, ENC_ASCII|ENC_NA);
+offset += url_len;
+num_auths = tvb_get_guint8(tvb, offset);
+proto_tree_add_uint(tree, hf_srvloc_url_numauths, tvb, offset, 1,
+num_auths);
+offset += 1;
+while (num_auths > 0) {
+offset = dissect_authblk_v2(tvb, offset, tree);
+num_auths--;
+}
+return offset;
+}
+static int
+dissect_srvloc(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data _U_)
+{
+int offset = 0;
+proto_item *ti, *tf;
+proto_tree *srvloc_tree, *srvloc_flags;
+guint8 version;
+guint8 function;
+guint16 encoding;
+guint32 length;
+guint16 flags;
+guint32 count;
+guint32 next_ext_off;
+guint16 lang_tag_len;
+nstime_t ts;
+proto_item *expert_item;
+guint16 expert_status;
+col_set_str(pinfo->cinfo, COL_PROTOCOL, "SRVLOC");
+col_clear(pinfo->cinfo, COL_INFO);
+version = tvb_get_guint8(tvb, offset);
+function = tvb_get_guint8(tvb, offset + 1);
+col_add_str(pinfo->cinfo, COL_INFO,
+val_to_str(function, srvloc_functions, "Unknown Function (%u)"));
+ti = proto_tree_add_item(tree, proto_srvloc, tvb, offset, -1, ENC_NA);
+srvloc_tree = proto_item_add_subtree(ti, ett_srvloc);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_version, tvb, offset, 1,
+version);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_function, tvb, offset + 1, 1,
+function);
+if (version < 2) {
+length = tvb_get_ntohs(tvb, offset + 2);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_pktlen, tvb, offset + 2, 2,
+length);
+flags = tvb_get_guint8(tvb, offset + 4);
+tf = proto_tree_add_uint(srvloc_tree, hf_srvloc_flags_v1, tvb, offset + 4, 1,
+flags);
+srvloc_flags = proto_item_add_subtree(tf, ett_srvloc_flags);
+proto_tree_add_boolean(srvloc_flags, hf_srvloc_flags_v1_overflow,
+tvb, offset+4, 1, flags);
+proto_tree_add_boolean(srvloc_flags, hf_srvloc_flags_v1_monolingual,
+tvb, offset+4, 1, flags);
+proto_tree_add_boolean(srvloc_flags, hf_srvloc_flags_v1_url_auth,
+tvb, offset+4, 1, flags);
+proto_tree_add_boolean(srvloc_flags, hf_srvloc_flags_v1_attribute_auth,
+tvb, offset+4, 1, flags);
+proto_tree_add_boolean(srvloc_flags, hf_srvloc_flags_v1_fresh,
+tvb, offset+4, 1, flags);
+proto_tree_add_text(srvloc_tree, tvb, offset + 5, 1, "Dialect: %u",
+tvb_get_guint8(tvb, offset + 5));
+proto_tree_add_text(srvloc_tree, tvb, offset + 6, 2, "Language: %s",
+tvb_format_text(tvb, offset + 6, 2));
+encoding = tvb_get_ntohs(tvb, offset + 8);
+proto_tree_add_text(srvloc_tree, tvb, offset + 8, 2, "Encoding: %u (%s)",
+encoding,
+val_to_str_const(encoding, charsets, "Unknown"));
+proto_tree_add_text(srvloc_tree, tvb, offset + 10, 2, "Transaction ID: %u",
+tvb_get_ntohs(tvb, offset + 10));
+col_append_fstr(pinfo->cinfo, COL_INFO, ", V1 Transaction ID - %u", tvb_get_ntohs(tvb, offset + 10));
+offset += 12;
+switch (function) {
+case SRVREQ:
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvreq_prlistlen, tvb, offset, 2, length);
+offset += 2;
+add_v1_string(srvloc_tree, hf_srvloc_srvreq_prlist, tvb, offset, length, encoding);
+offset += length;
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvreq_predicatelen, tvb, offset, 2, length);
+offset += 2;
+add_v1_string(srvloc_tree, hf_srvloc_srvreq_predicate, tvb, offset, length, encoding);
+offset += length;
+break;
+case SRVRPLY:
+expert_item = proto_tree_add_item(srvloc_tree, hf_srvloc_error, tvb, offset, 2, ENC_BIG_ENDIAN);
+expert_status = tvb_get_ntohs(tvb, offset);
+if (expert_status!=0) {
+expert_add_info_format(pinfo, expert_item, &ei_srvloc_error, "Error: %s", val_to_str(expert_status, srvloc_errs, "Unknown SRVLOC Error (0x%02x)"));
+}
+offset += 2;
+count = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvrply_urlcount, tvb, offset, 2, count);
+offset += 2;
+while (count > 0) {
+offset = dissect_url_entry_v1(tvb, offset, srvloc_tree,
+encoding, flags);
+count--;
+}
+break;
+case SRVREG:
+offset = dissect_url_entry_v1(tvb, offset, srvloc_tree, encoding,
+flags);
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvreg_attrlistlen, tvb, offset, 2, length);
+offset += 2;
+add_v1_string(srvloc_tree, hf_srvloc_srvreg_attrlist, tvb, offset, length, encoding);
+offset += length;
+if ( (flags & FLAG_A) == FLAG_A )
+offset = dissect_authblk(tvb, offset, srvloc_tree);
+break;
+case SRVDEREG:
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(tree, hf_srvloc_url_urllen, tvb, offset, 2, length);
+offset += 2;
+add_v1_string(tree, hf_srvloc_url_url, tvb, offset, length, encoding);
+offset += length;
+if ( (flags & FLAG_U) == FLAG_U )
+offset = dissect_authblk(tvb, offset, srvloc_tree);
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvdereg_taglistlen, tvb, offset, 2, length);
+offset += 2;
+add_v1_string(srvloc_tree, hf_srvloc_srvdereg_taglist, tvb, offset, length, encoding);
+offset += length;
+if ( (flags & FLAG_A) == FLAG_A )
+offset = dissect_authblk(tvb, offset, srvloc_tree);
+break;
+case SRVACK:
+expert_item = proto_tree_add_item(srvloc_tree, hf_srvloc_error, tvb, offset, 2, ENC_BIG_ENDIAN);
+expert_status = tvb_get_ntohs(tvb, offset);
+if (expert_status!=0) {
+expert_add_info_format(pinfo, expert_item, &ei_srvloc_error, "Error: %s", val_to_str(expert_status, srvloc_errs, "Unknown SRVLOC Error (0x%02x)"));
+}
+offset += 2;
+break;
+case ATTRRQST:
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_attrreq_prlistlen, tvb, offset, 2, length);
+offset += 2;
+add_v1_string(srvloc_tree, hf_srvloc_attrreq_prlist, tvb, offset, length, encoding);
+offset += length;
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_attrreq_urllen, tvb, offset, 2, length);
+offset += 2;
+add_v1_string(srvloc_tree, hf_srvloc_attrreq_url, tvb, offset, length, encoding);
+offset += length;
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_attrreq_scopelistlen, tvb, offset, 2, length);
+offset += 2;
+add_v1_string(srvloc_tree, hf_srvloc_attrreq_scopelist, tvb, offset, length, encoding);
+offset += length;
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_attrreq_attrlistlen, tvb, offset, 2, length);
+offset += 2;
+add_v1_string(srvloc_tree, hf_srvloc_attrreq_attrlist, tvb, offset, length, encoding);
+offset += length;
+break;
+case ATTRRPLY:
+expert_item = proto_tree_add_item(srvloc_tree, hf_srvloc_error_v2, tvb, offset, 2, ENC_BIG_ENDIAN);
+expert_status = tvb_get_ntohs(tvb, offset);
+if (expert_status!=0) {
+expert_add_info_format(pinfo, expert_item, &ei_srvloc_error, "Error: %s", val_to_str(expert_status, srvloc_errs_v2, "Unknown SRVLOC Error (0x%02x)"));
+}
+offset += 2;
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_attrrply_attrlistlen, tvb, offset, 2, length);
+if (length > 0) {
+offset += 2;
+attr_list(srvloc_tree, hf_srvloc_attrrply_attrlist, tvb, offset, length, encoding);
+offset += length;
+if ( (flags & FLAG_A) == FLAG_A )
+offset = dissect_authblk(tvb, offset, srvloc_tree);
+}
+break;
+case DAADVERT:
+expert_item = proto_tree_add_item(srvloc_tree, hf_srvloc_error, tvb, offset, 2, ENC_BIG_ENDIAN);
+expert_status = tvb_get_ntohs(tvb, offset);
+if (expert_status!=0) {
+expert_add_info_format(pinfo, expert_item, &ei_srvloc_error, "Error: %s", val_to_str(expert_status, srvloc_errs, "Unknown SRVLOC Error (0x%02x)"));
+}
+offset += 2;
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_daadvert_urllen, tvb, offset, 2, length);
+offset += 2;
+add_v1_string(srvloc_tree, hf_srvloc_daadvert_url, tvb, offset, length, encoding);
+offset += length;
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_daadvert_scopelistlen, tvb, offset, 2, length);
+offset += 2;
+add_v1_string(srvloc_tree, hf_srvloc_daadvert_scopelist, tvb, offset, length, encoding);
+offset += length;
+break;
+case SRVTYPERQST:
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvtypereq_prlistlen, tvb, offset, 2, length);
+offset += 2;
+add_v1_string(srvloc_tree, hf_srvloc_srvtypereq_prlist, tvb, offset, length, encoding);
+offset += length;
+length = tvb_get_ntohs(tvb, offset);
+if (0xFFFF == length) {
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvtypereq_nameauthlistlenall, tvb, offset, 2, length);
+offset += 2;
+}
+else
+{
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvtypereq_nameauthlistlen, tvb, offset, 2, length);
+offset += 2;
+add_v1_string(srvloc_tree, hf_srvloc_srvtypereq_nameauthlist, tvb, offset, length, encoding);
+offset += length;
+}
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvtypereq_scopelistlen, tvb, offset, 2, length);
+offset += 2;
+add_v1_string(srvloc_tree, hf_srvloc_srvtypereq_scopelist, tvb, offset, length, encoding);
+offset += length;
+break;
+case SRVTYPERPLY:
+expert_item = proto_tree_add_item(srvloc_tree, hf_srvloc_error, tvb, offset, 2, ENC_BIG_ENDIAN);
+expert_status = tvb_get_ntohs(tvb, offset);
+if (expert_status!=0) {
+expert_add_info_format(pinfo, expert_item, &ei_srvloc_error, "Error: %s", val_to_str(expert_status, srvloc_errs, "Unknown SRVLOC Error (0x%02x)"));
+}
+offset += 2;
+count = tvb_get_ntohs(tvb, offset);
+proto_tree_add_text(srvloc_tree, tvb, offset, 2, "Service Type Count: %u",
+count);
+offset += 2;
+while (count > 0) {
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvtyperply_srvtypelen, tvb, offset, 2, length);
+offset += 2;
+add_v1_string(srvloc_tree, hf_srvloc_srvtyperply_srvtype, tvb, offset, length, encoding);
+offset += length;
+count--;
+}
+break;
+default:
+proto_tree_add_expert_format(srvloc_tree, pinfo, &ei_srvloc_function_unknown,
+tvb, offset, -1, "Unknown Function Type: %d", function);
+}
+}
+else {
+length = tvb_get_ntoh24(tvb, offset + 2);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_pktlen, tvb, offset + 2, 3,
+length);
+flags = tvb_get_ntohs(tvb, offset + 5);
+tf = proto_tree_add_uint(srvloc_tree, hf_srvloc_flags_v2, tvb, offset + 5, 2,
+flags);
+srvloc_flags = proto_item_add_subtree(tf, ett_srvloc_flags);
+proto_tree_add_boolean(srvloc_flags, hf_srvloc_flags_v2_overflow,
+tvb, offset+5, 1, flags);
+proto_tree_add_boolean(srvloc_flags, hf_srvloc_flags_v2_fresh,
+tvb, offset+5, 1, flags);
+proto_tree_add_boolean(srvloc_flags, hf_srvloc_flags_v2_reqmulti,
+tvb, offset+5, 1, flags);
+next_ext_off = tvb_get_ntoh24(tvb, offset + 7);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_nextextoff, tvb, offset + 7, 3,
+next_ext_off);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_xid, tvb, offset + 10, 2,
+tvb_get_ntohs(tvb, offset + 10));
+col_append_fstr(pinfo->cinfo, COL_INFO, ", V2 XID - %u", tvb_get_ntohs(tvb, offset + 10));
+lang_tag_len = tvb_get_ntohs(tvb, offset + 12);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_langtaglen, tvb, offset + 12, 2, lang_tag_len);
+proto_tree_add_item(srvloc_tree, hf_srvloc_langtag, tvb, offset + 14, lang_tag_len, ENC_ASCII|ENC_NA);
+offset += 14+lang_tag_len;
+switch (function) {
+case SRVREQ:
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvreq_prlistlen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_srvreq_prlist, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvreq_srvtypelen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_srvreq_srvtypelist, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvreq_scopelistlen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_srvreq_scopelist, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvreq_predicatelen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_srvreq_predicate, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvreq_slpspilen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_srvreq_slpspi, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+break;
+case SRVRPLY:
+expert_item = proto_tree_add_item(srvloc_tree, hf_srvloc_error_v2, tvb, offset, 2, ENC_BIG_ENDIAN);
+expert_status = tvb_get_ntohs(tvb, offset);
+if (expert_status!=0) {
+expert_add_info_format(pinfo, expert_item, &ei_srvloc_error_v2, "Error: %s", val_to_str(expert_status, srvloc_errs_v2, "Unknown SRVLOC Error (0x%02x)"));
+}
+offset += 2;
+count = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvrply_urlcount, tvb, offset, 2, count);
+offset += 2;
+while (count > 0) {
+offset = dissect_url_entry_v2(tvb, offset, srvloc_tree);
+count--;
+}
+break;
+case SRVREG:
+offset = dissect_url_entry_v2(tvb, offset, srvloc_tree);
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvreg_srvtypelen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_srvreg_srvtype, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvreg_scopelistlen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_srvreg_scopelist, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvreg_attrlistlen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+attr_list2(srvloc_tree, hf_srvloc_srvreg_attrlist, tvb, offset, length, CHARSET_UTF_8);
+offset += length;
+}
+count = tvb_get_guint8(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvreg_attrauthcount, tvb, offset, 1, count);
+offset += 1;
+while (count > 0) {
+offset = dissect_attrauthblk_v2(tvb, offset, srvloc_tree);
+count--;
+}
+break;
+case SRVDEREG:
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvdereg_scopelistlen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_srvdereg_scopelist, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+offset = dissect_url_entry_v2(tvb, offset, srvloc_tree);
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvdereg_taglistlen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_srvdereg_taglist, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+break;
+case SRVACK:
+expert_item = proto_tree_add_item(srvloc_tree, hf_srvloc_error_v2, tvb, offset, 2, ENC_BIG_ENDIAN);
+expert_status = tvb_get_ntohs(tvb, offset);
+if (expert_status!=0) {
+expert_add_info_format(pinfo, expert_item, &ei_srvloc_error_v2, "Error: %s", val_to_str(expert_status, srvloc_errs_v2, "Unknown SRVLOC Error (0x%02x)"));
+}
+offset += 2;
+break;
+case ATTRRQST:
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_attrreq_prlistlen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_attrreq_prlist, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_attrreq_urllen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_attrreq_url, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_attrreq_scopelistlen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_attrreq_scopelist, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_attrreq_taglistlen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_attrreq_taglist, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_attrreq_slpspilen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_attrreq_slpspi, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+break;
+case ATTRRPLY:
+expert_item = proto_tree_add_item(srvloc_tree, hf_srvloc_error_v2, tvb, offset, 2, ENC_BIG_ENDIAN);
+expert_status = tvb_get_ntohs(tvb, offset);
+if (expert_status!=0) {
+expert_add_info_format(pinfo, expert_item, &ei_srvloc_error_v2, "Error: %s", val_to_str(expert_status, srvloc_errs_v2, "Unknown SRVLOC Error (0x%02x)"));
+}
+offset += 2;
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_attrrply_attrlistlen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+attr_list2(srvloc_tree, hf_srvloc_attrrply_attrlist, tvb, offset, length, CHARSET_UTF_8);
+offset += length;
+}
+count = tvb_get_guint8(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_attrrply_attrauthcount, tvb, offset, 1, count);
+offset += 1;
+while (count > 0) {
+offset = dissect_attrauthblk_v2(tvb, offset, srvloc_tree);
+count--;
+}
+break;
+case DAADVERT:
+expert_item = proto_tree_add_item(srvloc_tree, hf_srvloc_error_v2, tvb, offset, 2, ENC_BIG_ENDIAN);
+expert_status = tvb_get_ntohs(tvb, offset);
+if (expert_status!=0) {
+expert_add_info_format(pinfo, expert_item, &ei_srvloc_error_v2, "Error: %s", val_to_str(expert_status, srvloc_errs_v2, "Unknown SRVLOC Error (0x%02x)"));
+}
+offset += 2;
+ts.nsecs = 0;
+ts.secs = tvb_get_ntohl(tvb, offset);
+proto_tree_add_time(srvloc_tree, hf_srvloc_daadvert_timestamp, tvb, offset, 4,
+&ts);
+offset += 4;
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_daadvert_urllen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_daadvert_url, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_daadvert_scopelistlen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_daadvert_scopelist, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_daadvert_attrlistlen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_daadvert_attrlist, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_daadvert_slpspilen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_daadvert_slpspi, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+count = tvb_get_guint8(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_daadvert_authcount, tvb, offset, 1, count);
+offset += 1;
+while (count > 0) {
+offset = dissect_authblk_v2(tvb, offset, srvloc_tree);
+count--;
+}
+break;
+case SRVTYPERQST:
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvtypereq_prlistlen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_srvtypereq_prlist, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+length = tvb_get_ntohs(tvb, offset);
+if (0xFFFF == length) {
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvtypereq_nameauthlistlenall, tvb, offset, 2, length);
+offset += 2;
+} else {
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvtypereq_nameauthlistlen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_srvtypereq_nameauthlist, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+}
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvtypereq_scopelistlen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_srvtypereq_scopelist, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+break;
+case SRVTYPERPLY:
+expert_item = proto_tree_add_item(srvloc_tree, hf_srvloc_error_v2, tvb, offset, 2, ENC_BIG_ENDIAN);
+expert_status = tvb_get_ntohs(tvb, offset);
+if (expert_status!=0) {
+expert_add_info_format(pinfo, expert_item, &ei_srvloc_error_v2, "Error: %s", val_to_str(expert_status, srvloc_errs_v2, "Unknown SRVLOC Error (0x%02x)"));
+}
+offset += 2;
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_srvtyperply_srvtypelistlen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_srvtyperply_srvtypelist, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+break;
+case SAADVERT:
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_saadvert_urllen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_saadvert_url, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_saadvert_scopelistlen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_saadvert_scopelist, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+length = tvb_get_ntohs(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_saadvert_attrlistlen, tvb, offset, 2, length);
+offset += 2;
+if (length) {
+proto_tree_add_item(srvloc_tree, hf_srvloc_saadvert_attrlist, tvb, offset, length, ENC_ASCII|ENC_NA);
+offset += length;
+}
+count = tvb_get_guint8(tvb, offset);
+proto_tree_add_uint(srvloc_tree, hf_srvloc_saadvert_authcount, tvb, offset, 1, length);
+offset += 1;
+while (count > 0) {
+offset = dissect_authblk_v2(tvb, offset, srvloc_tree);
+count--;
+}
+break;
+default:
+proto_tree_add_expert_format(srvloc_tree, pinfo, &ei_srvloc_function_unknown,
+tvb, offset, -1, "Unknown Function Type: %d", function);
+}
+}
+return offset;
+}
+static guint
+get_srvloc_pdu_len(packet_info *pinfo _U_, tvbuff_t *tvb, int offset)
+{
+if (tvb_get_guint8(tvb, offset) == 2)
+return tvb_get_ntoh24(tvb, offset + 2);
+else
+return tvb_get_ntohs(tvb, offset + 2);
+}
+static int
+dissect_srvloc_tcp(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void* data)
+{
+tcp_dissect_pdus(tvb, pinfo, tree, srvloc_desegment, 5, get_srvloc_pdu_len,
+dissect_srvloc, data);
+return tvb_length(tvb);
+}
+void
+proto_register_srvloc(void)
+{
+static hf_register_info hf[] = {
+{&hf_srvloc_error,
+{"Error Code", "srvloc.err",
+FT_UINT16, BASE_DEC, VALS(srvloc_errs), 0x0,
+NULL, HFILL }
+},
+{&hf_srvloc_error_v2,
+{"Error Code", "srvloc.errv2",
+FT_UINT16, BASE_DEC, VALS(srvloc_errs_v2), 0x0,
+NULL, HFILL }
+},
+{&hf_srvloc_xid,
+{"XID", "srvloc.xid",
+FT_UINT24, BASE_DEC, NULL, 0x0,
+"Transaction ID", HFILL }
+},
+{&hf_srvloc_langtag,
+{"Lang Tag", "srvloc.langtag",
+FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL }
+},
+{&hf_srvloc_langtaglen,
+{"Lang Tag Len", "srvloc.langtaglen",
+FT_UINT16, BASE_DEC, NULL, 0x0,
+NULL, HFILL }
+},
+{&hf_srvloc_nextextoff,
+{"Next Extension Offset", "srvloc.nextextoff",
+FT_UINT24, BASE_DEC, NULL, 0x0,
+NULL, HFILL }
+},
+{&hf_srvloc_url_reserved,
+{"Reserved", "srvloc.url.reserved",
+FT_UINT8, BASE_HEX, NULL, 0x0, NULL, HFILL }
+},
+{&hf_srvloc_url_lifetime,
+{"URL lifetime", "srvloc.url.lifetime",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL }
+},
+{&hf_srvloc_url_urllen,
+{"URL Length", "srvloc.url.urllen",
+FT_UINT16, BASE_DEC, NULL, 0x0, NULL, HFILL }
+},
+{&hf_srvloc_url_url,
+{"URL", "srvloc.url.url",
+FT_STRING, BASE_NONE, NULL, 0x0, NULL, HFILL }
+},
+{&hf_srvloc_url_numauths,
+{"Num Auths", "srvloc.url.numauths",
+FT_UINT8, BASE_DEC, NULL, 0x0, NULL, HFILL }
+},
+{&hf_srvloc_function,
+{"Function", "srvloc.function",
+FT_UINT8, BASE_DEC, VALS(srvloc_functions), 0x0,
+NULL, HFILL }
+},
+{&hf_srvloc_pktlen,
+{"Packet Length", "srvloc.pktlen",
+FT_UINT24, BASE_DEC, NULL, 0x0,
+NULL, HFILL }
+},
+{ &hf_srvloc_version,
+{ "Version", "srvloc.version",
+FT_UINT8, BASE_DEC, NULL, 0x0,
+NULL, HFILL }
+},
+{&hf_srvloc_flags_v1,
+{"Flags", "srvloc.flags_v1",
+FT_UINT8, BASE_HEX, NULL, 0x0,
+NULL, HFILL }
+},
+{ &hf_srvloc_flags_v1_overflow,
+{ "Overflow", "srvloc.flags_v1.overflow.", FT_BOOLEAN, 8,
+TFS(&tfs_srvloc_flags_overflow), FLAG_O, "Can whole packet fit into a datagram?", HFILL }},
+{ &hf_srvloc_flags_v1_monolingual,
+{ "Monolingual", "srvloc.flags_v1.monolingual", FT_BOOLEAN, 8,
+TFS(&tfs_srvloc_flags_v1_monolingual), FLAG_M, "Can whole packet fit into a datagram?", HFILL }},
+{ &hf_srvloc_flags_v1_url_auth,
+{ "URL Authentication", "srvloc.flags_v1.url_auth", FT_BOOLEAN, 8,
+TFS(&tfs_srvloc_flags_v1_url_auth), FLAG_U, "Can whole packet fit into a datagram?", HFILL }},
+{ &hf_srvloc_flags_v1_attribute_auth,
+{ "Attribute Authentication", "srvloc.flags_v1.attribute_auth", FT_BOOLEAN, 8,
+TFS(&tfs_srvloc_flags_v1_attribute_auth), FLAG_A, "Can whole packet fit into a datagram?", HFILL }},
+{ &hf_srvloc_flags_v1_fresh,
+{ "Fresh Registration", "srvloc.flags_v1.fresh", FT_BOOLEAN, 8,
+TFS(&tfs_srvloc_flags_fresh), FLAG_F, "Is this a new registration?", HFILL }},
+{&hf_srvloc_flags_v2,
+{"Flags", "srvloc.flags_v2",
+FT_UINT16, BASE_HEX, NULL, 0x0,
+NULL, HFILL }
+},
+{ &hf_srvloc_flags_v2_overflow,
+{ "Overflow", "srvloc.flags_v2.overflow", FT_BOOLEAN, 16,
+TFS(&tfs_srvloc_flags_overflow), FLAG_O_V2, "Can whole packet fit into a datagram?", HFILL }},
+{ &hf_srvloc_flags_v2_fresh,
+{ "Fresh Registration", "srvloc.flags_v2.fresh", FT_BOOLEAN, 16,
+TFS(&tfs_srvloc_flags_fresh), FLAG_F_V2, "Is this a new registration?", HFILL }},
+{ &hf_srvloc_flags_v2_reqmulti,
+{ "Multicast requested", "srvloc.flags_v2.reqmulti", FT_BOOLEAN, 16,
+TFS(&tfs_srvloc_flags_v2_reqmulti), FLAG_R_V2, "Do we want multicast?", HFILL }},
+{ &hf_srvloc_authblkv2_bsd,
+{ "BSD", "srvloc.authblkv2_bsd", FT_UINT16, BASE_HEX, NULL, 0x0,
+"Block Structure Descriptor", HFILL}
+},
+{ &hf_srvloc_authblkv2_len,
+{ "Length", "srvloc.authblkv2_len", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of Authentication Block", HFILL}
+},
+{ &hf_srvloc_authblkv2_timestamp,
+{ "Timestamp", "srvloc.authblkv2.timestamp", FT_ABSOLUTE_TIME, ABSOLUTE_TIME_LOCAL,
+NULL, 0, "Timestamp on Authentication Block", HFILL }
+},
+{ &hf_srvloc_authblkv2_slpspilen,
+{ "SLP SPI Length", "srvloc.authblkv2.slpspilen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of the SLP SPI", HFILL}
+},
+{ &hf_srvloc_authblkv2_slpspi,
+{ "SLP SPI", "srvloc.authblkv2.slpspi", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvreq_prlistlen,
+{ "Previous Response List Length", "srvloc.srvreq.prlistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of Previous Response List", HFILL}
+},
+{ &hf_srvloc_srvreq_prlist,
+{ "Previous Response List", "srvloc.srvreq.prlist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvreq_srvtypelen,
+{ "Service Type Length", "srvloc.srvreq.srvtypelen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of Service Type List", HFILL}
+},
+{ &hf_srvloc_srvreq_srvtypelist,
+{ "Service Type List", "srvloc.srvreq.srvtypelist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvreq_scopelistlen,
+{ "Scope List Length", "srvloc.srvreq.scopelistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of the Scope List", HFILL}
+},
+{ &hf_srvloc_srvreq_scopelist,
+{ "Scope List", "srvloc.srvreq.scopelist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvreq_predicatelen,
+{ "Predicate Length", "srvloc.srvreq.predicatelen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of the Predicate", HFILL}
+},
+{ &hf_srvloc_srvreq_predicate,
+{ "Predicate", "srvloc.srvreq.predicate", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvreq_slpspilen,
+{ "SLP SPI Length", "srvloc.srvreq.slpspilen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of the SLP SPI", HFILL}
+},
+{ &hf_srvloc_srvreq_slpspi,
+{ "SLP SPI", "srvloc.srvreq.slpspi", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvrply_urlcount,
+{ "Number of URLs", "srvloc.srvreq.urlcount", FT_UINT16, BASE_DEC, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvreg_srvtypelen,
+{ "Service Type Length", "srvloc.srvreq.srvtypelen", FT_UINT16, BASE_DEC, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvreg_srvtype,
+{ "Service Type", "srvloc.srvreq.srvtype", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvreg_scopelistlen,
+{ "Scope List Length", "srvloc.srvreq.scopelistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvreg_scopelist,
+{ "Scope List", "srvloc.srvreq.scopelist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvreg_attrlistlen,
+{ "Attribute List Length", "srvloc.srvreq.attrlistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvreg_attrlist,
+{ "Attribute List", "srvloc.srvreq.attrlist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvreg_attrauthcount,
+{ "Attr Auths", "srvloc.srvreq.attrauthcount", FT_UINT8, BASE_DEC, NULL, 0x0,
+"Number of Attribute Authentication Blocks", HFILL}
+},
+{ &hf_srvloc_srvdereg_scopelistlen,
+{ "Scope List Length", "srvloc.srvdereq.scopelistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvdereg_scopelist,
+{ "Scope List", "srvloc.srvdereq.scopelist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvdereg_taglistlen,
+{ "Tag List Length", "srvloc.srvdereq.taglistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvdereg_taglist,
+{ "Tag List", "srvloc.srvdereq.taglist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_attrreq_prlistlen,
+{ "Previous Response List Length", "srvloc.attrreq.prlistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of Previous Response List", HFILL}
+},
+{ &hf_srvloc_attrreq_prlist,
+{ "Previous Response List", "srvloc.attrreq.prlist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_attrreq_urllen,
+{ "URL Length", "srvloc.attrreq.urllen", FT_UINT16, BASE_DEC, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_attrreq_url,
+{ "Service URL", "srvloc.attrreq.url", FT_STRING, BASE_NONE, NULL, 0x0,
+"URL of service", HFILL}
+},
+{ &hf_srvloc_attrreq_scopelistlen,
+{ "Scope List Length", "srvloc.attrreq.scopelistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of the Scope List", HFILL}
+},
+{ &hf_srvloc_attrreq_scopelist,
+{ "Scope List", "srvloc.attrreq.scopelist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_attrreq_attrlistlen,
+{ "Attribute List Length", "srvloc.attrreq.attrlistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_attrreq_attrlist,
+{ "Attribute List", "srvloc.attrreq.attrlist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_attrreq_taglistlen,
+{ "Tag List Length", "srvloc.attrreq.taglistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_attrreq_taglist,
+{ "Tag List", "srvloc.attrreq.taglist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_attrreq_slpspilen,
+{ "SLP SPI Length", "srvloc.attrreq.slpspilen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of the SLP SPI", HFILL}
+},
+{ &hf_srvloc_attrreq_slpspi,
+{ "SLP SPI", "srvloc.attrreq.slpspi", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_attrrply_attrlistlen,
+{ "Attribute List Length", "srvloc.attrrply.attrlistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of Attribute List", HFILL}
+},
+{ &hf_srvloc_attrrply_attrlist,
+{ "Attribute List", "srvloc.attrrply.attrlist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_attrrply_attrauthcount,
+{ "Attr Auths", "srvloc.srvreq.attrauthcount", FT_UINT8, BASE_DEC, NULL, 0x0,
+"Number of Attribute Authentication Blocks", HFILL}
+},
+{ &hf_srvloc_daadvert_timestamp,
+{ "DAADVERT Timestamp", "srvloc.daadvert.timestamp", FT_ABSOLUTE_TIME, ABSOLUTE_TIME_LOCAL,
+NULL, 0, "Timestamp on DA Advert", HFILL }
+},
+{ &hf_srvloc_daadvert_urllen,
+{ "URL Length", "srvloc.daadvert.urllen", FT_UINT16, BASE_DEC, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_daadvert_url,
+{ "URL", "srvloc.daadvert.url", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_daadvert_scopelistlen,
+{ "Scope List Length", "srvloc.daadvert.scopelistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of the Scope List", HFILL}
+},
+{ &hf_srvloc_daadvert_scopelist,
+{ "Scope List", "srvloc.daadvert.scopelist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_daadvert_attrlistlen,
+{ "Attribute List Length", "srvloc.daadvert.attrlistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_daadvert_attrlist,
+{ "Attribute List", "srvloc.daadvert.attrlist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_daadvert_slpspilen,
+{ "SLP SPI Length", "srvloc.daadvert.slpspilen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of the SLP SPI", HFILL}
+},
+{ &hf_srvloc_daadvert_slpspi,
+{ "SLP SPI", "srvloc.daadvert.slpspi", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_daadvert_authcount,
+{ "Auths", "srvloc.daadvert.authcount", FT_UINT8, BASE_DEC, NULL, 0x0,
+"Number of Authentication Blocks", HFILL}
+},
+{ &hf_srvloc_srvtypereq_prlistlen,
+{ "Previous Response List Length", "srvloc.srvtypereq.prlistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of Previous Response List", HFILL}
+},
+{ &hf_srvloc_srvtypereq_prlist,
+{ "Previous Response List", "srvloc.srvtypereq.prlist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvtypereq_nameauthlistlen,
+{ "Naming Authority List Length", "srvloc.srvtypereq.nameauthlistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of the Naming Authority List", HFILL}
+},
+{ &hf_srvloc_srvtypereq_nameauthlistlenall,
+{ "Naming Authority List Length (All Naming Authorities)", "srvloc.srvtypereq.nameauthlistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of the Naming Authority List", HFILL}
+},
+{ &hf_srvloc_srvtypereq_nameauthlist,
+{ "Naming Authority List", "srvloc.srvtypereq.nameauthlist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvtypereq_scopelistlen,
+{ "Scope List Length", "srvloc.srvtypereq.scopelistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of the Scope List", HFILL}
+},
+{ &hf_srvloc_srvtypereq_scopelist,
+{ "Scope List", "srvloc.srvtypereq.scopelist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvtyperply_srvtypelen,
+{ "Service Type Length", "srvloc.srvtypereq.srvtypelen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of the Service Type", HFILL}
+},
+{ &hf_srvloc_srvtyperply_srvtype,
+{ "Service Type", "srvloc.srvtyperply.srvtype", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_srvtyperply_srvtypelistlen,
+{ "Service Type List Length", "srvloc.srvtypereq.srvtypelistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of the Service Type List", HFILL}
+},
+{ &hf_srvloc_srvtyperply_srvtypelist,
+{ "Service Type List", "srvloc.srvtyperply.srvtypelist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_saadvert_urllen,
+{ "URL Length", "srvloc.saadvert.urllen", FT_UINT16, BASE_DEC, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_saadvert_url,
+{ "URL", "srvloc.saadvert.url", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_saadvert_scopelistlen,
+{ "Scope List Length", "srvloc.saadvert.scopelistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+"Length of the Scope List", HFILL}
+},
+{ &hf_srvloc_saadvert_scopelist,
+{ "Scope List", "srvloc.saadvert.scopelist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_saadvert_attrlistlen,
+{ "Attribute List Length", "srvloc.saadvert.attrlistlen", FT_UINT16, BASE_DEC, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_saadvert_attrlist,
+{ "Attribute List", "srvloc.saadvert.attrlist", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+},
+{ &hf_srvloc_saadvert_authcount,
+{ "Auths", "srvloc.saadvert.authcount", FT_UINT8, BASE_DEC, NULL, 0x0,
+"Number of Authentication Blocks", HFILL}
+},
+{ &hf_srvloc_add_ref_ip,
+{ "IP Address", "srvloc.list.ipaddr", FT_IPv4, BASE_NONE, NULL, 0x0,
+"IP Address of SLP server", HFILL}
+},
+{ &hf_srvloc_srvrply_svcname,
+{ "Service Name Value", "srvloc.srvrply.svcname", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL}
+}
+};
+static gint *ett[] = {
+&ett_srvloc,
+&ett_srvloc_attr,
+&ett_srvloc_flags,
+};
+static ei_register_info ei[] = {
+{ &ei_srvloc_error, { "srvloc.err.expert", PI_RESPONSE_CODE, PI_ERROR, "Error", EXPFILL }},
+{ &ei_srvloc_error_v2, { "srvloc.errv2.expert", PI_RESPONSE_CODE, PI_ERROR, "Error", EXPFILL }},
+{ &ei_srvloc_function_unknown, { "srvloc.function.unknown", PI_RESPONSE_CODE, PI_ERROR, "Unknown Function Type", EXPFILL }},
+};
+module_t *srvloc_module;
+expert_module_t* expert_srvloc;
+proto_srvloc = proto_register_protocol("Service Location Protocol",
+"SRVLOC", "srvloc");
+proto_register_field_array(proto_srvloc, hf, array_length(hf));
+proto_register_subtree_array(ett, array_length(ett));
+expert_srvloc = expert_register_protocol(proto_srvloc);
+expert_register_field_array(expert_srvloc, ei, array_length(ei));
+srvloc_module = prefs_register_protocol(proto_srvloc, NULL);
+prefs_register_bool_preference(srvloc_module, "desegment_tcp",
+"Reassemble SRVLOC messages spanning multiple TCP segments",
+"Whether the SRVLOC dissector should reassemble messages spanning multiple TCP segments. "
+"To use this option, you must also enable \"Allow subdissectors to reassemble TCP streams\" in the TCP protocol settings.",
+&srvloc_desegment);
+}
+void
+proto_reg_handoff_srvloc(void)
+{
+dissector_handle_t srvloc_handle, srvloc_tcp_handle;
+srvloc_handle = new_create_dissector_handle(dissect_srvloc, proto_srvloc);
+dissector_add_uint("udp.port", UDP_PORT_SRVLOC, srvloc_handle);
+srvloc_tcp_handle = new_create_dissector_handle(dissect_srvloc_tcp,
+proto_srvloc);
+dissector_add_uint("tcp.port", TCP_PORT_SRVLOC, srvloc_tcp_handle);
+}

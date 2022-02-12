@@ -1,0 +1,1 @@
+DH *DH_generate_parameters(int prime_len, int generator,\r\nvoid (*callback)(int,int,void *), void *cb_arg)\r\n{\r\nBN_GENCB cb;\r\nDH *ret=NULL;\r\nif((ret=DH_new()) == NULL)\r\nreturn NULL;\r\nBN_GENCB_set_old(&cb, callback, cb_arg);\r\nif(DH_generate_parameters_ex(ret, prime_len, generator, &cb))\r\nreturn ret;\r\nDH_free(ret);\r\nreturn NULL;\r\n}

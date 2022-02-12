@@ -1,0 +1,1 @@
+WS_DLL_PUBLIC_DEF void register_codec_module(void)\r\n{\r\nregister_codec("g723", codec_g7231_init, codec_g7231_release, codec_g7231_decode);\r\nregister_codec("g729", codec_g729a_init, codec_g729a_release, codec_g729a_decode);\r\nregister_codec("g722", codec_g722_init, codec_g722_release, codec_g722_decode);\r\n}

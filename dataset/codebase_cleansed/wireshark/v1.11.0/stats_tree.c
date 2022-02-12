@@ -1,0 +1,526 @@
+extern void
+stats_tree_get_strs_from_node(const stat_node *node, gchar *value, gchar *rate, gchar *percent)
+{
+float f;
+if (value) g_snprintf(value,NUM_BUF_SIZE,"%u",node->counter);
+if (rate) {
+*rate = '\0';
+if (node->st->elapsed > 0.0) {
+f = ((float)node->counter) / (float)node->st->elapsed;
+g_snprintf(rate,NUM_BUF_SIZE,"%f",f);
+}
+}
+if (percent) {
+*percent = '\0';
+if (node->parent->counter > 0) {
+f = (float)(((float)node->counter * 100.0) / node->parent->counter);
+g_snprintf(percent,NUM_BUF_SIZE,"%.2f%%",f);
+}
+}
+}
+extern gchar*
+stats_tree_node_to_str(const stat_node *node, gchar *buffer, guint len)
+{
+if (buffer) {
+g_snprintf(buffer,len,"%s: %i",node->name, node->counter);
+return buffer;
+} else {
+return g_strdup_printf("%s: %i",node->name, node->counter);
+}
+}
+extern guint
+stats_tree_branch_max_namelen(const stat_node *node, guint indent)
+{
+stat_node *child;
+guint maxlen = 0;
+guint len;
+indent = indent > INDENT_MAX ? INDENT_MAX : indent;
+if (node->children) {
+for (child = node->children; child; child = child->next ) {
+len = stats_tree_branch_max_namelen(child,indent+1);
+maxlen = len > maxlen ? len : maxlen;
+}
+}
+len = (guint) strlen(node->name) + indent;
+maxlen = len > maxlen ? len : maxlen;
+return maxlen;
+}
+extern void
+stats_tree_branch_to_str(const stat_node *node, GString *s, guint indent)
+{
+stat_node *child;
+static gchar indentation[INDENT_MAX+1];
+static gchar value[NUM_BUF_SIZE];
+static gchar rate[NUM_BUF_SIZE];
+static gchar percent[NUM_BUF_SIZE];
+guint i = 0;
+if (indent == 0) {
+format = g_strdup_printf(" %%s%%-%us%%12s %%12s %%12s\n",stats_tree_branch_max_namelen(node,0));
+}
+stats_tree_get_strs_from_node(node, value, rate, percent);
+indent = indent > INDENT_MAX ? INDENT_MAX : indent;
+if (indent > 0) {
+while(i<indent)
+indentation[i++] = ' ';
+}
+indentation[i] = '\0';
+g_string_append_printf(s,format,
+indentation,node->name,value,rate,percent);
+if (node->children) {
+for (child = node->children; child; child = child->next ) {
+stats_tree_branch_to_str(child,s,indent+1);
+}
+}
+if (indent == 0) {
+g_free(format);
+}
+}
+static void
+free_stat_node(stat_node *node)
+{
+stat_node *child;
+stat_node *next;
+if (node->children) {
+for (child = node->children; child; child = next ) {
+next = child->next;
+free_stat_node(child);
+}
+}
+if(node->st->cfg->free_node_pr) node->st->cfg->free_node_pr(node);
+if (node->hash) g_hash_table_destroy(node->hash);
+g_free(node->rng);
+g_free(node->name);
+g_free(node);
+}
+extern void
+stats_tree_free(stats_tree *st)
+{
+stat_node *child;
+stat_node *next;
+g_free(st->filter);
+g_hash_table_destroy(st->names);
+g_ptr_array_free(st->parents,TRUE);
+for (child = st->root.children; child; child = next ) {
+next = child->next;
+free_stat_node(child);
+}
+if (st->cfg->free_tree_pr)
+st->cfg->free_tree_pr(st);
+if (st->cfg->cleanup)
+st->cfg->cleanup(st);
+g_free(st);
+}
+static void
+reset_stat_node(stat_node *node)
+{
+stat_node *child;
+if (node->children) {
+for (child = node->children; child; child = child->next )
+reset_stat_node(child);
+}
+node->counter = 0;
+if(node->st->cfg->reset_node) {
+node->st->cfg->reset_node(node);
+}
+}
+extern void
+stats_tree_reset(void *p)
+{
+stats_tree *st = (stats_tree *)p;
+st->start = -1.0;
+st->elapsed = 0.0;
+reset_stat_node(&st->root);
+if (st->cfg->reset_tree) {
+st->cfg->reset_tree(st);
+}
+}
+extern void
+stats_tree_reinit(void *p)
+{
+stats_tree *st = (stats_tree *)p;
+stat_node *child;
+stat_node *next;
+for (child = st->root.children; child; child = next) {
+next = child->next;
+free_stat_node(child);
+}
+st->root.children = NULL;
+st->root.counter = 0;
+if (st->cfg->init) {
+st->cfg->init(st);
+}
+}
+extern void
+stats_tree_register_with_group(const char *tapname, const char *abbr, const char *name,
+guint flags,
+stat_tree_packet_cb packet, stat_tree_init_cb init,
+stat_tree_cleanup_cb cleanup, register_stat_group_t stat_group)
+{
+stats_tree_cfg *cfg = (stats_tree_cfg *)g_malloc( sizeof(stats_tree_cfg) );
+g_assert( tapname && abbr && packet );
+cfg->plugin = FALSE;
+cfg->tapname = g_strdup(tapname);
+cfg->abbr = g_strdup(abbr);
+cfg->name = name ? g_strdup(name) : g_strdup(abbr);
+cfg->stat_group = stat_group;
+cfg->packet = packet;
+cfg->init = init;
+cfg->cleanup = cleanup;
+cfg->flags = flags;
+cfg->setup_node_pr = NULL;
+cfg->new_tree_pr = NULL;
+cfg->free_node_pr = NULL;
+cfg->free_tree_pr = NULL;
+cfg->draw_node = NULL;
+cfg->draw_tree = NULL;
+cfg->reset_node = NULL;
+cfg->reset_tree = NULL;
+if (!registry) registry = g_hash_table_new(g_str_hash,g_str_equal);
+g_hash_table_insert(registry,cfg->abbr,cfg);
+}
+extern void
+stats_tree_register(const char *tapname, const char *abbr, const char *name,
+guint flags,
+stat_tree_packet_cb packet, stat_tree_init_cb init,
+stat_tree_cleanup_cb cleanup)
+{
+stats_tree_register_with_group(tapname, abbr, name,
+flags,
+packet, init,
+cleanup, REGISTER_STAT_GROUP_UNSORTED);
+}
+extern void
+stats_tree_register_plugin(const char *tapname, const char *abbr, const char *name,
+guint flags,
+stat_tree_packet_cb packet, stat_tree_init_cb init,
+stat_tree_cleanup_cb cleanup)
+{
+stats_tree_cfg *cfg;
+stats_tree_register(tapname, abbr, name,
+flags,
+packet, init,
+cleanup);
+cfg = stats_tree_get_cfg_by_abbr((char*)abbr);
+cfg->plugin = TRUE;
+}
+extern stats_tree*
+stats_tree_new(stats_tree_cfg *cfg, tree_pres *pr, const char *filter)
+{
+stats_tree *st = (stats_tree *)g_malloc(sizeof(stats_tree));
+st->cfg = cfg;
+st->pr = pr;
+st->names = g_hash_table_new(g_str_hash,g_str_equal);
+st->parents = g_ptr_array_new();
+st->filter = g_strdup(filter);
+st->start = -1.0;
+st->elapsed = 0.0;
+st->root.counter = 0;
+st->root.name = g_strdup(cfg->name);
+st->root.st = st;
+st->root.parent = NULL;
+st->root.children = NULL;
+st->root.next = NULL;
+st->root.hash = NULL;
+st->root.pr = NULL;
+g_ptr_array_add(st->parents,&st->root);
+return st;
+}
+extern int
+stats_tree_packet(void *p, packet_info *pinfo, epan_dissect_t *edt, const void *pri)
+{
+stats_tree *st = (stats_tree *)p;
+double now = nstime_to_msec(&pinfo->rel_ts);
+if (st->start < 0.0) st->start = now;
+st->elapsed = now - st->start;
+if (st->cfg->packet)
+return st->cfg->packet(st,pinfo,edt,pri);
+else
+return 0;
+}
+extern stats_tree_cfg*
+stats_tree_get_cfg_by_abbr(char *abbr)
+{
+return (stats_tree_cfg *)g_hash_table_lookup(registry,abbr);
+}
+extern GList*
+stats_tree_get_cfg_list(void)
+{
+return g_hash_table_get_values(registry);
+}
+static void
+setup_tree_presentation(gpointer k _U_, gpointer v, gpointer p)
+{
+stats_tree_cfg *cfg = (stats_tree_cfg *)v;
+struct _stats_tree_pres_cbs *d = (struct _stats_tree_pres_cbs *)p;
+cfg->in_use = FALSE;
+cfg->setup_node_pr = d->setup_node_pr;
+cfg->new_tree_pr = d->new_tree_pr;
+cfg->free_node_pr = d->free_node_pr;
+cfg->free_tree_pr = d->free_tree_pr;
+cfg->draw_node = d->draw_node;
+cfg->draw_tree = d->draw_tree;
+cfg->reset_node = d->reset_node;
+cfg->reset_tree = d->reset_tree;
+}
+extern void
+stats_tree_presentation(void (*registry_iterator)(gpointer,gpointer,gpointer),
+void (*setup_node_pr)(stat_node*),
+void (*free_node_pr)(stat_node*),
+void (*draw_node)(stat_node*),
+void (*reset_node)(stat_node*),
+tree_pres *(*new_tree_pr)(stats_tree*),
+void (*free_tree_pr)(stats_tree*),
+void (*draw_tree)(stats_tree*),
+void (*reset_tree)(stats_tree*),
+void *data)
+{
+static struct _stats_tree_pres_cbs d;
+d.setup_node_pr = setup_node_pr;
+d.new_tree_pr = new_tree_pr;
+d.free_node_pr = free_node_pr;
+d.free_tree_pr = free_tree_pr;
+d.draw_node = draw_node;
+d.draw_tree = draw_tree;
+d.reset_node = reset_node;
+d.reset_tree = reset_tree;
+if (registry) g_hash_table_foreach(registry,setup_tree_presentation,&d);
+if (registry_iterator && registry)
+g_hash_table_foreach(registry,registry_iterator,data);
+}
+static stat_node*
+new_stat_node(stats_tree *st, const gchar *name, int parent_id,
+gboolean with_hash, gboolean as_parent_node)
+{
+stat_node *node = (stat_node *)g_malloc (sizeof(stat_node));
+stat_node *last_chld = NULL;
+node->counter = 0;
+node->name = g_strdup(name);
+node->children = NULL;
+node->next = NULL;
+node->st = (stats_tree*) st;
+node->hash = with_hash ? g_hash_table_new(g_str_hash,g_str_equal) : NULL;
+node->parent = NULL;
+node->rng = NULL;
+if (as_parent_node) {
+g_hash_table_insert(st->names,
+node->name,
+node);
+g_ptr_array_add(st->parents,node);
+node->id = st->parents->len - 1;
+} else {
+node->id = -1;
+}
+if (parent_id >= 0 && parent_id < (int) st->parents->len ) {
+node->parent = (stat_node *)g_ptr_array_index(st->parents,parent_id);
+} else {
+g_assert_not_reached();
+}
+if (node->parent->children) {
+for (last_chld = node->parent->children;
+last_chld->next;
+last_chld = last_chld->next ) ;
+last_chld->next = node;
+} else {
+node->parent->children = node;
+}
+if(node->parent->hash) {
+g_hash_table_insert(node->parent->hash,node->name,node);
+}
+if (st->cfg->setup_node_pr) {
+st->cfg->setup_node_pr(node);
+} else {
+node->pr = NULL;
+}
+return node;
+}
+extern int
+stats_tree_create_node(stats_tree *st, const gchar *name, int parent_id, gboolean with_hash)
+{
+stat_node *node = new_stat_node(st,name,parent_id,with_hash,TRUE);
+if (node)
+return node->id;
+else
+return 0;
+}
+extern int
+stats_tree_create_node_by_pname(stats_tree *st, const gchar *name,
+const gchar *parent_name, gboolean with_children)
+{
+return stats_tree_create_node(st,name,stats_tree_parent_id_by_name(st,parent_name),with_children);
+}
+extern int
+stats_tree_manip_node(manip_node_mode mode, stats_tree *st, const char *name,
+int parent_id, gboolean with_hash, gint value)
+{
+stat_node *node = NULL;
+stat_node *parent = NULL;
+g_assert( parent_id >= 0 && parent_id < (int) st->parents->len );
+parent = (stat_node *)g_ptr_array_index(st->parents,parent_id);
+if( parent->hash ) {
+node = (stat_node *)g_hash_table_lookup(parent->hash,name);
+} else {
+node = (stat_node *)g_hash_table_lookup(st->names,name);
+}
+if ( node == NULL )
+node = new_stat_node(st,name,parent_id,with_hash,with_hash);
+switch (mode) {
+case MN_INCREASE: node->counter += value; break;
+case MN_SET: node->counter = value; break;
+}
+if (node)
+return node->id;
+else
+return -1;
+}
+extern char*
+stats_tree_get_abbr(const char *opt_arg)
+{
+guint i;
+g_assert(opt_arg != NULL);
+for (i=0; opt_arg[i] && opt_arg[i] != ','; i++);
+if (opt_arg[i] == ',') {
+return g_strndup(opt_arg,i);
+} else {
+return NULL;
+}
+}
+static range_pair_t*
+get_range(char *rngstr)
+{
+gchar **split;
+range_pair_t *rng;
+split = g_strsplit((gchar*)rngstr,"-",2);
+if (split[0] == NULL) {
+g_strfreev(split);
+return NULL;
+}
+if (split[1] == NULL) {
+g_strfreev(split);
+return NULL;
+}
+rng = (range_pair_t *)g_malloc(sizeof(range_pair_t));
+if (*(split[0]) != '\0') {
+rng->floor = (gint)strtol(split[0],NULL,10);
+} else
+rng->floor = G_MININT;
+if (*(split[1]) != '\0') {
+rng->ceil = (gint)strtol(split[1],NULL,10);
+} else
+rng->ceil = G_MAXINT;
+g_strfreev(split);
+return rng;
+}
+extern int
+stats_tree_create_range_node(stats_tree *st, const gchar *name, int parent_id, ...)
+{
+va_list list;
+gchar *curr_range;
+stat_node *rng_root = new_stat_node(st, name, parent_id, FALSE, TRUE);
+stat_node *range_node = NULL;
+va_start( list, parent_id );
+while (( curr_range = va_arg(list, gchar*) )) {
+range_node = new_stat_node(st, curr_range, rng_root->id, FALSE, FALSE);
+range_node->rng = get_range(curr_range);
+}
+va_end( list );
+return rng_root->id;
+}
+extern int
+stats_tree_create_range_node_string(stats_tree *st, const gchar *name,
+int parent_id, int num_str_ranges,
+gchar** str_ranges)
+{
+int i;
+stat_node *rng_root = new_stat_node(st, name, parent_id, FALSE, TRUE);
+stat_node *range_node = NULL;
+for (i = 0; i < num_str_ranges; i++) {
+range_node = new_stat_node(st, str_ranges[i], rng_root->id, FALSE, FALSE);
+range_node->rng = get_range(str_ranges[i]);
+}
+return rng_root->id;
+}
+extern int
+stats_tree_parent_id_by_name(stats_tree *st, const gchar *parent_name)
+{
+stat_node *node = (stat_node *)g_hash_table_lookup(st->names,parent_name);
+if (node)
+return node->id;
+else
+return 0;
+}
+extern int
+stats_tree_range_node_with_pname(stats_tree *st, const gchar *name,
+const gchar *parent_name, ...)
+{
+va_list list;
+gchar *curr_range;
+stat_node *range_node = NULL;
+int parent_id = stats_tree_parent_id_by_name(st,parent_name);
+stat_node *rng_root = new_stat_node(st, name, parent_id, FALSE, TRUE);
+va_start( list, parent_name );
+while (( curr_range = va_arg(list, gchar*) )) {
+range_node = new_stat_node(st, curr_range, rng_root->id, FALSE, FALSE);
+range_node->rng = get_range(curr_range);
+}
+va_end( list );
+return rng_root->id;
+}
+extern int
+stats_tree_tick_range(stats_tree *st, const gchar *name, int parent_id,
+int value_in_range)
+{
+stat_node *node = NULL;
+stat_node *parent = NULL;
+stat_node *child = NULL;
+gint floor, ceil;
+if (parent_id >= 0 && parent_id < (int) st->parents->len) {
+parent = (stat_node *)g_ptr_array_index(st->parents,parent_id);
+} else {
+g_assert_not_reached();
+}
+if( parent->hash ) {
+node = (stat_node *)g_hash_table_lookup(parent->hash,name);
+} else {
+node = (stat_node *)g_hash_table_lookup(st->names,name);
+}
+if ( node == NULL )
+g_assert_not_reached();
+for ( child = node->children; child; child = child->next) {
+floor = child->rng->floor;
+ceil = child->rng->ceil;
+if ( value_in_range >= floor && value_in_range <= ceil ) {
+child->counter++;
+return node->id;
+}
+}
+return node->id;
+}
+extern int
+stats_tree_create_pivot(stats_tree *st, const gchar *name, int parent_id)
+{
+stat_node *node = new_stat_node(st,name,parent_id,TRUE,TRUE);
+if (node)
+return node->id;
+else
+return 0;
+}
+extern int
+stats_tree_create_pivot_by_pname(stats_tree *st, const gchar *name,
+const gchar *parent_name)
+{
+int parent_id = stats_tree_parent_id_by_name(st,parent_name);
+stat_node *node;
+node = new_stat_node(st,name,parent_id,TRUE,TRUE);
+if (node)
+return node->id;
+else
+return 0;
+}
+extern int
+stats_tree_tick_pivot(stats_tree *st, int pivot_id, const gchar *pivot_value)
+{
+stat_node *parent = (stat_node *)g_ptr_array_index(st->parents,pivot_id);
+parent->counter++;
+stats_tree_manip_node( MN_INCREASE, st, pivot_value, pivot_id, FALSE, 1);
+return pivot_id;
+}

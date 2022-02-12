@@ -1,0 +1,1 @@
+guint16 crc11_307_noreflect_noxor(const guint8 *data, guint64 data_len)\r\n{\r\nguint16 crc = 0;\r\nguint tbl_idx;\r\nwhile (data_len--) {\r\ntbl_idx = ((crc >> 3) ^ *data) & 0xff;\r\ncrc = (crc11_table_307_noreflect_noxor[tbl_idx] ^ (crc << 8)) & 0x7ff;\r\ndata++;\r\n}\r\nreturn crc & 0x7ff;\r\n}

@@ -1,0 +1,1 @@
+static int dh_cb(int operation, ASN1_VALUE **pval, const ASN1_ITEM *it,\r\nvoid *exarg)\r\n{\r\nif(operation == ASN1_OP_NEW_PRE) {\r\n*pval = (ASN1_VALUE *)DH_new();\r\nif(*pval) return 2;\r\nreturn 0;\r\n} else if(operation == ASN1_OP_FREE_PRE) {\r\nDH_free((DH *)*pval);\r\n*pval = NULL;\r\nreturn 2;\r\n}\r\nreturn 1;\r\n}

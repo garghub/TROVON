@@ -1,0 +1,1 @@
+unsigned char *MDC2(const unsigned char *d, unsigned long n, unsigned char *md)\r\n{\r\nMDC2_CTX c;\r\nstatic unsigned char m[MDC2_DIGEST_LENGTH];\r\nif (md == NULL) md=m;\r\nMDC2_Init(&c);\r\nMDC2_Update(&c,d,n);\r\nMDC2_Final(md,&c);\r\nmemset(&c,0,sizeof(c));\r\nreturn(md);\r\n}

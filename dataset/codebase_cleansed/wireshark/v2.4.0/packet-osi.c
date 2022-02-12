@@ -1,0 +1,341 @@
+gboolean
+osi_calc_checksum( tvbuff_t *tvb, int offset, guint len, guint32* c0, guint32* c1) {
+guint available_len;
+const guint8 *p;
+guint seglen;
+guint i;
+available_len = tvb_captured_length_remaining( tvb, offset );
+if ( available_len < len )
+return FALSE;
+p = tvb_get_ptr( tvb, offset, len );
+*c0 = 0;
+*c1 = 0;
+while (len != 0) {
+seglen = len;
+if (seglen > 5803)
+seglen = 5803;
+for (i = 0; i < seglen; i++) {
+(*c0) += *(p++);
+(*c1) += (*c0);
+}
+(*c0) = (*c0) % 255;
+(*c1) = (*c1) % 255;
+len -= seglen;
+}
+return TRUE;
+}
+gboolean
+osi_check_and_get_checksum( tvbuff_t *tvb, int offset, guint len, int offset_check, guint16* result) {
+guint available_len;
+const guint8 *p;
+guint8 discard = 0;
+guint32 c0, c1, factor;
+guint seglen, initlen = len;
+guint i;
+int block, x, y;
+available_len = tvb_captured_length_remaining( tvb, offset );
+offset_check -= offset;
+if ( ( available_len < len ) || ( offset_check < 0 ) || ( (guint)(offset_check+2) > len ) )
+return FALSE;
+p = tvb_get_ptr( tvb, offset, len );
+block = offset_check / 5803;
+c0 = 0;
+c1 = 0;
+while (len != 0) {
+seglen = len;
+if ( block-- == 0 ) {
+seglen = offset_check % 5803;
+discard = 1;
+} else if ( seglen > 5803 )
+seglen = 5803;
+for (i = 0; i < seglen; i++) {
+c0 = c0 + *(p++);
+c1 += c0;
+}
+if ( discard ) {
+p += 2;
+c1 += 2*c0;
+len -= 2;
+discard = 0;
+}
+c0 = c0 % 255;
+c1 = c1 % 255;
+len -= seglen;
+}
+factor = ( initlen - offset_check ) * c0;
+x = factor - c0 - c1;
+y = c1 - factor - 1;
+if (x < 0 ) x--;
+if (y > 0 ) y++;
+x %= 255;
+y %= 255;
+if (x == 0) x = 0xFF;
+if (y == 0) y = 0x01;
+*result = ( x << 8 ) | ( y & 0xFF );
+return TRUE;
+}
+guint32 check_atn_ec_32(
+tvbuff_t *tvb, guint tpdu_len,
+guint offset_ec_32_val,
+guint offset_iso8073_val,
+guint clnp_dst_len,
+const guint8 *clnp_dst,
+guint clnp_src_len,
+const guint8 *clnp_src)
+{
+guint i = 0;
+guint32 c0 = 0;
+guint32 c1 = 0;
+guint32 c2 = 0;
+guint32 c3 = 0;
+guint32 sum = 0;
+for ( i =0; i< tpdu_len; i++){
+c0 += tvb_get_guint8(tvb, i) ;
+if( ( i >= offset_ec_32_val ) &&
+( i < ( offset_ec_32_val + 4 ) ) ) {
+c0 -= tvb_get_guint8(tvb, i);
+}
+if( ( offset_iso8073_val ) &&
+( i >= offset_iso8073_val ) &&
+( i < ( offset_iso8073_val + 2 ) ) ) {
+c0 -= tvb_get_guint8(tvb, i);
+}
+if ( c0 >= 0x000000FF )
+c0 -= 0x00000FF;
+c1 += c0;
+if ( c1 >= 0x000000FF )
+c1 -= 0x000000FF;
+c2 += c1;
+if ( c2 >= 0x000000FF )
+c2 -= 0x000000FF;
+c3 += c2;
+if ( c3 >= 0x000000FF )
+c3 -= 0x000000FF;
+}
+c0 += clnp_dst_len;
+if ( c0 >= 0x000000FF )
+c0 -= 0x000000FF;
+c1 += c0;
+if ( c1 >= 0x000000FF )
+c1 -= 0x000000FF;
+c2 += c1;
+if ( c2 >= 0x000000FF )
+c2 -= 0x000000FF;
+c3 += c2;
+if ( c3 >= 0x000000FF )
+c3 -= 0x000000FF;
+for ( i =0; i< clnp_dst_len; i++){
+c0 += clnp_dst[i];
+if ( c0 >= 0x000000FF )
+c0 -= 0x000000FF;
+c1 += c0;
+if ( c1 >= 0x000000FF )
+c1 -= 0x000000FF;
+c2 += c1;
+if ( c2 >= 0x000000FF )
+c2 -= 0x000000FF;
+c3 += c2;
+if ( c3 >= 0x000000FF )
+c3 -= 0x000000FF;
+}
+c0 += clnp_src_len;
+if ( c0 >= 0x000000FF )
+c0 -= 0x000000FF;
+c1 += c0;
+if ( c1 >= 0x000000FF )
+c1 -= 0x000000FF;
+c2 += c1;
+if ( c2 >= 0x000000FF )
+c2 -= 0x000000FF;
+c3 += c2;
+if ( c3 >= 0x000000FF )
+c3 -= 0x000000FF;
+for ( i =0; i< clnp_src_len; i++){
+c0 += clnp_src[i];
+if ( c0 >= 0x000000FF )
+c0 -= 0x000000FF;
+c1 += c0;
+if ( c1 >= 0x000000FF )
+c1 -= 0x000000FF;
+c2 += c1;
+if ( c2 >= 0x000000FF )
+c2 -= 0x000000FF;
+c3 += c2;
+if ( c3 >= 0x000000FF )
+c3 -= 0x000000FF;
+}
+for ( i = offset_ec_32_val; i< (offset_ec_32_val+4); i++){
+c0 += tvb_get_guint8(tvb, i) ;
+if ( c0 >= 0x000000FF )
+c0 -= 0x00000FF;
+c1 += c0;
+if ( c1 >= 0x000000FF )
+c1 -= 0x000000FF;
+c2 += c1;
+if ( c2 >= 0x000000FF )
+c2 -= 0x000000FF;
+c3 += c2;
+if ( c3 >= 0x000000FF )
+c3 -= 0x000000FF;
+}
+sum = (c3 << 24) + (c2 << 16 ) + (c1 << 8) + c0;
+return sum;
+}
+guint16 check_atn_ec_16(
+tvbuff_t *tvb,
+guint tpdu_len,
+guint offset_ec_16_val,
+guint offset_iso8073_val,
+guint clnp_dst_len,
+const guint8 *clnp_dst,
+guint clnp_src_len,
+const guint8 *clnp_src)
+{
+guint i = 0;
+guint16 c0 = 0;
+guint16 c1 = 0;
+guint16 sum;
+for ( i =0; i< tpdu_len; i++){
+c0 += tvb_get_guint8(tvb, i);
+if( (i >= offset_ec_16_val) &&
+(i < (offset_ec_16_val + 2) ) ) {
+c0 -= tvb_get_guint8(tvb, i) ;
+}
+if( (i >= offset_iso8073_val) &&
+(i < (offset_iso8073_val + 2) ) ) {
+c0 -= tvb_get_guint8(tvb, i) ;
+}
+if ( c0 >= 0x00FF )
+c0 -= 0x00FF;
+c1 += c0;
+if ( c1 >= 0x00FF )
+c1 -= 0x00FF;
+}
+c0 += clnp_dst_len;
+if ( c0 >= 0x00FF )
+c0 -= 0x00FF;
+c1 += c0;
+if ( c1 >= 0x00FF )
+c1 -= 0x00FF;
+for ( i =0; i< clnp_dst_len; i++){
+c0 += clnp_dst[i];
+if ( c0 >= 0x00FF )
+c0 -= 0x00FF;
+c1 += c0;
+if ( c1 >= 0x00FF )
+c1 -= 0x00FF;
+}
+c0 += clnp_src_len;
+if ( c0 >= 0x00FF )
+c0 -= 0x00FF;
+c1 += c0;
+if ( c1 >= 0x00FF )
+c1 -= 0x00FF;
+for ( i =0; i< clnp_src_len; i++){
+c0 += clnp_src[i];
+if ( c0 >= 0x00FF )
+c0 -= 0x00FF;
+c1 += c0;
+if ( c1 >= 0x00FF )
+c1 -= 0x00FF;
+}
+for ( i = offset_ec_16_val; i< (offset_ec_16_val+2); i++){
+c0 += tvb_get_guint8(tvb, i) ;
+if ( c0 >= 0x00FF )
+c0 -= 0x00FF;
+c1 += c0;
+if ( c1 >= 0x00FF )
+c1 -= 0x00FF;
+}
+sum = (c1 << 8) + c0 ;
+return sum;
+}
+static int
+dissect_osi_tpkt(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void* data _U_)
+{
+dissect_tpkt_encap(tvb, pinfo, tree, tpkt_desegment, osi_handle);
+return tvb_captured_length(tvb);
+}
+static int dissect_osi_juniper(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void* data _U_)
+{
+guint8 nlpid;
+tvbuff_t *next_tvb;
+nlpid = tvb_get_guint8(tvb, 0);
+if(dissector_try_uint(osinl_incl_subdissector_table, nlpid, tvb, pinfo, tree))
+return tvb_captured_length(tvb);
+next_tvb = tvb_new_subset_remaining(tvb, 1);
+dissector_try_uint(osinl_excl_subdissector_table, nlpid, next_tvb, pinfo, tree);
+return tvb_captured_length(tvb);
+}
+static int dissect_osi(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void* data _U_)
+{
+guint8 nlpid;
+tvbuff_t *new_tvb;
+nlpid = tvb_get_guint8(tvb, 0);
+if (dissector_try_uint(osinl_incl_subdissector_table, nlpid, tvb, pinfo, tree))
+return tvb_captured_length(tvb);
+proto_tree_add_uint(tree, hf_osi_nlpid, tvb, 0, 1, nlpid);
+new_tvb = tvb_new_subset_remaining(tvb, 1);
+if (dissector_try_uint(osinl_excl_subdissector_table, nlpid, new_tvb, pinfo, tree))
+return tvb_captured_length(tvb);
+switch (nlpid) {
+case NLPID_ISO9542X25_ESIS:
+col_set_str(pinfo->cinfo, COL_PROTOCOL, "ESIS (X.25)");
+call_data_dissector(tvb, pinfo, tree);
+break;
+case NLPID_ISO10747_IDRP:
+col_set_str(pinfo->cinfo, COL_PROTOCOL, "IDRP");
+call_data_dissector(tvb, pinfo, tree);
+break;
+default:
+col_set_str(pinfo->cinfo, COL_PROTOCOL, "ISO");
+col_add_fstr(pinfo->cinfo, COL_INFO, "Unknown ISO protocol (%02x)", nlpid);
+call_data_dissector(tvb, pinfo, tree);
+break;
+}
+return tvb_captured_length(tvb);
+}
+void
+proto_reg_handoff_osi(void)
+{
+dissector_handle_t osi_tpkt_handle, osi_juniper_handle;
+osi_handle = create_dissector_handle(dissect_osi, proto_osi);
+dissector_add_uint("llc.dsap", SAP_OSINL1, osi_handle);
+dissector_add_uint("llc.dsap", SAP_OSINL2, osi_handle);
+dissector_add_uint("llc.dsap", SAP_OSINL3, osi_handle);
+dissector_add_uint("llc.dsap", SAP_OSINL4, osi_handle);
+dissector_add_uint("llc.dsap", SAP_OSINL5, osi_handle);
+dissector_add_uint("ppp.protocol", PPP_OSI, osi_handle);
+dissector_add_uint("chdlc.protocol", CHDLCTYPE_OSI, osi_handle);
+dissector_add_uint("null.type", BSD_AF_ISO, osi_handle);
+dissector_add_uint("gre.proto", SAP_OSINL5, osi_handle);
+dissector_add_uint("ip.proto", IP_PROTO_ISOIP, osi_handle);
+osi_juniper_handle = create_dissector_handle(dissect_osi_juniper, proto_osi);
+dissector_add_uint("juniper.proto", JUNIPER_PROTO_ISO, osi_juniper_handle);
+dissector_add_uint("juniper.proto", JUNIPER_PROTO_CLNP, osi_juniper_handle);
+dissector_add_uint("juniper.proto", JUNIPER_PROTO_MPLS_CLNP, osi_juniper_handle);
+ppp_handle = find_dissector("ppp");
+osi_tpkt_handle = create_dissector_handle(dissect_osi_tpkt, proto_osi);
+dissector_add_for_decode_as_with_preference("tcp.port", osi_tpkt_handle);
+}
+void
+proto_register_osi(void)
+{
+static hf_register_info hf[] = {
+{ &hf_osi_nlpid,
+{ "Network Layer Protocol Identifier", "osi.nlpid", FT_UINT8, BASE_HEX,
+VALS(nlpid_vals), 0x0, NULL, HFILL }},
+};
+module_t *osi_module;
+proto_osi = proto_register_protocol("OSI", "OSI", "osi");
+proto_register_field_array(proto_osi, hf, array_length(hf));
+osinl_incl_subdissector_table = register_dissector_table("osinl.incl",
+"OSI incl NLPID", proto_osi, FT_UINT8, BASE_HEX);
+osinl_excl_subdissector_table = register_dissector_table("osinl.excl",
+"OSI excl NLPID", proto_osi, FT_UINT8, BASE_HEX);
+osi_module = prefs_register_protocol(proto_osi, NULL);
+prefs_register_bool_preference(osi_module, "tpkt_reassemble",
+"Reassemble segmented TPKT datagrams",
+"Whether segmented TPKT datagrams should be reassembled",
+&tpkt_desegment);
+}

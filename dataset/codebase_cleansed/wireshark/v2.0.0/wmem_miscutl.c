@@ -1,0 +1,1 @@
+void *\r\nwmem_memdup(wmem_allocator_t *allocator, const void *source, const size_t size)\r\n{\r\nvoid *dest;\r\ndest = wmem_alloc(allocator, size);\r\nmemcpy(dest, source, size);\r\nreturn dest;\r\n}

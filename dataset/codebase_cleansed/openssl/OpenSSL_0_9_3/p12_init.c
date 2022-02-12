@@ -1,0 +1,33 @@
+PKCS12 *PKCS12_init (int mode)
+{
+PKCS12 *pkcs12;
+if (!(pkcs12 = PKCS12_new())) {
+PKCS12err(PKCS12_F_PKCS12_INIT,ERR_R_MALLOC_FAILURE);
+return NULL;
+}
+if (!(pkcs12->version = ASN1_INTEGER_new ())) {
+PKCS12err(PKCS12_F_PKCS12_INIT,ERR_R_MALLOC_FAILURE);
+return NULL;
+}
+ASN1_INTEGER_set (pkcs12->version, 3);
+if (!(pkcs12->authsafes = PKCS7_new())) {
+PKCS12err(PKCS12_F_PKCS12_INIT,ERR_R_MALLOC_FAILURE);
+return NULL;
+}
+pkcs12->authsafes->type = OBJ_nid2obj(mode);
+switch (mode) {
+case NID_pkcs7_data:
+if (!(pkcs12->authsafes->d.data =
+ASN1_OCTET_STRING_new())) {
+PKCS12err(PKCS12_F_PKCS12_INIT,ERR_R_MALLOC_FAILURE);
+return NULL;
+}
+break;
+default:
+PKCS12err(PKCS12_F_PKCS12_INIT,PKCS12_R_UNSUPPORTED_PKCS12_MODE);
+PKCS12_free(pkcs12);
+return NULL;
+break;
+}
+return pkcs12;
+}

@@ -1,0 +1,276 @@
+static int testchar(tvbuff_t *tvb, packet_info *pinfo _U_, int offset, int op, gchar match, gchar *storage)
+{
+gchar temp;
+if (tvb_length_remaining(tvb, offset)) {
+temp = tvb_get_guint8(tvb, offset) & 0x7f;
+if (op == FETCH || (op == MATCH && temp == match)) {
+if (storage != NULL)
+*storage = temp;
+return 1;
+} else {
+return 0;
+}
+} else {
+col_set_str(pinfo->cinfo, COL_INFO, "Unknown Message Format");
+return 0;
+}
+}
+static void
+set_addr(packet_info *pinfo _U_ , int field, gchar rid, gchar sid, gchar did)
+{
+if (field == SRC) {
+col_append_fstr(pinfo->cinfo, COL_DEF_SRC, " %2.2X:%2.2X:%2.2X", rid, sid, did);
+} else {
+col_append_fstr(pinfo->cinfo, COL_DEF_DST, " %2.2X:%2.2X:%2.2X", rid, sid, did);
+}
+}
+static void
+dissect_uts(tvbuff_t *tvb, packet_info *pinfo _U_ , proto_tree *tree)
+{
+proto_tree *uts_tree = NULL;
+proto_tree *uts_header_tree = NULL;
+proto_tree *uts_trailer_tree = NULL;
+proto_item *ti;
+int length;
+gchar rid = 0, sid = 0, did = 0;
+int offset = 0;
+int header_length = -1;
+int ack_start = 0;
+int busy_start = 0;
+int notbusy_start = 0;
+int replyrequest_start = 0;
+int function_start = 0;
+int msgwaiting_start = 0;
+int nak_start = 0;
+int etx_start = 0;
+int bcc_start = 0;
+int stx_start = 0;
+gchar function_code;
+guint8 *data_ptr;
+enum { NOTRAFFIC, OTHER } msg_type = OTHER;
+col_set_str(pinfo->cinfo, COL_PROTOCOL, "UTS");
+if (testchar(tvb, pinfo, 0, MATCH, EOT, NULL) &&
+testchar(tvb, pinfo, 1, MATCH, EOT, NULL) &&
+testchar(tvb, pinfo, 2, MATCH, ETX, NULL)) {
+msg_type = NOTRAFFIC;
+col_add_str(pinfo->cinfo, COL_INFO, "No Traffic");
+} else {
+if (testchar(tvb, pinfo, 0, MATCH, SOH, NULL) &&
+testchar(tvb, pinfo, 1, FETCH, 0, (gchar *)&rid) &&
+testchar(tvb, pinfo, 2, FETCH, 0, (gchar *)&sid) &&
+testchar(tvb, pinfo, 3, FETCH, 0, (gchar *)&did)) {
+offset = 4;
+if (testchar(tvb, pinfo, offset, MATCH, ETX, NULL)) {
+col_add_str(pinfo->cinfo, COL_INFO, "General Poll");
+set_addr(pinfo, DST, rid, sid, did);
+} else if (testchar(tvb, pinfo, offset, MATCH, DLE, NULL) &&
+testchar(tvb, pinfo, offset+1, MATCH, '1', NULL) &&
+testchar(tvb, pinfo, offset+2, MATCH, ETX, NULL)) {
+ack_start = offset;
+if (sid == GSID && did == GDID) {
+col_add_str(pinfo->cinfo, COL_INFO, "General Poll + ACK");
+set_addr(pinfo, DST, rid, sid, did);
+} else if (sid != GSID && did == GDID) {
+col_add_str(pinfo->cinfo, COL_INFO, "Specific Poll + ACK");
+set_addr(pinfo, DST, rid, sid, did);
+} else if (sid != GSID && did != GDID) {
+col_add_str(pinfo->cinfo, COL_INFO, "No Traffic + ACK");
+set_addr(pinfo, SRC, rid, sid, did);
+} else {
+col_add_str(pinfo->cinfo, COL_INFO, "Unknown Message Format");
+if ((pinfo->pseudo_header->sita.sita_flags & SITA_FRAME_DIR) == SITA_FRAME_DIR_TXED) {
+set_addr(pinfo, DST, rid, sid, did);
+} else {
+set_addr(pinfo, SRC, rid, sid, did);
+}
+}
+} else if (testchar(tvb, pinfo, offset, MATCH, DLE, NULL) &&
+testchar(tvb, pinfo, offset+1, MATCH, NAK, NULL) &&
+testchar(tvb, pinfo, offset+2, MATCH, ETX, NULL) &&
+sid != GSID && did == GDID) {
+nak_start = offset;
+col_add_str(pinfo->cinfo, COL_INFO, "Retransmit Request");
+set_addr(pinfo, DST, rid, sid, did);
+} else if (testchar(tvb, pinfo, offset, MATCH, BEL, NULL) &&
+testchar(tvb, pinfo, offset+1, MATCH, STX, NULL) &&
+testchar(tvb, pinfo, offset+2, MATCH, ETX, NULL)) {
+header_length = offset+2;
+msgwaiting_start = offset;
+col_add_str(pinfo->cinfo, COL_INFO, "Message Waiting");
+set_addr(pinfo, DST, rid, sid, did);
+} else if (testchar(tvb, pinfo, offset, MATCH, DLE, NULL) &&
+testchar(tvb, pinfo, offset+1, MATCH, '1', NULL) &&
+testchar(tvb, pinfo, offset+2, MATCH, STX, NULL)) {
+ack_start = offset;
+header_length = offset+3;
+stx_start = offset+2;
+col_add_str(pinfo->cinfo, COL_INFO, "Text + ACK");
+set_addr(pinfo, SRC, rid, sid, did);
+} else if (testchar(tvb, pinfo, offset, MATCH, STX, NULL)) {
+header_length = offset+1;
+stx_start = offset;
+col_add_str(pinfo->cinfo, COL_INFO, "Text");
+if ((pinfo->pseudo_header->sita.sita_flags & SITA_FRAME_DIR) == SITA_FRAME_DIR_TXED) {
+set_addr(pinfo, DST, rid, sid, did);
+} else {
+set_addr(pinfo, SRC, rid, sid, did);
+}
+} else if (testchar(tvb, pinfo, offset, MATCH, DLE, NULL) &&
+testchar(tvb, pinfo, offset+1, MATCH, ENQ, NULL) &&
+testchar(tvb, pinfo, offset+2, MATCH, ETX, NULL)) {
+replyrequest_start = offset;
+col_add_str(pinfo->cinfo, COL_INFO, "Reply Request");
+set_addr(pinfo, SRC, rid, sid, did);
+} else if (testchar(tvb, pinfo, offset, MATCH, DLE, NULL) &&
+testchar(tvb, pinfo, offset+1, MATCH, '?', NULL) &&
+testchar(tvb, pinfo, offset+2, MATCH, ETX, NULL)) {
+busy_start = offset;
+col_add_str(pinfo->cinfo, COL_INFO, "Busy");
+set_addr(pinfo, SRC, rid, sid, did);
+} else if (testchar(tvb, pinfo, offset, MATCH, DLE, NULL) &&
+testchar(tvb, pinfo, offset+1, MATCH, ';', NULL) &&
+testchar(tvb, pinfo, offset+2, MATCH, ETX, NULL)) {
+notbusy_start = offset;
+col_add_str(pinfo->cinfo, COL_INFO, "Not Busy");
+set_addr(pinfo, SRC, rid, sid, did);
+} else if (testchar(tvb, pinfo, offset, MATCH, DLE, NULL) &&
+testchar(tvb, pinfo, offset+1, MATCH, '1', NULL) &&
+testchar(tvb, pinfo, offset+2, MATCH, DLE, NULL) &&
+testchar(tvb, pinfo, offset+3, MATCH, ';', NULL) &&
+testchar(tvb, pinfo, offset+4, MATCH, ETX, NULL)) {
+notbusy_start = offset+2;
+ack_start = offset;
+col_add_str(pinfo->cinfo, COL_INFO, "Not Busy + ACK");
+set_addr(pinfo, SRC, rid, sid, did);
+} else if (testchar(tvb, pinfo, offset, MATCH, DLE, NULL) &&
+testchar(tvb, pinfo, offset+1, MATCH, '1', NULL) &&
+testchar(tvb, pinfo, offset+2, FETCH, 0, &function_code) &&
+testchar(tvb, pinfo, offset+3, MATCH, ETX, NULL)) {
+ack_start = offset;
+function_start = offset + 2;
+col_add_fstr(pinfo->cinfo, COL_INFO, "Function Message '%c' + ACK", function_code);
+set_addr(pinfo, SRC, rid, sid, did);
+} else if (testchar(tvb, pinfo, offset, FETCH, 0, &function_code) &&
+testchar(tvb, pinfo, offset+1, MATCH, ETX, NULL)) {
+function_start = offset;
+col_add_fstr(pinfo->cinfo, COL_INFO, "Function Message '%c'", function_code);
+set_addr(pinfo, SRC, rid, sid, did);
+}
+}
+}
+while (tvb_length_remaining(tvb, offset) > 0) {
+if ((tvb_get_guint8(tvb, offset) & 0x7f) == ETX) {
+if (header_length == -1)
+header_length = offset;
+etx_start = offset;
+offset++;
+break;
+}
+offset++;
+}
+if (tvb_length_remaining(tvb, offset))
+bcc_start = offset;
+if (tree) {
+ti = proto_tree_add_protocol_format(tree, proto_uts, tvb, 0, -1, "UTS");
+uts_tree = proto_item_add_subtree(ti, ett_uts);
+if (msg_type == NOTRAFFIC) {
+proto_tree_add_protocol_format(uts_tree, proto_uts, tvb, 0, 2, "No Traffic");
+proto_tree_add_protocol_format(uts_tree, proto_uts, tvb, 2, -1, "ETX + padding");
+} else {
+ti = proto_tree_add_text(uts_tree, tvb, 0, header_length, "Header");
+uts_header_tree = proto_item_add_subtree(ti, ett_header_uts);
+proto_tree_add_protocol_format(uts_header_tree, proto_uts, tvb, 0, 1, "SOH");
+if (rid == GRID)
+proto_tree_add_uint_format(uts_header_tree, hf_rid, tvb, 1, 1, rid, "RID (%02X) (General)", rid);
+else
+proto_tree_add_uint_format(uts_header_tree, hf_rid, tvb, 1, 1, rid, "RID (%02X)", rid);
+if (sid == GSID)
+proto_tree_add_uint_format(uts_header_tree, hf_sid, tvb, 2, 1, sid, "SID (%02X) (General)", sid);
+else
+proto_tree_add_uint_format(uts_header_tree, hf_sid, tvb, 2, 1, sid, "SID (%02X)", sid);
+if (sid == GDID)
+proto_tree_add_uint_format(uts_header_tree, hf_did, tvb, 3, 1, did, "DID (%02X) (General)", did);
+else
+proto_tree_add_uint_format(uts_header_tree, hf_did, tvb, 3, 1, did, "DID (%02X)", did);
+if (nak_start)
+proto_tree_add_boolean_format(uts_header_tree, hf_retxrequest, tvb, nak_start, 2, 1, "Re-transmit Request");
+if (ack_start)
+proto_tree_add_boolean_format(uts_header_tree, hf_ack, tvb, ack_start, 2, 1, "Ack");
+if (replyrequest_start)
+proto_tree_add_boolean_format(uts_header_tree, hf_replyrequest, tvb, replyrequest_start, 2, 1, "Reply Request");
+if (busy_start)
+proto_tree_add_boolean_format(uts_header_tree, hf_busy, tvb, busy_start, 2, 1, "Busy");
+if (notbusy_start)
+proto_tree_add_boolean_format(uts_header_tree, hf_notbusy, tvb, notbusy_start, 2, 1, "Not Busy");
+if (msgwaiting_start)
+proto_tree_add_boolean_format(uts_header_tree, hf_msgwaiting, tvb, msgwaiting_start, 1, 1, "Message Waiting");
+if (function_start)
+proto_tree_add_uint_format(uts_header_tree, hf_function, tvb, function_start, 1, function_code, "Function '%c'", function_code );
+if (stx_start) {
+proto_tree_add_protocol_format(uts_header_tree, proto_uts, tvb, stx_start, 1, "Start of Text");
+length = tvb_length_remaining(tvb, stx_start+1);
+if (etx_start)
+length = (etx_start - stx_start - 1);
+data_ptr = tvb_get_string(wmem_packet_scope(), tvb, stx_start+1, length);
+proto_tree_add_string_format(uts_tree, hf_data, tvb, stx_start + 1, length, data_ptr,
+"Text (%d byte%s)", length, plurality(length, "", "s"));
+}
+if (etx_start) {
+ti = proto_tree_add_text(uts_tree, tvb, etx_start, -1, "Trailer");
+uts_trailer_tree = proto_item_add_subtree(ti, ett_trailer_uts);
+if (etx_start)
+proto_tree_add_protocol_format(uts_trailer_tree, proto_uts, tvb, etx_start, 1, "ETX");
+if (bcc_start)
+proto_tree_add_protocol_format(uts_trailer_tree, proto_uts, tvb, bcc_start, -1, "CCC + padding");
+}
+}
+}
+}
+void
+proto_register_uts(void)
+{
+static hf_register_info hf[] = {
+{ &hf_rid,
+{ "RID", "uts.rid",
+FT_UINT8, BASE_HEX, NULL, 0, "Remote Identifier address", HFILL }},
+{ &hf_sid,
+{ "SID", "uts.sid",
+FT_UINT8, BASE_HEX, NULL, 0, "Site Identifier address", HFILL }},
+{ &hf_did,
+{ "DID", "uts.did",
+FT_UINT8, BASE_HEX, NULL, 0, "Device Identifier address", HFILL }},
+{ &hf_retxrequest,
+{ "ReTxRequst", "uts.retxrequst",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, "TRUE if Re-transmit Request", HFILL }},
+{ &hf_ack,
+{ "Ack", "uts.ack",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, "TRUE if Ack", HFILL }},
+{ &hf_replyrequest,
+{ "ReplyRequst", "uts.replyrequest",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, "TRUE if Reply Request", HFILL }},
+{ &hf_busy,
+{ "Busy", "uts.busy",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, "TRUE if Busy", HFILL }},
+{ &hf_notbusy,
+{ "NotBusy", "uts.notbusy",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, "TRUE if Not Busy", HFILL }},
+{ &hf_msgwaiting,
+{ "MsgWaiting", "uts.msgwaiting",
+FT_BOOLEAN, BASE_NONE, NULL, 0x0, "TRUE if Message Waiting", HFILL }},
+{ &hf_function,
+{ "Function", "uts.function",
+FT_UINT8, BASE_HEX, NULL, 0, "Function Code value", HFILL }},
+{ &hf_data,
+{ "Data", "uts.data",
+FT_STRING, BASE_NONE, NULL, 0, "User Data Message", HFILL }},
+};
+static gint *ett[] = {
+&ett_uts,
+&ett_header_uts,
+&ett_trailer_uts,
+};
+proto_uts = proto_register_protocol("Unisys Transmittal System", "UTS", "uts");
+proto_register_field_array(proto_uts, hf, array_length(hf));
+proto_register_subtree_array(ett, array_length(ett));
+register_dissector("uts", dissect_uts, proto_uts);
+}

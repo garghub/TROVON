@@ -1,0 +1,1 @@
+int\r\npopcount(unsigned int mask)\r\n{\r\n#if (__GNUC__ > 3 || (__GNUC__ == 3 && __GNUC_MINOR__ >= 4))\r\nreturn __builtin_popcount(mask);\r\n#else\r\nunsigned long y;\r\ny = (mask >> 1) &033333333333;\r\ny = mask - y - ((y >>1) & 033333333333);\r\nreturn (((y + (y >> 3)) & 030707070707) % 077);\r\n#endif\r\n}

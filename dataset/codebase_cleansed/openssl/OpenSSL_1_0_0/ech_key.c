@@ -1,0 +1,1 @@
+int ECDH_compute_key(void *out, size_t outlen, const EC_POINT *pub_key,\r\nEC_KEY *eckey,\r\nvoid *(*KDF)(const void *in, size_t inlen, void *out, size_t *outlen))\r\n{\r\nECDH_DATA *ecdh = ecdh_check(eckey);\r\nif (ecdh == NULL)\r\nreturn 0;\r\nreturn ecdh->meth->compute_key(out, outlen, pub_key, eckey, KDF);\r\n}

@@ -1,0 +1,1 @@
+int OPENSSL_issetugid(void)\r\n{\r\nreturn issetugid();\r\n}\r\nint OPENSSL_issetugid(void)\r\n{\r\nreturn 0;\r\n}\r\nint OPENSSL_issetugid(void)\r\n{\r\nif (getuid() != geteuid()) return 1;\r\nif (getgid() != getegid()) return 1;\r\nreturn 0;\r\n}

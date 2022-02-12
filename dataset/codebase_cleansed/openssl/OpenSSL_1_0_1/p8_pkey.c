@@ -1,0 +1,1 @@
+static int pkey_cb(int operation, ASN1_VALUE **pval, const ASN1_ITEM *it,\r\nvoid *exarg)\r\n{\r\nif(operation == ASN1_OP_FREE_PRE) {\r\nPKCS8_PRIV_KEY_INFO *key = (PKCS8_PRIV_KEY_INFO *)*pval;\r\nif (key->pkey->value.octet_string)\r\nOPENSSL_cleanse(key->pkey->value.octet_string->data,\r\nkey->pkey->value.octet_string->length);\r\n}\r\nreturn 1;\r\n}

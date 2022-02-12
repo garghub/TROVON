@@ -1,0 +1,3640 @@
+static gint mac_lte_rnti_hash_equal(gconstpointer v, gconstpointer v2)
+{
+return (v == v2);
+}
+static guint mac_lte_rnti_hash_func(gconstpointer v)
+{
+return GPOINTER_TO_UINT(v);
+}
+static gint mac_lte_framenum_hash_equal(gconstpointer v, gconstpointer v2)
+{
+return (v == v2);
+}
+static guint mac_lte_framenum_hash_func(gconstpointer v)
+{
+return GPOINTER_TO_UINT(v);
+}
+static void call_with_catch_all(dissector_handle_t handle, tvbuff_t* tvb, packet_info *pinfo, proto_tree *tree)
+{
+TRY {
+call_dissector_only(handle, tvb, pinfo, tree);
+}
+CATCH_ALL {
+}
+ENDTRY
+}
+gboolean dissect_mac_lte_context_fields(struct mac_lte_info *p_mac_lte_info, tvbuff_t *tvb,
+gint *p_offset)
+{
+gint offset = *p_offset;
+guint8 tag = 0;
+p_mac_lte_info->radioType = tvb_get_guint8(tvb, offset++);
+p_mac_lte_info->direction = tvb_get_guint8(tvb, offset++);
+if (p_mac_lte_info->direction == DIRECTION_UPLINK) {
+p_mac_lte_info->detailed_phy_info.ul_info.present = FALSE;
+}
+else {
+p_mac_lte_info->detailed_phy_info.dl_info.present = FALSE;
+}
+p_mac_lte_info->rntiType = tvb_get_guint8(tvb, offset++);
+switch (p_mac_lte_info->rntiType) {
+case M_RNTI:
+p_mac_lte_info->rnti = 0xFFFD;
+break;
+case P_RNTI:
+p_mac_lte_info->rnti = 0xFFFE;
+break;
+case SI_RNTI:
+p_mac_lte_info->rnti = 0xFFFF;
+break;
+case RA_RNTI:
+case C_RNTI:
+case SPS_RNTI:
+p_mac_lte_info->rnti = 0x0001;
+break;
+default:
+break;
+}
+while (tag != MAC_LTE_PAYLOAD_TAG) {
+tag = tvb_get_guint8(tvb, offset++);
+switch (tag) {
+case MAC_LTE_RNTI_TAG:
+p_mac_lte_info->rnti = tvb_get_ntohs(tvb, offset);
+offset += 2;
+break;
+case MAC_LTE_UEID_TAG:
+p_mac_lte_info->ueid = tvb_get_ntohs(tvb, offset);
+offset += 2;
+break;
+case MAC_LTE_SUBFRAME_TAG:
+p_mac_lte_info->subframeNumber = tvb_get_ntohs(tvb, offset);
+offset += 2;
+break;
+case MAC_LTE_PREDEFINED_DATA_TAG:
+p_mac_lte_info->isPredefinedData = tvb_get_guint8(tvb, offset);
+offset++;
+break;
+case MAC_LTE_RETX_TAG:
+p_mac_lte_info->reTxCount = tvb_get_guint8(tvb, offset);
+offset++;
+break;
+case MAC_LTE_CRC_STATUS_TAG:
+p_mac_lte_info->crcStatusValid = TRUE;
+p_mac_lte_info->detailed_phy_info.dl_info.crc_status = tvb_get_guint8(tvb, offset);
+offset++;
+break;
+case MAC_LTE_EXT_BSR_SIZES_TAG:
+p_mac_lte_info->isExtendedBSRSizes = TRUE;
+break;
+case MAC_LTE_PAYLOAD_TAG:
+p_mac_lte_info->length= tvb_length_remaining(tvb, offset);
+continue;
+default:
+return FALSE;
+}
+}
+*p_offset = offset;
+return TRUE;
+}
+static gboolean dissect_mac_lte_heur(tvbuff_t *tvb, packet_info *pinfo,
+proto_tree *tree)
+{
+gint offset = 0;
+struct mac_lte_info *p_mac_lte_info;
+tvbuff_t *mac_tvb;
+gboolean infoAlreadySet = FALSE;
+if (!global_mac_lte_heur) {
+return FALSE;
+}
+if ((size_t)tvb_length_remaining(tvb, offset) < (strlen(MAC_LTE_START_STRING)+3+2)) {
+return FALSE;
+}
+if (tvb_strneql(tvb, offset, MAC_LTE_START_STRING, strlen(MAC_LTE_START_STRING)) != 0) {
+return FALSE;
+}
+offset += (gint)strlen(MAC_LTE_START_STRING);
+p_mac_lte_info = p_get_proto_data(pinfo->fd, proto_mac_lte);
+if (p_mac_lte_info == NULL) {
+p_mac_lte_info = se_alloc0(sizeof(struct mac_lte_info));
+infoAlreadySet = FALSE;
+}
+else {
+infoAlreadySet = TRUE;
+}
+if (!dissect_mac_lte_context_fields(p_mac_lte_info, tvb, &offset)) {
+return FALSE;
+}
+if (!infoAlreadySet) {
+p_add_proto_data(pinfo->fd, proto_mac_lte, p_mac_lte_info);
+}
+mac_tvb = tvb_new_subset(tvb, offset, -1, tvb_reported_length(tvb)-offset);
+dissect_mac_lte(mac_tvb, pinfo, tree);
+return TRUE;
+}
+static void write_pdu_label_and_info(proto_item *ti1, proto_item *ti2,
+packet_info *pinfo, const char *format, ...)
+{
+#define MAX_INFO_BUFFER 256
+static char info_buffer[MAX_INFO_BUFFER];
+va_list ap;
+va_start(ap, format);
+g_vsnprintf(info_buffer, MAX_INFO_BUFFER, format, ap);
+va_end(ap);
+if (pinfo != NULL) {
+col_append_str(pinfo->cinfo, COL_INFO, info_buffer);
+}
+if (ti1 != NULL) {
+proto_item_append_text(ti1, "%s", info_buffer);
+}
+if (ti2 != NULL) {
+proto_item_append_text(ti2, "%s", info_buffer);
+}
+}
+static void show_extra_phy_parameters(packet_info *pinfo, tvbuff_t *tvb, proto_tree *tree,
+struct mac_lte_info *p_mac_lte_info)
+{
+proto_item *phy_ti;
+proto_tree *phy_tree;
+proto_item *ti;
+if (global_mac_lte_layer_to_show == ShowPHYLayer) {
+col_clear(pinfo->cinfo, COL_INFO);
+}
+if (p_mac_lte_info->direction == DIRECTION_UPLINK) {
+if (p_mac_lte_info->detailed_phy_info.ul_info.present) {
+phy_ti = proto_tree_add_string_format(tree, hf_mac_lte_context_phy_ul,
+tvb, 0, 0, "", "UL PHY Context");
+phy_tree = proto_item_add_subtree(phy_ti, ett_mac_lte_phy_context);
+PROTO_ITEM_SET_GENERATED(phy_ti);
+ti = proto_tree_add_uint(phy_tree, hf_mac_lte_context_phy_ul_modulation_type,
+tvb, 0, 0,
+p_mac_lte_info->detailed_phy_info.ul_info.modulation_type);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(phy_tree, hf_mac_lte_context_phy_ul_tbs_index,
+tvb, 0, 0,
+p_mac_lte_info->detailed_phy_info.ul_info.tbs_index);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(phy_tree, hf_mac_lte_context_phy_ul_resource_block_length,
+tvb, 0, 0,
+p_mac_lte_info->detailed_phy_info.ul_info.resource_block_length);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(phy_tree, hf_mac_lte_context_phy_ul_resource_block_start,
+tvb, 0, 0,
+p_mac_lte_info->detailed_phy_info.ul_info.resource_block_start);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(phy_tree, hf_mac_lte_context_phy_ul_harq_id,
+tvb, 0, 0,
+p_mac_lte_info->detailed_phy_info.ul_info.harq_id);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(phy_tree, hf_mac_lte_context_phy_ul_ndi,
+tvb, 0, 0,
+p_mac_lte_info->detailed_phy_info.ul_info.ndi);
+PROTO_ITEM_SET_GENERATED(ti);
+proto_item_append_text(phy_ti, " (");
+write_pdu_label_and_info(phy_ti, NULL,
+(global_mac_lte_layer_to_show == ShowPHYLayer) ? pinfo : NULL,
+"UL: UEId=%u RNTI=%u %s Tbs_Index=%u RB_len=%u RB_start=%u",
+p_mac_lte_info->ueid,
+p_mac_lte_info->rnti,
+val_to_str_const(p_mac_lte_info->detailed_phy_info.ul_info.modulation_type,
+modulation_type_vals, "Unknown"),
+p_mac_lte_info->detailed_phy_info.ul_info.tbs_index,
+p_mac_lte_info->detailed_phy_info.ul_info.resource_block_length,
+p_mac_lte_info->detailed_phy_info.ul_info.resource_block_start);
+proto_item_append_text(phy_ti, ")");
+if (global_mac_lte_layer_to_show == ShowPHYLayer) {
+col_set_writable(pinfo->cinfo, FALSE);
+}
+}
+}
+else {
+if (p_mac_lte_info->detailed_phy_info.dl_info.present) {
+phy_ti = proto_tree_add_string_format(tree, hf_mac_lte_context_phy_dl,
+tvb, 0, 0, "", "DL PHY Context");
+phy_tree = proto_item_add_subtree(phy_ti, ett_mac_lte_phy_context);
+PROTO_ITEM_SET_GENERATED(phy_ti);
+ti = proto_tree_add_uint(phy_tree, hf_mac_lte_context_phy_dl_dci_format,
+tvb, 0, 0,
+p_mac_lte_info->detailed_phy_info.dl_info.dci_format);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(phy_tree, hf_mac_lte_context_phy_dl_resource_allocation_type,
+tvb, 0, 0,
+p_mac_lte_info->detailed_phy_info.dl_info.resource_allocation_type);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(phy_tree, hf_mac_lte_context_phy_dl_aggregation_level,
+tvb, 0, 0,
+p_mac_lte_info->detailed_phy_info.dl_info.aggregation_level);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(phy_tree, hf_mac_lte_context_phy_dl_mcs_index,
+tvb, 0, 0,
+p_mac_lte_info->detailed_phy_info.dl_info.mcs_index);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(phy_tree, hf_mac_lte_context_phy_dl_redundancy_version_index,
+tvb, 0, 0,
+p_mac_lte_info->detailed_phy_info.dl_info.redundancy_version_index);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_boolean(phy_tree, hf_mac_lte_context_phy_dl_retx,
+tvb, 0, 0,
+p_mac_lte_info->dl_retx);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(phy_tree, hf_mac_lte_context_phy_dl_resource_block_length,
+tvb, 0, 0,
+p_mac_lte_info->detailed_phy_info.dl_info.resource_block_length);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(phy_tree, hf_mac_lte_context_phy_dl_crc_status,
+tvb, 0, 0,
+p_mac_lte_info->detailed_phy_info.dl_info.crc_status);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(phy_tree, hf_mac_lte_context_phy_dl_harq_id,
+tvb, 0, 0,
+p_mac_lte_info->detailed_phy_info.dl_info.harq_id);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(phy_tree, hf_mac_lte_context_phy_dl_ndi,
+tvb, 0, 0,
+p_mac_lte_info->detailed_phy_info.dl_info.ndi);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(phy_tree, hf_mac_lte_context_phy_dl_tb,
+tvb, 0, 0,
+p_mac_lte_info->detailed_phy_info.dl_info.transport_block);
+PROTO_ITEM_SET_GENERATED(ti);
+proto_item_append_text(phy_ti, " (");
+write_pdu_label_and_info(phy_ti, NULL,
+(global_mac_lte_layer_to_show == ShowPHYLayer) ? pinfo : NULL,
+"DL: UEId=%u RNTI=%u DCI_Format=%s Res_Alloc=%u Aggr_Level=%s MCS=%u RV=%u "
+"Res_Block_len=%u CRC_status=%s HARQ_id=%u NDI=%u",
+p_mac_lte_info->ueid,
+p_mac_lte_info->rnti,
+val_to_str_const(p_mac_lte_info->detailed_phy_info.dl_info.dci_format,
+dci_format_vals, "Unknown"),
+p_mac_lte_info->detailed_phy_info.dl_info.resource_allocation_type,
+val_to_str_const(p_mac_lte_info->detailed_phy_info.dl_info.aggregation_level,
+aggregation_level_vals, "Unknown"),
+p_mac_lte_info->detailed_phy_info.dl_info.mcs_index,
+p_mac_lte_info->detailed_phy_info.dl_info.redundancy_version_index,
+p_mac_lte_info->detailed_phy_info.dl_info.resource_block_length,
+val_to_str_const(p_mac_lte_info->detailed_phy_info.dl_info.crc_status,
+crc_status_vals, "Unknown"),
+p_mac_lte_info->detailed_phy_info.dl_info.harq_id,
+p_mac_lte_info->detailed_phy_info.dl_info.ndi);
+proto_item_append_text(phy_ti, ")");
+if (global_mac_lte_layer_to_show == ShowPHYLayer) {
+col_set_writable(pinfo->cinfo, FALSE);
+}
+}
+}
+}
+static gint dissect_rar_entry(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree,
+proto_item *pdu_ti,
+gint offset, guint8 rapid)
+{
+guint8 reserved;
+guint start_body_offset = offset;
+proto_item *ti;
+proto_item *rar_body_ti;
+proto_tree *rar_body_tree;
+proto_tree *ul_grant_tree;
+proto_item *ul_grant_ti;
+guint16 timing_advance;
+guint32 ul_grant;
+guint16 temp_crnti;
+rar_body_ti = proto_tree_add_item(tree,
+hf_mac_lte_rar_body,
+tvb, offset, 0, ENC_ASCII|ENC_NA);
+rar_body_tree = proto_item_add_subtree(rar_body_ti, ett_mac_lte_rar_body);
+reserved = (tvb_get_guint8(tvb, offset) & 0x80) >> 7;
+ti = proto_tree_add_item(rar_body_tree, hf_mac_lte_rar_reserved2, tvb, offset, 1, ENC_BIG_ENDIAN);
+if (reserved != 0) {
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"RAR body Reserved bit not zero (found 0x%x)", reserved);
+}
+timing_advance = (tvb_get_ntohs(tvb, offset) & 0x7ff0) >> 4;
+ti = proto_tree_add_item(rar_body_tree, hf_mac_lte_rar_ta, tvb, offset, 2, ENC_BIG_ENDIAN);
+if (timing_advance != 0) {
+expert_add_info_format(pinfo, ti, PI_SEQUENCE, (timing_advance <= 31) ? PI_NOTE : PI_WARN,
+"RAR Timing advance not zero (%u)", timing_advance);
+}
+offset++;
+ul_grant = (tvb_get_ntohl(tvb, offset) & 0x0fffff00) >> 8;
+ul_grant_ti = proto_tree_add_item(rar_body_tree, hf_mac_lte_rar_ul_grant, tvb, offset, 3, ENC_BIG_ENDIAN);
+ul_grant_tree = proto_item_add_subtree(ul_grant_ti, ett_mac_lte_rar_ul_grant);
+proto_tree_add_item(ul_grant_tree, hf_mac_lte_rar_ul_grant_hopping,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ul_grant_tree, hf_mac_lte_rar_ul_grant_fsrba,
+tvb, offset, 2, ENC_BIG_ENDIAN);
+proto_tree_add_item(ul_grant_tree, hf_mac_lte_rar_ul_grant_tmcs,
+tvb, offset+1, 2, ENC_BIG_ENDIAN);
+proto_tree_add_item(ul_grant_tree, hf_mac_lte_rar_ul_grant_tcsp,
+tvb, offset+2, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ul_grant_tree, hf_mac_lte_rar_ul_grant_ul_delay,
+tvb, offset+2, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ul_grant_tree, hf_mac_lte_rar_ul_grant_cqi_request,
+tvb, offset+2, 1, ENC_BIG_ENDIAN);
+offset += 3;
+temp_crnti = tvb_get_ntohs(tvb, offset);
+proto_tree_add_item(rar_body_tree, hf_mac_lte_rar_temporary_crnti, tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+write_pdu_label_and_info(pdu_ti, rar_body_ti, pinfo,
+"(RAPID=%u: TA=%u, UL-Grant=%u, Temp C-RNTI=%u) ",
+rapid, timing_advance, ul_grant, temp_crnti);
+proto_item_set_len(rar_body_ti, offset-start_body_offset);
+return offset;
+}
+static void dissect_rar(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, proto_item *pdu_ti,
+gint offset, mac_lte_info *p_mac_lte_info, mac_lte_tap_info *tap_info)
+{
+gint number_of_rars = 0;
+guint8 *rapids = ep_alloc(MAX_RAR_PDUS * sizeof(guint8));
+gboolean backoff_indicator_seen = FALSE;
+guint8 backoff_indicator = 0;
+guint8 extension;
+gint n;
+proto_tree *rar_headers_tree;
+proto_item *ti;
+proto_item *rar_headers_ti;
+proto_item *padding_length_ti;
+int start_headers_offset = offset;
+write_pdu_label_and_info(pdu_ti, NULL, pinfo,
+"RAR (RA-RNTI=%u, SF=%u) ",
+p_mac_lte_info->rnti, p_mac_lte_info->subframeNumber);
+ti = proto_tree_add_item(tree, hf_mac_lte_rar, tvb, offset, -1, ENC_NA);
+PROTO_ITEM_SET_HIDDEN(ti);
+rar_headers_ti = proto_tree_add_item(tree,
+hf_mac_lte_rar_headers,
+tvb, offset, 0, ENC_ASCII|ENC_NA);
+rar_headers_tree = proto_item_add_subtree(rar_headers_ti, ett_mac_lte_rar_headers);
+do {
+int start_header_offset = offset;
+proto_tree *rar_header_tree;
+proto_item *rar_header_ti;
+guint8 type_value;
+guint8 first_byte = tvb_get_guint8(tvb, offset);
+rar_header_ti = proto_tree_add_item(rar_headers_tree,
+hf_mac_lte_rar_header,
+tvb, offset, 0, ENC_ASCII|ENC_NA);
+rar_header_tree = proto_item_add_subtree(rar_header_ti, ett_mac_lte_rar_header);
+extension = (first_byte & 0x80) >> 7;
+proto_tree_add_item(rar_header_tree, hf_mac_lte_rar_extension, tvb, offset, 1, ENC_BIG_ENDIAN);
+type_value = (first_byte & 0x40) >> 6;
+proto_tree_add_item(rar_header_tree, hf_mac_lte_rar_t, tvb, offset, 1, ENC_BIG_ENDIAN);
+if (type_value == 0) {
+guint8 reserved;
+proto_item *tii;
+proto_item *bi_ti;
+reserved = (tvb_get_guint8(tvb, offset) & 0x30) >> 4;
+tii = proto_tree_add_item(rar_header_tree, hf_mac_lte_rar_reserved, tvb, offset, 1, ENC_BIG_ENDIAN);
+if (reserved != 0) {
+expert_add_info_format(pinfo, tii, PI_MALFORMED, PI_ERROR,
+"RAR header Reserved bits not zero (found 0x%x)", reserved);
+}
+backoff_indicator = tvb_get_guint8(tvb, offset) & 0x0f;
+bi_ti = proto_tree_add_item(rar_header_tree, hf_mac_lte_rar_bi, tvb, offset, 1, ENC_BIG_ENDIAN);
+if (backoff_indicator_seen) {
+expert_add_info_format(pinfo, bi_ti, PI_MALFORMED, PI_ERROR,
+"MAC RAR PDU has > 1 Backoff Indicator subheader present");
+}
+backoff_indicator_seen = TRUE;
+write_pdu_label_and_info(pdu_ti, rar_header_ti, pinfo,
+"(Backoff Indicator=%sms)",
+val_to_str_const(backoff_indicator, rar_bi_vals, "Illegal-value "));
+if (number_of_rars > 0) {
+expert_add_info_format(pinfo, bi_ti, PI_MALFORMED, PI_WARN,
+"Backoff Indicator must appear as first subheader");
+}
+}
+else {
+rapids[number_of_rars] = tvb_get_guint8(tvb, offset) & 0x3f;
+proto_tree_add_item(rar_header_tree, hf_mac_lte_rar_rapid, tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_item_append_text(rar_header_ti, "(RAPID=%u)", rapids[number_of_rars]);
+number_of_rars++;
+}
+offset++;
+proto_item_set_len(rar_header_ti, offset - start_header_offset);
+} while (extension && number_of_rars < MAX_RAR_PDUS);
+proto_item_append_text(rar_headers_ti, " (%u RARs", number_of_rars);
+if (backoff_indicator_seen) {
+proto_item_append_text(rar_headers_ti, ", BI=%sms)",
+val_to_str_const(backoff_indicator, rar_bi_vals, "Illegal-value "));
+}
+else {
+proto_item_append_text(rar_headers_ti, ")");
+}
+proto_item_set_len(rar_headers_ti, offset-start_headers_offset);
+for (n=0; n < number_of_rars; n++) {
+offset = dissect_rar_entry(tvb, pinfo, tree, pdu_ti, offset, rapids[n]);
+}
+tap_info->number_of_rars += number_of_rars;
+if (tvb_length_remaining(tvb, offset) > 0) {
+proto_tree_add_item(tree, hf_mac_lte_padding_data,
+tvb, offset, -1, ENC_NA);
+}
+padding_length_ti = proto_tree_add_int(tree, hf_mac_lte_padding_length,
+tvb, offset, 0,
+p_mac_lte_info->length - offset);
+PROTO_ITEM_SET_GENERATED(padding_length_ti);
+tap_info->padding_bytes += (p_mac_lte_info->length - offset);
+}
+static void dissect_bch(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree,
+proto_item *pdu_ti,
+int offset, mac_lte_info *p_mac_lte_info)
+{
+proto_item *ti;
+write_pdu_label_and_info(pdu_ti, NULL, pinfo,
+"BCH PDU (%u bytes, on %s transport) ",
+tvb_length_remaining(tvb, offset),
+val_to_str_const(p_mac_lte_info->rntiType,
+bch_transport_channel_vals,
+"Unknown"));
+ti = proto_tree_add_uint(tree, hf_mac_lte_context_bch_transport_channel,
+tvb, offset, 0, p_mac_lte_info->rntiType);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_item(tree, hf_mac_lte_bch_pdu,
+tvb, offset, -1, ENC_NA);
+if (global_mac_lte_attempt_rrc_decode) {
+tvbuff_t *rrc_tvb = tvb_new_subset(tvb, offset, -1, tvb_length_remaining(tvb, offset));
+dissector_handle_t protocol_handle = 0;
+if (p_mac_lte_info->rntiType == SI_RNTI) {
+protocol_handle = find_dissector("lte_rrc.bcch_dl_sch");
+}
+else {
+protocol_handle = find_dissector("lte_rrc.bcch_bch");
+}
+PROTO_ITEM_SET_HIDDEN(ti);
+call_with_catch_all(protocol_handle, rrc_tvb, pinfo, tree);
+}
+if (p_mac_lte_info->direction == DIRECTION_UPLINK) {
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"BCH data should not be received in Uplink!");
+}
+}
+static void dissect_pch(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree,
+proto_item *pdu_ti, int offset, guint8 direction)
+{
+proto_item *ti;
+write_pdu_label_and_info(pdu_ti, NULL, pinfo,
+"PCH PDU (%u bytes) ",
+tvb_length_remaining(tvb, offset));
+ti = proto_tree_add_item(tree, hf_mac_lte_pch_pdu,
+tvb, offset, -1, ENC_NA);
+if (global_mac_lte_attempt_rrc_decode) {
+tvbuff_t *rrc_tvb = tvb_new_subset(tvb, offset, -1, tvb_length_remaining(tvb, offset));
+dissector_handle_t protocol_handle = find_dissector("lte-rrc.pcch");
+PROTO_ITEM_SET_HIDDEN(ti);
+TRY {
+call_dissector_only(protocol_handle, rrc_tvb, pinfo, tree);
+}
+CATCH_ALL {
+}
+ENDTRY
+}
+if (direction == DIRECTION_UPLINK) {
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"PCH data should not be received in Uplink!");
+}
+}
+static int is_fixed_sized_control_element(guint8 lcid, guint8 direction)
+{
+if (direction == DIRECTION_UPLINK) {
+switch (lcid) {
+case POWER_HEADROOM_REPORT_LCID:
+case CRNTI_LCID:
+case TRUNCATED_BSR_LCID:
+case SHORT_BSR_LCID:
+case LONG_BSR_LCID:
+return TRUE;
+default:
+return FALSE;
+}
+}
+else {
+switch (lcid) {
+case ACTIVATION_DEACTIVATION_LCID:
+case UE_CONTENTION_RESOLUTION_IDENTITY_LCID:
+case TIMING_ADVANCE_LCID:
+case DRX_COMMAND_LCID:
+return TRUE;
+default:
+return FALSE;
+}
+}
+}
+static int is_bsr_lcid(guint8 lcid)
+{
+return ((lcid == TRUNCATED_BSR_LCID) ||
+(lcid == SHORT_BSR_LCID) ||
+(lcid == LONG_BSR_LCID));
+}
+static void call_rlc_dissector(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree,
+proto_item *pdu_ti,
+int offset, guint16 data_length,
+guint8 mode, guint8 direction, guint16 ueid,
+guint16 channelType, guint16 channelId,
+guint8 UMSequenceNumberLength,
+guint8 priority)
+{
+tvbuff_t *srb_tvb = tvb_new_subset(tvb, offset, data_length, data_length);
+struct rlc_lte_info *p_rlc_lte_info;
+volatile dissector_handle_t protocol_handle = find_dissector("rlc-lte");
+p_rlc_lte_info = p_get_proto_data(pinfo->fd, proto_rlc_lte);
+if (p_rlc_lte_info == NULL) {
+p_rlc_lte_info = se_alloc0(sizeof(struct rlc_lte_info));
+}
+p_rlc_lte_info->rlcMode = mode;
+p_rlc_lte_info->direction = direction;
+p_rlc_lte_info->priority = priority;
+p_rlc_lte_info->ueid = ueid;
+p_rlc_lte_info->channelType = channelType;
+p_rlc_lte_info->channelId = channelId;
+p_rlc_lte_info->pduLength = data_length;
+p_rlc_lte_info->UMSequenceNumberLength = UMSequenceNumberLength;
+p_add_proto_data(pinfo->fd, proto_rlc_lte, p_rlc_lte_info);
+if (global_mac_lte_layer_to_show != ShowRLCLayer) {
+col_set_writable(pinfo->cinfo, FALSE);
+}
+else {
+if (s_number_of_rlc_pdus_shown == 0) {
+col_clear(pinfo->cinfo, COL_INFO);
+}
+else {
+write_pdu_label_and_info(pdu_ti, NULL, pinfo, " || ");
+col_set_fence(pinfo->cinfo, COL_INFO);
+}
+}
+s_number_of_rlc_pdus_shown++;
+TRY {
+call_dissector_only(protocol_handle, srb_tvb, pinfo, tree);
+}
+CATCH_ALL {
+}
+ENDTRY
+col_set_writable(pinfo->cinfo, TRUE);
+}
+static void TrackReportedDLHARQResend(packet_info *pinfo, tvbuff_t *tvb, volatile int length,
+proto_tree *tree, mac_lte_info *p_mac_lte_info)
+{
+DLHARQResult *result = NULL;
+DLHARQResult *original_result = NULL;
+if (!p_mac_lte_info->detailed_phy_info.dl_info.present) {
+return;
+}
+if (!pinfo->fd->flags.visited) {
+LastFrameData *lastData = NULL;
+LastFrameData *thisData = NULL;
+DLHarqBuffers *ueData;
+guint8 harq_id = p_mac_lte_info->detailed_phy_info.dl_info.harq_id;
+guint8 transport_block = p_mac_lte_info->detailed_phy_info.dl_info.transport_block;
+if ((harq_id >= 15) || (transport_block+1 > 2)) {
+return;
+}
+ueData = g_hash_table_lookup(mac_lte_dl_harq_hash, GUINT_TO_POINTER((guint)p_mac_lte_info->rnti));
+if (ueData != NULL) {
+lastData = &(ueData->harqid[transport_block][harq_id]);
+if (lastData->inUse) {
+if ((length == lastData->length) &&
+(p_mac_lte_info->detailed_phy_info.dl_info.ndi == lastData->ndi) &&
+tvb_memeql(tvb, 0, lastData->data, MIN(lastData->length, MAX_EXPECTED_PDU_LENGTH)) == 0) {
+gint seconds_between_packets = (gint)
+(pinfo->fd->abs_ts.secs - lastData->received_time.secs);
+gint nseconds_between_packets =
+pinfo->fd->abs_ts.nsecs - lastData->received_time.nsecs;
+gint total_gap = (seconds_between_packets*1000) +
+((nseconds_between_packets+500000) / 1000000);
+if ((total_gap >= 8) && (total_gap <= 13)) {
+result = se_alloc0(sizeof(DLHARQResult));
+result->previousSet = TRUE;
+result->previousFrameNum = lastData->framenum;
+result->timeSincePreviousFrame = total_gap;
+g_hash_table_insert(mac_lte_dl_harq_result_hash, GUINT_TO_POINTER(pinfo->fd->num), result);
+original_result = g_hash_table_lookup(mac_lte_dl_harq_result_hash, GUINT_TO_POINTER(lastData->framenum));
+if (original_result == NULL) {
+original_result = se_alloc0(sizeof(ULHARQResult));
+g_hash_table_insert(mac_lte_dl_harq_result_hash, GUINT_TO_POINTER(lastData->framenum), original_result);
+}
+original_result->nextSet = TRUE;
+original_result->nextFrameNum = pinfo->fd->num;
+original_result->timeToNextFrame = total_gap;
+}
+}
+}
+}
+else {
+ueData = se_alloc0(sizeof(DLHarqBuffers));
+g_hash_table_insert(mac_lte_dl_harq_hash, GUINT_TO_POINTER((guint)p_mac_lte_info->rnti), ueData);
+}
+thisData = &(ueData->harqid[transport_block][harq_id]);
+thisData->inUse = TRUE;
+thisData->length = length;
+tvb_memcpy(tvb, thisData->data, 0, MIN(thisData->length, MAX_EXPECTED_PDU_LENGTH));
+thisData->ndi = p_mac_lte_info->detailed_phy_info.dl_info.ndi;
+thisData->framenum = pinfo->fd->num;
+thisData->received_time = pinfo->fd->abs_ts;
+}
+else {
+result = g_hash_table_lookup(mac_lte_dl_harq_result_hash, GUINT_TO_POINTER(pinfo->fd->num));
+}
+if (result != NULL) {
+if (result->previousSet) {
+proto_item *gap_ti;
+proto_item *original_ti = proto_tree_add_uint(tree, hf_mac_lte_dl_harq_resend_original_frame,
+tvb, 0, 0, result->previousFrameNum);
+PROTO_ITEM_SET_GENERATED(original_ti);
+gap_ti = proto_tree_add_uint(tree, hf_mac_lte_dl_harq_resend_time_since_previous_frame,
+tvb, 0, 0, result->timeSincePreviousFrame);
+PROTO_ITEM_SET_GENERATED(gap_ti);
+}
+if (result->nextSet) {
+proto_item *gap_ti;
+proto_item *next_ti = proto_tree_add_uint(tree, hf_mac_lte_dl_harq_resend_next_frame,
+tvb, 0, 0, result->nextFrameNum);
+PROTO_ITEM_SET_GENERATED(next_ti);
+gap_ti = proto_tree_add_uint(tree, hf_mac_lte_dl_harq_resend_time_until_next_frame,
+tvb, 0, 0, result->timeToNextFrame);
+PROTO_ITEM_SET_GENERATED(gap_ti);
+}
+}
+}
+int is_mac_lte_frame_retx(packet_info *pinfo, guint8 direction)
+{
+struct mac_lte_info *p_mac_lte_info = p_get_proto_data(pinfo->fd, proto_mac_lte);
+if (direction == DIRECTION_UPLINK) {
+return ((p_mac_lte_info != NULL) && (p_mac_lte_info->reTxCount > 0));
+}
+else {
+if (p_mac_lte_info->dl_retx == dl_retx_yes) {
+return TRUE;
+}
+else {
+DLHARQResult *result = g_hash_table_lookup(mac_lte_dl_harq_result_hash, GUINT_TO_POINTER(pinfo->fd->num));
+return ((result != NULL) && result->previousSet);
+}
+}
+}
+static void TrackReportedULHARQResend(packet_info *pinfo, tvbuff_t *tvb, volatile int offset,
+proto_tree *tree, mac_lte_info *p_mac_lte_info,
+proto_item *retx_ti)
+{
+ULHARQResult *result = NULL;
+if (!p_mac_lte_info->detailed_phy_info.ul_info.present) {
+return;
+}
+if (p_mac_lte_info->detailed_phy_info.ul_info.harq_id >= 8) {
+return;
+}
+if (!pinfo->fd->flags.visited) {
+LastFrameData *lastData = NULL;
+LastFrameData *thisData = NULL;
+ULHarqBuffers *ueData =
+g_hash_table_lookup(mac_lte_ul_harq_hash, GUINT_TO_POINTER((guint)p_mac_lte_info->rnti));
+if (ueData != NULL) {
+if (p_mac_lte_info->reTxCount >= 1) {
+lastData = &(ueData->harqid[p_mac_lte_info->detailed_phy_info.ul_info.harq_id]);
+if (lastData->inUse) {
+if ((tvb_length_remaining(tvb, offset) == lastData->length) &&
+(p_mac_lte_info->detailed_phy_info.ul_info.ndi == lastData->ndi) &&
+tvb_memeql(tvb, offset, lastData->data, MIN(lastData->length, MAX_EXPECTED_PDU_LENGTH)) == 0) {
+gint seconds_between_packets = (gint)
+(pinfo->fd->abs_ts.secs - lastData->received_time.secs);
+gint nseconds_between_packets =
+pinfo->fd->abs_ts.nsecs - lastData->received_time.nsecs;
+gint total_gap = (seconds_between_packets*1000) +
+((nseconds_between_packets+500000) / 1000000);
+if (total_gap <= 33) {
+ULHARQResult *original_result = NULL;
+result = se_alloc0(sizeof(ULHARQResult));
+result->previousSet = TRUE;
+result->previousFrameNum = lastData->framenum;
+result->timeSincePreviousFrame = total_gap;
+g_hash_table_insert(mac_lte_ul_harq_result_hash, GUINT_TO_POINTER(pinfo->fd->num), result);
+original_result = g_hash_table_lookup(mac_lte_ul_harq_result_hash, GUINT_TO_POINTER(lastData->framenum));
+if (original_result == NULL) {
+original_result = se_alloc0(sizeof(ULHARQResult));
+g_hash_table_insert(mac_lte_ul_harq_result_hash, GUINT_TO_POINTER(lastData->framenum), original_result);
+}
+original_result->nextSet = TRUE;
+original_result->nextFrameNum = pinfo->fd->num;
+original_result->timeToNextFrame = total_gap;
+}
+}
+}
+}
+}
+else {
+ueData = se_alloc0(sizeof(ULHarqBuffers));
+g_hash_table_insert(mac_lte_ul_harq_hash, GUINT_TO_POINTER((guint)p_mac_lte_info->rnti), ueData);
+}
+thisData = &(ueData->harqid[p_mac_lte_info->detailed_phy_info.ul_info.harq_id]);
+thisData->inUse = TRUE;
+thisData->length = tvb_length_remaining(tvb, offset);
+tvb_memcpy(tvb, thisData->data, offset, MIN(thisData->length, MAX_EXPECTED_PDU_LENGTH));
+thisData->ndi = p_mac_lte_info->detailed_phy_info.ul_info.ndi;
+thisData->framenum = pinfo->fd->num;
+thisData->received_time = pinfo->fd->abs_ts;
+}
+else {
+result = g_hash_table_lookup(mac_lte_ul_harq_result_hash, GUINT_TO_POINTER(pinfo->fd->num));
+}
+if (retx_ti != NULL) {
+if (result != NULL) {
+if (result->previousSet) {
+proto_item *original_ti, *gap_ti;
+original_ti = proto_tree_add_uint(tree, hf_mac_lte_ul_harq_resend_original_frame,
+tvb, 0, 0, result->previousFrameNum);
+PROTO_ITEM_SET_GENERATED(original_ti);
+gap_ti = proto_tree_add_uint(tree, hf_mac_lte_ul_harq_resend_time_since_previous_frame,
+tvb, 0, 0, result->timeSincePreviousFrame);
+PROTO_ITEM_SET_GENERATED(gap_ti);
+}
+}
+else {
+expert_add_info_format(pinfo, retx_ti, PI_SEQUENCE, PI_ERROR,
+"Original Tx of UL frame not found (UE %u) !!", p_mac_lte_info->ueid);
+}
+}
+if ((result != NULL) && result->nextSet) {
+proto_item *next_ti, *gap_ti;
+next_ti = proto_tree_add_uint(tree, hf_mac_lte_ul_harq_resend_next_frame,
+tvb, 0, 0, result->nextFrameNum);
+expert_add_info_format(pinfo, next_ti, PI_SEQUENCE, PI_WARN,
+"UL MAC PDU (UE %u) needed to be retransmitted", p_mac_lte_info->ueid);
+PROTO_ITEM_SET_GENERATED(next_ti);
+gap_ti = proto_tree_add_uint(tree, hf_mac_lte_ul_harq_resend_time_until_next_frame,
+tvb, 0, 0, result->timeToNextFrame);
+PROTO_ITEM_SET_GENERATED(gap_ti);
+}
+}
+static SRResult *GetSRResult(guint32 frameNum, gboolean can_create)
+{
+SRResult *result;
+result = g_hash_table_lookup(mac_lte_sr_request_hash, GUINT_TO_POINTER(frameNum));
+if ((result == NULL) && can_create) {
+result = se_alloc0(sizeof(SRResult));
+g_hash_table_insert(mac_lte_sr_request_hash, GUINT_TO_POINTER((guint)frameNum), result);
+}
+return result;
+}
+static void TrackSRInfo(SREvent event, packet_info *pinfo, proto_tree *tree,
+tvbuff_t *tvb, mac_lte_info *p_mac_lte_info, gint idx, proto_item *event_ti)
+{
+SRResult *result = NULL;
+SRState *state;
+SRResult *resultForSRFrame = NULL;
+guint16 rnti;
+guint16 ueid;
+proto_item *ti;
+if (event == SR_Request) {
+rnti = p_mac_lte_info->oob_rnti[idx];
+ueid = p_mac_lte_info->oob_ueid[idx];
+}
+else {
+rnti = p_mac_lte_info->rnti;
+ueid = p_mac_lte_info->ueid;
+}
+state = g_hash_table_lookup(mac_lte_ue_sr_state, GUINT_TO_POINTER((guint)rnti));
+if (state == NULL) {
+state = se_alloc(sizeof(SRState));
+state->status = None;
+g_hash_table_insert(mac_lte_ue_sr_state, GUINT_TO_POINTER((guint)rnti), state);
+}
+if (!pinfo->fd->flags.visited) {
+guint32 timeSinceRequest;
+if (event == SR_Request) {
+state->requestTime = pinfo->fd->abs_ts;
+}
+switch (state->status) {
+case None:
+switch (event) {
+case SR_Grant:
+state->lastGrantFramenum = pinfo->fd->num;
+break;
+case SR_Request:
+state->status = SR_Outstanding;
+state->lastSRFramenum = pinfo->fd->num;
+break;
+case SR_Failure:
+result = GetSRResult(pinfo->fd->num, TRUE);
+result->type = InvalidSREvent;
+result->status = None;
+result->event = SR_Failure;
+break;
+}
+break;
+case SR_Outstanding:
+timeSinceRequest = (guint32)(((pinfo->fd->abs_ts.secs - state->requestTime.secs) * 1000) +
+((pinfo->fd->abs_ts.nsecs - state->requestTime.nsecs) / 1000000));
+switch (event) {
+case SR_Grant:
+state->status = None;
+result = GetSRResult(pinfo->fd->num, TRUE);
+result->type = GrantAnsweringSR;
+result->frameNum = state->lastSRFramenum;
+result->timeDifference = timeSinceRequest;
+resultForSRFrame = GetSRResult(state->lastSRFramenum, TRUE);
+resultForSRFrame->type = SRLeadingToGrant;
+resultForSRFrame->frameNum = pinfo->fd->num;
+resultForSRFrame->timeDifference = timeSinceRequest;
+break;
+case SR_Request:
+result = GetSRResult(pinfo->fd->num, TRUE);
+result->type = InvalidSREvent;
+result->status = SR_Outstanding;
+result->event = SR_Request;
+break;
+case SR_Failure:
+state->status = SR_Failed;
+result = GetSRResult(pinfo->fd->num, TRUE);
+result->type = FailureAnsweringSR;
+result->frameNum = state->lastSRFramenum;
+result->timeDifference = timeSinceRequest;
+resultForSRFrame = GetSRResult(state->lastSRFramenum, TRUE);
+resultForSRFrame->type = SRLeadingToFailure;
+resultForSRFrame->frameNum = pinfo->fd->num;
+resultForSRFrame->timeDifference = timeSinceRequest;
+break;
+}
+break;
+case SR_Failed:
+switch (event) {
+case SR_Grant:
+state->status = None;
+break;
+case SR_Request:
+state->status = SR_Outstanding;
+result = GetSRResult(pinfo->fd->num, TRUE);
+result->status = SR_Outstanding;
+result->event = SR_Request;
+break;
+case SR_Failure:
+result = GetSRResult(pinfo->fd->num, TRUE);
+result->type = InvalidSREvent;
+result->status = SR_Failed;
+result->event = SR_Failure;
+break;
+}
+break;
+}
+}
+result = GetSRResult(pinfo->fd->num, FALSE);
+if (result == NULL) {
+if (event == SR_Request) {
+expert_add_info_format(pinfo, event_ti, PI_SEQUENCE, PI_ERROR,
+"UE %u: SR results in neither a grant nor a failure indication",
+ueid);
+}
+return;
+}
+switch (result->type) {
+case GrantAnsweringSR:
+ti = proto_tree_add_uint(tree, hf_mac_lte_grant_answering_sr,
+tvb, 0, 0, result->frameNum);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(tree, hf_mac_lte_sr_time_since_request,
+tvb, 0, 0, result->timeDifference);
+PROTO_ITEM_SET_GENERATED(ti);
+break;
+case FailureAnsweringSR:
+ti = proto_tree_add_uint(tree, hf_mac_lte_failure_answering_sr,
+tvb, 0, 0, result->frameNum);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(tree, hf_mac_lte_sr_time_since_request,
+tvb, 0, 0, result->timeDifference);
+PROTO_ITEM_SET_GENERATED(ti);
+break;
+case SRLeadingToGrant:
+ti = proto_tree_add_uint(tree, hf_mac_lte_sr_leading_to_grant,
+tvb, 0, 0, result->frameNum);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(tree, hf_mac_lte_sr_time_until_answer,
+tvb, 0, 0, result->timeDifference);
+PROTO_ITEM_SET_GENERATED(ti);
+break;
+case SRLeadingToFailure:
+ti = proto_tree_add_uint(tree, hf_mac_lte_sr_leading_to_failure,
+tvb, 0, 0, result->frameNum);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(tree, hf_mac_lte_sr_time_until_answer,
+tvb, 0, 0, result->timeDifference);
+PROTO_ITEM_SET_GENERATED(ti);
+break;
+case InvalidSREvent:
+ti = proto_tree_add_none_format(tree, hf_mac_lte_sr_invalid_event,
+tvb, 0, 0, "UE %u: Invalid SR event - state=%s, event=%s",
+ueid,
+val_to_str_const(result->status, sr_status_vals, "Unknown"),
+val_to_str_const(result->event, sr_event_vals, "Unknown"));
+PROTO_ITEM_SET_GENERATED(ti);
+expert_add_info_format(pinfo, ti, PI_SEQUENCE, PI_ERROR,
+"Invalid SR event for UE %u (C-RNTI %u) - state=%s, event=%s",
+ueid, rnti,
+val_to_str_const(result->status, sr_status_vals, "Unknown"),
+val_to_str_const(result->event, sr_event_vals, "Unknown"));
+break;
+}
+}
+static guint16 count_ues_tti(mac_lte_info *p_mac_lte_info, packet_info *pinfo)
+{
+gboolean same_tti = FALSE;
+tti_info_t *tti_info;
+TTIInfoResult_t *result = g_hash_table_lookup(mac_lte_tti_info_result_hash, GUINT_TO_POINTER(pinfo->fd->num));
+if (result != NULL) {
+return result->ues_in_tti;
+}
+if (p_mac_lte_info->direction == DIRECTION_UPLINK) {
+tti_info = &UL_tti_info;
+}
+else {
+tti_info = &DL_tti_info;
+}
+if (tti_info->subframe == p_mac_lte_info->subframeNumber) {
+gint seconds_between_packets = (gint)
+(pinfo->fd->abs_ts.secs - tti_info->ttiStartTime.secs);
+gint nseconds_between_packets =
+pinfo->fd->abs_ts.nsecs - tti_info->ttiStartTime.nsecs;
+gint total_us_gap = (seconds_between_packets*1000000) +
+((nseconds_between_packets+500) / 1000);
+if (total_us_gap < 1000) {
+same_tti = TRUE;
+}
+}
+if (!same_tti) {
+tti_info->subframe = p_mac_lte_info->subframeNumber;
+tti_info->ttiStartTime = pinfo->fd->abs_ts;
+tti_info->ues_in_tti = 1;
+}
+else {
+tti_info->ues_in_tti++;
+}
+result = se_alloc(sizeof(TTIInfoResult_t));
+result->ues_in_tti = tti_info->ues_in_tti;
+g_hash_table_insert(mac_lte_tti_info_result_hash,
+GUINT_TO_POINTER(pinfo->fd->num), result);
+return tti_info->ues_in_tti;
+}
+static void show_ues_tti(packet_info *pinfo, mac_lte_info *p_mac_lte_info, tvbuff_t *tvb, proto_tree *context_tree)
+{
+TTIInfoResult_t *result = g_hash_table_lookup(mac_lte_tti_info_result_hash, GUINT_TO_POINTER(pinfo->fd->num));
+if (result != NULL) {
+proto_item *ti = proto_tree_add_uint(context_tree,
+(p_mac_lte_info->direction == DIRECTION_UPLINK) ?
+hf_mac_lte_ues_ul_per_tti :
+hf_mac_lte_ues_dl_per_tti,
+tvb, 0, 0, result->ues_in_tti);
+PROTO_ITEM_SET_GENERATED(ti);
+}
+}
+static void lookup_rlc_channel_from_lcid(guint8 lcid,
+rlc_channel_type_t *rlc_channel_type,
+guint8 *UM_seqnum_length,
+gint *drb_id)
+{
+*rlc_channel_type = rlcRaw;
+*UM_seqnum_length = 0;
+*drb_id = 0;
+if (global_mac_lte_lcid_drb_source == (int)FromStaticTable) {
+guint m;
+for (m=0; m < num_lcid_drb_mappings; m++) {
+if (lcid == lcid_drb_mappings[m].lcid) {
+*rlc_channel_type = lcid_drb_mappings[m].channel_type;
+switch (*rlc_channel_type) {
+case rlcUM5:
+*UM_seqnum_length = 5;
+break;
+case rlcUM10:
+*UM_seqnum_length = 10;
+break;
+default:
+break;
+}
+*drb_id = lcid_drb_mappings[m].drbid;
+break;
+}
+}
+}
+else {
+if (!dynamic_lcid_drb_mapping[lcid].valid) {
+return;
+}
+*rlc_channel_type = dynamic_lcid_drb_mapping[lcid].channel_type;
+switch (*rlc_channel_type) {
+case rlcUM5:
+*UM_seqnum_length = 5;
+break;
+case rlcUM10:
+*UM_seqnum_length = 10;
+break;
+default:
+break;
+}
+*drb_id = dynamic_lcid_drb_mapping[lcid].drbid;
+}
+}
+static void dissect_ulsch_or_dlsch(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree,
+proto_item *pdu_ti,
+volatile guint32 offset, guint8 direction,
+mac_lte_info *p_mac_lte_info, mac_lte_tap_info *tap_info,
+proto_item *retx_ti,
+proto_tree *context_tree)
+{
+guint8 extension;
+volatile guint16 n;
+proto_item *truncated_ti;
+proto_item *padding_length_ti;
+proto_item *hidden_root_ti;
+volatile guint16 number_of_headers = 0;
+guint8 lcids[MAX_HEADERS_IN_PDU];
+gint16 pdu_lengths[MAX_HEADERS_IN_PDU];
+proto_item *pdu_header_ti;
+proto_tree *pdu_header_tree;
+gboolean have_seen_data_header = FALSE;
+guint8 number_of_padding_subheaders = 0;
+gboolean have_seen_non_padding_control = FALSE;
+gboolean have_seen_bsr = FALSE;
+gboolean expecting_body_data = FALSE;
+volatile guint32 is_truncated = FALSE;
+tap_info->ueInTTI = count_ues_tti(p_mac_lte_info, pinfo);
+show_ues_tti(pinfo, p_mac_lte_info, tvb, context_tree);
+write_pdu_label_and_info(pdu_ti, NULL, pinfo,
+"%s: (SF=%u) UEId=%-3u ",
+(direction == DIRECTION_UPLINK) ? "UL-SCH" : "DL-SCH",
+p_mac_lte_info->subframeNumber,
+p_mac_lte_info->ueid);
+tap_info->raw_length = p_mac_lte_info->length;
+if (direction == DIRECTION_UPLINK) {
+TrackReportedULHARQResend(pinfo, tvb, offset, tree, p_mac_lte_info, retx_ti);
+}
+if ((direction == DIRECTION_UPLINK) && (p_mac_lte_info->reTxCount == 0) &&
+global_mac_lte_track_sr) {
+TrackSRInfo(SR_Grant, pinfo, tree, tvb, p_mac_lte_info, 0, NULL);
+}
+hidden_root_ti = proto_tree_add_string_format(tree,
+(direction == DIRECTION_UPLINK) ?
+hf_mac_lte_ulsch :
+hf_mac_lte_dlsch,
+tvb, offset, 0,
+"",
+"Hidden header");
+PROTO_ITEM_SET_HIDDEN(hidden_root_ti);
+pdu_header_ti = proto_tree_add_string_format(tree,
+(direction == DIRECTION_UPLINK) ?
+hf_mac_lte_ulsch_header :
+hf_mac_lte_dlsch_header,
+tvb, offset, 0,
+"",
+"MAC PDU Header");
+pdu_header_tree = proto_item_add_subtree(pdu_header_ti,
+(direction == DIRECTION_UPLINK) ?
+ett_mac_lte_ulsch_header :
+ett_mac_lte_dlsch_header);
+do {
+guint8 reserved;
+guint64 length = 0;
+proto_item *pdu_subheader_ti;
+proto_tree *pdu_subheader_tree;
+proto_item *lcid_ti;
+proto_item *ti;
+gint offset_start_subheader = offset;
+guint8 first_byte = tvb_get_guint8(tvb, offset);
+pdu_subheader_ti = proto_tree_add_string_format(pdu_header_tree,
+hf_mac_lte_sch_subheader,
+tvb, offset, 1,
+"",
+"Sub-header");
+pdu_subheader_tree = proto_item_add_subtree(pdu_subheader_ti,
+ett_mac_lte_sch_subheader);
+reserved = (first_byte & 0xc0) >> 6;
+ti = proto_tree_add_item(pdu_subheader_tree, hf_mac_lte_sch_reserved,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+if (reserved != 0) {
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"%cL-SCH header Reserved bits not zero",
+(p_mac_lte_info->direction == DIRECTION_UPLINK) ? 'U' : 'D');
+}
+extension = (first_byte & 0x20) >> 5;
+proto_tree_add_item(pdu_subheader_tree, hf_mac_lte_sch_extended,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+lcids[number_of_headers] = first_byte & 0x1f;
+if (direction == DIRECTION_UPLINK) {
+lcid_ti = proto_tree_add_item(pdu_subheader_tree, hf_mac_lte_ulsch_lcid,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+write_pdu_label_and_info(pdu_ti, NULL, pinfo,
+"(%s",
+val_to_str_const(lcids[number_of_headers],
+ulsch_lcid_vals, "(Unknown LCID)"));
+}
+else {
+lcid_ti = proto_tree_add_item(pdu_subheader_tree, hf_mac_lte_dlsch_lcid,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+write_pdu_label_and_info(pdu_ti, NULL, pinfo,
+"(%s",
+val_to_str_const(lcids[number_of_headers],
+dlsch_lcid_vals, "(Unknown LCID)"));
+if (lcids[number_of_headers] == DRX_COMMAND_LCID) {
+expert_add_info_format(pinfo, lcid_ti, PI_SEQUENCE, PI_NOTE,
+"DRX command received for UE %u (RNTI %u)",
+p_mac_lte_info->ueid, p_mac_lte_info->rnti);
+}
+}
+offset++;
+if (lcids[number_of_headers] <= 10) {
+have_seen_data_header = TRUE;
+expecting_body_data = TRUE;
+}
+if (have_seen_data_header &&
+(lcids[number_of_headers] > 10) && (lcids[number_of_headers] != PADDING_LCID)) {
+expert_add_info_format(pinfo, lcid_ti, PI_MALFORMED, PI_ERROR,
+"%cL-SCH Control subheaders should not appear after data subheaders",
+(p_mac_lte_info->direction == DIRECTION_UPLINK) ? 'U' : 'D');
+return;
+}
+if ((direction == DIRECTION_UPLINK) && is_bsr_lcid(lcids[number_of_headers])) {
+if (have_seen_bsr) {
+expert_add_info_format(pinfo, lcid_ti, PI_MALFORMED, PI_ERROR,
+"There shouldn't be > 1 BSR in a frame");
+return;
+}
+have_seen_bsr = TRUE;
+}
+if ((lcids[number_of_headers] > 10) &&
+(lcids[number_of_headers] == PADDING_LCID) &&
+extension)
+{
+number_of_padding_subheaders++;
+if (number_of_padding_subheaders > 2) {
+expert_add_info_format(pinfo, lcid_ti, PI_MALFORMED, PI_WARN,
+"Should not see more than 2 padding subheaders in one frame");
+}
+if (have_seen_non_padding_control) {
+expert_add_info_format(pinfo, lcid_ti, PI_MALFORMED, PI_ERROR,
+"Padding should come before other control subheaders!");
+}
+}
+if ((lcids[number_of_headers] > 10) &&
+(lcids[number_of_headers] != PADDING_LCID)) {
+have_seen_non_padding_control = TRUE;
+}
+if (!extension) {
+if (is_fixed_sized_control_element(lcids[number_of_headers], direction)) {
+pdu_lengths[number_of_headers] = 0;
+}
+else {
+pdu_lengths[number_of_headers] = -1;
+}
+}
+else {
+if (!is_fixed_sized_control_element(lcids[number_of_headers], direction) &&
+(lcids[number_of_headers] != PADDING_LCID)) {
+guint8 format;
+format = (tvb_get_guint8(tvb, offset) & 0x80) >> 7;
+proto_tree_add_item(pdu_subheader_tree, hf_mac_lte_sch_format,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+if (format) {
+proto_tree_add_bits_ret_val(pdu_subheader_tree, hf_mac_lte_sch_length,
+tvb, offset*8 + 1, 15, &length, ENC_BIG_ENDIAN);
+offset += 2;
+}
+else {
+proto_tree_add_bits_ret_val(pdu_subheader_tree, hf_mac_lte_sch_length,
+tvb, offset*8 + 1, 7, &length, ENC_BIG_ENDIAN);
+offset++;
+}
+pdu_lengths[number_of_headers] = (gint16)length;
+}
+else {
+pdu_lengths[number_of_headers] = 0;
+}
+}
+switch (pdu_lengths[number_of_headers]) {
+case 0:
+write_pdu_label_and_info(pdu_ti, NULL, pinfo, ") ");
+break;
+case -1:
+write_pdu_label_and_info(pdu_ti, NULL, pinfo, ":remainder) ");
+break;
+default:
+write_pdu_label_and_info(pdu_ti, NULL, pinfo, ":%u bytes) ",
+pdu_lengths[number_of_headers]);
+break;
+}
+proto_item_append_text(pdu_subheader_ti, " (lcid=%s",
+val_to_str_const(lcids[number_of_headers],
+(direction == DIRECTION_UPLINK) ?
+ulsch_lcid_vals :
+dlsch_lcid_vals,
+"Unknown"));
+switch (pdu_lengths[number_of_headers]) {
+case -1:
+proto_item_append_text(pdu_subheader_ti, ", length is remainder)");
+proto_item_append_text(pdu_header_ti, " (%s:remainder)",
+val_to_str_const(lcids[number_of_headers],
+(direction == DIRECTION_UPLINK) ? ulsch_lcid_vals : dlsch_lcid_vals,
+"Unknown"));
+break;
+case 0:
+proto_item_append_text(pdu_subheader_ti, ")");
+proto_item_append_text(pdu_header_ti, " (%s)",
+val_to_str_const(lcids[number_of_headers],
+(direction == DIRECTION_UPLINK) ? ulsch_lcid_vals : dlsch_lcid_vals,
+"Unknown"));
+break;
+default:
+proto_item_append_text(pdu_subheader_ti, ", length=%u)",
+pdu_lengths[number_of_headers]);
+proto_item_append_text(pdu_header_ti, " (%s:%u)",
+val_to_str_const(lcids[number_of_headers],
+(direction == DIRECTION_UPLINK) ? ulsch_lcid_vals : dlsch_lcid_vals,
+"Unknown"),
+pdu_lengths[number_of_headers]);
+break;
+}
+if (match_strval(lcids[number_of_headers],
+(direction == DIRECTION_UPLINK) ? ulsch_lcid_vals : dlsch_lcid_vals) == NULL) {
+expert_add_info_format(pinfo, pdu_subheader_ti, PI_MALFORMED, PI_ERROR,
+"%cL-SCH: Unexpected LCID received (%u)",
+(p_mac_lte_info->direction == DIRECTION_UPLINK) ? 'U' : 'D',
+lcids[number_of_headers]);
+}
+proto_item_set_len(pdu_subheader_ti, offset - offset_start_subheader);
+number_of_headers++;
+} while ((number_of_headers < MAX_HEADERS_IN_PDU) && extension);
+if (number_of_headers >= MAX_HEADERS_IN_PDU) {
+proto_item *ti = proto_tree_add_text(tree, tvb, offset, 1,
+"Reached %u subheaders - frame obviously malformed",
+MAX_HEADERS_IN_PDU);
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"Reached %u subheaders - frame obviously malformed",
+MAX_HEADERS_IN_PDU);
+return;
+}
+proto_item_append_text(pdu_header_ti, " [%u subheaders]",
+number_of_headers);
+proto_item_set_len(pdu_header_ti, offset);
+if (direction == DIRECTION_DOWNLINK) {
+TrackReportedDLHARQResend(pinfo, tvb, tvb_length_remaining(tvb, 0), context_tree, p_mac_lte_info);
+tap_info->isPHYRetx = (p_mac_lte_info->dl_retx == dl_retx_yes);
+}
+for (n=0; n < number_of_headers; n++) {
+if (lcids[n] <= 10) {
+break;
+}
+if (direction == DIRECTION_DOWNLINK) {
+switch (lcids[n]) {
+case ACTIVATION_DEACTIVATION_LCID:
+{
+proto_item *ad_ti;
+proto_tree *ad_tree;
+proto_item *ti;
+guint8 reserved;
+ad_ti = proto_tree_add_string_format(tree,
+hf_mac_lte_control_activation_deactivation,
+tvb, offset, 1,
+"",
+"Activation/Deactivation");
+ad_tree = proto_item_add_subtree(ad_ti, ett_mac_lte_activation_deactivation);
+proto_tree_add_item(ad_tree, hf_mac_lte_control_activation_deactivation_c7,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ad_tree, hf_mac_lte_control_activation_deactivation_c6,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ad_tree, hf_mac_lte_control_activation_deactivation_c5,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ad_tree, hf_mac_lte_control_activation_deactivation_c4,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ad_tree, hf_mac_lte_control_activation_deactivation_c3,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ad_tree, hf_mac_lte_control_activation_deactivation_c2,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ad_tree, hf_mac_lte_control_activation_deactivation_c1,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+ti = proto_tree_add_item(ad_tree, hf_mac_lte_control_activation_deactivation_reserved,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+reserved = tvb_get_guint8(tvb, offset) & 0x01;
+if (reserved != 0) {
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"Activation/Deactivation Reserved bit not zero");
+}
+offset++;
+}
+break;
+case UE_CONTENTION_RESOLUTION_IDENTITY_LCID:
+{
+proto_item *cr_ti;
+proto_tree *cr_tree;
+proto_item *ti;
+ContentionResolutionResult *crResult;
+cr_ti = proto_tree_add_string_format(tree,
+hf_mac_lte_control_ue_contention_resolution,
+tvb, offset, 6,
+"",
+"Contention Resolution");
+cr_tree = proto_item_add_subtree(cr_ti, ett_mac_lte_contention_resolution);
+proto_tree_add_item(cr_tree, hf_mac_lte_control_ue_contention_resolution_identity,
+tvb, offset, 6, ENC_NA);
+crResult = g_hash_table_lookup(mac_lte_cr_result_hash, GUINT_TO_POINTER(pinfo->fd->num));
+if (crResult == NULL) {
+Msg3Data *msg3Data;
+guint msg3Key = p_mac_lte_info->rnti;
+crResult = se_alloc(sizeof(ContentionResolutionResult));
+g_hash_table_insert(mac_lte_cr_result_hash, GUINT_TO_POINTER(pinfo->fd->num), crResult);
+msg3Data = g_hash_table_lookup(mac_lte_msg3_hash, GUINT_TO_POINTER(msg3Key));
+if (msg3Data != NULL) {
+crResult->msSinceMsg3 = (guint32)(((pinfo->fd->abs_ts.secs - msg3Data->msg3Time.secs) * 1000) +
+((pinfo->fd->abs_ts.nsecs - msg3Data->msg3Time.nsecs) / 1000000));
+crResult->msg3FrameNum = msg3Data->framenum;
+if (tvb_memeql(tvb, offset, msg3Data->data, 6) == 0) {
+crResult->status = Msg3Match;
+}
+else {
+crResult->status = Msg3NoMatch;
+}
+}
+else {
+crResult->status = NoMsg3;
+}
+}
+switch (crResult->status) {
+case NoMsg3:
+proto_item_append_text(cr_ti, " (no corresponding Msg3 found!)");
+break;
+case Msg3Match:
+ti = proto_tree_add_uint(cr_tree, hf_mac_lte_control_ue_contention_resolution_msg3,
+tvb, 0, 0, crResult->msg3FrameNum);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(cr_tree, hf_mac_lte_control_ue_contention_resolution_time_since_msg3,
+tvb, 0, 0, crResult->msSinceMsg3);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_boolean(cr_tree, hf_mac_lte_control_ue_contention_resolution_msg3_matched,
+tvb, 0, 0, TRUE);
+PROTO_ITEM_SET_GENERATED(ti);
+proto_item_append_text(cr_ti, " (matches Msg3 from frame %u, %ums ago)",
+crResult->msg3FrameNum, crResult->msSinceMsg3);
+break;
+case Msg3NoMatch:
+ti = proto_tree_add_uint(cr_tree, hf_mac_lte_control_ue_contention_resolution_msg3,
+tvb, 0, 0, crResult->msg3FrameNum);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(cr_tree, hf_mac_lte_control_ue_contention_resolution_time_since_msg3,
+tvb, 0, 0, crResult->msSinceMsg3);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_boolean(cr_tree, hf_mac_lte_control_ue_contention_resolution_msg3_matched,
+tvb, 0, 0, FALSE);
+expert_add_info_format(pinfo, ti, PI_SEQUENCE, PI_WARN,
+"CR body in Msg4 doesn't match Msg3 CCCH in frame %u",
+crResult->msg3FrameNum);
+PROTO_ITEM_SET_GENERATED(ti);
+proto_item_append_text(cr_ti, " (doesn't match Msg3 from frame %u, %u ago)",
+crResult->msg3FrameNum, crResult->msSinceMsg3);
+break;
+};
+offset += 6;
+}
+break;
+case TIMING_ADVANCE_LCID:
+{
+proto_item *ta_ti;
+proto_item *reserved_ti;
+guint8 reserved;
+guint8 ta_value;
+reserved = (tvb_get_guint8(tvb, offset) & 0xc0) >> 6;
+reserved_ti = proto_tree_add_item(tree, hf_mac_lte_control_timing_advance_reserved, tvb, offset, 1, ENC_BIG_ENDIAN);
+if (reserved != 0) {
+expert_add_info_format(pinfo, reserved_ti, PI_MALFORMED, PI_ERROR,
+"Timing Advance Reserved bits not zero (found 0x%x)", reserved);
+}
+ta_value = tvb_get_guint8(tvb, offset) & 0x3f;
+ta_ti = proto_tree_add_item(tree, hf_mac_lte_control_timing_advance,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+if (ta_value == 31) {
+expert_add_info_format(pinfo, ta_ti, PI_SEQUENCE,
+PI_NOTE,
+"Timing Advance control element received (no correction needed)");
+}
+else {
+expert_add_info_format(pinfo, ta_ti, PI_SEQUENCE,
+PI_WARN,
+"Timing Advance control element received (%u) %s correction needed",
+ta_value,
+(ta_value < 31) ? "-ve" : "+ve");
+}
+offset++;
+}
+break;
+case DRX_COMMAND_LCID:
+break;
+case PADDING_LCID:
+tap_info->padding_bytes++;
+break;
+default:
+break;
+}
+}
+else {
+switch (lcids[n]) {
+case EXTENDED_POWER_HEADROOM_REPORT_LCID:
+{
+proto_item *ephr_ti;
+proto_tree *ephr_tree;
+proto_item *ti;
+proto_tree *ephr_cell_tree;
+proto_item *ephr_cell_ti;
+guint8 scell_bitmap;
+guint8 scell_count;
+guint8 byte;
+guint i;
+guint32 curr_offset = offset;
+guint32 computed_header_offset;
+if (pdu_lengths[n] == -1) {
+pdu_lengths[n] = (gint16)tvb_length_remaining(tvb, curr_offset);
+}
+ephr_ti = proto_tree_add_string_format(tree,
+hf_mac_lte_control_ext_power_headroom,
+tvb, curr_offset, pdu_lengths[n],
+"",
+"Extended Power Headroom");
+ephr_tree = proto_item_add_subtree(ephr_ti, ett_mac_lte_extended_power_headroom);
+scell_bitmap = tvb_get_guint8(tvb, curr_offset);
+proto_tree_add_item(ephr_tree, hf_mac_lte_control_ext_power_headroom_c7,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ephr_tree, hf_mac_lte_control_ext_power_headroom_c6,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ephr_tree, hf_mac_lte_control_ext_power_headroom_c5,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ephr_tree, hf_mac_lte_control_ext_power_headroom_c4,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ephr_tree, hf_mac_lte_control_ext_power_headroom_c3,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ephr_tree, hf_mac_lte_control_ext_power_headroom_c2,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ephr_tree, hf_mac_lte_control_ext_power_headroom_c1,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+ti = proto_tree_add_item(ephr_tree, hf_mac_lte_control_ext_power_headroom_reserved,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+if (scell_bitmap & 0x01) {
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"Extended Power Headroom Reserved bit not zero");
+}
+curr_offset++;
+for (i = 0, scell_count = 0; i < 7; i++) {
+if (scell_bitmap & (0x80>>i)) {
+scell_count++;
+}
+}
+computed_header_offset = curr_offset;
+for (i = 0; i < scell_count; i++) {
+if (tvb_get_guint8(tvb, computed_header_offset) & 0x80) {
+computed_header_offset++;
+}
+computed_header_offset++;
+}
+if ((gint16)(computed_header_offset + 1 - curr_offset) != pdu_lengths[n]) {
+if (tvb_get_guint8(tvb, computed_header_offset) & 0x80) {
+computed_header_offset++;
+}
+computed_header_offset++;
+if ((gint16)(computed_header_offset + 1 - curr_offset) != pdu_lengths[n]) {
+expert_add_info_format(pinfo, ephr_ti, PI_MALFORMED, PI_ERROR,
+"Control Element has an unexpected size (computed=%d, actual=%d)",
+computed_header_offset + 1 - curr_offset, pdu_lengths[n]);
+offset += pdu_lengths[n];
+break;
+}
+byte = tvb_get_guint8(tvb, curr_offset);
+ephr_cell_ti = proto_tree_add_text(ephr_tree, tvb, curr_offset, ((byte&0x80)?2:1), "PCell");
+ephr_cell_tree = proto_item_add_subtree(ephr_cell_ti, ett_mac_lte_extended_power_headroom_cell);
+proto_tree_add_item(ephr_cell_tree, hf_mac_lte_control_ext_power_headroom_power_backoff,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ephr_cell_tree, hf_mac_lte_control_ext_power_headroom_value,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ephr_cell_tree, hf_mac_lte_control_ext_power_headroom_level,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+proto_item_append_text(ephr_cell_ti, " (%s)",
+val_to_str_ext_const((byte&0x3f), &power_headroom_vals_ext, "Unknown"));
+curr_offset++;
+if (byte & 0x80) {
+byte = tvb_get_guint8(tvb, curr_offset);
+ti = proto_tree_add_item(ephr_cell_tree, hf_mac_lte_control_ext_power_headroom_reserved2,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+if (byte & 0xc0) {
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"Extended Power Headroom Reserved bits not zero (found 0x%x)",
+(byte & 0xc0) >> 6);
+}
+proto_tree_add_item(ephr_cell_tree, hf_mac_lte_control_ext_power_headroom_pcmaxc,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+proto_item_append_text(ephr_cell_ti, " (%s)",
+val_to_str_ext_const((byte&0x3f), &pcmaxc_vals_ext, "Unknown"));
+curr_offset++;
+}
+} else {
+if ((gint16)(computed_header_offset + 1 - curr_offset) != pdu_lengths[n]) {
+expert_add_info_format(pinfo, ephr_ti, PI_MALFORMED, PI_ERROR,
+"Control Element has an unexpected size (computed=%d, actual=%d)",
+computed_header_offset + 1 - curr_offset, pdu_lengths[n]);
+offset += pdu_lengths[n];
+break;
+}
+}
+for (i = 1, scell_bitmap>>=1; i <= 7; i++, scell_bitmap>>=1) {
+if (scell_bitmap & 0x01) {
+byte = tvb_get_guint8(tvb, curr_offset);
+ephr_cell_ti = proto_tree_add_text(ephr_tree, tvb, curr_offset, ((byte&0x80)?2:1), "SCell Index %u", i);
+ephr_cell_tree = proto_item_add_subtree(ephr_cell_ti, ett_mac_lte_extended_power_headroom_cell);
+proto_tree_add_item(ephr_cell_tree, hf_mac_lte_control_ext_power_headroom_power_backoff,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ephr_cell_tree, hf_mac_lte_control_ext_power_headroom_value,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+proto_tree_add_item(ephr_cell_tree, hf_mac_lte_control_ext_power_headroom_level,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+proto_item_append_text(ephr_cell_ti, " (%s)",
+val_to_str_ext_const((byte&0x3f), &power_headroom_vals_ext, "Unknown"));
+curr_offset++;
+if (byte & 0x80) {
+byte = tvb_get_guint8(tvb, curr_offset);
+ti = proto_tree_add_item(ephr_cell_tree, hf_mac_lte_control_ext_power_headroom_reserved2,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+if (byte & 0xc0) {
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"Extended Power Headroom Reserved bits not zero (found 0x%x)",
+(byte & 0xc0) >> 6);
+}
+proto_tree_add_item(ephr_cell_tree, hf_mac_lte_control_ext_power_headroom_pcmaxc,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+proto_item_append_text(ephr_cell_ti, " (%s)",
+val_to_str_ext_const((byte&0x3f), &pcmaxc_vals_ext, "Unknown"));
+curr_offset++;
+}
+}
+}
+offset += pdu_lengths[n];
+}
+break;
+case POWER_HEADROOM_REPORT_LCID:
+{
+proto_item *phr_ti;
+proto_tree *phr_tree;
+proto_item *ti;
+guint8 reserved;
+guint8 level;
+phr_ti = proto_tree_add_string_format(tree,
+hf_mac_lte_control_power_headroom,
+tvb, offset, 1,
+"",
+"Power Headroom");
+phr_tree = proto_item_add_subtree(phr_ti, ett_mac_lte_power_headroom);
+reserved = (tvb_get_guint8(tvb, offset) & 0xc0) >> 6;
+ti = proto_tree_add_item(phr_tree, hf_mac_lte_control_power_headroom_reserved,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+if (reserved != 0) {
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"Power Headroom Reserved bits not zero (found 0x%x)", reserved);
+}
+level = tvb_get_guint8(tvb, offset) & 0x3f;
+proto_tree_add_item(phr_tree, hf_mac_lte_control_power_headroom_level,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+proto_item_append_text(phr_ti, " (%s)",
+val_to_str_ext_const(level, &power_headroom_vals_ext, "Unknown"));
+offset++;
+}
+break;
+case CRNTI_LCID:
+proto_tree_add_item(tree, hf_mac_lte_control_crnti,
+tvb, offset, 2, ENC_BIG_ENDIAN);
+offset += 2;
+break;
+case TRUNCATED_BSR_LCID:
+case SHORT_BSR_LCID:
+{
+proto_tree *bsr_tree;
+proto_item *bsr_ti;
+proto_item *buffer_size_ti;
+guint8 lcgid;
+guint8 buffer_size;
+int hfindex;
+value_string_ext *p_vs_ext;
+if (p_mac_lte_info->isExtendedBSRSizes) {
+hfindex = hf_mac_lte_control_short_ext_bsr_buffer_size;
+p_vs_ext = &ext_buffer_size_vals_ext;
+} else {
+hfindex = hf_mac_lte_control_short_bsr_buffer_size;
+p_vs_ext = &buffer_size_vals_ext;
+}
+bsr_ti = proto_tree_add_string_format(tree,
+hf_mac_lte_control_bsr,
+tvb, offset, 1,
+"",
+"Short BSR");
+bsr_tree = proto_item_add_subtree(bsr_ti, ett_mac_lte_bsr);
+lcgid = (tvb_get_guint8(tvb, offset) & 0xc0) >> 6;
+proto_tree_add_item(bsr_tree, hf_mac_lte_control_bsr_lcg_id,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+buffer_size = tvb_get_guint8(tvb, offset) & 0x3f;
+buffer_size_ti = proto_tree_add_item(bsr_tree, hfindex,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+offset++;
+if (buffer_size >= global_mac_lte_bsr_warn_threshold) {
+expert_add_info_format(pinfo, buffer_size_ti, PI_SEQUENCE, PI_WARN,
+"UE %u - BSR for LCG %u exceeds threshold: %u (%s)",
+p_mac_lte_info->ueid,
+lcgid,
+buffer_size,
+val_to_str_ext_const(buffer_size, p_vs_ext, "Unknown"));
+}
+proto_item_append_text(bsr_ti, " (lcgid=%u %s)",
+lcgid,
+val_to_str_ext_const(buffer_size, &buffer_size_vals_ext, "Unknown"));
+}
+break;
+case LONG_BSR_LCID:
+{
+proto_tree *bsr_tree;
+proto_item *bsr_ti;
+proto_item *buffer_size_ti;
+guint8 buffer_size[4];
+int hfindex[4];
+value_string_ext *p_vs_ext;
+if (p_mac_lte_info->isExtendedBSRSizes) {
+hfindex[0] = hf_mac_lte_control_long_ext_bsr_buffer_size_0;
+hfindex[1] = hf_mac_lte_control_long_ext_bsr_buffer_size_1;
+hfindex[2] = hf_mac_lte_control_long_ext_bsr_buffer_size_2;
+hfindex[3] = hf_mac_lte_control_long_ext_bsr_buffer_size_3;
+p_vs_ext = &ext_buffer_size_vals_ext;
+} else {
+hfindex[0] = hf_mac_lte_control_long_bsr_buffer_size_0;
+hfindex[1] = hf_mac_lte_control_long_bsr_buffer_size_1;
+hfindex[2] = hf_mac_lte_control_long_bsr_buffer_size_2;
+hfindex[3] = hf_mac_lte_control_long_bsr_buffer_size_3;
+p_vs_ext = &buffer_size_vals_ext;
+}
+bsr_ti = proto_tree_add_string_format(tree,
+hf_mac_lte_control_bsr,
+tvb, offset, 3,
+"",
+"Long BSR");
+bsr_tree = proto_item_add_subtree(bsr_ti, ett_mac_lte_bsr);
+buffer_size_ti = proto_tree_add_item(bsr_tree, hfindex[0],
+tvb, offset, 1, ENC_BIG_ENDIAN);
+buffer_size[0] = (tvb_get_guint8(tvb, offset) & 0xfc) >> 2;
+if (buffer_size[0] >= global_mac_lte_bsr_warn_threshold) {
+expert_add_info_format(pinfo, buffer_size_ti, PI_SEQUENCE, PI_WARN,
+"UE %u - BSR for LCG 0 exceeds threshold: %u (%s)",
+p_mac_lte_info->ueid,
+buffer_size[0],
+val_to_str_ext_const(buffer_size[0], p_vs_ext, "Unknown"));
+}
+buffer_size_ti = proto_tree_add_item(bsr_tree, hfindex[1],
+tvb, offset, 2, ENC_BIG_ENDIAN);
+buffer_size[1] = ((tvb_get_guint8(tvb, offset) & 0x03) << 4) | ((tvb_get_guint8(tvb, offset+1) & 0xf0) >> 4);
+offset++;
+if (buffer_size[1] >= global_mac_lte_bsr_warn_threshold) {
+expert_add_info_format(pinfo, buffer_size_ti, PI_SEQUENCE, PI_WARN,
+"UE %u - BSR for LCG 1 exceeds threshold: %u (%s)",
+p_mac_lte_info->ueid,
+buffer_size[1],
+val_to_str_ext_const(buffer_size[1], p_vs_ext, "Unknown"));
+}
+buffer_size_ti = proto_tree_add_item(bsr_tree, hfindex[2],
+tvb, offset, 2, ENC_BIG_ENDIAN);
+buffer_size[2] = ((tvb_get_guint8(tvb, offset) & 0x0f) << 2) | ((tvb_get_guint8(tvb, offset+1) & 0xc0) >> 6);
+offset++;
+if (buffer_size[2] >= global_mac_lte_bsr_warn_threshold) {
+expert_add_info_format(pinfo, buffer_size_ti, PI_SEQUENCE, PI_WARN,
+"UE %u - BSR for LCG 2 exceeds threshold: %u (%s)",
+p_mac_lte_info->ueid,
+buffer_size[2],
+val_to_str_ext_const(buffer_size[2], p_vs_ext, "Unknown"));
+}
+buffer_size_ti = proto_tree_add_item(bsr_tree, hfindex[3],
+tvb, offset, 1, ENC_BIG_ENDIAN);
+buffer_size[3] = tvb_get_guint8(tvb, offset) & 0x3f;
+offset++;
+if (buffer_size[3] >= global_mac_lte_bsr_warn_threshold) {
+expert_add_info_format(pinfo, buffer_size_ti, PI_SEQUENCE, PI_WARN,
+"UE %u - BSR for LCG 3 exceeds threshold: %u (%s)",
+p_mac_lte_info->ueid,
+buffer_size[3],
+val_to_str_ext_const(buffer_size[3], p_vs_ext, "Unknown"));
+}
+proto_item_append_text(bsr_ti, " 0:(%s) 1:(%s) 2:(%s) 3:(%s)",
+val_to_str_ext_const(buffer_size[0], p_vs_ext, "Unknown"),
+val_to_str_ext_const(buffer_size[1], p_vs_ext, "Unknown"),
+val_to_str_ext_const(buffer_size[2], p_vs_ext, "Unknown"),
+val_to_str_ext_const(buffer_size[3], p_vs_ext, "Unknown"));
+}
+break;
+case PADDING_LCID:
+tap_info->padding_bytes++;
+break;
+default:
+break;
+}
+}
+}
+is_truncated = ((tvb_length_remaining(tvb, offset) == 0) && expecting_body_data);
+truncated_ti = proto_tree_add_uint(tree, hf_mac_lte_sch_header_only, tvb, 0, 0,
+is_truncated);
+if (is_truncated) {
+PROTO_ITEM_SET_GENERATED(truncated_ti);
+expert_add_info_format(pinfo, truncated_ti, PI_SEQUENCE, PI_NOTE,
+"MAC PDU SDUs have been omitted");
+return;
+}
+else {
+PROTO_ITEM_SET_HIDDEN(truncated_ti);
+}
+for (; n < number_of_headers; n++) {
+proto_item *sdu_ti;
+const guint8 *pdu_data;
+volatile guint16 data_length;
+int i;
+char buff[64];
+if (lcids[n] == PADDING_LCID) {
+break;
+}
+data_length = (pdu_lengths[n] == -1) ?
+tvb_length_remaining(tvb, offset) :
+pdu_lengths[n];
+sdu_ti = proto_tree_add_bytes_format(tree, hf_mac_lte_sch_sdu, tvb, offset, pdu_lengths[n],
+NULL, "SDU (%s, length=%u bytes): ",
+val_to_str_const(lcids[n],
+(direction == DIRECTION_UPLINK) ?
+ulsch_lcid_vals :
+dlsch_lcid_vals,
+"Unknown"),
+data_length);
+pdu_data = tvb_get_ptr(tvb, offset, pdu_lengths[n]);
+for (i=0; i < data_length; i++) {
+g_snprintf(buff+(i*2), 3, "%02x", pdu_data[i]);
+if (i >= 30) {
+g_snprintf(buff+(i*2), 4, "...");
+break;
+}
+}
+proto_item_append_text(sdu_ti, "%s", buff);
+if ((lcids[n] == 0) && (direction == DIRECTION_UPLINK) && (data_length == 6)) {
+if (!pinfo->fd->flags.visited) {
+guint key = p_mac_lte_info->rnti;
+Msg3Data *data = g_hash_table_lookup(mac_lte_msg3_hash, GUINT_TO_POINTER(key));
+if (data == NULL) {
+data = se_alloc(sizeof(Msg3Data));
+g_hash_table_insert(mac_lte_msg3_hash, GUINT_TO_POINTER(key), data);
+}
+data->framenum = pinfo->fd->num;
+tvb_memcpy(tvb, data->data, offset, data_length);
+data->msg3Time = pinfo->fd->abs_ts;
+}
+}
+if ((lcids[n] == 0) && global_mac_lte_attempt_rrc_decode) {
+tvbuff_t *rrc_tvb = tvb_new_subset(tvb, offset, data_length, data_length);
+volatile dissector_handle_t protocol_handle = 0;
+if (p_mac_lte_info->direction == DIRECTION_UPLINK) {
+protocol_handle = find_dissector("lte_rrc.ul_ccch");
+}
+else {
+protocol_handle = find_dissector("lte_rrc.dl_ccch");
+}
+PROTO_ITEM_SET_HIDDEN(sdu_ti);
+call_with_catch_all(protocol_handle, rrc_tvb, pinfo, tree);
+}
+else if ((lcids[n] == 1) || (lcids[n] == 2)) {
+if (global_mac_lte_attempt_srb_decode) {
+call_rlc_dissector(tvb, pinfo, tree, pdu_ti, offset, data_length,
+RLC_AM_MODE, direction, p_mac_lte_info->ueid,
+CHANNEL_TYPE_SRB, lcids[n], 0,
+get_mac_lte_channel_priority(p_mac_lte_info->ueid,
+lcids[n], direction));
+PROTO_ITEM_SET_HIDDEN(sdu_ti);
+}
+}
+else if ((lcids[n] >= 2) && (lcids[n] <= 10)) {
+rlc_channel_type_t rlc_channel_type;
+guint8 UM_seqnum_length;
+gint drb_id;
+guint8 priority = get_mac_lte_channel_priority(p_mac_lte_info->ueid,
+lcids[n], direction);
+lookup_rlc_channel_from_lcid(lcids[n],
+&rlc_channel_type,
+&UM_seqnum_length,
+&drb_id);
+switch (rlc_channel_type) {
+case rlcUM5:
+call_rlc_dissector(tvb, pinfo, tree, pdu_ti, offset, data_length,
+RLC_UM_MODE, direction, p_mac_lte_info->ueid,
+CHANNEL_TYPE_DRB, (guint16)drb_id, UM_seqnum_length,
+priority);
+break;
+case rlcUM10:
+call_rlc_dissector(tvb, pinfo, tree, pdu_ti, offset, data_length,
+RLC_UM_MODE, direction, p_mac_lte_info->ueid,
+CHANNEL_TYPE_DRB, (guint16)drb_id, UM_seqnum_length,
+priority);
+break;
+case rlcAM:
+call_rlc_dissector(tvb, pinfo, tree, pdu_ti, offset, data_length,
+RLC_AM_MODE, direction, p_mac_lte_info->ueid,
+CHANNEL_TYPE_DRB, (guint16)drb_id, 0,
+priority);
+break;
+case rlcTM:
+call_rlc_dissector(tvb, pinfo, tree, pdu_ti, offset, data_length,
+RLC_TM_MODE, direction, p_mac_lte_info->ueid,
+CHANNEL_TYPE_DRB, (guint16)drb_id, 0,
+priority);
+break;
+case rlcRaw:
+break;
+}
+if (rlc_channel_type != rlcRaw) {
+PROTO_ITEM_SET_HIDDEN(sdu_ti);
+}
+}
+offset += data_length;
+tap_info->bytes_for_lcid[lcids[n]] += data_length;
+tap_info->sdus_for_lcid[lcids[n]]++;
+}
+if (lcids[number_of_headers-1] == PADDING_LCID) {
+if (tvb_length_remaining(tvb, offset) > 0) {
+proto_tree_add_item(tree, hf_mac_lte_padding_data,
+tvb, offset, -1, ENC_NA);
+}
+padding_length_ti = proto_tree_add_int(tree, hf_mac_lte_padding_length,
+tvb, offset, 0,
+p_mac_lte_info->length - offset);
+PROTO_ITEM_SET_GENERATED(padding_length_ti);
+tap_info->padding_bytes += (p_mac_lte_info->length - offset);
+if (offset > p_mac_lte_info->length) {
+expert_add_info_format(pinfo, padding_length_ti, PI_MALFORMED, PI_ERROR,
+"%s MAC PDU is longer than reported length (reported=%u, actual=%u)",
+(direction == DIRECTION_UPLINK) ? "UL-SCH" : "DL-SCH",
+p_mac_lte_info->length, offset);
+}
+}
+else {
+if (!is_truncated && (offset < p_mac_lte_info->length)) {
+expert_add_info_format(pinfo, pdu_ti, PI_MALFORMED, PI_ERROR,
+"%s PDU for UE %u is shorter than reported length (reported=%u, actual=%u)",
+(direction == DIRECTION_UPLINK) ? "UL-SCH" : "DL-SCH",
+p_mac_lte_info->ueid, p_mac_lte_info->length, offset);
+}
+if (!is_truncated && (offset > p_mac_lte_info->length)) {
+expert_add_info_format(pinfo, pdu_ti, PI_MALFORMED, PI_ERROR,
+"%s PDU for UE %u is longer than reported length (reported=%u, actual=%u)",
+(direction == DIRECTION_UPLINK) ? "UL-SCH" : "DL-SCH",
+p_mac_lte_info->ueid, p_mac_lte_info->length, offset);
+}
+}
+}
+static void dissect_mch(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, proto_item *pdu_ti,
+volatile guint32 offset, mac_lte_info *p_mac_lte_info)
+{
+guint8 extension;
+volatile guint16 n;
+proto_item *truncated_ti;
+proto_item *padding_length_ti;
+proto_item *hidden_root_ti;
+volatile guint16 number_of_headers = 0;
+guint8 lcids[MAX_HEADERS_IN_PDU];
+gint16 pdu_lengths[MAX_HEADERS_IN_PDU];
+proto_item *pdu_header_ti;
+proto_tree *pdu_header_tree;
+gboolean have_seen_data_header = FALSE;
+guint8 number_of_padding_subheaders = 0;
+gboolean have_seen_non_padding_control = FALSE;
+gboolean expecting_body_data = FALSE;
+volatile guint32 is_truncated = FALSE;
+write_pdu_label_and_info(pdu_ti, NULL, pinfo,
+"MCH: ",
+p_mac_lte_info->subframeNumber);
+hidden_root_ti = proto_tree_add_string_format(tree, hf_mac_lte_mch, tvb,
+offset, 0, "", "Hidden header");
+PROTO_ITEM_SET_HIDDEN(hidden_root_ti);
+pdu_header_ti = proto_tree_add_string_format(tree, hf_mac_lte_mch_header,
+tvb, offset, 0,
+"",
+"MAC PDU Header");
+pdu_header_tree = proto_item_add_subtree(pdu_header_ti, ett_mac_lte_mch_header);
+do {
+guint8 reserved;
+guint64 length = 0;
+proto_item *pdu_subheader_ti;
+proto_tree *pdu_subheader_tree;
+proto_item *lcid_ti;
+proto_item *ti;
+gint offset_start_subheader = offset;
+guint8 first_byte = tvb_get_guint8(tvb, offset);
+pdu_subheader_ti = proto_tree_add_string_format(pdu_header_tree,
+hf_mac_lte_mch_subheader,
+tvb, offset, 1,
+"",
+"Sub-header");
+pdu_subheader_tree = proto_item_add_subtree(pdu_subheader_ti,
+ett_mac_lte_mch_subheader);
+reserved = (first_byte & 0xc0) >> 6;
+ti = proto_tree_add_item(pdu_subheader_tree, hf_mac_lte_mch_reserved,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+if (reserved != 0) {
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"MCH header Reserved bits not zero");
+}
+extension = (first_byte & 0x20) >> 5;
+proto_tree_add_item(pdu_subheader_tree, hf_mac_lte_mch_extended,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+lcids[number_of_headers] = first_byte & 0x1f;
+lcid_ti = proto_tree_add_item(pdu_subheader_tree, hf_mac_lte_mch_lcid,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+write_pdu_label_and_info(pdu_ti, NULL, pinfo,
+"(%s",
+val_to_str_const(lcids[number_of_headers],
+mch_lcid_vals, "(Unknown LCID)"));
+offset++;
+if (lcids[number_of_headers] <= 28) {
+have_seen_data_header = TRUE;
+expecting_body_data = TRUE;
+}
+if (have_seen_data_header &&
+(lcids[number_of_headers] > 28) && (lcids[number_of_headers] != PADDING_LCID)) {
+expert_add_info_format(pinfo, lcid_ti, PI_MALFORMED, PI_ERROR,
+"MCH Control subheaders should not appear after data subheaders");
+return;
+}
+if ((lcids[number_of_headers] > 28) &&
+(lcids[number_of_headers] == PADDING_LCID) &&
+extension)
+{
+number_of_padding_subheaders++;
+if (number_of_padding_subheaders > 2) {
+expert_add_info_format(pinfo, lcid_ti, PI_MALFORMED, PI_WARN,
+"Should not see more than 2 padding subheaders in one frame");
+}
+if (have_seen_non_padding_control) {
+expert_add_info_format(pinfo, lcid_ti, PI_MALFORMED, PI_ERROR,
+"Padding should come before other control subheaders!");
+}
+}
+if ((lcids[number_of_headers] > 28) &&
+(lcids[number_of_headers] != PADDING_LCID)) {
+have_seen_non_padding_control = TRUE;
+}
+if (!extension) {
+pdu_lengths[number_of_headers] = -1;
+}
+else {
+if (lcids[number_of_headers] != PADDING_LCID) {
+guint8 format;
+format = (tvb_get_guint8(tvb, offset) & 0x80) >> 7;
+proto_tree_add_item(pdu_subheader_tree, hf_mac_lte_mch_format,
+tvb, offset, 1, ENC_BIG_ENDIAN);
+if (format) {
+proto_tree_add_bits_ret_val(pdu_subheader_tree, hf_mac_lte_mch_length,
+tvb, offset*8 + 1, 15, &length, ENC_BIG_ENDIAN);
+offset += 2;
+}
+else {
+proto_tree_add_bits_ret_val(pdu_subheader_tree, hf_mac_lte_mch_length,
+tvb, offset*8 + 1, 7, &length, ENC_BIG_ENDIAN);
+offset++;
+}
+if ((lcids[number_of_headers] == MCH_SCHEDULING_INFO_LCID) && (length & 0x01)) {
+expert_add_info_format(pinfo, lcid_ti, PI_MALFORMED, PI_WARN,
+"MCH Scheduling Information MAC Control Element should have an even size");
+}
+pdu_lengths[number_of_headers] = (gint16)length;
+}
+else {
+pdu_lengths[number_of_headers] = 0;
+}
+}
+switch (pdu_lengths[number_of_headers]) {
+case 0:
+write_pdu_label_and_info(pdu_ti, NULL, pinfo, ") ");
+break;
+case -1:
+write_pdu_label_and_info(pdu_ti, NULL, pinfo, ":remainder) ");
+break;
+default:
+write_pdu_label_and_info(pdu_ti, NULL, pinfo, ":%u bytes) ",
+pdu_lengths[number_of_headers]);
+break;
+}
+proto_item_append_text(pdu_subheader_ti, " (lcid=%s",
+val_to_str_const(lcids[number_of_headers],
+mch_lcid_vals, "Unknown"));
+switch (pdu_lengths[number_of_headers]) {
+case -1:
+proto_item_append_text(pdu_subheader_ti, ", length is remainder)");
+proto_item_append_text(pdu_header_ti, " (%s:remainder)",
+val_to_str_const(lcids[number_of_headers],
+mch_lcid_vals,
+"Unknown"));
+break;
+case 0:
+proto_item_append_text(pdu_subheader_ti, ")");
+proto_item_append_text(pdu_header_ti, " (%s)",
+val_to_str_const(lcids[number_of_headers],
+mch_lcid_vals,
+"Unknown"));
+break;
+default:
+proto_item_append_text(pdu_subheader_ti, ", length=%u)",
+pdu_lengths[number_of_headers]);
+proto_item_append_text(pdu_header_ti, " (%s:%u)",
+val_to_str_const(lcids[number_of_headers],
+mch_lcid_vals,
+"Unknown"),
+pdu_lengths[number_of_headers]);
+break;
+}
+if (match_strval(lcids[number_of_headers],mch_lcid_vals) == NULL) {
+expert_add_info_format(pinfo, pdu_subheader_ti, PI_MALFORMED, PI_ERROR,
+"MCH: Unexpected LCID received (%u)",
+lcids[number_of_headers]);
+}
+proto_item_set_len(pdu_subheader_ti, offset - offset_start_subheader);
+number_of_headers++;
+} while ((number_of_headers < MAX_HEADERS_IN_PDU) && extension);
+if (number_of_headers >= MAX_HEADERS_IN_PDU) {
+proto_item *ti = proto_tree_add_text(tree, tvb, offset, 1,
+"Reached %u subheaders - frame obviously malformed",
+MAX_HEADERS_IN_PDU);
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"Reached %u subheaders - frame obviously malformed",
+MAX_HEADERS_IN_PDU);
+return;
+}
+proto_item_append_text(pdu_header_ti, " (%u subheaders)",
+number_of_headers);
+proto_item_set_len(pdu_header_ti, offset);
+for (n=0; n < number_of_headers; n++) {
+if (lcids[n] <= 28) {
+break;
+}
+switch (lcids[n]) {
+case MCH_SCHEDULING_INFO_LCID:
+{
+guint32 curr_offset = offset;
+gint16 i;
+guint16 stop_mtch_val;
+proto_item *mch_sched_info_ti, *ti;
+proto_tree *mch_sched_info_tree;
+mch_sched_info_ti = proto_tree_add_string_format(tree,
+hf_mac_lte_control_mch_scheduling_info,
+tvb, curr_offset, pdu_lengths[n],
+"",
+"MCH Scheduling Information");
+mch_sched_info_tree = proto_item_add_subtree(mch_sched_info_ti, ett_mac_lte_mch_scheduling_info);
+for (i=0; i<(pdu_lengths[n]/2); i++) {
+proto_tree_add_item(mch_sched_info_tree, hf_mac_lte_control_mch_scheduling_info_lcid,
+tvb, curr_offset, 1, ENC_BIG_ENDIAN);
+stop_mtch_val = tvb_get_ntohs(tvb, curr_offset) & 0x7ff;
+ti = proto_tree_add_item(mch_sched_info_tree, hf_mac_lte_control_mch_scheduling_info_stop_mtch,
+tvb, curr_offset, 2, ENC_BIG_ENDIAN);
+if ((stop_mtch_val >= 2043) && (stop_mtch_val <= 2046)) {
+proto_item_append_text(ti, " (reserved)");
+}
+else if (stop_mtch_val == 2047) {
+proto_item_append_text(ti, " (MTCH is not scheduled)");
+}
+curr_offset += 2;
+}
+offset += pdu_lengths[n];
+}
+break;
+case PADDING_LCID:
+break;
+default:
+break;
+}
+}
+is_truncated = ((tvb_length_remaining(tvb, offset) == 0) && expecting_body_data);
+truncated_ti = proto_tree_add_uint(tree, hf_mac_lte_mch_header_only, tvb, 0, 0,
+is_truncated);
+if (is_truncated) {
+PROTO_ITEM_SET_GENERATED(truncated_ti);
+expert_add_info_format(pinfo, truncated_ti, PI_SEQUENCE, PI_NOTE,
+"MAC PDU SDUs have been omitted");
+return;
+}
+else {
+PROTO_ITEM_SET_HIDDEN(truncated_ti);
+}
+for (; n < number_of_headers; n++) {
+proto_item *sdu_ti;
+const guint8 *pdu_data;
+volatile guint16 data_length;
+int i;
+char buff[64];
+if (lcids[n] == PADDING_LCID) {
+break;
+}
+data_length = (pdu_lengths[n] == -1) ?
+tvb_length_remaining(tvb, offset) :
+pdu_lengths[n];
+sdu_ti = proto_tree_add_bytes_format(tree, hf_mac_lte_mch_sdu, tvb, offset, pdu_lengths[n],
+NULL, "SDU (%s, length=%u bytes): ",
+val_to_str_const(lcids[n], mch_lcid_vals, "Unknown"),
+data_length);
+pdu_data = tvb_get_ptr(tvb, offset, pdu_lengths[n]);
+for (i=0; i < data_length; i++) {
+g_snprintf(buff+(i*2), 3, "%02x", pdu_data[i]);
+if (i >= 30) {
+g_snprintf(buff+(i*2), 4, "...");
+break;
+}
+}
+proto_item_append_text(sdu_ti, "%s", buff);
+offset += data_length;
+}
+if (lcids[number_of_headers-1] == PADDING_LCID) {
+if (tvb_length_remaining(tvb, offset) > 0) {
+proto_tree_add_item(tree, hf_mac_lte_padding_data,
+tvb, offset, -1, ENC_NA);
+}
+padding_length_ti = proto_tree_add_int(tree, hf_mac_lte_padding_length,
+tvb, offset, 0,
+p_mac_lte_info->length - offset);
+PROTO_ITEM_SET_GENERATED(padding_length_ti);
+if (offset > p_mac_lte_info->length) {
+expert_add_info_format(pinfo, padding_length_ti, PI_MALFORMED, PI_ERROR,
+"MAC PDU is longer than reported length (reported=%u, actual=%u)",
+p_mac_lte_info->length, offset);
+}
+}
+else {
+if (!is_truncated && (offset < p_mac_lte_info->length)) {
+expert_add_info_format(pinfo, pdu_ti, PI_MALFORMED, PI_ERROR,
+"PDU is shorter than reported length (reported=%u, actual=%u)",
+p_mac_lte_info->length, offset);
+}
+if (!is_truncated && (offset > p_mac_lte_info->length)) {
+expert_add_info_format(pinfo, pdu_ti, PI_MALFORMED, PI_ERROR,
+"PDU is longer than reported length (reported=%u, actual=%u)",
+p_mac_lte_info->length, offset);
+}
+}
+}
+void dissect_mac_lte(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
+{
+proto_tree *mac_lte_tree;
+proto_item *pdu_ti;
+proto_tree *context_tree;
+proto_item *context_ti;
+proto_item *retx_ti = NULL;
+proto_item *ti;
+gint offset = 0;
+struct mac_lte_info *p_mac_lte_info = NULL;
+gint n;
+mac_lte_tap_info *tap_info = ep_alloc0(sizeof(mac_lte_tap_info));
+col_set_str(pinfo->cinfo, COL_PROTOCOL, "MAC-LTE");
+pdu_ti = proto_tree_add_item(tree, proto_mac_lte, tvb, offset, -1, ENC_NA);
+proto_item_append_text(pdu_ti, " ");
+mac_lte_tree = proto_item_add_subtree(pdu_ti, ett_mac_lte);
+p_mac_lte_info = p_get_proto_data(pinfo->fd, proto_mac_lte);
+if (p_mac_lte_info == NULL) {
+proto_item *tii =
+proto_tree_add_text(mac_lte_tree, tvb, offset, -1,
+"Can't dissect LTE MAC frame because no per-frame info was attached!");
+PROTO_ITEM_SET_GENERATED(tii);
+return;
+}
+col_clear(pinfo->cinfo, COL_INFO);
+context_ti = proto_tree_add_string_format(mac_lte_tree, hf_mac_lte_context,
+tvb, offset, 0, "", "Context");
+context_tree = proto_item_add_subtree(context_ti, ett_mac_lte_context);
+PROTO_ITEM_SET_GENERATED(context_ti);
+ti = proto_tree_add_uint(context_tree, hf_mac_lte_context_radio_type,
+tvb, 0, 0, p_mac_lte_info->radioType);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(context_tree, hf_mac_lte_context_direction,
+tvb, 0, 0, p_mac_lte_info->direction);
+PROTO_ITEM_SET_GENERATED(ti);
+if (p_mac_lte_info->ueid != 0) {
+ti = proto_tree_add_uint(context_tree, hf_mac_lte_context_ueid,
+tvb, 0, 0, p_mac_lte_info->ueid);
+PROTO_ITEM_SET_GENERATED(ti);
+}
+if (p_mac_lte_info->length == 0) {
+proto_item *preamble_ti;
+proto_tree *preamble_tree;
+switch (p_mac_lte_info->oob_event) {
+case ltemac_send_preamble:
+preamble_ti = proto_tree_add_item(mac_lte_tree, hf_mac_lte_oob_send_preamble,
+tvb, 0, 0, ENC_ASCII|ENC_NA);
+preamble_tree = proto_item_add_subtree(preamble_ti, ett_mac_lte_oob);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(preamble_tree, hf_mac_lte_context_rapid,
+tvb, 0, 0, p_mac_lte_info->rapid);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(preamble_tree, hf_mac_lte_context_rach_attempt_number,
+tvb, 0, 0, p_mac_lte_info->rach_attempt_number);
+PROTO_ITEM_SET_GENERATED(ti);
+write_pdu_label_and_info(pdu_ti, preamble_ti, pinfo,
+"RACH Preamble sent for UE %u (RAPID=%u, attempt=%u)",
+p_mac_lte_info->ueid, p_mac_lte_info->rapid, p_mac_lte_info->rach_attempt_number);
+expert_add_info_format(pinfo, ti, PI_SEQUENCE,
+(p_mac_lte_info->rach_attempt_number > 1) ? PI_WARN : PI_NOTE,
+"RACH Preamble sent for UE %u (RAPID=%u, attempt=%u)",
+p_mac_lte_info->ueid, p_mac_lte_info->rapid,
+p_mac_lte_info->rach_attempt_number);
+break;
+case ltemac_send_sr:
+ti = proto_tree_add_uint(mac_lte_tree, hf_mac_lte_number_of_srs,
+tvb, 0, 0, p_mac_lte_info->number_of_srs);
+PROTO_ITEM_SET_GENERATED(ti);
+for (n=0; n < p_mac_lte_info->number_of_srs; n++) {
+proto_item *sr_ti;
+proto_tree *sr_tree;
+sr_ti = proto_tree_add_item(mac_lte_tree, hf_mac_lte_oob_send_sr,
+tvb, 0, 0, ENC_NA);
+sr_tree = proto_item_add_subtree(sr_ti, ett_mac_lte_oob);
+PROTO_ITEM_SET_GENERATED(sr_ti);
+ti = proto_tree_add_uint(sr_tree, hf_mac_lte_context_rnti,
+tvb, 0, 0, p_mac_lte_info->oob_rnti[n]);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(sr_tree, hf_mac_lte_context_ueid,
+tvb, 0, 0, p_mac_lte_info->oob_ueid[n]);
+PROTO_ITEM_SET_GENERATED(ti);
+proto_item_append_text(sr_ti, " (UE=%u C-RNTI=%u)",
+p_mac_lte_info->oob_ueid[n],
+p_mac_lte_info->oob_rnti[n]);
+if (n == 0) {
+write_pdu_label_and_info(pdu_ti, NULL, pinfo,
+"Scheduling Requests (%u) sent: (UE=%u C-RNTI=%u)",
+p_mac_lte_info->number_of_srs,
+p_mac_lte_info->oob_ueid[n],
+p_mac_lte_info->oob_rnti[n]);
+}
+else {
+write_pdu_label_and_info(pdu_ti, NULL, pinfo,
+" (UE=%u C-RNTI=%u)",
+p_mac_lte_info->oob_ueid[n],
+p_mac_lte_info->oob_rnti[n]);
+}
+expert_add_info_format(pinfo, sr_ti, PI_SEQUENCE, PI_NOTE,
+"Scheduling Request sent for UE %u (RNTI %u)",
+p_mac_lte_info->oob_ueid[n],
+p_mac_lte_info->oob_rnti[n]);
+if (global_mac_lte_track_sr) {
+TrackSRInfo(SR_Request, pinfo, mac_lte_tree, tvb, p_mac_lte_info, n, sr_ti);
+}
+}
+break;
+case ltemac_sr_failure:
+ti = proto_tree_add_uint(context_tree, hf_mac_lte_context_rnti,
+tvb, 0, 0, p_mac_lte_info->rnti);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_item(mac_lte_tree, hf_mac_lte_oob_sr_failure,
+tvb, 0, 0, ENC_NA);
+PROTO_ITEM_SET_GENERATED(ti);
+write_pdu_label_and_info(pdu_ti, NULL, pinfo,
+"Scheduling Request FAILED for UE %u (C-RNTI=%u)",
+p_mac_lte_info->ueid,
+p_mac_lte_info->rnti);
+expert_add_info_format(pinfo, ti, PI_SEQUENCE, PI_ERROR,
+"Scheduling Request failed for UE %u (RNTI %u)",
+p_mac_lte_info->ueid,
+p_mac_lte_info->rnti);
+if (global_mac_lte_track_sr) {
+TrackSRInfo(SR_Failure, pinfo, mac_lte_tree, tvb, p_mac_lte_info, 0, ti);
+}
+break;
+}
+return;
+}
+ti = proto_tree_add_uint(context_tree, hf_mac_lte_context_sysframe_number,
+tvb, 0, 0, p_mac_lte_info->sysframeNumber);
+PROTO_ITEM_SET_GENERATED(ti);
+ti = proto_tree_add_uint(context_tree, hf_mac_lte_context_subframe_number,
+tvb, 0, 0, p_mac_lte_info->subframeNumber);
+PROTO_ITEM_SET_GENERATED(ti);
+if (p_mac_lte_info->subframeNumber > 9) {
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"Subframe number (%u) was out of range - valid range is 0-9",
+p_mac_lte_info->subframeNumber);
+}
+if (p_mac_lte_info->subframeNumberOfGrantPresent) {
+ti = proto_tree_add_uint(context_tree, hf_mac_lte_context_grant_subframe_number,
+tvb, 0, 0, p_mac_lte_info->subframeNumberOfGrant);
+PROTO_ITEM_SET_GENERATED(ti);
+}
+if (p_mac_lte_info->rntiType != NO_RNTI) {
+ti = proto_tree_add_uint(context_tree, hf_mac_lte_context_rnti,
+tvb, 0, 0, p_mac_lte_info->rnti);
+PROTO_ITEM_SET_GENERATED(ti);
+}
+ti = proto_tree_add_uint(context_tree, hf_mac_lte_context_rnti_type,
+tvb, 0, 0, p_mac_lte_info->rntiType);
+PROTO_ITEM_SET_GENERATED(ti);
+switch (p_mac_lte_info->rntiType) {
+case M_RNTI:
+if (p_mac_lte_info->rnti != 0xFFFD) {
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"M-RNTI indicated, but value is %u (0x%x) (must be 0x%x)",
+p_mac_lte_info->rnti, p_mac_lte_info->rnti, 0xFFFD);
+return;
+}
+break;
+case P_RNTI:
+if (p_mac_lte_info->rnti != 0xFFFE) {
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"P-RNTI indicated, but value is %u (0x%x) (must be 0x%x)",
+p_mac_lte_info->rnti, p_mac_lte_info->rnti, 0xFFFE);
+return;
+}
+break;
+case SI_RNTI:
+if (p_mac_lte_info->rnti != 0xFFFF) {
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"SI-RNTI indicated, but value is %u (0x%x) (must be 0x%x)",
+p_mac_lte_info->rnti, p_mac_lte_info->rnti, 0xFFFE);
+return;
+}
+break;
+case RA_RNTI:
+if ((p_mac_lte_info->rnti < 0x0001) || (p_mac_lte_info->rnti > 0x003C)) {
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"RA_RNTI indicated, but given value %u (0x%x)is out of range",
+p_mac_lte_info->rnti, p_mac_lte_info->rnti);
+return;
+}
+break;
+case C_RNTI:
+case SPS_RNTI:
+if ((p_mac_lte_info->rnti < 0x0001) || (p_mac_lte_info->rnti > 0xFFF3)) {
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"%s indicated, but given value %u (0x%x)is out of range",
+val_to_str_const(p_mac_lte_info->rntiType, rnti_type_vals, "Unknown"),
+p_mac_lte_info->rnti, p_mac_lte_info->rnti);
+return;
+}
+break;
+default:
+break;
+}
+ti = proto_tree_add_uint(context_tree, hf_mac_lte_context_predefined_frame,
+tvb, 0, 0, p_mac_lte_info->isPredefinedData);
+if (p_mac_lte_info->isPredefinedData) {
+PROTO_ITEM_SET_GENERATED(ti);
+}
+else {
+PROTO_ITEM_SET_HIDDEN(ti);
+}
+ti = proto_tree_add_uint(context_tree, hf_mac_lte_context_length,
+tvb, 0, 0, p_mac_lte_info->length);
+PROTO_ITEM_SET_GENERATED(ti);
+if (p_mac_lte_info->direction == DIRECTION_UPLINK) {
+ti = proto_tree_add_uint(context_tree, hf_mac_lte_context_ul_grant_size,
+tvb, 0, 0, p_mac_lte_info->length);
+PROTO_ITEM_SET_GENERATED(ti);
+}
+if (p_mac_lte_info->reTxCount) {
+proto_item *retx_reason_ti;
+retx_ti = proto_tree_add_uint(mac_lte_tree, hf_mac_lte_context_retx_count,
+tvb, 0, 0, p_mac_lte_info->reTxCount);
+PROTO_ITEM_SET_GENERATED(retx_ti);
+if (p_mac_lte_info->reTxCount >= global_mac_lte_retx_counter_trigger) {
+expert_add_info_format(pinfo, retx_ti, PI_SEQUENCE, PI_WARN,
+"UE %u: UL MAC frame ReTX no. %u",
+p_mac_lte_info->ueid, p_mac_lte_info->reTxCount);
+}
+retx_reason_ti = proto_tree_add_uint(mac_lte_tree, hf_mac_lte_context_retx_reason,
+tvb, 0, 0, p_mac_lte_info->isPHICHNACK);
+PROTO_ITEM_SET_GENERATED(retx_reason_ti);
+}
+if (p_mac_lte_info->crcStatusValid) {
+ti = proto_tree_add_uint(context_tree, hf_mac_lte_context_crc_status,
+tvb, 0, 0, p_mac_lte_info->detailed_phy_info.dl_info.crc_status);
+PROTO_ITEM_SET_GENERATED(ti);
+if (p_mac_lte_info->detailed_phy_info.dl_info.crc_status != crc_success) {
+expert_add_info_format(pinfo, ti, PI_MALFORMED, PI_ERROR,
+"%s Frame has CRC error problem (%s)",
+(p_mac_lte_info->direction == DIRECTION_UPLINK) ? "UL" : "DL",
+val_to_str_const(p_mac_lte_info->detailed_phy_info.dl_info.crc_status,
+crc_status_vals,
+"Unknown"));
+write_pdu_label_and_info(pdu_ti, NULL, pinfo,
+"%s: <CRC %s> UEId=%u %s=%u ",
+(p_mac_lte_info->direction == DIRECTION_UPLINK) ? "UL" : "DL",
+val_to_str_const(p_mac_lte_info->detailed_phy_info.dl_info.crc_status,
+crc_status_vals,
+"Unknown"),
+p_mac_lte_info->ueid,
+val_to_str_const(p_mac_lte_info->rntiType, rnti_type_vals,
+"Unknown RNTI type"),
+p_mac_lte_info->rnti);
+}
+}
+show_extra_phy_parameters(pinfo, tvb, mac_lte_tree, p_mac_lte_info);
+tap_info->rnti = p_mac_lte_info->rnti;
+tap_info->ueid = p_mac_lte_info->ueid;
+tap_info->rntiType = p_mac_lte_info->rntiType;
+tap_info->isPredefinedData = p_mac_lte_info->isPredefinedData;
+tap_info->isPHYRetx = (p_mac_lte_info->reTxCount >= 1);
+tap_info->crcStatusValid = p_mac_lte_info->crcStatusValid;
+tap_info->crcStatus = p_mac_lte_info->detailed_phy_info.dl_info.crc_status;
+tap_info->direction = p_mac_lte_info->direction;
+tap_info->time = pinfo->fd->abs_ts;
+tap_info->single_number_of_bytes = tvb_length_remaining(tvb, offset);
+if (p_mac_lte_info->isPredefinedData) {
+proto_tree_add_item(mac_lte_tree, hf_mac_lte_predefined_pdu, tvb, offset, -1, ENC_NA);
+write_pdu_label_and_info(pdu_ti, NULL, pinfo,
+"Predefined data (%u bytes%s)",
+p_mac_lte_info->length,
+(p_mac_lte_info->length > tvb_length_remaining(tvb, offset) ?
+" - truncated" :
+""));
+if (!pinfo->flags.in_error_pkt) {
+tap_queue_packet(mac_lte_tap, pinfo, tap_info);
+}
+return;
+}
+if (!global_mac_lte_dissect_crc_failures &&
+(p_mac_lte_info->crcStatusValid &&
+(p_mac_lte_info->detailed_phy_info.dl_info.crc_status != crc_success))) {
+proto_tree_add_item(mac_lte_tree, hf_mac_lte_raw_pdu, tvb, offset, -1, ENC_NA);
+write_pdu_label_and_info(pdu_ti, NULL, pinfo, "Raw data (%u bytes)", tvb_length_remaining(tvb, offset));
+if (!pinfo->flags.in_error_pkt) {
+tap_queue_packet(mac_lte_tap, pinfo, tap_info);
+}
+return;
+}
+s_number_of_rlc_pdus_shown = 0;
+switch (p_mac_lte_info->rntiType) {
+case P_RNTI:
+dissect_pch(tvb, pinfo, mac_lte_tree, pdu_ti, offset, p_mac_lte_info->direction);
+break;
+case RA_RNTI:
+dissect_rar(tvb, pinfo, mac_lte_tree, pdu_ti, offset, p_mac_lte_info, tap_info);
+break;
+case C_RNTI:
+case SPS_RNTI:
+dissect_ulsch_or_dlsch(tvb, pinfo, mac_lte_tree, pdu_ti, offset,
+p_mac_lte_info->direction, p_mac_lte_info, tap_info,
+retx_ti, context_tree);
+break;
+case SI_RNTI:
+dissect_bch(tvb, pinfo, mac_lte_tree, pdu_ti, offset, p_mac_lte_info);
+break;
+case M_RNTI:
+dissect_mch(tvb, pinfo, mac_lte_tree, pdu_ti, offset, p_mac_lte_info);
+break;
+case NO_RNTI:
+dissect_bch(tvb, pinfo, mac_lte_tree, pdu_ti, offset, p_mac_lte_info);
+break;
+default:
+break;
+}
+tap_queue_packet(mac_lte_tap, pinfo, tap_info);
+}
+static void mac_lte_init_protocol(void)
+{
+if (mac_lte_msg3_hash) {
+g_hash_table_destroy(mac_lte_msg3_hash);
+}
+if (mac_lte_cr_result_hash) {
+g_hash_table_destroy(mac_lte_cr_result_hash);
+}
+if (mac_lte_dl_harq_hash) {
+g_hash_table_destroy(mac_lte_dl_harq_hash);
+}
+if (mac_lte_dl_harq_result_hash) {
+g_hash_table_destroy(mac_lte_dl_harq_result_hash);
+}
+if (mac_lte_ul_harq_hash) {
+g_hash_table_destroy(mac_lte_ul_harq_hash);
+}
+if (mac_lte_ul_harq_result_hash) {
+g_hash_table_destroy(mac_lte_ul_harq_result_hash);
+}
+if (mac_lte_ue_sr_state) {
+g_hash_table_destroy(mac_lte_ue_sr_state);
+}
+if (mac_lte_sr_request_hash) {
+g_hash_table_destroy(mac_lte_sr_request_hash);
+}
+if (mac_lte_tti_info_result_hash) {
+g_hash_table_destroy(mac_lte_tti_info_result_hash);
+}
+memset(&UL_tti_info, 0, sizeof(UL_tti_info));
+UL_tti_info.subframe = 0xff;
+memset(&DL_tti_info, 0, sizeof(DL_tti_info));
+DL_tti_info.subframe = 0xff;
+mac_lte_msg3_hash = g_hash_table_new(mac_lte_rnti_hash_func, mac_lte_rnti_hash_equal);
+mac_lte_cr_result_hash = g_hash_table_new(mac_lte_framenum_hash_func, mac_lte_framenum_hash_equal);
+mac_lte_dl_harq_hash = g_hash_table_new(mac_lte_rnti_hash_func, mac_lte_rnti_hash_equal);
+mac_lte_dl_harq_result_hash = g_hash_table_new(mac_lte_framenum_hash_func, mac_lte_framenum_hash_equal);
+mac_lte_ul_harq_hash = g_hash_table_new(mac_lte_rnti_hash_func, mac_lte_rnti_hash_equal);
+mac_lte_ul_harq_result_hash = g_hash_table_new(mac_lte_framenum_hash_func, mac_lte_framenum_hash_equal);
+mac_lte_ue_sr_state = g_hash_table_new(mac_lte_rnti_hash_func, mac_lte_rnti_hash_equal);
+mac_lte_sr_request_hash = g_hash_table_new(mac_lte_framenum_hash_func, mac_lte_framenum_hash_equal);
+mac_lte_tti_info_result_hash = g_hash_table_new(mac_lte_framenum_hash_func, mac_lte_framenum_hash_equal);
+}
+static void* lcid_drb_mapping_copy_cb(void* dest, const void* orig, size_t len _U_)
+{
+const lcid_drb_mapping_t *o = orig;
+lcid_drb_mapping_t *d = dest;
+d->lcid = o->lcid;
+d->drbid = o->drbid;
+d->channel_type = o->channel_type;
+return d;
+}
+void proto_register_mac_lte(void)
+{
+static hf_register_info hf[] =
+{
+{ &hf_mac_lte_context,
+{ "Context",
+"mac-lte.context", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_context_radio_type,
+{ "Radio Type",
+"mac-lte.radio-type", FT_UINT8, BASE_DEC, VALS(radio_type_vals), 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_context_direction,
+{ "Direction",
+"mac-lte.direction", FT_UINT8, BASE_DEC, VALS(direction_vals), 0x0,
+"Direction of message", HFILL
+}
+},
+{ &hf_mac_lte_context_rnti,
+{ "RNTI",
+"mac-lte.rnti", FT_UINT16, BASE_DEC, 0, 0x0,
+"RNTI associated with message", HFILL
+}
+},
+{ &hf_mac_lte_context_rnti_type,
+{ "RNTI Type",
+"mac-lte.rnti-type", FT_UINT8, BASE_DEC, VALS(rnti_type_vals), 0x0,
+"Type of RNTI associated with message", HFILL
+}
+},
+{ &hf_mac_lte_context_ueid,
+{ "UEId",
+"mac-lte.ueid", FT_UINT16, BASE_DEC, 0, 0x0,
+"User Equipment Identifier associated with message", HFILL
+}
+},
+{ &hf_mac_lte_context_sysframe_number,
+{ "System Frame Number",
+"mac-lte.sfn", FT_UINT16, BASE_DEC, 0, 0x0,
+"System Frame Number associated with message", HFILL
+}
+},
+{ &hf_mac_lte_context_subframe_number,
+{ "Subframe",
+"mac-lte.subframe", FT_UINT16, BASE_DEC, 0, 0x0,
+"Subframe number associated with message", HFILL
+}
+},
+{ &hf_mac_lte_context_grant_subframe_number,
+{ "Grant Subframe",
+"mac-lte.grant-subframe", FT_UINT16, BASE_DEC, 0, 0x0,
+"Subframe when grant for this PDU was received", HFILL
+}
+},
+{ &hf_mac_lte_context_predefined_frame,
+{ "Predefined frame",
+"mac-lte.is-predefined-frame", FT_UINT8, BASE_DEC, VALS(predefined_frame_vals), 0x0,
+"Predefined test frame (or real MAC PDU)", HFILL
+}
+},
+{ &hf_mac_lte_context_length,
+{ "Length of frame",
+"mac-lte.length", FT_UINT8, BASE_DEC, 0, 0x0,
+"Original length of frame (including SDUs and padding)", HFILL
+}
+},
+{ &hf_mac_lte_context_ul_grant_size,
+{ "Uplink grant size",
+"mac-lte.ul-grant-size", FT_UINT8, BASE_DEC, 0, 0x0,
+"Uplink grant size (in bytes)", HFILL
+}
+},
+{ &hf_mac_lte_context_bch_transport_channel,
+{ "Transport channel",
+"mac-lte.bch-transport-channel", FT_UINT8, BASE_DEC, VALS(bch_transport_channel_vals), 0x0,
+"Transport channel BCH data was carried on", HFILL
+}
+},
+{ &hf_mac_lte_context_retx_count,
+{ "ReTX count",
+"mac-lte.retx-count", FT_UINT8, BASE_DEC, 0, 0x0,
+"Number of times this PDU has been retransmitted", HFILL
+}
+},
+{ &hf_mac_lte_context_retx_reason,
+{ "ReTX reason",
+"mac-lte.retx-reason", FT_UINT8, BASE_DEC, VALS(ul_retx_grant_vals), 0x0,
+"Type of UL ReTx grant", HFILL
+}
+},
+{ &hf_mac_lte_context_crc_status,
+{ "CRC Status",
+"mac-lte.crc-status", FT_UINT8, BASE_DEC, VALS(crc_status_vals), 0x0,
+"CRC Status as reported by PHY", HFILL
+}
+},
+{ &hf_mac_lte_context_rapid,
+{ "RAPID",
+"mac-lte.preamble-sent.rapid", FT_UINT8, BASE_DEC, 0, 0x0,
+"RAPID sent in RACH preamble", HFILL
+}
+},
+{ &hf_mac_lte_context_rach_attempt_number,
+{ "RACH Attempt Number",
+"mac-lte.preamble-sent.attempt", FT_UINT8, BASE_DEC, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_ues_ul_per_tti,
+{ "UL UE in TTI",
+"mac-lte.ul-tti-count", FT_UINT8, BASE_DEC, 0, 0x0,
+"In this TTI, this is the nth UL grant", HFILL
+}
+},
+{ &hf_mac_lte_ues_dl_per_tti,
+{ "DL UE in TTI",
+"mac-lte.dl-tti-count", FT_UINT8, BASE_DEC, 0, 0x0,
+"In this TTI, this is the nth DL PDU", HFILL
+}
+},
+{ &hf_mac_lte_context_phy_ul,
+{ "UL PHY attributes",
+"mac-lte.ul-phy", FT_STRING, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_context_phy_ul_modulation_type,
+{ "Modulation type",
+"mac-lte.ul-phy.modulation-type", FT_UINT8, BASE_DEC, VALS(modulation_type_vals), 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_context_phy_ul_tbs_index,
+{ "TBs Index",
+"mac-lte.ul-phy.tbs-index", FT_UINT8, BASE_DEC, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_context_phy_ul_resource_block_length,
+{ "Resource Block Length",
+"mac-lte.ul-phy.resource-block-length", FT_UINT8, BASE_DEC, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_context_phy_ul_resource_block_start,
+{ "Resource Block Start",
+"mac-lte.ul-phy.resource-block-start", FT_UINT8, BASE_DEC, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_context_phy_ul_harq_id,
+{ "HARQ Id",
+"mac-lte.ul-phy.harq-id", FT_UINT8, BASE_DEC, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_context_phy_ul_ndi,
+{ "NDI",
+"mac-lte.ul-phy.ndi", FT_UINT8, BASE_DEC, 0, 0x0,
+"UL New Data Indicator", HFILL
+}
+},
+{ &hf_mac_lte_context_phy_dl,
+{ "DL PHY attributes",
+"mac-lte.dl-phy", FT_STRING, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_context_phy_dl_dci_format,
+{ "DCI format",
+"mac-lte.dl-phy.dci-format", FT_UINT8, BASE_DEC, VALS(dci_format_vals), 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_context_phy_dl_resource_allocation_type,
+{ "Resource Allocation Type",
+"mac-lte.dl-phy.resource-allocation-type", FT_UINT8, BASE_DEC, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_context_phy_dl_aggregation_level,
+{ "Aggregation Level",
+"mac-lte.dl-phy.aggregation-level", FT_UINT8, BASE_DEC, VALS(aggregation_level_vals), 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_context_phy_dl_mcs_index,
+{ "MCS Index",
+"mac-lte.dl-phy.mcs-index", FT_UINT8, BASE_DEC, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_context_phy_dl_redundancy_version_index,
+{ "RV Index",
+"mac-lte.dl-phy.rv-index", FT_UINT8, BASE_DEC, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_context_phy_dl_retx,
+{ "DL Retx",
+"mac-lte.dl-phy.dl-retx", FT_BOOLEAN, BASE_NONE, NULL, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_context_phy_dl_resource_block_length,
+{ "RB Length",
+"mac-lte.dl-phy.rb-length", FT_UINT8, BASE_DEC, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_context_phy_dl_crc_status,
+{ "CRC Status",
+"mac-lte.dl-phy.crc-status", FT_UINT8, BASE_DEC, VALS(crc_status_vals), 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_context_phy_dl_harq_id,
+{ "HARQ Id",
+"mac-lte.dl-phy.harq-id", FT_UINT8, BASE_DEC, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_context_phy_dl_ndi,
+{ "NDI",
+"mac-lte.dl-phy.ndi", FT_UINT8, BASE_DEC, 0, 0x0,
+"New Data Indicator", HFILL
+}
+},
+{ &hf_mac_lte_context_phy_dl_tb,
+{ "TB",
+"mac-lte.dl-phy.tb", FT_UINT8, BASE_DEC, 0, 0x0,
+"Transport Block (antenna #)", HFILL
+}
+},
+{ &hf_mac_lte_oob_send_preamble,
+{ "PRACH",
+"mac-lte.preamble-sent", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_oob_send_sr,
+{ "Scheduling Request sent",
+"mac-lte.sr-req", FT_NONE, BASE_NONE, NULL, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_number_of_srs,
+{ "Number of SRs",
+"mac-lte.sr-req.count", FT_UINT32, BASE_DEC, 0, 0x0,
+"Number of UEs doing SR in this frame", HFILL
+}
+},
+{ &hf_mac_lte_oob_sr_failure,
+{ "Scheduling Request failure",
+"mac-lte.sr-failure", FT_NONE, BASE_NONE, NULL, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_ulsch,
+{ "UL-SCH",
+"mac-lte.ulsch", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_ulsch_header,
+{ "UL-SCH Header",
+"mac-lte.ulsch.header", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_dlsch_header,
+{ "DL-SCH Header",
+"mac-lte.dlsch.header", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_dlsch,
+{ "DL-SCH",
+"mac-lte.dlsch", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_sch_subheader,
+{ "SCH sub-header",
+"mac-lte.sch.subheader", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_mch,
+{ "MCH",
+"mac-lte.mch", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_mch_header,
+{ "MCH Header",
+"mac-lte.mch.header", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_mch_subheader,
+{ "MCH sub-header",
+"mac-lte.mch.subheader", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_sch_reserved,
+{ "SCH reserved bits",
+"mac-lte.sch.reserved", FT_UINT8, BASE_HEX, NULL, 0xc0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_sch_extended,
+{ "Extension",
+"mac-lte.sch.extended", FT_UINT8, BASE_HEX, 0, 0x20,
+"Extension - i.e. further headers after this one", HFILL
+}
+},
+{ &hf_mac_lte_dlsch_lcid,
+{ "LCID",
+"mac-lte.dlsch.lcid", FT_UINT8, BASE_HEX, VALS(dlsch_lcid_vals), 0x1f,
+"DL-SCH Logical Channel Identifier", HFILL
+}
+},
+{ &hf_mac_lte_ulsch_lcid,
+{ "LCID",
+"mac-lte.ulsch.lcid", FT_UINT8, BASE_HEX, VALS(ulsch_lcid_vals), 0x1f,
+"UL-SCH Logical Channel Identifier", HFILL
+}
+},
+{ &hf_mac_lte_sch_format,
+{ "Format",
+"mac-lte.sch.format", FT_UINT8, BASE_HEX, VALS(format_vals), 0x80,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_sch_length,
+{ "Length",
+"mac-lte.sch.length", FT_UINT16, BASE_DEC, 0, 0x0,
+"Length of MAC SDU or MAC control element", HFILL
+}
+},
+{ &hf_mac_lte_mch_reserved,
+{ "MCH reserved bits",
+"mac-lte.mch.reserved", FT_UINT8, BASE_HEX, NULL, 0xc0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_mch_extended,
+{ "Extension",
+"mac-lte.mch.extended", FT_UINT8, BASE_HEX, 0, 0x20,
+"Extension - i.e. further headers after this one", HFILL
+}
+},
+{ &hf_mac_lte_mch_lcid,
+{ "LCID",
+"mac-lte.mch.lcid", FT_UINT8, BASE_HEX, VALS(mch_lcid_vals), 0x1f,
+"MCH Logical Channel Identifier", HFILL
+}
+},
+{ &hf_mac_lte_mch_format,
+{ "Format",
+"mac-lte.mch.format", FT_UINT8, BASE_HEX, VALS(format_vals), 0x80,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_mch_length,
+{ "Length",
+"mac-lte.mch.length", FT_UINT16, BASE_DEC, 0, 0x0,
+"Length of MAC SDU or MAC control element", HFILL
+}
+},
+{ &hf_mac_lte_sch_header_only,
+{ "MAC PDU Header only",
+"mac-lte.sch.header-only", FT_UINT8, BASE_DEC, VALS(header_only_vals), 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_mch_header_only,
+{ "MAC PDU Header only",
+"mac-lte.mch.header-only", FT_UINT8, BASE_DEC, VALS(header_only_vals), 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_sch_sdu,
+{ "SDU",
+"mac-lte.sch.sdu", FT_BYTES, BASE_NONE, 0, 0x0,
+"Shared channel SDU", HFILL
+}
+},
+{ &hf_mac_lte_mch_sdu,
+{ "SDU",
+"mac-lte.mch.sdu", FT_BYTES, BASE_NONE, 0, 0x0,
+"Multicast channel SDU", HFILL
+}
+},
+{ &hf_mac_lte_bch_pdu,
+{ "BCH PDU",
+"mac-lte.bch.pdu", FT_BYTES, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_pch_pdu,
+{ "PCH PDU",
+"mac-lte.pch.pdu", FT_BYTES, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_predefined_pdu,
+{ "Predefined data",
+"mac-lte.predefined-data", FT_BYTES, BASE_NONE, 0, 0x0,
+"Predefined test data", HFILL
+}
+},
+{ &hf_mac_lte_raw_pdu,
+{ "Raw data",
+"mac-lte.raw-data", FT_BYTES, BASE_NONE, 0, 0x0,
+"Raw bytes of PDU (e.g. if CRC error)", HFILL
+}
+},
+{ &hf_mac_lte_padding_data,
+{ "Padding data",
+"mac-lte.padding-data", FT_BYTES, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_padding_length,
+{ "Padding length",
+"mac-lte.padding-length", FT_INT32, BASE_DEC, 0, 0x0,
+"Length of padding data not included at end of frame", HFILL
+}
+},
+{ &hf_mac_lte_rar,
+{ "RAR",
+"mac-lte.rar", FT_NONE, BASE_NONE, NULL, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_rar_headers,
+{ "RAR Headers",
+"mac-lte.rar.headers", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_rar_header,
+{ "RAR Header",
+"mac-lte.rar.header", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_rar_extension,
+{ "Extension",
+"mac-lte.rar.e", FT_UINT8, BASE_HEX, 0, 0x80,
+"Extension - i.e. further RAR headers after this one", HFILL
+}
+},
+{ &hf_mac_lte_rar_t,
+{ "Type",
+"mac-lte.rar.t", FT_UINT8, BASE_HEX, VALS(rar_type_vals), 0x40,
+"Type field indicating whether the payload is RAPID or BI", HFILL
+}
+},
+{ &hf_mac_lte_rar_bi,
+{ "BI",
+"mac-lte.rar.bi", FT_UINT8, BASE_HEX, VALS(rar_bi_vals), 0x0f,
+"Backoff Indicator (ms)", HFILL
+}
+},
+{ &hf_mac_lte_rar_rapid,
+{ "RAPID",
+"mac-lte.rar.rapid", FT_UINT8, BASE_HEX_DEC, 0, 0x3f,
+"Random Access Preamble IDentifier", HFILL
+}
+},
+{ &hf_mac_lte_rar_reserved,
+{ "Reserved",
+"mac-lte.rar.reserved", FT_UINT8, BASE_HEX, 0, 0x30,
+"Reserved bits in RAR header - should be 0", HFILL
+}
+},
+{ &hf_mac_lte_rar_body,
+{ "RAR Body",
+"mac-lte.rar.body", FT_STRING, BASE_NONE, NULL, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_rar_reserved2,
+{ "Reserved",
+"mac-lte.rar.reserved2", FT_UINT8, BASE_HEX, 0, 0x80,
+"Reserved bit in RAR body - should be 0", HFILL
+}
+},
+{ &hf_mac_lte_rar_ta,
+{ "Timing Advance",
+"mac-lte.rar.ta", FT_UINT16, BASE_DEC, 0, 0x7ff0,
+"Required adjustment to uplink transmission timing", HFILL
+}
+},
+{ &hf_mac_lte_rar_ul_grant,
+{ "UL Grant",
+"mac-lte.rar.ul-grant", FT_UINT24, BASE_DEC, 0, 0x0fffff,
+"Size of UL Grant", HFILL
+}
+},
+{ &hf_mac_lte_rar_ul_grant_hopping,
+{ "Hopping Flag",
+"mac-lte.rar.ul-grant.hopping", FT_UINT8, BASE_DEC, 0, 0x08,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_rar_ul_grant_fsrba,
+{ "Fixed sized resource block assignment",
+"mac-lte.rar.ul-grant.fsrba", FT_UINT16, BASE_DEC, 0, 0x07fe,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_rar_ul_grant_tmcs,
+{ "Truncated Modulation and coding scheme",
+"mac-lte.rar.ul-grant.tmcs", FT_UINT16, BASE_DEC, 0, 0x01e0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_rar_ul_grant_tcsp,
+{ "TPC command for scheduled PUSCH",
+"mac-lte.rar.ul-grant.tcsp", FT_UINT8, BASE_DEC, 0, 0x01c,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_rar_ul_grant_ul_delay,
+{ "UL Delay",
+"mac-lte.rar.ul-grant.ul-delay", FT_UINT8, BASE_DEC, 0, 0x02,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_rar_ul_grant_cqi_request,
+{ "CQI Request",
+"mac-lte.rar.ul-grant.cqi-request", FT_UINT8, BASE_DEC, 0, 0x01,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_rar_temporary_crnti,
+{ "Temporary C-RNTI",
+"mac-lte.rar.temporary-crnti", FT_UINT16, BASE_DEC, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_bsr,
+{ "BSR",
+"mac-lte.control.bsr", FT_STRING, BASE_NONE, 0, 0x0,
+"Buffer Status Report", HFILL
+}
+},
+{ &hf_mac_lte_control_bsr_lcg_id,
+{ "Logical Channel Group ID",
+"mac-lte.control.bsr.lcg-id", FT_UINT8, BASE_DEC, 0, 0xc0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_short_bsr_buffer_size,
+{ "Buffer Size",
+"mac-lte.control.bsr.buffer-size", FT_UINT8, BASE_DEC|BASE_EXT_STRING, &buffer_size_vals_ext, 0x3f,
+"Buffer Size available in all channels in group", HFILL
+}
+},
+{ &hf_mac_lte_control_long_bsr_buffer_size_0,
+{ "Buffer Size 0",
+"mac-lte.control.bsr.buffer-size-0", FT_UINT8, BASE_DEC|BASE_EXT_STRING, &buffer_size_vals_ext, 0xfc,
+"Buffer Size available in logical channel group 0", HFILL
+}
+},
+{ &hf_mac_lte_control_long_bsr_buffer_size_1,
+{ "Buffer Size 1",
+"mac-lte.control.bsr.buffer-size-1", FT_UINT16, BASE_DEC|BASE_EXT_STRING, &buffer_size_vals_ext, 0x03f0,
+"Buffer Size available in logical channel group 1", HFILL
+}
+},
+{ &hf_mac_lte_control_long_bsr_buffer_size_2,
+{ "Buffer Size 2",
+"mac-lte.control.bsr.buffer-size-2", FT_UINT16, BASE_DEC|BASE_EXT_STRING, &buffer_size_vals_ext, 0x0fc0,
+"Buffer Size available in logical channel group 2", HFILL
+}
+},
+{ &hf_mac_lte_control_long_bsr_buffer_size_3,
+{ "Buffer Size 3",
+"mac-lte.control.bsr.buffer-size-3", FT_UINT8, BASE_DEC|BASE_EXT_STRING, &buffer_size_vals_ext, 0x3f,
+"Buffer Size available in logical channel group 3", HFILL
+}
+},
+{ &hf_mac_lte_control_short_ext_bsr_buffer_size,
+{ "Buffer Size",
+"mac-lte.control.bsr.buffer-size", FT_UINT8, BASE_DEC|BASE_EXT_STRING, &ext_buffer_size_vals_ext, 0x3f,
+"Buffer Size available in all channels in group", HFILL
+}
+},
+{ &hf_mac_lte_control_long_ext_bsr_buffer_size_0,
+{ "Buffer Size 0",
+"mac-lte.control.bsr.buffer-size-0", FT_UINT8, BASE_DEC|BASE_EXT_STRING, &ext_buffer_size_vals_ext, 0xfc,
+"Buffer Size available in logical channel group 0", HFILL
+}
+},
+{ &hf_mac_lte_control_long_ext_bsr_buffer_size_1,
+{ "Buffer Size 1",
+"mac-lte.control.bsr.buffer-size-1", FT_UINT16, BASE_DEC|BASE_EXT_STRING, &ext_buffer_size_vals_ext, 0x03f0,
+"Buffer Size available in logical channel group 1", HFILL
+}
+},
+{ &hf_mac_lte_control_long_ext_bsr_buffer_size_2,
+{ "Buffer Size 2",
+"mac-lte.control.bsr.buffer-size-2", FT_UINT16, BASE_DEC|BASE_EXT_STRING, &ext_buffer_size_vals_ext, 0x0fc0,
+"Buffer Size available in logical channel group 2", HFILL
+}
+},
+{ &hf_mac_lte_control_long_ext_bsr_buffer_size_3,
+{ "Buffer Size 3",
+"mac-lte.control.bsr.buffer-size-3", FT_UINT8, BASE_DEC|BASE_EXT_STRING, &ext_buffer_size_vals_ext, 0x3f,
+"Buffer Size available in logical channel group 3", HFILL
+}
+},
+{ &hf_mac_lte_control_crnti,
+{ "C-RNTI",
+"mac-lte.control.crnti", FT_UINT16, BASE_DEC, 0, 0x0,
+"C-RNTI for the UE", HFILL
+}
+},
+{ &hf_mac_lte_control_timing_advance,
+{ "Timing Advance",
+"mac-lte.control.timing-advance", FT_UINT8, BASE_DEC, 0, 0x3f,
+"Timing Advance (0-1282 - see 36.213, 4.2.3)", HFILL
+}
+},
+{ &hf_mac_lte_control_timing_advance_reserved,
+{ "Reserved",
+"mac-lte.control.timing-advance.reserved", FT_UINT8, BASE_HEX, 0, 0xc0,
+"Reserved bits", HFILL
+}
+},
+{ &hf_mac_lte_control_ue_contention_resolution,
+{ "UE Contention Resolution",
+"mac-lte.control.ue-contention-resolution", FT_STRING, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_ue_contention_resolution_identity,
+{ "UE Contention Resolution Identity",
+"mac-lte.control.ue-contention-resolution.identity", FT_BYTES, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_ue_contention_resolution_msg3,
+{ "Msg3",
+"mac-lte.control.ue-contention-resolution.msg3", FT_FRAMENUM, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_ue_contention_resolution_msg3_matched,
+{ "UE Contention Resolution Matches Msg3",
+"mac-lte.control.ue-contention-resolution.matches-msg3", FT_BOOLEAN, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_ue_contention_resolution_time_since_msg3,
+{ "Time since Msg3",
+"mac-lte.control.ue-contention-resolution.time-since-msg3", FT_UINT32, BASE_DEC, 0, 0x0,
+"Time in ms since corresponding Msg3", HFILL
+}
+},
+{ &hf_mac_lte_control_power_headroom,
+{ "Power Headroom",
+"mac-lte.control.power-headroom", FT_STRING, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_power_headroom_reserved,
+{ "Reserved",
+"mac-lte.control.power-headroom.reserved", FT_UINT8, BASE_DEC, 0, 0xc0,
+"Reserved bits, should be 0", HFILL
+}
+},
+{ &hf_mac_lte_control_power_headroom_level,
+{ "Power Headroom Level",
+"mac-lte.control.power-headroom.level", FT_UINT8, BASE_DEC|BASE_EXT_STRING,
+&power_headroom_vals_ext, 0x3f, "Power Headroom Level in dB", HFILL
+}
+},
+{ &hf_mac_lte_control_ext_power_headroom,
+{ "Extended Power Headroom",
+"mac-lte.control.ext-power-headroom", FT_STRING, BASE_NONE,
+0, 0x0, NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_ext_power_headroom_c7,
+{ "SCell Index 7 Power Headroom",
+"mac-lte.control.ext-power-headroom.c7", FT_BOOLEAN, 8,
+TFS(&mac_lte_scell_ph_vals), 0x80, NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_ext_power_headroom_c6,
+{ "SCell Index 6 Power Headroom",
+"mac-lte.control.ext-power-headroom.c6", FT_BOOLEAN, 8,
+TFS(&mac_lte_scell_ph_vals), 0x40, NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_ext_power_headroom_c5,
+{ "SCell Index 5 Power Headroom",
+"mac-lte.control.ext-power-headroom.c5", FT_BOOLEAN, 8,
+TFS(&mac_lte_scell_ph_vals), 0x20, NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_ext_power_headroom_c4,
+{ "SCell Index 4 Power Headroom",
+"mac-lte.control.ext-power-headroom.c4", FT_BOOLEAN, 8,
+TFS(&mac_lte_scell_ph_vals), 0x10, NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_ext_power_headroom_c3,
+{ "SCell Index 3 Power Headroom",
+"mac-lte.control.ext-power-headroom.c3", FT_BOOLEAN, 8,
+TFS(&mac_lte_scell_ph_vals), 0x08, NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_ext_power_headroom_c2,
+{ "SCell Index 2 Power Headroom",
+"mac-lte.control.ext-power-headroom.c2", FT_BOOLEAN, 8,
+TFS(&mac_lte_scell_ph_vals), 0x04, NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_ext_power_headroom_c1,
+{ "SCell Index 1 Power Headroom",
+"mac-lte.control.ext-power-headroom.c1", FT_BOOLEAN, 8,
+TFS(&mac_lte_scell_ph_vals), 0x02, NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_ext_power_headroom_reserved,
+{ "Reserved",
+"mac-lte.control.ext-power-headroom.reserved", FT_UINT8, BASE_DEC,
+0, 0x01, "Reserved bit, should be 0", HFILL
+}
+},
+{ &hf_mac_lte_control_ext_power_headroom_power_backoff,
+{ "Power Backoff",
+"mac-lte.control.ext-power-headroom.power-backoff", FT_BOOLEAN, 8,
+TFS(&mac_lte_power_backoff_vals), 0x80, NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_ext_power_headroom_value,
+{ "Power Headroom Value",
+"mac-lte.control.ext-power-headroom.power-headroom-value", FT_BOOLEAN, 8,
+TFS(&mac_lte_ph_value_vals), 0x40, NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_ext_power_headroom_level,
+{ "Power Headroom Level",
+"mac-lte.control.ext-power-headroom.level", FT_UINT8, BASE_DEC|BASE_EXT_STRING,
+&power_headroom_vals_ext, 0x3f, "Power Headroom Level in dB", HFILL
+}
+},
+{ &hf_mac_lte_control_ext_power_headroom_reserved2,
+{ "Reserved",
+"mac-lte.control.ext-power-headroom.reserved2", FT_UINT8, BASE_DEC,
+0, 0xc0, "Reserved bits, should be 0", HFILL
+}
+},
+{ &hf_mac_lte_control_ext_power_headroom_pcmaxc,
+{ "Configured UE Transmit Power",
+"mac-lte.control.ext-power-headroom.pcmaxc", FT_UINT8, BASE_DEC|BASE_EXT_STRING,
+&pcmaxc_vals_ext, 0x3f, "Pcmax,c in dBm", HFILL
+}
+},
+{ &hf_mac_lte_control_activation_deactivation,
+{ "Activation/Deactivation",
+"mac-lte.control.activation-deactivation", FT_STRING, BASE_NONE,
+0, 0x0, NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_activation_deactivation_c7,
+{ "SCell Index 7 Status",
+"mac-lte.control.activation-deactivation.c7", FT_BOOLEAN, 8,
+TFS(&mac_lte_scell_status_vals), 0x80, NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_activation_deactivation_c6,
+{ "SCell Index 6 Status",
+"mac-lte.control.activation-deactivation.c6", FT_BOOLEAN, 8,
+TFS(&mac_lte_scell_status_vals), 0x40, NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_activation_deactivation_c5,
+{ "SCell Index 5 Status",
+"mac-lte.control.activation-deactivation.c5", FT_BOOLEAN, 8,
+TFS(&mac_lte_scell_status_vals), 0x20, NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_activation_deactivation_c4,
+{ "SCell Index 4 Status",
+"mac-lte.control.activation-deactivation.c4", FT_BOOLEAN, 8,
+TFS(&mac_lte_scell_status_vals), 0x10, NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_activation_deactivation_c3,
+{ "SCell Index 3 Status",
+"mac-lte.control.activation-deactivation.c3", FT_BOOLEAN, 8,
+TFS(&mac_lte_scell_status_vals), 0x08, NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_activation_deactivation_c2,
+{ "SCell Index 2 Status",
+"mac-lte.control.activation-deactivation.c2", FT_BOOLEAN, 8,
+TFS(&mac_lte_scell_status_vals), 0x04, NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_activation_deactivation_c1,
+{ "SCell Index 1 Status",
+"mac-lte.control.activation-deactivation.c1", FT_BOOLEAN, 8,
+TFS(&mac_lte_scell_status_vals), 0x02, NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_activation_deactivation_reserved,
+{ "Reserved",
+"mac-lte.control.activation-deactivation.reserved", FT_UINT8, BASE_DEC,
+0, 0x01, "Reserved bit, should be 0", HFILL
+}
+},
+{ &hf_mac_lte_control_mch_scheduling_info,
+{ "MCH Scheduling Information",
+"mac-lte.control.mch_scheduling_info", FT_STRING, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_control_mch_scheduling_info_lcid,
+{ "LCID",
+"mac-lte.control.mch_scheduling_info.lcid", FT_UINT8, BASE_HEX, VALS(mch_lcid_vals), 0xf8,
+"Logical Channel ID of the MTCH", HFILL
+}
+},
+{ &hf_mac_lte_control_mch_scheduling_info_stop_mtch,
+{ "Stop MTCH",
+"mac-lte.control.mch_scheduling_info.stop_mtch", FT_UINT16, BASE_DEC, 0, 0x07ff,
+"Ordinal number of the subframe where the corresponding MTCH stops", HFILL
+}
+},
+{ &hf_mac_lte_dl_harq_resend_original_frame,
+{ "Frame with previous tx",
+"mac-lte.dlsch.retx.original-frame", FT_FRAMENUM, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_dl_harq_resend_time_since_previous_frame,
+{ "Time since previous tx (ms)",
+"mac-lte.dlsch.retx.time-since-previous", FT_UINT16, BASE_DEC, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_dl_harq_resend_next_frame,
+{ "Frame with next tx",
+"mac-lte.dlsch.retx.next-frame", FT_FRAMENUM, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_dl_harq_resend_time_until_next_frame,
+{ "Time until next tx (ms)",
+"mac-lte.dlsch.retx.time-until-next", FT_UINT16, BASE_DEC, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_ul_harq_resend_original_frame,
+{ "Frame with previous tx",
+"mac-lte.ulsch.retx.original-frame", FT_FRAMENUM, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_ul_harq_resend_time_since_previous_frame,
+{ "Time since previous tx (ms)",
+"mac-lte.ulsch.retx.time-since-previous", FT_UINT16, BASE_DEC, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_ul_harq_resend_next_frame,
+{ "Frame with next tx",
+"mac-lte.ulsch.retx.next-frame", FT_FRAMENUM, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_ul_harq_resend_time_until_next_frame,
+{ "Time until next tx (ms)",
+"mac-lte.ulsch.retx.time-until-next", FT_UINT16, BASE_DEC, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_grant_answering_sr,
+{ "First Grant Following SR from",
+"mac-lte.ulsch.grant-answering-sr", FT_FRAMENUM, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_failure_answering_sr,
+{ "SR which failed",
+"mac-lte.ulsch.failure-answering-sr", FT_FRAMENUM, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_sr_leading_to_failure,
+{ "This SR fails",
+"mac-lte.ulsch.failure-answering-sr-frame", FT_FRAMENUM, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_sr_leading_to_grant,
+{ "This SR results in a grant here",
+"mac-lte.ulsch.grant-answering-sr-frame", FT_FRAMENUM, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_sr_invalid_event,
+{ "Invalid event",
+"mac-lte.ulsch.sr-invalid-event", FT_NONE, BASE_NONE, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_sr_time_since_request,
+{ "Time since SR (ms)",
+"mac-lte.ulsch.time-since-sr", FT_UINT32, BASE_DEC, 0, 0x0,
+NULL, HFILL
+}
+},
+{ &hf_mac_lte_sr_time_until_answer,
+{ "Time until answer (ms)",
+"mac-lte.ulsch.time-until-sr-answer", FT_UINT32, BASE_DEC, 0, 0x0,
+NULL, HFILL
+}
+},
+};
+static gint *ett[] =
+{
+&ett_mac_lte,
+&ett_mac_lte_context,
+&ett_mac_lte_phy_context,
+&ett_mac_lte_rar_headers,
+&ett_mac_lte_rar_header,
+&ett_mac_lte_rar_body,
+&ett_mac_lte_rar_ul_grant,
+&ett_mac_lte_ulsch_header,
+&ett_mac_lte_dlsch_header,
+&ett_mac_lte_mch_header,
+&ett_mac_lte_sch_subheader,
+&ett_mac_lte_mch_subheader,
+&ett_mac_lte_bch,
+&ett_mac_lte_bsr,
+&ett_mac_lte_pch,
+&ett_mac_lte_activation_deactivation,
+&ett_mac_lte_contention_resolution,
+&ett_mac_lte_power_headroom,
+&ett_mac_lte_extended_power_headroom,
+&ett_mac_lte_extended_power_headroom_cell,
+&ett_mac_lte_mch_scheduling_info,
+&ett_mac_lte_oob
+};
+static enum_val_t show_info_col_vals[] = {
+{"show-phy", "PHY Info", ShowPHYLayer},
+{"show-mac", "MAC Info", ShowMACLayer},
+{"show-rlc", "RLC Info", ShowRLCLayer},
+{NULL, NULL, -1}
+};
+static enum_val_t lcid_drb_source_vals[] = {
+{"from-static-stable", "From static table", FromStaticTable},
+{"from-configuration-protocol", "From configuration protocol", FromConfigurationProtocol},
+{NULL, NULL, -1}
+};
+module_t *mac_lte_module;
+static uat_field_t lcid_drb_mapping_flds[] = {
+UAT_FLD_VS(lcid_drb_mappings, lcid, "lcid", drb_lcid_vals, "The MAC LCID"),
+UAT_FLD_DEC(lcid_drb_mappings, drbid,"drb id (1-32)", "Identifier of logical data channel"),
+UAT_FLD_VS(lcid_drb_mappings, channel_type, "RLC Channel Type", rlc_channel_type_vals, "The MAC LCID"),
+UAT_END_FIELDS
+};
+proto_mac_lte = proto_register_protocol("MAC-LTE", "MAC-LTE", "mac-lte");
+proto_register_field_array(proto_mac_lte, hf, array_length(hf));
+proto_register_subtree_array(ett, array_length(ett));
+register_dissector("mac-lte", dissect_mac_lte, proto_mac_lte);
+mac_lte_tap = register_tap("mac-lte");
+mac_lte_module = prefs_register_protocol(proto_mac_lte, NULL);
+prefs_register_obsolete_preference(mac_lte_module, "single_rar");
+prefs_register_obsolete_preference(mac_lte_module, "check_reserved_bits");
+prefs_register_obsolete_preference(mac_lte_module, "decode_rar_ul_grant");
+prefs_register_obsolete_preference(mac_lte_module, "show_rlc_info_column");
+prefs_register_obsolete_preference(mac_lte_module, "attempt_to_detect_dl_harq_resend");
+prefs_register_obsolete_preference(mac_lte_module, "attempt_to_track_ul_harq_resend");
+prefs_register_uint_preference(mac_lte_module, "retx_count_warn",
+"Number of Re-Transmits before expert warning triggered",
+"Number of Re-Transmits before expert warning triggered",
+10, &global_mac_lte_retx_counter_trigger);
+prefs_register_bool_preference(mac_lte_module, "attempt_rrc_decode",
+"Attempt to decode BCH, PCH and CCCH data using LTE RRC dissector",
+"Attempt to decode BCH, PCH and CCCH data using LTE RRC dissector",
+&global_mac_lte_attempt_rrc_decode);
+prefs_register_bool_preference(mac_lte_module, "attempt_to_dissect_crc_failures",
+"Dissect frames that have failed CRC check",
+"Attempt to dissect frames that have failed CRC check",
+&global_mac_lte_dissect_crc_failures);
+prefs_register_bool_preference(mac_lte_module, "heuristic_mac_lte_over_udp",
+"Try Heuristic LTE-MAC over UDP framing",
+"When enabled, use heuristic dissector to find MAC-LTE frames sent with "
+"UDP framing",
+&global_mac_lte_heur);
+prefs_register_bool_preference(mac_lte_module, "attempt_to_dissect_srb_sdus",
+"Attempt to dissect LCID 1&2 as srb1&2",
+"Will call LTE RLC dissector with standard settings as per RRC spec",
+&global_mac_lte_attempt_srb_decode);
+prefs_register_enum_preference(mac_lte_module, "lcid_to_drb_mapping_source",
+"Source of LCID -> drb channel settings",
+"Set whether LCID -> drb Table is taken from static table (below) or from "
+"info learned from control protocol (e.g. RRC)",
+&global_mac_lte_lcid_drb_source, lcid_drb_source_vals, FALSE);
+lcid_drb_mappings_uat = uat_new("Static LCID -> drb Table",
+sizeof(lcid_drb_mapping_t),
+"drb_logchans",
+TRUE,
+(void*) &lcid_drb_mappings,
+&num_lcid_drb_mappings,
+UAT_CAT_FFMT,
+"",
+lcid_drb_mapping_copy_cb,
+NULL,
+NULL,
+NULL,
+lcid_drb_mapping_flds );
+prefs_register_uat_preference(mac_lte_module,
+"drb_table",
+"LCID -> DRB Mappings Table",
+"A table that maps from configurable lcids -> RLC logical channels",
+lcid_drb_mappings_uat);
+prefs_register_uint_preference(mac_lte_module, "bsr_warn_threshold",
+"BSR size when warning should be issued (0 - 63)",
+"If any BSR report is >= this number, an expert warning will be added",
+10, &global_mac_lte_bsr_warn_threshold);
+prefs_register_bool_preference(mac_lte_module, "track_sr",
+"Track status of SRs within UEs",
+"Track status of SRs, providing links between requests, failure indications and grants",
+&global_mac_lte_track_sr);
+prefs_register_enum_preference(mac_lte_module, "layer_to_show",
+"Which layer info to show in Info column",
+"Can show PHY, MAC or RLC layer info in Info column",
+&global_mac_lte_layer_to_show, show_info_col_vals, FALSE);
+register_init_routine(&mac_lte_init_protocol);
+}
+void set_mac_lte_channel_mapping(guint16 ueid _U_, guint8 lcid,
+guint8 srbid, guint8 drbid,
+guint8 rlcMode, guint8 um_sn_length,
+guint8 ul_priority)
+{
+if (srbid != 0) {
+return;
+}
+if ((lcid < 3) || (lcid > 10)) {
+return;
+}
+dynamic_lcid_drb_mapping[lcid].valid = TRUE;
+dynamic_lcid_drb_mapping[lcid].drbid = drbid;
+dynamic_lcid_drb_mapping[lcid].ul_priority = ul_priority;
+switch (rlcMode) {
+case RLC_AM_MODE:
+dynamic_lcid_drb_mapping[lcid].channel_type = rlcAM;
+break;
+case RLC_UM_MODE:
+if (um_sn_length == 5) {
+dynamic_lcid_drb_mapping[lcid].channel_type = rlcUM5;
+}
+else {
+dynamic_lcid_drb_mapping[lcid].channel_type = rlcUM10;
+}
+break;
+default:
+break;
+}
+}
+static guint8 get_mac_lte_channel_priority(guint16 ueid _U_, guint8 lcid,
+guint8 direction)
+{
+if (direction == DIRECTION_DOWNLINK) {
+return 0;
+}
+if (!dynamic_lcid_drb_mapping[lcid].valid) {
+return 0;
+}
+else {
+return dynamic_lcid_drb_mapping[lcid].ul_priority;
+}
+}
+mac_lte_info *get_mac_lte_proto_data(packet_info *pinfo)
+{
+return p_get_proto_data(pinfo->fd, proto_mac_lte);
+}
+void set_mac_lte_proto_data(packet_info *pinfo, mac_lte_info *p_mac_lte_info)
+{
+p_add_proto_data(pinfo->fd, proto_mac_lte, p_mac_lte_info);
+}
+void proto_reg_handoff_mac_lte(void)
+{
+static dissector_handle_t mac_lte_handle;
+if (!mac_lte_handle) {
+mac_lte_handle = find_dissector("mac-lte");
+heur_dissector_add("udp", dissect_mac_lte_heur, proto_mac_lte);
+}
+}

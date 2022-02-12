@@ -1,0 +1,1 @@
+unsigned char *RIPEMD160(const unsigned char *d, unsigned long n,\r\nunsigned char *md)\r\n{\r\nRIPEMD160_CTX c;\r\nstatic unsigned char m[RIPEMD160_DIGEST_LENGTH];\r\nif (md == NULL) md=m;\r\nRIPEMD160_Init(&c);\r\nRIPEMD160_Update(&c,d,n);\r\nRIPEMD160_Final(md,&c);\r\nmemset(&c,0,sizeof(c));\r\nreturn(md);\r\n}

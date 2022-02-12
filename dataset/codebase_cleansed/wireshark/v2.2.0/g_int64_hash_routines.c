@@ -1,0 +1,1 @@
+gboolean\r\ng_int64_equal (gconstpointer v1,\r\ngconstpointer v2)\r\n{\r\nreturn *((const gint64*) v1) == *((const gint64*) v2);\r\n}\r\nguint\r\ng_int64_hash (gconstpointer v)\r\n{\r\nreturn (guint) *(const gint64*) v;\r\n}

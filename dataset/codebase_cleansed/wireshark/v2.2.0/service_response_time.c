@@ -1,0 +1,1 @@
+extern const char*\r\nservice_response_time_get_column_name (int idx)\r\n{\r\nstatic const char *default_titles[] = { "Index", "Procedure", "Calls", "Min SRT (s)", "Max SRT (s)", "Avg SRT (s)", "Sum SRT (s)" };\r\nif (idx < 0 || idx >= NUM_SRT_COLUMNS) return "(Unknown)";\r\nreturn default_titles[idx];\r\n}

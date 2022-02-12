@@ -1,0 +1,1 @@
+guint16\r\nupdate_crc10_by_bytes(guint16 crc10_accum, const guint8 *data_blk_ptr,\r\nint data_blk_size)\r\n{\r\nregister int i;\r\nfor (i = 0; i < data_blk_size; i++) {\r\ncrc10_accum = ((crc10_accum << 8) & 0x3ff)\r\n^ byte_crc10_table[( crc10_accum >> 2) & 0xff]\r\n^ *data_blk_ptr++;\r\n}\r\nreturn crc10_accum;\r\n}

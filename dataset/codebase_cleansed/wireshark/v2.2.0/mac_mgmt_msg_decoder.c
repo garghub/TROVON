@@ -1,0 +1,160 @@
+static int dissect_mac_mgmt_msg_decoder(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void* data _U_)
+{
+guint offset = 0;
+guint message_type;
+proto_item *message_item;
+proto_tree *message_tree;
+const char* mgt_msg_str;
+message_item = proto_tree_add_protocol_format(tree, proto_mac_mgmt_msg_decoder, tvb, offset, -1,
+"MAC Management Message Type (%u bytes)", tvb_reported_length(tvb));
+message_tree = proto_item_add_subtree(message_item, ett_mac_mgmt_msg_decoder);
+if (tvb_reported_length(tvb) == 0)
+{
+expert_add_info(pinfo, message_item, &ei_empty_payload);
+return tvb_captured_length(tvb);
+}
+message_type = tvb_get_guint8(tvb, offset);
+proto_tree_add_item(message_tree, hf_mac_mgmt_msg_type, tvb, offset, 1, ENC_NA);
+mgt_msg_str = val_to_str_ext_const(message_type, &mgt_msg_abbrv_vals_ext, "Unknown");
+col_append_sep_str(pinfo->cinfo, COL_INFO, ", ", mgt_msg_str);
+if (try_val_to_str_ext(message_type, &mgt_msg_abbrv_vals_ext) == NULL)
+{
+proto_tree_add_item(message_tree, hf_mac_mgmt_msg_values, tvb, offset, -1, ENC_NA);
+return 1;
+}
+proto_item_append_text(proto_tree_get_parent(tree), ", %s", mgt_msg_str);
+if (!dissector_try_uint(subdissector_message_table, message_type,
+tvb_new_subset_remaining(tvb, 1), pinfo, tree))
+{
+proto_tree_add_item(message_tree, hf_mac_mgmt_msg_values, tvb, offset, -1, ENC_NA);
+}
+return tvb_captured_length(tvb);
+}
+void proto_register_mac_mgmt_msg(void)
+{
+static hf_register_info hf[] =
+{
+{
+&hf_mac_mgmt_msg_type,
+{
+"MAC Management Message Type", "wmx.macmgtmsgtype",
+FT_UINT8, BASE_DEC | BASE_EXT_STRING, &mgt_msg_abbrv_vals_ext, 0x0,
+NULL, HFILL
+}
+},
+{
+&hf_mac_mgmt_msg_values,
+{
+"Values", "wmx.values",
+FT_BYTES, BASE_NONE, NULL, 0x0,
+NULL, HFILL
+}
+},
+};
+static gint *ett[] =
+{
+&ett_mac_mgmt_msg_decoder,
+};
+static ei_register_info ei[] = {
+{ &ei_empty_payload, { "wmx.empty_payload", PI_PROTOCOL, PI_ERROR, "Error: Mac payload tvb is empty !", EXPFILL }},
+};
+expert_module_t* expert_mac_mgmt;
+proto_mac_mgmt_msg_decoder = proto_register_protocol (
+"WiMax MAC Management Message",
+"MGMT MSG",
+"wmx.mgmt"
+);
+proto_register_field_array(proto_mac_mgmt_msg_decoder, hf, array_length(hf));
+proto_register_subtree_array(ett, array_length(ett));
+expert_mac_mgmt = expert_register_protocol(proto_mac_mgmt_msg_decoder);
+expert_register_field_array(expert_mac_mgmt, ei, array_length(ei));
+subdissector_message_table = register_dissector_table("wmx.mgmtmsg",
+"WiMax MAC Management Message", proto_mac_mgmt_msg_decoder, FT_UINT8, BASE_DEC);
+register_dissector("wmx_mac_mgmt_msg_decoder", dissect_mac_mgmt_msg_decoder,
+proto_mac_mgmt_msg_decoder);
+}
+void proto_reg_handoff_mac_mgmt_msg(void)
+{
+dissector_handle_t mgt_msg_handle;
+mgt_msg_handle = find_dissector("mac_mgmt_msg_mca_req_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MCA_REQ, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_mca_rsp_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MCA_RSP, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_dbpc_req_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_DBPC_REQ, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_dbpc_rsp_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_DBPC_RSP, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_tftp_cplt_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_TFTP_CPLT, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_tftp_rsp_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_TFTP_RSP, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_ncfg_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MSH_NCFG, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_nent_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MSH_NENT, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_dsch_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MSH_DSCH, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_csch_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MSH_CSCH, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_cscf_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MSH_CSCF, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_aas_beam_req_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_AAS_BEAM_REQ, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_aas_beam_rsp_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_AAS_BEAM_RSP, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_mob_slp_req_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MOB_SLP_REQ, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_mob_slp_rsp_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MOB_SLP_RSP, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_mob_trf_ind_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MOB_TRF_IND, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_mob_nbr_adv_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MOB_NBR_ADV, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_mob_scn_req_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MOB_SCN_REQ, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_mob_scn_rsp_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MOB_SCN_RSP, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_mob_bsho_req_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MOB_BSHO_REQ, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_mob_msho_req_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MOB_MSHO_REQ, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_mob_bsho_rsp_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MOB_BSHO_RSP, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_mob_ho_ind_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MOB_HO_IND, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_mob_scn_rep_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MOB_SCN_REP, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_mob_pag_adv_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MOB_PAG_ADV, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_mbs_map_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MBS_MAP, mgt_msg_handle );
+mgt_msg_handle = find_dissector("mac_mgmt_msg_mob_asc_rep_handler");
+if (mgt_msg_handle)
+dissector_add_uint( "wmx.mgmtmsg", MAC_MGMT_MSG_MOB_ASC_REP, mgt_msg_handle );
+}
