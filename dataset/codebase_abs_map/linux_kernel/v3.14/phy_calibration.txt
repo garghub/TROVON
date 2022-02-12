@@ -1,0 +1,245 @@
+phy_set_rf_data	,	F_23
+"[CAL] W89RF242/11G/Channel=2390Mhz\n"	,	L_2
+cos_b	,	V_67
+msleep	,	F_28
+REG_OFFSET_READ	,	V_49
+"[CAL] -&gt; phy_calibration_winbond()\n"	,	L_92
+AG_CONST	,	V_20
+s32	,	T_1
+RF_WB_242	,	V_35
+"[CAL]    ** rx_cal_reg[0] = %d\n"	,	L_80
+"[CAL]       apply tx_cal[2] = %d\n"	,	L_47
+txvga_setting_for_cal	,	V_100
+"[CAL] ** VERIFY OK # %d !!\n"	,	L_23
+MASK_AMER_OFF_REG	,	V_44
+"[CAL] -&gt; [4]_tx_iq_calibration()\n"	,	L_51
+TargetAngle	,	V_17
+"[CAL]       rx_cal_flt_b[3] = %d\n"	,	L_70
+"[CAL]    ** b_2_threshold = %d\n"	,	L_8
+iqcal_image_q	,	V_87
+rot_image_q_b	,	V_91
+MASK_LNA_FIX_GAIN	,	V_39
+"[CAL]    MODE_CTRL (read) = 0x%08X\n"	,	L_9
+"[CAL]    ** iq_rsdl_phase_tx_d2= %d\n"	,	L_66
+"[CAL]    ** iq_rsdl_gain_tx_d2 = %d\n"	,	L_65
+rot_image_i_b	,	V_90
+"[CAL] ** &lt;_tx_iq_calibration_loop&gt; *************\n"	,	L_22
+"[CAL]    ** iqcal_image_i = %d, iqcal_image_q = %d\n"	,	L_58
+iqcal_image_i	,	V_86
+sin_b	,	V_65
+"[CAL]    ** rot_image_q_b = %d\n"	,	L_62
+"[CAL]    ** 0x54 = 0x%08X\n"	,	L_38
+iqcal_tone_i	,	V_56
+"[CAL] -&gt; [1]_rxadc_dc_offset_cancellation()\n"	,	L_1
+RF_MAXIM_V1	,	V_105
+seed	,	V_11
+iqcal_tone_q	,	V_57
+iq_rsdl_gain_tx_d2	,	V_82
+temp2	,	V_71
+"[CAL]       tx_cal_flt_b[3] = %d\n"	,	L_33
+temp1	,	V_70
+"[CAL]       tx_cal[1] = %d\n"	,	L_35
+result	,	V_84
+X	,	V_15
+Y	,	V_16
+reg_a_acq_ctrl	,	V_33
+"[CAL] ** RX_IQ_CALIBRATION OK !!\n"	,	L_79
+RF_AIROHA_7230	,	V_111
+RF_AIROHA_2230S	,	V_110
+"[CAL]    ** TX_IQ_CALIBRATION = 0x%08X\n"	,	L_50
+u8	,	T_4
+pwr_tone	,	V_95
+"[CAL]    ** tx_cal_reg[0] = %d\n"	,	L_40
+n	,	V_3
+"[CAL]    MODE_CTRL (write) = 0x%08X\n"	,	L_11
+"[CAL] -&gt; [5]_rx_iq_calibration_loop()\n"	,	L_54
+reg_agc_ctrl3	,	V_32
+MASK_CALIB_START	,	V_80
+"[CAL]       rx_cal[2] = %d\n"	,	L_73
+"[CAL]       rx_cal_reg[1] = %d\n"	,	L_81
+"[CAL] ** &lt;_rx_iq_calibration&gt; **************\n"	,	L_90
+"[CAL]    ** pwr_tone  = %d\n"	,	L_75
+"[CAL]       tx_cal_reg[1] = %d\n"	,	L_41
+"[CAL]       tx_cal[2] = %d\n"	,	L_36
+_sqrt	,	F_10
+frequency	,	V_31
+"[CAL]    ** adc_dc_cal_q = %d (0x%04X)\n"	,	L_5
+hal_set_dxx_reg	,	F_15
+loop	,	V_72
+iq_rsdl_phase_tx_d2	,	V_83
+"[CAL] -&gt; _tx_iq_calibration_loop()\n"	,	L_6
+hw_set_dxx_reg	,	F_19
+"[CAL]    ** rx_cal[0] = %d\n"	,	L_71
+"[CAL]       tx_cal_flt_b[1] = %d\n"	,	L_31
+ret	,	V_28
+"[CAL]    ** rot_tone_q_b  = %d\n"	,	L_60
+RF_AIROHA_2230	,	V_109
+b_2_threshold	,	V_51
+Wb35Reg_WriteSync	,	F_16
+"[CAL] [%d.] &lt;_rx_iq_calibration_loop&gt;\n"	,	L_56
+"[CAL]    CALIB_READ2 = 0x%08X\n"	,	L_57
+FIXED	,	F_12
+g0	,	V_6
+g1	,	V_7
+"[CAL]    ** iqcal_tone_i0=%d, iqcal_tone_q0=%d\n"	,	L_13
+"[CAL] ** divisor=0 to calculate EPS and THETA !!\n"	,	L_18
+g2	,	V_8
+iqcal_tone_i_avg	,	V_73
+g3	,	V_9
+g4	,	V_10
+REG_A_ACQ_CTRL	,	V_43
+"[CAL]    ** sin(b/2)=%d, cos(b/2)=%d\n"	,	L_27
+"[CAL]       rx_cal_reg[3] = %d\n"	,	L_83
+"[CAL] ** RX_IQ_CALIBRATION FAILURE !!\n"	,	L_91
+current_txvga	,	V_114
+_rxadc_dc_offset_cancellation_winbond	,	F_20
+reg_state	,	V_113
+next	,	V_12
+"[CAL]       apply rx_cal[3] = %d\n"	,	L_88
+iqcal_tone_q_avg	,	V_74
+_s5_to_s32	,	F_5
+MASK_IQCAL_TONE_SEL	,	V_78
+RF_MAXIM_2828	,	V_107
+RF_MAXIM_2829	,	V_108
+Step	,	V_19
+RF_MAXIM_2827	,	V_106
+"[CAL]    ** CALIB_DATA = 0x%08X\n"	,	L_49
+RF_MAXIM_2825	,	V_104
+hal_get_dxx_reg	,	F_13
+phy_type	,	V_36
+_DEBUG	,	F_24
+"[CAL] ** factor = %d\n"	,	L_55
+hw_data	,	V_23
+hw_get_dxx_reg	,	F_18
+_rx_iq_calibration_loop_winbond	,	F_30
+factor	,	V_85
+"[CAL]       rx_cal[3] = %d\n"	,	L_74
+_floor	,	F_9
+iqcal_tone_q0	,	V_55
+"[CAL] ** TX_IQ_CALIBRATION (EPS,THETA) OK !!\n"	,	L_25
+"[CAL]    ** tx_cal_flt_b[0] = %d\n"	,	L_30
+pValue	,	V_26
+BIT	,	F_2
+phw_data	,	V_29
+"[CAL]    ** iq_mag_0_tx=%d\n"	,	L_14
+"[CAL]    ** rot_image_i_b = %d\n"	,	L_61
+"[CAL] ** RX_IQ_CALIBRATION SATUATION !!\n"	,	L_84
+Wb35Reg_ReadSync	,	F_14
+verify_count	,	V_75
+"[CAL] ** &lt;_tx_iq_calibration&gt; **************\n"	,	L_52
+step	,	V_13
+BitReverse	,	F_33
+NewX	,	V_21
+rx_cal_flt_b	,	V_92
+_sin_cos	,	F_11
+reg_b_acq_ctrl	,	V_34
+rx_cal	,	V_93
+CurrAngle	,	V_18
+Angles	,	V_22
+"[CAL]    ** a_2_threshold = %d\n"	,	L_7
+sin_2b	,	V_66
+"[CAL]       rx_cal[1] = %d\n"	,	L_72
+number	,	V_25
+rot_tone_q_b	,	V_89
+iqcal_image_q_avg	,	V_98
+"[CAL] [%d.] &lt;_tx_iq_calibration_loop&gt;\n"	,	L_10
+rot_tone_i_b	,	V_88
+ltmp	,	V_103
+_rx_iq_calibration_winbond	,	F_31
+val	,	V_2
+"[CAL]    ** pwr_image  = %d\n"	,	L_76
+MASK_AGC_FIX	,	V_40
+iq_alpha	,	V_101
+index	,	V_102
+tx_cal	,	V_61
+"[CAL]    ** auto_adjust_txvga_for_iq_mag_0_tx=%d\n"	,	L_93
+"[CAL] ** &lt;_rx_iq_calibration_loop&gt; *********\n"	,	L_78
+"[CAL] ** &lt;_rx_iq_calibration_loop&gt; *************\n"	,	L_77
+init_txvga	,	V_112
+"[CAL] ** TX_IQ_CALIBRATION SATUATION !!\n"	,	L_44
+"[CAL]    ** iqcal_tone_i = %d, iqcal_tone_q = %d\n"	,	L_15
+"[CAL]       apply tx_cal[3] = %d\n"	,	L_48
+adjust_TXVGA_for_iq_mag	,	F_29
+_s6_to_s32	,	F_7
+"[CAL] -&gt; [5]_rx_iq_calibration()\n"	,	L_89
+sq_rt	,	V_5
+"[CAL]       apply tx_cal[1] = %d\n"	,	L_46
+MASK_IQCAL_MODE	,	V_79
+"[CAL]    ** rot_i_b = %d, rot_q_b = %d\n"	,	L_16
+divisor	,	V_69
+"[CAL]    ** apply tx_cal[0] = %d\n"	,	L_45
+"[CAL] **************************************\n"	,	L_26
+angle	,	V_14
+iq_mag_0_tx	,	V_53
+iqcal_image_i_avg	,	V_97
+u16	,	T_3
+"[CAL]       rx_cal_flt_b[2] = %d\n"	,	L_69
+pwr_image	,	V_96
+"[CAL]    ***** EPSILON/2 = %d\n"	,	L_20
+"[CAL]       tx_cal_reg[3] = %d\n"	,	L_43
+"[CAL]    ***** THETA/2   = %d\n"	,	L_21
+PHY_DEBUG	,	F_21
+cos_2b	,	V_68
+"[CAL]    ** sin(b)=%d, cos(b)=%d\n"	,	L_28
+"[CAL]    ** adc_dc_cal_i = %d (0x%04X)\n"	,	L_4
+REG_CALIB_READ2	,	V_99
+REG_CALIB_READ1	,	V_81
+_tx_iq_calibration_loop_winbond	,	F_26
+tx_cal_reg	,	V_62
+"[CAL]    ** 0x3C = 0x%08X\n"	,	L_39
+phy_calibration_winbond	,	F_32
+"[CAL]       apply rx_cal[2] = %d\n"	,	L_87
+udelay	,	F_34
+data	,	V_1
+"[CAL]       rx_cal_reg[2] = %d\n"	,	L_82
+RF_WB_242_1	,	V_37
+"[CAL]    ** rx_cal_flt_b[0] = %d\n"	,	L_67
+REG_B_ACQ_CTRL	,	V_45
+MASK_ADC_DC_CAL_STR	,	V_48
+"[CAL] ** &lt;_tx_iq_calibration_loop&gt; ERROR *******\n"	,	L_17
+b_2	,	V_64
+u32	,	T_2
+"[CAL]       apply rx_cal[1] = %d\n"	,	L_86
+"[CAL] ** &lt;_rx_iq_calibration_loop&gt; ERROR *******\n"	,	L_63
+capture_time	,	V_76
+"[CAL] ** TX_IQ_CALIBRATION FAILURE !!\n"	,	L_53
+_reset_rx_cal	,	F_17
+a_2_threshold	,	V_50
+sqsum	,	V_4
+"[CAL] ******************************************\n"	,	L_19
+"[CAL]       tx_cal[3] = %d\n"	,	L_37
+"[CAL]       tx_cal_flt_b[2] = %d\n"	,	L_32
+REG_MODE_CTRL	,	V_47
+REG_AGC_CTRL3	,	V_38
+"[CAL] ** &lt;_tx_iq_calibration_loop&gt; *********\n"	,	L_24
+REG_AGC_CTRL5	,	V_41
+pHwData	,	V_24
+"[CAL]    ** apply rx_cal[0] = %d\n"	,	L_85
+revision	,	V_30
+rx_cal_reg	,	V_94
+MASK_BMER_OFF_REG	,	V_46
+reg_mode_ctrl	,	V_52
+"[CAL]    CALIB_READ1 = 0x%08X\n"	,	L_12
+_s9_to_s32	,	F_25
+"[CAL] ** cos(b)=0 !!\n"	,	L_29
+_s4_to_s32	,	F_3
+rot_q_b	,	V_59
+"[CAL]       tx_cal_reg[2] = %d\n"	,	L_42
+a_2	,	V_63
+"[CAL]    ** rot_tone_i_b  = %d\n"	,	L_59
+MASK_AGC_FIX_GAIN	,	V_42
+rot_i_b	,	V_58
+"[CAL] ** rot_tone_i_b=0 to calculate EPS and THETA !!\n"	,	L_64
+value	,	V_27
+phy_init_rf	,	F_22
+_s13_to_s32	,	F_1
+iqcal_tone_i0	,	V_54
+tx_cal_flt_b	,	V_60
+"[CAL]    REG_OFFSET_READ = 0x%08X\n"	,	L_3
+LOOP_TIMES	,	V_77
+"[CAL]       rx_cal_flt_b[1] = %d\n"	,	L_68
+"[CAL]       tx_cal[0] = %d\n"	,	L_34
+_s32_to_s4	,	F_4
+_tx_iq_calibration_winbond	,	F_27
+_s32_to_s6	,	F_8
+_s32_to_s5	,	F_6

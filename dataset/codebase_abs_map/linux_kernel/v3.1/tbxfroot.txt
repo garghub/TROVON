@@ -1,0 +1,54 @@
+acpi_find_root_pointer	,	F_5
+table_ptr	,	V_12
+"RSDP located at physical address %p\n"	,	L_3
+AE_NOT_FOUND	,	V_23
+return_PTR	,	F_17
+"Searched entire block from %p, valid RSDP was not found\n"	,	L_4
+ACPI_DB_INFO	,	V_30
+return_ACPI_STATUS	,	F_9
+acpi_status	,	T_1
+AE_BAD_SIGNATURE	,	V_4
+ACPI_CAST_PTR	,	F_14
+u32	,	T_3
+"A valid RSDP was not found"	,	L_2
+acpi_os_map_memory	,	F_7
+ACPI_STRNCMP	,	F_3
+acpi_tb_scan_memory_for_rsdp	,	F_12
+ACPI_MOVE_16_TO_32	,	F_10
+revision	,	V_8
+tb_scan_memory_for_rsdp	,	V_28
+ACPI_FUNCTION_ENTRY	,	F_2
+rsdp	,	V_2
+ACPI_PTR_DIFF	,	F_13
+AE_BAD_CHECKSUM	,	V_7
+end_address	,	V_27
+ACPI_SIG_RSDP	,	V_3
+status	,	V_26
+acpi_tb_checksum	,	F_4
+physical_address	,	V_14
+ACPI_SUCCESS	,	F_15
+mem_rover	,	V_13
+ACPI_RSDP_SCAN_STEP	,	V_29
+acpi_table_rsdp	,	V_1
+ACPI_EBDA_PTR_LENGTH	,	V_17
+ACPI_HI_RSDP_WINDOW_BASE	,	V_21
+ACPI_RSDP_CHECKSUM_LENGTH	,	V_6
+ACPI_HI_RSDP_WINDOW_SIZE	,	V_22
+ACPI_RSDP_XCHECKSUM_LENGTH	,	V_9
+ACPI_DEBUG_PRINT	,	F_16
+table_address	,	V_11
+u8	,	V_5
+AE_OK	,	V_10
+ACPI_ERROR	,	F_8
+length	,	V_25
+ACPI_EBDA_WINDOW_SIZE	,	V_20
+ACPI_FUNCTION_TRACE	,	F_6
+acpi_os_unmap_memory	,	F_11
+"Could not map memory at 0x%8.8X for length %u"	,	L_1
+acpi_physical_address	,	V_15
+ACPI_EBDA_PTR_LOCATION	,	V_16
+start_address	,	V_24
+AE_NO_MEMORY	,	V_19
+AE_INFO	,	V_18
+acpi_tb_validate_rsdp	,	F_1
+acpi_size	,	T_2

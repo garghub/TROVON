@@ -1,0 +1,300 @@
+handler	,	V_71
+spin_lock_init	,	F_75
+"aborting transaction\n"	,	L_7
+acpi_install_address_space_handler	,	F_84
+wlen	,	V_21
+acpi_ec_burst_disable	,	F_41
+msleep	,	F_34
+acpi_ec_burst_enable	,	F_40
+ec_delay	,	V_34
+" of EC device. Broken bios is suspected.\n"	,	L_21
+ec_dmi_table	,	V_136
+"transaction start (cmd=0x%02x, addr=0x%02x)\n"	,	L_8
+time_before	,	F_22
+wdata	,	V_23
+ec_install_handlers	,	F_82
+state	,	V_29
+curr	,	V_12
+ACPI_SIG_ECDT	,	V_137
+value64	,	V_88
+"output of acpidump to linux-acpi@vger.kernel.org\n"	,	L_36
+EC_FLAGS_GPE_STORM	,	V_49
+region_context	,	V_90
+glk	,	V_41
+"Could not request EC cmd io port 0x%lx"	,	L_27
+ec_storm_threshold	,	V_51
+ACPI_EC_COMMAND_QUERY	,	V_40
+node	,	V_74
+delay	,	V_32
+"EC cmd"	,	L_26
+"GPE storm detected(%d GPEs), "	,	L_9
+ri	,	V_16
+ec_transaction_done	,	F_8
+pr_err	,	F_32
+"Trying to use DSDT EC info instead. Please send "	,	L_35
+ec_get_handle	,	F_49
+GFP_KERNEL	,	V_72
+device	,	V_116
+acpi_walk_namespace	,	F_92
+return_value	,	V_101
+"_GPE"	,	L_18
+ACPI_GPE_EDGE_TRIGGERED	,	V_112
+ACPI_REENABLE_GPE	,	V_85
+test_bit	,	F_29
+acpi_os_execute	,	F_65
+mutex_init	,	F_72
+result	,	V_57
+EC_FLAGS_HANDLERS_INSTALLED	,	V_111
+mutex_unlock	,	F_39
+"transactions will use polling mode\n"	,	L_10
+rlen	,	V_25
+ACPI_ADR_SPACE_EC	,	V_113
+"Could not request EC data io port 0x%lx"	,	L_25
+acpi_ec_block_transactions	,	F_50
+"---&gt; data = 0x%2.2x\n"	,	L_2
+temp_data	,	V_63
+ec_check_sci_sync	,	F_14
+ACPI_EC_MSI_UDELAY	,	V_36
+clear_bit	,	F_24
+ACPI_EC_FLAG_OBF	,	V_26
+u8	,	T_1
+address	,	V_56
+AE_OK	,	V_98
+d	,	V_52
+pr_info	,	F_36
+make_acpi_ec	,	F_71
+ACPI_ROOT_OBJECT	,	V_120
+i	,	V_91
+ec_remove_handlers	,	F_87
+acpi_remove_address_space_handler	,	F_88
+"failed to remove space handler\n"	,	L_22
+"Detected MSI hardware, enabling workarounds.\n"	,	L_29
+acpi_ec_space_handler	,	F_70
+"ECDT tables, which are very hard to workaround. "	,	L_34
+t	,	V_19
+jiffies	,	V_33
+mutex_lock	,	F_28
+gpe_device	,	V_82
+x	,	V_3
+dmi_system_id	,	V_129
+ec_cxt	,	V_81
+acpi_remove_gpe_handler	,	F_86
+"EC data"	,	L_24
+acpi_walk_resources	,	F_80
+ec_flag_msi	,	F_101
+ec_check_sci	,	F_67
+ACPI_READ	,	V_94
+INIT_LIST_HEAD	,	F_74
+ACPI_RESOURCE_TYPE_IO	,	V_125
+in_interrupt	,	F_13
+gpe	,	V_50
+ec	,	V_2
+cxt	,	V_76
+ACPI_TYPE_METHOD	,	V_121
+ret	,	V_10
+acpi_disable_gpe	,	F_33
+ACPI_EC_COMMAND_WRITE	,	V_59
+unlock	,	V_20
+acpi_resource	,	V_123
+acpi_ec_transaction	,	F_27
+ACPI_EC_COMMAND_READ	,	V_58
+handler_context	,	V_89
+ACPI_EC_BURST_DISABLE	,	V_54
+list	,	V_75
+retval	,	V_107
+WARN	,	F_94
+spin_unlock_irqrestore	,	F_10
+"~~~&gt; interrupt, status:0x%02x\n"	,	L_16
+acpi_table_header	,	V_138
+"push gpe query to the queue\n"	,	L_15
+EC_FLAGS_MSI	,	V_35
+acpi_buffer	,	V_103
+acpi_driver_data	,	F_96
+acpi_ec_query_handler	,	V_70
+acpi_ec_read_data	,	F_4
+printk	,	F_85
+advance_transaction	,	F_12
+ecdt_ptr	,	V_135
+ENODATA	,	V_67
+wi	,	V_15
+list_del	,	F_59
+kzalloc	,	F_55
+boot_ec	,	V_119
+acpi_ec_remove_query_handler	,	F_57
+acpi_enable_gpe	,	F_35
+kmalloc	,	F_64
+end	,	V_48
+acpi_get_table	,	F_105
+acpi_evaluate_object	,	F_62
+"&lt;--- data = 0x%2.2x\n"	,	L_4
+outb	,	F_6
+acpi_device_class	,	F_91
+acpi_evaluate_integer	,	F_81
+EC_FLAGS_SKIP_DSDT_SCAN	,	V_131
+ACPI_EC_CLASS	,	V_118
+acpi_bus_register_driver	,	F_111
+"GPE = 0x%lx, I/O: command/status = 0x%lx, data = 0x%lx\n"	,	L_28
+acpi_ec_remove	,	F_95
+ec_parse_io_ports	,	V_109
+ec_enlarge_storm_threshold	,	F_102
+command_addr	,	V_4
+func	,	V_69
+ec_burst_disable	,	F_45
+ACPI_EC_FLAG_BURST	,	V_55
+"ASUSTek keeps feeding us with broken "	,	L_33
+"stop query execution\n"	,	L_13
+"_Q%x"	,	L_17
+pr_debug	,	F_3
+wdata_len	,	V_64
+ENOMEM	,	V_73
+ec_transaction	,	F_48
+acpi_ec_gpe_handler	,	F_68
+acpi_get_devices	,	F_108
+dummy	,	V_142
+tmp	,	V_39
+init_waitqueue_head	,	F_73
+context	,	V_100
+lock	,	V_11
+ec_parse_device	,	F_79
+id	,	V_130
+acpi_boot_ec_enable	,	F_98
+val	,	V_62
+AE_BAD_PARAMETER	,	V_93
+ec_check_ibf0	,	F_25
+list_for_each_entry_safe	,	F_58
+io	,	V_126
+acpi_ec_read_status	,	F_1
+data_addr	,	V_6
+bits	,	V_87
+handle	,	V_66
+acpi_ec_query_unlocked	,	F_53
+wait_event_timeout	,	F_21
+ACPI_EC_UDELAY_GLK	,	V_46
+saved_ec	,	V_133
+"&lt;--- command = 0x%2.2x\n"	,	L_3
+acpi_ec_query_func	,	T_4
+install	,	V_140
+ec_wait_ibf0	,	F_26
+Level	,	V_106
+EC_FLAGS_VALIDATE_ECDT	,	V_132
+status	,	V_17
+acpi_ec_transaction_unlocked	,	F_23
+acpi_ec_register_query_methods	,	F_76
+ec_write	,	F_47
+ENODEV	,	V_47
+acpi_get_name	,	F_77
+wait	,	V_37
+"start query execution\n"	,	L_12
+ACPI_SUCCESS	,	F_78
+EC_FLAGS_BLOCKED	,	V_44
+query_bit	,	V_68
+kfree	,	F_60
+acpi_ec	,	V_1
+ec_device_ids	,	V_141
+flags	,	V_9
+mutex	,	V_43
+"transaction end\n"	,	L_11
+acpi_ec_read	,	F_42
+acpi_ec_run	,	F_61
+acpi_device	,	V_115
+"ASUS"	,	L_37
+gpe_number	,	V_83
+rdata_len	,	V_65
+dmi_name_in_vendors	,	F_109
+acpi_ec_driver	,	V_143
+copy	,	V_78
+acpi_acquire_global_lock	,	F_30
+ETIME	,	V_38
+err	,	V_24
+irqs_disabled	,	F_19
+acpi_ec_add	,	F_89
+node_name	,	V_102
+rdata	,	V_27
+"controller reset, restart transaction\n"	,	L_5
+EFAULT	,	V_128
+ACPI_EC_BURST_ENABLE	,	V_53
+EINVAL	,	V_42
+acpi_physical_address	,	T_6
+ACPI_EC_DEVICE_NAME	,	V_117
+ec_validate_ecdt	,	F_100
+test_and_set_bit	,	F_15
+__init	,	T_8
+udelay	,	F_20
+OSL_GPE_HANDLER	,	V_80
+request_region	,	F_93
+minimum	,	V_127
+transaction	,	V_18
+ec_burst_enable	,	F_44
+"EC description table is found, configuring boot EC\n"	,	L_31
+acpi_handle	,	T_3
+AE_CTRL_TERMINATE	,	V_110
+data	,	V_8
+AE_NOT_FOUND	,	V_96
+acpi_release_global_lock	,	F_38
+wake_up	,	F_69
+acpi_ec_write	,	F_43
+"failed to remove gpe handler\n"	,	L_23
+acpi_status	,	T_5
+"---&gt; status = 0x%2.2x\n"	,	L_1
+dmi_check_system	,	F_104
+global_lock	,	V_45
+u32	,	T_2
+function	,	V_86
+ACPI_SINGLE_NAME	,	V_105
+buffer	,	V_104
+AE_TIME	,	V_97
+ec_read	,	F_46
+level	,	V_99
+resource	,	V_124
+acpi_get_handle	,	F_106
+done	,	V_13
+acpi_install_gpe_handler	,	F_83
+OSL_NOTIFY_HANDLER	,	V_79
+ACPI_INTERRUPT_HANDLED	,	V_84
+first_ec	,	V_60
+PREFIX	,	V_5
+spin_lock_irqsave	,	F_9
+list_add	,	F_56
+acpi_ec_gpe_query	,	F_66
+"_GLK"	,	L_19
+METHOD_NAME__CRS	,	V_108
+"_INI"	,	L_38
+start_transaction	,	F_11
+ACPI_WRITE	,	V_95
+list_for_each_entry	,	F_63
+ACPI_EC_FLAG_SCI	,	V_28
+acpi_ec_write_data	,	F_7
+ec_skip_dsdt_scan	,	F_99
+acpi_ec_sync_query	,	F_16
+ACPI_FAILURE	,	F_31
+irq_count	,	V_14
+EC_FLAGS_QUERY_PENDING	,	V_30
+acpi_ec_unblock_transactions_early	,	F_52
+acpi_ec_write_cmd	,	F_5
+kmemdup	,	F_107
+"Fail in evaluating the _REG object"	,	L_20
+driver_data	,	V_122
+msecs_to_jiffies	,	F_18
+repeat	,	V_31
+acpi_ec_unblock_transactions	,	F_51
+acpi_ec_init	,	F_110
+inb	,	F_2
+addr	,	V_61
+value	,	V_77
+"Setting the EC GPE storm threshold to 20\n"	,	L_30
+acpi_table_ecdt	,	V_134
+acpi_ec_add_query_handler	,	F_54
+"Look up EC in DSDT\n"	,	L_32
+set_bit	,	F_37
+"push query execution (0x%2x) on queue\n"	,	L_14
+acpi_device_name	,	F_90
+control	,	V_139
+ACPI_EC_FLAG_IBF	,	V_22
+command	,	V_7
+release_region	,	F_97
+acpi_ec_ecdt_probe	,	F_103
+u64	,	T_7
+"input buffer is not empty, "	,	L_6
+ec_poll	,	F_17
+bytes	,	V_92
+KERN_ERR	,	V_114

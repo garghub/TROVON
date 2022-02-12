@@ -1,0 +1,196 @@
+dlm_lock_get	,	F_11
+DLM_UNLOCK_CALL_AST	,	V_57
+cpu_to_be32	,	F_26
+"non-"	,	L_11
+dlm_lookup_lockres	,	F_35
+dlmunlock_remote	,	F_25
+in_use	,	V_15
+tmpret	,	V_62
+msleep	,	F_45
+granted	,	V_47
+len	,	V_24
+dlm_lockres_get	,	F_44
+lvb	,	V_38
+state	,	V_28
+"%s:%.*s: this node became the master due to a "	,	L_14
+dlm_domain_fully_joined	,	F_34
+dlm_status	,	V_1
+dlm_send_remote_unlock_request	,	F_10
+is_master	,	V_96
+spinlock	,	V_27
+LKM_GET_LVB	,	V_84
+node	,	V_90
+list_for_each	,	F_36
+DLM_NORMAL	,	V_36
+unlock_pending	,	V_42
+cancel_pending	,	V_41
+lksb	,	V_9
+actions	,	V_14
+""	,	L_10
+"Error %d when sending message %u (key 0x%x) to "	,	L_17
+DLM_BADPARAM	,	V_26
+lock_refs	,	V_55
+dlm_lock_put	,	F_13
+DLM_REJECTED	,	V_88
+list_del_init	,	F_12
+dlm_lockres_put	,	F_40
+LKM_PUT_LVB	,	V_40
+iov_base	,	V_70
+found	,	V_80
+dlm_commit_pending_unlock	,	F_21
+"lockres is in progress\n"	,	L_31
+"lvb: %s\n"	,	L_24
+"lock %u:%llu should be gone now! refs=%d\n"	,	L_12
+key	,	V_72
+u8	,	T_1
+atomic_read	,	F_20
+dlm_unlock_lock_handler	,	F_30
+DLM_IVLOCKID	,	V_91
+i	,	V_81
+ML_ERROR	,	V_22
+DLM_MIGRATING	,	V_35
+"returning DLM_MIGRATING\n"	,	L_29
+buf	,	V_77
+"lock to cancel is not on any list!\n"	,	L_34
+dlm_unlock_lock	,	V_60
+LKM_IVMODE	,	V_50
+dlm_lock_basts_flushed	,	F_47
+converting	,	V_51
+unlockast	,	V_95
+"bad args!  GET_LVB specified on unlock!\n"	,	L_19
+LKM_INVVALBLK	,	V_97
+refcount	,	V_56
+leave	,	V_33
+"done calling dlmunlock_remote: returned %d, "	,	L_39
+"Domain %s not fully joined!\n"	,	L_23
+call_ast	,	V_11
+"returning DLM_RECOVERING\n"	,	L_28
+dlm_get_unlock_actions	,	F_9
+dlm_get_cancel_actions	,	F_8
+ret	,	V_63
+res	,	V_5
+unlock	,	V_61
+"node %u\n"	,	L_18
+"clearing convert_type at %smaster node\n"	,	L_9
+"master was in-progress.  retry\n"	,	L_16
+list	,	V_46
+"request!\n"	,	L_21
+name	,	V_25
+"VALBLK given with CANCEL: ignoring VALBLK\n"	,	L_35
+DLM_UNLOCK_REMOVE_LOCK	,	V_43
+"master_node = %d, valblk = %d\n"	,	L_1
+dlm_lock	,	V_6
+dlm_lockres_calc_usage	,	F_38
+BUG_ON	,	F_3
+dlm_ctxt	,	V_2
+"while waiting for an ast!"	,	L_3
+DLM_UNLOCK_FREE_LOCK	,	V_53
+"lockres in progress!\n"	,	L_4
+dlm_put	,	F_41
+ignore	,	V_82
+wq	,	V_52
+retry	,	V_100
+owner	,	V_16
+mlog_bug_on_msg	,	F_33
+dlm	,	V_3
+DLM_IVBUFLEN	,	V_87
+DLM_UNLOCK_REGRANT_LOCK	,	V_44
+spin_unlock	,	F_6
+dlm_get_lock_cookie_node	,	F_17
+"returning status=%d!\n"	,	L_44
+dlmunlock_master	,	F_24
+"recovering"	,	L_6
+wait_event	,	F_46
+"migrating"	,	L_7
+list_entry	,	F_37
+"returning DLM_FORWARD -- res no longer exists\n"	,	L_27
+"%s:%.*s: clearing actions, %s\n"	,	L_5
+ret_data	,	V_76
+"retrying unlock due to pending recovery/"	,	L_40
+namelen	,	V_68
+list_empty	,	F_5
+DLM_FORWARD	,	V_30
+"%.*s\n"	,	L_13
+lockid	,	V_98
+"calling unlockast(%p, %d)\n"	,	L_42
+veclen	,	V_66
+lock	,	V_7
+DLM_BADARGS	,	V_85
+"migration/in-progress\n"	,	L_41
+"migration, re-evaluate now\n"	,	L_15
+cookie	,	V_54
+ast_list	,	V_20
+DLM_LKSB_GET_LVB	,	V_59
+"put lvb"	,	L_25
+iter	,	V_79
+"lock=%p res=%p\n"	,	L_36
+be32_to_cpu	,	F_31
+LKM_VALBLK	,	V_17
+DLM_LVB_LEN	,	V_39
+list_move_tail	,	F_23
+dlm_lock_on_list	,	F_15
+LKM_EXMODE	,	V_92
+LKM_CANCEL	,	V_21
+node_num	,	V_18
+dlm_err_to_dlm_status	,	F_29
+status	,	V_13
+"Invalid name length in unlock handler!\n"	,	L_22
+dlm_lockstatus	,	V_8
+flags	,	V_10
+dlmunlock_common	,	F_1
+list_add_tail	,	F_14
+"none"	,	L_26
+dlm_kick_thread	,	F_39
+blocked	,	V_93
+DLM_UNLOCK_LOCK_MSG	,	V_71
+not_found	,	V_89
+"kicking the thread\n"	,	L_43
+DLM_LKSB_PUT_LVB	,	V_58
+"lockres %.*s: Someone is calling dlmunlock "	,	L_2
+DLM_UNLOCK_CLEAR_CONVERT_TYPE	,	V_45
+master_node	,	V_12
+DLM_RECOVERING	,	V_32
+kvec	,	V_64
+queue	,	V_83
+msg	,	V_74
+mlog	,	F_2
+data	,	V_75
+__dlm_wait_on_lockres	,	F_7
+wake_up	,	F_16
+"bad args!  cannot modify lvb on a CANCEL "	,	L_20
+size_t	,	T_2
+dlm_error	,	F_42
+vec	,	V_65
+u32	,	T_3
+o2net_send_message_vec	,	F_27
+DLM_LOCK_RES_RECOVERING	,	V_31
+ml	,	V_48
+o2net_msg	,	V_73
+DLM_DENIED	,	V_94
+lockres	,	V_99
+ast_wq	,	V_101
+DLM_LOCK_RES_IN_PROGRESS	,	V_29
+dlm_commit_pending_cancel	,	F_22
+dlm_is_host_down	,	F_28
+"done calling dlmunlock_master: returned %d, "	,	L_37
+dlmunlock	,	F_43
+DLM_CANCELGRANT	,	V_37
+"failed to find lock to unlock! "	,	L_32
+"call_ast is %d\n"	,	L_38
+DLM_LOCK_RES_MIGRATING	,	V_34
+ast_lock	,	V_19
+"cookie=%u:%llu\n"	,	L_33
+dlm_get_lock_cookie_seq	,	F_19
+spin_lock	,	F_4
+dlm_grab	,	F_32
+iov_len	,	V_69
+list_head	,	V_78
+dlm_lock_resource	,	V_4
+DLM_LOCKID_NAME_MAX	,	V_86
+lockname	,	V_23
+convert_type	,	V_49
+"returning DLM_FORWARD -- not master\n"	,	L_30
+dlm_astunlockfunc_t	,	T_4
+node_idx	,	V_67
+"forward"	,	L_8
+be64_to_cpu	,	F_18

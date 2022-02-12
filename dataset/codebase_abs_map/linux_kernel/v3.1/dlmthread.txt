@@ -1,0 +1,187 @@
+hi	,	V_75
+dlm_lock_get	,	F_56
+"%s: res %.*s, inprogress, delay list "	,	L_28
+list_empty	,	F_12
+bit	,	V_15
+remove_wait_queue	,	F_9
+granted	,	V_12
+dlm_drop_lockres_ref	,	F_24
+in_progress	,	V_89
+len	,	V_27
+dlm_lockres_get	,	F_18
+mlog_errno	,	F_50
+lock	,	V_48
+state	,	V_10
+"%s: res %.*s is in use or being remastered, "	,	L_7
+spinlock	,	V_6
+cookie	,	V_61
+"used %d, state %d\n"	,	L_8
+ast_list	,	V_77
+"%s: inprog %d, mig %d, reco %d,"	,	L_26
+DECLARE_WAITQUEUE	,	F_2
+iter	,	V_51
+list_move_tail	,	F_34
+purge_count	,	V_31
+node	,	V_62
+list_for_each	,	F_37
+dlm_shuffle_lists	,	F_36
+"%s: res %.*s\n"	,	L_15
+delay	,	V_88
+"shuffle, state %d\n"	,	L_29
+DLM_NORMAL	,	V_65
+dlm_lockres_release_ast	,	F_60
+unused	,	V_41
+node_num	,	V_35
+lksb	,	V_63
+DLM_PURGE_INTERVAL_MS	,	V_45
+O2NM_MAX_NODES	,	V_20
+"%s: Removing res %.*s from purge list\n"	,	L_2
+status	,	V_64
+"dlm_thread"	,	L_17
+wait	,	V_4
+"%s: res %.*s, AST queued while flushing last "	,	L_20
+flags	,	V_3
+__dlm_queue_ast	,	F_44
+dlm_lock_put	,	F_57
+list_del_init	,	F_20
+list_add_tail	,	F_19
+dlm_lockres_put	,	F_21
+"Waiting for dlm thread to exit\n"	,	L_18
+__dlm_dirty_lockres	,	F_46
+dlm_kick_thread	,	F_45
+current	,	V_5
+ast_pending	,	V_78
+blocked	,	V_14
+BUG	,	F_26
+dlm_thread_task	,	V_70
+DLM_THREAD_MAX_DIRTY	,	V_87
+__set_current_state	,	F_10
+time_after	,	F_33
+assert_spin_locked	,	F_3
+can_grant	,	V_53
+"Starting dlm_thread...\n"	,	L_16
+cond_resched	,	F_65
+kthread_should_stop	,	F_63
+dirty	,	V_16
+purge_jiffies	,	V_42
+"%s: res %.*s, Flush AST for lock %u:%llu, type %d, "	,	L_19
+__dlm_lockres_unused	,	F_13
+dlm_purge_lockres	,	F_23
+u8	,	T_1
+dlm_thread	,	V_71
+DLM_LOCK_RES_DIRTY	,	V_17
+pending_asts	,	V_76
+pending_basts	,	V_79
+"blocked %d, node %u\n"	,	L_23
+ML_ERROR	,	V_38
+n	,	V_86
+EINVAL	,	V_72
+TASK_UNINTERRUPTIBLE	,	V_9
+__dlm_print_one_lock_resource	,	F_27
+jiffies	,	V_29
+LKM_IVMODE	,	V_59
+"one\n"	,	L_21
+"%s: res %.*s has locks on the convert queue\n"	,	L_9
+kthread_run	,	F_48
+inflight_locks	,	V_21
+DLM_THREAD_TIMEOUT_MS	,	V_85
+wait_event_interruptible_timeout	,	F_66
+dlm_do_local_ast	,	F_59
+mlog	,	F_17
+dlm_dirty_list_empty	,	F_54
+data	,	V_83
+cond_resched_lock	,	F_35
+converting	,	V_13
+"%d =&gt; %d, node %u\n"	,	L_12
+wake_up	,	F_29
+__dlm_unhash_lockres	,	F_28
+empty	,	V_74
+"%s: res %.*s in use after deref\n"	,	L_6
+kthread_stop	,	F_53
+set_current_state	,	F_5
+leave	,	V_66
+DLM_LOCK_RES_RECOVERING	,	V_18
+"%s: res %.*s converting lock to invalid mode\n"	,	L_10
+dlm_run_purge_list	,	F_30
+purge_now	,	V_39
+"quitting DLM thread\n"	,	L_31
+ml	,	V_57
+ret	,	V_33
+res	,	V_2
+purge_list	,	V_30
+"node %u\n"	,	L_14
+lockres	,	V_43
+ast_wq	,	V_82
+dirty_list	,	V_69
+DLM_LOCK_RES_DROPPING_REF	,	V_36
+ML_KTHREAD	,	V_73
+dlm_do_remote_ast	,	F_58
+list	,	V_56
+__dlm_wait_on_lockres_flags	,	F_1
+PTR_ERR	,	F_51
+refmap	,	V_19
+DLM_LOCK_RES_IN_PROGRESS	,	V_55
+dlm_shutting_down	,	F_64
+bast_pending	,	V_81
+__dlm_lockres_has_locks	,	F_11
+dlm_is_host_down	,	F_25
+__dlm_queue_bast	,	F_40
+"%s: Purging res %.*s, master %d\n"	,	L_3
+dlm_launch_thread	,	F_47
+"%s: res %.*s, BAST queued while flushing last "	,	L_24
+name	,	V_25
+"dlm thread running for %s...\n"	,	L_25
+next	,	V_44
+dlm_lock	,	V_47
+dlm_complete_thread	,	F_52
+dlm_lockres_calc_usage	,	F_22
+BUG_ON	,	F_15
+dlm_ctxt	,	V_22
+last_used	,	V_28
+purge	,	V_24
+"%s: Adding res %.*s to purge list\n"	,	L_1
+DLM_LOCK_RES_MIGRATING	,	V_46
+DLM_LOCK_RES_BLOCK_DIRTY	,	V_68
+bast_list	,	V_80
+timeout	,	V_84
+find_next_bit	,	F_14
+head	,	V_52
+dlm_do_local_bast	,	F_62
+msecs_to_jiffies	,	F_32
+highest_blocked	,	V_60
+"%s: res %.*s, AST for Blocked lock %u:%llu, type %d, "	,	L_13
+dlm_lock_compatible	,	F_38
+"%s: res %.*s, Flush BAST for lock %u:%llu, "	,	L_22
+ast_lock	,	V_54
+repeat	,	V_8
+run_max	,	V_40
+dlm_get_lock_cookie_seq	,	F_43
+wq	,	V_7
+spin_lock	,	F_8
+__dlm_lockres_reserve_ast	,	F_39
+owner	,	V_34
+add_wait_queue	,	F_4
+"%s: Throttling dlm thread\n"	,	L_30
+dlm	,	V_23
+DLM_LOCK_RES_SETREF_INPROG	,	V_37
+list_head	,	V_50
+dlm_flush_asts	,	F_55
+TASK_RUNNING	,	V_11
+dlm_lock_resource	,	V_1
+spin_unlock	,	F_6
+dlm_get_lock_cookie_node	,	F_41
+__dlm_lockres_calc_usage	,	F_16
+lockname	,	V_26
+master	,	V_32
+target	,	V_49
+"%s: Removing res %.*s from purgelist, master %d\n"	,	L_5
+convert_type	,	V_58
+schedule	,	F_7
+" dirty %d\n"	,	L_27
+"%s: res %.*s, AST for Converting lock %u:%llu, type "	,	L_11
+dlm_send_proxy_bast	,	F_61
+dlm_thread_wq	,	V_67
+list_entry	,	F_31
+"%s: deref %.*s failed %d\n"	,	L_4
+be64_to_cpu	,	F_42
+IS_ERR	,	F_49

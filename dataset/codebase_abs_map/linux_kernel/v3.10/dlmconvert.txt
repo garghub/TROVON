@@ -1,0 +1,169 @@
+cpu_to_be32	,	F_27
+dlm_lock_get	,	F_39
+dlm_lookup_lockres	,	F_37
+namelen	,	V_63
+DLM_FORWARD	,	V_70
+convert	,	V_55
+tmpret	,	V_56
+dlm_print_one_lock_resource	,	F_40
+"%.*s\n"	,	L_21
+granted	,	V_27
+convert_pending	,	V_51
+"%d to %d...\n"	,	L_14
+len	,	V_39
+"failed to convert NOQUEUE lock %.*s from "	,	L_13
+veclen	,	V_60
+lock	,	V_7
+lvb	,	V_43
+state	,	V_13
+dlm_convert_lock	,	V_54
+DLM_BADARGS	,	V_85
+dlm_domain_fully_joined	,	F_35
+LKM_NOQUEUE	,	V_45
+"node %u returned DLM_MIGRATING from convert "	,	L_24
+dlm_status	,	V_1
+spinlock	,	V_12
+"converting a remote lock that is already "	,	L_19
+cookie	,	V_50
+DLM_LKSB_GET_LVB	,	V_34
+"type=%d, convert_type=%d, new convert_type=%d\n"	,	L_1
+"put lvb"	,	L_33
+"res %.*s, granting %s lock\n"	,	L_11
+iter	,	V_19
+be32_to_cpu	,	F_36
+LKM_VALBLK	,	V_28
+LKM_GET_LVB	,	V_53
+"node %u returned DLM_FORWARD from convert "	,	L_25
+DLM_LVB_LEN	,	V_44
+list_move_tail	,	F_19
+node	,	V_41
+dlm_revert_pending_convert	,	F_21
+list_for_each	,	F_16
+DLM_NORMAL	,	V_16
+dlm_lock_on_list	,	F_14
+LKM_EXMODE	,	V_29
+dlm_lockres_release_ast	,	F_10
+lksb	,	V_30
+node_num	,	V_42
+dlm_err_to_dlm_status	,	F_31
+status	,	V_11
+"Error %d when sending message %u (key 0x%x) to "	,	L_26
+"conversion pending\n"	,	L_3
+"message!\n"	,	L_23
+dlm_wait_for_node_death	,	F_30
+dlm_lockstatus	,	V_78
+flags	,	V_8
+dlm_lock_put	,	F_42
+DLM_REJECTED	,	V_81
+dlm_lockres_put	,	F_43
+"none"	,	L_35
+LKM_PUT_LVB	,	V_52
+dlm_kick_thread	,	F_11
+iov_base	,	V_65
+dlm_convert_lock_handler	,	F_32
+"into lvb: converting %s-&gt;%s\n"	,	L_10
+"lvb: %s\n"	,	L_32
+assert_spin_locked	,	F_12
+key	,	V_67
+dlm_queue_ast	,	F_9
+LKM_NLMODE	,	V_33
+"attempted to convert a lock with a lock "	,	L_2
+"attempted to convert a lock not on grant "	,	L_4
+DLM_IVLOCKID	,	V_86
+LKM_PRMODE	,	V_32
+cnv	,	V_76
+ML_ERROR	,	V_24
+DLM_MIGRATING	,	V_69
+tmplock	,	V_20
+DLM_LKSB_PUT_LVB	,	V_31
+buf	,	V_77
+__dlm_print_one_lock_resource	,	F_20
+LKM_IVMODE	,	V_23
+DLM_RECOVERING	,	V_48
+dlm_send_remote_convert_request	,	F_26
+kvec	,	V_58
+requested_type	,	V_62
+"will fetch new value into "	,	L_7
+"lvb: converting %s-&gt;%s\n"	,	L_8
+msg	,	V_73
+mlog	,	F_13
+data	,	V_74
+converting	,	V_46
+__dlm_wait_on_lockres	,	F_3
+"will NOT fetch new value "	,	L_9
+wake_up	,	F_7
+size_t	,	T_1
+dlm_error	,	F_8
+bail	,	V_49
+dlmconvert_master	,	F_1
+ast_reserved	,	V_79
+DLM_NOTQUEUED	,	V_17
+wake	,	V_80
+vec	,	V_59
+u32	,	T_2
+"res %.*s, queueing...\n"	,	L_15
+o2net_send_message_vec	,	F_28
+leave	,	V_84
+DLM_LOCK_RES_RECOVERING	,	V_47
+"Domain %s not fully joined!\n"	,	L_30
+"converting! (cookie=%u:%llu, conv=%d)\n"	,	L_20
+call_ast	,	V_9
+ml	,	V_21
+ret	,	V_57
+res	,	V_5
+o2net_msg	,	V_72
+DLM_DENIED	,	V_25
+"node %u\n"	,	L_27
+unlock_exit	,	V_26
+list	,	V_36
+dlmconvert_remote	,	F_22
+DLM_CONVERT_LOCK_MSG	,	V_66
+"bailing out early since res is RECOVERING "	,	L_17
+DLM_LOCK_RES_IN_PROGRESS	,	V_14
+dlm_is_host_down	,	F_29
+"both PUT and GET lvb specified\n"	,	L_31
+switch_queues	,	V_37
+"did not find lock to convert on grant queue! "	,	L_36
+kick_thread	,	V_10
+dlm_lock_mode_name	,	F_15
+name	,	V_40
+"type=%d, convert_type=%d, busy=%d\n"	,	L_16
+dlm_lock	,	V_6
+BUG_ON	,	F_41
+dlm_ctxt	,	V_2
+"on secondary queue\n"	,	L_18
+__dlmconvert_master	,	F_5
+"from convert message!\n"	,	L_29
+"will set lvb: converting %s-&gt;%s\n"	,	L_6
+dlm_put	,	F_44
+dlm_lock_compatible	,	F_18
+"cookie=%u:%llu\n"	,	L_37
+dlm_get_lock_cookie_seq	,	F_25
+spin_lock	,	F_2
+wq	,	V_15
+"get lvb"	,	L_34
+__dlm_lockres_reserve_ast	,	F_4
+owner	,	V_68
+mlog_bug_on_msg	,	F_34
+dlm	,	V_3
+dlm_grab	,	F_33
+DLM_IVBUFLEN	,	V_83
+list_head	,	V_18
+iov_len	,	V_64
+"node %u died so returning DLM_RECOVERING "	,	L_28
+dlm_lock_resource	,	V_4
+spin_unlock	,	F_6
+"node %u returned DLM_RECOVERING from convert "	,	L_22
+DLM_NODE_DEATH_WAIT_MAX	,	V_71
+dlm_get_lock_cookie_node	,	F_23
+DLM_LOCKID_NAME_MAX	,	V_82
+"queue\n"	,	L_5
+lockname	,	V_38
+convert_type	,	V_22
+"doing in-place convert for nonlocal lock\n"	,	L_12
+node_idx	,	V_61
+list_entry	,	F_17
+grant	,	V_35
+__dlm_lockres_state_to_status	,	F_38
+be64_to_cpu	,	F_24
+ret_data	,	V_75

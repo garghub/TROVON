@@ -1,0 +1,644 @@
+EEXIST	,	V_241
+atomic_set	,	F_28
+"another process is already migrating it\n"	,	L_169
+dlm_print_one_lock_resource	,	F_59
+tmpret	,	V_182
+tmpres	,	V_105
+dlm_drop_lockres_ref	,	F_117
+qname	,	V_87
+mlog_errno	,	F_89
+dlm_is_lockres_migrateable	,	F_120
+dlm_mle_equal	,	F_1
+lvb	,	V_97
+mleres	,	V_48
+kmem_cache_create	,	F_50
+dlm_domain_fully_joined	,	F_102
+dlm_is_recovery_lock	,	F_81
+voting_done	,	V_129
+errno	,	V_9
+"Going to BUG for resource %.*s."	,	L_10
+spinlock	,	V_25
+"is %u, keep going\n"	,	L_29
+"in-progress! (%.*s)\n"	,	L_127
+"now time to do a migrate request to other nodes\n"	,	L_210
+DLM_MLE_MIGRATION	,	V_47
+diff_bm	,	V_142
+am	,	V_209
+master_lock	,	V_28
+"new master is %u, and old master "	,	L_129
+DLM_MLE_MASTER	,	V_46
+bucket	,	V_60
+dlm_migrate_request	,	V_259
+"master=%u new_master=%u // "	,	L_199
+"assert_master with flags: %u\n"	,	L_102
+new_lockres	,	V_101
+"allocating a new resource\n"	,	L_16
+"%s:%.*s: master=%u, newmaster=%u, "	,	L_201
+"mle found, but dead node %u would not have been "	,	L_204
+"%s:%.*s: late on %s\n"	,	L_19
+dlm_node_iter_next	,	F_87
+"lockres, set the bit in the refmap\n"	,	L_100
+" from %u for migration\n"	,	L_113
+dlm_lock_put	,	F_145
+test_bit	,	F_47
+"failed to dispatch assert master work\n"	,	L_88
+dlm_hb_event_notify_attached	,	F_43
+nodenum	,	V_108
+dlm_lockres_put	,	F_60
+"with no owner should be "	,	L_126
+"(%.*s)\n"	,	L_124
+atomic_dec_and_lock	,	F_154
+sleep	,	V_130
+dlm_do_migrate_request	,	F_146
+"%s:%.*s: bad lockres name\n"	,	L_161
+"%s:%.*s: timed out during migration\n"	,	L_173
+dlm_assert_master_worker	,	V_207
+dlm_new_lockres	,	F_63
+dlm_deref_lockres	,	V_216
+"o2dlm_lockname"	,	L_7
+clear_bit	,	F_33
+b	,	V_132
+bdi	,	V_147
+dlm_restart_lock_mastery	,	F_92
+i	,	V_140
+ENOENT	,	V_144
+__get_free_page	,	F_127
+"Someone asked us to assert mastery, but we're "	,	L_145
+m	,	V_127
+deref_res	,	V_223
+"BLOCK"	,	L_21
+r	,	V_186
+"back off\n"	,	L_108
+"done waiting, master is %u\n"	,	L_44
+u	,	V_208
+resend	,	V_155
+kref	,	V_71
+"bad mle: %p\n"	,	L_1
+"tried to migrate %.*s, but some "	,	L_195
+"dlm=%s, dead node=%u\n"	,	L_207
+"Error %d when sending message %u (key "	,	L_90
+DLM_BLOCKED_LIST	,	V_234
+EPIPE	,	V_14
+LKM_LOCAL	,	V_120
+"master request now, blocked=%d\n"	,	L_31
+dispatch	,	V_220
+converting	,	V_82
+dl	,	V_222
+refcount	,	V_31
+dlm_wait_for_recovery	,	F_84
+DLM_MLE_BLOCK	,	V_45
+"node %u not master, response=NO\n"	,	L_69
+"%s:%.*s: setting bit %u in refmap\n"	,	L_75
+oldmle	,	V_237
+leave	,	V_119
+"master process may need to be restarted!\n"	,	L_47
+"dlm_mark_lockres_migrating: %.*s, from %u to %u\n"	,	L_179
+"assert_master from %u, but current "	,	L_136
+dlm_migration_can_proceed	,	F_141
+ret	,	V_107
+res	,	V_36
+dlm_reset_mleres_owner	,	F_148
+"Got a migrate request, but the "	,	L_193
+DLM_HASH_BUCKETS	,	V_268
+"bad args passed to o2net!\n"	,	L_61
+list	,	V_63
+__dlm_mle_attach_hb_events	,	F_3
+__dlm_wait_on_lockres_flags	,	F_74
+"%s: %.*s: node map changed, restarting\n"	,	L_37
+"%s:%.*s: node %u trying to drop ref "	,	L_162
+dlm_master_hash	,	F_38
+"that will mess up this node, refs=%d, extra=%d, "	,	L_134
+"  We're on a list! [%c%c%c%c%c%c%c]\n"	,	L_11
+"from %u to %u\n"	,	L_132
+dlm_mle_cache	,	V_68
+cleared	,	V_219
+__dlm_lockres_drop_inflight_ref	,	F_67
+mle_added	,	V_240
+dlm_lock	,	V_230
+dlm_lockres_calc_usage	,	F_119
+ECONNREFUSED	,	V_11
+"have begun after %u won.\n"	,	L_111
+dlm_init_master_caches	,	F_56
+"telling master to get ref for cleared out mle "	,	L_202
+__dlm_unlink_mle	,	F_34
+find_next_bit	,	F_79
+nonlocal	,	V_226
+dlm_put	,	F_105
+dlm_destroy_mle_cache	,	F_51
+"master this here\n"	,	L_59
+new_master	,	V_44
+__dlm_lockres_reserve_ast	,	F_114
+dlm_state	,	V_270
+owner	,	V_117
+hash_node	,	V_80
+asts_reserved	,	V_88
+dlm	,	V_2
+DLM_IVBUFLEN	,	V_175
+DLM_LOCK_RES_SETREF_INPROG	,	V_185
+"get lockres %s (len %d)\n"	,	L_14
+dlm_put_mle	,	F_21
+DLM_ASSERT_MASTER_FINISH_MIGRATION	,	V_193
+spin_unlock	,	F_11
+"being recovered/migrated\n"	,	L_74
+dlm_mle_node_up	,	F_45
+dlm_get_lock_cookie_node	,	F_123
+"%u to %u!\n"	,	L_209
+"Resource %.*s not on the Tracking list\n"	,	L_9
+"during migration\n"	,	L_203
+"dead node is mastering the recovery "	,	L_152
+wait_event	,	F_143
+hlist_for_each	,	F_41
+hlist_del_init	,	F_36
+can_proceed	,	V_250
+dlm_lockres_set_refmap_bit	,	F_66
+"network message!  retrying\n"	,	L_63
+"no owner on lockres, but this "	,	L_81
+"node is trying to migrate it to %u?!\n"	,	L_82
+"assert master to original master failed "	,	L_213
+ret_data	,	V_169
+ENOMEM	,	V_70
+tries	,	V_111
+dlm_force_free_mles	,	F_155
+dlm_clean_master_list	,	F_152
+dlm_lockres_grab_inflight_ref_new	,	F_80
+namelen	,	V_6
+dlm_lockres_clear_refmap_bit	,	F_68
+dispatch_assert	,	V_173
+bit	,	V_112
+tracking	,	V_78
+"about to master %.*s here, this=%u\n"	,	L_45
+lockid	,	V_103
+"master\n"	,	L_205
+master_hash_node	,	V_37
+dlm_remove_nonlocal_locks	,	F_135
+tmp	,	V_265
+kref_get	,	F_13
+lock	,	V_231
+send_response	,	V_174
+dead_node	,	V_266
+dlm_mle_node_down	,	F_46
+ENOTCONN	,	V_12
+"finished with dlm_assert_master_worker\n"	,	L_149
+hlist_add_head	,	F_39
+mres	,	V_239
+"%s:%.*s: expected migration "	,	L_174
+" while this node was blocked "	,	L_52
+cookie	,	V_232
+list_for_each_entry_safe	,	F_144
+"%s: res %.*s, Migrateable\n"	,	L_167
+"while dropping ref on %s:%.*s "	,	L_158
+wait_event_timeout	,	F_94
+NODE_UP	,	V_146
+EBADF	,	V_10
+DLM_LVB_LEN	,	V_98
+dlm_change_lockres_owner	,	F_76
+"target %u is no longer up, restarting\n"	,	L_175
+"%s:%.*s: node map changed, redo the "	,	L_30
+dlm_lockres_release_ast	,	F_115
+node_num	,	V_58
+hash	,	V_52
+O2NM_MAX_NODES	,	V_43
+cur_bm	,	V_137
+status	,	V_202
+"migration to node %u failed with %d\n"	,	L_172
+recovering	,	V_85
+wait	,	V_126
+hlist_node	,	V_62
+"tried to migrate %.*s to %u, but "	,	L_170
+dlm_mle_detach_hb_events	,	F_9
+"sending request to new node\n"	,	L_49
+"migrating lockres, clearing\n"	,	L_189
+skip	,	V_261
+list_add_tail	,	F_5
+dlm_master_request	,	V_152
+kmem_cache_alloc	,	F_75
+"%s:%.*s: at least one node (%d) to "	,	L_22
+dlm_kick_thread	,	F_136
+file	,	V_102
+dlm_assert_master_handler	,	F_107
+"master=%u new_master=%u // request: "	,	L_198
+top	,	V_267
+dlm_clean_migration_mle	,	F_150
+ignore_higher	,	V_203
+"trying again...\n"	,	L_185
+noderef	,	V_257
+DLM_ASSERT_RESPONSE_MASTERY_REF	,	V_189
+"%s:%.*s: need ref for node %u\n"	,	L_191
+dlm_lockres_list	,	V_225
+kref_put	,	F_20
+"lockres mastered by %u\n"	,	L_34
+"(master=%u) got %d.\n"	,	L_159
+"finishing off migration of lockres %.*s, "	,	L_131
+"node %u go down yet, and thinks the "	,	L_151
+err	,	V_199
+"%s:%.*s: sending deref to %d\n"	,	L_155
+work_lock	,	V_211
+master_request	,	V_190
+DLM_LOCK_RES_DIRTY	,	V_201
+res_cur_count	,	V_79
+"%s: waiting 500ms for heartbeat state "	,	L_26
+"process beat me to it\n"	,	L_196
+DLM_CTXT_LEAVING	,	V_271
+dlm_get_mle	,	F_22
+"but it is already dropped!\n"	,	L_163
+__dlm_lookup_lockres_full	,	F_71
+map_changed	,	V_128
+"need to tell master to reassert\n"	,	L_138
+SLAB_HWCACHE_ALIGN	,	V_69
+"was %u (%.*s)\n"	,	L_130
+set_maybe	,	V_172
+"lockres=%.*s\n"	,	L_200
+dlm_pre_master_reco_lockres	,	F_82
+"strange, got assert from %u, MASTER "	,	L_139
+dlm_init_work_item	,	F_112
+"o2dlm_mle"	,	L_4
+DLM_MRES_MIGRATION	,	V_243
+wait_event_interruptible_timeout	,	F_133
+"Invalid name length!"	,	L_101
+wake_up	,	F_69
+dlm_wait_for_lock_mastery	,	F_90
+bail	,	V_73
+"invalid response %d\n"	,	L_85
+response_map	,	V_41
+wake	,	V_200
+u32	,	T_2
+"something happened such that the "	,	L_46
+"%s:%.*s: status change: old=%d new=%d\n"	,	L_38
+"%u is the owner of %.*s, cleaning everyone else\n"	,	L_87
+"%s:%.*s:still "	,	L_54
+ml	,	V_235
+dlm_migrate_request_handler	,	F_147
+"about to wait on migration_wq, dirty=%s\n"	,	L_180
+hlist_head	,	V_59
+DLM_LOCK_RES_OWNER_UNKNOWN	,	V_92
+kmem_cache_zalloc	,	F_64
+"%s:%.*s: got cleanup assert"	,	L_112
+ast_wq	,	V_252
+dlm_finish_migration	,	F_153
+"got assert_master from "	,	L_122
+DLM_LOCK_RES_DROPPING_REF	,	V_118
+dlm_lockres_grab_inflight_ref	,	F_73
+dlm_lockid_hash	,	F_31
+DLM_LOCK_RES_IN_PROGRESS	,	V_94
+__dlm_insert_lockres	,	F_77
+dlm_list_idx_to_ptr	,	F_121
+"%s:%.*s: node %u had a ref to this "	,	L_188
+"the new master will handle that.\n"	,	L_147
+DLM_MIGRATE_RESPONSE_MASTERY_REF	,	V_263
+hlist_entry	,	F_42
+dlm_bitmap_diff_iter_next	,	F_98
+"returning DLM_MASTER_RESP_ERROR since res is "	,	L_73
+"during assert master of %.*s to %u, "	,	L_93
+list_for_each_entry	,	F_44
+nn	,	V_197
+"all is well: migrating? %s, dead? %s\n"	,	L_184
+p1	,	V_138
+p2	,	V_139
+deref	,	V_217
+"for %s:%.*s\n"	,	L_42
+"is asserting! (%.*s)\n"	,	L_106
+"%u asserting but %.*s is "	,	L_116
+DLM_DEREF_LOCKRES_MSG	,	V_218
+"node %u, but %u is the owner! "	,	L_123
+DLM_LOCK_RES_MIGRATING	,	V_178
+"found in hash!\n"	,	L_15
+"got %d.\n"	,	L_94
+timeo	,	V_133
+dlm_get_lock_cookie_seq	,	F_124
+dlm_master_list_entry	,	V_3
+mig_target	,	V_249
+ok	,	V_195
+"and killing the other node now!  This node is OK and can continue.\n"	,	L_143
+dlm_grab	,	F_101
+"migration mle was found (%u-&gt;%u)\n"	,	L_84
+set_bit	,	F_48
+"node %u was expected master\n"	,	L_206
+deref_node	,	V_224
+DLM_NODE_DEATH_WAIT_MAX	,	V_244
+"%u is asserting. (%.*s)  %u must "	,	L_110
+ECONNABORTED	,	V_18
+master	,	V_42
+way_up_top	,	V_176
+work_list	,	V_212
+container_of	,	F_53
+"but current owner is %u! (%.*s)\n"	,	L_119
+u64	,	T_3
+mle_refs	,	V_30
+node_idx	,	V_156
+dlm_is_node_dead	,	F_134
+dlm_lockres_cache	,	V_72
+DLM_ASSERT_MASTER_MLE_CLEANUP	,	V_179
+dispatched_work	,	V_214
+__dlm_lookup_lockres	,	F_103
+dlm_destroy_master_caches	,	F_57
+ENETRESET	,	V_21
+cpu_to_be32	,	F_106
+"node %u is the master, response=YES\n"	,	L_66
+"%s: node %u died during migration from "	,	L_208
+spin_lock_init	,	F_26
+tmpmle	,	V_61
+dlm_wait_for_node_recovery	,	F_85
+"unhandled error=%d!\n"	,	L_92
+msleep	,	F_78
+granted	,	V_81
+"%s:%.*s: master node %u now knows I have a "	,	L_67
+nodemap	,	V_180
+reassert	,	V_183
+len	,	V_50
+dlm_lockname_cache	,	V_74
+"waiting on it!\n"	,	L_53
+"unhandled error!"	,	L_64
+state	,	V_93
+node_ref	,	V_227
+"TCP stack not ready!\n"	,	L_60
+"no lockres, but an mle with this node as master!\n"	,	L_83
+"node %u already removed from nodemap!\n"	,	L_2
+"0x%x) to node %u\n"	,	L_91
+DLM_MASTER_REQUEST_MSG	,	V_158
+"MLE for it! (%.*s)\n"	,	L_104
+DLM_MIGRATE_REQUEST_MSG	,	V_262
+"destroying lockres %.*s\n"	,	L_8
+node	,	V_67
+dlm_pick_migration_target	,	F_139
+"master MLE but no lockres on %u\n"	,	L_96
+GFP_NOFS	,	V_100
+recheck	,	V_131
+"lock %.*s\n"	,	L_121
+"owner %u re-asserting on "	,	L_120
+"lock.  must wait.\n"	,	L_153
+maybe_map	,	V_38
+" from %u for migration, ignoring\n"	,	L_115
+"node %u already in node map!\n"	,	L_3
+"mle present here for %s:%.*s, but no lockres!\n"	,	L_140
+"now\n"	,	L_56
+rr	,	V_198
+"Error %d when sending message %u (key 0x%x) to "	,	L_156
+ENOPROTOOPT	,	V_23
+dlm_wait_for_node_death	,	F_132
+dlm_node_state_change	,	V_143
+dlm_get_lock_resource	,	F_70
+mig	,	V_122
+mname	,	V_8
+list_del_init	,	F_8
+DLM_ASSERT_RESPONSE_REASSERT	,	V_188
+__dlm_lockres_grab_inflight_ref	,	F_65
+sc	,	V_148
+"migrate request (node %u) returned %d!\n"	,	L_190
+"lockres is marked as recovering!"	,	L_194
+ast_pending	,	V_256
+found	,	V_171
+BUG	,	F_19
+dlm_lockres_release	,	F_58
+"no lockres found, allocated our own: %p\n"	,	L_17
+dlm_bitmap_diff_iter	,	V_135
+"no mle found for this lock!\n"	,	L_78
+DLM_ASSERT_MASTER_MSG	,	V_187
+assert_spin_locked	,	F_4
+key	,	V_159
+dlm_dispatch_assert_master	,	F_104
+"doing assert master of %.*s back to %u\n"	,	L_212
+dirty	,	V_84
+migration_pending	,	V_89
+atomic_read	,	F_16
+u8	,	T_1
+"must master $RECOVERY lock now\n"	,	L_25
+dlm_deref_lockres_worker	,	V_221
+DLM_GRANTED_LIST	,	V_233
+ML_ERROR	,	V_32
+EHOSTUNREACH	,	V_16
+buf	,	V_170
+"master %u was found, %u should "	,	L_107
+migration_wq	,	V_253
+__dlm_print_one_lock_resource	,	F_109
+refs	,	V_76
+"dlm_wait_for_lock_mastery, blocked=%d\n"	,	L_33
+"node %u not master, response=MAYBE\n"	,	L_70
+dlm_set_lockres_owner	,	F_62
+dlm_node_iter_init	,	F_86
+to	,	V_151
+"%s:%.*s: no "	,	L_57
+"with %d.\n"	,	L_214
+track_lock	,	V_77
+domain_map	,	V_56
+inflight_locks	,	V_90
+dlm_lock_basts_flushed	,	F_140
+dlm_do_master_request	,	F_88
+"owner is %u (%.*s), no mle\n"	,	L_137
+DLM_MASTER_RESP_MAYBE	,	V_164
+INIT_LIST_HEAD	,	F_25
+O2NM_MAX_NAME_LEN	,	V_184
+"map not changed and voting not done "	,	L_41
+dlm_master_request_handler	,	F_100
+"%s:%.*s: got assert master from %u "	,	L_133
+"%.*s: node %u create mles on other "	,	L_97
+BITS_TO_LONGS	,	F_97
+dlm_clean_block_mle	,	F_151
+unlock	,	V_264
+"node %u\n"	,	L_157
+"in the middle of migration.  Skipping assert, "	,	L_146
+mle	,	V_4
+dlm_empty_lockres	,	F_138
+dlm_send_one_lockres	,	F_131
+DLM_MASTERY_TIMEOUT_MS	,	V_134
+free_page	,	F_137
+ETIMEDOUT	,	V_17
+dlm_do_assert_master	,	F_95
+name	,	V_5
+tracking_list	,	V_96
+"%s: Migrating %.*s to node %u\n"	,	L_168
+EHOSTDOWN	,	V_15
+dlm_get_mle_inuse	,	F_12
+"rechecking now\n"	,	L_40
+"%.*s: node %u has a reference to this "	,	L_99
+__dlm_put_mle	,	F_15
+idx	,	V_64
+woken	,	V_40
+migrate	,	V_260
+next	,	V_254
+BUG_ON	,	F_30
+dlm_add_migration_mle	,	F_128
+dlm_kick_recovery_thread	,	F_83
+dlm_ctxt	,	V_1
+ENETUNREACH	,	V_20
+purge	,	V_86
+ECONNRESET	,	V_13
+"%s: res %.*s, Migrate to node %u failed with %d\n"	,	L_178
+DLM_LOCK_RES_BLOCK_DIRTY	,	V_251
+"returning ret=%d\n"	,	L_192
+"%s: Migrating %.*s to %u, returns %d\n"	,	L_177
+dlm_migrate_lockres	,	F_126
+old_master	,	V_269
+recovery_map	,	V_123
+kzalloc	,	F_111
+dlm_deref_lockres_handler	,	F_118
+"%s:%.*s: spinning on "	,	L_32
+lock_dropped	,	V_245
+"node %d up while restarting\n"	,	L_48
+wq	,	V_39
+dlm_node_iter	,	V_109
+"node down! %d\n"	,	L_50
+"node %u hit an error, resending\n"	,	L_71
+redo_request	,	V_125
+dlm_assert_master	,	V_181
+dlm_mark_lockres_migrating	,	F_129
+again	,	V_157
+"%s:%.*s: got unrelated assert"	,	L_114
+res_tot_count	,	V_91
+target	,	V_236
+flush_workqueue	,	F_130
+request_from	,	V_204
+"Releasing mle for %.*s, type %d\n"	,	L_5
+"Bad message received from another node.  Dumping state "	,	L_142
+"longer blocking. try to "	,	L_58
+dlm_list_in_text	,	F_125
+"bad lockres while trying to assert!\n"	,	L_86
+"%s:%.*s: caught signal during migration\n"	,	L_176
+ML_NOTICE	,	V_124
+"%s: node %u has not seen "	,	L_150
+"%s:%.*s node %u ref dropped in dispatch\n"	,	L_164
+mle_hb_events	,	V_27
+list_empty	,	F_7
+__dlm_insert_mle	,	F_37
+put	,	V_215
+"no"	,	L_182
+"MIGRATION"	,	L_20
+extra_ref	,	V_196
+"%s: reco lock master is %u\n"	,	L_154
+"the target went down.\n"	,	L_171
+"master entry for nonexistent lock!\n"	,	L_18
+have_lockres_ref	,	V_191
+init_waitqueue_head	,	F_27
+mle_cur_count	,	V_54
+dlm_mle_type	,	V_34
+dlm_work_item	,	V_205
+dlm_init_lockres	,	F_61
+mnamelen	,	V_7
+"%.*s: very strange, "	,	L_95
+item	,	V_206
+ast_list	,	V_255
+"RECOVERING!\n"	,	L_117
+NODE_DOWN	,	V_145
+dlm_find_mle	,	F_40
+iter	,	V_110
+"%s:%.*s: requests only up to %u but master "	,	L_28
+"yes"	,	L_181
+be32_to_cpu	,	F_108
+lowest	,	V_149
+wake_waiters	,	V_121
+dlm_init_mle_cache	,	F_49
+fail	,	V_242
+"aha. migration target %u just went down\n"	,	L_186
+"expected master %u died"	,	L_51
+"IGNORE HIGHER: %.*s\n"	,	L_144
+ESRCH	,	V_160
+"change\n"	,	L_27
+"o2dlm_lockres"	,	L_6
+flags	,	V_104
+"got assert from %u, but lock "	,	L_125
+"migration error  mle: "	,	L_197
+DLM_MASTER_RESP_YES	,	V_162
+dlm_put_mle_inuse	,	F_14
+"no bits set in the maybe_map, but %u "	,	L_105
+out	,	V_161
+dlm_migratable_lockres	,	V_238
+"inuse=%d\n"	,	L_135
+blocked	,	V_83
+"%s:%.*s: waiting again\n"	,	L_43
+dlm_worker	,	V_213
+"%s list\n"	,	L_166
+"%s:%.*s: owner is suddenly %u\n"	,	L_35
+orig_bm	,	V_136
+"in-progress!\n"	,	L_77
+ESHUTDOWN	,	V_22
+mnamehash	,	V_51
+curnode	,	V_141
+EAGAIN	,	V_150
+node_map	,	V_55
+kill	,	V_194
+EINVAL	,	V_24
+kmem_cache_destroy	,	F_52
+"Invalid node number: %u\n"	,	L_160
+"bad response! %u\n"	,	L_72
+"just got an assert_master from %u, but no "	,	L_103
+o2nm_node	,	V_66
+dlm_do_master_requery	,	F_116
+INIT_HLIST_NODE	,	F_24
+queue	,	V_229
+msg	,	V_167
+"%u is the lowest node, "	,	L_109
+mlog	,	F_17
+data	,	V_168
+hb_events	,	V_26
+atomic_inc	,	F_32
+__dlm_wait_on_lockres	,	F_72
+"link to %u went down?: %d\n"	,	L_36
+alloc_mle	,	V_106
+"%s:%.*s: inflight--: now %u\n"	,	L_13
+"node %u is master, but trying to migrate to "	,	L_79
+kref_init	,	F_29
+DLM_MASTER_RESP_ERROR	,	V_165
+DLM_LOCK_RES_RECOVERING	,	V_177
+wait_on_recovery	,	V_113
+drop_inflight_if_nonlocal	,	V_114
+dlm_init_mle	,	F_23
+hlist_unhashed	,	F_35
+"%s:%.*s: got assert from %u, need a ref\n"	,	L_141
+o2net_msg	,	V_166
+exit_domain_map	,	V_258
+mle_tot_count	,	V_53
+atomic_dec	,	F_54
+"worker about to master %.*s here, this=%u\n"	,	L_148
+lockres	,	V_210
+done	,	V_192
+refmap	,	V_99
+dropping_ref	,	V_116
+bast_pending	,	V_248
+dlm_is_host_down	,	F_2
+"recover before lock mastery can begin\n"	,	L_23
+"reference\n"	,	L_68
+"putting lock for node %u\n"	,	L_187
+inuse	,	V_29
+dlm_move_lockres_to_recovery_list	,	F_149
+dlm_lockres_drop_inflight_ref	,	F_91
+request	,	V_153
+"%s: recovery map is not empty, but "	,	L_24
+o2net_send_message	,	F_99
+"nodes and requests a re-assert\n"	,	L_98
+dlm_lockres_is_dirty	,	F_142
+last_used	,	V_95
+vote_map	,	V_57
+bast_list	,	V_247
+"lock with no owner should be "	,	L_76
+msecs_to_jiffies	,	F_93
+kmem_cache_free	,	F_55
+"doing assert master of %.*s to all except the original node\n"	,	L_211
+"out of memory while trying to send "	,	L_62
+ast_lock	,	V_246
+"%s: Not migrateable res %.*s, lock %u:%llu on "	,	L_165
+spin_lock	,	F_10
+hlist_for_each_safe	,	F_156
+dlm_print_one_mle	,	F_18
+"blocked. waiting on %u "	,	L_55
+dlm_bitmap_diff_iter_init	,	F_96
+lookup	,	V_115
+"woken again: migrating? %s, dead? %s\n"	,	L_183
+list_head	,	V_228
+dlm_lock_resource	,	V_35
+"DIE! Mastery assert from %u, "	,	L_118
+dlm_assert_master_post_handler	,	F_110
+DLM_LOCKID_NAME_MAX	,	V_75
+ENETDOWN	,	V_19
+lockname	,	V_49
+__dlm_mle_detach_hb_events	,	F_6
+"link to %d went down!\n"	,	L_65
+queue_work	,	F_113
+"%s:%.*s: inflight++: now %u\n"	,	L_12
+response	,	V_154
+"node %u.\n"	,	L_80
+"sending assert master to %d (%.*s)\n"	,	L_89
+"got assert from %u, but "	,	L_128
+dlm_mle_release	,	V_33
+"%s:%.*s: restart lock mastery succeeded, "	,	L_39
+DLM_MASTER_RESP_NO	,	V_163
+node_up	,	V_65
+be64_to_cpu	,	F_122

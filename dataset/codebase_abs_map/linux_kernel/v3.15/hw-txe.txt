@@ -1,0 +1,236 @@
+do_req	,	V_13
+mei_irq_read_handler	,	F_68
+msleep	,	F_19
+upper_32_bits	,	F_79
+mei_txe_input_payload_write	,	F_36
+s32	,	T_5
+dev	,	V_11
+mei_txe_hbuf_empty_slots	,	F_51
+len	,	V_83
+reset_work	,	V_107
+MEI_DEV_RESETTING	,	V_106
+mei_txe_hw	,	V_4
+"aliveness timed out"	,	L_6
+to_txe_hw	,	F_13
+mei_txe_dev_init	,	F_73
+mei_txe_readiness_is_sec_rdy	,	F_41
+mei_txe_intr_clear	,	F_32
+mei_txe_aliveness_get	,	F_16
+TXE_INTR_IN_READY	,	V_53
+SICR_HOST_IPC_READINESS_HOST_RDY	,	V_59
+mei_txe_count_full_read_slots	,	F_52
+expected	,	V_21
+mei_txe_sec_reg_write_silent	,	F_8
+EIO	,	V_86
+SICR_HOST_ALIVENESS_REQ_REQUESTED	,	V_18
+mei_txe_irq_quick_handler	,	F_58
+TXE_INTR_OUT_DB	,	V_54
+SEC_RESET_WAIT_TIMEOUT	,	V_67
+do_ack	,	V_90
+"we need to start the dev.\n"	,	L_19
+HISR_INT_2_STS	,	V_88
+mei_txe_check_and_ack_intrs	,	F_57
+GFP_KERNEL	,	V_113
+IRQ_NONE	,	V_100
+"Readiness Interrupt was received...\n"	,	L_18
+TXE_INTR_IN_READY_BIT	,	V_34
+mei_count_full_read_slots	,	F_67
+ctrl	,	V_120
+readiness	,	V_62
+"sec write: aliveness not asserted\n"	,	L_2
+TXE_INTR_READINESS_BIT	,	V_104
+MSEC_PER_SEC	,	V_24
+mutex_unlock	,	F_18
+BRIDGE_IPC_OUTPUT_PAYLOAD_REG	,	V_57
+TXE_INTR_OUT_DB_BIT	,	V_89
+"irq thread: Interrupt Registers HHISR|HISR|SEC=%02X|%04X|%02X\n"	,	L_17
+intr_cause	,	V_35
+mei_txe_irq_thread_handler	,	F_59
+clear_bit	,	F_29
+EMSGSIZE	,	V_81
+mei_txe_out_data_read	,	F_37
+hhisr	,	V_91
+BRIDGE_BAR	,	V_9
+i	,	V_78
+irq	,	V_97
+ioread32	,	F_2
+mei_txe_sec_reg_read	,	F_6
+mei_device_init	,	F_75
+buf	,	V_72
+IRQ_WAKE_THREAD	,	V_99
+t	,	V_22
+intr_enable	,	V_84
+mei_irq_compl_handler	,	F_71
+mutex_lock	,	F_20
+phys_addr_t	,	T_6
+IPC_HHIER_MSK	,	V_47
+mei_txe_aliveness_wait	,	F_22
+"Input is not ready"	,	L_11
+"sec read: aliveness not asserted\n"	,	L_1
+HICR_SEC_IPC_READINESS_HOST_RDY	,	V_64
+mei_txe_hw_start	,	F_56
+__iomem	,	T_2
+dev_dbg	,	F_14
+SEC_IPC_HOST_INT_STATUS_PENDING	,	V_43
+"mei_irq_read_handler ret = %d.\n"	,	L_22
+HICR_SEC_IPC_READINESS_SEC_RDY	,	V_63
+reg	,	V_17
+generated	,	V_93
+rem	,	V_73
+req	,	V_12
+ret	,	V_29
+iowrite32	,	F_4
+wait_aliveness	,	V_30
+"wating for readiness failed\n"	,	L_16
+SATT2_CTRL_BR_BASE_ADDR_REG_SHIFT	,	V_123
+WARN	,	F_7
+HICR_HOST_ALIVENESS_RESP_ACK	,	V_20
+slots	,	V_75
+pci_dev	,	V_112
+ops	,	V_114
+mei_txe_readiness_clear	,	F_39
+"wait for aliveness settle failed ... bailing out\n"	,	L_14
+idx	,	V_55
+SATT2_SAP_SIZE_REG	,	V_124
+SEC_IPC_INPUT_PAYLOAD_REG	,	V_56
+dev_state	,	V_105
+mei_txe_output_ready_set	,	F_30
+HHIER_REG	,	V_48
+hbuf_is_ready	,	V_110
+ipc_isr	,	V_92
+timeout	,	V_27
+dev_err	,	F_21
+mei_txe_aliveness_req_get	,	F_15
+"aliveness timed out\n"	,	L_5
+MEI_HDR_FMT	,	V_80
+SEC_IPC_HOST_INT_MASK_REG	,	V_32
+kzalloc	,	F_74
+SATT2_CTRL_REG	,	V_126
+SEC_BAR	,	V_7
+mei_txe_readiness_wait	,	F_44
+end	,	V_108
+HICR_HOST_ALIVENESS_RESP_REG	,	V_19
+aliveness	,	V_8
+mei_irq_write_handler	,	F_70
+mei_txe_hw_ops	,	V_115
+"txe write: aliveness not asserted\n"	,	L_10
+HICR_SEC_IPC_READINESS_REG	,	V_61
+dw_cnt	,	V_77
+complete_list	,	V_102
+"FW not ready: resetting.\n"	,	L_20
+length	,	V_74
+mei_txe_readiness_set_host_rdy	,	F_38
+mei_txe_br_reg_write	,	F_11
+HIER_INT_EN_MSK	,	V_50
+recvd_hw_ready	,	V_66
+mei_txe_setup_satt2	,	F_77
+reg_buf	,	V_76
+"Aliveness Interrupt: Status: %d\n"	,	L_21
+SATT2_CTRL_VALID_MSK	,	V_122
+IPC_HHIER_SEC	,	V_95
+mei_txe_intr_enable	,	F_34
+mei_data2slots	,	F_49
+mem_addr	,	V_6
+waitqueue_active	,	F_66
+"wait for aliveness failed ... bailing out\n"	,	L_15
+"SATT2: SAP_SIZE_OFFSET=0x%08X, BRG_BA_LSB_OFFSET=0x%08X, CTRL_OFFSET=0x%08X\n"	,	L_25
+jiffies_to_msecs	,	F_25
+hw	,	V_5
+aliveness_req	,	V_85
+hisr	,	V_87
+lo32	,	V_118
+hi32	,	V_119
+mei_txe_sec_reg_write	,	F_9
+HISR_INT_STS_MSK	,	V_45
+mei_txe_aliveness_set_sync	,	F_26
+init_waitqueue_head	,	F_76
+TXE_INTR_READINESS	,	V_51
+"aliveness_resp = 0x%08x, readiness = 0x%08x.\n"	,	L_9
+SATT2_BRG_BA_LSB_REG	,	V_125
+SEC_IPC_HOST_INT_MASK_IN_RDY	,	V_33
+wait_event_timeout	,	F_24
+"Aliveness current=%d request=%d\n"	,	L_3
+base_addr	,	V_1
+mei_cl_cb	,	V_101
+IRQ_HANDLED	,	V_111
+mei_txe_aliveness_set	,	F_12
+SEC_IPC_INPUT_DOORBELL_REG	,	V_36
+mei_txe_reg_write	,	F_3
+MEI_HDR_PRM	,	F_48
+"buffer-length = %lu buf[0]0x%08X\n"	,	L_12
+recvd_aliveness	,	V_15
+mei_txe_read_hdr	,	F_53
+wait_hw_ready	,	V_65
+status	,	V_39
+mei_txe_read	,	F_54
+range	,	V_117
+HIER_REG	,	V_49
+out	,	V_94
+SATT_RANGE_MAX	,	V_121
+SICR_SEC_IPC_OUTPUT_STATUS_REG	,	V_37
+mei_txe_hw_config	,	F_45
+mei_txe_is_input_ready	,	F_31
+ETIME	,	V_26
+err	,	V_28
+hintmsk	,	V_31
+EAGAIN	,	V_82
+mei_io_list_init	,	F_60
+mei_txe_input_ready_interrupt_enable	,	F_27
+EINVAL	,	V_79
+device_lock	,	V_23
+SICR_HOST_IPC_READINESS_RDY_CLR	,	V_60
+mei_txe_hw_is_ready	,	F_42
+"interrupt thread end ret = %d\n"	,	L_24
+mei_txe_host_is_ready	,	F_43
+"wait for readiness failed\n"	,	L_8
+wake_up	,	F_65
+size_t	,	T_3
+mei_txe_hw_reset	,	F_55
+mei_txe_reg_read	,	F_1
+lower_32_bits	,	F_78
+pdev	,	V_14
+HHISR_REG	,	V_46
+"aliveness settled after %d msecs\n"	,	L_4
+u32	,	T_1
+HISR_REG	,	V_44
+"buf[%d] = 0x%08X\n"	,	L_13
+mei_txe_write	,	F_46
+offset	,	V_2
+mei_txe_pending_interrupts	,	F_35
+pci_dev_msi_enabled	,	F_61
+mei_txe_input_doorbell_set	,	F_28
+SEC_IPC_HOST_INT_STATUS_IN_RDY	,	V_96
+SICR_HOST_IPC_READINESS_REQ_REG	,	V_58
+SEC_IPC_OUTPUT_STATUS_RDY	,	V_38
+header	,	V_71
+schedule_work	,	F_64
+SICR_HOST_ALIVENESS_REQ_REG	,	V_16
+SEC_IPC_HOST_INT_STATUS_REG	,	V_42
+mei_txe_aliveness_poll	,	F_17
+rets	,	V_103
+"mei_irq_write_handler ret = %d.\n"	,	L_23
+msecs_to_jiffies	,	F_23
+mei_txe_readiness_get	,	F_40
+mei_txe_hbuf_max_len	,	F_50
+"Pending Interrupts InReady=%01d Readiness=%01d, Aliveness=%01d, OutDoor=%01d\n"	,	L_7
+SEC_ALIVENESS_WAIT_TIMEOUT	,	V_25
+addr	,	V_116
+value	,	V_3
+mei_msg_hdr	,	V_70
+mei_enable_interrupts	,	F_72
+mei_hbuf_is_ready	,	F_69
+irqreturn_t	,	T_4
+TXE_INTR_ALIVENESS_BIT	,	V_109
+WARN_ON	,	F_47
+dev_warn	,	F_63
+TXE_INTR_ALIVENESS	,	V_52
+mei_txe_sec_reg_read_silent	,	F_5
+dev_id	,	V_98
+SEC_IPC_INPUT_STATUS_RDY	,	V_41
+test_and_clear_bit	,	F_62
+hbuf_depth	,	V_68
+mei_txe_br_reg_read	,	F_10
+PAYLOAD_SIZE	,	V_69
+mei_txe_intr_disable	,	F_33
+SEC_IPC_INPUT_STATUS_REG	,	V_40
+mei_device	,	V_10

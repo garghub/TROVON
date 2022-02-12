@@ -1,0 +1,502 @@
+SetHubFeature	,	V_232
+number_of_packets	,	V_145
+USB_PORT_FEAT_INDICATOR	,	V_223
+req_id	,	V_60
+isoc_out_ep	,	V_76
+OZ_MAX_LINK_POOL_SIZE	,	V_20
+dev	,	V_119
+__u16	,	V_203
+cancel_urbl	,	V_33
+oz_clear_port_feature	,	F_111
+oz_complete_buffered_urb	,	F_34
+unlikely	,	F_97
+power_budget	,	V_187
+oz_hcd_urb_enqueue	,	F_96
+"OZWPAN: ERROR Unknown URB %p\n"	,	L_1
+"ERRORERROR: oz_urb_cancel(%p) ozhcd is null\n"	,	L_60
+"%ld: Request 0x%p timeout\n"	,	L_34
+"%lu: oz_process_ep0_urb(%p)\n"	,	L_42
+__constant_cpu_to_le32	,	F_116
+"oz_hcd_endpoint_disable\n"	,	L_69
+unused	,	V_182
+next_req_id	,	V_179
+actual_length	,	V_56
+wLength	,	V_177
+oz_hcd_pd_departed	,	F_48
+g_urb_cancel_tasklet	,	V_195
+usb_host_config	,	V_123
+GFP_ATOMIC	,	V_19
+port_lock	,	V_86
+"oz_hcd_get_desc_cnf length = %d offs = %d tot_size = %d\n"	,	L_16
+SetPortFeature	,	V_233
+"oz_plat_probe()\n"	,	L_103
+ep_addr	,	V_58
+"Deleting endpoints for interface %d\n"	,	L_39
+oz_display_conf_type	,	F_55
+hpd	,	V_46
+e	,	V_22
+"Port[%d] status = 0x%x\n"	,	L_91
+i	,	V_7
+bEndpointAddress	,	V_161
+USB_ENDPOINT_XFERTYPE_MASK	,	V_69
+n	,	V_142
+"USB_REQ_SET_ADDRESS - cnf\n"	,	L_20
+"%d bEndpointAddress = %x\n"	,	L_37
+"oz_plat_remove()\n"	,	L_106
+OZ_EVT_CTRL_CNF	,	V_95
+OZ_IN_BUFFERING_UNITS	,	V_149
+hcd_lock	,	V_48
+t	,	V_104
+"oz_hcd_stop()\n"	,	L_63
+jiffies	,	V_39
+g_oz_plat_drv	,	V_239
+"oz_hcd_hub_suspend()\n"	,	L_100
+urb_pending_list	,	V_183
+"GetHubStatus: req_type = 0x%x\n"	,	L_97
+config	,	V_120
+platform_device	,	V_235
+oz_find_urb_by_id	,	F_38
+ep_ix	,	V_75
+oz_get_port_from_addr	,	F_2
+"USB_REQ_GET_STATUS - cnf\n"	,	L_17
+EPIPE	,	V_73
+"Port[%d] status = %x\n"	,	L_94
+request_heartbeat	,	V_157
+"Failed to created hcd object OK\n"	,	L_104
+"oz_hcd_endpoint_reset\n"	,	L_70
+"Clearing conn_port\n"	,	L_14
+in_interrupt	,	F_94
+"%lu: giveback_urb(%p,%x) %lu %lu pending:%d\n"	,	L_2
+config_num	,	V_117
+conn_port	,	V_10
+OZ_TRACE_CTRL_DETAIL	,	V_178
+"Resuming root hub\n"	,	L_11
+oz_urb_cancel_tasklet	,	F_88
+setup_packet	,	V_99
+"USB_REQ_GET_INTERFACE - cnf\n"	,	L_25
+ep	,	V_26
+list	,	V_43
+"ClearHubFeature: %d\n"	,	L_96
+platform_device_unregister	,	F_140
+oz_trace2	,	F_23
+spin_unlock_irqrestore	,	F_6
+usb_host_interface	,	V_124
+"buffering frame as URB is not available\n"	,	L_33
+port	,	V_42
+bNumEndpoints	,	V_158
+oz_hcd_init	,	F_130
+USB_ENDPOINT_XFER_BULK	,	V_139
+OZ_NB_ENDPOINTS	,	V_62
+wValue	,	V_101
+tasklet_init	,	F_132
+OZ_EVT_EP_CREDIT	,	V_72
+available_space	,	V_51
+USB_ENDPOINT_XFER_INT	,	V_70
+oz_uncancel_urb	,	F_14
+ep_list	,	V_167
+list_del	,	F_86
+"USB_REQ_SET_CONFIGURATION - cnf\n"	,	L_24
+oz_claim_hpd	,	F_78
+oz_hcd_get_desc_cnf	,	F_52
+kmalloc	,	F_7
+orphanage	,	V_49
+"urb %p unlinked so complete immediately\n"	,	L_7
+length	,	V_92
+spin_unlock	,	F_19
+"oz_hcd_hub_resume()\n"	,	L_101
+spin_unlock_bh	,	F_33
+oz_build_endpoints_for_interface	,	F_60
+USB_REQ_SYNCH_FRAME	,	V_115
+wMaxPacketSize	,	V_164
+USB_PORT_FEAT_C_RESET	,	V_221
+OZ_EVT_URB_DONE	,	V_40
+"USB_PORT_FEAT_C_CONNECTION\n"	,	L_83
+setup	,	V_98
+usb_hcd_check_unlink_urb	,	F_103
+GetHubDescriptor	,	V_229
+oz_trace	,	F_21
+"interface[%d] = %p\n"	,	L_36
+ENOMEM	,	V_64
+"oz_hcd_shutdown()\n"	,	L_64
+OZ_TRACE_URB	,	V_38
+hport	,	V_84
+oz_plat_probe	,	F_120
+port_ix	,	V_175
+"GetPortStatus windex = %d\n"	,	L_93
+OZ_EVT_EP_BUFFERING	,	V_151
+HZ	,	V_154
+platform_device_add	,	F_135
+list_replace_init	,	F_31
+usb_hcd_unlink_urb_from_ep	,	F_18
+"USB_PORT_FEAT_SUSPEND\n"	,	L_78
+g_link_pool	,	V_15
+usb_create_hcd	,	F_121
+num_iface	,	V_168
+"oz_hcd_hub_control()\n"	,	L_95
+USB_ENDPOINT_NUMBER_MASK	,	V_137
+"Failed to add hcd object OK\n"	,	L_105
+"wLength = %x\n"	,	L_48
+"Cannot claim port\n"	,	L_49
+"oz_hcd_pd_departed() port = 0\n"	,	L_13
+oz_usb_get_frame_number	,	F_66
+"USB_PORT_FEAT_ENABLE\n"	,	L_77
+USB_REQ_SET_ADDRESS	,	V_108
+ix	,	V_184
+list_move_tail	,	F_71
+usb_pipeendpoint	,	F_82
+hcpriv	,	V_35
+g_urb_process_tasklet	,	V_194
+USB_DIR_IN	,	V_150
+port_id	,	V_205
+USB_REQ_SET_INTERFACE	,	V_114
+status	,	V_31
+oz_hcd_complete_set_interface	,	F_58
+"URB not found\n"	,	L_30
+bus_addr	,	V_6
+"oz_plat_resume()\n"	,	L_110
+oz_hcd_buffer_data	,	F_62
+"USB_PORT_FEAT_CONNECTION\n"	,	L_76
+list_add_tail	,	F_36
+oz_usb_get_desc_req	,	F_54
+"GetHubDescriptor\n"	,	L_74
+"USB_PORT_FEAT_RESET\n"	,	L_80
+oz_usb_request_heartbeat	,	F_77
+oz_remember_urb	,	F_81
+USB_TYPE_STANDARD	,	V_132
+uses_new_polling	,	V_190
+u16	,	V_193
+req_type	,	V_226
+bRequestType	,	V_102
+ep_mask	,	V_165
+usb_pipein	,	F_83
+USB_REQ_GET_INTERFACE	,	V_113
+irq_state	,	V_13
+urb	,	V_30
+err	,	V_61
+ClearPortFeature	,	V_228
+"bRequest = %x\n"	,	L_45
+"wValue = %x\n"	,	L_46
+OZ_EVT_URB_SUBMIT	,	V_192
+oz_urb_process_tasklet	,	F_84
+mem_flags	,	V_24
+list_splice_tail	,	F_32
+usb_get_hcd	,	F_42
+g_plat_dev	,	V_240
+"wMaxPacketSize = %d\n"	,	L_38
+usb_hcd_poll_rh_status	,	F_47
+"SetHubFeature: %d\n"	,	L_98
+wHubCharacteristics	,	V_201
+complete	,	V_174
+"USB_REQ_GET_DESCRIPTOR - req\n"	,	L_50
+"Pending urbs:%d\n"	,	L_115
+"USB_REQ_SET_INTERFACE - req\n"	,	L_57
+"oz_hcd_hub_status_data()\n"	,	L_72
+xfr_list	,	V_141
+iso_frame_desc	,	V_153
+"platform_driver_register() returned %d\n"	,	L_111
+USB_REQ_SET_DESCRIPTOR	,	V_110
+if_num	,	V_121
+USB_PORT_FEAT_SUSPEND	,	V_210
+u32	,	T_3
+"Clearing orphanage\n"	,	L_107
+oz_hcd_data_ind	,	F_63
+pipe	,	V_181
+buffer	,	V_29
+USB_PORT_FEAT_OVER_CURRENT	,	V_211
+credit	,	V_28
+altsetting	,	V_127
+"USB_REQ_SET_CONFIGURATION - req\n"	,	L_53
+"Trying to give back buffered frame of size=%d\n"	,	L_5
+tasklet_schedule	,	F_99
+usb_add_hcd	,	F_124
+alt	,	V_122
+"%lu: oz_hcd_urb_enqueue(%p)\n"	,	L_65
+g_oz_hc_drv	,	V_236
+USB_REQ_CLEAR_FEATURE	,	V_106
+g_link_pool_size	,	V_18
+transfer_buffer	,	V_55
+oz_ep_alloc	,	F_11
+usb_remove_hcd	,	F_127
+USB_PORT_FEAT_C_OVER_CURRENT	,	V_220
+spin_lock_irqsave	,	F_4
+EIDRM	,	V_74
+usb_hcd_resume_root_hub	,	F_46
+OZ_TRACE_HUB	,	V_197
+"USB_PORT_FEAT_INDICATOR\n"	,	L_89
+"USB_PORT_FEAT_C_ENABLE\n"	,	L_84
+"Deleting endpoints for configuration.\n"	,	L_40
+"Removing hcd\n"	,	L_108
+platform_get_drvdata	,	F_126
+usb_pipeisoc	,	F_101
+"Freeing endpoint memory\n"	,	L_4
+USB_REQ_GET_STATUS	,	V_105
+oz_clean_endpoints_for_interface	,	F_59
+GetPortStatus	,	V_231
+USB_PORT_STAT_C_ENABLE	,	V_224
+wIndex	,	V_103
+oz_hcd_bus_suspend	,	F_117
+oz_get_irq_ctx	,	F_93
+dev_name	,	F_122
+oz_hcd_pd_reset	,	F_51
+total_size	,	V_94
+"Invalid endpoint number in oz_enqueue_ep_urb().\n"	,	L_6
+ep_from_link	,	F_70
+OZ_EVT_CTRL_LOCAL	,	V_180
+oz_hcd_shutdown	,	F_92
+__constant_cpu_to_le16	,	F_109
+oz_forget_urb	,	F_20
+container_of	,	F_5
+USB_PORT_STAT_C_CONNECTION	,	V_81
+"ClearPortFeature\n"	,	L_92
+GetHubStatus	,	V_230
+last_jiffies	,	V_71
+error1	,	V_242
+oz_get_hub_descriptor	,	F_108
+spin_lock_bh	,	F_30
+error2	,	V_243
+oz_plat_remove	,	F_125
+irq_info	,	V_191
+spin_lock_init	,	F_123
+oz_hcd_hub_control	,	F_115
+urb_cancel_list	,	V_186
+g_link_lock	,	V_14
+oz_usb_stream_create	,	F_76
+USB_PORT_FEAT_LOWSPEED	,	V_216
+platform_driver_unregister	,	F_137
+OZ_PORT_F_PRESENT	,	V_78
+len	,	V_152
+"Set interface %d alt %d\n"	,	L_28
+"USB_PORT_FEAT_C_SUSPEND\n"	,	L_85
+state	,	V_188
+urb_list	,	V_27
+USB_REQ_SET_FEATURE	,	V_107
+oz_hcd_claim	,	F_41
+"oz_hcd_start()\n"	,	L_62
+oz_hcd_heartbeat	,	F_69
+oz_remove_urb	,	F_87
+"interface = %d alt = %d\n"	,	L_56
+"USB_REQ_SYNCH_FRAME - cnf\n"	,	L_27
+oz_enqueue_ep_urb	,	F_35
+rc	,	V_118
+oz_usb_control_req	,	F_79
+list_for_each	,	F_15
+g_ozhcd	,	V_83
+oz_hcd	,	V_1
+USB_REQ_GET_CONFIGURATION	,	V_111
+"Port %d changed\n"	,	L_73
+list_for_each_safe	,	F_72
+oz_endpoint	,	V_23
+__GFP_ZERO	,	V_171
+USB_REQ_SET_CONFIGURATION	,	V_112
+usb_disabled	,	F_131
+buffer_size	,	V_25
+"wIndex = %x\n"	,	L_47
+"platform_device_alloc() succeeded\n"	,	L_112
+list_del_init	,	F_16
+ports	,	V_9
+error_count	,	V_146
+"USB_PORT_FEAT_TEST\n"	,	L_88
+endpoint	,	V_136
+"%lu: Refused urb(%p) not running.\n"	,	L_67
+__force	,	V_202
+le16_to_cpu	,	F_53
+HC_STATE_RUNNING	,	V_189
+bmAttributes	,	V_163
+u8	,	T_1
+atomic_read	,	F_24
+"USB_REQ_GET_DESCRIPTOR - cnf\n"	,	L_21
+intf	,	V_125
+if_ix	,	V_155
+bDescLength	,	V_200
+USB_PORT_FEAT_RESET	,	V_212
+usb_hub_descriptor	,	V_198
+"%lu: oz_hcd_urb_dequeue(%p)\n"	,	L_68
+buf	,	V_196
+"Freeing interfaces object.\n"	,	L_41
+"Completing request locally\n"	,	L_58
+"oz_hcd_pd_arrived()\n"	,	L_8
+usb_hcd_giveback_urb	,	F_26
+USB_PORT_STAT_CONNECTION	,	V_80
+get_jiffies_64	,	F_68
+usb_hcd	,	V_2
+oz_dequeue_ep_urb	,	F_37
+USB_PORT_STAT_RESET	,	V_89
+INIT_LIST_HEAD	,	F_13
+oz_acquire_port	,	F_39
+out2	,	V_185
+"Other %d\n"	,	L_90
+intf_cache	,	V_126
+"PD Reset\n"	,	L_15
+set_bits	,	V_206
+ClearHubFeature	,	V_227
+oz_hcd_start	,	F_90
+buffered_units	,	V_57
+data_len	,	V_50
+oz_plat_suspend	,	F_128
+ozhcd	,	V_5
+USB_TYPE_MASK	,	V_131
+oz_free_urb_link	,	F_8
+"Other: %d\n"	,	L_99
+"USB_REQ_GET_CONFIGURATION - cnf\n"	,	L_23
+USB_ENDPOINT_XFER_ISOC	,	V_140
+"platform_device_add() succeeded\n"	,	L_113
+g_pending_urbs	,	V_37
+oz_set_port_feature	,	F_110
+oz_usb_stream_delete	,	F_29
+desc	,	V_91
+next	,	V_17
+hcd	,	V_3
+"Port %d address is 0x%x\n"	,	L_52
+"USB_PORT_FEAT_LOWSPEED\n"	,	L_82
+oz_hcd_endpoint_disable	,	F_104
+"VENDOR-CLASS - cnf\n"	,	L_31
+oz_urb_link	,	V_11
+"USB_REQ_SET_INTERFACE - cnf\n"	,	L_26
+bNumInterfaces	,	V_169
+oz_empty_link_pool	,	F_10
+kzalloc	,	F_12
+attrib	,	V_68
+last_time	,	V_36
+cpu_to_le32	,	F_114
+now	,	V_143
+mask	,	V_166
+"USB_PORT_FEAT_C_RESET\n"	,	L_87
+g_tasklet_lock	,	V_34
+oz_event_log	,	F_25
+wvalue	,	V_100
+USB_ENDPOINT_DIR_MASK	,	V_162
+usb_put_hcd	,	F_44
+USB_PORT_FEAT_POWER	,	V_214
+unlinked	,	V_65
+__le32	,	V_225
+hcd_priv	,	V_4
+submit_jiffies	,	V_32
+usb_ctrlrequest	,	V_97
+transfer_buffer_length	,	V_54
+oz_hcd_endpoint_reset	,	F_105
+gfp_t	,	T_2
+pm_message_t	,	T_4
+"USB_PORT_FEAT_POWER\n"	,	L_81
+platform_device_alloc	,	F_134
+oz_process_ep0_urb	,	F_75
+bDescriptorType	,	V_199
+list_empty	,	F_64
+OZ_PORT_F_DYING	,	V_88
+jiffies_to_msecs	,	F_67
+wlength	,	V_173
+oz_hcd_get_frame_number	,	F_106
+OZ_NB_PORTS	,	V_8
+hep	,	V_160
+"USB_REQ_SET_ADDRESS - req\n"	,	L_51
+in_dir	,	V_59
+oz_urb_cancel	,	F_85
+"USB_REQ_GET_CONFIGURATION - reply now\n"	,	L_54
+"USB_REQ_SET_DESCRIPTOR - cnf\n"	,	L_22
+"oz_ep_free()\n"	,	L_3
+OZ_PORT_F_CHANGED	,	V_79
+"conn_port &gt;= 0\n"	,	L_9
+HC_STATE_SUSPENDED	,	V_234
+oz_port	,	V_41
+"USB_REQ_CLEAR_FEATURE - cnf\n"	,	L_18
+start_frame	,	V_147
+in_irq	,	F_95
+tasklet_disable	,	F_138
+rcode	,	V_116
+out_ep	,	V_67
+USB_PORT_FEAT_C_ENABLE	,	V_218
+"%lu: Refused urb(%p) not ozhcd.\n"	,	L_66
+USB_PORT_FEAT_C_CONNECTION	,	V_217
+USB_PORT_FEAT_CONNECTION	,	V_208
+fail	,	V_172
+usb_host_endpoint	,	V_159
+oz_complete_urb	,	F_17
+devnum	,	V_176
+oz_hcd_bus_resume	,	F_118
+"oz_hcd_get_frame_number\n"	,	L_71
+ENODEV	,	V_238
+ep_num	,	V_47
+kfree	,	F_9
+flags	,	V_44
+USB_PORT_STAT_C_RESET	,	V_90
+"USB_REQ_GET_INTERFACE - reply now\n"	,	L_55
+USB_PORT_STAT_POWER	,	V_215
+oz_ep_free	,	F_28
+out	,	V_85
+oz_urb_process	,	F_80
+"USB_PORT_FEAT_OVER_CURRENT\n"	,	L_79
+oz_hcd_complete_set_config	,	F_56
+time_after	,	F_74
+usb_hcd_link_urb_to_ep	,	F_98
+platform_device_put	,	F_136
+"oz_plat_shutdown()\n"	,	L_102
+oz_hcd_pd_arrived	,	F_45
+"SetPortFeature\n"	,	L_75
+"Setting conn_port = %d\n"	,	L_10
+"USB_PORT_FEAT_C_OVER_CURRENT\n"	,	L_86
+USB_PORT_FEAT_TEST	,	V_222
+oz_hcd_put	,	F_43
+EINVAL	,	V_63
+in_ix	,	V_135
+USB_PORT_STAT_ENABLE	,	V_213
+bRequest	,	V_133
+oz_hcd_clear_orphanage	,	F_89
+msg	,	V_237
+oz_hcd_urb_dequeue	,	F_102
+"oz_hcd_pd_departed()\n"	,	L_12
+data	,	V_129
+list_first_entry	,	F_65
+atomic_inc	,	F_100
+"ERRORERROR: oz_urb_cancel(%p) port is null\n"	,	L_59
+oz_usb_put	,	F_50
+oz_plat_shutdown	,	F_119
+oz_hcd_control_cnf	,	F_61
+space	,	V_134
+urbl	,	V_12
+required_size	,	V_96
+put_unaligned	,	F_113
+copy_len	,	V_52
+atomic_dec	,	F_22
+isoc_in_ep	,	V_77
+offset	,	V_93
+platform_driver_register	,	F_133
+oz_usb_send_isoc	,	F_73
+oz_hcd_stop	,	F_91
+oz_plat_resume	,	F_129
+done	,	V_138
+windex	,	V_130
+iface	,	V_128
+"oz_plat_suspend()\n"	,	L_109
+"Found urb in orphanage\n"	,	L_61
+OZ_HDC_F_SUSPENDED	,	V_87
+"oz_hcd_init() failed %d\n"	,	L_114
+oz_get_port_status	,	F_112
+oz_hcd_hub_status_data	,	F_107
+link	,	V_16
+OZ_F_EP_HAVE_STREAM	,	V_45
+oz_usb_get	,	F_40
+"Resending request to PD.\n"	,	L_35
+out_ix	,	V_53
+oz_hcd_term	,	F_139
+oz_alloc_urb_link	,	F_3
+g_hcdlock	,	V_82
+oz_clean_endpoints_for_config	,	F_49
+oz_hcd_private	,	F_1
+spin_lock	,	F_27
+OZ_F_EP_BUFFERING	,	V_148
+oz_build_endpoints_for_config	,	F_57
+"Refusing URB port_ix = %d devnum = %d\n"	,	L_43
+oz_interface	,	V_170
+USB_REQ_GET_DESCRIPTOR	,	V_109
+credit_ceiling	,	V_144
+OZ_PLAT_DEV_NAME	,	V_241
+bNbrPorts	,	V_204
+USB_PORT_FEAT_ENABLE	,	V_209
+list_head	,	V_21
+clear_bits	,	V_207
+USB_PORT_FEAT_C_SUSPEND	,	V_219
+"oz_hcd_control_cnf rcode=%u len=%d\n"	,	L_29
+"Buffer full\n"	,	L_32
+bInterfaceNumber	,	V_156
+"bRequestType = %x\n"	,	L_44
+in_ep	,	V_66
+"USB_REQ_SET_FEATURE - cnf\n"	,	L_19

@@ -1,0 +1,259 @@
+wait_aliveness_resp	,	V_32
+MEI_PG_EVENT_IDLE	,	V_24
+do_req	,	V_13
+mei_irq_read_handler	,	F_71
+msleep	,	F_19
+fw_status	,	V_90
+upper_32_bits	,	F_84
+mei_txe_input_payload_write	,	F_39
+s32	,	T_5
+dev	,	V_11
+mei_txe_hbuf_empty_slots	,	F_55
+len	,	V_92
+reset_work	,	V_116
+MEI_DEV_RESETTING	,	V_115
+mei_txe_hw	,	V_4
+to_txe_hw	,	F_13
+mei_txe_dev_init	,	F_78
+mei_txe_readiness_is_sec_rdy	,	F_44
+mei_txe_intr_clear	,	F_35
+mei_txe_aliveness_get	,	F_16
+TXE_INTR_IN_READY	,	V_59
+SICR_HOST_IPC_READINESS_HOST_RDY	,	V_65
+mei_txe_count_full_read_slots	,	F_56
+expected	,	V_22
+mei_txe_sec_reg_write_silent	,	F_8
+EIO	,	V_95
+SICR_HOST_ALIVENESS_REQ_REQUESTED	,	V_19
+mei_txe_irq_quick_handler	,	F_62
+TXE_INTR_OUT_DB	,	V_60
+SEC_RESET_WAIT_TIMEOUT	,	V_73
+do_ack	,	V_99
+"we need to start the dev.\n"	,	L_21
+HISR_INT_2_STS	,	V_97
+mei_txe_check_and_ack_intrs	,	F_61
+GFP_KERNEL	,	V_129
+IRQ_NONE	,	V_109
+"Readiness Interrupt was received...\n"	,	L_20
+TXE_INTR_IN_READY_BIT	,	V_40
+mei_count_full_read_slots	,	F_70
+ctrl	,	V_136
+readiness	,	V_68
+"sec write: aliveness not asserted\n"	,	L_2
+TXE_INTR_READINESS_BIT	,	V_113
+MSEC_PER_SEC	,	V_26
+mutex_unlock	,	F_18
+BRIDGE_IPC_OUTPUT_PAYLOAD_REG	,	V_63
+TXE_INTR_OUT_DB_BIT	,	V_98
+"irq thread: Interrupt Registers HHISR|HISR|SEC=%02X|%04X|%02X\n"	,	L_19
+intr_cause	,	V_41
+mei_txe_irq_thread_handler	,	F_63
+clear_bit	,	F_32
+EMSGSIZE	,	V_87
+mei_txe_out_data_read	,	F_40
+hhisr	,	V_100
+BRIDGE_BAR	,	V_9
+cfg	,	V_128
+i	,	V_84
+irq	,	V_106
+ioread32	,	F_2
+mei_txe_sec_reg_read	,	F_6
+mei_device_init	,	F_80
+buf	,	V_78
+IRQ_WAKE_THREAD	,	V_108
+t	,	V_23
+intr_enable	,	V_93
+mei_irq_compl_handler	,	F_74
+mutex_lock	,	F_20
+phys_addr_t	,	T_6
+IPC_HHIER_MSK	,	V_53
+mei_txe_aliveness_wait	,	F_22
+"sec read: aliveness not asserted\n"	,	L_1
+HICR_SEC_IPC_READINESS_HOST_RDY	,	V_70
+mei_txe_hw_start	,	F_60
+__iomem	,	T_2
+dev_dbg	,	F_14
+SEC_IPC_HOST_INT_STATUS_PENDING	,	V_49
+MEI_PG_OFF	,	V_35
+"mei_irq_read_handler ret = %d.\n"	,	L_24
+HICR_SEC_IPC_READINESS_SEC_RDY	,	V_69
+reg	,	V_18
+generated	,	V_102
+rem	,	V_79
+req	,	V_12
+ret	,	V_31
+"Input is not ready "	,	L_12
+mei_cfg	,	V_127
+iowrite32	,	F_4
+count	,	V_124
+"wating for readiness failed\n"	,	L_18
+SATT2_CTRL_BR_BASE_ADDR_REG_SHIFT	,	V_139
+WARN	,	F_7
+HICR_HOST_ALIVENESS_RESP_ACK	,	V_21
+mei_txe_fw_status	,	F_76
+slots	,	V_81
+pci_dev	,	V_126
+"aliveness settled after = %d msec aliveness = %d event = %d\n"	,	L_7
+ops	,	V_130
+mei_txe_readiness_clear	,	F_42
+"wait for aliveness settle failed ... bailing out\n"	,	L_16
+idx	,	V_61
+SATT2_SAP_SIZE_REG	,	V_140
+SEC_IPC_INPUT_PAYLOAD_REG	,	V_62
+dev_state	,	V_114
+mei_txe_output_ready_set	,	F_33
+HHIER_REG	,	V_54
+hbuf_is_ready	,	V_119
+ipc_isr	,	V_101
+timeout	,	V_29
+dev_err	,	F_21
+mei_txe_aliveness_req_get	,	F_15
+"aliveness timed out\n"	,	L_5
+MEI_HDR_FMT	,	V_86
+SEC_IPC_HOST_INT_MASK_REG	,	V_38
+kzalloc	,	F_79
+mei_pg_state	,	V_34
+SATT2_CTRL_REG	,	V_142
+SEC_BAR	,	V_7
+mei_txe_readiness_wait	,	F_47
+end	,	V_117
+HICR_HOST_ALIVENESS_RESP_REG	,	V_20
+MEI_PG_EVENT_RECEIVED	,	V_33
+aliveness	,	V_8
+mei_irq_write_handler	,	F_73
+mei_txe_hw_ops	,	V_131
+"txe write: aliveness not asserted\n"	,	L_11
+MEI_PG_EVENT_WAIT	,	V_16
+HICR_SEC_IPC_READINESS_REG	,	V_67
+dw_cnt	,	V_83
+complete_list	,	V_111
+"FW not ready: resetting.\n"	,	L_22
+length	,	V_80
+mei_txe_readiness_set_host_rdy	,	F_41
+mei_txe_br_reg_write	,	F_11
+"aliveness timed out = %ld aliveness = %d event = %d\n"	,	L_6
+HIER_INT_EN_MSK	,	V_56
+recvd_hw_ready	,	V_72
+mei_txe_setup_satt2	,	F_82
+reg_buf	,	V_82
+"Aliveness Interrupt: Status: %d\n"	,	L_23
+SATT2_CTRL_VALID_MSK	,	V_138
+IPC_HHIER_SEC	,	V_104
+mei_txe_intr_enable	,	F_37
+mei_data2slots	,	F_52
+mem_addr	,	V_6
+waitqueue_active	,	F_69
+"wait for aliveness failed ... bailing out\n"	,	L_17
+"SATT2: SAP_SIZE_OFFSET=0x%08X, BRG_BA_LSB_OFFSET=0x%08X, CTRL_OFFSET=0x%08X\n"	,	L_27
+jiffies_to_msecs	,	F_26
+hw	,	V_5
+aliveness_req	,	V_94
+hisr	,	V_96
+lo32	,	V_134
+hi32	,	V_135
+mei_txe_sec_reg_write	,	F_9
+HISR_INT_STS_MSK	,	V_51
+mei_txe_aliveness_set_sync	,	F_27
+init_waitqueue_head	,	F_81
+TXE_INTR_READINESS	,	V_57
+"aliveness_resp = 0x%08x, readiness = 0x%08x.\n"	,	L_10
+SATT2_BRG_BA_LSB_REG	,	V_141
+SEC_IPC_HOST_INT_MASK_IN_RDY	,	V_39
+wait_event_timeout	,	F_24
+"Aliveness current=%d request=%d\n"	,	L_3
+base_addr	,	V_1
+mei_cl_cb	,	V_110
+mei_fw_status	,	V_89
+IRQ_HANDLED	,	V_120
+mei_txe_aliveness_set	,	F_12
+SEC_IPC_INPUT_DOORBELL_REG	,	V_42
+mei_txe_pg_state	,	F_29
+mei_txe_reg_write	,	F_3
+MEI_HDR_PRM	,	F_51
+"buffer-length = %lu buf[0]0x%08X\n"	,	L_14
+mei_txe_read_hdr	,	F_57
+wait_hw_ready	,	V_71
+status	,	V_45
+mei_txe_read	,	F_58
+range	,	V_133
+HIER_REG	,	V_55
+out	,	V_103
+SATT_RANGE_MAX	,	V_137
+SICR_SEC_IPC_OUTPUT_STATUS_REG	,	V_43
+mei_txe_hw_config	,	F_48
+mei_txe_is_input_ready	,	F_34
+pg_event	,	V_15
+PCI_CFG_TXE_FW_STS0	,	V_122
+ETIME	,	V_28
+PCI_CFG_TXE_FW_STS1	,	V_123
+err	,	V_30
+hintmsk	,	V_37
+EAGAIN	,	V_88
+mei_io_list_init	,	F_64
+mei_txe_input_ready_interrupt_enable	,	F_30
+EINVAL	,	V_85
+device_lock	,	V_25
+mei_txe_pg_is_enabled	,	F_28
+SICR_HOST_IPC_READINESS_RDY_CLR	,	V_66
+"\n"	,	L_13
+mei_txe_hw_is_ready	,	F_45
+"interrupt thread end ret = %d\n"	,	L_26
+mei_txe_host_is_ready	,	F_46
+"wait for readiness failed\n"	,	L_9
+wake_up	,	F_68
+MEI_FW_STATUS_MAX	,	V_125
+MEI_PG_ON	,	V_36
+size_t	,	T_3
+mei_txe_hw_reset	,	F_59
+mei_txe_reg_read	,	F_1
+pci_read_config_dword	,	F_77
+lower_32_bits	,	F_83
+pdev	,	V_14
+HHISR_REG	,	V_52
+"aliveness settled after %d msecs\n"	,	L_4
+u32	,	T_1
+HISR_REG	,	V_50
+"buf[%d] = 0x%08X\n"	,	L_15
+mei_txe_write	,	F_49
+offset	,	V_2
+mei_txe_pending_interrupts	,	F_38
+pci_dev_msi_enabled	,	F_65
+mei_txe_input_doorbell_set	,	F_31
+SEC_IPC_HOST_INT_STATUS_IN_RDY	,	V_105
+SICR_HOST_IPC_READINESS_REQ_REG	,	V_64
+SEC_IPC_OUTPUT_STATUS_RDY	,	V_44
+header	,	V_77
+schedule_work	,	F_67
+SICR_HOST_ALIVENESS_REQ_REG	,	V_17
+SEC_IPC_HOST_INT_STATUS_REG	,	V_48
+mei_txe_aliveness_poll	,	F_17
+rets	,	V_112
+FW_STS_PRM	,	F_53
+"mei_irq_write_handler ret = %d.\n"	,	L_25
+msecs_to_jiffies	,	F_23
+mei_txe_readiness_get	,	F_43
+mei_txe_hbuf_max_len	,	F_54
+"Pending Interrupts InReady=%01d Readiness=%01d, Aliveness=%01d, OutDoor=%01d\n"	,	L_8
+pci_cfg_reg	,	V_121
+SEC_ALIVENESS_WAIT_TIMEOUT	,	V_27
+addr	,	V_132
+value	,	V_3
+mei_msg_hdr	,	V_76
+mei_enable_interrupts	,	F_75
+mei_hbuf_is_ready	,	F_72
+irqreturn_t	,	T_4
+TXE_INTR_ALIVENESS_BIT	,	V_118
+dev_warn	,	F_25
+WARN_ON	,	F_50
+TXE_INTR_ALIVENESS	,	V_58
+mei_txe_sec_reg_read_silent	,	F_5
+dev_id	,	V_107
+SEC_IPC_INPUT_STATUS_RDY	,	V_47
+FW_STS_FMT	,	V_91
+test_and_clear_bit	,	F_66
+hbuf_depth	,	V_74
+mei_txe_br_reg_read	,	F_10
+PAYLOAD_SIZE	,	V_75
+mei_txe_intr_disable	,	F_36
+SEC_IPC_INPUT_STATUS_REG	,	V_46
+mei_device	,	V_10

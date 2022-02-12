@@ -1,0 +1,149 @@
+pr_debug	,	F_23
+execute_task_lock	,	V_37
+se_portal_group	,	V_67
+ENOMEM	,	V_8
+tmr_list	,	V_10
+atomic_set	,	F_25
+"LUN_RESET: ITT[0x%08x] - pr_res_key: 0x%016Lx"	,	L_11
+" ITT/CmdSN: 0x%08x/0x%08x, i_state: %d, t_state: %d"	,	L_9
+t_fe_count	,	V_56
+core_tmr_lun_reset	,	F_34
+se_tpg	,	V_72
+se_node_acl	,	V_16
+list_empty	,	F_26
+t_state_lock	,	V_27
+" t_fe_count: %d dev: %p\n"	,	L_20
+task_cmd	,	V_9
+transport_cmd_finish_abort	,	F_12
+dev	,	V_12
+core_tmr_drain_cmd_list	,	F_32
+tmr	,	V_6
+"LUN_RESET: Skipping task: %p, dev: %p for"	,	L_15
+" t_task_cdbs_sent: %d -- t_transport_active: %d"	,	L_13
+t_task_list_num	,	V_48
+" task: %p, t_fe_count: %d dev: %p\n"	,	L_18
+list_for_each_entry_safe	,	F_16
+se_queue_node	,	V_66
+work	,	V_54
+tmr_dev	,	V_13
+se_tfo	,	V_43
+t_task_cdbs_left	,	V_49
+TRANSPORT_COMPLETE	,	V_53
+t_transport_aborted	,	V_57
+list_move_tail	,	F_21
+"LUN_RESET: SCSI-2 Released reservation\n"	,	L_27
+DF_SPC2_RESERVATIONS	,	V_79
+"LUN_RESET: %s for [%s] Complete\n"	,	L_28
+se_cmd	,	V_2
+task_state_active	,	V_40
+get_fabric_name	,	V_74
+pr_err	,	F_3
+cmd	,	V_18
+LIST_HEAD	,	F_15
+"LUN_RESET: %s cmd: %p task: %p"	,	L_8
+get_cmd_state	,	V_45
+__transport_remove_task_from_execute_queue	,	F_27
+""	,	L_6
+dev_flags	,	V_78
+t_task_cdbs_ex_left	,	V_55
+flags	,	V_14
+list_del_init	,	F_22
+" t_task_cdbs: %d t_task_cdbs_left: %d"	,	L_12
+dev_reserved_node_acl	,	V_81
+"cdb: 0x%02x\n"	,	L_10
+core_tmr_alloc_req	,	F_1
+core_scsi3_check_cdb_abort_and_preempt	,	F_17
+dev_queue_obj	,	V_61
+get_task_tag	,	V_44
+t_transport_active	,	V_28
+tmr_p	,	V_25
+spin_unlock_irq	,	F_36
+"Unable to locate struct se_cmd for TMR\n"	,	L_2
+"Preempt"	,	L_5
+u8	,	T_1
+atomic_read	,	F_19
+se_task	,	V_34
+"LUN_RESET: Got t_transport_active = 0 for task: %p,"	,	L_19
+queue_cnt	,	V_65
+"TMR"	,	L_26
+"LUN_RESET: TMR caller fabric: %s"	,	L_23
+tcmd	,	V_62
+t_transport_sent	,	V_52
+" Response: 0x%02x, t_state: %d\n"	,	L_4
+drain_tmr_list	,	V_24
+task_se_cmd	,	V_38
+ERR_PTR	,	F_4
+core_tmr_handle_tas_abort	,	F_11
+"LUN_RESET: got t_transport_active = 1 for"	,	L_17
+se_queue_obj	,	V_59
+tmr_tpg	,	V_68
+"LUN_RESET: %s from Device Queue: cmd: %p t_state:"	,	L_21
+stats_lock	,	V_82
+pr_res_key	,	V_47
+"LUN_RESET: %s releasing TMR %p Function: 0x%02x,"	,	L_3
+se_device	,	V_11
+INIT_LIST_HEAD	,	F_5
+dev_reservation_lock	,	V_80
+function	,	V_4
+t_transport_queue_active	,	V_64
+spin_lock_irq	,	F_35
+se_sub_dev	,	V_69
+se_dev_attrib	,	V_70
+atomic_dec	,	F_33
+atomic_dec_and_test	,	F_31
+kmem_cache_zalloc	,	F_2
+core_tmr_drain_task_list	,	F_24
+tas	,	V_19
+se_tpg_tfo	,	V_73
+target_stop_task	,	F_30
+num_resets	,	V_83
+spin_unlock_irqrestore	,	F_10
+task	,	V_35
+"Unable to allocate struct se_tmr_req\n"	,	L_1
+spin_lock_irqsave	,	F_8
+name	,	V_77
+t_task_cdbs_sent	,	V_50
+" %d t_fe_count: %d\n"	,	L_22
+next	,	V_42
+tmr_pp	,	V_26
+" t_transport_stop: %d t_transport_sent: %d\n"	,	L_14
+tmr_nacl	,	V_17
+prout_cmd	,	V_32
+se_sess	,	V_21
+"task-&gt;task_se_cmd is NULL!\n"	,	L_7
+core_tmr_drain_tmr_list	,	F_14
+core_tmr_release_req	,	F_6
+task_tmp	,	V_36
+t_execute_list	,	V_41
+drain_cmd_list	,	V_58
+cancel_work_sync	,	F_29
+kmem_cache_free	,	F_7
+list_del	,	F_9
+transport_send_task_abort	,	F_13
+qobj	,	V_60
+drain_task_list	,	V_33
+se_tmr_req	,	V_1
+spin_lock	,	F_18
+"LUN_RESET: %s starting for [%s], tas: %d\n"	,	L_25
+gfp_flags	,	V_5
+fe_count	,	V_20
+" t_task_cdbs_ex_left: %d\n"	,	L_16
+se_tmr_req_cache	,	V_7
+cmd_queue_lock	,	V_63
+list_head	,	V_22
+fabric_tmr_ptr	,	V_3
+t_transport_stop	,	V_51
+preempt_and_abort_list	,	V_23
+spin_unlock	,	F_20
+emulate_tas	,	V_71
+transport	,	V_76
+t_task_cdb	,	V_46
+" initiator port %s\n"	,	L_24
+TRANSPORT_ISTATE_PROCESSING	,	V_30
+response	,	V_31
+list_entry	,	F_28
+initiatorname	,	V_75
+t_state	,	V_29
+gfp_t	,	T_2
+se_tmr_lock	,	V_15
+t_state_list	,	V_39

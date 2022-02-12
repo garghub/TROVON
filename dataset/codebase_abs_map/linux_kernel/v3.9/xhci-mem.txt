@@ -1,0 +1,609 @@
+parent	,	V_173
+XHCI_DEBUG	,	V_114
+"stream context array entries.\n"	,	L_15
+XHCI_CTX_TYPE_INPUT	,	V_61
+TRBS_PER_SEGMENT	,	V_12
+CTX_TO_EP_MULT	,	F_115
+xhci_stream_id_to_ring	,	F_41
+deq	,	V_120
+xhci_urb_free_priv	,	F_124
+dev	,	V_77
+TYPE_COMMAND	,	V_325
+ep_info2	,	V_193
+ep_interval	,	V_223
+"Ext Cap %p, revision = 0x%x\n"	,	L_58
+XHCI_MAX_RINGS_CACHED	,	V_52
+xhci_endpoint_zero	,	F_108
+ERST_PTR_MASK	,	V_298
+usb_endpoint_xfer_int	,	F_92
+ARRAY_SIZE	,	F_133
+xhci_parse_exponent_interval	,	F_83
+fail_sp	,	V_238
+cmd_ring	,	V_267
+stream_ctx	,	V_71
+xhci_interval_bw_table	,	V_144
+"mapped to ring %p\n"	,	L_10
+"Ext Cap %p, port offset = %u, "	,	L_59
+mapped_ring	,	V_97
+"ep %#x - rounding interval to %d microframes, ep desc says %d microframes\n"	,	L_35
+ERST_SIZE_MASK	,	V_337
+xhci_alloc_stream_ctx	,	F_36
+xhci_get_endpoint_type	,	F_96
+route	,	V_178
+size	,	V_62
+"TRB math tests passed.\n"	,	L_52
+"// Set ERST entries to point to event ring.\n"	,	L_97
+INIT_RADIX_TREE	,	F_46
+xhci_trb_virt_to_dma	,	F_55
+"duplicated as USB %u\n"	,	L_67
+HCS_MAX_PORTS	,	F_60
+CTX_SIZE	,	F_27
+"ep %#x - rounding interval to %d %sframes\n"	,	L_33
+""	,	L_4
+"Supported page size of %iK\n"	,	L_78
+in_slot_ctx	,	V_231
+"WARN: no supported page size\n"	,	L_79
+"addr = %p\n"	,	L_75
+xhci_ring_expansion	,	F_23
+"// Doorbell array is located at offset 0x%x"	,	L_91
+to_pci_dev	,	F_33
+TRB_LINK	,	V_24
+GFP_ATOMIC	,	V_109
+"Setting number of stream ctx array entries to %u\n"	,	L_18
+xhci_ring	,	V_29
+dma_alloc_coherent	,	F_37
+dev_info2	,	V_187
+urb_priv	,	V_255
+seg	,	V_6
+USB_SPEED_HIGH	,	V_180
+hcs_params2	,	V_236
+hcs_params1	,	V_132
+usb_endpoint_dir_in	,	F_97
+bMaxBurst	,	V_218
+xhci_alloc_segments_for_ring	,	F_17
+virt_dev	,	V_48
+num_packets	,	V_225
+xhci_alloc_tt_info	,	F_63
+completion	,	V_253
+device_pool	,	V_65
+endpoints	,	V_151
+address	,	V_84
+num_streams	,	V_92
+cur_stream	,	V_94
+"Found %u USB 2.0 ports and %u USB 3.0 ports.\n"	,	L_71
+i	,	V_8
+j	,	V_141
+"Slot %u endpoint %u "	,	L_20
+bEndpointAddress	,	V_199
+fls	,	F_52
+"// Write event ring dequeue pointer, "	,	L_55
+n	,	V_273
+"udev-&gt;tt = %p\n"	,	L_31
+xhci_test_radix_tree	,	F_42
+end_trb	,	V_285
+SEGMENT_SHIFT	,	V_89
+desc_interval	,	V_200
+deq_updates	,	V_42
+bw_table	,	V_145
+xhci_get_endpoint_interval	,	F_89
+trb_size	,	V_98
+xhci_to_hcd	,	F_34
+rh_bw	,	V_133
+DEV_NOTE_MASK	,	V_343
+xhci_get_slot_ctx	,	F_30
+cmd_completion	,	V_162
+XHCI_EXT_PORT_OFF	,	F_140
+xhci_ring_free	,	F_15
+"First segment DMA is 0x%llx\n"	,	L_89
+enq_seg	,	V_33
+xhci_input_control_ctx	,	V_66
+rings_cached	,	V_50
+xhci_link_segments	,	F_8
+USB_SPEED_LOW	,	V_184
+clamp_val	,	F_84
+fail_sp2	,	V_241
+in_interrupt	,	F_135
+"Allocating %d scratchpad buffers\n"	,	L_36
+fail_sp3	,	V_243
+ep_index	,	V_49
+fail_sp4	,	V_245
+fail_sp5	,	V_248
+rsvd	,	V_335
+BULK_OUT_EP	,	V_207
+ret	,	V_44
+hcc_params	,	V_63
+"Limiting USB 2.0 roothub ports to %u.\n"	,	L_73
+ep_info	,	V_117
+xhci_writel	,	F_151
+cleanup_rings	,	V_111
+dma_pool_create	,	F_152
+radix_tree_lookup	,	F_39
+TYPE_ISOC	,	V_25
+xhci_alloc_command	,	F_45
+ep	,	V_83
+" from cap regs base addr\n"	,	L_92
+list	,	V_271
+erst_base	,	V_338
+xhci_link_rings	,	F_14
+spin_unlock_irqrestore	,	F_128
+"No Extended Capability registers, "	,	L_68
+init_timer	,	F_58
+dma_pool_destroy	,	F_126
+TRB_TYPE	,	F_11
+num_rings_cached	,	V_51
+"xHCI ring segments"	,	L_84
+num_segs	,	V_32
+tt_info	,	V_129
+xhci_trb	,	V_55
+main_hcd	,	V_172
+"starting TRB %p (0x%llx DMA), "	,	L_47
+dma_to_stream_ring	,	F_40
+num_usb3_ports	,	V_275
+list_del	,	F_62
+cancelled_td_list	,	V_160
+le32_to_cpu	,	F_10
+max_esit_payload	,	V_215
+kmalloc	,	F_148
+segment_ptr	,	V_22
+xhci_get_endpoint_index	,	F_103
+result_seg	,	V_287
+xhci_parse_frame_interval	,	F_88
+"xHCI 0.96: support USB2 software lpm\n"	,	L_61
+"WARN: Bad DMA address 0x%08llx "	,	L_11
+"Allocating %u streams and %u "	,	L_14
+allocate_completion	,	V_251
+simple_test_vector	,	V_292
+tt_bw	,	V_191
+ss_ep_comp	,	V_203
+trb_in_td	,	F_131
+xhci_virt_device	,	V_47
+MAX_ESIT_PAYLOAD_FOR_EP	,	F_106
+cleanup_info	,	V_104
+hub	,	V_189
+XHCI_HCC_EXT_CAPS	,	F_143
+slot_id	,	V_125
+"ring expansion succeed, now has %d segments\n"	,	L_7
+dma	,	V_7
+xhci_warn	,	F_43
+xhci_alloc_stream_info	,	F_44
+ENOMEM	,	V_43
+mult	,	V_224
+xhci_err	,	F_144
+num_stream_ctxs	,	V_69
+val2	,	V_319
+erst_dma_addr	,	V_264
+"FIXME xHCI doesn't support wireless speeds\n"	,	L_27
+"not removed from BW list!\n"	,	L_21
+INT_OUT_EP	,	V_211
+port_array	,	V_279
+USB_MAXCHILDREN	,	V_315
+lock	,	V_270
+ISOC_OUT_EP	,	V_209
+XHCI_EXT_PORT_MAJOR	,	F_146
+list_for_each_entry_safe	,	F_61
+wBytesPerInterval	,	V_214
+in	,	V_205
+"unable to set up roothub.\n"	,	L_69
+SLOT_SPEED_LS	,	V_185
+eps	,	V_54
+xhci_dbg_regs	,	F_154
+ep_type	,	V_228
+stream_ctx_array	,	V_105
+usb_tt	,	V_138
+DBOFF_MASK	,	V_328
+interval	,	V_196
+xhci_setup_streams_ep_input_ctx	,	F_51
+"mapped ring = %p\n"	,	L_13
+status	,	V_254
+free_streams_command	,	V_108
+USB_SPEED_FULL	,	V_182
+radix_tree_insert	,	F_48
+sp_buffers	,	V_242
+"%d ring%s cached\n"	,	L_2
+"freeing ring\n"	,	L_6
+"Freed segment pool\n"	,	L_40
+skip	,	V_217
+CTX_TO_MAX_BURST	,	F_116
+"WARN: Didn't find a matching TT\n"	,	L_30
+"Expected seg %p, got seg %p\n"	,	L_49
+tt_list	,	V_135
+" port %u\n"	,	L_65
+cur_cd	,	V_258
+"didn't map to stream ID %u; "	,	L_9
+TYPE_STREAM	,	V_110
+AVG_TRB_LENGTH_FOR_EP	,	F_107
+start_trb	,	V_284
+max_exponent	,	V_202
+MAX_PACKET	,	F_80
+td_list	,	V_45
+"Command ring has no reserved TRBs available\n"	,	L_16
+in_ctx	,	V_158
+xhci_erst_entry	,	V_260
+mem_flags	,	V_81
+xhci_add_in_port	,	F_138
+cap_regs	,	V_310
+dma_free_coherent	,	F_35
+max_packet_size	,	V_226
+dequeue	,	V_39
+cur_ring	,	V_95
+MAX_PACKET_DECODED	,	F_117
+erst_dequeue	,	V_297
+xhci_check_trb_in_td_math	,	F_132
+NUM_PORT_REGS	,	V_318
+xhci_segment	,	V_1
+pdev	,	V_73
+u32	,	T_3
+function	,	V_123
+DUPLICATE_ENTRY	,	V_307
+op_regs	,	V_316
+addr_dev	,	V_339
+xhci_free_stream_info	,	F_56
+"udev-&gt;ttport = 0x%x\n"	,	L_32
+cleanup_ctx	,	V_107
+port_num	,	V_176
+scratchpad_alloc	,	F_121
+cleanup_trbs	,	V_103
+SLOT_SPEED_HS	,	V_181
+xhci_find_raw_port_number	,	F_73
+"// Device context base array address = 0x%llx (DMA), %p (virt)\n"	,	L_83
+"s"	,	L_3
+entry	,	V_332
+entries	,	V_263
+first_seg	,	V_37
+medium_streams_pool	,	V_80
+spin_lock_irqsave	,	F_127
+active_eps	,	V_156
+xhci_setup_addressable_virt_dev	,	F_74
+list_add	,	F_64
+xhci_endpoint_init	,	F_102
+list_for_each_entry	,	F_78
+EP_TYPE	,	F_79
+"Port was marked as USB %u, "	,	L_66
+"input DMA 0x%llx\n"	,	L_46
+"Simple"	,	L_50
+XHCI_EXT_CAPS_PROTOCOL	,	V_314
+real_port	,	V_131
+"Slot %d input ctx = 0x%llx (dma)\n"	,	L_24
+erst_size	,	V_336
+"Set fake root hub portnum to %d\n"	,	L_29
+stream_rings	,	V_93
+"HCD page size set to %iK\n"	,	L_80
+"count = %u, revision = 0x%x\n"	,	L_60
+xhci_setup_no_streams_ep_input_ctx	,	F_54
+usb3_ports	,	V_278
+MAX_HC_SLOTS	,	V_269
+XHCI_AMD_0x96_HOST	,	V_27
+xhci_link_trb_quirk	,	F_12
+SCT_PRI_TR	,	V_112
+xhci_print_ir_set	,	F_156
+HCC_64BYTE_CONTEXT	,	F_26
+dev_warn	,	F_85
+control	,	V_14
+ir_set	,	V_296
+SMALL_STREAM_ARRAY_SIZE	,	V_78
+SLOT_SPEED_FS	,	V_183
+HCS_SLOTS_MASK	,	V_322
+xhci_virt_ep	,	V_82
+u64	,	T_4
+tts	,	V_134
+free_tts	,	V_146
+bytes	,	V_64
+TRB_CHAIN	,	V_28
+ring	,	V_30
+XHCI_EXT_CAPS_NEXT	,	F_147
+dma_addr_t	,	T_2
+prev	,	V_18
+xhci_print_run_regs	,	F_155
+"micro"	,	L_34
+"ending TRB %p (0x%llx DMA)\n"	,	L_48
+xhci_segment_alloc	,	F_1
+max_primary_streams	,	V_116
+db_off	,	V_327
+xhci_container_ctx	,	V_58
+xhci_free_virt_device	,	F_65
+"USB 3.0 port at index %u, "	,	L_76
+in_ep_ctx	,	V_230
+event_ring	,	V_265
+ep_ring	,	V_165
+xhci_readl	,	F_139
+ep_ctx	,	V_115
+last_seg	,	V_35
+xhci_free_segments_for_ring	,	F_7
+ctx	,	V_59
+dma_pool_alloc	,	F_3
+xhci_get_endpoint_mult	,	F_95
+"Setting stream %d ring ptr to 0x%08llx\n"	,	L_17
+xhci_dbg_cmd_ptrs	,	F_153
+dcbaa_ptr	,	V_324
+num_tests	,	V_294
+"WARN: %s TRB math test %d failed!\n"	,	L_44
+usb_endpoint_maxp	,	F_101
+usb2_ports	,	V_277
+dev_notification	,	V_342
+cpu_to_le64	,	F_9
+top_dev	,	V_166
+GFP_KERNEL	,	V_323
+device	,	V_234
+bus_state	,	V_281
+num_active_eps	,	V_276
+shared_hcd	,	V_171
+dev_context_ptrs	,	V_155
+xhci_get_max_esit_payload	,	F_98
+TRB_TYPE_BITMASK	,	V_23
+list_del_init	,	F_129
+out_slot_ctx	,	V_232
+"mapped to valid stream ID %u; "	,	L_12
+XHCI_CTX_TYPE_DEVICE	,	V_60
+xhci_dma_to_transfer_ring	,	F_38
+BUG	,	F_76
+USB_SPEED_SUPER	,	V_170
+xhci_stream_ctx	,	V_70
+le16_to_cpu	,	F_99
+key	,	V_100
+le64_to_cpu	,	F_70
+controller	,	V_75
+bmAttributes	,	V_204
+xhci_alloc_virt_device	,	F_68
+CTX_TO_MAX_ESIT_PAYLOAD	,	F_118
+u8	,	T_7
+INT_IN_EP	,	V_210
+usb_endpoint_type	,	F_104
+xhci_free_or_cache_endpoint_ring	,	F_20
+xhci_reset	,	F_158
+bw_endpoint_list	,	V_157
+SEGMENT_SIZE	,	V_11
+td	,	V_256
+SLOT_SPEED_SS	,	V_179
+CTX_TO_EP_INTERVAL	,	F_114
+buf	,	V_246
+"Freed event ring\n"	,	L_38
+segment_pool	,	V_10
+xhci_root_port_bw_info	,	V_190
+CTX_TO_EP_TYPE	,	F_113
+hw_lpm_support	,	V_306
+val_64	,	V_320
+num_entries	,	V_262
+tt	,	V_139
+lpm_command	,	V_266
+start_dma	,	V_290
+xhci_microframes_to_exponent	,	F_86
+hci_version	,	V_220
+sp_dma	,	V_240
+"Complex"	,	L_51
+usb_hcd	,	V_167
+"// Allocating event ring\n"	,	L_93
+EP_HAS_STREAMS	,	V_86
+__iomem	,	T_6
+dcbaa	,	V_154
+INIT_LIST_HEAD	,	F_19
+stream_ring	,	V_113
+"// Setting Max device slots reg = 0x%x.\n"	,	L_82
+"Bad real port.\n"	,	L_19
+xhci_free_container_ctx	,	F_28
+TYPE_CTRL	,	V_161
+sp_dma_buffers	,	V_244
+xhci_write_64	,	F_137
+ERROR_COUNT	,	F_82
+hdev	,	V_137
+BULK_IN_EP	,	V_206
+last	,	V_31
+"Freed device context pool\n"	,	L_41
+xhci_halt	,	F_157
+xhci_alloc_container_ctx	,	F_24
+EP_MAXPSTREAMS	,	F_53
+"Set slot id %d dcbaa entry %p to 0x%llx\n"	,	L_25
+xhci_free_tt_info	,	F_59
+cmd_list	,	V_163
+xhci_mem_init	,	F_149
+usb_endpoint_xfer_isoc	,	F_93
+"// Setting command ring address to 0x%x\n"	,	L_90
+pci_dev	,	V_72
+fake_port	,	V_188
+DEV_NOTE_FWAKE	,	V_344
+xhci_dbg	,	F_21
+num_segs_needed	,	V_57
+xhci_command	,	V_249
+slot_found	,	V_130
+maxchild	,	V_143
+bwt	,	V_272
+num_usb2_ports	,	V_274
+CTRL_EP	,	V_194
+desc	,	V_197
+dev_state	,	V_233
+test_number	,	V_289
+next	,	V_16
+input_dma	,	V_286
+xhci_mem_cleanup	,	F_125
+BUG_ON	,	F_25
+xhci_ring_alloc	,	F_18
+bw_info	,	V_222
+hcd	,	V_168
+ep_state	,	V_85
+speed	,	V_169
+LINK_TOGGLE	,	V_36
+devs	,	V_153
+"Limiting USB 3.0 roothub ports to 15.\n"	,	L_72
+xhci_find_real_port_number	,	F_72
+cap_id	,	V_313
+kzalloc	,	F_2
+xhci_init_endpoint_timer	,	F_57
+cpu_to_le32	,	F_13
+lpm_failed_devs	,	V_341
+"Duplicate port entry, Ext Cap %p,"	,	L_64
+xhci_cd	,	V_257
+SCT_FOR_CTX	,	F_47
+"// Allocated event ring segment table at 0x%llx\n"	,	L_94
+HCS_MAX_SLOTS	,	F_150
+EP_HAS_LSA	,	V_119
+enq_updates	,	V_41
+ERST_NUM_SEGS	,	V_331
+xhci_reinit_cached_ring	,	F_22
+xhci_get_input_control_ctx	,	F_29
+"WARN: DMA address 0x%08llx "	,	L_8
+"Ring cache full (%d rings), "	,	L_5
+enqueue	,	V_38
+stream_info	,	V_87
+__le32	,	T_5
+"Set ERST to 0; private num segs = %i, virt addr = %p, dma addr = 0x%llx\n"	,	L_95
+"Slot %d output ctx = 0x%llx (dma)\n"	,	L_23
+"xHCI 1KB stream ctx arrays"	,	L_87
+gfp_t	,	T_1
+"Supported page size register = 0x%x\n"	,	L_77
+quirks	,	V_26
+xhci_set_hc_event_deq	,	F_134
+"// Set ERST base address for ir_set 0 = 0x%llx\n"	,	L_98
+num_trbs	,	V_56
+cancel_cmd_list	,	V_268
+XHCI_EXT_PORT_COUNT	,	F_141
+ep0_ctx	,	V_164
+"USB 2.0 port at index %u, "	,	L_74
+old_active_eps	,	V_152
+list_empty	,	F_66
+dev_info	,	V_177
+deq_seg	,	V_40
+MEDIUM_STREAM_ARRAY_SIZE	,	V_76
+tx_info	,	V_219
+GET_MAX_PACKET	,	F_100
+"WARN something wrong with SW event ring "	,	L_53
+multi	,	V_142
+HCS_MAX_SCRATCHPAD	,	F_122
+stream_id	,	V_91
+max_packet	,	V_213
+resume_done	,	V_340
+xhci_copy_ep0_dequeue_into_input_ctx	,	F_71
+"Allocated command ring at %p\n"	,	L_88
+"xHCI 1.0: support USB2 software lpm\n"	,	L_62
+complex_test_vector	,	V_293
+usb_endpoint_xfer_bulk	,	F_91
+port_offset	,	V_301
+page_size	,	V_247
+val	,	V_20
+ISOC_IN_EP	,	V_208
+EP_MAXPSTREAMS_MASK	,	V_118
+"// Write ERST size = %i to ir_set 0 (some bits preserved)\n"	,	L_96
+slot_ctx	,	V_175
+"xHCI 1.0: support USB2 hardware lpm\n"	,	L_63
+xhci_get_ep_ctx	,	F_31
+small_streams_pool	,	V_79
+usb_device	,	V_136
+USB_SPEED_WIRELESS	,	V_186
+scratchpad_free	,	F_123
+fail	,	V_46
+next_cd	,	V_259
+usb_host_endpoint	,	V_195
+EP_IS_ADDED	,	F_111
+run_regs	,	V_330
+radix_tree_delete	,	F_49
+ENODEV	,	V_311
+xhci_free_stream_ctx	,	F_32
+"No ports on the roothubs?\n"	,	L_70
+XHCI_EXT_CAPS_ID	,	F_145
+kfree	,	F_4
+trb_address_map	,	V_88
+flags	,	V_5
+"Tested TRB math w/ seg %p and "	,	L_45
+xhci_stream_info	,	V_90
+"Bad Slot ID %d\n"	,	L_22
+bInterval	,	V_198
+stop_cmd_timer	,	V_121
+ctx_array_dma	,	V_106
+init_completion	,	F_69
+xhci_endpoint_copy	,	F_119
+TYPE_EVENT	,	V_21
+ring_cache	,	V_53
+"Cached old ring, "	,	L_1
+CMD_RING_RSVD_BITS	,	V_326
+ctrl_ctx	,	V_227
+"Freed command ring\n"	,	L_39
+xhci_ep_ctx	,	V_68
+xhci_clear_endpoint_bw_info	,	F_109
+LAST_CTX	,	F_75
+xhci_initialize_ring_info	,	F_16
+xhci_setup_port_arrays	,	F_142
+EP_IS_DROPPED	,	F_112
+min_exponent	,	V_201
+xhci_segment_free	,	F_5
+xhci	,	V_3
+EINVAL	,	V_99
+"preserving EHB bit\n"	,	L_56
+new_ring	,	V_216
+trbs	,	V_9
+self	,	V_74
+EP_INTERVAL	,	F_94
+first	,	V_17
+sp_array	,	V_239
+xhci_test_trb_in_td	,	F_130
+config_reg	,	V_321
+data	,	V_122
+xhci_read_64	,	F_136
+tt_list_head	,	V_127
+ttport	,	V_148
+MAX_BURST	,	F_81
+DEV_MTT	,	V_192
+usb_endpoint_xfer_control	,	F_90
+bus_suspended	,	V_282
+xhci_hcd	,	V_2
+xhci_update_tt_active_eps	,	F_67
+seg_size	,	V_334
+max_burst	,	V_212
+hc_capbase	,	V_312
+port_status_base	,	V_317
+"Ignoring unknown port speed, "	,	L_57
+dba	,	V_329
+input_seg	,	V_283
+offset	,	V_308
+"Wrote ERST address to ir_set 0.\n"	,	L_99
+sw_lpm_support	,	V_304
+xhci_ring_type	,	V_19
+end_dma	,	V_291
+TRB_CYCLE	,	V_15
+xhci_update_bw_info	,	F_110
+interval_bw	,	V_150
+xhci_slot_copy	,	F_120
+seg_addr	,	V_333
+EP_MULT	,	F_105
+"Freed ERST\n"	,	L_37
+udev	,	V_147
+allocate_in_ctx	,	V_250
+XHCI_L1C	,	V_303
+xhci_bw_info	,	V_221
+out_ctx	,	V_159
+test_name	,	V_288
+xhci_parse_microframe_interval	,	F_87
+"xHCI input/output contexts"	,	L_85
+xhci_stop_endpoint_command_watchdog	,	V_124
+portnum	,	V_174
+link	,	V_13
+"Freed medium stream array pool\n"	,	L_43
+num_ports	,	V_140
+ROOT_HUB_PORT	,	F_77
+"// xHC can handle at most %d device slots.\n"	,	L_81
+page_shift	,	V_280
+ERST_EHB	,	V_299
+"Set root hub portnum to %d\n"	,	L_28
+num_trbs_free	,	V_34
+scratchpad	,	V_237
+XHCI_MAX_INTERVAL	,	V_149
+addr	,	V_96
+cmd_ring_reserved_trbs	,	V_101
+xhci_free_command	,	F_50
+cycle_state	,	V_4
+erst	,	V_261
+xhci_slot_ctx	,	V_67
+temp	,	V_295
+out_ep_ctx	,	V_229
+list_head	,	V_126
+MAX_RSVD_CMD_TRBS	,	V_102
+"Freed small stream array pool\n"	,	L_42
+"Couldn't initialize memory\n"	,	L_100
+port_index	,	V_309
+"dequeue ptr.\n"	,	L_54
+num_sp	,	V_235
+command	,	V_252
+xhci_tt_bw_info	,	V_128
+"Slot ID %d is not assigned to this device\n"	,	L_26
+major_revision	,	V_300
+port_count	,	V_302
+XHCI_HLC	,	V_305
+dma_pool_free	,	F_6
+"xHCI 256 byte stream ctx arrays"	,	L_86

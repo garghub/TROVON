@@ -1,0 +1,524 @@
+" );(NL)		return -1;(NL)	}(NL)	if ( CNV_INT_TO_LITTLE( lp-&gt;hcfCtx.IFB_FWIdentity.comp_id ) == COMP_ID_FW_AP  ) {(NL)		lp-&gt;maxPort = 6;			//;?why set this here and not as part of download process(NL)	} else {(NL)		lp-&gt;maxPort = 0;(NL)	}(NL)(NL)	/* Send our configuration to the card. Perform any endian translation(NL)	   necessary */(NL)	/* Register the Mailbox; VxWorks does this elsewhere; why;? */(NL)	lp-&gt;ltvRecord.len       = 4;(NL)	lp-&gt;ltvRecord.typ       = CFG_REG_MB;(NL)	lp-&gt;ltvRecord.u.u32[0]  = (u_long)&amp;( lp-&gt;mailbox );(NL)	lp-&gt;ltvRecord.u.u16[2]  = ( MB_SIZE / sizeof( hcf_16 ));(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)	/* Max Data Length */(NL)	lp-&gt;ltvRecord.len       = 2;(NL)	lp-&gt;ltvRecord.typ       = CFG_CNF_MAX_DATA_LEN;(NL)	lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( HCF_MAX_PACKET_SIZE );(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)	/* System Scale / Distance between APs */(NL)	lp-&gt;ltvRecord.len       = 2;(NL)	lp-&gt;ltvRecord.typ       = CFG_CNF_SYSTEM_SCALE;(NL)	lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;DistanceBetweenAPs );(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)	/* Channel */(NL)	if ( lp-&gt;CreateIBSS &amp;&amp; ( lp-&gt;Channel == 0 )) {(NL)		DBG_TRACE( DbgInfo, "	,	L_80
+ExcludeUnencrypted	,	V_188
+"Association Status : UNKNOWN (0x%04x)\n"	,	L_196
+", lp-&gt;DefaultKeys.key[3].len );(NL)(NL)		/* write keys */(NL)		lp-&gt;DefaultKeys.len = sizeof( lp-&gt;DefaultKeys ) / sizeof( hcf_16 ) - 1;(NL)		lp-&gt;DefaultKeys.typ = CFG_DEFAULT_KEYS;(NL)(NL)		/* endian translate the appropriate key information */(NL)		for( count = 0; count &lt; MAX_KEYS; count++ ) {(NL)			lp-&gt;DefaultKeys.key[count].len = CNV_INT_TO_LITTLE( lp-&gt;DefaultKeys.key[count].len );(NL)		}(NL)(NL)		hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;DefaultKeys ));(NL)(NL)		/* Reverse the above endian translation, since these keys are accessed(NL)		   elsewhere */(NL)		for( count = 0; count &lt; MAX_KEYS; count++ ) {(NL)			lp-&gt;DefaultKeys.key[count].len = CNV_INT_TO_LITTLE( lp-&gt;DefaultKeys.key[count].len );(NL)		}(NL)(NL)		DBG_NOTICE( DbgInfo, "	,	L_65
+" );(NL)			lp-&gt;ltvRecord.typ = CFG_NIC_MAC_ADDR;(NL)		} else {(NL)			//DBG_TRACE( DbgInfo, "	,	L_98
+MaxSleepDuration	,	V_174
+RTSThreshold	,	V_145
+dev	,	V_2
+HCF_DISCONNECT	,	V_248
+DBG_FUNC	,	F_3
+DRV_VARIANT	,	V_237
+" );(NL)				}(NL)				vfree( cp );(NL)			}(NL)			close( file_desc );(NL)		}(NL)		set_fs( fs );			/* Return to the original context */(NL)	}(NL)#endif // BIN_DL(NL)(NL)	/* If firmware is present but the type is unknown then download anyway */(NL)	if ( (lp-&gt;firmware_present == WL_FRIMWARE_PRESENT)(NL)	     &amp;&amp;(NL)	     ( CNV_INT_TO_LITTLE( lp-&gt;hcfCtx.IFB_FWIdentity.comp_id ) != COMP_ID_FW_STA )(NL)	     &amp;&amp;(NL)	     ( CNV_INT_TO_LITTLE( lp-&gt;hcfCtx.IFB_FWIdentity.comp_id ) != COMP_ID_FW_AP ) ) {(NL)		/* Unknown type, download needed.  */(NL)		lp-&gt;firmware_present = WL_FRIMWARE_NOT_PRESENT;(NL)	}(NL)(NL)	if(lp-&gt;firmware_present == WL_FRIMWARE_NOT_PRESENT)(NL)	{(NL)		if ( cp == NULL ) {(NL)			DBG_TRACE( DbgInfo, "	,	L_52
+"Num of scan results exceeds storage, truncating\n"	,	L_184
+"Signal Level  : 0x%02x.\n"	,	L_214
+wdsAddress	,	V_196
+DBG_TRACE	,	F_17
+EnableEncryption	,	V_153
+" );(NL)		lp-&gt;Channel = 10;(NL)	}(NL)	lp-&gt;ltvRecord.len       = 2;(NL)	lp-&gt;ltvRecord.typ       = CFG_CNF_OWN_CHANNEL;(NL)	lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;Channel );(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)	/* Microwave Robustness */(NL)	lp-&gt;ltvRecord.len       = 2;(NL)	lp-&gt;ltvRecord.typ       = CFG_CNF_MICRO_WAVE;(NL)	lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;MicrowaveRobustness );(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)	/* Load Balancing */(NL)	lp-&gt;ltvRecord.len       = 2;(NL)	lp-&gt;ltvRecord.typ       = CFG_CNF_LOAD_BALANCING;(NL)	lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;loadBalancing );(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)	/* Medium Distribution */(NL)	lp-&gt;ltvRecord.len       = 2;(NL)	lp-&gt;ltvRecord.typ       = CFG_CNF_MEDIUM_DISTRIBUTION;(NL)	lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;mediumDistribution );(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)	/* Country Code */(NL)(NL)#ifdef WARP(NL)	/* Tx Power Level (for supported cards) */(NL)	lp-&gt;ltvRecord.len       = 2;(NL)	lp-&gt;ltvRecord.typ       = CFG_CNF_TX_POW_LVL;(NL)	lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;txPowLevel );(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)	/* Short Retry Limit */(NL)	/*lp-&gt;ltvRecord.len       = 2;(NL)	lp-&gt;ltvRecord.typ       = 0xFC32;(NL)	lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;shortRetryLimit );(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)	*/(NL)(NL)	/* Long Retry Limit */(NL)	/*lp-&gt;ltvRecord.len       = 2;(NL)	lp-&gt;ltvRecord.typ       = 0xFC33;(NL)	lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;longRetryLimit );(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)	*/(NL)(NL)	/* Supported Rate Set Control */(NL)	lp-&gt;ltvRecord.len       = 3;(NL)	lp-&gt;ltvRecord.typ       = CFG_SUPPORTED_RATE_SET_CNTL; //0xFC88;(NL)	lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;srsc[0] );(NL)	lp-&gt;ltvRecord.u.u16[1]  = CNV_INT_TO_LITTLE( lp-&gt;srsc[1] );(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)	/* Basic Rate Set Control */(NL)	lp-&gt;ltvRecord.len       = 3;(NL)	lp-&gt;ltvRecord.typ       = CFG_BASIC_RATE_SET_CNTL; //0xFC89;(NL)	lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;brsc[0] );(NL)	lp-&gt;ltvRecord.u.u16[1]  = CNV_INT_TO_LITTLE( lp-&gt;brsc[1] );(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)	/* Frame Burst Limit */(NL)	/* Defined, but not currently available in Firmware */(NL)(NL)#endif // WARP(NL)(NL)#ifdef WARP(NL)	/* Multicast Rate */(NL)	lp-&gt;ltvRecord.len       = 3;(NL)	lp-&gt;ltvRecord.typ       = CFG_CNF_MCAST_RATE;(NL)	lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;MulticastRate[0] );(NL)	lp-&gt;ltvRecord.u.u16[1]  = CNV_INT_TO_LITTLE( lp-&gt;MulticastRate[1] );(NL)#else(NL)	lp-&gt;ltvRecord.len       = 2;(NL)	lp-&gt;ltvRecord.typ       = CFG_CNF_MCAST_RATE;(NL)	lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;MulticastRate[0] );(NL)#endif // WARP(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)	/* Own Name (Station Nickname) */(NL)	if (( len = ( strlen( lp-&gt;StationName ) + 1 ) &amp; ~0x01 ) != 0 ) {(NL)		//DBG_TRACE( DbgInfo, "	,	L_81
+HCF_SUCCESS	,	V_5
+DTIMPeriod	,	V_186
+"Association Status : STA Disassociated\n"	,	L_195
+",(NL)			   hcf_status );(NL)	DBG_LEAVE( DbgInfo );(NL)	return hcf_status;(NL)} // wl_put_ltv_init(NL)/*============================================================================*/(NL)(NL)(NL)/*******************************************************************************(NL) *	wl_put_ltv()(NL) *******************************************************************************(NL) *(NL) *  DESCRIPTION:(NL) *(NL) *      Used by wvlan_apply() and wvlan_go to set the card's configuration.(NL) *(NL) *  PARAMETERS:(NL) *(NL) *      lp  - a pointer to the wireless adapter's private structure(NL) *(NL) *  RETURNS:(NL) *(NL) *      an HCF status code(NL) *(NL) ******************************************************************************/(NL)int wl_put_ltv( struct wl_private *lp )(NL){(NL)	int len;(NL)	int hcf_status;(NL)	/*------------------------------------------------------------------------*/(NL)	DBG_FUNC( "	,	L_78
+HCF_TYPE	,	V_242
+"Length        : %d.\n"	,	L_212
+PARM_PROMISCUOUS_MODE	,	V_132
+"No action: Port state is disabled\n"	,	L_134
+wl_go	,	F_22
+",(NL)				CNV_INT_TO_LITTLE( lp-&gt;hcfCtx.IFB_FWIdentity.comp_id ),(NL)				CNV_INT_TO_LITTLE( lp-&gt;hcfCtx.IFB_FWIdentity.variant ),(NL)				CNV_INT_TO_LITTLE( lp-&gt;hcfCtx.IFB_FWIdentity.version_major ),(NL)				CNV_INT_TO_LITTLE( lp-&gt;hcfCtx.IFB_FWIdentity.version_minor ));(NL)(NL)	/* now we wil get the MAC address of the card */(NL)	lp-&gt;ltvRecord.len = 4;(NL)	if ( CNV_INT_TO_LITTLE( lp-&gt;hcfCtx.IFB_FWIdentity.comp_id ) == COMP_ID_FW_AP  ) {(NL)		lp-&gt;ltvRecord.typ = CFG_NIC_MAC_ADDR;(NL)	} else(NL)	{(NL)		lp-&gt;ltvRecord.typ = CFG_CNF_OWN_MAC_ADDR;(NL)	}(NL)	hcf_status = hcf_get_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)	if ( hcf_status != HCF_SUCCESS ) {(NL)		DBG_ERROR( DbgInfo, "	,	L_58
+PARM_INTRA_BSS_RELAY	,	V_63
+DownloadFirmware	,	V_162
+"wl_go() failed\n"	,	L_18
+PARM_NAME_INTRA_BSS_RELAY	,	V_62
+" );(NL)				} else {(NL)					DBG_TRACE( DbgInfo, "	,	L_49
+PARM_REJECT_ANY	,	V_57
+PARM_EXCLUDE_UNENCRYPTED	,	V_59
+CreateIBSS	,	V_179
+"irq_mask"	,	L_2
+PortType	,	V_173
+irq_mask	,	V_18
+scan_results	,	V_200
+"Unknown RID: 0x%04x\n"	,	L_227
+PARM_MAX_TX_KEY	,	V_110
+", lp-&gt;DefaultKeys.key[lp-&gt;TransmitKeyID-1].key, lp-&gt;DefaultKeys.key[lp-&gt;TransmitKeyID-1].len, lp-&gt;TransmitKeyID-1 );(NL)	}(NL)(NL)	DBG_LEAVE( DbgInfo );(NL)} // wl_set_wep_keys(NL)/*============================================================================*/(NL)(NL)(NL)/*******************************************************************************(NL) *	wl_apply()(NL) *******************************************************************************(NL) *(NL) *  DESCRIPTION:(NL) *(NL) *      Write the parameters to the adapter. (re-)enables the card if device is(NL) *  open. Returns hcf_status of hcf_enable().(NL) *(NL) *  PARAMETERS:(NL) *(NL) *      lp  - a pointer to the wireless adapter's private structure(NL) *(NL) *  RETURNS:(NL) *(NL) *      an HCF status code(NL) *(NL) ******************************************************************************/(NL)int wl_apply(struct wl_private *lp)(NL){(NL)	int hcf_status = HCF_SUCCESS;(NL)	/*------------------------------------------------------------------------*/(NL)	DBG_FUNC( "	,	L_67
+hcfCtx	,	V_11
+PARM_NAME_AUTH_KEY_MGMT_SUITE	,	V_50
+txPowLevel	,	V_166
+wl_disable	,	F_28
+", lp-&gt;EnableEncryption, lp-&gt;TransmitKeyID );(NL)		DBG_NOTICE( DbgInfo, "	,	L_66
+result	,	V_3
+"0x%04x"	,	L_3
+MulticastReceive	,	V_180
+"(%s) infoType    : 0x%04x.\n"	,	L_159
+dev_addr	,	V_244
+",(NL)		//           lp-&gt;NetworkName );(NL)		lp-&gt;ltvRecord.len       = 2 + (len / sizeof(hcf_16));(NL)		lp-&gt;ltvRecord.typ       = CFG_CNF_OWN_SSID;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( strlen( lp-&gt;NetworkName ));(NL)(NL)		memcpy( &amp;( lp-&gt;ltvRecord.u.u8[2] ), lp-&gt;NetworkName, len );(NL)	} else {(NL)		//DBG_TRACE( DbgInfo, "	,	L_103
+"\n\n"	,	L_182
+" );(NL)		} else {(NL)			DBG_TRACE( DbgInfo, "	,	L_41
+"wl_insert"	,	L_1
+"(%s) datalength  : 0x%04x.\n"	,	L_171
+"No action: Not in connected state\n"	,	L_132
+WVLAN_PM_STATE_STANDARD	,	V_121
+"0x%02x 0x%02x 0x%02x 0x%02x"	,	L_5
+", lp-&gt;DefaultKeys.key[2].len );(NL)		DBG_TRACE( DbgInfo, "	,	L_64
+"CFG_WMP, pdu type is 0x%x\n"	,	L_209
+",(NL)		//           hcf_status );(NL)(NL)		/* Update the MAC address in the netdevice struct */(NL)		memcpy( lp-&gt;dev-&gt;dev_addr, lp-&gt;MACAddress, ETH_ALEN ); //;?what is the purpose of this seemingly complex logic(NL)	}(NL)	/* Own SSID */(NL)	if ((( len = ( strlen( lp-&gt;NetworkName ) + 1 ) &amp; ~0x01 ) != 0 ) &amp;&amp;(NL)				 ( strcmp( lp-&gt;NetworkName, "	,	L_100
+"(%s) capability  : 0x%04x.\n"	,	L_177
+PARM_CONNECTION_CONTROL	,	V_133
+", lp-&gt;MACAddress);(NL)(NL)	/* Write out configuration to the device, enable, and reconnect. However,(NL)	   only reconnect if in AP mode. For STA mode, need to wait for passive scan(NL)	   completion before a connect can be issued */(NL)	wl_put_ltv( lp );(NL)	/* Enable the ports */(NL)	hcf_status = wl_enable( lp );(NL)(NL)	if ( lp-&gt;DownloadFirmware == WVLAN_DRV_MODE_AP ) {(NL)#ifdef USE_WDS(NL)		wl_enable_wds_ports( lp );(NL)#endif // USE_WDS(NL)		hcf_status = wl_connect( lp );(NL)	}(NL)	DBG_LEAVE( DbgInfo );(NL)	return hcf_status;(NL)} // wl_go(NL)/*============================================================================*/(NL)(NL)(NL)/*******************************************************************************(NL) *	wl_set_wep_keys()(NL) *******************************************************************************(NL) *(NL) *  DESCRIPTION:(NL) *(NL) *      Write TxKeyID and WEP keys to the adapter. This is separated from(NL) *  wl_apply() to allow dynamic WEP key updates through the wireless(NL) *  extensions.(NL) *(NL) *  PARAMETERS:(NL) *(NL) *      lp  - a pointer to the wireless adapter's private structure(NL) *(NL) *  RETURNS:(NL) *(NL) *      N/A(NL) *(NL) ******************************************************************************/(NL)void wl_set_wep_keys( struct wl_private *lp )(NL){(NL)	int count = 0;(NL)	/*------------------------------------------------------------------------*/(NL)	DBG_FUNC( "	,	L_60
+i	,	V_6
+irq	,	V_226
+"Updated country info\n"	,	L_226
+", dev-&gt;name, dev );(NL)	/* If wl_remove() hasn't been called (i.e. when Card Services is shut(NL)	   down with the card in the slot), then call it */(NL)	if ( lp-&gt;is_registered == TRUE ) {(NL)		DBG_TRACE( DbgInfo, "	,	L_122
+" );(NL)	} else {(NL)		DBG_ERROR( DbgInfo, "	,	L_56
+PARM_ENABLE_ENCRYPTION	,	V_107
+", rc );(NL)					DBG_ERROR( DbgInfo, "	,	L_48
+PARM_NAME_TX_KEY	,	V_44
+"UPDATED INFORMATION RECORD\n"	,	L_225
+netif_queue_on	,	V_213
+x	,	T_1
+"wl_wds_netdev_register"	,	L_229
+driverIdentity	,	V_229
+VALID_PARAM	,	F_8
+DRV_IDENTITY	,	V_235
+"No action: Card already connected\n"	,	L_125
+"\"%pM\""	,	L_9
+DBG_PARAM	,	F_6
+PARM_MAX_PORT_TYPE	,	V_120
+", lp-&gt;DefaultKeys.key[0].len );(NL)		DBG_TRACE( DbgInfo, "	,	L_62
+",(NL)			   lp-&gt;ltvRecord.u.u16[0] );(NL)	DBG_TRACE( DbgInfo, "	,	L_75
+" );(NL)	DBG_ENTER( DbgInfo );(NL)	DBG_ASSERT( lp != NULL);(NL)	DBG_PARAM( DbgInfo, "	,	L_68
+wds_port	,	V_193
+PARM_NETWORK_ADDR	,	V_184
+HCF_ERR_INCOMP_FW	,	V_219
+"(%s) SA          : %pM\n"	,	L_173
+", 0);(NL)	proc_write("	,	L_24
+" );(NL)	} else if ( CNV_INT_TO_LITTLE( lp-&gt;hcfCtx.IFB_FWIdentity.comp_id ) == COMP_ID_FW_AP  ) {(NL)		DBG_TRACE( DbgInfo, "	,	L_55
+"CFG_ASSOC_STAT\n"	,	L_192
+"=========================\n"	,	L_145
+"Calling hcf_connect()...\n"	,	L_15
+", dev-&gt;base_addr );(NL)(NL)	/*(NL)         * The caller should already have a lock and(NL)         * disable the interrupts, we do not lock here,(NL)         * nor do we enable/disable interrupts!(NL)         */(NL)(NL)	DBG_TRACE( DbgInfo, "	,	L_30
+"(%s) BSSID       : %pM\n"	,	L_168
+intraBSSRelay	,	V_190
+"Security Status : MIC Fail\n"	,	L_203
+port	,	V_208
+"CFG_SECURITY_STAT\n"	,	L_199
+"(%s) SSID len    : 0x%04x.\n"	,	L_178
+PARM_SRSC_2GHZ	,	V_168
+probe_results	,	V_202
+tasklet_init	,	F_18
+"(%s) frame cntl  : 0x%04x.\n"	,	L_164
+"STA Address        : %pM\n"	,	L_197
+" );(NL)				DBG_LEAVE( DbgInfo );(NL)				return -1;(NL)			}(NL)			hcf_status = wl_disable( lp );(NL)			if ( hcf_status != HCF_SUCCESS ) {(NL)				DBG_ERROR( DbgInfo, "	,	L_70
+StationName	,	V_152
+" );(NL)// #endif /* (HCF_TYPE) &amp; HCF_TYPE_AP */(NL)(NL)	result = wl_adapter_init_module( );(NL)	DBG_LEAVE( DbgInfo );(NL)	return result;(NL)} // init_module(NL)/*============================================================================*/(NL)(NL)(NL)/*******************************************************************************(NL) *	cleanup_module()(NL) *******************************************************************************(NL) *(NL) *  DESCRIPTION:(NL) *(NL) *      Unload the kernel module.(NL) *(NL) *  PARAMETERS:(NL) *(NL) *      N/A(NL) *(NL) *  RETURNS:(NL) *(NL) *      N/A(NL) *(NL) ******************************************************************************/(NL)static void __exit wl_module_exit( void )(NL){(NL)	DBG_FUNC( "	,	L_112
+PARM_MAX_RTS_THRESHOLD	,	V_106
+srsc	,	V_167
+", dev-&gt;dev_addr[i], (( i &lt; ( ETH_ALEN-1 )) ? ':' : '\n' ));(NL)	}(NL)(NL)#if 0 //SCULL_USE_PROC /* don't waste space if unused */(NL)	create_proc_read_entry( "	,	L_22
+" );(NL)	DBG_ENTER( DbgInfo );(NL)(NL)	hcf_status = wl_disable( lp );(NL)	if ( hcf_status != HCF_SUCCESS ) {(NL)		DBG_TRACE( DbgInfo, "	,	L_35
+wl_lock	,	F_12
+WL_WDS_NETDEV_REGISTER	,	F_26
+comp_id	,	V_234
+PARM_DESIRED_SSID	,	V_21
+"timer_oor: %ld 0x%04X\n"	,	L_236
+"Security Status : UNKNOWN %d\n"	,	L_205
+", dev-&gt;name, dev );(NL)(NL)	wl_lock( lp, &amp;flags );(NL)(NL)        /* Connect to the adapter */(NL)	hcf_connect( &amp;lp-&gt;hcfCtx, dev-&gt;base_addr );(NL)(NL)	/* Reset portState */(NL)	lp-&gt;portState = WVLAN_PORT_STATE_DISABLED;(NL)(NL)	/* Power might have been off, assume the card lost the firmware*/(NL)	lp-&gt;firmware_present = WL_FRIMWARE_NOT_PRESENT;(NL)(NL)	/* Reload the firmware and restart */(NL)	wl_reset( dev );(NL)(NL)	/* Resume interrupt handling */(NL)	wl_act_int_on( lp );(NL)(NL)	wl_unlock( lp, &amp;flags );(NL)(NL)	DBG_LEAVE( DbgInfo );(NL)	return;(NL)} // wl_resume(NL)/*============================================================================*/(NL)(NL)(NL)/*******************************************************************************(NL) *	wl_release()(NL) *******************************************************************************(NL) *(NL) *  DESCRIPTION:(NL) *(NL) *      This function perfroms a check on the device and calls wl_remove() if(NL) *  necessary. This function can be used for all bus types, but exists mostly(NL) *  for the benefit of the Card Services driver, as there are times when(NL) *  wl_remove() does not get called.(NL) *(NL) *  PARAMETERS:(NL) *(NL) *      dev - a pointer to the device's net_device structure(NL) *(NL) *  RETURNS:(NL) *(NL) *      N/A(NL) *(NL) ******************************************************************************/(NL)void wl_release( struct net_device *dev )(NL){(NL)	struct wl_private  *lp = wl_priv(dev);(NL)	/*------------------------------------------------------------------------*/(NL)	DBG_FUNC( "	,	L_121
+PARM_MULTICAST_RX	,	V_123
+PARM_MULTICAST_RATE	,	V_47
+PARM_MAX_ENABLE_ENCRYPTION	,	V_108
+"!!!!;? someone misunderstood something !!!!!\n"	,	L_128
+"\(NL)										"	,	L_47
+"wl_wds_netdev_deregister"	,	L_231
+"SCAN COMPLETE\n"	,	L_183
+"(%s) =========================\n"	,	L_157
+", DHF_ALLOC_SIZE );(NL)				} else if ( rc &gt; 0 ) {(NL)					DBG_TRACE( DbgInfo, "	,	L_44
+",(NL)				   hcf_status );(NL)		/* Power Management */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_CNF_PM_ENABLED;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;PMEnabled );(NL)//		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( 0x8001 );(NL)		DBG_TRACE( DbgInfo, "	,	L_87
+PARM_PM_ENABLED	,	V_53
+",(NL)				   hcf_status );*/(NL)#endif // WARP(NL)	} else {(NL)		/* The following are set in AP mode only */(NL)#if 0 //;? (HCF_TYPE) &amp; HCF_TYPE_AP(NL)		//;?should we restore this to allow smaller memory footprint(NL)(NL)		/* DTIM Period */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_CNF_OWN_DTIM_PERIOD;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;DTIMPeriod );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* Multicast PM Buffering */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_CNF_MCAST_PM_BUF;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;multicastPMBuffering );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* Reject ANY - Closed System */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_CNF_REJECT_ANY;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;RejectAny );(NL)(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* Exclude Unencrypted */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_CNF_EXCL_UNENCRYPTED;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;ExcludeUnencrypted );(NL)(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* IntraBSS Relay */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_CNF_INTRA_BSS_RELAY;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;intraBSSRelay );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* RTS Threshold 0 */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_RTS_THRH0;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;RTSThreshold );(NL)(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* Tx Rate Control 0 */(NL)#ifdef WARP(NL)		lp-&gt;ltvRecord.len       = 3;(NL)		lp-&gt;ltvRecord.typ       = CFG_TX_RATE_CNTL0;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;TxRateControl[0] );(NL)		lp-&gt;ltvRecord.u.u16[1]  = CNV_INT_TO_LITTLE( lp-&gt;TxRateControl[1] );(NL)#else(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_TX_RATE_CNTL0;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;TxRateControl[0] );(NL)#endif  // WARP(NL)(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* Own Beacon Interval */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = 0xFC31;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;ownBeaconInterval );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* Co-Existence Behavior */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = 0xFCC7;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;coexistence );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)#ifdef USE_WDS(NL)(NL)		/* RTS Threshold 1 */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_RTS_THRH1;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;wds_port[0].rtsThreshold );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* RTS Threshold 2 */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_RTS_THRH2;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;wds_port[1].rtsThreshold );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)(NL)		/* RTS Threshold 3 */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_RTS_THRH3;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;wds_port[2].rtsThreshold );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)(NL)		/* RTS Threshold 4 */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_RTS_THRH4;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;wds_port[3].rtsThreshold );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)(NL)		/* RTS Threshold 5 */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_RTS_THRH5;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;wds_port[4].rtsThreshold );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* RTS Threshold 6 */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_RTS_THRH6;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;wds_port[5].rtsThreshold );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)#if 0(NL)		/* TX Rate Control 1 */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_TX_RATE_CNTL1;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;wds_port[0].txRateCntl );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* TX Rate Control 2 */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_TX_RATE_CNTL2;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;wds_port[1].txRateCntl );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* TX Rate Control 3 */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_TX_RATE_CNTL3;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;wds_port[2].txRateCntl );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* TX Rate Control 4 */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_TX_RATE_CNTL4;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;wds_port[3].txRateCntl );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* TX Rate Control 5 */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_TX_RATE_CNTL5;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;wds_port[4].txRateCntl );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* TX Rate Control 6 */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_TX_RATE_CNTL6;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;wds_port[5].txRateCntl );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)#endif(NL)(NL)		/* WDS addresses.  It's okay to blindly send these parameters, because(NL)		   the port needs to be enabled, before anything is done with it. */(NL)(NL)		/* WDS Address 1 */(NL)		lp-&gt;ltvRecord.len      = 4;(NL)		lp-&gt;ltvRecord.typ      = CFG_CNF_WDS_ADDR1;(NL)(NL)		memcpy( &amp;lp-&gt;ltvRecord.u.u8[0], lp-&gt;wds_port[0].wdsAddress, ETH_ALEN );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* WDS Address 2 */(NL)		lp-&gt;ltvRecord.len      = 4;(NL)		lp-&gt;ltvRecord.typ      = CFG_CNF_WDS_ADDR2;(NL)(NL)		memcpy( &amp;lp-&gt;ltvRecord.u.u8[0], lp-&gt;wds_port[1].wdsAddress, ETH_ALEN );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* WDS Address 3 */(NL)		lp-&gt;ltvRecord.len      = 4;(NL)		lp-&gt;ltvRecord.typ      = CFG_CNF_WDS_ADDR3;(NL)(NL)		memcpy( &amp;lp-&gt;ltvRecord.u.u8[0], lp-&gt;wds_port[2].wdsAddress, ETH_ALEN );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* WDS Address 4 */(NL)		lp-&gt;ltvRecord.len      = 4;(NL)		lp-&gt;ltvRecord.typ      = CFG_CNF_WDS_ADDR4;(NL)(NL)		memcpy( &amp;lp-&gt;ltvRecord.u.u8[0], lp-&gt;wds_port[3].wdsAddress, ETH_ALEN );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* WDS Address 5 */(NL)		lp-&gt;ltvRecord.len      = 4;(NL)		lp-&gt;ltvRecord.typ      = CFG_CNF_WDS_ADDR5;(NL)(NL)		memcpy( &amp;lp-&gt;ltvRecord.u.u8[0], lp-&gt;wds_port[4].wdsAddress, ETH_ALEN );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* WDS Address 6 */(NL)		lp-&gt;ltvRecord.len      = 4;(NL)		lp-&gt;ltvRecord.typ      = CFG_CNF_WDS_ADDR6;(NL)(NL)		memcpy( &amp;lp-&gt;ltvRecord.u.u8[0], lp-&gt;wds_port[5].wdsAddress, ETH_ALEN );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)#endif  /* USE_WDS */(NL)#endif  /* (HCF_TYPE) &amp; HCF_TYPE_AP */(NL)	}(NL)(NL)	/* Own MAC Address */(NL)/*(NL)	DBG_TRACE(DbgInfo, "	,	L_96
+" );(NL)		DBG_LEAVE( DbgInfo );(NL)		return hcf_status;(NL)	}(NL)	memcpy( lp-&gt;MACAddress, &amp;lp-&gt;ltvRecord.u.u8[0], ETH_ALEN );(NL)	DBG_TRACE(DbgInfo, "	,	L_59
+skb	,	V_207
+" );(NL)			DBG_LEAVE( DbgInfo );(NL)			return hcf_status;(NL)		}(NL)	}(NL)	/* Report the FW versions */(NL)	//;?obsolete, use the available IFB info:: wl_get_pri_records( lp );(NL)	if ( CNV_INT_TO_LITTLE( lp-&gt;hcfCtx.IFB_FWIdentity.comp_id ) == COMP_ID_FW_STA  ) {(NL)		DBG_TRACE( DbgInfo, "	,	L_54
+IFB_STRCT	,	V_12
+"CFG_SCAN\n"	,	L_142
+PARM_NAME_MULTICAST_PM_BUFFERING	,	V_60
+PARM_NAME_OWN_NAME	,	V_34
+wl_priv	,	F_2
+"CFG_NULL\n"	,	L_224
+"SSID Length     : 0x%04x\n"	,	L_151
+PARM_NAME_DOWNLOAD_FIRMWARE	,	V_48
+WVLAN_MAX_TX_QUEUES	,	V_211
+PARM_DEFAULT_MULTICAST_RATE_2GHZ	,	V_147
+PARM_NAME_WDS_ADDRESS6	,	V_98
+PARM_NAME_WDS_ADDRESS5	,	V_96
+"Old AP Address     : %pM\n"	,	L_198
+PARM_NAME_WDS_ADDRESS4	,	V_94
+PARM_NAME_WDS_ADDRESS3	,	V_92
+PARM_NAME_WDS_ADDRESS2	,	V_90
+PARM_NAME_EXCLUDE_UNENCRYPTED	,	V_58
+PARM_NAME_WDS_ADDRESS1	,	V_88
+PARM_MIN_MULTICAST_RATE	,	V_111
+loadBalancing	,	V_164
+" );(NL)				}(NL)			}(NL)		}(NL)	}(NL)(NL)	DBG_LEAVE( DbgInfo );(NL)	return hcf_status;(NL)} // wl_apply(NL)/*============================================================================*/(NL)(NL)(NL)/*******************************************************************************(NL) *	wl_put_ltv_init()(NL) *******************************************************************************(NL) *(NL) *  DESCRIPTION:(NL) *(NL) *      Used to set basic parameters for card initialization.(NL) *(NL) *  PARAMETERS:(NL) *(NL) *      lp  - a pointer to the wireless adapter's private structure(NL) *(NL) *  RETURNS:(NL) *(NL) *      an HCF status code(NL) *(NL) ******************************************************************************/(NL)int wl_put_ltv_init( struct wl_private *lp )(NL){(NL)	int i;(NL)	int hcf_status;(NL)	CFG_RID_LOG_STRCT *RidLog;(NL)	/*------------------------------------------------------------------------*/(NL)	DBG_FUNC( "	,	L_72
+"Security Status : Dissassociate [AP]\n"	,	L_200
+PARM_MAX_TX_POW_LEVEL	,	V_117
+PARM_TX_KEY	,	V_45
+TxRateControl	,	V_142
+PARM_DEFAULT_TX_RATE_5GHZ	,	V_144
+ownBeaconInterval	,	V_191
+key_string2key	,	F_10
+" );(NL)(NL)			lp-&gt;ltvRecord.len       = 2;(NL)			lp-&gt;ltvRecord.typ       = CFG_DESIRED_SSID;(NL)			lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( 0 );(NL)		}(NL)(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		//DBG_TRACE( DbgInfo, "	,	L_92
+hcf_failed	,	V_220
+PARM_MIN_TX_RATE	,	V_104
+",(NL)			   hcf_status );(NL)(NL)	/* Register the list of RIDs on which asynchronous notification is(NL)	   required. Note that this mechanism replaces the mailbox, so the mailbox(NL)	   can be queried by the host (if desired) without contention from us */(NL)	i=0;(NL)(NL)	lp-&gt;RidList[i].len     = sizeof( lp-&gt;ProbeResp );(NL)	lp-&gt;RidList[i].typ     = CFG_ACS_SCAN;(NL)	lp-&gt;RidList[i].bufp    = (wci_recordp)&amp;lp-&gt;ProbeResp;(NL)	//lp-&gt;ProbeResp.infoType = 0xFFFF;(NL)	i++;(NL)(NL)	lp-&gt;RidList[i].len     = sizeof( lp-&gt;assoc_stat );(NL)	lp-&gt;RidList[i].typ     = CFG_ASSOC_STAT;(NL)	lp-&gt;RidList[i].bufp    = (wci_recordp)&amp;lp-&gt;assoc_stat;(NL)	lp-&gt;assoc_stat.len     = 0xFFFF;(NL)	i++;(NL)(NL)	lp-&gt;RidList[i].len     = 4;(NL)	lp-&gt;RidList[i].typ     = CFG_UPDATED_INFO_RECORD;(NL)	lp-&gt;RidList[i].bufp    = (wci_recordp)&amp;lp-&gt;updatedRecord;(NL)	lp-&gt;updatedRecord.len  = 0xFFFF;(NL)	i++;(NL)(NL)	lp-&gt;RidList[i].len     = sizeof( lp-&gt;sec_stat );(NL)	lp-&gt;RidList[i].typ     = CFG_SECURITY_STAT;(NL)	lp-&gt;RidList[i].bufp    = (wci_recordp)&amp;lp-&gt;sec_stat;(NL)	lp-&gt;sec_stat.len       = 0xFFFF;(NL)	i++;(NL)(NL)	lp-&gt;RidList[i].typ     = 0;    // Terminate List(NL)(NL)	RidLog = (CFG_RID_LOG_STRCT *)&amp;lp-&gt;ltvRecord;(NL)	RidLog-&gt;len     = 3;(NL)	RidLog-&gt;typ     = CFG_REG_INFO_LOG;(NL)	RidLog-&gt;recordp = (RID_LOGP)&amp;lp-&gt;RidList[0];(NL)(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)	DBG_TRACE( DbgInfo, "	,	L_76
+"(%s) silence     : 0x%02x.\n"	,	L_161
+PARM_TX_RATE	,	V_29
+useRTS	,	V_197
+portState	,	V_198
+is_registered	,	V_246
+"wl_enable: %ld\n"	,	L_232
+coexistence	,	V_192
+net_device	,	V_1
+" );(NL)#define DHF_ALLOC_SIZE 96000			//just below 96K, let's hope it suffices for now and for the future(NL)			cp = (char*)vmalloc( DHF_ALLOC_SIZE );(NL)			if ( cp == NULL ) {(NL)				DBG_ERROR( DbgInfo, "	,	L_42
+list_add_tail	,	F_14
+"(%s) DA          : %pM\n"	,	L_172
+"%s: Wireless, io_addr %#03lx, irq %d, ""	,	L_20
+"wl_disable_wds_ports"	,	L_135
+PARM_SYSTEM_SCALE	,	V_27
+PARM_MAX_SLEEP	,	V_124
+", dev-&gt;base_addr );(NL)	if ( dev-&gt;base_addr ) {(NL)		/* Shutdown the adapter. */(NL)		hcf_connect( &amp;lp-&gt;hcfCtx, HCF_DISCONNECT );(NL)(NL)		/* Reset the driver information. */(NL)		lp-&gt;txBytes = 0;(NL)(NL)		/* Connect to the adapter. */(NL)        	hcf_status = hcf_connect( &amp;lp-&gt;hcfCtx, dev-&gt;base_addr );(NL)		if ( hcf_status != HCF_SUCCESS &amp;&amp; hcf_status != HCF_ERR_INCOMP_FW ) {(NL)			DBG_ERROR( DbgInfo, "	,	L_31
+",(NL)			//           lp-&gt;NetworkName );(NL)(NL)			lp-&gt;ltvRecord.len       = 2 + (len / sizeof(hcf_16));(NL)			lp-&gt;ltvRecord.typ       = CFG_DESIRED_SSID;(NL)			lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( strlen( lp-&gt;NetworkName ));(NL)(NL)			memcpy( &amp;( lp-&gt;ltvRecord.u.u8[2] ), lp-&gt;NetworkName, len );(NL)		} else {(NL)			//DBG_TRACE( DbgInfo, "	,	L_91
+PARM_TX_RATE1	,	V_77
+PARM_TX_RATE2	,	V_79
+PARM_TX_RATE3	,	V_81
+"hcf_get_info returned 0x%x\n"	,	L_138
+PARM_TX_RATE4	,	V_83
+PARM_TX_RATE5	,	V_85
+MulticastRate	,	V_146
+PARM_TX_RATE6	,	V_87
+", dev-&gt;name, dev );(NL)	DBG_PARAM( DbgInfo, "	,	L_29
+", rc, cp );(NL)					rc = read( file_desc, &amp;cp[rc], 1 );(NL)					if ( rc == 0 ) { //;/change to an until-loop at rc&lt;=0(NL)						DBG_TRACE( DbgInfo, "	,	L_45
+PARM_NAME_TX_RATE	,	V_28
+PARM_BRSC_5GHZ	,	V_172
+",(NL)				   lp-&gt;probeDataRates[1] );(NL)		DBG_TRACE( DbgInfo, "	,	L_95
+PARM_COEXISTENCE	,	V_139
+HCF_EXT	,	V_250
+use_dma	,	V_215
+"UNKNOWN MESSAGE: 0x%04x\n"	,	L_228
+USE_RTS	,	F_11
+", lp-&gt;PMEnabled );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)		/* Multicast Receive */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_CNF_MCAST_RX;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;MulticastReceive );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* Max Sleep Duration */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_CNF_MAX_SLEEP_DURATION;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;MaxSleepDuration );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* Create IBSS */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_CREATE_IBSS;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;CreateIBSS );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* Desired SSID */(NL)		if ((( len = ( strlen( lp-&gt;NetworkName ) + 1 ) &amp; ~0x01 ) != 0 ) &amp;&amp;(NL)			 ( strcmp( lp-&gt;NetworkName, "	,	L_88
+", hcf_status );(NL)(NL)		while (( hcf_status != HCF_SUCCESS ) &amp;&amp; (retries &lt; 10)) {(NL)			retries++;(NL)			hcf_status = wl_disable( lp );(NL)		}(NL)		if ( hcf_status == HCF_SUCCESS ) {(NL)			DBG_TRACE( DbgInfo, "	,	L_36
+",(NL)		//           hcf_status );(NL)		/* Own ATIM window */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_CNF_OWN_ATIM_WINDOW;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;atimWindow );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)(NL)		/* Holdover Duration */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_CNF_HOLDOVER_DURATION;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;holdoverDuration );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* Promiscuous Mode */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_PROMISCUOUS_MODE;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;promiscuousMode );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* Authentication */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_CNF_AUTHENTICATION;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;authentication );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)#ifdef WARP(NL)		/* Connection Control */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_CNF_CONNECTION_CNTL;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;connectionControl );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)(NL)(NL)		/* Probe data rate */(NL)		/*lp-&gt;ltvRecord.len       = 3;(NL)		lp-&gt;ltvRecord.typ       = CFG_PROBE_DATA_RATE;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;probeDataRates[0] );(NL)		lp-&gt;ltvRecord.u.u16[1]  = CNV_INT_TO_LITTLE( lp-&gt;probeDataRates[1] );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		DBG_TRACE( DbgInfo, "	,	L_93
+"(%s) signal      : 0x%02x.\n"	,	L_160
+",(NL)				   lp-&gt;probeDataRates[0] );(NL)		DBG_TRACE( DbgInfo, "	,	L_94
+"Security Status : Authenticate Fail [STA] or [AP]\n"	,	L_202
+", dev-&gt;name, dev );(NL)(NL)	/* The adapter is suspended:(NL)			Stop the adapter(NL)			Power down(NL)	*/(NL)	wl_lock( lp, &amp;flags );(NL)(NL)	/* Disable interrupt handling */(NL)	wl_act_int_off( lp );(NL)(NL)	/* Disconnect */(NL)	wl_disconnect( lp );(NL)(NL)	/* Disable */(NL)	wl_disable( lp );(NL)(NL)        /* Disconnect from the adapter */(NL)	hcf_connect( &amp;lp-&gt;hcfCtx, HCF_DISCONNECT );(NL)(NL)	/* Reset portState to be sure (should have been done by wl_disable */(NL)	lp-&gt;portState = WVLAN_PORT_STATE_DISABLED;(NL)(NL)	wl_unlock( lp, &amp;flags );(NL)(NL)	DBG_LEAVE( DbgInfo );(NL)	return;(NL)} // wl_suspend(NL)/*============================================================================*/(NL)(NL)(NL)/*******************************************************************************(NL) *	wl_resume()(NL) *******************************************************************************(NL) *(NL) *  DESCRIPTION:(NL) *(NL) *      Resume a previously suspended adapter.(NL) *(NL) *  PARAMETERS:(NL) *(NL) *      dev - a pointer to the device's net_device structure(NL) *(NL) *  RETURNS:(NL) *(NL) *      N/A(NL) *(NL) ******************************************************************************/(NL)void wl_resume(struct net_device *dev)(NL){(NL)	struct wl_private  *lp = wl_priv(dev);(NL)	unsigned long   flags;(NL)	/*------------------------------------------------------------------------*/(NL)	DBG_FUNC( "	,	L_120
+lp	,	V_9
+"Link Status : Disconnected\n"	,	L_187
+ls	,	F_30
+PARM_AUTH_KEY_MGMT_SUITE	,	V_51
+"(%s) length      : 0x%04x.\n"	,	L_158
+"Yy"	,	L_11
+", lp-&gt;dev-&gt;name, lp );(NL)(NL)	if ( !( lp-&gt;flags &amp; WVLAN2_UIL_BUSY )) {(NL)		/* The adapter parameters have changed:(NL)				disable card(NL)				reload parameters(NL)				enable card(NL)		*/(NL)(NL)		if ( wl_adapter_is_open( lp-&gt;dev )) {(NL)			/* Disconnect and disable if necessary */(NL)			hcf_status = wl_disconnect( lp );(NL)			if ( hcf_status != HCF_SUCCESS ) {(NL)				DBG_ERROR( DbgInfo, "	,	L_69
+DBG_ERROR	,	F_20
+PARM_MAX_AUTHENTICATION	,	V_127
+txRateCntl	,	V_195
+"(%s) sequence    : 0x%04x.\n"	,	L_169
+PARM_DOWNLOAD_FIRMWARE	,	V_49
+"arg"	,	L_234
+"(%s) SSID        : %s\n"	,	L_179
+DistanceBetweenAPs	,	V_141
+PARM_RTS_THRESHOLD	,	V_31
+USE_PROFILE	,	F_24
+version_major	,	V_238
+"wl_enable_wds_ports"	,	L_127
+"CFG_WMP, size is %d bytes\n"	,	L_208
+"Scaling       : 0x%02x.\n"	,	L_223
+"(%s) flags       : 0x%04x.\n"	,	L_181
+task	,	V_216
+"HERMES 2.5 PORT I/O MODE\n"	,	L_14
+PARM_NAME_OWN_DTIM_PERIOD	,	V_54
+txQ_count	,	V_214
+PARM_MICROWAVE_ROBUSTNESS	,	V_33
+WL_NOT_HANDLING_INT	,	V_15
+" );(NL)		hcf_action( &amp;lp-&gt;hcfCtx, HCF_ACT_INT_ON );(NL)	}(NL)(NL)	return IRQ_RETVAL(events == HCF_INT_PENDING);(NL)} // wl_isr(NL)/*============================================================================*/(NL)(NL)(NL)/*******************************************************************************(NL) *	wl_isr_handler()(NL) *******************************************************************************(NL) *(NL) *  DESCRIPTION:(NL) *(NL) *      The ISR handler, scheduled to run in a deferred context by the ISR. This(NL) *      is where the ISR's work actually gets done.(NL) *(NL) *  PARAMETERS:(NL) *(NL) *      lp  - a pointer to the device's private adapter structure(NL) *(NL) *  RETURNS:(NL) *(NL) *      N/A(NL) *(NL) ******************************************************************************/(NL)#define WVLAN_MAX_INT_SERVICES  50(NL)(NL)void wl_isr_handler( unsigned long p )(NL){(NL)	struct net_device       *dev;(NL)	unsigned long           flags;(NL)	bool_t                  stop = TRUE;(NL)	int                     count;(NL)	int                     result;(NL)        struct wl_private       *lp = (struct wl_private *)p;(NL)	/*------------------------------------------------------------------------*/(NL)(NL)	if ( lp == NULL ) {(NL)		DBG_PRINT( "	,	L_116
+" );(NL)	DBG_ENTER( DbgInfo );(NL)(NL)	if ( lp == NULL ) {(NL)		DBG_ERROR( DbgInfo, "	,	L_79
+"wl_process_mailbox"	,	L_140
+WVLAN_PORT_STATE_DISABLED	,	V_199
+wl_unlock	,	F_21
+ENABLE_DMA	,	F_16
+PARM_MIN_TX_KEY	,	V_109
+" );(NL)//			hcf_status = dhf_download_fw( &amp;lp-&gt;hcfCtx, &amp;station );(NL)			hcf_status = dhf_download_fw( &amp;lp-&gt;hcfCtx, &amp;fw_image );(NL)		}(NL)		if ( hcf_status != HCF_SUCCESS ) {(NL)			DBG_ERROR( DbgInfo, "	,	L_53
+atimWindow	,	V_176
+"(%s) rxFlow      : 0x%02x.\n"	,	L_162
+PARM_MAX_SYSTEM_SCALE	,	V_103
+", "	,	L_28
+PMEnabled	,	V_178
+PARM_MAX_OWN_CHANNEL	,	V_101
+DbgInfo	,	V_10
+" );(NL)	}(NL)(NL)	/*(NL)         * Downloaded, no need to repeat this next time, assume the(NL)         * contents stays in the card until it is powered off. Note we(NL)         * do not switch firmware on the fly, the firmware is fixed in(NL)         * the driver for now.(NL)         */(NL)	lp-&gt;firmware_present = WL_FRIMWARE_PRESENT;(NL)(NL)	DBG_TRACE( DbgInfo, "	,	L_57
+" PCMCIA parameter pc_debug to a reasonable DebugFlag value.(NL)	 * NOTE: The values all fall through to the lower values. */(NL)	DbgInfo-&gt;DebugFlag = 0;(NL)	DbgInfo-&gt;DebugFlag = DBG_TRACE_ON;		//;?get this mess resolved one day(NL)	if ( pc_debug ) switch( pc_debug ) {(NL)	  case 8:(NL)		DbgInfo-&gt;DebugFlag |= DBG_DS_ON;(NL)	  case 7:(NL)		DbgInfo-&gt;DebugFlag |= DBG_RX_ON | DBG_TX_ON;(NL)	  case 6:(NL)		DbgInfo-&gt;DebugFlag |= DBG_PARAM_ON;(NL)	  case 5:(NL)		DbgInfo-&gt;DebugFlag |= DBG_TRACE_ON;(NL)	  case 4:(NL)		DbgInfo-&gt;DebugFlag |= DBG_VERBOSE_ON;(NL)	  case 1:(NL)		DbgInfo-&gt;DebugFlag |= DBG_DEFAULTS;(NL)	  default:(NL)		break;(NL)	}(NL)#endif /* DBG */(NL)(NL)	DBG_ENTER( DbgInfo );(NL)	printk(KERN_INFO "	,	L_107
+Key2	,	V_156
+Key1	,	V_155
+" );(NL)					hcf_status = dhf_download_binary( (memimage *)cp );(NL)					DBG_TRACE( DbgInfo, "	,	L_50
+"Association Status : STA Associated\n"	,	L_193
+MACAddress	,	V_183
+txList	,	V_204
+rtsThreshold	,	V_194
+Key4	,	V_158
+Key3	,	V_157
+" ) != 0 ) &amp;&amp;(NL)			 ( strcmp( lp-&gt;NetworkName, "	,	L_89
+NetworkName	,	V_151
+spin_lock_init	,	F_5
+"Mailbox Info: IFB_MBInfoLen: %d\n"	,	L_137
+DS_OOR	,	F_35
+PARM_DEFAULT_MULTICAST_RATE_5GHZ	,	V_148
+"Link Status : Access Point In Range\n"	,	L_190
+", lp-&gt;fw_image_filename );(NL)		/* Obtain a user-space process context, storing the original context */(NL)		fs = get_fs( );(NL)		set_fs( get_ds( ));(NL)		file_desc = open( lp-&gt;fw_image_filename, O_RDONLY, 0 );(NL)		if ( file_desc == -1 ) {(NL)			DBG_ERROR( DbgInfo, "	,	L_40
+"(%s) rate        : 0x%02x.\n"	,	L_163
+" );(NL)					}(NL)				}(NL)				if ( rc != 0 ) {(NL)					DBG_ERROR( DbgInfo, "	,	L_46
+"Beacon Interval : 0x%04x\n"	,	L_149
+len	,	V_230
+PARM_NAME_MICROWAVE_ROBUSTNESS	,	V_32
+parse_config	,	F_25
+"Link Status : Access Point Out of Range\n"	,	L_189
+" );(NL)				DBG_LEAVE( DbgInfo );(NL)				return -1;(NL)			} else {(NL)				/* Write out configuration to the device, enable, and reconnect.(NL)				   However, only reconnect if in AP mode. For STA mode, need to(NL)				   wait for passive scan completion before a connect can be(NL)				   issued */(NL)				hcf_status = wl_put_ltv( lp );(NL)(NL)				if ( hcf_status == HCF_SUCCESS ) {(NL)					hcf_status = wl_enable( lp );(NL)(NL)					if ( CNV_INT_TO_LITTLE( lp-&gt;hcfCtx.IFB_FWIdentity.comp_id ) == COMP_ID_FW_AP  ) {(NL)						hcf_status = wl_connect( lp );(NL)					}(NL)				} else {(NL)					DBG_WARNING( DbgInfo, "	,	L_71
+PARM_NAME_OWN_SSID	,	V_22
+PARM_SRSC_5GHZ	,	V_169
+"wl_endian_translate_mailbox"	,	L_139
+"(%s) durID       : 0x%04x.\n"	,	L_165
+multicastPMBuffering	,	V_189
+"Signal Level    : 0x%04x\n"	,	L_148
+"LINK TEST RESULT\n"	,	L_210
+"Data Rate Cap : 0x%02x.\n"	,	L_220
+node	,	V_210
+", write_int, &amp;lp-&gt;wlags49_type);(NL)#endif /* SCULL_USE_PROC */(NL)(NL)	DBG_LEAVE( DbgInfo );(NL)	return result;(NL)(NL)hcf_failed:(NL)	wl_hcf_error( dev, hcf_status );(NL)(NL)failed:(NL)(NL)	DBG_ERROR( DbgInfo, "	,	L_25
+MAX_KEY_LEN	,	V_154
+WIRELESS_EXT	,	F_32
+IO_range	,	V_223
+irq_list	,	V_19
+" );(NL)// #else(NL)// 	DBG_PRINT( "	,	L_111
+"Station       : 0x%02x.\n"	,	L_219
+IFB_CardStat	,	V_228
+USE_WDS	,	F_7
+PARM_OWN_CHANNEL	,	V_25
+txF	,	V_206
+", retries );(NL)		} else {(NL)			DBG_TRACE( DbgInfo, "	,	L_37
+"No action: Not in enabled state\n"	,	L_130
+"wl_disconnect"	,	L_131
+PARM_BRSC_2GHZ	,	V_171
+RUN_AT	,	F_34
+HCF_NUM_IO_PORTS	,	V_224
+PARM_OWN_NAME	,	V_35
+mediumDistribution	,	V_165
+txQ	,	V_212
+",(NL)			lp-&gt;MACAddress);(NL) */(NL)(NL)	if ( WVLAN_VALID_MAC_ADDRESS( lp-&gt;MACAddress )) {(NL)		/* Make the MAC address valid by:(NL)				Clearing the multicast bit(NL)				Setting the local MAC address bit(NL)		*/(NL)		//lp-&gt;MACAddress[0] &amp;= ~0x03;  //;?why is this commented out already in 720(NL)		//lp-&gt;MACAddress[0] |= 0x02;(NL)(NL)		lp-&gt;ltvRecord.len = 1 + ( ETH_ALEN / sizeof( hcf_16 ));(NL)		if ( CNV_INT_TO_LITTLE( lp-&gt;hcfCtx.IFB_FWIdentity.comp_id ) == COMP_ID_FW_AP  ) {(NL)			//DBG_TRACE( DbgInfo, "	,	L_97
+PARM_KEY1	,	V_37
+"Link Status : Access Point Change\n"	,	L_188
+"%04x"	,	L_8
+TransmitKeyID	,	V_159
+PARM_KEY3	,	V_41
+PARM_KEY2	,	V_39
+PARM_NAME_REJECT_ANY	,	V_56
+PARM_WDS_ADDRESS1	,	V_89
+PARM_KEY4	,	V_43
+probe_num_aps	,	V_203
+PARM_WDS_ADDRESS3	,	V_93
+PARM_WDS_ADDRESS2	,	V_91
+PARM_WDS_ADDRESS5	,	V_97
+PARM_WDS_ADDRESS4	,	V_95
+key	,	V_161
+PARM_WDS_ADDRESS6	,	V_99
+PARM_MEDIUM_DISTRIBUTION	,	V_115
+PARM_RTS_THRESHOLD1	,	V_65
+PARM_RTS_THRESHOLD4	,	V_71
+ETH_ALEN	,	V_182
+PARM_RTS_THRESHOLD5	,	V_73
+"(%s) address4    : %pM\n"	,	L_170
+PARM_RTS_THRESHOLD2	,	V_67
+PARM_RTS_THRESHOLD3	,	V_69
+"(%s) address2    : %pM\n"	,	L_167
+PARM_RTS_THRESHOLD6	,	V_75
+"(%s) address1    : %pM\n"	,	L_166
+PARM_NAME_TX_RATE1	,	V_76
+"Robustness    : 0x%02x 0x%02x 0x%02x 0x%02x.\n"	,	L_222
+PARM_PORT_TYPE	,	V_118
+PARM_NAME_TX_RATE6	,	V_86
+PARM_TX_POW_LEVEL	,	V_116
+PARM_NAME_TX_RATE3	,	V_80
+PARM_NAME_TX_RATE2	,	V_78
+"(%s) WPA-IE      : %s\n"	,	L_180
+PARM_NAME_TX_RATE5	,	V_84
+PARM_NAME_TX_RATE4	,	V_82
+PARM_AUTHENTICATION	,	V_126
+" );(NL)(NL)	if ( lp-&gt;is_registered == TRUE ) {(NL)		lp-&gt;is_registered = FALSE;(NL)	}(NL)(NL)	WL_WDS_NETDEV_DEREGISTER( lp );(NL)(NL)	result = -EFAULT;(NL)(NL)(NL)	DBG_LEAVE( DbgInfo );(NL)	return result;(NL)} // wl_insert(NL)/*============================================================================*/(NL)(NL)(NL)/*******************************************************************************(NL) *	wl_reset()(NL) *******************************************************************************(NL) *(NL) *  DESCRIPTION:(NL) *(NL) *      Reset the adapter.(NL) *(NL) *  PARAMETERS:(NL) *(NL) *      dev - a pointer to the net_device struct of the wireless device(NL) *(NL) *  RETURNS:(NL) *(NL) *      an HCF status code(NL) *(NL) ******************************************************************************/(NL)int wl_reset(struct net_device *dev)(NL){(NL)	struct wl_private  *lp = wl_priv(dev);(NL)	int                 hcf_status = HCF_SUCCESS;(NL)	/*------------------------------------------------------------------------*/(NL)	DBG_FUNC( "	,	L_26
+"Dual BSD/GPL"	,	L_237
+typ	,	V_232
+brsc	,	V_170
+INIT_LIST_HEAD	,	F_13
+",(NL)				   lp-&gt;TxRateControl[1] );(NL)		DBG_TRACE( DbgInfo, "	,	L_86
+"Security Status : Deauthenticate [AP]\n"	,	L_201
+PARM_NAME_KEY4	,	V_42
+PARM_NAME_KEY3	,	V_40
+PARM_NAME_KEY2	,	V_38
+PARM_NAME_KEY1	,	V_36
+PARM_OWN_BEACON_INTERVAL	,	V_136
+PARM_CREATE_IBSS	,	V_122
+variant	,	V_236
+"failed: 0x%x\n"	,	L_126
+slock	,	V_13
+");(NL)(NL)(NL)// ;?#if (HCF_TYPE) &amp; HCF_TYPE_AP(NL)// 	DBG_PRINT( "	,	L_110
+DBG_ENTER	,	F_4
+WARP	,	F_15
+"net device for WDS port %d could not be registered\n"	,	L_230
+hcf_connect	,	F_19
+"NnYy"	,	L_10
+PARM_OWN_SSID	,	V_23
+", hcf_status );(NL)			goto out;(NL)		}(NL)(NL)		/* Certain RIDs must be set before enabling the ports */(NL)		wl_put_ltv_init( lp );(NL)	} else {(NL)		DBG_ERROR( DbgInfo, "	,	L_33
+"No action: Card already enabled\n"	,	L_124
+HCF_EXT_TALLIES_FW	,	V_251
+RejectAny	,	V_187
+", 0, NULL, scull_read_procmem, dev );(NL)	proc_mkdir("	,	L_23
+DEFAULT_NUM_TX_FRAMES	,	V_209
+" );(NL)	} else {(NL)		wl_lock( lp, &amp;flags );(NL)(NL)		dev = (struct net_device *)lp-&gt;dev;(NL)		if ( dev != NULL &amp;&amp; netif_device_present( dev ) ) stop = FALSE;(NL)		for( count = 0; stop == FALSE &amp;&amp; count &lt; WVLAN_MAX_INT_SERVICES; count++ ) {(NL)			stop = TRUE;(NL)			result = hcf_service_nic( &amp;lp-&gt;hcfCtx,(NL)									  (wci_bufp)lp-&gt;lookAheadBuf,(NL)									  sizeof( lp-&gt;lookAheadBuf ));(NL)			if ( result == HCF_ERR_MIC ) {(NL)				wl_wext_event_mic_failed( dev ); 	/* Send an event that MIC failed */(NL)				//;?this seems wrong if HCF_ERR_MIC coincides with another event, stop gets FALSE(NL)				//so why not do it always ;?(NL)			}(NL)(NL)#ifndef USE_MBOX_SYNC(NL)			if ( lp-&gt;hcfCtx.IFB_MBInfoLen != 0 ) {	/* anything in the mailbox */(NL)				wl_mbx( lp );(NL)				stop = FALSE;(NL)			}(NL)#endif(NL)			/* Check for a Link status event */(NL)			if ( ( lp-&gt;hcfCtx.IFB_LinkStat &amp; CFG_LINK_STAT_FW ) != 0 ) {(NL)				wl_process_link_status( lp );(NL)				stop = FALSE;(NL)			}(NL)			/* Check for probe response events */(NL)			if ( lp-&gt;ProbeResp.infoType != 0 &amp;&amp;(NL)				lp-&gt;ProbeResp.infoType != 0xFFFF ) {(NL)				wl_process_probe_response( lp );(NL)				memset( &amp;lp-&gt;ProbeResp, 0, sizeof( lp-&gt;ProbeResp ));(NL)				lp-&gt;ProbeResp.infoType = 0xFFFF;(NL)				stop = FALSE;(NL)			}(NL)			/* Check for updated record events */(NL)			if ( lp-&gt;updatedRecord.len != 0xFFFF ) {(NL)				wl_process_updated_record( lp );(NL)				lp-&gt;updatedRecord.len = 0xFFFF;(NL)				stop = FALSE;(NL)			}(NL)			/* Check for association status events */(NL)			if ( lp-&gt;assoc_stat.len != 0xFFFF ) {(NL)				wl_process_assoc_status( lp );(NL)				lp-&gt;assoc_stat.len = 0xFFFF;(NL)				stop = FALSE;(NL)			}(NL)			/* Check for security status events */(NL)			if ( lp-&gt;sec_stat.len != 0xFFFF ) {(NL)				wl_process_security_status( lp );(NL)				lp-&gt;sec_stat.len = 0xFFFF;(NL)				stop = FALSE;(NL)			}(NL)(NL)#ifdef ENABLE_DMA(NL)			if ( lp-&gt;use_dma ) {(NL)				/* Check for DMA Rx packets */(NL)				if ( lp-&gt;hcfCtx.IFB_DmaPackets &amp; HREG_EV_RDMAD ) {(NL)					wl_rx_dma( dev );(NL)					stop = FALSE;(NL)				}(NL)				/* Return Tx DMA descriptors to host */(NL)				if ( lp-&gt;hcfCtx.IFB_DmaPackets &amp; HREG_EV_TDMAD ) {(NL)					wl_pci_dma_hcf_reclaim_tx( lp );(NL)					stop = FALSE;(NL)				}(NL)			}(NL)			else(NL)#endif // ENABLE_DMA(NL)			{(NL)				/* Check for Rx packets */(NL)				if ( lp-&gt;hcfCtx.IFB_RxLen != 0 ) {(NL)					wl_rx( dev );(NL)					stop = FALSE;(NL)				}(NL)				/* Make sure that queued frames get sent */(NL)				if ( wl_send( lp )) {(NL)					stop = FALSE;(NL)				}(NL)			}(NL)		}(NL)		/* We're done, so turn interrupts which were turned off in wl_isr, back on */(NL)		hcf_action( &amp;lp-&gt;hcfCtx, HCF_ACT_INT_ON );(NL)		wl_unlock( lp, &amp;flags );(NL)	}(NL)	return;(NL)} // wl_isr_handler(NL)/*============================================================================*/(NL)(NL)(NL)/*******************************************************************************(NL) *	wl_remove()(NL) *******************************************************************************(NL) *(NL) *  DESCRIPTION:(NL) *(NL) *      Notify the adapter that it has been removed. Since the adapter is gone,(NL) *  we should no longer try to talk to it.(NL) *(NL) *  PARAMETERS:(NL) *(NL) *      dev - a pointer to the device's net_device structure(NL) *(NL) *  RETURNS:(NL) *(NL) *      N/A(NL) *(NL) ******************************************************************************/(NL)void wl_remove( struct net_device *dev )(NL){(NL)	struct wl_private   *lp = wl_priv(dev);(NL)	unsigned long   flags;(NL)	/*------------------------------------------------------------------------*/(NL)	DBG_FUNC( "	,	L_117
+PARM_OWN_ATIM_WINDOW	,	V_128
+wl_private	,	V_8
+wl_insert	,	F_1
+"Protocol      : 0x%04x.\n"	,	L_218
+PARM_NAME_PM_ENABLED	,	V_52
+PARM_MIN_OWN_DTIM_PERIOD	,	V_135
+scan_complete	,	V_201
+" );(NL)	DBG_ENTER( DbgInfo );(NL)(NL)	DBG_PARAM( DbgInfo, "	,	L_118
+"AP              : %d\n"	,	L_144
+is_handling_int	,	V_14
+",(NL)				   lp-&gt;TxRateControl[0] );(NL)		DBG_TRACE( DbgInfo, "	,	L_85
+holdoverDuration	,	V_177
+"Number of APs: %d\n"	,	L_143
+"Reason          : 0x%04x\n"	,	L_207
+" );(NL)	DBG_ENTER(DbgInfo);(NL)(NL)	wl_adapter_cleanup_module( );(NL)#if 0 //SCULL_USE_PROC /* don't waste space if unused */(NL)	remove_proc_entry( "	,	L_113
+",(NL)	//           hcf_status );(NL)	/* enable/disable encryption */(NL)	lp-&gt;ltvRecord.len       = 2;(NL)	lp-&gt;ltvRecord.typ       = CFG_CNF_ENCRYPTION;(NL)	lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;EnableEncryption );(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)	/* Set the Authentication Key Management Suite */(NL)	lp-&gt;ltvRecord.len       = 2;(NL)	lp-&gt;ltvRecord.typ       = CFG_SET_WPA_AUTH_KEY_MGMT_SUITE;(NL)	lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;AuthKeyMgmtSuite );(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)	/* If WEP (or no) keys are being used, write (or clear) them */(NL)	if (lp-&gt;wext_enc != IW_ENCODE_ALG_TKIP)(NL)		wl_set_wep_keys(lp);(NL)(NL)	/* Country Code */(NL)	/* countryInfo, ltvCountryInfo, CFG_CNF_COUNTRY_INFO */(NL)(NL)	DBG_LEAVE( DbgInfo );(NL)	return hcf_status;(NL)} // wl_put_ltv(NL)/*============================================================================*/(NL)(NL)(NL)/*******************************************************************************(NL) *	init_module()(NL) *******************************************************************************(NL) *(NL) *  DESCRIPTION:(NL) *(NL) *      Load the kernel module.(NL) *(NL) *  PARAMETERS:(NL) *(NL) *      N/A(NL) *(NL) *  RETURNS:(NL) *(NL) *      0 on success(NL) *      an errno value otherwise(NL) *(NL) ******************************************************************************/(NL)static int __init wl_module_init( void )(NL){(NL)	int result;(NL)	/*------------------------------------------------------------------------*/(NL)(NL)	DBG_FUNC( "	,	L_105
+" );(NL)					//;?improve error flow/handling(NL)					hcf_status = dhf_download_fw( &amp;lp-&gt;hcfCtx, (memimage *)cp );(NL)					DBG_TRACE( DbgInfo, "	,	L_51
+"STA Address     : %pM\n"	,	L_206
+"\"%s\""	,	L_6
+DefaultKeys	,	V_160
+CFG_DRV_IDENTITY	,	V_233
+"Nn"	,	L_12
+WL_FRIMWARE_NOT_PRESENT	,	V_17
+"BSSID           : %pM\n"	,	L_152
+PARM_LOAD_BALANCING	,	V_114
+"SSID            : %s.\n"	,	L_153
+PARM_MAX_PM_HOLDOVER_DURATION	,	V_131
+AuthKeyMgmtSuite	,	V_163
+PARM_MAX_MAX_PM_SLEEP	,	V_125
+DRV_MAJOR_VERSION	,	V_239
+" );(NL)	}(NL)(NL)out:(NL)	DBG_LEAVE( DbgInfo );(NL)	return hcf_status;(NL)} // wl_reset(NL)/*============================================================================*/(NL)(NL)(NL)/*******************************************************************************(NL) *	wl_go()(NL) *******************************************************************************(NL) *(NL) *  DESCRIPTION:(NL) *(NL) *      Reset the adapter.(NL) *(NL) *  PARAMETERS:(NL) *(NL) *      dev - a pointer to the net_device struct of the wireless device(NL) *(NL) *  RETURNS:(NL) *(NL) *      an HCF status code(NL) *(NL) ******************************************************************************/(NL)int wl_go( struct wl_private *lp )(NL){(NL)	int  	hcf_status = HCF_SUCCESS;(NL)	char	*cp = NULL;			//fw_image(NL)	int	retries = 0;(NL)	/*------------------------------------------------------------------------*/(NL)	DBG_FUNC( "	,	L_34
+PARM_MAX_NAME_LEN	,	V_100
+hcf_16	,	V_231
+HCF_TYPE_AP	,	V_243
+"ANY"	,	L_154
+firmware_present	,	V_16
+WVLAN_DRV_MODE_STA	,	V_247
+"Channel ID      : 0x%04x\n"	,	L_146
+", NULL );		//;?why so a-symmetric compared to location of create_proc_read_entry(NL)#endif(NL)(NL)	DBG_LEAVE( DbgInfo );(NL)	return;(NL)} // cleanup_module(NL)/*============================================================================*/(NL)(NL)module_init(wl_module_init);(NL)module_exit(wl_module_exit);(NL)(NL)/*******************************************************************************(NL) *	wl_isr()(NL) *******************************************************************************(NL) *(NL) *  DESCRIPTION:(NL) *(NL) *      The Interrupt Service Routine for the driver.(NL) *(NL) *  PARAMETERS:(NL) *(NL) *      irq     -   the irq the interrupt came in on(NL) *      dev_id  -   a buffer containing information about the request(NL) *      regs    -(NL) *(NL) *  RETURNS:(NL) *(NL) *      N/A(NL) *(NL) ******************************************************************************/(NL)irqreturn_t wl_isr( int irq, void *dev_id, struct pt_regs *regs )(NL){(NL)	int                 events;(NL)	struct net_device   *dev = (struct net_device *) dev_id;(NL)	struct wl_private   *lp = NULL;(NL)	/*------------------------------------------------------------------------*/(NL)	if (( dev == NULL ) || ( !netif_device_present( dev ))) {(NL)		return IRQ_NONE;(NL)	}(NL)(NL)	/* Set the wl_private pointer (lp), now that we know that dev is non-null */(NL)	lp = wl_priv(dev);(NL)(NL)#ifdef USE_RTS(NL)	if ( lp-&gt;useRTS == 1 ) {(NL)		DBG_PRINT( "	,	L_114
+"Noise  Level  : 0x%02x.\n"	,	L_215
+PARM_NAME_DESIRED_SSID	,	V_20
+PARM_NAME_OWN_CHANNEL	,	V_24
+" );(NL)(NL)#if DBG(NL)	/* Convert "	,	L_106
+" ) != 0 )) {(NL)		//DBG_TRACE( DbgInfo, "	,	L_102
+"Association Status : STA Reassociated\n"	,	L_194
+" );(NL)			lp-&gt;ltvRecord.typ = CFG_CNF_OWN_MAC_ADDR;(NL)		}(NL)		/* MAC address is byte aligned, no endian conversion needed */(NL)		memcpy( &amp;( lp-&gt;ltvRecord.u.u8[0] ), lp-&gt;MACAddress, ETH_ALEN );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)		//DBG_TRACE( DbgInfo, "	,	L_99
+DRV_MINOR_VERSION	,	V_241
+"Link Status : UNKNOWN (0x%04x)\n"	,	L_191
+",(NL)		//           lp-&gt;StationName );(NL)(NL)		lp-&gt;ltvRecord.len       = 2 + ( len / sizeof( hcf_16 ));(NL)		lp-&gt;ltvRecord.typ       = CFG_CNF_OWN_NAME;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( strlen( lp-&gt;StationName ));(NL)(NL)		memcpy( &amp;( lp-&gt;ltvRecord.u.u8[2] ), lp-&gt;StationName, len );(NL)	} else {(NL)		//DBG_TRACE( DbgInfo, "	,	L_82
+USE_MBOX_SYNC	,	F_29
+" );(NL)			} else {(NL)				rc = read( file_desc, cp, DHF_ALLOC_SIZE );(NL)				if ( rc == DHF_ALLOC_SIZE ) {(NL)					DBG_ERROR( DbgInfo, "	,	L_43
+PARM_MAX_MULTICAST_RATE	,	V_112
+"Calling wvlan_go() to perform a card reset...\n"	,	L_17
+wl_put_ltv_init	,	F_23
+DN554	,	F_33
+base_addr	,	V_218
+MicrowaveRobustness	,	V_149
+", VERSION_INFO);(NL)    	printk(KERN_INFO "	,	L_108
+"irq_list"	,	L_4
+"(%s) beaconInt   : 0x%04x.\n"	,	L_176
+"wl_enable"	,	L_123
+" ) != 0 ) &amp;&amp;(NL)				 ( strcmp( lp-&gt;NetworkName, "	,	L_101
+"(%s) timeStamp   : "	,	L_174
+", lp-&gt;dev-&gt;name, lp );(NL)	if ( lp-&gt;EnableEncryption ) {(NL)		/* NOTE: CFG_CNF_ENCRYPTION is set in wl_put_ltv() as it's a static(NL)				 RID */(NL)(NL)		/* set TxKeyID */(NL)		lp-&gt;ltvRecord.len = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_TX_KEY_ID;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE(lp-&gt;TransmitKeyID - 1);(NL)(NL)		hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		DBG_TRACE( DbgInfo, "	,	L_61
+"Power Mgmt    : 0x%02x 0x%02x 0x%02x 0x%02x.\n"	,	L_221
+wl_isr_handler	,	V_217
+is_valid_key_string	,	F_9
+" );(NL)	DBG_ENTER( DbgInfo );(NL)	DBG_PARAM( DbgInfo, "	,	L_27
+card_stat	,	V_227
+flags	,	V_7
+"timer_oor"	,	L_233
+"================\n"	,	L_211
+PARM_MIN_PORT_TYPE	,	V_119
+PARM_PM_HOLDOVER_DURATION	,	V_130
+"Noise Level     : 0x%04x\n"	,	L_147
+" );(NL)	DBG_TRACE( DbgInfo, "	,	L_77
+PARM_MAX_OWN_ATIM_WINDOW	,	V_129
+"wl_mbx"	,	L_136
+"wl_connect"	,	L_129
+"Link Status : Connected\n"	,	L_186
+" );(NL)		DBG_LEAVE( DbgInfo );(NL)		return -1;(NL)	}(NL)	/* DMA/IO */(NL)	lp-&gt;ltvRecord.len = 2;(NL)	lp-&gt;ltvRecord.typ = CFG_CNTL_OPT;(NL)(NL)	/* The Card Services build must ALWAYS configure for 16-bit I/O. PCI or(NL)	   CardBus can be set to either 16/32 bit I/O, or Bus Master DMA, but only(NL)	   for Hermes-2.5 */(NL)#ifdef BUS_PCMCIA(NL)	lp-&gt;ltvRecord.u.u16[0] = CNV_INT_TO_LITTLE( USE_16BIT );(NL)#else(NL)	if ( lp-&gt;use_dma ) {(NL)		lp-&gt;ltvRecord.u.u16[0] = CNV_INT_TO_LITTLE( USE_DMA );(NL)	} else {(NL)		lp-&gt;ltvRecord.u.u16[0] = CNV_INT_TO_LITTLE( 0 );(NL)	}(NL)(NL)#endif(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)	DBG_TRACE( DbgInfo, "	,	L_74
+", dev-&gt;name, dev );(NL)(NL)	wl_lock( lp, &amp;flags );(NL)(NL)	/* stop handling interrupts */(NL)	wl_act_int_off( lp );(NL)        lp-&gt;is_handling_int = WL_NOT_HANDLING_INT;(NL)(NL)	/*(NL)         * Disable the ports: just change state: since the(NL)         * card is gone it is useless to talk to it and at(NL)         * disconnect all state information is lost anyway.(NL)         */(NL)	/* Reset portState */(NL)	lp-&gt;portState = WVLAN_PORT_STATE_DISABLED;(NL)(NL)#if 0 //;? (HCF_TYPE) &amp; HCF_TYPE_AP(NL)#ifdef USE_WDS(NL)	//wl_disable_wds_ports( lp );(NL)#endif // USE_WDS(NL)#endif  /* (HCF_TYPE) &amp; HCF_TYPE_AP */(NL)(NL)	/* Mark the device as unregistered */(NL)	lp-&gt;is_registered = FALSE;(NL)(NL)	/* Deregister the WDS ports as well */(NL)	WL_WDS_NETDEV_DEREGISTER( lp );(NL)#ifdef USE_RTS(NL)	if ( lp-&gt;useRTS == 1 ) {(NL)		wl_unlock( lp, &amp;flags );(NL)(NL)		DBG_LEAVE( DbgInfo );(NL)		return;(NL)	}(NL)#endif  /* USE_RTS */(NL)(NL)	/* Inform the HCF that the card has been removed */(NL)	hcf_connect( &amp;lp-&gt;hcfCtx, HCF_DISCONNECT );(NL)(NL)	wl_unlock( lp, &amp;flags );(NL)(NL)	DBG_LEAVE( DbgInfo );(NL)	return;(NL)} // wl_remove(NL)/*============================================================================*/(NL)(NL)(NL)/*******************************************************************************(NL) *	wl_suspend()(NL) *******************************************************************************(NL) *(NL) *  DESCRIPTION:(NL) *(NL) *      Power-down and halt the adapter.(NL) *(NL) *  PARAMETERS:(NL) *(NL) *      dev - a pointer to the device's net_device structure(NL) *(NL) *  RETURNS:(NL) *(NL) *      N/A(NL) *(NL) ******************************************************************************/(NL)void wl_suspend( struct net_device *dev )(NL){(NL)	struct wl_private  *lp = wl_priv(dev);(NL)	unsigned long   flags;(NL)	/*------------------------------------------------------------------------*/(NL)	DBG_FUNC( "	,	L_119
+"wl_disable"	,	L_133
+PARM_NAME_MULTICAST_RATE	,	V_46
+"0x%08lx"	,	L_235
+"hcf_connect() failed, status: 0x%x\n"	,	L_16
+", retries );(NL)		}(NL)	}(NL)(NL)#if 1 //;? (HCF_TYPE) &amp; HCF_TYPE_AP(NL)	//DBG_TRACE( DbgInfo, "	,	L_38
+"CFG_LINK_STAT\n"	,	L_185
+");(NL)        printk(KERN_INFO "	,	L_109
+" );(NL)		return;(NL)		}(NL)#endif  /* USE_RTS */(NL)(NL)	/* If we have interrupts pending, then put them on a system task(NL)	   queue. Otherwise turn interrupts back on */(NL)	events = hcf_action( &amp;lp-&gt;hcfCtx, HCF_ACT_INT_OFF );(NL)(NL)	if ( events == HCF_INT_PENDING ) {(NL)		/* Schedule the ISR handler as a bottom-half task in the(NL)		   tq_immediate queue */(NL)		tasklet_schedule(&amp;lp-&gt;task);(NL)	} else {(NL)		//DBG_PRINT( "	,	L_115
+" );(NL)(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_CNF_OWN_NAME;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( 0 );(NL)	}(NL)(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)	//DBG_TRACE( DbgInfo, "	,	L_83
+"CFG_TALLIES\n"	,	L_141
+"\n"	,	L_155
+"Name          : %s.\n"	,	L_213
+DBG	,	V_249
+"Security Status : Associate Fail\n"	,	L_204
+driverInfo	,	V_221
+wl_act_int_off	,	F_27
+connectionControl	,	V_185
+PARM_NAME_SYSTEM_SCALE	,	V_26
+PARM_MAX_AUTH_KEY_MGMT_SUITE	,	V_113
+addr_len	,	V_245
+" );(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_CNF_OWN_SSID;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( 0 );(NL)	}(NL)(NL)	hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)	//DBG_TRACE( DbgInfo, "	,	L_104
+hcf_status	,	V_4
+Channel	,	V_140
+PARM_MAX_TX_RATE	,	V_105
+",(NL)	//           hcf_status );(NL)(NL)	/* The following are set in STA mode only */(NL)	if ( CNV_INT_TO_LITTLE( lp-&gt;hcfCtx.IFB_FWIdentity.comp_id ) == COMP_ID_FW_STA  ) {(NL)(NL)		/* RTS Threshold */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_RTS_THRH;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;RTSThreshold );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* Port Type */(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_CNF_PORT_TYPE;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;PortType );(NL)		hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		/* Tx Rate Control */(NL)#ifdef WARP(NL)		lp-&gt;ltvRecord.len       = 3;(NL)		lp-&gt;ltvRecord.typ       = CFG_TX_RATE_CNTL;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;TxRateControl[0] );(NL)		lp-&gt;ltvRecord.u.u16[1]  = CNV_INT_TO_LITTLE( lp-&gt;TxRateControl[1] );(NL)#else(NL)		lp-&gt;ltvRecord.len       = 2;(NL)		lp-&gt;ltvRecord.typ       = CFG_TX_RATE_CNTL;(NL)		lp-&gt;ltvRecord.u.u16[0]  = CNV_INT_TO_LITTLE( lp-&gt;TxRateControl[0] );(NL)#endif  // WARP(NL)(NL)//;?skip temporarily to see whether the RID or something else is the probelm hcf_status = hcf_put_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)		DBG_TRACE( DbgInfo, "	,	L_84
+" ) != 0 )) {(NL)			//DBG_TRACE( DbgInfo, "	,	L_90
+version_minor	,	V_240
+"Capability      : 0x%04x\n"	,	L_150
+PARM_OWN_DTIM_PERIOD	,	V_55
+HCF_MAX_NAME_LEN	,	V_150
+", hcf_status );(NL)			goto out;(NL)		}(NL)(NL)		/* Check if firmware is present, if not change state */(NL)		if ( hcf_status == HCF_ERR_INCOMP_FW ) {(NL)			lp-&gt;firmware_present = WL_FRIMWARE_NOT_PRESENT;(NL)		}(NL)(NL)		/* Initialize the portState variable */(NL)		lp-&gt;portState = WVLAN_PORT_STATE_DISABLED;(NL)(NL)		/* Restart the adapter. */(NL)		hcf_status = wl_go( lp );(NL)		if ( hcf_status != HCF_SUCCESS ) {(NL)			DBG_ERROR( DbgInfo, "	,	L_32
+PARM_MAX_CONNECTION_CONTROL	,	V_134
+",(NL)			   dev-&gt;name, dev-&gt;base_addr, dev-&gt;irq );(NL)(NL)	for( i = 0; i &lt; ETH_ALEN; i++ ) {(NL)		printk( "	,	L_21
+PARM_MULTICAST_PM_BUFFERING	,	V_61
+txFree	,	V_205
+PARM_NAME_RTS_THRESHOLD	,	V_30
+" );(NL)	DBG_ENTER( DbgInfo );(NL)	if ( lp == NULL ) {(NL)		DBG_ERROR( DbgInfo, "	,	L_73
+promiscuousMode	,	V_181
+IRQ_number	,	V_225
+"Receive Flow  : 0x%02x.\n"	,	L_216
+LIMIT	,	F_31
+PARM_NAME_RTS_THRESHOLD4	,	V_70
+"%d"	,	L_7
+PARM_NAME_RTS_THRESHOLD5	,	V_72
+PARM_NAME_RTS_THRESHOLD6	,	V_74
+"Data Rate     : 0x%02x.\n"	,	L_217
+"HERMES 2.5 BUSMASTER DMA MODE\n"	,	L_13
+PARM_MIN_SYSTEM_SCALE	,	V_102
+" );(NL)	//wl_disable_wds_ports( lp );(NL)#endif  /* (HCF_TYPE) &amp; HCF_TYPE_AP */(NL)(NL)//;?what was the purpose of this(NL)// 	/* load the appropriate firmware image, depending on driver mode */(NL)// 	lp-&gt;ltvRecord.len   = ( sizeof( CFG_RANGE20_STRCT ) / sizeof( hcf_16 )) - 1;(NL)// 	lp-&gt;ltvRecord.typ   = CFG_DRV_ACT_RANGES_PRI;(NL)// 	hcf_get_info( &amp;lp-&gt;hcfCtx, (LTVP)&amp;( lp-&gt;ltvRecord ));(NL)(NL)#if BIN_DL(NL)	if ( strlen( lp-&gt;fw_image_filename ) ) {(NL)mm_segment_t	fs;(NL)int		    	file_desc;(NL)int 			rc;(NL)(NL)		DBG_TRACE( DbgInfo, "	,	L_39
+PARM_MIN_OWN_BEACON_INTERVAL	,	V_137
+PARM_NAME_RTS_THRESHOLD1	,	V_64
+PARM_NAME_RTS_THRESHOLD2	,	V_66
+PARM_NAME_RTS_THRESHOLD3	,	V_68
+authentication	,	V_175
+PARM_DEFAULT_TX_RATE_2GHZ	,	V_143
+IO_address	,	V_222
+"ENTERING RTS MODE...\n"	,	L_19
+"CFG_ACS_SCAN\n"	,	L_156
+", lp-&gt;DefaultKeys.key[1].len );(NL)		DBG_TRACE( DbgInfo, "	,	L_63
+"%d.%d.%d.%d.%d.%d.%d.%d\n"	,	L_175
+PARM_MAX_OWN_BEACON_INTERVAL	,	V_138

@@ -1,0 +1,134 @@
+"If system does not work as expected, please boot with acpi=copy_dsdt"	,	L_7
+acpi_get_table_by_index	,	F_7
+"Could not copy DSDT of length 0x%X"	,	L_8
+"Null physical address for ACPI table [%s]"	,	L_10
+current_table_count	,	V_17
+acpi_gbl_original_dsdt_header	,	V_41
+mapped_table	,	V_52
+max_table_count	,	V_70
+asl_compiler_id	,	V_26
+"BIOS XSDT has NULL entry, "	,	L_15
+ACPI_TABLE_ORIGIN_ALLOCATED	,	V_50
+tables	,	V_47
+ACPI_MOVE_64_TO_64	,	F_5
+ACPI_WARNING	,	F_19
+acpi_tb_install_table	,	F_25
+ACPI_TABLE_ORIGIN_MAPPED	,	V_56
+acpi_tb_check_xsdt	,	F_1
+ACPI_ALLOCATE	,	F_23
+override_table	,	V_53
+pointer	,	V_48
+acpi_tb_copy_dsdt	,	F_22
+ACPI_MOVE_32_TO_32	,	F_29
+acpi_tb_initialize_facs	,	F_6
+ACPI_OEM_TABLE_ID_SIZE	,	V_25
+acpi_tb_delete_table	,	F_24
+table_desc	,	V_46
+oem_id	,	V_22
+acpi_tb_fix_string	,	F_10
+rsdt_physical_address	,	V_69
+"Incorrect checksum in table [%4.4s] - 0x%2.2X, should be 0x%2.2X"	,	L_4
+status	,	V_13
+ACPI_CAST_INDIRECT_PTR	,	F_8
+ACPI_SUCCESS	,	F_27
+signature	,	V_20
+acpi_tb_print_table_header	,	F_14
+flags	,	V_49
+ACPI_IS_PRINT	,	F_11
+sum	,	V_39
+"%4.4s @ 0x%p Table override, replaced with:"	,	L_12
+"64-bit Physical Address in XSDT is too large (0x%8.8X%8.8X),"	,	L_13
+tb_parse_root_table	,	V_66
+acpi_gbl_FACS	,	V_15
+"Forced DSDT copy: length 0x%05X copied locally, original unmapped"	,	L_9
+out_header	,	V_18
+"%4.4s %p %05X"	,	L_1
+ACPI_UINT32_MAX	,	V_61
+acpi_gbl_root_table_list	,	V_16
+acpi_gbl_DSDT	,	V_42
+ACPI_OEM_ID_SIZE	,	V_23
+table	,	V_3
+table_count	,	V_7
+address	,	V_1
+u8	,	T_5
+AE_OK	,	V_12
+acpi_ut_set_integer_width	,	F_30
+xsdt_physical_address	,	V_67
+AE_INVALID_TABLE_LENGTH	,	V_10
+"using RSDT"	,	L_16
+acpi_tb_verify_checksum	,	F_17
+table_to_install	,	V_51
+i	,	V_8
+ACPI_PTR_TO_PHYSADDR	,	F_28
+"Invalid signature 0x%X for ACPI table, expected [%s]"	,	L_11
+ACPI_NAME_SIZE	,	V_21
+acpi_physical_address	,	T_2
+"RSDP %p %05X (v%.2d %6.6s)"	,	L_2
+acpi_tb_cleanup_table_header	,	F_12
+__init	,	T_7
+AE_INFO	,	V_29
+acpi_size	,	T_6
+ACPI_MEMCPY	,	F_13
+asl_compiler_revision	,	V_34
+ACPI_TABLE_INDEX_FACS	,	V_14
+ACPI_TABLE_INDEX_DSDT	,	V_57
+table_entry_size	,	V_58
+ACPI_CHECKSUM_ABORT	,	V_36
+return_ACPI_STATUS	,	F_35
+acpi_status	,	T_1
+acpi_tb_tables_loaded	,	F_9
+ACPI_TABLE_ORIGIN_OVERRIDE	,	V_55
+ACPI_CAST_PTR	,	F_4
+address64	,	V_59
+u32	,	T_3
+oem_table_id	,	V_24
+acpi_rsdt_forced	,	V_68
+table_entry	,	V_6
+buffer	,	V_38
+"%4.4s %p %05X (v%.2d %6.6s %8.8s %08X %4.4s %08X)"	,	L_3
+new_table	,	V_44
+acpi_os_map_memory	,	F_2
+oem_revision	,	V_33
+"Truncating %u table entries!"	,	L_18
+revision	,	V_32
+table_index	,	V_43
+ACPI_COMPARE_NAME	,	F_15
+rsdp	,	V_63
+header	,	V_19
+acpi_table_header	,	V_2
+AE_BAD_CHECKSUM	,	V_37
+ACPI_SIG_RSDP	,	V_30
+acpi_tb_resize_root_table_list	,	F_37
+acpi_tb_parse_fadt	,	F_38
+acpi_tb_checksum	,	F_18
+ACPI_SIG_FADT	,	V_71
+ACPI_FAILURE	,	F_36
+acpi_table_desc	,	V_45
+AE_NULL_ENTRY	,	V_11
+acpi_table_rsdp	,	V_31
+"Invalid length 0x%X in RSDT/XSDT"	,	L_17
+acpi_tb_check_dsdt_header	,	F_20
+checksum	,	V_35
+"The DSDT has been corrupted or replaced - old, new headers below"	,	L_5
+end	,	V_40
+ACPI_MACHINE_WIDTH	,	V_60
+rsdp_address	,	V_62
+ACPI_SIG_FACS	,	V_28
+ACPI_INFO	,	F_16
+acpi_os_table_override	,	F_26
+ACPI_ERROR	,	F_21
+ACPI_FORMAT_UINT64	,	F_32
+length	,	V_4
+unmap_and_exit	,	V_54
+ACPI_FUNCTION_TRACE	,	F_34
+acpi_os_unmap_memory	,	F_3
+acpi_tb_get_root_table_entry	,	F_31
+uninitialized_var	,	V_64
+u64	,	T_4
+xsdt_entry_address	,	V_5
+local_header	,	V_27
+rsdt_address	,	V_65
+AE_NO_MEMORY	,	V_9
+"Please send DMI info to linux-acpi@vger.kernel.org\n"	,	L_6
+acpi_tb_parse_root_table	,	F_33
+" truncating"	,	L_14

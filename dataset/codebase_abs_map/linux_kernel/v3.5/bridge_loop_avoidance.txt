@@ -1,0 +1,261 @@
+ARPOP_REPLY	,	V_50
+atomic_set	,	F_35
+htons	,	F_47
+list_locks	,	V_33
+vid	,	V_26
+bla_free	,	F_77
+len	,	V_68
+dev	,	V_98
+stats	,	V_65
+h_vlan_encapsulated_proto	,	V_97
+cancel_delayed_work_sync	,	F_78
+curr	,	V_126
+unlikely	,	F_37
+INIT_DELAYED_WORK	,	F_69
+bla_get_backbone_gw	,	F_33
+"handle_unclaim(): UNCLAIM %pM on vid %d (sent by %pM)...\n"	,	L_15
+backbone_gw_free_ref	,	F_6
+hlist_for_each_entry_safe	,	F_21
+node	,	V_8
+bridge_loop_avoidance	,	V_117
+size	,	V_2
+hash_new	,	F_73
+arphdr	,	V_56
+uint8_t	,	T_3
+zeroip	,	V_48
+handle_request	,	F_55
+tt_global_del_orig	,	F_39
+claim_hash	,	V_19
+ETH_P_8021Q	,	V_94
+bla_del_backbone_claims	,	F_19
+bat_dbg	,	F_27
+bat_priv	,	V_17
+GFP_ATOMIC	,	V_74
+ETH_P_ARP	,	V_51
+compare_eth	,	F_56
+seq_printf	,	F_86
+ethhdr	,	V_40
+dev_addr	,	V_53
+search_claim	,	V_79
+vlan_insert_tag	,	F_28
+bla_del_claim	,	F_50
+"bla_add_claim(): adding new entry %pM, vid %d to hash ...\n"	,	L_9
+DBG_BLA	,	V_59
+bat_event_workqueue	,	V_112
+key	,	V_3
+seq	,	V_133
+backbone_gw_tmp	,	V_29
+bla_num_requests	,	V_77
+atomic_read	,	F_45
+ARPHRD_ETHER	,	V_100
+rcu	,	V_15
+ar_pro	,	V_101
+seq_file	,	V_132
+data2	,	V_9
+ETH_ALEN	,	V_6
+data1	,	V_10
+uint32_t	,	T_1
+i	,	V_5
+vlan_ethhdr	,	V_88
+ntohs	,	F_53
+orig	,	V_30
+ar_hrd	,	V_99
+jiffies	,	V_70
+handled	,	V_130
+primary_if	,	V_42
+bcast_duplist	,	V_119
+hash_remove	,	F_51
+hw_src	,	V_45
+refcount	,	V_14
+choose_backbone_gw	,	F_2
+claim_tmp	,	V_22
+an_addr	,	V_80
+backbone_addr	,	V_81
+VLAN_VID_MASK	,	V_96
+"   %-17s    %-5s    %-17s [o] (%-4s)\n"	,	L_26
+compare_claim	,	F_5
+purge_now	,	V_106
+"Originator"	,	L_29
+ret	,	V_92
+bla_add_claim	,	F_48
+atomic_dec_and_test	,	F_7
+hw_dst	,	V_83
+handle_unclaim	,	F_57
+"taking other backbones claim group: %04x\n"	,	L_16
+h_source	,	V_58
+netif_rx	,	F_31
+bla_work	,	V_110
+sk_buff	,	V_38
+call_rcu	,	F_12
+name	,	V_137
+rcu_head	,	V_16
+bla_init	,	F_72
+work_struct	,	V_114
+allow	,	V_131
+private	,	V_135
+ETH_HLEN	,	V_55
+"handle_request(): REQUEST vid %d (sent by %pM)...\n"	,	L_14
+bcast_packet	,	V_123
+hdr_size	,	V_124
+hash_destroy	,	F_79
+choose_claim	,	F_1
+kfree_skb	,	F_82
+content	,	V_127
+"Claims announced for the mesh %s (orig %pM, group id %04x)\n"	,	L_25
+rx_packets	,	V_66
+orig_node	,	V_72
+"Sending REQUEST to %pM\n"	,	L_8
+kzalloc	,	F_34
+now	,	V_105
+bla_purge_backbone_gw	,	F_64
+rx_bytes	,	V_67
+orig_hash_find	,	F_38
+"bla_add_claim(): changing ownership for %pM, vid %d\n"	,	L_10
+DUPLIST_TIMEOUT	,	V_121
+netdev_priv	,	F_85
+request_sent	,	V_76
+bla_dst_own	,	V_85
+length	,	V_125
+spin_unlock_bh	,	F_23
+"handle_announce(): ANNOUNCE vid %d (sent by %pM)... CRC = %04x\n"	,	L_12
+spinlock_t	,	T_4
+"bla_send_claim(): UNCLAIM %pM on vid %d\n"	,	L_2
+orig_node_free_ref	,	F_40
+DUPLIST_SIZE	,	V_118
+vhdr	,	V_89
+h_dest	,	V_63
+CLAIM_TYPE_DEL	,	V_60
+bla_answer_request	,	F_42
+ETH_P_IP	,	V_102
+hlist_del_rcu	,	F_22
+skb	,	V_39
+hashtable_t	,	V_18
+arp_hdr_len	,	F_63
+has_timed_out	,	F_65
+bla_start_timer	,	F_68
+ar_pln	,	V_104
+"bla hashes initialized\n"	,	L_22
+IF_ACTIVE	,	V_139
+hlist_for_each_entry_rcu	,	F_15
+ar_hln	,	V_103
+work	,	V_115
+index	,	V_23
+list_lock	,	V_32
+hash_add	,	F_36
+announce_mac	,	V_78
+bla_dst	,	V_84
+delayed_work	,	V_116
+primary_if_get_selected	,	F_25
+h_vlan_TCI	,	V_95
+bla_update_orig_address	,	F_67
+"bla_process_claim(): ERROR - this looks like a claim frame, but is useless. eth src %pM on vid %d ...(hw_src %pM, hw_dst %pM)\n"	,	L_18
+"bla_get_backbone_gw(): not found (%pM, %d), creating new entry\n"	,	L_5
+bla_tx	,	F_83
+soft_iface	,	V_44
+backbone_gw	,	V_11
+is_bcast	,	V_129
+hash	,	V_4
+BLA_PERIOD_LENGTH	,	V_113
+kfree	,	F_10
+entrytime	,	V_120
+hlist_node	,	V_7
+"bla_send_claim(): ANNOUNCE of %pM on vid %d\n"	,	L_3
+net_device	,	V_43
+"bla_del_claim(): %pM, vid %d\n"	,	L_11
+mac	,	V_36
+local_claim_dest	,	V_47
+out	,	V_54
+crc16	,	F_49
+headlen	,	V_91
+bla_purge_claims	,	F_66
+hash_entry	,	V_12
+if_status	,	V_138
+bla_claim_dst	,	V_46
+h_proto	,	V_93
+"Client"	,	L_27
+"BATMAN mesh %s disabled - please specify interfaces to enable it\n"	,	L_23
+table	,	V_24
+eth_type_trans	,	F_30
+handle_announce	,	F_52
+is_own	,	V_136
+bla_send_claim	,	F_24
+claimtype	,	V_37
+bla_is_backbone_gw_orig	,	F_75
+bla_is_backbone_gw	,	F_76
+rcu_read_lock	,	F_14
+bla_update_own_backbone_gw	,	F_41
+BLA_BACKBONE_TIMEOUT	,	V_107
+lasttime	,	V_75
+bla_rx	,	F_80
+"VID"	,	L_28
+"bla hash registering\n"	,	L_21
+arp_create	,	F_26
+claim_addr	,	V_82
+bcast_duplist_curr	,	V_122
+backbone_hash_find	,	F_18
+backbone_hash	,	V_27
+bla_send_request	,	F_44
+magic	,	V_86
+"bla_send_claim(): CLAIM %pM on vid %d\n"	,	L_1
+is_multicast_ether_addr	,	F_81
+data	,	V_1
+atomic_inc	,	F_46
+size_t	,	T_2
+kfree_rcu	,	F_8
+claim_free_rcu	,	F_9
+protocol	,	V_64
+CLAIM_TYPE_ADD	,	V_57
+claim	,	V_13
+"bla_purge_claims(): %pM, vid %d, time out\n"	,	L_20
+hash_added	,	V_73
+"bla_answer_request(): received a claim request, send all of our own claims again\n"	,	L_7
+bla_claim_table_seq_print_text	,	F_84
+bla_periodic_work	,	V_111
+group	,	V_87
+atomic_dec	,	F_54
+hlist_head	,	V_20
+"handle_announce(): CRC FAILED for %pM/%d (my = %04x, sent = %04x)\n"	,	L_13
+offset	,	V_134
+net_dev	,	V_52
+compare_backbone_gw	,	F_3
+bcast_duplist_entry	,	V_128
+CLAIM_TYPE_ANNOUNCE	,	V_61
+bla_check_bcast_duplist	,	F_74
+claim_dest	,	V_49
+node_tmp	,	V_31
+entry	,	V_71
+uint16_t	,	T_5
+check_claim_group	,	F_59
+proto	,	V_90
+last_rx	,	V_69
+claim_free_ref	,	F_11
+CLAIM_TYPE_REQUEST	,	V_62
+oldif	,	V_109
+search_entry	,	V_28
+bla_send_announce	,	F_43
+" * %pM on % 5d by %pM [%c] (%04x)\n"	,	L_31
+head	,	V_21
+BLA_CLAIM_TIMEOUT	,	V_108
+msecs_to_jiffies	,	F_71
+"BATMAN mesh %s disabled - primary interface not active\n"	,	L_24
+bla_process_claim	,	F_60
+crc	,	V_34
+"bla_purge_backbone_gw(): backbone gw %pM timed out\n"	,	L_19
+handle_claim	,	F_58
+"bla_send_claim(): REQUEST of %pM to %pMon vid %d\n"	,	L_4
+pskb_may_pull	,	F_62
+addr	,	V_25
+atomic_inc_not_zero	,	F_16
+BLA_CRC_INIT	,	V_35
+queue_delayed_work	,	F_70
+skb_mac_header	,	F_61
+hardif_free_ref	,	F_32
+rcu_read_unlock	,	F_17
+skb_reset_mac_header	,	F_29
+"CRC"	,	L_30
+container_of	,	F_4
+"became a backbone gateway"	,	L_6
+"bla_process_claim(): received a claim frame from another group. From: %pM on vid %d ...(hw_src %pM, hw_dst %pM)\n"	,	L_17
+claim_hash_find	,	F_13
+spin_lock_bh	,	F_20
+hard_iface	,	V_41

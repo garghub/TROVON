@@ -1,0 +1,140 @@
+pr_debug	,	F_24
+ENOMEM	,	V_72
+conn	,	V_41
+spin_lock_init	,	F_18
+iscsi_thread_set_init	,	F_48
+get_order	,	F_15
+inactive_ts_list	,	V_9
+iscsi_set_thread_set_signal	,	F_37
+list_empty	,	F_9
+ts_bitmap_count	,	V_18
+HZ	,	V_47
+iscsi_check_to_add_additional_sets	,	F_41
+iscsi_signal_thread_pre_handler	,	F_42
+ISCSI_THREAD_SET_DIE	,	V_36
+ISCSI_THREAD_SET_ACTIVE	,	V_65
+ISCSI_RX_THREAD_NAME	,	V_34
+comp	,	V_45
+comm	,	V_60
+delay_inactive	,	V_48
+iscsi_conn	,	V_40
+"Unable to start iscsi_target_rx_thread\n"	,	L_7
+wait_for_completion_interruptible	,	F_46
+wait_for_completion_timeout	,	F_35
+iscsi_target_rx_thread	,	V_33
+iscsit_global	,	V_6
+released_count	,	V_35
+iscsi_add_ts_to_inactive_list	,	F_5
+iscsi_rx_thread_pre_handler	,	F_44
+ISCSI_CLEAR_RX_THREAD	,	V_52
+size	,	V_70
+pr_err	,	F_13
+GFP_KERNEL	,	V_15
+" thread set.\n"	,	L_2
+ts_bitmap	,	V_17
+status	,	V_19
+"struct iscsi_conn-&gt;thread_set is NULL\n"	,	L_11
+"struct iscsi_thread_set-&gt;conn is NULL for"	,	L_13
+kfree	,	F_16
+dump_stack	,	F_22
+iscsi_get_ts_from_inactive_list	,	F_8
+list_add_tail	,	F_3
+active_ts_list	,	V_5
+rx_restart_comp	,	V_24
+init_completion	,	F_19
+sleep	,	V_68
+current	,	V_59
+BUG	,	F_39
+ISCSI_RX_THREAD	,	V_61
+ISCSI_BLOCK_RX_THREAD	,	V_54
+"connection or thread set pointer is NULL\n"	,	L_12
+inactive_ts	,	V_10
+ISCSI_SIGNAL_TX_THREAD	,	V_64
+completion	,	V_44
+tx_post_start_comp	,	V_23
+u8	,	T_2
+ISCSI_TS_BITMAP_BITS	,	V_71
+active_ts	,	V_7
+iscsi_allocate_thread_sets	,	F_11
+i	,	V_13
+thread_sets_add	,	V_66
+allocated_thread_pair_count	,	V_12
+iscsi_del_ts_from_active_list	,	F_6
+get_set	,	V_46
+rx_thread	,	V_32
+iscsi_get_thread_set	,	F_34
+" thread_id: %d, going back to sleep\n"	,	L_14
+blocked_threads	,	V_53
+iscsi_thread_set	,	V_1
+"Stopped %d thread set(s) (%d total threads)."	,	L_9
+thread_called	,	V_57
+kthread_run	,	F_20
+complete	,	F_32
+"\n"	,	L_10
+ts	,	V_2
+"struct iscsi_thread_set-&gt;conn is NULL for "	,	L_15
+"%s"	,	L_5
+orig_count	,	V_38
+list_first_entry	,	F_10
+allocate_ts	,	V_43
+"Unable to start iscsi_target_tx_thread\n"	,	L_6
+wait_for_completion	,	F_33
+ISCSI_THREAD_SET_FREE	,	V_20
+INIT_LIST_HEAD	,	F_17
+thread_id	,	V_14
+inactive_ts_lock	,	V_8
+u32	,	T_1
+create_threads	,	V_28
+kthread_stop	,	F_23
+iscsi_thread_set_force_reinstatement	,	F_40
+tx_restart_comp	,	V_25
+in_shutdown	,	V_69
+rx_post_start_comp	,	V_22
+" thread_set_bitmap\n"	,	L_4
+ret	,	V_67
+bitmap_release_region	,	F_29
+iscsi_set_thread_clear	,	F_36
+BITS_TO_LONGS	,	F_49
+ts_list	,	V_4
+ISCSI_SIGNAL_RX_THREAD	,	V_63
+ISCSI_TX_THREAD_NAME	,	V_31
+ts_state_lock	,	V_21
+signal_pending	,	F_43
+thread_pair_count	,	V_11
+SIGINT	,	V_37
+iscsi_deallocate_thread_sets	,	F_25
+iscsi_target_tx_thread	,	V_30
+thread_count	,	V_50
+iscsi_thread_set_free	,	F_50
+"bitmap_find_free_region() failed for"	,	L_3
+ISCSI_CLEAR_TX_THREAD	,	V_55
+ISCSI_TX_THREAD	,	V_62
+tx_thread	,	V_29
+send_sig	,	F_28
+thread_clear	,	V_51
+thread_set	,	V_42
+"Unable to allocate memory for"	,	L_1
+tx_start_comp	,	V_27
+signal_sent	,	V_49
+iscsi_release_thread_set	,	F_38
+list_del	,	F_7
+kzalloc	,	F_12
+rx_start_comp	,	V_26
+spin_lock	,	F_2
+active_ts_lock	,	V_3
+ISCSI_BLOCK_TX_THREAD	,	V_56
+ISCSI_THREAD_SET_RESET	,	V_58
+iscsi_deallocate_extra_thread_sets	,	F_30
+ts_bitmap_lock	,	V_16
+"Spawned %d thread set(s) (%d total threads).\n"	,	L_8
+iscsi_tx_thread_pre_handler	,	F_47
+spin_unlock	,	F_4
+"Unable to allocate iscsit_global-&gt;ts_bitmap\n"	,	L_16
+spin_unlock_bh	,	F_27
+bitmap_find_free_region	,	F_14
+flush_signals	,	F_45
+iscsi_activate_thread_set	,	F_31
+iscsi_add_ts_to_active_list	,	F_1
+TARGET_THREAD_SET_COUNT	,	V_39
+IS_ERR	,	F_21
+spin_lock_bh	,	F_26

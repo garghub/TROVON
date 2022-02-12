@@ -1,0 +1,173 @@
+quirks	,	V_12
+ENOMEM	,	V_68
+dev_get_drvdata	,	F_57
+of_match_node	,	F_34
+spin_lock_init	,	F_38
+DIV_ROUND_UP	,	F_19
+dev_info	,	F_23
+disable_reg	,	V_15
+cpufreq_unregister_notifier	,	F_28
+dev	,	V_17
+get_wdt_drv_data	,	F_33
+"failed to update reg(%d)\n"	,	L_1
+S3C2410_WTCON_ENABLE	,	V_26
+freq_transition	,	V_4
+lock	,	V_20
+platform_get_device_id	,	F_35
+watchdog_device	,	V_18
+"watchdog %sabled\n"	,	L_28
+rst_stat_bit	,	V_52
+s3c2410_wdd	,	V_69
+val	,	V_11
+__s3c2410wdt_stop	,	F_11
+s3c2410wdt_is_running	,	F_16
+CONFIG_S3C2410_WATCHDOG_DEFAULT_TIME	,	V_76
+mask_val	,	V_8
+CPUFREQ_TRANSITION_NOTIFIER	,	V_48
+WDIOF_CARDRESET	,	V_53
+"en"	,	L_26
+regmap_read	,	F_30
+pmureg	,	V_14
+"cannot start\n"	,	L_19
+"in"	,	L_25
+notifier_call	,	V_47
+s3c2410_wdt	,	V_1
+s3c2410wdt_shutdown	,	F_55
+IRQ_HANDLED	,	V_41
+s3c2410wdt_mask_and_disable_reset	,	F_3
+nowayout	,	V_80
+wdd	,	V_19
+__func__	,	V_31
+watchdog_get_drvdata	,	F_7
+s3c2410wdt_set_heartbeat	,	F_17
+tmr_margin	,	V_75
+of_node	,	V_57
+GFP_KERNEL	,	V_67
+device	,	V_62
+syscon_regmap_lookup_by_phandle	,	F_39
+""	,	L_24
+wdt	,	V_5
+wtcon	,	V_24
+freq	,	V_34
+wdt_irq	,	V_65
+"%s: probe=%p\n"	,	L_9
+IORESOURCE_IRQ	,	V_71
+"syscon regmap lookup failed.\n"	,	L_11
+mask_reset_reg	,	V_16
+mask_bit	,	V_10
+"failed to find watchdog clock source\n"	,	L_15
+divisor	,	V_35
+"cannot register watchdog (%d)\n"	,	L_21
+s3c2410wdt_probe	,	F_36
+s3c2410wdt_get_bootstatus	,	F_29
+cpufreq_register_notifier	,	F_26
+s3c2410_wdt_match	,	V_60
+clk_prepare_enable	,	F_45
+s3c2410wdt_suspend	,	F_56
+devm_ioremap_resource	,	F_43
+watchdog_unregister_device	,	F_52
+err	,	V_46
+s3c2410wdt_resume	,	F_58
+S3C2410_WTCON_INTEN	,	V_30
+started	,	V_66
+ENOENT	,	V_72
+s3c2410wdt_cpufreq_deregister	,	F_27
+regmap_update_bits	,	F_4
+EINVAL	,	V_36
+s3c2410wdt_cpufreq_transition	,	F_24
+"Couldn't get RST_STAT register\n"	,	L_8
+"dis"	,	L_27
+notifier_block	,	V_2
+watchdog_register_device	,	F_50
+platform_device	,	V_55
+S3C2410_WTCON_PRESCALE	,	F_20
+S3C2410_WTCON	,	V_25
+S3C2410_WTCON_RSTEN	,	V_27
+"no irq resource specified\n"	,	L_12
+"%s: timeout=%d, divisor=%d, count=%d (%08x)\n"	,	L_5
+rst_stat_reg	,	V_51
+data	,	V_42
+err_cpufreq	,	V_79
+DBG	,	F_15
+CPUFREQ_PRECHANGE	,	V_44
+s3c2410_wdt_variant	,	V_54
+watchdog_set_drvdata	,	F_46
+s3c2410wdt_remove	,	F_54
+wdt_device	,	V_40
+s3c2410wdt_cpufreq_register	,	F_25
+pdev	,	V_56
+QUIRK_HAS_PMU_CONFIG	,	V_13
+"watchdog %sactive, reset %sabled, irq %sabled\n"	,	L_23
+u32	,	T_1
+S3C2410_WTDAT	,	V_32
+err_clk	,	V_74
+ret	,	V_7
+drv_data	,	V_9
+resource	,	V_63
+S3C2410_WTCON_DIV128	,	V_28
+count	,	V_21
+"default timer value is out of range, "	,	L_18
+watchdog_init_timeout	,	F_47
+done	,	V_43
+PTR_ERR	,	F_41
+"failed to install irq (%d)\n"	,	L_20
+clk_get_rate	,	F_18
+nb	,	V_3
+soft_noboot	,	V_29
+name	,	V_78
+wtdat_save	,	V_85
+QUIRKS_HAVE_PMUREG	,	V_70
+platform_get_resource	,	F_42
+tmr_atboot	,	V_83
+"cannot set new value for timeout %d\n"	,	L_7
+s3c2410wdt_start	,	F_14
+platform_set_drvdata	,	F_51
+devm_kzalloc	,	F_37
+S3C2410_WTCON_PRESCALE_MASK	,	V_37
+QUIRK_HAS_RST_STAT	,	V_50
+s3c2410wdt_irq	,	F_21
+platform_get_drvdata	,	F_22
+wtcon_save	,	V_84
+"tmr_margin value out of range, default %d used\n"	,	L_17
+"%s: count=%d, timeout=%d, freq=%lu\n"	,	L_3
+CPUFREQ_POSTCHANGE	,	V_45
+"probe: mapped reg_base=%p\n"	,	L_13
+"starting watchdog timer\n"	,	L_22
+freq_to_wdt	,	F_1
+"failed to register cpufreq\n"	,	L_16
+driver_data	,	V_61
+timeout	,	V_33
+dev_err	,	F_5
+"%s: count=0x%08x, wtcon=%08lx\n"	,	L_2
+irqno	,	V_38
+param	,	V_39
+rst_stat	,	V_49
+"samsung,syscon-phandle"	,	L_10
+spin_lock	,	F_8
+reg_base	,	V_22
+of_device_id	,	V_58
+s3c2410wdt_keepalive	,	F_6
+IORESOURCE_MEM	,	V_73
+"watchdog"	,	L_14
+mask	,	V_6
+watchdog_set_nowayout	,	F_49
+"timeout %d too big\n"	,	L_4
+readl	,	F_12
+devm_clk_get	,	F_44
+wdt_mem	,	V_64
+writel	,	F_9
+irqreturn_t	,	T_2
+match	,	V_59
+start	,	V_77
+bootstatus	,	V_81
+spin_unlock	,	F_10
+"watchdog timer expired (irq)\n"	,	L_6
+dev_warn	,	F_31
+clk_disable_unprepare	,	F_53
+BIT	,	F_32
+s3c2410wdt_stop	,	F_13
+err_unregister	,	V_82
+container_of	,	F_2
+S3C2410_WTCNT	,	V_23
+IS_ERR	,	F_40
+devm_request_irq	,	F_48

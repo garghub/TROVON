@@ -1,0 +1,508 @@
+qla4xxx_isr_decode_mailbox	,	F_38
+passthru_status	,	V_75
+lun	,	V_17
+scsiStatus	,	V_46
+DID_RESET	,	V_58
+MAX_REQS_SERVICED_PER_INTR	,	V_268
+sess	,	V_62
+MBOX_ASTS_HEARTBEAT	,	V_188
+qla4_8xxx_enable_msix	,	F_75
+senseDataByteCnt	,	V_11
+MBOX_ASTS_LINK_DOWN	,	V_186
+"scsi%ld: %s: aen %04x, queue "	,	L_69
+"scsi%ld: AEN[%d] %04x, index "	,	L_99
+"%s: mrb[%d] is null\n"	,	L_30
+status_cont_entry	,	V_26
+active_mrb_array	,	V_99
+qla4_82xx_intr_handler	,	F_60
+"ignoring\n"	,	L_39
+qla4xxx_process_ddb_changed	,	F_72
+"qla4xxx(%ld): AEN[%d]=0x%08x, mbx1=0x%08x mbx2=0x%08x"	,	L_97
+MAX_AEN_ENTRIES	,	V_169
+unlikely	,	F_61
+ISCSI_FLAG_RESIDUAL_OVER	,	V_50
+KERN_WARNING	,	V_37
+MBOX_ASTS_DHCP_LEASE_EXPIRED	,	V_178
+DPC_AEN	,	V_217
+"scsi%ld: AEN %04x, "	,	L_62
+iscsi_conn	,	V_82
+MBOX_ASTS_INITIALIZATION_FAILED	,	V_236
+MBOX_ASTS_SELF_TEST_FAILED	,	V_211
+mb_int_mask	,	V_241
+"%s: Invalid status received\n"	,	L_35
+"MSI-X: Enabled (0x%X).\n"	,	L_102
+sts_entry	,	V_4
+irq_attached	,	V_298
+response_ptr	,	V_111
+"scsi%ld: AEN %04x, mbox_sts[3]=%08x\n"	,	L_82
+is_qla80XX	,	F_14
+idc_info	,	V_134
+IRQ_NONE	,	V_255
+qla4_83xx_intr_handler	,	F_66
+free_irq	,	F_82
+" iResp=%02x\n"	,	L_27
+qla4_82xx_spurious_interrupt	,	F_53
+complete_iocb	,	V_132
+test_bit	,	F_40
+iscsi_is_session_online	,	F_18
+wmb	,	F_31
+MBOX_ASTS_IPV6_LINK_MTU_CHANGE	,	V_205
+result	,	V_42
+qla4xxx_wake_dpc	,	F_47
+MBOX_ASTS_IPV6_AUTO_PREFIX_IGNORED	,	V_206
+"%s: LINK UP\n"	,	L_51
+"%s: System Err\n"	,	L_47
+clear_bit	,	F_46
+AF_MSIX_ENABLED	,	V_307
+"srb %p\n"	,	L_37
+i	,	V_151
+irq	,	V_253
+"scsi%ld: Fatal Error, "	,	L_88
+iscsiResponse	,	V_73
+ISR_INT_STATE_REG	,	V_273
+"scsi%ld: AEN %04x Transceiver"	,	L_74
+"scsi%ld: AEN %04x, mbox_sts[2]=%04x, "	,	L_56
+"%s: Task is NULL\n"	,	L_29
+SCS_INCOMPLETE	,	V_56
+"scsi%ld:%d:%d:%d: %s: Device RESET occurred\n"	,	L_17
+completionStatus	,	V_47
+"%s: It is a spurious iocb interrupt!\n"	,	L_95
+qla4xxx_interrupt_service_routine	,	F_51
+"scsi%ld: AEN %04x, ERROR Status, "	,	L_49
+"scsi:%ld: AEN %04x IDC Complete notification\n"	,	L_78
+residual	,	V_35
+DRIVER_NAME	,	V_299
+opcode	,	V_154
+mbox_cmd	,	V_104
+DID_BUS_BUSY	,	V_126
+int_vec_bit	,	V_272
+reg	,	V_157
+qla4xxx_del_mrb_from_active_array	,	F_26
+"scsi%ld: %s: ACB state unconfigured\n"	,	L_59
+"residual = 0x%x\n"	,	L_16
+response_ring	,	V_116
+iscsiFlags	,	V_49
+ret	,	V_292
+AF_LOOPBACK	,	V_230
+" sense len 0\n"	,	L_2
+itt	,	V_84
+count	,	V_110
+spin_unlock_irqrestore	,	F_59
+"%s: Invalid IPADDR index %d\n"	,	L_46
+leg_int_trig	,	V_281
+info1	,	V_225
+req_sense_len	,	V_21
+info3	,	V_226
+info2	,	V_135
+SCS_ABORTED	,	V_59
+MBOX_ASTS_IP_ADDR_STATE_CHANGED	,	V_198
+CSR_SCSI_PROCESSOR_INTR	,	V_246
+MBOX_ASTS_SYSTEM_ERROR	,	V_171
+session	,	V_89
+mbox_status_iocb	,	V_100
+aen	,	V_288
+"response queue \n"	,	L_42
+is_qla8042	,	F_34
+DPC_RESET_HA_FW_CONTEXT	,	V_38
+scsi_status	,	V_33
+MBOX_ASTS_IP_ADDRESS_CHANGED	,	V_177
+le32_to_cpu	,	F_13
+"scsi%ld:%d:%d:%d: %s:"	,	L_1
+"scsi%ld: %s: Cmd already returned "	,	L_5
+"%s: Invalid target index = 0x%x\n"	,	L_28
+qla4xxx_request_irqs	,	F_73
+task_data	,	V_79
+"state: 0x%x\n"	,	L_24
+IP_ADDRSTATE_ACQUIRING	,	V_201
+spin_unlock	,	F_24
+QLA_ERROR	,	V_293
+MAX_MRB	,	V_98
+MBOX_STS_COMMAND_COMPLETE	,	V_107
+RESPONSE_QUEUE_DEPTH	,	V_115
+"%s: mbox status IOCB\n"	,	L_40
+exit_prq_error	,	V_129
+ha	,	V_2
+qla4xxx_lookup_ddb_by_fw_index	,	F_21
+ipaddr_idx	,	V_138
+"scsi%ld: %s: Command already returned back to "	,	L_9
+fw_ddb_index	,	V_85
+SCS_QUEUE_FULL	,	V_71
+qla4_82xx_wr_32	,	F_54
+channel	,	V_15
+qla4xxx_process_response_queue	,	F_30
+"scsi%ld: AEN %04x, mbox_sts[1]=%04x, "	,	L_64
+MBOX_ASTS_SYSTEM_WARNING_EVENT	,	V_237
+id	,	V_16
+DPC_RESET_HA	,	V_40
+"xferlen = 0x%x, "	,	L_15
+data_size	,	V_103
+"%s: ISP%04x: MSI-X: Falling back-to INTx mode. ret = %d\n"	,	L_103
+"%s: mbox_cmd = 0x%x, "	,	L_31
+MBOX_AEN_REG_COUNT	,	V_152
+"MSI: Enabled.\n"	,	L_105
+"scsi%ld:%d:%d:%d: SCS_DEVICE "	,	L_23
+index	,	V_97
+handle	,	V_36
+"%s: Loopback diagnostics in progress\n"	,	L_44
+ISCSI_FLAG_RESIDUAL_UNDER	,	V_52
+IRQ_HANDLED	,	V_269
+mailbox	,	V_158
+cmd	,	V_7
+sts_cont	,	V_27
+status	,	V_102
+mbox_sts_entry	,	V_101
+ET_MBOX_STATUS	,	V_128
+"mb4:0x%x mb5:0x%x\n"	,	L_68
+"scsi%ld:%d:%d:%d: %s: Dropped frame(s) detected (0x%x of 0x%x bytes).\n"	,	L_22
+"qla4xxx: Interrupt with NULL host ptr\n"	,	L_87
+tgt_mask_reg	,	V_251
+scsi_cmnd	,	V_6
+"INTx: Failed to reserve interrupt %d already in"	,	L_110
+ext_sense_data	,	V_30
+"scsi%ld:%d:%d:%d: Timeout\n"	,	L_19
+qla4xxx_set_ipaddr_state	,	F_36
+MBOX_ASTS_DUPLICATE_IP	,	V_197
+"scsi%ld: %s: Continuation entry - "	,	L_38
+MBOX_ASTS_DATABASE_CHANGED	,	V_213
+"OS pkt-&gt;handle=%d srb=%p srb-&gt;state:%d\n"	,	L_10
+AF_MBOX_COMMAND_DONE	,	V_164
+iocb_int_mask	,	V_285
+"Command is NULL:"	,	L_11
+ENABLE_INTERNAL_LOOPBACK	,	V_136
+rval	,	V_133
+kref_put	,	F_10
+revision_id	,	V_297
+ET_PASSTHRU_STATUS	,	V_120
+"%s: Loopback diagnostics not in progress\n"	,	L_45
+idc_extend_tmo	,	V_235
+iscsi_cls_conn	,	V_80
+MBOX_ASTS_IDC_TIME_EXTEND_NOTIFICATION	,	V_234
+MBOX_CMD_SET_PORT_CONFIG	,	V_221
+seconds_since_last_heartbeat	,	V_189
+SCS_DATA_OVERRUN	,	V_64
+notify_link_up_comp	,	V_184
+complete	,	F_42
+INT_MASK_FW_MB	,	V_284
+sense_len	,	V_8
+CSR_FATAL_ERROR	,	V_260
+qla4xxx_intr_handler	,	F_55
+sense_buffer	,	V_9
+SCS_RESET_OCCURRED	,	V_57
+"scsi%ld: AEN %04x, mbox_sts[1]=%08x, mbox_sts[2]=%08x, mbox_sts[3]=%08x, mbox_sts[4]=%08x\n"	,	L_77
+pid	,	V_109
+"Mid-layer Data underrun0, "	,	L_14
+ipaddr_fw_state	,	V_139
+"%s: It is a spurious mailbox interrupt!\n"	,	L_94
+pdev	,	V_270
+DID_OK	,	V_54
+MBOX_STS_INTERMEDIATE_COMPLETION	,	V_160
+host	,	V_305
+"scsi%ld: AEN %04x\n"	,	L_55
+SCS_DEVICE_LOGGED_OUT	,	V_69
+status_entry	,	V_3
+SCS_TIMEOUT	,	V_60
+"ASL= %02x, ASC/ASCQ = %02x/%02x\n"	,	L_4
+"qla4xxx: MSIX: Interrupt with NULL host ptr\n"	,	L_93
+MBOX_ASTS_IPV6_ND_LOCAL_PREFIX_IGNORED	,	V_207
+entryType	,	V_118
+mbox_status_count	,	V_163
+AF_LINK_UP	,	V_180
+ET_STATUS	,	V_119
+"scsi%ld: DUMP AEN QUEUE\n"	,	L_71
+"scsi%ld: AEN %04x DHCP LEASE "	,	L_53
+AF_INTx_ENABLED	,	V_249
+DID_TRANSPORT_DISRUPTED	,	V_61
+MBOX_ASTS_DCBX_CONF_CHANGE	,	V_238
+QLA_SUCCESS	,	V_306
+entry	,	V_170
+uint16_t	,	T_1
+task	,	V_77
+spin_lock_irqsave	,	F_56
+"Spurious Interrupt\n"	,	L_86
+cc_stat	,	V_74
+qla4_83xx_interrupt_service_routine	,	F_48
+KERN_INFO	,	V_12
+"%s invalid status entry: "	,	L_7
+nx_legacy_intr	,	V_250
+qla4xxx_update_ipaddr_state	,	F_35
+ET_CONTINUE	,	V_127
+DID_NO_CONNECT	,	V_43
+ISCSI_EVENT_LINKDOWN	,	V_187
+ISR_IS_LEGACY_INTR_TRIGGERED	,	F_64
+link_up_comp	,	V_185
+"scsi%ld: AEN %04x Received IDC Extend Timeout notification\n"	,	L_81
+qla4xxx_default_router_changed	,	F_37
+isp_port_error_status	,	F_57
+qla4_8xxx_default_intr_handler	,	F_68
+ET_COMMAND	,	V_124
+mailbox_out	,	V_153
+systemDefined	,	V_121
+AF_IRQ_ATTACHED	,	V_304
+ql4_task_data	,	V_78
+IP_ADDRSTATE_DISABLING	,	V_202
+srb	,	V_5
+set_bit	,	F_15
+idc_comp	,	V_229
+writel	,	F_49
+mbox_status	,	V_150
+"AEN[%d] %04x %04x %04x "	,	L_72
+"scsi%ld: %s: Invalid handle(srb)=%p type=%x IOCS=%x\n"	,	L_43
+dev_id	,	V_254
+"scsi%ld: Unknown mailbox status %08X\n"	,	L_85
+dd_data	,	V_88
+"[%d] state=%04x FLUSHED!\n"	,	L_100
+saved_acb	,	V_231
+qla4_83xx_mailbox_intr_handler	,	F_69
+"%s: MSI Interrupts not supported for ISP%04x, Falling back-to INTx mode\n"	,	L_101
+IP_ADDRSTATE_TENTATIVE	,	V_200
+tgt_status_reg	,	V_274
+interrupt_service_routine	,	V_266
+MBOX_ASTS_REQUEST_TRANSFER_ERROR	,	V_174
+AF_ONLINE	,	V_263
+"Data overrun\n"	,	L_20
+MBOX_STS_BUSY	,	V_159
+back_lock	,	V_90
+"MSI-X: Falling back-to MSI mode -- %d.\n"	,	L_104
+try_intx	,	V_294
+isr_count	,	V_257
+state	,	V_28
+ip_config	,	V_142
+"scsi%ld: %s: FW device queue full, "	,	L_36
+" mbx3=0x%08x mbx4=0x%08x\n"	,	L_98
+qla4xxx_passthru_status_entry	,	F_20
+qla4xxx_post_aen_work	,	F_45
+ip_idx	,	V_141
+CSR_SCSI_COMPLETION_INTR	,	V_245
+ival	,	V_283
+request_irq	,	F_77
+qla4xxx_copy_sense	,	F_1
+MBOX_ASTS_RESPONSE_TRANSFER_ERROR	,	V_175
+LEG_INT_PTR_B31	,	V_278
+LEG_INT_PTR_B30	,	V_282
+sts	,	V_91
+uint8_t	,	T_2
+device	,	V_14
+scsi_bufflen	,	F_17
+MBOX_ASTS_MAC_ADDRESS_CHANGED	,	V_209
+MBOX_ASTS_IDC_REQUEST_NOTIFICATION	,	V_220
+SCSI_CHECK_CONDITION	,	V_55
+"MSI: Failed to reserve interrupt %d "	,	L_106
+ipv4_addr_state	,	V_143
+irq_not_attached	,	V_301
+status_entry_exit	,	V_44
+le16_to_cpu	,	F_2
+exit_msix_rsp_q	,	V_286
+"%s: Legacy Interrupt Bit 31 not set, spurious interrupt!\n"	,	L_91
+MBOX_ASTS_ICMPV6_ERROR_MSG_RCVD	,	V_208
+"mbox_sts[1]=%04x, mbox_sts[2]=%04x\n"	,	L_63
+uint32_t	,	T_3
+qla4xxx_mbox_status_entry	,	F_27
+ISRX_82XX_RISC_INT	,	V_275
+qla4xxx_del_from_active_array	,	F_12
+"scsi%ld:%d:%d:%d: %s: Abort occurred\n"	,	L_18
+" inserted\n"	,	L_75
+isp_ops	,	V_131
+MBOX_ASTS_TXSCVR_INSERTED	,	V_218
+__qla4xxx_disable_intrs	,	F_58
+"mbox_sts[0] = 0x%x, mbox_sts[6] = 0x%x\n"	,	L_32
+check_scsi_status	,	V_67
+__iomem	,	T_6
+qla4xxx_srb_compl	,	V_32
+"scsi%ld:%d:%d: %s: QUEUE FULL detected "	,	L_25
+DPC_GET_DHCP_IP_ADDR	,	V_191
+"mbox_sts[3]=%04x\n"	,	L_57
+SD_ISCSI_PDU	,	V_122
+DID_ERROR	,	V_51
+ENABLE_EXTERNAL_LOOPBACK	,	V_137
+residualByteCnt	,	V_45
+MBOX_COMPLETION_STATUS	,	V_161
+qla4xxx_free_irqs	,	F_79
+DPC_RESET_HA_INTR	,	V_265
+total_io_count	,	V_267
+pci_enable_msi	,	F_76
+" removed\n"	,	L_76
+" already returned to OS (srb=%p)\n"	,	L_12
+MBOX_ASTS_PROTOCOL_STATISTIC_ALARM	,	V_192
+SCSI_SENSE_BUFFERSIZE	,	V_10
+MBOX_ASTS_IDC_COMPLETE	,	V_227
+reqs_count	,	V_248
+"%s legacy Int not triggered\n"	,	L_90
+iscsi_itt_to_task	,	F_23
+AF_MSI_ENABLED	,	V_300
+"handle=0x%0x, srb=%p\n"	,	L_8
+ipaddr_state	,	V_140
+IOCB_MAX_SENSEDATA_LEN	,	V_22
+qla4_8xxx_msi_handler	,	F_67
+underflow	,	V_53
+host_int	,	V_244
+host_no	,	V_13
+IP_ADDRSTATE_PREFERRED	,	V_199
+printk	,	F_6
+"Reset HA\n"	,	L_50
+"mbox_sts[2]=%04x, mbox_sts[3]=%04x\n"	,	L_65
+intr_handler	,	V_302
+SAM_STAT_TASK_SET_FULL	,	V_65
+DPC_RESTORE_ACB	,	V_232
+status_srb	,	V_19
+qla4xxx_status_cont_entry	,	F_9
+ISCSI_PING_SUCCESS	,	V_108
+ql4_printk	,	F_4
+DPC_POST_IDC_ACK	,	V_223
+process_aen	,	V_287
+ql4xenablemsix	,	V_295
+target	,	V_86
+HSRX_RISC_MB_INT	,	V_243
+__le32	,	T_5
+hdr	,	V_117
+qla4xxx_status_entry	,	F_11
+mbx_intr_comp	,	V_166
+"already in use.\n"	,	L_107
+is_qla8022	,	F_39
+FLUSH_DDB_CHANGED_AENS	,	V_290
+conn	,	V_83
+MBOX_ASTS_IPV6_DEFAULT_ROUTER_CHANGED	,	V_233
+SAM_STAT_CHECK_CONDITION	,	V_68
+"%s: irq %d attached\n"	,	L_112
+"%s: invalid mbox_cmd = "	,	L_33
+qla4_83xx_reg	,	V_155
+"scsi%ld: AEN[%d] %04x queued "	,	L_66
+rd_shdw_rsp_q_in	,	V_258
+CSR_SCSI_RESET_INTR	,	V_259
+SRB_GOT_SENSE	,	V_25
+IP_ADDRSTATE_UNCONFIGURED	,	V_203
+senseData	,	V_23
+ET_STATUS_CONTINUATION	,	V_123
+ipv6_link_local_state	,	V_144
+is_qla8032	,	F_33
+AF_MBOX_COMMAND_NOPOLL	,	V_165
+qla4_8xxx_msix_rsp_q	,	F_70
+MBOX_ASYNC_EVENT_STATUS	,	V_167
+qla4_83xx_loopback_in_progress	,	F_32
+ISCSI_EVENT_LINKUP	,	V_183
+MBOX_ASTS_LOGIN_FAILED	,	V_212
+ctrl_status	,	V_247
+qla4xxx_dump_buffer	,	F_8
+"overflowed!  AEN LOST!!\n"	,	L_70
+AF_GET_CRASH_RECORD	,	V_173
+leg_int_ptr	,	V_277
+pci_channel_offline	,	F_62
+ipv6_addr1_state	,	V_146
+__func__	,	V_18
+MBOX_ASTS_IPSEC_SYSTEM_FATAL_ERROR	,	V_195
+qla4_83xx_idc_dontreset	,	F_44
+set_rmask	,	F_52
+"%s: LINK DOWN\n"	,	L_52
+task_work	,	V_95
+kfree	,	F_29
+signature	,	V_112
+risc_intr	,	V_240
+flags	,	V_24
+"0x%x\n"	,	L_34
+try_msi	,	V_296
+s6_addr32	,	V_149
+CSR_SOFT_RESET	,	V_262
+"scsi%ld: %s: Invalid entry %x in "	,	L_41
+"INTx: Enabled.\n"	,	L_109
+qla4xxx_process_aen	,	F_71
+mrb	,	V_96
+scsi_qla_host	,	V_1
+SAM_STAT_BUSY	,	V_66
+MBOX_CMD_PING	,	V_105
+qla4xxx_post_ping_evt_work	,	F_28
+req_sense_ptr	,	V_20
+"Status 0x%04x\n"	,	L_89
+qla4_82xx_rd_32	,	F_63
+SCS_COMPLETE	,	V_48
+"scsi%ld: %s: ACB in disabling state\n"	,	L_58
+ddb_entry	,	V_34
+"%04x\n"	,	L_73
+qla4xxx_dump_registers	,	F_43
+"back to OS srb=%p srb-&gt;state:%d\n"	,	L_6
+iocb_req_cnt	,	V_93
+"scsi%ld: AEN %04x Received IPv6 default router changed notification\n"	,	L_80
+"%s: Incorrect function ID 0x%x in legacy interrupt register, ha-&gt;pf_bit = 0x%x\n"	,	L_92
+qla4xxx_mark_device_missing	,	F_19
+ql4xdontresethba	,	V_172
+mbox_sts	,	V_147
+HSRX_RISC_IOCB_INT	,	V_242
+aen_out	,	V_289
+task_wq	,	V_94
+"scsi%ld:%d:%d:%d: %s: "	,	L_13
+MBOX_ASTS_DNS	,	V_210
+MBOX_CMD_PORT_RESET	,	V_222
+"compl=%02x, scsi=%02x, state=%02x, iFlags=%02x,"	,	L_26
+ipv6_addr0_state	,	V_145
+DEBUG7	,	F_65
+ipv6_default_router_addr	,	V_148
+AF_MBOX_COMMAND	,	V_162
+DPC_LINK_CHANGED	,	V_182
+DEBUG5	,	F_7
+MBOX_ASTS_UNSOLICITED_PDU_RECEIVED	,	V_194
+"scsi%ld: AEN %04x, IPv6 ERROR, "	,	L_60
+INTR_PENDING	,	V_261
+response_out	,	V_114
+iocb_cnt	,	V_92
+aen_log	,	V_168
+SCS_DEVICE_UNAVAILABLE	,	V_70
+itt_t	,	T_4
+RESPONSE_PROCESSED	,	V_113
+hardware_lock	,	V_256
+ISR_INT_VECTOR	,	V_271
+qla4_82xx_reg	,	V_156
+spurious_int_count	,	V_252
+"scsi%ld: AEN %04x UNKNOWN\n"	,	L_84
+"IRQ not attached -- %d.\n"	,	L_108
+"scsi%ld:%d:%d:%d: %s: Mid-layer Data underrun, xferlen = 0x%x,residual = 0x%x\n"	,	L_21
+MBOX_ASTS_TXSCVR_REMOVED	,	V_219
+DEBUG2	,	F_3
+dpc_flags	,	V_39
+intr_status	,	V_239
+pf_bit	,	V_280
+"ACQUIRED\n"	,	L_54
+host_status	,	V_276
+"mb1:0x%x mb2:0x%x mb3:0x%x "	,	L_67
+aen_q_count	,	V_214
+qla4_82xx_interrupt_service_routine	,	F_50
+srb_ref	,	V_31
+PROCESS_ALL_AENS	,	V_291
+" use.\n"	,	L_111
+out_mbox	,	V_106
+aen_q	,	V_215
+"scsi%ld: AEN %04x Received DCBX configuration changed notification\n"	,	L_83
+MBOX_ASTS_NVRAM_INVALID	,	V_176
+MBOX_ASTS_SCSI_COMMAND_PDU_REJECTED	,	V_193
+"scsi%ld: %s:Don't Reset HBA\n"	,	L_48
+PF_BITS_MASK	,	V_279
+"%s: spurious iocb interrupt...\n"	,	L_96
+iscsi_task	,	V_76
+is_qla40XX	,	F_74
+"scsi%ld:%d:%d:%d: %s: sense key = %x, "	,	L_3
+AF_HA_REMOVAL	,	V_264
+"mbox_sts[1]=%08x, mbox_sts[2]=%08x, mbox_sts[3}=%08x, mbox_sts[4]=%08x mbox_sts[5]=%08x\n"	,	L_61
+exit_prq_invalid_handle	,	V_125
+IOCB_MAX_EXT_SENSEDATA_LEN	,	V_29
+IRQF_SHARED	,	V_303
+spin_lock	,	F_22
+pci_disable_msi	,	F_78
+state_flags	,	V_72
+ddb	,	V_41
+readl	,	F_41
+request_desc	,	V_224
+scsi_set_resid	,	F_16
+irqreturn_t	,	T_7
+MBOX_ASTS_LINK_UP	,	V_179
+AF_INIT_DONE	,	V_181
+qla4_8xxx_disable_msix	,	F_81
+notify_idc_comp	,	V_228
+queue_work	,	F_25
+aen_in	,	V_216
+test_and_clear_bit	,	F_80
+min_t	,	F_5
+KERN_ERR	,	V_87
+response	,	V_130
+MBOX_ASTS_DHCP_LEASE_ACQUIRED	,	V_190
+SCS_DATA_UNDERRUN	,	V_63
+cls_conn	,	V_81
+MBOX_ASTS_SUBNET_STATE_CHANGE	,	V_196
+"scsi%ld: AEN %04x, mbox_sts[1]=%08x, mbox_sts[2]=%08x, mbox_sts[3]=%08x, mbox_sts[4]=%08x mbox_sts[5]=%08x\n"	,	L_79
+disable_acb_comp	,	V_204

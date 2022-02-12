@@ -1,0 +1,203 @@
+npe_init_module	,	F_32
+npe_recv_message	,	F_21
+CMD_RD_ECS_REG	,	V_12
+npe_load_firmware	,	F_23
+npe_running	,	F_1
+"firmware: %08X %08X %08X (0x%X bytes)\n"	,	L_15
+ECS_REG_0_LDUR_BITS	,	V_26
+npe_logical_reg_write16	,	F_13
+dev	,	V_80
+ixp4xx_read_feature_bits	,	F_17
+cpu_is_ixp42x	,	F_26
+ctl	,	V_38
+IXP4XX_FEATURE_RESET_NPEA	,	V_66
+ARRAY_SIZE	,	F_16
+ECS_PRI_1_CTXT_REG_0	,	V_15
+ctx	,	V_22
+ldur	,	V_23
+NPE_CINDEX	,	V_62
+EIO	,	V_72
+"invalid offset 0x%X of "	,	L_28
+ECS_BG_CTXT_REG_0	,	V_58
+size	,	V_88
+CMD_NPE_START	,	V_19
+CMD_NPE_CLR_PIPE	,	V_18
+ECS_PRI_2_CTXT_REG_0	,	V_16
+device	,	V_79
+"reset: npe_debug_instr(): timeout\n"	,	L_1
+"bad firmware file magic: 0x%X\n"	,	L_16
+result	,	V_77
+exec_count	,	V_39
+npe_logical_reg_write32	,	F_14
+swab32	,	F_25
+found	,	V_119
+EBUSY	,	V_103
+messaging_status	,	V_47
+"Message %s: unexpected message received\n"	,	L_13
+__raw_readl	,	F_2
+npe_release	,	F_30
+cb	,	V_93
+u8	,	T_3
+i	,	V_25
+regs	,	V_2
+j	,	V_94
+FW_BLOCK_TYPE_INSTR	,	V_110
+regs_phys	,	V_121
+MSGSTAT_IFNE	,	V_51
+MSGSTAT_IFNF	,	V_73
+request_mem_region	,	F_33
+"firmware file NPE ID mismatch\n"	,	L_18
+INSTR_WR_REG_SHORT	,	V_37
+npe_request	,	F_28
+messaging_control	,	V_41
+ECS_REG_1_SELCTXT_BITS	,	V_29
+instr_size	,	V_97
+CMD_NPE_STEP	,	V_32
+"Received [%08X]\n"	,	L_9
+reg	,	V_10
+npe_stop	,	F_8
+module_put	,	F_31
+CMD_WR_ECS_REG	,	V_13
+"invalid firmware block #%i "	,	L_30
+image	,	V_90
+WFIFO_VALID	,	V_46
+MSGSTAT_OFNE	,	V_48
+"firmware functionality 0x%X, "	,	L_23
+ETIMEDOUT	,	V_35
+npe_send_message	,	F_19
+"found\n"	,	L_26
+print_npe	,	F_11
+name	,	V_78
+NPE_42X_DATA_SIZE	,	V_106
+"NPE input FIFO full\n"	,	L_5
+npe_logical_reg_write8	,	F_12
+NPE_B_AND_C_42X_INSTR_SIZE	,	V_105
+wc	,	V_24
+"unable to load firmware, NPE is "	,	L_21
+try_module_get	,	F_29
+npe_clear_active	,	F_6
+FW_MAGIC	,	V_101
+dl_block	,	V_83
+mailbox_status	,	V_54
+npe	,	V_1
+MAX_RETRIES	,	V_33
+blocks	,	V_89
+release_firmware	,	F_27
+FW_BLOCK_TYPE_DATA	,	V_113
+"Timeout sending message\n"	,	L_6
+npe_addr	,	V_92
+what	,	V_69
+"failed to request memory region\n"	,	L_38
+"inconsistent size of firmware file\n"	,	L_17
+NPE_46X_DATA_SIZE	,	V_108
+"Received [%08X:%08X]\n"	,	L_10
+CMD_WR_DATA_MEM	,	V_114
+"revision 0x%X:%X\n"	,	L_24
+"incomplete firmware file\n"	,	L_14
+"memory: type %c, start 0x%X, length 0x%X\n"	,	L_37
+in_out_fifo	,	V_50
+DEBUG_MSG	,	V_74
+DEBUG_FW	,	V_100
+ECS_REG_0_ACTIVE	,	V_14
+instr	,	V_21
+fw_entry	,	V_82
+watch_count	,	V_31
+id	,	V_67
+"Trying to send message %s [%08X:%08X]\n"	,	L_3
+INSTR_RD_FIFO	,	V_52
+val	,	V_11
+data_size	,	V_96
+"unable to start\n"	,	L_35
+exec_data	,	V_8
+npe_name	,	F_34
+"NPE input FIFO not empty\n"	,	L_4
+ecs_reset	,	V_63
+cmd	,	V_6
+ENODEV	,	V_123
+"npe_reset: read FIFO = 0x%X\n"	,	L_2
+STAT_RUN	,	V_4
+NPE_COUNT	,	V_115
+NPE_PHYS_REG	,	V_56
+"Sending a message took %i cycles\n"	,	L_7
+"Trying to receive message %s\n"	,	L_8
+ixp4xx_write_feature_bits	,	F_18
+exec_status_cmd	,	V_3
+"Receiving a message took %i cycles\n"	,	L_12
+valid	,	V_117
+__raw_writel	,	F_4
+RESET_MBOX_STAT	,	V_53
+u16	,	T_4
+"firmware block #%i doesn't "	,	L_32
+NPE_STEVT	,	V_60
+firmware	,	V_81
+CMD_NPE_STOP	,	V_20
+watchpoint_fifo	,	V_45
+blk	,	V_85
+npe_start	,	F_7
+NPE_STARTPC	,	V_61
+err	,	V_95
+exec_addr	,	V_9
+"IXP42x\n"	,	L_20
+cnt	,	V_76
+ECS_DBG_REG_2_IE	,	V_44
+ECS_DBG_REG_2_IF	,	V_43
+action_points	,	V_65
+EINVAL	,	V_99
+"firmware block #%i doesn't fit in NPE "	,	L_36
+__init	,	T_5
+__exit	,	T_6
+udelay	,	F_10
+"type 0x%X\n"	,	L_31
+INSTR_RESET_MBOX	,	V_55
+"IXP43x/IXP46x firmware ignored on "	,	L_19
+ECS_REG_1_CCTXT_BITS	,	V_28
+msg	,	V_68
+magic	,	V_87
+data	,	V_7
+cycles	,	V_71
+NPE_A_42X_INSTR_SIZE	,	V_104
+too_big	,	V_111
+FW_BLOCK_TYPE_EOF	,	V_109
+table_end	,	V_98
+npe_cleanup_module	,	F_35
+u32	,	T_1
+release_resource	,	F_36
+npe_cmd_write	,	F_3
+REGS_SIZE	,	V_122
+" length 0x%X\n"	,	L_34
+ECS_DBG_CTXT_REG_0	,	V_17
+npe_reset	,	F_15
+debug_msg	,	F_20
+__must_check	,	T_2
+npe_send_recv_message	,	F_22
+offset	,	V_84
+npe_cmd_read	,	F_5
+ECS_DBG_CTXT_REG_2	,	V_42
+ECS_DBG_CTXT_REG_1	,	V_27
+ctx_reg2	,	V_40
+THIS_MODULE	,	V_118
+"%i firmware blocks found\n"	,	L_27
+npe_debug_instr	,	F_9
+mem_res	,	V_120
+send	,	V_70
+"fit in firmware image: type %c, start 0x%X,"	,	L_33
+KERN_INFO	,	V_102
+dl_image	,	V_86
+recv	,	V_75
+dl_codeblock	,	V_91
+NPE_46X_INSTR_SIZE	,	V_107
+CMD_WR_INS_MEM	,	V_112
+CMD_CLR_PROFILE_CNT	,	V_64
+request_firmware	,	F_24
+addr	,	V_5
+ECS_REG_0_NEXTPC_MASK	,	V_59
+INSTR_WR_REG_BYTE	,	V_36
+"already running\n"	,	L_22
+ECS_INSTRUCT_REG	,	V_30
+"firmware EOF block marker not "	,	L_25
+npe_tab	,	V_116
+"Timeout waiting for message\n"	,	L_11
+KERN_ERR	,	V_34
+"firmware block #%i\n"	,	L_29
+NPE_REGMAP	,	V_57
+KERN_DEBUG	,	V_49

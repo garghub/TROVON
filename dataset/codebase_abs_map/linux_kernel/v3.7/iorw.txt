@@ -1,0 +1,197 @@
+iamthif_msg_buf_size	,	V_100
+iamthif_flow_control_pending	,	V_108
+MEI_IAMTHIF_IDLE	,	V_113
+"Sending connect message - succeeded\n"	,	L_12
+" connect message fw response message.\n"	,	L_18
+"mei_ioctl_connect_client() Entry\n"	,	L_1
+dev	,	V_2
+state	,	V_34
+write_waiting_list	,	V_110
+"free connect cb memory."	,	L_19
+mei_send_flow_control	,	F_31
+"Got amthi data\n"	,	L_25
+__user	,	T_2
+"amthi cb-&gt;response_buffer size - %d\n"	,	L_28
+IAMTHIF_READ_TIMER	,	V_80
+read_pending	,	V_86
+loff_t	,	T_4
+" client = %d, ME client = %d.\n"	,	L_7
+size	,	V_84
+reserved	,	V_106
+read_list	,	V_90
+GFP_KERNEL	,	V_26
+"FW Client is amthi\n"	,	L_5
+iamthif_file_object	,	V_97
+me_clients	,	V_6
+mei_me_cl_by_id	,	F_1
+mei_host_buffer_is_empty	,	V_53
+MEI_IAMTHIF_FLOW_CONTROL	,	V_109
+"Queuing the connect request due to device busy\n"	,	L_13
+MEI_DEV_ENABLED	,	V_33
+iamthif_cl	,	V_46
+mei_cb	,	V_58
+mutex_unlock	,	F_17
+"so add iamthif cb to write list.\n"	,	L_41
+EBUSY	,	V_37
+pos	,	V_65
+mei_cl	,	V_15
+cb	,	V_12
+clear_bit	,	F_9
+u8	,	T_1
+"add amthi cb to write waiting list\n"	,	L_36
+iamthif_timer	,	V_78
+amthi_read	,	F_22
+i	,	V_4
+cl	,	V_16
+wait_recvd_msg	,	V_61
+me_clients_num	,	V_5
+"amthi cb-&gt;information - %lu\n"	,	L_29
+ENOENT	,	V_7
+cl_pos	,	V_17
+wait_event_interruptible	,	F_23
+"free file private data memory.\n"	,	L_8
+wait_ret	,	V_71
+read_time	,	V_79
+jiffies	,	V_81
+mutex_lock	,	F_19
+MEI_FILE_CONNECTING	,	V_42
+information	,	V_82
+"No flow control credentials, "	,	L_40
+"allocation call back successful. host client = %d, ME client = %d\n"	,	L_33
+"Sending Connect Message\n"	,	L_10
+request_buffer	,	V_101
+"free amthi cb memory.\n"	,	L_30
+me_client_id	,	V_41
+CONNECT_TIMEOUT	,	V_20
+dev_dbg	,	F_4
+client_id	,	V_3
+INIT_LIST_HEAD	,	F_6
+timer_count	,	V_54
+iamthif_msg_buf	,	V_102
+mei_start_read	,	F_29
+"FW Client - Max Msg Len = %d\n"	,	L_4
+response_buffer	,	V_83
+ret	,	V_93
+msg_complete	,	V_103
+unlock	,	V_88
+MEI_FILE_DISCONNECTED	,	V_36
+"remove file private data node host"	,	L_6
+out_client_properties	,	V_51
+ETIMEDOUT	,	V_72
+ctrl_rd_list	,	V_57
+"successfully connected to FW client.\n"	,	L_15
+dev_state	,	V_32
+next	,	V_66
+"waiting for amthi data\n"	,	L_23
+"FW Client - Protocol Version = %d\n"	,	L_3
+"wait_event_interruptible_timeout failed on client"	,	L_17
+f_flags	,	V_73
+"woke up from sleep\n"	,	L_24
+timeout	,	V_19
+mei_free_cb_private	,	F_28
+list_del	,	F_12
+kzalloc	,	F_5
+kmalloc	,	F_30
+client	,	V_14
+end	,	V_28
+ERESTARTSYS	,	V_77
+find_amthi_read_list_entry	,	F_21
+length	,	V_69
+major_file_operations	,	V_30
+write_list	,	V_111
+protocol_version	,	V_43
+"Sending connect message - failed\n"	,	L_11
+ENOMEM	,	V_27
+"so add amthi cb to write list.\n"	,	L_38
+file_object	,	V_67
+mei_write_message	,	F_35
+fixed_address	,	V_40
+uuid_le_cmp	,	F_8
+iamthif_current_cb	,	V_96
+HZ	,	V_62
+mei_other_client_is_connecting	,	F_14
+"checking amthi data\n"	,	L_22
+MEI_FILE_INITIALIZING	,	V_35
+host_addr	,	V_104
+"complete amthi cmd_list cb.\n"	,	L_42
+host_client_id	,	V_48
+mei_ioctl_connect_client	,	F_3
+list_for_each_entry_safe	,	F_10
+mei_me_cl_by_uuid	,	F_7
+wait_event_timeout	,	F_18
+mei_cl_cb	,	V_11
+"add connect cb to control write list.\n"	,	L_14
+props	,	V_39
+cl_temp	,	V_64
+MEI_IOCTL	,	V_31
+"amthi timeout = %lud\n"	,	L_26
+mei_run_next_iamthif_cmd	,	F_37
+"Connect to FW Client ID = %d\n"	,	L_2
+status	,	V_52
+ENODEV	,	V_24
+in_client_uuid	,	V_38
+wait	,	V_76
+mei_flow_ctrl_reduce	,	F_36
+private_data	,	V_23
+kfree	,	F_13
+"Can connect?\n"	,	L_9
+O_NONBLOCK	,	V_74
+iamthif_state	,	V_94
+list_add_tail	,	F_16
+max_msg_length	,	V_44
+out	,	V_85
+cl_tmp	,	V_112
+copy_to_user	,	F_27
+"write data to amthi client.\n"	,	L_35
+file	,	V_8
+MEI_CONNECT_TIMEOUT	,	V_55
+time_after	,	F_25
+"allocation call back data success.\n"	,	L_34
+iamthif_canceled	,	V_98
+amthi_write	,	F_32
+err	,	V_21
+"amthi client not found.\n"	,	L_21
+EAGAIN	,	V_75
+"read is pending.\n"	,	L_32
+EFAULT	,	V_63
+"bad file ext.\n"	,	L_20
+device_lock	,	V_60
+data	,	V_10
+host_clients_map	,	V_49
+mei_hbuf_max_data	,	F_34
+size_t	,	T_3
+pdev	,	V_25
+mei_amthi_guid	,	V_45
+file_private	,	V_56
+mei_cl_cmp_id	,	F_11
+offset	,	V_70
+iamthif_ioctl	,	V_99
+mei_io_list_flush	,	F_20
+MEI_IAMTHIF_WRITING	,	V_95
+"host buffer is not empty"	,	L_39
+"amthi write failed status = %d\n"	,	L_43
+"check if read is pending.\n"	,	L_31
+iamthif_msg_buf_index	,	V_107
+rets	,	V_22
+link	,	V_50
+"failed to connect to FW client.cl-&gt;state = %d.\n"	,	L_16
+cl_next	,	V_18
+read_cb	,	V_87
+cb_list	,	V_29
+MEI_FILE_CONNECTED	,	V_47
+msecs_to_jiffies	,	F_24
+"amthi Time out\n"	,	L_27
+mei_connect	,	F_15
+mei_client	,	V_13
+ctrl_wr_list	,	V_59
+mei_msg_hdr	,	V_91
+mei_hdr	,	V_92
+MEI_READ	,	V_89
+mei_connect_client_data	,	V_9
+ubuf	,	V_68
+WARN_ON	,	F_2
+mei_flow_ctrl_creds	,	F_33
+me_addr	,	V_105
+min_t	,	F_26
+"message does not complete, "	,	L_37
+mei_device	,	V_1

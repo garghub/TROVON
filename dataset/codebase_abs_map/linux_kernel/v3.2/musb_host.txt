@@ -1,0 +1,431 @@
+musb_write_txhubport	,	F_53
+hb_iso_rx	,	V_230
+parent	,	V_237
+musb_tx_dma_program	,	F_45
+musb_ep_get_qh	,	F_13
+number_of_packets	,	V_99
+MUSB_RXTYPE	,	V_113
+is_host_active	,	F_76
+MUSB_CSR0_H_RXSTALL	,	V_175
+dev	,	V_66
+d_status	,	V_203
+addr_reg	,	V_109
+unlikely	,	F_39
+rx_count	,	V_89
+musb_readb	,	F_61
+hw_ep	,	V_38
+"in"	,	L_4
+diff	,	V_212
+retries	,	V_8
+"RXCSR%d %04x, reqpkt, len %zu%s\n"	,	L_56
+"urb=%p, dev%d ep%d%s\n"	,	L_66
+musb_readw	,	F_2
+musb_h_flush_rxfifo	,	F_35
+""	,	L_6
+actual_length	,	V_50
+usb_gettoggle	,	F_50
+"TX end %d stall\n"	,	L_42
+IRQ_NONE	,	V_171
+wLength	,	V_166
+hb_iso_tx	,	V_231
+nr_endpoints	,	V_211
+musb_h_ep0_flush_fifo	,	F_7
+wmb	,	F_47
+"TX 3strikes on ep=%d\n"	,	L_43
+"not complete, but DMA enabled?\n"	,	L_47
+USB_SPEED_HIGH	,	V_215
+out_bulk	,	V_214
+EBUSY	,	V_261
+MUSB_RXCSR_DMAENAB	,	V_157
+intv_reg	,	V_116
+musb_write_txfunaddr	,	F_51
+MUSB_TXCSR_DMAENAB	,	V_22
+EMSGSIZE	,	V_232
+MUSB_DMA_STATUS_BUSY	,	V_186
+in_bulk	,	V_194
+endpoints	,	V_92
+address	,	V_40
+rx_reinit	,	V_77
+c	,	V_201
+d	,	V_96
+bEndpointAddress	,	V_245
+segsize	,	V_41
+usb_hcd_unmap_urb_for_dma	,	F_65
+EPIPE	,	V_176
+pkt_size	,	V_125
+dev_dbg	,	F_3
+MUSB_TXCSR_H_NAKTIMEOUT	,	V_144
+USB_SPEED_LOW	,	V_233
+finish	,	V_199
+"Rx interrupt with no errors or packet!\n"	,	L_60
+ret	,	V_202
+URB_ISO_ASAP	,	V_55
+usb_endpoint_num	,	F_84
+setup_packet	,	V_45
+ep	,	V_2
+MUSB_FADDR	,	V_112
+spin_unlock_irqrestore	,	F_79
+success	,	V_210
+out_qh	,	V_29
+"no response, csr0 %04x\n"	,	L_34
+MUSB_CSR0_H_NAKTIMEOUT	,	V_179
+USB_ENDPOINT_XFER_BULK	,	V_70
+usb_iso_packet_descriptor	,	V_95
+frame	,	V_30
+musb_cleanup_urb	,	F_86
+"** OVERFLOW %d into %d\n"	,	L_18
+USB_ENDPOINT_XFER_INT	,	V_52
+transfer_flags	,	V_54
+list_del	,	F_32
+dma_controller	,	V_121
+USB_DIR_OUT	,	V_189
+"end %d RX proto error\n"	,	L_51
+MUSB_TXCSR_TXPKTRDY	,	V_18
+length	,	V_49
+spin_unlock	,	F_25
+maxpacket	,	V_100
+"&lt;== hw %d rxcsr %04x, urb actual %d (+dma %zu)\n"	,	L_49
+"RX end %d NAK timeout\n"	,	L_52
+hub	,	V_243
+"start IN-DATA\n"	,	L_27
+MUSB_EP0_START	,	V_44
+iso_idx	,	V_47
+dma	,	V_122
+next_qh	,	V_191
+tusb_dma_omap	,	F_19
+usb_hcd_check_unlink_urb	,	F_88
+MUSB_CSR0_H_REQPKT	,	V_180
+MUSB_EP0_IDLE	,	V_182
+musb_ep_set_qh	,	F_12
+ENOMEM	,	V_228
+channel	,	V_124
+MUSB_EP0_IN	,	V_164
+is_ready	,	V_68
+musb_bus_suspend	,	F_94
+epd	,	V_223
+lock	,	V_61
+usb_hcd_unlink_urb_from_ep	,	F_23
+CONFIG_USB_INVENTRA_DMA	,	F_46
+musb_h_tx_flush_fifo	,	F_1
+MUSB_CSR0	,	V_21
+ENOSPC	,	V_216
+IRQ_HANDLED	,	V_174
+musb_h_disable	,	F_89
+"control NAK timeout\n"	,	L_35
+list_move_tail	,	F_67
+usb_pipeendpoint	,	F_21
+hcpriv	,	V_79
+USB_DIR_IN	,	V_168
+interval	,	V_225
+status	,	V_60
+first_qh	,	F_34
+USB_SPEED_FULL	,	V_234
+ERR	,	F_57
+MUSB_EP0_OUT	,	V_169
+MUSB_FRAME	,	V_53
+list_add_tail	,	F_73
+MUSB_DMA_STATUS_CORE_ABORT	,	V_187
+best_diff	,	V_205
+OTG_STATE_A_WAIT_BCON	,	V_260
+channel_release	,	V_134
+"abort %cX%d DMA for urb %p --&gt; %d\n"	,	L_65
+u16	,	T_2
+bRequestType	,	V_167
+MUSB_RXCSR	,	V_63
+usb_pipein	,	F_22
+channel_program	,	V_132
+is_active	,	V_226
+urb	,	V_34
+MUSB_TXCSR_AUTOSET	,	V_128
+rx_channel	,	V_139
+"--&gt;"	,	L_22
+"RXCSR%d := %04x\n"	,	L_25
+musb_qh	,	V_25
+musb_hw_ep	,	V_1
+mem_flags	,	V_219
+complete	,	V_62
+tx_csr	,	V_183
+"... next ep%d %cX urb %p\n"	,	L_16
+"read %spacket\n"	,	L_62
+MUSB_TXCSR	,	V_9
+size_t	,	V_165
+iso_frame_desc	,	V_48
+"trying to suspend as %s while active\n"	,	L_67
+devctl	,	V_254
+"RX end %d ISO data error\n"	,	L_53
+mode	,	V_126
+musb_host_rx	,	F_68
+MUSB_TXCSR_FLUSHFIFO	,	V_12
+"&lt;== csr0 %04x, qh %p, count %d, urb %p, stage %d\n"	,	L_32
+u32	,	T_3
+tx_reinit	,	V_78
+EXDEV	,	V_72
+usb_settoggle	,	F_29
+pipe	,	V_39
+hw_end	,	V_247
+buffer	,	V_93
+MUSB_TXINTERVAL	,	V_152
+usb_pipeout	,	F_62
+"off"	,	L_58
+is_in	,	V_24
+MUSB_CSR0_H_STATUSPKT	,	V_181
+port1_status	,	V_252
+transfer_buffer	,	V_36
+"s"	,	L_30
+musb_save_toggle	,	F_28
+EREMOTEIO	,	V_102
+"reset"	,	L_59
+"start OUT-DATA\n"	,	L_28
+MUSB_RXCSR_DATAERROR	,	V_193
+spin_lock_irqsave	,	F_77
+type_reg	,	V_114
+musb_to_hcd	,	F_24
+musb	,	V_3
+musb_host_packet_rx	,	F_36
+musb_start_urb	,	F_14
+usb_pipeisoc	,	F_37
+head	,	V_76
+musb_write_rxfunaddr	,	F_42
+MUSB_EP0_STATUS	,	V_173
+best_end	,	V_206
+rx_csr	,	V_192
+MUSB_RXCSR_INCOMPRX	,	V_200
+musb_bus_resume	,	F_96
+MUSB_RXCSR_FLUSHFIFO	,	V_83
+ok	,	V_229
+"complete %p %pF (%d), dev%d ep%d%s, %d/%d\n"	,	L_15
+MUSB_TXCSR_MODE	,	V_104
+"RX%d count %d, buffer 0x%x len %d/%d\n"	,	L_61
+do_flush	,	V_91
+musb_h_get_frame_number	,	F_90
+control	,	V_209
+channel_alloc	,	V_140
+"-intr"	,	L_9
+"%s hw%d urb %p spd%d dev%d ep%d%s "	,	L_20
+desired_mode	,	V_129
+MUSB_RXCSR_H_ERROR	,	V_198
+"broken !rx_reinit, ep%d csr %04x\n"	,	L_24
+musb_write_txhubaddr	,	F_52
+channel_abort	,	V_188
+MUSB_DEVCTL	,	V_258
+hcd_to_musb	,	F_75
+MUSB_RXCOUNT	,	V_94
+musb_write_rxhubaddr	,	F_43
+csr	,	V_6
+ring	,	V_81
+dma_addr_t	,	T_6
+prev	,	V_82
+root_hub	,	V_239
+MUSB_TXCSR_H_RXSTALL	,	V_145
+len	,	V_31
+USB_ENDPOINT_XFER_CONTROL	,	V_42
+double_buffer_not_ok	,	V_117
+qh	,	V_26
+state	,	V_250
+MUSB_CSR0_H_ERROR	,	V_177
+urb_list	,	V_74
+"BOGUS RX%d ready, csr %04x, count %d\n"	,	L_48
+usb_pipebulk	,	F_69
+"ep %d dma %s, rxcsr %04x, rxcount %d\n"	,	L_57
+"RX end %d STALL\n"	,	L_50
+MUSB_TXCSR_FIFONOTEMPTY	,	V_10
+MUSB_RXINTERVAL	,	V_115
+MUSB_RXCSR_CLRDATATOG	,	V_106
+usb_endpoint_maxp	,	F_82
+MUSB_TXTYPE	,	V_149
+EINPROGRESS	,	V_69
+musb_bulk_rx_nak_timeout	,	F_66
+MUSB_RXCSR_AUTOCLEAR	,	V_87
+MUSB_CSR0_TXPKTRDY	,	V_14
+error_count	,	V_71
+dma_ok	,	V_136
+min	,	F_55
+musb_host_tx	,	F_63
+iso_err	,	V_88
+MUSB_RXCSR_RXPKTRDY	,	V_84
+HC_STATE_RUNNING	,	V_251
+controller	,	V_11
+u8	,	T_4
+txcsr	,	V_17
+usb_endpoint_type	,	F_83
+regs	,	V_5
+musb_stop	,	F_93
+ep0_stage	,	V_43
+buf	,	V_35
+max_t	,	F_85
+MUSB_TXMAXP	,	V_150
+MUSB_RXCSR_H_DATATOGGLE	,	V_64
+mregs	,	V_33
+musb_h_tx_start	,	F_9
+"pio"	,	L_14
+usb_hcd_giveback_urb	,	F_26
+tt	,	V_241
+MUSB_RXCSR_H_WZC_BITS	,	V_103
+musb_h_ep0_continue	,	F_58
+mdelay	,	F_6
+usb_hcd	,	V_217
+__iomem	,	T_1
+in_qh	,	V_28
+"qh %p urb %p dev%d ep%d%s%s, hw_ep %d, %p/%d\n"	,	L_3
+INIT_LIST_HEAD	,	F_81
+mbase	,	V_32
+MUSB_CSR0_FLUSHFIFO	,	V_16
+musb_h_start	,	F_91
+otg_state_string	,	F_95
+lastcsr	,	V_7
+"DMA complete but packet still in FIFO, "	,	L_45
+int_txe	,	V_141
+WARNING	,	F_41
+WARN	,	F_5
+retval	,	V_170
+MUSB_INTRUSBE	,	V_58
+ETIMEDOUT	,	V_185
+USB_ENDPOINT_XFER_ISOC	,	V_46
+dma_channel_status	,	F_64
+"no URB for end 0\n"	,	L_37
+list_is_singular	,	F_70
+desc	,	V_224
+musb_urb_dequeue	,	F_87
+hcd	,	V_218
+MUSB_RXCSR_H_RXSTALL	,	V_197
+speed	,	V_138
+is_cppi_enabled	,	F_11
+"Sending %d byte%s to ep0 fifo %p\n"	,	L_29
+actual_len	,	V_130
+kzalloc	,	F_80
+"rx%d, packet/%d ready?\n"	,	L_19
+MUSB_DEVCTL_VBUS	,	V_259
+packet_sz	,	V_137
+"bogus ep0 stage %d\n"	,	L_31
+load_count	,	V_142
+musb_write_fifo	,	F_56
+"start no-DATA\n"	,	L_26
+musb_h_ep0_irq	,	F_60
+transfer_dma	,	V_133
+USB_ENDPOINT_DIR_MASK	,	V_246
+start	,	V_57
+"OUT/TX%d end, csr %04x%s\n"	,	L_40
+max_len	,	V_127
+EPROTO	,	V_178
+unlinked	,	V_248
+"Could not flush host TX%d fifo: csr: %04x\n"	,	L_2
+EILSEQ	,	V_97
+next_urb	,	F_15
+usb_ctrlrequest	,	V_162
+transfer_buffer_length	,	V_51
+"ep0 STATUS, csr %04x\n"	,	L_38
+musb_h_stop	,	F_92
+MUSB_NAKLIMIT0	,	V_153
+MUSB_TYPE0	,	V_154
+gfp_t	,	T_7
+is_multipoint	,	V_107
+list_empty	,	F_31
+musb_read_fifo	,	F_38
+multi	,	V_244
+usb_pipedevice	,	F_16
+hep	,	V_73
+musb_advance_schedule	,	F_30
+bulk_ep	,	V_213
+musb_ep_select	,	F_48
+URB_SHORT_NOT_OK	,	V_101
+is_out	,	V_135
+musb_writew	,	F_4
+fifo_dest	,	V_159
+"-bulk"	,	L_7
+transfer_pending	,	V_184
+val	,	V_196
+MUSB_TXCSR_H_DATATOGGLE	,	V_65
+start_frame	,	V_56
+usb_device	,	V_236
+control_ep	,	V_161
+usb_host_endpoint	,	V_221
+epnum	,	V_13
+MUSB_TXCSR_DMAMODE	,	V_23
+devnum	,	V_240
+"Host TX FIFONOTEMPTY csr: %02x\n"	,	L_1
+epio	,	V_4
+musb_rx_reinit	,	F_40
+musb_schedule	,	F_72
+ENODEV	,	V_227
+"dma"	,	L_13
+MUSB_TXCSR_FRCDATATOG	,	V_105
+kfree	,	F_33
+flags	,	V_220
+bInterval	,	V_235
+xceiv	,	V_255
+USE_MODE1	,	F_71
+"Start TX%d %s\n"	,	L_12
+usb_hcd_link_urb_to_ep	,	F_78
+HC_STATE_HALT	,	V_253
+MUSB_INTRTXE	,	V_143
+hb_mult	,	V_120
+ESHUTDOWN	,	V_249
+MUSB_CSR0_H_SETUPPKT	,	V_20
+more	,	V_158
+h_port_reg	,	V_111
+toggle	,	V_207
+MUSB_RXCSR_DISNYET	,	V_156
+"h_addr%02x h_port%02x bytes %d\n"	,	L_21
+musb_writeb	,	F_18
+"aborting\n"	,	L_36
+"RX%d dma busy, csr %04x\n"	,	L_55
+udelay	,	F_8
+self	,	V_238
+txtype	,	V_208
+fifo_count	,	V_160
+ttport	,	V_242
+musb_write_rxhubport	,	F_44
+usb_endpoint_descriptor	,	V_222
+MUSB_RXCSR_H_REQPKT	,	V_85
+"STALLING ENDPOINT\n"	,	L_33
+dma_channel	,	V_123
+musb_giveback	,	F_20
+can_bulk_split	,	F_54
+offset	,	V_37
+"qh %p periodic slot %d\n"	,	L_64
+"out"	,	L_5
+h_addr_reg	,	V_110
+max_packet_sz_rx	,	V_119
+done	,	V_90
+"RX%d count %d, buffer %p len %d/%d\n"	,	L_17
+musb_ep_program	,	F_17
+"CSR %04x\n"	,	L_46
+"-iso"	,	L_8
+is_shared_fifo	,	V_27
+MUSB_RXCSR_H_WR_DATATOGGLE	,	V_155
+tx_channel	,	V_59
+request	,	V_163
+MUSB_COUNT0	,	V_172
+MUSB_CSR0_RXPKTRDY	,	V_15
+"end %d high bandwidth incomplete ISO packet RX\n"	,	L_54
+MUSB_TXCSR_CLRDATATOG	,	V_148
+mux	,	V_80
+ready	,	V_67
+"last "	,	L_63
+MUSB_RXMAXP	,	V_118
+spin_lock	,	F_27
+"SOF for %d\n"	,	L_11
+", dma"	,	L_41
+URB_ZERO_PACKET	,	V_131
+"check whether there's still time for periodic Tx\n"	,	L_10
+cur_qh	,	V_190
+xfer_len	,	V_195
+list_head	,	V_75
+idle	,	V_204
+OTG_STATE_A_WAIT_VRISE	,	V_257
+irqreturn_t	,	T_5
+musb_h_tx_dma_start	,	F_10
+max_packet_sz_tx	,	V_151
+musb_urb_enqueue	,	F_74
+MUSB_TXCSR_H_WZC_BITS	,	V_19
+"&lt;--"	,	L_23
+MUSB_TXCSR_H_WR_DATATOGGLE	,	V_147
+EOVERFLOW	,	V_98
+is_dma_capable	,	F_49
+target_regs	,	V_108
+"extra TX%d ready, csr %04x\n"	,	L_39
+MUSB_RXCSR_H_AUTOREQ	,	V_86
+min_t	,	F_59
+OTG_STATE_A_SUSPEND	,	V_256
+"TX end=%d device not responding\n"	,	L_44
+MUSB_TXCSR_H_ERROR	,	V_146

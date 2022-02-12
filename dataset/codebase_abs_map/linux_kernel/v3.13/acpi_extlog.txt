@@ -1,0 +1,39 @@
+error_severity	,	V_14
+block_status	,	V_9
+pfx	,	V_10
+data	,	V_5
+__print_extlog_rcd	,	F_6
+KERN_INFO	,	V_16
+", &amp;handle)))(NL)		return false;(NL)(NL)	if (extlog_get_dsm(handle, EXTLOG_DSM_REV, EXTLOG_FN_QUERY, &amp;ret) ||(NL)	    !(ret &amp; EXTLOG_QUERY_L1_EXIST))(NL)		return false;(NL)(NL)	if (extlog_get_dsm(handle, EXTLOG_DSM_REV, EXTLOG_FN_ADDR, &amp;ret))(NL)		return false;(NL)(NL)	l1_dirbase = ret;(NL)	/* Spec says L1 directory must be 4K aligned, bail out if it isn't */(NL)	if (l1_dirbase &amp; ((1 &lt;&lt; 12) - 1)) {(NL)		pr_warn(FW_BUG "	,	L_5
+printk	,	F_8
+curr_seqno	,	V_12
+");(NL)	if (!r) {(NL)		pr_warn(FW_BUG EMCA_BUG,(NL)			(unsigned long long)l1_dirbase,(NL)			(unsigned long long)l1_dirbase + l1_size);(NL)		goto err;(NL)	}(NL)	extlog_l1_addr = acpi_os_map_memory(l1_dirbase, l1_size);(NL)	l1_entry_base = (u64 *)((u8 *)extlog_l1_addr + l1_hdr_size);(NL)(NL)	/* remap elog table */(NL)	r = request_mem_region(elog_base, elog_size, "	,	L_8
+");(NL)MODULE_LICENSE("	,	L_12
+",(NL)			l1_dirbase);(NL)		return false;(NL)	}(NL)(NL)	return true;(NL)}(NL)static struct notifier_block extlog_mce_dec = {(NL)	.notifier_call	= extlog_print,(NL)};(NL)(NL)static int __init extlog_init(void)(NL){(NL)	struct extlog_l1_head *l1_head;(NL)	void __iomem *extlog_l1_hdr;(NL)	size_t l1_hdr_size;(NL)	struct resource *r;(NL)	u64 cap;(NL)	int rc;(NL)(NL)	rc = -ENODEV;(NL)(NL)	rdmsrl(MSR_IA32_MCG_CAP, cap);(NL)	if (!(cap &amp; MCG_ELOG_P))(NL)		return rc;(NL)(NL)	if (!extlog_get_l1addr())(NL)		return rc;(NL)(NL)	rc = -EINVAL;(NL)	/* get L1 header to fetch necessary information */(NL)	l1_hdr_size = sizeof(struct extlog_l1_head);(NL)	r = request_mem_region(l1_dirbase, l1_hdr_size, "	,	L_6
+bank	,	V_3
+CPER_SEV_CORRECTED	,	V_15
+");(NL)MODULE_DESCRIPTION("	,	L_11
+");(NL)	if (!r) {(NL)		pr_warn(FW_BUG EMCA_BUG,(NL)			(unsigned long long)l1_dirbase,(NL)			(unsigned long long)l1_dirbase + l1_hdr_size);(NL)		goto err;(NL)	}(NL)(NL)	extlog_l1_hdr = acpi_os_map_memory(l1_dirbase, l1_hdr_size);(NL)	l1_head = (struct extlog_l1_head *)extlog_l1_hdr;(NL)	l1_size = l1_head-&gt;total_len;(NL)	l1_percpu_entry = l1_head-&gt;entries;(NL)	elog_base = l1_head-&gt;elog_base;(NL)	elog_size = l1_head-&gt;elog_len;(NL)	acpi_os_unmap_memory(extlog_l1_hdr, l1_hdr_size);(NL)	release_mem_region(l1_dirbase, l1_hdr_size);(NL)(NL)	/* remap L1 header again based on completed information */(NL)	r = request_mem_region(l1_dirbase, l1_size, "	,	L_7
+acpi_generic_status	,	V_1
+atomic_t	,	T_2
+"%s""	,	L_2
+");(NL)	if (!r) {(NL)		pr_warn(FW_BUG EMCA_BUG,(NL)			(unsigned long long)elog_base,(NL)			(unsigned long long)elog_base + elog_size);(NL)		goto err_release_l1_dir;(NL)	}(NL)	elog_addr = acpi_os_map_memory(elog_base, elog_size);(NL)(NL)	rc = -ENOMEM;(NL)	/* allocate buffer to save elog record */(NL)	elog_buf = kmalloc(ELOG_ENTRY_LEN, GFP_KERNEL);(NL)	if (elog_buf == NULL)(NL)		goto err_release_elog;(NL)(NL)	mce_register_decode_chain(&amp;extlog_mce_dec);(NL)	/* enable OS to be involved to take over management from BIOS */(NL)	((struct extlog_l1_head *)extlog_l1_addr)-&gt;flags |= FLAG_OS_OPTIN;(NL)(NL)	return 0;(NL)(NL)err_release_elog:(NL)	if (elog_addr)(NL)		acpi_os_unmap_memory(elog_addr, elog_size);(NL)	release_mem_region(elog_base, elog_size);(NL)err_release_l1_dir:(NL)	if (extlog_l1_addr)(NL)		acpi_os_unmap_memory(extlog_l1_addr, l1_size);(NL)	release_mem_region(l1_dirbase, l1_size);(NL)err:(NL)	pr_warn(FW_BUG "	,	L_9
+"%s{%u}"	,	L_1
+seqno	,	V_11
+cpu	,	V_2
+WARN_ON	,	F_2
+");(NL)	return rc;(NL)}(NL)(NL)static void __exit extlog_exit(void)(NL){(NL)	mce_unregister_decode_chain(&amp;extlog_mce_dec);(NL)	((struct extlog_l1_head *)extlog_l1_addr)-&gt;flags &amp;= ~FLAG_OS_OPTIN;(NL)	if (extlog_l1_addr)(NL)		acpi_os_unmap_memory(extlog_l1_addr, l1_size);(NL)	if (elog_addr)(NL)		acpi_os_unmap_memory(elog_addr, elog_size);(NL)	release_mem_region(elog_base, elog_size);(NL)	release_mem_region(l1_dirbase, l1_size);(NL)	kfree(elog_buf);(NL)}(NL)(NL)module_init(extlog_init);(NL)module_exit(extlog_exit);(NL)(NL)MODULE_AUTHOR("	,	L_10
+ELOG_ENTRY_VALID	,	V_7
+u64	,	T_1
+pfx_seq	,	V_13
+ELOG_IDX	,	F_3
+ELOG_ENTRY_ADDR	,	F_5
+estatus	,	V_6
+atomic_inc_return	,	F_7
+extlog_elog_entry_check	,	F_1
+KERN_ERR	,	V_17
+ELOG_ENTRY_DATA	,	F_4
+EXT_ELOG_ENTRY_MASK	,	V_8
+idx	,	V_4
+", pfx_seq, cpu);(NL)	cper_estatus_print(pfx_seq, estatus);(NL)}(NL)(NL)static int print_extlog_rcd(const char *pfx,(NL)			    struct acpi_generic_status *estatus, int cpu)(NL){(NL)	/* Not more than 2 messages every 5 seconds */(NL)	static DEFINE_RATELIMIT_STATE(ratelimit_corrected, 5*HZ, 2);(NL)	static DEFINE_RATELIMIT_STATE(ratelimit_uncorrected, 5*HZ, 2);(NL)	struct ratelimit_state *ratelimit;(NL)(NL)	if (estatus-&gt;error_severity == CPER_SEV_CORRECTED ||(NL)	    (estatus-&gt;error_severity == CPER_SEV_INFORMATIONAL))(NL)		ratelimit = &amp;ratelimit_corrected;(NL)	else(NL)		ratelimit = &amp;ratelimit_uncorrected;(NL)	if (__ratelimit(ratelimit)) {(NL)		__print_extlog_rcd(pfx, estatus, cpu);(NL)		return 0;(NL)	}(NL)(NL)	return 1;(NL)}(NL)(NL)static int extlog_print(struct notifier_block *nb, unsigned long val,(NL)			void *data)(NL){(NL)	struct mce *mce = (struct mce *)data;(NL)	int	bank = mce-&gt;bank;(NL)	int	cpu = mce-&gt;extcpu;(NL)	struct acpi_generic_status *estatus;(NL)	int rc;(NL)(NL)	estatus = extlog_elog_entry_check(cpu, bank);(NL)	if (estatus == NULL)(NL)		return NOTIFY_DONE;(NL)(NL)	memcpy(elog_buf, (void *)estatus, ELOG_ENTRY_LEN);(NL)	/* clear record status to enable BIOS to update it again */(NL)	estatus-&gt;block_status = 0;(NL)(NL)	rc = print_extlog_rcd(NULL, (struct acpi_generic_status *)elog_buf, cpu);(NL)(NL)	return NOTIFY_DONE;(NL)}(NL)(NL)static int extlog_get_dsm(acpi_handle handle, int rev, int func, u64 *ret)(NL){(NL)	struct acpi_buffer buf = {ACPI_ALLOCATE_BUFFER, NULL};(NL)	struct acpi_object_list input;(NL)	union acpi_object params[4], *obj;(NL)	u8 uuid[16];(NL)	int i;(NL)(NL)	acpi_str_to_uuid(extlog_dsm_uuid, uuid);(NL)	input.count = 4;(NL)	input.pointer = params;(NL)	params[0].type = ACPI_TYPE_BUFFER;(NL)	params[0].buffer.length = 16;(NL)	params[0].buffer.pointer = uuid;(NL)	params[1].type = ACPI_TYPE_INTEGER;(NL)	params[1].integer.value = rev;(NL)	params[2].type = ACPI_TYPE_INTEGER;(NL)	params[2].integer.value = func;(NL)	params[3].type = ACPI_TYPE_PACKAGE;(NL)	params[3].package.count = 0;(NL)	params[3].package.elements = NULL;(NL)(NL)	if (ACPI_FAILURE(acpi_evaluate_object(handle, "	,	L_3
+", &amp;input, &amp;buf)))(NL)		return -1;(NL)(NL)	*ret = 0;(NL)	obj = (union acpi_object *)buf.pointer;(NL)	if (obj-&gt;type == ACPI_TYPE_INTEGER) {(NL)		*ret = obj-&gt;integer.value;(NL)	} else if (obj-&gt;type == ACPI_TYPE_BUFFER) {(NL)		if (obj-&gt;buffer.length &lt;= 8) {(NL)			for (i = 0; i &lt; obj-&gt;buffer.length; i++)(NL)				*ret |= (obj-&gt;buffer.pointer[i] &lt;&lt; (i * 8));(NL)		}(NL)	}(NL)	kfree(buf.pointer);(NL)(NL)	return 0;(NL)}(NL)(NL)static bool extlog_get_l1addr(void)(NL){(NL)	acpi_handle handle;(NL)	u64 ret;(NL)(NL)	if (ACPI_FAILURE(acpi_get_handle(NULL, "	,	L_4

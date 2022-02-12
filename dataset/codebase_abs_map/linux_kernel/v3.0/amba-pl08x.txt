@@ -1,0 +1,453 @@
+pl08x_phy_channel_busy	,	F_4
+"%s no memory for llis\n"	,	L_4
+PL080_WIDTH_8BIT	,	V_45
+PL080_CONTROL_TC_IRQ_EN	,	V_104
+inode	,	V_225
+dev	,	V_24
+max_bytes_per_lli	,	V_90
+"idle"	,	L_45
+total_bytes	,	V_91
+PL080_CONFIG_FLOW_CONTROL_SHIFT	,	V_169
+pl08x_lli_build_data	,	V_73
+DMA_FROM_DEVICE	,	V_116
+ARRAY_SIZE	,	F_53
+"(remain 0x%08x)\n"	,	L_11
+bytesleft	,	V_130
+pool	,	V_92
+PL08X_CHAN_IDLE	,	V_161
+"%s failed to register memcpy as an async device - %d\n"	,	L_69
+at	,	V_22
+boundary_len	,	V_88
+pl08x_prep_dma_interrupt	,	F_48
+adev	,	V_23
+pr_err	,	F_12
+dst_maxburst	,	V_146
+burstwords	,	V_157
+bd	,	V_74
+src_addr_width	,	V_147
+IRQ_NONE	,	V_212
+PL080_WIDTH_32BIT	,	V_47
+free_irq	,	F_104
+pl08x_ensure_on	,	F_67
+"%s\t\t%s\n"	,	L_58
+PL080_ERR_STATUS	,	V_208
+EBUSY	,	V_109
+retbits	,	V_68
+"bad runtime_config: alien address width\n"	,	L_25
+lli_buses	,	V_85
+pl08x_phy_chan	,	V_7
+slave_channels	,	V_217
+cd	,	V_139
+ch	,	V_8
+pl08x_resume_phy_chan	,	F_13
+i	,	V_59
+irq	,	V_206
+j	,	V_103
+dma_async_device_register	,	F_99
+"%s set down bus width to one byte\n"	,	L_12
+dst_addr_width	,	V_145
+s	,	V_223
+"%d\t\t%s\n"	,	L_53
+PL080_CH_CONTROL	,	V_33
+config	,	V_137
+pl08x_control	,	F_65
+"%s error interrupt, register value 0x%08x\n"	,	L_37
+"physical channel %d is %s\n"	,	L_64
+get_bytes_in_cctl	,	F_15
+DMA_COMPL_DEST_UNMAP_SINGLE	,	V_202
+DRIVER_NAME	,	V_247
+dev_dbg	,	F_34
+pl08x_prep_channel_resources	,	F_57
+"%s failed to enumerate slave channels - %d\n"	,	L_68
+pl08x_issue_pending	,	F_55
+reg	,	V_158
+dst_addr	,	V_97
+sgl	,	V_174
+PL080_CONFIG_ACTIVE	,	V_12
+PL080_CONTROL_DST_AHB2	,	V_163
+"memcpy"	,	L_44
+ret	,	V_107
+res	,	V_251
+dma_pool_create	,	F_92
+pl08x_terminate_phy_chan	,	F_14
+num_llis	,	V_83
+srcbus	,	V_79
+runtime_addr	,	V_159
+PL080_FLOW_PER2MEM	,	V_185
+spin_unlock_irqrestore	,	F_21
+dma_async_tx_descriptor	,	V_5
+dma_pool_destroy	,	F_106
+dma_slave_buswidth	,	V_140
+iounmap	,	F_105
+private	,	V_224
+PL080_FLOW_MEM2MEM	,	V_168
+waiting	,	V_123
+dev_vdbg	,	F_8
+PL080_CONTROL_PROT_SYS	,	V_181
+tasklet_init	,	F_78
+PL08X_LLI_TSFR_SIZE	,	V_248
+put_signal	,	V_119
+"%s prepare transaction of %d bytes from %s\n"	,	L_32
+timeout	,	V_36
+dmadev	,	V_214
+"%s align with boundary, single byte (remain 0x%08zx)\n"	,	L_16
+"%s failed to enumerate memcpy channels - %d\n"	,	L_67
+"bad runtime_config: alien transfer direction\n"	,	L_24
+list_del	,	F_41
+"initialized %d virtual %s channels\n"	,	L_42
+src_buses	,	V_177
+kmalloc	,	F_96
+amba_rev	,	F_102
+dst_buses	,	V_178
+chancnt	,	V_258
+"%s align with boundary, single odd byte (remain %zu)\n"	,	L_17
+lli_len	,	V_99
+DMA_RESUME	,	V_192
+PL080_CONTROL_SRC_AHB2	,	V_164
+dma_tx_state	,	V_126
+cap_mask	,	V_236
+length	,	V_179
+tsize	,	V_67
+ENOMEM	,	V_216
+pl08x_dma_init_virtual_channels	,	F_74
+pl08x_dma_chan_state	,	V_221
+out_no_slave_reg	,	V_262
+MAX_NUM_TSFR_LLIS	,	V_54
+ccfg	,	V_29
+pl08x_tasklet	,	F_71
+sbus	,	V_77
+lock	,	V_49
+id	,	V_25
+PL080_EN_CHAN	,	V_34
+dma_address	,	V_183
+pl08x_driver_data	,	V_15
+chan_id	,	V_194
+list_for_each_entry_safe	,	F_40
+cookie	,	V_120
+PL080_CONTROL_TRANSFER_SIZE_SHIFT	,	V_72
+index	,	V_53
+dualmaster	,	V_171
+PL080_CONTROL_TRANSFER_SIZE_MASK	,	V_43
+IRQ_HANDLED	,	V_211
+memcpy_channel	,	V_170
+pend_list	,	V_55
+"%s can't send what we want. Desired 0x%08zx, lli of 0x%08zx bytes in txd of 0x%08zx\n"	,	L_14
+cmd	,	V_187
+"lli %d @%p: csrc=0x%08x, cdst=0x%08x, cctl=0x%08x, clli=0x%08x\n"	,	L_20
+runtime_direction	,	V_144
+list_add_tail	,	F_47
+PL080_WIDTH_16BIT	,	V_46
+file	,	V_226
+PL080_CONFIG_TC_IRQ_MASK	,	V_39
+PL080_TC_CLEAR	,	V_41
+phychan	,	V_18
+PL080_CONFIG_ERR_IRQ_MASK	,	V_38
+dma_set_tx_state	,	F_51
+pl08x_fill_lli_for_desc	,	F_28
+PL08X_CHAN_RUNNING	,	V_160
+pl08x_amba_driver	,	V_263
+pl08x_free_txd_list	,	F_39
+periph_buses	,	V_184
+"initialize virtual channel \"%s\"\n"	,	L_41
+lc	,	V_131
+"%s failed to register slave as an async device - %d\n"	,	L_70
+pl08x_choose_master_bus	,	F_27
+"CHANNEL:\tSTATE:\n"	,	L_56
+out_no_pl08x	,	V_234
+"%s size of encoded lli:s don't match total txd, transferred 0x%08zx from size 0x%08zx\n"	,	L_18
+amba_request_regions	,	F_89
+"%s no memory for channel\n"	,	L_38
+size_t	,	T_2
+get_signal	,	V_112
+DMA_SLAVE_BUSWIDTH_1_BYTE	,	V_149
+PL080_CONFIG	,	V_195
+u32	,	T_1
+host	,	V_17
+tasklet_schedule	,	F_73
+device_prep_dma_interrupt	,	V_240
+amba_part	,	F_101
+"%s remainder = %zu\n"	,	L_7
+PL080_CH_LLI	,	V_32
+"unable to use physical channel %d for transfer on %s due to platform restrictions\n"	,	L_22
+pl08x	,	V_16
+DMA_COMPL_SKIP_SRC_UNMAP	,	V_199
+dma_async_is_complete	,	F_50
+coded	,	V_64
+DMA_COMPL_SKIP_DEST_UNMAP	,	V_201
+"%s adjustment lli for less than bus width "	,	L_10
+spin_lock_irqsave	,	F_17
+DMA_COMPL_SRC_UNMAP_SINGLE	,	V_200
+out_no_phychans	,	V_256
+PL080_FLOW_MEM2PER	,	V_182
+pl08x_init	,	F_108
+list_for_each_entry	,	F_20
+DMA_SLAVE	,	V_244
+dma_ctrl_cmd	,	V_186
+dst	,	V_27
+PL080_CONTROL_PROT_MASK	,	V_180
+ENXIO	,	V_193
+"CHANNEL:\tUSER:\n"	,	L_51
+"\nPL08x virtual memcpy channels:\n"	,	L_55
+dma_async_tx_callback	,	T_6
+dma_cap_set	,	F_90
+virt_chan	,	V_58
+pl08x_free_virtual_channels	,	F_79
+PL080_ERR_CLEAR	,	V_40
+pl08x_state_str	,	F_80
+direction	,	V_113
+dev_name	,	F_87
+"%s need to increase MAX_NUM_TSFR_LLIS from 0x%08x\n"	,	L_19
+pl08x_txd	,	V_4
+src	,	V_26
+writel	,	F_9
+amba_device	,	V_231
+dev_warn	,	F_98
+"--------\t-----\n"	,	L_52
+container_of	,	F_2
+pl08x_get_bytes_for_cctl	,	F_24
+pl08x_pre_boundary	,	F_29
+pd	,	V_111
+bytes	,	V_42
+DMA_MEMCPY	,	V_235
+callback	,	V_204
+remainder	,	V_87
+pl08x_select_bus	,	F_58
+pl08x_fill_llis_for_desc	,	F_31
+burst_sizes	,	V_156
+dma_data_direction	,	V_176
+spin_lock_init	,	F_77
+dma_addr_t	,	T_3
+init_pl08x_debugfs	,	F_85
+"the direction configured for the PrimeCell\n"	,	L_35
+odd_bytes	,	V_101
+len	,	V_57
+"maxburst %d words, LE, CCTL=0x%08x\n"	,	L_27
+state	,	V_121
+addr_width	,	V_141
+dma_pool_alloc	,	F_32
+"waiting"	,	L_48
+tasklet	,	V_210
+request_irq	,	F_95
+pl08x_get_phy_channel	,	F_22
+"DMA: PL%03x rev%u at 0x%08llx irq %d\n"	,	L_71
+pl08x_probe	,	F_88
+prep_phy_channel	,	F_44
+num_slave_channels	,	V_259
+node	,	V_106
+pl08x_free_txd	,	F_36
+"%s DMA setup does not match "	,	L_34
+DMA_SLAVE_BUSWIDTH_4_BYTES	,	V_151
+srcwidth	,	V_65
+"memcpy%d"	,	L_39
+GFP_KERNEL	,	V_215
+"--------\t------\n"	,	L_57
+device	,	V_198
+dma_async_device_unregister	,	F_103
+txdi	,	V_56
+maxburst	,	V_142
+DMA_TERMINATE_ALL	,	V_190
+PL080_CH_DST_ADDR	,	V_31
+pl08x_dma_chan	,	V_1
+"PL08x physical channels:\n"	,	L_50
+device_node	,	V_220
+serving	,	V_63
+i_private	,	V_227
+DMA_PAUSE	,	V_191
+seq_printf	,	F_82
+"FREE"	,	L_66
+device_issue_pending	,	V_242
+min	,	F_30
+"%s failed to request interrupt %d\n"	,	L_61
+BUG	,	F_25
+arg	,	V_188
+pl08x_debugfs_open	,	F_83
+pl08x_filter_id	,	F_66
+txd	,	V_14
+scatterlist	,	V_173
+u8	,	T_4
+seq_file	,	V_222
+src_addr	,	V_96
+out_no_irq	,	V_255
+pl08x_lli	,	V_19
+single	,	V_152
+plchan	,	V_13
+PL080_INT_STATUS	,	V_209
+amba_driver_register	,	F_109
+"%s max bytes per lli = %zu\n"	,	L_6
+PL080_CONTROL_DWIDTH_MASK	,	V_69
+IRQF_DISABLED	,	V_254
+tx	,	V_6
+"physical channel holders\n"	,	L_63
+dest	,	V_166
+phychan_hold	,	V_118
+pl08x_unmap_buffers	,	F_68
+dev_get_platdata	,	F_91
+INIT_LIST_HEAD	,	F_62
+"%s single byte LLIs for a transfer of "	,	L_8
+"%s fill lli with single lli chunk of size 0x%08zx (remainder 0x%08zx)\n"	,	L_15
+pl08x_debugfs_show	,	F_81
+kasprintf	,	F_75
+"paused"	,	L_47
+amba_id	,	V_232
+pool_ctr	,	V_95
+llis_bus	,	V_52
+"no physical channel available for xfer on %s\n"	,	L_21
+dma_slave_config	,	V_136
+"TX"	,	L_29
+ioremap	,	F_93
+vd	,	V_60
+retval	,	V_124
+out_no_platdata	,	V_246
+channels	,	V_61
+callback_param	,	V_205
+PL080_CONTROL_SWIDTH_MASK	,	V_70
+name	,	V_108
+"%s source bus is %d bytes wide, dest bus is %d bytes wide\n"	,	L_5
+mbus	,	V_76
+next	,	V_105
+pl08x_pause_phy_chan	,	F_10
+BUG_ON	,	F_18
+device_control	,	V_243
+printk	,	F_110
+PL080_CH_SRC_ADDR	,	V_30
+dma_set_runtime_config	,	F_52
+PL080_Cx_BASE	,	F_97
+dev_err	,	F_33
+dma_chan	,	V_2
+kzalloc	,	F_60
+device_free_chan_resources	,	V_238
+src_maxburst	,	V_148
+dma_chan_name	,	F_54
+bus_id	,	V_218
+PL080_CONTROL_DST_INCR	,	V_78
+phy_chans	,	V_62
+mask	,	V_207
+pl08x_debugfs_operations	,	V_230
+lli	,	V_20
+tx_submit	,	V_165
+start	,	V_252
+"no platform data supplied\n"	,	L_60
+device_alloc_chan_resources	,	V_237
+PL08X_ALIGN	,	V_249
+"running"	,	L_46
+PL080_CH_CONFIG	,	V_11
+PL080_CONTROL_SB_SIZE_SHIFT	,	V_154
+pl08x_start_txd	,	F_6
+cctl	,	V_28
+pl08x_dma_tx_status	,	F_49
+PL080_CONFIG_ENABLE	,	V_35
+mem_buses	,	V_172
+base	,	V_10
+PL08X_CHAN_PAUSED	,	V_133
+"less than a bus width (remain 0x%08x)\n"	,	L_9
+DMA_IN_PROGRESS	,	V_135
+to_pl08x_chan	,	F_1
+llis_va	,	V_21
+list_empty	,	F_19
+dev_info	,	F_76
+"%s lli_len is %zu, &lt;= 0\n"	,	L_13
+DMA_SLAVE_CONFIG	,	V_189
+pl08x_getbytes_chan	,	F_16
+GFP_NOWAIT	,	V_93
+device_tx_status	,	V_241
+DMA_TO_DEVICE	,	V_114
+val	,	V_9
+buswidth	,	V_82
+single_open	,	F_84
+VERBOSE_DEBUG	,	F_35
+"RX"	,	L_28
+device_prep_slave_sg	,	V_245
+"pl08x: channel%u timeout waiting for pause\n"	,	L_3
+PL080_CONTROL_SRC_INCR	,	V_81
+txstate	,	V_127
+pl08x_prep_slave_sg	,	F_64
+dma_unmap_single	,	F_69
+dstwidth	,	V_66
+"UNKNOWN STATE"	,	L_49
+__func__	,	V_94
+amba_set_drvdata	,	F_100
+DMA_SUCCESS	,	V_132
+"slave"	,	L_43
+circular_buffer	,	V_219
+maxwidth	,	V_98
+DMA_SLAVE_BUSWIDTH_2_BYTES	,	V_150
+kfree	,	F_38
+device_prep_dma_memcpy	,	V_239
+flags	,	V_48
+"allocated physical channel %d and signal %d for xfer on %s\n"	,	L_23
+dma_async_tx_descriptor_init	,	F_61
+debugfs_create_file	,	F_86
+amba_release_regions	,	F_107
+slave	,	V_110
+out_no_memcpy	,	V_257
+pl08x_channel_data	,	V_138
+target_len	,	V_100
+DMA_NONE	,	V_167
+PL080_CONFIG_M1_BE	,	V_197
+PL080_LLI_LM_AHB2	,	V_51
+EINVAL	,	V_143
+pl08x_free_chan_resources	,	F_43
+out_no_ioremap	,	V_253
+__init	,	T_8
+udelay	,	F_11
+out_no_memcpy_reg	,	V_261
+dma_status	,	V_125
+chan	,	V_3
+PL08X_AHB1	,	V_162
+dma_device	,	V_213
+pl08x_bus_data	,	V_75
+PL08X_AHB2	,	V_86
+PL080_CONTROL_DWIDTH_SHIFT	,	V_71
+fill_bytes	,	V_102
+PL080_CONFIG_SRC_SEL_SHIFT	,	V_117
+list_first_entry	,	F_56
+data	,	V_203
+pl08x_cctl_bits	,	F_26
+PL08X_BOUNDARY_SIZE	,	V_89
+last_complete	,	V_129
+DMA_PAUSED	,	V_134
+pl08x_put_phy_channel	,	F_23
+clli	,	V_50
+to_pl08x_txd	,	F_3
+"%s direction unsupported\n"	,	L_36
+PL080_CONFIG_M2_BE	,	V_196
+PL080_BSIZE_1	,	V_153
+"%s no memory for descriptor\n"	,	L_30
+"WRITE channel %d: csrc=0x%08x, cdst=0x%08x, "	,	L_1
+"%s no txd\n"	,	L_33
+"\nPL08x virtual slave channels:\n"	,	L_59
+dma_cookie_t	,	T_5
+PL08X_CHAN_WAITING	,	V_122
+S_IRUGO	,	V_229
+"%s failed to allocate "	,	L_62
+"BUSY"	,	L_65
+S_IFREG	,	V_228
+PL080_CONFIG_HALT	,	V_37
+"channel %s: circular buffers not supported\n"	,	L_40
+PL080_CONTROL_DB_SIZE_SHIFT	,	V_155
+dstbus	,	V_80
+sg_len	,	V_175
+pl08x_alloc_chan_resources	,	F_42
+"failed to register as an AMBA device (%d)\n"	,	L_72
+vendor_data	,	V_233
+last_used	,	V_128
+pl08x_get_txd	,	F_59
+"clli=0x%08x, cctl=0x%08x, ccfg=0x%08x\n"	,	L_2
+release_phy_channel	,	F_45
+pl08x_prep_dma_memcpy	,	F_63
+out_no_slave	,	V_260
+addr	,	V_84
+"%s prepared too long sglist\n"	,	L_31
+readl	,	F_5
+pl08x_tx_submit	,	F_46
+irqreturn_t	,	T_7
+PL080_CONTROL_SWIDTH_SHIFT	,	V_44
+pl08x_irq	,	F_72
+"configured channel %s (%s) for %s, data width %d, "	,	L_26
+dma_unmap_page	,	F_70
+resource_size	,	F_94
+"(none)"	,	L_54
+PL080_CONFIG_DST_SEL_SHIFT	,	V_115
+out_no_lli_pool	,	V_250
+cpu_relax	,	F_7
+dma_pool_free	,	F_37

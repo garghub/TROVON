@@ -1,0 +1,45 @@
+pr_debug	,	F_10
+"spufs: failed to allocate lscsa 64K pages, falling back\n"	,	L_4
+ENOMEM	,	V_6
+" all good !\n"	,	L_3
+use_big_pages	,	V_16
+kfree	,	F_14
+ClearPageReserved	,	F_6
+ls	,	V_7
+lscsa_pages	,	V_18
+SPU_64K_PAGE_ORDER	,	V_20
+PAGE_KERNEL	,	V_23
+SetPageReserved	,	F_3
+spu_free_lscsa_std	,	F_5
+pgarray	,	V_11
+vfree	,	F_7
+vmap	,	F_13
+SPU_LSCSA_NUM_BIG_PAGES	,	V_17
+kmalloc	,	F_12
+n_4k	,	V_14
+"spu_alloc_lscsa(csa=0x%p), trying to allocate 64K pages\n"	,	L_1
+alloc_pages	,	F_11
+vmalloc_to_page	,	F_4
+VM_USERMAP	,	V_22
+spu_alloc_lscsa	,	F_8
+LS_SIZE	,	V_8
+vzalloc	,	F_2
+i	,	V_12
+j	,	V_13
+spu_state	,	V_1
+SPU_64K_PAGE_COUNT	,	V_21
+lscsa	,	V_4
+free_pages	,	V_24
+vunmap	,	F_16
+spu_free_lscsa	,	F_15
+csa	,	V_2
+p	,	V_5
+fail	,	V_15
+__free_pages	,	F_17
+PAGE_SIZE	,	V_9
+spu_alloc_lscsa_std	,	F_1
+" success ! creating vmap...\n"	,	L_2
+page	,	V_10
+GFP_KERNEL	,	V_19
+spu_lscsa	,	V_3
+spu_64k_pages_available	,	F_9

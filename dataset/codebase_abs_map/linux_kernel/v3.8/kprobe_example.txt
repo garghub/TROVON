@@ -1,0 +1,44 @@
+"post_handler: p-&gt;addr = 0x%p, msr = 0x%lx\n"	,	L_8
+unregister_kprobe	,	F_11
+"pre_handler: p-&gt;addr = 0x%p, nip = 0x%lx,"	,	L_3
+kprobe_exit	,	F_10
+cp0_status	,	V_12
+KERN_INFO	,	V_5
+cp0_epc	,	V_11
+"register_kprobe failed, returned %d\n"	,	L_11
+printk	,	F_3
+flags	,	V_8
+"fault_handler: p-&gt;addr = 0x%p, trap #%dn"	,	L_10
+CONFIG_PPC	,	F_4
+msr	,	V_10
+handler_fault	,	F_7
+fault_handler	,	V_18
+" status = 0x%lx\n"	,	L_6
+kprobe	,	V_1
+CONFIG_X86	,	F_2
+" msr = 0x%lx\n"	,	L_4
+nip	,	V_9
+kprobe_init	,	F_8
+trapnr	,	V_13
+post_handler	,	V_17
+"kprobe at %p unregistered\n"	,	L_13
+addr	,	V_6
+"post_handler: p-&gt;addr = 0x%p, flags = 0x%lx\n"	,	L_7
+"pre_handler: p-&gt;addr = 0x%p, ip = %lx,"	,	L_1
+handler_post	,	F_6
+ret	,	V_14
+CONFIG_MIPS	,	F_5
+"pre_handler: p-&gt;addr = 0x%p, epc = 0x%lx,"	,	L_5
+kp	,	V_15
+pt_regs	,	V_3
+ip	,	V_7
+handler_pre	,	F_1
+regs	,	V_4
+" flags = 0x%lx\n"	,	L_2
+p	,	V_2
+pre_handler	,	V_16
+__init	,	T_1
+register_kprobe	,	F_9
+__exit	,	T_2
+"Planted kprobe at %p\n"	,	L_12
+"post_handler: p-&gt;addr = 0x%p, status = 0x%lx\n"	,	L_9

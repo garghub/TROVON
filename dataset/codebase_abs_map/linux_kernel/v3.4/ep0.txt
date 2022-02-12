@@ -1,0 +1,266 @@
+USB_RECIP_INTERFACE	,	V_84
+gadget_driver	,	V_117
+dma_addr_t	,	T_2
+"Inspecting Setup Bytes\n"	,	L_22
+upper_32_bits	,	F_5
+dep	,	V_17
+"Setup Phase"	,	L_2
+len	,	V_11
+dev	,	V_22
+DWC3_DCFG_DEVADDR	,	F_33
+"USB_REQ_GET_STATUS\n"	,	L_15
+USB_RECIP_ENDPOINT	,	V_85
+state	,	V_2
+"starting to resize fifos\n"	,	L_28
+dwc3_ep0_state	,	V_1
+dwc3_gadget_ep_cmd_params	,	V_12
+transfer_size	,	V_148
+USB_REQ_SET_FEATURE	,	V_127
+"in"	,	L_38
+dwc3	,	V_7
+dwc3_wIndex_to_dep	,	F_25
+dwc	,	V_8
+size	,	V_27
+"UNKNOWN"	,	L_5
+"trying to set address when configured\n"	,	L_13
+EINPROGRESS	,	V_46
+DWC3_DEPEVT_XFERCOMPLETE	,	V_161
+dwc3_ep0_do_control_data	,	F_48
+dwc3_ep0_do_control_setup	,	F_47
+USB_REQ_SET_CONFIGURATION	,	V_129
+ctrl	,	V_28
+wLength	,	V_134
+ep0_trb_addr	,	V_34
+USB_DEVICE_TEST_MODE	,	V_104
+DWC3_DCFG	,	V_113
+dwc3_ep0_state_string	,	F_1
+"invalid device address %d\n"	,	L_12
+endpoint_event	,	V_160
+endpoint	,	V_150
+EBUSY	,	V_65
+dwc3_ep0_set_config	,	F_38
+"waiting for XferComplete\n"	,	L_30
+USB_DEVICE_U1_ENABLE	,	V_96
+le16_to_cpu	,	F_26
+dwc3_ep0_std_request	,	F_39
+"trying to queue request %p to disabled %s\n"	,	L_10
+u8	,	T_1
+DWC3_TRBCTL_CONTROL_DATA	,	V_55
+set	,	V_94
+cfg	,	V_120
+"Unexpected XferNotReady(Setup)\n"	,	L_29
+dwc3_ep0_handle_status	,	F_28
+regs	,	V_112
+DWC3_TRBCTL_CONTROL_SETUP	,	V_69
+buf	,	V_92
+r	,	V_141
+ep0_bounced	,	V_147
+"queueing request %p to %s length %d, state '%s'\n"	,	L_11
+"USB_REQ_SET_FEATURE\n"	,	L_17
+__dwc3_gadget_ep0_queue	,	F_9
+transferred	,	V_144
+"Control Status\n"	,	L_35
+USB_RECIP_DEVICE	,	V_81
+dev_dbg	,	F_7
+DWC3_TRB_CTRL_IOC	,	V_31
+DWC3_DEPEVT_RXTXFIFOEVT	,	V_164
+"too early for delayed status\n"	,	L_9
+test_mode	,	V_106
+reg	,	V_111
+dwc3_gadget_ep0_queue	,	F_13
+dwc3_ep0_stall_and_restart	,	F_19
+cpu_to_le16	,	F_29
+ur	,	V_142
+next_request	,	F_21
+req	,	V_42
+ret	,	V_18
+actual	,	V_44
+USB_INTRF_FUNC_SUSPEND	,	V_107
+USB_GADGET_DELAYED_STATUS	,	V_122
+ep0_bounce_addr	,	V_154
+USB_INTRF_FUNC_SUSPEND_RW	,	V_109
+"%s: still busy\n"	,	L_6
+ep	,	V_58
+USB_TYPE_MASK	,	V_139
+dwc3_ep0_interrupt	,	F_54
+list	,	V_47
+to_dwc3_ep	,	F_15
+WARN	,	F_46
+DWC3_DEPEVT_EPCMDCMPLT	,	V_166
+spin_unlock_irqrestore	,	F_18
+__le16	,	T_5
+name	,	V_23
+delayed_status	,	V_56
+buf_dma	,	V_10
+desc	,	V_62
+dev_state	,	V_99
+wValue	,	V_95
+ep0_usb_req	,	V_91
+DWC3_DEPEVT_STREAMEVT	,	V_165
+dwc3_ep0_status_cmpl	,	F_27
+EP0_UNCONNECTED	,	V_3
+dwc3_gadget_ep_get_transfer_index	,	F_8
+dev_vdbg	,	F_3
+ECONNRESET	,	V_67
+"Data Phase\n"	,	L_23
+speed	,	V_101
+DWC3_EP_BUSY	,	V_21
+three_stage_setup	,	V_135
+dwc3_event_depevt	,	V_130
+ep0	,	V_143
+"pending request for EP0 Data phase\n"	,	L_26
+USB_ENDPOINT_DIR_MASK	,	V_73
+length	,	V_54
+spin_unlock	,	F_36
+maxpacket	,	V_151
+dwc3_ep	,	V_16
+dwc3_writel	,	F_34
+is_selfpowered	,	V_82
+dwc3_ep0_start_control_status	,	F_50
+usb_ctrlrequest	,	V_75
+USB_DEVICE_REMOTE_WAKEUP	,	V_103
+DWC3_EP_PENDING_REQUEST	,	V_49
+usb_gadget_map_request	,	F_49
+dma	,	V_53
+setup	,	V_118
+ctrl_req_addr	,	V_68
+gfp_t	,	T_4
+USB_DEVICE_LTM_ENABLE	,	V_98
+DWC3_TRB_CTRL_ISP_IMI	,	V_32
+dwc3_gadget_giveback	,	F_22
+ep0_bounce	,	V_152
+gadget	,	V_119
+list_empty	,	F_17
+EP0_STATUS_PHASE	,	V_6
+"USB_REQ_CLEAR_FEATURE\n"	,	L_16
+"USB_REQ_SET_ADDRESS\n"	,	L_18
+DWC3_EP_STALL	,	V_88
+"Forwarding to gadget driver\n"	,	L_20
+number	,	V_36
+DEPEVT_STATUS_CONTROL_DATA	,	V_158
+response_pkt	,	V_78
+dwc3_ep_event_string	,	F_55
+lock	,	V_61
+dwc3_ep0_complete_req	,	F_43
+ep0_expect_in	,	V_136
+DWC3_EP0_NRDY_DATA	,	V_138
+USB_ENDPOINT_NUMBER_MASK	,	V_72
+DWC3_TRBCTL_CONTROL_STATUS3	,	V_155
+DWC3_TRBCTL_CONTROL_STATUS2	,	V_156
+eps	,	V_19
+params	,	V_13
+DWC3_EP0_DIR_IN	,	V_51
+dwc3_ep0_xfernotready	,	F_52
+EP0_SETUP_PHASE	,	V_4
+USB_REQ_SET_ADDRESS	,	V_128
+"Control Setup\n"	,	L_31
+"Control Data\n"	,	L_32
+DEPEVT_STATUS_CONTROL_STATUS	,	V_159
+USB_DIR_IN	,	V_74
+epnum	,	V_9
+dwc3_ep0_inspect_setup	,	F_40
+status	,	V_45
+usb_request	,	V_59
+"Mass Storage delayed status\n"	,	L_36
+dwc3_ep0_set_address	,	F_31
+dwc3_send_gadget_ep_cmd	,	F_6
+to_dwc3_request	,	F_14
+flags	,	V_20
+list_add_tail	,	F_10
+out	,	V_64
+DWC3_DEPEVT_XFERNOTREADY	,	V_162
+dwc3_ep0_handle_feature	,	F_30
+DEPEVT_STATUS_CONTROL_SETUP	,	V_157
+setup_buf	,	V_90
+DWC3_EP0_NRDY_STATUS	,	V_137
+USB_DEVICE_U2_ENABLE	,	V_97
+test_mode_nr	,	V_105
+USB_TYPE_STANDARD	,	V_140
+u16	,	T_6
+setup_packet_pending	,	V_153
+event	,	V_131
+dwc3_readl	,	F_32
+DWC3_TRB_CTRL_LST	,	V_30
+bRequestType	,	V_79
+dwc3_ep0_out_start	,	F_23
+USB_DEVICE_SELF_POWERED	,	V_83
+DWC3_CONFIGURED_STATE	,	V_100
+ESHUTDOWN	,	V_63
+err	,	V_133
+DWC3_DSTS_SUPERSPEED	,	V_102
+DWC3_TRB_SIZE_MASK	,	V_146
+"Data Phase"	,	L_3
+dwc3_ep0_delegate_req	,	F_35
+usb_ep	,	V_57
+EINVAL	,	V_87
+dwc3_gadget_set_test_mode	,	F_44
+USB_RECIP_MASK	,	V_80
+endpoint_number	,	V_145
+bRequest	,	V_124
+DWC3_ADDRESS_STATE	,	V_115
+complete	,	V_93
+"Unexpected pending request\n"	,	L_8
+"failed to map request\n"	,	L_27
+"resize fifos flag SET\n"	,	L_14
+"%s while ep%d%s in state '%s'\n"	,	L_37
+dwc3_trb	,	V_14
+DWC3_DEPEVT_XFERINPROGRESS	,	V_163
+ep0_trb	,	V_24
+lower_32_bits	,	F_4
+dwc3_ep0_complete_data	,	F_41
+"Wrong direction for Data phase\n"	,	L_34
+u32	,	T_3
+"Invalid Test #%d\n"	,	L_21
+start_config_issued	,	V_121
+__dwc3_gadget_ep_set_halt	,	F_20
+"failed to send STARTTRANSFER command\n"	,	L_7
+trb	,	V_15
+"out"	,	L_39
+"USB_REQ_SET_CONFIGURATION\n"	,	L_19
+resize_fifos	,	V_123
+USB_REQ_CLEAR_FEATURE	,	V_126
+"Status Phase\n"	,	L_24
+DWC3_DEPCMD_STARTTRANSFER	,	V_37
+windex	,	V_71
+"Expected %d got %d\n"	,	L_33
+usb_status	,	V_77
+DWC3_EP0_COMPLETE	,	V_40
+spin_lock_irqsave	,	F_16
+"Unconnected"	,	L_1
+ep0_next_event	,	V_39
+maxp	,	V_149
+request	,	V_43
+recip	,	V_76
+wIndex_le	,	V_70
+ctrl_req	,	V_132
+dwc3_request	,	V_41
+ep0state	,	V_52
+USB_REQ_GET_STATUS	,	V_125
+DWC3_DEFAULT_STATE	,	V_116
+DWC3_TRB_CTRL_HWO	,	V_29
+WARN_ON_ONCE	,	F_53
+dwc3_gadget_resize_tx_fifos	,	F_51
+wIndex	,	V_86
+dwc3_ep0_xfer_complete	,	F_45
+dwc3_ep0_start_trans	,	F_2
+spin_lock	,	F_37
+bph	,	V_26
+"UNKNOWN ep0state %d\n"	,	L_25
+addr	,	V_110
+bpl	,	V_25
+direction	,	V_50
+gfp_flags	,	V_60
+res_trans_idx	,	V_38
+USB_INTRF_FUNC_SUSPEND_LP	,	V_108
+request_list	,	V_48
+DWC3_EP_ENABLED	,	V_66
+EP0_DATA_PHASE	,	V_5
+param0	,	V_33
+WARN_ON	,	F_24
+DWC3_DCFG_DEVADDR_MASK	,	V_114
+dwc3_ep0_do_control_status	,	F_12
+"Status Phase"	,	L_4
+param1	,	V_35
+USB_ENDPOINT_HALT	,	V_89
+min_t	,	F_42
+dev_WARN	,	F_11

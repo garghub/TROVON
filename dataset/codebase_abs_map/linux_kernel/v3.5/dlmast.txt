@@ -1,0 +1,171 @@
+dlm_lock_get	,	F_11
+dlm_queue_bast	,	F_20
+dlm_lookup_lockres	,	F_32
+namelen	,	V_55
+list_empty	,	F_4
+granted	,	V_76
+dlm_proxy_ast_handler	,	F_26
+len	,	V_21
+unlock_out	,	V_69
+veclen	,	V_83
+lock	,	V_4
+lvb	,	V_33
+"%s: res %.*s, lock %u:%llu, Remote AST\n"	,	L_10
+state	,	V_66
+DLM_BADARGS	,	V_62
+dlm_domain_fully_joined	,	F_30
+spinlock	,	V_6
+do_ast	,	V_74
+cookie	,	V_22
+ast_list	,	V_17
+DLM_LKSB_GET_LVB	,	V_31
+past	,	V_49
+"put lvb"	,	L_17
+astdata	,	V_38
+iter	,	V_52
+"Unknown ast type! %d, cookie=%u:%llu"	,	L_21
+"%s: res %.*s, lock %u:%llu, Granted type %d =&gt; %d\n"	,	L_31
+be32_to_cpu	,	F_31
+LKM_GET_LVB	,	V_61
+DLM_LVB_LEN	,	V_34
+"%s: res %.*s, lock %u:%llu, BAST getting flushed\n"	,	L_5
+"%s: res %.*s, lock %u:%llu, Local BAST, blocked %d\n"	,	L_11
+list_move_tail	,	F_35
+node	,	V_32
+dlm_proxy_ast	,	V_48
+list_for_each	,	F_33
+"%s: res %.*s\n"	,	L_26
+DLM_NORMAL	,	V_77
+LKM_EXMODE	,	V_13
+dlm_lockres_release_ast	,	F_15
+locklen	,	V_47
+lksb	,	V_27
+node_num	,	V_29
+"%s: res %.*s, lock %u:%llu, Local AST\n"	,	L_9
+status	,	V_79
+""	,	L_24
+"name=%.*s, node=%u\n"	,	L_22
+dlm_lockstatus	,	V_26
+__dlm_queue_ast	,	F_5
+dlm_lock_put	,	F_14
+flags	,	V_30
+"%s: res %.*s, to %u, type %d, blocked_type %d\n"	,	L_32
+DLM_REJECTED	,	V_54
+list_del_init	,	F_13
+list_add_tail	,	F_16
+lksbflags	,	V_40
+dlm_lockres_put	,	F_36
+"none"	,	L_19
+LKM_PUT_LVB	,	V_60
+"type=%d, blocked_type=%d\n"	,	L_20
+ast_pending	,	V_23
+iov_base	,	V_85
+blocked	,	V_75
+BUG	,	F_10
+"lvb: %s\n"	,	L_16
+"node=%u\n"	,	L_30
+assert_spin_locked	,	F_2
+"Got %sast for unknown lock! cookie=%u:%llu, name=%.*s, "	,	L_29
+key	,	V_87
+dlm_queue_ast	,	F_18
+LKM_NLMODE	,	V_10
+u8	,	T_5
+DLM_IVLOCKID	,	V_65
+pending_asts	,	V_24
+pending_basts	,	V_25
+ML_ERROR	,	V_18
+DLM_MIGRATING	,	V_71
+DLM_LKSB_PUT_LVB	,	V_35
+buf	,	V_50
+"handler!\n"	,	L_14
+LKM_IVMODE	,	V_9
+blocked_type	,	V_41
+DLM_RECOVERING	,	V_68
+kvec	,	V_81
+dlm_should_cancel_bast	,	F_1
+"%s: res %.*s, lock %u:%llu, Cancelling BAST\n"	,	L_4
+msg	,	V_44
+"Got %sast for unknown lockres! cookie=%u:%llu, "	,	L_23
+dlm_do_local_ast	,	F_22
+ast	,	V_37
+mlog	,	F_6
+data	,	V_45
+"Invalid name length (%d) in proxy ast "	,	L_13
+converting	,	V_72
+"node is dead!\n"	,	L_35
+size_t	,	T_6
+dlm_error	,	F_28
+dlm_send_proxy_ast_msg	,	F_38
+"Both PUT and GET lvb specified, (0x%x)\n"	,	L_15
+"sent AST to node %u, it thinks this "	,	L_34
+u32	,	T_3
+vec	,	V_82
+leave	,	V_59
+o2net_send_message_vec	,	F_40
+dlm_astlockfunc_t	,	T_1
+DLM_LOCK_RES_RECOVERING	,	V_67
+"Domain %s not fully joined!\n"	,	L_12
+"master"	,	L_7
+ml	,	V_7
+"getting lvb from lockres for %s node\n"	,	L_6
+ret	,	V_39
+"DLM_MIGRATING!\n"	,	L_37
+res	,	V_15
+o2net_msg	,	V_43
+"%s: res %.*s, error %d send AST to node %u\n"	,	L_33
+"b"	,	L_25
+__be64	,	T_4
+lockres	,	V_16
+"%s: res %.*s, lock %u:%llu, AST getting flushed\n"	,	L_3
+DLM_AST	,	V_63
+dlm_do_remote_ast	,	F_23
+list	,	V_73
+"Responding with DLM_MIGRATING!\n"	,	L_28
+bast_pending	,	V_11
+__dlm_queue_bast	,	F_19
+name	,	V_19
+msg_type	,	V_80
+DLM_PROXY_AST_MSG	,	V_86
+dlm_lock	,	V_3
+BUG_ON	,	F_3
+"remote"	,	L_8
+dlm_send_proxy_ast	,	F_24
+dlm_ctxt	,	V_1
+fn	,	V_36
+"AST to node %u returned %d!\n"	,	L_38
+dlm_bastlockfunc_t	,	T_2
+bast_list	,	V_12
+DLM_LOCK_RES_MIGRATING	,	V_70
+bast	,	V_42
+dlm_do_local_bast	,	F_25
+head	,	V_53
+highest_blocked	,	V_8
+dlm_put	,	F_37
+ast_lock	,	V_5
+dlm_get_lock_cookie_seq	,	F_9
+spin_lock	,	F_12
+"get lvb"	,	L_18
+owner	,	V_28
+mlog_bug_on_msg	,	F_29
+dlm	,	V_2
+dlm_grab	,	F_27
+DLM_IVBUFLEN	,	V_58
+list_head	,	V_51
+"Responding with DLM_RECOVERING!\n"	,	L_27
+iov_len	,	V_84
+dlm_lock_resource	,	V_14
+"AST list not empty, pending %d, newlevel %d\n"	,	L_2
+spin_unlock	,	F_17
+"%s: res %.*s, lock %u:%llu, "	,	L_1
+dlm_get_lock_cookie_node	,	F_7
+DLM_LOCKID_NAME_MAX	,	V_57
+lockname	,	V_20
+dlm_update_lvb	,	F_21
+convert_type	,	V_78
+DLM_BAST	,	V_64
+"sent AST to node %u, it returned "	,	L_36
+be32_add_cpu	,	F_39
+node_idx	,	V_56
+list_entry	,	F_34
+be64_to_cpu	,	F_8
+ret_data	,	V_46

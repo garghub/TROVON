@@ -1,0 +1,197 @@
+ASID_INC	,	V_73
+srcu_read_unlock	,	F_27
+tlb_lo0	,	V_18
+tlb_lo1	,	V_19
+asid_cache	,	F_59
+local_irq_save	,	F_6
+TLB_VPN2	,	F_49
+ASID_VERSION_MASK	,	V_79
+kvm_debug	,	F_40
+" %c%c attr %lx "	,	L_5
+PAGE_SHIFT	,	V_44
+write_c0_entrylo1	,	F_37
+PAGE_MASK	,	V_41
+write_c0_entrylo0	,	F_36
+ehb	,	F_67
+tlb_read	,	F_12
+kvm_mips_handle_mapped_seg_tlb_fault	,	F_46
+guest_user_asid	,	V_6
+KVM_GUEST_KERNEL_MODE	,	F_47
+kvm_mips_handle_commpage_tlb_fault	,	F_44
+read_c0_entryhi	,	F_7
+"ASID: %#lx\n"	,	L_2
+read_c0_pagemask	,	F_8
+"%s: vcpu %p, cpu: %d\n"	,	L_23
+paddr	,	V_89
+kvm_mips_host_tlb_inv	,	F_53
+mips3_paddr_to_tlbpfn	,	F_43
+badvaddr	,	V_56
+old_entryhi	,	V_9
+tlbw_use_hazard	,	F_13
+kvm_mips_get_commpage_asid	,	F_4
+CKSEG0ADDR	,	F_72
+"Lo0=0x%09"	,	L_4
+"%s: Dropping MMU Context:  %#lx\n"	,	L_28
+tlb_write_random	,	F_38
+guest_kernel_mm	,	V_80
+kvm_mips_dump_host_tlbs	,	F_5
+current	,	V_83
+current_cpu_data	,	V_15
+BUG	,	F_54
+stat	,	V_53
+kvm	,	V_7
+tlb_hi	,	V_17
+flush_dcache_mask	,	V_50
+PRIx64	,	V_22
+vcpu_id	,	V_85
+"TLB%c%3d Hi 0x%08lx "	,	L_3
+uint32_t	,	T_1
+i	,	V_14
+entrylo1	,	V_49
+newasid	,	V_78
+entrylo0	,	V_48
+kvm_get_new_mmu_context	,	F_58
+inst	,	V_90
+kvm_mips_host_tlb_write	,	F_32
+"@ %#lx idx: %2d [entryhi(R): %#lx] entrylo0 (R): 0x%08lx, entrylo1(R): 0x%08lx\n"	,	L_18
+smp_processor_id	,	F_2
+arch	,	V_3
+read_c0_entrylo0	,	F_14
+read_c0_entrylo1	,	F_15
+gfn_t	,	T_2
+kvm_read_c0_guest_entryhi	,	F_21
+"Guest EntryHi: %#lx\n"	,	L_9
+kvm_mips_is_error_pfn	,	F_25
+srcu_read_lock	,	F_23
+__builtin_return_address	,	F_30
+flush_dcache_exits	,	V_54
+VPN2_MASK	,	V_55
+opc	,	V_88
+kseg0_commpage	,	V_61
+va	,	V_65
+kvm_mips_map_page	,	F_22
+tlb_probe_hazard	,	F_34
+"Guest TLBs:\n"	,	L_8
+srcu_idx	,	V_31
+tlb_probe	,	F_33
+idx	,	V_51
+" %c%c attr %lx sz=%lx\n"	,	L_7
+commpage_tlb	,	V_8
+kvm_mips_tlb	,	V_11
+hpa0	,	V_62
+printk	,	F_9
+hpa1	,	V_63
+"[%d]: Allocated new ASID for Guest User: %#x\n"	,	L_26
+old_pagemask	,	V_10
+CPHYSADDR	,	F_45
+"%s: entryhi: %#lx, index: %d lo0: %#lx, lo1: %#lx\n"	,	L_20
+PF_VCPU	,	V_86
+cpu_asid	,	F_70
+cpu_has_vtag_icache	,	V_74
+asid	,	V_72
+MIPS3_PG_D	,	V_24
+"%s: illegal address: %p\n"	,	L_30
+comparecount_timer	,	V_77
+tlb	,	V_12
+MIPS3_PG_G	,	V_25
+last_sched_cpu	,	V_84
+tlb_mask	,	V_20
+KVM_GUEST_KSEG23	,	V_91
+MIPS3_PG_V	,	V_21
+cop0	,	V_27
+write_c0_index	,	F_10
+uint64_t	,	V_23
+"[%d-&gt;%d]KVM VCPU[%d] switch\n"	,	L_27
+kvm_mips_host_tlb_inv_index	,	F_56
+"@ %#lx tlb_lo0: 0x%08lx tlb_lo1: 0x%08lx\n"	,	L_19
+guest_tlb	,	V_29
+TLB_ASID	,	F_51
+context	,	V_81
+mm_struct	,	V_69
+kvm_arch_vcpu_load	,	F_66
+guest_pmap_npages	,	V_45
+flush_icache_all	,	F_60
+srcu	,	V_36
+mips_coproc	,	V_26
+kvm_mips_migrate_count	,	F_63
+kvm_mips_dump_guest_tlbs	,	F_20
+index	,	V_64
+maxentry	,	V_68
+mips3_tlbpfn_to_paddr	,	F_16
+even	,	V_60
+__func__	,	V_43
+cpu_context	,	F_62
+pfn	,	V_33
+KVM_INVALID_ADDR	,	V_46
+kvm_mips_handle_kseg0_tlb_fault	,	F_42
+TLB_IS_GLOBAL	,	F_50
+preempt_entryhi	,	V_87
+vcpu	,	V_2
+skip_kseg0	,	V_66
+flags	,	V_13
+read_c0_index	,	F_35
+out	,	V_38
+local_irq_restore	,	F_19
+gva	,	V_39
+"%s/%p: Invalid gva: %#lx\n"	,	L_12
+err	,	V_32
+EFAULT	,	V_37
+ASID_MASK	,	V_5
+gfn	,	V_30
+flush_data_cache_page	,	F_41
+"HOST TLBs:\n"	,	L_1
+"%s: Invalidated entryhi %#lx @ idx %d\n"	,	L_22
+pfn_t	,	T_3
+"Couldn't get pfn for gfn %#"	,	L_10
+guest_kernel_asid	,	V_4
+"%s: Invalid BadVaddr: %#lx\n"	,	L_16
+kvm_vcpu	,	V_1
+UNIQUE_ENTRYHI	,	F_55
+write_c0_pagemask	,	F_18
+ASID_FIRST_VERSION	,	V_75
+hrtimer_cancel	,	F_64
+guest_pmap	,	V_34
+kvm_mips_gfn_to_pfn	,	F_24
+kvm_mips_get_user_asid	,	F_3
+KVM_GUEST_KSEGX	,	F_29
+"%s: Invalid Index: %d\n"	,	L_14
+KVM_INVALID_INST	,	V_92
+kvm_arch_vcpu_put	,	F_68
+mm	,	V_70
+mtc0_tlbw_hazard	,	F_11
+offset	,	V_40
+cpu	,	V_71
+"%s: Invalid gfn: %#llx, BadVaddr: %#lx\n"	,	L_17
+kvm_mips_host_tlb_lookup	,	F_52
+entry	,	V_67
+kvm_mips_translate_guest_kseg0_to_hpa	,	F_28
+tlb_write_indexed	,	F_39
+drop_mmu_context	,	F_69
+hrtimer_restart	,	F_65
+guest_user_mm	,	V_82
+old_ctx	,	V_76
+KVM_INVALID_PAGE	,	V_35
+"Lo1=0x%09"	,	L_6
+kvm_err	,	F_26
+vaddr	,	V_59
+pfn0	,	V_57
+pfn1	,	V_58
+"Host TLB lookup, %#lx, idx: %2d\n"	,	L_21
+entryhi	,	V_47
+tlbsize	,	V_16
+KVM_MIPS_GUEST_TLB_SIZE	,	V_28
+"%s: get_user_failed for %p, vcpu: %p, ASID: %#lx\n"	,	L_29
+"@ %#lx idx: %2d [entryhi(R): %#lx] entrylo0(R): 0x%08lx, entrylo1(R): 0x%08lx\n"	,	L_15
+kvm_local_flush_tlb_all	,	F_61
+"!\n"	,	L_11
+kvm_mips_guest_tlb_lookup	,	F_48
+"[%d]: Allocated new ASID for Guest Kernel: %#x\n"	,	L_25
+"%s: Invalid gfn: %#llx, GVA: %#lx\n"	,	L_13
+"[%d]: cpu_context: %#lx\n"	,	L_24
+kvm_mips_flush_host_tlb	,	F_57
+kvm_get_inst	,	F_71
+kvm_mips_get_kernel_asid	,	F_1
+KVM_GUEST_KSEG0	,	V_42
+KVM_GUEST_CPHYSADDR	,	F_31
+pc	,	V_52
+write_c0_entryhi	,	F_17

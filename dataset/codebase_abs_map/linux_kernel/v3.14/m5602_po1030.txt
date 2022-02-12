@@ -1,0 +1,145 @@
+"Set exposure to low byte to 0x%x"	,	L_8
+handler	,	V_86
+D_PROBE	,	V_11
+v4l2_ctrl_handler_init	,	F_11
+ctrl_value	,	V_92
+po1030_set_blue_balance	,	F_23
+M5602_XB_PIX_OF_LINE_H	,	V_66
+"Set hvflip %d %d"	,	L_10
+test_value	,	V_93
+"Forcing a %s sensor\n"	,	L_1
+PO1030_SENSOR	,	V_6
+"Set exposure to %d"	,	L_6
+M5602_XB_HSYNC_PARA	,	V_69
+PO1030_INTEGLINES_M	,	V_74
+m5602_read_sensor	,	F_7
+id	,	V_88
+blue_bal	,	V_37
+height	,	V_55
+ARRAY_SIZE	,	F_4
+val	,	V_70
+PO1030_INTEGLINES_H	,	V_73
+SENSOR	,	V_14
+po1030_disconnect	,	F_27
+V4L2_EXPOSURE_AUTO	,	V_82
+V4L2_EXPOSURE_MANUAL	,	V_42
+po1030_start	,	F_18
+M5602_XB_SENSOR_TYPE	,	V_64
+po1030_modes	,	V_18
+po1030_set_auto_exposure	,	F_26
+po1030_greenbal_cfg	,	V_33
+po1030_ctrl_ops	,	V_30
+pr_err	,	F_15
+old_value	,	V_91
+hflip	,	V_49
+ENODEV	,	V_10
+PO1030_GREEN_2_GAIN	,	V_80
+ctrl	,	V_85
+V4L2_CID_RED_BALANCE	,	V_35
+vflip	,	V_51
+curr_mode	,	V_54
+PO1030_EXPOSURE_DEFAULT	,	V_45
+gain	,	V_46
+sd	,	V_1
+PO1030_SUBSAMPLING	,	V_58
+streaming	,	V_87
+__s32	,	T_2
+V4L2_CID_EXPOSURE	,	V_44
+PO1030_GLOBAL_GAIN_DEFAULT	,	V_48
+po1030_set_green_balance	,	F_24
+m5602_write_sensor	,	F_5
+auto_white_bal	,	V_29
+D_CONF	,	V_72
+PO1030_RED_GAIN_DEFAULT	,	V_36
+po1030_set_gain	,	F_20
+u8	,	T_1
+address	,	V_89
+err	,	V_20
+gspca_dev	,	V_4
+pr_info	,	F_2
+preinit_po1030	,	V_12
+i	,	V_3
+v4l2_ctrl_new_std_menu	,	F_14
+po1030	,	V_7
+M5602_XB_VSYNC_PARA	,	V_68
+nmodes	,	V_19
+V4L2_CID_GAIN	,	V_47
+PO1030_BLUE_GAIN_DEFAULT	,	V_39
+V4L2_CID_EXPOSURE_AUTO	,	V_41
+EINVAL	,	V_23
+PO1030_WINDOWHEIGHT_L	,	V_63
+"Dumping the po1030 sensor core registers\n"	,	L_16
+po1030_set_hvflip	,	F_21
+width	,	V_53
+V4L2_CID_BLUE_BALANCE	,	V_38
+init_po1030	,	V_21
+PO1030_WINDOWHEIGHT_H	,	V_62
+PDEBUG	,	F_3
+i2c_data	,	V_71
+"register 0x%x contains 0x%x\n"	,	L_17
+data	,	V_13
+ver_offs	,	V_56
+dump_sensor	,	V_24
+v4l2_ctrl_new_custom	,	F_13
+V4L2_CID_HFLIP	,	V_50
+priv	,	V_57
+"Set global gain to %d"	,	L_9
+"Could not initialize controls\n"	,	L_5
+PO1030_GLOBALGAIN	,	V_75
+v4l2_ctrl_handler	,	V_25
+PO1030_BLUE_GAIN	,	V_78
+"register 0x%x is read only\n"	,	L_21
+v4l2_ctrl_cluster	,	F_17
+PO1030_RED_GAIN	,	V_77
+v4l2_ctrl	,	V_84
+V4L2_CID_AUTO_WHITE_BALANCE	,	V_31
+M5602_XB_SIG_INI	,	V_67
+"Set blue gain to %d"	,	L_12
+"po1030 register state dump complete\n"	,	L_18
+M5602_XB_LINE_OF_FRAME_H	,	V_65
+cam_mode	,	V_17
+v4l2_ctrl_new_std	,	F_12
+po1030_set_auto_white_balance	,	F_25
+"Probing for a po1030 sensor"	,	L_2
+"Invalid stream command, exiting init\n"	,	L_4
+ctrl_handler	,	V_27
+po1030_set_exposure	,	F_19
+po1030_init_controls	,	F_10
+name	,	V_8
+sensor	,	V_83
+dev_id_h	,	V_2
+"Detected a po1030 sensor\n"	,	L_3
+po1030_set_red_balance	,	F_22
+"Set auto exposure to %d"	,	L_15
+"Set auto white balance to %d"	,	L_14
+"register 0x%x is writeable\n"	,	L_20
+"Set exposure to high byte to 0x%x"	,	L_7
+BRIDGE	,	V_22
+cam	,	V_16
+m5602_write_bridge	,	F_6
+red_bal	,	V_34
+sensor_found	,	V_9
+"Set red gain to %d"	,	L_11
+PO1030_WINDOWWIDTH_L	,	V_61
+PO1030_WINDOWWIDTH_H	,	V_60
+expo	,	V_43
+value	,	V_90
+V4L2_CID_VFLIP	,	V_52
+PO1030_CONTROL3	,	V_59
+PO1030_CONTROL2	,	V_76
+po1030_probe	,	F_1
+po1030_dump_registers	,	F_9
+vdev	,	V_28
+autoexpo	,	V_40
+green_bal	,	V_32
+v4l2_ctrl_auto_cluster	,	F_16
+force_sensor	,	V_5
+po1030_s_ctrl	,	F_28
+hdl	,	V_26
+container_of	,	F_29
+"Probing for which registers that are read/write\n"	,	L_19
+"Set green gain to %d"	,	L_13
+PO1030_GREEN_1_GAIN	,	V_79
+po1030_init	,	F_8
+PO1030_DEVID_H	,	V_15
+PO1030_AUTOCTRL1	,	V_81

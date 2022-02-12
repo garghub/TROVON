@@ -1,0 +1,198 @@
+USB_TRANZPORT_MINOR_BASE	,	V_107
+interrupt_in_urb	,	V_5
+descriptor	,	V_100
+"%s - error, can't find device for minor %d\n"	,	L_9
+usb_get_intfdata	,	F_20
+usb_submit_urb	,	F_10
+usb_tranzport_disconnect	,	F_51
+inode	,	V_34
+dev	,	V_2
+usb_tranzport	,	V_1
+POLLOUT	,	V_61
+"%s - nonzero write interrupt status received: %d\n"	,	L_8
+POLLIN	,	V_59
+"Tranzport Surface #%d now disconnected\n"	,	L_33
+__user	,	T_3
+dev_attr_offline	,	V_9
+"Do something intelligent\n"	,	L_3
+loff_t	,	T_5
+pr_err	,	F_19
+"%s: received: %02x%02x%02x%02x%02x%02x%02x%02x\n"	,	L_4
+GFP_KERNEL	,	V_54
+interrupt_in_interval	,	V_51
+actual_length	,	V_24
+ssize_t	,	T_2
+wake_up_interruptible	,	F_12
+GFP_ATOMIC	,	V_30
+mutex_init	,	F_40
+interrupt_out_buffer	,	V_13
+wmb	,	F_37
+interrupt_out_interval	,	V_82
+usb_tranzport_interrupt_in_callback	,	F_7
+offline	,	V_26
+mutex_unlock	,	F_25
+endpoint	,	V_90
+min	,	F_34
+usb_device_id	,	V_83
+EBUSY	,	V_46
+"usb_submit_urb failed (%d)\n"	,	L_7
+compress_wheel	,	V_53
+"Tranzport Device #%d now attached to major %d minor %d\n"	,	L_32
+SUPPRESS_EXTRA_OFFLINE_EVENTS	,	V_25
+min_interrupt_out_interval	,	V_104
+usb_deregister_dev	,	F_52
+true_size	,	V_92
+device_create_file	,	F_49
+usb_endpoint_is_int_in	,	F_42
+cur_altsetting	,	V_94
+COMPRESS_WHEEL_EVENTS	,	V_68
+le16_to_cpu	,	F_44
+c	,	V_67
+intf	,	V_4
+i	,	V_91
+bEndpointAddress	,	V_49
+ENOENT	,	V_19
+iface_desc	,	V_88
+wait_event_interruptible	,	F_31
+"Couldn't allocate interrupt_in_urb\n"	,	L_27
+USB_MAJOR	,	V_108
+usb_find_interface	,	F_18
+mutex_lock	,	F_17
+POLLRDNORM	,	V_60
+usb_rcvintpipe	,	F_24
+"(using control endpoint instead)\n"	,	L_23
+poll_wait	,	F_29
+open_count	,	V_45
+next_tail	,	V_72
+usb_tranzport_release	,	F_26
+"Couldn't allocate interrupt_in_buffer\n"	,	L_26
+"%s: should compress: "	,	L_15
+tranzport_cmd	,	V_99
+dev_attr_enable	,	V_8
+count	,	V_64
+retval	,	V_17
+write_buffer_size	,	V_79
+bMaxPacketSize0	,	V_101
+oldwheel	,	V_69
+usb_host_interface	,	V_87
+usb_tranzport_class	,	V_105
+"%s: count = %zd, bytes_to_write = %zd\n"	,	L_17
+mutex_lock_interruptible	,	F_21
+bNumEndpoints	,	V_96
+desc	,	V_95
+dbg_info	,	F_8
+bytes_to_write	,	V_78
+unlock_disconnect_exit	,	V_42
+disconnect_mutex	,	V_39
+usb_tranzport_read	,	F_30
+cancompress	,	V_71
+f_flags	,	V_73
+ECONNRESET	,	V_20
+interface	,	V_38
+dev_err	,	F_11
+kzalloc	,	F_39
+"%s: nonzero status received: %d\n"	,	L_1
+usb_tranzport_driver	,	V_40
+kmalloc	,	F_45
+ring_buffer_size	,	V_29
+ERESTARTSYS	,	V_44
+newwheel	,	V_70
+mask	,	V_58
+"Couldn't submit interrupt_out_urb %d\n"	,	L_19
+usb_set_intfdata	,	F_47
+interrupt_out_urb	,	V_7
+nonseekable_open	,	F_15
+interrupt_out_endpoint_size	,	V_80
+wMaxPacketSize	,	V_97
+usb_alloc_urb	,	F_46
+interrupt_in_done	,	V_31
+usb_sndintpipe	,	F_36
+ENOMEM	,	V_93
+"Out of memory\n"	,	L_20
+"Interrupt in endpoint not found\n"	,	L_21
+BUFFERED_READS	,	V_66
+ring_tail	,	V_28
+dev_info	,	F_50
+RING_BUFFER_SIZE	,	V_98
+HZ	,	V_56
+usb_tranzport_interrupt_out_callback	,	F_13
+enable	,	V_52
+init_waitqueue_head	,	F_41
+context	,	V_15
+"Interrupt out endpoint size is not 8!)\n"	,	L_28
+usb_tranzport_delete	,	F_3
+id	,	V_84
+interrupt_out_busy	,	V_6
+usb_tranzport_abort_transfers	,	F_1
+usb_tranzport_write	,	F_33
+usb_tranzport_poll	,	F_28
+usb_device	,	V_85
+__func__	,	V_22
+usb_kill_urb	,	F_2
+cmd	,	V_76
+dev_attr_compress_wheel	,	V_10
+status	,	V_18
+usb_tranzport_probe	,	F_38
+usb_fill_int_urb	,	F_22
+"Couldn't allocate interrupt_out_buffer\n"	,	L_29
+ENODEV	,	V_41
+interrupt_out_endpoint	,	V_81
+wait	,	V_57
+"Write buffer overflow, %zd bytes dropped\n"	,	L_16
+kfree	,	F_6
+private_data	,	V_55
+O_NONBLOCK	,	V_74
+"Urb length was %d bytes!!"	,	L_2
+"Interrupt in endpoint size is not 8!\n"	,	L_24
+bInterval	,	V_103
+usb_interface	,	V_37
+copy_to_user	,	F_32
+file	,	V_35
+"Not able to get a minor for this device.\n"	,	L_31
+next_ring_head	,	V_16
+interrupt_in_endpoint	,	V_48
+"Ring buffer overflow, %d bytes dropped\n"	,	L_6
+urb	,	V_14
+ESHUTDOWN	,	V_21
+EAGAIN	,	V_75
+EFAULT	,	V_77
+ring_buffer	,	V_11
+"Endpoint should not be be null!\n"	,	L_18
+ring_head	,	V_27
+copy_from_user	,	F_35
+wait_event_interruptible_timeout	,	F_27
+minor	,	V_106
+usb_endpoint_descriptor	,	V_89
+size_t	,	T_4
+interrupt_in_buffer	,	V_12
+interrupt_in_endpoint_size	,	V_50
+"Couldn't allocate interrupt_out_urb\n"	,	L_30
+buffer	,	V_63
+unlock_exit	,	V_47
+usb_register_dev	,	F_48
+"%s: copying to userspace: "	,	L_12
+usb_free_urb	,	F_5
+mtx	,	V_43
+"Interrupt out endpoint not found"	,	L_22
+usb_tranzport_open	,	F_14
+iminor	,	F_16
+min_interrupt_in_interval	,	V_102
+udev	,	V_86
+"%s: No device or device unplugged %d\n"	,	L_11
+subminor	,	V_36
+"Couldn't submit interrupt_in_urb %d\n"	,	L_10
+write_wait	,	V_33
+usb_endpoint_is_int_out	,	F_43
+"%s: trying to compress: "	,	L_14
+ppos	,	V_65
+poll_table	,	T_1
+read_wait	,	V_32
+"%02x%02x%02x%02x%02x%02x%02x%02x\n"	,	L_13
+"Couldn't allocate ring_buffer size %d\n"	,	L_25
+dev_warn	,	F_9
+interrupt_in_running	,	V_3
+interface_to_usbdev	,	F_23
+POLLWRNORM	,	V_62
+device_remove_file	,	F_4
+"%s: head, tail are %x, %x\n"	,	L_5
+resubmit	,	V_23

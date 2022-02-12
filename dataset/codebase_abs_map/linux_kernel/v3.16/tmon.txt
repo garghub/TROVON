@@ -1,0 +1,165 @@
+LOG_CONS	,	V_16
+S_IWGRP	,	V_69
+"#\tTP%02d type:%s, temp:%lu\n"	,	L_25
+"TMON needs to be run as root\n"	,	L_32
+usage	,	F_1
+optarg	,	V_52
+echo	,	F_13
+st_mode	,	V_26
+"#---------- THERMAL DATA LOG STARTED -----------\n"	,	L_27
+openlog	,	F_22
+"#thermal zone %s%02d cdevs binding: %32s\n"	,	L_24
+tmon_sig_handler	,	F_18
+yk	,	V_46
+opts	,	V_49
+pthread_mutex_lock	,	F_6
+ptdata	,	V_28
+"TMON caught signal %d\n"	,	L_12
+show_cooling_device	,	F_36
+trip_type_name	,	V_36
+input_lock	,	V_6
+cur_thermal_record	,	V_62
+tmon_log	,	V_4
+cdi	,	V_40
+version	,	F_2
+"ctrl-c, exit and clean up\n"	,	L_15
+show_data_w	,	F_38
+setsid	,	F_49
+tmon_exit	,	V_12
+EXIT_FAILURE	,	V_48
+EXIT_SUCCESS	,	V_2
+LOG_LOCAL0	,	V_19
+logging	,	V_24
+LOG_NOTICE	,	V_20
+CDEV_NAME_SIZE	,	V_53
+pid_out_pct	,	V_65
+"  -d, --daemon          run as daemon, no TUI\n"	,	L_3
+dialogue_on	,	V_61
+"Cannot handle SIGINT\n"	,	L_37
+umask	,	F_48
+free_thermal_data	,	F_17
+initialize_curses	,	F_32
+syslog	,	F_4
+"#----------- THERMAL SYSTEM CONFIG -------------\n"	,	L_23
+sleep	,	F_43
+nr_cooling_dev	,	V_39
+resize_handler	,	V_59
+"target zone is not found, default to %d\n"	,	L_39
+prepare_logging	,	F_24
+close	,	F_51
+S_ISLNK	,	F_26
+"#cooling devices%02d: %s\n"	,	L_26
+no_control	,	V_50
+nocbreak	,	F_14
+stat	,	V_22
+c	,	V_45
+err	,	V_43
+STDOUT_FILENO	,	V_72
+getopt_long	,	F_28
+refresh	,	F_5
+i	,	V_21
+handle_tui_events	,	V_60
+j	,	V_31
+ticktime	,	V_54
+nodelay	,	F_40
+show_sensors_w	,	F_35
+"\ncan't create thread :[%s]"	,	L_38
+closelog	,	F_10
+"Logging data to /var/tmp/tmon.log\n"	,	L_35
+pthread_mutex_init	,	F_30
+"  -c, --control         cooling device in control\n"	,	L_2
+binding_str	,	V_30
+"  -z, --zone            target thermal zone id\n"	,	L_9
+target_thermal_zone	,	V_55
+"tmon.log"	,	L_16
+"/"	,	L_40
+id2	,	V_44
+VERSION	,	V_1
+tp	,	V_37
+pthread_create	,	F_41
+"\n"	,	L_31
+daemon_mode	,	V_66
+"  -l, --log             log data to /var/tmp/tmon.log\n"	,	L_6
+"  -t, --time-interval   sampling time interval, &gt; 1 sec.\n"	,	L_7
+nr_trip_pts	,	V_35
+update_thermal_data	,	F_37
+LOG_INFO	,	V_3
+instance	,	V_34
+start_syslog	,	F_19
+"We don't own the log file.  Not logging\n"	,	L_22
+init_thermal_controller	,	F_39
+keypad	,	F_12
+pid	,	V_68
+"TMON version %s\n"	,	L_10
+event_tid	,	V_5
+LOG_ERR	,	V_15
+pthread_mutex_unlock	,	F_8
+LOG_NDELAY	,	V_18
+"%s%d    "	,	L_29
+pid_t	,	T_1
+"failed to open log file %s\n"	,	L_19
+ctrl_cdev	,	V_51
+set_ctrl_state	,	F_11
+"sigterm, exit and clean up\n"	,	L_13
+disable_tui	,	F_47
+tzi	,	V_32
+"Run TMON in daemon mode\n"	,	L_34
+STDIN_FILENO	,	V_71
+"Log file is a symlink.  Will not log\n"	,	L_21
+trec	,	V_64
+chdir	,	F_50
+geteuid	,	F_27
+stderr	,	V_56
+SIGWINCH	,	V_58
+"%s%d "	,	L_30
+"TMON exit cleanup\n"	,	L_11
+cdev_binding	,	V_33
+getuid	,	F_23
+"Samples TargetTemp "	,	L_28
+show_control_w	,	F_45
+SIGINT	,	V_11
+endwin	,	F_16
+start_daemon_mode	,	F_29
+"w+"	,	L_18
+st_uid	,	V_27
+zone_instance_to_index	,	F_42
+target_tz_index	,	V_47
+show_title_bar	,	F_34
+"  -v, --version         show version\n"	,	L_8
+tmon_cleanup	,	F_3
+"\n mutex init failed, exit\n"	,	L_36
+S_IWOTH	,	V_70
+time_elapsed	,	V_63
+SIGKILL	,	V_10
+"Unable to stat log file %s\n"	,	L_20
+argv	,	V_42
+sid	,	V_67
+stdscr	,	V_7
+sig	,	V_8
+TMON_LOG_FILE	,	V_25
+setup_windows	,	F_33
+SIGTERM	,	V_9
+controller_handler	,	F_44
+STDERR_FILENO	,	V_73
+"  -h, --help            show this help message\n"	,	L_5
+"Usage: tmon [OPTION...]\n"	,	L_1
+argc	,	V_41
+"  -g, --debug           debug message in syslog\n"	,	L_4
+setlogmask	,	F_20
+LOG_UPTO	,	F_21
+temp	,	V_38
+lstat	,	F_25
+"c:dlht:vgz:"	,	L_33
+debug_on	,	V_13
+LOG_PID	,	V_17
+pthread_cancel	,	F_7
+fork	,	F_46
+logstat	,	V_23
+probe_thermal_sysfs	,	F_31
+"sigkill, exit and clean up\n"	,	L_14
+nr_tz_sensor	,	V_29
+"TMON started by User %d"	,	L_17
+LOG_DEBUG	,	V_14
+SIG_ERR	,	V_57
+pthread_mutex_destroy	,	F_9
+close_windows	,	F_15

@@ -1,0 +1,260 @@
+ATH_DEBUG_SEND	,	V_7
+HTC_FLAGS_SEND_BUNDLE	,	V_80
+DO_EP_TX_COMPLETION	,	F_13
+HTCIssueSendBundle	,	F_25
+pktsInBundles	,	V_87
+HTCAsyncSendScatterCompletion	,	F_21
+TxCreditsConsummed	,	V_49
+" Ep %d has %d credits and %d Packets in TX Queue \n"	,	L_33
+"-HTCSendPktsMultiple \n"	,	L_30
+EpCreditDistributionListHead	,	V_28
+Endpoint	,	V_18
+HTC_QUEUE_EMPTY	,	F_2
+SendFlags	,	V_54
+"  Report indicated %d credits to distribute \n"	,	L_37
+DEV_ALLOC_SCATTER_REQ	,	F_27
+Status	,	V_16
+htc_target	,	V_13
+HTC_ENDPOINT_ID	,	T_5
+TxPacketsBundled	,	V_103
+TxQueue	,	V_26
+doDist	,	V_119
+EpTxComplete	,	V_12
+ActualLength	,	V_19
+HTCCheckEndpointTxQueues	,	F_43
+EpTxCompleteMultiple	,	V_6
+A_ASSERT	,	F_23
+HTCSendPkt	,	F_42
+totalPktsInBundle	,	V_73
+pktsToScatter	,	V_68
+pCallerContexts	,	V_65
+htc_endpoint_credit_dist	,	V_112
+TargetCreditSize	,	V_44
+TxCreditsSeek	,	V_47
+EndPoint	,	V_33
+temp2	,	V_101
+"  Flushing TX packet:0x%lX, length:%d, ep:%d tag:0x%X \n"	,	L_39
+"CompleteSentPacket: request failed (status:%d, ep:%d, length:%d creds:%d) \n"	,	L_3
+GetHTCSendPackets	,	F_16
+temp1	,	V_100
+HTCSendPktCompletionHandler	,	F_11
+DEV_FINISH_SCATTER_OPERATION	,	F_22
+result	,	V_89
+min	,	F_26
+HTC_PACKET_QUEUE_TRANSFER_TO_TAIL	,	F_34
+HTC_PACKET_ENQUEUE_TO_HEAD	,	F_32
+"** Send Scatter Request Failed: %d \n"	,	L_16
+Context	,	V_32
+pEPDist	,	V_134
+u8	,	T_1
+packetsInScatterReq	,	V_70
+AsTx	,	V_21
+i	,	V_58
+goodPkts	,	V_94
+HTC_CREDIT_DIST_ACTIVITY_CHANGE	,	V_148
+pPktQueue	,	V_105
+A_ECANCELED	,	V_108
+"-HTCAsyncSendScatterCompletion \n"	,	L_17
+DevSubmitScatterRequest	,	F_30
+Length	,	V_81
+HTCHandle	,	V_104
+FromEndpoint	,	V_117
+"Send Complete"	,	L_4
+UNLOCK_HTC_TX	,	F_10
+HTC_SEND_QUEUE_DROP	,	V_91
+HTC_STOPPING	,	F_41
+TxDropped	,	V_96
+TxCreditsReturned	,	V_123
+"-HTCProcessCreditRpt \n"	,	L_38
+TxIssued	,	V_53
+"-HTCTrySend:  \n"	,	L_27
+HTCFlushEndpoint	,	F_50
+HTCIndicateActivityChange	,	F_51
+HTC_TX_PACKET_TAG_ALL	,	V_132
+" TxCreditsSeek      : %d \n"	,	L_47
+pQueueToIndicate	,	V_4
+TxCreditsNorm	,	V_139
+ATH_DEBUG_ERR	,	V_17
+pPrev	,	V_137
+DistFlags	,	V_138
+pDistItem	,	V_113
+" Not enough credits for ep %d leaving packet in queue..\n"	,	L_12
+CompleteSentPacket	,	F_7
+SeqNo	,	V_55
+htc_endpoint	,	V_1
+" DistFlags          : 0x%X \n"	,	L_42
+NumEntries	,	V_116
+GET_HTC_TARGET_FROM_HANDLE	,	F_38
+DEV_FREE_SCATTER_REQ	,	F_24
+sync	,	V_36
+" TxCreditsPerMaxMsg : %d \n"	,	L_49
+TxQueueDepth	,	V_25
+" TxCreditsToDist    : %d \n"	,	L_50
+HTC_SEND_QUEUE_RESULT	,	T_2
+"+-HTCSendPkt: Enter endPointId: %d, buffer: 0x%lX, length: %d \n"	,	L_31
+HTCProcessCreditRpt	,	F_44
+DoSendCompletion	,	F_1
+HTC_PREPARE_SEND_PKT	,	F_29
+INIT_HTC_PACKET_QUEUE	,	F_5
+sendQueue	,	V_86
+HTCTrySend	,	F_33
+"SYNC"	,	L_6
+TxCreditRptsFromOther	,	V_129
+HTC_EP_ACTIVE	,	V_147
+DevSendPacket	,	F_15
+totalCredits	,	V_118
+TxCreditsToDist	,	V_24
+EndpointID	,	V_120
+" Got head packet:0x%lX , Queue Depth: %d\n"	,	L_9
+AR_DEBUG_PRINTF	,	F_3
+LOCK_HTC_TX	,	F_8
+HTCSendPktsMultiple	,	F_37
+"-GetHTCSendPackets \n"	,	L_14
+DEV_SCATTER_ASYNC	,	V_84
+ENDPOINT_MAX	,	V_107
+A_ERROR	,	V_63
+creditPad	,	V_75
+target	,	V_14
+ITERATE_END	,	V_97
+Credits	,	V_121
+TxCreditSize	,	V_142
+" TxCreditsNorm      : %d \n"	,	L_43
+"+HTCAsyncSendScatterCompletion  TotLen: %d  Entries: %d\n"	,	L_15
+" HTC calling ep %d, send complete multiple callback (%d pkts) \n"	,	L_1
+container	,	V_34
+HTC_PACKET_QUEUE_ITERATE_END	,	V_110
+AR_DEBUG_LVL_CHECK	,	F_49
+HTC_FLAGS_NEED_CREDIT_UPDATE	,	V_51
+sendCompletes	,	V_59
+PktInfo	,	V_20
+ATH_DEBUG_ANY	,	V_135
+"  Endpoint %d got %d credits \n"	,	L_36
+HTC_TX_TAG	,	T_6
+"+GetHTCSendPackets \n"	,	L_8
+"+HTCIssueSendBundle \n"	,	L_18
+HTC_PACKET_QUEUE_DEPTH	,	F_4
+bundlesSent	,	V_72
+"+-HTCIssueSend: transmit length : %d (%s) \n"	,	L_5
+HTCIsEndpointActive	,	F_52
+EpCallBacks	,	V_5
+"-HTCTrySend (busy) \n"	,	L_28
+pScatterReq	,	V_57
+HTC_MIN_HTC_MSGS_TO_BUNDLE	,	V_77
+HTC_PACKET_DEQUEUE	,	F_6
+HTCFlushEndpointTX	,	F_45
+"----------------------------------------------------\n"	,	L_52
+DEV_CALC_SEND_PADDED_LEN	,	F_18
+htc_packet_queue	,	V_3
+pBuffer	,	V_30
+"+HTCTrySend (Queue:0x%lX Depth:%d)\n"	,	L_24
+HTC_DUMP_CREDIT_STATE	,	V_145
+" TxQueueDepth       : %d \n"	,	L_51
+HTC_UNPREPARE_SEND_PKT	,	F_31
+" TxCreditSize       : %d \n"	,	L_48
+HTC_HDR_LENGTH	,	V_31
+CreditsUsed	,	V_22
+TxCreditRpts	,	V_122
+HTC_CREDIT_DIST_SEEK_CREDITS	,	V_48
+pCallersSendQueue	,	V_85
+Id	,	V_8
+TxCreditsFromOther	,	V_128
+TxCreditsFromRx	,	V_124
+HTC_CREDIT_DIST_SEND_COMPLETE	,	V_27
+TxCreditsFromEp0	,	V_126
+status	,	V_35
+creditRemainder	,	V_74
+TxCreditsAssigned	,	V_141
+AR_DEBUG_ASSERT	,	F_39
+"  %d, Adding packet : 0x%lX, len:%d (remaining space:%d) \n"	,	L_21
+pQueue	,	V_39
+pBundlesSent	,	V_66
+" this:0x%lX next:0x%lX prev:0x%lX\n"	,	L_41
+pRpt	,	V_115
+ATH_DEBUG_TRC	,	V_133
+HTCFlushSendPkts	,	F_48
+CompletionStatus	,	V_62
+pEPList	,	V_143
+ENDPOINT_0	,	V_46
+"   pkts to scatter: %d \n"	,	L_20
+pContext	,	V_9
+HTC_PACKET_QUEUE_ITERATE_ALLOW_REMOVE	,	F_40
+"Dump State"	,	L_53
+Completion	,	V_15
+LocalConnectionFlags	,	V_78
+pTotalBundlesPkts	,	V_67
+CreditDist	,	V_23
+TxCreditsPerMaxMsg	,	V_50
+Tag	,	V_130
+queue	,	V_111
+" Endpoint %d, TX queue will overflow :%d , Tx Depth:%d, Max:%d \n"	,	L_25
+" TxCreditsMin       : %d \n"	,	L_44
+pHTCReserved	,	V_114
+"Seek Credits"	,	L_11
+A_NO_RESOURCE	,	V_109
+"-HTCCheckEndpointTxQueues \n"	,	L_34
+overflow	,	V_88
+u32	,	V_37
+hif_scatter_req	,	V_56
+TxCreditRptsFromEp0	,	V_127
+DEV_SCATTER_WRITE	,	V_83
+DEV_GET_MAX_BUNDLE_SEND_LENGTH	,	F_28
+scatterSpaceRemaining	,	V_69
+HTC_HANDLE	,	T_3
+"-HTCIssueSendBundle (sent:%d) \n"	,	L_23
+"+HTCProcessCreditRpt, Credit Report Entries:%d \n"	,	L_35
+HTCIssueSend	,	F_14
+"   No more scatter resources \n"	,	L_19
+Device	,	V_38
+HTC_SEND_FULL_DROP	,	V_95
+"--- EP : %d  ServiceID: 0x%X    --------------\n"	,	L_40
+TxCreditsMin	,	V_140
+INIT_HTC_PACKET_QUEUE_AND_ADD	,	F_12
+creditsRequired	,	V_40
+CompletionRoutine	,	V_82
+done	,	V_71
+TxBundles	,	V_102
+TxCreditRptsFromRx	,	V_125
+ServiceID	,	V_136
+Active	,	V_146
+pEndpoint	,	V_2
+HTC_SEND_QUEUE_OK	,	V_90
+" TxCredits          : %d \n"	,	L_45
+"+HTCSendPktsMultiple: Queue: 0x%lX, Pkts %d \n"	,	L_29
+HTC_PACKET_ENQUEUE	,	F_20
+HTC_GET_PKT_AT_HEAD	,	F_17
+ScatterList	,	V_64
+EpSendFull	,	V_93
+pNext	,	V_29
+MaxMsgPerBundle	,	V_76
+DumpCreditDistStates	,	F_47
+" Creds Required:%d   Got:%d\n"	,	L_10
+ValidScatterEntries	,	V_61
+transferLength	,	V_43
+A_EINVAL	,	V_106
+"ASYNC"	,	L_7
+" Host Needs Credits  \n"	,	L_13
+DumpCreditDist	,	F_46
+" Send Scatter total bytes: %d , entries: %d\n"	,	L_22
+HTC_CREDIT_REPORT	,	T_4
+pPacket	,	V_11
+discardQueue	,	V_131
+ITERATE_OVER_LIST_ALLOW_REMOVE	,	F_35
+TxCredits	,	V_45
+TotalLength	,	V_60
+TxProcessCount	,	V_98
+"Activity Change"	,	L_54
+sendFlags	,	V_42
+INC_HTC_EP_STAT	,	F_19
+DistributeCredits	,	V_144
+" HTC calling ep %d send complete callback on packet 0x%lX \n"	,	L_2
+htc_packet	,	V_10
+TxCreditLowIndications	,	V_52
+"+HTCCheckEndpointTxQueues \n"	,	L_32
+HTC_LOCAL_CONN_FLAGS_ENABLE_SEND_BUNDLE_PADDING	,	V_79
+MaxTxQueueDepth	,	V_92
+" Indicating overflowed TX packet: 0x%lX \n"	,	L_26
+DO_DISTRIBUTION	,	F_9
+remainder	,	V_41
+SendBundlingEnabled	,	V_99
+" TxCreditsAssigned  : %d \n"	,	L_46
+HTC_PACKET_REMOVE	,	F_36

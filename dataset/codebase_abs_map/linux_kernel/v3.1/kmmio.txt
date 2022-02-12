@@ -1,0 +1,156 @@
+faultpage	,	V_31
+pr_debug	,	F_26
+release_list	,	V_49
+EEXIST	,	V_54
+saved_flags	,	V_38
+kmmio_lock	,	V_46
+pmd	,	V_13
+kmmio_probe	,	V_5
+"recursive probe hit on CPU %d, for address 0x%08lx. Ignoring.\n"	,	L_9
+list_empty	,	F_60
+register_kmmio_probe	,	F_42
+NOTIFY_STOP	,	V_74
+kmmio_die_notifier	,	F_53
+len	,	V_8
+put_cpu_var	,	F_30
+post_handler	,	V_45
+die_args	,	V_68
+PAGE_MASK	,	V_12
+val	,	V_67
+preempt_enable_no_resched	,	F_32
+fpage	,	V_36
+kmmio_cleanup	,	F_58
+old	,	V_15
+ctx	,	V_30
+"unexpected page level 0x%x.\n"	,	L_2
+kmmio_init	,	F_55
+active	,	V_34
+no_kmmio_ctx	,	V_35
+X86_EFLAGS_IF	,	V_41
+get_kmmio_fault_page	,	F_5
+KMMIO_PAGE_TABLE_SIZE	,	V_77
+pre_handler	,	V_42
+nb_die	,	V_78
+size	,	V_52
+arm_kmmio_fault_page	,	F_18
+PAGE_SIZE	,	V_57
+pr_err	,	F_16
+list_del_rcu	,	F_48
+KMMIO_PAGE_HASH_BITS	,	V_4
+WARN_ONCE	,	F_19
+"previous hit was at 0x%08lx.\n"	,	L_10
+__pmd	,	F_9
+add_kmmio_fault_page	,	F_37
+preempt_disable	,	F_23
+kfree	,	F_39
+flags	,	V_39
+pteval_t	,	T_4
+PG_LEVEL_4K	,	V_22
+GFP_ATOMIC	,	V_47
+"unexpected secondary hit for address 0x%08lx on CPU %d.\n"	,	L_8
+unregister_die_notifier	,	F_59
+out	,	V_44
+arg	,	V_69
+X86_EFLAGS_TF	,	V_40
+pr_crit	,	F_52
+pmd_t	,	T_1
+err	,	V_71
+"kmmio_page_table not empty at cleanup, any further tracing will leak memory.\n"	,	L_14
+pr_info	,	F_28
+rcu	,	V_61
+register_die_notifier	,	F_57
+f	,	V_11
+__pte	,	F_13
+rcu_read_lock	,	F_24
+rcu_free_kmmio_fault_pages	,	F_45
+i	,	V_76
+regs	,	V_28
+remove_kmmio_fault_pages	,	F_47
+old_presence	,	V_21
+kmmio_ctx	,	V_33
+pr_warning	,	F_20
+p	,	V_7
+set_pte_atomic	,	F_12
+get_cpu_var	,	F_25
+post_kmmio_handler	,	F_33
+v	,	V_16
+armed	,	V_24
+list_for_each_entry_rcu	,	F_4
+smp_processor_id	,	F_27
+notifier_block	,	V_65
+no_kmmio	,	V_32
+hash_long	,	F_2
+"no pte for page 0x%08lx\n"	,	L_1
+ERR_PTR	,	F_54
+pmd_val	,	F_7
+__flush_tlb_one	,	F_17
+get_kmmio_probe	,	F_3
+NOTIFY_DONE	,	V_75
+lookup_address	,	F_15
+clear_pte_presence	,	F_10
+PG_LEVEL_2M	,	V_20
+"kmmio disarming 0x%08lx failed.\n"	,	L_6
+dr	,	V_60
+INIT_LIST_HEAD	,	F_56
+clear_page_presence	,	F_14
+release_kmmio_fault_page	,	F_41
+kmmio_page_list	,	F_1
+ret	,	V_23
+level	,	V_19
+pt_regs	,	V_27
+count	,	V_25
+pte_val	,	F_11
+DR_STEP	,	V_73
+list	,	V_48
+_PAGE_PRESENT	,	V_17
+disarm_kmmio_fault_page	,	F_21
+spin_unlock_irqrestore	,	F_44
+condition	,	V_43
+kmmio_probes	,	V_56
+nb	,	V_66
+spin_lock_irqsave	,	F_43
+kmmio_delayed_release	,	V_59
+call_rcu	,	F_49
+scheduled_for_release	,	V_50
+rcu_head	,	V_58
+page	,	V_2
+next	,	V_62
+prevp	,	V_63
+BUG_ON	,	F_36
+kmmio_fault_page	,	V_9
+"arming 0x%08lx failed.\n"	,	L_5
+"double-arm: page 0x%08lx, ref %d, old %d\n"	,	L_4
+kmmio_page_table	,	V_3
+"secondary hit for 0x%08lx CPU %d.\n"	,	L_7
+head	,	V_10
+kmmio_handler	,	F_22
+size_lim	,	V_53
+kzalloc	,	F_38
+drelease	,	V_64
+"Unable to set page fault.\n"	,	L_12
+kmalloc	,	F_51
+clear_pmd_presence	,	F_6
+spin_lock	,	F_34
+addr	,	V_6
+"unexpected debug trap on CPU %d.\n"	,	L_11
+pr_emerg	,	F_29
+"leaking kmmio_fault_page objects.\n"	,	L_13
+pte	,	V_18
+list_head	,	V_1
+rcu_read_unlock	,	F_31
+clear	,	V_14
+spin_unlock	,	F_35
+dr6_p	,	V_70
+"kmmio page already armed.\n"	,	L_3
+probe	,	V_37
+kmmio_count	,	V_55
+container_of	,	F_46
+pmdval_t	,	T_2
+release_next	,	V_51
+pte_t	,	T_3
+KERN_ERR	,	V_26
+kmmio_context	,	V_29
+DIE_DEBUG	,	V_72
+list_add_rcu	,	F_40
+unregister_kmmio_probe	,	F_50
+set_pmd	,	F_8

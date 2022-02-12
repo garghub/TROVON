@@ -1,0 +1,55 @@
+kvm_vcpu	,	V_1
+handle_hvc	,	F_4
+run	,	V_4
+kvm_debug	,	F_2
+vcpu_pc	,	F_6
+ARM_EXCEPTION_IRQ	,	V_11
+hsr_ec	,	V_7
+"Data Abort taken from Hyp mode at %#08lx (HSR: %#08x)\n"	,	L_3
+kvm_vcpu_trap_get_class	,	F_21
+ARM_EXCEPTION_UNDEFINED	,	V_12
+ARRAY_SIZE	,	F_22
+exit_handle_fn	,	T_1
+kvm_vcpu_block	,	F_19
+ARM_EXCEPTION_PREF_ABORT	,	V_14
+handle_exit	,	F_23
+"Undefined exception in Hyp mode at: %#08lx\n"	,	L_5
+kvm_pr_unimpl	,	F_29
+"Prefetch Abort taken from Hyp mode at %#08lx (HSR: %#08x)\n"	,	L_2
+panic	,	F_25
+kvm_vcpu_get_hsr	,	F_15
+handle_dabt_hyp	,	F_16
+kvm_vcpu_hvc_get_imm	,	F_8
+exception_index	,	V_9
+handle_pabt_hyp	,	F_12
+kvm_vcpu_get_hyp_pc	,	F_24
+"Unsupported exception type: %d"	,	L_7
+ARM_EXCEPTION_HVC	,	V_15
+vcpu	,	V_2
+kvm_err	,	F_13
+handle_smc	,	F_11
+handle_svc_hyp	,	F_1
+kvm_get_exit_handler	,	F_20
+BUG	,	F_3
+kvm_vcpu_get_hfar	,	F_14
+vcpu_reg	,	F_7
+"Unknown exception class: hsr: %#08x\n"	,	L_4
+arm_exit_handlers	,	V_8
+ARM_EXCEPTION_DATA_ABORT	,	V_13
+kvm_vcpu_trap_il_is32bit	,	F_28
+u8	,	T_2
+trace_kvm_hvc	,	F_5
+kvm_condition_valid	,	F_26
+"KVM: Hypervisor undefined exception!\n"	,	L_6
+kvm_psci_call	,	F_9
+EFAULT	,	V_6
+kvm_run	,	V_3
+exit_handler	,	V_10
+EINVAL	,	V_5
+"SVC called from Hyp mode shouldn't go here\n"	,	L_1
+exit_reason	,	V_16
+kvm_inject_undefined	,	F_10
+KVM_EXIT_INTERNAL_ERROR	,	V_17
+kvm_handle_wfi	,	F_17
+kvm_skip_instr	,	F_27
+trace_kvm_wfi	,	F_18

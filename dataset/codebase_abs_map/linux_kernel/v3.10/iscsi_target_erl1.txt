@@ -1,0 +1,330 @@
+seq_send_order	,	V_60
+" 0x%08x\n\n"	,	L_12
+ISTATE_SEND_STATUS_RECOVERY	,	V_96
+ISCSI_LOGOUT_REASON_CLOSE_SESSION	,	V_153
+seq_complete	,	V_166
+sess	,	V_16
+prev	,	V_126
+batch_count	,	V_159
+" StatSN, ignoring.\n"	,	L_38
+ISCSI_OP_SCSI_TMFUNC	,	V_148
+sent_r2t	,	V_34
+cmdsn_mutex	,	V_128
+iscsi_session	,	V_122
+transport_state	,	V_77
+data_sn_count	,	V_49
+iov	,	V_15
+"Received Data ACK SNACK for ITT: 0x%08x,"	,	L_47
+iscsit_set_dataout_sequence_values	,	F_54
+"ITT: 0x%08x, Data SNACK requesting"	,	L_26
+"Cannot perform out of order execution for"	,	L_55
+DMA_FROM_DEVICE	,	V_88
+"Stopped DataOUT Timer for ITT: 0x%08x\n"	,	L_71
+"Found sequence begrun: 0x%08x in"	,	L_15
+iscsi_pdu	,	V_71
+read_data_done	,	V_55
+" a protactic SNACK for an untransmitted"	,	L_41
+" protocol error.\n"	,	L_6
+iscsi_conn	,	V_1
+last_statsn	,	V_89
+i_state	,	V_83
+ICF_OOO_CMDSN	,	V_136
+" completion of %sDataOUT Sequence Offset: %u, Length: %u\n"	,	L_65
+init_task_tag	,	V_42
+deferred_i_state	,	V_132
+size	,	V_13
+se_cmd	,	V_76
+iscsit_handle_ooo_cmdsn	,	F_62
+" retransmission of R2TSN: 0x%08x to 0x%08x but already"	,	L_4
+pr_err	,	F_3
+"Unable to recover from DataOut timeout while"	,	L_60
+"Ignoring non-sent sequence 0x%08x -&gt;"	,	L_11
+ISTATE_SEND_STATUS	,	V_141
+iscsit_get_seq_holder	,	F_30
+""	,	L_67
+"struct iscsi_cmd-&gt;seq_list is NULL!\n"	,	L_10
+rx_got	,	V_9
+iscsit_logout_closesession	,	F_58
+"Updated DataOUT timer for ITT: 0x%08x"	,	L_68
+first_datasn	,	V_67
+iscsit_create_recovery_datain_values_datasequenceinorder_no	,	F_14
+GFP_ATOMIC	,	V_20
+iscsit_dataout_datapduinorder_no_fbit	,	F_28
+iscsit_stop_dataout_timer	,	F_75
+iscsit_clear_ooo_cmdsns_for_conn	,	F_45
+mutex_unlock	,	F_47
+iov_base	,	V_22
+pad_bytes	,	V_6
+iscsi_datain_req	,	V_46
+"ITT: 0x%08x, Begrun: 0x%08x"	,	L_18
+" %hu.\n"	,	L_34
+iscsit_free_all_ooo_cmdsns	,	F_61
+iscsit_recalculate_dataout_values	,	F_29
+"Starting DataOUT timer for ITT: 0x%08x on"	,	L_69
+" 0x%08x -&gt; 0x%08x\n"	,	L_16
+"ITT: 0x%08x Data ACK SNACK BegRUN: 0x%08x is"	,	L_45
+seq	,	V_63
+typeof	,	F_39
+ISCSI_OP_TEXT	,	V_147
+" DataSequenceInOrder=No and DataPDUInOrder=%s.\n"	,	L_22
+iscsi_node_attrib	,	V_168
+pdu_start	,	V_50
+MaxRecvDataSegmentLength	,	V_53
+data_direction	,	V_86
+i	,	V_59
+j	,	V_70
+runlength	,	V_37
+"Unknown cmd-&gt;data_direction: 0x%02x\n"	,	L_31
+cmd_flags	,	V_39
+buf	,	V_5
+r2t	,	V_32
+" less than the already acked DataSN: 0x%08x.\n"	,	L_46
+mutex_lock	,	F_46
+" acked to  R2TSN: 0x%08x by TMR TASK_REASSIGN,"	,	L_5
+transport_check_aborted_status	,	F_51
+"Ignoring Status SNACK for BegRun:"	,	L_39
+CMDSN_HIGHER_THAN_EXP	,	V_161
+orig_offset	,	V_114
+found_cmd	,	V_90
+r2t_offset	,	V_107
+ooo_cmdsn	,	V_119
+get_jiffies_64	,	F_72
+DATAOUT_WITHIN_COMMAND_RECOVERY	,	V_8
+r2t_length	,	V_108
+r2t_lock	,	V_33
+DataSequenceInOrder	,	V_99
+dr	,	V_47
+ooo	,	V_134
+" a Status SNACK, assuming this was a"	,	L_36
+INIT_LIST_HEAD	,	F_34
+iscsit_handle_recovery_datain_or_r2t	,	F_19
+DataDigest	,	V_26
+"Unsolicited "	,	L_66
+pdu_list	,	V_74
+DATAOUT_NORMAL	,	V_104
+FirstBurstLength	,	V_162
+sess_ops	,	V_17
+cmd_sn	,	V_133
+ret	,	V_7
+found_seq	,	V_58
+"Data ACK SNACK for TTT: 0x%08x is"	,	L_43
+iscsit_get_holder_for_r2tsn	,	F_12
+ISCSI_PDU_RECEIVED_OK	,	V_102
+ISCSI_CRC_LEN	,	V_28
+" but first_seq is NULL\n"	,	L_19
+add_timer	,	F_74
+" BegRun: 0x%08x, RunLength: 0x%08x while"	,	L_21
+unsolicited_data	,	V_112
+batch	,	V_156
+RDMAExtensions	,	V_18
+" retransmission of DataSN: 0x%08x to 0x%08x but"	,	L_27
+iscsit_add_cmd_to_immediate_queue	,	F_9
+ICF_GOT_LAST_DATAOUT	,	V_142
+immediate_data	,	V_115
+iscsi_opcode	,	V_137
+pdu_count	,	V_73
+cmdsn	,	V_127
+init_timer	,	F_73
+rx_data	,	F_4
+failure	,	V_175
+logout_reason	,	V_152
+ooo_count	,	V_129
+transport_generic_handle_tmr	,	F_57
+next_burst_len	,	V_52
+cid	,	V_92
+"cmd-&gt;cmd_r2t_list is empty!\n"	,	L_57
+iscsit_logout_closeconnection	,	F_59
+expires	,	V_180
+conn_ops	,	V_25
+stat_sn	,	V_93
+"Unable to allocate memory for"	,	L_49
+list_del	,	F_43
+kzalloc	,	F_2
+DataPDUInOrder	,	V_56
+dataout_timeout_retries	,	V_176
+seq_count	,	V_65
+iscsit_add_reject_from_cmd	,	F_11
+se_tmr_req	,	V_149
+iscsit_cause_connection_reinstatement	,	F_69
+ooo_tmp	,	V_124
+"Initiator requesting BegRun: 0x%08x, RunLength"	,	L_29
+transport_send_check_condition_and_sense	,	F_52
+data_length	,	V_163
+length	,	V_10
+ICF_WITHIN_COMMAND_RECOVERY	,	V_117
+spin_unlock_bh	,	F_8
+DATAOUT_CANNOT_RECOVER	,	V_23
+" 0x%02x\n"	,	L_54
+"No"	,	L_24
+DATAOUT_SEQUENCE_WITHIN_COMMAND_RECOVERY	,	V_116
+" sequences for ITT: 0x%08x.\n"	,	L_59
+list_entry	,	F_38
+iscsi_cmd	,	V_29
+"Pre BegRun sequence 0x%08x -&gt;"	,	L_13
+pdu_offset	,	V_105
+ISTATE_SEND_DATAIN	,	V_84
+pdu	,	V_72
+pr_debug	,	F_25
+first_pdu	,	V_98
+iscsit_set_dataout_timeout_values	,	F_63
+iscsit_mod_dataout_timer	,	F_70
+conn	,	V_2
+iscsit_allocate_datain_req	,	F_16
+ooo_list	,	V_121
+iscsit_send_recovery_r2t_for_snack	,	F_6
+": 0x%08x greater than maximum DataSN: 0x%08x.\n"	,	L_30
+lio_ooo_cache	,	V_120
+iscsit_find_cmd_from_ttt	,	F_24
+list_empty	,	F_36
+ErrorRecoveryLevel	,	V_174
+iscsit_attach_datain_req	,	F_17
+HZ	,	V_179
+" unknown iSCSI Opcode: 0x%02x\n"	,	L_56
+" in ERL=0.\n"	,	L_61
+data_sn	,	V_48
+sense_reason	,	V_139
+data_crc	,	V_27
+OFFLOAD_BUF_SIZE	,	V_19
+DMA_TO_DEVICE	,	V_87
+" 0x%08x, RunLength: 0x%08x, assuming this was"	,	L_40
+ISTATE_DEFERRED_CMD	,	V_157
+dataout_timer	,	V_177
+del_timer_sync	,	F_76
+list_for_each_entry_safe	,	F_49
+seq_ptr	,	V_100
+iscsit_handle_dataout_timeout	,	F_64
+generate_recovery_values	,	V_80
+cmd_r2t_list	,	V_164
+iscsit_tpg_get_node_attrib	,	F_67
+ISCSI_OP_LOGOUT	,	V_151
+iscsit_start_dataout_timer	,	F_68
+last_r2tsn	,	V_38
+cmd	,	V_30
+dump_padding_digest	,	V_4
+cmd_lock	,	V_94
+targ_xfer_tag	,	V_85
+status	,	V_101
+seq_list	,	V_64
+kfree	,	F_5
+list_add_tail	,	F_37
+out	,	V_24
+CMDSN_ERROR_CANNOT_RECOVER	,	V_158
+ooo_tail	,	V_123
+"Yes"	,	L_23
+"Ignoring ITT: 0x%08x Data SNACK\n"	,	L_25
+"Unable to find StatSN: 0x%08x for"	,	L_35
+" buffer.\n"	,	L_2
+write_data_done	,	V_109
+"Post BegRun sequence 0x%08x -&gt; 0x%08x\n"	,	L_17
+"Command ITT: 0x%08x received R2T SNACK"	,	L_7
+iscsit_allocate_ooo_cmdsn	,	F_32
+iscsit_inc_conn_usage_count	,	F_65
+ISCSI_LOGOUT_REASON_CLOSE_CONNECTION	,	V_154
+iscsit_add_cmd_to_response_queue	,	F_18
+"Unknown iSCSI Logout Request Code:"	,	L_53
+ISTATE_SEND_R2T	,	V_35
+iscsit_recover_dataout_sequence	,	F_31
+ISCSI_LOGOUT_REASON_RECOVERY	,	V_155
+r2t_sn	,	V_44
+iscsit_execute_ooo_cmdsns	,	F_48
+"Unable to allocate %u bytes for offload"	,	L_1
+exp_cmdsn	,	V_160
+kvec	,	V_14
+istate_lock	,	V_95
+transport_handle_cdb_direct	,	F_56
+first_burst_len	,	V_113
+" for DataOUT timeout %u, closing iSCSI connection.\n"	,	L_63
+iscsit_dump_data_payload	,	F_1
+begrun	,	V_36
+acked_data_sn	,	V_41
+"Unable to locate any incomplete DataOUT"	,	L_58
+data	,	V_167
+lr	,	V_135
+" StatSN\n"	,	L_42
+ICF_GOT_DATACK_SNACK	,	V_40
+"ITT: 0x%08x, R2T SNACK requesting"	,	L_3
+iscsit_add_r2t_to_list	,	F_27
+" 0x%08x\n"	,	L_14
+ISCSI_OP_SCSI_CMD	,	V_138
+u32	,	T_1
+function	,	V_181
+ISCSI_REASON_PROTOCOL_ERROR	,	V_43
+DATAIN_WITHIN_COMMAND_RECOVERY	,	V_82
+" updated acked DataSN to 0x%08x.\n"	,	L_48
+seq_no	,	V_51
+itt_t	,	T_2
+pdu_length	,	V_106
+iscsit_handle_r2t_snack	,	F_10
+first_seq	,	V_62
+sess_ooo_cmdsn_list	,	V_125
+iscsit_create_recovery_datain_values_datasequenceinorder_yes	,	F_13
+offset	,	V_12
+iscsit_handle_recovery_datain	,	F_15
+kmem_cache_zalloc	,	F_33
+"Got Status SNACK Begrun: 0x%08x, RunLength:"	,	L_32
+iscsit_handle_status_snack	,	F_21
+sent	,	V_66
+done	,	V_75
+recovery_r2t	,	V_165
+mod_timer	,	F_71
+iscsi_sna_lt	,	F_40
+na	,	V_169
+pdu_send_order	,	V_57
+" current R2TSN: 0x%08x, protocol error.\n"	,	L_9
+" already acked to DataSN: 0x%08x by Data ACK SNACK,"	,	L_28
+iscsi_r2t	,	V_31
+" CID: %hu.\n"	,	L_70
+iscsi_ooo_cmdsn	,	V_118
+list_add	,	F_41
+dataout_timer_flags	,	V_171
+iscsit_dec_conn_usage_count	,	F_66
+list_for_each_entry	,	F_22
+ISCSI_TF_RUNNING	,	V_173
+ooo_cmdsn_tmp	,	V_130
+TCM_RESERVATION_CONFLICT	,	V_140
+iscsit_attach_ooo_cmdsn	,	F_35
+"Executing out of order CmdSN: 0x%08x,"	,	L_51
+recovery	,	V_81
+MaxBurstLength	,	V_54
+ISCSI_TF_STOP	,	V_172
+iscsit_handle_data_ack	,	F_23
+seq_end_offset	,	V_110
+iscsit_logout_removeconnforrecovery	,	F_60
+ISCSI_OP_NOOP_OUT	,	V_146
+kmem_cache_free	,	F_44
+"Command ITT: 0x%08x exceeded max retries"	,	L_62
+" struct iscsi_ooo_cmdsn.\n"	,	L_50
+buf_len	,	V_3
+ISCSI_REASON_BOOKMARK_INVALID	,	V_45
+iscsi_seq	,	V_61
+ICF_NON_IMMEDIATE_UNSOLICITED_DATA	,	V_143
+iscsit_set_unsoliticed_dataout	,	F_55
+exp_statsn	,	V_91
+iscsit_find_cmd_from_itt	,	F_20
+target_execute_cmd	,	F_53
+padding	,	V_11
+ISCSI_PDU_NOT_RECEIVED	,	V_103
+" invalid.\n"	,	L_44
+xfer_len	,	V_69
+conn_transport	,	V_144
+iov_len	,	V_21
+CMD_T_COMPLETE	,	V_78
+" protactic SNACK for an untransmitted"	,	L_37
+"Command ITT: 0x%08x timed out waiting for"	,	L_64
+"Unable to locate struct iscsi_seq for ITT: 0x%08x,"	,	L_20
+" 0x%08x but already got ExpStatSN: 0x%08x on CID:"	,	L_33
+ISCSI_REASON_BOOKMARK_NO_RESOURCES	,	V_79
+send_recovery_r2t	,	V_97
+dataout_timeout	,	V_178
+dataout_timeout_lock	,	V_170
+iscsit_remove_ooo_cmdsn	,	F_42
+iscsit_execute_cmd	,	F_50
+response	,	V_150
+" with BegRun: 0x%08x, RunLength: 0x%08x, exceeds"	,	L_8
+iscsit_get_dataout	,	V_145
+seq_start_offset	,	V_111
+last_datasn	,	V_68
+iscsit_send_recovery_r2t	,	F_26
+" incremented ExpCmdSN to 0x%08x.\n"	,	L_52
+exp_cmd_sn	,	V_131
+spin_lock_bh	,	F_7

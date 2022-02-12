@@ -1,0 +1,139 @@
+csr	,	V_6
+RGF_ICR	,	V_8
+n_msi	,	V_66
+"Thread IRQ\n"	,	L_20
+envp	,	V_35
+"ISR TX 0x%08x\n"	,	L_6
+wil_ioread32_and_clear	,	F_3
+dev	,	V_34
+imv_misc	,	V_55
+wil6210_unmask_irq_pseudo	,	F_16
+wil6210_unmask_irq_tx	,	F_13
+cookie	,	V_24
+"Pseudo IRQ 0x%08x\n"	,	L_25
+"MBOX event\n"	,	L_18
+request_irq	,	F_37
+WIL6210_IRQ_PSEUDO_MASK	,	V_20
+"Misc icm:icr:imv 0x%08x 0x%08x 0x%08x\n"	,	L_24
+"%s()\n"	,	L_1
+wil_icr_clear	,	F_1
+IRQ_HANDLED	,	V_29
+rc	,	V_57
+wil6210_irq_misc_thread	,	F_30
+__func__	,	V_12
+wil6210_thread_irq	,	F_32
+device	,	V_33
+status	,	V_15
+wil6210_irq_tx	,	F_23
+IRQ_NONE	,	V_27
+wil6210_hardirq	,	F_35
+free_irq	,	F_39
+ISR_MISC_FW_READY	,	V_40
+test_bit	,	F_34
+wil6210_debug_irq_mask	,	F_33
+BIT_DMA_EP_RX_ICR_RX_DONE	,	V_28
+wil_tx_complete	,	F_25
+ISR_MISC_FW_ERROR	,	V_38
+"IRQ: FW ready\n"	,	L_16
+HOSTADDR	,	F_6
+"un-handled MISC ISR bits 0x%08x\n"	,	L_19
+offsetof	,	F_7
+icr_tx	,	V_51
+wil6210_mask_irq_pseudo	,	F_10
+clear_bit	,	F_12
+icm_tx	,	V_50
+ICC	,	V_22
+irq	,	V_23
+i	,	V_31
+icr_misc	,	V_54
+wil6210_irq_misc	,	F_29
+uint	,	T_4
+ioread32	,	F_4
+WIL6210_IMC_RX	,	V_18
+EINVAL	,	V_56
+"spurious IRQ: RX\n"	,	L_3
+ICM	,	V_46
+imv_tx	,	V_52
+IRQ_WAKE_THREAD	,	V_42
+"EVENT=FW_ERROR"	,	L_12
+x	,	V_1
+wil_status_irqen	,	V_14
+ICR	,	V_26
+wil6210_irq_rx	,	F_20
+__iomem	,	T_2
+"un-handled RX ISR bits 0x%08x\n"	,	L_5
+isr	,	V_25
+"_tx"	,	L_26
+wil6210_mask_irq_tx	,	F_5
+BIT_DMA_PSEUDO_CAUSE_MISC	,	V_61
+ISR_MISC_MBOX_EVT	,	V_43
+RGF_DMA_PSEUDO_CAUSE_MASK_SW	,	V_13
+pseudo_cause	,	V_44
+"spurious IRQ: TX\n"	,	L_7
+u32	,	T_1
+free0	,	V_64
+"spurious IRQ: MISC\n"	,	L_14
+free1	,	V_65
+icr_rx	,	V_47
+"IRQ: Firmware error\n"	,	L_15
+WIL6210_IMC_MISC	,	V_19
+KOBJ_CHANGE	,	V_37
+IMC	,	V_17
+kobj	,	V_36
+icm_rx	,	V_45
+BIT_DMA_PSEUDO_CAUSE_TX	,	V_60
+"ISR MISC 0x%08x\n"	,	L_13
+iowrite32	,	F_2
+"un-handled TX ISR bits 0x%08x\n"	,	L_10
+wil_status_fwready	,	V_39
+wil6210_init_irq	,	F_40
+IMS	,	V_9
+BIT_DMA_EP_TX_ICR_TX_DONE_N	,	F_24
+"TX done\n"	,	L_8
+wil_notify_fw_error	,	F_26
+imv_rx	,	V_48
+WIL6210_IMC_TX	,	V_16
+wil_dbg_irq	,	F_11
+IMV	,	V_49
+RGF_DMA_EP_RX_ICR	,	V_10
+wil6210_unmask_irq_misc	,	F_15
+kobject_uevent_env	,	F_28
+"_misc"	,	L_28
+"ISR RX 0x%08x\n"	,	L_2
+"IRQ when it should be masked: pseudo 0x%08x\n"	,	L_21
+"Rx   icm:icr:imv 0x%08x 0x%08x 0x%08x\n"	,	L_22
+wil_to_ndev	,	F_27
+wil6210_fini_irq	,	F_41
+"Tx   icm:icr:imv 0x%08x 0x%08x 0x%08x\n"	,	L_23
+RGF_DMA_EP_TX_ICR	,	V_7
+wil6210_enable_irq	,	F_19
+wil6210_priv	,	V_3
+icm_misc	,	V_53
+WIL_NAME	,	V_63
+wil6210_mask_irq_rx	,	F_8
+wil_err	,	F_21
+wil6210_request_3msi	,	F_36
+IRQF_SHARED	,	V_62
+"TX done(%i)\n"	,	L_9
+"Thread ISR MISC 0x%08x\n"	,	L_17
+wil	,	V_4
+addr	,	V_2
+mask	,	V_32
+wmi_recv_cmd	,	F_31
+WIL_ICR_ICC_VALUE	,	V_21
+BIT_DMA_PSEUDO_CAUSE_RX	,	V_59
+set_bit	,	F_17
+wil6210_unmask_irq_rx	,	F_14
+wil_rx_handle	,	F_22
+irqreturn_t	,	T_3
+"SOURCE=wil6210"	,	L_11
+RGF_DMA_EP_MISC_ICR	,	V_11
+wil6210_mask_irq_misc	,	F_9
+"_rx"	,	L_27
+request_threaded_irq	,	F_38
+wil6210_disable_irq	,	F_18
+BIT_DMA_EP_TX_ICR_TX_DONE	,	V_30
+RGF_DMA_PSEUDO_CAUSE	,	V_58
+WIL6210_IRQ_DISABLE	,	V_5
+isr_misc	,	V_41
+"RX done\n"	,	L_4

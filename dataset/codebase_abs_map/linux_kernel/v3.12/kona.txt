@@ -1,0 +1,29 @@
+SECWDOG_SRSTEN_MASK	,	V_12
+watchdog_base	,	V_3
+SECWDOG_WD_LOAD_FLAG_MASK	,	V_10
+SECWDOG_RESERVED_MASK	,	V_9
+device_node	,	V_1
+mode	,	V_5
+SECWDOG_EN_MASK	,	V_11
+of_find_compatible_node	,	F_2
+"brcm,kona-wdt"	,	L_1
+"failed to map watchdog base"	,	L_3
+val	,	V_7
+SECWDOG_OFFSET	,	V_8
+readl	,	F_9
+reboot_mode	,	V_4
+bcm_kona_restart	,	F_7
+writel	,	F_10
+"Watchdog not mapped. Reboot failed.\n"	,	L_4
+uint32_t	,	T_1
+"brcm,kona-wdt not found in DT, reboot disabled\n"	,	L_2
+WARN	,	F_5
+panic	,	F_8
+bcm_kona_setup_restart	,	F_1
+of_iomap	,	F_4
+SECWDOG_CLKS_SHIFT	,	V_13
+pr_err	,	F_3
+cmd	,	V_6
+SECWDOG_LOCK_SHIFT	,	V_14
+np_wdog	,	V_2
+of_node_put	,	F_6

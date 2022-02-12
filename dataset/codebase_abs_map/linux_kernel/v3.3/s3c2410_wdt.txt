@@ -1,0 +1,147 @@
+watchdog_init	,	F_45
+dev_info	,	F_16
+platform_driver_unregister	,	F_48
+cpufreq_unregister_notifier	,	F_21
+watchdog_exit	,	F_47
+dev	,	V_42
+err_req	,	V_53
+S3C2410_WTCON_ENABLE	,	V_9
+clk_put	,	F_37
+watchdog_device	,	V_1
+release_mem_region	,	F_39
+state	,	V_62
+"watchdog %sabled\n"	,	L_27
+s3c2410_wdd	,	V_26
+__s3c2410wdt_stop	,	F_5
+s3c2410wdt_is_running	,	F_10
+val	,	V_30
+CONFIG_S3C2410_WATCHDOG_DEFAULT_TIME	,	V_57
+wdt_dev	,	V_22
+CPUFREQ_TRANSITION_NOTIFIER	,	V_38
+"en"	,	L_25
+__devinit	,	T_2
+clk_enable	,	F_30
+"cannot start\n"	,	L_18
+request_irq	,	F_32
+"in"	,	L_24
+s3c2410wdt_shutdown	,	F_42
+IRQ_HANDLED	,	V_27
+size	,	V_44
+nowayout	,	V_59
+wdd	,	V_2
+__func__	,	V_14
+s3c2410wdt_set_heartbeat	,	F_11
+tmr_margin	,	V_56
+"probe: mapped wdt_base=%p\n"	,	L_12
+wdt_base	,	V_5
+device	,	V_41
+__devexit	,	T_3
+""	,	L_23
+wtcon	,	V_7
+free_irq	,	F_35
+freq	,	V_17
+wdt_irq	,	V_48
+"%s: probe=%p\n"	,	L_7
+IORESOURCE_IRQ	,	V_49
+"no memory resource specified\n"	,	L_8
+"failed to find watchdog clock source\n"	,	L_14
+divisor	,	V_20
+err_map	,	V_54
+EBUSY	,	V_52
+"cannot register watchdog (%d)\n"	,	L_20
+s3c2410wdt_probe	,	F_22
+cpufreq_register_notifier	,	F_19
+err_irq	,	V_60
+s3c2410wdt_suspend	,	F_43
+watchdog_unregister_device	,	F_41
+err	,	V_36
+s3c2410wdt_resume	,	F_44
+S3C2410_WTCON_INTEN	,	V_13
+started	,	V_43
+ENOENT	,	V_47
+s3c2410wdt_cpufreq_deregister	,	F_20
+EINVAL	,	V_21
+s3c2410wdt_cpufreq_transition	,	F_17
+request_mem_region	,	F_25
+"dis"	,	L_26
+__init	,	T_5
+__exit	,	T_6
+notifier_block	,	V_28
+watchdog_register_device	,	F_34
+platform_device	,	V_39
+"failed to get memory region\n"	,	L_10
+S3C2410_WTCON_PRESCALE	,	F_14
+S3C2410_WTCON	,	V_8
+S3C2410_WTCON_RSTEN	,	V_10
+"no irq resource specified\n"	,	L_9
+"%s: timeout=%d, divisor=%d, count=%d (%08x)\n"	,	L_4
+data	,	V_31
+err_cpufreq	,	V_58
+DBG	,	F_9
+CPUFREQ_PRECHANGE	,	V_34
+s3c2410wdt_remove	,	F_40
+s3c2410wdt_cpufreq_register	,	F_18
+pdev	,	V_40
+"watchdog %sactive, reset %sabled, irq %sabled\n"	,	L_22
+S3C2410_WTDAT	,	V_15
+err_clk	,	V_55
+"failed to ioremap() region\n"	,	L_11
+ret	,	V_32
+S3C2410_WTCON_DIV128	,	V_11
+count	,	V_19
+platform_driver_register	,	F_46
+"default timer value is out of range, "	,	L_17
+done	,	V_33
+ioremap	,	F_26
+PTR_ERR	,	F_29
+"failed to install irq (%d)\n"	,	L_19
+clk_get_rate	,	F_12
+nb	,	V_29
+soft_noboot	,	V_12
+name	,	V_51
+wtdat_save	,	V_64
+s3c2410wdt_driver	,	V_66
+platform_get_resource	,	F_23
+tmr_atboot	,	V_61
+"cannot set new value for timeout %d\n"	,	L_6
+s3c2410wdt_start	,	F_8
+iounmap	,	F_38
+S3C2410_WTCON_PRESCALE_MASK	,	V_23
+s3c2410wdt_irq	,	F_15
+wtcon_save	,	V_63
+"tmr_margin value out of range, default %d used\n"	,	L_16
+"%s: count=%d, timeout=%d, freq=%lu\n"	,	L_2
+CPUFREQ_POSTCHANGE	,	V_35
+printk	,	F_31
+"starting watchdog timer\n"	,	L_21
+"failed to register cpufreq\n"	,	L_15
+wdt_count	,	V_4
+wdt_clock	,	V_18
+timeout	,	V_16
+dev_err	,	F_13
+irqno	,	V_24
+param	,	V_25
+s3c2410wdt_cpufreq_transition_nb	,	V_37
+wdt_lock	,	V_3
+spin_lock	,	F_2
+s3c2410wdt_keepalive	,	F_1
+IORESOURCE_MEM	,	V_46
+clk_get	,	F_27
+"watchdog"	,	L_13
+watchdog_set_nowayout	,	F_33
+"timeout %d too big\n"	,	L_3
+readl	,	F_6
+"%s: wdt_count=0x%08x, wtcon=%08lx\n"	,	L_1
+wdt_mem	,	V_45
+writel	,	F_3
+irqreturn_t	,	T_1
+start	,	V_50
+spin_unlock	,	F_4
+"watchdog timer expired (irq)\n"	,	L_5
+banner	,	V_65
+s3c2410wdt_stop	,	F_7
+resource_size	,	F_24
+S3C2410_WTCNT	,	V_6
+clk_disable	,	F_36
+pm_message_t	,	T_4
+IS_ERR	,	F_28

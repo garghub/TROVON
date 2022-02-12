@@ -1,0 +1,843 @@
+err_no_vma	,	V_80
+vm_insert_page	,	F_50
+binder_delete_free_buffer	,	F_63
+seq_puts	,	F_177
+binder_proc_show	,	F_190
+"DecRefs"	,	L_77
+binder_deferred_state	,	V_402
+unlikely	,	F_17
+"binder"	,	L_206
+BINDER_STAT_TRANSACTION_COMPLETE	,	V_209
+POLLIN	,	V_321
+__user	,	V_216
+"    incoming transaction"	,	L_171
+binder_objstat_strings	,	V_416
+"%d:%d BC_FREE_BUFFER u%016llx no match\n"	,	L_88
+"%d:%d tried to acquire reference to desc 0, got %d instead\n"	,	L_72
+size	,	V_89
+BINDER_WRITE_READ	,	V_327
+sender	,	V_308
+EMFILE	,	V_26
+binder_pop_transaction	,	F_87
+pr_err	,	F_47
+unused	,	V_417
+BINDER_STAT_PROC	,	V_378
+write_consumed	,	V_335
+err_fd_not_allowed	,	V_228
+BINDER_DEBUG_TRANSACTION	,	V_168
+header_pos	,	V_412
+binder_send_failed_reply	,	F_88
+"  thread %d: l %02x\n"	,	L_169
+user_ptr	,	V_61
+"    outgoing transaction"	,	L_170
+"%d:%d ERROR: Thread waiting for process work before calling BC_REGISTER_LOOPER or BC_ENTER_LOOPER (state %x)\n"	,	L_110
+binder_deferred_list	,	V_398
+"transaction release %d bad node %016llx\n"	,	L_44
+"already mapped"	,	L_143
+e	,	V_13
+i	,	V_394
+transaction_prefix	,	V_408
+BR_FAILED_REPLY	,	V_194
+wait_event_freezable_exclusive	,	F_119
+VM_MAYWRITE	,	V_365
+m	,	V_406
+n	,	V_62
+"BC_INCREFS_DONE"	,	L_80
+p	,	V_53
+todo	,	V_133
+wait_event_interruptible	,	F_118
+t	,	V_153
+BC_ACQUIRE	,	V_245
+BINDER_WORK_TRANSACTION_COMPLETE	,	V_235
+w	,	V_282
+task_close_fd	,	F_15
+"allocate"	,	L_5
+"%d:%d %s %d %d:%d, cmd %d size %zd-%zd ptr %016llx-%016llx\n"	,	L_122
+"  threads: %d\n"	,	L_189
+"%d: binder_free_buf size %zd async free %zd\n"	,	L_25
+"%d:%d got new transaction with bad transaction stack, transaction %d has target %d:%d\n"	,	L_54
+vma	,	V_69
+"%d: binder_alloc_buf failed to map pages in userspace, no vma\n"	,	L_8
+rb_next	,	F_82
+"call "	,	L_205
+"proc %d\n"	,	L_182
+ref	,	V_139
+trace_binder_ioctl	,	F_138
+binder	,	V_175
+free_page_start	,	V_106
+ret	,	V_4
+area	,	V_359
+"alloc page array"	,	L_146
+target_wait	,	V_187
+vm_start	,	V_353
+read_size	,	V_333
+list	,	V_312
+print_binder_transaction	,	F_175
+"%d:%d %s %016llx\n"	,	L_119
+binder_user_error	,	F_30
+error_code	,	V_159
+"%d: binder_alloc_buf size %zd got buffer %p size %zd\n"	,	L_16
+binder_transactions_show	,	F_189
+private	,	V_420
+"  "	,	L_184
+debugfs_create_dir	,	F_195
+offp	,	V_166
+"%d:%d BC_DEAD_BINDER_DONE %016llx found %p\n"	,	L_107
+trace_binder_wait_for_work	,	F_117
+"%d:%d BR_SPAWN_LOOPER\n"	,	L_125
+fput	,	F_100
+end	,	V_67
+"node %d now dead, refs %d, death %d\n"	,	L_152
+ERESTARTSYS	,	V_31
+"reply failed, no target thread at root\n"	,	L_40
+"%d:%d ERROR: BC_REGISTER_LOOPER called after BC_ENTER_LOOPER\n"	,	L_94
+BC_RELEASE	,	V_246
+"%d:%d got reply with fd, %d, but target does not allow fds\n"	,	L_66
+"%d:%d %s node %d ls %d lw %d\n"	,	L_85
+vm_struct	,	V_72
+pending_strong_ref	,	V_253
+in_reply_to	,	V_188
+"  has delivered dead binder\n"	,	L_186
+protocol_version	,	V_350
+"%d:%d %s %016llx ref %d desc %d s %d w %d for node %d\n"	,	L_102
+hlist_del_init	,	F_171
+"%d:%d BC_FREE_BUFFER u%016llx found buffer %d for %s transaction\n"	,	L_90
+RLIMIT_NICE	,	V_42
+binder_update_page_range	,	F_43
+rb_node_desc	,	V_140
+"dead "	,	L_181
+"%d:%d %s %d u%016llx c%016llx\n"	,	L_116
+new_buffer_size	,	V_56
+binder_inc_ref	,	F_85
+"%d new ref %d desc %d for node %d\n"	,	L_31
+"finished"	,	L_92
+tmp	,	V_206
+BR_ACQUIRE	,	V_299
+binder_vma_open	,	F_145
+BUILD_BUG_ON	,	F_185
+dead_node	,	V_135
+binder_proc	,	V_17
+data_size	,	V_94
+BC_DEAD_BINDER_DONE	,	V_281
+print_binder_proc_stats	,	F_186
+handle	,	V_178
+binder_return_strings	,	V_415
+err_binder_alloc_buf_failed	,	V_214
+binder_write_read	,	V_328
+mmap_sem	,	V_77
+target_list	,	V_124
+list_move_tail	,	F_107
+delivered_death	,	V_304
+cmd	,	V_240
+"reply failed, no target thread -- retry %d\n"	,	L_41
+"%d: vma mm and task mm mismatch\n"	,	L_7
+"%d: binder_alloc_buf failed to map page at %lx in userspace\n"	,	L_11
+wait	,	V_134
+O_NONBLOCK	,	V_338
+__alloc_fd	,	F_12
+"failed_transaction_log"	,	L_212
+BR_TRANSACTION	,	V_305
+BINDER_DEBUG_BUFFER_ALLOC_ASYNC	,	V_103
+err_no_context_mgr_node	,	V_204
+binder_stat_types	,	V_7
+to_parent	,	V_200
+copy_to_user	,	F_127
+hlist_del	,	F_77
+"%d:%d BC_REQUEST_DEATH_NOTIFICATION failed\n"	,	L_104
+binder_free_buf	,	F_65
+saved_priority	,	V_196
+curr_euid	,	V_324
+err	,	V_326
+BINDER_WORK_DEAD_BINDER	,	V_278
+ERESTART_RESTARTBLOCK	,	V_34
+async_todo	,	V_118
+"%d:%d ERROR: BC_ENTER_LOOPER called after BC_REGISTER_LOOPER\n"	,	L_97
+"%d: got transaction with invalid size %zd-%zd\n"	,	L_13
+BINDER_STAT_DEATH	,	V_148
+binder_transactions_fops	,	V_425
+err_invalid_target_handle	,	V_203
+"async"	,	L_204
+trace_binder_write_done	,	F_139
+has_async_transaction	,	V_233
+rb_node_node	,	V_143
+" proc"	,	L_176
+print_binder_ref	,	F_182
+binder_node_release	,	F_165
+"%d:%d got reply transaction with bad target transaction stack %d, expected %d\n"	,	L_52
+pid	,	V_44
+binder_get_node	,	F_66
+"BR_RELEASE"	,	L_114
+__close_fd	,	F_16
+"Acquire"	,	L_75
+default_priority	,	V_294
+pages	,	V_83
+"%d:%d BC_REGISTER_LOOPER\n"	,	L_93
+hlist_for_each_entry	,	F_166
+refs_by_desc	,	V_138
+trace_binder_unlock	,	F_23
+BC_REQUEST_DEATH_NOTIFICATION	,	V_273
+BC_TRANSACTION	,	V_260
+buffer	,	V_47
+misc_register	,	F_196
+zap_page_range	,	F_53
+"        fd %d -&gt; %d\n"	,	L_69
+"BC_ACQUIRE_DONE"	,	L_81
+group_leader	,	V_377
+buffers	,	V_48
+"%snode work %d: u%016llx c%016llx\n"	,	L_164
+uintptr_t	,	T_2
+binder_thread	,	V_150
+param_set_int	,	F_2
+to_proc	,	V_198
+binder_stat_br	,	F_111
+list_add	,	F_60
+"%d:%d transaction failed %d, size %lld-%lld\n"	,	L_71
+list_for_each_entry	,	F_109
+MAX_NICE	,	V_45
+TF_ACCEPT_FDS	,	V_227
+"BR_CLEAR_DEATH_NOTIFICATION_DONE"	,	L_121
+"  buffers: %d\n"	,	L_195
+"transaction release %d bad object type %x\n"	,	L_49
+BINDER_CURRENT_PROTOCOL_VERSION	,	V_349
+PAGE_KERNEL	,	V_90
+tsk	,	V_25
+VM_IOREMAP	,	V_368
+"active"	,	L_91
+list_move	,	F_122
+max_threads	,	V_310
+put_user	,	F_116
+call_type	,	V_189
+BC_REGISTER_LOOPER	,	V_262
+"undelivered transaction %d\n"	,	L_126
+trace_binder_lock	,	F_19
+"  refs: %d s %d w %d\n"	,	L_194
+print_all	,	V_413
+BR_DEAD_REPLY	,	V_201
+pgprot_val	,	F_146
+"%d:%d refcount change on invalid ref %d\n"	,	L_73
+"%d: binder_alloc_buf failed to map page at %p in kernel\n"	,	L_10
+"%d:%d got transaction with invalid data ptr\n"	,	L_57
+binder_procs	,	V_380
+binder_size_t	,	T_5
+from_proc	,	V_190
+err_fget_failed	,	V_229
+prev	,	V_104
+"send failed reply for transaction %d, target dead\n"	,	L_39
+"  buffer"	,	L_183
+BR_INCREFS	,	V_298
+stats	,	V_243
+uid_valid	,	F_141
+can_nice	,	F_26
+refs_by_node	,	V_141
+PAGE_MASK	,	V_101
+target_handle	,	V_192
+"%d:%d %s u%016llx node %d cookie mismatch %016llx != %016llx\n"	,	L_82
+user_page_addr	,	V_71
+tmp_area	,	V_73
+binder_new_node	,	F_67
+"%d:%d node %d u%016llx c%016llx created\n"	,	L_26
+local_strong_refs	,	V_129
+"%s: %d context_mgr_node gone\n"	,	L_153
+"%d:%d got transaction with invalid offsets ptr\n"	,	L_58
+binder_dec_node	,	F_74
+err_empty_call_stack	,	V_195
+"IncRefs"	,	L_74
+GFP_KERNEL	,	V_84
+debugfs_entry	,	V_383
+__GFP_ZERO	,	V_86
+"        ref %d desc %d (node %d)\n"	,	L_47
+binder_last_id	,	V_115
+list_del_init	,	F_71
+"%d:%d ERROR: BC_REGISTER_LOOPER called without request\n"	,	L_95
+BINDER_WORK_TRANSACTION	,	V_234
+cache_is_vipt_aliasing	,	F_152
+mutex_unlock	,	F_24
+BINDER_VERSION	,	V_346
+BUG	,	F_40
+arg	,	V_322
+__GFP_HIGHMEM	,	V_85
+task_struct	,	V_307
+err_bad_offset	,	V_218
+get_task_mm	,	F_45
+"%s %d: %p size %zd:%zd %s\n"	,	L_161
+wait_for_proc_work	,	V_287
+binder_set_stop_on_user_error	,	F_1
+binder_proc_fops	,	V_385
+seq_file	,	V_405
+binder_vm_ops	,	V_372
+binder_release_work	,	F_129
+binder_open	,	F_157
+"release proc %d, transaction %d, not freed\n"	,	L_154
+refs	,	V_132
+mutex_lock	,	F_20
+err_dead_binder	,	V_202
+"BC_CLEAR_DEATH_NOTIFICATION"	,	L_101
+binder_alloc_buf	,	F_56
+BINDER_THREAD_EXIT	,	V_345
+INIT_LIST_HEAD	,	F_69
+"%d:%d BC_REQUEST_DEATH_NOTIFICATION death notification already set\n"	,	L_103
+"binder_mmap: %d %lx-%lx (%ld K) vma %lx pagep %lx\n"	,	L_141
+BINDER_SET_MAX_THREADS	,	V_339
+binder_stats_show	,	F_188
+"alloc small buf"	,	L_147
+BR_REPLY	,	V_306
+vm_mm	,	V_374
+allocated_buffers	,	V_60
+binder_node	,	V_108
+"    bad transaction"	,	L_172
+"transactions"	,	L_210
+"refless node %d deleted\n"	,	L_29
+BINDER_WORK_DEAD_BINDER_AND_CLEAR	,	V_280
+ERESTARTNOINTR	,	V_32
+"%d:%d BC_FREE_BUFFER u%016llx matched unreturned buffer\n"	,	L_89
+free_page_end	,	V_105
+BINDER_LOOPER_STATE_WAITING	,	V_291
+page	,	V_74
+to_thread	,	V_197
+"BR_DECREFS"	,	L_115
+full	,	V_16
+next	,	V_15
+"binder stats:\n"	,	L_199
+return_error	,	V_161
+"binder transactions:\n"	,	L_200
+"BINDER_SET_CONTEXT_MGR already set\n"	,	L_135
+BINDER_LOOPER_STATE_REGISTERED	,	V_269
+kzalloc	,	F_68
+create_singlethread_workqueue	,	F_194
+obj_created	,	V_10
+best_fit	,	V_97
+binder_deferred_work	,	V_404
+need_reply	,	V_157
+start	,	V_66
+ptr	,	V_109
+target	,	V_193
+binder_transaction_log_fops	,	V_426
+"%d invalid dec strong, ref %d desc %d s %d w %d\n"	,	L_35
+put_files_struct	,	F_172
+BC_DECREFS	,	V_247
+"%d:%d node %d u%016llx c%016llx state unchanged\n"	,	L_118
+read_buffer	,	V_334
+list_empty	,	F_73
+err_bad_arg	,	V_363
+BINDER_DEBUG_READ_WRITE	,	V_330
+binder_main_lock	,	V_37
+task_active_pid_ns	,	F_126
+"  pending transaction"	,	L_185
+"%shas cleared dead binder\n"	,	L_166
+BR_SPAWN_LOOPER	,	V_311
+priority	,	V_213
+allocate	,	V_65
+__func__	,	V_293
+PAGE_SIZE	,	V_81
+return_error2	,	V_163
+get_vm_area	,	F_150
+binder_deferred_workqueue	,	V_403
+"%d:%d ioctl %x %lx returned %d\n"	,	L_138
+BINDER_STAT_REF	,	V_144
+lock_task_sighand	,	F_9
+EPERM	,	V_344
+"transaction release %d bad offset %lld, size %zd\n"	,	L_43
+flags	,	V_19
+BINDER_DEFERRED_PUT_FILES	,	V_358
+binder_thread_read	,	F_115
+"%d:%d BC_TRANSACTION %d -&gt; %d - node %d, data %016llx-%016llx size %lld-%lld\n"	,	L_56
+current_euid	,	F_137
+binder_init	,	F_193
+"binder_mmap: %d %lx-%lx %s failed %d\n"	,	L_148
+offsetof	,	F_42
+min_nice	,	V_39
+"%d:%d got transaction with invalid offsets size, %lld\n"	,	L_59
+"BR_INCREFS"	,	L_112
+binder_stats_fops	,	V_424
+"delivered"	,	L_162
+proc	,	V_18
+"dead nodes:\n"	,	L_198
+" node %d"	,	L_159
+"%d open vm area %lx-%lx (%ld K) vma %lx pagep %lx\n"	,	L_139
+binder_deferred_flush	,	F_161
+"%d new ref %d desc %d for dead node\n"	,	L_32
+binder_lock	,	F_18
+wake_up_interruptible_all	,	F_162
+deferred_work	,	V_401
+"%s: %d threads %d, nodes %d (ref %d), refs %d, active transactions %d, buffers %d, pages %d\n"	,	L_156
+trace_binder_transaction_alloc_buf	,	F_94
+"%d close vm area %lx-%lx (%ld K) vma %lx pagep %lx\n"	,	L_140
+"\n"	,	L_178
+"BC_ATTEMPT_ACQUIRE not supported\n"	,	L_86
+kuid_t	,	T_7
+"free"	,	L_6
+task_tgid_nr_ns	,	F_125
+err_bad_call_stack	,	V_199
+list_first_entry	,	F_121
+async_transaction	,	V_102
+print_binder_proc	,	F_183
+local_weak_refs	,	V_130
+BC_ATTEMPT_ACQUIRE	,	V_255
+rb_left	,	V_58
+"%s %d: %p from %d:%d to %d:%d code %x flags %x pri %ld r%d"	,	L_157
+hlist_unhashed	,	F_173
+rlim_cur	,	V_22
+binder_transaction_log_failed	,	V_237
+"out"	,	L_132
+"    pending async transaction"	,	L_179
+done	,	V_290
+"%d:%d BR_TRANSACTION_COMPLETE\n"	,	L_111
+"%d:%d BC_CLEAR_DEATH_NOTIFICATION death notification not active\n"	,	L_105
+"bad vm_flags"	,	L_142
+err_get_vm_area_failed	,	V_369
+buffer_start_page	,	F_61
+" %d"	,	L_177
+"%d:%d got transaction with invalid fd, %d\n"	,	L_68
+BINDER_DEBUG_THREADS	,	V_263
+"undelivered death notification, %016llx\n"	,	L_128
+BR_RELEASE	,	V_300
+get_task_struct	,	F_158
+"%d delete ref %d desc %d has death notification\n"	,	L_34
+binder_ref	,	V_136
+IS_ALIGNED	,	F_90
+BINDER_LOOPER_STATE_NEED_RETURN	,	V_285
+BC_EXIT_LOOPER	,	V_271
+addr	,	V_88
+trace_binder_transaction_buffer_release	,	F_108
+"  ref %d: desc %d %snode %d s %d w %d d %p\n"	,	L_180
+BINDER_STAT_TRANSACTION	,	V_158
+binder_context_mgr_node	,	V_126
+threads	,	V_314
+queue_work	,	F_174
+binder_state_fops	,	V_423
+err_alloc_small_buf_failed	,	V_373
+sender_pid	,	V_309
+__fd_install	,	F_14
+parent	,	V_55
+"%d:%d BC_REPLY %d -&gt; %d:%d, data %016llx-%016llx size %lld-%lld\n"	,	L_55
+binder_version	,	V_347
+err_unlocked	,	V_325
+"binder_mmap: %d %lx-%lx maps %p bad alignment\n"	,	L_145
+map_vm_area	,	F_49
+node_entry	,	V_145
+inode	,	V_375
+" end"	,	L_22
+BR_DECREFS	,	V_301
+buffer_end_page	,	F_62
+binder_delete_ref	,	F_84
+binder_inc_node	,	F_70
+binder_miscdev	,	V_422
+"binder_flush: %d woke %d threads\n"	,	L_151
+ARRAY_SIZE	,	F_7
+allow_user_free	,	V_215
+"BR_DEAD_BINDER"	,	L_120
+binder_stats_created	,	F_5
+binder_context_mgr_uid	,	V_342
+"in"	,	L_131
+BINDER_DEBUG_FREE_BUFFER	,	V_259
+"%d:%d BC_ACQUIRE_DONE node %d has no pending acquire request\n"	,	L_83
+"%d:%d write %lld at %016llx, read %lld at %016llx\n"	,	L_133
+new_buffer	,	V_51
+""	,	L_21
+"        node %d u%016llx -&gt; ref %d desc %d\n"	,	L_62
+"release %d:%d transaction %d %s, still active\n"	,	L_130
+bc	,	V_242
+print_binder_work	,	F_179
+strong	,	V_121
+incoming_refs	,	V_391
+obj_deleted	,	V_9
+binder_deferred_release	,	F_167
+target_node	,	V_169
+binder_flush	,	F_160
+"%d:%d BC_ENTER_LOOPER\n"	,	L_96
+br	,	V_284
+EBUSY	,	V_341
+binder_set_nice	,	F_25
+flat_binder_object	,	V_170
+offsets_size	,	V_95
+cmd_name	,	V_297
+files_struct	,	V_20
+pr_info	,	F_143
+binder_transaction_log	,	V_12
+trace_binder_read_done	,	F_140
+binder_transaction_log_entry	,	V_11
+BR_DEAD_BINDER	,	V_303
+poll_table_struct	,	V_319
+strbuf	,	V_382
+"        ref %d desc %d -&gt; node %d u%016llx\n"	,	L_64
+end_page_addr	,	V_99
+binder_transaction_log_show	,	F_192
+"        fd %d\n"	,	L_48
+err_binder_new_node_failed	,	V_219
+trace_binder_update_page_range	,	F_44
+list_is_last	,	F_32
+do_lock	,	V_418
+reply	,	V_183
+BC_ACQUIRE_DONE	,	V_251
+binder_get_thread	,	F_130
+"%d:%d got transaction with invalid handle, %d\n"	,	L_63
+put_task_struct	,	F_168
+from_parent	,	V_156
+count	,	V_411
+task_fd_install	,	F_13
+ERESTARTNOHAND	,	V_33
+fl_owner_t	,	T_8
+alloc_page	,	F_48
+BINDER_DEFERRED_FLUSH	,	V_387
+fd	,	V_28
+fe	,	V_236
+work_struct	,	V_395
+binder_get_ref_for_node	,	F_80
+binder_deferred_lock	,	V_397
+rlimit_to_nice	,	F_28
+err_vm_insert_page_failed	,	V_92
+fp	,	V_171
+looper	,	V_264
+"%d:%d node %d u%016llx c%016llx deleted\n"	,	L_117
+rb_link_node	,	F_37
+user_buffer_offset	,	V_64
+debugfs_remove	,	F_164
+"proc"	,	L_207
+trace_binder_locked	,	F_21
+list_del	,	F_64
+BINDER_WORK_CLEAR_DEATH_NOTIFICATION	,	V_279
+binder_stats	,	V_8
+vm_end	,	V_354
+retry	,	V_289
+"%shas dead binder\n"	,	L_165
+binder_poll	,	F_133
+requested_threads_started	,	V_268
+rlim	,	V_41
+binder_ioctl	,	F_135
+nodes	,	V_110
+"  node %d: u%016llx c%016llx hs %d hw %d ls %d lw %d is %d iw %d"	,	L_175
+list_entry	,	F_33
+"%shas cleared death notification\n"	,	L_167
+"%d: binder_alloc_buf failed for page at %p\n"	,	L_9
+_IOC_NR	,	F_106
+ENOMEM	,	V_93
+"%d:%d BC_DEAD_BINDER_DONE %016llx not found\n"	,	L_108
+internal_strong_refs	,	V_125
+write_buffer	,	V_332
+"unexpected work type, %d, not freed\n"	,	L_129
+"%d: binder_alloc_buf size %zd got %p\n"	,	L_17
+id	,	V_386
+binder_buffer_size	,	F_31
+"send failed reply for transaction %d to %d:%d\n"	,	L_37
+fget	,	F_99
+BINDER_DEBUG_PRIORITY_CAP	,	V_43
+hlist_add_head	,	F_83
+binder_release	,	F_163
+cookie	,	V_112
+trace_binder_return	,	F_112
+"%d RLIMIT_NICE not set\n"	,	L_2
+binder_transaction_data	,	V_181
+"state"	,	L_208
+BINDER_LOOPER_STATE_INVALID	,	V_266
+"%d:%d BC_CLEAR_DEATH_NOTIFICATION death notification cookie mismatch %016llx != %016llx\n"	,	L_106
+irqs	,	V_23
+BINDER_TYPE_WEAK_BINDER	,	V_174
+vm_flags	,	V_356
+binder_transaction_log_add	,	F_6
+"%d:%d got transaction with invalid offset, %lld\n"	,	L_60
+"%d:%d unknown command %d\n"	,	L_109
+binder_vma_close	,	F_147
+list_add_tail	,	F_72
+vfree	,	F_156
+target_fd	,	V_226
+"BR_REPLY"	,	L_124
+ALIGN	,	F_57
+file	,	V_29
+print_binder_node	,	F_181
+is_async	,	V_96
+BR_NOOP	,	V_288
+accept_fds	,	V_222
+trace_binder_transaction_ref_to_ref	,	F_98
+binder_work	,	V_184
+"%d: binder_free_buf %p size %zd buffer_size %zd\n"	,	L_24
+kp	,	V_3
+EFAULT	,	V_241
+"  nodes: %d\n"	,	L_193
+transaction_stack	,	V_154
+free_async_space	,	V_100
+"reply failed, target thread, %d:%d, has error code %d already\n"	,	L_38
+"  ready threads %d\n"	,	L_191
+"BINDER_SET_CONTEXT_MGR bad uid %d != %d\n"	,	L_136
+transaction	,	V_107
+binder_state_show	,	F_187
+binder_free_thread	,	F_132
+BC_ACQUIRE_RESULT	,	V_256
+"binder_open: %d:%d\n"	,	L_149
+task_get_unused_fd_flags	,	F_8
+init_user_ns	,	V_343
+wake_up	,	F_3
+size_t	,	T_1
+BINDER_DEBUG_USER_REFS	,	V_249
+from_thread	,	V_191
+u32	,	V_172
+err_alloc_t_failed	,	V_207
+BINDER_DEBUG_DEAD_BINDER	,	V_147
+BINDER_STAT_THREAD	,	V_315
+debug_string	,	V_248
+rb_node	,	V_52
+rb_erase	,	F_59
+mm	,	V_76
+"BC_REQUEST_DEATH_NOTIFICATION"	,	L_100
+BINDER_TYPE_HANDLE	,	V_176
+off_end	,	V_167
+filp	,	V_318
+"%d: %s from %d:%d to %d:%d node %d handle %d size %d:%d\n"	,	L_202
+FLAT_BINDER_FLAG_ACCEPTS_FDS	,	V_223
+entry	,	V_14
+rb_right	,	V_59
+rb_first	,	F_81
+wait_event_freezable	,	F_120
+hlist_entry	,	F_170
+rb_insert_color	,	F_38
+vm_private_data	,	V_351
+consumed	,	V_239
+"%u"	,	L_150
+binder_stop_on_user_error	,	V_5
+code	,	V_212
+node_ptr	,	V_252
+"BC_ACQUIRE_RESULT not supported\n"	,	L_87
+binder_debugfs_dir_entry_proc	,	V_381
+BINDER_WORK_NODE	,	V_117
+trace_binder_transaction_ref_to_node	,	F_97
+"undelivered TRANSACTION_COMPLETE\n"	,	L_127
+down_write	,	F_46
+" buffer free\n"	,	L_158
+vm_area_struct	,	V_68
+BINDER_DEBUG_FAILED_TRANSACTION	,	V_164
+BINDER_DEBUG_DEAD_TRANSACTION	,	V_313
+free_buffers	,	V_54
+print_always	,	V_409
+ubuf	,	V_323
+"    pending transaction"	,	L_174
+binder_thread_write	,	F_103
+BR_CLEAR_DEATH_NOTIFICATION_DONE	,	V_302
+thread	,	V_180
+trace_binder_command	,	F_105
+start_pos	,	V_410
+task_rlimit	,	F_10
+u64	,	V_120
+container_of	,	F_110
+offsets	,	V_210
+BINDER_DEFERRED_RELEASE	,	V_389
+"%d:%d BC_EXIT_LOOPER\n"	,	L_98
+trace_binder_transaction	,	F_93
+pending_weak_ref	,	V_254
+binder_buffer	,	V_46
+"%d: merge free, buffer %p do not share page%s%s with %p or %p\n"	,	L_20
+binder_has_thread_work	,	F_114
+print_binder_thread	,	F_180
+VM_DONTCOPY	,	V_364
+binder_dead_nodes	,	V_390
+binder_mmap_lock	,	V_366
+"binder state:\n"	,	L_197
+has_page_addr	,	V_98
+"%d buffer release %d, size %zd-%zd, failed at %p\n"	,	L_42
+err_map_kernel_failed	,	V_91
+has_weak_ref	,	V_131
+"%d delete ref %d desc %d for node %d\n"	,	L_33
+debug_id	,	V_114
+read_consumed	,	V_336
+BINDER_DEBUG_BUFFER_ALLOC	,	V_57
+"%d: binder_alloc_buf size %zd failed, no address space\n"	,	L_15
+binder_ref_death	,	V_275
+non_block	,	V_286
+node	,	V_111
+CONFIG_CPU_CACHE_VIPT	,	F_151
+send_reply	,	V_316
+"        node %d u%016llx\n"	,	L_45
+nodp	,	V_376
+binder_deferred_func	,	F_169
+"%d: binder_alloc_buf, no vma\n"	,	L_12
+binder_insert_allocated_buffer	,	F_39
+BC_REPLY	,	V_261
+binder_has_proc_work	,	F_113
+print_binder_buffer	,	F_178
+wake_up_interruptible	,	F_76
+unlock_task_sighand	,	F_11
+vma_vm_mm	,	V_78
+"%d invalid dec weak, ref %d desc %d s %d w %d\n"	,	L_36
+"%s%s: %d\n"	,	L_187
+buffer_size	,	V_49
+"%d:%d %s u%016llx no match\n"	,	L_79
+sender_euid	,	V_211
+print_binder_transaction_log_entry	,	F_191
+seq_printf	,	F_176
+current	,	V_40
+"%s: %d: page %d at %p not freed\n"	,	L_155
+"BR_TRANSACTION"	,	L_123
+outgoing_refs	,	V_392
+err_alloc_page_failed	,	V_87
+trace_binder_transaction_node_to_ref	,	F_96
+uint32_t	,	T_4
+to_node	,	V_205
+"%d:%d got transaction with fd, %d, but target does not allow fds\n"	,	L_67
+write_size	,	V_331
+err_binder_get_ref_failed	,	V_225
+tr	,	V_182
+data_ptr	,	V_258
+task_euid	,	F_91
+poll_wait	,	F_134
+binder_transaction	,	V_152
+"        ref %d desc %d -&gt; ref %d desc %d (node %d)\n"	,	L_65
+binder_mmap	,	F_149
+"%d: nice value %ld not allowed use %ld instead\n"	,	L_1
+binder_uintptr_t	,	T_3
+BINDER_SET_CONTEXT_MGR	,	V_340
+"    "	,	L_173
+BINDER_STAT_NODE	,	V_113
+BINDER_DEBUG_OPEN_CLOSE	,	V_352
+hlist_empty	,	F_75
+PAGE_ALIGN	,	F_58
+has_strong_ref	,	V_127
+vm_ops	,	V_371
+"transaction_log"	,	L_211
+BINDER_DEBUG_DEATH_NOTIFICATION	,	V_276
+retval	,	V_30
+CACHE_COLOUR	,	F_153
+up_write	,	F_51
+set_user_nice	,	F_27
+bwr	,	V_329
+O_CLOEXEC	,	V_230
+"dead node %d deleted\n"	,	L_30
+desc	,	V_137
+FLAT_BINDER_FLAG_PRIORITY_MASK	,	V_221
+vm_page_prot	,	V_357
+"%d: %s pages %p-%p\n"	,	L_4
+defer	,	V_396
+" start"	,	L_23
+BUG_ON	,	F_35
+get_user	,	F_104
+"invalid inc strong node for %d\n"	,	L_27
+f_flags	,	V_337
+"%d: merge free, buffer %p share page with %p\n"	,	L_19
+print_binder_stats	,	F_184
+binder_stats_deleted	,	F_4
+requested_threads	,	V_267
+binder_user_error_wait	,	V_6
+err_bad_object_type	,	V_232
+BINDER_LOOPER_STATE_ENTERED	,	V_265
+"%sunknown work: type %d\n"	,	L_168
+BR_ERROR	,	V_277
+ready_threads	,	V_292
+binder_insert_free_buffer	,	F_34
+failure_string	,	V_360
+__free_page	,	F_55
+tcomplete	,	V_185
+binder_unlock	,	F_22
+"transaction release %d bad handle %d\n"	,	L_46
+"  requested threads: %d+%d/%d\n"	,	L_190
+kern_ptr	,	V_63
+"%d:%d %s invalid ref %d\n"	,	L_99
+trace_binder_transaction_failed_buffer_release	,	F_102
+unmap_kernel_range	,	F_54
+BINDER_TYPE_WEAK_HANDLE	,	V_177
+target_proc	,	V_186
+BR_TRANSACTION_COMPLETE	,	V_238
+"%d:%d %s ref %d desc %d s %d w %d for node %d\n"	,	L_78
+BC_INCREFS	,	V_244
+BC_FREE_BUFFER	,	V_257
+prefix	,	V_407
+page_addr	,	V_70
+kernel_param	,	V_2
+"%d:%d BC_INCREFS_DONE node %d has no pending increfs request\n"	,	L_84
+task_nice	,	F_92
+target_thread	,	V_151
+init_waitqueue_head	,	F_131
+"  pending transactions: %d\n"	,	L_196
+mm_struct	,	V_75
+min_priority	,	V_220
+page_count	,	V_393
+val	,	V_1
+proc_node	,	V_379
+trace_binder_transaction_fd	,	F_101
+tmp_death	,	V_283
+work	,	V_116
+err_already_mapped	,	V_367
+"Release"	,	L_76
+"BR_ACQUIRE"	,	L_113
+BC_INCREFS_DONE	,	V_250
+ESRCH	,	V_24
+binder_debug	,	F_29
+internal	,	V_122
+kfree	,	F_78
+private_data	,	V_320
+FORBIDDEN_MMAP_FLAGS	,	V_362
+binder_get_ref	,	F_79
+wait_queue_head_t	,	T_6
+debugfs_create_file	,	F_159
+weak	,	V_149
+binder_debugfs_dir_entry_root	,	V_421
+free_range	,	V_79
+trace_binder_transaction_received	,	F_128
+mmput	,	F_52
+RLIMIT_NOFILE	,	V_27
+"%s%s: active %d total %d\n"	,	L_188
+"stats"	,	L_209
+uid_eq	,	F_142
+deferred_work_node	,	V_400
+BINDER_TYPE_BINDER	,	V_173
+EAGAIN	,	V_295
+active_transactions	,	V_317
+nice	,	V_38
+BINDER_LOOPER_STATE_EXITED	,	V_272
+EINVAL	,	V_128
+new_ref	,	V_142
+BC_CLEAR_DEATH_NOTIFICATION	,	V_274
+"%stransaction complete\n"	,	L_163
+"%d: add free buffer, size %zd, at %p\n"	,	L_3
+__init	,	T_9
+binder_dec_ref	,	F_86
+failed_at	,	V_165
+wake_count	,	V_388
+BINDER_DEBUG_TRANSACTION_COMPLETE	,	V_296
+first	,	V_399
+copy_from_user	,	F_95
+"binder proc state:\n"	,	L_201
+BINDER_DEBUG_INTERNAL_REFS	,	V_119
+data	,	V_50
+binder_debug_no_lock	,	V_419
+err_get_unused_fd_failed	,	V_231
+barrier	,	F_154
+"  free async space %zd\n"	,	L_192
+from	,	V_155
+tag	,	V_36
+err_binder_get_ref_for_node_failed	,	V_224
+"%d:%d got transaction with invalid object type, %x\n"	,	L_70
+ver	,	V_348
+S_IRUGO	,	V_384
+"%d:%d wrote %lld of %lld, read return %lld of %lld\n"	,	L_134
+SZ_1K	,	V_355
+"%d: binder_alloc_buf size %zd failed, no async space left\n"	,	L_14
+from_kuid	,	F_123
+current_user_ns	,	F_124
+" size %zd:%zd data %p\n"	,	L_160
+binder_transaction_buffer_release	,	F_89
+"%d:%d sending u%016llx node %d, cookie mismatch %016llx != %016llx\n"	,	L_61
+files	,	V_21
+err_alloc_pages_failed	,	V_370
+get_files_struct	,	F_155
+trace_binder_ioctl_done	,	F_144
+death	,	V_146
+EINTR	,	V_35
+SZ_4M	,	V_361
+"%d:%d got transaction to invalid handle\n"	,	L_53
+"get_vm_area"	,	L_144
+binder_defer_work	,	F_148
+binder_command_strings	,	V_414
+_IOC_SIZE	,	F_136
+BC_ENTER_LOOPER	,	V_270
+page_array_ptr	,	V_82
+BR_OK	,	V_162
+list_head	,	V_123
+"invalid inc weak node for %d\n"	,	L_28
+err_alloc_tcomplete_failed	,	V_208
+"%d:%d got reply transaction with no transaction stack\n"	,	L_50
+BINDER_TYPE_FD	,	V_179
+rb_entry	,	F_36
+"%d: binder_alloc_buf size %zd async free %zd\n"	,	L_18
+err_copy_data_failed	,	V_217
+"%d:%d got reply transaction with bad transaction stack, transaction %d has target %d:%d\n"	,	L_51
+TF_ONE_WAY	,	V_160
+binder_buffer_lookup	,	F_41
+"%d:%d exit\n"	,	L_137
+"reply"	,	L_203

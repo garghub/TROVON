@@ -1,0 +1,207 @@
+"FT1000:download:Download error: Got Run address request before image offset request.\n"	,	L_27
+"ft1000:download: after STATE_SECTION_PROV, state = %d, status= %d\n"	,	L_41
+prov_record	,	V_86
+msleep	,	F_5
+usb_submit_urb	,	F_31
+boot_end	,	V_76
+" get_handshake: fcodeldr is %d\n"	,	L_5
+len	,	V_41
+usb_dnld_complete	,	F_26
+dev	,	V_56
+state	,	V_61
+fcodeldr	,	V_14
+STATE_CODE_DWNLD	,	V_100
+version_data_size	,	V_112
+Status	,	V_46
+DWNLD_MAG1_SIZE_LOC	,	V_33
+"check_usb_db: door bell is cleared, return 0\n"	,	L_4
+pbuffer	,	V_85
+pseudo_hdr	,	V_35
+"handshake from read_dpram16 = 0x%x\n"	,	L_8
+mailbox_data	,	V_72
+STATUS_FAILURE	,	V_16
+version	,	V_116
+ft1000_read_dpram32	,	F_14
+HANDSHAKE_DSP_BL_READY	,	V_93
+handshake_value	,	V_21
+"FT1000:download:STATE_SECTION_PROV\n"	,	L_40
+"FT1000:download:image_chksum = 0x%8x\n"	,	L_24
+pseudo_header_len	,	V_63
+usb_sndbulkpipe	,	F_30
+"FT1000:download:Write failed tempbuffer[31] = 0x%x\n"	,	L_12
+STATE_START_DWNLD	,	V_88
+dsp_image_info	,	V_67
+"FT1000:REQUEST_DONE_BL\n"	,	L_20
+GFP_ATOMIC	,	V_58
+buff_w	,	V_39
+dsp_img_info	,	V_68
+pHdr	,	V_36
+usb_fill_bulk_urb	,	F_29
+"tempbuf %d = 0x%x\n"	,	L_7
+resultbuffer	,	V_50
+hdr_checksum	,	F_22
+put_handshake	,	F_10
+buff_r	,	V_40
+u8	,	V_18
+"FT1000:download:DPRAM write failed 3 during bootloading\n"	,	L_11
+usb_init_urb	,	F_28
+DSPInfoBlklen	,	V_109
+image_size	,	V_119
+ntohl	,	F_11
+i	,	V_28
+j	,	V_48
+"FT1000:REQUEST_CODE_LENGTH\n"	,	L_19
+s_file	,	V_74
+loader_code_address	,	V_79
+ntohs	,	F_9
+lvalue	,	V_34
+put_request_value	,	F_20
+tx_buf	,	V_55
+get_request_type_usb	,	F_18
+STATE_DONE_FILE	,	V_92
+end_offset	,	V_118
+"FT1000:download:Download error: Got Size request before image offset request.\n"	,	L_30
+"FT1000:Got checkusb doorbell\n"	,	L_2
+"FT1000:download:STATE_DONE_PROV\n"	,	L_42
+"scram_dnldr: handshake is HANDSHAKE_DSP_BL_READY, call put_handshake(HANDSHAKE_DRIVER_READY)\n"	,	L_15
+pft1000info	,	V_11
+loopcnt	,	V_3
+REQUEST_CODE_SEGMENT	,	V_101
+image	,	V_78
+pprov_data	,	V_125
+"FT1000:download:REQUEST_CODE_BY_VERSION\n"	,	L_35
+get_handshake	,	F_6
+tempbuffer	,	V_49
+list	,	V_126
+loader_offset	,	V_90
+STATE_SECTION_PROV	,	V_121
+HANDSHAKE_REQUEST	,	V_96
+run_address	,	V_81
+scram_dnldr	,	F_32
+FT1000_REG_MAG_WATERMARK	,	V_89
+requested_version	,	V_69
+"FT1000:download: correct_version is TRUE\n"	,	L_36
+ft1000dev	,	V_2
+FileLength	,	V_60
+ft1000_read_register	,	F_2
+REQUEST_CODE_LENGTH	,	V_98
+kmalloc	,	F_33
+"FT1000:download:Download error: Bad Version Request = 0x%x.\n"	,	L_37
+pprov_record	,	V_87
+netdev_priv	,	F_7
+pUcFile	,	V_44
+HANDSHAKE_RESPONSE	,	V_103
+length	,	V_124
+write_blk_fifo	,	F_27
+"FT1000:download:Code loader is done...\n"	,	L_39
+"FT1000:STATE_BOOT_DWNLD\n"	,	L_17
+put_handshake_usb	,	F_15
+"FT1000:download:Download error: Got Code Segment request before image offset request.\n"	,	L_31
+check_usb_db	,	F_1
+"FT1000:download:DPRAM write failed 2 during bootloading\n"	,	L_10
+STATE_DONE_PROV	,	V_123
+expected_value	,	V_8
+"FT1000:download:Download error: Bad request type=%d in CODE download state.\n"	,	L_38
+tempbuf	,	V_26
+REQUEST_FILE_CHECKSUM	,	V_104
+loader_code_size	,	V_80
+REQUEST_DONE_BL	,	V_99
+REQUEST_CODE_BY_VERSION	,	V_114
+FT1000_DB_DNLD_TX	,	V_24
+commands_offset	,	V_106
+HANDSHAKE_RESET_VALUE_USB	,	V_20
+"FT1000:download:Download error: Handshake failed\n"	,	L_16
+version_data_offset	,	V_113
+REQUEST_DONE_CL	,	V_105
+write_blk	,	F_24
+"FT1000:download:Download error: Bad request type=%d in BOOT download state.\n"	,	L_23
+"FT1000:download:REQUEST_VERSION_INFO\n"	,	L_34
+"FT1000:STATE_START_DWNLD\n"	,	L_14
+STATUS_SUCCESS	,	V_15
+get_request_type	,	F_16
+fix_ft1000_write_dpram32	,	F_21
+chksum	,	V_38
+status	,	V_5
+"FT1000:download:Download error: Requested len=%d exceeds BOOT code boundary.\n"	,	L_22
+request_type	,	V_29
+kfree	,	F_35
+REQUEST_VERSION_INFO	,	V_111
+drv_msg	,	V_71
+REQUEST_RUN_ADDRESS	,	V_97
+HANDSHAKE_DRIVER_READY	,	V_94
+get_request_value	,	F_19
+list_add_tail	,	F_34
+bulk_out_endpointAddr	,	V_57
+"Entered   scram_dnldr...\n"	,	L_13
+loader_code_end	,	V_91
+HANDSHAKE_MAG_TIMEOUT_VALUE	,	V_7
+u16	,	T_2
+ft1000_write_register	,	F_4
+FT1000_DB_DNLD_RX	,	V_13
+urb	,	V_52
+byte_length	,	V_53
+prov_list	,	V_127
+templong	,	V_83
+fix_ft1000_read_dpram32	,	F_17
+usbboot	,	V_25
+c_file	,	V_75
+data	,	V_73
+"FT1000:download:DPRAM write failed 1 during bootloading\n"	,	L_9
+"FT1000:REQUEST_RUN_ADDRESS\n"	,	L_18
+ft1000_device	,	V_1
+tx_urb	,	V_54
+run_size	,	V_82
+"FT1000:download:Download error: Max length exceeded\n"	,	L_21
+bootmode	,	V_30
+u32	,	T_1
+ft1000_write_dpram32	,	F_25
+"FT1000:download: REQUEST_MAILBOX_DATA\n"	,	L_33
+nDspImages	,	V_115
+"Download exiting with status = 0x%8x\n"	,	L_43
+net	,	V_12
+tempword	,	V_23
+file_hdr	,	V_66
+correct_version	,	V_70
+"FT1000:download:run_address = 0x%8x\n"	,	L_26
+offset	,	V_42
+dsp_file_hdr	,	V_65
+STATE_BOOT_DWNLD	,	V_95
+dspalive	,	V_27
+dpram	,	V_47
+FT1000_REG_DOORBELL	,	V_6
+"FT1000:download:run_size = 0x%8x\n"	,	L_29
+begin_offset	,	V_117
+MAX_LENGTH	,	V_102
+ft1000_write_dpram16	,	F_12
+word_length	,	V_45
+tempx	,	V_22
+ft1000_info	,	V_10
+"FT1000:download:Download error: Requested len=%d exceeds DSP code boundary.\n"	,	L_32
+DWNLD_MAG1_TYPE_LOC	,	V_31
+pseudo_header	,	V_62
+handshake	,	V_9
+request	,	V_64
+code_end	,	V_77
+STATE_DONE_DWNLD	,	V_107
+pFileStart	,	V_59
+check_buffers	,	F_23
+REQUEST_MAILBOX_DATA	,	V_108
+ft1000_read_dpram16	,	F_8
+"get_handshake: check_usb_db failed\n"	,	L_6
+DSPInfoBlk	,	V_110
+portdest	,	V_122
+"check_usb_db: read FT1000_REG_DOORBELL value is %x\n"	,	L_1
+usPtr	,	V_37
+HANDSHAKE_TIMEOUT_VALUE	,	V_19
+checksum	,	V_120
+DWNLD_MAG1_PS_HDR_LOC	,	V_51
+value	,	V_32
+temp	,	V_4
+DEBUG	,	F_3
+"FT1000:download:  REQUEST_RUN_ADDRESS\n"	,	L_25
+"FT1000:check_usb_db:Doorbell = 0x%x\n"	,	L_3
+pUsFile	,	V_43
+image_chksum	,	V_84
+get_handshake_usb	,	F_13
+"FT1000:download:REQUEST_CODE_LENGTH\n"	,	L_28
+DWNLD_MAG1_HANDSHAKE_LOC	,	V_17

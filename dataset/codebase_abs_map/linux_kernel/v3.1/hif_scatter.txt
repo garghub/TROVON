@@ -1,0 +1,139 @@
+pAllocateReqFunc	,	V_85
+ATH_DEBUG_SCATTER	,	V_32
+"HIF-SCATTER: Invalid execution mode: 0x%08x\n"	,	L_13
+Address	,	V_35
+down_interruptible	,	F_19
+"HIF-SCATTER: FAILED!!! (%s) Address: 0x%X, Block mode (BlockLen: %d, BlockCount: %d)\n"	,	L_8
+ATH_DEBUG_ANY	,	V_81
+SDIO_SET_CMD53_ARG	,	F_13
+"HIF-SCATTER: Invalid length: %d \n"	,	L_15
+ATH_DEBUG_ERROR	,	V_62
+HIF_WRITE	,	V_34
+hif_device_scatter_support_info	,	V_75
+hifFreeBusRequest	,	F_26
+HIF_SYNCHRONOUS	,	V_71
+lock	,	V_6
+A_CONTAINING_STRUCT	,	F_7
+mmc_set_data_timeout	,	F_14
+_CMD53_ARG_FIXED_ADDRESS	,	V_43
+blksz	,	V_28
+A_MALLOC	,	F_21
+pScatterReq	,	V_26
+"HIF: (%s) Scatter Buffer is unaligned 0x%lx\n"	,	L_4
+pReqPriv	,	V_22
+HIF_BLOCK_BASIS	,	V_72
+hif_device	,	V_1
+pBuffer	,	V_47
+mmc_wait_for_req	,	F_15
+pReq	,	V_4
+cmd	,	V_18
+A_ASSERT	,	F_9
+device	,	V_2
+card	,	V_59
+status	,	V_23
+HIF_FIXED_ADDRESS	,	V_42
+_CMD53_ARG_INCR_ADDRESS	,	V_44
+sg_set_buf	,	F_12
+flag	,	V_5
+kfree	,	F_23
+rw	,	V_13
+flags	,	V_38
+sem_req	,	V_66
+"HIF-SCATTER: total len: %d Scatter Entries: %d\n"	,	L_11
+"WRITE"	,	L_2
+MMC_DATA_READ	,	V_41
+hif_scatter_item	,	V_83
+hif_scatter_req_priv	,	V_21
+AllocScatterReq	,	F_5
+dl_list	,	V_9
+sg	,	V_49
+pHifScatterReq	,	V_27
+arg	,	V_51
+CompletionStatus	,	V_63
+HifReadWriteScatter	,	F_17
+FreeScatterReq	,	F_1
+pReadWriteScatterFunc	,	V_87
+scatterlist	,	V_24
+u8	,	T_2
+"HIF-SCATTER: Invalid command type: 0x%08x\n"	,	L_12
+i	,	V_12
+HIFPrivate	,	V_69
+"HIF-SCATTER async_task upping busrequest : 0x%lX (%d)\n"	,	L_10
+"HIF-SCATTER : host only supports scatter of : %d entries, need: %d \n"	,	L_19
+pInfo	,	V_76
+Length	,	V_48
+"HIF-SCATTER: cmd error: %d \n"	,	L_6
+HIF_ASYNCHRONOUS	,	V_64
+data	,	V_20
+num	,	V_53
+DL_ListRemoveItemFromHead	,	F_6
+"HIF-SCATTER: async_task completion routine req: 0x%lX (%d)\n"	,	L_9
+A_MEMZERO	,	F_22
+opcode	,	V_14
+"  %d:  Addr:0x%lX, Len:%d \n"	,	L_5
+CleanupHIFScatterResources	,	F_25
+ATH_DEBUG_ERR	,	V_79
+MMC_CMD_ADTC	,	V_58
+u32	,	T_3
+MAX_SCATTER_ENTRIES_PER_REQ	,	V_78
+hif_scatter_req	,	V_3
+host	,	V_60
+SD_IO_RW_EXTENDED	,	V_55
+up	,	F_16
+"HIF-SCATTER: (%s) Address: 0x%X, (BlockLen: %d, BlockCount: %d) , (tot:%d,sg:%d)\n"	,	L_1
+mmc_command	,	V_17
+"HIF-SCATTER Enabled: max scatter req : %d entries: %d \n"	,	L_20
+DoHifReadWriteScatter	,	F_8
+_CMD53_ARG_READ	,	V_40
+MAX_SCATTER_REQ_TRANSFER_SIZE	,	V_73
+hifAllocateBusRequest	,	F_24
+BUS_REQUEST	,	T_1
+ScatterReqHead	,	V_7
+HIF_MBOX_BLOCK_SIZE	,	V_29
+CompletionRoutine	,	V_65
+A_NO_MEMORY	,	V_84
+spin_unlock_irqrestore	,	F_4
+spin_lock_irqsave	,	F_2
+"HIF-SCATTER: queued async req: 0x%lX\n"	,	L_18
+A_ENOTSUP	,	V_80
+sg_init_table	,	F_11
+sg_len	,	V_50
+request	,	V_68
+"READ"	,	L_3
+sgentries	,	V_45
+ScatterList	,	V_46
+MMC_DATA_WRITE	,	V_39
+MMC_RSP_SPI_R5	,	V_56
+HIF_EXTENDED_IO	,	V_70
+ValidScatterEntries	,	V_36
+A_EINVAL	,	V_67
+ListLink	,	V_8
+_CMD53_ARG_BLOCK_BASIS	,	V_54
+MAX_SCATTER_REQUESTS	,	V_82
+busrequest	,	V_11
+mmcreq	,	V_16
+AddToAsyncList	,	F_18
+pFreeReqFunc	,	V_86
+AR_DEBUG_PRINTF	,	F_10
+DL_ListInsertTail	,	F_3
+sem_async	,	V_74
+MMC_RSP_R5	,	V_57
+TotalLength	,	V_31
+_CMD53_ARG_WRITE	,	V_37
+pSg	,	V_25
+mmc_data	,	V_19
+blocks	,	V_30
+Request	,	V_33
+mmc_request	,	V_15
+"HIF-SCATTER: Invalid data mode: 0x%08x\n"	,	L_14
+max_segs	,	V_77
+SetupHIFScatterSupport	,	F_20
+pItem	,	V_10
+A_ERROR	,	V_61
+"HIF-SCATTER: data error: %d \n"	,	L_7
+"HIF-SCATTER : failed to alloc scatter resources !\n"	,	L_21
+MaxTransferSizePerScatterReq	,	V_89
+"HIF-SCATTER: queued sync req: 0x%lX\n"	,	L_16
+"HIF-SCATTER: interrupted! \n"	,	L_17
+func	,	V_52
+MaxScatterEntries	,	V_88

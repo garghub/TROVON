@@ -1,0 +1,156 @@
+intr_cb	,	V_5
+parent	,	V_9
+ENOMEM	,	V_40
+irq_info	,	V_11
+MIC_NUM_OFFSETS	,	V_31
+spin_lock_init	,	F_32
+pci_msi_off	,	F_42
+ack_interrupt	,	V_22
+mic_device	,	V_1
+list_empty	,	F_34
+intr_info	,	V_18
+kmalloc_array	,	F_24
+"irq %d may still be in use.\n"	,	L_21
+dev	,	V_10
+tmp	,	V_48
+mic_msi_map	,	V_35
+pci_intx	,	F_43
+ida_simple_remove	,	F_22
+mic_release_callbacks	,	F_33
+mic_get_available_vector	,	F_9
+"Error enabling MSI. rc = %d\n"	,	L_3
+"request irq failed rc = %d\n"	,	L_12
+msix_entry	,	V_32
+"No MSIx vectors available for use.\n"	,	L_11
+mic_register_intr_callback	,	F_10
+cookie	,	V_65
+request_irq	,	F_39
+ida_fail	,	V_43
+next_avail_src	,	V_60
+ENOSPC	,	V_67
+IRQ_HANDLED	,	V_27
+err_nomem	,	V_56
+rc	,	V_38
+err_irq_req_fail	,	V_55
+"callback %d registered for src: %d\n"	,	L_15
+ida_init	,	F_31
+mic_interrupt	,	F_6
+GFP_KERNEL	,	V_39
+list_for_each_safe	,	F_19
+"No available callback entries for use\n"	,	L_14
+IRQ_NONE	,	V_23
+mic_irq_info	,	V_33
+kfree	,	F_17
+program_msi_to_src_map	,	V_70
+mic_setup_msix	,	F_23
+free_irq	,	F_54
+cb_ida	,	V_42
+MIC_MIN_MSIX	,	V_50
+flags	,	V_37
+"no usable interrupts\n"	,	L_20
+list_add_tail	,	F_15
+mic_request_irq	,	F_45
+GET_ENTRY	,	F_51
+"entry %d should be &lt; num_irq %d\n"	,	L_16
+"%d MSIx irqs setup\n"	,	L_2
+GET_OFFSET	,	F_52
+next_db	,	V_59
+pos	,	V_47
+cb_id	,	V_41
+"Error enabling MSIx. rc = %d\n"	,	L_1
+vector	,	V_68
+u16	,	T_3
+mic_free_interrupts	,	F_56
+mic_intr_info	,	V_16
+u8	,	T_4
+mic_setup_intx	,	F_41
+err	,	V_58
+msix	,	V_64
+irq	,	V_14
+i	,	V_20
+mic_unregister_intr_callback	,	F_18
+pci_disable_msix	,	F_28
+EINVAL	,	V_66
+intr_start_idx	,	V_24
+"irq: %d assigned for src: %d\n"	,	L_13
+entry_size	,	V_49
+err_nomem2	,	V_54
+"Error setting up callbacks\n"	,	L_4
+intr_ops	,	V_69
+MIC_INTR_DB	,	V_25
+err_nomem1	,	V_51
+num_vectors	,	V_34
+ERR_PTR	,	F_12
+mic_setup_callbacks	,	F_29
+mic_intr_cb	,	V_4
+data	,	V_15
+ida_simple_get	,	F_13
+dev_dbg	,	F_26
+INIT_LIST_HEAD	,	F_30
+pdev	,	V_7
+MIC_NUM_INTR_TYPES	,	V_30
+u32	,	T_2
+intr_len	,	V_26
+"Error unregistering callback\n"	,	L_18
+pci_enable_msi	,	F_37
+mic_free_irq	,	F_50
+info	,	V_17
+"Error allocating MSI interrupt\n"	,	L_6
+mic_irq	,	V_61
+offset	,	V_63
+intr_src	,	V_28
+mic_invoke_callback	,	F_1
+pci_dev_msi_enabled	,	F_49
+list	,	V_44
+PTR_ERR	,	F_48
+done	,	V_72
+ida_destroy	,	F_35
+spin_unlock_irqrestore	,	F_16
+entry	,	V_52
+pci_dev	,	V_6
+ops	,	V_21
+spin_lock_irqsave	,	F_14
+name	,	V_62
+mdev	,	V_2
+idx	,	V_3
+list_for_each_entry	,	F_4
+mic_map_src_to_offset	,	F_8
+"irq: %d freed\n"	,	L_17
+mic_next_db	,	F_44
+"Error mapping index %d to a valid source id.\n"	,	L_10
+enable_interrupts	,	V_73
+cb_list	,	V_45
+dev_err	,	F_38
+mic_setup_interrupts	,	F_55
+list_del	,	F_21
+kzalloc	,	F_27
+kmalloc	,	F_11
+IRQF_SHARED	,	V_57
+spin_lock	,	F_3
+err_enable_msix	,	V_53
+"%d MSI irqs setup\n"	,	L_7
+"intx irq setup\n"	,	L_9
+mask	,	V_19
+pci_disable_msi	,	F_40
+msix_entries	,	V_36
+src_id	,	V_71
+list_head	,	V_46
+"mic-msi"	,	L_5
+mic_intr_type	,	V_29
+irqreturn_t	,	T_1
+pci_enable_msix	,	F_25
+spin_unlock	,	F_5
+dev_warn	,	F_53
+BIT	,	F_7
+"callback %d unregistered for src: %d\n"	,	L_19
+mic_intr_restore	,	F_57
+container_of	,	F_2
+func	,	V_13
+MK_COOKIE	,	F_46
+sdev	,	V_8
+list_entry	,	F_20
+mic_setup_msi	,	F_36
+disable_interrupts	,	V_74
+mic_intr_lock	,	V_12
+"mic-intx"	,	L_8
+IS_ERR	,	F_47

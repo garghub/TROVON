@@ -1,0 +1,266 @@
+handler	,	F_104
+spin_lock_init	,	F_5
+fifo_high	,	V_69
+dss_mgr_set_output	,	F_86
+dss_ovl_write_regs	,	F_36
+"overlay has to be disabled to change the manager\n"	,	L_24
+dss_check_settings	,	F_12
+dss_feat_get_num_mgrs	,	F_15
+dss_apply_ovl_enable	,	F_72
+apply_lock	,	V_84
+dispc_mgr_setup	,	F_45
+complete_all	,	F_67
+display_init_sysfs	,	F_113
+dss_mgr_disable_compat	,	F_81
+DISPC_IRQ_EVSYNC_EVEN	,	V_62
+mgr	,	V_9
+shadow_extra_info_dirty	,	V_46
+wait_pending_extra_info_updates	,	F_19
+color_mode	,	V_67
+wait_for_go	,	V_105
+mgr_manual_update	,	F_8
+dss_unregister_vsync_isr	,	F_62
+dss_mgr_disconnect_compat	,	F_57
+wait_for_completion_timeout	,	F_24
+"overlay '%s' already has a manager '%s'\n"	,	L_23
+"mgr(%d)-&gt;wait_for_go() not finishing\n"	,	L_2
+omap_overlay	,	V_2
+DISPC_IRQ_EVSYNC_ODD	,	V_60
+need_go	,	F_17
+"ovl(%d)-&gt;wait_for_go() timeout\n"	,	L_5
+omap_overlay_info	,	V_30
+dss_ovl_disable	,	F_102
+device	,	V_54
+dss_mgr_wait_for_vsync	,	F_28
+dispc_ovl_setup	,	F_39
+display_uninit_sysfs	,	F_115
+dss_mgr_enable_compat	,	F_78
+dss_data	,	V_4
+MAX_DSS_OVERLAYS	,	V_35
+shadow_dirty	,	V_63
+is_enabled	,	V_108
+mutex_unlock	,	F_80
+dispc_runtime_get	,	F_29
+omapdss_compat_init	,	F_106
+EBUSY	,	V_97
+dss_lcd_mgr_config	,	V_91
+dss_ovl_get_device	,	F_27
+dirty	,	V_64
+enabling	,	V_38
+dispc_ovl_compute_fifo_thresholds	,	F_75
+compat_init_lock	,	V_100
+dss_mgr_simple_check	,	F_84
+manager	,	V_27
+e	,	V_95
+omap_dispc_register_isr	,	F_61
+i	,	V_13
+irq	,	V_57
+dss_apply_mgr_timings	,	F_88
+dss_ovl_use_replication	,	F_38
+r	,	V_49
+t	,	V_48
+omap_dss_mgr_apply_mgr	,	F_70
+mutex_lock	,	F_79
+dss_mgr_setup_fifos	,	F_76
+video_port_width	,	V_23
+dispc_mgr_disable_sync	,	F_82
+"writing ovl %d regs extra"	,	L_8
+"failed to apply settings: illegal configuration.\n"	,	L_15
+config	,	V_92
+platform_device	,	V_98
+dss_mgr_get_info	,	F_85
+"writing mgr %d regs extra"	,	L_10
+omapdss_compat_uninit	,	F_119
+"manager %s is already connected to an output\n"	,	L_17
+mgr_clear_shadow_dirty	,	F_55
+dss_register_vsync_isr	,	F_53
+omap_overlay_manager	,	V_8
+dss_install_mgr_ops	,	F_112
+"omap_dss_mgr_apply(%s)\n"	,	L_14
+user_info	,	V_20
+dss_mgr_unregister_framedone_handler_compat	,	F_105
+info	,	V_16
+dss_feat_get_num_ovls	,	F_4
+OMAP_DSS_OUTPUT_VENC	,	V_59
+dss_ovl_unset_manager	,	F_98
+list	,	V_93
+spin_unlock_irqrestore	,	F_21
+"dispc_ovl_setup failed for ovl %d\n"	,	L_7
+compat_refcnt	,	V_101
+"ovl(%d)-&gt;wait_for_go() not finishing\n"	,	L_4
+dss_apply_ovl_fifo_thresholds	,	F_73
+name	,	V_70
+dss_get_core_pdev	,	F_107
+dispc_ovl_set_channel_out	,	F_96
+need_isr	,	F_14
+extra_updating	,	V_78
+omap_dss_mgr_apply_ovl	,	F_69
+dss_mgr_register_framedone_handler_compat	,	F_103
+clock_info	,	V_24
+timeout	,	V_56
+dss_mgr_set_timings_compat	,	F_89
+"failed to unset output, output not set\n"	,	L_19
+list_del	,	F_99
+"output can't be unset when manager is enabled\n"	,	L_20
+dss_check_settings_apply	,	F_13
+dss_mgr_connect_compat	,	F_56
+omap_video_timings	,	V_90
+dss_init_overlays	,	F_109
+timings	,	V_39
+ERESTARTSYS	,	V_65
+set_manager_info	,	V_103
+dss_init_overlay_managers_sysfs	,	F_108
+extra_info_dirty	,	V_45
+dss_mgr_start_update_compat	,	F_58
+mask	,	V_75
+get_overlay_info	,	V_113
+dispc_mgr_enable_sync	,	F_59
+use_fifo_merge	,	V_83
+omap_dss_get_overlay_manager	,	F_16
+apply	,	V_102
+dispc_mgr_go	,	F_54
+dss_mgr_write_regs_extra	,	F_46
+spin_unlock	,	F_68
+omap_dss_get_num_overlays	,	F_110
+"cannot start manual update: illegal configuration\n"	,	L_13
+data_lock	,	V_14
+set_output	,	V_73
+framedone_handler_data	,	V_81
+dssdev	,	V_52
+was_busy	,	V_79
+extra_updated_completion	,	V_50
+err_mgr_ops	,	V_115
+ovl_manual_update	,	F_7
+OMAP_DSS_CHANNEL_DIGIT	,	V_21
+dss_mgr_get_device	,	F_26
+pck_div	,	V_26
+output	,	V_53
+mgr_priv_data	,	V_7
+enable	,	V_82
+dispc_mgr_get_framedone_irq	,	F_60
+id	,	V_6
+"writing ovl %d regs"	,	L_6
+num_mgrs	,	V_40
+fifo_low	,	V_68
+dss_dispc_uninitialize_irq	,	F_120
+omap_dss_device	,	V_51
+dss_write_regs	,	F_50
+dss_ovl_setup_fifo	,	F_74
+unset_output	,	V_74
+omap_dispc_unregister_isr	,	F_63
+dss_apply_irq_handler	,	V_76
+stallmode	,	V_28
+get_device	,	V_107
+driver	,	V_55
+ovl_priv_data	,	V_1
+dss_ovl_is_enabled	,	F_100
+mgr_priv_data_array	,	V_10
+irq_enabled	,	V_71
+ENODEV	,	V_58
+dispc_mgr_go_busy	,	F_66
+err2	,	V_96
+err1	,	V_89
+dss_ovl_get_info	,	F_94
+flags	,	V_47
+dss_mgr_set_lcd_config_compat	,	F_91
+list_add_tail	,	F_97
+enabled	,	V_36
+init_completion	,	F_22
+out	,	V_85
+dss_mgr_write_regs	,	F_43
+dss_ovl_set_manager	,	F_95
+dss_ovl_set_info	,	F_92
+dss_uninit_overlay_managers_sysfs	,	F_117
+err_init_irq	,	V_117
+replication	,	V_66
+ovl	,	V_3
+err	,	V_86
+"timeout in wait_pending_extra_info_updates\n"	,	L_1
+dss_ovl_enable	,	F_101
+wait_for_vsync	,	V_106
+EINVAL	,	V_87
+"writing mgr %d regs"	,	L_9
+disable	,	V_109
+dss_dispc_initialize_irq	,	F_114
+dispc_ovl_enable	,	F_40
+apply_init_priv	,	F_3
+user_info_dirty	,	V_37
+data	,	V_77
+lck_div	,	V_25
+dss_mgr_wait_for_go	,	F_33
+"failed to enable manager %d: check_settings failed\n"	,	L_16
+dispc_runtime_put	,	F_32
+err_disp_sysfs	,	V_116
+dss_setup_fifos	,	F_77
+ovl_priv_data_array	,	V_5
+dss_check_settings_low	,	F_9
+"cannot write registers for manager %s: "	,	L_11
+dispc_mgr_set_timings	,	F_47
+pdev	,	V_99
+updating	,	V_41
+omap_dss_mgr_apply	,	F_71
+zorder	,	V_18
+u32	,	T_1
+dss_uninstall_mgr_ops	,	F_116
+dispc_mgr_set_lcd_config	,	F_49
+"need an update to change the manager\n"	,	L_27
+dss_mgr_check	,	F_11
+omap_dss_get_num_overlay_managers	,	F_51
+mi	,	V_33
+dss_has_feature	,	F_6
+omap_dispc_wait_for_irq_interruptible_timeout	,	F_31
+mp	,	V_12
+dss_mgr_wait_for_go_ovl	,	F_35
+DSSDBG	,	F_37
+framedone_handler	,	V_80
+"cannot set timings for %s: manager needs to be disabled\n"	,	L_21
+dss_mgr_set_info	,	F_83
+dispc_ovl_set_fifo_threshold	,	F_42
+omap_dss_get_overlay	,	F_111
+dss_ovl_write_regs_extra	,	F_41
+num_ovls	,	V_11
+DSSWARN	,	F_25
+dss_apply_mgr_lcd_config	,	F_90
+dss_mgr_unset_output	,	F_87
+"overlay has to be disabled to unset the manager\n"	,	L_26
+spin_lock_irqsave	,	F_20
+overlays	,	V_94
+apply_mgr_ops	,	V_114
+dispc_mgr_get_vsync_irq	,	F_30
+dss_ovl_simple_check	,	F_93
+list_for_each_entry	,	F_10
+extra_info_update_ongoing	,	F_18
+OMAP_DSS_OUTPUT_HDMI	,	V_61
+set_manager	,	V_110
+get_manager_info	,	V_104
+dst	,	V_72
+dss_uninit_overlays	,	F_118
+dss_mgr_is_lcd	,	F_48
+set_overlay_info	,	V_112
+"failed to enable overlay %d: check_settings failed\n"	,	L_28
+"output does not support manager %s\n"	,	L_18
+FEAT_ALPHA_FREE_ZORDER	,	V_19
+"failed to detach overlay: manager not set\n"	,	L_25
+get_ovl_priv	,	F_1
+unset_manager	,	V_111
+msecs_to_jiffies	,	F_23
+dispc_mgr_is_enabled	,	F_65
+busy	,	V_42
+ois	,	V_34
+global_alpha	,	V_17
+oi	,	V_31
+spin_lock	,	F_64
+omap_overlay_manager_info	,	V_32
+info_dirty	,	V_43
+DSSERR	,	F_34
+op	,	V_15
+applying	,	V_29
+lcd_config	,	V_22
+supported_outputs	,	V_88
+get_mgr_priv	,	F_2
+WARN_ON	,	F_44
+"illegal configuration\n"	,	L_12
+"cannot apply lcd config for %s: manager needs to be disabled\n"	,	L_22
+shadow_info_dirty	,	V_44
+"mgr(%d)-&gt;wait_for_go() timeout\n"	,	L_3
+dss_set_go_bits	,	F_52

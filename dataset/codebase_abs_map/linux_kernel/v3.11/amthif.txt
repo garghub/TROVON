@@ -1,0 +1,205 @@
+mei_secs_to_jiffies	,	F_19
+MEI_IAMTHIF_STALL_TIMER	,	V_102
+iamthif_msg_buf_size	,	V_4
+iamthif_flow_control_pending	,	V_77
+amthif_rd_complete_list	,	V_103
+MEI_IAMTHIF_IDLE	,	V_9
+mei_amthif_host_init	,	F_2
+s32	,	T_5
+"amthif_message_buffer_index =%d\n"	,	L_27
+dev	,	V_2
+mei_io_cb_alloc_resp_buf	,	F_32
+len	,	V_91
+"amthif client not found.\n"	,	L_7
+state	,	V_30
+write_waiting_list	,	V_79
+"amthif write failed status = %d\n"	,	L_25
+mei_cl_link	,	F_10
+iamthif_stall_timer	,	V_98
+POLLIN	,	V_87
+__user	,	T_1
+EIO	,	V_101
+"No flow control credentials, so add iamthif cb to write list.\n"	,	L_21
+loff_t	,	T_3
+size	,	V_63
+reserved	,	V_76
+GFP_KERNEL	,	V_27
+iamthif_file_object	,	V_70
+me_clients	,	V_21
+MEI_FOP_IOCTL	,	V_82
+mei_me_cl_by_id	,	F_15
+wake_up_interruptible	,	F_48
+MEI_IAMTHIF_FLOW_CONTROL	,	V_78
+"add amthif cb to write waiting list\n"	,	L_18
+mei_amthif_reset_params	,	F_1
+iamthif_cl	,	V_13
+mutex_unlock	,	F_16
+mei_amthif_irq_write_complete	,	F_37
+"write data to amthif client.\n"	,	L_17
+"Got amthif data\n"	,	L_11
+mei_clear_list	,	F_49
+pos	,	V_38
+mei_cl	,	V_11
+cb	,	V_46
+EMSGSIZE	,	V_100
+"run next amthif cb\n"	,	L_26
+iamthif_timer	,	V_10
+cl	,	V_12
+i	,	V_16
+kcalloc	,	F_8
+ENOENT	,	V_19
+mei_cl_flow_ctrl_reduce	,	F_29
+wait_event_interruptible	,	F_17
+wait_ret	,	V_45
+read_time	,	V_57
+jiffies	,	V_59
+mei_amthif_write	,	F_31
+mutex_lock	,	F_18
+MEI_FILE_CONNECTING	,	V_31
+POLLRDNORM	,	V_88
+"iamthif flow control failed\n"	,	L_31
+amthif_cmd_list	,	V_83
+"amthif timeout = %lud\n"	,	L_12
+mei_amthif_irq_read	,	F_44
+request_buffer	,	V_71
+"completed amthif read.\n "	,	L_28
+mei_io_cb_free	,	F_24
+poll_wait	,	F_36
+me_client_id	,	V_20
+dev_dbg	,	F_6
+client_id	,	V_22
+timer_count	,	V_34
+iamthif_msg_buf	,	V_26
+response_buffer	,	V_62
+cmpl_list	,	V_90
+ret	,	V_15
+msg_complete	,	V_73
+MEI_FILE_DISCONNECTED	,	V_32
+"amthif cb-&gt;buf_idx - %lu\n"	,	L_15
+msg_buf	,	V_14
+"dev-&gt;iamthif_timer = %ld\n"	,	L_34
+list	,	V_60
+mei_clear_lists	,	F_50
+ETIMEDOUT	,	V_49
+"checking amthif data\n"	,	L_8
+slots	,	V_89
+mei_amthif_guid	,	V_17
+ctrl_rd_list	,	V_109
+"IAMTHIF_MTU = %d\n"	,	L_2
+mei_cb_list	,	V_105
+next	,	V_39
+"amthif Time out\n"	,	L_13
+BUG_ON	,	F_42
+hbuf_is_ready	,	V_72
+f_flags	,	V_51
+"woke up from sleep\n"	,	L_10
+timeout	,	V_48
+dev_err	,	F_9
+list_del	,	F_21
+MEI_HDR_FMT	,	V_94
+hbm_flow_control	,	V_99
+ERESTARTSYS	,	V_56
+mask	,	V_85
+"add the amthif read cb to complete.\n "	,	L_30
+"amthif cb-&gt;response_buffer size - %d\n"	,	L_14
+"amthif: failed to find the client\n"	,	L_1
+mei_amthif_run_next_cmd	,	F_34
+complete_list	,	V_95
+length	,	V_42
+"amthif canceled iamthif state %d\n"	,	L_36
+write_list	,	V_80
+"complete the amthif read cb.\n "	,	L_29
+"AMTHIF: add cb to the wait list\n"	,	L_23
+cb_pos	,	V_106
+ENOMEM	,	V_28
+mei_cl_init	,	F_3
+mei_data2slots	,	F_38
+file_object	,	V_40
+mei_write_message	,	F_28
+dev_info	,	F_5
+list_empty	,	F_33
+mei_read_slots	,	F_43
+mei_amthif_send_cmd	,	F_25
+iamthif_current_cb	,	V_3
+iamthif_mtu	,	V_23
+host_addr	,	V_74
+host_client_id	,	V_33
+mei_amthif_release	,	F_51
+list_for_each_entry_safe	,	F_13
+"amthif read completed\n"	,	L_33
+mei_me_cl_by_uuid	,	F_4
+"waiting for amthif data\n"	,	L_9
+mei_cl_cb	,	V_36
+props	,	V_24
+list_move_tail	,	F_40
+MEI_HDR_PRM	,	F_39
+"amthif state = %d\n"	,	L_22
+status	,	V_84
+MEI_IAMTHIF_HOST_CLIENT_ID	,	V_29
+mei_amthif_irq_read_msg	,	F_41
+ENODEV	,	V_50
+wait	,	V_55
+kfree	,	F_7
+private_data	,	V_47
+"free amthif cb memory.\n"	,	L_16
+O_NONBLOCK	,	V_52
+iamthif_state	,	V_8
+list_add_tail	,	F_30
+max_msg_length	,	V_25
+out	,	V_66
+copy_to_user	,	F_23
+file	,	V_37
+MEI_CONNECT_TIMEOUT	,	V_35
+"message does not complete, so add amthif cb to write list.\n"	,	L_19
+mei_hbm_cl_connect_req	,	F_11
+time_after	,	F_20
+iamthif_canceled	,	V_6
+mei_hbm_cl_flow_control_req	,	F_45
+cb_next	,	V_107
+buf_idx	,	V_61
+EAGAIN	,	V_53
+"amthif: memory allocation for ME message buffer failed.\n"	,	L_3
+EFAULT	,	V_65
+"bad file ext.\n"	,	L_6
+device_lock	,	V_54
+removed	,	V_108
+"complete amthif cmd_list cb.\n"	,	L_24
+msg_slots	,	V_92
+mei_amthif_poll	,	F_35
+mei_hbuf_max_len	,	F_27
+data	,	V_64
+mei_amthif_read	,	F_14
+"iamthif flow control success\n"	,	L_32
+MEI_IAMTHIF_READ_COMPLETE	,	V_86
+size_t	,	T_2
+pdev	,	V_18
+u32	,	T_6
+MEI_IAMTHIF_READING	,	V_97
+buffer	,	V_96
+"run next amthif iamthif cb\n"	,	L_37
+offset	,	V_43
+open_handle_count	,	V_111
+fop_type	,	V_81
+iamthif_ioctl	,	V_7
+MEI_IAMTHIF_WRITING	,	V_69
+"host buffer is not empty"	,	L_20
+mei_amthif_complete	,	F_47
+"completing amthif call back.\n"	,	L_35
+"amthif: Failed to connect to ME client\n"	,	L_5
+"amthif: failed link client\n"	,	L_4
+iamthif_msg_buf_index	,	V_5
+rets	,	V_44
+poll_table	,	T_4
+ctrl_wr_list	,	V_110
+mei_msg_hdr	,	V_67
+mei_hdr	,	V_68
+mei_amthif_find_read_list_entry	,	F_12
+MEI_IAMTHIF_READ_TIMER	,	V_58
+mei_hbuf_is_ready	,	F_46
+list_head	,	V_104
+ubuf	,	V_41
+me_addr	,	V_75
+mei_cl_flow_ctrl_creds	,	F_26
+hbuf_depth	,	V_93
+min_t	,	F_22
+mei_device	,	V_1

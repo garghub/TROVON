@@ -1,0 +1,283 @@
+lun	,	V_108
+io_request_completion	,	V_57
+"SCI_FAILURE_IO_RESPONSE_VALID\n"	,	L_17
+isci_tmf_timed_out	,	V_81
+isci_terminate_request_core	,	F_43
+ssp	,	V_130
+"%s: isci_task_send_tmf failed\n"	,	L_44
+dev	,	V_13
+isci_request_execute	,	F_15
+IREQ_TMF	,	V_58
+isci_task_execute_task	,	F_8
+"%s: %p: TMF_LU_RESET failed (%x)\n"	,	L_30
+SAS_TASK_COMPLETE	,	V_35
+"%s: No dev\n"	,	L_32
+termination_completed	,	V_101
+isci_task_send_lu_reset_sas	,	F_55
+isci_device	,	V_90
+cb_data	,	V_77
+isci_tci_free	,	F_16
+SAS_TASK_STATE_ABORTED	,	V_39
+"%s: domain_device=%p, isci_host=%p; isci_device=%p\n"	,	L_31
+completed	,	V_98
+isci_task_is_ncq_recovery	,	F_7
+wait_for_completion_timeout	,	F_32
+stp	,	V_135
+rc	,	V_138
+ISCI_LU_RESET_TIMEOUT_MS	,	F_56
+perform_termination	,	V_116
+tmf_task_ptr	,	V_62
+isci_tmf_ssp_lun_reset	,	V_109
+"%s: dev = %p, task = %p, old_request == %p\n"	,	L_36
+isci_request_change_started_to_aborted	,	F_41
+LIST_HEAD	,	F_48
+isci_task_request_build	,	F_19
+isci_put_device	,	F_18
+sci_task_status	,	V_67
+iphy	,	V_145
+test_bit	,	F_6
+dead	,	V_56
+list_del_init	,	F_46
+rsp	,	V_131
+isci_port_perform_hard_reset	,	F_78
+isci_remote_device_nuke_requests	,	F_80
+SAS_PROTOCOL_SSP	,	V_52
+tmf_code	,	V_63
+"%s: Normal - task = %p, response=%d, "	,	L_1
+timeout_ms	,	V_66
+"%s: num=%d\n"	,	L_6
+"%s: Bad cb_state (%d): tmf=%p, old_request=%p\n"	,	L_35
+SCI_FAILURE	,	V_29
+typeof	,	F_51
+was_terminated	,	V_99
+completion	,	V_53
+stat	,	V_94
+"%s: abort task not needed for %p\n"	,	L_37
+"%s: idev = %p\n"	,	L_14
+u8	,	T_3
+req_completion	,	V_55
+cb_state_func	,	V_75
+ihost	,	V_2
+ttype_ptr	,	V_61
+started	,	V_78
+SCI_FAILURE_IO_RESPONSE_VALID	,	V_84
+timeleft	,	V_71
+" or complete_in_target (%d), thus no TMF\n"	,	L_40
+cb_state	,	V_115
+SCI_TASK_SUCCESS	,	V_74
+isci_print_tmf	,	F_35
+state_lock	,	V_104
+io_tag	,	V_64
+isci_completion_selection	,	V_9
+dev_node	,	V_79
+isci_task_validate_request_to_abort	,	F_39
+isci_tmf_cb_state	,	V_87
+sas_get_local_phy	,	F_75
+isci_phy	,	V_144
+lldd_port	,	V_143
+isci_task_lu_reset	,	F_57
+"%s: Aborted - task = %p, response=%d, "	,	L_3
+dev_dbg	,	F_3
+io_ready	,	V_26
+IDEV_GONE	,	V_43
+aborted_io_completion	,	V_91
+sas_task	,	V_3
+isci_request_access_tmf	,	F_25
+"%s: %p: TMF_LU_RESET passed\n"	,	L_29
+isci_request	,	V_44
+request_completion	,	V_105
+"%s: tmf.status == "	,	L_16
+resp_iu	,	V_129
+sci_task_request_construct_ssp	,	F_23
+isci_perform_error_io_completion	,	V_18
+IDEV_IO_NCQERROR	,	V_23
+"%s: sci_remote_device_reset(%p) returned %d!\n"	,	L_47
+for_each_sas_task	,	F_10
+exec_status	,	V_7
+ret	,	V_69
+isci_task_I_T_nexus_reset	,	F_83
+ISCI_TERMINATION_TIMEOUT_MSEC	,	V_82
+TMF_RESP_FUNC_COMPLETE	,	V_83
+sas_put_local_phy	,	F_82
+"%s: idev %p complete.\n"	,	L_50
+list	,	V_106
+isci_host	,	V_1
+"%s: Error - task = %p, response=%d, "	,	L_4
+io_task_ptr	,	V_65
+spin_unlock_irqrestore	,	F_14
+"%s:  device = %p; old_request %p already being aborted\n"	,	L_38
+SAS_DEVICE_UNKNOWN	,	V_33
+isci_remote_device	,	V_19
+port	,	V_112
+dev_type	,	V_49
+task_proto	,	V_119
+next	,	V_107
+isci_task_set_completion_status	,	F_2
+task_state_lock	,	V_37
+DECLARE_COMPLETION_ONSTACK	,	F_28
+old_request	,	V_88
+"%s: device = %p; request = %p\n"	,	L_19
+"SMP"	,	L_41
+isci_device_io_ready	,	F_5
+sas_phy_reset	,	F_79
+"%s: before completion wait (%p/%p)\n"	,	L_22
+task_state_flags	,	V_38
+"%s: sci_remote_device_reset_complete(%p) "	,	L_48
+isci_task_abort_task	,	F_63
+"%s: tmf=%p, old_request=%p\n"	,	L_33
+ISCI_TAG_TCI	,	F_17
+sas_ata_schedule_reset	,	F_59
+SAS_TASK_NEED_DEV_RESET	,	V_123
+tmf_complete	,	V_126
+IREQ_COMPLETE_IN_TARGET	,	V_102
+"%s: request = %p, status=%d\n"	,	L_45
+aborting	,	V_96
+spin_unlock	,	F_65
+isci_tmf	,	V_45
+"task: %p, num: %d dev: %p idev: %p:%#lx cmd = %p\n"	,	L_7
+list_entry	,	F_50
+isci_abort_task_process_cb	,	F_62
+request_complete	,	V_127
+ha	,	V_114
+isci_request_change_started_to_newstate	,	F_52
+SAS_TASK_STATE_PENDING	,	V_118
+"%s: idev=%p request=%p; task=%p old_state=%d\n"	,	L_27
+gfp_t	,	T_1
+SAS_QUEUE_FULL	,	V_36
+"%s: sci_controller_terminate_request"	,	L_20
+sci_remote_device_reset	,	F_76
+isci_request_change_state	,	F_30
+aborted	,	V_95
+sas_protocol_ata	,	F_66
+ISCI_ABORT_TASK_TIMEOUT_MS	,	F_67
+isci_task_clear_aca	,	F_69
+" returned = 0x%x\n"	,	L_21
+list_empty	,	F_40
+tmf	,	V_59
+TMF_RESP_FUNC_FAILED	,	V_70
+d2h_fis	,	V_134
+isci_tmf_request_from_tag	,	F_20
+isci_request_status	,	V_89
+number	,	V_147
+SAS_PROTOCOL_SMP	,	V_120
+"%s: isci task notification default case!"	,	L_5
+domain_device	,	V_47
+phys	,	V_146
+uldd_task	,	V_31
+"%s: %s request"	,	L_39
+service_response	,	V_5
+target_device	,	V_137
+sci_controller_complete_io	,	F_73
+"SATA/STP"	,	L_42
+__func__	,	V_14
+"%s: isci_tmf = %p\n"	,	L_8
+isci_task_build_tmf	,	F_36
+old_state	,	V_92
+task_done	,	V_16
+idev	,	V_20
+status	,	V_8
+d_device	,	V_122
+isci_free_tag	,	F_45
+flags	,	V_22
+sci_task_request_construct	,	F_21
+init_completion	,	F_54
+out	,	V_110
+SCI_TASK_FAILURE	,	V_68
+isci_terminate_pending_requests	,	F_47
+sas_phy	,	V_139
+isci_request_access_task	,	F_26
+SAS_TASK_STATE_DONE	,	V_117
+SCI_CONTROLLER_INVALID_IO_TAG	,	V_34
+"status=%d\n"	,	L_2
+u16	,	T_2
+unallocated	,	V_93
+isci_lookup_device	,	F_12
+reqs_in_process	,	V_80
+"termination(%p/%p)\n"	,	L_24
+SAS_END_DEV	,	V_50
+SCI_SUCCESS	,	V_42
+disposition	,	V_10
+"task context unrecoverable (tag: %#x)\n"	,	L_12
+dev_to_ihost	,	F_9
+scsi_is_sas_phy_local	,	F_77
+terminating	,	V_97
+complete	,	V_60
+scic_lock	,	V_30
+SCI_FAILURE_TIMEOUT	,	V_73
+dev_is_sata	,	F_58
+phy	,	V_140
+"returned %d!\n"	,	L_49
+isci_task_refuse	,	F_1
+lldd_task	,	V_15
+num	,	V_24
+"%s: after completion wait (%p/%p)\n"	,	L_25
+TMF_RESP_FUNC_SUCC	,	V_124
+"%s: idev = %p not ready (%#lx)\n"	,	L_13
+list_splice_init	,	F_49
+sas_ha_struct	,	V_113
+isci_alloc_tag	,	F_13
+"%s: Bad request status (%d): tmf=%p, old_request=%p\n"	,	L_34
+isci_port	,	V_141
+pdev	,	V_12
+dev_to_host_fis	,	V_136
+isci_perform_aborted_io_completion	,	V_17
+iport	,	V_142
+completion_status	,	V_125
+isci_task_build_abort_task_tmf	,	F_38
+tag	,	V_27
+ireq	,	V_46
+"%s: idev %p\n"	,	L_46
+"%s: cleanup isci_device=%p, request=%p\n"	,	L_26
+task	,	V_4
+isci_task_clear_task_set	,	F_70
+spin_lock_irqsave	,	F_11
+SAS_PROTOCOL_SATA	,	V_133
+proto	,	V_51
+isci_task_clear_nexus_ha	,	F_61
+IDEV_IO_READY	,	V_21
+SAS_TASK_AT_INITIATOR	,	V_41
+list_add	,	F_31
+SAS_TASK_UNDELIVERED	,	V_32
+sas_task_abort	,	F_4
+isci_task_execute_tmf	,	F_27
+"&lt;other&gt;"	,	L_43
+isci_request_mark_zombie	,	F_24
+sci_controller_terminate_request	,	F_34
+"%s: start_io failed - status = 0x%x, request = %p\n"	,	L_15
+code	,	V_86
+"%s: tmf_code %d, managed tag %#x\n"	,	L_11
+isci_task_abort_task_set	,	F_68
+sci_controller_start_task	,	F_29
+isci_reset_device	,	F_74
+isci_task_clear_nexus_port	,	F_60
+err_tci	,	V_72
+msecs_to_jiffies	,	F_33
+list_move	,	F_53
+sci_status	,	V_28
+"%s: sci_task_request_construct failed - "	,	L_9
+isci_tmf_function_codes	,	V_85
+isci_tmf_started	,	V_76
+spin_lock	,	F_64
+isci_task_request_complete	,	F_72
+gfp_flags	,	V_25
+isci_perform_normal_io_completion	,	V_11
+tmf_completion	,	V_54
+set_bit	,	F_44
+resp	,	V_128
+dev_warn	,	F_22
+"%s: completed request = %p\n"	,	L_18
+IREQ_TERMINATED	,	V_103
+needs_cleanup_handling	,	V_100
+isci_task_query_task	,	F_71
+"%s: *** Timeout waiting for "	,	L_23
+"status = 0x%x\n"	,	L_10
+isci_request_is_dealloc_managed	,	F_42
+"%s: isci_host = %p, isci_device = %p\n"	,	L_28
+tmf_sent_cb	,	F_37
+sci_remote_device_reset_complete	,	F_81
+isci_tmf_ssp_task_abort	,	V_121
+response	,	V_6
+SAM_STAT_TASK_ABORTED	,	V_40
+asd_sas_port	,	V_111
+domain_dev	,	V_48
+SSP_RESP_IU_MAX_SIZE	,	V_132

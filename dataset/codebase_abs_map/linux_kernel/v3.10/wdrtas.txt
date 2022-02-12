@@ -1,0 +1,138 @@
+wdrtas_timer_stop	,	F_10
+WDRTAS_MAGIC_CHAR	,	V_30
+print_msg	,	V_3
+misc_deregister	,	F_35
+inode	,	V_55
+"get-sensor-state"	,	L_10
+len	,	V_23
+"couldn't register watchdog misc device. Terminating watchdog code.\n"	,	L_18
+"couldn't get token for ibm,get-system-parameter. Trying to continue with a default timeout value of %i seconds.\n"	,	L_13
+pr_warn	,	F_8
+wdrtas_token_event_scan	,	V_17
+options	,	V_36
+WDRTAS_THERMAL_SENSOR	,	V_20
+"got unexpected close. Watchdog not stopped.\n"	,	L_9
+wdrtas_log_scanned_event	,	F_11
+"%02x %02x %02x %02x  %02x %02x %02x %02x   "	,	L_4
+__user	,	T_2
+wdrtas_get_boot_status	,	F_17
+wdrtas_init	,	F_38
+EIO	,	V_67
+unregister_reboot_notifier	,	F_41
+wdrtas_get_temperature	,	F_14
+WDRTAS_SUPPORTED_MASK	,	V_37
+loff_t	,	T_4
+rtas_data_buf_lock	,	V_9
+wdrtas_expect_close	,	V_28
+wdrtas_temp_open	,	F_29
+wdinfo	,	V_35
+pr_err	,	F_3
+wdrtas_exit	,	F_40
+interval	,	V_1
+cmd	,	V_31
+fallback_value	,	V_6
+"reading the thermal sensor failed: %i\n"	,	L_7
+ENODEV	,	V_70
+ssize_t	,	T_1
+WDIOC_GETSTATUS	,	V_41
+wdrtas_set_interval	,	F_1
+WDRTAS_SURVEILLANCE_IND	,	V_5
+firmware_version	,	V_38
+wdrtas_token_get_sp	,	V_11
+out	,	V_26
+result	,	V_2
+copy_to_user	,	F_21
+file	,	V_21
+EBUSY	,	V_57
+wdrtas_reboot	,	F_31
+identity	,	V_39
+arg	,	V_32
+temperature	,	V_19
+"%02x %02x %02x %02x  %02x %02x %02x %02x\n"	,	L_5
+wdrtas_close	,	F_27
+wdrtas_write	,	F_18
+c	,	V_25
+rtas_get_sensor	,	F_15
+pr_info	,	F_12
+wdrtas_register_devs	,	F_36
+i	,	V_14
+EFAULT	,	V_29
+EOPNOTSUPP	,	V_46
+EINVAL	,	V_52
+WDRTAS_SP_SPI	,	V_12
+"set-indicator"	,	L_14
+buf	,	V_22
+"couldn't register watchdog temperature misc device. Continuing without temperature support.\n"	,	L_19
+"could not register reboot notifier. Terminating watchdog code.\n"	,	L_20
+WDIOC_KEEPALIVE	,	V_50
+wdrtas_miscdev	,	V_68
+__init	,	T_5
+__exit	,	T_6
+RTAS_EVENT_SCAN_ALL_EVENTS	,	V_18
+WDIOS_ENABLECARD	,	V_49
+notifier_block	,	V_59
+wdrtas_get_interval	,	F_4
+ENOTTY	,	V_54
+wdrtas_interval	,	V_13
+WDRTAS_DEFAULT_INTERVAL	,	V_66
+"event-scan failed: %li\n"	,	L_6
+WDIOC_GETBOOTSTATUS	,	V_42
+wdrtas_nowayout	,	V_27
+NOTIFY_DONE	,	V_65
+size_t	,	T_3
+"wdrtas"	,	L_8
+wdrtas_miscdev_open	,	V_56
+wdrtas_temp_close	,	F_30
+"couldn't get token for get-sensor-state. Trying to continue without temperature support.\n"	,	L_11
+wdrtas_token_get_sensor_state	,	V_44
+"could not get sp_spi watchdog timeout (%li). Continuing\n"	,	L_2
+SYS_HALT	,	V_64
+misc_register	,	F_37
+atomic_dec	,	F_25
+watchdog_info	,	V_34
+register_reboot_notifier	,	F_39
+count	,	V_58
+this	,	V_60
+rtas_call	,	F_2
+wdrtas_timer_start	,	F_9
+wdrtas_unregister_devs	,	F_34
+WDIOC_GETSUPPORT	,	V_40
+"dumping event (line %i/%i), data = "	,	L_3
+WDRTAS_SP_SPI_LEN	,	V_8
+wdrtas_timer_keepalive	,	F_13
+wdrtas_ioctl	,	F_20
+wdrtas_temp_read	,	F_28
+rtas_data_buf	,	V_10
+code	,	V_61
+wdrtas_tempdev	,	V_69
+get_user	,	F_19
+rtas_token	,	F_33
+WDIOC_GETTEMP	,	V_43
+ppos	,	V_24
+wdrtas_token_set_indicator	,	V_4
+"couldn't get token for event-scan. Terminating watchdog code.\n"	,	L_17
+spin_lock	,	F_5
+RTAS_UNKNOWN_SERVICE	,	V_45
+wdrtas_get_tokens	,	F_32
+put_user	,	F_22
+value	,	V_7
+wdrtas_open	,	F_23
+wdrtas_notifier	,	V_71
+WDIOC_GETTIMEOUT	,	V_53
+spin_unlock	,	F_7
+WDRTAS_LOGBUFFER_LEN	,	V_15
+"ibm,get-system-parameter"	,	L_12
+nonseekable_open	,	F_26
+WDIOC_SETTIMEOUT	,	V_51
+"setting the watchdog to %i timeout failed: %li\n"	,	L_1
+ptr	,	V_62
+wdrtas_get_status	,	F_16
+WDIOC_SETOPTIONS	,	V_47
+wdrtas_logbuffer	,	V_16
+"couldn't get token for set-indicator. Terminating watchdog code.\n"	,	L_15
+atomic_inc_return	,	F_24
+argp	,	V_33
+__pa	,	F_6
+SYS_DOWN	,	V_63
+"event-scan"	,	L_16
+WDIOS_DISABLECARD	,	V_48

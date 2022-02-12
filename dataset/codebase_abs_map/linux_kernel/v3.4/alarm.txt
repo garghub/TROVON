@@ -1,0 +1,203 @@
+parent	,	V_26
+delta	,	V_20
+alarm_setrtc_mutex	,	V_54
+platform_driver_unregister	,	F_68
+do_settimeofday	,	F_34
+class_intf	,	V_89
+new_time	,	V_40
+dev	,	V_87
+state	,	V_72
+softexpires	,	V_22
+rtc_new_rtc_time	,	V_43
+android_alarm	,	V_4
+rtc_irq_unregister	,	F_59
+ANDROID_ALARM_RTC_WAKEUP	,	V_8
+timespec_to_ktime	,	F_31
+node	,	V_15
+wake_lock_destroy	,	F_67
+alarm_slock	,	V_37
+hrtimer_callback_running	,	F_23
+timespec	,	V_39
+rtc_tm_to_time	,	F_46
+"alarm_suspend(%p, %d)\n"	,	L_18
+WAKE_LOCK_SUSPEND	,	V_101
+device	,	V_86
+update_timer_locked	,	F_1
+rtc_set_time	,	F_35
+CALL	,	V_63
+rtc_wkalrm	,	V_73
+CLOCK_MONOTONIC	,	V_99
+"alarm_resume(%p)\n"	,	L_21
+alarm_triggered_func	,	F_41
+RTC_AF	,	V_69
+mutex_unlock	,	F_36
+rtc_device	,	V_66
+rtc_alarm_add_device	,	F_51
+tm_hour	,	V_48
+EBUSY	,	V_85
+tm_mon	,	V_51
+stopped_time	,	V_56
+"added alarm, type %d, func %pF at %lld\n"	,	L_4
+rtc	,	V_67
+stopped	,	V_10
+"no more alarms of type %ld\n"	,	L_16
+"alarm_timer_triggered type %ld at %lld\n"	,	L_13
+i	,	V_41
+tmp_time	,	V_44
+alarm_resume	,	F_50
+p	,	V_65
+leftmost	,	V_28
+SUSPEND	,	V_82
+mutex_lock	,	F_28
+"alarm about to go off\n"	,	L_20
+ktime_to_timespec	,	F_48
+platform_device	,	V_70
+android_alarm_start_range	,	F_19
+"rtc alarm triggered\n"	,	L_17
+rb_next	,	F_11
+"set rtc %ld %ld - rtc %02d:%02d:%02d %02d/%02d/%04d\n"	,	L_8
+ktime_get_ts	,	F_61
+ret	,	V_38
+system_time	,	V_97
+was_first	,	V_29
+android_alarm_try_to_cancel	,	F_22
+"alarm"	,	L_22
+platform_device_unregister	,	F_57
+spin_unlock_irqrestore	,	F_21
+name	,	V_96
+alarm_exit	,	F_69
+ANDROID_ALARM_ELAPSED_REALTIME	,	V_57
+"canceled alarm, type %d, func %pF at %lld\n"	,	L_6
+"Failed to set RTC, time will be lost on reboot\n"	,	L_12
+rtc_set_alarm	,	F_49
+expires	,	V_17
+getnstimeofday	,	F_30
+alarm_late_init	,	F_60
+"tried to cancel alarm, type %d, func %pF\n"	,	L_7
+wake_lock	,	F_29
+_softexpires	,	V_21
+alarm_rtc_task	,	V_93
+rtc_alarm_remove_device	,	F_58
+rb_link_node	,	F_16
+tmp_queue	,	V_81
+INIT_STATUS	,	V_95
+now	,	V_60
+end	,	V_35
+wall_time	,	V_79
+class	,	V_103
+hrtimer	,	V_62
+timespec_sub	,	F_33
+class_interface	,	V_88
+start	,	V_34
+hrtimer_start_expires	,	F_9
+hrtimer_try_to_cancel	,	F_7
+tv64	,	V_30
+alarm_rtc_dev	,	V_59
+pm_message_t	,	T_2
+base	,	V_2
+alarm_timer_triggered	,	F_39
+"rtc alarm set at %ld, now %ld, rtc delta %ld.%09ld\n"	,	L_19
+alarm_suspend	,	F_42
+rtc_delta	,	V_78
+wakeup_queue	,	V_80
+FLOW	,	V_11
+ANDROID_ALARM_ELAPSED_REALTIME_WAKEUP	,	V_9
+HZ	,	V_18
+rtc_time	,	V_42
+platform_device_register_simple	,	F_53
+android_alarm_init	,	F_18
+rtc_time_to_tm	,	F_27
+HRTIMER_MODE_ABS	,	V_23
+android_alarm_type	,	V_33
+"lost rtc device for alarms"	,	L_24
+rtc_alarm_time	,	V_77
+suspended	,	V_12
+alarm_get_elapsed_realtime	,	F_37
+hrtimer_get_expires	,	F_44
+alarm_platform_dev	,	V_91
+rtc_alarm_interface	,	V_102
+android_alarm_set_rtc	,	F_26
+HRTIMER_NORESTART	,	V_64
+irq_data	,	V_68
+err3	,	V_94
+err2	,	V_92
+err1	,	V_90
+flags	,	V_36
+TSET	,	V_46
+alarm_enqueue_locked	,	F_10
+enabled	,	V_84
+"alarm_set_rtc: no RTC, time will be lost on reboot\n"	,	L_10
+hrtimer_init	,	F_63
+alarm_driver	,	V_100
+"don't call alarm, %pF, %lld (s %lld)\n"	,	L_14
+rtc_read_time	,	F_45
+rtc_class	,	V_104
+ktime_add	,	F_8
+class_interface_register	,	F_66
+ANDROID_ALARM_SYSTEMTIME	,	V_55
+event	,	V_83
+"using rtc device, %s, for alarms"	,	L_23
+wake_lock_timeout	,	F_6
+err	,	V_58
+CLOCK_REALTIME	,	V_98
+RB_EMPTY_NODE	,	F_12
+android_alarm_cancel	,	F_24
+__init	,	T_3
+__exit	,	T_4
+pr_alarm	,	F_2
+first	,	V_14
+tm_year	,	V_53
+rtc_current_rtc_time	,	V_75
+tv_sec	,	V_45
+ktime_t	,	T_1
+hrtimer_cancel	,	F_43
+pdev	,	V_71
+tm_min	,	V_49
+tm_sec	,	V_50
+ktime_to_ns	,	F_5
+"created alarm, type %d, func %pF\n"	,	L_5
+function	,	V_16
+rb_left	,	V_31
+head_removed	,	V_3
+rb_node	,	V_24
+rb_erase	,	F_13
+rtc_irq_register	,	F_56
+rtc_current_time	,	V_76
+platform_driver_register	,	F_64
+PTR_ERR	,	F_55
+entry	,	V_27
+rb_right	,	V_32
+spin_lock_irqsave	,	F_20
+set_normalized_timespec	,	F_47
+is_wakeup	,	V_6
+rb_insert_color	,	F_17
+hrtimer_restart	,	V_61
+hrtimer_cb_get_time	,	F_40
+"changed alarm while suspened\n"	,	L_3
+rtc_alarm	,	V_74
+link	,	V_25
+alarm_queue	,	V_1
+alarm_rtc_wake_lock	,	V_13
+"selected alarm, type %d, func %pF at %lld\n"	,	L_2
+wake_lock_init	,	F_65
+"alarm_set_rtc: "	,	L_11
+timer	,	V_19
+to_rtc_device	,	F_52
+wake_unlock	,	F_3
+tm_mday	,	V_52
+alarm	,	V_5
+RB_CLEAR_NODE	,	F_14
+class_interface_unregister	,	F_70
+tv_nsec	,	V_47
+"call alarm, type %d, func %pF, %lld (s %lld)\n"	,	L_15
+alarms	,	V_7
+"alarm_rtc"	,	L_25
+rb_entry	,	F_15
+"alarm_set_rtc: Failed to set time\n"	,	L_9
+alarm_driver_init	,	F_62
+ktime_get_real	,	F_38
+container_of	,	F_4
+ktime_sub	,	F_32
+"changed alarm while setting the wall time\n"	,	L_1
+cpu_relax	,	F_25
+IS_ERR	,	F_54

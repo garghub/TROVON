@@ -1,0 +1,36 @@
+chipcHw_REG_SOFT_RESET_CHIP_SOFT	,	V_9
+" ORR      r3,r3,#0x20000                                        \n\t"	,	L_7
+intcHw_irq_disable	,	F_2
+SPIClock	,	V_13
+REG_LOCAL_IRQ_SAVE	,	V_8
+pChipcHw	,	V_10
+STANDALONE	,	V_19
+chipcHw_REG_PLL_CLOCK_BYPASS_SELECT	,	V_12
+REG_LOCAL_IRQ_RESTORE	,	V_17
+" BIC      r0,r0,#0xd                                            \n\t"	,	L_3
+RUNFUNC	,	T_2
+chipcHw_reset_run_from_aram	,	V_15
+defined	,	F_4
+mask	,	V_1
+chipcHw_softReset	,	F_3
+" LDR      r3,[r2,#8]                                            \n\t"	,	L_6
+" nop                                                            \n\t"	,	L_1
+" MCR      p15,#0x0,r0,c1,c0,#0                                  \n\t"	,	L_4
+" MOV      pc,pc                                                 \n\t"	,	L_11
+" MOV      r3,#0x2                                               \n\t"	,	L_9
+uint32_t	,	T_1
+i	,	V_2
+CSP_CACHE_FLUSH_ALL	,	V_16
+MM_IO_BASE_ARAM	,	V_14
+INTCHW_INTC1	,	V_6
+INTCHW_SINTC	,	V_7
+INTCHW_INTC0	,	V_5
+" MOV      r2,#0x80000000                                        \n\t"	,	L_5
+runFunc	,	V_3
+" STR      r3,[r2,#8]                                            \n\t"	,	L_8
+__KERNEL__	,	V_18
+" STR      r3,[r2,#0x80]                                         \n\t"	,	L_10
+MM_ADDR_IO_ARAM	,	V_4
+UARTClock	,	V_11
+" MRC      p15,#0x0,r0,c1,c0,#0                                  \n\t"	,	L_2
+chipcHw_reset	,	F_1

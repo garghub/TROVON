@@ -1,0 +1,133 @@
+def	,	V_32
+unifi_set_host_state	,	F_7
+prev	,	V_44
+sdio_addr	,	V_57
+UNIFI_PROC_BOTH	,	V_18
+zone_end_offset	,	V_29
+chip_ver	,	V_46
+unifi_info	,	F_6
+s32	,	T_6
+coreDump	,	V_25
+enable	,	V_2
+zonebuf	,	V_49
+val	,	V_56
+find_dump	,	V_39
+CSR_RESULT_SUCCESS	,	V_8
+CsrTimeGet	,	F_5
+s8	,	T_3
+index	,	V_43
+time_of_capture	,	V_12
+dump_buf	,	V_41
+UNIFI_PROC_MAC	,	V_52
+fail	,	V_66
+node	,	V_68
+del_node	,	V_69
+UNIFI_PROC_INVALID	,	V_51
+build_id	,	V_58
+CSR_WIFI_HIP_RESULT_INVALID_VALUE	,	V_6
+get_value_from_coredump	,	F_13
+GFP_KERNEL	,	V_63
+card	,	V_1
+unifi_card_readn	,	F_17
+newzone	,	V_61
+UNIFI_DISABLE_COREDUMP	,	F_25
+zone_size	,	V_62
+"Can't read UniFi shared data area\n"	,	L_18
+kfree	,	F_23
+num_dump_buffers	,	V_64
+"Failed to wake UniFi\n"	,	L_3
+UDBG1	,	V_65
+unifi_error	,	F_8
+"Failed to start UniFi XAPs\n"	,	L_8
+"Failed to stop UniFi XAPs\n"	,	L_5
+UDBG3	,	V_24
+UDBG2	,	V_5
+unifi_coredump_handle_request	,	F_3
+zonedef_table	,	V_33
+"Can't read UniFi memory areas\n"	,	L_22
+"Stopping XAPs for coredump capture\n"	,	L_4
+CSR_WIFI_HIP_RESULT_RANGE	,	V_45
+u16	,	T_4
+"chip_ver 0x%04x, fw_ver %u\n"	,	L_21
+timestamp	,	V_20
+ospriv	,	V_4
+"Can't read space %d, reg 0x%x from coredump buffer %d\n"	,	L_16
+i	,	V_30
+"Dump index %d not found %d\n"	,	L_13
+j	,	V_70
+"sp %d, offs 0x%04x = 0x%04x (in z%d 0x%04x-&gt;0x%04x)\n"	,	L_9
+UDBG4	,	V_17
+unifi_card_stop_processor	,	F_10
+UDBG6	,	V_38
+unifi_coredump_init	,	F_24
+r	,	V_3
+CsrThreadSleep	,	F_9
+CSR_WIFI_HIP_RESULT_NOT_FOUND	,	V_42
+UNIFI_HOST_STATE_AWAKE	,	V_16
+HIP_CDUMP_NUM_ZONES	,	V_34
+card_t	,	T_2
+"Mini-coredump requested after reset\n"	,	L_1
+unifi_coredump_request_at_next_reset	,	F_1
+dump_next_write	,	V_13
+"Out of memory on coredump zone %d (%d words)\n"	,	L_23
+"%d: %d, @%p, p=%p, n=%p, cr=%p, h=%p\n"	,	L_12
+"Get chip version\n"	,	L_19
+unifi_set_proc_select	,	F_16
+"Mini-coredump capture at t=%u\n"	,	L_2
+space	,	V_26
+unifi_coredump_read_zones	,	F_18
+helper	,	V_15
+u32	,	T_5
+zone	,	V_37
+coredump_zone	,	V_31
+"Restart XAPs after coredump\n"	,	L_7
+"Can't read GBL_CHIP_VERSION\n"	,	L_20
+req	,	V_10
+coredump_buffer	,	T_7
+prevnode	,	V_59
+offset	,	V_35
+newnode	,	V_60
+count	,	V_21
+cpu	,	V_50
+dump_cur_read	,	V_22
+done	,	V_14
+unifi_read_direct16	,	F_20
+dump_seq_no	,	V_11
+unifi_coredump_read_zone	,	F_15
+unifi_trace	,	F_2
+unifi_coredump_capture	,	F_4
+next	,	V_23
+offset_in_space	,	V_27
+"Coredump (%p), SeqNo=%d, cur_read=%p, next_write=%p\n"	,	L_6
+unifi_coredump_from_sdio	,	F_11
+card_start_processor	,	F_12
+"No coredumps captured\n"	,	L_11
+unifi_coredump_free	,	F_26
+kzalloc	,	F_22
+"Allocate buffers for %d core dumps\n"	,	L_24
+CsrResult	,	T_1
+"Not captured %d\n"	,	L_14
+s16	,	T_9
+offset_in_zone	,	V_28
+value	,	V_40
+"No coredump buffers\n"	,	L_10
+new_coredump_node	,	F_21
+unifi_coredump_get_value	,	F_14
+"Req index %d, found seq %d at step %d\n"	,	L_15
+CSR_WIFI_HIP_RESULT_NO_DEVICE	,	V_55
+"Freed %d coredump buffers\n"	,	L_28
+unifi_coredump_space_t	,	T_8
+length	,	V_36
+unifi_coredump_req	,	V_9
+gp	,	V_54
+ChipHelper_GBL_CHIP_VERSION	,	F_19
+requestor	,	V_19
+serial	,	V_48
+"Out of memory allocating core dump node %d\n"	,	L_26
+CSR_WIFI_HIP_RESULT_NO_MEMORY	,	V_67
+UNIFI_PROC_PHY	,	V_53
+"Dump sp %d, offs 0x%04x, 0x%04x words @GP=%08x CPU %d\n"	,	L_17
+fw_ver	,	V_47
+"Core dump de-configured\n"	,	L_27
+"Core dump configured (%d dumps max)\n"	,	L_25
+request_coredump_on_reset	,	V_7

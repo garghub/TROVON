@@ -1,0 +1,257 @@
+"Not moving gcblock 0x%08x to dirty_list\n"	,	L_55
+"gcblock at 0x%08x completely dirtied. Clearing gcblock...\n"	,	L_49
+jffs2_xattr_ref	,	V_109
+on_list	,	F_49
+"%s(): Triggering erase of erasable block at 0x%08x\n"	,	L_19
+jffs2_add_physical_node_ref	,	F_43
+unchecked_size	,	V_9
+RAWNODE_CLASS_XATTR_REF	,	V_108
+VERYDIRTY	,	F_23
+nospc_dirty_size	,	V_13
+opts	,	V_5
+len	,	V_18
+pr_warn	,	F_41
+"Adding full erase block at 0x%08x to clean_list (free 0x%08x, dirty 0x%08x, used 0x%08x\n"	,	L_18
+gcblock	,	V_97
+REF_OBSOLETE	,	V_68
+je32_to_cpu	,	F_62
+pr_notice	,	F_52
+jffs2_unknown_node	,	V_84
+ALLOC_DELETION	,	V_27
+nr_blocks	,	V_90
+erasing_size	,	V_10
+unlikely	,	F_51
+ref_flags	,	F_59
+"...and adding to erasable_list\n"	,	L_53
+DECLARE_WAITQUEUE	,	F_12
+minsize	,	V_17
+ejeb	,	V_56
+"%s(): nr_free_blocks %d, nr_erasing_blocks %d, dirty_size 0x%x, vdirty_blocks %d: %s\n"	,	L_69
+list_for_each	,	F_50
+flash_offset	,	V_89
+"raw unchecked node of size 0x%08x freed from erase block %d at 0x%08x, but unchecked_size was already 0x%08x\n"	,	L_40
+flash_size	,	V_36
+"%s(): Giving 0x%x bytes at 0x%x\n"	,	L_29
+jffs2_wbuf_dirty	,	F_39
+jffs2_flash_write	,	F_65
+jffs2_dbg	,	F_2
+"obliterating obsoleted node at 0x%08x\n"	,	L_61
+"jffs2_thread_should_wake(): unchecked_size %d, checked_ino #%d\n"	,	L_68
+mutex_unlock	,	F_9
+current	,	V_40
+jffs2_garbage_collect_pass	,	F_10
+JFFS2_NODE_ACCURATE	,	V_102
+BUG	,	F_55
+first_node	,	V_70
+totlen	,	V_100
+"%s(): new nextblock = 0x%08x\n"	,	L_24
+dirty	,	V_31
+c	,	V_2
+wbuf_ofs	,	V_60
+ref_totlen	,	F_58
+uint32_t	,	T_1
+"Eraseblock at 0x%08x is freshly dirtied. Removing from clean list...\n"	,	L_56
+D1	,	F_60
+n	,	V_85
+p	,	V_103
+blocksneeded	,	V_23
+PAD	,	F_5
+jiffies	,	V_98
+rp_size	,	V_14
+mutex_lock	,	F_6
+jffs2_dbg_acct_sanity_check_nolock	,	F_46
+bad_size	,	V_35
+ERR_PTR	,	F_45
+very_dirty_list	,	V_49
+jffs2_sum_write_sumnode	,	F_38
+jffs2_sum_is_disabled	,	F_37
+jeb	,	V_46
+ref_obsolete	,	F_53
+jffs2_rp_can_write	,	F_1
+"dirty size 0x%08x + unchecked_size 0x%08x &lt; nospc_dirty_size 0x%08x, returning -ENOSPC\n"	,	L_8
+ref	,	V_82
+"...and adding to very_dirty_list\n"	,	L_59
+"%p is on list at %p\n"	,	L_36
+set_current_state	,	F_13
+prio	,	V_19
+jffs2_eraseblock	,	V_45
+ret	,	V_21
+erasable_pending_wbuf_list	,	V_57
+"Obsoleting previously unchecked node at 0x%08x of len %x\n"	,	L_41
+jffs2_dbg_acct_paranoia_check_nolock	,	F_47
+this	,	V_81
+freed_len	,	V_88
+list	,	V_48
+"Obsoleting node at 0x%08x of len %#x: "	,	L_43
+next_in_ino	,	V_71
+"Argh. No free space left for GC. nr_erasing_blocks is %d. nr_free_blocks is %d. (erasableempty: %s, erasingempty: %s, erasependingempty: %s)\n"	,	L_21
+signal_pending	,	F_17
+nr_free_blocks	,	V_30
+jffs2_raw_node_ref	,	V_72
+free_list	,	V_54
+"Write error in obliterating obsoleted node at 0x%08x: %d\n"	,	L_66
+"Converting %d bytes of wasted space to dirty in block at %08x\n"	,	L_46
+jffs2_erase_pending_blocks	,	F_31
+"Not moving nextblock 0x%08x to dirty/erase_pending list\n"	,	L_48
+next	,	V_53
+nodetype	,	V_101
+"max. available size 0x%08x  &lt; blocksneeded * sector_size 0x%08x, returning -ENOSPC\n"	,	L_10
+"%s(): Node at 0x%x(%d), size 0x%x\n"	,	L_30
+"Adding full erase block at 0x%08x to dirty_list (free 0x%08x, dirty 0x%08x, used 0x%08x\n"	,	L_17
+capable	,	F_3
+JFFS2_SUMMARY_FRAME_SIZE	,	V_66
+wbuf_len	,	V_61
+checked_ino	,	V_112
+jffs2_find_nextblock	,	F_25
+list_del	,	F_32
+"summary-&gt;size=%d , sumsize=%d\n"	,	L_26
+"Leaving block at %08x on the bad_used_list\n"	,	L_45
+"%s(): Low on possibly available space, but it's a deletion. Allowing...\n"	,	L_9
+"Eraseblock at 0x%08x is now very dirty. Removing from dirty list...\n"	,	L_58
+"erasing_size %u, unchecked_size %u, "	,	L_2
+"...and adding to dirty_list\n"	,	L_57
+class	,	V_105
+erasable_list	,	V_55
+erase_pending_list	,	V_37
+summary	,	V_59
+jffs2_can_mark_obsolete	,	F_56
+erase_completion_lock	,	V_26
+addedsize	,	V_86
+add_wait_queue	,	F_14
+CONFIG_JFFS2_FS_XATTR	,	F_67
+nr_very_dirty	,	V_111
+blocks	,	V_77
+spin_unlock	,	F_8
+"Eraseblock at 0x%08x completely dirtied. Removing from (dirty?) list...\n"	,	L_50
+reserved_size	,	V_62
+"%s(): Low on dirty space to GC, but it's a deletion. Allowing...\n"	,	L_7
+schedule	,	F_15
+cleanmarker_size	,	V_69
+"Wasting\n"	,	L_47
+nodes	,	V_104
+"raw node at 0x%08x is off the end of device!\n"	,	L_39
+"Eraseblock at 0x%08x not moved anywhere. (free 0x%08x, dirty 0x%08x, used 0x%08x)\n"	,	L_60
+obj	,	V_79
+list_entry	,	F_26
+REF_UNCHECKED	,	V_95
+"minsize=%d , jeb-&gt;free=%d ,"	,	L_25
+"jffs2_complete_reservation()\n"	,	L_35
+nr_erasing_blocks	,	V_15
+jffs2_complete_reservation	,	F_48
+list_empty	,	F_11
+jffs2_garbage_collect_trigger	,	F_28
+dirty_size	,	V_7
+"no"	,	L_23
+"%s(): Erase block at 0x%08x has already been placed in a list\n"	,	L_15
+erase_free_sem	,	V_94
+ic	,	V_75
+used_size	,	V_34
+JFFS2_SB_FLAG_BUILDING	,	V_93
+"Done OK\n"	,	L_54
+jffs2_release_xattr_datum	,	F_68
+"yes"	,	L_22
+"EEEEEK. jffs2_mark_node_obsolete called with NULL node\n"	,	L_37
+jffs2_del_ino_cache	,	F_70
+"raw node of size 0x%08x freed from erase block %d at 0x%08x, but used_size was already 0x%08x\n"	,	L_42
+ENOSPC	,	V_28
+list_move_tail	,	F_27
+"rpsize %u, dirty_size %u, free_size %u, "	,	L_1
+jffs2_sum_reset_collected	,	F_33
+"%s(): called with already obsolete node at 0x%08x\n"	,	L_38
+__func__	,	V_24
+CONFIG_JFFS2_FS_WRITEBUFFER	,	F_34
+"nextblock 0x%08x"	,	L_32
+sector_size	,	V_12
+jffs2_close_nextblock	,	F_21
+jffs2_release_xattr_ref	,	F_69
+wait	,	V_39
+bad_used_list	,	V_96
+wasted_size	,	V_33
+alloc_sem	,	V_25
+pino_nlink	,	V_110
+flags	,	V_91
+jffs2_flush_wbuf_pad	,	F_29
+jffs2_xattr_datum	,	V_107
+"Dirtying\n"	,	L_44
+list_add_tail	,	F_24
+jffs2_is_readonly	,	F_57
+"%s(): Requested 0x%x bytes\n"	,	L_5
+out	,	V_29
+JFFS2_SUMMARY_NOSUM_SIZE	,	V_64
+"Read error reading from obsoleted node at 0x%08x: %d\n"	,	L_62
+jffs2_sum_active	,	F_35
+", expected at %08x\n"	,	L_34
+pr_crit	,	F_30
+cond_resched	,	F_16
+jffs2_flash_read	,	F_61
+avail	,	V_3
+"Node at 0x%08x was already marked obsolete (nodetype 0x%04x)\n"	,	L_65
+restart	,	V_63
+EAGAIN	,	V_22
+jffs2_do_reserve_space	,	F_18
+"argh. node added in wrong place at 0x%08x(%d)\n"	,	L_31
+"No nextblock"	,	L_33
+EINVAL	,	V_78
+TASK_UNINTERRUPTIBLE	,	V_41
+jffs2_link_node_ref	,	F_40
+"%s(): looping, ret is %d\n"	,	L_14
+ofs	,	V_73
+resv_blocks_write	,	V_11
+erasing_list	,	V_58
+"nr_erasing_blocks %u, avail %u, resrv %u\n"	,	L_3
+sumsize	,	V_20
+"generating summary for 0x%08x.\n"	,	L_27
+size_t	,	T_2
+je16_to_cpu	,	F_63
+jffs2_sb_info	,	V_1
+"Short read from obsoleted node at 0x%08x: %zd\n"	,	L_63
+erase_wait	,	V_42
+retlen	,	V_87
+"...and adding to erase_pending_list\n"	,	L_52
+resv_blocks_gctrigger	,	V_113
+waste	,	V_67
+new	,	V_76
+vdirty_blocks_gctrigger	,	V_114
+jffs2_reserve_space	,	F_4
+offset	,	V_47
+sum_size	,	V_65
+dirty_list	,	V_50
+blocknr	,	V_83
+jffs2_reserve_space_gc	,	F_20
+ref_offset	,	F_54
+jffs2_inode_cache	,	V_74
+RAWNODE_CLASS_XATTR_DATUM	,	V_106
+mount_opts	,	V_6
+clean_list	,	V_51
+"Adding full erase block at 0x%08x to very_dirty_list (free 0x%08x, dirty 0x%08x, used 0x%08x\n"	,	L_16
+"%s(): Flushing write buffer\n"	,	L_20
+"%s waiting for erase to complete\n"	,	L_12
+list_for_each_entry	,	F_72
+CAP_SYS_RESOURCE	,	V_16
+dbg_summary	,	F_36
+JFFS2_SB_FLAG_SCANNING	,	V_92
+EINTR	,	V_43
+"forbid writing\n"	,	L_4
+"Triggering GC pass. nr_free_blocks %d, nr_erasing_blocks %d, free_size 0x%08x, dirty_size 0x%08x, wasted_size 0x%08x, used_size 0x%08x, erasing_size 0x%08x, bad_size 0x%08x (total 0x%08x of 0x%08x)\n"	,	L_11
+nextblock	,	V_44
+out_erase_sem	,	V_99
+head	,	V_80
+jffs2_thread_should_wake	,	F_71
+resv_blocks_deletion	,	V_32
+jffs2_prealloc_raw_node_refs	,	F_19
+"...and adding to erasable_pending_wbuf_list\n"	,	L_51
+spin_lock	,	F_7
+"%s(): alloc sem got\n"	,	L_6
+free_size	,	V_8
+cpu_to_je16	,	F_64
+ISDIRTY	,	F_22
+"Node totlen on flash (0x%08x) != totlen from node ref (0x%08x)\n"	,	L_64
+pr_cont	,	F_44
+jffs2_raw_ref_to_ic	,	F_66
+list_head	,	V_52
+"%s(): ret is %d\n"	,	L_13
+"Short write in obliterating obsoleted node at 0x%08x: %zd\n"	,	L_67
+jffs2_mark_node_obsolete	,	F_42
+jffs2_mount_opts	,	V_4
+erase_complete_list	,	V_38
+"Eep. Block 0x%08x taken from free_list had free_size of 0x%08x!!\n"	,	L_28

@@ -1,0 +1,531 @@
+bytes_transferred	,	V_144
+"BUG? urb %p: NULL xfer buffer &amp; NODMA\n"	,	L_38
+xfer_id	,	V_290
+WA_SEG_DELAYED	,	V_198
+"%s: xfer %p id 0x%08X has no RPIPE.  %s"	,	L_48
+usb_submit_urb	,	F_54
+number_of_packets	,	V_77
+frame_index	,	V_109
+rpipe_get_by_ep	,	F_95
+dev	,	V_39
+xfer_enqueue_work	,	V_211
+"xfer %p: Failed to allocate %d segments: %d\n"	,	L_24
+WA_DTI_ISOC_PACKET_STATUS_PENDING	,	V_265
+"xfer 0x%08X#%u: data out error %d\n"	,	L_15
+transfer_size	,	V_180
+ARRAY_SIZE	,	F_122
+unlikely	,	F_91
+errno	,	V_230
+"xfer %p#%u: Bad segment state %u\n"	,	L_57
+xfer	,	V_5
+WA_XFER_INVALID_FORMAT	,	V_247
+"DTI Error: Could not submit DTI URB (%d) resetting\n"	,	L_83
+error_dev_gone	,	V_204
+dti_urb	,	V_289
+seg_isoc_frame_count	,	V_172
+WA_XFER_STATUS_SUCCESS	,	V_233
+buf_itr_size	,	V_161
+WA_XFER_ABORT	,	V_64
+notif_hdr	,	V_295
+pr_err	,	F_87
+bTransferStatus	,	V_259
+WA_XFER_STATUS_DATA_BUFFER_ERROR	,	V_236
+clear_bit_unlock	,	F_18
+expected_size	,	V_278
+tr_urb	,	V_3
+dti_busy	,	V_274
+isoc_pack_desc_urb	,	V_13
+actual_length	,	V_45
+error_buf_in_urb_alloc	,	V_304
+ssize_t	,	T_3
+"%s: xfer %p#%u: REQ submit failed: %d\n"	,	L_25
+__wa_seg_submit	,	F_86
+wLength	,	V_112
+dump_stack	,	F_111
+"xfer %p urb %p pipe 0x%02x [%d bytes] %s %s %s\n"	,	L_39
+GFP_ATOMIC	,	V_59
+is_inbound	,	V_81
+packet_desc	,	V_108
+result	,	V_32
+error_rpipe_get	,	V_201
+seg	,	V_2
+WA_SEG_ERROR	,	V_52
+b	,	V_56
+seg_list	,	V_191
+pr_info	,	F_106
+dti_epd	,	V_298
+isoc_data_frame_count	,	V_288
+xfer_list_lock	,	V_28
+error_buf_in_populate	,	V_266
+bEndpointAddress	,	V_69
+rpipe_lock	,	V_23
+ENOENT	,	V_137
+nents	,	V_150
+WA_XFER_STATUS_ABORTED	,	V_245
+"DTI Error: isoc packet status--bad type 0x%02x\n"	,	L_64
+rpipe_clear_feature_stalled	,	F_107
+kref	,	V_9
+usb_rcvbulkpipe	,	F_137
+error_parse_buffer	,	V_281
+EPIPE	,	V_235
+error_setup_sizes	,	V_181
+dti_buf_size	,	V_303
+frame_count	,	V_74
+WA_XFER_ISO_PACKET_STATUS	,	V_280
+"%s: error_rpipe_get\n"	,	L_31
+dev_dbg	,	F_43
+"xfer %p ID %08X#%u: bad short segments (%zu)\n"	,	L_3
+wa_put	,	F_33
+dto_waiting	,	V_20
+empty	,	V_195
+WA_XFER_RESERVED	,	V_240
+error_dti_urb_submit	,	V_305
+dto_epd	,	V_68
+error_default	,	V_138
+wRPipeIndex	,	V_27
+error_kmalloc	,	V_60
+wa_xfer_get	,	F_11
+"deferred"	,	L_44
+xfer_hdr_size	,	V_119
+setup_packet	,	V_125
+num_sgs	,	V_157
+ep	,	V_34
+dequeue_delayed	,	V_226
+"DTI Error: isoc packet status--bad length %u\n"	,	L_67
+spin_unlock_irqrestore	,	F_27
+wRPipe	,	V_65
+dwTransferID	,	V_66
+USB_ENDPOINT_XFER_BULK	,	V_91
+usb_iso_packet_descriptor	,	V_75
+__wa_xfer_delayed_run	,	F_23
+segs_done	,	V_42
+bytes_to_transfer	,	V_145
+sg_init_table	,	F_76
+work_struct	,	V_209
+first_frame_index	,	V_277
+error_seg_kmalloc	,	V_175
+__wa_xfer_setup_sizes	,	F_58
+last_seg_sg	,	V_153
+xfer_hdr	,	V_120
+"xfer %p ID 0x%08X#%u: bTransferStatus 0x%02x (seg status %u)\n"	,	L_56
+wa_process_errored_transfers_run	,	F_105
+wa_xfer_destroy	,	F_7
+bNotifyType	,	V_291
+USB_ENDPOINT_XFER_INT	,	V_90
+wa_xfer_hwaiso	,	V_96
+transfer_flags	,	V_99
+WUSB_QUIRK_ALEREON_HWA_CONCAT_ISOC	,	V_80
+"xfer %p#%u: data in error %d\n"	,	L_70
+pxfer_type	,	V_84
+list_del	,	F_90
+wa_buf_in_cb	,	F_134
+"DTI Error: xfer result--unknown xfer 0x%08x (status 0x%02x)\n"	,	L_76
+xfer_list	,	V_196
+kmalloc	,	F_51
+le32_to_cpu	,	F_129
+error_dti_urb_alloc	,	V_302
+dto_in_use	,	V_18
+wa_notif_hdr	,	V_294
+wa_xfer_id_le32	,	F_40
+"%s: xfer %p#%u: ISO packet descriptor submit failed: %d\n"	,	L_26
+length	,	V_78
+"xfer %p ID 0x%08X#%u: request error %d\n"	,	L_21
+error_complete	,	V_261
+wMaxPacketSize	,	V_101
+out_sg	,	V_147
+wa_get	,	F_114
+"DTI Error: isoc packet status--bad urb length (%d bytes vs %d needed)\n"	,	L_66
+seg_lock	,	V_189
+error_seg_outbound_populate	,	V_178
+"DTI: going down! %d\n"	,	L_78
+usb_hcd_check_unlink_urb	,	F_118
+"DTI: URB max acceptable errors "	,	L_59
+error_segs_kzalloc	,	V_170
+maxrequests	,	V_193
+pr_debug	,	F_24
+ENOMEM	,	V_58
+__wa_populate_dto_urb_isoc	,	F_65
+sg_page	,	F_79
+"inbound"	,	L_42
+"xfer %p#%u: dequeue bad state %u\n"	,	L_51
+urb_frame_index	,	V_286
+WA_XFER_STATUS_TRANSACTION_ERROR	,	V_243
+wBlocks	,	V_102
+kref_get	,	F_12
+context	,	V_57
+lock	,	V_8
+usb_hcd_unlink_urb_from_ep	,	F_31
+id	,	V_36
+release_dto	,	V_130
+URB_NO_TRANSFER_DMA_MAP	,	V_100
+isoc_frame_count	,	V_114
+"xfer %p#%u: data in done (%zu bytes)\n"	,	L_69
+wa_add_delayed_rpipe	,	F_28
+error_xfer_submit	,	V_208
+list_for_each_entry_safe	,	F_104
+"DTO: URB max acceptable errors "	,	L_22
+EDC_ERROR_TIMEFRAME	,	V_141
+index	,	V_51
+out_unlock	,	V_225
+"%s: adding RPIPE %d to the delayed list.\n"	,	L_2
+dto_urb	,	V_14
+WA_XFER_STATUS_RPIPE_TYPE_MISMATCH	,	V_249
+list_move_tail	,	F_132
+PacketStatus	,	V_282
+driver	,	V_284
+hcpriv	,	V_35
+WA_XFER_STATUS_RPIPE_NOT_READY	,	V_246
+"Can't allocate DTI URB\n"	,	L_81
+USB_DIR_IN	,	V_97
+wa_xfer_hdr	,	V_116
+cmd	,	V_61
+wa_seg_init	,	F_1
+"xfer 0x%08X#%u: data out done (%zu bytes)\n"	,	L_13
+status	,	V_46
+__wa_xfer_abort	,	F_50
+"%s: error_dequeued\n"	,	L_34
+buf_itr	,	V_168
+WA_XFER_TYPE_CTL	,	V_88
+list_add_tail	,	F_29
+"xfer %p ID %08X#%u: ABORTED result %zu(0x%08zX)\n"	,	L_7
+WA_SEG_PENDING	,	V_134
+wa_dti_cb	,	F_135
+error_dto_alloc	,	V_177
+"%s: URB enqueue failed: %d\n"	,	L_46
+"result %zu urb-&gt;actual_length %d\n"	,	L_5
+iso_frame_offset	,	V_164
+wa_xfer_put	,	F_13
+wa_reset_all	,	F_67
+kref_put	,	F_14
+bRequestType	,	V_63
+sg_next	,	F_75
+wa_xfer_result_chew	,	F_128
+wRequests	,	V_192
+"xfer %p ID 0x%08X#%u: available %u empty %u submitted\n"	,	L_29
+urb	,	V_31
+cnt	,	V_11
+wa_xfer_id_init	,	F_37
+dti_isoc_xfer_in_progress	,	V_262
+xfer_delayed_list	,	V_214
+wahc	,	V_16
+dti_state	,	V_264
+current_seg_sg	,	V_152
+offset_into_current_page_data	,	V_149
+out_num_sgs	,	V_146
+"xfer %p#%u: can't submit DTI data phase: %d\n"	,	L_60
+bytes_processed	,	V_148
+WA_SEG_DTI_PENDING	,	V_229
+"xfer %p ID %08X#%u: ERROR result %zu(0x%08zX)\n"	,	L_6
+wa_xfer_giveback	,	F_30
+bRPipeBlockSize	,	V_104
+"iso xfer %08X#%u: packet descriptor error %d\n"	,	L_18
+segs_available	,	V_190
+WA_XFER_STATUS_HALTED	,	V_234
+wa_xfer_packet_status_len_hwaiso	,	V_272
+ENOBUFS	,	V_237
+_xfer	,	V_10
+isoc_frame_index	,	V_133
+size_t	,	T_4
+iso_frame_desc	,	V_76
+wa_xfer	,	V_4
+u32	,	T_1
+pr_err_ratelimited	,	F_71
+sg_mark_end	,	F_80
+spin_lock_irq	,	F_101
+wusb	,	V_29
+pipe	,	V_49
+bmAttribute	,	V_86
+dwTransferLength	,	V_183
+"DTI: xfer %p#:%08X:%u failed (0x%02x)\n"	,	L_58
+WA_SEGS_MAX	,	V_106
+my_flags	,	V_219
+usb_free_urb	,	F_9
+"Inconsistent WA status: 0x%02x\n"	,	L_54
+transfer_buffer	,	V_163
+"exceeded, resetting device\n"	,	L_23
+curr_iso_frame	,	V_156
+descr	,	V_26
+spin_lock_irqsave	,	F_20
+list_for_each_entry	,	F_47
+wa_xfer_type	,	V_83
+data_frame_count	,	V_275
+"xfer %p ID %08X#%u submitted from delayed [%d segments available] %d\n"	,	L_28
+bEndpoint	,	V_300
+data_send_done	,	V_129
+usb_pipeisoc	,	F_44
+WA_XFER_TYPE_BI	,	V_92
+is_dma	,	V_98
+error_submit	,	V_70
+usb_dev	,	V_67
+baSetupData	,	V_124
+total_size	,	V_72
+dev_warn	,	F_45
+dti_edc	,	V_268
+WA_XFER_STATUS_BABBLE	,	V_238
+"DTO: URB max acceptable errors exceeded, resetting device\n"	,	L_16
+container_of	,	F_8
+wa_seg	,	V_1
+"DTI Error: unexpected EP state = %d\n"	,	L_77
+"DTI Error: isoc packet status--unknown xfer 0x%08x\n"	,	L_65
+rpipe_delayed_list	,	V_24
+list_node	,	V_7
+spin_lock_init	,	F_6
+wa_urb_enqueue_b	,	F_94
+DIV_ROUND_UP	,	F_60
+prev	,	V_215
+isoc_frame_offset	,	V_71
+buf_itr_offset	,	V_160
+wa_urb_enqueue_run	,	F_99
+"DTI: URB error %d\n"	,	L_79
+"Unknown WA transfer status 0x%02x\n"	,	L_53
+WA_SEG_ABORTED	,	V_53
+wa_rpipe	,	V_21
+USB_ENDPOINT_XFER_CONTROL	,	V_87
+seg_isoc_size	,	V_173
+"DTI: isoc packet status %d bytes at %p\n"	,	L_63
+xlat	,	V_232
+list_cut_position	,	F_102
+wa_xfer_bi	,	V_93
+wa_seg_dto_cb	,	F_64
+wa_seg_iso_pack_desc_cb	,	F_70
+wusb_dev	,	V_33
+rpipe_ready	,	V_128
+usb_sndbulkpipe	,	F_53
+GFP_KERNEL	,	V_301
+device	,	V_38
+EINPROGRESS	,	V_205
+LIST_HEAD	,	F_100
+__wusb_dev_get_by_usb_dev	,	F_98
+"DTI Error: Could not submit DTI URB (%d)\n"	,	L_71
+bPacketType	,	V_110
+xfer_type	,	V_118
+error_setup_segs	,	V_182
+list_del_init	,	F_26
+iso_pkt_descr_size	,	V_171
+seg_idx	,	V_254
+real_status	,	V_231
+__wa_seg_calculate_isoc_frame_count	,	F_57
+wa_xfer_ctl	,	V_89
+mutex_unlock	,	F_97
+"%s: error_xfer_submit\n"	,	L_36
+usb_fill_bulk_urb	,	F_52
+segment_size	,	V_73
+min	,	F_77
+sg	,	V_15
+BUG	,	F_59
+in_sg	,	V_143
+wa_seg_status	,	V_251
+le16_to_cpu	,	F_25
+tmp_list	,	V_213
+"BUG: DTI ep is %u, not %u (hack me)\n"	,	L_80
+scatterlist	,	V_142
+u8	,	T_5
+nep_edc	,	V_139
+atomic_read	,	F_89
+xfer_abort_pending	,	V_224
+WA_NOTIF_TRANSFER	,	V_299
+usb_init_urb	,	F_2
+"%s: error usb dev gone\n"	,	L_32
+"outbound"	,	L_43
+kcalloc	,	F_83
+"inline"	,	L_45
+wa_xfer_create_subset_sg	,	F_74
+__wa_populate_dto_urb	,	F_81
+error_seg_submit	,	V_185
+wa_xfer_status_to_errno	,	F_121
+usb_iface	,	V_40
+__wa_xfer_setup	,	F_85
+xfer_iso	,	V_126
+mutex_lock	,	F_96
+bLength	,	V_62
+wa_handle_notif_xfer	,	F_136
+usb_hcd	,	V_30
+wusbhc_giveback_urb	,	F_32
+available	,	V_194
+segs	,	V_12
+__wa_dto_put	,	F_17
+INIT_LIST_HEAD	,	F_5
+usb_unlink_urb	,	F_72
+usb_get_urb	,	F_115
+wusbd	,	V_222
+xfer_itr	,	V_54
+cpu_to_le16	,	F_62
+wa_urb_enqueue	,	F_108
+"nodma"	,	L_41
+"%s(): BUG? "	,	L_52
+__wa_dto_try_get	,	F_15
+printk_ratelimited	,	F_123
+buf_size	,	V_169
+flags2	,	V_223
+WARN	,	F_125
+bTransferSegment	,	V_121
+wa_xfer_delayed_run	,	F_69
+wa_process_iso_packet_status	,	F_133
+"%s: DEQUEUE xfer id 0x%08X\n"	,	L_47
+USB_ENDPOINT_XFER_ISOC	,	V_94
+__le16	,	V_174
+dti_isoc_xfer_seg	,	V_263
+desc	,	V_269
+next	,	V_212
+"BUG? oops, number of segments %zu bigger than %d\n"	,	L_11
+"iso xfer: URB max acceptable errors exceeded, resetting device\n"	,	L_19
+wa_complete_remaining_xfer_segs	,	F_124
+BUG_ON	,	F_93
+"xfer %p ID %08X#%u: is_done bad state %d\n"	,	L_8
+printk	,	F_119
+EDC_MAX_ERRORS	,	V_140
+wa	,	V_17
+ECONNRESET	,	V_136
+dev_err	,	F_56
+__wa_xfer_setup_hdr0	,	F_63
+__wa_xfer_abort_cb	,	F_48
+"iso xfer %08X#%u: packet descriptor done\n"	,	L_17
+kzalloc	,	F_113
+cpu_to_le32	,	F_41
+dti_buf	,	V_279
+in_atomic	,	F_110
+ws	,	V_210
+wusbhc	,	V_199
+transfer_dma	,	V_158
+__wa_xfer_submit	,	F_92
+wa_xfer_result	,	V_255
+WA_SEG_READY	,	V_179
+wa_xfer_packet_status_hwaiso	,	V_270
+found_short	,	V_41
+__le32	,	T_2
+EILSEQ	,	V_244
+usb_alloc_urb	,	F_84
+transfer_buffer_length	,	V_105
+hdr	,	V_123
+current_xfer_sg	,	V_151
+notif_xfer	,	V_297
+wa_descr	,	V_103
+wa_xfer_completion	,	F_34
+error_dequeued	,	V_206
+gfp_t	,	T_6
+dto_done	,	V_184
+quirks	,	V_79
+__wa_xfer_setup_segs	,	F_82
+list_empty	,	F_21
+dev_info	,	F_131
+xfer_hdr0	,	V_117
+dwNumOfPackets	,	V_127
+"Can't allocate BUF-IN URB\n"	,	L_82
+wa_xfer_id	,	F_39
+"DTI Error: Could not submit buf in URB (%d)"	,	L_68
+wa_notif_xfer	,	V_296
+xfer_id_count	,	V_37
+WA_SEG_SUBMITTED	,	V_187
+seg_index	,	V_276
+segs_submitted	,	V_43
+start_frame	,	V_283
+"%s: Run delayed STALL processing.\n"	,	L_37
+usb_device	,	V_166
+alloc_size	,	V_165
+get_frame_number	,	V_285
+"xfer %p#%u: bad segment\n"	,	L_62
+__func__	,	V_25
+rpipe_put	,	F_36
+usb_host_endpoint	,	V_218
+PAGE_SIZE	,	V_154
+error_bad_seg	,	V_258
+"Probably already aborted.\n"	,	L_49
+wa_urb_dequeue	,	F_117
+offset_index	,	V_115
+ENODEV	,	V_202
+"dma"	,	L_40
+kfree	,	F_10
+wa_seg_tr_cb	,	F_73
+"%s: xfer 0x%08X#%d. bad seg status = %d\n"	,	L_55
+flags	,	V_19
+mutex	,	V_203
+__wa_setup_isoc_packet_descr	,	F_61
+usb_put_urb	,	F_49
+isoc_size	,	V_159
+out	,	V_44
+"%s: xfer id 0x%08X#%d status = %d\n"	,	L_50
+segment_aborted	,	V_260
+current_seg	,	V_252
+rpipe	,	V_22
+page_len	,	V_155
+usb_hcd_link_urb_to_ep	,	F_112
+spin_unlock_irq	,	F_103
+WA_XFER_ISO_PACKET_INFO	,	V_111
+WA_XFER_UNEXPECTED_SEGMENT_NUMBER	,	V_248
+buf_in_urb	,	V_253
+ESHUTDOWN	,	V_293
+irqs_disabled	,	F_109
+PacketLength	,	V_113
+"DTI Error: xfer result--bad header length %u\n"	,	L_74
+wa_xfer_init	,	F_3
+"%s: xfer %p#%u: DTO submit failed: %d\n"	,	L_27
+EINVAL	,	V_48
+gfp	,	V_200
+cant_sleep	,	V_220
+WA_DTI_TRANSFER_RESULT_PENDING	,	V_287
+"xfer %p ID 0x%08X#%u: available %u empty %u delayed\n"	,	L_30
+test_and_set_bit	,	F_16
+WA_SEG_DONE	,	V_47
+error_iso_pack_desc_submit	,	V_186
+error_dto_submit	,	V_135
+packet_status	,	V_271
+list_first_entry	,	F_22
+WA_XFER_STATUS_NOT_FOUND	,	V_241
+__wa_xfer_is_done	,	F_42
+printk_ratelimit	,	F_55
+usb_endpoint_descriptor	,	V_167
+error_xfer_setup	,	V_207
+usb_endpoint_xfer_control	,	F_130
+status_array	,	V_273
+"xfer 0x%08X#%u: isoc frame = %d, holding_dto = %d, release_dto = %d.\n"	,	L_12
+delay_seg	,	V_197
+kref_init	,	F_4
+seg_size	,	V_50
+error_link_urb	,	V_221
+wusb_dev_put	,	F_35
+"xfer 0x%08X#%u: DTO submit failed: %d\n"	,	L_14
+offset	,	V_82
+"%s: RPIPE %d serviced and removed from delayed list.\n"	,	L_1
+wa_xfer_get_by_id	,	F_46
+incoming_seg	,	V_250
+done	,	V_132
+wa_xfer_packet_info_hwaiso	,	V_107
+"Control EP stall.  Queue delayed work.\n"	,	L_61
+refcnt	,	V_6
+usb_status	,	V_257
+atomic_add_return	,	F_38
+xfer_result	,	V_256
+rpipe_avail_dec	,	F_88
+dto_acquired	,	V_188
+wa_xfer_abort_buffer	,	V_55
+rpipe_avail_inc	,	F_68
+wa_populate_buf_in_urb	,	F_127
+num_mapped_sgs	,	V_162
+"xfer %p ID 0x%08X#%u: request done\n"	,	L_20
+"xfer %p ID %08X#%u: DONE short %d "	,	L_4
+error_submit_buf_in	,	V_267
+"DTI Error: xfer result--bad size xfer result (%d bytes vs %zu needed)\n"	,	L_73
+edc_inc	,	F_66
+sg_set_page	,	F_78
+maxpktsize	,	V_85
+wa_check_for_delayed_rpipes	,	F_19
+xfer_ctl	,	V_122
+WA_XFER_TYPE_ISO	,	V_95
+xfer_error_work	,	V_216
+"DTI Error: xfer result--bad header type 0x%02x\n"	,	L_75
+WARN_ON	,	F_120
+WA_XFER_STATUS_INSUFFICIENT_RESOURCE	,	V_242
+__wa_populate_buf_in_urb_isoc	,	F_126
+WA_XFER_RESULT	,	V_292
+"xfer %p: Can't submit abort request: %d\n"	,	L_9
+"%s: error_xfer_setup\n"	,	L_35
+WA_SEG_NOTREADY	,	V_227
+"HW BUG? seg_size %zu smaller than maxpktsize %zu\n"	,	L_10
+"%s: error wusb dev gone\n"	,	L_33
+EOVERFLOW	,	V_239
+"DTI: xfer result %d bytes at %p\n"	,	L_72
+queue_work	,	F_116
+holding_dto	,	V_131
+xfer_errored_list	,	V_217
+error_iso_pack_desc_alloc	,	V_176
+KERN_ERR	,	V_228

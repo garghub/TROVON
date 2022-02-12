@@ -1,0 +1,44 @@
+"%s: call customer specific GPIO to turn on WL_REG_ON\n"	,	L_9
+"oob irq"	,	L_3
+bcm_wlan_power_on	,	F_14
+MSM_GPIO_TO_INT	,	F_6
+irq_flags_ptr	,	V_1
+gpio_direction_input	,	F_9
+gpio_to_irq	,	F_8
+WL_ERROR	,	F_5
+WLAN_RESET_ON	,	V_10
+"%s: call customer specific GPIO to turn off WL_REG_ON\n"	,	L_8
+"%s: callc customer specific GPIO to remove WLAN RESET\n"	,	L_6
+"=========== WLAN going back to live  ========\n"	,	L_7
+"%s: ERROR customer specific Host GPIO is NOT defined\n"	,	L_1
+"%s: call customer specific GPIO to insert WLAN RESET\n"	,	L_4
+dhd_customer_gpio_wlan_ctrl	,	F_10
+ea_example	,	V_15
+defined	,	F_4
+WLAN_RESET_OFF	,	V_9
+bcm_wlan_power_off	,	F_12
+"=========== WLAN placed in RESET ========\n"	,	L_5
+WLAN_POWER_OFF	,	V_11
+u8	,	T_1
+CUSTOMER_HW	,	V_6
+dhd_custom_get_mac_address	,	F_16
+host_oob_irq	,	V_2
+ETH_ALEN	,	V_16
+dhd_oob_gpio_num	,	V_4
+dhd_customer_oob_irq_map	,	F_1
+gpio_request	,	F_7
+"%s Enter\n"	,	L_10
+wifi_set_power	,	F_13
+EINVAL	,	V_14
+EXAMPLE_GET_MAC	,	F_17
+buf	,	V_13
+__func__	,	V_5
+"%s: customer specific Host GPIO number is (%d)\n"	,	L_2
+CUSTOM_OOB_GPIO_NUM	,	V_3
+WLAN_POWER_ON	,	V_12
+WL_TRACE	,	F_11
+udelay	,	F_15
+wifi_get_irq_number	,	F_3
+CUSTOMER_HW2	,	F_2
+CUSTOMER_HW3	,	V_7
+onoff	,	V_8

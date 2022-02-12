@@ -1,0 +1,362 @@
+"HIF requests that DSR yield per %d RECV packets \n"	,	L_3
+ATH_DEBUG_SEND	,	V_163
+RecvBuffers	,	F_80
+"Block Size to use: %d \n"	,	L_59
+"End Marker: 0x%X \n"	,	L_68
+AR6K_MAX_TRANSFER_SIZE_PER_SCATTER	,	V_116
+rx_lookahead_valid	,	V_88
+mbox	,	V_179
+PUSH_BUFF_PROC_ENTRY	,	F_73
+"\n&lt;------- Register Table --------&gt;\n"	,	L_12
+HIF_WRITE	,	V_118
+sendList	,	V_180
+COUNT_DEC_ADDRESS	,	V_192
+DSRCanYield	,	V_45
+HIF_WR_ASYNC_BYTE_INC	,	V_72
+A_MDELAY	,	F_46
+DevSetupGMbox	,	F_24
+A_CONTAINING_STRUCT	,	F_50
+A_MALLOC	,	F_61
+HIF_DEVICE_GET_IRQ_YIELD_PARAMS	,	V_42
+Status	,	V_63
+DevRWCompletionHandler	,	V_16
+ERROR_STATUS_ENABLE_TX_OVERFLOW_SET	,	F_32
+DevEnableInterrupts	,	F_25
+SendBuffers	,	F_78
+"+DevDoEnableDisableRecvAsyncHandler: (dev: 0x%lX)\n"	,	L_7
+"GMBOX lookahead alias 1:   0x%x\n"	,	L_24
+DL_LIST_INIT	,	F_14
+remaining	,	V_102
+"Target is ready ...\n"	,	L_63
+dsrHandler	,	V_17
+HIF_RD_SYNC_BYTE_INC	,	V_78
+AssembleBufferList	,	F_72
+AR6K_MIN_TRANSFER_SIZE_PER_SCATTER	,	V_145
+host_int_status2	,	V_91
+"Waiting for target.... \n"	,	L_61
+g_MailboxAddrs	,	V_186
+GMboxAddress	,	V_90
+pReq	,	V_99
+A_ASSERT	,	F_20
+HTC_MAILBOX	,	V_34
+"&lt;-------------------------------&gt;\n"	,	L_27
+" Timeout reading credit registers (mbox=%d, address:0x%X) \n"	,	L_49
+HIF_DEVICE_GET_MBOX_BLOCK_SIZE	,	V_28
+HtcPacket	,	V_25
+" DoMboxHWTest START -  \n"	,	L_58
+HIFAttachHTC	,	F_18
+hif_scatter_item	,	V_130
+HIF_CONFIGURE_QUERY_SCATTER_REQUEST_SUPPORT	,	V_151
+CheckOneBuffer	,	F_75
+"Invalid Data Got:0x%X, Expecting:0x%X (offset:%d, total:%d) \n"	,	L_43
+DEV_FINISH_SCATTER_OPERATION	,	F_71
+totalwPadding	,	V_183
+dl_list	,	V_96
+min	,	F_54
+UNLOCK_AR6K	,	F_4
+DevReadWriteScatter	,	F_56
+TEST_CREDITS_RECV_TIMEOUT	,	V_189
+DevFreeScatterReq	,	F_51
+TEST_BYTES	,	V_199
+A_MUTEX_DELETE	,	F_12
+Context	,	V_61
+pbIsRecvPending	,	V_74
+HIF_DEVICE_IRQ_ASYNC_SYNC	,	V_38
+u8	,	T_3
+ATH_DEBUG_RECV	,	V_111
+"+DevReadWriteScatterAsyncHandler: (dev: 0x%lX)\n"	,	L_28
+address	,	V_191
+"Recv buffers Failed : %d mbox:%d\n"	,	L_55
+" Failed to disable receiver, status:%d \n"	,	L_8
+pIrqEnableRegs	,	V_82
+i	,	V_12
+HIFPrivate	,	V_133
+regs	,	V_49
+"Failed to wait for target ready \n"	,	L_62
+IntStatus	,	V_60
+Flags	,	V_148
+HIF_WR_SYNC_BLOCK_INC	,	V_162
+DEV_GET_VIRT_DMA_INFO	,	F_57
+MailBoxInfo	,	V_21
+DevSubmitScatterRequest	,	F_69
+BUFFER_PROC_LIST_DEPTH	,	V_167
+"Counter Int Status Enable: 0x%x\n"	,	L_26
+Length	,	V_109
+MaxRecvBundleSize	,	V_152
+AR6K_SCATTER_ENTRIES_PER_REQ	,	V_129
+MboxAddresses	,	V_33
+pDMABuffer	,	V_101
+checkList	,	V_177
+DevCleanup	,	F_7
+"Failed to update interrupt control registers err: %d\n"	,	L_6
+"Buffer Verify Failed : mbox:%d\n"	,	L_56
+"0x%X 0x%X 0x%X 0x%X \n"	,	L_44
+pScatterBounceBuffer	,	V_104
+GetPendingEventsFunc	,	V_35
+curBuffer	,	V_197
+DL_ListRemoveItemFromHead	,	F_49
+A_MEMZERO	,	F_17
+DevDisableInterrupts	,	F_23
+AR6K_TARGET_DEBUG_INTR_MASK	,	V_55
+paddedLength	,	V_182
+ATH_DEBUG_ERR	,	V_59
+CPU_INT_STATUS_ENABLE_BIT_SET	,	F_30
+ATH_PRINT_OUT_ZONE	,	V_184
+"-DevReadWriteScatterAsyncHandler \n"	,	L_29
+HIFDetachHTC	,	F_9
+FILL_COUNTING	,	V_178
+DevCleanupGMbox	,	F_8
+HIFMaskInterrupt	,	F_39
+AR6K_MIN_SCATTER_ENTRIES_PER_REQ	,	V_143
+"Host Int Status:           0x%x\n"	,	L_13
+"Failed to read %d bytes on mailbox:%d : address:0x%X \n"	,	L_52
+TimeoutInMs	,	V_73
+error_status_enable	,	V_53
+A_IS_MUTEX_VALID	,	F_11
+"%d Block size is too large for buffer pad %d\n"	,	L_60
+"Int Status Enable:         0x%x\n"	,	L_25
+success	,	V_176
+HOST_INT_STATUS_ADDRESS	,	V_77
+INIT_HTC_PACKET_QUEUE	,	F_15
+A_ENOTSUP	,	V_150
+FILL_ZERO	,	V_198
+" DoMboxHWTest DONE - FAILED! -  \n"	,	L_72
+HIF_UNMASK_RECV	,	V_69
+"SYNC"	,	L_40
+AR6K_LEGACY_MAX_WRITE_LENGTH	,	V_154
+"Got all buffers on mbox:%d total recv :%d (w/Padding : %d) \n"	,	L_53
+DevAllocScatterReq	,	F_48
+rx_lookahead	,	V_89
+ar6k_irq_enable_registers	,	V_48
+MaxSendBundleSize	,	V_153
+timeout	,	V_188
+"Invalid length: %d \n"	,	L_30
+DevDoEnableDisableRecvNormal	,	F_42
+"Rx Lookahead Valid:        0x%x\n"	,	L_18
+ATH_LOG_ERR	,	V_79
+g_BlockSizes	,	V_185
+SCRATCH_ADDRESS	,	V_204
+AR_DEBUG_PRINTF	,	F_22
+htcCallbacks	,	V_13
+"Got %d messages on mailbox : %d \n"	,	L_51
+HifMaskUmaskRecvEvent	,	V_46
+"RD"	,	L_41
+Zero	,	V_172
+AR6K_SCATTER_REQS	,	V_131
+HIF_RD_SYNC_BYTE_FIX	,	V_193
+length	,	V_103
+Request	,	V_115
+AR6K_MAILBOXES	,	V_10
+counter	,	V_76
+"Sending buffers Failed : %d mbox:%d\n"	,	L_54
+dev_scatter_dma_virtual_info	,	V_127
+rwCompletionHandler	,	V_15
+A_ERROR	,	V_194
+buffer_proc_list	,	V_164
+MaxTransferSizePerScatterReq	,	V_144
+MaxScatterEntries	,	V_142
+HifIRQProcessingMode	,	V_37
+MBOX_BUS_IF_SPI	,	V_141
+"Not Enough buffer space to run test! need:%d, got:%d \n"	,	L_66
+SET_HTC_PACKET_INFO_RX_REFILL	,	F_21
+pAllocateReqFunc	,	V_137
+pCredits	,	V_187
+DataArea	,	V_132
+Address	,	V_119
+FromDMA	,	V_100
+HIF_SCATTER_DMA_BOUNCE	,	V_135
+RegisterIOList	,	V_5
+ATH_DEBUG_ANY	,	V_83
+recvList	,	V_196
+ar6k_device	,	V_1
+pIrqProcRegs	,	V_81
+DoOneMboxHWTest	,	F_81
+"DevDoEnableDisableRecvOverride: Enable:%d Mode:%d\n"	,	L_10
+ExtendedAddress	,	V_121
+DevSetupVirtualScatterSupport	,	F_59
+context	,	V_19
+THREAD_X	,	F_36
+HIF_WR_ASYNC_BLOCK_INC	,	V_161
+AR6K_REG_IO_BUFFER_SIZE	,	V_27
+DevMaskInterrupts	,	F_38
+"AR6K: SPI bus requires RX scatter limits\n"	,	L_31
+BUFFER_BLOCK_PAD	,	V_203
+HIF_DEVICE_IRQ_SYNC_ONLY	,	V_40
+Buffer	,	V_26
+pScatterReq	,	V_155
+DevDoEnableDisableRecvAsyncHandler	,	F_40
+HTC_PACKET_DEQUEUE	,	F_6
+HIFDevice	,	V_7
+"CPU Int Status:            0x%x\n"	,	L_14
+"Mbox Frame:                0x%x\n"	,	L_17
+ScatterIsVirtual	,	V_146
+HIFConfigureDevice	,	F_19
+DevDoEnableDisableRecvOverride	,	F_41
+"Waiting for buffers on mailbox : %d \n"	,	L_50
+DevEnableRecv	,	F_44
+pBuffer	,	V_71
+hif_device	,	V_95
+params	,	V_200
+MaxMsgsPerTransfer	,	V_147
+AR6KAllocIOPacket	,	F_5
+MboxBusIFType	,	V_140
+"Unable to decrement the command credit count register (mbox=%d)\n"	,	L_48
+HTC_CALLBACKS	,	T_2
+HIF_MBOX_FLAG_NO_BUNDLING	,	V_149
+" Send/Recv success! mailbox : %d \n"	,	L_57
+ATH_DEBUG_WARN	,	V_41
+LOCK_AR6K	,	F_2
+status	,	V_11
+HIF_WR_SYNC_BYTE_INC	,	V_58
+"GMBOX RX Avail:            0x%x\n"	,	L_22
+kfree	,	F_58
+error_int_status	,	V_85
+RegIOBuffers	,	V_24
+DevSetup	,	F_13
+"GMBOX Host Int Status 2:   0x%x\n"	,	L_21
+InitBuffers	,	F_74
+"Buffer : 0x%X, Length:%d failed verify \n"	,	L_45
+DevStopRecv	,	F_43
+HIF_RD_ASYNC_BLOCK_FIX	,	V_158
+gmbox_rx_avail	,	V_92
+ATH_DEBUG_TRC	,	V_32
+"Error Int Status:          0x%x\n"	,	L_15
+"HIF requires bundling disabled\n"	,	L_32
+"WR"	,	L_42
+CompletionStatus	,	V_112
+"Failed to write block mask \n"	,	L_69
+u16	,	T_4
+"Sent %d bytes (%d padded bytes) to mailbox : %d \n"	,	L_47
+HIF_DEVICE_GET_MBOX_ADDR	,	V_20
+AR6K_IRQ_ENABLE_REGS_SIZE	,	V_56
+pList	,	V_165
+pReadWriteScatterFunc	,	V_139
+startCount	,	V_175
+mailboxWidth	,	V_160
+GetCredits	,	F_79
+MAILBOX_FOR_BLOCK_SIZE	,	V_30
+pContext	,	V_68
+"AR6K : SPI bus requires TX bundling disabled\n"	,	L_36
+host_int_status	,	V_75
+" DoMboxHWTest DONE - SUCCESS! -  \n"	,	L_71
+Lock	,	V_8
+rx_gmbox_lookahead_alias	,	V_93
+AR6K_MAX_REG_IO_BUFFERS	,	V_22
+g_Buffer	,	V_166
+A_PENDING	,	V_124
+Completion	,	V_67
+DEV_GET_MAX_BUNDLE_LENGTH	,	F_66
+DevReadWriteScatterAsyncHandler	,	F_55
+HIF_ASYNCHRONOUS	,	V_117
+ERROR_STATUS_ENABLE_RX_UNDERFLOW_SET	,	F_31
+BlockSize	,	V_29
+sgreqSize	,	V_126
+EnableRecv	,	V_64
+HIF_DEVICE_GET_IRQ_PROC_MODE	,	V_39
+DevDumpRegisters	,	F_47
+pVirtDmaBuffer	,	V_123
+"Rx Lookahead 0:            0x%x\n"	,	L_19
+DevCleanupMsgBundling	,	F_63
+DevDsrHandler	,	V_18
+HifAttached	,	V_6
+pIOPacket	,	V_23
+HIF_RD_SYNC_BLOCK_FIX	,	V_159
+GetEndMarker	,	F_77
+INT_STATUS_ENABLE_CPU_SET	,	F_27
+"DevWaitForPendingRecv:Read HOST_INT_STATUS_ADDRESS Failed 0x%X\n"	,	L_11
+RecvPacketYieldCount	,	V_44
+A_ALIGN_TO_CACHE_LINE	,	F_62
+AR6KFreeIOPacket	,	F_1
+HIFUnMaskInterrupt	,	F_37
+"AR6K: max recv: %d max send: %d \n"	,	L_37
+"BlockSize: %d, MailboxAddress:0x%X \n"	,	L_1
+ATH_DEBUG_IRQ	,	V_62
+cpu_int_status_enable	,	V_52
+Read	,	V_156
+BUFFER2	,	V_169
+DEV_GET_MAX_MSG_PER_BUNDLE	,	F_65
+BUFFER3	,	V_170
+BUFFER1	,	V_168
+u32	,	T_1
+"Set Block Mask: 0x%X \n"	,	L_70
+BlockMask	,	V_31
+Async	,	V_157
+BUFFER4	,	V_171
+"Target parameters: bufs per mailbox:%d, buffer size:%d bytes (total space: %d, minimum required space (w/padding): %d) \n"	,	L_65
+"-DevDoEnableDisableRecvAsyncHandler \n"	,	L_9
+hif_scatter_req	,	V_94
+"DevSubmitScatterRequest, Entries: %d, Total Length: %d Mbox:0x%X (mode: %s : %s)\n"	,	L_38
+INT_STATUS_ENABLE_ADDRESS	,	V_57
+HifScatterInfo	,	V_136
+"HIF Interrupt processing is ASYNC and SYNC\n"	,	L_4
+"HIF Interrupt processing is SYNC ONLY\n"	,	L_2
+DEV_GET_MAX_BUNDLE_SEND_LENGTH	,	F_68
+counter_int_status	,	V_86
+HifIRQYieldParams	,	V_43
+HIF_DEVICE_GET_PENDING_EVENTS_FUNC	,	V_36
+ScatterReqHead	,	V_14
+"HIF special overrides : 0x%lX , 0x%lX\n"	,	L_5
+DevSetupMsgBundling	,	F_64
+INT_STATUS_ENABLE_ERROR_SET	,	F_26
+CompletionRoutine	,	V_113
+INT_STATUS_ENABLE_MBOX_DATA_SET	,	F_29
+A_NO_MEMORY	,	V_66
+pPktContext	,	V_110
+numBufs	,	V_201
+pDev	,	V_2
+DevWaitForPendingRecv	,	F_45
+ScatterMethod	,	V_134
+AsyncMode	,	V_65
+"Rx Lookahead 1:            0x%x\n"	,	L_20
+HTC_PACKET_ENQUEUE	,	F_3
+A_GET_CACHE_LINE_BYTES	,	F_60
+ar6k_irq_proc_registers	,	V_80
+COUNTER_INT_STATUS_ENABLE_BIT_SET	,	F_33
+request	,	V_114
+ScatterList	,	V_108
+pVirtualInfo	,	V_128
+cpu_int_status	,	V_84
+DevCopyScatterListToFromDMABuffer	,	F_53
+IrqEnableRegisters	,	V_50
+HIF_RD_SYNC_BLOCK_INC	,	V_195
+ValidScatterEntries	,	V_107
+HIF_DEVICE_GET_RECV_EVENT_MASK_UNMASK_FUNC	,	V_47
+INT_STATUS_ENABLE_COUNTER_SET	,	F_28
+A_EINVAL	,	V_105
+"ASYNC"	,	L_39
+"Failed to write end marker \n"	,	L_67
+ListLink	,	V_98
+credits	,	V_190
+"Counter Int Status:        0x%x\n"	,	L_16
+mbox_frame	,	V_87
+pFreeReqFunc	,	V_138
+totalBytes	,	V_181
+"GMBOX lookahead alias 0:   0x%x\n"	,	L_23
+pPacket	,	V_4
+DL_ListInsertTail	,	F_52
+"Failed to wait get parameters \n"	,	L_64
+blocksizes	,	V_9
+HIFReadWrite	,	F_34
+TotalLength	,	V_106
+DEV_GET_MAX_BUNDLE_RECV_LENGTH	,	F_67
+temp	,	V_202
+"Sending buffers on mailbox : %d \n"	,	L_46
+pBuffer16	,	V_173
+TOTAL_BYTES	,	V_174
+DevCleanupVirtualScatterSupport	,	F_10
+MboxProp	,	V_120
+"AR6K: HIF layer supports scatter requests (max scatter items:%d: maxlen:%d) \n"	,	L_35
+counter_int_status_enable	,	V_54
+DevUnmaskInterrupts	,	F_35
+pItem	,	V_97
+"AR6K: virtual scatter transfers enabled (max scatter items:%d: maxlen:%d) \n"	,	L_34
+A_MUTEX_INIT	,	F_16
+CheckBuffers	,	F_76
+htc_packet	,	V_3
+int_status_enable	,	V_51
+HIF_MASK_RECV	,	V_70
+ExtendedSize	,	V_122
+DoMboxHWTest	,	F_82
+"AR6K: ** HIF layer does not support scatter requests (%d) \n"	,	L_33
+DEV_PREPARE_SCATTER_OPERATION	,	F_70
+bufferSize	,	V_125

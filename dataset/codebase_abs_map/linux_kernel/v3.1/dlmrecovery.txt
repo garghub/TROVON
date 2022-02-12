@@ -1,0 +1,643 @@
+dlm_lock_request	,	V_78
+"bad ndata state for node %u:"	,	L_94
+dlm_lock_get	,	F_124
+EEXIST	,	V_207
+"requesting"	,	L_12
+"(this=%u) res %.*s owner=%u "	,	L_173
+bad	,	V_169
+"node %u, but node %u is supposed to be dead\n"	,	L_253
+dlm_mig_cookie_lock	,	V_2
+dlm_reco_thread_task	,	V_29
+tmpret	,	V_101
+dlm_print_one_lock_resource	,	F_91
+dlm_process_recovery_data	,	F_109
+"cookie %u:%llu, name %.*s, node %u\n"	,	L_147
+"%s: got reco EX lock, but "	,	L_206
+mlog_errno	,	F_26
+dlm_lockres_get	,	F_102
+lvb	,	V_138
+ral	,	V_91
+dlm_domain_fully_joined	,	F_34
+dlm_send_all_done_msg	,	F_71
+"this node will take it.\n"	,	L_133
+"node %u went down after this "	,	L_246
+dlm_status	,	V_80
+dlm_is_recovery_lock	,	F_75
+unlikely	,	F_95
+spinlock	,	V_7
+"another node likely did recovery already.\n"	,	L_193
+pass	,	V_68
+reco_master	,	V_92
+"node %u being removed from domain map!\n"	,	L_195
+dlm_reco_unlock_ast	,	F_151
+bucket	,	V_185
+"master=%u), request(dead=%u, master=%u)\n"	,	L_85
+"this node has already received it!\n"	,	L_256
+dlm_add_dummy_lock	,	F_93
+DLM_NORMAL	,	V_206
+"do the recovery\n"	,	L_205
+" current=(dead=%u,mas=%u)\n"	,	L_83
+LKM_RECOVERY	,	V_203
+cancel_pending	,	V_181
+lksb	,	V_134
+"requesting recovery info for "	,	L_63
+"got DATA DONE: dead_node=%u, reco.dead_node=%u, "	,	L_91
+"receiving"	,	L_14
+dlm_revert_pending_lock	,	F_128
+DLM_MRES_ALL_DONE	,	V_127
+"that node %u still owns %.*s\n"	,	L_135
+"recovery lock not found\n"	,	L_220
+"migration"	,	L_109
+"%s: reco master taking awhile\n"	,	L_215
+"AHA! there was "	,	L_101
+dlm_node_iter_next	,	F_112
+dlm_lock_put	,	F_76
+"setting refmap bit\n"	,	L_164
+dead	,	V_56
+test_bit	,	F_39
+dlm_fire_domain_eviction_callbacks	,	F_147
+dlm_prepare_lvb_for_migration	,	F_87
+nodenum	,	V_146
+dlm_hb_event_notify_attached	,	F_144
+dlm_lockres_put	,	F_106
+"starting recovery of %s at %lu, dead=%u, this=%u\n"	,	L_201
+br	,	V_213
+"Lock cookie %u:%llu was on list %u "	,	L_150
+"%s:%.*s: sending dummy lock to %u, %s\n"	,	L_119
+"node %u told me to kill "	,	L_111
+dlm_new_lockres	,	F_101
+"%s: will not send recovery state, "	,	L_81
+lockname_len	,	V_133
+"lvb! type=%d\n"	,	L_154
+clear_bit	,	F_9
+kthread_should_stop	,	F_33
+list_num	,	V_164
+"inactive"	,	L_9
+dlm_migratable_lock	,	V_126
+"Clearing join state for node %u\n"	,	L_191
+c	,	V_1
+all_nodes_done	,	V_66
+LKM_NLMODE	,	V_175
+"of death of node %u\n"	,	L_26
+i	,	V_117
+j	,	V_168
+__get_free_page	,	F_66
+"%s: node %u wants to recover node %u (%u:%u) "	,	L_232
+"dead_node is %u\n"	,	L_79
+stage	,	V_218
+dlm_destroy_recovery_area	,	F_60
+u	,	V_90
+jiffies	,	V_70
+"found lockres owned by dead node while "	,	L_104
+LKM_IVMODE	,	V_145
+"ast for recovery lock fired!, this=%u, dlm=%s\n"	,	L_198
+"recovery"	,	L_110
+DLM_FINALIZE_RECO_MSG	,	V_221
+"state=%d, master=%u, dead=%u\n"	,	L_30
+node_data	,	V_75
+done_msg	,	V_103
+lock_pending	,	V_179
+"requested"	,	L_15
+"Error %d when sending message %u (key "	,	L_76
+"lksb.status=%s\n"	,	L_219
+DLM_BLOCKED_LIST	,	V_135
+"conv %d, highest blocked %d\n"	,	L_145
+added	,	V_171
+converting	,	V_172
+DLM_MASTER_REQUERY_MSG	,	V_161
+"dlm=%s dlmlock says I got it (this=%u)\n"	,	L_203
+dlm_wait_for_recovery	,	F_46
+DLM_RECO_NODE_DATA_INIT	,	V_40
+send_to	,	V_100
+be16_to_cpu	,	F_99
+leave	,	V_98
+real_master	,	V_148
+"lock master is %u\n"	,	L_138
+"recovery master %u died, thread=(dead=%u,mas=%u)"	,	L_82
+"so setting it in reco map manually\n"	,	L_242
+blank_lvb	,	V_188
+req	,	V_160
+ret	,	V_61
+res	,	V_35
+"%s:%.*s: lockres was "	,	L_178
+DLM_HASH_BUCKETS	,	V_186
+list	,	V_26
+dlm_dispatch_work	,	F_11
+"sending DATA DONE message to %u, "	,	L_89
+"lockres %.*s not claimed.  "	,	L_132
+"dlm_process_recovery_data succeeded\n"	,	L_137
+"%s(%d):recovery thread found node %u in the recovery map!\n"	,	L_33
+skip_all_done	,	V_97
+"%u\n"	,	L_99
+"node died with convert pending "	,	L_167
+live_nodes_map	,	V_196
+dlm_lockres_master_requery	,	F_107
+work_struct	,	V_14
+"marked RECOVERING, owner=%u\n"	,	L_179
+dlm_lock	,	V_107
+"unknown owner.. will need to requery: "	,	L_129
+"node %u (%u:%u)\n"	,	L_249
+dlm_reco_master_ready	,	F_37
+"dead=%u, this=%u, new=%u\n"	,	L_72
+dlm_reco_thread_wq	,	V_28
+fr	,	V_217
+newlock	,	V_166
+timeout	,	V_51
+find_next_bit	,	F_49
+highest_blocked	,	V_143
+"%s: node %u went down while sending %s "	,	L_121
+dlm_put	,	F_19
+new_master	,	V_11
+kmalloc	,	F_98
+"node %u is DONE sending "	,	L_96
+"%s: got %s from dlmlock($RECOVERY), "	,	L_218
+"%s: recovery worker started, dead=%u, master=%u\n"	,	L_80
+"%s:%.*s: received bad "	,	L_153
+retry	,	V_214
+dlm_reco_state_lock	,	V_69
+"list %u, flags 0x%x, type %d, "	,	L_144
+dlm_pick_recovery_master	,	F_50
+owner	,	V_110
+dlm_send_mig_lockres_msg	,	F_80
+"to recovery map!\n"	,	L_197
+dlm_reco_ast	,	F_149
+dlm	,	V_5
+"%s: node %u was down when sending "	,	L_225
+"failed to find recovery node data for node "	,	L_98
+spin_unlock	,	F_3
+"%s: dlm_send_mig_lockres_msg returned %d\n"	,	L_120
+dlm_get_lock_cookie_node	,	F_89
+"dlm=%s dlmlock says master node died (this=%u)\n"	,	L_217
+dlm_list_num_to_pointer	,	F_118
+wait_event	,	F_43
+"lock %.*s, but marked as recovering!\n"	,	L_127
+"dropping ref from lockres\n"	,	L_182
+dlm_lockres_set_refmap_bit	,	F_119
+"%s: node %u sent dead_node=%u, but local "	,	L_78
+DLM_NOLOCKMGR	,	V_82
+dlm_begin_reco	,	V_212
+" state=%d\n"	,	L_95
+dlm_free_dead_locks	,	F_137
+ret_data	,	V_87
+DLM_MIG_LOCKRES_MSG	,	V_129
+"finalize-sent"	,	L_17
+__dlm_reset_recovery	,	F_8
+ENOMEM	,	V_74
+"%s:%.*s: dead node %u had a ref, but had "	,	L_184
+dlm_clean_master_list	,	F_140
+"Recovering res %s:%.*s, is already on recovery list!\n"	,	L_166
+namelen	,	V_131
+dlm_lockres_clear_refmap_bit	,	F_138
+"migrate\n"	,	L_118
+bit	,	V_62
+"%s: reco state, node %u, state=%s\n"	,	L_19
+"%s: lockres %.*s on recovering list\n"	,	L_20
+"%.*s\n"	,	L_130
+"attempting to send begin reco msg to %d\n"	,	L_224
+dummy	,	V_144
+DLM_RECO_STATE_FINALIZE	,	V_194
+clear_page	,	F_84
+"instead of list %u for %.*s\n"	,	L_151
+"doing recovery for node %u. sending it.\n"	,	L_105
+lock	,	V_108
+"retrying\n"	,	L_42
+dead_node	,	V_6
+DLM_RECO_STATE_ACTIVE	,	V_38
+mres	,	V_95
+"%u not in domain/live_nodes map "	,	L_241
+dlm_is_node_recovered	,	F_40
+list_for_each_entry_safe	,	F_16
+cookie	,	V_132
+wait_event_timeout	,	F_42
+DLM_LVB_LEN	,	V_139
+dlm_change_lockres_owner	,	F_105
+"recovery state for dead node %u, ret=%d\n"	,	L_87
+list_move_tail	,	F_77
+dlm_master_requery	,	V_159
+dlm_revert_pending_convert	,	F_127
+orig_flags	,	V_121
+"node finished recovery.\n"	,	L_247
+LKM_CANCEL	,	V_209
+node_num	,	V_47
+hash	,	V_162
+status	,	V_50
+O2NM_MAX_NODES	,	V_63
+"recovery as it is being freed\n"	,	L_187
+"node died with cancel pending "	,	L_172
+recovering	,	V_111
+"Mismatched lvb in lock cookie=%u:%llu, name=%.*s, "	,	L_113
+"dlm_lockres_master_requery ret=%d\n"	,	L_131
+"Ignore %.*s for "	,	L_186
+hlist_node	,	V_182
+mig_cookie	,	V_118
+dlm_lockstatus	,	V_167
+"Got DATA DONE: dead_node=%u, reco.dead_node=%u, "	,	L_93
+list_add_tail	,	F_62
+local	,	V_187
+"%s: dlmlock($RECOVERY) returned %d, lksb=%d\n"	,	L_202
+__dlm_dirty_lockres	,	F_132
+dlm_kick_thread	,	F_59
+"done running all the locks\n"	,	L_165
+tot	,	V_22
+"%s: dead_node previously set to %u, "	,	L_237
+dlm_begin_recovery	,	F_47
+work_lock	,	V_23
+dlm_lock_attach_lockres	,	F_122
+dlm_init_recovery_area	,	F_53
+"owner is THIS node, clearing\n"	,	L_177
+EFAULT	,	V_130
+DLM_LKSB_PUT_LVB	,	V_173
+"%s: received finalize1 from "	,	L_254
+kthread_run	,	F_24
+DLM_RECOVERING	,	V_211
+"%s: node %u returned "	,	L_48
+"node %u: state=%d\n"	,	L_61
+dlm_init_work_item	,	F_67
+wait_event_interruptible_timeout	,	F_36
+DLM_MRES_MIGRATION	,	V_128
+"node %u died after "	,	L_62
+lr	,	V_79
+wake_up	,	F_22
+list_splice_init	,	F_14
+mres_total_locks	,	V_119
+O2NM_INVALID_NODE_NUM	,	V_13
+"starting dlm recovery thread...\n"	,	L_4
+DLM_RECOVERY_LOCK_NAME	,	V_204
+"node got recovered already\n"	,	L_207
+kthread_stop	,	F_29
+u32	,	T_4
+hlist_for_each_entry	,	F_134
+"just reordered a local lock!\n"	,	L_152
+"dlm=%s dlmlock says another node got it (this=%u)\n"	,	L_214
+"my node=%u, dead node=%u\n"	,	L_90
+extra_refs	,	V_149
+ml	,	V_109
+"%s:%.*s: dummy lock for %u\n"	,	L_141
+DLM_MRES_RECOVERY	,	V_99
+hlist_head	,	V_184
+__be64	,	T_5
+DLM_LOCK_RES_OWNER_UNKNOWN	,	V_112
+dlm_finish_migration	,	F_110
+dlm_lockres_grab_inflight_ref	,	F_104
+DLM_LOCK_RES_DROPPING_REF	,	V_192
+dlm_lockid_hash	,	F_115
+DLM_LOCK_RES_IN_PROGRESS	,	V_153
+dlm_list_idx_to_ptr	,	F_96
+__dlm_insert_lockres	,	F_103
+"should be done with recovery!\n"	,	L_70
+"not sending begin reco to self\n"	,	L_223
+__dlm_set_joining_node	,	F_143
+"was not on recovering list, "	,	L_176
+"waiting for dlm recovery thread to exit\n"	,	L_6
+list_for_each_entry	,	F_15
+"%s: failed to alloc recovery area, "	,	L_41
+"%s: reco thread %d in recovery: "	,	L_29
+"waited 1 sec for %u, "	,	L_44
+dlmunlock	,	F_154
+"dlm_request_all_locks: dead node is %u, sending request "	,	L_74
+"leaving reco data done handler, ret=%d\n"	,	L_100
+"(%d) Node %u is the Recovery Master for the Dead Node "	,	L_36
+"%s:%.*s: %u:%llu: lock already "	,	L_159
+hash_iter	,	V_183
+"node %u for dead node %u\n"	,	L_54
+"%s: node %u still in state %s\n"	,	L_65
+dlm_errname	,	F_155
+"bast for recovery lock fired!, this=%u, dlm=%s\n"	,	L_199
+DLM_LOCK_RES_MIGRATING	,	V_152
+"recovery all-done for dead node %u, ret=%d\n"	,	L_88
+"bad"	,	L_18
+"begin reco of dlm %s to node %u "	,	L_230
+"another node will master this recovery session.\n"	,	L_34
+dlm_get_lock_cookie_seq	,	F_90
+"was not on recovering list, but "	,	L_174
+"node %u died after requesting "	,	L_51
+"to complete, backoff for a bit\n"	,	L_229
+"checking recovery state of node %u\n"	,	L_59
+search_node	,	V_189
+"%s(%d): recovery info, state=%s, dead=%u, master=%u\n"	,	L_7
+dlm_grab	,	F_65
+set_bit	,	F_145
+"death of node %u\n"	,	L_24
+dlm_request_all_locks_handler	,	F_64
+dlm_lockres_hash	,	F_133
+"bad ndata state for "	,	L_60
+reco	,	V_8
+dlm_master_requery_handler	,	F_114
+"%u, but node %u is waiting for last recovery "	,	L_228
+"node %u sent recovery finalize msg for dead "	,	L_252
+"%s: dead=%u, this=%u, sending "	,	L_210
+master	,	V_10
+"retrying.\n"	,	L_39
+work_list	,	V_24
+u64	,	T_1
+container_of	,	F_12
+"%s: new_master %u NOT DEAD, changing "	,	L_236
+node_idx	,	V_81
+dlm_is_node_dead	,	F_38
+dispatched_work	,	V_16
+"unknown"	,	L_10
+__dlm_lookup_lockres	,	F_116
+"lock %.*s is already migrating\n"	,	L_125
+IS_ERR	,	F_25
+"from node %u for dead node %u\n"	,	L_57
+"done requesting all lock info\n"	,	L_58
+cpu_to_be32	,	F_85
+dlm_finalize_reco	,	V_216
+"finishing recovery for node %s:%u, "	,	L_244
+"dlmunlock returned %d\n"	,	L_213
+dlm_lookup_lockres	,	F_100
+"ACTIVE"	,	L_8
+dlm_wait_for_node_recovery	,	F_44
+dlm_in_recovery	,	F_45
+tmpq	,	V_165
+msleep	,	F_52
+granted	,	V_116
+convert_pending	,	V_177
+"new master %u died while recovering %u!\n"	,	L_31
+len	,	V_49
+"%s: node %u state is finalize\n"	,	L_67
+dlm_init_migratable_lockres	,	F_83
+"%s: reco master %u is ready to recover %u\n"	,	L_216
+"dead_node %u no longer in recovery map!\n"	,	L_32
+state	,	V_37
+dlm_new_lock	,	F_121
+DLM_RECO_NODE_DATA_DONE	,	V_45
+dlm_reco_data_done	,	V_102
+"node %u changing it to %u\n"	,	L_238
+"%s message received from node %u\n"	,	L_123
+"recovery of node %u\n"	,	L_27
+"0x%x) to node %u\n"	,	L_77
+"%s:%.*s: sending mig lockres (%s) to %u\n"	,	L_108
+"%s: trying to start recovery of node "	,	L_227
+"already DONE receiving recovery data "	,	L_56
+"init"	,	L_11
+node	,	V_55
+list_for_each	,	F_79
+dlm_send_finalize_reco_message	,	F_57
+"]\nmigrated lvb=["	,	L_157
+GFP_NOFS	,	V_73
+"sending to %u\n"	,	L_115
+stage2	,	V_219
+unlock_pending	,	V_180
+"all done flag.  all lockres data received!\n"	,	L_124
+dlm_get_next_mig_cookie	,	F_1
+LIST_HEAD	,	F_13
+"master needs to respond to sender "	,	L_134
+dlm_wait_for_node_death	,	F_41
+"done"	,	L_16
+"domain %s, node %u already added "	,	L_196
+"stage %d\n"	,	L_245
+"got DLM_DENIED, trying LKM_CANCEL\n"	,	L_212
+list_del_init	,	F_17
+"recovery master %u sees %u as dead, but this "	,	L_239
+"not sending begin reco to dead node "	,	L_222
+DLM_RECO_THREAD_TIMEOUT_MS	,	V_52
+dlm_mig_lockres_worker	,	V_155
+dlm_move_reco_locks_to_list	,	F_69
+dlm_commit_pending_unlock	,	F_129
+dlm_remaster_locks	,	F_51
+BUG	,	F_56
+"dlm_reco_thread"	,	L_5
+assert_spin_locked	,	F_5
+tmp_list	,	V_17
+key	,	V_84
+dlm_dispatch_assert_master	,	F_117
+cpu_to_be64	,	F_86
+st	,	V_39
+"sent lock: type=%d, conv=%d, "	,	L_161
+"%s: dead node is %u\n"	,	L_221
+u8	,	T_2
+LKM_PRMODE	,	V_137
+"%s: dead master %d had reached "	,	L_189
+sz	,	V_120
+"%s: node %u finalizing recovery stage%d of "	,	L_248
+DLM_GRANTED_LIST	,	V_147
+"node=%u, cookie=%u:%llu, queue=%d\n"	,	L_162
+"on %.*s. remove from blocked list and skip.\n"	,	L_170
+ML_ERROR	,	V_64
+in_recovery	,	V_59
+recovered	,	V_58
+buf	,	V_88
+"%s: reco state invalid: reco(dead=%u, "	,	L_84
+migration_wq	,	V_198
+__dlm_print_one_lock_resource	,	F_120
+dlm_do_local_recovery_cleanup	,	F_139
+"recovery info for node %u\n"	,	L_52
+"error %d remastering locks for node %u, "	,	L_38
+dlm_node_iter_init	,	F_111
+"but this node is in finalize state, waiting on finalize2\n"	,	L_233
+dlm_reco_node_data	,	V_32
+dlm_finish_local_lockres_recovery	,	F_58
+"]\n"	,	L_158
+"begin reco msg (%d)\n"	,	L_226
+dlm_do_recovery	,	F_35
+domain_map	,	V_57
+"a $RECOVERY lock for dead "	,	L_102
+tmplist	,	V_76
+dlm_recovery_thread	,	V_30
+"clearing state anyway\n"	,	L_175
+dlm_reco_bast	,	F_150
+"clearing %.*s lvb, dead node %u had EX\n"	,	L_180
+"this node did not have finalize1!\n"	,	L_258
+"node %u\n"	,	L_64
+orig_master	,	V_123
+dlm_revalidate_lvb	,	F_136
+data_len	,	V_150
+dlm_send_one_lockres	,	F_70
+free_page	,	F_72
+freed	,	V_190
+"requesting lock info from node %u\n"	,	L_43
+"unlockast for recovery lock fired!\n"	,	L_200
+"lockres %.*s\n"	,	L_122
+name	,	V_9
+"%s: received finalize2 from "	,	L_257
+idx	,	V_193
+skip_lvb	,	V_176
+next	,	V_20
+"recovery has passed me a lockres with an "	,	L_128
+BUG_ON	,	F_18
+dlm_kick_recovery_thread	,	F_21
+dlm_ctxt	,	V_4
+printk	,	F_123
+"%02x"	,	L_156
+joining_node	,	V_195
+recovery_map	,	V_12
+kzalloc	,	F_61
+"of recovery of node %u\n"	,	L_28
+dlm_num_locks_in_lockres	,	F_78
+"node has not yet.  marking %u as dead\n"	,	L_240
+"%u is supposed to be the new master, dead=%u\n"	,	L_251
+wq	,	V_154
+dlm_node_iter	,	V_158
+"running %d locks for this lockres\n"	,	L_140
+"node %u responded to master requery with %u\n"	,	L_139
+"require more than one network packet to "	,	L_117
+"%s: work thread has %d work items\n"	,	L_3
+"%d during recovery, retrying "	,	L_49
+mlog_bug_on_msg	,	F_74
+"Could not find local lock "	,	L_142
+"all nodes are done! send finalize\n"	,	L_69
+again	,	V_157
+"DONE mastering recovery of %s:%u here(this=%u)!\n"	,	L_40
+"with cookie %u:%llu, node %u, "	,	L_143
+"dead"	,	L_13
+dlm_hb_node_up_cb	,	F_148
+"lockres lvb=["	,	L_155
+request_from	,	V_77
+DLM_ASSERT_MASTER_REQUERY	,	V_163
+func	,	V_25
+"dead? %s\n"	,	L_45
+dlm_end_recovery	,	F_48
+"argh.  lockres has %d locks.  this will "	,	L_116
+dlm_print_reco_node_status	,	F_30
+ML_NOTICE	,	V_36
+"%s: recovery done, reco master was %u, dead now %u, master now %u\n"	,	L_259
+"%s: new master is %u "	,	L_208
+DLM_RECO_DATA_DONE_MSG	,	V_104
+"begin_reco now\n"	,	L_211
+"node %u sent recovery finalize msg, but node "	,	L_250
+"but no dead node!\n"	,	L_209
+list_empty	,	F_126
+"no"	,	L_47
+extra_ref	,	V_156
+"for domain %s, node %d is already dead. "	,	L_192
+dlm_finalize_reco_handler	,	F_157
+"node died with lock pending "	,	L_169
+dlm_work_item	,	V_18
+"%s: node %u wants to recover node %u (%u:%u)\n"	,	L_234
+LKM_NOQUEUE	,	V_202
+item	,	V_19
+"now receiving recovery data from "	,	L_53
+ndata	,	V_33
+"Migrate lock cookie %u:%llu, "	,	L_148
+DLM_LKSB_GET_LVB	,	V_174
+work	,	V_15
+"%s:%.*s: added lock for node %u, "	,	L_163
+task_pid_nr	,	F_31
+astdata	,	V_200
+destroy	,	V_67
+iter	,	V_114
+"yes"	,	L_46
+dlm_send_begin_reco_message	,	F_153
+be32_to_cpu	,	F_82
+"on %.*s. move back to granted list.\n"	,	L_168
+num_locks	,	V_124
+LKM_EXMODE	,	V_136
+"no locks and had not purged before dying\n"	,	L_185
+DLM_RECO_NODE_DATA_DEAD	,	V_42
+DLM_MAX_MIGRATABLE_LOCKS	,	V_125
+DLM_RECO_NODE_DATA_RECEIVING	,	V_43
+kfree	,	F_20
+dlm_lvb_is_empty	,	F_88
+flags	,	V_122
+"for node %u. sending it.\n"	,	L_107
+workfunc	,	V_21
+dlm_migratable_lockres	,	V_94
+"Mismatched node# in lock "	,	L_146
+"pass #%d, all_nodes_done?: %s\n"	,	L_68
+dlm_worker	,	V_93
+"node_idx=%u, this node=%u\n"	,	L_92
+"myself!\n"	,	L_112
+"node=%u\n"	,	L_114
+dlm_add_lock_to_array	,	F_92
+event	,	V_60
+"node %u already removed from domain!\n"	,	L_194
+"%s: recovery master %d just died\n"	,	L_188
+"%s: node %u state is done\n"	,	L_66
+EAGAIN	,	V_53
+curnode	,	V_222
+node_map	,	V_72
+"%s: waiting %dms for notification of "	,	L_23
+master_here	,	V_65
+EINVAL	,	V_31
+dlm_is_dummy_lock	,	F_94
+"exists on this lockres!\n"	,	L_160
+DLM_LOCK_REQUEST_MSG	,	V_83
+dlm_mig_cookie	,	V_3
+blocked_type	,	V_201
+"already receiving recovery data from "	,	L_55
+"%s:%.*s: freed %u locks for dead node %u, "	,	L_181
+"finishing recovery of %s at %lu, "	,	L_71
+dlm_do_master_requery	,	F_113
+o2nm_node	,	V_199
+"\n"	,	L_73
+queue	,	V_115
+msg	,	V_86
+dlm_complete_recovery_thread	,	F_28
+"dlm=%s (%d), new_master=%u, this node=%u, dead_node=%u\n"	,	L_35
+mlog	,	F_6
+data	,	V_27
+"node died with unlock pending "	,	L_171
+"new master %u for dead node %u, but "	,	L_255
+num	,	V_71
+"but ref was not set\n"	,	L_183
+"dlm_process_recovery_data returned  %d\n"	,	L_136
+"node %u (%s)!\n"	,	L_103
+DLM_RECOVERY_LOCK_NAME_LEN	,	V_205
+DLM_NOTQUEUED	,	V_210
+"%s: got reco EX lock, but %u will "	,	L_204
+"node is attempting to migrate "	,	L_126
+DLM_LOCK_RES_RECOVERING	,	V_151
+"%s: changing dead_node from %u to %u\n"	,	L_1
+"%s: changing new_master from %u to %u\n"	,	L_2
+from	,	V_170
+o2net_msg	,	V_85
+lock_num	,	V_141
+exit_domain_map	,	V_197
+"%s: recovery started by node %u, for %u (%u:%u)\n"	,	L_243
+DLM_RECO_NODE_DATA_REQUESTING	,	V_41
+DLM_DENIED	,	V_208
+"%s: node %u went down while sending "	,	L_86
+lockres	,	V_140
+dlm_hb_node_down_cb	,	F_146
+dlm_reset_recovery	,	F_10
+PTR_ERR	,	F_27
+done	,	V_105
+refmap	,	V_191
+"finalize1 state, clearing\n"	,	L_190
+DLM_FINALIZE_STAGE2	,	V_220
+dlm_commit_pending_cancel	,	F_130
+dlm_is_host_down	,	F_55
+__dlm_lockres_has_locks	,	F_131
+"%u for Domain %s\n"	,	L_37
+dlm_mig_lockres_handler	,	F_97
+dlm_request_all_locks_worker	,	V_89
+"recovery data!\n"	,	L_97
+DLM_RECO_NODE_DATA_REQUESTED	,	V_44
+"after a short wait\n"	,	L_50
+dlm_reco_data_done_handler	,	F_73
+"dlm thread running for %s...\n"	,	L_21
+dlm_move_lockres_to_recovery_list	,	F_125
+dlm_lockres_drop_inflight_ref	,	F_108
+o2net_send_message	,	F_63
+"%s: new_master %u died, changing "	,	L_235
+dlm_workfunc_t	,	T_3
+DLM_RECO_NODE_DATA_FINALIZE_SENT	,	V_46
+"%s: waiting indefinitely for notification "	,	L_25
+dlm_request_all_locks	,	F_54
+__dlm_hb_node_down	,	F_142
+"to %u\n"	,	L_75
+msecs_to_jiffies	,	F_32
+dlm_lvb_needs_invalidation	,	F_135
+ready	,	V_54
+DLM_CONVERTING_LIST	,	V_178
+dlm_set_reco_dead_node	,	F_4
+dlm_set_reco_master	,	F_7
+spin_lock	,	F_2
+"found UNKNOWN owner while doing recovery "	,	L_106
+total_locks	,	V_113
+"node %u, list %u, flags 0x%x, type %d, "	,	L_149
+list_head	,	V_106
+dlm_lock_resource	,	V_34
+resources	,	V_96
+lockname	,	V_48
+__dlm_lockres_calc_usage	,	F_141
+convert_type	,	V_142
+"returned %d\n"	,	L_231
+queue_work	,	F_68
+DLM_BEGIN_RECO_MSG	,	V_215
+dlm_launch_recovery_thread	,	F_23
+"quitting DLM recovery thread\n"	,	L_22
+dlm_begin_reco_handler	,	F_156
+dlmlock	,	F_152
+be64_to_cpu	,	F_81

@@ -1,0 +1,122 @@
+SMIC_SC_SMS_WR_START	,	V_55
+smic_size	,	F_17
+reason	,	V_36
+write_data	,	V_26
+SMIC_SC_SMS_RD_END	,	V_70
+SMIC_START_OP	,	V_27
+SMIC_SC_SMS_READY	,	V_52
+SMIC_CC_SMS_WR_END	,	V_57
+"state = SMIC_WRITE_NEXT, "	,	L_15
+"status != SMIC_SC_SMS_RD_(NEXT|END)"	,	L_24
+"SMIC_WRITE_END: data = %02x\n"	,	L_19
+smic_timeout	,	V_13
+SMIC_SC_SMS_RD_START	,	V_67
+SMIC_DEBUG_STATES	,	V_44
+"state = SMIC_READ_NEXT, "	,	L_23
+write_count	,	V_8
+smic_debug	,	V_23
+kcs	,	V_76
+state	,	V_5
+SI_SM_CALL_WITH_DELAY	,	V_45
+" %02x"	,	L_2
+"smic-&gt;state = %d\n"	,	L_28
+KERN_WARNING	,	V_39
+SMIC_CC_SMS_RD_END	,	V_71
+io	,	V_4
+SI_SM_TRANSACTION_COMPLETE	,	V_74
+read_data	,	V_29
+"ipmi_smic_drv: smic hosed: %s\n"	,	L_5
+SMIC_READ_START	,	V_66
+size	,	V_16
+"status != SMIC_SC_SMS_RD_START"	,	L_22
+"state = UNKNOWN"	,	L_29
+si_sm_io	,	V_3
+smic_cleanup	,	F_16
+status	,	V_42
+" status = 0x%02x\n"	,	L_10
+flags	,	V_33
+read_smic_flags	,	F_5
+SMIC_WRITE2READ	,	V_63
+smic_detect	,	F_15
+"state = SMIC_OP_OK,"	,	L_11
+IPMI_REQ_LEN_INVALID_ERR	,	V_18
+"status != SMIC_SC_SMS_WR_END"	,	L_18
+read_pos	,	V_10
+"smic_get result -"	,	L_4
+"smic_event - state = %d, flags = 0x%02x,"	,	L_9
+SMIC_SMS_DATA_AVAIL	,	V_47
+truncated	,	V_12
+i	,	V_17
+SMIC_FLAG_BSY	,	V_46
+read_smic_data	,	F_7
+"state = SMIC_READ_END, "	,	L_25
+SMIC_MAX_ERROR_RETRIES	,	V_37
+"SMIC_READ_END: data = %02x\n"	,	L_27
+SMIC_SC_SMS_RD_NEXT	,	V_73
+read_smic_status	,	F_6
+SMIC_IDLE	,	V_6
+"\n"	,	L_3
+"state = SMIC_READ_START, "	,	L_21
+data	,	V_15
+IPMI_ERR_MSG_TRUNCATED	,	V_31
+start_error_recovery	,	F_11
+"data != SUCCESS"	,	L_20
+SMIC_RETRY_TIMEOUT	,	V_14
+start_smic_transaction	,	F_2
+read_next_byte	,	F_13
+write_next_byte	,	F_12
+SMIC_CC_SMS_GET_STATUS	,	V_50
+SI_SM_ATTN	,	V_48
+outputb	,	V_34
+MAX_SMIC_WRITE_SIZE	,	V_19
+IPMI_REQ_LEN_EXCEEDED_ERR	,	V_20
+SMIC_OP_OK	,	V_51
+SI_SM_HOSED	,	V_43
+write_smic_flags	,	F_8
+SMIC_TX_DATA_READY	,	V_56
+"status != SMIC_SC_SMS_WR_START"	,	L_14
+write_si_sm_data	,	F_10
+SMIC_RX_DATA_READY	,	V_64
+SMIC_DEBUG_MSG	,	V_24
+SMIC_CC_SMS_RD_NEXT	,	V_68
+write_smic_control	,	F_9
+SMIC_WRITE_START	,	V_54
+IPMI_ERR_UNSPECIFIED	,	V_30
+" status != SMIC_SC_SMS_READY"	,	L_12
+inputb	,	V_32
+" time = %ld\n"	,	L_7
+"smic timed out."	,	L_8
+SMIC_READ_END	,	V_72
+smic	,	V_2
+SMIC_SC_SMS_WR_NEXT	,	V_61
+write_pos	,	V_7
+IPMI_NOT_IN_MY_STATE_ERR	,	V_22
+printk	,	F_3
+SMIC_DEBUG_ENABLE	,	V_38
+SMIC_WRITE_NEXT	,	V_60
+init_smic_data	,	F_1
+si_sm_result	,	V_41
+SMIC_HOSED	,	V_21
+SI_SM_CALL_WITHOUT_DELAY	,	V_75
+SMIC_CC_SMS_RD_START	,	V_65
+"start_smic_transaction -"	,	L_1
+SMIC_WRITE_END	,	V_58
+"status != SMIC_SC_SMS_WR_NEXT"	,	L_16
+"status != SMIC_SC_SMS_READY"	,	L_26
+"state = SMIC_WRITE_START, "	,	L_13
+smic_event	,	F_14
+length	,	V_28
+"smic_event - smic-&gt;smic_timeout = %ld,"	,	L_6
+SMIC_CC_SMS_WR_START	,	V_53
+control	,	V_35
+SMIC_SC_SMS_WR_END	,	V_62
+SMIC_CC_SMS_WR_NEXT	,	V_59
+smic_get_result	,	F_4
+error_retries	,	V_11
+si_sm_data	,	V_1
+orig_write_count	,	V_9
+SI_SM_IDLE	,	V_49
+"state = SMIC_WRITE_END, "	,	L_17
+KERN_DEBUG	,	V_25
+SMIC_READ_NEXT	,	V_69
+MAX_SMIC_READ_SIZE	,	V_40

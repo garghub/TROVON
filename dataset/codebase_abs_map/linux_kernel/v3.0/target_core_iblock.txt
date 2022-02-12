@@ -1,0 +1,308 @@
+"IBLOCK: BLOCK Discard support available,"	,	L_16
+EEXIST	,	V_115
+atomic_set	,	F_4
+bi_flags	,	V_158
+smp_mb__after_atomic_inc	,	F_75
+bdev_get_queue	,	F_15
+iblock_free_device	,	F_25
+left_queue_depth	,	V_10
+transport_add_device_to_core_hba	,	F_21
+"Major: %d Minor: %d\n"	,	L_38
+dev	,	V_26
+opts	,	V_109
+i_size_read	,	F_33
+ibd_bio_set	,	V_38
+ib_host	,	V_5
+queue_depth	,	V_49
+"Missing udev_path= parameters for IBLOCK\n"	,	L_29
+"CORE_HBA[%d] - Attached iBlock HBA: %u to Generic"	,	L_5
+tbio	,	V_138
+for_each_sg	,	F_67
+max_unmap_lba_count	,	V_57
+T_TASK	,	F_36
+EIO	,	V_159
+iblock_set_configfs_dev_params	,	F_52
+"IBLOCK: Created bio_set()\n"	,	L_13
+se_cmd	,	V_68
+transport_complete_sync_cache	,	F_37
+bio_free	,	F_62
+ibd_force	,	V_121
+GFP_KERNEL	,	V_6
+""	,	L_35
+FMODE_WRITE	,	V_40
+bd	,	V_30
+FMODE_READ	,	V_41
+iblock_emulated_write_cache	,	F_39
+ssize_t	,	T_3
+iblock_alloc_task	,	F_29
+rw	,	V_86
+blkdev_issue_flush	,	F_38
+"*** bio-&gt;bi_max_vecs: %u\n"	,	L_51
+blk_finish_plug	,	F_47
+bl	,	V_125
+test_bit	,	F_74
+bdevname	,	F_60
+sg	,	V_140
+"IBLOCK: Unable to create bioset()\n"	,	L_12
+ibd_bd	,	V_54
+arg	,	V_111
+strsep	,	F_54
+iblock_get_device_rev	,	F_71
+submit_bio	,	F_46
+ib_bio	,	V_82
+"Calling submit_bio() task: %p bio: %p"	,	L_21
+"IBLOCK: block_issue_flush() failed: %d "	,	L_19
+limits	,	V_34
+ibd_minor	,	V_53
+b	,	V_122
+iblock_map_task_SG	,	F_66
+scatterlist	,	V_139
+atomic_read	,	F_5
+iblock_template	,	V_55
+task_lba	,	V_143
+se_task	,	V_65
+max_queue_depth	,	V_12
+i	,	V_141
+blkdev_put	,	F_26
+ibd	,	V_100
+host_id	,	V_3
+blk_start_plug	,	F_44
+p	,	V_25
+bd_dev	,	V_52
+q	,	V_32
+buf	,	V_123
+iblock_get_bio	,	F_63
+"Allocated bio: %p task_size: %u\n"	,	L_42
+bi_private	,	V_128
+orig	,	V_106
+"task: %p bio-add_page() passed!, decremented"	,	L_55
+ibr	,	V_156
+match_token	,	F_55
+ERR_PTR	,	F_10
+bioset_free	,	F_24
+blk_queue_discard	,	F_22
+div_u64	,	F_32
+"Set bio-&gt;bi_sector: %llu\n"	,	L_43
+max_hw_sectors	,	V_45
+iblock_detach_hba	,	F_6
+bdev_logical_block_size	,	F_16
+iblock_get_blocks	,	F_73
+WRITE_FUA	,	V_92
+bioset_create	,	F_11
+se_device	,	V_22
+BDEVNAME_SIZE	,	V_124
+iblock_emulated_fua_read	,	F_42
+ibd_major	,	V_51
+IBDF_HAS_UDEV_PATH	,	V_119
+request_queue	,	V_31
+FMODE_EXCL	,	V_42
+IBLOCK_REQ	,	F_27
+req	,	V_80
+GFP_NOIO	,	V_130
+ret	,	V_36
+TARGET_CORE_MOD_VERSION	,	V_17
+"IBLOCK: Claiming struct block_device: %s\n"	,	L_14
+logical_block_size	,	V_44
+atomic_dec_and_test	,	F_76
+hba	,	V_2
+bi_sector	,	V_96
+"done[%p] bio: %p task_lba: %llu bio_lba: %llu err=%d\n"	,	L_62
+count	,	V_104
+iblock_get_device_type	,	F_72
+"IBLOCK: Set force=%d\n"	,	L_28
+iblock_emulate_sync_cache	,	F_34
+"** task-&gt;task_size: %u\n"	,	L_50
+"Unsupported SCSI -&gt; BLOCK LBA conversion:"	,	L_45
+dev_limits	,	V_28
+bd_contains	,	V_126
+task_size	,	V_133
+max_sectors	,	V_46
+bio_alloc_bioset	,	F_64
+name	,	V_18
+discard_granularity	,	V_61
+hba_id	,	V_15
+IBLOCK_MAX_DEVICE_QUEUE_DEPTH	,	V_48
+queue_limits	,	V_33
+page	,	V_103
+bio_put	,	F_51
+se_hba	,	V_1
+bi_destructor	,	V_135
+" struct iblock_hba\n"	,	L_2
+ib_req	,	V_70
+"Unable to allocate memory for struct iblock_req\n"	,	L_18
+printk	,	F_3
+"task: %p bio_add_page() passed!, bio-&gt;bi_vcnt:"	,	L_59
+iblock_module_init	,	F_78
+"Unable to allocate memory for"	,	L_1
+SCSI_SPC_2	,	V_153
+kzalloc	,	F_2
+iblock_do_discard	,	F_48
+iblock_module_exit	,	F_80
+"CORE_HBA[%d] - TCM iBlock HBA Driver %s on"	,	L_3
+"task: %p bio: %p Calling bio_add_page(): page:"	,	L_47
+"CLAIMED: IBLOCK"	,	L_36
+block_size	,	V_75
+" list, Going to again\n"	,	L_54
+iblock_host_id	,	V_9
+BIO_UPTODATE	,	V_157
+DEBUG_IBLOCK	,	F_45
+again	,	V_147
+length	,	V_145
+bi_vcnt	,	V_149
+match_int	,	F_57
+iblock_emulated_fua_write	,	F_41
+"Unable to allocate struct iblock_dev\n"	,	L_9
+DEV_ATTRIB	,	F_23
+ptr	,	V_107
+iblock_emulated_dpo	,	F_40
+ib_bio_cnt	,	V_72
+blk_plug	,	V_84
+iblock_emulate_read_cap_with_block_size	,	F_31
+block_lba	,	V_142
+"IBLOCK"	,	L_15
+" err: %d\n"	,	L_61
+ENOMEM	,	V_8
+transport_subsystem_release	,	F_81
+sg_page	,	F_68
+bio	,	V_81
+transport_complete_task	,	F_77
+" %u\n"	,	L_46
+sg_num	,	V_129
+hba_ptr	,	V_13
+queue_max_hw_sectors	,	F_17
+SE_DEV	,	F_30
+bd_holder	,	V_127
+hw_queue_depth	,	V_47
+","	,	L_23
+"CLAIMED: OS"	,	L_37
+"iBlock device: %s"	,	L_30
+" ib_dev-&gt;ibd_bd exists\n"	,	L_25
+DMA_TO_DEVICE	,	V_88
+match_strdup	,	F_56
+IBLOCK_LBA_SHIFT	,	V_151
+TASK_CMD	,	F_35
+"*** bio-&gt;bi_vcnt: %u\n"	,	L_52
+dev_ptr	,	V_71
+" Generic Target Core Stack %s\n"	,	L_4
+fail	,	V_150
+transport_subsystem_register	,	F_79
+bi_max_vecs	,	V_148
+" disabled by default\n"	,	L_17
+" to %llu\n"	,	L_58
+PYX_TRANSPORT_OUT_OF_MEMORY_RESOURCES	,	V_131
+cmd	,	V_69
+Opt_udev_path	,	V_114
+iblock_dev	,	V_19
+dev_flags	,	V_35
+"Allocated bio: %p task_sg_num: %u using ibd_bio_set:"	,	L_40
+"Major: %d Minor: %d  %s\n"	,	L_34
+"  UDEV PATH: %s\n"	,	L_31
+kfree	,	F_7
+iblock_bio_done	,	V_137
+range	,	V_99
+kstrdup	,	F_53
+TYPE_DISK	,	V_154
+arg_p	,	V_108
+se_subsystem_dev	,	V_23
+unmap_granularity	,	V_60
+WRITE	,	V_93
+out	,	V_116
+ib_dev	,	V_20
+se_dev	,	V_24
+PYX_TRANSPORT_SENT_TO_TRANSPORT	,	V_97
+iblock_free_task	,	F_50
+bi_next	,	V_95
+sector_t	,	T_2
+task_data_direction	,	V_87
+" %p len: %u offset: %u\n"	,	L_48
+"test_bit(BIO_UPTODATE) failed for bio: %p,"	,	L_60
+"IBLOCK: Allocated ib_dev for %s\n"	,	L_10
+blkdev_issue_discard	,	F_49
+"Unable to locate struct iblock_dev parameter\n"	,	L_11
+err	,	V_155
+emulate_fua_write	,	V_90
+iblock_check_configfs_dev_params	,	F_58
+iblock_get_cdb	,	F_70
+"IBLOCK: Referencing UDEV path: %s\n"	,	L_27
+token	,	V_112
+EINVAL	,	V_37
+ibd_host	,	V_21
+"*** Set bio-&gt;bi_sector: %llu\n"	,	L_49
+__init	,	T_5
+substring_t	,	T_4
+task_se_cmd	,	V_79
+"\n"	,	L_32
+ibd_udev_path	,	V_39
+error_sector	,	V_78
+"%s"	,	L_26
+iblock_req	,	V_64
+atomic_inc	,	F_65
+iblock_hba	,	V_4
+max_unmap_block_desc_count	,	V_59
+block_device	,	V_29
+t_tasks_fua	,	V_91
+iblock_show_configfs_dev_params	,	F_59
+se_dev_limits	,	V_27
+hbio	,	V_102
+barrier	,	V_101
+ibd_flags	,	V_118
+bd_inode	,	V_74
+u32	,	T_1
+bi_end_io	,	V_136
+" Target Core\n"	,	L_8
+se_dev_su_ptr	,	V_105
+emulate_write_cache	,	V_89
+offset	,	V_146
+bio_add_page	,	F_69
+"CORE_HBA[%d] - Detached iBlock HBA: %u from Generic"	,	L_7
+iblock_do_task	,	F_43
+iblock_bio_destructor	,	F_61
+lba	,	V_98
+failed	,	V_43
+PTR_ERR	,	F_14
+" bio-&gt;bi_sector: %llu\n"	,	L_22
+"-----------------&gt; Added +1 bio: %p to"	,	L_53
+READ	,	V_94
+task	,	V_66
+max_discard_sectors	,	V_58
+discard_alignment	,	V_63
+iblock_allocate_virtdevice	,	F_8
+plug	,	V_85
+blocks_long	,	V_73
+queue_max_sectors	,	F_18
+"Unable to set udev_path= while"	,	L_24
+MAJOR	,	F_19
+task_sg_num	,	V_132
+KERN_INFO	,	V_14
+"Unable to allocate memory for bio\n"	,	L_39
+" error_sector: %llu\n"	,	L_20
+"task: %p bio_add_page() passed!, increased lba"	,	L_57
+MINOR	,	F_20
+PYX_TRANSPORT_LU_COMM_FAILURE	,	V_144
+immed	,	V_76
+bi_bdev	,	V_134
+IBLOCK_VERSION	,	V_16
+unmap_granularity_alignment	,	V_62
+tokens	,	V_113
+Opt_force	,	V_120
+ib_scsi_cdb	,	V_152
+MAX_OPT_ARGS	,	V_110
+" Target Core TCQ Depth: %d\n"	,	L_6
+SE_UDEV_PATH_LEN	,	V_117
+iblock_create_virtdevice	,	F_9
+blkdev_get_by_path	,	F_12
+"        "	,	L_33
+nbio	,	V_83
+" %p\n"	,	L_41
+t_task_cdb	,	V_77
+ibd_depth	,	V_56
+iblock_attach_hba	,	F_1
+ib_task	,	V_67
+container_of	,	F_28
+IBLOCK_HBA_QUEUE_DEPTH	,	V_11
+KERN_ERR	,	V_7
+ib_bio_err_cnt	,	V_160
+"Set ib_req-&gt;ib_bio_cnt: %d\n"	,	L_44
+" sg_num to %u\n"	,	L_56
+IS_ERR	,	F_13
+IBLOCK_DEVICE_QUEUE_DEPTH	,	V_50

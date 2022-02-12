@@ -1,0 +1,242 @@
+"can not set the USB xfer len\n"	,	L_20
+msleep	,	F_34
+usb_submit_urb	,	F_41
+len	,	V_54
+dev	,	V_109
+dvb_usb_device_init	,	F_48
+dib0700_streaming_ctrl	,	F_35
+dib0700_identify_state	,	F_20
+dib0700_rc_setup	,	F_42
+usb_rcvctrlpipe	,	F_5
+i2c_get_adapdata	,	F_16
+"the endpoint number (%i) is not correct, use the adapter id instead"	,	L_22
+dib0700_rc_urb_completion	,	F_37
+en_stop	,	V_44
+adapter	,	V_60
+dib0700_set_gpio	,	F_13
+en_start	,	V_43
+dib0700_change_protocol	,	F_36
+debug_dump	,	F_9
+EIO	,	V_35
+"%s()\n"	,	L_25
+pll_src	,	V_72
+num_adapters	,	V_101
+rc	,	V_117
+i2c_adapter	,	V_36
+uint8_t	,	T_4
+usb_sndbulkpipe	,	F_28
+GFP_KERNEL	,	V_69
+nb_packet_buffer_size	,	V_98
+EINPROGRESS	,	V_145
+scl_kHz	,	V_80
+dib0700_rc_response	,	V_129
+actual_length	,	V_136
+dib07x0_gpios	,	V_27
+rx	,	V_22
+channel_state	,	V_113
+deb_data	,	F_8
+new_proto	,	V_119
+GFP_ATOMIC	,	V_144
+result	,	V_45
+mutex_unlock	,	F_6
+"i2c write error (status = %d)\n"	,	L_11
+endpoint	,	V_115
+usb_fill_bulk_urb	,	F_45
+act_len	,	V_94
+rc_keydown	,	F_40
+usb_device_id	,	V_148
+pos	,	V_93
+"set the USB xfer len to %i Ts packet\n"	,	L_8
+st	,	V_8
+dib0700_i2c_xfer_legacy	,	F_17
+b	,	V_68
+u8	,	T_2
+address	,	V_85
+d	,	V_2
+not_data	,	V_142
+intf	,	V_147
+i	,	V_46
+"jumpram to 0x%x failed\n"	,	L_16
+free_div	,	V_77
+fe_adap	,	V_114
+rc_type	,	V_118
+rxlen	,	V_23
+"IR ID = %02X state = %02X System = %02X %02X Cmd = %02X %02X (len %d)\n"	,	L_28
+buf	,	V_16
+u	,	V_104
+I2C_M_NOSTART	,	V_50
+dib0700_i2c_xfer_new	,	F_15
+usb_rcvbulkpipe	,	F_46
+tx	,	V_18
+hwversion	,	V_3
+dib0700_set_i2c_speed	,	F_24
+fw_use_new_i2c_api	,	V_59
+ramversion	,	V_5
+pll_range	,	V_73
+dsuScaler	,	V_78
+be16_to_cpu	,	F_39
+dib0700_jumpram	,	F_26
+priv	,	V_9
+info	,	F_33
+ret	,	V_10
+"&lt;&lt;&lt; "	,	L_7
+gen_mode	,	V_42
+"FW GET_VERSION length: %d\n"	,	L_13
+chk	,	V_96
+clock_out_gp3	,	V_84
+"rc usb alloc urb failed\n"	,	L_33
+"firmware started successfully."	,	L_19
+"Firmware version: %x, %d, 0x%x, %d\n"	,	L_36
+USB_TYPE_VENDOR	,	V_14
+dib0700_set_clock	,	F_23
+mutex_lock_interruptible	,	F_2
+REQUEST_SET_CLOCK	,	V_79
+USB_CTRL_GET_TIMEOUT	,	V_17
+desc	,	V_66
+fe	,	V_102
+purb	,	V_127
+RC_MSG_SIZE_V1_20	,	V_137
+clk_MHz	,	V_83
+cold	,	V_67
+"ir protocol setup failed"	,	L_24
+dib0700_ctrl_wr	,	F_7
+fw	,	V_90
+not_system	,	V_141
+divider	,	V_81
+kzalloc	,	F_44
+kmalloc	,	F_21
+"cold: %d\n"	,	L_14
+REQUEST_GET_VERSION	,	V_13
+"this firmware does not allow to change the USB xfer len\n"	,	L_9
+REQUEST_SET_I2C_PARAM	,	V_82
+USB_DIR_OUT	,	V_21
+dib0700_download_firmware	,	F_30
+usb_mutex	,	V_11
+poll_reply	,	V_130
+"firmware download failed at %d with %d"	,	L_18
+i2c_mutex	,	V_47
+dib0700_get_version	,	F_1
+usb_alloc_urb	,	F_43
+report_id	,	V_139
+ENOMEM	,	V_70
+"rc submit urb failed\n"	,	L_35
+dib0700_probe	,	F_47
+REQUEST_I2C_WRITE	,	V_58
+"key failed integrity check: %04x %02x %02x"	,	L_32
+dib0700_set_usb_xfer_len	,	F_14
+dvb_usb_get_hexline	,	F_31
+hx	,	V_92
+bus_mode	,	V_41
+usb_bulk_msg	,	F_27
+context	,	V_128
+id	,	V_112
+"discontinuing polling\n"	,	L_26
+hexline	,	V_91
+"tx buffer length is smaller than 2. Makes no sense."	,	L_4
+REQUEST_NEW_I2C_WRITE	,	V_56
+"NEC extended protocol\n"	,	L_29
+REQUEST_NEW_I2C_READ	,	V_55
+"writing to address 0x%08x (buffer: 0x%02x %02x)\n"	,	L_17
+"ep 0 read error (status = %d)\n"	,	L_6
+index	,	V_24
+usb_device	,	V_62
+props	,	V_64
+rc_dev	,	V_116
+nb_ts_packets	,	V_32
+REQUEST_SET_USB_XFER_LEN	,	V_34
+__func__	,	V_134
+data_state	,	V_140
+USB_DIR_IN	,	V_15
+"malformed rc msg size=%d\n"	,	L_27
+"i2c read error (status = %d)\n"	,	L_10
+i2c_msg	,	V_38
+bulk	,	V_105
+romversion	,	V_4
+pll_prediv	,	V_75
+status	,	V_20
+ENODEV	,	V_152
+dvb_usb_device	,	V_1
+kfree	,	F_22
+adap_num	,	V_95
+flags	,	V_49
+dvb_usb_device_properties	,	V_63
+"RC5 protocol\n"	,	L_31
+usb_interface	,	V_146
+pll_loopdiv	,	V_76
+I2C_FUNC_I2C	,	V_61
+out	,	V_88
+dvb_usb_adapter	,	V_107
+stream	,	V_103
+"rc kzalloc failed\n"	,	L_34
+fwtype	,	V_6
+u16	,	T_3
+system16	,	V_143
+deb_info	,	F_12
+firmware	,	V_89
+disable_streaming_master_mode	,	V_111
+"data for streaming: %x %x\n"	,	L_23
+err	,	F_3
+urb	,	V_126
+dib0700_i2c_xfer	,	F_18
+"setting I2C speed: %04x %04x %04x (%d kHz)."	,	L_15
+EAGAIN	,	V_48
+toggle	,	V_133
+actlen	,	V_86
+dib0700_ctrl_rd	,	F_11
+EINVAL	,	V_26
+"ep 0 write error (status = %d, len: %d)\n"	,	L_3
+"modifying (%d) streaming state for %d\n"	,	L_21
+gpio_val	,	V_30
+REQUEST_SET_RC	,	V_120
+"could not acquire lock"	,	L_1
+RC_TYPE_NEC	,	V_122
+onoff	,	V_108
+"&gt;&gt;&gt; "	,	L_2
+msg	,	V_39
+data	,	V_97
+num	,	V_40
+REQUEST_ENABLE_VIDEO	,	V_110
+txlen	,	V_19
+i2c_dest	,	V_52
+dib0700_devices	,	V_100
+dib0700_ctrl_clock	,	F_25
+protocol	,	V_125
+u32	,	T_1
+"I2C read failed on address 0x%02x\n"	,	L_12
+keycode	,	V_132
+usb_control_msg	,	F_4
+RC_TYPE_RC5	,	V_121
+RC_TYPE_RC6	,	V_123
+"NEC normal protocol\n"	,	L_30
+THIS_MODULE	,	V_149
+deb_fw	,	F_29
+usb_free_urb	,	F_38
+REQUEST_SET_GPIO	,	V_31
+transfer_buffer	,	V_135
+dib0700_i2c_func	,	F_19
+core	,	V_124
+REQUEST_JUMPRAM	,	V_87
+dib0700_device_count	,	V_99
+udev	,	V_12
+clock_gpio3	,	V_74
+"tx buffer length is larger than 4. Not supported."	,	L_5
+adap	,	V_37
+dvb_usb_device_description	,	V_65
+I2C_M_RD	,	V_51
+dib0700_state	,	V_7
+en_pll	,	V_71
+gpio_dir	,	V_29
+REQUEST_I2C_READ	,	V_57
+s16	,	T_5
+addr	,	V_53
+usb_sndctrlpipe	,	F_10
+value	,	V_25
+deb_fwdata	,	F_32
+adapter_nr	,	V_150
+buffersize	,	V_106
+uninitialized_var	,	V_131
+bulk_mode	,	V_151
+u64	,	T_6
+resubmit	,	V_138
+fw_version	,	V_33
+gpio	,	V_28

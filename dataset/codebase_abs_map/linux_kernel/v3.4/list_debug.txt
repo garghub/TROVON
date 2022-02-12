@@ -1,0 +1,21 @@
+__list_add	,	F_1
+next	,	V_4
+new	,	V_2
+__list_del_entry	,	F_3
+list_head	,	V_1
+prev	,	V_3
+"list_del corruption. next-&gt;prev should be %p, "	,	L_9
+__list_del	,	F_4
+"list_add corruption. next-&gt;prev should be "	,	L_1
+WARN	,	F_2
+"but was %p\n"	,	L_8
+entry	,	V_5
+list_del	,	F_5
+"list_add corruption. prev-&gt;next should be "	,	L_3
+"list_del corruption, %p-&gt;next is LIST_POISON1 (%p)\n"	,	L_5
+"list_del corruption. prev-&gt;next should be %p, "	,	L_7
+"next (%p), but was %p. (prev=%p).\n"	,	L_4
+"prev (%p), but was %p. (next=%p).\n"	,	L_2
+"list_del corruption, %p-&gt;prev is LIST_POISON2 (%p)\n"	,	L_6
+LIST_POISON1	,	V_6
+LIST_POISON2	,	V_7

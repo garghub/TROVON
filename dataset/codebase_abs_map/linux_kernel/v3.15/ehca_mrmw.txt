@@ -1,0 +1,589 @@
+mr_rereg_mask	,	V_85
+tmp_lkey	,	V_90
+virt	,	V_60
+atomic_set	,	F_81
+"num_kpages=%llx num_hwpages=%llx"	,	L_81
+save_mr	,	V_179
+num_pages	,	V_219
+"kpage_cnt &gt;= num_kpages, "	,	L_160
+"bad input values: num_phys_buf=%x "	,	L_5
+"mr_access_flags=%x"	,	L_32
+map_phys_fmr_exit0	,	V_147
+HIPZ_ACCESSCTRL_R_ATOMIC	,	V_238
+e_fmr	,	V_133
+IB_MR_REREG_TRANS	,	V_93
+ehca_dealloc_mw	,	F_48
+dev	,	V_269
+"bind MW currently not supported by HCAD"	,	L_49
+ehca_dereg_internal_maxmr_exit0	,	V_207
+kmem_cache_create	,	F_95
+"hipz_mr_query failed, h_ret=%lli mr=%p "	,	L_39
+"hipz_free_mr failed, h_ret=%lli shca=%p "	,	L_43
+"ehca_cache_mw"	,	L_174
+e_pd	,	V_20
+"not supported for FMR, mr=%p "	,	L_27
+"flags=%x"	,	L_28
+for_each_sg	,	F_118
+maxmr	,	V_23
+"hipz_h_reregister_pmr failed "	,	L_97
+num_hwpages	,	V_48
+ehca_gen_dbg	,	F_90
+"lkey=%x"	,	L_116
+mrlock	,	V_9
+"h_ret=%lli e_mr=%p i=%x lkey=%x hca_hndl=%llx "	,	L_91
+"rereg internal max-MR impossible, mr=%p "	,	L_25
+"bad input values: length=%llx "	,	L_12
+"with hwpage_size=%llx"	,	L_17
+dma_sync_single_for_device	,	F_124
+nr_pages	,	V_250
+size	,	V_37
+initial_pfn	,	V_257
+pbuf	,	V_208
+hwpage_size	,	V_52
+"mr_rereg_mask=%x"	,	L_24
+"ret=%i shca=%p e_mr=%p "	,	L_79
+"ret=%i shca=%p e_pd=%p e_maxmr=%p"	,	L_131
+hw_pgsize	,	V_49
+ehca_get_dma_mr	,	F_14
+ehca_dma_sync_single_for_cpu	,	F_121
+query_mr_exit1	,	V_110
+ehca_dealloc_fmr	,	F_56
+"pbuf-&gt;addr=%llx pbuf-&gt;size=%llx"	,	L_139
+"mr_pgsize=%llx"	,	L_157
+query_mr_exit0	,	V_105
+"e_mr=%p hca_hndl=%llx mr_hndl=%llx mr-&gt;lkey=%x"	,	L_44
+"kpage=%p"	,	L_96
+IB_ACCESS_REMOTE_ATOMIC	,	V_41
+ehca_check_kpages_per_ate	,	F_89
+"shca=%p hca_hndl=%llx mw=%p"	,	L_47
+fmr_page_size	,	V_139
+IB_MR_REREG_ACCESS	,	V_96
+EHCA_DIR_MAP_SIZE	,	V_246
+i	,	V_166
+j	,	V_212
+nents	,	V_274
+ehca_alloc_fmr	,	F_50
+sg_head	,	V_82
+p	,	V_233
+ib_pbuf	,	V_201
+s	,	V_247
+u	,	V_53
+hipz_h_alloc_resource_mr	,	F_59
+"mr_hndl=%llx lkey=%x lkey_out=%x"	,	L_114
+ib_phys_buf	,	V_32
+rpage	,	V_165
+"ret=%i shca=%p e_origmr=%p "	,	L_122
+hipz_h_alloc_resource_mw	,	F_46
+ehca_bind_mw	,	F_47
+ehca_mr_is_maxmr	,	F_24
+"ehca_cache_mr"	,	L_173
+ehca_bmap	,	V_198
+fmr	,	V_143
+acl	,	V_98
+"value=%016llx"	,	L_159
+dir	,	V_186
+"ret=%i shca=%p shca-&gt;maxmr=%p"	,	L_136
+"alloc failed"	,	L_1
+"invalid alignment "	,	L_155
+num_fmr	,	V_153
+fmr_attr	,	V_132
+"set pagebuf failed, e_mr=%p "	,	L_94
+"ret=%i tmp_lkey=%x tmp_rkey=%x "	,	L_117
+rkey	,	V_30
+sgl	,	V_83
+alloc_pages	,	F_126
+ret	,	V_17
+ehca_use_hp_mr	,	V_160
+"entry=%llx next_hwpage=%llx"	,	L_150
+usecnt	,	V_206
+ilog2	,	F_2
+ib_umem_release	,	F_34
+"bad pd=%p"	,	L_11
+ipz_hca_handle	,	V_106
+spin_unlock_irqrestore	,	F_38
+ehca_reg_maxmr	,	F_18
+ehca_reg_smr	,	F_71
+"ehca_set_pagebuf "	,	L_83
+total_nr_pages	,	V_258
+sg_dma_address	,	F_87
+"ret=%i fmr=%p page_list=%p list_len=%x "	,	L_59
+ehca_dma_unmap_sg	,	F_120
+get_dma_mr_exit0	,	V_25
+"kpage=%p i=%x"	,	L_85
+"found prev=%llx p=%llx "	,	L_169
+ehca_shca	,	V_2
+"prev_shca=%p e_fmr=%p"	,	L_62
+num_phys_buf	,	V_34
+"ret=%i e_maxmr=%p shca=%p lkey=%x"	,	L_135
+kmalloc	,	F_99
+ib_acl	,	V_234
+ib_fmr	,	V_130
+max_maps	,	V_137
+"hca_hndl=%llx mr_hndl=%llx lkey=%x"	,	L_40
+"bad address, i=%x pbuf-&gt;addr=%llx "	,	L_142
+ib_mw_type	,	V_116
+"e_mr=%p iova_start=%p size_maxmr=%llx num_kpages=%x "	,	L_129
+page_list	,	V_144
+length	,	V_59
+ent	,	V_199
+"this is a max-MR"	,	L_172
+EHCA_MR_FLAG_MAXMR	,	V_43
+"Rereg3 case, "	,	L_104
+"iova_start=%p size=%llx acl=%x e_pd=%p pginfo=%p "	,	L_80
+MAX_PHYSMEM_BITS	,	V_263
+ehca_init_bmap	,	F_100
+max_pages	,	V_136
+"rereg_3_hcall=%x"	,	L_111
+ehca_reg_internal_maxmr_exit1	,	V_205
+ENOMEM	,	V_24
+num_kpages	,	V_47
+IB_ACCESS_REMOTE_READ	,	V_235
+end_section	,	V_252
+sg_page	,	F_86
+get_order	,	F_127
+ehca_reg_internal_maxmr_exit0	,	V_202
+hipz_h_free_resource_mw	,	F_49
+EHCA_HUGEPAGE_SIZE	,	V_262
+"rereg without IB_MR_REREG_TRANS not "	,	L_21
+"unmap of one FMR failed, "	,	L_65
+mw_cache	,	V_11
+number	,	V_210
+"h_ret=%lli e_mr=%p top=%x lkey=%x "	,	L_176
+hipz_h_free_resource_mr	,	F_44
+"next_hwpage=%llx"	,	L_165
+"kpage_size=%lx"	,	L_19
+context	,	V_68
+EHCA_ENT_MAP_SIZE	,	V_245
+dma_sync_single_for_cpu	,	F_122
+ib	,	V_28
+"not a FMR, e_fmr=%p "	,	L_63
+ehca_mr_deletenew	,	F_70
+dma_address	,	V_275
+EHCA_SECTSHIFT	,	V_268
+ehca_init_mrmw_cache	,	F_94
+ehca_dma_map_single	,	F_112
+NUM_CHUNKS	,	F_25
+handle	,	V_108
+hipz_h_reregister_pmr	,	F_68
+hwpage_cnt	,	V_217
+mr_access_flags	,	V_16
+"bad input values: size=%llx iova_start=%p"	,	L_8
+"e_mr-&gt;umem-&gt;page_size=%x"	,	L_15
+size_maxmr	,	V_200
+next_sg	,	V_81
+"hipz_alloc_mr failed, h_ret=%lli "	,	L_72
+pfn	,	V_249
+compound_order	,	F_106
+ehca_map_phys_fmr	,	F_51
+EHCA_TOP_INDEX_SHIFT	,	V_189
+ehca_is_hugepage	,	F_105
+"try to register mr with "	,	L_18
+shca	,	V_3
+"sg_dma_address=%llx "	,	L_149
+ehca_top_bmap	,	V_243
+ehca_reg_phys_mr	,	F_22
+ehca_free_fw_ctrlblock	,	F_66
+mr_cache	,	V_7
+ehca_set_pagebuf_user1	,	F_84
+ehca_set_pagebuf_user2	,	F_91
+ehca_reg_mr_dir_sections	,	F_78
+pginfo_save	,	V_172
+top	,	V_185
+"num_hwpages=%llx i=%x"	,	L_163
+hugetlb	,	V_73
+EHCA_SECTSIZE	,	V_194
+new_size	,	V_86
+fmr_max_maps	,	V_141
+EHCA_HUGEPAGESHIFT	,	V_256
+"bad size, i=%x pbuf-&gt;size=%llx"	,	L_143
+sg_next	,	F_88
+max	,	F_31
+ehca_dma_mapping_error	,	F_111
+mwlock	,	V_12
+EFAULT	,	V_64
+"h_ret=%lli e_mr=%p hca_hndl=%llx mr_hndl=%llx "	,	L_108
+ehca_create_busmap	,	F_109
+IB_ACCESS_MW_BIND	,	V_135
+"fmr_page_size=%x"	,	L_147
+SLAB_HWCACHE_ALIGN	,	V_242
+ehca_init_top_bmap	,	F_98
+ib_fmr_attr	,	V_131
+"num_kpages=%llx lkey=%x rkey=%x rereg_1_hcall=%x "	,	L_110
+page_order	,	V_254
+umem	,	V_66
+ehca_mr_new	,	F_6
+"phys_buf_array=%p"	,	L_6
+ipz_mr_handle	,	V_109
+ehca_dbg	,	F_69
+ehca_get_max_hwpage_size	,	F_4
+ehca2ib_return_code	,	F_41
+"addr/size mismatch in 1st buf, pbuf-&gt;addr=%llx "	,	L_140
+phy	,	V_54
+abs_addr	,	V_265
+new_pd	,	V_89
+"pginfo-&gt;num_hwpages=%llx e_mr-&gt;num_hwpages=%x"	,	L_105
+size_t	,	T_3
+next_kpage	,	V_225
+ehca_dma_unmap_page	,	F_116
+iova_start	,	V_35
+ehca_mr_delete	,	F_10
+hca_cap_mr_pgsize	,	V_4
+"supported yet, mr_rereg_mask=%x"	,	L_22
+"ret=%i mr=%p"	,	L_45
+u32	,	T_1
+usr	,	V_78
+me	,	V_6
+"ret=%i lkey=%x rkey=%x "	,	L_102
+"dereg internal max-MR impossible, mr=%p "	,	L_42
+PHYSICAL_START	,	V_27
+ehca_mrmw_reverse_map_acl	,	F_42
+"ehca_reg_bmap_mr_rpages failed, "	,	L_175
+H_SUCCESS	,	V_107
+ipz_mw_handle	,	V_123
+kmem_cache_zalloc	,	F_7
+mr	,	V_84
+ehca_dma_sync_single_for_device	,	F_123
+mw	,	V_126
+h_ret	,	V_102
+"*fmrlist=%llx fmrlist=%p "	,	L_166
+dma_length	,	V_276
+"kpage alloc failed"	,	L_82
+start_section	,	V_251
+entry	,	V_266
+mr_attr	,	V_101
+"hipz_reg_rpage_mr failed, "	,	L_90
+spin_lock_irqsave	,	F_36
+ehca_dereg_mr	,	F_43
+ehca_dir_bmap	,	V_244
+"failed to register mr "	,	L_16
+list_for_each_entry	,	F_54
+"hipz_reregister_pmr failed "	,	L_112
+ehca_warn	,	F_32
+"idx=%x"	,	L_170
+ehca_set_pagebuf	,	F_63
+EHCA_MR_PGSHIFT16M	,	V_75
+e_newmr	,	V_183
+"reg of internal max MR failed, "	,	L_128
+"pgaddr=%llx entry=%llx"	,	L_154
+"e_mr=%p i=%x hca_hndl=%llx mr_hndl=%llx"	,	L_88
+"hca_hndl=%llx fmr_hndl=%llx fmr-&gt;lkey=%x"	,	L_70
+page_to_pfn	,	F_85
+"not a FMR, e_fmr=%p e_fmr-&gt;flags=%x"	,	L_55
+"bad page, i=%x *page=%llx page=%p fmr=%p "	,	L_146
+ehca_debug_level	,	V_221
+reg_user_mr_fallback	,	V_76
+ehca_update_busmap	,	F_104
+"bad input values: mr_rereg_mask=%x "	,	L_31
+reg_phys_mr_exit0	,	V_38
+reg_phys_mr_exit1	,	V_44
+"ret=%i mr=%p mr_rereg_mask=%x pd=%p "	,	L_35
+"mr_handle=%llx lkey=%x lkey_out=%x"	,	L_101
+dma_handle	,	V_278
+galpas	,	V_241
+ehca_set_pagebuf_fmr	,	F_93
+direction	,	V_273
+"unsupported fmr_attr-&gt;page_shift=%x"	,	L_54
+ehca_gen_err	,	F_9
+"mw=%p rkey=%x hca_hndl=%llx mw_hndl=%llx"	,	L_51
+rnum	,	V_164
+dereg_mr_exit0	,	V_114
+"stop rest, e_fmr=%p num_fmr=%x "	,	L_66
+ehca_reg_smr_exit0	,	V_184
+EHCA_INVAL_ADDR	,	V_267
+HIPZ_ACCESSCTRL_R_WRITE	,	V_237
+new_start	,	V_87
+e_origmr	,	V_182
+"bad list_len, list_len=%x "	,	L_144
+next_hwpage	,	V_55
+u64	,	T_2
+container_of	,	F_15
+pd	,	V_15
+cpu_addr	,	V_271
+fw_pd	,	V_121
+ehca_create_busmap_callback	,	F_108
+pg	,	V_195
+ib_umem_get	,	F_28
+ib_mr_attr	,	V_100
+__pa	,	F_64
+"ret=%i mr=%p mr_attr=%p"	,	L_41
+IS_ERR	,	F_20
+offs_hw	,	V_227
+prev_pgaddr	,	V_220
+dma_data_direction	,	V_272
+HIPZ_ACCESSCTRL_MW_BIND	,	V_240
+spin_lock_init	,	F_8
+EHCA_HUGEPAGE_PFN_MASK	,	V_255
+ehca_fmr_check_page_list	,	F_52
+prev	,	V_232
+ehca_map_vaddr	,	F_19
+"pginfo=%p num_kpages=%llx num_hwpages=%llx"	,	L_103
+"iova_start=%p"	,	L_34
+"next_listelem=%llx next_hwpage=%llx"	,	L_167
+len	,	V_113
+rereg_1_hcall	,	V_176
+sl_flags	,	V_92
+EHCA_DIR_INDEX_SHIFT	,	V_188
+PAGE_SHIFT	,	V_72
+phys_buf_array	,	V_33
+"(Rereg1), h_ret=%lli e_mr=%p"	,	L_98
+PAGE_MASK	,	V_56
+HIPZ_ACCESSCTRL_L_WRITE	,	V_239
+qp	,	V_125
+"virt_base=%llx"	,	L_13
+"chunk_page=%llx value=%016llx"	,	L_151
+ib_device	,	V_22
+walk_system_ram_range	,	F_110
+prev_shca	,	V_152
+"e_fmr-&gt;flags=%x"	,	L_64
+"pbuf-&gt;size=%llx"	,	L_141
+num_hw	,	V_226
+EHCA_MR_PGI_USER	,	V_77
+dma_addr	,	V_270
+ehca_dma_free_coherent	,	F_129
+ehca_dma_unmap_single	,	F_113
+GFP_KERNEL	,	V_8
+fls64	,	F_29
+ehca_dereg_internal_maxmr	,	F_82
+device	,	V_21
+"pginfo=%p num_kpages=%llx num_hwpages=%llx ret=%i"	,	L_76
+"bad pginfo-&gt;type=%x"	,	L_171
+lkey	,	V_29
+"e_origmr=%p hca_hndl=%llx mr_hndl=%llx lkey=%x"	,	L_132
+"iova_start=%p size=%llx acl=%x e_pd=%p lkey=%x "	,	L_75
+ehca_alloc_fw_ctrlblock	,	F_62
+ehca_dma_map_page	,	F_114
+"shca=%p e_origmr=%p e_newmr=%p iova_start=%p acl=%x "	,	L_120
+ehca_mw_new	,	F_12
+reg_type	,	V_158
+ehca_reg_bmap_mr_rpages	,	F_60
+tmp_rkey	,	V_91
+"h_ret=%li pd=%p"	,	L_48
+min	,	F_30
+sg	,	V_215
+reg_user_mr_exit0	,	V_65
+reg_user_mr_exit1	,	V_69
+reg_user_mr_exit2	,	V_71
+arg	,	V_259
+"kpage_cnt=%llx num_kpages=%llx "	,	L_161
+iova	,	V_146
+scatterlist	,	V_214
+hipz_h_register_smr	,	F_72
+fmr_list	,	V_151
+"hipz_mw_allocate failed, h_ret=%lli "	,	L_46
+H_PAGE_REGISTERED	,	V_171
+"internal error in ehca_reg_mr, "	,	L_77
+"reg_mr_section will probably fail:"	,	L_124
+"rereg_pmr, iova_start=%p iova_start_out=%llx e_mr=%p "	,	L_100
+IB_MR_REREG_PD	,	V_95
+ERR_PTR	,	F_17
+ehca_reg_mr	,	F_26
+"h_ret=%lli e_fmr=%p hca_hndl=%llx mr_hndl=%llx "	,	L_115
+ehca_mr_len	,	V_203
+"bad input values: fmr_attr-&gt;max_pages=%x "	,	L_52
+"fmr_attr-&gt;max_maps=%x fmr_attr-&gt;page_shift=%x"	,	L_53
+EHCA_MR_FLAG_FMR	,	V_97
+"register_rpage_mr failed"	,	L_127
+"no internal max-MR exist!"	,	L_3
+ehca_mw_delete	,	F_13
+pgaddr	,	V_211
+"phys_buf_array=%p num_phys_buf=%x mr_access_flags=%x "	,	L_36
+EHCA_REG_BUSMAP_MR	,	V_162
+EHCA_REG_MR	,	V_57
+" phys_buf_array=%p num_phys_buf=%x"	,	L_30
+__va	,	F_74
+e_maxmr	,	V_18
+ehca_unmap_fmr	,	F_53
+save_fmr	,	V_180
+rounddown_pow_of_two	,	F_5
+"num_phys_buf=%x mr_access_flags=%x iova_start=%p"	,	L_10
+ehca_mr_chk_buf_and_calc_size	,	F_23
+"Rereg MR for max-MR! e_mr=%p"	,	L_106
+page	,	V_191
+HIPZ_ACCESSCTRL_R_READ	,	V_236
+region	,	V_79
+idx	,	V_187
+ehca_alloc_mw	,	F_45
+"(Rereg1), h_ret=%lli e_fmr=%p hca_hndl=%llx "	,	L_113
+"shca-&gt;maxmr=%p mr-&gt;lkey=%x"	,	L_26
+start_pfn	,	V_260
+ib_udata	,	V_61
+KERNELBASE	,	V_26
+rereg_3_hcall	,	V_177
+"bad call, shca=%p"	,	L_133
+list_len	,	V_145
+ehca_reg_mr_rpages	,	F_61
+alloc_fmr_exit0	,	V_134
+alloc_fmr_exit1	,	V_138
+"mr_hndl=%llx"	,	L_92
+"iova_start/addr mismatch, iova_start=%p "	,	L_138
+kpages_per_hwpage	,	V_222
+ehca_calc_index	,	F_101
+"hca_hndl=%llx mr_hndl=%llx"	,	L_177
+ehca_mw_hipzout_parms	,	V_118
+"hipz_free_mr failed, "	,	L_107
+"rereg with bad pd, pd=%p "	,	L_23
+start	,	V_58
+IB_ACCESS_LOCAL_WRITE	,	V_40
+free_pages	,	F_128
+ib_qp	,	V_124
+"h_ret=%li pd=%p phys_buf_array=%p "	,	L_9
+"PHYP changed iova_start in "	,	L_99
+"pgaddr=%llx entry=%llx "	,	L_156
+hipz_acl	,	V_159
+kpage_cnt	,	V_218
+gfp_t	,	T_4
+udata	,	V_62
+ehca_unmap_one_fmr	,	F_55
+"h_ret=%lli shca=%p e_mr=%p "	,	L_74
+fmr_map_cnt	,	V_142
+ehca_cleanup_mrmw_cache	,	F_97
+hret	,	V_196
+hwpages_per_kpage	,	V_213
+"bad input values: mr_access_flags=%x"	,	L_7
+"bad rc, ret=%i rnum=%x kpage=%p"	,	L_84
+"rc=%li pd=%p mr_access_flags=%x udata=%p"	,	L_20
+"hwpage_cnt=%llx "	,	L_162
+nr_kpages	,	V_223
+ehca_reg_mr_exit1	,	V_163
+ehca_reg_mr_exit0	,	V_161
+IB_ACCESS_REMOTE_WRITE	,	V_39
+"h_ret=%li pd=%p mr_access_flags=%x"	,	L_4
+page_count	,	V_192
+page_size	,	V_70
+val	,	V_224
+"hipz_reg_smr failed, h_ret=%lli "	,	L_119
+"bad phys buf array len, num_phys_buf=0"	,	L_137
+"bad input values mr_rereg_mask=%x"	,	L_29
+"not recoverable"	,	L_78
+"hipz_free_mr failed, h_ret=%lli e_fmr=%p "	,	L_69
+"ret=%i shca=%p e_mr=%p pginfo=%p "	,	L_93
+ehca_dma_alloc_coherent	,	F_125
+"SHCA mismatch, shca=%p "	,	L_61
+MAX_RPAGES	,	V_169
+ib_pd	,	V_14
+"fmr_max_pages=%x"	,	L_118
+"kpage=%llx page=%llx "	,	L_158
+mw_bind	,	V_128
+"dereg internal max-MR failed, "	,	L_134
+IB_MW_TYPE_1	,	V_119
+PAGE_SIZE	,	V_50
+ehca_encode_hwpage_size	,	F_1
+"e_fmr-&gt;fmr_max_pages=%x fmr=%p"	,	L_145
+"hipz_reg_rpage_mr failed, h_ret=%lli "	,	L_87
+"pginfo=%p type=%x num_kpages=%llx num_hwpages=%llx "	,	L_95
+flag	,	V_279
+EPERM	,	V_129
+"hca_hndl=%llx"	,	L_73
+kfree	,	F_103
+ehca_query_mr	,	F_39
+flags	,	V_42
+ehca_unmap_one_fmr_exit0	,	V_181
+"hipz_free_mw failed, h_ret=%lli shca=%p "	,	L_50
+"e_newmr=%p iova_start=%p acl=%x e_pd=%p"	,	L_123
+"uncontiguous fmr pages "	,	L_168
+"section start address"	,	L_126
+page_address	,	F_115
+ehca_reg_internal_maxmr	,	F_79
+"num_hwpages=%x"	,	L_130
+ehca_dma_map_sg	,	F_117
+EHCA_TOP_MAP_SIZE	,	V_253
+ehca_pd	,	V_19
+EHCA_MR_PGSHIFT4K	,	V_74
+"not supported for FMR, mr=%p e_mr=%p "	,	L_37
+"prev_pgaddr=%llx entries_left_in_hwpage=%x"	,	L_153
+kpage	,	V_167
+ehca_mr_hipzout_parms	,	V_103
+"iova=%llx"	,	L_60
+ehca_rereg_mr_rereg1	,	F_67
+ehca_rereg_phys_mr	,	F_35
+ib_mw	,	V_115
+device_virt_addr	,	V_111
+EAGAIN	,	V_175
+ehca_rereg_mr_rereg1_exit0	,	V_173
+cnt_per_hwpage	,	V_231
+ehca_rereg_mr_rereg1_exit1	,	V_174
+new_acl	,	V_88
+ehca_bmap_valid	,	F_77
+EINVAL	,	V_31
+rereg_phys_mr_exit1	,	V_99
+next_nmap	,	V_216
+kmem_cache_destroy	,	F_96
+"e_mr-&gt;flags=%x"	,	L_38
+ehca_reg_mr_rpages_exit0	,	V_168
+"e_pd=%p hca_hndl=%llx mr_hndl=%llx lkey=%x"	,	L_121
+caddr	,	V_264
+ehca_reg_mr_rpages_exit1	,	V_170
+pgsize	,	V_1
+EHCA_MR_PGI_PHYS	,	V_51
+next_listelem	,	V_230
+ehca_mrmw_set_pgsize_hipz_acl	,	F_58
+dma_device	,	V_277
+ib_mr	,	V_13
+hipz_h_register_rpage_mr	,	F_65
+rereg_phys_mr_exit0	,	V_94
+unmap_fmr_cnt	,	V_154
+ehca_mw	,	V_10
+atomic_inc	,	F_80
+unmap_fmr_exit0	,	V_155
+ehca_rereg_mr	,	F_37
+ehca_mr	,	V_5
+"uncontiguous page found pgaddr=%llx "	,	L_152
+"e_fmr-&gt;fmr_map_cnt=%x e_fmr-&gt;fmr_max_maps=%x"	,	L_58
+e_mr	,	V_36
+ehca_reg_mr_sections	,	F_76
+ehca_rereg_mr_exit0	,	V_178
+ehca_reg_type	,	V_157
+"pgaddr=%llx "	,	L_148
+ehca_info	,	F_33
+fmrlist	,	V_229
+atomic_dec	,	F_83
+offset	,	V_80
+EHCA_MR_PGI_FMR	,	V_148
+size_count	,	V_209
+SECTION_SIZE_BITS	,	V_190
+"hwpage_size does not fit to "	,	L_125
+ehca_mr_pginfo	,	V_45
+"mr-&gt;lkey=%x"	,	L_109
+PTR_ERR	,	F_21
+"out of memory"	,	L_2
+fmr_max_pages	,	V_140
+fmr_pgsize	,	V_149
+ehca_set_pagebuf_phys	,	F_92
+ehca_err	,	F_16
+pfn_to_page	,	F_107
+hipzout	,	V_104
+"pbuf-&gt;addr=%llx pbuf-&gt;size=%llx "	,	L_164
+"ret=%i fmr_list=%p num_fmr=%x unmap_fmr_cnt=%x"	,	L_68
+ehca_destroy_busmap	,	F_102
+hipz_h_query_mr	,	F_40
+" lkey=%x"	,	L_89
+alloc_mw_exit0	,	V_120
+"bad input values: new_size=%llx "	,	L_33
+alloc_mw_exit1	,	V_122
+vaddr	,	V_112
+next_buf	,	V_228
+page_shift	,	V_63
+uobject	,	V_67
+kmem_cache_free	,	F_11
+"last "	,	L_86
+"map limit exceeded, fmr=%p "	,	L_57
+ehca_reg_user_mr	,	F_27
+free_fmr_exit0	,	V_156
+addr	,	V_204
+pginfo	,	V_46
+"bad iova, iova=%llx fmr_page_size=%x"	,	L_56
+sg_virt	,	F_119
+list_head	,	V_150
+sectbase	,	V_193
+WARN_ON	,	F_3
+ehca_calc_sectbase	,	F_73
+e_mw	,	V_117
+end_pfn	,	V_261
+"page size not supported, "	,	L_14
+"unmap_fmr_cnt=%x lkey=%x"	,	L_67
+"ret=%i fmr=%p"	,	L_71
+EHCA_INDEX_MASK	,	V_248
+ib_mw_bind	,	V_127
+ehca_mrmw_map_acl	,	F_57
+EHCA_MAP_ENTRIES	,	V_197
+ehca_reg_mr_section	,	F_75

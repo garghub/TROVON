@@ -1,0 +1,742 @@
+parent	,	V_214
+HCD_FLAG_POLL_RH	,	V_244
+"on short TX\n"	,	L_108
+xhci_interval	,	V_330
+cur_trb	,	V_111
+usb_pipetype	,	F_58
+TRBS_PER_SEGMENT	,	V_7
+upper_32_bits	,	F_172
+number_of_packets	,	V_375
+xhci_stream_id_to_ring	,	F_78
+deq	,	V_108
+xhci_queue_bulk_tx	,	F_162
+"Finding segment containing last TRB in TD."	,	L_22
+xhci_urb_free_priv	,	F_63
+TYPE_COMMAND	,	V_41
+dev	,	V_93
+trb_suspend	,	V_392
+count_sg_trbs_needed	,	F_151
+end_seg_dma	,	V_249
+ep_interval	,	V_331
+xhci_ring_device	,	F_121
+TRB_DATA	,	V_361
+trace_xhci_dbg_ring_expansion	,	V_321
+TRB_TO_EP_ID	,	F_131
+prepare_transfer	,	F_149
+ERST_PTR_MASK	,	V_308
+unlikely	,	F_33
+"ep deq seg = %p, deq ptr = %p\n"	,	L_66
+segment_offset	,	V_5
+for_each_sg	,	F_152
+xhci_get_last_burst_packet_count	,	F_180
+cmd_ring	,	V_50
+queued_deq_ptr	,	V_148
+last_trb_on_last_seg	,	F_2
+xhci_handle_event	,	F_141
+"halted endpoint index = %u\n"	,	L_104
+"WARN halted endpoint, queueing URB anyway.\n"	,	L_122
+dev_dbg_ratelimited	,	F_161
+update_ring_for_set_deq_completion	,	F_75
+TRB_SIA	,	V_378
+more_trbs_coming	,	V_29
+GET_PORT_ID	,	F_110
+"unfailable commands failed.\n"	,	L_141
+"WARN deq seg = %p, deq pt = %p\n"	,	L_143
+xhci_trb_virt_to_dma	,	F_1
+HCS_MAX_PORTS	,	F_111
+"Completed config ep cmd - "	,	L_71
+running_total	,	V_324
+""	,	L_133
+actual_length	,	V_268
+IRQ_NONE	,	V_299
+wLength	,	V_360
+cmd_ring_state	,	V_42
+"Stopped the command ring failed, "	,	L_6
+COMP_CMD_ABORT	,	V_174
+xhci_ring_expansion	,	F_148
+TRB_DATA_OUT	,	V_356
+GFP_ATOMIC	,	V_62
+xhci_bus_state	,	V_221
+TRB_PORT_STATUS	,	V_292
+new_deq_seg	,	V_105
+xhci_ring	,	V_11
+wmb	,	F_13
+EP_STATE_DISABLED	,	V_315
+temp1	,	V_217
+suspect_dma	,	V_247
+reserved_trbs	,	V_386
+urb_priv	,	V_121
+GET_COMP_CODE	,	F_80
+seg	,	V_2
+hcs_params1	,	V_224
+irq_pending	,	V_302
+"xHCI host not responding to stop endpoint command.\n"	,	L_42
+bMaxBurst	,	V_369
+virt_dev	,	V_133
+cd	,	V_61
+completion	,	V_166
+"Next boundary at %#x, end dma = %#x\n"	,	L_136
+"NEC firmware version %2x.%02x"	,	L_77
+trace_xhci_dbg_quirks	,	V_163
+td_len	,	V_364
+num_streams	,	V_85
+first_trb	,	V_112
+"WARN Set TR Deq Ptr cmd invalid because "	,	L_54
+i	,	V_142
+irq	,	V_301
+td_to_noop	,	F_50
+j	,	V_143
+bEndpointAddress	,	V_289
+ENOENT	,	V_316
+TRB_ISP	,	V_344
+TRB_BEI	,	V_380
+"but stream ID %u is requested.\n"	,	L_17
+"cancelled"	,	L_37
+"WARN urb submitted to disabled ep\n"	,	L_120
+"remote wake SS port %d\n"	,	L_91
+DB_VALUE	,	F_38
+"WARN Cancelled URB %p "	,	L_35
+xhci_triad_to_transfer_ring	,	F_42
+jiffies	,	V_237
+td_cleanup	,	V_264
+end_trb	,	V_246
+"Ring expansion failed\n"	,	L_126
+"Unable to find new dequeue pointer\n"	,	L_51
+"Address = %p (0x%llx dma); "	,	L_27
+stop_cmds_pending	,	V_116
+"exiting."	,	L_41
+deq_updates	,	V_23
+"%s: starting port polling.\n"	,	L_94
+"WARN something wrong with SW event "	,	L_118
+handle_stopped_endpoint	,	F_65
+xhci_to_hcd	,	F_36
+xhci_get_slot_ctx	,	F_79
+cmd_completion	,	V_193
+xhci_cancel_cmd	,	F_30
+queue_bulk_sg_tx	,	F_167
+enq_seg	,	V_21
+xhci_input_control_ctx	,	V_178
+"Mismatch between completed Set TR Deq "	,	L_64
+handle_set_deq_completion	,	F_76
+USB_SPEED_LOW	,	V_333
+remove_finished_td	,	V_139
+ep_index	,	V_71
+"to incorrect slot or ep state.\n"	,	L_57
+ret	,	V_48
+"WARN Cannot submit Set TR Deq Ptr\n"	,	L_142
+xhci_writel	,	F_17
+ep_info	,	V_155
+xdev	,	V_261
+num_sgs	,	V_323
+setup_packet	,	V_350
+TYPE_ISOC	,	V_35
+event_ring_deq	,	V_296
+port_remote_wakeup	,	V_234
+"// Ding dong!\n"	,	L_1
+ep	,	V_75
+max_ports	,	V_218
+xhci_msi_irq	,	F_145
+"for invalid stream ID %u.\n"	,	L_19
+rexit_ports	,	V_241
+spin_unlock_irqrestore	,	F_34
+"WARN Set TR deq ptr command for "	,	L_52
+NEC_FW_MAJOR	,	F_102
+TRB_TYPE	,	F_51
+"last ep index = %d, state = %d"	,	L_72
+"act. len = %u\n"	,	L_99
+sg_dma_address	,	F_154
+COMP_STOP	,	V_266
+td_cnt	,	V_123
+STS_FATAL	,	V_300
+"Successful Set TR Deq Ptr cmd, deq = @%08llx"	,	L_63
+usb_iso_packet_descriptor	,	V_277
+frame	,	V_278
+process_isoc_td	,	F_135
+wValue	,	V_358
+trbs_per_td	,	V_372
+"WARN: Success on ctrl data TRB "	,	L_102
+xhci_trb	,	V_3
+cmd_dma	,	V_176
+EP_STATE_MASK	,	V_156
+xhci_queue_new_dequeue_state	,	F_52
+"Abort command ring\n"	,	L_2
+usb_hc_died	,	F_35
+transfer_flags	,	V_270
+COMP_STOP_INVAL	,	V_265
+total_packet_count	,	V_338
+bogus_port_status	,	V_223
+list_del	,	F_85
+TRB_TO_SLOT_ID	,	F_67
+cancelled_td_list	,	V_137
+le32_to_cpu	,	F_3
+xhci_get_endpoint_index	,	F_44
+"WARN: xHC returned failed port status event\n"	,	L_82
+"resume SS port %d finished\n"	,	L_93
+xhci_queue_isoc_tx_prepare	,	F_185
+TRB_DISABLE_SLOT	,	V_184
+enqueue_is_link_trb	,	F_6
+xhci_queue_reset_ep	,	F_126
+burst_count	,	V_376
+"Event for port %u not in "	,	L_85
+packets_transferred	,	V_340
+length	,	V_125
+spin_unlock	,	F_61
+"stage event\n"	,	L_106
+ss_ep_comp	,	V_368
+trb_in_td	,	F_124
+hcd_to_xhci	,	F_144
+residue	,	V_370
+xhci_virt_device	,	V_99
+COMP_CMD_STOP	,	V_169
+"Have the command ring been stopped?\n"	,	L_4
+xhci_td	,	V_95
+microframe_index	,	V_384
+slot_id	,	V_70
+list_entry	,	F_71
+trb_ep_index	,	V_391
+dma	,	V_8
+xhci_warn	,	F_32
+"in seg %p (0x%llx dma)"	,	L_28
+setup	,	V_349
+TRB_NEC_GET_FW	,	V_200
+"Can't prepare ring for bad stream ID %u\n"	,	L_127
+ENOMEM	,	V_63
+trace_xhci_dbg_reset_ep	,	V_161
+handle_port_status	,	F_109
+TRB_RESET_DEV	,	V_199
+"xHC issue? req. len = %u, "	,	L_98
+xhci_err	,	F_23
+TRB_TO_STREAM_ID	,	F_77
+process_bulk_intr_td	,	F_139
+"WARN Set TR Deq Ptr cmd with unknown "	,	L_61
+port_array	,	V_208
+"unused slot %u\n"	,	L_80
+lock	,	V_67
+bandwidth_isoc_reqs	,	V_129
+TRB_NORMAL	,	V_346
+usb_hcd_unlink_urb_from_ep	,	F_60
+TRB_TBC	,	F_182
+SLOT_ID_FOR_TRB	,	F_188
+xhci_find_new_dequeue_state	,	F_45
+queue_trb	,	F_146
+COMP_DEV_ERR	,	V_286
+"Device Notification event for "	,	L_79
+list_for_each_entry_safe	,	F_92
+xhci_queue_evaluate_context	,	F_192
+trb_stream_id	,	V_394
+eps	,	V_77
+update_ptrs	,	V_290
+xhci_cleanup_stalled_ring	,	F_127
+IRQ_HANDLED	,	V_307
+"Stop EP timer ran, but no command pending, "	,	L_40
+cur_trb_is_good	,	V_173
+field	,	V_32
+hcpriv	,	V_122
+"Queueing configure endpoint command"	,	L_68
+USB_DIR_IN	,	V_354
+port_id	,	V_205
+"Do not support expand command ring\n"	,	L_124
+interval	,	V_332
+xhci_queue_cd	,	F_26
+"Finding segment containing stopped TRB."	,	L_20
+status	,	V_117
+EP_STATE_ERROR	,	V_317
+USB_SPEED_FULL	,	V_334
+stopped_stream	,	V_253
+"ERROR no room on ep ring, try ring expansion"	,	L_125
+"ERR: Reserved TRB counting for "	,	L_140
+skip	,	V_260
+num_trbs_left	,	V_339
+list_add_tail	,	F_29
+"Event for port %u duplicated in"	,	L_87
+xhci_transfer_event	,	V_259
+"WARN: Slot ID %u, ep index %u has "	,	L_15
+xhci_ring_cmd_db	,	F_15
+xhci_generic_trb	,	V_90
+CMD_RING_ABORT	,	V_53
+"but URB has no stream ID.\n"	,	L_14
+TRB_TR_NOOP	,	V_113
+cur_cd	,	V_168
+"WARNING: Host System Error\n"	,	L_115
+"Completed reset device command.\n"	,	L_74
+TRB_MAX_BUFF_SHIFT	,	V_381
+STREAM_ID_FOR_TRB	,	F_196
+"without IOC set??\n"	,	L_101
+TRB_SETUP	,	V_352
+start_trb	,	V_245
+TRB_MAX_BUFF_SIZE	,	V_328
+this_sg_len	,	V_341
+bRequestType	,	V_353
+sg_next	,	F_173
+xhci_urb_to_transfer_ring	,	F_43
+urb	,	V_92
+max	,	V_336
+TRB_COMPLETION	,	V_291
+EP_INTERVAL_TO_UFRAMES	,	F_160
+td_list	,	V_83
+in_ctx	,	V_164
+"Abort the command ring,"	,	L_8
+CMD_RING_STATE_RUNNING	,	V_43
+new_cycle_state	,	V_103
+mem_flags	,	V_313
+last_trb	,	F_4
+prepare_ring	,	F_147
+"Queuing command descriptor failed.\n"	,	L_10
+XHCI_TRUST_TX_LENGTH	,	V_281
+trb_buff_len	,	V_337
+"Vendor specific event TRB type = %u\n"	,	L_78
+usb_hcd_poll_rh_status	,	F_123
+complete	,	F_86
+xhci_ring_ep_doorbell	,	F_37
+db_addr	,	V_73
+num_trbs_needed	,	V_314
+TRB_NEC_CMD_COMP	,	V_203
+rmb	,	F_142
+dequeue	,	V_26
+XDEV_RESUME	,	V_232
+"Cycle state = 0x%x"	,	L_23
+EP_HALT_PENDING	,	V_79
+erst_dequeue	,	V_305
+"HC gave bad length "	,	L_111
+xhci_debug_ring	,	F_89
+iso_frame_desc	,	V_280
+xhci_segment	,	V_1
+u32	,	T_2
+"completion code of %u.\n"	,	L_62
+"killed"	,	L_48
+DUPLICATE_ENTRY	,	V_209
+EXDEV	,	V_288
+xhci_quiesce	,	F_24
+pipe	,	V_126
+buffer	,	V_262
+last_unlinked_td	,	V_136
+op_regs	,	V_49
+addr_dev	,	V_183
+"Calling usb_hc_died()"	,	L_49
+"ERR: No room for command on command ring\n"	,	L_139
+suspend	,	V_389
+trb	,	V_4
+XHCI_RESET_EP_QUIRK	,	V_162
+"WARN: Slot ID %u, ep index %u has streams, "	,	L_13
+cmd_trb	,	V_59
+revert	,	V_147
+mod_timer	,	F_119
+"Extended Capabilities, ignoring.\n"	,	L_86
+num_similar_speed_ports	,	V_206
+entry	,	V_135
+"s"	,	L_134
+first_seg	,	V_15
+bandwidth_change	,	V_190
+EREMOTEIO	,	V_272
+spin_lock_irqsave	,	F_31
+xhci_stop_watchdog_timer_in_irq	,	F_54
+TRB_CMD_NOOP	,	V_170
+cleanup	,	V_226
+usb_hcd_resume_root_hub	,	F_113
+xhci_find_slot_id_by_port	,	F_120
+COMP_SPLIT_ERR	,	V_257
+handle_device_notification	,	F_107
+xhci_event_cmd	,	V_131
+COMP_BUFF_OVER	,	V_284
+"xHCI host controller is dead.\n"	,	L_12
+SLOT_FLAG	,	V_188
+"Reset device command completion "	,	L_75
+EP_STATE_HALTED	,	V_258
+"event handler.\n"	,	L_114
+stream_rings	,	V_87
+trace_xhci_dbg_cancel_urb	,	V_104
+"Removing canceled TD starting at 0x%llx (dma)."	,	L_34
+trb_type	,	V_202
+wIndex	,	V_359
+TRB_TO_SUSPEND_PORT	,	F_66
+usb3_ports	,	V_227
+handle_tx_event	,	F_140
+"Assuming host is dying, halting host.\n"	,	L_43
+DB_VALUE_HOST	,	V_44
+length_field	,	V_342
+MAX_HC_SLOTS	,	V_144
+XHCI_AMD_0x96_HOST	,	V_37
+xhci_link_trb_quirk	,	F_11
+XHCI_AMD_PLL_FIX	,	V_130
+"freed stream ID %u\n"	,	L_53
+set_bit	,	F_118
+TRB_IOC	,	V_343
+"Could not get input context, bad type.\n"	,	L_70
+TRB_TO_EP_INDEX	,	F_69
+temp_64	,	V_47
+control	,	V_17
+sg_dma_len	,	F_153
+ir_set	,	V_303
+cmd_dequeue_dma	,	V_177
+u64	,	T_3
+xhci_virt_ep	,	V_74
+" but the xHCI is dead.\n"	,	L_9
+"Device Wake Notification event for slot ID %u\n"	,	L_81
+TRB_CHAIN	,	V_33
+end_trb_dma	,	V_250
+"new deq ptr = %p (0x%llx dma), new cycle = %u"	,	L_31
+xhc_state	,	V_54
+"port resume event for port %d\n"	,	L_89
+remainder	,	V_335
+"WARN: sg dma xfer crosses 64KB boundaries!\n"	,	L_135
+TRB_TYPE_LINK_LE32	,	F_5
+port_speed	,	V_207
+xhci_last_valid_endpoint	,	F_101
+handle_vendor_event	,	F_104
+"xHC is not running.\n"	,	L_90
+"TRBs, %d left\n"	,	L_129
+ring	,	V_12
+COMP_BW_OVER	,	V_282
+dma_addr_t	,	T_1
+xhci_irq	,	F_143
+DIV_ROUND_UP	,	F_168
+EP_ID_FOR_TRB	,	F_194
+root_hub	,	V_240
+"%d bytes untransferred\n"	,	L_110
+len	,	V_276
+doorbell	,	V_46
+temp_ep	,	V_141
+xhci_link_trb	,	V_19
+COMP_EBADSLT	,	V_158
+trans_event	,	V_294
+SET_DEQ_PENDING	,	V_80
+TRB_IDT	,	V_351
+state	,	V_98
+stopped_td	,	V_138
+xhci_free_virt_device	,	F_99
+queue_command	,	F_186
+"Finding endpoint context"	,	L_21
+event_ring	,	V_13
+ep_ring	,	V_100
+xhci_readl	,	F_18
+ep_ctx	,	V_102
+xhci_cmd_to_noop	,	F_88
+HCD_USB3	,	V_211
+"has invalid stream ID %u.\n"	,	L_36
+td_remain_len	,	V_373
+"Command ring had been stopped\n"	,	L_5
+"Command ring mismatch, dequeue = %p %llx (dma)\n"	,	L_69
+list_for_each	,	F_70
+usb_endpoint_maxp	,	F_166
+hcd_index	,	F_112
+usb2_ports	,	V_228
+xhci_dbg_ring_ptrs	,	F_90
+EP_CTX_CYCLE_MASK	,	V_160
+bus_state	,	V_222
+roundup	,	F_179
+EINPROGRESS	,	V_274
+CMD_RING_STATE_STOPPED	,	V_175
+trb_slot_id	,	V_390
+"Slot state = %u, EP state = %u"	,	L_58
+faked_port_index	,	V_219
+shared_hcd	,	V_225
+list_del_init	,	F_72
+TRB_TYPE_BITMASK	,	V_181
+td_index	,	V_322
+TRB_STOP_RING	,	V_196
+"xHCI host dying, returning from "	,	L_113
+xhci_dma_to_transfer_ring	,	F_132
+sg	,	V_326
+xhci_v1_0_td_remainder	,	F_164
+"The command ring isn't running, "	,	L_3
+TRB_ENABLE_SLOT	,	V_182
+arg	,	V_140
+CMD_RUN	,	V_233
+USB_SPEED_SUPER	,	V_367
+command_trb	,	V_167
+le16_to_cpu	,	F_176
+EP_HALTED	,	V_81
+le64_to_cpu	,	F_49
+xhci_set_link_state	,	F_116
+"ISOC TD length unmatch\n"	,	L_138
+scatterlist	,	V_325
+GET_SLOT_STATE	,	F_81
+u8	,	T_6
+in_ctx_ptr	,	V_388
+xhci_handshake	,	F_22
+EP_STATE_RUNNING	,	V_320
+slot_state	,	V_152
+DEV_SUPERSPEED	,	F_114
+"Completing active URBs anyway.\n"	,	L_45
+num_trbs_free_temp	,	V_146
+"Invalid port id %d\n"	,	L_84
+td	,	V_251
+del_timer	,	F_55
+field1	,	V_309
+field3	,	V_311
+usb_hcd_giveback_urb	,	F_62
+xhci_requires_manual_halt_cleanup	,	F_128
+field2	,	V_310
+XDEV_U0	,	V_235
+field4	,	V_312
+bus	,	V_124
+start_dma	,	V_248
+hci_version	,	V_345
+usb_hcd	,	V_119
+"%s - ep %#x - Miscalculated tx length, "	,	L_130
+__iomem	,	T_5
+EP_HAS_STREAMS	,	V_82
+INIT_LIST_HEAD	,	F_28
+bus_to_hcd	,	F_57
+COMP_BABBLE	,	V_256
+deq_ptr	,	V_393
+XHCI_STATE_DYING	,	V_55
+TRB_TRANSFER	,	V_293
+xhci_write_64	,	F_21
+start_cycle	,	V_329
+xhci_giveback_urb_in_irq	,	F_56
+usb_amd_quirk_pll_enable	,	F_59
+finish_td	,	F_130
+"Completed config ep cmd"	,	L_73
+xhci_halt	,	F_25
+xhci_queue_slot_control	,	F_187
+"TRB to noop at offset 0x%llx"	,	L_29
+retval	,	V_65
+cmd_list	,	V_165
+"ring dequeue ptr.\n"	,	L_119
+trb_comp_code	,	V_254
+next_trb	,	F_8
+generic_trb	,	V_91
+"queued %#x (%d), asked for %#x (%d)\n"	,	L_131
+NEC_FW_MINOR	,	F_103
+xhci_dbg	,	F_16
+xhci_command	,	V_57
+"resume HS port %d\n"	,	L_92
+EVENT_TRB_LEN	,	F_134
+idx	,	V_275
+xhci_queue_intr_tx	,	F_159
+xhci_queue_stop_endpoint	,	F_193
+desc	,	V_94
+"Non-responsive xHCI host is not halting.\n"	,	L_44
+dev_state	,	V_157
+next	,	V_14
+"Set TR Deq Ptr cmd, new deq seg = %p (0x%llx dma), "	,	L_30
+inc_enq	,	F_10
+stopped_trb	,	V_106
+"Driver uses different interval (%d microframe%s) than xHCI (%d microframe%s)\n"	,	L_132
+hcd	,	V_120
+ep_state	,	V_78
+speed	,	V_210
+skip_td	,	V_279
+check_trb_math	,	F_156
+dev_err	,	F_157
+LINK_TOGGLE	,	V_18
+devs	,	V_76
+"URB transfer length is wrong, "	,	L_97
+kzalloc	,	F_27
+cpu_to_le32	,	F_12
+add_flags	,	V_187
+TRB_INTR_TARGET	,	F_170
+rexit_done	,	V_242
+num_trbs_in_deq_seg	,	V_40
+"xHCI host controller is dead."	,	L_50
+"WARN Successful completion "	,	L_107
+xhci_cd	,	V_60
+"xHCI as DYING, exiting."	,	L_39
+transfer_dma	,	V_347
+TRB_DIR_IN	,	V_362
+enq_updates	,	V_34
+xhci_search_cmd_trb_in_cd_list	,	F_94
+XHCI_NEC_HOST	,	V_201
+skip_isoc_td	,	F_138
+"resume root hub\n"	,	L_88
+xhci_get_input_control_ctx	,	F_100
+new_deq_ptr	,	V_109
+xhci_get_burst_count	,	F_178
+generic	,	V_31
+TRB_ADDR_DEV	,	V_195
+EPROTO	,	V_287
+TRB_STATUS	,	V_363
+XHCI_EP_LIMIT_QUIRK	,	V_185
+enqueue	,	V_20
+__le32	,	T_4
+stream_info	,	V_84
+"WARN waiting for error on ep to be cleared\n"	,	L_121
+usb_ctrlrequest	,	V_348
+cur_seg	,	V_89
+transfer_buffer_length	,	V_269
+"Port Status Change Event for port %d\n"	,	L_83
+"Vendor defined info completion code %u\n"	,	L_95
+TRB_TYPE_NOOP_LE32	,	F_136
+gfp_t	,	T_8
+xhci_queue_isoc_tx	,	F_181
+quirks	,	V_36
+"WARN can't find new dequeue state "	,	L_18
+num_trbs	,	V_39
+cancel_cmd_list	,	V_64
+"for disabled slot %u\n"	,	L_76
+xhci_free_device_endpoint_resources	,	F_98
+list_empty	,	F_40
+xhci_complete_cmd_in_cmd_wait_list	,	F_84
+deq_seg	,	V_25
+num_tds	,	V_371
+COMP_SHORT_TX	,	V_273
+"New dequeue segment = %p (virtual)"	,	L_24
+TRB_TLBPC	,	F_183
+GET_MAX_PACKET	,	F_165
+"stream IDs 1 to %u allocated, "	,	L_16
+IMAN_IP	,	V_304
+xhci_is_vendor_info_code	,	F_129
+"Waiting for status "	,	L_105
+handle_reset_ep_completion	,	F_82
+stream_id	,	V_72
+"%s - ep %#x - Miscalculated number of "	,	L_128
+hw_died	,	V_297
+resume_done	,	V_236
+URB_SHORT_NOT_OK	,	V_271
+xhci_td_remainder	,	F_163
+HC_STATE_SUSPENDED	,	V_229
+"maybe the host is dead\n"	,	L_7
+handle_cmd_completion	,	F_96
+TRB_FIELD_TO_TYPE	,	F_105
+PIPE_ISOCHRONOUS	,	V_127
+slot_ctx	,	V_150
+COMP_SUCCESS	,	V_151
+error_bitmask	,	V_180
+start_frame	,	V_382
+xhci_get_ep_ctx	,	F_48
+cmd_status	,	V_192
+PORT_PLC	,	V_230
+xhci_cancel_cmd_in_cd_list	,	F_91
+xhci_cleanup_halted_endpoint	,	F_125
+xhci_queue_vendor_command	,	F_190
+usb_device	,	V_212
+trace_xhci_dbg_context_change	,	V_191
+trace_xhci_cmd_completion	,	F_97
+fail	,	V_68
+"Killing URBs for slot ID %u, "	,	L_46
+next_cd	,	V_171
+__func__	,	V_243
+run_regs	,	V_383
+ECOMM	,	V_283
+"Treating code as success.\n"	,	L_96
+cmd_trb_comp_code	,	V_172
+primary_hcd	,	V_69
+kfree	,	F_93
+drop_flags	,	V_189
+SUSPEND_PORT_FOR_TRB	,	F_195
+flags	,	V_66
+XHCI_AVOID_BEI	,	V_379
+xhci_stream_info	,	V_86
+"Stop EP timer ran, but another timer marked "	,	L_38
+TRB_SET_DEQ	,	V_197
+stop_cmd_timer	,	V_115
+"xHCI dying, ignoring interrupt. "	,	L_116
+TYPE_EVENT	,	V_24
+"ep %#x - asked for %d bytes, "	,	L_109
+cur_td	,	V_96
+event	,	V_132
+"slot %u was not enabled.\n"	,	L_60
+ctrl_ctx	,	V_179
+usb_hcd_link_urb_to_ep	,	F_150
+xhci_ep_ctx	,	V_101
+chain	,	V_30
+ESHUTDOWN	,	V_56
+find_trb_seg	,	F_41
+flip_cycle	,	V_110
+xhci_queue_configure_endpoint	,	F_83
+CMD_RING_RUNNING	,	V_51
+xhci	,	V_10
+COMP_CTX_STATE	,	V_154
+PORT_PLS_MASK	,	V_231
+xhci_queue_ctrl_tx	,	F_174
+"Cancel (unchain) link TRB"	,	L_26
+EINVAL	,	V_318
+usb_amd_quirk_pll_disable	,	F_184
+TRB_EVAL_CONTEXT	,	V_194
+bRequest	,	V_357
+trbs	,	V_6
+self	,	V_128
+COMP_TX_ERR	,	V_255
+usb_wakeup_notification	,	F_108
+deq_state	,	V_114
+transfer_len	,	V_263
+count_isoc_trbs_needed	,	F_177
+"WARN: Success on ctrl setup TRB "	,	L_100
+rh_timer	,	V_239
+list_first_entry	,	F_74
+xhci_read_64	,	F_20
+TRB_TX_TYPE	,	F_175
+COMP_STALL	,	V_267
+TRB_DATA_IN	,	V_355
+TRB_DEV_NOTE	,	V_295
+queued_deq_seg	,	V_159
+TRB_CONFIG_EP	,	V_186
+xhci_queue_address_device	,	F_189
+"of stream ID configuration\n"	,	L_55
+lower_32_bits	,	F_171
+"completion for disabled slot %u\n"	,	L_33
+"Stop endpoint command "	,	L_32
+"New dequeue pointer = 0x%llx (DMA)"	,	L_25
+xhci_hcd	,	V_9
+handle_cmd_in_cmd_wait_list	,	F_68
+"WARN Set TR Deq Ptr cmd failed because "	,	L_59
+handle_stopped_cmd_ring	,	F_95
+event_trb	,	V_252
+max_burst	,	V_366
+start_addr	,	V_374
+"WARN Set TR Deq Ptr cmd failed due "	,	L_56
+dba	,	V_45
+offset	,	V_365
+command_must_succeed	,	V_385
+dequeue_temp	,	V_145
+usb_urb_dir_in	,	F_169
+TRB_CYCLE	,	V_38
+"ep index %u"	,	L_47
+xhci_dbg_trace	,	F_46
+xhci_abort_cmd_ring	,	F_19
+TRB_RESET_EP	,	V_198
+"TRB error code %u, "	,	L_103
+xhci_queue_reset_device	,	F_191
+find_faked_portnum_from_hw_portnum	,	F_106
+udev	,	V_213
+"Abort command ring failed\n"	,	L_11
+COMP_TRB_ERR	,	V_153
+giveback_first_trb	,	F_158
+"Isoc URB with zero packets?\n"	,	L_137
+out_ctx	,	V_107
+resuming_ports	,	V_238
+xhci_stop_endpoint_command_watchdog	,	F_73
+xhci_test_and_clear_bit	,	F_115
+num_mapped_sgs	,	V_327
+portnum	,	V_215
+TRB_ISOC	,	V_377
+link	,	V_16
+process_ctrl_td	,	F_133
+"Ptr command &amp; xHCI internal state.\n"	,	L_65
+"of %d bytes left\n"	,	L_112
+ERST_EHB	,	V_306
+msecs_to_jiffies	,	F_117
+num_trbs_free	,	V_27
+adjective	,	V_118
+CMD_RING_STATE_ABORTED	,	V_52
+EP_STATE_STOPPED	,	V_319
+ring_doorbell_for_active_rings	,	F_39
+"A Set TR Deq Ptr command is pending.\n"	,	L_144
+spin_lock	,	F_64
+xhci_find_next_enqueue	,	F_7
+addr	,	V_22
+xhci_dequeue_state	,	V_97
+cmd_ring_reserved_trbs	,	V_387
+xhci_free_command	,	F_87
+cycle_state	,	V_28
+start_seg	,	V_88
+xhci_slot_ctx	,	V_149
+temp	,	V_216
+room_on_ring	,	F_14
+list_head	,	V_134
+queue_set_tr_deq	,	F_53
+irqreturn_t	,	T_7
+WARN_ON	,	F_47
+"ERROR unknown endpoint state for ep\n"	,	L_123
+inc_deq	,	F_9
+command	,	V_58
+EOVERFLOW	,	V_285
+"Ignoring reset ep completion code of %u"	,	L_67
+"Shouldn't IRQs be disabled?\n"	,	L_117
+event_cmd	,	V_204
+test_and_clear_bit	,	F_122
+min_t	,	F_155
+major_revision	,	V_220
+TRB_LEN	,	F_137
+STS_EINT	,	V_298

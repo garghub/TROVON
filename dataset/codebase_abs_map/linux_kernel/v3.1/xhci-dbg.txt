@@ -1,0 +1,286 @@
+"%p port %s reg = 0x%x\n"	,	L_52
+ring	,	V_71
+dma_addr_t	,	T_5
+XHCI_CTX_TYPE_INPUT	,	V_124
+xhci_print_run_regs	,	F_21
+TRBS_PER_SEGMENT	,	V_69
+"  Ring has not been updated\n"	,	L_80
+SLOT_STATE_DEFAULT	,	V_106
+csz	,	V_111
+"  %p: ir_set[%i]\n"	,	L_53
+upper_32_bits	,	F_32
+"  Event Interrupts %s\n"	,	L_36
+"DMA address or buffer contents= %llu\n"	,	L_70
+"  Max ports: %u\n"	,	L_16
+deq	,	V_122
+SLOT_STATE_CONFIGURED	,	V_108
+trans_event	,	V_59
+db_off	,	V_10
+ep_info2	,	V_121
+"HCSPARAMS 2: 0x%x\n"	,	L_17
+"(dma) %#08llx - rsvd64[%d]\n"	,	L_86
+"enabled/disabled"	,	L_87
+"  %p: ir_set.erst_dequeue = @%08llx\n"	,	L_59
+xhci_container_ctx	,	V_101
+"// @%p = 0x%x RTSOFF\n"	,	L_5
+HCS_ERST_MAX	,	F_11
+"@%p (virt) @%08llx (dma) %#08x - ep_info2\n"	,	L_99
+xhci_readl	,	F_3
+ep_ctx	,	V_119
+cmd_ring	,	V_99
+xhci_print_cap_regs	,	F_5
+xhci_debug_segment	,	F_30
+ctx	,	V_100
+xhci_debug_trb	,	F_24
+xhci_dbg_cmd_ptrs	,	F_38
+HCS_U1_LATENCY	,	F_12
+reserved	,	V_115
+xhci_dbg_ring_ptrs	,	F_33
+"  %p: ir_set.erst_base = @%08llx\n"	,	L_58
+xhci_erst	,	V_89
+"  %sHost System Error\n"	,	L_43
+xhci_trb_virt_to_dma	,	F_34
+HCS_MAX_PORTS	,	F_9
+"halted"	,	L_46
+"  Max interrupters: %u\n"	,	L_15
+""	,	L_35
+"Ring deq = %p (virt), 0x%llx (dma)\n"	,	L_76
+"HCIVERSION: 0x%x\n"	,	L_12
+"Offset 0x%x = 0x%x\n"	,	L_63
+field_size	,	V_109
+CMD_LRESET	,	V_20
+TRB_LINK	,	V_52
+TRB_TYPE_BITMASK	,	V_51
+ports	,	V_28
+"reserved"	,	L_51
+"Cycle bit = %u\n"	,	L_67
+xhci_ring	,	V_70
+"32"	,	L_26
+dev_info2	,	V_113
+xhci_print_command_reg	,	F_15
+GET_COMP_CODE	,	F_29
+hcs_params2	,	V_13
+seg	,	V_66
+hcs_params1	,	V_12
+irq_pending	,	V_36
+hcs_params3	,	V_14
+CMD_RUN	,	V_17
+"power"	,	L_49
+"// @%p = 0x%x (CAPLENGTH AND HCIVERSION)\n"	,	L_2
+GET_INTR_TARGET	,	F_28
+"@%p (virt) @%08llx (dma) %#08x - add flags\n"	,	L_103
+le64_to_cpu	,	F_27
+address	,	V_48
+GET_SLOT_STATE	,	F_42
+"Toggle cycle bit = %u\n"	,	L_68
+num_streams	,	V_87
+"Flags = 0x%x\n"	,	L_73
+HCC_64BIT_ADDR	,	F_14
+i	,	V_26
+j	,	V_27
+"CAPLENGTH: 0x%x\n"	,	L_11
+"  %p: ir_set.erst_size = 0x%x\n"	,	L_56
+set_num	,	V_32
+num_entries	,	V_94
+"xHCI operational registers at %p:\n"	,	L_47
+deq_updates	,	V_74
+xhci_dbg_ep_ctx	,	F_45
+__iomem	,	T_3
+EP_HAS_STREAMS	,	V_85
+"USBSTS 0x%x:\n"	,	L_41
+"  HC is %s\n"	,	L_30
+"Ring enq updated %u times\n"	,	L_79
+xhci_get_slot_ctx	,	F_41
+"Next ring segment DMA address = 0x%llx\n"	,	L_65
+xhci_dbg_ctx	,	F_47
+enq_seg	,	V_76
+xhci_input_control_ctx	,	V_125
+HC_LENGTH	,	F_4
+"  Max device slots: %u\n"	,	L_14
+ep_index	,	V_81
+"HCSPARAMS 3 0x%x:\n"	,	L_20
+TRB_TRANSFER	,	V_58
+"Ring enq = %p (virt), 0x%llx (dma)\n"	,	L_78
+xhci_print_registers	,	F_22
+rsvd	,	V_40
+"//   CAPLENGTH: 0x%x\n"	,	L_3
+"Unknown TRB with TRB type ID %u\n"	,	L_74
+hcc_params	,	V_15
+"  Host System Error Interrupts %s\n"	,	L_39
+ep_info	,	V_120
+ep	,	V_83
+"link"	,	L_50
+erst_base	,	V_41
+"@%p (virt) @%08llx (dma) %#08x - drop flags\n"	,	L_102
+TRB_TYPE	,	F_26
+xhci_dbg	,	F_2
+STS_FATAL	,	V_23
+"Dev %d endpoint %d stream ID %d:\n"	,	L_81
+tt_info	,	V_114
+xhci_print_status	,	F_16
+"No Snoop bit = %u\n"	,	L_69
+dev_state	,	V_104
+next	,	V_79
+"No "	,	L_45
+xhci_trb	,	V_44
+STS_HALT	,	V_24
+"Completion status = %u\n"	,	L_72
+TRB_NO_SNOOP	,	V_57
+ep_state	,	V_84
+LINK_TOGGLE	,	V_56
+"@%p (virt) @%08llx (dma) %#08x - tx_info\n"	,	L_101
+add_flags	,	V_128
+le32_to_cpu	,	F_25
+"status"	,	L_48
+segment_ptr	,	V_53
+"// xHC command ring deq ptr low bits + flags = @%08x\n"	,	L_83
+"addressed"	,	L_89
+RTSOFF_MASK	,	V_8
+"Slot Context:\n"	,	L_91
+"// Doorbell array at %p:\n"	,	L_8
+"being stopped"	,	L_32
+HCS_MAX_SLOTS	,	F_7
+enq_updates	,	V_77
+"Ring deq updated %u times\n"	,	L_77
+xhci_get_input_control_ctx	,	F_48
+"HCSPARAMS 1: 0x%x\n"	,	L_13
+CMD_EIE	,	V_19
+generic	,	V_46
+"running"	,	L_31
+__le32	,	T_2
+microframe_index	,	V_43
+enqueue	,	V_75
+stream_info	,	V_86
+xhci_dbg_slot_ctx	,	F_43
+"// xHC command ring deq ptr high bits = @%08x\n"	,	L_84
+slot_id	,	V_80
+dma	,	V_67
+SLOT_STATE_ENABLED	,	V_105
+erst_dma_addr	,	V_91
+dev_info	,	V_112
+deq_seg	,	V_73
+tx_info	,	V_123
+"USBCMD 0x%x:\n"	,	L_29
+"  WARN: %p: ir_set.rsvd = 0x%x\n"	,	L_57
+"CAPLENGTH AND HCIVERSION 0x%x:\n"	,	L_10
+rsvd2	,	V_129
+val	,	V_98
+"  %p: ir_set.pending = 0x%x\n"	,	L_54
+HCS_MAX_INTRS	,	F_8
+"disabled"	,	L_38
+"@%p (virt) @%08llx (dma) %#08x - dev_info\n"	,	L_92
+slot_ctx	,	V_103
+xhci_dbg_regs	,	F_1
+xhci_get_ep_ctx	,	F_46
+"Command TRB pointer = %llu\n"	,	L_71
+field	,	V_47
+run_regs_off	,	V_7
+run_regs	,	V_9
+"enabled "	,	L_37
+"xHCI capability registers at %p:\n"	,	L_9
+status	,	V_21
+CMD_RESET	,	V_18
+drop_flags	,	V_127
+flags	,	V_64
+"xHCI runtime registers at %p:\n"	,	L_60
+"Dev %d endpoint ring %d:\n"	,	L_82
+ctrl_ctx	,	V_126
+"default"	,	L_88
+"// xHCI capability registers at %p:\n"	,	L_1
+xhci_ep_ctx	,	V_118
+SLOT_STATE_ADDRESSED	,	V_107
+TRB_COMPLETION	,	V_61
+last_ep_ctx	,	V_117
+xhci_erst_entry	,	V_92
+xhci	,	V_2
+"@%p (virt) @%08llx (dma) %#08x - rsvd[%d]\n"	,	L_96
+cap_regs	,	V_4
+names	,	V_29
+HCS_U2_LATENCY	,	F_13
+"not "	,	L_34
+xhci_get_slot_state	,	F_40
+trbs	,	V_68
+irq_control	,	V_38
+"Interrupter target = 0x%x\n"	,	L_66
+xhci_print_trb_offsets	,	F_23
+"// xHCI runtime registers at %p:\n"	,	L_6
+intr_target	,	V_54
+"Link TRB:\n"	,	L_64
+xhci_read_64	,	F_20
+dequeue	,	V_72
+erst_dequeue	,	V_42
+"  %p: ir_set.control = 0x%x\n"	,	L_55
+xhci_debug_ring	,	F_35
+NUM_PORT_REGS	,	V_30
+xhci_segment	,	V_65
+lower_32_bits	,	F_31
+"Endpoint %02d Context:\n"	,	L_97
+u32	,	T_1
+HC_VERSION	,	F_6
+"  FIXME: more HCCPARAMS debugging\n"	,	L_27
+xhci_dbg_ep_rings	,	F_36
+xhci_hcd	,	V_1
+xhci_print_op_regs	,	F_17
+"configured"	,	L_90
+"WARNING: "	,	L_44
+buffer	,	V_60
+seg_size	,	V_97
+hc_capbase	,	V_5
+port_status_base	,	V_31
+"  Isoc scheduling threshold: %u\n"	,	L_18
+"  Maximum allowed segments in event ring: %u\n"	,	L_19
+"@%p (virt) @%08llx (dma) %#08llx - deq\n"	,	L_100
+op_regs	,	V_6
+dba	,	V_11
+trb	,	V_45
+cmd_trb	,	V_63
+"@%p (virt) @%08llx (dma) %#08x - dev_state\n"	,	L_95
+"// @%p = 0x%x DBOFF\n"	,	L_7
+"  HC has %sfinished light reset\n"	,	L_40
+TRB_CYCLE	,	V_55
+HCS_IST	,	F_10
+"  Worst case U2 device exit latency: %u\n"	,	L_22
+entry	,	V_93
+entries	,	V_95
+seg_addr	,	V_96
+first_seg	,	V_78
+"@%p (virt) @%08llx "	,	L_85
+xhci_intr_reg	,	V_33
+"  HC generates %s bit addresses\n"	,	L_24
+xhci_dbg_erst	,	F_37
+"  HC has %sfinished hard reset\n"	,	L_33
+"@%016llx %08x %08x %08x %08x\n"	,	L_75
+"  Worst case U1 device exit latency: %u\n"	,	L_21
+xhci_print_ports	,	F_18
+last_ep	,	V_116
+erst_size	,	V_39
+link	,	V_49
+XHCI_INIT_VALUE	,	V_37
+"@%p (virt) @%08llx (dma) %#08x - ep_info\n"	,	L_98
+stream_rings	,	V_88
+"@%p (virt) @%08llx (dma) %#08x - rsvd2[%d]\n"	,	L_104
+"// xHCI operational registers at %p:\n"	,	L_4
+"64"	,	L_25
+"@%p (virt) @%08llx (dma) %#08x - dev_info2\n"	,	L_93
+"RTSOFF 0x%x:\n"	,	L_28
+"  Event ring is %sempty\n"	,	L_42
+addr	,	V_25
+erst	,	V_90
+temp	,	V_3
+xhci_slot_ctx	,	V_102
+xhci_print_ir_set	,	F_19
+"  WARN: %p: Rsvd[%i] = 0x%x\n"	,	L_62
+HCC_64BYTE_CONTEXT	,	F_44
+temp_64	,	V_35
+control	,	V_50
+ir_set	,	V_34
+command	,	V_16
+"  %p: Microframe index = 0x%x\n"	,	L_61
+event_cmd	,	V_62
+"HCC PARAMS 0x%x:\n"	,	L_23
+u64	,	T_4
+xhci_virt_ep	,	V_82
+bytes	,	V_110
+dbg_rsvd64	,	F_39
+STS_EINT	,	V_22
+"@%p (virt) @%08llx (dma) %#08x - tt_info\n"	,	L_94

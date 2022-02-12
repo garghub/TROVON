@@ -1,0 +1,121 @@
+cop0	,	V_39
+"Emulate Load from MMIO space failed\n"	,	L_14
+kvm_mips_handle_ri	,	F_28
+kvm_trap_emul_handle_cop_unusable	,	F_8
+kvm_debug	,	F_7
+kvm_trap_emul_handle_tlb_ld_miss	,	F_22
+kvm_trap_emul_handle_tlb_st_miss	,	F_16
+kvm_trap_emul_handle_res_inst	,	F_27
+PAGE_MASK	,	V_34
+kvm_trap_emul_gva_to_gpa_cb	,	F_1
+RESUME_HOST	,	V_27
+kvm_trap_emul_vm_init	,	F_31
+KVM_GUEST_KERNEL_MODE	,	F_17
+gva_t	,	T_2
+__user	,	T_4
+kvm_mips_handle_commpage_tlb_fault	,	F_18
+mips_coproc	,	V_38
+RESUME_GUEST	,	V_21
+kvm_trap_emul_handle_break	,	F_29
+CP0C1_MD	,	V_48
+__func__	,	V_6
+kseg	,	V_3
+KVM_INVALID_ADDR	,	V_7
+EMULATE_FAIL	,	V_24
+"Illegal TLB Mod fault address , cause %#lx, PC: %p, BadVaddr: %#lx\n"	,	L_5
+"Emulate Load from MMIO space @ %#lx\n"	,	L_13
+kvm_mips_handle_kseg0_tlb_fault	,	F_20
+"TLB MOD fault not handled, cause %#lx, PC: %p, BadVaddr: %#lx\n"	,	L_4
+EMULATE_DONE	,	V_19
+badvaddr	,	V_30
+KVM_GUEST_COMMPAGE_ADDR	,	V_35
+MIPS_CONFIG3	,	V_53
+MIPS_CONF7_WII	,	V_56
+vcpu	,	V_9
+kvm_trap_emul_vcpu_init	,	F_32
+MIPS_CONFIG2	,	V_52
+"%s: cannot find GPA for GVA: %#lx\n"	,	L_1
+"%s: gva %#lx, gpa: %#llx\n"	,	L_2
+"Emulate Store to MMIO space\n"	,	L_10
+"Address Error (LOAD): cause %#lx, PC: %p, BadVaddr: %#lx\n"	,	L_15
+kvm_mips_handle_tlbmiss	,	F_19
+kvm_trap_emul_handle_syscall	,	F_25
+gpa_t	,	T_1
+kvm_mips_dump_host_tlbs	,	F_5
+gva	,	V_1
+"USER/KSEG23 ADDR TLB MOD fault: cause %#lx, PC: %p, BadVaddr: %#lx\n"	,	L_3
+MMU_TYPE_R4000	,	V_44
+BUG	,	F_11
+EMULATE_WAIT	,	V_28
+MIPS_CONFIG0	,	V_42
+CAUSEB_CE	,	V_23
+kvm	,	V_37
+vcpu_id	,	V_41
+KVM_EXIT_INTR	,	V_29
+uint32_t	,	T_3
+CP0C0_AR	,	V_43
+kvm_mips_emulate_bp_exc	,	F_30
+CP0C1_WR	,	V_50
+arch	,	V_13
+kvm_mips_emulate_syscall	,	F_26
+kvm_vcpu	,	V_8
+kvm_mips_emulate_fpu_exc	,	F_9
+host_cp0_badvaddr	,	V_31
+kvm_trap_emul_handle_addr_err_ld	,	F_24
+run	,	V_11
+kvm_mips_emulation_init	,	F_43
+CP0C1_PC	,	V_49
+kvm_trap_emul_callbacks	,	V_59
+kvm_mips_handle_tlbmod	,	F_14
+kvm_write_c0_guest_prid	,	F_34
+CKSEG1	,	V_5
+KVM_GUEST_KSEGX	,	F_13
+gpa	,	V_2
+CKSEG0	,	V_4
+kvm_trap_emul_vcpu_setup	,	F_33
+config1	,	V_40
+ret	,	V_20
+kvm_trap_emul_handle_addr_err_st	,	F_23
+opc	,	V_12
+CP0C3_ULRI	,	V_55
+"Emulate Store to MMIO space failed\n"	,	L_11
+kvm_write_c0_guest_config	,	F_35
+er	,	V_18
+install_callbacks	,	V_58
+emulation_result	,	V_17
+"Illegal TLB LD fault address , cause %#lx, PC: %p, BadVaddr: %#lx\n"	,	L_7
+kvm_write_c0_guest_config7	,	F_40
+CP0C0_MT	,	V_45
+printk	,	F_4
+kvm_write_c0_guest_config2	,	F_38
+KSEGX	,	F_2
+cause	,	V_15
+kvm_write_c0_guest_config3	,	F_39
+host_cp0_cause	,	V_16
+kvm_err	,	F_21
+CP0C1_C2	,	V_47
+kvm_write_c0_guest_intctl	,	F_41
+kvm_write_c0_guest_config1	,	F_37
+CPHYSADDR	,	F_3
+CAUSEF_CE	,	V_22
+KVM_MIPS_GUEST_TLB_SIZE	,	V_46
+kvm_write_c0_guest_ebase	,	F_42
+KVM_EXIT_MMIO	,	V_36
+kvm_mips_callbacks	,	V_57
+"Address Error (STORE): cause %#lx, PC: %p, BadVaddr: %#lx\n"	,	L_12
+DEBUG	,	F_6
+kvm_run	,	V_10
+KVM_GUEST_KSEG0	,	V_32
+"USER ADDR TLB LD fault: cause %#lx, PC: %p, BadVaddr: %#lx\n"	,	L_6
+pc	,	V_14
+exit_reason	,	V_25
+KVM_EXIT_INTERNAL_ERROR	,	V_26
+kvm_trap_emul_handle_tlb_mod	,	F_12
+"USER ADDR TLB ST fault: PC: %#lx, BadVaddr: %#lx\n"	,	L_8
+kvm_mips_emulate_inst	,	F_10
+KVM_GUEST_KSEG23	,	V_33
+kvm_arch_vcpu_dump_regs	,	F_15
+CP0C3_VInt	,	V_54
+"Illegal TLB ST fault address , cause %#lx, PC: %p, BadVaddr: %#lx\n"	,	L_9
+read_c0_config1	,	F_36
+CP0C1_CA	,	V_51
