@@ -1,0 +1,42 @@
+static void __init sun4i_mod1_clk_setup(struct device_node *node)
+{
+struct clk *clk;
+struct clk_mux *mux;
+struct clk_gate *gate;
+const char *parents[4];
+const char *clk_name = node->name;
+void __iomem *reg;
+int i;
+reg = of_io_request_and_map(node, 0, of_node_full_name(node));
+if (IS_ERR(reg))
+return;
+mux = kzalloc(sizeof(*mux), GFP_KERNEL);
+if (!mux)
+goto err_unmap;
+gate = kzalloc(sizeof(*gate), GFP_KERNEL);
+if (!gate)
+goto err_free_mux;
+of_property_read_string(node, "clock-output-names", &clk_name);
+i = of_clk_parent_fill(node, parents, SUN4I_MOD1_MAX_PARENTS);
+gate->reg = reg;
+gate->bit_idx = SUN4I_MOD1_ENABLE;
+gate->lock = &mod1_lock;
+mux->reg = reg;
+mux->shift = SUN4I_MOD1_MUX;
+mux->mask = BIT(SUN4I_MOD1_MUX_WIDTH) - 1;
+mux->lock = &mod1_lock;
+clk = clk_register_composite(NULL, clk_name, parents, i,
+&mux->hw, &clk_mux_ops,
+NULL, NULL,
+&gate->hw, &clk_gate_ops, 0);
+if (IS_ERR(clk))
+goto err_free_gate;
+of_clk_add_provider(node, of_clk_src_simple_get, clk);
+return;
+err_free_gate:
+kfree(gate);
+err_free_mux:
+kfree(mux);
+err_unmap:
+iounmap(reg);
+}

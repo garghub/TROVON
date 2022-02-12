@@ -1,0 +1,1 @@
+static int __init virtex_device_probe(void)\r\n{\r\nof_platform_bus_probe(NULL, xilinx_of_bus_ids, NULL);\r\nreturn 0;\r\n}\r\nstatic int __init virtex_probe(void)\r\n{\r\nif (!of_machine_is_compatible("xlnx,virtex"))\r\nreturn 0;\r\nreturn 1;\r\n}

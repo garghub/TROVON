@@ -1,0 +1,255 @@
+static void
+gen_build_id(struct buildid_note *note,
+unsigned long load_addr __maybe_unused,
+const void *code __maybe_unused,
+size_t csize __maybe_unused)
+{
+int fd;
+size_t sz = sizeof(note->build_id);
+ssize_t sret;
+fd = open("/dev/urandom", O_RDONLY);
+if (fd == -1)
+err(1, "cannot access /dev/urandom for builid");
+sret = read(fd, note->build_id, sz);
+close(fd);
+if (sret != (ssize_t)sz)
+memset(note->build_id, 0, sz);
+}
+static void
+gen_build_id(struct buildid_note *note,
+unsigned long load_addr __maybe_unused,
+const void *code,
+size_t csize)
+{
+if (sizeof(note->build_id) < SHA_DIGEST_LENGTH)
+errx(1, "build_id too small for SHA1");
+SHA1(code, csize, (unsigned char *)note->build_id);
+}
+static void
+gen_build_id(struct buildid_note *note, unsigned long load_addr, const void *code, size_t csize)
+{
+MD5_CTX context;
+if (sizeof(note->build_id) < 16)
+errx(1, "build_id too small for MD5");
+MD5_Init(&context);
+MD5_Update(&context, &load_addr, sizeof(load_addr));
+MD5_Update(&context, code, csize);
+MD5_Final((unsigned char *)note->build_id, &context);
+}
+int
+jit_write_elf(int fd, uint64_t load_addr, const char *sym,
+const void *code, int csize,
+void *debug, int nr_debug_entries)
+{
+Elf *e;
+Elf_Data *d;
+Elf_Scn *scn;
+Elf_Ehdr *ehdr;
+Elf_Shdr *shdr;
+char *strsym = NULL;
+int symlen;
+int retval = -1;
+if (elf_version(EV_CURRENT) == EV_NONE) {
+warnx("ELF initialization failed");
+return -1;
+}
+e = elf_begin(fd, ELF_C_WRITE, NULL);
+if (!e) {
+warnx("elf_begin failed");
+goto error;
+}
+ehdr = elf_newehdr(e);
+if (!ehdr) {
+warnx("cannot get ehdr");
+goto error;
+}
+ehdr->e_ident[EI_DATA] = GEN_ELF_ENDIAN;
+ehdr->e_ident[EI_CLASS] = GEN_ELF_CLASS;
+ehdr->e_machine = GEN_ELF_ARCH;
+ehdr->e_type = ET_DYN;
+ehdr->e_entry = GEN_ELF_TEXT_OFFSET;
+ehdr->e_version = EV_CURRENT;
+ehdr->e_shstrndx= 2;
+scn = elf_newscn(e);
+if (!scn) {
+warnx("cannot create section");
+goto error;
+}
+d = elf_newdata(scn);
+if (!d) {
+warnx("cannot get new data");
+goto error;
+}
+d->d_align = 16;
+d->d_off = 0LL;
+d->d_buf = (void *)code;
+d->d_type = ELF_T_BYTE;
+d->d_size = csize;
+d->d_version = EV_CURRENT;
+shdr = elf_getshdr(scn);
+if (!shdr) {
+warnx("cannot get section header");
+goto error;
+}
+shdr->sh_name = 1;
+shdr->sh_type = SHT_PROGBITS;
+shdr->sh_addr = GEN_ELF_TEXT_OFFSET;
+shdr->sh_flags = SHF_EXECINSTR | SHF_ALLOC;
+shdr->sh_entsize = 0;
+scn = elf_newscn(e);
+if (!scn) {
+warnx("cannot create section");
+goto error;
+}
+d = elf_newdata(scn);
+if (!d) {
+warnx("cannot get new data");
+goto error;
+}
+d->d_align = 1;
+d->d_off = 0LL;
+d->d_buf = shd_string_table;
+d->d_type = ELF_T_BYTE;
+d->d_size = sizeof(shd_string_table);
+d->d_version = EV_CURRENT;
+shdr = elf_getshdr(scn);
+if (!shdr) {
+warnx("cannot get section header");
+goto error;
+}
+shdr->sh_name = 7;
+shdr->sh_type = SHT_STRTAB;
+shdr->sh_flags = 0;
+shdr->sh_entsize = 0;
+symtab[1].st_size = csize;
+symtab[1].st_value = GEN_ELF_TEXT_OFFSET;
+scn = elf_newscn(e);
+if (!scn) {
+warnx("cannot create section");
+goto error;
+}
+d = elf_newdata(scn);
+if (!d) {
+warnx("cannot get new data");
+goto error;
+}
+d->d_align = 8;
+d->d_off = 0LL;
+d->d_buf = symtab;
+d->d_type = ELF_T_SYM;
+d->d_size = sizeof(symtab);
+d->d_version = EV_CURRENT;
+shdr = elf_getshdr(scn);
+if (!shdr) {
+warnx("cannot get section header");
+goto error;
+}
+shdr->sh_name = 17;
+shdr->sh_type = SHT_SYMTAB;
+shdr->sh_flags = 0;
+shdr->sh_entsize = sizeof(Elf_Sym);
+shdr->sh_link = 4;
+symlen = 2 + strlen(sym);
+strsym = calloc(1, symlen);
+if (!strsym) {
+warnx("cannot allocate strsym");
+goto error;
+}
+strcpy(strsym + 1, sym);
+scn = elf_newscn(e);
+if (!scn) {
+warnx("cannot create section");
+goto error;
+}
+d = elf_newdata(scn);
+if (!d) {
+warnx("cannot get new data");
+goto error;
+}
+d->d_align = 1;
+d->d_off = 0LL;
+d->d_buf = strsym;
+d->d_type = ELF_T_BYTE;
+d->d_size = symlen;
+d->d_version = EV_CURRENT;
+shdr = elf_getshdr(scn);
+if (!shdr) {
+warnx("cannot get section header");
+goto error;
+}
+shdr->sh_name = 25;
+shdr->sh_type = SHT_STRTAB;
+shdr->sh_flags = 0;
+shdr->sh_entsize = 0;
+scn = elf_newscn(e);
+if (!scn) {
+warnx("cannot create section");
+goto error;
+}
+d = elf_newdata(scn);
+if (!d) {
+warnx("cannot get new data");
+goto error;
+}
+gen_build_id(&bnote, load_addr, code, csize);
+bnote.desc.namesz = sizeof(bnote.name);
+bnote.desc.descsz = sizeof(bnote.build_id);
+bnote.desc.type = NT_GNU_BUILD_ID;
+strcpy(bnote.name, "GNU");
+d->d_align = 4;
+d->d_off = 0LL;
+d->d_buf = &bnote;
+d->d_type = ELF_T_BYTE;
+d->d_size = sizeof(bnote);
+d->d_version = EV_CURRENT;
+shdr = elf_getshdr(scn);
+if (!shdr) {
+warnx("cannot get section header");
+goto error;
+}
+shdr->sh_name = 33;
+shdr->sh_type = SHT_NOTE;
+shdr->sh_addr = 0x0;
+shdr->sh_flags = SHF_ALLOC;
+shdr->sh_size = sizeof(bnote);
+shdr->sh_entsize = 0;
+if (debug && nr_debug_entries) {
+retval = jit_add_debug_info(e, load_addr, debug, nr_debug_entries);
+if (retval)
+goto error;
+} else {
+if (elf_update(e, ELF_C_WRITE) < 0) {
+warnx("elf_update 4 failed");
+goto error;
+}
+}
+retval = 0;
+error:
+(void)elf_end(e);
+free(strsym);
+return retval;
+}
+int main(int argc, char **argv)
+{
+int c, fd, ret;
+while ((c = getopt(argc, argv, "o:h")) != -1) {
+switch (c) {
+case 'o':
+options.output = optarg;
+break;
+case 'h':
+printf("Usage: genelf -o output_file [-h]\n");
+return 0;
+default:
+errx(1, "unknown option");
+}
+}
+fd = open(options.output, O_CREAT|O_TRUNC|O_RDWR, 0666);
+if (fd == -1)
+err(1, "cannot create file %s", options.output);
+ret = jit_write_elf(fd, "main", x86_code, sizeof(x86_code));
+close(fd);
+if (ret != 0)
+unlink(options.output);
+return ret;
+}

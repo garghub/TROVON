@@ -1,0 +1,1 @@
+struct reciprocal_value reciprocal_value(u32 d)\r\n{\r\nstruct reciprocal_value R;\r\nu64 m;\r\nint l;\r\nl = fls(d - 1);\r\nm = ((1ULL << 32) * ((1ULL << l) - d));\r\ndo_div(m, d);\r\n++m;\r\nR.m = (u32)m;\r\nR.sh1 = min(l, 1);\r\nR.sh2 = max(l - 1, 0);\r\nreturn R;\r\n}

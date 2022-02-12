@@ -1,0 +1,1 @@
+static int __init chromeos_pstore_init(void)\r\n{\r\nif (dmi_check_system(chromeos_pstore_dmi_table))\r\nreturn platform_device_register(&chromeos_ramoops);\r\nreturn -ENODEV;\r\n}\r\nstatic void __exit chromeos_pstore_exit(void)\r\n{\r\nplatform_device_unregister(&chromeos_ramoops);\r\n}

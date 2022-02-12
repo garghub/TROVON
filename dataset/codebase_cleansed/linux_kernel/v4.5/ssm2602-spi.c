@@ -1,0 +1,1 @@
+static int ssm2602_spi_probe(struct spi_device *spi)\r\n{\r\nreturn ssm2602_probe(&spi->dev, SSM2602,\r\ndevm_regmap_init_spi(spi, &ssm2602_regmap_config));\r\n}\r\nstatic int ssm2602_spi_remove(struct spi_device *spi)\r\n{\r\nsnd_soc_unregister_codec(&spi->dev);\r\nreturn 0;\r\n}

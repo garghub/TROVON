@@ -1,0 +1,1 @@
+u32\r\nip_set_range_to_cidr(u32 from, u32 to, u8 *cidr)\r\n{\r\nu32 last;\r\nu8 i;\r\nfor (i = 1; i < 32; i++) {\r\nif ((from & ip_set_hostmask(i)) != from)\r\ncontinue;\r\nlast = from | ~ip_set_hostmask(i);\r\nif (!after(last, to)) {\r\n*cidr = i;\r\nreturn last;\r\n}\r\n}\r\n*cidr = 32;\r\nreturn from;\r\n}

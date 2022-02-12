@@ -1,0 +1,1 @@
+static void __init sam9_dt_timer_init(void)\r\n{\r\n#if defined(CONFIG_COMMON_CLK)\r\nof_clk_init(NULL);\r\n#endif\r\nat91sam926x_pit_init();\r\n}\r\nstatic void __init at91_dt_init_irq(void)\r\n{\r\nof_irq_init(irq_of_match);\r\n}

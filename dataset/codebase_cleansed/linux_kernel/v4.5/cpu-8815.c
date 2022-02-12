@@ -1,0 +1,1 @@
+static void __init cpu8815_map_io(void)\r\n{\r\niotable_init(cpu8815_io_desc, ARRAY_SIZE(cpu8815_io_desc));\r\n}\r\nstatic void cpu8815_restart(enum reboot_mode mode, const char *cmd)\r\n{\r\nvoid __iomem *srcbase = ioremap(NOMADIK_SRC_BASE, SZ_4K);\r\nwritel(1, srcbase + 0x18);\r\n}

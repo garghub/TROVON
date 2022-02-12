@@ -1,0 +1,1 @@
+int main(void)\r\n{\r\nvoid *start, *end;\r\nsize_t size, written;\r\nif (find_vdso_map(&start, &end))\r\nreturn 1;\r\nsize = end - start;\r\nwhile (size) {\r\nwritten = fwrite(start, 1, size, stdout);\r\nif (!written)\r\nreturn 1;\r\nstart += written;\r\nsize -= written;\r\n}\r\nif (fflush(stdout))\r\nreturn 1;\r\nreturn 0;\r\n}

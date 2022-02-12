@@ -1,0 +1,1 @@
+static int ipq806x_lpass_alloc_dma_channel(struct lpass_data *drvdata, int dir)\r\n{\r\nif (dir == SNDRV_PCM_STREAM_PLAYBACK)\r\nreturn IPQ806X_LPAIF_RDMA_CHAN_MI2S;\r\nelse\r\nreturn -EINVAL;\r\n}\r\nstatic int ipq806x_lpass_free_dma_channel(struct lpass_data *drvdata, int chan)\r\n{\r\nreturn 0;\r\n}

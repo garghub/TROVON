@@ -1,0 +1,1 @@
+static void __init marzen_init_timer(void)\r\n{\r\nr8a7779_clocks_init(r8a7779_read_mode_pins());\r\nclocksource_of_init();\r\n}\r\nstatic void __init marzen_init(void)\r\n{\r\nof_platform_populate(NULL, of_default_bus_match_table, NULL, NULL);\r\nr8a7779_init_irq_extpin_dt(1);\r\n}

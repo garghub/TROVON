@@ -1,0 +1,1 @@
+static void __init armadillo800eva_init(void)\r\n{\r\nboard_staging_gic_setup_xlate("arm,pl390", 32);\r\nboard_staging_register_devices(armadillo800eva_devices,\r\nARRAY_SIZE(armadillo800eva_devices));\r\n}

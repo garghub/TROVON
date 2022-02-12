@@ -1,0 +1,325 @@
+static struct mdp5_kms *get_kms(struct drm_crtc *crtc)
+{
+struct msm_drm_private *priv = crtc->dev->dev_private;
+return to_mdp5_kms(to_mdp_kms(priv->kms));
+}
+static void request_pending(struct drm_crtc *crtc, uint32_t pending)
+{
+struct mdp5_crtc *mdp5_crtc = to_mdp5_crtc(crtc);
+atomic_or(pending, &mdp5_crtc->pending);
+mdp_irq_register(&get_kms(crtc)->base, &mdp5_crtc->vblank);
+}
+static void crtc_flush(struct drm_crtc *crtc, u32 flush_mask)
+{
+struct mdp5_crtc *mdp5_crtc = to_mdp5_crtc(crtc);
+DBG("%s: flush=%08x", mdp5_crtc->name, flush_mask);
+mdp5_ctl_commit(mdp5_crtc->ctl, flush_mask);
+}
+static void crtc_flush_all(struct drm_crtc *crtc)
+{
+struct mdp5_crtc *mdp5_crtc = to_mdp5_crtc(crtc);
+struct drm_plane *plane;
+uint32_t flush_mask = 0;
+if (!mdp5_crtc->ctl)
+return;
+drm_atomic_crtc_for_each_plane(plane, crtc) {
+flush_mask |= mdp5_plane_get_flush(plane);
+}
+flush_mask |= mdp5_ctl_get_flush(mdp5_crtc->ctl);
+flush_mask |= mdp5_lm_get_flush(mdp5_crtc->lm);
+crtc_flush(crtc, flush_mask);
+}
+static void complete_flip(struct drm_crtc *crtc, struct drm_file *file)
+{
+struct mdp5_crtc *mdp5_crtc = to_mdp5_crtc(crtc);
+struct drm_device *dev = crtc->dev;
+struct drm_pending_vblank_event *event;
+struct drm_plane *plane;
+unsigned long flags;
+spin_lock_irqsave(&dev->event_lock, flags);
+event = mdp5_crtc->event;
+if (event) {
+if (!file || (event->base.file_priv == file)) {
+mdp5_crtc->event = NULL;
+DBG("%s: send event: %p", mdp5_crtc->name, event);
+drm_send_vblank_event(dev, mdp5_crtc->id, event);
+}
+}
+spin_unlock_irqrestore(&dev->event_lock, flags);
+drm_atomic_crtc_for_each_plane(plane, crtc) {
+mdp5_plane_complete_flip(plane);
+}
+}
+static void mdp5_crtc_destroy(struct drm_crtc *crtc)
+{
+struct mdp5_crtc *mdp5_crtc = to_mdp5_crtc(crtc);
+drm_crtc_cleanup(crtc);
+kfree(mdp5_crtc);
+}
+static void mdp5_crtc_dpms(struct drm_crtc *crtc, int mode)
+{
+struct mdp5_crtc *mdp5_crtc = to_mdp5_crtc(crtc);
+struct mdp5_kms *mdp5_kms = get_kms(crtc);
+bool enabled = (mode == DRM_MODE_DPMS_ON);
+DBG("%s: mode=%d", mdp5_crtc->name, mode);
+if (enabled != mdp5_crtc->enabled) {
+if (enabled) {
+mdp5_enable(mdp5_kms);
+mdp_irq_register(&mdp5_kms->base, &mdp5_crtc->err);
+} else {
+mdp5_ctl_blend(mdp5_crtc->ctl, mdp5_crtc->lm, 0x00000000);
+mdp_irq_unregister(&mdp5_kms->base, &mdp5_crtc->err);
+mdp5_disable(mdp5_kms);
+}
+mdp5_crtc->enabled = enabled;
+}
+}
+static bool mdp5_crtc_mode_fixup(struct drm_crtc *crtc,
+const struct drm_display_mode *mode,
+struct drm_display_mode *adjusted_mode)
+{
+return true;
+}
+static void blend_setup(struct drm_crtc *crtc)
+{
+struct mdp5_crtc *mdp5_crtc = to_mdp5_crtc(crtc);
+struct mdp5_kms *mdp5_kms = get_kms(crtc);
+struct drm_plane *plane;
+const struct mdp5_cfg_hw *hw_cfg;
+uint32_t lm = mdp5_crtc->lm, blend_cfg = 0;
+unsigned long flags;
+#define blender(stage) ((stage) - STAGE_BASE)
+hw_cfg = mdp5_cfg_get_hw_config(mdp5_kms->cfg);
+spin_lock_irqsave(&mdp5_crtc->lm_lock, flags);
+if (!mdp5_crtc->ctl)
+goto out;
+drm_atomic_crtc_for_each_plane(plane, crtc) {
+enum mdp_mixer_stage_id stage =
+to_mdp5_plane_state(plane->state)->stage;
+BUG_ON(stage > hw_cfg->lm.nb_stages);
+mdp5_write(mdp5_kms,
+REG_MDP5_LM_BLEND_OP_MODE(lm, blender(stage)),
+MDP5_LM_BLEND_OP_MODE_FG_ALPHA(FG_CONST) |
+MDP5_LM_BLEND_OP_MODE_BG_ALPHA(BG_CONST));
+mdp5_write(mdp5_kms, REG_MDP5_LM_BLEND_FG_ALPHA(lm,
+blender(stage)), 0xff);
+mdp5_write(mdp5_kms, REG_MDP5_LM_BLEND_BG_ALPHA(lm,
+blender(stage)), 0x00);
+blend_cfg |= mdp_ctl_blend_mask(mdp5_plane_pipe(plane), stage);
+DBG("%s: blending pipe %s on stage=%d", mdp5_crtc->name,
+pipe2name(mdp5_plane_pipe(plane)), stage);
+}
+DBG("%s: lm%d: blend config = 0x%08x", mdp5_crtc->name, lm, blend_cfg);
+mdp5_ctl_blend(mdp5_crtc->ctl, lm, blend_cfg);
+out:
+spin_unlock_irqrestore(&mdp5_crtc->lm_lock, flags);
+}
+static void mdp5_crtc_mode_set_nofb(struct drm_crtc *crtc)
+{
+struct mdp5_crtc *mdp5_crtc = to_mdp5_crtc(crtc);
+struct mdp5_kms *mdp5_kms = get_kms(crtc);
+unsigned long flags;
+struct drm_display_mode *mode;
+if (WARN_ON(!crtc->state))
+return;
+mode = &crtc->state->adjusted_mode;
+DBG("%s: set mode: %d:\"%s\" %d %d %d %d %d %d %d %d %d %d 0x%x 0x%x",
+mdp5_crtc->name, mode->base.id, mode->name,
+mode->vrefresh, mode->clock,
+mode->hdisplay, mode->hsync_start,
+mode->hsync_end, mode->htotal,
+mode->vdisplay, mode->vsync_start,
+mode->vsync_end, mode->vtotal,
+mode->type, mode->flags);
+spin_lock_irqsave(&mdp5_crtc->lm_lock, flags);
+mdp5_write(mdp5_kms, REG_MDP5_LM_OUT_SIZE(mdp5_crtc->lm),
+MDP5_LM_OUT_SIZE_WIDTH(mode->hdisplay) |
+MDP5_LM_OUT_SIZE_HEIGHT(mode->vdisplay));
+spin_unlock_irqrestore(&mdp5_crtc->lm_lock, flags);
+}
+static void mdp5_crtc_prepare(struct drm_crtc *crtc)
+{
+struct mdp5_crtc *mdp5_crtc = to_mdp5_crtc(crtc);
+DBG("%s", mdp5_crtc->name);
+mdp5_enable(get_kms(crtc));
+mdp5_crtc_dpms(crtc, DRM_MODE_DPMS_OFF);
+}
+static void mdp5_crtc_commit(struct drm_crtc *crtc)
+{
+struct mdp5_crtc *mdp5_crtc = to_mdp5_crtc(crtc);
+DBG("%s", mdp5_crtc->name);
+mdp5_crtc_dpms(crtc, DRM_MODE_DPMS_ON);
+crtc_flush_all(crtc);
+mdp5_disable(get_kms(crtc));
+}
+static void mdp5_crtc_load_lut(struct drm_crtc *crtc)
+{
+}
+static int pstate_cmp(const void *a, const void *b)
+{
+struct plane_state *pa = (struct plane_state *)a;
+struct plane_state *pb = (struct plane_state *)b;
+return pa->state->zpos - pb->state->zpos;
+}
+static int mdp5_crtc_atomic_check(struct drm_crtc *crtc,
+struct drm_crtc_state *state)
+{
+struct mdp5_crtc *mdp5_crtc = to_mdp5_crtc(crtc);
+struct mdp5_kms *mdp5_kms = get_kms(crtc);
+struct drm_plane *plane;
+struct drm_device *dev = crtc->dev;
+struct plane_state pstates[STAGE3 + 1];
+int cnt = 0, i;
+DBG("%s: check", mdp5_crtc->name);
+if (state->enable && !mdp5_crtc->ctl) {
+mdp5_crtc->ctl = mdp5_ctlm_request(mdp5_kms->ctlm, crtc);
+if (WARN_ON(!mdp5_crtc->ctl))
+return -EINVAL;
+}
+drm_atomic_crtc_state_for_each_plane(plane, state) {
+struct drm_plane_state *pstate;
+if (cnt >= ARRAY_SIZE(pstates)) {
+dev_err(dev->dev, "too many planes!\n");
+return -EINVAL;
+}
+pstate = state->state->plane_states[drm_plane_index(plane)];
+if (!pstate)
+pstate = plane->state;
+pstates[cnt].plane = plane;
+pstates[cnt].state = to_mdp5_plane_state(pstate);
+cnt++;
+}
+sort(pstates, cnt, sizeof(pstates[0]), pstate_cmp, NULL);
+for (i = 0; i < cnt; i++) {
+pstates[i].state->stage = STAGE_BASE + i;
+DBG("%s: assign pipe %s on stage=%d", mdp5_crtc->name,
+pipe2name(mdp5_plane_pipe(pstates[i].plane)),
+pstates[i].state->stage);
+}
+return 0;
+}
+static void mdp5_crtc_atomic_begin(struct drm_crtc *crtc)
+{
+struct mdp5_crtc *mdp5_crtc = to_mdp5_crtc(crtc);
+DBG("%s: begin", mdp5_crtc->name);
+}
+static void mdp5_crtc_atomic_flush(struct drm_crtc *crtc)
+{
+struct mdp5_crtc *mdp5_crtc = to_mdp5_crtc(crtc);
+struct drm_device *dev = crtc->dev;
+unsigned long flags;
+DBG("%s: event: %p", mdp5_crtc->name, crtc->state->event);
+WARN_ON(mdp5_crtc->event);
+spin_lock_irqsave(&dev->event_lock, flags);
+mdp5_crtc->event = crtc->state->event;
+spin_unlock_irqrestore(&dev->event_lock, flags);
+blend_setup(crtc);
+crtc_flush_all(crtc);
+request_pending(crtc, PENDING_FLIP);
+if (mdp5_crtc->ctl && !crtc->state->enable) {
+mdp5_ctl_release(mdp5_crtc->ctl);
+mdp5_crtc->ctl = NULL;
+}
+}
+static int mdp5_crtc_set_property(struct drm_crtc *crtc,
+struct drm_property *property, uint64_t val)
+{
+return -EINVAL;
+}
+static void mdp5_crtc_vblank_irq(struct mdp_irq *irq, uint32_t irqstatus)
+{
+struct mdp5_crtc *mdp5_crtc = container_of(irq, struct mdp5_crtc, vblank);
+struct drm_crtc *crtc = &mdp5_crtc->base;
+unsigned pending;
+mdp_irq_unregister(&get_kms(crtc)->base, &mdp5_crtc->vblank);
+pending = atomic_xchg(&mdp5_crtc->pending, 0);
+if (pending & PENDING_FLIP) {
+complete_flip(crtc, NULL);
+}
+}
+static void mdp5_crtc_err_irq(struct mdp_irq *irq, uint32_t irqstatus)
+{
+struct mdp5_crtc *mdp5_crtc = container_of(irq, struct mdp5_crtc, err);
+DBG("%s: error: %08x", mdp5_crtc->name, irqstatus);
+}
+uint32_t mdp5_crtc_vblank(struct drm_crtc *crtc)
+{
+struct mdp5_crtc *mdp5_crtc = to_mdp5_crtc(crtc);
+return mdp5_crtc->vblank.irqmask;
+}
+void mdp5_crtc_cancel_pending_flip(struct drm_crtc *crtc, struct drm_file *file)
+{
+DBG("cancel: %p", file);
+complete_flip(crtc, file);
+}
+void mdp5_crtc_set_intf(struct drm_crtc *crtc, int intf,
+enum mdp5_intf intf_id)
+{
+struct mdp5_crtc *mdp5_crtc = to_mdp5_crtc(crtc);
+struct mdp5_kms *mdp5_kms = get_kms(crtc);
+uint32_t flush_mask = 0;
+uint32_t intf_sel;
+unsigned long flags;
+mdp5_crtc->err.irqmask = intf2err(intf);
+mdp5_crtc->vblank.irqmask = intf2vblank(intf);
+mdp_irq_update(&mdp5_kms->base);
+spin_lock_irqsave(&mdp5_kms->resource_lock, flags);
+intf_sel = mdp5_read(mdp5_kms, REG_MDP5_DISP_INTF_SEL);
+switch (intf) {
+case 0:
+intf_sel &= ~MDP5_DISP_INTF_SEL_INTF0__MASK;
+intf_sel |= MDP5_DISP_INTF_SEL_INTF0(intf_id);
+break;
+case 1:
+intf_sel &= ~MDP5_DISP_INTF_SEL_INTF1__MASK;
+intf_sel |= MDP5_DISP_INTF_SEL_INTF1(intf_id);
+break;
+case 2:
+intf_sel &= ~MDP5_DISP_INTF_SEL_INTF2__MASK;
+intf_sel |= MDP5_DISP_INTF_SEL_INTF2(intf_id);
+break;
+case 3:
+intf_sel &= ~MDP5_DISP_INTF_SEL_INTF3__MASK;
+intf_sel |= MDP5_DISP_INTF_SEL_INTF3(intf_id);
+break;
+default:
+BUG();
+break;
+}
+mdp5_write(mdp5_kms, REG_MDP5_DISP_INTF_SEL, intf_sel);
+spin_unlock_irqrestore(&mdp5_kms->resource_lock, flags);
+DBG("%s: intf_sel=%08x", mdp5_crtc->name, intf_sel);
+mdp5_ctl_set_intf(mdp5_crtc->ctl, intf);
+flush_mask |= mdp5_ctl_get_flush(mdp5_crtc->ctl);
+flush_mask |= mdp5_lm_get_flush(mdp5_crtc->lm);
+crtc_flush(crtc, flush_mask);
+}
+int mdp5_crtc_get_lm(struct drm_crtc *crtc)
+{
+struct mdp5_crtc *mdp5_crtc = to_mdp5_crtc(crtc);
+if (WARN_ON(!crtc))
+return -EINVAL;
+return mdp5_crtc->lm;
+}
+struct drm_crtc *mdp5_crtc_init(struct drm_device *dev,
+struct drm_plane *plane, int id)
+{
+struct drm_crtc *crtc = NULL;
+struct mdp5_crtc *mdp5_crtc;
+mdp5_crtc = kzalloc(sizeof(*mdp5_crtc), GFP_KERNEL);
+if (!mdp5_crtc)
+return ERR_PTR(-ENOMEM);
+crtc = &mdp5_crtc->base;
+mdp5_crtc->id = id;
+mdp5_crtc->lm = GET_LM_ID(id);
+spin_lock_init(&mdp5_crtc->lm_lock);
+mdp5_crtc->vblank.irq = mdp5_crtc_vblank_irq;
+mdp5_crtc->err.irq = mdp5_crtc_err_irq;
+snprintf(mdp5_crtc->name, sizeof(mdp5_crtc->name), "%s:%d",
+pipe2name(mdp5_plane_pipe(plane)), id);
+drm_crtc_init_with_planes(dev, crtc, plane, NULL, &mdp5_crtc_funcs);
+drm_crtc_helper_add(crtc, &mdp5_crtc_helper_funcs);
+plane->crtc = crtc;
+mdp5_plane_install_properties(plane, &crtc->base);
+return crtc;
+}

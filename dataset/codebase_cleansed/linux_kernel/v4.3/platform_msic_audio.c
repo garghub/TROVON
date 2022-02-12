@@ -1,0 +1,1 @@
+static void *msic_audio_platform_data(void *info)\r\n{\r\nstruct platform_device *pdev;\r\npdev = platform_device_register_simple("sst-platform", -1, NULL, 0);\r\nif (IS_ERR(pdev)) {\r\npr_err("failed to create audio platform device\n");\r\nreturn NULL;\r\n}\r\nreturn msic_generic_platform_data(info, INTEL_MSIC_BLOCK_AUDIO);\r\n}

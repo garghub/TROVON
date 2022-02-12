@@ -1,0 +1,294 @@
+void tcp_fastopen_init_key_once(bool publish)
+{
+static u8 key[TCP_FASTOPEN_KEY_LENGTH];
+if (net_get_random_once(key, sizeof(key)) && publish)
+tcp_fastopen_reset_cipher(key, sizeof(key));
+}
+static void tcp_fastopen_ctx_free(struct rcu_head *head)
+{
+struct tcp_fastopen_context *ctx =
+container_of(head, struct tcp_fastopen_context, rcu);
+crypto_free_cipher(ctx->tfm);
+kfree(ctx);
+}
+int tcp_fastopen_reset_cipher(void *key, unsigned int len)
+{
+int err;
+struct tcp_fastopen_context *ctx, *octx;
+ctx = kmalloc(sizeof(*ctx), GFP_KERNEL);
+if (!ctx)
+return -ENOMEM;
+ctx->tfm = crypto_alloc_cipher("aes", 0, 0);
+if (IS_ERR(ctx->tfm)) {
+err = PTR_ERR(ctx->tfm);
+error: kfree(ctx);
+pr_err("TCP: TFO aes cipher alloc error: %d\n", err);
+return err;
+}
+err = crypto_cipher_setkey(ctx->tfm, key, len);
+if (err) {
+pr_err("TCP: TFO cipher key error: %d\n", err);
+crypto_free_cipher(ctx->tfm);
+goto error;
+}
+memcpy(ctx->key, key, len);
+spin_lock(&tcp_fastopen_ctx_lock);
+octx = rcu_dereference_protected(tcp_fastopen_ctx,
+lockdep_is_held(&tcp_fastopen_ctx_lock));
+rcu_assign_pointer(tcp_fastopen_ctx, ctx);
+spin_unlock(&tcp_fastopen_ctx_lock);
+if (octx)
+call_rcu(&octx->rcu, tcp_fastopen_ctx_free);
+return err;
+}
+static bool __tcp_fastopen_cookie_gen(const void *path,
+struct tcp_fastopen_cookie *foc)
+{
+struct tcp_fastopen_context *ctx;
+bool ok = false;
+rcu_read_lock();
+ctx = rcu_dereference(tcp_fastopen_ctx);
+if (ctx) {
+crypto_cipher_encrypt_one(ctx->tfm, foc->val, path);
+foc->len = TCP_FASTOPEN_COOKIE_SIZE;
+ok = true;
+}
+rcu_read_unlock();
+return ok;
+}
+static bool tcp_fastopen_cookie_gen(struct request_sock *req,
+struct sk_buff *syn,
+struct tcp_fastopen_cookie *foc)
+{
+if (req->rsk_ops->family == AF_INET) {
+const struct iphdr *iph = ip_hdr(syn);
+__be32 path[4] = { iph->saddr, iph->daddr, 0, 0 };
+return __tcp_fastopen_cookie_gen(path, foc);
+}
+#if IS_ENABLED(CONFIG_IPV6)
+if (req->rsk_ops->family == AF_INET6) {
+const struct ipv6hdr *ip6h = ipv6_hdr(syn);
+struct tcp_fastopen_cookie tmp;
+if (__tcp_fastopen_cookie_gen(&ip6h->saddr, &tmp)) {
+struct in6_addr *buf = &tmp.addr;
+int i;
+for (i = 0; i < 4; i++)
+buf->s6_addr32[i] ^= ip6h->daddr.s6_addr32[i];
+return __tcp_fastopen_cookie_gen(buf, foc);
+}
+}
+#endif
+return false;
+}
+void tcp_fastopen_add_skb(struct sock *sk, struct sk_buff *skb)
+{
+struct tcp_sock *tp = tcp_sk(sk);
+if (TCP_SKB_CB(skb)->end_seq == tp->rcv_nxt)
+return;
+skb = skb_clone(skb, GFP_ATOMIC);
+if (!skb)
+return;
+skb_dst_drop(skb);
+tp->segs_in = 0;
+tcp_segs_in(tp, skb);
+__skb_pull(skb, tcp_hdrlen(skb));
+sk_forced_mem_schedule(sk, skb->truesize);
+skb_set_owner_r(skb, sk);
+TCP_SKB_CB(skb)->seq++;
+TCP_SKB_CB(skb)->tcp_flags &= ~TCPHDR_SYN;
+tp->rcv_nxt = TCP_SKB_CB(skb)->end_seq;
+__skb_queue_tail(&sk->sk_receive_queue, skb);
+tp->syn_data_acked = 1;
+tp->bytes_received = skb->len;
+if (TCP_SKB_CB(skb)->tcp_flags & TCPHDR_FIN)
+tcp_fin(sk);
+}
+static struct sock *tcp_fastopen_create_child(struct sock *sk,
+struct sk_buff *skb,
+struct dst_entry *dst,
+struct request_sock *req)
+{
+struct tcp_sock *tp;
+struct request_sock_queue *queue = &inet_csk(sk)->icsk_accept_queue;
+struct sock *child;
+bool own_req;
+req->num_retrans = 0;
+req->num_timeout = 0;
+req->sk = NULL;
+child = inet_csk(sk)->icsk_af_ops->syn_recv_sock(sk, skb, req, NULL,
+NULL, &own_req);
+if (!child)
+return NULL;
+spin_lock(&queue->fastopenq.lock);
+queue->fastopenq.qlen++;
+spin_unlock(&queue->fastopenq.lock);
+tp = tcp_sk(child);
+tp->fastopen_rsk = req;
+tcp_rsk(req)->tfo_listener = true;
+tp->snd_wnd = ntohs(tcp_hdr(skb)->window);
+tp->max_window = tp->snd_wnd;
+inet_csk_reset_xmit_timer(child, ICSK_TIME_RETRANS,
+TCP_TIMEOUT_INIT, TCP_RTO_MAX);
+refcount_set(&req->rsk_refcnt, 2);
+inet_csk(child)->icsk_af_ops->rebuild_header(child);
+tcp_init_congestion_control(child);
+tcp_mtup_init(child);
+tcp_init_metrics(child);
+tcp_call_bpf(child, BPF_SOCK_OPS_PASSIVE_ESTABLISHED_CB);
+tcp_init_buffer_space(child);
+tp->rcv_nxt = TCP_SKB_CB(skb)->seq + 1;
+tcp_fastopen_add_skb(child, skb);
+tcp_rsk(req)->rcv_nxt = tp->rcv_nxt;
+tp->rcv_wup = tp->rcv_nxt;
+return child;
+}
+static bool tcp_fastopen_queue_check(struct sock *sk)
+{
+struct fastopen_queue *fastopenq;
+fastopenq = &inet_csk(sk)->icsk_accept_queue.fastopenq;
+if (fastopenq->max_qlen == 0)
+return false;
+if (fastopenq->qlen >= fastopenq->max_qlen) {
+struct request_sock *req1;
+spin_lock(&fastopenq->lock);
+req1 = fastopenq->rskq_rst_head;
+if (!req1 || time_after(req1->rsk_timer.expires, jiffies)) {
+__NET_INC_STATS(sock_net(sk),
+LINUX_MIB_TCPFASTOPENLISTENOVERFLOW);
+spin_unlock(&fastopenq->lock);
+return false;
+}
+fastopenq->rskq_rst_head = req1->dl_next;
+fastopenq->qlen--;
+spin_unlock(&fastopenq->lock);
+reqsk_put(req1);
+}
+return true;
+}
+struct sock *tcp_try_fastopen(struct sock *sk, struct sk_buff *skb,
+struct request_sock *req,
+struct tcp_fastopen_cookie *foc,
+struct dst_entry *dst)
+{
+struct tcp_fastopen_cookie valid_foc = { .len = -1 };
+bool syn_data = TCP_SKB_CB(skb)->end_seq != TCP_SKB_CB(skb)->seq + 1;
+struct sock *child;
+if (foc->len == 0)
+NET_INC_STATS(sock_net(sk), LINUX_MIB_TCPFASTOPENCOOKIEREQD);
+if (!((sysctl_tcp_fastopen & TFO_SERVER_ENABLE) &&
+(syn_data || foc->len >= 0) &&
+tcp_fastopen_queue_check(sk))) {
+foc->len = -1;
+return NULL;
+}
+if (syn_data && (sysctl_tcp_fastopen & TFO_SERVER_COOKIE_NOT_REQD))
+goto fastopen;
+if (foc->len >= 0 &&
+tcp_fastopen_cookie_gen(req, skb, &valid_foc) &&
+foc->len == TCP_FASTOPEN_COOKIE_SIZE &&
+foc->len == valid_foc.len &&
+!memcmp(foc->val, valid_foc.val, foc->len)) {
+fastopen:
+child = tcp_fastopen_create_child(sk, skb, dst, req);
+if (child) {
+foc->len = -1;
+NET_INC_STATS(sock_net(sk),
+LINUX_MIB_TCPFASTOPENPASSIVE);
+return child;
+}
+NET_INC_STATS(sock_net(sk), LINUX_MIB_TCPFASTOPENPASSIVEFAIL);
+} else if (foc->len > 0)
+NET_INC_STATS(sock_net(sk), LINUX_MIB_TCPFASTOPENPASSIVEFAIL);
+valid_foc.exp = foc->exp;
+*foc = valid_foc;
+return NULL;
+}
+bool tcp_fastopen_cookie_check(struct sock *sk, u16 *mss,
+struct tcp_fastopen_cookie *cookie)
+{
+unsigned long last_syn_loss = 0;
+int syn_loss = 0;
+tcp_fastopen_cache_get(sk, mss, cookie, &syn_loss, &last_syn_loss);
+if (syn_loss > 1 &&
+time_before(jiffies, last_syn_loss + (60*HZ << syn_loss))) {
+cookie->len = -1;
+return false;
+}
+if (tcp_fastopen_active_should_disable(sk)) {
+cookie->len = -1;
+return false;
+}
+if (sysctl_tcp_fastopen & TFO_CLIENT_NO_COOKIE) {
+cookie->len = -1;
+return true;
+}
+return cookie->len > 0;
+}
+bool tcp_fastopen_defer_connect(struct sock *sk, int *err)
+{
+struct tcp_fastopen_cookie cookie = { .len = 0 };
+struct tcp_sock *tp = tcp_sk(sk);
+u16 mss;
+if (tp->fastopen_connect && !tp->fastopen_req) {
+if (tcp_fastopen_cookie_check(sk, &mss, &cookie)) {
+inet_sk(sk)->defer_connect = 1;
+return true;
+}
+tp->fastopen_req = kzalloc(sizeof(*tp->fastopen_req),
+sk->sk_allocation);
+if (tp->fastopen_req)
+tp->fastopen_req->cookie = cookie;
+else
+*err = -ENOBUFS;
+}
+return false;
+}
+void tcp_fastopen_active_disable(struct sock *sk)
+{
+atomic_inc(&tfo_active_disable_times);
+tfo_active_disable_stamp = jiffies;
+NET_INC_STATS(sock_net(sk), LINUX_MIB_TCPFASTOPENBLACKHOLE);
+}
+void tcp_fastopen_active_timeout_reset(void)
+{
+atomic_set(&tfo_active_disable_times, 0);
+}
+bool tcp_fastopen_active_should_disable(struct sock *sk)
+{
+int tfo_da_times = atomic_read(&tfo_active_disable_times);
+int multiplier;
+unsigned long timeout;
+if (!tfo_da_times)
+return false;
+multiplier = 1 << min(tfo_da_times - 1, 6);
+timeout = multiplier * sysctl_tcp_fastopen_blackhole_timeout * HZ;
+if (time_before(jiffies, tfo_active_disable_stamp + timeout))
+return true;
+tcp_sk(sk)->syn_fastopen_ch = 1;
+return false;
+}
+void tcp_fastopen_active_disable_ofo_check(struct sock *sk)
+{
+struct tcp_sock *tp = tcp_sk(sk);
+struct rb_node *p;
+struct sk_buff *skb;
+struct dst_entry *dst;
+if (!tp->syn_fastopen)
+return;
+if (!tp->data_segs_in) {
+p = rb_first(&tp->out_of_order_queue);
+if (p && !rb_next(p)) {
+skb = rb_entry(p, struct sk_buff, rbnode);
+if (TCP_SKB_CB(skb)->tcp_flags & TCPHDR_FIN) {
+tcp_fastopen_active_disable(sk);
+return;
+}
+}
+} else if (tp->syn_fastopen_ch &&
+atomic_read(&tfo_active_disable_times)) {
+dst = sk_dst_get(sk);
+if (!(dst && dst->dev && (dst->dev->flags & IFF_LOOPBACK)))
+tcp_fastopen_active_timeout_reset();
+dst_release(dst);
+}
+}

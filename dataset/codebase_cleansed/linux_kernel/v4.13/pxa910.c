@@ -1,0 +1,28 @@
+void __init pxa910_init_irq(void)
+{
+icu_init_irq();
+#ifdef CONFIG_PM
+icu_irq_chip.irq_set_wake = pxa910_set_wake;
+#endif
+}
+static int __init pxa910_init(void)
+{
+if (cpu_is_pxa910()) {
+#ifdef CONFIG_CACHE_TAUROS2
+tauros2_init(0);
+#endif
+mfp_init_base(MFPR_VIRT_BASE);
+mfp_init_addr(pxa910_mfp_addr_map);
+pxa910_clk_init(APB_PHYS_BASE + 0x50000,
+AXI_PHYS_BASE + 0x82800,
+APB_PHYS_BASE + 0x15000,
+APB_PHYS_BASE + 0x3b000);
+}
+return 0;
+}
+void __init pxa910_timer_init(void)
+{
+__raw_writel(APBC_APBCLK | APBC_RST, APBC_TIMERS);
+__raw_writel(TIMER_CLK_RST, APBC_TIMERS);
+timer_init(IRQ_PXA910_AP1_TIMER1);
+}

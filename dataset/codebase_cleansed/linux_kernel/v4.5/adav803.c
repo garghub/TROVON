@@ -1,0 +1,1 @@
+static int adav803_probe(struct i2c_client *client,\r\nconst struct i2c_device_id *id)\r\n{\r\nreturn adav80x_bus_probe(&client->dev,\r\ndevm_regmap_init_i2c(client, &adav80x_regmap_config));\r\n}\r\nstatic int adav803_remove(struct i2c_client *client)\r\n{\r\nsnd_soc_unregister_codec(&client->dev);\r\nreturn 0;\r\n}

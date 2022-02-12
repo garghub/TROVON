@@ -1,0 +1,1 @@
+static const char *dummycon_startup(void)\r\n{\r\nreturn "dummy device";\r\n}\r\nstatic void dummycon_init(struct vc_data *vc, int init)\r\n{\r\nvc->vc_can_do_color = 1;\r\nif (init) {\r\nvc->vc_cols = DUMMY_COLUMNS;\r\nvc->vc_rows = DUMMY_ROWS;\r\n} else\r\nvc_resize(vc, DUMMY_COLUMNS, DUMMY_ROWS);\r\n}\r\nstatic int dummycon_dummy(void)\r\n{\r\nreturn 0;\r\n}

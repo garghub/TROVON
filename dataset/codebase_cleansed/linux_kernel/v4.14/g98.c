@@ -1,0 +1,1 @@
+void\r\ng98_msvld_init(struct nvkm_falcon *msvld)\r\n{\r\nstruct nvkm_device *device = msvld->engine.subdev.device;\r\nnvkm_wr32(device, 0x084010, 0x0000ffd2);\r\nnvkm_wr32(device, 0x08401c, 0x0000fff2);\r\n}\r\nint\r\ng98_msvld_new(struct nvkm_device *device, int index,\r\nstruct nvkm_engine **pengine)\r\n{\r\nreturn nvkm_msvld_new_(&g98_msvld, device, index, pengine);\r\n}

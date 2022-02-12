@@ -1,0 +1,1 @@
+static unsigned long palmz71_panel_get_caps(struct lcd_panel *panel)\r\n{\r\nreturn OMAPFB_CAPS_SET_BACKLIGHT;\r\n}\r\nstatic int palmz71_panel_probe(struct platform_device *pdev)\r\n{\r\nomapfb_register_panel(&palmz71_panel);\r\nreturn 0;\r\n}

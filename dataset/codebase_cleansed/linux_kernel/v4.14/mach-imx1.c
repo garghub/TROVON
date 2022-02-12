@@ -1,0 +1,1 @@
+static void __init imx1_init_early(void)\r\n{\r\nmxc_set_cpu_type(MXC_CPU_MX1);\r\n}\r\nstatic void __init imx1_init_irq(void)\r\n{\r\nvoid __iomem *avic_addr;\r\navic_addr = ioremap(MX1_AVIC_ADDR, SZ_4K);\r\nWARN_ON(!avic_addr);\r\nmxc_init_irq(avic_addr);\r\n}

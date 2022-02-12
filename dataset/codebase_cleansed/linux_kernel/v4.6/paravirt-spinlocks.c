@@ -1,0 +1,1 @@
+__visible void __native_queued_spin_unlock(struct qspinlock *lock)\r\n{\r\nnative_queued_spin_unlock(lock);\r\n}\r\nbool pv_is_native_spin_unlock(void)\r\n{\r\nreturn pv_lock_ops.queued_spin_unlock.func ==\r\n__raw_callee_save___native_queued_spin_unlock;\r\n}

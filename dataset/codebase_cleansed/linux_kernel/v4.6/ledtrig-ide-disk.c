@@ -1,0 +1,1 @@
+void ledtrig_ide_activity(void)\r\n{\r\nled_trigger_blink_oneshot(ledtrig_ide,\r\n&ide_blink_delay, &ide_blink_delay, 0);\r\n}\r\nstatic int __init ledtrig_ide_init(void)\r\n{\r\nled_trigger_register_simple("ide-disk", &ledtrig_ide);\r\nreturn 0;\r\n}

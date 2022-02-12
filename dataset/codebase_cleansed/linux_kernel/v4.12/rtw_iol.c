@@ -1,0 +1,1 @@
+bool rtw_IOL_applied(struct adapter *adapter)\r\n{\r\nif (adapter->registrypriv.fw_iol == 1)\r\nreturn true;\r\nif ((adapter->registrypriv.fw_iol == 2) &&\r\n(!adapter_to_dvobj(adapter)->ishighspeed))\r\nreturn true;\r\nreturn false;\r\n}

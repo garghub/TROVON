@@ -1,0 +1,1 @@
+static bool\r\ncomment_mt(const struct sk_buff *skb, struct xt_action_param *par)\r\n{\r\nreturn true;\r\n}\r\nstatic int __init comment_mt_init(void)\r\n{\r\nreturn xt_register_match(&comment_mt_reg);\r\n}\r\nstatic void __exit comment_mt_exit(void)\r\n{\r\nxt_unregister_match(&comment_mt_reg);\r\n}

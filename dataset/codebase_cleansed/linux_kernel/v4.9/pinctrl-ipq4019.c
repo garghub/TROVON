@@ -1,0 +1,1 @@
+static int ipq4019_pinctrl_probe(struct platform_device *pdev)\r\n{\r\nreturn msm_pinctrl_probe(pdev, &ipq4019_pinctrl);\r\n}\r\nstatic int __init ipq4019_pinctrl_init(void)\r\n{\r\nreturn platform_driver_register(&ipq4019_pinctrl_driver);\r\n}\r\nstatic void __exit ipq4019_pinctrl_exit(void)\r\n{\r\nplatform_driver_unregister(&ipq4019_pinctrl_driver);\r\n}

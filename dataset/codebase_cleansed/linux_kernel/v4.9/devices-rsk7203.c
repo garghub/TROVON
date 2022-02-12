@@ -1,0 +1,1 @@
+static int __init rsk7203_devices_setup(void)\r\n{\r\ngpio_request(GPIO_FN_TXD0, NULL);\r\ngpio_request(GPIO_FN_RXD0, NULL);\r\n__raw_writel(0x36db0400, 0xfffc0008);\r\ngpio_request(GPIO_FN_IRQ0_PB, NULL);\r\nreturn platform_add_devices(rsk7203_devices,\r\nARRAY_SIZE(rsk7203_devices));\r\n}

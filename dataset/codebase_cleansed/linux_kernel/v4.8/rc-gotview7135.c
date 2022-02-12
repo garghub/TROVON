@@ -1,0 +1,1 @@
+static int __init init_rc_map_gotview7135(void)\r\n{\r\nreturn rc_map_register(&gotview7135_map);\r\n}\r\nstatic void __exit exit_rc_map_gotview7135(void)\r\n{\r\nrc_map_unregister(&gotview7135_map);\r\n}

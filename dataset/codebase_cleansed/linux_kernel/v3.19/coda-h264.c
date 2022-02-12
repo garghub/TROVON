@@ -1,0 +1,1 @@
+int coda_h264_padding(int size, char *p)\r\n{\r\nint nal_size;\r\nint diff;\r\ndiff = size - (size & ~0x7);\r\nif (diff == 0)\r\nreturn 0;\r\nnal_size = coda_filler_size[diff];\r\nmemcpy(p, coda_filler_nal, nal_size);\r\n*(p + nal_size - 1) = 0x80;\r\nreturn nal_size;\r\n}

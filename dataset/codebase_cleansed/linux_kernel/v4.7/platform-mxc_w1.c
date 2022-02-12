@@ -1,0 +1,1 @@
+struct platform_device *__init imx_add_mxc_w1(\r\nconst struct imx_mxc_w1_data *data)\r\n{\r\nstruct resource res[] = {\r\n{\r\n.start = data->iobase,\r\n.end = data->iobase + SZ_4K - 1,\r\n.flags = IORESOURCE_MEM,\r\n},\r\n};\r\nreturn imx_add_platform_device("mxc_w1", 0,\r\nres, ARRAY_SIZE(res), NULL, 0);\r\n}

@@ -1,0 +1,1 @@
+static int __init init_rc_map_snapstream_firefly(void)\r\n{\r\nreturn rc_map_register(&snapstream_firefly_map);\r\n}\r\nstatic void __exit exit_rc_map_snapstream_firefly(void)\r\n{\r\nrc_map_unregister(&snapstream_firefly_map);\r\n}

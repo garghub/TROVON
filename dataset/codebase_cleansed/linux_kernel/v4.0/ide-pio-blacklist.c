@@ -1,0 +1,1 @@
+int ide_scan_pio_blacklist(char *model)\r\n{\r\nstruct ide_pio_info *p;\r\nfor (p = ide_pio_blacklist; p->name != NULL; p++) {\r\nif (strncmp(p->name, model, strlen(p->name)) == 0)\r\nreturn p->pio;\r\n}\r\nreturn -1;\r\n}

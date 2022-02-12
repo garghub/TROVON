@@ -1,0 +1,1 @@
+static void __init gtwx5715_init(void)\r\n{\r\nixp4xx_sys_init();\r\ngtwx5715_flash_resource.start = IXP4XX_EXP_BUS_BASE(0);\r\ngtwx5715_flash_resource.end = IXP4XX_EXP_BUS_BASE(0) + SZ_8M - 1;\r\nplatform_add_devices(gtwx5715_devices, ARRAY_SIZE(gtwx5715_devices));\r\n}

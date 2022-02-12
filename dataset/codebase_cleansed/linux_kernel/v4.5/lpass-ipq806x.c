@@ -1,0 +1,1 @@
+static int ipq806x_lpass_alloc_dma_channel(struct lpass_data *drvdata)\r\n{\r\nreturn IPQ806X_LPAIF_RDMA_CHAN_MI2S;\r\n}\r\nstatic int ipq806x_lpass_free_dma_channel(struct lpass_data *drvdata, int chan)\r\n{\r\nreturn 0;\r\n}

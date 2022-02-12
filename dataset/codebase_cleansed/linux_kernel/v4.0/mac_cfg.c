@@ -1,0 +1,1 @@
+bool rtl88eu_phy_mac_config(struct adapter *adapt)\r\n{\r\nu32 i;\r\nu32 arraylength;\r\nu32 *ptrarray;\r\narraylength = sizeof(array_MAC_REG_8188E)/sizeof(u32);\r\nptrarray = array_MAC_REG_8188E;\r\nfor (i = 0; i < arraylength; i = i + 2)\r\nusb_write8(adapt, ptrarray[i], (u8)ptrarray[i + 1]);\r\nusb_write8(adapt, REG_MAX_AGGR_NUM, MAX_AGGR_NUM);\r\nreturn true;\r\n}

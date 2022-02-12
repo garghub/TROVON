@@ -1,0 +1,1 @@
+static int\r\nclk_src_get(struct snd_bebob *bebob, unsigned int *id)\r\n{\r\nint err;\r\nerr = avc_audio_get_selector(bebob->unit, 0, 4, id);\r\nif (err < 0)\r\nreturn err;\r\nif (*id >= ARRAY_SIZE(clk_src_types))\r\nreturn -EIO;\r\nreturn 0;\r\n}

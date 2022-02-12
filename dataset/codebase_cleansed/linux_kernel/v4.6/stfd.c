@@ -1,0 +1,1 @@
+int\r\nstfd(void *frS, void *ea)\r\n{\r\n#if 0\r\n#ifdef DEBUG\r\nprintk("%s: S %p, ea %p: ", __func__, frS, ea);\r\ndump_double(frS);\r\nprintk("\n");\r\n#endif\r\n#endif\r\nif (copy_to_user(ea, frS, sizeof(double)))\r\nreturn -EFAULT;\r\nreturn 0;\r\n}

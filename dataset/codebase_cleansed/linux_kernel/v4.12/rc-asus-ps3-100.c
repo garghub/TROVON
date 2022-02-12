@@ -1,0 +1,1 @@
+static int __init init_rc_map_asus_ps3_100(void)\r\n{\r\nreturn rc_map_register(&asus_ps3_100_map);\r\n}\r\nstatic void __exit exit_rc_map_asus_ps3_100(void)\r\n{\r\nrc_map_unregister(&asus_ps3_100_map);\r\n}

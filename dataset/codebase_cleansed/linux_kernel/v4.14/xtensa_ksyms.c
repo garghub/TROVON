@@ -1,0 +1,1 @@
+void __xtensa_libgcc_window_spill(void)\r\n{\r\nBUG();\r\n}\r\nunsigned long __sync_fetch_and_and_4(unsigned long *p, unsigned long v)\r\n{\r\nBUG();\r\n}\r\nunsigned long __sync_fetch_and_or_4(unsigned long *p, unsigned long v)\r\n{\r\nBUG();\r\n}

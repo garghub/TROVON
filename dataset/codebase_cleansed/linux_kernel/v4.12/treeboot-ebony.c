@@ -1,0 +1,1 @@
+void platform_init(void)\r\n{\r\nunsigned long end_of_ram = 0x8000000;\r\nunsigned long avail_ram = end_of_ram - (unsigned long)_end;\r\nsimple_alloc_init(_end, avail_ram, 32, 64);\r\nebony_init((u8 *)OPENBIOS_MAC_BASE,\r\n(u8 *)(OPENBIOS_MAC_BASE + OPENBIOS_MAC_OFFSET));\r\n}

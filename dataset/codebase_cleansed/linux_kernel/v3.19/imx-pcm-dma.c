@@ -1,0 +1,1 @@
+static bool filter(struct dma_chan *chan, void *param)\r\n{\r\nif (!imx_dma_is_general_purpose(chan))\r\nreturn false;\r\nchan->private = param;\r\nreturn true;\r\n}\r\nint imx_pcm_dma_init(struct platform_device *pdev)\r\n{\r\nreturn devm_snd_dmaengine_pcm_register(&pdev->dev,\r\n&imx_dmaengine_pcm_config,\r\nSND_DMAENGINE_PCM_FLAG_COMPAT);\r\n}

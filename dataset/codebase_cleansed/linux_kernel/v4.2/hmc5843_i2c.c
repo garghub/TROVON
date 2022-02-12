@@ -1,0 +1,1 @@
+static int hmc5843_i2c_probe(struct i2c_client *cli,\r\nconst struct i2c_device_id *id)\r\n{\r\nreturn hmc5843_common_probe(&cli->dev,\r\ndevm_regmap_init_i2c(cli, &hmc5843_i2c_regmap_config),\r\nid->driver_data);\r\n}\r\nstatic int hmc5843_i2c_remove(struct i2c_client *client)\r\n{\r\nreturn hmc5843_common_remove(&client->dev);\r\n}

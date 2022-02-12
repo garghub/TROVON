@@ -1,0 +1,1 @@
+static int msm8916_pinctrl_probe(struct platform_device *pdev)\r\n{\r\nreturn msm_pinctrl_probe(pdev, &msm8916_pinctrl);\r\n}\r\nstatic int __init msm8916_pinctrl_init(void)\r\n{\r\nreturn platform_driver_register(&msm8916_pinctrl_driver);\r\n}\r\nstatic void __exit msm8916_pinctrl_exit(void)\r\n{\r\nplatform_driver_unregister(&msm8916_pinctrl_driver);\r\n}

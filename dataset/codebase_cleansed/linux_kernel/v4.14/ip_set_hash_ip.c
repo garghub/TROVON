@@ -1,0 +1,177 @@
+static inline bool
+hash_ip4_data_equal(const struct hash_ip4_elem *e1,
+const struct hash_ip4_elem *e2,
+u32 *multi)
+{
+return e1->ip == e2->ip;
+}
+static bool
+hash_ip4_data_list(struct sk_buff *skb, const struct hash_ip4_elem *e)
+{
+if (nla_put_ipaddr4(skb, IPSET_ATTR_IP, e->ip))
+goto nla_put_failure;
+return false;
+nla_put_failure:
+return true;
+}
+static inline void
+hash_ip4_data_next(struct hash_ip4_elem *next, const struct hash_ip4_elem *e)
+{
+next->ip = e->ip;
+}
+static int
+hash_ip4_kadt(struct ip_set *set, const struct sk_buff *skb,
+const struct xt_action_param *par,
+enum ipset_adt adt, struct ip_set_adt_opt *opt)
+{
+const struct hash_ip4 *h = set->data;
+ipset_adtfn adtfn = set->variant->adt[adt];
+struct hash_ip4_elem e = { 0 };
+struct ip_set_ext ext = IP_SET_INIT_KEXT(skb, opt, set);
+__be32 ip;
+ip4addrptr(skb, opt->flags & IPSET_DIM_ONE_SRC, &ip);
+ip &= ip_set_netmask(h->netmask);
+if (ip == 0)
+return -EINVAL;
+e.ip = ip;
+return adtfn(set, &e, &ext, &opt->ext, opt->cmdflags);
+}
+static int
+hash_ip4_uadt(struct ip_set *set, struct nlattr *tb[],
+enum ipset_adt adt, u32 *lineno, u32 flags, bool retried)
+{
+const struct hash_ip4 *h = set->data;
+ipset_adtfn adtfn = set->variant->adt[adt];
+struct hash_ip4_elem e = { 0 };
+struct ip_set_ext ext = IP_SET_INIT_UEXT(set);
+u32 ip = 0, ip_to = 0, hosts;
+int ret = 0;
+if (tb[IPSET_ATTR_LINENO])
+*lineno = nla_get_u32(tb[IPSET_ATTR_LINENO]);
+if (unlikely(!tb[IPSET_ATTR_IP]))
+return -IPSET_ERR_PROTOCOL;
+ret = ip_set_get_hostipaddr4(tb[IPSET_ATTR_IP], &ip);
+if (ret)
+return ret;
+ret = ip_set_get_extensions(set, tb, &ext);
+if (ret)
+return ret;
+ip &= ip_set_hostmask(h->netmask);
+e.ip = htonl(ip);
+if (e.ip == 0)
+return -IPSET_ERR_HASH_ELEM;
+if (adt == IPSET_TEST)
+return adtfn(set, &e, &ext, &ext, flags);
+ip_to = ip;
+if (tb[IPSET_ATTR_IP_TO]) {
+ret = ip_set_get_hostipaddr4(tb[IPSET_ATTR_IP_TO], &ip_to);
+if (ret)
+return ret;
+if (ip > ip_to)
+swap(ip, ip_to);
+} else if (tb[IPSET_ATTR_CIDR]) {
+u8 cidr = nla_get_u8(tb[IPSET_ATTR_CIDR]);
+if (!cidr || cidr > HOST_MASK)
+return -IPSET_ERR_INVALID_CIDR;
+ip_set_mask_from_to(ip, ip_to, cidr);
+}
+hosts = h->netmask == 32 ? 1 : 2 << (32 - h->netmask - 1);
+if (retried) {
+ip = ntohl(h->next.ip);
+e.ip = htonl(ip);
+}
+for (; ip <= ip_to;) {
+ret = adtfn(set, &e, &ext, &ext, flags);
+if (ret && !ip_set_eexist(ret, flags))
+return ret;
+ip += hosts;
+e.ip = htonl(ip);
+if (e.ip == 0)
+return 0;
+ret = 0;
+}
+return ret;
+}
+static inline bool
+hash_ip6_data_equal(const struct hash_ip6_elem *ip1,
+const struct hash_ip6_elem *ip2,
+u32 *multi)
+{
+return ipv6_addr_equal(&ip1->ip.in6, &ip2->ip.in6);
+}
+static inline void
+hash_ip6_netmask(union nf_inet_addr *ip, u8 prefix)
+{
+ip6_netmask(ip, prefix);
+}
+static bool
+hash_ip6_data_list(struct sk_buff *skb, const struct hash_ip6_elem *e)
+{
+if (nla_put_ipaddr6(skb, IPSET_ATTR_IP, &e->ip.in6))
+goto nla_put_failure;
+return false;
+nla_put_failure:
+return true;
+}
+static inline void
+hash_ip6_data_next(struct hash_ip6_elem *next, const struct hash_ip6_elem *e)
+{
+}
+static int
+hash_ip6_kadt(struct ip_set *set, const struct sk_buff *skb,
+const struct xt_action_param *par,
+enum ipset_adt adt, struct ip_set_adt_opt *opt)
+{
+const struct hash_ip6 *h = set->data;
+ipset_adtfn adtfn = set->variant->adt[adt];
+struct hash_ip6_elem e = { { .all = { 0 } } };
+struct ip_set_ext ext = IP_SET_INIT_KEXT(skb, opt, set);
+ip6addrptr(skb, opt->flags & IPSET_DIM_ONE_SRC, &e.ip.in6);
+hash_ip6_netmask(&e.ip, h->netmask);
+if (ipv6_addr_any(&e.ip.in6))
+return -EINVAL;
+return adtfn(set, &e, &ext, &opt->ext, opt->cmdflags);
+}
+static int
+hash_ip6_uadt(struct ip_set *set, struct nlattr *tb[],
+enum ipset_adt adt, u32 *lineno, u32 flags, bool retried)
+{
+const struct hash_ip6 *h = set->data;
+ipset_adtfn adtfn = set->variant->adt[adt];
+struct hash_ip6_elem e = { { .all = { 0 } } };
+struct ip_set_ext ext = IP_SET_INIT_UEXT(set);
+int ret;
+if (tb[IPSET_ATTR_LINENO])
+*lineno = nla_get_u32(tb[IPSET_ATTR_LINENO]);
+if (unlikely(!tb[IPSET_ATTR_IP]))
+return -IPSET_ERR_PROTOCOL;
+if (unlikely(tb[IPSET_ATTR_IP_TO]))
+return -IPSET_ERR_HASH_RANGE_UNSUPPORTED;
+if (unlikely(tb[IPSET_ATTR_CIDR])) {
+u8 cidr = nla_get_u8(tb[IPSET_ATTR_CIDR]);
+if (cidr != HOST_MASK)
+return -IPSET_ERR_INVALID_CIDR;
+}
+ret = ip_set_get_ipaddr6(tb[IPSET_ATTR_IP], &e.ip);
+if (ret)
+return ret;
+ret = ip_set_get_extensions(set, tb, &ext);
+if (ret)
+return ret;
+hash_ip6_netmask(&e.ip, h->netmask);
+if (ipv6_addr_any(&e.ip.in6))
+return -IPSET_ERR_HASH_ELEM;
+ret = adtfn(set, &e, &ext, &ext, flags);
+return ip_set_eexist(ret, flags) ? 0 : ret;
+}
+static int __init
+hash_ip_init(void)
+{
+return ip_set_type_register(&hash_ip_type);
+}
+static void __exit
+hash_ip_fini(void)
+{
+rcu_barrier();
+ip_set_type_unregister(&hash_ip_type);
+}

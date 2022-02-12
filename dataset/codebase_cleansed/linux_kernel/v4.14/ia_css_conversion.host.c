@@ -1,0 +1,1 @@
+void\r\nia_css_conversion_encode(\r\nstruct sh_css_isp_conversion_params *to,\r\nconst struct ia_css_conversion_config *from,\r\nunsigned size)\r\n{\r\n(void)size;\r\nto->en = from->en;\r\nto->dummy0 = from->dummy0;\r\nto->dummy1 = from->dummy1;\r\nto->dummy2 = from->dummy2;\r\n}

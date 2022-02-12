@@ -1,0 +1,1 @@
+static void __init sh73a0_map_io(void)\r\n{\r\ndebug_ll_io_init();\r\niotable_init(sh73a0_io_desc, ARRAY_SIZE(sh73a0_io_desc));\r\n}\r\nstatic void __init sh73a0_generic_init(void)\r\n{\r\n#ifdef CONFIG_CACHE_L2X0\r\nl2x0_init(IOMEM(0xf0100000), 0x00400000, 0xc20f0fff);\r\n#endif\r\nof_platform_populate(NULL, of_default_bus_match_table, NULL, NULL);\r\n}

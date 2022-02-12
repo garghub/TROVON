@@ -1,0 +1,36 @@
+static void __init cpu8815_map_io(void)
+{
+iotable_init(cpu8815_io_desc, ARRAY_SIZE(cpu8815_io_desc));
+}
+static void cpu8815_restart(enum reboot_mode mode, const char *cmd)
+{
+void __iomem *srcbase = ioremap(NOMADIK_SRC_BASE, SZ_4K);
+writel(1, srcbase + 0x18);
+}
+static int __init cpu8815_mmcsd_init(void)
+{
+struct device_node *cdbias;
+int gpio, err;
+cdbias = of_find_node_by_path("/usb-s8815/mmcsd-gpio");
+if (!cdbias) {
+pr_info("could not find MMC/SD card detect bias node\n");
+return 0;
+}
+gpio = of_get_gpio(cdbias, 0);
+if (gpio < 0) {
+pr_info("could not obtain MMC/SD card detect bias GPIO\n");
+return 0;
+}
+err = gpio_request(gpio, "card detect bias");
+if (err) {
+pr_info("failed to request card detect bias GPIO %d\n", gpio);
+return -ENODEV;
+}
+err = gpio_direction_output(gpio, 0);
+if (err){
+pr_info("failed to set GPIO %d as output, low\n", gpio);
+return err;
+}
+pr_info("enabled USB-S8815 CD bias GPIO %d, low\n", gpio);
+return 0;
+}

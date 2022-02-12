@@ -1,0 +1,1 @@
+static int cp6_trap(struct pt_regs *regs, unsigned int instr)\r\n{\r\nu32 temp;\r\nasm volatile (\r\n"mrc p15, 0, %0, c15, c1, 0\n\t"\r\n"orr %0, %0, #(1 << 6)\n\t"\r\n"mcr p15, 0, %0, c15, c1, 0\n\t"\r\n: "=r"(temp));\r\nreturn 0;\r\n}\r\nvoid __init iop_init_cp6_handler(void)\r\n{\r\nregister_undef_hook(&cp6_hook);\r\n}

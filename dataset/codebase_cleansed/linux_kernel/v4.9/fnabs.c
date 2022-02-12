@@ -1,0 +1,1 @@
+int\r\nfnabs(u32 *frD, u32 *frB)\r\n{\r\nfrD[0] = frB[0] | 0x80000000;\r\nfrD[1] = frB[1];\r\n#ifdef DEBUG\r\nprintk("%s: D %p, B %p: ", __func__, frD, frB);\r\ndump_double(frD);\r\nprintk("\n");\r\n#endif\r\nreturn 0;\r\n}

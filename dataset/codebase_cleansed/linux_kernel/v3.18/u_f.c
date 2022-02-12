@@ -1,0 +1,1 @@
+struct usb_request *alloc_ep_req(struct usb_ep *ep, int len, int default_len)\r\n{\r\nstruct usb_request *req;\r\nreq = usb_ep_alloc_request(ep, GFP_ATOMIC);\r\nif (req) {\r\nreq->length = len ?: default_len;\r\nreq->buf = kmalloc(req->length, GFP_ATOMIC);\r\nif (!req->buf) {\r\nusb_ep_free_request(ep, req);\r\nreq = NULL;\r\n}\r\n}\r\nreturn req;\r\n}

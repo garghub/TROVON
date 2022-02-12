@@ -1,0 +1,219 @@
+static int tcf_nat_init(struct net *net, struct nlattr *nla, struct nlattr *est,
+struct tc_action **a, int ovr, int bind)
+{
+struct tc_action_net *tn = net_generic(net, nat_net_id);
+struct nlattr *tb[TCA_NAT_MAX + 1];
+struct tc_nat *parm;
+int ret = 0, err;
+struct tcf_nat *p;
+if (nla == NULL)
+return -EINVAL;
+err = nla_parse_nested(tb, TCA_NAT_MAX, nla, nat_policy, NULL);
+if (err < 0)
+return err;
+if (tb[TCA_NAT_PARMS] == NULL)
+return -EINVAL;
+parm = nla_data(tb[TCA_NAT_PARMS]);
+if (!tcf_idr_check(tn, parm->index, a, bind)) {
+ret = tcf_idr_create(tn, parm->index, est, a,
+&act_nat_ops, bind, false);
+if (ret)
+return ret;
+ret = ACT_P_CREATED;
+} else {
+if (bind)
+return 0;
+tcf_idr_release(*a, bind);
+if (!ovr)
+return -EEXIST;
+}
+p = to_tcf_nat(*a);
+spin_lock_bh(&p->tcf_lock);
+p->old_addr = parm->old_addr;
+p->new_addr = parm->new_addr;
+p->mask = parm->mask;
+p->flags = parm->flags;
+p->tcf_action = parm->action;
+spin_unlock_bh(&p->tcf_lock);
+if (ret == ACT_P_CREATED)
+tcf_idr_insert(tn, *a);
+return ret;
+}
+static int tcf_nat(struct sk_buff *skb, const struct tc_action *a,
+struct tcf_result *res)
+{
+struct tcf_nat *p = to_tcf_nat(a);
+struct iphdr *iph;
+__be32 old_addr;
+__be32 new_addr;
+__be32 mask;
+__be32 addr;
+int egress;
+int action;
+int ihl;
+int noff;
+spin_lock(&p->tcf_lock);
+tcf_lastuse_update(&p->tcf_tm);
+old_addr = p->old_addr;
+new_addr = p->new_addr;
+mask = p->mask;
+egress = p->flags & TCA_NAT_FLAG_EGRESS;
+action = p->tcf_action;
+bstats_update(&p->tcf_bstats, skb);
+spin_unlock(&p->tcf_lock);
+if (unlikely(action == TC_ACT_SHOT))
+goto drop;
+noff = skb_network_offset(skb);
+if (!pskb_may_pull(skb, sizeof(*iph) + noff))
+goto drop;
+iph = ip_hdr(skb);
+if (egress)
+addr = iph->saddr;
+else
+addr = iph->daddr;
+if (!((old_addr ^ addr) & mask)) {
+if (skb_try_make_writable(skb, sizeof(*iph) + noff))
+goto drop;
+new_addr &= mask;
+new_addr |= addr & ~mask;
+iph = ip_hdr(skb);
+if (egress)
+iph->saddr = new_addr;
+else
+iph->daddr = new_addr;
+csum_replace4(&iph->check, addr, new_addr);
+} else if ((iph->frag_off & htons(IP_OFFSET)) ||
+iph->protocol != IPPROTO_ICMP) {
+goto out;
+}
+ihl = iph->ihl * 4;
+switch (iph->frag_off & htons(IP_OFFSET) ? 0 : iph->protocol) {
+case IPPROTO_TCP:
+{
+struct tcphdr *tcph;
+if (!pskb_may_pull(skb, ihl + sizeof(*tcph) + noff) ||
+skb_try_make_writable(skb, ihl + sizeof(*tcph) + noff))
+goto drop;
+tcph = (void *)(skb_network_header(skb) + ihl);
+inet_proto_csum_replace4(&tcph->check, skb, addr, new_addr,
+true);
+break;
+}
+case IPPROTO_UDP:
+{
+struct udphdr *udph;
+if (!pskb_may_pull(skb, ihl + sizeof(*udph) + noff) ||
+skb_try_make_writable(skb, ihl + sizeof(*udph) + noff))
+goto drop;
+udph = (void *)(skb_network_header(skb) + ihl);
+if (udph->check || skb->ip_summed == CHECKSUM_PARTIAL) {
+inet_proto_csum_replace4(&udph->check, skb, addr,
+new_addr, true);
+if (!udph->check)
+udph->check = CSUM_MANGLED_0;
+}
+break;
+}
+case IPPROTO_ICMP:
+{
+struct icmphdr *icmph;
+if (!pskb_may_pull(skb, ihl + sizeof(*icmph) + noff))
+goto drop;
+icmph = (void *)(skb_network_header(skb) + ihl);
+if ((icmph->type != ICMP_DEST_UNREACH) &&
+(icmph->type != ICMP_TIME_EXCEEDED) &&
+(icmph->type != ICMP_PARAMETERPROB))
+break;
+if (!pskb_may_pull(skb, ihl + sizeof(*icmph) + sizeof(*iph) +
+noff))
+goto drop;
+icmph = (void *)(skb_network_header(skb) + ihl);
+iph = (void *)(icmph + 1);
+if (egress)
+addr = iph->daddr;
+else
+addr = iph->saddr;
+if ((old_addr ^ addr) & mask)
+break;
+if (skb_try_make_writable(skb, ihl + sizeof(*icmph) +
+sizeof(*iph) + noff))
+goto drop;
+icmph = (void *)(skb_network_header(skb) + ihl);
+iph = (void *)(icmph + 1);
+new_addr &= mask;
+new_addr |= addr & ~mask;
+if (egress)
+iph->daddr = new_addr;
+else
+iph->saddr = new_addr;
+inet_proto_csum_replace4(&icmph->checksum, skb, addr, new_addr,
+false);
+break;
+}
+default:
+break;
+}
+out:
+return action;
+drop:
+spin_lock(&p->tcf_lock);
+p->tcf_qstats.drops++;
+spin_unlock(&p->tcf_lock);
+return TC_ACT_SHOT;
+}
+static int tcf_nat_dump(struct sk_buff *skb, struct tc_action *a,
+int bind, int ref)
+{
+unsigned char *b = skb_tail_pointer(skb);
+struct tcf_nat *p = to_tcf_nat(a);
+struct tc_nat opt = {
+.old_addr = p->old_addr,
+.new_addr = p->new_addr,
+.mask = p->mask,
+.flags = p->flags,
+.index = p->tcf_index,
+.action = p->tcf_action,
+.refcnt = p->tcf_refcnt - ref,
+.bindcnt = p->tcf_bindcnt - bind,
+};
+struct tcf_t t;
+if (nla_put(skb, TCA_NAT_PARMS, sizeof(opt), &opt))
+goto nla_put_failure;
+tcf_tm_dump(&t, &p->tcf_tm);
+if (nla_put_64bit(skb, TCA_NAT_TM, sizeof(t), &t, TCA_NAT_PAD))
+goto nla_put_failure;
+return skb->len;
+nla_put_failure:
+nlmsg_trim(skb, b);
+return -1;
+}
+static int tcf_nat_walker(struct net *net, struct sk_buff *skb,
+struct netlink_callback *cb, int type,
+const struct tc_action_ops *ops)
+{
+struct tc_action_net *tn = net_generic(net, nat_net_id);
+return tcf_generic_walker(tn, skb, cb, type, ops);
+}
+static int tcf_nat_search(struct net *net, struct tc_action **a, u32 index)
+{
+struct tc_action_net *tn = net_generic(net, nat_net_id);
+return tcf_idr_search(tn, a, index);
+}
+static __net_init int nat_init_net(struct net *net)
+{
+struct tc_action_net *tn = net_generic(net, nat_net_id);
+return tc_action_net_init(tn, &act_nat_ops);
+}
+static void __net_exit nat_exit_net(struct net *net)
+{
+struct tc_action_net *tn = net_generic(net, nat_net_id);
+tc_action_net_exit(tn);
+}
+static int __init nat_init_module(void)
+{
+return tcf_register_action(&act_nat_ops, &nat_net_ops);
+}
+static void __exit nat_cleanup_module(void)
+{
+tcf_unregister_action(&act_nat_ops, &nat_net_ops);
+}

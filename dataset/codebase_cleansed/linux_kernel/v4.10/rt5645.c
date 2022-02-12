@@ -1,0 +1,1505 @@
+static int rt5645_reset(struct snd_soc_codec *codec)
+{
+return snd_soc_write(codec, RT5645_RESET, 0);
+}
+static bool rt5645_volatile_register(struct device *dev, unsigned int reg)
+{
+int i;
+for (i = 0; i < ARRAY_SIZE(rt5645_ranges); i++) {
+if (reg >= rt5645_ranges[i].range_min &&
+reg <= rt5645_ranges[i].range_max) {
+return true;
+}
+}
+switch (reg) {
+case RT5645_RESET:
+case RT5645_PRIV_INDEX:
+case RT5645_PRIV_DATA:
+case RT5645_IN1_CTRL1:
+case RT5645_IN1_CTRL2:
+case RT5645_IN1_CTRL3:
+case RT5645_A_JD_CTRL1:
+case RT5645_ADC_EQ_CTRL1:
+case RT5645_EQ_CTRL1:
+case RT5645_ALC_CTRL_1:
+case RT5645_IRQ_CTRL2:
+case RT5645_IRQ_CTRL3:
+case RT5645_INT_IRQ_ST:
+case RT5645_IL_CMD:
+case RT5650_4BTN_IL_CMD1:
+case RT5645_VENDOR_ID:
+case RT5645_VENDOR_ID1:
+case RT5645_VENDOR_ID2:
+return true;
+default:
+return false;
+}
+}
+static bool rt5645_readable_register(struct device *dev, unsigned int reg)
+{
+int i;
+for (i = 0; i < ARRAY_SIZE(rt5645_ranges); i++) {
+if (reg >= rt5645_ranges[i].range_min &&
+reg <= rt5645_ranges[i].range_max) {
+return true;
+}
+}
+switch (reg) {
+case RT5645_RESET:
+case RT5645_SPK_VOL:
+case RT5645_HP_VOL:
+case RT5645_LOUT1:
+case RT5645_IN1_CTRL1:
+case RT5645_IN1_CTRL2:
+case RT5645_IN1_CTRL3:
+case RT5645_IN2_CTRL:
+case RT5645_INL1_INR1_VOL:
+case RT5645_SPK_FUNC_LIM:
+case RT5645_ADJ_HPF_CTRL:
+case RT5645_DAC1_DIG_VOL:
+case RT5645_DAC2_DIG_VOL:
+case RT5645_DAC_CTRL:
+case RT5645_STO1_ADC_DIG_VOL:
+case RT5645_MONO_ADC_DIG_VOL:
+case RT5645_ADC_BST_VOL1:
+case RT5645_ADC_BST_VOL2:
+case RT5645_STO1_ADC_MIXER:
+case RT5645_MONO_ADC_MIXER:
+case RT5645_AD_DA_MIXER:
+case RT5645_STO_DAC_MIXER:
+case RT5645_MONO_DAC_MIXER:
+case RT5645_DIG_MIXER:
+case RT5650_A_DAC_SOUR:
+case RT5645_DIG_INF1_DATA:
+case RT5645_PDM_OUT_CTRL:
+case RT5645_REC_L1_MIXER:
+case RT5645_REC_L2_MIXER:
+case RT5645_REC_R1_MIXER:
+case RT5645_REC_R2_MIXER:
+case RT5645_HPMIXL_CTRL:
+case RT5645_HPOMIXL_CTRL:
+case RT5645_HPMIXR_CTRL:
+case RT5645_HPOMIXR_CTRL:
+case RT5645_HPO_MIXER:
+case RT5645_SPK_L_MIXER:
+case RT5645_SPK_R_MIXER:
+case RT5645_SPO_MIXER:
+case RT5645_SPO_CLSD_RATIO:
+case RT5645_OUT_L1_MIXER:
+case RT5645_OUT_R1_MIXER:
+case RT5645_OUT_L_GAIN1:
+case RT5645_OUT_L_GAIN2:
+case RT5645_OUT_R_GAIN1:
+case RT5645_OUT_R_GAIN2:
+case RT5645_LOUT_MIXER:
+case RT5645_HAPTIC_CTRL1:
+case RT5645_HAPTIC_CTRL2:
+case RT5645_HAPTIC_CTRL3:
+case RT5645_HAPTIC_CTRL4:
+case RT5645_HAPTIC_CTRL5:
+case RT5645_HAPTIC_CTRL6:
+case RT5645_HAPTIC_CTRL7:
+case RT5645_HAPTIC_CTRL8:
+case RT5645_HAPTIC_CTRL9:
+case RT5645_HAPTIC_CTRL10:
+case RT5645_PWR_DIG1:
+case RT5645_PWR_DIG2:
+case RT5645_PWR_ANLG1:
+case RT5645_PWR_ANLG2:
+case RT5645_PWR_MIXER:
+case RT5645_PWR_VOL:
+case RT5645_PRIV_INDEX:
+case RT5645_PRIV_DATA:
+case RT5645_I2S1_SDP:
+case RT5645_I2S2_SDP:
+case RT5645_ADDA_CLK1:
+case RT5645_ADDA_CLK2:
+case RT5645_DMIC_CTRL1:
+case RT5645_DMIC_CTRL2:
+case RT5645_TDM_CTRL_1:
+case RT5645_TDM_CTRL_2:
+case RT5645_TDM_CTRL_3:
+case RT5650_TDM_CTRL_4:
+case RT5645_GLB_CLK:
+case RT5645_PLL_CTRL1:
+case RT5645_PLL_CTRL2:
+case RT5645_ASRC_1:
+case RT5645_ASRC_2:
+case RT5645_ASRC_3:
+case RT5645_ASRC_4:
+case RT5645_DEPOP_M1:
+case RT5645_DEPOP_M2:
+case RT5645_DEPOP_M3:
+case RT5645_CHARGE_PUMP:
+case RT5645_MICBIAS:
+case RT5645_A_JD_CTRL1:
+case RT5645_VAD_CTRL4:
+case RT5645_CLSD_OUT_CTRL:
+case RT5645_ADC_EQ_CTRL1:
+case RT5645_ADC_EQ_CTRL2:
+case RT5645_EQ_CTRL1:
+case RT5645_EQ_CTRL2:
+case RT5645_ALC_CTRL_1:
+case RT5645_ALC_CTRL_2:
+case RT5645_ALC_CTRL_3:
+case RT5645_ALC_CTRL_4:
+case RT5645_ALC_CTRL_5:
+case RT5645_JD_CTRL:
+case RT5645_IRQ_CTRL1:
+case RT5645_IRQ_CTRL2:
+case RT5645_IRQ_CTRL3:
+case RT5645_INT_IRQ_ST:
+case RT5645_GPIO_CTRL1:
+case RT5645_GPIO_CTRL2:
+case RT5645_GPIO_CTRL3:
+case RT5645_BASS_BACK:
+case RT5645_MP3_PLUS1:
+case RT5645_MP3_PLUS2:
+case RT5645_ADJ_HPF1:
+case RT5645_ADJ_HPF2:
+case RT5645_HP_CALIB_AMP_DET:
+case RT5645_SV_ZCD1:
+case RT5645_SV_ZCD2:
+case RT5645_IL_CMD:
+case RT5645_IL_CMD2:
+case RT5645_IL_CMD3:
+case RT5650_4BTN_IL_CMD1:
+case RT5650_4BTN_IL_CMD2:
+case RT5645_DRC1_HL_CTRL1:
+case RT5645_DRC2_HL_CTRL1:
+case RT5645_ADC_MONO_HP_CTRL1:
+case RT5645_ADC_MONO_HP_CTRL2:
+case RT5645_DRC2_CTRL1:
+case RT5645_DRC2_CTRL2:
+case RT5645_DRC2_CTRL3:
+case RT5645_DRC2_CTRL4:
+case RT5645_DRC2_CTRL5:
+case RT5645_JD_CTRL3:
+case RT5645_JD_CTRL4:
+case RT5645_GEN_CTRL1:
+case RT5645_GEN_CTRL2:
+case RT5645_GEN_CTRL3:
+case RT5645_VENDOR_ID:
+case RT5645_VENDOR_ID1:
+case RT5645_VENDOR_ID2:
+return true;
+default:
+return false;
+}
+}
+static int rt5645_hweq_info(struct snd_kcontrol *kcontrol,
+struct snd_ctl_elem_info *uinfo)
+{
+uinfo->type = SNDRV_CTL_ELEM_TYPE_BYTES;
+uinfo->count = RT5645_HWEQ_NUM * sizeof(struct rt5645_eq_param_s);
+return 0;
+}
+static int rt5645_hweq_get(struct snd_kcontrol *kcontrol,
+struct snd_ctl_elem_value *ucontrol)
+{
+struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
+struct rt5645_priv *rt5645 = snd_soc_component_get_drvdata(component);
+struct rt5645_eq_param_s *eq_param =
+(struct rt5645_eq_param_s *)ucontrol->value.bytes.data;
+int i;
+for (i = 0; i < RT5645_HWEQ_NUM; i++) {
+eq_param[i].reg = cpu_to_be16(rt5645->eq_param[i].reg);
+eq_param[i].val = cpu_to_be16(rt5645->eq_param[i].val);
+}
+return 0;
+}
+static bool rt5645_validate_hweq(unsigned short reg)
+{
+if ((reg >= 0x1a4 && reg <= 0x1cd) | (reg >= 0x1e5 && reg <= 0x1f8) |
+(reg == RT5645_EQ_CTRL2))
+return true;
+return false;
+}
+static int rt5645_hweq_put(struct snd_kcontrol *kcontrol,
+struct snd_ctl_elem_value *ucontrol)
+{
+struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
+struct rt5645_priv *rt5645 = snd_soc_component_get_drvdata(component);
+struct rt5645_eq_param_s *eq_param =
+(struct rt5645_eq_param_s *)ucontrol->value.bytes.data;
+int i;
+for (i = 0; i < RT5645_HWEQ_NUM; i++) {
+eq_param[i].reg = be16_to_cpu(eq_param[i].reg);
+eq_param[i].val = be16_to_cpu(eq_param[i].val);
+}
+for (i = RT5645_HWEQ_NUM - 1; i >= 0; i--) {
+if (eq_param[i].reg == 0)
+continue;
+else if (eq_param[i].reg != RT5645_EQ_CTRL2)
+return 0;
+else
+break;
+}
+for (i = 0; i < RT5645_HWEQ_NUM; i++) {
+if (!rt5645_validate_hweq(eq_param[i].reg) &&
+eq_param[i].reg != 0)
+return 0;
+else if (eq_param[i].reg == 0)
+break;
+}
+memcpy(rt5645->eq_param, eq_param,
+RT5645_HWEQ_NUM * sizeof(struct rt5645_eq_param_s));
+return 0;
+}
+static int rt5645_spk_put_volsw(struct snd_kcontrol *kcontrol,
+struct snd_ctl_elem_value *ucontrol)
+{
+struct snd_soc_component *component = snd_kcontrol_chip(kcontrol);
+struct rt5645_priv *rt5645 = snd_soc_component_get_drvdata(component);
+int ret;
+regmap_update_bits(rt5645->regmap, RT5645_MICBIAS,
+RT5645_PWR_CLK25M_MASK, RT5645_PWR_CLK25M_PU);
+ret = snd_soc_put_volsw(kcontrol, ucontrol);
+mod_delayed_work(system_power_efficient_wq, &rt5645->rcclock_work,
+msecs_to_jiffies(200));
+return ret;
+}
+static int set_dmic_clk(struct snd_soc_dapm_widget *w,
+struct snd_kcontrol *kcontrol, int event)
+{
+struct snd_soc_codec *codec = snd_soc_dapm_to_codec(w->dapm);
+struct rt5645_priv *rt5645 = snd_soc_codec_get_drvdata(codec);
+int idx, rate;
+rate = rt5645->sysclk / rl6231_get_pre_div(rt5645->regmap,
+RT5645_ADDA_CLK1, RT5645_I2S_PD1_SFT);
+idx = rl6231_calc_dmic_clk(rate);
+if (idx < 0)
+dev_err(codec->dev, "Failed to set DMIC clock\n");
+else
+snd_soc_update_bits(codec, RT5645_DMIC_CTRL1,
+RT5645_DMIC_CLK_MASK, idx << RT5645_DMIC_CLK_SFT);
+return idx;
+}
+static int is_sys_clk_from_pll(struct snd_soc_dapm_widget *source,
+struct snd_soc_dapm_widget *sink)
+{
+struct snd_soc_codec *codec = snd_soc_dapm_to_codec(source->dapm);
+unsigned int val;
+val = snd_soc_read(codec, RT5645_GLB_CLK);
+val &= RT5645_SCLK_SRC_MASK;
+if (val == RT5645_SCLK_SRC_PLL1)
+return 1;
+else
+return 0;
+}
+static int is_using_asrc(struct snd_soc_dapm_widget *source,
+struct snd_soc_dapm_widget *sink)
+{
+struct snd_soc_codec *codec = snd_soc_dapm_to_codec(source->dapm);
+unsigned int reg, shift, val;
+switch (source->shift) {
+case 0:
+reg = RT5645_ASRC_3;
+shift = 0;
+break;
+case 1:
+reg = RT5645_ASRC_3;
+shift = 4;
+break;
+case 3:
+reg = RT5645_ASRC_2;
+shift = 0;
+break;
+case 8:
+reg = RT5645_ASRC_2;
+shift = 4;
+break;
+case 9:
+reg = RT5645_ASRC_2;
+shift = 8;
+break;
+case 10:
+reg = RT5645_ASRC_2;
+shift = 12;
+break;
+default:
+return 0;
+}
+val = (snd_soc_read(codec, reg) >> shift) & 0xf;
+switch (val) {
+case 1:
+case 2:
+case 3:
+case 4:
+return 1;
+default:
+return 0;
+}
+}
+static int rt5645_enable_hweq(struct snd_soc_codec *codec)
+{
+struct rt5645_priv *rt5645 = snd_soc_codec_get_drvdata(codec);
+int i;
+for (i = 0; i < RT5645_HWEQ_NUM; i++) {
+if (rt5645_validate_hweq(rt5645->eq_param[i].reg))
+regmap_write(rt5645->regmap, rt5645->eq_param[i].reg,
+rt5645->eq_param[i].val);
+else
+break;
+}
+return 0;
+}
+int rt5645_sel_asrc_clk_src(struct snd_soc_codec *codec,
+unsigned int filter_mask, unsigned int clk_src)
+{
+unsigned int asrc2_mask = 0;
+unsigned int asrc2_value = 0;
+unsigned int asrc3_mask = 0;
+unsigned int asrc3_value = 0;
+switch (clk_src) {
+case RT5645_CLK_SEL_SYS:
+case RT5645_CLK_SEL_I2S1_ASRC:
+case RT5645_CLK_SEL_I2S2_ASRC:
+case RT5645_CLK_SEL_SYS2:
+break;
+default:
+return -EINVAL;
+}
+if (filter_mask & RT5645_DA_STEREO_FILTER) {
+asrc2_mask |= RT5645_DA_STO_CLK_SEL_MASK;
+asrc2_value = (asrc2_value & ~RT5645_DA_STO_CLK_SEL_MASK)
+| (clk_src << RT5645_DA_STO_CLK_SEL_SFT);
+}
+if (filter_mask & RT5645_DA_MONO_L_FILTER) {
+asrc2_mask |= RT5645_DA_MONOL_CLK_SEL_MASK;
+asrc2_value = (asrc2_value & ~RT5645_DA_MONOL_CLK_SEL_MASK)
+| (clk_src << RT5645_DA_MONOL_CLK_SEL_SFT);
+}
+if (filter_mask & RT5645_DA_MONO_R_FILTER) {
+asrc2_mask |= RT5645_DA_MONOR_CLK_SEL_MASK;
+asrc2_value = (asrc2_value & ~RT5645_DA_MONOR_CLK_SEL_MASK)
+| (clk_src << RT5645_DA_MONOR_CLK_SEL_SFT);
+}
+if (filter_mask & RT5645_AD_STEREO_FILTER) {
+asrc2_mask |= RT5645_AD_STO1_CLK_SEL_MASK;
+asrc2_value = (asrc2_value & ~RT5645_AD_STO1_CLK_SEL_MASK)
+| (clk_src << RT5645_AD_STO1_CLK_SEL_SFT);
+}
+if (filter_mask & RT5645_AD_MONO_L_FILTER) {
+asrc3_mask |= RT5645_AD_MONOL_CLK_SEL_MASK;
+asrc3_value = (asrc3_value & ~RT5645_AD_MONOL_CLK_SEL_MASK)
+| (clk_src << RT5645_AD_MONOL_CLK_SEL_SFT);
+}
+if (filter_mask & RT5645_AD_MONO_R_FILTER) {
+asrc3_mask |= RT5645_AD_MONOR_CLK_SEL_MASK;
+asrc3_value = (asrc3_value & ~RT5645_AD_MONOR_CLK_SEL_MASK)
+| (clk_src << RT5645_AD_MONOR_CLK_SEL_SFT);
+}
+if (asrc2_mask)
+snd_soc_update_bits(codec, RT5645_ASRC_2,
+asrc2_mask, asrc2_value);
+if (asrc3_mask)
+snd_soc_update_bits(codec, RT5645_ASRC_3,
+asrc3_mask, asrc3_value);
+return 0;
+}
+static void hp_amp_power(struct snd_soc_codec *codec, int on)
+{
+static int hp_amp_power_count;
+struct rt5645_priv *rt5645 = snd_soc_codec_get_drvdata(codec);
+if (on) {
+if (hp_amp_power_count <= 0) {
+if (rt5645->codec_type == CODEC_TYPE_RT5650) {
+snd_soc_write(codec, RT5645_DEPOP_M2, 0x3100);
+snd_soc_write(codec, RT5645_CHARGE_PUMP,
+0x0e06);
+snd_soc_write(codec, RT5645_DEPOP_M1, 0x000d);
+regmap_write(rt5645->regmap, RT5645_PR_BASE +
+RT5645_HP_DCC_INT1, 0x9f01);
+msleep(20);
+snd_soc_update_bits(codec, RT5645_DEPOP_M1,
+RT5645_HP_CO_MASK, RT5645_HP_CO_EN);
+regmap_write(rt5645->regmap, RT5645_PR_BASE +
+0x3e, 0x7400);
+snd_soc_write(codec, RT5645_DEPOP_M3, 0x0737);
+regmap_write(rt5645->regmap, RT5645_PR_BASE +
+RT5645_MAMP_INT_REG2, 0xfc00);
+snd_soc_write(codec, RT5645_DEPOP_M2, 0x1140);
+msleep(90);
+rt5645->hp_on = true;
+} else {
+snd_soc_update_bits(codec, RT5645_DEPOP_M2,
+RT5645_DEPOP_MASK, RT5645_DEPOP_MAN);
+snd_soc_write(codec, RT5645_DEPOP_M1, 0x000d);
+regmap_write(rt5645->regmap, RT5645_PR_BASE +
+RT5645_HP_DCC_INT1, 0x9f01);
+mdelay(150);
+snd_soc_update_bits(codec, RT5645_PWR_ANLG1,
+RT5645_PWR_FV1 | RT5645_PWR_FV2, 0);
+snd_soc_update_bits(codec, RT5645_PWR_VOL,
+RT5645_PWR_HV_L | RT5645_PWR_HV_R,
+RT5645_PWR_HV_L | RT5645_PWR_HV_R);
+snd_soc_update_bits(codec, RT5645_PWR_ANLG1,
+RT5645_PWR_HP_L | RT5645_PWR_HP_R |
+RT5645_PWR_HA,
+RT5645_PWR_HP_L | RT5645_PWR_HP_R |
+RT5645_PWR_HA);
+mdelay(5);
+snd_soc_update_bits(codec, RT5645_PWR_ANLG1,
+RT5645_PWR_FV1 | RT5645_PWR_FV2,
+RT5645_PWR_FV1 | RT5645_PWR_FV2);
+snd_soc_update_bits(codec, RT5645_DEPOP_M1,
+RT5645_HP_CO_MASK | RT5645_HP_SG_MASK,
+RT5645_HP_CO_EN | RT5645_HP_SG_EN);
+regmap_write(rt5645->regmap, RT5645_PR_BASE +
+0x14, 0x1aaa);
+regmap_write(rt5645->regmap, RT5645_PR_BASE +
+0x24, 0x0430);
+}
+}
+hp_amp_power_count++;
+} else {
+hp_amp_power_count--;
+if (hp_amp_power_count <= 0) {
+if (rt5645->codec_type == CODEC_TYPE_RT5650) {
+regmap_write(rt5645->regmap, RT5645_PR_BASE +
+0x3e, 0x7400);
+snd_soc_write(codec, RT5645_DEPOP_M3, 0x0737);
+regmap_write(rt5645->regmap, RT5645_PR_BASE +
+RT5645_MAMP_INT_REG2, 0xfc00);
+snd_soc_write(codec, RT5645_DEPOP_M2, 0x1140);
+msleep(100);
+snd_soc_write(codec, RT5645_DEPOP_M1, 0x0001);
+} else {
+snd_soc_update_bits(codec, RT5645_DEPOP_M1,
+RT5645_HP_SG_MASK |
+RT5645_HP_L_SMT_MASK |
+RT5645_HP_R_SMT_MASK,
+RT5645_HP_SG_DIS |
+RT5645_HP_L_SMT_DIS |
+RT5645_HP_R_SMT_DIS);
+snd_soc_write(codec, RT5645_DEPOP_M1, 0x0000);
+snd_soc_update_bits(codec, RT5645_PWR_ANLG1,
+RT5645_PWR_HP_L | RT5645_PWR_HP_R |
+RT5645_PWR_HA, 0);
+snd_soc_update_bits(codec, RT5645_DEPOP_M2,
+RT5645_DEPOP_MASK, 0);
+}
+}
+}
+}
+static int rt5645_hp_event(struct snd_soc_dapm_widget *w,
+struct snd_kcontrol *kcontrol, int event)
+{
+struct snd_soc_codec *codec = snd_soc_dapm_to_codec(w->dapm);
+struct rt5645_priv *rt5645 = snd_soc_codec_get_drvdata(codec);
+switch (event) {
+case SND_SOC_DAPM_POST_PMU:
+hp_amp_power(codec, 1);
+if (rt5645->codec_type == CODEC_TYPE_RT5645) {
+snd_soc_update_bits(codec, RT5645_DEPOP_M3,
+RT5645_CP_FQ1_MASK | RT5645_CP_FQ2_MASK |
+RT5645_CP_FQ3_MASK,
+(RT5645_CP_FQ_192_KHZ << RT5645_CP_FQ1_SFT) |
+(RT5645_CP_FQ_12_KHZ << RT5645_CP_FQ2_SFT) |
+(RT5645_CP_FQ_192_KHZ << RT5645_CP_FQ3_SFT));
+regmap_write(rt5645->regmap, RT5645_PR_BASE +
+RT5645_MAMP_INT_REG2, 0xfc00);
+snd_soc_update_bits(codec, RT5645_DEPOP_M1,
+RT5645_SMT_TRIG_MASK, RT5645_SMT_TRIG_EN);
+snd_soc_update_bits(codec, RT5645_DEPOP_M1,
+RT5645_RSTN_MASK, RT5645_RSTN_EN);
+snd_soc_update_bits(codec, RT5645_DEPOP_M1,
+RT5645_RSTN_MASK | RT5645_HP_L_SMT_MASK |
+RT5645_HP_R_SMT_MASK, RT5645_RSTN_DIS |
+RT5645_HP_L_SMT_EN | RT5645_HP_R_SMT_EN);
+msleep(40);
+snd_soc_update_bits(codec, RT5645_DEPOP_M1,
+RT5645_HP_SG_MASK | RT5645_HP_L_SMT_MASK |
+RT5645_HP_R_SMT_MASK, RT5645_HP_SG_DIS |
+RT5645_HP_L_SMT_DIS | RT5645_HP_R_SMT_DIS);
+}
+break;
+case SND_SOC_DAPM_PRE_PMD:
+if (rt5645->codec_type == CODEC_TYPE_RT5645) {
+snd_soc_update_bits(codec, RT5645_DEPOP_M3,
+RT5645_CP_FQ1_MASK | RT5645_CP_FQ2_MASK |
+RT5645_CP_FQ3_MASK,
+(RT5645_CP_FQ_96_KHZ << RT5645_CP_FQ1_SFT) |
+(RT5645_CP_FQ_12_KHZ << RT5645_CP_FQ2_SFT) |
+(RT5645_CP_FQ_96_KHZ << RT5645_CP_FQ3_SFT));
+regmap_write(rt5645->regmap, RT5645_PR_BASE +
+RT5645_MAMP_INT_REG2, 0xfc00);
+snd_soc_update_bits(codec, RT5645_DEPOP_M1,
+RT5645_HP_SG_MASK, RT5645_HP_SG_EN);
+snd_soc_update_bits(codec, RT5645_DEPOP_M1,
+RT5645_RSTP_MASK, RT5645_RSTP_EN);
+snd_soc_update_bits(codec, RT5645_DEPOP_M1,
+RT5645_RSTP_MASK | RT5645_HP_L_SMT_MASK |
+RT5645_HP_R_SMT_MASK, RT5645_RSTP_DIS |
+RT5645_HP_L_SMT_EN | RT5645_HP_R_SMT_EN);
+msleep(30);
+}
+hp_amp_power(codec, 0);
+break;
+default:
+return 0;
+}
+return 0;
+}
+static int rt5645_spk_event(struct snd_soc_dapm_widget *w,
+struct snd_kcontrol *kcontrol, int event)
+{
+struct snd_soc_codec *codec = snd_soc_dapm_to_codec(w->dapm);
+switch (event) {
+case SND_SOC_DAPM_POST_PMU:
+rt5645_enable_hweq(codec);
+snd_soc_update_bits(codec, RT5645_PWR_DIG1,
+RT5645_PWR_CLS_D | RT5645_PWR_CLS_D_R |
+RT5645_PWR_CLS_D_L,
+RT5645_PWR_CLS_D | RT5645_PWR_CLS_D_R |
+RT5645_PWR_CLS_D_L);
+snd_soc_update_bits(codec, RT5645_GEN_CTRL3,
+RT5645_DET_CLK_MASK, RT5645_DET_CLK_MODE1);
+break;
+case SND_SOC_DAPM_PRE_PMD:
+snd_soc_update_bits(codec, RT5645_GEN_CTRL3,
+RT5645_DET_CLK_MASK, RT5645_DET_CLK_DIS);
+snd_soc_write(codec, RT5645_EQ_CTRL2, 0);
+snd_soc_update_bits(codec, RT5645_PWR_DIG1,
+RT5645_PWR_CLS_D | RT5645_PWR_CLS_D_R |
+RT5645_PWR_CLS_D_L, 0);
+break;
+default:
+return 0;
+}
+return 0;
+}
+static int rt5645_lout_event(struct snd_soc_dapm_widget *w,
+struct snd_kcontrol *kcontrol, int event)
+{
+struct snd_soc_codec *codec = snd_soc_dapm_to_codec(w->dapm);
+switch (event) {
+case SND_SOC_DAPM_POST_PMU:
+hp_amp_power(codec, 1);
+snd_soc_update_bits(codec, RT5645_PWR_ANLG1,
+RT5645_PWR_LM, RT5645_PWR_LM);
+snd_soc_update_bits(codec, RT5645_LOUT1,
+RT5645_L_MUTE | RT5645_R_MUTE, 0);
+break;
+case SND_SOC_DAPM_PRE_PMD:
+snd_soc_update_bits(codec, RT5645_LOUT1,
+RT5645_L_MUTE | RT5645_R_MUTE,
+RT5645_L_MUTE | RT5645_R_MUTE);
+snd_soc_update_bits(codec, RT5645_PWR_ANLG1,
+RT5645_PWR_LM, 0);
+hp_amp_power(codec, 0);
+break;
+default:
+return 0;
+}
+return 0;
+}
+static int rt5645_bst2_event(struct snd_soc_dapm_widget *w,
+struct snd_kcontrol *kcontrol, int event)
+{
+struct snd_soc_codec *codec = snd_soc_dapm_to_codec(w->dapm);
+switch (event) {
+case SND_SOC_DAPM_POST_PMU:
+snd_soc_update_bits(codec, RT5645_PWR_ANLG2,
+RT5645_PWR_BST2_P, RT5645_PWR_BST2_P);
+break;
+case SND_SOC_DAPM_PRE_PMD:
+snd_soc_update_bits(codec, RT5645_PWR_ANLG2,
+RT5645_PWR_BST2_P, 0);
+break;
+default:
+return 0;
+}
+return 0;
+}
+static int rt5650_hp_event(struct snd_soc_dapm_widget *w,
+struct snd_kcontrol *k, int event)
+{
+struct snd_soc_codec *codec = snd_soc_dapm_to_codec(w->dapm);
+struct rt5645_priv *rt5645 = snd_soc_codec_get_drvdata(codec);
+switch (event) {
+case SND_SOC_DAPM_POST_PMU:
+if (rt5645->hp_on) {
+msleep(100);
+rt5645->hp_on = false;
+}
+break;
+default:
+return 0;
+}
+return 0;
+}
+static int rt5645_hw_params(struct snd_pcm_substream *substream,
+struct snd_pcm_hw_params *params, struct snd_soc_dai *dai)
+{
+struct snd_soc_codec *codec = dai->codec;
+struct rt5645_priv *rt5645 = snd_soc_codec_get_drvdata(codec);
+unsigned int val_len = 0, val_clk, mask_clk, dl_sft;
+int pre_div, bclk_ms, frame_size;
+rt5645->lrck[dai->id] = params_rate(params);
+pre_div = rl6231_get_clk_info(rt5645->sysclk, rt5645->lrck[dai->id]);
+if (pre_div < 0) {
+dev_err(codec->dev, "Unsupported clock setting\n");
+return -EINVAL;
+}
+frame_size = snd_soc_params_to_frame_size(params);
+if (frame_size < 0) {
+dev_err(codec->dev, "Unsupported frame size: %d\n", frame_size);
+return -EINVAL;
+}
+switch (rt5645->codec_type) {
+case CODEC_TYPE_RT5650:
+dl_sft = 4;
+break;
+default:
+dl_sft = 2;
+break;
+}
+bclk_ms = frame_size > 32;
+rt5645->bclk[dai->id] = rt5645->lrck[dai->id] * (32 << bclk_ms);
+dev_dbg(dai->dev, "bclk is %dHz and lrck is %dHz\n",
+rt5645->bclk[dai->id], rt5645->lrck[dai->id]);
+dev_dbg(dai->dev, "bclk_ms is %d and pre_div is %d for iis %d\n",
+bclk_ms, pre_div, dai->id);
+switch (params_width(params)) {
+case 16:
+break;
+case 20:
+val_len = 0x1;
+break;
+case 24:
+val_len = 0x2;
+break;
+case 8:
+val_len = 0x3;
+break;
+default:
+return -EINVAL;
+}
+switch (dai->id) {
+case RT5645_AIF1:
+mask_clk = RT5645_I2S_PD1_MASK;
+val_clk = pre_div << RT5645_I2S_PD1_SFT;
+snd_soc_update_bits(codec, RT5645_I2S1_SDP,
+(0x3 << dl_sft), (val_len << dl_sft));
+snd_soc_update_bits(codec, RT5645_ADDA_CLK1, mask_clk, val_clk);
+break;
+case RT5645_AIF2:
+mask_clk = RT5645_I2S_BCLK_MS2_MASK | RT5645_I2S_PD2_MASK;
+val_clk = bclk_ms << RT5645_I2S_BCLK_MS2_SFT |
+pre_div << RT5645_I2S_PD2_SFT;
+snd_soc_update_bits(codec, RT5645_I2S2_SDP,
+(0x3 << dl_sft), (val_len << dl_sft));
+snd_soc_update_bits(codec, RT5645_ADDA_CLK1, mask_clk, val_clk);
+break;
+default:
+dev_err(codec->dev, "Invalid dai->id: %d\n", dai->id);
+return -EINVAL;
+}
+return 0;
+}
+static int rt5645_set_dai_fmt(struct snd_soc_dai *dai, unsigned int fmt)
+{
+struct snd_soc_codec *codec = dai->codec;
+struct rt5645_priv *rt5645 = snd_soc_codec_get_drvdata(codec);
+unsigned int reg_val = 0, pol_sft;
+switch (rt5645->codec_type) {
+case CODEC_TYPE_RT5650:
+pol_sft = 8;
+break;
+default:
+pol_sft = 7;
+break;
+}
+switch (fmt & SND_SOC_DAIFMT_MASTER_MASK) {
+case SND_SOC_DAIFMT_CBM_CFM:
+rt5645->master[dai->id] = 1;
+break;
+case SND_SOC_DAIFMT_CBS_CFS:
+reg_val |= RT5645_I2S_MS_S;
+rt5645->master[dai->id] = 0;
+break;
+default:
+return -EINVAL;
+}
+switch (fmt & SND_SOC_DAIFMT_INV_MASK) {
+case SND_SOC_DAIFMT_NB_NF:
+break;
+case SND_SOC_DAIFMT_IB_NF:
+reg_val |= (1 << pol_sft);
+break;
+default:
+return -EINVAL;
+}
+switch (fmt & SND_SOC_DAIFMT_FORMAT_MASK) {
+case SND_SOC_DAIFMT_I2S:
+break;
+case SND_SOC_DAIFMT_LEFT_J:
+reg_val |= RT5645_I2S_DF_LEFT;
+break;
+case SND_SOC_DAIFMT_DSP_A:
+reg_val |= RT5645_I2S_DF_PCM_A;
+break;
+case SND_SOC_DAIFMT_DSP_B:
+reg_val |= RT5645_I2S_DF_PCM_B;
+break;
+default:
+return -EINVAL;
+}
+switch (dai->id) {
+case RT5645_AIF1:
+snd_soc_update_bits(codec, RT5645_I2S1_SDP,
+RT5645_I2S_MS_MASK | (1 << pol_sft) |
+RT5645_I2S_DF_MASK, reg_val);
+break;
+case RT5645_AIF2:
+snd_soc_update_bits(codec, RT5645_I2S2_SDP,
+RT5645_I2S_MS_MASK | (1 << pol_sft) |
+RT5645_I2S_DF_MASK, reg_val);
+break;
+default:
+dev_err(codec->dev, "Invalid dai->id: %d\n", dai->id);
+return -EINVAL;
+}
+return 0;
+}
+static int rt5645_set_dai_sysclk(struct snd_soc_dai *dai,
+int clk_id, unsigned int freq, int dir)
+{
+struct snd_soc_codec *codec = dai->codec;
+struct rt5645_priv *rt5645 = snd_soc_codec_get_drvdata(codec);
+unsigned int reg_val = 0;
+if (freq == rt5645->sysclk && clk_id == rt5645->sysclk_src)
+return 0;
+switch (clk_id) {
+case RT5645_SCLK_S_MCLK:
+reg_val |= RT5645_SCLK_SRC_MCLK;
+break;
+case RT5645_SCLK_S_PLL1:
+reg_val |= RT5645_SCLK_SRC_PLL1;
+break;
+case RT5645_SCLK_S_RCCLK:
+reg_val |= RT5645_SCLK_SRC_RCCLK;
+break;
+default:
+dev_err(codec->dev, "Invalid clock id (%d)\n", clk_id);
+return -EINVAL;
+}
+snd_soc_update_bits(codec, RT5645_GLB_CLK,
+RT5645_SCLK_SRC_MASK, reg_val);
+rt5645->sysclk = freq;
+rt5645->sysclk_src = clk_id;
+dev_dbg(dai->dev, "Sysclk is %dHz and clock id is %d\n", freq, clk_id);
+return 0;
+}
+static int rt5645_set_dai_pll(struct snd_soc_dai *dai, int pll_id, int source,
+unsigned int freq_in, unsigned int freq_out)
+{
+struct snd_soc_codec *codec = dai->codec;
+struct rt5645_priv *rt5645 = snd_soc_codec_get_drvdata(codec);
+struct rl6231_pll_code pll_code;
+int ret;
+if (source == rt5645->pll_src && freq_in == rt5645->pll_in &&
+freq_out == rt5645->pll_out)
+return 0;
+if (!freq_in || !freq_out) {
+dev_dbg(codec->dev, "PLL disabled\n");
+rt5645->pll_in = 0;
+rt5645->pll_out = 0;
+snd_soc_update_bits(codec, RT5645_GLB_CLK,
+RT5645_SCLK_SRC_MASK, RT5645_SCLK_SRC_MCLK);
+return 0;
+}
+switch (source) {
+case RT5645_PLL1_S_MCLK:
+snd_soc_update_bits(codec, RT5645_GLB_CLK,
+RT5645_PLL1_SRC_MASK, RT5645_PLL1_SRC_MCLK);
+break;
+case RT5645_PLL1_S_BCLK1:
+case RT5645_PLL1_S_BCLK2:
+switch (dai->id) {
+case RT5645_AIF1:
+snd_soc_update_bits(codec, RT5645_GLB_CLK,
+RT5645_PLL1_SRC_MASK, RT5645_PLL1_SRC_BCLK1);
+break;
+case RT5645_AIF2:
+snd_soc_update_bits(codec, RT5645_GLB_CLK,
+RT5645_PLL1_SRC_MASK, RT5645_PLL1_SRC_BCLK2);
+break;
+default:
+dev_err(codec->dev, "Invalid dai->id: %d\n", dai->id);
+return -EINVAL;
+}
+break;
+default:
+dev_err(codec->dev, "Unknown PLL source %d\n", source);
+return -EINVAL;
+}
+ret = rl6231_pll_calc(freq_in, freq_out, &pll_code);
+if (ret < 0) {
+dev_err(codec->dev, "Unsupport input clock %d\n", freq_in);
+return ret;
+}
+dev_dbg(codec->dev, "bypass=%d m=%d n=%d k=%d\n",
+pll_code.m_bp, (pll_code.m_bp ? 0 : pll_code.m_code),
+pll_code.n_code, pll_code.k_code);
+snd_soc_write(codec, RT5645_PLL_CTRL1,
+pll_code.n_code << RT5645_PLL_N_SFT | pll_code.k_code);
+snd_soc_write(codec, RT5645_PLL_CTRL2,
+(pll_code.m_bp ? 0 : pll_code.m_code) << RT5645_PLL_M_SFT |
+pll_code.m_bp << RT5645_PLL_M_BP_SFT);
+rt5645->pll_in = freq_in;
+rt5645->pll_out = freq_out;
+rt5645->pll_src = source;
+return 0;
+}
+static int rt5645_set_tdm_slot(struct snd_soc_dai *dai, unsigned int tx_mask,
+unsigned int rx_mask, int slots, int slot_width)
+{
+struct snd_soc_codec *codec = dai->codec;
+struct rt5645_priv *rt5645 = snd_soc_codec_get_drvdata(codec);
+unsigned int i_slot_sft, o_slot_sft, i_width_sht, o_width_sht, en_sft;
+unsigned int mask, val = 0;
+switch (rt5645->codec_type) {
+case CODEC_TYPE_RT5650:
+en_sft = 15;
+i_slot_sft = 10;
+o_slot_sft = 8;
+i_width_sht = 6;
+o_width_sht = 4;
+mask = 0x8ff0;
+break;
+default:
+en_sft = 14;
+i_slot_sft = o_slot_sft = 12;
+i_width_sht = o_width_sht = 10;
+mask = 0x7c00;
+break;
+}
+if (rx_mask || tx_mask) {
+val |= (1 << en_sft);
+if (rt5645->codec_type == CODEC_TYPE_RT5645)
+snd_soc_update_bits(codec, RT5645_BASS_BACK,
+RT5645_G_BB_BST_MASK, RT5645_G_BB_BST_25DB);
+}
+switch (slots) {
+case 4:
+val |= (1 << i_slot_sft) | (1 << o_slot_sft);
+break;
+case 6:
+val |= (2 << i_slot_sft) | (2 << o_slot_sft);
+break;
+case 8:
+val |= (3 << i_slot_sft) | (3 << o_slot_sft);
+break;
+case 2:
+default:
+break;
+}
+switch (slot_width) {
+case 20:
+val |= (1 << i_width_sht) | (1 << o_width_sht);
+break;
+case 24:
+val |= (2 << i_width_sht) | (2 << o_width_sht);
+break;
+case 32:
+val |= (3 << i_width_sht) | (3 << o_width_sht);
+break;
+case 16:
+default:
+break;
+}
+snd_soc_update_bits(codec, RT5645_TDM_CTRL_1, mask, val);
+return 0;
+}
+static int rt5645_set_bias_level(struct snd_soc_codec *codec,
+enum snd_soc_bias_level level)
+{
+struct rt5645_priv *rt5645 = snd_soc_codec_get_drvdata(codec);
+switch (level) {
+case SND_SOC_BIAS_PREPARE:
+if (SND_SOC_BIAS_STANDBY == snd_soc_codec_get_bias_level(codec)) {
+snd_soc_update_bits(codec, RT5645_PWR_ANLG1,
+RT5645_PWR_VREF1 | RT5645_PWR_MB |
+RT5645_PWR_BG | RT5645_PWR_VREF2,
+RT5645_PWR_VREF1 | RT5645_PWR_MB |
+RT5645_PWR_BG | RT5645_PWR_VREF2);
+mdelay(10);
+snd_soc_update_bits(codec, RT5645_PWR_ANLG1,
+RT5645_PWR_FV1 | RT5645_PWR_FV2,
+RT5645_PWR_FV1 | RT5645_PWR_FV2);
+snd_soc_update_bits(codec, RT5645_GEN_CTRL1,
+RT5645_DIG_GATE_CTRL, RT5645_DIG_GATE_CTRL);
+}
+break;
+case SND_SOC_BIAS_STANDBY:
+snd_soc_update_bits(codec, RT5645_PWR_ANLG1,
+RT5645_PWR_VREF1 | RT5645_PWR_MB |
+RT5645_PWR_BG | RT5645_PWR_VREF2,
+RT5645_PWR_VREF1 | RT5645_PWR_MB |
+RT5645_PWR_BG | RT5645_PWR_VREF2);
+mdelay(10);
+snd_soc_update_bits(codec, RT5645_PWR_ANLG1,
+RT5645_PWR_FV1 | RT5645_PWR_FV2,
+RT5645_PWR_FV1 | RT5645_PWR_FV2);
+if (snd_soc_codec_get_bias_level(codec) == SND_SOC_BIAS_OFF) {
+snd_soc_write(codec, RT5645_DEPOP_M2, 0x1140);
+msleep(40);
+if (rt5645->en_button_func)
+queue_delayed_work(system_power_efficient_wq,
+&rt5645->jack_detect_work,
+msecs_to_jiffies(0));
+}
+break;
+case SND_SOC_BIAS_OFF:
+snd_soc_write(codec, RT5645_DEPOP_M2, 0x1100);
+if (!rt5645->en_button_func)
+snd_soc_update_bits(codec, RT5645_GEN_CTRL1,
+RT5645_DIG_GATE_CTRL, 0);
+snd_soc_update_bits(codec, RT5645_PWR_ANLG1,
+RT5645_PWR_VREF1 | RT5645_PWR_MB |
+RT5645_PWR_BG | RT5645_PWR_VREF2 |
+RT5645_PWR_FV1 | RT5645_PWR_FV2, 0x0);
+break;
+default:
+break;
+}
+return 0;
+}
+static void rt5645_enable_push_button_irq(struct snd_soc_codec *codec,
+bool enable)
+{
+struct snd_soc_dapm_context *dapm = snd_soc_codec_get_dapm(codec);
+if (enable) {
+snd_soc_dapm_force_enable_pin(dapm, "ADC L power");
+snd_soc_dapm_force_enable_pin(dapm, "ADC R power");
+snd_soc_dapm_sync(dapm);
+snd_soc_update_bits(codec, RT5650_4BTN_IL_CMD1, 0x3, 0x3);
+snd_soc_update_bits(codec,
+RT5645_INT_IRQ_ST, 0x8, 0x8);
+snd_soc_update_bits(codec,
+RT5650_4BTN_IL_CMD2, 0x8000, 0x8000);
+snd_soc_read(codec, RT5650_4BTN_IL_CMD1);
+pr_debug("%s read %x = %x\n", __func__, RT5650_4BTN_IL_CMD1,
+snd_soc_read(codec, RT5650_4BTN_IL_CMD1));
+} else {
+snd_soc_update_bits(codec, RT5650_4BTN_IL_CMD2, 0x8000, 0x0);
+snd_soc_update_bits(codec, RT5645_INT_IRQ_ST, 0x8, 0x0);
+snd_soc_dapm_disable_pin(dapm, "ADC L power");
+snd_soc_dapm_disable_pin(dapm, "ADC R power");
+snd_soc_dapm_sync(dapm);
+}
+}
+static int rt5645_jack_detect(struct snd_soc_codec *codec, int jack_insert)
+{
+struct snd_soc_dapm_context *dapm = snd_soc_codec_get_dapm(codec);
+struct rt5645_priv *rt5645 = snd_soc_codec_get_drvdata(codec);
+unsigned int val;
+if (jack_insert) {
+regmap_write(rt5645->regmap, RT5645_CHARGE_PUMP, 0x0006);
+snd_soc_dapm_force_enable_pin(dapm, "LDO2");
+snd_soc_dapm_force_enable_pin(dapm, "Mic Det Power");
+snd_soc_dapm_sync(dapm);
+if (!dapm->card->instantiated) {
+regmap_update_bits(rt5645->regmap, RT5645_PWR_ANLG1,
+RT5645_PWR_MB | RT5645_PWR_VREF2,
+RT5645_PWR_MB | RT5645_PWR_VREF2);
+regmap_update_bits(rt5645->regmap, RT5645_PWR_MIXER,
+RT5645_PWR_LDO2, RT5645_PWR_LDO2);
+regmap_update_bits(rt5645->regmap, RT5645_PWR_VOL,
+RT5645_PWR_MIC_DET, RT5645_PWR_MIC_DET);
+}
+regmap_write(rt5645->regmap, RT5645_JD_CTRL3, 0x00f0);
+regmap_update_bits(rt5645->regmap, RT5645_IN1_CTRL2,
+RT5645_CBJ_MN_JD, RT5645_CBJ_MN_JD);
+regmap_update_bits(rt5645->regmap, RT5645_IN1_CTRL1,
+RT5645_CBJ_BST1_EN, RT5645_CBJ_BST1_EN);
+msleep(100);
+regmap_update_bits(rt5645->regmap, RT5645_IN1_CTRL2,
+RT5645_CBJ_MN_JD, 0);
+msleep(600);
+regmap_read(rt5645->regmap, RT5645_IN1_CTRL3, &val);
+val &= 0x7;
+dev_dbg(codec->dev, "val = %d\n", val);
+if (val == 1 || val == 2) {
+rt5645->jack_type = SND_JACK_HEADSET;
+if (rt5645->en_button_func) {
+rt5645_enable_push_button_irq(codec, true);
+}
+} else {
+snd_soc_dapm_disable_pin(dapm, "Mic Det Power");
+snd_soc_dapm_sync(dapm);
+rt5645->jack_type = SND_JACK_HEADPHONE;
+}
+if (rt5645->pdata.jd_invert)
+regmap_update_bits(rt5645->regmap, RT5645_IRQ_CTRL2,
+RT5645_JD_1_1_MASK, RT5645_JD_1_1_NOR);
+} else {
+rt5645->jack_type = 0;
+regmap_update_bits(rt5645->regmap, RT5645_HP_VOL,
+RT5645_L_MUTE | RT5645_R_MUTE,
+RT5645_L_MUTE | RT5645_R_MUTE);
+regmap_update_bits(rt5645->regmap, RT5645_IN1_CTRL2,
+RT5645_CBJ_MN_JD, RT5645_CBJ_MN_JD);
+regmap_update_bits(rt5645->regmap, RT5645_IN1_CTRL1,
+RT5645_CBJ_BST1_EN, 0);
+if (rt5645->en_button_func)
+rt5645_enable_push_button_irq(codec, false);
+if (rt5645->pdata.jd_mode == 0)
+snd_soc_dapm_disable_pin(dapm, "LDO2");
+snd_soc_dapm_disable_pin(dapm, "Mic Det Power");
+snd_soc_dapm_sync(dapm);
+if (rt5645->pdata.jd_invert)
+regmap_update_bits(rt5645->regmap, RT5645_IRQ_CTRL2,
+RT5645_JD_1_1_MASK, RT5645_JD_1_1_INV);
+}
+return rt5645->jack_type;
+}
+static int rt5645_button_detect(struct snd_soc_codec *codec)
+{
+int btn_type, val;
+val = snd_soc_read(codec, RT5650_4BTN_IL_CMD1);
+pr_debug("val=0x%x\n", val);
+btn_type = val & 0xfff0;
+snd_soc_write(codec, RT5650_4BTN_IL_CMD1, val);
+return btn_type;
+}
+int rt5645_set_jack_detect(struct snd_soc_codec *codec,
+struct snd_soc_jack *hp_jack, struct snd_soc_jack *mic_jack,
+struct snd_soc_jack *btn_jack)
+{
+struct rt5645_priv *rt5645 = snd_soc_codec_get_drvdata(codec);
+rt5645->hp_jack = hp_jack;
+rt5645->mic_jack = mic_jack;
+rt5645->btn_jack = btn_jack;
+if (rt5645->btn_jack && rt5645->codec_type == CODEC_TYPE_RT5650) {
+rt5645->en_button_func = true;
+regmap_update_bits(rt5645->regmap, RT5645_GPIO_CTRL1,
+RT5645_GP1_PIN_IRQ, RT5645_GP1_PIN_IRQ);
+regmap_update_bits(rt5645->regmap, RT5645_GEN_CTRL1,
+RT5645_DIG_GATE_CTRL, RT5645_DIG_GATE_CTRL);
+}
+rt5645_irq(0, rt5645);
+return 0;
+}
+static void rt5645_jack_detect_work(struct work_struct *work)
+{
+struct rt5645_priv *rt5645 =
+container_of(work, struct rt5645_priv, jack_detect_work.work);
+int val, btn_type, gpio_state = 0, report = 0;
+if (!rt5645->codec)
+return;
+switch (rt5645->pdata.jd_mode) {
+case 0:
+if (rt5645->gpiod_hp_det) {
+gpio_state = gpiod_get_value(rt5645->gpiod_hp_det);
+dev_dbg(rt5645->codec->dev, "gpio_state = %d\n",
+gpio_state);
+report = rt5645_jack_detect(rt5645->codec, gpio_state);
+}
+snd_soc_jack_report(rt5645->hp_jack,
+report, SND_JACK_HEADPHONE);
+snd_soc_jack_report(rt5645->mic_jack,
+report, SND_JACK_MICROPHONE);
+return;
+case 1:
+val = snd_soc_read(rt5645->codec, RT5645_A_JD_CTRL1) & 0x0070;
+break;
+default:
+val = snd_soc_read(rt5645->codec, RT5645_A_JD_CTRL1) & 0x0020;
+break;
+}
+switch (val) {
+case 0x30:
+case 0x0:
+if (rt5645->jack_type == 0) {
+report = rt5645_jack_detect(rt5645->codec, 1);
+break;
+}
+btn_type = 0;
+if (snd_soc_read(rt5645->codec, RT5645_INT_IRQ_ST) & 0x4) {
+report = SND_JACK_HEADSET;
+btn_type = rt5645_button_detect(rt5645->codec);
+switch (btn_type) {
+case 0x8000:
+case 0x4000:
+case 0x2000:
+report |= SND_JACK_BTN_0;
+break;
+case 0x1000:
+case 0x0800:
+case 0x0400:
+report |= SND_JACK_BTN_1;
+break;
+case 0x0200:
+case 0x0100:
+case 0x0080:
+report |= SND_JACK_BTN_2;
+break;
+case 0x0040:
+case 0x0020:
+case 0x0010:
+report |= SND_JACK_BTN_3;
+break;
+case 0x0000:
+break;
+default:
+dev_err(rt5645->codec->dev,
+"Unexpected button code 0x%04x\n",
+btn_type);
+break;
+}
+}
+if (btn_type == 0)
+report = rt5645->jack_type;
+else {
+mod_timer(&rt5645->btn_check_timer,
+msecs_to_jiffies(100));
+}
+break;
+case 0x70:
+case 0x10:
+case 0x20:
+report = 0;
+snd_soc_update_bits(rt5645->codec,
+RT5645_INT_IRQ_ST, 0x1, 0x0);
+rt5645_jack_detect(rt5645->codec, 0);
+break;
+default:
+break;
+}
+snd_soc_jack_report(rt5645->hp_jack, report, SND_JACK_HEADPHONE);
+snd_soc_jack_report(rt5645->mic_jack, report, SND_JACK_MICROPHONE);
+if (rt5645->en_button_func)
+snd_soc_jack_report(rt5645->btn_jack,
+report, SND_JACK_BTN_0 | SND_JACK_BTN_1 |
+SND_JACK_BTN_2 | SND_JACK_BTN_3);
+}
+static void rt5645_rcclock_work(struct work_struct *work)
+{
+struct rt5645_priv *rt5645 =
+container_of(work, struct rt5645_priv, rcclock_work.work);
+regmap_update_bits(rt5645->regmap, RT5645_MICBIAS,
+RT5645_PWR_CLK25M_MASK, RT5645_PWR_CLK25M_PD);
+}
+static irqreturn_t rt5645_irq(int irq, void *data)
+{
+struct rt5645_priv *rt5645 = data;
+queue_delayed_work(system_power_efficient_wq,
+&rt5645->jack_detect_work, msecs_to_jiffies(250));
+return IRQ_HANDLED;
+}
+static void rt5645_btn_check_callback(unsigned long data)
+{
+struct rt5645_priv *rt5645 = (struct rt5645_priv *)data;
+queue_delayed_work(system_power_efficient_wq,
+&rt5645->jack_detect_work, msecs_to_jiffies(5));
+}
+static int rt5645_probe(struct snd_soc_codec *codec)
+{
+struct snd_soc_dapm_context *dapm = snd_soc_codec_get_dapm(codec);
+struct rt5645_priv *rt5645 = snd_soc_codec_get_drvdata(codec);
+rt5645->codec = codec;
+switch (rt5645->codec_type) {
+case CODEC_TYPE_RT5645:
+snd_soc_dapm_new_controls(dapm,
+rt5645_specific_dapm_widgets,
+ARRAY_SIZE(rt5645_specific_dapm_widgets));
+snd_soc_dapm_add_routes(dapm,
+rt5645_specific_dapm_routes,
+ARRAY_SIZE(rt5645_specific_dapm_routes));
+break;
+case CODEC_TYPE_RT5650:
+snd_soc_dapm_new_controls(dapm,
+rt5650_specific_dapm_widgets,
+ARRAY_SIZE(rt5650_specific_dapm_widgets));
+snd_soc_dapm_add_routes(dapm,
+rt5650_specific_dapm_routes,
+ARRAY_SIZE(rt5650_specific_dapm_routes));
+break;
+}
+snd_soc_codec_force_bias_level(codec, SND_SOC_BIAS_OFF);
+if (rt5645->pdata.jd_mode) {
+snd_soc_dapm_force_enable_pin(dapm, "JD Power");
+snd_soc_dapm_force_enable_pin(dapm, "LDO2");
+snd_soc_dapm_sync(dapm);
+}
+rt5645->eq_param = devm_kzalloc(codec->dev,
+RT5645_HWEQ_NUM * sizeof(struct rt5645_eq_param_s), GFP_KERNEL);
+return 0;
+}
+static int rt5645_remove(struct snd_soc_codec *codec)
+{
+rt5645_reset(codec);
+return 0;
+}
+static int rt5645_suspend(struct snd_soc_codec *codec)
+{
+struct rt5645_priv *rt5645 = snd_soc_codec_get_drvdata(codec);
+regcache_cache_only(rt5645->regmap, true);
+regcache_mark_dirty(rt5645->regmap);
+return 0;
+}
+static int rt5645_resume(struct snd_soc_codec *codec)
+{
+struct rt5645_priv *rt5645 = snd_soc_codec_get_drvdata(codec);
+regcache_cache_only(rt5645->regmap, false);
+regcache_sync(rt5645->regmap);
+return 0;
+}
+static bool rt5645_check_dp(struct device *dev)
+{
+if (device_property_present(dev, "realtek,in2-differential") ||
+device_property_present(dev, "realtek,dmic1-data-pin") ||
+device_property_present(dev, "realtek,dmic2-data-pin") ||
+device_property_present(dev, "realtek,jd-mode"))
+return true;
+return false;
+}
+static int rt5645_parse_dt(struct rt5645_priv *rt5645, struct device *dev)
+{
+rt5645->pdata.in2_diff = device_property_read_bool(dev,
+"realtek,in2-differential");
+device_property_read_u32(dev,
+"realtek,dmic1-data-pin", &rt5645->pdata.dmic1_data_pin);
+device_property_read_u32(dev,
+"realtek,dmic2-data-pin", &rt5645->pdata.dmic2_data_pin);
+device_property_read_u32(dev,
+"realtek,jd-mode", &rt5645->pdata.jd_mode);
+return 0;
+}
+static int rt5645_i2c_probe(struct i2c_client *i2c,
+const struct i2c_device_id *id)
+{
+struct rt5645_platform_data *pdata = dev_get_platdata(&i2c->dev);
+struct rt5645_priv *rt5645;
+int ret, i;
+unsigned int val;
+struct regmap *regmap;
+rt5645 = devm_kzalloc(&i2c->dev, sizeof(struct rt5645_priv),
+GFP_KERNEL);
+if (rt5645 == NULL)
+return -ENOMEM;
+rt5645->i2c = i2c;
+i2c_set_clientdata(i2c, rt5645);
+if (pdata)
+rt5645->pdata = *pdata;
+else if (dmi_check_system(dmi_platform_intel_broadwell))
+rt5645->pdata = buddy_platform_data;
+else if (rt5645_check_dp(&i2c->dev))
+rt5645_parse_dt(rt5645, &i2c->dev);
+else if (dmi_check_system(dmi_platform_intel_braswell))
+rt5645->pdata = general_platform_data;
+rt5645->gpiod_hp_det = devm_gpiod_get_optional(&i2c->dev, "hp-detect",
+GPIOD_IN);
+if (IS_ERR(rt5645->gpiod_hp_det)) {
+dev_err(&i2c->dev, "failed to initialize gpiod\n");
+return PTR_ERR(rt5645->gpiod_hp_det);
+}
+for (i = 0; i < ARRAY_SIZE(rt5645->supplies); i++)
+rt5645->supplies[i].supply = rt5645_supply_names[i];
+ret = devm_regulator_bulk_get(&i2c->dev,
+ARRAY_SIZE(rt5645->supplies),
+rt5645->supplies);
+if (ret) {
+dev_err(&i2c->dev, "Failed to request supplies: %d\n", ret);
+return ret;
+}
+ret = regulator_bulk_enable(ARRAY_SIZE(rt5645->supplies),
+rt5645->supplies);
+if (ret) {
+dev_err(&i2c->dev, "Failed to enable supplies: %d\n", ret);
+return ret;
+}
+regmap = devm_regmap_init_i2c(i2c, &temp_regmap);
+if (IS_ERR(regmap)) {
+ret = PTR_ERR(regmap);
+dev_err(&i2c->dev, "Failed to allocate temp register map: %d\n",
+ret);
+return ret;
+}
+regmap_read(regmap, RT5645_VENDOR_ID2, &val);
+switch (val) {
+case RT5645_DEVICE_ID:
+rt5645->regmap = devm_regmap_init_i2c(i2c, &rt5645_regmap);
+rt5645->codec_type = CODEC_TYPE_RT5645;
+break;
+case RT5650_DEVICE_ID:
+rt5645->regmap = devm_regmap_init_i2c(i2c, &rt5650_regmap);
+rt5645->codec_type = CODEC_TYPE_RT5650;
+break;
+default:
+dev_err(&i2c->dev,
+"Device with ID register %#x is not rt5645 or rt5650\n",
+val);
+ret = -ENODEV;
+goto err_enable;
+}
+if (IS_ERR(rt5645->regmap)) {
+ret = PTR_ERR(rt5645->regmap);
+dev_err(&i2c->dev, "Failed to allocate register map: %d\n",
+ret);
+return ret;
+}
+regmap_write(rt5645->regmap, RT5645_RESET, 0);
+ret = regmap_register_patch(rt5645->regmap, init_list,
+ARRAY_SIZE(init_list));
+if (ret != 0)
+dev_warn(&i2c->dev, "Failed to apply regmap patch: %d\n", ret);
+if (rt5645->codec_type == CODEC_TYPE_RT5650) {
+ret = regmap_register_patch(rt5645->regmap, rt5650_init_list,
+ARRAY_SIZE(rt5650_init_list));
+if (ret != 0)
+dev_warn(&i2c->dev, "Apply rt5650 patch failed: %d\n",
+ret);
+}
+if (rt5645->pdata.in2_diff)
+regmap_update_bits(rt5645->regmap, RT5645_IN2_CTRL,
+RT5645_IN_DF2, RT5645_IN_DF2);
+if (rt5645->pdata.dmic1_data_pin || rt5645->pdata.dmic2_data_pin) {
+regmap_update_bits(rt5645->regmap, RT5645_GPIO_CTRL1,
+RT5645_GP2_PIN_MASK, RT5645_GP2_PIN_DMIC1_SCL);
+}
+switch (rt5645->pdata.dmic1_data_pin) {
+case RT5645_DMIC_DATA_IN2N:
+regmap_update_bits(rt5645->regmap, RT5645_DMIC_CTRL1,
+RT5645_DMIC_1_DP_MASK, RT5645_DMIC_1_DP_IN2N);
+break;
+case RT5645_DMIC_DATA_GPIO5:
+regmap_update_bits(rt5645->regmap, RT5645_GPIO_CTRL1,
+RT5645_I2S2_DAC_PIN_MASK, RT5645_I2S2_DAC_PIN_GPIO);
+regmap_update_bits(rt5645->regmap, RT5645_DMIC_CTRL1,
+RT5645_DMIC_1_DP_MASK, RT5645_DMIC_1_DP_GPIO5);
+regmap_update_bits(rt5645->regmap, RT5645_GPIO_CTRL1,
+RT5645_GP5_PIN_MASK, RT5645_GP5_PIN_DMIC1_SDA);
+break;
+case RT5645_DMIC_DATA_GPIO11:
+regmap_update_bits(rt5645->regmap, RT5645_DMIC_CTRL1,
+RT5645_DMIC_1_DP_MASK, RT5645_DMIC_1_DP_GPIO11);
+regmap_update_bits(rt5645->regmap, RT5645_GPIO_CTRL1,
+RT5645_GP11_PIN_MASK,
+RT5645_GP11_PIN_DMIC1_SDA);
+break;
+default:
+break;
+}
+switch (rt5645->pdata.dmic2_data_pin) {
+case RT5645_DMIC_DATA_IN2P:
+regmap_update_bits(rt5645->regmap, RT5645_DMIC_CTRL1,
+RT5645_DMIC_2_DP_MASK, RT5645_DMIC_2_DP_IN2P);
+break;
+case RT5645_DMIC_DATA_GPIO6:
+regmap_update_bits(rt5645->regmap, RT5645_DMIC_CTRL1,
+RT5645_DMIC_2_DP_MASK, RT5645_DMIC_2_DP_GPIO6);
+regmap_update_bits(rt5645->regmap, RT5645_GPIO_CTRL1,
+RT5645_GP6_PIN_MASK, RT5645_GP6_PIN_DMIC2_SDA);
+break;
+case RT5645_DMIC_DATA_GPIO10:
+regmap_update_bits(rt5645->regmap, RT5645_DMIC_CTRL1,
+RT5645_DMIC_2_DP_MASK, RT5645_DMIC_2_DP_GPIO10);
+regmap_update_bits(rt5645->regmap, RT5645_GPIO_CTRL1,
+RT5645_GP10_PIN_MASK,
+RT5645_GP10_PIN_DMIC2_SDA);
+break;
+case RT5645_DMIC_DATA_GPIO12:
+regmap_update_bits(rt5645->regmap, RT5645_DMIC_CTRL1,
+RT5645_DMIC_2_DP_MASK, RT5645_DMIC_2_DP_GPIO12);
+regmap_update_bits(rt5645->regmap, RT5645_GPIO_CTRL1,
+RT5645_GP12_PIN_MASK,
+RT5645_GP12_PIN_DMIC2_SDA);
+break;
+default:
+break;
+}
+if (rt5645->pdata.jd_mode) {
+regmap_update_bits(rt5645->regmap, RT5645_GEN_CTRL3,
+RT5645_IRQ_CLK_GATE_CTRL,
+RT5645_IRQ_CLK_GATE_CTRL);
+regmap_update_bits(rt5645->regmap, RT5645_MICBIAS,
+RT5645_IRQ_CLK_INT, RT5645_IRQ_CLK_INT);
+regmap_update_bits(rt5645->regmap, RT5645_IRQ_CTRL2,
+RT5645_IRQ_JD_1_1_EN, RT5645_IRQ_JD_1_1_EN);
+regmap_update_bits(rt5645->regmap, RT5645_GEN_CTRL3,
+RT5645_JD_PSV_MODE, RT5645_JD_PSV_MODE);
+regmap_update_bits(rt5645->regmap, RT5645_HPO_MIXER,
+RT5645_IRQ_PSV_MODE, RT5645_IRQ_PSV_MODE);
+regmap_update_bits(rt5645->regmap, RT5645_MICBIAS,
+RT5645_MIC2_OVCD_EN, RT5645_MIC2_OVCD_EN);
+regmap_update_bits(rt5645->regmap, RT5645_GPIO_CTRL1,
+RT5645_GP1_PIN_IRQ, RT5645_GP1_PIN_IRQ);
+switch (rt5645->pdata.jd_mode) {
+case 1:
+regmap_update_bits(rt5645->regmap, RT5645_A_JD_CTRL1,
+RT5645_JD1_MODE_MASK,
+RT5645_JD1_MODE_0);
+break;
+case 2:
+regmap_update_bits(rt5645->regmap, RT5645_A_JD_CTRL1,
+RT5645_JD1_MODE_MASK,
+RT5645_JD1_MODE_1);
+break;
+case 3:
+regmap_update_bits(rt5645->regmap, RT5645_A_JD_CTRL1,
+RT5645_JD1_MODE_MASK,
+RT5645_JD1_MODE_2);
+break;
+default:
+break;
+}
+}
+regmap_update_bits(rt5645->regmap, RT5645_ADDA_CLK1,
+RT5645_I2S_PD1_MASK, RT5645_I2S_PD1_2);
+if (rt5645->pdata.jd_invert) {
+regmap_update_bits(rt5645->regmap, RT5645_IRQ_CTRL2,
+RT5645_JD_1_1_MASK, RT5645_JD_1_1_INV);
+}
+setup_timer(&rt5645->btn_check_timer,
+rt5645_btn_check_callback, (unsigned long)rt5645);
+INIT_DELAYED_WORK(&rt5645->jack_detect_work, rt5645_jack_detect_work);
+INIT_DELAYED_WORK(&rt5645->rcclock_work, rt5645_rcclock_work);
+if (rt5645->i2c->irq) {
+ret = request_threaded_irq(rt5645->i2c->irq, NULL, rt5645_irq,
+IRQF_TRIGGER_RISING | IRQF_TRIGGER_FALLING
+| IRQF_ONESHOT, "rt5645", rt5645);
+if (ret) {
+dev_err(&i2c->dev, "Failed to reguest IRQ: %d\n", ret);
+goto err_enable;
+}
+}
+ret = snd_soc_register_codec(&i2c->dev, &soc_codec_dev_rt5645,
+rt5645_dai, ARRAY_SIZE(rt5645_dai));
+if (ret)
+goto err_irq;
+return 0;
+err_irq:
+if (rt5645->i2c->irq)
+free_irq(rt5645->i2c->irq, rt5645);
+err_enable:
+regulator_bulk_disable(ARRAY_SIZE(rt5645->supplies), rt5645->supplies);
+return ret;
+}
+static int rt5645_i2c_remove(struct i2c_client *i2c)
+{
+struct rt5645_priv *rt5645 = i2c_get_clientdata(i2c);
+if (i2c->irq)
+free_irq(i2c->irq, rt5645);
+cancel_delayed_work_sync(&rt5645->jack_detect_work);
+cancel_delayed_work_sync(&rt5645->rcclock_work);
+snd_soc_unregister_codec(&i2c->dev);
+regulator_bulk_disable(ARRAY_SIZE(rt5645->supplies), rt5645->supplies);
+return 0;
+}
+static void rt5645_i2c_shutdown(struct i2c_client *i2c)
+{
+struct rt5645_priv *rt5645 = i2c_get_clientdata(i2c);
+regmap_update_bits(rt5645->regmap, RT5645_GEN_CTRL3,
+RT5645_RING2_SLEEVE_GND, RT5645_RING2_SLEEVE_GND);
+regmap_update_bits(rt5645->regmap, RT5645_IN1_CTRL2, RT5645_CBJ_MN_JD,
+RT5645_CBJ_MN_JD);
+regmap_update_bits(rt5645->regmap, RT5645_IN1_CTRL1, RT5645_CBJ_BST1_EN,
+0);
+msleep(20);
+regmap_write(rt5645->regmap, RT5645_RESET, 0);
+}

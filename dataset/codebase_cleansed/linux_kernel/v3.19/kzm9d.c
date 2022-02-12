@@ -1,0 +1,1 @@
+static void __init kzm9d_init(void)\r\n{\r\nif (!board_staging_dt_node_available(usbs1_res, ARRAY_SIZE(usbs1_res)))\r\nplatform_device_register_simple("emxx_udc", -1, usbs1_res,\r\nARRAY_SIZE(usbs1_res));\r\n}

@@ -1,0 +1,1 @@
+static void tegra114_flush_dcache(struct page *page, unsigned long offset,\r\nsize_t size)\r\n{\r\nphys_addr_t phys = page_to_phys(page) + offset;\r\nvoid *virt = page_address(page) + offset;\r\n__cpuc_flush_dcache_area(virt, size);\r\nouter_flush_range(phys, phys + size);\r\n}

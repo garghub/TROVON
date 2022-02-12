@@ -1,0 +1,213 @@
+static u64 __hyp_text __gic_v3_get_lr(unsigned int lr)
+{
+switch (lr & 0xf) {
+case 0:
+return read_gicreg(ICH_LR0_EL2);
+case 1:
+return read_gicreg(ICH_LR1_EL2);
+case 2:
+return read_gicreg(ICH_LR2_EL2);
+case 3:
+return read_gicreg(ICH_LR3_EL2);
+case 4:
+return read_gicreg(ICH_LR4_EL2);
+case 5:
+return read_gicreg(ICH_LR5_EL2);
+case 6:
+return read_gicreg(ICH_LR6_EL2);
+case 7:
+return read_gicreg(ICH_LR7_EL2);
+case 8:
+return read_gicreg(ICH_LR8_EL2);
+case 9:
+return read_gicreg(ICH_LR9_EL2);
+case 10:
+return read_gicreg(ICH_LR10_EL2);
+case 11:
+return read_gicreg(ICH_LR11_EL2);
+case 12:
+return read_gicreg(ICH_LR12_EL2);
+case 13:
+return read_gicreg(ICH_LR13_EL2);
+case 14:
+return read_gicreg(ICH_LR14_EL2);
+case 15:
+return read_gicreg(ICH_LR15_EL2);
+}
+unreachable();
+}
+static void __hyp_text __gic_v3_set_lr(u64 val, int lr)
+{
+switch (lr & 0xf) {
+case 0:
+write_gicreg(val, ICH_LR0_EL2);
+break;
+case 1:
+write_gicreg(val, ICH_LR1_EL2);
+break;
+case 2:
+write_gicreg(val, ICH_LR2_EL2);
+break;
+case 3:
+write_gicreg(val, ICH_LR3_EL2);
+break;
+case 4:
+write_gicreg(val, ICH_LR4_EL2);
+break;
+case 5:
+write_gicreg(val, ICH_LR5_EL2);
+break;
+case 6:
+write_gicreg(val, ICH_LR6_EL2);
+break;
+case 7:
+write_gicreg(val, ICH_LR7_EL2);
+break;
+case 8:
+write_gicreg(val, ICH_LR8_EL2);
+break;
+case 9:
+write_gicreg(val, ICH_LR9_EL2);
+break;
+case 10:
+write_gicreg(val, ICH_LR10_EL2);
+break;
+case 11:
+write_gicreg(val, ICH_LR11_EL2);
+break;
+case 12:
+write_gicreg(val, ICH_LR12_EL2);
+break;
+case 13:
+write_gicreg(val, ICH_LR13_EL2);
+break;
+case 14:
+write_gicreg(val, ICH_LR14_EL2);
+break;
+case 15:
+write_gicreg(val, ICH_LR15_EL2);
+break;
+}
+}
+void __hyp_text __vgic_v3_save_state(struct kvm_vcpu *vcpu)
+{
+struct vgic_v3_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v3;
+u64 used_lrs = vcpu->arch.vgic_cpu.used_lrs;
+u64 val;
+if (!cpu_if->vgic_sre) {
+dsb(st);
+cpu_if->vgic_vmcr = read_gicreg(ICH_VMCR_EL2);
+}
+if (used_lrs) {
+int i;
+u32 nr_pre_bits;
+cpu_if->vgic_elrsr = read_gicreg(ICH_ELSR_EL2);
+write_gicreg(0, ICH_HCR_EL2);
+val = read_gicreg(ICH_VTR_EL2);
+nr_pre_bits = vtr_to_nr_pre_bits(val);
+for (i = 0; i < used_lrs; i++) {
+if (cpu_if->vgic_elrsr & (1 << i))
+cpu_if->vgic_lr[i] &= ~ICH_LR_STATE;
+else
+cpu_if->vgic_lr[i] = __gic_v3_get_lr(i);
+__gic_v3_set_lr(0, i);
+}
+switch (nr_pre_bits) {
+case 7:
+cpu_if->vgic_ap0r[3] = read_gicreg(ICH_AP0R3_EL2);
+cpu_if->vgic_ap0r[2] = read_gicreg(ICH_AP0R2_EL2);
+case 6:
+cpu_if->vgic_ap0r[1] = read_gicreg(ICH_AP0R1_EL2);
+default:
+cpu_if->vgic_ap0r[0] = read_gicreg(ICH_AP0R0_EL2);
+}
+switch (nr_pre_bits) {
+case 7:
+cpu_if->vgic_ap1r[3] = read_gicreg(ICH_AP1R3_EL2);
+cpu_if->vgic_ap1r[2] = read_gicreg(ICH_AP1R2_EL2);
+case 6:
+cpu_if->vgic_ap1r[1] = read_gicreg(ICH_AP1R1_EL2);
+default:
+cpu_if->vgic_ap1r[0] = read_gicreg(ICH_AP1R0_EL2);
+}
+} else {
+cpu_if->vgic_elrsr = 0xffff;
+cpu_if->vgic_ap0r[0] = 0;
+cpu_if->vgic_ap0r[1] = 0;
+cpu_if->vgic_ap0r[2] = 0;
+cpu_if->vgic_ap0r[3] = 0;
+cpu_if->vgic_ap1r[0] = 0;
+cpu_if->vgic_ap1r[1] = 0;
+cpu_if->vgic_ap1r[2] = 0;
+cpu_if->vgic_ap1r[3] = 0;
+}
+val = read_gicreg(ICC_SRE_EL2);
+write_gicreg(val | ICC_SRE_EL2_ENABLE, ICC_SRE_EL2);
+if (!cpu_if->vgic_sre) {
+isb();
+write_gicreg(1, ICC_SRE_EL1);
+}
+}
+void __hyp_text __vgic_v3_restore_state(struct kvm_vcpu *vcpu)
+{
+struct vgic_v3_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v3;
+u64 used_lrs = vcpu->arch.vgic_cpu.used_lrs;
+u64 val;
+u32 nr_pre_bits;
+int i;
+if (!cpu_if->vgic_sre) {
+write_gicreg(0, ICC_SRE_EL1);
+isb();
+write_gicreg(cpu_if->vgic_vmcr, ICH_VMCR_EL2);
+}
+val = read_gicreg(ICH_VTR_EL2);
+nr_pre_bits = vtr_to_nr_pre_bits(val);
+if (used_lrs) {
+write_gicreg(cpu_if->vgic_hcr, ICH_HCR_EL2);
+switch (nr_pre_bits) {
+case 7:
+write_gicreg(cpu_if->vgic_ap0r[3], ICH_AP0R3_EL2);
+write_gicreg(cpu_if->vgic_ap0r[2], ICH_AP0R2_EL2);
+case 6:
+write_gicreg(cpu_if->vgic_ap0r[1], ICH_AP0R1_EL2);
+default:
+write_gicreg(cpu_if->vgic_ap0r[0], ICH_AP0R0_EL2);
+}
+switch (nr_pre_bits) {
+case 7:
+write_gicreg(cpu_if->vgic_ap1r[3], ICH_AP1R3_EL2);
+write_gicreg(cpu_if->vgic_ap1r[2], ICH_AP1R2_EL2);
+case 6:
+write_gicreg(cpu_if->vgic_ap1r[1], ICH_AP1R1_EL2);
+default:
+write_gicreg(cpu_if->vgic_ap1r[0], ICH_AP1R0_EL2);
+}
+for (i = 0; i < used_lrs; i++)
+__gic_v3_set_lr(cpu_if->vgic_lr[i], i);
+}
+if (!cpu_if->vgic_sre) {
+isb();
+dsb(sy);
+}
+write_gicreg(read_gicreg(ICC_SRE_EL2) & ~ICC_SRE_EL2_ENABLE,
+ICC_SRE_EL2);
+}
+void __hyp_text __vgic_v3_init_lrs(void)
+{
+int max_lr_idx = vtr_to_max_lr_idx(read_gicreg(ICH_VTR_EL2));
+int i;
+for (i = 0; i <= max_lr_idx; i++)
+__gic_v3_set_lr(0, i);
+}
+u64 __hyp_text __vgic_v3_get_ich_vtr_el2(void)
+{
+return read_gicreg(ICH_VTR_EL2);
+}
+u64 __hyp_text __vgic_v3_read_vmcr(void)
+{
+return read_gicreg(ICH_VMCR_EL2);
+}
+void __hyp_text __vgic_v3_write_vmcr(u32 vmcr)
+{
+write_gicreg(vmcr, ICH_VMCR_EL2);
+}

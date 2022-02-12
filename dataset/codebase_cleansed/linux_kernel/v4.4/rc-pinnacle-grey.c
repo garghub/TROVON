@@ -1,0 +1,1 @@
+static int __init init_rc_map_pinnacle_grey(void)\r\n{\r\nreturn rc_map_register(&pinnacle_grey_map);\r\n}\r\nstatic void __exit exit_rc_map_pinnacle_grey(void)\r\n{\r\nrc_map_unregister(&pinnacle_grey_map);\r\n}

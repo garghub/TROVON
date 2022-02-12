@@ -1,0 +1,1 @@
+void sha512_mb_mgr_init_avx2(struct sha512_mb_mgr *state)\r\n{\r\nunsigned int j;\r\nstate->lens[0] = 0;\r\nstate->lens[1] = 1;\r\nstate->lens[2] = 2;\r\nstate->lens[3] = 3;\r\nstate->unused_lanes = 0xFF03020100;\r\nfor (j = 0; j < 4; j++)\r\nstate->ldata[j].job_in_lane = NULL;\r\n}

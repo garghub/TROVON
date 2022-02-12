@@ -1,0 +1,1 @@
+int bpf_prog1(struct pt_regs *ctx)\r\n{\r\nstruct S {\r\nu64 pid;\r\nu64 cookie;\r\n} data;\r\nmemset(&data, 0, sizeof(data));\r\ndata.pid = bpf_get_current_pid_tgid();\r\ndata.cookie = 0x12345678;\r\nbpf_perf_event_output(ctx, &my_map, 0, &data, sizeof(data));\r\nreturn 0;\r\n}

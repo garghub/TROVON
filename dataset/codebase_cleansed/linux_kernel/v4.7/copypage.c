@@ -1,0 +1,1 @@
+void __cpu_copy_user_page(void *kto, const void *kfrom, unsigned long vaddr)\r\n{\r\nstruct page *page = virt_to_page(kto);\r\ncopy_page(kto, kfrom);\r\nflush_dcache_page(page);\r\n}\r\nvoid __cpu_clear_user_page(void *kaddr, unsigned long vaddr)\r\n{\r\nclear_page(kaddr);\r\n}

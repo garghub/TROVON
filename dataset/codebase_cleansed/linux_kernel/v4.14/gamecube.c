@@ -1,0 +1,1 @@
+void platform_init(unsigned long r3, unsigned long r4, unsigned long r5)\r\n{\r\nu32 heapsize = 16*1024*1024 - (u32)_end;\r\nsimple_alloc_init(_end, heapsize, 32, 64);\r\nfdt_init(_dtb_start);\r\nif (ug_probe())\r\nconsole_ops.write = ug_console_write;\r\n}

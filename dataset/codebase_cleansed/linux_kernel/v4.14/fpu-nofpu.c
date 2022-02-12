@@ -1,0 +1,1 @@
+asmlinkage\r\nvoid unexpected_fpu_exception(struct pt_regs *regs, enum exception_code code)\r\n{\r\npanic("An FPU exception was received, but there's no FPU enabled.");\r\n}\r\nint dump_fpu(struct pt_regs *regs, elf_fpregset_t *fpreg)\r\n{\r\nreturn 0;\r\n}

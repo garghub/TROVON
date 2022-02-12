@@ -1,0 +1,1 @@
+int amd_acp_hw_init(struct cgs_device *cgs_device,\r\nunsigned acp_version_major, unsigned acp_version_minor)\r\n{\r\nunsigned int acp_mode = ACP_MODE_I2S;\r\nif ((acp_version_major == 2) && (acp_version_minor == 2))\r\nacp_mode = cgs_read_register(cgs_device,\r\nmmACP_AZALIA_I2S_SELECT);\r\nif (acp_mode != ACP_MODE_I2S)\r\nreturn -ENODEV;\r\nreturn 0;\r\n}

@@ -1,0 +1,4937 @@
+int __weak arch_asym_cpu_priority(int cpu)
+{
+return -cpu;
+}
+static inline void update_load_add(struct load_weight *lw, unsigned long inc)
+{
+lw->weight += inc;
+lw->inv_weight = 0;
+}
+static inline void update_load_sub(struct load_weight *lw, unsigned long dec)
+{
+lw->weight -= dec;
+lw->inv_weight = 0;
+}
+static inline void update_load_set(struct load_weight *lw, unsigned long w)
+{
+lw->weight = w;
+lw->inv_weight = 0;
+}
+static unsigned int get_update_sysctl_factor(void)
+{
+unsigned int cpus = min_t(unsigned int, num_online_cpus(), 8);
+unsigned int factor;
+switch (sysctl_sched_tunable_scaling) {
+case SCHED_TUNABLESCALING_NONE:
+factor = 1;
+break;
+case SCHED_TUNABLESCALING_LINEAR:
+factor = cpus;
+break;
+case SCHED_TUNABLESCALING_LOG:
+default:
+factor = 1 + ilog2(cpus);
+break;
+}
+return factor;
+}
+static void update_sysctl(void)
+{
+unsigned int factor = get_update_sysctl_factor();
+#define SET_SYSCTL(name) \
+(sysctl_##name = (factor) * normalized_sysctl_##name)
+SET_SYSCTL(sched_min_granularity);
+SET_SYSCTL(sched_latency);
+SET_SYSCTL(sched_wakeup_granularity);
+#undef SET_SYSCTL
+}
+void sched_init_granularity(void)
+{
+update_sysctl();
+}
+static void __update_inv_weight(struct load_weight *lw)
+{
+unsigned long w;
+if (likely(lw->inv_weight))
+return;
+w = scale_load_down(lw->weight);
+if (BITS_PER_LONG > 32 && unlikely(w >= WMULT_CONST))
+lw->inv_weight = 1;
+else if (unlikely(!w))
+lw->inv_weight = WMULT_CONST;
+else
+lw->inv_weight = WMULT_CONST / w;
+}
+static u64 __calc_delta(u64 delta_exec, unsigned long weight, struct load_weight *lw)
+{
+u64 fact = scale_load_down(weight);
+int shift = WMULT_SHIFT;
+__update_inv_weight(lw);
+if (unlikely(fact >> 32)) {
+while (fact >> 32) {
+fact >>= 1;
+shift--;
+}
+}
+fact = (u64)(u32)fact * lw->inv_weight;
+while (fact >> 32) {
+fact >>= 1;
+shift--;
+}
+return mul_u64_u32_shr(delta_exec, fact, shift);
+}
+static inline struct rq *rq_of(struct cfs_rq *cfs_rq)
+{
+return cfs_rq->rq;
+}
+static inline struct task_struct *task_of(struct sched_entity *se)
+{
+SCHED_WARN_ON(!entity_is_task(se));
+return container_of(se, struct task_struct, se);
+}
+static inline struct cfs_rq *task_cfs_rq(struct task_struct *p)
+{
+return p->se.cfs_rq;
+}
+static inline struct cfs_rq *cfs_rq_of(struct sched_entity *se)
+{
+return se->cfs_rq;
+}
+static inline struct cfs_rq *group_cfs_rq(struct sched_entity *grp)
+{
+return grp->my_q;
+}
+static inline void list_add_leaf_cfs_rq(struct cfs_rq *cfs_rq)
+{
+if (!cfs_rq->on_list) {
+struct rq *rq = rq_of(cfs_rq);
+int cpu = cpu_of(rq);
+if (cfs_rq->tg->parent &&
+cfs_rq->tg->parent->cfs_rq[cpu]->on_list) {
+list_add_tail_rcu(&cfs_rq->leaf_cfs_rq_list,
+&(cfs_rq->tg->parent->cfs_rq[cpu]->leaf_cfs_rq_list));
+rq->tmp_alone_branch = &rq->leaf_cfs_rq_list;
+} else if (!cfs_rq->tg->parent) {
+list_add_tail_rcu(&cfs_rq->leaf_cfs_rq_list,
+&rq->leaf_cfs_rq_list);
+rq->tmp_alone_branch = &rq->leaf_cfs_rq_list;
+} else {
+list_add_rcu(&cfs_rq->leaf_cfs_rq_list,
+rq->tmp_alone_branch);
+rq->tmp_alone_branch = &cfs_rq->leaf_cfs_rq_list;
+}
+cfs_rq->on_list = 1;
+}
+}
+static inline void list_del_leaf_cfs_rq(struct cfs_rq *cfs_rq)
+{
+if (cfs_rq->on_list) {
+list_del_rcu(&cfs_rq->leaf_cfs_rq_list);
+cfs_rq->on_list = 0;
+}
+}
+static inline struct cfs_rq *
+is_same_group(struct sched_entity *se, struct sched_entity *pse)
+{
+if (se->cfs_rq == pse->cfs_rq)
+return se->cfs_rq;
+return NULL;
+}
+static inline struct sched_entity *parent_entity(struct sched_entity *se)
+{
+return se->parent;
+}
+static void
+find_matching_se(struct sched_entity **se, struct sched_entity **pse)
+{
+int se_depth, pse_depth;
+se_depth = (*se)->depth;
+pse_depth = (*pse)->depth;
+while (se_depth > pse_depth) {
+se_depth--;
+*se = parent_entity(*se);
+}
+while (pse_depth > se_depth) {
+pse_depth--;
+*pse = parent_entity(*pse);
+}
+while (!is_same_group(*se, *pse)) {
+*se = parent_entity(*se);
+*pse = parent_entity(*pse);
+}
+}
+static inline struct task_struct *task_of(struct sched_entity *se)
+{
+return container_of(se, struct task_struct, se);
+}
+static inline struct rq *rq_of(struct cfs_rq *cfs_rq)
+{
+return container_of(cfs_rq, struct rq, cfs);
+}
+static inline struct cfs_rq *task_cfs_rq(struct task_struct *p)
+{
+return &task_rq(p)->cfs;
+}
+static inline struct cfs_rq *cfs_rq_of(struct sched_entity *se)
+{
+struct task_struct *p = task_of(se);
+struct rq *rq = task_rq(p);
+return &rq->cfs;
+}
+static inline struct cfs_rq *group_cfs_rq(struct sched_entity *grp)
+{
+return NULL;
+}
+static inline void list_add_leaf_cfs_rq(struct cfs_rq *cfs_rq)
+{
+}
+static inline void list_del_leaf_cfs_rq(struct cfs_rq *cfs_rq)
+{
+}
+static inline struct sched_entity *parent_entity(struct sched_entity *se)
+{
+return NULL;
+}
+static inline void
+find_matching_se(struct sched_entity **se, struct sched_entity **pse)
+{
+}
+static inline u64 max_vruntime(u64 max_vruntime, u64 vruntime)
+{
+s64 delta = (s64)(vruntime - max_vruntime);
+if (delta > 0)
+max_vruntime = vruntime;
+return max_vruntime;
+}
+static inline u64 min_vruntime(u64 min_vruntime, u64 vruntime)
+{
+s64 delta = (s64)(vruntime - min_vruntime);
+if (delta < 0)
+min_vruntime = vruntime;
+return min_vruntime;
+}
+static inline int entity_before(struct sched_entity *a,
+struct sched_entity *b)
+{
+return (s64)(a->vruntime - b->vruntime) < 0;
+}
+static void update_min_vruntime(struct cfs_rq *cfs_rq)
+{
+struct sched_entity *curr = cfs_rq->curr;
+u64 vruntime = cfs_rq->min_vruntime;
+if (curr) {
+if (curr->on_rq)
+vruntime = curr->vruntime;
+else
+curr = NULL;
+}
+if (cfs_rq->rb_leftmost) {
+struct sched_entity *se = rb_entry(cfs_rq->rb_leftmost,
+struct sched_entity,
+run_node);
+if (!curr)
+vruntime = se->vruntime;
+else
+vruntime = min_vruntime(vruntime, se->vruntime);
+}
+cfs_rq->min_vruntime = max_vruntime(cfs_rq->min_vruntime, vruntime);
+#ifndef CONFIG_64BIT
+smp_wmb();
+cfs_rq->min_vruntime_copy = cfs_rq->min_vruntime;
+#endif
+}
+static void __enqueue_entity(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+struct rb_node **link = &cfs_rq->tasks_timeline.rb_node;
+struct rb_node *parent = NULL;
+struct sched_entity *entry;
+int leftmost = 1;
+while (*link) {
+parent = *link;
+entry = rb_entry(parent, struct sched_entity, run_node);
+if (entity_before(se, entry)) {
+link = &parent->rb_left;
+} else {
+link = &parent->rb_right;
+leftmost = 0;
+}
+}
+if (leftmost)
+cfs_rq->rb_leftmost = &se->run_node;
+rb_link_node(&se->run_node, parent, link);
+rb_insert_color(&se->run_node, &cfs_rq->tasks_timeline);
+}
+static void __dequeue_entity(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+if (cfs_rq->rb_leftmost == &se->run_node) {
+struct rb_node *next_node;
+next_node = rb_next(&se->run_node);
+cfs_rq->rb_leftmost = next_node;
+}
+rb_erase(&se->run_node, &cfs_rq->tasks_timeline);
+}
+struct sched_entity *__pick_first_entity(struct cfs_rq *cfs_rq)
+{
+struct rb_node *left = cfs_rq->rb_leftmost;
+if (!left)
+return NULL;
+return rb_entry(left, struct sched_entity, run_node);
+}
+static struct sched_entity *__pick_next_entity(struct sched_entity *se)
+{
+struct rb_node *next = rb_next(&se->run_node);
+if (!next)
+return NULL;
+return rb_entry(next, struct sched_entity, run_node);
+}
+struct sched_entity *__pick_last_entity(struct cfs_rq *cfs_rq)
+{
+struct rb_node *last = rb_last(&cfs_rq->tasks_timeline);
+if (!last)
+return NULL;
+return rb_entry(last, struct sched_entity, run_node);
+}
+int sched_proc_update_handler(struct ctl_table *table, int write,
+void __user *buffer, size_t *lenp,
+loff_t *ppos)
+{
+int ret = proc_dointvec_minmax(table, write, buffer, lenp, ppos);
+unsigned int factor = get_update_sysctl_factor();
+if (ret || !write)
+return ret;
+sched_nr_latency = DIV_ROUND_UP(sysctl_sched_latency,
+sysctl_sched_min_granularity);
+#define WRT_SYSCTL(name) \
+(normalized_sysctl_##name = sysctl_##name / (factor))
+WRT_SYSCTL(sched_min_granularity);
+WRT_SYSCTL(sched_latency);
+WRT_SYSCTL(sched_wakeup_granularity);
+#undef WRT_SYSCTL
+return 0;
+}
+static inline u64 calc_delta_fair(u64 delta, struct sched_entity *se)
+{
+if (unlikely(se->load.weight != NICE_0_LOAD))
+delta = __calc_delta(delta, NICE_0_LOAD, &se->load);
+return delta;
+}
+static u64 __sched_period(unsigned long nr_running)
+{
+if (unlikely(nr_running > sched_nr_latency))
+return nr_running * sysctl_sched_min_granularity;
+else
+return sysctl_sched_latency;
+}
+static u64 sched_slice(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+u64 slice = __sched_period(cfs_rq->nr_running + !se->on_rq);
+for_each_sched_entity(se) {
+struct load_weight *load;
+struct load_weight lw;
+cfs_rq = cfs_rq_of(se);
+load = &cfs_rq->load;
+if (unlikely(!se->on_rq)) {
+lw = cfs_rq->load;
+update_load_add(&lw, se->load.weight);
+load = &lw;
+}
+slice = __calc_delta(slice, se->load.weight, load);
+}
+return slice;
+}
+static u64 sched_vslice(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+return calc_delta_fair(sched_slice(cfs_rq, se), se);
+}
+void init_entity_runnable_average(struct sched_entity *se)
+{
+struct sched_avg *sa = &se->avg;
+sa->last_update_time = 0;
+sa->period_contrib = 1023;
+if (entity_is_task(se))
+sa->load_avg = scale_load_down(se->load.weight);
+sa->load_sum = sa->load_avg * LOAD_AVG_MAX;
+sa->util_avg = 0;
+sa->util_sum = 0;
+}
+void post_init_entity_util_avg(struct sched_entity *se)
+{
+struct cfs_rq *cfs_rq = cfs_rq_of(se);
+struct sched_avg *sa = &se->avg;
+long cap = (long)(SCHED_CAPACITY_SCALE - cfs_rq->avg.util_avg) / 2;
+if (cap > 0) {
+if (cfs_rq->avg.util_avg != 0) {
+sa->util_avg = cfs_rq->avg.util_avg * se->load.weight;
+sa->util_avg /= (cfs_rq->avg.load_avg + 1);
+if (sa->util_avg > cap)
+sa->util_avg = cap;
+} else {
+sa->util_avg = cap;
+}
+sa->util_sum = sa->util_avg * LOAD_AVG_MAX;
+}
+if (entity_is_task(se)) {
+struct task_struct *p = task_of(se);
+if (p->sched_class != &fair_sched_class) {
+se->avg.last_update_time = cfs_rq_clock_task(cfs_rq);
+return;
+}
+}
+attach_entity_cfs_rq(se);
+}
+void init_entity_runnable_average(struct sched_entity *se)
+{
+}
+void post_init_entity_util_avg(struct sched_entity *se)
+{
+}
+static void update_tg_load_avg(struct cfs_rq *cfs_rq, int force)
+{
+}
+static void update_curr(struct cfs_rq *cfs_rq)
+{
+struct sched_entity *curr = cfs_rq->curr;
+u64 now = rq_clock_task(rq_of(cfs_rq));
+u64 delta_exec;
+if (unlikely(!curr))
+return;
+delta_exec = now - curr->exec_start;
+if (unlikely((s64)delta_exec <= 0))
+return;
+curr->exec_start = now;
+schedstat_set(curr->statistics.exec_max,
+max(delta_exec, curr->statistics.exec_max));
+curr->sum_exec_runtime += delta_exec;
+schedstat_add(cfs_rq->exec_clock, delta_exec);
+curr->vruntime += calc_delta_fair(delta_exec, curr);
+update_min_vruntime(cfs_rq);
+if (entity_is_task(curr)) {
+struct task_struct *curtask = task_of(curr);
+trace_sched_stat_runtime(curtask, delta_exec, curr->vruntime);
+cpuacct_charge(curtask, delta_exec);
+account_group_exec_runtime(curtask, delta_exec);
+}
+account_cfs_rq_runtime(cfs_rq, delta_exec);
+}
+static void update_curr_fair(struct rq *rq)
+{
+update_curr(cfs_rq_of(&rq->curr->se));
+}
+static inline void
+update_stats_wait_start(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+u64 wait_start, prev_wait_start;
+if (!schedstat_enabled())
+return;
+wait_start = rq_clock(rq_of(cfs_rq));
+prev_wait_start = schedstat_val(se->statistics.wait_start);
+if (entity_is_task(se) && task_on_rq_migrating(task_of(se)) &&
+likely(wait_start > prev_wait_start))
+wait_start -= prev_wait_start;
+schedstat_set(se->statistics.wait_start, wait_start);
+}
+static inline void
+update_stats_wait_end(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+struct task_struct *p;
+u64 delta;
+if (!schedstat_enabled())
+return;
+delta = rq_clock(rq_of(cfs_rq)) - schedstat_val(se->statistics.wait_start);
+if (entity_is_task(se)) {
+p = task_of(se);
+if (task_on_rq_migrating(p)) {
+schedstat_set(se->statistics.wait_start, delta);
+return;
+}
+trace_sched_stat_wait(p, delta);
+}
+schedstat_set(se->statistics.wait_max,
+max(schedstat_val(se->statistics.wait_max), delta));
+schedstat_inc(se->statistics.wait_count);
+schedstat_add(se->statistics.wait_sum, delta);
+schedstat_set(se->statistics.wait_start, 0);
+}
+static inline void
+update_stats_enqueue_sleeper(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+struct task_struct *tsk = NULL;
+u64 sleep_start, block_start;
+if (!schedstat_enabled())
+return;
+sleep_start = schedstat_val(se->statistics.sleep_start);
+block_start = schedstat_val(se->statistics.block_start);
+if (entity_is_task(se))
+tsk = task_of(se);
+if (sleep_start) {
+u64 delta = rq_clock(rq_of(cfs_rq)) - sleep_start;
+if ((s64)delta < 0)
+delta = 0;
+if (unlikely(delta > schedstat_val(se->statistics.sleep_max)))
+schedstat_set(se->statistics.sleep_max, delta);
+schedstat_set(se->statistics.sleep_start, 0);
+schedstat_add(se->statistics.sum_sleep_runtime, delta);
+if (tsk) {
+account_scheduler_latency(tsk, delta >> 10, 1);
+trace_sched_stat_sleep(tsk, delta);
+}
+}
+if (block_start) {
+u64 delta = rq_clock(rq_of(cfs_rq)) - block_start;
+if ((s64)delta < 0)
+delta = 0;
+if (unlikely(delta > schedstat_val(se->statistics.block_max)))
+schedstat_set(se->statistics.block_max, delta);
+schedstat_set(se->statistics.block_start, 0);
+schedstat_add(se->statistics.sum_sleep_runtime, delta);
+if (tsk) {
+if (tsk->in_iowait) {
+schedstat_add(se->statistics.iowait_sum, delta);
+schedstat_inc(se->statistics.iowait_count);
+trace_sched_stat_iowait(tsk, delta);
+}
+trace_sched_stat_blocked(tsk, delta);
+if (unlikely(prof_on == SLEEP_PROFILING)) {
+profile_hits(SLEEP_PROFILING,
+(void *)get_wchan(tsk),
+delta >> 20);
+}
+account_scheduler_latency(tsk, delta >> 10, 0);
+}
+}
+}
+static inline void
+update_stats_enqueue(struct cfs_rq *cfs_rq, struct sched_entity *se, int flags)
+{
+if (!schedstat_enabled())
+return;
+if (se != cfs_rq->curr)
+update_stats_wait_start(cfs_rq, se);
+if (flags & ENQUEUE_WAKEUP)
+update_stats_enqueue_sleeper(cfs_rq, se);
+}
+static inline void
+update_stats_dequeue(struct cfs_rq *cfs_rq, struct sched_entity *se, int flags)
+{
+if (!schedstat_enabled())
+return;
+if (se != cfs_rq->curr)
+update_stats_wait_end(cfs_rq, se);
+if ((flags & DEQUEUE_SLEEP) && entity_is_task(se)) {
+struct task_struct *tsk = task_of(se);
+if (tsk->state & TASK_INTERRUPTIBLE)
+schedstat_set(se->statistics.sleep_start,
+rq_clock(rq_of(cfs_rq)));
+if (tsk->state & TASK_UNINTERRUPTIBLE)
+schedstat_set(se->statistics.block_start,
+rq_clock(rq_of(cfs_rq)));
+}
+}
+static inline void
+update_stats_curr_start(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+se->exec_start = rq_clock_task(rq_of(cfs_rq));
+}
+static unsigned int task_nr_scan_windows(struct task_struct *p)
+{
+unsigned long rss = 0;
+unsigned long nr_scan_pages;
+nr_scan_pages = sysctl_numa_balancing_scan_size << (20 - PAGE_SHIFT);
+rss = get_mm_rss(p->mm);
+if (!rss)
+rss = nr_scan_pages;
+rss = round_up(rss, nr_scan_pages);
+return rss / nr_scan_pages;
+}
+static unsigned int task_scan_min(struct task_struct *p)
+{
+unsigned int scan_size = READ_ONCE(sysctl_numa_balancing_scan_size);
+unsigned int scan, floor;
+unsigned int windows = 1;
+if (scan_size < MAX_SCAN_WINDOW)
+windows = MAX_SCAN_WINDOW / scan_size;
+floor = 1000 / windows;
+scan = sysctl_numa_balancing_scan_period_min / task_nr_scan_windows(p);
+return max_t(unsigned int, floor, scan);
+}
+static unsigned int task_scan_max(struct task_struct *p)
+{
+unsigned int smin = task_scan_min(p);
+unsigned int smax;
+smax = sysctl_numa_balancing_scan_period_max / task_nr_scan_windows(p);
+return max(smin, smax);
+}
+static void account_numa_enqueue(struct rq *rq, struct task_struct *p)
+{
+rq->nr_numa_running += (p->numa_preferred_nid != -1);
+rq->nr_preferred_running += (p->numa_preferred_nid == task_node(p));
+}
+static void account_numa_dequeue(struct rq *rq, struct task_struct *p)
+{
+rq->nr_numa_running -= (p->numa_preferred_nid != -1);
+rq->nr_preferred_running -= (p->numa_preferred_nid == task_node(p));
+}
+pid_t task_numa_group_id(struct task_struct *p)
+{
+return p->numa_group ? p->numa_group->gid : 0;
+}
+static inline int task_faults_idx(enum numa_faults_stats s, int nid, int priv)
+{
+return NR_NUMA_HINT_FAULT_TYPES * (s * nr_node_ids + nid) + priv;
+}
+static inline unsigned long task_faults(struct task_struct *p, int nid)
+{
+if (!p->numa_faults)
+return 0;
+return p->numa_faults[task_faults_idx(NUMA_MEM, nid, 0)] +
+p->numa_faults[task_faults_idx(NUMA_MEM, nid, 1)];
+}
+static inline unsigned long group_faults(struct task_struct *p, int nid)
+{
+if (!p->numa_group)
+return 0;
+return p->numa_group->faults[task_faults_idx(NUMA_MEM, nid, 0)] +
+p->numa_group->faults[task_faults_idx(NUMA_MEM, nid, 1)];
+}
+static inline unsigned long group_faults_cpu(struct numa_group *group, int nid)
+{
+return group->faults_cpu[task_faults_idx(NUMA_MEM, nid, 0)] +
+group->faults_cpu[task_faults_idx(NUMA_MEM, nid, 1)];
+}
+static bool numa_is_active_node(int nid, struct numa_group *ng)
+{
+return group_faults_cpu(ng, nid) * ACTIVE_NODE_FRACTION > ng->max_faults_cpu;
+}
+static unsigned long score_nearby_nodes(struct task_struct *p, int nid,
+int maxdist, bool task)
+{
+unsigned long score = 0;
+int node;
+if (sched_numa_topology_type == NUMA_DIRECT)
+return 0;
+for_each_online_node(node) {
+unsigned long faults;
+int dist = node_distance(nid, node);
+if (dist == sched_max_numa_distance || node == nid)
+continue;
+if (sched_numa_topology_type == NUMA_BACKPLANE &&
+dist > maxdist)
+continue;
+if (task)
+faults = task_faults(p, node);
+else
+faults = group_faults(p, node);
+if (sched_numa_topology_type == NUMA_GLUELESS_MESH) {
+faults *= (sched_max_numa_distance - dist);
+faults /= (sched_max_numa_distance - LOCAL_DISTANCE);
+}
+score += faults;
+}
+return score;
+}
+static inline unsigned long task_weight(struct task_struct *p, int nid,
+int dist)
+{
+unsigned long faults, total_faults;
+if (!p->numa_faults)
+return 0;
+total_faults = p->total_numa_faults;
+if (!total_faults)
+return 0;
+faults = task_faults(p, nid);
+faults += score_nearby_nodes(p, nid, dist, true);
+return 1000 * faults / total_faults;
+}
+static inline unsigned long group_weight(struct task_struct *p, int nid,
+int dist)
+{
+unsigned long faults, total_faults;
+if (!p->numa_group)
+return 0;
+total_faults = p->numa_group->total_faults;
+if (!total_faults)
+return 0;
+faults = group_faults(p, nid);
+faults += score_nearby_nodes(p, nid, dist, false);
+return 1000 * faults / total_faults;
+}
+bool should_numa_migrate_memory(struct task_struct *p, struct page * page,
+int src_nid, int dst_cpu)
+{
+struct numa_group *ng = p->numa_group;
+int dst_nid = cpu_to_node(dst_cpu);
+int last_cpupid, this_cpupid;
+this_cpupid = cpu_pid_to_cpupid(dst_cpu, current->pid);
+last_cpupid = page_cpupid_xchg_last(page, this_cpupid);
+if (!cpupid_pid_unset(last_cpupid) &&
+cpupid_to_nid(last_cpupid) != dst_nid)
+return false;
+if (cpupid_match_pid(p, last_cpupid))
+return true;
+if (!ng)
+return true;
+if (group_faults_cpu(ng, dst_nid) > group_faults_cpu(ng, src_nid) *
+ACTIVE_NODE_FRACTION)
+return true;
+return group_faults_cpu(ng, dst_nid) * group_faults(p, src_nid) * 3 >
+group_faults_cpu(ng, src_nid) * group_faults(p, dst_nid) * 4;
+}
+static void update_numa_stats(struct numa_stats *ns, int nid)
+{
+int smt, cpu, cpus = 0;
+unsigned long capacity;
+memset(ns, 0, sizeof(*ns));
+for_each_cpu(cpu, cpumask_of_node(nid)) {
+struct rq *rq = cpu_rq(cpu);
+ns->nr_running += rq->nr_running;
+ns->load += weighted_cpuload(cpu);
+ns->compute_capacity += capacity_of(cpu);
+cpus++;
+}
+if (!cpus)
+return;
+smt = DIV_ROUND_UP(SCHED_CAPACITY_SCALE * cpus, ns->compute_capacity);
+capacity = cpus / smt;
+ns->task_capacity = min_t(unsigned, capacity,
+DIV_ROUND_CLOSEST(ns->compute_capacity, SCHED_CAPACITY_SCALE));
+ns->has_free_capacity = (ns->nr_running < ns->task_capacity);
+}
+static void task_numa_assign(struct task_numa_env *env,
+struct task_struct *p, long imp)
+{
+if (env->best_task)
+put_task_struct(env->best_task);
+if (p)
+get_task_struct(p);
+env->best_task = p;
+env->best_imp = imp;
+env->best_cpu = env->dst_cpu;
+}
+static bool load_too_imbalanced(long src_load, long dst_load,
+struct task_numa_env *env)
+{
+long imb, old_imb;
+long orig_src_load, orig_dst_load;
+long src_capacity, dst_capacity;
+src_capacity = env->src_stats.compute_capacity;
+dst_capacity = env->dst_stats.compute_capacity;
+if (dst_load < src_load)
+swap(dst_load, src_load);
+imb = dst_load * src_capacity * 100 -
+src_load * dst_capacity * env->imbalance_pct;
+if (imb <= 0)
+return false;
+orig_src_load = env->src_stats.load;
+orig_dst_load = env->dst_stats.load;
+if (orig_dst_load < orig_src_load)
+swap(orig_dst_load, orig_src_load);
+old_imb = orig_dst_load * src_capacity * 100 -
+orig_src_load * dst_capacity * env->imbalance_pct;
+return (imb > old_imb);
+}
+static void task_numa_compare(struct task_numa_env *env,
+long taskimp, long groupimp)
+{
+struct rq *src_rq = cpu_rq(env->src_cpu);
+struct rq *dst_rq = cpu_rq(env->dst_cpu);
+struct task_struct *cur;
+long src_load, dst_load;
+long load;
+long imp = env->p->numa_group ? groupimp : taskimp;
+long moveimp = imp;
+int dist = env->dist;
+rcu_read_lock();
+cur = task_rcu_dereference(&dst_rq->curr);
+if (cur && ((cur->flags & PF_EXITING) || is_idle_task(cur)))
+cur = NULL;
+if (cur == env->p)
+goto unlock;
+if (cur) {
+if (!cpumask_test_cpu(env->src_cpu, &cur->cpus_allowed))
+goto unlock;
+if (cur->numa_group == env->p->numa_group) {
+imp = taskimp + task_weight(cur, env->src_nid, dist) -
+task_weight(cur, env->dst_nid, dist);
+if (cur->numa_group)
+imp -= imp/16;
+} else {
+if (cur->numa_group)
+imp += group_weight(cur, env->src_nid, dist) -
+group_weight(cur, env->dst_nid, dist);
+else
+imp += task_weight(cur, env->src_nid, dist) -
+task_weight(cur, env->dst_nid, dist);
+}
+}
+if (imp <= env->best_imp && moveimp <= env->best_imp)
+goto unlock;
+if (!cur) {
+if (env->src_stats.nr_running <= env->src_stats.task_capacity &&
+!env->dst_stats.has_free_capacity)
+goto unlock;
+goto balance;
+}
+if (imp > env->best_imp && src_rq->nr_running == 1 &&
+dst_rq->nr_running == 1)
+goto assign;
+balance:
+load = task_h_load(env->p);
+dst_load = env->dst_stats.load + load;
+src_load = env->src_stats.load - load;
+if (moveimp > imp && moveimp > env->best_imp) {
+if (!load_too_imbalanced(src_load, dst_load, env)) {
+imp = moveimp - 1;
+cur = NULL;
+goto assign;
+}
+}
+if (imp <= env->best_imp)
+goto unlock;
+if (cur) {
+load = task_h_load(cur);
+dst_load -= load;
+src_load += load;
+}
+if (load_too_imbalanced(src_load, dst_load, env))
+goto unlock;
+if (!cur) {
+local_irq_disable();
+env->dst_cpu = select_idle_sibling(env->p, env->src_cpu,
+env->dst_cpu);
+local_irq_enable();
+}
+assign:
+task_numa_assign(env, cur, imp);
+unlock:
+rcu_read_unlock();
+}
+static void task_numa_find_cpu(struct task_numa_env *env,
+long taskimp, long groupimp)
+{
+int cpu;
+for_each_cpu(cpu, cpumask_of_node(env->dst_nid)) {
+if (!cpumask_test_cpu(cpu, &env->p->cpus_allowed))
+continue;
+env->dst_cpu = cpu;
+task_numa_compare(env, taskimp, groupimp);
+}
+}
+static bool numa_has_capacity(struct task_numa_env *env)
+{
+struct numa_stats *src = &env->src_stats;
+struct numa_stats *dst = &env->dst_stats;
+if (src->has_free_capacity && !dst->has_free_capacity)
+return false;
+if (src->load * dst->compute_capacity * env->imbalance_pct >
+dst->load * src->compute_capacity * 100)
+return true;
+return false;
+}
+static int task_numa_migrate(struct task_struct *p)
+{
+struct task_numa_env env = {
+.p = p,
+.src_cpu = task_cpu(p),
+.src_nid = task_node(p),
+.imbalance_pct = 112,
+.best_task = NULL,
+.best_imp = 0,
+.best_cpu = -1,
+};
+struct sched_domain *sd;
+unsigned long taskweight, groupweight;
+int nid, ret, dist;
+long taskimp, groupimp;
+rcu_read_lock();
+sd = rcu_dereference(per_cpu(sd_numa, env.src_cpu));
+if (sd)
+env.imbalance_pct = 100 + (sd->imbalance_pct - 100) / 2;
+rcu_read_unlock();
+if (unlikely(!sd)) {
+p->numa_preferred_nid = task_node(p);
+return -EINVAL;
+}
+env.dst_nid = p->numa_preferred_nid;
+dist = env.dist = node_distance(env.src_nid, env.dst_nid);
+taskweight = task_weight(p, env.src_nid, dist);
+groupweight = group_weight(p, env.src_nid, dist);
+update_numa_stats(&env.src_stats, env.src_nid);
+taskimp = task_weight(p, env.dst_nid, dist) - taskweight;
+groupimp = group_weight(p, env.dst_nid, dist) - groupweight;
+update_numa_stats(&env.dst_stats, env.dst_nid);
+if (numa_has_capacity(&env))
+task_numa_find_cpu(&env, taskimp, groupimp);
+if (env.best_cpu == -1 || (p->numa_group && p->numa_group->active_nodes > 1)) {
+for_each_online_node(nid) {
+if (nid == env.src_nid || nid == p->numa_preferred_nid)
+continue;
+dist = node_distance(env.src_nid, env.dst_nid);
+if (sched_numa_topology_type == NUMA_BACKPLANE &&
+dist != env.dist) {
+taskweight = task_weight(p, env.src_nid, dist);
+groupweight = group_weight(p, env.src_nid, dist);
+}
+taskimp = task_weight(p, nid, dist) - taskweight;
+groupimp = group_weight(p, nid, dist) - groupweight;
+if (taskimp < 0 && groupimp < 0)
+continue;
+env.dist = dist;
+env.dst_nid = nid;
+update_numa_stats(&env.dst_stats, env.dst_nid);
+if (numa_has_capacity(&env))
+task_numa_find_cpu(&env, taskimp, groupimp);
+}
+}
+if (p->numa_group) {
+struct numa_group *ng = p->numa_group;
+if (env.best_cpu == -1)
+nid = env.src_nid;
+else
+nid = env.dst_nid;
+if (ng->active_nodes > 1 && numa_is_active_node(env.dst_nid, ng))
+sched_setnuma(p, env.dst_nid);
+}
+if (env.best_cpu == -1)
+return -EAGAIN;
+p->numa_scan_period = task_scan_min(p);
+if (env.best_task == NULL) {
+ret = migrate_task_to(p, env.best_cpu);
+if (ret != 0)
+trace_sched_stick_numa(p, env.src_cpu, env.best_cpu);
+return ret;
+}
+ret = migrate_swap(p, env.best_task);
+if (ret != 0)
+trace_sched_stick_numa(p, env.src_cpu, task_cpu(env.best_task));
+put_task_struct(env.best_task);
+return ret;
+}
+static void numa_migrate_preferred(struct task_struct *p)
+{
+unsigned long interval = HZ;
+if (unlikely(p->numa_preferred_nid == -1 || !p->numa_faults))
+return;
+interval = min(interval, msecs_to_jiffies(p->numa_scan_period) / 16);
+p->numa_migrate_retry = jiffies + interval;
+if (task_node(p) == p->numa_preferred_nid)
+return;
+task_numa_migrate(p);
+}
+static void numa_group_count_active_nodes(struct numa_group *numa_group)
+{
+unsigned long faults, max_faults = 0;
+int nid, active_nodes = 0;
+for_each_online_node(nid) {
+faults = group_faults_cpu(numa_group, nid);
+if (faults > max_faults)
+max_faults = faults;
+}
+for_each_online_node(nid) {
+faults = group_faults_cpu(numa_group, nid);
+if (faults * ACTIVE_NODE_FRACTION > max_faults)
+active_nodes++;
+}
+numa_group->max_faults_cpu = max_faults;
+numa_group->active_nodes = active_nodes;
+}
+static void update_task_scan_period(struct task_struct *p,
+unsigned long shared, unsigned long private)
+{
+unsigned int period_slot;
+int ratio;
+int diff;
+unsigned long remote = p->numa_faults_locality[0];
+unsigned long local = p->numa_faults_locality[1];
+if (local + shared == 0 || p->numa_faults_locality[2]) {
+p->numa_scan_period = min(p->numa_scan_period_max,
+p->numa_scan_period << 1);
+p->mm->numa_next_scan = jiffies +
+msecs_to_jiffies(p->numa_scan_period);
+return;
+}
+period_slot = DIV_ROUND_UP(p->numa_scan_period, NUMA_PERIOD_SLOTS);
+ratio = (local * NUMA_PERIOD_SLOTS) / (local + remote);
+if (ratio >= NUMA_PERIOD_THRESHOLD) {
+int slot = ratio - NUMA_PERIOD_THRESHOLD;
+if (!slot)
+slot = 1;
+diff = slot * period_slot;
+} else {
+diff = -(NUMA_PERIOD_THRESHOLD - ratio) * period_slot;
+ratio = DIV_ROUND_UP(private * NUMA_PERIOD_SLOTS, (private + shared + 1));
+diff = (diff * ratio) / NUMA_PERIOD_SLOTS;
+}
+p->numa_scan_period = clamp(p->numa_scan_period + diff,
+task_scan_min(p), task_scan_max(p));
+memset(p->numa_faults_locality, 0, sizeof(p->numa_faults_locality));
+}
+static u64 numa_get_avg_runtime(struct task_struct *p, u64 *period)
+{
+u64 runtime, delta, now;
+now = p->se.exec_start;
+runtime = p->se.sum_exec_runtime;
+if (p->last_task_numa_placement) {
+delta = runtime - p->last_sum_exec_runtime;
+*period = now - p->last_task_numa_placement;
+} else {
+delta = p->se.avg.load_sum / p->se.load.weight;
+*period = LOAD_AVG_MAX;
+}
+p->last_sum_exec_runtime = runtime;
+p->last_task_numa_placement = now;
+return delta;
+}
+static int preferred_group_nid(struct task_struct *p, int nid)
+{
+nodemask_t nodes;
+int dist;
+if (sched_numa_topology_type == NUMA_DIRECT)
+return nid;
+if (sched_numa_topology_type == NUMA_GLUELESS_MESH) {
+unsigned long score, max_score = 0;
+int node, max_node = nid;
+dist = sched_max_numa_distance;
+for_each_online_node(node) {
+score = group_weight(p, node, dist);
+if (score > max_score) {
+max_score = score;
+max_node = node;
+}
+}
+return max_node;
+}
+nodes = node_online_map;
+for (dist = sched_max_numa_distance; dist > LOCAL_DISTANCE; dist--) {
+unsigned long max_faults = 0;
+nodemask_t max_group = NODE_MASK_NONE;
+int a, b;
+if (!find_numa_distance(dist))
+continue;
+for_each_node_mask(a, nodes) {
+unsigned long faults = 0;
+nodemask_t this_group;
+nodes_clear(this_group);
+for_each_node_mask(b, nodes) {
+if (node_distance(a, b) < dist) {
+faults += group_faults(p, b);
+node_set(b, this_group);
+node_clear(b, nodes);
+}
+}
+if (faults > max_faults) {
+max_faults = faults;
+max_group = this_group;
+nid = a;
+}
+}
+if (!max_faults)
+break;
+nodes = max_group;
+}
+return nid;
+}
+static void task_numa_placement(struct task_struct *p)
+{
+int seq, nid, max_nid = -1, max_group_nid = -1;
+unsigned long max_faults = 0, max_group_faults = 0;
+unsigned long fault_types[2] = { 0, 0 };
+unsigned long total_faults;
+u64 runtime, period;
+spinlock_t *group_lock = NULL;
+seq = READ_ONCE(p->mm->numa_scan_seq);
+if (p->numa_scan_seq == seq)
+return;
+p->numa_scan_seq = seq;
+p->numa_scan_period_max = task_scan_max(p);
+total_faults = p->numa_faults_locality[0] +
+p->numa_faults_locality[1];
+runtime = numa_get_avg_runtime(p, &period);
+if (p->numa_group) {
+group_lock = &p->numa_group->lock;
+spin_lock_irq(group_lock);
+}
+for_each_online_node(nid) {
+int mem_idx, membuf_idx, cpu_idx, cpubuf_idx;
+unsigned long faults = 0, group_faults = 0;
+int priv;
+for (priv = 0; priv < NR_NUMA_HINT_FAULT_TYPES; priv++) {
+long diff, f_diff, f_weight;
+mem_idx = task_faults_idx(NUMA_MEM, nid, priv);
+membuf_idx = task_faults_idx(NUMA_MEMBUF, nid, priv);
+cpu_idx = task_faults_idx(NUMA_CPU, nid, priv);
+cpubuf_idx = task_faults_idx(NUMA_CPUBUF, nid, priv);
+diff = p->numa_faults[membuf_idx] - p->numa_faults[mem_idx] / 2;
+fault_types[priv] += p->numa_faults[membuf_idx];
+p->numa_faults[membuf_idx] = 0;
+f_weight = div64_u64(runtime << 16, period + 1);
+f_weight = (f_weight * p->numa_faults[cpubuf_idx]) /
+(total_faults + 1);
+f_diff = f_weight - p->numa_faults[cpu_idx] / 2;
+p->numa_faults[cpubuf_idx] = 0;
+p->numa_faults[mem_idx] += diff;
+p->numa_faults[cpu_idx] += f_diff;
+faults += p->numa_faults[mem_idx];
+p->total_numa_faults += diff;
+if (p->numa_group) {
+p->numa_group->faults[mem_idx] += diff;
+p->numa_group->faults_cpu[mem_idx] += f_diff;
+p->numa_group->total_faults += diff;
+group_faults += p->numa_group->faults[mem_idx];
+}
+}
+if (faults > max_faults) {
+max_faults = faults;
+max_nid = nid;
+}
+if (group_faults > max_group_faults) {
+max_group_faults = group_faults;
+max_group_nid = nid;
+}
+}
+update_task_scan_period(p, fault_types[0], fault_types[1]);
+if (p->numa_group) {
+numa_group_count_active_nodes(p->numa_group);
+spin_unlock_irq(group_lock);
+max_nid = preferred_group_nid(p, max_group_nid);
+}
+if (max_faults) {
+if (max_nid != p->numa_preferred_nid)
+sched_setnuma(p, max_nid);
+if (task_node(p) != p->numa_preferred_nid)
+numa_migrate_preferred(p);
+}
+}
+static inline int get_numa_group(struct numa_group *grp)
+{
+return atomic_inc_not_zero(&grp->refcount);
+}
+static inline void put_numa_group(struct numa_group *grp)
+{
+if (atomic_dec_and_test(&grp->refcount))
+kfree_rcu(grp, rcu);
+}
+static void task_numa_group(struct task_struct *p, int cpupid, int flags,
+int *priv)
+{
+struct numa_group *grp, *my_grp;
+struct task_struct *tsk;
+bool join = false;
+int cpu = cpupid_to_cpu(cpupid);
+int i;
+if (unlikely(!p->numa_group)) {
+unsigned int size = sizeof(struct numa_group) +
+4*nr_node_ids*sizeof(unsigned long);
+grp = kzalloc(size, GFP_KERNEL | __GFP_NOWARN);
+if (!grp)
+return;
+atomic_set(&grp->refcount, 1);
+grp->active_nodes = 1;
+grp->max_faults_cpu = 0;
+spin_lock_init(&grp->lock);
+grp->gid = p->pid;
+grp->faults_cpu = grp->faults + NR_NUMA_HINT_FAULT_TYPES *
+nr_node_ids;
+for (i = 0; i < NR_NUMA_HINT_FAULT_STATS * nr_node_ids; i++)
+grp->faults[i] = p->numa_faults[i];
+grp->total_faults = p->total_numa_faults;
+grp->nr_tasks++;
+rcu_assign_pointer(p->numa_group, grp);
+}
+rcu_read_lock();
+tsk = READ_ONCE(cpu_rq(cpu)->curr);
+if (!cpupid_match_pid(tsk, cpupid))
+goto no_join;
+grp = rcu_dereference(tsk->numa_group);
+if (!grp)
+goto no_join;
+my_grp = p->numa_group;
+if (grp == my_grp)
+goto no_join;
+if (my_grp->nr_tasks > grp->nr_tasks)
+goto no_join;
+if (my_grp->nr_tasks == grp->nr_tasks && my_grp > grp)
+goto no_join;
+if (tsk->mm == current->mm)
+join = true;
+if (flags & TNF_SHARED)
+join = true;
+*priv = !join;
+if (join && !get_numa_group(grp))
+goto no_join;
+rcu_read_unlock();
+if (!join)
+return;
+BUG_ON(irqs_disabled());
+double_lock_irq(&my_grp->lock, &grp->lock);
+for (i = 0; i < NR_NUMA_HINT_FAULT_STATS * nr_node_ids; i++) {
+my_grp->faults[i] -= p->numa_faults[i];
+grp->faults[i] += p->numa_faults[i];
+}
+my_grp->total_faults -= p->total_numa_faults;
+grp->total_faults += p->total_numa_faults;
+my_grp->nr_tasks--;
+grp->nr_tasks++;
+spin_unlock(&my_grp->lock);
+spin_unlock_irq(&grp->lock);
+rcu_assign_pointer(p->numa_group, grp);
+put_numa_group(my_grp);
+return;
+no_join:
+rcu_read_unlock();
+return;
+}
+void task_numa_free(struct task_struct *p)
+{
+struct numa_group *grp = p->numa_group;
+void *numa_faults = p->numa_faults;
+unsigned long flags;
+int i;
+if (grp) {
+spin_lock_irqsave(&grp->lock, flags);
+for (i = 0; i < NR_NUMA_HINT_FAULT_STATS * nr_node_ids; i++)
+grp->faults[i] -= p->numa_faults[i];
+grp->total_faults -= p->total_numa_faults;
+grp->nr_tasks--;
+spin_unlock_irqrestore(&grp->lock, flags);
+RCU_INIT_POINTER(p->numa_group, NULL);
+put_numa_group(grp);
+}
+p->numa_faults = NULL;
+kfree(numa_faults);
+}
+void task_numa_fault(int last_cpupid, int mem_node, int pages, int flags)
+{
+struct task_struct *p = current;
+bool migrated = flags & TNF_MIGRATED;
+int cpu_node = task_node(current);
+int local = !!(flags & TNF_FAULT_LOCAL);
+struct numa_group *ng;
+int priv;
+if (!static_branch_likely(&sched_numa_balancing))
+return;
+if (!p->mm)
+return;
+if (unlikely(!p->numa_faults)) {
+int size = sizeof(*p->numa_faults) *
+NR_NUMA_HINT_FAULT_BUCKETS * nr_node_ids;
+p->numa_faults = kzalloc(size, GFP_KERNEL|__GFP_NOWARN);
+if (!p->numa_faults)
+return;
+p->total_numa_faults = 0;
+memset(p->numa_faults_locality, 0, sizeof(p->numa_faults_locality));
+}
+if (unlikely(last_cpupid == (-1 & LAST_CPUPID_MASK))) {
+priv = 1;
+} else {
+priv = cpupid_match_pid(p, last_cpupid);
+if (!priv && !(flags & TNF_NO_GROUP))
+task_numa_group(p, last_cpupid, flags, &priv);
+}
+ng = p->numa_group;
+if (!priv && !local && ng && ng->active_nodes > 1 &&
+numa_is_active_node(cpu_node, ng) &&
+numa_is_active_node(mem_node, ng))
+local = 1;
+task_numa_placement(p);
+if (time_after(jiffies, p->numa_migrate_retry))
+numa_migrate_preferred(p);
+if (migrated)
+p->numa_pages_migrated += pages;
+if (flags & TNF_MIGRATE_FAIL)
+p->numa_faults_locality[2] += pages;
+p->numa_faults[task_faults_idx(NUMA_MEMBUF, mem_node, priv)] += pages;
+p->numa_faults[task_faults_idx(NUMA_CPUBUF, cpu_node, priv)] += pages;
+p->numa_faults_locality[local] += pages;
+}
+static void reset_ptenuma_scan(struct task_struct *p)
+{
+WRITE_ONCE(p->mm->numa_scan_seq, READ_ONCE(p->mm->numa_scan_seq) + 1);
+p->mm->numa_scan_offset = 0;
+}
+void task_numa_work(struct callback_head *work)
+{
+unsigned long migrate, next_scan, now = jiffies;
+struct task_struct *p = current;
+struct mm_struct *mm = p->mm;
+u64 runtime = p->se.sum_exec_runtime;
+struct vm_area_struct *vma;
+unsigned long start, end;
+unsigned long nr_pte_updates = 0;
+long pages, virtpages;
+SCHED_WARN_ON(p != container_of(work, struct task_struct, numa_work));
+work->next = work;
+if (p->flags & PF_EXITING)
+return;
+if (!mm->numa_next_scan) {
+mm->numa_next_scan = now +
+msecs_to_jiffies(sysctl_numa_balancing_scan_delay);
+}
+migrate = mm->numa_next_scan;
+if (time_before(now, migrate))
+return;
+if (p->numa_scan_period == 0) {
+p->numa_scan_period_max = task_scan_max(p);
+p->numa_scan_period = task_scan_min(p);
+}
+next_scan = now + msecs_to_jiffies(p->numa_scan_period);
+if (cmpxchg(&mm->numa_next_scan, migrate, next_scan) != migrate)
+return;
+p->node_stamp += 2 * TICK_NSEC;
+start = mm->numa_scan_offset;
+pages = sysctl_numa_balancing_scan_size;
+pages <<= 20 - PAGE_SHIFT;
+virtpages = pages * 8;
+if (!pages)
+return;
+down_read(&mm->mmap_sem);
+vma = find_vma(mm, start);
+if (!vma) {
+reset_ptenuma_scan(p);
+start = 0;
+vma = mm->mmap;
+}
+for (; vma; vma = vma->vm_next) {
+if (!vma_migratable(vma) || !vma_policy_mof(vma) ||
+is_vm_hugetlb_page(vma) || (vma->vm_flags & VM_MIXEDMAP)) {
+continue;
+}
+if (!vma->vm_mm ||
+(vma->vm_file && (vma->vm_flags & (VM_READ|VM_WRITE)) == (VM_READ)))
+continue;
+if (!(vma->vm_flags & (VM_READ | VM_EXEC | VM_WRITE)))
+continue;
+do {
+start = max(start, vma->vm_start);
+end = ALIGN(start + (pages << PAGE_SHIFT), HPAGE_SIZE);
+end = min(end, vma->vm_end);
+nr_pte_updates = change_prot_numa(vma, start, end);
+if (nr_pte_updates)
+pages -= (end - start) >> PAGE_SHIFT;
+virtpages -= (end - start) >> PAGE_SHIFT;
+start = end;
+if (pages <= 0 || virtpages <= 0)
+goto out;
+cond_resched();
+} while (end != vma->vm_end);
+}
+out:
+if (vma)
+mm->numa_scan_offset = start;
+else
+reset_ptenuma_scan(p);
+up_read(&mm->mmap_sem);
+if (unlikely(p->se.sum_exec_runtime != runtime)) {
+u64 diff = p->se.sum_exec_runtime - runtime;
+p->node_stamp += 32 * diff;
+}
+}
+void task_tick_numa(struct rq *rq, struct task_struct *curr)
+{
+struct callback_head *work = &curr->numa_work;
+u64 period, now;
+if (!curr->mm || (curr->flags & PF_EXITING) || work->next != work)
+return;
+now = curr->se.sum_exec_runtime;
+period = (u64)curr->numa_scan_period * NSEC_PER_MSEC;
+if (now > curr->node_stamp + period) {
+if (!curr->node_stamp)
+curr->numa_scan_period = task_scan_min(curr);
+curr->node_stamp += period;
+if (!time_before(jiffies, curr->mm->numa_next_scan)) {
+init_task_work(work, task_numa_work);
+task_work_add(curr, work, true);
+}
+}
+}
+static void task_tick_numa(struct rq *rq, struct task_struct *curr)
+{
+}
+static inline void account_numa_enqueue(struct rq *rq, struct task_struct *p)
+{
+}
+static inline void account_numa_dequeue(struct rq *rq, struct task_struct *p)
+{
+}
+static void
+account_entity_enqueue(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+update_load_add(&cfs_rq->load, se->load.weight);
+if (!parent_entity(se))
+update_load_add(&rq_of(cfs_rq)->load, se->load.weight);
+#ifdef CONFIG_SMP
+if (entity_is_task(se)) {
+struct rq *rq = rq_of(cfs_rq);
+account_numa_enqueue(rq, task_of(se));
+list_add(&se->group_node, &rq->cfs_tasks);
+}
+#endif
+cfs_rq->nr_running++;
+}
+static void
+account_entity_dequeue(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+update_load_sub(&cfs_rq->load, se->load.weight);
+if (!parent_entity(se))
+update_load_sub(&rq_of(cfs_rq)->load, se->load.weight);
+#ifdef CONFIG_SMP
+if (entity_is_task(se)) {
+account_numa_dequeue(rq_of(cfs_rq), task_of(se));
+list_del_init(&se->group_node);
+}
+#endif
+cfs_rq->nr_running--;
+}
+static long calc_cfs_shares(struct cfs_rq *cfs_rq, struct task_group *tg)
+{
+long tg_weight, load, shares;
+load = scale_load_down(cfs_rq->load.weight);
+tg_weight = atomic_long_read(&tg->load_avg);
+tg_weight -= cfs_rq->tg_load_avg_contrib;
+tg_weight += load;
+shares = (tg->shares * load);
+if (tg_weight)
+shares /= tg_weight;
+if (shares < MIN_SHARES)
+shares = MIN_SHARES;
+if (shares > tg->shares)
+shares = tg->shares;
+return shares;
+}
+static inline long calc_cfs_shares(struct cfs_rq *cfs_rq, struct task_group *tg)
+{
+return tg->shares;
+}
+static void reweight_entity(struct cfs_rq *cfs_rq, struct sched_entity *se,
+unsigned long weight)
+{
+if (se->on_rq) {
+if (cfs_rq->curr == se)
+update_curr(cfs_rq);
+account_entity_dequeue(cfs_rq, se);
+}
+update_load_set(&se->load, weight);
+if (se->on_rq)
+account_entity_enqueue(cfs_rq, se);
+}
+static void update_cfs_shares(struct sched_entity *se)
+{
+struct cfs_rq *cfs_rq = group_cfs_rq(se);
+struct task_group *tg;
+long shares;
+if (!cfs_rq)
+return;
+if (throttled_hierarchy(cfs_rq))
+return;
+tg = cfs_rq->tg;
+#ifndef CONFIG_SMP
+if (likely(se->load.weight == tg->shares))
+return;
+#endif
+shares = calc_cfs_shares(cfs_rq, tg);
+reweight_entity(cfs_rq_of(se), se, shares);
+}
+static inline void update_cfs_shares(struct sched_entity *se)
+{
+}
+static __always_inline u64 decay_load(u64 val, u64 n)
+{
+unsigned int local_n;
+if (!n)
+return val;
+else if (unlikely(n > LOAD_AVG_PERIOD * 63))
+return 0;
+local_n = n;
+if (unlikely(local_n >= LOAD_AVG_PERIOD)) {
+val >>= local_n / LOAD_AVG_PERIOD;
+local_n %= LOAD_AVG_PERIOD;
+}
+val = mul_u64_u32_shr(val, runnable_avg_yN_inv[local_n], 32);
+return val;
+}
+static u32 __compute_runnable_contrib(u64 n)
+{
+u32 contrib = 0;
+if (likely(n <= LOAD_AVG_PERIOD))
+return runnable_avg_yN_sum[n];
+else if (unlikely(n >= LOAD_AVG_MAX_N))
+return LOAD_AVG_MAX;
+contrib = __accumulated_sum_N32[n/LOAD_AVG_PERIOD];
+n %= LOAD_AVG_PERIOD;
+contrib = decay_load(contrib, n);
+return contrib + runnable_avg_yN_sum[n];
+}
+static __always_inline int
+__update_load_avg(u64 now, int cpu, struct sched_avg *sa,
+unsigned long weight, int running, struct cfs_rq *cfs_rq)
+{
+u64 delta, scaled_delta, periods;
+u32 contrib;
+unsigned int delta_w, scaled_delta_w, decayed = 0;
+unsigned long scale_freq, scale_cpu;
+delta = now - sa->last_update_time;
+if ((s64)delta < 0) {
+sa->last_update_time = now;
+return 0;
+}
+delta >>= 10;
+if (!delta)
+return 0;
+sa->last_update_time = now;
+scale_freq = arch_scale_freq_capacity(NULL, cpu);
+scale_cpu = arch_scale_cpu_capacity(NULL, cpu);
+delta_w = sa->period_contrib;
+if (delta + delta_w >= 1024) {
+decayed = 1;
+sa->period_contrib = 0;
+delta_w = 1024 - delta_w;
+scaled_delta_w = cap_scale(delta_w, scale_freq);
+if (weight) {
+sa->load_sum += weight * scaled_delta_w;
+if (cfs_rq) {
+cfs_rq->runnable_load_sum +=
+weight * scaled_delta_w;
+}
+}
+if (running)
+sa->util_sum += scaled_delta_w * scale_cpu;
+delta -= delta_w;
+periods = delta / 1024;
+delta %= 1024;
+sa->load_sum = decay_load(sa->load_sum, periods + 1);
+if (cfs_rq) {
+cfs_rq->runnable_load_sum =
+decay_load(cfs_rq->runnable_load_sum, periods + 1);
+}
+sa->util_sum = decay_load((u64)(sa->util_sum), periods + 1);
+contrib = __compute_runnable_contrib(periods);
+contrib = cap_scale(contrib, scale_freq);
+if (weight) {
+sa->load_sum += weight * contrib;
+if (cfs_rq)
+cfs_rq->runnable_load_sum += weight * contrib;
+}
+if (running)
+sa->util_sum += contrib * scale_cpu;
+}
+scaled_delta = cap_scale(delta, scale_freq);
+if (weight) {
+sa->load_sum += weight * scaled_delta;
+if (cfs_rq)
+cfs_rq->runnable_load_sum += weight * scaled_delta;
+}
+if (running)
+sa->util_sum += scaled_delta * scale_cpu;
+sa->period_contrib += delta;
+if (decayed) {
+sa->load_avg = div_u64(sa->load_sum, LOAD_AVG_MAX);
+if (cfs_rq) {
+cfs_rq->runnable_load_avg =
+div_u64(cfs_rq->runnable_load_sum, LOAD_AVG_MAX);
+}
+sa->util_avg = sa->util_sum / LOAD_AVG_MAX;
+}
+return decayed;
+}
+static inline void update_tg_load_avg(struct cfs_rq *cfs_rq, int force)
+{
+long delta = cfs_rq->avg.load_avg - cfs_rq->tg_load_avg_contrib;
+if (cfs_rq->tg == &root_task_group)
+return;
+if (force || abs(delta) > cfs_rq->tg_load_avg_contrib / 64) {
+atomic_long_add(delta, &cfs_rq->tg->load_avg);
+cfs_rq->tg_load_avg_contrib = cfs_rq->avg.load_avg;
+}
+}
+void set_task_rq_fair(struct sched_entity *se,
+struct cfs_rq *prev, struct cfs_rq *next)
+{
+if (!sched_feat(ATTACH_AGE_LOAD))
+return;
+if (se->avg.last_update_time && prev) {
+u64 p_last_update_time;
+u64 n_last_update_time;
+#ifndef CONFIG_64BIT
+u64 p_last_update_time_copy;
+u64 n_last_update_time_copy;
+do {
+p_last_update_time_copy = prev->load_last_update_time_copy;
+n_last_update_time_copy = next->load_last_update_time_copy;
+smp_rmb();
+p_last_update_time = prev->avg.last_update_time;
+n_last_update_time = next->avg.last_update_time;
+} while (p_last_update_time != p_last_update_time_copy ||
+n_last_update_time != n_last_update_time_copy);
+#else
+p_last_update_time = prev->avg.last_update_time;
+n_last_update_time = next->avg.last_update_time;
+#endif
+__update_load_avg(p_last_update_time, cpu_of(rq_of(prev)),
+&se->avg, 0, 0, NULL);
+se->avg.last_update_time = n_last_update_time;
+}
+}
+static inline void
+update_tg_cfs_util(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+struct cfs_rq *gcfs_rq = group_cfs_rq(se);
+long delta = gcfs_rq->avg.util_avg - se->avg.util_avg;
+if (!delta)
+return;
+se->avg.util_avg = gcfs_rq->avg.util_avg;
+se->avg.util_sum = se->avg.util_avg * LOAD_AVG_MAX;
+add_positive(&cfs_rq->avg.util_avg, delta);
+cfs_rq->avg.util_sum = cfs_rq->avg.util_avg * LOAD_AVG_MAX;
+}
+static inline void
+update_tg_cfs_load(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+struct cfs_rq *gcfs_rq = group_cfs_rq(se);
+long delta, load = gcfs_rq->avg.load_avg;
+if (load) {
+long tg_load;
+tg_load = atomic_long_read(&gcfs_rq->tg->load_avg) + 1;
+tg_load -= gcfs_rq->tg_load_avg_contrib;
+tg_load += load;
+if (tg_load > scale_load_down(gcfs_rq->tg->shares)) {
+load *= scale_load_down(gcfs_rq->tg->shares);
+load /= tg_load;
+}
+}
+delta = load - se->avg.load_avg;
+if (!delta)
+return;
+se->avg.load_avg = load;
+se->avg.load_sum = se->avg.load_avg * LOAD_AVG_MAX;
+add_positive(&cfs_rq->avg.load_avg, delta);
+cfs_rq->avg.load_sum = cfs_rq->avg.load_avg * LOAD_AVG_MAX;
+if (se->on_rq) {
+add_positive(&cfs_rq->runnable_load_avg, delta);
+cfs_rq->runnable_load_sum = cfs_rq->runnable_load_avg * LOAD_AVG_MAX;
+}
+}
+static inline void set_tg_cfs_propagate(struct cfs_rq *cfs_rq)
+{
+cfs_rq->propagate_avg = 1;
+}
+static inline int test_and_clear_tg_cfs_propagate(struct sched_entity *se)
+{
+struct cfs_rq *cfs_rq = group_cfs_rq(se);
+if (!cfs_rq->propagate_avg)
+return 0;
+cfs_rq->propagate_avg = 0;
+return 1;
+}
+static inline int propagate_entity_load_avg(struct sched_entity *se)
+{
+struct cfs_rq *cfs_rq;
+if (entity_is_task(se))
+return 0;
+if (!test_and_clear_tg_cfs_propagate(se))
+return 0;
+cfs_rq = cfs_rq_of(se);
+set_tg_cfs_propagate(cfs_rq);
+update_tg_cfs_util(cfs_rq, se);
+update_tg_cfs_load(cfs_rq, se);
+return 1;
+}
+static inline void update_tg_load_avg(struct cfs_rq *cfs_rq, int force) {}
+static inline int propagate_entity_load_avg(struct sched_entity *se)
+{
+return 0;
+}
+static inline void set_tg_cfs_propagate(struct cfs_rq *cfs_rq) {}
+static inline void cfs_rq_util_change(struct cfs_rq *cfs_rq)
+{
+if (&this_rq()->cfs == cfs_rq) {
+cpufreq_update_util(rq_of(cfs_rq), 0);
+}
+}
+static inline int
+update_cfs_rq_load_avg(u64 now, struct cfs_rq *cfs_rq, bool update_freq)
+{
+struct sched_avg *sa = &cfs_rq->avg;
+int decayed, removed_load = 0, removed_util = 0;
+if (atomic_long_read(&cfs_rq->removed_load_avg)) {
+s64 r = atomic_long_xchg(&cfs_rq->removed_load_avg, 0);
+sub_positive(&sa->load_avg, r);
+sub_positive(&sa->load_sum, r * LOAD_AVG_MAX);
+removed_load = 1;
+set_tg_cfs_propagate(cfs_rq);
+}
+if (atomic_long_read(&cfs_rq->removed_util_avg)) {
+long r = atomic_long_xchg(&cfs_rq->removed_util_avg, 0);
+sub_positive(&sa->util_avg, r);
+sub_positive(&sa->util_sum, r * LOAD_AVG_MAX);
+removed_util = 1;
+set_tg_cfs_propagate(cfs_rq);
+}
+decayed = __update_load_avg(now, cpu_of(rq_of(cfs_rq)), sa,
+scale_load_down(cfs_rq->load.weight), cfs_rq->curr != NULL, cfs_rq);
+#ifndef CONFIG_64BIT
+smp_wmb();
+cfs_rq->load_last_update_time_copy = sa->last_update_time;
+#endif
+if (update_freq && (decayed || removed_util))
+cfs_rq_util_change(cfs_rq);
+return decayed || removed_load;
+}
+static inline void update_load_avg(struct sched_entity *se, int flags)
+{
+struct cfs_rq *cfs_rq = cfs_rq_of(se);
+u64 now = cfs_rq_clock_task(cfs_rq);
+struct rq *rq = rq_of(cfs_rq);
+int cpu = cpu_of(rq);
+int decayed;
+if (se->avg.last_update_time && !(flags & SKIP_AGE_LOAD)) {
+__update_load_avg(now, cpu, &se->avg,
+se->on_rq * scale_load_down(se->load.weight),
+cfs_rq->curr == se, NULL);
+}
+decayed = update_cfs_rq_load_avg(now, cfs_rq, true);
+decayed |= propagate_entity_load_avg(se);
+if (decayed && (flags & UPDATE_TG))
+update_tg_load_avg(cfs_rq, 0);
+}
+static void attach_entity_load_avg(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+se->avg.last_update_time = cfs_rq->avg.last_update_time;
+cfs_rq->avg.load_avg += se->avg.load_avg;
+cfs_rq->avg.load_sum += se->avg.load_sum;
+cfs_rq->avg.util_avg += se->avg.util_avg;
+cfs_rq->avg.util_sum += se->avg.util_sum;
+set_tg_cfs_propagate(cfs_rq);
+cfs_rq_util_change(cfs_rq);
+}
+static void detach_entity_load_avg(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+sub_positive(&cfs_rq->avg.load_avg, se->avg.load_avg);
+sub_positive(&cfs_rq->avg.load_sum, se->avg.load_sum);
+sub_positive(&cfs_rq->avg.util_avg, se->avg.util_avg);
+sub_positive(&cfs_rq->avg.util_sum, se->avg.util_sum);
+set_tg_cfs_propagate(cfs_rq);
+cfs_rq_util_change(cfs_rq);
+}
+static inline void
+enqueue_entity_load_avg(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+struct sched_avg *sa = &se->avg;
+cfs_rq->runnable_load_avg += sa->load_avg;
+cfs_rq->runnable_load_sum += sa->load_sum;
+if (!sa->last_update_time) {
+attach_entity_load_avg(cfs_rq, se);
+update_tg_load_avg(cfs_rq, 0);
+}
+}
+static inline void
+dequeue_entity_load_avg(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+cfs_rq->runnable_load_avg =
+max_t(long, cfs_rq->runnable_load_avg - se->avg.load_avg, 0);
+cfs_rq->runnable_load_sum =
+max_t(s64, cfs_rq->runnable_load_sum - se->avg.load_sum, 0);
+}
+static inline u64 cfs_rq_last_update_time(struct cfs_rq *cfs_rq)
+{
+u64 last_update_time_copy;
+u64 last_update_time;
+do {
+last_update_time_copy = cfs_rq->load_last_update_time_copy;
+smp_rmb();
+last_update_time = cfs_rq->avg.last_update_time;
+} while (last_update_time != last_update_time_copy);
+return last_update_time;
+}
+static inline u64 cfs_rq_last_update_time(struct cfs_rq *cfs_rq)
+{
+return cfs_rq->avg.last_update_time;
+}
+void sync_entity_load_avg(struct sched_entity *se)
+{
+struct cfs_rq *cfs_rq = cfs_rq_of(se);
+u64 last_update_time;
+last_update_time = cfs_rq_last_update_time(cfs_rq);
+__update_load_avg(last_update_time, cpu_of(rq_of(cfs_rq)), &se->avg, 0, 0, NULL);
+}
+void remove_entity_load_avg(struct sched_entity *se)
+{
+struct cfs_rq *cfs_rq = cfs_rq_of(se);
+sync_entity_load_avg(se);
+atomic_long_add(se->avg.load_avg, &cfs_rq->removed_load_avg);
+atomic_long_add(se->avg.util_avg, &cfs_rq->removed_util_avg);
+}
+static inline unsigned long cfs_rq_runnable_load_avg(struct cfs_rq *cfs_rq)
+{
+return cfs_rq->runnable_load_avg;
+}
+static inline unsigned long cfs_rq_load_avg(struct cfs_rq *cfs_rq)
+{
+return cfs_rq->avg.load_avg;
+}
+static inline int
+update_cfs_rq_load_avg(u64 now, struct cfs_rq *cfs_rq, bool update_freq)
+{
+return 0;
+}
+static inline void update_load_avg(struct sched_entity *se, int not_used1)
+{
+cpufreq_update_util(rq_of(cfs_rq_of(se)), 0);
+}
+static inline void
+enqueue_entity_load_avg(struct cfs_rq *cfs_rq, struct sched_entity *se) {}
+static inline void
+dequeue_entity_load_avg(struct cfs_rq *cfs_rq, struct sched_entity *se) {}
+static inline void remove_entity_load_avg(struct sched_entity *se) {}
+static inline void
+attach_entity_load_avg(struct cfs_rq *cfs_rq, struct sched_entity *se) {}
+static inline void
+detach_entity_load_avg(struct cfs_rq *cfs_rq, struct sched_entity *se) {}
+static inline int idle_balance(struct rq *rq, struct rq_flags *rf)
+{
+return 0;
+}
+static void check_spread(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+#ifdef CONFIG_SCHED_DEBUG
+s64 d = se->vruntime - cfs_rq->min_vruntime;
+if (d < 0)
+d = -d;
+if (d > 3*sysctl_sched_latency)
+schedstat_inc(cfs_rq->nr_spread_over);
+#endif
+}
+static void
+place_entity(struct cfs_rq *cfs_rq, struct sched_entity *se, int initial)
+{
+u64 vruntime = cfs_rq->min_vruntime;
+if (initial && sched_feat(START_DEBIT))
+vruntime += sched_vslice(cfs_rq, se);
+if (!initial) {
+unsigned long thresh = sysctl_sched_latency;
+if (sched_feat(GENTLE_FAIR_SLEEPERS))
+thresh >>= 1;
+vruntime -= thresh;
+}
+se->vruntime = max_vruntime(se->vruntime, vruntime);
+}
+static inline void check_schedstat_required(void)
+{
+#ifdef CONFIG_SCHEDSTATS
+if (schedstat_enabled())
+return;
+if (trace_sched_stat_wait_enabled() ||
+trace_sched_stat_sleep_enabled() ||
+trace_sched_stat_iowait_enabled() ||
+trace_sched_stat_blocked_enabled() ||
+trace_sched_stat_runtime_enabled()) {
+printk_deferred_once("Scheduler tracepoints stat_sleep, stat_iowait, "
+"stat_blocked and stat_runtime require the "
+"kernel parameter schedstats=enabled or "
+"kernel.sched_schedstats=1\n");
+}
+#endif
+}
+static void
+enqueue_entity(struct cfs_rq *cfs_rq, struct sched_entity *se, int flags)
+{
+bool renorm = !(flags & ENQUEUE_WAKEUP) || (flags & ENQUEUE_MIGRATED);
+bool curr = cfs_rq->curr == se;
+if (renorm && curr)
+se->vruntime += cfs_rq->min_vruntime;
+update_curr(cfs_rq);
+if (renorm && !curr)
+se->vruntime += cfs_rq->min_vruntime;
+update_load_avg(se, UPDATE_TG);
+enqueue_entity_load_avg(cfs_rq, se);
+update_cfs_shares(se);
+account_entity_enqueue(cfs_rq, se);
+if (flags & ENQUEUE_WAKEUP)
+place_entity(cfs_rq, se, 0);
+check_schedstat_required();
+update_stats_enqueue(cfs_rq, se, flags);
+check_spread(cfs_rq, se);
+if (!curr)
+__enqueue_entity(cfs_rq, se);
+se->on_rq = 1;
+if (cfs_rq->nr_running == 1) {
+list_add_leaf_cfs_rq(cfs_rq);
+check_enqueue_throttle(cfs_rq);
+}
+}
+static void __clear_buddies_last(struct sched_entity *se)
+{
+for_each_sched_entity(se) {
+struct cfs_rq *cfs_rq = cfs_rq_of(se);
+if (cfs_rq->last != se)
+break;
+cfs_rq->last = NULL;
+}
+}
+static void __clear_buddies_next(struct sched_entity *se)
+{
+for_each_sched_entity(se) {
+struct cfs_rq *cfs_rq = cfs_rq_of(se);
+if (cfs_rq->next != se)
+break;
+cfs_rq->next = NULL;
+}
+}
+static void __clear_buddies_skip(struct sched_entity *se)
+{
+for_each_sched_entity(se) {
+struct cfs_rq *cfs_rq = cfs_rq_of(se);
+if (cfs_rq->skip != se)
+break;
+cfs_rq->skip = NULL;
+}
+}
+static void clear_buddies(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+if (cfs_rq->last == se)
+__clear_buddies_last(se);
+if (cfs_rq->next == se)
+__clear_buddies_next(se);
+if (cfs_rq->skip == se)
+__clear_buddies_skip(se);
+}
+static void
+dequeue_entity(struct cfs_rq *cfs_rq, struct sched_entity *se, int flags)
+{
+update_curr(cfs_rq);
+update_load_avg(se, UPDATE_TG);
+dequeue_entity_load_avg(cfs_rq, se);
+update_stats_dequeue(cfs_rq, se, flags);
+clear_buddies(cfs_rq, se);
+if (se != cfs_rq->curr)
+__dequeue_entity(cfs_rq, se);
+se->on_rq = 0;
+account_entity_dequeue(cfs_rq, se);
+if (!(flags & DEQUEUE_SLEEP))
+se->vruntime -= cfs_rq->min_vruntime;
+return_cfs_rq_runtime(cfs_rq);
+update_cfs_shares(se);
+if ((flags & (DEQUEUE_SAVE | DEQUEUE_MOVE)) == DEQUEUE_SAVE)
+update_min_vruntime(cfs_rq);
+}
+static void
+check_preempt_tick(struct cfs_rq *cfs_rq, struct sched_entity *curr)
+{
+unsigned long ideal_runtime, delta_exec;
+struct sched_entity *se;
+s64 delta;
+ideal_runtime = sched_slice(cfs_rq, curr);
+delta_exec = curr->sum_exec_runtime - curr->prev_sum_exec_runtime;
+if (delta_exec > ideal_runtime) {
+resched_curr(rq_of(cfs_rq));
+clear_buddies(cfs_rq, curr);
+return;
+}
+if (delta_exec < sysctl_sched_min_granularity)
+return;
+se = __pick_first_entity(cfs_rq);
+delta = curr->vruntime - se->vruntime;
+if (delta < 0)
+return;
+if (delta > ideal_runtime)
+resched_curr(rq_of(cfs_rq));
+}
+static void
+set_next_entity(struct cfs_rq *cfs_rq, struct sched_entity *se)
+{
+if (se->on_rq) {
+update_stats_wait_end(cfs_rq, se);
+__dequeue_entity(cfs_rq, se);
+update_load_avg(se, UPDATE_TG);
+}
+update_stats_curr_start(cfs_rq, se);
+cfs_rq->curr = se;
+if (schedstat_enabled() && rq_of(cfs_rq)->load.weight >= 2*se->load.weight) {
+schedstat_set(se->statistics.slice_max,
+max((u64)schedstat_val(se->statistics.slice_max),
+se->sum_exec_runtime - se->prev_sum_exec_runtime));
+}
+se->prev_sum_exec_runtime = se->sum_exec_runtime;
+}
+static struct sched_entity *
+pick_next_entity(struct cfs_rq *cfs_rq, struct sched_entity *curr)
+{
+struct sched_entity *left = __pick_first_entity(cfs_rq);
+struct sched_entity *se;
+if (!left || (curr && entity_before(curr, left)))
+left = curr;
+se = left;
+if (cfs_rq->skip == se) {
+struct sched_entity *second;
+if (se == curr) {
+second = __pick_first_entity(cfs_rq);
+} else {
+second = __pick_next_entity(se);
+if (!second || (curr && entity_before(curr, second)))
+second = curr;
+}
+if (second && wakeup_preempt_entity(second, left) < 1)
+se = second;
+}
+if (cfs_rq->last && wakeup_preempt_entity(cfs_rq->last, left) < 1)
+se = cfs_rq->last;
+if (cfs_rq->next && wakeup_preempt_entity(cfs_rq->next, left) < 1)
+se = cfs_rq->next;
+clear_buddies(cfs_rq, se);
+return se;
+}
+static void put_prev_entity(struct cfs_rq *cfs_rq, struct sched_entity *prev)
+{
+if (prev->on_rq)
+update_curr(cfs_rq);
+check_cfs_rq_runtime(cfs_rq);
+check_spread(cfs_rq, prev);
+if (prev->on_rq) {
+update_stats_wait_start(cfs_rq, prev);
+__enqueue_entity(cfs_rq, prev);
+update_load_avg(prev, 0);
+}
+cfs_rq->curr = NULL;
+}
+static void
+entity_tick(struct cfs_rq *cfs_rq, struct sched_entity *curr, int queued)
+{
+update_curr(cfs_rq);
+update_load_avg(curr, UPDATE_TG);
+update_cfs_shares(curr);
+#ifdef CONFIG_SCHED_HRTICK
+if (queued) {
+resched_curr(rq_of(cfs_rq));
+return;
+}
+if (!sched_feat(DOUBLE_TICK) &&
+hrtimer_active(&rq_of(cfs_rq)->hrtick_timer))
+return;
+#endif
+if (cfs_rq->nr_running > 1)
+check_preempt_tick(cfs_rq, curr);
+}
+static inline bool cfs_bandwidth_used(void)
+{
+return static_key_false(&__cfs_bandwidth_used);
+}
+void cfs_bandwidth_usage_inc(void)
+{
+static_key_slow_inc(&__cfs_bandwidth_used);
+}
+void cfs_bandwidth_usage_dec(void)
+{
+static_key_slow_dec(&__cfs_bandwidth_used);
+}
+static bool cfs_bandwidth_used(void)
+{
+return true;
+}
+void cfs_bandwidth_usage_inc(void) {}
+void cfs_bandwidth_usage_dec(void) {}
+static inline u64 default_cfs_period(void)
+{
+return 100000000ULL;
+}
+static inline u64 sched_cfs_bandwidth_slice(void)
+{
+return (u64)sysctl_sched_cfs_bandwidth_slice * NSEC_PER_USEC;
+}
+void __refill_cfs_bandwidth_runtime(struct cfs_bandwidth *cfs_b)
+{
+u64 now;
+if (cfs_b->quota == RUNTIME_INF)
+return;
+now = sched_clock_cpu(smp_processor_id());
+cfs_b->runtime = cfs_b->quota;
+cfs_b->runtime_expires = now + ktime_to_ns(cfs_b->period);
+}
+static inline struct cfs_bandwidth *tg_cfs_bandwidth(struct task_group *tg)
+{
+return &tg->cfs_bandwidth;
+}
+static inline u64 cfs_rq_clock_task(struct cfs_rq *cfs_rq)
+{
+if (unlikely(cfs_rq->throttle_count))
+return cfs_rq->throttled_clock_task - cfs_rq->throttled_clock_task_time;
+return rq_clock_task(rq_of(cfs_rq)) - cfs_rq->throttled_clock_task_time;
+}
+static int assign_cfs_rq_runtime(struct cfs_rq *cfs_rq)
+{
+struct task_group *tg = cfs_rq->tg;
+struct cfs_bandwidth *cfs_b = tg_cfs_bandwidth(tg);
+u64 amount = 0, min_amount, expires;
+min_amount = sched_cfs_bandwidth_slice() - cfs_rq->runtime_remaining;
+raw_spin_lock(&cfs_b->lock);
+if (cfs_b->quota == RUNTIME_INF)
+amount = min_amount;
+else {
+start_cfs_bandwidth(cfs_b);
+if (cfs_b->runtime > 0) {
+amount = min(cfs_b->runtime, min_amount);
+cfs_b->runtime -= amount;
+cfs_b->idle = 0;
+}
+}
+expires = cfs_b->runtime_expires;
+raw_spin_unlock(&cfs_b->lock);
+cfs_rq->runtime_remaining += amount;
+if ((s64)(expires - cfs_rq->runtime_expires) > 0)
+cfs_rq->runtime_expires = expires;
+return cfs_rq->runtime_remaining > 0;
+}
+static void expire_cfs_rq_runtime(struct cfs_rq *cfs_rq)
+{
+struct cfs_bandwidth *cfs_b = tg_cfs_bandwidth(cfs_rq->tg);
+if (likely((s64)(rq_clock(rq_of(cfs_rq)) - cfs_rq->runtime_expires) < 0))
+return;
+if (cfs_rq->runtime_remaining < 0)
+return;
+if (cfs_rq->runtime_expires != cfs_b->runtime_expires) {
+cfs_rq->runtime_expires += TICK_NSEC;
+} else {
+cfs_rq->runtime_remaining = 0;
+}
+}
+static void __account_cfs_rq_runtime(struct cfs_rq *cfs_rq, u64 delta_exec)
+{
+cfs_rq->runtime_remaining -= delta_exec;
+expire_cfs_rq_runtime(cfs_rq);
+if (likely(cfs_rq->runtime_remaining > 0))
+return;
+if (!assign_cfs_rq_runtime(cfs_rq) && likely(cfs_rq->curr))
+resched_curr(rq_of(cfs_rq));
+}
+static __always_inline
+void account_cfs_rq_runtime(struct cfs_rq *cfs_rq, u64 delta_exec)
+{
+if (!cfs_bandwidth_used() || !cfs_rq->runtime_enabled)
+return;
+__account_cfs_rq_runtime(cfs_rq, delta_exec);
+}
+static inline int cfs_rq_throttled(struct cfs_rq *cfs_rq)
+{
+return cfs_bandwidth_used() && cfs_rq->throttled;
+}
+static inline int throttled_hierarchy(struct cfs_rq *cfs_rq)
+{
+return cfs_bandwidth_used() && cfs_rq->throttle_count;
+}
+static inline int throttled_lb_pair(struct task_group *tg,
+int src_cpu, int dest_cpu)
+{
+struct cfs_rq *src_cfs_rq, *dest_cfs_rq;
+src_cfs_rq = tg->cfs_rq[src_cpu];
+dest_cfs_rq = tg->cfs_rq[dest_cpu];
+return throttled_hierarchy(src_cfs_rq) ||
+throttled_hierarchy(dest_cfs_rq);
+}
+static int tg_unthrottle_up(struct task_group *tg, void *data)
+{
+struct rq *rq = data;
+struct cfs_rq *cfs_rq = tg->cfs_rq[cpu_of(rq)];
+cfs_rq->throttle_count--;
+if (!cfs_rq->throttle_count) {
+cfs_rq->throttled_clock_task_time += rq_clock_task(rq) -
+cfs_rq->throttled_clock_task;
+}
+return 0;
+}
+static int tg_throttle_down(struct task_group *tg, void *data)
+{
+struct rq *rq = data;
+struct cfs_rq *cfs_rq = tg->cfs_rq[cpu_of(rq)];
+if (!cfs_rq->throttle_count)
+cfs_rq->throttled_clock_task = rq_clock_task(rq);
+cfs_rq->throttle_count++;
+return 0;
+}
+static void throttle_cfs_rq(struct cfs_rq *cfs_rq)
+{
+struct rq *rq = rq_of(cfs_rq);
+struct cfs_bandwidth *cfs_b = tg_cfs_bandwidth(cfs_rq->tg);
+struct sched_entity *se;
+long task_delta, dequeue = 1;
+bool empty;
+se = cfs_rq->tg->se[cpu_of(rq_of(cfs_rq))];
+rcu_read_lock();
+walk_tg_tree_from(cfs_rq->tg, tg_throttle_down, tg_nop, (void *)rq);
+rcu_read_unlock();
+task_delta = cfs_rq->h_nr_running;
+for_each_sched_entity(se) {
+struct cfs_rq *qcfs_rq = cfs_rq_of(se);
+if (!se->on_rq)
+break;
+if (dequeue)
+dequeue_entity(qcfs_rq, se, DEQUEUE_SLEEP);
+qcfs_rq->h_nr_running -= task_delta;
+if (qcfs_rq->load.weight)
+dequeue = 0;
+}
+if (!se)
+sub_nr_running(rq, task_delta);
+cfs_rq->throttled = 1;
+cfs_rq->throttled_clock = rq_clock(rq);
+raw_spin_lock(&cfs_b->lock);
+empty = list_empty(&cfs_b->throttled_cfs_rq);
+list_add_rcu(&cfs_rq->throttled_list, &cfs_b->throttled_cfs_rq);
+if (empty)
+start_cfs_bandwidth(cfs_b);
+raw_spin_unlock(&cfs_b->lock);
+}
+void unthrottle_cfs_rq(struct cfs_rq *cfs_rq)
+{
+struct rq *rq = rq_of(cfs_rq);
+struct cfs_bandwidth *cfs_b = tg_cfs_bandwidth(cfs_rq->tg);
+struct sched_entity *se;
+int enqueue = 1;
+long task_delta;
+se = cfs_rq->tg->se[cpu_of(rq)];
+cfs_rq->throttled = 0;
+update_rq_clock(rq);
+raw_spin_lock(&cfs_b->lock);
+cfs_b->throttled_time += rq_clock(rq) - cfs_rq->throttled_clock;
+list_del_rcu(&cfs_rq->throttled_list);
+raw_spin_unlock(&cfs_b->lock);
+walk_tg_tree_from(cfs_rq->tg, tg_nop, tg_unthrottle_up, (void *)rq);
+if (!cfs_rq->load.weight)
+return;
+task_delta = cfs_rq->h_nr_running;
+for_each_sched_entity(se) {
+if (se->on_rq)
+enqueue = 0;
+cfs_rq = cfs_rq_of(se);
+if (enqueue)
+enqueue_entity(cfs_rq, se, ENQUEUE_WAKEUP);
+cfs_rq->h_nr_running += task_delta;
+if (cfs_rq_throttled(cfs_rq))
+break;
+}
+if (!se)
+add_nr_running(rq, task_delta);
+if (rq->curr == rq->idle && rq->cfs.nr_running)
+resched_curr(rq);
+}
+static u64 distribute_cfs_runtime(struct cfs_bandwidth *cfs_b,
+u64 remaining, u64 expires)
+{
+struct cfs_rq *cfs_rq;
+u64 runtime;
+u64 starting_runtime = remaining;
+rcu_read_lock();
+list_for_each_entry_rcu(cfs_rq, &cfs_b->throttled_cfs_rq,
+throttled_list) {
+struct rq *rq = rq_of(cfs_rq);
+raw_spin_lock(&rq->lock);
+if (!cfs_rq_throttled(cfs_rq))
+goto next;
+runtime = -cfs_rq->runtime_remaining + 1;
+if (runtime > remaining)
+runtime = remaining;
+remaining -= runtime;
+cfs_rq->runtime_remaining += runtime;
+cfs_rq->runtime_expires = expires;
+if (cfs_rq->runtime_remaining > 0)
+unthrottle_cfs_rq(cfs_rq);
+next:
+raw_spin_unlock(&rq->lock);
+if (!remaining)
+break;
+}
+rcu_read_unlock();
+return starting_runtime - remaining;
+}
+static int do_sched_cfs_period_timer(struct cfs_bandwidth *cfs_b, int overrun)
+{
+u64 runtime, runtime_expires;
+int throttled;
+if (cfs_b->quota == RUNTIME_INF)
+goto out_deactivate;
+throttled = !list_empty(&cfs_b->throttled_cfs_rq);
+cfs_b->nr_periods += overrun;
+if (cfs_b->idle && !throttled)
+goto out_deactivate;
+__refill_cfs_bandwidth_runtime(cfs_b);
+if (!throttled) {
+cfs_b->idle = 1;
+return 0;
+}
+cfs_b->nr_throttled += overrun;
+runtime_expires = cfs_b->runtime_expires;
+while (throttled && cfs_b->runtime > 0) {
+runtime = cfs_b->runtime;
+raw_spin_unlock(&cfs_b->lock);
+runtime = distribute_cfs_runtime(cfs_b, runtime,
+runtime_expires);
+raw_spin_lock(&cfs_b->lock);
+throttled = !list_empty(&cfs_b->throttled_cfs_rq);
+cfs_b->runtime -= min(runtime, cfs_b->runtime);
+}
+cfs_b->idle = 0;
+return 0;
+out_deactivate:
+return 1;
+}
+static int runtime_refresh_within(struct cfs_bandwidth *cfs_b, u64 min_expire)
+{
+struct hrtimer *refresh_timer = &cfs_b->period_timer;
+u64 remaining;
+if (hrtimer_callback_running(refresh_timer))
+return 1;
+remaining = ktime_to_ns(hrtimer_expires_remaining(refresh_timer));
+if (remaining < min_expire)
+return 1;
+return 0;
+}
+static void start_cfs_slack_bandwidth(struct cfs_bandwidth *cfs_b)
+{
+u64 min_left = cfs_bandwidth_slack_period + min_bandwidth_expiration;
+if (runtime_refresh_within(cfs_b, min_left))
+return;
+hrtimer_start(&cfs_b->slack_timer,
+ns_to_ktime(cfs_bandwidth_slack_period),
+HRTIMER_MODE_REL);
+}
+static void __return_cfs_rq_runtime(struct cfs_rq *cfs_rq)
+{
+struct cfs_bandwidth *cfs_b = tg_cfs_bandwidth(cfs_rq->tg);
+s64 slack_runtime = cfs_rq->runtime_remaining - min_cfs_rq_runtime;
+if (slack_runtime <= 0)
+return;
+raw_spin_lock(&cfs_b->lock);
+if (cfs_b->quota != RUNTIME_INF &&
+cfs_rq->runtime_expires == cfs_b->runtime_expires) {
+cfs_b->runtime += slack_runtime;
+if (cfs_b->runtime > sched_cfs_bandwidth_slice() &&
+!list_empty(&cfs_b->throttled_cfs_rq))
+start_cfs_slack_bandwidth(cfs_b);
+}
+raw_spin_unlock(&cfs_b->lock);
+cfs_rq->runtime_remaining -= slack_runtime;
+}
+static __always_inline void return_cfs_rq_runtime(struct cfs_rq *cfs_rq)
+{
+if (!cfs_bandwidth_used())
+return;
+if (!cfs_rq->runtime_enabled || cfs_rq->nr_running)
+return;
+__return_cfs_rq_runtime(cfs_rq);
+}
+static void do_sched_cfs_slack_timer(struct cfs_bandwidth *cfs_b)
+{
+u64 runtime = 0, slice = sched_cfs_bandwidth_slice();
+u64 expires;
+raw_spin_lock(&cfs_b->lock);
+if (runtime_refresh_within(cfs_b, min_bandwidth_expiration)) {
+raw_spin_unlock(&cfs_b->lock);
+return;
+}
+if (cfs_b->quota != RUNTIME_INF && cfs_b->runtime > slice)
+runtime = cfs_b->runtime;
+expires = cfs_b->runtime_expires;
+raw_spin_unlock(&cfs_b->lock);
+if (!runtime)
+return;
+runtime = distribute_cfs_runtime(cfs_b, runtime, expires);
+raw_spin_lock(&cfs_b->lock);
+if (expires == cfs_b->runtime_expires)
+cfs_b->runtime -= min(runtime, cfs_b->runtime);
+raw_spin_unlock(&cfs_b->lock);
+}
+static void check_enqueue_throttle(struct cfs_rq *cfs_rq)
+{
+if (!cfs_bandwidth_used())
+return;
+if (!cfs_rq->runtime_enabled || cfs_rq->curr)
+return;
+if (cfs_rq_throttled(cfs_rq))
+return;
+account_cfs_rq_runtime(cfs_rq, 0);
+if (cfs_rq->runtime_remaining <= 0)
+throttle_cfs_rq(cfs_rq);
+}
+static void sync_throttle(struct task_group *tg, int cpu)
+{
+struct cfs_rq *pcfs_rq, *cfs_rq;
+if (!cfs_bandwidth_used())
+return;
+if (!tg->parent)
+return;
+cfs_rq = tg->cfs_rq[cpu];
+pcfs_rq = tg->parent->cfs_rq[cpu];
+cfs_rq->throttle_count = pcfs_rq->throttle_count;
+cfs_rq->throttled_clock_task = rq_clock_task(cpu_rq(cpu));
+}
+static bool check_cfs_rq_runtime(struct cfs_rq *cfs_rq)
+{
+if (!cfs_bandwidth_used())
+return false;
+if (likely(!cfs_rq->runtime_enabled || cfs_rq->runtime_remaining > 0))
+return false;
+if (cfs_rq_throttled(cfs_rq))
+return true;
+throttle_cfs_rq(cfs_rq);
+return true;
+}
+static enum hrtimer_restart sched_cfs_slack_timer(struct hrtimer *timer)
+{
+struct cfs_bandwidth *cfs_b =
+container_of(timer, struct cfs_bandwidth, slack_timer);
+do_sched_cfs_slack_timer(cfs_b);
+return HRTIMER_NORESTART;
+}
+static enum hrtimer_restart sched_cfs_period_timer(struct hrtimer *timer)
+{
+struct cfs_bandwidth *cfs_b =
+container_of(timer, struct cfs_bandwidth, period_timer);
+int overrun;
+int idle = 0;
+raw_spin_lock(&cfs_b->lock);
+for (;;) {
+overrun = hrtimer_forward_now(timer, cfs_b->period);
+if (!overrun)
+break;
+idle = do_sched_cfs_period_timer(cfs_b, overrun);
+}
+if (idle)
+cfs_b->period_active = 0;
+raw_spin_unlock(&cfs_b->lock);
+return idle ? HRTIMER_NORESTART : HRTIMER_RESTART;
+}
+void init_cfs_bandwidth(struct cfs_bandwidth *cfs_b)
+{
+raw_spin_lock_init(&cfs_b->lock);
+cfs_b->runtime = 0;
+cfs_b->quota = RUNTIME_INF;
+cfs_b->period = ns_to_ktime(default_cfs_period());
+INIT_LIST_HEAD(&cfs_b->throttled_cfs_rq);
+hrtimer_init(&cfs_b->period_timer, CLOCK_MONOTONIC, HRTIMER_MODE_ABS_PINNED);
+cfs_b->period_timer.function = sched_cfs_period_timer;
+hrtimer_init(&cfs_b->slack_timer, CLOCK_MONOTONIC, HRTIMER_MODE_REL);
+cfs_b->slack_timer.function = sched_cfs_slack_timer;
+}
+static void init_cfs_rq_runtime(struct cfs_rq *cfs_rq)
+{
+cfs_rq->runtime_enabled = 0;
+INIT_LIST_HEAD(&cfs_rq->throttled_list);
+}
+void start_cfs_bandwidth(struct cfs_bandwidth *cfs_b)
+{
+lockdep_assert_held(&cfs_b->lock);
+if (!cfs_b->period_active) {
+cfs_b->period_active = 1;
+hrtimer_forward_now(&cfs_b->period_timer, cfs_b->period);
+hrtimer_start_expires(&cfs_b->period_timer, HRTIMER_MODE_ABS_PINNED);
+}
+}
+static void destroy_cfs_bandwidth(struct cfs_bandwidth *cfs_b)
+{
+if (!cfs_b->throttled_cfs_rq.next)
+return;
+hrtimer_cancel(&cfs_b->period_timer);
+hrtimer_cancel(&cfs_b->slack_timer);
+}
+static void __maybe_unused update_runtime_enabled(struct rq *rq)
+{
+struct cfs_rq *cfs_rq;
+for_each_leaf_cfs_rq(rq, cfs_rq) {
+struct cfs_bandwidth *cfs_b = &cfs_rq->tg->cfs_bandwidth;
+raw_spin_lock(&cfs_b->lock);
+cfs_rq->runtime_enabled = cfs_b->quota != RUNTIME_INF;
+raw_spin_unlock(&cfs_b->lock);
+}
+}
+static void __maybe_unused unthrottle_offline_cfs_rqs(struct rq *rq)
+{
+struct cfs_rq *cfs_rq;
+for_each_leaf_cfs_rq(rq, cfs_rq) {
+if (!cfs_rq->runtime_enabled)
+continue;
+cfs_rq->runtime_remaining = 1;
+cfs_rq->runtime_enabled = 0;
+if (cfs_rq_throttled(cfs_rq))
+unthrottle_cfs_rq(cfs_rq);
+}
+}
+static inline u64 cfs_rq_clock_task(struct cfs_rq *cfs_rq)
+{
+return rq_clock_task(rq_of(cfs_rq));
+}
+static void account_cfs_rq_runtime(struct cfs_rq *cfs_rq, u64 delta_exec) {}
+static bool check_cfs_rq_runtime(struct cfs_rq *cfs_rq) { return false; }
+static void check_enqueue_throttle(struct cfs_rq *cfs_rq) {}
+static inline void sync_throttle(struct task_group *tg, int cpu) {}
+static __always_inline void return_cfs_rq_runtime(struct cfs_rq *cfs_rq) {}
+static inline int cfs_rq_throttled(struct cfs_rq *cfs_rq)
+{
+return 0;
+}
+static inline int throttled_hierarchy(struct cfs_rq *cfs_rq)
+{
+return 0;
+}
+static inline int throttled_lb_pair(struct task_group *tg,
+int src_cpu, int dest_cpu)
+{
+return 0;
+}
+void init_cfs_bandwidth(struct cfs_bandwidth *cfs_b) {}
+static void init_cfs_rq_runtime(struct cfs_rq *cfs_rq) {}
+static inline struct cfs_bandwidth *tg_cfs_bandwidth(struct task_group *tg)
+{
+return NULL;
+}
+static inline void destroy_cfs_bandwidth(struct cfs_bandwidth *cfs_b) {}
+static inline void update_runtime_enabled(struct rq *rq) {}
+static inline void unthrottle_offline_cfs_rqs(struct rq *rq) {}
+static void hrtick_start_fair(struct rq *rq, struct task_struct *p)
+{
+struct sched_entity *se = &p->se;
+struct cfs_rq *cfs_rq = cfs_rq_of(se);
+SCHED_WARN_ON(task_rq(p) != rq);
+if (rq->cfs.h_nr_running > 1) {
+u64 slice = sched_slice(cfs_rq, se);
+u64 ran = se->sum_exec_runtime - se->prev_sum_exec_runtime;
+s64 delta = slice - ran;
+if (delta < 0) {
+if (rq->curr == p)
+resched_curr(rq);
+return;
+}
+hrtick_start(rq, delta);
+}
+}
+static void hrtick_update(struct rq *rq)
+{
+struct task_struct *curr = rq->curr;
+if (!hrtick_enabled(rq) || curr->sched_class != &fair_sched_class)
+return;
+if (cfs_rq_of(&curr->se)->nr_running < sched_nr_latency)
+hrtick_start_fair(rq, curr);
+}
+static inline void
+hrtick_start_fair(struct rq *rq, struct task_struct *p)
+{
+}
+static inline void hrtick_update(struct rq *rq)
+{
+}
+static void
+enqueue_task_fair(struct rq *rq, struct task_struct *p, int flags)
+{
+struct cfs_rq *cfs_rq;
+struct sched_entity *se = &p->se;
+if (p->in_iowait)
+cpufreq_update_this_cpu(rq, SCHED_CPUFREQ_IOWAIT);
+for_each_sched_entity(se) {
+if (se->on_rq)
+break;
+cfs_rq = cfs_rq_of(se);
+enqueue_entity(cfs_rq, se, flags);
+if (cfs_rq_throttled(cfs_rq))
+break;
+cfs_rq->h_nr_running++;
+flags = ENQUEUE_WAKEUP;
+}
+for_each_sched_entity(se) {
+cfs_rq = cfs_rq_of(se);
+cfs_rq->h_nr_running++;
+if (cfs_rq_throttled(cfs_rq))
+break;
+update_load_avg(se, UPDATE_TG);
+update_cfs_shares(se);
+}
+if (!se)
+add_nr_running(rq, 1);
+hrtick_update(rq);
+}
+static void dequeue_task_fair(struct rq *rq, struct task_struct *p, int flags)
+{
+struct cfs_rq *cfs_rq;
+struct sched_entity *se = &p->se;
+int task_sleep = flags & DEQUEUE_SLEEP;
+for_each_sched_entity(se) {
+cfs_rq = cfs_rq_of(se);
+dequeue_entity(cfs_rq, se, flags);
+if (cfs_rq_throttled(cfs_rq))
+break;
+cfs_rq->h_nr_running--;
+if (cfs_rq->load.weight) {
+se = parent_entity(se);
+if (task_sleep && se && !throttled_hierarchy(cfs_rq))
+set_next_buddy(se);
+break;
+}
+flags |= DEQUEUE_SLEEP;
+}
+for_each_sched_entity(se) {
+cfs_rq = cfs_rq_of(se);
+cfs_rq->h_nr_running--;
+if (cfs_rq_throttled(cfs_rq))
+break;
+update_load_avg(se, UPDATE_TG);
+update_cfs_shares(se);
+}
+if (!se)
+sub_nr_running(rq, 1);
+hrtick_update(rq);
+}
+static unsigned long
+decay_load_missed(unsigned long load, unsigned long missed_updates, int idx)
+{
+int j = 0;
+if (!missed_updates)
+return load;
+if (missed_updates >= degrade_zero_ticks[idx])
+return 0;
+if (idx == 1)
+return load >> missed_updates;
+while (missed_updates) {
+if (missed_updates % 2)
+load = (load * degrade_factor[idx][j]) >> DEGRADE_SHIFT;
+missed_updates >>= 1;
+j++;
+}
+return load;
+}
+static void cpu_load_update(struct rq *this_rq, unsigned long this_load,
+unsigned long pending_updates)
+{
+unsigned long __maybe_unused tickless_load = this_rq->cpu_load[0];
+int i, scale;
+this_rq->nr_load_updates++;
+this_rq->cpu_load[0] = this_load;
+for (i = 1, scale = 2; i < CPU_LOAD_IDX_MAX; i++, scale += scale) {
+unsigned long old_load, new_load;
+old_load = this_rq->cpu_load[i];
+#ifdef CONFIG_NO_HZ_COMMON
+old_load = decay_load_missed(old_load, pending_updates - 1, i);
+if (tickless_load) {
+old_load -= decay_load_missed(tickless_load, pending_updates - 1, i);
+old_load += tickless_load;
+}
+#endif
+new_load = this_load;
+if (new_load > old_load)
+new_load += scale - 1;
+this_rq->cpu_load[i] = (old_load * (scale - 1) + new_load) >> i;
+}
+sched_avg_update(this_rq);
+}
+static unsigned long weighted_cpuload(const int cpu)
+{
+return cfs_rq_runnable_load_avg(&cpu_rq(cpu)->cfs);
+}
+static void cpu_load_update_nohz(struct rq *this_rq,
+unsigned long curr_jiffies,
+unsigned long load)
+{
+unsigned long pending_updates;
+pending_updates = curr_jiffies - this_rq->last_load_update_tick;
+if (pending_updates) {
+this_rq->last_load_update_tick = curr_jiffies;
+cpu_load_update(this_rq, load, pending_updates);
+}
+}
+static void cpu_load_update_idle(struct rq *this_rq)
+{
+if (weighted_cpuload(cpu_of(this_rq)))
+return;
+cpu_load_update_nohz(this_rq, READ_ONCE(jiffies), 0);
+}
+void cpu_load_update_nohz_start(void)
+{
+struct rq *this_rq = this_rq();
+this_rq->cpu_load[0] = weighted_cpuload(cpu_of(this_rq));
+}
+void cpu_load_update_nohz_stop(void)
+{
+unsigned long curr_jiffies = READ_ONCE(jiffies);
+struct rq *this_rq = this_rq();
+unsigned long load;
+if (curr_jiffies == this_rq->last_load_update_tick)
+return;
+load = weighted_cpuload(cpu_of(this_rq));
+raw_spin_lock(&this_rq->lock);
+update_rq_clock(this_rq);
+cpu_load_update_nohz(this_rq, curr_jiffies, load);
+raw_spin_unlock(&this_rq->lock);
+}
+static inline void cpu_load_update_nohz(struct rq *this_rq,
+unsigned long curr_jiffies,
+unsigned long load) { }
+static void cpu_load_update_periodic(struct rq *this_rq, unsigned long load)
+{
+#ifdef CONFIG_NO_HZ_COMMON
+this_rq->last_load_update_tick = READ_ONCE(jiffies);
+#endif
+cpu_load_update(this_rq, load, 1);
+}
+void cpu_load_update_active(struct rq *this_rq)
+{
+unsigned long load = weighted_cpuload(cpu_of(this_rq));
+if (tick_nohz_tick_stopped())
+cpu_load_update_nohz(this_rq, READ_ONCE(jiffies), load);
+else
+cpu_load_update_periodic(this_rq, load);
+}
+static unsigned long source_load(int cpu, int type)
+{
+struct rq *rq = cpu_rq(cpu);
+unsigned long total = weighted_cpuload(cpu);
+if (type == 0 || !sched_feat(LB_BIAS))
+return total;
+return min(rq->cpu_load[type-1], total);
+}
+static unsigned long target_load(int cpu, int type)
+{
+struct rq *rq = cpu_rq(cpu);
+unsigned long total = weighted_cpuload(cpu);
+if (type == 0 || !sched_feat(LB_BIAS))
+return total;
+return max(rq->cpu_load[type-1], total);
+}
+static unsigned long capacity_of(int cpu)
+{
+return cpu_rq(cpu)->cpu_capacity;
+}
+static unsigned long capacity_orig_of(int cpu)
+{
+return cpu_rq(cpu)->cpu_capacity_orig;
+}
+static unsigned long cpu_avg_load_per_task(int cpu)
+{
+struct rq *rq = cpu_rq(cpu);
+unsigned long nr_running = READ_ONCE(rq->cfs.h_nr_running);
+unsigned long load_avg = weighted_cpuload(cpu);
+if (nr_running)
+return load_avg / nr_running;
+return 0;
+}
+static long effective_load(struct task_group *tg, int cpu, long wl, long wg)
+{
+struct sched_entity *se = tg->se[cpu];
+if (!tg->parent)
+return wl;
+for_each_sched_entity(se) {
+struct cfs_rq *cfs_rq = se->my_q;
+long W, w = cfs_rq_load_avg(cfs_rq);
+tg = cfs_rq->tg;
+W = wg + atomic_long_read(&tg->load_avg);
+W -= cfs_rq->tg_load_avg_contrib;
+W += w;
+w += wl;
+if (W > 0 && w < W)
+wl = (w * (long)scale_load_down(tg->shares)) / W;
+else
+wl = scale_load_down(tg->shares);
+if (wl < MIN_SHARES)
+wl = MIN_SHARES;
+wl -= se->avg.load_avg;
+wg = 0;
+}
+return wl;
+}
+static long effective_load(struct task_group *tg, int cpu, long wl, long wg)
+{
+return wl;
+}
+static void record_wakee(struct task_struct *p)
+{
+if (time_after(jiffies, current->wakee_flip_decay_ts + HZ)) {
+current->wakee_flips >>= 1;
+current->wakee_flip_decay_ts = jiffies;
+}
+if (current->last_wakee != p) {
+current->last_wakee = p;
+current->wakee_flips++;
+}
+}
+static int wake_wide(struct task_struct *p)
+{
+unsigned int master = current->wakee_flips;
+unsigned int slave = p->wakee_flips;
+int factor = this_cpu_read(sd_llc_size);
+if (master < slave)
+swap(master, slave);
+if (slave < factor || master < slave * factor)
+return 0;
+return 1;
+}
+static int wake_affine(struct sched_domain *sd, struct task_struct *p,
+int prev_cpu, int sync)
+{
+s64 this_load, load;
+s64 this_eff_load, prev_eff_load;
+int idx, this_cpu;
+struct task_group *tg;
+unsigned long weight;
+int balanced;
+idx = sd->wake_idx;
+this_cpu = smp_processor_id();
+load = source_load(prev_cpu, idx);
+this_load = target_load(this_cpu, idx);
+if (sync) {
+tg = task_group(current);
+weight = current->se.avg.load_avg;
+this_load += effective_load(tg, this_cpu, -weight, -weight);
+load += effective_load(tg, prev_cpu, 0, -weight);
+}
+tg = task_group(p);
+weight = p->se.avg.load_avg;
+this_eff_load = 100;
+this_eff_load *= capacity_of(prev_cpu);
+prev_eff_load = 100 + (sd->imbalance_pct - 100) / 2;
+prev_eff_load *= capacity_of(this_cpu);
+if (this_load > 0) {
+this_eff_load *= this_load +
+effective_load(tg, this_cpu, weight, weight);
+prev_eff_load *= load + effective_load(tg, prev_cpu, 0, weight);
+}
+balanced = this_eff_load <= prev_eff_load;
+schedstat_inc(p->se.statistics.nr_wakeups_affine_attempts);
+if (!balanced)
+return 0;
+schedstat_inc(sd->ttwu_move_affine);
+schedstat_inc(p->se.statistics.nr_wakeups_affine);
+return 1;
+}
+static unsigned long capacity_spare_wake(int cpu, struct task_struct *p)
+{
+return capacity_orig_of(cpu) - cpu_util_wake(cpu, p);
+}
+static struct sched_group *
+find_idlest_group(struct sched_domain *sd, struct task_struct *p,
+int this_cpu, int sd_flag)
+{
+struct sched_group *idlest = NULL, *group = sd->groups;
+struct sched_group *most_spare_sg = NULL;
+unsigned long min_runnable_load = ULONG_MAX, this_runnable_load = 0;
+unsigned long min_avg_load = ULONG_MAX, this_avg_load = 0;
+unsigned long most_spare = 0, this_spare = 0;
+int load_idx = sd->forkexec_idx;
+int imbalance_scale = 100 + (sd->imbalance_pct-100)/2;
+unsigned long imbalance = scale_load_down(NICE_0_LOAD) *
+(sd->imbalance_pct-100) / 100;
+if (sd_flag & SD_BALANCE_WAKE)
+load_idx = sd->wake_idx;
+do {
+unsigned long load, avg_load, runnable_load;
+unsigned long spare_cap, max_spare_cap;
+int local_group;
+int i;
+if (!cpumask_intersects(sched_group_cpus(group),
+&p->cpus_allowed))
+continue;
+local_group = cpumask_test_cpu(this_cpu,
+sched_group_cpus(group));
+avg_load = 0;
+runnable_load = 0;
+max_spare_cap = 0;
+for_each_cpu(i, sched_group_cpus(group)) {
+if (local_group)
+load = source_load(i, load_idx);
+else
+load = target_load(i, load_idx);
+runnable_load += load;
+avg_load += cfs_rq_load_avg(&cpu_rq(i)->cfs);
+spare_cap = capacity_spare_wake(i, p);
+if (spare_cap > max_spare_cap)
+max_spare_cap = spare_cap;
+}
+avg_load = (avg_load * SCHED_CAPACITY_SCALE) /
+group->sgc->capacity;
+runnable_load = (runnable_load * SCHED_CAPACITY_SCALE) /
+group->sgc->capacity;
+if (local_group) {
+this_runnable_load = runnable_load;
+this_avg_load = avg_load;
+this_spare = max_spare_cap;
+} else {
+if (min_runnable_load > (runnable_load + imbalance)) {
+min_runnable_load = runnable_load;
+min_avg_load = avg_load;
+idlest = group;
+} else if ((runnable_load < (min_runnable_load + imbalance)) &&
+(100*min_avg_load > imbalance_scale*avg_load)) {
+min_avg_load = avg_load;
+idlest = group;
+}
+if (most_spare < max_spare_cap) {
+most_spare = max_spare_cap;
+most_spare_sg = group;
+}
+}
+} while (group = group->next, group != sd->groups);
+if (sd_flag & SD_BALANCE_FORK)
+goto skip_spare;
+if (this_spare > task_util(p) / 2 &&
+imbalance_scale*this_spare > 100*most_spare)
+return NULL;
+if (most_spare > task_util(p) / 2)
+return most_spare_sg;
+skip_spare:
+if (!idlest)
+return NULL;
+if (min_runnable_load > (this_runnable_load + imbalance))
+return NULL;
+if ((this_runnable_load < (min_runnable_load + imbalance)) &&
+(100*this_avg_load < imbalance_scale*min_avg_load))
+return NULL;
+return idlest;
+}
+static int
+find_idlest_cpu(struct sched_group *group, struct task_struct *p, int this_cpu)
+{
+unsigned long load, min_load = ULONG_MAX;
+unsigned int min_exit_latency = UINT_MAX;
+u64 latest_idle_timestamp = 0;
+int least_loaded_cpu = this_cpu;
+int shallowest_idle_cpu = -1;
+int i;
+if (group->group_weight == 1)
+return cpumask_first(sched_group_cpus(group));
+for_each_cpu_and(i, sched_group_cpus(group), &p->cpus_allowed) {
+if (idle_cpu(i)) {
+struct rq *rq = cpu_rq(i);
+struct cpuidle_state *idle = idle_get_state(rq);
+if (idle && idle->exit_latency < min_exit_latency) {
+min_exit_latency = idle->exit_latency;
+latest_idle_timestamp = rq->idle_stamp;
+shallowest_idle_cpu = i;
+} else if ((!idle || idle->exit_latency == min_exit_latency) &&
+rq->idle_stamp > latest_idle_timestamp) {
+latest_idle_timestamp = rq->idle_stamp;
+shallowest_idle_cpu = i;
+}
+} else if (shallowest_idle_cpu == -1) {
+load = weighted_cpuload(i);
+if (load < min_load || (load == min_load && i == this_cpu)) {
+min_load = load;
+least_loaded_cpu = i;
+}
+}
+}
+return shallowest_idle_cpu != -1 ? shallowest_idle_cpu : least_loaded_cpu;
+}
+static int cpumask_next_wrap(int n, const struct cpumask *mask, int start, int *wrapped)
+{
+int next;
+again:
+next = find_next_bit(cpumask_bits(mask), nr_cpumask_bits, n+1);
+if (*wrapped) {
+if (next >= start)
+return nr_cpumask_bits;
+} else {
+if (next >= nr_cpumask_bits) {
+*wrapped = 1;
+n = -1;
+goto again;
+}
+}
+return next;
+}
+static inline void set_idle_cores(int cpu, int val)
+{
+struct sched_domain_shared *sds;
+sds = rcu_dereference(per_cpu(sd_llc_shared, cpu));
+if (sds)
+WRITE_ONCE(sds->has_idle_cores, val);
+}
+static inline bool test_idle_cores(int cpu, bool def)
+{
+struct sched_domain_shared *sds;
+sds = rcu_dereference(per_cpu(sd_llc_shared, cpu));
+if (sds)
+return READ_ONCE(sds->has_idle_cores);
+return def;
+}
+void __update_idle_core(struct rq *rq)
+{
+int core = cpu_of(rq);
+int cpu;
+rcu_read_lock();
+if (test_idle_cores(core, true))
+goto unlock;
+for_each_cpu(cpu, cpu_smt_mask(core)) {
+if (cpu == core)
+continue;
+if (!idle_cpu(cpu))
+goto unlock;
+}
+set_idle_cores(core, 1);
+unlock:
+rcu_read_unlock();
+}
+static int select_idle_core(struct task_struct *p, struct sched_domain *sd, int target)
+{
+struct cpumask *cpus = this_cpu_cpumask_var_ptr(select_idle_mask);
+int core, cpu, wrap;
+if (!static_branch_likely(&sched_smt_present))
+return -1;
+if (!test_idle_cores(target, false))
+return -1;
+cpumask_and(cpus, sched_domain_span(sd), &p->cpus_allowed);
+for_each_cpu_wrap(core, cpus, target, wrap) {
+bool idle = true;
+for_each_cpu(cpu, cpu_smt_mask(core)) {
+cpumask_clear_cpu(cpu, cpus);
+if (!idle_cpu(cpu))
+idle = false;
+}
+if (idle)
+return core;
+}
+set_idle_cores(target, 0);
+return -1;
+}
+static int select_idle_smt(struct task_struct *p, struct sched_domain *sd, int target)
+{
+int cpu;
+if (!static_branch_likely(&sched_smt_present))
+return -1;
+for_each_cpu(cpu, cpu_smt_mask(target)) {
+if (!cpumask_test_cpu(cpu, &p->cpus_allowed))
+continue;
+if (idle_cpu(cpu))
+return cpu;
+}
+return -1;
+}
+static inline int select_idle_core(struct task_struct *p, struct sched_domain *sd, int target)
+{
+return -1;
+}
+static inline int select_idle_smt(struct task_struct *p, struct sched_domain *sd, int target)
+{
+return -1;
+}
+static int select_idle_cpu(struct task_struct *p, struct sched_domain *sd, int target)
+{
+struct sched_domain *this_sd;
+u64 avg_cost, avg_idle = this_rq()->avg_idle;
+u64 time, cost;
+s64 delta;
+int cpu, wrap;
+this_sd = rcu_dereference(*this_cpu_ptr(&sd_llc));
+if (!this_sd)
+return -1;
+avg_cost = this_sd->avg_scan_cost;
+if (sched_feat(SIS_AVG_CPU) && (avg_idle / 512) < avg_cost)
+return -1;
+time = local_clock();
+for_each_cpu_wrap(cpu, sched_domain_span(sd), target, wrap) {
+if (!cpumask_test_cpu(cpu, &p->cpus_allowed))
+continue;
+if (idle_cpu(cpu))
+break;
+}
+time = local_clock() - time;
+cost = this_sd->avg_scan_cost;
+delta = (s64)(time - cost) / 8;
+this_sd->avg_scan_cost += delta;
+return cpu;
+}
+static int select_idle_sibling(struct task_struct *p, int prev, int target)
+{
+struct sched_domain *sd;
+int i;
+if (idle_cpu(target))
+return target;
+if (prev != target && cpus_share_cache(prev, target) && idle_cpu(prev))
+return prev;
+sd = rcu_dereference(per_cpu(sd_llc, target));
+if (!sd)
+return target;
+i = select_idle_core(p, sd, target);
+if ((unsigned)i < nr_cpumask_bits)
+return i;
+i = select_idle_cpu(p, sd, target);
+if ((unsigned)i < nr_cpumask_bits)
+return i;
+i = select_idle_smt(p, sd, target);
+if ((unsigned)i < nr_cpumask_bits)
+return i;
+return target;
+}
+static int cpu_util(int cpu)
+{
+unsigned long util = cpu_rq(cpu)->cfs.avg.util_avg;
+unsigned long capacity = capacity_orig_of(cpu);
+return (util >= capacity) ? capacity : util;
+}
+static inline int task_util(struct task_struct *p)
+{
+return p->se.avg.util_avg;
+}
+static int cpu_util_wake(int cpu, struct task_struct *p)
+{
+unsigned long util, capacity;
+if (cpu != task_cpu(p) || !p->se.avg.last_update_time)
+return cpu_util(cpu);
+capacity = capacity_orig_of(cpu);
+util = max_t(long, cpu_rq(cpu)->cfs.avg.util_avg - task_util(p), 0);
+return (util >= capacity) ? capacity : util;
+}
+static int wake_cap(struct task_struct *p, int cpu, int prev_cpu)
+{
+long min_cap, max_cap;
+min_cap = min(capacity_orig_of(prev_cpu), capacity_orig_of(cpu));
+max_cap = cpu_rq(cpu)->rd->max_cpu_capacity;
+if (max_cap - min_cap < max_cap >> 3)
+return 0;
+sync_entity_load_avg(&p->se);
+return min_cap * 1024 < task_util(p) * capacity_margin;
+}
+static int
+select_task_rq_fair(struct task_struct *p, int prev_cpu, int sd_flag, int wake_flags)
+{
+struct sched_domain *tmp, *affine_sd = NULL, *sd = NULL;
+int cpu = smp_processor_id();
+int new_cpu = prev_cpu;
+int want_affine = 0;
+int sync = wake_flags & WF_SYNC;
+if (sd_flag & SD_BALANCE_WAKE) {
+record_wakee(p);
+want_affine = !wake_wide(p) && !wake_cap(p, cpu, prev_cpu)
+&& cpumask_test_cpu(cpu, &p->cpus_allowed);
+}
+rcu_read_lock();
+for_each_domain(cpu, tmp) {
+if (!(tmp->flags & SD_LOAD_BALANCE))
+break;
+if (want_affine && (tmp->flags & SD_WAKE_AFFINE) &&
+cpumask_test_cpu(prev_cpu, sched_domain_span(tmp))) {
+affine_sd = tmp;
+break;
+}
+if (tmp->flags & sd_flag)
+sd = tmp;
+else if (!want_affine)
+break;
+}
+if (affine_sd) {
+sd = NULL;
+if (cpu != prev_cpu && wake_affine(affine_sd, p, prev_cpu, sync))
+new_cpu = cpu;
+}
+if (!sd) {
+if (sd_flag & SD_BALANCE_WAKE)
+new_cpu = select_idle_sibling(p, prev_cpu, new_cpu);
+} else while (sd) {
+struct sched_group *group;
+int weight;
+if (!(sd->flags & sd_flag)) {
+sd = sd->child;
+continue;
+}
+group = find_idlest_group(sd, p, cpu, sd_flag);
+if (!group) {
+sd = sd->child;
+continue;
+}
+new_cpu = find_idlest_cpu(group, p, cpu);
+if (new_cpu == -1 || new_cpu == cpu) {
+sd = sd->child;
+continue;
+}
+cpu = new_cpu;
+weight = sd->span_weight;
+sd = NULL;
+for_each_domain(cpu, tmp) {
+if (weight <= tmp->span_weight)
+break;
+if (tmp->flags & sd_flag)
+sd = tmp;
+}
+}
+rcu_read_unlock();
+return new_cpu;
+}
+static void migrate_task_rq_fair(struct task_struct *p)
+{
+if (p->state == TASK_WAKING) {
+struct sched_entity *se = &p->se;
+struct cfs_rq *cfs_rq = cfs_rq_of(se);
+u64 min_vruntime;
+#ifndef CONFIG_64BIT
+u64 min_vruntime_copy;
+do {
+min_vruntime_copy = cfs_rq->min_vruntime_copy;
+smp_rmb();
+min_vruntime = cfs_rq->min_vruntime;
+} while (min_vruntime != min_vruntime_copy);
+#else
+min_vruntime = cfs_rq->min_vruntime;
+#endif
+se->vruntime -= min_vruntime;
+}
+remove_entity_load_avg(&p->se);
+p->se.avg.last_update_time = 0;
+p->se.exec_start = 0;
+}
+static void task_dead_fair(struct task_struct *p)
+{
+remove_entity_load_avg(&p->se);
+}
+static unsigned long
+wakeup_gran(struct sched_entity *curr, struct sched_entity *se)
+{
+unsigned long gran = sysctl_sched_wakeup_granularity;
+return calc_delta_fair(gran, se);
+}
+static int
+wakeup_preempt_entity(struct sched_entity *curr, struct sched_entity *se)
+{
+s64 gran, vdiff = curr->vruntime - se->vruntime;
+if (vdiff <= 0)
+return -1;
+gran = wakeup_gran(curr, se);
+if (vdiff > gran)
+return 1;
+return 0;
+}
+static void set_last_buddy(struct sched_entity *se)
+{
+if (entity_is_task(se) && unlikely(task_of(se)->policy == SCHED_IDLE))
+return;
+for_each_sched_entity(se)
+cfs_rq_of(se)->last = se;
+}
+static void set_next_buddy(struct sched_entity *se)
+{
+if (entity_is_task(se) && unlikely(task_of(se)->policy == SCHED_IDLE))
+return;
+for_each_sched_entity(se)
+cfs_rq_of(se)->next = se;
+}
+static void set_skip_buddy(struct sched_entity *se)
+{
+for_each_sched_entity(se)
+cfs_rq_of(se)->skip = se;
+}
+static void check_preempt_wakeup(struct rq *rq, struct task_struct *p, int wake_flags)
+{
+struct task_struct *curr = rq->curr;
+struct sched_entity *se = &curr->se, *pse = &p->se;
+struct cfs_rq *cfs_rq = task_cfs_rq(curr);
+int scale = cfs_rq->nr_running >= sched_nr_latency;
+int next_buddy_marked = 0;
+if (unlikely(se == pse))
+return;
+if (unlikely(throttled_hierarchy(cfs_rq_of(pse))))
+return;
+if (sched_feat(NEXT_BUDDY) && scale && !(wake_flags & WF_FORK)) {
+set_next_buddy(pse);
+next_buddy_marked = 1;
+}
+if (test_tsk_need_resched(curr))
+return;
+if (unlikely(curr->policy == SCHED_IDLE) &&
+likely(p->policy != SCHED_IDLE))
+goto preempt;
+if (unlikely(p->policy != SCHED_NORMAL) || !sched_feat(WAKEUP_PREEMPTION))
+return;
+find_matching_se(&se, &pse);
+update_curr(cfs_rq_of(se));
+BUG_ON(!pse);
+if (wakeup_preempt_entity(se, pse) == 1) {
+if (!next_buddy_marked)
+set_next_buddy(pse);
+goto preempt;
+}
+return;
+preempt:
+resched_curr(rq);
+if (unlikely(!se->on_rq || curr == rq->idle))
+return;
+if (sched_feat(LAST_BUDDY) && scale && entity_is_task(se))
+set_last_buddy(se);
+}
+static struct task_struct *
+pick_next_task_fair(struct rq *rq, struct task_struct *prev, struct rq_flags *rf)
+{
+struct cfs_rq *cfs_rq = &rq->cfs;
+struct sched_entity *se;
+struct task_struct *p;
+int new_tasks;
+again:
+#ifdef CONFIG_FAIR_GROUP_SCHED
+if (!cfs_rq->nr_running)
+goto idle;
+if (prev->sched_class != &fair_sched_class)
+goto simple;
+do {
+struct sched_entity *curr = cfs_rq->curr;
+if (curr) {
+if (curr->on_rq)
+update_curr(cfs_rq);
+else
+curr = NULL;
+if (unlikely(check_cfs_rq_runtime(cfs_rq)))
+goto simple;
+}
+se = pick_next_entity(cfs_rq, curr);
+cfs_rq = group_cfs_rq(se);
+} while (cfs_rq);
+p = task_of(se);
+if (prev != p) {
+struct sched_entity *pse = &prev->se;
+while (!(cfs_rq = is_same_group(se, pse))) {
+int se_depth = se->depth;
+int pse_depth = pse->depth;
+if (se_depth <= pse_depth) {
+put_prev_entity(cfs_rq_of(pse), pse);
+pse = parent_entity(pse);
+}
+if (se_depth >= pse_depth) {
+set_next_entity(cfs_rq_of(se), se);
+se = parent_entity(se);
+}
+}
+put_prev_entity(cfs_rq, pse);
+set_next_entity(cfs_rq, se);
+}
+if (hrtick_enabled(rq))
+hrtick_start_fair(rq, p);
+return p;
+simple:
+cfs_rq = &rq->cfs;
+#endif
+if (!cfs_rq->nr_running)
+goto idle;
+put_prev_task(rq, prev);
+do {
+se = pick_next_entity(cfs_rq, NULL);
+set_next_entity(cfs_rq, se);
+cfs_rq = group_cfs_rq(se);
+} while (cfs_rq);
+p = task_of(se);
+if (hrtick_enabled(rq))
+hrtick_start_fair(rq, p);
+return p;
+idle:
+new_tasks = idle_balance(rq, rf);
+if (new_tasks < 0)
+return RETRY_TASK;
+if (new_tasks > 0)
+goto again;
+return NULL;
+}
+static void put_prev_task_fair(struct rq *rq, struct task_struct *prev)
+{
+struct sched_entity *se = &prev->se;
+struct cfs_rq *cfs_rq;
+for_each_sched_entity(se) {
+cfs_rq = cfs_rq_of(se);
+put_prev_entity(cfs_rq, se);
+}
+}
+static void yield_task_fair(struct rq *rq)
+{
+struct task_struct *curr = rq->curr;
+struct cfs_rq *cfs_rq = task_cfs_rq(curr);
+struct sched_entity *se = &curr->se;
+if (unlikely(rq->nr_running == 1))
+return;
+clear_buddies(cfs_rq, se);
+if (curr->policy != SCHED_BATCH) {
+update_rq_clock(rq);
+update_curr(cfs_rq);
+rq_clock_skip_update(rq, true);
+}
+set_skip_buddy(se);
+}
+static bool yield_to_task_fair(struct rq *rq, struct task_struct *p, bool preempt)
+{
+struct sched_entity *se = &p->se;
+if (!se->on_rq || throttled_hierarchy(cfs_rq_of(se)))
+return false;
+set_next_buddy(se);
+yield_task_fair(rq);
+return true;
+}
+static int task_hot(struct task_struct *p, struct lb_env *env)
+{
+s64 delta;
+lockdep_assert_held(&env->src_rq->lock);
+if (p->sched_class != &fair_sched_class)
+return 0;
+if (unlikely(p->policy == SCHED_IDLE))
+return 0;
+if (sched_feat(CACHE_HOT_BUDDY) && env->dst_rq->nr_running &&
+(&p->se == cfs_rq_of(&p->se)->next ||
+&p->se == cfs_rq_of(&p->se)->last))
+return 1;
+if (sysctl_sched_migration_cost == -1)
+return 1;
+if (sysctl_sched_migration_cost == 0)
+return 0;
+delta = rq_clock_task(env->src_rq) - p->se.exec_start;
+return delta < (s64)sysctl_sched_migration_cost;
+}
+static int migrate_degrades_locality(struct task_struct *p, struct lb_env *env)
+{
+struct numa_group *numa_group = rcu_dereference(p->numa_group);
+unsigned long src_faults, dst_faults;
+int src_nid, dst_nid;
+if (!static_branch_likely(&sched_numa_balancing))
+return -1;
+if (!p->numa_faults || !(env->sd->flags & SD_NUMA))
+return -1;
+src_nid = cpu_to_node(env->src_cpu);
+dst_nid = cpu_to_node(env->dst_cpu);
+if (src_nid == dst_nid)
+return -1;
+if (src_nid == p->numa_preferred_nid) {
+if (env->src_rq->nr_running > env->src_rq->nr_preferred_running)
+return 1;
+else
+return -1;
+}
+if (dst_nid == p->numa_preferred_nid)
+return 0;
+if (numa_group) {
+src_faults = group_faults(p, src_nid);
+dst_faults = group_faults(p, dst_nid);
+} else {
+src_faults = task_faults(p, src_nid);
+dst_faults = task_faults(p, dst_nid);
+}
+return dst_faults < src_faults;
+}
+static inline int migrate_degrades_locality(struct task_struct *p,
+struct lb_env *env)
+{
+return -1;
+}
+static
+int can_migrate_task(struct task_struct *p, struct lb_env *env)
+{
+int tsk_cache_hot;
+lockdep_assert_held(&env->src_rq->lock);
+if (throttled_lb_pair(task_group(p), env->src_cpu, env->dst_cpu))
+return 0;
+if (!cpumask_test_cpu(env->dst_cpu, &p->cpus_allowed)) {
+int cpu;
+schedstat_inc(p->se.statistics.nr_failed_migrations_affine);
+env->flags |= LBF_SOME_PINNED;
+if (!env->dst_grpmask || (env->flags & LBF_DST_PINNED))
+return 0;
+for_each_cpu_and(cpu, env->dst_grpmask, env->cpus) {
+if (cpumask_test_cpu(cpu, &p->cpus_allowed)) {
+env->flags |= LBF_DST_PINNED;
+env->new_dst_cpu = cpu;
+break;
+}
+}
+return 0;
+}
+env->flags &= ~LBF_ALL_PINNED;
+if (task_running(env->src_rq, p)) {
+schedstat_inc(p->se.statistics.nr_failed_migrations_running);
+return 0;
+}
+tsk_cache_hot = migrate_degrades_locality(p, env);
+if (tsk_cache_hot == -1)
+tsk_cache_hot = task_hot(p, env);
+if (tsk_cache_hot <= 0 ||
+env->sd->nr_balance_failed > env->sd->cache_nice_tries) {
+if (tsk_cache_hot == 1) {
+schedstat_inc(env->sd->lb_hot_gained[env->idle]);
+schedstat_inc(p->se.statistics.nr_forced_migrations);
+}
+return 1;
+}
+schedstat_inc(p->se.statistics.nr_failed_migrations_hot);
+return 0;
+}
+static void detach_task(struct task_struct *p, struct lb_env *env)
+{
+lockdep_assert_held(&env->src_rq->lock);
+p->on_rq = TASK_ON_RQ_MIGRATING;
+deactivate_task(env->src_rq, p, 0);
+set_task_cpu(p, env->dst_cpu);
+}
+static struct task_struct *detach_one_task(struct lb_env *env)
+{
+struct task_struct *p, *n;
+lockdep_assert_held(&env->src_rq->lock);
+list_for_each_entry_safe(p, n, &env->src_rq->cfs_tasks, se.group_node) {
+if (!can_migrate_task(p, env))
+continue;
+detach_task(p, env);
+schedstat_inc(env->sd->lb_gained[env->idle]);
+return p;
+}
+return NULL;
+}
+static int detach_tasks(struct lb_env *env)
+{
+struct list_head *tasks = &env->src_rq->cfs_tasks;
+struct task_struct *p;
+unsigned long load;
+int detached = 0;
+lockdep_assert_held(&env->src_rq->lock);
+if (env->imbalance <= 0)
+return 0;
+while (!list_empty(tasks)) {
+if (env->idle != CPU_NOT_IDLE && env->src_rq->nr_running <= 1)
+break;
+p = list_first_entry(tasks, struct task_struct, se.group_node);
+env->loop++;
+if (env->loop > env->loop_max)
+break;
+if (env->loop > env->loop_break) {
+env->loop_break += sched_nr_migrate_break;
+env->flags |= LBF_NEED_BREAK;
+break;
+}
+if (!can_migrate_task(p, env))
+goto next;
+load = task_h_load(p);
+if (sched_feat(LB_MIN) && load < 16 && !env->sd->nr_balance_failed)
+goto next;
+if ((load / 2) > env->imbalance)
+goto next;
+detach_task(p, env);
+list_add(&p->se.group_node, &env->tasks);
+detached++;
+env->imbalance -= load;
+#ifdef CONFIG_PREEMPT
+if (env->idle == CPU_NEWLY_IDLE)
+break;
+#endif
+if (env->imbalance <= 0)
+break;
+continue;
+next:
+list_move_tail(&p->se.group_node, tasks);
+}
+schedstat_add(env->sd->lb_gained[env->idle], detached);
+return detached;
+}
+static void attach_task(struct rq *rq, struct task_struct *p)
+{
+lockdep_assert_held(&rq->lock);
+BUG_ON(task_rq(p) != rq);
+activate_task(rq, p, 0);
+p->on_rq = TASK_ON_RQ_QUEUED;
+check_preempt_curr(rq, p, 0);
+}
+static void attach_one_task(struct rq *rq, struct task_struct *p)
+{
+raw_spin_lock(&rq->lock);
+attach_task(rq, p);
+raw_spin_unlock(&rq->lock);
+}
+static void attach_tasks(struct lb_env *env)
+{
+struct list_head *tasks = &env->tasks;
+struct task_struct *p;
+raw_spin_lock(&env->dst_rq->lock);
+while (!list_empty(tasks)) {
+p = list_first_entry(tasks, struct task_struct, se.group_node);
+list_del_init(&p->se.group_node);
+attach_task(env->dst_rq, p);
+}
+raw_spin_unlock(&env->dst_rq->lock);
+}
+static void update_blocked_averages(int cpu)
+{
+struct rq *rq = cpu_rq(cpu);
+struct cfs_rq *cfs_rq;
+unsigned long flags;
+raw_spin_lock_irqsave(&rq->lock, flags);
+update_rq_clock(rq);
+for_each_leaf_cfs_rq(rq, cfs_rq) {
+if (throttled_hierarchy(cfs_rq))
+continue;
+if (update_cfs_rq_load_avg(cfs_rq_clock_task(cfs_rq), cfs_rq, true))
+update_tg_load_avg(cfs_rq, 0);
+if (cfs_rq->tg->se[cpu])
+update_load_avg(cfs_rq->tg->se[cpu], 0);
+}
+raw_spin_unlock_irqrestore(&rq->lock, flags);
+}
+static void update_cfs_rq_h_load(struct cfs_rq *cfs_rq)
+{
+struct rq *rq = rq_of(cfs_rq);
+struct sched_entity *se = cfs_rq->tg->se[cpu_of(rq)];
+unsigned long now = jiffies;
+unsigned long load;
+if (cfs_rq->last_h_load_update == now)
+return;
+cfs_rq->h_load_next = NULL;
+for_each_sched_entity(se) {
+cfs_rq = cfs_rq_of(se);
+cfs_rq->h_load_next = se;
+if (cfs_rq->last_h_load_update == now)
+break;
+}
+if (!se) {
+cfs_rq->h_load = cfs_rq_load_avg(cfs_rq);
+cfs_rq->last_h_load_update = now;
+}
+while ((se = cfs_rq->h_load_next) != NULL) {
+load = cfs_rq->h_load;
+load = div64_ul(load * se->avg.load_avg,
+cfs_rq_load_avg(cfs_rq) + 1);
+cfs_rq = group_cfs_rq(se);
+cfs_rq->h_load = load;
+cfs_rq->last_h_load_update = now;
+}
+}
+static unsigned long task_h_load(struct task_struct *p)
+{
+struct cfs_rq *cfs_rq = task_cfs_rq(p);
+update_cfs_rq_h_load(cfs_rq);
+return div64_ul(p->se.avg.load_avg * cfs_rq->h_load,
+cfs_rq_load_avg(cfs_rq) + 1);
+}
+static inline void update_blocked_averages(int cpu)
+{
+struct rq *rq = cpu_rq(cpu);
+struct cfs_rq *cfs_rq = &rq->cfs;
+unsigned long flags;
+raw_spin_lock_irqsave(&rq->lock, flags);
+update_rq_clock(rq);
+update_cfs_rq_load_avg(cfs_rq_clock_task(cfs_rq), cfs_rq, true);
+raw_spin_unlock_irqrestore(&rq->lock, flags);
+}
+static unsigned long task_h_load(struct task_struct *p)
+{
+return p->se.avg.load_avg;
+}
+static inline void init_sd_lb_stats(struct sd_lb_stats *sds)
+{
+*sds = (struct sd_lb_stats){
+.busiest = NULL,
+.local = NULL,
+.total_load = 0UL,
+.total_capacity = 0UL,
+.busiest_stat = {
+.avg_load = 0UL,
+.sum_nr_running = 0,
+.group_type = group_other,
+},
+};
+}
+static inline int get_sd_load_idx(struct sched_domain *sd,
+enum cpu_idle_type idle)
+{
+int load_idx;
+switch (idle) {
+case CPU_NOT_IDLE:
+load_idx = sd->busy_idx;
+break;
+case CPU_NEWLY_IDLE:
+load_idx = sd->newidle_idx;
+break;
+default:
+load_idx = sd->idle_idx;
+break;
+}
+return load_idx;
+}
+static unsigned long scale_rt_capacity(int cpu)
+{
+struct rq *rq = cpu_rq(cpu);
+u64 total, used, age_stamp, avg;
+s64 delta;
+age_stamp = READ_ONCE(rq->age_stamp);
+avg = READ_ONCE(rq->rt_avg);
+delta = __rq_clock_broken(rq) - age_stamp;
+if (unlikely(delta < 0))
+delta = 0;
+total = sched_avg_period() + delta;
+used = div_u64(avg, total);
+if (likely(used < SCHED_CAPACITY_SCALE))
+return SCHED_CAPACITY_SCALE - used;
+return 1;
+}
+static void update_cpu_capacity(struct sched_domain *sd, int cpu)
+{
+unsigned long capacity = arch_scale_cpu_capacity(sd, cpu);
+struct sched_group *sdg = sd->groups;
+cpu_rq(cpu)->cpu_capacity_orig = capacity;
+capacity *= scale_rt_capacity(cpu);
+capacity >>= SCHED_CAPACITY_SHIFT;
+if (!capacity)
+capacity = 1;
+cpu_rq(cpu)->cpu_capacity = capacity;
+sdg->sgc->capacity = capacity;
+sdg->sgc->min_capacity = capacity;
+}
+void update_group_capacity(struct sched_domain *sd, int cpu)
+{
+struct sched_domain *child = sd->child;
+struct sched_group *group, *sdg = sd->groups;
+unsigned long capacity, min_capacity;
+unsigned long interval;
+interval = msecs_to_jiffies(sd->balance_interval);
+interval = clamp(interval, 1UL, max_load_balance_interval);
+sdg->sgc->next_update = jiffies + interval;
+if (!child) {
+update_cpu_capacity(sd, cpu);
+return;
+}
+capacity = 0;
+min_capacity = ULONG_MAX;
+if (child->flags & SD_OVERLAP) {
+for_each_cpu(cpu, sched_group_cpus(sdg)) {
+struct sched_group_capacity *sgc;
+struct rq *rq = cpu_rq(cpu);
+if (unlikely(!rq->sd)) {
+capacity += capacity_of(cpu);
+} else {
+sgc = rq->sd->groups->sgc;
+capacity += sgc->capacity;
+}
+min_capacity = min(capacity, min_capacity);
+}
+} else {
+group = child->groups;
+do {
+struct sched_group_capacity *sgc = group->sgc;
+capacity += sgc->capacity;
+min_capacity = min(sgc->min_capacity, min_capacity);
+group = group->next;
+} while (group != child->groups);
+}
+sdg->sgc->capacity = capacity;
+sdg->sgc->min_capacity = min_capacity;
+}
+static inline int
+check_cpu_capacity(struct rq *rq, struct sched_domain *sd)
+{
+return ((rq->cpu_capacity * sd->imbalance_pct) <
+(rq->cpu_capacity_orig * 100));
+}
+static inline int sg_imbalanced(struct sched_group *group)
+{
+return group->sgc->imbalance;
+}
+static inline bool
+group_has_capacity(struct lb_env *env, struct sg_lb_stats *sgs)
+{
+if (sgs->sum_nr_running < sgs->group_weight)
+return true;
+if ((sgs->group_capacity * 100) >
+(sgs->group_util * env->sd->imbalance_pct))
+return true;
+return false;
+}
+static inline bool
+group_is_overloaded(struct lb_env *env, struct sg_lb_stats *sgs)
+{
+if (sgs->sum_nr_running <= sgs->group_weight)
+return false;
+if ((sgs->group_capacity * 100) <
+(sgs->group_util * env->sd->imbalance_pct))
+return true;
+return false;
+}
+static inline bool
+group_smaller_cpu_capacity(struct sched_group *sg, struct sched_group *ref)
+{
+return sg->sgc->min_capacity * capacity_margin <
+ref->sgc->min_capacity * 1024;
+}
+static inline enum
+group_type group_classify(struct sched_group *group,
+struct sg_lb_stats *sgs)
+{
+if (sgs->group_no_capacity)
+return group_overloaded;
+if (sg_imbalanced(group))
+return group_imbalanced;
+return group_other;
+}
+static inline void update_sg_lb_stats(struct lb_env *env,
+struct sched_group *group, int load_idx,
+int local_group, struct sg_lb_stats *sgs,
+bool *overload)
+{
+unsigned long load;
+int i, nr_running;
+memset(sgs, 0, sizeof(*sgs));
+for_each_cpu_and(i, sched_group_cpus(group), env->cpus) {
+struct rq *rq = cpu_rq(i);
+if (local_group)
+load = target_load(i, load_idx);
+else
+load = source_load(i, load_idx);
+sgs->group_load += load;
+sgs->group_util += cpu_util(i);
+sgs->sum_nr_running += rq->cfs.h_nr_running;
+nr_running = rq->nr_running;
+if (nr_running > 1)
+*overload = true;
+#ifdef CONFIG_NUMA_BALANCING
+sgs->nr_numa_running += rq->nr_numa_running;
+sgs->nr_preferred_running += rq->nr_preferred_running;
+#endif
+sgs->sum_weighted_load += weighted_cpuload(i);
+if (!nr_running && idle_cpu(i))
+sgs->idle_cpus++;
+}
+sgs->group_capacity = group->sgc->capacity;
+sgs->avg_load = (sgs->group_load*SCHED_CAPACITY_SCALE) / sgs->group_capacity;
+if (sgs->sum_nr_running)
+sgs->load_per_task = sgs->sum_weighted_load / sgs->sum_nr_running;
+sgs->group_weight = group->group_weight;
+sgs->group_no_capacity = group_is_overloaded(env, sgs);
+sgs->group_type = group_classify(group, sgs);
+}
+static bool update_sd_pick_busiest(struct lb_env *env,
+struct sd_lb_stats *sds,
+struct sched_group *sg,
+struct sg_lb_stats *sgs)
+{
+struct sg_lb_stats *busiest = &sds->busiest_stat;
+if (sgs->group_type > busiest->group_type)
+return true;
+if (sgs->group_type < busiest->group_type)
+return false;
+if (sgs->avg_load <= busiest->avg_load)
+return false;
+if (!(env->sd->flags & SD_ASYM_CPUCAPACITY))
+goto asym_packing;
+if (sgs->sum_nr_running <= sgs->group_weight &&
+group_smaller_cpu_capacity(sds->local, sg))
+return false;
+asym_packing:
+if (!(env->sd->flags & SD_ASYM_PACKING))
+return true;
+if (env->idle == CPU_NOT_IDLE)
+return true;
+if (sgs->sum_nr_running &&
+sched_asym_prefer(env->dst_cpu, sg->asym_prefer_cpu)) {
+if (!sds->busiest)
+return true;
+if (sched_asym_prefer(sds->busiest->asym_prefer_cpu,
+sg->asym_prefer_cpu))
+return true;
+}
+return false;
+}
+static inline enum fbq_type fbq_classify_group(struct sg_lb_stats *sgs)
+{
+if (sgs->sum_nr_running > sgs->nr_numa_running)
+return regular;
+if (sgs->sum_nr_running > sgs->nr_preferred_running)
+return remote;
+return all;
+}
+static inline enum fbq_type fbq_classify_rq(struct rq *rq)
+{
+if (rq->nr_running > rq->nr_numa_running)
+return regular;
+if (rq->nr_running > rq->nr_preferred_running)
+return remote;
+return all;
+}
+static inline enum fbq_type fbq_classify_group(struct sg_lb_stats *sgs)
+{
+return all;
+}
+static inline enum fbq_type fbq_classify_rq(struct rq *rq)
+{
+return regular;
+}
+static inline void update_sd_lb_stats(struct lb_env *env, struct sd_lb_stats *sds)
+{
+struct sched_domain *child = env->sd->child;
+struct sched_group *sg = env->sd->groups;
+struct sg_lb_stats tmp_sgs;
+int load_idx, prefer_sibling = 0;
+bool overload = false;
+if (child && child->flags & SD_PREFER_SIBLING)
+prefer_sibling = 1;
+load_idx = get_sd_load_idx(env->sd, env->idle);
+do {
+struct sg_lb_stats *sgs = &tmp_sgs;
+int local_group;
+local_group = cpumask_test_cpu(env->dst_cpu, sched_group_cpus(sg));
+if (local_group) {
+sds->local = sg;
+sgs = &sds->local_stat;
+if (env->idle != CPU_NEWLY_IDLE ||
+time_after_eq(jiffies, sg->sgc->next_update))
+update_group_capacity(env->sd, env->dst_cpu);
+}
+update_sg_lb_stats(env, sg, load_idx, local_group, sgs,
+&overload);
+if (local_group)
+goto next_group;
+if (prefer_sibling && sds->local &&
+group_has_capacity(env, &sds->local_stat) &&
+(sgs->sum_nr_running > 1)) {
+sgs->group_no_capacity = 1;
+sgs->group_type = group_classify(sg, sgs);
+}
+if (update_sd_pick_busiest(env, sds, sg, sgs)) {
+sds->busiest = sg;
+sds->busiest_stat = *sgs;
+}
+next_group:
+sds->total_load += sgs->group_load;
+sds->total_capacity += sgs->group_capacity;
+sg = sg->next;
+} while (sg != env->sd->groups);
+if (env->sd->flags & SD_NUMA)
+env->fbq_type = fbq_classify_group(&sds->busiest_stat);
+if (!env->sd->parent) {
+if (env->dst_rq->rd->overload != overload)
+env->dst_rq->rd->overload = overload;
+}
+}
+static int check_asym_packing(struct lb_env *env, struct sd_lb_stats *sds)
+{
+int busiest_cpu;
+if (!(env->sd->flags & SD_ASYM_PACKING))
+return 0;
+if (env->idle == CPU_NOT_IDLE)
+return 0;
+if (!sds->busiest)
+return 0;
+busiest_cpu = sds->busiest->asym_prefer_cpu;
+if (sched_asym_prefer(busiest_cpu, env->dst_cpu))
+return 0;
+env->imbalance = DIV_ROUND_CLOSEST(
+sds->busiest_stat.avg_load * sds->busiest_stat.group_capacity,
+SCHED_CAPACITY_SCALE);
+return 1;
+}
+static inline
+void fix_small_imbalance(struct lb_env *env, struct sd_lb_stats *sds)
+{
+unsigned long tmp, capa_now = 0, capa_move = 0;
+unsigned int imbn = 2;
+unsigned long scaled_busy_load_per_task;
+struct sg_lb_stats *local, *busiest;
+local = &sds->local_stat;
+busiest = &sds->busiest_stat;
+if (!local->sum_nr_running)
+local->load_per_task = cpu_avg_load_per_task(env->dst_cpu);
+else if (busiest->load_per_task > local->load_per_task)
+imbn = 1;
+scaled_busy_load_per_task =
+(busiest->load_per_task * SCHED_CAPACITY_SCALE) /
+busiest->group_capacity;
+if (busiest->avg_load + scaled_busy_load_per_task >=
+local->avg_load + (scaled_busy_load_per_task * imbn)) {
+env->imbalance = busiest->load_per_task;
+return;
+}
+capa_now += busiest->group_capacity *
+min(busiest->load_per_task, busiest->avg_load);
+capa_now += local->group_capacity *
+min(local->load_per_task, local->avg_load);
+capa_now /= SCHED_CAPACITY_SCALE;
+if (busiest->avg_load > scaled_busy_load_per_task) {
+capa_move += busiest->group_capacity *
+min(busiest->load_per_task,
+busiest->avg_load - scaled_busy_load_per_task);
+}
+if (busiest->avg_load * busiest->group_capacity <
+busiest->load_per_task * SCHED_CAPACITY_SCALE) {
+tmp = (busiest->avg_load * busiest->group_capacity) /
+local->group_capacity;
+} else {
+tmp = (busiest->load_per_task * SCHED_CAPACITY_SCALE) /
+local->group_capacity;
+}
+capa_move += local->group_capacity *
+min(local->load_per_task, local->avg_load + tmp);
+capa_move /= SCHED_CAPACITY_SCALE;
+if (capa_move > capa_now)
+env->imbalance = busiest->load_per_task;
+}
+static inline void calculate_imbalance(struct lb_env *env, struct sd_lb_stats *sds)
+{
+unsigned long max_pull, load_above_capacity = ~0UL;
+struct sg_lb_stats *local, *busiest;
+local = &sds->local_stat;
+busiest = &sds->busiest_stat;
+if (busiest->group_type == group_imbalanced) {
+busiest->load_per_task =
+min(busiest->load_per_task, sds->avg_load);
+}
+if (busiest->avg_load <= sds->avg_load ||
+local->avg_load >= sds->avg_load) {
+env->imbalance = 0;
+return fix_small_imbalance(env, sds);
+}
+if (busiest->group_type == group_overloaded &&
+local->group_type == group_overloaded) {
+load_above_capacity = busiest->sum_nr_running * SCHED_CAPACITY_SCALE;
+if (load_above_capacity > busiest->group_capacity) {
+load_above_capacity -= busiest->group_capacity;
+load_above_capacity *= scale_load_down(NICE_0_LOAD);
+load_above_capacity /= busiest->group_capacity;
+} else
+load_above_capacity = ~0UL;
+}
+max_pull = min(busiest->avg_load - sds->avg_load, load_above_capacity);
+env->imbalance = min(
+max_pull * busiest->group_capacity,
+(sds->avg_load - local->avg_load) * local->group_capacity
+) / SCHED_CAPACITY_SCALE;
+if (env->imbalance < busiest->load_per_task)
+return fix_small_imbalance(env, sds);
+}
+static struct sched_group *find_busiest_group(struct lb_env *env)
+{
+struct sg_lb_stats *local, *busiest;
+struct sd_lb_stats sds;
+init_sd_lb_stats(&sds);
+update_sd_lb_stats(env, &sds);
+local = &sds.local_stat;
+busiest = &sds.busiest_stat;
+if (check_asym_packing(env, &sds))
+return sds.busiest;
+if (!sds.busiest || busiest->sum_nr_running == 0)
+goto out_balanced;
+sds.avg_load = (SCHED_CAPACITY_SCALE * sds.total_load)
+/ sds.total_capacity;
+if (busiest->group_type == group_imbalanced)
+goto force_balance;
+if (env->idle == CPU_NEWLY_IDLE && group_has_capacity(env, local) &&
+busiest->group_no_capacity)
+goto force_balance;
+if (local->avg_load >= busiest->avg_load)
+goto out_balanced;
+if (local->avg_load >= sds.avg_load)
+goto out_balanced;
+if (env->idle == CPU_IDLE) {
+if ((busiest->group_type != group_overloaded) &&
+(local->idle_cpus <= (busiest->idle_cpus + 1)))
+goto out_balanced;
+} else {
+if (100 * busiest->avg_load <=
+env->sd->imbalance_pct * local->avg_load)
+goto out_balanced;
+}
+force_balance:
+calculate_imbalance(env, &sds);
+return sds.busiest;
+out_balanced:
+env->imbalance = 0;
+return NULL;
+}
+static struct rq *find_busiest_queue(struct lb_env *env,
+struct sched_group *group)
+{
+struct rq *busiest = NULL, *rq;
+unsigned long busiest_load = 0, busiest_capacity = 1;
+int i;
+for_each_cpu_and(i, sched_group_cpus(group), env->cpus) {
+unsigned long capacity, wl;
+enum fbq_type rt;
+rq = cpu_rq(i);
+rt = fbq_classify_rq(rq);
+if (rt > env->fbq_type)
+continue;
+capacity = capacity_of(i);
+wl = weighted_cpuload(i);
+if (rq->nr_running == 1 && wl > env->imbalance &&
+!check_cpu_capacity(rq, env->sd))
+continue;
+if (wl * busiest_capacity > busiest_load * capacity) {
+busiest_load = wl;
+busiest_capacity = capacity;
+busiest = rq;
+}
+}
+return busiest;
+}
+static int need_active_balance(struct lb_env *env)
+{
+struct sched_domain *sd = env->sd;
+if (env->idle == CPU_NEWLY_IDLE) {
+if ((sd->flags & SD_ASYM_PACKING) &&
+sched_asym_prefer(env->dst_cpu, env->src_cpu))
+return 1;
+}
+if ((env->idle != CPU_NOT_IDLE) &&
+(env->src_rq->cfs.h_nr_running == 1)) {
+if ((check_cpu_capacity(env->src_rq, sd)) &&
+(capacity_of(env->src_cpu)*sd->imbalance_pct < capacity_of(env->dst_cpu)*100))
+return 1;
+}
+return unlikely(sd->nr_balance_failed > sd->cache_nice_tries+2);
+}
+static int should_we_balance(struct lb_env *env)
+{
+struct sched_group *sg = env->sd->groups;
+struct cpumask *sg_cpus, *sg_mask;
+int cpu, balance_cpu = -1;
+if (env->idle == CPU_NEWLY_IDLE)
+return 1;
+sg_cpus = sched_group_cpus(sg);
+sg_mask = sched_group_mask(sg);
+for_each_cpu_and(cpu, sg_cpus, env->cpus) {
+if (!cpumask_test_cpu(cpu, sg_mask) || !idle_cpu(cpu))
+continue;
+balance_cpu = cpu;
+break;
+}
+if (balance_cpu == -1)
+balance_cpu = group_balance_cpu(sg);
+return balance_cpu == env->dst_cpu;
+}
+static int load_balance(int this_cpu, struct rq *this_rq,
+struct sched_domain *sd, enum cpu_idle_type idle,
+int *continue_balancing)
+{
+int ld_moved, cur_ld_moved, active_balance = 0;
+struct sched_domain *sd_parent = sd->parent;
+struct sched_group *group;
+struct rq *busiest;
+unsigned long flags;
+struct cpumask *cpus = this_cpu_cpumask_var_ptr(load_balance_mask);
+struct lb_env env = {
+.sd = sd,
+.dst_cpu = this_cpu,
+.dst_rq = this_rq,
+.dst_grpmask = sched_group_cpus(sd->groups),
+.idle = idle,
+.loop_break = sched_nr_migrate_break,
+.cpus = cpus,
+.fbq_type = all,
+.tasks = LIST_HEAD_INIT(env.tasks),
+};
+if (idle == CPU_NEWLY_IDLE)
+env.dst_grpmask = NULL;
+cpumask_copy(cpus, cpu_active_mask);
+schedstat_inc(sd->lb_count[idle]);
+redo:
+if (!should_we_balance(&env)) {
+*continue_balancing = 0;
+goto out_balanced;
+}
+group = find_busiest_group(&env);
+if (!group) {
+schedstat_inc(sd->lb_nobusyg[idle]);
+goto out_balanced;
+}
+busiest = find_busiest_queue(&env, group);
+if (!busiest) {
+schedstat_inc(sd->lb_nobusyq[idle]);
+goto out_balanced;
+}
+BUG_ON(busiest == env.dst_rq);
+schedstat_add(sd->lb_imbalance[idle], env.imbalance);
+env.src_cpu = busiest->cpu;
+env.src_rq = busiest;
+ld_moved = 0;
+if (busiest->nr_running > 1) {
+env.flags |= LBF_ALL_PINNED;
+env.loop_max = min(sysctl_sched_nr_migrate, busiest->nr_running);
+more_balance:
+raw_spin_lock_irqsave(&busiest->lock, flags);
+update_rq_clock(busiest);
+cur_ld_moved = detach_tasks(&env);
+raw_spin_unlock(&busiest->lock);
+if (cur_ld_moved) {
+attach_tasks(&env);
+ld_moved += cur_ld_moved;
+}
+local_irq_restore(flags);
+if (env.flags & LBF_NEED_BREAK) {
+env.flags &= ~LBF_NEED_BREAK;
+goto more_balance;
+}
+if ((env.flags & LBF_DST_PINNED) && env.imbalance > 0) {
+cpumask_clear_cpu(env.dst_cpu, env.cpus);
+env.dst_rq = cpu_rq(env.new_dst_cpu);
+env.dst_cpu = env.new_dst_cpu;
+env.flags &= ~LBF_DST_PINNED;
+env.loop = 0;
+env.loop_break = sched_nr_migrate_break;
+goto more_balance;
+}
+if (sd_parent) {
+int *group_imbalance = &sd_parent->groups->sgc->imbalance;
+if ((env.flags & LBF_SOME_PINNED) && env.imbalance > 0)
+*group_imbalance = 1;
+}
+if (unlikely(env.flags & LBF_ALL_PINNED)) {
+cpumask_clear_cpu(cpu_of(busiest), cpus);
+if (!cpumask_empty(cpus)) {
+env.loop = 0;
+env.loop_break = sched_nr_migrate_break;
+goto redo;
+}
+goto out_all_pinned;
+}
+}
+if (!ld_moved) {
+schedstat_inc(sd->lb_failed[idle]);
+if (idle != CPU_NEWLY_IDLE)
+sd->nr_balance_failed++;
+if (need_active_balance(&env)) {
+raw_spin_lock_irqsave(&busiest->lock, flags);
+if (!cpumask_test_cpu(this_cpu, &busiest->curr->cpus_allowed)) {
+raw_spin_unlock_irqrestore(&busiest->lock,
+flags);
+env.flags |= LBF_ALL_PINNED;
+goto out_one_pinned;
+}
+if (!busiest->active_balance) {
+busiest->active_balance = 1;
+busiest->push_cpu = this_cpu;
+active_balance = 1;
+}
+raw_spin_unlock_irqrestore(&busiest->lock, flags);
+if (active_balance) {
+stop_one_cpu_nowait(cpu_of(busiest),
+active_load_balance_cpu_stop, busiest,
+&busiest->active_balance_work);
+}
+sd->nr_balance_failed = sd->cache_nice_tries+1;
+}
+} else
+sd->nr_balance_failed = 0;
+if (likely(!active_balance)) {
+sd->balance_interval = sd->min_interval;
+} else {
+if (sd->balance_interval < sd->max_interval)
+sd->balance_interval *= 2;
+}
+goto out;
+out_balanced:
+if (sd_parent) {
+int *group_imbalance = &sd_parent->groups->sgc->imbalance;
+if (*group_imbalance)
+*group_imbalance = 0;
+}
+out_all_pinned:
+schedstat_inc(sd->lb_balanced[idle]);
+sd->nr_balance_failed = 0;
+out_one_pinned:
+if (((env.flags & LBF_ALL_PINNED) &&
+sd->balance_interval < MAX_PINNED_INTERVAL) ||
+(sd->balance_interval < sd->max_interval))
+sd->balance_interval *= 2;
+ld_moved = 0;
+out:
+return ld_moved;
+}
+static inline unsigned long
+get_sd_balance_interval(struct sched_domain *sd, int cpu_busy)
+{
+unsigned long interval = sd->balance_interval;
+if (cpu_busy)
+interval *= sd->busy_factor;
+interval = msecs_to_jiffies(interval);
+interval = clamp(interval, 1UL, max_load_balance_interval);
+return interval;
+}
+static inline void
+update_next_balance(struct sched_domain *sd, unsigned long *next_balance)
+{
+unsigned long interval, next;
+interval = get_sd_balance_interval(sd, 0);
+next = sd->last_balance + interval;
+if (time_after(*next_balance, next))
+*next_balance = next;
+}
+static int idle_balance(struct rq *this_rq, struct rq_flags *rf)
+{
+unsigned long next_balance = jiffies + HZ;
+int this_cpu = this_rq->cpu;
+struct sched_domain *sd;
+int pulled_task = 0;
+u64 curr_cost = 0;
+this_rq->idle_stamp = rq_clock(this_rq);
+rq_unpin_lock(this_rq, rf);
+if (this_rq->avg_idle < sysctl_sched_migration_cost ||
+!this_rq->rd->overload) {
+rcu_read_lock();
+sd = rcu_dereference_check_sched_domain(this_rq->sd);
+if (sd)
+update_next_balance(sd, &next_balance);
+rcu_read_unlock();
+goto out;
+}
+raw_spin_unlock(&this_rq->lock);
+update_blocked_averages(this_cpu);
+rcu_read_lock();
+for_each_domain(this_cpu, sd) {
+int continue_balancing = 1;
+u64 t0, domain_cost;
+if (!(sd->flags & SD_LOAD_BALANCE))
+continue;
+if (this_rq->avg_idle < curr_cost + sd->max_newidle_lb_cost) {
+update_next_balance(sd, &next_balance);
+break;
+}
+if (sd->flags & SD_BALANCE_NEWIDLE) {
+t0 = sched_clock_cpu(this_cpu);
+pulled_task = load_balance(this_cpu, this_rq,
+sd, CPU_NEWLY_IDLE,
+&continue_balancing);
+domain_cost = sched_clock_cpu(this_cpu) - t0;
+if (domain_cost > sd->max_newidle_lb_cost)
+sd->max_newidle_lb_cost = domain_cost;
+curr_cost += domain_cost;
+}
+update_next_balance(sd, &next_balance);
+if (pulled_task || this_rq->nr_running > 0)
+break;
+}
+rcu_read_unlock();
+raw_spin_lock(&this_rq->lock);
+if (curr_cost > this_rq->max_idle_balance_cost)
+this_rq->max_idle_balance_cost = curr_cost;
+if (this_rq->cfs.h_nr_running && !pulled_task)
+pulled_task = 1;
+out:
+if (time_after(this_rq->next_balance, next_balance))
+this_rq->next_balance = next_balance;
+if (this_rq->nr_running != this_rq->cfs.h_nr_running)
+pulled_task = -1;
+if (pulled_task)
+this_rq->idle_stamp = 0;
+rq_repin_lock(this_rq, rf);
+return pulled_task;
+}
+static int active_load_balance_cpu_stop(void *data)
+{
+struct rq *busiest_rq = data;
+int busiest_cpu = cpu_of(busiest_rq);
+int target_cpu = busiest_rq->push_cpu;
+struct rq *target_rq = cpu_rq(target_cpu);
+struct sched_domain *sd;
+struct task_struct *p = NULL;
+raw_spin_lock_irq(&busiest_rq->lock);
+if (unlikely(busiest_cpu != smp_processor_id() ||
+!busiest_rq->active_balance))
+goto out_unlock;
+if (busiest_rq->nr_running <= 1)
+goto out_unlock;
+BUG_ON(busiest_rq == target_rq);
+rcu_read_lock();
+for_each_domain(target_cpu, sd) {
+if ((sd->flags & SD_LOAD_BALANCE) &&
+cpumask_test_cpu(busiest_cpu, sched_domain_span(sd)))
+break;
+}
+if (likely(sd)) {
+struct lb_env env = {
+.sd = sd,
+.dst_cpu = target_cpu,
+.dst_rq = target_rq,
+.src_cpu = busiest_rq->cpu,
+.src_rq = busiest_rq,
+.idle = CPU_IDLE,
+};
+schedstat_inc(sd->alb_count);
+update_rq_clock(busiest_rq);
+p = detach_one_task(&env);
+if (p) {
+schedstat_inc(sd->alb_pushed);
+sd->nr_balance_failed = 0;
+} else {
+schedstat_inc(sd->alb_failed);
+}
+}
+rcu_read_unlock();
+out_unlock:
+busiest_rq->active_balance = 0;
+raw_spin_unlock(&busiest_rq->lock);
+if (p)
+attach_one_task(target_rq, p);
+local_irq_enable();
+return 0;
+}
+static inline int on_null_domain(struct rq *rq)
+{
+return unlikely(!rcu_dereference_sched(rq->sd));
+}
+static inline int find_new_ilb(void)
+{
+int ilb = cpumask_first(nohz.idle_cpus_mask);
+if (ilb < nr_cpu_ids && idle_cpu(ilb))
+return ilb;
+return nr_cpu_ids;
+}
+static void nohz_balancer_kick(void)
+{
+int ilb_cpu;
+nohz.next_balance++;
+ilb_cpu = find_new_ilb();
+if (ilb_cpu >= nr_cpu_ids)
+return;
+if (test_and_set_bit(NOHZ_BALANCE_KICK, nohz_flags(ilb_cpu)))
+return;
+smp_send_reschedule(ilb_cpu);
+return;
+}
+void nohz_balance_exit_idle(unsigned int cpu)
+{
+if (unlikely(test_bit(NOHZ_TICK_STOPPED, nohz_flags(cpu)))) {
+if (likely(cpumask_test_cpu(cpu, nohz.idle_cpus_mask))) {
+cpumask_clear_cpu(cpu, nohz.idle_cpus_mask);
+atomic_dec(&nohz.nr_cpus);
+}
+clear_bit(NOHZ_TICK_STOPPED, nohz_flags(cpu));
+}
+}
+static inline void set_cpu_sd_state_busy(void)
+{
+struct sched_domain *sd;
+int cpu = smp_processor_id();
+rcu_read_lock();
+sd = rcu_dereference(per_cpu(sd_llc, cpu));
+if (!sd || !sd->nohz_idle)
+goto unlock;
+sd->nohz_idle = 0;
+atomic_inc(&sd->shared->nr_busy_cpus);
+unlock:
+rcu_read_unlock();
+}
+void set_cpu_sd_state_idle(void)
+{
+struct sched_domain *sd;
+int cpu = smp_processor_id();
+rcu_read_lock();
+sd = rcu_dereference(per_cpu(sd_llc, cpu));
+if (!sd || sd->nohz_idle)
+goto unlock;
+sd->nohz_idle = 1;
+atomic_dec(&sd->shared->nr_busy_cpus);
+unlock:
+rcu_read_unlock();
+}
+void nohz_balance_enter_idle(int cpu)
+{
+if (!cpu_active(cpu))
+return;
+if (test_bit(NOHZ_TICK_STOPPED, nohz_flags(cpu)))
+return;
+if (on_null_domain(cpu_rq(cpu)))
+return;
+cpumask_set_cpu(cpu, nohz.idle_cpus_mask);
+atomic_inc(&nohz.nr_cpus);
+set_bit(NOHZ_TICK_STOPPED, nohz_flags(cpu));
+}
+void update_max_interval(void)
+{
+max_load_balance_interval = HZ*num_online_cpus()/10;
+}
+static void rebalance_domains(struct rq *rq, enum cpu_idle_type idle)
+{
+int continue_balancing = 1;
+int cpu = rq->cpu;
+unsigned long interval;
+struct sched_domain *sd;
+unsigned long next_balance = jiffies + 60*HZ;
+int update_next_balance = 0;
+int need_serialize, need_decay = 0;
+u64 max_cost = 0;
+update_blocked_averages(cpu);
+rcu_read_lock();
+for_each_domain(cpu, sd) {
+if (time_after(jiffies, sd->next_decay_max_lb_cost)) {
+sd->max_newidle_lb_cost =
+(sd->max_newidle_lb_cost * 253) / 256;
+sd->next_decay_max_lb_cost = jiffies + HZ;
+need_decay = 1;
+}
+max_cost += sd->max_newidle_lb_cost;
+if (!(sd->flags & SD_LOAD_BALANCE))
+continue;
+if (!continue_balancing) {
+if (need_decay)
+continue;
+break;
+}
+interval = get_sd_balance_interval(sd, idle != CPU_IDLE);
+need_serialize = sd->flags & SD_SERIALIZE;
+if (need_serialize) {
+if (!spin_trylock(&balancing))
+goto out;
+}
+if (time_after_eq(jiffies, sd->last_balance + interval)) {
+if (load_balance(cpu, rq, sd, idle, &continue_balancing)) {
+idle = idle_cpu(cpu) ? CPU_IDLE : CPU_NOT_IDLE;
+}
+sd->last_balance = jiffies;
+interval = get_sd_balance_interval(sd, idle != CPU_IDLE);
+}
+if (need_serialize)
+spin_unlock(&balancing);
+out:
+if (time_after(next_balance, sd->last_balance + interval)) {
+next_balance = sd->last_balance + interval;
+update_next_balance = 1;
+}
+}
+if (need_decay) {
+rq->max_idle_balance_cost =
+max((u64)sysctl_sched_migration_cost, max_cost);
+}
+rcu_read_unlock();
+if (likely(update_next_balance)) {
+rq->next_balance = next_balance;
+#ifdef CONFIG_NO_HZ_COMMON
+if ((idle == CPU_IDLE) && time_after(nohz.next_balance, rq->next_balance))
+nohz.next_balance = rq->next_balance;
+#endif
+}
+}
+static void nohz_idle_balance(struct rq *this_rq, enum cpu_idle_type idle)
+{
+int this_cpu = this_rq->cpu;
+struct rq *rq;
+int balance_cpu;
+unsigned long next_balance = jiffies + 60*HZ;
+int update_next_balance = 0;
+if (idle != CPU_IDLE ||
+!test_bit(NOHZ_BALANCE_KICK, nohz_flags(this_cpu)))
+goto end;
+for_each_cpu(balance_cpu, nohz.idle_cpus_mask) {
+if (balance_cpu == this_cpu || !idle_cpu(balance_cpu))
+continue;
+if (need_resched())
+break;
+rq = cpu_rq(balance_cpu);
+if (time_after_eq(jiffies, rq->next_balance)) {
+raw_spin_lock_irq(&rq->lock);
+update_rq_clock(rq);
+cpu_load_update_idle(rq);
+raw_spin_unlock_irq(&rq->lock);
+rebalance_domains(rq, CPU_IDLE);
+}
+if (time_after(next_balance, rq->next_balance)) {
+next_balance = rq->next_balance;
+update_next_balance = 1;
+}
+}
+if (likely(update_next_balance))
+nohz.next_balance = next_balance;
+end:
+clear_bit(NOHZ_BALANCE_KICK, nohz_flags(this_cpu));
+}
+static inline bool nohz_kick_needed(struct rq *rq)
+{
+unsigned long now = jiffies;
+struct sched_domain_shared *sds;
+struct sched_domain *sd;
+int nr_busy, i, cpu = rq->cpu;
+bool kick = false;
+if (unlikely(rq->idle_balance))
+return false;
+set_cpu_sd_state_busy();
+nohz_balance_exit_idle(cpu);
+if (likely(!atomic_read(&nohz.nr_cpus)))
+return false;
+if (time_before(now, nohz.next_balance))
+return false;
+if (rq->nr_running >= 2)
+return true;
+rcu_read_lock();
+sds = rcu_dereference(per_cpu(sd_llc_shared, cpu));
+if (sds) {
+nr_busy = atomic_read(&sds->nr_busy_cpus);
+if (nr_busy > 1) {
+kick = true;
+goto unlock;
+}
+}
+sd = rcu_dereference(rq->sd);
+if (sd) {
+if ((rq->cfs.h_nr_running >= 1) &&
+check_cpu_capacity(rq, sd)) {
+kick = true;
+goto unlock;
+}
+}
+sd = rcu_dereference(per_cpu(sd_asym, cpu));
+if (sd) {
+for_each_cpu(i, sched_domain_span(sd)) {
+if (i == cpu ||
+!cpumask_test_cpu(i, nohz.idle_cpus_mask))
+continue;
+if (sched_asym_prefer(i, cpu)) {
+kick = true;
+goto unlock;
+}
+}
+}
+unlock:
+rcu_read_unlock();
+return kick;
+}
+static void nohz_idle_balance(struct rq *this_rq, enum cpu_idle_type idle) { }
+static __latent_entropy void run_rebalance_domains(struct softirq_action *h)
+{
+struct rq *this_rq = this_rq();
+enum cpu_idle_type idle = this_rq->idle_balance ?
+CPU_IDLE : CPU_NOT_IDLE;
+nohz_idle_balance(this_rq, idle);
+rebalance_domains(this_rq, idle);
+}
+void trigger_load_balance(struct rq *rq)
+{
+if (unlikely(on_null_domain(rq)))
+return;
+if (time_after_eq(jiffies, rq->next_balance))
+raise_softirq(SCHED_SOFTIRQ);
+#ifdef CONFIG_NO_HZ_COMMON
+if (nohz_kick_needed(rq))
+nohz_balancer_kick();
+#endif
+}
+static void rq_online_fair(struct rq *rq)
+{
+update_sysctl();
+update_runtime_enabled(rq);
+}
+static void rq_offline_fair(struct rq *rq)
+{
+update_sysctl();
+unthrottle_offline_cfs_rqs(rq);
+}
+static void task_tick_fair(struct rq *rq, struct task_struct *curr, int queued)
+{
+struct cfs_rq *cfs_rq;
+struct sched_entity *se = &curr->se;
+for_each_sched_entity(se) {
+cfs_rq = cfs_rq_of(se);
+entity_tick(cfs_rq, se, queued);
+}
+if (static_branch_unlikely(&sched_numa_balancing))
+task_tick_numa(rq, curr);
+}
+static void task_fork_fair(struct task_struct *p)
+{
+struct cfs_rq *cfs_rq;
+struct sched_entity *se = &p->se, *curr;
+struct rq *rq = this_rq();
+raw_spin_lock(&rq->lock);
+update_rq_clock(rq);
+cfs_rq = task_cfs_rq(current);
+curr = cfs_rq->curr;
+if (curr) {
+update_curr(cfs_rq);
+se->vruntime = curr->vruntime;
+}
+place_entity(cfs_rq, se, 1);
+if (sysctl_sched_child_runs_first && curr && entity_before(curr, se)) {
+swap(curr->vruntime, se->vruntime);
+resched_curr(rq);
+}
+se->vruntime -= cfs_rq->min_vruntime;
+raw_spin_unlock(&rq->lock);
+}
+static void
+prio_changed_fair(struct rq *rq, struct task_struct *p, int oldprio)
+{
+if (!task_on_rq_queued(p))
+return;
+if (rq->curr == p) {
+if (p->prio > oldprio)
+resched_curr(rq);
+} else
+check_preempt_curr(rq, p, 0);
+}
+static inline bool vruntime_normalized(struct task_struct *p)
+{
+struct sched_entity *se = &p->se;
+if (p->on_rq)
+return true;
+if (!se->sum_exec_runtime || p->state == TASK_WAKING)
+return true;
+return false;
+}
+static void propagate_entity_cfs_rq(struct sched_entity *se)
+{
+struct cfs_rq *cfs_rq;
+se = se->parent;
+for_each_sched_entity(se) {
+cfs_rq = cfs_rq_of(se);
+if (cfs_rq_throttled(cfs_rq))
+break;
+update_load_avg(se, UPDATE_TG);
+}
+}
+static void propagate_entity_cfs_rq(struct sched_entity *se) { }
+static void detach_entity_cfs_rq(struct sched_entity *se)
+{
+struct cfs_rq *cfs_rq = cfs_rq_of(se);
+update_load_avg(se, 0);
+detach_entity_load_avg(cfs_rq, se);
+update_tg_load_avg(cfs_rq, false);
+propagate_entity_cfs_rq(se);
+}
+static void attach_entity_cfs_rq(struct sched_entity *se)
+{
+struct cfs_rq *cfs_rq = cfs_rq_of(se);
+#ifdef CONFIG_FAIR_GROUP_SCHED
+se->depth = se->parent ? se->parent->depth + 1 : 0;
+#endif
+update_load_avg(se, sched_feat(ATTACH_AGE_LOAD) ? 0 : SKIP_AGE_LOAD);
+attach_entity_load_avg(cfs_rq, se);
+update_tg_load_avg(cfs_rq, false);
+propagate_entity_cfs_rq(se);
+}
+static void detach_task_cfs_rq(struct task_struct *p)
+{
+struct sched_entity *se = &p->se;
+struct cfs_rq *cfs_rq = cfs_rq_of(se);
+if (!vruntime_normalized(p)) {
+place_entity(cfs_rq, se, 0);
+se->vruntime -= cfs_rq->min_vruntime;
+}
+detach_entity_cfs_rq(se);
+}
+static void attach_task_cfs_rq(struct task_struct *p)
+{
+struct sched_entity *se = &p->se;
+struct cfs_rq *cfs_rq = cfs_rq_of(se);
+attach_entity_cfs_rq(se);
+if (!vruntime_normalized(p))
+se->vruntime += cfs_rq->min_vruntime;
+}
+static void switched_from_fair(struct rq *rq, struct task_struct *p)
+{
+detach_task_cfs_rq(p);
+}
+static void switched_to_fair(struct rq *rq, struct task_struct *p)
+{
+attach_task_cfs_rq(p);
+if (task_on_rq_queued(p)) {
+if (rq->curr == p)
+resched_curr(rq);
+else
+check_preempt_curr(rq, p, 0);
+}
+}
+static void set_curr_task_fair(struct rq *rq)
+{
+struct sched_entity *se = &rq->curr->se;
+for_each_sched_entity(se) {
+struct cfs_rq *cfs_rq = cfs_rq_of(se);
+set_next_entity(cfs_rq, se);
+account_cfs_rq_runtime(cfs_rq, 0);
+}
+}
+void init_cfs_rq(struct cfs_rq *cfs_rq)
+{
+cfs_rq->tasks_timeline = RB_ROOT;
+cfs_rq->min_vruntime = (u64)(-(1LL << 20));
+#ifndef CONFIG_64BIT
+cfs_rq->min_vruntime_copy = cfs_rq->min_vruntime;
+#endif
+#ifdef CONFIG_SMP
+#ifdef CONFIG_FAIR_GROUP_SCHED
+cfs_rq->propagate_avg = 0;
+#endif
+atomic_long_set(&cfs_rq->removed_load_avg, 0);
+atomic_long_set(&cfs_rq->removed_util_avg, 0);
+#endif
+}
+static void task_set_group_fair(struct task_struct *p)
+{
+struct sched_entity *se = &p->se;
+set_task_rq(p, task_cpu(p));
+se->depth = se->parent ? se->parent->depth + 1 : 0;
+}
+static void task_move_group_fair(struct task_struct *p)
+{
+detach_task_cfs_rq(p);
+set_task_rq(p, task_cpu(p));
+#ifdef CONFIG_SMP
+p->se.avg.last_update_time = 0;
+#endif
+attach_task_cfs_rq(p);
+}
+static void task_change_group_fair(struct task_struct *p, int type)
+{
+switch (type) {
+case TASK_SET_GROUP:
+task_set_group_fair(p);
+break;
+case TASK_MOVE_GROUP:
+task_move_group_fair(p);
+break;
+}
+}
+void free_fair_sched_group(struct task_group *tg)
+{
+int i;
+destroy_cfs_bandwidth(tg_cfs_bandwidth(tg));
+for_each_possible_cpu(i) {
+if (tg->cfs_rq)
+kfree(tg->cfs_rq[i]);
+if (tg->se)
+kfree(tg->se[i]);
+}
+kfree(tg->cfs_rq);
+kfree(tg->se);
+}
+int alloc_fair_sched_group(struct task_group *tg, struct task_group *parent)
+{
+struct sched_entity *se;
+struct cfs_rq *cfs_rq;
+int i;
+tg->cfs_rq = kzalloc(sizeof(cfs_rq) * nr_cpu_ids, GFP_KERNEL);
+if (!tg->cfs_rq)
+goto err;
+tg->se = kzalloc(sizeof(se) * nr_cpu_ids, GFP_KERNEL);
+if (!tg->se)
+goto err;
+tg->shares = NICE_0_LOAD;
+init_cfs_bandwidth(tg_cfs_bandwidth(tg));
+for_each_possible_cpu(i) {
+cfs_rq = kzalloc_node(sizeof(struct cfs_rq),
+GFP_KERNEL, cpu_to_node(i));
+if (!cfs_rq)
+goto err;
+se = kzalloc_node(sizeof(struct sched_entity),
+GFP_KERNEL, cpu_to_node(i));
+if (!se)
+goto err_free_rq;
+init_cfs_rq(cfs_rq);
+init_tg_cfs_entry(tg, cfs_rq, se, i, parent->se[i]);
+init_entity_runnable_average(se);
+}
+return 1;
+err_free_rq:
+kfree(cfs_rq);
+err:
+return 0;
+}
+void online_fair_sched_group(struct task_group *tg)
+{
+struct sched_entity *se;
+struct rq *rq;
+int i;
+for_each_possible_cpu(i) {
+rq = cpu_rq(i);
+se = tg->se[i];
+raw_spin_lock_irq(&rq->lock);
+update_rq_clock(rq);
+attach_entity_cfs_rq(se);
+sync_throttle(tg, i);
+raw_spin_unlock_irq(&rq->lock);
+}
+}
+void unregister_fair_sched_group(struct task_group *tg)
+{
+unsigned long flags;
+struct rq *rq;
+int cpu;
+for_each_possible_cpu(cpu) {
+if (tg->se[cpu])
+remove_entity_load_avg(tg->se[cpu]);
+if (!tg->cfs_rq[cpu]->on_list)
+continue;
+rq = cpu_rq(cpu);
+raw_spin_lock_irqsave(&rq->lock, flags);
+list_del_leaf_cfs_rq(tg->cfs_rq[cpu]);
+raw_spin_unlock_irqrestore(&rq->lock, flags);
+}
+}
+void init_tg_cfs_entry(struct task_group *tg, struct cfs_rq *cfs_rq,
+struct sched_entity *se, int cpu,
+struct sched_entity *parent)
+{
+struct rq *rq = cpu_rq(cpu);
+cfs_rq->tg = tg;
+cfs_rq->rq = rq;
+init_cfs_rq_runtime(cfs_rq);
+tg->cfs_rq[cpu] = cfs_rq;
+tg->se[cpu] = se;
+if (!se)
+return;
+if (!parent) {
+se->cfs_rq = &rq->cfs;
+se->depth = 0;
+} else {
+se->cfs_rq = parent->my_q;
+se->depth = parent->depth + 1;
+}
+se->my_q = cfs_rq;
+update_load_set(&se->load, NICE_0_LOAD);
+se->parent = parent;
+}
+int sched_group_set_shares(struct task_group *tg, unsigned long shares)
+{
+int i;
+unsigned long flags;
+if (!tg->se[0])
+return -EINVAL;
+shares = clamp(shares, scale_load(MIN_SHARES), scale_load(MAX_SHARES));
+mutex_lock(&shares_mutex);
+if (tg->shares == shares)
+goto done;
+tg->shares = shares;
+for_each_possible_cpu(i) {
+struct rq *rq = cpu_rq(i);
+struct sched_entity *se;
+se = tg->se[i];
+raw_spin_lock_irqsave(&rq->lock, flags);
+update_rq_clock(rq);
+for_each_sched_entity(se) {
+update_load_avg(se, UPDATE_TG);
+update_cfs_shares(se);
+}
+raw_spin_unlock_irqrestore(&rq->lock, flags);
+}
+done:
+mutex_unlock(&shares_mutex);
+return 0;
+}
+void free_fair_sched_group(struct task_group *tg) { }
+int alloc_fair_sched_group(struct task_group *tg, struct task_group *parent)
+{
+return 1;
+}
+void online_fair_sched_group(struct task_group *tg) { }
+void unregister_fair_sched_group(struct task_group *tg) { }
+static unsigned int get_rr_interval_fair(struct rq *rq, struct task_struct *task)
+{
+struct sched_entity *se = &task->se;
+unsigned int rr_interval = 0;
+if (rq->cfs.load.weight)
+rr_interval = NS_TO_JIFFIES(sched_slice(cfs_rq_of(se), se));
+return rr_interval;
+}
+void print_cfs_stats(struct seq_file *m, int cpu)
+{
+struct cfs_rq *cfs_rq;
+rcu_read_lock();
+for_each_leaf_cfs_rq(cpu_rq(cpu), cfs_rq)
+print_cfs_rq(m, cpu, cfs_rq);
+rcu_read_unlock();
+}
+void show_numa_stats(struct task_struct *p, struct seq_file *m)
+{
+int node;
+unsigned long tsf = 0, tpf = 0, gsf = 0, gpf = 0;
+for_each_online_node(node) {
+if (p->numa_faults) {
+tsf = p->numa_faults[task_faults_idx(NUMA_MEM, node, 0)];
+tpf = p->numa_faults[task_faults_idx(NUMA_MEM, node, 1)];
+}
+if (p->numa_group) {
+gsf = p->numa_group->faults[task_faults_idx(NUMA_MEM, node, 0)],
+gpf = p->numa_group->faults[task_faults_idx(NUMA_MEM, node, 1)];
+}
+print_numa_stats(m, node, tsf, tpf, gsf, gpf);
+}
+}
+__init void init_sched_fair_class(void)
+{
+#ifdef CONFIG_SMP
+open_softirq(SCHED_SOFTIRQ, run_rebalance_domains);
+#ifdef CONFIG_NO_HZ_COMMON
+nohz.next_balance = jiffies;
+zalloc_cpumask_var(&nohz.idle_cpus_mask, GFP_NOWAIT);
+#endif
+#endif
+}

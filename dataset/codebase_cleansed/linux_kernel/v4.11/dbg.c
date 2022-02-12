@@ -1,0 +1,1 @@
+void __weak putc(char c)\r\n{\r\n}\r\nvoid puts(const char *s)\r\n{\r\nchar c;\r\nwhile ((c = *s++) != '\0') {\r\nputc(c);\r\nif (c == '\n')\r\nputc('\r');\r\n}\r\n}\r\nvoid puthex(unsigned long long val)\r\n{\r\nunsigned char buf[10];\r\nint i;\r\nfor (i = 7; i >= 0; i--) {\r\nbuf[i] = "0123456789ABCDEF"[val & 0x0F];\r\nval >>= 4;\r\n}\r\nbuf[8] = '\0';\r\nputs(buf);\r\n}

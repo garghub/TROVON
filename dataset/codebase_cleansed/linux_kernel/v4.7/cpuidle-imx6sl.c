@@ -1,0 +1,1 @@
+static int imx6sl_enter_wait(struct cpuidle_device *dev,\r\nstruct cpuidle_driver *drv, int index)\r\n{\r\nimx6_set_lpm(WAIT_UNCLOCKED);\r\nimx6sl_set_wait_clk(true);\r\ncpu_do_idle();\r\nimx6sl_set_wait_clk(false);\r\nimx6_set_lpm(WAIT_CLOCKED);\r\nreturn index;\r\n}\r\nint __init imx6sl_cpuidle_init(void)\r\n{\r\nreturn cpuidle_register(&imx6sl_cpuidle_driver, NULL);\r\n}

@@ -1,0 +1,1 @@
+static int berlin2q_pinctrl_probe(struct platform_device *pdev)\r\n{\r\nconst struct of_device_id *match =\r\nof_match_device(berlin2q_pinctrl_match, &pdev->dev);\r\nreturn berlin_pinctrl_probe(pdev, match->data);\r\n}

@@ -1,0 +1,1 @@
+static int micrel_pci_map_irq(const struct pci_dev *dev, u8 slot, u8 pin)\r\n{\r\nreturn KS8695_IRQ_EXTERN0;\r\n}\r\nstatic void __init micrel_init(void)\r\n{\r\nprintk(KERN_INFO "Micrel KS8695 Development Board initializing\n");\r\nks8695_register_gpios();\r\n#ifdef CONFIG_PCI\r\nks8695_init_pci(&micrel_pci);\r\n#endif\r\nks8695_add_device_wan();\r\nks8695_add_device_lan();\r\n}

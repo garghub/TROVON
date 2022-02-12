@@ -1,0 +1,1 @@
+static int lm4857_i2c_probe(struct i2c_client *i2c,\r\nconst struct i2c_device_id *id)\r\n{\r\nstruct regmap *regmap;\r\nregmap = devm_regmap_init_i2c(i2c, &lm4857_regmap_config);\r\nif (IS_ERR(regmap))\r\nreturn PTR_ERR(regmap);\r\nreturn devm_snd_soc_register_component(&i2c->dev,\r\n&lm4857_component_driver, NULL, 0);\r\n}

@@ -1,0 +1,1 @@
+static void omap2430_clk_i2chs_find_idlest(struct clk_hw_omap *clk,\r\nvoid __iomem **idlest_reg,\r\nu8 *idlest_bit,\r\nu8 *idlest_val)\r\n{\r\n*idlest_reg = OMAP2430_CM_REGADDR(CORE_MOD, CM_IDLEST);\r\n*idlest_bit = clk->enable_bit;\r\n*idlest_val = OMAP24XX_CM_IDLEST_VAL;\r\n}

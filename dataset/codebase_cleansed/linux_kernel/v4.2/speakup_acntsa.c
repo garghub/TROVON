@@ -1,0 +1,1 @@
+static int synth_probe(struct spk_synth *synth)\r\n{\r\nint failed;\r\nfailed = spk_serial_synth_probe(synth);\r\nif (failed == 0) {\r\nspk_synth_immediate(synth, "\033=R\r");\r\nmdelay(100);\r\n}\r\nsynth->alive = !failed;\r\nreturn failed;\r\n}

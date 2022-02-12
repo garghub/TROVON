@@ -1,0 +1,1 @@
+static int __init crypto_wq_init(void)\r\n{\r\nkcrypto_wq = alloc_workqueue("crypto",\r\nWQ_MEM_RECLAIM | WQ_CPU_INTENSIVE, 1);\r\nif (unlikely(!kcrypto_wq))\r\nreturn -ENOMEM;\r\nreturn 0;\r\n}\r\nstatic void __exit crypto_wq_exit(void)\r\n{\r\ndestroy_workqueue(kcrypto_wq);\r\n}

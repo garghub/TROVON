@@ -1,0 +1,158 @@
+static int bochsfb_mmap(struct fb_info *info,
+struct vm_area_struct *vma)
+{
+struct drm_fb_helper *fb_helper = info->par;
+struct bochs_device *bochs =
+container_of(fb_helper, struct bochs_device, fb.helper);
+struct bochs_bo *bo = gem_to_bochs_bo(bochs->fb.gfb.obj);
+return ttm_fbdev_mmap(vma, &bo->bo);
+}
+static int bochsfb_create_object(struct bochs_device *bochs,
+struct drm_mode_fb_cmd2 *mode_cmd,
+struct drm_gem_object **gobj_p)
+{
+struct drm_device *dev = bochs->dev;
+struct drm_gem_object *gobj;
+u32 size;
+int ret = 0;
+size = mode_cmd->pitches[0] * mode_cmd->height;
+ret = bochs_gem_create(dev, size, true, &gobj);
+if (ret)
+return ret;
+*gobj_p = gobj;
+return ret;
+}
+static int bochsfb_create(struct drm_fb_helper *helper,
+struct drm_fb_helper_surface_size *sizes)
+{
+struct bochs_device *bochs =
+container_of(helper, struct bochs_device, fb.helper);
+struct drm_device *dev = bochs->dev;
+struct fb_info *info;
+struct drm_framebuffer *fb;
+struct drm_mode_fb_cmd2 mode_cmd;
+struct device *device = &dev->pdev->dev;
+struct drm_gem_object *gobj = NULL;
+struct bochs_bo *bo = NULL;
+int size, ret;
+if (sizes->surface_bpp != 32)
+return -EINVAL;
+mode_cmd.width = sizes->surface_width;
+mode_cmd.height = sizes->surface_height;
+mode_cmd.pitches[0] = mode_cmd.width * ((sizes->surface_bpp + 7) / 8);
+mode_cmd.pixel_format = drm_mode_legacy_fb_format(sizes->surface_bpp,
+sizes->surface_depth);
+size = mode_cmd.pitches[0] * mode_cmd.height;
+ret = bochsfb_create_object(bochs, &mode_cmd, &gobj);
+if (ret) {
+DRM_ERROR("failed to create fbcon backing object %d\n", ret);
+return ret;
+}
+bo = gem_to_bochs_bo(gobj);
+ret = ttm_bo_reserve(&bo->bo, true, false, false, NULL);
+if (ret)
+return ret;
+ret = bochs_bo_pin(bo, TTM_PL_FLAG_VRAM, NULL);
+if (ret) {
+DRM_ERROR("failed to pin fbcon\n");
+ttm_bo_unreserve(&bo->bo);
+return ret;
+}
+ret = ttm_bo_kmap(&bo->bo, 0, bo->bo.num_pages,
+&bo->kmap);
+if (ret) {
+DRM_ERROR("failed to kmap fbcon\n");
+ttm_bo_unreserve(&bo->bo);
+return ret;
+}
+ttm_bo_unreserve(&bo->bo);
+info = framebuffer_alloc(0, device);
+if (info == NULL)
+return -ENOMEM;
+info->par = &bochs->fb.helper;
+ret = bochs_framebuffer_init(bochs->dev, &bochs->fb.gfb, &mode_cmd, gobj);
+if (ret)
+return ret;
+bochs->fb.size = size;
+fb = &bochs->fb.gfb.base;
+bochs->fb.helper.fb = fb;
+bochs->fb.helper.fbdev = info;
+strcpy(info->fix.id, "bochsdrmfb");
+info->flags = FBINFO_DEFAULT;
+info->fbops = &bochsfb_ops;
+drm_fb_helper_fill_fix(info, fb->pitches[0], fb->depth);
+drm_fb_helper_fill_var(info, &bochs->fb.helper, sizes->fb_width,
+sizes->fb_height);
+info->screen_base = bo->kmap.virtual;
+info->screen_size = size;
+drm_vma_offset_remove(&bo->bo.bdev->vma_manager, &bo->bo.vma_node);
+info->fix.smem_start = 0;
+info->fix.smem_len = size;
+ret = fb_alloc_cmap(&info->cmap, 256, 0);
+if (ret) {
+DRM_ERROR("%s: can't allocate color map\n", info->fix.id);
+return -ENOMEM;
+}
+return 0;
+}
+static int bochs_fbdev_destroy(struct bochs_device *bochs)
+{
+struct bochs_framebuffer *gfb = &bochs->fb.gfb;
+struct fb_info *info;
+DRM_DEBUG_DRIVER("\n");
+if (bochs->fb.helper.fbdev) {
+info = bochs->fb.helper.fbdev;
+unregister_framebuffer(info);
+if (info->cmap.len)
+fb_dealloc_cmap(&info->cmap);
+framebuffer_release(info);
+}
+if (gfb->obj) {
+drm_gem_object_unreference_unlocked(gfb->obj);
+gfb->obj = NULL;
+}
+drm_fb_helper_fini(&bochs->fb.helper);
+drm_framebuffer_unregister_private(&gfb->base);
+drm_framebuffer_cleanup(&gfb->base);
+return 0;
+}
+void bochs_fb_gamma_set(struct drm_crtc *crtc, u16 red, u16 green,
+u16 blue, int regno)
+{
+}
+void bochs_fb_gamma_get(struct drm_crtc *crtc, u16 *red, u16 *green,
+u16 *blue, int regno)
+{
+*red = regno;
+*green = regno;
+*blue = regno;
+}
+int bochs_fbdev_init(struct bochs_device *bochs)
+{
+int ret;
+drm_fb_helper_prepare(bochs->dev, &bochs->fb.helper,
+&bochs_fb_helper_funcs);
+ret = drm_fb_helper_init(bochs->dev, &bochs->fb.helper,
+1, 1);
+if (ret)
+return ret;
+ret = drm_fb_helper_single_add_all_connectors(&bochs->fb.helper);
+if (ret)
+goto fini;
+drm_helper_disable_unused_functions(bochs->dev);
+ret = drm_fb_helper_initial_config(&bochs->fb.helper, 32);
+if (ret)
+goto fini;
+bochs->fb.initialized = true;
+return 0;
+fini:
+drm_fb_helper_fini(&bochs->fb.helper);
+return ret;
+}
+void bochs_fbdev_fini(struct bochs_device *bochs)
+{
+if (!bochs->fb.initialized)
+return;
+bochs_fbdev_destroy(bochs);
+bochs->fb.initialized = false;
+}

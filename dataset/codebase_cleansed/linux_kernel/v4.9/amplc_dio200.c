@@ -1,0 +1,1 @@
+static int dio200_attach(struct comedi_device *dev, struct comedi_devconfig *it)\r\n{\r\nint ret;\r\nret = comedi_request_region(dev, it->options[0], 0x20);\r\nif (ret)\r\nreturn ret;\r\nreturn amplc_dio200_common_attach(dev, it->options[1], 0);\r\n}

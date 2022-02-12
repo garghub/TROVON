@@ -1,0 +1,1 @@
+static int __init swarm_i2c_init(void)\r\n{\r\nint err;\r\nerr = i2c_register_board_info(1, swarm_i2c_info1,\r\nARRAY_SIZE(swarm_i2c_info1));\r\nif (err < 0)\r\nprintk(KERN_ERR\r\n"swarm-i2c: cannot register board I2C devices\n");\r\nreturn err;\r\n}

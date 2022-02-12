@@ -1,0 +1,1 @@
+static void __init r8a7778_init_irq_dt(void)\r\n{\r\nvoid __iomem *base = ioremap_nocache(0xfe700000, 0x00100000);\r\nBUG_ON(!base);\r\nirqchip_init();\r\n__raw_writel(0x73ffffff, base + INT2NTSR0);\r\n__raw_writel(0xffffffff, base + INT2NTSR1);\r\n__raw_writel(0x08330773, base + INT2SMSKCR0);\r\n__raw_writel(0x00311110, base + INT2SMSKCR1);\r\niounmap(base);\r\n}

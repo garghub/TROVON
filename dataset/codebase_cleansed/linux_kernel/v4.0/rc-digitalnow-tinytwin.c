@@ -1,0 +1,1 @@
+static int __init init_rc_map_digitalnow_tinytwin(void)\r\n{\r\nreturn rc_map_register(&digitalnow_tinytwin_map);\r\n}\r\nstatic void __exit exit_rc_map_digitalnow_tinytwin(void)\r\n{\r\nrc_map_unregister(&digitalnow_tinytwin_map);\r\n}

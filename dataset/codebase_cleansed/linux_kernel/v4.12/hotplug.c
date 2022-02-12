@@ -1,0 +1,1 @@
+static inline void platform_do_lowpower(unsigned int cpu)\r\n{\r\nfor (;;) {\r\n__asm__ __volatile__("dsb\n\t" "wfi\n\t"\r\n: : : "memory");\r\nif (pen_release == cpu_logical_map(cpu)) {\r\nbreak;\r\n}\r\n}\r\n}\r\nvoid sirfsoc_cpu_die(unsigned int cpu)\r\n{\r\nplatform_do_lowpower(cpu);\r\n}

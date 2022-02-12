@@ -1,0 +1,1683 @@
+static int __control_devkmsg(char *str)
+{
+if (!str)
+return -EINVAL;
+if (!strncmp(str, "on", 2)) {
+devkmsg_log = DEVKMSG_LOG_MASK_ON;
+return 2;
+} else if (!strncmp(str, "off", 3)) {
+devkmsg_log = DEVKMSG_LOG_MASK_OFF;
+return 3;
+} else if (!strncmp(str, "ratelimit", 9)) {
+devkmsg_log = DEVKMSG_LOG_MASK_DEFAULT;
+return 9;
+}
+return -EINVAL;
+}
+static int __init control_devkmsg(char *str)
+{
+if (__control_devkmsg(str) < 0)
+return 1;
+if (devkmsg_log == DEVKMSG_LOG_MASK_ON) {
+memset(devkmsg_log_str, 0, DEVKMSG_STR_MAX_SIZE);
+strncpy(devkmsg_log_str, "on", 2);
+} else if (devkmsg_log == DEVKMSG_LOG_MASK_OFF) {
+memset(devkmsg_log_str, 0, DEVKMSG_STR_MAX_SIZE);
+strncpy(devkmsg_log_str, "off", 3);
+}
+devkmsg_log |= DEVKMSG_LOG_MASK_LOCK;
+return 0;
+}
+int devkmsg_sysctl_set_loglvl(struct ctl_table *table, int write,
+void __user *buffer, size_t *lenp, loff_t *ppos)
+{
+char old_str[DEVKMSG_STR_MAX_SIZE];
+unsigned int old;
+int err;
+if (write) {
+if (devkmsg_log & DEVKMSG_LOG_MASK_LOCK)
+return -EINVAL;
+old = devkmsg_log;
+strncpy(old_str, devkmsg_log_str, DEVKMSG_STR_MAX_SIZE);
+}
+err = proc_dostring(table, write, buffer, lenp, ppos);
+if (err)
+return err;
+if (write) {
+err = __control_devkmsg(devkmsg_log_str);
+if (err < 0 || (err + 1 != *lenp)) {
+devkmsg_log = old;
+strncpy(devkmsg_log_str, old_str, DEVKMSG_STR_MAX_SIZE);
+return -EINVAL;
+}
+}
+return 0;
+}
+static int __down_trylock_console_sem(unsigned long ip)
+{
+int lock_failed;
+unsigned long flags;
+printk_safe_enter_irqsave(flags);
+lock_failed = down_trylock(&console_sem);
+printk_safe_exit_irqrestore(flags);
+if (lock_failed)
+return 1;
+mutex_acquire(&console_lock_dep_map, 0, 1, ip);
+return 0;
+}
+static void __up_console_sem(unsigned long ip)
+{
+unsigned long flags;
+mutex_release(&console_lock_dep_map, 1, ip);
+printk_safe_enter_irqsave(flags);
+up(&console_sem);
+printk_safe_exit_irqrestore(flags);
+}
+char *log_buf_addr_get(void)
+{
+return log_buf;
+}
+u32 log_buf_len_get(void)
+{
+return log_buf_len;
+}
+static char *log_text(const struct printk_log *msg)
+{
+return (char *)msg + sizeof(struct printk_log);
+}
+static char *log_dict(const struct printk_log *msg)
+{
+return (char *)msg + sizeof(struct printk_log) + msg->text_len;
+}
+static struct printk_log *log_from_idx(u32 idx)
+{
+struct printk_log *msg = (struct printk_log *)(log_buf + idx);
+if (!msg->len)
+return (struct printk_log *)log_buf;
+return msg;
+}
+static u32 log_next(u32 idx)
+{
+struct printk_log *msg = (struct printk_log *)(log_buf + idx);
+if (!msg->len) {
+msg = (struct printk_log *)log_buf;
+return msg->len;
+}
+return idx + msg->len;
+}
+static int logbuf_has_space(u32 msg_size, bool empty)
+{
+u32 free;
+if (log_next_idx > log_first_idx || empty)
+free = max(log_buf_len - log_next_idx, log_first_idx);
+else
+free = log_first_idx - log_next_idx;
+return free >= msg_size + sizeof(struct printk_log);
+}
+static int log_make_free_space(u32 msg_size)
+{
+while (log_first_seq < log_next_seq &&
+!logbuf_has_space(msg_size, false)) {
+log_first_idx = log_next(log_first_idx);
+log_first_seq++;
+}
+if (clear_seq < log_first_seq) {
+clear_seq = log_first_seq;
+clear_idx = log_first_idx;
+}
+if (logbuf_has_space(msg_size, log_first_seq == log_next_seq))
+return 0;
+return -ENOMEM;
+}
+static u32 msg_used_size(u16 text_len, u16 dict_len, u32 *pad_len)
+{
+u32 size;
+size = sizeof(struct printk_log) + text_len + dict_len;
+*pad_len = (-size) & (LOG_ALIGN - 1);
+size += *pad_len;
+return size;
+}
+static u32 truncate_msg(u16 *text_len, u16 *trunc_msg_len,
+u16 *dict_len, u32 *pad_len)
+{
+u32 max_text_len = log_buf_len / MAX_LOG_TAKE_PART;
+if (*text_len > max_text_len)
+*text_len = max_text_len;
+*trunc_msg_len = strlen(trunc_msg);
+*dict_len = 0;
+return msg_used_size(*text_len + *trunc_msg_len, 0, pad_len);
+}
+static int log_store(int facility, int level,
+enum log_flags flags, u64 ts_nsec,
+const char *dict, u16 dict_len,
+const char *text, u16 text_len)
+{
+struct printk_log *msg;
+u32 size, pad_len;
+u16 trunc_msg_len = 0;
+size = msg_used_size(text_len, dict_len, &pad_len);
+if (log_make_free_space(size)) {
+size = truncate_msg(&text_len, &trunc_msg_len,
+&dict_len, &pad_len);
+if (log_make_free_space(size))
+return 0;
+}
+if (log_next_idx + size + sizeof(struct printk_log) > log_buf_len) {
+memset(log_buf + log_next_idx, 0, sizeof(struct printk_log));
+log_next_idx = 0;
+}
+msg = (struct printk_log *)(log_buf + log_next_idx);
+memcpy(log_text(msg), text, text_len);
+msg->text_len = text_len;
+if (trunc_msg_len) {
+memcpy(log_text(msg) + text_len, trunc_msg, trunc_msg_len);
+msg->text_len += trunc_msg_len;
+}
+memcpy(log_dict(msg), dict, dict_len);
+msg->dict_len = dict_len;
+msg->facility = facility;
+msg->level = level & 7;
+msg->flags = flags & 0x1f;
+if (ts_nsec > 0)
+msg->ts_nsec = ts_nsec;
+else
+msg->ts_nsec = local_clock();
+memset(log_dict(msg) + dict_len, 0, pad_len);
+msg->len = size;
+log_next_idx += msg->len;
+log_next_seq++;
+return msg->text_len;
+}
+static int syslog_action_restricted(int type)
+{
+if (dmesg_restrict)
+return 1;
+return type != SYSLOG_ACTION_READ_ALL &&
+type != SYSLOG_ACTION_SIZE_BUFFER;
+}
+int check_syslog_permissions(int type, int source)
+{
+if (source == SYSLOG_FROM_PROC && type != SYSLOG_ACTION_OPEN)
+goto ok;
+if (syslog_action_restricted(type)) {
+if (capable(CAP_SYSLOG))
+goto ok;
+if (capable(CAP_SYS_ADMIN)) {
+pr_warn_once("%s (%d): Attempt to access syslog with "
+"CAP_SYS_ADMIN but no CAP_SYSLOG "
+"(deprecated).\n",
+current->comm, task_pid_nr(current));
+goto ok;
+}
+return -EPERM;
+}
+ok:
+return security_syslog(type);
+}
+static void append_char(char **pp, char *e, char c)
+{
+if (*pp < e)
+*(*pp)++ = c;
+}
+static ssize_t msg_print_ext_header(char *buf, size_t size,
+struct printk_log *msg, u64 seq)
+{
+u64 ts_usec = msg->ts_nsec;
+do_div(ts_usec, 1000);
+return scnprintf(buf, size, "%u,%llu,%llu,%c;",
+(msg->facility << 3) | msg->level, seq, ts_usec,
+msg->flags & LOG_CONT ? 'c' : '-');
+}
+static ssize_t msg_print_ext_body(char *buf, size_t size,
+char *dict, size_t dict_len,
+char *text, size_t text_len)
+{
+char *p = buf, *e = buf + size;
+size_t i;
+for (i = 0; i < text_len; i++) {
+unsigned char c = text[i];
+if (c < ' ' || c >= 127 || c == '\\')
+p += scnprintf(p, e - p, "\\x%02x", c);
+else
+append_char(&p, e, c);
+}
+append_char(&p, e, '\n');
+if (dict_len) {
+bool line = true;
+for (i = 0; i < dict_len; i++) {
+unsigned char c = dict[i];
+if (line) {
+append_char(&p, e, ' ');
+line = false;
+}
+if (c == '\0') {
+append_char(&p, e, '\n');
+line = true;
+continue;
+}
+if (c < ' ' || c >= 127 || c == '\\') {
+p += scnprintf(p, e - p, "\\x%02x", c);
+continue;
+}
+append_char(&p, e, c);
+}
+append_char(&p, e, '\n');
+}
+return p - buf;
+}
+static ssize_t devkmsg_write(struct kiocb *iocb, struct iov_iter *from)
+{
+char *buf, *line;
+int level = default_message_loglevel;
+int facility = 1;
+struct file *file = iocb->ki_filp;
+struct devkmsg_user *user = file->private_data;
+size_t len = iov_iter_count(from);
+ssize_t ret = len;
+if (!user || len > LOG_LINE_MAX)
+return -EINVAL;
+if (devkmsg_log & DEVKMSG_LOG_MASK_OFF)
+return len;
+if (!(devkmsg_log & DEVKMSG_LOG_MASK_ON)) {
+if (!___ratelimit(&user->rs, current->comm))
+return ret;
+}
+buf = kmalloc(len+1, GFP_KERNEL);
+if (buf == NULL)
+return -ENOMEM;
+buf[len] = '\0';
+if (!copy_from_iter_full(buf, len, from)) {
+kfree(buf);
+return -EFAULT;
+}
+line = buf;
+if (line[0] == '<') {
+char *endp = NULL;
+unsigned int u;
+u = simple_strtoul(line + 1, &endp, 10);
+if (endp && endp[0] == '>') {
+level = LOG_LEVEL(u);
+if (LOG_FACILITY(u) != 0)
+facility = LOG_FACILITY(u);
+endp++;
+len -= endp - line;
+line = endp;
+}
+}
+printk_emit(facility, level, NULL, 0, "%s", line);
+kfree(buf);
+return ret;
+}
+static ssize_t devkmsg_read(struct file *file, char __user *buf,
+size_t count, loff_t *ppos)
+{
+struct devkmsg_user *user = file->private_data;
+struct printk_log *msg;
+size_t len;
+ssize_t ret;
+if (!user)
+return -EBADF;
+ret = mutex_lock_interruptible(&user->lock);
+if (ret)
+return ret;
+logbuf_lock_irq();
+while (user->seq == log_next_seq) {
+if (file->f_flags & O_NONBLOCK) {
+ret = -EAGAIN;
+logbuf_unlock_irq();
+goto out;
+}
+logbuf_unlock_irq();
+ret = wait_event_interruptible(log_wait,
+user->seq != log_next_seq);
+if (ret)
+goto out;
+logbuf_lock_irq();
+}
+if (user->seq < log_first_seq) {
+user->idx = log_first_idx;
+user->seq = log_first_seq;
+ret = -EPIPE;
+logbuf_unlock_irq();
+goto out;
+}
+msg = log_from_idx(user->idx);
+len = msg_print_ext_header(user->buf, sizeof(user->buf),
+msg, user->seq);
+len += msg_print_ext_body(user->buf + len, sizeof(user->buf) - len,
+log_dict(msg), msg->dict_len,
+log_text(msg), msg->text_len);
+user->idx = log_next(user->idx);
+user->seq++;
+logbuf_unlock_irq();
+if (len > count) {
+ret = -EINVAL;
+goto out;
+}
+if (copy_to_user(buf, user->buf, len)) {
+ret = -EFAULT;
+goto out;
+}
+ret = len;
+out:
+mutex_unlock(&user->lock);
+return ret;
+}
+static loff_t devkmsg_llseek(struct file *file, loff_t offset, int whence)
+{
+struct devkmsg_user *user = file->private_data;
+loff_t ret = 0;
+if (!user)
+return -EBADF;
+if (offset)
+return -ESPIPE;
+logbuf_lock_irq();
+switch (whence) {
+case SEEK_SET:
+user->idx = log_first_idx;
+user->seq = log_first_seq;
+break;
+case SEEK_DATA:
+user->idx = clear_idx;
+user->seq = clear_seq;
+break;
+case SEEK_END:
+user->idx = log_next_idx;
+user->seq = log_next_seq;
+break;
+default:
+ret = -EINVAL;
+}
+logbuf_unlock_irq();
+return ret;
+}
+static unsigned int devkmsg_poll(struct file *file, poll_table *wait)
+{
+struct devkmsg_user *user = file->private_data;
+int ret = 0;
+if (!user)
+return POLLERR|POLLNVAL;
+poll_wait(file, &log_wait, wait);
+logbuf_lock_irq();
+if (user->seq < log_next_seq) {
+if (user->seq < log_first_seq)
+ret = POLLIN|POLLRDNORM|POLLERR|POLLPRI;
+else
+ret = POLLIN|POLLRDNORM;
+}
+logbuf_unlock_irq();
+return ret;
+}
+static int devkmsg_open(struct inode *inode, struct file *file)
+{
+struct devkmsg_user *user;
+int err;
+if (devkmsg_log & DEVKMSG_LOG_MASK_OFF)
+return -EPERM;
+if ((file->f_flags & O_ACCMODE) != O_WRONLY) {
+err = check_syslog_permissions(SYSLOG_ACTION_READ_ALL,
+SYSLOG_FROM_READER);
+if (err)
+return err;
+}
+user = kmalloc(sizeof(struct devkmsg_user), GFP_KERNEL);
+if (!user)
+return -ENOMEM;
+ratelimit_default_init(&user->rs);
+ratelimit_set_flags(&user->rs, RATELIMIT_MSG_ON_RELEASE);
+mutex_init(&user->lock);
+logbuf_lock_irq();
+user->idx = log_first_idx;
+user->seq = log_first_seq;
+logbuf_unlock_irq();
+file->private_data = user;
+return 0;
+}
+static int devkmsg_release(struct inode *inode, struct file *file)
+{
+struct devkmsg_user *user = file->private_data;
+if (!user)
+return 0;
+ratelimit_state_exit(&user->rs);
+mutex_destroy(&user->lock);
+kfree(user);
+return 0;
+}
+void log_buf_kexec_setup(void)
+{
+VMCOREINFO_SYMBOL(log_buf);
+VMCOREINFO_SYMBOL(log_buf_len);
+VMCOREINFO_SYMBOL(log_first_idx);
+VMCOREINFO_SYMBOL(clear_idx);
+VMCOREINFO_SYMBOL(log_next_idx);
+VMCOREINFO_STRUCT_SIZE(printk_log);
+VMCOREINFO_OFFSET(printk_log, ts_nsec);
+VMCOREINFO_OFFSET(printk_log, len);
+VMCOREINFO_OFFSET(printk_log, text_len);
+VMCOREINFO_OFFSET(printk_log, dict_len);
+}
+static void __init log_buf_len_update(unsigned size)
+{
+if (size)
+size = roundup_pow_of_two(size);
+if (size > log_buf_len)
+new_log_buf_len = size;
+}
+static int __init log_buf_len_setup(char *str)
+{
+unsigned size = memparse(str, &str);
+log_buf_len_update(size);
+return 0;
+}
+static void __init log_buf_add_cpu(void)
+{
+unsigned int cpu_extra;
+if (num_possible_cpus() == 1)
+return;
+cpu_extra = (num_possible_cpus() - 1) * __LOG_CPU_MAX_BUF_LEN;
+if (cpu_extra <= __LOG_BUF_LEN / 2)
+return;
+pr_info("log_buf_len individual max cpu contribution: %d bytes\n",
+__LOG_CPU_MAX_BUF_LEN);
+pr_info("log_buf_len total cpu_extra contributions: %d bytes\n",
+cpu_extra);
+pr_info("log_buf_len min size: %d bytes\n", __LOG_BUF_LEN);
+log_buf_len_update(cpu_extra + __LOG_BUF_LEN);
+}
+static inline void log_buf_add_cpu(void) {}
+void __init setup_log_buf(int early)
+{
+unsigned long flags;
+char *new_log_buf;
+int free;
+if (log_buf != __log_buf)
+return;
+if (!early && !new_log_buf_len)
+log_buf_add_cpu();
+if (!new_log_buf_len)
+return;
+if (early) {
+new_log_buf =
+memblock_virt_alloc(new_log_buf_len, LOG_ALIGN);
+} else {
+new_log_buf = memblock_virt_alloc_nopanic(new_log_buf_len,
+LOG_ALIGN);
+}
+if (unlikely(!new_log_buf)) {
+pr_err("log_buf_len: %ld bytes not available\n",
+new_log_buf_len);
+return;
+}
+logbuf_lock_irqsave(flags);
+log_buf_len = new_log_buf_len;
+log_buf = new_log_buf;
+new_log_buf_len = 0;
+free = __LOG_BUF_LEN - log_next_idx;
+memcpy(log_buf, __log_buf, __LOG_BUF_LEN);
+logbuf_unlock_irqrestore(flags);
+pr_info("log_buf_len: %d bytes\n", log_buf_len);
+pr_info("early log buf free: %d(%d%%)\n",
+free, (free * 100) / __LOG_BUF_LEN);
+}
+static int __init ignore_loglevel_setup(char *str)
+{
+ignore_loglevel = true;
+pr_info("debug: ignoring loglevel setting.\n");
+return 0;
+}
+static bool suppress_message_printing(int level)
+{
+return (level >= console_loglevel && !ignore_loglevel);
+}
+static int __init boot_delay_setup(char *str)
+{
+unsigned long lpj;
+lpj = preset_lpj ? preset_lpj : 1000000;
+loops_per_msec = (unsigned long long)lpj / 1000 * HZ;
+get_option(&str, &boot_delay);
+if (boot_delay > 10 * 1000)
+boot_delay = 0;
+pr_debug("boot_delay: %u, preset_lpj: %ld, lpj: %lu, "
+"HZ: %d, loops_per_msec: %llu\n",
+boot_delay, preset_lpj, lpj, HZ, loops_per_msec);
+return 0;
+}
+static void boot_delay_msec(int level)
+{
+unsigned long long k;
+unsigned long timeout;
+if ((boot_delay == 0 || system_state != SYSTEM_BOOTING)
+|| suppress_message_printing(level)) {
+return;
+}
+k = (unsigned long long)loops_per_msec * boot_delay;
+timeout = jiffies + msecs_to_jiffies(boot_delay);
+while (k) {
+k--;
+cpu_relax();
+if (time_after(jiffies, timeout))
+break;
+touch_nmi_watchdog();
+}
+}
+static inline void boot_delay_msec(int level)
+{
+}
+static size_t print_time(u64 ts, char *buf)
+{
+unsigned long rem_nsec;
+if (!printk_time)
+return 0;
+rem_nsec = do_div(ts, 1000000000);
+if (!buf)
+return snprintf(NULL, 0, "[%5lu.000000] ", (unsigned long)ts);
+return sprintf(buf, "[%5lu.%06lu] ",
+(unsigned long)ts, rem_nsec / 1000);
+}
+static size_t print_prefix(const struct printk_log *msg, bool syslog, char *buf)
+{
+size_t len = 0;
+unsigned int prefix = (msg->facility << 3) | msg->level;
+if (syslog) {
+if (buf) {
+len += sprintf(buf, "<%u>", prefix);
+} else {
+len += 3;
+if (prefix > 999)
+len += 3;
+else if (prefix > 99)
+len += 2;
+else if (prefix > 9)
+len++;
+}
+}
+len += print_time(msg->ts_nsec, buf ? buf + len : NULL);
+return len;
+}
+static size_t msg_print_text(const struct printk_log *msg, bool syslog, char *buf, size_t size)
+{
+const char *text = log_text(msg);
+size_t text_size = msg->text_len;
+size_t len = 0;
+do {
+const char *next = memchr(text, '\n', text_size);
+size_t text_len;
+if (next) {
+text_len = next - text;
+next++;
+text_size -= next - text;
+} else {
+text_len = text_size;
+}
+if (buf) {
+if (print_prefix(msg, syslog, NULL) +
+text_len + 1 >= size - len)
+break;
+len += print_prefix(msg, syslog, buf + len);
+memcpy(buf + len, text, text_len);
+len += text_len;
+buf[len++] = '\n';
+} else {
+len += print_prefix(msg, syslog, NULL);
+len += text_len;
+len++;
+}
+text = next;
+} while (text);
+return len;
+}
+static int syslog_print(char __user *buf, int size)
+{
+char *text;
+struct printk_log *msg;
+int len = 0;
+text = kmalloc(LOG_LINE_MAX + PREFIX_MAX, GFP_KERNEL);
+if (!text)
+return -ENOMEM;
+while (size > 0) {
+size_t n;
+size_t skip;
+logbuf_lock_irq();
+if (syslog_seq < log_first_seq) {
+syslog_seq = log_first_seq;
+syslog_idx = log_first_idx;
+syslog_partial = 0;
+}
+if (syslog_seq == log_next_seq) {
+logbuf_unlock_irq();
+break;
+}
+skip = syslog_partial;
+msg = log_from_idx(syslog_idx);
+n = msg_print_text(msg, true, text, LOG_LINE_MAX + PREFIX_MAX);
+if (n - syslog_partial <= size) {
+syslog_idx = log_next(syslog_idx);
+syslog_seq++;
+n -= syslog_partial;
+syslog_partial = 0;
+} else if (!len){
+n = size;
+syslog_partial += n;
+} else
+n = 0;
+logbuf_unlock_irq();
+if (!n)
+break;
+if (copy_to_user(buf, text + skip, n)) {
+if (!len)
+len = -EFAULT;
+break;
+}
+len += n;
+size -= n;
+buf += n;
+}
+kfree(text);
+return len;
+}
+static int syslog_print_all(char __user *buf, int size, bool clear)
+{
+char *text;
+int len = 0;
+text = kmalloc(LOG_LINE_MAX + PREFIX_MAX, GFP_KERNEL);
+if (!text)
+return -ENOMEM;
+logbuf_lock_irq();
+if (buf) {
+u64 next_seq;
+u64 seq;
+u32 idx;
+seq = clear_seq;
+idx = clear_idx;
+while (seq < log_next_seq) {
+struct printk_log *msg = log_from_idx(idx);
+len += msg_print_text(msg, true, NULL, 0);
+idx = log_next(idx);
+seq++;
+}
+seq = clear_seq;
+idx = clear_idx;
+while (len > size && seq < log_next_seq) {
+struct printk_log *msg = log_from_idx(idx);
+len -= msg_print_text(msg, true, NULL, 0);
+idx = log_next(idx);
+seq++;
+}
+next_seq = log_next_seq;
+len = 0;
+while (len >= 0 && seq < next_seq) {
+struct printk_log *msg = log_from_idx(idx);
+int textlen;
+textlen = msg_print_text(msg, true, text,
+LOG_LINE_MAX + PREFIX_MAX);
+if (textlen < 0) {
+len = textlen;
+break;
+}
+idx = log_next(idx);
+seq++;
+logbuf_unlock_irq();
+if (copy_to_user(buf + len, text, textlen))
+len = -EFAULT;
+else
+len += textlen;
+logbuf_lock_irq();
+if (seq < log_first_seq) {
+seq = log_first_seq;
+idx = log_first_idx;
+}
+}
+}
+if (clear) {
+clear_seq = log_next_seq;
+clear_idx = log_next_idx;
+}
+logbuf_unlock_irq();
+kfree(text);
+return len;
+}
+int do_syslog(int type, char __user *buf, int len, int source)
+{
+bool clear = false;
+static int saved_console_loglevel = LOGLEVEL_DEFAULT;
+int error;
+error = check_syslog_permissions(type, source);
+if (error)
+goto out;
+switch (type) {
+case SYSLOG_ACTION_CLOSE:
+break;
+case SYSLOG_ACTION_OPEN:
+break;
+case SYSLOG_ACTION_READ:
+error = -EINVAL;
+if (!buf || len < 0)
+goto out;
+error = 0;
+if (!len)
+goto out;
+if (!access_ok(VERIFY_WRITE, buf, len)) {
+error = -EFAULT;
+goto out;
+}
+error = wait_event_interruptible(log_wait,
+syslog_seq != log_next_seq);
+if (error)
+goto out;
+error = syslog_print(buf, len);
+break;
+case SYSLOG_ACTION_READ_CLEAR:
+clear = true;
+case SYSLOG_ACTION_READ_ALL:
+error = -EINVAL;
+if (!buf || len < 0)
+goto out;
+error = 0;
+if (!len)
+goto out;
+if (!access_ok(VERIFY_WRITE, buf, len)) {
+error = -EFAULT;
+goto out;
+}
+error = syslog_print_all(buf, len, clear);
+break;
+case SYSLOG_ACTION_CLEAR:
+syslog_print_all(NULL, 0, true);
+break;
+case SYSLOG_ACTION_CONSOLE_OFF:
+if (saved_console_loglevel == LOGLEVEL_DEFAULT)
+saved_console_loglevel = console_loglevel;
+console_loglevel = minimum_console_loglevel;
+break;
+case SYSLOG_ACTION_CONSOLE_ON:
+if (saved_console_loglevel != LOGLEVEL_DEFAULT) {
+console_loglevel = saved_console_loglevel;
+saved_console_loglevel = LOGLEVEL_DEFAULT;
+}
+break;
+case SYSLOG_ACTION_CONSOLE_LEVEL:
+error = -EINVAL;
+if (len < 1 || len > 8)
+goto out;
+if (len < minimum_console_loglevel)
+len = minimum_console_loglevel;
+console_loglevel = len;
+saved_console_loglevel = LOGLEVEL_DEFAULT;
+error = 0;
+break;
+case SYSLOG_ACTION_SIZE_UNREAD:
+logbuf_lock_irq();
+if (syslog_seq < log_first_seq) {
+syslog_seq = log_first_seq;
+syslog_idx = log_first_idx;
+syslog_partial = 0;
+}
+if (source == SYSLOG_FROM_PROC) {
+error = log_next_seq - syslog_seq;
+} else {
+u64 seq = syslog_seq;
+u32 idx = syslog_idx;
+error = 0;
+while (seq < log_next_seq) {
+struct printk_log *msg = log_from_idx(idx);
+error += msg_print_text(msg, true, NULL, 0);
+idx = log_next(idx);
+seq++;
+}
+error -= syslog_partial;
+}
+logbuf_unlock_irq();
+break;
+case SYSLOG_ACTION_SIZE_BUFFER:
+error = log_buf_len;
+break;
+default:
+error = -EINVAL;
+break;
+}
+out:
+return error;
+}
+static void call_console_drivers(const char *ext_text, size_t ext_len,
+const char *text, size_t len)
+{
+struct console *con;
+trace_console_rcuidle(text, len);
+if (!console_drivers)
+return;
+for_each_console(con) {
+if (exclusive_console && con != exclusive_console)
+continue;
+if (!(con->flags & CON_ENABLED))
+continue;
+if (!con->write)
+continue;
+if (!cpu_online(smp_processor_id()) &&
+!(con->flags & CON_ANYTIME))
+continue;
+if (con->flags & CON_EXTENDED)
+con->write(con, ext_text, ext_len);
+else
+con->write(con, text, len);
+}
+}
+static inline void printk_delay(void)
+{
+if (unlikely(printk_delay_msec)) {
+int m = printk_delay_msec;
+while (m--) {
+mdelay(1);
+touch_nmi_watchdog();
+}
+}
+}
+static void cont_flush(void)
+{
+if (cont.len == 0)
+return;
+log_store(cont.facility, cont.level, cont.flags, cont.ts_nsec,
+NULL, 0, cont.buf, cont.len);
+cont.len = 0;
+}
+static bool cont_add(int facility, int level, enum log_flags flags, const char *text, size_t len)
+{
+if (nr_ext_console_drivers || cont.len + len > sizeof(cont.buf)) {
+cont_flush();
+return false;
+}
+if (!cont.len) {
+cont.facility = facility;
+cont.level = level;
+cont.owner = current;
+cont.ts_nsec = local_clock();
+cont.flags = flags;
+}
+memcpy(cont.buf + cont.len, text, len);
+cont.len += len;
+if (flags & LOG_NEWLINE) {
+cont.flags |= LOG_NEWLINE;
+cont_flush();
+}
+if (cont.len > (sizeof(cont.buf) * 80) / 100)
+cont_flush();
+return true;
+}
+static size_t log_output(int facility, int level, enum log_flags lflags, const char *dict, size_t dictlen, char *text, size_t text_len)
+{
+if (cont.len) {
+if (cont.owner == current && (lflags & LOG_CONT)) {
+if (cont_add(facility, level, lflags, text, text_len))
+return text_len;
+}
+cont_flush();
+}
+if (!text_len && (lflags & LOG_CONT))
+return 0;
+if (!(lflags & LOG_NEWLINE)) {
+if (cont_add(facility, level, lflags, text, text_len))
+return text_len;
+}
+return log_store(facility, level, lflags, 0, dict, dictlen, text, text_len);
+}
+asmlinkage int vprintk_emit(int facility, int level,
+const char *dict, size_t dictlen,
+const char *fmt, va_list args)
+{
+static char textbuf[LOG_LINE_MAX];
+char *text = textbuf;
+size_t text_len = 0;
+enum log_flags lflags = 0;
+unsigned long flags;
+int printed_len = 0;
+bool in_sched = false;
+if (level == LOGLEVEL_SCHED) {
+level = LOGLEVEL_DEFAULT;
+in_sched = true;
+}
+boot_delay_msec(level);
+printk_delay();
+logbuf_lock_irqsave(flags);
+text_len = vscnprintf(text, sizeof(textbuf), fmt, args);
+if (text_len && text[text_len-1] == '\n') {
+text_len--;
+lflags |= LOG_NEWLINE;
+}
+if (facility == 0) {
+int kern_level;
+while ((kern_level = printk_get_level(text)) != 0) {
+switch (kern_level) {
+case '0' ... '7':
+if (level == LOGLEVEL_DEFAULT)
+level = kern_level - '0';
+case 'd':
+lflags |= LOG_PREFIX;
+break;
+case 'c':
+lflags |= LOG_CONT;
+}
+text_len -= 2;
+text += 2;
+}
+}
+if (level == LOGLEVEL_DEFAULT)
+level = default_message_loglevel;
+if (dict)
+lflags |= LOG_PREFIX|LOG_NEWLINE;
+printed_len += log_output(facility, level, lflags, dict, dictlen, text, text_len);
+logbuf_unlock_irqrestore(flags);
+if (!in_sched) {
+if (console_trylock())
+console_unlock();
+}
+return printed_len;
+}
+asmlinkage int vprintk(const char *fmt, va_list args)
+{
+return vprintk_func(fmt, args);
+}
+asmlinkage int printk_emit(int facility, int level,
+const char *dict, size_t dictlen,
+const char *fmt, ...)
+{
+va_list args;
+int r;
+va_start(args, fmt);
+r = vprintk_emit(facility, level, dict, dictlen, fmt, args);
+va_end(args);
+return r;
+}
+int vprintk_default(const char *fmt, va_list args)
+{
+int r;
+#ifdef CONFIG_KGDB_KDB
+if (unlikely(kdb_trap_printk && kdb_printf_cpu < 0)) {
+r = vkdb_printf(KDB_MSGSRC_PRINTK, fmt, args);
+return r;
+}
+#endif
+r = vprintk_emit(0, LOGLEVEL_DEFAULT, NULL, 0, fmt, args);
+return r;
+}
+asmlinkage __visible int printk(const char *fmt, ...)
+{
+va_list args;
+int r;
+va_start(args, fmt);
+r = vprintk_func(fmt, args);
+va_end(args);
+return r;
+}
+static char *log_text(const struct printk_log *msg) { return NULL; }
+static char *log_dict(const struct printk_log *msg) { return NULL; }
+static struct printk_log *log_from_idx(u32 idx) { return NULL; }
+static u32 log_next(u32 idx) { return 0; }
+static ssize_t msg_print_ext_header(char *buf, size_t size,
+struct printk_log *msg,
+u64 seq) { return 0; }
+static ssize_t msg_print_ext_body(char *buf, size_t size,
+char *dict, size_t dict_len,
+char *text, size_t text_len) { return 0; }
+static void call_console_drivers(const char *ext_text, size_t ext_len,
+const char *text, size_t len) {}
+static size_t msg_print_text(const struct printk_log *msg,
+bool syslog, char *buf, size_t size) { return 0; }
+static bool suppress_message_printing(int level) { return false; }
+asmlinkage __visible void early_printk(const char *fmt, ...)
+{
+va_list ap;
+char buf[512];
+int n;
+if (!early_console)
+return;
+va_start(ap, fmt);
+n = vscnprintf(buf, sizeof(buf), fmt, ap);
+va_end(ap);
+early_console->write(early_console, buf, n);
+}
+static int __add_preferred_console(char *name, int idx, char *options,
+char *brl_options)
+{
+struct console_cmdline *c;
+int i;
+for (i = 0, c = console_cmdline;
+i < MAX_CMDLINECONSOLES && c->name[0];
+i++, c++) {
+if (strcmp(c->name, name) == 0 && c->index == idx) {
+if (!brl_options)
+selected_console = i;
+return 0;
+}
+}
+if (i == MAX_CMDLINECONSOLES)
+return -E2BIG;
+if (!brl_options)
+selected_console = i;
+strlcpy(c->name, name, sizeof(c->name));
+c->options = options;
+braille_set_options(c, brl_options);
+c->index = idx;
+return 0;
+}
+static int __init console_setup(char *str)
+{
+char buf[sizeof(console_cmdline[0].name) + 4];
+char *s, *options, *brl_options = NULL;
+int idx;
+if (_braille_console_setup(&str, &brl_options))
+return 1;
+if (str[0] >= '0' && str[0] <= '9') {
+strcpy(buf, "ttyS");
+strncpy(buf + 4, str, sizeof(buf) - 5);
+} else {
+strncpy(buf, str, sizeof(buf) - 1);
+}
+buf[sizeof(buf) - 1] = 0;
+options = strchr(str, ',');
+if (options)
+*(options++) = 0;
+#ifdef __sparc__
+if (!strcmp(str, "ttya"))
+strcpy(buf, "ttyS0");
+if (!strcmp(str, "ttyb"))
+strcpy(buf, "ttyS1");
+#endif
+for (s = buf; *s; s++)
+if (isdigit(*s) || *s == ',')
+break;
+idx = simple_strtoul(s, NULL, 10);
+*s = 0;
+__add_preferred_console(buf, idx, options, brl_options);
+console_set_on_cmdline = 1;
+return 1;
+}
+int add_preferred_console(char *name, int idx, char *options)
+{
+return __add_preferred_console(name, idx, options, NULL);
+}
+static int __init console_suspend_disable(char *str)
+{
+console_suspend_enabled = false;
+return 1;
+}
+void suspend_console(void)
+{
+if (!console_suspend_enabled)
+return;
+printk("Suspending console(s) (use no_console_suspend to debug)\n");
+console_lock();
+console_suspended = 1;
+up_console_sem();
+}
+void resume_console(void)
+{
+if (!console_suspend_enabled)
+return;
+down_console_sem();
+console_suspended = 0;
+console_unlock();
+}
+static int console_cpu_notify(unsigned int cpu)
+{
+if (!cpuhp_tasks_frozen) {
+console_lock();
+console_unlock();
+}
+return 0;
+}
+void console_lock(void)
+{
+might_sleep();
+down_console_sem();
+if (console_suspended)
+return;
+console_locked = 1;
+console_may_schedule = 1;
+}
+int console_trylock(void)
+{
+if (down_trylock_console_sem())
+return 0;
+if (console_suspended) {
+up_console_sem();
+return 0;
+}
+console_locked = 1;
+console_may_schedule = !oops_in_progress &&
+preemptible() &&
+!rcu_preempt_depth();
+return 1;
+}
+int is_console_locked(void)
+{
+return console_locked;
+}
+static int have_callable_console(void)
+{
+struct console *con;
+for_each_console(con)
+if ((con->flags & CON_ENABLED) &&
+(con->flags & CON_ANYTIME))
+return 1;
+return 0;
+}
+static inline int can_use_console(void)
+{
+return cpu_online(raw_smp_processor_id()) || have_callable_console();
+}
+void console_unlock(void)
+{
+static char ext_text[CONSOLE_EXT_LOG_MAX];
+static char text[LOG_LINE_MAX + PREFIX_MAX];
+static u64 seen_seq;
+unsigned long flags;
+bool wake_klogd = false;
+bool do_cond_resched, retry;
+if (console_suspended) {
+up_console_sem();
+return;
+}
+do_cond_resched = console_may_schedule;
+console_may_schedule = 0;
+again:
+if (!can_use_console()) {
+console_locked = 0;
+up_console_sem();
+return;
+}
+for (;;) {
+struct printk_log *msg;
+size_t ext_len = 0;
+size_t len;
+printk_safe_enter_irqsave(flags);
+raw_spin_lock(&logbuf_lock);
+if (seen_seq != log_next_seq) {
+wake_klogd = true;
+seen_seq = log_next_seq;
+}
+if (console_seq < log_first_seq) {
+len = sprintf(text, "** %u printk messages dropped ** ",
+(unsigned)(log_first_seq - console_seq));
+console_seq = log_first_seq;
+console_idx = log_first_idx;
+} else {
+len = 0;
+}
+skip:
+if (console_seq == log_next_seq)
+break;
+msg = log_from_idx(console_idx);
+if (suppress_message_printing(msg->level)) {
+console_idx = log_next(console_idx);
+console_seq++;
+goto skip;
+}
+len += msg_print_text(msg, false, text + len, sizeof(text) - len);
+if (nr_ext_console_drivers) {
+ext_len = msg_print_ext_header(ext_text,
+sizeof(ext_text),
+msg, console_seq);
+ext_len += msg_print_ext_body(ext_text + ext_len,
+sizeof(ext_text) - ext_len,
+log_dict(msg), msg->dict_len,
+log_text(msg), msg->text_len);
+}
+console_idx = log_next(console_idx);
+console_seq++;
+raw_spin_unlock(&logbuf_lock);
+stop_critical_timings();
+call_console_drivers(ext_text, ext_len, text, len);
+start_critical_timings();
+printk_safe_exit_irqrestore(flags);
+if (do_cond_resched)
+cond_resched();
+}
+console_locked = 0;
+if (unlikely(exclusive_console))
+exclusive_console = NULL;
+raw_spin_unlock(&logbuf_lock);
+up_console_sem();
+raw_spin_lock(&logbuf_lock);
+retry = console_seq != log_next_seq;
+raw_spin_unlock(&logbuf_lock);
+printk_safe_exit_irqrestore(flags);
+if (retry && console_trylock())
+goto again;
+if (wake_klogd)
+wake_up_klogd();
+}
+void __sched console_conditional_schedule(void)
+{
+if (console_may_schedule)
+cond_resched();
+}
+void console_unblank(void)
+{
+struct console *c;
+if (oops_in_progress) {
+if (down_trylock_console_sem() != 0)
+return;
+} else
+console_lock();
+console_locked = 1;
+console_may_schedule = 0;
+for_each_console(c)
+if ((c->flags & CON_ENABLED) && c->unblank)
+c->unblank();
+console_unlock();
+}
+void console_flush_on_panic(void)
+{
+console_trylock();
+console_may_schedule = 0;
+console_unlock();
+}
+struct tty_driver *console_device(int *index)
+{
+struct console *c;
+struct tty_driver *driver = NULL;
+console_lock();
+for_each_console(c) {
+if (!c->device)
+continue;
+driver = c->device(c, index);
+if (driver)
+break;
+}
+console_unlock();
+return driver;
+}
+void console_stop(struct console *console)
+{
+console_lock();
+console->flags &= ~CON_ENABLED;
+console_unlock();
+}
+void console_start(struct console *console)
+{
+console_lock();
+console->flags |= CON_ENABLED;
+console_unlock();
+}
+static int __init keep_bootcon_setup(char *str)
+{
+keep_bootcon = 1;
+pr_info("debug: skip boot console de-registration.\n");
+return 0;
+}
+void register_console(struct console *newcon)
+{
+int i;
+unsigned long flags;
+struct console *bcon = NULL;
+struct console_cmdline *c;
+if (console_drivers)
+for_each_console(bcon)
+if (WARN(bcon == newcon,
+"console '%s%d' already registered\n",
+bcon->name, bcon->index))
+return;
+if (console_drivers && newcon->flags & CON_BOOT) {
+for_each_console(bcon) {
+if (!(bcon->flags & CON_BOOT)) {
+pr_info("Too late to register bootconsole %s%d\n",
+newcon->name, newcon->index);
+return;
+}
+}
+}
+if (console_drivers && console_drivers->flags & CON_BOOT)
+bcon = console_drivers;
+if (preferred_console < 0 || bcon || !console_drivers)
+preferred_console = selected_console;
+if (preferred_console < 0) {
+if (newcon->index < 0)
+newcon->index = 0;
+if (newcon->setup == NULL ||
+newcon->setup(newcon, NULL) == 0) {
+newcon->flags |= CON_ENABLED;
+if (newcon->device) {
+newcon->flags |= CON_CONSDEV;
+preferred_console = 0;
+}
+}
+}
+for (i = 0, c = console_cmdline;
+i < MAX_CMDLINECONSOLES && c->name[0];
+i++, c++) {
+if (!newcon->match ||
+newcon->match(newcon, c->name, c->index, c->options) != 0) {
+BUILD_BUG_ON(sizeof(c->name) != sizeof(newcon->name));
+if (strcmp(c->name, newcon->name) != 0)
+continue;
+if (newcon->index >= 0 &&
+newcon->index != c->index)
+continue;
+if (newcon->index < 0)
+newcon->index = c->index;
+if (_braille_register_console(newcon, c))
+return;
+if (newcon->setup &&
+newcon->setup(newcon, c->options) != 0)
+break;
+}
+newcon->flags |= CON_ENABLED;
+if (i == selected_console) {
+newcon->flags |= CON_CONSDEV;
+preferred_console = selected_console;
+}
+break;
+}
+if (!(newcon->flags & CON_ENABLED))
+return;
+if (bcon && ((newcon->flags & (CON_CONSDEV | CON_BOOT)) == CON_CONSDEV))
+newcon->flags &= ~CON_PRINTBUFFER;
+console_lock();
+if ((newcon->flags & CON_CONSDEV) || console_drivers == NULL) {
+newcon->next = console_drivers;
+console_drivers = newcon;
+if (newcon->next)
+newcon->next->flags &= ~CON_CONSDEV;
+} else {
+newcon->next = console_drivers->next;
+console_drivers->next = newcon;
+}
+if (newcon->flags & CON_EXTENDED)
+if (!nr_ext_console_drivers++)
+pr_info("printk: continuation disabled due to ext consoles, expect more fragments in /dev/kmsg\n");
+if (newcon->flags & CON_PRINTBUFFER) {
+logbuf_lock_irqsave(flags);
+console_seq = syslog_seq;
+console_idx = syslog_idx;
+logbuf_unlock_irqrestore(flags);
+exclusive_console = newcon;
+}
+console_unlock();
+console_sysfs_notify();
+pr_info("%sconsole [%s%d] enabled\n",
+(newcon->flags & CON_BOOT) ? "boot" : "" ,
+newcon->name, newcon->index);
+if (bcon &&
+((newcon->flags & (CON_CONSDEV | CON_BOOT)) == CON_CONSDEV) &&
+!keep_bootcon) {
+for_each_console(bcon)
+if (bcon->flags & CON_BOOT)
+unregister_console(bcon);
+}
+}
+int unregister_console(struct console *console)
+{
+struct console *a, *b;
+int res;
+pr_info("%sconsole [%s%d] disabled\n",
+(console->flags & CON_BOOT) ? "boot" : "" ,
+console->name, console->index);
+res = _braille_unregister_console(console);
+if (res)
+return res;
+res = 1;
+console_lock();
+if (console_drivers == console) {
+console_drivers=console->next;
+res = 0;
+} else if (console_drivers) {
+for (a=console_drivers->next, b=console_drivers ;
+a; b=a, a=b->next) {
+if (a == console) {
+b->next = a->next;
+res = 0;
+break;
+}
+}
+}
+if (!res && (console->flags & CON_EXTENDED))
+nr_ext_console_drivers--;
+if (console_drivers != NULL && console->flags & CON_CONSDEV)
+console_drivers->flags |= CON_CONSDEV;
+console->flags &= ~CON_ENABLED;
+console_unlock();
+console_sysfs_notify();
+return res;
+}
+static int __init printk_late_init(void)
+{
+struct console *con;
+int ret;
+for_each_console(con) {
+if (!keep_bootcon && con->flags & CON_BOOT) {
+if (init_section_intersects(con, sizeof(*con)))
+unregister_console(con);
+}
+}
+ret = cpuhp_setup_state_nocalls(CPUHP_PRINTK_DEAD, "printk:dead", NULL,
+console_cpu_notify);
+WARN_ON(ret < 0);
+ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN, "printk:online",
+console_cpu_notify, NULL);
+WARN_ON(ret < 0);
+return 0;
+}
+static void wake_up_klogd_work_func(struct irq_work *irq_work)
+{
+int pending = __this_cpu_xchg(printk_pending, 0);
+if (pending & PRINTK_PENDING_OUTPUT) {
+if (console_trylock())
+console_unlock();
+}
+if (pending & PRINTK_PENDING_WAKEUP)
+wake_up_interruptible(&log_wait);
+}
+void wake_up_klogd(void)
+{
+preempt_disable();
+if (waitqueue_active(&log_wait)) {
+this_cpu_or(printk_pending, PRINTK_PENDING_WAKEUP);
+irq_work_queue(this_cpu_ptr(&wake_up_klogd_work));
+}
+preempt_enable();
+}
+int printk_deferred(const char *fmt, ...)
+{
+va_list args;
+int r;
+preempt_disable();
+va_start(args, fmt);
+r = vprintk_emit(0, LOGLEVEL_SCHED, NULL, 0, fmt, args);
+va_end(args);
+__this_cpu_or(printk_pending, PRINTK_PENDING_OUTPUT);
+irq_work_queue(this_cpu_ptr(&wake_up_klogd_work));
+preempt_enable();
+return r;
+}
+int __printk_ratelimit(const char *func)
+{
+return ___ratelimit(&printk_ratelimit_state, func);
+}
+bool printk_timed_ratelimit(unsigned long *caller_jiffies,
+unsigned int interval_msecs)
+{
+unsigned long elapsed = jiffies - *caller_jiffies;
+if (*caller_jiffies && elapsed <= msecs_to_jiffies(interval_msecs))
+return false;
+*caller_jiffies = jiffies;
+return true;
+}
+int kmsg_dump_register(struct kmsg_dumper *dumper)
+{
+unsigned long flags;
+int err = -EBUSY;
+if (!dumper->dump)
+return -EINVAL;
+spin_lock_irqsave(&dump_list_lock, flags);
+if (!dumper->registered) {
+dumper->registered = 1;
+list_add_tail_rcu(&dumper->list, &dump_list);
+err = 0;
+}
+spin_unlock_irqrestore(&dump_list_lock, flags);
+return err;
+}
+int kmsg_dump_unregister(struct kmsg_dumper *dumper)
+{
+unsigned long flags;
+int err = -EINVAL;
+spin_lock_irqsave(&dump_list_lock, flags);
+if (dumper->registered) {
+dumper->registered = 0;
+list_del_rcu(&dumper->list);
+err = 0;
+}
+spin_unlock_irqrestore(&dump_list_lock, flags);
+synchronize_rcu();
+return err;
+}
+void kmsg_dump(enum kmsg_dump_reason reason)
+{
+struct kmsg_dumper *dumper;
+unsigned long flags;
+if ((reason > KMSG_DUMP_OOPS) && !always_kmsg_dump)
+return;
+rcu_read_lock();
+list_for_each_entry_rcu(dumper, &dump_list, list) {
+if (dumper->max_reason && reason > dumper->max_reason)
+continue;
+dumper->active = true;
+logbuf_lock_irqsave(flags);
+dumper->cur_seq = clear_seq;
+dumper->cur_idx = clear_idx;
+dumper->next_seq = log_next_seq;
+dumper->next_idx = log_next_idx;
+logbuf_unlock_irqrestore(flags);
+dumper->dump(dumper, reason);
+dumper->active = false;
+}
+rcu_read_unlock();
+}
+bool kmsg_dump_get_line_nolock(struct kmsg_dumper *dumper, bool syslog,
+char *line, size_t size, size_t *len)
+{
+struct printk_log *msg;
+size_t l = 0;
+bool ret = false;
+if (!dumper->active)
+goto out;
+if (dumper->cur_seq < log_first_seq) {
+dumper->cur_seq = log_first_seq;
+dumper->cur_idx = log_first_idx;
+}
+if (dumper->cur_seq >= log_next_seq)
+goto out;
+msg = log_from_idx(dumper->cur_idx);
+l = msg_print_text(msg, syslog, line, size);
+dumper->cur_idx = log_next(dumper->cur_idx);
+dumper->cur_seq++;
+ret = true;
+out:
+if (len)
+*len = l;
+return ret;
+}
+bool kmsg_dump_get_line(struct kmsg_dumper *dumper, bool syslog,
+char *line, size_t size, size_t *len)
+{
+unsigned long flags;
+bool ret;
+logbuf_lock_irqsave(flags);
+ret = kmsg_dump_get_line_nolock(dumper, syslog, line, size, len);
+logbuf_unlock_irqrestore(flags);
+return ret;
+}
+bool kmsg_dump_get_buffer(struct kmsg_dumper *dumper, bool syslog,
+char *buf, size_t size, size_t *len)
+{
+unsigned long flags;
+u64 seq;
+u32 idx;
+u64 next_seq;
+u32 next_idx;
+size_t l = 0;
+bool ret = false;
+if (!dumper->active)
+goto out;
+logbuf_lock_irqsave(flags);
+if (dumper->cur_seq < log_first_seq) {
+dumper->cur_seq = log_first_seq;
+dumper->cur_idx = log_first_idx;
+}
+if (dumper->cur_seq >= dumper->next_seq) {
+logbuf_unlock_irqrestore(flags);
+goto out;
+}
+seq = dumper->cur_seq;
+idx = dumper->cur_idx;
+while (seq < dumper->next_seq) {
+struct printk_log *msg = log_from_idx(idx);
+l += msg_print_text(msg, true, NULL, 0);
+idx = log_next(idx);
+seq++;
+}
+seq = dumper->cur_seq;
+idx = dumper->cur_idx;
+while (l > size && seq < dumper->next_seq) {
+struct printk_log *msg = log_from_idx(idx);
+l -= msg_print_text(msg, true, NULL, 0);
+idx = log_next(idx);
+seq++;
+}
+next_seq = seq;
+next_idx = idx;
+l = 0;
+while (seq < dumper->next_seq) {
+struct printk_log *msg = log_from_idx(idx);
+l += msg_print_text(msg, syslog, buf + l, size - l);
+idx = log_next(idx);
+seq++;
+}
+dumper->next_seq = next_seq;
+dumper->next_idx = next_idx;
+ret = true;
+logbuf_unlock_irqrestore(flags);
+out:
+if (len)
+*len = l;
+return ret;
+}
+void kmsg_dump_rewind_nolock(struct kmsg_dumper *dumper)
+{
+dumper->cur_seq = clear_seq;
+dumper->cur_idx = clear_idx;
+dumper->next_seq = log_next_seq;
+dumper->next_idx = log_next_idx;
+}
+void kmsg_dump_rewind(struct kmsg_dumper *dumper)
+{
+unsigned long flags;
+logbuf_lock_irqsave(flags);
+kmsg_dump_rewind_nolock(dumper);
+logbuf_unlock_irqrestore(flags);
+}
+void __init dump_stack_set_arch_desc(const char *fmt, ...)
+{
+va_list args;
+va_start(args, fmt);
+vsnprintf(dump_stack_arch_desc_str, sizeof(dump_stack_arch_desc_str),
+fmt, args);
+va_end(args);
+}
+void dump_stack_print_info(const char *log_lvl)
+{
+printk("%sCPU: %d PID: %d Comm: %.20s %s %s %.*s\n",
+log_lvl, raw_smp_processor_id(), current->pid, current->comm,
+print_tainted(), init_utsname()->release,
+(int)strcspn(init_utsname()->version, " "),
+init_utsname()->version);
+if (dump_stack_arch_desc_str[0] != '\0')
+printk("%sHardware name: %s\n",
+log_lvl, dump_stack_arch_desc_str);
+print_worker_info(log_lvl, current);
+}
+void show_regs_print_info(const char *log_lvl)
+{
+dump_stack_print_info(log_lvl);
+printk("%stask: %p task.stack: %p\n",
+log_lvl, current, task_stack_page(current));
+}

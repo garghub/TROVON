@@ -1,0 +1,162 @@
+static int da850_async3_set_parent(struct clk *clk, struct clk *parent)
+{
+u32 val;
+val = readl(DA8XX_SYSCFG0_VIRT(DA8XX_CFGCHIP3_REG));
+if (parent == &pll0_sysclk2) {
+val &= ~CFGCHIP3_ASYNC3_CLKSRC;
+} else if (parent == &pll1_sysclk2) {
+val |= CFGCHIP3_ASYNC3_CLKSRC;
+} else {
+pr_err("Bad parent on async3 clock mux\n");
+return -EINVAL;
+}
+writel(val, DA8XX_SYSCFG0_VIRT(DA8XX_CFGCHIP3_REG));
+return 0;
+}
+static void ehrpwm_tblck_enable(struct clk *clk)
+{
+u32 val;
+val = readl(DA8XX_SYSCFG0_VIRT(DA8XX_CFGCHIP1_REG));
+val |= DA8XX_EHRPWM_TBCLKSYNC;
+writel(val, DA8XX_SYSCFG0_VIRT(DA8XX_CFGCHIP1_REG));
+}
+static void ehrpwm_tblck_disable(struct clk *clk)
+{
+u32 val;
+val = readl(DA8XX_SYSCFG0_VIRT(DA8XX_CFGCHIP1_REG));
+val &= ~DA8XX_EHRPWM_TBCLKSYNC;
+writel(val, DA8XX_SYSCFG0_VIRT(DA8XX_CFGCHIP1_REG));
+}
+static int da850_set_voltage(unsigned int index)
+{
+struct da850_opp *opp;
+if (!cvdd)
+return -ENODEV;
+opp = (struct da850_opp *) cpufreq_info.freq_table[index].driver_data;
+return regulator_set_voltage(cvdd, opp->cvdd_min, opp->cvdd_max);
+}
+static int da850_regulator_init(void)
+{
+cvdd = regulator_get(NULL, "cvdd");
+if (WARN(IS_ERR(cvdd), "Unable to obtain voltage regulator for CVDD;"
+" voltage scaling unsupported\n")) {
+return PTR_ERR(cvdd);
+}
+return 0;
+}
+int da850_register_cpufreq(char *async_clk)
+{
+int i;
+if (async_clk)
+clk_add_alias("async", da850_cpufreq_device.name,
+async_clk, NULL);
+for (i = 0; i < ARRAY_SIZE(da850_freq_table); i++) {
+if (da850_freq_table[i].frequency <= da850_max_speed) {
+cpufreq_info.freq_table = &da850_freq_table[i];
+break;
+}
+}
+return platform_device_register(&da850_cpufreq_device);
+}
+static int da850_round_armrate(struct clk *clk, unsigned long rate)
+{
+int ret = 0, diff;
+unsigned int best = (unsigned int) -1;
+struct cpufreq_frequency_table *table = cpufreq_info.freq_table;
+struct cpufreq_frequency_table *pos;
+rate /= 1000;
+cpufreq_for_each_entry(pos, table) {
+diff = pos->frequency - rate;
+if (diff < 0)
+diff = -diff;
+if (diff < best) {
+best = diff;
+ret = pos->frequency;
+}
+}
+return ret * 1000;
+}
+static int da850_set_armrate(struct clk *clk, unsigned long index)
+{
+struct clk *pllclk = &pll0_clk;
+return clk_set_rate(pllclk, index);
+}
+static int da850_set_pll0rate(struct clk *clk, unsigned long rate)
+{
+struct pll_data *pll = clk->pll_data;
+struct cpufreq_frequency_table *freq;
+unsigned int prediv, mult, postdiv;
+struct da850_opp *opp = NULL;
+int ret;
+rate /= 1000;
+for (freq = da850_freq_table;
+freq->frequency != CPUFREQ_TABLE_END; freq++) {
+if (freq->frequency == rate) {
+opp = (struct da850_opp *)freq->driver_data;
+break;
+}
+}
+if (!opp)
+return -EINVAL;
+prediv = opp->prediv;
+mult = opp->mult;
+postdiv = opp->postdiv;
+ret = davinci_set_pllrate(pll, prediv, mult, postdiv);
+if (WARN_ON(ret))
+return ret;
+return 0;
+}
+int __init da850_register_cpufreq(char *async_clk)
+{
+return 0;
+}
+static int da850_set_armrate(struct clk *clk, unsigned long rate)
+{
+return -EINVAL;
+}
+static int da850_set_pll0rate(struct clk *clk, unsigned long armrate)
+{
+return -EINVAL;
+}
+static int da850_round_armrate(struct clk *clk, unsigned long rate)
+{
+return clk->rate;
+}
+int __init da850_register_vpif(void)
+{
+return platform_device_register(&da850_vpif_dev);
+}
+int __init da850_register_vpif_display(struct vpif_display_config
+*display_config)
+{
+da850_vpif_display_dev.dev.platform_data = display_config;
+return platform_device_register(&da850_vpif_display_dev);
+}
+int __init da850_register_vpif_capture(struct vpif_capture_config
+*capture_config)
+{
+da850_vpif_capture_dev.dev.platform_data = capture_config;
+return platform_device_register(&da850_vpif_capture_dev);
+}
+int __init da850_register_gpio(void)
+{
+return da8xx_register_gpio(&da850_gpio_platform_data);
+}
+void __init da850_init(void)
+{
+unsigned int v;
+davinci_common_init(&davinci_soc_info_da850);
+da8xx_syscfg0_base = ioremap(DA8XX_SYSCFG0_BASE, SZ_4K);
+if (WARN(!da8xx_syscfg0_base, "Unable to map syscfg0 module"))
+return;
+da8xx_syscfg1_base = ioremap(DA8XX_SYSCFG1_BASE, SZ_4K);
+if (WARN(!da8xx_syscfg1_base, "Unable to map syscfg1 module"))
+return;
+v = __raw_readl(DA8XX_SYSCFG0_VIRT(DA8XX_CFGCHIP0_REG));
+v &= ~CFGCHIP0_PLL_MASTER_LOCK;
+__raw_writel(v, DA8XX_SYSCFG0_VIRT(DA8XX_CFGCHIP0_REG));
+v = __raw_readl(DA8XX_SYSCFG0_VIRT(DA8XX_CFGCHIP3_REG));
+v &= ~CFGCHIP3_PLL1_MASTER_LOCK;
+__raw_writel(v, DA8XX_SYSCFG0_VIRT(DA8XX_CFGCHIP3_REG));
+davinci_clk_init(davinci_soc_info_da850.cpu_clks);
+}

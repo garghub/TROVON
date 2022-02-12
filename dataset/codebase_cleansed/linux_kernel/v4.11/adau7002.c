@@ -1,0 +1,1 @@
+static int adau7002_probe(struct platform_device *pdev)\r\n{\r\nreturn snd_soc_register_codec(&pdev->dev, &adau7002_codec_driver,\r\n&adau7002_dai, 1);\r\n}\r\nstatic int adau7002_remove(struct platform_device *pdev)\r\n{\r\nsnd_soc_unregister_codec(&pdev->dev);\r\nreturn 0;\r\n}

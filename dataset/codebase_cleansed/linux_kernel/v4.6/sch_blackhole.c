@@ -1,0 +1,1 @@
+static int blackhole_enqueue(struct sk_buff *skb, struct Qdisc *sch)\r\n{\r\nqdisc_drop(skb, sch);\r\nreturn NET_XMIT_SUCCESS;\r\n}\r\nstatic struct sk_buff *blackhole_dequeue(struct Qdisc *sch)\r\n{\r\nreturn NULL;\r\n}\r\nstatic int __init blackhole_init(void)\r\n{\r\nreturn register_qdisc(&blackhole_qdisc_ops);\r\n}

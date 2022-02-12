@@ -1,0 +1,1 @@
+static void __init sama5_dt_device_init(void)\r\n{\r\nstruct soc_device *soc;\r\nstruct device *soc_dev = NULL;\r\nsoc = at91_soc_init(sama5_socs);\r\nif (soc != NULL)\r\nsoc_dev = soc_device_to_device(soc);\r\nof_platform_default_populate(NULL, NULL, soc_dev);\r\nsama5_pm_init();\r\n}

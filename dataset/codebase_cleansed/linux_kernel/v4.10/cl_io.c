@@ -1,0 +1,660 @@
+static inline int cl_io_type_is_valid(enum cl_io_type type)
+{
+return CIT_READ <= type && type < CIT_OP_NR;
+}
+static inline int cl_io_is_loopable(const struct cl_io *io)
+{
+return cl_io_type_is_valid(io->ci_type) && io->ci_type != CIT_MISC;
+}
+int cl_io_is_going(const struct lu_env *env)
+{
+return cl_env_info(env)->clt_current_io != NULL;
+}
+static int cl_io_invariant(const struct cl_io *io)
+{
+struct cl_io *up;
+up = io->ci_parent;
+return
+ergo(io->ci_owned_nr > 0, io->ci_state == CIS_IO_GOING ||
+(io->ci_state == CIS_LOCKED && up));
+}
+void cl_io_fini(const struct lu_env *env, struct cl_io *io)
+{
+struct cl_io_slice *slice;
+struct cl_thread_info *info;
+LINVRNT(cl_io_type_is_valid(io->ci_type));
+LINVRNT(cl_io_invariant(io));
+while (!list_empty(&io->ci_layers)) {
+slice = container_of(io->ci_layers.prev, struct cl_io_slice,
+cis_linkage);
+list_del_init(&slice->cis_linkage);
+if (slice->cis_iop->op[io->ci_type].cio_fini)
+slice->cis_iop->op[io->ci_type].cio_fini(env, slice);
+slice->cis_io = NULL;
+}
+io->ci_state = CIS_FINI;
+info = cl_env_info(env);
+if (info->clt_current_io == io)
+info->clt_current_io = NULL;
+switch (io->ci_type) {
+case CIT_READ:
+case CIT_WRITE:
+case CIT_DATA_VERSION:
+break;
+case CIT_FAULT:
+break;
+case CIT_FSYNC:
+LASSERT(!io->ci_need_restart);
+break;
+case CIT_SETATTR:
+case CIT_MISC:
+LASSERT(ergo(io->ci_ignore_layout || !io->ci_verify_layout,
+!io->ci_need_restart));
+break;
+default:
+LBUG();
+}
+}
+static int cl_io_init0(const struct lu_env *env, struct cl_io *io,
+enum cl_io_type iot, struct cl_object *obj)
+{
+struct cl_object *scan;
+int result;
+LINVRNT(io->ci_state == CIS_ZERO || io->ci_state == CIS_FINI);
+LINVRNT(cl_io_type_is_valid(iot));
+LINVRNT(cl_io_invariant(io));
+io->ci_type = iot;
+INIT_LIST_HEAD(&io->ci_lockset.cls_todo);
+INIT_LIST_HEAD(&io->ci_lockset.cls_done);
+INIT_LIST_HEAD(&io->ci_layers);
+result = 0;
+cl_object_for_each(scan, obj) {
+if (scan->co_ops->coo_io_init) {
+result = scan->co_ops->coo_io_init(env, scan, io);
+if (result != 0)
+break;
+}
+}
+if (result == 0)
+io->ci_state = CIS_INIT;
+return result;
+}
+int cl_io_sub_init(const struct lu_env *env, struct cl_io *io,
+enum cl_io_type iot, struct cl_object *obj)
+{
+struct cl_thread_info *info = cl_env_info(env);
+LASSERT(obj != cl_object_top(obj));
+if (!info->clt_current_io)
+info->clt_current_io = io;
+return cl_io_init0(env, io, iot, obj);
+}
+int cl_io_init(const struct lu_env *env, struct cl_io *io,
+enum cl_io_type iot, struct cl_object *obj)
+{
+struct cl_thread_info *info = cl_env_info(env);
+LASSERT(obj == cl_object_top(obj));
+LASSERT(!info->clt_current_io);
+info->clt_current_io = io;
+return cl_io_init0(env, io, iot, obj);
+}
+int cl_io_rw_init(const struct lu_env *env, struct cl_io *io,
+enum cl_io_type iot, loff_t pos, size_t count)
+{
+LINVRNT(iot == CIT_READ || iot == CIT_WRITE);
+LINVRNT(io->ci_obj);
+LU_OBJECT_HEADER(D_VFSTRACE, env, &io->ci_obj->co_lu,
+"io range: %u [%llu, %llu) %u %u\n",
+iot, (__u64)pos, (__u64)pos + count,
+io->u.ci_rw.crw_nonblock, io->u.ci_wr.wr_append);
+io->u.ci_rw.crw_pos = pos;
+io->u.ci_rw.crw_count = count;
+return cl_io_init(env, io, iot, io->ci_obj);
+}
+static int cl_lock_descr_sort(const struct cl_lock_descr *d0,
+const struct cl_lock_descr *d1)
+{
+return lu_fid_cmp(lu_object_fid(&d0->cld_obj->co_lu),
+lu_object_fid(&d1->cld_obj->co_lu));
+}
+static void cl_io_locks_sort(struct cl_io *io)
+{
+int done = 0;
+do {
+struct cl_io_lock_link *curr;
+struct cl_io_lock_link *prev;
+struct cl_io_lock_link *temp;
+done = 1;
+prev = NULL;
+list_for_each_entry_safe(curr, temp,
+&io->ci_lockset.cls_todo,
+cill_linkage) {
+if (prev) {
+switch (cl_lock_descr_sort(&prev->cill_descr,
+&curr->cill_descr)) {
+case 0:
+default:
+LBUG();
+case 1:
+list_move_tail(&curr->cill_linkage,
+&prev->cill_linkage);
+done = 0;
+continue;
+case -1:
+break;
+}
+}
+prev = curr;
+}
+} while (!done);
+}
+static void cl_lock_descr_merge(struct cl_lock_descr *d0,
+const struct cl_lock_descr *d1)
+{
+d0->cld_start = min(d0->cld_start, d1->cld_start);
+d0->cld_end = max(d0->cld_end, d1->cld_end);
+if (d1->cld_mode == CLM_WRITE && d0->cld_mode != CLM_WRITE)
+d0->cld_mode = CLM_WRITE;
+if (d1->cld_mode == CLM_GROUP && d0->cld_mode != CLM_GROUP)
+d0->cld_mode = CLM_GROUP;
+}
+static int cl_lockset_merge(const struct cl_lockset *set,
+const struct cl_lock_descr *need)
+{
+struct cl_io_lock_link *scan;
+list_for_each_entry(scan, &set->cls_todo, cill_linkage) {
+if (!cl_object_same(scan->cill_descr.cld_obj, need->cld_obj))
+continue;
+cl_lock_descr_merge(&scan->cill_descr, need);
+CDEBUG(D_VFSTRACE, "lock: %d: [%lu, %lu]\n",
+scan->cill_descr.cld_mode, scan->cill_descr.cld_start,
+scan->cill_descr.cld_end);
+return 1;
+}
+return 0;
+}
+static int cl_lockset_lock(const struct lu_env *env, struct cl_io *io,
+struct cl_lockset *set)
+{
+struct cl_io_lock_link *link;
+struct cl_io_lock_link *temp;
+int result;
+result = 0;
+list_for_each_entry_safe(link, temp, &set->cls_todo, cill_linkage) {
+result = cl_lock_request(env, io, &link->cill_lock);
+if (result < 0)
+break;
+list_move(&link->cill_linkage, &set->cls_done);
+}
+return result;
+}
+int cl_io_lock(const struct lu_env *env, struct cl_io *io)
+{
+const struct cl_io_slice *scan;
+int result = 0;
+LINVRNT(cl_io_is_loopable(io));
+LINVRNT(io->ci_state == CIS_IT_STARTED);
+LINVRNT(cl_io_invariant(io));
+cl_io_for_each(scan, io) {
+if (!scan->cis_iop->op[io->ci_type].cio_lock)
+continue;
+result = scan->cis_iop->op[io->ci_type].cio_lock(env, scan);
+if (result != 0)
+break;
+}
+if (result == 0) {
+cl_io_locks_sort(io);
+result = cl_lockset_lock(env, io, &io->ci_lockset);
+}
+if (result != 0)
+cl_io_unlock(env, io);
+else
+io->ci_state = CIS_LOCKED;
+return result;
+}
+void cl_io_unlock(const struct lu_env *env, struct cl_io *io)
+{
+struct cl_lockset *set;
+struct cl_io_lock_link *link;
+struct cl_io_lock_link *temp;
+const struct cl_io_slice *scan;
+LASSERT(cl_io_is_loopable(io));
+LASSERT(CIS_IT_STARTED <= io->ci_state && io->ci_state < CIS_UNLOCKED);
+LINVRNT(cl_io_invariant(io));
+set = &io->ci_lockset;
+list_for_each_entry_safe(link, temp, &set->cls_todo, cill_linkage) {
+list_del_init(&link->cill_linkage);
+if (link->cill_fini)
+link->cill_fini(env, link);
+}
+list_for_each_entry_safe(link, temp, &set->cls_done, cill_linkage) {
+list_del_init(&link->cill_linkage);
+cl_lock_release(env, &link->cill_lock);
+if (link->cill_fini)
+link->cill_fini(env, link);
+}
+cl_io_for_each_reverse(scan, io) {
+if (scan->cis_iop->op[io->ci_type].cio_unlock)
+scan->cis_iop->op[io->ci_type].cio_unlock(env, scan);
+}
+io->ci_state = CIS_UNLOCKED;
+}
+int cl_io_iter_init(const struct lu_env *env, struct cl_io *io)
+{
+const struct cl_io_slice *scan;
+int result;
+LINVRNT(cl_io_is_loopable(io));
+LINVRNT(io->ci_state == CIS_INIT || io->ci_state == CIS_IT_ENDED);
+LINVRNT(cl_io_invariant(io));
+result = 0;
+cl_io_for_each(scan, io) {
+if (!scan->cis_iop->op[io->ci_type].cio_iter_init)
+continue;
+result = scan->cis_iop->op[io->ci_type].cio_iter_init(env,
+scan);
+if (result != 0)
+break;
+}
+if (result == 0)
+io->ci_state = CIS_IT_STARTED;
+return result;
+}
+void cl_io_iter_fini(const struct lu_env *env, struct cl_io *io)
+{
+const struct cl_io_slice *scan;
+LINVRNT(cl_io_is_loopable(io));
+LINVRNT(io->ci_state == CIS_UNLOCKED);
+LINVRNT(cl_io_invariant(io));
+cl_io_for_each_reverse(scan, io) {
+if (scan->cis_iop->op[io->ci_type].cio_iter_fini)
+scan->cis_iop->op[io->ci_type].cio_iter_fini(env, scan);
+}
+io->ci_state = CIS_IT_ENDED;
+}
+static void cl_io_rw_advance(const struct lu_env *env, struct cl_io *io,
+size_t nob)
+{
+const struct cl_io_slice *scan;
+LINVRNT(io->ci_type == CIT_READ || io->ci_type == CIT_WRITE ||
+nob == 0);
+LINVRNT(cl_io_is_loopable(io));
+LINVRNT(cl_io_invariant(io));
+io->u.ci_rw.crw_pos += nob;
+io->u.ci_rw.crw_count -= nob;
+cl_io_for_each_reverse(scan, io) {
+if (scan->cis_iop->op[io->ci_type].cio_advance)
+scan->cis_iop->op[io->ci_type].cio_advance(env, scan,
+nob);
+}
+}
+int cl_io_lock_add(const struct lu_env *env, struct cl_io *io,
+struct cl_io_lock_link *link)
+{
+int result;
+if (cl_lockset_merge(&io->ci_lockset, &link->cill_descr)) {
+result = 1;
+} else {
+list_add(&link->cill_linkage, &io->ci_lockset.cls_todo);
+result = 0;
+}
+return result;
+}
+static void cl_free_io_lock_link(const struct lu_env *env,
+struct cl_io_lock_link *link)
+{
+kfree(link);
+}
+int cl_io_lock_alloc_add(const struct lu_env *env, struct cl_io *io,
+struct cl_lock_descr *descr)
+{
+struct cl_io_lock_link *link;
+int result;
+link = kzalloc(sizeof(*link), GFP_NOFS);
+if (link) {
+link->cill_descr = *descr;
+link->cill_fini = cl_free_io_lock_link;
+result = cl_io_lock_add(env, io, link);
+if (result)
+link->cill_fini(env, link);
+} else {
+result = -ENOMEM;
+}
+return result;
+}
+int cl_io_start(const struct lu_env *env, struct cl_io *io)
+{
+const struct cl_io_slice *scan;
+int result = 0;
+LINVRNT(cl_io_is_loopable(io));
+LINVRNT(io->ci_state == CIS_LOCKED);
+LINVRNT(cl_io_invariant(io));
+io->ci_state = CIS_IO_GOING;
+cl_io_for_each(scan, io) {
+if (!scan->cis_iop->op[io->ci_type].cio_start)
+continue;
+result = scan->cis_iop->op[io->ci_type].cio_start(env, scan);
+if (result != 0)
+break;
+}
+if (result >= 0)
+result = 0;
+return result;
+}
+void cl_io_end(const struct lu_env *env, struct cl_io *io)
+{
+const struct cl_io_slice *scan;
+LINVRNT(cl_io_is_loopable(io));
+LINVRNT(io->ci_state == CIS_IO_GOING);
+LINVRNT(cl_io_invariant(io));
+cl_io_for_each_reverse(scan, io) {
+if (scan->cis_iop->op[io->ci_type].cio_end)
+scan->cis_iop->op[io->ci_type].cio_end(env, scan);
+}
+io->ci_state = CIS_IO_FINISHED;
+}
+int cl_io_read_ahead(const struct lu_env *env, struct cl_io *io,
+pgoff_t start, struct cl_read_ahead *ra)
+{
+const struct cl_io_slice *scan;
+int result = 0;
+LINVRNT(io->ci_type == CIT_READ || io->ci_type == CIT_FAULT);
+LINVRNT(io->ci_state == CIS_IO_GOING || io->ci_state == CIS_LOCKED);
+LINVRNT(cl_io_invariant(io));
+cl_io_for_each(scan, io) {
+if (!scan->cis_iop->cio_read_ahead)
+continue;
+result = scan->cis_iop->cio_read_ahead(env, scan, start, ra);
+if (result)
+break;
+}
+return result > 0 ? 0 : result;
+}
+int cl_io_commit_async(const struct lu_env *env, struct cl_io *io,
+struct cl_page_list *queue, int from, int to,
+cl_commit_cbt cb)
+{
+const struct cl_io_slice *scan;
+int result = 0;
+cl_io_for_each(scan, io) {
+if (!scan->cis_iop->cio_commit_async)
+continue;
+result = scan->cis_iop->cio_commit_async(env, scan, queue,
+from, to, cb);
+if (result != 0)
+break;
+}
+return result;
+}
+int cl_io_submit_rw(const struct lu_env *env, struct cl_io *io,
+enum cl_req_type crt, struct cl_2queue *queue)
+{
+const struct cl_io_slice *scan;
+int result = 0;
+cl_io_for_each(scan, io) {
+if (!scan->cis_iop->cio_submit)
+continue;
+result = scan->cis_iop->cio_submit(env, scan, crt, queue);
+if (result != 0)
+break;
+}
+LASSERT(ergo(result != 0, list_empty(&queue->c2_qout.pl_pages)));
+return result;
+}
+int cl_io_submit_sync(const struct lu_env *env, struct cl_io *io,
+enum cl_req_type iot, struct cl_2queue *queue,
+long timeout)
+{
+struct cl_sync_io *anchor = &cl_env_info(env)->clt_anchor;
+struct cl_page *pg;
+int rc;
+cl_page_list_for_each(pg, &queue->c2_qin) {
+LASSERT(!pg->cp_sync_io);
+pg->cp_sync_io = anchor;
+}
+cl_sync_io_init(anchor, queue->c2_qin.pl_nr, &cl_sync_io_end);
+rc = cl_io_submit_rw(env, io, iot, queue);
+if (rc == 0) {
+cl_page_list_for_each(pg, &queue->c2_qin) {
+pg->cp_sync_io = NULL;
+cl_sync_io_note(env, anchor, 1);
+}
+rc = cl_sync_io_wait(env, anchor, timeout);
+cl_page_list_assume(env, io, &queue->c2_qout);
+} else {
+LASSERT(list_empty(&queue->c2_qout.pl_pages));
+cl_page_list_for_each(pg, &queue->c2_qin)
+pg->cp_sync_io = NULL;
+}
+return rc;
+}
+int cl_io_loop(const struct lu_env *env, struct cl_io *io)
+{
+int result = 0;
+LINVRNT(cl_io_is_loopable(io));
+do {
+size_t nob;
+io->ci_continue = 0;
+result = cl_io_iter_init(env, io);
+if (result == 0) {
+nob = io->ci_nob;
+result = cl_io_lock(env, io);
+if (result == 0) {
+result = cl_io_start(env, io);
+cl_io_end(env, io);
+cl_io_unlock(env, io);
+cl_io_rw_advance(env, io, io->ci_nob - nob);
+}
+}
+cl_io_iter_fini(env, io);
+} while (result == 0 && io->ci_continue);
+if (result == 0)
+result = io->ci_result;
+return result < 0 ? result : 0;
+}
+void cl_io_slice_add(struct cl_io *io, struct cl_io_slice *slice,
+struct cl_object *obj,
+const struct cl_io_operations *ops)
+{
+struct list_head *linkage = &slice->cis_linkage;
+LASSERT((!linkage->prev && !linkage->next) ||
+list_empty(linkage));
+list_add_tail(linkage, &io->ci_layers);
+slice->cis_io = io;
+slice->cis_obj = obj;
+slice->cis_iop = ops;
+}
+void cl_page_list_init(struct cl_page_list *plist)
+{
+plist->pl_nr = 0;
+INIT_LIST_HEAD(&plist->pl_pages);
+plist->pl_owner = current;
+}
+void cl_page_list_add(struct cl_page_list *plist, struct cl_page *page)
+{
+LASSERT(page->cp_owner);
+LINVRNT(plist->pl_owner == current);
+LASSERT(list_empty(&page->cp_batch));
+list_add_tail(&page->cp_batch, &plist->pl_pages);
+++plist->pl_nr;
+lu_ref_add_at(&page->cp_reference, &page->cp_queue_ref, "queue", plist);
+cl_page_get(page);
+}
+void cl_page_list_del(const struct lu_env *env, struct cl_page_list *plist,
+struct cl_page *page)
+{
+LASSERT(plist->pl_nr > 0);
+LASSERT(cl_page_is_vmlocked(env, page));
+LINVRNT(plist->pl_owner == current);
+list_del_init(&page->cp_batch);
+--plist->pl_nr;
+lu_ref_del_at(&page->cp_reference, &page->cp_queue_ref, "queue", plist);
+cl_page_put(env, page);
+}
+void cl_page_list_move(struct cl_page_list *dst, struct cl_page_list *src,
+struct cl_page *page)
+{
+LASSERT(src->pl_nr > 0);
+LINVRNT(dst->pl_owner == current);
+LINVRNT(src->pl_owner == current);
+list_move_tail(&page->cp_batch, &dst->pl_pages);
+--src->pl_nr;
+++dst->pl_nr;
+lu_ref_set_at(&page->cp_reference, &page->cp_queue_ref, "queue",
+src, dst);
+}
+void cl_page_list_move_head(struct cl_page_list *dst, struct cl_page_list *src,
+struct cl_page *page)
+{
+LASSERT(src->pl_nr > 0);
+LINVRNT(dst->pl_owner == current);
+LINVRNT(src->pl_owner == current);
+list_move(&page->cp_batch, &dst->pl_pages);
+--src->pl_nr;
+++dst->pl_nr;
+lu_ref_set_at(&page->cp_reference, &page->cp_queue_ref, "queue",
+src, dst);
+}
+void cl_page_list_splice(struct cl_page_list *list, struct cl_page_list *head)
+{
+struct cl_page *page;
+struct cl_page *tmp;
+LINVRNT(list->pl_owner == current);
+LINVRNT(head->pl_owner == current);
+cl_page_list_for_each_safe(page, tmp, list)
+cl_page_list_move(head, list, page);
+}
+void cl_page_list_disown(const struct lu_env *env,
+struct cl_io *io, struct cl_page_list *plist)
+{
+struct cl_page *page;
+struct cl_page *temp;
+LINVRNT(plist->pl_owner == current);
+cl_page_list_for_each_safe(page, temp, plist) {
+LASSERT(plist->pl_nr > 0);
+list_del_init(&page->cp_batch);
+--plist->pl_nr;
+cl_page_disown0(env, io, page);
+lu_ref_del_at(&page->cp_reference, &page->cp_queue_ref, "queue",
+plist);
+cl_page_put(env, page);
+}
+}
+void cl_page_list_fini(const struct lu_env *env, struct cl_page_list *plist)
+{
+struct cl_page *page;
+struct cl_page *temp;
+LINVRNT(plist->pl_owner == current);
+cl_page_list_for_each_safe(page, temp, plist)
+cl_page_list_del(env, plist, page);
+LASSERT(plist->pl_nr == 0);
+}
+static void cl_page_list_assume(const struct lu_env *env,
+struct cl_io *io, struct cl_page_list *plist)
+{
+struct cl_page *page;
+LINVRNT(plist->pl_owner == current);
+cl_page_list_for_each(page, plist)
+cl_page_assume(env, io, page);
+}
+static void cl_page_list_discard(const struct lu_env *env, struct cl_io *io,
+struct cl_page_list *plist)
+{
+struct cl_page *page;
+LINVRNT(plist->pl_owner == current);
+cl_page_list_for_each(page, plist)
+cl_page_discard(env, io, page);
+}
+void cl_2queue_init(struct cl_2queue *queue)
+{
+cl_page_list_init(&queue->c2_qin);
+cl_page_list_init(&queue->c2_qout);
+}
+void cl_2queue_disown(const struct lu_env *env,
+struct cl_io *io, struct cl_2queue *queue)
+{
+cl_page_list_disown(env, io, &queue->c2_qin);
+cl_page_list_disown(env, io, &queue->c2_qout);
+}
+void cl_2queue_discard(const struct lu_env *env,
+struct cl_io *io, struct cl_2queue *queue)
+{
+cl_page_list_discard(env, io, &queue->c2_qin);
+cl_page_list_discard(env, io, &queue->c2_qout);
+}
+void cl_2queue_fini(const struct lu_env *env, struct cl_2queue *queue)
+{
+cl_page_list_fini(env, &queue->c2_qout);
+cl_page_list_fini(env, &queue->c2_qin);
+}
+void cl_2queue_init_page(struct cl_2queue *queue, struct cl_page *page)
+{
+cl_2queue_init(queue);
+cl_page_list_add(&queue->c2_qin, page);
+}
+struct cl_io *cl_io_top(struct cl_io *io)
+{
+while (io->ci_parent)
+io = io->ci_parent;
+return io;
+}
+void cl_req_attr_set(const struct lu_env *env, struct cl_object *obj,
+struct cl_req_attr *attr)
+{
+struct cl_object *scan;
+cl_object_for_each(scan, obj) {
+if (scan->co_ops->coo_req_attr_set)
+scan->co_ops->coo_req_attr_set(env, scan, attr);
+}
+}
+void cl_sync_io_end(const struct lu_env *env, struct cl_sync_io *anchor)
+{
+wake_up_all(&anchor->csi_waitq);
+atomic_set(&anchor->csi_barrier, 0);
+}
+void cl_sync_io_init(struct cl_sync_io *anchor, int nr,
+void (*end)(const struct lu_env *, struct cl_sync_io *))
+{
+memset(anchor, 0, sizeof(*anchor));
+init_waitqueue_head(&anchor->csi_waitq);
+atomic_set(&anchor->csi_sync_nr, nr);
+atomic_set(&anchor->csi_barrier, nr > 0);
+anchor->csi_sync_rc = 0;
+anchor->csi_end_io = end;
+LASSERT(end);
+}
+int cl_sync_io_wait(const struct lu_env *env, struct cl_sync_io *anchor,
+long timeout)
+{
+struct l_wait_info lwi = LWI_TIMEOUT_INTR(cfs_time_seconds(timeout),
+NULL, NULL, NULL);
+int rc;
+LASSERT(timeout >= 0);
+rc = l_wait_event(anchor->csi_waitq,
+atomic_read(&anchor->csi_sync_nr) == 0,
+&lwi);
+if (rc < 0) {
+CERROR("IO failed: %d, still wait for %d remaining entries\n",
+rc, atomic_read(&anchor->csi_sync_nr));
+lwi = (struct l_wait_info) { 0 };
+(void)l_wait_event(anchor->csi_waitq,
+atomic_read(&anchor->csi_sync_nr) == 0,
+&lwi);
+} else {
+rc = anchor->csi_sync_rc;
+}
+LASSERT(atomic_read(&anchor->csi_sync_nr) == 0);
+while (unlikely(atomic_read(&anchor->csi_barrier) != 0)) {
+cpu_relax();
+}
+return rc;
+}
+void cl_sync_io_note(const struct lu_env *env, struct cl_sync_io *anchor,
+int ioret)
+{
+if (anchor->csi_sync_rc == 0 && ioret < 0)
+anchor->csi_sync_rc = ioret;
+LASSERT(atomic_read(&anchor->csi_sync_nr) > 0);
+if (atomic_dec_and_test(&anchor->csi_sync_nr)) {
+LASSERT(anchor->csi_end_io);
+anchor->csi_end_io(env, anchor);
+}
+}

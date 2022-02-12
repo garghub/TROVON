@@ -1,0 +1,1 @@
+int __init bcm63xx_wdt_register(void)\r\n{\r\nwdt_resources[0].start = bcm63xx_regset_address(RSET_WDT);\r\nwdt_resources[0].end = wdt_resources[0].start;\r\nwdt_resources[0].end += RSET_WDT_SIZE - 1;\r\nreturn platform_device_register(&bcm63xx_wdt_device);\r\n}

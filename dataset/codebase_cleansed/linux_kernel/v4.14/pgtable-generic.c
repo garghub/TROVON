@@ -1,0 +1,131 @@
+void pgd_clear_bad(pgd_t *pgd)
+{
+pgd_ERROR(*pgd);
+pgd_clear(pgd);
+}
+void p4d_clear_bad(p4d_t *p4d)
+{
+p4d_ERROR(*p4d);
+p4d_clear(p4d);
+}
+void pud_clear_bad(pud_t *pud)
+{
+pud_ERROR(*pud);
+pud_clear(pud);
+}
+void pmd_clear_bad(pmd_t *pmd)
+{
+pmd_ERROR(*pmd);
+pmd_clear(pmd);
+}
+int ptep_set_access_flags(struct vm_area_struct *vma,
+unsigned long address, pte_t *ptep,
+pte_t entry, int dirty)
+{
+int changed = !pte_same(*ptep, entry);
+if (changed) {
+set_pte_at(vma->vm_mm, address, ptep, entry);
+flush_tlb_fix_spurious_fault(vma, address);
+}
+return changed;
+}
+int ptep_clear_flush_young(struct vm_area_struct *vma,
+unsigned long address, pte_t *ptep)
+{
+int young;
+young = ptep_test_and_clear_young(vma, address, ptep);
+if (young)
+flush_tlb_page(vma, address);
+return young;
+}
+pte_t ptep_clear_flush(struct vm_area_struct *vma, unsigned long address,
+pte_t *ptep)
+{
+struct mm_struct *mm = (vma)->vm_mm;
+pte_t pte;
+pte = ptep_get_and_clear(mm, address, ptep);
+if (pte_accessible(mm, pte))
+flush_tlb_page(vma, address);
+return pte;
+}
+int pmdp_set_access_flags(struct vm_area_struct *vma,
+unsigned long address, pmd_t *pmdp,
+pmd_t entry, int dirty)
+{
+int changed = !pmd_same(*pmdp, entry);
+VM_BUG_ON(address & ~HPAGE_PMD_MASK);
+if (changed) {
+set_pmd_at(vma->vm_mm, address, pmdp, entry);
+flush_pmd_tlb_range(vma, address, address + HPAGE_PMD_SIZE);
+}
+return changed;
+}
+int pmdp_clear_flush_young(struct vm_area_struct *vma,
+unsigned long address, pmd_t *pmdp)
+{
+int young;
+VM_BUG_ON(address & ~HPAGE_PMD_MASK);
+young = pmdp_test_and_clear_young(vma, address, pmdp);
+if (young)
+flush_pmd_tlb_range(vma, address, address + HPAGE_PMD_SIZE);
+return young;
+}
+pmd_t pmdp_huge_clear_flush(struct vm_area_struct *vma, unsigned long address,
+pmd_t *pmdp)
+{
+pmd_t pmd;
+VM_BUG_ON(address & ~HPAGE_PMD_MASK);
+VM_BUG_ON((pmd_present(*pmdp) && !pmd_trans_huge(*pmdp) &&
+!pmd_devmap(*pmdp)) || !pmd_present(*pmdp));
+pmd = pmdp_huge_get_and_clear(vma->vm_mm, address, pmdp);
+flush_pmd_tlb_range(vma, address, address + HPAGE_PMD_SIZE);
+return pmd;
+}
+pud_t pudp_huge_clear_flush(struct vm_area_struct *vma, unsigned long address,
+pud_t *pudp)
+{
+pud_t pud;
+VM_BUG_ON(address & ~HPAGE_PUD_MASK);
+VM_BUG_ON(!pud_trans_huge(*pudp) && !pud_devmap(*pudp));
+pud = pudp_huge_get_and_clear(vma->vm_mm, address, pudp);
+flush_pud_tlb_range(vma, address, address + HPAGE_PUD_SIZE);
+return pud;
+}
+void pgtable_trans_huge_deposit(struct mm_struct *mm, pmd_t *pmdp,
+pgtable_t pgtable)
+{
+assert_spin_locked(pmd_lockptr(mm, pmdp));
+if (!pmd_huge_pte(mm, pmdp))
+INIT_LIST_HEAD(&pgtable->lru);
+else
+list_add(&pgtable->lru, &pmd_huge_pte(mm, pmdp)->lru);
+pmd_huge_pte(mm, pmdp) = pgtable;
+}
+pgtable_t pgtable_trans_huge_withdraw(struct mm_struct *mm, pmd_t *pmdp)
+{
+pgtable_t pgtable;
+assert_spin_locked(pmd_lockptr(mm, pmdp));
+pgtable = pmd_huge_pte(mm, pmdp);
+pmd_huge_pte(mm, pmdp) = list_first_entry_or_null(&pgtable->lru,
+struct page, lru);
+if (pmd_huge_pte(mm, pmdp))
+list_del(&pgtable->lru);
+return pgtable;
+}
+void pmdp_invalidate(struct vm_area_struct *vma, unsigned long address,
+pmd_t *pmdp)
+{
+pmd_t entry = *pmdp;
+set_pmd_at(vma->vm_mm, address, pmdp, pmd_mknotpresent(entry));
+flush_pmd_tlb_range(vma, address, address + HPAGE_PMD_SIZE);
+}
+pmd_t pmdp_collapse_flush(struct vm_area_struct *vma, unsigned long address,
+pmd_t *pmdp)
+{
+pmd_t pmd;
+VM_BUG_ON(address & ~HPAGE_PMD_MASK);
+VM_BUG_ON(pmd_trans_huge(*pmdp));
+pmd = pmdp_huge_get_and_clear(vma->vm_mm, address, pmdp);
+flush_tlb_range(vma, address, address + HPAGE_PMD_SIZE);
+return pmd;
+}

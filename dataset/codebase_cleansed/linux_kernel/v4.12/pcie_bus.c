@@ -1,0 +1,325 @@
+static
+void wil_set_capabilities(struct wil6210_priv *wil)
+{
+u32 jtag_id = wil_r(wil, RGF_USER_JTAG_DEV_ID);
+u8 chip_revision = (wil_r(wil, RGF_USER_REVISION_ID) &
+RGF_USER_REVISION_ID_MASK);
+bitmap_zero(wil->hw_capabilities, hw_capability_last);
+bitmap_zero(wil->fw_capabilities, WMI_FW_CAPABILITY_MAX);
+wil->wil_fw_name = WIL_FW_NAME_DEFAULT;
+wil->chip_revision = chip_revision;
+switch (jtag_id) {
+case JTAG_DEV_ID_SPARROW:
+switch (chip_revision) {
+case REVISION_ID_SPARROW_D0:
+wil->hw_name = "Sparrow D0";
+wil->hw_version = HW_VER_SPARROW_D0;
+if (wil_fw_verify_file_exists(wil,
+WIL_FW_NAME_SPARROW_PLUS))
+wil->wil_fw_name = WIL_FW_NAME_SPARROW_PLUS;
+break;
+case REVISION_ID_SPARROW_B0:
+wil->hw_name = "Sparrow B0";
+wil->hw_version = HW_VER_SPARROW_B0;
+break;
+default:
+wil->hw_name = "Unknown";
+wil->hw_version = HW_VER_UNKNOWN;
+break;
+}
+break;
+default:
+wil_err(wil, "Unknown board hardware, chip_id 0x%08x, chip_revision 0x%08x\n",
+jtag_id, chip_revision);
+wil->hw_name = "Unknown";
+wil->hw_version = HW_VER_UNKNOWN;
+}
+wil_info(wil, "Board hardware is %s\n", wil->hw_name);
+wil_request_firmware(wil, wil->wil_fw_name, false);
+}
+void wil_disable_irq(struct wil6210_priv *wil)
+{
+disable_irq(wil->pdev->irq);
+}
+void wil_enable_irq(struct wil6210_priv *wil)
+{
+enable_irq(wil->pdev->irq);
+}
+static int wil_if_pcie_enable(struct wil6210_priv *wil)
+{
+struct pci_dev *pdev = wil->pdev;
+int rc;
+int msi_only = pdev->msi_enabled;
+bool _use_msi = use_msi;
+bool wmi_only = test_bit(WMI_FW_CAPABILITY_WMI_ONLY,
+wil->fw_capabilities);
+wil_dbg_misc(wil, "if_pcie_enable, wmi_only %d\n", wmi_only);
+pdev->msi_enabled = 0;
+pci_set_master(pdev);
+wil_dbg_misc(wil, "Setup %s interrupt\n", use_msi ? "MSI" : "INTx");
+if (use_msi && pci_enable_msi(pdev)) {
+wil_err(wil, "pci_enable_msi failed, use INTx\n");
+_use_msi = false;
+}
+if (!_use_msi && msi_only) {
+wil_err(wil, "Interrupt pin not routed, unable to use INTx\n");
+rc = -ENODEV;
+goto stop_master;
+}
+rc = wil6210_init_irq(wil, pdev->irq, _use_msi);
+if (rc)
+goto stop_master;
+mutex_lock(&wil->mutex);
+rc = wil_reset(wil, wmi_only);
+mutex_unlock(&wil->mutex);
+if (rc)
+goto release_irq;
+return 0;
+release_irq:
+wil6210_fini_irq(wil, pdev->irq);
+pci_disable_msi(pdev);
+stop_master:
+pci_clear_master(pdev);
+return rc;
+}
+static int wil_if_pcie_disable(struct wil6210_priv *wil)
+{
+struct pci_dev *pdev = wil->pdev;
+wil_dbg_misc(wil, "if_pcie_disable\n");
+pci_clear_master(pdev);
+wil6210_fini_irq(wil, pdev->irq);
+pci_disable_msi(pdev);
+return 0;
+}
+static int wil_platform_rop_ramdump(void *wil_handle, void *buf, uint32_t size)
+{
+struct wil6210_priv *wil = wil_handle;
+if (!wil)
+return -EINVAL;
+return wil_fw_copy_crash_dump(wil, buf, size);
+}
+static int wil_platform_rop_fw_recovery(void *wil_handle)
+{
+struct wil6210_priv *wil = wil_handle;
+if (!wil)
+return -EINVAL;
+wil_fw_error_recovery(wil);
+return 0;
+}
+static int wil_pcie_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+{
+struct wil6210_priv *wil;
+struct device *dev = &pdev->dev;
+int rc;
+const struct wil_platform_rops rops = {
+.ramdump = wil_platform_rop_ramdump,
+.fw_recovery = wil_platform_rop_fw_recovery,
+};
+dev_info(&pdev->dev, WIL_NAME
+" device found [%04x:%04x] (rev %x)\n",
+(int)pdev->vendor, (int)pdev->device, (int)pdev->revision);
+if (pci_resource_len(pdev, 0) != WIL6210_MEM_SIZE) {
+dev_err(&pdev->dev, "Not " WIL_NAME "? "
+"BAR0 size is %lu while expecting %lu\n",
+(ulong)pci_resource_len(pdev, 0), WIL6210_MEM_SIZE);
+return -ENODEV;
+}
+wil = wil_if_alloc(dev);
+if (IS_ERR(wil)) {
+rc = (int)PTR_ERR(wil);
+dev_err(dev, "wil_if_alloc failed: %d\n", rc);
+return rc;
+}
+wil->pdev = pdev;
+pci_set_drvdata(pdev, wil);
+wil->platform_handle =
+wil_platform_init(&pdev->dev, &wil->platform_ops, &rops, wil);
+if (!wil->platform_handle) {
+rc = -ENODEV;
+wil_err(wil, "wil_platform_init failed\n");
+goto if_free;
+}
+rc = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(48));
+if (rc) {
+dev_err(dev, "dma_set_mask_and_coherent(48) failed: %d\n", rc);
+rc = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(32));
+if (rc) {
+dev_err(dev,
+"dma_set_mask_and_coherent(32) failed: %d\n",
+rc);
+goto err_plat;
+}
+} else {
+wil->use_extended_dma_addr = 1;
+}
+rc = pci_enable_device(pdev);
+if (rc) {
+wil_err(wil,
+"pci_enable_device failed, retry with MSI only\n");
+pdev->msi_enabled = 1;
+rc = pci_enable_device(pdev);
+}
+if (rc) {
+wil_err(wil,
+"pci_enable_device failed, even with MSI only\n");
+goto err_plat;
+}
+rc = pci_request_region(pdev, 0, WIL_NAME);
+if (rc) {
+wil_err(wil, "pci_request_region failed\n");
+goto err_disable_pdev;
+}
+wil->csr = pci_ioremap_bar(pdev, 0);
+if (!wil->csr) {
+wil_err(wil, "pci_ioremap_bar failed\n");
+rc = -ENODEV;
+goto err_release_reg;
+}
+wil_info(wil, "CSR at %pR -> 0x%p\n", &pdev->resource[0], wil->csr);
+wil_set_capabilities(wil);
+wil6210_clear_irq(wil);
+rc = wil_if_pcie_enable(wil);
+if (rc) {
+wil_err(wil, "Enable device failed\n");
+goto err_iounmap;
+}
+rc = wil_if_add(wil);
+if (rc) {
+wil_err(wil, "wil_if_add failed: %d\n", rc);
+goto bus_disable;
+}
+#ifdef CONFIG_PM
+#ifdef CONFIG_PM_SLEEP
+wil->pm_notify.notifier_call = wil6210_pm_notify;
+rc = register_pm_notifier(&wil->pm_notify);
+if (rc)
+wil_err(wil, "register_pm_notifier failed: %d\n", rc);
+#endif
+#endif
+wil6210_debugfs_init(wil);
+return 0;
+bus_disable:
+wil_if_pcie_disable(wil);
+err_iounmap:
+pci_iounmap(pdev, wil->csr);
+err_release_reg:
+pci_release_region(pdev, 0);
+err_disable_pdev:
+pci_disable_device(pdev);
+err_plat:
+if (wil->platform_ops.uninit)
+wil->platform_ops.uninit(wil->platform_handle);
+if_free:
+wil_if_free(wil);
+return rc;
+}
+static void wil_pcie_remove(struct pci_dev *pdev)
+{
+struct wil6210_priv *wil = pci_get_drvdata(pdev);
+void __iomem *csr = wil->csr;
+wil_dbg_misc(wil, "pcie_remove\n");
+#ifdef CONFIG_PM
+#ifdef CONFIG_PM_SLEEP
+unregister_pm_notifier(&wil->pm_notify);
+#endif
+#endif
+wil6210_debugfs_remove(wil);
+rtnl_lock();
+wil_p2p_wdev_free(wil);
+rtnl_unlock();
+wil_if_remove(wil);
+wil_if_pcie_disable(wil);
+pci_iounmap(pdev, csr);
+pci_release_region(pdev, 0);
+pci_disable_device(pdev);
+if (wil->platform_ops.uninit)
+wil->platform_ops.uninit(wil->platform_handle);
+wil_if_free(wil);
+}
+static int wil6210_suspend(struct device *dev, bool is_runtime)
+{
+int rc = 0;
+struct pci_dev *pdev = to_pci_dev(dev);
+struct wil6210_priv *wil = pci_get_drvdata(pdev);
+wil_dbg_pm(wil, "suspend: %s\n", is_runtime ? "runtime" : "system");
+rc = wil_can_suspend(wil, is_runtime);
+if (rc)
+goto out;
+rc = wil_suspend(wil, is_runtime);
+if (rc)
+goto out;
+pci_clear_master(pdev);
+out:
+return rc;
+}
+static int wil6210_resume(struct device *dev, bool is_runtime)
+{
+int rc = 0;
+struct pci_dev *pdev = to_pci_dev(dev);
+struct wil6210_priv *wil = pci_get_drvdata(pdev);
+wil_dbg_pm(wil, "resume: %s\n", is_runtime ? "runtime" : "system");
+pci_set_master(pdev);
+rc = wil_resume(wil, is_runtime);
+if (rc)
+pci_clear_master(pdev);
+return rc;
+}
+static int wil6210_pm_notify(struct notifier_block *notify_block,
+unsigned long mode, void *unused)
+{
+struct wil6210_priv *wil = container_of(
+notify_block, struct wil6210_priv, pm_notify);
+int rc = 0;
+enum wil_platform_event evt;
+wil_dbg_pm(wil, "pm_notify: mode (%ld)\n", mode);
+switch (mode) {
+case PM_HIBERNATION_PREPARE:
+case PM_SUSPEND_PREPARE:
+case PM_RESTORE_PREPARE:
+rc = wil_can_suspend(wil, false);
+if (rc)
+break;
+evt = WIL_PLATFORM_EVT_PRE_SUSPEND;
+if (wil->platform_ops.notify)
+rc = wil->platform_ops.notify(wil->platform_handle,
+evt);
+break;
+case PM_POST_SUSPEND:
+case PM_POST_HIBERNATION:
+case PM_POST_RESTORE:
+evt = WIL_PLATFORM_EVT_POST_SUSPEND;
+if (wil->platform_ops.notify)
+rc = wil->platform_ops.notify(wil->platform_handle,
+evt);
+break;
+default:
+wil_dbg_pm(wil, "unhandled notify mode %ld\n", mode);
+break;
+}
+wil_dbg_pm(wil, "notification mode %ld: rc (%d)\n", mode, rc);
+return rc;
+}
+static int wil6210_pm_suspend(struct device *dev)
+{
+return wil6210_suspend(dev, false);
+}
+static int wil6210_pm_resume(struct device *dev)
+{
+return wil6210_resume(dev, false);
+}
+static int __init wil6210_driver_init(void)
+{
+int rc;
+rc = wil_platform_modinit();
+if (rc)
+return rc;
+rc = pci_register_driver(&wil6210_driver);
+if (rc)
+wil_platform_modexit();
+return rc;
+}
+static void __exit wil6210_driver_exit(void)
+{
+pci_unregister_driver(&wil6210_driver);
+wil_platform_modexit();
+}

@@ -1,0 +1,1 @@
+int __init keystone_pm_runtime_init(void)\r\n{\r\nstruct device_node *np;\r\nnp = of_find_matching_node(NULL, of_keystone_table);\r\nif (!np)\r\nreturn 0;\r\npm_clk_add_notifier(&platform_bus_type, &platform_domain_notifier);\r\nreturn 0;\r\n}

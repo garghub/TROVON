@@ -1,0 +1,199 @@
+void
+hysdn_card_errlog(hysdn_card *card, tErrLogEntry *logp, int maxsize)
+{
+char buf[ERRLOG_TEXT_SIZE + 40];
+sprintf(buf, "LOG 0x%08lX 0x%08lX : %s\n", logp->ulErrType, logp->ulErrSubtype, logp->ucText);
+put_log_buffer(card, buf);
+}
+void
+hysdn_addlog(hysdn_card *card, char *fmt, ...)
+{
+struct procdata *pd = card->proclog;
+char *cp;
+va_list args;
+if (!pd)
+return;
+cp = pd->logtmp;
+cp += sprintf(cp, "HYSDN: card %d ", card->myid);
+va_start(args, fmt);
+cp += vsprintf(cp, fmt, args);
+va_end(args);
+*cp++ = '\n';
+*cp = 0;
+if (card->debug_flags & DEB_OUT_SYSLOG)
+printk(KERN_INFO "%s", pd->logtmp);
+else
+put_log_buffer(card, pd->logtmp);
+}
+static void
+put_log_buffer(hysdn_card *card, char *cp)
+{
+struct log_data *ib;
+struct procdata *pd = card->proclog;
+unsigned long flags;
+if (!pd)
+return;
+if (!cp)
+return;
+if (!*cp)
+return;
+if (pd->if_used <= 0)
+return;
+if (!(ib = kmalloc(sizeof(struct log_data) + strlen(cp), GFP_ATOMIC)))
+return;
+strcpy(ib->log_start, cp);
+ib->next = NULL;
+ib->proc_ctrl = pd;
+spin_lock_irqsave(&card->hysdn_lock, flags);
+ib->usage_cnt = pd->if_used;
+if (!pd->log_head)
+pd->log_head = ib;
+else
+pd->log_tail->next = ib;
+pd->log_tail = ib;
+while (pd->log_head->next) {
+if ((pd->log_head->usage_cnt <= 0) &&
+(pd->log_head->next->usage_cnt <= 0)) {
+ib = pd->log_head;
+pd->log_head = pd->log_head->next;
+kfree(ib);
+} else {
+break;
+}
+}
+spin_unlock_irqrestore(&card->hysdn_lock, flags);
+wake_up_interruptible(&(pd->rd_queue));
+}
+static ssize_t
+hysdn_log_write(struct file *file, const char __user *buf, size_t count, loff_t *off)
+{
+int rc;
+hysdn_card *card = file->private_data;
+rc = kstrtoul_from_user(buf, count, 0, &card->debug_flags);
+if (rc < 0)
+return rc;
+hysdn_addlog(card, "debug set to 0x%lx", card->debug_flags);
+return (count);
+}
+static ssize_t
+hysdn_log_read(struct file *file, char __user *buf, size_t count, loff_t *off)
+{
+struct log_data *inf;
+int len;
+hysdn_card *card = PDE_DATA(file_inode(file));
+if (!(inf = *((struct log_data **) file->private_data))) {
+struct procdata *pd = card->proclog;
+if (file->f_flags & O_NONBLOCK)
+return (-EAGAIN);
+wait_event_interruptible(pd->rd_queue, (inf =
+*((struct log_data **) file->private_data)));
+}
+if (!inf)
+return (0);
+inf->usage_cnt--;
+file->private_data = &inf->next;
+if ((len = strlen(inf->log_start)) <= count) {
+if (copy_to_user(buf, inf->log_start, len))
+return -EFAULT;
+*off += len;
+return (len);
+}
+return (0);
+}
+static int
+hysdn_log_open(struct inode *ino, struct file *filep)
+{
+hysdn_card *card = PDE_DATA(ino);
+mutex_lock(&hysdn_log_mutex);
+if ((filep->f_mode & (FMODE_READ | FMODE_WRITE)) == FMODE_WRITE) {
+filep->private_data = card;
+} else if ((filep->f_mode & (FMODE_READ | FMODE_WRITE)) == FMODE_READ) {
+struct procdata *pd = card->proclog;
+unsigned long flags;
+spin_lock_irqsave(&card->hysdn_lock, flags);
+pd->if_used++;
+if (pd->log_head)
+filep->private_data = &pd->log_tail->next;
+else
+filep->private_data = &pd->log_head;
+spin_unlock_irqrestore(&card->hysdn_lock, flags);
+} else {
+mutex_unlock(&hysdn_log_mutex);
+return (-EPERM);
+}
+mutex_unlock(&hysdn_log_mutex);
+return nonseekable_open(ino, filep);
+}
+static int
+hysdn_log_close(struct inode *ino, struct file *filep)
+{
+struct log_data *inf;
+struct procdata *pd;
+hysdn_card *card;
+int retval = 0;
+mutex_lock(&hysdn_log_mutex);
+if ((filep->f_mode & (FMODE_READ | FMODE_WRITE)) == FMODE_WRITE) {
+retval = 0;
+} else {
+inf = *((struct log_data **) filep->private_data);
+if (inf)
+pd = (struct procdata *) inf->proc_ctrl;
+else {
+card = PDE_DATA(file_inode(filep));
+pd = card->proclog;
+}
+if (pd)
+pd->if_used--;
+while (inf) {
+inf->usage_cnt--;
+inf = inf->next;
+}
+if (pd)
+if (pd->if_used <= 0)
+while (pd->log_head) {
+inf = pd->log_head;
+pd->log_head = pd->log_head->next;
+kfree(inf);
+}
+}
+mutex_unlock(&hysdn_log_mutex);
+return (retval);
+}
+static unsigned int
+hysdn_log_poll(struct file *file, poll_table *wait)
+{
+unsigned int mask = 0;
+hysdn_card *card = PDE_DATA(file_inode(file));
+struct procdata *pd = card->proclog;
+if ((file->f_mode & (FMODE_READ | FMODE_WRITE)) == FMODE_WRITE)
+return (mask);
+poll_wait(file, &(pd->rd_queue), wait);
+if (*((struct log_data **) file->private_data))
+mask |= POLLIN | POLLRDNORM;
+return mask;
+}
+int
+hysdn_proclog_init(hysdn_card *card)
+{
+struct procdata *pd;
+if ((pd = kzalloc(sizeof(struct procdata), GFP_KERNEL)) != NULL) {
+sprintf(pd->log_name, "%s%d", PROC_LOG_BASENAME, card->myid);
+pd->log = proc_create_data(pd->log_name,
+S_IFREG | S_IRUGO | S_IWUSR, hysdn_proc_entry,
+&log_fops, card);
+init_waitqueue_head(&(pd->rd_queue));
+card->proclog = (void *) pd;
+}
+return (0);
+}
+void
+hysdn_proclog_release(hysdn_card *card)
+{
+struct procdata *pd;
+if ((pd = (struct procdata *) card->proclog) != NULL) {
+if (pd->log)
+remove_proc_entry(pd->log_name, hysdn_proc_entry);
+kfree(pd);
+card->proclog = NULL;
+}
+}

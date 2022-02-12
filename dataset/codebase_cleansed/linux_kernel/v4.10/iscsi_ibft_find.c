@@ -1,0 +1,39 @@
+static int __init find_ibft_in_mem(void)
+{
+unsigned long pos;
+unsigned int len = 0;
+void *virt;
+int i;
+for (pos = IBFT_START; pos < IBFT_END; pos += 16) {
+if (pos == VGA_MEM)
+pos += VGA_SIZE;
+virt = isa_bus_to_virt(pos);
+for (i = 0; i < ARRAY_SIZE(ibft_signs); i++) {
+if (memcmp(virt, ibft_signs[i].sign, IBFT_SIGN_LEN) ==
+0) {
+unsigned long *addr =
+(unsigned long *)isa_bus_to_virt(pos + 4);
+len = *addr;
+if (pos + len <= (IBFT_END-1)) {
+ibft_addr = (struct acpi_table_ibft *)virt;
+pr_info("iBFT found at 0x%lx.\n", pos);
+goto done;
+}
+}
+}
+}
+done:
+return len;
+}
+unsigned long __init find_ibft_region(unsigned long *sizep)
+{
+ibft_addr = NULL;
+if (!efi_enabled(EFI_BOOT))
+find_ibft_in_mem();
+if (ibft_addr) {
+*sizep = PAGE_ALIGN(ibft_addr->header.length);
+return (u64)isa_virt_to_bus(ibft_addr);
+}
+*sizep = 0;
+return 0;
+}

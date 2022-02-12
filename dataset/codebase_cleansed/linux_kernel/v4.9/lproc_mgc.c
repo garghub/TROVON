@@ -1,0 +1,1 @@
+static int mgc_ir_state_seq_show(struct seq_file *m, void *v)\r\n{\r\nreturn lprocfs_mgc_rd_ir_state(m, m->private);\r\n}\r\nvoid lprocfs_mgc_init_vars(struct lprocfs_static_vars *lvars)\r\n{\r\nlvars->obd_vars = lprocfs_mgc_obd_vars;\r\n}

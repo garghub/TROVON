@@ -1,0 +1,222 @@
+static void erase_callback(struct erase_info *done)
+{
+wait_queue_head_t *wait_q = (wait_queue_head_t *)done->priv;
+wake_up(wait_q);
+}
+static int erase_write (struct mtd_info *mtd, unsigned long pos,
+int len, const char *buf)
+{
+struct erase_info erase;
+DECLARE_WAITQUEUE(wait, current);
+wait_queue_head_t wait_q;
+size_t retlen;
+int ret;
+init_waitqueue_head(&wait_q);
+erase.mtd = mtd;
+erase.callback = erase_callback;
+erase.addr = pos;
+erase.len = len;
+erase.priv = (u_long)&wait_q;
+set_current_state(TASK_INTERRUPTIBLE);
+add_wait_queue(&wait_q, &wait);
+ret = mtd_erase(mtd, &erase);
+if (ret) {
+set_current_state(TASK_RUNNING);
+remove_wait_queue(&wait_q, &wait);
+printk (KERN_WARNING "mtdblock: erase of region [0x%lx, 0x%x] "
+"on \"%s\" failed\n",
+pos, len, mtd->name);
+return ret;
+}
+schedule();
+remove_wait_queue(&wait_q, &wait);
+ret = mtd_write(mtd, pos, len, &retlen, buf);
+if (ret)
+return ret;
+if (retlen != len)
+return -EIO;
+return 0;
+}
+static int write_cached_data (struct mtdblk_dev *mtdblk)
+{
+struct mtd_info *mtd = mtdblk->mbd.mtd;
+int ret;
+if (mtdblk->cache_state != STATE_DIRTY)
+return 0;
+pr_debug("mtdblock: writing cached data for \"%s\" "
+"at 0x%lx, size 0x%x\n", mtd->name,
+mtdblk->cache_offset, mtdblk->cache_size);
+ret = erase_write (mtd, mtdblk->cache_offset,
+mtdblk->cache_size, mtdblk->cache_data);
+if (ret)
+return ret;
+mtdblk->cache_state = STATE_EMPTY;
+return 0;
+}
+static int do_cached_write (struct mtdblk_dev *mtdblk, unsigned long pos,
+int len, const char *buf)
+{
+struct mtd_info *mtd = mtdblk->mbd.mtd;
+unsigned int sect_size = mtdblk->cache_size;
+size_t retlen;
+int ret;
+pr_debug("mtdblock: write on \"%s\" at 0x%lx, size 0x%x\n",
+mtd->name, pos, len);
+if (!sect_size)
+return mtd_write(mtd, pos, len, &retlen, buf);
+while (len > 0) {
+unsigned long sect_start = (pos/sect_size)*sect_size;
+unsigned int offset = pos - sect_start;
+unsigned int size = sect_size - offset;
+if( size > len )
+size = len;
+if (size == sect_size) {
+ret = erase_write (mtd, pos, size, buf);
+if (ret)
+return ret;
+} else {
+if (mtdblk->cache_state == STATE_DIRTY &&
+mtdblk->cache_offset != sect_start) {
+ret = write_cached_data(mtdblk);
+if (ret)
+return ret;
+}
+if (mtdblk->cache_state == STATE_EMPTY ||
+mtdblk->cache_offset != sect_start) {
+mtdblk->cache_state = STATE_EMPTY;
+ret = mtd_read(mtd, sect_start, sect_size,
+&retlen, mtdblk->cache_data);
+if (ret)
+return ret;
+if (retlen != sect_size)
+return -EIO;
+mtdblk->cache_offset = sect_start;
+mtdblk->cache_size = sect_size;
+mtdblk->cache_state = STATE_CLEAN;
+}
+memcpy (mtdblk->cache_data + offset, buf, size);
+mtdblk->cache_state = STATE_DIRTY;
+}
+buf += size;
+pos += size;
+len -= size;
+}
+return 0;
+}
+static int do_cached_read (struct mtdblk_dev *mtdblk, unsigned long pos,
+int len, char *buf)
+{
+struct mtd_info *mtd = mtdblk->mbd.mtd;
+unsigned int sect_size = mtdblk->cache_size;
+size_t retlen;
+int ret;
+pr_debug("mtdblock: read on \"%s\" at 0x%lx, size 0x%x\n",
+mtd->name, pos, len);
+if (!sect_size)
+return mtd_read(mtd, pos, len, &retlen, buf);
+while (len > 0) {
+unsigned long sect_start = (pos/sect_size)*sect_size;
+unsigned int offset = pos - sect_start;
+unsigned int size = sect_size - offset;
+if (size > len)
+size = len;
+if (mtdblk->cache_state != STATE_EMPTY &&
+mtdblk->cache_offset == sect_start) {
+memcpy (buf, mtdblk->cache_data + offset, size);
+} else {
+ret = mtd_read(mtd, pos, size, &retlen, buf);
+if (ret)
+return ret;
+if (retlen != size)
+return -EIO;
+}
+buf += size;
+pos += size;
+len -= size;
+}
+return 0;
+}
+static int mtdblock_readsect(struct mtd_blktrans_dev *dev,
+unsigned long block, char *buf)
+{
+struct mtdblk_dev *mtdblk = container_of(dev, struct mtdblk_dev, mbd);
+return do_cached_read(mtdblk, block<<9, 512, buf);
+}
+static int mtdblock_writesect(struct mtd_blktrans_dev *dev,
+unsigned long block, char *buf)
+{
+struct mtdblk_dev *mtdblk = container_of(dev, struct mtdblk_dev, mbd);
+if (unlikely(!mtdblk->cache_data && mtdblk->cache_size)) {
+mtdblk->cache_data = vmalloc(mtdblk->mbd.mtd->erasesize);
+if (!mtdblk->cache_data)
+return -EINTR;
+}
+return do_cached_write(mtdblk, block<<9, 512, buf);
+}
+static int mtdblock_open(struct mtd_blktrans_dev *mbd)
+{
+struct mtdblk_dev *mtdblk = container_of(mbd, struct mtdblk_dev, mbd);
+pr_debug("mtdblock_open\n");
+if (mtdblk->count) {
+mtdblk->count++;
+return 0;
+}
+mtdblk->count = 1;
+mutex_init(&mtdblk->cache_mutex);
+mtdblk->cache_state = STATE_EMPTY;
+if (!(mbd->mtd->flags & MTD_NO_ERASE) && mbd->mtd->erasesize) {
+mtdblk->cache_size = mbd->mtd->erasesize;
+mtdblk->cache_data = NULL;
+}
+pr_debug("ok\n");
+return 0;
+}
+static void mtdblock_release(struct mtd_blktrans_dev *mbd)
+{
+struct mtdblk_dev *mtdblk = container_of(mbd, struct mtdblk_dev, mbd);
+pr_debug("mtdblock_release\n");
+mutex_lock(&mtdblk->cache_mutex);
+write_cached_data(mtdblk);
+mutex_unlock(&mtdblk->cache_mutex);
+if (!--mtdblk->count) {
+if (mbd->file_mode & FMODE_WRITE)
+mtd_sync(mbd->mtd);
+vfree(mtdblk->cache_data);
+}
+pr_debug("ok\n");
+}
+static int mtdblock_flush(struct mtd_blktrans_dev *dev)
+{
+struct mtdblk_dev *mtdblk = container_of(dev, struct mtdblk_dev, mbd);
+mutex_lock(&mtdblk->cache_mutex);
+write_cached_data(mtdblk);
+mutex_unlock(&mtdblk->cache_mutex);
+mtd_sync(dev->mtd);
+return 0;
+}
+static void mtdblock_add_mtd(struct mtd_blktrans_ops *tr, struct mtd_info *mtd)
+{
+struct mtdblk_dev *dev = kzalloc(sizeof(*dev), GFP_KERNEL);
+if (!dev)
+return;
+dev->mbd.mtd = mtd;
+dev->mbd.devnum = mtd->index;
+dev->mbd.size = mtd->size >> 9;
+dev->mbd.tr = tr;
+if (!(mtd->flags & MTD_WRITEABLE))
+dev->mbd.readonly = 1;
+if (add_mtd_blktrans_dev(&dev->mbd))
+kfree(dev);
+}
+static void mtdblock_remove_dev(struct mtd_blktrans_dev *dev)
+{
+del_mtd_blktrans_dev(dev);
+}
+static int __init init_mtdblock(void)
+{
+return register_mtd_blktrans(&mtdblock_tr);
+}
+static void __exit cleanup_mtdblock(void)
+{
+deregister_mtd_blktrans(&mtdblock_tr);
+}

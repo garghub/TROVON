@@ -1,0 +1,1 @@
+void ldlm_plain_policy_wire_to_local(const ldlm_wire_policy_data_t *wpolicy,\r\nldlm_policy_data_t *lpolicy)\r\n{\r\n}\r\nvoid ldlm_plain_policy_local_to_wire(const ldlm_policy_data_t *lpolicy,\r\nldlm_wire_policy_data_t *wpolicy)\r\n{\r\n}

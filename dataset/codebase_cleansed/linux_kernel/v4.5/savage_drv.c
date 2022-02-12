@@ -1,0 +1,1 @@
+static int __init savage_init(void)\r\n{\r\ndriver.num_ioctls = savage_max_ioctl;\r\nreturn drm_pci_init(&driver, &savage_pci_driver);\r\n}\r\nstatic void __exit savage_exit(void)\r\n{\r\ndrm_pci_exit(&driver, &savage_pci_driver);\r\n}

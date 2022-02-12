@@ -1,0 +1,96 @@
+static void mpc85xx_8259_cascade(struct irq_desc *desc)
+{
+struct irq_chip *chip = irq_desc_get_chip(desc);
+unsigned int cascade_irq = i8259_irq();
+if (cascade_irq != NO_IRQ) {
+generic_handle_irq(cascade_irq);
+}
+chip->irq_eoi(&desc->irq_data);
+}
+void __init mpc85xx_ds_pic_init(void)
+{
+struct mpic *mpic;
+#ifdef CONFIG_PPC_I8259
+struct device_node *np;
+struct device_node *cascade_node = NULL;
+int cascade_irq;
+#endif
+if (of_machine_is_compatible("fsl,MPC8572DS-CAMP")) {
+mpic = mpic_alloc(NULL, 0,
+MPIC_NO_RESET |
+MPIC_BIG_ENDIAN |
+MPIC_SINGLE_DEST_CPU,
+0, 256, " OpenPIC ");
+} else {
+mpic = mpic_alloc(NULL, 0,
+MPIC_BIG_ENDIAN |
+MPIC_SINGLE_DEST_CPU,
+0, 256, " OpenPIC ");
+}
+BUG_ON(mpic == NULL);
+mpic_init(mpic);
+#ifdef CONFIG_PPC_I8259
+for_each_node_by_type(np, "interrupt-controller")
+if (of_device_is_compatible(np, "chrp,iic")) {
+cascade_node = np;
+break;
+}
+if (cascade_node == NULL) {
+printk(KERN_DEBUG "Could not find i8259 PIC\n");
+return;
+}
+cascade_irq = irq_of_parse_and_map(cascade_node, 0);
+if (cascade_irq == NO_IRQ) {
+printk(KERN_ERR "Failed to map cascade interrupt\n");
+return;
+}
+DBG("mpc85xxds: cascade mapped to irq %d\n", cascade_irq);
+i8259_init(cascade_node, 0);
+of_node_put(cascade_node);
+irq_set_chained_handler(cascade_irq, mpc85xx_8259_cascade);
+#endif
+}
+static int mpc85xx_exclude_device(struct pci_controller *hose,
+u_char bus, u_char devfn)
+{
+if (hose->dn == pci_with_uli)
+return uli_exclude_device(hose, bus, devfn);
+return PCIBIOS_SUCCESSFUL;
+}
+static void __init mpc85xx_ds_uli_init(void)
+{
+#ifdef CONFIG_PCI
+struct device_node *node;
+node = of_find_node_by_name(NULL, "uli1575");
+while ((pci_with_uli = of_get_parent(node))) {
+of_node_put(node);
+node = pci_with_uli;
+if (pci_with_uli == fsl_pci_primary) {
+ppc_md.pci_exclude_device = mpc85xx_exclude_device;
+break;
+}
+}
+#endif
+}
+static void __init mpc85xx_ds_setup_arch(void)
+{
+if (ppc_md.progress)
+ppc_md.progress("mpc85xx_ds_setup_arch()", 0);
+swiotlb_detect_4g();
+fsl_pci_assign_primary();
+mpc85xx_ds_uli_init();
+mpc85xx_smp_init();
+printk("MPC85xx DS board from Freescale Semiconductor\n");
+}
+static int __init mpc8544_ds_probe(void)
+{
+return !!of_machine_is_compatible("MPC8544DS");
+}
+static int __init mpc8572_ds_probe(void)
+{
+return !!of_machine_is_compatible("fsl,MPC8572DS");
+}
+static int __init p2020_ds_probe(void)
+{
+return !!of_machine_is_compatible("fsl,P2020DS");
+}

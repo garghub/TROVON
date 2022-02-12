@@ -1,0 +1,334 @@
+static int exynos_drm_load(struct drm_device *dev, unsigned long flags)
+{
+struct exynos_drm_private *private;
+int ret;
+private = kzalloc(sizeof(struct exynos_drm_private), GFP_KERNEL);
+if (!private)
+return -ENOMEM;
+dev_set_drvdata(dev->dev, dev);
+dev->dev_private = (void *)private;
+ret = drm_create_iommu_mapping(dev);
+if (ret < 0) {
+DRM_ERROR("failed to create iommu mapping.\n");
+goto err_free_private;
+}
+drm_mode_config_init(dev);
+exynos_drm_mode_config_init(dev);
+exynos_drm_encoder_setup(dev);
+platform_set_drvdata(dev->platformdev, dev);
+ret = component_bind_all(dev->dev, dev);
+if (ret)
+goto err_mode_config_cleanup;
+ret = drm_vblank_init(dev, dev->mode_config.num_crtc);
+if (ret)
+goto err_unbind_all;
+ret = exynos_drm_device_subdrv_probe(dev);
+if (ret)
+goto err_cleanup_vblank;
+dev->irq_enabled = true;
+dev->vblank_disable_allowed = true;
+drm_kms_helper_poll_init(dev);
+drm_helper_hpd_irq_event(dev);
+return 0;
+err_cleanup_vblank:
+drm_vblank_cleanup(dev);
+err_unbind_all:
+component_unbind_all(dev->dev, dev);
+err_mode_config_cleanup:
+drm_mode_config_cleanup(dev);
+drm_release_iommu_mapping(dev);
+err_free_private:
+kfree(private);
+return ret;
+}
+static int exynos_drm_unload(struct drm_device *dev)
+{
+exynos_drm_device_subdrv_remove(dev);
+exynos_drm_fbdev_fini(dev);
+drm_kms_helper_poll_fini(dev);
+drm_vblank_cleanup(dev);
+component_unbind_all(dev->dev, dev);
+drm_mode_config_cleanup(dev);
+drm_release_iommu_mapping(dev);
+kfree(dev->dev_private);
+dev->dev_private = NULL;
+return 0;
+}
+static int exynos_drm_suspend(struct drm_device *dev, pm_message_t state)
+{
+struct drm_connector *connector;
+drm_modeset_lock_all(dev);
+list_for_each_entry(connector, &dev->mode_config.connector_list, head) {
+int old_dpms = connector->dpms;
+if (connector->funcs->dpms)
+connector->funcs->dpms(connector, DRM_MODE_DPMS_OFF);
+connector->dpms = old_dpms;
+}
+drm_modeset_unlock_all(dev);
+return 0;
+}
+static int exynos_drm_resume(struct drm_device *dev)
+{
+struct drm_connector *connector;
+drm_modeset_lock_all(dev);
+list_for_each_entry(connector, &dev->mode_config.connector_list, head) {
+if (connector->funcs->dpms) {
+int dpms = connector->dpms;
+connector->dpms = DRM_MODE_DPMS_OFF;
+connector->funcs->dpms(connector, dpms);
+}
+}
+drm_modeset_unlock_all(dev);
+return 0;
+}
+static int exynos_drm_open(struct drm_device *dev, struct drm_file *file)
+{
+struct drm_exynos_file_private *file_priv;
+int ret;
+file_priv = kzalloc(sizeof(*file_priv), GFP_KERNEL);
+if (!file_priv)
+return -ENOMEM;
+file->driver_priv = file_priv;
+ret = exynos_drm_subdrv_open(dev, file);
+if (ret)
+goto err_file_priv_free;
+return ret;
+err_file_priv_free:
+kfree(file_priv);
+file->driver_priv = NULL;
+return ret;
+}
+static void exynos_drm_preclose(struct drm_device *dev,
+struct drm_file *file)
+{
+exynos_drm_subdrv_close(dev, file);
+}
+static void exynos_drm_postclose(struct drm_device *dev, struct drm_file *file)
+{
+struct drm_pending_event *e, *et;
+unsigned long flags;
+if (!file->driver_priv)
+return;
+spin_lock_irqsave(&dev->event_lock, flags);
+list_for_each_entry_safe(e, et, &file->event_list, link) {
+list_del(&e->link);
+e->destroy(e);
+}
+spin_unlock_irqrestore(&dev->event_lock, flags);
+kfree(file->driver_priv);
+file->driver_priv = NULL;
+}
+static void exynos_drm_lastclose(struct drm_device *dev)
+{
+exynos_drm_fbdev_restore_mode(dev);
+}
+static int exynos_drm_sys_suspend(struct device *dev)
+{
+struct drm_device *drm_dev = dev_get_drvdata(dev);
+pm_message_t message;
+if (pm_runtime_suspended(dev) || !drm_dev)
+return 0;
+message.event = PM_EVENT_SUSPEND;
+return exynos_drm_suspend(drm_dev, message);
+}
+static int exynos_drm_sys_resume(struct device *dev)
+{
+struct drm_device *drm_dev = dev_get_drvdata(dev);
+if (pm_runtime_suspended(dev) || !drm_dev)
+return 0;
+return exynos_drm_resume(drm_dev);
+}
+int exynos_drm_component_add(struct device *dev,
+enum exynos_drm_device_type dev_type,
+enum exynos_drm_output_type out_type)
+{
+struct component_dev *cdev;
+if (dev_type != EXYNOS_DEVICE_TYPE_CRTC &&
+dev_type != EXYNOS_DEVICE_TYPE_CONNECTOR) {
+DRM_ERROR("invalid device type.\n");
+return -EINVAL;
+}
+mutex_lock(&drm_component_lock);
+list_for_each_entry(cdev, &drm_component_list, list) {
+if (cdev->out_type == out_type) {
+if (cdev->dev_type_flag == (EXYNOS_DEVICE_TYPE_CRTC |
+EXYNOS_DEVICE_TYPE_CONNECTOR)) {
+mutex_unlock(&drm_component_lock);
+return 0;
+}
+if (dev_type == EXYNOS_DEVICE_TYPE_CRTC) {
+cdev->crtc_dev = dev;
+cdev->dev_type_flag |= dev_type;
+}
+if (dev_type == EXYNOS_DEVICE_TYPE_CONNECTOR) {
+cdev->conn_dev = dev;
+cdev->dev_type_flag |= dev_type;
+}
+mutex_unlock(&drm_component_lock);
+return 0;
+}
+}
+mutex_unlock(&drm_component_lock);
+cdev = kzalloc(sizeof(*cdev), GFP_KERNEL);
+if (!cdev)
+return -ENOMEM;
+if (dev_type == EXYNOS_DEVICE_TYPE_CRTC)
+cdev->crtc_dev = dev;
+if (dev_type == EXYNOS_DEVICE_TYPE_CONNECTOR)
+cdev->conn_dev = dev;
+cdev->out_type = out_type;
+cdev->dev_type_flag = dev_type;
+mutex_lock(&drm_component_lock);
+list_add_tail(&cdev->list, &drm_component_list);
+mutex_unlock(&drm_component_lock);
+return 0;
+}
+void exynos_drm_component_del(struct device *dev,
+enum exynos_drm_device_type dev_type)
+{
+struct component_dev *cdev, *next;
+mutex_lock(&drm_component_lock);
+list_for_each_entry_safe(cdev, next, &drm_component_list, list) {
+if (dev_type == EXYNOS_DEVICE_TYPE_CRTC) {
+if (cdev->crtc_dev == dev) {
+cdev->crtc_dev = NULL;
+cdev->dev_type_flag &= ~dev_type;
+}
+}
+if (dev_type == EXYNOS_DEVICE_TYPE_CONNECTOR) {
+if (cdev->conn_dev == dev) {
+cdev->conn_dev = NULL;
+cdev->dev_type_flag &= ~dev_type;
+}
+}
+if (!cdev->crtc_dev && !cdev->conn_dev) {
+list_del(&cdev->list);
+kfree(cdev);
+}
+}
+mutex_unlock(&drm_component_lock);
+}
+static int compare_dev(struct device *dev, void *data)
+{
+return dev == (struct device *)data;
+}
+static struct component_match *exynos_drm_match_add(struct device *dev)
+{
+struct component_match *match = NULL;
+struct component_dev *cdev;
+unsigned int attach_cnt = 0;
+mutex_lock(&drm_component_lock);
+if (list_empty(&drm_component_list)) {
+mutex_unlock(&drm_component_lock);
+return ERR_PTR(-ENODEV);
+}
+list_for_each_entry(cdev, &drm_component_list, list) {
+if (!cdev->crtc_dev || !cdev->conn_dev)
+continue;
+attach_cnt++;
+mutex_unlock(&drm_component_lock);
+if (cdev->crtc_dev == cdev->conn_dev) {
+component_match_add(dev, &match, compare_dev,
+cdev->crtc_dev);
+goto out_lock;
+}
+component_match_add(dev, &match, compare_dev, cdev->crtc_dev);
+component_match_add(dev, &match, compare_dev, cdev->conn_dev);
+out_lock:
+mutex_lock(&drm_component_lock);
+}
+mutex_unlock(&drm_component_lock);
+return attach_cnt ? match : ERR_PTR(-EPROBE_DEFER);
+}
+static int exynos_drm_bind(struct device *dev)
+{
+return drm_platform_init(&exynos_drm_driver, to_platform_device(dev));
+}
+static void exynos_drm_unbind(struct device *dev)
+{
+drm_put_dev(dev_get_drvdata(dev));
+}
+static int exynos_drm_platform_probe(struct platform_device *pdev)
+{
+struct component_match *match;
+pdev->dev.coherent_dma_mask = DMA_BIT_MASK(32);
+exynos_drm_driver.num_ioctls = ARRAY_SIZE(exynos_ioctls);
+match = exynos_drm_match_add(&pdev->dev);
+if (IS_ERR(match)) {
+return PTR_ERR(match);
+}
+return component_master_add_with_match(&pdev->dev, &exynos_drm_ops,
+match);
+}
+static int exynos_drm_platform_remove(struct platform_device *pdev)
+{
+component_master_del(&pdev->dev, &exynos_drm_ops);
+return 0;
+}
+static int exynos_drm_init(void)
+{
+bool is_exynos = false;
+int ret, i, j;
+for (i = 0; i < ARRAY_SIZE(strings); i++) {
+if (of_machine_is_compatible(strings[i])) {
+is_exynos = true;
+break;
+}
+}
+if (!is_exynos)
+return -ENODEV;
+exynos_drm_pdev = platform_device_register_simple("exynos-drm", -1,
+NULL, 0);
+if (IS_ERR(exynos_drm_pdev))
+return PTR_ERR(exynos_drm_pdev);
+ret = exynos_drm_probe_vidi();
+if (ret < 0)
+goto err_unregister_pd;
+for (i = 0; i < ARRAY_SIZE(exynos_drm_kms_drivers); ++i) {
+ret = platform_driver_register(exynos_drm_kms_drivers[i]);
+if (ret < 0)
+goto err_unregister_kms_drivers;
+}
+for (j = 0; j < ARRAY_SIZE(exynos_drm_non_kms_drivers); ++j) {
+ret = platform_driver_register(exynos_drm_non_kms_drivers[j]);
+if (ret < 0)
+goto err_unregister_non_kms_drivers;
+}
+#ifdef CONFIG_DRM_EXYNOS_IPP
+ret = exynos_platform_device_ipp_register();
+if (ret < 0)
+goto err_unregister_non_kms_drivers;
+#endif
+ret = platform_driver_register(&exynos_drm_platform_driver);
+if (ret)
+goto err_unregister_resources;
+return 0;
+err_unregister_resources:
+#ifdef CONFIG_DRM_EXYNOS_IPP
+exynos_platform_device_ipp_unregister();
+#endif
+err_unregister_non_kms_drivers:
+while (--j >= 0)
+platform_driver_unregister(exynos_drm_non_kms_drivers[j]);
+err_unregister_kms_drivers:
+while (--i >= 0)
+platform_driver_unregister(exynos_drm_kms_drivers[i]);
+exynos_drm_remove_vidi();
+err_unregister_pd:
+platform_device_unregister(exynos_drm_pdev);
+return ret;
+}
+static void exynos_drm_exit(void)
+{
+int i;
+#ifdef CONFIG_DRM_EXYNOS_IPP
+exynos_platform_device_ipp_unregister();
+#endif
+for (i = ARRAY_SIZE(exynos_drm_non_kms_drivers) - 1; i >= 0; --i)
+platform_driver_unregister(exynos_drm_non_kms_drivers[i]);
+for (i = ARRAY_SIZE(exynos_drm_kms_drivers) - 1; i >= 0; --i)
+platform_driver_unregister(exynos_drm_kms_drivers[i]);
+platform_driver_unregister(&exynos_drm_platform_driver);
+exynos_drm_remove_vidi();
+platform_device_unregister(exynos_drm_pdev);
+}

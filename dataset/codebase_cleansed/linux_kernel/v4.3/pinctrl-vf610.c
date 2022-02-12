@@ -1,0 +1,1 @@
+static int vf610_pinctrl_probe(struct platform_device *pdev)\r\n{\r\nreturn imx_pinctrl_probe(pdev, &vf610_pinctrl_info);\r\n}\r\nstatic int __init vf610_pinctrl_init(void)\r\n{\r\nreturn platform_driver_register(&vf610_pinctrl_driver);\r\n}\r\nstatic void __exit vf610_pinctrl_exit(void)\r\n{\r\nplatform_driver_unregister(&vf610_pinctrl_driver);\r\n}

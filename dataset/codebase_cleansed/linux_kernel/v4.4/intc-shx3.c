@@ -1,0 +1,1 @@
+unsigned int irq_lookup(unsigned int irq)\r\n{\r\nreturn __raw_readl(INTACK) & 1 ? irq : NO_IRQ_IGNORE;\r\n}\r\nvoid irq_finish(unsigned int irq)\r\n{\r\n__raw_writel(irq2evt(irq), INTACKCLR);\r\n}\r\nstatic int __init shx3_irq_setup(void)\r\n{\r\nreturn register_intc_userimask(INTC_USERIMASK);\r\n}

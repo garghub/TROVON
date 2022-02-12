@@ -1,0 +1,1 @@
+void sha256_mb_mgr_init_avx2(struct sha256_mb_mgr *state)\r\n{\r\nunsigned int j;\r\nstate->unused_lanes = 0xF76543210ULL;\r\nfor (j = 0; j < 8; j++) {\r\nstate->lens[j] = 0xFFFFFFFF;\r\nstate->ldata[j].job_in_lane = NULL;\r\n}\r\n}

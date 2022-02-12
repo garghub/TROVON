@@ -1,0 +1,1 @@
+static u64 notrace versatile_sys_24mhz_read(void)\r\n{\r\nreturn readl(versatile_sys_24mhz);\r\n}\r\nstatic void __init versatile_sched_clock_init(struct device_node *node)\r\n{\r\nvoid __iomem *base = of_iomap(node, 0);\r\nif (!base)\r\nreturn;\r\nversatile_sys_24mhz = base + SYS_24MHZ;\r\nsched_clock_register(versatile_sys_24mhz_read, 32, 24000000);\r\n}

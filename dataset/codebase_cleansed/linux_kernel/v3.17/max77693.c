@@ -1,0 +1,123 @@
+static int max77693_chg_is_enabled(struct regulator_dev *rdev)
+{
+int ret;
+unsigned int val;
+ret = regmap_read(rdev->regmap, rdev->desc->enable_reg, &val);
+if (ret)
+return ret;
+return (val & rdev->desc->enable_mask) == rdev->desc->enable_mask;
+}
+static int max77693_chg_get_current_limit(struct regulator_dev *rdev)
+{
+unsigned int chg_min_uA = rdev->constraints->min_uA;
+unsigned int chg_max_uA = rdev->constraints->max_uA;
+unsigned int reg, sel;
+unsigned int val;
+int ret;
+ret = regmap_read(rdev->regmap, MAX77693_CHG_REG_CHG_CNFG_09, &reg);
+if (ret < 0)
+return ret;
+sel = reg & CHG_CNFG_09_CHGIN_ILIM_MASK;
+if (sel <= 3)
+sel = 0;
+else
+sel -= 3;
+val = chg_min_uA + CHGIN_ILIM_STEP_20mA * sel;
+if (val > chg_max_uA)
+return -EINVAL;
+return val;
+}
+static int max77693_chg_set_current_limit(struct regulator_dev *rdev,
+int min_uA, int max_uA)
+{
+unsigned int chg_min_uA = rdev->constraints->min_uA;
+int sel = 0;
+while (chg_min_uA + CHGIN_ILIM_STEP_20mA * sel < min_uA)
+sel++;
+if (chg_min_uA + CHGIN_ILIM_STEP_20mA * sel > max_uA)
+return -EINVAL;
+sel += 3;
+return regmap_write(rdev->regmap,
+MAX77693_CHG_REG_CHG_CNFG_09, sel);
+}
+static int max77693_pmic_dt_parse_rdata(struct device *dev,
+struct max77693_regulator_data **rdata)
+{
+struct device_node *np;
+struct of_regulator_match *rmatch;
+struct max77693_regulator_data *tmp;
+int i, matched = 0;
+np = of_get_child_by_name(dev->parent->of_node, "regulators");
+if (!np)
+return -EINVAL;
+rmatch = devm_kzalloc(dev,
+sizeof(*rmatch) * ARRAY_SIZE(regulators), GFP_KERNEL);
+if (!rmatch) {
+of_node_put(np);
+return -ENOMEM;
+}
+for (i = 0; i < ARRAY_SIZE(regulators); i++)
+rmatch[i].name = regulators[i].name;
+matched = of_regulator_match(dev, np, rmatch, ARRAY_SIZE(regulators));
+of_node_put(np);
+if (matched <= 0)
+return matched;
+*rdata = devm_kzalloc(dev, sizeof(**rdata) * matched, GFP_KERNEL);
+if (!(*rdata))
+return -ENOMEM;
+tmp = *rdata;
+for (i = 0; i < matched; i++) {
+tmp->initdata = rmatch[i].init_data;
+tmp->of_node = rmatch[i].of_node;
+tmp->id = regulators[i].id;
+tmp++;
+}
+return matched;
+}
+static int max77693_pmic_dt_parse_rdata(struct device *dev,
+struct max77693_regulator_data **rdata)
+{
+return 0;
+}
+static int max77693_pmic_init_rdata(struct device *dev,
+struct max77693_regulator_data **rdata)
+{
+struct max77693_platform_data *pdata;
+int num_regulators = 0;
+pdata = dev_get_platdata(dev->parent);
+if (pdata) {
+*rdata = pdata->regulators;
+num_regulators = pdata->num_regulators;
+}
+if (!(*rdata) && dev->parent->of_node)
+num_regulators = max77693_pmic_dt_parse_rdata(dev, rdata);
+return num_regulators;
+}
+static int max77693_pmic_probe(struct platform_device *pdev)
+{
+struct max77693_dev *iodev = dev_get_drvdata(pdev->dev.parent);
+struct max77693_regulator_data *rdata = NULL;
+int num_rdata, i;
+struct regulator_config config;
+num_rdata = max77693_pmic_init_rdata(&pdev->dev, &rdata);
+if (!rdata || num_rdata <= 0) {
+dev_err(&pdev->dev, "No init data supplied.\n");
+return -ENODEV;
+}
+config.dev = &pdev->dev;
+config.regmap = iodev->regmap;
+for (i = 0; i < num_rdata; i++) {
+int id = rdata[i].id;
+struct regulator_dev *rdev;
+config.init_data = rdata[i].initdata;
+config.of_node = rdata[i].of_node;
+rdev = devm_regulator_register(&pdev->dev,
+&regulators[id], &config);
+if (IS_ERR(rdev)) {
+dev_err(&pdev->dev,
+"Failed to initialize regulator-%d\n", id);
+return PTR_ERR(rdev);
+}
+}
+return 0;
+}

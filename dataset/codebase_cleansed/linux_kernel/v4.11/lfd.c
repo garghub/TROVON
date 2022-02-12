@@ -1,0 +1,1 @@
+int\r\nlfd(void *frD, void *ea)\r\n{\r\nif (copy_from_user(frD, ea, sizeof(double)))\r\nreturn -EFAULT;\r\n#ifdef DEBUG\r\nprintk("%s: D %p, ea %p: ", __func__, frD, ea);\r\ndump_double(frD);\r\nprintk("\n");\r\n#endif\r\nreturn 0;\r\n}

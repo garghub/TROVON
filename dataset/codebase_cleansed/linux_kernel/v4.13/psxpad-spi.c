@@ -1,0 +1,246 @@
+static int psxpad_command(struct psxpad *pad, const u8 sendcmdlen)
+{
+struct spi_transfer xfers = {
+.tx_buf = pad->sendbuf,
+.rx_buf = pad->response,
+.len = sendcmdlen,
+};
+int err;
+err = spi_sync_transfer(pad->spi, &xfers, 1);
+if (err) {
+dev_err(&pad->spi->dev,
+"%s: failed to SPI xfers mode: %d\n",
+__func__, err);
+return err;
+}
+return 0;
+}
+static void psxpad_control_motor(struct psxpad *pad,
+bool motor1enable, bool motor2enable)
+{
+int err;
+pad->motor1enable = motor1enable;
+pad->motor2enable = motor2enable;
+memcpy(pad->sendbuf, PSX_CMD_ENTER_CFG, sizeof(PSX_CMD_ENTER_CFG));
+err = psxpad_command(pad, sizeof(PSX_CMD_ENTER_CFG));
+if (err) {
+dev_err(&pad->spi->dev,
+"%s: failed to enter config mode: %d\n",
+__func__, err);
+return;
+}
+memcpy(pad->sendbuf, PSX_CMD_ENABLE_MOTOR,
+sizeof(PSX_CMD_ENABLE_MOTOR));
+pad->sendbuf[3] = pad->motor1enable ? 0x00 : 0xFF;
+pad->sendbuf[4] = pad->motor2enable ? 0x80 : 0xFF;
+err = psxpad_command(pad, sizeof(PSX_CMD_ENABLE_MOTOR));
+if (err) {
+dev_err(&pad->spi->dev,
+"%s: failed to enable motor mode: %d\n",
+__func__, err);
+return;
+}
+memcpy(pad->sendbuf, PSX_CMD_EXIT_CFG, sizeof(PSX_CMD_EXIT_CFG));
+err = psxpad_command(pad, sizeof(PSX_CMD_EXIT_CFG));
+if (err) {
+dev_err(&pad->spi->dev,
+"%s: failed to exit config mode: %d\n",
+__func__, err);
+return;
+}
+}
+static void psxpad_set_motor_level(struct psxpad *pad,
+u8 motor1level, u8 motor2level)
+{
+pad->motor1level = motor1level ? 0xFF : 0x00;
+pad->motor2level = REVERSE_BIT(motor2level);
+}
+static int psxpad_spi_play_effect(struct input_dev *idev,
+void *data, struct ff_effect *effect)
+{
+struct input_polled_dev *pdev = input_get_drvdata(idev);
+struct psxpad *pad = pdev->private;
+switch (effect->type) {
+case FF_RUMBLE:
+psxpad_set_motor_level(pad,
+(effect->u.rumble.weak_magnitude >> 8) & 0xFFU,
+(effect->u.rumble.strong_magnitude >> 8) & 0xFFU);
+break;
+}
+return 0;
+}
+static int psxpad_spi_init_ff(struct psxpad *pad)
+{
+int err;
+input_set_capability(pad->pdev->input, EV_FF, FF_RUMBLE);
+err = input_ff_create_memless(pad->pdev->input, NULL,
+psxpad_spi_play_effect);
+if (err) {
+dev_err(&pad->spi->dev,
+"input_ff_create_memless() failed: %d\n", err);
+return err;
+}
+return 0;
+}
+static void psxpad_control_motor(struct psxpad *pad,
+bool motor1enable, bool motor2enable)
+{
+}
+static void psxpad_set_motor_level(struct psxpad *pad,
+u8 motor1level, u8 motor2level)
+{
+}
+static inline int psxpad_spi_init_ff(struct psxpad *pad)
+{
+return 0;
+}
+static void psxpad_spi_poll_open(struct input_polled_dev *pdev)
+{
+struct psxpad *pad = pdev->private;
+pm_runtime_get_sync(&pad->spi->dev);
+}
+static void psxpad_spi_poll_close(struct input_polled_dev *pdev)
+{
+struct psxpad *pad = pdev->private;
+pm_runtime_put_sync(&pad->spi->dev);
+}
+static void psxpad_spi_poll(struct input_polled_dev *pdev)
+{
+struct psxpad *pad = pdev->private;
+struct input_dev *input = pdev->input;
+u8 b_rsp3, b_rsp4;
+int err;
+psxpad_control_motor(pad, true, true);
+memcpy(pad->sendbuf, PSX_CMD_POLL, sizeof(PSX_CMD_POLL));
+pad->sendbuf[3] = pad->motor1enable ? pad->motor1level : 0x00;
+pad->sendbuf[4] = pad->motor2enable ? pad->motor2level : 0x00;
+err = psxpad_command(pad, sizeof(PSX_CMD_POLL));
+if (err) {
+dev_err(&pad->spi->dev,
+"%s: poll command failed mode: %d\n", __func__, err);
+return;
+}
+switch (pad->response[1]) {
+case 0xCE:
+b_rsp3 = ~pad->response[3];
+b_rsp4 = ~pad->response[4];
+input_report_abs(input, ABS_X, REVERSE_BIT(pad->response[7]));
+input_report_abs(input, ABS_Y, REVERSE_BIT(pad->response[8]));
+input_report_abs(input, ABS_RX, REVERSE_BIT(pad->response[5]));
+input_report_abs(input, ABS_RY, REVERSE_BIT(pad->response[6]));
+input_report_key(input, BTN_DPAD_UP, b_rsp3 & BIT(3));
+input_report_key(input, BTN_DPAD_DOWN, b_rsp3 & BIT(1));
+input_report_key(input, BTN_DPAD_LEFT, b_rsp3 & BIT(0));
+input_report_key(input, BTN_DPAD_RIGHT, b_rsp3 & BIT(2));
+input_report_key(input, BTN_X, b_rsp4 & BIT(3));
+input_report_key(input, BTN_A, b_rsp4 & BIT(2));
+input_report_key(input, BTN_B, b_rsp4 & BIT(1));
+input_report_key(input, BTN_Y, b_rsp4 & BIT(0));
+input_report_key(input, BTN_TL, b_rsp4 & BIT(5));
+input_report_key(input, BTN_TR, b_rsp4 & BIT(4));
+input_report_key(input, BTN_TL2, b_rsp4 & BIT(7));
+input_report_key(input, BTN_TR2, b_rsp4 & BIT(6));
+input_report_key(input, BTN_THUMBL, b_rsp3 & BIT(6));
+input_report_key(input, BTN_THUMBR, b_rsp3 & BIT(5));
+input_report_key(input, BTN_SELECT, b_rsp3 & BIT(7));
+input_report_key(input, BTN_START, b_rsp3 & BIT(4));
+break;
+case 0x82:
+b_rsp3 = ~pad->response[3];
+b_rsp4 = ~pad->response[4];
+input_report_abs(input, ABS_X, 0x80);
+input_report_abs(input, ABS_Y, 0x80);
+input_report_abs(input, ABS_RX, 0x80);
+input_report_abs(input, ABS_RY, 0x80);
+input_report_key(input, BTN_DPAD_UP, b_rsp3 & BIT(3));
+input_report_key(input, BTN_DPAD_DOWN, b_rsp3 & BIT(1));
+input_report_key(input, BTN_DPAD_LEFT, b_rsp3 & BIT(0));
+input_report_key(input, BTN_DPAD_RIGHT, b_rsp3 & BIT(2));
+input_report_key(input, BTN_X, b_rsp4 & BIT(3));
+input_report_key(input, BTN_A, b_rsp4 & BIT(2));
+input_report_key(input, BTN_B, b_rsp4 & BIT(1));
+input_report_key(input, BTN_Y, b_rsp4 & BIT(0));
+input_report_key(input, BTN_TL, b_rsp4 & BIT(5));
+input_report_key(input, BTN_TR, b_rsp4 & BIT(4));
+input_report_key(input, BTN_TL2, b_rsp4 & BIT(7));
+input_report_key(input, BTN_TR2, b_rsp4 & BIT(6));
+input_report_key(input, BTN_THUMBL, false);
+input_report_key(input, BTN_THUMBR, false);
+input_report_key(input, BTN_SELECT, b_rsp3 & BIT(7));
+input_report_key(input, BTN_START, b_rsp3 & BIT(4));
+break;
+}
+input_sync(input);
+}
+static int psxpad_spi_probe(struct spi_device *spi)
+{
+struct psxpad *pad;
+struct input_polled_dev *pdev;
+struct input_dev *idev;
+int err;
+pad = devm_kzalloc(&spi->dev, sizeof(struct psxpad), GFP_KERNEL);
+if (!pad)
+return -ENOMEM;
+pdev = input_allocate_polled_device();
+if (!pdev) {
+dev_err(&spi->dev, "failed to allocate input device\n");
+return -ENOMEM;
+}
+pad->pdev = pdev;
+pad->spi = spi;
+pdev->private = pad;
+pdev->open = psxpad_spi_poll_open;
+pdev->close = psxpad_spi_poll_close;
+pdev->poll = psxpad_spi_poll;
+pdev->poll_interval = 16;
+pdev->poll_interval_min = 8;
+pdev->poll_interval_max = 32;
+idev = pdev->input;
+idev->name = "PlayStation 1/2 joypad";
+snprintf(pad->phys, sizeof(pad->phys), "%s/input", dev_name(&spi->dev));
+idev->id.bustype = BUS_SPI;
+input_set_abs_params(idev, ABS_X, 0, 255, 0, 0);
+input_set_abs_params(idev, ABS_Y, 0, 255, 0, 0);
+input_set_abs_params(idev, ABS_RX, 0, 255, 0, 0);
+input_set_abs_params(idev, ABS_RY, 0, 255, 0, 0);
+input_set_capability(idev, EV_KEY, BTN_DPAD_UP);
+input_set_capability(idev, EV_KEY, BTN_DPAD_DOWN);
+input_set_capability(idev, EV_KEY, BTN_DPAD_LEFT);
+input_set_capability(idev, EV_KEY, BTN_DPAD_RIGHT);
+input_set_capability(idev, EV_KEY, BTN_A);
+input_set_capability(idev, EV_KEY, BTN_B);
+input_set_capability(idev, EV_KEY, BTN_X);
+input_set_capability(idev, EV_KEY, BTN_Y);
+input_set_capability(idev, EV_KEY, BTN_TL);
+input_set_capability(idev, EV_KEY, BTN_TR);
+input_set_capability(idev, EV_KEY, BTN_TL2);
+input_set_capability(idev, EV_KEY, BTN_TR2);
+input_set_capability(idev, EV_KEY, BTN_THUMBL);
+input_set_capability(idev, EV_KEY, BTN_THUMBR);
+input_set_capability(idev, EV_KEY, BTN_SELECT);
+input_set_capability(idev, EV_KEY, BTN_START);
+err = psxpad_spi_init_ff(pad);
+if (err)
+return err;
+spi->mode = SPI_MODE_3;
+spi->bits_per_word = 8;
+spi->master->min_speed_hz = 125000;
+spi->master->max_speed_hz = 125000;
+spi_setup(spi);
+psxpad_set_motor_level(pad, 0, 0);
+err = input_register_polled_device(pdev);
+if (err) {
+dev_err(&spi->dev,
+"failed to register input poll device: %d\n", err);
+return err;
+}
+pm_runtime_enable(&spi->dev);
+return 0;
+}
+static int __maybe_unused psxpad_spi_suspend(struct device *dev)
+{
+struct spi_device *spi = to_spi_device(dev);
+struct psxpad *pad = spi_get_drvdata(spi);
+psxpad_set_motor_level(pad, 0, 0);
+return 0;
+}

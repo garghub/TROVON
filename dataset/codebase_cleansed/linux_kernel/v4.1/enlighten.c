@@ -1,0 +1,159 @@
+int xen_remap_domain_mfn_array(struct vm_area_struct *vma,
+unsigned long addr,
+xen_pfn_t *mfn, int nr,
+int *err_ptr, pgprot_t prot,
+unsigned domid,
+struct page **pages)
+{
+return xen_xlate_remap_gfn_array(vma, addr, mfn, nr, err_ptr,
+prot, domid, pages);
+}
+int xen_remap_domain_mfn_range(struct vm_area_struct *vma,
+unsigned long addr,
+xen_pfn_t mfn, int nr,
+pgprot_t prot, unsigned domid,
+struct page **pages)
+{
+return -ENOSYS;
+}
+int xen_unmap_domain_mfn_range(struct vm_area_struct *vma,
+int nr, struct page **pages)
+{
+return xen_xlate_unmap_gfn_range(vma, nr, pages);
+}
+static void xen_percpu_init(void)
+{
+struct vcpu_register_vcpu_info info;
+struct vcpu_info *vcpup;
+int err;
+int cpu = get_cpu();
+pr_info("Xen: initializing cpu%d\n", cpu);
+vcpup = per_cpu_ptr(xen_vcpu_info, cpu);
+info.mfn = __pa(vcpup) >> PAGE_SHIFT;
+info.offset = offset_in_page(vcpup);
+err = HYPERVISOR_vcpu_op(VCPUOP_register_vcpu_info, cpu, &info);
+BUG_ON(err);
+per_cpu(xen_vcpu, cpu) = vcpup;
+enable_percpu_irq(xen_events_irq, 0);
+put_cpu();
+}
+static void xen_restart(enum reboot_mode reboot_mode, const char *cmd)
+{
+struct sched_shutdown r = { .reason = SHUTDOWN_reboot };
+int rc;
+rc = HYPERVISOR_sched_op(SCHEDOP_shutdown, &r);
+BUG_ON(rc);
+}
+static void xen_power_off(void)
+{
+struct sched_shutdown r = { .reason = SHUTDOWN_poweroff };
+int rc;
+rc = HYPERVISOR_sched_op(SCHEDOP_shutdown, &r);
+BUG_ON(rc);
+}
+static int xen_cpu_notification(struct notifier_block *self,
+unsigned long action,
+void *hcpu)
+{
+switch (action) {
+case CPU_STARTING:
+xen_percpu_init();
+break;
+default:
+break;
+}
+return NOTIFY_OK;
+}
+static irqreturn_t xen_arm_callback(int irq, void *arg)
+{
+xen_hvm_evtchn_do_upcall();
+return IRQ_HANDLED;
+}
+static int __init xen_guest_init(void)
+{
+struct xen_add_to_physmap xatp;
+static struct shared_info *shared_info_page = 0;
+struct device_node *node;
+int len;
+const char *s = NULL;
+const char *version = NULL;
+const char *xen_prefix = "xen,xen-";
+struct resource res;
+phys_addr_t grant_frames;
+node = of_find_compatible_node(NULL, NULL, "xen,xen");
+if (!node) {
+pr_debug("No Xen support\n");
+return 0;
+}
+s = of_get_property(node, "compatible", &len);
+if (strlen(xen_prefix) + 3 < len &&
+!strncmp(xen_prefix, s, strlen(xen_prefix)))
+version = s + strlen(xen_prefix);
+if (version == NULL) {
+pr_debug("Xen version not found\n");
+return 0;
+}
+if (of_address_to_resource(node, GRANT_TABLE_PHYSADDR, &res))
+return 0;
+grant_frames = res.start;
+xen_events_irq = irq_of_parse_and_map(node, 0);
+pr_info("Xen %s support found, events_irq=%d gnttab_frame=%pa\n",
+version, xen_events_irq, &grant_frames);
+if (xen_events_irq < 0)
+return -ENODEV;
+xen_domain_type = XEN_HVM_DOMAIN;
+xen_setup_features();
+if (xen_feature(XENFEAT_dom0))
+xen_start_info->flags |= SIF_INITDOMAIN|SIF_PRIVILEGED;
+else
+xen_start_info->flags &= ~(SIF_INITDOMAIN|SIF_PRIVILEGED);
+if (!shared_info_page)
+shared_info_page = (struct shared_info *)
+get_zeroed_page(GFP_KERNEL);
+if (!shared_info_page) {
+pr_err("not enough memory\n");
+return -ENOMEM;
+}
+xatp.domid = DOMID_SELF;
+xatp.idx = 0;
+xatp.space = XENMAPSPACE_shared_info;
+xatp.gpfn = __pa(shared_info_page) >> PAGE_SHIFT;
+if (HYPERVISOR_memory_op(XENMEM_add_to_physmap, &xatp))
+BUG();
+HYPERVISOR_shared_info = (struct shared_info *)shared_info_page;
+xen_vcpu_info = __alloc_percpu(sizeof(struct vcpu_info),
+sizeof(struct vcpu_info));
+if (xen_vcpu_info == NULL)
+return -ENOMEM;
+if (gnttab_setup_auto_xlat_frames(grant_frames)) {
+free_percpu(xen_vcpu_info);
+return -ENOMEM;
+}
+gnttab_init();
+if (!xen_initial_domain())
+xenbus_probe(NULL);
+disable_cpuidle();
+disable_cpufreq();
+xen_init_IRQ();
+if (request_percpu_irq(xen_events_irq, xen_arm_callback,
+"events", &xen_vcpu)) {
+pr_err("Error request IRQ %d\n", xen_events_irq);
+return -EINVAL;
+}
+xen_percpu_init();
+register_cpu_notifier(&xen_cpu_notifier);
+return 0;
+}
+static int __init xen_pm_init(void)
+{
+if (!xen_domain())
+return -ENODEV;
+pm_power_off = xen_power_off;
+arm_pm_restart = xen_restart;
+return 0;
+}
+void xen_arch_pre_suspend(void) { }
+void xen_arch_post_suspend(int suspend_cancelled) { }
+void xen_timer_resume(void) { }
+void xen_arch_resume(void) { }
+void xen_arch_suspend(void) { }

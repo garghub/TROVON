@@ -1,0 +1,1 @@
+int host1x05_init(struct host1x *host)\r\n{\r\nhost->channel_op = &host1x_channel_ops;\r\nhost->cdma_op = &host1x_cdma_ops;\r\nhost->cdma_pb_op = &host1x_pushbuffer_ops;\r\nhost->syncpt_op = &host1x_syncpt_ops;\r\nhost->intr_op = &host1x_intr_ops;\r\nhost->debug_op = &host1x_debug_ops;\r\nreturn 0;\r\n}

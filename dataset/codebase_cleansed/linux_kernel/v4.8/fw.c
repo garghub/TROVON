@@ -1,0 +1,1 @@
+static\r\nvoid wil_memset_toio_32(volatile void __iomem *dst, u32 val,\r\nsize_t count)\r\n{\r\nvolatile u32 __iomem *d = dst;\r\nfor (count += 4; count > 4; count -= 4)\r\n__raw_writel(val, d++);\r\n}

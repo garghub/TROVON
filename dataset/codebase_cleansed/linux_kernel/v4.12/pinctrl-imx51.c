@@ -1,0 +1,1 @@
+static int imx51_pinctrl_probe(struct platform_device *pdev)\r\n{\r\nreturn imx_pinctrl_probe(pdev, &imx51_pinctrl_info);\r\n}\r\nstatic int __init imx51_pinctrl_init(void)\r\n{\r\nreturn platform_driver_register(&imx51_pinctrl_driver);\r\n}

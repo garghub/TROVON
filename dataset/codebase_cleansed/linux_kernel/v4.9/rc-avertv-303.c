@@ -1,0 +1,1 @@
+static int __init init_rc_map_avertv_303(void)\r\n{\r\nreturn rc_map_register(&avertv_303_map);\r\n}\r\nstatic void __exit exit_rc_map_avertv_303(void)\r\n{\r\nrc_map_unregister(&avertv_303_map);\r\n}

@@ -1,0 +1,1 @@
+void tegra30_lp1_iram_hook(void)\r\n{\r\ntegra_lp1_iram.start_addr = &tegra30_iram_start;\r\ntegra_lp1_iram.end_addr = &tegra30_iram_end;\r\n}\r\nvoid tegra30_sleep_core_init(void)\r\n{\r\ntegra_sleep_core_finish = tegra30_sleep_core_finish;\r\n}

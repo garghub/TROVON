@@ -1,0 +1,1 @@
+static void __init ape6evm_add_standard_devices(void)\r\n{\r\nstruct clk *parent;\r\nstruct clk *mp;\r\nr8a73a4_clock_init();\r\nparent = clk_get(NULL, "extal2");\r\nmp = clk_get(NULL, "mp");\r\nBUG_ON(IS_ERR(parent) || IS_ERR(mp));\r\nclk_set_parent(mp, parent);\r\nclk_put(parent);\r\nclk_put(mp);\r\nof_platform_populate(NULL, of_default_bus_match_table, NULL, NULL);\r\n}

@@ -1,0 +1,1 @@
+int blk_mq_pci_map_queues(struct blk_mq_tag_set *set, struct pci_dev *pdev)\r\n{\r\nconst struct cpumask *mask;\r\nunsigned int queue, cpu;\r\nfor (queue = 0; queue < set->nr_hw_queues; queue++) {\r\nmask = pci_irq_get_affinity(pdev, queue);\r\nif (!mask)\r\nreturn -EINVAL;\r\nfor_each_cpu(cpu, mask)\r\nset->mq_map[cpu] = queue;\r\n}\r\nreturn 0;\r\n}

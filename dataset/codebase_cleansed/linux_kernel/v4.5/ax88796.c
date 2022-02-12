@@ -1,0 +1,586 @@
+static inline struct ax_device *to_ax_dev(struct net_device *dev)
+{
+struct ei_device *ei_local = netdev_priv(dev);
+return (struct ax_device *)(ei_local + 1);
+}
+static int ax_initial_check(struct net_device *dev)
+{
+struct ei_device *ei_local = netdev_priv(dev);
+void __iomem *ioaddr = ei_local->mem;
+int reg0;
+int regd;
+reg0 = ei_inb(ioaddr);
+if (reg0 == 0xFF)
+return -ENODEV;
+ei_outb(E8390_NODMA + E8390_PAGE1 + E8390_STOP, ioaddr + E8390_CMD);
+regd = ei_inb(ioaddr + 0x0d);
+ei_outb(0xff, ioaddr + 0x0d);
+ei_outb(E8390_NODMA + E8390_PAGE0, ioaddr + E8390_CMD);
+ei_inb(ioaddr + EN0_COUNTER0);
+if (ei_inb(ioaddr + EN0_COUNTER0) != 0) {
+ei_outb(reg0, ioaddr);
+ei_outb(regd, ioaddr + 0x0d);
+return -ENODEV;
+}
+return 0;
+}
+static void ax_reset_8390(struct net_device *dev)
+{
+struct ei_device *ei_local = netdev_priv(dev);
+unsigned long reset_start_time = jiffies;
+void __iomem *addr = (void __iomem *)dev->base_addr;
+netif_dbg(ei_local, hw, dev, "resetting the 8390 t=%ld...\n", jiffies);
+ei_outb(ei_inb(addr + NE_RESET), addr + NE_RESET);
+ei_local->txing = 0;
+ei_local->dmaing = 0;
+while ((ei_inb(addr + EN0_ISR) & ENISR_RESET) == 0) {
+if (time_after(jiffies, reset_start_time + 2 * HZ / 100)) {
+netdev_warn(dev, "%s: did not complete.\n", __func__);
+break;
+}
+}
+ei_outb(ENISR_RESET, addr + EN0_ISR);
+}
+static void ax_get_8390_hdr(struct net_device *dev, struct e8390_pkt_hdr *hdr,
+int ring_page)
+{
+struct ei_device *ei_local = netdev_priv(dev);
+void __iomem *nic_base = ei_local->mem;
+if (ei_local->dmaing) {
+netdev_err(dev, "DMAing conflict in %s "
+"[DMAstat:%d][irqlock:%d].\n",
+__func__,
+ei_local->dmaing, ei_local->irqlock);
+return;
+}
+ei_local->dmaing |= 0x01;
+ei_outb(E8390_NODMA + E8390_PAGE0 + E8390_START, nic_base + NE_CMD);
+ei_outb(sizeof(struct e8390_pkt_hdr), nic_base + EN0_RCNTLO);
+ei_outb(0, nic_base + EN0_RCNTHI);
+ei_outb(0, nic_base + EN0_RSARLO);
+ei_outb(ring_page, nic_base + EN0_RSARHI);
+ei_outb(E8390_RREAD+E8390_START, nic_base + NE_CMD);
+if (ei_local->word16)
+ioread16_rep(nic_base + NE_DATAPORT, hdr,
+sizeof(struct e8390_pkt_hdr) >> 1);
+else
+ioread8_rep(nic_base + NE_DATAPORT, hdr,
+sizeof(struct e8390_pkt_hdr));
+ei_outb(ENISR_RDC, nic_base + EN0_ISR);
+ei_local->dmaing &= ~0x01;
+le16_to_cpus(&hdr->count);
+}
+static void ax_block_input(struct net_device *dev, int count,
+struct sk_buff *skb, int ring_offset)
+{
+struct ei_device *ei_local = netdev_priv(dev);
+void __iomem *nic_base = ei_local->mem;
+char *buf = skb->data;
+if (ei_local->dmaing) {
+netdev_err(dev,
+"DMAing conflict in %s "
+"[DMAstat:%d][irqlock:%d].\n",
+__func__,
+ei_local->dmaing, ei_local->irqlock);
+return;
+}
+ei_local->dmaing |= 0x01;
+ei_outb(E8390_NODMA+E8390_PAGE0+E8390_START, nic_base + NE_CMD);
+ei_outb(count & 0xff, nic_base + EN0_RCNTLO);
+ei_outb(count >> 8, nic_base + EN0_RCNTHI);
+ei_outb(ring_offset & 0xff, nic_base + EN0_RSARLO);
+ei_outb(ring_offset >> 8, nic_base + EN0_RSARHI);
+ei_outb(E8390_RREAD+E8390_START, nic_base + NE_CMD);
+if (ei_local->word16) {
+ioread16_rep(nic_base + NE_DATAPORT, buf, count >> 1);
+if (count & 0x01)
+buf[count-1] = ei_inb(nic_base + NE_DATAPORT);
+} else {
+ioread8_rep(nic_base + NE_DATAPORT, buf, count);
+}
+ei_local->dmaing &= ~1;
+}
+static void ax_block_output(struct net_device *dev, int count,
+const unsigned char *buf, const int start_page)
+{
+struct ei_device *ei_local = netdev_priv(dev);
+void __iomem *nic_base = ei_local->mem;
+unsigned long dma_start;
+if (ei_local->word16 && (count & 0x01))
+count++;
+if (ei_local->dmaing) {
+netdev_err(dev, "DMAing conflict in %s."
+"[DMAstat:%d][irqlock:%d]\n",
+__func__,
+ei_local->dmaing, ei_local->irqlock);
+return;
+}
+ei_local->dmaing |= 0x01;
+ei_outb(E8390_PAGE0+E8390_START+E8390_NODMA, nic_base + NE_CMD);
+ei_outb(ENISR_RDC, nic_base + EN0_ISR);
+ei_outb(count & 0xff, nic_base + EN0_RCNTLO);
+ei_outb(count >> 8, nic_base + EN0_RCNTHI);
+ei_outb(0x00, nic_base + EN0_RSARLO);
+ei_outb(start_page, nic_base + EN0_RSARHI);
+ei_outb(E8390_RWRITE+E8390_START, nic_base + NE_CMD);
+if (ei_local->word16)
+iowrite16_rep(nic_base + NE_DATAPORT, buf, count >> 1);
+else
+iowrite8_rep(nic_base + NE_DATAPORT, buf, count);
+dma_start = jiffies;
+while ((ei_inb(nic_base + EN0_ISR) & ENISR_RDC) == 0) {
+if (time_after(jiffies, dma_start + 2 * HZ / 100)) {
+netdev_warn(dev, "timeout waiting for Tx RDC.\n");
+ax_reset_8390(dev);
+ax_NS8390_init(dev, 1);
+break;
+}
+}
+ei_outb(ENISR_RDC, nic_base + EN0_ISR);
+ei_local->dmaing &= ~0x01;
+}
+static void ax_handle_link_change(struct net_device *dev)
+{
+struct ax_device *ax = to_ax_dev(dev);
+struct phy_device *phy_dev = ax->phy_dev;
+int status_change = 0;
+if (phy_dev->link && ((ax->speed != phy_dev->speed) ||
+(ax->duplex != phy_dev->duplex))) {
+ax->speed = phy_dev->speed;
+ax->duplex = phy_dev->duplex;
+status_change = 1;
+}
+if (phy_dev->link != ax->link) {
+if (!phy_dev->link) {
+ax->speed = 0;
+ax->duplex = -1;
+}
+ax->link = phy_dev->link;
+status_change = 1;
+}
+if (status_change)
+phy_print_status(phy_dev);
+}
+static int ax_mii_probe(struct net_device *dev)
+{
+struct ax_device *ax = to_ax_dev(dev);
+struct phy_device *phy_dev = NULL;
+int ret;
+phy_dev = phy_find_first(ax->mii_bus);
+if (!phy_dev) {
+netdev_err(dev, "no PHY found\n");
+return -ENODEV;
+}
+ret = phy_connect_direct(dev, phy_dev, ax_handle_link_change,
+PHY_INTERFACE_MODE_MII);
+if (ret) {
+netdev_err(dev, "Could not attach to PHY\n");
+return ret;
+}
+phy_dev->supported &= PHY_BASIC_FEATURES;
+phy_dev->advertising = phy_dev->supported;
+ax->phy_dev = phy_dev;
+netdev_info(dev, "PHY driver [%s] (mii_bus:phy_addr=%s, irq=%d)\n",
+phy_dev->drv->name, phydev_name(phy_dev), phy_dev->irq);
+return 0;
+}
+static void ax_phy_switch(struct net_device *dev, int on)
+{
+struct ei_device *ei_local = netdev_priv(dev);
+struct ax_device *ax = to_ax_dev(dev);
+u8 reg_gpoc = ax->plat->gpoc_val;
+if (!!on)
+reg_gpoc &= ~AX_GPOC_PPDSET;
+else
+reg_gpoc |= AX_GPOC_PPDSET;
+ei_outb(reg_gpoc, ei_local->mem + EI_SHIFT(0x17));
+}
+static int ax_open(struct net_device *dev)
+{
+struct ax_device *ax = to_ax_dev(dev);
+int ret;
+netdev_dbg(dev, "open\n");
+ret = request_irq(dev->irq, ax_ei_interrupt, ax->irqflags,
+dev->name, dev);
+if (ret)
+goto failed_request_irq;
+ax_phy_switch(dev, 1);
+ret = ax_mii_probe(dev);
+if (ret)
+goto failed_mii_probe;
+phy_start(ax->phy_dev);
+ret = ax_ei_open(dev);
+if (ret)
+goto failed_ax_ei_open;
+ax->running = 1;
+return 0;
+failed_ax_ei_open:
+phy_disconnect(ax->phy_dev);
+failed_mii_probe:
+ax_phy_switch(dev, 0);
+free_irq(dev->irq, dev);
+failed_request_irq:
+return ret;
+}
+static int ax_close(struct net_device *dev)
+{
+struct ax_device *ax = to_ax_dev(dev);
+netdev_dbg(dev, "close\n");
+ax->running = 0;
+wmb();
+ax_ei_close(dev);
+ax_phy_switch(dev, 0);
+phy_disconnect(ax->phy_dev);
+free_irq(dev->irq, dev);
+return 0;
+}
+static int ax_ioctl(struct net_device *dev, struct ifreq *req, int cmd)
+{
+struct ax_device *ax = to_ax_dev(dev);
+struct phy_device *phy_dev = ax->phy_dev;
+if (!netif_running(dev))
+return -EINVAL;
+if (!phy_dev)
+return -ENODEV;
+return phy_mii_ioctl(phy_dev, req, cmd);
+}
+static void ax_get_drvinfo(struct net_device *dev,
+struct ethtool_drvinfo *info)
+{
+struct platform_device *pdev = to_platform_device(dev->dev.parent);
+strlcpy(info->driver, DRV_NAME, sizeof(info->driver));
+strlcpy(info->version, DRV_VERSION, sizeof(info->version));
+strlcpy(info->bus_info, pdev->name, sizeof(info->bus_info));
+}
+static int ax_get_settings(struct net_device *dev, struct ethtool_cmd *cmd)
+{
+struct ax_device *ax = to_ax_dev(dev);
+struct phy_device *phy_dev = ax->phy_dev;
+if (!phy_dev)
+return -ENODEV;
+return phy_ethtool_gset(phy_dev, cmd);
+}
+static int ax_set_settings(struct net_device *dev, struct ethtool_cmd *cmd)
+{
+struct ax_device *ax = to_ax_dev(dev);
+struct phy_device *phy_dev = ax->phy_dev;
+if (!phy_dev)
+return -ENODEV;
+return phy_ethtool_sset(phy_dev, cmd);
+}
+static u32 ax_get_msglevel(struct net_device *dev)
+{
+struct ei_device *ei_local = netdev_priv(dev);
+return ei_local->msg_enable;
+}
+static void ax_set_msglevel(struct net_device *dev, u32 v)
+{
+struct ei_device *ei_local = netdev_priv(dev);
+ei_local->msg_enable = v;
+}
+static void ax_eeprom_register_read(struct eeprom_93cx6 *eeprom)
+{
+struct ei_device *ei_local = eeprom->data;
+u8 reg = ei_inb(ei_local->mem + AX_MEMR);
+eeprom->reg_data_in = reg & AX_MEMR_EEI;
+eeprom->reg_data_out = reg & AX_MEMR_EEO;
+eeprom->reg_data_clock = reg & AX_MEMR_EECLK;
+eeprom->reg_chip_select = reg & AX_MEMR_EECS;
+}
+static void ax_eeprom_register_write(struct eeprom_93cx6 *eeprom)
+{
+struct ei_device *ei_local = eeprom->data;
+u8 reg = ei_inb(ei_local->mem + AX_MEMR);
+reg &= ~(AX_MEMR_EEI | AX_MEMR_EECLK | AX_MEMR_EECS);
+if (eeprom->reg_data_in)
+reg |= AX_MEMR_EEI;
+if (eeprom->reg_data_clock)
+reg |= AX_MEMR_EECLK;
+if (eeprom->reg_chip_select)
+reg |= AX_MEMR_EECS;
+ei_outb(reg, ei_local->mem + AX_MEMR);
+udelay(10);
+}
+static void ax_bb_mdc(struct mdiobb_ctrl *ctrl, int level)
+{
+struct ax_device *ax = container_of(ctrl, struct ax_device, bb_ctrl);
+if (level)
+ax->reg_memr |= AX_MEMR_MDC;
+else
+ax->reg_memr &= ~AX_MEMR_MDC;
+ei_outb(ax->reg_memr, ax->addr_memr);
+}
+static void ax_bb_dir(struct mdiobb_ctrl *ctrl, int output)
+{
+struct ax_device *ax = container_of(ctrl, struct ax_device, bb_ctrl);
+if (output)
+ax->reg_memr &= ~AX_MEMR_MDIR;
+else
+ax->reg_memr |= AX_MEMR_MDIR;
+ei_outb(ax->reg_memr, ax->addr_memr);
+}
+static void ax_bb_set_data(struct mdiobb_ctrl *ctrl, int value)
+{
+struct ax_device *ax = container_of(ctrl, struct ax_device, bb_ctrl);
+if (value)
+ax->reg_memr |= AX_MEMR_MDO;
+else
+ax->reg_memr &= ~AX_MEMR_MDO;
+ei_outb(ax->reg_memr, ax->addr_memr);
+}
+static int ax_bb_get_data(struct mdiobb_ctrl *ctrl)
+{
+struct ax_device *ax = container_of(ctrl, struct ax_device, bb_ctrl);
+int reg_memr = ei_inb(ax->addr_memr);
+return reg_memr & AX_MEMR_MDI ? 1 : 0;
+}
+static int ax_mii_init(struct net_device *dev)
+{
+struct platform_device *pdev = to_platform_device(dev->dev.parent);
+struct ei_device *ei_local = netdev_priv(dev);
+struct ax_device *ax = to_ax_dev(dev);
+int err;
+ax->bb_ctrl.ops = &bb_ops;
+ax->addr_memr = ei_local->mem + AX_MEMR;
+ax->mii_bus = alloc_mdio_bitbang(&ax->bb_ctrl);
+if (!ax->mii_bus) {
+err = -ENOMEM;
+goto out;
+}
+ax->mii_bus->name = "ax88796_mii_bus";
+ax->mii_bus->parent = dev->dev.parent;
+snprintf(ax->mii_bus->id, MII_BUS_ID_SIZE, "%s-%x",
+pdev->name, pdev->id);
+err = mdiobus_register(ax->mii_bus);
+if (err)
+goto out_free_mdio_bitbang;
+return 0;
+out_free_mdio_bitbang:
+free_mdio_bitbang(ax->mii_bus);
+out:
+return err;
+}
+static void ax_initial_setup(struct net_device *dev, struct ei_device *ei_local)
+{
+void __iomem *ioaddr = ei_local->mem;
+struct ax_device *ax = to_ax_dev(dev);
+ei_outb(E8390_NODMA + E8390_PAGE0 + E8390_STOP, ioaddr + E8390_CMD);
+ei_outb(ax->plat->dcr_val & ~1, ioaddr + EN0_DCFG);
+ei_outb(ax->plat->gpoc_val, ioaddr + EI_SHIFT(0x17));
+}
+static int ax_init_dev(struct net_device *dev)
+{
+struct ei_device *ei_local = netdev_priv(dev);
+struct ax_device *ax = to_ax_dev(dev);
+void __iomem *ioaddr = ei_local->mem;
+unsigned int start_page;
+unsigned int stop_page;
+int ret;
+int i;
+ret = ax_initial_check(dev);
+if (ret)
+goto err_out;
+ax_initial_setup(dev, ei_local);
+if (ax->plat->flags & AXFLG_HAS_EEPROM) {
+unsigned char SA_prom[32];
+for (i = 0; i < sizeof(SA_prom); i += 2) {
+SA_prom[i] = ei_inb(ioaddr + NE_DATAPORT);
+SA_prom[i + 1] = ei_inb(ioaddr + NE_DATAPORT);
+}
+if (ax->plat->wordlength == 2)
+for (i = 0; i < 16; i++)
+SA_prom[i] = SA_prom[i+i];
+memcpy(dev->dev_addr, SA_prom, ETH_ALEN);
+}
+#ifdef CONFIG_AX88796_93CX6
+if (ax->plat->flags & AXFLG_HAS_93CX6) {
+unsigned char mac_addr[ETH_ALEN];
+struct eeprom_93cx6 eeprom;
+eeprom.data = ei_local;
+eeprom.register_read = ax_eeprom_register_read;
+eeprom.register_write = ax_eeprom_register_write;
+eeprom.width = PCI_EEPROM_WIDTH_93C56;
+eeprom_93cx6_multiread(&eeprom, 0,
+(__le16 __force *)mac_addr,
+sizeof(mac_addr) >> 1);
+memcpy(dev->dev_addr, mac_addr, ETH_ALEN);
+}
+#endif
+if (ax->plat->wordlength == 2) {
+ei_outb(ax->plat->dcr_val, ei_local->mem + EN0_DCFG);
+start_page = NESM_START_PG;
+stop_page = NESM_STOP_PG;
+} else {
+start_page = NE1SM_START_PG;
+stop_page = NE1SM_STOP_PG;
+}
+if (ax->plat->flags & AXFLG_MAC_FROMDEV) {
+ei_outb(E8390_NODMA + E8390_PAGE1 + E8390_STOP,
+ei_local->mem + E8390_CMD);
+for (i = 0; i < ETH_ALEN; i++)
+dev->dev_addr[i] =
+ei_inb(ioaddr + EN1_PHYS_SHIFT(i));
+}
+if ((ax->plat->flags & AXFLG_MAC_FROMPLATFORM) &&
+ax->plat->mac_addr)
+memcpy(dev->dev_addr, ax->plat->mac_addr, ETH_ALEN);
+ax_reset_8390(dev);
+ei_local->name = "AX88796";
+ei_local->tx_start_page = start_page;
+ei_local->stop_page = stop_page;
+ei_local->word16 = (ax->plat->wordlength == 2);
+ei_local->rx_start_page = start_page + TX_PAGES;
+#ifdef PACKETBUF_MEMSIZE
+ei_local->stop_page = ei_local->tx_start_page + PACKETBUF_MEMSIZE;
+#endif
+ei_local->reset_8390 = &ax_reset_8390;
+ei_local->block_input = &ax_block_input;
+ei_local->block_output = &ax_block_output;
+ei_local->get_8390_hdr = &ax_get_8390_hdr;
+ei_local->priv = 0;
+ei_local->msg_enable = ax_msg_enable;
+dev->netdev_ops = &ax_netdev_ops;
+dev->ethtool_ops = &ax_ethtool_ops;
+ret = ax_mii_init(dev);
+if (ret)
+goto out_irq;
+ax_NS8390_init(dev, 0);
+ret = register_netdev(dev);
+if (ret)
+goto out_irq;
+netdev_info(dev, "%dbit, irq %d, %lx, MAC: %pM\n",
+ei_local->word16 ? 16 : 8, dev->irq, dev->base_addr,
+dev->dev_addr);
+return 0;
+out_irq:
+free_irq(dev->irq, dev);
+err_out:
+return ret;
+}
+static int ax_remove(struct platform_device *pdev)
+{
+struct net_device *dev = platform_get_drvdata(pdev);
+struct ei_device *ei_local = netdev_priv(dev);
+struct ax_device *ax = to_ax_dev(dev);
+struct resource *mem;
+unregister_netdev(dev);
+free_irq(dev->irq, dev);
+iounmap(ei_local->mem);
+mem = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+release_mem_region(mem->start, resource_size(mem));
+if (ax->map2) {
+iounmap(ax->map2);
+mem = platform_get_resource(pdev, IORESOURCE_MEM, 1);
+release_mem_region(mem->start, resource_size(mem));
+}
+free_netdev(dev);
+return 0;
+}
+static int ax_probe(struct platform_device *pdev)
+{
+struct net_device *dev;
+struct ei_device *ei_local;
+struct ax_device *ax;
+struct resource *irq, *mem, *mem2;
+unsigned long mem_size, mem2_size = 0;
+int ret = 0;
+dev = ax__alloc_ei_netdev(sizeof(struct ax_device));
+if (dev == NULL)
+return -ENOMEM;
+SET_NETDEV_DEV(dev, &pdev->dev);
+ei_local = netdev_priv(dev);
+ax = to_ax_dev(dev);
+ax->plat = dev_get_platdata(&pdev->dev);
+platform_set_drvdata(pdev, dev);
+ei_local->rxcr_base = ax->plat->rcr_val;
+irq = platform_get_resource(pdev, IORESOURCE_IRQ, 0);
+if (!irq) {
+dev_err(&pdev->dev, "no IRQ specified\n");
+ret = -ENXIO;
+goto exit_mem;
+}
+dev->irq = irq->start;
+ax->irqflags = irq->flags & IRQF_TRIGGER_MASK;
+mem = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+if (!mem) {
+dev_err(&pdev->dev, "no MEM specified\n");
+ret = -ENXIO;
+goto exit_mem;
+}
+mem_size = resource_size(mem);
+if (ax->plat->reg_offsets)
+ei_local->reg_offset = ax->plat->reg_offsets;
+else {
+ei_local->reg_offset = ax->reg_offsets;
+for (ret = 0; ret < 0x18; ret++)
+ax->reg_offsets[ret] = (mem_size / 0x18) * ret;
+}
+if (!request_mem_region(mem->start, mem_size, pdev->name)) {
+dev_err(&pdev->dev, "cannot reserve registers\n");
+ret = -ENXIO;
+goto exit_mem;
+}
+ei_local->mem = ioremap(mem->start, mem_size);
+dev->base_addr = (unsigned long)ei_local->mem;
+if (ei_local->mem == NULL) {
+dev_err(&pdev->dev, "Cannot ioremap area %pR\n", mem);
+ret = -ENXIO;
+goto exit_req;
+}
+mem2 = platform_get_resource(pdev, IORESOURCE_MEM, 1);
+if (!mem2) {
+if (!ax->plat->reg_offsets) {
+for (ret = 0; ret < 0x20; ret++)
+ax->reg_offsets[ret] = (mem_size / 0x20) * ret;
+}
+} else {
+mem2_size = resource_size(mem2);
+if (!request_mem_region(mem2->start, mem2_size, pdev->name)) {
+dev_err(&pdev->dev, "cannot reserve registers\n");
+ret = -ENXIO;
+goto exit_mem1;
+}
+ax->map2 = ioremap(mem2->start, mem2_size);
+if (!ax->map2) {
+dev_err(&pdev->dev, "cannot map reset register\n");
+ret = -ENXIO;
+goto exit_mem2;
+}
+ei_local->reg_offset[0x1f] = ax->map2 - ei_local->mem;
+}
+ret = ax_init_dev(dev);
+if (!ret)
+return 0;
+if (!ax->map2)
+goto exit_mem1;
+iounmap(ax->map2);
+exit_mem2:
+release_mem_region(mem2->start, mem2_size);
+exit_mem1:
+iounmap(ei_local->mem);
+exit_req:
+release_mem_region(mem->start, mem_size);
+exit_mem:
+free_netdev(dev);
+return ret;
+}
+static int ax_suspend(struct platform_device *dev, pm_message_t state)
+{
+struct net_device *ndev = platform_get_drvdata(dev);
+struct ax_device *ax = to_ax_dev(ndev);
+ax->resume_open = ax->running;
+netif_device_detach(ndev);
+ax_close(ndev);
+return 0;
+}
+static int ax_resume(struct platform_device *pdev)
+{
+struct net_device *ndev = platform_get_drvdata(pdev);
+struct ax_device *ax = to_ax_dev(ndev);
+ax_initial_setup(ndev, netdev_priv(ndev));
+ax_NS8390_init(ndev, ax->resume_open);
+netif_device_attach(ndev);
+if (ax->resume_open)
+ax_open(ndev);
+return 0;
+}

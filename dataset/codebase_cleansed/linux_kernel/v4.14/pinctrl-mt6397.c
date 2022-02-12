@@ -1,0 +1,1 @@
+static int mt6397_pinctrl_probe(struct platform_device *pdev)\r\n{\r\nstruct mt6397_chip *mt6397;\r\nmt6397 = dev_get_drvdata(pdev->dev.parent);\r\nreturn mtk_pctrl_init(pdev, &mt6397_pinctrl_data, mt6397->regmap);\r\n}

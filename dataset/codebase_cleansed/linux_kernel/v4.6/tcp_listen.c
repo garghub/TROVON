@@ -1,0 +1,155 @@
+int rds_tcp_keepalive(struct socket *sock)
+{
+int keepidle = 5;
+int keepcnt = 5;
+int keepalive = 1;
+int ret = 0;
+ret = kernel_setsockopt(sock, SOL_SOCKET, SO_KEEPALIVE,
+(char *)&keepalive, sizeof(keepalive));
+if (ret < 0)
+goto bail;
+ret = kernel_setsockopt(sock, IPPROTO_TCP, TCP_KEEPCNT,
+(char *)&keepcnt, sizeof(keepcnt));
+if (ret < 0)
+goto bail;
+ret = kernel_setsockopt(sock, IPPROTO_TCP, TCP_KEEPIDLE,
+(char *)&keepidle, sizeof(keepidle));
+if (ret < 0)
+goto bail;
+ret = kernel_setsockopt(sock, IPPROTO_TCP, TCP_KEEPINTVL,
+(char *)&keepidle, sizeof(keepidle));
+bail:
+return ret;
+}
+int rds_tcp_accept_one(struct socket *sock)
+{
+struct socket *new_sock = NULL;
+struct rds_connection *conn;
+int ret;
+struct inet_sock *inet;
+struct rds_tcp_connection *rs_tcp = NULL;
+int conn_state;
+struct sock *nsk;
+ret = sock_create_kern(sock_net(sock->sk), sock->sk->sk_family,
+sock->sk->sk_type, sock->sk->sk_protocol,
+&new_sock);
+if (ret)
+goto out;
+new_sock->type = sock->type;
+new_sock->ops = sock->ops;
+ret = sock->ops->accept(sock, new_sock, O_NONBLOCK);
+if (ret < 0)
+goto out;
+ret = rds_tcp_keepalive(new_sock);
+if (ret < 0)
+goto out;
+rds_tcp_tune(new_sock);
+inet = inet_sk(new_sock->sk);
+rdsdebug("accepted tcp %pI4:%u -> %pI4:%u\n",
+&inet->inet_saddr, ntohs(inet->inet_sport),
+&inet->inet_daddr, ntohs(inet->inet_dport));
+conn = rds_conn_create(sock_net(sock->sk),
+inet->inet_saddr, inet->inet_daddr,
+&rds_tcp_transport, GFP_KERNEL);
+if (IS_ERR(conn)) {
+ret = PTR_ERR(conn);
+goto out;
+}
+rs_tcp = (struct rds_tcp_connection *)conn->c_transport_data;
+rds_conn_transition(conn, RDS_CONN_DOWN, RDS_CONN_CONNECTING);
+mutex_lock(&rs_tcp->t_conn_lock);
+conn_state = rds_conn_state(conn);
+if (conn_state != RDS_CONN_CONNECTING && conn_state != RDS_CONN_UP)
+goto rst_nsk;
+if (rs_tcp->t_sock) {
+wait_event(conn->c_waitq,
+!test_bit(RDS_IN_XMIT, &conn->c_flags));
+if (ntohl(inet->inet_saddr) < ntohl(inet->inet_daddr)) {
+goto rst_nsk;
+} else if (rs_tcp->t_sock) {
+rds_tcp_restore_callbacks(rs_tcp->t_sock, rs_tcp);
+conn->c_outgoing = 0;
+}
+}
+rds_tcp_set_callbacks(new_sock, conn);
+rds_connect_complete(conn);
+new_sock = NULL;
+ret = 0;
+goto out;
+rst_nsk:
+nsk = new_sock->sk;
+rds_tcp_stats_inc(s_tcp_listen_closed_stale);
+nsk->sk_user_data = NULL;
+nsk->sk_prot->disconnect(nsk, 0);
+tcp_done(nsk);
+new_sock = NULL;
+ret = 0;
+out:
+if (rs_tcp)
+mutex_unlock(&rs_tcp->t_conn_lock);
+if (new_sock)
+sock_release(new_sock);
+return ret;
+}
+void rds_tcp_listen_data_ready(struct sock *sk)
+{
+void (*ready)(struct sock *sk);
+rdsdebug("listen data ready sk %p\n", sk);
+read_lock(&sk->sk_callback_lock);
+ready = sk->sk_user_data;
+if (!ready) {
+ready = sk->sk_data_ready;
+goto out;
+}
+if (sk->sk_state == TCP_LISTEN)
+rds_tcp_accept_work(sk);
+out:
+read_unlock(&sk->sk_callback_lock);
+ready(sk);
+}
+struct socket *rds_tcp_listen_init(struct net *net)
+{
+struct sockaddr_in sin;
+struct socket *sock = NULL;
+int ret;
+ret = sock_create_kern(net, PF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+if (ret < 0)
+goto out;
+sock->sk->sk_reuse = SK_CAN_REUSE;
+rds_tcp_nonagle(sock);
+write_lock_bh(&sock->sk->sk_callback_lock);
+sock->sk->sk_user_data = sock->sk->sk_data_ready;
+sock->sk->sk_data_ready = rds_tcp_listen_data_ready;
+write_unlock_bh(&sock->sk->sk_callback_lock);
+sin.sin_family = PF_INET;
+sin.sin_addr.s_addr = (__force u32)htonl(INADDR_ANY);
+sin.sin_port = (__force u16)htons(RDS_TCP_PORT);
+ret = sock->ops->bind(sock, (struct sockaddr *)&sin, sizeof(sin));
+if (ret < 0)
+goto out;
+ret = sock->ops->listen(sock, 64);
+if (ret < 0)
+goto out;
+return sock;
+out:
+if (sock)
+sock_release(sock);
+return NULL;
+}
+void rds_tcp_listen_stop(struct socket *sock)
+{
+struct sock *sk;
+if (!sock)
+return;
+sk = sock->sk;
+lock_sock(sk);
+write_lock_bh(&sk->sk_callback_lock);
+if (sk->sk_user_data) {
+sk->sk_data_ready = sk->sk_user_data;
+sk->sk_user_data = NULL;
+}
+write_unlock_bh(&sk->sk_callback_lock);
+release_sock(sk);
+flush_workqueue(rds_wq);
+sock_release(sock);
+}

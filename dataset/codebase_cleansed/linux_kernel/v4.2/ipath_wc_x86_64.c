@@ -1,0 +1,73 @@
+int ipath_enable_wc(struct ipath_devdata *dd)
+{
+int ret = 0;
+u64 pioaddr, piolen;
+unsigned bits;
+const unsigned long addr = pci_resource_start(dd->pcidev, 0);
+const size_t len = pci_resource_len(dd->pcidev, 0);
+if (dd->ipath_piobcnt2k && dd->ipath_piobcnt4k) {
+unsigned long pio2kbase, pio4kbase;
+pio2kbase = dd->ipath_piobufbase & 0xffffffffUL;
+pio4kbase = (dd->ipath_piobufbase >> 32) & 0xffffffffUL;
+if (pio2kbase < pio4kbase) {
+pioaddr = addr + pio2kbase;
+piolen = pio4kbase - pio2kbase +
+dd->ipath_piobcnt4k * dd->ipath_4kalign;
+} else {
+pioaddr = addr + pio4kbase;
+piolen = pio2kbase - pio4kbase +
+dd->ipath_piobcnt2k * dd->ipath_palign;
+}
+} else {
+pioaddr = addr + dd->ipath_piobufbase;
+piolen = dd->ipath_piobcnt2k * dd->ipath_palign +
+dd->ipath_piobcnt4k * dd->ipath_4kalign;
+}
+for (bits = 0; !(piolen & (1ULL << bits)); bits++)
+;
+if (piolen != (1ULL << bits)) {
+piolen >>= bits;
+while (piolen >>= 1)
+bits++;
+piolen = 1ULL << (bits + 1);
+}
+if (pioaddr & (piolen - 1)) {
+u64 atmp;
+ipath_dbg("pioaddr %llx not on right boundary for size "
+"%llx, fixing\n",
+(unsigned long long) pioaddr,
+(unsigned long long) piolen);
+atmp = pioaddr & ~(piolen - 1);
+if (atmp < addr || (atmp + piolen) > (addr + len)) {
+ipath_dev_err(dd, "No way to align address/size "
+"(%llx/%llx), no WC mtrr\n",
+(unsigned long long) atmp,
+(unsigned long long) piolen << 1);
+ret = -ENODEV;
+} else {
+ipath_dbg("changing WC base from %llx to %llx, "
+"len from %llx to %llx\n",
+(unsigned long long) pioaddr,
+(unsigned long long) atmp,
+(unsigned long long) piolen,
+(unsigned long long) piolen << 1);
+pioaddr = atmp;
+piolen <<= 1;
+}
+}
+if (!ret) {
+dd->wc_cookie = arch_phys_wc_add(pioaddr, piolen);
+if (dd->wc_cookie < 0) {
+ipath_dev_err(dd, "Seting mtrr failed on PIO buffers\n");
+ret = -ENODEV;
+} else if (dd->wc_cookie == 0)
+ipath_cdbg(VERBOSE, "Set mtrr for chip to WC not needed\n");
+else
+ipath_cdbg(VERBOSE, "Set mtrr for chip to WC\n");
+}
+return ret;
+}
+void ipath_disable_wc(struct ipath_devdata *dd)
+{
+arch_phys_wc_del(dd->wc_cookie);
+}

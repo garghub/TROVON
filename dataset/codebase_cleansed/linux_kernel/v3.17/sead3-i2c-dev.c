@@ -1,0 +1,1 @@
+static int __init sead3_i2c_init(void)\r\n{\r\nint err;\r\nerr = i2c_register_board_info(0, sead3_i2c_devices,\r\nARRAY_SIZE(sead3_i2c_devices));\r\nif (err < 0)\r\npr_err("sead3-i2c-dev: cannot register board I2C devices\n");\r\nreturn err;\r\n}

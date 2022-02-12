@@ -1,0 +1,1 @@
+void rds_iw_sysctl_exit(void)\r\n{\r\nunregister_net_sysctl_table(rds_iw_sysctl_hdr);\r\n}\r\nint rds_iw_sysctl_init(void)\r\n{\r\nrds_iw_sysctl_hdr = register_net_sysctl(&init_net, "net/rds/iw", rds_iw_sysctl_table);\r\nif (!rds_iw_sysctl_hdr)\r\nreturn -ENOMEM;\r\nreturn 0;\r\n}

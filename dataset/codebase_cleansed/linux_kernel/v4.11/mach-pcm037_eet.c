@@ -1,0 +1,1 @@
+int __init pcm037_eet_init_devices(void)\r\n{\r\nif (pcm037_variant() != PCM037_EET)\r\nreturn 0;\r\nmxc_iomux_setup_multiple_pins(pcm037_eet_pins,\r\nARRAY_SIZE(pcm037_eet_pins), "pcm037_eet");\r\nspi_register_board_info(pcm037_spi_dev, ARRAY_SIZE(pcm037_spi_dev));\r\nimx31_add_spi_imx0(&pcm037_spi1_pdata);\r\nimx_add_gpio_keys(&pcm037_gpio_keys_platform_data);\r\nreturn 0;\r\n}

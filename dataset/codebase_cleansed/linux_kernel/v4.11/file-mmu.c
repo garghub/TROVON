@@ -1,0 +1,1 @@
+static unsigned long ramfs_mmu_get_unmapped_area(struct file *file,\r\nunsigned long addr, unsigned long len, unsigned long pgoff,\r\nunsigned long flags)\r\n{\r\nreturn current->mm->get_unmapped_area(file, addr, len, pgoff, flags);\r\n}

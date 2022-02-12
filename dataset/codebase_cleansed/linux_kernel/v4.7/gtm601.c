@@ -1,0 +1,1 @@
+static int gtm601_platform_probe(struct platform_device *pdev)\r\n{\r\nreturn snd_soc_register_codec(&pdev->dev,\r\n&soc_codec_dev_gtm601, &gtm601_dai, 1);\r\n}\r\nstatic int gtm601_platform_remove(struct platform_device *pdev)\r\n{\r\nsnd_soc_unregister_codec(&pdev->dev);\r\nreturn 0;\r\n}

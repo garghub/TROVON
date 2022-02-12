@@ -1,0 +1,1 @@
+int cvm_oct_xaui_open(struct net_device *dev)\r\n{\r\nreturn cvm_oct_common_open(dev, cvm_oct_link_poll, true);\r\n}\r\nint cvm_oct_xaui_init(struct net_device *dev)\r\n{\r\nstruct octeon_ethernet *priv = netdev_priv(dev);\r\ncvm_oct_common_init(dev);\r\nif (!octeon_is_simulation() && priv->phydev == NULL)\r\npriv->poll = cvm_oct_link_poll;\r\nreturn 0;\r\n}

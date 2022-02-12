@@ -1,0 +1,1 @@
+static void __init imx25_init_early(void)\r\n{\r\nmxc_set_cpu_type(MXC_CPU_MX25);\r\n}\r\nstatic void __init mx25_init_irq(void)\r\n{\r\nstruct device_node *np;\r\nvoid __iomem *avic_base;\r\nnp = of_find_compatible_node(NULL, NULL, "fsl,avic");\r\navic_base = of_iomap(np, 0);\r\nBUG_ON(!avic_base);\r\nmxc_init_irq(avic_base);\r\n}

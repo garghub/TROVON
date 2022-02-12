@@ -1,0 +1,1 @@
+int __init dra7xx_hwmod_init(void)\r\n{\r\nint ret;\r\nomap_hwmod_init();\r\nret = omap_hwmod_register_links(dra7xx_hwmod_ocp_ifs);\r\nif (!ret && soc_is_dra74x())\r\nreturn omap_hwmod_register_links(dra74x_hwmod_ocp_ifs);\r\nelse if (!ret && soc_is_dra72x())\r\nreturn omap_hwmod_register_links(dra72x_hwmod_ocp_ifs);\r\nreturn ret;\r\n}

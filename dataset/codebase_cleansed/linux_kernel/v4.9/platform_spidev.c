@@ -1,0 +1,1 @@
+static void __init *spidev_platform_data(void *info)\r\n{\r\nstruct spi_board_info *spi_info = info;\r\nspi_info->mode = SPI_MODE_0;\r\nspi_info->controller_data = &spidev_spi_chip;\r\nreturn NULL;\r\n}

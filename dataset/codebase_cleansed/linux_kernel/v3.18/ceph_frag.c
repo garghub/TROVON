@@ -1,0 +1,1 @@
+int ceph_frag_compare(__u32 a, __u32 b)\r\n{\r\nunsigned va = ceph_frag_value(a);\r\nunsigned vb = ceph_frag_value(b);\r\nif (va < vb)\r\nreturn -1;\r\nif (va > vb)\r\nreturn 1;\r\nva = ceph_frag_bits(a);\r\nvb = ceph_frag_bits(b);\r\nif (va < vb)\r\nreturn -1;\r\nif (va > vb)\r\nreturn 1;\r\nreturn 0;\r\n}

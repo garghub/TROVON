@@ -1,0 +1,1 @@
+const struct nand_sdr_timings *onfi_async_timing_mode_to_sdr_timings(int mode)\r\n{\r\nif (mode < 0 || mode >= ARRAY_SIZE(onfi_sdr_timings))\r\nreturn ERR_PTR(-EINVAL);\r\nreturn &onfi_sdr_timings[mode];\r\n}

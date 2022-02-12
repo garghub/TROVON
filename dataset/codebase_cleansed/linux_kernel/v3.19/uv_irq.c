@@ -1,0 +1,177 @@
+static void uv_noop(struct irq_data *data) { }
+static void uv_ack_apic(struct irq_data *data)
+{
+ack_APIC_irq();
+}
+static int uv_set_irq_2_mmr_info(int irq, unsigned long offset, unsigned blade)
+{
+struct rb_node **link = &uv_irq_root.rb_node;
+struct rb_node *parent = NULL;
+struct uv_irq_2_mmr_pnode *n;
+struct uv_irq_2_mmr_pnode *e;
+unsigned long irqflags;
+n = kmalloc_node(sizeof(struct uv_irq_2_mmr_pnode), GFP_KERNEL,
+uv_blade_to_memory_nid(blade));
+if (!n)
+return -ENOMEM;
+n->irq = irq;
+n->offset = offset;
+n->pnode = uv_blade_to_pnode(blade);
+spin_lock_irqsave(&uv_irq_lock, irqflags);
+while (*link) {
+parent = *link;
+e = rb_entry(parent, struct uv_irq_2_mmr_pnode, list);
+if (unlikely(irq == e->irq)) {
+e->pnode = uv_blade_to_pnode(blade);
+e->offset = offset;
+spin_unlock_irqrestore(&uv_irq_lock, irqflags);
+kfree(n);
+return 0;
+}
+if (irq < e->irq)
+link = &(*link)->rb_left;
+else
+link = &(*link)->rb_right;
+}
+rb_link_node(&n->list, parent, link);
+rb_insert_color(&n->list, &uv_irq_root);
+spin_unlock_irqrestore(&uv_irq_lock, irqflags);
+return 0;
+}
+int uv_irq_2_mmr_info(int irq, unsigned long *offset, int *pnode)
+{
+struct uv_irq_2_mmr_pnode *e;
+struct rb_node *n;
+unsigned long irqflags;
+spin_lock_irqsave(&uv_irq_lock, irqflags);
+n = uv_irq_root.rb_node;
+while (n) {
+e = rb_entry(n, struct uv_irq_2_mmr_pnode, list);
+if (e->irq == irq) {
+*offset = e->offset;
+*pnode = e->pnode;
+spin_unlock_irqrestore(&uv_irq_lock, irqflags);
+return 0;
+}
+if (irq < e->irq)
+n = n->rb_left;
+else
+n = n->rb_right;
+}
+spin_unlock_irqrestore(&uv_irq_lock, irqflags);
+return -1;
+}
+static int
+arch_enable_uv_irq(char *irq_name, unsigned int irq, int cpu, int mmr_blade,
+unsigned long mmr_offset, int limit)
+{
+const struct cpumask *eligible_cpu = cpumask_of(cpu);
+struct irq_cfg *cfg = irq_cfg(irq);
+unsigned long mmr_value;
+struct uv_IO_APIC_route_entry *entry;
+int mmr_pnode, err;
+unsigned int dest;
+BUILD_BUG_ON(sizeof(struct uv_IO_APIC_route_entry) !=
+sizeof(unsigned long));
+err = assign_irq_vector(irq, cfg, eligible_cpu);
+if (err != 0)
+return err;
+err = apic->cpu_mask_to_apicid_and(eligible_cpu, eligible_cpu, &dest);
+if (err != 0)
+return err;
+if (limit == UV_AFFINITY_CPU)
+irq_set_status_flags(irq, IRQ_NO_BALANCING);
+else
+irq_set_status_flags(irq, IRQ_MOVE_PCNTXT);
+irq_set_chip_and_handler_name(irq, &uv_irq_chip, handle_percpu_irq,
+irq_name);
+mmr_value = 0;
+entry = (struct uv_IO_APIC_route_entry *)&mmr_value;
+entry->vector = cfg->vector;
+entry->delivery_mode = apic->irq_delivery_mode;
+entry->dest_mode = apic->irq_dest_mode;
+entry->polarity = 0;
+entry->trigger = 0;
+entry->mask = 0;
+entry->dest = dest;
+mmr_pnode = uv_blade_to_pnode(mmr_blade);
+uv_write_global_mmr64(mmr_pnode, mmr_offset, mmr_value);
+if (cfg->move_in_progress)
+send_cleanup_vector(cfg);
+return irq;
+}
+static void arch_disable_uv_irq(int mmr_pnode, unsigned long mmr_offset)
+{
+unsigned long mmr_value;
+struct uv_IO_APIC_route_entry *entry;
+BUILD_BUG_ON(sizeof(struct uv_IO_APIC_route_entry) !=
+sizeof(unsigned long));
+mmr_value = 0;
+entry = (struct uv_IO_APIC_route_entry *)&mmr_value;
+entry->mask = 1;
+uv_write_global_mmr64(mmr_pnode, mmr_offset, mmr_value);
+}
+static int
+uv_set_irq_affinity(struct irq_data *data, const struct cpumask *mask,
+bool force)
+{
+struct irq_cfg *cfg = irqd_cfg(data);
+unsigned int dest;
+unsigned long mmr_value, mmr_offset;
+struct uv_IO_APIC_route_entry *entry;
+int mmr_pnode;
+if (apic_set_affinity(data, mask, &dest))
+return -1;
+mmr_value = 0;
+entry = (struct uv_IO_APIC_route_entry *)&mmr_value;
+entry->vector = cfg->vector;
+entry->delivery_mode = apic->irq_delivery_mode;
+entry->dest_mode = apic->irq_dest_mode;
+entry->polarity = 0;
+entry->trigger = 0;
+entry->mask = 0;
+entry->dest = dest;
+if (uv_irq_2_mmr_info(data->irq, &mmr_offset, &mmr_pnode))
+return -1;
+uv_write_global_mmr64(mmr_pnode, mmr_offset, mmr_value);
+if (cfg->move_in_progress)
+send_cleanup_vector(cfg);
+return IRQ_SET_MASK_OK_NOCOPY;
+}
+int uv_setup_irq(char *irq_name, int cpu, int mmr_blade,
+unsigned long mmr_offset, int limit)
+{
+int ret, irq = irq_alloc_hwirq(uv_blade_to_memory_nid(mmr_blade));
+if (!irq)
+return -EBUSY;
+ret = arch_enable_uv_irq(irq_name, irq, cpu, mmr_blade, mmr_offset,
+limit);
+if (ret == irq)
+uv_set_irq_2_mmr_info(irq, mmr_offset, mmr_blade);
+else
+irq_free_hwirq(irq);
+return ret;
+}
+void uv_teardown_irq(unsigned int irq)
+{
+struct uv_irq_2_mmr_pnode *e;
+struct rb_node *n;
+unsigned long irqflags;
+spin_lock_irqsave(&uv_irq_lock, irqflags);
+n = uv_irq_root.rb_node;
+while (n) {
+e = rb_entry(n, struct uv_irq_2_mmr_pnode, list);
+if (e->irq == irq) {
+arch_disable_uv_irq(e->pnode, e->offset);
+rb_erase(n, &uv_irq_root);
+kfree(e);
+break;
+}
+if (irq < e->irq)
+n = n->rb_left;
+else
+n = n->rb_right;
+}
+spin_unlock_irqrestore(&uv_irq_lock, irqflags);
+irq_free_hwirq(irq);
+}

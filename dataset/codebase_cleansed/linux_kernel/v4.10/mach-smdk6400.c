@@ -1,0 +1,12 @@
+static void __init smdk6400_map_io(void)
+{
+s3c64xx_init_io(smdk6400_iodesc, ARRAY_SIZE(smdk6400_iodesc));
+s3c64xx_set_xtal_freq(12000000);
+s3c24xx_init_uarts(smdk6400_uartcfgs, ARRAY_SIZE(smdk6400_uartcfgs));
+samsung_set_timer_source(SAMSUNG_PWM3, SAMSUNG_PWM4);
+}
+static void __init smdk6400_machine_init(void)
+{
+i2c_register_board_info(0, i2c_devs, ARRAY_SIZE(i2c_devs));
+platform_add_devices(smdk6400_devices, ARRAY_SIZE(smdk6400_devices));
+}

@@ -1,0 +1,1 @@
+static void __init sama5d3_map_io(void)\r\n{\r\nat91_init_sram(0, SAMA5D3_SRAM_BASE, SAMA5D3_SRAM_SIZE);\r\n}\r\nstatic void __init sama5d3_initialize(void)\r\n{\r\nat91_sysirq_mask_rtc(SAMA5D3_BASE_RTC);\r\n}

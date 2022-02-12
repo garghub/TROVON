@@ -1,0 +1,1 @@
+static void __init dm9000_pre_init(void)\r\n{\r\nmcf_autovector(DM9000_IRQ);\r\n}\r\nstatic int __init init_amcore(void)\r\n{\r\n#if IS_ENABLED(CONFIG_DM9000)\r\ndm9000_pre_init();\r\n#endif\r\ni2c_register_board_info(0, amcore_i2c_info,\r\nARRAY_SIZE(amcore_i2c_info));\r\nplatform_add_devices(amcore_devices, ARRAY_SIZE(amcore_devices));\r\nreturn 0;\r\n}

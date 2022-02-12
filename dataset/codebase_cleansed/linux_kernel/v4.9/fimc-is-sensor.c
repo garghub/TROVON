@@ -1,0 +1,1 @@
+const struct sensor_drv_data *fimc_is_sensor_get_drvdata(\r\nstruct device_node *node)\r\n{\r\nconst struct of_device_id *of_id;\r\nof_id = of_match_node(fimc_is_sensor_of_ids, node);\r\nreturn of_id ? of_id->data : NULL;\r\n}

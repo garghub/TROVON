@@ -1,0 +1,1384 @@
+static bool mdtc_valid(struct dirty_throttle_control *dtc)
+{
+return dtc->dom;
+}
+static struct wb_domain *dtc_dom(struct dirty_throttle_control *dtc)
+{
+return dtc->dom;
+}
+static struct dirty_throttle_control *mdtc_gdtc(struct dirty_throttle_control *mdtc)
+{
+return mdtc->gdtc;
+}
+static struct fprop_local_percpu *wb_memcg_completions(struct bdi_writeback *wb)
+{
+return &wb->memcg_completions;
+}
+static void wb_min_max_ratio(struct bdi_writeback *wb,
+unsigned long *minp, unsigned long *maxp)
+{
+unsigned long this_bw = wb->avg_write_bandwidth;
+unsigned long tot_bw = atomic_long_read(&wb->bdi->tot_write_bandwidth);
+unsigned long long min = wb->bdi->min_ratio;
+unsigned long long max = wb->bdi->max_ratio;
+if (this_bw < tot_bw) {
+if (min) {
+min *= this_bw;
+do_div(min, tot_bw);
+}
+if (max < 100) {
+max *= this_bw;
+do_div(max, tot_bw);
+}
+}
+*minp = min;
+*maxp = max;
+}
+static bool mdtc_valid(struct dirty_throttle_control *dtc)
+{
+return false;
+}
+static struct wb_domain *dtc_dom(struct dirty_throttle_control *dtc)
+{
+return &global_wb_domain;
+}
+static struct dirty_throttle_control *mdtc_gdtc(struct dirty_throttle_control *mdtc)
+{
+return NULL;
+}
+static struct fprop_local_percpu *wb_memcg_completions(struct bdi_writeback *wb)
+{
+return NULL;
+}
+static void wb_min_max_ratio(struct bdi_writeback *wb,
+unsigned long *minp, unsigned long *maxp)
+{
+*minp = wb->bdi->min_ratio;
+*maxp = wb->bdi->max_ratio;
+}
+static unsigned long node_dirtyable_memory(struct pglist_data *pgdat)
+{
+unsigned long nr_pages = 0;
+int z;
+for (z = 0; z < MAX_NR_ZONES; z++) {
+struct zone *zone = pgdat->node_zones + z;
+if (!populated_zone(zone))
+continue;
+nr_pages += zone_page_state(zone, NR_FREE_PAGES);
+}
+nr_pages -= min(nr_pages, pgdat->totalreserve_pages);
+nr_pages += node_page_state(pgdat, NR_INACTIVE_FILE);
+nr_pages += node_page_state(pgdat, NR_ACTIVE_FILE);
+return nr_pages;
+}
+static unsigned long highmem_dirtyable_memory(unsigned long total)
+{
+#ifdef CONFIG_HIGHMEM
+int node;
+unsigned long x = 0;
+int i;
+for_each_node_state(node, N_HIGH_MEMORY) {
+for (i = ZONE_NORMAL + 1; i < MAX_NR_ZONES; i++) {
+struct zone *z;
+unsigned long nr_pages;
+if (!is_highmem_idx(i))
+continue;
+z = &NODE_DATA(node)->node_zones[i];
+if (!populated_zone(z))
+continue;
+nr_pages = zone_page_state(z, NR_FREE_PAGES);
+nr_pages -= min(nr_pages, high_wmark_pages(z));
+nr_pages += zone_page_state(z, NR_ZONE_INACTIVE_FILE);
+nr_pages += zone_page_state(z, NR_ZONE_ACTIVE_FILE);
+x += nr_pages;
+}
+}
+if ((long)x < 0)
+x = 0;
+return min(x, total);
+#else
+return 0;
+#endif
+}
+static unsigned long global_dirtyable_memory(void)
+{
+unsigned long x;
+x = global_zone_page_state(NR_FREE_PAGES);
+x -= min(x, totalreserve_pages);
+x += global_node_page_state(NR_INACTIVE_FILE);
+x += global_node_page_state(NR_ACTIVE_FILE);
+if (!vm_highmem_is_dirtyable)
+x -= highmem_dirtyable_memory(x);
+return x + 1;
+}
+static void domain_dirty_limits(struct dirty_throttle_control *dtc)
+{
+const unsigned long available_memory = dtc->avail;
+struct dirty_throttle_control *gdtc = mdtc_gdtc(dtc);
+unsigned long bytes = vm_dirty_bytes;
+unsigned long bg_bytes = dirty_background_bytes;
+unsigned long ratio = (vm_dirty_ratio * PAGE_SIZE) / 100;
+unsigned long bg_ratio = (dirty_background_ratio * PAGE_SIZE) / 100;
+unsigned long thresh;
+unsigned long bg_thresh;
+struct task_struct *tsk;
+if (gdtc) {
+unsigned long global_avail = gdtc->avail;
+if (bytes)
+ratio = min(DIV_ROUND_UP(bytes, global_avail),
+PAGE_SIZE);
+if (bg_bytes)
+bg_ratio = min(DIV_ROUND_UP(bg_bytes, global_avail),
+PAGE_SIZE);
+bytes = bg_bytes = 0;
+}
+if (bytes)
+thresh = DIV_ROUND_UP(bytes, PAGE_SIZE);
+else
+thresh = (ratio * available_memory) / PAGE_SIZE;
+if (bg_bytes)
+bg_thresh = DIV_ROUND_UP(bg_bytes, PAGE_SIZE);
+else
+bg_thresh = (bg_ratio * available_memory) / PAGE_SIZE;
+if (bg_thresh >= thresh)
+bg_thresh = thresh / 2;
+tsk = current;
+if (tsk->flags & PF_LESS_THROTTLE || rt_task(tsk)) {
+bg_thresh += bg_thresh / 4 + global_wb_domain.dirty_limit / 32;
+thresh += thresh / 4 + global_wb_domain.dirty_limit / 32;
+}
+dtc->thresh = thresh;
+dtc->bg_thresh = bg_thresh;
+if (!gdtc)
+trace_global_dirty_state(bg_thresh, thresh);
+}
+void global_dirty_limits(unsigned long *pbackground, unsigned long *pdirty)
+{
+struct dirty_throttle_control gdtc = { GDTC_INIT_NO_WB };
+gdtc.avail = global_dirtyable_memory();
+domain_dirty_limits(&gdtc);
+*pbackground = gdtc.bg_thresh;
+*pdirty = gdtc.thresh;
+}
+static unsigned long node_dirty_limit(struct pglist_data *pgdat)
+{
+unsigned long node_memory = node_dirtyable_memory(pgdat);
+struct task_struct *tsk = current;
+unsigned long dirty;
+if (vm_dirty_bytes)
+dirty = DIV_ROUND_UP(vm_dirty_bytes, PAGE_SIZE) *
+node_memory / global_dirtyable_memory();
+else
+dirty = vm_dirty_ratio * node_memory / 100;
+if (tsk->flags & PF_LESS_THROTTLE || rt_task(tsk))
+dirty += dirty / 4;
+return dirty;
+}
+bool node_dirty_ok(struct pglist_data *pgdat)
+{
+unsigned long limit = node_dirty_limit(pgdat);
+unsigned long nr_pages = 0;
+nr_pages += node_page_state(pgdat, NR_FILE_DIRTY);
+nr_pages += node_page_state(pgdat, NR_UNSTABLE_NFS);
+nr_pages += node_page_state(pgdat, NR_WRITEBACK);
+return nr_pages <= limit;
+}
+int dirty_background_ratio_handler(struct ctl_table *table, int write,
+void __user *buffer, size_t *lenp,
+loff_t *ppos)
+{
+int ret;
+ret = proc_dointvec_minmax(table, write, buffer, lenp, ppos);
+if (ret == 0 && write)
+dirty_background_bytes = 0;
+return ret;
+}
+int dirty_background_bytes_handler(struct ctl_table *table, int write,
+void __user *buffer, size_t *lenp,
+loff_t *ppos)
+{
+int ret;
+ret = proc_doulongvec_minmax(table, write, buffer, lenp, ppos);
+if (ret == 0 && write)
+dirty_background_ratio = 0;
+return ret;
+}
+int dirty_ratio_handler(struct ctl_table *table, int write,
+void __user *buffer, size_t *lenp,
+loff_t *ppos)
+{
+int old_ratio = vm_dirty_ratio;
+int ret;
+ret = proc_dointvec_minmax(table, write, buffer, lenp, ppos);
+if (ret == 0 && write && vm_dirty_ratio != old_ratio) {
+writeback_set_ratelimit();
+vm_dirty_bytes = 0;
+}
+return ret;
+}
+int dirty_bytes_handler(struct ctl_table *table, int write,
+void __user *buffer, size_t *lenp,
+loff_t *ppos)
+{
+unsigned long old_bytes = vm_dirty_bytes;
+int ret;
+ret = proc_doulongvec_minmax(table, write, buffer, lenp, ppos);
+if (ret == 0 && write && vm_dirty_bytes != old_bytes) {
+writeback_set_ratelimit();
+vm_dirty_ratio = 0;
+}
+return ret;
+}
+static unsigned long wp_next_time(unsigned long cur_time)
+{
+cur_time += VM_COMPLETIONS_PERIOD_LEN;
+if (!cur_time)
+return 1;
+return cur_time;
+}
+static void wb_domain_writeout_inc(struct wb_domain *dom,
+struct fprop_local_percpu *completions,
+unsigned int max_prop_frac)
+{
+__fprop_inc_percpu_max(&dom->completions, completions,
+max_prop_frac);
+if (unlikely(!dom->period_time)) {
+dom->period_time = wp_next_time(jiffies);
+mod_timer(&dom->period_timer, dom->period_time);
+}
+}
+static inline void __wb_writeout_inc(struct bdi_writeback *wb)
+{
+struct wb_domain *cgdom;
+inc_wb_stat(wb, WB_WRITTEN);
+wb_domain_writeout_inc(&global_wb_domain, &wb->completions,
+wb->bdi->max_prop_frac);
+cgdom = mem_cgroup_wb_domain(wb);
+if (cgdom)
+wb_domain_writeout_inc(cgdom, wb_memcg_completions(wb),
+wb->bdi->max_prop_frac);
+}
+void wb_writeout_inc(struct bdi_writeback *wb)
+{
+unsigned long flags;
+local_irq_save(flags);
+__wb_writeout_inc(wb);
+local_irq_restore(flags);
+}
+static void writeout_period(unsigned long t)
+{
+struct wb_domain *dom = (void *)t;
+int miss_periods = (jiffies - dom->period_time) /
+VM_COMPLETIONS_PERIOD_LEN;
+if (fprop_new_period(&dom->completions, miss_periods + 1)) {
+dom->period_time = wp_next_time(dom->period_time +
+miss_periods * VM_COMPLETIONS_PERIOD_LEN);
+mod_timer(&dom->period_timer, dom->period_time);
+} else {
+dom->period_time = 0;
+}
+}
+int wb_domain_init(struct wb_domain *dom, gfp_t gfp)
+{
+memset(dom, 0, sizeof(*dom));
+spin_lock_init(&dom->lock);
+setup_deferrable_timer(&dom->period_timer, writeout_period,
+(unsigned long)dom);
+dom->dirty_limit_tstamp = jiffies;
+return fprop_global_init(&dom->completions, gfp);
+}
+void wb_domain_exit(struct wb_domain *dom)
+{
+del_timer_sync(&dom->period_timer);
+fprop_global_destroy(&dom->completions);
+}
+int bdi_set_min_ratio(struct backing_dev_info *bdi, unsigned int min_ratio)
+{
+int ret = 0;
+spin_lock_bh(&bdi_lock);
+if (min_ratio > bdi->max_ratio) {
+ret = -EINVAL;
+} else {
+min_ratio -= bdi->min_ratio;
+if (bdi_min_ratio + min_ratio < 100) {
+bdi_min_ratio += min_ratio;
+bdi->min_ratio += min_ratio;
+} else {
+ret = -EINVAL;
+}
+}
+spin_unlock_bh(&bdi_lock);
+return ret;
+}
+int bdi_set_max_ratio(struct backing_dev_info *bdi, unsigned max_ratio)
+{
+int ret = 0;
+if (max_ratio > 100)
+return -EINVAL;
+spin_lock_bh(&bdi_lock);
+if (bdi->min_ratio > max_ratio) {
+ret = -EINVAL;
+} else {
+bdi->max_ratio = max_ratio;
+bdi->max_prop_frac = (FPROP_FRAC_BASE * max_ratio) / 100;
+}
+spin_unlock_bh(&bdi_lock);
+return ret;
+}
+static unsigned long dirty_freerun_ceiling(unsigned long thresh,
+unsigned long bg_thresh)
+{
+return (thresh + bg_thresh) / 2;
+}
+static unsigned long hard_dirty_limit(struct wb_domain *dom,
+unsigned long thresh)
+{
+return max(thresh, dom->dirty_limit);
+}
+static void mdtc_calc_avail(struct dirty_throttle_control *mdtc,
+unsigned long filepages, unsigned long headroom)
+{
+struct dirty_throttle_control *gdtc = mdtc_gdtc(mdtc);
+unsigned long clean = filepages - min(filepages, mdtc->dirty);
+unsigned long global_clean = gdtc->avail - min(gdtc->avail, gdtc->dirty);
+unsigned long other_clean = global_clean - min(global_clean, clean);
+mdtc->avail = filepages + min(headroom, other_clean);
+}
+static unsigned long __wb_calc_thresh(struct dirty_throttle_control *dtc)
+{
+struct wb_domain *dom = dtc_dom(dtc);
+unsigned long thresh = dtc->thresh;
+u64 wb_thresh;
+long numerator, denominator;
+unsigned long wb_min_ratio, wb_max_ratio;
+fprop_fraction_percpu(&dom->completions, dtc->wb_completions,
+&numerator, &denominator);
+wb_thresh = (thresh * (100 - bdi_min_ratio)) / 100;
+wb_thresh *= numerator;
+do_div(wb_thresh, denominator);
+wb_min_max_ratio(dtc->wb, &wb_min_ratio, &wb_max_ratio);
+wb_thresh += (thresh * wb_min_ratio) / 100;
+if (wb_thresh > (thresh * wb_max_ratio) / 100)
+wb_thresh = thresh * wb_max_ratio / 100;
+return wb_thresh;
+}
+unsigned long wb_calc_thresh(struct bdi_writeback *wb, unsigned long thresh)
+{
+struct dirty_throttle_control gdtc = { GDTC_INIT(wb),
+.thresh = thresh };
+return __wb_calc_thresh(&gdtc);
+}
+static long long pos_ratio_polynom(unsigned long setpoint,
+unsigned long dirty,
+unsigned long limit)
+{
+long long pos_ratio;
+long x;
+x = div64_s64(((s64)setpoint - (s64)dirty) << RATELIMIT_CALC_SHIFT,
+(limit - setpoint) | 1);
+pos_ratio = x;
+pos_ratio = pos_ratio * x >> RATELIMIT_CALC_SHIFT;
+pos_ratio = pos_ratio * x >> RATELIMIT_CALC_SHIFT;
+pos_ratio += 1 << RATELIMIT_CALC_SHIFT;
+return clamp(pos_ratio, 0LL, 2LL << RATELIMIT_CALC_SHIFT);
+}
+static void wb_position_ratio(struct dirty_throttle_control *dtc)
+{
+struct bdi_writeback *wb = dtc->wb;
+unsigned long write_bw = wb->avg_write_bandwidth;
+unsigned long freerun = dirty_freerun_ceiling(dtc->thresh, dtc->bg_thresh);
+unsigned long limit = hard_dirty_limit(dtc_dom(dtc), dtc->thresh);
+unsigned long wb_thresh = dtc->wb_thresh;
+unsigned long x_intercept;
+unsigned long setpoint;
+unsigned long wb_setpoint;
+unsigned long span;
+long long pos_ratio;
+long x;
+dtc->pos_ratio = 0;
+if (unlikely(dtc->dirty >= limit))
+return;
+setpoint = (freerun + limit) / 2;
+pos_ratio = pos_ratio_polynom(setpoint, dtc->dirty, limit);
+if (unlikely(wb->bdi->capabilities & BDI_CAP_STRICTLIMIT)) {
+long long wb_pos_ratio;
+if (dtc->wb_dirty < 8) {
+dtc->pos_ratio = min_t(long long, pos_ratio * 2,
+2 << RATELIMIT_CALC_SHIFT);
+return;
+}
+if (dtc->wb_dirty >= wb_thresh)
+return;
+wb_setpoint = dirty_freerun_ceiling(wb_thresh,
+dtc->wb_bg_thresh);
+if (wb_setpoint == 0 || wb_setpoint == wb_thresh)
+return;
+wb_pos_ratio = pos_ratio_polynom(wb_setpoint, dtc->wb_dirty,
+wb_thresh);
+dtc->pos_ratio = min(pos_ratio, wb_pos_ratio);
+return;
+}
+if (unlikely(wb_thresh > dtc->thresh))
+wb_thresh = dtc->thresh;
+wb_thresh = max(wb_thresh, (limit - dtc->dirty) / 8);
+x = div_u64((u64)wb_thresh << 16, dtc->thresh | 1);
+wb_setpoint = setpoint * (u64)x >> 16;
+span = (dtc->thresh - wb_thresh + 8 * write_bw) * (u64)x >> 16;
+x_intercept = wb_setpoint + span;
+if (dtc->wb_dirty < x_intercept - span / 4) {
+pos_ratio = div64_u64(pos_ratio * (x_intercept - dtc->wb_dirty),
+(x_intercept - wb_setpoint) | 1);
+} else
+pos_ratio /= 4;
+x_intercept = wb_thresh / 2;
+if (dtc->wb_dirty < x_intercept) {
+if (dtc->wb_dirty > x_intercept / 8)
+pos_ratio = div_u64(pos_ratio * x_intercept,
+dtc->wb_dirty);
+else
+pos_ratio *= 8;
+}
+dtc->pos_ratio = pos_ratio;
+}
+static void wb_update_write_bandwidth(struct bdi_writeback *wb,
+unsigned long elapsed,
+unsigned long written)
+{
+const unsigned long period = roundup_pow_of_two(3 * HZ);
+unsigned long avg = wb->avg_write_bandwidth;
+unsigned long old = wb->write_bandwidth;
+u64 bw;
+bw = written - min(written, wb->written_stamp);
+bw *= HZ;
+if (unlikely(elapsed > period)) {
+do_div(bw, elapsed);
+avg = bw;
+goto out;
+}
+bw += (u64)wb->write_bandwidth * (period - elapsed);
+bw >>= ilog2(period);
+if (avg > old && old >= (unsigned long)bw)
+avg -= (avg - old) >> 3;
+if (avg < old && old <= (unsigned long)bw)
+avg += (old - avg) >> 3;
+out:
+avg = max(avg, 1LU);
+if (wb_has_dirty_io(wb)) {
+long delta = avg - wb->avg_write_bandwidth;
+WARN_ON_ONCE(atomic_long_add_return(delta,
+&wb->bdi->tot_write_bandwidth) <= 0);
+}
+wb->write_bandwidth = bw;
+wb->avg_write_bandwidth = avg;
+}
+static void update_dirty_limit(struct dirty_throttle_control *dtc)
+{
+struct wb_domain *dom = dtc_dom(dtc);
+unsigned long thresh = dtc->thresh;
+unsigned long limit = dom->dirty_limit;
+if (limit < thresh) {
+limit = thresh;
+goto update;
+}
+thresh = max(thresh, dtc->dirty);
+if (limit > thresh) {
+limit -= (limit - thresh) >> 5;
+goto update;
+}
+return;
+update:
+dom->dirty_limit = limit;
+}
+static void domain_update_bandwidth(struct dirty_throttle_control *dtc,
+unsigned long now)
+{
+struct wb_domain *dom = dtc_dom(dtc);
+if (time_before(now, dom->dirty_limit_tstamp + BANDWIDTH_INTERVAL))
+return;
+spin_lock(&dom->lock);
+if (time_after_eq(now, dom->dirty_limit_tstamp + BANDWIDTH_INTERVAL)) {
+update_dirty_limit(dtc);
+dom->dirty_limit_tstamp = now;
+}
+spin_unlock(&dom->lock);
+}
+static void wb_update_dirty_ratelimit(struct dirty_throttle_control *dtc,
+unsigned long dirtied,
+unsigned long elapsed)
+{
+struct bdi_writeback *wb = dtc->wb;
+unsigned long dirty = dtc->dirty;
+unsigned long freerun = dirty_freerun_ceiling(dtc->thresh, dtc->bg_thresh);
+unsigned long limit = hard_dirty_limit(dtc_dom(dtc), dtc->thresh);
+unsigned long setpoint = (freerun + limit) / 2;
+unsigned long write_bw = wb->avg_write_bandwidth;
+unsigned long dirty_ratelimit = wb->dirty_ratelimit;
+unsigned long dirty_rate;
+unsigned long task_ratelimit;
+unsigned long balanced_dirty_ratelimit;
+unsigned long step;
+unsigned long x;
+unsigned long shift;
+dirty_rate = (dirtied - wb->dirtied_stamp) * HZ / elapsed;
+task_ratelimit = (u64)dirty_ratelimit *
+dtc->pos_ratio >> RATELIMIT_CALC_SHIFT;
+task_ratelimit++;
+balanced_dirty_ratelimit = div_u64((u64)task_ratelimit * write_bw,
+dirty_rate | 1);
+if (unlikely(balanced_dirty_ratelimit > write_bw))
+balanced_dirty_ratelimit = write_bw;
+step = 0;
+if (unlikely(wb->bdi->capabilities & BDI_CAP_STRICTLIMIT)) {
+dirty = dtc->wb_dirty;
+if (dtc->wb_dirty < 8)
+setpoint = dtc->wb_dirty + 1;
+else
+setpoint = (dtc->wb_thresh + dtc->wb_bg_thresh) / 2;
+}
+if (dirty < setpoint) {
+x = min3(wb->balanced_dirty_ratelimit,
+balanced_dirty_ratelimit, task_ratelimit);
+if (dirty_ratelimit < x)
+step = x - dirty_ratelimit;
+} else {
+x = max3(wb->balanced_dirty_ratelimit,
+balanced_dirty_ratelimit, task_ratelimit);
+if (dirty_ratelimit > x)
+step = dirty_ratelimit - x;
+}
+shift = dirty_ratelimit / (2 * step + 1);
+if (shift < BITS_PER_LONG)
+step = DIV_ROUND_UP(step >> shift, 8);
+else
+step = 0;
+if (dirty_ratelimit < balanced_dirty_ratelimit)
+dirty_ratelimit += step;
+else
+dirty_ratelimit -= step;
+wb->dirty_ratelimit = max(dirty_ratelimit, 1UL);
+wb->balanced_dirty_ratelimit = balanced_dirty_ratelimit;
+trace_bdi_dirty_ratelimit(wb, dirty_rate, task_ratelimit);
+}
+static void __wb_update_bandwidth(struct dirty_throttle_control *gdtc,
+struct dirty_throttle_control *mdtc,
+unsigned long start_time,
+bool update_ratelimit)
+{
+struct bdi_writeback *wb = gdtc->wb;
+unsigned long now = jiffies;
+unsigned long elapsed = now - wb->bw_time_stamp;
+unsigned long dirtied;
+unsigned long written;
+lockdep_assert_held(&wb->list_lock);
+if (elapsed < BANDWIDTH_INTERVAL)
+return;
+dirtied = percpu_counter_read(&wb->stat[WB_DIRTIED]);
+written = percpu_counter_read(&wb->stat[WB_WRITTEN]);
+if (elapsed > HZ && time_before(wb->bw_time_stamp, start_time))
+goto snapshot;
+if (update_ratelimit) {
+domain_update_bandwidth(gdtc, now);
+wb_update_dirty_ratelimit(gdtc, dirtied, elapsed);
+if (IS_ENABLED(CONFIG_CGROUP_WRITEBACK) && mdtc) {
+domain_update_bandwidth(mdtc, now);
+wb_update_dirty_ratelimit(mdtc, dirtied, elapsed);
+}
+}
+wb_update_write_bandwidth(wb, elapsed, written);
+snapshot:
+wb->dirtied_stamp = dirtied;
+wb->written_stamp = written;
+wb->bw_time_stamp = now;
+}
+void wb_update_bandwidth(struct bdi_writeback *wb, unsigned long start_time)
+{
+struct dirty_throttle_control gdtc = { GDTC_INIT(wb) };
+__wb_update_bandwidth(&gdtc, NULL, start_time, false);
+}
+static unsigned long dirty_poll_interval(unsigned long dirty,
+unsigned long thresh)
+{
+if (thresh > dirty)
+return 1UL << (ilog2(thresh - dirty) >> 1);
+return 1;
+}
+static unsigned long wb_max_pause(struct bdi_writeback *wb,
+unsigned long wb_dirty)
+{
+unsigned long bw = wb->avg_write_bandwidth;
+unsigned long t;
+t = wb_dirty / (1 + bw / roundup_pow_of_two(1 + HZ / 8));
+t++;
+return min_t(unsigned long, t, MAX_PAUSE);
+}
+static long wb_min_pause(struct bdi_writeback *wb,
+long max_pause,
+unsigned long task_ratelimit,
+unsigned long dirty_ratelimit,
+int *nr_dirtied_pause)
+{
+long hi = ilog2(wb->avg_write_bandwidth);
+long lo = ilog2(wb->dirty_ratelimit);
+long t;
+long pause;
+int pages;
+t = max(1, HZ / 100);
+if (hi > lo)
+t += (hi - lo) * (10 * HZ) / 1024;
+t = min(t, 1 + max_pause / 2);
+pages = dirty_ratelimit * t / roundup_pow_of_two(HZ);
+if (pages < DIRTY_POLL_THRESH) {
+t = max_pause;
+pages = dirty_ratelimit * t / roundup_pow_of_two(HZ);
+if (pages > DIRTY_POLL_THRESH) {
+pages = DIRTY_POLL_THRESH;
+t = HZ * DIRTY_POLL_THRESH / dirty_ratelimit;
+}
+}
+pause = HZ * pages / (task_ratelimit + 1);
+if (pause > max_pause) {
+t = max_pause;
+pages = task_ratelimit * t / roundup_pow_of_two(HZ);
+}
+*nr_dirtied_pause = pages;
+return pages >= DIRTY_POLL_THRESH ? 1 + t / 2 : t;
+}
+static inline void wb_dirty_limits(struct dirty_throttle_control *dtc)
+{
+struct bdi_writeback *wb = dtc->wb;
+unsigned long wb_reclaimable;
+dtc->wb_thresh = __wb_calc_thresh(dtc);
+dtc->wb_bg_thresh = dtc->thresh ?
+div_u64((u64)dtc->wb_thresh * dtc->bg_thresh, dtc->thresh) : 0;
+if (dtc->wb_thresh < 2 * wb_stat_error(wb)) {
+wb_reclaimable = wb_stat_sum(wb, WB_RECLAIMABLE);
+dtc->wb_dirty = wb_reclaimable + wb_stat_sum(wb, WB_WRITEBACK);
+} else {
+wb_reclaimable = wb_stat(wb, WB_RECLAIMABLE);
+dtc->wb_dirty = wb_reclaimable + wb_stat(wb, WB_WRITEBACK);
+}
+}
+static void balance_dirty_pages(struct address_space *mapping,
+struct bdi_writeback *wb,
+unsigned long pages_dirtied)
+{
+struct dirty_throttle_control gdtc_stor = { GDTC_INIT(wb) };
+struct dirty_throttle_control mdtc_stor = { MDTC_INIT(wb, &gdtc_stor) };
+struct dirty_throttle_control * const gdtc = &gdtc_stor;
+struct dirty_throttle_control * const mdtc = mdtc_valid(&mdtc_stor) ?
+&mdtc_stor : NULL;
+struct dirty_throttle_control *sdtc;
+unsigned long nr_reclaimable;
+long period;
+long pause;
+long max_pause;
+long min_pause;
+int nr_dirtied_pause;
+bool dirty_exceeded = false;
+unsigned long task_ratelimit;
+unsigned long dirty_ratelimit;
+struct backing_dev_info *bdi = wb->bdi;
+bool strictlimit = bdi->capabilities & BDI_CAP_STRICTLIMIT;
+unsigned long start_time = jiffies;
+for (;;) {
+unsigned long now = jiffies;
+unsigned long dirty, thresh, bg_thresh;
+unsigned long m_dirty = 0;
+unsigned long m_thresh = 0;
+unsigned long m_bg_thresh = 0;
+nr_reclaimable = global_node_page_state(NR_FILE_DIRTY) +
+global_node_page_state(NR_UNSTABLE_NFS);
+gdtc->avail = global_dirtyable_memory();
+gdtc->dirty = nr_reclaimable + global_node_page_state(NR_WRITEBACK);
+domain_dirty_limits(gdtc);
+if (unlikely(strictlimit)) {
+wb_dirty_limits(gdtc);
+dirty = gdtc->wb_dirty;
+thresh = gdtc->wb_thresh;
+bg_thresh = gdtc->wb_bg_thresh;
+} else {
+dirty = gdtc->dirty;
+thresh = gdtc->thresh;
+bg_thresh = gdtc->bg_thresh;
+}
+if (mdtc) {
+unsigned long filepages, headroom, writeback;
+mem_cgroup_wb_stats(wb, &filepages, &headroom,
+&mdtc->dirty, &writeback);
+mdtc->dirty += writeback;
+mdtc_calc_avail(mdtc, filepages, headroom);
+domain_dirty_limits(mdtc);
+if (unlikely(strictlimit)) {
+wb_dirty_limits(mdtc);
+m_dirty = mdtc->wb_dirty;
+m_thresh = mdtc->wb_thresh;
+m_bg_thresh = mdtc->wb_bg_thresh;
+} else {
+m_dirty = mdtc->dirty;
+m_thresh = mdtc->thresh;
+m_bg_thresh = mdtc->bg_thresh;
+}
+}
+if (dirty <= dirty_freerun_ceiling(thresh, bg_thresh) &&
+(!mdtc ||
+m_dirty <= dirty_freerun_ceiling(m_thresh, m_bg_thresh))) {
+unsigned long intv = dirty_poll_interval(dirty, thresh);
+unsigned long m_intv = ULONG_MAX;
+current->dirty_paused_when = now;
+current->nr_dirtied = 0;
+if (mdtc)
+m_intv = dirty_poll_interval(m_dirty, m_thresh);
+current->nr_dirtied_pause = min(intv, m_intv);
+break;
+}
+if (unlikely(!writeback_in_progress(wb)))
+wb_start_background_writeback(wb);
+if (!strictlimit)
+wb_dirty_limits(gdtc);
+dirty_exceeded = (gdtc->wb_dirty > gdtc->wb_thresh) &&
+((gdtc->dirty > gdtc->thresh) || strictlimit);
+wb_position_ratio(gdtc);
+sdtc = gdtc;
+if (mdtc) {
+if (!strictlimit)
+wb_dirty_limits(mdtc);
+dirty_exceeded |= (mdtc->wb_dirty > mdtc->wb_thresh) &&
+((mdtc->dirty > mdtc->thresh) || strictlimit);
+wb_position_ratio(mdtc);
+if (mdtc->pos_ratio < gdtc->pos_ratio)
+sdtc = mdtc;
+}
+if (dirty_exceeded && !wb->dirty_exceeded)
+wb->dirty_exceeded = 1;
+if (time_is_before_jiffies(wb->bw_time_stamp +
+BANDWIDTH_INTERVAL)) {
+spin_lock(&wb->list_lock);
+__wb_update_bandwidth(gdtc, mdtc, start_time, true);
+spin_unlock(&wb->list_lock);
+}
+dirty_ratelimit = wb->dirty_ratelimit;
+task_ratelimit = ((u64)dirty_ratelimit * sdtc->pos_ratio) >>
+RATELIMIT_CALC_SHIFT;
+max_pause = wb_max_pause(wb, sdtc->wb_dirty);
+min_pause = wb_min_pause(wb, max_pause,
+task_ratelimit, dirty_ratelimit,
+&nr_dirtied_pause);
+if (unlikely(task_ratelimit == 0)) {
+period = max_pause;
+pause = max_pause;
+goto pause;
+}
+period = HZ * pages_dirtied / task_ratelimit;
+pause = period;
+if (current->dirty_paused_when)
+pause -= now - current->dirty_paused_when;
+if (pause < min_pause) {
+trace_balance_dirty_pages(wb,
+sdtc->thresh,
+sdtc->bg_thresh,
+sdtc->dirty,
+sdtc->wb_thresh,
+sdtc->wb_dirty,
+dirty_ratelimit,
+task_ratelimit,
+pages_dirtied,
+period,
+min(pause, 0L),
+start_time);
+if (pause < -HZ) {
+current->dirty_paused_when = now;
+current->nr_dirtied = 0;
+} else if (period) {
+current->dirty_paused_when += period;
+current->nr_dirtied = 0;
+} else if (current->nr_dirtied_pause <= pages_dirtied)
+current->nr_dirtied_pause += pages_dirtied;
+break;
+}
+if (unlikely(pause > max_pause)) {
+now += min(pause - max_pause, max_pause);
+pause = max_pause;
+}
+pause:
+trace_balance_dirty_pages(wb,
+sdtc->thresh,
+sdtc->bg_thresh,
+sdtc->dirty,
+sdtc->wb_thresh,
+sdtc->wb_dirty,
+dirty_ratelimit,
+task_ratelimit,
+pages_dirtied,
+period,
+pause,
+start_time);
+__set_current_state(TASK_KILLABLE);
+wb->dirty_sleep = now;
+io_schedule_timeout(pause);
+current->dirty_paused_when = now + pause;
+current->nr_dirtied = 0;
+current->nr_dirtied_pause = nr_dirtied_pause;
+if (task_ratelimit)
+break;
+if (sdtc->wb_dirty <= wb_stat_error(wb))
+break;
+if (fatal_signal_pending(current))
+break;
+}
+if (!dirty_exceeded && wb->dirty_exceeded)
+wb->dirty_exceeded = 0;
+if (writeback_in_progress(wb))
+return;
+if (laptop_mode)
+return;
+if (nr_reclaimable > gdtc->bg_thresh)
+wb_start_background_writeback(wb);
+}
+void balance_dirty_pages_ratelimited(struct address_space *mapping)
+{
+struct inode *inode = mapping->host;
+struct backing_dev_info *bdi = inode_to_bdi(inode);
+struct bdi_writeback *wb = NULL;
+int ratelimit;
+int *p;
+if (!bdi_cap_account_dirty(bdi))
+return;
+if (inode_cgwb_enabled(inode))
+wb = wb_get_create_current(bdi, GFP_KERNEL);
+if (!wb)
+wb = &bdi->wb;
+ratelimit = current->nr_dirtied_pause;
+if (wb->dirty_exceeded)
+ratelimit = min(ratelimit, 32 >> (PAGE_SHIFT - 10));
+preempt_disable();
+p = this_cpu_ptr(&bdp_ratelimits);
+if (unlikely(current->nr_dirtied >= ratelimit))
+*p = 0;
+else if (unlikely(*p >= ratelimit_pages)) {
+*p = 0;
+ratelimit = 0;
+}
+p = this_cpu_ptr(&dirty_throttle_leaks);
+if (*p > 0 && current->nr_dirtied < ratelimit) {
+unsigned long nr_pages_dirtied;
+nr_pages_dirtied = min(*p, ratelimit - current->nr_dirtied);
+*p -= nr_pages_dirtied;
+current->nr_dirtied += nr_pages_dirtied;
+}
+preempt_enable();
+if (unlikely(current->nr_dirtied >= ratelimit))
+balance_dirty_pages(mapping, wb, current->nr_dirtied);
+wb_put(wb);
+}
+bool wb_over_bg_thresh(struct bdi_writeback *wb)
+{
+struct dirty_throttle_control gdtc_stor = { GDTC_INIT(wb) };
+struct dirty_throttle_control mdtc_stor = { MDTC_INIT(wb, &gdtc_stor) };
+struct dirty_throttle_control * const gdtc = &gdtc_stor;
+struct dirty_throttle_control * const mdtc = mdtc_valid(&mdtc_stor) ?
+&mdtc_stor : NULL;
+gdtc->avail = global_dirtyable_memory();
+gdtc->dirty = global_node_page_state(NR_FILE_DIRTY) +
+global_node_page_state(NR_UNSTABLE_NFS);
+domain_dirty_limits(gdtc);
+if (gdtc->dirty > gdtc->bg_thresh)
+return true;
+if (wb_stat(wb, WB_RECLAIMABLE) >
+wb_calc_thresh(gdtc->wb, gdtc->bg_thresh))
+return true;
+if (mdtc) {
+unsigned long filepages, headroom, writeback;
+mem_cgroup_wb_stats(wb, &filepages, &headroom, &mdtc->dirty,
+&writeback);
+mdtc_calc_avail(mdtc, filepages, headroom);
+domain_dirty_limits(mdtc);
+if (mdtc->dirty > mdtc->bg_thresh)
+return true;
+if (wb_stat(wb, WB_RECLAIMABLE) >
+wb_calc_thresh(mdtc->wb, mdtc->bg_thresh))
+return true;
+}
+return false;
+}
+int dirty_writeback_centisecs_handler(struct ctl_table *table, int write,
+void __user *buffer, size_t *length, loff_t *ppos)
+{
+proc_dointvec(table, write, buffer, length, ppos);
+return 0;
+}
+void laptop_mode_timer_fn(unsigned long data)
+{
+struct request_queue *q = (struct request_queue *)data;
+int nr_pages = global_node_page_state(NR_FILE_DIRTY) +
+global_node_page_state(NR_UNSTABLE_NFS);
+struct bdi_writeback *wb;
+if (!bdi_has_dirty_io(q->backing_dev_info))
+return;
+rcu_read_lock();
+list_for_each_entry_rcu(wb, &q->backing_dev_info->wb_list, bdi_node)
+if (wb_has_dirty_io(wb))
+wb_start_writeback(wb, nr_pages, true,
+WB_REASON_LAPTOP_TIMER);
+rcu_read_unlock();
+}
+void laptop_io_completion(struct backing_dev_info *info)
+{
+mod_timer(&info->laptop_mode_wb_timer, jiffies + laptop_mode);
+}
+void laptop_sync_completion(void)
+{
+struct backing_dev_info *bdi;
+rcu_read_lock();
+list_for_each_entry_rcu(bdi, &bdi_list, bdi_list)
+del_timer(&bdi->laptop_mode_wb_timer);
+rcu_read_unlock();
+}
+void writeback_set_ratelimit(void)
+{
+struct wb_domain *dom = &global_wb_domain;
+unsigned long background_thresh;
+unsigned long dirty_thresh;
+global_dirty_limits(&background_thresh, &dirty_thresh);
+dom->dirty_limit = dirty_thresh;
+ratelimit_pages = dirty_thresh / (num_online_cpus() * 32);
+if (ratelimit_pages < 16)
+ratelimit_pages = 16;
+}
+static int page_writeback_cpu_online(unsigned int cpu)
+{
+writeback_set_ratelimit();
+return 0;
+}
+void __init page_writeback_init(void)
+{
+BUG_ON(wb_domain_init(&global_wb_domain, GFP_KERNEL));
+cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "mm/writeback:online",
+page_writeback_cpu_online, NULL);
+cpuhp_setup_state(CPUHP_MM_WRITEBACK_DEAD, "mm/writeback:dead", NULL,
+page_writeback_cpu_online);
+}
+void tag_pages_for_writeback(struct address_space *mapping,
+pgoff_t start, pgoff_t end)
+{
+#define WRITEBACK_TAG_BATCH 4096
+unsigned long tagged = 0;
+struct radix_tree_iter iter;
+void **slot;
+spin_lock_irq(&mapping->tree_lock);
+radix_tree_for_each_tagged(slot, &mapping->page_tree, &iter, start,
+PAGECACHE_TAG_DIRTY) {
+if (iter.index > end)
+break;
+radix_tree_iter_tag_set(&mapping->page_tree, &iter,
+PAGECACHE_TAG_TOWRITE);
+tagged++;
+if ((tagged % WRITEBACK_TAG_BATCH) != 0)
+continue;
+slot = radix_tree_iter_resume(slot, &iter);
+spin_unlock_irq(&mapping->tree_lock);
+cond_resched();
+spin_lock_irq(&mapping->tree_lock);
+}
+spin_unlock_irq(&mapping->tree_lock);
+}
+int write_cache_pages(struct address_space *mapping,
+struct writeback_control *wbc, writepage_t writepage,
+void *data)
+{
+int ret = 0;
+int done = 0;
+struct pagevec pvec;
+int nr_pages;
+pgoff_t uninitialized_var(writeback_index);
+pgoff_t index;
+pgoff_t end;
+pgoff_t done_index;
+int cycled;
+int range_whole = 0;
+int tag;
+pagevec_init(&pvec, 0);
+if (wbc->range_cyclic) {
+writeback_index = mapping->writeback_index;
+index = writeback_index;
+if (index == 0)
+cycled = 1;
+else
+cycled = 0;
+end = -1;
+} else {
+index = wbc->range_start >> PAGE_SHIFT;
+end = wbc->range_end >> PAGE_SHIFT;
+if (wbc->range_start == 0 && wbc->range_end == LLONG_MAX)
+range_whole = 1;
+cycled = 1;
+}
+if (wbc->sync_mode == WB_SYNC_ALL || wbc->tagged_writepages)
+tag = PAGECACHE_TAG_TOWRITE;
+else
+tag = PAGECACHE_TAG_DIRTY;
+retry:
+if (wbc->sync_mode == WB_SYNC_ALL || wbc->tagged_writepages)
+tag_pages_for_writeback(mapping, index, end);
+done_index = index;
+while (!done && (index <= end)) {
+int i;
+nr_pages = pagevec_lookup_tag(&pvec, mapping, &index, tag,
+min(end - index, (pgoff_t)PAGEVEC_SIZE-1) + 1);
+if (nr_pages == 0)
+break;
+for (i = 0; i < nr_pages; i++) {
+struct page *page = pvec.pages[i];
+if (page->index > end) {
+done = 1;
+break;
+}
+done_index = page->index;
+lock_page(page);
+if (unlikely(page->mapping != mapping)) {
+continue_unlock:
+unlock_page(page);
+continue;
+}
+if (!PageDirty(page)) {
+goto continue_unlock;
+}
+if (PageWriteback(page)) {
+if (wbc->sync_mode != WB_SYNC_NONE)
+wait_on_page_writeback(page);
+else
+goto continue_unlock;
+}
+BUG_ON(PageWriteback(page));
+if (!clear_page_dirty_for_io(page))
+goto continue_unlock;
+trace_wbc_writepage(wbc, inode_to_bdi(mapping->host));
+ret = (*writepage)(page, wbc, data);
+if (unlikely(ret)) {
+if (ret == AOP_WRITEPAGE_ACTIVATE) {
+unlock_page(page);
+ret = 0;
+} else {
+done_index = page->index + 1;
+done = 1;
+break;
+}
+}
+if (--wbc->nr_to_write <= 0 &&
+wbc->sync_mode == WB_SYNC_NONE) {
+done = 1;
+break;
+}
+}
+pagevec_release(&pvec);
+cond_resched();
+}
+if (!cycled && !done) {
+cycled = 1;
+index = 0;
+end = writeback_index - 1;
+goto retry;
+}
+if (wbc->range_cyclic || (range_whole && wbc->nr_to_write > 0))
+mapping->writeback_index = done_index;
+return ret;
+}
+static int __writepage(struct page *page, struct writeback_control *wbc,
+void *data)
+{
+struct address_space *mapping = data;
+int ret = mapping->a_ops->writepage(page, wbc);
+mapping_set_error(mapping, ret);
+return ret;
+}
+int generic_writepages(struct address_space *mapping,
+struct writeback_control *wbc)
+{
+struct blk_plug plug;
+int ret;
+if (!mapping->a_ops->writepage)
+return 0;
+blk_start_plug(&plug);
+ret = write_cache_pages(mapping, wbc, __writepage, mapping);
+blk_finish_plug(&plug);
+return ret;
+}
+int do_writepages(struct address_space *mapping, struct writeback_control *wbc)
+{
+int ret;
+if (wbc->nr_to_write <= 0)
+return 0;
+while (1) {
+if (mapping->a_ops->writepages)
+ret = mapping->a_ops->writepages(mapping, wbc);
+else
+ret = generic_writepages(mapping, wbc);
+if ((ret != -ENOMEM) || (wbc->sync_mode != WB_SYNC_ALL))
+break;
+cond_resched();
+congestion_wait(BLK_RW_ASYNC, HZ/50);
+}
+return ret;
+}
+int write_one_page(struct page *page)
+{
+struct address_space *mapping = page->mapping;
+int ret = 0;
+struct writeback_control wbc = {
+.sync_mode = WB_SYNC_ALL,
+.nr_to_write = 1,
+};
+BUG_ON(!PageLocked(page));
+wait_on_page_writeback(page);
+if (clear_page_dirty_for_io(page)) {
+get_page(page);
+ret = mapping->a_ops->writepage(page, &wbc);
+if (ret == 0)
+wait_on_page_writeback(page);
+put_page(page);
+} else {
+unlock_page(page);
+}
+if (!ret)
+ret = filemap_check_errors(mapping);
+return ret;
+}
+int __set_page_dirty_no_writeback(struct page *page)
+{
+if (!PageDirty(page))
+return !TestSetPageDirty(page);
+return 0;
+}
+void account_page_dirtied(struct page *page, struct address_space *mapping)
+{
+struct inode *inode = mapping->host;
+trace_writeback_dirty_page(page, mapping);
+if (mapping_cap_account_dirty(mapping)) {
+struct bdi_writeback *wb;
+inode_attach_wb(inode, page);
+wb = inode_to_wb(inode);
+__inc_lruvec_page_state(page, NR_FILE_DIRTY);
+__inc_zone_page_state(page, NR_ZONE_WRITE_PENDING);
+__inc_node_page_state(page, NR_DIRTIED);
+inc_wb_stat(wb, WB_RECLAIMABLE);
+inc_wb_stat(wb, WB_DIRTIED);
+task_io_account_write(PAGE_SIZE);
+current->nr_dirtied++;
+this_cpu_inc(bdp_ratelimits);
+}
+}
+void account_page_cleaned(struct page *page, struct address_space *mapping,
+struct bdi_writeback *wb)
+{
+if (mapping_cap_account_dirty(mapping)) {
+dec_lruvec_page_state(page, NR_FILE_DIRTY);
+dec_zone_page_state(page, NR_ZONE_WRITE_PENDING);
+dec_wb_stat(wb, WB_RECLAIMABLE);
+task_io_account_cancelled_write(PAGE_SIZE);
+}
+}
+int __set_page_dirty_nobuffers(struct page *page)
+{
+lock_page_memcg(page);
+if (!TestSetPageDirty(page)) {
+struct address_space *mapping = page_mapping(page);
+unsigned long flags;
+if (!mapping) {
+unlock_page_memcg(page);
+return 1;
+}
+spin_lock_irqsave(&mapping->tree_lock, flags);
+BUG_ON(page_mapping(page) != mapping);
+WARN_ON_ONCE(!PagePrivate(page) && !PageUptodate(page));
+account_page_dirtied(page, mapping);
+radix_tree_tag_set(&mapping->page_tree, page_index(page),
+PAGECACHE_TAG_DIRTY);
+spin_unlock_irqrestore(&mapping->tree_lock, flags);
+unlock_page_memcg(page);
+if (mapping->host) {
+__mark_inode_dirty(mapping->host, I_DIRTY_PAGES);
+}
+return 1;
+}
+unlock_page_memcg(page);
+return 0;
+}
+void account_page_redirty(struct page *page)
+{
+struct address_space *mapping = page->mapping;
+if (mapping && mapping_cap_account_dirty(mapping)) {
+struct inode *inode = mapping->host;
+struct bdi_writeback *wb;
+bool locked;
+wb = unlocked_inode_to_wb_begin(inode, &locked);
+current->nr_dirtied--;
+dec_node_page_state(page, NR_DIRTIED);
+dec_wb_stat(wb, WB_DIRTIED);
+unlocked_inode_to_wb_end(inode, locked);
+}
+}
+int redirty_page_for_writepage(struct writeback_control *wbc, struct page *page)
+{
+int ret;
+wbc->pages_skipped++;
+ret = __set_page_dirty_nobuffers(page);
+account_page_redirty(page);
+return ret;
+}
+int set_page_dirty(struct page *page)
+{
+struct address_space *mapping = page_mapping(page);
+page = compound_head(page);
+if (likely(mapping)) {
+int (*spd)(struct page *) = mapping->a_ops->set_page_dirty;
+if (PageReclaim(page))
+ClearPageReclaim(page);
+#ifdef CONFIG_BLOCK
+if (!spd)
+spd = __set_page_dirty_buffers;
+#endif
+return (*spd)(page);
+}
+if (!PageDirty(page)) {
+if (!TestSetPageDirty(page))
+return 1;
+}
+return 0;
+}
+int set_page_dirty_lock(struct page *page)
+{
+int ret;
+lock_page(page);
+ret = set_page_dirty(page);
+unlock_page(page);
+return ret;
+}
+void cancel_dirty_page(struct page *page)
+{
+struct address_space *mapping = page_mapping(page);
+if (mapping_cap_account_dirty(mapping)) {
+struct inode *inode = mapping->host;
+struct bdi_writeback *wb;
+bool locked;
+lock_page_memcg(page);
+wb = unlocked_inode_to_wb_begin(inode, &locked);
+if (TestClearPageDirty(page))
+account_page_cleaned(page, mapping, wb);
+unlocked_inode_to_wb_end(inode, locked);
+unlock_page_memcg(page);
+} else {
+ClearPageDirty(page);
+}
+}
+int clear_page_dirty_for_io(struct page *page)
+{
+struct address_space *mapping = page_mapping(page);
+int ret = 0;
+BUG_ON(!PageLocked(page));
+if (mapping && mapping_cap_account_dirty(mapping)) {
+struct inode *inode = mapping->host;
+struct bdi_writeback *wb;
+bool locked;
+if (page_mkclean(page))
+set_page_dirty(page);
+wb = unlocked_inode_to_wb_begin(inode, &locked);
+if (TestClearPageDirty(page)) {
+dec_lruvec_page_state(page, NR_FILE_DIRTY);
+dec_zone_page_state(page, NR_ZONE_WRITE_PENDING);
+dec_wb_stat(wb, WB_RECLAIMABLE);
+ret = 1;
+}
+unlocked_inode_to_wb_end(inode, locked);
+return ret;
+}
+return TestClearPageDirty(page);
+}
+int test_clear_page_writeback(struct page *page)
+{
+struct address_space *mapping = page_mapping(page);
+struct mem_cgroup *memcg;
+struct lruvec *lruvec;
+int ret;
+memcg = lock_page_memcg(page);
+lruvec = mem_cgroup_page_lruvec(page, page_pgdat(page));
+if (mapping && mapping_use_writeback_tags(mapping)) {
+struct inode *inode = mapping->host;
+struct backing_dev_info *bdi = inode_to_bdi(inode);
+unsigned long flags;
+spin_lock_irqsave(&mapping->tree_lock, flags);
+ret = TestClearPageWriteback(page);
+if (ret) {
+radix_tree_tag_clear(&mapping->page_tree,
+page_index(page),
+PAGECACHE_TAG_WRITEBACK);
+if (bdi_cap_account_writeback(bdi)) {
+struct bdi_writeback *wb = inode_to_wb(inode);
+dec_wb_stat(wb, WB_WRITEBACK);
+__wb_writeout_inc(wb);
+}
+}
+if (mapping->host && !mapping_tagged(mapping,
+PAGECACHE_TAG_WRITEBACK))
+sb_clear_inode_writeback(mapping->host);
+spin_unlock_irqrestore(&mapping->tree_lock, flags);
+} else {
+ret = TestClearPageWriteback(page);
+}
+if (ret) {
+dec_lruvec_state(lruvec, NR_WRITEBACK);
+dec_zone_page_state(page, NR_ZONE_WRITE_PENDING);
+inc_node_page_state(page, NR_WRITTEN);
+}
+__unlock_page_memcg(memcg);
+return ret;
+}
+int __test_set_page_writeback(struct page *page, bool keep_write)
+{
+struct address_space *mapping = page_mapping(page);
+int ret;
+lock_page_memcg(page);
+if (mapping && mapping_use_writeback_tags(mapping)) {
+struct inode *inode = mapping->host;
+struct backing_dev_info *bdi = inode_to_bdi(inode);
+unsigned long flags;
+spin_lock_irqsave(&mapping->tree_lock, flags);
+ret = TestSetPageWriteback(page);
+if (!ret) {
+bool on_wblist;
+on_wblist = mapping_tagged(mapping,
+PAGECACHE_TAG_WRITEBACK);
+radix_tree_tag_set(&mapping->page_tree,
+page_index(page),
+PAGECACHE_TAG_WRITEBACK);
+if (bdi_cap_account_writeback(bdi))
+inc_wb_stat(inode_to_wb(inode), WB_WRITEBACK);
+if (mapping->host && !on_wblist)
+sb_mark_inode_writeback(mapping->host);
+}
+if (!PageDirty(page))
+radix_tree_tag_clear(&mapping->page_tree,
+page_index(page),
+PAGECACHE_TAG_DIRTY);
+if (!keep_write)
+radix_tree_tag_clear(&mapping->page_tree,
+page_index(page),
+PAGECACHE_TAG_TOWRITE);
+spin_unlock_irqrestore(&mapping->tree_lock, flags);
+} else {
+ret = TestSetPageWriteback(page);
+}
+if (!ret) {
+inc_lruvec_page_state(page, NR_WRITEBACK);
+inc_zone_page_state(page, NR_ZONE_WRITE_PENDING);
+}
+unlock_page_memcg(page);
+return ret;
+}
+int mapping_tagged(struct address_space *mapping, int tag)
+{
+return radix_tree_tagged(&mapping->page_tree, tag);
+}
+void wait_for_stable_page(struct page *page)
+{
+if (bdi_cap_stable_pages_required(inode_to_bdi(page->mapping->host)))
+wait_on_page_writeback(page);
+}

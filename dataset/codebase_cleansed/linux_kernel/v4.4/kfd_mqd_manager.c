@@ -1,0 +1,1 @@
+struct mqd_manager *mqd_manager_init(enum KFD_MQD_TYPE type,\r\nstruct kfd_dev *dev)\r\n{\r\nswitch (dev->device_info->asic_family) {\r\ncase CHIP_KAVERI:\r\nreturn mqd_manager_init_cik(type, dev);\r\ncase CHIP_CARRIZO:\r\nreturn mqd_manager_init_vi(type, dev);\r\n}\r\nreturn NULL;\r\n}

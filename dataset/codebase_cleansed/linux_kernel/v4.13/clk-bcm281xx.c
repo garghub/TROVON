@@ -1,0 +1,20 @@
+static void __init kona_dt_root_ccu_setup(struct device_node *node)
+{
+kona_dt_ccu_setup(&root_ccu_data, node);
+}
+static void __init kona_dt_aon_ccu_setup(struct device_node *node)
+{
+kona_dt_ccu_setup(&aon_ccu_data, node);
+}
+static void __init kona_dt_hub_ccu_setup(struct device_node *node)
+{
+kona_dt_ccu_setup(&hub_ccu_data, node);
+}
+static void __init kona_dt_master_ccu_setup(struct device_node *node)
+{
+kona_dt_ccu_setup(&master_ccu_data, node);
+}
+static void __init kona_dt_slave_ccu_setup(struct device_node *node)
+{
+kona_dt_ccu_setup(&slave_ccu_data, node);
+}

@@ -1,0 +1,182 @@
+static int headset_get_switch(struct snd_kcontrol *kcontrol,
+struct snd_ctl_elem_value *ucontrol)
+{
+ucontrol->value.enumerated.item[0] = hs_switch;
+return 0;
+}
+static int headset_set_switch(struct snd_kcontrol *kcontrol,
+struct snd_ctl_elem_value *ucontrol)
+{
+struct snd_soc_card *card = snd_kcontrol_chip(kcontrol);
+struct snd_soc_dapm_context *dapm = &card->dapm;
+if (ucontrol->value.enumerated.item[0] == hs_switch)
+return 0;
+snd_soc_dapm_mutex_lock(dapm);
+if (ucontrol->value.enumerated.item[0]) {
+pr_debug("hs_set HS path\n");
+snd_soc_dapm_enable_pin_unlocked(dapm, "Headphones");
+snd_soc_dapm_disable_pin_unlocked(dapm, "EPOUT");
+} else {
+pr_debug("hs_set EP path\n");
+snd_soc_dapm_disable_pin_unlocked(dapm, "Headphones");
+snd_soc_dapm_enable_pin_unlocked(dapm, "EPOUT");
+}
+snd_soc_dapm_sync_unlocked(dapm);
+snd_soc_dapm_mutex_unlock(dapm);
+hs_switch = ucontrol->value.enumerated.item[0];
+return 0;
+}
+static void lo_enable_out_pins(struct snd_soc_dapm_context *dapm)
+{
+snd_soc_dapm_enable_pin_unlocked(dapm, "IHFOUTL");
+snd_soc_dapm_enable_pin_unlocked(dapm, "IHFOUTR");
+snd_soc_dapm_enable_pin_unlocked(dapm, "LINEOUTL");
+snd_soc_dapm_enable_pin_unlocked(dapm, "LINEOUTR");
+snd_soc_dapm_enable_pin_unlocked(dapm, "VIB1OUT");
+snd_soc_dapm_enable_pin_unlocked(dapm, "VIB2OUT");
+if (hs_switch) {
+snd_soc_dapm_enable_pin_unlocked(dapm, "Headphones");
+snd_soc_dapm_disable_pin_unlocked(dapm, "EPOUT");
+} else {
+snd_soc_dapm_disable_pin_unlocked(dapm, "Headphones");
+snd_soc_dapm_enable_pin_unlocked(dapm, "EPOUT");
+}
+}
+static int lo_get_switch(struct snd_kcontrol *kcontrol,
+struct snd_ctl_elem_value *ucontrol)
+{
+ucontrol->value.enumerated.item[0] = lo_dac;
+return 0;
+}
+static int lo_set_switch(struct snd_kcontrol *kcontrol,
+struct snd_ctl_elem_value *ucontrol)
+{
+struct snd_soc_card *card = snd_kcontrol_chip(kcontrol);
+struct snd_soc_dapm_context *dapm = &card->dapm;
+if (ucontrol->value.enumerated.item[0] == lo_dac)
+return 0;
+snd_soc_dapm_mutex_lock(dapm);
+lo_enable_out_pins(dapm);
+switch (ucontrol->value.enumerated.item[0]) {
+case 0:
+pr_debug("set vibra path\n");
+snd_soc_dapm_disable_pin_unlocked(dapm, "VIB1OUT");
+snd_soc_dapm_disable_pin_unlocked(dapm, "VIB2OUT");
+snd_soc_update_bits(mfld_codec, SN95031_LOCTL, 0x66, 0);
+break;
+case 1:
+pr_debug("set hs path\n");
+snd_soc_dapm_disable_pin_unlocked(dapm, "Headphones");
+snd_soc_dapm_disable_pin_unlocked(dapm, "EPOUT");
+snd_soc_update_bits(mfld_codec, SN95031_LOCTL, 0x66, 0x22);
+break;
+case 2:
+pr_debug("set spkr path\n");
+snd_soc_dapm_disable_pin_unlocked(dapm, "IHFOUTL");
+snd_soc_dapm_disable_pin_unlocked(dapm, "IHFOUTR");
+snd_soc_update_bits(mfld_codec, SN95031_LOCTL, 0x66, 0x44);
+break;
+case 3:
+pr_debug("set null path\n");
+snd_soc_dapm_disable_pin_unlocked(dapm, "LINEOUTL");
+snd_soc_dapm_disable_pin_unlocked(dapm, "LINEOUTR");
+snd_soc_update_bits(mfld_codec, SN95031_LOCTL, 0x66, 0x66);
+break;
+}
+snd_soc_dapm_sync_unlocked(dapm);
+snd_soc_dapm_mutex_unlock(dapm);
+lo_dac = ucontrol->value.enumerated.item[0];
+return 0;
+}
+static void mfld_jack_check(unsigned int intr_status)
+{
+struct mfld_jack_data jack_data;
+if (!mfld_codec)
+return;
+jack_data.mfld_jack = &mfld_jack;
+jack_data.intr_id = intr_status;
+sn95031_jack_detection(mfld_codec, &jack_data);
+}
+static int mfld_init(struct snd_soc_pcm_runtime *runtime)
+{
+struct snd_soc_dapm_context *dapm = &runtime->card->dapm;
+int ret_val;
+snd_soc_dapm_disable_pin(dapm, "Headphones");
+snd_soc_dapm_disable_pin(dapm, "LINEOUTL");
+snd_soc_dapm_disable_pin(dapm, "LINEOUTR");
+lo_dac = 3;
+hs_switch = 0;
+snd_soc_dapm_disable_pin(dapm, "LINEINL");
+snd_soc_dapm_disable_pin(dapm, "LINEINR");
+ret_val = snd_soc_card_jack_new(runtime->card,
+"Intel(R) MID Audio Jack", SND_JACK_HEADSET |
+SND_JACK_BTN_0 | SND_JACK_BTN_1, &mfld_jack,
+mfld_jack_pins, ARRAY_SIZE(mfld_jack_pins));
+if (ret_val) {
+pr_err("jack creation failed\n");
+return ret_val;
+}
+ret_val = snd_soc_jack_add_zones(&mfld_jack,
+ARRAY_SIZE(mfld_zones), mfld_zones);
+if (ret_val) {
+pr_err("adding jack zones failed\n");
+return ret_val;
+}
+mfld_codec = runtime->codec;
+mfld_jack_check(MFLD_JACK_INSERT);
+return ret_val;
+}
+static irqreturn_t snd_mfld_jack_intr_handler(int irq, void *dev)
+{
+struct mfld_mc_private *mc_private = (struct mfld_mc_private *) dev;
+memcpy_fromio(&mc_private->interrupt_status,
+((void *)(mc_private->int_base)),
+sizeof(u8));
+return IRQ_WAKE_THREAD;
+}
+static irqreturn_t snd_mfld_jack_detection(int irq, void *data)
+{
+struct mfld_mc_private *mc_drv_ctx = (struct mfld_mc_private *) data;
+mfld_jack_check(mc_drv_ctx->interrupt_status);
+return IRQ_HANDLED;
+}
+static int snd_mfld_mc_probe(struct platform_device *pdev)
+{
+int ret_val = 0, irq;
+struct mfld_mc_private *mc_drv_ctx;
+struct resource *irq_mem;
+pr_debug("snd_mfld_mc_probe called\n");
+irq = platform_get_irq(pdev, 0);
+mc_drv_ctx = devm_kzalloc(&pdev->dev, sizeof(*mc_drv_ctx), GFP_ATOMIC);
+if (!mc_drv_ctx)
+return -ENOMEM;
+irq_mem = platform_get_resource_byname(
+pdev, IORESOURCE_MEM, "IRQ_BASE");
+if (!irq_mem) {
+pr_err("no mem resource given\n");
+return -ENODEV;
+}
+mc_drv_ctx->int_base = devm_ioremap_nocache(&pdev->dev, irq_mem->start,
+resource_size(irq_mem));
+if (!mc_drv_ctx->int_base) {
+pr_err("Mapping of cache failed\n");
+return -ENOMEM;
+}
+ret_val = devm_request_threaded_irq(&pdev->dev, irq,
+snd_mfld_jack_intr_handler,
+snd_mfld_jack_detection,
+IRQF_SHARED, pdev->dev.driver->name, mc_drv_ctx);
+if (ret_val) {
+pr_err("cannot register IRQ\n");
+return ret_val;
+}
+snd_soc_card_mfld.dev = &pdev->dev;
+ret_val = devm_snd_soc_register_card(&pdev->dev, &snd_soc_card_mfld);
+if (ret_val) {
+pr_debug("snd_soc_register_card failed %d\n", ret_val);
+return ret_val;
+}
+platform_set_drvdata(pdev, mc_drv_ctx);
+pr_debug("successfully exited probe\n");
+return 0;
+}

@@ -1,0 +1,1 @@
+static int bcm5301x_abort_handler(unsigned long addr, unsigned int fsr,\r\nstruct pt_regs *regs)\r\n{\r\nif (fsr == (FSR_EXTERNAL | FSR_READ | FSR_IMPRECISE))\r\nreturn 0;\r\nreturn 1;\r\n}\r\nstatic void __init bcm5301x_init_early(void)\r\n{\r\nhook_fault_code(16 + 6, bcm5301x_abort_handler, SIGBUS, BUS_OBJERR,\r\n"imprecise external abort");\r\n}

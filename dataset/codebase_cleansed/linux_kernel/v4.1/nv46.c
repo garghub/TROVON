@@ -1,0 +1,1 @@
+void\r\nnv46_fb_tile_init(struct nvkm_fb *pfb, int i, u32 addr, u32 size, u32 pitch,\r\nu32 flags, struct nvkm_fb_tile *tile)\r\n{\r\nif (!(flags & 4)) tile->addr = (0 << 3);\r\nelse tile->addr = (1 << 3);\r\ntile->addr |= 0x00000001;\r\ntile->addr |= addr;\r\ntile->limit = max(1u, addr + size) - 1;\r\ntile->pitch = pitch;\r\n}

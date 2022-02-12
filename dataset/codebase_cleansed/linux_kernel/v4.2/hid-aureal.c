@@ -1,0 +1,1 @@
+static __u8 *aureal_report_fixup(struct hid_device *hdev, __u8 *rdesc,\r\nunsigned int *rsize)\r\n{\r\nif (*rsize >= 54 && rdesc[52] == 0x25 && rdesc[53] == 0x01) {\r\ndev_info(&hdev->dev, "fixing Aureal Cy se W-01RN USB_V3.1 report descriptor.\n");\r\nrdesc[53] = 0x65;\r\n} return rdesc;\r\n}

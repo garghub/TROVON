@@ -1,0 +1,1 @@
+static int __init\r\nvisorchannel_init(void)\r\n{\r\nif (!unisys_spar_platform)\r\nreturn -ENODEV;\r\nINFODRV("driver version %s loaded", VERSION);\r\nreturn 0;\r\n}\r\nstatic void\r\nvisorchannel_exit(void)\r\n{\r\nINFODRV("driver unloaded");\r\n}

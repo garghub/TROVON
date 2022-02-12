@@ -1,0 +1,1 @@
+asmlinkage long sys_ni_posix_timers(void)\r\n{\r\npr_err_once("process %d (%s) attempted a POSIX timer syscall "\r\n"while CONFIG_POSIX_TIMERS is not set\n",\r\ncurrent->pid, current->comm);\r\nreturn -ENOSYS;\r\n}\r\nlong clock_nanosleep_restart(struct restart_block *restart_block)\r\n{\r\nreturn hrtimer_nanosleep_restart(restart_block);\r\n}

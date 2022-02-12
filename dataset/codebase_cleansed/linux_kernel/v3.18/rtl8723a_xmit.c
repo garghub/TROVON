@@ -1,0 +1,1 @@
+void handle_txrpt_ccx_8723a(struct rtw_adapter *adapter, void *buf)\r\n{\r\nstruct txrpt_ccx_8723a *txrpt_ccx = buf;\r\nif (txrpt_ccx->int_ccx) {\r\nif (txrpt_ccx->pkt_ok)\r\nrtw_ack_tx_done23a(&adapter->xmitpriv, RTW_SCTX_DONE_SUCCESS);\r\nelse\r\nrtw_ack_tx_done23a(&adapter->xmitpriv, RTW_SCTX_DONE_CCX_PKT_FAIL);\r\n}\r\n}

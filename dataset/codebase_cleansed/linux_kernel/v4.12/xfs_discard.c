@@ -1,0 +1,115 @@
+STATIC int
+xfs_trim_extents(
+struct xfs_mount *mp,
+xfs_agnumber_t agno,
+xfs_daddr_t start,
+xfs_daddr_t end,
+xfs_daddr_t minlen,
+__uint64_t *blocks_trimmed)
+{
+struct block_device *bdev = mp->m_ddev_targp->bt_bdev;
+struct xfs_btree_cur *cur;
+struct xfs_buf *agbp;
+struct xfs_perag *pag;
+int error;
+int i;
+pag = xfs_perag_get(mp, agno);
+error = xfs_alloc_read_agf(mp, NULL, agno, 0, &agbp);
+if (error || !agbp)
+goto out_put_perag;
+cur = xfs_allocbt_init_cursor(mp, NULL, agbp, agno, XFS_BTNUM_CNT);
+xfs_log_force(mp, XFS_LOG_SYNC);
+error = xfs_alloc_lookup_ge(cur, 0,
+be32_to_cpu(XFS_BUF_TO_AGF(agbp)->agf_longest), &i);
+if (error)
+goto out_del_cursor;
+while (i) {
+xfs_agblock_t fbno;
+xfs_extlen_t flen;
+xfs_daddr_t dbno;
+xfs_extlen_t dlen;
+error = xfs_alloc_get_rec(cur, &fbno, &flen, &i);
+if (error)
+goto out_del_cursor;
+XFS_WANT_CORRUPTED_GOTO(mp, i == 1, out_del_cursor);
+ASSERT(flen <= be32_to_cpu(XFS_BUF_TO_AGF(agbp)->agf_longest));
+dbno = XFS_AGB_TO_DADDR(mp, agno, fbno);
+dlen = XFS_FSB_TO_BB(mp, flen);
+if (dlen < minlen) {
+trace_xfs_discard_toosmall(mp, agno, fbno, flen);
+goto out_del_cursor;
+}
+if (dbno + dlen < start || dbno > end) {
+trace_xfs_discard_exclude(mp, agno, fbno, flen);
+goto next_extent;
+}
+if (xfs_extent_busy_search(mp, agno, fbno, flen)) {
+trace_xfs_discard_busy(mp, agno, fbno, flen);
+goto next_extent;
+}
+trace_xfs_discard_extent(mp, agno, fbno, flen);
+error = blkdev_issue_discard(bdev, dbno, dlen, GFP_NOFS, 0);
+if (error)
+goto out_del_cursor;
+*blocks_trimmed += flen;
+next_extent:
+error = xfs_btree_decrement(cur, 0, &i);
+if (error)
+goto out_del_cursor;
+if (fatal_signal_pending(current)) {
+error = -ERESTARTSYS;
+goto out_del_cursor;
+}
+}
+out_del_cursor:
+xfs_btree_del_cursor(cur, error ? XFS_BTREE_ERROR : XFS_BTREE_NOERROR);
+xfs_buf_relse(agbp);
+out_put_perag:
+xfs_perag_put(pag);
+return error;
+}
+int
+xfs_ioc_trim(
+struct xfs_mount *mp,
+struct fstrim_range __user *urange)
+{
+struct request_queue *q = bdev_get_queue(mp->m_ddev_targp->bt_bdev);
+unsigned int granularity = q->limits.discard_granularity;
+struct fstrim_range range;
+xfs_daddr_t start, end, minlen;
+xfs_agnumber_t start_agno, end_agno, agno;
+__uint64_t blocks_trimmed = 0;
+int error, last_error = 0;
+if (!capable(CAP_SYS_ADMIN))
+return -EPERM;
+if (!blk_queue_discard(q))
+return -EOPNOTSUPP;
+if (copy_from_user(&range, urange, sizeof(range)))
+return -EFAULT;
+if (range.start >= XFS_FSB_TO_B(mp, mp->m_sb.sb_dblocks) ||
+range.minlen > XFS_FSB_TO_B(mp, mp->m_ag_max_usable) ||
+range.len < mp->m_sb.sb_blocksize)
+return -EINVAL;
+start = BTOBB(range.start);
+end = start + BTOBBT(range.len) - 1;
+minlen = BTOBB(max_t(u64, granularity, range.minlen));
+if (end > XFS_FSB_TO_BB(mp, mp->m_sb.sb_dblocks) - 1)
+end = XFS_FSB_TO_BB(mp, mp->m_sb.sb_dblocks)- 1;
+start_agno = xfs_daddr_to_agno(mp, start);
+end_agno = xfs_daddr_to_agno(mp, end);
+for (agno = start_agno; agno <= end_agno; agno++) {
+error = xfs_trim_extents(mp, agno, start, end, minlen,
+&blocks_trimmed);
+if (error) {
+last_error = error;
+if (error == -ERESTARTSYS)
+break;
+}
+}
+if (last_error)
+return last_error;
+range.len = XFS_FSB_TO_B(mp, blocks_trimmed);
+if (copy_to_user(urange, &range, sizeof(range)))
+return -EFAULT;
+return 0;
+}

@@ -1,0 +1,1 @@
+static void __init dove_init(void)\r\n{\r\npr_info("Dove 88AP510 SoC\n");\r\n#ifdef CONFIG_CACHE_TAUROS2\r\ntauros2_init(0);\r\n#endif\r\nBUG_ON(mvebu_mbus_dt_init(false));\r\nof_platform_populate(NULL, of_default_bus_match_table, NULL, NULL);\r\n}

@@ -1,0 +1,1 @@
+static int spear1310_pinctrl_probe(struct platform_device *pdev)\r\n{\r\nreturn spear_pinctrl_probe(pdev, &spear1310_machdata);\r\n}\r\nstatic int __init spear1310_pinctrl_init(void)\r\n{\r\nreturn platform_driver_register(&spear1310_pinctrl_driver);\r\n}

@@ -1,0 +1,1 @@
+void __init tx3927_irq_init(void)\r\n{\r\nint i;\r\ntxx9_irq_init(TX3927_IRC_REG);\r\nfor (i = 0; i < TX3927_NR_TMR; i++)\r\ntxx9_irq_set_pri(TX3927_IR_TMR(i), 6);\r\nfor (i = 0; i < TX3927_NR_SIO; i++)\r\ntxx9_irq_set_pri(TX3927_IR_SIO(i), 7);\r\n}

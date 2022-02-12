@@ -1,0 +1,1 @@
+static int __init init_rc_map_genius_tvgo_a11mce(void)\r\n{\r\nreturn rc_map_register(&genius_tvgo_a11mce_map);\r\n}\r\nstatic void __exit exit_rc_map_genius_tvgo_a11mce(void)\r\n{\r\nrc_map_unregister(&genius_tvgo_a11mce_map);\r\n}

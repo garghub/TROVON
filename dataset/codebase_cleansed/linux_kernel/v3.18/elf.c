@@ -1,0 +1,1 @@
+int elf_check_arch(const struct elf32_hdr *x)\r\n{\r\nif (x->e_machine != EM_UNICORE)\r\nreturn 0;\r\nif (x->e_entry & 3)\r\nreturn 0;\r\nreturn 1;\r\n}\r\nvoid elf_set_personality(const struct elf32_hdr *x)\r\n{\r\nunsigned int personality = PER_LINUX;\r\nset_personality(personality);\r\n}

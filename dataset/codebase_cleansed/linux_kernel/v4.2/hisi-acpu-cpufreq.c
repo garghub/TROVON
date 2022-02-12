@@ -1,0 +1,1 @@
+static int __init hisi_acpu_cpufreq_driver_init(void)\r\n{\r\nstruct platform_device *pdev;\r\nif (!of_machine_is_compatible("hisilicon,hi6220"))\r\nreturn -ENODEV;\r\npdev = platform_device_register_simple("cpufreq-dt", -1, NULL, 0);\r\nreturn PTR_ERR_OR_ZERO(pdev);\r\n}

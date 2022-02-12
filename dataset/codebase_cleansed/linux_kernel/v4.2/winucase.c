@@ -1,0 +1,1 @@
+wchar_t\r\ncifs_toupper(wchar_t in)\r\n{\r\nunsigned char idx;\r\nconst wchar_t *tbl;\r\nwchar_t out;\r\nidx = (in & 0xff00) >> 8;\r\ntbl = toplevel[idx];\r\nif (!tbl)\r\nreturn in;\r\nidx = in & 0xff;\r\nout = tbl[idx];\r\nif (out)\r\nreturn out;\r\nreturn in;\r\n}

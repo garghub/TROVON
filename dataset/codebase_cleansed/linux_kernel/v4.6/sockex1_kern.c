@@ -1,0 +1,1 @@
+int bpf_prog1(struct __sk_buff *skb)\r\n{\r\nint index = load_byte(skb, ETH_HLEN + offsetof(struct iphdr, protocol));\r\nlong *value;\r\nif (skb->pkt_type != PACKET_OUTGOING)\r\nreturn 0;\r\nvalue = bpf_map_lookup_elem(&my_map, &index);\r\nif (value)\r\n__sync_fetch_and_add(value, skb->len);\r\nreturn 0;\r\n}

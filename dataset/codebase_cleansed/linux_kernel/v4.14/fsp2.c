@@ -1,0 +1,1 @@
+static int __init fsp2_device_probe(void)\r\n{\r\nof_platform_bus_probe(NULL, fsp2_of_bus, NULL);\r\nreturn 0;\r\n}\r\nstatic int __init fsp2_probe(void)\r\n{\r\nunsigned long root = of_get_flat_dt_root();\r\nif (!of_flat_dt_is_compatible(root, "ibm,fsp2"))\r\nreturn 0;\r\nreturn 1;\r\n}

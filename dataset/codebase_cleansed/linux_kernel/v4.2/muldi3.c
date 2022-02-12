@@ -1,0 +1,1 @@
+long long __muldi3(long long u, long long v)\r\n{\r\nconst DWunion uu = {.ll = u};\r\nconst DWunion vv = {.ll = v};\r\nDWunion w = {.ll = __umulsidi3(uu.s.low, vv.s.low)};\r\nw.s.high += ((unsigned long) uu.s.low * (unsigned long) vv.s.high\r\n+ (unsigned long) uu.s.high * (unsigned long) vv.s.low);\r\nreturn w.ll;\r\n}

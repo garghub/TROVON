@@ -1,0 +1,1 @@
+void ipx_register_sysctl(void)\r\n{\r\nipx_table_header = register_net_sysctl(&init_net, "net/ipx", ipx_table);\r\n}\r\nvoid ipx_unregister_sysctl(void)\r\n{\r\nunregister_net_sysctl_table(ipx_table_header);\r\n}

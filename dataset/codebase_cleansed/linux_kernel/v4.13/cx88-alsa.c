@@ -1,0 +1,539 @@
+static int _cx88_start_audio_dma(struct cx88_audio_dev *chip)
+{
+struct cx88_audio_buffer *buf = chip->buf;
+struct cx88_core *core = chip->core;
+const struct sram_channel *audio_ch = &cx88_sram_channels[SRAM_CH25];
+cx_clear(MO_AUD_DMACNTRL, 0x11);
+cx88_sram_channel_setup(chip->core, audio_ch, buf->bpl, buf->risc.dma);
+cx_write(MO_AUDD_LNGTH, buf->bpl);
+cx_write(MO_AUDD_GPCNTRL, GP_COUNT_CONTROL_RESET);
+atomic_set(&chip->count, 0);
+dprintk(1,
+"Start audio DMA, %d B/line, %d lines/FIFO, %d periods, %d byte buffer\n",
+buf->bpl, cx_read(audio_ch->cmds_start + 8) >> 1,
+chip->num_periods, buf->bpl * chip->num_periods);
+cx_write(MO_AUD_INTMSK, AUD_INT_OPC_ERR | AUD_INT_DN_SYNC |
+AUD_INT_DN_RISCI2 | AUD_INT_DN_RISCI1);
+cx_write(MO_AUD_INTSTAT, ~0);
+cx_set(MO_PCI_INTMSK, chip->core->pci_irqmask | PCI_INT_AUDINT);
+cx_set(MO_DEV_CNTRL2, (1 << 5));
+cx_set(MO_AUD_DMACNTRL, 0x11);
+if (debug)
+cx88_sram_channel_dump(chip->core, audio_ch);
+return 0;
+}
+static int _cx88_stop_audio_dma(struct cx88_audio_dev *chip)
+{
+struct cx88_core *core = chip->core;
+dprintk(1, "Stopping audio DMA\n");
+cx_clear(MO_AUD_DMACNTRL, 0x11);
+cx_clear(MO_PCI_INTMSK, PCI_INT_AUDINT);
+cx_clear(MO_AUD_INTMSK, AUD_INT_OPC_ERR | AUD_INT_DN_SYNC |
+AUD_INT_DN_RISCI2 | AUD_INT_DN_RISCI1);
+if (debug)
+cx88_sram_channel_dump(chip->core,
+&cx88_sram_channels[SRAM_CH25]);
+return 0;
+}
+static void cx8801_aud_irq(struct cx88_audio_dev *chip)
+{
+struct cx88_core *core = chip->core;
+u32 status, mask;
+status = cx_read(MO_AUD_INTSTAT);
+mask = cx_read(MO_AUD_INTMSK);
+if (0 == (status & mask))
+return;
+cx_write(MO_AUD_INTSTAT, status);
+if (debug > 1 || (status & mask & ~0xff))
+cx88_print_irqbits("irq aud",
+cx88_aud_irqs, ARRAY_SIZE(cx88_aud_irqs),
+status, mask);
+if (status & AUD_INT_OPC_ERR) {
+pr_warn("Audio risc op code error\n");
+cx_clear(MO_AUD_DMACNTRL, 0x11);
+cx88_sram_channel_dump(core, &cx88_sram_channels[SRAM_CH25]);
+}
+if (status & AUD_INT_DN_SYNC) {
+dprintk(1, "Downstream sync error\n");
+cx_write(MO_AUDD_GPCNTRL, GP_COUNT_CONTROL_RESET);
+return;
+}
+if (status & AUD_INT_DN_RISCI1) {
+atomic_set(&chip->count, cx_read(MO_AUDD_GPCNT));
+snd_pcm_period_elapsed(chip->substream);
+}
+}
+static irqreturn_t cx8801_irq(int irq, void *dev_id)
+{
+struct cx88_audio_dev *chip = dev_id;
+struct cx88_core *core = chip->core;
+u32 status;
+int loop, handled = 0;
+for (loop = 0; loop < MAX_IRQ_LOOP; loop++) {
+status = cx_read(MO_PCI_INTSTAT) &
+(core->pci_irqmask | PCI_INT_AUDINT);
+if (status == 0)
+goto out;
+dprintk(3, "cx8801_irq loop %d/%d, status %x\n",
+loop, MAX_IRQ_LOOP, status);
+handled = 1;
+cx_write(MO_PCI_INTSTAT, status);
+if (status & core->pci_irqmask)
+cx88_core_irq(core, status);
+if (status & PCI_INT_AUDINT)
+cx8801_aud_irq(chip);
+}
+if (loop == MAX_IRQ_LOOP) {
+pr_err("IRQ loop detected, disabling interrupts\n");
+cx_clear(MO_PCI_INTMSK, PCI_INT_AUDINT);
+}
+out:
+return IRQ_RETVAL(handled);
+}
+static int cx88_alsa_dma_init(struct cx88_audio_dev *chip, int nr_pages)
+{
+struct cx88_audio_buffer *buf = chip->buf;
+struct page *pg;
+int i;
+buf->vaddr = vmalloc_32(nr_pages << PAGE_SHIFT);
+if (!buf->vaddr) {
+dprintk(1, "vmalloc_32(%d pages) failed\n", nr_pages);
+return -ENOMEM;
+}
+dprintk(1, "vmalloc is at addr 0x%08lx, size=%d\n",
+(unsigned long)buf->vaddr, nr_pages << PAGE_SHIFT);
+memset(buf->vaddr, 0, nr_pages << PAGE_SHIFT);
+buf->nr_pages = nr_pages;
+buf->sglist = vzalloc(buf->nr_pages * sizeof(*buf->sglist));
+if (!buf->sglist)
+goto vzalloc_err;
+sg_init_table(buf->sglist, buf->nr_pages);
+for (i = 0; i < buf->nr_pages; i++) {
+pg = vmalloc_to_page(buf->vaddr + i * PAGE_SIZE);
+if (!pg)
+goto vmalloc_to_page_err;
+sg_set_page(&buf->sglist[i], pg, PAGE_SIZE, 0);
+}
+return 0;
+vmalloc_to_page_err:
+vfree(buf->sglist);
+buf->sglist = NULL;
+vzalloc_err:
+vfree(buf->vaddr);
+buf->vaddr = NULL;
+return -ENOMEM;
+}
+static int cx88_alsa_dma_map(struct cx88_audio_dev *dev)
+{
+struct cx88_audio_buffer *buf = dev->buf;
+buf->sglen = dma_map_sg(&dev->pci->dev, buf->sglist,
+buf->nr_pages, PCI_DMA_FROMDEVICE);
+if (buf->sglen == 0) {
+pr_warn("%s: cx88_alsa_map_sg failed\n", __func__);
+return -ENOMEM;
+}
+return 0;
+}
+static int cx88_alsa_dma_unmap(struct cx88_audio_dev *dev)
+{
+struct cx88_audio_buffer *buf = dev->buf;
+if (!buf->sglen)
+return 0;
+dma_unmap_sg(&dev->pci->dev, buf->sglist, buf->sglen,
+PCI_DMA_FROMDEVICE);
+buf->sglen = 0;
+return 0;
+}
+static int cx88_alsa_dma_free(struct cx88_audio_buffer *buf)
+{
+vfree(buf->sglist);
+buf->sglist = NULL;
+vfree(buf->vaddr);
+buf->vaddr = NULL;
+return 0;
+}
+static int dsp_buffer_free(struct cx88_audio_dev *chip)
+{
+struct cx88_riscmem *risc = &chip->buf->risc;
+WARN_ON(!chip->dma_size);
+dprintk(2, "Freeing buffer\n");
+cx88_alsa_dma_unmap(chip);
+cx88_alsa_dma_free(chip->buf);
+if (risc->cpu)
+pci_free_consistent(chip->pci, risc->size,
+risc->cpu, risc->dma);
+kfree(chip->buf);
+chip->buf = NULL;
+return 0;
+}
+static int snd_cx88_pcm_open(struct snd_pcm_substream *substream)
+{
+struct cx88_audio_dev *chip = snd_pcm_substream_chip(substream);
+struct snd_pcm_runtime *runtime = substream->runtime;
+int err;
+if (!chip) {
+pr_err("BUG: cx88 can't find device struct. Can't proceed with open\n");
+return -ENODEV;
+}
+err = snd_pcm_hw_constraint_pow2(runtime, 0,
+SNDRV_PCM_HW_PARAM_PERIODS);
+if (err < 0)
+goto _error;
+chip->substream = substream;
+runtime->hw = snd_cx88_digital_hw;
+if (cx88_sram_channels[SRAM_CH25].fifo_size != DEFAULT_FIFO_SIZE) {
+unsigned int bpl = cx88_sram_channels[SRAM_CH25].fifo_size / 4;
+bpl &= ~7;
+runtime->hw.period_bytes_min = bpl;
+runtime->hw.period_bytes_max = bpl;
+}
+return 0;
+_error:
+dprintk(1, "Error opening PCM!\n");
+return err;
+}
+static int snd_cx88_close(struct snd_pcm_substream *substream)
+{
+return 0;
+}
+static int snd_cx88_hw_params(struct snd_pcm_substream *substream,
+struct snd_pcm_hw_params *hw_params)
+{
+struct cx88_audio_dev *chip = snd_pcm_substream_chip(substream);
+struct cx88_audio_buffer *buf;
+int ret;
+if (substream->runtime->dma_area) {
+dsp_buffer_free(chip);
+substream->runtime->dma_area = NULL;
+}
+chip->period_size = params_period_bytes(hw_params);
+chip->num_periods = params_periods(hw_params);
+chip->dma_size = chip->period_size * params_periods(hw_params);
+WARN_ON(!chip->dma_size);
+WARN_ON(chip->num_periods & (chip->num_periods - 1));
+buf = kzalloc(sizeof(*buf), GFP_KERNEL);
+if (!buf)
+return -ENOMEM;
+chip->buf = buf;
+buf->bpl = chip->period_size;
+ret = cx88_alsa_dma_init(chip,
+(PAGE_ALIGN(chip->dma_size) >> PAGE_SHIFT));
+if (ret < 0)
+goto error;
+ret = cx88_alsa_dma_map(chip);
+if (ret < 0)
+goto error;
+ret = cx88_risc_databuffer(chip->pci, &buf->risc, buf->sglist,
+chip->period_size, chip->num_periods, 1);
+if (ret < 0)
+goto error;
+buf->risc.jmp[0] = cpu_to_le32(RISC_JUMP | RISC_IRQ1 | RISC_CNT_INC);
+buf->risc.jmp[1] = cpu_to_le32(buf->risc.dma);
+substream->runtime->dma_area = chip->buf->vaddr;
+substream->runtime->dma_bytes = chip->dma_size;
+substream->runtime->dma_addr = 0;
+return 0;
+error:
+kfree(buf);
+return ret;
+}
+static int snd_cx88_hw_free(struct snd_pcm_substream *substream)
+{
+struct cx88_audio_dev *chip = snd_pcm_substream_chip(substream);
+if (substream->runtime->dma_area) {
+dsp_buffer_free(chip);
+substream->runtime->dma_area = NULL;
+}
+return 0;
+}
+static int snd_cx88_prepare(struct snd_pcm_substream *substream)
+{
+return 0;
+}
+static int snd_cx88_card_trigger(struct snd_pcm_substream *substream, int cmd)
+{
+struct cx88_audio_dev *chip = snd_pcm_substream_chip(substream);
+int err;
+spin_lock(&chip->reg_lock);
+switch (cmd) {
+case SNDRV_PCM_TRIGGER_START:
+err = _cx88_start_audio_dma(chip);
+break;
+case SNDRV_PCM_TRIGGER_STOP:
+err = _cx88_stop_audio_dma(chip);
+break;
+default:
+err = -EINVAL;
+break;
+}
+spin_unlock(&chip->reg_lock);
+return err;
+}
+static snd_pcm_uframes_t snd_cx88_pointer(struct snd_pcm_substream *substream)
+{
+struct cx88_audio_dev *chip = snd_pcm_substream_chip(substream);
+struct snd_pcm_runtime *runtime = substream->runtime;
+u16 count;
+count = atomic_read(&chip->count);
+return runtime->period_size * (count & (runtime->periods - 1));
+}
+static struct page *snd_cx88_page(struct snd_pcm_substream *substream,
+unsigned long offset)
+{
+void *pageptr = substream->runtime->dma_area + offset;
+return vmalloc_to_page(pageptr);
+}
+static int snd_cx88_pcm(struct cx88_audio_dev *chip, int device,
+const char *name)
+{
+int err;
+struct snd_pcm *pcm;
+err = snd_pcm_new(chip->card, name, device, 0, 1, &pcm);
+if (err < 0)
+return err;
+pcm->private_data = chip;
+strcpy(pcm->name, name);
+snd_pcm_set_ops(pcm, SNDRV_PCM_STREAM_CAPTURE, &snd_cx88_pcm_ops);
+return 0;
+}
+static int snd_cx88_volume_info(struct snd_kcontrol *kcontrol,
+struct snd_ctl_elem_info *info)
+{
+info->type = SNDRV_CTL_ELEM_TYPE_INTEGER;
+info->count = 2;
+info->value.integer.min = 0;
+info->value.integer.max = 0x3f;
+return 0;
+}
+static int snd_cx88_volume_get(struct snd_kcontrol *kcontrol,
+struct snd_ctl_elem_value *value)
+{
+struct cx88_audio_dev *chip = snd_kcontrol_chip(kcontrol);
+struct cx88_core *core = chip->core;
+int vol = 0x3f - (cx_read(AUD_VOL_CTL) & 0x3f),
+bal = cx_read(AUD_BAL_CTL);
+value->value.integer.value[(bal & 0x40) ? 0 : 1] = vol;
+vol -= (bal & 0x3f);
+value->value.integer.value[(bal & 0x40) ? 1 : 0] = vol < 0 ? 0 : vol;
+return 0;
+}
+static void snd_cx88_wm8775_volume_put(struct snd_kcontrol *kcontrol,
+struct snd_ctl_elem_value *value)
+{
+struct cx88_audio_dev *chip = snd_kcontrol_chip(kcontrol);
+struct cx88_core *core = chip->core;
+int left = value->value.integer.value[0];
+int right = value->value.integer.value[1];
+int v, b;
+if (left >= right) {
+v = left << 10;
+b = left ? (0x8000 * right) / left : 0x8000;
+} else {
+v = right << 10;
+b = right ? 0xffff - (0x8000 * left) / right : 0x8000;
+}
+wm8775_s_ctrl(core, V4L2_CID_AUDIO_VOLUME, v);
+wm8775_s_ctrl(core, V4L2_CID_AUDIO_BALANCE, b);
+}
+static int snd_cx88_volume_put(struct snd_kcontrol *kcontrol,
+struct snd_ctl_elem_value *value)
+{
+struct cx88_audio_dev *chip = snd_kcontrol_chip(kcontrol);
+struct cx88_core *core = chip->core;
+int left, right, v, b;
+int changed = 0;
+u32 old;
+if (core->sd_wm8775)
+snd_cx88_wm8775_volume_put(kcontrol, value);
+left = value->value.integer.value[0] & 0x3f;
+right = value->value.integer.value[1] & 0x3f;
+b = right - left;
+if (b < 0) {
+v = 0x3f - left;
+b = (-b) | 0x40;
+} else {
+v = 0x3f - right;
+}
+spin_lock_irq(&chip->reg_lock);
+old = cx_read(AUD_VOL_CTL);
+if (v != (old & 0x3f)) {
+cx_swrite(SHADOW_AUD_VOL_CTL, AUD_VOL_CTL, (old & ~0x3f) | v);
+changed = 1;
+}
+if ((cx_read(AUD_BAL_CTL) & 0x7f) != b) {
+cx_write(AUD_BAL_CTL, b);
+changed = 1;
+}
+spin_unlock_irq(&chip->reg_lock);
+return changed;
+}
+static int snd_cx88_switch_get(struct snd_kcontrol *kcontrol,
+struct snd_ctl_elem_value *value)
+{
+struct cx88_audio_dev *chip = snd_kcontrol_chip(kcontrol);
+struct cx88_core *core = chip->core;
+u32 bit = kcontrol->private_value;
+value->value.integer.value[0] = !(cx_read(AUD_VOL_CTL) & bit);
+return 0;
+}
+static int snd_cx88_switch_put(struct snd_kcontrol *kcontrol,
+struct snd_ctl_elem_value *value)
+{
+struct cx88_audio_dev *chip = snd_kcontrol_chip(kcontrol);
+struct cx88_core *core = chip->core;
+u32 bit = kcontrol->private_value;
+int ret = 0;
+u32 vol;
+spin_lock_irq(&chip->reg_lock);
+vol = cx_read(AUD_VOL_CTL);
+if (value->value.integer.value[0] != !(vol & bit)) {
+vol ^= bit;
+cx_swrite(SHADOW_AUD_VOL_CTL, AUD_VOL_CTL, vol);
+if (core->sd_wm8775 && ((1 << 6) == bit))
+wm8775_s_ctrl(core,
+V4L2_CID_AUDIO_MUTE, 0 != (vol & bit));
+ret = 1;
+}
+spin_unlock_irq(&chip->reg_lock);
+return ret;
+}
+static int snd_cx88_alc_get(struct snd_kcontrol *kcontrol,
+struct snd_ctl_elem_value *value)
+{
+struct cx88_audio_dev *chip = snd_kcontrol_chip(kcontrol);
+struct cx88_core *core = chip->core;
+s32 val;
+val = wm8775_g_ctrl(core, V4L2_CID_AUDIO_LOUDNESS);
+value->value.integer.value[0] = val ? 1 : 0;
+return 0;
+}
+static int snd_cx88_alc_put(struct snd_kcontrol *kcontrol,
+struct snd_ctl_elem_value *value)
+{
+struct cx88_audio_dev *chip = snd_kcontrol_chip(kcontrol);
+struct cx88_core *core = chip->core;
+wm8775_s_ctrl(core, V4L2_CID_AUDIO_LOUDNESS,
+value->value.integer.value[0] != 0);
+return 0;
+}
+static int snd_cx88_free(struct cx88_audio_dev *chip)
+{
+if (chip->irq >= 0)
+free_irq(chip->irq, chip);
+cx88_core_put(chip->core, chip->pci);
+pci_disable_device(chip->pci);
+return 0;
+}
+static void snd_cx88_dev_free(struct snd_card *card)
+{
+struct cx88_audio_dev *chip = card->private_data;
+snd_cx88_free(chip);
+}
+static int snd_cx88_create(struct snd_card *card, struct pci_dev *pci,
+struct cx88_audio_dev **rchip,
+struct cx88_core **core_ptr)
+{
+struct cx88_audio_dev *chip;
+struct cx88_core *core;
+int err;
+unsigned char pci_lat;
+*rchip = NULL;
+err = pci_enable_device(pci);
+if (err < 0)
+return err;
+pci_set_master(pci);
+chip = card->private_data;
+core = cx88_core_get(pci);
+if (!core) {
+err = -EINVAL;
+return err;
+}
+err = pci_set_dma_mask(pci, DMA_BIT_MASK(32));
+if (err) {
+dprintk(0, "%s/1: Oops: no 32bit PCI DMA ???\n", core->name);
+cx88_core_put(core, pci);
+return err;
+}
+chip->card = card;
+chip->pci = pci;
+chip->irq = -1;
+spin_lock_init(&chip->reg_lock);
+chip->core = core;
+err = request_irq(chip->pci->irq, cx8801_irq,
+IRQF_SHARED, chip->core->name, chip);
+if (err < 0) {
+dprintk(0, "%s: can't get IRQ %d\n",
+chip->core->name, chip->pci->irq);
+return err;
+}
+pci_read_config_byte(pci, PCI_LATENCY_TIMER, &pci_lat);
+dprintk(1,
+"ALSA %s/%i: found at %s, rev: %d, irq: %d, latency: %d, mmio: 0x%llx\n",
+core->name, devno,
+pci_name(pci), pci->revision, pci->irq,
+pci_lat, (unsigned long long)pci_resource_start(pci, 0));
+chip->irq = pci->irq;
+synchronize_irq(chip->irq);
+*rchip = chip;
+*core_ptr = core;
+return 0;
+}
+static int cx88_audio_initdev(struct pci_dev *pci,
+const struct pci_device_id *pci_id)
+{
+struct snd_card *card;
+struct cx88_audio_dev *chip;
+struct cx88_core *core = NULL;
+int err;
+if (devno >= SNDRV_CARDS)
+return (-ENODEV);
+if (!enable[devno]) {
+++devno;
+return (-ENOENT);
+}
+err = snd_card_new(&pci->dev, index[devno], id[devno], THIS_MODULE,
+sizeof(struct cx88_audio_dev), &card);
+if (err < 0)
+return err;
+card->private_free = snd_cx88_dev_free;
+err = snd_cx88_create(card, pci, &chip, &core);
+if (err < 0)
+goto error;
+err = snd_cx88_pcm(chip, 0, "CX88 Digital");
+if (err < 0)
+goto error;
+err = snd_ctl_add(card, snd_ctl_new1(&snd_cx88_volume, chip));
+if (err < 0)
+goto error;
+err = snd_ctl_add(card, snd_ctl_new1(&snd_cx88_dac_switch, chip));
+if (err < 0)
+goto error;
+err = snd_ctl_add(card, snd_ctl_new1(&snd_cx88_source_switch, chip));
+if (err < 0)
+goto error;
+if (core->sd_wm8775)
+snd_ctl_add(card, snd_ctl_new1(&snd_cx88_alc_switch, chip));
+strcpy(card->driver, "CX88x");
+sprintf(card->shortname, "Conexant CX%x", pci->device);
+sprintf(card->longname, "%s at %#llx",
+card->shortname,
+(unsigned long long)pci_resource_start(pci, 0));
+strcpy(card->mixername, "CX88");
+dprintk(0, "%s/%i: ALSA support for cx2388x boards\n",
+card->driver, devno);
+err = snd_card_register(card);
+if (err < 0)
+goto error;
+pci_set_drvdata(pci, card);
+devno++;
+return 0;
+error:
+snd_card_free(card);
+return err;
+}
+static void cx88_audio_finidev(struct pci_dev *pci)
+{
+struct snd_card *card = pci_get_drvdata(pci);
+snd_card_free(card);
+devno--;
+}

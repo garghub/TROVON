@@ -1,0 +1,1 @@
+static void __init r8a7779_sysc_init(void)\r\n{\r\nrcar_sysc_init(0xffd85000, 0x0131000e);\r\n}\r\nstatic inline void r8a7779_sysc_init(void) {}\r\nvoid __init r8a7779_pm_init(void)\r\n{\r\nstatic int once;\r\nif (!once++)\r\nr8a7779_sysc_init();\r\n}

@@ -1,0 +1,1 @@
+static __u8 *asus_report_fixup(struct hid_device *hdev, __u8 *rdesc,\r\nunsigned int *rsize)\r\n{\r\nif (*rsize >= 56 && rdesc[54] == 0x25 && rdesc[55] == 0x65) {\r\nhid_info(hdev, "Fixing up Asus notebook report descriptor\n");\r\nrdesc[55] = 0xdd;\r\n}\r\nreturn rdesc;\r\n}

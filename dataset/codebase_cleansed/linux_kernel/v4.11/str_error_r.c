@@ -1,0 +1,1 @@
+char *str_error_r(int errnum, char *buf, size_t buflen)\r\n{\r\nint err = strerror_r(errnum, buf, buflen);\r\nif (err)\r\nsnprintf(buf, buflen, "INTERNAL ERROR: strerror_r(%d, %p, %zd)=%d", errnum, buf, buflen, err);\r\nreturn buf;\r\n}

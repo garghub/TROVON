@@ -1,0 +1,1 @@
+void __flush_icache_range(unsigned long start, unsigned long end)\r\n{\r\ninvalidate_icache((const void *)start, end - start, PAGE_SIZE);\r\n}\r\nstatic inline void force_load(char *p)\r\n{\r\n*(volatile char *)p;\r\n}

@@ -1,0 +1,1 @@
+static int __init hmcdrv_mod_init(void)\r\n{\r\nint rc = hmcdrv_ftp_probe();\r\nif (rc)\r\nreturn rc;\r\nrc = hmcdrv_cache_startup(hmcdrv_mod_cachesize);\r\nif (rc)\r\nreturn rc;\r\nrc = hmcdrv_dev_init();\r\nif (rc)\r\nhmcdrv_cache_shutdown();\r\nreturn rc;\r\n}\r\nstatic void __exit hmcdrv_mod_exit(void)\r\n{\r\nhmcdrv_dev_exit();\r\nhmcdrv_cache_shutdown();\r\n}

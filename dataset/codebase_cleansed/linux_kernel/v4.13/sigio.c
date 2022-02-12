@@ -1,0 +1,28 @@
+static irqreturn_t sigio_interrupt(int irq, void *data)
+{
+char c;
+os_read_file(sigio_irq_fd, &c, sizeof(c));
+reactivate_fd(sigio_irq_fd, SIGIO_WRITE_IRQ);
+return IRQ_HANDLED;
+}
+int write_sigio_irq(int fd)
+{
+int err;
+err = um_request_irq(SIGIO_WRITE_IRQ, fd, IRQ_READ, sigio_interrupt,
+0, "write sigio", NULL);
+if (err) {
+printk(KERN_ERR "write_sigio_irq : um_request_irq failed, "
+"err = %d\n", err);
+return -1;
+}
+sigio_irq_fd = fd;
+return 0;
+}
+void sigio_lock(void)
+{
+spin_lock(&sigio_spinlock);
+}
+void sigio_unlock(void)
+{
+spin_unlock(&sigio_spinlock);
+}

@@ -1,0 +1,16 @@
+static int meson_gxl_config_init(struct phy_device *phydev)
+{
+phy_write(phydev, 0x14, 0x0000);
+phy_write(phydev, 0x14, 0x0400);
+phy_write(phydev, 0x14, 0x0000);
+phy_write(phydev, 0x14, 0x0400);
+phy_write(phydev, 0x17, 0x8E0D);
+phy_write(phydev, 0x14, 0x4417);
+phy_write(phydev, 0x17, 0x0005);
+phy_write(phydev, 0x14, 0x5C1B);
+phy_write(phydev, 0x17, 0x029A);
+phy_write(phydev, 0x14, 0x5C1D);
+phy_write(phydev, 0x17, 0xAAAA);
+phy_write(phydev, 0x14, 0x5C1C);
+return 0;
+}

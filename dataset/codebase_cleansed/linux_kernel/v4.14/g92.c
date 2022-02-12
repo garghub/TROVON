@@ -1,0 +1,1 @@
+int\r\ng92_pcie_version_supported(struct nvkm_pci *pci)\r\n{\r\nif ((nvkm_pci_rd32(pci, 0x460) & 0x200) == 0x200)\r\nreturn 2;\r\nreturn 1;\r\n}\r\nint\r\ng92_pci_new(struct nvkm_device *device, int index, struct nvkm_pci **ppci)\r\n{\r\nreturn nvkm_pci_new_(&g92_pci_func, device, index, ppci);\r\n}

@@ -1,0 +1,56 @@
+static void gpio_beeper_toggle(struct gpio_beeper *beep, bool on)
+{
+gpiod_set_value_cansleep(beep->desc, on);
+}
+static void gpio_beeper_work(struct work_struct *work)
+{
+struct gpio_beeper *beep = container_of(work, struct gpio_beeper, work);
+gpio_beeper_toggle(beep, beep->beeping);
+}
+static int gpio_beeper_event(struct input_dev *dev, unsigned int type,
+unsigned int code, int value)
+{
+struct gpio_beeper *beep = input_get_drvdata(dev);
+if (type != EV_SND || code != SND_BELL)
+return -ENOTSUPP;
+if (value < 0)
+return -EINVAL;
+beep->beeping = value;
+schedule_work(&beep->work);
+return 0;
+}
+static void gpio_beeper_close(struct input_dev *input)
+{
+struct gpio_beeper *beep = input_get_drvdata(input);
+cancel_work_sync(&beep->work);
+gpio_beeper_toggle(beep, false);
+}
+static int gpio_beeper_probe(struct platform_device *pdev)
+{
+struct gpio_beeper *beep;
+struct input_dev *input;
+int err;
+beep = devm_kzalloc(&pdev->dev, sizeof(*beep), GFP_KERNEL);
+if (!beep)
+return -ENOMEM;
+beep->desc = devm_gpiod_get(&pdev->dev, NULL);
+if (IS_ERR(beep->desc))
+return PTR_ERR(beep->desc);
+input = devm_input_allocate_device(&pdev->dev);
+if (!input)
+return -ENOMEM;
+INIT_WORK(&beep->work, gpio_beeper_work);
+input->name = pdev->name;
+input->id.bustype = BUS_HOST;
+input->id.vendor = 0x0001;
+input->id.product = 0x0001;
+input->id.version = 0x0100;
+input->close = gpio_beeper_close;
+input->event = gpio_beeper_event;
+input_set_capability(input, EV_SND, SND_BELL);
+err = gpiod_direction_output(beep->desc, 0);
+if (err)
+return err;
+input_set_drvdata(input, beep);
+return input_register_device(input);
+}

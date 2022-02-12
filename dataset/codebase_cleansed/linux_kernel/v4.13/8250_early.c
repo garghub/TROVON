@@ -1,0 +1,115 @@
+static unsigned int __init serial8250_early_in(struct uart_port *port, int offset)
+{
+int reg_offset = offset;
+offset <<= port->regshift;
+switch (port->iotype) {
+case UPIO_MEM:
+return readb(port->membase + offset);
+case UPIO_MEM16:
+return readw(port->membase + offset);
+case UPIO_MEM32:
+return readl(port->membase + offset);
+case UPIO_MEM32BE:
+return ioread32be(port->membase + offset);
+case UPIO_PORT:
+return inb(port->iobase + offset);
+case UPIO_AU:
+return port->serial_in(port, reg_offset);
+default:
+return 0;
+}
+}
+static void __init serial8250_early_out(struct uart_port *port, int offset, int value)
+{
+int reg_offset = offset;
+offset <<= port->regshift;
+switch (port->iotype) {
+case UPIO_MEM:
+writeb(value, port->membase + offset);
+break;
+case UPIO_MEM16:
+writew(value, port->membase + offset);
+break;
+case UPIO_MEM32:
+writel(value, port->membase + offset);
+break;
+case UPIO_MEM32BE:
+iowrite32be(value, port->membase + offset);
+break;
+case UPIO_PORT:
+outb(value, port->iobase + offset);
+break;
+case UPIO_AU:
+port->serial_out(port, reg_offset, value);
+break;
+}
+}
+static void __init serial_putc(struct uart_port *port, int c)
+{
+unsigned int status;
+serial8250_early_out(port, UART_TX, c);
+for (;;) {
+status = serial8250_early_in(port, UART_LSR);
+if ((status & BOTH_EMPTY) == BOTH_EMPTY)
+break;
+cpu_relax();
+}
+}
+static void __init early_serial8250_write(struct console *console,
+const char *s, unsigned int count)
+{
+struct earlycon_device *device = console->data;
+struct uart_port *port = &device->port;
+uart_console_write(port, s, count, serial_putc);
+}
+static void __init init_port(struct earlycon_device *device)
+{
+struct uart_port *port = &device->port;
+unsigned int divisor;
+unsigned char c;
+unsigned int ier;
+serial8250_early_out(port, UART_LCR, 0x3);
+ier = serial8250_early_in(port, UART_IER);
+serial8250_early_out(port, UART_IER, ier & UART_IER_UUE);
+serial8250_early_out(port, UART_FCR, 0);
+serial8250_early_out(port, UART_MCR, 0x3);
+divisor = DIV_ROUND_CLOSEST(port->uartclk, 16 * device->baud);
+c = serial8250_early_in(port, UART_LCR);
+serial8250_early_out(port, UART_LCR, c | UART_LCR_DLAB);
+serial8250_early_out(port, UART_DLL, divisor & 0xff);
+serial8250_early_out(port, UART_DLM, (divisor >> 8) & 0xff);
+serial8250_early_out(port, UART_LCR, c & ~UART_LCR_DLAB);
+}
+int __init early_serial8250_setup(struct earlycon_device *device,
+const char *options)
+{
+if (!(device->port.membase || device->port.iobase))
+return -ENODEV;
+if (!device->baud) {
+struct uart_port *port = &device->port;
+unsigned int ier;
+ier = serial8250_early_in(port, UART_IER);
+serial8250_early_out(port, UART_IER, ier & UART_IER_UUE);
+} else
+init_port(device);
+device->con->write = early_serial8250_write;
+return 0;
+}
+static int __init early_omap8250_setup(struct earlycon_device *device,
+const char *options)
+{
+struct uart_port *port = &device->port;
+if (!(device->port.membase || device->port.iobase))
+return -ENODEV;
+port->regshift = 2;
+device->con->write = early_serial8250_write;
+return 0;
+}
+static int __init early_au_setup(struct earlycon_device *dev, const char *opt)
+{
+dev->port.serial_in = au_serial_in;
+dev->port.serial_out = au_serial_out;
+dev->port.iotype = UPIO_AU;
+dev->con->write = early_serial8250_write;
+return 0;
+}

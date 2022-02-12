@@ -1,0 +1,293 @@
+static int ad5064_write(struct ad5064_state *st, unsigned int cmd,
+unsigned int addr, unsigned int val, unsigned int shift)
+{
+val <<= shift;
+return st->write(st, cmd, addr, val);
+}
+static int ad5064_sync_powerdown_mode(struct ad5064_state *st,
+const struct iio_chan_spec *chan)
+{
+unsigned int val, address;
+unsigned int shift;
+int ret;
+if (st->chip_info->regmap_type == AD5064_REGMAP_LTC) {
+val = 0;
+address = chan->address;
+} else {
+if (st->chip_info->regmap_type == AD5064_REGMAP_ADI2)
+shift = 4;
+else
+shift = 8;
+val = (0x1 << chan->address);
+address = 0;
+if (st->pwr_down[chan->channel])
+val |= st->pwr_down_mode[chan->channel] << shift;
+}
+ret = ad5064_write(st, AD5064_CMD_POWERDOWN_DAC, address, val, 0);
+return ret;
+}
+static int ad5064_get_powerdown_mode(struct iio_dev *indio_dev,
+const struct iio_chan_spec *chan)
+{
+struct ad5064_state *st = iio_priv(indio_dev);
+return st->pwr_down_mode[chan->channel] - 1;
+}
+static int ad5064_set_powerdown_mode(struct iio_dev *indio_dev,
+const struct iio_chan_spec *chan, unsigned int mode)
+{
+struct ad5064_state *st = iio_priv(indio_dev);
+int ret;
+mutex_lock(&indio_dev->mlock);
+st->pwr_down_mode[chan->channel] = mode + 1;
+ret = ad5064_sync_powerdown_mode(st, chan);
+mutex_unlock(&indio_dev->mlock);
+return ret;
+}
+static ssize_t ad5064_read_dac_powerdown(struct iio_dev *indio_dev,
+uintptr_t private, const struct iio_chan_spec *chan, char *buf)
+{
+struct ad5064_state *st = iio_priv(indio_dev);
+return sprintf(buf, "%d\n", st->pwr_down[chan->channel]);
+}
+static ssize_t ad5064_write_dac_powerdown(struct iio_dev *indio_dev,
+uintptr_t private, const struct iio_chan_spec *chan, const char *buf,
+size_t len)
+{
+struct ad5064_state *st = iio_priv(indio_dev);
+bool pwr_down;
+int ret;
+ret = strtobool(buf, &pwr_down);
+if (ret)
+return ret;
+mutex_lock(&indio_dev->mlock);
+st->pwr_down[chan->channel] = pwr_down;
+ret = ad5064_sync_powerdown_mode(st, chan);
+mutex_unlock(&indio_dev->mlock);
+return ret ? ret : len;
+}
+static int ad5064_get_vref(struct ad5064_state *st,
+struct iio_chan_spec const *chan)
+{
+unsigned int i;
+if (st->use_internal_vref)
+return st->chip_info->internal_vref;
+i = st->chip_info->shared_vref ? 0 : chan->channel;
+return regulator_get_voltage(st->vref_reg[i].consumer);
+}
+static int ad5064_read_raw(struct iio_dev *indio_dev,
+struct iio_chan_spec const *chan,
+int *val,
+int *val2,
+long m)
+{
+struct ad5064_state *st = iio_priv(indio_dev);
+int scale_uv;
+switch (m) {
+case IIO_CHAN_INFO_RAW:
+*val = st->dac_cache[chan->channel];
+return IIO_VAL_INT;
+case IIO_CHAN_INFO_SCALE:
+scale_uv = ad5064_get_vref(st, chan);
+if (scale_uv < 0)
+return scale_uv;
+*val = scale_uv / 1000;
+*val2 = chan->scan_type.realbits;
+return IIO_VAL_FRACTIONAL_LOG2;
+default:
+break;
+}
+return -EINVAL;
+}
+static int ad5064_write_raw(struct iio_dev *indio_dev,
+struct iio_chan_spec const *chan, int val, int val2, long mask)
+{
+struct ad5064_state *st = iio_priv(indio_dev);
+int ret;
+switch (mask) {
+case IIO_CHAN_INFO_RAW:
+if (val >= (1 << chan->scan_type.realbits) || val < 0)
+return -EINVAL;
+mutex_lock(&indio_dev->mlock);
+ret = ad5064_write(st, AD5064_CMD_WRITE_INPUT_N_UPDATE_N,
+chan->address, val, chan->scan_type.shift);
+if (ret == 0)
+st->dac_cache[chan->channel] = val;
+mutex_unlock(&indio_dev->mlock);
+break;
+default:
+ret = -EINVAL;
+}
+return ret;
+}
+static inline unsigned int ad5064_num_vref(struct ad5064_state *st)
+{
+return st->chip_info->shared_vref ? 1 : st->chip_info->num_channels;
+}
+static const char * const ad5064_vref_name(struct ad5064_state *st,
+unsigned int vref)
+{
+return st->chip_info->shared_vref ? "vref" : ad5064_vref_names[vref];
+}
+static int ad5064_set_config(struct ad5064_state *st, unsigned int val)
+{
+unsigned int cmd;
+switch (st->chip_info->regmap_type) {
+case AD5064_REGMAP_ADI2:
+cmd = AD5064_CMD_CONFIG_V2;
+break;
+default:
+cmd = AD5064_CMD_CONFIG;
+break;
+}
+return ad5064_write(st, cmd, 0, val, 0);
+}
+static int ad5064_probe(struct device *dev, enum ad5064_type type,
+const char *name, ad5064_write_func write)
+{
+struct iio_dev *indio_dev;
+struct ad5064_state *st;
+unsigned int midscale;
+unsigned int i;
+int ret;
+indio_dev = devm_iio_device_alloc(dev, sizeof(*st));
+if (indio_dev == NULL)
+return -ENOMEM;
+st = iio_priv(indio_dev);
+dev_set_drvdata(dev, indio_dev);
+st->chip_info = &ad5064_chip_info_tbl[type];
+st->dev = dev;
+st->write = write;
+for (i = 0; i < ad5064_num_vref(st); ++i)
+st->vref_reg[i].supply = ad5064_vref_name(st, i);
+ret = devm_regulator_bulk_get(dev, ad5064_num_vref(st),
+st->vref_reg);
+if (ret) {
+if (!st->chip_info->internal_vref)
+return ret;
+st->use_internal_vref = true;
+ret = ad5064_set_config(st, AD5064_CONFIG_INT_VREF_ENABLE);
+if (ret) {
+dev_err(dev, "Failed to enable internal vref: %d\n",
+ret);
+return ret;
+}
+} else {
+ret = regulator_bulk_enable(ad5064_num_vref(st), st->vref_reg);
+if (ret)
+return ret;
+}
+indio_dev->dev.parent = dev;
+indio_dev->name = name;
+indio_dev->info = &ad5064_info;
+indio_dev->modes = INDIO_DIRECT_MODE;
+indio_dev->channels = st->chip_info->channels;
+indio_dev->num_channels = st->chip_info->num_channels;
+midscale = (1 << indio_dev->channels[0].scan_type.realbits) / 2;
+for (i = 0; i < st->chip_info->num_channels; ++i) {
+st->pwr_down_mode[i] = AD5064_LDAC_PWRDN_1K;
+st->dac_cache[i] = midscale;
+}
+ret = iio_device_register(indio_dev);
+if (ret)
+goto error_disable_reg;
+return 0;
+error_disable_reg:
+if (!st->use_internal_vref)
+regulator_bulk_disable(ad5064_num_vref(st), st->vref_reg);
+return ret;
+}
+static int ad5064_remove(struct device *dev)
+{
+struct iio_dev *indio_dev = dev_get_drvdata(dev);
+struct ad5064_state *st = iio_priv(indio_dev);
+iio_device_unregister(indio_dev);
+if (!st->use_internal_vref)
+regulator_bulk_disable(ad5064_num_vref(st), st->vref_reg);
+return 0;
+}
+static int ad5064_spi_write(struct ad5064_state *st, unsigned int cmd,
+unsigned int addr, unsigned int val)
+{
+struct spi_device *spi = to_spi_device(st->dev);
+st->data.spi = cpu_to_be32(AD5064_CMD(cmd) | AD5064_ADDR(addr) | val);
+return spi_write(spi, &st->data.spi, sizeof(st->data.spi));
+}
+static int ad5064_spi_probe(struct spi_device *spi)
+{
+const struct spi_device_id *id = spi_get_device_id(spi);
+return ad5064_probe(&spi->dev, id->driver_data, id->name,
+ad5064_spi_write);
+}
+static int ad5064_spi_remove(struct spi_device *spi)
+{
+return ad5064_remove(&spi->dev);
+}
+static int __init ad5064_spi_register_driver(void)
+{
+return spi_register_driver(&ad5064_spi_driver);
+}
+static void ad5064_spi_unregister_driver(void)
+{
+spi_unregister_driver(&ad5064_spi_driver);
+}
+static inline int ad5064_spi_register_driver(void) { return 0; }
+static inline void ad5064_spi_unregister_driver(void) { }
+static int ad5064_i2c_write(struct ad5064_state *st, unsigned int cmd,
+unsigned int addr, unsigned int val)
+{
+struct i2c_client *i2c = to_i2c_client(st->dev);
+unsigned int cmd_shift;
+int ret;
+switch (st->chip_info->regmap_type) {
+case AD5064_REGMAP_ADI2:
+cmd_shift = 3;
+break;
+default:
+cmd_shift = 4;
+break;
+}
+st->data.i2c[0] = (cmd << cmd_shift) | addr;
+put_unaligned_be16(val, &st->data.i2c[1]);
+ret = i2c_master_send(i2c, st->data.i2c, 3);
+if (ret < 0)
+return ret;
+return 0;
+}
+static int ad5064_i2c_probe(struct i2c_client *i2c,
+const struct i2c_device_id *id)
+{
+return ad5064_probe(&i2c->dev, id->driver_data, id->name,
+ad5064_i2c_write);
+}
+static int ad5064_i2c_remove(struct i2c_client *i2c)
+{
+return ad5064_remove(&i2c->dev);
+}
+static int __init ad5064_i2c_register_driver(void)
+{
+return i2c_add_driver(&ad5064_i2c_driver);
+}
+static void __exit ad5064_i2c_unregister_driver(void)
+{
+i2c_del_driver(&ad5064_i2c_driver);
+}
+static inline int ad5064_i2c_register_driver(void) { return 0; }
+static inline void ad5064_i2c_unregister_driver(void) { }
+static int __init ad5064_init(void)
+{
+int ret;
+ret = ad5064_spi_register_driver();
+if (ret)
+return ret;
+ret = ad5064_i2c_register_driver();
+if (ret) {
+ad5064_spi_unregister_driver();
+return ret;
+}
+return 0;
+}
+static void __exit ad5064_exit(void)
+{
+ad5064_i2c_unregister_driver();
+ad5064_spi_unregister_driver();
+}

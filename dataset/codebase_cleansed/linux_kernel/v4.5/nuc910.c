@@ -1,0 +1,1 @@
+void __init nuc910_map_io(void)\r\n{\r\nnuc900_map_io(nuc910evb_iodesc, ARRAY_SIZE(nuc910evb_iodesc));\r\n}\r\nvoid __init nuc910_init_clocks(void)\r\n{\r\nnuc900_init_clocks();\r\n}\r\nvoid __init nuc910_board_init(void)\r\n{\r\nnuc900_board_init(nuc910_dev, ARRAY_SIZE(nuc910_dev));\r\n}

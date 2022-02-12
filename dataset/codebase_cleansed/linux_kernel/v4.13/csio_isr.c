@@ -1,0 +1,364 @@
+static irqreturn_t
+csio_nondata_isr(int irq, void *dev_id)
+{
+struct csio_hw *hw = (struct csio_hw *) dev_id;
+int rv;
+unsigned long flags;
+if (unlikely(!hw))
+return IRQ_NONE;
+if (unlikely(pci_channel_offline(hw->pdev))) {
+CSIO_INC_STATS(hw, n_pcich_offline);
+return IRQ_NONE;
+}
+spin_lock_irqsave(&hw->lock, flags);
+csio_hw_slow_intr_handler(hw);
+rv = csio_mb_isr_handler(hw);
+if (rv == 0 && !(hw->flags & CSIO_HWF_FWEVT_PENDING)) {
+hw->flags |= CSIO_HWF_FWEVT_PENDING;
+spin_unlock_irqrestore(&hw->lock, flags);
+schedule_work(&hw->evtq_work);
+return IRQ_HANDLED;
+}
+spin_unlock_irqrestore(&hw->lock, flags);
+return IRQ_HANDLED;
+}
+static void
+csio_fwevt_handler(struct csio_hw *hw)
+{
+int rv;
+unsigned long flags;
+rv = csio_fwevtq_handler(hw);
+spin_lock_irqsave(&hw->lock, flags);
+if (rv == 0 && !(hw->flags & CSIO_HWF_FWEVT_PENDING)) {
+hw->flags |= CSIO_HWF_FWEVT_PENDING;
+spin_unlock_irqrestore(&hw->lock, flags);
+schedule_work(&hw->evtq_work);
+return;
+}
+spin_unlock_irqrestore(&hw->lock, flags);
+}
+static irqreturn_t
+csio_fwevt_isr(int irq, void *dev_id)
+{
+struct csio_hw *hw = (struct csio_hw *) dev_id;
+if (unlikely(!hw))
+return IRQ_NONE;
+if (unlikely(pci_channel_offline(hw->pdev))) {
+CSIO_INC_STATS(hw, n_pcich_offline);
+return IRQ_NONE;
+}
+csio_fwevt_handler(hw);
+return IRQ_HANDLED;
+}
+void
+csio_fwevt_intx_handler(struct csio_hw *hw, void *wr, uint32_t len,
+struct csio_fl_dma_buf *flb, void *priv)
+{
+csio_fwevt_handler(hw);
+}
+static void
+csio_process_scsi_cmpl(struct csio_hw *hw, void *wr, uint32_t len,
+struct csio_fl_dma_buf *flb, void *cbfn_q)
+{
+struct csio_ioreq *ioreq;
+uint8_t *scsiwr;
+uint8_t subop;
+void *cmnd;
+unsigned long flags;
+ioreq = csio_scsi_cmpl_handler(hw, wr, len, flb, NULL, &scsiwr);
+if (likely(ioreq)) {
+if (unlikely(*scsiwr == FW_SCSI_ABRT_CLS_WR)) {
+subop = FW_SCSI_ABRT_CLS_WR_SUB_OPCODE_GET(
+((struct fw_scsi_abrt_cls_wr *)
+scsiwr)->sub_opcode_to_chk_all_io);
+csio_dbg(hw, "%s cmpl recvd ioreq:%p status:%d\n",
+subop ? "Close" : "Abort",
+ioreq, ioreq->wr_status);
+spin_lock_irqsave(&hw->lock, flags);
+if (subop)
+csio_scsi_closed(ioreq,
+(struct list_head *)cbfn_q);
+else
+csio_scsi_aborted(ioreq,
+(struct list_head *)cbfn_q);
+cmnd = csio_scsi_cmnd(ioreq);
+if (unlikely(cmnd == NULL))
+list_del_init(&ioreq->sm.sm_list);
+spin_unlock_irqrestore(&hw->lock, flags);
+if (unlikely(cmnd == NULL))
+csio_put_scsi_ioreq_lock(hw,
+csio_hw_to_scsim(hw), ioreq);
+} else {
+spin_lock_irqsave(&hw->lock, flags);
+csio_scsi_completed(ioreq, (struct list_head *)cbfn_q);
+spin_unlock_irqrestore(&hw->lock, flags);
+}
+}
+}
+static inline irqreturn_t
+csio_scsi_isr_handler(struct csio_q *iq)
+{
+struct csio_hw *hw = (struct csio_hw *)iq->owner;
+LIST_HEAD(cbfn_q);
+struct list_head *tmp;
+struct csio_scsim *scm;
+struct csio_ioreq *ioreq;
+int isr_completions = 0;
+scm = csio_hw_to_scsim(hw);
+if (unlikely(csio_wr_process_iq(hw, iq, csio_process_scsi_cmpl,
+&cbfn_q) != 0))
+return IRQ_NONE;
+list_for_each(tmp, &cbfn_q) {
+ioreq = (struct csio_ioreq *)tmp;
+isr_completions++;
+ioreq->io_cbfn(hw, ioreq);
+if (unlikely(ioreq->dcopy))
+csio_put_scsi_ddp_list_lock(hw, scm, &ioreq->gen_list,
+ioreq->nsge);
+}
+if (isr_completions) {
+csio_put_scsi_ioreq_list_lock(hw, scm, &cbfn_q,
+isr_completions);
+}
+return IRQ_HANDLED;
+}
+static irqreturn_t
+csio_scsi_isr(int irq, void *dev_id)
+{
+struct csio_q *iq = (struct csio_q *) dev_id;
+struct csio_hw *hw;
+if (unlikely(!iq))
+return IRQ_NONE;
+hw = (struct csio_hw *)iq->owner;
+if (unlikely(pci_channel_offline(hw->pdev))) {
+CSIO_INC_STATS(hw, n_pcich_offline);
+return IRQ_NONE;
+}
+csio_scsi_isr_handler(iq);
+return IRQ_HANDLED;
+}
+void
+csio_scsi_intx_handler(struct csio_hw *hw, void *wr, uint32_t len,
+struct csio_fl_dma_buf *flb, void *priv)
+{
+struct csio_q *iq = priv;
+csio_scsi_isr_handler(iq);
+}
+static irqreturn_t
+csio_fcoe_isr(int irq, void *dev_id)
+{
+struct csio_hw *hw = (struct csio_hw *) dev_id;
+struct csio_q *intx_q = NULL;
+int rv;
+irqreturn_t ret = IRQ_NONE;
+unsigned long flags;
+if (unlikely(!hw))
+return IRQ_NONE;
+if (unlikely(pci_channel_offline(hw->pdev))) {
+CSIO_INC_STATS(hw, n_pcich_offline);
+return IRQ_NONE;
+}
+if (hw->intr_mode == CSIO_IM_INTX)
+csio_wr_reg32(hw, 0, MYPF_REG(PCIE_PF_CLI_A));
+if (csio_hw_slow_intr_handler(hw))
+ret = IRQ_HANDLED;
+intx_q = csio_get_q(hw, hw->intr_iq_idx);
+CSIO_DB_ASSERT(intx_q);
+if (likely(csio_wr_process_iq(hw, intx_q, NULL, NULL) == 0))
+ret = IRQ_HANDLED;
+spin_lock_irqsave(&hw->lock, flags);
+rv = csio_mb_isr_handler(hw);
+if (rv == 0 && !(hw->flags & CSIO_HWF_FWEVT_PENDING)) {
+hw->flags |= CSIO_HWF_FWEVT_PENDING;
+spin_unlock_irqrestore(&hw->lock, flags);
+schedule_work(&hw->evtq_work);
+return IRQ_HANDLED;
+}
+spin_unlock_irqrestore(&hw->lock, flags);
+return ret;
+}
+static void
+csio_add_msix_desc(struct csio_hw *hw)
+{
+int i;
+struct csio_msix_entries *entryp = &hw->msix_entries[0];
+int k = CSIO_EXTRA_VECS;
+int len = sizeof(entryp->desc) - 1;
+int cnt = hw->num_sqsets + k;
+memset(entryp->desc, 0, len + 1);
+snprintf(entryp->desc, len, "csio-%02x:%02x:%x-nondata",
+CSIO_PCI_BUS(hw), CSIO_PCI_DEV(hw), CSIO_PCI_FUNC(hw));
+entryp++;
+memset(entryp->desc, 0, len + 1);
+snprintf(entryp->desc, len, "csio-%02x:%02x:%x-fwevt",
+CSIO_PCI_BUS(hw), CSIO_PCI_DEV(hw), CSIO_PCI_FUNC(hw));
+entryp++;
+for (i = k; i < cnt; i++, entryp++) {
+memset(entryp->desc, 0, len + 1);
+snprintf(entryp->desc, len, "csio-%02x:%02x:%x-scsi%d",
+CSIO_PCI_BUS(hw), CSIO_PCI_DEV(hw),
+CSIO_PCI_FUNC(hw), i - CSIO_EXTRA_VECS);
+}
+}
+int
+csio_request_irqs(struct csio_hw *hw)
+{
+int rv, i, j, k = 0;
+struct csio_msix_entries *entryp = &hw->msix_entries[0];
+struct csio_scsi_cpu_info *info;
+struct pci_dev *pdev = hw->pdev;
+if (hw->intr_mode != CSIO_IM_MSIX) {
+rv = request_irq(pci_irq_vector(pdev, 0), csio_fcoe_isr,
+hw->intr_mode == CSIO_IM_MSI ? 0 : IRQF_SHARED,
+KBUILD_MODNAME, hw);
+if (rv) {
+csio_err(hw, "Failed to allocate interrupt line.\n");
+goto out_free_irqs;
+}
+goto out;
+}
+csio_add_msix_desc(hw);
+rv = request_irq(pci_irq_vector(pdev, k), csio_nondata_isr, 0,
+entryp[k].desc, hw);
+if (rv) {
+csio_err(hw, "IRQ request failed for vec %d err:%d\n",
+pci_irq_vector(pdev, k), rv);
+goto out_free_irqs;
+}
+entryp[k++].dev_id = hw;
+rv = request_irq(pci_irq_vector(pdev, k), csio_fwevt_isr, 0,
+entryp[k].desc, hw);
+if (rv) {
+csio_err(hw, "IRQ request failed for vec %d err:%d\n",
+pci_irq_vector(pdev, k), rv);
+goto out_free_irqs;
+}
+entryp[k++].dev_id = (void *)hw;
+for (i = 0; i < hw->num_pports; i++) {
+info = &hw->scsi_cpu_info[i];
+for (j = 0; j < info->max_cpus; j++, k++) {
+struct csio_scsi_qset *sqset = &hw->sqset[i][j];
+struct csio_q *q = hw->wrm.q_arr[sqset->iq_idx];
+rv = request_irq(pci_irq_vector(pdev, k), csio_scsi_isr, 0,
+entryp[k].desc, q);
+if (rv) {
+csio_err(hw,
+"IRQ request failed for vec %d err:%d\n",
+pci_irq_vector(pdev, k), rv);
+goto out_free_irqs;
+}
+entryp[k].dev_id = q;
+}
+}
+out:
+hw->flags |= CSIO_HWF_HOST_INTR_ENABLED;
+return 0;
+out_free_irqs:
+for (i = 0; i < k; i++)
+free_irq(pci_irq_vector(pdev, i), hw->msix_entries[i].dev_id);
+pci_free_irq_vectors(hw->pdev);
+return -EINVAL;
+}
+static void
+csio_reduce_sqsets(struct csio_hw *hw, int cnt)
+{
+int i;
+struct csio_scsi_cpu_info *info;
+while (cnt < hw->num_sqsets) {
+for (i = 0; i < hw->num_pports; i++) {
+info = &hw->scsi_cpu_info[i];
+if (info->max_cpus > 1) {
+info->max_cpus--;
+hw->num_sqsets--;
+if (hw->num_sqsets <= cnt)
+break;
+}
+}
+}
+csio_dbg(hw, "Reduced sqsets to %d\n", hw->num_sqsets);
+}
+static int
+csio_enable_msix(struct csio_hw *hw)
+{
+int i, j, k, n, min, cnt;
+int extra = CSIO_EXTRA_VECS;
+struct csio_scsi_cpu_info *info;
+struct irq_affinity desc = { .pre_vectors = 2 };
+min = hw->num_pports + extra;
+cnt = hw->num_sqsets + extra;
+if (hw->flags & CSIO_HWF_USING_SOFT_PARAMS || !csio_is_hw_master(hw))
+cnt = min_t(uint8_t, hw->cfg_niq, cnt);
+csio_dbg(hw, "FW supp #niq:%d, trying %d msix's\n", hw->cfg_niq, cnt);
+cnt = pci_alloc_irq_vectors_affinity(hw->pdev, min, cnt,
+PCI_IRQ_MSIX | PCI_IRQ_AFFINITY, &desc);
+if (cnt < 0)
+return cnt;
+if (cnt < (hw->num_sqsets + extra)) {
+csio_dbg(hw, "Reducing sqsets to %d\n", cnt - extra);
+csio_reduce_sqsets(hw, cnt - extra);
+}
+k = 0;
+csio_set_nondata_intr_idx(hw, k);
+csio_set_mb_intr_idx(csio_hw_to_mbm(hw), k++);
+csio_set_fwevt_intr_idx(hw, k++);
+for (i = 0; i < hw->num_pports; i++) {
+info = &hw->scsi_cpu_info[i];
+for (j = 0; j < hw->num_scsi_msix_cpus; j++) {
+n = (j % info->max_cpus) + k;
+hw->sqset[i][j].intr_idx = n;
+}
+k += info->max_cpus;
+}
+return 0;
+}
+void
+csio_intr_enable(struct csio_hw *hw)
+{
+hw->intr_mode = CSIO_IM_NONE;
+hw->flags &= ~CSIO_HWF_HOST_INTR_ENABLED;
+if ((csio_msi == 2) && !csio_enable_msix(hw))
+hw->intr_mode = CSIO_IM_MSIX;
+else {
+if (hw->flags & CSIO_HWF_USING_SOFT_PARAMS ||
+!csio_is_hw_master(hw)) {
+int extra = CSIO_EXTRA_MSI_IQS;
+if (hw->cfg_niq < (hw->num_sqsets + extra)) {
+csio_dbg(hw, "Reducing sqsets to %d\n",
+hw->cfg_niq - extra);
+csio_reduce_sqsets(hw, hw->cfg_niq - extra);
+}
+}
+if ((csio_msi == 1) && !pci_enable_msi(hw->pdev))
+hw->intr_mode = CSIO_IM_MSI;
+else
+hw->intr_mode = CSIO_IM_INTX;
+}
+csio_dbg(hw, "Using %s interrupt mode.\n",
+(hw->intr_mode == CSIO_IM_MSIX) ? "MSIX" :
+((hw->intr_mode == CSIO_IM_MSI) ? "MSI" : "INTx"));
+}
+void
+csio_intr_disable(struct csio_hw *hw, bool free)
+{
+csio_hw_intr_disable(hw);
+if (free) {
+int i;
+switch (hw->intr_mode) {
+case CSIO_IM_MSIX:
+for (i = 0; i < hw->num_sqsets + CSIO_EXTRA_VECS; i++) {
+free_irq(pci_irq_vector(hw->pdev, i),
+hw->msix_entries[i].dev_id);
+}
+break;
+case CSIO_IM_MSI:
+case CSIO_IM_INTX:
+free_irq(pci_irq_vector(hw->pdev, 0), hw);
+break;
+default:
+break;
+}
+}
+pci_free_irq_vectors(hw->pdev);
+hw->intr_mode = CSIO_IM_NONE;
+hw->flags &= ~CSIO_HWF_HOST_INTR_ENABLED;
+}

@@ -1,0 +1,128 @@
+static void usage(void)
+{
+printf("USAGE: sampleip [-F freq] [duration]\n");
+printf(" -F freq # sample frequency (Hertz), default 99\n");
+printf(" duration # sampling duration (seconds), default 5\n");
+}
+static int sampling_start(int *pmu_fd, int freq)
+{
+int i;
+struct perf_event_attr pe_sample_attr = {
+.type = PERF_TYPE_SOFTWARE,
+.freq = 1,
+.sample_period = freq,
+.config = PERF_COUNT_SW_CPU_CLOCK,
+.inherit = 1,
+};
+for (i = 0; i < nr_cpus; i++) {
+pmu_fd[i] = sys_perf_event_open(&pe_sample_attr, -1 , i,
+-1 , 0 );
+if (pmu_fd[i] < 0) {
+fprintf(stderr, "ERROR: Initializing perf sampling\n");
+return 1;
+}
+assert(ioctl(pmu_fd[i], PERF_EVENT_IOC_SET_BPF,
+prog_fd[0]) == 0);
+assert(ioctl(pmu_fd[i], PERF_EVENT_IOC_ENABLE, 0) == 0);
+}
+return 0;
+}
+static void sampling_end(int *pmu_fd)
+{
+int i;
+for (i = 0; i < nr_cpus; i++)
+close(pmu_fd[i]);
+}
+static int count_cmp(const void *p1, const void *p2)
+{
+return ((struct ipcount *)p1)->count - ((struct ipcount *)p2)->count;
+}
+static void print_ip_map(int fd)
+{
+struct ksym *sym;
+__u64 key, next_key;
+__u32 value;
+int i, max;
+printf("%-19s %-32s %s\n", "ADDR", "KSYM", "COUNT");
+key = 0, i = 0;
+while (bpf_map_get_next_key(fd, &key, &next_key) == 0) {
+bpf_map_lookup_elem(fd, &next_key, &value);
+counts[i].ip = next_key;
+counts[i++].count = value;
+key = next_key;
+}
+max = i;
+qsort(counts, max, sizeof(struct ipcount), count_cmp);
+for (i = 0; i < max; i++) {
+if (counts[i].ip > PAGE_OFFSET) {
+sym = ksym_search(counts[i].ip);
+printf("0x%-17llx %-32s %u\n", counts[i].ip, sym->name,
+counts[i].count);
+} else {
+printf("0x%-17llx %-32s %u\n", counts[i].ip, "(user)",
+counts[i].count);
+}
+}
+if (max == MAX_IPS) {
+printf("WARNING: IP hash was full (max %d entries); ", max);
+printf("may have dropped samples\n");
+}
+}
+static void int_exit(int sig)
+{
+printf("\n");
+print_ip_map(map_fd[0]);
+exit(0);
+}
+int main(int argc, char **argv)
+{
+char filename[256];
+int *pmu_fd, opt, freq = DEFAULT_FREQ, secs = DEFAULT_SECS;
+while ((opt = getopt(argc, argv, "F:h")) != -1) {
+switch (opt) {
+case 'F':
+freq = atoi(optarg);
+break;
+case 'h':
+default:
+usage();
+return 0;
+}
+}
+if (argc - optind == 1)
+secs = atoi(argv[optind]);
+if (freq == 0 || secs == 0) {
+usage();
+return 1;
+}
+if (load_kallsyms()) {
+fprintf(stderr, "ERROR: loading /proc/kallsyms\n");
+return 2;
+}
+nr_cpus = sysconf(_SC_NPROCESSORS_CONF);
+pmu_fd = malloc(nr_cpus * sizeof(int));
+if (pmu_fd == NULL) {
+fprintf(stderr, "ERROR: malloc of pmu_fd\n");
+return 1;
+}
+snprintf(filename, sizeof(filename), "%s_kern.o", argv[0]);
+if (load_bpf_file(filename)) {
+fprintf(stderr, "ERROR: loading BPF program (errno %d):\n",
+errno);
+if (strcmp(bpf_log_buf, "") == 0)
+fprintf(stderr, "Try: ulimit -l unlimited\n");
+else
+fprintf(stderr, "%s", bpf_log_buf);
+return 1;
+}
+signal(SIGINT, int_exit);
+printf("Sampling at %d Hertz for %d seconds. Ctrl-C also ends.\n",
+freq, secs);
+if (sampling_start(pmu_fd, freq) != 0)
+return 1;
+sleep(secs);
+sampling_end(pmu_fd);
+free(pmu_fd);
+print_ip_map(map_fd[0]);
+return 0;
+}

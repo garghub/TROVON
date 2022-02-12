@@ -1,0 +1,1 @@
+static __u8 *nti_usbsun_report_fixup(struct hid_device *hdev, __u8 *rdesc,\r\nunsigned int *rsize)\r\n{\r\nif (*rsize >= 60 && rdesc[53] == 0x65 && rdesc[59] == 0x65) {\r\nhid_info(hdev, "fixing up NTI USB-SUN keyboard adapter report descriptor\n");\r\nrdesc[53] = rdesc[59] = 0xe7;\r\n}\r\nreturn rdesc;\r\n}

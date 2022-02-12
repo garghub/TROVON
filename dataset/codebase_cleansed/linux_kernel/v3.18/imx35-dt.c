@@ -1,0 +1,1 @@
+static void __init imx35_dt_init(void)\r\n{\r\nmxc_arch_reset_init_dt();\r\nof_platform_populate(NULL, of_default_bus_match_table,\r\nNULL, NULL);\r\n}\r\nstatic void __init imx35_irq_init(void)\r\n{\r\nimx_init_l2cache();\r\nmx35_init_irq();\r\n}

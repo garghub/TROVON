@@ -1,0 +1,1 @@
+static void __init sunxi_dt_cpufreq_init(void)\r\n{\r\nplatform_device_register_simple("cpufreq-dt", -1, NULL, 0);\r\n}\r\nstatic void __init sun6i_timer_init(void)\r\n{\r\nof_clk_init(NULL);\r\nif (IS_ENABLED(CONFIG_RESET_CONTROLLER))\r\nsun6i_reset_init();\r\nclocksource_of_init();\r\n}

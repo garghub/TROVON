@@ -1,0 +1,1 @@
+void *dummy_otp_read(struct v4l2_subdev *sd, u8 dev_addr,\r\nu32 start_addr, u32 size)\r\n{\r\nstruct i2c_client *client = v4l2_get_subdevdata(sd);\r\nu8 *buf;\r\nbuf = devm_kzalloc(&client->dev, size, GFP_KERNEL);\r\nif (!buf)\r\nreturn ERR_PTR(-ENOMEM);\r\nreturn buf;\r\n}

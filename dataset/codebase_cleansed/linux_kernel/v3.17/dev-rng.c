@@ -1,0 +1,1 @@
+int __init bcm63xx_rng_register(void)\r\n{\r\nif (!BCMCPU_IS_6368())\r\nreturn -ENODEV;\r\nrng_resources[0].start = bcm63xx_regset_address(RSET_RNG);\r\nrng_resources[0].end = rng_resources[0].start;\r\nrng_resources[0].end += RSET_RNG_SIZE - 1;\r\nreturn platform_device_register(&bcm63xx_rng_device);\r\n}

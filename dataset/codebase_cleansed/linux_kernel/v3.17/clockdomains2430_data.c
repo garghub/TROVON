@@ -1,0 +1,1 @@
+void __init omap243x_clockdomains_init(void)\r\n{\r\nif (!cpu_is_omap243x())\r\nreturn;\r\nclkdm_register_platform_funcs(&omap2_clkdm_operations);\r\nclkdm_register_clkdms(clockdomains_omap243x);\r\nclkdm_complete_init();\r\n}

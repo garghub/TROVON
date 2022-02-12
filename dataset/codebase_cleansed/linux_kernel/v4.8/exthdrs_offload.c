@@ -1,0 +1,1 @@
+int __init ipv6_exthdrs_offload_init(void)\r\n{\r\nint ret;\r\nret = inet6_add_offload(&rthdr_offload, IPPROTO_ROUTING);\r\nif (ret)\r\ngoto out;\r\nret = inet6_add_offload(&dstopt_offload, IPPROTO_DSTOPTS);\r\nif (ret)\r\ngoto out_rt;\r\nout:\r\nreturn ret;\r\nout_rt:\r\ninet6_del_offload(&rthdr_offload, IPPROTO_ROUTING);\r\ngoto out;\r\n}

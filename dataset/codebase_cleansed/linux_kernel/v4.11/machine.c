@@ -1,0 +1,1 @@
+int arch__fix_module_text_start(u64 *start, const char *name)\r\n{\r\nchar path[PATH_MAX];\r\nsnprintf(path, PATH_MAX, "module/%.*s/sections/.text",\r\n(int)strlen(name) - 2, name + 1);\r\nif (sysfs__read_ull(path, (unsigned long long *)start) < 0)\r\nreturn -1;\r\nreturn 0;\r\n}

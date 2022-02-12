@@ -1,0 +1,1 @@
+int fixup_exception(struct pt_regs *regs)\r\n{\r\nconst struct exception_table_entry *fixup;\r\nfixup = search_exception_tables(regs->pc);\r\nif (fixup) {\r\nregs->pc = fixup->fixup;\r\nreturn 1;\r\n}\r\nreturn 0;\r\n}

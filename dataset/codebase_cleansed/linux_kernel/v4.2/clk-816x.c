@@ -1,0 +1,1 @@
+int __init ti81xx_dt_clk_init(void)\r\n{\r\nti_dt_clocks_register(dm816x_clks);\r\nomap2_clk_disable_autoidle_all();\r\nomap2_clk_enable_init_clocks(enable_init_clks,\r\nARRAY_SIZE(enable_init_clks));\r\nreturn 0;\r\n}

@@ -1,0 +1,1 @@
+struct ldlm_resource *lock_res_and_lock(struct ldlm_lock *lock)\r\n{\r\nspin_lock(&lock->l_lock);\r\nlock_res(lock->l_resource);\r\nlock->l_flags |= LDLM_FL_RES_LOCKED;\r\nreturn lock->l_resource;\r\n}\r\nvoid unlock_res_and_lock(struct ldlm_lock *lock)\r\n{\r\nlock->l_flags &= ~LDLM_FL_RES_LOCKED;\r\nunlock_res(lock->l_resource);\r\nspin_unlock(&lock->l_lock);\r\n}

@@ -1,0 +1,1 @@
+static int adav80x_spi_probe(struct spi_device *spi)\r\n{\r\nstruct regmap_config config;\r\nconfig = adav80x_regmap_config;\r\nconfig.read_flag_mask = 0x01;\r\nreturn adav80x_bus_probe(&spi->dev, devm_regmap_init_spi(spi, &config));\r\n}\r\nstatic int adav80x_spi_remove(struct spi_device *spi)\r\n{\r\nsnd_soc_unregister_codec(&spi->dev);\r\nreturn 0;\r\n}

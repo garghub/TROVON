@@ -1,0 +1,1 @@
+static void pretimeout_panic(struct watchdog_device *wdd)\r\n{\r\npanic("watchdog pretimeout event\n");\r\n}\r\nstatic int __init watchdog_gov_panic_register(void)\r\n{\r\nreturn watchdog_register_governor(&watchdog_gov_panic);\r\n}\r\nstatic void __exit watchdog_gov_panic_unregister(void)\r\n{\r\nwatchdog_unregister_governor(&watchdog_gov_panic);\r\n}

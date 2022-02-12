@@ -1,0 +1,271 @@
+static void psb_driver_lastclose(struct drm_device *dev)
+{
+int ret;
+struct drm_psb_private *dev_priv = dev->dev_private;
+struct psb_fbdev *fbdev = dev_priv->fbdev;
+ret = drm_fb_helper_restore_fbdev_mode_unlocked(&fbdev->psb_fb_helper);
+if (ret)
+DRM_DEBUG("failed to restore crtc mode\n");
+return;
+}
+static int psb_do_init(struct drm_device *dev)
+{
+struct drm_psb_private *dev_priv = dev->dev_private;
+struct psb_gtt *pg = &dev_priv->gtt;
+uint32_t stolen_gtt;
+if (pg->mmu_gatt_start & 0x0FFFFFFF) {
+dev_err(dev->dev, "Gatt must be 256M aligned. This is a bug.\n");
+return -EINVAL;
+}
+stolen_gtt = (pg->stolen_size >> PAGE_SHIFT) * 4;
+stolen_gtt = (stolen_gtt + PAGE_SIZE - 1) >> PAGE_SHIFT;
+stolen_gtt = (stolen_gtt < pg->gtt_pages) ? stolen_gtt : pg->gtt_pages;
+dev_priv->gatt_free_offset = pg->mmu_gatt_start +
+(stolen_gtt << PAGE_SHIFT) * 1024;
+spin_lock_init(&dev_priv->irqmask_lock);
+spin_lock_init(&dev_priv->lock_2d);
+PSB_WSGX32(0x00000000, PSB_CR_BIF_BANK0);
+PSB_WSGX32(0x00000000, PSB_CR_BIF_BANK1);
+PSB_RSGX32(PSB_CR_BIF_BANK1);
+PSB_WSGX32((PSB_RSGX32(PSB_CR_BIF_CTRL) & ~_PSB_MMU_ER_MASK),
+PSB_CR_BIF_CTRL);
+PSB_RSGX32(PSB_CR_BIF_CTRL);
+psb_spank(dev_priv);
+PSB_WSGX32(pg->gatt_start, PSB_CR_BIF_TWOD_REQ_BASE);
+PSB_RSGX32(PSB_CR_BIF_TWOD_REQ_BASE);
+return 0;
+}
+static int psb_driver_unload(struct drm_device *dev)
+{
+struct drm_psb_private *dev_priv = dev->dev_private;
+if (dev_priv) {
+if (dev_priv->backlight_device)
+gma_backlight_exit(dev);
+psb_modeset_cleanup(dev);
+if (dev_priv->ops->chip_teardown)
+dev_priv->ops->chip_teardown(dev);
+psb_intel_opregion_fini(dev);
+if (dev_priv->pf_pd) {
+psb_mmu_free_pagedir(dev_priv->pf_pd);
+dev_priv->pf_pd = NULL;
+}
+if (dev_priv->mmu) {
+struct psb_gtt *pg = &dev_priv->gtt;
+down_read(&pg->sem);
+psb_mmu_remove_pfn_sequence(
+psb_mmu_get_default_pd
+(dev_priv->mmu),
+pg->mmu_gatt_start,
+dev_priv->vram_stolen_size >> PAGE_SHIFT);
+up_read(&pg->sem);
+psb_mmu_driver_takedown(dev_priv->mmu);
+dev_priv->mmu = NULL;
+}
+psb_gtt_takedown(dev);
+if (dev_priv->scratch_page) {
+set_pages_wb(dev_priv->scratch_page, 1);
+__free_page(dev_priv->scratch_page);
+dev_priv->scratch_page = NULL;
+}
+if (dev_priv->vdc_reg) {
+iounmap(dev_priv->vdc_reg);
+dev_priv->vdc_reg = NULL;
+}
+if (dev_priv->sgx_reg) {
+iounmap(dev_priv->sgx_reg);
+dev_priv->sgx_reg = NULL;
+}
+if (dev_priv->aux_reg) {
+iounmap(dev_priv->aux_reg);
+dev_priv->aux_reg = NULL;
+}
+pci_dev_put(dev_priv->aux_pdev);
+pci_dev_put(dev_priv->lpc_pdev);
+psb_intel_destroy_bios(dev);
+kfree(dev_priv);
+dev->dev_private = NULL;
+}
+gma_power_uninit(dev);
+return 0;
+}
+static int psb_driver_load(struct drm_device *dev, unsigned long flags)
+{
+struct drm_psb_private *dev_priv;
+unsigned long resource_start, resource_len;
+unsigned long irqflags;
+int ret = -ENOMEM;
+struct drm_connector *connector;
+struct gma_encoder *gma_encoder;
+struct psb_gtt *pg;
+dev_priv = kzalloc(sizeof(*dev_priv), GFP_KERNEL);
+if (dev_priv == NULL)
+return -ENOMEM;
+dev_priv->ops = (struct psb_ops *)flags;
+dev_priv->dev = dev;
+dev->dev_private = (void *) dev_priv;
+pg = &dev_priv->gtt;
+pci_set_master(dev->pdev);
+dev_priv->num_pipe = dev_priv->ops->pipes;
+resource_start = pci_resource_start(dev->pdev, PSB_MMIO_RESOURCE);
+dev_priv->vdc_reg =
+ioremap(resource_start + PSB_VDC_OFFSET, PSB_VDC_SIZE);
+if (!dev_priv->vdc_reg)
+goto out_err;
+dev_priv->sgx_reg = ioremap(resource_start + dev_priv->ops->sgx_offset,
+PSB_SGX_SIZE);
+if (!dev_priv->sgx_reg)
+goto out_err;
+if (IS_MRST(dev)) {
+dev_priv->aux_pdev = pci_get_bus_and_slot(0, PCI_DEVFN(3, 0));
+if (dev_priv->aux_pdev) {
+resource_start = pci_resource_start(dev_priv->aux_pdev,
+PSB_AUX_RESOURCE);
+resource_len = pci_resource_len(dev_priv->aux_pdev,
+PSB_AUX_RESOURCE);
+dev_priv->aux_reg = ioremap_nocache(resource_start,
+resource_len);
+if (!dev_priv->aux_reg)
+goto out_err;
+DRM_DEBUG_KMS("Found aux vdc");
+} else {
+dev_priv->aux_reg = dev_priv->vdc_reg;
+DRM_DEBUG_KMS("Couldn't find aux pci device");
+}
+dev_priv->gmbus_reg = dev_priv->aux_reg;
+dev_priv->lpc_pdev = pci_get_bus_and_slot(0, PCI_DEVFN(31, 0));
+if (dev_priv->lpc_pdev) {
+pci_read_config_word(dev_priv->lpc_pdev, PSB_LPC_GBA,
+&dev_priv->lpc_gpio_base);
+pci_write_config_dword(dev_priv->lpc_pdev, PSB_LPC_GBA,
+(u32)dev_priv->lpc_gpio_base | (1L<<31));
+pci_read_config_word(dev_priv->lpc_pdev, PSB_LPC_GBA,
+&dev_priv->lpc_gpio_base);
+dev_priv->lpc_gpio_base &= 0xffc0;
+if (dev_priv->lpc_gpio_base)
+DRM_DEBUG_KMS("Found LPC GPIO at 0x%04x\n",
+dev_priv->lpc_gpio_base);
+else {
+pci_dev_put(dev_priv->lpc_pdev);
+dev_priv->lpc_pdev = NULL;
+}
+}
+} else {
+dev_priv->gmbus_reg = dev_priv->vdc_reg;
+}
+psb_intel_opregion_setup(dev);
+ret = dev_priv->ops->chip_setup(dev);
+if (ret)
+goto out_err;
+gma_power_init(dev);
+ret = -ENOMEM;
+dev_priv->scratch_page = alloc_page(GFP_DMA32 | __GFP_ZERO);
+if (!dev_priv->scratch_page)
+goto out_err;
+set_pages_uc(dev_priv->scratch_page, 1);
+ret = psb_gtt_init(dev, 0);
+if (ret)
+goto out_err;
+dev_priv->mmu = psb_mmu_driver_init(dev, 1, 0, 0);
+if (!dev_priv->mmu)
+goto out_err;
+dev_priv->pf_pd = psb_mmu_alloc_pd(dev_priv->mmu, 1, 0);
+if (!dev_priv->pf_pd)
+goto out_err;
+ret = psb_do_init(dev);
+if (ret)
+return ret;
+down_read(&pg->sem);
+ret = psb_mmu_insert_pfn_sequence(psb_mmu_get_default_pd(dev_priv->mmu),
+dev_priv->stolen_base >> PAGE_SHIFT,
+pg->gatt_start,
+pg->stolen_size >> PAGE_SHIFT, 0);
+up_read(&pg->sem);
+psb_mmu_set_pd_context(psb_mmu_get_default_pd(dev_priv->mmu), 0);
+psb_mmu_set_pd_context(dev_priv->pf_pd, 1);
+PSB_WSGX32(0x20000000, PSB_CR_PDS_EXEC_BASE);
+PSB_WSGX32(0x30000000, PSB_CR_BIF_3D_REQ_BASE);
+acpi_video_register();
+ret = drm_vblank_init(dev, dev_priv->num_pipe);
+if (ret)
+goto out_err;
+dev_priv->vdc_irq_mask = 0;
+dev_priv->pipestat[0] = 0;
+dev_priv->pipestat[1] = 0;
+dev_priv->pipestat[2] = 0;
+spin_lock_irqsave(&dev_priv->irqmask_lock, irqflags);
+PSB_WVDC32(0xFFFFFFFF, PSB_HWSTAM);
+PSB_WVDC32(0x00000000, PSB_INT_ENABLE_R);
+PSB_WVDC32(0xFFFFFFFF, PSB_INT_MASK_R);
+spin_unlock_irqrestore(&dev_priv->irqmask_lock, irqflags);
+drm_irq_install(dev, dev->pdev->irq);
+dev->max_vblank_count = 0xffffff;
+dev->driver->get_vblank_counter = psb_get_vblank_counter;
+psb_modeset_init(dev);
+psb_fbdev_init(dev);
+drm_kms_helper_poll_init(dev);
+list_for_each_entry(connector, &dev->mode_config.connector_list,
+head) {
+gma_encoder = gma_attached_encoder(connector);
+switch (gma_encoder->type) {
+case INTEL_OUTPUT_LVDS:
+case INTEL_OUTPUT_MIPI:
+ret = gma_backlight_init(dev);
+break;
+}
+}
+if (ret)
+return ret;
+psb_intel_opregion_enable_asle(dev);
+#if 0
+pm_runtime_enable(&dev->pdev->dev);
+pm_runtime_set_active(&dev->pdev->dev);
+#endif
+return 0;
+out_err:
+psb_driver_unload(dev);
+return ret;
+}
+static int psb_driver_device_is_agp(struct drm_device *dev)
+{
+return 0;
+}
+static inline void get_brightness(struct backlight_device *bd)
+{
+#ifdef CONFIG_BACKLIGHT_CLASS_DEVICE
+if (bd) {
+bd->props.brightness = bd->ops->get_brightness(bd);
+backlight_update_status(bd);
+}
+#endif
+}
+static long psb_unlocked_ioctl(struct file *filp, unsigned int cmd,
+unsigned long arg)
+{
+struct drm_file *file_priv = filp->private_data;
+struct drm_device *dev = file_priv->minor->dev;
+struct drm_psb_private *dev_priv = dev->dev_private;
+static unsigned int runtime_allowed;
+if (runtime_allowed == 1 && dev_priv->is_lvds_on) {
+runtime_allowed++;
+pm_runtime_allow(&dev->pdev->dev);
+dev_priv->rpm_enabled = 1;
+}
+return drm_ioctl(filp, cmd, arg);
+}
+static int psb_pci_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
+{
+return drm_get_pci_dev(pdev, ent, &driver);
+}
+static void psb_pci_remove(struct pci_dev *pdev)
+{
+struct drm_device *dev = pci_get_drvdata(pdev);
+drm_put_dev(dev);
+}
+static int __init psb_init(void)
+{
+return drm_pci_init(&driver, &psb_pci_driver);
+}
+static void __exit psb_exit(void)
+{
+drm_pci_exit(&driver, &psb_pci_driver);
+}

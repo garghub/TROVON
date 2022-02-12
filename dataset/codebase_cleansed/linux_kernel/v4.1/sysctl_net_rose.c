@@ -1,0 +1,1 @@
+void __init rose_register_sysctl(void)\r\n{\r\nrose_table_header = register_net_sysctl(&init_net, "net/rose", rose_table);\r\n}\r\nvoid rose_unregister_sysctl(void)\r\n{\r\nunregister_net_sysctl_table(rose_table_header);\r\n}

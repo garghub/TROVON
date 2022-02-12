@@ -1,0 +1,1 @@
+void __init highlander_plat_pinmux_setup(void)\r\n{\r\ngpio_request(GPIO_FN_SCIF0_CTS, NULL);\r\ngpio_request(GPIO_FN_SCIF0_RTS, NULL);\r\ngpio_request(GPIO_FN_SCIF0_SCK, NULL);\r\ngpio_request(GPIO_FN_SCIF0_RXD, NULL);\r\ngpio_request(GPIO_FN_SCIF0_TXD, NULL);\r\n}

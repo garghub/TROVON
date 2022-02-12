@@ -1,0 +1,221 @@
+static void xhci_priv_plat_start(struct usb_hcd *hcd)
+{
+struct xhci_plat_priv *priv = hcd_to_xhci_priv(hcd);
+if (priv->plat_start)
+priv->plat_start(hcd);
+}
+static int xhci_priv_init_quirk(struct usb_hcd *hcd)
+{
+struct xhci_plat_priv *priv = hcd_to_xhci_priv(hcd);
+if (!priv->init_quirk)
+return 0;
+return priv->init_quirk(hcd);
+}
+static int xhci_priv_resume_quirk(struct usb_hcd *hcd)
+{
+struct xhci_plat_priv *priv = hcd_to_xhci_priv(hcd);
+if (!priv->resume_quirk)
+return 0;
+return priv->resume_quirk(hcd);
+}
+static void xhci_plat_quirks(struct device *dev, struct xhci_hcd *xhci)
+{
+xhci->quirks |= XHCI_PLAT;
+}
+static int xhci_plat_setup(struct usb_hcd *hcd)
+{
+int ret;
+ret = xhci_priv_init_quirk(hcd);
+if (ret)
+return ret;
+return xhci_gen_setup(hcd, xhci_plat_quirks);
+}
+static int xhci_plat_start(struct usb_hcd *hcd)
+{
+xhci_priv_plat_start(hcd);
+return xhci_run(hcd);
+}
+static int xhci_plat_probe(struct platform_device *pdev)
+{
+const struct of_device_id *match;
+const struct hc_driver *driver;
+struct device *sysdev;
+struct xhci_hcd *xhci;
+struct resource *res;
+struct usb_hcd *hcd;
+struct clk *clk;
+int ret;
+int irq;
+if (usb_disabled())
+return -ENODEV;
+driver = &xhci_plat_hc_driver;
+irq = platform_get_irq(pdev, 0);
+if (irq < 0)
+return irq;
+for (sysdev = &pdev->dev; sysdev; sysdev = sysdev->parent) {
+if (is_of_node(sysdev->fwnode) ||
+is_acpi_device_node(sysdev->fwnode))
+break;
+#ifdef CONFIG_PCI
+else if (sysdev->bus == &pci_bus_type)
+break;
+#endif
+}
+if (!sysdev)
+sysdev = &pdev->dev;
+if (WARN_ON(!sysdev->dma_mask))
+ret = dma_coerce_mask_and_coherent(sysdev,
+DMA_BIT_MASK(64));
+else
+ret = dma_set_mask_and_coherent(sysdev, DMA_BIT_MASK(64));
+if (ret) {
+ret = dma_set_mask_and_coherent(sysdev, DMA_BIT_MASK(32));
+if (ret)
+return ret;
+}
+pm_runtime_set_active(&pdev->dev);
+pm_runtime_enable(&pdev->dev);
+pm_runtime_get_noresume(&pdev->dev);
+hcd = __usb_create_hcd(driver, sysdev, &pdev->dev,
+dev_name(&pdev->dev), NULL);
+if (!hcd) {
+ret = -ENOMEM;
+goto disable_runtime;
+}
+res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+hcd->regs = devm_ioremap_resource(&pdev->dev, res);
+if (IS_ERR(hcd->regs)) {
+ret = PTR_ERR(hcd->regs);
+goto put_hcd;
+}
+hcd->rsrc_start = res->start;
+hcd->rsrc_len = resource_size(res);
+clk = devm_clk_get(&pdev->dev, NULL);
+if (!IS_ERR(clk)) {
+ret = clk_prepare_enable(clk);
+if (ret)
+goto put_hcd;
+} else if (PTR_ERR(clk) == -EPROBE_DEFER) {
+ret = -EPROBE_DEFER;
+goto put_hcd;
+}
+xhci = hcd_to_xhci(hcd);
+match = of_match_node(usb_xhci_of_match, pdev->dev.of_node);
+if (match) {
+const struct xhci_plat_priv *priv_match = match->data;
+struct xhci_plat_priv *priv = hcd_to_xhci_priv(hcd);
+if (priv_match)
+*priv = *priv_match;
+}
+device_wakeup_enable(hcd->self.controller);
+xhci->clk = clk;
+xhci->main_hcd = hcd;
+xhci->shared_hcd = __usb_create_hcd(driver, sysdev, &pdev->dev,
+dev_name(&pdev->dev), hcd);
+if (!xhci->shared_hcd) {
+ret = -ENOMEM;
+goto disable_clk;
+}
+if (device_property_read_bool(sysdev, "usb3-lpm-capable"))
+xhci->quirks |= XHCI_LPM_SUPPORT;
+if (device_property_read_bool(&pdev->dev, "quirk-broken-port-ped"))
+xhci->quirks |= XHCI_BROKEN_PORT_PED;
+hcd->usb_phy = devm_usb_get_phy_by_phandle(sysdev, "usb-phy", 0);
+if (IS_ERR(hcd->usb_phy)) {
+ret = PTR_ERR(hcd->usb_phy);
+if (ret == -EPROBE_DEFER)
+goto put_usb3_hcd;
+hcd->usb_phy = NULL;
+} else {
+ret = usb_phy_init(hcd->usb_phy);
+if (ret)
+goto put_usb3_hcd;
+}
+ret = usb_add_hcd(hcd, irq, IRQF_SHARED);
+if (ret)
+goto disable_usb_phy;
+if (HCC_MAX_PSA(xhci->hcc_params) >= 4)
+xhci->shared_hcd->can_do_streams = 1;
+ret = usb_add_hcd(xhci->shared_hcd, irq, IRQF_SHARED);
+if (ret)
+goto dealloc_usb2_hcd;
+device_enable_async_suspend(&pdev->dev);
+pm_runtime_put_noidle(&pdev->dev);
+pm_runtime_forbid(&pdev->dev);
+return 0;
+dealloc_usb2_hcd:
+usb_remove_hcd(hcd);
+disable_usb_phy:
+usb_phy_shutdown(hcd->usb_phy);
+put_usb3_hcd:
+usb_put_hcd(xhci->shared_hcd);
+disable_clk:
+if (!IS_ERR(clk))
+clk_disable_unprepare(clk);
+put_hcd:
+usb_put_hcd(hcd);
+disable_runtime:
+pm_runtime_put_noidle(&pdev->dev);
+pm_runtime_disable(&pdev->dev);
+return ret;
+}
+static int xhci_plat_remove(struct platform_device *dev)
+{
+struct usb_hcd *hcd = platform_get_drvdata(dev);
+struct xhci_hcd *xhci = hcd_to_xhci(hcd);
+struct clk *clk = xhci->clk;
+xhci->xhc_state |= XHCI_STATE_REMOVING;
+usb_remove_hcd(xhci->shared_hcd);
+usb_phy_shutdown(hcd->usb_phy);
+usb_remove_hcd(hcd);
+usb_put_hcd(xhci->shared_hcd);
+if (!IS_ERR(clk))
+clk_disable_unprepare(clk);
+usb_put_hcd(hcd);
+pm_runtime_set_suspended(&dev->dev);
+pm_runtime_disable(&dev->dev);
+return 0;
+}
+static int __maybe_unused xhci_plat_suspend(struct device *dev)
+{
+struct usb_hcd *hcd = dev_get_drvdata(dev);
+struct xhci_hcd *xhci = hcd_to_xhci(hcd);
+int ret;
+ret = xhci_suspend(xhci, device_may_wakeup(dev));
+if (!device_may_wakeup(dev) && !IS_ERR(xhci->clk))
+clk_disable_unprepare(xhci->clk);
+return ret;
+}
+static int __maybe_unused xhci_plat_resume(struct device *dev)
+{
+struct usb_hcd *hcd = dev_get_drvdata(dev);
+struct xhci_hcd *xhci = hcd_to_xhci(hcd);
+int ret;
+if (!device_may_wakeup(dev) && !IS_ERR(xhci->clk))
+clk_prepare_enable(xhci->clk);
+ret = xhci_priv_resume_quirk(hcd);
+if (ret)
+return ret;
+return xhci_resume(xhci, 0);
+}
+static int __maybe_unused xhci_plat_runtime_suspend(struct device *dev)
+{
+struct usb_hcd *hcd = dev_get_drvdata(dev);
+struct xhci_hcd *xhci = hcd_to_xhci(hcd);
+return xhci_suspend(xhci, true);
+}
+static int __maybe_unused xhci_plat_runtime_resume(struct device *dev)
+{
+struct usb_hcd *hcd = dev_get_drvdata(dev);
+struct xhci_hcd *xhci = hcd_to_xhci(hcd);
+return xhci_resume(xhci, 0);
+}
+static int __init xhci_plat_init(void)
+{
+xhci_init_driver(&xhci_plat_hc_driver, &xhci_plat_overrides);
+return platform_driver_register(&usb_xhci_driver);
+}
+static void __exit xhci_plat_exit(void)
+{
+platform_driver_unregister(&usb_xhci_driver);
+}

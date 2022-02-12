@@ -1,0 +1,1 @@
+unsigned long lcm(unsigned long a, unsigned long b)\r\n{\r\nif (a && b)\r\nreturn (a / gcd(a, b)) * b;\r\nelse\r\nreturn 0;\r\n}\r\nunsigned long lcm_not_zero(unsigned long a, unsigned long b)\r\n{\r\nunsigned long l = lcm(a, b);\r\nif (l)\r\nreturn l;\r\nreturn (b ? : a);\r\n}

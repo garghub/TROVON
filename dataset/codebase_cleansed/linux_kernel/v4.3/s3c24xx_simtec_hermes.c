@@ -1,0 +1,1 @@
+static int simtec_hermes_init(struct snd_soc_pcm_runtime *rtd)\r\n{\r\nsimtec_audio_init(rtd);\r\nreturn 0;\r\n}\r\nstatic int simtec_audio_hermes_probe(struct platform_device *pd)\r\n{\r\ndev_info(&pd->dev, "probing....\n");\r\nreturn simtec_audio_core_probe(pd, &snd_soc_machine_simtec_aic33);\r\n}

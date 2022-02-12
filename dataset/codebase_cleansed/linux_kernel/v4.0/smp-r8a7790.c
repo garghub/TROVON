@@ -1,0 +1,1 @@
+static void __init r8a7790_smp_prepare_cpus(unsigned int max_cpus)\r\n{\r\nshmobile_smp_apmu_prepare_cpus(max_cpus,\r\nr8a7790_apmu_config,\r\nARRAY_SIZE(r8a7790_apmu_config));\r\nr8a7790_pm_init();\r\nrcar_sysc_power_up(&r8a7790_ca15_scu);\r\nrcar_sysc_power_up(&r8a7790_ca7_scu);\r\n}

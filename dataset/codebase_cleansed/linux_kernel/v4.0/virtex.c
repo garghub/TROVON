@@ -1,0 +1,1 @@
+static int __init virtex_device_probe(void)\r\n{\r\nof_platform_bus_probe(NULL, xilinx_of_bus_ids, NULL);\r\nreturn 0;\r\n}\r\nstatic int __init virtex_probe(void)\r\n{\r\nunsigned long root = of_get_flat_dt_root();\r\nif (!of_flat_dt_is_compatible(root, "xlnx,virtex"))\r\nreturn 0;\r\nreturn 1;\r\n}

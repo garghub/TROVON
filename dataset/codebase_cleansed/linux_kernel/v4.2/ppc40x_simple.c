@@ -1,0 +1,1 @@
+static int __init ppc40x_device_probe(void)\r\n{\r\nof_platform_bus_probe(NULL, ppc40x_of_bus, NULL);\r\nreturn 0;\r\n}\r\nstatic int __init ppc40x_probe(void)\r\n{\r\nif (of_flat_dt_match(of_get_flat_dt_root(), board)) {\r\npci_set_flags(PCI_REASSIGN_ALL_RSRC);\r\nreturn 1;\r\n}\r\nreturn 0;\r\n}

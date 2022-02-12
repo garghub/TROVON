@@ -1,0 +1,1 @@
+s8 odm_CCKRSSI_8723B(u8 LNA_idx, u8 VGA_idx)\r\n{\r\ns8 rx_pwr_all = 0x00;\r\nswitch (LNA_idx) {\r\ncase 6:\r\nrx_pwr_all = -34 - (2 * VGA_idx);\r\nbreak;\r\ncase 4:\r\nrx_pwr_all = -14 - (2 * VGA_idx);\r\nbreak;\r\ncase 1:\r\nrx_pwr_all = 6 - (2 * VGA_idx);\r\nbreak;\r\ncase 0:\r\nrx_pwr_all = 16 - (2 * VGA_idx);\r\nbreak;\r\ndefault:\r\nbreak;\r\n}\r\nreturn rx_pwr_all;\r\n}

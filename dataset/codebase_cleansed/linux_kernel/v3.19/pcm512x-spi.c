@@ -1,0 +1,1 @@
+static int pcm512x_spi_probe(struct spi_device *spi)\r\n{\r\nstruct regmap *regmap;\r\nint ret;\r\nregmap = devm_regmap_init_spi(spi, &pcm512x_regmap);\r\nif (IS_ERR(regmap)) {\r\nret = PTR_ERR(regmap);\r\nreturn ret;\r\n}\r\nreturn pcm512x_probe(&spi->dev, regmap);\r\n}\r\nstatic int pcm512x_spi_remove(struct spi_device *spi)\r\n{\r\npcm512x_remove(&spi->dev);\r\nreturn 0;\r\n}

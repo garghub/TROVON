@@ -1,0 +1,722 @@
+static void _batadv_update_route(struct batadv_priv *bat_priv,
+struct batadv_orig_node *orig_node,
+struct batadv_hard_iface *recv_if,
+struct batadv_neigh_node *neigh_node)
+{
+struct batadv_orig_ifinfo *orig_ifinfo;
+struct batadv_neigh_node *curr_router;
+orig_ifinfo = batadv_orig_ifinfo_get(orig_node, recv_if);
+if (!orig_ifinfo)
+return;
+spin_lock_bh(&orig_node->neigh_list_lock);
+curr_router = rcu_dereference_protected(orig_ifinfo->router, true);
+if (neigh_node)
+kref_get(&neigh_node->refcount);
+rcu_assign_pointer(orig_ifinfo->router, neigh_node);
+spin_unlock_bh(&orig_node->neigh_list_lock);
+batadv_orig_ifinfo_put(orig_ifinfo);
+if ((curr_router) && (!neigh_node)) {
+batadv_dbg(BATADV_DBG_ROUTES, bat_priv,
+"Deleting route towards: %pM\n", orig_node->orig);
+batadv_tt_global_del_orig(bat_priv, orig_node, -1,
+"Deleted route towards originator");
+} else if ((!curr_router) && (neigh_node)) {
+batadv_dbg(BATADV_DBG_ROUTES, bat_priv,
+"Adding route towards: %pM (via %pM)\n",
+orig_node->orig, neigh_node->addr);
+} else if (neigh_node && curr_router) {
+batadv_dbg(BATADV_DBG_ROUTES, bat_priv,
+"Changing route towards: %pM (now via %pM - was via %pM)\n",
+orig_node->orig, neigh_node->addr,
+curr_router->addr);
+}
+if (curr_router)
+batadv_neigh_node_put(curr_router);
+}
+void batadv_update_route(struct batadv_priv *bat_priv,
+struct batadv_orig_node *orig_node,
+struct batadv_hard_iface *recv_if,
+struct batadv_neigh_node *neigh_node)
+{
+struct batadv_neigh_node *router = NULL;
+if (!orig_node)
+goto out;
+router = batadv_orig_router_get(orig_node, recv_if);
+if (router != neigh_node)
+_batadv_update_route(bat_priv, orig_node, recv_if, neigh_node);
+out:
+if (router)
+batadv_neigh_node_put(router);
+}
+bool batadv_window_protected(struct batadv_priv *bat_priv, s32 seq_num_diff,
+s32 seq_old_max_diff, unsigned long *last_reset,
+bool *protection_started)
+{
+if (seq_num_diff <= -seq_old_max_diff ||
+seq_num_diff >= BATADV_EXPECTED_SEQNO_RANGE) {
+if (!batadv_has_timed_out(*last_reset,
+BATADV_RESET_PROTECTION_MS))
+return true;
+*last_reset = jiffies;
+if (protection_started)
+*protection_started = true;
+batadv_dbg(BATADV_DBG_BATMAN, bat_priv,
+"old packet received, start protection\n");
+}
+return false;
+}
+bool batadv_check_management_packet(struct sk_buff *skb,
+struct batadv_hard_iface *hard_iface,
+int header_len)
+{
+struct ethhdr *ethhdr;
+if (unlikely(!pskb_may_pull(skb, header_len)))
+return false;
+ethhdr = eth_hdr(skb);
+if (!is_broadcast_ether_addr(ethhdr->h_dest))
+return false;
+if (!is_valid_ether_addr(ethhdr->h_source))
+return false;
+if (skb_cow(skb, 0) < 0)
+return false;
+if (skb_linearize(skb) < 0)
+return false;
+return true;
+}
+static int batadv_recv_my_icmp_packet(struct batadv_priv *bat_priv,
+struct sk_buff *skb)
+{
+struct batadv_hard_iface *primary_if = NULL;
+struct batadv_orig_node *orig_node = NULL;
+struct batadv_icmp_header *icmph;
+int res, ret = NET_RX_DROP;
+icmph = (struct batadv_icmp_header *)skb->data;
+switch (icmph->msg_type) {
+case BATADV_ECHO_REPLY:
+case BATADV_DESTINATION_UNREACHABLE:
+case BATADV_TTL_EXCEEDED:
+if (skb_linearize(skb) < 0)
+break;
+batadv_socket_receive_packet(icmph, skb->len);
+break;
+case BATADV_ECHO_REQUEST:
+primary_if = batadv_primary_if_get_selected(bat_priv);
+if (!primary_if)
+goto out;
+orig_node = batadv_orig_hash_find(bat_priv, icmph->orig);
+if (!orig_node)
+goto out;
+if (skb_cow(skb, ETH_HLEN) < 0)
+goto out;
+icmph = (struct batadv_icmp_header *)skb->data;
+ether_addr_copy(icmph->dst, icmph->orig);
+ether_addr_copy(icmph->orig, primary_if->net_dev->dev_addr);
+icmph->msg_type = BATADV_ECHO_REPLY;
+icmph->ttl = BATADV_TTL;
+res = batadv_send_skb_to_orig(skb, orig_node, NULL);
+if (res == NET_XMIT_SUCCESS)
+ret = NET_RX_SUCCESS;
+skb = NULL;
+break;
+case BATADV_TP:
+if (!pskb_may_pull(skb, sizeof(struct batadv_icmp_tp_packet)))
+goto out;
+batadv_tp_meter_recv(bat_priv, skb);
+ret = NET_RX_SUCCESS;
+skb = NULL;
+goto out;
+default:
+goto out;
+}
+out:
+if (primary_if)
+batadv_hardif_put(primary_if);
+if (orig_node)
+batadv_orig_node_put(orig_node);
+kfree_skb(skb);
+return ret;
+}
+static int batadv_recv_icmp_ttl_exceeded(struct batadv_priv *bat_priv,
+struct sk_buff *skb)
+{
+struct batadv_hard_iface *primary_if = NULL;
+struct batadv_orig_node *orig_node = NULL;
+struct batadv_icmp_packet *icmp_packet;
+int res, ret = NET_RX_DROP;
+icmp_packet = (struct batadv_icmp_packet *)skb->data;
+if (icmp_packet->msg_type != BATADV_ECHO_REQUEST) {
+pr_debug("Warning - can't forward icmp packet from %pM to %pM: ttl exceeded\n",
+icmp_packet->orig, icmp_packet->dst);
+goto out;
+}
+primary_if = batadv_primary_if_get_selected(bat_priv);
+if (!primary_if)
+goto out;
+orig_node = batadv_orig_hash_find(bat_priv, icmp_packet->orig);
+if (!orig_node)
+goto out;
+if (skb_cow(skb, ETH_HLEN) < 0)
+goto out;
+icmp_packet = (struct batadv_icmp_packet *)skb->data;
+ether_addr_copy(icmp_packet->dst, icmp_packet->orig);
+ether_addr_copy(icmp_packet->orig, primary_if->net_dev->dev_addr);
+icmp_packet->msg_type = BATADV_TTL_EXCEEDED;
+icmp_packet->ttl = BATADV_TTL;
+res = batadv_send_skb_to_orig(skb, orig_node, NULL);
+if (res == NET_RX_SUCCESS)
+ret = NET_XMIT_SUCCESS;
+skb = NULL;
+out:
+if (primary_if)
+batadv_hardif_put(primary_if);
+if (orig_node)
+batadv_orig_node_put(orig_node);
+kfree_skb(skb);
+return ret;
+}
+int batadv_recv_icmp_packet(struct sk_buff *skb,
+struct batadv_hard_iface *recv_if)
+{
+struct batadv_priv *bat_priv = netdev_priv(recv_if->soft_iface);
+struct batadv_icmp_header *icmph;
+struct batadv_icmp_packet_rr *icmp_packet_rr;
+struct ethhdr *ethhdr;
+struct batadv_orig_node *orig_node = NULL;
+int hdr_size = sizeof(struct batadv_icmp_header);
+int res, ret = NET_RX_DROP;
+if (unlikely(!pskb_may_pull(skb, hdr_size)))
+goto free_skb;
+ethhdr = eth_hdr(skb);
+if (!is_valid_ether_addr(ethhdr->h_dest))
+goto free_skb;
+if (is_multicast_ether_addr(ethhdr->h_source))
+goto free_skb;
+if (!batadv_is_my_mac(bat_priv, ethhdr->h_dest))
+goto free_skb;
+icmph = (struct batadv_icmp_header *)skb->data;
+if ((icmph->msg_type == BATADV_ECHO_REPLY ||
+icmph->msg_type == BATADV_ECHO_REQUEST) &&
+(skb->len >= sizeof(struct batadv_icmp_packet_rr))) {
+if (skb_linearize(skb) < 0)
+goto free_skb;
+if (skb_cow(skb, ETH_HLEN) < 0)
+goto free_skb;
+ethhdr = eth_hdr(skb);
+icmph = (struct batadv_icmp_header *)skb->data;
+icmp_packet_rr = (struct batadv_icmp_packet_rr *)icmph;
+if (icmp_packet_rr->rr_cur >= BATADV_RR_LEN)
+goto free_skb;
+ether_addr_copy(icmp_packet_rr->rr[icmp_packet_rr->rr_cur],
+ethhdr->h_dest);
+icmp_packet_rr->rr_cur++;
+}
+if (batadv_is_my_mac(bat_priv, icmph->dst))
+return batadv_recv_my_icmp_packet(bat_priv, skb);
+if (icmph->ttl < 2)
+return batadv_recv_icmp_ttl_exceeded(bat_priv, skb);
+orig_node = batadv_orig_hash_find(bat_priv, icmph->dst);
+if (!orig_node)
+goto free_skb;
+if (skb_cow(skb, ETH_HLEN) < 0)
+goto put_orig_node;
+icmph = (struct batadv_icmp_header *)skb->data;
+icmph->ttl--;
+res = batadv_send_skb_to_orig(skb, orig_node, recv_if);
+if (res == NET_XMIT_SUCCESS)
+ret = NET_RX_SUCCESS;
+skb = NULL;
+put_orig_node:
+if (orig_node)
+batadv_orig_node_put(orig_node);
+free_skb:
+kfree_skb(skb);
+return ret;
+}
+static int batadv_check_unicast_packet(struct batadv_priv *bat_priv,
+struct sk_buff *skb, int hdr_size)
+{
+struct ethhdr *ethhdr;
+if (unlikely(!pskb_may_pull(skb, hdr_size)))
+return -ENODATA;
+ethhdr = eth_hdr(skb);
+if (!is_valid_ether_addr(ethhdr->h_dest))
+return -EBADR;
+if (is_multicast_ether_addr(ethhdr->h_source))
+return -EBADR;
+if (!batadv_is_my_mac(bat_priv, ethhdr->h_dest))
+return -EREMOTE;
+return 0;
+}
+static struct batadv_orig_ifinfo *
+batadv_last_bonding_get(struct batadv_orig_node *orig_node)
+{
+struct batadv_orig_ifinfo *last_bonding_candidate;
+spin_lock_bh(&orig_node->neigh_list_lock);
+last_bonding_candidate = orig_node->last_bonding_candidate;
+if (last_bonding_candidate)
+kref_get(&last_bonding_candidate->refcount);
+spin_unlock_bh(&orig_node->neigh_list_lock);
+return last_bonding_candidate;
+}
+static void
+batadv_last_bonding_replace(struct batadv_orig_node *orig_node,
+struct batadv_orig_ifinfo *new_candidate)
+{
+struct batadv_orig_ifinfo *old_candidate;
+spin_lock_bh(&orig_node->neigh_list_lock);
+old_candidate = orig_node->last_bonding_candidate;
+if (new_candidate)
+kref_get(&new_candidate->refcount);
+orig_node->last_bonding_candidate = new_candidate;
+spin_unlock_bh(&orig_node->neigh_list_lock);
+if (old_candidate)
+batadv_orig_ifinfo_put(old_candidate);
+}
+struct batadv_neigh_node *
+batadv_find_router(struct batadv_priv *bat_priv,
+struct batadv_orig_node *orig_node,
+struct batadv_hard_iface *recv_if)
+{
+struct batadv_algo_ops *bao = bat_priv->algo_ops;
+struct batadv_neigh_node *first_candidate_router = NULL;
+struct batadv_neigh_node *next_candidate_router = NULL;
+struct batadv_neigh_node *router, *cand_router = NULL;
+struct batadv_neigh_node *last_cand_router = NULL;
+struct batadv_orig_ifinfo *cand, *first_candidate = NULL;
+struct batadv_orig_ifinfo *next_candidate = NULL;
+struct batadv_orig_ifinfo *last_candidate;
+bool last_candidate_found = false;
+if (!orig_node)
+return NULL;
+router = batadv_orig_router_get(orig_node, recv_if);
+if (!router)
+return router;
+if (!(recv_if == BATADV_IF_DEFAULT && atomic_read(&bat_priv->bonding)))
+return router;
+rcu_read_lock();
+last_candidate = batadv_last_bonding_get(orig_node);
+if (last_candidate)
+last_cand_router = rcu_dereference(last_candidate->router);
+hlist_for_each_entry_rcu(cand, &orig_node->ifinfo_list, list) {
+if (!kref_get_unless_zero(&cand->refcount))
+continue;
+cand_router = rcu_dereference(cand->router);
+if (!cand_router)
+goto next;
+if (!kref_get_unless_zero(&cand_router->refcount)) {
+cand_router = NULL;
+goto next;
+}
+if (!bao->neigh.is_similar_or_better(cand_router,
+cand->if_outgoing, router,
+recv_if))
+goto next;
+if (last_cand_router == cand_router)
+goto next;
+if (!first_candidate) {
+kref_get(&cand_router->refcount);
+kref_get(&cand->refcount);
+first_candidate = cand;
+first_candidate_router = cand_router;
+}
+if (!last_candidate || last_candidate_found) {
+next_candidate = cand;
+next_candidate_router = cand_router;
+break;
+}
+if (last_candidate == cand)
+last_candidate_found = true;
+next:
+if (cand_router) {
+batadv_neigh_node_put(cand_router);
+cand_router = NULL;
+}
+batadv_orig_ifinfo_put(cand);
+}
+rcu_read_unlock();
+if (next_candidate) {
+batadv_neigh_node_put(router);
+kref_get(&next_candidate_router->refcount);
+router = next_candidate_router;
+batadv_last_bonding_replace(orig_node, next_candidate);
+} else if (first_candidate) {
+batadv_neigh_node_put(router);
+kref_get(&first_candidate_router->refcount);
+router = first_candidate_router;
+batadv_last_bonding_replace(orig_node, first_candidate);
+} else {
+batadv_last_bonding_replace(orig_node, NULL);
+}
+if (first_candidate) {
+batadv_neigh_node_put(first_candidate_router);
+batadv_orig_ifinfo_put(first_candidate);
+}
+if (next_candidate) {
+batadv_neigh_node_put(next_candidate_router);
+batadv_orig_ifinfo_put(next_candidate);
+}
+if (last_candidate)
+batadv_orig_ifinfo_put(last_candidate);
+return router;
+}
+static int batadv_route_unicast_packet(struct sk_buff *skb,
+struct batadv_hard_iface *recv_if)
+{
+struct batadv_priv *bat_priv = netdev_priv(recv_if->soft_iface);
+struct batadv_orig_node *orig_node = NULL;
+struct batadv_unicast_packet *unicast_packet;
+struct ethhdr *ethhdr = eth_hdr(skb);
+int res, hdr_len, ret = NET_RX_DROP;
+unsigned int len;
+unicast_packet = (struct batadv_unicast_packet *)skb->data;
+if (unicast_packet->ttl < 2) {
+pr_debug("Warning - can't forward unicast packet from %pM to %pM: ttl exceeded\n",
+ethhdr->h_source, unicast_packet->dest);
+goto free_skb;
+}
+orig_node = batadv_orig_hash_find(bat_priv, unicast_packet->dest);
+if (!orig_node)
+goto free_skb;
+if (skb_cow(skb, ETH_HLEN) < 0)
+goto put_orig_node;
+unicast_packet = (struct batadv_unicast_packet *)skb->data;
+unicast_packet->ttl--;
+switch (unicast_packet->packet_type) {
+case BATADV_UNICAST_4ADDR:
+hdr_len = sizeof(struct batadv_unicast_4addr_packet);
+break;
+case BATADV_UNICAST:
+hdr_len = sizeof(struct batadv_unicast_packet);
+break;
+default:
+hdr_len = -1;
+break;
+}
+if (hdr_len > 0)
+batadv_skb_set_priority(skb, hdr_len);
+len = skb->len;
+res = batadv_send_skb_to_orig(skb, orig_node, recv_if);
+if (res == NET_XMIT_SUCCESS) {
+ret = NET_RX_SUCCESS;
+batadv_inc_counter(bat_priv, BATADV_CNT_FORWARD);
+batadv_add_counter(bat_priv, BATADV_CNT_FORWARD_BYTES,
+len + ETH_HLEN);
+}
+skb = NULL;
+put_orig_node:
+batadv_orig_node_put(orig_node);
+free_skb:
+kfree_skb(skb);
+return ret;
+}
+static bool
+batadv_reroute_unicast_packet(struct batadv_priv *bat_priv,
+struct batadv_unicast_packet *unicast_packet,
+u8 *dst_addr, unsigned short vid)
+{
+struct batadv_orig_node *orig_node = NULL;
+struct batadv_hard_iface *primary_if = NULL;
+bool ret = false;
+u8 *orig_addr, orig_ttvn;
+if (batadv_is_my_client(bat_priv, dst_addr, vid)) {
+primary_if = batadv_primary_if_get_selected(bat_priv);
+if (!primary_if)
+goto out;
+orig_addr = primary_if->net_dev->dev_addr;
+orig_ttvn = (u8)atomic_read(&bat_priv->tt.vn);
+} else {
+orig_node = batadv_transtable_search(bat_priv, NULL, dst_addr,
+vid);
+if (!orig_node)
+goto out;
+if (batadv_compare_eth(orig_node->orig, unicast_packet->dest))
+goto out;
+orig_addr = orig_node->orig;
+orig_ttvn = (u8)atomic_read(&orig_node->last_ttvn);
+}
+ether_addr_copy(unicast_packet->dest, orig_addr);
+unicast_packet->ttvn = orig_ttvn;
+ret = true;
+out:
+if (primary_if)
+batadv_hardif_put(primary_if);
+if (orig_node)
+batadv_orig_node_put(orig_node);
+return ret;
+}
+static bool batadv_check_unicast_ttvn(struct batadv_priv *bat_priv,
+struct sk_buff *skb, int hdr_len)
+{
+struct batadv_unicast_packet *unicast_packet;
+struct batadv_hard_iface *primary_if;
+struct batadv_orig_node *orig_node;
+u8 curr_ttvn, old_ttvn;
+struct ethhdr *ethhdr;
+unsigned short vid;
+int is_old_ttvn;
+if (!pskb_may_pull(skb, hdr_len + ETH_HLEN))
+return false;
+if (skb_cow(skb, sizeof(*unicast_packet)) < 0)
+return false;
+unicast_packet = (struct batadv_unicast_packet *)skb->data;
+vid = batadv_get_vid(skb, hdr_len);
+ethhdr = (struct ethhdr *)(skb->data + hdr_len);
+if (batadv_tt_local_client_is_roaming(bat_priv, ethhdr->h_dest, vid)) {
+if (batadv_reroute_unicast_packet(bat_priv, unicast_packet,
+ethhdr->h_dest, vid))
+batadv_dbg_ratelimited(BATADV_DBG_TT,
+bat_priv,
+"Rerouting unicast packet to %pM (dst=%pM): Local Roaming\n",
+unicast_packet->dest,
+ethhdr->h_dest);
+return true;
+}
+curr_ttvn = (u8)atomic_read(&bat_priv->tt.vn);
+if (!batadv_is_my_mac(bat_priv, unicast_packet->dest)) {
+orig_node = batadv_orig_hash_find(bat_priv,
+unicast_packet->dest);
+if (!orig_node)
+return false;
+curr_ttvn = (u8)atomic_read(&orig_node->last_ttvn);
+batadv_orig_node_put(orig_node);
+}
+is_old_ttvn = batadv_seq_before(unicast_packet->ttvn, curr_ttvn);
+if (!is_old_ttvn)
+return true;
+old_ttvn = unicast_packet->ttvn;
+if (batadv_reroute_unicast_packet(bat_priv, unicast_packet,
+ethhdr->h_dest, vid)) {
+batadv_dbg_ratelimited(BATADV_DBG_TT, bat_priv,
+"Rerouting unicast packet to %pM (dst=%pM): TTVN mismatch old_ttvn=%u new_ttvn=%u\n",
+unicast_packet->dest, ethhdr->h_dest,
+old_ttvn, curr_ttvn);
+return true;
+}
+if (!batadv_is_my_client(bat_priv, ethhdr->h_dest, vid))
+return false;
+primary_if = batadv_primary_if_get_selected(bat_priv);
+if (!primary_if)
+return false;
+ether_addr_copy(unicast_packet->dest, primary_if->net_dev->dev_addr);
+batadv_hardif_put(primary_if);
+unicast_packet->ttvn = curr_ttvn;
+return true;
+}
+int batadv_recv_unhandled_unicast_packet(struct sk_buff *skb,
+struct batadv_hard_iface *recv_if)
+{
+struct batadv_unicast_packet *unicast_packet;
+struct batadv_priv *bat_priv = netdev_priv(recv_if->soft_iface);
+int check, hdr_size = sizeof(*unicast_packet);
+check = batadv_check_unicast_packet(bat_priv, skb, hdr_size);
+if (check < 0)
+goto free_skb;
+unicast_packet = (struct batadv_unicast_packet *)skb->data;
+if (batadv_is_my_mac(bat_priv, unicast_packet->dest))
+goto free_skb;
+return batadv_route_unicast_packet(skb, recv_if);
+free_skb:
+kfree_skb(skb);
+return NET_RX_DROP;
+}
+int batadv_recv_unicast_packet(struct sk_buff *skb,
+struct batadv_hard_iface *recv_if)
+{
+struct batadv_priv *bat_priv = netdev_priv(recv_if->soft_iface);
+struct batadv_unicast_packet *unicast_packet;
+struct batadv_unicast_4addr_packet *unicast_4addr_packet;
+u8 *orig_addr, *orig_addr_gw;
+struct batadv_orig_node *orig_node = NULL, *orig_node_gw = NULL;
+int check, hdr_size = sizeof(*unicast_packet);
+enum batadv_subtype subtype;
+struct ethhdr *ethhdr;
+int ret = NET_RX_DROP;
+bool is4addr, is_gw;
+unicast_packet = (struct batadv_unicast_packet *)skb->data;
+unicast_4addr_packet = (struct batadv_unicast_4addr_packet *)skb->data;
+ethhdr = eth_hdr(skb);
+is4addr = unicast_packet->packet_type == BATADV_UNICAST_4ADDR;
+if (is4addr)
+hdr_size = sizeof(*unicast_4addr_packet);
+check = batadv_check_unicast_packet(bat_priv, skb, hdr_size);
+if (check == -EREMOTE)
+batadv_nc_skb_store_sniffed_unicast(bat_priv, skb);
+if (check < 0)
+goto free_skb;
+if (!batadv_check_unicast_ttvn(bat_priv, skb, hdr_size))
+goto free_skb;
+if (batadv_is_my_mac(bat_priv, unicast_packet->dest)) {
+orig_addr_gw = ethhdr->h_source;
+orig_node_gw = batadv_orig_hash_find(bat_priv, orig_addr_gw);
+if (orig_node_gw) {
+is_gw = batadv_bla_is_backbone_gw(skb, orig_node_gw,
+hdr_size);
+batadv_orig_node_put(orig_node_gw);
+if (is_gw) {
+batadv_dbg(BATADV_DBG_BLA, bat_priv,
+"%s(): Dropped unicast pkt received from another backbone gw %pM.\n",
+__func__, orig_addr_gw);
+goto free_skb;
+}
+}
+if (is4addr) {
+subtype = unicast_4addr_packet->subtype;
+batadv_dat_inc_counter(bat_priv, subtype);
+if (subtype == BATADV_P_DATA) {
+orig_addr = unicast_4addr_packet->src;
+orig_node = batadv_orig_hash_find(bat_priv,
+orig_addr);
+}
+}
+if (batadv_dat_snoop_incoming_arp_request(bat_priv, skb,
+hdr_size))
+goto rx_success;
+if (batadv_dat_snoop_incoming_arp_reply(bat_priv, skb,
+hdr_size))
+goto rx_success;
+batadv_interface_rx(recv_if->soft_iface, skb, hdr_size,
+orig_node);
+rx_success:
+if (orig_node)
+batadv_orig_node_put(orig_node);
+return NET_RX_SUCCESS;
+}
+ret = batadv_route_unicast_packet(skb, recv_if);
+skb = NULL;
+free_skb:
+kfree_skb(skb);
+return ret;
+}
+int batadv_recv_unicast_tvlv(struct sk_buff *skb,
+struct batadv_hard_iface *recv_if)
+{
+struct batadv_priv *bat_priv = netdev_priv(recv_if->soft_iface);
+struct batadv_unicast_tvlv_packet *unicast_tvlv_packet;
+unsigned char *tvlv_buff;
+u16 tvlv_buff_len;
+int hdr_size = sizeof(*unicast_tvlv_packet);
+int ret = NET_RX_DROP;
+if (batadv_check_unicast_packet(bat_priv, skb, hdr_size) < 0)
+goto free_skb;
+if (skb_cow(skb, hdr_size) < 0)
+goto free_skb;
+if (skb_linearize(skb) < 0)
+goto free_skb;
+unicast_tvlv_packet = (struct batadv_unicast_tvlv_packet *)skb->data;
+tvlv_buff = (unsigned char *)(skb->data + hdr_size);
+tvlv_buff_len = ntohs(unicast_tvlv_packet->tvlv_len);
+if (tvlv_buff_len > skb->len - hdr_size)
+goto free_skb;
+ret = batadv_tvlv_containers_process(bat_priv, false, NULL,
+unicast_tvlv_packet->src,
+unicast_tvlv_packet->dst,
+tvlv_buff, tvlv_buff_len);
+if (ret != NET_RX_SUCCESS) {
+ret = batadv_route_unicast_packet(skb, recv_if);
+skb = NULL;
+}
+free_skb:
+kfree_skb(skb);
+return ret;
+}
+int batadv_recv_frag_packet(struct sk_buff *skb,
+struct batadv_hard_iface *recv_if)
+{
+struct batadv_priv *bat_priv = netdev_priv(recv_if->soft_iface);
+struct batadv_orig_node *orig_node_src = NULL;
+struct batadv_frag_packet *frag_packet;
+int ret = NET_RX_DROP;
+if (batadv_check_unicast_packet(bat_priv, skb,
+sizeof(*frag_packet)) < 0)
+goto free_skb;
+frag_packet = (struct batadv_frag_packet *)skb->data;
+orig_node_src = batadv_orig_hash_find(bat_priv, frag_packet->orig);
+if (!orig_node_src)
+goto free_skb;
+skb->priority = frag_packet->priority + 256;
+if (!batadv_is_my_mac(bat_priv, frag_packet->dest) &&
+batadv_frag_skb_fwd(skb, recv_if, orig_node_src)) {
+skb = NULL;
+ret = NET_RX_SUCCESS;
+goto put_orig_node;
+}
+batadv_inc_counter(bat_priv, BATADV_CNT_FRAG_RX);
+batadv_add_counter(bat_priv, BATADV_CNT_FRAG_RX_BYTES, skb->len);
+if (!batadv_frag_skb_buffer(&skb, orig_node_src))
+goto put_orig_node;
+if (skb) {
+batadv_batman_skb_recv(skb, recv_if->net_dev,
+&recv_if->batman_adv_ptype, NULL);
+skb = NULL;
+}
+ret = NET_RX_SUCCESS;
+put_orig_node:
+batadv_orig_node_put(orig_node_src);
+free_skb:
+kfree_skb(skb);
+return ret;
+}
+int batadv_recv_bcast_packet(struct sk_buff *skb,
+struct batadv_hard_iface *recv_if)
+{
+struct batadv_priv *bat_priv = netdev_priv(recv_if->soft_iface);
+struct batadv_orig_node *orig_node = NULL;
+struct batadv_bcast_packet *bcast_packet;
+struct ethhdr *ethhdr;
+int hdr_size = sizeof(*bcast_packet);
+int ret = NET_RX_DROP;
+s32 seq_diff;
+u32 seqno;
+if (unlikely(!pskb_may_pull(skb, hdr_size)))
+goto free_skb;
+ethhdr = eth_hdr(skb);
+if (!is_broadcast_ether_addr(ethhdr->h_dest))
+goto free_skb;
+if (is_multicast_ether_addr(ethhdr->h_source))
+goto free_skb;
+if (batadv_is_my_mac(bat_priv, ethhdr->h_source))
+goto free_skb;
+bcast_packet = (struct batadv_bcast_packet *)skb->data;
+if (batadv_is_my_mac(bat_priv, bcast_packet->orig))
+goto free_skb;
+if (bcast_packet->ttl < 2)
+goto free_skb;
+orig_node = batadv_orig_hash_find(bat_priv, bcast_packet->orig);
+if (!orig_node)
+goto free_skb;
+spin_lock_bh(&orig_node->bcast_seqno_lock);
+seqno = ntohl(bcast_packet->seqno);
+if (batadv_test_bit(orig_node->bcast_bits, orig_node->last_bcast_seqno,
+seqno))
+goto spin_unlock;
+seq_diff = seqno - orig_node->last_bcast_seqno;
+if (batadv_window_protected(bat_priv, seq_diff,
+BATADV_BCAST_MAX_AGE,
+&orig_node->bcast_seqno_reset, NULL))
+goto spin_unlock;
+if (batadv_bit_get_packet(bat_priv, orig_node->bcast_bits, seq_diff, 1))
+orig_node->last_bcast_seqno = seqno;
+spin_unlock_bh(&orig_node->bcast_seqno_lock);
+if (batadv_bla_check_bcast_duplist(bat_priv, skb))
+goto free_skb;
+batadv_skb_set_priority(skb, sizeof(struct batadv_bcast_packet));
+batadv_add_bcast_packet_to_list(bat_priv, skb, 1, false);
+if (batadv_bla_is_backbone_gw(skb, orig_node, hdr_size))
+goto free_skb;
+if (batadv_dat_snoop_incoming_arp_request(bat_priv, skb, hdr_size))
+goto rx_success;
+if (batadv_dat_snoop_incoming_arp_reply(bat_priv, skb, hdr_size))
+goto rx_success;
+batadv_interface_rx(recv_if->soft_iface, skb, hdr_size, orig_node);
+rx_success:
+ret = NET_RX_SUCCESS;
+goto out;
+spin_unlock:
+spin_unlock_bh(&orig_node->bcast_seqno_lock);
+free_skb:
+kfree_skb(skb);
+out:
+if (orig_node)
+batadv_orig_node_put(orig_node);
+return ret;
+}

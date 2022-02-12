@@ -1,0 +1,1021 @@
+static void octeon_mgmt_set_rx_irq(struct octeon_mgmt *p, int enable)
+{
+union cvmx_mixx_intena mix_intena;
+unsigned long flags;
+spin_lock_irqsave(&p->lock, flags);
+mix_intena.u64 = cvmx_read_csr(p->mix + MIX_INTENA);
+mix_intena.s.ithena = enable ? 1 : 0;
+cvmx_write_csr(p->mix + MIX_INTENA, mix_intena.u64);
+spin_unlock_irqrestore(&p->lock, flags);
+}
+static void octeon_mgmt_set_tx_irq(struct octeon_mgmt *p, int enable)
+{
+union cvmx_mixx_intena mix_intena;
+unsigned long flags;
+spin_lock_irqsave(&p->lock, flags);
+mix_intena.u64 = cvmx_read_csr(p->mix + MIX_INTENA);
+mix_intena.s.othena = enable ? 1 : 0;
+cvmx_write_csr(p->mix + MIX_INTENA, mix_intena.u64);
+spin_unlock_irqrestore(&p->lock, flags);
+}
+static void octeon_mgmt_enable_rx_irq(struct octeon_mgmt *p)
+{
+octeon_mgmt_set_rx_irq(p, 1);
+}
+static void octeon_mgmt_disable_rx_irq(struct octeon_mgmt *p)
+{
+octeon_mgmt_set_rx_irq(p, 0);
+}
+static void octeon_mgmt_enable_tx_irq(struct octeon_mgmt *p)
+{
+octeon_mgmt_set_tx_irq(p, 1);
+}
+static void octeon_mgmt_disable_tx_irq(struct octeon_mgmt *p)
+{
+octeon_mgmt_set_tx_irq(p, 0);
+}
+static unsigned int ring_max_fill(unsigned int ring_size)
+{
+return ring_size - 8;
+}
+static unsigned int ring_size_to_bytes(unsigned int ring_size)
+{
+return ring_size * sizeof(union mgmt_port_ring_entry);
+}
+static void octeon_mgmt_rx_fill_ring(struct net_device *netdev)
+{
+struct octeon_mgmt *p = netdev_priv(netdev);
+while (p->rx_current_fill < ring_max_fill(OCTEON_MGMT_RX_RING_SIZE)) {
+unsigned int size;
+union mgmt_port_ring_entry re;
+struct sk_buff *skb;
+size = netdev->mtu + OCTEON_MGMT_RX_HEADROOM + 8 + NET_IP_ALIGN;
+skb = netdev_alloc_skb(netdev, size);
+if (!skb)
+break;
+skb_reserve(skb, NET_IP_ALIGN);
+__skb_queue_tail(&p->rx_list, skb);
+re.d64 = 0;
+re.s.len = size;
+re.s.addr = dma_map_single(p->dev, skb->data,
+size,
+DMA_FROM_DEVICE);
+p->rx_ring[p->rx_next_fill] = re.d64;
+dma_sync_single_for_device(p->dev, p->rx_ring_handle,
+ring_size_to_bytes(OCTEON_MGMT_RX_RING_SIZE),
+DMA_BIDIRECTIONAL);
+p->rx_next_fill =
+(p->rx_next_fill + 1) % OCTEON_MGMT_RX_RING_SIZE;
+p->rx_current_fill++;
+cvmx_write_csr(p->mix + MIX_IRING2, 1);
+}
+}
+static void octeon_mgmt_clean_tx_buffers(struct octeon_mgmt *p)
+{
+union cvmx_mixx_orcnt mix_orcnt;
+union mgmt_port_ring_entry re;
+struct sk_buff *skb;
+int cleaned = 0;
+unsigned long flags;
+mix_orcnt.u64 = cvmx_read_csr(p->mix + MIX_ORCNT);
+while (mix_orcnt.s.orcnt) {
+spin_lock_irqsave(&p->tx_list.lock, flags);
+mix_orcnt.u64 = cvmx_read_csr(p->mix + MIX_ORCNT);
+if (mix_orcnt.s.orcnt == 0) {
+spin_unlock_irqrestore(&p->tx_list.lock, flags);
+break;
+}
+dma_sync_single_for_cpu(p->dev, p->tx_ring_handle,
+ring_size_to_bytes(OCTEON_MGMT_TX_RING_SIZE),
+DMA_BIDIRECTIONAL);
+re.d64 = p->tx_ring[p->tx_next_clean];
+p->tx_next_clean =
+(p->tx_next_clean + 1) % OCTEON_MGMT_TX_RING_SIZE;
+skb = __skb_dequeue(&p->tx_list);
+mix_orcnt.u64 = 0;
+mix_orcnt.s.orcnt = 1;
+cvmx_write_csr(p->mix + MIX_ORCNT, mix_orcnt.u64);
+p->tx_current_fill--;
+spin_unlock_irqrestore(&p->tx_list.lock, flags);
+dma_unmap_single(p->dev, re.s.addr, re.s.len,
+DMA_TO_DEVICE);
+if (unlikely(re.s.tstamp)) {
+struct skb_shared_hwtstamps ts;
+u64 ns;
+memset(&ts, 0, sizeof(ts));
+ns = cvmx_read_csr(CVMX_MIXX_TSTAMP(p->port));
+cvmx_write_csr(CVMX_MIXX_TSCTL(p->port), 0);
+ts.hwtstamp = ns_to_ktime(ns);
+skb_tstamp_tx(skb, &ts);
+}
+dev_kfree_skb_any(skb);
+cleaned++;
+mix_orcnt.u64 = cvmx_read_csr(p->mix + MIX_ORCNT);
+}
+if (cleaned && netif_queue_stopped(p->netdev))
+netif_wake_queue(p->netdev);
+}
+static void octeon_mgmt_clean_tx_tasklet(unsigned long arg)
+{
+struct octeon_mgmt *p = (struct octeon_mgmt *)arg;
+octeon_mgmt_clean_tx_buffers(p);
+octeon_mgmt_enable_tx_irq(p);
+}
+static void octeon_mgmt_update_rx_stats(struct net_device *netdev)
+{
+struct octeon_mgmt *p = netdev_priv(netdev);
+unsigned long flags;
+u64 drop, bad;
+drop = cvmx_read_csr(p->agl + AGL_GMX_RX_STATS_PKTS_DRP);
+bad = cvmx_read_csr(p->agl + AGL_GMX_RX_STATS_PKTS_BAD);
+if (drop || bad) {
+spin_lock_irqsave(&p->lock, flags);
+netdev->stats.rx_errors += bad;
+netdev->stats.rx_dropped += drop;
+spin_unlock_irqrestore(&p->lock, flags);
+}
+}
+static void octeon_mgmt_update_tx_stats(struct net_device *netdev)
+{
+struct octeon_mgmt *p = netdev_priv(netdev);
+unsigned long flags;
+union cvmx_agl_gmx_txx_stat0 s0;
+union cvmx_agl_gmx_txx_stat1 s1;
+s0.u64 = cvmx_read_csr(p->agl + AGL_GMX_TX_STAT0);
+s1.u64 = cvmx_read_csr(p->agl + AGL_GMX_TX_STAT1);
+if (s0.s.xsdef || s0.s.xscol || s1.s.scol || s1.s.mcol) {
+spin_lock_irqsave(&p->lock, flags);
+netdev->stats.tx_errors += s0.s.xsdef + s0.s.xscol;
+netdev->stats.collisions += s1.s.scol + s1.s.mcol;
+spin_unlock_irqrestore(&p->lock, flags);
+}
+}
+static u64 octeon_mgmt_dequeue_rx_buffer(struct octeon_mgmt *p,
+struct sk_buff **pskb)
+{
+union mgmt_port_ring_entry re;
+dma_sync_single_for_cpu(p->dev, p->rx_ring_handle,
+ring_size_to_bytes(OCTEON_MGMT_RX_RING_SIZE),
+DMA_BIDIRECTIONAL);
+re.d64 = p->rx_ring[p->rx_next];
+p->rx_next = (p->rx_next + 1) % OCTEON_MGMT_RX_RING_SIZE;
+p->rx_current_fill--;
+*pskb = __skb_dequeue(&p->rx_list);
+dma_unmap_single(p->dev, re.s.addr,
+ETH_FRAME_LEN + OCTEON_MGMT_RX_HEADROOM,
+DMA_FROM_DEVICE);
+return re.d64;
+}
+static int octeon_mgmt_receive_one(struct octeon_mgmt *p)
+{
+struct net_device *netdev = p->netdev;
+union cvmx_mixx_ircnt mix_ircnt;
+union mgmt_port_ring_entry re;
+struct sk_buff *skb;
+struct sk_buff *skb2;
+struct sk_buff *skb_new;
+union mgmt_port_ring_entry re2;
+int rc = 1;
+re.d64 = octeon_mgmt_dequeue_rx_buffer(p, &skb);
+if (likely(re.s.code == RING_ENTRY_CODE_DONE)) {
+skb_put(skb, re.s.len);
+good:
+if (p->has_rx_tstamp) {
+u64 ns = *(u64 *)skb->data;
+struct skb_shared_hwtstamps *ts;
+ts = skb_hwtstamps(skb);
+ts->hwtstamp = ns_to_ktime(ns);
+__skb_pull(skb, 8);
+}
+skb->protocol = eth_type_trans(skb, netdev);
+netdev->stats.rx_packets++;
+netdev->stats.rx_bytes += skb->len;
+netif_receive_skb(skb);
+rc = 0;
+} else if (re.s.code == RING_ENTRY_CODE_MORE) {
+skb_put(skb, re.s.len);
+do {
+re2.d64 = octeon_mgmt_dequeue_rx_buffer(p, &skb2);
+if (re2.s.code != RING_ENTRY_CODE_MORE
+&& re2.s.code != RING_ENTRY_CODE_DONE)
+goto split_error;
+skb_put(skb2, re2.s.len);
+skb_new = skb_copy_expand(skb, 0, skb2->len,
+GFP_ATOMIC);
+if (!skb_new)
+goto split_error;
+if (skb_copy_bits(skb2, 0, skb_tail_pointer(skb_new),
+skb2->len))
+goto split_error;
+skb_put(skb_new, skb2->len);
+dev_kfree_skb_any(skb);
+dev_kfree_skb_any(skb2);
+skb = skb_new;
+} while (re2.s.code == RING_ENTRY_CODE_MORE);
+goto good;
+} else {
+dev_kfree_skb_any(skb);
+}
+goto done;
+split_error:
+dev_kfree_skb_any(skb);
+dev_kfree_skb_any(skb2);
+while (re2.s.code == RING_ENTRY_CODE_MORE) {
+re2.d64 = octeon_mgmt_dequeue_rx_buffer(p, &skb2);
+dev_kfree_skb_any(skb2);
+}
+netdev->stats.rx_errors++;
+done:
+mix_ircnt.u64 = 0;
+mix_ircnt.s.ircnt = 1;
+cvmx_write_csr(p->mix + MIX_IRCNT, mix_ircnt.u64);
+return rc;
+}
+static int octeon_mgmt_receive_packets(struct octeon_mgmt *p, int budget)
+{
+unsigned int work_done = 0;
+union cvmx_mixx_ircnt mix_ircnt;
+int rc;
+mix_ircnt.u64 = cvmx_read_csr(p->mix + MIX_IRCNT);
+while (work_done < budget && mix_ircnt.s.ircnt) {
+rc = octeon_mgmt_receive_one(p);
+if (!rc)
+work_done++;
+mix_ircnt.u64 = cvmx_read_csr(p->mix + MIX_IRCNT);
+}
+octeon_mgmt_rx_fill_ring(p->netdev);
+return work_done;
+}
+static int octeon_mgmt_napi_poll(struct napi_struct *napi, int budget)
+{
+struct octeon_mgmt *p = container_of(napi, struct octeon_mgmt, napi);
+struct net_device *netdev = p->netdev;
+unsigned int work_done = 0;
+work_done = octeon_mgmt_receive_packets(p, budget);
+if (work_done < budget) {
+napi_complete(napi);
+octeon_mgmt_enable_rx_irq(p);
+}
+octeon_mgmt_update_rx_stats(netdev);
+return work_done;
+}
+static void octeon_mgmt_reset_hw(struct octeon_mgmt *p)
+{
+union cvmx_mixx_ctl mix_ctl;
+union cvmx_mixx_bist mix_bist;
+union cvmx_agl_gmx_bist agl_gmx_bist;
+mix_ctl.u64 = 0;
+cvmx_write_csr(p->mix + MIX_CTL, mix_ctl.u64);
+do {
+mix_ctl.u64 = cvmx_read_csr(p->mix + MIX_CTL);
+} while (mix_ctl.s.busy);
+mix_ctl.s.reset = 1;
+cvmx_write_csr(p->mix + MIX_CTL, mix_ctl.u64);
+cvmx_read_csr(p->mix + MIX_CTL);
+octeon_io_clk_delay(64);
+mix_bist.u64 = cvmx_read_csr(p->mix + MIX_BIST);
+if (mix_bist.u64)
+dev_warn(p->dev, "MIX failed BIST (0x%016llx)\n",
+(unsigned long long)mix_bist.u64);
+agl_gmx_bist.u64 = cvmx_read_csr(CVMX_AGL_GMX_BIST);
+if (agl_gmx_bist.u64)
+dev_warn(p->dev, "AGL failed BIST (0x%016llx)\n",
+(unsigned long long)agl_gmx_bist.u64);
+}
+static void octeon_mgmt_cam_state_add(struct octeon_mgmt_cam_state *cs,
+unsigned char *addr)
+{
+int i;
+for (i = 0; i < 6; i++)
+cs->cam[i] |= (u64)addr[i] << (8 * (cs->cam_index));
+cs->cam_mask |= (1ULL << cs->cam_index);
+cs->cam_index++;
+}
+static void octeon_mgmt_set_rx_filtering(struct net_device *netdev)
+{
+struct octeon_mgmt *p = netdev_priv(netdev);
+union cvmx_agl_gmx_rxx_adr_ctl adr_ctl;
+union cvmx_agl_gmx_prtx_cfg agl_gmx_prtx;
+unsigned long flags;
+unsigned int prev_packet_enable;
+unsigned int cam_mode = 1;
+unsigned int multicast_mode = 1;
+struct octeon_mgmt_cam_state cam_state;
+struct netdev_hw_addr *ha;
+int available_cam_entries;
+memset(&cam_state, 0, sizeof(cam_state));
+if ((netdev->flags & IFF_PROMISC) || netdev->uc.count > 7) {
+cam_mode = 0;
+available_cam_entries = 8;
+} else {
+available_cam_entries = 7 - netdev->uc.count;
+}
+if (netdev->flags & IFF_MULTICAST) {
+if (cam_mode == 0 || (netdev->flags & IFF_ALLMULTI) ||
+netdev_mc_count(netdev) > available_cam_entries)
+multicast_mode = 2;
+else
+multicast_mode = 0;
+}
+if (cam_mode == 1) {
+octeon_mgmt_cam_state_add(&cam_state, netdev->dev_addr);
+netdev_for_each_uc_addr(ha, netdev)
+octeon_mgmt_cam_state_add(&cam_state, ha->addr);
+}
+if (multicast_mode == 0) {
+netdev_for_each_mc_addr(ha, netdev)
+octeon_mgmt_cam_state_add(&cam_state, ha->addr);
+}
+spin_lock_irqsave(&p->lock, flags);
+agl_gmx_prtx.u64 = cvmx_read_csr(p->agl + AGL_GMX_PRT_CFG);
+prev_packet_enable = agl_gmx_prtx.s.en;
+agl_gmx_prtx.s.en = 0;
+cvmx_write_csr(p->agl + AGL_GMX_PRT_CFG, agl_gmx_prtx.u64);
+adr_ctl.u64 = 0;
+adr_ctl.s.cam_mode = cam_mode;
+adr_ctl.s.mcst = multicast_mode;
+adr_ctl.s.bcst = 1;
+cvmx_write_csr(p->agl + AGL_GMX_RX_ADR_CTL, adr_ctl.u64);
+cvmx_write_csr(p->agl + AGL_GMX_RX_ADR_CAM0, cam_state.cam[0]);
+cvmx_write_csr(p->agl + AGL_GMX_RX_ADR_CAM1, cam_state.cam[1]);
+cvmx_write_csr(p->agl + AGL_GMX_RX_ADR_CAM2, cam_state.cam[2]);
+cvmx_write_csr(p->agl + AGL_GMX_RX_ADR_CAM3, cam_state.cam[3]);
+cvmx_write_csr(p->agl + AGL_GMX_RX_ADR_CAM4, cam_state.cam[4]);
+cvmx_write_csr(p->agl + AGL_GMX_RX_ADR_CAM5, cam_state.cam[5]);
+cvmx_write_csr(p->agl + AGL_GMX_RX_ADR_CAM_EN, cam_state.cam_mask);
+agl_gmx_prtx.s.en = prev_packet_enable;
+cvmx_write_csr(p->agl + AGL_GMX_PRT_CFG, agl_gmx_prtx.u64);
+spin_unlock_irqrestore(&p->lock, flags);
+}
+static int octeon_mgmt_set_mac_address(struct net_device *netdev, void *addr)
+{
+int r = eth_mac_addr(netdev, addr);
+if (r)
+return r;
+octeon_mgmt_set_rx_filtering(netdev);
+return 0;
+}
+static int octeon_mgmt_change_mtu(struct net_device *netdev, int new_mtu)
+{
+struct octeon_mgmt *p = netdev_priv(netdev);
+int size_without_fcs = new_mtu + OCTEON_MGMT_RX_HEADROOM;
+if (size_without_fcs < 64 || size_without_fcs > 16383) {
+dev_warn(p->dev, "MTU must be between %d and %d.\n",
+64 - OCTEON_MGMT_RX_HEADROOM,
+16383 - OCTEON_MGMT_RX_HEADROOM);
+return -EINVAL;
+}
+netdev->mtu = new_mtu;
+cvmx_write_csr(p->agl + AGL_GMX_RX_FRM_MAX, size_without_fcs);
+cvmx_write_csr(p->agl + AGL_GMX_RX_JABBER,
+(size_without_fcs + 7) & 0xfff8);
+return 0;
+}
+static irqreturn_t octeon_mgmt_interrupt(int cpl, void *dev_id)
+{
+struct net_device *netdev = dev_id;
+struct octeon_mgmt *p = netdev_priv(netdev);
+union cvmx_mixx_isr mixx_isr;
+mixx_isr.u64 = cvmx_read_csr(p->mix + MIX_ISR);
+cvmx_write_csr(p->mix + MIX_ISR, mixx_isr.u64);
+cvmx_read_csr(p->mix + MIX_ISR);
+if (mixx_isr.s.irthresh) {
+octeon_mgmt_disable_rx_irq(p);
+napi_schedule(&p->napi);
+}
+if (mixx_isr.s.orthresh) {
+octeon_mgmt_disable_tx_irq(p);
+tasklet_schedule(&p->tx_clean_tasklet);
+}
+return IRQ_HANDLED;
+}
+static int octeon_mgmt_ioctl_hwtstamp(struct net_device *netdev,
+struct ifreq *rq, int cmd)
+{
+struct octeon_mgmt *p = netdev_priv(netdev);
+struct hwtstamp_config config;
+union cvmx_mio_ptp_clock_cfg ptp;
+union cvmx_agl_gmx_rxx_frm_ctl rxx_frm_ctl;
+bool have_hw_timestamps = false;
+if (copy_from_user(&config, rq->ifr_data, sizeof(config)))
+return -EFAULT;
+if (config.flags)
+return -EINVAL;
+if (OCTEON_IS_MODEL(OCTEON_CN6XXX)) {
+ptp.u64 = cvmx_read_csr(CVMX_MIO_PTP_CLOCK_CFG);
+if (!ptp.s.ext_clk_en) {
+u64 clock_comp = (NSEC_PER_SEC << 32) / octeon_get_io_clock_rate();
+if (!ptp.s.ptp_en)
+cvmx_write_csr(CVMX_MIO_PTP_CLOCK_COMP, clock_comp);
+pr_info("PTP Clock: Using sclk reference at %lld Hz\n",
+(NSEC_PER_SEC << 32) / clock_comp);
+} else {
+u64 clock_comp = cvmx_read_csr(CVMX_MIO_PTP_CLOCK_COMP);
+pr_info("PTP Clock: Using GPIO %d at %lld Hz\n",
+ptp.s.ext_clk_in,
+(NSEC_PER_SEC << 32) / clock_comp);
+}
+if (!ptp.s.ptp_en) {
+ptp.s.ptp_en = 1;
+cvmx_write_csr(CVMX_MIO_PTP_CLOCK_CFG, ptp.u64);
+}
+have_hw_timestamps = true;
+}
+if (!have_hw_timestamps)
+return -EINVAL;
+switch (config.tx_type) {
+case HWTSTAMP_TX_OFF:
+case HWTSTAMP_TX_ON:
+break;
+default:
+return -ERANGE;
+}
+switch (config.rx_filter) {
+case HWTSTAMP_FILTER_NONE:
+p->has_rx_tstamp = false;
+rxx_frm_ctl.u64 = cvmx_read_csr(p->agl + AGL_GMX_RX_FRM_CTL);
+rxx_frm_ctl.s.ptp_mode = 0;
+cvmx_write_csr(p->agl + AGL_GMX_RX_FRM_CTL, rxx_frm_ctl.u64);
+break;
+case HWTSTAMP_FILTER_ALL:
+case HWTSTAMP_FILTER_SOME:
+case HWTSTAMP_FILTER_PTP_V1_L4_EVENT:
+case HWTSTAMP_FILTER_PTP_V1_L4_SYNC:
+case HWTSTAMP_FILTER_PTP_V1_L4_DELAY_REQ:
+case HWTSTAMP_FILTER_PTP_V2_L4_EVENT:
+case HWTSTAMP_FILTER_PTP_V2_L4_SYNC:
+case HWTSTAMP_FILTER_PTP_V2_L4_DELAY_REQ:
+case HWTSTAMP_FILTER_PTP_V2_L2_EVENT:
+case HWTSTAMP_FILTER_PTP_V2_L2_SYNC:
+case HWTSTAMP_FILTER_PTP_V2_L2_DELAY_REQ:
+case HWTSTAMP_FILTER_PTP_V2_EVENT:
+case HWTSTAMP_FILTER_PTP_V2_SYNC:
+case HWTSTAMP_FILTER_PTP_V2_DELAY_REQ:
+p->has_rx_tstamp = have_hw_timestamps;
+config.rx_filter = HWTSTAMP_FILTER_ALL;
+if (p->has_rx_tstamp) {
+rxx_frm_ctl.u64 = cvmx_read_csr(p->agl + AGL_GMX_RX_FRM_CTL);
+rxx_frm_ctl.s.ptp_mode = 1;
+cvmx_write_csr(p->agl + AGL_GMX_RX_FRM_CTL, rxx_frm_ctl.u64);
+}
+break;
+default:
+return -ERANGE;
+}
+if (copy_to_user(rq->ifr_data, &config, sizeof(config)))
+return -EFAULT;
+return 0;
+}
+static int octeon_mgmt_ioctl(struct net_device *netdev,
+struct ifreq *rq, int cmd)
+{
+struct octeon_mgmt *p = netdev_priv(netdev);
+switch (cmd) {
+case SIOCSHWTSTAMP:
+return octeon_mgmt_ioctl_hwtstamp(netdev, rq, cmd);
+default:
+if (p->phydev)
+return phy_mii_ioctl(p->phydev, rq, cmd);
+return -EINVAL;
+}
+}
+static void octeon_mgmt_disable_link(struct octeon_mgmt *p)
+{
+union cvmx_agl_gmx_prtx_cfg prtx_cfg;
+prtx_cfg.u64 = cvmx_read_csr(p->agl + AGL_GMX_PRT_CFG);
+prtx_cfg.s.en = 0;
+prtx_cfg.s.tx_en = 0;
+prtx_cfg.s.rx_en = 0;
+cvmx_write_csr(p->agl + AGL_GMX_PRT_CFG, prtx_cfg.u64);
+if (OCTEON_IS_MODEL(OCTEON_CN6XXX)) {
+int i;
+for (i = 0; i < 10; i++) {
+prtx_cfg.u64 = cvmx_read_csr(p->agl + AGL_GMX_PRT_CFG);
+if (prtx_cfg.s.tx_idle == 1 || prtx_cfg.s.rx_idle == 1)
+break;
+mdelay(1);
+i++;
+}
+}
+}
+static void octeon_mgmt_enable_link(struct octeon_mgmt *p)
+{
+union cvmx_agl_gmx_prtx_cfg prtx_cfg;
+prtx_cfg.u64 = cvmx_read_csr(p->agl + AGL_GMX_PRT_CFG);
+prtx_cfg.s.tx_en = 1;
+prtx_cfg.s.rx_en = 1;
+prtx_cfg.s.en = 1;
+cvmx_write_csr(p->agl + AGL_GMX_PRT_CFG, prtx_cfg.u64);
+}
+static void octeon_mgmt_update_link(struct octeon_mgmt *p)
+{
+union cvmx_agl_gmx_prtx_cfg prtx_cfg;
+prtx_cfg.u64 = cvmx_read_csr(p->agl + AGL_GMX_PRT_CFG);
+if (!p->phydev->link)
+prtx_cfg.s.duplex = 1;
+else
+prtx_cfg.s.duplex = p->phydev->duplex;
+switch (p->phydev->speed) {
+case 10:
+prtx_cfg.s.speed = 0;
+prtx_cfg.s.slottime = 0;
+if (OCTEON_IS_MODEL(OCTEON_CN6XXX)) {
+prtx_cfg.s.burst = 1;
+prtx_cfg.s.speed_msb = 1;
+}
+break;
+case 100:
+prtx_cfg.s.speed = 0;
+prtx_cfg.s.slottime = 0;
+if (OCTEON_IS_MODEL(OCTEON_CN6XXX)) {
+prtx_cfg.s.burst = 1;
+prtx_cfg.s.speed_msb = 0;
+}
+break;
+case 1000:
+if (OCTEON_IS_MODEL(OCTEON_CN6XXX)) {
+prtx_cfg.s.speed = 1;
+prtx_cfg.s.speed_msb = 0;
+prtx_cfg.s.slottime = 1;
+prtx_cfg.s.burst = p->phydev->duplex;
+}
+break;
+case 0:
+default:
+break;
+}
+cvmx_write_csr(p->agl + AGL_GMX_PRT_CFG, prtx_cfg.u64);
+prtx_cfg.u64 = cvmx_read_csr(p->agl + AGL_GMX_PRT_CFG);
+if (OCTEON_IS_MODEL(OCTEON_CN6XXX)) {
+union cvmx_agl_gmx_txx_clk agl_clk;
+union cvmx_agl_prtx_ctl prtx_ctl;
+prtx_ctl.u64 = cvmx_read_csr(p->agl_prt_ctl);
+agl_clk.u64 = cvmx_read_csr(p->agl + AGL_GMX_TX_CLK);
+agl_clk.s.clk_cnt = 1;
+if (prtx_ctl.s.mode == 0) {
+if (p->phydev->speed == 10)
+agl_clk.s.clk_cnt = 50;
+else if (p->phydev->speed == 100)
+agl_clk.s.clk_cnt = 5;
+}
+cvmx_write_csr(p->agl + AGL_GMX_TX_CLK, agl_clk.u64);
+}
+}
+static void octeon_mgmt_adjust_link(struct net_device *netdev)
+{
+struct octeon_mgmt *p = netdev_priv(netdev);
+unsigned long flags;
+int link_changed = 0;
+if (!p->phydev)
+return;
+spin_lock_irqsave(&p->lock, flags);
+if (!p->phydev->link && p->last_link)
+link_changed = -1;
+if (p->phydev->link
+&& (p->last_duplex != p->phydev->duplex
+|| p->last_link != p->phydev->link
+|| p->last_speed != p->phydev->speed)) {
+octeon_mgmt_disable_link(p);
+link_changed = 1;
+octeon_mgmt_update_link(p);
+octeon_mgmt_enable_link(p);
+}
+p->last_link = p->phydev->link;
+p->last_speed = p->phydev->speed;
+p->last_duplex = p->phydev->duplex;
+spin_unlock_irqrestore(&p->lock, flags);
+if (link_changed != 0) {
+if (link_changed > 0) {
+pr_info("%s: Link is up - %d/%s\n", netdev->name,
+p->phydev->speed,
+DUPLEX_FULL == p->phydev->duplex ?
+"Full" : "Half");
+} else {
+pr_info("%s: Link is down\n", netdev->name);
+}
+}
+}
+static int octeon_mgmt_init_phy(struct net_device *netdev)
+{
+struct octeon_mgmt *p = netdev_priv(netdev);
+if (octeon_is_simulation() || p->phy_np == NULL) {
+netif_carrier_on(netdev);
+return 0;
+}
+p->phydev = of_phy_connect(netdev, p->phy_np,
+octeon_mgmt_adjust_link, 0,
+PHY_INTERFACE_MODE_MII);
+if (!p->phydev)
+return -ENODEV;
+return 0;
+}
+static int octeon_mgmt_open(struct net_device *netdev)
+{
+struct octeon_mgmt *p = netdev_priv(netdev);
+union cvmx_mixx_ctl mix_ctl;
+union cvmx_agl_gmx_inf_mode agl_gmx_inf_mode;
+union cvmx_mixx_oring1 oring1;
+union cvmx_mixx_iring1 iring1;
+union cvmx_agl_gmx_rxx_frm_ctl rxx_frm_ctl;
+union cvmx_mixx_irhwm mix_irhwm;
+union cvmx_mixx_orhwm mix_orhwm;
+union cvmx_mixx_intena mix_intena;
+struct sockaddr sa;
+p->tx_ring = kzalloc(ring_size_to_bytes(OCTEON_MGMT_TX_RING_SIZE),
+GFP_KERNEL);
+if (!p->tx_ring)
+return -ENOMEM;
+p->tx_ring_handle =
+dma_map_single(p->dev, p->tx_ring,
+ring_size_to_bytes(OCTEON_MGMT_TX_RING_SIZE),
+DMA_BIDIRECTIONAL);
+p->tx_next = 0;
+p->tx_next_clean = 0;
+p->tx_current_fill = 0;
+p->rx_ring = kzalloc(ring_size_to_bytes(OCTEON_MGMT_RX_RING_SIZE),
+GFP_KERNEL);
+if (!p->rx_ring)
+goto err_nomem;
+p->rx_ring_handle =
+dma_map_single(p->dev, p->rx_ring,
+ring_size_to_bytes(OCTEON_MGMT_RX_RING_SIZE),
+DMA_BIDIRECTIONAL);
+p->rx_next = 0;
+p->rx_next_fill = 0;
+p->rx_current_fill = 0;
+octeon_mgmt_reset_hw(p);
+mix_ctl.u64 = cvmx_read_csr(p->mix + MIX_CTL);
+if (mix_ctl.s.reset) {
+mix_ctl.s.reset = 0;
+cvmx_write_csr(p->mix + MIX_CTL, mix_ctl.u64);
+do {
+mix_ctl.u64 = cvmx_read_csr(p->mix + MIX_CTL);
+} while (mix_ctl.s.reset);
+}
+if (OCTEON_IS_MODEL(OCTEON_CN5XXX)) {
+agl_gmx_inf_mode.u64 = 0;
+agl_gmx_inf_mode.s.en = 1;
+cvmx_write_csr(CVMX_AGL_GMX_INF_MODE, agl_gmx_inf_mode.u64);
+}
+if (OCTEON_IS_MODEL(OCTEON_CN56XX_PASS1_X)
+|| OCTEON_IS_MODEL(OCTEON_CN52XX_PASS1_X)) {
+union cvmx_agl_gmx_drv_ctl drv_ctl;
+drv_ctl.u64 = cvmx_read_csr(CVMX_AGL_GMX_DRV_CTL);
+if (p->port) {
+drv_ctl.s.byp_en1 = 1;
+drv_ctl.s.nctl1 = 6;
+drv_ctl.s.pctl1 = 6;
+} else {
+drv_ctl.s.byp_en = 1;
+drv_ctl.s.nctl = 6;
+drv_ctl.s.pctl = 6;
+}
+cvmx_write_csr(CVMX_AGL_GMX_DRV_CTL, drv_ctl.u64);
+}
+oring1.u64 = 0;
+oring1.s.obase = p->tx_ring_handle >> 3;
+oring1.s.osize = OCTEON_MGMT_TX_RING_SIZE;
+cvmx_write_csr(p->mix + MIX_ORING1, oring1.u64);
+iring1.u64 = 0;
+iring1.s.ibase = p->rx_ring_handle >> 3;
+iring1.s.isize = OCTEON_MGMT_RX_RING_SIZE;
+cvmx_write_csr(p->mix + MIX_IRING1, iring1.u64);
+memcpy(sa.sa_data, netdev->dev_addr, ETH_ALEN);
+octeon_mgmt_set_mac_address(netdev, &sa);
+octeon_mgmt_change_mtu(netdev, netdev->mtu);
+mix_ctl.u64 = 0;
+mix_ctl.s.crc_strip = 1;
+mix_ctl.s.en = 1;
+mix_ctl.s.nbtarb = 0;
+mix_ctl.s.mrq_hwm = 1;
+#ifdef __LITTLE_ENDIAN
+mix_ctl.s.lendian = 1;
+#endif
+cvmx_write_csr(p->mix + MIX_CTL, mix_ctl.u64);
+if (octeon_mgmt_init_phy(netdev)) {
+dev_err(p->dev, "Cannot initialize PHY on MIX%d.\n", p->port);
+goto err_noirq;
+}
+if (OCTEON_IS_MODEL(OCTEON_CN6XXX) && p->phydev) {
+union cvmx_agl_prtx_ctl agl_prtx_ctl;
+int rgmii_mode = (p->phydev->supported &
+(SUPPORTED_1000baseT_Half | SUPPORTED_1000baseT_Full)) != 0;
+agl_prtx_ctl.u64 = cvmx_read_csr(p->agl_prt_ctl);
+agl_prtx_ctl.s.mode = rgmii_mode ? 0 : 1;
+cvmx_write_csr(p->agl_prt_ctl, agl_prtx_ctl.u64);
+#define NS_PER_PHY_CLK 8
+agl_prtx_ctl.u64 = cvmx_read_csr(p->agl_prt_ctl);
+agl_prtx_ctl.s.clkrst = 0;
+if (rgmii_mode) {
+agl_prtx_ctl.s.dllrst = 0;
+agl_prtx_ctl.s.clktx_byp = 0;
+}
+cvmx_write_csr(p->agl_prt_ctl, agl_prtx_ctl.u64);
+cvmx_read_csr(p->agl_prt_ctl);
+ndelay(256 * NS_PER_PHY_CLK);
+agl_prtx_ctl.u64 = cvmx_read_csr(p->agl_prt_ctl);
+agl_prtx_ctl.s.enable = 1;
+cvmx_write_csr(p->agl_prt_ctl, agl_prtx_ctl.u64);
+agl_prtx_ctl.u64 = cvmx_read_csr(p->agl_prt_ctl);
+agl_prtx_ctl.s.comp = 1;
+agl_prtx_ctl.s.drv_byp = 0;
+cvmx_write_csr(p->agl_prt_ctl, agl_prtx_ctl.u64);
+cvmx_read_csr(p->agl_prt_ctl);
+ndelay(1040 * NS_PER_PHY_CLK);
+cvmx_write_csr(CVMX_AGL_GMX_TX_IFG, 0xae);
+}
+octeon_mgmt_rx_fill_ring(netdev);
+cvmx_write_csr(p->agl + AGL_GMX_RX_STATS_CTL, 1);
+cvmx_write_csr(p->agl + AGL_GMX_RX_STATS_PKTS_DRP, 0);
+cvmx_write_csr(p->agl + AGL_GMX_RX_STATS_PKTS_BAD, 0);
+cvmx_write_csr(p->agl + AGL_GMX_TX_STATS_CTL, 1);
+cvmx_write_csr(p->agl + AGL_GMX_TX_STAT0, 0);
+cvmx_write_csr(p->agl + AGL_GMX_TX_STAT1, 0);
+cvmx_write_csr(p->mix + MIX_ISR, cvmx_read_csr(p->mix + MIX_ISR));
+if (request_irq(p->irq, octeon_mgmt_interrupt, 0, netdev->name,
+netdev)) {
+dev_err(p->dev, "request_irq(%d) failed.\n", p->irq);
+goto err_noirq;
+}
+mix_irhwm.u64 = 0;
+mix_irhwm.s.irhwm = 0;
+cvmx_write_csr(p->mix + MIX_IRHWM, mix_irhwm.u64);
+mix_orhwm.u64 = 0;
+mix_orhwm.s.orhwm = 0;
+cvmx_write_csr(p->mix + MIX_ORHWM, mix_orhwm.u64);
+mix_intena.u64 = 0;
+mix_intena.s.ithena = 1;
+mix_intena.s.othena = 1;
+cvmx_write_csr(p->mix + MIX_INTENA, mix_intena.u64);
+rxx_frm_ctl.u64 = 0;
+rxx_frm_ctl.s.ptp_mode = p->has_rx_tstamp ? 1 : 0;
+rxx_frm_ctl.s.pre_align = 1;
+rxx_frm_ctl.s.pad_len = 1;
+rxx_frm_ctl.s.vlan_len = 1;
+rxx_frm_ctl.s.pre_free = 1;
+rxx_frm_ctl.s.ctl_smac = 0;
+rxx_frm_ctl.s.ctl_mcst = 1;
+rxx_frm_ctl.s.ctl_bck = 1;
+rxx_frm_ctl.s.ctl_drp = 1;
+rxx_frm_ctl.s.pre_strp = 1;
+rxx_frm_ctl.s.pre_chk = 1;
+cvmx_write_csr(p->agl + AGL_GMX_RX_FRM_CTL, rxx_frm_ctl.u64);
+octeon_mgmt_disable_link(p);
+if (p->phydev)
+octeon_mgmt_update_link(p);
+octeon_mgmt_enable_link(p);
+p->last_link = 0;
+p->last_speed = 0;
+if (p->phydev) {
+netif_carrier_off(netdev);
+phy_start_aneg(p->phydev);
+}
+netif_wake_queue(netdev);
+napi_enable(&p->napi);
+return 0;
+err_noirq:
+octeon_mgmt_reset_hw(p);
+dma_unmap_single(p->dev, p->rx_ring_handle,
+ring_size_to_bytes(OCTEON_MGMT_RX_RING_SIZE),
+DMA_BIDIRECTIONAL);
+kfree(p->rx_ring);
+err_nomem:
+dma_unmap_single(p->dev, p->tx_ring_handle,
+ring_size_to_bytes(OCTEON_MGMT_TX_RING_SIZE),
+DMA_BIDIRECTIONAL);
+kfree(p->tx_ring);
+return -ENOMEM;
+}
+static int octeon_mgmt_stop(struct net_device *netdev)
+{
+struct octeon_mgmt *p = netdev_priv(netdev);
+napi_disable(&p->napi);
+netif_stop_queue(netdev);
+if (p->phydev)
+phy_disconnect(p->phydev);
+p->phydev = NULL;
+netif_carrier_off(netdev);
+octeon_mgmt_reset_hw(p);
+free_irq(p->irq, netdev);
+skb_queue_purge(&p->tx_list);
+skb_queue_purge(&p->rx_list);
+dma_unmap_single(p->dev, p->rx_ring_handle,
+ring_size_to_bytes(OCTEON_MGMT_RX_RING_SIZE),
+DMA_BIDIRECTIONAL);
+kfree(p->rx_ring);
+dma_unmap_single(p->dev, p->tx_ring_handle,
+ring_size_to_bytes(OCTEON_MGMT_TX_RING_SIZE),
+DMA_BIDIRECTIONAL);
+kfree(p->tx_ring);
+return 0;
+}
+static int octeon_mgmt_xmit(struct sk_buff *skb, struct net_device *netdev)
+{
+struct octeon_mgmt *p = netdev_priv(netdev);
+union mgmt_port_ring_entry re;
+unsigned long flags;
+int rv = NETDEV_TX_BUSY;
+re.d64 = 0;
+re.s.tstamp = ((skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP) != 0);
+re.s.len = skb->len;
+re.s.addr = dma_map_single(p->dev, skb->data,
+skb->len,
+DMA_TO_DEVICE);
+spin_lock_irqsave(&p->tx_list.lock, flags);
+if (unlikely(p->tx_current_fill >= ring_max_fill(OCTEON_MGMT_TX_RING_SIZE) - 1)) {
+spin_unlock_irqrestore(&p->tx_list.lock, flags);
+netif_stop_queue(netdev);
+spin_lock_irqsave(&p->tx_list.lock, flags);
+}
+if (unlikely(p->tx_current_fill >=
+ring_max_fill(OCTEON_MGMT_TX_RING_SIZE))) {
+spin_unlock_irqrestore(&p->tx_list.lock, flags);
+dma_unmap_single(p->dev, re.s.addr, re.s.len,
+DMA_TO_DEVICE);
+goto out;
+}
+__skb_queue_tail(&p->tx_list, skb);
+p->tx_ring[p->tx_next] = re.d64;
+p->tx_next = (p->tx_next + 1) % OCTEON_MGMT_TX_RING_SIZE;
+p->tx_current_fill++;
+spin_unlock_irqrestore(&p->tx_list.lock, flags);
+dma_sync_single_for_device(p->dev, p->tx_ring_handle,
+ring_size_to_bytes(OCTEON_MGMT_TX_RING_SIZE),
+DMA_BIDIRECTIONAL);
+netdev->stats.tx_packets++;
+netdev->stats.tx_bytes += skb->len;
+cvmx_write_csr(p->mix + MIX_ORING2, 1);
+netdev->trans_start = jiffies;
+rv = NETDEV_TX_OK;
+out:
+octeon_mgmt_update_tx_stats(netdev);
+return rv;
+}
+static void octeon_mgmt_poll_controller(struct net_device *netdev)
+{
+struct octeon_mgmt *p = netdev_priv(netdev);
+octeon_mgmt_receive_packets(p, 16);
+octeon_mgmt_update_rx_stats(netdev);
+}
+static void octeon_mgmt_get_drvinfo(struct net_device *netdev,
+struct ethtool_drvinfo *info)
+{
+strlcpy(info->driver, DRV_NAME, sizeof(info->driver));
+strlcpy(info->version, DRV_VERSION, sizeof(info->version));
+strlcpy(info->fw_version, "N/A", sizeof(info->fw_version));
+strlcpy(info->bus_info, "N/A", sizeof(info->bus_info));
+}
+static int octeon_mgmt_get_settings(struct net_device *netdev,
+struct ethtool_cmd *cmd)
+{
+struct octeon_mgmt *p = netdev_priv(netdev);
+if (p->phydev)
+return phy_ethtool_gset(p->phydev, cmd);
+return -EOPNOTSUPP;
+}
+static int octeon_mgmt_set_settings(struct net_device *netdev,
+struct ethtool_cmd *cmd)
+{
+struct octeon_mgmt *p = netdev_priv(netdev);
+if (!capable(CAP_NET_ADMIN))
+return -EPERM;
+if (p->phydev)
+return phy_ethtool_sset(p->phydev, cmd);
+return -EOPNOTSUPP;
+}
+static int octeon_mgmt_nway_reset(struct net_device *dev)
+{
+struct octeon_mgmt *p = netdev_priv(dev);
+if (!capable(CAP_NET_ADMIN))
+return -EPERM;
+if (p->phydev)
+return phy_start_aneg(p->phydev);
+return -EOPNOTSUPP;
+}
+static int octeon_mgmt_probe(struct platform_device *pdev)
+{
+struct net_device *netdev;
+struct octeon_mgmt *p;
+const __be32 *data;
+const u8 *mac;
+struct resource *res_mix;
+struct resource *res_agl;
+struct resource *res_agl_prt_ctl;
+int len;
+int result;
+netdev = alloc_etherdev(sizeof(struct octeon_mgmt));
+if (netdev == NULL)
+return -ENOMEM;
+SET_NETDEV_DEV(netdev, &pdev->dev);
+platform_set_drvdata(pdev, netdev);
+p = netdev_priv(netdev);
+netif_napi_add(netdev, &p->napi, octeon_mgmt_napi_poll,
+OCTEON_MGMT_NAPI_WEIGHT);
+p->netdev = netdev;
+p->dev = &pdev->dev;
+p->has_rx_tstamp = false;
+data = of_get_property(pdev->dev.of_node, "cell-index", &len);
+if (data && len == sizeof(*data)) {
+p->port = be32_to_cpup(data);
+} else {
+dev_err(&pdev->dev, "no 'cell-index' property\n");
+result = -ENXIO;
+goto err;
+}
+snprintf(netdev->name, IFNAMSIZ, "mgmt%d", p->port);
+result = platform_get_irq(pdev, 0);
+if (result < 0)
+goto err;
+p->irq = result;
+res_mix = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+if (res_mix == NULL) {
+dev_err(&pdev->dev, "no 'reg' resource\n");
+result = -ENXIO;
+goto err;
+}
+res_agl = platform_get_resource(pdev, IORESOURCE_MEM, 1);
+if (res_agl == NULL) {
+dev_err(&pdev->dev, "no 'reg' resource\n");
+result = -ENXIO;
+goto err;
+}
+res_agl_prt_ctl = platform_get_resource(pdev, IORESOURCE_MEM, 3);
+if (res_agl_prt_ctl == NULL) {
+dev_err(&pdev->dev, "no 'reg' resource\n");
+result = -ENXIO;
+goto err;
+}
+p->mix_phys = res_mix->start;
+p->mix_size = resource_size(res_mix);
+p->agl_phys = res_agl->start;
+p->agl_size = resource_size(res_agl);
+p->agl_prt_ctl_phys = res_agl_prt_ctl->start;
+p->agl_prt_ctl_size = resource_size(res_agl_prt_ctl);
+if (!devm_request_mem_region(&pdev->dev, p->mix_phys, p->mix_size,
+res_mix->name)) {
+dev_err(&pdev->dev, "request_mem_region (%s) failed\n",
+res_mix->name);
+result = -ENXIO;
+goto err;
+}
+if (!devm_request_mem_region(&pdev->dev, p->agl_phys, p->agl_size,
+res_agl->name)) {
+result = -ENXIO;
+dev_err(&pdev->dev, "request_mem_region (%s) failed\n",
+res_agl->name);
+goto err;
+}
+if (!devm_request_mem_region(&pdev->dev, p->agl_prt_ctl_phys,
+p->agl_prt_ctl_size, res_agl_prt_ctl->name)) {
+result = -ENXIO;
+dev_err(&pdev->dev, "request_mem_region (%s) failed\n",
+res_agl_prt_ctl->name);
+goto err;
+}
+p->mix = (u64)devm_ioremap(&pdev->dev, p->mix_phys, p->mix_size);
+p->agl = (u64)devm_ioremap(&pdev->dev, p->agl_phys, p->agl_size);
+p->agl_prt_ctl = (u64)devm_ioremap(&pdev->dev, p->agl_prt_ctl_phys,
+p->agl_prt_ctl_size);
+spin_lock_init(&p->lock);
+skb_queue_head_init(&p->tx_list);
+skb_queue_head_init(&p->rx_list);
+tasklet_init(&p->tx_clean_tasklet,
+octeon_mgmt_clean_tx_tasklet, (unsigned long)p);
+netdev->priv_flags |= IFF_UNICAST_FLT;
+netdev->netdev_ops = &octeon_mgmt_ops;
+netdev->ethtool_ops = &octeon_mgmt_ethtool_ops;
+mac = of_get_mac_address(pdev->dev.of_node);
+if (mac)
+memcpy(netdev->dev_addr, mac, ETH_ALEN);
+else
+eth_hw_addr_random(netdev);
+p->phy_np = of_parse_phandle(pdev->dev.of_node, "phy-handle", 0);
+result = dma_coerce_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(64));
+if (result)
+goto err;
+netif_carrier_off(netdev);
+result = register_netdev(netdev);
+if (result)
+goto err;
+dev_info(&pdev->dev, "Version " DRV_VERSION "\n");
+return 0;
+err:
+free_netdev(netdev);
+return result;
+}
+static int octeon_mgmt_remove(struct platform_device *pdev)
+{
+struct net_device *netdev = platform_get_drvdata(pdev);
+unregister_netdev(netdev);
+free_netdev(netdev);
+return 0;
+}
+static int __init octeon_mgmt_mod_init(void)
+{
+octeon_mdiobus_force_mod_depencency();
+return platform_driver_register(&octeon_mgmt_driver);
+}
+static void __exit octeon_mgmt_mod_exit(void)
+{
+platform_driver_unregister(&octeon_mgmt_driver);
+}

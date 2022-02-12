@@ -1,0 +1,1 @@
+int\r\nnv4e_ram_new(struct nvkm_fb *fb, struct nvkm_ram **pram)\r\n{\r\nstruct nvkm_device *device = fb->subdev.device;\r\nu32 size = nvkm_rd32(device, 0x10020c) & 0xff000000;\r\nreturn nvkm_ram_new_(&nv04_ram_func, fb, NVKM_RAM_TYPE_UNKNOWN,\r\nsize, 0, pram);\r\n}

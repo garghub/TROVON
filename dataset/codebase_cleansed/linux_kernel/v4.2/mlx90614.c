@@ -1,0 +1,320 @@
+static s32 mlx90614_write_word(const struct i2c_client *client, u8 command,
+u16 value)
+{
+union i2c_smbus_data data;
+s32 ret;
+dev_dbg(&client->dev, "Writing 0x%x to address 0x%x", value, command);
+data.word = 0x0000;
+ret = i2c_smbus_xfer(client->adapter, client->addr,
+client->flags | I2C_CLIENT_PEC,
+I2C_SMBUS_WRITE, command,
+I2C_SMBUS_WORD_DATA, &data);
+if (ret < 0)
+return ret;
+msleep(MLX90614_TIMING_EEPROM);
+data.word = value;
+ret = i2c_smbus_xfer(client->adapter, client->addr,
+client->flags | I2C_CLIENT_PEC,
+I2C_SMBUS_WRITE, command,
+I2C_SMBUS_WORD_DATA, &data);
+msleep(MLX90614_TIMING_EEPROM);
+return ret;
+}
+static int mlx90614_power_get(struct mlx90614_data *data, bool startup)
+{
+unsigned long now;
+if (!data->wakeup_gpio)
+return 0;
+pm_runtime_get_sync(&data->client->dev);
+if (startup) {
+now = jiffies;
+if (time_before(now, data->ready_timestamp) &&
+msleep_interruptible(jiffies_to_msecs(
+data->ready_timestamp - now)) != 0) {
+pm_runtime_put_autosuspend(&data->client->dev);
+return -EINTR;
+}
+}
+return 0;
+}
+static void mlx90614_power_put(struct mlx90614_data *data)
+{
+if (!data->wakeup_gpio)
+return;
+pm_runtime_mark_last_busy(&data->client->dev);
+pm_runtime_put_autosuspend(&data->client->dev);
+}
+static inline int mlx90614_power_get(struct mlx90614_data *data, bool startup)
+{
+return 0;
+}
+static inline void mlx90614_power_put(struct mlx90614_data *data)
+{
+}
+static int mlx90614_read_raw(struct iio_dev *indio_dev,
+struct iio_chan_spec const *channel, int *val,
+int *val2, long mask)
+{
+struct mlx90614_data *data = iio_priv(indio_dev);
+u8 cmd;
+s32 ret;
+switch (mask) {
+case IIO_CHAN_INFO_RAW:
+switch (channel->channel2) {
+case IIO_MOD_TEMP_AMBIENT:
+cmd = MLX90614_TA;
+break;
+case IIO_MOD_TEMP_OBJECT:
+switch (channel->channel) {
+case 0:
+cmd = MLX90614_TOBJ1;
+break;
+case 1:
+cmd = MLX90614_TOBJ2;
+break;
+default:
+return -EINVAL;
+}
+break;
+default:
+return -EINVAL;
+}
+ret = mlx90614_power_get(data, true);
+if (ret < 0)
+return ret;
+ret = i2c_smbus_read_word_data(data->client, cmd);
+mlx90614_power_put(data);
+if (ret < 0)
+return ret;
+if (ret & 0x8000)
+return -EIO;
+*val = ret;
+return IIO_VAL_INT;
+case IIO_CHAN_INFO_OFFSET:
+*val = -13657;
+*val2 = 500000;
+return IIO_VAL_INT_PLUS_MICRO;
+case IIO_CHAN_INFO_SCALE:
+*val = 20;
+return IIO_VAL_INT;
+case IIO_CHAN_INFO_CALIBEMISSIVITY:
+mlx90614_power_get(data, false);
+mutex_lock(&data->lock);
+ret = i2c_smbus_read_word_data(data->client,
+MLX90614_EMISSIVITY);
+mutex_unlock(&data->lock);
+mlx90614_power_put(data);
+if (ret < 0)
+return ret;
+if (ret == 65535) {
+*val = 1;
+*val2 = 0;
+} else {
+*val = 0;
+*val2 = ret * 15259;
+}
+return IIO_VAL_INT_PLUS_NANO;
+default:
+return -EINVAL;
+}
+}
+static int mlx90614_write_raw(struct iio_dev *indio_dev,
+struct iio_chan_spec const *channel, int val,
+int val2, long mask)
+{
+struct mlx90614_data *data = iio_priv(indio_dev);
+s32 ret;
+switch (mask) {
+case IIO_CHAN_INFO_CALIBEMISSIVITY:
+if (val < 0 || val2 < 0 || val > 1 || (val == 1 && val2 != 0))
+return -EINVAL;
+val = val * 65535 + val2 / 15259;
+mlx90614_power_get(data, false);
+mutex_lock(&data->lock);
+ret = mlx90614_write_word(data->client, MLX90614_EMISSIVITY,
+val);
+mutex_unlock(&data->lock);
+mlx90614_power_put(data);
+return ret;
+default:
+return -EINVAL;
+}
+}
+static int mlx90614_write_raw_get_fmt(struct iio_dev *indio_dev,
+struct iio_chan_spec const *channel,
+long mask)
+{
+switch (mask) {
+case IIO_CHAN_INFO_CALIBEMISSIVITY:
+return IIO_VAL_INT_PLUS_NANO;
+default:
+return -EINVAL;
+}
+}
+static int mlx90614_sleep(struct mlx90614_data *data)
+{
+s32 ret;
+if (!data->wakeup_gpio) {
+dev_dbg(&data->client->dev, "Sleep disabled");
+return -ENOSYS;
+}
+dev_dbg(&data->client->dev, "Requesting sleep");
+mutex_lock(&data->lock);
+ret = i2c_smbus_xfer(data->client->adapter, data->client->addr,
+data->client->flags | I2C_CLIENT_PEC,
+I2C_SMBUS_WRITE, MLX90614_OP_SLEEP,
+I2C_SMBUS_BYTE, NULL);
+mutex_unlock(&data->lock);
+return ret;
+}
+static int mlx90614_wakeup(struct mlx90614_data *data)
+{
+if (!data->wakeup_gpio) {
+dev_dbg(&data->client->dev, "Wake-up disabled");
+return -ENOSYS;
+}
+dev_dbg(&data->client->dev, "Requesting wake-up");
+i2c_lock_adapter(data->client->adapter);
+gpiod_direction_output(data->wakeup_gpio, 0);
+msleep(MLX90614_TIMING_WAKEUP);
+gpiod_direction_input(data->wakeup_gpio);
+i2c_unlock_adapter(data->client->adapter);
+data->ready_timestamp = jiffies +
+msecs_to_jiffies(MLX90614_TIMING_STARTUP);
+i2c_smbus_read_word_data(data->client, MLX90614_CONFIG);
+return 0;
+}
+static struct gpio_desc *mlx90614_probe_wakeup(struct i2c_client *client)
+{
+struct gpio_desc *gpio;
+if (!i2c_check_functionality(client->adapter,
+I2C_FUNC_SMBUS_WRITE_BYTE)) {
+dev_info(&client->dev,
+"i2c adapter does not support SMBUS_WRITE_BYTE, sleep disabled");
+return NULL;
+}
+gpio = devm_gpiod_get_optional(&client->dev, "wakeup", GPIOD_IN);
+if (IS_ERR(gpio)) {
+dev_warn(&client->dev,
+"gpio acquisition failed with error %ld, sleep disabled",
+PTR_ERR(gpio));
+return NULL;
+} else if (!gpio) {
+dev_info(&client->dev,
+"wakeup-gpio not found, sleep disabled");
+}
+return gpio;
+}
+static inline int mlx90614_sleep(struct mlx90614_data *data)
+{
+return -ENOSYS;
+}
+static inline int mlx90614_wakeup(struct mlx90614_data *data)
+{
+return -ENOSYS;
+}
+static inline struct gpio_desc *mlx90614_probe_wakeup(struct i2c_client *client)
+{
+return NULL;
+}
+static int mlx90614_probe_num_ir_sensors(struct i2c_client *client)
+{
+s32 ret;
+ret = i2c_smbus_read_word_data(client, MLX90614_CONFIG);
+if (ret < 0)
+return ret;
+return (ret & MLX90614_CONFIG_DUAL_MASK) ? 1 : 0;
+}
+static int mlx90614_probe(struct i2c_client *client,
+const struct i2c_device_id *id)
+{
+struct iio_dev *indio_dev;
+struct mlx90614_data *data;
+int ret;
+if (!i2c_check_functionality(client->adapter, I2C_FUNC_SMBUS_WORD_DATA))
+return -ENODEV;
+indio_dev = devm_iio_device_alloc(&client->dev, sizeof(*data));
+if (!indio_dev)
+return -ENOMEM;
+data = iio_priv(indio_dev);
+i2c_set_clientdata(client, indio_dev);
+data->client = client;
+mutex_init(&data->lock);
+data->wakeup_gpio = mlx90614_probe_wakeup(client);
+mlx90614_wakeup(data);
+indio_dev->dev.parent = &client->dev;
+indio_dev->name = id->name;
+indio_dev->modes = INDIO_DIRECT_MODE;
+indio_dev->info = &mlx90614_info;
+ret = mlx90614_probe_num_ir_sensors(client);
+switch (ret) {
+case 0:
+dev_dbg(&client->dev, "Found single sensor");
+indio_dev->channels = mlx90614_channels;
+indio_dev->num_channels = 2;
+break;
+case 1:
+dev_dbg(&client->dev, "Found dual sensor");
+indio_dev->channels = mlx90614_channels;
+indio_dev->num_channels = 3;
+break;
+default:
+return ret;
+}
+if (data->wakeup_gpio) {
+pm_runtime_set_autosuspend_delay(&client->dev,
+MLX90614_AUTOSLEEP_DELAY);
+pm_runtime_use_autosuspend(&client->dev);
+pm_runtime_set_active(&client->dev);
+pm_runtime_enable(&client->dev);
+}
+return iio_device_register(indio_dev);
+}
+static int mlx90614_remove(struct i2c_client *client)
+{
+struct iio_dev *indio_dev = i2c_get_clientdata(client);
+struct mlx90614_data *data = iio_priv(indio_dev);
+iio_device_unregister(indio_dev);
+if (data->wakeup_gpio) {
+pm_runtime_disable(&client->dev);
+if (!pm_runtime_status_suspended(&client->dev))
+mlx90614_sleep(data);
+pm_runtime_set_suspended(&client->dev);
+}
+return 0;
+}
+static int mlx90614_pm_suspend(struct device *dev)
+{
+struct iio_dev *indio_dev = i2c_get_clientdata(to_i2c_client(dev));
+struct mlx90614_data *data = iio_priv(indio_dev);
+if (data->wakeup_gpio && pm_runtime_active(dev))
+return mlx90614_sleep(data);
+return 0;
+}
+static int mlx90614_pm_resume(struct device *dev)
+{
+struct iio_dev *indio_dev = i2c_get_clientdata(to_i2c_client(dev));
+struct mlx90614_data *data = iio_priv(indio_dev);
+int err;
+if (data->wakeup_gpio) {
+err = mlx90614_wakeup(data);
+if (err < 0)
+return err;
+pm_runtime_disable(dev);
+pm_runtime_set_active(dev);
+pm_runtime_enable(dev);
+}
+return 0;
+}
+static int mlx90614_pm_runtime_suspend(struct device *dev)
+{
+struct iio_dev *indio_dev = i2c_get_clientdata(to_i2c_client(dev));
+struct mlx90614_data *data = iio_priv(indio_dev);
+return mlx90614_sleep(data);
+}
+static int mlx90614_pm_runtime_resume(struct device *dev)
+{
+struct iio_dev *indio_dev = i2c_get_clientdata(to_i2c_client(dev));
+struct mlx90614_data *data = iio_priv(indio_dev);
+return mlx90614_wakeup(data);
+}

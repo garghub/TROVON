@@ -1,0 +1,1 @@
+static int __init vlv2_plat_clk_init(void)\r\n{\r\nstruct platform_device *pdev;\r\npdev = platform_device_register_simple("vlv2_plat_clk", -1, NULL, 0);\r\nif (IS_ERR(pdev)) {\r\npr_err("platform_vlv2_plat_clk:register failed: %ld\n",\r\nPTR_ERR(pdev));\r\nreturn PTR_ERR(pdev);\r\n}\r\nreturn 0;\r\n}

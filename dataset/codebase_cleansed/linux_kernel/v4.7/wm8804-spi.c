@@ -1,0 +1,1 @@
+static int wm8804_spi_probe(struct spi_device *spi)\r\n{\r\nstruct regmap *regmap;\r\nregmap = devm_regmap_init_spi(spi, &wm8804_regmap_config);\r\nif (IS_ERR(regmap))\r\nreturn PTR_ERR(regmap);\r\nreturn wm8804_probe(&spi->dev, regmap);\r\n}\r\nstatic int wm8804_spi_remove(struct spi_device *spi)\r\n{\r\nwm8804_remove(&spi->dev);\r\nreturn 0;\r\n}

@@ -1,0 +1,1 @@
+static int\r\ngm107_ram_ctor(struct nouveau_object *parent, struct nouveau_object *engine,\r\nstruct nouveau_oclass *oclass, void *data, u32 size,\r\nstruct nouveau_object **pobject)\r\n{\r\nstruct gm107_ram *ram;\r\nint ret;\r\nret = nvc0_ram_create(parent, engine, oclass, 0x021c14, &ram);\r\n*pobject = nv_object(ram);\r\nif (ret)\r\nreturn ret;\r\nreturn 0;\r\n}

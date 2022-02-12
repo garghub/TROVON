@@ -1,0 +1,1 @@
+int do_sample(struct bpf_perf_event_data *ctx)\r\n{\r\nu64 ip;\r\nu32 *value, init_val = 1;\r\nip = PT_REGS_IP(&ctx->regs);\r\nvalue = bpf_map_lookup_elem(&ip_map, &ip);\r\nif (value)\r\n*value += 1;\r\nelse\r\nbpf_map_update_elem(&ip_map, &ip, &init_val, BPF_NOEXIST);\r\nreturn 0;\r\n}

@@ -1,0 +1,1 @@
+static int r8a7794_pin_to_pocctrl(struct sh_pfc *pfc, unsigned int pin, u32 *pocctrl)\r\n{\r\n*pocctrl = 0xe606006c;\r\nswitch (pin & 0x1f) {\r\ncase 6: return 23;\r\ncase 7: return 16;\r\ncase 14: return 15;\r\ncase 15: return 8;\r\ncase 0 ... 5:\r\ncase 8 ... 13:\r\nreturn 22 - (pin & 0x1f);\r\ncase 16 ... 23:\r\nreturn 47 - (pin & 0x1f);\r\n}\r\nreturn -EINVAL;\r\n}

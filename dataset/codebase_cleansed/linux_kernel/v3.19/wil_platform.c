@@ -1,0 +1,1 @@
+void *wil_platform_init(struct device *dev, struct wil_platform_ops *ops)\r\n{\r\nvoid *handle = NULL;\r\nif (!ops) {\r\ndev_err(dev, "Invalid parameter. Cannot init platform module\n");\r\nreturn NULL;\r\n}\r\n#ifdef CONFIG_WIL6210_PLATFORM_MSM\r\nhandle = wil_platform_msm_init(dev, ops);\r\nif (handle)\r\nreturn handle;\r\n#endif\r\nreturn handle;\r\n}

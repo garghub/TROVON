@@ -1,0 +1,1 @@
+struct platform_device *__init imx_add_imx2_wdt(\r\nconst struct imx_imx2_wdt_data *data)\r\n{\r\nstruct resource res[] = {\r\n{\r\n.start = data->iobase,\r\n.end = data->iobase + data->iosize - 1,\r\n.flags = IORESOURCE_MEM,\r\n},\r\n};\r\nreturn imx_add_platform_device("imx2-wdt", data->id,\r\nres, ARRAY_SIZE(res), NULL, 0);\r\n}

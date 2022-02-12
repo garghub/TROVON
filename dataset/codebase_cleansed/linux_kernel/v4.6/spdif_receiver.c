@@ -1,0 +1,1 @@
+static int spdif_dir_probe(struct platform_device *pdev)\r\n{\r\nreturn snd_soc_register_codec(&pdev->dev, &soc_codec_spdif_dir,\r\n&dir_stub_dai, 1);\r\n}\r\nstatic int spdif_dir_remove(struct platform_device *pdev)\r\n{\r\nsnd_soc_unregister_codec(&pdev->dev);\r\nreturn 0;\r\n}

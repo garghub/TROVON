@@ -1,0 +1,1 @@
+static int ssm2602_i2c_probe(struct i2c_client *client,\r\nconst struct i2c_device_id *id)\r\n{\r\nreturn ssm2602_probe(&client->dev, id->driver_data,\r\ndevm_regmap_init_i2c(client, &ssm2602_regmap_config));\r\n}\r\nstatic int ssm2602_i2c_remove(struct i2c_client *client)\r\n{\r\nsnd_soc_unregister_codec(&client->dev);\r\nreturn 0;\r\n}

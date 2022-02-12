@@ -1,0 +1,1 @@
+void __iomem *__ioremap(unsigned long physaddr, unsigned long size, int cacheflag)\r\n{\r\nreturn (void __iomem *)physaddr;\r\n}\r\nvoid iounmap(void volatile __iomem *addr)\r\n{\r\n}\r\nvoid kernel_set_cachemode(void *addr, unsigned long size, int cmode)\r\n{\r\n}

@@ -1,0 +1,54 @@
+void ia_css_isys_stream2mmio_sid_rmgr_init(void)
+{
+memset(isys_stream2mmio_rsrc, 0, sizeof(isys_stream2mmio_rsrc));
+}
+void ia_css_isys_stream2mmio_sid_rmgr_uninit(void)
+{
+memset(isys_stream2mmio_rsrc, 0, sizeof(isys_stream2mmio_rsrc));
+}
+bool ia_css_isys_stream2mmio_sid_rmgr_acquire(
+stream2mmio_ID_t stream2mmio,
+stream2mmio_sid_ID_t *sid)
+{
+bool retval = false;
+stream2mmio_sid_ID_t max_sid;
+isys_stream2mmio_rsrc_t *cur_rsrc = NULL;
+stream2mmio_sid_ID_t i;
+assert(stream2mmio < N_STREAM2MMIO_ID);
+assert(sid != NULL);
+if ((stream2mmio < N_STREAM2MMIO_ID) && (sid != NULL)) {
+max_sid = N_STREAM2MMIO_SID_PROCS[stream2mmio];
+cur_rsrc = &isys_stream2mmio_rsrc[stream2mmio];
+if (cur_rsrc->num_active < max_sid) {
+for (i = STREAM2MMIO_SID0_ID; i < max_sid; i++) {
+if (bitop_getbit(cur_rsrc->active_table, i) == 0) {
+bitop_setbit(cur_rsrc->active_table, i);
+*sid = i;
+cur_rsrc->num_active++;
+retval = true;
+break;
+}
+}
+}
+}
+return retval;
+}
+void ia_css_isys_stream2mmio_sid_rmgr_release(
+stream2mmio_ID_t stream2mmio,
+stream2mmio_sid_ID_t *sid)
+{
+stream2mmio_sid_ID_t max_sid;
+isys_stream2mmio_rsrc_t *cur_rsrc = NULL;
+assert(stream2mmio < N_STREAM2MMIO_ID);
+assert(sid != NULL);
+if ((stream2mmio < N_STREAM2MMIO_ID) && (sid != NULL)) {
+max_sid = N_STREAM2MMIO_SID_PROCS[stream2mmio];
+cur_rsrc = &isys_stream2mmio_rsrc[stream2mmio];
+if ((*sid < max_sid) && (cur_rsrc->num_active > 0)) {
+if (bitop_getbit(cur_rsrc->active_table, *sid) == 1) {
+bitop_clearbit(cur_rsrc->active_table, *sid);
+cur_rsrc->num_active--;
+}
+}
+}
+}

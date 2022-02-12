@@ -1,0 +1,1 @@
+static int es8328_i2c_probe(struct i2c_client *i2c,\r\nconst struct i2c_device_id *id)\r\n{\r\nreturn es8328_probe(&i2c->dev,\r\ndevm_regmap_init_i2c(i2c, &es8328_regmap_config));\r\n}\r\nstatic int es8328_i2c_remove(struct i2c_client *i2c)\r\n{\r\nsnd_soc_unregister_codec(&i2c->dev);\r\nreturn 0;\r\n}

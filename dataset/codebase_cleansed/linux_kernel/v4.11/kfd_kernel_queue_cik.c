@@ -1,0 +1,1 @@
+void kernel_queue_init_cik(struct kernel_queue_ops *ops)\r\n{\r\nops->initialize = initialize_cik;\r\nops->uninitialize = uninitialize_cik;\r\n}\r\nstatic bool initialize_cik(struct kernel_queue *kq, struct kfd_dev *dev,\r\nenum kfd_queue_type type, unsigned int queue_size)\r\n{\r\nreturn true;\r\n}\r\nstatic void uninitialize_cik(struct kernel_queue *kq)\r\n{\r\n}

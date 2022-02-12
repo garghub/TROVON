@@ -1,0 +1,1 @@
+static void __init spear310_dt_init(void)\r\n{\r\npl080_plat_data.slave_channels = spear310_dma_info;\r\npl080_plat_data.num_slave_channels = ARRAY_SIZE(spear310_dma_info);\r\nof_platform_populate(NULL, of_default_bus_match_table,\r\nspear310_auxdata_lookup, NULL);\r\n}\r\nstatic void __init spear310_map_io(void)\r\n{\r\nspear3xx_map_io();\r\n}

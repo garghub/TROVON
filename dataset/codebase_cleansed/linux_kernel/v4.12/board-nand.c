@@ -1,0 +1,1 @@
+void omap1_nand_cmd_ctl(struct mtd_info *mtd, int cmd, unsigned int ctrl)\r\n{\r\nstruct nand_chip *this = mtd_to_nand(mtd);\r\nunsigned long mask;\r\nif (cmd == NAND_CMD_NONE)\r\nreturn;\r\nmask = (ctrl & NAND_CLE) ? 0x02 : 0;\r\nif (ctrl & NAND_ALE)\r\nmask |= 0x04;\r\nwriteb(cmd, this->IO_ADDR_W + mask);\r\n}

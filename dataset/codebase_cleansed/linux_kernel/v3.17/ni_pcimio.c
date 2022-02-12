@@ -1,0 +1,204 @@
+static int pcimio_ai_change(struct comedi_device *dev,
+struct comedi_subdevice *s)
+{
+struct ni_private *devpriv = dev->private;
+int ret;
+ret = mite_buf_change(devpriv->ai_mite_ring, s);
+if (ret < 0)
+return ret;
+return 0;
+}
+static int pcimio_ao_change(struct comedi_device *dev,
+struct comedi_subdevice *s)
+{
+struct ni_private *devpriv = dev->private;
+int ret;
+ret = mite_buf_change(devpriv->ao_mite_ring, s);
+if (ret < 0)
+return ret;
+return 0;
+}
+static int pcimio_gpct0_change(struct comedi_device *dev,
+struct comedi_subdevice *s)
+{
+struct ni_private *devpriv = dev->private;
+int ret;
+ret = mite_buf_change(devpriv->gpct_mite_ring[0], s);
+if (ret < 0)
+return ret;
+return 0;
+}
+static int pcimio_gpct1_change(struct comedi_device *dev,
+struct comedi_subdevice *s)
+{
+struct ni_private *devpriv = dev->private;
+int ret;
+ret = mite_buf_change(devpriv->gpct_mite_ring[1], s);
+if (ret < 0)
+return ret;
+return 0;
+}
+static int pcimio_dio_change(struct comedi_device *dev,
+struct comedi_subdevice *s)
+{
+struct ni_private *devpriv = dev->private;
+int ret;
+ret = mite_buf_change(devpriv->cdo_mite_ring, s);
+if (ret < 0)
+return ret;
+return 0;
+}
+static void m_series_init_eeprom_buffer(struct comedi_device *dev)
+{
+struct ni_private *devpriv = dev->private;
+static const int Start_Cal_EEPROM = 0x400;
+static const unsigned window_size = 10;
+static const int serial_number_eeprom_offset = 0x4;
+static const int serial_number_eeprom_length = 0x4;
+unsigned old_iodwbsr_bits;
+unsigned old_iodwbsr1_bits;
+unsigned old_iodwcr1_bits;
+int i;
+old_iodwbsr_bits = readl(devpriv->mite->mite_io_addr + MITE_IODWBSR);
+old_iodwbsr1_bits = readl(devpriv->mite->mite_io_addr + MITE_IODWBSR_1);
+old_iodwcr1_bits = readl(devpriv->mite->mite_io_addr + MITE_IODWCR_1);
+writel(0x0, devpriv->mite->mite_io_addr + MITE_IODWBSR);
+writel(((0x80 | window_size) | devpriv->mite->daq_phys_addr),
+devpriv->mite->mite_io_addr + MITE_IODWBSR_1);
+writel(0x1 | old_iodwcr1_bits,
+devpriv->mite->mite_io_addr + MITE_IODWCR_1);
+writel(0xf, devpriv->mite->mite_io_addr + 0x30);
+BUG_ON(serial_number_eeprom_length > sizeof(devpriv->serial_number));
+for (i = 0; i < serial_number_eeprom_length; ++i) {
+char *byte_ptr = (char *)&devpriv->serial_number + i;
+*byte_ptr = ni_readb(dev, serial_number_eeprom_offset + i);
+}
+devpriv->serial_number = be32_to_cpu(devpriv->serial_number);
+for (i = 0; i < M_SERIES_EEPROM_SIZE; ++i)
+devpriv->eeprom_buffer[i] = ni_readb(dev, Start_Cal_EEPROM + i);
+writel(old_iodwbsr1_bits, devpriv->mite->mite_io_addr + MITE_IODWBSR_1);
+writel(old_iodwbsr_bits, devpriv->mite->mite_io_addr + MITE_IODWBSR);
+writel(old_iodwcr1_bits, devpriv->mite->mite_io_addr + MITE_IODWCR_1);
+writel(0x0, devpriv->mite->mite_io_addr + 0x30);
+}
+static void init_6143(struct comedi_device *dev)
+{
+const struct ni_board_struct *board = comedi_board(dev);
+struct ni_private *devpriv = dev->private;
+ni_stc_writew(dev, 0, Interrupt_Control_Register);
+ni_writeb(dev, 0x00, Magic_6143);
+ni_writeb(dev, 0x80, PipelineDelay_6143);
+ni_writeb(dev, 0x00, EOC_Set_6143);
+ni_writel(dev, board->ai_fifo_depth / 2, AIFIFO_Flag_6143);
+devpriv->ai_calib_source_enabled = 0;
+ni_writew(dev, devpriv->ai_calib_source |
+Calibration_Channel_6143_RelayOff,
+Calibration_Channel_6143);
+ni_writew(dev, devpriv->ai_calib_source, Calibration_Channel_6143);
+}
+static void pcimio_detach(struct comedi_device *dev)
+{
+struct ni_private *devpriv = dev->private;
+mio_common_detach(dev);
+if (dev->irq)
+free_irq(dev->irq, dev);
+if (devpriv) {
+mite_free_ring(devpriv->ai_mite_ring);
+mite_free_ring(devpriv->ao_mite_ring);
+mite_free_ring(devpriv->cdo_mite_ring);
+mite_free_ring(devpriv->gpct_mite_ring[0]);
+mite_free_ring(devpriv->gpct_mite_ring[1]);
+mite_detach(devpriv->mite);
+}
+if (dev->mmio)
+iounmap(dev->mmio);
+comedi_pci_disable(dev);
+}
+static int pcimio_auto_attach(struct comedi_device *dev,
+unsigned long context)
+{
+struct pci_dev *pcidev = comedi_to_pci_dev(dev);
+const struct ni_board_struct *board = NULL;
+struct ni_private *devpriv;
+unsigned int irq;
+int ret;
+if (context < ARRAY_SIZE(ni_boards))
+board = &ni_boards[context];
+if (!board)
+return -ENODEV;
+dev->board_ptr = board;
+dev->board_name = board->name;
+ret = comedi_pci_enable(dev);
+if (ret)
+return ret;
+ret = ni_alloc_private(dev);
+if (ret)
+return ret;
+devpriv = dev->private;
+devpriv->mite = mite_alloc(pcidev);
+if (!devpriv->mite)
+return -ENOMEM;
+if (board->reg_type & ni_reg_m_series_mask)
+devpriv->is_m_series = 1;
+if (board->reg_type & ni_reg_6xxx_mask)
+devpriv->is_6xxx = 1;
+if (board->reg_type == ni_reg_611x)
+devpriv->is_611x = 1;
+if (board->reg_type == ni_reg_6143)
+devpriv->is_6143 = 1;
+if (board->reg_type == ni_reg_622x)
+devpriv->is_622x = 1;
+if (board->reg_type == ni_reg_625x)
+devpriv->is_625x = 1;
+if (board->reg_type == ni_reg_628x)
+devpriv->is_628x = 1;
+if (board->reg_type & ni_reg_67xx_mask)
+devpriv->is_67xx = 1;
+if (board->reg_type == ni_reg_6711)
+devpriv->is_6711 = 1;
+if (board->reg_type == ni_reg_6713)
+devpriv->is_6713 = 1;
+ret = mite_setup(dev, devpriv->mite);
+if (ret < 0)
+return ret;
+devpriv->ai_mite_ring = mite_alloc_ring(devpriv->mite);
+if (devpriv->ai_mite_ring == NULL)
+return -ENOMEM;
+devpriv->ao_mite_ring = mite_alloc_ring(devpriv->mite);
+if (devpriv->ao_mite_ring == NULL)
+return -ENOMEM;
+devpriv->cdo_mite_ring = mite_alloc_ring(devpriv->mite);
+if (devpriv->cdo_mite_ring == NULL)
+return -ENOMEM;
+devpriv->gpct_mite_ring[0] = mite_alloc_ring(devpriv->mite);
+if (devpriv->gpct_mite_ring[0] == NULL)
+return -ENOMEM;
+devpriv->gpct_mite_ring[1] = mite_alloc_ring(devpriv->mite);
+if (devpriv->gpct_mite_ring[1] == NULL)
+return -ENOMEM;
+if (devpriv->is_m_series)
+m_series_init_eeprom_buffer(dev);
+if (devpriv->is_6143)
+init_6143(dev);
+irq = pcidev->irq;
+if (irq) {
+ret = request_irq(irq, ni_E_interrupt, IRQF_SHARED,
+dev->board_name, dev);
+if (ret == 0)
+dev->irq = irq;
+}
+ret = ni_E_init(dev, 0, 1);
+if (ret < 0)
+return ret;
+dev->subdevices[NI_AI_SUBDEV].buf_change = &pcimio_ai_change;
+dev->subdevices[NI_AO_SUBDEV].buf_change = &pcimio_ao_change;
+dev->subdevices[NI_GPCT_SUBDEV(0)].buf_change = &pcimio_gpct0_change;
+dev->subdevices[NI_GPCT_SUBDEV(1)].buf_change = &pcimio_gpct1_change;
+dev->subdevices[NI_DIO_SUBDEV].buf_change = &pcimio_dio_change;
+return 0;
+}
+static int ni_pcimio_pci_probe(struct pci_dev *dev,
+const struct pci_device_id *id)
+{
+return comedi_pci_auto_config(dev, &ni_pcimio_driver, id->driver_data);
+}

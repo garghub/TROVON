@@ -1,0 +1,1 @@
+void save_processor_state(void)\r\n{\r\nflush_all_to_thread(current);\r\n#ifdef CONFIG_PPC64\r\nhard_irq_disable();\r\n#endif\r\n}\r\nvoid restore_processor_state(void)\r\n{\r\n#ifdef CONFIG_PPC32\r\nswitch_mmu_context(current->active_mm, current->active_mm, NULL);\r\n#endif\r\n}

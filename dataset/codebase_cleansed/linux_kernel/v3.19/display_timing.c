@@ -1,0 +1,1 @@
+void display_timings_release(struct display_timings *disp)\r\n{\r\nif (disp->timings) {\r\nunsigned int i;\r\nfor (i = 0; i < disp->num_timings; i++)\r\nkfree(disp->timings[i]);\r\nkfree(disp->timings);\r\n}\r\nkfree(disp);\r\n}

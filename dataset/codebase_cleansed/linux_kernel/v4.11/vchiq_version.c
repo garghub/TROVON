@@ -1,0 +1,1 @@
+const char *vchiq_get_build_hostname( void )\r\n{\r\nreturn vchiq_build_hostname;\r\n}\r\nconst char *vchiq_get_build_version( void )\r\n{\r\nreturn vchiq_build_version;\r\n}\r\nconst char *vchiq_get_build_date( void )\r\n{\r\nreturn vchiq_build_date;\r\n}\r\nconst char *vchiq_get_build_time( void )\r\n{\r\nreturn vchiq_build_time;\r\n}

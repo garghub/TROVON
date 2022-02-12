@@ -1,0 +1,203 @@
+static u32 am33xx_prm_read_reg(s16 inst, u16 idx)
+{
+return readl_relaxed(prm_base + inst + idx);
+}
+static void am33xx_prm_write_reg(u32 val, s16 inst, u16 idx)
+{
+writel_relaxed(val, prm_base + inst + idx);
+}
+static u32 am33xx_prm_rmw_reg_bits(u32 mask, u32 bits, s16 inst, s16 idx)
+{
+u32 v;
+v = am33xx_prm_read_reg(inst, idx);
+v &= ~mask;
+v |= bits;
+am33xx_prm_write_reg(v, inst, idx);
+return v;
+}
+static int am33xx_prm_is_hardreset_asserted(u8 shift, u8 part, s16 inst,
+u16 rstctrl_offs)
+{
+u32 v;
+v = am33xx_prm_read_reg(inst, rstctrl_offs);
+v &= 1 << shift;
+v >>= shift;
+return v;
+}
+static int am33xx_prm_assert_hardreset(u8 shift, u8 part, s16 inst,
+u16 rstctrl_offs)
+{
+u32 mask = 1 << shift;
+am33xx_prm_rmw_reg_bits(mask, mask, inst, rstctrl_offs);
+return 0;
+}
+static int am33xx_prm_deassert_hardreset(u8 shift, u8 st_shift, u8 part,
+s16 inst, u16 rstctrl_offs,
+u16 rstst_offs)
+{
+int c;
+u32 mask = 1 << st_shift;
+if (am33xx_prm_is_hardreset_asserted(shift, 0, inst, rstctrl_offs) == 0)
+return -EEXIST;
+am33xx_prm_rmw_reg_bits(0xffffffff, mask, inst, rstst_offs);
+mask = 1 << shift;
+am33xx_prm_rmw_reg_bits(mask, 0, inst, rstctrl_offs);
+omap_test_timeout(am33xx_prm_is_hardreset_asserted(st_shift, 0, inst,
+rstst_offs),
+MAX_MODULE_HARDRESET_WAIT, c);
+return (c == MAX_MODULE_HARDRESET_WAIT) ? -EBUSY : 0;
+}
+static int am33xx_pwrdm_set_next_pwrst(struct powerdomain *pwrdm, u8 pwrst)
+{
+am33xx_prm_rmw_reg_bits(OMAP_POWERSTATE_MASK,
+(pwrst << OMAP_POWERSTATE_SHIFT),
+pwrdm->prcm_offs, pwrdm->pwrstctrl_offs);
+return 0;
+}
+static int am33xx_pwrdm_read_next_pwrst(struct powerdomain *pwrdm)
+{
+u32 v;
+v = am33xx_prm_read_reg(pwrdm->prcm_offs, pwrdm->pwrstctrl_offs);
+v &= OMAP_POWERSTATE_MASK;
+v >>= OMAP_POWERSTATE_SHIFT;
+return v;
+}
+static int am33xx_pwrdm_read_pwrst(struct powerdomain *pwrdm)
+{
+u32 v;
+v = am33xx_prm_read_reg(pwrdm->prcm_offs, pwrdm->pwrstst_offs);
+v &= OMAP_POWERSTATEST_MASK;
+v >>= OMAP_POWERSTATEST_SHIFT;
+return v;
+}
+static int am33xx_pwrdm_read_prev_pwrst(struct powerdomain *pwrdm)
+{
+u32 v;
+v = am33xx_prm_read_reg(pwrdm->prcm_offs, pwrdm->pwrstst_offs);
+v &= AM33XX_LASTPOWERSTATEENTERED_MASK;
+v >>= AM33XX_LASTPOWERSTATEENTERED_SHIFT;
+return v;
+}
+static int am33xx_pwrdm_set_lowpwrstchange(struct powerdomain *pwrdm)
+{
+am33xx_prm_rmw_reg_bits(AM33XX_LOWPOWERSTATECHANGE_MASK,
+(1 << AM33XX_LOWPOWERSTATECHANGE_SHIFT),
+pwrdm->prcm_offs, pwrdm->pwrstctrl_offs);
+return 0;
+}
+static int am33xx_pwrdm_clear_all_prev_pwrst(struct powerdomain *pwrdm)
+{
+am33xx_prm_rmw_reg_bits(AM33XX_LASTPOWERSTATEENTERED_MASK,
+AM33XX_LASTPOWERSTATEENTERED_MASK,
+pwrdm->prcm_offs, pwrdm->pwrstst_offs);
+return 0;
+}
+static int am33xx_pwrdm_set_logic_retst(struct powerdomain *pwrdm, u8 pwrst)
+{
+u32 m;
+m = pwrdm->logicretstate_mask;
+if (!m)
+return -EINVAL;
+am33xx_prm_rmw_reg_bits(m, (pwrst << __ffs(m)),
+pwrdm->prcm_offs, pwrdm->pwrstctrl_offs);
+return 0;
+}
+static int am33xx_pwrdm_read_logic_pwrst(struct powerdomain *pwrdm)
+{
+u32 v;
+v = am33xx_prm_read_reg(pwrdm->prcm_offs, pwrdm->pwrstst_offs);
+v &= AM33XX_LOGICSTATEST_MASK;
+v >>= AM33XX_LOGICSTATEST_SHIFT;
+return v;
+}
+static int am33xx_pwrdm_read_logic_retst(struct powerdomain *pwrdm)
+{
+u32 v, m;
+m = pwrdm->logicretstate_mask;
+if (!m)
+return -EINVAL;
+v = am33xx_prm_read_reg(pwrdm->prcm_offs, pwrdm->pwrstctrl_offs);
+v &= m;
+v >>= __ffs(m);
+return v;
+}
+static int am33xx_pwrdm_set_mem_onst(struct powerdomain *pwrdm, u8 bank,
+u8 pwrst)
+{
+u32 m;
+m = pwrdm->mem_on_mask[bank];
+if (!m)
+return -EINVAL;
+am33xx_prm_rmw_reg_bits(m, (pwrst << __ffs(m)),
+pwrdm->prcm_offs, pwrdm->pwrstctrl_offs);
+return 0;
+}
+static int am33xx_pwrdm_set_mem_retst(struct powerdomain *pwrdm, u8 bank,
+u8 pwrst)
+{
+u32 m;
+m = pwrdm->mem_ret_mask[bank];
+if (!m)
+return -EINVAL;
+am33xx_prm_rmw_reg_bits(m, (pwrst << __ffs(m)),
+pwrdm->prcm_offs, pwrdm->pwrstctrl_offs);
+return 0;
+}
+static int am33xx_pwrdm_read_mem_pwrst(struct powerdomain *pwrdm, u8 bank)
+{
+u32 m, v;
+m = pwrdm->mem_pwrst_mask[bank];
+if (!m)
+return -EINVAL;
+v = am33xx_prm_read_reg(pwrdm->prcm_offs, pwrdm->pwrstst_offs);
+v &= m;
+v >>= __ffs(m);
+return v;
+}
+static int am33xx_pwrdm_read_mem_retst(struct powerdomain *pwrdm, u8 bank)
+{
+u32 m, v;
+m = pwrdm->mem_retst_mask[bank];
+if (!m)
+return -EINVAL;
+v = am33xx_prm_read_reg(pwrdm->prcm_offs, pwrdm->pwrstctrl_offs);
+v &= m;
+v >>= __ffs(m);
+return v;
+}
+static int am33xx_pwrdm_wait_transition(struct powerdomain *pwrdm)
+{
+u32 c = 0;
+while ((am33xx_prm_read_reg(pwrdm->prcm_offs, pwrdm->pwrstst_offs)
+& OMAP_INTRANSITION_MASK) &&
+(c++ < PWRDM_TRANSITION_BAILOUT))
+udelay(1);
+if (c > PWRDM_TRANSITION_BAILOUT) {
+pr_err("powerdomain: %s: waited too long to complete transition\n",
+pwrdm->name);
+return -EAGAIN;
+}
+pr_debug("powerdomain: completed transition in %d loops\n", c);
+return 0;
+}
+static int am33xx_check_vcvp(void)
+{
+return 0;
+}
+static void am33xx_prm_global_warm_sw_reset(void)
+{
+am33xx_prm_rmw_reg_bits(AM33XX_RST_GLOBAL_WARM_SW_MASK,
+AM33XX_RST_GLOBAL_WARM_SW_MASK,
+AM33XX_PRM_DEVICE_MOD,
+AM33XX_PRM_RSTCTRL_OFFSET);
+(void)am33xx_prm_read_reg(AM33XX_PRM_DEVICE_MOD,
+AM33XX_PRM_RSTCTRL_OFFSET);
+}
+int __init am33xx_prm_init(void)
+{
+return prm_register(&am33xx_prm_ll_data);
+}
+static void __exit am33xx_prm_exit(void)
+{
+prm_unregister(&am33xx_prm_ll_data);
+}

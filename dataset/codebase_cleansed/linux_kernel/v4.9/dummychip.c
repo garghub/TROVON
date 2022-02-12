@@ -1,0 +1,1 @@
+static void ack_bad(struct irq_data *data)\r\n{\r\nstruct irq_desc *desc = irq_data_to_desc(data);\r\nprint_irq_desc(data->irq, desc);\r\nack_bad_irq(data->irq);\r\n}\r\nstatic void noop(struct irq_data *data) { }\r\nstatic unsigned int noop_ret(struct irq_data *data)\r\n{\r\nreturn 0;\r\n}

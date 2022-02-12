@@ -1,0 +1,1 @@
+void musb_dbg(struct musb *musb, const char *fmt, ...)\r\n{\r\nstruct va_format vaf;\r\nva_list args;\r\nva_start(args, fmt);\r\nvaf.fmt = fmt;\r\nvaf.va = &args;\r\ntrace_musb_log(musb, &vaf);\r\nva_end(args);\r\n}

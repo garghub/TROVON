@@ -1,0 +1,223 @@
+static void st_rc_send_lirc_timeout(struct rc_dev *rdev)
+{
+DEFINE_IR_RAW_EVENT(ev);
+ev.timeout = true;
+ir_raw_event_store(rdev, &ev);
+}
+static irqreturn_t st_rc_rx_interrupt(int irq, void *data)
+{
+unsigned int symbol, mark = 0;
+struct st_rc_device *dev = data;
+int last_symbol = 0;
+u32 status;
+DEFINE_IR_RAW_EVENT(ev);
+if (dev->irq_wake)
+pm_wakeup_event(dev->dev, 0);
+status = readl(dev->rx_base + IRB_RX_STATUS);
+while (status & (IRB_FIFO_NOT_EMPTY | IRB_OVERFLOW)) {
+u32 int_status = readl(dev->rx_base + IRB_RX_INT_STATUS);
+if (unlikely(int_status & IRB_RX_OVERRUN_INT)) {
+ir_raw_event_reset(dev->rdev);
+dev_info(dev->dev, "IR RX overrun\n");
+writel(IRB_RX_OVERRUN_INT,
+dev->rx_base + IRB_RX_INT_CLEAR);
+continue;
+}
+symbol = readl(dev->rx_base + IRB_RX_SYS);
+mark = readl(dev->rx_base + IRB_RX_ON);
+if (symbol == IRB_TIMEOUT)
+last_symbol = 1;
+if ((mark > 2) && (symbol > 1)) {
+symbol -= mark;
+if (dev->overclocking) {
+symbol *= dev->sample_mult;
+symbol /= dev->sample_div;
+mark *= dev->sample_mult;
+mark /= dev->sample_div;
+}
+ev.duration = US_TO_NS(mark);
+ev.pulse = true;
+ir_raw_event_store(dev->rdev, &ev);
+if (!last_symbol) {
+ev.duration = US_TO_NS(symbol);
+ev.pulse = false;
+ir_raw_event_store(dev->rdev, &ev);
+} else {
+st_rc_send_lirc_timeout(dev->rdev);
+}
+}
+last_symbol = 0;
+status = readl(dev->rx_base + IRB_RX_STATUS);
+}
+writel(IRB_RX_INTS, dev->rx_base + IRB_RX_INT_CLEAR);
+ir_raw_event_handle(dev->rdev);
+return IRQ_HANDLED;
+}
+static void st_rc_hardware_init(struct st_rc_device *dev)
+{
+int baseclock, freqdiff;
+unsigned int rx_max_symbol_per = MAX_SYMB_TIME;
+unsigned int rx_sampling_freq_div;
+if (dev->rstc)
+reset_control_deassert(dev->rstc);
+clk_prepare_enable(dev->sys_clock);
+baseclock = clk_get_rate(dev->sys_clock);
+writel(1, dev->rx_base + IRB_RX_POLARITY_INV);
+rx_sampling_freq_div = baseclock / IRB_SAMPLE_FREQ;
+writel(rx_sampling_freq_div, dev->base + IRB_SAMPLE_RATE_COMM);
+freqdiff = baseclock - (rx_sampling_freq_div * IRB_SAMPLE_FREQ);
+if (freqdiff) {
+dev->overclocking = true;
+dev->sample_mult = 1000;
+dev->sample_div = baseclock / (10000 * rx_sampling_freq_div);
+rx_max_symbol_per = (rx_max_symbol_per * 1000)/dev->sample_div;
+}
+writel(rx_max_symbol_per, dev->rx_base + IRB_MAX_SYM_PERIOD);
+}
+static int st_rc_remove(struct platform_device *pdev)
+{
+struct st_rc_device *rc_dev = platform_get_drvdata(pdev);
+clk_disable_unprepare(rc_dev->sys_clock);
+rc_unregister_device(rc_dev->rdev);
+return 0;
+}
+static int st_rc_open(struct rc_dev *rdev)
+{
+struct st_rc_device *dev = rdev->priv;
+unsigned long flags;
+local_irq_save(flags);
+writel(IRB_RX_INTS, dev->rx_base + IRB_RX_INT_EN);
+writel(0x01, dev->rx_base + IRB_RX_EN);
+local_irq_restore(flags);
+return 0;
+}
+static void st_rc_close(struct rc_dev *rdev)
+{
+struct st_rc_device *dev = rdev->priv;
+writel(0x00, dev->rx_base + IRB_RX_EN);
+writel(0x00, dev->rx_base + IRB_RX_INT_EN);
+}
+static int st_rc_probe(struct platform_device *pdev)
+{
+int ret = -EINVAL;
+struct rc_dev *rdev;
+struct device *dev = &pdev->dev;
+struct resource *res;
+struct st_rc_device *rc_dev;
+struct device_node *np = pdev->dev.of_node;
+const char *rx_mode;
+rc_dev = devm_kzalloc(dev, sizeof(struct st_rc_device), GFP_KERNEL);
+if (!rc_dev)
+return -ENOMEM;
+rdev = rc_allocate_device();
+if (!rdev)
+return -ENOMEM;
+if (np && !of_property_read_string(np, "rx-mode", &rx_mode)) {
+if (!strcmp(rx_mode, "uhf")) {
+rc_dev->rxuhfmode = true;
+} else if (!strcmp(rx_mode, "infrared")) {
+rc_dev->rxuhfmode = false;
+} else {
+dev_err(dev, "Unsupported rx mode [%s]\n", rx_mode);
+goto err;
+}
+} else {
+goto err;
+}
+rc_dev->sys_clock = devm_clk_get(dev, NULL);
+if (IS_ERR(rc_dev->sys_clock)) {
+dev_err(dev, "System clock not found\n");
+ret = PTR_ERR(rc_dev->sys_clock);
+goto err;
+}
+rc_dev->irq = platform_get_irq(pdev, 0);
+if (rc_dev->irq < 0) {
+ret = rc_dev->irq;
+goto err;
+}
+res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+rc_dev->base = devm_ioremap_resource(dev, res);
+if (IS_ERR(rc_dev->base)) {
+ret = PTR_ERR(rc_dev->base);
+goto err;
+}
+if (rc_dev->rxuhfmode)
+rc_dev->rx_base = rc_dev->base + 0x40;
+else
+rc_dev->rx_base = rc_dev->base;
+rc_dev->rstc = reset_control_get(dev, NULL);
+if (IS_ERR(rc_dev->rstc))
+rc_dev->rstc = NULL;
+rc_dev->dev = dev;
+platform_set_drvdata(pdev, rc_dev);
+st_rc_hardware_init(rc_dev);
+rdev->driver_type = RC_DRIVER_IR_RAW;
+rdev->allowed_protocols = RC_BIT_ALL;
+rdev->rx_resolution = 100;
+rdev->timeout = US_TO_NS(MAX_SYMB_TIME);
+rdev->priv = rc_dev;
+rdev->open = st_rc_open;
+rdev->close = st_rc_close;
+rdev->driver_name = IR_ST_NAME;
+rdev->map_name = RC_MAP_LIRC;
+rdev->input_name = "ST Remote Control Receiver";
+device_set_wakeup_capable(dev, true);
+device_set_wakeup_enable(dev, true);
+ret = rc_register_device(rdev);
+if (ret < 0)
+goto clkerr;
+rc_dev->rdev = rdev;
+if (devm_request_irq(dev, rc_dev->irq, st_rc_rx_interrupt,
+IRQF_NO_SUSPEND, IR_ST_NAME, rc_dev) < 0) {
+dev_err(dev, "IRQ %d register failed\n", rc_dev->irq);
+ret = -EINVAL;
+goto rcerr;
+}
+st_rc_send_lirc_timeout(rdev);
+dev_info(dev, "setup in %s mode\n", rc_dev->rxuhfmode ? "UHF" : "IR");
+return ret;
+rcerr:
+rc_unregister_device(rdev);
+rdev = NULL;
+clkerr:
+clk_disable_unprepare(rc_dev->sys_clock);
+err:
+rc_free_device(rdev);
+dev_err(dev, "Unable to register device (%d)\n", ret);
+return ret;
+}
+static int st_rc_suspend(struct device *dev)
+{
+struct st_rc_device *rc_dev = dev_get_drvdata(dev);
+if (device_may_wakeup(dev)) {
+if (!enable_irq_wake(rc_dev->irq))
+rc_dev->irq_wake = 1;
+else
+return -EINVAL;
+} else {
+pinctrl_pm_select_sleep_state(dev);
+writel(0x00, rc_dev->rx_base + IRB_RX_EN);
+writel(0x00, rc_dev->rx_base + IRB_RX_INT_EN);
+clk_disable_unprepare(rc_dev->sys_clock);
+if (rc_dev->rstc)
+reset_control_assert(rc_dev->rstc);
+}
+return 0;
+}
+static int st_rc_resume(struct device *dev)
+{
+struct st_rc_device *rc_dev = dev_get_drvdata(dev);
+struct rc_dev *rdev = rc_dev->rdev;
+if (rc_dev->irq_wake) {
+disable_irq_wake(rc_dev->irq);
+rc_dev->irq_wake = 0;
+} else {
+pinctrl_pm_select_default_state(dev);
+st_rc_hardware_init(rc_dev);
+if (rdev->users) {
+writel(IRB_RX_INTS, rc_dev->rx_base + IRB_RX_INT_EN);
+writel(0x01, rc_dev->rx_base + IRB_RX_EN);
+}
+}
+return 0;
+}

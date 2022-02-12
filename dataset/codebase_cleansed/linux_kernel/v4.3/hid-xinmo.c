@@ -1,0 +1,1 @@
+static int xinmo_event(struct hid_device *hdev, struct hid_field *field,\r\nstruct hid_usage *usage, __s32 value)\r\n{\r\nswitch (usage->code) {\r\ncase ABS_X:\r\ncase ABS_Y:\r\ncase ABS_Z:\r\ncase ABS_RX:\r\nif (value < -1) {\r\ninput_event(field->hidinput->input, usage->type,\r\nusage->code, -1);\r\nreturn 1;\r\n}\r\nbreak;\r\n}\r\nreturn 0;\r\n}

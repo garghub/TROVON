@@ -1,0 +1,1 @@
+static void *tc35876x_platform_data(void *data)\r\n{\r\nstatic struct tc35876x_platform_data pdata;\r\npdata.gpio_bridge_reset = get_gpio_by_name("LCMB_RXEN");\r\npdata.gpio_panel_bl_en = get_gpio_by_name("6S6P_BL_EN");\r\npdata.gpio_panel_vadd = get_gpio_by_name("EN_VREG_LCD_V3P3");\r\nreturn &pdata;\r\n}

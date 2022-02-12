@@ -1,0 +1,1 @@
+static int __init init_rc_map_dm1105_nec(void)\r\n{\r\nreturn rc_map_register(&dm1105_nec_map);\r\n}\r\nstatic void __exit exit_rc_map_dm1105_nec(void)\r\n{\r\nrc_map_unregister(&dm1105_nec_map);\r\n}

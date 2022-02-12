@@ -1,0 +1,1 @@
+static void _allow_idle(struct clk_hw_omap *clk)\r\n{\r\nif (!clk || !clk->dpll_data)\r\nreturn;\r\nomap2xxx_cm_set_dpll_auto_low_power_stop();\r\n}\r\nstatic void _deny_idle(struct clk_hw_omap *clk)\r\n{\r\nif (!clk || !clk->dpll_data)\r\nreturn;\r\nomap2xxx_cm_set_dpll_disable_autoidle();\r\n}

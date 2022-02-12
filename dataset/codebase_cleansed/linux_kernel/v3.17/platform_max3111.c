@@ -1,0 +1,1 @@
+static void __init *max3111_platform_data(void *info)\r\n{\r\nstruct spi_board_info *spi_info = info;\r\nint intr = get_gpio_by_name("max3111_int");\r\nspi_info->mode = SPI_MODE_0;\r\nif (intr == -1)\r\nreturn NULL;\r\nspi_info->irq = intr + INTEL_MID_IRQ_OFFSET;\r\nreturn NULL;\r\n}

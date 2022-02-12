@@ -1,0 +1,1 @@
+void foo(void)\r\n{\r\nDEFINE(NR_PAGEFLAGS, __NR_PAGEFLAGS);\r\nDEFINE(MAX_NR_ZONES, __MAX_NR_ZONES);\r\n#ifdef CONFIG_SMP\r\nDEFINE(NR_CPUS_BITS, ilog2(CONFIG_NR_CPUS));\r\n#endif\r\nDEFINE(SPINLOCK_SIZE, sizeof(spinlock_t));\r\n}

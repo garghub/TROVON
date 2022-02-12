@@ -1,0 +1,14 @@
+static void __init at91sam9_common_init(void)
+{
+struct soc_device *soc;
+struct device *soc_dev = NULL;
+soc = at91_soc_init(at91sam9_socs);
+if (soc != NULL)
+soc_dev = soc_device_to_device(soc);
+of_platform_default_populate(NULL, NULL, soc_dev);
+}
+static void __init at91sam9_dt_device_init(void)
+{
+at91sam9_common_init();
+at91sam9260_pm_init();
+}

@@ -1,0 +1,1 @@
+static int vop_probe(struct platform_device *pdev)\r\n{\r\nstruct device *dev = &pdev->dev;\r\nif (!dev->of_node) {\r\ndev_err(dev, "can't find vop devices\n");\r\nreturn -ENODEV;\r\n}\r\nreturn component_add(dev, &vop_component_ops);\r\n}\r\nstatic int vop_remove(struct platform_device *pdev)\r\n{\r\ncomponent_del(&pdev->dev, &vop_component_ops);\r\nreturn 0;\r\n}

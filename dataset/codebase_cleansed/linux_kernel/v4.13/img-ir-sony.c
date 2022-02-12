@@ -1,0 +1,86 @@
+static int img_ir_sony_scancode(int len, u64 raw, u64 enabled_protocols,
+struct img_ir_scancode_req *request)
+{
+unsigned int dev, subdev, func;
+switch (len) {
+case 12:
+if (!(enabled_protocols & RC_BIT_SONY12))
+return -EINVAL;
+func = raw & 0x7f;
+raw >>= 7;
+dev = raw & 0x1f;
+subdev = 0;
+request->protocol = RC_TYPE_SONY12;
+break;
+case 15:
+if (!(enabled_protocols & RC_BIT_SONY15))
+return -EINVAL;
+func = raw & 0x7f;
+raw >>= 7;
+dev = raw & 0xff;
+subdev = 0;
+request->protocol = RC_TYPE_SONY15;
+break;
+case 20:
+if (!(enabled_protocols & RC_BIT_SONY20))
+return -EINVAL;
+func = raw & 0x7f;
+raw >>= 7;
+dev = raw & 0x1f;
+raw >>= 5;
+subdev = raw & 0xff;
+request->protocol = RC_TYPE_SONY20;
+break;
+default:
+return -EINVAL;
+}
+request->scancode = dev << 16 | subdev << 8 | func;
+return IMG_IR_SCANCODE;
+}
+static int img_ir_sony_filter(const struct rc_scancode_filter *in,
+struct img_ir_filter *out, u64 protocols)
+{
+unsigned int dev, subdev, func;
+unsigned int dev_m, subdev_m, func_m;
+unsigned int len = 0;
+dev = (in->data >> 16) & 0xff;
+dev_m = (in->mask >> 16) & 0xff;
+subdev = (in->data >> 8) & 0xff;
+subdev_m = (in->mask >> 8) & 0xff;
+func = (in->data >> 0) & 0x7f;
+func_m = (in->mask >> 0) & 0x7f;
+protocols &= RC_BIT_SONY12 | RC_BIT_SONY15 | RC_BIT_SONY20;
+if (!is_power_of_2(protocols)) {
+if (subdev & subdev_m)
+protocols = RC_BIT_SONY20;
+else if (dev & dev_m & 0xe0)
+protocols = RC_BIT_SONY15;
+else
+protocols = RC_BIT_SONY12;
+}
+if (protocols == RC_BIT_SONY20) {
+if (dev & dev_m & 0xe0)
+return -EINVAL;
+len = 20;
+dev_m &= 0x1f;
+} else if (protocols == RC_BIT_SONY15) {
+len = 15;
+subdev_m = 0;
+} else {
+subdev_m &= (dev_m >> 5) | 0xf8;
+dev_m &= 0x1f;
+}
+dev &= dev_m;
+subdev &= subdev_m;
+out->data = func |
+dev << 7 |
+subdev << 15;
+out->mask = func_m |
+dev_m << 7 |
+subdev_m << 15;
+if (len) {
+out->minlen = len;
+out->maxlen = len;
+}
+return 0;
+}

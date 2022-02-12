@@ -1,0 +1,1 @@
+int nfs4_register_sysctl(void)\r\n{\r\nnfs4_callback_sysctl_table = register_sysctl_table(nfs4_cb_sysctl_root);\r\nif (nfs4_callback_sysctl_table == NULL)\r\nreturn -ENOMEM;\r\nreturn 0;\r\n}\r\nvoid nfs4_unregister_sysctl(void)\r\n{\r\nunregister_sysctl_table(nfs4_callback_sysctl_table);\r\nnfs4_callback_sysctl_table = NULL;\r\n}

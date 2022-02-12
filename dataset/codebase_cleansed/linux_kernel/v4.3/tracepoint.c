@@ -1,0 +1,1 @@
+void __brcmf_err(const char *func, const char *fmt, ...)\r\n{\r\nstruct va_format vaf = {\r\n.fmt = fmt,\r\n};\r\nva_list args;\r\nva_start(args, fmt);\r\nvaf.va = &args;\r\npr_err("%s: %pV", func, &vaf);\r\ntrace_brcmf_err(func, &vaf);\r\nva_end(args);\r\n}

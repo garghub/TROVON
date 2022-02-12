@@ -1,0 +1,1 @@
+static void __init asp834x_setup_arch(void)\r\n{\r\nmpc83xx_setup_arch();\r\nmpc834x_usb_cfg();\r\n}\r\nstatic int __init asp834x_probe(void)\r\n{\r\nreturn of_machine_is_compatible("analogue-and-micro,asp8347e");\r\n}

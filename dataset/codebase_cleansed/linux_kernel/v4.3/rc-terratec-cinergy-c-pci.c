@@ -1,0 +1,1 @@
+static int __init init_rc_map_terratec_cinergy_c_pci(void)\r\n{\r\nreturn rc_map_register(&terratec_cinergy_c_pci_map);\r\n}\r\nstatic void __exit exit_rc_map_terratec_cinergy_c_pci(void)\r\n{\r\nrc_map_unregister(&terratec_cinergy_c_pci_map);\r\n}

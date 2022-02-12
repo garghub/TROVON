@@ -1,0 +1,162 @@
+static inline struct atmel_hlcdc_pwm *to_atmel_hlcdc_pwm(struct pwm_chip *chip)
+{
+return container_of(chip, struct atmel_hlcdc_pwm, chip);
+}
+static int atmel_hlcdc_pwm_apply(struct pwm_chip *c, struct pwm_device *pwm,
+struct pwm_state *state)
+{
+struct atmel_hlcdc_pwm *chip = to_atmel_hlcdc_pwm(c);
+struct atmel_hlcdc *hlcdc = chip->hlcdc;
+unsigned int status;
+int ret;
+if (state->enabled) {
+struct clk *new_clk = hlcdc->slow_clk;
+u64 pwmcval = state->duty_cycle * 256;
+unsigned long clk_freq;
+u64 clk_period_ns;
+u32 pwmcfg;
+int pres;
+if (!chip->errata || !chip->errata->slow_clk_erratum) {
+clk_freq = clk_get_rate(new_clk);
+if (!clk_freq)
+return -EINVAL;
+clk_period_ns = (u64)NSEC_PER_SEC * 256;
+do_div(clk_period_ns, clk_freq);
+}
+if ((chip->errata && chip->errata->slow_clk_erratum) ||
+clk_period_ns > state->period) {
+new_clk = hlcdc->sys_clk;
+clk_freq = clk_get_rate(new_clk);
+if (!clk_freq)
+return -EINVAL;
+clk_period_ns = (u64)NSEC_PER_SEC * 256;
+do_div(clk_period_ns, clk_freq);
+}
+for (pres = 0; pres <= ATMEL_HLCDC_PWMPS_MAX; pres++) {
+if (!pres && chip->errata &&
+chip->errata->div1_clk_erratum)
+continue;
+if ((clk_period_ns << pres) >= state->period)
+break;
+}
+if (pres > ATMEL_HLCDC_PWMPS_MAX)
+return -EINVAL;
+pwmcfg = ATMEL_HLCDC_PWMPS(pres);
+if (new_clk != chip->cur_clk) {
+u32 gencfg = 0;
+int ret;
+ret = clk_prepare_enable(new_clk);
+if (ret)
+return ret;
+clk_disable_unprepare(chip->cur_clk);
+chip->cur_clk = new_clk;
+if (new_clk == hlcdc->sys_clk)
+gencfg = ATMEL_HLCDC_CLKPWMSEL;
+ret = regmap_update_bits(hlcdc->regmap,
+ATMEL_HLCDC_CFG(0),
+ATMEL_HLCDC_CLKPWMSEL,
+gencfg);
+if (ret)
+return ret;
+}
+do_div(pwmcval, state->period);
+if (pwmcval > 255)
+pwmcval = 255;
+pwmcfg |= ATMEL_HLCDC_PWMCVAL(pwmcval);
+if (state->polarity == PWM_POLARITY_NORMAL)
+pwmcfg |= ATMEL_HLCDC_PWMPOL;
+ret = regmap_update_bits(hlcdc->regmap, ATMEL_HLCDC_CFG(6),
+ATMEL_HLCDC_PWMCVAL_MASK |
+ATMEL_HLCDC_PWMPS_MASK |
+ATMEL_HLCDC_PWMPOL,
+pwmcfg);
+if (ret)
+return ret;
+ret = regmap_write(hlcdc->regmap, ATMEL_HLCDC_EN,
+ATMEL_HLCDC_PWM);
+if (ret)
+return ret;
+ret = regmap_read_poll_timeout(hlcdc->regmap, ATMEL_HLCDC_SR,
+status,
+status & ATMEL_HLCDC_PWM,
+10, 0);
+if (ret)
+return ret;
+} else {
+ret = regmap_write(hlcdc->regmap, ATMEL_HLCDC_DIS,
+ATMEL_HLCDC_PWM);
+if (ret)
+return ret;
+ret = regmap_read_poll_timeout(hlcdc->regmap, ATMEL_HLCDC_SR,
+status,
+!(status & ATMEL_HLCDC_PWM),
+10, 0);
+if (ret)
+return ret;
+clk_disable_unprepare(chip->cur_clk);
+chip->cur_clk = NULL;
+}
+return 0;
+}
+static int atmel_hlcdc_pwm_suspend(struct device *dev)
+{
+struct atmel_hlcdc_pwm *chip = dev_get_drvdata(dev);
+if (pwm_is_enabled(&chip->chip.pwms[0]))
+clk_disable_unprepare(chip->hlcdc->periph_clk);
+return 0;
+}
+static int atmel_hlcdc_pwm_resume(struct device *dev)
+{
+struct atmel_hlcdc_pwm *chip = dev_get_drvdata(dev);
+struct pwm_state state;
+int ret;
+pwm_get_state(&chip->chip.pwms[0], &state);
+if (!state.enabled) {
+ret = clk_prepare_enable(chip->hlcdc->periph_clk);
+if (ret)
+return ret;
+}
+return atmel_hlcdc_pwm_apply(&chip->chip, &chip->chip.pwms[0], &state);
+}
+static int atmel_hlcdc_pwm_probe(struct platform_device *pdev)
+{
+const struct of_device_id *match;
+struct device *dev = &pdev->dev;
+struct atmel_hlcdc_pwm *chip;
+struct atmel_hlcdc *hlcdc;
+int ret;
+hlcdc = dev_get_drvdata(dev->parent);
+chip = devm_kzalloc(dev, sizeof(*chip), GFP_KERNEL);
+if (!chip)
+return -ENOMEM;
+ret = clk_prepare_enable(hlcdc->periph_clk);
+if (ret)
+return ret;
+match = of_match_node(atmel_hlcdc_dt_ids, dev->parent->of_node);
+if (match)
+chip->errata = match->data;
+chip->hlcdc = hlcdc;
+chip->chip.ops = &atmel_hlcdc_pwm_ops;
+chip->chip.dev = dev;
+chip->chip.base = -1;
+chip->chip.npwm = 1;
+chip->chip.of_xlate = of_pwm_xlate_with_flags;
+chip->chip.of_pwm_n_cells = 3;
+ret = pwmchip_add_with_polarity(&chip->chip, PWM_POLARITY_INVERSED);
+if (ret) {
+clk_disable_unprepare(hlcdc->periph_clk);
+return ret;
+}
+platform_set_drvdata(pdev, chip);
+return 0;
+}
+static int atmel_hlcdc_pwm_remove(struct platform_device *pdev)
+{
+struct atmel_hlcdc_pwm *chip = platform_get_drvdata(pdev);
+int ret;
+ret = pwmchip_remove(&chip->chip);
+if (ret)
+return ret;
+clk_disable_unprepare(chip->hlcdc->periph_clk);
+return 0;
+}

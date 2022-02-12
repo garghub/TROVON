@@ -1,0 +1,1 @@
+static void sh7722_sci_init_pins(struct uart_port *port, unsigned int cflag)\r\n{\r\nunsigned short data;\r\nif (port->mapbase == 0xffe00000) {\r\ndata = __raw_readw(PSCR);\r\ndata &= ~0x03cf;\r\nif (!(cflag & CRTSCTS))\r\ndata |= 0x0340;\r\n__raw_writew(data, PSCR);\r\n}\r\n}

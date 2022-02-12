@@ -1,0 +1,1 @@
+static int pxa3xx_mfp_suspend(void)\r\n{\r\nmfp_config_lpm();\r\nreturn 0;\r\n}\r\nstatic void pxa3xx_mfp_resume(void)\r\n{\r\nmfp_config_run();\r\nASCR &= ~(ASCR_RDH | ASCR_D1S | ASCR_D2S | ASCR_D3S);\r\n}

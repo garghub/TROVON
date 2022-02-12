@@ -1,0 +1,1 @@
+static int ipq8074_pinctrl_probe(struct platform_device *pdev)\r\n{\r\nreturn msm_pinctrl_probe(pdev, &ipq8074_pinctrl);\r\n}\r\nstatic int __init ipq8074_pinctrl_init(void)\r\n{\r\nreturn platform_driver_register(&ipq8074_pinctrl_driver);\r\n}\r\nstatic void __exit ipq8074_pinctrl_exit(void)\r\n{\r\nplatform_driver_unregister(&ipq8074_pinctrl_driver);\r\n}

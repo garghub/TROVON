@@ -1,0 +1,1 @@
+static int __init iio_configfs_init(void)\r\n{\r\nconfig_group_init(&iio_configfs_subsys.su_group);\r\nreturn configfs_register_subsystem(&iio_configfs_subsys);\r\n}\r\nstatic void __exit iio_configfs_exit(void)\r\n{\r\nconfigfs_unregister_subsystem(&iio_configfs_subsys);\r\n}

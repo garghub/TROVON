@@ -1,0 +1,1 @@
+static int __init init_rc_map_medion_x10_digitainer(void)\r\n{\r\nreturn rc_map_register(&medion_x10_digitainer_map);\r\n}\r\nstatic void __exit exit_rc_map_medion_x10_digitainer(void)\r\n{\r\nrc_map_unregister(&medion_x10_digitainer_map);\r\n}

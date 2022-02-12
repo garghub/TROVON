@@ -1,0 +1,1 @@
+static int apci1500_auto_attach(struct comedi_device *dev,\r\nunsigned long context)\r\n{\r\ndev->board_ptr = &apci1500_boardtypes[0];\r\nreturn addi_auto_attach(dev, context);\r\n}\r\nstatic int apci1500_pci_probe(struct pci_dev *dev,\r\nconst struct pci_device_id *id)\r\n{\r\nreturn comedi_pci_auto_config(dev, &apci1500_driver, id->driver_data);\r\n}

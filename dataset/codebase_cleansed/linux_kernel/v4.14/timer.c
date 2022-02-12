@@ -1,0 +1,1 @@
+enum ia_css_err\r\nia_css_timer_get_current_tick(\r\nstruct ia_css_clock_tick *curr_ts) {\r\nassert(curr_ts != NULL);\r\nif (curr_ts == NULL) {\r\nreturn IA_CSS_ERR_INVALID_ARGUMENTS;\r\n}\r\ncurr_ts->ticks = (clock_value_t)gp_timer_read(GP_TIMER_SEL);\r\nreturn IA_CSS_SUCCESS;\r\n}

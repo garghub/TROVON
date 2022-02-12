@@ -1,0 +1,1 @@
+int __init am43xx_hwmod_init(void)\r\n{\r\nint ret;\r\nomap_hwmod_am43xx_reg();\r\nomap_hwmod_init();\r\nret = omap_hwmod_register_links(am43xx_hwmod_ocp_ifs);\r\nif (!ret && of_machine_is_compatible("ti,am4372"))\r\nret = omap_hwmod_register_links(am43xx_rtc_hwmod_ocp_ifs);\r\nreturn ret;\r\n}

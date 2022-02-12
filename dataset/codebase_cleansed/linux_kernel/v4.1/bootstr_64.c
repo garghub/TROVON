@@ -1,0 +1,1 @@
+char * __init\r\nprom_getbootargs(void)\r\n{\r\nif (bootstr_info.bootstr_valid)\r\nreturn bootstr_info.bootstr_buf;\r\nprom_getstring(prom_chosen_node, "bootargs",\r\nbootstr_info.bootstr_buf, BARG_LEN);\r\nbootstr_info.bootstr_valid = 1;\r\nreturn bootstr_info.bootstr_buf;\r\n}

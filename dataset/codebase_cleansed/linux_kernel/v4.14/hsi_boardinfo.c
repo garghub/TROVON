@@ -1,0 +1,1 @@
+int __init hsi_register_board_info(struct hsi_board_info const *info,\r\nunsigned int len)\r\n{\r\nstruct hsi_cl_info *cl_info;\r\ncl_info = kcalloc(len, sizeof(*cl_info), GFP_KERNEL);\r\nif (!cl_info)\r\nreturn -ENOMEM;\r\nfor (; len; len--, info++, cl_info++) {\r\ncl_info->info = *info;\r\nlist_add_tail(&cl_info->list, &hsi_board_list);\r\n}\r\nreturn 0;\r\n}

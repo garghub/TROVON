@@ -1,0 +1,1 @@
+int __init metag_da_probe(void)\r\n{\r\n_metag_da_present = (metag_in32(T0VECINT_BHALT) == 1);\r\nif (_metag_da_present)\r\npr_info("DA present\n");\r\nelse\r\npr_info("DA not present\n");\r\nreturn 0;\r\n}

@@ -1,0 +1,1 @@
+static void defon_trig_activate(struct led_classdev *led_cdev)\r\n{\r\nled_set_brightness_nosleep(led_cdev, led_cdev->max_brightness);\r\n}\r\nstatic int __init defon_trig_init(void)\r\n{\r\nreturn led_trigger_register(&defon_led_trigger);\r\n}\r\nstatic void __exit defon_trig_exit(void)\r\n{\r\nled_trigger_unregister(&defon_led_trigger);\r\n}

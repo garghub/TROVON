@@ -1,0 +1,1 @@
+static void __init exynos4415_cmu_init(struct device_node *np)\r\n{\r\nsamsung_cmu_register_one(np, &cmu_info);\r\n}\r\nstatic void __init exynos4415_cmu_dmc_init(struct device_node *np)\r\n{\r\nsamsung_cmu_register_one(np, &cmu_dmc_info);\r\n}

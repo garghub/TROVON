@@ -1,0 +1,1 @@
+static int __init i810_init(void)\r\n{\r\nif (num_possible_cpus() > 1) {\r\npr_err("drm/i810 does not support SMP\n");\r\nreturn -EINVAL;\r\n}\r\ndriver.num_ioctls = i810_max_ioctl;\r\nreturn drm_pci_init(&driver, &i810_pci_driver);\r\n}\r\nstatic void __exit i810_exit(void)\r\n{\r\ndrm_pci_exit(&driver, &i810_pci_driver);\r\n}

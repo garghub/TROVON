@@ -1,0 +1,131 @@
+static unsigned long clk_factor_recalc_rate(struct clk_hw *hw,
+unsigned long parent_rate)
+{
+struct clk_fixed_factor *fix = to_clk_fixed_factor(hw);
+unsigned long long int rate;
+rate = (unsigned long long int)parent_rate * fix->mult;
+do_div(rate, fix->div);
+return (unsigned long)rate;
+}
+static long clk_factor_round_rate(struct clk_hw *hw, unsigned long rate,
+unsigned long *prate)
+{
+struct clk_fixed_factor *fix = to_clk_fixed_factor(hw);
+if (clk_hw_get_flags(hw) & CLK_SET_RATE_PARENT) {
+unsigned long best_parent;
+best_parent = (rate / fix->mult) * fix->div;
+*prate = clk_hw_round_rate(clk_hw_get_parent(hw), best_parent);
+}
+return (*prate / fix->div) * fix->mult;
+}
+static int clk_factor_set_rate(struct clk_hw *hw, unsigned long rate,
+unsigned long parent_rate)
+{
+return 0;
+}
+struct clk_hw *clk_hw_register_fixed_factor(struct device *dev,
+const char *name, const char *parent_name, unsigned long flags,
+unsigned int mult, unsigned int div)
+{
+struct clk_fixed_factor *fix;
+struct clk_init_data init;
+struct clk_hw *hw;
+int ret;
+fix = kmalloc(sizeof(*fix), GFP_KERNEL);
+if (!fix)
+return ERR_PTR(-ENOMEM);
+fix->mult = mult;
+fix->div = div;
+fix->hw.init = &init;
+init.name = name;
+init.ops = &clk_fixed_factor_ops;
+init.flags = flags | CLK_IS_BASIC;
+init.parent_names = &parent_name;
+init.num_parents = 1;
+hw = &fix->hw;
+ret = clk_hw_register(dev, hw);
+if (ret) {
+kfree(fix);
+hw = ERR_PTR(ret);
+}
+return hw;
+}
+struct clk *clk_register_fixed_factor(struct device *dev, const char *name,
+const char *parent_name, unsigned long flags,
+unsigned int mult, unsigned int div)
+{
+struct clk_hw *hw;
+hw = clk_hw_register_fixed_factor(dev, name, parent_name, flags, mult,
+div);
+if (IS_ERR(hw))
+return ERR_CAST(hw);
+return hw->clk;
+}
+void clk_unregister_fixed_factor(struct clk *clk)
+{
+struct clk_hw *hw;
+hw = __clk_get_hw(clk);
+if (!hw)
+return;
+clk_unregister(clk);
+kfree(to_clk_fixed_factor(hw));
+}
+void clk_hw_unregister_fixed_factor(struct clk_hw *hw)
+{
+struct clk_fixed_factor *fix;
+fix = to_clk_fixed_factor(hw);
+clk_hw_unregister(hw);
+kfree(fix);
+}
+static struct clk *_of_fixed_factor_clk_setup(struct device_node *node)
+{
+struct clk *clk;
+const char *clk_name = node->name;
+const char *parent_name;
+unsigned long flags = 0;
+u32 div, mult;
+int ret;
+if (of_property_read_u32(node, "clock-div", &div)) {
+pr_err("%s Fixed factor clock <%s> must have a clock-div property\n",
+__func__, node->name);
+return ERR_PTR(-EIO);
+}
+if (of_property_read_u32(node, "clock-mult", &mult)) {
+pr_err("%s Fixed factor clock <%s> must have a clock-mult property\n",
+__func__, node->name);
+return ERR_PTR(-EIO);
+}
+of_property_read_string(node, "clock-output-names", &clk_name);
+parent_name = of_clk_get_parent_name(node, 0);
+if (of_match_node(set_rate_parent_matches, node))
+flags |= CLK_SET_RATE_PARENT;
+clk = clk_register_fixed_factor(NULL, clk_name, parent_name, flags,
+mult, div);
+if (IS_ERR(clk))
+return clk;
+ret = of_clk_add_provider(node, of_clk_src_simple_get, clk);
+if (ret) {
+clk_unregister(clk);
+return ERR_PTR(ret);
+}
+return clk;
+}
+void __init of_fixed_factor_clk_setup(struct device_node *node)
+{
+_of_fixed_factor_clk_setup(node);
+}
+static int of_fixed_factor_clk_remove(struct platform_device *pdev)
+{
+struct clk *clk = platform_get_drvdata(pdev);
+clk_unregister_fixed_factor(clk);
+return 0;
+}
+static int of_fixed_factor_clk_probe(struct platform_device *pdev)
+{
+struct clk *clk;
+clk = _of_fixed_factor_clk_setup(pdev->dev.of_node);
+if (IS_ERR(clk))
+return PTR_ERR(clk);
+platform_set_drvdata(pdev, clk);
+return 0;
+}

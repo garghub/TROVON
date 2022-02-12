@@ -1,0 +1,226 @@
+static int powernv_eeh_init(void)
+{
+struct pci_controller *hose;
+struct pnv_phb *phb;
+if (!firmware_has_feature(FW_FEATURE_OPALv3)) {
+pr_warn("%s: OPALv3 is required !\n",
+__func__);
+return -EINVAL;
+}
+eeh_add_flag(EEH_PROBE_MODE_DEV);
+list_for_each_entry(hose, &hose_list, list_node) {
+phb = hose->private_data;
+if (phb->model == PNV_PHB_MODEL_P7IOC)
+eeh_add_flag(EEH_ENABLE_IO_FOR_LOG);
+if (phb->ioda.reserved_pe != 0)
+eeh_add_flag(EEH_VALID_PE_ZERO);
+break;
+}
+return 0;
+}
+static int powernv_eeh_post_init(void)
+{
+struct pci_controller *hose;
+struct pnv_phb *phb;
+int ret = 0;
+list_for_each_entry(hose, &hose_list, list_node) {
+phb = hose->private_data;
+if (phb->eeh_ops && phb->eeh_ops->post_init) {
+ret = phb->eeh_ops->post_init(hose);
+if (ret)
+break;
+}
+}
+return ret;
+}
+static int powernv_eeh_dev_probe(struct pci_dev *dev, void *flag)
+{
+struct pci_controller *hose = pci_bus_to_host(dev->bus);
+struct pnv_phb *phb = hose->private_data;
+struct device_node *dn = pci_device_to_OF_node(dev);
+struct eeh_dev *edev = of_node_to_eeh_dev(dn);
+int ret;
+if (!dn || !edev || edev->pe)
+return 0;
+if ((dev->class >> 8) == PCI_CLASS_BRIDGE_ISA)
+return 0;
+edev->class_code = dev->class;
+edev->mode &= 0xFFFFFF00;
+if (dev->hdr_type == PCI_HEADER_TYPE_BRIDGE)
+edev->mode |= EEH_DEV_BRIDGE;
+edev->pcix_cap = pci_find_capability(dev, PCI_CAP_ID_PCIX);
+if (pci_is_pcie(dev)) {
+edev->pcie_cap = pci_pcie_cap(dev);
+if (pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT)
+edev->mode |= EEH_DEV_ROOT_PORT;
+else if (pci_pcie_type(dev) == PCI_EXP_TYPE_DOWNSTREAM)
+edev->mode |= EEH_DEV_DS_PORT;
+edev->aer_cap = pci_find_ext_capability(dev,
+PCI_EXT_CAP_ID_ERR);
+}
+edev->config_addr = ((dev->bus->number << 8) | dev->devfn);
+edev->pe_config_addr = phb->bdfn_to_pe(phb, dev->bus, dev->devfn & 0xff);
+ret = eeh_add_to_parent_pe(edev);
+if (ret) {
+pr_warn("%s: Can't add PCI dev %s to parent PE (%d)\n",
+__func__, pci_name(dev), ret);
+return ret;
+}
+if ((dev->vendor == PCI_VENDOR_ID_BROADCOM && dev->device == 0x1657) ||
+(dev->vendor == PCI_VENDOR_ID_BROADCOM && dev->device == 0x168e))
+edev->pe->state |= EEH_PE_CFG_RESTRICTED;
+if (!edev->pe->bus)
+edev->pe->bus = dev->bus;
+eeh_add_flag(EEH_ENABLED);
+eeh_save_bars(edev);
+return 0;
+}
+static int powernv_eeh_set_option(struct eeh_pe *pe, int option)
+{
+struct pci_controller *hose = pe->phb;
+struct pnv_phb *phb = hose->private_data;
+int ret = -EEXIST;
+if (phb->eeh_ops && phb->eeh_ops->set_option)
+ret = phb->eeh_ops->set_option(pe, option);
+return ret;
+}
+static int powernv_eeh_get_pe_addr(struct eeh_pe *pe)
+{
+return pe->addr;
+}
+static int powernv_eeh_get_state(struct eeh_pe *pe, int *delay)
+{
+struct pci_controller *hose = pe->phb;
+struct pnv_phb *phb = hose->private_data;
+int ret = EEH_STATE_NOT_SUPPORT;
+if (phb->eeh_ops && phb->eeh_ops->get_state) {
+ret = phb->eeh_ops->get_state(pe);
+if (delay) {
+*delay = 0;
+if (ret & EEH_STATE_UNAVAILABLE)
+*delay = 1000;
+}
+}
+return ret;
+}
+static int powernv_eeh_reset(struct eeh_pe *pe, int option)
+{
+struct pci_controller *hose = pe->phb;
+struct pnv_phb *phb = hose->private_data;
+int ret = -EEXIST;
+if (phb->eeh_ops && phb->eeh_ops->reset)
+ret = phb->eeh_ops->reset(pe, option);
+return ret;
+}
+static int powernv_eeh_wait_state(struct eeh_pe *pe, int max_wait)
+{
+int ret;
+int mwait;
+while (1) {
+ret = powernv_eeh_get_state(pe, &mwait);
+if (ret != EEH_STATE_UNAVAILABLE)
+return ret;
+max_wait -= mwait;
+if (max_wait <= 0) {
+pr_warn("%s: Timeout getting PE#%x's state (%d)\n",
+__func__, pe->addr, max_wait);
+return EEH_STATE_NOT_SUPPORT;
+}
+msleep(mwait);
+}
+return EEH_STATE_NOT_SUPPORT;
+}
+static int powernv_eeh_get_log(struct eeh_pe *pe, int severity,
+char *drv_log, unsigned long len)
+{
+struct pci_controller *hose = pe->phb;
+struct pnv_phb *phb = hose->private_data;
+int ret = -EEXIST;
+if (phb->eeh_ops && phb->eeh_ops->get_log)
+ret = phb->eeh_ops->get_log(pe, severity, drv_log, len);
+return ret;
+}
+static int powernv_eeh_configure_bridge(struct eeh_pe *pe)
+{
+struct pci_controller *hose = pe->phb;
+struct pnv_phb *phb = hose->private_data;
+int ret = 0;
+if (phb->eeh_ops && phb->eeh_ops->configure_bridge)
+ret = phb->eeh_ops->configure_bridge(pe);
+return ret;
+}
+static int powernv_eeh_err_inject(struct eeh_pe *pe, int type, int func,
+unsigned long addr, unsigned long mask)
+{
+struct pci_controller *hose = pe->phb;
+struct pnv_phb *phb = hose->private_data;
+int ret = -EEXIST;
+if (phb->eeh_ops && phb->eeh_ops->err_inject)
+ret = phb->eeh_ops->err_inject(pe, type, func, addr, mask);
+return ret;
+}
+static inline bool powernv_eeh_cfg_blocked(struct device_node *dn)
+{
+struct eeh_dev *edev = of_node_to_eeh_dev(dn);
+if (!edev || !edev->pe)
+return false;
+if (edev->pe->state & EEH_PE_CFG_BLOCKED)
+return true;
+return false;
+}
+static int powernv_eeh_read_config(struct device_node *dn,
+int where, int size, u32 *val)
+{
+if (powernv_eeh_cfg_blocked(dn)) {
+*val = 0xFFFFFFFF;
+return PCIBIOS_SET_FAILED;
+}
+return pnv_pci_cfg_read(dn, where, size, val);
+}
+static int powernv_eeh_write_config(struct device_node *dn,
+int where, int size, u32 val)
+{
+if (powernv_eeh_cfg_blocked(dn))
+return PCIBIOS_SET_FAILED;
+return pnv_pci_cfg_write(dn, where, size, val);
+}
+static int powernv_eeh_next_error(struct eeh_pe **pe)
+{
+struct pci_controller *hose;
+struct pnv_phb *phb = NULL;
+list_for_each_entry(hose, &hose_list, list_node) {
+phb = hose->private_data;
+break;
+}
+if (phb && phb->eeh_ops->next_error)
+return phb->eeh_ops->next_error(pe);
+return -EEXIST;
+}
+static int powernv_eeh_restore_config(struct device_node *dn)
+{
+struct eeh_dev *edev = of_node_to_eeh_dev(dn);
+struct pnv_phb *phb;
+s64 ret;
+if (!edev)
+return -EEXIST;
+phb = edev->phb->private_data;
+ret = opal_pci_reinit(phb->opal_id,
+OPAL_REINIT_PCI_DEV, edev->config_addr);
+if (ret) {
+pr_warn("%s: Can't reinit PCI dev 0x%x (%lld)\n",
+__func__, edev->config_addr, ret);
+return -EIO;
+}
+return 0;
+}
+static int __init eeh_powernv_init(void)
+{
+int ret = -EINVAL;
+eeh_set_pe_aux_size(PNV_PCI_DIAG_BUF_SIZE);
+ret = eeh_ops_register(&powernv_eeh_ops);
+if (!ret)
+pr_info("EEH: PowerNV platform initialized\n");
+else
+pr_info("EEH: Failed to initialize PowerNV platform (%d)\n", ret);
+return ret;
+}

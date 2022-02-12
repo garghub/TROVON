@@ -1,0 +1,1 @@
+uint8_t crc4(uint8_t c, uint64_t x, int bits)\r\n{\r\nint i;\r\nx &= (1ull << bits) - 1;\r\nbits = (bits + 3) & ~0x3;\r\nfor (i = bits - 4; i >= 0; i -= 4)\r\nc = crc4_tab[c ^ ((x >> i) & 0xf)];\r\nreturn c;\r\n}

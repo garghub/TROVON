@@ -1,0 +1,1 @@
+bool xen_biovec_phys_mergeable(const struct bio_vec *vec1,\r\nconst struct bio_vec *vec2)\r\n{\r\nunsigned long mfn1 = pfn_to_mfn(page_to_pfn(vec1->bv_page));\r\nunsigned long mfn2 = pfn_to_mfn(page_to_pfn(vec2->bv_page));\r\nreturn __BIOVEC_PHYS_MERGEABLE(vec1, vec2) &&\r\n((mfn1 == mfn2) || ((mfn1+1) == mfn2));\r\n}

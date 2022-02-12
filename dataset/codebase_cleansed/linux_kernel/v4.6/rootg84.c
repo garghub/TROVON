@@ -1,0 +1,1 @@
+static int\r\ng84_disp_root_new(struct nvkm_disp *disp, const struct nvkm_oclass *oclass,\r\nvoid *data, u32 size, struct nvkm_object **pobject)\r\n{\r\nreturn nv50_disp_root_new_(&g84_disp_root, disp, oclass,\r\ndata, size, pobject);\r\n}

@@ -1,0 +1,1 @@
+static void __init *spidev_platform_data(void *info)\r\n{\r\nstruct spi_board_info *spi_info = info;\r\nif (intel_mid_identify_cpu() != INTEL_MID_CPU_CHIP_TANGIER)\r\nreturn ERR_PTR(-ENODEV);\r\nspi_info->mode = SPI_MODE_0;\r\nspi_info->controller_data = &spidev_spi_chip;\r\nreturn NULL;\r\n}

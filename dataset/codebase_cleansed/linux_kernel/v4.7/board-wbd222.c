@@ -1,0 +1,1 @@
+static void __init wbd222_init(void)\r\n{\r\ngemini_gpio_init();\r\nplatform_register_uart();\r\nplatform_register_pflash(SZ_8M, wbd222_partitions,\r\nwbd222_num_partitions);\r\nplatform_device_register(&wbd222_leds_device);\r\nplatform_device_register(&wbd222_keys_device);\r\nplatform_register_rtc();\r\n}

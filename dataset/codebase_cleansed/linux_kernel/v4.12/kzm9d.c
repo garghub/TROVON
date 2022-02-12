@@ -1,0 +1,1 @@
+static void __init kzm9d_init(void)\r\n{\r\nboard_staging_gic_setup_xlate("arm,pl390", 32);\r\nif (!board_staging_dt_node_available(usbs1_res,\r\nARRAY_SIZE(usbs1_res))) {\r\nboard_staging_gic_fixup_resources(usbs1_res,\r\nARRAY_SIZE(usbs1_res));\r\nplatform_device_register_simple("emxx_udc", -1, usbs1_res,\r\nARRAY_SIZE(usbs1_res));\r\n}\r\n}

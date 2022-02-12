@@ -1,0 +1,1 @@
+int audit_classify_compat_syscall(int abi, unsigned syscall)\r\n{\r\nswitch (syscall) {\r\n#ifdef __NR_open\r\ncase __NR_open:\r\nreturn 2;\r\n#endif\r\n#ifdef __NR_openat\r\ncase __NR_openat:\r\nreturn 3;\r\n#endif\r\n#ifdef __NR_socketcall\r\ncase __NR_socketcall:\r\nreturn 4;\r\n#endif\r\ncase __NR_execve:\r\nreturn 5;\r\ndefault:\r\nreturn 1;\r\n}\r\n}

@@ -1,0 +1,1 @@
+u32 rtw_ch2freq(u32 channel)\r\n{\r\nu8 i;\r\nu32 freq = 0;\r\nfor (i = 0; i < ch_freq_map_num; i++) {\r\nif (channel == ch_freq_map[i].channel) {\r\nfreq = ch_freq_map[i].frequency;\r\nbreak;\r\n}\r\n}\r\nif (i == ch_freq_map_num)\r\nfreq = 2412;\r\nreturn freq;\r\n}

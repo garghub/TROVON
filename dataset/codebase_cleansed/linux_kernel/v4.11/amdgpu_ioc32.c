@@ -1,0 +1,1 @@
+long amdgpu_kms_compat_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)\r\n{\r\nunsigned int nr = DRM_IOCTL_NR(cmd);\r\nint ret;\r\nif (nr < DRM_COMMAND_BASE)\r\nreturn drm_compat_ioctl(filp, cmd, arg);\r\nret = amdgpu_drm_ioctl(filp, cmd, arg);\r\nreturn ret;\r\n}

@@ -1,0 +1,1 @@
+static int ak4554_soc_probe(struct platform_device *pdev)\r\n{\r\nreturn snd_soc_register_codec(&pdev->dev,\r\n&soc_codec_dev_ak4554,\r\n&ak4554_dai, 1);\r\n}\r\nstatic int ak4554_soc_remove(struct platform_device *pdev)\r\n{\r\nsnd_soc_unregister_codec(&pdev->dev);\r\nreturn 0;\r\n}

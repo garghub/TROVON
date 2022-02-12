@@ -1,0 +1,1 @@
+asmlinkage long\r\nsys_mmap2(unsigned long addr, unsigned long len, unsigned long prot,\r\nunsigned long flags, unsigned long fd, unsigned long pgoff)\r\n{\r\nreturn sys_mmap_pgoff(addr, len, prot, flags, fd, pgoff);\r\n}

@@ -1,0 +1,252 @@
+static inline struct lpc18xx_pwm_chip *
+to_lpc18xx_pwm_chip(struct pwm_chip *chip)
+{
+return container_of(chip, struct lpc18xx_pwm_chip, chip);
+}
+static inline void lpc18xx_pwm_writel(struct lpc18xx_pwm_chip *lpc18xx_pwm,
+u32 reg, u32 val)
+{
+writel(val, lpc18xx_pwm->base + reg);
+}
+static inline u32 lpc18xx_pwm_readl(struct lpc18xx_pwm_chip *lpc18xx_pwm,
+u32 reg)
+{
+return readl(lpc18xx_pwm->base + reg);
+}
+static void lpc18xx_pwm_set_conflict_res(struct lpc18xx_pwm_chip *lpc18xx_pwm,
+struct pwm_device *pwm,
+enum lpc18xx_pwm_res_action action)
+{
+u32 val;
+mutex_lock(&lpc18xx_pwm->res_lock);
+val = lpc18xx_pwm_readl(lpc18xx_pwm, LPC18XX_PWM_RES_BASE);
+val &= ~LPC18XX_PWM_RES_MASK(pwm->hwpwm);
+val |= LPC18XX_PWM_RES(pwm->hwpwm, action);
+lpc18xx_pwm_writel(lpc18xx_pwm, LPC18XX_PWM_RES_BASE, val);
+mutex_unlock(&lpc18xx_pwm->res_lock);
+}
+static void lpc18xx_pwm_config_period(struct pwm_chip *chip, int period_ns)
+{
+struct lpc18xx_pwm_chip *lpc18xx_pwm = to_lpc18xx_pwm_chip(chip);
+u64 val;
+val = (u64)period_ns * lpc18xx_pwm->clk_rate;
+do_div(val, NSEC_PER_SEC);
+lpc18xx_pwm_writel(lpc18xx_pwm,
+LPC18XX_PWM_MATCH(lpc18xx_pwm->period_event),
+(u32)val - 1);
+lpc18xx_pwm_writel(lpc18xx_pwm,
+LPC18XX_PWM_MATCHREL(lpc18xx_pwm->period_event),
+(u32)val - 1);
+}
+static void lpc18xx_pwm_config_duty(struct pwm_chip *chip,
+struct pwm_device *pwm, int duty_ns)
+{
+struct lpc18xx_pwm_chip *lpc18xx_pwm = to_lpc18xx_pwm_chip(chip);
+struct lpc18xx_pwm_data *lpc18xx_data = pwm_get_chip_data(pwm);
+u64 val;
+val = (u64)duty_ns * lpc18xx_pwm->clk_rate;
+do_div(val, NSEC_PER_SEC);
+lpc18xx_pwm_writel(lpc18xx_pwm,
+LPC18XX_PWM_MATCH(lpc18xx_data->duty_event),
+(u32)val);
+lpc18xx_pwm_writel(lpc18xx_pwm,
+LPC18XX_PWM_MATCHREL(lpc18xx_data->duty_event),
+(u32)val);
+}
+static int lpc18xx_pwm_config(struct pwm_chip *chip, struct pwm_device *pwm,
+int duty_ns, int period_ns)
+{
+struct lpc18xx_pwm_chip *lpc18xx_pwm = to_lpc18xx_pwm_chip(chip);
+int requested_events, i;
+if (period_ns < lpc18xx_pwm->min_period_ns ||
+period_ns > lpc18xx_pwm->max_period_ns) {
+dev_err(chip->dev, "period %d not in range\n", period_ns);
+return -ERANGE;
+}
+mutex_lock(&lpc18xx_pwm->period_lock);
+requested_events = bitmap_weight(&lpc18xx_pwm->event_map,
+LPC18XX_PWM_EVENT_MAX);
+if (requested_events > 2 && lpc18xx_pwm->period_ns != period_ns &&
+lpc18xx_pwm->period_ns) {
+dev_err(chip->dev, "conflicting period requested for PWM %u\n",
+pwm->hwpwm);
+mutex_unlock(&lpc18xx_pwm->period_lock);
+return -EBUSY;
+}
+if ((requested_events <= 2 && lpc18xx_pwm->period_ns != period_ns) ||
+!lpc18xx_pwm->period_ns) {
+lpc18xx_pwm->period_ns = period_ns;
+for (i = 0; i < chip->npwm; i++)
+pwm_set_period(&chip->pwms[i], period_ns);
+lpc18xx_pwm_config_period(chip, period_ns);
+}
+mutex_unlock(&lpc18xx_pwm->period_lock);
+lpc18xx_pwm_config_duty(chip, pwm, duty_ns);
+return 0;
+}
+static int lpc18xx_pwm_set_polarity(struct pwm_chip *chip,
+struct pwm_device *pwm,
+enum pwm_polarity polarity)
+{
+return 0;
+}
+static int lpc18xx_pwm_enable(struct pwm_chip *chip, struct pwm_device *pwm)
+{
+struct lpc18xx_pwm_chip *lpc18xx_pwm = to_lpc18xx_pwm_chip(chip);
+struct lpc18xx_pwm_data *lpc18xx_data = pwm_get_chip_data(pwm);
+enum lpc18xx_pwm_res_action res_action;
+unsigned int set_event, clear_event;
+lpc18xx_pwm_writel(lpc18xx_pwm,
+LPC18XX_PWM_EVCTRL(lpc18xx_data->duty_event),
+LPC18XX_PWM_EVCTRL_MATCH(lpc18xx_data->duty_event) |
+LPC18XX_PWM_EVCTRL_COMB_MATCH);
+lpc18xx_pwm_writel(lpc18xx_pwm,
+LPC18XX_PWM_EVSTATEMSK(lpc18xx_data->duty_event),
+LPC18XX_PWM_EVSTATEMSK_ALL);
+if (pwm_get_polarity(pwm) == PWM_POLARITY_NORMAL) {
+set_event = lpc18xx_pwm->period_event;
+clear_event = lpc18xx_data->duty_event;
+res_action = LPC18XX_PWM_RES_SET;
+} else {
+set_event = lpc18xx_data->duty_event;
+clear_event = lpc18xx_pwm->period_event;
+res_action = LPC18XX_PWM_RES_CLEAR;
+}
+lpc18xx_pwm_writel(lpc18xx_pwm, LPC18XX_PWM_OUTPUTSET(pwm->hwpwm),
+BIT(set_event));
+lpc18xx_pwm_writel(lpc18xx_pwm, LPC18XX_PWM_OUTPUTCL(pwm->hwpwm),
+BIT(clear_event));
+lpc18xx_pwm_set_conflict_res(lpc18xx_pwm, pwm, res_action);
+return 0;
+}
+static void lpc18xx_pwm_disable(struct pwm_chip *chip, struct pwm_device *pwm)
+{
+struct lpc18xx_pwm_chip *lpc18xx_pwm = to_lpc18xx_pwm_chip(chip);
+struct lpc18xx_pwm_data *lpc18xx_data = pwm_get_chip_data(pwm);
+lpc18xx_pwm_writel(lpc18xx_pwm,
+LPC18XX_PWM_EVCTRL(lpc18xx_data->duty_event), 0);
+lpc18xx_pwm_writel(lpc18xx_pwm, LPC18XX_PWM_OUTPUTSET(pwm->hwpwm), 0);
+lpc18xx_pwm_writel(lpc18xx_pwm, LPC18XX_PWM_OUTPUTCL(pwm->hwpwm), 0);
+}
+static int lpc18xx_pwm_request(struct pwm_chip *chip, struct pwm_device *pwm)
+{
+struct lpc18xx_pwm_chip *lpc18xx_pwm = to_lpc18xx_pwm_chip(chip);
+struct lpc18xx_pwm_data *lpc18xx_data = pwm_get_chip_data(pwm);
+unsigned long event;
+event = find_first_zero_bit(&lpc18xx_pwm->event_map,
+LPC18XX_PWM_EVENT_MAX);
+if (event >= LPC18XX_PWM_EVENT_MAX) {
+dev_err(lpc18xx_pwm->dev,
+"maximum number of simultaneous channels reached\n");
+return -EBUSY;
+};
+set_bit(event, &lpc18xx_pwm->event_map);
+lpc18xx_data->duty_event = event;
+lpc18xx_pwm_config_duty(chip, pwm, pwm_get_duty_cycle(pwm));
+return 0;
+}
+static void lpc18xx_pwm_free(struct pwm_chip *chip, struct pwm_device *pwm)
+{
+struct lpc18xx_pwm_chip *lpc18xx_pwm = to_lpc18xx_pwm_chip(chip);
+struct lpc18xx_pwm_data *lpc18xx_data = pwm_get_chip_data(pwm);
+pwm_disable(pwm);
+pwm_set_duty_cycle(pwm, 0);
+clear_bit(lpc18xx_data->duty_event, &lpc18xx_pwm->event_map);
+}
+static int lpc18xx_pwm_probe(struct platform_device *pdev)
+{
+struct lpc18xx_pwm_chip *lpc18xx_pwm;
+struct pwm_device *pwm;
+struct resource *res;
+int ret, i;
+u64 val;
+lpc18xx_pwm = devm_kzalloc(&pdev->dev, sizeof(*lpc18xx_pwm),
+GFP_KERNEL);
+if (!lpc18xx_pwm)
+return -ENOMEM;
+lpc18xx_pwm->dev = &pdev->dev;
+res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+lpc18xx_pwm->base = devm_ioremap_resource(&pdev->dev, res);
+if (IS_ERR(lpc18xx_pwm->base))
+return PTR_ERR(lpc18xx_pwm->base);
+lpc18xx_pwm->pwm_clk = devm_clk_get(&pdev->dev, "pwm");
+if (IS_ERR(lpc18xx_pwm->pwm_clk)) {
+dev_err(&pdev->dev, "failed to get pwm clock\n");
+return PTR_ERR(lpc18xx_pwm->pwm_clk);
+}
+ret = clk_prepare_enable(lpc18xx_pwm->pwm_clk);
+if (ret < 0) {
+dev_err(&pdev->dev, "could not prepare or enable pwm clock\n");
+return ret;
+}
+lpc18xx_pwm->clk_rate = clk_get_rate(lpc18xx_pwm->pwm_clk);
+if (!lpc18xx_pwm->clk_rate) {
+dev_err(&pdev->dev, "pwm clock has no frequency\n");
+ret = -EINVAL;
+goto disable_pwmclk;
+}
+mutex_init(&lpc18xx_pwm->res_lock);
+mutex_init(&lpc18xx_pwm->period_lock);
+val = (u64)NSEC_PER_SEC * LPC18XX_PWM_TIMER_MAX;
+do_div(val, lpc18xx_pwm->clk_rate);
+lpc18xx_pwm->max_period_ns = val;
+lpc18xx_pwm->min_period_ns = DIV_ROUND_UP(NSEC_PER_SEC,
+lpc18xx_pwm->clk_rate);
+lpc18xx_pwm->chip.dev = &pdev->dev;
+lpc18xx_pwm->chip.ops = &lpc18xx_pwm_ops;
+lpc18xx_pwm->chip.base = -1;
+lpc18xx_pwm->chip.npwm = 16;
+lpc18xx_pwm->chip.of_xlate = of_pwm_xlate_with_flags;
+lpc18xx_pwm->chip.of_pwm_n_cells = 3;
+lpc18xx_pwm_writel(lpc18xx_pwm, LPC18XX_PWM_CONFIG,
+LPC18XX_PWM_CONFIG_UNIFY);
+set_bit(LPC18XX_PWM_EVENT_PERIOD, &lpc18xx_pwm->event_map);
+lpc18xx_pwm->period_event = LPC18XX_PWM_EVENT_PERIOD;
+lpc18xx_pwm_writel(lpc18xx_pwm,
+LPC18XX_PWM_EVSTATEMSK(lpc18xx_pwm->period_event),
+LPC18XX_PWM_EVSTATEMSK_ALL);
+val = LPC18XX_PWM_EVCTRL_MATCH(lpc18xx_pwm->period_event) |
+LPC18XX_PWM_EVCTRL_COMB_MATCH;
+lpc18xx_pwm_writel(lpc18xx_pwm,
+LPC18XX_PWM_EVCTRL(lpc18xx_pwm->period_event), val);
+lpc18xx_pwm_writel(lpc18xx_pwm, LPC18XX_PWM_LIMIT,
+BIT(lpc18xx_pwm->period_event));
+ret = pwmchip_add(&lpc18xx_pwm->chip);
+if (ret < 0) {
+dev_err(&pdev->dev, "pwmchip_add failed: %d\n", ret);
+goto disable_pwmclk;
+}
+for (i = 0; i < lpc18xx_pwm->chip.npwm; i++) {
+pwm = &lpc18xx_pwm->chip.pwms[i];
+pwm->chip_data = devm_kzalloc(lpc18xx_pwm->dev,
+sizeof(struct lpc18xx_pwm_data),
+GFP_KERNEL);
+if (!pwm->chip_data) {
+ret = -ENOMEM;
+goto remove_pwmchip;
+}
+}
+platform_set_drvdata(pdev, lpc18xx_pwm);
+val = lpc18xx_pwm_readl(lpc18xx_pwm, LPC18XX_PWM_CTRL);
+val &= ~LPC18XX_PWM_BIDIR;
+val &= ~LPC18XX_PWM_CTRL_HALT;
+val &= ~LPC18XX_PWM_PRE_MASK;
+val |= LPC18XX_PWM_PRE(0);
+lpc18xx_pwm_writel(lpc18xx_pwm, LPC18XX_PWM_CTRL, val);
+return 0;
+remove_pwmchip:
+pwmchip_remove(&lpc18xx_pwm->chip);
+disable_pwmclk:
+clk_disable_unprepare(lpc18xx_pwm->pwm_clk);
+return ret;
+}
+static int lpc18xx_pwm_remove(struct platform_device *pdev)
+{
+struct lpc18xx_pwm_chip *lpc18xx_pwm = platform_get_drvdata(pdev);
+u32 val;
+val = lpc18xx_pwm_readl(lpc18xx_pwm, LPC18XX_PWM_CTRL);
+lpc18xx_pwm_writel(lpc18xx_pwm, LPC18XX_PWM_CTRL,
+val | LPC18XX_PWM_CTRL_HALT);
+clk_disable_unprepare(lpc18xx_pwm->pwm_clk);
+return pwmchip_remove(&lpc18xx_pwm->chip);
+}

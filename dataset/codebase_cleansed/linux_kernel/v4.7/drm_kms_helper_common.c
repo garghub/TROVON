@@ -1,0 +1,1 @@
+static int __init drm_kms_helper_init(void)\r\n{\r\nint ret;\r\nret = drm_fb_helper_modinit();\r\nif (ret < 0)\r\ngoto out;\r\nret = drm_dp_aux_dev_init();\r\nif (ret < 0)\r\ngoto out;\r\nout:\r\nreturn ret;\r\n}\r\nstatic void __exit drm_kms_helper_exit(void)\r\n{\r\ndrm_dp_aux_dev_exit();\r\n}

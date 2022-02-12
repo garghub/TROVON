@@ -1,0 +1,162 @@
+static void sp_add_device(struct sp_device *sp)
+{
+unsigned long flags;
+write_lock_irqsave(&sp_unit_lock, flags);
+list_add_tail(&sp->entry, &sp_units);
+write_unlock_irqrestore(&sp_unit_lock, flags);
+}
+static void sp_del_device(struct sp_device *sp)
+{
+unsigned long flags;
+write_lock_irqsave(&sp_unit_lock, flags);
+list_del(&sp->entry);
+write_unlock_irqrestore(&sp_unit_lock, flags);
+}
+static irqreturn_t sp_irq_handler(int irq, void *data)
+{
+struct sp_device *sp = data;
+if (sp->ccp_irq_handler)
+sp->ccp_irq_handler(irq, sp->ccp_irq_data);
+if (sp->psp_irq_handler)
+sp->psp_irq_handler(irq, sp->psp_irq_data);
+return IRQ_HANDLED;
+}
+int sp_request_ccp_irq(struct sp_device *sp, irq_handler_t handler,
+const char *name, void *data)
+{
+int ret;
+if ((sp->psp_irq == sp->ccp_irq) && sp->dev_vdata->psp_vdata) {
+sp->ccp_irq_data = data;
+sp->ccp_irq_handler = handler;
+if (!sp->irq_registered) {
+ret = request_irq(sp->ccp_irq, sp_irq_handler, 0,
+sp->name, sp);
+if (ret)
+return ret;
+sp->irq_registered = true;
+}
+} else {
+ret = request_irq(sp->ccp_irq, handler, 0, name, data);
+if (ret)
+return ret;
+}
+return 0;
+}
+int sp_request_psp_irq(struct sp_device *sp, irq_handler_t handler,
+const char *name, void *data)
+{
+int ret;
+if ((sp->psp_irq == sp->ccp_irq) && sp->dev_vdata->ccp_vdata) {
+sp->psp_irq_data = data;
+sp->psp_irq_handler = handler;
+if (!sp->irq_registered) {
+ret = request_irq(sp->psp_irq, sp_irq_handler, 0,
+sp->name, sp);
+if (ret)
+return ret;
+sp->irq_registered = true;
+}
+} else {
+ret = request_irq(sp->psp_irq, handler, 0, name, data);
+if (ret)
+return ret;
+}
+return 0;
+}
+void sp_free_ccp_irq(struct sp_device *sp, void *data)
+{
+if ((sp->psp_irq == sp->ccp_irq) && sp->dev_vdata->psp_vdata) {
+if (!sp->psp_irq_handler) {
+free_irq(sp->ccp_irq, sp);
+sp->irq_registered = false;
+}
+sp->ccp_irq_handler = NULL;
+sp->ccp_irq_data = NULL;
+} else {
+free_irq(sp->ccp_irq, data);
+}
+}
+void sp_free_psp_irq(struct sp_device *sp, void *data)
+{
+if ((sp->psp_irq == sp->ccp_irq) && sp->dev_vdata->ccp_vdata) {
+if (!sp->ccp_irq_handler) {
+free_irq(sp->psp_irq, sp);
+sp->irq_registered = false;
+}
+sp->psp_irq_handler = NULL;
+sp->psp_irq_data = NULL;
+} else {
+free_irq(sp->psp_irq, data);
+}
+}
+struct sp_device *sp_alloc_struct(struct device *dev)
+{
+struct sp_device *sp;
+sp = devm_kzalloc(dev, sizeof(*sp), GFP_KERNEL);
+if (!sp)
+return NULL;
+sp->dev = dev;
+sp->ord = atomic_inc_return(&sp_ordinal);
+snprintf(sp->name, SP_MAX_NAME_LEN, "sp-%u", sp->ord);
+return sp;
+}
+int sp_init(struct sp_device *sp)
+{
+sp_add_device(sp);
+if (sp->dev_vdata->ccp_vdata)
+ccp_dev_init(sp);
+return 0;
+}
+void sp_destroy(struct sp_device *sp)
+{
+if (sp->dev_vdata->ccp_vdata)
+ccp_dev_destroy(sp);
+sp_del_device(sp);
+}
+int sp_suspend(struct sp_device *sp, pm_message_t state)
+{
+int ret;
+if (sp->dev_vdata->ccp_vdata) {
+ret = ccp_dev_suspend(sp, state);
+if (ret)
+return ret;
+}
+return 0;
+}
+int sp_resume(struct sp_device *sp)
+{
+int ret;
+if (sp->dev_vdata->ccp_vdata) {
+ret = ccp_dev_resume(sp);
+if (ret)
+return ret;
+}
+return 0;
+}
+static int __init sp_mod_init(void)
+{
+#ifdef CONFIG_X86
+int ret;
+ret = sp_pci_init();
+if (ret)
+return ret;
+return 0;
+#endif
+#ifdef CONFIG_ARM64
+int ret;
+ret = sp_platform_init();
+if (ret)
+return ret;
+return 0;
+#endif
+return -ENODEV;
+}
+static void __exit sp_mod_exit(void)
+{
+#ifdef CONFIG_X86
+sp_pci_exit();
+#endif
+#ifdef CONFIG_ARM64
+sp_platform_exit();
+#endif
+}

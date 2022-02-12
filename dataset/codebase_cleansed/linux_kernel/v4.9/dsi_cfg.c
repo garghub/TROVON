@@ -1,0 +1,1 @@
+const struct msm_dsi_cfg_handler *msm_dsi_cfg_get(u32 major, u32 minor)\r\n{\r\nconst struct msm_dsi_cfg_handler *cfg_hnd = NULL;\r\nint i;\r\nfor (i = ARRAY_SIZE(dsi_cfg_handlers) - 1; i >= 0; i--) {\r\nif ((dsi_cfg_handlers[i].major == major) &&\r\n(dsi_cfg_handlers[i].minor == minor)) {\r\ncfg_hnd = &dsi_cfg_handlers[i];\r\nbreak;\r\n}\r\n}\r\nreturn cfg_hnd;\r\n}

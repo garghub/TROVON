@@ -1,0 +1,1 @@
+void arch_jump_label_transform(struct jump_entry *entry,\r\nenum jump_label_type type)\r\n{\r\nu32 *addr = (u32 *)(unsigned long)entry->code;\r\nif (type == JUMP_LABEL_JMP)\r\npatch_branch(addr, entry->target, 0);\r\nelse\r\npatch_instruction(addr, PPC_INST_NOP);\r\n}

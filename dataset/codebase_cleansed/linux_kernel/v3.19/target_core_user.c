@@ -1,0 +1,697 @@
+static struct tcmu_cmd *tcmu_alloc_cmd(struct se_cmd *se_cmd)
+{
+struct se_device *se_dev = se_cmd->se_dev;
+struct tcmu_dev *udev = TCMU_DEV(se_dev);
+struct tcmu_cmd *tcmu_cmd;
+int cmd_id;
+tcmu_cmd = kmem_cache_zalloc(tcmu_cmd_cache, GFP_KERNEL);
+if (!tcmu_cmd)
+return NULL;
+tcmu_cmd->se_cmd = se_cmd;
+tcmu_cmd->tcmu_dev = udev;
+tcmu_cmd->data_length = se_cmd->data_length;
+tcmu_cmd->deadline = jiffies + msecs_to_jiffies(TCMU_TIME_OUT);
+idr_preload(GFP_KERNEL);
+spin_lock_irq(&udev->commands_lock);
+cmd_id = idr_alloc(&udev->commands, tcmu_cmd, 0,
+USHRT_MAX, GFP_NOWAIT);
+spin_unlock_irq(&udev->commands_lock);
+idr_preload_end();
+if (cmd_id < 0) {
+kmem_cache_free(tcmu_cmd_cache, tcmu_cmd);
+return NULL;
+}
+tcmu_cmd->cmd_id = cmd_id;
+return tcmu_cmd;
+}
+static inline void tcmu_flush_dcache_range(void *vaddr, size_t size)
+{
+unsigned long offset = (unsigned long) vaddr & ~PAGE_MASK;
+size = round_up(size+offset, PAGE_SIZE);
+vaddr -= offset;
+while (size) {
+flush_dcache_page(virt_to_page(vaddr));
+size -= PAGE_SIZE;
+}
+}
+static inline size_t spc_used(size_t head, size_t tail, size_t size)
+{
+int diff = head - tail;
+if (diff >= 0)
+return diff;
+else
+return size + diff;
+}
+static inline size_t spc_free(size_t head, size_t tail, size_t size)
+{
+return (size - spc_used(head, tail, size) - 1);
+}
+static inline size_t head_to_end(size_t head, size_t size)
+{
+return size - head;
+}
+static bool is_ring_space_avail(struct tcmu_dev *udev, size_t cmd_size, size_t data_needed)
+{
+struct tcmu_mailbox *mb = udev->mb_addr;
+size_t space;
+u32 cmd_head;
+size_t cmd_needed;
+tcmu_flush_dcache_range(mb, sizeof(*mb));
+cmd_head = mb->cmd_head % udev->cmdr_size;
+if (head_to_end(cmd_head, udev->cmdr_size) >= cmd_size)
+cmd_needed = cmd_size;
+else
+cmd_needed = cmd_size + head_to_end(cmd_head, udev->cmdr_size);
+space = spc_free(cmd_head, udev->cmdr_last_cleaned, udev->cmdr_size);
+if (space < cmd_needed) {
+pr_debug("no cmd space: %u %u %u\n", cmd_head,
+udev->cmdr_last_cleaned, udev->cmdr_size);
+return false;
+}
+space = spc_free(udev->data_head, udev->data_tail, udev->data_size);
+if (space < data_needed) {
+pr_debug("no data space: %zu %zu %zu\n", udev->data_head,
+udev->data_tail, udev->data_size);
+return false;
+}
+return true;
+}
+static int tcmu_queue_cmd_ring(struct tcmu_cmd *tcmu_cmd)
+{
+struct tcmu_dev *udev = tcmu_cmd->tcmu_dev;
+struct se_cmd *se_cmd = tcmu_cmd->se_cmd;
+size_t base_command_size, command_size;
+struct tcmu_mailbox *mb;
+struct tcmu_cmd_entry *entry;
+int i;
+struct scatterlist *sg;
+struct iovec *iov;
+int iov_cnt = 0;
+uint32_t cmd_head;
+uint64_t cdb_off;
+if (test_bit(TCMU_DEV_BIT_BROKEN, &udev->flags))
+return -EINVAL;
+base_command_size = max(offsetof(struct tcmu_cmd_entry,
+req.iov[se_cmd->t_data_nents + 2]),
+sizeof(struct tcmu_cmd_entry));
+command_size = base_command_size
++ round_up(scsi_command_size(se_cmd->t_task_cdb), TCMU_OP_ALIGN_SIZE);
+WARN_ON(command_size & (TCMU_OP_ALIGN_SIZE-1));
+spin_lock_irq(&udev->cmdr_lock);
+mb = udev->mb_addr;
+cmd_head = mb->cmd_head % udev->cmdr_size;
+if ((command_size > (udev->cmdr_size / 2))
+|| tcmu_cmd->data_length > (udev->data_size - 1))
+pr_warn("TCMU: Request of size %zu/%zu may be too big for %u/%zu "
+"cmd/data ring buffers\n", command_size, tcmu_cmd->data_length,
+udev->cmdr_size, udev->data_size);
+while (!is_ring_space_avail(udev, command_size, tcmu_cmd->data_length)) {
+int ret;
+DEFINE_WAIT(__wait);
+prepare_to_wait(&udev->wait_cmdr, &__wait, TASK_INTERRUPTIBLE);
+pr_debug("sleeping for ring space\n");
+spin_unlock_irq(&udev->cmdr_lock);
+ret = schedule_timeout(msecs_to_jiffies(TCMU_TIME_OUT));
+finish_wait(&udev->wait_cmdr, &__wait);
+if (!ret) {
+pr_warn("tcmu: command timed out\n");
+return -ETIMEDOUT;
+}
+spin_lock_irq(&udev->cmdr_lock);
+cmd_head = mb->cmd_head % udev->cmdr_size;
+}
+if (head_to_end(cmd_head, udev->cmdr_size) < command_size) {
+size_t pad_size = head_to_end(cmd_head, udev->cmdr_size);
+entry = (void *) mb + CMDR_OFF + cmd_head;
+tcmu_flush_dcache_range(entry, sizeof(*entry));
+tcmu_hdr_set_op(&entry->hdr, TCMU_OP_PAD);
+tcmu_hdr_set_len(&entry->hdr, pad_size);
+UPDATE_HEAD(mb->cmd_head, pad_size, udev->cmdr_size);
+cmd_head = mb->cmd_head % udev->cmdr_size;
+WARN_ON(cmd_head != 0);
+}
+entry = (void *) mb + CMDR_OFF + cmd_head;
+tcmu_flush_dcache_range(entry, sizeof(*entry));
+tcmu_hdr_set_op(&entry->hdr, TCMU_OP_CMD);
+tcmu_hdr_set_len(&entry->hdr, command_size);
+entry->cmd_id = tcmu_cmd->cmd_id;
+iov = &entry->req.iov[0];
+for_each_sg(se_cmd->t_data_sg, sg, se_cmd->t_data_nents, i) {
+size_t copy_bytes = min((size_t)sg->length,
+head_to_end(udev->data_head, udev->data_size));
+void *from = kmap_atomic(sg_page(sg)) + sg->offset;
+void *to = (void *) mb + udev->data_off + udev->data_head;
+if (tcmu_cmd->se_cmd->data_direction == DMA_TO_DEVICE) {
+memcpy(to, from, copy_bytes);
+tcmu_flush_dcache_range(to, copy_bytes);
+}
+iov->iov_len = copy_bytes;
+iov->iov_base = (void *) udev->data_off + udev->data_head;
+iov_cnt++;
+iov++;
+UPDATE_HEAD(udev->data_head, copy_bytes, udev->data_size);
+if (sg->length != copy_bytes) {
+from += copy_bytes;
+copy_bytes = sg->length - copy_bytes;
+iov->iov_len = copy_bytes;
+iov->iov_base = (void *) udev->data_off + udev->data_head;
+if (se_cmd->data_direction == DMA_TO_DEVICE) {
+to = (void *) mb + udev->data_off + udev->data_head;
+memcpy(to, from, copy_bytes);
+tcmu_flush_dcache_range(to, copy_bytes);
+}
+iov_cnt++;
+iov++;
+UPDATE_HEAD(udev->data_head, copy_bytes, udev->data_size);
+}
+kunmap_atomic(from);
+}
+entry->req.iov_cnt = iov_cnt;
+cdb_off = CMDR_OFF + cmd_head + base_command_size;
+memcpy((void *) mb + cdb_off, se_cmd->t_task_cdb, scsi_command_size(se_cmd->t_task_cdb));
+entry->req.cdb_off = cdb_off;
+tcmu_flush_dcache_range(entry, sizeof(*entry));
+UPDATE_HEAD(mb->cmd_head, command_size, udev->cmdr_size);
+tcmu_flush_dcache_range(mb, sizeof(*mb));
+spin_unlock_irq(&udev->cmdr_lock);
+uio_event_notify(&udev->uio_info);
+mod_timer(&udev->timeout,
+round_jiffies_up(jiffies + msecs_to_jiffies(TCMU_TIME_OUT)));
+return 0;
+}
+static int tcmu_queue_cmd(struct se_cmd *se_cmd)
+{
+struct se_device *se_dev = se_cmd->se_dev;
+struct tcmu_dev *udev = TCMU_DEV(se_dev);
+struct tcmu_cmd *tcmu_cmd;
+int ret;
+tcmu_cmd = tcmu_alloc_cmd(se_cmd);
+if (!tcmu_cmd)
+return -ENOMEM;
+ret = tcmu_queue_cmd_ring(tcmu_cmd);
+if (ret < 0) {
+pr_err("TCMU: Could not queue command\n");
+spin_lock_irq(&udev->commands_lock);
+idr_remove(&udev->commands, tcmu_cmd->cmd_id);
+spin_unlock_irq(&udev->commands_lock);
+kmem_cache_free(tcmu_cmd_cache, tcmu_cmd);
+}
+return ret;
+}
+static void tcmu_handle_completion(struct tcmu_cmd *cmd, struct tcmu_cmd_entry *entry)
+{
+struct se_cmd *se_cmd = cmd->se_cmd;
+struct tcmu_dev *udev = cmd->tcmu_dev;
+if (test_bit(TCMU_CMD_BIT_EXPIRED, &cmd->flags)) {
+UPDATE_HEAD(udev->data_tail, cmd->data_length, udev->data_size);
+return;
+}
+if (entry->rsp.scsi_status == SAM_STAT_CHECK_CONDITION) {
+memcpy(se_cmd->sense_buffer, entry->rsp.sense_buffer,
+se_cmd->scsi_sense_length);
+UPDATE_HEAD(udev->data_tail, cmd->data_length, udev->data_size);
+}
+else if (se_cmd->data_direction == DMA_FROM_DEVICE) {
+struct scatterlist *sg;
+int i;
+for_each_sg(se_cmd->t_data_sg, sg, se_cmd->t_data_nents, i) {
+size_t copy_bytes;
+void *to;
+void *from;
+copy_bytes = min((size_t)sg->length,
+head_to_end(udev->data_tail, udev->data_size));
+to = kmap_atomic(sg_page(sg)) + sg->offset;
+WARN_ON(sg->length + sg->offset > PAGE_SIZE);
+from = (void *) udev->mb_addr + udev->data_off + udev->data_tail;
+tcmu_flush_dcache_range(from, copy_bytes);
+memcpy(to, from, copy_bytes);
+UPDATE_HEAD(udev->data_tail, copy_bytes, udev->data_size);
+if (sg->length != copy_bytes) {
+from = (void *) udev->mb_addr + udev->data_off + udev->data_tail;
+WARN_ON(udev->data_tail);
+to += copy_bytes;
+copy_bytes = sg->length - copy_bytes;
+tcmu_flush_dcache_range(from, copy_bytes);
+memcpy(to, from, copy_bytes);
+UPDATE_HEAD(udev->data_tail, copy_bytes, udev->data_size);
+}
+kunmap_atomic(to);
+}
+} else if (se_cmd->data_direction == DMA_TO_DEVICE) {
+UPDATE_HEAD(udev->data_tail, cmd->data_length, udev->data_size);
+} else {
+pr_warn("TCMU: data direction was %d!\n", se_cmd->data_direction);
+}
+target_complete_cmd(cmd->se_cmd, entry->rsp.scsi_status);
+cmd->se_cmd = NULL;
+kmem_cache_free(tcmu_cmd_cache, cmd);
+}
+static unsigned int tcmu_handle_completions(struct tcmu_dev *udev)
+{
+struct tcmu_mailbox *mb;
+LIST_HEAD(cpl_cmds);
+unsigned long flags;
+int handled = 0;
+if (test_bit(TCMU_DEV_BIT_BROKEN, &udev->flags)) {
+pr_err("ring broken, not handling completions\n");
+return 0;
+}
+spin_lock_irqsave(&udev->cmdr_lock, flags);
+mb = udev->mb_addr;
+tcmu_flush_dcache_range(mb, sizeof(*mb));
+while (udev->cmdr_last_cleaned != ACCESS_ONCE(mb->cmd_tail)) {
+struct tcmu_cmd_entry *entry = (void *) mb + CMDR_OFF + udev->cmdr_last_cleaned;
+struct tcmu_cmd *cmd;
+tcmu_flush_dcache_range(entry, sizeof(*entry));
+if (tcmu_hdr_get_op(&entry->hdr) == TCMU_OP_PAD) {
+UPDATE_HEAD(udev->cmdr_last_cleaned, tcmu_hdr_get_len(&entry->hdr), udev->cmdr_size);
+continue;
+}
+WARN_ON(tcmu_hdr_get_op(&entry->hdr) != TCMU_OP_CMD);
+spin_lock(&udev->commands_lock);
+cmd = idr_find(&udev->commands, entry->cmd_id);
+if (cmd)
+idr_remove(&udev->commands, cmd->cmd_id);
+spin_unlock(&udev->commands_lock);
+if (!cmd) {
+pr_err("cmd_id not found, ring is broken\n");
+set_bit(TCMU_DEV_BIT_BROKEN, &udev->flags);
+break;
+}
+tcmu_handle_completion(cmd, entry);
+UPDATE_HEAD(udev->cmdr_last_cleaned, tcmu_hdr_get_len(&entry->hdr), udev->cmdr_size);
+handled++;
+}
+if (mb->cmd_tail == mb->cmd_head)
+del_timer(&udev->timeout);
+spin_unlock_irqrestore(&udev->cmdr_lock, flags);
+wake_up(&udev->wait_cmdr);
+return handled;
+}
+static int tcmu_check_expired_cmd(int id, void *p, void *data)
+{
+struct tcmu_cmd *cmd = p;
+if (test_bit(TCMU_CMD_BIT_EXPIRED, &cmd->flags))
+return 0;
+if (!time_after(cmd->deadline, jiffies))
+return 0;
+set_bit(TCMU_CMD_BIT_EXPIRED, &cmd->flags);
+target_complete_cmd(cmd->se_cmd, SAM_STAT_CHECK_CONDITION);
+cmd->se_cmd = NULL;
+kmem_cache_free(tcmu_cmd_cache, cmd);
+return 0;
+}
+static void tcmu_device_timedout(unsigned long data)
+{
+struct tcmu_dev *udev = (struct tcmu_dev *)data;
+unsigned long flags;
+int handled;
+handled = tcmu_handle_completions(udev);
+pr_warn("%d completions handled from timeout\n", handled);
+spin_lock_irqsave(&udev->commands_lock, flags);
+idr_for_each(&udev->commands, tcmu_check_expired_cmd, NULL);
+spin_unlock_irqrestore(&udev->commands_lock, flags);
+}
+static int tcmu_attach_hba(struct se_hba *hba, u32 host_id)
+{
+struct tcmu_hba *tcmu_hba;
+tcmu_hba = kzalloc(sizeof(struct tcmu_hba), GFP_KERNEL);
+if (!tcmu_hba)
+return -ENOMEM;
+tcmu_hba->host_id = host_id;
+hba->hba_ptr = tcmu_hba;
+return 0;
+}
+static void tcmu_detach_hba(struct se_hba *hba)
+{
+kfree(hba->hba_ptr);
+hba->hba_ptr = NULL;
+}
+static struct se_device *tcmu_alloc_device(struct se_hba *hba, const char *name)
+{
+struct tcmu_dev *udev;
+udev = kzalloc(sizeof(struct tcmu_dev), GFP_KERNEL);
+if (!udev)
+return NULL;
+udev->name = kstrdup(name, GFP_KERNEL);
+if (!udev->name) {
+kfree(udev);
+return NULL;
+}
+udev->hba = hba;
+init_waitqueue_head(&udev->wait_cmdr);
+spin_lock_init(&udev->cmdr_lock);
+idr_init(&udev->commands);
+spin_lock_init(&udev->commands_lock);
+setup_timer(&udev->timeout, tcmu_device_timedout,
+(unsigned long)udev);
+udev->pass_level = TCMU_PASS_ALL;
+return &udev->se_dev;
+}
+static int tcmu_irqcontrol(struct uio_info *info, s32 irq_on)
+{
+struct tcmu_dev *tcmu_dev = container_of(info, struct tcmu_dev, uio_info);
+tcmu_handle_completions(tcmu_dev);
+return 0;
+}
+static int tcmu_find_mem_index(struct vm_area_struct *vma)
+{
+struct tcmu_dev *udev = vma->vm_private_data;
+struct uio_info *info = &udev->uio_info;
+if (vma->vm_pgoff < MAX_UIO_MAPS) {
+if (info->mem[vma->vm_pgoff].size == 0)
+return -1;
+return (int)vma->vm_pgoff;
+}
+return -1;
+}
+static int tcmu_vma_fault(struct vm_area_struct *vma, struct vm_fault *vmf)
+{
+struct tcmu_dev *udev = vma->vm_private_data;
+struct uio_info *info = &udev->uio_info;
+struct page *page;
+unsigned long offset;
+void *addr;
+int mi = tcmu_find_mem_index(vma);
+if (mi < 0)
+return VM_FAULT_SIGBUS;
+offset = (vmf->pgoff - mi) << PAGE_SHIFT;
+addr = (void *)(unsigned long)info->mem[mi].addr + offset;
+if (info->mem[mi].memtype == UIO_MEM_LOGICAL)
+page = virt_to_page(addr);
+else
+page = vmalloc_to_page(addr);
+get_page(page);
+vmf->page = page;
+return 0;
+}
+static int tcmu_mmap(struct uio_info *info, struct vm_area_struct *vma)
+{
+struct tcmu_dev *udev = container_of(info, struct tcmu_dev, uio_info);
+vma->vm_flags |= VM_DONTEXPAND | VM_DONTDUMP;
+vma->vm_ops = &tcmu_vm_ops;
+vma->vm_private_data = udev;
+if (vma_pages(vma) != (TCMU_RING_SIZE >> PAGE_SHIFT))
+return -EINVAL;
+return 0;
+}
+static int tcmu_open(struct uio_info *info, struct inode *inode)
+{
+struct tcmu_dev *udev = container_of(info, struct tcmu_dev, uio_info);
+if (test_and_set_bit(TCMU_DEV_BIT_OPEN, &udev->flags))
+return -EBUSY;
+pr_debug("open\n");
+return 0;
+}
+static int tcmu_release(struct uio_info *info, struct inode *inode)
+{
+struct tcmu_dev *udev = container_of(info, struct tcmu_dev, uio_info);
+clear_bit(TCMU_DEV_BIT_OPEN, &udev->flags);
+pr_debug("close\n");
+return 0;
+}
+static int tcmu_netlink_event(enum tcmu_genl_cmd cmd, const char *name, int minor)
+{
+struct sk_buff *skb;
+void *msg_header;
+int ret = -ENOMEM;
+skb = genlmsg_new(NLMSG_GOODSIZE, GFP_KERNEL);
+if (!skb)
+return ret;
+msg_header = genlmsg_put(skb, 0, 0, &tcmu_genl_family, 0, cmd);
+if (!msg_header)
+goto free_skb;
+ret = nla_put_string(skb, TCMU_ATTR_DEVICE, name);
+if (ret < 0)
+goto free_skb;
+ret = nla_put_u32(skb, TCMU_ATTR_MINOR, minor);
+if (ret < 0)
+goto free_skb;
+ret = genlmsg_end(skb, msg_header);
+if (ret < 0)
+goto free_skb;
+ret = genlmsg_multicast(&tcmu_genl_family, skb, 0,
+TCMU_MCGRP_CONFIG, GFP_KERNEL);
+if (ret == -ESRCH)
+ret = 0;
+return ret;
+free_skb:
+nlmsg_free(skb);
+return ret;
+}
+static int tcmu_configure_device(struct se_device *dev)
+{
+struct tcmu_dev *udev = TCMU_DEV(dev);
+struct tcmu_hba *hba = udev->hba->hba_ptr;
+struct uio_info *info;
+struct tcmu_mailbox *mb;
+size_t size;
+size_t used;
+int ret = 0;
+char *str;
+info = &udev->uio_info;
+size = snprintf(NULL, 0, "tcm-user/%u/%s/%s", hba->host_id, udev->name,
+udev->dev_config);
+size += 1;
+str = kmalloc(size, GFP_KERNEL);
+if (!str)
+return -ENOMEM;
+used = snprintf(str, size, "tcm-user/%u/%s", hba->host_id, udev->name);
+if (udev->dev_config[0])
+snprintf(str + used, size - used, "/%s", udev->dev_config);
+info->name = str;
+udev->mb_addr = vzalloc(TCMU_RING_SIZE);
+if (!udev->mb_addr) {
+ret = -ENOMEM;
+goto err_vzalloc;
+}
+udev->cmdr_size = CMDR_SIZE - CMDR_OFF;
+udev->data_off = CMDR_SIZE;
+udev->data_size = TCMU_RING_SIZE - CMDR_SIZE;
+mb = udev->mb_addr;
+mb->version = 1;
+mb->cmdr_off = CMDR_OFF;
+mb->cmdr_size = udev->cmdr_size;
+WARN_ON(!PAGE_ALIGNED(udev->data_off));
+WARN_ON(udev->data_size % PAGE_SIZE);
+info->version = "1";
+info->mem[0].name = "tcm-user command & data buffer";
+info->mem[0].addr = (phys_addr_t) udev->mb_addr;
+info->mem[0].size = TCMU_RING_SIZE;
+info->mem[0].memtype = UIO_MEM_VIRTUAL;
+info->irqcontrol = tcmu_irqcontrol;
+info->irq = UIO_IRQ_CUSTOM;
+info->mmap = tcmu_mmap;
+info->open = tcmu_open;
+info->release = tcmu_release;
+ret = uio_register_device(tcmu_root_device, info);
+if (ret)
+goto err_register;
+dev->dev_attrib.hw_block_size = 512;
+dev->dev_attrib.hw_max_sectors = 128;
+dev->dev_attrib.hw_queue_depth = 128;
+ret = tcmu_netlink_event(TCMU_CMD_ADDED_DEVICE, udev->uio_info.name,
+udev->uio_info.uio_dev->minor);
+if (ret)
+goto err_netlink;
+return 0;
+err_netlink:
+uio_unregister_device(&udev->uio_info);
+err_register:
+vfree(udev->mb_addr);
+err_vzalloc:
+kfree(info->name);
+return ret;
+}
+static int tcmu_check_pending_cmd(int id, void *p, void *data)
+{
+struct tcmu_cmd *cmd = p;
+if (test_bit(TCMU_CMD_BIT_EXPIRED, &cmd->flags))
+return 0;
+return -EINVAL;
+}
+static void tcmu_free_device(struct se_device *dev)
+{
+struct tcmu_dev *udev = TCMU_DEV(dev);
+int i;
+del_timer_sync(&udev->timeout);
+vfree(udev->mb_addr);
+spin_lock_irq(&udev->commands_lock);
+i = idr_for_each(&udev->commands, tcmu_check_pending_cmd, NULL);
+idr_destroy(&udev->commands);
+spin_unlock_irq(&udev->commands_lock);
+WARN_ON(i);
+if (udev->uio_info.uio_dev) {
+tcmu_netlink_event(TCMU_CMD_REMOVED_DEVICE, udev->uio_info.name,
+udev->uio_info.uio_dev->minor);
+uio_unregister_device(&udev->uio_info);
+kfree(udev->uio_info.name);
+kfree(udev->name);
+}
+kfree(udev);
+}
+static ssize_t tcmu_set_configfs_dev_params(struct se_device *dev,
+const char *page, ssize_t count)
+{
+struct tcmu_dev *udev = TCMU_DEV(dev);
+char *orig, *ptr, *opts, *arg_p;
+substring_t args[MAX_OPT_ARGS];
+int ret = 0, token;
+int arg;
+opts = kstrdup(page, GFP_KERNEL);
+if (!opts)
+return -ENOMEM;
+orig = opts;
+while ((ptr = strsep(&opts, ",\n")) != NULL) {
+if (!*ptr)
+continue;
+token = match_token(ptr, tokens, args);
+switch (token) {
+case Opt_dev_config:
+if (match_strlcpy(udev->dev_config, &args[0],
+TCMU_CONFIG_LEN) == 0) {
+ret = -EINVAL;
+break;
+}
+pr_debug("TCMU: Referencing Path: %s\n", udev->dev_config);
+break;
+case Opt_dev_size:
+arg_p = match_strdup(&args[0]);
+if (!arg_p) {
+ret = -ENOMEM;
+break;
+}
+ret = kstrtoul(arg_p, 0, (unsigned long *) &udev->dev_size);
+kfree(arg_p);
+if (ret < 0)
+pr_err("kstrtoul() failed for dev_size=\n");
+break;
+case Opt_pass_level:
+match_int(args, &arg);
+if (arg >= TCMU_PASS_INVALID) {
+pr_warn("TCMU: Invalid pass_level: %d\n", arg);
+break;
+}
+pr_debug("TCMU: Setting pass_level to %d\n", arg);
+udev->pass_level = arg;
+break;
+default:
+break;
+}
+}
+kfree(orig);
+return (!ret) ? count : ret;
+}
+static ssize_t tcmu_show_configfs_dev_params(struct se_device *dev, char *b)
+{
+struct tcmu_dev *udev = TCMU_DEV(dev);
+ssize_t bl = 0;
+bl = sprintf(b + bl, "Config: %s ",
+udev->dev_config[0] ? udev->dev_config : "NULL");
+bl += sprintf(b + bl, "Size: %zu PassLevel: %u\n",
+udev->dev_size, udev->pass_level);
+return bl;
+}
+static sector_t tcmu_get_blocks(struct se_device *dev)
+{
+struct tcmu_dev *udev = TCMU_DEV(dev);
+return div_u64(udev->dev_size - dev->dev_attrib.block_size,
+dev->dev_attrib.block_size);
+}
+static sense_reason_t
+tcmu_execute_rw(struct se_cmd *se_cmd, struct scatterlist *sgl, u32 sgl_nents,
+enum dma_data_direction data_direction)
+{
+int ret;
+ret = tcmu_queue_cmd(se_cmd);
+if (ret != 0)
+return TCM_LOGICAL_UNIT_COMMUNICATION_FAILURE;
+else
+return TCM_NO_SENSE;
+}
+static sense_reason_t
+tcmu_pass_op(struct se_cmd *se_cmd)
+{
+int ret = tcmu_queue_cmd(se_cmd);
+if (ret != 0)
+return TCM_LOGICAL_UNIT_COMMUNICATION_FAILURE;
+else
+return TCM_NO_SENSE;
+}
+static sense_reason_t
+tcmu_parse_cdb(struct se_cmd *cmd)
+{
+unsigned char *cdb = cmd->t_task_cdb;
+struct tcmu_dev *udev = TCMU_DEV(cmd->se_dev);
+sense_reason_t ret;
+switch (udev->pass_level) {
+case TCMU_PASS_ALL:
+switch (cdb[0]) {
+case REPORT_LUNS:
+cmd->execute_cmd = spc_emulate_report_luns;
+break;
+case READ_6:
+case READ_10:
+case READ_12:
+case READ_16:
+case WRITE_6:
+case WRITE_10:
+case WRITE_12:
+case WRITE_16:
+case WRITE_VERIFY:
+cmd->se_cmd_flags |= SCF_SCSI_DATA_CDB;
+default:
+cmd->execute_cmd = tcmu_pass_op;
+}
+ret = TCM_NO_SENSE;
+break;
+case TCMU_PASS_IO:
+ret = sbc_parse_cdb(cmd, &tcmu_sbc_ops);
+break;
+default:
+pr_err("Unknown tcm-user pass level %d\n", udev->pass_level);
+ret = TCM_CHECK_CONDITION_ABORT_CMD;
+}
+return ret;
+}
+static int __init tcmu_module_init(void)
+{
+struct target_backend_cits *tbc = &tcmu_template.tb_cits;
+int ret;
+BUILD_BUG_ON((sizeof(struct tcmu_cmd_entry) % TCMU_OP_ALIGN_SIZE) != 0);
+tcmu_cmd_cache = kmem_cache_create("tcmu_cmd_cache",
+sizeof(struct tcmu_cmd),
+__alignof__(struct tcmu_cmd),
+0, NULL);
+if (!tcmu_cmd_cache)
+return -ENOMEM;
+tcmu_root_device = root_device_register("tcm_user");
+if (IS_ERR(tcmu_root_device)) {
+ret = PTR_ERR(tcmu_root_device);
+goto out_free_cache;
+}
+ret = genl_register_family(&tcmu_genl_family);
+if (ret < 0) {
+goto out_unreg_device;
+}
+target_core_setup_sub_cits(&tcmu_template);
+tbc->tb_dev_attrib_cit.ct_attrs = tcmu_backend_dev_attrs;
+ret = transport_subsystem_register(&tcmu_template);
+if (ret)
+goto out_unreg_genl;
+return 0;
+out_unreg_genl:
+genl_unregister_family(&tcmu_genl_family);
+out_unreg_device:
+root_device_unregister(tcmu_root_device);
+out_free_cache:
+kmem_cache_destroy(tcmu_cmd_cache);
+return ret;
+}
+static void __exit tcmu_module_exit(void)
+{
+transport_subsystem_release(&tcmu_template);
+genl_unregister_family(&tcmu_genl_family);
+root_device_unregister(tcmu_root_device);
+kmem_cache_destroy(tcmu_cmd_cache);
+}

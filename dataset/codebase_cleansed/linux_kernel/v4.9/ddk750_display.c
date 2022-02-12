@@ -1,0 +1,111 @@
+static void setDisplayControl(int ctrl, int disp_state)
+{
+unsigned long reg, val, reserved;
+int cnt = 0;
+if (!ctrl) {
+reg = PANEL_DISPLAY_CTRL;
+reserved = PANEL_DISPLAY_CTRL_RESERVED_MASK;
+} else {
+reg = CRT_DISPLAY_CTRL;
+reserved = CRT_DISPLAY_CTRL_RESERVED_MASK;
+}
+val = PEEK32(reg);
+if (disp_state) {
+val |= DISPLAY_CTRL_TIMING;
+POKE32(reg, val);
+val |= DISPLAY_CTRL_PLANE;
+do {
+cnt++;
+POKE32(reg, val);
+} while ((PEEK32(reg) & ~reserved) != (val & ~reserved));
+pr_debug("Set Plane enbit:after tried %d times\n", cnt);
+} else {
+val &= ~DISPLAY_CTRL_PLANE;
+POKE32(reg, val);
+val &= ~DISPLAY_CTRL_TIMING;
+POKE32(reg, val);
+}
+}
+static void waitNextVerticalSync(int ctrl, int delay)
+{
+unsigned int status;
+if (!ctrl) {
+if (!(PEEK32(PANEL_PLL_CTRL) & PLL_CTRL_POWER) ||
+!(PEEK32(PANEL_DISPLAY_CTRL) & DISPLAY_CTRL_TIMING)) {
+return;
+}
+while (delay-- > 0) {
+do {
+status = PEEK32(SYSTEM_CTRL);
+} while (status & SYSTEM_CTRL_PANEL_VSYNC_ACTIVE);
+do {
+status = PEEK32(SYSTEM_CTRL);
+} while (!(status & SYSTEM_CTRL_PANEL_VSYNC_ACTIVE));
+}
+} else {
+if (!(PEEK32(CRT_PLL_CTRL) & PLL_CTRL_POWER) ||
+!(PEEK32(CRT_DISPLAY_CTRL) & DISPLAY_CTRL_TIMING)) {
+return;
+}
+while (delay-- > 0) {
+do {
+status = PEEK32(SYSTEM_CTRL);
+} while (status & SYSTEM_CTRL_PANEL_VSYNC_ACTIVE);
+do {
+status = PEEK32(SYSTEM_CTRL);
+} while (!(status & SYSTEM_CTRL_PANEL_VSYNC_ACTIVE));
+}
+}
+}
+static void swPanelPowerSequence(int disp, int delay)
+{
+unsigned int reg;
+reg = PEEK32(PANEL_DISPLAY_CTRL);
+reg |= (disp ? PANEL_DISPLAY_CTRL_FPEN : 0);
+POKE32(PANEL_DISPLAY_CTRL, reg);
+primaryWaitVerticalSync(delay);
+reg = PEEK32(PANEL_DISPLAY_CTRL);
+reg |= (disp ? PANEL_DISPLAY_CTRL_DATA : 0);
+POKE32(PANEL_DISPLAY_CTRL, reg);
+primaryWaitVerticalSync(delay);
+reg = PEEK32(PANEL_DISPLAY_CTRL);
+reg |= (disp ? PANEL_DISPLAY_CTRL_VBIASEN : 0);
+POKE32(PANEL_DISPLAY_CTRL, reg);
+primaryWaitVerticalSync(delay);
+reg = PEEK32(PANEL_DISPLAY_CTRL);
+reg |= (disp ? PANEL_DISPLAY_CTRL_FPEN : 0);
+POKE32(PANEL_DISPLAY_CTRL, reg);
+primaryWaitVerticalSync(delay);
+}
+void ddk750_setLogicalDispOut(disp_output_t output)
+{
+unsigned int reg;
+if (output & PNL_2_USAGE) {
+reg = PEEK32(PANEL_DISPLAY_CTRL);
+reg &= ~PANEL_DISPLAY_CTRL_SELECT_MASK;
+reg |= (((output & PNL_2_MASK) >> PNL_2_OFFSET) <<
+PANEL_DISPLAY_CTRL_SELECT_SHIFT);
+POKE32(PANEL_DISPLAY_CTRL, reg);
+}
+if (output & CRT_2_USAGE) {
+reg = PEEK32(CRT_DISPLAY_CTRL);
+reg &= ~CRT_DISPLAY_CTRL_SELECT_MASK;
+reg |= (((output & CRT_2_MASK) >> CRT_2_OFFSET) <<
+CRT_DISPLAY_CTRL_SELECT_SHIFT);
+reg &= ~CRT_DISPLAY_CTRL_BLANK;
+POKE32(CRT_DISPLAY_CTRL, reg);
+}
+if (output & PRI_TP_USAGE) {
+setDisplayControl(0, (output & PRI_TP_MASK) >> PRI_TP_OFFSET);
+}
+if (output & SEC_TP_USAGE) {
+setDisplayControl(1, (output & SEC_TP_MASK) >> SEC_TP_OFFSET);
+}
+if (output & PNL_SEQ_USAGE) {
+swPanelPowerSequence((output & PNL_SEQ_MASK) >> PNL_SEQ_OFFSET, 4);
+}
+if (output & DAC_USAGE)
+setDAC((output & DAC_MASK) >> DAC_OFFSET);
+if (output & DPMS_USAGE)
+ddk750_setDPMS((output & DPMS_MASK) >> DPMS_OFFSET);
+}

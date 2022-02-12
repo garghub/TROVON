@@ -1,0 +1,215 @@
+static void rcu_idle_enter_common(long long newval)
+{
+if (newval) {
+RCU_TRACE(trace_rcu_dyntick(TPS("--="),
+rcu_dynticks_nesting, newval));
+rcu_dynticks_nesting = newval;
+return;
+}
+RCU_TRACE(trace_rcu_dyntick(TPS("Start"),
+rcu_dynticks_nesting, newval));
+if (IS_ENABLED(CONFIG_RCU_TRACE) && !is_idle_task(current)) {
+struct task_struct *idle __maybe_unused = idle_task(smp_processor_id());
+RCU_TRACE(trace_rcu_dyntick(TPS("Entry error: not idle task"),
+rcu_dynticks_nesting, newval));
+ftrace_dump(DUMP_ALL);
+WARN_ONCE(1, "Current pid: %d comm: %s / Idle pid: %d comm: %s",
+current->pid, current->comm,
+idle->pid, idle->comm);
+}
+rcu_sched_qs();
+barrier();
+rcu_dynticks_nesting = newval;
+}
+void rcu_idle_enter(void)
+{
+unsigned long flags;
+long long newval;
+local_irq_save(flags);
+WARN_ON_ONCE((rcu_dynticks_nesting & DYNTICK_TASK_NEST_MASK) == 0);
+if ((rcu_dynticks_nesting & DYNTICK_TASK_NEST_MASK) ==
+DYNTICK_TASK_NEST_VALUE)
+newval = 0;
+else
+newval = rcu_dynticks_nesting - DYNTICK_TASK_NEST_VALUE;
+rcu_idle_enter_common(newval);
+local_irq_restore(flags);
+}
+void rcu_irq_exit(void)
+{
+unsigned long flags;
+long long newval;
+local_irq_save(flags);
+newval = rcu_dynticks_nesting - 1;
+WARN_ON_ONCE(newval < 0);
+rcu_idle_enter_common(newval);
+local_irq_restore(flags);
+}
+static void rcu_idle_exit_common(long long oldval)
+{
+if (oldval) {
+RCU_TRACE(trace_rcu_dyntick(TPS("++="),
+oldval, rcu_dynticks_nesting));
+return;
+}
+RCU_TRACE(trace_rcu_dyntick(TPS("End"), oldval, rcu_dynticks_nesting));
+if (IS_ENABLED(CONFIG_RCU_TRACE) && !is_idle_task(current)) {
+struct task_struct *idle __maybe_unused = idle_task(smp_processor_id());
+RCU_TRACE(trace_rcu_dyntick(TPS("Exit error: not idle task"),
+oldval, rcu_dynticks_nesting));
+ftrace_dump(DUMP_ALL);
+WARN_ONCE(1, "Current pid: %d comm: %s / Idle pid: %d comm: %s",
+current->pid, current->comm,
+idle->pid, idle->comm);
+}
+}
+void rcu_idle_exit(void)
+{
+unsigned long flags;
+long long oldval;
+local_irq_save(flags);
+oldval = rcu_dynticks_nesting;
+WARN_ON_ONCE(rcu_dynticks_nesting < 0);
+if (rcu_dynticks_nesting & DYNTICK_TASK_NEST_MASK)
+rcu_dynticks_nesting += DYNTICK_TASK_NEST_VALUE;
+else
+rcu_dynticks_nesting = DYNTICK_TASK_EXIT_IDLE;
+rcu_idle_exit_common(oldval);
+local_irq_restore(flags);
+}
+void rcu_irq_enter(void)
+{
+unsigned long flags;
+long long oldval;
+local_irq_save(flags);
+oldval = rcu_dynticks_nesting;
+rcu_dynticks_nesting++;
+WARN_ON_ONCE(rcu_dynticks_nesting == 0);
+rcu_idle_exit_common(oldval);
+local_irq_restore(flags);
+}
+bool notrace __rcu_is_watching(void)
+{
+return rcu_dynticks_nesting;
+}
+static int rcu_is_cpu_rrupt_from_idle(void)
+{
+return rcu_dynticks_nesting <= 1;
+}
+static int rcu_qsctr_help(struct rcu_ctrlblk *rcp)
+{
+RCU_TRACE(reset_cpu_stall_ticks(rcp));
+if (rcp->rcucblist != NULL &&
+rcp->donetail != rcp->curtail) {
+rcp->donetail = rcp->curtail;
+return 1;
+}
+return 0;
+}
+void rcu_sched_qs(void)
+{
+unsigned long flags;
+local_irq_save(flags);
+if (rcu_qsctr_help(&rcu_sched_ctrlblk) +
+rcu_qsctr_help(&rcu_bh_ctrlblk))
+raise_softirq(RCU_SOFTIRQ);
+local_irq_restore(flags);
+}
+void rcu_bh_qs(void)
+{
+unsigned long flags;
+local_irq_save(flags);
+if (rcu_qsctr_help(&rcu_bh_ctrlblk))
+raise_softirq(RCU_SOFTIRQ);
+local_irq_restore(flags);
+}
+void rcu_check_callbacks(int cpu, int user)
+{
+RCU_TRACE(check_cpu_stalls());
+if (user || rcu_is_cpu_rrupt_from_idle())
+rcu_sched_qs();
+else if (!in_softirq())
+rcu_bh_qs();
+if (user)
+rcu_note_voluntary_context_switch(current);
+}
+static void __rcu_process_callbacks(struct rcu_ctrlblk *rcp)
+{
+const char *rn = NULL;
+struct rcu_head *next, *list;
+unsigned long flags;
+RCU_TRACE(int cb_count = 0);
+if (&rcp->rcucblist == rcp->donetail) {
+RCU_TRACE(trace_rcu_batch_start(rcp->name, 0, 0, -1));
+RCU_TRACE(trace_rcu_batch_end(rcp->name, 0,
+!!ACCESS_ONCE(rcp->rcucblist),
+need_resched(),
+is_idle_task(current),
+false));
+return;
+}
+local_irq_save(flags);
+RCU_TRACE(trace_rcu_batch_start(rcp->name, 0, rcp->qlen, -1));
+list = rcp->rcucblist;
+rcp->rcucblist = *rcp->donetail;
+*rcp->donetail = NULL;
+if (rcp->curtail == rcp->donetail)
+rcp->curtail = &rcp->rcucblist;
+rcp->donetail = &rcp->rcucblist;
+local_irq_restore(flags);
+RCU_TRACE(rn = rcp->name);
+while (list) {
+next = list->next;
+prefetch(next);
+debug_rcu_head_unqueue(list);
+local_bh_disable();
+__rcu_reclaim(rn, list);
+local_bh_enable();
+list = next;
+RCU_TRACE(cb_count++);
+}
+RCU_TRACE(rcu_trace_sub_qlen(rcp, cb_count));
+RCU_TRACE(trace_rcu_batch_end(rcp->name,
+cb_count, 0, need_resched(),
+is_idle_task(current),
+false));
+}
+static void rcu_process_callbacks(struct softirq_action *unused)
+{
+__rcu_process_callbacks(&rcu_sched_ctrlblk);
+__rcu_process_callbacks(&rcu_bh_ctrlblk);
+}
+void synchronize_sched(void)
+{
+rcu_lockdep_assert(!lock_is_held(&rcu_bh_lock_map) &&
+!lock_is_held(&rcu_lock_map) &&
+!lock_is_held(&rcu_sched_lock_map),
+"Illegal synchronize_sched() in RCU read-side critical section");
+cond_resched();
+}
+static void __call_rcu(struct rcu_head *head,
+void (*func)(struct rcu_head *rcu),
+struct rcu_ctrlblk *rcp)
+{
+unsigned long flags;
+debug_rcu_head_queue(head);
+head->func = func;
+head->next = NULL;
+local_irq_save(flags);
+*rcp->curtail = head;
+rcp->curtail = &head->next;
+RCU_TRACE(rcp->qlen++);
+local_irq_restore(flags);
+}
+void call_rcu_sched(struct rcu_head *head, void (*func)(struct rcu_head *rcu))
+{
+__call_rcu(head, func, &rcu_sched_ctrlblk);
+}
+void call_rcu_bh(struct rcu_head *head, void (*func)(struct rcu_head *rcu))
+{
+__call_rcu(head, func, &rcu_bh_ctrlblk);
+}
+void rcu_init(void)
+{
+open_softirq(RCU_SOFTIRQ, rcu_process_callbacks);
+}

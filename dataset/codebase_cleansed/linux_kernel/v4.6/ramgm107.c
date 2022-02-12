@@ -1,0 +1,1 @@
+int\r\ngm107_ram_new(struct nvkm_fb *fb, struct nvkm_ram **pram)\r\n{\r\nif (!(*pram = kzalloc(sizeof(**pram), GFP_KERNEL)))\r\nreturn -ENOMEM;\r\nreturn gf100_ram_ctor(&gm107_ram_func, fb, 0x021c14, *pram);\r\n}

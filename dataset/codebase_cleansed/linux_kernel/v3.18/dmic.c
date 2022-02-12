@@ -1,0 +1,1 @@
+static int dmic_dev_probe(struct platform_device *pdev)\r\n{\r\nreturn snd_soc_register_codec(&pdev->dev,\r\n&soc_dmic, &dmic_dai, 1);\r\n}\r\nstatic int dmic_dev_remove(struct platform_device *pdev)\r\n{\r\nsnd_soc_unregister_codec(&pdev->dev);\r\nreturn 0;\r\n}

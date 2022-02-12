@@ -1,0 +1,1 @@
+int __init da830_register_gpio(void)\r\n{\r\nreturn da8xx_register_gpio(&da830_gpio_platform_data);\r\n}\r\nvoid __init da830_init(void)\r\n{\r\ndavinci_common_init(&davinci_soc_info_da830);\r\nda8xx_syscfg0_base = ioremap(DA8XX_SYSCFG0_BASE, SZ_4K);\r\nWARN(!da8xx_syscfg0_base, "Unable to map syscfg0 module");\r\ndavinci_clk_init(davinci_soc_info_da830.cpu_clks);\r\n}

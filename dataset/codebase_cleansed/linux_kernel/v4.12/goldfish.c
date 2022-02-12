@@ -1,0 +1,1 @@
+static int __init goldfish_setup(char *str)\r\n{\r\ngoldfish_enable = true;\r\nreturn 0;\r\n}\r\nstatic int __init goldfish_init(void)\r\n{\r\nif (!goldfish_enable)\r\nreturn -ENODEV;\r\nplatform_device_register_simple("goldfish_pdev_bus", -1,\r\ngoldfish_pdev_bus_resources, 2);\r\nreturn 0;\r\n}

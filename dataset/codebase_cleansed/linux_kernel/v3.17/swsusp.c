@@ -1,0 +1,1 @@
+int pfn_is_nosave(unsigned long pfn)\r\n{\r\nunsigned long begin_pfn = __pa(&__nosave_begin) >> PAGE_SHIFT;\r\nunsigned long end_pfn = PAGE_ALIGN(__pa(&__nosave_end)) >> PAGE_SHIFT;\r\nreturn (pfn >= begin_pfn) && (pfn < end_pfn);\r\n}\r\nvoid save_processor_state(void)\r\n{\r\ninit_fpu(current);\r\n}\r\nvoid restore_processor_state(void)\r\n{\r\nlocal_flush_tlb_all();\r\n}

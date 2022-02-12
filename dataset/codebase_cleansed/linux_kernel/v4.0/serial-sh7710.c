@@ -1,0 +1,1 @@
+static void sh7710_sci_init_pins(struct uart_port *port, unsigned int cflag)\r\n{\r\nif (port->mapbase == 0xA4400000) {\r\n__raw_writew(__raw_readw(PACR) & 0xffc0, PACR);\r\n__raw_writew(__raw_readw(PBCR) & 0x0fff, PBCR);\r\n} else if (port->mapbase == 0xA4410000)\r\n__raw_writew(__raw_readw(PBCR) & 0xf003, PBCR);\r\n}

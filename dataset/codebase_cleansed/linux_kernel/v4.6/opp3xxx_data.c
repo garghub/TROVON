@@ -1,0 +1,1 @@
+int __init omap3_opp_init(void)\r\n{\r\nint r = -ENODEV;\r\nif (!cpu_is_omap34xx())\r\nreturn r;\r\nif (cpu_is_omap3630())\r\nr = omap_init_opp_table(omap36xx_opp_def_list,\r\nARRAY_SIZE(omap36xx_opp_def_list));\r\nelse\r\nr = omap_init_opp_table(omap34xx_opp_def_list,\r\nARRAY_SIZE(omap34xx_opp_def_list));\r\nreturn r;\r\n}

@@ -1,0 +1,1 @@
+static int __init ehci_init(void)\r\n{\r\nif (gic_present)\r\nehci_resources[1].start = MIPS_GIC_IRQ_BASE + GIC_INT_EHCI;\r\nelse\r\nehci_resources[1].start = MIPS_CPU_IRQ_BASE + CPU_INT_EHCI;\r\nreturn platform_device_register(&ehci_device);\r\n}

@@ -1,0 +1,1 @@
+static int imx25_suspend_enter(suspend_state_t state)\r\n{\r\nif (!IS_ENABLED(CONFIG_PM))\r\nreturn 0;\r\nswitch (state) {\r\ncase PM_SUSPEND_MEM:\r\ncpu_do_idle();\r\nbreak;\r\ndefault:\r\nreturn -EINVAL;\r\n}\r\nreturn 0;\r\n}\r\nvoid __init imx25_pm_init(void)\r\n{\r\nsuspend_set_ops(&imx25_suspend_ops);\r\n}

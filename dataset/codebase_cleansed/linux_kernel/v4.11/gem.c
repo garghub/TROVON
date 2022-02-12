@@ -1,0 +1,108 @@
+void psb_gem_free_object(struct drm_gem_object *obj)
+{
+struct gtt_range *gtt = container_of(obj, struct gtt_range, gem);
+drm_gem_free_mmap_offset(obj);
+drm_gem_object_release(obj);
+psb_gtt_free_range(obj->dev, gtt);
+}
+int psb_gem_get_aperture(struct drm_device *dev, void *data,
+struct drm_file *file)
+{
+return -EINVAL;
+}
+int psb_gem_dumb_map_gtt(struct drm_file *file, struct drm_device *dev,
+uint32_t handle, uint64_t *offset)
+{
+int ret = 0;
+struct drm_gem_object *obj;
+obj = drm_gem_object_lookup(file, handle);
+if (obj == NULL)
+return -ENOENT;
+ret = drm_gem_create_mmap_offset(obj);
+if (ret)
+goto out;
+*offset = drm_vma_node_offset_addr(&obj->vma_node);
+out:
+drm_gem_object_unreference_unlocked(obj);
+return ret;
+}
+int psb_gem_create(struct drm_file *file, struct drm_device *dev, u64 size,
+u32 *handlep, int stolen, u32 align)
+{
+struct gtt_range *r;
+int ret;
+u32 handle;
+size = roundup(size, PAGE_SIZE);
+r = psb_gtt_alloc_range(dev, size, "gem", 0, PAGE_SIZE);
+if (r == NULL) {
+dev_err(dev->dev, "no memory for %lld byte GEM object\n", size);
+return -ENOSPC;
+}
+if (drm_gem_object_init(dev, &r->gem, size) != 0) {
+psb_gtt_free_range(dev, r);
+dev_err(dev->dev, "GEM init failed for %lld\n", size);
+return -ENOMEM;
+}
+mapping_set_gfp_mask(r->gem.filp->f_mapping, GFP_KERNEL | __GFP_DMA32);
+ret = drm_gem_handle_create(file, &r->gem, &handle);
+if (ret) {
+dev_err(dev->dev, "GEM handle failed for %p, %lld\n",
+&r->gem, size);
+drm_gem_object_release(&r->gem);
+psb_gtt_free_range(dev, r);
+return ret;
+}
+drm_gem_object_unreference_unlocked(&r->gem);
+*handlep = handle;
+return 0;
+}
+int psb_gem_dumb_create(struct drm_file *file, struct drm_device *dev,
+struct drm_mode_create_dumb *args)
+{
+args->pitch = ALIGN(args->width * ((args->bpp + 7) / 8), 64);
+args->size = args->pitch * args->height;
+return psb_gem_create(file, dev, args->size, &args->handle, 0,
+PAGE_SIZE);
+}
+int psb_gem_fault(struct vm_fault *vmf)
+{
+struct vm_area_struct *vma = vmf->vma;
+struct drm_gem_object *obj;
+struct gtt_range *r;
+int ret;
+unsigned long pfn;
+pgoff_t page_offset;
+struct drm_device *dev;
+struct drm_psb_private *dev_priv;
+obj = vma->vm_private_data;
+dev = obj->dev;
+dev_priv = dev->dev_private;
+r = container_of(obj, struct gtt_range, gem);
+mutex_lock(&dev_priv->mmap_mutex);
+if (r->mmapping == 0) {
+ret = psb_gtt_pin(r);
+if (ret < 0) {
+dev_err(dev->dev, "gma500: pin failed: %d\n", ret);
+goto fail;
+}
+r->mmapping = 1;
+}
+page_offset = (vmf->address - vma->vm_start) >> PAGE_SHIFT;
+if (r->stolen)
+pfn = (dev_priv->stolen_base + r->offset) >> PAGE_SHIFT;
+else
+pfn = page_to_pfn(r->pages[page_offset]);
+ret = vm_insert_pfn(vma, vmf->address, pfn);
+fail:
+mutex_unlock(&dev_priv->mmap_mutex);
+switch (ret) {
+case 0:
+case -ERESTARTSYS:
+case -EINTR:
+return VM_FAULT_NOPAGE;
+case -ENOMEM:
+return VM_FAULT_OOM;
+default:
+return VM_FAULT_SIGBUS;
+}
+}

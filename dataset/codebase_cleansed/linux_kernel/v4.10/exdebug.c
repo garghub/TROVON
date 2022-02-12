@@ -1,0 +1,189 @@
+void
+acpi_ex_do_debug_object(union acpi_operand_object *source_desc,
+u32 level, u32 index)
+{
+u32 i;
+u32 timer;
+union acpi_operand_object *object_desc;
+u32 value;
+ACPI_FUNCTION_TRACE_PTR(ex_do_debug_object, source_desc);
+if (!acpi_gbl_enable_aml_debug_object &&
+!(acpi_dbg_level & ACPI_LV_DEBUG_OBJECT)) {
+return_VOID;
+}
+if (source_desc &&
+(ACPI_GET_DESCRIPTOR_TYPE(source_desc) == ACPI_DESC_TYPE_OPERAND) &&
+(source_desc->common.type == ACPI_TYPE_STRING)) {
+if ((source_desc->string.length == 0) ||
+((source_desc->string.length == 1) &&
+(*source_desc->string.pointer == '\n'))) {
+acpi_os_printf("\n");
+return_VOID;
+}
+}
+if (!((level > 0) && index == 0)) {
+if (acpi_gbl_display_debug_timer) {
+timer = ((u32)acpi_os_get_timer() / 10);
+timer &= 0x03FFFFFF;
+acpi_os_printf("[ACPI Debug T=0x%8.8X] %*s", timer,
+level, " ");
+} else {
+acpi_os_printf("[ACPI Debug] %*s", level, " ");
+}
+}
+if (index > 0) {
+acpi_os_printf("(%.2u) ", index - 1);
+}
+if (!source_desc) {
+acpi_os_printf("[Null Object]\n");
+return_VOID;
+}
+if (ACPI_GET_DESCRIPTOR_TYPE(source_desc) == ACPI_DESC_TYPE_OPERAND) {
+if ((source_desc->common.type != ACPI_TYPE_INTEGER) &&
+(source_desc->common.type != ACPI_TYPE_STRING)) {
+acpi_os_printf("%s ",
+acpi_ut_get_object_type_name
+(source_desc));
+}
+if (!acpi_ut_valid_internal_object(source_desc)) {
+acpi_os_printf("%p, Invalid Internal Object!\n",
+source_desc);
+return_VOID;
+}
+} else if (ACPI_GET_DESCRIPTOR_TYPE(source_desc) ==
+ACPI_DESC_TYPE_NAMED) {
+acpi_os_printf("%s (Node %p)\n",
+acpi_ut_get_type_name(((struct
+acpi_namespace_node *)
+source_desc)->type),
+source_desc);
+return_VOID;
+} else {
+return_VOID;
+}
+switch (source_desc->common.type) {
+case ACPI_TYPE_INTEGER:
+if (acpi_gbl_integer_byte_width == 4) {
+acpi_os_printf("0x%8.8X\n",
+(u32)source_desc->integer.value);
+} else {
+acpi_os_printf("0x%8.8X%8.8X\n",
+ACPI_FORMAT_UINT64(source_desc->integer.
+value));
+}
+break;
+case ACPI_TYPE_BUFFER:
+acpi_os_printf("[0x%.2X]\n", (u32)source_desc->buffer.length);
+acpi_ut_dump_buffer(source_desc->buffer.pointer,
+(source_desc->buffer.length < 256) ?
+source_desc->buffer.length : 256,
+DB_BYTE_DISPLAY, 0);
+break;
+case ACPI_TYPE_STRING:
+acpi_os_printf("\"%s\"\n", source_desc->string.pointer);
+break;
+case ACPI_TYPE_PACKAGE:
+acpi_os_printf("(Contains 0x%.2X Elements):\n",
+source_desc->package.count);
+for (i = 0; i < source_desc->package.count; i++) {
+acpi_ex_do_debug_object(source_desc->package.
+elements[i], level + 4, i + 1);
+}
+break;
+case ACPI_TYPE_LOCAL_REFERENCE:
+acpi_os_printf("[%s] ",
+acpi_ut_get_reference_name(source_desc));
+switch (source_desc->reference.class) {
+case ACPI_REFCLASS_INDEX:
+acpi_os_printf("0x%X\n", source_desc->reference.value);
+break;
+case ACPI_REFCLASS_TABLE:
+acpi_os_printf("Table Index 0x%X\n",
+source_desc->reference.value);
+return_VOID;
+default:
+break;
+}
+acpi_os_printf(" ");
+if (source_desc->reference.node) {
+if (ACPI_GET_DESCRIPTOR_TYPE
+(source_desc->reference.node) !=
+ACPI_DESC_TYPE_NAMED) {
+acpi_os_printf
+(" %p - Not a valid namespace node\n",
+source_desc->reference.node);
+} else {
+acpi_os_printf("Node %p [%4.4s] ",
+source_desc->reference.node,
+(source_desc->reference.node)->
+name.ascii);
+switch ((source_desc->reference.node)->type) {
+case ACPI_TYPE_DEVICE:
+acpi_os_printf("Device\n");
+break;
+case ACPI_TYPE_THERMAL:
+acpi_os_printf("Thermal Zone\n");
+break;
+default:
+acpi_ex_do_debug_object((source_desc->
+reference.
+node)->object,
+level + 4, 0);
+break;
+}
+}
+} else if (source_desc->reference.object) {
+if (ACPI_GET_DESCRIPTOR_TYPE
+(source_desc->reference.object) ==
+ACPI_DESC_TYPE_NAMED) {
+acpi_ex_do_debug_object(ACPI_CAST_PTR
+(union
+acpi_operand_object,
+source_desc->reference.
+object), level + 4, 0);
+} else {
+object_desc = source_desc->reference.object;
+value = source_desc->reference.value;
+switch (object_desc->common.type) {
+case ACPI_TYPE_BUFFER:
+acpi_os_printf("Buffer[%u] = 0x%2.2X\n",
+value,
+*source_desc->reference.
+index_pointer);
+break;
+case ACPI_TYPE_STRING:
+acpi_os_printf
+("String[%u] = \"%c\" (0x%2.2X)\n",
+value,
+*source_desc->reference.
+index_pointer,
+*source_desc->reference.
+index_pointer);
+break;
+case ACPI_TYPE_PACKAGE:
+acpi_os_printf("Package[%u] = ", value);
+if (!(*source_desc->reference.where)) {
+acpi_os_printf
+("[Uninitialized Package Element]\n");
+} else {
+acpi_ex_do_debug_object
+(*source_desc->reference.
+where, level + 4, 0);
+}
+break;
+default:
+acpi_os_printf
+("Unknown Reference object type %X\n",
+object_desc->common.type);
+break;
+}
+}
+}
+break;
+default:
+acpi_os_printf("(Descriptor %p)\n", source_desc);
+break;
+}
+ACPI_DEBUG_PRINT_RAW((ACPI_DB_EXEC, "\n"));
+return_VOID;
+}

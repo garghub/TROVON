@@ -1,0 +1,1 @@
+int __init wil_platform_modinit(void)\r\n{\r\nreturn 0;\r\n}\r\nvoid wil_platform_modexit(void)\r\n{\r\n}\r\nvoid *wil_platform_init(struct device *dev, struct wil_platform_ops *ops)\r\n{\r\nvoid *handle = ops;\r\nif (!ops) {\r\ndev_err(dev,\r\n"Invalid parameter. Cannot init platform module\n");\r\nreturn NULL;\r\n}\r\nreturn handle;\r\n}

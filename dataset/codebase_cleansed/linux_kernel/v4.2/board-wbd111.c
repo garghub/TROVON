@@ -1,0 +1,1 @@
+static void __init wbd111_init(void)\r\n{\r\ngemini_gpio_init();\r\nplatform_register_uart();\r\nplatform_register_pflash(SZ_8M, wbd111_partitions,\r\nwbd111_num_partitions);\r\nplatform_device_register(&wbd111_leds_device);\r\nplatform_device_register(&wbd111_keys_device);\r\nplatform_register_rtc();\r\n}

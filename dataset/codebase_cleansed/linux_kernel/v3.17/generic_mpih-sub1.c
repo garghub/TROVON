@@ -1,0 +1,1 @@
+mpi_limb_t\r\nmpihelp_sub_n(mpi_ptr_t res_ptr, mpi_ptr_t s1_ptr,\r\nmpi_ptr_t s2_ptr, mpi_size_t size)\r\n{\r\nmpi_limb_t x, y, cy;\r\nmpi_size_t j;\r\nj = -size;\r\ns1_ptr -= j;\r\ns2_ptr -= j;\r\nres_ptr -= j;\r\ncy = 0;\r\ndo {\r\ny = s2_ptr[j];\r\nx = s1_ptr[j];\r\ny += cy;\r\ncy = y < cy;\r\ny = x - y;\r\ncy += y > x;\r\nres_ptr[j] = y;\r\n} while (++j);\r\nreturn cy;\r\n}

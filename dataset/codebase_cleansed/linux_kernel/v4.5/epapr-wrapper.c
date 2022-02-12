@@ -1,0 +1,1 @@
+void platform_init(unsigned long r3, unsigned long r4, unsigned long r5,\r\nunsigned long r6, unsigned long r7)\r\n{\r\nepapr_platform_init(r3, r4, r5, r6, r7);\r\n}

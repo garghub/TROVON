@@ -1,0 +1,1 @@
+static int __init sead3_net_init(void)\r\n{\r\nif (gic_present)\r\nsead3_net_resources[1].start = MIPS_GIC_IRQ_BASE + GIC_INT_NET;\r\nelse\r\nsead3_net_resources[1].start = MIPS_CPU_IRQ_BASE + CPU_INT_NET;\r\nreturn platform_device_register(&sead3_net_device);\r\n}

@@ -1,0 +1,1 @@
+static void mips_machine_power_off(void)\r\n{\r\nmips_pm_suspend(PIIX4_FUNC3IO_PMCNTRL_SUS_TYP_SOFF);\r\npr_info("Failed to power down, resetting\n");\r\nmachine_restart(NULL);\r\n}\r\nstatic int __init mips_reboot_setup(void)\r\n{\r\npm_power_off = mips_machine_power_off;\r\nreturn 0;\r\n}

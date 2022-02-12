@@ -1,0 +1,1 @@
+static void lovsub_page_fini(const struct lu_env *env,\r\nstruct cl_page_slice *slice)\r\n{\r\n}\r\nint lovsub_page_init(const struct lu_env *env, struct cl_object *obj,\r\nstruct cl_page *page, pgoff_t index)\r\n{\r\nstruct lovsub_page *lsb = cl_object_page_slice(obj, page);\r\ncl_page_slice_add(page, &lsb->lsb_cl, obj, index, &lovsub_page_ops);\r\nreturn 0;\r\n}

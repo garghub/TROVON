@@ -1,0 +1,94 @@
+static inline struct wm8350_gpio_data *to_wm8350_gpio(struct gpio_chip *chip)
+{
+return container_of(chip, struct wm8350_gpio_data, gpio_chip);
+}
+static int wm8350_gpio_direction_in(struct gpio_chip *chip, unsigned offset)
+{
+struct wm8350_gpio_data *wm8350_gpio = to_wm8350_gpio(chip);
+struct wm8350 *wm8350 = wm8350_gpio->wm8350;
+return wm8350_set_bits(wm8350, WM8350_GPIO_CONFIGURATION_I_O,
+1 << offset);
+}
+static int wm8350_gpio_get(struct gpio_chip *chip, unsigned offset)
+{
+struct wm8350_gpio_data *wm8350_gpio = to_wm8350_gpio(chip);
+struct wm8350 *wm8350 = wm8350_gpio->wm8350;
+int ret;
+ret = wm8350_reg_read(wm8350, WM8350_GPIO_LEVEL);
+if (ret < 0)
+return ret;
+if (ret & (1 << offset))
+return 1;
+else
+return 0;
+}
+static void wm8350_gpio_set(struct gpio_chip *chip, unsigned offset, int value)
+{
+struct wm8350_gpio_data *wm8350_gpio = to_wm8350_gpio(chip);
+struct wm8350 *wm8350 = wm8350_gpio->wm8350;
+if (value)
+wm8350_set_bits(wm8350, WM8350_GPIO_LEVEL, 1 << offset);
+else
+wm8350_clear_bits(wm8350, WM8350_GPIO_LEVEL, 1 << offset);
+}
+static int wm8350_gpio_direction_out(struct gpio_chip *chip,
+unsigned offset, int value)
+{
+struct wm8350_gpio_data *wm8350_gpio = to_wm8350_gpio(chip);
+struct wm8350 *wm8350 = wm8350_gpio->wm8350;
+int ret;
+ret = wm8350_clear_bits(wm8350, WM8350_GPIO_CONFIGURATION_I_O,
+1 << offset);
+if (ret < 0)
+return ret;
+wm8350_gpio_set(chip, offset, value);
+return 0;
+}
+static int wm8350_gpio_to_irq(struct gpio_chip *chip, unsigned offset)
+{
+struct wm8350_gpio_data *wm8350_gpio = to_wm8350_gpio(chip);
+struct wm8350 *wm8350 = wm8350_gpio->wm8350;
+if (!wm8350->irq_base)
+return -EINVAL;
+return wm8350->irq_base + WM8350_IRQ_GPIO(offset);
+}
+static int wm8350_gpio_probe(struct platform_device *pdev)
+{
+struct wm8350 *wm8350 = dev_get_drvdata(pdev->dev.parent);
+struct wm8350_platform_data *pdata = dev_get_platdata(wm8350->dev);
+struct wm8350_gpio_data *wm8350_gpio;
+int ret;
+wm8350_gpio = devm_kzalloc(&pdev->dev, sizeof(*wm8350_gpio),
+GFP_KERNEL);
+if (wm8350_gpio == NULL)
+return -ENOMEM;
+wm8350_gpio->wm8350 = wm8350;
+wm8350_gpio->gpio_chip = template_chip;
+wm8350_gpio->gpio_chip.ngpio = 13;
+wm8350_gpio->gpio_chip.dev = &pdev->dev;
+if (pdata && pdata->gpio_base)
+wm8350_gpio->gpio_chip.base = pdata->gpio_base;
+else
+wm8350_gpio->gpio_chip.base = -1;
+ret = gpiochip_add(&wm8350_gpio->gpio_chip);
+if (ret < 0) {
+dev_err(&pdev->dev, "Could not register gpiochip, %d\n", ret);
+return ret;
+}
+platform_set_drvdata(pdev, wm8350_gpio);
+return ret;
+}
+static int wm8350_gpio_remove(struct platform_device *pdev)
+{
+struct wm8350_gpio_data *wm8350_gpio = platform_get_drvdata(pdev);
+gpiochip_remove(&wm8350_gpio->gpio_chip);
+return 0;
+}
+static int __init wm8350_gpio_init(void)
+{
+return platform_driver_register(&wm8350_gpio_driver);
+}
+static void __exit wm8350_gpio_exit(void)
+{
+platform_driver_unregister(&wm8350_gpio_driver);
+}

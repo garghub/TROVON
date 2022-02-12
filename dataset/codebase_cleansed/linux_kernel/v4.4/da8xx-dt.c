@@ -1,0 +1,1 @@
+static void __init da8xx_init_irq(void)\r\n{\r\nof_irq_init(da8xx_irq_match);\r\n}\r\nstatic void __init da850_init_machine(void)\r\n{\r\nof_platform_populate(NULL, of_default_bus_match_table,\r\nda850_auxdata_lookup, NULL);\r\n}

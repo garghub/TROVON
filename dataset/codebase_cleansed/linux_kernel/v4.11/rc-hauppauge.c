@@ -1,0 +1,1 @@
+static int __init init_rc_map_rc5_hauppauge_new(void)\r\n{\r\nreturn rc_map_register(&rc5_hauppauge_new_map);\r\n}\r\nstatic void __exit exit_rc_map_rc5_hauppauge_new(void)\r\n{\r\nrc_map_unregister(&rc5_hauppauge_new_map);\r\n}

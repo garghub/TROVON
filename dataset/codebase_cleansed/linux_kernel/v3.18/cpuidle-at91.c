@@ -1,0 +1,1 @@
+static int at91_enter_idle(struct cpuidle_device *dev,\r\nstruct cpuidle_driver *drv,\r\nint index)\r\n{\r\nat91_standby();\r\nreturn index;\r\n}\r\nstatic int at91_cpuidle_probe(struct platform_device *dev)\r\n{\r\nat91_standby = (void *)(dev->dev.platform_data);\r\nreturn cpuidle_register(&at91_idle_driver, NULL);\r\n}

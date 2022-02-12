@@ -1,0 +1,1 @@
+int rio_mport_send_doorbell(struct rio_mport *mport, u16 destid, u16 data)\r\n{\r\nint res;\r\nunsigned long flags;\r\nspin_lock_irqsave(&rio_doorbell_lock, flags);\r\nres = mport->ops->dsend(mport, mport->id, destid, data);\r\nspin_unlock_irqrestore(&rio_doorbell_lock, flags);\r\nreturn res;\r\n}

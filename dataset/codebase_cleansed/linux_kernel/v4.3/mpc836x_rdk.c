@@ -1,0 +1,1 @@
+static void __init mpc836x_rdk_setup_arch(void)\r\n{\r\nif (ppc_md.progress)\r\nppc_md.progress("mpc836x_rdk_setup_arch()", 0);\r\nmpc83xx_setup_pci();\r\n#ifdef CONFIG_QUICC_ENGINE\r\nqe_reset();\r\n#endif\r\n}\r\nstatic int __init mpc836x_rdk_probe(void)\r\n{\r\nunsigned long root = of_get_flat_dt_root();\r\nreturn of_flat_dt_is_compatible(root, "fsl,mpc8360rdk");\r\n}

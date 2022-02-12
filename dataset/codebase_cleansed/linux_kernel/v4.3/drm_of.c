@@ -1,0 +1,28 @@
+static uint32_t drm_crtc_port_mask(struct drm_device *dev,
+struct device_node *port)
+{
+unsigned int index = 0;
+struct drm_crtc *tmp;
+drm_for_each_crtc(tmp, dev) {
+if (tmp->port == port)
+return 1 << index;
+index++;
+}
+return 0;
+}
+uint32_t drm_of_find_possible_crtcs(struct drm_device *dev,
+struct device_node *port)
+{
+struct device_node *remote_port, *ep;
+uint32_t possible_crtcs = 0;
+for_each_endpoint_of_node(port, ep) {
+remote_port = of_graph_get_remote_port(ep);
+if (!remote_port) {
+of_node_put(ep);
+return 0;
+}
+possible_crtcs |= drm_crtc_port_mask(dev, remote_port);
+of_node_put(remote_port);
+}
+return possible_crtcs;
+}

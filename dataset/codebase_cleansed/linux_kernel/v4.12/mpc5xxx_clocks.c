@@ -1,0 +1,1 @@
+unsigned long mpc5xxx_get_bus_frequency(struct device_node *node)\r\n{\r\nconst unsigned int *p_bus_freq = NULL;\r\nof_node_get(node);\r\nwhile (node) {\r\np_bus_freq = of_get_property(node, "bus-frequency", NULL);\r\nif (p_bus_freq)\r\nbreak;\r\nnode = of_get_next_parent(node);\r\n}\r\nof_node_put(node);\r\nreturn p_bus_freq ? *p_bus_freq : 0;\r\n}

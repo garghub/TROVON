@@ -1,0 +1,1 @@
+static int imx23_pinctrl_probe(struct platform_device *pdev)\r\n{\r\nreturn mxs_pinctrl_probe(pdev, &imx23_pinctrl_data);\r\n}\r\nstatic int __init imx23_pinctrl_init(void)\r\n{\r\nreturn platform_driver_register(&imx23_pinctrl_driver);\r\n}

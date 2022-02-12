@@ -1,0 +1,262 @@
+static inline struct pppoatm_vcc *atmvcc_to_pvcc(const struct atm_vcc *atmvcc)
+{
+return (struct pppoatm_vcc *) (atmvcc->user_back);
+}
+static inline struct pppoatm_vcc *chan_to_pvcc(const struct ppp_channel *chan)
+{
+return (struct pppoatm_vcc *) (chan->private);
+}
+static void pppoatm_wakeup_sender(unsigned long arg)
+{
+ppp_output_wakeup((struct ppp_channel *) arg);
+}
+static void pppoatm_release_cb(struct atm_vcc *atmvcc)
+{
+struct pppoatm_vcc *pvcc = atmvcc_to_pvcc(atmvcc);
+if (test_and_clear_bit(BLOCKED, &pvcc->blocked))
+tasklet_schedule(&pvcc->wakeup_tasklet);
+if (pvcc->old_release_cb)
+pvcc->old_release_cb(atmvcc);
+}
+static void pppoatm_pop(struct atm_vcc *atmvcc, struct sk_buff *skb)
+{
+struct pppoatm_vcc *pvcc = atmvcc_to_pvcc(atmvcc);
+pvcc->old_pop(atmvcc, skb);
+atomic_dec(&pvcc->inflight);
+if (test_and_clear_bit(BLOCKED, &pvcc->blocked))
+tasklet_schedule(&pvcc->wakeup_tasklet);
+}
+static void pppoatm_unassign_vcc(struct atm_vcc *atmvcc)
+{
+struct pppoatm_vcc *pvcc;
+pvcc = atmvcc_to_pvcc(atmvcc);
+atmvcc->push = pvcc->old_push;
+atmvcc->pop = pvcc->old_pop;
+atmvcc->release_cb = pvcc->old_release_cb;
+tasklet_kill(&pvcc->wakeup_tasklet);
+ppp_unregister_channel(&pvcc->chan);
+atmvcc->user_back = NULL;
+kfree(pvcc);
+}
+static void pppoatm_push(struct atm_vcc *atmvcc, struct sk_buff *skb)
+{
+struct pppoatm_vcc *pvcc = atmvcc_to_pvcc(atmvcc);
+pr_debug("\n");
+if (skb == NULL) {
+struct module *module;
+pr_debug("removing ATMPPP VCC %p\n", pvcc);
+module = pvcc->old_owner;
+pppoatm_unassign_vcc(atmvcc);
+atmvcc->push(atmvcc, NULL);
+module_put(module);
+return;
+}
+atm_return(atmvcc, skb->truesize);
+switch (pvcc->encaps) {
+case e_llc:
+if (skb->len < LLC_LEN ||
+memcmp(skb->data, pppllc, LLC_LEN))
+goto error;
+skb_pull(skb, LLC_LEN);
+break;
+case e_autodetect:
+if (pvcc->chan.ppp == NULL) {
+kfree_skb(skb);
+return;
+}
+if (skb->len >= sizeof(pppllc) &&
+!memcmp(skb->data, pppllc, sizeof(pppllc))) {
+pvcc->encaps = e_llc;
+skb_pull(skb, LLC_LEN);
+break;
+}
+if (skb->len >= (sizeof(pppllc) - LLC_LEN) &&
+!memcmp(skb->data, &pppllc[LLC_LEN],
+sizeof(pppllc) - LLC_LEN)) {
+pvcc->encaps = e_vc;
+pvcc->chan.mtu += LLC_LEN;
+break;
+}
+pr_debug("Couldn't autodetect yet (skb: %02X %02X %02X %02X %02X %02X)\n",
+skb->data[0], skb->data[1], skb->data[2],
+skb->data[3], skb->data[4], skb->data[5]);
+goto error;
+case e_vc:
+break;
+}
+ppp_input(&pvcc->chan, skb);
+return;
+error:
+kfree_skb(skb);
+ppp_input_error(&pvcc->chan, 0);
+}
+static int pppoatm_may_send(struct pppoatm_vcc *pvcc, int size)
+{
+if (atm_may_send(pvcc->atmvcc, size) &&
+atomic_inc_not_zero_hint(&pvcc->inflight, NONE_INFLIGHT))
+return 1;
+test_and_set_bit(BLOCKED, &pvcc->blocked);
+if (atm_may_send(pvcc->atmvcc, size) &&
+atomic_inc_not_zero(&pvcc->inflight))
+return 1;
+return 0;
+}
+static int pppoatm_send(struct ppp_channel *chan, struct sk_buff *skb)
+{
+struct pppoatm_vcc *pvcc = chan_to_pvcc(chan);
+struct atm_vcc *vcc;
+int ret;
+ATM_SKB(skb)->vcc = pvcc->atmvcc;
+pr_debug("(skb=0x%p, vcc=0x%p)\n", skb, pvcc->atmvcc);
+if (skb->data[0] == '\0' && (pvcc->flags & SC_COMP_PROT))
+(void) skb_pull(skb, 1);
+vcc = ATM_SKB(skb)->vcc;
+bh_lock_sock(sk_atm(vcc));
+if (sock_owned_by_user(sk_atm(vcc))) {
+test_and_set_bit(BLOCKED, &pvcc->blocked);
+goto nospace;
+}
+if (test_bit(ATM_VF_RELEASED, &vcc->flags) ||
+test_bit(ATM_VF_CLOSE, &vcc->flags) ||
+!test_bit(ATM_VF_READY, &vcc->flags)) {
+bh_unlock_sock(sk_atm(vcc));
+kfree_skb(skb);
+return DROP_PACKET;
+}
+switch (pvcc->encaps) {
+case e_llc:
+if (skb_headroom(skb) < LLC_LEN) {
+struct sk_buff *n;
+n = skb_realloc_headroom(skb, LLC_LEN);
+if (n != NULL &&
+!pppoatm_may_send(pvcc, n->truesize)) {
+kfree_skb(n);
+goto nospace;
+}
+consume_skb(skb);
+skb = n;
+if (skb == NULL) {
+bh_unlock_sock(sk_atm(vcc));
+return DROP_PACKET;
+}
+} else if (!pppoatm_may_send(pvcc, skb->truesize))
+goto nospace;
+memcpy(skb_push(skb, LLC_LEN), pppllc, LLC_LEN);
+break;
+case e_vc:
+if (!pppoatm_may_send(pvcc, skb->truesize))
+goto nospace;
+break;
+case e_autodetect:
+bh_unlock_sock(sk_atm(vcc));
+pr_debug("Trying to send without setting encaps!\n");
+kfree_skb(skb);
+return 1;
+}
+refcount_add(skb->truesize, &sk_atm(ATM_SKB(skb)->vcc)->sk_wmem_alloc);
+ATM_SKB(skb)->atm_options = ATM_SKB(skb)->vcc->atm_options;
+pr_debug("atm_skb(%p)->vcc(%p)->dev(%p)\n",
+skb, ATM_SKB(skb)->vcc, ATM_SKB(skb)->vcc->dev);
+ret = ATM_SKB(skb)->vcc->send(ATM_SKB(skb)->vcc, skb)
+? DROP_PACKET : 1;
+bh_unlock_sock(sk_atm(vcc));
+return ret;
+nospace:
+bh_unlock_sock(sk_atm(vcc));
+if ((pvcc->flags & SC_COMP_PROT) && skb_headroom(skb) > 0 &&
+skb->data[-1] == '\0')
+(void) skb_push(skb, 1);
+return 0;
+}
+static int pppoatm_devppp_ioctl(struct ppp_channel *chan, unsigned int cmd,
+unsigned long arg)
+{
+switch (cmd) {
+case PPPIOCGFLAGS:
+return put_user(chan_to_pvcc(chan)->flags, (int __user *) arg)
+? -EFAULT : 0;
+case PPPIOCSFLAGS:
+return get_user(chan_to_pvcc(chan)->flags, (int __user *) arg)
+? -EFAULT : 0;
+}
+return -ENOTTY;
+}
+static int pppoatm_assign_vcc(struct atm_vcc *atmvcc, void __user *arg)
+{
+struct atm_backend_ppp be;
+struct pppoatm_vcc *pvcc;
+int err;
+static const DECLARE_TASKLET(tasklet_proto, pppoatm_wakeup_sender, 0);
+if (copy_from_user(&be, arg, sizeof be))
+return -EFAULT;
+if (be.encaps != PPPOATM_ENCAPS_AUTODETECT &&
+be.encaps != PPPOATM_ENCAPS_VC && be.encaps != PPPOATM_ENCAPS_LLC)
+return -EINVAL;
+pvcc = kzalloc(sizeof(*pvcc), GFP_KERNEL);
+if (pvcc == NULL)
+return -ENOMEM;
+pvcc->atmvcc = atmvcc;
+atomic_set(&pvcc->inflight, NONE_INFLIGHT);
+pvcc->old_push = atmvcc->push;
+pvcc->old_pop = atmvcc->pop;
+pvcc->old_owner = atmvcc->owner;
+pvcc->old_release_cb = atmvcc->release_cb;
+pvcc->encaps = (enum pppoatm_encaps) be.encaps;
+pvcc->chan.private = pvcc;
+pvcc->chan.ops = &pppoatm_ops;
+pvcc->chan.mtu = atmvcc->qos.txtp.max_sdu - PPP_HDRLEN -
+(be.encaps == e_vc ? 0 : LLC_LEN);
+pvcc->wakeup_tasklet = tasklet_proto;
+pvcc->wakeup_tasklet.data = (unsigned long) &pvcc->chan;
+err = ppp_register_channel(&pvcc->chan);
+if (err != 0) {
+kfree(pvcc);
+return err;
+}
+atmvcc->user_back = pvcc;
+atmvcc->push = pppoatm_push;
+atmvcc->pop = pppoatm_pop;
+atmvcc->release_cb = pppoatm_release_cb;
+__module_get(THIS_MODULE);
+atmvcc->owner = THIS_MODULE;
+vcc_process_recv_queue(atmvcc);
+return 0;
+}
+static int pppoatm_ioctl(struct socket *sock, unsigned int cmd,
+unsigned long arg)
+{
+struct atm_vcc *atmvcc = ATM_SD(sock);
+void __user *argp = (void __user *)arg;
+if (cmd != ATM_SETBACKEND && atmvcc->push != pppoatm_push)
+return -ENOIOCTLCMD;
+switch (cmd) {
+case ATM_SETBACKEND: {
+atm_backend_t b;
+if (get_user(b, (atm_backend_t __user *) argp))
+return -EFAULT;
+if (b != ATM_BACKEND_PPP)
+return -ENOIOCTLCMD;
+if (!capable(CAP_NET_ADMIN))
+return -EPERM;
+if (sock->state != SS_CONNECTED)
+return -EINVAL;
+return pppoatm_assign_vcc(atmvcc, argp);
+}
+case PPPIOCGCHAN:
+return put_user(ppp_channel_index(&atmvcc_to_pvcc(atmvcc)->
+chan), (int __user *) argp) ? -EFAULT : 0;
+case PPPIOCGUNIT:
+return put_user(ppp_unit_number(&atmvcc_to_pvcc(atmvcc)->
+chan), (int __user *) argp) ? -EFAULT : 0;
+}
+return -ENOIOCTLCMD;
+}
+static int __init pppoatm_init(void)
+{
+register_atm_ioctl(&pppoatm_ioctl_ops);
+return 0;
+}
+static void __exit pppoatm_exit(void)
+{
+deregister_atm_ioctl(&pppoatm_ioctl_ops);
+}

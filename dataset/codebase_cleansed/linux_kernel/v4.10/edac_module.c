@@ -1,0 +1,74 @@
+static int edac_set_debug_level(const char *buf, struct kernel_param *kp)
+{
+unsigned long val;
+int ret;
+ret = kstrtoul(buf, 0, &val);
+if (ret)
+return ret;
+if (val > 4)
+return -EINVAL;
+return param_set_int(buf, kp);
+}
+char *edac_op_state_to_string(int opstate)
+{
+if (opstate == OP_RUNNING_POLL)
+return "POLLED";
+else if (opstate == OP_RUNNING_INTERRUPT)
+return "INTERRUPT";
+else if (opstate == OP_RUNNING_POLL_INTR)
+return "POLL-INTR";
+else if (opstate == OP_ALLOC)
+return "ALLOC";
+else if (opstate == OP_OFFLINE)
+return "OFFLINE";
+return "UNKNOWN";
+}
+static int edac_subsys_init(void)
+{
+int err;
+err = subsys_system_register(&edac_subsys, NULL);
+if (err)
+printk(KERN_ERR "Error registering toplevel EDAC sysfs dir\n");
+return err;
+}
+static void edac_subsys_exit(void)
+{
+bus_unregister(&edac_subsys);
+}
+struct bus_type *edac_get_sysfs_subsys(void)
+{
+return &edac_subsys;
+}
+static int __init edac_init(void)
+{
+int err = 0;
+edac_printk(KERN_INFO, EDAC_MC, EDAC_VERSION "\n");
+err = edac_subsys_init();
+if (err)
+return err;
+edac_pci_clear_parity_errors();
+err = edac_mc_sysfs_init();
+if (err)
+goto err_sysfs;
+edac_debugfs_init();
+err = edac_workqueue_setup();
+if (err) {
+edac_printk(KERN_ERR, EDAC_MC, "Failure initializing workqueue\n");
+goto err_wq;
+}
+return 0;
+err_wq:
+edac_debugfs_exit();
+edac_mc_sysfs_exit();
+err_sysfs:
+edac_subsys_exit();
+return err;
+}
+static void __exit edac_exit(void)
+{
+edac_dbg(0, "\n");
+edac_workqueue_teardown();
+edac_mc_sysfs_exit();
+edac_debugfs_exit();
+edac_subsys_exit();
+}

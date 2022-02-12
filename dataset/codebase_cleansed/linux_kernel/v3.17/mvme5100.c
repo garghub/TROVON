@@ -1,0 +1,1 @@
+void platform_init(unsigned long r3, unsigned long r4, unsigned long r5)\r\n{\r\nu32 heapsize;\r\nheapsize = 0x8000000 - (u32)_end;\r\nsimple_alloc_init(_end, heapsize, 32, 64);\r\nfdt_init(_dtb_start);\r\nserial_console_init();\r\n}

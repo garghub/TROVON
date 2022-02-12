@@ -1,0 +1,1 @@
+static void __init bug_board_init(void)\r\n{\r\nimx31_soc_init();\r\nmxc_iomux_setup_multiple_pins(bug_pins,\r\nARRAY_SIZE(bug_pins), "uart-4");\r\nimx31_add_imx_uart4(&uart_pdata);\r\n}\r\nstatic void __init bug_timer_init(void)\r\n{\r\nmx31_clocks_init(26000000);\r\n}

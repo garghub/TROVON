@@ -1,0 +1,1 @@
+static int zx296718_pd_probe(struct platform_device *pdev)\r\n{\r\nreturn zx2967_pd_probe(pdev,\r\nzx296718_pm_domains,\r\nARRAY_SIZE(zx296718_pm_domains));\r\n}\r\nstatic int __init zx296718_pd_init(void)\r\n{\r\nreturn platform_driver_register(&zx296718_pd_driver);\r\n}

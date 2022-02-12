@@ -1,0 +1,79 @@
+static void stinger_process_packet(struct stinger *stinger)
+{
+struct input_dev *dev = stinger->dev;
+unsigned char *data = stinger->data;
+if (!stinger->idx) return;
+input_report_key(dev, BTN_A, ((data[0] & 0x20) >> 5));
+input_report_key(dev, BTN_B, ((data[0] & 0x10) >> 4));
+input_report_key(dev, BTN_C, ((data[0] & 0x08) >> 3));
+input_report_key(dev, BTN_X, ((data[0] & 0x04) >> 2));
+input_report_key(dev, BTN_Y, ((data[3] & 0x20) >> 5));
+input_report_key(dev, BTN_Z, ((data[3] & 0x10) >> 4));
+input_report_key(dev, BTN_TL, ((data[3] & 0x08) >> 3));
+input_report_key(dev, BTN_TR, ((data[3] & 0x04) >> 2));
+input_report_key(dev, BTN_SELECT, ((data[3] & 0x02) >> 1));
+input_report_key(dev, BTN_START, (data[3] & 0x01));
+input_report_abs(dev, ABS_X, (data[1] & 0x3F) - ((data[0] & 0x01) << 6));
+input_report_abs(dev, ABS_Y, ((data[0] & 0x02) << 5) - (data[2] & 0x3F));
+input_sync(dev);
+return;
+}
+static irqreturn_t stinger_interrupt(struct serio *serio,
+unsigned char data, unsigned int flags)
+{
+struct stinger *stinger = serio_get_drvdata(serio);
+if (stinger->idx < STINGER_MAX_LENGTH)
+stinger->data[stinger->idx++] = data;
+if (stinger->idx == 4) {
+stinger_process_packet(stinger);
+stinger->idx = 0;
+}
+return IRQ_HANDLED;
+}
+static void stinger_disconnect(struct serio *serio)
+{
+struct stinger *stinger = serio_get_drvdata(serio);
+serio_close(serio);
+serio_set_drvdata(serio, NULL);
+input_unregister_device(stinger->dev);
+kfree(stinger);
+}
+static int stinger_connect(struct serio *serio, struct serio_driver *drv)
+{
+struct stinger *stinger;
+struct input_dev *input_dev;
+int err = -ENOMEM;
+stinger = kmalloc(sizeof(struct stinger), GFP_KERNEL);
+input_dev = input_allocate_device();
+if (!stinger || !input_dev)
+goto fail1;
+stinger->dev = input_dev;
+snprintf(stinger->phys, sizeof(stinger->phys), "%s/serio0", serio->phys);
+input_dev->name = "Gravis Stinger";
+input_dev->phys = stinger->phys;
+input_dev->id.bustype = BUS_RS232;
+input_dev->id.vendor = SERIO_STINGER;
+input_dev->id.product = 0x0001;
+input_dev->id.version = 0x0100;
+input_dev->dev.parent = &serio->dev;
+input_dev->evbit[0] = BIT_MASK(EV_KEY) | BIT_MASK(EV_ABS);
+input_dev->keybit[BIT_WORD(BTN_A)] = BIT_MASK(BTN_A) | BIT_MASK(BTN_B) |
+BIT_MASK(BTN_C) | BIT_MASK(BTN_X) | BIT_MASK(BTN_Y) |
+BIT_MASK(BTN_Z) | BIT_MASK(BTN_TL) | BIT_MASK(BTN_TR) |
+BIT_MASK(BTN_START) | BIT_MASK(BTN_SELECT);
+input_set_abs_params(input_dev, ABS_X, -64, 64, 0, 4);
+input_set_abs_params(input_dev, ABS_Y, -64, 64, 0, 4);
+serio_set_drvdata(serio, stinger);
+err = serio_open(serio, drv);
+if (err)
+goto fail2;
+err = input_register_device(stinger->dev);
+if (err)
+goto fail3;
+return 0;
+fail3: serio_close(serio);
+fail2: serio_set_drvdata(serio, NULL);
+fail1: input_free_device(input_dev);
+kfree(stinger);
+return err;
+}

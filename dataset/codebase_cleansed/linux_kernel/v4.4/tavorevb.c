@@ -1,0 +1,1 @@
+static void __init tavorevb_init(void)\r\n{\r\nmfp_config(ARRAY_AND_SIZE(tavorevb_pin_config));\r\npxa910_add_uart(1);\r\nplatform_device_add_data(&pxa910_device_gpio, &pxa910_gpio_pdata,\r\nsizeof(struct pxa_gpio_platform_data));\r\nplatform_device_register(&pxa910_device_gpio);\r\nplatform_device_register(&smc91x_device);\r\n}

@@ -1,0 +1,1 @@
+static int am43xx_check_vcvp(void)\r\n{\r\nreturn 0;\r\n}\r\nvoid __init am43xx_powerdomains_init(void)\r\n{\r\nomap4_pwrdm_operations.pwrdm_has_voltdm = am43xx_check_vcvp;\r\npwrdm_register_platform_funcs(&omap4_pwrdm_operations);\r\npwrdm_register_pwrdms(powerdomains_am43xx);\r\npwrdm_complete_init();\r\n}

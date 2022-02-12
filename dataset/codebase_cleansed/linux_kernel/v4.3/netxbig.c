@@ -1,0 +1,1 @@
+void __init netxbig_init(void)\r\n{\r\nif (of_machine_is_compatible("lacie,net5big_v2"))\r\nnetxbig_v2_leds.dev.platform_data = &net5big_v2_leds_data;\r\nplatform_device_register(&netxbig_v2_leds);\r\n}

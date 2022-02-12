@@ -1,0 +1,34 @@
+int
+i915_verify_lists(struct drm_device *dev)
+{
+static int warned;
+struct drm_i915_private *dev_priv = to_i915(dev);
+struct drm_i915_gem_object *obj;
+struct intel_engine_cs *ring;
+int err = 0;
+int i;
+if (warned)
+return 0;
+for_each_ring(ring, dev_priv, i) {
+list_for_each_entry(obj, &ring->active_list, ring_list[ring->id]) {
+if (obj->base.dev != dev ||
+!atomic_read(&obj->base.refcount.refcount)) {
+DRM_ERROR("%s: freed active obj %p\n",
+ring->name, obj);
+err++;
+break;
+} else if (!obj->active ||
+obj->last_read_req[ring->id] == NULL) {
+DRM_ERROR("%s: invalid active obj %p\n",
+ring->name, obj);
+err++;
+} else if (obj->base.write_domain) {
+DRM_ERROR("%s: invalid write obj %p (w %x)\n",
+ring->name,
+obj, obj->base.write_domain);
+err++;
+}
+}
+}
+return warned = err;
+}

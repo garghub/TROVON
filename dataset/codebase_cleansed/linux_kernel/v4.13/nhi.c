@@ -1,0 +1,585 @@
+static int ring_interrupt_index(struct tb_ring *ring)
+{
+int bit = ring->hop;
+if (!ring->is_tx)
+bit += ring->nhi->hop_count;
+return bit;
+}
+static void ring_interrupt_active(struct tb_ring *ring, bool active)
+{
+int reg = REG_RING_INTERRUPT_BASE +
+ring_interrupt_index(ring) / 32 * 4;
+int bit = ring_interrupt_index(ring) & 31;
+int mask = 1 << bit;
+u32 old, new;
+if (ring->irq > 0) {
+u32 step, shift, ivr, misc;
+void __iomem *ivr_base;
+int index;
+if (ring->is_tx)
+index = ring->hop;
+else
+index = ring->hop + ring->nhi->hop_count;
+misc = ioread32(ring->nhi->iobase + REG_DMA_MISC);
+if (!(misc & REG_DMA_MISC_INT_AUTO_CLEAR)) {
+misc |= REG_DMA_MISC_INT_AUTO_CLEAR;
+iowrite32(misc, ring->nhi->iobase + REG_DMA_MISC);
+}
+ivr_base = ring->nhi->iobase + REG_INT_VEC_ALLOC_BASE;
+step = index / REG_INT_VEC_ALLOC_REGS * REG_INT_VEC_ALLOC_BITS;
+shift = index % REG_INT_VEC_ALLOC_REGS * REG_INT_VEC_ALLOC_BITS;
+ivr = ioread32(ivr_base + step);
+ivr &= ~(REG_INT_VEC_ALLOC_MASK << shift);
+if (active)
+ivr |= ring->vector << shift;
+iowrite32(ivr, ivr_base + step);
+}
+old = ioread32(ring->nhi->iobase + reg);
+if (active)
+new = old | mask;
+else
+new = old & ~mask;
+dev_info(&ring->nhi->pdev->dev,
+"%s interrupt at register %#x bit %d (%#x -> %#x)\n",
+active ? "enabling" : "disabling", reg, bit, old, new);
+if (new == old)
+dev_WARN(&ring->nhi->pdev->dev,
+"interrupt for %s %d is already %s\n",
+RING_TYPE(ring), ring->hop,
+active ? "enabled" : "disabled");
+iowrite32(new, ring->nhi->iobase + reg);
+}
+static void nhi_disable_interrupts(struct tb_nhi *nhi)
+{
+int i = 0;
+for (i = 0; i < RING_INTERRUPT_REG_COUNT(nhi); i++)
+iowrite32(0, nhi->iobase + REG_RING_INTERRUPT_BASE + 4 * i);
+for (i = 0; i < RING_NOTIFY_REG_COUNT(nhi); i++)
+ioread32(nhi->iobase + REG_RING_NOTIFY_BASE + 4 * i);
+}
+static void __iomem *ring_desc_base(struct tb_ring *ring)
+{
+void __iomem *io = ring->nhi->iobase;
+io += ring->is_tx ? REG_TX_RING_BASE : REG_RX_RING_BASE;
+io += ring->hop * 16;
+return io;
+}
+static void __iomem *ring_options_base(struct tb_ring *ring)
+{
+void __iomem *io = ring->nhi->iobase;
+io += ring->is_tx ? REG_TX_OPTIONS_BASE : REG_RX_OPTIONS_BASE;
+io += ring->hop * 32;
+return io;
+}
+static void ring_iowrite16desc(struct tb_ring *ring, u32 value, u32 offset)
+{
+iowrite16(value, ring_desc_base(ring) + offset);
+}
+static void ring_iowrite32desc(struct tb_ring *ring, u32 value, u32 offset)
+{
+iowrite32(value, ring_desc_base(ring) + offset);
+}
+static void ring_iowrite64desc(struct tb_ring *ring, u64 value, u32 offset)
+{
+iowrite32(value, ring_desc_base(ring) + offset);
+iowrite32(value >> 32, ring_desc_base(ring) + offset + 4);
+}
+static void ring_iowrite32options(struct tb_ring *ring, u32 value, u32 offset)
+{
+iowrite32(value, ring_options_base(ring) + offset);
+}
+static bool ring_full(struct tb_ring *ring)
+{
+return ((ring->head + 1) % ring->size) == ring->tail;
+}
+static bool ring_empty(struct tb_ring *ring)
+{
+return ring->head == ring->tail;
+}
+static void ring_write_descriptors(struct tb_ring *ring)
+{
+struct ring_frame *frame, *n;
+struct ring_desc *descriptor;
+list_for_each_entry_safe(frame, n, &ring->queue, list) {
+if (ring_full(ring))
+break;
+list_move_tail(&frame->list, &ring->in_flight);
+descriptor = &ring->descriptors[ring->head];
+descriptor->phys = frame->buffer_phy;
+descriptor->time = 0;
+descriptor->flags = RING_DESC_POSTED | RING_DESC_INTERRUPT;
+if (ring->is_tx) {
+descriptor->length = frame->size;
+descriptor->eof = frame->eof;
+descriptor->sof = frame->sof;
+}
+ring->head = (ring->head + 1) % ring->size;
+ring_iowrite16desc(ring, ring->head, ring->is_tx ? 10 : 8);
+}
+}
+static void ring_work(struct work_struct *work)
+{
+struct tb_ring *ring = container_of(work, typeof(*ring), work);
+struct ring_frame *frame;
+bool canceled = false;
+LIST_HEAD(done);
+mutex_lock(&ring->lock);
+if (!ring->running) {
+list_splice_tail_init(&ring->in_flight, &done);
+list_splice_tail_init(&ring->queue, &done);
+canceled = true;
+goto invoke_callback;
+}
+while (!ring_empty(ring)) {
+if (!(ring->descriptors[ring->tail].flags
+& RING_DESC_COMPLETED))
+break;
+frame = list_first_entry(&ring->in_flight, typeof(*frame),
+list);
+list_move_tail(&frame->list, &done);
+if (!ring->is_tx) {
+frame->size = ring->descriptors[ring->tail].length;
+frame->eof = ring->descriptors[ring->tail].eof;
+frame->sof = ring->descriptors[ring->tail].sof;
+frame->flags = ring->descriptors[ring->tail].flags;
+if (frame->sof != 0)
+dev_WARN(&ring->nhi->pdev->dev,
+"%s %d got unexpected SOF: %#x\n",
+RING_TYPE(ring), ring->hop,
+frame->sof);
+if (frame->flags != 0xa)
+dev_WARN(&ring->nhi->pdev->dev,
+"%s %d got unexpected flags: %#x\n",
+RING_TYPE(ring), ring->hop,
+frame->flags);
+}
+ring->tail = (ring->tail + 1) % ring->size;
+}
+ring_write_descriptors(ring);
+invoke_callback:
+mutex_unlock(&ring->lock);
+while (!list_empty(&done)) {
+frame = list_first_entry(&done, typeof(*frame), list);
+list_del_init(&frame->list);
+frame->callback(ring, frame, canceled);
+}
+}
+int __ring_enqueue(struct tb_ring *ring, struct ring_frame *frame)
+{
+int ret = 0;
+mutex_lock(&ring->lock);
+if (ring->running) {
+list_add_tail(&frame->list, &ring->queue);
+ring_write_descriptors(ring);
+} else {
+ret = -ESHUTDOWN;
+}
+mutex_unlock(&ring->lock);
+return ret;
+}
+static irqreturn_t ring_msix(int irq, void *data)
+{
+struct tb_ring *ring = data;
+schedule_work(&ring->work);
+return IRQ_HANDLED;
+}
+static int ring_request_msix(struct tb_ring *ring, bool no_suspend)
+{
+struct tb_nhi *nhi = ring->nhi;
+unsigned long irqflags;
+int ret;
+if (!nhi->pdev->msix_enabled)
+return 0;
+ret = ida_simple_get(&nhi->msix_ida, 0, MSIX_MAX_VECS, GFP_KERNEL);
+if (ret < 0)
+return ret;
+ring->vector = ret;
+ring->irq = pci_irq_vector(ring->nhi->pdev, ring->vector);
+if (ring->irq < 0)
+return ring->irq;
+irqflags = no_suspend ? IRQF_NO_SUSPEND : 0;
+return request_irq(ring->irq, ring_msix, irqflags, "thunderbolt", ring);
+}
+static void ring_release_msix(struct tb_ring *ring)
+{
+if (ring->irq <= 0)
+return;
+free_irq(ring->irq, ring);
+ida_simple_remove(&ring->nhi->msix_ida, ring->vector);
+ring->vector = 0;
+ring->irq = 0;
+}
+static struct tb_ring *ring_alloc(struct tb_nhi *nhi, u32 hop, int size,
+bool transmit, unsigned int flags)
+{
+struct tb_ring *ring = NULL;
+dev_info(&nhi->pdev->dev, "allocating %s ring %d of size %d\n",
+transmit ? "TX" : "RX", hop, size);
+mutex_lock(&nhi->lock);
+if (hop >= nhi->hop_count) {
+dev_WARN(&nhi->pdev->dev, "invalid hop: %d\n", hop);
+goto err;
+}
+if (transmit && nhi->tx_rings[hop]) {
+dev_WARN(&nhi->pdev->dev, "TX hop %d already allocated\n", hop);
+goto err;
+} else if (!transmit && nhi->rx_rings[hop]) {
+dev_WARN(&nhi->pdev->dev, "RX hop %d already allocated\n", hop);
+goto err;
+}
+ring = kzalloc(sizeof(*ring), GFP_KERNEL);
+if (!ring)
+goto err;
+mutex_init(&ring->lock);
+INIT_LIST_HEAD(&ring->queue);
+INIT_LIST_HEAD(&ring->in_flight);
+INIT_WORK(&ring->work, ring_work);
+ring->nhi = nhi;
+ring->hop = hop;
+ring->is_tx = transmit;
+ring->size = size;
+ring->flags = flags;
+ring->head = 0;
+ring->tail = 0;
+ring->running = false;
+if (ring_request_msix(ring, flags & RING_FLAG_NO_SUSPEND))
+goto err;
+ring->descriptors = dma_alloc_coherent(&ring->nhi->pdev->dev,
+size * sizeof(*ring->descriptors),
+&ring->descriptors_dma, GFP_KERNEL | __GFP_ZERO);
+if (!ring->descriptors)
+goto err;
+if (transmit)
+nhi->tx_rings[hop] = ring;
+else
+nhi->rx_rings[hop] = ring;
+mutex_unlock(&nhi->lock);
+return ring;
+err:
+if (ring)
+mutex_destroy(&ring->lock);
+kfree(ring);
+mutex_unlock(&nhi->lock);
+return NULL;
+}
+struct tb_ring *ring_alloc_tx(struct tb_nhi *nhi, int hop, int size,
+unsigned int flags)
+{
+return ring_alloc(nhi, hop, size, true, flags);
+}
+struct tb_ring *ring_alloc_rx(struct tb_nhi *nhi, int hop, int size,
+unsigned int flags)
+{
+return ring_alloc(nhi, hop, size, false, flags);
+}
+void ring_start(struct tb_ring *ring)
+{
+mutex_lock(&ring->nhi->lock);
+mutex_lock(&ring->lock);
+if (ring->nhi->going_away)
+goto err;
+if (ring->running) {
+dev_WARN(&ring->nhi->pdev->dev, "ring already started\n");
+goto err;
+}
+dev_info(&ring->nhi->pdev->dev, "starting %s %d\n",
+RING_TYPE(ring), ring->hop);
+ring_iowrite64desc(ring, ring->descriptors_dma, 0);
+if (ring->is_tx) {
+ring_iowrite32desc(ring, ring->size, 12);
+ring_iowrite32options(ring, 0, 4);
+ring_iowrite32options(ring,
+RING_FLAG_ENABLE | RING_FLAG_RAW, 0);
+} else {
+ring_iowrite32desc(ring,
+(TB_FRAME_SIZE << 16) | ring->size, 12);
+ring_iowrite32options(ring, 0xffffffff, 4);
+ring_iowrite32options(ring,
+RING_FLAG_ENABLE | RING_FLAG_RAW, 0);
+}
+ring_interrupt_active(ring, true);
+ring->running = true;
+err:
+mutex_unlock(&ring->lock);
+mutex_unlock(&ring->nhi->lock);
+}
+void ring_stop(struct tb_ring *ring)
+{
+mutex_lock(&ring->nhi->lock);
+mutex_lock(&ring->lock);
+dev_info(&ring->nhi->pdev->dev, "stopping %s %d\n",
+RING_TYPE(ring), ring->hop);
+if (ring->nhi->going_away)
+goto err;
+if (!ring->running) {
+dev_WARN(&ring->nhi->pdev->dev, "%s %d already stopped\n",
+RING_TYPE(ring), ring->hop);
+goto err;
+}
+ring_interrupt_active(ring, false);
+ring_iowrite32options(ring, 0, 0);
+ring_iowrite64desc(ring, 0, 0);
+ring_iowrite16desc(ring, 0, ring->is_tx ? 10 : 8);
+ring_iowrite32desc(ring, 0, 12);
+ring->head = 0;
+ring->tail = 0;
+ring->running = false;
+err:
+mutex_unlock(&ring->lock);
+mutex_unlock(&ring->nhi->lock);
+schedule_work(&ring->work);
+flush_work(&ring->work);
+}
+void ring_free(struct tb_ring *ring)
+{
+mutex_lock(&ring->nhi->lock);
+if (ring->is_tx)
+ring->nhi->tx_rings[ring->hop] = NULL;
+else
+ring->nhi->rx_rings[ring->hop] = NULL;
+if (ring->running) {
+dev_WARN(&ring->nhi->pdev->dev, "%s %d still running\n",
+RING_TYPE(ring), ring->hop);
+}
+ring_release_msix(ring);
+dma_free_coherent(&ring->nhi->pdev->dev,
+ring->size * sizeof(*ring->descriptors),
+ring->descriptors, ring->descriptors_dma);
+ring->descriptors = NULL;
+ring->descriptors_dma = 0;
+dev_info(&ring->nhi->pdev->dev,
+"freeing %s %d\n",
+RING_TYPE(ring),
+ring->hop);
+mutex_unlock(&ring->nhi->lock);
+flush_work(&ring->work);
+mutex_destroy(&ring->lock);
+kfree(ring);
+}
+int nhi_mailbox_cmd(struct tb_nhi *nhi, enum nhi_mailbox_cmd cmd, u32 data)
+{
+ktime_t timeout;
+u32 val;
+iowrite32(data, nhi->iobase + REG_INMAIL_DATA);
+val = ioread32(nhi->iobase + REG_INMAIL_CMD);
+val &= ~(REG_INMAIL_CMD_MASK | REG_INMAIL_ERROR);
+val |= REG_INMAIL_OP_REQUEST | cmd;
+iowrite32(val, nhi->iobase + REG_INMAIL_CMD);
+timeout = ktime_add_ms(ktime_get(), NHI_MAILBOX_TIMEOUT);
+do {
+val = ioread32(nhi->iobase + REG_INMAIL_CMD);
+if (!(val & REG_INMAIL_OP_REQUEST))
+break;
+usleep_range(10, 20);
+} while (ktime_before(ktime_get(), timeout));
+if (val & REG_INMAIL_OP_REQUEST)
+return -ETIMEDOUT;
+if (val & REG_INMAIL_ERROR)
+return -EIO;
+return 0;
+}
+enum nhi_fw_mode nhi_mailbox_mode(struct tb_nhi *nhi)
+{
+u32 val;
+val = ioread32(nhi->iobase + REG_OUTMAIL_CMD);
+val &= REG_OUTMAIL_CMD_OPMODE_MASK;
+val >>= REG_OUTMAIL_CMD_OPMODE_SHIFT;
+return (enum nhi_fw_mode)val;
+}
+static void nhi_interrupt_work(struct work_struct *work)
+{
+struct tb_nhi *nhi = container_of(work, typeof(*nhi), interrupt_work);
+int value = 0;
+int bit;
+int hop = -1;
+int type = 0;
+struct tb_ring *ring;
+mutex_lock(&nhi->lock);
+for (bit = 0; bit < 3 * nhi->hop_count; bit++) {
+if (bit % 32 == 0)
+value = ioread32(nhi->iobase
++ REG_RING_NOTIFY_BASE
++ 4 * (bit / 32));
+if (++hop == nhi->hop_count) {
+hop = 0;
+type++;
+}
+if ((value & (1 << (bit % 32))) == 0)
+continue;
+if (type == 2) {
+dev_warn(&nhi->pdev->dev,
+"RX overflow for ring %d\n",
+hop);
+continue;
+}
+if (type == 0)
+ring = nhi->tx_rings[hop];
+else
+ring = nhi->rx_rings[hop];
+if (ring == NULL) {
+dev_warn(&nhi->pdev->dev,
+"got interrupt for inactive %s ring %d\n",
+type ? "RX" : "TX",
+hop);
+continue;
+}
+schedule_work(&ring->work);
+}
+mutex_unlock(&nhi->lock);
+}
+static irqreturn_t nhi_msi(int irq, void *data)
+{
+struct tb_nhi *nhi = data;
+schedule_work(&nhi->interrupt_work);
+return IRQ_HANDLED;
+}
+static int nhi_suspend_noirq(struct device *dev)
+{
+struct pci_dev *pdev = to_pci_dev(dev);
+struct tb *tb = pci_get_drvdata(pdev);
+return tb_domain_suspend_noirq(tb);
+}
+static int nhi_resume_noirq(struct device *dev)
+{
+struct pci_dev *pdev = to_pci_dev(dev);
+struct tb *tb = pci_get_drvdata(pdev);
+if (!pci_device_is_present(pdev))
+tb->nhi->going_away = true;
+return tb_domain_resume_noirq(tb);
+}
+static int nhi_suspend(struct device *dev)
+{
+struct pci_dev *pdev = to_pci_dev(dev);
+struct tb *tb = pci_get_drvdata(pdev);
+return tb_domain_suspend(tb);
+}
+static void nhi_complete(struct device *dev)
+{
+struct pci_dev *pdev = to_pci_dev(dev);
+struct tb *tb = pci_get_drvdata(pdev);
+tb_domain_complete(tb);
+}
+static void nhi_shutdown(struct tb_nhi *nhi)
+{
+int i;
+dev_info(&nhi->pdev->dev, "shutdown\n");
+for (i = 0; i < nhi->hop_count; i++) {
+if (nhi->tx_rings[i])
+dev_WARN(&nhi->pdev->dev,
+"TX ring %d is still active\n", i);
+if (nhi->rx_rings[i])
+dev_WARN(&nhi->pdev->dev,
+"RX ring %d is still active\n", i);
+}
+nhi_disable_interrupts(nhi);
+if (!nhi->pdev->msix_enabled) {
+devm_free_irq(&nhi->pdev->dev, nhi->pdev->irq, nhi);
+flush_work(&nhi->interrupt_work);
+}
+mutex_destroy(&nhi->lock);
+ida_destroy(&nhi->msix_ida);
+}
+static int nhi_init_msi(struct tb_nhi *nhi)
+{
+struct pci_dev *pdev = nhi->pdev;
+int res, irq, nvec;
+nhi_disable_interrupts(nhi);
+ida_init(&nhi->msix_ida);
+nvec = pci_alloc_irq_vectors(pdev, MSIX_MIN_VECS, MSIX_MAX_VECS,
+PCI_IRQ_MSIX);
+if (nvec < 0) {
+nvec = pci_alloc_irq_vectors(pdev, 1, 1, PCI_IRQ_MSI);
+if (nvec < 0)
+return nvec;
+INIT_WORK(&nhi->interrupt_work, nhi_interrupt_work);
+irq = pci_irq_vector(nhi->pdev, 0);
+if (irq < 0)
+return irq;
+res = devm_request_irq(&pdev->dev, irq, nhi_msi,
+IRQF_NO_SUSPEND, "thunderbolt", nhi);
+if (res) {
+dev_err(&pdev->dev, "request_irq failed, aborting\n");
+return res;
+}
+}
+return 0;
+}
+static int nhi_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+{
+struct tb_nhi *nhi;
+struct tb *tb;
+int res;
+res = pcim_enable_device(pdev);
+if (res) {
+dev_err(&pdev->dev, "cannot enable PCI device, aborting\n");
+return res;
+}
+res = pcim_iomap_regions(pdev, 1 << 0, "thunderbolt");
+if (res) {
+dev_err(&pdev->dev, "cannot obtain PCI resources, aborting\n");
+return res;
+}
+nhi = devm_kzalloc(&pdev->dev, sizeof(*nhi), GFP_KERNEL);
+if (!nhi)
+return -ENOMEM;
+nhi->pdev = pdev;
+nhi->iobase = pcim_iomap_table(pdev)[0];
+nhi->hop_count = ioread32(nhi->iobase + REG_HOP_COUNT) & 0x3ff;
+if (nhi->hop_count != 12 && nhi->hop_count != 32)
+dev_warn(&pdev->dev, "unexpected hop count: %d\n",
+nhi->hop_count);
+nhi->tx_rings = devm_kcalloc(&pdev->dev, nhi->hop_count,
+sizeof(*nhi->tx_rings), GFP_KERNEL);
+nhi->rx_rings = devm_kcalloc(&pdev->dev, nhi->hop_count,
+sizeof(*nhi->rx_rings), GFP_KERNEL);
+if (!nhi->tx_rings || !nhi->rx_rings)
+return -ENOMEM;
+res = nhi_init_msi(nhi);
+if (res) {
+dev_err(&pdev->dev, "cannot enable MSI, aborting\n");
+return res;
+}
+mutex_init(&nhi->lock);
+pci_set_master(pdev);
+iowrite32(3906250 / 10000, nhi->iobase + 0x38c00);
+tb = icm_probe(nhi);
+if (!tb)
+tb = tb_probe(nhi);
+if (!tb) {
+dev_err(&nhi->pdev->dev,
+"failed to determine connection manager, aborting\n");
+return -ENODEV;
+}
+dev_info(&nhi->pdev->dev, "NHI initialized, starting thunderbolt\n");
+res = tb_domain_add(tb);
+if (res) {
+tb_domain_put(tb);
+nhi_shutdown(nhi);
+return -EIO;
+}
+pci_set_drvdata(pdev, tb);
+return 0;
+}
+static void nhi_remove(struct pci_dev *pdev)
+{
+struct tb *tb = pci_get_drvdata(pdev);
+struct tb_nhi *nhi = tb->nhi;
+tb_domain_remove(tb);
+nhi_shutdown(nhi);
+}
+static int __init nhi_init(void)
+{
+int ret;
+ret = tb_domain_init();
+if (ret)
+return ret;
+ret = pci_register_driver(&nhi_driver);
+if (ret)
+tb_domain_exit();
+return ret;
+}
+static void __exit nhi_unload(void)
+{
+pci_unregister_driver(&nhi_driver);
+tb_domain_exit();
+}

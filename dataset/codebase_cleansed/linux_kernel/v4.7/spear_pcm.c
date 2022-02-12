@@ -1,0 +1,1 @@
+int devm_spear_pcm_platform_register(struct device *dev,\r\nstruct snd_dmaengine_pcm_config *config,\r\nbool (*filter)(struct dma_chan *chan, void *slave))\r\n{\r\n*config = spear_dmaengine_pcm_config;\r\nconfig->compat_filter_fn = filter;\r\nreturn devm_snd_dmaengine_pcm_register(dev, config,\r\nSND_DMAENGINE_PCM_FLAG_NO_DT |\r\nSND_DMAENGINE_PCM_FLAG_COMPAT);\r\n}

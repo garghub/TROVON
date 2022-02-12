@@ -1,0 +1,155 @@
+static unsigned int smbus_read(int offset)
+{
+return *(volatile unsigned int *)(SMBUS_CFG_BASE + offset);
+}
+static void smbus_write(int offset, int data)
+{
+*(volatile unsigned int *)(SMBUS_CFG_BASE + offset) = data;
+}
+static void smbus_enable(int offset, int bit)
+{
+unsigned int cfg = smbus_read(offset);
+cfg |= bit;
+smbus_write(offset, cfg);
+}
+static int hpet_read(int offset)
+{
+return *(volatile unsigned int *)(HPET_MMIO_ADDR + offset);
+}
+static void hpet_write(int offset, int data)
+{
+*(volatile unsigned int *)(HPET_MMIO_ADDR + offset) = data;
+}
+static void hpet_start_counter(void)
+{
+unsigned int cfg = hpet_read(HPET_CFG);
+cfg |= HPET_CFG_ENABLE;
+hpet_write(HPET_CFG, cfg);
+}
+static void hpet_stop_counter(void)
+{
+unsigned int cfg = hpet_read(HPET_CFG);
+cfg &= ~HPET_CFG_ENABLE;
+hpet_write(HPET_CFG, cfg);
+}
+static void hpet_reset_counter(void)
+{
+hpet_write(HPET_COUNTER, 0);
+hpet_write(HPET_COUNTER + 4, 0);
+}
+static void hpet_restart_counter(void)
+{
+hpet_stop_counter();
+hpet_reset_counter();
+hpet_start_counter();
+}
+static void hpet_enable_legacy_int(void)
+{
+}
+static void hpet_set_mode(enum clock_event_mode mode,
+struct clock_event_device *evt)
+{
+int cfg = 0;
+spin_lock(&hpet_lock);
+switch (mode) {
+case CLOCK_EVT_MODE_PERIODIC:
+pr_info("set clock event to periodic mode!\n");
+hpet_stop_counter();
+cfg = hpet_read(HPET_T0_CFG);
+cfg &= ~HPET_TN_LEVEL;
+cfg |= HPET_TN_ENABLE | HPET_TN_PERIODIC |
+HPET_TN_SETVAL | HPET_TN_32BIT;
+hpet_write(HPET_T0_CFG, cfg);
+hpet_write(HPET_T0_CMP, HPET_COMPARE_VAL);
+udelay(1);
+hpet_write(HPET_T0_CMP, HPET_COMPARE_VAL);
+hpet_start_counter();
+break;
+case CLOCK_EVT_MODE_SHUTDOWN:
+case CLOCK_EVT_MODE_UNUSED:
+cfg = hpet_read(HPET_T0_CFG);
+cfg &= ~HPET_TN_ENABLE;
+hpet_write(HPET_T0_CFG, cfg);
+break;
+case CLOCK_EVT_MODE_ONESHOT:
+pr_info("set clock event to one shot mode!\n");
+cfg = hpet_read(HPET_T0_CFG);
+cfg &= ~HPET_TN_PERIODIC;
+cfg |= HPET_TN_ENABLE | HPET_TN_32BIT;
+hpet_write(HPET_T0_CFG, cfg);
+break;
+case CLOCK_EVT_MODE_RESUME:
+hpet_enable_legacy_int();
+break;
+}
+spin_unlock(&hpet_lock);
+}
+static int hpet_next_event(unsigned long delta,
+struct clock_event_device *evt)
+{
+unsigned int cnt;
+int res;
+cnt = hpet_read(HPET_COUNTER);
+cnt += delta;
+hpet_write(HPET_T0_CMP, cnt);
+res = ((int)(hpet_read(HPET_COUNTER) - cnt) > 0) ? -ETIME : 0;
+return res;
+}
+static irqreturn_t hpet_irq_handler(int irq, void *data)
+{
+int is_irq;
+struct clock_event_device *cd;
+unsigned int cpu = smp_processor_id();
+is_irq = hpet_read(HPET_STATUS);
+if (is_irq & HPET_T0_IRS) {
+hpet_write(HPET_STATUS, HPET_T0_IRS);
+cd = &per_cpu(hpet_clockevent_device, cpu);
+cd->event_handler(cd);
+return IRQ_HANDLED;
+}
+return IRQ_NONE;
+}
+static void hpet_setup(void)
+{
+smbus_write(SMBUS_PCI_REGB4, HPET_ADDR);
+smbus_enable(SMBUS_PCI_REG40, (1 << 28));
+smbus_enable(SMBUS_PCI_REG64, (1 << 10));
+hpet_enable_legacy_int();
+}
+void __init setup_hpet_timer(void)
+{
+unsigned int cpu = smp_processor_id();
+struct clock_event_device *cd;
+hpet_setup();
+cd = &per_cpu(hpet_clockevent_device, cpu);
+cd->name = "hpet";
+cd->rating = 320;
+cd->features = CLOCK_EVT_FEAT_PERIODIC | CLOCK_EVT_FEAT_ONESHOT;
+cd->set_mode = hpet_set_mode;
+cd->set_next_event = hpet_next_event;
+cd->irq = HPET_T0_IRQ;
+cd->cpumask = cpumask_of(cpu);
+clockevent_set_clock(cd, HPET_FREQ);
+cd->max_delta_ns = clockevent_delta2ns(0x7fffffff, cd);
+cd->min_delta_ns = 5000;
+clockevents_register_device(cd);
+setup_irq(HPET_T0_IRQ, &hpet_irq);
+pr_info("hpet clock event device register\n");
+}
+static cycle_t hpet_read_counter(struct clocksource *cs)
+{
+return (cycle_t)hpet_read(HPET_COUNTER);
+}
+static void hpet_suspend(struct clocksource *cs)
+{
+}
+static void hpet_resume(struct clocksource *cs)
+{
+hpet_setup();
+hpet_restart_counter();
+}
+int __init init_hpet_clocksource(void)
+{
+csrc_hpet.mult = clocksource_hz2mult(HPET_FREQ, csrc_hpet.shift);
+return clocksource_register_hz(&csrc_hpet, HPET_FREQ);
+}

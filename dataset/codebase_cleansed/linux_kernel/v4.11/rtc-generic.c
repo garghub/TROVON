@@ -1,0 +1,1 @@
+static int __init generic_rtc_probe(struct platform_device *dev)\r\n{\r\nstruct rtc_device *rtc;\r\nconst struct rtc_class_ops *ops = dev_get_platdata(&dev->dev);\r\nrtc = devm_rtc_device_register(&dev->dev, "rtc-generic",\r\nops, THIS_MODULE);\r\nif (IS_ERR(rtc))\r\nreturn PTR_ERR(rtc);\r\nplatform_set_drvdata(dev, rtc);\r\nreturn 0;\r\n}

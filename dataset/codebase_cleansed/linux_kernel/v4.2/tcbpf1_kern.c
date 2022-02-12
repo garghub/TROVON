@@ -1,0 +1,34 @@
+static inline void set_dst_mac(struct __sk_buff *skb, char *mac)
+{
+bpf_skb_store_bytes(skb, 0, mac, ETH_ALEN, 1);
+}
+static inline void set_ip_tos(struct __sk_buff *skb, __u8 new_tos)
+{
+__u8 old_tos = load_byte(skb, TOS_OFF);
+bpf_l3_csum_replace(skb, IP_CSUM_OFF, htons(old_tos), htons(new_tos), 2);
+bpf_skb_store_bytes(skb, TOS_OFF, &new_tos, sizeof(new_tos), 0);
+}
+static inline void set_tcp_ip_src(struct __sk_buff *skb, __u32 new_ip)
+{
+__u32 old_ip = _htonl(load_word(skb, IP_SRC_OFF));
+bpf_l4_csum_replace(skb, TCP_CSUM_OFF, old_ip, new_ip, IS_PSEUDO | sizeof(new_ip));
+bpf_l3_csum_replace(skb, IP_CSUM_OFF, old_ip, new_ip, sizeof(new_ip));
+bpf_skb_store_bytes(skb, IP_SRC_OFF, &new_ip, sizeof(new_ip), 0);
+}
+static inline void set_tcp_dest_port(struct __sk_buff *skb, __u16 new_port)
+{
+__u16 old_port = htons(load_half(skb, TCP_DPORT_OFF));
+bpf_l4_csum_replace(skb, TCP_CSUM_OFF, old_port, new_port, sizeof(new_port));
+bpf_skb_store_bytes(skb, TCP_DPORT_OFF, &new_port, sizeof(new_port), 0);
+}
+int bpf_prog1(struct __sk_buff *skb)
+{
+__u8 proto = load_byte(skb, ETH_HLEN + offsetof(struct iphdr, protocol));
+long *value;
+if (proto == IPPROTO_TCP) {
+set_ip_tos(skb, 8);
+set_tcp_ip_src(skb, 0xA010101);
+set_tcp_dest_port(skb, 5001);
+}
+return 0;
+}

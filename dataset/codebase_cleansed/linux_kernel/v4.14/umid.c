@@ -1,0 +1,1 @@
+static int __init set_umid_arg(char *name, int *add)\r\n{\r\nint err;\r\nif (umid_inited) {\r\nos_warn("umid already set\n");\r\nreturn 0;\r\n}\r\n*add = 0;\r\nerr = set_umid(name);\r\nif (err == -EEXIST)\r\nos_warn("umid '%s' already in use\n", name);\r\nelse if (!err)\r\numid_inited = 1;\r\nreturn 0;\r\n}

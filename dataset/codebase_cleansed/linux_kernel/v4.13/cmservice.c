@@ -1,0 +1,349 @@
+bool afs_cm_incoming_call(struct afs_call *call)
+{
+_enter("{CB.OP %u}", call->operation_ID);
+switch (call->operation_ID) {
+case CBCallBack:
+call->type = &afs_SRXCBCallBack;
+return true;
+case CBInitCallBackState:
+call->type = &afs_SRXCBInitCallBackState;
+return true;
+case CBInitCallBackState3:
+call->type = &afs_SRXCBInitCallBackState3;
+return true;
+case CBProbe:
+call->type = &afs_SRXCBProbe;
+return true;
+case CBTellMeAboutYourself:
+call->type = &afs_SRXCBTellMeAboutYourself;
+return true;
+default:
+return false;
+}
+}
+static void afs_cm_destructor(struct afs_call *call)
+{
+_enter("");
+if (call->unmarshall == 5) {
+ASSERT(call->server && call->count && call->request);
+afs_break_callbacks(call->server, call->count, call->request);
+}
+afs_put_server(call->server);
+call->server = NULL;
+kfree(call->buffer);
+call->buffer = NULL;
+}
+static void SRXAFSCB_CallBack(struct work_struct *work)
+{
+struct afs_call *call = container_of(work, struct afs_call, work);
+_enter("");
+afs_send_empty_reply(call);
+afs_break_callbacks(call->server, call->count, call->request);
+afs_put_call(call);
+_leave("");
+}
+static int afs_deliver_cb_callback(struct afs_call *call)
+{
+struct sockaddr_rxrpc srx;
+struct afs_callback *cb;
+struct afs_server *server;
+__be32 *bp;
+int ret, loop;
+_enter("{%u}", call->unmarshall);
+switch (call->unmarshall) {
+case 0:
+rxrpc_kernel_get_peer(afs_socket, call->rxcall, &srx);
+call->offset = 0;
+call->unmarshall++;
+case 1:
+_debug("extract FID count");
+ret = afs_extract_data(call, &call->tmp, 4, true);
+if (ret < 0)
+return ret;
+call->count = ntohl(call->tmp);
+_debug("FID count: %u", call->count);
+if (call->count > AFSCBMAX)
+return -EBADMSG;
+call->buffer = kmalloc(call->count * 3 * 4, GFP_KERNEL);
+if (!call->buffer)
+return -ENOMEM;
+call->offset = 0;
+call->unmarshall++;
+case 2:
+_debug("extract FID array");
+ret = afs_extract_data(call, call->buffer,
+call->count * 3 * 4, true);
+if (ret < 0)
+return ret;
+_debug("unmarshall FID array");
+call->request = kcalloc(call->count,
+sizeof(struct afs_callback),
+GFP_KERNEL);
+if (!call->request)
+return -ENOMEM;
+cb = call->request;
+bp = call->buffer;
+for (loop = call->count; loop > 0; loop--, cb++) {
+cb->fid.vid = ntohl(*bp++);
+cb->fid.vnode = ntohl(*bp++);
+cb->fid.unique = ntohl(*bp++);
+cb->type = AFSCM_CB_UNTYPED;
+}
+call->offset = 0;
+call->unmarshall++;
+case 3:
+_debug("extract CB count");
+ret = afs_extract_data(call, &call->tmp, 4, true);
+if (ret < 0)
+return ret;
+call->count2 = ntohl(call->tmp);
+_debug("CB count: %u", call->count2);
+if (call->count2 != call->count && call->count2 != 0)
+return -EBADMSG;
+call->offset = 0;
+call->unmarshall++;
+case 4:
+_debug("extract CB array");
+ret = afs_extract_data(call, call->buffer,
+call->count2 * 3 * 4, false);
+if (ret < 0)
+return ret;
+_debug("unmarshall CB array");
+cb = call->request;
+bp = call->buffer;
+for (loop = call->count2; loop > 0; loop--, cb++) {
+cb->version = ntohl(*bp++);
+cb->expiry = ntohl(*bp++);
+cb->type = ntohl(*bp++);
+}
+call->offset = 0;
+call->unmarshall++;
+call->unmarshall++;
+case 5:
+break;
+}
+call->state = AFS_CALL_REPLYING;
+server = afs_find_server(&srx);
+if (!server)
+return -ENOTCONN;
+call->server = server;
+return afs_queue_call_work(call);
+}
+static void SRXAFSCB_InitCallBackState(struct work_struct *work)
+{
+struct afs_call *call = container_of(work, struct afs_call, work);
+_enter("{%p}", call->server);
+afs_init_callback_state(call->server);
+afs_send_empty_reply(call);
+afs_put_call(call);
+_leave("");
+}
+static int afs_deliver_cb_init_call_back_state(struct afs_call *call)
+{
+struct sockaddr_rxrpc srx;
+struct afs_server *server;
+int ret;
+_enter("");
+rxrpc_kernel_get_peer(afs_socket, call->rxcall, &srx);
+ret = afs_extract_data(call, NULL, 0, false);
+if (ret < 0)
+return ret;
+call->state = AFS_CALL_REPLYING;
+server = afs_find_server(&srx);
+if (!server)
+return -ENOTCONN;
+call->server = server;
+return afs_queue_call_work(call);
+}
+static int afs_deliver_cb_init_call_back_state3(struct afs_call *call)
+{
+struct sockaddr_rxrpc srx;
+struct afs_server *server;
+struct afs_uuid *r;
+unsigned loop;
+__be32 *b;
+int ret;
+_enter("");
+rxrpc_kernel_get_peer(afs_socket, call->rxcall, &srx);
+_enter("{%u}", call->unmarshall);
+switch (call->unmarshall) {
+case 0:
+call->offset = 0;
+call->buffer = kmalloc(11 * sizeof(__be32), GFP_KERNEL);
+if (!call->buffer)
+return -ENOMEM;
+call->unmarshall++;
+case 1:
+_debug("extract UUID");
+ret = afs_extract_data(call, call->buffer,
+11 * sizeof(__be32), false);
+switch (ret) {
+case 0: break;
+case -EAGAIN: return 0;
+default: return ret;
+}
+_debug("unmarshall UUID");
+call->request = kmalloc(sizeof(struct afs_uuid), GFP_KERNEL);
+if (!call->request)
+return -ENOMEM;
+b = call->buffer;
+r = call->request;
+r->time_low = b[0];
+r->time_mid = htons(ntohl(b[1]));
+r->time_hi_and_version = htons(ntohl(b[2]));
+r->clock_seq_hi_and_reserved = ntohl(b[3]);
+r->clock_seq_low = ntohl(b[4]);
+for (loop = 0; loop < 6; loop++)
+r->node[loop] = ntohl(b[loop + 5]);
+call->offset = 0;
+call->unmarshall++;
+case 2:
+break;
+}
+call->state = AFS_CALL_REPLYING;
+server = afs_find_server(&srx);
+if (!server)
+return -ENOTCONN;
+call->server = server;
+return afs_queue_call_work(call);
+}
+static void SRXAFSCB_Probe(struct work_struct *work)
+{
+struct afs_call *call = container_of(work, struct afs_call, work);
+_enter("");
+afs_send_empty_reply(call);
+afs_put_call(call);
+_leave("");
+}
+static int afs_deliver_cb_probe(struct afs_call *call)
+{
+int ret;
+_enter("");
+ret = afs_extract_data(call, NULL, 0, false);
+if (ret < 0)
+return ret;
+call->state = AFS_CALL_REPLYING;
+return afs_queue_call_work(call);
+}
+static void SRXAFSCB_ProbeUuid(struct work_struct *work)
+{
+struct afs_call *call = container_of(work, struct afs_call, work);
+struct afs_uuid *r = call->request;
+struct {
+__be32 match;
+} reply;
+_enter("");
+if (memcmp(r, &afs_uuid, sizeof(afs_uuid)) == 0)
+reply.match = htonl(0);
+else
+reply.match = htonl(1);
+afs_send_simple_reply(call, &reply, sizeof(reply));
+afs_put_call(call);
+_leave("");
+}
+static int afs_deliver_cb_probe_uuid(struct afs_call *call)
+{
+struct afs_uuid *r;
+unsigned loop;
+__be32 *b;
+int ret;
+_enter("{%u}", call->unmarshall);
+switch (call->unmarshall) {
+case 0:
+call->offset = 0;
+call->buffer = kmalloc(11 * sizeof(__be32), GFP_KERNEL);
+if (!call->buffer)
+return -ENOMEM;
+call->unmarshall++;
+case 1:
+_debug("extract UUID");
+ret = afs_extract_data(call, call->buffer,
+11 * sizeof(__be32), false);
+switch (ret) {
+case 0: break;
+case -EAGAIN: return 0;
+default: return ret;
+}
+_debug("unmarshall UUID");
+call->request = kmalloc(sizeof(struct afs_uuid), GFP_KERNEL);
+if (!call->request)
+return -ENOMEM;
+b = call->buffer;
+r = call->request;
+r->time_low = ntohl(b[0]);
+r->time_mid = ntohl(b[1]);
+r->time_hi_and_version = ntohl(b[2]);
+r->clock_seq_hi_and_reserved = ntohl(b[3]);
+r->clock_seq_low = ntohl(b[4]);
+for (loop = 0; loop < 6; loop++)
+r->node[loop] = ntohl(b[loop + 5]);
+call->offset = 0;
+call->unmarshall++;
+case 2:
+break;
+}
+call->state = AFS_CALL_REPLYING;
+return afs_queue_call_work(call);
+}
+static void SRXAFSCB_TellMeAboutYourself(struct work_struct *work)
+{
+struct afs_interface *ifs;
+struct afs_call *call = container_of(work, struct afs_call, work);
+int loop, nifs;
+struct {
+struct {
+__be32 nifs;
+__be32 uuid[11];
+__be32 ifaddr[32];
+__be32 netmask[32];
+__be32 mtu[32];
+} ia;
+struct {
+__be32 capcount;
+__be32 caps[1];
+} cap;
+} reply;
+_enter("");
+nifs = 0;
+ifs = kcalloc(32, sizeof(*ifs), GFP_KERNEL);
+if (ifs) {
+nifs = afs_get_ipv4_interfaces(ifs, 32, false);
+if (nifs < 0) {
+kfree(ifs);
+ifs = NULL;
+nifs = 0;
+}
+}
+memset(&reply, 0, sizeof(reply));
+reply.ia.nifs = htonl(nifs);
+reply.ia.uuid[0] = afs_uuid.time_low;
+reply.ia.uuid[1] = htonl(ntohs(afs_uuid.time_mid));
+reply.ia.uuid[2] = htonl(ntohs(afs_uuid.time_hi_and_version));
+reply.ia.uuid[3] = htonl((s8) afs_uuid.clock_seq_hi_and_reserved);
+reply.ia.uuid[4] = htonl((s8) afs_uuid.clock_seq_low);
+for (loop = 0; loop < 6; loop++)
+reply.ia.uuid[loop + 5] = htonl((s8) afs_uuid.node[loop]);
+if (ifs) {
+for (loop = 0; loop < nifs; loop++) {
+reply.ia.ifaddr[loop] = ifs[loop].address.s_addr;
+reply.ia.netmask[loop] = ifs[loop].netmask.s_addr;
+reply.ia.mtu[loop] = htonl(ifs[loop].mtu);
+}
+kfree(ifs);
+}
+reply.cap.capcount = htonl(1);
+reply.cap.caps[0] = htonl(AFS_CAP_ERROR_TRANSLATION);
+afs_send_simple_reply(call, &reply, sizeof(reply));
+afs_put_call(call);
+_leave("");
+}
+static int afs_deliver_cb_tell_me_about_yourself(struct afs_call *call)
+{
+int ret;
+_enter("");
+ret = afs_extract_data(call, NULL, 0, false);
+if (ret < 0)
+return ret;
+call->state = AFS_CALL_REPLYING;
+return afs_queue_call_work(call);
+}

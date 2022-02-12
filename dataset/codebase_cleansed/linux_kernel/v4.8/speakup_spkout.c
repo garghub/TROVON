@@ -1,0 +1,1 @@
+static void synth_flush(struct spk_synth *synth)\r\n{\r\nint timeout = SPK_XMITR_TIMEOUT;\r\nwhile (spk_serial_tx_busy()) {\r\nif (!--timeout)\r\nbreak;\r\nudelay(1);\r\n}\r\noutb(SYNTH_CLEAR, speakup_info.port_tts);\r\n}

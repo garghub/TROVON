@@ -1,0 +1,1 @@
+static int __init omap2xxx_clk_arch_init(void)\r\n{\r\nint ret;\r\nif (!cpu_is_omap24xx())\r\nreturn 0;\r\nret = omap2_clk_switch_mpurate_at_boot("virt_prcm_set");\r\nif (!ret)\r\nomap2_clk_print_new_rates("sys_ck", "dpll_ck", "mpu_ck");\r\nreturn ret;\r\n}

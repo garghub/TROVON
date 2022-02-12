@@ -1,0 +1,200 @@
+int dst_discard_out(struct net *net, struct sock *sk, struct sk_buff *skb)
+{
+kfree_skb(skb);
+return 0;
+}
+void dst_init(struct dst_entry *dst, struct dst_ops *ops,
+struct net_device *dev, int initial_ref, int initial_obsolete,
+unsigned short flags)
+{
+dst->child = NULL;
+dst->dev = dev;
+if (dev)
+dev_hold(dev);
+dst->ops = ops;
+dst_init_metrics(dst, dst_default_metrics.metrics, true);
+dst->expires = 0UL;
+dst->path = dst;
+dst->from = NULL;
+#ifdef CONFIG_XFRM
+dst->xfrm = NULL;
+#endif
+dst->input = dst_discard;
+dst->output = dst_discard_out;
+dst->error = 0;
+dst->obsolete = initial_obsolete;
+dst->header_len = 0;
+dst->trailer_len = 0;
+#ifdef CONFIG_IP_ROUTE_CLASSID
+dst->tclassid = 0;
+#endif
+dst->lwtstate = NULL;
+atomic_set(&dst->__refcnt, initial_ref);
+dst->__use = 0;
+dst->lastuse = jiffies;
+dst->flags = flags;
+dst->next = NULL;
+if (!(flags & DST_NOCOUNT))
+dst_entries_add(ops, 1);
+}
+void *dst_alloc(struct dst_ops *ops, struct net_device *dev,
+int initial_ref, int initial_obsolete, unsigned short flags)
+{
+struct dst_entry *dst;
+if (ops->gc && dst_entries_get_fast(ops) > ops->gc_thresh) {
+if (ops->gc(ops))
+return NULL;
+}
+dst = kmem_cache_alloc(ops->kmem_cachep, GFP_ATOMIC);
+if (!dst)
+return NULL;
+dst_init(dst, ops, dev, initial_ref, initial_obsolete, flags);
+return dst;
+}
+struct dst_entry *dst_destroy(struct dst_entry * dst)
+{
+struct dst_entry *child;
+smp_rmb();
+child = dst->child;
+if (!(dst->flags & DST_NOCOUNT))
+dst_entries_add(dst->ops, -1);
+if (dst->ops->destroy)
+dst->ops->destroy(dst);
+if (dst->dev)
+dev_put(dst->dev);
+lwtstate_put(dst->lwtstate);
+if (dst->flags & DST_METADATA)
+metadata_dst_free((struct metadata_dst *)dst);
+else
+kmem_cache_free(dst->ops->kmem_cachep, dst);
+dst = child;
+if (dst)
+dst_release_immediate(dst);
+return NULL;
+}
+static void dst_destroy_rcu(struct rcu_head *head)
+{
+struct dst_entry *dst = container_of(head, struct dst_entry, rcu_head);
+dst = dst_destroy(dst);
+}
+void dst_dev_put(struct dst_entry *dst)
+{
+struct net_device *dev = dst->dev;
+dst->obsolete = DST_OBSOLETE_DEAD;
+if (dst->ops->ifdown)
+dst->ops->ifdown(dst, dev, true);
+dst->input = dst_discard;
+dst->output = dst_discard_out;
+dst->dev = dev_net(dst->dev)->loopback_dev;
+dev_hold(dst->dev);
+dev_put(dev);
+}
+void dst_release(struct dst_entry *dst)
+{
+if (dst) {
+int newrefcnt;
+newrefcnt = atomic_dec_return(&dst->__refcnt);
+if (unlikely(newrefcnt < 0))
+net_warn_ratelimited("%s: dst:%p refcnt:%d\n",
+__func__, dst, newrefcnt);
+if (!newrefcnt)
+call_rcu(&dst->rcu_head, dst_destroy_rcu);
+}
+}
+void dst_release_immediate(struct dst_entry *dst)
+{
+if (dst) {
+int newrefcnt;
+newrefcnt = atomic_dec_return(&dst->__refcnt);
+if (unlikely(newrefcnt < 0))
+net_warn_ratelimited("%s: dst:%p refcnt:%d\n",
+__func__, dst, newrefcnt);
+if (!newrefcnt)
+dst_destroy(dst);
+}
+}
+u32 *dst_cow_metrics_generic(struct dst_entry *dst, unsigned long old)
+{
+struct dst_metrics *p = kmalloc(sizeof(*p), GFP_ATOMIC);
+if (p) {
+struct dst_metrics *old_p = (struct dst_metrics *)__DST_METRICS_PTR(old);
+unsigned long prev, new;
+atomic_set(&p->refcnt, 1);
+memcpy(p->metrics, old_p->metrics, sizeof(p->metrics));
+new = (unsigned long) p;
+prev = cmpxchg(&dst->_metrics, old, new);
+if (prev != old) {
+kfree(p);
+p = (struct dst_metrics *)__DST_METRICS_PTR(prev);
+if (prev & DST_METRICS_READ_ONLY)
+p = NULL;
+} else if (prev & DST_METRICS_REFCOUNTED) {
+if (atomic_dec_and_test(&old_p->refcnt))
+kfree(old_p);
+}
+}
+BUILD_BUG_ON(offsetof(struct dst_metrics, metrics) != 0);
+return (u32 *)p;
+}
+void __dst_destroy_metrics_generic(struct dst_entry *dst, unsigned long old)
+{
+unsigned long prev, new;
+new = ((unsigned long) &dst_default_metrics) | DST_METRICS_READ_ONLY;
+prev = cmpxchg(&dst->_metrics, old, new);
+if (prev == old)
+kfree(__DST_METRICS_PTR(old));
+}
+static int dst_md_discard_out(struct net *net, struct sock *sk, struct sk_buff *skb)
+{
+WARN_ONCE(1, "Attempting to call output on metadata dst\n");
+kfree_skb(skb);
+return 0;
+}
+static int dst_md_discard(struct sk_buff *skb)
+{
+WARN_ONCE(1, "Attempting to call input on metadata dst\n");
+kfree_skb(skb);
+return 0;
+}
+static void __metadata_dst_init(struct metadata_dst *md_dst,
+enum metadata_type type, u8 optslen)
+{
+struct dst_entry *dst;
+dst = &md_dst->dst;
+dst_init(dst, &md_dst_ops, NULL, 1, DST_OBSOLETE_NONE,
+DST_METADATA | DST_NOCOUNT);
+dst->input = dst_md_discard;
+dst->output = dst_md_discard_out;
+memset(dst + 1, 0, sizeof(*md_dst) + optslen - sizeof(*dst));
+md_dst->type = type;
+}
+struct metadata_dst *metadata_dst_alloc(u8 optslen, enum metadata_type type,
+gfp_t flags)
+{
+struct metadata_dst *md_dst;
+md_dst = kmalloc(sizeof(*md_dst) + optslen, flags);
+if (!md_dst)
+return NULL;
+__metadata_dst_init(md_dst, type, optslen);
+return md_dst;
+}
+void metadata_dst_free(struct metadata_dst *md_dst)
+{
+#ifdef CONFIG_DST_CACHE
+dst_cache_destroy(&md_dst->u.tun_info.dst_cache);
+#endif
+kfree(md_dst);
+}
+struct metadata_dst __percpu *
+metadata_dst_alloc_percpu(u8 optslen, enum metadata_type type, gfp_t flags)
+{
+int cpu;
+struct metadata_dst __percpu *md_dst;
+md_dst = __alloc_percpu_gfp(sizeof(struct metadata_dst) + optslen,
+__alignof__(struct metadata_dst), flags);
+if (!md_dst)
+return NULL;
+for_each_possible_cpu(cpu)
+__metadata_dst_init(per_cpu_ptr(md_dst, cpu), type, optslen);
+return md_dst;
+}

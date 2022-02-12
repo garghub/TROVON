@@ -1,0 +1,80 @@
+int mscode_parse(void *_ctx, const void *content_data, size_t data_len,
+size_t asn1hdrlen)
+{
+struct pefile_context *ctx = _ctx;
+content_data -= asn1hdrlen;
+data_len += asn1hdrlen;
+pr_devel("Data: %zu [%*ph]\n", data_len, (unsigned)(data_len),
+content_data);
+return asn1_ber_decoder(&mscode_decoder, ctx, content_data, data_len);
+}
+int mscode_note_content_type(void *context, size_t hdrlen,
+unsigned char tag,
+const void *value, size_t vlen)
+{
+enum OID oid;
+oid = look_up_OID(value, vlen);
+if (oid == OID__NR) {
+char buffer[50];
+sprint_oid(value, vlen, buffer, sizeof(buffer));
+pr_err("Unknown OID: %s\n", buffer);
+return -EBADMSG;
+}
+if (oid != OID_msPeImageDataObjId &&
+oid != OID_msIndividualSPKeyPurpose) {
+pr_err("Unexpected content type OID %u\n", oid);
+return -EBADMSG;
+}
+return 0;
+}
+int mscode_note_digest_algo(void *context, size_t hdrlen,
+unsigned char tag,
+const void *value, size_t vlen)
+{
+struct pefile_context *ctx = context;
+char buffer[50];
+enum OID oid;
+oid = look_up_OID(value, vlen);
+switch (oid) {
+case OID_md4:
+ctx->digest_algo = "md4";
+break;
+case OID_md5:
+ctx->digest_algo = "md5";
+break;
+case OID_sha1:
+ctx->digest_algo = "sha1";
+break;
+case OID_sha256:
+ctx->digest_algo = "sha256";
+break;
+case OID_sha384:
+ctx->digest_algo = "sha384";
+break;
+case OID_sha512:
+ctx->digest_algo = "sha512";
+break;
+case OID_sha224:
+ctx->digest_algo = "sha224";
+break;
+case OID__NR:
+sprint_oid(value, vlen, buffer, sizeof(buffer));
+pr_err("Unknown OID: %s\n", buffer);
+return -EBADMSG;
+default:
+pr_err("Unsupported content type: %u\n", oid);
+return -ENOPKG;
+}
+return 0;
+}
+int mscode_note_digest(void *context, size_t hdrlen,
+unsigned char tag,
+const void *value, size_t vlen)
+{
+struct pefile_context *ctx = context;
+ctx->digest = kmemdup(value, vlen, GFP_KERNEL);
+if (!ctx->digest)
+return -ENOMEM;
+ctx->digest_len = vlen;
+return 0;
+}

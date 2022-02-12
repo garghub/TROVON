@@ -1,0 +1,1 @@
+int __ucmpdi2(unsigned long long a, unsigned long long b)\r\n{\r\nunion ull_union au = {.ull = a};\r\nunion ull_union bu = {.ull = b};\r\nif (au.ui.high < bu.ui.high)\r\nreturn 0;\r\nelse if (au.ui.high > bu.ui.high)\r\nreturn 2;\r\nif (au.ui.low < bu.ui.low)\r\nreturn 0;\r\nelse if (au.ui.low > bu.ui.low)\r\nreturn 2;\r\nreturn 1;\r\n}

@@ -1,0 +1,1 @@
+u32\r\ngm107_ram_probe_fbp(const struct nvkm_ram_func *func,\r\nstruct nvkm_device *device, int fbp, int *pltcs)\r\n{\r\nu32 fbpao = nvkm_rd32(device, 0x021c14);\r\nreturn func->probe_fbp_amount(func, fbpao, device, fbp, pltcs);\r\n}\r\nint\r\ngm107_ram_new(struct nvkm_fb *fb, struct nvkm_ram **pram)\r\n{\r\nreturn gk104_ram_new_(&gm107_ram, fb, pram);\r\n}

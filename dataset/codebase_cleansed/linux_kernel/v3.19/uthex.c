@@ -1,0 +1,1 @@
+char acpi_ut_hex_to_ascii_char(u64 integer, u32 position)\r\n{\r\nreturn (acpi_gbl_hex_to_ascii[(integer >> position) & 0xF]);\r\n}\r\nu8 acpi_ut_ascii_char_to_hex(int hex_char)\r\n{\r\nif (hex_char <= 0x39) {\r\nreturn ((u8)(hex_char - 0x30));\r\n}\r\nif (hex_char <= 0x46) {\r\nreturn ((u8)(hex_char - 0x37));\r\n}\r\nreturn ((u8)(hex_char - 0x57));\r\n}

@@ -1,0 +1,1 @@
+static int brcmstb_qspi_probe(struct platform_device *pdev)\r\n{\r\nreturn bcm_qspi_probe(pdev, NULL);\r\n}\r\nstatic int brcmstb_qspi_remove(struct platform_device *pdev)\r\n{\r\nreturn bcm_qspi_remove(pdev);\r\n}

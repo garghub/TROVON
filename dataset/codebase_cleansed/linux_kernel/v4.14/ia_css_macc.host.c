@@ -1,0 +1,1 @@
+void\r\nia_css_macc_encode(\r\nstruct sh_css_isp_macc_params *to,\r\nconst struct ia_css_macc_config *from,\r\nunsigned size)\r\n{\r\n(void)size;\r\nto->exp = from->exp;\r\n}\r\nvoid\r\nia_css_macc_debug_dtrace(\r\nconst struct ia_css_macc_config *config,\r\nunsigned level)\r\n{\r\nia_css_debug_dtrace(level,\r\n"config.exp=%d\n",\r\nconfig->exp);\r\n}

@@ -1,0 +1,1 @@
+int check_signature(const volatile void __iomem *io_addr,\r\nconst unsigned char *signature, int length)\r\n{\r\nwhile (length--) {\r\nif (readb(io_addr) != *signature)\r\nreturn 0;\r\nio_addr++;\r\nsignature++;\r\n}\r\nreturn 1;\r\n}

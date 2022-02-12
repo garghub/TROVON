@@ -1,0 +1,1 @@
+void __init device_tree_init(void)\r\n{\r\nunflatten_and_copy_device_tree();\r\n}\r\nstatic int __init publish_devices(void)\r\n{\r\nif (!of_have_populated_dt())\r\nreturn 0;\r\nreturn of_platform_bus_probe(NULL, bus_ids, NULL);\r\n}

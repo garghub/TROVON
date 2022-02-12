@@ -1,0 +1,1 @@
+void acpi_ut_convert_string_to_uuid(char *in_string, u8 *uuid_buffer)\r\n{\r\nu32 i;\r\nfor (i = 0; i < UUID_BUFFER_LENGTH; i++) {\r\nuuid_buffer[i] =\r\n(acpi_ut_ascii_char_to_hex\r\n(in_string[acpi_gbl_map_to_uuid_offset[i]]) << 4);\r\nuuid_buffer[i] |=\r\nacpi_ut_ascii_char_to_hex(in_string\r\n[acpi_gbl_map_to_uuid_offset[i] +\r\n1]);\r\n}\r\n}

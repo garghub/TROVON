@@ -1,0 +1,1 @@
+static int accutouch_input_mapping(struct hid_device *hdev,\r\nstruct hid_input *hi,\r\nstruct hid_field *field,\r\nstruct hid_usage *usage,\r\nunsigned long **bit, int *max)\r\n{\r\nif ((usage->hid & HID_USAGE_PAGE) == HID_UP_BUTTON) {\r\nhid_map_usage(hi, usage, bit, max, EV_KEY, BTN_TOUCH);\r\nreturn 1;\r\n}\r\nreturn 0;\r\n}

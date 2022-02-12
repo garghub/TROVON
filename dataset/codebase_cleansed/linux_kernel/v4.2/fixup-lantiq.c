@@ -1,0 +1,1 @@
+int pcibios_plat_dev_init(struct pci_dev *dev)\r\n{\r\nif (ltq_pci_plat_arch_init)\r\nreturn ltq_pci_plat_arch_init(dev);\r\nif (ltq_pci_plat_dev_init)\r\nreturn ltq_pci_plat_dev_init(dev);\r\nreturn 0;\r\n}\r\nint __init pcibios_map_irq(const struct pci_dev *dev, u8 slot, u8 pin)\r\n{\r\nreturn of_irq_parse_and_map_pci(dev, slot, pin);\r\n}

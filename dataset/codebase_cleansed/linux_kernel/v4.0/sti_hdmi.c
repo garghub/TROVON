@@ -1,0 +1,460 @@
+u32 hdmi_read(struct sti_hdmi *hdmi, int offset)
+{
+return readl(hdmi->regs + offset);
+}
+void hdmi_write(struct sti_hdmi *hdmi, u32 val, int offset)
+{
+writel(val, hdmi->regs + offset);
+}
+static irqreturn_t hdmi_irq_thread(int irq, void *arg)
+{
+struct sti_hdmi *hdmi = arg;
+if (hdmi->irq_status & HDMI_INT_HOT_PLUG) {
+hdmi->hpd = readl(hdmi->regs + HDMI_STA) & HDMI_STA_HOT_PLUG;
+if (hdmi->drm_dev)
+drm_helper_hpd_irq_event(hdmi->drm_dev);
+}
+if (hdmi->irq_status & (HDMI_INT_SW_RST | HDMI_INT_DLL_LCK)) {
+hdmi->event_received = true;
+wake_up_interruptible(&hdmi->wait_event);
+}
+return IRQ_HANDLED;
+}
+static irqreturn_t hdmi_irq(int irq, void *arg)
+{
+struct sti_hdmi *hdmi = arg;
+hdmi->irq_status = hdmi_read(hdmi, HDMI_INT_STA);
+hdmi_write(hdmi, hdmi->irq_status, HDMI_INT_CLR);
+hdmi_read(hdmi, HDMI_INT_STA);
+return IRQ_WAKE_THREAD;
+}
+static void hdmi_active_area(struct sti_hdmi *hdmi)
+{
+u32 xmin, xmax;
+u32 ymin, ymax;
+xmin = sti_vtg_get_pixel_number(hdmi->mode, 0);
+xmax = sti_vtg_get_pixel_number(hdmi->mode, hdmi->mode.hdisplay - 1);
+ymin = sti_vtg_get_line_number(hdmi->mode, 0);
+ymax = sti_vtg_get_line_number(hdmi->mode, hdmi->mode.vdisplay - 1);
+hdmi_write(hdmi, xmin, HDMI_ACTIVE_VID_XMIN);
+hdmi_write(hdmi, xmax, HDMI_ACTIVE_VID_XMAX);
+hdmi_write(hdmi, ymin, HDMI_ACTIVE_VID_YMIN);
+hdmi_write(hdmi, ymax, HDMI_ACTIVE_VID_YMAX);
+}
+static void hdmi_config(struct sti_hdmi *hdmi)
+{
+u32 conf;
+DRM_DEBUG_DRIVER("\n");
+conf = HDMI_CFG_FIFO_OVERRUN_CLR | HDMI_CFG_FIFO_UNDERRUN_CLR;
+conf |= HDMI_CFG_HDMI_NOT_DVI | HDMI_CFG_ESS_NOT_OESS;
+conf |= HDMI_CFG_SINK_TERM_DET_EN;
+if (hdmi->mode.flags & DRM_MODE_FLAG_NHSYNC) {
+DRM_DEBUG_DRIVER("H Sync Negative\n");
+conf |= HDMI_CFG_H_SYNC_POL_NEG;
+}
+if (hdmi->mode.flags & DRM_MODE_FLAG_NVSYNC) {
+DRM_DEBUG_DRIVER("V Sync Negative\n");
+conf |= HDMI_CFG_V_SYNC_POL_NEG;
+}
+conf |= HDMI_CFG_DEVICE_EN;
+hdmi_write(hdmi, conf, HDMI_CFG);
+}
+static inline unsigned int hdmi_infoframe_subpack(const u8 *ptr, size_t size)
+{
+unsigned long value = 0;
+size_t i;
+for (i = size; i > 0; i--)
+value = (value << 8) | ptr[i - 1];
+return value;
+}
+static void hdmi_infoframe_write_infopack(struct sti_hdmi *hdmi, const u8 *data)
+{
+const u8 *ptr = data;
+u32 val, slot, mode, i;
+u32 head_offset, pack_offset;
+size_t size;
+switch (*ptr) {
+case HDMI_INFOFRAME_TYPE_AVI:
+slot = HDMI_IFRAME_SLOT_AVI;
+mode = HDMI_IFRAME_FIELD;
+head_offset = HDMI_SW_DI_N_HEAD_WORD(HDMI_IFRAME_SLOT_AVI);
+pack_offset = HDMI_SW_DI_N_PKT_WORD0(HDMI_IFRAME_SLOT_AVI);
+size = HDMI_AVI_INFOFRAME_SIZE;
+break;
+case HDMI_INFOFRAME_TYPE_AUDIO:
+slot = HDMI_IFRAME_SLOT_AUDIO;
+mode = HDMI_IFRAME_FRAME;
+head_offset = HDMI_SW_DI_N_HEAD_WORD(HDMI_IFRAME_SLOT_AUDIO);
+pack_offset = HDMI_SW_DI_N_PKT_WORD0(HDMI_IFRAME_SLOT_AUDIO);
+size = HDMI_AUDIO_INFOFRAME_SIZE;
+break;
+default:
+DRM_ERROR("unsupported infoframe type: %#x\n", *ptr);
+return;
+}
+val = hdmi_read(hdmi, HDMI_SW_DI_CFG);
+val &= ~HDMI_IFRAME_CFG_DI_N(HDMI_IFRAME_MASK, slot);
+hdmi_write(hdmi, val, HDMI_SW_DI_CFG);
+val = HDMI_INFOFRAME_HEADER_TYPE(*ptr++);
+val |= HDMI_INFOFRAME_HEADER_VERSION(*ptr++);
+val |= HDMI_INFOFRAME_HEADER_LEN(*ptr++);
+writel(val, hdmi->regs + head_offset);
+for (i = 0; i < size; i += sizeof(u32)) {
+size_t num;
+num = min_t(size_t, size - i, sizeof(u32));
+val = hdmi_infoframe_subpack(ptr, num);
+ptr += sizeof(u32);
+writel(val, hdmi->regs + pack_offset + i);
+}
+val = hdmi_read(hdmi, HDMI_SW_DI_CFG);
+val |= HDMI_IFRAME_CFG_DI_N(HDMI_IFRAME_FIELD, slot);
+hdmi_write(hdmi, val, HDMI_SW_DI_CFG);
+}
+static int hdmi_avi_infoframe_config(struct sti_hdmi *hdmi)
+{
+struct drm_display_mode *mode = &hdmi->mode;
+struct hdmi_avi_infoframe infoframe;
+u8 buffer[HDMI_INFOFRAME_SIZE(AVI)];
+int ret;
+DRM_DEBUG_DRIVER("\n");
+ret = drm_hdmi_avi_infoframe_from_display_mode(&infoframe, mode);
+if (ret < 0) {
+DRM_ERROR("failed to setup AVI infoframe: %d\n", ret);
+return ret;
+}
+infoframe.colorspace = HDMI_COLORSPACE_RGB;
+infoframe.quantization_range = HDMI_QUANTIZATION_RANGE_DEFAULT;
+infoframe.colorimetry = HDMI_COLORIMETRY_NONE;
+ret = hdmi_avi_infoframe_pack(&infoframe, buffer, sizeof(buffer));
+if (ret < 0) {
+DRM_ERROR("failed to pack AVI infoframe: %d\n", ret);
+return ret;
+}
+hdmi_infoframe_write_infopack(hdmi, buffer);
+return 0;
+}
+static int hdmi_audio_infoframe_config(struct sti_hdmi *hdmi)
+{
+struct hdmi_audio_infoframe infofame;
+u8 buffer[HDMI_INFOFRAME_SIZE(AUDIO)];
+int ret;
+ret = hdmi_audio_infoframe_init(&infofame);
+if (ret < 0) {
+DRM_ERROR("failed to setup audio infoframe: %d\n", ret);
+return ret;
+}
+infofame.channels = 2;
+ret = hdmi_audio_infoframe_pack(&infofame, buffer, sizeof(buffer));
+if (ret < 0) {
+DRM_ERROR("failed to pack audio infoframe: %d\n", ret);
+return ret;
+}
+hdmi_infoframe_write_infopack(hdmi, buffer);
+return 0;
+}
+static void hdmi_swreset(struct sti_hdmi *hdmi)
+{
+u32 val;
+DRM_DEBUG_DRIVER("\n");
+if (clk_prepare_enable(hdmi->clk_audio))
+DRM_INFO("Failed to prepare/enable hdmi_audio clk\n");
+hdmi->event_received = false;
+val = hdmi_read(hdmi, HDMI_CFG);
+val |= HDMI_CFG_SW_RST_EN;
+hdmi_write(hdmi, val, HDMI_CFG);
+wait_event_interruptible_timeout(hdmi->wait_event,
+hdmi->event_received == true,
+msecs_to_jiffies
+(HDMI_TIMEOUT_SWRESET));
+if ((hdmi_read(hdmi, HDMI_STA) & HDMI_STA_SW_RST) == 0)
+DRM_DEBUG_DRIVER("Warning: HDMI sw reset timeout occurs\n");
+val = hdmi_read(hdmi, HDMI_CFG);
+val &= ~HDMI_CFG_SW_RST_EN;
+hdmi_write(hdmi, val, HDMI_CFG);
+clk_disable_unprepare(hdmi->clk_audio);
+}
+static void sti_hdmi_disable(struct drm_bridge *bridge)
+{
+struct sti_hdmi *hdmi = bridge->driver_private;
+u32 val = hdmi_read(hdmi, HDMI_CFG);
+if (!hdmi->enabled)
+return;
+DRM_DEBUG_DRIVER("\n");
+val &= ~HDMI_CFG_DEVICE_EN;
+hdmi_write(hdmi, val, HDMI_CFG);
+hdmi_write(hdmi, 0xffffffff, HDMI_INT_CLR);
+hdmi->phy_ops->stop(hdmi);
+hdmi_write(hdmi, 0x0000, HDMI_DFLT_CHL0_DAT);
+hdmi_write(hdmi, 0x0000, HDMI_DFLT_CHL1_DAT);
+hdmi_write(hdmi, 0x0060, HDMI_DFLT_CHL2_DAT);
+clk_disable_unprepare(hdmi->clk_phy);
+clk_disable_unprepare(hdmi->clk_tmds);
+clk_disable_unprepare(hdmi->clk_pix);
+hdmi->enabled = false;
+}
+static void sti_hdmi_pre_enable(struct drm_bridge *bridge)
+{
+struct sti_hdmi *hdmi = bridge->driver_private;
+DRM_DEBUG_DRIVER("\n");
+if (hdmi->enabled)
+return;
+if (clk_prepare_enable(hdmi->clk_pix))
+DRM_ERROR("Failed to prepare/enable hdmi_pix clk\n");
+if (clk_prepare_enable(hdmi->clk_tmds))
+DRM_ERROR("Failed to prepare/enable hdmi_tmds clk\n");
+if (clk_prepare_enable(hdmi->clk_phy))
+DRM_ERROR("Failed to prepare/enable hdmi_rejec_pll clk\n");
+hdmi->enabled = true;
+if (!hdmi->phy_ops->start(hdmi)) {
+DRM_ERROR("Unable to start hdmi phy\n");
+return;
+}
+hdmi_active_area(hdmi);
+hdmi_write(hdmi, HDMI_WORKING_INT, HDMI_INT_EN);
+hdmi_config(hdmi);
+if (hdmi_avi_infoframe_config(hdmi))
+DRM_ERROR("Unable to configure AVI infoframe\n");
+if (hdmi_audio_infoframe_config(hdmi))
+DRM_ERROR("Unable to configure AUDIO infoframe\n");
+hdmi_swreset(hdmi);
+}
+static void sti_hdmi_set_mode(struct drm_bridge *bridge,
+struct drm_display_mode *mode,
+struct drm_display_mode *adjusted_mode)
+{
+struct sti_hdmi *hdmi = bridge->driver_private;
+int ret;
+DRM_DEBUG_DRIVER("\n");
+memcpy(&hdmi->mode, mode, sizeof(struct drm_display_mode));
+ret = clk_set_rate(hdmi->clk_pix, mode->clock * 1000);
+if (ret < 0) {
+DRM_ERROR("Cannot set rate (%dHz) for hdmi_pix clk\n",
+mode->clock * 1000);
+return;
+}
+ret = clk_set_rate(hdmi->clk_phy, mode->clock * 1000);
+if (ret < 0) {
+DRM_ERROR("Cannot set rate (%dHz) for hdmi_rejection_pll clk\n",
+mode->clock * 1000);
+return;
+}
+}
+static void sti_hdmi_bridge_nope(struct drm_bridge *bridge)
+{
+}
+static int sti_hdmi_connector_get_modes(struct drm_connector *connector)
+{
+struct sti_hdmi_connector *hdmi_connector
+= to_sti_hdmi_connector(connector);
+struct sti_hdmi *hdmi = hdmi_connector->hdmi;
+struct edid *edid;
+int count;
+DRM_DEBUG_DRIVER("\n");
+edid = drm_get_edid(connector, hdmi->ddc_adapt);
+if (!edid)
+goto fail;
+count = drm_add_edid_modes(connector, edid);
+drm_mode_connector_update_edid_property(connector, edid);
+kfree(edid);
+return count;
+fail:
+DRM_ERROR("Can not read HDMI EDID\n");
+return 0;
+}
+static int sti_hdmi_connector_mode_valid(struct drm_connector *connector,
+struct drm_display_mode *mode)
+{
+int target = mode->clock * 1000;
+int target_min = target - CLK_TOLERANCE_HZ;
+int target_max = target + CLK_TOLERANCE_HZ;
+int result;
+struct sti_hdmi_connector *hdmi_connector
+= to_sti_hdmi_connector(connector);
+struct sti_hdmi *hdmi = hdmi_connector->hdmi;
+result = clk_round_rate(hdmi->clk_pix, target);
+DRM_DEBUG_DRIVER("target rate = %d => available rate = %d\n",
+target, result);
+if ((result < target_min) || (result > target_max)) {
+DRM_DEBUG_DRIVER("hdmi pixclk=%d not supported\n", target);
+return MODE_BAD;
+}
+return MODE_OK;
+}
+struct drm_encoder *sti_hdmi_best_encoder(struct drm_connector *connector)
+{
+struct sti_hdmi_connector *hdmi_connector
+= to_sti_hdmi_connector(connector);
+return hdmi_connector->encoder;
+}
+static enum drm_connector_status
+sti_hdmi_connector_detect(struct drm_connector *connector, bool force)
+{
+struct sti_hdmi_connector *hdmi_connector
+= to_sti_hdmi_connector(connector);
+struct sti_hdmi *hdmi = hdmi_connector->hdmi;
+DRM_DEBUG_DRIVER("\n");
+if (hdmi->hpd) {
+DRM_DEBUG_DRIVER("hdmi cable connected\n");
+return connector_status_connected;
+}
+DRM_DEBUG_DRIVER("hdmi cable disconnected\n");
+return connector_status_disconnected;
+}
+static void sti_hdmi_connector_destroy(struct drm_connector *connector)
+{
+struct sti_hdmi_connector *hdmi_connector
+= to_sti_hdmi_connector(connector);
+drm_connector_unregister(connector);
+drm_connector_cleanup(connector);
+kfree(hdmi_connector);
+}
+static struct drm_encoder *sti_hdmi_find_encoder(struct drm_device *dev)
+{
+struct drm_encoder *encoder;
+list_for_each_entry(encoder, &dev->mode_config.encoder_list, head) {
+if (encoder->encoder_type == DRM_MODE_ENCODER_TMDS)
+return encoder;
+}
+return NULL;
+}
+static int sti_hdmi_bind(struct device *dev, struct device *master, void *data)
+{
+struct sti_hdmi *hdmi = dev_get_drvdata(dev);
+struct drm_device *drm_dev = data;
+struct drm_encoder *encoder;
+struct sti_hdmi_connector *connector;
+struct drm_connector *drm_connector;
+struct drm_bridge *bridge;
+struct device_node *ddc;
+int err;
+ddc = of_parse_phandle(dev->of_node, "ddc", 0);
+if (ddc) {
+hdmi->ddc_adapt = of_find_i2c_adapter_by_node(ddc);
+if (!hdmi->ddc_adapt) {
+err = -EPROBE_DEFER;
+of_node_put(ddc);
+return err;
+}
+of_node_put(ddc);
+}
+hdmi->drm_dev = drm_dev;
+encoder = sti_hdmi_find_encoder(drm_dev);
+if (!encoder)
+goto err_adapt;
+connector = devm_kzalloc(dev, sizeof(*connector), GFP_KERNEL);
+if (!connector)
+goto err_adapt;
+connector->hdmi = hdmi;
+bridge = devm_kzalloc(dev, sizeof(*bridge), GFP_KERNEL);
+if (!bridge)
+goto err_adapt;
+bridge->driver_private = hdmi;
+bridge->funcs = &sti_hdmi_bridge_funcs;
+drm_bridge_attach(drm_dev, bridge);
+encoder->bridge = bridge;
+connector->encoder = encoder;
+drm_connector = (struct drm_connector *)connector;
+drm_connector->polled = DRM_CONNECTOR_POLL_HPD;
+drm_connector_init(drm_dev, drm_connector,
+&sti_hdmi_connector_funcs, DRM_MODE_CONNECTOR_HDMIA);
+drm_connector_helper_add(drm_connector,
+&sti_hdmi_connector_helper_funcs);
+err = drm_connector_register(drm_connector);
+if (err)
+goto err_connector;
+err = drm_mode_connector_attach_encoder(drm_connector, encoder);
+if (err) {
+DRM_ERROR("Failed to attach a connector to a encoder\n");
+goto err_sysfs;
+}
+hdmi_write(hdmi, HDMI_DEFAULT_INT, HDMI_INT_EN);
+return 0;
+err_sysfs:
+drm_connector_unregister(drm_connector);
+err_connector:
+drm_connector_cleanup(drm_connector);
+err_adapt:
+put_device(&hdmi->ddc_adapt->dev);
+return -EINVAL;
+}
+static void sti_hdmi_unbind(struct device *dev,
+struct device *master, void *data)
+{
+}
+static int sti_hdmi_probe(struct platform_device *pdev)
+{
+struct device *dev = &pdev->dev;
+struct sti_hdmi *hdmi;
+struct device_node *np = dev->of_node;
+struct resource *res;
+int ret;
+DRM_INFO("%s\n", __func__);
+hdmi = devm_kzalloc(dev, sizeof(*hdmi), GFP_KERNEL);
+if (!hdmi)
+return -ENOMEM;
+hdmi->dev = pdev->dev;
+res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "hdmi-reg");
+if (!res) {
+DRM_ERROR("Invalid hdmi resource\n");
+return -ENOMEM;
+}
+hdmi->regs = devm_ioremap_nocache(dev, res->start, resource_size(res));
+if (!hdmi->regs)
+return -ENOMEM;
+if (of_device_is_compatible(np, "st,stih416-hdmi")) {
+res = platform_get_resource_byname(pdev, IORESOURCE_MEM,
+"syscfg");
+if (!res) {
+DRM_ERROR("Invalid syscfg resource\n");
+return -ENOMEM;
+}
+hdmi->syscfg = devm_ioremap_nocache(dev, res->start,
+resource_size(res));
+if (!hdmi->syscfg)
+return -ENOMEM;
+}
+hdmi->phy_ops = (struct hdmi_phy_ops *)
+of_match_node(hdmi_of_match, np)->data;
+hdmi->clk_pix = devm_clk_get(dev, "pix");
+if (IS_ERR(hdmi->clk_pix)) {
+DRM_ERROR("Cannot get hdmi_pix clock\n");
+return PTR_ERR(hdmi->clk_pix);
+}
+hdmi->clk_tmds = devm_clk_get(dev, "tmds");
+if (IS_ERR(hdmi->clk_tmds)) {
+DRM_ERROR("Cannot get hdmi_tmds clock\n");
+return PTR_ERR(hdmi->clk_tmds);
+}
+hdmi->clk_phy = devm_clk_get(dev, "phy");
+if (IS_ERR(hdmi->clk_phy)) {
+DRM_ERROR("Cannot get hdmi_phy clock\n");
+return PTR_ERR(hdmi->clk_phy);
+}
+hdmi->clk_audio = devm_clk_get(dev, "audio");
+if (IS_ERR(hdmi->clk_audio)) {
+DRM_ERROR("Cannot get hdmi_audio clock\n");
+return PTR_ERR(hdmi->clk_audio);
+}
+hdmi->hpd = readl(hdmi->regs + HDMI_STA) & HDMI_STA_HOT_PLUG;
+init_waitqueue_head(&hdmi->wait_event);
+hdmi->irq = platform_get_irq_byname(pdev, "irq");
+ret = devm_request_threaded_irq(dev, hdmi->irq, hdmi_irq,
+hdmi_irq_thread, IRQF_ONESHOT, dev_name(dev), hdmi);
+if (ret) {
+DRM_ERROR("Failed to register HDMI interrupt\n");
+return ret;
+}
+hdmi->reset = devm_reset_control_get(dev, "hdmi");
+if (!IS_ERR(hdmi->reset))
+reset_control_deassert(hdmi->reset);
+platform_set_drvdata(pdev, hdmi);
+return component_add(&pdev->dev, &sti_hdmi_ops);
+}
+static int sti_hdmi_remove(struct platform_device *pdev)
+{
+struct sti_hdmi *hdmi = dev_get_drvdata(&pdev->dev);
+if (hdmi->ddc_adapt)
+put_device(&hdmi->ddc_adapt->dev);
+component_del(&pdev->dev, &sti_hdmi_ops);
+return 0;
+}

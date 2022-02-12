@@ -1,0 +1,1 @@
+int snd_yrw801_detect(struct snd_opl4 *opl4)\r\n{\r\nchar buf[15];\r\nsnd_opl4_read_memory(opl4, buf, 0x001200, 15);\r\nif (memcmp(buf, "CopyrightYAMAHA", 15))\r\nreturn -ENODEV;\r\nsnd_opl4_read_memory(opl4, buf, 0x1ffffe, 2);\r\nif (buf[0] != 0x01)\r\nreturn -ENODEV;\r\nsnd_printdd("YRW801 ROM version %02x.%02x\n", buf[0], buf[1]);\r\nreturn 0;\r\n}

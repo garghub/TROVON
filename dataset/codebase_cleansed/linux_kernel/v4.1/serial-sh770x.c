@@ -1,0 +1,1 @@
+static void sh770x_sci_init_pins(struct uart_port *port, unsigned int cflag)\r\n{\r\nunsigned short data;\r\ndata = __raw_readw(SCPCR);\r\n__raw_writew(data & 0x0fcf, SCPCR);\r\nif (!(cflag & CRTSCTS)) {\r\ndata = __raw_readw(SCPCR);\r\n__raw_writew((data & 0x0fcf) | 0x1000, SCPCR);\r\ndata = __raw_readb(SCPDR);\r\n__raw_writeb(data & 0xbf, SCPDR);\r\n}\r\n}

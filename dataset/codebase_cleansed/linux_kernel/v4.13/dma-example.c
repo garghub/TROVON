@@ -1,0 +1,65 @@
+static int __init example_init(void)
+{
+int i;
+unsigned int ret;
+unsigned int nents;
+struct scatterlist sg[10];
+printk(KERN_INFO "DMA fifo test start\n");
+if (kfifo_alloc(&fifo, FIFO_SIZE, GFP_KERNEL)) {
+printk(KERN_WARNING "error kfifo_alloc\n");
+return -ENOMEM;
+}
+printk(KERN_INFO "queue size: %u\n", kfifo_size(&fifo));
+kfifo_in(&fifo, "test", 4);
+for (i = 0; i != 9; i++)
+kfifo_put(&fifo, i);
+kfifo_skip(&fifo);
+printk(KERN_INFO "queue len: %u\n", kfifo_len(&fifo));
+sg_init_table(sg, ARRAY_SIZE(sg));
+nents = kfifo_dma_in_prepare(&fifo, sg, ARRAY_SIZE(sg), FIFO_SIZE);
+printk(KERN_INFO "DMA sgl entries: %d\n", nents);
+if (!nents) {
+printk(KERN_WARNING "error kfifo_dma_in_prepare\n");
+return -EIO;
+}
+printk(KERN_INFO "scatterlist for receive:\n");
+for (i = 0; i < nents; i++) {
+printk(KERN_INFO
+"sg[%d] -> "
+"page %p offset 0x%.8x length 0x%.8x\n",
+i, sg_page(&sg[i]), sg[i].offset, sg[i].length);
+if (sg_is_last(&sg[i]))
+break;
+}
+ret = 0;
+kfifo_dma_in_finish(&fifo, ret);
+nents = kfifo_dma_out_prepare(&fifo, sg, ARRAY_SIZE(sg), 8);
+printk(KERN_INFO "DMA sgl entries: %d\n", nents);
+if (!nents) {
+printk(KERN_WARNING "error kfifo_dma_out_prepare\n");
+return -EIO;
+}
+printk(KERN_INFO "scatterlist for transmit:\n");
+for (i = 0; i < nents; i++) {
+printk(KERN_INFO
+"sg[%d] -> "
+"page %p offset 0x%.8x length 0x%.8x\n",
+i, sg_page(&sg[i]), sg[i].offset, sg[i].length);
+if (sg_is_last(&sg[i]))
+break;
+}
+ret = 5;
+kfifo_dma_out_finish(&fifo, ret);
+ret = kfifo_len(&fifo);
+printk(KERN_INFO "queue len: %u\n", kfifo_len(&fifo));
+if (ret != 7) {
+printk(KERN_WARNING "size mismatch: test failed");
+return -EIO;
+}
+printk(KERN_INFO "test passed\n");
+return 0;
+}
+static void __exit example_exit(void)
+{
+kfifo_free(&fifo);
+}

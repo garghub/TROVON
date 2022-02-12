@@ -1,0 +1,121 @@
+static int dc_rtc_cmds(struct dc_rtc *rtc, const u8 *cmds, int len)
+{
+u8 val;
+int i, ret;
+for (i = 0; i < len; i++) {
+writeb_relaxed((cmds[i] & DC_RTC_CMD_MASK) | DC_RTC_GO_BUSY,
+rtc->regs + DC_RTC_CONTROL);
+ret = readb_relaxed_poll_timeout(
+rtc->regs + DC_RTC_CONTROL, val,
+!(val & DC_RTC_GO_BUSY), CMD_DELAY_US, CMD_TIMEOUT_US);
+if (ret < 0)
+return ret;
+}
+return 0;
+}
+static int dc_rtc_read(struct dc_rtc *rtc, unsigned long *val)
+{
+static const u8 read_cmds[] = {CMD_READ, CMD_NOP};
+u32 reference, time1, time2;
+int ret;
+ret = dc_rtc_cmds(rtc, read_cmds, ARRAY_SIZE(read_cmds));
+if (ret < 0)
+return ret;
+reference = readl_relaxed(rtc->regs + DC_RTC_REFERENCE);
+time1 = readl_relaxed(rtc->regs + DC_RTC_TIME);
+while (1) {
+time2 = readl_relaxed(rtc->regs + DC_RTC_TIME);
+if (time1 == time2)
+break;
+time1 = time2;
+}
+*val = reference + time1;
+return 0;
+}
+static int dc_rtc_write(struct dc_rtc *rtc, u32 val)
+{
+static const u8 write_cmds[] = {CMD_WRITE, CMD_NOP, CMD_RESET, CMD_NOP};
+writel_relaxed(val, rtc->regs + DC_RTC_REFERENCE);
+return dc_rtc_cmds(rtc, write_cmds, ARRAY_SIZE(write_cmds));
+}
+static int dc_rtc_read_time(struct device *dev, struct rtc_time *tm)
+{
+struct dc_rtc *rtc = dev_get_drvdata(dev);
+unsigned long now;
+int ret;
+ret = dc_rtc_read(rtc, &now);
+if (ret < 0)
+return ret;
+rtc_time64_to_tm(now, tm);
+return 0;
+}
+static int dc_rtc_set_mmss(struct device *dev, unsigned long secs)
+{
+struct dc_rtc *rtc = dev_get_drvdata(dev);
+return dc_rtc_write(rtc, secs);
+}
+static int dc_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alarm)
+{
+struct dc_rtc *rtc = dev_get_drvdata(dev);
+u32 alarm_reg, reference;
+unsigned long now;
+int ret;
+alarm_reg = readl_relaxed(rtc->regs + DC_RTC_ALARM);
+reference = readl_relaxed(rtc->regs + DC_RTC_REFERENCE);
+rtc_time64_to_tm(reference + alarm_reg, &alarm->time);
+ret = dc_rtc_read(rtc, &now);
+if (ret < 0)
+return ret;
+alarm->pending = alarm_reg + reference > now;
+alarm->enabled = readl_relaxed(rtc->regs + DC_RTC_INTENABLE);
+return 0;
+}
+static int dc_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alarm)
+{
+struct dc_rtc *rtc = dev_get_drvdata(dev);
+time64_t alarm_time;
+u32 reference;
+alarm_time = rtc_tm_to_time64(&alarm->time);
+reference = readl_relaxed(rtc->regs + DC_RTC_REFERENCE);
+writel_relaxed(alarm_time - reference, rtc->regs + DC_RTC_ALARM);
+writeb_relaxed(!!alarm->enabled, rtc->regs + DC_RTC_INTENABLE);
+return 0;
+}
+static int dc_rtc_alarm_irq_enable(struct device *dev, unsigned int enabled)
+{
+struct dc_rtc *rtc = dev_get_drvdata(dev);
+writeb_relaxed(!!enabled, rtc->regs + DC_RTC_INTENABLE);
+return 0;
+}
+static irqreturn_t dc_rtc_irq(int irq, void *dev_id)
+{
+struct dc_rtc *rtc = dev_id;
+writeb_relaxed(1, rtc->regs + DC_RTC_INTFLAG_CLEAR);
+rtc_update_irq(rtc->rtc_dev, 1, RTC_AF | RTC_IRQF);
+return IRQ_HANDLED;
+}
+static int __init dc_rtc_probe(struct platform_device *pdev)
+{
+struct resource *res;
+struct dc_rtc *rtc;
+int irq, ret;
+rtc = devm_kzalloc(&pdev->dev, sizeof(*rtc), GFP_KERNEL);
+if (!rtc)
+return -ENOMEM;
+res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+rtc->regs = devm_ioremap_resource(&pdev->dev, res);
+if (IS_ERR(rtc->regs))
+return PTR_ERR(rtc->regs);
+irq = platform_get_irq(pdev, 0);
+if (irq < 0)
+return irq;
+ret = devm_request_irq(&pdev->dev, irq, dc_rtc_irq, 0, pdev->name, rtc);
+if (ret < 0)
+return ret;
+platform_set_drvdata(pdev, rtc);
+rtc->rtc_dev = devm_rtc_device_register(&pdev->dev, pdev->name,
+&dc_rtc_ops, THIS_MODULE);
+if (IS_ERR(rtc->rtc_dev))
+return PTR_ERR(rtc->rtc_dev);
+return 0;
+}

@@ -1,0 +1,1 @@
+static void __init avengers_lite_init(void)\r\n{\r\nmfp_config(ARRAY_AND_SIZE(avengers_lite_pin_config_V16F));\r\npxa168_add_uart(2);\r\nplatform_device_add_data(&pxa168_device_gpio, &pxa168_gpio_pdata,\r\nsizeof(struct pxa_gpio_platform_data));\r\nplatform_device_register(&pxa168_device_gpio);\r\n}

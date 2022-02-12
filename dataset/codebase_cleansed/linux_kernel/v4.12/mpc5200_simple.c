@@ -1,0 +1,1 @@
+static void __init mpc5200_simple_setup_arch(void)\r\n{\r\nif (ppc_md.progress)\r\nppc_md.progress("mpc5200_simple_setup_arch()", 0);\r\nmpc52xx_map_common_devices();\r\nmpc5200_setup_xlb_arbiter();\r\nmpc52xx_setup_pci();\r\n}\r\nstatic int __init mpc5200_simple_probe(void)\r\n{\r\nreturn of_device_compatible_match(of_root, board);\r\n}

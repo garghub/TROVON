@@ -1,0 +1,1 @@
+void prom_putchar(char c)\r\n{\r\nuint64_t uartbase;\r\n#if defined(CONFIG_CPU_XLP)\r\nuartbase = nlm_get_uart_regbase(0, 0);\r\n#elif defined(CONFIG_CPU_XLR)\r\nuartbase = nlm_mmio_base(NETLOGIC_IO_UART_0_OFFSET);\r\n#endif\r\nwhile ((nlm_read_reg(uartbase, UART_LSR) & UART_LSR_THRE) == 0)\r\n;\r\nnlm_write_reg(uartbase, UART_TX, c);\r\n}

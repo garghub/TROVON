@@ -1,0 +1,1 @@
+static void\r\ngp102_pmu_reset(struct nvkm_pmu *pmu)\r\n{\r\nstruct nvkm_device *device = pmu->subdev.device;\r\nnvkm_mask(device, 0x10a3c0, 0x00000001, 0x00000001);\r\nnvkm_mask(device, 0x10a3c0, 0x00000001, 0x00000000);\r\n}\r\nint\r\ngp102_pmu_new(struct nvkm_device *device, int index, struct nvkm_pmu **ppmu)\r\n{\r\nreturn nvkm_pmu_new_(&gp102_pmu, device, index, ppmu);\r\n}

@@ -1,0 +1,1 @@
+static int __init walnut_device_probe(void)\r\n{\r\nof_platform_bus_probe(NULL, walnut_of_bus, NULL);\r\nof_instantiate_rtc();\r\nreturn 0;\r\n}\r\nstatic int __init walnut_probe(void)\r\n{\r\nif (!of_machine_is_compatible("ibm,walnut"))\r\nreturn 0;\r\npci_set_flags(PCI_REASSIGN_ALL_RSRC);\r\nreturn 1;\r\n}

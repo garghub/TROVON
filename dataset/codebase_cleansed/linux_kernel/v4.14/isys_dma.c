@@ -1,0 +1,1 @@
+void isys2401_dma_set_max_burst_size(\r\nconst isys2401_dma_ID_t dma_id,\r\nuint32_t max_burst_size)\r\n{\r\nassert(dma_id < N_ISYS2401_DMA_ID);\r\nassert((max_burst_size > 0x00) && (max_burst_size <= 0xFF));\r\nisys2401_dma_reg_store(dma_id,\r\nDMA_DEV_INFO_REG_IDX(_DMA_V2_DEV_INTERF_MAX_BURST_IDX, HIVE_DMA_BUS_DDR_CONN),\r\n(max_burst_size - 1));\r\n}

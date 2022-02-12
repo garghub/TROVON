@@ -1,0 +1,1 @@
+static int es8328_spi_probe(struct spi_device *spi)\r\n{\r\nreturn es8328_probe(&spi->dev,\r\ndevm_regmap_init_spi(spi, &es8328_regmap_config));\r\n}\r\nstatic int es8328_spi_remove(struct spi_device *spi)\r\n{\r\nsnd_soc_unregister_codec(&spi->dev);\r\nreturn 0;\r\n}

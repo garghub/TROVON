@@ -1,0 +1,1 @@
+static void pretimeout_noop(struct watchdog_device *wdd)\r\n{\r\npr_alert("watchdog%d: pretimeout event\n", wdd->id);\r\n}\r\nstatic int __init watchdog_gov_noop_register(void)\r\n{\r\nreturn watchdog_register_governor(&watchdog_gov_noop);\r\n}\r\nstatic void __exit watchdog_gov_noop_unregister(void)\r\n{\r\nwatchdog_unregister_governor(&watchdog_gov_noop);\r\n}

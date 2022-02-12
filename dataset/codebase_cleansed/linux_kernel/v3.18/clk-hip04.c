@@ -1,0 +1,1 @@
+static void __init hip04_clk_init(struct device_node *np)\r\n{\r\nstruct hisi_clock_data *clk_data;\r\nclk_data = hisi_clk_init(np, HIP04_NR_CLKS);\r\nif (!clk_data)\r\nreturn;\r\nhisi_clk_register_fixed_rate(hip04_fixed_rate_clks,\r\nARRAY_SIZE(hip04_fixed_rate_clks),\r\nclk_data);\r\n}

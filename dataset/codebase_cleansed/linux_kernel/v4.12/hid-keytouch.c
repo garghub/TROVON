@@ -1,0 +1,1 @@
+static __u8 *keytouch_report_fixup(struct hid_device *hdev, __u8 *rdesc,\r\nunsigned int *rsize)\r\n{\r\nhid_info(hdev, "fixing up Keytouch IEC report descriptor\n");\r\nrdesc = keytouch_fixed_rdesc;\r\n*rsize = sizeof(keytouch_fixed_rdesc);\r\nreturn rdesc;\r\n}

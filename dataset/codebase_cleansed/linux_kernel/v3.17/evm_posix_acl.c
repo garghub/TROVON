@@ -1,0 +1,1 @@
+int posix_xattr_acl(const char *xattr)\r\n{\r\nint xattr_len = strlen(xattr);\r\nif ((strlen(XATTR_NAME_POSIX_ACL_ACCESS) == xattr_len)\r\n&& (strncmp(XATTR_NAME_POSIX_ACL_ACCESS, xattr, xattr_len) == 0))\r\nreturn 1;\r\nif ((strlen(XATTR_NAME_POSIX_ACL_DEFAULT) == xattr_len)\r\n&& (strncmp(XATTR_NAME_POSIX_ACL_DEFAULT, xattr, xattr_len) == 0))\r\nreturn 1;\r\nreturn 0;\r\n}

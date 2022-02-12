@@ -1,0 +1,1 @@
+int __init am43xx_dt_clk_init(void)\r\n{\r\nstruct clk *clk1, *clk2;\r\nti_dt_clocks_register(am43xx_clks);\r\nomap2_clk_disable_autoidle_all();\r\nclk1 = clk_get_sys(NULL, "cpsw_cpts_rft_clk");\r\nclk2 = clk_get_sys(NULL, "dpll_core_m5_ck");\r\nclk_set_parent(clk1, clk2);\r\nreturn 0;\r\n}

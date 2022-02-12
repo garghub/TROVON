@@ -1,0 +1,1 @@
+int main(void)\r\n{\r\nint fd = open("/dev/watchdog", O_WRONLY);\r\nint ret = 0;\r\nif (fd == -1) {\r\nperror("watchdog");\r\nexit(EXIT_FAILURE);\r\n}\r\nwhile (1) {\r\nret = write(fd, "\0", 1);\r\nif (ret != 1) {\r\nret = -1;\r\nbreak;\r\n}\r\nsleep(10);\r\n}\r\nclose(fd);\r\nreturn ret;\r\n}

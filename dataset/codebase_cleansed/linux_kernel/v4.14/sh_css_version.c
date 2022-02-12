@@ -1,0 +1,1 @@
+enum ia_css_err\r\nia_css_get_version(char *version, int max_size)\r\n{\r\nif (max_size <= (int)strlen(CSS_VERSION_STRING) + (int)strlen(sh_css_get_fw_version()) + 5)\r\nreturn IA_CSS_ERR_INVALID_ARGUMENTS;\r\nstrcpy(version, CSS_VERSION_STRING);\r\nstrcat(version, "FW:");\r\nstrcat(version, sh_css_get_fw_version());\r\nstrcat(version, "; ");\r\nreturn IA_CSS_SUCCESS;\r\n}

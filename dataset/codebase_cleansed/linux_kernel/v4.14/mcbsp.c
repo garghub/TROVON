@@ -1,0 +1,1 @@
+static int omap3_mcbsp_force_ick_on(struct clk *clk, bool force_on)\r\n{\r\nif (!clk)\r\nreturn 0;\r\nif (force_on)\r\nreturn omap2_clk_deny_idle(clk);\r\nelse\r\nreturn omap2_clk_allow_idle(clk);\r\n}\r\nvoid __init omap3_mcbsp_init_pdata_callback(\r\nstruct omap_mcbsp_platform_data *pdata)\r\n{\r\nif (!pdata)\r\nreturn;\r\npdata->force_ick_on = omap3_mcbsp_force_ick_on;\r\n}

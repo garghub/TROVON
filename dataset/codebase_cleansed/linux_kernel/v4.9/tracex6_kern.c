@@ -1,0 +1,1 @@
+int bpf_prog1(struct pt_regs *ctx)\r\n{\r\nu64 count;\r\nu32 key = bpf_get_smp_processor_id();\r\nchar fmt[] = "CPU-%d %llu\n";\r\ncount = bpf_perf_event_read(&my_map, key);\r\nbpf_trace_printk(fmt, sizeof(fmt), key, count);\r\nreturn 0;\r\n}

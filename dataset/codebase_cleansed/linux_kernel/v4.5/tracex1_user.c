@@ -1,0 +1,1 @@
+int main(int ac, char **argv)\r\n{\r\nFILE *f;\r\nchar filename[256];\r\nsnprintf(filename, sizeof(filename), "%s_kern.o", argv[0]);\r\nif (load_bpf_file(filename)) {\r\nprintf("%s", bpf_log_buf);\r\nreturn 1;\r\n}\r\nf = popen("taskset 1 ping -c5 localhost", "r");\r\n(void) f;\r\nread_trace_pipe();\r\nreturn 0;\r\n}

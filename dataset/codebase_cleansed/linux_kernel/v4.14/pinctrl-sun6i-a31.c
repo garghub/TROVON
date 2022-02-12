@@ -1,0 +1,1 @@
+static int sun6i_a31_pinctrl_probe(struct platform_device *pdev)\r\n{\r\nunsigned long variant =\r\n(unsigned long)of_device_get_match_data(&pdev->dev);\r\nreturn sunxi_pinctrl_init_with_variant(pdev,\r\n&sun6i_a31_pinctrl_data,\r\nvariant);\r\n}

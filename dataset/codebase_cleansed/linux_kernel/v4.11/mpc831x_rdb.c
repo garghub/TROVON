@@ -1,0 +1,1 @@
+static void __init mpc831x_rdb_setup_arch(void)\r\n{\r\nmpc83xx_setup_arch();\r\nmpc831x_usb_cfg();\r\n}\r\nstatic int __init mpc831x_rdb_probe(void)\r\n{\r\nreturn of_device_compatible_match(of_root, board);\r\n}

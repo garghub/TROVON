@@ -1,0 +1,165 @@
+static inline int tle62x0_write(struct tle62x0_state *st)
+{
+unsigned char *buff = st->tx_buff;
+unsigned int gpio_state = st->gpio_state;
+buff[0] = CMD_SET;
+if (st->nr_gpio == 16) {
+buff[1] = gpio_state >> 8;
+buff[2] = gpio_state;
+} else {
+buff[1] = gpio_state;
+}
+dev_dbg(&st->us->dev, "buff %3ph\n", buff);
+return spi_write(st->us, buff, (st->nr_gpio == 16) ? 3 : 2);
+}
+static inline int tle62x0_read(struct tle62x0_state *st)
+{
+unsigned char *txbuff = st->tx_buff;
+struct spi_transfer xfer = {
+.tx_buf = txbuff,
+.rx_buf = st->rx_buff,
+.len = (st->nr_gpio * 2) / 8,
+};
+struct spi_message msg;
+txbuff[0] = CMD_READ;
+txbuff[1] = 0x00;
+txbuff[2] = 0x00;
+txbuff[3] = 0x00;
+spi_message_init(&msg);
+spi_message_add_tail(&xfer, &msg);
+return spi_sync(st->us, &msg);
+}
+static unsigned char *decode_fault(unsigned int fault_code)
+{
+fault_code &= 3;
+switch (fault_code) {
+case DIAG_NORMAL:
+return "N";
+case DIAG_OVERLOAD:
+return "V";
+case DIAG_OPEN:
+return "O";
+case DIAG_SHORTGND:
+return "G";
+}
+return "?";
+}
+static ssize_t tle62x0_status_show(struct device *dev,
+struct device_attribute *attr, char *buf)
+{
+struct tle62x0_state *st = dev_get_drvdata(dev);
+char *bp = buf;
+unsigned char *buff = st->rx_buff;
+unsigned long fault = 0;
+int ptr;
+int ret;
+mutex_lock(&st->lock);
+ret = tle62x0_read(st);
+dev_dbg(dev, "tle62x0_read() returned %d\n", ret);
+if (ret < 0) {
+mutex_unlock(&st->lock);
+return ret;
+}
+for (ptr = 0; ptr < (st->nr_gpio * 2)/8; ptr += 1) {
+fault <<= 8;
+fault |= ((unsigned long)buff[ptr]);
+dev_dbg(dev, "byte %d is %02x\n", ptr, buff[ptr]);
+}
+for (ptr = 0; ptr < st->nr_gpio; ptr++) {
+bp += sprintf(bp, "%s ", decode_fault(fault >> (ptr * 2)));
+}
+*bp++ = '\n';
+mutex_unlock(&st->lock);
+return bp - buf;
+}
+static ssize_t tle62x0_gpio_show(struct device *dev,
+struct device_attribute *attr, char *buf)
+{
+struct tle62x0_state *st = dev_get_drvdata(dev);
+int gpio_num = to_gpio_num(attr);
+int value;
+mutex_lock(&st->lock);
+value = (st->gpio_state >> gpio_num) & 1;
+mutex_unlock(&st->lock);
+return snprintf(buf, PAGE_SIZE, "%d", value);
+}
+static ssize_t tle62x0_gpio_store(struct device *dev,
+struct device_attribute *attr,
+const char *buf, size_t len)
+{
+struct tle62x0_state *st = dev_get_drvdata(dev);
+int gpio_num = to_gpio_num(attr);
+unsigned long val;
+char *endp;
+val = simple_strtoul(buf, &endp, 0);
+if (buf == endp)
+return -EINVAL;
+dev_dbg(dev, "setting gpio %d to %ld\n", gpio_num, val);
+mutex_lock(&st->lock);
+if (val)
+st->gpio_state |= 1 << gpio_num;
+else
+st->gpio_state &= ~(1 << gpio_num);
+tle62x0_write(st);
+mutex_unlock(&st->lock);
+return len;
+}
+static int to_gpio_num(struct device_attribute *attr)
+{
+int ptr;
+for (ptr = 0; ptr < ARRAY_SIZE(gpio_attrs); ptr++) {
+if (gpio_attrs[ptr] == attr)
+return ptr;
+}
+return -1;
+}
+static int tle62x0_probe(struct spi_device *spi)
+{
+struct tle62x0_state *st;
+struct tle62x0_pdata *pdata;
+int ptr;
+int ret;
+pdata = dev_get_platdata(&spi->dev);
+if (pdata == NULL) {
+dev_err(&spi->dev, "no device data specified\n");
+return -EINVAL;
+}
+st = kzalloc(sizeof(struct tle62x0_state), GFP_KERNEL);
+if (st == NULL)
+return -ENOMEM;
+st->us = spi;
+st->nr_gpio = pdata->gpio_count;
+st->gpio_state = pdata->init_state;
+mutex_init(&st->lock);
+ret = device_create_file(&spi->dev, &dev_attr_status_show);
+if (ret) {
+dev_err(&spi->dev, "cannot create status attribute\n");
+goto err_status;
+}
+for (ptr = 0; ptr < pdata->gpio_count; ptr++) {
+ret = device_create_file(&spi->dev, gpio_attrs[ptr]);
+if (ret) {
+dev_err(&spi->dev, "cannot create gpio attribute\n");
+goto err_gpios;
+}
+}
+spi_set_drvdata(spi, st);
+return 0;
+err_gpios:
+while (--ptr >= 0)
+device_remove_file(&spi->dev, gpio_attrs[ptr]);
+device_remove_file(&spi->dev, &dev_attr_status_show);
+err_status:
+kfree(st);
+return ret;
+}
+static int tle62x0_remove(struct spi_device *spi)
+{
+struct tle62x0_state *st = spi_get_drvdata(spi);
+int ptr;
+for (ptr = 0; ptr < st->nr_gpio; ptr++)
+device_remove_file(&spi->dev, gpio_attrs[ptr]);
+device_remove_file(&spi->dev, &dev_attr_status_show);
+kfree(st);
+return 0;
+}

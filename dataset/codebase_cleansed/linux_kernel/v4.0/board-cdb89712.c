@@ -1,0 +1,1 @@
+static void __init cdb89712_init(void)\r\n{\r\nclps711x_devices_init();\r\nplatform_device_register(&cdb89712_flash_pdev);\r\nplatform_device_register(&cdb89712_bootrom_pdev);\r\nplatform_device_register(&cdb89712_sram_pdev);\r\nplatform_device_register_simple("cs89x0", 0, cdb89712_cs8900_resource,\r\nARRAY_SIZE(cdb89712_cs8900_resource));\r\n}

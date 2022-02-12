@@ -1,0 +1,1 @@
+asmlinkage __visible void xen_maybe_preempt_hcall(void)\r\n{\r\nif (unlikely(__this_cpu_read(xen_in_preemptible_hcall)\r\n&& should_resched())) {\r\n__this_cpu_write(xen_in_preemptible_hcall, false);\r\n_cond_resched();\r\n__this_cpu_write(xen_in_preemptible_hcall, true);\r\n}\r\n}

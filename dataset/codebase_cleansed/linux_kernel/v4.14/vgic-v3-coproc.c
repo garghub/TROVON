@@ -1,0 +1,1 @@
+int vgic_v3_has_cpu_sysregs_attr(struct kvm_vcpu *vcpu, bool is_write, u64 id,\r\nu64 *reg)\r\n{\r\nreturn -ENXIO;\r\n}\r\nint vgic_v3_cpu_sysregs_uaccess(struct kvm_vcpu *vcpu, bool is_write, u64 id,\r\nu64 *reg)\r\n{\r\nreturn -ENXIO;\r\n}

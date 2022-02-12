@@ -1,0 +1,1 @@
+static int gen_pci_probe(struct platform_device *pdev)\r\n{\r\nconst struct of_device_id *of_id;\r\nstruct pci_ecam_ops *ops;\r\nof_id = of_match_node(gen_pci_of_match, pdev->dev.of_node);\r\nops = (struct pci_ecam_ops *)of_id->data;\r\nreturn pci_host_common_probe(pdev, ops);\r\n}

@@ -1,0 +1,1 @@
+static int imx6ul_pinctrl_probe(struct platform_device *pdev)\r\n{\r\nreturn imx_pinctrl_probe(pdev, &imx6ul_pinctrl_info);\r\n}\r\nstatic int __init imx6ul_pinctrl_init(void)\r\n{\r\nreturn platform_driver_register(&imx6ul_pinctrl_driver);\r\n}

@@ -1,0 +1,1 @@
+static int __init mga_init(void)\r\n{\r\ndriver.num_ioctls = mga_max_ioctl;\r\nreturn drm_pci_init(&driver, &mga_pci_driver);\r\n}\r\nstatic void __exit mga_exit(void)\r\n{\r\ndrm_pci_exit(&driver, &mga_pci_driver);\r\n}

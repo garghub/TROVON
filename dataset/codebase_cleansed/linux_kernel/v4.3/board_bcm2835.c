@@ -1,0 +1,1 @@
+static void __init bcm2835_init(void)\r\n{\r\nint ret;\r\nbcm2835_init_clocks();\r\nret = of_platform_populate(NULL, of_default_bus_match_table, NULL,\r\nNULL);\r\nif (ret) {\r\npr_err("of_platform_populate failed: %d\n", ret);\r\nBUG();\r\n}\r\n}

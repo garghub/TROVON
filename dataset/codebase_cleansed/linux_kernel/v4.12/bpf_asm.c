@@ -1,0 +1,1 @@
+int main(int argc, char **argv)\r\n{\r\nFILE *fp = stdin;\r\nbool cstyle = false;\r\nint i;\r\nfor (i = 1; i < argc; i++) {\r\nif (!strncmp("-c", argv[i], 2)) {\r\ncstyle = true;\r\ncontinue;\r\n}\r\nfp = fopen(argv[i], "r");\r\nif (!fp) {\r\nfp = stdin;\r\ncontinue;\r\n}\r\nbreak;\r\n}\r\nbpf_asm_compile(fp, cstyle);\r\nreturn 0;\r\n}

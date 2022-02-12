@@ -1,0 +1,1 @@
+void __ioread32_copy(void *to, const void __iomem *from, size_t count)\r\n{\r\nu32 *dst = to;\r\nconst u32 __iomem *src = from;\r\nconst u32 __iomem *end = src + count;\r\nwhile (src < end)\r\n*dst++ = __raw_readl(src++);\r\n}

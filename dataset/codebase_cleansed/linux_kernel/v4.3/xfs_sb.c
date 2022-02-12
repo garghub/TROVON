@@ -1,0 +1,563 @@
+struct xfs_perag *
+xfs_perag_get(
+struct xfs_mount *mp,
+xfs_agnumber_t agno)
+{
+struct xfs_perag *pag;
+int ref = 0;
+rcu_read_lock();
+pag = radix_tree_lookup(&mp->m_perag_tree, agno);
+if (pag) {
+ASSERT(atomic_read(&pag->pag_ref) >= 0);
+ref = atomic_inc_return(&pag->pag_ref);
+}
+rcu_read_unlock();
+trace_xfs_perag_get(mp, agno, ref, _RET_IP_);
+return pag;
+}
+struct xfs_perag *
+xfs_perag_get_tag(
+struct xfs_mount *mp,
+xfs_agnumber_t first,
+int tag)
+{
+struct xfs_perag *pag;
+int found;
+int ref;
+rcu_read_lock();
+found = radix_tree_gang_lookup_tag(&mp->m_perag_tree,
+(void **)&pag, first, 1, tag);
+if (found <= 0) {
+rcu_read_unlock();
+return NULL;
+}
+ref = atomic_inc_return(&pag->pag_ref);
+rcu_read_unlock();
+trace_xfs_perag_get_tag(mp, pag->pag_agno, ref, _RET_IP_);
+return pag;
+}
+void
+xfs_perag_put(
+struct xfs_perag *pag)
+{
+int ref;
+ASSERT(atomic_read(&pag->pag_ref) > 0);
+ref = atomic_dec_return(&pag->pag_ref);
+trace_xfs_perag_put(pag->pag_mount, pag->pag_agno, ref, _RET_IP_);
+}
+STATIC int
+xfs_mount_validate_sb(
+xfs_mount_t *mp,
+xfs_sb_t *sbp,
+bool check_inprogress,
+bool check_version)
+{
+if (sbp->sb_magicnum != XFS_SB_MAGIC) {
+xfs_warn(mp, "bad magic number");
+return -EWRONGFS;
+}
+if (!xfs_sb_good_version(sbp)) {
+xfs_warn(mp, "bad version");
+return -EWRONGFS;
+}
+if (check_version && XFS_SB_VERSION_NUM(sbp) == XFS_SB_VERSION_5) {
+if (xfs_sb_has_compat_feature(sbp,
+XFS_SB_FEAT_COMPAT_UNKNOWN)) {
+xfs_warn(mp,
+"Superblock has unknown compatible features (0x%x) enabled.",
+(sbp->sb_features_compat &
+XFS_SB_FEAT_COMPAT_UNKNOWN));
+xfs_warn(mp,
+"Using a more recent kernel is recommended.");
+}
+if (xfs_sb_has_ro_compat_feature(sbp,
+XFS_SB_FEAT_RO_COMPAT_UNKNOWN)) {
+xfs_alert(mp,
+"Superblock has unknown read-only compatible features (0x%x) enabled.",
+(sbp->sb_features_ro_compat &
+XFS_SB_FEAT_RO_COMPAT_UNKNOWN));
+if (!(mp->m_flags & XFS_MOUNT_RDONLY)) {
+xfs_warn(mp,
+"Attempted to mount read-only compatible filesystem read-write.");
+xfs_warn(mp,
+"Filesystem can only be safely mounted read only.");
+return -EINVAL;
+}
+}
+if (xfs_sb_has_incompat_feature(sbp,
+XFS_SB_FEAT_INCOMPAT_UNKNOWN)) {
+xfs_warn(mp,
+"Superblock has unknown incompatible features (0x%x) enabled.",
+(sbp->sb_features_incompat &
+XFS_SB_FEAT_INCOMPAT_UNKNOWN));
+xfs_warn(mp,
+"Filesystem can not be safely mounted by this kernel.");
+return -EINVAL;
+}
+}
+if (xfs_sb_version_has_pquotino(sbp)) {
+if (sbp->sb_qflags & (XFS_OQUOTA_ENFD | XFS_OQUOTA_CHKD)) {
+xfs_notice(mp,
+"Version 5 of Super block has XFS_OQUOTA bits.");
+return -EFSCORRUPTED;
+}
+} else if (sbp->sb_qflags & (XFS_PQUOTA_ENFD | XFS_GQUOTA_ENFD |
+XFS_PQUOTA_CHKD | XFS_GQUOTA_CHKD)) {
+xfs_notice(mp,
+"Superblock earlier than Version 5 has XFS_[PQ]UOTA_{ENFD|CHKD} bits.");
+return -EFSCORRUPTED;
+}
+if (xfs_sb_version_hassparseinodes(sbp)) {
+uint32_t align;
+align = XFS_INODES_PER_CHUNK * sbp->sb_inodesize
+>> sbp->sb_blocklog;
+if (sbp->sb_inoalignmt != align) {
+xfs_warn(mp,
+"Inode block alignment (%u) must match chunk size (%u) for sparse inodes.",
+sbp->sb_inoalignmt, align);
+return -EINVAL;
+}
+}
+if (unlikely(
+sbp->sb_logstart == 0 && mp->m_logdev_targp == mp->m_ddev_targp)) {
+xfs_warn(mp,
+"filesystem is marked as having an external log; "
+"specify logdev on the mount command line.");
+return -EINVAL;
+}
+if (unlikely(
+sbp->sb_logstart != 0 && mp->m_logdev_targp != mp->m_ddev_targp)) {
+xfs_warn(mp,
+"filesystem is marked as having an internal log; "
+"do not specify logdev on the mount command line.");
+return -EINVAL;
+}
+if (unlikely(
+sbp->sb_agcount <= 0 ||
+sbp->sb_sectsize < XFS_MIN_SECTORSIZE ||
+sbp->sb_sectsize > XFS_MAX_SECTORSIZE ||
+sbp->sb_sectlog < XFS_MIN_SECTORSIZE_LOG ||
+sbp->sb_sectlog > XFS_MAX_SECTORSIZE_LOG ||
+sbp->sb_sectsize != (1 << sbp->sb_sectlog) ||
+sbp->sb_blocksize < XFS_MIN_BLOCKSIZE ||
+sbp->sb_blocksize > XFS_MAX_BLOCKSIZE ||
+sbp->sb_blocklog < XFS_MIN_BLOCKSIZE_LOG ||
+sbp->sb_blocklog > XFS_MAX_BLOCKSIZE_LOG ||
+sbp->sb_blocksize != (1 << sbp->sb_blocklog) ||
+sbp->sb_dirblklog > XFS_MAX_BLOCKSIZE_LOG ||
+sbp->sb_inodesize < XFS_DINODE_MIN_SIZE ||
+sbp->sb_inodesize > XFS_DINODE_MAX_SIZE ||
+sbp->sb_inodelog < XFS_DINODE_MIN_LOG ||
+sbp->sb_inodelog > XFS_DINODE_MAX_LOG ||
+sbp->sb_inodesize != (1 << sbp->sb_inodelog) ||
+sbp->sb_logsunit > XLOG_MAX_RECORD_BSIZE ||
+sbp->sb_inopblock != howmany(sbp->sb_blocksize,sbp->sb_inodesize) ||
+(sbp->sb_blocklog - sbp->sb_inodelog != sbp->sb_inopblog) ||
+(sbp->sb_rextsize * sbp->sb_blocksize > XFS_MAX_RTEXTSIZE) ||
+(sbp->sb_rextsize * sbp->sb_blocksize < XFS_MIN_RTEXTSIZE) ||
+(sbp->sb_imax_pct > 100 ) ||
+sbp->sb_dblocks == 0 ||
+sbp->sb_dblocks > XFS_MAX_DBLOCKS(sbp) ||
+sbp->sb_dblocks < XFS_MIN_DBLOCKS(sbp) ||
+sbp->sb_shared_vn != 0)) {
+xfs_notice(mp, "SB sanity check failed");
+return -EFSCORRUPTED;
+}
+if (unlikely(sbp->sb_blocksize > PAGE_SIZE)) {
+xfs_warn(mp,
+"File system with blocksize %d bytes. "
+"Only pagesize (%ld) or less will currently work.",
+sbp->sb_blocksize, PAGE_SIZE);
+return -ENOSYS;
+}
+switch (sbp->sb_inodesize) {
+case 256:
+case 512:
+case 1024:
+case 2048:
+break;
+default:
+xfs_warn(mp, "inode size of %d bytes not supported",
+sbp->sb_inodesize);
+return -ENOSYS;
+}
+if (xfs_sb_validate_fsb_count(sbp, sbp->sb_dblocks) ||
+xfs_sb_validate_fsb_count(sbp, sbp->sb_rblocks)) {
+xfs_warn(mp,
+"file system too large to be mounted on this system.");
+return -EFBIG;
+}
+if (check_inprogress && sbp->sb_inprogress) {
+xfs_warn(mp, "Offline file system operation in progress!");
+return -EFSCORRUPTED;
+}
+return 0;
+}
+void
+xfs_sb_quota_from_disk(struct xfs_sb *sbp)
+{
+if (sbp->sb_uquotino == 0)
+sbp->sb_uquotino = NULLFSINO;
+if (sbp->sb_gquotino == 0)
+sbp->sb_gquotino = NULLFSINO;
+if (sbp->sb_pquotino == 0)
+sbp->sb_pquotino = NULLFSINO;
+if (xfs_sb_version_has_pquotino(sbp))
+return;
+if (sbp->sb_qflags & XFS_OQUOTA_ENFD)
+sbp->sb_qflags |= (sbp->sb_qflags & XFS_PQUOTA_ACCT) ?
+XFS_PQUOTA_ENFD : XFS_GQUOTA_ENFD;
+if (sbp->sb_qflags & XFS_OQUOTA_CHKD)
+sbp->sb_qflags |= (sbp->sb_qflags & XFS_PQUOTA_ACCT) ?
+XFS_PQUOTA_CHKD : XFS_GQUOTA_CHKD;
+sbp->sb_qflags &= ~(XFS_OQUOTA_ENFD | XFS_OQUOTA_CHKD);
+if (sbp->sb_qflags & XFS_PQUOTA_ACCT) {
+sbp->sb_pquotino = sbp->sb_gquotino;
+sbp->sb_gquotino = NULLFSINO;
+}
+}
+static void
+__xfs_sb_from_disk(
+struct xfs_sb *to,
+xfs_dsb_t *from,
+bool convert_xquota)
+{
+to->sb_magicnum = be32_to_cpu(from->sb_magicnum);
+to->sb_blocksize = be32_to_cpu(from->sb_blocksize);
+to->sb_dblocks = be64_to_cpu(from->sb_dblocks);
+to->sb_rblocks = be64_to_cpu(from->sb_rblocks);
+to->sb_rextents = be64_to_cpu(from->sb_rextents);
+memcpy(&to->sb_uuid, &from->sb_uuid, sizeof(to->sb_uuid));
+to->sb_logstart = be64_to_cpu(from->sb_logstart);
+to->sb_rootino = be64_to_cpu(from->sb_rootino);
+to->sb_rbmino = be64_to_cpu(from->sb_rbmino);
+to->sb_rsumino = be64_to_cpu(from->sb_rsumino);
+to->sb_rextsize = be32_to_cpu(from->sb_rextsize);
+to->sb_agblocks = be32_to_cpu(from->sb_agblocks);
+to->sb_agcount = be32_to_cpu(from->sb_agcount);
+to->sb_rbmblocks = be32_to_cpu(from->sb_rbmblocks);
+to->sb_logblocks = be32_to_cpu(from->sb_logblocks);
+to->sb_versionnum = be16_to_cpu(from->sb_versionnum);
+to->sb_sectsize = be16_to_cpu(from->sb_sectsize);
+to->sb_inodesize = be16_to_cpu(from->sb_inodesize);
+to->sb_inopblock = be16_to_cpu(from->sb_inopblock);
+memcpy(&to->sb_fname, &from->sb_fname, sizeof(to->sb_fname));
+to->sb_blocklog = from->sb_blocklog;
+to->sb_sectlog = from->sb_sectlog;
+to->sb_inodelog = from->sb_inodelog;
+to->sb_inopblog = from->sb_inopblog;
+to->sb_agblklog = from->sb_agblklog;
+to->sb_rextslog = from->sb_rextslog;
+to->sb_inprogress = from->sb_inprogress;
+to->sb_imax_pct = from->sb_imax_pct;
+to->sb_icount = be64_to_cpu(from->sb_icount);
+to->sb_ifree = be64_to_cpu(from->sb_ifree);
+to->sb_fdblocks = be64_to_cpu(from->sb_fdblocks);
+to->sb_frextents = be64_to_cpu(from->sb_frextents);
+to->sb_uquotino = be64_to_cpu(from->sb_uquotino);
+to->sb_gquotino = be64_to_cpu(from->sb_gquotino);
+to->sb_qflags = be16_to_cpu(from->sb_qflags);
+to->sb_flags = from->sb_flags;
+to->sb_shared_vn = from->sb_shared_vn;
+to->sb_inoalignmt = be32_to_cpu(from->sb_inoalignmt);
+to->sb_unit = be32_to_cpu(from->sb_unit);
+to->sb_width = be32_to_cpu(from->sb_width);
+to->sb_dirblklog = from->sb_dirblklog;
+to->sb_logsectlog = from->sb_logsectlog;
+to->sb_logsectsize = be16_to_cpu(from->sb_logsectsize);
+to->sb_logsunit = be32_to_cpu(from->sb_logsunit);
+to->sb_features2 = be32_to_cpu(from->sb_features2);
+to->sb_bad_features2 = be32_to_cpu(from->sb_bad_features2);
+to->sb_features_compat = be32_to_cpu(from->sb_features_compat);
+to->sb_features_ro_compat = be32_to_cpu(from->sb_features_ro_compat);
+to->sb_features_incompat = be32_to_cpu(from->sb_features_incompat);
+to->sb_features_log_incompat =
+be32_to_cpu(from->sb_features_log_incompat);
+to->sb_crc = 0;
+to->sb_spino_align = be32_to_cpu(from->sb_spino_align);
+to->sb_pquotino = be64_to_cpu(from->sb_pquotino);
+to->sb_lsn = be64_to_cpu(from->sb_lsn);
+if (xfs_sb_version_hasmetauuid(to))
+uuid_copy(&to->sb_meta_uuid, &from->sb_meta_uuid);
+else
+uuid_copy(&to->sb_meta_uuid, &from->sb_uuid);
+if (convert_xquota)
+xfs_sb_quota_from_disk(to);
+}
+void
+xfs_sb_from_disk(
+struct xfs_sb *to,
+xfs_dsb_t *from)
+{
+__xfs_sb_from_disk(to, from, true);
+}
+static void
+xfs_sb_quota_to_disk(
+struct xfs_dsb *to,
+struct xfs_sb *from)
+{
+__uint16_t qflags = from->sb_qflags;
+to->sb_uquotino = cpu_to_be64(from->sb_uquotino);
+if (xfs_sb_version_has_pquotino(from)) {
+to->sb_qflags = cpu_to_be16(from->sb_qflags);
+to->sb_gquotino = cpu_to_be64(from->sb_gquotino);
+to->sb_pquotino = cpu_to_be64(from->sb_pquotino);
+return;
+}
+qflags &= ~(XFS_PQUOTA_ENFD | XFS_PQUOTA_CHKD |
+XFS_GQUOTA_ENFD | XFS_GQUOTA_CHKD);
+if (from->sb_qflags &
+(XFS_PQUOTA_ENFD | XFS_GQUOTA_ENFD))
+qflags |= XFS_OQUOTA_ENFD;
+if (from->sb_qflags &
+(XFS_PQUOTA_CHKD | XFS_GQUOTA_CHKD))
+qflags |= XFS_OQUOTA_CHKD;
+to->sb_qflags = cpu_to_be16(qflags);
+if (from->sb_qflags & XFS_GQUOTA_ACCT)
+to->sb_gquotino = cpu_to_be64(from->sb_gquotino);
+else if (from->sb_qflags & XFS_PQUOTA_ACCT)
+to->sb_gquotino = cpu_to_be64(from->sb_pquotino);
+else {
+if (from->sb_gquotino == NULLFSINO &&
+from->sb_pquotino == NULLFSINO)
+to->sb_gquotino = cpu_to_be64(NULLFSINO);
+}
+to->sb_pquotino = 0;
+}
+void
+xfs_sb_to_disk(
+struct xfs_dsb *to,
+struct xfs_sb *from)
+{
+xfs_sb_quota_to_disk(to, from);
+to->sb_magicnum = cpu_to_be32(from->sb_magicnum);
+to->sb_blocksize = cpu_to_be32(from->sb_blocksize);
+to->sb_dblocks = cpu_to_be64(from->sb_dblocks);
+to->sb_rblocks = cpu_to_be64(from->sb_rblocks);
+to->sb_rextents = cpu_to_be64(from->sb_rextents);
+memcpy(&to->sb_uuid, &from->sb_uuid, sizeof(to->sb_uuid));
+to->sb_logstart = cpu_to_be64(from->sb_logstart);
+to->sb_rootino = cpu_to_be64(from->sb_rootino);
+to->sb_rbmino = cpu_to_be64(from->sb_rbmino);
+to->sb_rsumino = cpu_to_be64(from->sb_rsumino);
+to->sb_rextsize = cpu_to_be32(from->sb_rextsize);
+to->sb_agblocks = cpu_to_be32(from->sb_agblocks);
+to->sb_agcount = cpu_to_be32(from->sb_agcount);
+to->sb_rbmblocks = cpu_to_be32(from->sb_rbmblocks);
+to->sb_logblocks = cpu_to_be32(from->sb_logblocks);
+to->sb_versionnum = cpu_to_be16(from->sb_versionnum);
+to->sb_sectsize = cpu_to_be16(from->sb_sectsize);
+to->sb_inodesize = cpu_to_be16(from->sb_inodesize);
+to->sb_inopblock = cpu_to_be16(from->sb_inopblock);
+memcpy(&to->sb_fname, &from->sb_fname, sizeof(to->sb_fname));
+to->sb_blocklog = from->sb_blocklog;
+to->sb_sectlog = from->sb_sectlog;
+to->sb_inodelog = from->sb_inodelog;
+to->sb_inopblog = from->sb_inopblog;
+to->sb_agblklog = from->sb_agblklog;
+to->sb_rextslog = from->sb_rextslog;
+to->sb_inprogress = from->sb_inprogress;
+to->sb_imax_pct = from->sb_imax_pct;
+to->sb_icount = cpu_to_be64(from->sb_icount);
+to->sb_ifree = cpu_to_be64(from->sb_ifree);
+to->sb_fdblocks = cpu_to_be64(from->sb_fdblocks);
+to->sb_frextents = cpu_to_be64(from->sb_frextents);
+to->sb_flags = from->sb_flags;
+to->sb_shared_vn = from->sb_shared_vn;
+to->sb_inoalignmt = cpu_to_be32(from->sb_inoalignmt);
+to->sb_unit = cpu_to_be32(from->sb_unit);
+to->sb_width = cpu_to_be32(from->sb_width);
+to->sb_dirblklog = from->sb_dirblklog;
+to->sb_logsectlog = from->sb_logsectlog;
+to->sb_logsectsize = cpu_to_be16(from->sb_logsectsize);
+to->sb_logsunit = cpu_to_be32(from->sb_logsunit);
+from->sb_bad_features2 = from->sb_features2;
+to->sb_features2 = cpu_to_be32(from->sb_features2);
+to->sb_bad_features2 = cpu_to_be32(from->sb_bad_features2);
+if (xfs_sb_version_hascrc(from)) {
+to->sb_features_compat = cpu_to_be32(from->sb_features_compat);
+to->sb_features_ro_compat =
+cpu_to_be32(from->sb_features_ro_compat);
+to->sb_features_incompat =
+cpu_to_be32(from->sb_features_incompat);
+to->sb_features_log_incompat =
+cpu_to_be32(from->sb_features_log_incompat);
+to->sb_spino_align = cpu_to_be32(from->sb_spino_align);
+to->sb_lsn = cpu_to_be64(from->sb_lsn);
+if (xfs_sb_version_hasmetauuid(from))
+uuid_copy(&to->sb_meta_uuid, &from->sb_meta_uuid);
+}
+}
+static int
+xfs_sb_verify(
+struct xfs_buf *bp,
+bool check_version)
+{
+struct xfs_mount *mp = bp->b_target->bt_mount;
+struct xfs_sb sb;
+__xfs_sb_from_disk(&sb, XFS_BUF_TO_SBP(bp), false);
+return xfs_mount_validate_sb(mp, &sb, bp->b_bn == XFS_SB_DADDR,
+check_version);
+}
+static void
+xfs_sb_read_verify(
+struct xfs_buf *bp)
+{
+struct xfs_mount *mp = bp->b_target->bt_mount;
+struct xfs_dsb *dsb = XFS_BUF_TO_SBP(bp);
+int error;
+if (dsb->sb_magicnum == cpu_to_be32(XFS_SB_MAGIC) &&
+(((be16_to_cpu(dsb->sb_versionnum) & XFS_SB_VERSION_NUMBITS) ==
+XFS_SB_VERSION_5) ||
+dsb->sb_crc != 0)) {
+if (!xfs_buf_verify_cksum(bp, XFS_SB_CRC_OFF)) {
+if (bp->b_bn == XFS_SB_DADDR ||
+xfs_sb_version_hascrc(&mp->m_sb)) {
+error = -EFSBADCRC;
+goto out_error;
+}
+}
+}
+error = xfs_sb_verify(bp, true);
+out_error:
+if (error) {
+xfs_buf_ioerror(bp, error);
+if (error == -EFSCORRUPTED || error == -EFSBADCRC)
+xfs_verifier_error(bp);
+}
+}
+static void
+xfs_sb_quiet_read_verify(
+struct xfs_buf *bp)
+{
+struct xfs_dsb *dsb = XFS_BUF_TO_SBP(bp);
+if (dsb->sb_magicnum == cpu_to_be32(XFS_SB_MAGIC)) {
+xfs_sb_read_verify(bp);
+return;
+}
+xfs_buf_ioerror(bp, -EWRONGFS);
+}
+static void
+xfs_sb_write_verify(
+struct xfs_buf *bp)
+{
+struct xfs_mount *mp = bp->b_target->bt_mount;
+struct xfs_buf_log_item *bip = bp->b_fspriv;
+int error;
+error = xfs_sb_verify(bp, false);
+if (error) {
+xfs_buf_ioerror(bp, error);
+xfs_verifier_error(bp);
+return;
+}
+if (!xfs_sb_version_hascrc(&mp->m_sb))
+return;
+if (bip)
+XFS_BUF_TO_SBP(bp)->sb_lsn = cpu_to_be64(bip->bli_item.li_lsn);
+xfs_buf_update_cksum(bp, XFS_SB_CRC_OFF);
+}
+void
+xfs_sb_mount_common(
+struct xfs_mount *mp,
+struct xfs_sb *sbp)
+{
+mp->m_agfrotor = mp->m_agirotor = 0;
+spin_lock_init(&mp->m_agirotor_lock);
+mp->m_maxagi = mp->m_sb.sb_agcount;
+mp->m_blkbit_log = sbp->sb_blocklog + XFS_NBBYLOG;
+mp->m_blkbb_log = sbp->sb_blocklog - BBSHIFT;
+mp->m_sectbb_log = sbp->sb_sectlog - BBSHIFT;
+mp->m_agno_log = xfs_highbit32(sbp->sb_agcount - 1) + 1;
+mp->m_agino_log = sbp->sb_inopblog + sbp->sb_agblklog;
+mp->m_blockmask = sbp->sb_blocksize - 1;
+mp->m_blockwsize = sbp->sb_blocksize >> XFS_WORDLOG;
+mp->m_blockwmask = mp->m_blockwsize - 1;
+mp->m_alloc_mxr[0] = xfs_allocbt_maxrecs(mp, sbp->sb_blocksize, 1);
+mp->m_alloc_mxr[1] = xfs_allocbt_maxrecs(mp, sbp->sb_blocksize, 0);
+mp->m_alloc_mnr[0] = mp->m_alloc_mxr[0] / 2;
+mp->m_alloc_mnr[1] = mp->m_alloc_mxr[1] / 2;
+mp->m_inobt_mxr[0] = xfs_inobt_maxrecs(mp, sbp->sb_blocksize, 1);
+mp->m_inobt_mxr[1] = xfs_inobt_maxrecs(mp, sbp->sb_blocksize, 0);
+mp->m_inobt_mnr[0] = mp->m_inobt_mxr[0] / 2;
+mp->m_inobt_mnr[1] = mp->m_inobt_mxr[1] / 2;
+mp->m_bmap_dmxr[0] = xfs_bmbt_maxrecs(mp, sbp->sb_blocksize, 1);
+mp->m_bmap_dmxr[1] = xfs_bmbt_maxrecs(mp, sbp->sb_blocksize, 0);
+mp->m_bmap_dmnr[0] = mp->m_bmap_dmxr[0] / 2;
+mp->m_bmap_dmnr[1] = mp->m_bmap_dmxr[1] / 2;
+mp->m_bsize = XFS_FSB_TO_BB(mp, 1);
+mp->m_ialloc_inos = (int)MAX((__uint16_t)XFS_INODES_PER_CHUNK,
+sbp->sb_inopblock);
+mp->m_ialloc_blks = mp->m_ialloc_inos >> sbp->sb_inopblog;
+if (sbp->sb_spino_align)
+mp->m_ialloc_min_blks = sbp->sb_spino_align;
+else
+mp->m_ialloc_min_blks = mp->m_ialloc_blks;
+}
+int
+xfs_initialize_perag_data(
+struct xfs_mount *mp,
+xfs_agnumber_t agcount)
+{
+xfs_agnumber_t index;
+xfs_perag_t *pag;
+xfs_sb_t *sbp = &mp->m_sb;
+uint64_t ifree = 0;
+uint64_t ialloc = 0;
+uint64_t bfree = 0;
+uint64_t bfreelst = 0;
+uint64_t btree = 0;
+int error;
+for (index = 0; index < agcount; index++) {
+error = xfs_alloc_pagf_init(mp, NULL, index, 0);
+if (error)
+return error;
+error = xfs_ialloc_pagi_init(mp, NULL, index);
+if (error)
+return error;
+pag = xfs_perag_get(mp, index);
+ifree += pag->pagi_freecount;
+ialloc += pag->pagi_count;
+bfree += pag->pagf_freeblks;
+bfreelst += pag->pagf_flcount;
+btree += pag->pagf_btreeblks;
+xfs_perag_put(pag);
+}
+spin_lock(&mp->m_sb_lock);
+sbp->sb_ifree = ifree;
+sbp->sb_icount = ialloc;
+sbp->sb_fdblocks = bfree + bfreelst + btree;
+spin_unlock(&mp->m_sb_lock);
+xfs_reinit_percpu_counters(mp);
+return 0;
+}
+void
+xfs_log_sb(
+struct xfs_trans *tp)
+{
+struct xfs_mount *mp = tp->t_mountp;
+struct xfs_buf *bp = xfs_trans_getsb(tp, mp, 0);
+mp->m_sb.sb_icount = percpu_counter_sum(&mp->m_icount);
+mp->m_sb.sb_ifree = percpu_counter_sum(&mp->m_ifree);
+mp->m_sb.sb_fdblocks = percpu_counter_sum(&mp->m_fdblocks);
+xfs_sb_to_disk(XFS_BUF_TO_SBP(bp), &mp->m_sb);
+xfs_trans_buf_set_type(tp, bp, XFS_BLFT_SB_BUF);
+xfs_trans_log_buf(tp, bp, 0, sizeof(struct xfs_dsb));
+}
+int
+xfs_sync_sb(
+struct xfs_mount *mp,
+bool wait)
+{
+struct xfs_trans *tp;
+int error;
+tp = _xfs_trans_alloc(mp, XFS_TRANS_SB_CHANGE, KM_SLEEP);
+error = xfs_trans_reserve(tp, &M_RES(mp)->tr_sb, 0, 0);
+if (error) {
+xfs_trans_cancel(tp);
+return error;
+}
+xfs_log_sb(tp);
+if (wait)
+xfs_trans_set_sync(tp);
+return xfs_trans_commit(tp);
+}
