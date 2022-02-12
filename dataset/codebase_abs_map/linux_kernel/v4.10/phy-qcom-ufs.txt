@@ -1,0 +1,196 @@
+set_tx_lane_enable	,	V_82
+"phy_mem"	,	L_3
+ufs_qcom_phy_enable_vreg	,	F_32
+writel_relaxed	,	F_3
+dev	,	V_10
+start_serdes	,	V_79
+"%s: ufs_qcom_phy_cfg_vreg() failed, err=%d\n"	,	L_26
+ufs_qcom_phy_is_pcs_ready	,	F_52
+regulator_count_voltages	,	F_24
+"rx_iface_clk"	,	L_12
+"ref_clk"	,	L_15
+"%s: %s set optimum mode(uA_load=%d) failed, err=%d\n"	,	L_25
+"%s: calibrate_phy() failed %d\n"	,	L_37
+"tx_iface_clk"	,	L_11
+optional	,	V_48
+devm_of_phy_provider_register	,	F_13
+devm_kstrdup	,	F_21
+is_powered_on	,	V_91
+VDDP_REF_CLK_MAX_UV	,	V_62
+ufs_qcom_phy_init_vreg	,	F_27
+of_node	,	V_39
+GFP_KERNEL	,	V_51
+device	,	V_22
+power_control	,	V_92
+devm_regulator_get	,	F_22
+wmb	,	F_43
+cfg_value	,	V_14
+of_property_read_u32	,	F_23
+"%s: failed to read %s\n"	,	L_18
+"vdda-pll"	,	L_21
+"%s: tbl_A is NULL"	,	L_1
+ENOTSUPP	,	V_80
+"%s: ref_clk_src enable failed %d\n"	,	L_28
+ufs_qcom_phy_gen_ops	,	V_30
+phy_common	,	V_21
+devm_ioremap_resource	,	F_9
+u8	,	T_2
+i	,	V_8
+vreg	,	V_47
+"%s enable vdda_phy failed, err=%d\n"	,	L_39
+"%s: ref_clk_parent enable failed %d\n"	,	L_29
+ufs_qcom_phy_dev_ref_clk_ctrl	,	F_40
+min_uV	,	V_58
+VDDP_REF_CLK_MIN_UV	,	V_63
+of_property_read_bool	,	F_25
+ufs_qcom_phy_calibration	,	V_2
+"%s: rx_iface_clk enable failed %d. disabling also tx_iface_clk\n"	,	L_33
+platform_device	,	V_19
+"%s: start_serdes() callback is not supported\n"	,	L_34
+"vddp-ref-clk"	,	L_23
+common_cfg	,	V_28
+"ref_clk_parent"	,	L_14
+tbl_A	,	V_3
+tbl_B	,	V_5
+host_ctrl_rev_step	,	V_88
+reg	,	V_53
+generic_phy	,	V_18
+is_dev_ref_clk_enabled	,	V_75
+"%s: %s disable failed, err=%d\n"	,	L_31
+ret	,	V_9
+res	,	V_24
+"vdda-phy"	,	L_22
+max_uA	,	V_54
+"%s: ioremap for phy_mem resource failed %d\n"	,	L_4
+"failed to get %s err %d"	,	L_9
+max_uV	,	V_56
+readl_relaxed	,	F_41
+regulator_set_voltage	,	F_30
+name	,	V_35
+regulator	,	V_68
+host_ctrl_rev_minor	,	V_87
+phy_spec_ops	,	V_32
+tx_lanes	,	V_81
+ufs_qcom_phy_set_tx_lane_enable	,	F_49
+vdda_pll	,	V_64
+host_ctrl_rev_major	,	V_86
+VDDA_PLL_MAX_UV	,	V_57
+"%s: %s is mandatory\n"	,	L_19
+dev_err	,	F_2
+out_disable_iface_clk	,	V_95
+out_disable_parent	,	V_73
+"%s enable phy ref clock failed, err=%d\n"	,	L_42
+devm_clk_get	,	F_16
+vddp_ref_clk	,	V_66
+is_rate_B	,	V_7
+"%s: failed to register phy %d\n"	,	L_7
+clk_disable_unprepare	,	F_36
+ufs_qcom_phy_enable_dev_ref_clk	,	F_44
+calibrate_phy	,	V_89
+ufs_qcom_phy_clk_get	,	F_17
+mmio	,	V_15
+ufs_qcom_phy_save_controller_version	,	F_50
+regulator_enable	,	F_33
+step	,	V_85
+"%s enable vdda_pll failed, err=%d\n"	,	L_40
+"failed to get %s, %d\n"	,	L_16
+ENOMEM	,	V_52
+tbl_size_A	,	V_4
+tbl_size_B	,	V_6
+ref_clk_parent	,	V_44
+"dev_ref_clk_ctrl_mem"	,	L_5
+tx_iface_clk	,	V_41
+is_always_on	,	V_55
+phy_get_drvdata	,	F_6
+get_ufs_qcom_phy	,	F_5
+phy_provider	,	V_33
+vdda_phy	,	V_65
+is_physical_coding_sublayer_ready	,	V_90
+enable	,	V_74
+of_device_is_compatible	,	F_19
+__ufs_qcom_phy_init_vreg	,	F_20
+err_print	,	V_38
+"%s: calibrate_phy() callback is not supported\n"	,	L_36
+is_ref_clk_enabled	,	V_71
+clk	,	V_36
+"%s enable phy iface clock failed, err=%d\n"	,	L_41
+regulator_disable	,	F_38
+"%s-always-on"	,	L_20
+ufs_qcom_phy_enable_ref_clk	,	F_34
+"%s: tbl_B is NULL"	,	L_2
+__ufs_qcom_phy_clk_get	,	F_15
+__func__	,	V_11
+ufs_qcom_phy_vreg	,	V_46
+"%s-max-microamp"	,	L_17
+out_disable_phy	,	V_93
+kfree	,	F_26
+ufs_qcom_phy_power_on	,	F_53
+uA_load	,	V_69
+enabled	,	V_70
+out	,	V_13
+"%s enable vddp_ref_clk failed, err=%d\n"	,	L_43
+"%s: phy base init failed %d\n"	,	L_6
+skip_txrx_clk	,	V_40
+VDDA_PHY_MAX_UV	,	V_60
+u16	,	T_3
+clk_prepare_enable	,	F_35
+UFS_REF_CLK_EN	,	V_77
+VDDA_PHY_MIN_UV	,	V_61
+ufs_qcom_phy_init_vregulators	,	F_28
+"%s: tx_iface_clk enable failed %d\n"	,	L_32
+err	,	V_25
+regulator_set_load	,	F_31
+reg_offset	,	V_16
+ufs_qcom_phy_generic_probe	,	F_12
+devm_phy_create	,	F_14
+out_disable_ref_clk	,	V_96
+EINVAL	,	V_12
+ufs_qcom_phy_init_clks	,	F_18
+prop_name	,	V_49
+ufs_qcom_phy	,	V_1
+MAX_PROP_NAME	,	V_50
+ufs_qcom_phy_enable_iface_clk	,	F_46
+udelay	,	F_42
+"%s: is_physical_coding_sublayer_ready() callback is not supported\n"	,	L_38
+phy	,	V_17
+dev_ref_clk_ctrl_mmio	,	V_27
+minor	,	V_84
+ufs_qcom_phy_disable_iface_clk	,	F_47
+ufs_qcom_phy_power_off	,	F_54
+ufs_qcom_phy_disable_ref_clk	,	F_39
+pdev	,	V_20
+ref_clk_src	,	V_43
+"%s: ref_clk enable failed %d\n"	,	L_30
+major	,	V_83
+mb	,	F_4
+u32	,	T_1
+ufs_qcom_phy_disable_dev_ref_clk	,	F_45
+"qcom,msm8996-ufs-phy-qmp-14nm"	,	L_10
+resource	,	V_23
+ufs_qcom_phy_disable_vreg	,	F_37
+"ref_clk_src"	,	L_13
+PTR_ERR	,	F_11
+ufs_qcom_phy_cfg_vreg	,	F_29
+rx_iface_clk	,	V_42
+VDDA_PLL_MIN_UV	,	V_59
+"%s: set_tx_lane_enable() callback is not supported\n"	,	L_35
+"%s: enable failed, err=%d\n"	,	L_27
+of_phy_simple_xlate	,	V_34
+"%s: failed to create phy %d\n"	,	L_8
+ufs_qcom_phy_calibrate	,	F_1
+ufs_qcom_phy_specific_ops	,	V_31
+ufs_qcom_phy_start_serdes	,	F_48
+"%s: %s set voltage failed, err=%d\n"	,	L_24
+is_iface_clk_enabled	,	V_78
+out_disable_pll	,	V_94
+ufs_qcom_phy_base_init	,	F_7
+clk_out	,	V_37
+IORESOURCE_MEM	,	V_26
+ufs_qcom_phy_calibrate_phy	,	F_51
+ref_clk	,	V_45
+on	,	V_67
+temp	,	V_76
+platform_get_resource_byname	,	F_8
+out_disable_src	,	V_72
+phy_ops	,	V_29
+IS_ERR	,	F_10

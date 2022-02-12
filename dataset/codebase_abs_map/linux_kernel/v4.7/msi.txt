@@ -1,0 +1,175 @@
+pr_debug	,	F_7
+rtas_disable_msi	,	F_8
+pci_write_config_dword	,	F_43
+virq	,	V_69
+counts	,	V_46
+over_quota	,	V_55
+addr_lo	,	V_63
+hwirq	,	V_68
+PCI_CLASS_BRIDGE_PCI	,	V_48
+dev_info	,	F_41
+eeh_dev	,	V_39
+PCI_CAP_ID_MSIX	,	V_74
+setup_msi_irqs	,	V_85
+irq_dispose_mapping	,	F_14
+"rtas_msi: error (%d) querying source number\n"	,	L_3
+max_bus_speed	,	V_80
+dev	,	V_37
+eeh_dev_to_pdn	,	F_28
+check_msix_entries	,	F_39
+quota	,	V_53
+"ibm,query-interrupt-source-number"	,	L_28
+RTAS_CHANGE_32MSI_FN	,	V_15
+no_64bit_msi	,	V_78
+PCIE_SPEED_5_0GT	,	V_81
+check_req	,	F_15
+"rtas_msi: no LSI, nothing to do.\n"	,	L_25
+irq_set_msi_desc	,	F_13
+req_msi	,	V_31
+expected	,	V_58
+"class-code"	,	L_12
+"rtas_msi: rtas_change_msi() failed\n"	,	L_21
+msi_quota_for_device	,	F_33
+devfn	,	V_11
+msi_desc	,	V_22
+ENOSPC	,	V_36
+msi_cap	,	V_64
+"rtas_msi: using PE dn %s\n"	,	L_10
+rc	,	V_9
+node	,	V_33
+rtas_teardown_msi_irqs	,	F_11
+full_name	,	V_34
+rtas_config_addr	,	F_2
+BUID_LO	,	F_5
+pr_err	,	F_35
+of_get_parent	,	F_29
+of_get_next_parent	,	F_23
+ENODEV	,	V_32
+num_irqs	,	V_4
+"rtas_msi: request clamped to quota %d\n"	,	L_17
+pseries_pci_controller_ops	,	V_84
+__be32	,	T_2
+pci_irq_fixup	,	V_89
+of_get_property	,	F_16
+RTAS_CHANGE_FN	,	V_19
+device_node	,	V_28
+pe_dn	,	V_56
+out	,	V_57
+pci_dn	,	V_1
+"rtas_msi: %s requests &lt; %d MSIs\n"	,	L_5
+RTAS_CHANGE_MSI_FN	,	V_13
+change_token	,	V_16
+for_each_pci_msi_entry	,	F_12
+min	,	F_37
+"ibm,change-msi"	,	L_29
+NO_IRQ	,	V_25
+nvec	,	V_26
+"rtas_msi: no req#msi/x, nothing to do.\n"	,	L_26
+check_req_msix	,	F_19
+rtas_hack_32bit_msi_gen2	,	F_40
+controller_ops	,	V_87
+rtas_busy_delay	,	F_6
+edevs	,	V_42
+be32_to_cpup	,	F_17
+spare	,	V_54
+"rtas_msi: bad MSI-X entries.\n"	,	L_18
+max	,	F_32
+RTAS_CHANGE_MSIX_FN	,	V_14
+"rtas_msi: disabling existing MSI.\n"	,	L_27
+irq	,	V_24
+i	,	V_70
+"rtas_msi: counting %s\n"	,	L_11
+phb	,	V_12
+ENOENT	,	V_35
+m	,	V_75
+prop_name	,	V_27
+p	,	V_30
+EINVAL	,	V_61
+rtas_query_irq_number	,	F_10
+"rtas_msi: found prop on dn %s\n"	,	L_9
+count_non_bridge_devices	,	F_30
+pci_name	,	F_34
+PCI_MSI_ADDRESS_LO	,	V_66
+find_pe_dn	,	F_24
+rtas_ret	,	V_7
+rtas_setup_msi_irqs	,	F_44
+of_node_put	,	F_38
+buid	,	V_8
+msg	,	V_72
+bus	,	V_79
+"rtas_msi: trying the old firmware call.\n"	,	L_20
+list_first_entry	,	F_27
+data	,	V_44
+entry_nr	,	V_60
+ppc_md	,	V_88
+pci_get_pdn	,	F_9
+dn	,	V_29
+dev_dbg	,	F_47
+query_token	,	V_21
+"rtas_msi: allocated virq %d\n"	,	L_24
+seq_num	,	V_6
+pci_read_config_dword	,	F_42
+"rtas_msi: No %s on %s\n"	,	L_4
+rtas_msi_pci_irq_fixup	,	F_49
+pdev	,	V_18
+msi_counts	,	V_45
+u32	,	T_1
+PCI_CAP_ID_MSI	,	V_77
+addr_hi	,	V_62
+nvec_in	,	V_67
+pci_device_to_OF_node	,	F_22
+req	,	V_50
+"rtas_msi: No 32 bit MSI firmware support, forcing 32 bit MSI\n"	,	L_19
+offset	,	V_20
+num_devices	,	V_49
+irq_create_mapping	,	F_46
+list	,	V_43
+rtas_call	,	F_3
+entry	,	V_23
+pci_dev	,	V_17
+"rtas_msi: Setting MSIs to 0 failed!\n"	,	L_2
+"rtas_msi: calc quota for %s, request %d\n"	,	L_13
+pdn_to_eeh_dev	,	F_25
+list_for_each_entry	,	F_53
+BUID_HI	,	F_4
+edev	,	V_40
+request	,	V_52
+of_node_get	,	F_21
+rtas_token	,	F_51
+"ibm,pe-total-#msi"	,	L_8
+roundup_pow_of_two	,	F_45
+pci_controller	,	V_82
+count_spare_msis	,	F_31
+check_req_msi	,	F_18
+"rtas_msi: couldn't find PE for %s\n"	,	L_14
+"rtas_msi: found 0 devices under PE for %s\n"	,	L_16
+total	,	V_38
+pci_traverse_device_nodes	,	F_36
+"rtas_msi: no RTAS tokens, no MSI support.\n"	,	L_30
+find_pe_total_msi	,	F_20
+__pci_read_msi_msg	,	F_48
+busno	,	V_10
+RTAS_UNKNOWN_SERVICE	,	V_83
+addr	,	V_5
+"ibm,req#msi-x"	,	L_7
+class	,	V_47
+PCI_DN	,	F_26
+rtas_change_msi	,	F_1
+again	,	V_76
+teardown_msi_irqs	,	V_86
+WARN_ON	,	F_52
+msi_attrib	,	V_59
+"rtas_msi: Failed mapping hwirq %d\n"	,	L_23
+requestor	,	V_51
+PCI_MSI_ADDRESS_HI	,	V_65
+"rtas_msi: found PE %s\n"	,	L_15
+func	,	V_3
+"rtas_msi: error (%d) getting hwirq\n"	,	L_22
+"rtas_msi: ibm,change_msi(func=%d,num=%d), got %d rc = %d\n"	,	L_1
+pe	,	V_41
+"ibm,req#msi"	,	L_6
+pdn	,	V_2
+msi_msg	,	V_71
+use_32bit_msi_hack	,	V_73
+rtas_msi_init	,	F_50
+"rtas_msi: Registering RTAS MSI callbacks.\n"	,	L_31

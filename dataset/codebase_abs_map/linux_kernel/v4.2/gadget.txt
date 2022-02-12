@@ -1,0 +1,748 @@
+parent	,	V_111
+"%s: queueing setup request\n"	,	L_49
+s3c_hsotg_gadget_ops	,	V_396
+USB_RECIP_INTERFACE	,	V_146
+phyif	,	V_256
+local_irq_save	,	F_15
+s3c_hsotg_pullup	,	F_148
+"g-tx-fifo-size"	,	L_138
+"%s: %s: buf=%p length=%d\n"	,	L_27
+FIFOSIZE_STARTADDR_SHIFT	,	V_34
+"EPs: %d, %s fifos, %d entries in SPRAM\n"	,	L_128
+s3c_hsotg_phy_disable	,	F_131
+ep0_mps	,	V_234
+dev	,	V_23
+"zlp packet sent\n"	,	L_71
+"%s: failed queue (%d)\n"	,	L_51
+D0EPCTL_MPS_8	,	V_213
+"%s: DxEPCTL=0x%08x\n"	,	L_23
+GINTSTS_ENUMDONE	,	V_271
+retry_count	,	V_301
+send_zlp	,	V_91
+"%s(ep %p)\n"	,	L_111
+"Hardware configuration failed: %d\n"	,	L_149
+size_left	,	V_64
+DOEPMSK_SETUPMSK	,	V_289
+"new address %d\n"	,	L_46
+DIEPMSK_XFERCOMPLMSK	,	V_283
+ARRAY_SIZE	,	F_140
+daint_out	,	V_307
+last_rst	,	V_297
+DIEPTSIZ	,	F_31
+can_write	,	V_57
+"in"	,	L_14
+EIO	,	V_102
+DOEPCTL0	,	V_163
+DOEPCTL	,	F_42
+s3c_hsotg_handle_rx	,	F_92
+"trying to write more for ep%d\n"	,	L_69
+EP0_MPS_LIMIT	,	V_241
+"%s: bad speed\n"	,	L_120
+DXEPINT_AHBERR	,	V_230
+"%s: ep%d: INTknTXFEmpMsk\n"	,	L_83
+s3c_hsotg_core_disconnect	,	F_113
+size	,	V_185
+"ctrl Req=%02x, Type=%02x, V=%04x, L=%04x\n"	,	L_45
+pr_err	,	F_136
+of_node	,	V_357
+"g-rx-fifo-size"	,	L_139
+DIEPMSK_INTKNEPMISMSK	,	V_232
+DXEPCTL_EPTYPE_CONTROL	,	V_334
+"%s:Interrupt for unconfigured ep%d(%s)\n"	,	L_76
+ureq	,	V_81
+""	,	L_126
+TEST_PACKET	,	V_132
+wLength	,	V_151
+USB_DEVICE_TEST_MODE	,	V_158
+"written DXEPCTL=0x%08x to %08x (DXEPCTL=0x%08x)\n"	,	L_44
+MAX_EPS_CHANNELS	,	V_38
+TEST_FORCE_EN	,	V_133
+s3c_hsotg_disconnect	,	F_105
+g_using_dma	,	V_17
+GFP_ATOMIC	,	V_106
+GRSTCTL_TXFNUM	,	F_21
+GINTSTS_NPTXFEMP	,	V_70
+result	,	V_183
+of_property_read_u32	,	F_162
+s3c_hsotg_of_probe	,	F_158
+"req length &gt; maxpacket*mc\n"	,	L_19
+epctl	,	V_190
+USB_SPEED_HIGH	,	V_243
+"failed to allocate ctrl request buff\n"	,	L_150
+ENOTSUPP	,	V_367
+usb_gadget	,	V_8
+"%s already queued???\n"	,	L_50
+DXEPINT_SETUP	,	V_219
+set	,	V_153
+cfg	,	V_372
+DSTS_ENUMSPD_LS	,	V_244
+i	,	V_246
+irq	,	V_299
+epsize_reg	,	V_83
+bEndpointAddress	,	V_320
+ENOENT	,	V_149
+new_gsintmsk	,	V_22
+USB_ENDPOINT_XFERTYPE_MASK	,	V_327
+__orr32	,	F_5
+DIEPINT	,	F_50
+jiffies	,	V_298
+s3c_hsotg_vbus_draw	,	F_150
+USB_DR_MODE_OTG	,	V_398
+of_property_read_bool	,	F_159
+DAINT_OUTEP_SHIFT	,	V_309
+s3c_hsotg_dump	,	F_93
+buff	,	V_136
+platform_device	,	V_342
+GRXSTS_PKTSTS_SETUPDONE	,	V_206
+GNPTXSTS	,	V_51
+s3c_hsotg_core_connect	,	F_114
+"%s: FIFO %d bytes on ep%d but no req (DXEPCTl=0x%08x)\n"	,	L_56
+"%s: %pad =&gt; 0x%08x\n"	,	L_21
+"%s: failed to send reply\n"	,	L_38
+USB_RECIP_DEVICE	,	V_145
+read_ptr	,	V_189
+dev_dbg	,	F_12
+s3c_hsotg_suspend	,	F_177
+dir	,	V_121
+"DCFG=0x%08x, DCTL=0x%08x, DIEPMSK=%08x\n"	,	L_131
+s3c_hsotg_handle_outdone	,	F_90
+GRXSTS_PKTSTS_SETUPRX	,	V_208
+ep0_buff	,	V_138
+hs_req	,	V_48
+size_done	,	V_65
+TEST_K	,	V_130
+USB_SPEED_LOW	,	V_245
+test_mode	,	V_159
+reg	,	V_161
+ep_index	,	V_13
+TEST_J	,	V_129
+err_clk	,	V_400
+irq_retry	,	V_304
+"%s: timeout flushing fifos (GRSTCTL=%08x)\n"	,	L_3
+reply	,	V_142
+req	,	V_3
+ret	,	V_100
+bad_mps	,	V_216
+DTXFSTS	,	F_33
+s3c_hsotg_udc_start	,	F_135
+"OutDone (Frame=0x%08x)\n"	,	L_63
+test	,	V_337
+"%s: ep%d(%s) DxEPINT=0x%08x\n"	,	L_77
+en	,	V_24
+"ep%d: bad mps of %d\n"	,	L_67
+"EP0: DIEPCTL0=0x%08x, DOEPCTL0=0x%08x\n"	,	L_88
+ep	,	V_6
+"%s: no driver\n"	,	L_119
+s3c_hsotg_ep_queue_lock	,	F_60
+epsiz_reg	,	V_182
+GINTSTS_PTXFEMP	,	V_67
+spin_unlock_irqrestore	,	F_62
+dma_error	,	V_101
+"driver-&gt;setup() ret %d\n"	,	L_47
+DAINTMSK	,	V_28
+USB_ENDPOINT_XFER_BULK	,	V_330
+s3c_hsotg_ep_ops	,	V_370
+DXEPTSIZ_XFERSIZE_LIMIT	,	V_77
+wValue	,	V_157
+our_req	,	F_1
+ep_from_windex	,	F_65
+DSTS_ENUMSPD_FS48	,	V_238
+GINTSTS_OEPINT	,	V_291
+USB_ENDPOINT_XFER_INT	,	V_331
+FIFOSIZE_DEPTH_SHIFT	,	V_36
+s3c_hsotg_udc_stop	,	F_144
+timeout	,	V_30
+phy_type	,	V_347
+GINTSTS_OTGINT	,	V_272
+otg_set_peripheral	,	F_142
+"new device is %s\n"	,	L_87
+ep_list	,	V_368
+kmalloc	,	F_54
+GINTSTS_GOUTNAKEFF	,	V_266
+uphy	,	V_344
+DIEPMSK	,	V_286
+DWC2_EP0_DATA_OUT	,	V_167
+s3c_hsotg_ep_queue	,	F_57
+"Periodic TXFIFO%2d size: %d\n"	,	L_143
+GINTMSK	,	V_21
+fifo	,	V_186
+ep0	,	V_141
+"%s: EPDisbld\n"	,	L_79
+length	,	V_49
+maxpacket	,	V_71
+spin_unlock	,	F_76
+is_on	,	V_364
+s3c_hsotg_irq_enumdone	,	F_101
+DCTL_SFTDISCON	,	V_260
+GRXSTS_PKTSTS_OUTRX	,	V_207
+dedicated_fifos	,	V_61
+wMaxPacketSize	,	V_322
+"%s: XferCompl: DxEPCTL=0x%08x, DXEPTSIZ=%08x\n"	,	L_78
+usb_gadget_driver	,	V_352
+GNPTXSTS_NP_TXQ_SPC_AVAIL_GET	,	F_34
+usb_gadget_map_request	,	F_52
+dma	,	V_93
+setup	,	V_178
+s3c_hsotg_send_reply	,	F_67
+USB_SPEED_UNKNOWN	,	V_358
+clk_disable	,	F_146
+s3c_hsotg_ep_free_request	,	F_63
+ENOMEM	,	V_107
+DPTXFSIZN	,	F_20
+DWC2_EP0_SETUP	,	V_97
+gadget	,	V_9
+usb_phy_init	,	F_129
+hs	,	V_110
+bit	,	V_26
+DXEPCTL_EPTYPE_ISO	,	V_329
+s3c_hsotg_ep0_mps	,	F_94
+usb_add_gadget_udc	,	F_174
+max_transfer	,	V_59
+GNPTXFSIZ	,	V_37
+fifo_map	,	V_31
+s3c_hsotg_epint	,	F_99
+"FIFOs reset, timeout at %d\n"	,	L_4
+max_req	,	V_188
+supplies	,	V_360
+"failed to enable otg clk\n"	,	L_147
+lock	,	V_119
+gintsts	,	V_302
+"bound driver %s\n"	,	L_123
+to_platform_device	,	F_128
+ctrl_buff	,	V_180
+s3c_hsotg_req	,	V_1
+DWC2_EP0_STATUS_IN	,	V_165
+DCTL_PWRONPRGDONE	,	V_294
+GUSBCFG_FORCEDEVMODE	,	V_404
+s3c_hsotg_ep	,	V_4
+DXEPCTL_EPENA	,	V_94
+clk	,	V_359
+"%s: %d@%d/%d, 0x%08x =&gt; 0x%08x\n"	,	L_20
+list_for_each_entry_safe	,	F_104
+eps_in	,	V_15
+s3c_hsotg_hw_cfg	,	F_155
+"PTxFEmp\n"	,	L_100
+"%s: can't clear halt on ep0\n"	,	L_115
+"%s: %s: status=%d actual-length=%d\n"	,	L_29
+index	,	V_63
+"pdev 0x%p\n"	,	L_116
+g_tx_fifo_sz	,	V_39
+ep_type	,	V_373
+s3c_hsotg_txfifo_flush	,	F_96
+ENOSPC	,	V_68
+USB_REQ_SET_ADDRESS	,	V_170
+DSTS_ENUMSPD_FS	,	V_237
+IRQ_HANDLED	,	V_316
+s3c_hsotg_ep_sethalt	,	F_74
+driver	,	V_177
+s3c_hsotg_program_zlp	,	F_84
+"%s: no request active\n"	,	L_58
+USB_DIR_IN	,	V_122
+interval	,	V_222
+maxsize	,	V_75
+DIEPMSK_EPDISBLDMSK	,	V_282
+continuing	,	V_80
+s3c_hsotg_ep_disable	,	F_123
+status	,	V_108
+"MC &gt; 1 when interval is not 1\n"	,	L_107
+USB_SPEED_FULL	,	V_240
+is_ep_periodic	,	F_27
+"%s: left=%d, load=%d, fifo=%d, size %d\n"	,	L_5
+"SET"	,	L_40
+usb_phy_shutdown	,	F_132
+s3c_hsotg_gadget_getframe	,	F_147
+DOEPDMA	,	F_49
+DIEPMSK_TXFIFOEMPTY	,	V_233
+fifo_load	,	V_66
+list_add_tail	,	F_59
+DXEPCTL_SNAK	,	V_326
+DCTL_TSTCTL_SHIFT	,	V_134
+DXEPTSIZ_XFERSIZE	,	F_47
+GAHBCFG_HBSTLEN_INCR4	,	V_277
+local_irq_restore	,	F_16
+gsintmsk	,	V_19
+trdtim	,	V_350
+"%s: called with no device\n"	,	L_118
+"req-&gt;length:%d req-&gt;actual:%d req-&gt;zero:%d\n"	,	L_74
+"%s: read DxEPCTL=0x%08x from 0x%08x\n"	,	L_106
+dwc2_exit_hibernation	,	F_116
+__bic32	,	F_8
+USB_TYPE_STANDARD	,	V_169
+bRequestType	,	V_143
+DXEPINT_BACK2BACKSETUP	,	V_231
+GRXSTS_PKTSTS_SHIFT	,	V_203
+DXEPCTL_EPTYPE_BULK	,	V_228
+is_active	,	V_365
+GINTSTS_CONIDSTSCHNG	,	V_268
+err	,	V_361
+s3c_hsotg_core_init_disconnected	,	F_109
+s3c_hsotg_unmap_dma	,	F_28
+"write %d/%d, can_write %d, done %d\n"	,	L_10
+s3c_hsotg_map_dma	,	F_51
+GRSTCTL_AHBIDLE	,	V_254
+GRSTCTL	,	V_43
+DXEPCTL_MPS_MASK	,	V_217
+GINTSTS_ERLYSUSP	,	V_264
+mA	,	V_366
+GHWCFG4_DED_FIFO_SHIFT	,	V_381
+"%s: failed %d\n"	,	L_48
+DSTS_SOFFN_MASK	,	V_195
+"%s: read %d/%d, done %d/%d\n"	,	L_57
+complete	,	V_139
+DXEPCTL_SETEVENFR	,	V_224
+phy	,	V_348
+"%s: GRXSTSP=0x%08x (%d@%d)\n"	,	L_61
+DOEPMSK_XFERCOMPLMSK	,	V_351
+DOEPTSIZ0	,	V_295
+"%s: write DxEPCTL=0x%08x\n"	,	L_109
+"%s: no endpoint for 0x%04x\n"	,	L_42
+s3c_hsotg_set_ep_maxpacket	,	F_95
+mpsval	,	V_214
+DCTL_CGNPINNAK	,	V_229
+GINTSTS_RXFLVL	,	V_293
+pdev	,	V_343
+epctrl_reg	,	V_82
+u32	,	T_2
+epsize	,	V_62
+"Invalid Test #%d\n"	,	L_72
+"reset successful\n"	,	L_92
+mc	,	V_72
+"%s: active request\n"	,	L_11
+fifo_mem	,	V_40
+DCFG	,	V_172
+DIEPCTL	,	F_41
+"%s: cannot queue req\n"	,	L_35
+"%s: length %d, max-req %d, r %d\n"	,	L_18
+USB_REQ_CLEAR_FEATURE	,	V_176
+GOTGCTL	,	V_312
+"DVBUSDIS=0x%08x, DVBUSPULSE=%08x\n"	,	L_136
+DXEPCTL_STALL	,	V_87
+dcfg	,	V_164
+hs_ep	,	V_46
+EPFIFO	,	F_38
+"%s: DXEPCTL=0x%08x\n"	,	L_25
+DIEPMSK_INTKNTXFEMPMSK	,	V_99
+spin_lock_irqsave	,	F_61
+GRXSTS_EPNUM_MASK	,	V_199
+D0EPCTL_MPS_32	,	V_211
+"SetupDone (Frame=0x%08x, DOPEPCTL=0x%08x)\n"	,	L_64
+DIEPMSK_TIMEOUTMSK	,	V_284
+s3c_hsotg_plat	,	V_390
+dma_reg	,	V_92
+phy_power_on	,	F_130
+s3c_hsotg_remove	,	F_175
+devm_kzalloc	,	F_156
+DXEPCTL_EOFRNUM	,	V_223
+np	,	V_387
+ctrl_req	,	V_179
+"NPTxFEmp\n"	,	L_99
+"zlp packet received\n"	,	L_59
+phy_get_bus_width	,	F_165
+USB_REQ_GET_STATUS	,	V_175
+GRXSTS_PKTSTS_MASK	,	V_200
+epreg	,	V_339
+xfertype	,	V_340
+GRXFSIZ	,	V_33
+usb_ep_set_maxpacket_limit	,	F_153
+WARN_ON_ONCE	,	F_87
+wIndex	,	V_148
+D0EPCTL_MPS_64	,	V_210
+p_tx_fifo	,	V_392
+iowrite32_rep	,	F_37
+"failed to request supplies: %d\n"	,	L_148
+s3c_hsotg_ep_dequeue	,	F_125
+s3c_hsotg_irq	,	F_115
+dev_name	,	F_168
+ep0_state	,	V_96
+GAHBCFG_GLBL_INTR_EN	,	V_275
+GUSBCFG_FORCEHOSTMODE	,	V_403
+writel	,	F_6
+FIFOSIZE_STARTADDR_MASK	,	V_383
+dev_warn	,	F_44
+DXEPCTL_EPDIS	,	V_341
+DSTS_ENUMSPD_HS	,	V_242
+DEBUG	,	F_157
+DAINT	,	V_305
+usb_gadget_unmap_request	,	F_29
+container_of	,	F_2
+"%s: unable to allocate memory for bounce buffer\n"	,	L_28
+s3c_hsotg_stall_ep0	,	F_79
+IS_ERR	,	F_167
+devm_request_irq	,	F_172
+is_usb_reset	,	V_255
+DIV_ROUND_UP	,	F_36
+"ep0 stall (dir=%d)\n"	,	L_43
+pw	,	V_300
+on_list	,	F_124
+"wrong number of EPs (zero)\n"	,	L_153
+s3c_hsotg_resume	,	F_178
+GRXSTS_PKTSTS_GLOBALOUTNAK	,	V_204
+s3c_hsotg_complete_request	,	F_85
+regulator_bulk_enable	,	F_139
+"%s: got %d/%d (short not ok) =&gt; error\n"	,	L_60
+GRXSTSP	,	V_198
+supply	,	V_401
+msleep	,	F_171
+"ep_dequeue(%p,%p)\n"	,	L_113
+"%s: GNPTXSTS=%08x, can=%d, to=%d, max_transfer %d\n"	,	L_9
+GUSBCFG_PHYIF16	,	V_394
+"gsintmsk now 0x%08x\n"	,	L_1
+DOEPMSK_EPDISBLDMSK	,	V_287
+len	,	V_388
+DCFG_DEVADDR_MASK	,	V_173
+USB_ENDPOINT_XFER_CONTROL	,	V_333
+req_buf	,	V_103
+USB_RECIP_ENDPOINT	,	V_147
+init_mutex	,	V_355
+"insufficient fifo memory"	,	L_2
+s3c_hsotg_complete_in	,	F_98
+USB_REQ_SET_FEATURE	,	V_155
+DSTS_ENUMSPD_MASK	,	V_236
+gnptxsts	,	V_50
+total_data	,	V_73
+s3c_hsotg_irq_fifoempty	,	F_107
+GINTSTS_RESETDET	,	V_270
+DWC2_CTRL_BUFF_SIZE	,	V_405
+dwc2_hsotg	,	V_7
+"%s: DxEPCTL=0x%08x, ep %d, dir %s\n"	,	L_13
+"%s: unknown status %08x\n"	,	L_66
+DCFG_EPMISCNT	,	F_111
+s3c_hsotg_trytx	,	F_97
+s3c_hsotg_rx_data	,	F_86
+usb_endpoint_maxp	,	F_120
+GHWCFG3_DFIFO_DEPTH_SHIFT	,	V_379
+DXEPINT_EPDISBLD	,	V_226
+GINTSTS	,	V_263
+usb_speed_string	,	F_102
+DIEPCTL0	,	V_162
+GFP_KERNEL	,	V_376
+device	,	V_382
+EINPROGRESS	,	V_118
+DCFG_DEVADDR_SHIFT	,	V_174
+"GINTSTS_ErlySusp\n"	,	L_101
+"%s(ep %p %s, %d)\n"	,	L_114
+ctrl	,	V_84
+"NonPeriodic TXFIFO size: %d\n"	,	L_141
+list_del_init	,	F_75
+"%s: called for ep0\n"	,	L_112
+device_node	,	V_386
+usb_del_gadget_udc	,	F_176
+gintmsk	,	V_303
+DOEPTSIZ	,	F_43
+"SetupRX (Frame=0x%08x, DOPEPCTL=0x%08x)\n"	,	L_65
+pkt_round	,	V_58
+ep0_reply	,	V_137
+mutex_unlock	,	F_143
+ints	,	V_18
+"no platform data or transceiver defined\n"	,	L_144
+"%s: %s_FEATURE\n"	,	L_39
+"%s: failed to map buffer %p, %d bytes\n"	,	L_26
+"%s: ep%d: TxFIFOEmpty\n"	,	L_85
+le16_to_cpu	,	F_70
+bmAttributes	,	V_321
+u8	,	T_5
+DXEPINT_SETUP_RCVD	,	V_220
+GINTSTS_USBSUSP	,	V_273
+GRSTCTL_RXFFLSH	,	V_42
+regs	,	V_20
+s3c_hsotg_write_fifo	,	F_30
+short_not_ok	,	V_114
+connected	,	V_171
+IS_ERR_OR_NULL	,	F_141
+our_ep	,	F_3
+s3c_hsotg_read_frameno	,	F_91
+D0EPCTL_MPS_16	,	V_212
+DOEPINT	,	F_100
+"%s: read DxEPCTL=0x%08x\n"	,	L_110
+"otg"	,	L_145
+buf	,	V_74
+DXEPCTL_NEXTEP	,	F_154
+"failed to disable supplies: %d\n"	,	L_155
+GRXSTS_BYTECNT_SHIFT	,	V_202
+mutex_lock	,	F_137
+"%s: is_active: %d\n"	,	L_125
+maxpkt	,	V_76
+s3c_hsotg_supply_names	,	V_402
+bus	,	V_356
+DVBUSPULSE	,	V_385
+err_supplies	,	V_406
+testmode	,	V_125
+mdelay	,	F_112
+__iomem	,	T_1
+"GLOBALOUTNAK\n"	,	L_62
+"%s: don't submit request while suspended\n"	,	L_31
+"%s: cannot alloc req\n"	,	L_34
+"%s: ep%d: INTknEP\n"	,	L_84
+regulator_bulk_disable	,	F_145
+dev_get_platdata	,	F_164
+INIT_LIST_HEAD	,	F_26
+zero	,	V_90
+daint_in	,	V_308
+to_hsotg	,	F_4
+cpu_to_le16	,	F_69
+"GRXFSIZ=0x%08x, GNPTXFSIZ=0x%08x\n"	,	L_117
+GUSBCFG_PHYIF8	,	V_257
+"%s: nothing to complete?\n"	,	L_54
+actual	,	V_53
+fifo_size	,	V_69
+s3c_hsotg_enqueue_setup	,	F_80
+GHWCFG1	,	V_377
+"ep%d: failed to become enabled (DXEPCTL=0x%08x)?\n"	,	L_24
+GHWCFG2	,	V_374
+GHWCFG3	,	V_378
+GHWCFG4	,	V_380
+"%s: reset failed, GRSTCTL=%08x\n"	,	L_91
+USB_TYPE_MASK	,	V_168
+GAHBCFG	,	V_279
+"DPTx[%d] FSize=%d, StAddr=0x%08x\n"	,	L_133
+"Receiving zero-length packet on ep%d\n"	,	L_53
+ETIMEDOUT	,	V_253
+USB_ENDPOINT_XFER_ISOC	,	V_328
+ops	,	V_369
+DXEPCTL_TXFNUM	,	F_122
+"g-use-dma"	,	L_137
+dir_in	,	V_14
+__le16	,	T_4
+name	,	V_105
+"g-np-tx-fifo-size"	,	L_140
+idx	,	V_123
+"%s: direction mismatch!\n"	,	L_105
+GRSTCTL_TXFFLSH	,	V_41
+"%s: USB_REQ_GET_STATUS\n"	,	L_36
+s3c_hsotg_disable_gsint	,	F_13
+desc	,	V_318
+next	,	V_371
+"%s: buff %p, len %d\n"	,	L_33
+GINTSTS_SESSREQINT	,	V_265
+DOEPMSK	,	V_290
+"ureq-&gt;length:%d ureq-&gt;actual:%d\n"	,	L_17
+ECONNRESET	,	V_314
+phy_power_off	,	F_133
+"suspending usb gadget %s\n"	,	L_156
+speed	,	V_239
+dev_err	,	F_22
+s3c_hsotg_process_req_feature	,	F_73
+GRXSTS_BYTECNT_MASK	,	V_201
+"complete: ep %p %s, req %p, %d =&gt; %p\n"	,	L_55
+GINTSTS_IEPINT	,	V_292
+of_property_read_u32_array	,	F_161
+kzalloc	,	F_25
+DXEPCTL_SETD0PID	,	V_336
+"ep%d-in: EPCTL=0x%08x, SIZ=0x%08x, DMA=0x%08x\n"	,	L_134
+s3c_hsotg_ep_enable	,	F_119
+"%s: ep%d is stalled\n"	,	L_16
+GRXSTS_PKTSTS_OUTDONE	,	V_205
+devm_clk_get	,	F_166
+get_ep_head	,	F_71
+GOTGCTL_BSESVLD	,	V_313
+GAHBCFG_HBSTLEN_SHIFT	,	V_278
+USB_ENDPOINT_DIR_MASK	,	V_324
+clk_disable_unprepare	,	F_173
+isochronous	,	V_89
+phy_exit	,	V_349
+ptr	,	V_10
+"%s: adjusting size done %d =&gt; %d\n"	,	L_73
+GAHBCFG_P_TXF_EMP_LVL	,	V_281
+GUSBCFG	,	V_259
+GINTSTS_WKUPINT	,	V_274
+"ep0 state:%d\n"	,	L_22
+usb_ctrlrequest	,	V_140
+DXEPINT_XFERCOMPL	,	V_221
+s3c_hsotg_init_fifo	,	F_17
+s3c_hsotg_ep_alloc_request	,	F_24
+DOEPMSK_AHBERRMSK	,	V_288
+"%s: ep %p, req %p\n"	,	L_32
+s3c_hsotg_ep0_zlp	,	F_89
+phy_init	,	V_346
+gfp_t	,	T_3
+"%s: Setup/Timeout\n"	,	L_81
+"CLEAR"	,	L_41
+disconnect	,	V_249
+of_find_property	,	F_160
+list_empty	,	F_58
+dev_info	,	F_82
+DXEPCTL_EPTYPE_MASK	,	V_325
+DXEPTSIZ_MC	,	F_45
+"%s: =&gt; can_write1=%d\n"	,	L_6
+DXEPTSIZ_PKTCNT_LIMIT	,	V_78
+packets	,	V_85
+"%s: no queue slots available (0x%08x)\n"	,	L_8
+epint_reg	,	V_218
+last_load	,	V_60
+"XferCompl but no req\n"	,	L_70
+s3c_hsotg_ep_sethalt_lock	,	F_126
+s3c_hsotg_complete_setup	,	F_83
+grxstsr	,	V_197
+s3c_hsotg_process_control	,	F_81
+dctl	,	V_126
+s3c_hsotg_handle_unaligned_buf_start	,	F_53
+buf_pos	,	V_52
+plat	,	V_345
+usb_gadget_giveback_request	,	F_77
+DXEPCTL_SETODDFR	,	V_225
+"DCTL=0x%08x\n"	,	L_93
+"%s: missing entry points\n"	,	L_121
+"%s: ep %s: a 0x%02x, attr 0x%02x, mps 0x%04x, intr %d\n"	,	L_104
+val	,	V_11
+s3c_hsotg_handle_unaligned_buf_complete	,	F_55
+otg	,	V_362
+is_otg	,	V_399
+epctrl	,	V_319
+GUSBCFG_USBTRDTIM_SHIFT	,	V_258
+DCTL	,	V_127
+clk_enable	,	F_138
+ep_mps	,	V_235
+DCFG_DEVSPD_HS	,	V_261
+mps	,	V_209
+GNPTXSTS_NP_TXF_SPC_AVAIL_GET	,	F_35
+GHWCFG2_NUM_DEV_EP_SHIFT	,	V_375
+maxreq	,	V_86
+__func__	,	V_44
+s3c_hsotg_vbus_session	,	F_149
+epnum	,	V_192
+g_np_g_tx_fifo_sz	,	V_35
+GINTSTS_USBRST	,	V_269
+DSTS_SOFFN_SHIFT	,	V_196
+"%s trying more for req...\n"	,	L_75
+WARN_ONCE	,	F_19
+"GOUTNakEff triggered\n"	,	L_102
+s3c_hsotg_set_test_mode	,	F_66
+s3c_hsotg_corereset	,	F_108
+usb_request	,	V_2
+ENODEV	,	V_353
+"failed to allocate ctrl req\n"	,	L_154
+DIEPDMA	,	F_48
+kfree	,	F_56
+"dedicated"	,	L_129
+periodic	,	V_47
+flags	,	V_25
+GAHBCFG_NP_TXF_EMP_LVL	,	V_280
+"%s: AHBErr\n"	,	L_80
+bInterval	,	V_323
+enabled	,	V_363
+DWC2_EP0_DATA_IN	,	V_166
+daintmsk	,	V_306
+dr_mode	,	V_397
+GUSBCFG_TOUTCAL	,	F_110
+"failed to enable supplies: %d\n"	,	L_122
+"cannot get otg clock\n"	,	L_146
+"RXFIFO size: %d\n"	,	L_142
+size_loaded	,	V_55
+"%s: is_on: %d\n"	,	L_124
+DXEPCTL_CNAK	,	V_98
+DWC2_EP0_STATUS_OUT	,	V_191
+time_after	,	F_117
+TEST_SE0_NAK	,	V_131
+clk_prepare_enable	,	F_169
+DXEPCTL_USBACTEP	,	V_95
+dsts	,	V_193
+ESHUTDOWN	,	V_248
+restart	,	V_152
+s3c_hsotg_ctrl_epint	,	F_14
+EAGAIN	,	V_117
+fifo_index	,	V_227
+DWC2_G_P_LEGACY_TX_FIFO_SIZE	,	V_393
+EPROBE_DEFER	,	V_395
+"failed to allocate ctrl reply buff\n"	,	L_151
+DSTS	,	V_194
+usb_ep	,	V_5
+DXEPCTL_MPS	,	F_121
+EINVAL	,	V_135
+USB_RECIP_MASK	,	V_144
+s3c_hsotg_en_gsint	,	F_11
+bRequest	,	V_154
+udelay	,	F_23
+queue	,	V_45
+first	,	V_112
+DCTL_CGOUTNAK	,	V_296
+usb_phy_set_power	,	F_151
+GRSTCTL_CSFTRST	,	V_252
+epno	,	V_250
+data	,	V_56
+list_first_entry	,	F_72
+saved_req_buf	,	V_104
+s3c_hsotg_process_req_status	,	F_68
+ioread32_rep	,	F_88
+usb_endpoint_descriptor	,	V_317
+"%s: continue different req\n"	,	L_12
+lx_state	,	V_115
+"%s: %08x %08x (%08x) retry %d\n"	,	L_94
+UINT_MAX	,	V_335
+"Sending zero-length packet on ep%d\n"	,	L_52
+s3c_hsotg_init	,	F_134
+rx_fifo	,	V_389
+DIEPMSK_AHBERRMSK	,	V_285
+"%s: USBRst\n"	,	L_97
+call_gadget	,	F_106
+ep_idx	,	V_184
+"ep%d%s"	,	L_127
+treq	,	V_247
+DXEPTSIZ_PKTCNT	,	F_46
+"GNPTXSTS=%08x\n"	,	L_98
+to_write	,	V_54
+halted	,	V_150
+"%s: req %p: %d@%p, noi=%d, zero=%d, snok=%d\n"	,	L_30
+"shared"	,	L_130
+"out"	,	L_15
+"Failed to get CSftRst asserted\n"	,	L_90
+"%s: daint=%08x\n"	,	L_95
+"%s: B2BSetup/INEPNakEff\n"	,	L_82
+"%s: No suitable fifo found\n"	,	L_108
+max_speed	,	V_354
+s3c_hsotg_phy_enable	,	F_127
+windex	,	V_120
+"cannot claim IRQ for gadget\n"	,	L_152
+usb_status	,	V_311
+kill_all_requests	,	F_103
+"ep%d-out: EPCTL=0x%08x, SIZ=0x%08x, DMA=0x%08x\n"	,	L_135
+devm_regulator_bulk_get	,	F_170
+"GAHBCFG=0x%08x, GHWCFG1=0x%08x\n"	,	L_132
+IRQ_RETRY_MASK	,	V_315
+grstctl	,	V_251
+DVBUSDIS	,	V_384
+get_ep_limit	,	F_39
+num_of_eps	,	V_124
+s3c_hsotg_complete_oursetup	,	F_64
+DCTL_TSTCTL_MASK	,	V_128
+eps_out	,	V_16
+recip	,	V_156
+DWC2_L0	,	V_310
+DWC2_L2	,	V_116
+dwc2_gadget_init	,	F_163
+"EnumDone (DSTS=0x%08x)\n"	,	L_86
+"%s: direction out?\n"	,	L_37
+GINTSTS_GINNAKEFF	,	V_267
+index_to_ep	,	F_9
+msecs_to_jiffies	,	F_118
+using_dma	,	F_10
+"resuming usb gadget %s\n"	,	L_157
+hsotg	,	V_12
+IRQF_SHARED	,	V_407
+"%s: USBRstDet\n"	,	L_96
+spin_lock	,	F_78
+addr	,	V_29
+value	,	V_338
+DXEPTSIZ_XFERSIZE_GET	,	F_32
+gfp_flags	,	V_109
+no_interrupt	,	V_113
+s3c_hsotg_start_req	,	F_40
+readl	,	F_7
+mcval	,	V_215
+DIEPTSIZ0_PKTCNT_LIMIT	,	V_79
+irqreturn_t	,	T_6
+s3c_hsotg_initep	,	F_152
+"%s: =&gt; can_write2=%d\n"	,	L_7
+WARN_ON	,	F_18
+"%s: timeout flushing fifo (GRSTCTL=%08x)\n"	,	L_68
+g_rx_fifo_sz	,	V_32
+USB_ENDPOINT_HALT	,	V_160
+GAHBCFG_DMA_EN	,	V_276
+round	,	V_88
+to_read	,	V_187
+DXEPCTL_EPTYPE_INTERRUPT	,	V_332
+epctl_reg	,	V_181
+"GINNakEff triggered\n"	,	L_103
+daint	,	V_27
+platform_data	,	V_391
+GOTGINT	,	V_262
+"resetting core\n"	,	L_89

@@ -1,0 +1,12 @@
+restart_block	,	V_5
+current	,	V_1
+comm	,	V_3
+pr_err_once	,	F_2
+asmlinkage	,	T_1
+"process %d (%s) attempted a POSIX timer syscall "	,	L_1
+"while CONFIG_POSIX_TIMERS is not set\n"	,	L_2
+ENOSYS	,	V_4
+pid	,	V_2
+sys_ni_posix_timers	,	F_1
+clock_nanosleep_restart	,	F_3
+hrtimer_nanosleep_restart	,	F_4

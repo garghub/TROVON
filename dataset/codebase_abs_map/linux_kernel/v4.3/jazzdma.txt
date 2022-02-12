@@ -1,0 +1,131 @@
+"vdma_remap: first=%x, pages=%x\n"	,	L_14
+r4030_write_reg32	,	F_8
+get_order	,	F_4
+"vdma_alloc: Allocated %d pages starting from %08lx\n"	,	L_4
+"vdma_free: trying to free other's dma pages, laddr=%8lx\n"	,	L_10
+channel	,	V_36
+"vdma_set_addr: channel %d, addr %lx\n"	,	L_39
+JAZZ_R4030_TRSTBL_LIM	,	V_14
+GFP_DMA	,	V_11
+"vdma_set_count: channel %d, count %08x\n"	,	L_40
+"vdma_stats: INV_ADDR: %08x\n"	,	L_19
+"vdma_stats: M_FAIL_ADDR: %08x\n"	,	L_21
+"R4030 translation table base: %08x\n"	,	L_17
+JAZZ_DUMMY_DEVICE	,	V_44
+vdma_set_count	,	F_25
+enable	,	V_61
+vdma_init	,	F_2
+VDMA_PAGESIZE	,	V_8
+"vdma_free: freed %ld pages starting from %08lx\n"	,	L_11
+R4030_MODE_ATIME_120	,	V_52
+"VDMA: Channel %d: Address error!\n"	,	L_28
+vdma_alloc	,	F_11
+"vdma_stats: CONFIG: %08x\n"	,	L_16
+"ERROR"	,	L_33
+"vdma_alloc: Invalid size: %08lx\n"	,	L_3
+R4030_TC_INTR	,	V_38
+__get_free_pages	,	F_3
+"vdma_disable: channel %d\n"	,	L_30
+vdma_set_addr	,	F_24
+VDMA_ERROR	,	V_24
+R4030_MODE_ATIME_80	,	V_49
+size	,	V_17
+vdma_enable	,	F_21
+paddr	,	V_1
+JAZZ_R4030_CHNL_ADDR	,	V_42
+"%02x addr: %06x count: %06x\n"	,	L_32
+GFP_KERNEL	,	V_10
+pgtbl	,	V_4
+status	,	V_37
+laddr	,	V_21
+JAZZ_R4030_CONFIG	,	V_28
+vdma_get_residue	,	F_26
+EPERM	,	V_27
+"vdma_stats: I386_ERROR: %08x\n"	,	L_23
+"VDMA: vdma_set_mode() called with unsupported channel %d!\n"	,	L_37
+flags	,	V_22
+"VDMA: vdma_set_mode() called with unknown dma mode 0x%x\n"	,	L_38
+JAZZ_R4030_IRQ_SOURCE	,	V_32
+R4030_CHNL_WRITE	,	V_56
+"vdma_get_enable: channel %d: enable=%d\n"	,	L_42
+"vdma_map: Invalid physical address: %08lx\n"	,	L_13
+"VDMA: Audio DMA not supported yet.\n"	,	L_36
+"vdma_get_residual: channel %d: residual=%d\n"	,	L_41
+JAZZ_R4030_INV_ADDR	,	V_29
+i	,	V_2
+R4030_MODE_WIDTH_8	,	V_51
+EINVAL	,	V_26
+R4030_MODE_INTR_EN	,	V_47
+JAZZ_R4030_R_FAIL_ADDR	,	V_30
+"OK"	,	L_34
+__init	,	T_1
+"%08x "	,	L_6
+R4030_MEM_INTR	,	V_39
+first	,	V_18
+"\n"	,	L_9
+vdma_get_enable	,	F_27
+JAZZ_R4030_M_FAIL_ADDR	,	V_31
+DMA_MODE_WRITE	,	V_57
+vdma_set_mode	,	F_23
+"vdma_set_mode: channel %d, mode 0x%x\n"	,	L_35
+residual	,	V_60
+"Trying to remap other's pages.\n"	,	L_15
+"VDMA: R4030 DMA pagetables initialized.\n"	,	L_1
+"\nOWNER: "	,	L_8
+JAZZ_AUDIOR_DMA	,	V_54
+mode	,	V_45
+pages	,	V_20
+vdma_phys2log	,	F_17
+r4030_read_reg32	,	F_20
+JAZZ_FLOPPY_DMA	,	V_50
+JAZZ_R4030_TRSTBL_BASE	,	V_13
+"R4030 translation table limit: %08x\n"	,	L_18
+"VDMA: Channel %d: Memory error!\n"	,	L_29
+"vdma_stats: R_FAIL_ADDR: %08x\n"	,	L_20
+JAZZ_R4030_CHNL_COUNT	,	V_43
+last	,	V_19
+count	,	V_59
+VDMA_PGTBL_SIZE	,	V_12
+JAZZ_R4030_I386_ERROR	,	V_33
+JAZZ_R4030_TRSTBL_INV	,	V_15
+vdma_log2phys	,	F_18
+spin_unlock_irqrestore	,	F_14
+vdma_free	,	F_15
+VDMA_PGTBL_ENTRY	,	V_9
+VDMA_PAGE	,	F_13
+spin_lock_irqsave	,	F_12
+"vdma_stats: IRQ_SOURCE: %08x\n"	,	L_22
+VDMA_PGTBL_ENTRIES	,	V_3
+vdma_stats	,	F_19
+frame	,	V_5
+"vdma_enable: channel %d\n"	,	L_27
+KERN_INFO	,	V_16
+BUG_ON	,	F_5
+printk	,	F_10
+vdma_remap	,	F_16
+KSEG1ADDR	,	F_7
+vdma_pgtbl_init	,	F_1
+CPHYSADDR	,	F_9
+"LADDR: "	,	L_5
+dma_cache_wback_inv	,	F_6
+"vdma_chnl_modes:   "	,	L_24
+R4030_ADDR_INTR	,	V_40
+R4030_MODE_WIDTH_16	,	V_48
+JAZZ_R4030_CHNL_ENABLE	,	V_35
+"VDMA: channel %d status: %04x (%s) mode: "	,	L_31
+addr	,	V_58
+"vdma_alloc: Invalid physical address: %08lx\n"	,	L_2
+owner	,	V_6
+"\nPADDR: "	,	L_7
+R4030_CHNL_ENABLE	,	V_41
+DMA_MODE_READ	,	V_55
+"%04x "	,	L_25
+"vdma_chnl_enables: "	,	L_26
+JAZZ_AUDIOL_DMA	,	V_53
+vdma_debug	,	V_23
+JAZZ_SCSI_DMA	,	V_46
+JAZZ_R4030_CHNL_MODE	,	V_34
+vdma_disable	,	F_22
+vdma_lock	,	V_25
+"vdma_map: Invalid logical address: %08lx\n"	,	L_12
+VDMA_PAGE_EMPTY	,	V_7

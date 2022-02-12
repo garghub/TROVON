@@ -1,0 +1,287 @@
+ath10k_htc_prepare_tx_skb	,	F_15
+spin_lock_init	,	F_56
+DIV_ROUND_UP	,	F_21
+control_resp_buffer	,	V_102
+disable_credit_flow_ctrl	,	V_145
+ATH10K_HTC_RECORD_CREDITS	,	V_78
+time_left	,	V_125
+dev	,	V_13
+len	,	V_15
+"HTC Rx: invalid eid %d\n"	,	L_19
+record	,	V_74
+ATH10K_HTC_MSG_SETUP_COMPLETE_EX_ID	,	V_164
+target_send_suspend_complete	,	V_105
+state	,	V_35
+"Credit report too long\n"	,	L_14
+"Failed to allocate HTC packet\n"	,	L_48
+lookahead_bundle	,	V_83
+tx_alloc	,	V_146
+skb_push	,	F_20
+ath10k_htc_lookahead_report	,	V_57
+EIO	,	V_45
+"DATA VI"	,	L_33
+wait_for_completion_timeout	,	F_43
+conn_resp	,	V_137
+ar	,	V_2
+"Invalid endpoint id: %d\n"	,	L_5
+ATH10K_HTC_SVC_ID_UNUSED	,	V_120
+"Lookahead report too long\n"	,	L_15
+size	,	V_162
+__cpu_to_le16	,	F_16
+paddr	,	V_14
+bundle_cnt	,	V_65
+ath10k_htc_process_lookahead	,	F_28
+"RAW"	,	L_38
+"unaligned skb"	,	L_1
+device	,	V_32
+ATH10K_HTC_WAIT_TIMEOUT_HZ	,	V_126
+"Reserved"	,	L_28
+""	,	L_18
+eid	,	V_20
+ath10k_htc_restore_tx_skb	,	F_9
+err_unmap	,	V_51
+"htc bad rx pkt len"	,	L_22
+"HTC Service %s connect response: status: 0x%x, assigned ep: 0x%x\n"	,	L_51
+htc_ops	,	V_104
+endpoint	,	V_29
+ath10k_htc	,	V_11
+ATH10K_HTC_CONN_FLAGS_DISABLE_CREDIT_FLOW_CTRL	,	V_153
+SM	,	F_48
+ath10k_htc_ep	,	V_18
+ath10k_htc_wait_target	,	F_42
+ATH10K_HTC_EP_0	,	V_118
+u8	,	V_62
+"htc bad header"	,	L_20
+"HTC rx ctrl still processing\n"	,	L_26
+ath10k_hif_send_complete_check	,	F_44
+i	,	V_55
+ath10k_htc_build_tx_ctrl_skb	,	F_3
+ENOENT	,	V_39
+credit_size	,	V_131
+ATH10K_DBG_HTC	,	V_9
+ep_tx_credits	,	V_52
+"htc rx lookahead found pre_valid 0x%x post_valid 0x%x\n"	,	L_11
+"boot htc service '%s' eid %d TX flow control disabled\n"	,	L_54
+ath10k_htc_lookahead_bundle	,	V_64
+next_lookaheads	,	V_58
+ATH10K_HTC_FLAG_TRAILER_PRESENT	,	V_90
+__cpu_to_le32	,	F_54
+connect_service	,	V_150
+ATH10K_HTC_MSG_SEND_SUSPEND_COMPLETE	,	V_103
+bus	,	V_166
+ready_ext	,	V_132
+tx_lock	,	V_26
+ath10k_htc_conn_svc	,	V_138
+sg_item	,	V_31
+trailer_len	,	V_85
+max_ep_message_len	,	V_121
+err_credits	,	V_46
+ath10k_htc_process_lookahead_bundle	,	F_29
+ath10k_htc_svc_conn_resp	,	V_136
+"Invalid record length: %d\n"	,	L_13
+ath10k_htc_svc_id	,	V_106
+ATH10K_HTC_FLAG_NEED_CREDIT_UPDATE	,	V_25
+err_pull	,	V_44
+post_valid	,	V_61
+ath10k_htc_process_trailer	,	F_30
+reinit_completion	,	F_49
+connect_service_response	,	V_155
+transfer_context	,	V_48
+ATH10K_SKB_CB	,	F_7
+trailer_present	,	V_87
+"htc ep %d got %d credits (total %d)\n"	,	L_10
+ul_pipe_id	,	V_50
+"could not connect to htc service (%d)\n"	,	L_57
+"htc insufficient credits ep %d required %d available %d\n"	,	L_6
+ret	,	V_34
+tx_credit_flow_enabled	,	V_40
+ath10k_htc_hdr	,	V_17
+HTC_HOST_MAX_MSG_PER_BUNDLE	,	V_66
+ep	,	V_19
+"HTT Data"	,	L_37
+ATH10K_HTC_SVC_ID_NMI_CONTROL	,	V_114
+ATH10K_HTC_MAX_CTRL_MSG_LEN	,	V_101
+ETIMEDOUT	,	V_128
+target_credit_size	,	V_41
+pre_valid	,	V_60
+sk_buff	,	V_3
+ATH10K_HTC_SVC_ID_HTT_DATA_MSG	,	V_116
+"Service connect timeout\n"	,	L_49
+ATH10K_HTC_MSG_CONNECT_SERVICE_RESP_ID	,	V_98
+ath10k_htc_start	,	F_53
+ath10k_dbg	,	F_8
+"DATA BE"	,	L_31
+"HTC is using TX credit flow control\n"	,	L_56
+ath10k_htc_init	,	F_55
+ATH10K_HTC_SVC_ID_WMI_DATA_BE	,	V_110
+ath10k_htc_control_rx_complete	,	F_35
+ath10k_err	,	F_45
+ATH10K_HTC_CONTROL_BUFFER_SIZE	,	V_7
+"ignoring unsolicited htc ep0 event\n"	,	L_27
+dl_pipe_id	,	V_161
+dma_map_single	,	F_22
+ATH10K_HTC_SVC_ID_WMI_DATA_BK	,	V_111
+kfree_skb	,	F_2
+"HTC Rx: insufficient length, got %d, expected %d\n"	,	L_23
+max_msgs_per_bundled_recv	,	V_169
+conn_req	,	V_135
+htc	,	V_12
+dma_mapping_error	,	F_23
+"htc rx completion ep %d skb %pK\n"	,	L_25
+ath10k_htc_record	,	V_73
+allocation	,	V_123
+tx_credits	,	V_42
+assigned_eid	,	V_143
+max_msg_size	,	V_144
+length	,	V_69
+resp_msg_dummy	,	V_141
+ATH10K_HTC_MSG_CONNECT_SERVICE_ID	,	V_151
+ATH10K_HTC_SETUP_COMPLETE_FLAGS_RX_BNDL_EN	,	V_168
+spin_unlock_bh	,	F_18
+EPROTO	,	V_156
+src_eid	,	V_70
+"HTC rx frame too long, len: %zu\n"	,	L_21
+hdr	,	V_23
+credit_count	,	V_130
+setup	,	V_147
+"Unaligned HTC tx skb\n"	,	L_55
+lookahead_report	,	V_81
+"Invalid credit size received\n"	,	L_45
+ENOMEM	,	V_149
+ATH10K_HTC_CONN_SVC_TIMEOUT_HZ	,	V_154
+"NMI Data"	,	L_36
+ATH10K_HTC_SVC_ID_TEST_RAW_STREAMS	,	V_117
+skb	,	V_4
+ath10k_htc_control_tx_complete	,	F_1
+total_transmit_credits	,	V_124
+next_lookaheads_len	,	V_59
+skb_reserve	,	F_5
+ath10k_hif_map_service_to_pipe	,	F_50
+ath10k_htc_tx_completion_handler	,	F_25
+id	,	V_77
+DMA_TO_DEVICE	,	V_16
+"Uneven credit report len %d"	,	L_9
+ath10k_htc_credit_report	,	V_53
+"Invalid resp message ID 0x%x"	,	L_50
+req_msg	,	V_139
+max_send_queue_depth	,	V_160
+orig_buffer	,	V_75
+dma_unmap_single	,	F_10
+ath10k_htc_msg	,	V_94
+__func__	,	V_10
+ath10k_htc_notify_tx_completion	,	F_12
+ATH10K_HTC_RECORD_LOOKAHEAD	,	V_80
+max_tx_queue_depth	,	V_122
+"htc rx bad trailer"	,	L_17
+skb_trim	,	F_34
+ECOMM	,	V_37
+ath10k_htc_ep_id	,	V_28
+WARN_ONCE	,	F_6
+CE_COUNT	,	V_127
+ATH10K_HTC_SVC_ID_NMI_DATA	,	V_115
+resp_msg	,	V_142
+status	,	V_72
+ath10k_htc_reset_endpoint_states	,	F_40
+ath10k_htc_conn_svc_response	,	V_140
+"Extended ready message. RX bundle size: %d\n"	,	L_46
+__le16_to_cpu	,	F_33
+"NMI Control"	,	L_35
+control_resp_len	,	V_100
+ath10k_warn	,	F_13
+flags	,	V_24
+ath10k_htc_rx_completion_handler	,	F_32
+completion_done	,	F_36
+ath10k_hif_tx_sg	,	F_24
+out	,	V_88
+init_completion	,	F_57
+trailer	,	V_91
+ATH10K_HTC_SVC_ID_WMI_DATA_VI	,	V_112
+skb_pull	,	F_11
+ATH10K_STATE_WEDGED	,	V_36
+ctl_resp	,	V_99
+u16	,	T_2
+ATH10K_HTC_SVC_ID_WMI_DATA_VO	,	V_113
+bundle	,	V_71
+dev_alloc_skb	,	F_4
+ath10k_htc_svc_conn_req	,	V_134
+ATH10K_HTC_SVC_ID_RSVD_CTRL	,	V_108
+"DATA VO"	,	L_34
+max_msgs_per_htc_bundle	,	V_133
+EAGAIN	,	V_43
+message_id	,	V_96
+ath10k	,	V_1
+ATH10K_HTC_EP_COUNT	,	V_38
+EINVAL	,	V_67
+"no tx handler for eid %d\n"	,	L_4
+"%s: ep %d skb %pK\n"	,	L_3
+ath10k_htc_process_credit_report	,	F_27
+"boot htc service '%s' ul pipe %d dl pipe %d eid %d ready\n"	,	L_53
+"WMI"	,	L_30
+ep_tx_complete	,	V_22
+report	,	V_54
+dev_kfree_skb_any	,	F_14
+complete	,	F_37
+"htc ep %d reverted %d credits back (total %d)\n"	,	L_8
+ATH10K_DBG_BOOT	,	V_148
+"boot htc service %s does not allocate target credits\n"	,	L_47
+msg	,	V_95
+"ctl_resp never came in (%d)\n"	,	L_41
+"Control"	,	L_29
+data	,	V_8
+hif	,	V_165
+"Invalid trailer length: %d\n"	,	L_24
+"htc ep %d consumed %d credits (total %d)\n"	,	L_7
+max_msg_len	,	V_159
+size_t	,	T_1
+ATH10K_NUM_CONTROL_TX_BUFFERS	,	V_170
+ath10k_dbg_dump	,	F_31
+u32	,	T_3
+buffer	,	V_68
+ath10k_htc_connect_service	,	F_46
+seq_no	,	V_27
+ath10k_hif_sg_item	,	V_30
+orig_length	,	V_76
+"Unhandled record: id:%d length:%d\n"	,	L_16
+payload_len	,	V_84
+ATH10K_HTC_CONN_SVC_STATUS_SUCCESS	,	V_158
+transfer_id	,	V_47
+ep_ops	,	V_21
+ath10k_skb_cb	,	V_5
+credit_report	,	V_79
+"HTC Service %s connect request failed: 0x%x)\n"	,	L_52
+setup_complete_ext	,	V_163
+htc_service_name	,	F_39
+ath10k_htc_send	,	F_19
+min_len	,	V_86
+vaddr	,	V_49
+ath10k_htc_get_credit_allocation	,	F_41
+ATH10K_HTC_RECORD_LOOKAHEAD_BUNDLE	,	V_82
+WARN_ON_ONCE	,	F_26
+skb_put	,	F_47
+ep_rx_complete	,	V_93
+IS_ALIGNED	,	F_52
+credits	,	V_33
+ath10k_ath10k_htc_record_hdr	,	V_92
+ready	,	V_129
+service_id	,	V_119
+ATH10K_BUS_SDIO	,	V_167
+n_reports	,	V_56
+ATH10K_HTC_SVC_ID_WMI_CONTROL	,	V_109
+"Invalid HTC ready msg: 0x%x\n"	,	L_43
+"Target ready! transmit resources: %d size:%d\n"	,	L_44
+connect_resp_code	,	V_157
+ATH10K_HTC_CONN_FLAGS_RECV_ALLOC	,	V_152
+"Invalid HTC ready msg len:%d\n"	,	L_42
+ATH10K_HTC_MAX_LEN	,	V_89
+lookahead	,	V_63
+"DATA BK"	,	L_32
+"failed to receive control response completion, polling..\n"	,	L_40
+"Invalid lookahead bundle count: %d\n"	,	L_12
+min_t	,	F_38
+ATH10K_HTC_SVC_ID_RESERVED	,	V_107
+"Unknown"	,	L_39
+skb_cb	,	V_6
+"%s: skb %pK\n"	,	L_2
+ATH10K_HTC_MSG_READY_ID	,	V_97
+ath10k_htc_alloc_skb	,	F_51
+spin_lock_bh	,	F_17

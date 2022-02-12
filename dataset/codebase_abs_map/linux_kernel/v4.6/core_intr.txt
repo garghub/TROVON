@@ -1,0 +1,158 @@
+"++Disconnect Detected Interrupt++ (%s) %s\n"	,	L_27
+dwc2_readl	,	F_3
+dwc2_handle_common_intr	,	F_33
+GOTGINT_SES_END_DET	,	V_22
+"Session End Detected\n"	,	L_12
+"Device"	,	L_9
+srp_success	,	V_32
+dev	,	V_16
+DSTS_SUSPSTS	,	V_70
+lock	,	V_41
+dctl	,	V_56
+gintsts	,	V_75
+GINTSTS_PRTINT	,	V_85
+"%s lxstate = %d\n"	,	L_25
+hw_params	,	V_35
+dwc2_is_host_mode	,	F_7
+DCTL	,	V_57
+gotgint	,	V_17
+dwc2_handle_usb_suspend_intr	,	F_27
+dwc2_hsotg	,	V_1
+"Session request interrupt - lx_state=%d\n"	,	L_22
+pcgcctl	,	V_62
+IRQ_HANDLED	,	V_86
+DWC2_CORE_REV_3_00a	,	V_37
+dwc2_hcd_disconnect	,	F_17
+GOTGINT_DBNCE_DONE	,	V_45
+GINTSTS	,	V_15
+"ignore suspend request before enumeration\n"	,	L_30
+wkp_timer	,	V_65
+__func__	,	V_54
+" ++OTG Interrupt: Session End Detected++ (%s)\n"	,	L_11
+dwc2_op_state_str	,	F_1
+HPRT0	,	V_11
+HPRT0_ENACHG	,	V_12
+dwc2_is_controller_alive	,	F_34
+GINTSTS_SOF	,	V_40
+GOTGCTL_DEVHNPEN	,	V_23
+IRQ_NONE	,	V_83
+GOTGCTL_SESREQSCS	,	V_27
+GOTGINT_HST_NEG_DET	,	V_43
+skip_power_saving	,	V_72
+wq_otg	,	V_47
+"Device Not Connected/Responding\n"	,	L_16
+" ++OTG Interrupt: Host Negotiation Detected++ (%s)\n"	,	L_17
+power_optimized	,	V_71
+gintmsk	,	V_19
+"HNP Failed\n"	,	L_15
+out	,	V_84
+GINTSTS_DISCONNINT	,	V_67
+dwc2_handle_disconnect_intr	,	F_26
+"Host"	,	L_8
+dwc2_exit_hibernation	,	F_21
+"++Resume or Remote Wakeup Detected Interrupt++\n"	,	L_24
+dwc2_handle_otg_intr	,	F_8
+ENOTSUPP	,	V_52
+i2c_enable	,	V_31
+"USB SUSPEND\n"	,	L_28
+resume	,	V_59
+"gintsts=%08x  gintmsk=%08x\n"	,	L_33
+dsts	,	V_68
+"a_peripheral-&gt;a_host\n"	,	L_32
+GINTSTS_MODEMIS	,	V_14
+GINTSTS_CONIDSTSCHNG	,	V_46
+GINTSTS_USBSUSP	,	V_69
+wf_otg	,	V_48
+"exit hibernation failed\n"	,	L_23
+irq	,	V_81
+regs	,	V_10
+hibernation	,	V_60
+dwc2_handle_session_req_intr	,	F_20
+"Mode Mismatch Interrupt: currently in %s mode\n"	,	L_7
+DSTS	,	V_55
+OTG_STATE_A_PERIPHERAL	,	V_6
+IS_ERR_OR_NULL	,	F_30
+jiffies	,	V_66
+OTG_STATE_B_PERIPHERAL	,	V_7
+udelay	,	F_13
+"Controller is dead\n"	,	L_34
+dwc2_handle_mode_mismatch_intr	,	F_5
+gotgctl	,	V_18
+GOTGCTL_HNPREQ	,	V_42
+"a_suspend-&gt;a_peripheral (%d)\n"	,	L_18
+usb_phy_set_suspend	,	F_31
+GOTGINT_SES_REQ_SUC_STS_CHNG	,	V_26
+dev_dbg	,	F_9
+dwc2_is_device_mode	,	F_10
+"Device Not Connected/Responding!\n"	,	L_13
+GOTGCTL_HSTNEGSCS	,	V_38
+lx_state	,	V_24
+core_params	,	V_28
+PCGCTL	,	V_63
+"a_host"	,	L_1
+u32	,	T_1
+GOTGINT_A_DEV_TOUT_CHG	,	V_44
+call_gadget	,	F_23
+HPRT0_ENA	,	V_13
+gahbcfg	,	V_76
+ret	,	V_49
+suspend	,	V_74
+GINTMSK_COMMON	,	V_78
+"++OTG Interrupt gotgint=%0x [%s]\n"	,	L_10
+dwc2_writel	,	F_4
+DCTL_RMTWKUPSIG	,	V_58
+GOTGCTL	,	V_21
+GAHBCFG	,	V_79
+GOTGINT_HST_NEG_SUC_STS_CHNG	,	V_34
+mod_timer	,	F_24
+retval	,	V_82
+op_state	,	V_3
+gintmsk_common	,	V_77
+PCGCTL_STOPPCLK	,	V_64
+"a_suspend"	,	L_2
+snpsid	,	V_36
+"b_peripheral"	,	L_4
+"a_peripheral"	,	L_3
+"DSTS=0x%0x\n"	,	L_26
+GINTSTS_SESSREQINT	,	V_50
+DWC2_L0	,	V_25
+dwc2_enter_hibernation	,	F_29
+DWC2_L2	,	V_51
+" ++OTG Interrupt: Debounce Done++\n"	,	L_20
+DWC2_L1	,	V_61
+hprt0	,	V_9
+GOTGCTL_SESREQ	,	V_33
+dwc2_hcd_start	,	F_15
+OTG_STATE_B_HOST	,	V_8
+dev_err	,	F_12
+phy_type	,	V_29
+DWC2_PHY_TYPE_PARAM_FS	,	V_30
+msecs_to_jiffies	,	F_25
+GINTSTS_OTGINT	,	V_87
+"DSTS.Suspend Status=%d HWCFG4.Power Optimize=%d\n"	,	L_29
+hsotg	,	V_2
+spin_lock	,	F_16
+uphy	,	V_73
+OTG_STATE_A_HOST	,	V_4
+" ++Connector ID Status Change Interrupt++  (%s)\n"	,	L_21
+dwc2_handle_wakeup_detected_intr	,	F_22
+GINTMSK	,	V_39
+GAHBCFG_GLBL_INTR_EN	,	V_80
+irqreturn_t	,	T_2
+dwc2_is_device_connected	,	F_28
+dev_warn	,	F_6
+spin_unlock	,	F_14
+"enter hibernation failed\n"	,	L_31
+dwc2_handle_conn_id_status_change_intr	,	F_18
+"b_host"	,	L_5
+dwc2_handle_usb_port_intr	,	F_2
+" ++OTG Interrupt: A-Device Timeout Change++\n"	,	L_19
+GINTSTS_WKUPINT	,	V_53
+queue_work	,	F_19
+" --Port interrupt received in Device mode--\n"	,	L_35
+OTG_STATE_A_SUSPEND	,	V_5
+dwc2_hsotg_disconnect	,	F_11
+dwc2_read_common_intr	,	F_32
+"unknown"	,	L_6
+" ++OTG Interrupt: Session Request Success Status Change++\n"	,	L_14
+GOTGINT	,	V_20

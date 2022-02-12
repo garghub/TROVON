@@ -1,0 +1,488 @@
+exception	,	V_39
+mesh_completed	,	F_11
+dma_cmd	,	V_193
+phy_addr	,	V_209
+PM_EVENT_HIBERNATE	,	V_236
+tgts	,	V_8
+DID_RESET	,	V_152
+lun	,	V_192
+sdtr_state	,	V_118
+dbdma_regs	,	V_32
+dev	,	V_158
+"tried reset after arb, intr/exc/err/fc=%.8x"	,	L_26
+"mesh: double DMA start !\n"	,	L_17
+reselecting	,	V_148
+msg_in_bad	,	V_170
+DISCONNECT	,	V_188
+machine_is	,	F_67
+scl	,	V_198
+Status	,	V_106
+SCp	,	V_105
+KERN_WARNING	,	V_167
+"abort"	,	L_53
+"mesh: sending %d msg bytes:"	,	L_35
+"mesh_host_reset\n"	,	L_90
+macio_irq	,	F_87
+pmac_call_feature	,	F_68
+panic	,	F_22
+set_mesh_power	,	F_66
+"mesh: couldn't register host"	,	L_96
+macio_register_driver	,	F_104
+" use_sg=%d buffer=%p bufflen=%u\n"	,	L_16
+mesh_suspend	,	F_70
+bogus	,	V_150
+"MESH: can't get irq %d\n"	,	L_102
+free_irq	,	F_97
+mesh_id	,	V_53
+"mesh: can't allocate DMA table\n"	,	L_98
+IDENTIFY_BASE	,	V_191
+dlog	,	F_3
+result	,	V_104
+intr_mask	,	V_40
+"mesh: no msg to repeat\n"	,	L_78
+PM_EVENT_FREEZE	,	V_237
+EBUSY	,	V_257
+host_lock	,	V_159
+"halt_dma fc/count=%.6x"	,	L_72
+"about to arb, intr/exc/err/fc=%.8x"	,	L_19
+seq	,	V_121
+"start_phase nmo/exc/fc/seq = %.8x"	,	L_33
+tgt	,	V_21
+a	,	V_5
+"inappropriate mesh_start (phase=%d, ms=%p)"	,	L_29
+b	,	V_147
+chip	,	V_251
+SUCCESS	,	V_227
+d	,	V_22
+scsi_for_each_sg	,	F_54
+BP_COMMAND	,	V_221
+i	,	V_28
+irq	,	V_154
+msg_out_last	,	V_218
+dumpslog	,	F_6
+cmdptr	,	V_45
+cfp	,	V_246
+n	,	V_145
+t	,	V_26
+v	,	V_116
+macio_dev	,	V_232
+"mesh: parity error, target %d\n"	,	L_60
+data_goes_out	,	V_51
+"exc=%2x err=%2x im=%2x int=%2x sp=%2x\n"	,	L_7
+fmt	,	V_4
+"enbresel intr/exc/err/fc=%.8x"	,	L_40
+DID_BUS_BUSY	,	V_92
+ofdev	,	V_268
+bus_status1	,	V_20
+dma_cmd_space	,	V_248
+mesh_template	,	V_258
+BS1_RST	,	V_73
+msgout	,	V_109
+count	,	V_163
+mesh_dump_regs	,	F_7
+macio_gatwick	,	V_253
+mesh_probe	,	F_78
+sel_timeout	,	V_69
+spin_unlock_irqrestore	,	F_47
+SEQ_COMMAND	,	V_134
+BP_MSGOUT	,	V_217
+BS1_BSY	,	V_90
+sg_dma_address	,	F_55
+MESH_DBG	,	F_23
+" to reselection!\n"	,	L_28
+mdev	,	V_231
+"mesh: configured for asynchronous\n"	,	L_104
+iounmap	,	F_90
+N_DBG_SLOG	,	V_25
+PM_EVENT_SUSPEND	,	V_235
+"mesh"	,	L_94
+handle_msgin	,	F_51
+"mesh: status is %x\n"	,	L_88
+DID_PARITY	,	V_171
+sleeping	,	V_238
+out_le32	,	F_14
+"done\n"	,	L_57
+"data_ptr %x"	,	L_73
+selecting	,	V_131
+fifo	,	V_43
+length	,	V_206
+bus_status0	,	V_18
+"mesh: can't cope with exception %x\n"	,	L_64
+macio_get_pci_dev	,	F_79
+mesh_resume	,	F_74
+tlp	,	V_11
+dma	,	V_34
+"phasemm ch/cl/seq/fc=%.8x"	,	L_77
+init_reset_delay	,	V_71
+"mesh: controller not responding"	,	L_27
+powermac	,	V_229
+mesh_resel_exc	,	V_177
+mesh_start	,	F_28
+INT_CMDDONE	,	V_65
+"got %d message bytes:"	,	L_65
+"mesh: reselection but nothing in fifo?\n"	,	L_45
+nseg	,	V_203
+conn_tgt	,	V_9
+do_abort	,	F_43
+pci_zalloc_consistent	,	F_91
+"mesh: reselected by tgt %d but no cmd!\n"	,	L_50
+FLUSH	,	V_60
+id	,	V_78
+"mesh: reselected in phase %d/%d tgt %d\n"	,	L_42
+period	,	V_114
+ERR_PARITY	,	V_168
+mesh_state	,	V_2
+cmd_len	,	V_82
+IRQ_HANDLED	,	V_160
+"mesh: msg_out but n_msgout=%d\n"	,	L_34
+"mesh: unable to request memory resources"	,	L_95
+slp	,	V_12
+N_DBG_LOG	,	V_23
+cmd	,	V_55
+"mesh log: bs=%.2x%.2x ph=%.2x t%d "	,	L_4
+sg_tablesize	,	V_265
+"intr b4 arb, intr/exc/err/fc=%.8x"	,	L_21
+status	,	V_44
+scsi_block_requests	,	F_72
+"mesh: target %d overrun, "	,	L_75
+"msgout msg=%.8x"	,	L_36
+scsi_cmnd	,	V_54
+pci_free_consistent	,	F_98
+PAUSE	,	V_59
+COMMAND_COMPLETE	,	V_183
+mesh_remove	,	F_101
+"mesh: reselected with DMA started !\n"	,	L_43
+out_release	,	V_259
+"mesh: halt_dma: data_ptr=%d (nb=%d, ms=%p)\n"	,	L_74
+mesh_resel_seqerr	,	V_173
+dma_cmd_size	,	V_264
+err	,	V_161
+"busy b4 arb, intr/exc/err/fc=%.8x"	,	L_20
+request_qtail	,	V_102
+"mesh: target %d aborted\n"	,	L_58
+"mesh: saved_ptr=%x goes_out=%d cmd=%p\n"	,	L_49
+"mesh: performing initial bus reset...\n"	,	L_13
+xfer_status	,	V_210
+virt_to_phys	,	F_38
+off	,	V_195
+"after arb, intr/exc/err/fc=%.8x"	,	L_24
+dcmds	,	V_200
+MSG_PARITY_ERROR	,	V_169
+phase_mismatch	,	F_49
+note_scsi_host	,	F_85
+source_id	,	V_66
+SEQ_MSGIN	,	V_126
+sync_rate	,	V_270
+" %x"	,	L_15
+macio_request_resources	,	F_82
+scsi_sg_count	,	F_19
+IDENTIFY	,	F_60
+lp	,	V_27
+"impatient for req"	,	L_87
+use_active_neg	,	V_123
+scsi_scan_host	,	F_96
+sc_data_direction	,	V_80
+WAKE	,	V_61
+msg_out	,	V_128
+dma_cmds	,	V_136
+SYNC_PARAMS	,	F_33
+SEQ_BUSFREE	,	V_144
+"mesh: can't map registers\n"	,	L_97
+mesh_flush_io	,	F_10
+pdev	,	V_244
+DID_OK	,	V_88
+this_id	,	V_68
+u32	,	T_1
+md	,	V_33
+host	,	V_67
+"after intr after disresel, intr/exc/err/fc=%.8x"	,	L_23
+"last_mbyte err/exc/fc/cl=%.8x"	,	L_81
+scsi_host_put	,	F_99
+req_count	,	V_207
+mesh_target	,	V_6
+mesh_driver	,	V_271
+mr	,	V_31
+ms	,	V_3
+n_msgout	,	V_49
+"mesh: error %x in msg_out\n"	,	L_82
+scsi_done	,	V_56
+MODULE	,	V_260
+nb	,	V_122
+spin_lock_irqsave	,	F_46
+code	,	V_181
+KERN_INFO	,	V_72
+ACTIVE	,	V_214
+n_log	,	V_24
+total	,	V_194
+out_8	,	F_15
+mesh_done	,	F_26
+do_mesh_interrupt	,	F_45
+mesh	,	V_17
+mesg	,	V_233
+"    ct=%4x seq=%2x bs=%4x fc=%2x "	,	L_6
+BP_DATAOUT	,	V_220
+SEQ_DISRESEL	,	V_94
+msgin_length	,	F_40
+"clock-frequency"	,	L_99
+control	,	V_57
+sg_dma_len	,	F_56
+dev_id	,	V_155
+BS0_REQ	,	V_224
+" (got %d,%d)\n"	,	L_93
+"    target %d: req=%p goes_out=%d saved_ptr=%d\n"	,	L_12
+"mesh: interrupt in idle phase?\n"	,	L_85
+dataing	,	V_135
+"mesh: bad reselection data %x\n"	,	L_47
+bs0	,	V_16
+DID_BAD_TARGET	,	V_180
+saved_ptr	,	V_52
+bs1	,	V_19
+EXC_ARBLOST	,	V_178
+MKWORD	,	F_24
+dma_addr_t	,	T_5
+prev	,	V_98
+commanding	,	V_133
+msleep	,	F_16
+meshintr	,	V_239
+exc	,	V_162
+EXTENDED_MESSAGE	,	V_110
+set_sdtr	,	F_31
+state	,	V_228
+"resel err/exc=%.4x"	,	L_52
+defined	,	F_84
+SEQ_RESETMESH	,	V_62
+mesh_sync_period	,	V_112
+SEQ_MSGOUT	,	V_130
+msg_in	,	V_125
+request_irq	,	F_94
+statusing	,	V_140
+dmaintr	,	V_263
+BS0_IO	,	V_96
+EXTENDED_MODIFY_DATA_POINTER	,	V_184
+dma_addr	,	V_204
+exit_mesh	,	F_105
+"start cmd=%x"	,	L_18
+"msgin msg=%.8x"	,	L_66
+dma_started	,	V_47
+get_msgin	,	F_39
+ERR_SEQERR	,	V_172
+device	,	V_79
+scsi_bufflen	,	F_21
+set_dma_cmds	,	F_37
+disable_irq	,	F_73
+mesh_regs	,	V_30
+"mesh: SCSI bus reset detected: "	,	L_55
+clk_freq	,	V_120
+msg_none	,	V_77
+"    phase=%d msgphase=%d conn_tgt=%d data_ptr=%d\n"	,	L_10
+disconnecting	,	V_143
+device_node	,	V_242
+scsi_remove_host	,	F_102
+msgin	,	V_146
+BP_DATAIN	,	V_219
+" fifo data=%.2x\n"	,	L_8
+dtot	,	V_196
+"mesh: expected 2 addrs and 2 intrs"	,	L_92
+"mesh log %d: bs=%.2x%.2x ph=%.2x "	,	L_1
+start_phase	,	F_34
+stat	,	V_87
+scatterlist	,	V_197
+handle_exception	,	F_50
+RUN	,	V_58
+n_msgin	,	V_127
+halt_dma	,	F_42
+scsi_sglist	,	F_20
+BS0_PHASE	,	V_215
+tb	,	V_1
+mesh_sync_offset	,	V_113
+"waiting for end..."	,	L_56
+"mesh: lun mismatch "	,	L_67
+minper	,	V_245
+DBG_USE_TB	,	F_2
+dma_cmd_bus	,	V_249
+tp	,	V_7
+data_ptr	,	V_46
+tr	,	V_117
+bus	,	V_250
+mesh_interrupt	,	F_25
+__iomem	,	T_2
+start_next	,	V_103
+arbitrating	,	V_84
+EXTENDED_SDTR	,	V_111
+"MESH"	,	L_101
+SEQ_DMA_MODE	,	V_139
+DID_ERROR	,	V_176
+MESSAGE_REJECT	,	V_189
+macio_heathrow	,	V_252
+"mesh: state at %p, regs at %p, dma at %p\n"	,	L_5
+cpu_to_le16	,	F_57
+"mesh_done: result = %x, data_ptr=%d, buflen=%d\n"	,	L_30
+scsi_host_alloc	,	F_83
+log_ix	,	V_13
+sync_params	,	V_42
+"target %d\n"	,	L_69
+BS1_SEL	,	V_91
+SYNC_OFF	,	F_32
+scsi_dma_map	,	F_52
+ioremap	,	F_89
+NOP	,	V_190
+EXC_RESELECTED	,	V_166
+macio_release_resources	,	F_100
+pci_dev	,	V_243
+"mesh: unknown scsi phase %x\n"	,	L_79
+"mesh: msg parity error, target %d\n"	,	L_59
+next	,	V_99
+readtb	,	F_1
+dbglog	,	V_10
+INT_ERROR	,	V_63
+"mesh: target %d now asynchronous\n"	,	L_31
+macio_unregister_driver	,	F_106
+BUG_ON	,	F_53
+"(%d != %llu) on reselection from "	,	L_68
+printk	,	F_5
+"mesh: rejecting message from target %d:"	,	L_70
+msg_out_xxx	,	V_216
+"mesh bug: start_phase msgphase=%d\n"	,	L_39
+BP_STATUS	,	V_222
+SEQ_ARBITRATE	,	V_95
+cpu_to_le32	,	F_58
+mesh_shutdown	,	F_77
+"mesh: exc %x in msg_out\n"	,	L_83
+of_device_id	,	V_240
+scsi_add_host	,	F_95
+DBDMA_ALIGN	,	F_92
+"error err/exc/fc/cl=%.8x"	,	L_54
+"mesh: target %d synchronous at %d.%d MB/s\n"	,	L_32
+aborting	,	V_89
+"bus0 was %.2x explicitly asserting ATN"	,	L_37
+mesh_host_reset	,	F_65
+"mesh_start: %p tgt=%d cmd="	,	L_14
+msgphase	,	V_15
+mesh_extra_buf	,	V_211
+macio_get_of_node	,	F_69
+PMAC_FTR_MESH_ENABLE	,	V_230
+ASYNC_PARAMS	,	V_70
+"extra resel err/exc/fc = %.6x"	,	L_44
+busfreeing	,	V_142
+"Selecting phase at command completion"	,	L_86
+pm_message_t	,	T_4
+base	,	V_261
+scsi_dma_unmap	,	F_59
+"mesh: configured for synchronous %d MB/s\n"	,	L_103
+current_req	,	V_50
+DBDMA_STOP	,	V_213
+macio_get_drvdata	,	F_71
+SEQ_FLUSHFIFO	,	V_74
+out_shutdown	,	V_267
+"mesh: scatterlist element &gt;= 64k"	,	L_71
+EXC_PHASEMM	,	V_174
+do_sdtr	,	V_153
+"    dma stat=%x cmdptr=%x\n"	,	L_9
+dest_id	,	V_93
+"    dma_st=%d dma_ct=%d n_msgout=%d\n"	,	L_11
+ERR_UNEXPDISC	,	V_165
+last_n_msgout	,	V_85
+"data_ptr=%x total=%x goes_out=%d\n"	,	L_76
+FAILED	,	V_226
+"mesh: start_phase called with phase=%d\n"	,	L_41
+dumplog	,	F_4
+DMA_TO_DEVICE	,	V_81
+init_mesh	,	F_103
+phase	,	V_14
+host_scribble	,	V_101
+mesh_aborted_resels	,	V_149
+macio_resource_count	,	F_80
+"mesh: assuming 50MHz clock frequency\n"	,	L_100
+out_release_irq	,	V_269
+mesh_start_cmd	,	F_17
+ALLOW_RESEL	,	F_61
+OUTPUT_MORE	,	V_201
+dma_len	,	V_205
+"mesh: sequence error (err=%x exc=%x)\n"	,	L_61
+ENODEV	,	V_256
+ALLOW_SYNC	,	F_30
+flags	,	V_156
+mesh_phasemm_seqerr	,	V_175
+of_get_property	,	F_93
+macio_irq_count	,	F_81
+hostdata	,	V_225
+this_residual	,	V_108
+"resetting MESH scsi bus(es)\n"	,	L_91
+SAVE_POINTERS	,	V_186
+dbdma_cmd	,	V_199
+out_unmap	,	V_266
+event	,	V_234
+count_lo	,	V_36
+mesh_init	,	F_12
+DID_ABORT	,	V_151
+macio_paddington	,	V_254
+DEBUG_TARGET	,	F_18
+enable_irq	,	F_75
+reselected	,	F_41
+ALLOW_DEBUG	,	F_35
+macio_set_drvdata	,	F_88
+__init	,	T_6
+__exit	,	T_7
+udelay	,	F_13
+"mesh: unknown error %x (exc=%x)\n"	,	L_62
+scsi_unblock_requests	,	F_76
+"reseldata %x"	,	L_46
+ERR_SCSIRESET	,	V_164
+"\n"	,	L_3
+SEQ_ATN	,	V_124
+SEQ_SELECT	,	V_132
+fifo_count	,	V_38
+"mesh_abort(%p)\n"	,	L_89
+out_free	,	V_262
+cmnd	,	V_83
+INT_EXCEPTION	,	V_64
+dma_count	,	V_48
+BP_MSGIN	,	V_223
+interrupt	,	V_41
+add_sdtr_msg	,	F_29
+INPUT_MORE	,	V_202
+Scsi_Host	,	V_157
+request_q	,	V_100
+"mesh: bs0=%x in msg_out\n"	,	L_84
+"tb=%10u "	,	L_2
+SEQ_STATUS	,	V_141
+"mesh: reselected by target %d\n"	,	L_48
+offset	,	V_115
+SEQ_ACTIVE_NEG	,	V_255
+done	,	F_63
+in_8	,	F_8
+sequence	,	V_37
+"resel? after arb, intr/exc/err/fc=%.8x"	,	L_25
+"hace: after explicit ATN bus0=%.2x"	,	L_38
+sdtr_sent	,	V_185
+mesh_queue_lck	,	F_62
+SEQ_DATAOUT	,	V_137
+Message	,	V_107
+MESH_MULTIPLE_HOSTS	,	F_27
+"intr after disresel, intr/exc/err/fc=%.8x"	,	L_22
+sdtr_done	,	V_119
+"mesh: lost arbitration\n"	,	L_63
+mesh_abort	,	F_64
+EXC_SELTO	,	V_179
+reject	,	V_182
+expect_reply	,	V_86
+"resel prev tgt=%d"	,	L_51
+count_hi	,	V_35
+in_le32	,	F_9
+handle_error	,	F_48
+idle	,	V_76
+irqreturn_t	,	T_3
+match	,	V_241
+command	,	V_208
+mesh_host	,	V_247
+RESTORE_POINTERS	,	V_187
+cmd_complete	,	F_36
+BS0_ATN	,	V_129
+KERN_ERR	,	V_97
+SEQ_ENBRESEL	,	V_75
+SEQ_DATAIN	,	V_138
+"cmd_complete fc=%x"	,	L_80
+handle_reset	,	F_44
+OUTPUT_LAST	,	V_212
+macio_resource_start	,	F_86
+KERN_DEBUG	,	V_29

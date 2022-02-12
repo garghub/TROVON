@@ -1,0 +1,327 @@
+"crypto receive overflow"	,	L_14
+dma64	,	V_127
+spin_lock_init	,	F_71
+dma_addr_t	,	T_5
+pdc_irq_thread	,	F_44
+NEXTRXD	,	F_17
+" - base DMA addr of tx ring      %pad"	,	L_22
+PDC_SPU2_RESP_HDR_LEN	,	V_165
+upper_32_bits	,	F_16
+" - base virtual addr of tx ring  %p"	,	L_23
+PDC_INTMASK_OFFSET	,	V_174
+dev	,	V_31
+len	,	V_45
+rx_idx	,	V_51
+dma_map_sg	,	F_51
+PDC_TXREGS_OFFSET	,	V_158
+RING_ENTRY_SIZE	,	V_60
+DMA_FROM_DEVICE	,	V_69
+desc_w	,	V_82
+dst_sg	,	V_68
+unlikely	,	F_28
+__user	,	T_2
+ctx	,	V_66
+PDC_RCVINT_0	,	V_110
+PDC_RXREGS_OFFSET	,	V_159
+EIO	,	V_74
+dmaregs	,	V_141
+"PDC device cannot perform DMA. Error %d."	,	L_38
+loff_t	,	T_4
+"PDC %u reclaimed %d tx descriptors"	,	L_10
+chan_index	,	V_177
+dma_addr	,	V_27
+src_nent	,	V_147
+pdc_ring_init	,	F_48
+of_node	,	V_173
+txdone_irq	,	V_181
+GFP_KERNEL	,	V_12
+device	,	V_30
+src_sg	,	V_64
+rx_pkt_cnt	,	V_96
+con_priv	,	V_146
+spu_stats_name	,	V_21
+txd_64	,	V_41
+D64_CTRL1_EOT	,	V_89
+ssize_t	,	T_1
+IRQ_NONE	,	V_114
+rx	,	V_131
+mssg	,	V_44
+GFP_ATOMIC	,	V_99
+wmb	,	F_38
+device_node	,	V_171
+addrhigh	,	V_36
+PDC_RING_SIZE	,	V_187
+rx_status	,	V_46
+tx_ring_alloc	,	V_137
+of_property_read_u32	,	F_67
+S_IRUSR	,	V_25
+D64_CTRL1_EOF	,	V_91
+txnobuf	,	V_18
+addrlow	,	V_35
+sg	,	V_78
+dev_crit	,	F_65
+pdc_mb_init	,	F_62
+"PDC %u initial values:"	,	L_28
+ENOTSUPP	,	V_150
+"%s failed with error %d"	,	L_26
+KBUILD_MODNAME	,	V_23
+"Failed to map registers: %d\n"	,	L_41
+dev_info_ratelimited	,	F_30
+scatterlist	,	V_77
+devm_ioremap_resource	,	F_77
+u8	,	T_7
+PDC_DMA_BUF_MAX	,	V_90
+i	,	V_48
+irq	,	V_102
+rx_avail	,	V_95
+regs	,	V_140
+RX_STATUS_LEN	,	V_72
+ioread32	,	F_23
+num_chans	,	V_180
+buf	,	V_8
+IRQ_WAKE_THREAD	,	V_113
+"PDC requests............%u\n"	,	L_2
+mbox_controller	,	V_115
+of_property_read_bool	,	F_68
+txdone_poll	,	V_182
+databufptr	,	V_84
+pdc_requests	,	V_16
+platform_device	,	V_155
+rx_oflow	,	V_20
+PDC_SUCCESS	,	V_76
+PDC_RX_CTL	,	V_163
+tx	,	V_130
+pdc_tx_list_final	,	F_37
+dn	,	V_172
+"Receive overflow........%u\n"	,	L_6
+dev_dbg	,	F_13
+ctrl2	,	V_38
+NEXTTXD	,	F_19
+ctrl1	,	V_37
+dev_err_ratelimited	,	F_29
+status0	,	V_58
+PDC_RINGSET	,	V_154
+"state structure:                   %p"	,	L_29
+BRCM_MESSAGE_SPU	,	V_123
+NTXDACTIVE	,	F_33
+txin	,	V_63
+ret	,	V_9
+dma_pool_create	,	F_57
+iowrite32	,	F_14
+pdc_rx_buf_pool_create	,	F_56
+count	,	V_4
+PDC_INTSTATUS_OFFSET	,	V_106
+pdc_lock	,	V_53
+rx_status_len	,	V_164
+mbox_chan_txdone	,	F_46
+"pdc rings"	,	L_39
+pdc_setup_debugfs	,	F_5
+ops	,	V_178
+dma_pool_destroy	,	F_80
+debugfs_stats	,	V_24
+sg_dma_address	,	F_35
+pdc_replies	,	V_17
+resp_hdr_daddr	,	V_52
+platform_get_resource	,	F_76
+debugfs_initialized	,	F_6
+ntxpost	,	V_42
+dmabase	,	V_134
+dmarcv	,	V_143
+"Writing rx descriptor for PDC %u at index %u with length %u. flags %#x\n"	,	L_8
+D64_CTRL1_SOF	,	V_87
+chans	,	V_122
+"brcm,rx-status-len"	,	L_35
+dma_pool_zalloc	,	F_40
+cleanup_buf_pool	,	V_194
+txregs_64	,	V_94
+pdc_tx_list_sg_add	,	F_32
+num_desc	,	V_81
+dev_err	,	F_52
+pdc_build_rxd	,	F_12
+txout	,	V_40
+rx_buf_pool	,	V_75
+debugfs_create_dir	,	F_7
+offp	,	V_5
+pdc_state	,	V_6
+kmalloc	,	F_2
+"SPU %u stats:\n"	,	L_1
+"Shutdown mailbox channel for PDC %u"	,	L_27
+end	,	V_193
+"%s(): no SPU response available"	,	L_21
+"brcm,use-bcm-hdr"	,	L_37
+"%s(): invoking client rx cb"	,	L_20
+simple_read_from_buffer	,	F_3
+start	,	V_192
+spin_unlock	,	F_24
+rxin_numd	,	V_56
+tx_avail	,	V_80
+vbase	,	V_132
+DMA_BIT_MASK	,	F_74
+rxd_64	,	V_34
+ptr	,	V_93
+rxp_ctx	,	V_67
+dmaxmt	,	V_142
+PDC_RCVINTEN_0	,	V_109
+ENOMEM	,	V_13
+rxnobuf	,	V_19
+ntxd	,	V_88
+frags_rdy	,	V_50
+simple_empty	,	F_10
+eot	,	V_79
+pdc_probe	,	F_69
+tx_int	,	V_119
+"threaded tx IRQ %u request failed with err %d\n"	,	L_33
+devm_request_threaded_irq	,	F_61
+"pdc_probe() successful"	,	L_42
+" - base DMA addr of rx ring      %pad"	,	L_24
+DMA_TO_DEVICE	,	V_65
+pdc_ring_alloc	,	V_129
+PDC_LAZY_INT	,	V_175
+cookie	,	V_103
+"pdc%d_stats"	,	L_7
+mbox_chan_received_data	,	F_47
+rx_int	,	V_120
+PDC_CKSUM_CTRL	,	V_166
+"%s failed to get DMA receive status length from device tree"	,	L_36
+pdc_rx_list_init	,	F_39
+pdc_free_debugfs	,	F_9
+NRXDACTIVE	,	F_22
+ENOSPC	,	V_85
+IRQ_HANDLED	,	V_124
+"pdc device %s irq %u for pdcs %p"	,	L_32
+BCM_HDR_LEN	,	V_169
+dst_nent	,	V_148
+rxout	,	V_33
+__func__	,	V_121
+"set"	,	L_17
+dma_unmap_sg	,	F_26
+pdc_hw_init	,	F_55
+CRYPTO_D64_RS0_CD_MASK	,	V_59
+last_rx_curr	,	V_55
+PDC_INTMASK	,	V_112
+PDC_CKSUM_CTRL_OFFSET	,	V_167
+ring_pool	,	V_133
+debugfs_remove_recursive	,	F_11
+"Writing tx descriptor for PDC %u at index %u with length %u, flags %#x\n"	,	L_9
+pdc_mbox_chan_ops	,	V_179
+ENODEV	,	V_191
+RING_ALIGN	,	V_188
+pdc_interrupts_init	,	F_58
+private_data	,	V_14
+kfree	,	F_4
+flags	,	V_29
+rx_msg_start	,	V_100
+"%s() got irq %d with tx_int %s, rx_int %s"	,	L_16
+pdc_send_data	,	F_50
+"pdc rx bufs"	,	L_31
+debugfs_create_file	,	F_8
+PDC_XMTINTEN_0	,	V_107
+pdcs	,	V_7
+pdc_build_txd	,	F_18
+D64_CTRL1_IOC	,	V_92
+intstatus	,	V_104
+file	,	V_1
+PDC_SPUM_RESP_HDR_LEN	,	V_71
+txin_numd	,	V_62
+"%s(): tx done"	,	L_19
+brcm_message	,	V_43
+rxregs_64	,	V_57
+sg_next	,	F_36
+"crypto rx len = 0"	,	L_15
+"PDC %u txin %u, txout %u, rxin %u, rxout %u, last_rx_curr %u\n"	,	L_12
+err	,	V_126
+pdc_shutdown	,	F_54
+"PDC %u reclaimed %d rx descriptors"	,	L_11
+cleanup_ring_pool	,	V_189
+EAGAIN	,	V_61
+out_offset	,	V_10
+pdcg	,	V_185
+mbc	,	V_116
+out_count	,	V_11
+pdc_resp_hdr_len	,	V_70
+"Rx err ring full........%u\n"	,	L_5
+devm_kcalloc	,	F_63
+pdc_remove	,	F_81
+chan	,	V_118
+pdc_regs	,	V_156
+dma_set_mask_and_coherent	,	F_73
+PDC_RCVLAZY0_OFFSET	,	V_176
+mbox_controller_register	,	F_64
+nrxd	,	V_101
+pdc_dt_read	,	F_66
+data	,	V_145
+rmb	,	F_25
+sg_nents	,	F_27
+"PDC responses...........%u\n"	,	L_3
+size_t	,	T_3
+nent	,	V_149
+num_frags	,	V_47
+lower_32_bits	,	F_15
+pdev	,	V_32
+nrxpost	,	V_39
+pdc_ring_free	,	F_49
+pdc_idx	,	V_15
+pdc_debugfs_read	,	F_1
+u32	,	T_6
+"SPU response length %u bytes"	,	L_13
+pdc_debugfs_stats	,	V_26
+PDC_XMTINT_0	,	V_108
+use_bcm_hdr	,	V_168
+pdc_startup	,	F_53
+RX_STATUS_OVERFLOW	,	V_73
+resource	,	V_183
+filp	,	V_2
+resp_hdr	,	V_49
+pdc_reg_vbase	,	V_105
+" - base virtual addr of rx ring  %p"	,	L_25
+dma64_regs	,	V_157
+done	,	V_135
+PTR_ERR	,	F_79
+tx_msg_start	,	V_86
+PDC_RING_ENTRIES	,	V_144
+debugfs_dir	,	V_22
+"clear"	,	L_18
+rx_ring_alloc	,	V_138
+cleanup	,	V_184
+RX_BUF_ALIGN	,	V_170
+spu	,	V_151
+irq_of_parse_and_map	,	F_59
+dma_reg	,	V_128
+num_spu	,	V_186
+platform_set_drvdata	,	F_72
+devm_kzalloc	,	F_70
+mbox_controller_unregister	,	F_83
+ringset	,	V_125
+platform_get_drvdata	,	F_82
+dst	,	V_153
+" - base virtual addr of hw regs    %p"	,	L_30
+pdc_rx_list_sg_add	,	F_41
+vaddr	,	V_98
+bufcnt	,	V_83
+"PDC register region res.start = %pa, res.end = %pa"	,	L_40
+pdc_receive	,	F_20
+"Tx err ring full........%u\n"	,	L_4
+buf_len	,	V_28
+spin_lock	,	F_21
+IORESOURCE_MEM	,	V_190
+rxin	,	V_54
+dev_name	,	F_60
+intmask	,	V_160
+set_bit	,	F_43
+src	,	V_152
+pdc_irq	,	V_111
+irqreturn_t	,	T_8
+ubuf	,	V_3
+pdc_irq_handler	,	F_42
+dma64dd	,	V_139
+dev_warn	,	F_75
+sg_dma_len	,	F_34
+PDC_TX_CTL	,	V_161
+control	,	V_162
+mbox_chan	,	V_117
+"Failed to register PDC mailbox controller. Error %d."	,	L_34
+test_and_clear_bit	,	F_45
+daddr	,	V_97
+fail_dealloc	,	V_136
+dma_pool_free	,	F_31
+IS_ERR	,	F_78

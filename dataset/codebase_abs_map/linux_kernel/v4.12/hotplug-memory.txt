@@ -1,0 +1,224 @@
+"/memory@%x"	,	L_4
+cpu_to_be32	,	F_20
+parent	,	V_42
+pr	,	V_95
+old_drmem	,	V_97
+ala_prop	,	V_34
+OF_RECONFIG_UPDATE_PROPERTY	,	V_107
+nid	,	V_55
+dlpar_memory_readd_by_index	,	F_56
+dev	,	V_66
+start_index	,	V_73
+PAGE_SHIFT	,	V_56
+pseries_memory_hotplug_init	,	F_72
+machine_is	,	F_6
+"Memory indexed-count-add failed, removing any added LMBs\n"	,	L_35
+dlpar_remove_lmb	,	F_48
+OF_RECONFIG_ATTACH_NODE	,	V_105
+PSERIES_HP_ELOG_ID_DRC_INDEX	,	V_89
+remove_memory	,	F_40
+drc_count	,	V_88
+rc	,	V_62
+find_memory_block	,	F_35
+rd	,	V_103
+size	,	V_7
+"Failed to hot-add memory, drc index %x\n"	,	L_33
+reserved	,	V_70
+dlpar_memory_add_by_count	,	F_62
+pr_err	,	F_29
+GFP_KERNEL	,	V_17
+"ibm,lmb-size"	,	L_2
+__be32	,	T_3
+dlpar_update_device_tree_lmb	,	F_23
+"Couldn't find associativity index for drc index %x\n"	,	L_9
+memory_block_size_bytes	,	F_45
+PAGES_PER_SECTION	,	V_65
+dlpar_memory_remove_by_count	,	F_51
+device_node	,	V_1
+"Attempting to update LMB, drc index %x\n"	,	L_20
+aa_index	,	V_28
+"Attempting to hot-remove LMB, drc index %x\n"	,	L_18
+be64_to_cpup	,	F_4
+pseries	,	V_8
+cpu_to_be64	,	F_21
+lmbs_removed	,	V_68
+pr_info	,	F_52
+sections_per_block	,	V_54
+i	,	V_25
+regs	,	V_58
+EOPNOTSUPP	,	V_76
+pseries_add_mem_node	,	F_67
+__nr_to_section	,	F_34
+p	,	V_24
+pseries_update_drconf_memory	,	F_69
+r	,	V_6
+buf	,	V_10
+dlpar_clone_property	,	F_11
+"Attempting to hot-remove %u LMB(s) at %x\n"	,	L_23
+of_node_put	,	F_5
+"Attempting to hot-add %d LMB(s)\n"	,	L_28
+dlpar_remove_device_tree_lmb	,	F_30
+dn	,	V_20
+of_update_property	,	F_22
+memblock_remove	,	F_41
+pseries_memory_block_size	,	F_1
+dlpar_acquire_drc	,	F_63
+"Failed to hot-remove memory at %llx\n"	,	L_19
+dlpar_memory_add_by_index	,	F_64
+_drc_u	,	V_87
+ret	,	V_60
+PSERIES_HP_ELOG_ACTION_ADD	,	V_84
+"memory"	,	L_11
+start_lmb_found	,	V_72
+count	,	V_81
+memory_add_physaddr_to_nid	,	F_39
+PFN_DOWN	,	F_33
+"device_type"	,	L_10
+new_prop	,	V_16
+"Invalid action (%d) specified\n"	,	L_36
+of_reconfig_notifier_register	,	F_74
+"Attempting to hot-add LMB, drc index %x\n"	,	L_32
+"ibm,associativity-lookup-arrays"	,	L_8
+name	,	V_13
+"Failed to update memory at %llx\n"	,	L_21
+lock_device_hotplug	,	F_37
+section_nr	,	V_47
+"Memory indexed-count-remove failed, adding any removed LMBs\n"	,	L_24
+start_pfn	,	V_53
+pseries_hp_errorlog	,	V_77
+dlpar_free_cc_nodes	,	F_27
+put_device	,	F_50
+notifier_from_errno	,	F_71
+"Memory at %llx (drc index %x) was hot-removed\n"	,	L_26
+kzalloc	,	F_12
+OF_DYNAMIC	,	V_19
+lmb_assoc	,	V_35
+scns_per_block	,	V_61
+unlock_device_hotplug	,	F_42
+lmbs_to_remove	,	V_67
+pfn_present	,	F_46
+memblock_size	,	V_3
+aa_array_entries	,	V_38
+length	,	V_18
+pfn_to_section_nr	,	F_32
+"Memory at %llx (drc index %x) was hot-added\n"	,	L_31
+new_prop_size	,	V_41
+pseries_memory_notifier	,	F_70
+memzero_size	,	V_9
+dr_node	,	V_33
+pseries_remove_memblock	,	F_36
+PSERIES_HP_ELOG_ACTION_READD	,	V_93
+base	,	V_51
+lmb	,	V_31
+of_find_property	,	F_16
+mem_section	,	V_48
+lmb_found	,	V_71
+mem_block	,	V_50
+OF_RECONFIG_DETACH_NODE	,	V_106
+property	,	V_11
+action	,	V_83
+"Failed to add LMB back, drc index %x\n"	,	L_16
+ic	,	V_91
+phys_addr	,	V_64
+"/memory@0"	,	L_3
+lookup_lmb_associativity_index	,	F_25
+"reg"	,	L_12
+of_find_node_by_path	,	F_2
+index	,	V_40
+pseries_remove_mem_node	,	F_43
+be32_to_cpu	,	F_17
+base_addr	,	V_26
+lmb_node	,	V_43
+PSERIES_HP_ELOG_ID_DRC_IC	,	V_90
+DRCONF_MEM_ASSIGNED	,	V_45
+pfn	,	V_63
+DRCONF_MEM_RESERVED	,	V_75
+block_sz	,	V_52
+new_drmem	,	V_96
+lmb_is_removable	,	F_44
+ENODEV	,	V_32
+"Attempting to hot-add %u LMB(s) at index %x\n"	,	L_34
+of_address_to_resource	,	F_7
+kfree	,	F_10
+flags	,	V_29
+of_get_property	,	F_3
+kstrdup	,	F_13
+mem_sect	,	V_49
+out	,	V_57
+memory_block	,	V_46
+device_offline	,	F_49
+prop	,	V_12
+dlpar_memory_remove_by_index	,	F_55
+dlpar_memory_remove_by_ic	,	F_57
+id_type	,	V_85
+of_reconfig_data	,	V_94
+"Attempting to hot-remove %d LMB(s)\n"	,	L_13
+err	,	V_104
+"Memory hot-remove failed, adding LMB's back\n"	,	L_15
+device_online	,	F_60
+firmware_has_feature	,	F_73
+pfn_valid	,	F_38
+of_property_set_flag	,	F_14
+EINVAL	,	V_44
+dlpar_configure_connector	,	F_26
+lmbs_added	,	V_80
+"/"	,	L_6
+rtas_hp_event	,	V_30
+__init	,	T_5
+notifier_block	,	V_100
+dlpar_memory_out	,	V_82
+dlpar_update_drconf_property	,	F_19
+dlpar_memory_add_by_ic	,	F_65
+data	,	V_102
+"ibm,associativity"	,	L_7
+hp_elog	,	V_78
+aa_arrays	,	V_37
+"Not enough LMBs available (%d of %d) to satisfy request\n"	,	L_14
+drc_index	,	V_27
+"Memory hot-add failed, removing any added LMBs\n"	,	L_29
+dlpar_memory	,	F_66
+"Failed to add LMB, drc index %x\n"	,	L_25
+PSERIES_HP_ELOG_ID_DRC_COUNT	,	V_86
+memblock_add	,	F_68
+"Memory at %llx was updated\n"	,	L_22
+u32	,	T_2
+assoc_arrays	,	V_36
+aa_array_sz	,	V_39
+lmb_to_memblock	,	F_31
+lmbs	,	V_22
+__be64	,	T_1
+resource	,	V_5
+dlpar_add_lmb	,	F_53
+find_aa_index	,	F_24
+end_index	,	V_74
+dlpar_online_lmb	,	F_59
+"Couldn't update device tree for drc index %x\n"	,	L_27
+old_prop	,	V_99
+"Memory at %llx was hot-removed\n"	,	L_17
+dlpar_memory_remove	,	F_58
+entries	,	V_98
+of_drconf_cell	,	V_21
+nb	,	V_101
+np	,	V_2
+num_lmbs	,	V_23
+FW_FEATURE_LPAR	,	V_108
+prop_size	,	V_15
+MIN_MEMORY_BLOCK_SIZE	,	V_4
+lmbs_available	,	V_69
+dlpar_free_property	,	F_9
+lmb_size	,	V_59
+"Failed to remove LMB, drc index %x\n"	,	L_30
+PSERIES_HP_ELOG_ACTION_REMOVE	,	V_92
+dlpar_release_drc	,	F_54
+value	,	V_14
+dlpar_add_device_tree_lmb	,	F_28
+is_mem_section_removable	,	F_47
+dlpar_clone_drconf_property	,	F_15
+add_memory	,	F_61
+"/ibm,dynamic-reconfiguration-memory"	,	L_1
+lmbs_to_add	,	V_79
+resource_size	,	F_8
+u64	,	T_4
+"ibm,dynamic-memory"	,	L_5
+pseries_mem_nb	,	V_109
+be64_to_cpu	,	F_18

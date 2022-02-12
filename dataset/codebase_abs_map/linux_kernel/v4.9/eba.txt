@@ -1,0 +1,259 @@
+ubi_ro_mode	,	F_44
+MOVE_TARGET_WR_ERR	,	V_113
+"error %d while reading VID header back from PEB %d"	,	L_24
+parent	,	V_40
+cpu_to_be32	,	F_58
+ubi_eba_unmap_leb	,	F_36
+UBI_IO_RETRIES	,	V_92
+spin_lock_init	,	F_82
+"read %d bytes from offset %d of LEB %d:%d, PEB %d"	,	L_3
+leb_size	,	V_106
+ubi_alloc_vid_buf	,	F_40
+beb_rsvd_pebs	,	V_121
+"corrupted VID header at PEB %d, LEB %d:%d"	,	L_4
+ubi_ainf_peb	,	V_131
+len	,	V_47
+rwsem_is_locked	,	F_71
+ubi_ltree_entry	,	V_27
+"volume %d is being removed, cancel"	,	L_19
+"erase LEB %d:%d, PEB %d"	,	L_1
+ltree	,	V_30
+ai	,	V_117
+ai_fastmap	,	V_123
+EIO	,	V_84
+UBI_VID_DYNAMIC	,	V_85
+ubi_attach_info	,	V_116
+UBI_MAX_SG_COUNT	,	V_79
+rb	,	V_32
+min_io_size	,	V_98
+av	,	V_130
+GFP_NOFS	,	V_37
+ubi_free_vid_buf	,	F_46
+GFP_KERNEL	,	V_23
+ubi_vid_hdr	,	V_52
+ubi_eba_table	,	V_17
+"cannot reserve enough PEBs for bad PEB handling, reserved %d, need %d"	,	L_25
+UBI_INT_VOL_COUNT	,	V_134
+new_pnum	,	V_82
+ubi_eba_init	,	F_81
+rsvd_pebs	,	V_143
+leb_write_unlock	,	F_33
+vidb	,	V_51
+ubi_err	,	F_80
+mutex_init	,	F_83
+copy_flag	,	V_88
+mutex_unlock	,	F_61
+alc_mutex	,	V_100
+aldata_size	,	V_105
+RB_ROOT	,	V_136
+scan_eba	,	V_127
+min	,	V_119
+sg	,	V_77
+ubi_eba_read_leb	,	F_39
+opnum	,	V_93
+idx2vol_id	,	F_78
+ubi_msg	,	F_49
+"failed to write to PEB %d"	,	L_9
+cpu_to_be64	,	F_57
+UBI_DYNAMIC_VOLUME	,	V_58
+UBI_IO_BAD_HDR_EBADMSG	,	V_61
+scatterlist	,	V_76
+"failed to write VID header to LEB %d:%d, PEB %d"	,	L_12
+i	,	V_22
+uint32_t	,	T_1
+ubi_io_read_vid_hdr	,	F_42
+j	,	V_125
+vtbl_slots	,	V_133
+ubi_vid_io_buf	,	V_50
+"read %d bytes of data"	,	L_22
+p	,	V_29
+buf	,	V_45
+mutex_lock	,	F_56
+to	,	V_104
+EROFS	,	V_42
+vol_type	,	V_56
+ERR_PTR	,	F_8
+is_error_sane	,	F_69
+ubi_device	,	V_1
+"recover PEB %d, move data to PEB %d"	,	L_7
+ubi_io_write_vid_hdr	,	F_59
+out_put	,	V_83
+ubi_calc_data_len	,	F_73
+ubi_eba_write_leb	,	F_65
+sgl	,	V_73
+buf_mutex	,	V_86
+down_read	,	F_25
+crc32	,	F_50
+"error %d while reading data from PEB %d"	,	L_23
+ubi_io_read_data	,	F_47
+ltree_lock	,	V_4
+ret	,	V_75
+"contention on LEB %d:%d, cancel"	,	L_20
+used_ebs	,	V_67
+check	,	V_48
+scrub	,	V_49
+users	,	V_38
+"initialize EBA sub-system"	,	L_28
+leb_write_trylock	,	F_31
+ETIMEDOUT	,	V_102
+try_write_vid_and_data	,	F_64
+MOVE_CANCEL_RACE	,	V_108
+up_write	,	F_34
+"failed to write data to PEB %d"	,	L_15
+"copy LEB %d:%d, PEB %d to PEB %d"	,	L_18
+idx	,	V_89
+compat	,	V_96
+aeb	,	V_132
+fast_attach	,	V_64
+dbg_eba	,	F_37
+rb_link_node	,	F_20
+try_recover_peb	,	F_54
+mtd_is_eccerr	,	F_48
+ubi_find_av	,	F_77
+vol	,	V_10
+kzalloc	,	F_7
+ubi_wl_put_peb	,	F_38
+kmalloc	,	F_18
+data_pad	,	V_97
+ldesc	,	V_13
+retry	,	V_59
+ubi_eba_is_mapped	,	F_35
+sqnum	,	V_3
+ubi_move_aeb_to_list	,	F_84
+peb_buf	,	V_87
+leb_read_unlock	,	F_26
+length	,	V_80
+spin_unlock	,	F_3
+ubi_next_sqnum	,	F_1
+"EBA sub-system is initialized"	,	L_30
+UBI_IO_BITFLIPS	,	V_60
+ltree_add_entry	,	F_17
+crc1	,	V_70
+"try another PEB"	,	L_16
+"%d PEBs are corrupted and not used"	,	L_26
+ENOMEM	,	V_21
+tries	,	V_90
+fm_eba_sem	,	V_44
+ubi_volume	,	V_9
+ubi_calculate_reserved	,	F_85
+list_pos	,	V_78
+MOVE_SOURCE_RD_ERR	,	V_111
+kmalloc_array	,	F_9
+self_check_eba	,	F_76
+dbg_wl	,	F_72
+data_crc	,	V_69
+"LEB %d:%d is no longer mapped to PEB %d, mapped to PEB %d, cancel"	,	L_21
+data_size	,	V_68
+pnum	,	V_14
+volumes	,	V_91
+out_unlock_leb	,	V_110
+out_unlock	,	V_43
+MOVE_TARGET_RD_ERR	,	V_114
+be32_to_cpu	,	F_45
+ENOSPC	,	V_142
+vid_hdr	,	V_53
+MOVE_RETRY	,	V_109
+ubi_eba_write_leb_st	,	F_66
+ubi_io_write_data	,	F_60
+bad_allowed	,	V_94
+UBI_LEB_UNMAPPED	,	V_24
+EBA_RESERVED_PEBS	,	V_141
+ro_mode	,	V_41
+ubi_sgl	,	V_72
+"force data checking"	,	L_5
+kfree	,	F_10
+mutex	,	V_39
+ubi_eba_read_leb_sg	,	F_52
+down_write_trylock	,	F_32
+out	,	V_95
+UBI_LAYOUT_VOLUME_ID	,	V_7
+ALIGN	,	F_67
+"change LEB %d:%d"	,	L_17
+beb_rsvd_level	,	V_120
+cond_resched	,	F_74
+erase	,	V_137
+err	,	V_20
+recover_peb	,	F_62
+"no enough physical eraseblocks (%d, need %d)"	,	L_29
+ubi_eba_copy_leb	,	F_70
+ubi_eba_get_ldesc	,	F_5
+ltree_lookup	,	F_15
+ubi_eba_create_table	,	F_6
+vol_id2idx	,	F_63
+EINVAL	,	V_65
+out_mutex	,	V_101
+le	,	V_31
+ubi	,	V_2
+up_read	,	F_27
+EBADMSG	,	V_63
+ubi_wl_get_peb	,	F_55
+nentries	,	V_18
+ubi_rb_for_each_entry	,	F_79
+out_free	,	V_66
+"CRC error: calculated %#08x, must be %#08x"	,	L_6
+avail_pebs	,	V_140
+ubi_eba_entry	,	V_138
+le_free	,	V_36
+rb_left	,	V_33
+UBI_STATIC_VOLUME	,	V_57
+"failed to write %d bytes at offset %d of LEB %d:%d, PEB %d"	,	L_13
+from	,	V_103
+page_pos	,	V_81
+rb_node	,	V_28
+rb_erase	,	F_28
+offset	,	V_46
+lnum	,	V_11
+ubi_get_compat	,	F_4
+vol_id	,	V_6
+PTR_ERR	,	F_24
+rb_right	,	V_34
+entry	,	V_139
+entries	,	V_16
+leb_write_lock	,	F_29
+leb_read_lock	,	F_22
+ubi_eba_destroy_table	,	F_11
+rb_insert_color	,	F_21
+ubi_eba_copy_table	,	F_12
+out_unlock_buf	,	V_112
+tbl	,	V_19
+volumes_lock	,	V_107
+ubi_warn	,	F_43
+dst	,	V_25
+max_sqnum	,	V_118
+ubi_ainf_volume	,	V_129
+ubi_eba_replace_table	,	F_14
+"write %d bytes at offset %d of LEB %d:%d, PEB %d"	,	L_14
+"read %d bytes from offset %d of LEB %d:%d (unmapped)"	,	L_2
+global_sqnum	,	V_5
+crc	,	V_55
+down_write	,	F_30
+init_rwsem	,	F_19
+ubi_wl_scrub_peb	,	F_51
+fm_eba	,	V_128
+le1	,	V_35
+spin_lock	,	F_2
+num_volumes	,	V_126
+"try again"	,	L_10
+MOVE_TARGET_BITFLIPS	,	V_115
+sg_virt	,	F_53
+UBI_IO_BAD_HDR	,	V_62
+src	,	V_26
+rb_entry	,	F_16
+print_rsvd_warning	,	F_75
+UBI_CRC32_INIT	,	V_71
+"write VID hdr and %d bytes at offset %d of LEB %d:%d, PEB %d"	,	L_11
+ai_scan	,	V_124
+reserved_pebs	,	V_135
+ubi_eba_leb_desc	,	V_12
+uninitialized_var	,	V_54
+UBI_LAYOUT_VOLUME_COMPAT	,	V_8
+"data was successfully recovered"	,	L_8
+ubi_eba_atomic_leb_change	,	F_68
+ubi_assert	,	F_13
+to_read	,	V_74
+eba_tbl	,	V_15
+"LEB:%i:%i is PEB:%i instead of %i!"	,	L_27
+corr_peb_count	,	V_122
+UBI_VID_STATIC	,	V_99
+ubi_get_vid_hdr	,	F_41
+IS_ERR	,	F_23

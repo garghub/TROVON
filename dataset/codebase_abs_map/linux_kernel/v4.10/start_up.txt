@@ -1,0 +1,146 @@
+fail_stopped	,	V_33
+getrlimit	,	F_25
+virt	,	V_65
+stop_ptraced_child	,	F_16
+RLIM_INFINITY	,	V_47
+"Checking that ptrace can change system call numbers..."	,	L_29
+WEXITSTATUS	,	F_18
+PTRACE_OLDSETOPTIONS	,	V_34
+UM_KERN_PAGE_SIZE	,	V_61
+"OK\n"	,	L_18
+"system call"	,	L_36
+parse_iomem	,	F_29
+"check_ptrace : expected SIGSTOP, got status = %d"	,	L_4
+exit_with	,	V_19
+SIGTRAP	,	V_28
+"(SIGTRAP | 0x80), got status = %d\n"	,	L_27
+rlimit	,	V_42
+"parse_iomem : failed to parse iomem\n"	,	L_43
+iomem_regions	,	V_63
+PT_SYSCALL_NR	,	F_21
+phys	,	V_64
+CATCH_EINTR	,	F_12
+os_early_checks	,	F_26
+ppid	,	V_3
+change_sig	,	F_4
+str	,	V_9
+RLIMIT_CORE	,	V_45
+fail	,	V_27
+"check_sysemu: wait failed"	,	L_21
+driver	,	V_54
+size	,	V_56
+WSTOPSIG	,	F_15
+PTRACE_PEEKUSER	,	V_39
+"Couldn't allocate iomem_region struct"	,	L_46
+"check_sysemu: PTRACE_OLDSETOPTIONS failed"	,	L_20
+status	,	V_14
+check_sysemu	,	F_20
+rlim_max	,	V_48
+"Checking advanced syscall emulation patch for ptrace..."	,	L_19
+"start_ptraced_child : fork failed"	,	L_2
+"Core dump limits :\n\tsoft - "	,	L_38
+mustexit	,	V_17
+out	,	V_57
+"doesn't singlestep"	,	L_23
+O_RDWR	,	V_58
+file	,	V_53
+"check_ptrace : waitpid failed"	,	L_3
+PTRACE_SYSEMU	,	V_26
+"check_ptrace : failed to modify "	,	L_35
+close	,	F_32
+"check_sysemu got system call number %d, "	,	L_14
+PTRACE_CONT	,	V_18
+nosysemu_cmd_param	,	F_19
+__NR_getpid	,	V_30
+sc_result	,	V_4
+ptrace	,	F_5
+err	,	V_44
+"check_sysemu : wait failed"	,	L_11
+regs	,	V_22
+"check_ptrace: PTRACE_OLDSETOPTIONS failed"	,	L_30
+kill	,	F_6
+init_registers	,	F_28
+out_close	,	V_59
+n	,	V_13
+fstat64	,	F_31
+buf	,	V_52
+"stop_ptraced_child : ptrace failed"	,	L_5
+SIGSTOP	,	V_8
+"check_sysemu : failed to modify system call "	,	L_16
+PTRACE_O_TRACESYSGOOD	,	V_35
+set_using_sysemu	,	F_22
+__init	,	T_2
+PT_SYSCALL_RET_OFFSET	,	V_32
+"NONE\n"	,	L_39
+open	,	F_30
+waitpid	,	F_13
+"Failed to initialize default registers"	,	L_42
+"ptrace"	,	L_1
+"system call return"	,	L_25
+"check_ptrace : wait failed"	,	L_32
+pid	,	V_2
+check_coredump_limit	,	F_24
+exitcode	,	V_16
+"parse_iomem - Couldn't open io file"	,	L_44
+fmt	,	V_10
+lim	,	V_43
+PTRACE_SYSCALL	,	V_38
+ptrace_child	,	F_1
+"%lu\n"	,	L_40
+"check_sysemu : failed to modify "	,	L_24
+rlim_cur	,	V_46
+ret	,	V_1
+va_list	,	T_1
+add	,	V_20
+iomem_size	,	V_66
+new	,	V_50
+"expected %d..."	,	L_15
+iomem_region	,	V_49
+count	,	V_24
+"parse_iomem - cannot stat_fd file"	,	L_45
+"got status = %d"	,	L_34
+SIGWINCH	,	V_5
+list	,	V_11
+stderr	,	V_12
+"Checking syscall emulation patch for ptrace..."	,	L_10
+"check_ptrace : child exited with status 2. "	,	L_6
+"Getting core dump limit"	,	L_37
+PTRACE_TRACEME	,	V_6
+check_ptrace	,	F_23
+check_tmpexec	,	F_27
+fd	,	V_55
+next	,	V_62
+PTRACE_POKEUSER	,	V_31
+syscall	,	V_37
+"check_sysemu: SYSEMU_SINGLESTEP "	,	L_22
+fatal_perror	,	F_7
+start_ptraced_child	,	F_10
+sysemu_supported	,	V_25
+"check_sysemu : expected SIGTRAP, got status = %d\n"	,	L_12
+force_sysemu_disabled	,	V_21
+"check_sysemu: expected SIGTRAP or "	,	L_26
+WUNTRACED	,	V_15
+SIGKILL	,	V_7
+non_fatal	,	F_9
+PT_SYSCALL_NR_OFFSET	,	V_40
+fatal	,	F_8
+"check_ptrace : child exited with exitcode %d, while "	,	L_8
+st_size	,	V_60
+PTRACE_SYSEMU_SINGLESTEP	,	V_36
+WIFEXITED	,	F_17
+stat64	,	V_51
+MAX_REG_NR	,	V_23
+"\thard - "	,	L_41
+getppid	,	F_3
+"check_ptrace : expected (SIGTRAP|0x80), "	,	L_33
+"\nDisabling SYSEMU support.\n"	,	L_7
+"check_ptrace : ptrace failed"	,	L_31
+__NR_getppid	,	V_41
+"return"	,	L_17
+fork	,	F_11
+"check_sysemu : PTRACE_GETREGS failed"	,	L_13
+PTRACE_GETREGS	,	V_29
+"missing\n"	,	L_28
+os_getpid	,	F_2
+"expecting %d; status 0x%x\n"	,	L_9
+WIFSTOPPED	,	F_14

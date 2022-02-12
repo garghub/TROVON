@@ -1,0 +1,231 @@
+cpu_to_be32	,	F_5
+iser_prepare_write_cmd	,	F_8
+scsi_cmds_max	,	V_84
+iscsi_session	,	V_72
+buf_out	,	V_38
+iser_task_rdma_init	,	F_48
+"req op %x flags %x\n"	,	L_10
+buf_offset	,	V_122
+DMA_FROM_DEVICE	,	V_21
+ib_device	,	V_54
+ISCSI_FULL_FEATURE_PHASE	,	V_99
+iscsi_conn	,	V_94
+ISCSI_TX_CONTROL	,	V_136
+prot_copy	,	V_153
+iser_free_rdma_reg_res	,	V_93
+discovery_sess	,	V_101
+unsol_sz	,	V_36
+is_rdma_prot_aligned	,	V_149
+rx_dma	,	V_141
+iser_send_control	,	F_39
+dma_addr	,	V_55
+size	,	V_112
+iscsi_hdr	,	V_96
+iser_create_send_desc	,	F_9
+GFP_KERNEL	,	V_66
+device	,	V_7
+"Failed to set up Data-IN RDMA\n"	,	L_1
+scsi_bufflen	,	F_30
+is_rdma_data_aligned	,	V_148
+iser_finalize_rdma_unaligned_sg	,	F_50
+lkey	,	V_50
+"data present on non login task!!!\n"	,	L_20
+GFP_ATOMIC	,	V_130
+sc	,	V_22
+mdesc	,	V_135
+min	,	F_45
+iser_alloc_login_buf	,	F_14
+__force	,	V_124
+"data-out itt: %d, offset: %ld, sz: %ld\n"	,	L_18
+free_login_buf	,	V_70
+ISER_WSV	,	V_45
+rx_desc	,	V_77
+sig_count	,	V_102
+cpu_to_be64	,	F_6
+u8	,	T_2
+outstanding	,	V_143
+i	,	V_74
+ntohl	,	F_27
+uint32_t	,	T_3
+iser_task_rdma_finalize	,	F_49
+iser_task	,	V_4
+j	,	V_75
+scsi_sglist	,	F_29
+iser_dma_map_task_data	,	F_2
+unsol_r2t	,	V_118
+buf	,	V_111
+pbuf_in	,	V_23
+rx_xfer_len	,	V_140
+alloc_login_buf_fail	,	V_86
+ib_dma_sync_single_for_device	,	F_40
+ISCSI_DEF_MAX_RECV_SEG_LEN	,	V_61
+iser_regd_buf	,	V_10
+regd_buf	,	V_11
+opcode	,	V_98
+dir	,	V_147
+"unable to alloc or map login buf\n"	,	L_8
+iscsi_iser_task	,	V_3
+rx_sg	,	V_78
+"conn %p failed task-&gt;itt %d err %d\n"	,	L_13
+reg	,	V_30
+ISER_TASK_STATUS_STARTED	,	V_120
+rkey	,	V_31
+prot_buf	,	V_105
+num_sge	,	V_51
+ib_dma_unmap_single	,	F_12
+req	,	V_97
+data_copy	,	V_151
+data_len	,	V_113
+itt	,	V_34
+count	,	V_144
+va	,	V_33
+ilog2	,	F_32
+qp_max_recv_dtos	,	V_79
+write_stag	,	V_46
+ISCSI_TX_SCSI_COMMAND	,	V_109
+send_control_error	,	V_138
+iser_post_send	,	F_33
+ISCSI_FLAG_CMD_READ	,	V_110
+desc	,	V_15
+iser_header	,	V_16
+rdma_regd	,	V_26
+BUG_ON	,	F_15
+session	,	V_73
+desc_cache	,	V_129
+"inconsistent with total len:%ld, itt:%d\n"	,	L_17
+login_req_buf	,	V_68
+login_resp_buf	,	V_69
+ISER_VER	,	V_57
+iser_send_command	,	F_26
+iser_alloc_rdma_reg_res	,	V_83
+iser_unreg_rdma_mem	,	V_154
+iser_initialize_task_headers	,	F_37
+ib_sge	,	V_40
+kmalloc	,	F_16
+ISER_HEADERS_LEN	,	V_56
+"Cmd itt:%d READ tags RKEY:%#.4X VA:%#llX\n"	,	L_2
+num_rx_descs	,	V_87
+data_length	,	V_108
+length	,	V_49
+"Failed to alloc desc for post dataout\n"	,	L_15
+ntoh24	,	F_35
+iser_post_recvl	,	F_41
+send_data_out_error	,	V_134
+"conn %p failed err %d\n"	,	L_19
+ISER_TASK_STATUS_INIT	,	V_146
+read_stag	,	V_29
+ib_dma_map_single	,	F_17
+iser_post_recvm	,	F_24
+hdr	,	V_14
+data_buf	,	V_104
+data_seg_len	,	V_123
+write_va	,	V_47
+rx_desc_dma_map_failed	,	V_91
+"posting %d rx bufs err %d\n"	,	L_23
+out_err	,	V_67
+req_err	,	V_64
+ENOMEM	,	V_71
+conn	,	V_95
+ISER_RSV	,	V_28
+pbuf_out	,	V_44
+ISER_DIR_OUT	,	V_39
+ISER_RX_LOGIN_SIZE	,	V_63
+login_buf	,	V_59
+create_rdma_reg_res_failed	,	V_85
+iser_dma_unmap_task_data	,	F_51
+"op 0x%x itt 0x%x dlen %d\n"	,	L_22
+iscsi_scsi_req	,	V_106
+DMA_TO_DEVICE	,	V_43
+ig	,	V_128
+iser_signal_comp	,	F_25
+scsi_prot_sglist	,	F_31
+RESERVED_ITT	,	V_145
+ISER_DIR_IN	,	V_20
+"Cmd itt:%d, WRITE, adding imm.data sz: %d\n"	,	L_6
+iscsi_iser_recv	,	F_44
+__func__	,	V_127
+rx_descs	,	V_88
+sector_size	,	V_114
+status	,	V_119
+"Cmd itt:%d, WRITE tags, RKEY:%#.4X "	,	L_4
+kfree	,	F_13
+min_posted_rx	,	V_82
+flags	,	V_27
+scsi_cmnd	,	V_107
+login_task	,	V_137
+iser_post_rx_bufs	,	F_21
+prot	,	V_24
+iser_rx_desc	,	V_76
+login_resp_dma	,	V_62
+iser_dbg	,	F_7
+iser_rcv_completion	,	F_42
+err	,	V_12
+prot_count	,	V_150
+rx_desc_alloc_fail	,	V_89
+iser_alloc_rx_descriptors	,	F_19
+"Normal session, posting batch of RX %d buffers\n"	,	L_12
+EINVAL	,	V_133
+tx_sg	,	V_42
+copy_buf	,	V_152
+edtl	,	V_37
+ib_conn	,	V_9
+iser_send_data_out	,	F_34
+scsi_sg_count	,	F_28
+iscsi_put_task	,	F_47
+iscsi_header	,	V_132
+data	,	V_19
+send_command_error	,	V_115
+rx_buflen	,	V_142
+"VA:%#llX + unsol:%d\n"	,	L_5
+ISCSI_TX_DATAOUT	,	V_131
+read_va	,	V_32
+ISER_RX_PAYLOAD_SIZE	,	V_90
+iser_info	,	F_23
+ISER_SIGNAL_CMD_COUNT	,	V_103
+iser_tx_desc	,	V_52
+iser_hdr	,	V_13
+data_count	,	V_139
+offset	,	V_126
+mr	,	V_58
+imm_count	,	V_117
+kmem_cache_zalloc	,	F_36
+post_recv_buf_count	,	V_100
+iser_reg_rdma_mem	,	V_25
+buf_in	,	V_18
+"Offset:%ld &amp; DSL:%ld in Data-Out "	,	L_16
+login_req_dma	,	V_60
+"failed allocating rx descriptors / data buffers\n"	,	L_9
+iscsi_data	,	V_121
+task	,	V_2
+iser_free_rx_descriptors	,	F_20
+dlength	,	V_125
+scsi_prot_sg_count	,	F_3
+iser_data_buf	,	V_17
+ISCSI_FLAG_CMD_WRITE	,	V_116
+imm_sz	,	V_35
+"op %x dsl %lx, posting login rx buffer\n"	,	L_21
+tx_dsg	,	V_41
+ib_dma_sync_single_for_cpu	,	F_10
+"Failed to register write cmd RDMA mem\n"	,	L_3
+"sdesc %p lkey mismatch, fixing\n"	,	L_7
+iscsi_task	,	V_1
+iser_device	,	V_6
+kmem_cache_free	,	F_38
+iser_free_login_buf	,	F_11
+resp_err	,	V_65
+addr	,	V_48
+cmds_max	,	V_80
+iser_snd_completion	,	F_46
+iser_prepare_read_cmd	,	F_1
+iser_err	,	F_4
+ib_dma_mapping_error	,	F_18
+WARN_ON	,	F_22
+iser_conn	,	V_8
+"Discovery session, re-using login RX buffer\n"	,	L_11
+tx_desc	,	V_53
+"%s itt %d dseg_len %d offset %d\n"	,	L_14
+qp_max_recv_dtos_mask	,	V_81
+u64	,	T_1
+container_of	,	F_43
+dd_data	,	V_5
+rx_desc_head	,	V_92

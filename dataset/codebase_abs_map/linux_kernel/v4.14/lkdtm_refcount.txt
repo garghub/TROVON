@@ -1,0 +1,100 @@
+lkdtm_REFCOUNT_TIMING	,	F_39
+check_negative	,	F_18
+lkdtm_REFCOUNT_INC_ZERO	,	F_25
+refcount_add	,	F_11
+"attempting bad refcount_dec_and_test() from saturated\n"	,	L_43
+"attempting bad refcount_inc() from zero\n"	,	L_33
+"Overflow detected: unsafely reset to max\n"	,	L_2
+pr_warn	,	F_4
+lkdtm_REFCOUNT_DEC_AND_TEST_NEGATIVE	,	F_20
+"atomic timing: out of sync up/down cycle: %u\n"	,	L_45
+atomic_t	,	T_2
+refcount_dec_and_test	,	F_21
+"Correctly stayed at zero\n"	,	L_30
+"attempting good refcount_dec()\n"	,	L_16
+"attempting bad refcount_add() overflow\n"	,	L_7
+"attempting bad refcount_sub_and_test() below zero\n"	,	L_24
+lkdtm_REFCOUNT_SUB_AND_TEST_SATURATED	,	F_34
+"refcount: out of sync up/down cycle: %u\n"	,	L_47
+"attempting bad refcount_inc_not_zero() from saturated\n"	,	L_41
+"Zero detected: saturated\n"	,	L_12
+lkdtm_REFCOUNT_ADD_NOT_ZERO_SATURATED	,	F_32
+pr_err	,	F_5
+refcount_sub_and_test	,	F_23
+"Good: zero detected\n"	,	L_29
+refcount_inc_not_zero	,	F_13
+"attempting bad refcount_dec() to zero\n"	,	L_17
+"attempting bad refcount_dec_and_test() below zero\n"	,	L_22
+"Fail: refcount wrapped to %d\n"	,	L_3
+refcount_read	,	F_2
+"Saturation detected: still saturated\n"	,	L_37
+REFCOUNT_INIT	,	F_7
+"attempting bad refcount_inc() overflow\n"	,	L_5
+"Weird: refcount_add_not_zero() reported zero\n"	,	L_11
+refcount_inc	,	F_9
+lkdtm_REFCOUNT_DEC_SATURATED	,	F_29
+lkdtm_REFCOUNT_ADD_OVERFLOW	,	F_10
+"Still at %d: refcount_inc/add() must not inc-from-0\n"	,	L_18
+"Negative detected: saturated\n"	,	L_19
+"attempting safe refcount_add_not_zero() from zero\n"	,	L_34
+INT_MAX	,	V_11
+lkdtm_REFCOUNT_INC_NOT_ZERO_SATURATED	,	F_31
+"refcount timing: done\n"	,	L_48
+check_zero	,	F_16
+"attempting safe refcount_inc_not_zero() from zero\n"	,	L_28
+pr_info	,	F_3
+"attempting bad refcount_add_not_zero() from saturated\n"	,	L_42
+i	,	V_9
+lkdtm_REFCOUNT_DEC_AND_TEST_SATURATED	,	F_33
+"attempting bad refcount_dec() from saturated\n"	,	L_40
+"Overflow detected: saturated\n"	,	L_1
+lkdtm_REFCOUNT_ADD_NOT_ZERO_OVERFLOW	,	F_14
+"Weird: refcount_sub_and_test() reported zero\n"	,	L_25
+"Negative detected: unsafely reset to max\n"	,	L_20
+"Zero detected: stayed at zero\n"	,	L_26
+"attempting bad refcount_inc_not_zero() overflow\n"	,	L_8
+"Saturation detected: unsafely reset to max\n"	,	L_38
+atomic_inc	,	F_37
+"Still at zero: refcount_inc/add() must not inc-from-0\n"	,	L_14
+overflow_check	,	F_1
+"attempting bad refcount_add() from zero\n"	,	L_36
+zero	,	V_5
+neg	,	V_7
+ref	,	V_1
+REFCOUNT_SATURATED	,	V_2
+lkdtm_REFCOUNT_INC_NOT_ZERO_OVERFLOW	,	F_12
+"attempting good refcount_inc() without overflow\n"	,	L_4
+lkdtm_REFCOUNT_ADD_ZERO	,	F_26
+"attempting bad refcount_dec() below zero\n"	,	L_21
+"Fail: refcount went past zero!\n"	,	L_31
+lkdtm_REFCOUNT_DEC_NEGATIVE	,	F_19
+check_from_zero	,	F_24
+atomic_dec_and_test	,	F_38
+"Fail: refcount went past zero\n"	,	L_35
+count	,	V_10
+refcount_dec	,	F_8
+check_saturated	,	F_27
+lkdtm_REFCOUNT_SUB_AND_TEST_NEGATIVE	,	F_22
+"attempting good refcount_add() without overflow\n"	,	L_6
+REFCOUNT_MAX	,	V_3
+"Weird: refcount_inc_not_zero() reported zero\n"	,	L_9
+"Weird: refcount_dec_and_test() reported zero\n"	,	L_23
+refcount_add_not_zero	,	F_15
+refcount_t	,	T_1
+"Zero detected: unsafely reset to max\n"	,	L_13
+lkdtm_REFCOUNT_INC_SATURATED	,	F_28
+over	,	V_4
+"Fail: zero not detected, incremented to %d\n"	,	L_27
+lkdtm_REFCOUNT_INC_OVERFLOW	,	F_6
+sat	,	V_8
+start	,	V_6
+"Fail: refcount went crazy: %d\n"	,	L_15
+lkdtm_REFCOUNT_DEC_ZERO	,	F_17
+"atomic timing: done\n"	,	L_46
+"Fail: Zero not detected!?\n"	,	L_32
+"attempting bad refcount_sub_and_test() from saturated\n"	,	L_44
+lkdtm_REFCOUNT_ADD_SATURATED	,	F_30
+"attempting bad refcount_add_not_zero() overflow\n"	,	L_10
+"attempting bad refcount_inc() from saturated\n"	,	L_39
+lkdtm_ATOMIC_TIMING	,	F_35
+ATOMIC_INIT	,	F_36

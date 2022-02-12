@@ -1,0 +1,527 @@
+"elstm_alloc: list_empty\n"	,	L_30
+req_fc_hdr	,	V_154
+num_pri_ios	,	V_57
+RESERVE_FREE_LIST_INDEX	,	V_86
+lun	,	V_221
+allowed	,	V_42
+htons	,	F_70
+" this io\n"	,	L_75
+host_byte	,	F_23
+cleanup_io_req	,	V_194
+"io_bdt_pool[%d]\n"	,	L_26
+htonl	,	F_102
+"abts: couldnt allocate cmd\n"	,	L_47
+bnx2fc_post_io_req	,	F_108
+dev	,	V_76
+io_compl	,	V_212
+fcp_rsp_len	,	V_267
+bnx2fc_hba	,	V_47
+DMA_FROM_DEVICE	,	V_289
+SCp	,	V_43
+FC_FC_FIRST_SEQ	,	V_158
+INIT_DELAYED_WORK	,	F_33
+"fcp_rsp_code = %d\n"	,	L_97
+fcp_status	,	V_233
+fc_flags	,	V_258
+"Timer context finished processing "	,	L_100
+FC_FC_END_SEQ	,	V_159
+BNX2FC_MAX_BD_LEN	,	V_251
+"ABTS response - RJT\n"	,	L_77
+bnx2fc_elstm_alloc	,	F_41
+retries	,	V_41
+mp_resp_bd_dma	,	V_105
+FCP_TMF_TGT_RESET	,	V_197
+" IO will abort\n"	,	L_70
+"Entered bnx2fc_lun_reset_cmpl\n"	,	L_80
+tgt_lock	,	V_18
+bd	,	V_240
+fcp_cmnd	,	V_113
+FC_RCTL_BA_RJT	,	V_218
+"this scsi cmd\n"	,	L_101
+cancel_delayed_work	,	F_80
+test_bit	,	F_14
+GFP_ATOMIC	,	V_115
+retry_delay_timer	,	V_286
+"tgt_rst: abts already in progress"	,	L_86
+dma_alloc_coherent	,	F_36
+result	,	V_40
+"failed to alloc cmgr\n"	,	L_20
+mp_req	,	V_99
+free_list_lock	,	V_67
+r_a_tov	,	V_174
+"scsi_cmpl: cdb_status = %d"	,	L_105
+"IO timed out. issue ABTS\n"	,	L_6
+FC_GOOD	,	V_234
+BNX2FC_FLAG_ELS_TIMEOUT	,	V_33
+clear_bit	,	F_10
+tgt	,	V_15
+bnx2fc_cmd_mgr_free	,	F_37
+FC_TYPE_FCP	,	V_157
+fcp_rsp	,	V_260
+"eh_abort timed out\n"	,	L_4
+SUCCESS	,	V_30
+starget_to_rport	,	F_57
+"abort succeeded\n"	,	L_65
+"Timer context finished processing"	,	L_74
+per_cpu_ptr	,	F_110
+"bnx2fc_initiate_seq_cleanup xid = 0x%x\n"	,	L_49
+scsi_for_each_sg	,	F_96
+i	,	V_55
+"bdt_tbl[%d]\n"	,	L_27
+"unable to alloc MP req bd\n"	,	L_33
+"Entered bnx2fc_eh_abort\n"	,	L_56
+active_tm_queue	,	V_164
+max_xid	,	V_62
+free_cmd_pool	,	V_78
+fcoe_fcp_rsp_payload	,	V_231
+FCOE_FCP_RSP_FLAGS_FCP_RESID_OVER	,	V_268
+comp_info	,	V_215
+jiffies	,	V_141
+fcoe_bd_ctx	,	V_73
+req_flags	,	V_17
+kref	,	V_96
+did	,	V_139
+BNX2FC_FLAG_SESSION_READY	,	V_147
+"Session not ready...post_io\n"	,	L_110
+BNX2FC_SCSI_MAX_SQES	,	V_95
+"flush in progress\n"	,	L_60
+scsi_status_code	,	V_271
+refcount	,	V_10
+timer_work_queue	,	V_8
+"No free els_tm cmds available "	,	L_28
+ref	,	V_97
+FCOE_FCP_RSP_FLAGS_FCP_RESID_UNDER	,	V_269
+payload	,	V_283
+" fcp_resid = 0x%x\n"	,	L_106
+" timer expiry\n"	,	L_8
+fc_rport	,	V_124
+BNX2FC_TM_MAX_SQES	,	V_90
+io_bdt	,	V_50
+union_ctx	,	V_214
+bd_index	,	V_239
+bnx2fc_return_rqe	,	F_105
+fc_rctl	,	V_186
+bnx2fc_cmd_mgr	,	V_46
+port	,	V_6
+"task mgmt command failed...\n"	,	L_41
+free_list	,	V_65
+sg_dma_address	,	F_98
+work_struct	,	V_11
+fh_ox_id	,	V_177
+BNX2FC_MAX_BDS_PER_CMD	,	V_72
+BNX2FC_ABTS	,	V_176
+"ABTS for ELS timed out\n"	,	L_11
+BNX2FC_ELS	,	V_31
+"device_reset: link is not ready\n"	,	L_36
+lport	,	V_123
+interface	,	V_5
+sid	,	V_138
+list_del	,	F_40
+fc_block_scsi_eh	,	F_60
+bnx2fc_cmd_timeout	,	F_5
+kmalloc	,	F_35
+"ABTS response - ACC Send RRQ\n"	,	L_76
+elstm_xids	,	V_69
+BNX2FC_CLEANUP	,	V_196
+spin_unlock_bh	,	F_11
+counter	,	V_26
+bd_tbl_dma	,	V_77
+"Unable to alloc cb_arg for seq clnup\n"	,	L_50
+CNIC_PAGE_SIZE	,	V_107
+BNX2FC_TASKS_PER_PAGE	,	V_161
+BNX2FC_RQ_BUF_SZ	,	V_274
+cb_arg	,	V_35
+"eh_abort - refcnt = %d\n"	,	L_58
+"Unable to post io_req\n"	,	L_99
+mp_req_bd	,	V_102
+timeout_work	,	V_9
+ENOMEM	,	V_190
+fc_frame_header	,	V_135
+bnx2fc_init_cleanup_task	,	F_73
+InputBytes	,	V_292
+arr_sz	,	V_59
+FC_RCTL_BA_ACC	,	V_217
+mem_size	,	V_53
+fc_remote_port_chkready	,	F_107
+dummy	,	V_265
+HZ	,	V_149
+bnx2fc_eh_device_reset	,	F_75
+tmp	,	V_80
+kref_get	,	F_4
+fcoe_port	,	V_81
+bnx2fc_unmap_sg_list	,	F_22
+bnx2fc_abts_cleanup	,	F_76
+BNX2FC_WRITE	,	V_294
+"Task mgmt MP request init failed\n"	,	L_39
+tm_lun	,	V_220
+bnx2fc_process_scsi_cmd_compl	,	F_109
+"IO completed before "	,	L_7
+"failed to alloc io_bdt_pool\n"	,	L_24
+list_for_each_entry_safe	,	F_39
+cmd_mgr	,	V_82
+num_active_ios	,	V_92
+bnx2fc_interface	,	V_4
+cmd_len	,	V_152
+index	,	V_85
+cmd_type	,	V_13
+free_cb_arg	,	V_207
+port_id	,	V_155
+"cmd_type = %d\n"	,	L_67
+cmd	,	V_219
+"TGT RST cmpl: scan for pending IOs\n"	,	L_85
+fc_cmdref	,	V_255
+temp_hdr	,	V_223
+retry_delay_timestamp	,	V_281
+"Entered bnx2fc_tgt_reset_cmpl\n"	,	L_84
+io_timeout	,	V_299
+bnx2fc_cmd_mgr_alloc	,	F_26
+bnx2fc_eh_abort	,	F_78
+BNX2FC_IO_DBG	,	F_7
+"CLEANUP io_req xid = 0x%x\n"	,	L_54
+on_tmf_queue	,	V_163
+scsi_cmnd	,	V_37
+list_add_tail	,	F_34
+BNX2FC_TGT_DBG	,	F_44
+"IO completed in a different context\n"	,	L_63
+BNX2FC_FLAG_CMD_LOST	,	V_39
+rval	,	V_277
+u16	,	T_4
+kref_put	,	F_17
+fc_rport_libfc_priv	,	V_126
+scsi_target	,	F_58
+wait_for_comp	,	V_165
+"failed to alloc "	,	L_25
+fcp_flags	,	V_262
+bnx2fc_lun_reset_cmpl	,	F_85
+bnx2fc_tgt_reset_cmpl	,	F_87
+rdata	,	V_171
+rq_data	,	V_264
+"IO ready for reuse now\n"	,	L_3
+fcp_resid	,	V_237
+BNX2FC_READ	,	V_290
+FC_FC_SEQ_INIT	,	V_160
+io_retire_queue	,	V_202
+dma_free_coherent	,	F_38
+complete	,	F_13
+scsi_sg_count	,	F_95
+sense_buffer	,	V_276
+rport	,	V_125
+bnx2fc_cmd	,	V_1
+sc_data_direction	,	V_250
+size_t	,	T_2
+bnx2fc_initiate_cleanup	,	F_16
+wait_for_completion	,	F_77
+"Entered process_tm_compl\n"	,	L_88
+DID_OK	,	V_236
+bnx2fc_init_task	,	F_111
+u32	,	T_3
+FC_TYPE_BLS	,	V_183
+host	,	V_133
+rsp_buf	,	V_224
+req_buf_dma	,	V_108
+BNX2FC_FW_TIMEOUT	,	V_169
+"eh_abort: io_req (xid = 0x%x) "	,	L_59
+"tm_compl: SCp.ptr is NULL\n"	,	L_90
+"ELS timed out\n"	,	L_12
+FCOE_FCP_RSP_FLAGS_FCP_SNS_LEN_VALID	,	V_273
+scsi_done	,	V_45
+sg_frags	,	V_242
+"cmd_timeout: invalid cmd_type %d\n"	,	L_13
+listp	,	V_84
+task	,	V_130
+fcp_rsp_code	,	V_232
+"byte_count = %d != scsi_bufflen = %d, "	,	L_94
+" for this IO 0x%x\n"	,	L_87
+lport_priv	,	F_59
+list_add	,	F_53
+BNX2FC_TASK_MGMT_CMD	,	V_89
+"tmf's fc_hdr r_ctl = 0x%x\n"	,	L_89
+"process_tm_compl: fcp_status = %d\n"	,	L_91
+BNX2FC_FLAG_RETIRE_OXID	,	V_20
+tm_req	,	V_128
+"ABTS io_req\n"	,	L_48
+fc_rport_priv	,	V_170
+FC_RCTL_BA_ABTS	,	V_182
+bnx2fc_process_abts_compl	,	F_84
+"eh_abort: link not ready\n"	,	L_55
+rsp_flags	,	V_261
+bnx2fc_initiate_abts	,	F_18
+max_sqes	,	V_88
+SCSI_MLQUEUE_TARGET_BUSY	,	V_280
+"refcnt = %d, cmd_type = %d\n"	,	L_72
+bdt_info	,	V_51
+queue_delayed_work	,	F_2
+mp_rsp	,	V_226
+set_bit	,	F_19
+fc_lport	,	V_122
+shost_priv	,	F_56
+sg_count	,	V_248
+sg_dma_len	,	F_97
+io_req_flags	,	V_150
+container_of	,	F_6
+u64	,	V_119
+dd_data	,	V_143
+"device_reset: tgt not offloaded\n"	,	L_37
+BNX2FC_MISC_DBG	,	F_28
+spin_lock_bh	,	F_8
+bd_tbl_sz	,	V_58
+spin_lock_init	,	F_32
+dma_addr_t	,	T_5
+msleep	,	F_62
+byte_count	,	V_247
+abts_io_req	,	V_172
+"initiate_abts: tgt not offloaded\n"	,	L_44
+len	,	V_52
+stats	,	V_288
+req_buf	,	V_106
+state	,	V_144
+"scsi_cmd_compl: fcp_status = %d\n"	,	L_107
+dma_map_sg	,	F_93
+FCP_PTA_SIMPLE	,	V_259
+resp_buf	,	V_109
+int_to_scsilun	,	F_101
+wait_for_completion_timeout	,	F_69
+fh_rx_id	,	V_178
+fc_lun	,	V_253
+"Issue RRQ after R_A_TOV\n"	,	L_79
+"tmf: Failed TMF"	,	L_38
+rc	,	V_16
+fc_cdb	,	V_151
+seq_clnp_req	,	V_188
+tm_done	,	V_24
+GFP_KERNEL	,	V_64
+"Initiate TMF - xid = 0x%x\n"	,	L_40
+scsi_bufflen	,	F_25
+device	,	V_134
+BNX2FC_FLAG_TM_TIMEOUT	,	V_168
+rp	,	V_127
+BNX2FC_SCSI_CMD	,	V_22
+cdb_status	,	V_235
+aborted_io_req	,	V_193
+list_del_init	,	F_45
+fcp_sns_len	,	V_266
+io_bdt_pool	,	V_71
+buf_addr_lo	,	V_117
+bnx2fc_build_fcp_cmnd	,	F_63
+sc	,	V_244
+bnx2fc_init_mp_req	,	F_54
+sg	,	V_246
+cmds	,	V_68
+active_cmd_queue	,	V_301
+cpu_to_be64	,	F_89
+"LUN RST cmpl: scan for pending IOs\n"	,	L_81
+scatterlist	,	V_245
+u8	,	T_1
+atomic_read	,	F_42
+fc_tm_flags	,	V_257
+sz	,	V_100
+bnx2fc_init_seq_cleanup_task	,	F_72
+scsi_sglist	,	F_94
+"unable to alloc MP req buffer\n"	,	L_31
+BNX2FC_FLAG_IO_CLEANUP	,	V_203
+"abort failed, xid = 0x%x\n"	,	L_64
+"req_flags = %lx\n"	,	L_2
+FC_RCTL_DD_CMD_STATUS	,	V_230
+CMD_SCSI_STATUS	,	F_103
+timer_msec	,	V_3
+FC_DEF_R_A_TOV	,	V_210
+bnx2fc_split_bd	,	F_91
+num_possible_cpus	,	F_27
+fc_dl	,	V_153
+put_cpu	,	F_51
+"seq cleanup ignored - xid = 0x%x\n"	,	L_68
+rxwr_only	,	V_213
+resp_len	,	V_227
+mp_req_bd_dma	,	V_103
+data_xfer_len	,	V_114
+bnx2fc_send_srr	,	F_82
+"BD list creation failed\n"	,	L_108
+" progress for this IO 0x%x\n"	,	L_83
+"failed to alloc free_list\n"	,	L_21
+INIT_LIST_HEAD	,	F_31
+task_idx	,	V_137
+rxwr_txrd	,	V_179
+DID_ERROR	,	V_209
+fc_pri_ta	,	V_256
+priv	,	V_7
+bnx2fc_rport	,	V_14
+"lun_rst: abts already in"	,	L_82
+bnx2fc_process_seq_cleanup_compl	,	F_81
+"Entered process_cleanup_compl xid = 0x%x"	,	L_66
+hba	,	V_48
+BNX2FC_MIN_XID	,	V_61
+"failed to alloc free_list_lock\n"	,	L_22
+mp_payload_len	,	V_228
+bd_tbl	,	V_74
+SCSI_SENSE_BUFFERSIZE	,	V_275
+BNX2FC_SQ_WQES_MAX	,	V_93
+bnx2fc_init_mp_task	,	F_65
+bnx2fc_cmd_timer_set	,	F_1
+"ABTS timed out refcnt = %d\n"	,	L_5
+get_cpu	,	F_50
+tm_flags	,	V_101
+orig_xid	,	V_195
+r_ctl	,	V_187
+next	,	V_94
+"already in abts processing\n"	,	L_62
+issue_rrq	,	V_211
+bnx2fc_send_rrq	,	F_12
+BUG_ON	,	F_79
+rq_buff_len	,	V_263
+SCSI_MLQUEUE_HOST_BUSY	,	V_278
+FCP_TMF_LUN_RESET	,	V_198
+printk	,	F_20
+err_code	,	V_36
+buf_addr_hi	,	V_118
+bnx2fc_map_sg	,	F_92
+"scsi_done. err_code = 0x%x\n"	,	L_14
+bnx2fc_parse_fcp_rsp	,	F_90
+"SCp.ptr is NULL\n"	,	L_103
+kzalloc	,	F_29
+abts_req	,	V_173
+SAM_STAT_TASK_SET_FULL	,	V_284
+OutputRequests	,	V_295
+"task mgmt command success...\n"	,	L_42
+fh_r_ctl	,	V_229
+cleanup_err	,	V_191
+"tm_compl - wake up the waiter\n"	,	L_93
+bnx2fc_cmd_alloc	,	F_49
+start	,	V_140
+free_cmgr	,	V_79
+BNX2FC_FLAG_ELS_DONE	,	V_32
+ptr	,	V_44
+resp_fc_hdr	,	V_225
+BNX2FC_ELS_MAX_SQES	,	V_91
+"IO already in "	,	L_9
+retry_tmf	,	V_148
+hdr	,	V_222
+cmgr	,	V_49
+LPORT_ST_READY	,	V_145
+bnx2fc_initiate_seq_cleanup	,	F_71
+cb_func	,	V_34
+list_empty	,	F_43
+bnx2fc_cmd_release	,	V_28
+"IO(0x%x) already cleaned up\n"	,	L_16
+"Entered bnx2fc_initiate_cleanup\n"	,	L_53
+FAILED	,	V_116
+num_ios	,	V_56
+bnx2fc_queuecommand	,	F_106
+sc_cmd	,	V_38
+scsi_comp_flags	,	V_270
+var_ctx	,	V_180
+"cleanup: couldnt allocate cmd\n"	,	L_51
+"Flush in progress..Host Busy\n"	,	L_109
+abts_rsp	,	V_216
+bnx2fc_free_mp_resc	,	F_52
+DMA_TO_DEVICE	,	V_293
+"task_id = 0x%x\n"	,	L_95
+"min xid 0x%x, max xid 0x%x\n"	,	L_19
+FC_XID_UNKNOWN	,	V_63
+work	,	V_12
+bnx2fc_eh_target_reset	,	F_74
+tmf_err	,	V_142
+"eh_abort: io_req is NULL\n"	,	L_57
+BNX2FC_FLAG_EH_ABORT	,	V_23
+InputRequests	,	V_291
+BNX2FC_TM_TIMEOUT	,	V_166
+bd_count	,	V_249
+dma_unmap_sg	,	F_100
+bnx2fc_process_tm_compl	,	F_88
+kfree	,	F_30
+flags	,	V_121
+min_xid	,	V_60
+"initiate_abts: rport is NULL\n"	,	L_45
+init_completion	,	F_67
+out	,	V_204
+bd_valid	,	V_252
+free_sqes	,	V_87
+bnx2fc_mp_req	,	V_98
+"unable to alloc MP resp bd\n"	,	L_34
+mp_resp_bd	,	V_104
+time_after	,	F_61
+"not on active_q\n"	,	L_61
+SAM_STAT_BUSY	,	V_285
+bnx2fc_build_bd_list_from_sg	,	F_99
+flush_in_prog	,	V_199
+"scsi_done - sc_cmd NULL. "	,	L_15
+BNX2FC_FLAG_TM_COMPL	,	V_167
+"invalid sns length %d\n"	,	L_96
+OutputBytes	,	V_296
+"initiate_abts: link is not ready\n"	,	L_46
+EAGAIN	,	V_298
+bnx2fc_add_2_sq	,	F_66
+DID_ABORT	,	V_201
+BNX2FC_FLAG_ABTS_DONE	,	V_27
+io_req	,	V_2
+bnx2fc_els_cb_arg	,	V_189
+test_and_set_bit	,	F_15
+mem_err	,	V_66
+BNX2FC_FLAG_IO_COMPL	,	V_29
+"cmd_mgr_alloc: Invalid min_xid 0x%x \(NL)					and max_xid 0x%x\n"	,	L_18
+ControlRequests	,	V_297
+FC_RCTL_DD_UNSOL_CMD	,	V_156
+rx_state	,	V_205
+bnx2fc_initiate_tmf	,	F_55
+bnx2fc_scsi_done	,	F_21
+atomic_inc	,	F_46
+BNX2FC_FLAG_ISSUE_RRQ	,	V_19
+FCOE_FCP_RSP_FLAGS_FCP_RSP_LEN_VALID	,	V_272
+fcoe_task_ctx_entry	,	V_129
+"device_reset: rport is NULL\n"	,	L_35
+link_up	,	V_146
+cmnd	,	V_254
+"ABTS processing\n"	,	L_10
+xid	,	V_54
+BNX2FC_SEQ_CLEANUP	,	V_192
+kref_init	,	F_48
+Scsi_Host	,	V_132
+BNX2FC_FLAG_ISSUE_ABTS	,	V_25
+atomic_dec	,	F_47
+offset	,	V_185
+"Command not on active_cmd_queue!\n"	,	L_92
+BNX2FC_BD_SPLIT_SZ	,	V_243
+on_active_queue	,	V_200
+done	,	V_21
+orig_io_req	,	V_184
+__fc_fill_fc_hdr	,	F_64
+req_len	,	V_112
+"clnup_compl: Unable to send SRR"	,	L_69
+pcidev	,	V_75
+sg_len	,	V_238
+num_rq	,	V_208
+BNX2FC_IO_TIMEOUT	,	V_300
+"xid not on active_cmd_queue\n"	,	L_104
+"Entered process_cleanup_compl "	,	L_71
+link	,	V_70
+rx_id	,	V_181
+task_page	,	V_131
+"Unknown ABTS response\n"	,	L_78
+msecs_to_jiffies	,	F_3
+frag_size	,	V_241
+"sc=%p, result=0x%x, retries=%d, allowed=%d\n"	,	L_17
+"call init_seq_cleanup_task\n"	,	L_52
+bnx2fc_process_cleanup_compl	,	F_83
+"Entered process_abts_compl xid = 0x%x"	,	L_73
+"scsi_cmd_compl - sc_cmd is NULL\n"	,	L_102
+resp_buf_dma	,	V_110
+buf_len	,	V_120
+fc_hdr	,	V_136
+addr	,	V_111
+"failed to alloc io_req\n"	,	L_23
+bnx2fc_get_next_rqe	,	F_104
+"Truncating sense buffer\n"	,	L_98
+"unable to alloc TM resp buffer\n"	,	L_32
+list_head	,	V_83
+scsi_set_resid	,	F_24
+FCOE_TASK_RX_STATE_IGNORED_SEQUENCE_CLEANUP	,	V_206
+WARN_ON	,	F_86
+"cmd_timeout, cmd_type = %d,"	,	L_1
+abts_err	,	V_175
+exit_qcmd_tgtlock	,	V_282
+test_and_clear_bit	,	F_9
+exit_qcmd	,	V_279
+bnx2fc_ring_doorbell	,	F_68
+"ios(%d):sqes(%d)\n"	,	L_29
+fc_stats	,	V_287
+"Entered bnx2fc_initiate_abts\n"	,	L_43
+task_ctx	,	V_162

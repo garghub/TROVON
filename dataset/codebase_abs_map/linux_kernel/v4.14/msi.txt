@@ -1,0 +1,170 @@
+pr_debug	,	F_7
+rtas_disable_msi	,	F_8
+pci_write_config_dword	,	F_42
+virq	,	V_65
+counts	,	V_42
+over_quota	,	V_51
+addr_lo	,	V_59
+hwirq	,	V_64
+PCI_CLASS_BRIDGE_PCI	,	V_44
+dev_info	,	F_40
+eeh_dev	,	V_35
+PCI_CAP_ID_MSIX	,	V_70
+setup_msi_irqs	,	V_81
+irq_dispose_mapping	,	F_14
+"rtas_msi: error (%d) querying source number\n"	,	L_3
+max_bus_speed	,	V_76
+dev	,	V_33
+check_msix_entries	,	F_38
+quota	,	V_49
+"ibm,query-interrupt-source-number"	,	L_28
+RTAS_CHANGE_32MSI_FN	,	V_15
+no_64bit_msi	,	V_74
+PCIE_SPEED_5_0GT	,	V_77
+check_req	,	F_15
+"rtas_msi: no LSI, nothing to do.\n"	,	L_25
+irq_set_msi_desc	,	F_13
+req_msi	,	V_30
+expected	,	V_54
+"class-code"	,	L_12
+"rtas_msi: rtas_change_msi() failed\n"	,	L_21
+msi_quota_for_device	,	F_32
+devfn	,	V_11
+msi_desc	,	V_22
+ENOSPC	,	V_32
+msi_cap	,	V_60
+rc	,	V_9
+rtas_teardown_msi_irqs	,	F_11
+rtas_config_addr	,	F_2
+BUID_LO	,	F_5
+pr_err	,	F_34
+of_get_parent	,	F_28
+of_get_next_parent	,	F_23
+num_irqs	,	V_4
+"rtas_msi: request clamped to quota %d\n"	,	L_17
+pseries_pci_controller_ops	,	V_80
+__be32	,	T_2
+pci_irq_fixup	,	V_85
+of_get_property	,	F_17
+RTAS_CHANGE_FN	,	V_19
+device_node	,	V_27
+pe_dn	,	V_52
+out	,	V_53
+pci_dn	,	V_1
+"rtas_msi: %s requests &lt; %d MSIs\n"	,	L_5
+RTAS_CHANGE_MSI_FN	,	V_13
+change_token	,	V_16
+for_each_pci_msi_entry	,	F_12
+min	,	F_36
+"ibm,change-msi"	,	L_29
+nvec	,	V_25
+"rtas_msi: no req#msi/x, nothing to do.\n"	,	L_26
+check_req_msix	,	F_20
+rtas_hack_32bit_msi_gen2	,	F_39
+controller_ops	,	V_83
+rtas_busy_delay	,	F_6
+edevs	,	V_38
+be32_to_cpup	,	F_18
+spare	,	V_50
+"rtas_msi: bad MSI-X entries.\n"	,	L_18
+max	,	F_31
+RTAS_CHANGE_MSIX_FN	,	V_14
+"rtas_msi: found prop on dn %pOF\n"	,	L_9
+"rtas_msi: disabling existing MSI.\n"	,	L_27
+irq	,	V_24
+i	,	V_66
+phb	,	V_12
+ENOENT	,	V_31
+m	,	V_71
+prop_name	,	V_26
+p	,	V_29
+EINVAL	,	V_57
+rtas_query_irq_number	,	F_10
+count_non_bridge_devices	,	F_29
+pci_name	,	F_33
+PCI_MSI_ADDRESS_LO	,	V_62
+find_pe_dn	,	F_24
+rtas_ret	,	V_7
+rtas_setup_msi_irqs	,	F_43
+"rtas_msi: found PE %pOF\n"	,	L_15
+of_node_put	,	F_37
+buid	,	V_8
+msg	,	V_68
+bus	,	V_75
+"rtas_msi: trying the old firmware call.\n"	,	L_20
+list_first_entry	,	F_27
+data	,	V_40
+entry_nr	,	V_56
+ppc_md	,	V_84
+pci_get_pdn	,	F_9
+dn	,	V_28
+dev_dbg	,	F_46
+query_token	,	V_21
+"rtas_msi: allocated virq %d\n"	,	L_24
+seq_num	,	V_6
+pci_read_config_dword	,	F_41
+rtas_msi_pci_irq_fixup	,	F_48
+pdev	,	V_18
+msi_counts	,	V_41
+"rtas_msi: No %s on %pOF\n"	,	L_4
+"rtas_msi: using PE dn %pOF\n"	,	L_10
+u32	,	T_1
+PCI_CAP_ID_MSI	,	V_73
+addr_hi	,	V_58
+nvec_in	,	V_63
+pci_device_to_OF_node	,	F_16
+req	,	V_46
+"rtas_msi: No 32 bit MSI firmware support, forcing 32 bit MSI\n"	,	L_19
+offset	,	V_20
+num_devices	,	V_45
+irq_create_mapping	,	F_45
+list	,	V_39
+rtas_call	,	F_3
+entry	,	V_23
+pci_dev	,	V_17
+"rtas_msi: Setting MSIs to 0 failed!\n"	,	L_2
+"rtas_msi: calc quota for %s, request %d\n"	,	L_13
+pdn_to_eeh_dev	,	F_25
+list_for_each_entry	,	F_52
+BUID_HI	,	F_4
+edev	,	V_36
+request	,	V_48
+of_node_get	,	F_22
+rtas_token	,	F_50
+"ibm,pe-total-#msi"	,	L_8
+roundup_pow_of_two	,	F_44
+pci_controller	,	V_78
+count_spare_msis	,	F_30
+check_req_msi	,	F_19
+"rtas_msi: couldn't find PE for %s\n"	,	L_14
+"rtas_msi: found 0 devices under PE for %s\n"	,	L_16
+total	,	V_34
+pci_traverse_device_nodes	,	F_35
+"rtas_msi: no RTAS tokens, no MSI support.\n"	,	L_30
+find_pe_total_msi	,	F_21
+__pci_read_msi_msg	,	F_47
+busno	,	V_10
+RTAS_UNKNOWN_SERVICE	,	V_79
+addr	,	V_5
+"ibm,req#msi-x"	,	L_7
+class	,	V_43
+PCI_DN	,	F_26
+rtas_change_msi	,	F_1
+again	,	V_72
+teardown_msi_irqs	,	V_82
+WARN_ON	,	F_51
+"rtas_msi: counting %pOF\n"	,	L_11
+msi_attrib	,	V_55
+"rtas_msi: Failed mapping hwirq %d\n"	,	L_23
+requestor	,	V_47
+PCI_MSI_ADDRESS_HI	,	V_61
+func	,	V_3
+"rtas_msi: error (%d) getting hwirq\n"	,	L_22
+"rtas_msi: ibm,change_msi(func=%d,num=%d), got %d rc = %d\n"	,	L_1
+pe	,	V_37
+"ibm,req#msi"	,	L_6
+pdn	,	V_2
+msi_msg	,	V_67
+use_32bit_msi_hack	,	V_69
+rtas_msi_init	,	F_49
+"rtas_msi: Registering RTAS MSI callbacks.\n"	,	L_31

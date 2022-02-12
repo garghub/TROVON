@@ -1,0 +1,37 @@
+irq_stack_union	,	V_13
+"do_IRQ(): %s has overflown the kernel stack (cur:%Lx,sp:%lx,irq stk top-bottom:%Lx-%Lx,exception stk top-bottom:%Lx-%Lx)\n"	,	L_1
+ist	,	V_16
+oist	,	V_4
+current	,	V_10
+irq_stack_top	,	V_5
+irq_desc	,	V_21
+CONFIG_DEBUG_STACKOVERFLOW	,	F_2
+irq_stack_bottom	,	V_6
+STACK_TOP_MARGIN	,	F_3
+sp	,	V_11
+orig_ist	,	V_3
+estack_bottom	,	V_8
+comm	,	V_19
+estack_top	,	V_7
+pt_regs	,	V_1
+stack_overflow_check	,	F_1
+regs	,	V_2
+handle_irq	,	F_10
+N_EXCEPTION_STACKS	,	V_18
+user_mode	,	F_5
+"low stack detected by irq handler - check messages\n"	,	L_2
+this_cpu_ptr	,	F_6
+irq_stack	,	V_14
+panic	,	F_9
+task_stack_page	,	F_4
+irq_stack_ptr	,	V_15
+IS_ERR_OR_NULL	,	F_11
+u64	,	T_1
+__this_cpu_read	,	F_7
+curbase	,	V_9
+THREAD_SIZE	,	V_12
+sysctl_panic_on_stackoverflow	,	V_20
+EXCEPTION_STKSZ	,	V_17
+WARN_ONCE	,	F_8
+generic_handle_irq_desc	,	F_12
+desc	,	V_22

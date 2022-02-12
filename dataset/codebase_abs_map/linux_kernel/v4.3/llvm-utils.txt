@@ -1,0 +1,142 @@
+pr_debug	,	F_15
+ENOMEM	,	V_32
+p_obj_buf_sz	,	V_45
+kbuild_dir	,	V_7
+def	,	V_10
+p_read_sz	,	V_23
+release	,	V_40
+"/build"	,	L_34
+WEXITSTATUS	,	F_11
+kinc_fetch_script	,	V_43
+get_kbuild_opts	,	F_22
+output	,	V_12
+path	,	V_14
+"     \t     -working-directory $WORKING_DIR -c $CLANG_SOURCE \\\n"	,	L_28
+tmp	,	V_15
+"     \t\thttp://llvm.org/apt\n\n"	,	L_24
+"     \toption in [llvm] section of ~/.perfconfig and set 'kbuild-dir'\n"	,	L_48
+"     \t\tclang -target bpf -O2 -c %s\n"	,	L_65
+errout	,	V_33
+"%s%s%s"	,	L_36
+search_program	,	F_4
+"kbuild-dir"	,	L_5
+errno	,	V_28
+"KBUILD_OPTS"	,	L_45
+uname	,	F_19
+"     \tdetection.\n\n"	,	L_42
+var	,	V_1
+EIO	,	V_34
+perf_llvm_config	,	F_1
+clang_bpf_cmd_template	,	V_5
+"WORKING_DIR"	,	L_58
+llvm__search_clang	,	F_25
+"KERNEL_INC_OPTIONS"	,	L_57
+"PATH"	,	L_7
+suffix_dir	,	V_37
+"Kernel build dir is set to %s\n"	,	L_43
+"     \tLLVM 3.7 or newer is required. Which can be found from http://llvm.org\n"	,	L_17
+"CLANG_SOURCE"	,	L_60
+pr_err	,	F_10
+obj_buf	,	V_47
+cmd	,	V_21
+"     \t(Replace /path/to/llc with path to your llc)\n\n"	,	L_30
+"llvm compiling command template: %s\n"	,	L_61
+user_set_param	,	V_9
+""	,	L_31
+template	,	V_46
+prefix_dir	,	V_36
+autoconf_path	,	V_38
+access	,	F_5
+"Hint:\tTry set clang include options using 'clang-bpf-cmd-template'\n"	,	L_47
+"clang-path"	,	L_2
+"CLANG_OPTIONS"	,	L_56
+setenv	,	F_14
+pclose	,	F_12
+kbuild_include_opts	,	V_42
+file	,	V_25
+F_OK	,	V_19
+new_buf	,	V_31
+"ERROR: internal error\n"	,	L_13
+"."	,	L_59
+"Hint:\tSet correct kbuild directory using 'kbuild-dir' option in [llvm]\n"	,	L_40
+FILE	,	T_2
+asprintf	,	F_21
+make_nonrelative_path	,	F_24
+detect_kbuild_dir	,	F_18
+"     \t\tgit clone http://llvm.org/git/clang.git\n\n"	,	L_21
+"ERROR:\tunable to compile %s\n"	,	L_62
+force_set_env	,	F_13
+clang_path	,	V_4
+"kbuild-opts"	,	L_6
+err	,	V_24
+"     \t  \"$CLANG_EXEC $CLANG_OPTIONS $KERNEL_INC_OPTIONS \\\n"	,	L_27
+PATH_MAX	,	V_17
+buf_sz	,	V_27
+obj_buf_sz	,	V_48
+"CLANG_EXEC"	,	L_55
+ENOENT	,	V_20
+prefixcmp	,	F_2
+pr_warning	,	F_20
+EINVAL	,	V_29
+buf	,	V_16
+p_buf	,	V_22
+kbuild_opts	,	V_8
+READ_SIZE	,	V_30
+"set env: %s=%s\n"	,	L_15
+clang_opt	,	V_6
+"[llvm.kbuild-dir] is set to \"\" deliberately.\n"	,	L_37
+"WARNING:\tunable to get kernel include directories from '%s'\n"	,	L_46
+size_t	,	T_1
+utsname	,	V_39
+"r"	,	L_10
+read_from_pipe	,	F_8
+"ERROR: error occurred when reading from pipe: %s\n"	,	L_14
+"     \toption in [llvm] section of ~/.perfconfig to:\n\n"	,	L_26
+"ERROR: failed to realloc memory\n"	,	L_12
+ret	,	V_18
+scnprintf	,	F_7
+llvm__compile_bpf	,	F_23
+"Skip kbuild options detection.\n"	,	L_38
+llvm_param	,	V_3
+strlcpy	,	F_6
+"include option is set to %s\n"	,	L_50
+"clang"	,	L_51
+"unset env: %s\n"	,	L_16
+name	,	V_11
+"     \toption in [llvm] to \"\" to suppress this detection.\n\n"	,	L_49
+"clang-opt"	,	L_4
+"Hint:\tCheck error message shown above.\n"	,	L_63
+"     \t     -emit-llvm -o - | /path/to/llc -march=bpf -filetype=obj -o -\"\n"	,	L_29
+"llvm."	,	L_1
+"Hint:\tTry to install latest clang/llvm to support BPF. Check your $PATH\n"	,	L_53
+"     \tand 'clang-path' option in [llvm] section of ~/.perfconfig.\n"	,	L_54
+"uname failed: %s\n"	,	L_32
+":"	,	L_8
+"     \t\tgit clone http://llvm.org/git/llvm.git\n"	,	L_19
+test_dir	,	V_35
+"ERROR:\tunable to find clang.\n"	,	L_52
+p_obj_buf	,	V_44
+R_OK	,	V_41
+"%s/%s"	,	L_9
+read_sz	,	V_26
+version_notice	,	F_17
+"ERROR: unable to popen cmd: %s\n"	,	L_11
+"     \twith proper -I and -D options.\n"	,	L_66
+value	,	V_2
+CLANG_BPF_CMD_DEFAULT_TEMPLATE	,	V_49
+"     \tsection of ~/.perfconfig or set it to \"\" to suppress kbuild\n"	,	L_41
+"     \tdebian/ubuntu:\n"	,	L_23
+"WARNING:\tunable to get correct kernel building directory.\n"	,	L_39
+"Hint:\tYou can also pre-compile it into .o using:\n"	,	L_64
+"     \tYou may want to try git trunk:\n"	,	L_18
+popen	,	F_9
+"%s%s%s/include/generated/autoconf.h"	,	L_35
+"/lib/modules/"	,	L_33
+env	,	V_13
+"clang-bpf-cmd-template"	,	L_3
+"     \t\t     and\n"	,	L_20
+"     \tIf you are using old version of clang, change 'clang-bpf-cmd-template'\n"	,	L_25
+strdup	,	F_3
+"KBUILD_DIR"	,	L_44
+"     \tOr fetch the latest clang/llvm 3.7 from pre-built llvm packages for\n"	,	L_22
+unsetenv	,	F_16

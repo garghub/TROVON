@@ -1,0 +1,272 @@
+af9005_power_ctrl	,	F_44
+af9005_send_command	,	F_27
+rc_map_af9005_table	,	V_124
+wlen	,	V_58
+FW_BULKOUT_SIZE	,	V_69
+symbol_put	,	F_57
+af9005_pid_filter_control	,	F_45
+msleep	,	F_17
+feedcount	,	V_102
+FW_CONFIG	,	V_70
+"generic read/write, less than 1 byte. Makes no sense."	,	L_1
+reg_top_locken1_pos	,	V_82
+len	,	V_6
+dev	,	V_88
+"write bits %x %x %x value %x\n"	,	L_17
+led_state	,	V_80
+dvb_usb_device_init	,	F_50
+state	,	V_93
+i2c_get_adapdata	,	F_23
+defined	,	F_54
+adapter	,	V_55
+"rc_decode failed"	,	L_67
+"boot bad config subtype."	,	L_44
+"af9005_rc_decode function not found, disabling remote"	,	L_78
+debug_dump	,	F_9
+EIO	,	V_27
+"after downloading firmware, FW_CONFIG expected 0x02, received 0x%x"	,	L_60
+"send command, wlen more than 54 bytes. Not supported."	,	L_26
+XD_MP2IF_DMX_CTRL	,	V_98
+"rc query bad header."	,	L_63
+rc	,	V_127
+i2c_adapter	,	V_48
+size	,	V_66
+usb_sndbulkpipe	,	F_32
+GFP_KERNEL	,	V_76
+CONFIG_DVB_USB_AF9005_REMOTE	,	V_121
+i2c_m_status_wdat_fail_pos	,	V_40
+af9005_led_control	,	F_37
+"send command, wrong reply code."	,	L_28
+"i2c_write failed\n"	,	L_19
+FW_CONFIRM	,	V_71
+xd_p_reg_top_lock1	,	V_84
+result	,	V_118
+mutex_unlock	,	F_5
+act_len	,	V_68
+af9005_boot_packet	,	F_29
+usb_device_id	,	V_113
+pos	,	V_31
+rlen	,	V_60
+"before downloading firmware, FW_CONFIG expected 0x01, received 0x%x"	,	L_57
+af9005_read_ofdm_register	,	F_6
+seq	,	V_11
+"failed\n"	,	L_8
+st	,	V_8
+u8	,	T_2
+address	,	V_62
+d	,	V_2
+"boot bad config checksum."	,	L_45
+intf	,	V_112
+af9005_usb_module_exit	,	F_56
+"boot bad config sequence."	,	L_43
+i	,	V_12
+XD_MP2IF_PID_DATA_H	,	V_104
+af9005_pid_filter	,	F_47
+fe_adap	,	V_90
+af9005_write_register_bits	,	F_13
+buf	,	V_44
+XD_MP2IF_PID_DATA_L	,	V_103
+mutex_lock	,	F_3
+"boot bad config size."	,	L_42
+usb_rcvbulkpipe	,	F_33
+i2c_m_status_wdat_fail_len	,	V_39
+deb_i2c	,	F_20
+"Read eeprom, invalid reply length"	,	L_33
+"send command, wlen less than 0 bytes. Makes no sense."	,	L_25
+"first pid set, enable pid table\n"	,	L_72
+deb_reg	,	F_7
+af9005_write_ofdm_register	,	F_10
+reg	,	V_3
+af9005_read_tuner_registers	,	F_18
+packet_len	,	V_61
+"boot bad boot checksum."	,	L_56
+priv	,	V_9
+"boot packet invalid boot packet type"	,	L_36
+data_mutex	,	V_15
+reply	,	V_65
+"boot bad boot sequence."	,	L_53
+reg_top_lock1_len	,	V_86
+"boot bad boot size."	,	L_52
+ret	,	V_13
+"&lt;&lt;&lt; "	,	L_40
+af9005_usb_write_tuner_registers	,	F_15
+"more than 2 i2c messages at a time is not handled yet. TODO."	,	L_24
+"pid filter control  onoff %d\n"	,	L_69
+wbuf	,	V_57
+"boot bad boot header."	,	L_51
+ETIMEDOUT	,	V_41
+warn	,	F_25
+af9005_download_firmware	,	F_34
+af9005_i2c_read	,	F_21
+mutex_lock_interruptible	,	F_24
+"set pid filter, index %d, pid %x, onoff %d\n"	,	L_71
+"read bits %x %x %x"	,	L_14
+"i2c_write i2caddr %x, reg %x, len %d data "	,	L_18
+af9005_i2c_write	,	F_19
+"boot bad confirm header."	,	L_46
+fe	,	V_91
+desc	,	V_109
+"usb_register failed. (%d)"	,	L_77
+"ok\n"	,	L_12
+af9005_properties	,	V_115
+"Read eeprom, wrong sequence in reply "	,	L_34
+printk	,	F_40
+cold	,	V_110
+af9005_frontend_attach	,	F_38
+fw	,	V_74
+i2c_m_status_wdat_done_pos	,	V_38
+kmalloc	,	F_35
+REMOTE_NO_KEY_PRESSED	,	V_94
+mask	,	V_33
+"boot bad confirm subtype."	,	L_49
+rc_query	,	V_129
+af9005_read_register_bits	,	F_12
+AF9005_OFDM_REG	,	V_19
+"i2c data read: "	,	L_23
+i2caddr	,	V_47
+af9005_rc_query	,	F_42
+usb_clear_halt	,	F_39
+"last pid unset, disable pid table\n"	,	L_73
+i2c_mutex	,	V_53
+AF9005_CMD_READ	,	V_28
+rbuf	,	V_59
+"write %d registers %x values "	,	L_13
+last_event	,	V_97
+"Identify state cold = %d\n"	,	L_76
+readwrite	,	V_4
+"send command, invalid data length in reply."	,	L_31
+ENOMEM	,	V_77
+"result of FW_CONFIG in identify state %d\n"	,	L_75
+rc_map_af9005_table_size	,	V_126
+packets	,	V_75
+"after downloading firmware, FW_CONFIRM expected 0x%x, received 0x%x"	,	L_59
+"rc query bad sequence."	,	L_64
+dvb_usb_generic_rw	,	F_4
+af9005_generic_read_write	,	F_1
+i2c_m_status_wdat_done_len	,	V_37
+af9005_rc_decode	,	V_122
+"generic read/write, more than 8 bytes. Not supported."	,	L_2
+usb_bulk_msg	,	F_31
+id	,	V_114
+usb_deregister	,	F_58
+rc_map_size	,	V_131
+AF9005_CMD_WRITE	,	V_24
+"EEPROM DUMP\n"	,	L_61
+"rc_decode state %x event %x\n"	,	L_68
+xd_p_reg_top_locken1	,	V_81
+"set pid ok\n"	,	L_74
+af9005_write_ofdm_registers	,	F_11
+"Read eeprom, invalid reply code"	,	L_32
+"boot packet recv bulk message failed: %d"	,	L_39
+index	,	V_99
+CONFIG_DVB_USB_AF9005	,	V_120
+usb_device	,	V_63
+props	,	V_107
+"generic read/write, wrong reply code."	,	L_3
+af9005_fe_attach	,	F_41
+fail	,	V_35
+af9005_i2c_xfer	,	F_22
+XD_MP2IF_PID_IDX	,	V_105
+rc_map_table	,	V_130
+cmd	,	V_101
+i2c_msg	,	V_50
+"generic read/write, wrong length in reply."	,	L_4
+regmask	,	V_32
+REMOTE_KEY_REPEAT	,	V_96
+af9005_device_state	,	V_7
+"boot bad boot pattern 01."	,	L_54
+dvb_usb_device	,	V_1
+kfree	,	F_36
+dvb_usb_device_properties	,	V_106
+AF9005_CMD_BURST	,	V_22
+AF9005_CMD_OFDM_REG	,	V_20
+usb_interface	,	V_111
+deb_rc	,	F_43
+"i2c_write ok\n"	,	L_20
+I2C_FUNC_I2C	,	V_56
+"boot bad config header."	,	L_41
+dvb_usb_adapter	,	V_87
+"i2c_read i2caddr %x, reg %x, len %d\n "	,	L_21
+u16	,	T_1
+af9005_usb_read_tuner_registers	,	F_14
+event	,	V_92
+xd_I2C_i2c_m_status_wdat_done	,	V_36
+firmware	,	V_73
+reg_top_lock1_pos	,	V_85
+deb_info	,	F_46
+rc_keys_size	,	V_125
+FW_BOOT	,	V_72
+err	,	F_2
+"rc query failed"	,	L_62
+EAGAIN	,	V_54
+"boot bad confirm checksum."	,	L_50
+dvb_usb_af9005_dump_eeprom	,	V_89
+"rc data (%d) "	,	L_66
+"boot bad confirm sequence."	,	L_48
+" failed\n"	,	L_15
+EINVAL	,	V_14
+af9005_usb_driver	,	V_119
+"firmware download failed at packet %d with code %d"	,	L_58
+__init	,	T_4
+__exit	,	T_5
+"value %x\n"	,	L_9
+"send command, wrong status code in reply."	,	L_30
+"Read eeprom, wrong status in reply "	,	L_35
+dvb_usb_af9005_led	,	V_79
+onoff	,	V_78
+"i2c_read failed\n"	,	L_22
+msg	,	V_51
+"&gt;&gt;&gt; "	,	L_37
+data	,	V_16
+"write register %x value %x "	,	L_11
+num	,	V_52
+"rc query invalid length"	,	L_65
+pid	,	V_100
+af9005_usb_module_init	,	F_51
+af9005_read_ofdm_registers	,	F_8
+u32	,	T_3
+"boot bad confirm size."	,	L_47
+APO_REG_I2C_RW_SILICON_TUNER	,	V_45
+rc_keys	,	V_123
+"send command, wrong sequence in reply."	,	L_29
+af9005_identify_state	,	F_48
+AF9005_CMD_TUNER	,	V_21
+"read %d registers %x "	,	L_10
+THIS_MODULE	,	V_116
+done	,	V_34
+deb_fw	,	F_30
+"boot packet bulk message failed: %d (%d/%d)"	,	L_38
+sequence	,	V_18
+usb_register	,	F_52
+udev	,	V_64
+"send command, rlen more than 54 bytes. Not supported."	,	L_27
+symbol_request	,	F_55
+adap	,	V_49
+xd_I2C_i2c_m_status_wdat_fail	,	V_42
+dvb_usb_device_description	,	V_108
+" value %x\n"	,	L_16
+legacy	,	V_128
+"generic read/write, wrong sequence in reply."	,	L_5
+values	,	V_5
+AF9005_REGISTER_RW	,	V_17
+AF9005_REGISTER_RW_ACK	,	V_26
+reg_top_locken1_len	,	V_83
+af9005_write_tuner_registers	,	F_16
+checksum	,	V_67
+addr	,	V_43
+rc_decode	,	V_95
+value	,	V_29
+"generic read/write wrong status code in reply."	,	L_6
+AF9005_TUNER_REG	,	V_25
+temp	,	V_30
+af9005_i2c_func	,	F_26
+"boot bad boot pattern 10."	,	L_55
+adapter_nr	,	V_117
+xd_I2C_i2c_m_data8	,	V_46
+"pid filter control ok\n"	,	L_70
+af9005_usb_probe	,	F_49
+command	,	V_10
+IS_MODULE	,	F_53
+af9005_read_eeprom	,	F_28
+"read register %x "	,	L_7
+AF9005_CMD_AUTOINC	,	V_23

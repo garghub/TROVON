@@ -1,0 +1,25 @@
+"Initial J2 CCR is %.8x\n"	,	L_1
+for_each_possible_cpu	,	F_2
+j2_ccr_base	,	V_4
+j2_cache_init	,	F_6
+CACHE_ENABLE	,	V_2
+ICACHE_FLUSH	,	V_3
+local_flush_cache_all	,	V_7
+__raw_writel	,	F_3
+DCACHE_FLUSH	,	V_5
+j2_flush_both	,	F_5
+j2_flush_dcache	,	F_4
+__raw_readl	,	F_8
+local_flush_cache_dup_mm	,	V_9
+CACHE_FLUSH	,	V_6
+pr_info	,	F_7
+cpu	,	V_1
+local_flush_icache_range	,	V_13
+local_flush_cache_sigtramp	,	V_15
+local_flush_icache_page	,	V_14
+local_flush_cache_mm	,	V_8
+__init	,	T_1
+local_flush_cache_page	,	V_10
+local_flush_cache_range	,	V_11
+local_flush_dcache_page	,	V_12
+j2_flush_icache	,	F_1

@@ -1,0 +1,35 @@
+refcount_add_not_zero	,	F_1
+"refcount_t: addition on 0; use-after-free.\n"	,	L_2
+mutex	,	V_7
+refcount_dec_and_lock	,	F_18
+refcount_inc	,	F_8
+atomic_try_cmpxchg_release	,	F_10
+refcount_add	,	F_6
+UINT_MAX	,	V_6
+mutex_unlock	,	F_17
+refcount_t	,	T_1
+refcount_dec_and_mutex_lock	,	F_15
+"refcount_t: decrement hit 0; leaking memory.\n"	,	L_5
+lock	,	V_8
+spin_lock	,	F_19
+val	,	V_4
+new	,	V_3
+unlikely	,	F_3
+atomic_read	,	F_2
+atomic_try_cmpxchg_relaxed	,	F_4
+refcount_dec_and_test	,	F_11
+i	,	V_1
+"refcount_t: saturated; leaking memory.\n"	,	L_1
+spin_unlock	,	F_20
+"refcount_t: increment on 0; use-after-free.\n"	,	L_3
+"refcount_t: underflow; use-after-free.\n"	,	L_4
+refcount_dec_not_one	,	F_14
+refcount_dec	,	F_12
+spinlock_t	,	T_2
+r	,	V_2
+refs	,	V_5
+mutex_lock	,	F_16
+refcount_sub_and_test	,	F_9
+WARN_ONCE	,	F_5
+refcount_inc_not_zero	,	F_7
+refcount_dec_if_one	,	F_13

@@ -1,0 +1,151 @@
+trig_mode	,	V_53
+la_dma_type	,	V_41
+end_addr	,	V_20
+ADCSMP_STATE_QUERY	,	V_51
+"2. [LA mode DMA setting] Dma_type = ((%d))\n"	,	L_9
+phydm_la_mode_set_dma_type	,	F_13
+output	,	V_60
+PHYDM_SNPRINTF	,	F_22
+s32	,	T_4
+phydm_la_mode_set_mac_iq_dump	,	F_11
+phydm_lamode_trigger_setting	,	F_28
+addr_8byte	,	V_26
+phydm_la_get_tx_pkt_buf	,	F_4
+ODM_RTL8197F	,	V_28
+ADCSMP_STATE_IDLE	,	V_59
+"LA Dump finished ----------&gt;\n\n\n"	,	L_14
+dbg_port	,	V_69
+la_dbg_port	,	V_38
+"%s adc_smp_state %d"	,	L_18
+data_h	,	V_17
+ODM_RTL8814A	,	V_66
+PHYDM_SSCANF	,	F_29
+adc_smp_stop	,	F_19
+data_l	,	V_16
+"4. [Set MAC IQ dump] 0x7c0[7:0] = ((0x%x))\n"	,	L_8
+odm_get_bb_reg	,	F_10
+index	,	V_65
+PHYDM_MAC_TRIG	,	V_33
+is_set_success	,	V_58
+phydm_adc_smp_start	,	F_14
+sampling_rate	,	V_71
+input	,	V_79
+adc_smp_state	,	V_49
+adc_smp_init	,	F_25
+"3. [Set Trigger Time] Trig_Time = ((%d)) * unit = ((2^%d us))\n"	,	L_23
+__func__	,	V_64
+la_count	,	V_52
+smp_number	,	V_25
+is_trigger_edge	,	V_70
+buffer_size	,	V_13
+adc_smp_buf	,	V_8
+"h.Trig_edge = ((%d)), i.smp rate = ((%d MHz)), j.Cap_num = ((%d))\n"	,	L_29
+pused	,	V_62
+odm_read_4byte	,	F_7
+"[state Error] adc_smp_state != ADCSMP_STATE_SET\n"	,	L_10
+is_round_up	,	V_22
+MASKLWORD	,	V_29
+"LA Dump more ----------&gt;\n\n\n"	,	L_15
+input_num	,	V_82
+finish_addr	,	V_19
+"-h"	,	L_24
+phydm_la_mode_set_trigger_time	,	F_16
+u16	,	T_3
+trigger_time_unit_num	,	V_77
+value32	,	V_15
+la_trig_mode	,	V_32
+adc_smp_query	,	F_21
+u8	,	T_2
+"echo lamode %d %d %d %d %d %d %x %d %d %d\n"	,	L_26
+rt_adcsmp_string	,	V_7
+i	,	V_14
+la_trig_sig_sel	,	V_37
+dma_data_sig_sel	,	V_55
+"[LA Query OK] polling_bit=((0x%x))\n"	,	L_11
+help	,	V_84
+"{En} {0:BB,1:BB_MAC,2:RF0,3:RF1,4:MAC}\n {BB:dbg_port[bit],BB_MAC:0-ok/1-fail/2-cca,MAC:ref} {DMA type} {TrigTime}\n {polling_time/ref_mask} {dbg_port} {0:P_Edge, 1:N_Edge} {SpRate:0-80M,1-40M,2-20M} {Capture num}\n"	,	L_25
+rt_adcsmp	,	V_4
+"a.En= ((1)),  b.mode = ((%d)), c.Trig_Sel = ((0x%x)), d.Dma_type = ((%d))\n"	,	L_27
+adc_smp_set	,	F_20
+ODM_IC_11AC_SERIES	,	V_73
+la_mac_ref_mask	,	V_36
+"GetTxPktBuf\n"	,	L_2
+"\n"	,	L_19
+"is_round_up = ((%d)), finish_addr=((0x%x)), 0x7c0=((0x%x))\n"	,	L_3
+adcsmp	,	V_6
+polling_ok	,	V_46
+octet	,	V_12
+dm	,	V_3
+PHYDM_IC_SUPPORT_LA_MODE	,	V_86
+used	,	V_63
+phydm_la_buffer_allocate	,	F_1
+PHYDM_ADC_MAC_TRIG	,	V_39
+trigger_time	,	V_56
+adc_smp_de_init	,	F_26
+"[LA Set Success] LA_State=((%d))\n"	,	L_16
+u32	,	T_1
+ODM_COMP_UNCOND	,	V_10
+"[LA mode] LA_pattern_count = ((%d))\n"	,	L_13
+odm_allocate_memory	,	F_3
+time_unit	,	V_78
+odm_adc_trigger_jaguar2	,	V_43
+ODM_delay_ms	,	F_18
+"Disable LA mode\n"	,	L_30
+"[Polling timeout]\n"	,	L_12
+"[MAC_trig] ref_mask = ((0x%x)), ref_value = ((0x%x)), dbg_port = ((0x%x))\n"	,	L_7
+ret	,	V_9
+"1. [LA mode bb_setting] trig_mode = ((%d)), dbg_port = ((0x%x)), Trig_Edge = ((%d)), smp_rate = ((%d)), Trig_Sel = ((0x%x))\n"	,	L_22
+ODM_RTL8822B	,	V_67
+MASKDWORD	,	V_30
+"smp_cnt = ((%d))\n"	,	L_6
+"[LA_Stop] LA_state = ((%d))\n"	,	L_21
+out_len	,	V_61
+odm_set_mac_reg	,	F_12
+ODM_RT_TRACE	,	F_2
+"%08x%08x\n"	,	L_5
+phy_dm_struct	,	V_2
+adc_smp	,	V_5
+ODM_RTL8821C	,	V_68
+trigger_time_mu_sec	,	V_76
+odm_write_1byte	,	F_6
+odm_memory_set	,	F_5
+page	,	V_23
+reg_value	,	V_31
+"is_round_up = ((%d)), finish_addr=((0x%x * 8Byte)), Start_Addr = ((0x%x * 8Byte)), smp_number = ((%d))\n"	,	L_4
+la_smp_rate	,	V_72
+smp_cnt	,	V_24
+trig_sig_sel	,	V_54
+"[LA Set Fail] LA_State=((%d))\n"	,	L_17
+PHYDM_ADC_RF1_TRIG	,	V_75
+is_enable_la_mode	,	V_83
+phydm_la_mode_bb_setting	,	F_15
+"[LA mode BufferAllocate]\n"	,	L_1
+ADCSMP_TRIG_REG	,	V_40
+adc_smp_query_single_data	,	F_24
+PHYDM_ADC_RF0_TRIG	,	V_74
+addr	,	V_18
+target_polling_bit	,	V_47
+var1	,	V_85
+la_trigger_time	,	V_48
+DCMD_DECIMAL	,	V_87
+odm_set_bb_reg	,	F_9
+while_cnt	,	V_45
+length	,	V_11
+dm_void	,	V_1
+BIT	,	F_8
+start_pos	,	V_21
+_used	,	V_80
+ODM_N_ANTDIV_SUPPORT	,	V_42
+polling_time	,	V_57
+adc_smp_get_sample_counts	,	F_23
+is_bb_trigger	,	V_34
+DCMD_HEX	,	V_88
+tmp_u1b	,	V_44
+odm_free_memory	,	F_27
+"e.Trig_Time = ((%dus)), f.mac_ref_mask = ((0x%x)), g.dbg_port = ((0x%x))\n"	,	L_28
+support_ic_type	,	V_27
+la_trigger_edge	,	V_35
+odm_read_1byte	,	F_17
+ADCSMP_STATE_SET	,	V_50
+"Error: la data is not ready yet ...\n"	,	L_20
+_out_len	,	V_81

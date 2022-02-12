@@ -1,0 +1,300 @@
+"fsl_elbc_init: mtd-&gt;ooblayout = %p\n"	,	L_39
+parent	,	V_131
+FPAR_LP_PI	,	V_37
+fbcr	,	V_52
+NAND_CMD_READOOB	,	V_83
+chips	,	V_159
+read_buf	,	V_136
+"set_addr: bank=%d, "	,	L_1
+fsl_elbc_fcm_ctrl	,	V_28
+fir	,	V_50
+bank	,	V_53
+nand_hw_control_init	,	F_48
+dev	,	V_45
+len	,	V_107
+nand_set_flash_node	,	F_35
+"fsl_elbc_init: mtd-&gt;writesize = %d\n"	,	L_43
+"fsl_elbc_init: page size %d is not supported\n"	,	L_45
+"fsl_elbc_init: nand-&gt;badblockpos = %d\n"	,	L_31
+write_buf	,	V_135
+bbt_mirror_descr	,	V_143
+fsl_elbc_nand_remove	,	F_57
+chip_shift	,	V_119
+memcpy_fromio	,	F_25
+buf_num	,	V_31
+EIO	,	V_61
+al	,	V_112
+FIR_OP3_SHIFT	,	V_76
+NAND_CMD_RESET	,	V_105
+use_mdr	,	V_48
+node	,	V_168
+FPAR_SP_MS	,	V_41
+size	,	V_123
+"failed to get resource\n"	,	L_50
+read_page	,	V_147
+BR_V	,	V_172
+uint8_t	,	T_5
+of_node	,	V_132
+GFP_KERNEL	,	V_177
+fsl_elbc_run_command	,	F_8
+device	,	V_166
+cmdfunc	,	V_138
+ctrl	,	V_24
+NAND_CMD_READID	,	V_87
+__be32	,	T_3
+FIR_OP4_SHIFT	,	V_78
+fpar	,	V_35
+"fsl_elbc_cmdfunc: NAND_CMD_READOOB, page_addr:"	,	L_10
+device_node	,	V_167
+br	,	V_150
+mutex_unlock	,	F_47
+"fsl_elbc_cmdfunc: NAND_CMD_READ0, page_addr:"	,	L_8
+min	,	F_24
+setbits8	,	F_16
+"fsl_elbc_cmdfunc: error, unsupported command 0x%x.\n"	,	L_20
+mtd_to_nand	,	F_2
+writesize	,	V_18
+NAND_CMD_READ0	,	V_79
+"fsl_elbc_init: nand-&gt;numchips = %d\n"	,	L_27
+memcpy_toio	,	F_20
+fsl_elbc_ooblayout_ecc	,	F_1
+ooblayout	,	V_121
+FPAR_SP_PI	,	V_40
+chip	,	V_7
+controller	,	V_146
+u8	,	T_4
+NAND_CMD_READ1	,	V_86
+"page_addr: 0x%x, column: 0x%x.\n"	,	L_16
+column	,	V_20
+"writing %d bytes.\n"	,	L_18
+uint32_t	,	T_2
+regs	,	V_27
+FMR_CWTO_SHIFT	,	V_133
+fsl_elbc_wait	,	F_26
+fsl_elbc_ooblayout_free	,	F_4
+buf	,	V_106
+fsl_elbc_nand_mutex	,	V_179
+mutex_lock	,	F_46
+LTESR_CC	,	V_60
+"write_buf beyond end of buffer "	,	L_22
+"fsl_elbc_init: nand-&gt;chip_delay = %d\n"	,	L_30
+platform_device	,	V_160
+algo	,	V_156
+numchips	,	V_115
+oob	,	V_22
+strength	,	V_154
+"read_byte beyond end of buffer\n"	,	L_24
+__iomem	,	T_1
+FPAR_LP_PI_SHIFT	,	V_36
+fmr	,	V_14
+dev_dbg	,	F_14
+"fsl_elbc_cmdfunc: NAND_CMD_PAGEPROG "	,	L_17
+bbt_td	,	V_140
+fsl_elbc_chip_remove	,	F_38
+NAND_CMD_PAGEPROG	,	V_85
+NAND_ECC_HAMMING	,	V_157
+irq_status	,	V_54
+"fsl_elbc_init: mtd-&gt;oobsize = %d\n"	,	L_44
+fsl_elbc_write_subpage	,	F_32
+"ofpart"	,	L_49
+" 0x%x, column: 0x%x.\n"	,	L_9
+nand_chip	,	V_6
+kasprintf	,	F_52
+nand	,	V_30
+priv	,	V_9
+ret	,	V_165
+res	,	V_163
+nand_release	,	F_39
+data_len	,	V_130
+fsl_elbc_cmdfunc	,	F_13
+FPAR_LP_MS	,	V_38
+fsl_lbc_ctrl_dev	,	V_169
+fsl_elbc_write_buf	,	F_19
+ioremap	,	F_50
+fsl_elbc_mtd	,	V_8
+BR_MS_FCM	,	V_174
+"fsl_elbc_init: nand-&gt;pagemask = %8x\n"	,	L_29
+max_bitflips	,	V_64
+"fsl_elbc_init: nand-&gt;chipsize = %lld\n"	,	L_28
+name	,	V_158
+page	,	V_32
+pagemask	,	V_113
+dev_set_drvdata	,	F_49
+iounmap	,	F_41
+dev_vdbg	,	F_7
+FMR_ECCM	,	V_15
+FIR_OP7_SHIFT	,	V_103
+printk	,	F_56
+irq_wait	,	V_56
+"failed to map chip region\n"	,	L_52
+FCR_CMD0_SHIFT	,	V_80
+dev_err	,	F_17
+"fsl_elbc_init: mtd-&gt;erasesize = %d\n"	,	L_42
+kzalloc	,	F_45
+FCM_TIMEOUT_MSECS	,	V_57
+fsl_elbc_read_buf	,	F_23
+"elbc_fcm_ctrl-&gt;addr=0x%p (0x%p), "	,	L_2
+setbits32	,	F_29
+length	,	V_16
+nand_set_controller_data	,	F_36
+start	,	V_176
+vbase	,	V_43
+counter	,	V_181
+fsl_elbc_do_read	,	F_12
+phys_erase_shift	,	V_46
+FCR_CMD1_SHIFT	,	V_82
+"fsl_elbc_init: nand-&gt;ecc.bytes = %d\n"	,	L_37
+"address did not match any chip selects\n"	,	L_51
+FIR_OP_PA	,	V_73
+"eLBC NAND device at 0x%llx, bank %d\n"	,	L_54
+write_page	,	V_148
+"page_addr: 0x%x.\n"	,	L_13
+ENOMEM	,	V_178
+"fsl_elbc_cmdfunc: NAND_CMD_RESET.\n"	,	L_19
+dev_get_drvdata	,	F_58
+out_be32	,	F_6
+fsl_elbc_chip_init	,	F_33
+page_addr	,	V_21
+"write_buf of %d bytes"	,	L_21
+dev_info	,	F_11
+nand_to_mtd	,	F_34
+HZ	,	V_58
+FIR_OP6_SHIFT	,	V_102
+NAND_CMD_ERASE2	,	V_91
+NAND_CMD_ERASE1	,	V_90
+elbc_fcm_ctrl	,	V_29
+"fsl_elbc_init: mtd-&gt;size = %lld\n"	,	L_41
+FIR_OP_UA	,	V_89
+fsl_lbc_addr	,	F_44
+fsl_elbc_select_chip	,	F_18
+waitfunc	,	V_139
+page_size	,	V_33
+FCR_CMD2_SHIFT	,	V_96
+MAX_BANKS	,	V_171
+erasesize	,	V_124
+"fsl_elbc_run_command: fbar=%08x fpar=%08x "	,	L_5
+"eLBC Set Information for bank %d\n"	,	L_46
+"RedBoot"	,	L_48
+index	,	V_44
+NAND_BBT_USE_FLASH	,	V_145
+wait_event_timeout	,	F_10
+read_bytes	,	V_65
+in_be32	,	F_9
+"read_buf beyond end of buffer "	,	L_25
+fsl_elbc_ooblayout_ops	,	V_153
+FIR_OP0_SHIFT	,	V_70
+write_subpage	,	V_149
+FMR_AL_SHIFT	,	V_114
+fsl_elbc_read_page	,	F_30
+mtd_device_parse_register	,	F_55
+status	,	V_59
+fsl_elbc_chip_init_tail	,	F_27
+fsl_elbc_write_page	,	F_31
+"cmdlinepart"	,	L_47
+ENODEV	,	V_170
+kfree	,	F_40
+of_address_to_resource	,	F_43
+FCR_CMD3_SHIFT	,	V_98
+BR_BA	,	V_175
+flags	,	V_122
+FIR_OP_RS	,	V_94
+oobregion	,	V_5
+bbt_main_descr	,	V_141
+bbt_options	,	V_144
+mtd_info	,	V_1
+fcr	,	V_51
+bbt_md	,	V_142
+NAND_CMD_READSTART	,	V_81
+oobsize	,	V_19
+select_chip	,	V_137
+avail	,	V_110
+chipsize	,	V_116
+err	,	V_180
+bufsize	,	V_108
+FIR_OP_CA	,	V_71
+corrected	,	V_68
+FIR_OP_CM3	,	V_100
+FIR_OP_CM2	,	V_92
+FIR_OP_CM1	,	V_75
+FIR_OP_CM0	,	V_69
+FIR_OP5_SHIFT	,	V_101
+ERR_BYTE	,	V_109
+clrbits32	,	F_28
+FPAR_SP_PI_SHIFT	,	V_39
+"fsl_elbc_cmdfunc: NAND_CMD_ERASE2.\n"	,	L_14
+"fsl_elbc_init: nand-&gt;ecc.mode = %d\n"	,	L_35
+NAND_ECC_HW	,	V_63
+"fsl_elbc_init: nand-&gt;phys_erase_shift = %d\n"	,	L_34
+ecc	,	V_10
+FIR_OP2_SHIFT	,	V_74
+"command failed: fir %x fcr %x status %x mdr %x\n"	,	L_7
+OR_FCM_PGS	,	V_126
+"(%d requested, %d available)\n"	,	L_26
+section	,	V_3
+"fsl_elbc_cmdfunc: NAND_CMD_ERASE1, "	,	L_12
+read_byte	,	V_134
+mode	,	V_62
+"fsl_elbc_init: nand-&gt;chip_shift = %d\n"	,	L_32
+pdev	,	V_161
+FIR_OP_RBW	,	V_77
+BR_DECC	,	V_151
+NAND_CMD_PARAM	,	V_88
+"fsl_elbc_init: nand-&gt;ecc.total = %d\n"	,	L_38
+ERANGE	,	V_12
+lsor	,	V_55
+mtd	,	V_2
+NAND_STATUS_WP	,	V_104
+NAND_CMD_STATUS	,	V_95
+ecc_stats	,	V_67
+offset	,	V_13
+FIR_OP_CW1	,	V_93
+resource	,	V_162
+fsl_elbc_nand_probe	,	F_42
+"fsl_elbc_init: mtd-&gt;flags = %08x\n"	,	L_40
+failed	,	V_129
+lbc	,	V_26
+nand_scan_ident	,	F_53
+steps	,	V_11
+nand_scan_tail	,	F_54
+in_8	,	F_21
+"fsl_elbc_init: nand-&gt;ecc.steps = %d\n"	,	L_36
+mtd_oob_region	,	V_4
+mdr	,	V_49
+NAND_CMD_SEQIN	,	V_97
+fbar	,	V_34
+oob_poi	,	V_128
+fsl_elbc_read_byte	,	F_22
+"(%d requested, %u available)\n"	,	L_23
+BR_DECC_CHK_GEN	,	V_152
+KERN_INFO	,	V_183
+chip_delay	,	V_117
+lteccr	,	V_66
+"fbcr=%08x bank=%d\n"	,	L_6
+page_shift	,	V_47
+"fsl_elbc_cmdfunc: NAND_CMD %x\n"	,	L_11
+total	,	V_120
+NAND_STATUS_FAIL	,	V_111
+badblockpos	,	V_118
+fsl_lbc_regs	,	V_25
+FIR_OP1_SHIFT	,	V_72
+addr	,	V_42
+"fsl_elbc_run_command: fmr=%08x fir=%08x fcr=%08x\n"	,	L_4
+FIR_OP_WB	,	V_99
+NAND_ECC_SOFT	,	V_155
+"fsl_elbc_init: nand-&gt;page_shift = %d\n"	,	L_33
+fsl_lbc_ctrl	,	V_23
+mtd_set_ooblayout	,	F_37
+or	,	V_125
+WARN_ON	,	F_15
+"index %x, pes %d ps %d\n"	,	L_3
+part_probe_types	,	V_164
+command	,	V_84
+resource_size	,	F_51
+"%llx.flash"	,	L_53
+u64	,	V_182
+bytes	,	V_17
+set_addr	,	F_5
+nand_get_controller_data	,	F_3
+BR_MSEL	,	V_173
+"fsl_elbc_cmdfunc: NAND_CMD_SEQIN/PAGE_PROG, "	,	L_15
+oob_required	,	V_127

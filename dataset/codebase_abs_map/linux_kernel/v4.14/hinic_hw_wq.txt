@@ -1,0 +1,164 @@
+ENOMEM	,	V_12
+WQ_PAGE_ADDR	,	F_45
+wqe_shadow_size	,	V_83
+"Failed to allocate wq page\n"	,	L_8
+atomic_set	,	F_36
+shadow_wqe	,	V_48
+dma_addr_t	,	T_3
+WQS_PAGE_SIZE	,	V_20
+num_pages	,	V_25
+CMDQ_BASE_ADDR	,	F_40
+delta	,	V_63
+page_sz	,	V_6
+alloc_page_arrays	,	F_11
+block_idx	,	V_28
+"Failed to allocate dma for wqs page\n"	,	L_1
+curr_pg	,	V_75
+"Failed to allocate wqe shadow\n"	,	L_7
+dev	,	V_10
+q_depth	,	V_58
+alloc_blk_pos	,	V_32
+end_cons_idx	,	V_81
+alloc_wq_pages	,	F_29
+CMDQ_BASE_PADDR	,	F_41
+hinic_wq_free	,	F_37
+hinic_wq	,	V_44
+num_q_pages	,	V_46
+CMDQ_PAGE_SIZE	,	V_23
+cmdq_allocate_page	,	F_9
+vzalloc	,	F_4
+WQE_PAGE_NUM	,	F_54
+max_wqs	,	V_38
+end_prod_idx	,	V_78
+WQS_BLOCKS_PER_PAGE	,	V_37
+WQ_BASE_VADDR	,	F_33
+atomic_sub_return	,	F_50
+shadow_idx	,	V_50
+page_idx	,	V_16
+free_page_arrays	,	F_14
+dma_addr	,	V_9
+size	,	V_24
+hinic_hwif	,	V_1
+paddr	,	V_4
+err_wq_allocate_page	,	V_42
+WQS_FREE_BLOCKS_SIZE	,	F_23
+GFP_KERNEL	,	V_11
+err_shadow_idx	,	V_51
+free_wq_pages	,	F_27
+copy_wqe_from_shadow	,	F_47
+shadow_vaddr	,	V_5
+hinic_hw_wqe	,	V_73
+"Failed to allocate mem for page addresses\n"	,	L_3
+WQ_MAX_PAGES	,	V_61
+page_paddr	,	V_18
+max_wqe_size	,	V_47
+WQ_BASE_PADDR	,	F_35
+init_wqs_blocks_arr	,	F_19
+shadow_block_vaddr	,	V_52
+hinic_wqs_alloc	,	F_21
+copy_wqe_to_shadow	,	F_43
+vfree	,	F_8
+end_pg	,	V_76
+hinic_wqs_free	,	F_24
+alloc_blocks_lock	,	V_30
+ALIGN	,	F_22
+WQE_PAGE_OFF	,	F_46
+pos	,	V_29
+EBUSY	,	V_79
+hinic_wqs_cmdq_alloc	,	F_38
+u16	,	T_4
+hwif	,	V_2
+cpu_to_be64	,	F_31
+WQE_SHADOW_PAGE	,	F_61
+CMDQ_WQ_MAX_PAGES	,	V_67
+atomic_read	,	F_49
+err	,	V_39
+cmdq_pages	,	V_22
+i	,	V_40
+j	,	V_66
+wqs_allocate_page	,	F_6
+hinic_read_wqe	,	F_56
+EINVAL	,	V_41
+shadow_addr	,	V_69
+CMDQ_BASE_VADDR	,	F_39
+err_cmdq_block	,	V_68
+err_shadow_vaddr	,	V_13
+block_vaddr	,	V_53
+dma_free_coherent	,	F_5
+ERR_PTR	,	F_52
+alloc_wqes_shadow	,	F_25
+free_wqes_shadow	,	F_26
+hinic_get_wqe	,	F_48
+err_alloc_wq_pages	,	V_56
+wqebb_size	,	V_57
+dma_zalloc_coherent	,	F_2
+size_t	,	T_2
+WQS_MAX_NUM_BLOCKS	,	V_33
+"Failed to allocate wq pages\n"	,	L_14
+down	,	F_16
+hinic_read_wqe_direct	,	F_57
+wqebb_addr	,	V_72
+pdev	,	V_8
+WQE_IN_RANGE	,	F_59
+err_alloc_blocks	,	V_43
+up	,	F_17
+WQ_SIZE	,	F_30
+blk_idx	,	V_36
+num_wqebbs_per_page	,	V_59
+queue_alloc_page	,	F_1
+hinic_cmdq_pages	,	V_21
+"WQ q_depth must be power of 2\n"	,	L_11
+"Invalid max_wqs = %d\n"	,	L_2
+hinic_wqs_cmdq_free	,	F_42
+"wqebb_size must be &gt; 0\n"	,	L_9
+curr_prod_idx	,	V_77
+cons_idx	,	V_62
+hinic_put_wqe	,	F_55
+pci_dev	,	V_7
+"Failed to get free wqs next block\n"	,	L_13
+atomic_add_return	,	F_53
+hinic_write_wqe	,	F_60
+idx	,	V_71
+devm_kzalloc	,	F_12
+"wq_page_size must be &gt; 0\n"	,	L_10
+atomic_add	,	F_51
+free_blocks	,	V_34
+return_blk_pos	,	V_35
+sema_init	,	F_20
+"Number wq pages exceeds the limit\n"	,	L_5
+wqe	,	V_82
+vaddr	,	V_3
+err_page_vaddr	,	V_26
+"Failed to allocate CMDQ page\n"	,	L_15
+dev_err	,	F_3
+wqs_return_block	,	F_18
+wqe_shadow	,	F_58
+wqs	,	V_15
+block_paddr	,	V_60
+"Number wq pages must be power of 2\n"	,	L_6
+wq	,	V_45
+wqs_next_block	,	F_15
+MASKED_WQE_IDX	,	F_44
+mask	,	V_64
+"Failed to alloc CMDQ blocks\n"	,	L_16
+devm_kfree	,	F_13
+hinic_wqs	,	V_14
+wqe_size	,	V_74
+shadow_page_vaddr	,	V_19
+cmdq_blocks	,	V_65
+wqs_free_page	,	F_7
+num_free_blks	,	V_31
+WQ_BASE_ADDR	,	F_34
+page_vaddr	,	V_17
+u64	,	T_1
+"Failed wq page allocation\n"	,	L_4
+prod_idx	,	V_49
+cmdq_free_page	,	F_10
+curr_cons_idx	,	V_80
+"num wqebbs per page must be power of 2\n"	,	L_12
+wq_page_size	,	V_54
+max_pages	,	V_55
+num_wqebbs	,	V_70
+err_page_shadow_vaddr	,	V_27
+be64_to_cpu	,	F_28
+hinic_wq_allocate	,	F_32

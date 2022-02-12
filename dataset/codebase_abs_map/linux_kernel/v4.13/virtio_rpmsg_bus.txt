@@ -1,0 +1,216 @@
+parent	,	V_47
+rpmsg_send_offchannel_raw	,	F_36
+"rpmsg_virtio RX: "	,	L_11
+"%s\n"	,	L_17
+rpmsg_rx_cb_t	,	T_1
+virtqueue_enable_cb	,	F_32
+dev	,	V_16
+len	,	V_49
+virtqueue_add_inbuf	,	F_55
+rpmsg_ns_cb	,	F_59
+num_bufs	,	V_52
+to_virtio_rpmsg_channel	,	F_14
+defined	,	F_40
+rpmsg_hdr	,	V_61
+idr_destroy	,	F_77
+"uhm, incoming signal, but no used buffer ?\n"	,	L_15
+"invalid addr (src 0x%x, dst 0x%x)\n"	,	L_4
+"timeout waiting for a tx buffer\n"	,	L_6
+virtqueue	,	V_73
+"failed to add a virtqueue buffer: %d\n"	,	L_14
+reserved	,	V_68
+newch	,	V_76
+"input"	,	L_26
+pr_err	,	F_80
+GFP_KERNEL	,	V_18
+device	,	V_15
+"TX From 0x%x, To 0x%x, Len %d, Flags %d, Reserved %d\n"	,	L_7
+wake_up_interruptible	,	F_58
+chinfo	,	V_28
+sleepers	,	V_56
+mutex_init	,	F_7
+"From: 0x%x, To: 0x%x, Len: %d, Flags: %d, Reserved: %d\n"	,	L_10
+dma_alloc_coherent	,	F_68
+"rpmsg_destroy_channel failed: %d\n"	,	L_24
+mutex_unlock	,	F_11
+RPMSG_NS_CREATE	,	V_40
+sg	,	V_60
+CONFIG_DYNAMIC_DEBUG	,	V_69
+virtqueue_get_vring_size	,	F_67
+cb	,	V_9
+EMSGSIZE	,	V_64
+virtio_rpmsg_channel	,	V_29
+endpoints	,	V_25
+scatterlist	,	V_59
+virtio_rpmsg_trysendto	,	F_49
+"failed to register virtio driver: %d\n"	,	L_32
+i	,	V_82
+virtio_rpmsg_ops	,	V_46
+svq	,	V_55
+"idr_alloc failed: %d\n"	,	L_1
+virtio_rpmsg_send	,	F_45
+mutex_lock	,	F_8
+kref	,	V_1
+config	,	V_93
+total_buf_space	,	V_83
+tx_lock	,	V_50
+del_vqs	,	V_94
+free_ept	,	V_26
+virtio_has_feature	,	F_19
+virtqueue_get_buf	,	F_29
+rpmsg_upref_sleepers	,	F_30
+dev_dbg	,	F_39
+refcount	,	V_4
+RPMSG_NS_ADDR	,	V_41
+virtio_rpmsg_announce_destroy	,	F_21
+device_for_each_child	,	F_76
+rpmsg_probe	,	F_62
+virtio_endpoint_ops	,	V_21
+id_max	,	V_13
+DUMP_PREFIX_NONE	,	V_70
+priv	,	V_10
+free_coherent	,	V_92
+ret	,	V_44
+"creat"	,	L_23
+virtproc_info	,	V_5
+atomic_dec_and_test	,	F_34
+msgs_received	,	V_74
+idr_init	,	F_63
+rvq	,	V_72
+"buffers: va %p, dma %pad\n"	,	L_28
+free_vrp	,	V_85
+ops	,	V_20
+rpmsg_remove_device	,	F_73
+RPMSG_ADDR_ANY	,	V_22
+name	,	V_37
+cb_lock	,	V_19
+virtio_rpmsg_create_ept	,	F_13
+"virtqueue_add_outbuf failed: %d\n"	,	L_9
+put_device	,	F_26
+VIRTIO_RPMSG_F_NS	,	V_34
+dev_err	,	F_10
+rpmsg_register_device	,	F_27
+"rpmsg_create_channel failed\n"	,	L_25
+virtqueue_disable_cb	,	F_35
+kzalloc	,	F_5
+virtio_rpmsg_destroy_ept	,	F_17
+"anomaly: ns ept has an rpdev handle\n"	,	L_20
+ERESTARTSYS	,	V_67
+virtio_ipc_driver	,	V_96
+virtio_rpmsg_send_offchannel	,	F_47
+atomic_inc_return	,	F_31
+virtio_rpmsg_trysend_offchannel	,	F_50
+to_rpmsg_device	,	F_23
+ENOMEM	,	V_65
+release	,	V_48
+rpmsg_sendto	,	F_20
+dev_info	,	F_60
+vqs_del	,	V_88
+virtio_rpmsg_trysend	,	F_48
+virtio_device	,	V_77
+tmp	,	V_43
+init_waitqueue_head	,	F_64
+kref_get	,	F_54
+vqs	,	V_80
+id	,	V_14
+vq_callback_t	,	T_3
+rpmsg_create_channel	,	F_24
+"inbound msg too big: (%d, %d)\n"	,	L_12
+"output"	,	L_27
+ept	,	V_3
+last_sbuf	,	V_51
+announce	,	V_33
+rpmsg_ns_msg	,	V_35
+rpmsg_device	,	V_7
+vrp	,	V_6
+__func__	,	V_75
+virtqueue_kick_prepare	,	F_69
+virtqueue_notify	,	F_71
+"rpmsg_virtio TX: "	,	L_8
+reset	,	V_95
+"rpmsg host is online\n"	,	L_30
+"destroy"	,	L_22
+rpmsg_remove	,	F_75
+wait	,	V_58
+get_a_tx_buf	,	F_28
+kfree	,	F_3
+flags	,	V_39
+nsm	,	V_36
+"channel %s:%x:%x already exist\n"	,	L_3
+notify	,	V_84
+out	,	V_71
+rpmsg_channel_info	,	V_27
+"can't remove rpmsg device: %d\n"	,	L_31
+vch	,	V_30
+kref_put	,	F_12
+RPMSG_BUF_SIZE	,	V_54
+"msg received with no recipient\n"	,	L_13
+bufs_dma	,	V_87
+err	,	V_32
+__ept_release	,	F_1
+rpmsg_init	,	F_78
+rpdev	,	V_8
+sendq	,	V_66
+EINVAL	,	V_63
+"NS announcement: "	,	L_18
+names	,	V_79
+bufs_va	,	V_81
+__init	,	T_5
+__exit	,	T_6
+"failed to announce service %d\n"	,	L_2
+dma_free_coherent	,	F_72
+idr_find	,	F_53
+rpmsg_find_device	,	F_25
+msg	,	V_62
+wait_event_interruptible_timeout	,	F_37
+data	,	V_57
+size_t	,	T_4
+RPMSG_RESERVED_ADDRESSES	,	V_23
+rpmsg_xmit_done	,	F_57
+virtqueue_kick	,	F_44
+unregister_virtio_driver	,	F_82
+u32	,	T_2
+kref_init	,	F_6
+virtqueue_add_outbuf	,	F_43
+ns_ept	,	V_91
+idr_alloc	,	F_9
+"%sing channel %s addr 0x%x\n"	,	L_21
+endpoints_lock	,	V_24
+rbufs	,	V_89
+rpmsg_unregister_device	,	F_61
+register_virtio_driver	,	F_79
+__rpmsg_destroy_ept	,	F_15
+vq_cbs	,	V_78
+virtio_find_vqs	,	F_65
+device_unregister	,	F_74
+rpmsg_downref_sleepers	,	F_33
+virtio_rpmsg_release_device	,	F_22
+"message is too big (%d)\n"	,	L_5
+dst	,	V_45
+dynamic_hex_dump	,	F_41
+rpmsg_recv_done	,	F_56
+virtio_rpmsg_announce_create	,	F_18
+sbufs	,	V_53
+msecs_to_jiffies	,	F_38
+idr_remove	,	F_16
+"malformed ns msg (%d)\n"	,	L_19
+addr	,	V_11
+"failed to create the ns ept\n"	,	L_29
+__rpmsg_create_ept	,	F_4
+RPMSG_NS_DESTROY	,	V_42
+"Received %u messages\n"	,	L_16
+MAX_RPMSG_NUM_BUFS	,	V_86
+src	,	V_31
+rpmsg_fini	,	F_81
+rpmsg_recv_single	,	F_51
+vdev	,	V_17
+dev_warn	,	F_52
+WARN_ON	,	F_66
+sg_init_one	,	F_42
+container_of	,	F_2
+id_min	,	V_12
+RPMSG_NAME_SIZE	,	V_38
+cpu_addr	,	V_90
+virtio_device_ready	,	F_70
+virtio_rpmsg_sendto	,	F_46
+rpmsg_endpoint	,	V_2

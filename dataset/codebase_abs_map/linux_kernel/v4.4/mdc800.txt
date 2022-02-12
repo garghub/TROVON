@@ -1,0 +1,194 @@
+"%i %i %i %i %i %i %i %i \n"	,	L_3
+descriptor	,	V_50
+usb_get_intfdata	,	F_27
+usb_submit_urb	,	F_32
+inode	,	V_72
+"Camera didn't get ready.\n"	,	L_26
+"timeout waiting for camera.\n"	,	L_4
+bInterfaceClass	,	V_54
+bNumConfigurations	,	V_51
+dev	,	V_17
+len	,	V_82
+state	,	V_26
+"Can't submit download urb "	,	L_22
+KERN_WARNING	,	V_28
+__user	,	T_2
+EIO	,	V_80
+loff_t	,	T_4
+sts	,	V_85
+left	,	V_84
+usb_sndbulkpipe	,	F_23
+GFP_KERNEL	,	V_79
+device	,	V_16
+ssize_t	,	T_1
+"writing command fails (status=%i)\n"	,	L_7
+": "	,	L_33
+mutex_init	,	F_41
+mutex_unlock	,	F_19
+endpoint	,	V_58
+irq_urb	,	V_64
+usb_fill_bulk_urb	,	F_22
+current	,	V_88
+usb_device_id	,	V_40
+EBUSY	,	V_75
+pos	,	V_83
+cleanup_on_fail	,	V_101
+usb_deregister_dev	,	F_28
+bInterfaceProtocol	,	V_56
+cur_altsetting	,	V_52
+a	,	V_2
+b	,	V_3
+bmAttributes	,	V_5
+c	,	V_93
+"call 0x07 before "	,	L_28
+ch	,	V_7
+intf	,	V_39
+pic_len	,	V_71
+camera_busy	,	V_19
+i	,	V_8
+bEndpointAddress	,	V_4
+j	,	V_42
+"request USB irq fails (submit_retval=%i).\n"	,	L_18
+buf	,	V_81
+mdc800_usb_irq	,	F_4
+out_ptr	,	V_34
+mutex_lock	,	F_17
+usb_rcvintpipe	,	F_21
+usb_rcvbulkpipe	,	F_24
+open	,	V_63
+mdc800_usb_probe	,	F_13
+"gets ready\n"	,	L_2
+"gets busy\n"	,	L_1
+"probe fails -&gt; Wrong Endpoints.\n"	,	L_13
+dev_dbg	,	F_5
+"mdc800: Illegal State \"working\""	,	L_20
+TO_DOWNLOAD_GET_BUSY	,	V_98
+camera_response	,	V_20
+"Found Mustek MDC800 on USB.\n"	,	L_14
+written	,	V_30
+WORKING	,	V_87
+mdc800	,	V_14
+"requesting answer from irq fails\n"	,	L_30
+downloaded	,	V_36
+retval	,	V_47
+"during waiting for irq.\n"	,	L_6
+irq_urb_buffer	,	V_65
+signal_pending	,	F_35
+usb_host_interface	,	V_43
+"cached imagesize = %i\n"	,	L_31
+"Mustek MDC800 device opened.\n"	,	L_19
+bNumEndpoints	,	V_57
+mdc800_isReady	,	F_3
+mdc800_data	,	V_13
+download_left	,	V_35
+"reached during read ?!\n"	,	L_21
+desc	,	V_53
+"probe fails -&gt; wrong Interface\n"	,	L_12
+get_user	,	F_38
+printk	,	F_10
+":"	,	L_34
+irq_wait	,	V_23
+dev_err	,	F_9
+kzalloc	,	F_40
+kmalloc	,	F_43
+mdc800_ed	,	V_59
+mdc800_endpoint_equals	,	F_1
+usb_set_intfdata	,	F_25
+"(%s) called.\n"	,	L_9
+download_urb_buffer	,	V_69
+"(status=%i)\n"	,	L_25
+wMaxPacketSize	,	V_6
+ptr	,	V_86
+"request download-bytes fails "	,	L_24
+data_received	,	V_10
+camera_request_ready	,	V_21
+usb_alloc_urb	,	F_44
+msec	,	V_25
+mdc800_class	,	V_62
+"request bytes fails (status:%i)\n"	,	L_8
+"0x05,0x3e\n"	,	L_29
+dev_info	,	F_16
+download_urb	,	V_68
+init_waitqueue_head	,	F_42
+mdc800_isBusy	,	F_2
+context	,	V_15
+mdc800_device_open	,	F_31
+id	,	V_41
+usb_deregister	,	F_49
+READY	,	V_29
+in	,	V_94
+wait_event_timeout	,	F_7
+download_wait	,	V_37
+usb_device	,	V_45
+mdc800_usb_driver	,	V_102
+irq_woken	,	V_22
+"mdc800: Camera gets disconnected "	,	L_5
+__func__	,	V_48
+write_urb	,	V_66
+irq_interval	,	V_46
+usb_kill_urb	,	F_29
+error_out	,	V_76
+status	,	V_18
+usb_fill_int_urb	,	F_20
+ENODEV	,	V_49
+kfree	,	F_46
+bInterfaceSubClass	,	V_55
+DOWNLOAD	,	V_90
+bInterval	,	V_60
+usb_interface	,	V_38
+out	,	V_32
+copy_to_user	,	F_36
+file	,	V_73
+"Not able to get a minor for this device.\n"	,	L_15
+usb_mdc800_cleanup	,	F_48
+TO_GET_READY	,	V_96
+urb	,	V_9
+EFAULT	,	V_92
+usb_mdc800_init	,	F_39
+mdc800_device_release	,	F_33
+out_count	,	V_33
+mdc800_usb_download_notify	,	F_12
+__init	,	T_5
+__exit	,	T_6
+in_count	,	V_77
+TO_WRITE_GET_READY	,	V_97
+"Command Timeout.\n"	,	L_32
+"\n"	,	L_35
+"(retval=%i)\n"	,	L_23
+mdc800_usb_waitForIRQ	,	F_6
+answersize	,	V_95
+"(%s) called\n"	,	L_16
+errn	,	V_74
+wake_up	,	V_11
+usb_endpoint_descriptor	,	V_1
+mdc800_usb_write_notify	,	F_11
+size_t	,	T_3
+"probe fails -&gt; wrong Number of Configuration\n"	,	L_11
+mode	,	V_24
+mdc800_getAnswerSize	,	F_30
+usb_register_dev	,	F_18
+usb_free_urb	,	F_47
+transfer_buffer	,	V_12
+mdc800_usb_disconnect	,	F_26
+pic_index	,	V_78
+usb_register	,	F_45
+"mdc800: can't alloc memory!\n"	,	L_36
+write_wait	,	V_31
+mdc800_device_write	,	F_37
+TO_READ_FROM_IRQ	,	V_99
+NOT_CONNECTED	,	V_27
+EINTR	,	V_89
+TO_DOWNLOAD_GET_READY	,	V_91
+msecs_to_jiffies	,	F_8
+TO_DEFAULT_COMMAND	,	V_100
+"submitting write urb fails "	,	L_27
+mdc800_device_read	,	F_34
+"Mustek MDC800 disconnected from USB.\n"	,	L_17
+io_lock	,	V_61
+intf_desc	,	V_44
+dev_warn	,	F_15
+write_urb_buffer	,	V_67
+command	,	V_70
+interface_to_usbdev	,	F_14
+KERN_ERR	,	V_103
+"only one Mustek MDC800 is supported.\n"	,	L_10

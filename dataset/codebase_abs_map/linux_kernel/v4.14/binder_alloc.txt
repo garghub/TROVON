@@ -1,0 +1,272 @@
+parent	,	V_16
+page_ptr	,	V_46
+err_no_vma	,	V_49
+vm_insert_page	,	F_32
+prev	,	V_5
+"  buffer"	,	L_37
+binder_alloc_free_buf	,	F_59
+binder_alloc_print_allocated	,	F_76
+has_page_addr	,	V_70
+binder_alloc_debug	,	F_8
+binder_delete_free_buffer	,	F_54
+err_map_kernel_failed	,	V_61
+trace_binder_unmap_user_start	,	F_87
+PAGE_MASK	,	V_81
+trace_binder_free_lru_end	,	F_38
+debug_id	,	V_108
+user_page_addr	,	V_37
+binder_alloc_new_buf_locked	,	F_41
+shrink	,	V_124
+binder_free_buf_locked	,	F_58
+BINDER_DEBUG_BUFFER_ALLOC	,	V_18
+"%d: binder_alloc_buf size %zd failed, no address space\n"	,	L_14
+active	,	V_109
+LRU_REMOVED_RETRY	,	V_121
+CONFIG_CPU_CACHE_VIPT	,	F_62
+size	,	V_72
+pr_err	,	F_15
+new_buffer	,	V_12
+GFP_KERNEL	,	V_56
+"%d: binder_alloc_buf, no vma\n"	,	L_10
+__GFP_ZERO	,	V_58
+print_binder_buffer	,	F_74
+shrinker	,	V_123
+vma_vm_mm	,	V_47
+buffer_size	,	V_10
+err_mmget	,	V_119
+err_down_write_mmap_sem_failed	,	V_120
+mutex_trylock	,	F_83
+mutex_init	,	F_99
+cache_is_vipt_aliasing	,	F_63
+seq_printf	,	F_75
+sc	,	V_126
+mutex_unlock	,	F_18
+current	,	V_28
+BUG	,	F_13
+EBUSY	,	V_92
+binder_alloc_free_page	,	F_81
+user_ptr	,	V_23
+__GFP_HIGHMEM	,	V_57
+"%d: %s pages %pK-%pK\n"	,	L_3
+"%s: %d failed to alloc new buffer struct\n"	,	L_17
+offsets_size	,	V_66
+"already mapped"	,	L_25
+u8	,	V_9
+binder_alloc_buffer_size	,	F_4
+pr_info	,	F_65
+seq_file	,	V_105
+err_alloc_page_failed	,	V_59
+"%d: merge free, buffer %pK do not share page with %pK or %pK\n"	,	L_22
+uint32_t	,	V_99
+i	,	V_103
+m	,	V_106
+n	,	V_24
+mmget_not_zero	,	F_21
+"%d: binder_alloc_buf failed to map page at %pK in kernel\n"	,	L_8
+"%s %d: %pK size %zd:%zd:%zd %s\n"	,	L_35
+p	,	V_14
+mutex_lock	,	F_17
+"allocate"	,	L_4
+binder_alloc	,	V_6
+end_page_addr	,	V_71
+ERR_PTR	,	F_42
+err_get_alloc_mutex_failed	,	V_117
+"%d: binder_free_buf size %zd async free %zd\n"	,	L_24
+binder_lru_page	,	V_38
+trace_binder_unmap_kernel_start	,	F_90
+trace_binder_update_page_range	,	F_20
+vma	,	V_35
+"%d: binder_alloc_buf failed to map pages in userspace, no vma\n"	,	L_6
+list_is_last	,	F_5
+rb_next	,	F_46
+"%d: got transaction with invalid extra_buffers_size %zd\n"	,	L_12
+INIT_LIST_HEAD	,	F_29
+list_lru_isolate	,	F_85
+total_free_size	,	V_80
+to_free	,	V_86
+BINDER_DEBUG_OPEN_CLOSE	,	V_104
+vm_mm	,	V_101
+binder_alloc_vma_close	,	F_79
+PAGE_ALIGN	,	F_47
+ret	,	V_50
+area	,	V_89
+mmdrop	,	F_73
+list_lru_one	,	V_114
+"alloc page array"	,	L_28
+allocated_buffers	,	V_22
+vm_start	,	V_95
+binder_alloc_mmap_lock	,	V_91
+count	,	V_110
+prev_buffer_end_page	,	F_53
+binder_alloc_mmap_handler	,	F_60
+total_alloc_size	,	V_78
+CACHE_COLOUR	,	F_64
+up_write	,	F_34
+binder_alloc_prepare_to_free_locked	,	F_14
+page	,	V_39
+alloc	,	V_7
+free_in_progress	,	V_27
+alloc_page	,	F_28
+binder_insert_allocated_buffer_locked	,	F_12
+next	,	V_4
+BUG_ON	,	F_7
+trace_binder_alloc_lru_end	,	F_26
+err_vm_insert_page_failed	,	V_62
+"%s: %d %lx-%lx maps %pK bad alignment\n"	,	L_27
+largest_alloc_size	,	V_77
+err_alloc_buf_struct_failed	,	V_83
+binder_alloc_print_pages	,	F_77
+"%d:%d FREE_BUFFER u%016llx user freed buffer twice\n"	,	L_2
+"alloc buffer struct"	,	L_29
+rb_link_node	,	F_10
+user_buffer_offset	,	V_26
+list_del	,	F_56
+kzalloc	,	F_48
+binder_shrink_scan	,	F_96
+"%d: add free buffer, size %zd, at %pK\n"	,	L_1
+end	,	V_33
+vm_end	,	V_94
+binder_insert_free_buffer	,	F_6
+best_fit	,	V_69
+binder_alloc_get_allocated_count	,	F_78
+failure_string	,	V_90
+"%d: binder_alloc_buf failed for page at %pK\n"	,	L_7
+list_lru_add	,	F_37
+__free_page	,	F_40
+"%d: merge free, buffer %pK share page with %pK\n"	,	L_20
+start	,	V_32
+spin_unlock	,	F_86
+binder_alloc_shrinker_init	,	F_100
+on_lru	,	V_51
+need_mm	,	V_42
+vm_struct	,	V_88
+binder_buffer_next	,	F_1
+spinlock_t	,	T_3
+kern_ptr	,	V_25
+"on lru"	,	L_32
+"%s: %d %lx-%lx %s failed %d\n"	,	L_30
+list_entry	,	F_2
+cb_arg	,	V_116
+unmap_kernel_range	,	F_39
+binder_shrink_count	,	F_94
+binder_update_page_range	,	F_19
+ENOMEM	,	V_63
+list_lru_count	,	F_95
+new_buffer_size	,	V_17
+list_lru_init	,	F_101
+prefix	,	V_107
+page_addr	,	V_36
+trace_binder_free_lru_start	,	F_36
+list_empty	,	F_70
+shrink_control	,	V_125
+binder_alloc_new_buf	,	F_51
+lock	,	V_115
+mm_struct	,	V_40
+trace_binder_alloc_lru_start	,	F_23
+page_count	,	V_102
+lru_status	,	V_111
+data_size	,	V_65
+item	,	V_113
+err_already_mapped	,	V_93
+index	,	V_52
+trace_binder_alloc_page_end	,	F_33
+LRU_SKIP	,	V_122
+binder_buffer_prev	,	F_3
+ENOSPC	,	V_76
+mmap_sem	,	V_48
+allocate	,	V_31
+__func__	,	V_82
+PAGE_SIZE	,	V_44
+ESRCH	,	V_64
+largest_free_size	,	V_79
+get_vm_area	,	F_61
+"%d: binder_alloc_buf failed to map page at %lx in userspace\n"	,	L_9
+kfree	,	F_57
+map_kernel_range_noflush	,	F_30
+"%s: %d buffers %d, pages %d\n"	,	L_34
+binder_shrinker	,	V_129
+mutex	,	V_30
+BINDER_DEBUG_BUFFER_ALLOC_ASYNC	,	V_85
+vfree	,	F_68
+list_lru_del	,	F_24
+down_write_trylock	,	F_84
+ALIGN	,	F_43
+free_range	,	V_43
+is_async	,	V_68
+"%d: merge free, buffer start %pK is page aligned\n"	,	L_21
+mmput	,	F_35
+"delivered"	,	L_36
+max	,	F_44
+"%d: got transaction with invalid size %zd-%zd\n"	,	L_11
+trace_binder_alloc_page_start	,	F_27
+free_async_space	,	V_75
+flush_cache_vmap	,	F_31
+EINVAL	,	V_74
+binder_alloc_deferred_release	,	F_69
+transaction	,	V_87
+trace_binder_unmap_user_end	,	F_89
+"%d: binder_alloc_buf size %zd got buffer %pK size %zd\n"	,	L_16
+nr_to_scan	,	V_127
+"free"	,	L_5
+data	,	V_11
+list_first_entry	,	F_71
+async_transaction	,	V_84
+pid	,	V_19
+"%d: binder_alloc_buf size %zd got %pK\n"	,	L_18
+size_t	,	T_1
+"allocated: %zd (num: %zd largest: %zd), free: %zd (num: %zd largest: %zd)\n"	,	L_15
+pages	,	V_45
+barrier	,	F_66
+rb_left	,	V_20
+buffer	,	V_2
+rb_node	,	V_13
+rb_erase	,	F_50
+zap_page_range	,	F_88
+mm	,	V_41
+group_leader	,	V_128
+buffers	,	V_8
+data_offsets_size	,	V_73
+uintptr_t	,	T_2
+"%d: binder_alloc_buf size %zd failed, no async space left\n"	,	L_13
+lru	,	V_54
+entry	,	V_3
+rb_right	,	V_21
+err_page_ptr_cleared	,	V_55
+rb_first	,	F_45
+list_add	,	F_49
+rb_insert_color	,	F_11
+err_alloc_pages_failed	,	V_100
+register_shrinker	,	F_102
+WRITE_ONCE	,	F_80
+"%s: %d: page %d at %pK %s\n"	,	L_31
+err_get_vm_area_failed	,	V_97
+binder_alloc_lru	,	V_53
+PAGE_KERNEL	,	V_60
+buffer_start_page	,	F_52
+err_page_already_freed	,	V_118
+WARN_ON_ONCE	,	F_72
+"%d: binder_free_buf %pK size %zd buffer_size %zd\n"	,	L_23
+"  pages: %d:%d:%d\n"	,	L_38
+VM_IOREMAP	,	V_96
+"active"	,	L_33
+PAGE_ALIGNED	,	F_55
+down_write	,	F_22
+mmput_async	,	F_93
+trace_binder_unmap_kernel_end	,	F_91
+"get_vm_area"	,	L_26
+spin_lock	,	F_92
+vm_area_struct	,	V_34
+addr	,	V_98
+mmgrab	,	F_67
+binder_alloc_init	,	F_98
+binder_alloc_prepare_to_free	,	F_16
+free_buffers	,	V_15
+extra_buffers_size	,	V_67
+list_head	,	V_112
+WARN_ON	,	F_25
+rb_entry	,	F_9
+"%d: binder_alloc_buf size %zd async free %zd\n"	,	L_19
+list_lru_walk	,	F_97
+u64	,	V_29
+container_of	,	F_82
+binder_buffer	,	V_1

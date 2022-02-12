@@ -1,0 +1,217 @@
+dlm_lock_get	,	F_16
+cpu_to_be32	,	F_30
+spin_lock_init	,	F_49
+"Domain %s not fully joined, but node %u is "	,	L_19
+dlm_lookup_lockres	,	F_60
+tmpret	,	V_42
+dlm_print_one_lock_resource	,	F_32
+msleep	,	F_67
+granted	,	V_24
+convert_pending	,	V_68
+len	,	V_27
+"dead node %u, remaster it now.\n"	,	L_9
+dlm_lockres_get	,	F_45
+kmem_cache_create	,	F_2
+state	,	V_37
+dlm_new_lock	,	F_52
+dlm_domain_fully_joined	,	F_57
+dlm_status	,	V_11
+dlm_is_recovery_lock	,	F_18
+spinlock	,	V_19
+LKM_GET_LVB	,	V_84
+"%s: res %.*s, Stale lockres no longer "	,	L_12
+node	,	V_20
+DLM_NORMAL	,	V_18
+GFP_NOFS	,	V_73
+"type=%d, flags = 0x%x\n"	,	L_33
+LKM_RECOVERY	,	V_99
+unlock_pending	,	V_69
+cancel_pending	,	V_70
+lksb	,	V_22
+dlm_revert_pending_lock	,	F_24
+"type=%d, lockres %.*s, flags = 0x%x\n"	,	L_7
+DLM_BADPARAM	,	V_93
+dlm_wait_for_node_death	,	F_69
+lock_refs	,	V_52
+dlm_lock_put	,	F_28
+retry_lock	,	V_105
+"%s: returning NOTQUEUED to "	,	L_6
+DLM_REJECTED	,	V_50
+dlm_get_lock_resource	,	F_68
+list_del_init	,	F_25
+dlm_lock_release	,	V_53
+dlm_lockres_put	,	F_46
+"freeing kernel-allocated lksb\n"	,	L_17
+ast_pending	,	V_57
+"I can grant this lock right away\n"	,	L_3
+BUG	,	F_33
+key	,	V_49
+cpu_to_be64	,	F_50
+dlm_queue_ast	,	F_20
+u8	,	T_1
+LKM_NLMODE	,	V_96
+DLM_IVLOCKID	,	V_85
+"orig args: lksb=%p, ast=%p, bast=%p, "	,	L_30
+LKM_PRMODE	,	V_95
+"in-progress\n"	,	L_32
+ML_ERROR	,	V_51
+DLM_MIGRATING	,	V_102
+tmplock	,	V_8
+buf	,	V_79
+LKM_IVMODE	,	V_62
+retry_convert	,	V_101
+kref	,	V_54
+requested_type	,	V_45
+"retrying convert with migration/recovery/"	,	L_31
+lock_pending	,	V_39
+dlmlock_master	,	F_8
+ast	,	V_65
+LKM_LOCAL	,	V_100
+"NULL lock pointer in convert "	,	L_25
+dlm_cookie_lock	,	V_87
+dlm_wait_for_recovery	,	F_64
+dlmconvert_master	,	F_65
+INIT_LIST_HEAD	,	F_48
+leave	,	V_80
+dlm_destroy_lock_cache	,	F_3
+call_ast	,	V_15
+"strange LOCAL convert request!\n"	,	L_24
+dlm_create_lock_handler	,	F_55
+DLM_SYSERR	,	V_83
+ret	,	V_43
+res	,	V_6
+"node %u\n"	,	L_16
+dlm_can_grant_new_lock	,	F_5
+list	,	V_23
+dlmconvert_remote	,	F_66
+kick_thread	,	V_16
+name	,	V_26
+"lockres recovering/migrating/in-progress\n"	,	L_22
+dlm_create_lock	,	V_40
+"node %u for reco lock\n"	,	L_5
+dlm_lock	,	V_2
+dlm_lockres_calc_usage	,	F_22
+BUG_ON	,	F_39
+DLM_CREATE_LOCK_MSG	,	V_48
+dlm_ctxt	,	V_12
+dlm_bastlockfunc_t	,	T_5
+newlock	,	V_61
+bast	,	V_66
+highest_blocked	,	V_63
+dlm_next_cookie	,	V_88
+dlm_put	,	F_61
+dlm_lock_compatible	,	F_7
+kzalloc	,	F_54
+wq	,	V_31
+__dlm_lockres_reserve_ast	,	F_15
+owner	,	V_35
+dlm	,	V_13
+DLM_IVBUFLEN	,	V_81
+"new args:  lksb=%p, ast=%p, bast=%p, "	,	L_28
+dlm_send_remote_lock_request	,	F_27
+spin_unlock	,	F_12
+"%s: recovery lock was owned by "	,	L_8
+"astdata=%p\n"	,	L_29
+ret_data	,	V_78
+ENOMEM	,	V_4
+"%s: res %.*s, Error %d send CREATE LOCK to "	,	L_15
+namelen	,	V_47
+list_empty	,	F_40
+DLM_FORWARD	,	V_103
+dlm_init_lock_cache	,	F_1
+convert	,	V_90
+lockid	,	V_74
+LKM_CONVERT	,	V_98
+"request\n"	,	L_26
+dlm_lock_cache	,	V_1
+kref_get	,	F_36
+lock	,	V_7
+DLM_BADARGS	,	V_92
+LKM_NOQUEUE	,	V_28
+"removing lock's lockres reference\n"	,	L_18
+cookie	,	V_46
+DLM_LKSB_GET_LVB	,	V_32
+ast_list	,	V_55
+astdata	,	V_67
+tmpnode	,	V_86
+be32_to_cpu	,	F_59
+LKM_VALBLK	,	V_106
+"mastered by %u; got lock, manually granting (no ast)\n"	,	L_11
+list_move_tail	,	F_29
+LKM_EXMODE	,	V_94
+dlm_lockres_release_ast	,	F_21
+node_num	,	V_21
+"currently.\n"	,	L_14
+dlm_err_to_dlm_status	,	F_35
+status	,	V_17
+dlm_init_lock	,	F_47
+kfree	,	F_42
+dlm_lockstatus	,	V_71
+flags	,	V_14
+lksb_kernel_allocated	,	V_59
+list_add_tail	,	F_17
+dlm_kick_thread	,	F_23
+blocked	,	V_30
+kref_put	,	F_37
+"NULL lockres pointer in convert "	,	L_27
+dlm_lock_attach_lockres	,	F_44
+SLAB_HWCACHE_ALIGN	,	V_3
+kmem_cache_destroy	,	F_4
+"type=%d\n"	,	L_2
+DLM_RECOVERING	,	V_36
+msg	,	V_76
+mlog	,	F_9
+data	,	V_77
+LKM_VALID_FLAGS	,	V_97
+__dlm_wait_on_lockres	,	F_14
+"%s: returning DLM_NORMAL to "	,	L_4
+wake_up	,	F_19
+dlm_error	,	F_13
+mode	,	V_89
+DLM_NOTQUEUED	,	V_29
+u32	,	T_3
+"LKM_VALBLK passed by caller\n"	,	L_35
+kref_init	,	F_51
+dlm_astlockfunc_t	,	T_4
+"%s: $RECOVERY lock for this node (%u) is "	,	L_10
+create	,	V_41
+"set DLM_LKSB_GET_LVB flag\n"	,	L_21
+ml	,	V_9
+o2net_msg	,	V_75
+DLM_DENIED	,	V_33
+lockres	,	V_60
+kmem_cache_zalloc	,	F_53
+DLM_LOCK_RES_IN_PROGRESS	,	V_38
+bast_pending	,	V_58
+dlm_is_host_down	,	F_34
+"sending a create_lock message for lock %.*s!\n"	,	L_20
+dlm_lock_detach_lockres	,	F_41
+list_for_each_entry	,	F_6
+dlm_lockres_drop_inflight_ref	,	F_70
+kernel_allocated	,	V_72
+dlm_get_next_cookie	,	F_62
+o2net_send_message	,	F_31
+"creating lock: lock=%p res=%p\n"	,	L_34
+"o2dlm_lock"	,	L_1
+pad1	,	V_64
+recovery	,	V_91
+bast_list	,	V_56
+kmem_cache_free	,	F_43
+"This node's cookie will now wrap!\n"	,	L_23
+spin_lock	,	F_10
+lockres_changed	,	V_34
+dlm_grab	,	F_56
+dlmlock_remote	,	F_26
+tmpcookie	,	V_104
+dlm_lock_resource	,	V_5
+DLM_NODE_DEATH_WAIT_MAX	,	V_107
+DLM_LOCKID_NAME_MAX	,	V_82
+lockname	,	V_25
+convert_type	,	V_10
+container_of	,	F_38
+u64	,	T_2
+node_idx	,	V_44
+"owned by node %u. That node is coming back up "	,	L_13
+dlmlock	,	F_63
+__dlm_lockres_state_to_status	,	F_11
+be64_to_cpu	,	F_58

@@ -1,0 +1,237 @@
+"Command ITT: 0x%08x, received DataSN: 0x%08x"	,	L_24
+"Starting Time2Retain timer for %u seconds on"	,	L_41
+atomic_set	,	F_45
+iscsit_dataout_update_r2t	,	F_16
+seq_complete	,	V_59
+sess	,	V_11
+se_tpg	,	V_74
+"Dumping DataOUT PDU Offset: %u Length: %d DataSN:"	,	L_1
+" last DataOUT PDU in sequence but ISCSI_FLAG_"	,	L_22
+" received %u does not equal FirstBurstLength: %u, and"	,	L_9
+iscsi_session	,	V_70
+" next iSCSI Opcode.\n"	,	L_55
+" %u different than expected %u.\n"	,	L_30
+ISCSI_HDR_LEN	,	V_127
+" FirstBurstLength: %u, but ISCSI_FLAG_CMD_FINAL is not set. protocol"	,	L_12
+iscsit_set_dataout_sequence_values	,	F_1
+"Unable to recover from DataOUT CRC"	,	L_35
+" before end of DataOUT sequence, protocol"	,	L_19
+TARG_CONN_STATE_IN_LOGOUT	,	V_121
+"Falling back to ErrorRecoveryLevel=0 for SID:"	,	L_44
+session_lock	,	V_76
+iscsi_pdu	,	V_48
+"Advancing %u bytes in TCP stream to get to the"	,	L_51
+iscsit_dataout_check_unsolicited_sequence	,	F_8
+iscsi_conn	,	V_3
+init_task_tag	,	V_37
+se_cmd	,	V_9
+pr_err	,	F_6
+"Total %u bytes exceeds FirstBurstLength: %u"	,	L_6
+"Moving to TARG_CONN_STATE_CLEANUP_WAIT.\n"	,	L_48
+iscsit_get_seq_holder	,	F_5
+ISCSI_PDU_TIMED_OUT	,	V_53
+iscsit_dataout_pre_datapduinorder_no	,	F_14
+connection_exit	,	V_105
+" OFMarkInt bytes: %u.\n"	,	L_50
+DATAOUT_SEND_R2T	,	V_65
+" error.\n"	,	L_13
+iscsit_dataout_datapduinorder_no_fbit	,	F_21
+"Unable to perform within-command recovery"	,	L_27
+tpg_tiqn	,	V_84
+sleep	,	V_106
+" Length: %u outside of Unsolicited Sequence %u:%u while"	,	L_4
+" Connection ID: %hu from %s\n"	,	L_47
+of_marker_offset	,	V_126
+iscsit_reject_cmd	,	F_26
+" next OFMarker.\n"	,	L_52
+seq	,	V_26
+"CMD_FINAL is not set, protocol error.\n"	,	L_23
+MaxRecvDataSegmentLength	,	V_129
+u8	,	T_2
+atomic_read	,	F_28
+iscsit_handle_time2retain_timeout	,	F_27
+InitiatorName	,	V_88
+"Stopped Time2Retain Timer for SID: %u\n"	,	L_43
+cmd_flags	,	V_21
+buf	,	V_16
+state_lock	,	V_104
+tpg_state	,	V_96
+r2t	,	V_57
+iscsit_check_pre_dataout	,	F_24
+"Time2Retain timer expired for SID: %u, cleaning up"	,	L_39
+"Remaining bytes to OFMarker: %u exceeds"	,	L_49
+" while ERL=0.\n"	,	L_28
+f_bit	,	V_61
+" session_reinstatement=1\n"	,	L_38
+get_jiffies_64	,	F_36
+" for this Unsolicited DataOut Burst.\n"	,	L_7
+DATAOUT_WITHIN_COMMAND_RECOVERY	,	V_43
+"Command ITT: 0x%08x received already gotten"	,	L_33
+TCM_INCORRECT_AMOUNT_OF_DATA	,	V_38
+r2t_lock	,	V_58
+DataSequenceInOrder	,	V_14
+conn_wait_rcfr_comp	,	V_113
+iscsit_connection_recovery_transport_reset	,	F_48
+"Performing cleanup for failed iSCSI"	,	L_46
+FirstBurstLength	,	V_13
+DATAOUT_NORMAL	,	V_35
+" Offset: %u, Length: %u\n"	,	L_34
+" SID: %u\n"	,	L_42
+sess_ops	,	V_12
+ret	,	V_62
+iscsit_dataout_within_command_recovery_check	,	F_2
+ISCSI_PDU_RECEIVED_OK	,	V_54
+add_timer	,	F_37
+ISCSI_CRC_LEN	,	V_128
+unsolicited_data	,	V_5
+iscsit_dataout_post_crc_passed	,	F_22
+init_timer	,	F_35
+SIGINT	,	V_110
+iscsit_get_pdu_holder	,	F_15
+target_put_session	,	F_32
+" iSCSI session.\n"	,	L_40
+next_burst_len	,	V_42
+cid	,	V_119
+"Discarding %u bytes of TCP stream to get to the"	,	L_54
+iscsit_fall_back_to_erl0	,	F_46
+expires	,	V_101
+time2retain_timer	,	V_100
+conn_ops	,	V_124
+se_sess	,	V_93
+sid	,	V_81
+DataPDUInOrder	,	V_29
+dataout_timeout_retries	,	V_67
+iscsit_cause_connection_reinstatement	,	F_44
+iscsit_connection_reinstatement_rcfr	,	F_40
+ISCSI_TF_EXPIRED	,	V_80
+transport_send_check_condition_and_sense	,	F_9
+data_length	,	V_10
+ICF_WITHIN_COMMAND_RECOVERY	,	V_22
+length	,	V_55
+sess_err_stats	,	V_85
+spin_unlock	,	F_31
+ntoh24	,	F_3
+spin_unlock_bh	,	F_19
+DATAOUT_CANNOT_RECOVER	,	V_27
+DATAOUT_SEQUENCE_WITHIN_COMMAND_RECOVERY	,	V_31
+hdr	,	V_18
+DATAOUT_SEQUENCE_COMPLETE	,	V_34
+tpg_state_lock	,	V_95
+iscsi_cmd	,	V_1
+" failure while ERL=0, closing session.\n"	,	L_36
+iscsit_check_post_dataout	,	F_25
+pdu	,	V_49
+se_portal_group	,	V_73
+pr_debug	,	F_34
+last_sess_fail_rem_name	,	V_87
+conn	,	V_4
+"Command ITT: 0x%08x with Offset: %u,"	,	L_3
+iscsit_dataout_update_datapduinorder_no	,	F_20
+ErrorRecoveryLevel	,	V_46
+" %u\n"	,	L_45
+connection_reinstatement	,	V_115
+HZ	,	V_102
+iscsit_dataout_check_sequence	,	F_10
+data_sn	,	V_32
+" lower than expected 0x%08x, discarding payload.\n"	,	L_26
+lock	,	V_86
+conn_wait_comp	,	V_117
+atomic_long_inc	,	F_30
+iscsi_portal_group	,	V_71
+iscsit_handle_connection_cleanup	,	F_47
+del_timer_sync	,	F_39
+seq_ptr	,	V_28
+tpg_active	,	V_94
+be32_to_cpu	,	F_4
+TPG_STATE_ACTIVE	,	V_97
+cmd	,	V_2
+status	,	V_30
+" Length: %u exceeds MaxBurstLength: %u. protocol"	,	L_17
+"Exiting Time2Retain handler because"	,	L_37
+flags	,	V_39
+" does not equal ExpXferLen %u.\n"	,	L_10
+session_reinstatement	,	V_79
+ISCSI_FLAG_CMD_FINAL	,	V_40
+pdu_ptr	,	V_50
+transport_failed	,	V_107
+DATAOUT_SEND_TO_TRANSPORT	,	V_64
+out	,	V_41
+TARG_CONN_STATE_CLEANUP_WAIT	,	V_122
+rx_thread_active	,	V_112
+ISCSI_PDU_CRC_FAILED	,	V_52
+write_data_done	,	V_7
+"Command ITT: 0x%08x set ISCSI_FLAG_CMD_FINAL"	,	L_18
+"Command ITT: 0x%08x, received offset"	,	L_29
+send_r2t	,	V_63
+tiqn	,	V_83
+" Length: %u outside of Sequence %u:%u while"	,	L_15
+" MaxBurstLength: %u, but ISCSI_FLAG_CMD_FINAL is"	,	L_20
+tpg_se_tpg	,	V_75
+tpg	,	V_72
+"Command ITT: 0x%08x, NextBurstLength: %u and"	,	L_16
+" %u less than expected %u, discarding payload.\n"	,	L_32
+iscsit_stop_time2retain_timer	,	F_38
+" DataSequenceInOrder=Yes.\n"	,	L_5
+rx_thread	,	V_111
+iscsit_dataout_check_datasn	,	F_11
+iscsit_recover_dataout_sequence	,	F_13
+session_fall_back_to_erl0	,	V_118
+first_burst_len	,	V_36
+complete	,	F_43
+iscsit_dump_data_payload	,	F_7
+DefaultTime2Retain	,	V_99
+tx_thread_active	,	V_109
+conn_post_wait_comp	,	V_114
+data	,	V_69
+wait_for_completion	,	F_42
+" ExpXferLen: %u, but ISCSI_FLAG_CMD_FINAL is not set. protocol"	,	L_14
+sleep_on_conn_wait_comp	,	V_116
+" 0x%08x\n"	,	L_2
+u32	,	T_1
+function	,	V_103
+"Unsolicited non-immediate data"	,	L_8
+" not set, protocol error."	,	L_21
+offset	,	V_23
+iscsi_data	,	V_17
+time2retain_timer_flags	,	V_77
+datasn	,	V_33
+dlength	,	V_20
+iscsi_r2t	,	V_56
+iscsit_close_connection	,	F_49
+ISCSI_SESS_ERR_CXN_TIMEOUT	,	V_90
+conn_timeout_errors	,	V_92
+ISCSI_TF_RUNNING	,	V_98
+of_marker	,	V_123
+cxn_timeout_errors	,	V_91
+tx_thread	,	V_108
+send_sig	,	F_41
+" higher than expected 0x%08x.\n"	,	L_25
+outstanding_r2ts	,	V_60
+recovery	,	V_47
+MaxBurstLength	,	V_15
+ISCSI_TF_STOP	,	V_78
+seq_end_offset	,	V_8
+iscsit_recover_from_unknown_opcode	,	F_51
+iscsit_dataout_pre_datapduinorder_yes	,	F_12
+" %u greater than expected %u.\n"	,	L_31
+conn_state	,	V_120
+spin_lock	,	F_29
+dump	,	V_24
+iscsi_seq	,	V_25
+"Command ITT: 0x%08x reached"	,	L_11
+ISCSI_PDU_NOT_RECEIVED	,	V_51
+recover	,	V_45
+xfer_len	,	V_44
+iscsit_take_action_for_connection_exit	,	F_50
+OFMarkInt	,	V_125
+"OfMarker offset value: %u exceeds limit.\n"	,	L_53
+iscsit_get_r2t_for_eos	,	F_17
+last_sess_failure_type	,	V_89
+payload_length	,	V_19
+ISCSI_REASON_DATA_DIGEST_ERROR	,	V_68
+iscsit_dataout_post_crc_failed	,	F_23
+seq_start_offset	,	V_6
+data_crc_failed	,	V_66
+iscsit_start_time2retain_handler	,	F_33
+iscsi_tiqn	,	V_82
+spin_lock_bh	,	F_18

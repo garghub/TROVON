@@ -1,0 +1,145 @@
+cpu_to_be32	,	F_24
+ENOMEM	,	V_28
+"%s: Initiated FSP dump\n"	,	L_11
+initiate_attr_group	,	V_53
+uint64_t	,	T_7
+opal_dump_init	,	F_13
+dump_release	,	F_20
+msleep	,	F_36
+process_dump	,	F_46
+opal_poll_events	,	F_35
+"%s: Extract dump failed for ID 0x%x\n"	,	L_14
+"%s: Platform dump partially read. ID = 0x%x\n"	,	L_15
+sysfs_create_group	,	F_51
+"opal-dump"	,	L_22
+to_dump_obj	,	F_18
+len	,	V_18
+"%s: Can't register OPAL event irq (%d)\n"	,	L_21
+"0x%x %s\n"	,	L_6
+pr_warn	,	F_7
+dump_irq	,	V_50
+id	,	V_5
+opal_kobj	,	V_52
+sysfs_create_bin_file	,	F_44
+dump_attr_read	,	F_38
+OPAL_SUCCESS	,	V_12
+kset	,	V_39
+vzalloc	,	F_29
+EIO	,	V_17
+create_dump_obj	,	F_39
+"%s: Can't request OPAL event irq (%d)\n"	,	L_23
+be32_to_cpu	,	F_27
+"%s: Failed to initiate FSP dump (%d)\n"	,	L_10
+dump_attribute	,	V_2
+loff_t	,	T_8
+IRQ_HANDLED	,	V_49
+rc	,	V_7
+size	,	V_23
+__func__	,	V_8
+bin_attribute	,	V_35
+"%s: New platform dump. ID = 0x%x Size %u\n"	,	L_18
+kobject_uevent	,	F_45
+dump_read_info	,	F_23
+pr_err	,	F_31
+uint8_t	,	T_5
+dump_read_data	,	F_28
+"%s: Failed to create initiate dump attr group\n"	,	L_20
+GFP_KERNEL	,	V_38
+dump_type_show	,	F_3
+int64_t	,	T_3
+dump_attr_store	,	F_19
+ssize_t	,	T_1
+kfree	,	F_22
+opal_event_request	,	F_52
+__be32	,	T_6
+"0x%x\n"	,	L_1
+"ack - acknowledge dump\n"	,	L_7
+sysfs_remove_file_self	,	F_9
+vfree	,	F_21
+out	,	V_29
+kobject	,	V_13
+file	,	V_33
+pos	,	V_37
+dump_size	,	V_21
+attribute	,	V_14
+opal_dump_resend_notification	,	F_55
+dump_fips_init	,	F_12
+dump_id_show	,	F_1
+"%s: Failed to send ack to Dump ID 0x%x (%d)\n"	,	L_8
+pr_info	,	F_15
+uint32_t	,	T_2
+irq	,	V_47
+store	,	V_19
+dump_type_to_string	,	F_2
+dump_attr	,	V_42
+"dump"	,	L_16
+buf	,	V_4
+OPAL_BUSY	,	V_31
+__init	,	T_10
+dump_ack_show	,	F_4
+IRQF_ONESHOT	,	V_56
+dump_ack_store	,	F_8
+kobject_add	,	F_43
+"%s: Failed to create dump kset\n"	,	L_19
+"0x%x-0x%x"	,	L_17
+to_dump_attr	,	F_17
+data	,	V_48
+kset_create_and_add	,	F_50
+kobject_put	,	F_10
+opal_dump_read	,	F_34
+size_t	,	T_4
+dump_id	,	V_6
+KOBJ_ADD	,	V_46
+mode	,	V_44
+bin_attr	,	V_36
+IRQF_TRIGGER_HIGH	,	V_55
+dump_send_ack	,	F_5
+kset_find_obj	,	F_47
+dump_type	,	V_22
+buffer	,	V_20
+PAGE_ALIGN	,	F_30
+kobj	,	V_10
+read	,	V_45
+opal_dump_info	,	F_26
+"System/Platform Dump"	,	L_3
+count	,	V_9
+dump_obj	,	V_1
+list	,	V_26
+ilog2	,	F_53
+OPAL_BUSY_EVENT	,	V_30
+dump_kset	,	V_40
+OPAL_PARTIAL	,	V_32
+"SP Dump"	,	L_2
+name	,	V_43
+OPAL_EVENT_DUMP_AVAIL	,	V_54
+dump_attr_show	,	F_16
+filep	,	V_34
+opal_sg_list	,	V_25
+"SMA Dump"	,	L_4
+opal_dump_info2	,	F_25
+opal_dump_ack	,	F_6
+init_dump_show	,	F_11
+show	,	V_16
+opal_platform_dump_init	,	F_48
+opal_vmalloc_to_sg_list	,	F_32
+opal_check_token	,	F_49
+sysfs_bin_attr_init	,	F_42
+kzalloc	,	F_40
+dump	,	V_15
+"%s: Failed to get dump info (%d)\n"	,	L_12
+attr	,	V_3
+DUMP_TYPE_FSP	,	V_11
+addr	,	V_27
+dump_ktype	,	V_41
+kobject_init	,	F_41
+irqreturn_t	,	T_9
+"1 - initiate Service Processor(FSP) dump\n"	,	L_9
+OPAL_PARAMETER	,	V_24
+OPAL_DUMP_RESEND	,	V_57
+request_threaded_irq	,	F_54
+OPAL_DUMP_READ	,	V_51
+opal_free_sg_list	,	F_37
+init_dump_store	,	F_14
+"%s : Failed to allocate memory\n"	,	L_13
+"unknown"	,	L_5
+__pa	,	F_33

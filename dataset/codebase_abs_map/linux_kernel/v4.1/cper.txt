@@ -1,0 +1,98 @@
+", pfx, INDENT_SP);(NL)	if (!uuid_le_cmp(*sec_type, CPER_SEC_PROC_GENERIC)) {(NL)		struct cper_sec_proc_generic *proc_err = (void *)(gdata + 1);(NL)		printk("	,	L_62
+", pfx, proc-&gt;proc_error_type);(NL)		cper_print_bits(pfx, proc-&gt;proc_error_type,(NL)				proc_error_type_strs,(NL)				ARRAY_SIZE(proc_error_type_strs));(NL)	}(NL)	if (proc-&gt;validation_bits &amp; CPER_PROC_VALID_OPERATION)(NL)		printk("	,	L_11
+"%s\n"	,	L_2
+", mem-&gt;bank);(NL)	if (mem-&gt;validation_bits &amp; CPER_MEM_VALID_DEVICE)(NL)		n += scnprintf(msg + n, len - n, "	,	L_29
+", mem-&gt;device);(NL)	if (mem-&gt;validation_bits &amp; CPER_MEM_VALID_ROW)(NL)		n += scnprintf(msg + n, len - n, "	,	L_30
+severity_strs	,	V_3
+", mem-&gt;row);(NL)	if (mem-&gt;validation_bits &amp; CPER_MEM_VALID_COLUMN)(NL)		n += scnprintf(msg + n, len - n, "	,	L_31
+", pfx,(NL)		       pcie-&gt;serial_number.lower, pcie-&gt;serial_number.upper);(NL)	if (pcie-&gt;validation_bits &amp; CPER_PCIE_VALID_BRIDGE_CONTROL_STATUS)(NL)		printk((NL)	"	,	L_57
+cper_print_bits	,	F_8
+", pfx, proc-&gt;flags);(NL)		cper_print_bits(pfx, proc-&gt;flags, proc_flag_strs,(NL)				ARRAY_SIZE(proc_flag_strs));(NL)	}(NL)	if (proc-&gt;validation_bits &amp; CPER_PROC_VALID_LEVEL)(NL)		printk("	,	L_14
+len	,	V_9
+",(NL)		       pfx, mem-&gt;physical_addr_mask);(NL)	cper_mem_err_pack(mem, &amp;cmem);(NL)	if (cper_mem_err_location(&amp;cmem, rcd_decode_str))(NL)		printk("	,	L_43
+",(NL)};(NL)(NL)const char *cper_mem_err_type_str(unsigned int etype)(NL){(NL)	return etype &lt; ARRAY_SIZE(mem_err_type_strs) ?(NL)		mem_err_type_strs[etype] : "	,	L_23
+ARRAY_SIZE	,	F_7
+"%s""	,	L_5
+", pfx, rcd_decode_str);(NL)	if (mem-&gt;validation_bits &amp; CPER_MEM_VALID_ERROR_TYPE) {(NL)		u8 etype = mem-&gt;error_type;(NL)		printk("	,	L_44
+", pfx,(NL)		       pcie-&gt;device_id.secondary_bus);(NL)		printk("	,	L_54
+"%s%s"	,	L_3
+bits	,	V_5
+");(NL)	printk("	,	L_70
+str	,	V_10
+");(NL)	if (proc-&gt;validation_bits &amp; CPER_PROC_VALID_ERROR_TYPE) {(NL)		printk("	,	L_10
+atomic64_set	,	F_3
+CPER_PROC_VALID_TYPE	,	V_15
+", pfx, gdata-&gt;fru_text);(NL)(NL)	snprintf(newpfx, sizeof(newpfx), "	,	L_61
+""	,	L_8
+pfx	,	V_4
+strs_size	,	V_7
+", pfx, sec_no,(NL)	       cper_severity_str(severity));(NL)	if (gdata-&gt;validation_bits &amp; CPER_SEC_VALID_FRU_ID)(NL)		printk("	,	L_59
+",(NL)			       mem-&gt;requestor_id);(NL)	if (mem-&gt;validation_bits &amp; CPER_MEM_VALID_RESPONDER_ID)(NL)		n += scnprintf(msg + n, len - n, "	,	L_34
+");(NL)	if (pcie-&gt;validation_bits &amp; CPER_PCIE_VALID_VERSION)(NL)		printk("	,	L_49
+", mem-&gt;rank);(NL)	if (mem-&gt;validation_bits &amp; CPER_MEM_VALID_BANK)(NL)		n += scnprintf(msg + n, len - n, "	,	L_28
+",(NL)	pfx, pcie-&gt;bridge.secondary_status, pcie-&gt;bridge.control);(NL)}(NL)(NL)static void cper_estatus_print_section((NL)	const char *pfx, const struct acpi_hest_generic_data *gdata, int sec_no)(NL){(NL)	uuid_le *sec_type = (uuid_le *)gdata-&gt;section_type;(NL)	__u16 severity;(NL)	char newpfx[64];(NL)(NL)	severity = gdata-&gt;error_severity;(NL)	printk("	,	L_58
+strs	,	V_6
+", pfx, mem-&gt;error_status);(NL)	if (mem-&gt;validation_bits &amp; CPER_MEM_VALID_PA)(NL)		printk("	,	L_41
+", mem-&gt;node);(NL)	if (mem-&gt;validation_bits &amp; CPER_MEM_VALID_CARD)(NL)		n += scnprintf(msg + n, len - n, "	,	L_25
+seq	,	V_1
+", newpfx);(NL)		if (gdata-&gt;error_data_length &gt;= sizeof(*mem_err))(NL)			cper_print_mem(newpfx, mem_err);(NL)		else(NL)			goto err_section_too_small;(NL)	} else if (!uuid_le_cmp(*sec_type, CPER_SEC_PCIE)) {(NL)		struct cper_sec_pcie *pcie = (void *)(gdata + 1);(NL)		printk("	,	L_64
+", %s"	,	L_4
+proc	,	V_13
+", pfx, proc-&gt;proc_type,(NL)		       proc-&gt;proc_type &lt; ARRAY_SIZE(proc_type_strs) ?(NL)		       proc_type_strs[proc-&gt;proc_type] : "	,	L_6
+i	,	V_8
+get_seconds	,	F_4
+cper_print_proc_generic	,	F_10
+"(NL)		       "	,	L_69
+",(NL)	"	,	L_22
+", newpfx);(NL)		if (gdata-&gt;error_data_length &gt;= sizeof(*proc_err))(NL)			cper_print_proc_generic(newpfx, proc_err);(NL)		else(NL)			goto err_section_too_small;(NL)	} else if (!uuid_le_cmp(*sec_type, CPER_SEC_PLATFORM_MEM)) {(NL)		struct cper_sec_mem_err *mem_err = (void *)(gdata + 1);(NL)		printk("	,	L_63
+", pfx, pcie-&gt;port_type,(NL)		       pcie-&gt;port_type &lt; ARRAY_SIZE(pcie_port_type_strs) ?(NL)		       pcie_port_type_strs[pcie-&gt;port_type] : "	,	L_48
+buf	,	V_11
+",(NL)			  mem-&gt;target_id);(NL)(NL)	msg[n] = '\0';(NL)	return n;(NL)}(NL)(NL)static int cper_dimm_err_location(struct cper_mem_err_compact *mem, char *msg)(NL){(NL)	u32 len, n;(NL)	const char *bank = NULL, *device = NULL;(NL)(NL)	if (!msg || !(mem-&gt;validation_bits &amp; CPER_MEM_VALID_MODULE_HANDLE))(NL)		return 0;(NL)(NL)	n = 0;(NL)	len = CPER_REC_LEN - 1;(NL)	dmi_memdev_name(mem-&gt;mem_dev_handle, &amp;bank, &amp;device);(NL)	if (bank &amp;&amp; device)(NL)		n = snprintf(msg, len, "	,	L_36
+", pfx, proc-&gt;cpu_version);(NL)	if (proc-&gt;validation_bits &amp; CPER_PROC_VALID_ID)(NL)		printk("	,	L_16
+",(NL)			       mem-&gt;bit_pos);(NL)	if (mem-&gt;validation_bits &amp; CPER_MEM_VALID_REQUESTOR_ID)(NL)		n += scnprintf(msg + n, len - n, "	,	L_33
+", pfx, proc-&gt;ip);(NL)}(NL)(NL)static const char * const mem_err_type_strs[] = {(NL)	"	,	L_21
+", pfx, proc-&gt;proc_id);(NL)	if (proc-&gt;validation_bits &amp; CPER_PROC_VALID_TARGET_ADDRESS)(NL)		printk("	,	L_17
+", rcd_decode_str);(NL)	trace_seq_putc(p, '\0');(NL)(NL)	return ret;(NL)}(NL)(NL)static void cper_print_mem(const char *pfx, const struct cper_sec_mem_err *mem)(NL){(NL)	struct cper_mem_err_compact cmem;(NL)(NL)	if (mem-&gt;validation_bits &amp; CPER_MEM_VALID_ERROR_STATUS)(NL)		printk("	,	L_40
+";(NL)}(NL)EXPORT_SYMBOL_GPL(cper_mem_err_type_str);(NL)(NL)static int cper_mem_err_location(struct cper_mem_err_compact *mem, char *msg)(NL){(NL)	u32 len, n;(NL)(NL)	if (!msg)(NL)		return 0;(NL)(NL)	n = 0;(NL)	len = CPER_REC_LEN - 1;(NL)	if (mem-&gt;validation_bits &amp; CPER_MEM_VALID_NODE)(NL)		n += scnprintf(msg + n, len - n, "	,	L_24
+",(NL)		       pfx, proc-&gt;requestor_id);(NL)	if (proc-&gt;validation_bits &amp; CPER_PROC_VALID_RESPONDER_ID)(NL)		printk("	,	L_19
+",(NL)		       pfx, proc-&gt;target_addr);(NL)	if (proc-&gt;validation_bits &amp; CPER_PROC_VALID_REQUESTOR_ID)(NL)		printk("	,	L_18
+", pfx, p[0], p[1], p[2]);(NL)	}(NL)	if (pcie-&gt;validation_bits &amp; CPER_PCIE_VALID_SERIAL_NUMBER)(NL)		printk("	,	L_56
+atomic64_read	,	F_2
+",(NL)		       pfx, mem-&gt;physical_addr);(NL)	if (mem-&gt;validation_bits &amp; CPER_MEM_VALID_PA_MASK)(NL)		printk("	,	L_42
+", pfx,(NL)		       pcie-&gt;device_id.vendor_id, pcie-&gt;device_id.device_id);(NL)		p = pcie-&gt;device_id.class_code;(NL)		printk("	,	L_55
+atomic64_inc_return	,	F_5
+", pfx, proc-&gt;proc_isa,(NL)		       proc-&gt;proc_isa &lt; ARRAY_SIZE(proc_isa_strs) ?(NL)		       proc_isa_strs[proc-&gt;proc_isa] : "	,	L_9
+", pfx, proc-&gt;operation,(NL)		       proc-&gt;operation &lt; ARRAY_SIZE(proc_op_strs) ?(NL)		       proc_op_strs[proc-&gt;operation] : "	,	L_12
+cper_sec_proc_generic	,	V_12
+",(NL)		       pfx, proc-&gt;responder_id);(NL)	if (proc-&gt;validation_bits &amp; CPER_PROC_VALID_IP)(NL)		printk("	,	L_20
+", newpfx, sec_type);(NL)(NL)	return;(NL)(NL)err_section_too_small:(NL)	pr_err(FW_WARN "	,	L_66
+", pfx,(NL)		       pcie-&gt;device_id.slot &gt;&gt; CPER_PCIE_SLOT_SHIFT);(NL)		printk("	,	L_53
+", bank, device);(NL)	else(NL)		n = snprintf(msg, len,(NL)			     "	,	L_37
+", newpfx);(NL)		if (gdata-&gt;error_data_length &gt;= sizeof(*pcie))(NL)			cper_print_pcie(newpfx, pcie, gdata);(NL)		else(NL)			goto err_section_too_small;(NL)	} else(NL)		printk("	,	L_65
+validation_bits	,	V_14
+", pfx,(NL)		       pcie-&gt;version.major, pcie-&gt;version.minor);(NL)	if (pcie-&gt;validation_bits &amp; CPER_PCIE_VALID_COMMAND_STATUS)(NL)		printk("	,	L_50
+");(NL)	if (proc-&gt;validation_bits &amp; CPER_PROC_VALID_FLAGS) {(NL)		printk("	,	L_13
+", pfx, (uuid_le *)gdata-&gt;fru_id);(NL)	if (gdata-&gt;validation_bits &amp; CPER_SEC_VALID_FRU_TEXT)(NL)		printk("	,	L_60
+printk	,	F_9
+", pfx, etype,(NL)		       cper_mem_err_type_str(etype));(NL)	}(NL)	if (cper_dimm_err_location(&amp;cmem, rcd_decode_str))(NL)		printk("	,	L_45
+",(NL)			       mem-&gt;responder_id);(NL)	if (mem-&gt;validation_bits &amp; CPER_MEM_VALID_TARGET_ID)(NL)		scnprintf(msg + n, len - n, "	,	L_35
+", pfx,(NL)		       pcie-&gt;command, pcie-&gt;status);(NL)	if (pcie-&gt;validation_bits &amp; CPER_PCIE_VALID_DEVICE_ID) {(NL)		const __u8 *p;(NL)		printk("	,	L_51
+", pfx, proc-&gt;level);(NL)	if (proc-&gt;validation_bits &amp; CPER_PROC_VALID_VERSION)(NL)		printk("	,	L_15
+", mem-&gt;card);(NL)	if (mem-&gt;validation_bits &amp; CPER_MEM_VALID_MODULE)(NL)		n += scnprintf(msg + n, len - n, "	,	L_26
+", pfx, rcd_decode_str);(NL)}(NL)(NL)static const char * const pcie_port_type_strs[] = {(NL)	"	,	L_46
+");(NL)	if (proc-&gt;validation_bits &amp; CPER_PROC_VALID_ISA)(NL)		printk("	,	L_7
+cper_severity_str	,	F_6
+severity	,	V_2
+",(NL)			     mem-&gt;mem_dev_handle);(NL)(NL)	msg[n] = '\0';(NL)	return n;(NL)}(NL)(NL)void cper_mem_err_pack(const struct cper_sec_mem_err *mem,(NL)		       struct cper_mem_err_compact *cmem)(NL){(NL)	cmem-&gt;validation_bits = mem-&gt;validation_bits;(NL)	cmem-&gt;node = mem-&gt;node;(NL)	cmem-&gt;card = mem-&gt;card;(NL)	cmem-&gt;module = mem-&gt;module;(NL)	cmem-&gt;bank = mem-&gt;bank;(NL)	cmem-&gt;device = mem-&gt;device;(NL)	cmem-&gt;row = mem-&gt;row;(NL)	cmem-&gt;column = mem-&gt;column;(NL)	cmem-&gt;bit_pos = mem-&gt;bit_pos;(NL)	cmem-&gt;requestor_id = mem-&gt;requestor_id;(NL)	cmem-&gt;responder_id = mem-&gt;responder_id;(NL)	cmem-&gt;target_id = mem-&gt;target_id;(NL)	cmem-&gt;rank = mem-&gt;rank;(NL)	cmem-&gt;mem_array_handle = mem-&gt;mem_array_handle;(NL)	cmem-&gt;mem_dev_handle = mem-&gt;mem_dev_handle;(NL)}(NL)(NL)const char *cper_mem_err_unpack(struct trace_seq *p,(NL)				struct cper_mem_err_compact *cmem)(NL){(NL)	const char *ret = trace_seq_buffer_ptr(p);(NL)(NL)	if (cper_mem_err_location(cmem, rcd_decode_str))(NL)		trace_seq_printf(p, "	,	L_38
+", pfx,(NL)		       pcie-&gt;device_id.segment, pcie-&gt;device_id.bus,(NL)		       pcie-&gt;device_id.device, pcie-&gt;device_id.function);(NL)		printk("	,	L_52
+atomic64_t	,	T_2
+", pfx,(NL)		       "	,	L_68
+", pfx, cper_severity_str(severity));(NL)	data_len = estatus-&gt;data_length;(NL)	gdata = (struct acpi_hest_generic_data *)(estatus + 1);(NL)	snprintf(newpfx, sizeof(newpfx), "	,	L_71
+", mem-&gt;module);(NL)	if (mem-&gt;validation_bits &amp; CPER_MEM_VALID_RANK_NUMBER)(NL)		n += scnprintf(msg + n, len - n, "	,	L_27
+", rcd_decode_str);(NL)	if (cper_dimm_err_location(cmem, rcd_decode_str))(NL)		trace_seq_printf(p, "	,	L_39
+u64	,	T_1
+", mem-&gt;column);(NL)	if (mem-&gt;validation_bits &amp; CPER_MEM_VALID_BIT_POSITION)(NL)		n += scnprintf(msg + n, len - n, "	,	L_32
+cper_next_record_id	,	F_1
+",(NL)};(NL)(NL)static void cper_print_pcie(const char *pfx, const struct cper_sec_pcie *pcie,(NL)			    const struct acpi_hest_generic_data *gdata)(NL){(NL)	if (pcie-&gt;validation_bits &amp; CPER_PCIE_VALID_PORT_TYPE)(NL)		printk("	,	L_47
+"unknown"	,	L_1
+");(NL)}(NL)(NL)void cper_estatus_print(const char *pfx,(NL)			const struct acpi_hest_generic_status *estatus)(NL){(NL)	struct acpi_hest_generic_data *gdata;(NL)	unsigned int data_len, gedata_len;(NL)	int sec_no = 0;(NL)	char newpfx[64];(NL)	__u16 severity;(NL)(NL)	severity = estatus-&gt;error_severity;(NL)	if (severity == CPER_SEV_CORRECTED)(NL)		printk("	,	L_67

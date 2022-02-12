@@ -1,0 +1,26 @@
+pr_debug	,	F_6
+wait_ioready	,	F_3
+flags	,	V_4
+pic32_bus_readl	,	F_8
+PIC32_WR	,	V_9
+u32	,	T_1
+reg	,	V_3
+bus_status	,	V_1
+val	,	V_6
+pic32_bus_writel	,	F_12
+"ioclear: cleared busy\n"	,	L_2
+readl	,	F_2
+writel	,	F_10
+bus_xfer	,	V_2
+PIC32_RD	,	V_8
+"pic32_bus_readl: *%x -&gt; %x (status=%x)\n"	,	L_3
+"pic32_bus_writel: *%x &lt;- %x (status=%x)\n"	,	L_4
+check_ioclear	,	F_5
+spin_unlock_irqrestore	,	F_11
+"ioclear: initially busy\n"	,	L_1
+ioready	,	F_1
+spin_lock_irqsave	,	F_9
+wait_ioclear	,	F_4
+pic32_bus_lock	,	V_7
+DELAY	,	F_7
+status	,	V_5

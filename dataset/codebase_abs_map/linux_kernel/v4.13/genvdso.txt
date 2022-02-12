@@ -1,0 +1,91 @@
+ELFCLASS32	,	V_21
+patch_vdso64	,	F_7
+program_name	,	V_9
+EM_MIPS	,	V_29
+"Usage: %s &lt;debug VDSO&gt; &lt;stripped VDSO&gt; &lt;output file&gt; [&lt;name&gt;]\n"	,	L_9
+size_t	,	T_1
+_size	,	V_2
+"%s: Failed to open '%s': %s\n"	,	L_1
+path	,	V_1
+PROT_WRITE	,	V_13
+"\t.data = vdso_data,\n"	,	L_24
+"%s: Failed to sync '%s': %s\n"	,	L_11
+"%s: Failed to map '%s': %s\n"	,	L_3
+e_type	,	V_30
+"\n\t"	,	L_18
+EI_DATA	,	V_23
+dbg_vdso_path	,	V_35
+map_vdso	,	F_1
+"%s: '%s' is not an ELF file\n"	,	L_4
+errno	,	V_10
+ELFDATA2LSB	,	V_24
+"%s: '%s' has invalid ELF type (expected ET_DYN)\n"	,	L_8
+elf_class	,	V_19
+"%s: '%s' has invalid ELF machine (expected EM_MIPS)\n"	,	L_7
+"\n};\n"	,	L_20
+PROT_READ	,	V_12
+"\t},\n"	,	L_29
+patch_vdso	,	F_6
+stderr	,	V_8
+"static struct page *vdso_pages[PAGE_ALIGN(%zu) / PAGE_SIZE];\n"	,	L_21
+e_machine	,	V_28
+dbg_vdso	,	V_38
+"w"	,	L_12
+MAP_SHARED	,	V_14
+EI_CLASS	,	V_20
+need_swap	,	V_26
+EXIT_FAILURE	,	V_42
+EXIT_SUCCESS	,	V_46
+HOST_ORDER	,	V_27
+"0x%02x, "	,	L_19
+"%s: Failed to stat '%s': %s\n"	,	L_2
+get_symbols32	,	F_11
+dbg_vdso_size	,	V_39
+vdso	,	V_32
+fd	,	V_3
+msync	,	F_12
+""	,	L_10
+"%s: '%s' has invalid ELF class\n"	,	L_5
+"%s: '%s' has invalid ELF data order\n"	,	L_6
+ET_DYN	,	V_31
+"_"	,	L_23
+swap_uint16	,	F_5
+out_path	,	V_37
+"static unsigned char vdso_data[PAGE_ALIGN(%zu)] __page_aligned_data = {\n\t"	,	L_17
+argv	,	V_34
+MAP_FAILED	,	V_15
+"\t\t.pages = vdso_pages,\n"	,	L_28
+st_size	,	V_11
+vdso_size	,	V_40
+O_RDWR	,	V_7
+"};\n"	,	L_30
+SELFMAG	,	V_18
+get_symbols	,	F_9
+MS_SYNC	,	V_44
+"\t\t.name = \"[vdso]\",\n"	,	L_27
+ELFMAG	,	V_17
+patch_vdso32	,	F_8
+addr	,	V_5
+get_symbols64	,	F_10
+ehdr	,	V_6
+argc	,	V_33
+"\t.size = PAGE_ALIGN(%zu),\n"	,	L_25
+stat	,	V_4
+"#include &lt;linux/mm.h&gt;\n"	,	L_15
+ELFDATA2MSB	,	V_25
+vdso_name	,	V_43
+fstat	,	F_3
+i	,	V_41
+"/* Automatically generated - do not edit */\n"	,	L_13
+ELFCLASS64	,	V_22
+"#include &lt;asm/vdso.h&gt;\n"	,	L_16
+"struct mips_vdso_image vdso_image%s%s = {\n"	,	L_22
+"#include &lt;linux/linkage.h&gt;\n"	,	L_14
+unlink	,	F_13
+out_file	,	V_45
+"\t.mapping = {\n"	,	L_26
+mmap	,	F_4
+vdso_path	,	V_36
+open	,	F_2
+e_ident	,	V_16
+Elf32_Ehdr	,	T_2

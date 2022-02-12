@@ -1,0 +1,301 @@
+irq_set_chip_and_handler	,	F_40
+handler	,	V_83
+parent	,	V_101
+irq_set_handler	,	F_105
+"%s\n"	,	L_50
+"create_direct virq allocation failed\n"	,	L_12
+virq	,	V_47
+"LINEAR"	,	L_47
+irq_debugfs_init	,	F_82
+ENOSYS	,	V_115
+irq_domain_free_irqs_parent	,	F_103
+inode	,	V_84
+"error: virq%i is not allocated"	,	L_8
+irq_domain_alloc_irqs	,	F_64
+"domain"	,	L_38
+pr_warn	,	F_60
+irq_desc	,	V_73
+DOMAIN_BUS_WIRED	,	V_66
+irq_domain_alloc_descs	,	F_54
+irq_create_fwspec_mapping	,	F_59
+of_node_to_nid	,	F_12
+unlikely	,	F_23
+"hwirq"	,	L_33
+irq_create_of_mapping	,	F_67
+FWNODE_IRQCHIP	,	V_8
+__irq_domain_alloc_irqs	,	F_110
+rc	,	V_28
+"%6s%-8s  "	,	L_46
+node	,	V_96
+"irq_domain_mapping"	,	L_51
+size	,	V_10
+"irq_create_mapping(0x%p, 0x%lx)\n"	,	L_15
+domain	,	V_18
+revmap_trees_mutex	,	V_46
+pr_err	,	F_50
+of_node	,	V_17
+GFP_KERNEL	,	V_6
+args_count	,	V_64
+INIT_RADIX_TREE	,	F_14
+"virq%i doesn't exist; cannot disassociate\n"	,	L_6
+"domain is NULL; cannot allocate IRQ\n"	,	L_52
+"mapped"	,	L_25
+"irq %lu on domain %s mapped to virtual irq %u\n"	,	L_20
+""	,	L_30
+irq_free_desc	,	F_51
+nr_irqs	,	V_78
+"direct-max"	,	L_27
+device_node	,	V_16
+i_private	,	V_86
+seq_printf	,	F_73
+mutex_unlock	,	F_18
+irq_domain_create_hierarchy	,	F_88
+irq_hw_number_t	,	T_1
+irq_domain_free_irqs	,	F_65
+found	,	V_35
+"name"	,	L_24
+irq_base	,	V_53
+arg	,	V_112
+of_phandle_args	,	V_62
+irq_domain_free_fwnode	,	F_5
+"%5d  "	,	L_39
+cpumask	,	V_97
+chip	,	V_52
+d	,	V_58
+parent_data	,	V_102
+pr_info	,	F_31
+linear_revmap	,	V_45
+seq_file	,	V_69
+irq_domain_get_irq_data	,	F_68
+"linear-max"	,	L_26
+h	,	V_34
+irq_free_descs	,	F_111
+irq	,	V_40
+i	,	V_56
+"%-15s  "	,	L_41
+ENOENT	,	V_107
+"cannot allocate IRQ(base %d, count %d)\n"	,	L_54
+m	,	V_70
+irq_domain_associate_many	,	F_32
+irq_domain_alloc_fwnode	,	F_1
+__irq_set_handler	,	F_99
+"chip data"	,	L_35
+irq_domain_create_tree	,	F_90
+mutex_lock	,	F_16
+irq_domain_remove	,	F_20
+out_free_irq_data	,	V_117
+of_node_put	,	F_25
+unmap	,	V_44
+handler_name	,	V_110
+irq_domain_reset_irq_data	,	F_101
+irq_domain_associate	,	F_44
+radix_tree_for_each_slot	,	F_74
+deactivate	,	V_119
+of_node_full_name	,	F_47
+irq_to_desc	,	F_75
+first_hwirq	,	V_29
+intspec	,	V_91
+irq_domain_ops	,	V_13
+kasprintf	,	F_3
+irqd_is_activated	,	F_116
+fwnode	,	V_7
+ret	,	V_48
+param_count	,	V_37
+radix_tree_lookup	,	F_70
+count	,	V_55
+WARN	,	F_38
+"type mismatch, failed to map hwirq-%lu for %s!\n"	,	L_22
+ops	,	V_14
+out_type	,	V_94
+hint	,	V_99
+name	,	V_5
+__irq_domain_add	,	F_9
+irq_create_strict_mappings	,	F_55
+"chip name"	,	L_34
+radix_tree_iter	,	V_75
+alloc	,	V_114
+desc	,	V_74
+child	,	V_103
+private	,	V_71
+BUG_ON	,	F_108
+"%s(%s, irqbase=%i, hwbase=%i, count=%i)\n"	,	L_11
+irq_domain_bus_token	,	V_32
+"Default domain set to @0x%p\n"	,	L_5
+"(DIRECT)"	,	L_49
+intsize	,	V_92
+ctrlr	,	V_90
+irq_domain_alloc_irqs_recursive	,	F_109
+irq_domain_is_auto_recursive	,	F_106
+irq_default_domain	,	V_25
+"-&gt; virq allocation failed\n"	,	L_19
+irqd_set_activated	,	F_117
+list_del	,	F_22
+common	,	V_104
+kzalloc	,	F_2
+param	,	V_61
+host_data	,	V_15
+out_free_desc	,	V_116
+irq_domain_mutex	,	V_22
+irq_domain_free_irqs_recursive	,	F_107
+"%s didn't like hwirq-0x%lx to VIRQ%i mapping (rc=%d)\n"	,	L_10
+fwspec	,	V_31
+of_phandle_args_to_fwspec	,	F_58
+irq_domain_create_linear	,	F_89
+virq_debug_open	,	F_80
+__irq_domain_deactivate_irq	,	F_114
+"-&gt; using domain @%p\n"	,	L_17
+"irqchip@%p"	,	L_1
+"devtree-node"	,	L_28
+irq_domain_activate_irq	,	F_115
+irq_desc_get_chip_data	,	F_78
+irq_fwspec	,	V_30
+irqd_clr_activated	,	F_119
+" %-16s  %-6s  %-10s  %-10s  %s\n"	,	L_23
+pr_debug	,	F_19
+irq_domain_check_hierarchy	,	F_15
+ENOMEM	,	V_89
+select	,	V_36
+IRQ_NOREQUEST	,	V_43
+irq_domain_add_simple	,	F_27
+hwirq	,	V_42
+irq_set_chip_data	,	F_121
+irq_dispose_mapping	,	F_66
+irq_domain_alloc_irqs_parent	,	F_112
+of_node_to_fwnode	,	F_28
+raw_spin_unlock_irqrestore	,	F_79
+"Removed domain %s\n"	,	L_3
+irq_domain_is_hierarchy	,	F_63
+"%-5s  %-7s  %-15s  %-*s  %6s  %-14s  %s\n"	,	L_31
+tmp	,	V_105
+"cannot allocate memory for IRQ%d\n"	,	L_55
+lock	,	V_79
+"0x%05x  "	,	L_40
+action	,	V_82
+irq_domain	,	V_9
+irq_domain_disassociate	,	F_36
+no_irq_chip	,	V_108
+virq_debug_fops	,	V_88
+single_open	,	F_81
+iter	,	V_76
+irq_set_chip_and_handler_name	,	F_120
+irq_domain_get_of_node	,	F_26
+synchronize_irq	,	F_41
+irq_alloc_desc_from	,	F_49
+__func__	,	V_57
+irq_data	,	V_41
+out_hwirq	,	V_93
+affinity	,	V_98
+bus_token	,	V_33
+radix_tree_delete	,	F_43
+irq_domain_xlate_onecell	,	F_84
+kfree	,	F_4
+EPERM	,	V_51
+radix_tree_insert	,	F_45
+irq_domain_free_irqs_common	,	F_102
+irq_data_get_node	,	F_94
+IRQ_TYPE_NONE	,	V_65
+flags	,	V_72
+direct	,	V_81
+debugfs_create_file	,	F_83
+revmap_tree	,	V_19
+irq_domain_add_legacy	,	F_33
+"none"	,	L_42
+recursive	,	V_113
+direct_max	,	V_12
+file	,	V_85
+"RADIX"	,	L_48
+irq_domain_free_irq_data	,	F_95
+irq_domain_list	,	V_24
+chip_data	,	V_106
+kzalloc_node	,	F_11
+map	,	V_50
+irq_alloc_descs	,	F_30
+irqchip_fwid	,	V_3
+"ERROR: no free irqs available below %i maximum\n"	,	L_13
+IRQ_DOMAIN_FLAG_HIERARCHY	,	V_120
+rcu_read_lock	,	F_69
+cnt	,	V_95
+"error: hwirq 0x%x is too large for %s\n"	,	L_7
+radix_tree_empty	,	F_21
+smp_mb	,	F_42
+EINVAL	,	V_49
+irq_domain_free_irqs_top	,	F_104
+"  %p  "	,	L_44
+"-&gt; existing mapping on virq %d\n"	,	L_18
+to_of_node	,	F_10
+NUMA_NO_NODE	,	V_68
+__init	,	T_2
+is_fwnode_irqchip	,	F_7
+fwnode_handle	,	V_1
+data	,	V_2
+irq_set_default_host	,	F_24
+IS_ENABLED	,	F_29
+irq_domain_translate	,	F_56
+translate	,	V_59
+hwirq_base	,	V_54
+u32	,	T_3
+"%c%-16s  %6u  %10u  %10u  %s\n"	,	L_29
+__irq_domain_activate_irq	,	F_113
+fwid	,	V_4
+handler_data	,	V_109
+virq_debug_show	,	F_72
+"Cannot allocate irq_descs @ IRQ%d, assuming pre-allocated\n"	,	L_4
+irq_find_matching_fwspec	,	F_34
+S_IRUGO	,	V_87
+irq_domain_set_info	,	F_98
+irqd_set_trigger_type	,	F_62
+DOMAIN_BUS_ANY	,	V_39
+irq_create_mapping	,	F_52
+first_irq	,	V_26
+THIS_MODULE	,	V_100
+irq_clear_status_flags	,	F_46
+revmap_size	,	V_20
+irq_desc_get_chip	,	F_77
+raw_spin_lock_irqsave	,	F_76
+IRQ_TYPE_SENSE_MASK	,	V_67
+"0x%p  "	,	L_43
+activate	,	V_118
+list_add	,	F_17
+"create_direct obtained virq %d\n"	,	L_14
+"no irq domain found for %s !\n"	,	L_21
+irq_domain_insert_irq_data	,	F_93
+list_for_each_entry	,	F_35
+irq_domain_xlate_twocell	,	F_85
+"NULL pointer, cannot free irq\n"	,	L_56
+np	,	V_63
+irq_set_status_flags	,	F_39
+of_node_get	,	F_13
+link	,	V_23
+CONFIG_IRQ_DOMAIN_HIERARCHY	,	F_57
+hwirq_max	,	V_11
+slot	,	V_77
+"irq"	,	L_32
+irq_domain_deactivate_irq	,	F_118
+irq_create_direct_mapping	,	F_48
+"   %c    "	,	L_45
+irq_domain_alloc_irq_data	,	F_96
+"Added domain %s\n"	,	L_2
+"active"	,	L_36
+xlate	,	V_60
+irq_get_trigger_type	,	F_61
+irq_find_mapping	,	F_53
+irq_domain_remove_irq	,	F_92
+irq_chip	,	V_80
+revmap_direct_max_irq	,	V_21
+irq_domain_insert_irq	,	F_91
+irq_domain_xlate_onetwocell	,	F_86
+"type"	,	L_37
+rcu_read_unlock	,	F_71
+IRQ_DOMAIN_FLAG_AUTO_RECURSIVE	,	V_111
+match	,	V_38
+WARN_ON	,	F_6
+"domain-&gt;ops-&gt;alloc() is NULL\n"	,	L_53
+__irq_alloc_descs	,	F_87
+"error: virq%i is already associated"	,	L_9
+irq_get_irq_data	,	F_37
+container_of	,	F_8
+CONFIG_SPARSE_IRQ	,	V_27
+"%s(, %lx) called with NULL domain\n"	,	L_16
+irq_set_handler_data	,	F_100
+irq_flow_handler_t	,	T_4
+irq_domain_set_hwirq_and_chip	,	F_97

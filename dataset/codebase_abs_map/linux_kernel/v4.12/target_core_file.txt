@@ -1,0 +1,296 @@
+" with FDBD_HAS_BUFFERED_IO_WCE\n"	,	L_20
+dma_data_direction	,	V_119
+O_LARGEFILE	,	V_25
+ITER_BVEC	,	V_85
+unit_size	,	V_151
+S_ISBLK	,	F_14
+kstrtoull	,	F_58
+bdev_get_queue	,	F_15
+ENOSYS	,	V_150
+fileio_ops	,	V_156
+"CORE_HBA[%d] - TCM FILEIO HBA Driver %s on Generic"	,	L_2
+inode	,	V_17
+iov_iter	,	V_72
+"Unable to allocate FILEIO prot buf\n"	,	L_36
+dev	,	V_3
+len	,	V_76
+opts	,	V_135
+i_size_read	,	F_17
+pr_warn	,	F_48
+TCM_LOGICAL_UNIT_COMMUNICATION_FAILURE	,	V_97
+queue_depth	,	V_58
+iov_iter_bvec	,	F_29
+i_bdev	,	V_36
+fd_dev_name	,	V_28
+DMA_FROM_DEVICE	,	V_122
+for_each_sg	,	F_27
+max_unmap_lba_count	,	V_44
+file_inode	,	F_32
+LLONG_MAX	,	V_93
+prot_op	,	V_96
+loff_t	,	T_3
+kernel_write	,	F_41
+target_to_linux_sector	,	F_47
+rc	,	V_109
+prot_file	,	V_148
+se_cmd	,	V_62
+fd_do_prot_unmap	,	F_42
+Opt_fd_buffered_io	,	V_144
+pr_err	,	F_5
+GFP_KERNEL	,	V_8
+sgl_nents	,	V_68
+ssize_t	,	T_2
+"Buffered-WCE"	,	L_52
+bio_vec	,	V_74
+sense_reason_t	,	T_4
+t_prot_sg	,	V_124
+"Unable to locate fd_dev-&gt;fd_file\n"	,	L_54
+"vfs_write to prot file failed: %zd\n"	,	L_35
+f_mapping	,	V_31
+bl	,	V_146
+filp_open	,	F_11
+bv_len	,	V_81
+O_RDWR	,	V_23
+sg	,	V_71
+pos	,	V_77
+" parameter, and no backing struct"	,	L_17
+arg	,	V_137
+strsep	,	F_54
+bdev	,	V_113
+"FD_MAX_BYTES: %u iovec count limitation\n"	,	L_40
+fd_detach_hba	,	F_7
+scatterlist	,	V_66
+b	,	V_145
+data_direction	,	V_120
+f	,	V_147
+"        File: %s  Size: %llu  Mode: %s\n"	,	L_51
+i	,	V_79
+kcalloc	,	F_26
+__get_free_page	,	F_43
+host_id	,	V_6
+p	,	V_61
+" block_size: %u\n"	,	L_32
+q	,	V_35
+buf	,	V_102
+fd_parse_cdb	,	F_67
+f_op	,	V_117
+orig	,	V_132
+Opt_fd_dev_size	,	V_142
+"%s() write returned %d\n"	,	L_24
+max_bytes_per_io	,	V_49
+pi_prot_type	,	V_111
+bv_offset	,	V_83
+match_token	,	F_55
+dev_size	,	V_37
+prot_type	,	V_123
+div_u64	,	F_18
+bdev_logical_block_size	,	F_16
+O_CREAT	,	V_24
+fd_dev_size	,	V_59
+fd_execute_unmap	,	F_45
+fd_dev_call_rcu	,	F_22
+SCF_FUA	,	V_129
+FALLOC_FL_PUNCH_HOLE	,	V_115
+se_device	,	V_2
+"WRITE_SAME: Protection information with FILEIO"	,	L_29
+"filp_open(%s) failed\n"	,	L_11
+fd_alloc_device	,	F_9
+SAM_STAT_GOOD	,	V_92
+request_queue	,	V_34
+sgl	,	V_67
+fd_host_id	,	V_10
+fd_queue_depth	,	V_57
+fd_free_prot	,	F_66
+ret	,	V_19
+fd_set_configfs_dev_params	,	F_52
+sectors	,	V_127
+match_strlcpy	,	F_56
+transport_backend_register	,	F_70
+FD_VERSION	,	V_13
+fd_attach_hba	,	F_3
+hba	,	V_5
+fd_dev	,	V_1
+count	,	V_131
+fileio_module_exit	,	F_71
+free_page	,	F_44
+ilog2	,	F_50
+"FILEIO: Forcing setting of emulate_write_cache=1"	,	L_19
+"CORE_FILE[%u] - Added TCM FILEIO Device ID: %u at %s,"	,	L_21
+TARGET_CORE_VERSION	,	V_14
+name	,	V_15
+call_rcu	,	F_24
+fileio_module_init	,	F_69
+hba_id	,	V_12
+rcu_head	,	V_60
+page	,	V_130
+" block_device\n"	,	L_18
+FD_MAX_DEVICE_QUEUE_DEPTH	,	V_53
+fd	,	V_64
+blk_queue_nonrot	,	F_20
+fd_do_rw	,	F_25
+FDBD_HAS_BUFFERED_IO_WCE	,	V_27
+fd_host_dev_id_count	,	V_56
+se_hba	,	V_4
+nolb	,	V_95
+"FILEIO: Allocated fd_dev for %p\n"	,	L_8
+" Target Core Stack %s\n"	,	L_3
+kzalloc	,	F_4
+FALLOC_FL_KEEP_SIZE	,	V_116
+end	,	V_91
+block_size	,	V_65
+"Unable to allocate fd_do_readv iov[]\n"	,	L_23
+"FILEIO: Not able to process I/O of %u bytes due to"	,	L_39
+"FILEIO: Missing fd_dev_size="	,	L_16
+data_length	,	V_69
+length	,	V_82
+start	,	V_90
+"%s() returned %d for non S_ISBLK\n"	,	L_27
+match_int	,	F_59
+fallocate	,	V_118
+se_cmd_flags	,	V_128
+ptr	,	V_133
+vfs_iter_read	,	F_31
+" !S_ISBLK\n"	,	L_56
+"FILEIO: fallocate() failed: %d\n"	,	L_38
+fd_init_prot	,	F_62
+"O_DSYNC"	,	L_53
+pr_debug	,	F_6
+ENOMEM	,	V_9
+prot_fd	,	V_104
+sg_page	,	F_28
+SAM_STAT_CHECK_CONDITION	,	V_94
+" fd_dev_size=\n"	,	L_44
+FBDF_HAS_PATH	,	V_22
+hba_ptr	,	V_11
+FD_BLOCKSIZE	,	V_43
+FD_MAX_DEV_PROT_NAME	,	V_149
+hw_queue_depth	,	V_52
+vfs_fsync_range	,	F_36
+"TCM FILEIO ID: %u"	,	L_50
+FBDF_HAS_SIZE	,	V_42
+match_strdup	,	F_57
+"CORE_HBA[%d] - Detached FILEIO HBA: %u from Generic"	,	L_5
+i_mode	,	V_33
+"WRITE_SAME: Illegal SGL t_data_nents: %u length: %u"	,	L_31
+"Unable to allocate memory for struct fd_dev\n"	,	L_7
+iter	,	V_73
+vzalloc	,	F_64
+is_write	,	V_70
+FD_MAX_BYTES	,	V_50
+fail	,	V_29
+is_nonrot	,	V_41
+fd_dev_id	,	V_55
+target_configure_unmap_from_queue	,	F_19
+__func__	,	V_86
+target_complete_cmd	,	F_35
+" disabled by default\n"	,	L_15
+PAGE_SIZE	,	V_110
+"Unable to locate fd_dev-&gt;fd_prot_file\n"	,	L_34
+cmd	,	V_63
+dev_attrib	,	V_39
+ENODEV	,	V_108
+fd_host	,	V_7
+kfree	,	F_8
+" block_device blocks: %llu logical_block_size: %d\n"	,	L_13
+sbc_dif_verify	,	F_51
+flags	,	V_18
+kstrdup	,	F_53
+target_backend_unregister	,	F_72
+prot_length	,	V_106
+arg_p	,	V_134
+vfree	,	F_65
+unmap_granularity	,	V_46
+fd_execute_write_same	,	F_37
+out	,	V_143
+se_dev	,	V_87
+file	,	V_16
+prot	,	V_107
+"FILEIO: Using size: %llu bytes from struct"	,	L_12
+sector_t	,	T_5
+iov_iter_zero	,	F_33
+sbc_parse_cdb	,	F_68
+blkdev_issue_discard	,	F_46
+t_task_lba	,	V_78
+" %llu total bytes\n"	,	L_22
+bufsize	,	V_103
+"bogus fd_buffered_io=%d value\n"	,	L_47
+fd_do_prot_fill	,	F_39
+fd_get_blocks	,	F_61
+t_prot_nents	,	V_125
+token	,	V_138
+EINVAL	,	V_20
+"kstrtoull() failed for"	,	L_43
+" operations for struct fd_dev\n"	,	L_49
+fd_free_device	,	F_23
+bv_page	,	V_80
+__init	,	T_8
+__exit	,	T_9
+substring_t	,	T_7
+"FILEIO: blkdev_issue_discard() failed: %d\n"	,	L_37
+"FILEIO Protection emulation only supported on"	,	L_55
+" backends not supported\n"	,	L_30
+max_unmap_block_desc_count	,	V_45
+"IFILE: BLOCK Discard support available,"	,	L_14
+size_t	,	T_6
+vfs_iter_write	,	F_30
+block_device	,	V_112
+filp_close	,	F_21
+fd_execute_sync_cache	,	F_34
+mode	,	V_114
+"CORE_HBA[%d] - Attached FILEIO HBA: %u to Generic\n"	,	L_4
+u32	,	T_1
+fd_file	,	V_30
+host	,	V_32
+" Target Core\n"	,	L_6
+fd_configure_device	,	F_10
+emulate_write_cache	,	V_54
+offset	,	V_84
+FD_DEV	,	F_1
+t_data_sg	,	V_99
+lba	,	V_101
+PTR_ERR	,	F_13
+"Unable to allocate memory for struct fd_host\n"	,	L_1
+"Missing fd_dev_name=\n"	,	L_9
+fd_block_size	,	V_38
+pi_prot_verify	,	V_126
+",\n"	,	L_41
+fd_show_configfs_dev_params	,	F_60
+fd_sbc_ops	,	V_155
+t_data_nents	,	V_98
+pfile	,	V_121
+FD_MAX_DEV_NAME	,	V_141
+"FILEIO: Using buffered I/O"	,	L_48
+"FILEIO: Referencing Path: %s\n"	,	L_42
+"%s.protection"	,	L_57
+"Using FILEIO prot_length: %llu\n"	,	L_59
+"S_ISBLK\n"	,	L_26
+fd_format_prot	,	F_63
+"FILEIO: Disabling O_DSYNC, using buffered FILEIO\n"	,	L_10
+" bytes\n"	,	L_46
+"FILEIO: Referencing Size: %llu"	,	L_45
+immed	,	V_88
+fd_prot_file	,	V_105
+unmap_granularity_alignment	,	V_47
+tokens	,	V_139
+bvec	,	V_75
+FDBD_FORMAT_UNIT_SIZE	,	V_152
+MAX_OPT_ARGS	,	V_136
+"%s() returned %d, expecting %u for "	,	L_25
+fbd_flags	,	V_21
+O_DSYNC	,	V_26
+max_write_same_len	,	V_40
+TCM_INVALID_CDB_FIELD	,	V_100
+"Unable to format_prot while pi_prot_type == 0\n"	,	L_58
+get_blocks	,	V_154
+transport	,	V_153
+sbc_get_write_same_sectors	,	F_38
+t_task_cdb	,	V_89
+fd_execute_rw	,	F_49
+container_of	,	F_2
+"FILEIO: vfs_fsync_range() failed: %d\n"	,	L_28
+min_t	,	F_40
+hw_max_sectors	,	V_51
+hw_block_size	,	V_48
+Opt_fd_dev_name	,	V_140
+"vfs_iter_write() returned %zd for write same\n"	,	L_33
+IS_ERR	,	F_12

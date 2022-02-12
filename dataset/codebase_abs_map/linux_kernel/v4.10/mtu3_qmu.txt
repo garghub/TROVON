@@ -1,0 +1,190 @@
+USB_QMU_TQSAR	,	F_27
+ENOMEM	,	V_23
+ring	,	V_3
+dma_addr_t	,	T_1
+qmu_gpd	,	V_1
+QMU_TX_ZLP	,	F_31
+MU3D_EP_TXCR0	,	F_29
+qmu_done_isr	,	F_56
+"QMU_GPD"	,	L_24
+dev	,	V_46
+TXQ_LENERR_INT	,	V_86
+qmu_done_rx	,	F_54
+qmu_tx_zlp_error_handler	,	F_48
+"RX EP%d Recv ZLP\n"	,	L_20
+USB_QMU_TQCSR	,	F_12
+mreq	,	V_38
+QMU_Q_START	,	V_56
+mtu3_qmu_init	,	F_61
+MU3D_EP_RXCR0	,	F_36
+qmu_done_status	,	V_88
+"RX"	,	L_10
+RX_DMAREQEN	,	V_57
+USB_QMU_RQCPR	,	F_55
+mtu3_qmu_exit	,	F_64
+num_eps	,	V_77
+IRQ_HANDLED	,	V_93
+"Tx %d checksum error!\n"	,	L_21
+mtu3_gpd_ring	,	V_2
+dma_addr	,	V_4
+gpd_ring	,	V_17
+mtu3_setbits	,	F_28
+__func__	,	V_66
+epnum	,	V_31
+mtu3_qmu_stop	,	F_44
+gpd_dma	,	V_69
+"%s wait for fifo empty fail\n"	,	L_13
+gpd_dma_to_virt	,	F_1
+reset_gpd_list	,	F_4
+"Tx %d Active Now!\n"	,	L_3
+chksum	,	V_25
+usb_request	,	V_39
+GPD_FLAGS_HWO	,	V_19
+"TX-EP%d queue gpd=%p, enq=%p\n"	,	L_1
+QMU_Q_ACTIVE	,	V_34
+flag	,	V_18
+mtu3_prepare_tx_gpd	,	F_20
+mtu3_gpd_ring_free	,	F_7
+gpd_current	,	V_68
+errval	,	V_79
+QMU_TX_DONE_INT	,	F_58
+GFP_ATOMIC	,	V_22
+advance_deq_gpd	,	F_17
+dma_base	,	V_5
+"QMU_GPD size SHOULD be 16B"	,	L_23
+le16_to_cpu	,	F_51
+compiletime_assert	,	F_62
+qmu_done_tx	,	F_52
+U3D_QIER0	,	V_92
+u8	,	T_4
+TX_FIFOFULL	,	V_71
+U3D_QIER1	,	V_90
+txcsr	,	V_70
+mtu3_writel	,	F_14
+gpd_head	,	V_7
+mtu3_ep	,	V_15
+TX_DMAREQEN	,	V_52
+MAX_GPD_NUM	,	V_10
+i	,	V_26
+in_eps	,	V_67
+TX_TXPKTRDY	,	V_72
+mtu3_qmu_isr	,	F_60
+"%s send ZLP for req=%p\n"	,	L_12
+QMU_RX_ZLP_ERR	,	F_43
+U3D_QISAR0	,	V_91
+mtu3	,	V_28
+U3D_QISAR1	,	V_89
+QMU_TX_CS_ERR	,	F_33
+mtu3_clrbits	,	F_38
+gpd_ring_empty	,	F_18
+mtu3_prepare_transfer	,	F_19
+"%s EP%d, deq=%p, enq=%p, complete\n"	,	L_16
+"=== QMUdone[tx=%x, rx=%x] QMUexp[%x] ===\n"	,	L_22
+"no correct RX req is found\n"	,	L_17
+data	,	V_24
+GPD_FLAGS_IOC	,	V_45
+QMU_RX_DONE_INT	,	F_57
+dequeue	,	V_13
+__iomem	,	T_5
+dev_dbg	,	F_23
+qmu_calc_checksum	,	F_9
+U3D_RQERRIR0	,	V_82
+U3D_TQERRIR0	,	V_87
+U3D_RQERRIR1	,	V_84
+mbase	,	V_29
+zero	,	V_48
+u32	,	T_2
+mb	,	F_10
+QMU_GPD_RING_SIZE	,	V_95
+noinline	,	T_3
+cpu_to_le16	,	F_22
+"RX %d Length error\n"	,	L_19
+mtu3_req_complete	,	F_53
+gpd	,	V_11
+QMU_RX_CS_EN	,	F_37
+RXQ_LENERR_INT	,	V_81
+buffer	,	V_42
+QMU_GPD_SIZE	,	V_94
+next_request	,	F_50
+req	,	V_40
+ret	,	V_63
+"Rx %d CS error!\n"	,	L_18
+mtu3_gpd_ring_alloc	,	F_5
+actual	,	V_74
+advance_enq_gpd	,	F_16
+offset	,	V_9
+next_gpd	,	V_47
+"no correct TX req is found\n"	,	L_15
+dma_pool_create	,	F_63
+is_in	,	V_32
+QMU_TX_LEN_ERR	,	F_32
+qmu_exception_isr	,	F_59
+"TX"	,	L_9
+mtu3_qmu_flush	,	F_47
+qmu_status	,	V_78
+mtu	,	V_20
+"RX-EP%d queue gpd=%p, enq=%p\n"	,	L_2
+TXQ_CSERR_INT	,	V_85
+mac_base	,	V_30
+dma_pool_destroy	,	F_65
+name	,	V_64
+mtu3_prepare_rx_gpd	,	F_24
+GPD_EXT_FLAG_ZLP	,	V_50
+"%s's qmu stop now!\n"	,	L_7
+mtu3_readl	,	F_15
+out_eps	,	V_75
+QMU_CHECKSUM_LEN	,	V_27
+"Rx %d Active Now!\n"	,	L_4
+qmu_gpd_pool	,	V_21
+next	,	V_36
+mtu3_request	,	V_37
+request	,	V_41
+U3D_QCR1	,	V_54
+USB_QMU_TQCPR	,	F_49
+U3D_QCR0	,	V_53
+qcsr	,	V_62
+mtu3_qmu_start	,	F_26
+"stop %s's qmu failed\n"	,	L_6
+dma_pool_zalloc	,	F_6
+U3D_QCR3	,	V_58
+"%s EP%d, last=%p, current=%p, enq=%p\n"	,	L_14
+mtu3_qmu_resume	,	F_11
+U3D_TQERRIESR0	,	V_55
+USB_QMU_RQCSR	,	F_13
+QMU_RX_COZ	,	F_40
+RXQ_CSERR_INT	,	V_80
+dev_err	,	F_46
+data_buf_len	,	V_51
+QMU_RX_ZLP	,	F_39
+QMU_RX_LEN_ERR	,	F_41
+ext_flag	,	V_49
+cpu_to_le32	,	F_21
+QMU_Q_STOP	,	V_65
+"%s's qmu is inactive now!\n"	,	L_5
+readl_poll_timeout_atomic	,	F_45
+mep	,	V_16
+end	,	V_14
+buf_len	,	V_43
+value	,	V_61
+QMU_RX_CS_ERR	,	F_42
+QMU_TX_CS_EN	,	F_30
+gpd_ring_init	,	F_3
+"TX EP%d buffer length error(!=0)\n"	,	L_11
+mtu3_insert_gpd	,	F_25
+done_status	,	V_76
+irqreturn_t	,	T_6
+start	,	V_8
+length	,	V_44
+enq	,	V_35
+dev_warn	,	F_34
+GPD_FLAGS_BPS	,	V_73
+USB_QMU_RQSAR	,	F_35
+enqueue	,	V_12
+U3D_RQERRIESR0	,	V_59
+U3D_RQERRIESR1	,	V_60
+QMU_Q_RESUME	,	V_33
+dma	,	V_6
+gpd_virt_to_dma	,	F_2
+"%s flush QMU %s\n"	,	L_8
+dma_pool_free	,	F_8
+RXQ_ZLPERR_INT	,	V_83

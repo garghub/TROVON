@@ -1,0 +1,335 @@
+lbs_cmd_with_response	,	F_11
+exit_deep_sleep	,	V_77
+lbs_deb_usb	,	F_12
+if_usb_resume	,	F_87
+descriptor	,	V_59
+reset_card	,	V_80
+usb_get_intfdata	,	F_42
+msleep	,	F_49
+usb_submit_urb	,	F_53
+"**EVENT** 0x%X\n"	,	L_52
+dev	,	V_8
+len	,	V_162
+wake_method	,	V_19
+is_polling	,	V_79
+olpc_ec_wakeup_set	,	F_85
+"Received valid boot command response\n"	,	L_38
+usb_put_dev	,	F_44
+cmd_ds_set_boot2_ver	,	V_16
+"Wake up main thread to handle cmd response\n"	,	L_49
+usb_get_dev	,	F_36
+"Firmware does not seem to support PS mode\n"	,	L_5
+wol_gap	,	V_27
+lbs_private	,	V_6
+CMD_SET_BOOT2_VER	,	V_25
+BOOT_CMD_RESP_OK	,	V_129
+EIO	,	V_169
+resp_buf	,	V_146
+version	,	V_23
+"Firmware doesn't wake via command interrupt; disabling PS mode\n"	,	L_7
+wol_config	,	V_29
+size	,	V_21
+"Tx URB allocation failed\n"	,	L_19
+"Endpoints not found\n"	,	L_17
+lbs_suspend	,	F_86
+pr_err	,	F_17
+"*** type = %u\n"	,	L_54
+uint8_t	,	T_1
+usb_sndbulkpipe	,	F_52
+unused	,	V_164
+GFP_KERNEL	,	V_53
+"failed to load fw, resetting device!\n"	,	L_60
+actual_length	,	V_9
+if_usb_receive_fwload	,	V_121
+if_usb_submit_rx_urb	,	F_60
+"URB status is failed during fw load\n"	,	L_35
+BOOT_CMD_FW_BY_USB	,	V_133
+ep_in_size	,	V_66
+if_usb_send_fw_pkt	,	F_45
+GFP_ATOMIC	,	V_114
+setup_for_next	,	V_150
+lbs_get_firmware_async	,	F_38
+"usb_submit_urb failed: %d\n"	,	L_29
+__if_usb_submit_rx_urb	,	F_54
+result	,	V_107
+endpoint	,	V_49
+usb_fill_bulk_urb	,	F_51
+driver_lock	,	V_143
+usb_device_id	,	V_42
+fwcapinfo	,	V_32
+totlen	,	V_158
+cur_altsetting	,	V_58
+"FW received Blk seqnum = %d\n"	,	L_45
+"FW received Blk with CRC error\n"	,	L_46
+le16_to_cpu	,	F_15
+"firmware file format check FAIL\n"	,	L_56
+resp_idx	,	V_144
+"Firmware seems to support PS with wake-via-command\n"	,	L_6
+u8	,	T_3
+pr_info	,	F_4
+blksize	,	V_160
+intf	,	V_41
+fwseqnum	,	V_92
+enter_deep_sleep	,	V_76
+i	,	V_52
+uint32_t	,	V_56
+j	,	V_170
+iface_desc	,	V_47
+"totalbytes = %d\n"	,	L_21
+EOPNOTSUPP	,	V_172
+"boot cmd response cmd_tag error (%d)\n"	,	L_41
+wait_event_interruptible	,	F_80
+r	,	V_50
+CONFIG_OLPC	,	F_34
+msleep_interruptible	,	F_79
+if_usb_disconnect	,	F_41
+jiffies	,	V_136
+DNLD_BOOTCMD_SENT	,	V_11
+"Device removed\n"	,	L_28
+rx_ret	,	V_118
+usb_rcvbulkpipe	,	F_57
+"boot cmd response wrong magic number (0x%x)\n"	,	L_40
+"failed to find firmware (%d)\n"	,	L_58
+bcdDevice	,	V_81
+process_cmdrequest	,	F_68
+bDeviceProtocol	,	V_63
+trycount	,	V_151
+reset_deep_sleep_wakeup	,	V_78
+lbs_host_sleep_cfg	,	F_13
+dealloc	,	V_71
+"The receive buffer is too large\n"	,	L_48
+dnld_sent	,	V_10
+resp_len	,	V_145
+KERN_CRIT	,	V_39
+pad	,	V_157
+in_interrupt	,	F_70
+"size after = %d\n"	,	L_55
+payload	,	V_108
+cpu_to_le16	,	F_10
+bDeviceSubClass	,	V_62
+priv	,	V_7
+boot2_version	,	V_24
+bcdUSB	,	V_60
+CMD_WAKE_METHOD_COMMAND_INT	,	V_35
+ret	,	V_102
+fw_timeout	,	V_54
+b2_cmd	,	V_17
+usb_endpoint_num	,	F_29
+if_usb_suspend	,	F_83
+"Could not allocate buffer\n"	,	L_20
+"Actual length transmitted %d\n"	,	L_2
+if_usb_prog_firmware	,	V_83
+usb_host_interface	,	V_46
+"Donwloading FW JUMP BLOCK\n"	,	L_26
+lbs_deb_usb2	,	F_2
+sk_buff	,	V_115
+"Pointer for rx_urb %p\n"	,	L_32
+FW_CAPINFO_PS	,	V_33
+bNumEndpoints	,	V_65
+CMD_802_11_FW_WAKE_METHOD	,	V_31
+rx_urb	,	V_13
+FW_HAS_LAST_BLOCK	,	V_98
+desc	,	V_64
+CRC_OK	,	V_89
+cardp	,	V_3
+MESSAGE_HEADER_LEN	,	V_139
+rx_skb	,	V_119
+lbs_notify_command_response	,	F_72
+err_get_fw	,	V_84
+BUG_ON	,	F_69
+"Unknown command type 0x%X\n"	,	L_53
+seqnum	,	V_95
+printk	,	F_20
+transfer_flags	,	V_112
+kfree_skb	,	F_58
+"Waiting for confirmation; got %x %x\n"	,	L_37
+if_usb_write_bulk_callback	,	F_1
+"Submit Rx URB failed: %d\n"	,	L_33
+BOOT_CMD_MAGIC_NUMBER	,	V_131
+fwdnldover	,	V_36
+fw	,	V_87
+"out_endpoint = %d\n"	,	L_15
+kzalloc	,	F_24
+driver_info	,	V_57
+cpu_to_le32	,	F_47
+MRVDRV_MIN_PKT_LEN	,	V_140
+kmalloc	,	F_32
+fwlastblksent	,	V_91
+le32_to_cpu	,	F_46
+bootcmd	,	V_156
+if_usb_probe	,	F_22
+"There are data to follow\n"	,	L_23
+fw_wq	,	V_38
+tx_ret	,	V_111
+err_add_card	,	V_73
+recvtype	,	V_147
+datalength	,	V_94
+MRVDRV_ETH_RX_PACKET_BUFFER_SIZE	,	V_117
+cmd_ds_802_11_fw_wake_method	,	V_18
+usb_set_intfdata	,	F_37
+syncfwheader	,	V_124
+"RX URB failed: %d\n"	,	L_50
+netdev_info	,	F_14
+bDeviceClass	,	V_61
+"Firmware download done; size %d\n"	,	L_27
+if_usb_receive	,	V_122
+"Submit Rx URB success\n"	,	L_34
+spin_unlock	,	F_73
+PS_STATE_FULL_POWER	,	V_179
+message	,	V_177
+lbs_process_rxed_packet	,	F_67
+wMaxPacketSize	,	V_67
+__le32	,	V_103
+usb_alloc_urb	,	F_31
+EC_SCI_SRC_WLAN	,	V_181
+hdr	,	V_20
+callbackfn	,	F_55
+ep_in	,	V_68
+pm_message_t	,	T_5
+CMD_TYPE_REQUEST	,	V_104
+lbs_add_card	,	F_33
+bootcmdresp	,	V_125
+ENOMEM	,	V_51
+"Bulk in size is %d\n"	,	L_14
+if_usb_reset_device	,	F_40
+hw_host_to_card	,	V_74
+ep_out	,	V_70
+skb	,	V_116
+setup_timer	,	F_25
+lbs_queue_event	,	F_75
+HZ	,	V_137
+skb_reserve	,	F_64
+fwsyncheader	,	V_123
+init_waitqueue_head	,	F_26
+cmd_header	,	V_100
+tmp	,	V_126
+"FW download failure, time = %d ms\n"	,	L_61
+lbs_start_card	,	F_82
+context	,	V_4
+action	,	V_22
+LBS_CMD_BUFFER_SIZE	,	V_142
+model	,	V_55
+id	,	V_43
+"Rx URB allocation failed\n"	,	L_18
+"boot cmd response result error (%d)\n"	,	L_42
+del_timer_sync	,	F_81
+method	,	V_34
+CMD_TYPE_DATA	,	V_132
+"Failure to allocate syncfwheader\n"	,	L_43
+usb_device	,	V_44
+"Firmware ready event received\n"	,	L_36
+fwdata	,	V_85
+"Recv length = 0x%x, Recv type = 0x%X\n"	,	L_51
+EHS_WAKE_ON_UNICAST_DATA	,	V_28
+usb_kill_urb	,	F_6
+"usb_submit_urb success\n"	,	L_30
+if_usb_submit_rx_urb_fwload	,	F_59
+"URB in failure status: %d\n"	,	L_3
+olpc_ec_cmd	,	F_21
+cmd	,	V_101
+card	,	V_15
+"Bulk out size is %d\n"	,	L_16
+MRVDRV_ETH_TX_PACKET_BUFFER_SIZE	,	V_72
+status	,	V_5
+ENODEV	,	V_110
+kfree	,	F_8
+if_usb_fw_timeo	,	F_16
+usb_interface	,	V_40
+lbs_stop_card	,	F_43
+out	,	V_180
+DNLD_DATA_SENT	,	V_154
+skb_pull	,	F_66
+if_usb_free	,	F_5
+usb_endpoint_is_bulk_out	,	F_30
+event	,	V_149
+"Resetting OLPC wireless via EC...\n"	,	L_10
+firmware	,	V_86
+dev_alloc_skb	,	F_56
+"Data length = %d\n"	,	L_22
+reset_count	,	V_165
+urb	,	V_1
+surprise_removed	,	V_37
+restart	,	V_168
+olpc_ec_wakeup_clear	,	F_84
+fwheader	,	V_93
+BOOT_CMD_UPDATE_FW	,	V_134
+EINVAL	,	V_167
+lbs_send_tx_feedback	,	F_74
+ivalue	,	V_155
+ehs_remove_supported	,	V_176
+lbs_deb_usbd	,	F_27
+usb_tx_block	,	F_48
+CMD_ACT_GET	,	V_30
+"Download timed out\n"	,	L_9
+magic	,	V_130
+usb_endpoint_is_bulk_in	,	F_28
+recvbuff	,	V_141
+data	,	V_88
+totalbytes	,	V_90
+BOOT_CMD_UPDATE_BOOT2	,	V_135
+if_usb_issue_boot_command	,	F_76
+wake_up	,	F_18
+usb_endpoint_descriptor	,	V_48
+fw_table	,	V_82
+CMD_TYPE_INDICATION	,	V_127
+fwfinalblk	,	V_99
+tx_urb	,	V_12
+"Firmware already seems alive; resetting\n"	,	L_39
+FW_HAS_DATA_TO_RECV	,	V_97
+u32	,	T_4
+check_fwfile_format	,	F_77
+ep_out_size	,	V_69
+CMD_802_11_RESET	,	V_106
+IPFIELD_ALIGN_OFFSET	,	V_120
+if_usb_card	,	V_2
+lbs_host_to_card_done	,	F_3
+if_usb_reset_olpc_card	,	F_19
+offset	,	V_161
+BOOT_CMD_RESP_NOT_SUPPORTED	,	V_171
+wol_gpio	,	V_26
+if_usb_host_to_card	,	V_75
+mod_timer	,	F_62
+done	,	V_166
+usb_free_urb	,	F_7
+uint16_t	,	T_2
+EHS_REMOVE_WAKEUP	,	V_175
+nb	,	V_109
+"URB status is successful\n"	,	L_1
+udev	,	V_45
+fwh	,	V_163
+lbs_deb_fw	,	F_78
+"Host has finished FW downloading\n"	,	L_25
+recvlength	,	V_138
+dnldcmd	,	V_96
+"bcdUSB = 0x%X bDeviceClass = 0x%X"	,	L_11
+" bDeviceSubClass = 0x%X, bDeviceProtocol = 0x%X\n"	,	L_12
+MACREG_INT_CODE_FIRMWARE_READY	,	V_128
+"in_endpoint = %d\n"	,	L_13
+kmemdup	,	F_61
+if_usb_setup_firmware	,	F_9
+"seqnum = %d totalbytes = %d\n"	,	L_24
+skb_put	,	F_65
+lbs_remove_card	,	F_39
+wol_criteria	,	V_174
+pkt	,	V_148
+usb_reset_device	,	F_50
+"FW received Blk with correct CRC\n"	,	L_44
+spin_lock	,	F_71
+machine_is_olpc	,	F_35
+URB_ZERO_PACKET	,	V_113
+MVMS_CMD	,	V_152
+"No free skb\n"	,	L_31
+bincmd	,	V_159
+"firmware file format check PASS\n"	,	L_57
+"Packet length is Invalid\n"	,	L_47
+"URB submission is failed\n"	,	L_59
+psstate	,	V_178
+ep_out_buf	,	V_14
+command	,	V_105
+DNLD_CMD_SENT	,	V_153
+"Download complete, no event. Assuming success\n"	,	L_8
+interface_to_usbdev	,	F_23
+fw_ready	,	V_173
+process_cmdtypedata	,	F_63
+lbs_resume	,	F_88
+"Setting boot2 version failed\n"	,	L_4

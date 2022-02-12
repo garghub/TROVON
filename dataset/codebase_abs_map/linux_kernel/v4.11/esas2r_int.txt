@@ -1,0 +1,298 @@
+ESAS2R_INT_STS_MASK	,	V_20
+esas2r_start_ae_request	,	F_70
+req_stat	,	V_25
+list_size	,	V_49
+bytype	,	V_148
+func_rsp	,	V_27
+TS_NOT_PRESENT	,	V_130
+MU_DOORBELL_OUT	,	V_10
+doorbell	,	V_4
+esas2r_local_reset_adapter	,	F_29
+esas2r_process_adapter_reset	,	F_43
+"The AE request response length (%p) is too long: %d"	,	L_21
+ae_data	,	V_140
+VDAAE_LU_NOT_PRESENT	,	V_131
+esas2r_handle_chip_rst_during_tasklet	,	F_57
+element	,	V_66
+unlikely	,	F_17
+VDAAE_LU_DELETED	,	V_133
+RS_SUCCESS	,	V_26
+ae	,	V_115
+esas2r_request	,	V_21
+RQ_MAX_TIMEOUT	,	V_30
+esas2r_trace_enter	,	F_23
+esas2r_disc_queue_event	,	F_66
+outbound_copy	,	V_46
+"scsistatus: %x"	,	L_1
+list_for_each	,	F_45
+esas2r_targ_db_remove_all	,	F_56
+byversion	,	V_171
+"RAID event received - name:%s rebuild_state:%d group_state:%d"	,	L_27
+list_for_each_safe	,	F_38
+esas2r_complete_request	,	F_73
+VDAAE_RBLD_STATE	,	V_153
+VDAAE_HDR_TYPE_DISK	,	V_166
+esas2r_targ_db_get_tgt_cnt	,	F_55
+LIST_HEAD	,	F_22
+rq	,	V_22
+flash	,	V_183
+MU_INTSTAT_DRBL	,	V_9
+IRQ_NONE	,	V_14
+AF_BUSRST_NEEDED	,	V_85
+num_requests	,	V_52
+test_bit	,	F_34
+esas2r_hdebug	,	F_48
+vda_rsp_data	,	V_139
+esas2r_queue_fw_event	,	F_69
+VDAAE_HDR_TYPE_RAID	,	V_149
+rsp	,	V_24
+AF_CHPRST_PENDING	,	V_61
+SAM_STAT_CONDITION_MET	,	V_37
+"hard resetting bus"	,	L_12
+scsi_rsp	,	V_34
+AF2_COREDUMP_AVAIL	,	V_112
+DRBL_DRV_VER	,	V_113
+"Disk event received"	,	L_29
+clear_bit	,	F_44
+last_read	,	V_48
+a	,	V_2
+comp_list	,	V_44
+AF_DISC_PENDING	,	V_63
+ESAS2R_LOG_INFO	,	V_156
+atomic_read	,	F_9
+u8	,	T_3
+TS_INVALID	,	V_128
+esas2r_target	,	V_118
+targetdb	,	V_120
+irq	,	V_12
+rspput_ptr	,	V_40
+VDAAE_LU_FACTORY_DISABLED	,	V_134
+RS_ABORTED	,	V_28
+MU_DOORBELL_IN	,	V_102
+AF_CHPRST_NEEDED	,	V_84
+esas2r_chip_rst_needed_during_tasklet	,	F_49
+TS_PRESENT	,	V_137
+byrebuild_state	,	V_158
+esas2r_enable_chip_interrupts	,	F_8
+req_table	,	V_54
+AF_FIRST_INIT	,	V_96
+"handle: %x"	,	L_3
+s	,	V_179
+t	,	V_119
+wtarget_id	,	V_163
+"*** adapter disabled ***"	,	L_7
+AF_POWER_MGT	,	V_95
+jiffies	,	V_99
+mem_lock	,	V_126
+disc_evt	,	V_75
+TS_LUN_CHANGE	,	V_181
+"req_status: %x"	,	L_5
+lu_event	,	V_122
+intstat	,	V_3
+dc	,	V_73
+AF_OS_RESET	,	V_83
+esas2r_ae_complete	,	F_67
+acname	,	V_157
+esas2r_is_tasklet_pending	,	F_36
+esas2r_start_request	,	F_74
+VDAAE_PART_CHG	,	V_155
+VDAAE_HDR_TYPE_PWRMGT	,	V_169
+interrupt_cb	,	V_77
+ESAS2R_CHP_UPTIME_MAX	,	V_89
+event_data	,	V_141
+AF_BUSRST_PENDING	,	V_87
+ESAS2R_CHP_UPTIME_CNT	,	V_97
+ESAS2R_LOG_WARN	,	V_104
+scsi_stat	,	V_35
+SAM_STAT_GOOD	,	V_36
+scsi	,	V_56
+"Adapter disabled because of hardware failure"	,	L_8
+int_mask	,	V_19
+general_req	,	V_71
+VDAAE_LU_OFFLINE	,	V_132
+last	,	V_143
+flags2	,	V_16
+esas2r_bugon	,	F_28
+"Bus reset complete"	,	L_14
+"length: %d"	,	L_20
+AF_BUSRST_DETECTED	,	V_86
+DRBL_PANIC_REASON_MASK	,	V_110
+esas2r_comp_list_drain	,	F_33
+esas2r_doorbell_interrupt	,	F_7
+spin_unlock_irqrestore	,	F_26
+last_write	,	V_80
+AF_HEARTBEAT	,	V_109
+num_ae_requests	,	V_53
+MU_OLIS_INT	,	V_8
+"The firmware has panicked"	,	L_17
+scsistatus	,	V_33
+next	,	V_67
+req_list	,	V_57
+"Recovering from a chip reset while the chip was online"	,	L_11
+"*** Firmware Panic ***"	,	L_16
+esas2r_adapter	,	V_1
+esas2r_process_bus_reset	,	F_47
+atto_vda_ae_data	,	V_144
+DCDE_DEV_CHANGE	,	V_138
+timeout	,	V_29
+list_del	,	F_31
+"reset detected"	,	L_6
+bygroup_state	,	V_159
+scsi_report_bus_reset	,	F_62
+rspget_ptr	,	V_41
+le32_to_cpu	,	F_25
+esas2r_schedule_tasklet	,	F_14
+"rq-&gt;target_id: %d"	,	L_32
+AF_CHPRST_STARTED	,	V_94
+AF2_INT_PENDING	,	V_15
+outbound_list_md	,	V_50
+length	,	V_117
+VDAAE_HDR_TYPE_LU	,	V_160
+VDAAE_HDR_VER_0	,	V_172
+MU_OLC_WRT_PTR	,	V_47
+interrupt_cx	,	V_74
+"add_sense_qual=%x"	,	L_34
+bylength	,	V_146
+target	,	V_116
+"rq: %p"	,	L_4
+AF_CHPRST_DETECTED	,	V_101
+ae_rsp	,	V_142
+list_entry	,	F_39
+hdr	,	V_145
+data_buf	,	V_178
+VDAAE_LU_DEGRADED	,	V_136
+MU_INTSTAT_POST_OUT	,	V_6
+esas2r_flush_register_dword	,	F_5
+byflags	,	V_173
+AF_DISABLED	,	V_91
+esas2r_force_interrupt	,	F_64
+esas2r_read_register_dword	,	F_3
+list_empty	,	F_37
+esas2r_interrupt	,	F_11
+jiffies_to_msecs	,	F_54
+esas2r_adapter_interrupt_pending	,	F_12
+int_stat	,	V_18
+VDA_FUNC_FLASH	,	V_182
+queue_lock	,	V_45
+RS_SCSI_ERROR	,	V_32
+"LUN event received: event:%d target_id:%d LUN:%d state:%d"	,	L_28
+"ae: %p"	,	L_23
+esas2r_reset_chip	,	F_53
+esas2r_log_dev	,	F_61
+RS_PENDING	,	V_68
+atto_vda_ae_hdr	,	V_168
+atto_vda_ob_rsp	,	V_23
+sense_buf	,	V_177
+dwflags	,	V_151
+id	,	V_161
+pwr_mgt	,	V_167
+"*** sending reset AE ***"	,	L_31
+snslen	,	V_174
+likely	,	F_16
+dwevent	,	V_124
+VDAAE_LU_LOST	,	V_129
+esas2r_adapter_interrupt	,	F_15
+DRBL_FW_RESET	,	V_111
+DRBL_FORCE_INT	,	V_108
+esas2r_lun_event	,	F_65
+comp_cb	,	V_78
+handle	,	V_42
+esas2r_target_state_changed	,	F_72
+IRQ_HANDLED	,	V_17
+esas2r_send_reset_ae	,	F_60
+cplen	,	V_121
+vrq	,	V_55
+"rspput_ptr: %x, rspget_ptr: %x"	,	L_2
+disable_cnt	,	V_11
+LOWORD	,	F_30
+"aereq-&gt;length (0x%x) too long"	,	L_22
+MU_INT_STATUS_OUT	,	V_5
+esas2r_do_deferred_processes	,	F_10
+flags	,	V_43
+list_add_tail	,	F_32
+VDAAE_MEMBER_CHG	,	V_154
+ESAS2R_LOG_CRIT	,	V_92
+esas2r_disc_local_start_request	,	F_40
+esas2r_nuxi_ae_data	,	F_68
+esas2r_trace_exit	,	F_27
+esas2r_check_req_rsp_sense	,	F_71
+"add_sense_key=%x"	,	L_33
+req_type	,	V_69
+u16	,	T_4
+esas2r_write_register_dword	,	F_4
+esas2r_log	,	F_51
+sub_func	,	V_184
+chip_uptime	,	V_88
+esas2r_check_adapter	,	F_58
+AF_COMM_LIST_TOGGLE	,	V_81
+test_and_set_bit	,	F_52
+"ae-&gt;lu.bystate: %x"	,	L_19
+defer_list	,	V_64
+esas2r_log_request_failure	,	F_75
+SAM_STAT_INTERMEDIATE	,	V_38
+virt_addr	,	V_51
+esas2r_init_adapter_hw	,	F_59
+sense_len	,	V_176
+ESAS2R_MAX_TARGETS	,	V_165
+esas2r_do_tasklet_tasks	,	F_19
+RS_TIMEOUT	,	V_31
+"The firmware was reset during a normal power-up sequence"	,	L_10
+esas2r_disable_chip_interrupts	,	F_2
+RT_DISC_REQ	,	V_70
+esas2r_polled_interrupt	,	F_1
+atomic_inc	,	F_35
+"ae-&gt;hdr: %p"	,	L_24
+new_target_state	,	V_127
+VDA_FUNC_SCSI	,	V_59
+DRBL_RESET_BUS	,	V_103
+lu	,	V_123
+"doorbell: %x"	,	L_15
+"scsi_report_bus_reset() called"	,	L_13
+esas2r_msi_interrupt	,	F_18
+"ae-&gt;lu.dwevent: %x"	,	L_18
+u32	,	T_1
+function	,	V_58
+host	,	V_105
+snslen2	,	V_175
+RS_STARTED	,	V_82
+atomic_dec	,	F_42
+shost_gendev	,	V_106
+chip_init_time	,	V_98
+esas2r_is_adapter_present	,	F_50
+esas2r_get_outbound_responses	,	F_6
+prev_dev_cnt	,	V_100
+AF_DISC_IN_PROG	,	V_76
+esas2r_dummy_complete	,	V_79
+"the async event length is invalid (%p): %d"	,	L_25
+spin_lock_irqsave	,	F_24
+esas2r_ioreq_aborted	,	F_46
+VDAAE_GROUP_STATE	,	V_152
+bystate	,	V_125
+esas2r_trace	,	F_21
+raid	,	V_150
+"ae-&gt;hdr.length (0x%x) invalid"	,	L_26
+MU_OUT_LIST_INT_STAT	,	V_7
+AF_PORT_CHANGE	,	V_107
+bylun	,	V_164
+startreqs	,	V_60
+esas2r_disc_context	,	V_72
+SAM_STAT_INTERMEDIATE_CONDITION_MET	,	V_39
+esas2r_local_start_request	,	F_41
+tgtlun	,	V_162
+AF_FLASHING	,	V_62
+esas2r_targ_db_report_changes	,	F_63
+alrdyrst	,	V_93
+set_bit	,	F_13
+list_head	,	V_65
+AF_DEGRADED_MODE	,	V_90
+irqreturn_t	,	T_2
+VDAAE_LU_ONLINE	,	V_135
+fw_event_vda_ae	,	V_147
+target_id	,	V_180
+esas2r_handle_outbound_rsp_err	,	F_20
+dev_id	,	V_13
+atto_vda_ae	,	V_114
+VDA_FLASH_COMMIT	,	V_185
+"*** sending power management AE ***"	,	L_30
+VDAAE_HDR_TYPE_RESET	,	V_170
+"*** resetting chip ***"	,	L_9

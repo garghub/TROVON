@@ -1,0 +1,319 @@
+fcoe_task_context	,	V_19
+req_fc_hdr	,	V_54
+fcp_srr	,	V_130
+fc_frame_payload_op	,	F_49
+htons	,	F_27
+qedf_send_srr	,	F_52
+htonl	,	F_54
+rec_req	,	V_147
+"els 0x%x: link is not ready\n"	,	L_3
+req_buf	,	V_53
+kref_read	,	F_22
+state	,	V_34
+cancel_delayed_work_sync	,	F_21
+ELS_RJT_LOGIC	,	V_157
+qedf_rec_compl	,	F_63
+srr_ox_id	,	V_135
+"resp_len is "	,	L_28
+FC_FC_FIRST_SEQ	,	V_60
+fh_f_ctl	,	V_106
+fc_rport_create	,	F_40
+ELS_ADISC	,	V_119
+"req 0x%x\n"	,	L_25
+e_stat	,	V_153
+"SRR success.\n"	,	L_37
+reca_fc4value	,	V_160
+FC_FC_END_SEQ	,	V_61
+resp_buf	,	V_114
+QEDF_SCSI_CMD	,	V_145
+fc_frame_header_get	,	F_29
+fh_rx_id	,	V_109
+rrq	,	V_84
+rc	,	V_21
+fh_type	,	V_105
+"Completing OX_ID 0x%x back to libfc.\n"	,	L_31
+qedf_rrq_compl	,	F_20
+"Sending RRQ orig "	,	L_20
+srr_req	,	V_124
+QEDF_ELS	,	V_41
+"fcport-&gt;qedf is NULL.\n"	,	L_19
+rx_buf_off	,	V_169
+ELS_REC	,	V_175
+FCOE_TASK_TYPE_MIDPATH	,	V_64
+cancel_delayed_work	,	F_19
+"fcport is NULL.\n"	,	L_50
+aborted_io_req	,	V_78
+QEDF_PAGE_SIZE	,	V_120
+test_bit	,	F_6
+"Entered.\n"	,	L_14
+srr_rx_id	,	V_136
+FC_EOF_T	,	V_111
+free_arg	,	V_116
+qedf_process_seq_cleanup_compl	,	F_59
+mp_req	,	V_16
+mp_fc_hdr	,	V_113
+"WRITE - XFER_RDY/DATA lost.\n"	,	L_65
+qedf_ctx	,	V_9
+r_a_tov	,	V_85
+"els: Failed els 0x%x\n"	,	L_5
+current_time	,	V_28
+clear_bit	,	F_48
+fc_frame_free	,	F_51
+"SRR\n"	,	L_42
+u8	,	T_5
+"RRQ failed - release orig io "	,	L_24
+qedf_requeue_io_req	,	F_60
+"Sending ELS\n"	,	L_1
+uint32_t	,	T_1
+"beyond page size.\n"	,	L_29
+ntohl	,	F_64
+tstorm_st_context	,	V_93
+ntohs	,	F_46
+"Unable to allocate cb_arg for "	,	L_22
+fc_frame_alloc	,	F_43
+"ADISC\n"	,	L_32
+FC_RCTL_DD_CMD_STATUS	,	V_166
+jiffies	,	V_26
+"Reissued SCSI command from  orig_xid=0x%x on "	,	L_56
+timer_msec	,	V_8
+smp_processor_id	,	F_9
+qedf_l2_els_compl	,	F_42
+did	,	V_22
+QEDF_CLEANUP_TIMEOUT	,	V_140
+"Sending ADISC ox_id=0x%x.\n"	,	L_33
+acc	,	V_152
+data_placement_size	,	V_75
+mdelay	,	F_8
+resp_len	,	V_74
+data_xfer_len	,	V_47
+ELS_LS_RJT	,	V_51
+refcount	,	V_49
+opcode	,	V_125
+"Unable to send SRR, I/O will "	,	L_48
+qedf_cmd_timer_set	,	F_15
+"abort, xid=0x%x.\n"	,	L_49
+rec	,	V_172
+qedf_els_cb_arg	,	V_6
+retry_els	,	V_40
+"new_xid=0x%x.\n"	,	L_57
+fc_exch_recv	,	F_37
+GFP_NOIO	,	V_86
+fr_dev	,	F_32
+new_io_req	,	V_143
+rrq_s_id	,	V_90
+fc_els_adisc	,	V_121
+data_len	,	V_5
+qedf_send_rec	,	F_65
+qedf_release_cmd	,	V_50
+fh_d_id	,	V_107
+fc_rctl	,	V_148
+start_time	,	V_25
+spin_unlock_irqrestore	,	F_58
+qedf_alloc_cmd	,	F_7
+ELS_EXPL_OXID_RXID	,	V_159
+rec_rx_id	,	V_178
+"xid=0x%x.\n"	,	L_52
+ids	,	V_56
+r_ctl	,	V_129
+"for sequence cleanup\n"	,	L_47
+fh	,	V_99
+fh_ox_id	,	V_102
+"REC failed - release orig_io_req"	,	L_71
+fc_frame_payload_get	,	F_44
+fcoe_cqe_midpath_info	,	V_69
+reca_e_stat	,	V_161
+qedf_send_rrq	,	F_24
+fp	,	V_97
+lport	,	V_12
+sid	,	V_23
+"orig_xid=0x%x rx_id=0x%x\n"	,	L_70
+kzalloc	,	F_25
+cpu_to_le32	,	F_36
+FC_TYPE_ELS	,	V_59
+rport_lock	,	V_141
+rrq_rx_id	,	V_92
+fh_r_ctl	,	V_103
+qedf_init_mp_task	,	F_14
+"io_req.\n"	,	L_54
+rrq_req	,	V_77
+QEDF_INFO	,	F_3
+"RRQ\n"	,	L_23
+"sc_cmd is NULL for "	,	L_51
+qedf_mp_req	,	V_15
+er_reason	,	V_155
+"Sending SRR orig_io=%p, "	,	L_40
+els_err	,	V_33
+resp_fc_hdr	,	V_118
+adisc	,	V_122
+"req\n"	,	L_11
+"abort_io_req is NULL.\n"	,	L_17
+cb_arg	,	V_7
+"Unable to post io_req\n"	,	L_55
+qedf_add_to_sq	,	F_16
+qedf_ioreq	,	V_13
+timeout_work	,	V_71
+LPORT_ST_READY	,	V_35
+QEDF_IOREQ_EV_ELS_TMO	,	V_81
+ENOMEM	,	V_42
+fc_frame_header	,	V_17
+srr_rel_off	,	V_137
+"Doing sequence cleanup for xid=0x%x offset=%u.\n"	,	L_45
+"Target has the seq init\n"	,	L_62
+cb_func	,	F_2
+"=0x%x\n"	,	L_44
+fcport	,	V_2
+"SRR rejected.\n"	,	L_38
+rec_ox_id	,	V_177
+fc_remote_port_chkready	,	F_4
+"fcport is no longer offloaded.\n"	,	L_18
+fc_els_rec	,	V_171
+HZ	,	V_27
+qedf_post_io_req	,	F_61
+srr_op	,	V_133
+sc_cmd	,	V_44
+fr_sof	,	F_33
+kref_get	,	F_53
+qedf_init_mp_req	,	F_10
+DMA_TO_DEVICE	,	V_165
+tasks	,	V_63
+QEDF_IOREQ_EV_ELS_ERR_DETECT	,	V_82
+srr_needed	,	V_154
+read_write	,	V_94
+qedf_srr_compl	,	F_47
+"WRITE - response lost.\n"	,	L_64
+rrq_err	,	V_87
+" cmd_type = %d.\n"	,	L_13
+FC_XID_UNKNOWN	,	V_101
+FC_RCTL_DD_SOL_DATA	,	V_170
+els_req	,	V_14
+"Ringing doorbell for ELS "	,	L_10
+fcoe_cqe	,	V_65
+cmd_type	,	V_45
+"er_explan=0x%x.\n"	,	L_59
+qedf_process_l2_frame_compl	,	F_28
+adisc_err	,	V_123
+"SRR failed - release orig_io_req"	,	L_43
+qedf_send_adisc	,	F_45
+port_id	,	V_57
+"els 0x%x: rport not ready\n"	,	L_2
+fc_els_ls_rjt	,	V_149
+"Could not allocate new "	,	L_53
+rjt	,	V_150
+ELS_LS_ACC	,	V_127
+QEDF_ERR	,	F_5
+kfree	,	F_23
+qedf_initiate_seq_cleanup	,	F_56
+flags	,	V_38
+rec_err	,	V_173
+scsi_cmnd	,	V_68
+cqe_info	,	V_72
+out	,	V_144
+"Entered with xid = 0x%x"	,	L_12
+FC_RCTL_ELS_REP	,	V_104
+FC_RCTL_ELS_REQ	,	V_58
+free_sqes	,	V_146
+"rrq_compl: orig io = %p,"	,	L_15
+mp_info	,	V_70
+u16	,	T_3
+event	,	V_80
+kref_put	,	F_11
+rrq_cmd	,	V_88
+fh_s_id	,	V_108
+fr_crc	,	F_35
+hton24	,	F_26
+FCOE_TASK_TYPE_SEQUENCE_CLEANUP	,	V_142
+"els 0x%x: fcport not ready\n"	,	L_4
+"initiate_els els_req = "	,	L_6
+EAGAIN	,	V_32
+rdata	,	V_55
+fc_payload	,	V_115
+" orig_io_xid=0x%x, rec_xid=0x%x, refcount=%d\n"	,	L_36
+"READ - response lost.\n"	,	L_66
+"REC\n"	,	L_68
+EINVAL	,	V_39
+io_req	,	V_46
+srr_err	,	V_132
+"orig_io_req is NULL.\n"	,	L_39
+ELS_RJT_UNAB	,	V_158
+rrq_ox_id	,	V_91
+rec_cmd	,	V_174
+qedf_restart_rport	,	F_38
+"io = %p, orig_xid = 0x%x\n"	,	L_21
+fc_els_rrq	,	V_83
+FC_FC_SEQ_INIT	,	V_62
+"Entered: orig_io=%p,"	,	L_35
+FC_RCTL_DD_DATA_DESC	,	V_167
+QEDF_IOREQ_EV_ELS_FLUSH	,	V_117
+"ELS MP request init failed\n"	,	L_8
+" orig xid = 0x%x, rrq_xid = 0x%x, refcount=%d\n"	,	L_16
+data	,	V_4
+out_free	,	V_79
+"ADISC failed.\n"	,	L_34
+atomic_inc	,	F_62
+"0x%p cb_arg = %p xid = %x\n"	,	L_7
+rport	,	V_31
+fr_eof	,	F_34
+"orig_xid=0x%x\n"	,	L_41
+sc_data_direction	,	V_164
+link_up	,	V_36
+xid	,	V_24
+dbg_ctx	,	V_29
+u32	,	T_4
+QEDF_LOG_ELS	,	V_30
+tx_buf_off	,	V_168
+fcoe_fc_crc	,	F_30
+srr_r_ctl	,	V_138
+"Invalid ELS op 0x%x\n"	,	L_9
+qedf	,	V_10
+ELS_RRQ	,	V_89
+QEDF_SEQ_CLEANUP	,	V_139
+offset	,	V_128
+cpu	,	V_48
+out_free_frame	,	V_163
+orig_io_req	,	V_76
+__fc_fill_fc_hdr	,	F_12
+uint16_t	,	T_2
+task	,	V_20
+spin_lock_irqsave	,	F_57
+cqe	,	V_66
+qedf_rport	,	V_1
+"Received LS_ACC for REC: offset=0x%x, e_stat=0x%x.\n"	,	L_61
+qedf_get_task_mem	,	F_13
+fc_frame	,	V_96
+fc_els_rec_acc	,	V_151
+qedf_ring_doorbell	,	F_17
+fc_frame_init	,	F_31
+qedf_process_els_compl	,	F_18
+fc_rport_priv	,	V_112
+QEDF_CMD_SRR_SENT	,	V_126
+rx_id	,	V_95
+ESB_ST_SEQ_INIT	,	V_162
+qedf_initiate_els	,	F_1
+"sc_cmd is NULL for xid=0x%x.\n"	,	L_63
+rec_s_id	,	V_176
+"READ - DATA lost.\n"	,	L_67
+crc	,	V_100
+"Received LS_RJT for REC: er_reason=0x%x, "	,	L_58
+fc_hdr	,	V_18
+midpath_info	,	V_73
+ELS_AUTH_ELS	,	V_52
+ELS_SRR	,	V_134
+"fc_frame_alloc failure.\n"	,	L_30
+qedf_initiate_abts	,	F_50
+op	,	V_3
+fc_rport_logoff	,	F_39
+set_bit	,	F_55
+"els_req is NULL.\n"	,	L_27
+fc_lport	,	V_11
+fc_rport_login	,	F_41
+FC_SOF_I3	,	V_110
+er_explan	,	V_156
+srr	,	V_131
+"Handle CMD LOST case.\n"	,	L_60
+"Unable to allocate cb_arg "	,	L_46
+"Sending REC orig_io=%p, "	,	L_69
+QEDF_RPORT_SESSION_READY	,	V_37
+USEC_PER_MSEC	,	V_43
+task_ctx	,	V_67
+l2_oxid	,	V_98
+"LOGO port_id=%x.\n"	,	L_26

@@ -1,0 +1,325 @@
+" target_rcr_operating_parameters\n"	,	L_84
+target_rcr_operating_parameters	,	F_67
+spin_lock_init	,	F_33
+target_xcopy_parse_target_descriptors	,	F_12
+dst_sectors	,	V_118
+se_tpg	,	V_86
+xcopy_pt_get_cmd_state	,	F_18
+transport_init_se_cmd	,	F_51
+se_node_acl	,	V_77
+" remote_dev: %p remote_dev-&gt;dev_group: %p\n"	,	L_40
+xcopy_wq	,	V_66
+seg_desc	,	V_137
+dev	,	V_2
+TCM_LOGICAL_UNIT_COMMUNICATION_FAILURE	,	V_145
+TCM_PARAMETER_LIST_LENGTH_ERROR	,	V_143
+xcopy_pt_tfo	,	V_75
+dst_dev	,	V_37
+xcopy_pt_queue_status	,	F_29
+acl_list	,	V_78
+cdb	,	V_96
+DMA_FROM_DEVICE	,	V_115
+"EXTENDED_COPY(LID4) not supported\n"	,	L_81
+" cur_nolb: %hu\n"	,	L_60
+"target_xcopy_do_work: Final src_lba: %llu, dst_lba: %llu\n"	,	L_64
+target_do_receive_copy_results	,	F_69
+"EXTENDED_COPY operation explicitly disabled\n"	,	L_80
+rc	,	V_11
+WRITE_16	,	V_119
+"for tdll: %hu sdll: %u inline_dl: %u\n"	,	L_73
+"target_xcopy_issue_pt_cmd(): SCSI status: 0x%02x\n"	,	L_51
+se_cmd	,	V_20
+destroy_workqueue	,	F_35
+cg_item	,	V_17
+"dest\n"	,	L_13
+RCR_OP_INLINE_DATA_GRAN_LOG2	,	V_155
+pr_err	,	F_6
+RCR_OP_MAX_SG_DESC_COUNT	,	V_60
+"Setup emulated se_dev: %p from se_dev\n"	,	L_48
+GFP_KERNEL	,	V_113
+"XCOPY: Built READ_16: LBA: %llu Sectors: %u Length: %u\n"	,	L_53
+target_xcopy_locate_se_dev_e4_iter	,	F_3
+"Unable to allocate xcopy_wq\n"	,	L_42
+"Entering target_do_receive_copy_results: SA: 0x%02x, List ID:"	,	L_87
+"XCOPY parameter truncation: data length %u too small "	,	L_72
+"stdi: %hu dtdi: %hu\n"	,	L_24
+xcopy_pt_write_pending	,	F_26
+transport_kunmap_data_sg	,	F_63
+sense_reason_t	,	T_2
+"target_xcopy_do_work: Setting X-COPY GOOD status -&gt; sending response\n"	,	L_66
+ript	,	V_26
+sa	,	V_146
+"target_xcopy_do_work: Incremented WRITE dst_lba to %llu\n"	,	L_63
+"XCOPY 0xe4: ignoring CSCD entry %d - neither src nor "	,	L_12
+target_xcopy_do_work	,	F_54
+min	,	F_57
+xcopy_pt_sess	,	V_80
+"Honoring local SRC port from ec_cmd-&gt;se_lun: %p\n"	,	L_45
+put_unaligned_be16	,	F_68
+xop	,	V_22
+target_undepend_item	,	F_20
+" too small: %u\n"	,	L_86
+"XCOPY 0xe4: RELATIVE INITIATOR PORT IDENTIFIER: %hu\n"	,	L_5
+"XCOPY seg desc 0x02: desc_len: %hu stdi: %hu dtdi: %hu, DC: %d\n"	,	L_30
+READ_16	,	V_114
+INIT_WORK	,	F_65
+"Receive Copy Results with non zero list identifier"	,	L_89
+u8	,	T_1
+local_dev_wwn	,	V_31
+data_direction	,	V_107
+remote_port	,	V_88
+"target_xcopy_do_work: Calling write dst_dev: %p dst_lba: %llu,"	,	L_62
+RCR_OP_DATA_SEG_GRAN_LOG2	,	V_154
+p	,	V_23
+buf	,	V_3
+"target_xcopy_do_work: nolb: %hu, max_nolb: %hu end_lba: %llu\n"	,	L_57
+xop_se_cmd	,	V_90
+dst_tid_wwn	,	V_35
+"XCOPY target descriptor supports a maximum"	,	L_19
+"XCOPY unsupported descriptor type code:"	,	L_21
+transport_generic_map_mem_to_cmd	,	F_41
+target_xcopy_gen_naa_ieee	,	F_1
+dc	,	V_50
+end_lba	,	V_125
+"XCOPY: Processed %d segment descriptors, length: %u\n"	,	L_76
+list_id	,	V_138
+sess_acl_list	,	V_83
+"XCOPY segment descriptor list length is not"	,	L_33
+dst_lba	,	V_55
+remote_dev	,	V_62
+se_device	,	V_1
+"Calling configfs_undepend_item for"	,	L_39
+INIT_LIST_HEAD	,	F_32
+XCOPY_NAA_IEEE_REGEX_LEN	,	V_10
+dev_wwn	,	V_14
+stdi	,	V_28
+XCOPY_SEGMENT_DESC_LEN	,	V_58
+SAM_STAT_GOOD	,	V_135
+"configfs_depend_item attempt failed: %d for se_dev: %p\n"	,	L_2
+WQ_MEM_RECLAIM	,	V_67
+XCOPY_TARGET_DESC_LEN	,	V_42
+RCR_OP_HELD_DATA_GRAN_LOG2	,	V_156
+xpt_passthrough_sem	,	V_65
+GOOD	,	V_157
+xcopy_pt_write_pending_status	,	F_27
+" %hu\n"	,	L_28
+info	,	V_8
+ret	,	V_18
+xcopy_pt_check_stop_free	,	F_24
+get_unaligned_be64	,	F_14
+max_nolb	,	V_128
+RCR_OP_MAX_SEGMENT_LEN	,	V_151
+alloc_workqueue	,	F_31
+XCOL_DEST_RECV_OP	,	V_36
+"XCOPY 0xe4: invalid desig_len: %d\n"	,	L_9
+"target_xcopy_do_work: Incremented READ src_lba to %llu\n"	,	L_61
+se_tpg_node	,	V_71
+dst_pt_cmd	,	V_120
+src_dev	,	V_34
+inline_dl	,	V_140
+" two src/dest descriptors, tdll: %hu too large..\n"	,	L_20
+target_xcopy_init_pt_lun	,	F_37
+xop_data_sg	,	V_105
+"target_xcopy_do_work: Blocks copied: %hu, Bytes Copied: %u\n"	,	L_65
+emulate_3pc	,	V_13
+max_sectors	,	V_126
+"Unsupported SA for receive copy results: 0x%02x\n"	,	L_91
+"XCOPY target descriptor list length is not"	,	L_17
+xcopy_pt_queue_data_in	,	F_28
+target_for_each_device	,	F_8
+xop_data_nents	,	V_106
+desc	,	V_25
+tpg_sess_list	,	V_73
+work_struct	,	V_122
+"XCOPY: Non matching src_dev block_size: %u + dst_dev"	,	L_77
+nolb	,	V_53
+op_origin	,	V_32
+xop_work	,	V_124
+XCOL_SOURCE_RECV_OP	,	V_33
+"XCOPY 0xe4: located se_dev: %p\n"	,	L_1
+"XCOPY 0xe4: Unsupported DESIGNATOR TYPE: 0x%02x\n"	,	L_11
+sess_cmd_list	,	V_84
+"XCOPY 0xe4: Set xop-&gt;src_dev %p from source"	,	L_14
+scsi_status	,	V_109
+cur_nolb	,	V_127
+TCM_UNSUPPORTED_SEGMENT_DESC_TYPE_CODE	,	V_59
+target_xcopy_write_destination	,	F_53
+kzalloc	,	F_47
+"XCOPY parameter truncation: length %u &lt; hdr_len %u\n"	,	L_82
+cscd_index	,	V_24
+alloc_mem	,	V_97
+block_size	,	V_112
+"XCOPY 0xe4: designator type unsupported: 0x%02x\n"	,	L_8
+"xcopy_wq"	,	L_41
+TCM_NO_SENSE	,	V_130
+data_length	,	V_103
+start	,	V_43
+target_xcopy_read_source	,	F_46
+length	,	V_111
+"XCOPY seg desc 0x02: DC=1 w/ dbl: %u\n"	,	L_32
+transport_generic_new_cmd	,	F_43
+" 0x%02x\n"	,	L_22
+se_cmd_flags	,	V_94
+"Receive Copy Results Op Parameters length"	,	L_85
+TCM_INVALID_PARAMETER_LIST	,	V_44
+TCM_TOO_MANY_SEGMENT_DESCS	,	V_61
+"XCOPY with non zero inline data length\n"	,	L_71
+RCR_SA_FAILED_SEGMENT_DETAILS	,	V_161
+target_do_xcopy	,	F_64
+transport_generic_free_cmd	,	F_52
+pr_debug	,	F_4
+se_portal_group	,	V_70
+ENOMEM	,	V_68
+"transport_kmap_data_sg failed in"	,	L_83
+"XCOPY TGT desc: Dest dev: %p NAA IEEE WWN: 0x%16phN\n"	,	L_26
+get_unaligned_be32	,	F_62
+desig_len	,	V_27
+RCR_OP_MAX_TARGET_DESC_COUNT	,	V_46
+SAM_STAT_CHECK_CONDITION	,	V_136
+" %u\n"	,	L_50
+xcopy_pt_nacl	,	V_76
+" multiple of %d\n"	,	L_18
+TCM_OUT_OF_RESOURCES	,	V_141
+xcopy_op	,	V_21
+xcopy_pt_get_fabric_name	,	F_17
+"XCOPY: Built WRITE_16: LBA: %llu Sectors: %u Length: %u\n"	,	L_56
+transport_kmap_data_sg	,	F_61
+xcopy_pt_release_cmd	,	F_21
+"XCOPY descriptor list length %u exceeds maximum %u\n"	,	L_70
+xcopy_pt_cmd	,	V_63
+" tdll: %hu sdll: %u inline_dl: %u\n"	,	L_75
+DMA_TO_DEVICE	,	V_108
+target_xcopy_locate_se_dev_e4	,	F_7
+get_unaligned_be24	,	F_15
+sess_list	,	V_82
+"XCOPY unsupported segment descriptor"	,	L_36
+"XCOPY CSCD descriptor IDs not found in CSCD list - "	,	L_23
+spc_parse_naa_6h_vendor_specific	,	F_2
+src_tid_wwn	,	V_30
+work	,	V_123
+RCR_SA_COPY_STATUS	,	V_159
+RCR_SA_OPERATING_PARAMETERS	,	V_158
+wait_for_completion_interruptible	,	F_45
+"target_xcopy_do_work: Starting src_lba: %llu, dst_lba: %llu\n"	,	L_58
+"Unable to locate 0xe4 descriptor for EXTENDED_COPY\n"	,	L_4
+"transport_kmap_data_sg() failed in target_do_xcopy\n"	,	L_69
+"XCOPY supports %u segment descriptor(s), sdll: %u too"	,	L_34
+target_complete_cmd	,	F_59
+get_unaligned_be16	,	F_11
+dtdi	,	V_29
+cmd	,	V_98
+" block_size: %u currently unsupported\n"	,	L_78
+dev_attrib	,	V_12
+"XCOPY 0xe4: association other than LUN not supported\n"	,	L_7
+put_unaligned_be64	,	F_49
+"XCOPY 0xe4: desig_len: %d\n"	,	L_10
+sess_cmd_lock	,	V_85
+xcopy_lun	,	V_93
+target_xcopy_setup_pt_cmd	,	F_38
+src_lba	,	V_54
+kfree	,	F_23
+"xcopy-pt"	,	L_38
+" not supported\n"	,	L_90
+xcopy_pt_tpg	,	V_69
+nacl_sess	,	V_87
+out	,	V_48
+init_completion	,	F_48
+se_dev	,	V_5
+err_free	,	V_131
+sense_rc	,	V_99
+sector_t	,	T_3
+found_dev	,	V_15
+u16	,	V_134
+"Called configfs_depend_item for se_dev: %p se_dev-&gt;se_dev_group: %p\n"	,	L_3
+se_lun	,	V_92
+"Unable to allocate xcopy_pt_cmd\n"	,	L_52
+pr_warn_ratelimited	,	F_60
+err	,	V_149
+"target_xcopy_do_work: Calling read src_dev: %p src_lba: %llu,"	,	L_59
+tmp_dev_wwn	,	V_9
+target_xcopy_release_pt	,	F_34
+list_id_usage	,	V_139
+pr_debug_ratelimited	,	F_9
+off	,	V_4
+xpt_cmd	,	V_64
+local_dev	,	V_40
+EINVAL	,	V_19
+se_session	,	V_81
+target_xcopy_parse_segment_descriptors	,	F_16
+TCM_UNSUPPORTED_SCSI_OPCODE	,	V_147
+XCOPY_HDR_LEN	,	V_144
+dev_group	,	V_16
+complete	,	F_25
+"XCOPY segment desc 0x02: unsupported CSCD ID &gt; 0x%x; stdi: %hu dtdi: %hu\n"	,	L_29
+"XCOPY: Processed %d target descriptors, length: %u\n"	,	L_79
+data	,	V_6
+"XCOPY segment desc 0x02: Illegal desc_len:"	,	L_27
+" large..\n"	,	L_35
+sense_buffer	,	V_116
+target_xcopy_setup_pt_port	,	F_36
+XCOPY_MAX_SECTORS	,	V_133
+acl_node_list	,	V_72
+src_pt_cmd	,	V_117
+src_sectors	,	V_110
+u32	,	T_4
+target_xcopy_parse_segdesc_02	,	F_13
+" CHECK_CONDITION -&gt; sending response\n"	,	L_68
+tag	,	V_100
+put_unaligned_be32	,	F_50
+"XCOPY-READ: Saved xop-&gt;xop_data_sg: %p, num: %u for READ"	,	L_54
+"target_xcopy_do_work: rc: %d, Setting X-COPY"	,	L_67
+offset	,	V_41
+sdll	,	V_57
+"type: 0x%02x\n"	,	L_37
+target_xcopy_setup_pt	,	F_30
+target_alloc_sgl	,	F_40
+t_data_sg	,	V_101
+RCR_OP_TOTAL_CONCURR_COPIES	,	V_152
+se_tpg_tfo	,	V_74
+xcopy_dev_search_info	,	V_7
+dbl	,	V_56
+target_xcopy_parse_tiddesc_e4	,	F_10
+t_data_nents	,	V_102
+"Setup PASSTHROUGH_NOALLOC t_data_sg: %p t_data_nents:"	,	L_49
+target_setup_cmd_from_cdb	,	F_39
+xcopy_pt_undepend_remotedev	,	F_19
+"XCOPY 0xe4: Set xop-&gt;dst_dev: %p from destination"	,	L_16
+target_parse_xcopy_cmd	,	F_55
+RCR_SA_RECEIVE_DATA	,	V_160
+XCOPY_CSCD_DESC_ID_LIST_OFF_MAX	,	V_52
+RCR_OP_MAX_DESC_LIST_LEN	,	V_142
+" received xop\n"	,	L_15
+tdll	,	V_38
+" memory\n"	,	L_55
+"Honoring local DST port from ec_cmd-&gt;se_lun: %p\n"	,	L_47
+src_cmd	,	V_121
+target_depend_item	,	F_5
+"XCOPY TGT desc: Source dev: %p NAA IEEE WWN: 0x%16phN\n"	,	L_25
+WARN_ON_ONCE	,	F_56
+"XCOPY 0xe4: code set of non binary type not supported\n"	,	L_6
+desc_len	,	V_51
+pt_cmd	,	V_91
+"Processing XCOPY with list_id: 0x%02x list_id_usage: 0x%02x"	,	L_74
+acl_sess_list	,	V_79
+"Honoring local DST port from ec_cmd-&gt;se_dev:"	,	L_46
+" 0x%02x, AL: %u\n"	,	L_88
+ec_cmd	,	V_89
+SCF_PASSTHROUGH_SG_TO_MEM_NOALLOC	,	V_104
+target_execute_cmd	,	F_44
+TCM_INVALID_CDB_FIELD	,	V_150
+sense_ret	,	V_39
+" %p\n"	,	L_44
+t_task_cdb	,	V_148
+SCF_SE_LUN_CMD	,	V_95
+"XCOPY seg desc 0x02: nolb: %hu src_lba: %llu dst_lba: %llu\n"	,	L_31
+copied_nolb	,	V_129
+container_of	,	F_22
+queue_work	,	F_66
+TCM_UNSUPPORTED_TARGET_DESC_TYPE_CODE	,	V_45
+min_t	,	F_58
+TCM_COPY_TARGET_DEVICE_NOT_REACHABLE	,	V_49
+hw_max_sectors	,	V_132
+TCM_TOO_MANY_TARGET_DESCS	,	V_47
+target_xcopy_issue_pt_cmd	,	F_42
+RCR_OP_MAX_CONCURR_COPIES	,	V_153
+"Honoring local SRC port from ec_cmd-&gt;se_dev:"	,	L_43

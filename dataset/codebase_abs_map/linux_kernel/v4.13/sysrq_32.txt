@@ -1,0 +1,27 @@
+PT_REGS_SS	,	F_7
+PT_REGS_SP	,	F_8
+" DS: %04lx ES: %04lx\n"	,	L_7
+printk	,	F_2
+PT_REGS_IP	,	F_4
+PT_REGS_EFLAGS	,	F_9
+PT_REGS_CS	,	F_3
+PT_REGS_ES	,	F_18
+PT_REGS_AX	,	F_10
+PT_REGS_CX	,	F_12
+print_tainted	,	F_6
+pt_regs	,	V_1
+"EAX: %08lx EBX: %08lx ECX: %08lx EDX: %08lx\n"	,	L_5
+regs	,	V_2
+" ESP: %04lx:%08lx"	,	L_3
+show_regs	,	F_1
+PT_REGS_DI	,	F_15
+" EFLAGS: %08lx\n    %s\n"	,	L_4
+PT_REGS_DS	,	F_17
+"ESI: %08lx EDI: %08lx EBP: %08lx"	,	L_6
+"EIP: %04lx:[&lt;%08lx&gt;] CPU: %d %s"	,	L_2
+PT_REGS_BP	,	F_16
+smp_processor_id	,	F_5
+PT_REGS_DX	,	F_13
+"\n"	,	L_1
+PT_REGS_BX	,	F_11
+PT_REGS_SI	,	F_14

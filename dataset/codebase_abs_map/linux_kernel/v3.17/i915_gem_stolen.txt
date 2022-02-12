@@ -1,0 +1,159 @@
+err_fb	,	V_40
+dma_addr_t	,	V_55
+i915_gem_object_alloc	,	F_46
+I915_WRITE	,	F_17
+FBC_CFB_BASE	,	V_41
+has_global_gtt_mapping	,	V_78
+bound_list	,	V_80
+dev_priv	,	V_4
+i915_gem_object_create_stolen	,	F_52
+drm_device	,	V_1
+dev	,	V_2
+PGTBL_ADDRESS_LO_MASK	,	V_19
+i915_gem_object_init	,	F_48
+HAS_LLC	,	F_50
+i915_stolen_to_physical	,	F_1
+_i915_gem_object_create_stolen	,	F_45
+drm_mm_takedown	,	F_27
+IS_G33	,	F_4
+i915_gem_stolen_setup_compression	,	F_23
+intel_iommu_gfx_mapped	,	V_47
+DRM_DEBUG_DRIVER	,	F_34
+i915_gem_vma_destroy	,	F_59
+I915_GEM_DOMAIN_CPU	,	V_64
+gtt	,	V_14
+fbc	,	V_33
+I915_CACHE_LLC	,	V_67
+HAS_PCH_SPLIT	,	F_16
+ENOSPC	,	V_44
+node	,	V_23
+size	,	V_24
+"drm: not enough stolen space for compressed buffer (need %d more bytes), disabling. Hint: you may be able to increase stolen memory size in the BIOS to avoid this.\n"	,	L_7
+GFP_KERNEL	,	V_39
+fb_cpp	,	V_25
+DRM_INFO	,	F_15
+ENODEV	,	V_45
+"DMAR active, disabling use of stolen memory\n"	,	L_8
+stolen_offset	,	V_69
+kfree	,	F_20
+I915_READ	,	F_6
+stolen_base	,	V_42
+i915_gem_object_pin_pages	,	F_49
+"Reducing the compressed framebuffer size. This may lead to less power savings than a non-reduced-size. Try to increase stolen memory size if available in BIOS.\n"	,	L_5
+"found %zd bytes of stolen memory at %08lx\n"	,	L_9
+"offset=0x%x, size=%d\n"	,	L_10
+list_add_tail	,	F_58
+pr_info_once	,	F_22
+sg_free_table	,	F_43
+ggtt	,	V_72
+gen	,	V_9
+sg	,	V_52
+BUG	,	F_41
+sg_table	,	V_48
+i915_gem_object_put_pages_stolen	,	F_42
+"creating preallocated stolen object: stolen_offset=%x, gtt_offset=%x, size=%x\n"	,	L_12
+i915_gem_object_get_pages_stolen	,	F_40
+IS_GEN4	,	F_7
+"failed to allocate stolen object\n"	,	L_14
+INTEL_INFO	,	F_2
+PGTBL_CTL	,	V_18
+"creating stolen object: size=%x\n"	,	L_11
+CONFIG_INTEL_IOMMU	,	F_29
+st	,	V_50
+err_vma	,	V_77
+scatterlist	,	V_51
+drm_gem_object_unreference	,	F_60
+IS_VALLEYVIEW	,	F_30
+drm_i915_private	,	V_3
+uint32_t	,	V_21
+drm_i915_gem_object	,	V_56
+drm_mm_insert_node	,	F_13
+global_list	,	V_79
+i915_gem_obj_lookup_or_create_vma	,	F_55
+EINVAL	,	V_58
+i915_gem_object_create_stolen_for_preallocated	,	F_53
+r	,	V_7
+IS_GM45	,	F_18
+read_domains	,	V_63
+DRM_DEBUG_KMS	,	F_9
+threshold	,	V_36
+i915_address_space	,	V_71
+vma	,	V_74
+i915_vma	,	V_73
+pci_read_config_dword	,	F_3
+drm_mm_initialized	,	F_24
+pdev	,	V_10
+drm_mm_remove_node	,	F_21
+drm_mm_node	,	V_22
+compression_threshold	,	V_26
+pages	,	V_59
+u32	,	T_1
+gtt_offset	,	V_70
+inactive_list	,	V_82
+sgl	,	V_53
+"GTT within stolen memory at 0x%llx-0x%llx\n"	,	L_1
+"reserved %d bytes of contiguous stolen space for FBC\n"	,	L_6
+has_dma_mapping	,	V_62
+find_compression_threshold	,	F_12
+drm_mm_init	,	F_32
+ret	,	V_27
+mm	,	V_28
+offset	,	V_49
+resource	,	V_6
+err_out	,	V_76
+mm_list	,	V_81
+I915_GEM_DOMAIN_GTT	,	V_65
+FBC_LL_BASE	,	V_43
+PTR_ERR	,	F_57
+stolen_size	,	V_15
+i915_setup_compression	,	F_14
+i915_gem_object_free	,	F_51
+compressed_llb	,	V_32
+drm_mm_reserve_node	,	F_54
+DRM_ERROR	,	F_11
+cleanup	,	V_61
+sg_dma_address	,	F_38
+"conflict detected with stolen region: [0x%08x - 0x%08x]\n"	,	L_4
+i915_gem_object_release_stolen	,	F_44
+gtt_start	,	V_16
+BUG_ON	,	F_35
+drm_gem_private_object_init	,	F_47
+sg_alloc_table	,	F_37
+DPFC_CB_BASE	,	V_38
+cache_level	,	V_66
+bios_reserved	,	V_46
+"failed to allocate stolen space\n"	,	L_13
+kzalloc	,	F_19
+compressed_fb	,	V_34
+ILK_DPFC_CB_BASE	,	V_37
+kmalloc	,	F_36
+IS_G4X	,	F_5
+err_llb	,	V_35
+end	,	V_12
+i915_gem_init_stolen	,	F_28
+i915_gem_cleanup_stolen	,	F_26
+i915_gem_object_stolen_ops	,	V_60
+I915_GTT_OFFSET_NONE	,	V_75
+gtt_end	,	V_17
+"failed to allocate stolen GTT space\n"	,	L_15
+again	,	V_30
+start	,	V_11
+i915_pages_create_for_stolen	,	F_33
+length	,	V_54
+WARN_ON	,	F_31
+sg_dma_len	,	F_39
+gtt_total_entries	,	F_8
+"Graphics Stolen Memory"	,	L_3
+"Stolen memory adjusted to 0x%x-0x%x\n"	,	L_2
+uninitialized_var	,	V_31
+dev_private	,	V_5
+u64	,	T_2
+I915_CACHE_NONE	,	V_68
+stolen	,	V_13
+DRM_MM_SEARCH_DEFAULT	,	V_29
+obj	,	V_57
+devm_request_mem_region	,	F_10
+i915_gem_stolen_cleanup_compression	,	F_25
+PGTBL_ADDRESS_HI_MASK	,	V_20
+base	,	V_8
+IS_ERR	,	F_56

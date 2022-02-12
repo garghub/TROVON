@@ -1,0 +1,85 @@
+show_regs_print_info	,	F_2
+dummy_handler	,	F_10
+"cs0: \t0x%08lx   cs1: 0x%08lx\n"	,	L_6
+"gp: \t0x%08lx   ugp: 0x%08lx   usr: 0x%08lx\n"	,	L_5
+irq_exit	,	F_15
+"r20: \t0x%08lx %08lx %08lx %08lx\n"	,	L_12
+"r0: \t0x%08lx %08lx %08lx %08lx\n"	,	L_7
+r10	,	V_28
+r12	,	V_30
+r11	,	V_29
+r14	,	V_32
+usr	,	V_15
+r13	,	V_31
+"elr: \t0x%08lx   cause: 0x%08lx   user_mode: %d\n"	,	L_15
+r16	,	V_34
+irq_enter	,	F_13
+r15	,	V_33
+lc0	,	V_7
+r18	,	V_36
+r17	,	V_35
+lc1	,	V_10
+"r16: \t0x%08lx %08lx %08lx %08lx\n"	,	L_11
+r19	,	V_37
+restart_r0	,	V_4
+ugp	,	V_14
+"psp: \t0x%08lx   badva: 0x%08lx   int_enabled: %d\n"	,	L_16
+sa1	,	V_11
+sa0	,	V_8
+ints_enabled	,	F_9
+pt_regs	,	V_1
+"r24: \t0x%08lx %08lx %08lx %08lx\n"	,	L_13
+elr	,	V_50
+"restart_r0: \t0x%08lx   syscall_nr: %ld\n"	,	L_1
+preds	,	V_6
+user_mode	,	F_6
+old_regs	,	V_53
+r21	,	V_39
+r20	,	V_38
+r23	,	V_41
+r22	,	V_40
+"preds: \t\t0x%08lx\n"	,	L_2
+r25	,	V_43
+"lc1: \t0x%08lx   sa1: 0x%08lx   m1:  0x%08lx\n"	,	L_4
+r24	,	V_42
+"r4:  \t0x%08lx %08lx %08lx %08lx\n"	,	L_8
+r27	,	V_45
+"Unimplemented handler; ELR=0x%08x\n"	,	L_17
+r26	,	V_44
+arch_do_IRQ	,	F_11
+r29	,	V_47
+r28	,	V_46
+generic_handle_irq	,	F_14
+pt_psp	,	F_7
+"r12: \t0x%08lx %08lx %08lx %08lx\n"	,	L_10
+cs1	,	V_17
+cs0	,	V_16
+"r28: \t0x%08lx %08lx %08lx %08lx\n"	,	L_14
+printk	,	F_3
+set_irq_regs	,	F_12
+"r8:  \t0x%08lx %08lx %08lx %08lx\n"	,	L_9
+r30	,	V_48
+r31	,	V_49
+pt_elr	,	F_4
+KERN_EMERG	,	V_3
+m0	,	V_9
+m1	,	V_12
+syscall_nr	,	V_5
+gp	,	V_13
+irq	,	V_52
+regs	,	V_2
+"lc0: \t0x%08lx   sa0: 0x%08lx   m0:  0x%08lx\n"	,	L_3
+show_regs	,	F_1
+pt_badva	,	F_8
+r01	,	V_19
+r00	,	V_18
+r03	,	V_21
+r02	,	V_20
+r05	,	V_23
+KERN_ERR	,	V_51
+r04	,	V_22
+r07	,	V_25
+r06	,	V_24
+r09	,	V_27
+r08	,	V_26
+pt_cause	,	F_5

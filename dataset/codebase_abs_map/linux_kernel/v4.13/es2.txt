@@ -1,0 +1,345 @@
+cport_out_urb_cancelled	,	V_47
+spin_lock_init	,	F_108
+USB_RECIP_INTERFACE	,	V_18
+es2_destroy	,	F_56
+trace_gb_message_submit	,	F_34
+ARPC_TYPE_CPORT_QUIESCE	,	V_101
+usb_get_intfdata	,	F_118
+usb_submit_urb	,	F_15
+msleep	,	F_86
+bulk_out_found	,	V_164
+dev	,	V_20
+apb_log_enable_dentry	,	V_115
+output_async	,	F_10
+"Limiting number of CPorts to U8_MAX\n"	,	L_33
+ARPC_TYPE_CPORT_FLUSH	,	V_92
+num_cports	,	V_77
+ES2_GBUF_MSG_SIZE_MAX	,	V_168
+usb_rcvctrlpipe	,	F_82
+usb_put_dev	,	F_61
+usb_get_dev	,	F_104
+"%s: return error %d\n"	,	L_1
+__user	,	T_8
+usb_log_enable	,	F_91
+file_inode	,	F_88
+ap_probe	,	F_103
+active	,	V_128
+EIO	,	V_85
+wait_for_completion_interruptible_timeout	,	F_77
+arpc_cport_shutdown_req	,	V_95
+err_hd_del	,	V_179
+usb_fill_control_urb	,	F_14
+gb_hd_cport_reserve	,	F_111
+loff_t	,	T_9
+size	,	V_7
+NUM_CPORT_IN_URB	,	V_38
+usb_sndbulkpipe	,	F_33
+GFP_KERNEL	,	V_14
+"failed to flush cport %u: %d\n"	,	L_12
+device	,	V_87
+latency_tag_disable	,	F_54
+es2_cport_in	,	V_34
+apb_log_get	,	F_81
+"%s - cport = %u, flags = %02x\n"	,	L_9
+actual_length	,	V_108
+ssize_t	,	T_7
+wLength	,	V_32
+GB_APB_REQUEST_ARPC_RUN	,	V_131
+buffer_size	,	V_55
+GFP_ATOMIC	,	V_27
+arpc_send	,	F_75
+i_private	,	V_145
+result	,	V_96
+arpc_add	,	F_71
+usb_fill_bulk_urb	,	F_32
+endpoint	,	V_162
+usb_device_id	,	V_158
+EBUSY	,	V_73
+might_sleep	,	F_36
+arpc_buffer	,	V_116
+ep_addr	,	V_163
+GB_APB_REQUEST_LATENCY_TAG_EN	,	V_104
+cur_altsetting	,	V_170
+le16_to_cpu	,	F_76
+kthread_should_stop	,	F_85
+u8	,	T_2
+ida_start	,	V_69
+arpc_alloc	,	F_65
+f	,	V_142
+connection_flags	,	V_79
+i	,	V_37
+"CDSI1 already in use\n"	,	L_8
+bEndpointAddress	,	V_173
+ENOENT	,	V_110
+iface_desc	,	V_160
+"apb_log_enable"	,	L_38
+__u8	,	T_10
+ES2_CPORT_CDSI1	,	V_72
+IS_ERR_OR_NULL	,	F_92
+buf	,	V_26
+apb_log_fifo	,	V_140
+message_cancel	,	F_35
+"failed to resubmit in-urb: %d\n"	,	L_23
+GB_APB_REQUEST_CPORT_COUNT	,	V_154
+ES2_CPORT_CDSI0	,	V_71
+err_free_rpc	,	V_123
+es2_cport_clear	,	F_52
+"failed to send ARPC request %d: %d\n"	,	L_24
+"%s: unknown status %d\n"	,	L_19
+arpc_find	,	F_69
+operation	,	V_64
+es2_cport_shutdown	,	F_50
+usb_rcvbulkpipe	,	F_114
+gb_hd_del	,	F_116
+es2_arpc_in_disable	,	F_21
+arpcs	,	V_130
+APB1_LOG_MSG_SIZE	,	V_139
+"Unused bulk IN endpoint found: 0x%02x\n"	,	L_34
+greybus_message_sent	,	F_64
+dev_dbg	,	F_25
+"invalid arpc response id received: %u\n"	,	L_28
+GB_CONNECTION_FLAG_CDSI1	,	V_75
+"Unused bulk OUT endpoint found: 0x%02x\n"	,	L_35
+dr	,	V_24
+INIT_LIST_HEAD	,	F_66
+usb_get_urb	,	F_38
+pad	,	V_52
+"%d\n"	,	L_31
+gb_hd_add	,	F_115
+es2_cport_flush	,	F_49
+GB_APB_REQUEST_LATENCY_TAG_DIS	,	V_105
+payload	,	V_119
+arpc_cport_connected_req	,	V_88
+gb_hd_cport_release_reserved	,	F_59
+cpu_to_le16	,	F_13
+"invalid cport id %u received\n"	,	L_22
+apb_log_enable_fops	,	V_177
+cport_enable	,	F_44
+req	,	V_6
+ret	,	V_36
+"failed to submit arpc in-urb: %d\n"	,	L_3
+ES2_ARPC_CPORT_TIMEOUT	,	V_90
+arpc_del	,	F_73
+ida	,	V_66
+count	,	V_143
+GB_APB_REQUEST_LOG	,	V_137
+list	,	V_122
+USB_TYPE_VENDOR	,	V_17
+retval	,	V_13
+cport_out_endpoint	,	V_59
+arpc_free	,	F_68
+cport_out_urb_lock	,	V_44
+spin_unlock_irqrestore	,	F_24
+ETIMEDOUT	,	V_134
+usb_host_interface	,	V_159
+apb_log_fops	,	V_151
+__le16	,	T_6
+bNumEndpoints	,	V_172
+gb_message_cport_pack	,	F_27
+err_free_req	,	V_125
+desc	,	V_171
+wValue	,	V_30
+"failed to send shutdown over cport %u: %d (%d)\n"	,	L_13
+apb_log_dentry	,	V_150
+"Cannot enable latency tag for cport %d\n"	,	L_16
+es2_cport_in_disable	,	F_19
+cport_out_urb	,	V_48
+"failed to submit out-urb: %d\n"	,	L_6
+GB_APB_REQUEST_CPORT_FLAGS	,	V_84
+response_received	,	V_126
+transfer_flags	,	V_62
+ECONNRESET	,	V_109
+"arpc in-urb error %d (dropped)\n"	,	L_26
+interface	,	V_157
+debugfs_remove	,	F_57
+timeout	,	V_94
+dev_err	,	F_6
+list_del	,	F_74
+arpc_endpoint_in	,	V_174
+kzalloc	,	F_45
+"failed to set connected state for cport %u: %d\n"	,	L_11
+cpu_to_le32	,	F_46
+kmalloc	,	F_12
+gb_operation_msg_hdr	,	V_49
+USB_DIR_OUT	,	V_16
+id_map	,	V_67
+simple_read_from_buffer	,	F_90
+gb_hd_create	,	F_106
+usb_set_intfdata	,	F_110
+cport_id_valid	,	F_31
+gb_message_cport_clear	,	F_28
+apb_get_cport_count	,	F_101
+"apb_log"	,	L_30
+ARPC_TYPE_CPORT_CONNECTED	,	V_89
+arpc_cport_quiesce_req	,	V_100
+"Cannot retrieve CPort count: %d\n"	,	L_32
+message	,	V_54
+NUM_CPORT_OUT_URB	,	V_45
+GB_CONNECTION_FLAG_HIGH_PRIO	,	V_82
+EPROTO	,	V_113
+cport_count	,	V_153
+EILSEQ	,	V_112
+usb_ctrlrequest	,	V_23
+usb_alloc_urb	,	F_11
+cport_in_callback	,	F_62
+"Unknown endpoint type found, address 0x%02x\n"	,	L_36
+es2_cport_release	,	F_42
+ARPC_OUT_SIZE_MAX	,	V_121
+es2_cport_quiesce	,	F_51
+hd	,	V_3
+gfp_t	,	T_3
+arpc_cport_clear_req	,	V_102
+ENOMEM	,	V_15
+ARPC_TYPE_CPORT_SHUTDOWN	,	V_98
+ARPC_IN_SIZE_MAX	,	V_176
+output	,	F_16
+arpc_id_cycle	,	V_129
+cport_id_map	,	V_68
+enable	,	V_152
+context	,	V_25
+connection	,	V_65
+ida_simple_remove	,	F_43
+gfp_mask	,	V_42
+id	,	V_127
+APB1_LOG_SIZE	,	V_148
+arpc_urb	,	V_41
+GB_CONNECTION_FLAG_OFFLOADED	,	V_74
+phase	,	V_93
+"invalid cport %u\n"	,	L_5
+err_kill_urbs	,	V_39
+err_disable_arpc_in	,	V_178
+usb_device	,	V_9
+ES2_USB_CTRL_TIMEOUT	,	V_19
+arpc_in_found	,	V_166
+hcpriv	,	V_57
+__func__	,	V_21
+USB_DIR_IN	,	V_138
+"urb cport in error %d (dropped)\n"	,	L_20
+usb_kill_urb	,	F_18
+"failed to quiesce cport %u: %d (%d)\n"	,	L_14
+cmd	,	V_8
+GB_CONNECTION_FLAG_CONTROL	,	V_80
+GB_APB_CPORT_FLAG_CONTROL	,	V_81
+status	,	V_106
+free_urb	,	F_26
+ENODEV	,	V_175
+INIT_KFIFO	,	F_109
+kfree	,	F_7
+cport_out_urb_busy	,	V_46
+es2	,	V_5
+arpc_response_message	,	V_136
+flags	,	V_43
+next_free_urb	,	F_22
+debugfs_create_file	,	F_95
+arpc_cport_flush_req	,	V_91
+list_add_tail	,	F_72
+usb_interface	,	V_156
+hd_to_es2	,	F_1
+out	,	V_86
+init_completion	,	F_67
+es2_cport_in_enable	,	F_17
+arpc_in_callback	,	F_79
+file	,	V_141
+cport_in	,	V_35
+ida_end	,	V_70
+bulk_in_found	,	V_165
+arpc_sync	,	F_48
+usb_endpoint_is_bulk_out	,	F_113
+u16	,	T_1
+"failed to execute ARPC: %d\n"	,	L_25
+"No free CPort OUT urbs, having to dynamically allocate one!\n"	,	L_4
+bRequestType	,	V_29
+spin_unlock_irq	,	F_39
+"%s: overflow actual length is %d\n"	,	L_18
+es2_cport_allocate	,	F_40
+gb_hd_put	,	F_60
+cport_id	,	V_51
+apb_log_poll	,	F_84
+urb	,	V_22
+ESHUTDOWN	,	V_111
+EAGAIN	,	V_114
+gb_apb_request_cport_flags	,	V_78
+EINVAL	,	V_56
+ap_disconnect	,	F_117
+bRequest	,	V_28
+ap_urb_complete	,	F_8
+kfifo_in	,	F_83
+kthread_run	,	F_93
+"failed to clear cport %u: %d\n"	,	L_15
+complete	,	F_80
+gb_debugfs_get	,	F_96
+usb_endpoint_is_bulk_in	,	F_112
+data	,	V_12
+copied	,	V_146
+"failed to resubmit arpc in-urb: %d\n"	,	L_29
+"cport %d not available\n"	,	L_7
+ida_simple_get	,	F_41
+usb_endpoint_descriptor	,	V_161
+gb_message_cport_unpack	,	F_29
+size_t	,	T_4
+U16_MAX	,	V_97
+hd_priv	,	V_4
+"failed to submit in-urb: %d\n"	,	L_2
+u32	,	T_5
+kthread_stop	,	F_97
+apb_log_enable_read	,	F_98
+"short message received\n"	,	L_21
+message_send	,	F_30
+spin_lock_irq	,	F_37
+gb_message	,	V_53
+latency_tag_enable	,	F_53
+buffer	,	V_60
+"failed to set cport flags for port %d\n"	,	L_10
+es2_ap_dev	,	V_1
+usb_control_msg	,	F_4
+"Cannot disable latency tag for cport %d\n"	,	L_17
+kstrtoint_from_user	,	F_100
+apb_log_task	,	V_149
+PTR_ERR	,	F_107
+usb_free_urb	,	F_9
+transfer_buffer	,	V_117
+apb_log_enable_write	,	F_99
+ARPC_TYPE_CPORT_CLEAR	,	V_103
+EREMOTEIO	,	V_135
+spin_lock_irqsave	,	F_23
+usb_log_disable	,	F_58
+udev	,	V_10
+header	,	V_50
+NUM_ARPC_IN_URB	,	V_40
+cdsi1_in_use	,	V_76
+apb_log_read	,	F_87
+list_for_each_entry	,	F_70
+es2_driver	,	V_167
+output_sync	,	F_2
+U8_MAX	,	V_155
+kmemdup	,	F_3
+greybus_data_rcvd	,	F_63
+arpc	,	V_118
+es2_cport_connected	,	F_47
+peer_space	,	V_99
+out_arpc_del	,	V_133
+usb_intf	,	V_169
+ppos	,	V_144
+msecs_to_jiffies	,	F_78
+kfifo_out	,	F_89
+usb_dev	,	V_11
+cport_out_callback	,	V_61
+"Not enough endpoints found in device, aborting!\n"	,	L_37
+wIndex	,	V_31
+GB_APB_CPORT_FLAG_HIGH_PRIO	,	V_83
+gb_host_device	,	V_2
+usb_sndctrlpipe	,	F_5
+URB_ZERO_PACKET	,	V_63
+tmp_buf	,	V_147
+rpc	,	V_120
+resp	,	V_124
+dev_warn	,	F_102
+"short aprc response received\n"	,	L_27
+arpc_lock	,	V_132
+EOVERFLOW	,	V_107
+async	,	V_33
+check_urb_status	,	F_55
+interface_to_usbdev	,	F_105
+es2_arpc_in_enable	,	F_20
+payload_size	,	V_58
+IS_ERR	,	F_94

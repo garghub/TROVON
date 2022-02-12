@@ -1,0 +1,131 @@
+ENOMEM	,	V_61
+"cxl release irq range 0x%x: offset: 0x%lx  limit: %ld\n"	,	L_5
+cxl_context	,	V_52
+uint64_t	,	T_1
+virq	,	V_33
+module_mutex	,	V_38
+hwirq	,	V_20
+dev_info	,	F_36
+pnv_cxl_disable_device	,	F_39
+is_64	,	V_59
+irq_dispose_mapping	,	F_49
+__module_get	,	F_26
+dev	,	V_3
+opal_id	,	V_16
+pe_warn	,	F_20
+enable	,	V_39
+pnv_cxl_phb_set_peer_afu	,	F_31
+bitmap	,	V_55
+pr_warn	,	F_46
+pnv_cxl_cx4_teardown_msi_irqs	,	F_51
+cxl_cx4_teardown_msi_irqs	,	F_53
+msi_bitmap_free_hwirqs	,	F_13
+get_cxl_module	,	F_23
+no_64bit_msi	,	V_56
+msi_bitmap_alloc_hwirqs	,	F_10
+PCI_FUNC	,	F_34
+cxl_module	,	V_37
+"Switching PHB to CXL\n"	,	L_1
+opal_pci_set_phb_cxl_mode	,	F_7
+ctx	,	V_53
+"%s: Supports only 64-bit MSIs\n"	,	L_12
+module	,	V_36
+irq_set_msi_desc	,	F_50
+pr_devel	,	F_15
+EIO	,	V_35
+devfn	,	V_47
+"Attempted to enable function &gt; 0 on CXL PHB without a peer AFU\n"	,	L_10
+ENOSPC	,	V_22
+msi_desc	,	V_50
+rc	,	V_14
+fail	,	V_31
+xive_num	,	V_34
+irqs	,	V_25
+ENODEV	,	V_15
+pe_number	,	V_17
+pci_bus_to_host	,	F_2
+private_data	,	V_11
+EPERM	,	V_40
+flags	,	V_41
+range	,	V_28
+device_node	,	V_1
+mutex_unlock	,	F_27
+for_each_pci_msi_entry	,	F_45
+irq_hw_number_t	,	T_2
+nvec	,	V_49
+"Required cxl mode not supported by firmware - update skiboot\n"	,	L_2
+controller_ops	,	V_43
+pnv_cxl_release_hwirqs	,	F_12
+pnv_phb_to_cxl_mode	,	F_4
+pnv_cxl_alloc_hwirqs	,	F_9
+pnv_set_msi_irq_chip	,	F_22
+i	,	V_26
+irq	,	V_62
+phb	,	V_10
+pnv_cxl_enable_phb_kernel_api	,	F_28
+afu_irq	,	V_54
+pci_name	,	F_21
+pnv_cxl_phb_to_afu	,	F_30
+cxl_next_msi_hwirq	,	F_47
+"Failed to find a free MSI\n"	,	L_4
+mutex_lock	,	F_24
+"cxl"	,	L_9
+bus	,	V_6
+virq_to_hw	,	F_52
+pnv_cxl_cx4_setup_msi_irqs	,	F_42
+num	,	V_19
+"opal_pci_set_phb_cxl_mode failed: %i\n"	,	L_3
+dn	,	V_7
+cxl_pci_disable_device	,	F_40
+"%s: OPAL error %d setting msi_base 0x%x "	,	L_7
+mode	,	V_8
+"Enabling function on CXL enabled PHB with peer AFU\n"	,	L_11
+pdev	,	V_48
+"%s: Failed to map cxl mode MSI to linux irq\n"	,	L_13
+CXL_IRQ_RANGES	,	V_27
+cxl_cx4_setup_msi_irqs	,	F_44
+pnv_pci_enable_device_hook	,	F_33
+pnv_cxl_get_irq_count	,	F_17
+cxl_pci_associate_default_context	,	F_38
+offset	,	V_29
+cxl_afu	,	V_45
+hose	,	V_5
+irq_create_mapping	,	F_48
+cxl_afu_put	,	F_41
+entry	,	V_51
+pci_dev	,	V_2
+pnv_ioda_pe	,	V_12
+cxl_irq_ranges	,	V_24
+try	,	V_30
+pnv_cxl_cx4_ioda_controller_ops	,	V_44
+"%s: Failed to setup cxl mode MSI\n"	,	L_14
+opal_pci_set_xive_pe	,	F_19
+irq_count	,	V_32
+ENXIO	,	V_60
+of_node_get	,	F_3
+pe_info	,	F_6
+pci_controller	,	V_4
+pnv_cxl_ioda_msi_setup	,	F_18
+"cxl alloc irq range 0x%x: offset: 0x%lx  limit: %li\n"	,	L_6
+dev_err	,	F_8
+pnv_cxl_release_hwirq_ranges	,	F_14
+OPAL_UNSUPPORTED	,	V_18
+pnv_pci_get_phb_node	,	F_1
+pnv_ioda_get_pe	,	F_5
+msi32_support	,	V_57
+pnv_cxl_enable_device_hook	,	F_32
+find_module	,	F_25
+PNV_PHB_FLAG_CXL	,	V_42
+dev_warn	,	F_11
+pnv_cxl_alloc_hwirq_ranges	,	F_16
+WARN_ON	,	F_43
+cxl_afu_get	,	F_37
+msi_attrib	,	V_58
+msi_base	,	V_23
+msi_bmp	,	V_21
+afu	,	V_46
+pe	,	V_13
+pnv_pci_on_cxl_phb	,	F_29
+pnv_phb	,	V_9
+dev_WARN	,	F_35
+"hwirq 0x%x XIVE 0x%x PE\n"	,	L_8

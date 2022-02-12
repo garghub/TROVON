@@ -1,0 +1,275 @@
+per_cpu	,	F_3
+parent	,	V_57
+cpu_to_be32	,	F_73
+dlpar_cpu_probe	,	F_96
+set_preferred_offline_state	,	F_6
+pseries_remove_processor	,	F_55
+msleep	,	F_35
+"Failed to online cpu %s, rc: %d, drc index: %x\n"	,	L_24
+get_hard_smp_processor_id	,	F_34
+len	,	V_38
+cpu_online_mask	,	V_24
+cpu_status	,	V_26
+pr_warn	,	F_70
+state	,	V_6
+parse_cede_parameters	,	F_101
+default_offline_state	,	V_8
+start_secondary_resume	,	F_26
+OF_RECONFIG_ATTACH_NODE	,	V_92
+PSERIES_HP_ELOG_ID_DRC_INDEX	,	V_84
+KERN_WARNING	,	V_52
+"Failed to detach CPU %s, rc: %d"	,	L_30
+drc_count	,	V_79
+"Successfully removed CPU, drc index: %x\n"	,	L_31
+panic	,	F_15
+str	,	V_1
+get_cpu_device	,	F_60
+rc	,	V_54
+get_lppaca	,	F_19
+rd	,	V_91
+full_name	,	V_47
+cpumask_shift_left	,	F_47
+pr_err	,	F_94
+paca	,	V_30
+GFP_KERNEL	,	V_42
+"query-cpu-stopped-state"	,	L_51
+intserv	,	V_41
+"Cannot add cpu %s; this system configuration"	,	L_7
+ssize_t	,	T_5
+"Could not find cpu to remove "	,	L_11
+__be32	,	T_4
+device_node	,	V_32
+of_property_read_u32	,	F_63
+found	,	V_61
+cpu_present	,	F_49
+BUG	,	F_28
+pseries_cpu_die	,	F_33
+pseries_add_processor	,	F_38
+"CPU with drc index %x already exists\n"	,	L_19
+"Cannot find CPU (drc index %x) to remove\n"	,	L_33
+cpus_removed	,	V_72
+"Attempting to hot-remove %d CPUs\n"	,	L_37
+extended_cede_processor	,	F_23
+u8	,	T_2
+processorCount	,	V_22
+for_each_present_cpu	,	F_56
+local_irq_enable	,	F_22
+current_state	,	V_5
+i	,	V_40
+kcalloc	,	F_88
+cpu_drcs	,	V_69
+pseries_smp_nb	,	V_106
+buf	,	V_86
+cpumask_xor	,	F_44
+set_cpu_current_state	,	F_4
+for_each_node_by_name	,	F_107
+smp_processor_id	,	F_12
+QCSS_STOPPED	,	V_28
+nthreads	,	V_39
+cpus_to_add	,	V_73
+of_node_put	,	F_64
+QCSS_HARDWARE_ERROR	,	V_29
+num_possible_cpus	,	F_46
+pseries_mach_cpu_die	,	F_16
+find_dlpar_cpus_to_remove	,	F_86
+" supports %d logical cpus.\n"	,	L_8
+dn	,	V_53
+"cpu"	,	L_32
+"Failed to attach node %s, rc: %d, drc index: %x\n"	,	L_23
+lppaca_shared_proc	,	F_20
+saved_rc	,	V_64
+dlpar_acquire_drc	,	F_71
+cede_offline_enabled	,	V_2
+_drc_u	,	V_78
+"systems using MPIC\n"	,	L_49
+free_cpumask_var	,	F_54
+pseries_cpu_disable	,	F_29
+PSERIES_HP_ELOG_ACTION_ADD	,	V_85
+count	,	V_77
+"Error occurred getting drc-index for %s\n"	,	L_34
+dlpar_cpu_add_by_count	,	F_91
+"Querying DEAD? cpu %i (%i) shows %i\n"	,	L_5
+rtas_call	,	F_102
+"- disabling.\n"	,	L_53
+dlpar_cpu_exists	,	F_61
+"open-pic"	,	L_47
+"Failed to find CPU root node \"/cpus\"\n"	,	L_18
+"Invalid action (%d) specified\n"	,	L_43
+of_reconfig_notifier_register	,	F_109
+cpumask_var_t	,	T_3
+idle_task_exit	,	F_17
+name	,	V_49
+find_dlpar_cpus_to_add	,	F_90
+zalloc_cpumask_var	,	F_40
+lock_device_hotplug	,	F_93
+get_cpu_current_state	,	F_2
+"CPU Hotplug not supported on "	,	L_48
+child	,	V_59
+"compatible"	,	L_46
+cpu_state_vals	,	V_3
+pseries_hp_errorlog	,	V_75
+cpus_added	,	V_74
+BUG_ON	,	F_10
+dlpar_free_cc_nodes	,	F_76
+printk	,	F_11
+my_drc_index	,	V_60
+"Attempting to add CPU, drc index: %x\n"	,	L_16
+dlpar_detach_node	,	F_77
+rtas_call_unlocked	,	F_14
+"on"	,	L_2
+notifier_from_errno	,	F_100
+H_PROD	,	V_66
+for_each_cpu	,	F_48
+local_irq_disable	,	F_9
+CPU_STATE_OFFLINE	,	V_20
+xics_teardown_cpu	,	F_18
+unlock_device_hotplug	,	F_95
+dlpar_cpu_remove_by_count	,	F_87
+cpu_present_mask	,	V_44
+"ibm,get-system-parameter"	,	L_44
+typep	,	V_97
+"Could not find cpu to online "	,	L_13
+cpus_to_remove	,	V_70
+dlpar_attach_node	,	F_75
+dlpar_online_cpu	,	F_58
+"Could not find cpu to offline with physical id 0x%x\n"	,	L_26
+cpu_possible_mask	,	V_45
+"CPU hot-remove failed, adding back removed CPUs\n"	,	L_38
+cpu_probe	,	V_99
+cpu_maps_update_done	,	F_53
+cpu_drc_index_to_dn	,	F_83
+vdso_data	,	V_21
+dlpar_cpu_remove_by_index	,	F_85
+pr_debug	,	F_68
+tries	,	V_25
+"ibm,drc-indexes"	,	L_15
+CEDE_LATENCY_PARAM_MAX_LENGTH	,	V_95
+set_cpu_present	,	F_50
+"Failed to offline CPU %s, rc: %d\n"	,	L_28
+pcpu	,	V_27
+"Successfully added CPU %s, drc index: %x\n"	,	L_25
+for_each_online_cpu	,	F_110
+"Unable to find space in cpu_present_mask for"	,	L_9
+tmp	,	V_35
+OF_RECONFIG_DETACH_NODE	,	V_93
+action	,	V_80
+cpu_release	,	V_100
+kstrtou32	,	F_97
+CPU_STATE_ONLINE	,	V_19
+of_find_node_by_path	,	F_69
+cede_latency_hint	,	V_13
+" processor %s with %d thread(s)\n"	,	L_10
+index	,	V_62
+out_unlock	,	V_48
+rtas_args	,	V_9
+cpumask_set_cpu	,	F_41
+be32_to_cpu	,	F_52
+ENOSPC	,	V_37
+__cpu_die	,	F_81
+plpar_hcall_norets	,	F_80
+ENODEV	,	V_65
+get_preferred_offline_state	,	F_5
+kfree	,	F_89
+rtas_stop_self	,	F_8
+of_get_property	,	F_39
+out	,	V_56
+valid_cpu_drc_index	,	F_65
+"with physical id 0x%x\n"	,	L_12
+device_offline	,	F_79
+cpu_disable	,	V_104
+"Cannot remove all CPUs\n"	,	L_36
+for_each_child_of_node	,	F_62
+id_type	,	V_82
+pseries_cpu_hotplug_init	,	F_105
+of_reconfig_data	,	V_90
+err	,	V_36
+"CPU Hotplug not supported by firmware "	,	L_52
+"CPU hot-add failed, removing any added CPUs\n"	,	L_42
+"stop-self"	,	L_50
+CPU_STATE_INACTIVE	,	V_14
+device_online	,	F_59
+CONFIG_ARCH_CPU_PROBE_RELEASE	,	F_106
+firmware_has_feature	,	F_108
+xics_migrate_irqs_away	,	F_32
+donate_dedicated_cpu	,	V_18
+EINVAL	,	V_55
+dlpar_configure_connector	,	F_72
+"Failed to acquire DRC, rc: %d, drc index: %x\n"	,	L_21
+candidate_mask	,	V_34
+__init	,	T_1
+nr_cpu_ids	,	V_51
+notifier_block	,	V_87
+cpumask_any	,	F_31
+ppc_md	,	V_15
+data	,	V_89
+rtas_stop_self_token	,	V_10
+hp_elog	,	V_76
+cpumask_subset	,	F_43
+drc_index	,	V_58
+size_t	,	T_6
+preferred_offline_state	,	V_7
+smp_ops	,	V_103
+set_default_offline_state	,	F_7
+cpu_online	,	F_57
+PSERIES_HP_ELOG_ID_DRC_COUNT	,	V_83
+cede_parameters	,	V_94
+drc	,	V_63
+"Could not find CPU root node in device tree\n"	,	L_39
+hard_irq_disable	,	F_25
+u32	,	V_43
+"Failed call to configure-connector, drc index: %x\n"	,	L_22
+cpus_found	,	V_71
+"Attemping to remove CPU %s, drc index: %x\n"	,	L_27
+hard_smp_processor_id	,	F_13
+H_SUCCESS	,	V_67
+for_each_node_by_type	,	F_84
+pseries_smp_notifier	,	F_99
+"Alas, I survived.\n"	,	L_4
+"off"	,	L_1
+"interrupt-controller"	,	L_45
+"ibm,ppc-interrupt-server#s"	,	L_6
+cpu	,	V_4
+cpu_die	,	V_102
+smp_query_cpu_stopped	,	F_36
+qcss_tok	,	V_98
+suspend_disable_cpu	,	V_16
+boot_cpuid	,	V_23
+dlpar_cpu_add	,	F_67
+nb	,	V_88
+unregister_slb_shadow	,	F_24
+my_index	,	V_68
+cpu_maps_update_begin	,	F_42
+cpumask_empty	,	F_45
+of_property_read_u32_index	,	F_66
+"Failed to find enough CPUs (%d of %d) to remove\n"	,	L_35
+np	,	V_33
+FW_FEATURE_LPAR	,	V_105
+KERN_INFO	,	V_101
+rtas_token	,	F_103
+hwcpu	,	V_12
+set_cpu_online	,	F_30
+"Attempting to hot-add %d CPUs\n"	,	L_40
+dlpar_cpu_remove	,	F_82
+prep_irq_for_idle	,	F_21
+cpu_start	,	V_31
+PSERIES_HP_ELOG_ACTION_REMOVE	,	V_81
+dlpar_cpu_release	,	F_98
+"Failed to find enough CPUs (%d of %d) to add\n"	,	L_41
+RTAS_UNKNOWN_SERVICE	,	V_11
+dlpar_release_drc	,	F_74
+"Cannot find CPU (drc index %x) to add.\n"	,	L_20
+idle	,	V_17
+"/cpus"	,	L_17
+dlpar_offline_cpu	,	F_78
+WARN_ON	,	F_27
+thread	,	V_50
+"cpu %u (hwid %u) Ready to die...\n"	,	L_3
+"ibm,my-drc-index"	,	L_14
+CEDE_LATENCY_TOKEN	,	V_96
+dlpar_cpu	,	F_92
+"Failed to release drc (%x) for CPU %s, rc: %d\n"	,	L_29
+KERN_ERR	,	V_46
+set_hard_smp_processor_id	,	F_51
+setup_cede_offline	,	F_1
+__pa	,	F_104
+cpu_relax	,	F_37

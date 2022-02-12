@@ -1,0 +1,454 @@
+rio_rx_data_handler	,	F_33
+htons	,	F_57
+remote_destid	,	V_177
+rio_ch_chan_hdr	,	V_30
+htonl	,	F_56
+riocm_ch_send	,	F_54
+inode	,	V_155
+"Invalid packet header"	,	L_6
+cm_dev_list	,	V_159
+dev	,	V_198
+riocm_cdev_ioctl	,	F_111
+riocm_ch_listen	,	F_75
+"%s(%d) timed out waiting for ch %d"	,	L_30
+__user	,	T_4
+riocm_add_mport	,	F_126
+idr_destroy	,	F_151
+rx_slots	,	V_23
+EIO	,	V_63
+wait_for_completion_interruptible_timeout	,	F_60
+"failed to allocate IBMBOX_%d on %s"	,	L_47
+riocm_rx_fill	,	F_14
+dst_ch	,	V_33
+size	,	V_181
+rx_ring	,	V_64
+"%s(%d) ch_%d not found"	,	L_15
+rio_cm_notifier	,	V_232
+unused	,	V_223
+msg_len	,	V_108
+RIO_CM_CONNECTED	,	V_50
+tx_slot	,	V_89
+cdev_init	,	F_120
+EBUSY	,	V_98
+mport	,	V_19
+INIT_WORK	,	F_133
+riocm_exit	,	F_150
+"%s(%d) wait for ch %d was interrupted"	,	L_31
+ch	,	V_2
+tail	,	V_119
+cm_ep_get_list_size	,	F_92
+i	,	V_18
+ntohl	,	F_23
+cm	,	V_16
+cm_peer	,	V_121
+host_deviceid	,	V_127
+ntohs	,	F_20
+p	,	V_163
+riocm_init	,	F_139
+exch	,	V_8
+kref	,	V_151
+subsys_interface	,	V_199
+riocm_remove_dev	,	F_117
+"subsys_interface_register error: %d"	,	L_59
+err_put_new_ch	,	V_138
+tx_lock	,	V_81
+cmbox	,	V_20
+NOTIFY_DONE	,	V_224
+RIO_CM_CHAN_CONNECT	,	V_193
+ref	,	V_13
+riocm_remove_mport	,	F_134
+riocm_error	,	F_32
+"by %s(%d) filp=%p"	,	L_35
+"failed to register reboot notifier (err=%d)"	,	L_60
+req	,	V_29
+info	,	V_167
+ret	,	V_5
+chnum	,	V_32
+count	,	V_65
+"ch_%d by %s(%d)"	,	L_29
+list	,	V_161
+spin_unlock_irqrestore	,	F_52
+src_mbox	,	V_106
+idr_preload_end	,	F_79
+"close ch %d"	,	L_54
+"/rxq"	,	L_48
+riocm_cdev	,	V_207
+riocm_ch_close	,	F_29
+riocm_add_dev	,	F_112
+dev_class	,	V_212
+work_struct	,	V_67
+rio_cm_msg	,	V_180
+RIO_CM_MPORT_GET_LIST	,	V_196
+timeout	,	V_111
+riocm_rx_get_msg	,	F_11
+sif	,	V_200
+conn_req	,	V_28
+list_del	,	F_47
+" class"	,	L_56
+kmalloc	,	F_15
+accept_to	,	V_175
+tx_req	,	V_86
+end	,	V_144
+ERESTARTSYS	,	V_116
+riocm_debug	,	F_21
+RIOCM_CHNUM_AUTO	,	V_136
+riocm_cdev_release	,	F_88
+owner	,	V_210
+spin_unlock	,	F_35
+spin_unlock_bh	,	F_3
+idr_lock	,	V_11
+"Add buf@%p destid=%x tx_slot=%d tx_cnt=%d"	,	L_14
+subsys_interface_register	,	F_144
+dst_id	,	V_104
+resp_data	,	V_48
+cdev	,	V_208
+wret	,	V_113
+hh	,	V_31
+ENOMEM	,	V_38
+rxmsg	,	V_112
+"ATTN: peer list not empty"	,	L_51
+hport	,	V_203
+peers	,	V_204
+ch_idr	,	V_12
+rx_wq	,	V_77
+"Cannot create "	,	L_55
+"%s done"	,	L_52
+HZ	,	V_129
+tmo	,	V_152
+kref_get	,	F_8
+riocm_close_handler	,	F_27
+"tx_cnt %d out of sync"	,	L_12
+context	,	V_126
+lock	,	V_6
+CHOP	,	V_139
+id	,	V_53
+RIO_CM_CHAN	,	V_71
+list_for_each_entry_safe	,	F_46
+devno	,	V_206
+riocm_rx_free	,	F_17
+err_sif	,	V_233
+unregister_reboot_notifier	,	F_146
+rio_cm_state	,	V_3
+riocm_ch_free	,	V_14
+riocm_exch	,	F_5
+riocm_ch_connect	,	F_61
+ENOSPC	,	V_148
+CM_DATA_MSG	,	V_72
+INIT	,	V_158
+"slot == ack_slot"	,	L_11
+"Registered class with %d major"	,	L_57
+rio_add_outb_message	,	F_48
+cmd	,	V_185
+cmp	,	V_4
+"no record for buffer 0x%p"	,	L_1
+list_add_tail	,	F_24
+copy_to_user	,	F_94
+file	,	V_156
+peer	,	V_122
+"."	,	L_53
+CM_CONN_CLOSE	,	V_60
+u16	,	T_1
+WAIT	,	V_114
+cm_mport_get_list	,	F_99
+kref_put	,	F_10
+err	,	V_133
+DEV_NAME	,	V_213
+rio_release_outb_mbox	,	F_130
+EFAULT	,	V_164
+err_reg	,	V_229
+riocm_send_ack	,	F_62
+idr_for_each_entry	,	F_90
+RIO_CM_EP_GET_LIST_SIZE	,	V_186
+dev_minor_base	,	V_227
+rio_mport_is_running	,	F_31
+notifier_block	,	V_220
+complete	,	F_25
+up_read	,	F_73
+rio_mport	,	V_73
+"removing peer %s"	,	L_42
+"%s"	,	L_49
+work_pending	,	F_41
+riocm_cmp_exch	,	F_4
+rio_add_inb_buffer	,	F_16
+rio_cm_shutdown	,	F_138
+size_t	,	T_2
+nent	,	V_24
+conn_done	,	V_125
+riocm_resp_handler	,	F_26
+riocm_req_handler	,	F_19
+u32	,	T_5
+tx_cnt	,	V_80
+RIOCM_TX_RING_SIZE	,	V_83
+buffer	,	V_90
+net	,	V_202
+comp_close	,	V_150
+register_reboot_notifier	,	F_145
+filp	,	V_157
+rx_buf	,	V_22
+"ch(%d) send CLOSE failed (ret=%d)"	,	L_28
+uintptr_t	,	V_170
+THIS_MODULE	,	V_211
+npeers	,	V_166
+cm_chan_connect	,	F_106
+entries	,	V_171
+device_unregister	,	F_152
+nb	,	V_221
+spin_lock_irqsave	,	F_51
+list_add	,	F_91
+RIO_CM_CHAN_CREATE	,	V_188
+list_for_each_entry	,	F_72
+rio_release_inb_mbox	,	F_137
+subsys_interface_unregister	,	F_147
+MAJOR	,	F_124
+RIO_CM_CHAN_ACCEPT	,	V_192
+code	,	V_222
+nr	,	V_10
+riocm_cdev_open	,	F_87
+RIO_MAX_MSG_SIZE	,	V_25
+"ch=%d is in wrong state=%d"	,	L_7
+slot	,	V_76
+"ch_%d not released by %s(%d)"	,	L_36
+"class_interface_register error: %d"	,	L_58
+head	,	V_66
+rx_work	,	V_69
+to_rio_dev	,	F_113
+RIO_CM_LISTEN	,	V_35
+down_write	,	F_115
+"add mport %s"	,	L_45
+RIOCM_MAX_CHNUM	,	V_146
+put_user	,	F_101
+cm_dev	,	V_15
+class_interface_unregister	,	F_148
+RIO_CM_CHAN_LISTEN	,	V_191
+dev_id	,	V_74
+container_of	,	F_37
+req_data	,	V_27
+device_create	,	F_122
+dev_major	,	V_226
+RIO_ANY_DESTID	,	F_107
+spin_lock_bh	,	F_2
+IS_ERR	,	F_68
+cm_chan_msg_rcv	,	F_110
+spin_lock_init	,	F_74
+idr_preload	,	F_77
+mbox	,	V_75
+riocm_ch_create	,	F_83
+complete_all	,	F_86
+src_ch	,	V_43
+class_intf	,	V_216
+"%s drop ch_%d"	,	L_50
+len	,	V_92
+"failed to allocate OBMBOX_%d on %s"	,	L_46
+chstart	,	V_145
+cdev_del	,	F_123
+RIOCM_MAX_EP_COUNT	,	V_169
+state	,	V_7
+ECANCELED	,	V_135
+riocm_ch_alloc	,	F_67
+new_ch	,	V_131
+"on %d"	,	L_20
+class_create	,	F_140
+create_workqueue	,	F_132
+rio_txcq_handler	,	F_43
+"new ch_%d for %s(%d)"	,	L_40
+old	,	V_9
+"ch_%d resources released"	,	L_32
+MPORT	,	V_214
+node	,	V_45
+rc	,	V_88
+"Tx Queue is full"	,	L_13
+destroy_workqueue	,	F_136
+GFP_KERNEL	,	V_26
+device	,	V_197
+LIST_HEAD	,	F_89
+rio_cm_channel	,	V_172
+RDEV	,	V_201
+"for mport_%d slot %d tx_cnt %d"	,	L_10
+mutex_init	,	F_131
+"ch_%d requested by %s(%d)"	,	L_37
+mutex_unlock	,	F_39
+current	,	V_100
+found	,	V_132
+min	,	F_97
+rdev	,	V_91
+arg	,	V_162
+ch_op	,	V_57
+"Unsupported TYPE code (0x%x). Msg dropped"	,	L_9
+rem_ch	,	V_123
+u8	,	T_3
+atomic_read	,	F_118
+kcalloc	,	F_98
+"on %d returns %d"	,	L_22
+buf	,	V_61
+ch_node	,	V_149
+mutex_lock	,	F_38
+ch_num	,	V_142
+riocm_interface	,	V_230
+ERR_PTR	,	F_65
+"by %s(%d) filp=%p "	,	L_34
+msg_size	,	V_183
+"failed to release ch_%d resources"	,	L_33
+tx_buf	,	V_84
+TX	,	V_97
+"riocm_ch_close() returned %d"	,	L_4
+rio_get_inb_message	,	F_12
+INIT_LIST_HEAD	,	F_80
+accept_queue	,	V_46
+sys_size	,	V_178
+ack_slot	,	V_78
+ch_id	,	V_99
+rio_cm_accept	,	V_173
+riocm_outb_msg_event	,	F_49
+down_read	,	F_71
+cm_chan_close	,	F_102
+err_out	,	V_96
+RIO_CM_IDLE	,	V_124
+rio_request_inb_mbox	,	F_129
+ETIMEDOUT	,	V_154
+RIO_CM_CHAN_SEND	,	V_194
+name	,	V_217
+up_write	,	F_116
+dst_mbox	,	V_107
+cdev_add	,	F_121
+riocm_warn	,	F_13
+CM_CONN_REQ	,	V_58
+MAX_SCHEDULE_TIMEOUT	,	V_184
+get_user	,	F_93
+ECONNRESET	,	V_118
+cmdev	,	V_44
+rem_channel	,	V_51
+"channel %d is not in listen state"	,	L_2
+"Cannot register a device with error %d"	,	L_43
+entry_ptr	,	V_168
+riocm_queue_req	,	F_50
+kzalloc	,	F_22
+cm_chan_listen	,	F_104
+param	,	V_174
+unregister_chrdev_region	,	F_149
+RIO_DEVICE_SHUTDOWN	,	V_205
+"on ch_%d by %s(%d)"	,	L_39
+rio_name	,	F_63
+"(ch_%d)"	,	L_25
+rio_channel	,	V_1
+class_interface	,	V_215
+err_put	,	V_134
+riocm_send_close	,	F_84
+CM_CONN_ACK	,	V_59
+start	,	V_143
+rem_destid	,	V_105
+RIO_CM_CHAN_RECEIVE	,	V_195
+"ch_%d created by %s(%d)"	,	L_38
+flush_workqueue	,	F_135
+hdr	,	V_55
+tx_reqs	,	V_85
+riocm_ch_accept	,	F_64
+"wait on %d returns %ld"	,	L_18
+"failed to get channel for new req (%ld)"	,	L_23
+"OP=%x for ch=%d from %d"	,	L_5
+list_empty	,	F_45
+mport_id	,	V_141
+wait_to	,	V_176
+RIOCM_CONNECT_TO	,	V_128
+"on %d accept_queue is empty on completion"	,	L_21
+GFP_NOWAIT	,	V_147
+RIO_CM_DESTROYING	,	V_153
+idr_alloc_cyclic	,	F_78
+comp	,	V_47
+to_rio_mport	,	F_127
+comm	,	V_101
+work	,	V_68
+task_pid_nr	,	F_55
+remote_channel	,	V_179
+RIOCM_RX_RING_SIZE	,	V_21
+rio_mport_interface	,	V_228
+rio_cm_handler	,	F_30
+rx_lock	,	V_70
+ENODEV	,	V_34
+"send ACK to ch_%d on %s failed (ret=%d)"	,	L_19
+kfree	,	F_18
+rdev_sem	,	V_137
+RX_DATA	,	V_62
+flags	,	V_94
+cm_chan_accept	,	F_105
+"Added %s cdev(%d:%d)"	,	L_44
+DRV_NAME	,	V_218
+alloc_chrdev_region	,	F_141
+out	,	V_56
+init_completion	,	F_81
+RX_CMD	,	V_36
+class_destroy	,	F_142
+loc_ch	,	V_120
+riocm_inb_msg_event	,	F_40
+destid	,	V_39
+RIO_CM_CHAN_BOUND	,	V_140
+RIO_CM_CHAN_BIND	,	V_190
+err_cl	,	V_231
+class_interface_register	,	F_143
+"wait on %d returned %ld"	,	L_17
+ETIME	,	V_115
+EAGAIN	,	V_102
+RIO_CM_CONNECT	,	V_49
+rio_request_outb_mbox	,	F_128
+try_wait_for_completion	,	F_66
+riocm_get_channel	,	F_6
+EINVAL	,	V_37
+cm_chan_create	,	F_100
+rxto	,	V_182
+riocm_ch_receive	,	F_59
+riocm_ch_bind	,	F_76
+__init	,	T_7
+__exit	,	T_8
+riocm_post_send	,	F_53
+bhdr	,	V_40
+dev_t	,	T_6
+idr_find	,	F_7
+chan	,	V_42
+riocm_cdev_add	,	F_119
+msg	,	V_17
+copy_from_user	,	F_96
+data	,	V_52
+list_first_entry	,	F_70
+riocm_cdev_fops	,	V_209
+rio_ibmsg_handler	,	F_36
+"ch_%d to mport_%d"	,	L_26
+"(%s)"	,	L_41
+loc_destid	,	V_103
+rio_dev	,	V_93
+kref_init	,	F_82
+tx_ack_slot	,	V_82
+treq	,	V_95
+RIO_MAX_MPORTS	,	V_165
+"for ch=%d"	,	L_3
+cm_chan_msg_send	,	F_108
+cm_ep_get_list	,	F_95
+PTR_ERR	,	F_69
+RIO_CM_DISCONNECT	,	V_54
+"ch=%d is full"	,	L_8
+inuse	,	V_109
+"found matching device(%s)"	,	L_24
+riocm_ch_free_rxbuf	,	F_58
+RIO_CM_EP_GET_LIST	,	V_187
+riocm_put_channel	,	F_9
+EINTR	,	V_117
+MINOR	,	F_125
+riocm_cmp	,	F_1
+RIO_CM_CHAN_CLOSE	,	V_189
+msecs_to_jiffies	,	F_85
+new_ch_id	,	V_130
+dev_cm_capable	,	F_114
+idr_remove	,	F_28
+"ch %d send_err=%d"	,	L_16
+spin_lock	,	F_34
+memdup_user	,	F_109
+"enter"	,	L_61
+temp	,	V_219
+src_id	,	V_41
+_c	,	V_160
+TX_EVENT	,	V_79
+WARN_ON	,	F_44
+inuse_cnt	,	V_110
+cm_chan_bind	,	F_103
+dev_number	,	V_225
+queue_work	,	F_42
+_req	,	V_87
+"Failed to allocate channel %d (err=%ld)"	,	L_27

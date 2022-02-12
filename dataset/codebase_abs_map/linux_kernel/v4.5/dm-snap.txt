@@ -1,0 +1,488 @@
+dm_table_get_mode	,	F_115
+atomic_set	,	F_117
+full_bio	,	V_161
+bad	,	V_125
+origin_mode	,	V_123
+pending_exceptions_count	,	V_77
+dm_vcalloc	,	F_52
+bio_endio	,	F_145
+old_chunk	,	V_69
+dev	,	V_37
+"Snapshot origin struct allocation failed"	,	L_26
+_pending_exceptions_done	,	V_99
+snapshot_map	,	F_158
+SINGLE_DEPTH_NESTING	,	V_192
+unlikely	,	F_102
+init_tracked_chunk	,	F_5
+active	,	V_43
+track_chunk	,	F_10
+EIO	,	V_156
+__find_pending_exception	,	F_156
+_origins	,	V_22
+size	,	V_58
+must_wait	,	V_213
+bi_size	,	V_185
+mempool_free	,	F_68
+dm_kcopyd_do_callback	,	F_151
+snap_merge	,	V_41
+clear_bit_unlock	,	F_85
+FMODE_WRITE	,	V_126
+alloc_pending_exception	,	F_64
+__chunk_is_tracked	,	F_19
+chunk_to_sector	,	F_3
+test_bit	,	F_101
+GFP_ATOMIC	,	V_73
+snapshot_merge_next_chunks	,	F_99
+result	,	V_195
+bdev	,	V_29
+clear_bit	,	F_112
+dm_bio_get_target_bio_nr	,	F_163
+b	,	V_95
+c	,	V_15
+out_of_order_entry	,	V_167
+e	,	V_68
+i	,	V_21
+full_bio_end_io	,	V_163
+total_sectors	,	V_200
+l	,	V_50
+pending_exceptions_done	,	V_96
+n	,	V_152
+o	,	V_33
+exception_cache	,	V_71
+chunk_mask	,	V_179
+r	,	V_54
+"Cannot allocate private origin structure"	,	L_45
+s	,	V_3
+bi_private	,	V_172
+u	,	V_149
+dm_set_target_max_io_len	,	F_126
+origin_postsuspend	,	F_188
+pending_pool	,	V_76
+dev_size	,	V_170
+dm_snap_cow	,	F_2
+available_sectors	,	V_216
+dm_target	,	V_116
+snapshot_merge_map	,	F_162
+__validate_exception_handover	,	F_43
+"Couldn't create exception store"	,	L_22
+snapshot_dtr	,	F_133
+KMEM_CACHE	,	F_194
+generic_make_request	,	F_138
+free_completed_exception	,	F_63
+"Unable to resume snapshot source until "	,	L_34
+free_pending_exception	,	F_67
+eh	,	V_78
+"Snapshot cow pairing for exception "	,	L_3
+count	,	V_42
+max_buckets	,	V_87
+bi_iter	,	V_177
+bi_rw	,	V_180
+list	,	V_52
+et	,	V_57
+metadata_sectors	,	V_202
+spin_unlock_irqrestore	,	F_18
+dm_kcopyd_client_destroy	,	F_128
+snap_dest	,	V_40
+ex	,	V_66
+origin_resume	,	F_187
+out_of_order_list	,	V_133
+success	,	V_158
+__lookup_pending_exception	,	F_154
+fmode_t	,	T_6
+min_not_zero	,	F_78
+bio_sectors	,	F_185
+private	,	V_142
+store_swap	,	V_148
+dm_snap_pending_exception	,	V_74
+origin	,	V_4
+bdev_equal	,	F_4
+fn	,	V_206
+bio_list_get	,	F_89
+"Could not create kcopyd client"	,	L_24
+argv	,	V_118
+bad_kcopyd	,	V_137
+list_del	,	F_38
+list_for_each_prev	,	F_149
+kmalloc	,	F_24
+pe2	,	V_169
+argc	,	V_117
+drop_snapshot	,	V_157
+linear_chunks	,	V_100
+spin_unlock	,	F_96
+"Could not allocate mempool for pending exceptions"	,	L_25
+wait_event	,	F_104
+__insert_dm_origin	,	F_36
+kcopyd_client	,	V_111
+dm_exception_store_init	,	F_192
+list_entry	,	F_148
+dm_exception_store_destroy	,	F_129
+merge_shutdown	,	F_84
+mapped_device	,	V_189
+rhs	,	V_12
+dm_exception_store_exit	,	F_197
+bad_pending_cache	,	V_226
+ENOMEM	,	V_26
+bad_cow	,	V_128
+bio	,	V_13
+hash_mask	,	V_60
+RUNNING_MERGE	,	V_90
+context	,	V_81
+lock	,	V_46
+chunk_shift	,	V_9
+snapshot_target	,	V_218
+hlist_add_head	,	F_12
+"Merge failed"	,	L_39
+list_for_each_entry_safe	,	F_54
+exception_start_sequence	,	V_131
+out_unlock	,	V_183
+must_restart_merging	,	V_191
+redirect_to_origin	,	V_187
+write_err	,	V_114
+table_swap	,	V_147
+snapshot_resume	,	F_168
+error_bios	,	F_106
+bad_store	,	V_129
+"Invalidating snapshot: Error reading/writing."	,	L_31
+init_hash_tables	,	F_80
+snapshot_preresume	,	F_166
+status	,	V_205
+snapshot_iterate_devices	,	F_179
+first_merging_chunk	,	V_92
+tracked_chunk_hash	,	V_18
+exception_sequence	,	V_166
+list_add_tail	,	F_34
+vfree	,	F_56
+origin_md	,	V_190
+kmem_cache_alloc	,	F_62
+snapshot_overflowed	,	V_130
+valid	,	V_108
+"Invalid"	,	L_38
+hlist_del	,	F_17
+ORIGIN_MASK	,	V_31
+bad_read_metadata	,	V_146
+copy_callback	,	F_147
+sector_t	,	T_1
+snapshot_ctr	,	F_113
+table	,	V_61
+err	,	V_155
+tracked_chunk_lock	,	V_17
+snapshot_bios	,	V_160
+dm_kcopyd_prepare_callback	,	F_153
+status_type_t	,	T_7
+dm_remove_exception	,	F_58
+snapshot_end_io	,	F_164
+dm_snapshot_init	,	F_191
+smp_mb__before_atomic	,	F_69
+dm_chunk_number	,	F_73
+bad_load_and_register	,	V_144
+snapshots	,	V_55
+bad_register_merge_target	,	V_223
+dm_origin	,	V_36
+bad_origin_hash	,	V_224
+complete	,	V_84
+lh	,	V_168
+up_read	,	F_42
+ORIGIN_HASH_SIZE	,	V_23
+"%s %s"	,	L_43
+origin_status	,	F_189
+bad_hash_tables	,	V_135
+"%s"	,	L_47
+dm_register_target	,	F_193
+"Couldn't create exception cache."	,	L_53
+reregister_snapshot	,	F_48
+dm_io_region	,	V_101
+"Overflow"	,	L_40
+cow	,	V_5
+snapshot_merge_resume	,	F_176
+"init_origin_hash failed."	,	L_52
+origin_hash	,	F_30
+mempool_alloc	,	F_65
+DM_CHUNK_CONSECUTIVE_BITS	,	V_88
+state_bits	,	V_91
+dm_snapshot_exit	,	F_198
+dm_internal_suspend_fast	,	F_171
+hlist_for_each_entry	,	F_20
+spin_lock_irq	,	F_11
+alloc_completed_exception	,	F_61
+pe_to_start_now	,	V_209
+__release_queued_bios_after_merge	,	F_88
+new	,	V_83
+DM_MAPIO_REMAPPED	,	V_154
+DM_TRACKED_CHUNK_HASH_SIZE	,	V_141
+next_snapshot	,	V_211
+"on disk but not in memory"	,	L_9
+"Cannot get COW device"	,	L_21
+spin_lock_irqsave	,	F_16
+list_add	,	F_75
+list_for_each_entry	,	F_32
+snap_merging	,	V_188
+maxlen	,	V_196
+__lookup_dm_origin	,	F_35
+bad_open	,	V_215
+slot	,	V_64
+dm_exception_store_create	,	F_116
+"unable to allocate memory for _dm_origins"	,	L_2
+bi_bdev	,	V_176
+mem	,	V_63
+down_write	,	F_46
+"Origin target register failed %d"	,	L_50
+__handover_exceptions	,	F_132
+ol	,	V_32
+dm_snap_origin	,	F_1
+STATUSTYPE_INFO	,	V_198
+_origins_lock	,	V_28
+src	,	V_102
+set_bit	,	F_110
+wait_on_bit	,	F_111
+bio_rw	,	F_160
+container_of	,	F_155
+exception_complete_sequence	,	V_132
+"Snapshot overflowed: Unable to allocate exception."	,	L_33
+pe	,	V_75
+snapshot_merge_presuspend	,	F_165
+copy_error	,	V_165
+"%llu/%llu %llu"	,	L_41
+per_bio_data_size	,	V_143
+"Unknown"	,	L_42
+kmem_cache	,	V_62
+__origin_write	,	F_180
+"A snapshot is already merging."	,	L_5
+IS_ERR	,	F_121
+hash_shift	,	V_59
+spin_lock_init	,	F_118
+dm_exception_table_init	,	F_51
+chunk_t	,	T_2
+msleep	,	F_22
+commit_merge	,	V_49
+"snapshot target register failed %d"	,	L_49
+dm_table_get_md	,	F_169
+stop_merge	,	F_109
+len	,	V_208
+num_flush_bios	,	V_122
+dm_per_bio_data	,	F_6
+DM_MAPIO_SUBMITTED	,	V_184
+dm_internal_resume_fast	,	F_173
+exit_origin_hash	,	F_29
+old	,	V_82
+MIN_IOS	,	V_138
+"Cannot get target device"	,	L_46
+node	,	V_16
+io_size	,	V_104
+merge_callback	,	V_112
+read_pending_exceptions_done_count	,	F_94
+increment_pending_exceptions_done_count	,	F_97
+remap_exception	,	F_157
+"Snapshot is invalid: can't merge"	,	L_12
+GFP_KERNEL	,	V_25
+cow_path	,	V_120
+origin_ctr	,	F_182
+STATUSTYPE_TABLE	,	V_203
+dm_snapshot	,	V_2
+FMODE_READ	,	V_124
+dm_kcopyd_throttle	,	V_136
+get_dev_size	,	F_81
+merging_snap	,	V_212
+dm_exception	,	V_65
+dm_insert_exception	,	F_71
+found	,	V_20
+min	,	F_82
+__lookup_origin	,	F_31
+pending_cache	,	V_139
+"Failed to read snapshot metadata"	,	L_27
+sl	,	V_34
+dm_add_exception	,	F_76
+bad_alloc	,	V_214
+dm_exception_store	,	V_6
+_dm_origins	,	V_27
+atomic_read	,	F_135
+min_chunksize	,	V_193
+wake_up_bit	,	F_87
+sz	,	V_197
+uint32_t	,	T_3
+dm_exception_table_exit	,	F_53
+started	,	V_174
+store	,	V_7
+bd_dev	,	V_30
+complete_exception	,	F_146
+snapshot_status	,	F_177
+"Read error in exception store: "	,	L_13
+ti	,	V_45
+lhs	,	V_11
+sector_to_chunk	,	F_159
+dm_kcopyd_copy	,	F_105
+__free_exceptions	,	F_131
+origin_path	,	V_119
+"Invalidating snapshot: Unable to allocate exception."	,	L_32
+dm_table_event	,	F_143
+dm_unregister_target	,	F_196
+dm_put	,	F_174
+dest	,	V_103
+INIT_LIST_HEAD	,	F_26
+bi_error	,	V_173
+commit_exception	,	V_164
+"Couldn't create pending cache."	,	L_54
+merge_target	,	V_222
+hlist_empty	,	F_137
+down_read	,	F_41
+callback_data	,	V_171
+sector	,	V_110
+retry_origin_bios	,	F_139
+__invalidate_snapshot	,	F_142
+flush_bios	,	F_93
+mempool_destroy	,	F_127
+GFP_NOIO	,	V_72
+"Attempt to merge block %llu from the "	,	L_10
+"Snapshot is marked invalid."	,	L_28
+bad_exception_cache	,	V_225
+"Chunk size not set"	,	L_29
+dm_target_is_snapshot_merge	,	F_40
+bi_sector	,	V_178
+_pending_exceptions_done_count	,	V_98
+rounddown_pow_of_two	,	F_83
+get_origin_minimum_chunksize	,	F_175
+"shutting down merge"	,	L_14
+name	,	V_204
+up_write	,	F_47
+start_full_bio	,	F_152
+SECTOR_SHIFT	,	V_186
+next	,	V_67
+"Cannot get origin device"	,	L_20
+BUG_ON	,	F_100
+"handover completes."	,	L_35
+pending	,	V_89
+smp_mb__after_atomic	,	F_86
+"unable to allocate memory for _origins"	,	L_1
+start_merge	,	F_107
+dm_consecutive_chunk_count	,	F_60
+"Cannot allocate private snapshot structure"	,	L_19
+"Snapshot exception store does not "	,	L_6
+__insert_origin	,	F_33
+_pending_exceptions_done_spinlock	,	V_97
+DMWARN	,	F_125
+read_metadata	,	V_145
+__remove_single_exception_chunk	,	F_90
+sectors_allocated	,	V_201
+split_boundary	,	V_217
+hash_size	,	V_85
+pe_to_start_last	,	V_210
+bio_list_init	,	F_119
+origin_bios	,	V_159
+wake_up_all	,	F_98
+"origin: incorrect number of arguments"	,	L_44
+gfp_t	,	T_4
+"Unable to allocate hash table space"	,	L_23
+calc_max_buckets	,	F_79
+origin_dtr	,	F_183
+previous_count	,	V_105
+uint64_t	,	T_5
+start_copy	,	F_150
+down_write_nested	,	F_172
+dm_put_device	,	F_130
+usage	,	V_199
+list_empty	,	F_50
+new_chunk	,	V_80
+"Write error: shutting down merge."	,	L_16
+remove_single_exception_chunk	,	F_92
+max_io_len	,	V_151
+iterate_devices_callout_fn	,	T_8
+mempool_create_slab_pool	,	F_123
+INIT_HLIST_HEAD	,	F_124
+bio_io_error	,	F_141
+snap_src	,	V_39
+prepare_merge	,	V_48
+origin_write_extent	,	F_103
+"Read error: shutting down merge."	,	L_15
+dm_kcopyd_client_create	,	F_120
+"middle of a chunk range [%llu - %llu]"	,	L_11
+"table handover failed"	,	L_4
+CONFIG_DM_DEBUG	,	F_134
+origin_iterate_devices	,	F_190
+dm_consecutive_chunk_count_dec	,	F_91
+kfree	,	F_27
+bios_queued_during_merge	,	V_94
+flags	,	V_19
+bad_pending_pool	,	V_140
+__insert_snapshot	,	F_44
+out	,	V_44
+WRITE	,	V_182
+"Write error in exception store: shutting down merge"	,	L_17
+is_bio_tracked	,	F_8
+bi_next	,	V_153
+args_used	,	V_121
+hash_list	,	V_35
+dm_suspended	,	F_167
+spin_unlock_irq	,	F_14
+SHUTDOWN_MERGE	,	V_106
+"Unable to perform snapshot handover until "	,	L_36
+dm_consecutive_chunk_count_inc	,	F_74
+__find_snapshots_sharing_cow	,	F_39
+"requires exactly 4 arguments"	,	L_18
+"source is suspended."	,	L_37
+smp_mb	,	F_136
+EINVAL	,	V_47
+gfp	,	V_70
+kmem_cache_destroy	,	F_195
+TASK_UNINTERRUPTIBLE	,	V_115
+read_err	,	V_113
+REQ_FLUSH	,	V_181
+dm_exception_table	,	V_56
+origin_map	,	F_184
+test_and_set_bit	,	F_108
+__init	,	T_9
+__exit	,	T_10
+dm_snap_tracked_chunk	,	V_14
+"Merge target register failed %d"	,	L_51
+prepare_exception	,	V_175
+status_flags	,	V_194
+INIT_HLIST_NODE	,	F_7
+num_merging_chunks	,	V_93
+shut	,	V_107
+chunk_size	,	V_51
+data	,	V_207
+atomic_inc	,	F_66
+"support snapshot-merge."	,	L_7
+block_device	,	V_10
+dm_dev	,	V_1
+__check_for_conflicting_io	,	F_21
+bio_list_add	,	F_161
+bi_end_io	,	V_162
+dm_accept_partial_bio	,	F_186
+hlist_unhashed	,	F_9
+atomic_dec	,	F_70
+userspace_supports_overflow	,	V_150
+dm_table_get_size	,	F_181
+init_origin_hash	,	F_23
+new_o	,	V_53
+PTR_ERR	,	F_122
+exception_hash	,	F_57
+pe_lock	,	V_134
+__remove_dm_origin	,	F_37
+new_e	,	V_79
+DMEMIT	,	F_178
+"Failed to initialize exception stores"	,	L_48
+"Corruption detected: exception for block %llu is "	,	L_8
+chunk	,	V_8
+stop_tracking_chunk	,	F_15
+"Cancelling snapshot handover."	,	L_30
+origin_target	,	V_220
+bad_register_snapshot_target	,	V_219
+unregister_snapshot	,	F_49
+DM_TRACKED_CHUNK_HASH	,	F_13
+kmem_cache_free	,	F_55
+pending_complete	,	F_144
+init_rwsem	,	F_28
+bad_register_origin_target	,	V_221
+spin_lock	,	F_95
+merge_failed	,	V_109
+dm_lookup_exception	,	F_59
+cow_dev_size	,	V_86
+list_head	,	V_24
+__minimum_chunk_size	,	F_77
+list_for_each_entry_reverse	,	F_72
+dm_hold	,	F_170
+bad_origin	,	V_127
+dm_get_device	,	F_114
+do_origin	,	F_140
+register_snapshot	,	F_45
+DMERR	,	F_25
+snap	,	V_38

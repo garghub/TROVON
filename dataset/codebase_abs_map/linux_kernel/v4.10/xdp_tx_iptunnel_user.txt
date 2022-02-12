@@ -1,0 +1,101 @@
+"    -T &lt;stop-after-X-seconds&gt; Default: 0 (forever)\n"	,	L_12
+set_link_xdp_fd	,	F_2
+prev	,	V_8
+usage	,	F_7
+htons	,	F_15
+optarg	,	V_27
+RLIM_INFINITY	,	V_37
+map_fd	,	V_13
+"    -p &lt;vip-service-port&gt; A port range (e.g. 433-444) is also allowed\n"	,	L_8
+"is used to select packets to encapsulate\n\n"	,	L_4
+tmp_max_port	,	V_26
+"Invalid port(s):%s\n"	,	L_16
+IPPROTO_TCP	,	V_43
+getopt	,	F_11
+bpf_map_lookup_elem	,	F_6
+port_str	,	V_21
+vip	,	V_38
+RLIMIT_MEMLOCK	,	V_49
+rlimit	,	V_35
+errno	,	V_52
+bpf_map_update_elem	,	F_16
+AF_INET	,	V_18
+max_port	,	V_23
+tnl	,	V_34
+filename	,	V_39
+"Start a XDP prog which encapsulates incoming packets\n"	,	L_2
+BPF_NOEXIST	,	V_55
+started_at	,	V_6
+cmd	,	V_14
+"    -s &lt;source-ip&gt; Used in the IPTunnel header\n"	,	L_9
+min_port	,	V_22
+ether_aton_r	,	F_12
+dmac	,	V_48
+"Missing argument -%c\n"	,	L_21
+"in an IPv4/v6 header and XDP_TX it out.  The dst &lt;VIP:PORT&gt;\n"	,	L_3
+sum	,	V_12
+"The IP version of the src and dst addresses used in the IP encapsulation does not match\n"	,	L_19
+prog_fd	,	V_51
+sleep	,	F_5
+dport	,	V_54
+"Usage: %s [...]\n"	,	L_5
+parse_ports	,	F_10
+optstr	,	V_32
+"    -a &lt;vip-service-address&gt; IPv4 or IPv6\n"	,	L_7
+ipstr	,	V_15
+saddr	,	V_46
+i	,	V_10
+"    -h Display this help\n"	,	L_14
+time_t	,	T_1
+parse_ipstr	,	F_8
+"    -d &lt;dest-ip&gt; Used in the IPTunnel header\n"	,	L_10
+r	,	V_36
+__u64	,	T_2
+bpf_log_buf	,	V_50
+iptnl_info	,	V_33
+v6	,	V_44
+"%s"	,	L_24
+"    -m &lt;dest-MAC&gt; Used in sending the IP Tunneled pkt\n"	,	L_11
+poll_stats	,	F_3
+STATS_INTERVAL_S	,	V_11
+protocol	,	V_42
+opt_flags	,	V_31
+"    -P &lt;IP-Protocol&gt; Default is TCP\n"	,	L_13
+"setrlimit(RLIMIT_MEMLOCK, RLIM_INFINITY)"	,	L_22
+ifindex	,	V_2
+"i:a:p:s:d:m:T:P:h"	,	L_18
+inet_pton	,	F_9
+stderr	,	V_19
+"bpf_map_update_elem(&amp;vip2tnl)"	,	L_26
+tmp_min_port	,	V_25
+opt	,	V_40
+"Invalid mac address:%s\n"	,	L_20
+ether_addr	,	V_47
+SIGINT	,	V_53
+proto	,	V_9
+nr_cpus	,	V_5
+kill_after_s	,	V_3
+bpf_num_possible_cpus	,	F_4
+values	,	V_7
+int_exit	,	F_1
+load_bpf_file	,	F_14
+"proto %u: sum:%10llu pkts, rate:%10llu pkts/s\n"	,	L_1
+argv	,	V_30
+AF_UNSPEC	,	V_20
+sig	,	V_1
+nr_protos	,	V_4
+"Port range (%s) is larger than %u\n"	,	L_17
+__u32	,	T_3
+"%s is an invalid IP\n"	,	L_15
+end	,	V_24
+addr	,	V_16
+argc	,	V_29
+"link set xdp fd failed\n"	,	L_27
+"    -i &lt;ifindex&gt; Interface Index\n"	,	L_6
+"%s_kern.o"	,	L_23
+AF_INET6	,	V_17
+MAX_IPTNL_ENTRIES	,	V_28
+setrlimit	,	F_13
+daddr	,	V_45
+"load_bpf_file: %s\n"	,	L_25
+family	,	V_41

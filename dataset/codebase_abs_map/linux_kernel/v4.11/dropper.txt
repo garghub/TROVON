@@ -1,0 +1,39 @@
+install_filter	,	F_1
+execv	,	F_6
+BPF_JMP	,	V_9
+BPF_K	,	V_11
+SECCOMP_RET_ALLOW	,	V_15
+nr	,	V_1
+BPF_JUMP	,	F_4
+prctl	,	F_5
+BPF_JEQ	,	V_10
+"prctl(NO_NEW_PRIVS)"	,	L_1
+argv	,	V_22
+len	,	V_18
+BPF_W	,	V_6
+offsetof	,	F_3
+PR_SET_SECCOMP	,	V_20
+AUDIT_ARCH_I386	,	V_24
+SECCOMP_RET_DATA	,	V_14
+BPF_RET	,	V_12
+"Hint:	AUDIT_ARCH_I386: 0x%X\n"	,	L_5
+argc	,	V_21
+sock_fprog	,	V_16
+SECCOMP_RET_ERRNO	,	V_13
+"dropper &lt;syscall_nr&gt; &lt;arch&gt; &lt;errno&gt; &lt;prog&gt; [&lt;args&gt;]\n"	,	L_4
+stderr	,	V_23
+AUDIT_ARCH_X86_64	,	V_25
+"prctl(PR_SET_SECCOMP)"	,	L_2
+BPF_ABS	,	V_7
+prog	,	V_17
+filter	,	V_4
+"	AUDIT_ARCH_X86_64: 0x%X\n"	,	L_6
+sock_filter	,	V_3
+BPF_LD	,	V_5
+"Failed to execv\n"	,	L_8
+BPF_STMT	,	F_2
+arch	,	V_2
+seccomp_data	,	V_8
+"Usage:\n"	,	L_3
+"\n"	,	L_7
+PR_SET_NO_NEW_PRIVS	,	V_19

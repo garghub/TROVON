@@ -1,0 +1,112 @@
+TxPowerTrackControl	,	V_51
+"TxPowerTracking: [OFDM] Swing Current Index: %d, Swing Base Index[%c]: %d\n"	,	L_21
+"[Path-%c] PowerIndexOffset(%d) = DeltaPowerIndex(%d) - DeltaPowerIndexLast(%d)\n"	,	L_15
+delta	,	V_32
+"AVG Thermal Meter = 0x%X, EFUSE Thermal Base = 0x%X\n"	,	L_3
+Modify_TxAGC_Flag_PathB	,	V_24
+PDM_ODM_T	,	T_1
+Modify_TxAGC_Flag_PathA	,	V_23
+"The thermal meter is unchanged or TxPowerTracking OFF(%d): ThermalValue: %d , pDM_Odm-&gt;RFCalibrateInfo.ThermalValue: %d\n"	,	L_19
+DeltaPowerIndexLast	,	V_20
+"reload ofdm index for band switch\n"	,	L_2
+"Temperature(%d) higher than PG value(%d)\n"	,	L_26
+CCK_index	,	V_11
+"\n\n ================================ [Path-%c] Calculating PowerIndexOffset ================================\n"	,	L_14
+Absolute_OFDMSwingIdx	,	V_21
+EEPROMThermalMeter	,	V_27
+RfPathCount	,	V_58
+bTxPowerChanged	,	V_62
+adapter	,	V_30
+ThermalValue_AVG_index	,	V_53
+deltaSwingTableIdx_TDOWN_A	,	V_42
+MIX_MODE	,	V_64
+"&lt;===ODM_TXPowerTrackingCallback_ThermalMeter\n"	,	L_30
+deltaSwingTableIdx_TDOWN_B	,	V_44
+ThermalRegAddr	,	V_50
+ODM_DBG_LOUD	,	V_49
+"===&gt;ODM_TXPowerTrackingCallback_ThermalMeter,\npDM_Odm-&gt;BbSwingIdxCckBase: %d, pDM_Odm-&gt;BbSwingIdxOfdmBase[A]: %d, pDM_Odm-&gt;DefaultOfdmIndex: %d\n"	,	L_1
+"**********Enter POWER Tracking MIX_MODE**********\n"	,	L_27
+delta_IQK	,	V_34
+RFCalibrateInfo	,	V_10
+"\n\n ========================================================================================================\n"	,	L_18
+"Temperature Decreasing(A): delta_pi: %d , delta_t: %d, Now_t: %d, EFUSE_t: %d, Last_t: %d\n"	,	L_24
+channel_all	,	V_67
+"The 'CCK' final index(%d) = BaseIndex(%d) + PowerIndexOffset(%d)\n"	,	L_16
+MAX_RF_PATH	,	V_13
+odmpriv	,	V_31
+ODM_COMP_TX_PWR_TRACK	,	V_48
+hal_com_data	,	V_3
+"TxPowerTracking: [CCK] Swing Current Index: %d, Swing Base Index: %d\n"	,	L_20
+place	,	V_69
+DefaultCckIndex	,	V_8
+TXPowerTrackingCallbackCnt	,	V_46
+u8	,	T_3
+c	,	V_40
+"deltaSwingTableIdx_TUP_A[%d] = %d\n"	,	L_6
+i	,	V_35
+ThermalValue_AVG_count	,	V_36
+ThermalValue_IQK	,	V_28
+p	,	V_6
+GetDeltaSwingTable	,	V_45
+ODM_RF_PATH_B	,	V_59
+ConfigureTxpowerTrack	,	F_1
+ODM_RF_PATH_A	,	V_12
+BbSwingIdxCckBase	,	V_7
+PHY_QueryRFReg	,	F_7
+"pDM_Odm-&gt;RFCalibrateInfo.ThermalValue = %d ThermalValue = %d\n"	,	L_29
+delta_LCK	,	V_33
+"Temperature(%d) lower than PG value(%d)\n"	,	L_28
+"******Temp is lower and pDM_Odm-&gt;Absolute_OFDMSwingIdx[ODM_RF_PATH_B] = %d\n"	,	L_13
+Adapter	,	V_5
+pConfig	,	V_2
+pHalData	,	V_4
+DeltaPowerIndex	,	V_19
+Remnant_OFDMSwingIdx	,	V_22
+"Temperature Increasing(A): delta_pi: %d , delta_t: %d, Now_t: %d, EFUSE_t: %d, Last_t: %d\n"	,	L_22
+deltaSwingTableIdx_TUP_A	,	V_41
+AverageThermalNum	,	V_54
+u32	,	T_4
+SwingTableSize_CCK	,	V_61
+"deltaSwingTableIdx_TUP_B[%d] = %d\n"	,	L_8
+"******Temp is higher and pDM_Odm-&gt;Absolute_OFDMSwingIdx[ODM_RF_PATH_B] = %d\n"	,	L_9
+deltaSwingTableIdx_TUP_B	,	V_43
+PowerIndexOffset	,	V_18
+PHY_LCCalibrate	,	V_56
+ODM_TARGET_CHNL_NUM_2G_5G	,	V_68
+"delta_LCK(%d) &gt;= Threshold_IQK(%d)\n"	,	L_5
+Remnant_CCKSwingIdx	,	V_25
+BbSwingIdxOfdmBase	,	V_14
+ODM_GetRightChnlPlaceforIQK	,	F_8
+ODM_RT_TRACE	,	F_6
+DefaultOfdmIndex	,	V_15
+"******Temp is higher and pDM_Odm-&gt;Absolute_OFDMSwingIdx[ODM_RF_PATH_A] = %d\n"	,	L_7
+ConfigureTxpowerTrack_8723B	,	F_2
+ODM_TXPowerTrackingCallback_ThermalMeter	,	F_5
+TXPWR_TRACK_TABLE_SIZE	,	V_57
+OFDM_min_index	,	V_38
+"Temperature Increasing(B): delta_pi: %d , delta_t: %d, Now_t: %d, EFUSE_t: %d, Last_t: %d\n"	,	L_23
+ThermalValue	,	V_26
+chnl	,	V_66
+"Temperature Decreasing(B): delta_pi: %d , delta_t: %d, Now_t: %d, EFUSE_t: %d, Last_t: %d\n"	,	L_25
+Threshold_IQK	,	V_55
+"******Temp is lower and pDM_Odm-&gt;Absolute_OFDMSwingIdx[ODM_RF_PATH_A] = %d\n"	,	L_11
+ODM_ClearTxPowerTrackingState	,	F_3
+TXPWRTRACK_CFG	,	T_5
+Indexforchannel	,	V_39
+ThermalValue_LCK	,	V_29
+ThermalValue_AVG	,	V_37
+"deltaSwingTableIdx_TDOWN_A[%d] = %d\n"	,	L_10
+SwingTableSize_OFDM	,	V_60
+GET_HAL_DATA	,	F_4
+"deltaSwingTableIdx_TDOWN_B[%d] = %d\n"	,	L_12
+"(delta, delta_LCK, delta_IQK) = (%d, %d, %d)\n"	,	L_4
+bTXPowerTrackingInit	,	V_47
+bReloadtxpowerindex	,	V_52
+"The 'OFDM' final index(%d) = BaseIndex[%c](%d) + PowerIndexOffset(%d)\n"	,	L_17
+OFDM_index	,	V_17
+BbSwingIdxOfdm	,	V_16
+PTXPWRTRACK_CFG	,	T_2
+TXPowercount	,	V_65
+BbSwingIdxCck	,	V_9
+pDM_Odm	,	V_1
+ODM_TxPwrTrackSetPwr	,	V_63

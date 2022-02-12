@@ -1,0 +1,148 @@
+pci_write_config_dword	,	F_19
+exception	,	V_42
+parent	,	V_23
+dw3	,	V_35
+reason	,	V_65
+ENOMEM	,	V_71
+"request IRQ%d failed: %d\n"	,	L_21
+subordinate	,	V_24
+dpc_wait_link_inactive	,	F_6
+pci_bus	,	V_22
+dev_info	,	F_29
+PCI_EXT_CAP_ID_DPC	,	V_72
+dpc_probe	,	F_31
+msleep	,	F_4
+HZ	,	V_5
+pcie_capability_read_word	,	F_7
+dev	,	V_8
+set_service_data	,	F_35
+context	,	V_61
+log_size	,	V_46
+ctl	,	V_69
+PCI_EXP_DPC_CAP	,	V_54
+dpc_remove	,	F_38
+"TLP Prefix Header: dw%d, %#010x\n"	,	L_10
+PCI_EXP_DPC_CAP_POISONED_TLP	,	V_78
+dpc_rp_pio_regs	,	V_36
+ARRAY_SIZE	,	F_24
+dpc_process_rp_pio_error	,	F_27
+work	,	V_20
+PCI_EXP_DPC_RP_PIO_TLPPREFIX_LOG	,	V_58
+dpc_wait_rp_inactive	,	F_1
+dpc_irq	,	F_28
+IRQ_HANDLED	,	V_67
+"DPC root port still busy\n"	,	L_1
+GFP_KERNEL	,	V_70
+device	,	V_10
+rp_pio_error_string	,	V_43
+rp	,	V_25
+status	,	V_11
+pci_read_config_word	,	F_2
+""	,	L_8
+PCI_EXP_DPC_RP_PIO_SYSERROR	,	V_52
+pci_has_subordinate	,	F_14
+"rp_pio_status: %#010x, rp_pio_mask: %#010x\n"	,	L_4
+IRQ_NONE	,	V_64
+dpc_rp_pio_print_tlp_header	,	F_21
+PCI_EXP_DPC_RP_PIO_HEADER_LOG	,	V_56
+"RP PIO severity=%#010x, syserror=%#010x, exception=%#010x\n"	,	L_5
+FLAG	,	F_37
+PCI_EXP_DPC_CTL_EN_NONFATAL	,	V_76
+"ERR_FATAL"	,	L_16
+impspec_log	,	V_47
+PCI_EXP_DPC_RP_PIO_IMPSPEC_LOG	,	V_57
+PCI_EXP_LNKSTA_DLLLA	,	V_18
+"RP PIO error"	,	L_17
+"RP PIO ImpSpec Log %#010x\n"	,	L_9
+EBUSY	,	V_15
+dpc	,	V_2
+PCI_EXP_DPC_SOURCE_ID	,	V_63
+u16	,	T_1
+time_after	,	F_3
+dpcdriver	,	V_81
+PCI_EXP_LNKSTA	,	V_17
+PCI_EXP_DPC_STATUS_INTERRUPT	,	V_29
+rp_pio_status	,	V_26
+INIT_WORK	,	F_34
+rp_pio_regs	,	V_59
+"[%2d] %s%s\n"	,	L_6
+dpc_rp_pio_print_error	,	F_23
+i	,	V_38
+irq	,	V_60
+"DPC %s detected, remove downstream devices\n"	,	L_13
+PCI_EXP_DPC_CAP_RP_EXT	,	V_75
+PCI_EXP_DPC_STATUS_TRIGGER	,	V_28
+header_log	,	V_45
+t	,	V_31
+rp_pio_header_log_regs	,	V_30
+jiffies	,	V_4
+lnk_status	,	V_16
+pci_dev_put	,	F_17
+__init	,	T_4
+"Link state not disabled for DPC event\n"	,	L_2
+"reserved error"	,	L_19
+pcie_device	,	V_68
+dpc_dev	,	V_1
+pcie_port_service_register	,	F_41
+cap_pos	,	V_12
+PCI_EXP_DPC_RP_BUSY	,	V_14
+source	,	V_62
+dpc_service_init	,	F_40
+list_for_each_entry_safe_reverse	,	F_11
+PCI_EXP_DPC_RP_PIO_EXCEPTION	,	V_53
+pci_read_config_dword	,	F_26
+PCI_EXP_DPC_CTL_INT_EN	,	V_77
+pdev	,	V_7
+"DPC containment event, status:%#06x source:%#06x\n"	,	L_12
+u32	,	T_2
+"ERR_NONFATAL"	,	L_15
+"TLP Header: %#010x %#010x %#010x %#010x\n"	,	L_3
+syserror	,	V_41
+pci_walk_bus	,	F_15
+"DPC error containment capabilities: Int Msg #%d, RPExt%c PoisonedTLP%c SwTrigger%c RP PIO Log %d, DL_ActiveErr%c\n"	,	L_22
+" (First)"	,	L_7
+first_error	,	V_44
+PCI_EXP_DPC_CAP_SW_TRIGGER	,	V_79
+PCI_EXP_DPC_RP_PIO_MASK	,	V_50
+"pcie-dpc"	,	L_20
+pci_dev	,	V_6
+port	,	V_9
+pci_lock_rescan_remove	,	F_10
+pci_find_ext_capability	,	F_33
+"unmasked uncorrectable error"	,	L_14
+pci_dev_set_disconnected	,	F_13
+schedule_work	,	F_30
+work_struct	,	V_19
+pci_unlock_rescan_remove	,	F_18
+tlp_prefix_log	,	V_48
+devm_kzalloc	,	F_32
+pci_write_config_word	,	F_20
+PCI_EXP_DPC_RP_PIO_SEVERITY	,	V_51
+pci_dev_get	,	F_12
+pci_stop_and_remove_bus_device	,	F_16
+rp_pio	,	V_37
+PCI_EXP_DPC_STATUS	,	V_13
+timeout	,	V_3
+dev_err	,	F_22
+cap	,	V_49
+PCI_EXP_DPC_RP_PIO_LOG_SIZE	,	V_55
+IRQF_SHARED	,	V_73
+mask	,	V_39
+severity	,	V_40
+temp	,	V_21
+dpc_rp_pio_get_info	,	F_25
+"software trigger"	,	L_18
+irqreturn_t	,	T_3
+dev_warn	,	F_5
+ext_reason	,	V_66
+PCI_EXP_DPC_CTL	,	V_74
+container_of	,	F_9
+get_service_data	,	F_39
+PCI_EXP_DPC_CAP_DL_ACTIVE	,	V_80
+PCI_EXP_DPC_RP_PIO_STATUS	,	V_27
+dw0	,	V_32
+"RP PIO log size %u is invalid\n"	,	L_11
+interrupt_event_handler	,	F_8
+dw2	,	V_34
+dw1	,	V_33
+devm_request_irq	,	F_36

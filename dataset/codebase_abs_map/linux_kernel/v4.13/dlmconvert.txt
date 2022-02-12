@@ -1,0 +1,172 @@
+cpu_to_be32	,	F_26
+dlm_lock_get	,	F_38
+dlm_lookup_lockres	,	F_36
+namelen	,	V_61
+DLM_FORWARD	,	V_68
+convert	,	V_53
+tmpret	,	V_54
+dlm_print_one_lock_resource	,	F_39
+"%.*s\n"	,	L_26
+granted	,	V_25
+"(cookie=%u:%llu, type=%d, conv=%d)\n"	,	L_23
+convert_pending	,	V_49
+"%d to %d...\n"	,	L_14
+len	,	V_36
+"failed to convert NOQUEUE lock %.*s from "	,	L_13
+veclen	,	V_58
+lock	,	V_7
+lvb	,	V_40
+state	,	V_13
+dlm_convert_lock	,	V_52
+DLM_BADARGS	,	V_84
+dlm_domain_fully_joined	,	F_34
+LKM_NOQUEUE	,	V_43
+"node %u returned DLM_MIGRATING from convert "	,	L_29
+dlm_status	,	V_1
+spinlock	,	V_12
+"converting a remote lock that is already "	,	L_19
+cookie	,	V_48
+DLM_LKSB_GET_LVB	,	V_32
+"type=%d, convert_type=%d, new convert_type=%d\n"	,	L_1
+"put lvb"	,	L_38
+"res %.*s, granting %s lock\n"	,	L_11
+be32_to_cpu	,	F_35
+LKM_VALBLK	,	V_26
+LKM_GET_LVB	,	V_51
+"node %u returned DLM_FORWARD from convert "	,	L_30
+DLM_LVB_LEN	,	V_41
+list_move_tail	,	F_18
+node	,	V_38
+dlm_revert_pending_convert	,	F_20
+DLM_NORMAL	,	V_16
+dlm_lock_on_list	,	F_14
+LKM_EXMODE	,	V_27
+dlm_lockres_release_ast	,	F_10
+lksb	,	V_28
+node_num	,	V_39
+dlm_err_to_dlm_status	,	F_30
+status	,	V_11
+"Error %d when sending message %u (key 0x%x) to "	,	L_31
+"conversion pending\n"	,	L_3
+"message!\n"	,	L_28
+dlm_wait_for_node_death	,	F_29
+dlm_lockstatus	,	V_77
+flags	,	V_8
+dlm_lock_put	,	F_41
+DLM_REJECTED	,	V_80
+"owner has already queued and sent ast to me. res %.*s, "	,	L_22
+dlm_lockres_put	,	F_42
+"none"	,	L_40
+LKM_PUT_LVB	,	V_50
+dlm_kick_thread	,	F_11
+iov_base	,	V_63
+dlm_convert_lock_handler	,	F_31
+"into lvb: converting %s-&gt;%s\n"	,	L_10
+"lvb: %s\n"	,	L_37
+assert_spin_locked	,	F_12
+key	,	V_65
+dlm_queue_ast	,	F_9
+LKM_NLMODE	,	V_31
+"attempted to convert a lock with a lock "	,	L_2
+"attempted to convert a lock not on grant "	,	L_4
+DLM_IVLOCKID	,	V_85
+LKM_PRMODE	,	V_30
+cnv	,	V_74
+ML_ERROR	,	V_22
+DLM_MIGRATING	,	V_67
+tmplock	,	V_18
+DLM_LKSB_PUT_LVB	,	V_29
+buf	,	V_75
+__dlm_print_one_lock_resource	,	F_19
+LKM_IVMODE	,	V_21
+DLM_RECOVERING	,	V_46
+dlm_send_remote_convert_request	,	F_25
+kvec	,	V_56
+requested_type	,	V_60
+"will fetch new value into "	,	L_7
+"lvb: converting %s-&gt;%s\n"	,	L_8
+msg	,	V_71
+mlog	,	F_13
+data	,	V_72
+converting	,	V_44
+__dlm_wait_on_lockres	,	F_3
+"will NOT fetch new value "	,	L_9
+wake_up	,	F_7
+size_t	,	T_1
+dlm_error	,	F_8
+bail	,	V_47
+dlmconvert_master	,	F_1
+ast_reserved	,	V_78
+DLM_NOTQUEUED	,	V_17
+wake	,	V_79
+vec	,	V_57
+u32	,	T_2
+"res %.*s, queueing...\n"	,	L_15
+o2net_send_message_vec	,	F_27
+leave	,	V_83
+DLM_LOCK_RES_RECOVERING	,	V_45
+"Domain %s not fully joined!\n"	,	L_35
+"converting! (cookie=%u:%llu, conv=%d)\n"	,	L_20
+call_ast	,	V_9
+ml	,	V_19
+ret	,	V_55
+res	,	V_5
+o2net_msg	,	V_70
+DLM_DENIED	,	V_23
+"node %u\n"	,	L_32
+unlock_exit	,	V_24
+list	,	V_42
+dlmconvert_remote	,	F_21
+DLM_CONVERT_LOCK_MSG	,	V_64
+"bailing out early since res is RECOVERING "	,	L_17
+DLM_LOCK_RES_IN_PROGRESS	,	V_14
+dlm_is_host_down	,	F_28
+"both PUT and GET lvb specified\n"	,	L_36
+switch_queues	,	V_34
+"did not find lock to convert on grant queue! "	,	L_41
+kick_thread	,	V_10
+dlm_lock_mode_name	,	F_15
+name	,	V_37
+"type=%d, convert_type=%d, busy=%d\n"	,	L_16
+list_for_each_entry	,	F_16
+dlm_lock	,	V_6
+BUG_ON	,	F_40
+dlm_ctxt	,	V_2
+"on secondary queue\n"	,	L_18
+tmp_lock	,	V_76
+__dlmconvert_master	,	F_5
+"last convert request returned DLM_RECOVERING, but "	,	L_21
+"from convert message!\n"	,	L_34
+"will set lvb: converting %s-&gt;%s\n"	,	L_6
+dlm_put	,	F_43
+dlm_lock_compatible	,	F_17
+"cookie=%u:%llu\n"	,	L_42
+dlm_get_lock_cookie_seq	,	F_24
+spin_lock	,	F_2
+wq	,	V_15
+"get lvb"	,	L_39
+__dlm_lockres_reserve_ast	,	F_4
+owner	,	V_66
+mlog_bug_on_msg	,	F_33
+dlm	,	V_3
+dlm_grab	,	F_32
+DLM_IVBUFLEN	,	V_82
+iov_len	,	V_62
+"node %u died so returning DLM_RECOVERING "	,	L_33
+dlm_lock_resource	,	V_4
+spin_unlock	,	F_6
+"node %u returned DLM_RECOVERING from convert "	,	L_27
+DLM_NODE_DEATH_WAIT_MAX	,	V_69
+dlm_get_lock_cookie_node	,	F_22
+DLM_LOCKID_NAME_MAX	,	V_81
+"queue\n"	,	L_5
+lockname	,	V_35
+convert_type	,	V_20
+"doing in-place convert for nonlocal lock\n"	,	L_12
+node_idx	,	V_59
+"to granted list, retry convert.\n"	,	L_25
+"%s: res %.*s, owner died and lock has been moved back "	,	L_24
+grant	,	V_33
+__dlm_lockres_state_to_status	,	F_37
+be64_to_cpu	,	F_23
+ret_data	,	V_73

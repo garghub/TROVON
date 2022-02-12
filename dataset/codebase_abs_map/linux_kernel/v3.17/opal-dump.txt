@@ -1,0 +1,143 @@
+cpu_to_be32	,	F_24
+ENOMEM	,	V_27
+"%s: Initiated FSP dump\n"	,	L_11
+initiate_attr_group	,	V_56
+uint64_t	,	T_7
+opal_dump_init	,	F_13
+dump_release	,	F_20
+msleep	,	F_36
+process_dump	,	F_46
+opal_poll_events	,	F_35
+"%s: Extract dump failed for ID 0x%x\n"	,	L_14
+sysfs_create_group	,	F_54
+to_dump_obj	,	F_18
+len	,	V_17
+"0x%x %s\n"	,	L_6
+dump_nb	,	V_57
+pr_warn	,	F_7
+id	,	V_5
+opal_kobj	,	V_55
+sysfs_create_bin_file	,	F_44
+events	,	V_52
+dump_attr_read	,	F_38
+OPAL_SUCCESS	,	V_31
+"%s: Can't register OPAL event notifier (%d)\n"	,	L_21
+kset	,	V_39
+work	,	V_48
+vzalloc	,	F_29
+EIO	,	V_16
+create_dump_obj	,	F_39
+be32_to_cpu	,	F_27
+dump_attribute	,	V_2
+loff_t	,	T_8
+rc	,	V_7
+size	,	V_22
+__func__	,	V_8
+bin_attribute	,	V_35
+"%s: New platform dump. ID = 0x%x Size %u\n"	,	L_18
+kobject_uevent	,	F_45
+dump_read_info	,	F_23
+pr_err	,	F_31
+uint8_t	,	T_5
+dump_read_data	,	F_28
+"%s: Failed to create initiate dump attr group\n"	,	L_20
+GFP_KERNEL	,	V_38
+dump_type_show	,	F_3
+int64_t	,	T_3
+dump_attr_store	,	F_19
+dump_work	,	V_49
+ssize_t	,	T_1
+kfree	,	F_22
+__be32	,	T_6
+"0x%x\n"	,	L_1
+"ack - acknowledge dump\n"	,	L_7
+sysfs_remove_file_self	,	F_9
+vfree	,	F_21
+out	,	V_28
+kobject	,	V_12
+file	,	V_33
+pos	,	V_37
+dump_size	,	V_20
+attribute	,	V_13
+opal_dump_resend_notification	,	F_56
+dump_fips_init	,	F_12
+dump_id_show	,	F_1
+"%s: Failed to send ack to Dump ID 0x%x (%d)\n"	,	L_8
+pr_info	,	F_15
+change	,	V_53
+uint32_t	,	T_2
+store	,	V_18
+dump_type_to_string	,	F_2
+dump_attr	,	V_42
+"dump"	,	L_16
+buf	,	V_4
+opal_notifier_register	,	F_55
+OPAL_BUSY	,	V_30
+__init	,	T_9
+dump_ack_show	,	F_4
+notifier_block	,	V_50
+dump_ack_store	,	F_8
+"1 - initiate dump\n"	,	L_9
+kobject_add	,	F_43
+"%s: Failed to create dump kset\n"	,	L_19
+"0x%x-0x%x"	,	L_17
+to_dump_attr	,	F_17
+kset_create_and_add	,	F_53
+kobject_put	,	F_10
+opal_dump_read	,	F_34
+size_t	,	T_4
+dump_id	,	V_6
+KOBJ_ADD	,	V_46
+mode	,	V_44
+bin_attr	,	V_36
+dump_send_ack	,	F_5
+kset_find_obj	,	F_47
+dump_type	,	V_21
+buffer	,	V_19
+"%s: Platform dump partially read.ID = 0x%x\n"	,	L_15
+PAGE_ALIGN	,	F_30
+kobj	,	V_10
+read	,	V_45
+opal_dump_info	,	F_26
+"System/Platform Dump"	,	L_3
+count	,	V_9
+dump_obj	,	V_1
+list	,	V_25
+OPAL_BUSY_EVENT	,	V_29
+nb	,	V_51
+dump_kset	,	V_40
+OPAL_PARTIAL	,	V_32
+"SP Dump"	,	L_2
+name	,	V_43
+OPAL_EVENT_DUMP_AVAIL	,	V_54
+dump_attr_show	,	F_16
+filep	,	V_34
+schedule_work	,	F_50
+"%s: Failed to initiate FipS dump (%d)\n"	,	L_10
+work_struct	,	V_47
+opal_sg_list	,	V_24
+"SMA Dump"	,	L_4
+opal_dump_info2	,	F_25
+opal_dump_ack	,	F_6
+init_dump_show	,	F_11
+show	,	V_15
+opal_platform_dump_init	,	F_52
+opal_vmalloc_to_sg_list	,	F_32
+sysfs_bin_attr_init	,	F_42
+kzalloc	,	F_40
+dump	,	V_14
+"%s: Failed to get dump info (%d)\n"	,	L_12
+attr	,	V_3
+DUMP_TYPE_FSP	,	V_11
+addr	,	V_26
+dump_ktype	,	V_41
+kobject_init	,	F_41
+OPAL_PARAMETER	,	V_23
+opal_free_sg_list	,	F_37
+init_dump_store	,	F_14
+"%s : Failed to allocate memory\n"	,	L_13
+"unknown"	,	L_5
+dump_work_fn	,	F_48
+dump_event	,	F_51
+__pa	,	F_33
+schedule_process_dump	,	F_49

@@ -1,0 +1,382 @@
+h_24x7_get_value	,	F_87
+parent	,	V_79
+cpu_to_be32	,	F_74
+"%s\n"	,	L_18
+sindex	,	V_25
+"catalog event %u: domain %u is not allowed in the "	,	L_25
+prev	,	V_194
+"creation failure\n"	,	L_24
+exclude_hv	,	V_186
+name_max	,	V_46
+__be16	,	T_5
+page_to_phys	,	F_42
+device_str_attr_create	,	F_30
+collect_privileged	,	V_191
+len	,	V_4
+"%s: start=%p + nl=%u &gt; end=%p"	,	L_4
+dev	,	V_34
+desc_ct	,	V_111
+"h_get_24x7_catalog_page(ver=%lld, page=%lld) failed:"	,	L_46
+"could not obtain capabilities, not enabling, rc=%ld\n"	,	L_60
+pr_warn	,	F_16
+pmu	,	V_179
+h_24x7_event_init	,	F_80
+kmem_cache_create	,	F_98
+"event %zu (%.*s) has invalid domain %d\n"	,	L_42
+hv_24x7_request_buffer	,	V_145
+hv_perf_caps	,	V_177
+s1	,	V_69
+events	,	V_114
+"read %zu catalog entries, created %zu event attrs (%zu failures), %zu descs\n"	,	L_45
+s2	,	V_71
+ARRAY_SIZE	,	F_37
+"catalog event data has %zu bytes of padding after last event\n"	,	L_28
+exclude_user	,	V_184
+page_0	,	V_118
+memdup_to_str	,	F_25
+pr_devel	,	F_18
+"hv-page-4096"	,	L_61
+device_str_attr_destroy	,	F_32
+EIO	,	V_125
+version	,	V_20
+"core"	,	L_13
+event_data_to_attrs	,	F_36
+loff_t	,	T_12
+str	,	V_43
+node	,	V_84
+exclude_idle	,	V_187
+catalog_page_len	,	V_104
+domain	,	V_1
+pr_err	,	F_58
+" rc=%ld\n"	,	L_47
+GFP_KERNEL	,	V_27
+pr_notice_ratelimited	,	F_66
+detailed_rc	,	V_156
+device	,	V_33
+event_get_domain	,	F_70
+hv_24x7_request	,	V_149
+DOMAIN	,	F_2
+ssize_t	,	T_9
+H24x7_DATA_BUFFER_SIZE	,	V_161
+catalog_event_len_validate	,	F_53
+num_requests	,	V_164
+exclude_kernel	,	V_185
+event_fixed_portion_is_within	,	F_11
+d1	,	V_68
+d2	,	V_70
+failing_request_ix	,	V_157
+"unknown domain %d\n"	,	L_1
+result	,	V_83
+MAX_4K	,	V_127
+RB_ROOT	,	V_122
+kobject	,	V_137
+event_end	,	F_13
+pos	,	V_89
+"not a virtualized system, not enabling\n"	,	L_59
+prev_count	,	V_196
+"invalid page count: %zu\n"	,	L_34
+vmalloc_to_phys	,	F_39
+event_get_core	,	F_71
+event_get_reserved2	,	F_82
+attribute	,	V_41
+event_get_reserved3	,	F_83
+event_get_reserved1	,	F_81
+a	,	V_50
+c	,	T_4
+d	,	V_39
+"could not allocate event data\n"	,	L_39
+pr_info	,	F_47
+max_ix	,	V_168
+"found a duplicate event %.*s, ct=%u\n"	,	L_27
+i	,	V_63
+uint32_t	,	T_11
+catalog_read	,	F_64
+"%s: start=%p + nl=%u + dl=%u + ldl=%u &gt; end=%p"	,	L_10
+add_event_to_24x7_request	,	F_69
+phys_4096	,	V_19
+ENOENT	,	V_180
+EOPNOTSUPP	,	V_190
+n	,	T_1
+local64_xchg	,	F_89
+__u8	,	V_98
+event_attr_ct	,	V_108
+p	,	V_67
+s64	,	T_15
+ct	,	V_87
+buf	,	V_37
+r	,	V_74
+s	,	V_49
+v	,	T_2
+x	,	T_3
+"event %zu has .length=%zu, ends after buffer end: ev_end=%pK &gt; end=%pK, offset=%zu\n"	,	L_31
+v1	,	V_72
+starting_ix	,	V_154
+v2	,	V_73
+event_idx	,	V_90
+HV_PERF_DOMAIN_PHYS_CORE	,	V_65
+config	,	V_181
+event_get_vcpu	,	F_72
+request_buffer	,	V_146
+ev_len	,	V_94
+event_to_attr	,	F_33
+lpar	,	V_26
+"invalid event %zu (%.*s): group_record_len == 0, skipping\n"	,	L_41
+dl	,	V_15
+domain_is_valid	,	F_4
+event_data	,	V_120
+event_fmt	,	F_23
+single_24x7_request	,	F_77
+"%s: name length too short: %d"	,	L_3
+long_desc_ct	,	V_112
+be16_to_cpu	,	F_8
+h_get_24x7_catalog_page_	,	F_17
+kasprintf	,	F_24
+results	,	V_174
+kobj	,	V_138
+req	,	V_150
+rb_root	,	V_75
+ret	,	V_123
+event_desc_group	,	V_206
+h_24x7_pmu	,	V_202
+"cv %zu cl %zu eec %zu edo %zu edl %zu\n"	,	L_35
+count	,	V_141
+HV_PERF_DOMAIN_PHYS_CHIP	,	V_64
+"0x0"	,	L_12
+event_uniq	,	V_80
+name_nonce	,	V_47
+dev_ext_attribute	,	V_38
+event_to_desc_attr	,	F_34
+WARN	,	F_3
+ev	,	V_3
+"event %zu exceeds it's own length: event=%pK, end=%pK, offset=%zu, calc_ev_end=%pK\n"	,	L_33
+h_get_24x7_catalog_page	,	F_21
+event_idx_last	,	V_110
+name	,	V_42
+event_get_lpar	,	F_76
+out_val	,	V_59
+page	,	V_23
+event_counter_offs	,	V_28
+"vcpu"	,	L_15
+offset_in_page	,	F_43
+idx	,	V_163
+"hv permissions disallow: is_physical_domain:%d, lpar=0x%llx\n"	,	L_57
+event_group_record_len	,	V_132
+desc	,	V_61
+event_group	,	V_205
+event_name_len	,	V_5
+perf_event	,	V_162
+element_data	,	V_176
+BUG_ON	,	F_41
+ev_name	,	V_55
+show	,	V_45
+"catalog event %u: individual attr %u "	,	L_23
+"desc len not aligned %p"	,	L_5
+device_str_attr_create_	,	F_28
+rb_link_node	,	F_49
+has_branch_stack	,	F_84
+caps	,	V_178
+e_event_data	,	V_131
+kzalloc	,	F_29
+dl_	,	V_13
+"failed to get event data in page %zu\n"	,	L_40
+root	,	V_76
+kmalloc	,	F_48
+now	,	V_193
+ldl_	,	V_14
+end	,	V_11
+calc_ev_end	,	V_96
+catalog_entry_domain_is_valid	,	F_6
+cpu_to_be16	,	F_73
+EACCES	,	V_192
+vmalloc_to_page	,	F_40
+event_to_long_desc_attr	,	F_35
+h_24x7_event_add	,	F_95
+capabilities	,	V_203
+maybe_str	,	V_30
+device_show_string	,	F_26
+"%s: long desc len too short (ldl=%u)"	,	L_9
+long_desc_len	,	V_10
+start	,	V_12
+length	,	V_97
+h_24x7_event_read	,	F_91
+event_group_record_offs	,	V_29
+starting_lpar_ix	,	V_155
+max_len	,	V_31
+"reserved set when forbidden 0x%llx(0x%llx) 0x%llx(0x%llx) 0x%llx(0x%llx)\n"	,	L_53
+H_GET_24X7_DATA	,	V_160
+event_long_descs	,	V_116
+perf_pmu_register	,	F_99
+gfp_t	,	T_8
+"test hcall failed\n"	,	L_58
+pr_debug	,	F_14
+ENOMEM	,	V_88
+"event %zu fixed portion is not within range\n"	,	L_29
+uint64_t	,	T_13
+h_24x7_event_stop	,	F_94
+hret	,	V_102
+HV_24X7_IF_VERSION_CURRENT	,	V_159
+rbtree_postorder_for_each_entry_safe	,	F_52
+event_long_descs_	,	V_101
+"bad alignment\n"	,	L_54
+"invalid domain %d\n"	,	L_55
+"event_entry_count %zu is invalid\n"	,	L_38
+hw	,	V_195
+kmalloc_array	,	F_61
+ev_uniq_ord	,	F_45
+catalog_len	,	V_103
+"__UNKNOWN_DOMAIN_SUFFIX"	,	L_2
+BUILD_BUG_ON	,	F_60
+make_24x7_request	,	F_68
+put_cpu_var	,	F_79
+attr_max	,	V_109
+val	,	V_57
+"event %zu (%.*s) creation failure, skipping\n"	,	L_44
+data_size	,	V_166
+event_descs_	,	V_100
+"could not get capabilities: rc=%ld\n"	,	L_56
+hv_24x7_catalog_page_0	,	V_117
+var	,	V_40
+core_domains	,	V_66
+"catalog\n"	,	L_26
+index	,	V_21
+event_domain_suffix	,	F_1
+"%.*s__%d"	,	L_19
+it	,	V_82
+interface_version	,	V_158
+event_data_bytes	,	V_91
+be32_to_cpu	,	F_57
+memord	,	F_44
+ix	,	V_53
+attrs	,	V_62
+"catalog_len=%zu(%zu) =&gt; %zd\n"	,	L_49
+create_events_from_catalog	,	F_54
+SIZE_MAX	,	V_128
+__func__	,	V_17
+bin_attribute	,	V_139
+PAGE_SIZE	,	V_130
+event_uniq_destroy	,	F_51
+"long desc len not aligned %p"	,	L_8
+init_24x7_request	,	F_67
+plpar_hcall_norets	,	F_20
+hv_24x7_init	,	F_96
+ENODEV	,	V_201
+kfree	,	F_31
+MAX_EVENTS_PER_EVENT_DATA	,	V_129
+exclude_guest	,	V_189
+ev_end	,	V_95
+flags	,	V_197
+"Too many requests for 24x7 HCALL %d\n"	,	L_52
+requests	,	V_151
+vfree	,	F_62
+result_buffer	,	V_148
+"event %zu has length %zu not divisible by 16: event=%pK\n"	,	L_30
+kmem_cache_alloc	,	F_55
+out	,	V_173
+"%.*s%s"	,	L_21
+file	,	V_135
+"domain=0x%x,offset=0x%x,%s=?,lpar=%s"	,	L_16
+"%s: (start=%p + nl=%u + dl=%u)=%p &gt; end=%p"	,	L_7
+offsetof	,	F_12
+u16	,	T_14
+event	,	V_24
+event_long_desc	,	F_10
+max_num_lpars	,	V_167
+"?"	,	L_14
+hv_24x7_data_result_buffer	,	V_147
+a_ev_name	,	V_56
+"event data %zu-%zu does not fit inside catalog 0-%zu\n"	,	L_37
+firmware_has_feature	,	F_97
+virt_to_phys	,	F_22
+gfp	,	V_32
+EINVAL	,	V_165
+PERF_PMU_CAP_NO_INTERRUPT	,	V_204
+get_cpu_var	,	F_78
+vmalloc	,	F_59
+event_get_offset	,	F_75
+elements	,	V_175
+"event buffer ended before listed # of events were parsed (got %zu, wanted %zu, junk %zu)\n"	,	L_43
+event_long_desc_group	,	V_207
+config2	,	V_183
+desc_len_	,	V_9
+h_24x7_event_start	,	F_92
+PERF_EF_RELOAD	,	V_198
+str_max	,	V_48
+data	,	V_81
+ev_suffix	,	V_58
+is_physical_domain	,	F_5
+device_attribute	,	V_35
+size_t	,	T_10
+mode	,	V_44
+update_event_count	,	F_88
+out_s	,	V_51
+event_data_len	,	V_105
+"catalog_read: offset=%lld(%lld) count=%zu "	,	L_48
+hv_perf_caps_get	,	F_85
+events_	,	V_99
+e_event_attrs	,	V_133
+u32	,	T_7
+hv_page_cache	,	V_119
+bin_attr	,	V_140
+copy_len	,	V_143
+rb_left	,	V_85
+log_24x7_hcall	,	F_65
+rb_node	,	V_77
+config1	,	V_182
+new	,	V_78
+"ret 0x%lx (%ld) detail=0x%x failing ix=%x\n"	,	L_51
+"%.*s%s__%d"	,	L_22
+"event %zu has a calculated length which exceeds buffer length %zu: event=%pK end=%pK, offset=%zu\n"	,	L_32
+event_to_attr_ct	,	F_38
+offset	,	V_93
+catalog_version_num	,	V_113
+local64_add	,	F_90
+filp	,	V_136
+uintptr_t	,	V_18
+page_offset	,	V_142
+"%.*s"	,	L_17
+nonce	,	V_54
+junk_events	,	V_107
+"h_get_24x7_catalog_page(0x%lx, %lu, %lu)"	,	L_11
+rb_right	,	V_86
+event_desc	,	F_9
+PERF_EF_START	,	V_199
+GFP_USER	,	V_144
+hv_24x7_reqb	,	V_171
+event_name	,	F_7
+rb_insert_color	,	F_50
+"catalog event %u has invalid domain %u\n"	,	L_20
+event_uniq_add	,	F_46
+nl	,	V_7
+exclude_host	,	V_188
+e_free	,	V_126
+FW_FEATURE_LPAR	,	V_200
+"%s: desc len too short: %d"	,	L_6
+e_out	,	V_124
+event_get_lpar_max	,	F_86
+"invalid event data offs %zu and/or len %zu\n"	,	L_36
+hv_24x7_event_data	,	V_2
+event_entry_count	,	V_92
+desc_len	,	V_8
+e_event_descs	,	V_134
+IS_ALIGNED	,	F_15
+H_GET_24X7_CATALOG_PAGE	,	V_22
+kmem_cache_free	,	F_63
+hv_24x7_result	,	V_169
+attr	,	V_36
+local64_set	,	F_93
+out_name	,	V_60
+event_descs	,	V_115
+hv_24x7_resb	,	V_172
+WARN_ON	,	F_19
+ev_uniq	,	V_121
+data_offset	,	V_153
+out_n	,	V_52
+u64	,	T_6
+container_of	,	F_27
+performance_domain	,	V_152
+ldl	,	V_16
+resb	,	V_170
+"hcall failed: [%d %#x %#x %d] =&gt; "	,	L_50
+remainder	,	V_6
+event_data_offs	,	V_106
+be64_to_cpu	,	F_56

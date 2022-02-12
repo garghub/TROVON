@@ -1,0 +1,216 @@
+MKBYTE	,	F_14
+pvBuffer	,	V_109
+MKWORD	,	F_20
+DSP_IsaSlaveControl	,	V_15
+"3780i::dsp3780I_ReadDStore entry usDspBaseIO %x, pusBuffer %p, uCount %x, ulDSPAddr %lx\n"	,	L_26
+DSP_BUSMASTER_CFG_2	,	T_8
+DSP_BUSMASTER_CFG_1	,	T_7
+usM_Multiplier	,	V_80
+DSP_BusMasterCfg2Index	,	V_88
+"3780i::dsp3780I_ReadMsaCfg exit val %x\n"	,	L_2
+uCount	,	V_110
+usReRequest	,	V_62
+SoftReset	,	V_84
+tval	,	V_38
+DSP_HBridgeCfg1Index	,	V_85
+bUartIrqActiveLow	,	V_45
+rHBusTimerCfg	,	V_31
+__user	,	T_18
+PllBypass	,	V_81
+"3780I::dsp3780I_WriteIStore exit bRC=true\n"	,	L_40
+EIO	,	V_41
+bUartIrqPulse	,	V_47
+PRINTK_ERROR	,	F_19
+DSP_MspBootDomain	,	V_108
+"3780i::dsp3780i_EnableDSP DSP_HBridgeControl %x rHBridgeControl %x\n"	,	L_15
+InByteDsp	,	F_15
+val_hi	,	V_116
+"3780i::dsp3780i_WriteMsaCfg entry usDspBaseIO %x ulMsaAddr %lx usValue %x\n"	,	L_3
+"3780I::dsp3780I_ReadDStore exit bRC=true\n"	,	L_28
+Halt	,	V_106
+dsp3780I_Run	,	F_26
+rChipReset	,	V_33
+DSP_UartCfg1Index	,	V_92
+DSP_ReadAndClear	,	V_114
+Irq	,	V_48
+ulMsaAddr	,	V_2
+"3780i::dsp3780I_ReadAndDStore entry usDspBaseIO %x, pusBuffer %p, uCount %x, ulDSPAddr %lx\n"	,	L_29
+"3780i::dsp3780I_WriteIStore entry usDspBaseIO %x, pusBuffer %p, uCount %x, ulDSPAddr %lx\n"	,	L_38
+DSP_ISA_PROT_CFG	,	T_9
+Enable	,	V_52
+usDspDma	,	V_58
+dsp3780I_EnableDSP	,	F_18
+usUartBaseIO	,	V_50
+EnableDspInt	,	V_94
+i	,	V_22
+pusBuffer	,	V_112
+NMI	,	V_107
+DSP_HBridgeControl	,	V_98
+"3780I::dsp3780D_WriteDStore exit bRC=true\n"	,	L_34
+dsp3780I_WriteIStore	,	F_34
+"3780i::dsp3780I_EnableDSP: Error: DSP not enabled. Aborting.\n"	,	L_9
+DSP_POWER_MGMT_CFG	,	T_10
+rLBusTimeoutDisable	,	V_32
+ConfigMode	,	V_16
+uIndex	,	V_11
+dsp3780I_GetIPCSource	,	F_35
+"3780i::dsp3780i_Run entry\n"	,	L_23
+"3780i::dsp3780i_EnableDSP rSlaveContrl %x\n"	,	L_12
+"3780i::dsp3780i_Run rHBridgeControl %x\n"	,	L_24
+IrqActiveLow	,	V_44
+"3780i::dsp3780i_Reset exit bRC=0\n"	,	L_22
+"3780I::dsp3780I_WriteDStore uCount %x val %x\n"	,	L_33
+MEMCS16	,	V_63
+ucValue	,	V_12
+ReadMsaCfg	,	F_23
+MemAutoInc	,	V_95
+M_Multiplier	,	V_79
+DSP_HBUS_TIMER_CFG	,	T_11
+DSP_MsaAddrLow	,	V_7
+"3780i::dsp3780I_GetIPCSource, usIPCSource %x ~ %x\n"	,	L_42
+bDSPEnabled	,	V_39
+DSP_Interrupt	,	V_120
+DisableTimeout	,	V_72
+PRINTK_2	,	F_10
+spin_unlock_irqrestore	,	F_9
+PRINTK_1	,	F_17
+PRINTK_4	,	F_12
+dsp3780I_ReadAndClearDStore	,	F_30
+PRINTK_3	,	F_5
+DSP_BOOT_DOMAIN	,	T_17
+PRINTK_5	,	F_28
+ChipID	,	V_37
+DSP_UartCfg2Index	,	V_93
+pusIPCSource	,	V_118
+rSlaveControl_Save	,	V_14
+DSP_LBusTimeoutDisable	,	V_99
+get_user	,	F_32
+dsp3780I_WriteGenCfg	,	F_13
+bEnableMEMCS16	,	V_64
+dsp3780I_WriteDStore	,	F_31
+WriteMsaCfg	,	F_22
+usDspIrq	,	V_55
+DSP_IsaProtCfgIndex	,	V_89
+DSP_ClockControl_2	,	V_101
+Dma	,	V_57
+ClockControl	,	V_83
+DSP_HBRIDGE_CONTROL	,	T_16
+"3780i::dsp3780i_WriteGenCfg entry rSlaveControl+ConfigMode %x\n"	,	L_6
+usUartIrq	,	V_49
+usHBusTimerLoadValue	,	V_71
+"3780I::dsp3780I_ReadIStore uCount %x val_lo %x val_hi %x\n"	,	L_36
+DSP_ChipReset	,	V_102
+DSP_ClockControl_1	,	V_100
+"3780i::dsp3780I_EnableDSP entry pSettings-&gt;bDSPEnabled %x\n"	,	L_8
+OutByteDsp	,	F_16
+ReRequest	,	V_61
+dsp3780I_ReadMsaCfg	,	F_4
+bDisableLBusTimeout	,	V_73
+DSP_CHIP_RESET	,	T_13
+PaceMsaAccess	,	F_1
+"3780i::dsp3780i_DisableDSP entry\n"	,	L_17
+dsp_lock	,	V_6
+bEnablePwrMgmt	,	V_69
+usValue	,	V_10
+rBusmasterCfg1	,	V_27
+rPowerMgmtCfg	,	V_30
+DSP_ISA_SLAVE_CONTROL	,	T_1
+rBusmasterCfg2	,	V_28
+"3780i::dsp3780D_WriteDStore entry usDspBaseIO %x, pusBuffer %p, uCount %x, ulDSPAddr %lx\n"	,	L_32
+"3780i::dsp3780i_EnableDSP entry pSettings-&gt;bModemEnabled %x\n"	,	L_10
+IrqPulse	,	V_46
+val	,	V_4
+TRACE_3780I	,	V_5
+pDmaMap	,	V_21
+bDspIrqActiveLow	,	V_53
+dsp3780I_DisableDSP	,	F_24
+"3780i::dsp3780I_ReadMsaCfg entry usDspBaseIO %x ulMsaAddr %lx\n"	,	L_1
+IsaMemCmdWidth	,	V_65
+ulDSPAddr	,	V_111
+"3780i::dsp3780i_EnableDSP usDspBaseIO %x index %x taddr %x\n"	,	L_11
+DSP_HBridgeCfg2Index	,	V_86
+InWordDsp	,	F_8
+DSP_PowerMgCfgIndex	,	V_90
+NumTransfers	,	V_59
+"3780i::dsp3780i_EnableDSP rSlaveControl 3 %x\n"	,	L_14
+DSP_BusMasterCfg1Index	,	V_87
+flags	,	V_3
+"3780i::dsp3780i_Reset entry\n"	,	L_19
+rUartCfg1	,	V_23
+dsp3780I_Reset	,	F_25
+rUartCfg2	,	V_24
+"3780i::dsp3780I_EnableDSP exiting bRC=true, ChipID %x\n"	,	L_16
+"3780i::dsp3780I_GetIPCSource exit usIPCSource %x\n"	,	L_43
+IoAutoInc	,	V_96
+GateIOCHRDY	,	V_67
+DSP_HBRIDGE_CFG_1	,	T_5
+DSP_HBRIDGE_CFG_2	,	T_6
+DSP_ChipID	,	V_103
+"3780i::dsp3780I_GetIPCSource entry usDspBaseIO %x pusIPCSource %p\n"	,	L_41
+cond_resched	,	F_2
+usN_Divisor	,	V_78
+OutWordDsp	,	F_7
+usDspBaseIO	,	V_1
+ResetCore	,	V_105
+DSP_LBUS_TIMEOUT_DISABLE	,	T_12
+rClockControl1	,	V_34
+EFAULT	,	V_113
+"3780I::dsp3780I_ReadDStore uCount %x val %x\n"	,	L_27
+rClockControl2	,	V_35
+DSP_MsaDataISLow	,	V_117
+"3780I::dsp3780I_ReadAndCleanDStore uCount %x val %x\n"	,	L_30
+dsp3780I_ReadIStore	,	F_33
+udelay	,	F_3
+"3780i::dsp3780i_WriteGenCfg entry usDspBaseIO %x uIndex %x ucValue %x\n"	,	L_4
+DiagnosticMode	,	V_97
+"3780I::dsp3780I_ReadIStore exit bRC=true\n"	,	L_37
+DSP_UART_CFG_1	,	T_3
+val_lo	,	V_115
+DSP_UART_CFG_2	,	T_4
+DSP_ConfigAddress	,	V_17
+rSlaveControl	,	V_13
+"3780i::dsp3780i_Reset rBootDomain %x\n"	,	L_21
+DSP_MsaDataDSISHigh	,	V_9
+usNumTransfers	,	V_60
+"3780i::dsp3780i_EnableDSP rSlaveControl 2 %x\n"	,	L_13
+"3780I::dsp3780I_WriteIStore uCount %x val_lo %x val_hi %x\n"	,	L_39
+bModemEnabled	,	V_42
+pIrqMap	,	V_20
+rBootDomain	,	V_104
+DSP_ConfigData	,	V_18
+"3780i::dsp3780i_Reset rHBridgeControl %x\n"	,	L_20
+"3780I::dsp3780I_ReadAndClearDStore exit bRC=true\n"	,	L_31
+bPllBypass	,	V_82
+"3780i::dsp3780I_ReadIStore entry usDspBaseIO %x, pusBuffer %p, uCount %x, ulDSPAddr %lx\n"	,	L_35
+spin_lock_irqsave	,	F_6
+LoadValue	,	V_70
+"3780i::dsp3780i_DisableDSP exit\n"	,	L_18
+rIsaProtCfg	,	V_29
+rHBridgeCfg2	,	V_26
+rHBridgeCfg1	,	V_25
+Reserved	,	V_43
+DSP_CLOCK_CONTROL_2	,	T_15
+DSP_CLOCK_CONTROL_1	,	T_14
+"3780i::dsp3780i_Run exit bRC=true\n"	,	L_25
+DSP_HBusTimerCfgIndex	,	V_91
+usIsaMemCmdWidth	,	V_66
+dsp3780I_ReadDStore	,	F_27
+WriteGenCfg	,	F_21
+rHBridgeControl	,	V_36
+put_user	,	F_29
+temp	,	V_119
+N_Divisor	,	V_77
+usChipletEnable	,	V_74
+bGateIOCHRDY	,	V_68
+Reserved1	,	V_75
+bDspIrqPulse	,	V_54
+Reserved2	,	V_76
+DSP_3780I_CONFIG_SETTINGS	,	T_2
+dsp3780I_WriteMsaCfg	,	F_11
+"3780i::dsp3780i_WriteGenCfg exit\n"	,	L_7
+KERN_ERR	,	V_40
+BaseIO	,	V_51
+AccessMode	,	V_56
+DSP_MsaAddrHigh	,	V_8
+"3780i::dsp3780i_WriteGenCfg rSlaveControl %x\n"	,	L_5
+pSettings	,	V_19

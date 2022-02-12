@@ -1,0 +1,88 @@
+copy_from_user	,	F_9
+stack	,	V_1
+"lkdtm-no-usercopy"	,	L_23
+free_kernel	,	V_28
+lkdtm_USERCOPY_HEAP_FLAG_FROM	,	F_20
+lkdtm_USERCOPY_KERNEL	,	F_24
+trick_compiler	,	F_1
+size_t	,	T_2
+MAP_PRIVATE	,	V_19
+"attempting good copy_from_user of correct size\n"	,	L_13
+do_usercopy_heap_size	,	F_11
+"attempting bad copy_to_user from kernel text\n"	,	L_22
+test_text	,	V_10
+PROT_WRITE	,	V_16
+free_user	,	V_23
+"attempting good copy_from_user with SLAB_USERCOPY\n"	,	L_19
+pr_warn	,	F_6
+noinline	,	T_1
+kmem_cache_create	,	F_26
+to_user	,	V_5
+vm_munmap	,	F_10
+"copy_to_user failed unexpectedly?!\n"	,	L_3
+"copy_from_user failed unexpectedly?!\n"	,	L_7
+"attempting bad copy_from_user w/o SLAB_USERCOPY\n"	,	L_20
+__user	,	V_21
+cache_size	,	V_32
+do_usercopy_heap_flag	,	F_14
+PROT_EXEC	,	V_17
+PROT_READ	,	V_15
+"attempting bad copy_to_user w/o SLAB_USERCOPY\n"	,	L_18
+do_usercopy_stack_callee	,	F_2
+uintptr_t	,	V_11
+"Failed to allocate kernel cache\n"	,	L_15
+free_alloc	,	V_33
+task_stack_page	,	F_4
+lkdtm_USERCOPY_STACK_FRAME_TO	,	F_21
+size	,	V_26
+lkdtm_USERCOPY_STACK_FRAME_FROM	,	F_22
+PAGE_SIZE	,	V_14
+THREAD_SIZE	,	V_13
+lkdtm_USERCOPY_HEAP_SIZE_FROM	,	F_18
+GFP_KERNEL	,	V_27
+do_usercopy_stack	,	F_3
+lkdtm_USERCOPY_HEAP_SIZE_TO	,	F_17
+"attempting bad copy_from_user of too large size\n"	,	L_14
+kfree	,	F_13
+"attempting good copy_to_user of correct size\n"	,	L_11
+two	,	V_25
+lkdtm_usercopy_init	,	F_25
+kmem_cache_alloc	,	F_15
+bad_frame	,	V_6
+user_addr	,	V_7
+copy_to_user	,	F_8
+current	,	V_12
+"copy_from_user failed, but lacked Oops\n"	,	L_9
+kmem_cache_free	,	F_16
+lkdtm_USERCOPY_STACK_BEYOND	,	F_23
+bad_stack	,	V_9
+kmalloc	,	F_12
+TASK_SIZE	,	V_20
+vm_mmap	,	F_5
+"Failed to allocate kernel memory\n"	,	L_10
+"attempting bad copy_from_user of distant stack\n"	,	L_8
+value	,	V_2
+lkdtm_usercopy_exit	,	F_27
+MAP_ANONYMOUS	,	V_18
+"attempting good copy_to_user of local stack\n"	,	L_2
+pr_info	,	F_7
+"copy_to_user failed, but lacked Oops\n"	,	L_5
+"attempting good copy_to_user from kernel rodata\n"	,	L_21
+one	,	V_24
+i	,	V_4
+lkdtm_USERCOPY_HEAP_FLAG_TO	,	F_19
+bad_buf	,	V_30
+"attempting bad copy_to_user of too large size\n"	,	L_12
+kmem_cache_destroy	,	F_28
+"attempting bad copy_to_user of distant stack\n"	,	L_4
+buf	,	V_3
+good_buf	,	V_29
+good_stack	,	V_8
+bad_cache	,	V_31
+__init	,	T_3
+__exit	,	T_4
+"Failed to allocate user memory\n"	,	L_1
+"Failed to allocate buffers from caches\n"	,	L_16
+"attempting good copy_from_user of local stack\n"	,	L_6
+"attempting good copy_to_user with SLAB_USERCOPY\n"	,	L_17
+unconst	,	V_22

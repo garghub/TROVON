@@ -1,0 +1,536 @@
+"cannot block read 0x%02x, len=%d, ret=%d"	,	L_11
+parent	,	V_289
+atomic_set	,	F_30
+"%s\n"	,	L_5
+"cannot set SRC interrupt, ret=%d"	,	L_23
+"cannot write 0x%02x to 0x%02x, ret=%d"	,	L_8
+"Log buffer index %d is NULL\n"	,	L_3
+tcpm_set_current_limit	,	F_63
+"fusb302"	,	L_6
+FUSB_REG_STATUS1A_TOGSS_AA	,	V_237
+inode	,	V_20
+"vconn := %s"	,	L_29
+tcpm_set_vbus	,	F_59
+start_drp_toggling	,	V_213
+"IRQ: PD retry failed"	,	L_81
+dev	,	V_14
+FUSB302_RESUME_RETRY_SLEEP	,	V_31
+time_before	,	F_51
+tcpm_set_cc	,	F_55
+gpio_is_valid	,	F_96
+FUSB_REG_CONTROL0_TX_FLUSH	,	V_141
+adapter	,	V_284
+INIT_DELAYED_WORK	,	F_112
+EIO	,	V_40
+"false"	,	L_79
+"vconn is already %s"	,	L_26
+"IRQ: PD hardreset sent"	,	L_82
+to_i2c_adapter	,	F_101
+"CC activities detected, delay handling"	,	L_57
+"[%5lu.%06lu] %s"	,	L_4
+TCPC_TX_HARD_RESET	,	V_185
+of_node	,	V_277
+fusb302_i2c_clear_bits	,	F_40
+I2C_FUNC_SMBUS_I2C_BLOCK	,	V_290
+FUSB_REG_CONTROL0_HOST_CUR_MED	,	V_88
+get_vbus	,	V_203
+usleep_range	,	F_83
+devm_regulator_get	,	F_113
+devm_gpio_request	,	F_97
+pull_up	,	V_73
+"charge is already %s"	,	L_35
+EBUSY	,	V_308
+tcpm_get_vbus	,	F_47
+"AudioAccessory not supported"	,	L_67
+FUSB302_TKN_EOP	,	V_178
+"restart toggling as CC_OPEN detected"	,	L_62
+"fsc_interrupt_int_n"	,	L_103
+tmpbuffer	,	V_7
+cc	,	V_114
+tcpm_set_pd_rx	,	F_68
+T_BC_LVL_DEBOUNCE_DELAY_MS	,	V_198
+tcpm_transmit_type	,	V_183
+get_cc	,	V_206
+chip	,	V_2
+address	,	V_32
+charge	,	V_133
+"cannot %s vbus regulator, ret=%d"	,	L_31
+cfg	,	V_287
+tail	,	V_19
+"cannot block write 0x%02x, len=%d, ret=%d"	,	L_9
+set_vbus	,	V_209
+"cannot get named GPIO Int_N, ret=%d"	,	L_90
+irq	,	V_242
+switches0_data	,	V_128
+i2c_check_functionality	,	F_102
+intr_bc_lvl	,	V_97
+fusb302_pd_send_hardreset	,	F_73
+FUSB_REG_STATUS1A_TOGSS_SNK2	,	V_235
+FUSB_REG_STATUS1A_TOGSS_SNK1	,	V_222
+i2c_set_clientdata	,	F_104
+s	,	V_16
+"vbus := %s"	,	L_34
+fusb302_pm_resume	,	F_120
+v	,	V_17
+jiffies	,	V_68
+fusb302_debugfs_init	,	F_18
+"cannot set SRC measure value, ret=%d"	,	L_22
+mask_interrupts	,	V_146
+config	,	V_294
+"IRQ: TOGDONE"	,	L_74
+"vbus"	,	L_101
+fusb302_debugfs_exit	,	F_23
+"IRQ: PD sent good CRC"	,	L_87
+FUSB_REG_INTERRUPTA_RETRYFAIL	,	V_258
+pm_suspend	,	V_30
+fmt	,	V_6
+"IRQ: PD received hardreset"	,	L_86
+"cannot set src current %s, ret=%d"	,	L_21
+pd_header_cnt_le	,	F_72
+FUSB302_TKN_TXON	,	V_180
+status0	,	V_194
+"I2C/SMBus block functionality not supported!\n"	,	L_94
+payload	,	V_176
+"type %s not supported"	,	L_54
+polarity	,	V_126
+va_list	,	T_1
+ret	,	V_34
+strlcpy	,	F_7
+SRC_CURRENT_DEFAULT	,	V_84
+"cc1: %s -&gt; %s"	,	L_58
+FUSB_REG_RESET_SW_RESET	,	V_46
+FUSB_REG_CONTROL2_MODE_NONE	,	V_101
+FUSB_REG_SWITCHES1_TXCC1_EN	,	V_218
+ra_mda_value	,	V_226
+FUSB_REG_POWER	,	V_57
+fusb302_seq_show	,	F_13
+intr_comp_chng	,	V_98
+"cannot unmask bc_lcl interrupt, ret=%d"	,	L_64
+max_snk_mw	,	V_297
+"cannot set cc to pull down, ret=%d"	,	L_60
+max_snk_mv	,	V_295
+work_struct	,	V_191
+private	,	V_18
+FUSB302_TKN_JAMCRC	,	V_177
+debugfs_remove	,	F_24
+current_limit	,	V_65
+timeout	,	V_66
+debugfs_create_dir	,	F_20
+i2c_busy	,	V_35
+fusb302_tcpc_config	,	V_293
+client	,	V_280
+fusb302_handle_togdone	,	F_84
+vconn_on	,	V_132
+FUSB_REG_INTERRUPTB_GCRCSENT	,	V_263
+length	,	V_38
+logbuffer_tail	,	V_3
+"pd header := %s, %s"	,	L_45
+fusb302_irq_intn	,	F_87
+extcon	,	V_67
+pd_message	,	V_167
+fusb302_pm_suspend	,	F_119
+pull_down	,	V_74
+"sending PD message header: %x"	,	L_50
+tcpm_get_current_limit	,	F_48
+"fcs,extcon-name"	,	L_99
+FUSB_REG_CONTROL2_MODE_MASK	,	V_100
+tcpm_set_polarity	,	F_57
+"cannot flush pd tx buffer, ret=%d"	,	L_38
+FUSB_REG_MASKA_HARDSENT	,	V_150
+extcon_get_extcon_dev	,	F_107
+init_gpio	,	F_94
+ENOMEM	,	V_24
+FUSB_REG_SWITCHES0_MEAS_CC2	,	V_217
+"fcs,max-sink-microwatt"	,	L_97
+FUSB_REG_SWITCHES0_MEAS_CC1	,	V_216
+fusb302_i2c_set_bits	,	F_39
+fusb302_pd_rx_flush	,	F_65
+set_current_limit	,	V_210
+set_pd_rx	,	V_211
+"PD message len: %d"	,	L_71
+"Error registering power-supply: %d\n"	,	L_100
+get_current_limit	,	V_204
+power_supply_property	,	V_266
+lock	,	V_64
+id	,	V_282
+"IRQ: PD tx success"	,	L_84
+extcon_get_state	,	F_50
+FUSB_REG_SWITCHES0_CC1_PU_EN	,	V_75
+init	,	V_202
+rem_nsec	,	V_10
+i2c_get_clientdata	,	F_118
+FUSB302_TKN_TXOFF	,	V_179
+regulator_disable	,	F_61
+"BC_LVL interrupt is turned off, abort"	,	L_55
+"cannot request GPIO Int_N, ret=%d"	,	L_91
+fusb302_pd_read_message	,	F_86
+switches0_mask	,	V_129
+TYPEC_CC_RD	,	V_116
+IRQ_HANDLED	,	V_264
+fusb302_is_suspended	,	F_25
+fusb302_init_interrupt	,	F_43
+set_vconn	,	V_208
+FUSB_REG_CONTROL3_AUTO_RETRY	,	V_49
+tcpc_dev	,	V_58
+"fcs,int_n"	,	L_89
+TYPEC_CC_RP_3_0	,	V_119
+status	,	V_83
+cc_src_current	,	V_122
+FUSB_REG_INTERRUPTA_TOGDONE	,	V_253
+gpio_direction_input	,	F_98
+cc_polarity_name	,	V_224
+file	,	V_21
+FUSB_REG_STATUS0_BC_LVL_200_600	,	V_190
+"cannot flush pd rx buffer, ret=%d"	,	L_37
+togdone_result	,	V_220
+FUSB_REG_FIFOS	,	V_181
+toggling_mode	,	V_91
+"disable"	,	L_33
+"vbus is already %s"	,	L_30
+fusb302_enable_tx_auto_retries	,	F_42
+max	,	F_6
+"TOGDONE with an invalid state: %d"	,	L_68
+FUSB_REG_MASK	,	V_50
+FUSB_REG_MASK_BC_LVL	,	V_95
+"cannot set cc to pull up, ret=%d"	,	L_66
+gpio_int_n	,	V_278
+FUSB_REG_INTERRUPT_VBUSOK	,	V_252
+fusb302_debug_open	,	F_16
+logbuffer	,	V_11
+seq_has_overflowed	,	F_15
+FUSB_REG_MASK_COLLISION	,	V_147
+"current limit: %d ma, %d mv (not implemented)"	,	L_36
+"BC_LVL handler, status0=0x%02x"	,	L_56
+operating_snk_mw	,	V_298
+tcpm_set_vconn	,	F_58
+FUSB_REG_STATUS0_VBUSOK	,	V_62
+mode	,	V_92
+FUSB_REG_CONTROL2_MODE_DRP	,	V_107
+u32	,	T_4
+"cannot PD reset, ret=%d"	,	L_83
+"PD message too long %d"	,	L_69
+"cannot turn %s pd interrupts, ret=%d"	,	L_42
+fusb302_log_full	,	F_1
+TYPEC_CC_OPEN	,	V_111
+intval	,	V_271
+"off"	,	L_41
+mv	,	V_139
+power_supply_propval	,	V_268
+"False"	,	L_20
+"Bad log buffer index %d\n"	,	L_2
+cc_status_active	,	V_221
+FUSB_REG_SWITCHES0_CC2_PU_EN	,	V_76
+maskb_interrupts	,	V_153
+attached	,	V_155
+header	,	V_174
+of_get_named_gpio	,	F_95
+SRC_CURRENT_MEDIUM	,	V_87
+"cannot request IRQ for GPIO Int_N, ret=%d"	,	L_93
+FUSB_REG_INTERRUPT_BC_LVL	,	V_254
+max_ma	,	V_138
+devm_kzalloc	,	F_103
+power_supply_changed	,	F_62
+local_clock	,	F_3
+transmit_type_name	,	V_186
+fusb302_i2c_block_write	,	F_32
+FUSB_REG_INTERRUPT_COMP_CHNG	,	V_255
+"Off"	,	L_28
+crc	,	V_240
+"cannot set cc polarity %s, ret=%d"	,	L_61
+"fcs,operating-sink-microwatt"	,	L_98
+"cannot read %02x, ret=%d"	,	L_10
+"unable to set pd header %s, %s, ret=%d"	,	L_44
+PD_MAX_PAYLOAD	,	V_241
+on	,	V_127
+switches1_data	,	V_162
+"unable to start drp toggling, ret=%d"	,	L_47
+fusb302_pd_send_message	,	F_71
+dev_name	,	F_22
+fusb302_tcpc_dev	,	V_201
+LOG_BUFFER_ENTRY_SIZE	,	V_8
+dev_warn	,	F_8
+dev_id	,	V_243
+"true"	,	L_78
+u64	,	T_2
+container_of	,	F_46
+power_supply	,	V_265
+"fcs,max-sink-microvolt"	,	L_95
+fusb302_i2c_mask_write	,	F_38
+FUSB_REG_STATUS0_BC_LVL_MASK	,	V_199
+FUSB_REG_INTERRUPTA	,	V_250
+FUSB_REG_INTERRUPTB	,	V_251
+tcpm_pd_receive	,	F_91
+IS_ERR	,	F_109
+POWER_SUPPLY_PROP_VOLTAGE_NOW	,	V_272
+"IRQ: PD collision"	,	L_80
+fusb302_log	,	F_12
+fusb302_set_toggling	,	F_54
+fusb302_i2c_block_read	,	F_36
+fusb302_i2c_write	,	F_29
+msleep	,	F_28
+set_polarity	,	V_207
+FUSB_REG_INTERRUPTA_TX_SUCCESS	,	V_261
+len	,	V_171
+clear_client_data	,	V_302
+switches1_mask	,	V_159
+TCPC_TX_SOP	,	V_184
+"overflow"	,	L_1
+rd_mda_value	,	V_123
+"sending PD message len: %d"	,	L_51
+EXTCON_CHG_USB_DCP	,	V_72
+typec_data_role	,	V_158
+rootdir	,	V_23
+rd_mda	,	V_115
+tcpm_unregister_port	,	V_306
+do_div	,	F_9
+FUSB_REG_SWITCHES1_DATAROLE	,	V_161
+node	,	V_276
+i2c_adapter	,	V_283
+destroy_workqueue	,	V_303
+tcpm_register_port	,	F_114
+POWER_SUPPLY_PROP_CURRENT_MAX	,	V_273
+GFP_KERNEL	,	V_12
+TYPEC_POLARITY_CC2	,	V_223
+"i2c: pm suspend, retry %d/%d\n"	,	L_7
+TYPEC_POLARITY_CC1	,	V_80
+device	,	V_285
+EXTCON_CHG_USB_CDP	,	V_70
+fusb302_probe	,	F_100
+"cannot turn %s auto GCRC, ret=%d"	,	L_39
+mutex_init	,	F_19
+device_node	,	V_275
+i_private	,	V_22
+seq_printf	,	F_14
+mutex_unlock	,	F_11
+power_supply_config	,	V_286
+FUSB302_TKN_PACKSYM	,	V_175
+pos	,	V_170
+"cannot stop toggling, ret=%d"	,	L_17
+FUSB_REG_MASKB_GCRCSENT	,	V_154
+FUSB_REG_MASKA_TOGDONE	,	V_108
+TYPEC_SOURCE	,	V_163
+atomic_read	,	F_26
+u8	,	T_3
+FUSB_REG_STATUS1A_TOGSS_MASK	,	V_234
+FUSB_REG_STATUS1A_TOGSS_SRC2	,	V_236
+seq_file	,	V_15
+FUSB_REG_STATUS1A_TOGSS_SRC1	,	V_229
+rd_comp	,	V_228
+ra_comp	,	V_227
+FUSB_REG_SWITCHES1_AUTO_GCRC	,	V_145
+buf	,	V_169
+fusb302_chip	,	V_1
+FUSB302_TKN_SYNC1	,	V_172
+FUSB302_TKN_SYNC2	,	V_173
+LOG_BUFFER_ENTRIES	,	V_5
+mutex_lock	,	F_5
+src_current_status	,	V_82
+cc_status	,	V_195
+pd_msg	,	V_248
+IRQF_ONESHOT	,	V_304
+FUSB_REG_CONTROL2_TOGGLE	,	V_94
+vbus	,	V_135
+fusb302_bc_lvl_handler_work	,	F_76
+typec_cc_status	,	V_113
+TYPEC_CC_RP_DEF	,	V_117
+"only read %d/%d bytes from 0x%02x"	,	L_12
+fusb302_set_cc_polarity	,	F_80
+FUSB_REG_CONTROL0_HOST_CUR_HIGH	,	V_90
+fusb302_bc_lvl_to_cc	,	F_75
+mod_delayed_work	,	F_77
+"cannot sw reset the chip, ret=%d"	,	L_13
+vbus_present	,	V_61
+set_bits	,	V_43
+"fusb302 device ID: 0x%02x"	,	L_15
+FUSB_REG_CONTROL0_HOST_CUR_DEF	,	V_86
+i2c_smbus_read_byte_data	,	F_35
+drv_data	,	V_300
+bc_lvl_handler	,	V_193
+FUSB_REG_SWITCHES1_POWERROLE	,	V_160
+tcpm_pd_hard_reset	,	F_90
+"IRQ: 0x%02x, a: 0x%02x, b: 0x%02x, status0: 0x%02x"	,	L_72
+"cannot set toggling mode off, ret=%d"	,	L_63
+TOGGLINE_MODE_OFF	,	V_99
+ETIMEDOUT	,	V_36
+EXTCON_CHG_USB_SDP	,	V_69
+"On"	,	L_27
+"pd := %s"	,	L_43
+fusb302_handle_togdone_src	,	F_82
+FUSB_REG_MASKA_RETRYFAIL	,	V_149
+name	,	V_288
+TYPEC_CC_RP_1_5	,	V_118
+maska_interrupts	,	V_148
+devm_power_supply_register	,	F_108
+tcpm_cc_change	,	F_78
+fusb302_set_cc_pull	,	F_52
+SRC_CURRENT_HIGH	,	V_89
+typec_data_role_name	,	V_166
+psp	,	V_267
+fusb302_debug_operations	,	V_27
+dev_err	,	F_27
+"on"	,	L_40
+ENODATA	,	V_274
+IRQF_TRIGGER_LOW	,	V_305
+"fcs,max-sink-microamp"	,	L_96
+kzalloc	,	F_4
+create_singlethread_workqueue	,	F_111
+psy	,	V_137
+power_mode	,	V_56
+charge_on	,	V_136
+wq	,	V_197
+FUSB_REG_MASK_VBUSOK	,	V_51
+"unsupported cc value %s"	,	L_16
+"start drp toggling"	,	L_48
+TCPC_TX_FAILED	,	V_257
+mask	,	V_41
+tcpm_vbus_change	,	F_88
+FUSB_REG_SWITCHES1	,	V_144
+comp_result	,	V_247
+FUSB_REG_SWITCHES0	,	V_81
+FUSB_REG_CONTROL3_N_RETRIES_3	,	V_48
+pd_transmit	,	V_214
+dentry	,	V_25
+TCPC_TX_SUCCESS	,	V_260
+tcpm_pd_transmit_complete	,	F_89
+EXTCON_CHG_USB_ACA	,	V_71
+i2c_smbus_write_i2c_block_data	,	F_33
+FUSB_REG_STATUS1A_TOGSS_POS	,	V_233
+"handle togdone error, ret=%d"	,	L_75
+regulator_enable	,	F_60
+intr_togdone	,	V_109
+fusb302_set_src_current	,	F_53
+"cannot set cc pulling up %s, down %s, ret = %d"	,	L_18
+FUSB_REG_CONTROL2_MODE_DFP	,	V_105
+"cc := %s"	,	L_24
+i2c_client	,	V_37
+fusb302_pd_tx_flush	,	F_64
+gpio_int_n_irq	,	V_279
+FUSB_REG_CONTROL3_SEND_HARDRESET	,	V_182
+logbuffer_head	,	V_4
+FUSB_REG_STATUS0_COMP	,	V_230
+FUSB_REG_INTERRUPT	,	V_249
+"cannot register tcpm port, ret=%d"	,	L_102
+FUSB_REG_SWITCHES1_TXCC2_EN	,	V_219
+tcpm_get_cc	,	F_56
+"cc2: %s -&gt; %s"	,	L_59
+fusb302_pd_reset	,	F_85
+devm_request_threaded_irq	,	F_115
+FUSB_REG_MASK_COMP_CHNG	,	V_96
+init_tcpc_dev	,	F_79
+ts_nsec	,	V_9
+val	,	V_269
+fusb302_handle_togdone_snk	,	F_81
+POWER_SUPPLY_PROP_ONLINE	,	V_270
+single_open	,	F_17
+device_property_read_u32	,	F_105
+work	,	V_192
+tcpm_start_drp_toggling	,	F_70
+typec_cc_status_name	,	V_120
+FUSB_REG_RESET	,	V_45
+FUSB_REG_STATUS1A	,	V_232
+"IRQ: VBUS_OK, vbus=%s"	,	L_73
+FUSB_REG_CONTROL2_MODE_UFP	,	V_103
+"sw reset"	,	L_14
+FUSB_REG_CONTROL1_RX_FLUSH	,	V_143
+interrupta	,	V_245
+interruptb	,	V_246
+FUSB_REG_SWITCHES0_CC1_PD_EN	,	V_77
+FUSB_REG_CONTROL0_INT_MASK	,	V_55
+typec_role_name	,	V_165
+"unable to set src current %s, ret=%d"	,	L_46
+ENODEV	,	V_291
+fusb302_psy_desc	,	V_301
+FUSB_REG_POWER_PWR_ALL	,	V_59
+debugfs_create_file	,	F_21
+pwr	,	V_157
+FUSB_REG_MASKA	,	V_52
+fusb302_pd_set_interrupts	,	F_67
+FUSB_REG_MASKB	,	V_53
+retry_cnt	,	V_28
+max_snk_ma	,	V_296
+status1a	,	V_231
+set_cc	,	V_205
+FUSB_REG_STATUS0_BC_LVL_1230_MAX	,	V_188
+device_property_read_string	,	F_106
+fusb302_pd_set_auto_goodcrc	,	F_66
+fusb302_set_power_mode	,	F_44
+"enable"	,	L_32
+EPROBE_DEFER	,	V_299
+"IRQ: COMP_CHNG, comp=%s"	,	L_77
+fusb302_sw_reset	,	F_41
+token	,	V_239
+TOGGLING_MODE_SRC	,	V_104
+EINVAL	,	V_121
+tcpm_port	,	V_200
+FUSB302_RESUME_RETRY	,	V_29
+FUSB_REG_STATUS0_ACTIVITY	,	V_196
+msg	,	V_168
+FUSB_REG_INTERRUPTA_HARDSENT	,	V_259
+FUSB_REG_SWITCHES0_VCONN_CC2	,	V_131
+data	,	V_33
+"True"	,	L_19
+"cannot read in GCRC, ret=%d"	,	L_85
+power_supply_get_drvdata	,	F_93
+FUSB_REG_SWITCHES0_VCONN_CC1	,	V_130
+"cannot set GPIO Int_N to input, ret=%d"	,	L_92
+gpio_to_irq	,	F_99
+ra_mda	,	V_225
+interrupt	,	V_244
+i2c_device_id	,	V_281
+scnprintf	,	F_10
+i2c_smbus_read_i2c_block_data	,	F_37
+FUSB_REG_RESET_PD_RESET	,	V_238
+"cannot send PD message, ret=%d"	,	L_52
+FUSB_REG_INTERRUPT_COLLISION	,	V_256
+tcpm_pd_transmit	,	F_74
+FUSB_REG_MASKA_TX_SUCCESS	,	V_151
+fusb302_remove	,	F_117
+S_IFREG	,	V_26
+done	,	V_39
+PTR_ERR	,	F_110
+TOGGLING_MODE_DRP	,	V_106
+"cannot read in PD message, ret=%d"	,	L_88
+typec_cc_polarity	,	V_125
+logbuffer_lock	,	V_13
+FUSB_REG_MEASURE	,	V_124
+FUSB_REG_CONTROL1	,	V_142
+FUSB_REG_CONTROL2	,	V_93
+FUSB_REG_CONTROL3	,	V_47
+FUSB_REG_CONTROL0	,	V_54
+cc_polarity	,	V_79
+FUSB_REG_CONTROL0_HOST_CUR_MASK	,	V_85
+tcpc_config	,	V_292
+TOGGLING_MODE_SNK	,	V_102
+"cannot send hardreset, ret=%d"	,	L_53
+"PD message header: %x"	,	L_70
+driver_data	,	V_307
+tcpm_set_roles	,	F_69
+cc1	,	V_110
+msecs_to_jiffies	,	F_49
+supply_voltage	,	V_140
+mux	,	V_215
+"IRQ: BC_LVL, handler pending"	,	L_76
+enable_irq_wake	,	F_116
+cc2	,	V_112
+typec_role	,	V_156
+FUSB_REG_INTERRUPTA_HARDRESET	,	V_262
+FUSB_REG_STATUS0_BC_LVL_600_1230	,	V_189
+_fusb302_log	,	F_2
+value	,	V_42
+set_roles	,	V_212
+TYPEC_HOST	,	V_164
+fusb302_i2c_read	,	F_34
+irqreturn_t	,	T_5
+"cc1=%s, cc2=%s"	,	L_25
+fusb302_psy_get_property	,	F_92
+FUSB_REG_DEVICE_ID	,	V_63
+FUSB_REG_SWITCHES0_CC2_PD_EN	,	V_78
+FUSB_REG_MASKA_HARDRESET	,	V_152
+i2c_smbus_write_byte_data	,	F_31
+clear_bits	,	V_44
+vbus_on	,	V_134
+"detected cc1=%s, cc2=%s"	,	L_65
+"PD message too long %d (incl. header)"	,	L_49
+FUSB_REG_STATUS0	,	V_60
+bc_lvl	,	V_187
+tcpm_init	,	F_45

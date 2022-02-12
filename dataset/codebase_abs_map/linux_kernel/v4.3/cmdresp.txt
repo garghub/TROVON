@@ -1,0 +1,153 @@
+MACREG_INT_CODE_MIB_CHANGED	,	V_72
+lbs_process_command_response	,	F_11
+lbs_cmd_async	,	F_27
+connect_status	,	V_4
+respcmd	,	V_19
+MACREG_INT_CODE_MAX_FAIL	,	V_77
+tx_pending_len	,	V_12
+lbs_mac_event_disconnected	,	F_1
+"EVENT: rssi high\n"	,	L_36
+wdev	,	V_7
+NL80211_IFTYPE_STATION	,	V_9
+MACREG_INT_CODE_LINK_SENSED	,	V_54
+MACREG_INT_CODE_RSSI_HIGH	,	V_78
+__lbs_complete_command	,	F_23
+"CMD_RESP: reset failed\n"	,	L_15
+is_host_sleep_activated	,	V_64
+dev	,	V_10
+len	,	V_18
+cmd_header	,	V_21
+CMD_802_11_ASSOCIATE	,	V_36
+lock	,	V_27
+action	,	V_42
+lbs_process_event	,	F_25
+lbs_private	,	V_1
+MACREG_INT_CODE_HOST_AWAKE	,	V_60
+host_sleep_q	,	V_65
+netif_carrier_off	,	F_6
+locally_generated	,	V_3
+lbs_send_mic_failureevent	,	F_29
+"EVENT: INIT DONE\n"	,	L_31
+lbs_deb_host	,	F_14
+"EVENT: max fail\n"	,	L_35
+cmd	,	V_53
+MACREG_INT_CODE_ADHOC_BCN_LOST	,	V_74
+"CMD_RESP: PS_MODE cmd reply result 0x%x, action 0x%x\n"	,	L_8
+"EVENT: ps sleep\n"	,	L_21
+"CMD_RESP: cur_cmd is NULL\n"	,	L_2
+wake_up_interruptible	,	F_28
+"CMD_RESP"	,	L_4
+flags	,	V_24
+"EVENT: ps awake\n"	,	L_25
+MACREG_INT_CODE_INIT_DONE	,	V_73
+"EVENT: rssi low\n"	,	L_33
+CMD_RET	,	F_19
+lbs_send_disconnect_notification	,	F_4
+result	,	V_25
+mutex_unlock	,	F_22
+LBS_DEB_CMD	,	V_34
+driver_lock	,	V_28
+CMD_802_11_WAKEUP_CONFIRM	,	V_63
+ds_awake_q	,	V_68
+u16	,	T_4
+event	,	V_52
+le16_to_cpu	,	F_16
+MACREG_INT_CODE_MIC_ERR_MULTICAST	,	V_71
+"EVENT: disassociated\n"	,	L_19
+MACREG_INT_CODE_PS_SLEEP	,	V_58
+u8	,	T_1
+lbs_ps_confirm_sleep	,	F_26
+LBS_DEB_HOST	,	V_26
+"EVENT: MESH_AUTO_STARTED (ignoring)\n"	,	L_38
+LBS_CONNECTED	,	V_5
+MACREG_INT_CODE_MIC_ERR_UNICAST	,	V_70
+curcmd	,	V_20
+netif_stop_queue	,	F_5
+"EVENT: MIB CHANGED\n"	,	L_30
+del_timer	,	F_21
+msleep_interruptible	,	F_3
+CMD_RET_802_11_ASSOCIATE	,	V_35
+mutex_lock	,	F_12
+cmd_ds_802_11_ps_mode	,	V_40
+psmode	,	V_41
+"CMD_RESP: error 0x%04x in command reply 0x%04x\n"	,	L_14
+MACREG_INT_CODE_SNR_LOW	,	V_76
+data	,	V_17
+reset_deep_sleep_wakeup	,	V_61
+CMD_GET_HW_SPEC	,	V_48
+"EVENT: MULTICAST MIC ERROR\n"	,	L_29
+"EVENT: snr high\n"	,	L_37
+u32	,	T_2
+cur_cmd	,	V_29
+cpu_to_le16	,	F_20
+currenttxskb	,	V_11
+priv	,	V_2
+lbs_deb_hex	,	F_17
+netdev_alert	,	F_30
+PS_MODE_ACTION_ENTER_PS	,	V_44
+ret	,	V_23
+CMD_802_11_RESET	,	V_49
+"EVENT: deauthenticated\n"	,	L_18
+needtowakeup	,	V_46
+"Firmware returns DEFER to command %x. Will let it time out...\n"	,	L_7
+done	,	V_30
+"CMD_RESP: EXIT_PS command response\n"	,	L_12
+"EVENT: link lost\n"	,	L_20
+spin_unlock_irqrestore	,	F_15
+MACREG_INT_CODE_DISASSOCIATED	,	V_56
+LBS_DISCONNECTED	,	V_13
+uint16_t	,	T_3
+is_deep_sleep	,	V_62
+spin_lock_irqsave	,	F_13
+"EVENT: ds awake\n"	,	L_24
+MACREG_INT_CODE_LINK_LOST_NO_SCAN	,	V_57
+"EVENT: unknown event id %d\n"	,	L_39
+lbs_deb_cmd	,	F_8
+PS_MODE_ACTION_EXIT_PS	,	V_16
+NL80211_IFTYPE_MONITOR	,	V_43
+lbs_deb_leave	,	F_10
+lbs_deb_enter	,	F_2
+"waking up ...\n"	,	L_27
+"disconnected, so exit PS mode\n"	,	L_1
+PS_STATE_AWAKE	,	V_47
+"EVENT: in FULL POWER mode, ignoring PS_SLEEP\n"	,	L_22
+"EVENT: snr low\n"	,	L_34
+seqnum	,	V_33
+"disconnected, invoking lbs_ps_wakeup\n"	,	L_11
+kfree_skb	,	F_7
+lbs_deb_leave_args	,	F_24
+"EVENT: In FULL POWER mode - ignore PS AWAKE\n"	,	L_26
+"CMD_RESP: response 0x%04x, seq %d, size %d\n"	,	L_3
+"Invalid CMD_RESP %x to command %x!\n"	,	L_6
+cmd_timed_out	,	V_38
+iftype	,	V_8
+MACREG_INT_CODE_DEEP_SLEEP_AWAKE	,	V_66
+MACREG_INT_CODE_PS_AWAKE	,	V_69
+"CMD_RESP: PS command failed with 0x%x\n"	,	L_9
+LBS_DEB_ASSOC	,	V_6
+"EVENT: link sensed\n"	,	L_17
+resp	,	V_22
+netdev_info	,	F_18
+cmdbuf	,	V_31
+"Received CMD_RESP with invalid sequence %d (expected %d)\n"	,	L_5
+CMD_802_11_PS_MODE	,	V_39
+LBS802_11POWERMODECAM	,	V_45
+PS_STATE_FULL_POWER	,	V_15
+"EVENT: host awake\n"	,	L_23
+MACREG_INT_CODE_DEAUTHENTICATED	,	V_55
+psstate	,	V_14
+"CMD_RESP: PS action 0x%X\n"	,	L_13
+wakeup_dev_required	,	V_67
+MACREG_INT_CODE_SNR_HIGH	,	V_79
+lbs_set_ps_mode	,	F_9
+command	,	V_32
+"CMD_RESP: ENTER_PS command response\n"	,	L_10
+"EVENT: UNICAST MIC ERROR\n"	,	L_28
+MACREG_INT_CODE_RSSI_LOW	,	V_75
+command_timer	,	V_37
+callback	,	V_50
+callback_arg	,	V_51
+PS_STATE_PRE_SLEEP	,	V_59
+"ret %d"	,	L_16
+"EVENT: ADHOC beacon lost\n"	,	L_32
+MACREG_INT_CODE_MESH_AUTO_STARTED	,	V_80

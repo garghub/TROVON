@@ -1,0 +1,55 @@
+"user user_u roles { base_r };\n"	,	L_15
+usage	,	F_1
+polout	,	V_9
+"fs_use_xattr jffs2 user_u:base_r:base_t;\n"	,	L_23
+"{\n"	,	L_8
+"Could not open %s for writing\n"	,	L_4
+"genfscon proc / user_u:base_r:base_t\n"	,	L_34
+initial_sid_to_string_len	,	V_7
+"fs_use_trans shm user_u:base_r:base_t;\n"	,	L_33
+fout	,	V_11
+"fs_use_xattr ext4 user_u:base_r:base_t;\n"	,	L_19
+"fs_use_xattr ext2 user_u:base_r:base_t;\n"	,	L_17
+"fs_use_xattr ext3 user_u:base_r:base_t;\n"	,	L_18
+initial_sid_to_string	,	V_13
+"fs_use_task pipefs user_u:base_r:base_t;\n"	,	L_27
+"role base_r types { base_t };\n"	,	L_13
+"w"	,	L_3
+"fs_use_trans tmpfs user_u:base_r:base_t;\n"	,	L_32
+"fs_use_trans mqueue user_u:base_r:base_t;\n"	,	L_29
+mls	,	V_6
+"Wrote policy, but cannot open %s for writing\n"	,	L_35
+name	,	V_1
+"fs_use_xattr jfs user_u:base_r:base_t;\n"	,	L_20
+secclass_map	,	V_12
+"type base_t;\n"	,	L_12
+"sid %s user_u:base_r:base_t\n"	,	L_16
+argv	,	V_3
+ctxout	,	V_10
+"sid %s\n"	,	L_7
+"usage: %s [-m] policy_file context_file\n"	,	L_1
+security_class_mapping	,	V_14
+arg	,	V_8
+"fs_use_trans hugetlbfs user_u:base_r:base_t;\n"	,	L_31
+"fs_use_xattr lustre user_u:base_r:base_t;\n"	,	L_25
+perms	,	V_16
+"fs_use_xattr xfs user_u:base_r:base_t;\n"	,	L_21
+FILE	,	T_1
+map	,	V_15
+"fs_use_xattr gfs2 user_u:base_r:base_t;\n"	,	L_24
+"/.* user_u:base_r:base_t\n"	,	L_37
+argc	,	V_2
+"fs_use_xattr reiserfs user_u:base_r:base_t;\n"	,	L_22
+"}\n\n"	,	L_10
+"fs_use_trans devpts user_u:base_r:base_t;\n"	,	L_30
+i	,	V_4
+j	,	V_5
+"fs_use_task eventpollfs user_u:base_r:base_t;\n"	,	L_26
+"-m"	,	L_2
+"/ user_u:base_r:base_t\n"	,	L_36
+"class %s\n"	,	L_5
+"allow base_t base_t:%s *;\n"	,	L_14
+"MLS not yet implemented\n"	,	L_11
+"\n"	,	L_6
+"\t%s\n"	,	L_9
+"fs_use_task sockfs user_u:base_r:base_t;\n"	,	L_28

@@ -1,0 +1,207 @@
+parent	,	V_15
+intf_fw_info	,	V_66
+"failed to allocate request id (%d)\n"	,	L_5
+gb_fw_mgmt_loaded_fw_request	,	V_34
+inode	,	V_60
+gb_fw_mgmt_load_and_validate_fw_request	,	V_22
+gb_fw_mgmt_backend_fw_version_response	,	V_47
+dev	,	V_94
+GB_FW_LOAD_STATUS_VALIDATION_FAILED	,	V_43
+cdev_del	,	F_54
+gb_fw_mgmt_interface_fw_version_response	,	V_11
+"Mode-switch failed: %d\n"	,	L_26
+class_create	,	F_61
+"Firmware not loaded for mode-switch\n"	,	L_25
+"failed to validate interface firmware, status:%02x\n"	,	L_11
+fw_mgmt_ioc_intf_load_and_validate	,	V_68
+__user	,	T_2
+wait_for_completion_timeout	,	F_30
+fw_mgmt_ioc_get_backend_version	,	V_45
+node	,	V_97
+GFP_KERNEL	,	V_27
+"gb_fw_mgmt"	,	L_29
+FW_MGMT_IOC_SET_TIMEOUT_MS	,	V_82
+class_device	,	V_107
+mode_switch_started	,	V_73
+mutex_init	,	F_43
+"backend-update: firmware-tag is not NULL terminated\n"	,	L_16
+mutex_unlock	,	F_11
+cdev_init	,	F_49
+EBUSY	,	V_74
+arg	,	V_87
+disabled	,	V_91
+le16_to_cpu	,	F_15
+completion	,	V_44
+u8	,	T_1
+"failed to get interface firmware version (%d)\n"	,	L_1
+intf	,	V_85
+GB_FIRMWARE_TAG_MAX_SIZE	,	V_19
+buf	,	V_65
+GB_FW_BACKEND_VERSION_STATUS_RETRY	,	V_51
+mutex_lock	,	F_8
+gb_pm_runtime_get_sync	,	F_35
+kref	,	V_1
+"timed out waiting for firmware load and validation to finish\n"	,	L_22
+i_cdev	,	V_62
+fw_mgmt_backend_fw_updated_operation	,	F_24
+NUM_MINORS	,	V_101
+GB_FW_BACKEND_FW_STATUS_SUCCESS	,	V_58
+firmware_tag	,	V_18
+payload	,	V_37
+GB_FW_MGMT_TYPE_BACKEND_FW_UPDATE	,	V_55
+GB_FW_MGMT_TYPE_BACKEND_FW_VERSION	,	V_48
+ret	,	V_13
+unlock	,	V_6
+fw_mgmt_kref_release	,	F_1
+"failed to get version of %s backend firmware (%d)\n"	,	L_13
+dev_num	,	V_103
+FW_MGMT_IOC_GET_BACKEND_FW	,	V_77
+ida_destroy	,	F_3
+ETIMEDOUT	,	V_80
+err_connection_disable	,	V_102
+cdev_add	,	F_50
+"fw-version: firmware-tag is not NULL terminated\n"	,	L_2
+backend_fw_request_id	,	V_54
+fw_mgmt_class	,	V_108
+"Invalid status received: %u\n"	,	L_15
+get_user	,	F_31
+FW_MGMT_IOC_INTF_BACKEND_FW_UPDATE	,	V_81
+intf_fw_minor	,	V_41
+GB_FW_MGMT_TYPE_LOAD_AND_VALIDATE_FW	,	V_31
+"invalid request id for firmware loaded request (%02u != %02u)\n"	,	L_9
+timeout	,	V_72
+dev_err	,	F_14
+intf_fw_major	,	V_40
+list_del	,	F_56
+kzalloc	,	F_39
+unregister_chrdev_region	,	F_65
+GB_FW_BACKEND_VERSION_STATUS_SUCCESS	,	V_49
+"timed out waiting for backend firmware update to finish\n"	,	L_23
+err_remove_class	,	V_111
+fw_mgmt_ioctl	,	F_27
+gb_fw_mgmt_connection_exit	,	F_57
+GB_FW_MGMT_TYPE_LOADED_FW	,	V_92
+id_map	,	V_3
+FW_MGMT_IOC_MODE_SWITCH	,	V_83
+gb_fw_mgmt_connection_init	,	F_38
+FW_MGMT_TIMEOUT_MS	,	V_96
+"load-and-validate: firmware-tag is not NULL terminated\n"	,	L_4
+backend_fw_info	,	V_67
+"unexpected backend firmware updated request received\n"	,	L_18
+FW_MGMT_IOC_INTF_LOAD_AND_VALIDATE	,	V_78
+cdev	,	V_4
+request_id	,	V_30
+ENOMEM	,	V_95
+gb_connection_set_data	,	F_40
+fw_mgmt_ioctl_unlocked	,	F_34
+"failed to load backend firmware: %02x\n"	,	L_21
+GB_FW_BACKEND_FW_STATUS_RETRY	,	V_59
+FW_MGMT_IOC_GET_INTF_FW	,	V_75
+fw_mgmt_list	,	V_98
+kref_get	,	F_10
+GB_FW_LOAD_METHOD_UNIPRO	,	V_24
+"backend %s firmware update request failed (%d)\n"	,	L_17
+connection	,	V_10
+ida_simple_remove	,	F_18
+fw_mgmt_dev_num	,	V_104
+fw_mgmt_backend_fw_version_operation	,	F_22
+fw_mgmt_fops	,	V_105
+fw_mgmt_interface_fw_loaded_operation	,	F_19
+GB_FW_BACKEND_VERSION_STATUS_NOT_SUPPORTED	,	V_52
+"illegal size of backend firmware updated request (%zu != %zu)\n"	,	L_19
+ida_init	,	F_42
+gb_connection_enable	,	F_46
+load_method	,	V_20
+fw_mgmt_minors_map	,	V_100
+"failed to load interface firmware, status:%02x\n"	,	L_10
+cmd	,	V_64
+status	,	V_39
+ENODEV	,	V_35
+kfree	,	F_4
+list_mutex	,	V_5
+private_data	,	V_63
+EPERM	,	V_84
+GB_FW_MGMT_TYPE_BACKEND_FW_UPDATED	,	V_93
+"gb-fw-mgmt-%d"	,	L_28
+backend_update	,	V_71
+mutex	,	V_90
+fw_mgmt_load_and_validate_operation	,	F_16
+gb_interface_request_mode_switch	,	F_33
+alloc_chrdev_region	,	F_62
+get_fw_mgmt	,	F_7
+init_completion	,	F_41
+class_destroy	,	F_63
+copy_to_user	,	F_28
+intf_fw_loaded	,	V_29
+file	,	V_61
+fw_mgmt	,	V_2
+put_fw_mgmt	,	F_5
+gb_fw_mgmt_request_handler	,	F_37
+"Firmware with tag %s is not supported by Interface\n"	,	L_14
+bundle	,	V_89
+kref_put	,	F_6
+gb_operation	,	V_32
+"load and validate firmware request failed (%d)\n"	,	L_6
+gb_connection_get_data	,	F_20
+fw_info	,	V_8
+"backend-version: firmware-tag is not NULL terminated\n"	,	L_12
+gb_operation_sync	,	F_13
+fw_mgmt_open	,	F_25
+intf_fw_status	,	V_38
+"unexpected firmware loaded request received\n"	,	L_7
+EFAULT	,	V_76
+gb_bundle	,	V_88
+intf_load	,	V_69
+EINVAL	,	V_26
+complete	,	F_21
+ENOTTY	,	V_86
+copy_from_user	,	F_29
+fw_mgmt_ioc_get_intf_version	,	V_7
+minor	,	V_17
+timeout_jiffies	,	V_79
+ida_simple_get	,	F_17
+GB_FW_BACKEND_VERSION_STATUS_NOT_AVAILABLE	,	V_50
+backend_fw_status	,	V_57
+"illegal size of firmware loaded request (%zu != %zu)\n"	,	L_8
+intf_fw_request_id	,	V_28
+"invalid request id for backend firmware updated request (%02u != %02u)\n"	,	L_20
+fw_mgmt_release	,	F_26
+major	,	V_16
+GB_FW_LOAD_METHOD_INTERNAL	,	V_25
+fw_mgmt_exit	,	F_64
+kref_init	,	F_44
+gb_connection	,	V_9
+fw_mgmt_init	,	F_60
+tag	,	V_21
+"timeout can't be zero\n"	,	L_24
+gb_fw_mgmt_backend_fw_update_request	,	V_53
+err_del_cdev	,	V_109
+"unsupported request: %u\n"	,	L_27
+THIS_MODULE	,	V_110
+PTR_ERR	,	F_53
+GB_FW_MGMT_TYPE_INTERFACE_FW_VERSION	,	V_14
+gb_fw_mgmt_backend_fw_updated_request	,	V_56
+gb_pm_runtime_put_autosuspend	,	F_36
+list_add	,	F_45
+list_for_each_entry	,	F_9
+request	,	V_23
+MAJOR	,	F_48
+err_list_del	,	V_99
+fw_mgmt_interface_fw_version_operation	,	F_12
+MINOR	,	F_59
+gb_connection_disable	,	F_55
+msecs_to_jiffies	,	F_32
+err_remove_ida	,	V_106
+GB_FW_LOAD_STATUS_FAILED	,	V_42
+device_destroy	,	F_58
+fw_mgmt_backend_fw_update_operation	,	F_23
+op	,	V_33
+fw_mgmt_ioc_backend_fw_update	,	V_70
+gb_fw_mgmt_backend_fw_version_request	,	V_46
+container_of	,	F_2
+device_create	,	F_51
+"invalid load-method (%d)\n"	,	L_3
+response	,	V_12
+MKDEV	,	F_47
+payload_size	,	V_36
+IS_ERR	,	F_52

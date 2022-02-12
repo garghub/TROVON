@@ -1,0 +1,23 @@
+__NR_getsid	,	V_6
+bpf_probe_read	,	F_6
+"mmap\n"	,	L_4
+pt_regs	,	V_1
+ctx	,	V_2
+progs	,	V_4
+__NR_getuid	,	V_5
+__NR_read	,	F_8
+"write(fd=%d, buf=%p, size=%d)\n"	,	L_2
+"read(fd=%d, buf=%p, size=%d)\n"	,	L_3
+fmt	,	V_7
+PT_REGS_PARM2	,	F_7
+PT_REGS_PARM1	,	F_2
+bpf_trace_printk	,	F_4
+sc_nr	,	V_3
+sd	,	V_9
+"syscall=%d (one of get/set uid/pid/gid)\n"	,	L_1
+__NR_write	,	F_5
+__NR_mmap	,	F_9
+bpf_prog1	,	F_1
+bpf_tail_call	,	F_3
+seccomp_data	,	V_8
+PROG	,	T_1

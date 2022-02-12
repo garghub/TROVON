@@ -1,0 +1,782 @@
+in_msg	,	V_123
+"%s con %p sock %d -&gt; %d\n"	,	L_7
+ITER_BVEC	,	V_108
+htons	,	F_163
+con_flag_test_and_set	,	F_11
+ceph_con_keepalive_expired	,	F_217
+htonl	,	F_159
+iov	,	V_88
+CON_SOCK_STATE_NEW	,	V_45
+"%s %p %d left\n"	,	L_35
+"missing matching ']'\n"	,	L_51
+zero_page	,	V_40
+CON_FLAG_LOSSYTX	,	V_2
+ceph_pagelist	,	V_177
+peer_addr	,	V_66
+INIT_DELAYED_WORK	,	F_90
+"protocol error, garbage tag during connect"	,	L_77
+ceph_msg_data_type	,	V_370
+pool	,	V_379
+ceph_msg_data_pages_cursor_init	,	F_105
+"protocol version mismatch"	,	L_65
+sockaddr_in	,	V_14
+addr_str_seq	,	V_18
+ceph_msg_dump	,	F_245
+size	,	V_114
+timespec	,	V_220
+left	,	V_268
+pr_err	,	F_29
+bi_size	,	V_167
+"reset on %s%lld\n"	,	L_70
+peer_global_seq	,	V_132
+object	,	V_267
+ceph_msg_data_pages_next	,	F_107
+sec_len	,	V_323
+cancel_delayed_work	,	F_194
+from_msgr	,	F_58
+CEPH_FEATURE_MSG_AUTH	,	V_189
+ceph_messenger	,	V_29
+iov_base	,	V_154
+reconnect	,	V_318
+MAX_DELAY_INTERVAL	,	V_363
+authorizer_buf	,	V_252
+connect	,	V_78
+clear_bit	,	F_4
+c	,	V_293
+ceph_con_init	,	F_87
+ZERO_PAGE	,	F_26
+i	,	V_12
+ENOENT	,	V_349
+m	,	V_193
+p	,	V_280
+sock_recvmsg	,	F_62
+r	,	V_94
+"try_write nothing else to write.\n"	,	L_97
+s	,	V_13
+"connect %s error %d\n"	,	L_17
+s6_addr	,	V_285
+addr_is_blank	,	F_158
+x	,	T_5
+sk_data_ready	,	V_62
+CON_FLAG_WRITE_PENDING	,	V_4
+"%s: unexpected old state %d\n"	,	L_6
+"clear_standby %p and ++connect_seq\n"	,	L_129
+ack	,	V_317
+ceph_msg_remove	,	F_73
+in_temp_ack	,	V_316
+CEPH_MSG_MAX_FRONT_LEN	,	V_328
+"try_read tag %d in_base_pos %d\n"	,	L_100
+SHUT_RDWR	,	V_118
+"try_read got tag %d\n"	,	L_104
+ceph_msg_data_bio_advance	,	F_103
+"%s %p %lu\n"	,	L_112
+"===== %p %llu from %s%lld %d=%s len %d+%d (%u %u %u) =====\n"	,	L_91
+ret	,	V_69
+read_keepalive_ack	,	F_188
+calc_pages_for	,	F_106
+list	,	V_319
+con_sock_state_init	,	F_33
+ITER_KVEC	,	V_97
+port	,	V_296
+alignment	,	V_171
+private	,	V_140
+CEPH_MSG_MAX_DATA_LEN	,	V_330
+out_temp_keepalive2	,	V_223
+old_footer	,	V_198
+kaddr	,	V_254
+CEPH_MSG_FOOTER_NOCRC	,	V_258
+le32_to_cpu	,	F_126
+"process_banner on %p\n"	,	L_54
+end	,	V_266
+SOCK_NOSPACE	,	V_57
+in_tag	,	V_260
+pagelist	,	V_178
+spin_unlock	,	F_93
+read_partial	,	F_154
+in_data_crc	,	V_265
+protocol_version	,	V_250
+atomic_inc_return	,	F_14
+queue_con	,	F_44
+ceph_tcp_sendmsg	,	F_65
+out_temp_ack	,	V_204
+"prepare_read_message %p\n"	,	L_42
+namelen	,	V_287
+" front: "	,	L_146
+global_seq	,	V_146
+data_crc	,	V_218
+out_msg	,	V_126
+ceph_msg_cache	,	V_34
+in_front_crc	,	V_263
+msgr	,	V_30
+kmap	,	F_143
+clear_standby	,	F_211
+con_flag_set	,	F_5
+read_partial_msg_data	,	F_183
+EBADE	,	V_332
+__ceph_msg_data_cursor_init	,	F_114
+list_move_tail	,	F_125
+SIZE_MAX	,	V_176
+"%s %p msg %p - was on queue\n"	,	L_133
+con_close_socket	,	F_72
+"read_partial_message got msg %p %d (%u) + %d (%u) + %d (%u)\n"	,	L_86
+CEPH_MSGR_TAG_SEQ	,	V_261
+"%s TCP_CLOSE_WAIT\n"	,	L_13
+O_NONBLOCK	,	V_80
+SKIP_BUF_SIZE	,	V_342
+connect_seq	,	V_124
+socket_class	,	V_76
+NEGOTIATING	,	V_355
+in_seq_acked	,	V_128
+have	,	V_269
+ceph_msg_data_add_bio	,	F_229
+"try_write out_kvec_bytes %d\n"	,	L_93
+kref_put	,	F_244
+"bad crc/signature"	,	L_105
+"read_partial_message con %p msg %p\n"	,	L_79
+"alloc_msg said skip message\n"	,	L_85
+"con_close_socket on %p sock %p\n"	,	L_19
+total_resid	,	V_181
+con	,	V_8
+USHRT_MAX	,	V_175
+ceph_timespec	,	V_336
+CON_SOCK_STATE_CONNECTING	,	V_47
+prepare_read_message	,	F_153
+"write_partial_kvec %p %d left in %d kvecs ret = %d\n"	,	L_32
+pages	,	V_170
+links	,	V_186
+net	,	V_70
+"%pI4:%hu"	,	L_1
+"protocol error, garbage tag"	,	L_109
+"connect to %s got bad banner\n"	,	L_46
+ceph_tcp_recvmsg	,	F_60
+ceph_msg_remove_list	,	F_76
+kmem_cache_zalloc	,	F_223
+prepare_read_connect	,	F_148
+nonce	,	V_299
+READ	,	V_96
+"prepare_write_message_footer %p\n"	,	L_24
+"error allocating memory for incoming message"	,	L_142
+"%s con %p unrecognized state %lu\n"	,	L_114
+"connect authorization failure"	,	L_67
+ceph_con_open	,	F_84
+ceph_msg_footer	,	V_190
+sk_lock	,	V_75
+ceph_msg_release	,	F_238
+footer	,	V_194
+CON_STATE_OPEN	,	V_313
+kernel_sendmsg	,	F_66
+more_to_follow	,	V_200
+ktime_get_real_ts	,	F_134
+"%s %p ref count 0\n"	,	L_110
+"read_partial_connect %p tag %d, con_seq = %u, g_seq = %u\n"	,	L_45
+SOCK_STREAM	,	V_71
+crc	,	V_202
+tag_ack	,	V_203
+"con_close %p peer %s\n"	,	L_21
+global_seq_lock	,	V_145
+"prepare_read_tag %p\n"	,	L_40
+more_kvec	,	V_340
+con_flag_test	,	F_7
+try_read	,	F_191
+set_bit	,	F_6
+tag_keepalive2	,	V_222
+"prepare_read_ack %p\n"	,	L_38
+"ceph-msgr"	,	L_4
+ceph_msg_type_name	,	F_187
+out_connect	,	V_229
+"try_write done on %p ret %d\n"	,	L_98
+IS_ERR	,	F_137
+"failed"	,	L_49
+spin_lock_init	,	F_203
+con_out_kvec_skip	,	F_97
+ceph_crc32c_page	,	F_142
+"%s%lld %s protocol version mismatch,"	,	L_63
+len	,	V_86
+pr_warn	,	F_175
+PAGE_MASK	,	V_173
+state	,	V_56
+addr_set_port	,	F_162
+ceph_messenger_init	,	F_202
+peer_reset	,	V_309
+CON_FLAG_BACKOFF	,	V_6
+BASE_DELAY_INTERVAL	,	V_362
+peer_addr_for_me	,	V_272
+ceph_pagelist_release	,	F_225
+reset_connection	,	F_79
+destroy_workqueue	,	F_23
+paddr	,	V_65
+GFP_NOFS	,	V_74
+"unrecognized con state"	,	L_115
+prepare_read_seq	,	F_150
+nsproxy	,	V_366
+prepare_write_message_footer	,	F_122
+read_partial_message	,	F_184
+list_del_init	,	F_74
+mutex_init	,	F_88
+CEPH_MON_PORT	,	V_298
+mutex_unlock	,	F_83
+BUG	,	F_119
+"%s%lld %s feature set mismatch,"	,	L_60
+ceph_msg_data_cursor_init	,	F_116
+can_fail	,	V_371
+alloc_msg	,	V_377
+con_sock_state_connected	,	F_39
+ack_stamp	,	V_320
+server_feat	,	V_303
+__u8	,	T_2
+out_kvec_cur	,	V_149
+mutex_lock	,	F_81
+ceph_sanitize_features	,	F_177
+process_message	,	F_186
+"%s %p nothing to write\n"	,	L_10
+"prepare_write_keepalive %p\n"	,	L_29
+entity_num	,	V_134
+"%s %p queueing write work\n"	,	L_9
+in_banner	,	V_270
+INIT_LIST_HEAD	,	F_89
+out2	,	V_375
+features	,	V_246
+"%s %p\n"	,	L_113
+CEPH_MSGR_TAG_BADPROTOVER	,	V_306
+CEPH_MSGR_TAG_KEEPALIVE2_ACK	,	V_345
+ceph_msg_revoke	,	F_214
+CEPH_MONC_PROTOCOL	,	V_241
+put_page	,	F_24
+encode_my_addr	,	F_16
+"got ack for seq %llu type %d at %p\n"	,	L_78
+cancel_con	,	F_82
+read_partial_banner	,	F_155
+process_ack	,	F_181
+ceph_msg_data_type_valid	,	F_222
+"%s%lld %s protocol feature mismatch,"	,	L_73
+ceph_msgr_slab_exit	,	F_21
+name	,	V_286
+page	,	V_99
+prepare_write_ack	,	F_131
+"auth_retry %d, invalidating\n"	,	L_117
+next	,	V_378
+CEPH_AUTH_UNKNOWN	,	V_231
+ceph_msg_data_create	,	F_221
+do_datacrc	,	V_255
+delim_p	,	V_288
+out_sent	,	V_122
+now	,	V_221
+"msg_new can't create type %d front %d\n"	,	L_140
+con_flag_valid	,	F_1
+do_next	,	V_341
+write_partial_skip	,	F_146
+required_features	,	V_302
+"%s front_crc %u middle_crc %u\n"	,	L_26
+sk_socket	,	V_58
+ceph_encode_timespec	,	F_135
+get_random_bytes	,	F_204
+tag_msg	,	V_211
+hdr	,	V_206
+verify_hello	,	F_157
+"%s: con %p FAILED to back off %lu\n"	,	L_116
+ceph_sock_write_space	,	F_45
+ceph_msg_data_add_pages	,	F_227
+data_head	,	V_185
+list_empty	,	F_77
+put	,	V_350
+kvfree	,	F_237
+"%s %p in_msg %p msg %p no-op\n"	,	L_136
+"try_read bad con-&gt;in_tag = %d\n"	,	L_108
+ceph_msgr_flush	,	F_31
+ceph_tcp_sendpage	,	F_69
+priority	,	V_372
+"process_banner learned my addr is %s\n"	,	L_57
+read_partial_connect	,	F_156
+__func__	,	V_46
+bad_tag	,	V_347
+"ceph_msg_new %p front %d\n"	,	L_139
+old_state	,	V_42
+PAGE_SIZE	,	V_107
+"read_partial_message bad hdr crc %u != expected %u\n"	,	L_80
+kernel_sendpage	,	F_68
+con_sock_state_closing	,	F_40
+"socket error on read"	,	L_123
+flags	,	V_9
+DUMP_PREFIX_OFFSET	,	V_381
+sin_addr	,	V_24
+myaddr	,	V_364
+WRITE	,	V_115
+bi_next	,	V_168
+CEPH_ENTITY_TYPE_OSD	,	V_242
+offsetof	,	F_129
+CEPH_ENTITY_TYPE_MON	,	V_240
+ceph_msgr_init	,	F_25
+ceph_parse_ips	,	F_172
+process_connect	,	F_176
+"%s%lld %s %s\n"	,	L_126
+more	,	V_110
+sup_feat	,	V_300
+ceph_entity_addr	,	V_135
+"%s: con %p SOCK_CLOSED\n"	,	L_118
+kmem_cache_destroy	,	F_20
+"try_write start %p state %lu\n"	,	L_92
+__u64	,	T_3
+"%s %p state = %lu sk_state = %u\n"	,	L_11
+"----- %p to %s%lld %d=%s len %d+%d+%d -----\n"	,	L_131
+kvec	,	V_87
+CONFIG_LOCKDEP	,	F_54
+ip_len	,	V_291
+"%s %p msg %p revoked\n"	,	L_135
+EBADMSG	,	V_327
+"[%pI6c]:%hu"	,	L_2
+read_partial_ack	,	F_180
+list_first_entry	,	F_78
+authorizer_reply_buf_len	,	V_237
+"process_connect on %p tag %d\n"	,	L_58
+num	,	V_138
+section	,	V_322
+authorizer_reply_buf	,	V_235
+"con_init %p\n"	,	L_23
+CEPH_MDSC_PROTOCOL	,	V_245
+kref_init	,	F_232
+kernel_setsockopt	,	F_59
+TCP_CLOSE	,	V_59
+CEPH_MSGR_TAG_FEATURES	,	V_305
+"con_keepalive %p\n"	,	L_137
+kunmap	,	F_144
+"wrong peer, want %s/%d, got %s/%d\n"	,	L_55
+sin6_addr	,	V_27
+ipend	,	V_283
+page_offset	,	V_100
+lru	,	V_180
+shutdown	,	V_117
+ceph_pr_addr	,	F_13
+sizeof_footer	,	F_120
+CLOSED	,	V_352
+"msg_dump %p (front_alloc_len %d length %zd)\n"	,	L_144
+"try_read negotiating\n"	,	L_102
+resid	,	V_161
+CEPH_MSG_DATA_PAGES	,	V_169
+sk_write_space	,	V_63
+"connect error"	,	L_95
+ceph_msg_data_add_pagelist	,	F_228
+sk_allocation	,	V_73
+addr	,	V_33
+bvec	,	V_103
+ceph_parse_server_name	,	F_171
+CEPH_MSGR_TAG_RETRY_SESSION	,	V_311
+out_msg_done	,	V_201
+ceph_msgpool_put	,	F_241
+WARN_ON	,	F_35
+"%s on %p state = %lu, queueing work\n"	,	L_8
+need_sign	,	V_325
+sock	,	V_50
+atomic_xchg	,	F_34
+test_and_clear_bit	,	F_10
+ceph_msgr_wq	,	V_39
+front	,	V_210
+con_sock_state_closed	,	F_41
+"con_open %p %s\n"	,	L_22
+atomic_set	,	F_205
+ceph_msg_data_pagelist_advance	,	F_111
+sock_release	,	F_56
+bad	,	V_297
+CEPH_ENTITY_TYPE_MDS	,	V_244
+"fault %p setting STANDBY clearing WRITE_PENDING\n"	,	L_128
+"%s: con %p PREOPEN\n"	,	L_122
+timespec_compare	,	F_220
+" my required %llx &gt; server's %llx, need %llx\n"	,	L_74
+CONNECTING	,	V_354
+get_page	,	F_27
+"read_partial_banner %p at %d\n"	,	L_43
+iov_iter_bvec	,	F_64
+"%s: con %p BACKOFF\n"	,	L_119
+ARRAY_SIZE	,	F_96
+CEPH_MSGR_TAG_RESETSESSION	,	V_308
+NOCRC	,	V_256
+ceph_msg_data_bio_next	,	F_101
+ceph_msg_data_pages_advance	,	F_108
+EIO	,	V_324
+"reset_connection %p\n"	,	L_20
+delay	,	V_139
+front_alloc_len	,	V_376
+CEPH_MSG_DATA_BIO	,	V_160
+optval	,	V_83
+dout	,	F_37
+ceph_decode_timespec	,	F_189
+test_bit	,	F_8
+CEPH_MSG_DATA_PAGELIST	,	V_179
+CON_SOCK_STATE_CLOSED	,	V_44
+"process_connect got RESET peer seq %u\n"	,	L_68
+lockdep_set_class	,	F_55
+EBUSY	,	V_351
+seq	,	V_207
+CEPH_MSGR_TAG_MSG	,	V_343
+ceph_msg_data_next	,	F_117
+pr_info	,	F_170
+ceph_msg_header	,	V_215
+"%s: con %p STANDBY\n"	,	L_120
+in6_addr	,	V_276
+ntohs	,	F_15
+ceph_msg	,	V_35
+"fault on LOSSYTX channel, marking CLOSED\n"	,	L_127
+get_connect_authorizer	,	F_136
+jiffies	,	V_321
+auth_reply_buf	,	V_234
+kref	,	V_374
+ceph_sock_data_ready	,	F_42
+prepare_read_banner	,	F_147
+"prepare_read_keepalive_ack %p\n"	,	L_41
+dispatch	,	V_335
+sign_message	,	V_196
+list_is_last	,	F_112
+out_hdr	,	V_212
+ceph_msg_data_cursor	,	V_157
+"%s TCP_ESTABLISHED\n"	,	L_14
+out_queue	,	V_121
+CEPH_ENTITY_TYPE_CLIENT	,	V_249
+KMEM_CACHE	,	F_19
+write_partial_kvec	,	F_141
+PREOPEN	,	V_353
+"process_connect got RETRY_GLOBAL my %u peer_gseq %u\n"	,	L_72
+alloc_workqueue	,	F_28
+count	,	V_295
+bi_iter	,	V_164
+ceph_ts	,	V_337
+ceph_msg_get	,	F_124
+"alloc_middle %p type %d %s middle_len %d\n"	,	L_141
+"parse_ips got %s\n"	,	L_52
+cursor	,	V_158
+work_struct	,	V_360
+ceph_sock_state_change	,	F_47
+ceph_tcp_connect	,	F_49
+ceph_msg_footer_old	,	V_191
+"ceph_msg_new can't allocate %d bytes\n"	,	L_138
+CEPH_MSG_DATA_NONE	,	V_182
+out_kvec_bytes	,	V_148
+TCP_NODELAY	,	V_82
+sig	,	V_197
+sk_state	,	V_54
+CON_STATE_STANDBY	,	V_361
+con_backoff	,	F_196
+length	,	V_101
+"try_read done on %p ret %d\n"	,	L_107
+ipv6_addr_any	,	F_160
+"process_connect got READY gseq %d cseq %d (%d)\n"	,	L_75
+gt	,	V_144
+AF_INET6	,	V_26
+out_skip	,	V_129
+round_jiffies_relative	,	F_197
+crc32c	,	F_128
+ceph_con_close	,	F_80
+ceph_con_in_msg_alloc	,	F_185
+authorizer_len	,	V_232
+ceph_buffer_new	,	F_235
+CEPH_MSGR_TAG_CLOSE	,	V_346
+pr_debug	,	F_246
+ENOMEM	,	V_36
+"%s%lld %s connection reset\n"	,	L_69
+in4_pton	,	F_165
+bio	,	V_159
+ceph_kvmalloc	,	F_233
+con_flag	,	V_1
+MSG_NOSIGNAL	,	V_93
+bio_advance_iter	,	F_104
+" my %d != server's %d\n"	,	L_64
+"con_send %p closed, dropping %p\n"	,	L_130
+IPPROTO_TCP	,	V_72
+kref_get	,	F_243
+"%s TCP_CLOSE\n"	,	L_12
+front_crc	,	V_216
+_ceph_msgr_exit	,	F_22
+list_for_each_entry_safe	,	F_240
+index	,	V_152
+__ceph_tcp_sendpage	,	F_67
+CONFIG_BLOCK	,	F_115
+read_partial_message_section	,	F_182
+prepare_read_keepalive_ack	,	F_152
+need_crc	,	V_183
+"try_write write_partial_message_data err %d\n"	,	L_96
+interval	,	V_368
+"protocol error, bad banner"	,	L_47
+in_addr	,	V_67
+"read_partial_message bad seq %lld expected %lld\n"	,	L_82
+CON_FLAG_KEEPALIVE_PENDING	,	V_3
+"read_partial_message %p signature check failed\n"	,	L_90
+print_hex_dump	,	F_247
+set_sock_callbacks	,	F_48
+sockaddr	,	V_79
+CON_STATE_NEGOTIATING	,	V_310
+skip	,	V_156
+list_add_tail	,	F_213
+memalloc_noio_save	,	F_50
+front_len	,	V_208
+"io error"	,	L_106
+"socket error on write"	,	L_124
+list_next_entry	,	F_113
+CEPH_MSGR_TAG_ACK	,	V_344
+in6_pton	,	F_166
+off	,	V_155
+"resolve '%.*s' (ret=%d): %s\n"	,	L_48
+bv_page	,	V_104
+" my %llx &lt; server's %llx, missing %llx\n"	,	L_61
+"missing required protocol features"	,	L_62
+"parse_ips on '%.*s'\n"	,	L_50
+bio_iter_iovec	,	F_102
+"%s: con %p CLOSED\n"	,	L_121
+auth	,	V_227
+prepare_read_tag	,	F_151
+CEPH_MSG_FOOTER_COMPLETE	,	V_195
+"prepare_write_ack %p %llu -&gt; %llu\n"	,	L_27
+list_splice_init	,	F_201
+size_t	,	T_1
+in_reply	,	V_273
+ceph_msg_revoke_incoming	,	F_215
+ceph_con_keepalive	,	F_216
+ceph_connection_operations	,	V_141
+u32	,	T_4
+read_pnet	,	F_52
+"%s msg %p null con\n"	,	L_132
+s_addr	,	V_278
+write_pnet	,	F_206
+"read_partial_message %p middle crc %u != exp %u\n"	,	L_88
+ceph_msg_free	,	F_236
+authorizer_buf_len	,	V_251
+sk_user_data	,	V_52
+write_partial_message_data	,	F_145
+queue_con_delay	,	F_192
+ceph_messenger_fini	,	F_208
+in_middle_crc	,	V_264
+in_hdr	,	V_326
+SOL_TCP	,	V_84
+CEPH_MSG_MAX_MIDDLE_LEN	,	V_329
+ceph_alloc_middle	,	F_234
+"prepare_write_seq %p %llu -&gt; %llu\n"	,	L_28
+TCP_ESTABLISHED	,	V_60
+head	,	V_120
+"prepare_read_connect %p\n"	,	L_37
+queue_delayed_work	,	F_193
+out_seq	,	V_125
+src	,	V_334
+con_sock_closed	,	F_195
+"try_read start on %p state %lu\n"	,	L_99
+needs_out_seq	,	V_205
+in_base_pos	,	V_259
+"process_connect got RETRY_SESSION my seq %u, peer %u\n"	,	L_71
+u64	,	V_172
+container_of	,	F_199
+"(unknown sockaddr family %hu)"	,	L_3
+iov_iter_kvec	,	F_61
+ceph_con_opened	,	F_86
+bytes	,	V_166
+sk_stream_is_writeable	,	F_46
+auth_reply_buf_len	,	V_236
+socket	,	V_61
+MSG_EOR	,	V_112
+"connect %s EINPROGRESS sk_state = %u\n"	,	L_16
+con_out_kvec_add	,	F_95
+"got hdr type %d front %d data %d\n"	,	L_84
+"prepare_write_connect %p cseq=%d gseq=%d proto=%d\n"	,	L_30
+ceph_msg_data_advance	,	F_118
+CON_SOCK_STATE_CLOSING	,	V_49
+verify_authorizer_reply	,	V_304
+ceph_connection	,	V_7
+kref_read	,	F_242
+invalidate_authorizer	,	V_358
+actual_peer_addr	,	V_271
+ceph_con_workfn	,	V_143
+CON_STATE_CLOSED	,	V_131
+str	,	V_281
+sin_port	,	V_25
+rc	,	V_116
+con_fault_finish	,	F_198
+stopping	,	V_53
+cpu_to_le64	,	F_85
+ceph_msg_data_pagelist_next	,	F_110
+EINPROGRESS	,	V_81
+bio_iter_len	,	F_100
+msg_con_set	,	F_210
+bio_vec	,	V_102
+CEPH_MSGR_TAG_RETRY_GLOBAL	,	V_312
+bv_len	,	V_106
+host_type	,	V_248
+ceph_buffer_put	,	F_239
+"prepare_write_message %p seq %lld type %d len %d+%d+%zd\n"	,	L_25
+current	,	V_365
+min	,	F_99
+sk	,	V_51
+ceph_dns_resolve_name	,	F_167
+le16_to_cpu	,	F_127
+"skipping %s%lld %s seq %lld expected %lld\n"	,	L_81
+ss	,	V_11
+le64_to_cpu	,	F_178
+MAX_ADDR_STR_LEN	,	V_23
+con_sock_state_connecting	,	F_38
+atomic_read	,	F_43
+middle	,	V_213
+u8	,	V_284
+msg_iter	,	V_95
+bvec_iter	,	V_163
+get_global_seq	,	F_91
+auth_retry	,	V_233
+OPEN	,	V_356
+CEPH_MSGR_TAG_READY	,	V_262
+s64	,	V_331
+buf	,	V_85
+ceph_tcp_recvpage	,	F_63
+entity_type	,	V_133
+sockaddr_in6	,	V_16
+inst	,	V_32
+bv_offset	,	V_105
+"write_partial_kvec %p %d left\n"	,	L_31
+ts	,	V_369
+timespec_add	,	F_219
+ceph_msg_data_cache	,	V_37
+"%s %p msg %p\n"	,	L_33
+prepare_write_seq	,	F_132
+CEPH_MSGR_TAG_BADAUTHORIZER	,	V_307
+"process_connect %p got BADAUTHORIZER attempt %d\n"	,	L_66
+"prepare_read_banner %p\n"	,	L_36
+"prepare_read_seq %p\n"	,	L_39
+CON_SOCK_STATE_CONNECTED	,	V_48
+MSG_MORE	,	V_111
+WQ_MEM_RECLAIM	,	V_41
+cpu_to_le16	,	F_231
+out_more	,	V_199
+put_net	,	F_209
+memalloc_noio_restore	,	F_53
+out_kvec	,	V_150
+ceph_msgr_slab_init	,	F_18
+try_write	,	F_190
+prepare_write_message	,	F_123
+data_len	,	V_192
+prepare_write_keepalive	,	F_133
+sockaddr_storage	,	V_10
+MSG_DONTWAIT	,	V_92
+ops	,	V_77
+prepare_read_ack	,	F_149
+"bad authorize reply"	,	L_59
+get_net	,	F_207
+"bad message sequence # for incoming message"	,	L_83
+BUG_ON	,	F_3
+printk	,	F_36
+con_fault	,	F_200
+ADDR_STR_COUNT_MASK	,	V_19
+kvlen	,	V_109
+"middle: "	,	L_147
+cpu_to_le32	,	F_130
+net_ns	,	V_367
+sk_state_change	,	V_64
+tag_keepalive	,	V_224
+data_length	,	V_184
+ceph_msg_data	,	V_38
+CEPH_OSDC_PROTOCOL	,	V_243
+"protocol error, got WAIT as client"	,	L_76
+flush_workqueue	,	F_32
+ceph_con_send	,	F_212
+sock_sendmsg	,	F_71
+out_kvec_left	,	V_147
+ceph_msg_new	,	F_230
+ip_addr	,	V_290
+gfp_t	,	T_6
+CON_FLAG_SOCK_CLOSED	,	V_5
+ceph_test_opt	,	F_57
+CON_STATE_PREOPEN	,	V_136
+"fault %p state %lu to peer %s\n"	,	L_125
+colon_p	,	V_289
+peer_features	,	V_188
+process_banner	,	F_173
+"try_write initiating connect on %p new state %lu\n"	,	L_94
+CEPH_BANNER	,	V_238
+ceph_auth_handshake	,	V_225
+page_count	,	F_70
+ENTITY_NAME	,	F_179
+"read_partial_message %p data crc %u != exp. %u\n"	,	L_89
+in_seq	,	V_127
+"header: "	,	L_145
+work	,	V_142
+ceph_encode_addr	,	F_17
+middle_len	,	V_209
+AF_INET	,	V_22
+ceph_msg_data_destroy	,	F_224
+"msgr_init failed to create workqueue\n"	,	L_5
+CEPH_MSGR_TAG_WAIT	,	V_315
+CEPH_MSG_PRIO_DEFAULT	,	V_373
+new_piece	,	V_187
+CEPH_FEATURE_MSGR_KEEPALIVE2	,	V_219
+con_flag_clear	,	F_2
+"read_partial_message %p front crc %u != exp. %u\n"	,	L_87
+STANDBY	,	V_357
+ESRCH	,	V_292
+"read_partial_connect %p at %d\n"	,	L_44
+kfree	,	F_169
+dns_query	,	F_168
+noio_flag	,	V_68
+mutex	,	V_130
+authorizer_protocol	,	V_230
+out	,	V_253
+ceph_msgr_exit	,	F_30
+msghdr	,	V_89
+max_count	,	V_294
+jiffies_to_timespec	,	F_218
+supported_features	,	V_247
+get	,	V_348
+sin6_port	,	V_28
+error_msg	,	V_275
+ceph_msg_put	,	F_75
+EAGAIN	,	V_98
+middle_crc	,	V_217
+req_feat	,	V_301
+"%s %p (was %d)\n"	,	L_143
+"footer: "	,	L_148
+EINVAL	,	V_257
+"%s %p - already queued\n"	,	L_111
+con_flag_test_and_clear	,	F_9
+test_and_set_bit	,	F_12
+INADDR_ANY	,	V_279
+check_message_signature	,	V_333
+msg	,	V_90
+con_out_kvec_reset	,	F_94
+data	,	V_151
+prepare_write_banner	,	F_138
+"wrong peer at address"	,	L_56
+msg_flags	,	V_91
+vec	,	V_214
+tag	,	V_274
+last_keepalive_ack	,	V_338
+offset	,	V_113
+PTR_ERR	,	F_140
+in4	,	V_15
+in6	,	V_17
+CEPH_MSG_CONNECT_LOSSY	,	V_314
+"connect %s\n"	,	L_15
+bio_length	,	V_162
+auth_proto	,	V_226
+page_index	,	V_174
+proto	,	V_239
+addr_str	,	V_20
+"try_read connecting\n"	,	L_101
+addr_port	,	F_161
+ceph_pton	,	F_164
+prepare_write_connect	,	F_139
+ss_family	,	V_21
+"parse_ips bad ip '%.*s'\n"	,	L_53
+sock_create_kern	,	F_51
+kmem_cache_free	,	F_226
+"%s %p msg %p - was sending, will write %d skip %d\n"	,	L_134
+spin_lock	,	F_92
+ceph_msg_data_bio_cursor_init	,	F_98
+peer_name	,	V_137
+"kernel_setsockopt(TCP_NODELAY) failed: %d"	,	L_18
+last_piece	,	V_165
+delim	,	V_282
+addr6	,	V_277
+list_head	,	V_119
+iov_len	,	V_153
+get_authorizer	,	V_228
+fault	,	V_359
+prepare_message_data	,	F_121
+"skipping %d / %d bytes\n"	,	L_103
+my_enc_addr	,	V_31
+CON_STATE_CONNECTING	,	V_339
+sock_state	,	V_43
+"%s %p msg %p done\n"	,	L_34
+TCP_CLOSE_WAIT	,	V_55
+ceph_msg_data_pagelist_cursor_init	,	F_109
+KERN_DEBUG	,	V_380
+ceph_decode_addr	,	F_174

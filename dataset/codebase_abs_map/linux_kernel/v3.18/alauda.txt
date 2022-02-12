@@ -1,0 +1,235 @@
+blocksize	,	V_46
+alauda_find_unused_pba	,	F_27
+cpu_to_be32	,	F_50
+max_lba	,	V_102
+shift	,	V_16
+WRITE_10	,	V_129
+alauda_read_block	,	F_34
+msleep	,	F_17
+MEDIA_INFO	,	F_19
+nonff	,	V_77
+"REQUEST_SENSE\n"	,	L_38
+USB_STOR_XFER_GOOD	,	V_42
+len	,	V_103
+pr_warn	,	F_18
+lbap	,	V_92
+"Erasing PBA %d\n"	,	L_19
+"READ_10: page %d pagect %d\n"	,	L_36
+KERN_WARNING	,	V_78
+alauda_reset_media	,	F_14
+alauda_card_ids	,	V_4
+num_zones	,	V_20
+"PBA %d has no logical mapping\n"	,	L_11
+rc	,	V_26
+"alauda_read_map: Bad parity in LBA for block %d"	,	L_14
+alauda_card_info	,	V_1
+alauda_read_data	,	F_39
+usb_sndbulkpipe	,	F_47
+" (%02X %02X)\n"	,	L_15
+"Requested lba %u exceeds maximum %u\n"	,	L_33
+send_bulk_pipe	,	V_40
+__be32	,	V_127
+ALAUDA_BULK_RESET_MEDIA	,	V_39
+"TEST_UNIT_READY\n"	,	L_35
+us_data	,	V_24
+wr_ep	,	V_88
+result	,	V_69
+endpoint	,	V_117
+min	,	F_40
+sg	,	V_106
+usb_device_id	,	V_134
+nand_init_ecc	,	F_2
+MEDIA_PORT	,	F_9
+pagesize	,	V_45
+READ_10	,	V_128
+cur_altsetting	,	V_114
+a	,	V_6
+scatterlist	,	V_105
+address	,	V_99
+intf	,	V_133
+alauda_write_lba	,	F_36
+i	,	V_3
+kcalloc	,	F_20
+"alauda_write_lba: Out of unused blocks\n"	,	L_24
+j	,	V_5
+bEndpointAddress	,	V_119
+"Alauda Control/Bulk"	,	L_40
+"INQUIRY - Returning bogus response\n"	,	L_34
+buf	,	V_81
+iobuf	,	V_37
+alauda_unusual_dev_list	,	V_136
+recv_ctrl_pipe	,	V_31
+"alauda_read_data: Out of memory\n"	,	L_28
+"Warning: bad ecc in page %d+ of pba %d\n"	,	L_26
+pageshift	,	V_19
+TO_XFER_BUF	,	V_108
+"PBA %d has invalid address field %02X%02X/%02X%02X\n"	,	L_13
+LSB_of	,	F_38
+ALAUDA_GET_XD_MEDIA_STATUS	,	V_29
+us	,	V_25
+GFP_NOIO	,	V_51
+info	,	V_54
+new_pba_offset	,	V_97
+par	,	V_11
+usb_stor_bulk_transfer_buf	,	F_15
+sectors	,	V_100
+alauda_ensure_map_for_zone	,	F_31
+short_pack	,	F_30
+pba	,	V_66
+alauda_check_status2	,	F_22
+usb_host_interface	,	V_111
+alauda_read_block_raw	,	F_33
+port	,	V_110
+FROM_XFER_BUF	,	V_109
+page	,	V_82
+desc	,	V_118
+parity	,	V_7
+uzonesize	,	V_48
+fill_inquiry_response	,	F_49
+printk	,	F_29
+ALAUDA_BULK_GET_REDU_DATA	,	V_67
+ALAUDA_BULK_READ_BLOCK	,	V_84
+inquiry_response	,	V_122
+lba_to_pba	,	V_22
+USB_STOR_TRANSPORT_GOOD	,	V_52
+USB_STOR_TRANSPORT_ERROR	,	V_43
+"Error: Requested lba %u exceeds maximum %u\n"	,	L_29
+kzalloc	,	F_46
+kmalloc	,	F_41
+alauda_transport	,	F_48
+"pba %d page %d count %d\n"	,	L_21
+"Read %d pages, from PBA %d (LBA %d) page %d\n"	,	L_31
+init_alauda	,	F_45
+ALLOW_MEDIUM_REMOVAL	,	V_131
+alauda_info	,	V_53
+ptr	,	V_90
+"WRITE_10: page %d pagect %d\n"	,	L_37
+ALAUDA_ACK_XD_MEDIA_CHANGE	,	V_32
+blockmask	,	V_49
+send_ctrl_pipe	,	V_34
+zone_base_lba	,	V_73
+PBA_HI	,	F_24
+"Remapped LBA %d to PBA %d\n"	,	L_27
+INQUIRY	,	V_124
+"Read %d zero pages (LBA %d) page %d\n"	,	L_30
+max_lun	,	V_141
+"Warning: bad ecc in page %d- of pba %d\n"	,	L_25
+transport_name	,	V_137
+ALAUDA_BULK_ERASE_BLOCK	,	V_80
+usb_stor_Bulk_reset	,	V_140
+"pba %d\n"	,	L_22
+bit	,	V_12
+ALAUDA_GET_XD_MEDIA_SIG	,	V_35
+"Gah! Unknown command: %d (0x%x)\n"	,	L_39
+"%3ph\n"	,	L_9
+alauda_check_media	,	F_21
+"PBA %d has no logical mapping: reserved area = %02X%02X%02X%02X data status %02X block status %02X\n"	,	L_12
+id	,	V_2
+sense_asc	,	V_58
+alauda_ack_media	,	F_12
+usb_stor_probe1	,	F_53
+usb_stor_probe2	,	F_54
+alauda_write_data	,	F_43
+pba_to_lba	,	V_23
+USB_ENDPOINT_NUMBER_MASK	,	V_120
+bits	,	V_13
+READ_CAPACITY	,	V_126
+zonesize	,	V_47
+alauda_get_redu_data	,	F_23
+sense_key	,	V_57
+extra_destructor	,	V_115
+"Media status %02X %02X\n"	,	L_1
+nand_compare_ecc	,	F_4
+"Mapping blocks for zone %d\n"	,	L_10
+status	,	V_56
+usb_stor_set_xfer_buf	,	F_51
+kfree	,	F_7
+"Media not ready after ack\n"	,	L_3
+scsi_cmnd	,	V_121
+usb_interface	,	V_132
+xptr	,	V_96
+capacity	,	V_21
+"Media signature: %4ph\n"	,	L_4
+out	,	V_79
+pusb_intf	,	V_113
+alauda_free_maps	,	F_6
+blockbuffer	,	V_91
+PBA_ZONE	,	F_25
+"No media, or door open\n"	,	L_7
+USB_STOR_XFER_ERROR	,	V_65
+u16	,	V_50
+zoneshift	,	V_17
+usb_stor_ctrl_transfer	,	F_10
+ecc2	,	V_8
+bptr	,	V_94
+transport_reset	,	V_139
+ALAUDA_GET_SM_MEDIA_SIG	,	V_36
+dest_offset	,	V_85
+alauda_erase_block	,	F_32
+pba_offset	,	V_98
+PBA_LO	,	F_26
+UNUSABLE	,	V_76
+"alauda_write_lba: avoid writing to pba 1\n"	,	L_23
+src_offset	,	V_86
+nonz	,	V_75
+lba_offset	,	V_70
+UNIT_ATTENTION	,	V_61
+data	,	V_9
+ecc	,	V_10
+"alauda_init_media: Unrecognised media signature: %4ph\n"	,	L_5
+cptr	,	V_95
+ALAUDA_BULK_GET_STATUS2	,	V_62
+MSB_of	,	F_37
+cmnd	,	V_123
+usb_stor_dbg	,	F_11
+new_pba	,	V_93
+alauda_write_block	,	F_35
+pages	,	V_83
+"Media change detected\n"	,	L_8
+zone	,	V_68
+ALAUDA_PORT_XD	,	V_28
+buffer	,	V_101
+altsetting	,	V_112
+alauda_get_media_signature	,	F_13
+alauda_probe	,	F_52
+offset	,	V_104
+lba_real	,	V_71
+ALAUDA_BULK_WRITE_BLOCK	,	V_87
+lba	,	V_89
+usb_stor_access_xfer_buf	,	F_42
+nand_store_ecc	,	F_5
+ALAUDA_ACK_SM_MEDIA_CHANGE	,	V_33
+alauda_media_info	,	V_14
+media_info	,	V_15
+recv_bulk_pipe	,	V_63
+chipshift	,	V_44
+blocknum	,	V_72
+"alauda_read_map: Bad low LBA %d for block %d\n"	,	L_16
+alauda_usb_ids	,	V_135
+alauda_card_find_id	,	F_1
+ALAUDA_STATUS_ERROR	,	V_64
+"LBA %d seen for PBA %d and %d\n"	,	L_18
+alauda_info_destructor	,	F_44
+blockshift	,	V_18
+ready	,	V_41
+extra	,	V_55
+REQUEST_SENSE	,	V_130
+alauda_read_map	,	F_28
+"Erase result: %02X %02X\n"	,	L_20
+pusb_dev	,	V_116
+srb	,	V_107
+ALAUDA_BULK_CMD	,	V_38
+nand_compute_ecc	,	F_3
+ALAUDA_GET_SM_MEDIA_STATUS	,	V_30
+"alauda_read_map: "	,	L_17
+transport	,	V_138
+command	,	V_27
+"We are ready for action!\n"	,	L_2
+zone_base_pba	,	V_74
+USB_STOR_TRANSPORT_FAILED	,	V_60
+TEST_UNIT_READY	,	V_125
+"Found media with capacity: %ldMB\n"	,	L_6
+alauda_get_media_status	,	F_8
+"alauda_write_data: Out of memory\n"	,	L_32
+alauda_init_media	,	F_16
+sense_ascq	,	V_59

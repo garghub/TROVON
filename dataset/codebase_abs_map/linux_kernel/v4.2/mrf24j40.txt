@@ -1,0 +1,223 @@
+parent	,	V_115
+REG_TESTMODE	,	V_103
+REG_PANIDL	,	V_76
+REG_GPIO	,	V_105
+REG_PANIDH	,	V_75
+len	,	V_10
+dev	,	V_108
+write_tx_buf	,	F_16
+"Buffer not big enough. Performing short read\n"	,	L_8
+pr_warn	,	F_27
+MRF24J40_READLONG	,	F_13
+spi_message	,	V_6
+write_long_reg	,	F_14
+"%02hhx "	,	L_23
+pan_coord	,	V_79
+xfer	,	V_9
+mrf24j40_read_rx_buf	,	F_17
+wait_for_completion_interruptible_timeout	,	F_24
+REG_TXSTBL	,	V_91
+REG_TXNCON	,	V_42
+devrec	,	V_2
+spi_sync	,	F_6
+REG_TXSTAT	,	V_47
+printdev	,	F_8
+spi_get_device_id	,	F_44
+GFP_KERNEL	,	V_109
+mutex_init	,	F_48
+ieee802154_hw	,	V_35
+mutex_unlock	,	F_9
+read_long_reg	,	F_12
+REG_TRISGPIO	,	V_104
+panidh	,	V_73
+le16_to_cpu	,	F_34
+panidl	,	V_72
+u8	,	T_1
+addr_xfer	,	V_21
+ieee802154_free_hw	,	F_56
+i	,	V_68
+irq	,	V_84
+mrf24j40	,	V_1
+spi_device	,	V_107
+"Set short addr to %04hx\n"	,	L_21
+buf	,	V_12
+"SPI read Failed for long register 0x%hx\n"	,	L_3
+mutex_lock	,	F_4
+"write_tx_buf() was passed too large a buffer. Performing short write.\n"	,	L_5
+IRQF_ONESHOT	,	V_126
+intstat	,	V_85
+supported	,	V_117
+tx_buf	,	V_11
+REG_INTCON	,	V_50
+"Set long addr to: "	,	L_22
+dev_dbg	,	F_22
+reinit_completion	,	F_23
+max_speed_hz	,	V_112
+reg	,	V_3
+read_short_reg	,	F_10
+short_addr	,	V_64
+err_hw_init	,	V_124
+priv	,	V_39
+SET_CHANNEL_DELAY_US	,	V_57
+ret	,	V_5
+TX_FIFO_SIZE	,	V_24
+REG_SADRH	,	V_65
+"Timeout waiting for TX interrupt\n"	,	L_13
+REG_SADRL	,	V_66
+MRF24J40_CHAN_MIN	,	V_53
+REG_SLPCON1	,	V_97
+status_xfer	,	V_29
+"tx packet of %d bytes\n"	,	L_12
+ETIMEDOUT	,	V_46
+mrf24j40_handle_rx	,	F_35
+channels	,	V_118
+sk_buff	,	V_37
+"stop\n"	,	L_18
+page	,	V_51
+changed	,	V_60
+"start\n"	,	L_17
+REG_EADR0	,	V_70
+spi_message_add_tail	,	F_3
+kfree_skb	,	F_38
+dev_err	,	F_7
+"on"	,	L_27
+IRQF_TRIGGER_LOW	,	V_125
+"Set Channel %d\n"	,	L_19
+ERESTARTSYS	,	V_45
+"SPI write Failed for long register 0x%hx\n"	,	L_4
+MAX_SPI_SPEED_HZ	,	V_113
+"SPI RX Buffer Read Failed.\n"	,	L_9
+length	,	V_19
+mrf24j40_remove	,	F_57
+MRF24J40_WRITESHORT	,	F_5
+REG_SOFTRST	,	V_88
+IEEE802154_AFILT_SADDR_CHANGED	,	V_61
+pr_debug	,	F_20
+ENOMEM	,	V_82
+mrf24j40_stop	,	F_29
+IEEE802154_AFILT_PANC_CHANGED	,	V_77
+channel	,	V_52
+REG_CCAEDTH	,	V_99
+dev_info	,	F_46
+skb	,	V_38
+RX_FIFO_SIZE	,	V_32
+lqi_rssi	,	V_28
+hw	,	V_36
+"RX Handled\n"	,	L_30
+SPI_MODE_0	,	V_111
+HZ	,	V_44
+addrh	,	V_62
+devm_request_threaded_irq	,	F_53
+err_ret	,	V_89
+addrl	,	V_63
+val	,	V_16
+tx_complete	,	V_41
+mrf24j40_ops	,	V_114
+IEEE802154_AFILT_IEEEADDR_CHANGED	,	V_67
+IRQ_HANDLED	,	V_87
+skb_trim	,	F_39
+ECOMM	,	V_48
+cmd	,	V_17
+"Set PANID to %04hx\n"	,	L_25
+print_hex_dump	,	F_19
+DUMP_PREFIX_OFFSET	,	V_34
+flags	,	V_120
+lengths_xfer	,	V_22
+mrf24j40_probe	,	F_45
+mrf24j40_start	,	F_28
+"filter\n"	,	L_20
+out	,	V_31
+init_completion	,	F_49
+pan_id	,	V_74
+"Error Sending. Retry count exceeded\n"	,	L_14
+u16	,	T_2
+dev_alloc_skb	,	F_36
+err_irq	,	V_127
+err	,	V_40
+mrf24j40_set_channel	,	F_30
+write_short_reg	,	F_1
+EINVAL	,	V_83
+"Invalid length read from device. Performing short read.\n"	,	L_7
+ieee802154_rx_irqsafe	,	F_40
+udelay	,	F_32
+complete	,	F_42
+err_register_device	,	V_123
+"SPI write Failed for short register 0x%hhx\n"	,	L_1
+buffer_mutex	,	V_14
+"\n"	,	L_24
+msg	,	V_7
+phy	,	V_116
+data	,	V_18
+"Packet Sent\n"	,	L_15
+ret2	,	V_80
+lqi	,	V_25
+"mrf24j40: ed not implemented\n"	,	L_16
+REG_RX_FIFO	,	V_30
+"SPI read Failed for short register 0x%hhx\n"	,	L_2
+ieee802154_unregister_hw	,	F_55
+MRF24J40MC	,	V_102
+size_t	,	T_3
+REG_RFCTL	,	V_56
+IEEE802154_AFILT_PANID_CHANGED	,	V_71
+mode	,	V_110
+MRF24J40_READSHORT	,	F_11
+spi_message_init	,	F_2
+ieee802154_hw_addr_filt	,	V_58
+IEEE802154_HW_OMIT_CKSUM	,	V_121
+mrf24j40_filter	,	F_33
+spi_get_drvdata	,	F_58
+filt	,	V_59
+level	,	V_49
+spi_transfer	,	V_8
+"off"	,	L_28
+"Failure reading RX FIFO\n"	,	L_29
+"mrf24j40 rx: lqi: %02hhx rssi: %02hhx\n"	,	L_11
+"probe(). IRQ: %d\n"	,	L_31
+rx_buf	,	V_13
+REG_RXMCR	,	V_78
+REG_RFCON2	,	V_93
+spi	,	V_15
+REG_RFCON1	,	V_92
+REG_RFCON0	,	V_55
+REG_RFCON6	,	V_94
+REG_RFCON3	,	V_106
+REG_RFCON8	,	V_96
+IEEE802154_FC_ACK_REQ	,	V_43
+REG_RFCON7	,	V_95
+MRF24J40_CHAN_MAX	,	V_54
+"mrf24j40 rx: "	,	L_10
+REG_PACON2	,	V_90
+devm_kzalloc	,	F_47
+CHANNEL_MASK	,	V_119
+"Set Pan Coord to %s\n"	,	L_26
+REG_INTSTAT	,	V_86
+mrf24j40_hw_init	,	F_43
+ieee802154_alloc_hw	,	F_51
+data_xfer	,	V_23
+rx_len	,	V_26
+driver_data	,	V_101
+mrf24j40_tx	,	F_21
+skb_put	,	F_37
+spi_set_drvdata	,	F_50
+IEEE802154_HW_AFILT	,	V_122
+mrf24j40_ed	,	F_26
+mrf24j40_isr	,	F_41
+"remove\n"	,	L_34
+addr	,	V_27
+value	,	V_4
+"registered mrf24j40\n"	,	L_32
+dev_name	,	F_54
+MRF24J40_WRITELONG	,	F_15
+irqreturn_t	,	T_4
+"Unable to get IRQ"	,	L_33
+dev_warn	,	F_25
+WARN_ON	,	F_31
+REG_BBREG2	,	V_98
+ieee_addr	,	V_69
+REG_BBREG1	,	V_81
+DEBUG	,	F_18
+REG_BBREG6	,	V_100
+ieee802154_register_hw	,	F_52
+lengths	,	V_20
+"SPI write Failed for TX buf\n"	,	L_6
+KERN_DEBUG	,	V_33

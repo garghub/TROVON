@@ -1,0 +1,149 @@
+cop0	,	V_39
+"Emulate Load from MMIO space failed\n"	,	L_14
+kvm_mips_handle_ri	,	F_26
+kvm_trap_emul_handle_cop_unusable	,	F_7
+kvm_debug	,	F_6
+KVM_REG_MIPS_COUNT_HZ	,	V_66
+kvm_trap_emul_handle_tlb_ld_miss	,	F_20
+kvm_trap_emul_handle_tlb_st_miss	,	F_15
+kvm_trap_emul_handle_res_inst	,	F_25
+PAGE_MASK	,	V_34
+id	,	V_60
+kvm_trap_emul_gva_to_gpa_cb	,	F_1
+RESUME_HOST	,	V_27
+kvm_trap_emul_vm_init	,	F_29
+KVM_GUEST_KERNEL_MODE	,	F_16
+KVM_REG_MIPS_CP0_CAUSE	,	V_70
+gva_t	,	T_2
+__user	,	T_4
+kvm_mips_handle_commpage_tlb_fault	,	F_17
+mips_coproc	,	V_38
+RESUME_GUEST	,	V_21
+kvm_trap_emul_handle_break	,	F_27
+CP0C1_MD	,	V_48
+__func__	,	V_6
+kvm_one_reg	,	V_57
+kseg	,	V_3
+KVM_INVALID_ADDR	,	V_7
+EMULATE_FAIL	,	V_24
+"Illegal TLB Mod fault address , cause %#lx, PC: %p, BadVaddr: %#lx\n"	,	L_5
+"Emulate Load from MMIO space @ %#lx\n"	,	L_13
+kvm_mips_handle_kseg0_tlb_fault	,	F_19
+"TLB MOD fault not handled, cause %#lx, PC: %p, BadVaddr: %#lx\n"	,	L_4
+EMULATE_DONE	,	V_19
+badvaddr	,	V_30
+KVM_GUEST_COMMPAGE_ADDR	,	V_35
+MIPS_CONFIG3	,	V_53
+MIPS_CONF7_WII	,	V_56
+vcpu	,	V_9
+kvm_trap_emul_vcpu_init	,	F_30
+MIPS_CONFIG2	,	V_52
+"%s: cannot find GPA for GVA: %#lx\n"	,	L_1
+"%s: gva %#lx, gpa: %#llx\n"	,	L_2
+"Emulate Store to MMIO space\n"	,	L_10
+"Address Error (LOAD): cause %#lx, PC: %p, BadVaddr: %#lx\n"	,	L_15
+kvm_mips_handle_tlbmiss	,	F_18
+kvm_trap_emul_handle_syscall	,	F_23
+gpa_t	,	T_1
+kvm_mips_dump_host_tlbs	,	F_5
+kvm_read_c0_guest_cause	,	F_47
+gva	,	V_1
+"USER/KSEG23 ADDR TLB MOD fault: cause %#lx, PC: %p, BadVaddr: %#lx\n"	,	L_3
+MMU_TYPE_R4000	,	V_44
+BUG	,	F_10
+KVM_REG_MIPS_COUNT_RESUME	,	V_64
+EMULATE_WAIT	,	V_28
+MIPS_CONFIG0	,	V_42
+CAUSEB_CE	,	V_23
+kvm	,	V_37
+vcpu_id	,	V_41
+KVM_EXIT_INTR	,	V_29
+uint32_t	,	T_3
+kvm_write_c0_guest_cause	,	F_51
+s64	,	T_5
+EINVAL	,	V_68
+CP0C0_AR	,	V_43
+kvm_mips_emulate_bp_exc	,	F_28
+v	,	V_59
+CP0C1_WR	,	V_50
+arch	,	V_13
+kvm_mips_emulate_syscall	,	F_24
+count_ctl	,	V_63
+kvm_vcpu	,	V_8
+kvm_mips_emulate_fpu_exc	,	F_8
+KVM_REG_MIPS_CP0_COUNT	,	V_61
+host_cp0_badvaddr	,	V_31
+kvm_trap_emul_handle_addr_err_ld	,	F_22
+run	,	V_11
+kvm_mips_set_count_resume	,	F_53
+kvm_mips_emulation_init	,	F_55
+CP0C1_PC	,	V_49
+count_hz	,	V_67
+kvm_trap_emul_callbacks	,	V_74
+kvm_mips_handle_tlbmod	,	F_13
+kvm_write_c0_guest_prid	,	F_32
+reg	,	V_58
+ktime_to_ns	,	F_43
+CKSEG1	,	V_5
+KVM_GUEST_KSEGX	,	F_12
+gpa	,	V_2
+kvm_trap_emul_set_one_reg	,	F_44
+CKSEG0	,	V_4
+kvm_trap_emul_vcpu_setup	,	F_31
+config1	,	V_40
+ret	,	V_20
+kvm_trap_emul_handle_addr_err_st	,	F_21
+opc	,	V_12
+CP0C3_ULRI	,	V_55
+"Emulate Store to MMIO space failed\n"	,	L_11
+kvm_mips_set_count_hz	,	F_54
+kvm_change_c0_guest_cause	,	F_49
+kvm_write_c0_guest_config	,	F_33
+er	,	V_18
+install_callbacks	,	V_73
+emulation_result	,	V_17
+kvm_mips_write_compare	,	F_46
+KVM_REG_MIPS_CP0_COMPARE	,	V_69
+kvm_mips_count_disable_cause	,	F_48
+kvm_mips_write_count	,	F_45
+kvm_mips_count_enable_cause	,	F_50
+"Illegal TLB LD fault address , cause %#lx, PC: %p, BadVaddr: %#lx\n"	,	L_7
+kvm_write_c0_guest_config7	,	F_38
+KVM_REG_MIPS_COUNT_CTL	,	V_62
+CP0C0_MT	,	V_45
+count_resume	,	V_65
+kvm_mips_set_count_ctl	,	F_52
+kvm_write_c0_guest_config2	,	F_36
+KSEGX	,	F_2
+cause	,	V_15
+kvm_write_c0_guest_config3	,	F_37
+host_cp0_cause	,	V_16
+kvm_err	,	F_4
+CP0C1_C2	,	V_47
+kvm_write_c0_guest_intctl	,	F_39
+kvm_write_c0_guest_config1	,	F_35
+CPHYSADDR	,	F_3
+CAUSEF_CE	,	V_22
+KVM_MIPS_GUEST_TLB_SIZE	,	V_46
+kvm_trap_emul_get_one_reg	,	F_41
+kvm_write_c0_guest_ebase	,	F_40
+KVM_EXIT_MMIO	,	V_36
+kvm_mips_callbacks	,	V_72
+"Address Error (STORE): cause %#lx, PC: %p, BadVaddr: %#lx\n"	,	L_12
+kvm_mips_read_count	,	F_42
+kvm_run	,	V_10
+KVM_GUEST_KSEG0	,	V_32
+"USER ADDR TLB LD fault: cause %#lx, PC: %p, BadVaddr: %#lx\n"	,	L_6
+pc	,	V_14
+exit_reason	,	V_25
+KVM_EXIT_INTERNAL_ERROR	,	V_26
+kvm_trap_emul_handle_tlb_mod	,	F_11
+"USER ADDR TLB ST fault: PC: %#lx, BadVaddr: %#lx\n"	,	L_8
+CAUSEF_DC	,	V_71
+kvm_mips_emulate_inst	,	F_9
+KVM_GUEST_KSEG23	,	V_33
+kvm_arch_vcpu_dump_regs	,	F_14
+CP0C3_VInt	,	V_54
+"Illegal TLB ST fault address , cause %#lx, PC: %p, BadVaddr: %#lx\n"	,	L_9
+read_c0_config1	,	F_34
+CP0C1_CA	,	V_51

@@ -1,0 +1,203 @@
+dma_data_direction	,	V_25
+handler	,	V_31
+dma_addr_t	,	T_1
+buf_priv	,	V_9
+dev	,	V_18
+PAGE_SHIFT	,	V_75
+dma_buf_detach	,	F_83
+dma_get_max_seg_size	,	F_87
+PAGE_MASK	,	V_80
+vb2_dc_dmabuf_ops_unmap	,	F_44
+dma_map_sg	,	F_43
+dma_get_sgtable_attrs	,	F_51
+__pfn_to_bus	,	F_66
+DMA_FROM_DEVICE	,	V_81
+"dmabuf buffer is already unpinned\n"	,	L_18
+for_each_sg	,	F_3
+refcount_dec_and_test	,	F_15
+expected	,	V_5
+EIO	,	V_63
+rd	,	V_54
+dma_addr	,	V_12
+vb2_dc_vaddr	,	F_6
+dma_buf_vmap	,	F_7
+size	,	V_8
+dma_map_sg_attrs	,	F_76
+"%s: mapped dma addr 0x%08lx at 0x%08lx, size %ld\n"	,	L_4
+pr_err	,	F_31
+GFP_KERNEL	,	V_28
+device	,	V_24
+dma_sync_sg_for_cpu	,	F_13
+dma_buf_vunmap	,	F_81
+refcount_inc	,	F_56
+contig_size	,	V_78
+dma_buf_unmap_attachment	,	F_79
+sg_free_table	,	F_16
+vb2_dc_dmabuf_ops_mmap	,	F_48
+mutex_unlock	,	F_42
+dma_unmap_sg_attrs	,	F_58
+arg	,	V_33
+attach	,	V_53
+scatterlist	,	V_3
+vb2_dc_dmabuf_ops_map	,	F_40
+frame_vector_pfns	,	F_74
+i	,	V_7
+vb2_dc_attachment	,	V_52
+vb2_dc_detach_dmabuf	,	F_82
+nents	,	V_62
+DEFINE_DMA_BUF_EXPORT_INFO	,	F_53
+__pfn_to_phys	,	F_67
+orig_nents	,	V_19
+buf	,	V_11
+s	,	V_4
+pgnum	,	V_64
+mutex_lock	,	F_41
+open	,	V_45
+ERR_PTR	,	F_22
+dma_align	,	V_79
+vma	,	V_35
+VM_DONTDUMP	,	V_41
+refcount	,	V_16
+vb2_dc_prepare	,	F_10
+vb2_dc_mmap	,	F_28
+sgl	,	V_6
+vb2_dc_dmabuf_ops_release	,	F_45
+priv	,	V_56
+frame_vector_to_pages	,	F_73
+ret	,	V_36
+sgt	,	V_2
+vm_ops	,	V_43
+vm_start	,	V_47
+vb2_dc_unmap_dmabuf	,	F_80
+fail_map_sg	,	V_90
+"trying to unpin a not attached buffer\n"	,	L_17
+dmabuf	,	V_15
+frame_vector_count	,	F_61
+ops	,	V_68
+vb2_dc_num_users	,	F_8
+sg_dma_address	,	F_2
+page	,	V_70
+vb2_dc_finish	,	F_12
+BUG_ON	,	F_60
+vb2_dc_get_userptr	,	F_68
+printk	,	F_29
+put_device	,	F_19
+dev_err	,	F_25
+refcount_set	,	F_27
+vb2_dc_dmabuf_ops_attach	,	F_33
+kzalloc	,	F_23
+kmalloc	,	F_50
+vm_pgoff	,	V_38
+wr	,	V_55
+"failed to initialize sg table\n"	,	L_11
+dma_set_max_seg_size	,	F_88
+"user data must be aligned to %lu bytes\n"	,	L_8
+length	,	V_57
+vb2_dc_dmabuf_ops	,	V_69
+vb2_create_framevec	,	F_71
+dbuf_attach	,	V_51
+gfp_t	,	T_2
+pr_debug	,	F_32
+ENOMEM	,	V_29
+vb2_dc_map_dmabuf	,	F_77
+sg_page	,	F_36
+vb2_dc_get_contiguous_size	,	F_1
+vb2_dc_dmabuf_ops_kmap	,	F_46
+put	,	V_32
+vb2_dc_get_base_sgt	,	F_49
+vb2_dc_put	,	F_14
+lock	,	V_61
+dma_free_attrs	,	F_18
+DMA_ATTR_NO_KERNEL_MAPPING	,	V_30
+"dmabuf buffer is already pinned\n"	,	L_14
+cookie	,	V_22
+VM_DONTEXPAND	,	V_40
+vb2_dc_get_dmabuf	,	F_52
+vb2_dc_dmabuf_ops_vmap	,	F_47
+attrs	,	V_23
+get_device	,	F_26
+sgt_base	,	V_21
+__func__	,	V_46
+dma_unmap_sg	,	F_39
+PAGE_SIZE	,	V_65
+pfn	,	V_74
+vm_flags	,	V_39
+refcount_read	,	F_9
+kfree	,	F_17
+vb2_dc_attach_dmabuf	,	F_84
+flags	,	V_66
+mutex	,	V_60
+dma_buf_map_attachment	,	F_78
+dma_parms	,	V_93
+out	,	V_86
+sg_table	,	V_1
+"Remapping memory failed, error: %d\n"	,	L_3
+db_attach	,	V_14
+__arch_pfn_to_dma	,	F_65
+vb2_dc_alloc	,	F_20
+sg_next	,	F_37
+dma_mmap_attrs	,	F_30
+set_page_dirty_lock	,	F_62
+"failed to attach dmabuf\n"	,	L_19
+DMA_NONE	,	V_59
+"failed to alloc sg table\n"	,	L_6
+EFAULT	,	V_89
+EINVAL	,	V_27
+vb2_dma_contig_set_max_seg_size	,	F_86
+"failed to allocate sg table\n"	,	L_10
+"trying to pin a non attached buffer\n"	,	L_13
+vb2_dma_contig_clear_max_seg_size	,	F_89
+vb2_dc_put_userptr	,	F_57
+vb2_dc_dmabuf_ops_detach	,	F_38
+dma_buf_attach	,	F_85
+DMA_BIDIRECTIONAL	,	V_82
+"failed to map scatterlist\n"	,	L_5
+fail_sgt_init	,	V_88
+vb2_common_vm_ops	,	V_44
+dma_sync_sg_for_device	,	F_11
+pages	,	V_71
+vec	,	V_73
+"contiguous chunk is too small %lu/%lu b\n"	,	L_16
+"failed to get scatterlist from DMA API\n"	,	L_7
+nums	,	V_84
+dbuf	,	V_49
+frame_vector	,	V_76
+dba	,	V_92
+offset	,	V_58
+"dma_alloc_coherent of size %ld failed\n"	,	L_1
+dma_get_cache_alignment	,	F_69
+dma_sgt	,	V_17
+PTR_ERR	,	F_72
+dma_dir	,	V_20
+vb2_dc_buf	,	V_10
+vm_private_data	,	V_42
+vb2_dc_pfn_to_dma	,	F_64
+fail_sgt	,	V_87
+sg_alloc_table	,	F_34
+vaddr	,	V_13
+"Error getting dmabuf scatterlist\n"	,	L_15
+n_pages	,	V_77
+DMA_ATTR_SKIP_CPU_SYNC	,	V_72
+IS_ALIGNED	,	F_70
+sg_alloc_table_from_pages	,	F_75
+"contiguous mapping is too small %lu/%lu\n"	,	L_12
+vm_area_struct	,	V_34
+"size is zero\n"	,	L_9
+dma_alloc_attrs	,	F_24
+sg_set_page	,	F_35
+exp_info	,	V_67
+dma_buf	,	V_48
+gfp_flags	,	V_26
+frame_vector_pages	,	F_59
+dma_buf_export	,	F_54
+WARN_ON	,	F_21
+sg_dma_len	,	F_4
+fail_buf	,	V_83
+KERN_ERR	,	V_37
+vb2_dc_cookie	,	F_5
+"No buffer to map\n"	,	L_2
+mem_priv	,	V_91
+dma_buf_attachment	,	V_50
+fail_pfnvec	,	V_85
+IS_ERR	,	F_55
+vb2_destroy_framevec	,	F_63

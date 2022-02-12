@@ -1,0 +1,204 @@
+REQ_OP_SCSI_OUT	,	V_17
+cpu_to_be32	,	F_22
+ATA_ID_PROD	,	V_108
+"dev?"	,	L_13
+IDE_DBG_RQ	,	V_57
+"%s: No disk in drive\n"	,	L_31
+ascq	,	V_23
+__be16	,	V_85
+desc_cnt	,	V_95
+IDE_DFLAG_WP	,	V_84
+ide_floppy_get_flexible_disk_page	,	F_33
+ide_do_test_unit_ready	,	F_45
+CAPACITY_NO_CARTRIDGE	,	V_105
+ide_floppy_issue_pc	,	F_10
+EIO	,	V_71
+retries	,	V_32
+rc	,	V_97
+get_unaligned	,	F_5
+ide_atapi_pc	,	V_6
+rq_data_dir	,	F_21
+ide_issue_pc	,	F_13
+ide_proc_register_driver	,	F_42
+drive	,	V_1
+"IOMEGA ZIP 100 ATAPI"	,	L_35
+bios_head	,	V_88
+rq	,	V_9
+__be32	,	V_99
+"pc = %x"	,	L_2
+"asc = %2x, ascq = %2x\n"	,	L_8
+result	,	V_28
+cyls	,	V_79
+BUG	,	F_28
+"%s: I/O error\n"	,	L_14
+hwif	,	V_35
+set_capacity	,	F_47
+blk_rq_sectors	,	F_20
+be32_to_cpup	,	F_38
+out_end	,	V_62
+c	,	V_13
+u8	,	T_2
+"ascq = %x"	,	L_4
+ide_floppy_report_error	,	F_9
+disk_name	,	V_59
+queued_pc	,	V_63
+CAPACITY_INVALID	,	V_106
+i	,	V_96
+bios_cyl	,	V_87
+asc	,	V_22
+buf	,	V_19
+"%s: The disk reports a capacity of %d "	,	L_19
+ide_floppy_get_capacity	,	F_37
+req_xfer	,	V_42
+header_len	,	V_94
+ide_stopped	,	V_40
+blk_rq_pos	,	F_26
+pc_callback	,	V_38
+IDE_DBG_FUNC	,	V_11
+PC_FLAG_WRITING	,	V_54
+IDE_DFLAG_ATTACH	,	V_115
+ide_floppy_init_media	,	F_44
+GPCMD_MODE_SENSE_10	,	V_45
+bios_sect	,	V_89
+pc_buf	,	V_93
+sector	,	V_48
+ret	,	V_116
+sectors	,	V_82
+ide_floppy_do_request	,	F_24
+"bytes, but the drive only handles %d\n"	,	L_20
+CAPACITY_UNFORMATTED	,	V_101
+"%s: %dkB, %d blocks, %d "	,	L_24
+desc_start	,	V_98
+GPCMD_WRITE_10	,	V_15
+GPCMD_REQUEST_SENSE	,	V_18
+blk_dump_rq_flags	,	F_25
+page	,	V_74
+"Aborting request!\n"	,	L_6
+REQ_OP_DRV_IN	,	V_64
+ide_init_pc	,	F_15
+IDE_DFLAG_DOORLOCKING	,	V_113
+GPCMD_READ_FORMAT_CAPACITIES	,	V_41
+printk	,	F_6
+ide_floppy_setup	,	F_39
+"retry #%d"	,	L_9
+ide_do_start_stop	,	F_46
+ide_complete_rq	,	F_12
+idefloppy_blockpc_cmd	,	F_23
+ide_debug_log	,	F_2
+cpu_to_be16	,	F_18
+block_size	,	V_90
+ide_map_sg	,	F_32
+scsi_req	,	F_8
+blocks	,	V_51
+length	,	V_44
+ide_drive_t	,	T_1
+ide_cmd	,	V_30
+special	,	V_68
+REQ_OP_DRV_OUT	,	V_65
+GPCMD_READ_10	,	V_14
+"enter, cmd: 0x%x\n"	,	L_12
+"%d sector size, %d rpm\n"	,	L_18
+cap_desc	,	V_92
+ide_disk_obj	,	V_3
+bio	,	V_20
+PC_FLAG_DMA_OK	,	V_55
+debug_mask	,	V_56
+ide_queue_pc_tail	,	F_34
+PC_FLAG_SUPPRESS_ERROR	,	V_37
+block	,	V_49
+be16_to_cpup	,	F_36
+id	,	V_107
+ide_floppy_flush	,	F_43
+driver	,	V_114
+sense_key	,	V_21
+ide_prep_sense	,	F_29
+"Descriptor 0 Code: %d"	,	L_34
+page_code	,	V_43
+failed_pc	,	V_12
+cmd	,	V_31
+sector_size	,	V_78
+flexible_disk_page	,	V_86
+transfer_rate	,	V_77
+dev_flags	,	V_83
+CAPACITY_CURRENT	,	V_104
+floppy	,	V_4
+ide_req	,	F_27
+" not supported\n"	,	L_27
+flags	,	V_36
+ide_floppy_create_mode_sense_cmd	,	F_16
+WRITE	,	V_53
+capacity	,	V_75
+progress_indication	,	V_24
+"Can't get flexible disk page params\n"	,	L_16
+ata_misc_request	,	F_7
+sector_t	,	T_4
+u16	,	V_25
+rq_disk	,	V_58
+lba_capacity	,	V_76
+"fully supported\n"	,	L_30
+"%s: Invalid capacity for disk "	,	L_32
+req_op	,	F_3
+pc_delay	,	V_110
+"%s: %d bytes block size"	,	L_26
+IDE_TFLAG_WRITE	,	V_70
+heads	,	V_81
+queue	,	V_112
+IDEFLOPPY_FLEXIBLE_DISK_PAGE	,	V_47
+"%s: I/O error, pc = %2x, key = %2x, "	,	L_7
+ide_gd_capacity	,	F_48
+"Error in REQUEST SENSE itself - "	,	L_5
+ide_floppy_create_read_capacity_cmd	,	F_14
+"Can't get floppy parameters\n"	,	L_21
+"%d sector size"	,	L_23
+"%s: Warning: "	,	L_28
+IDEFLOPPY_CAPABILITIES_PAGE	,	V_46
+put_unaligned	,	F_17
+IDEFLOPPY_MAX_PC_RETRIES	,	V_33
+bs_factor	,	V_50
+ERROR_MAX	,	V_60
+"%s: unsupported r/w rq size\n"	,	L_15
+set_disk_ro	,	F_35
+"sense key = %x, asc = %x,"	,	L_3
+IDE_DRV_ERROR_GENERAL	,	V_29
+done	,	V_34
+BLK_STS_IOERR	,	V_39
+READ	,	V_52
+"unsupported page code in %s\n"	,	L_10
+disk	,	V_73
+IDE_DBG_PC	,	V_26
+dsc	,	V_2
+IDE_DBG_SENSE	,	V_27
+"non 512 bytes block size not "	,	L_29
+blk_rq_bytes	,	F_11
+request	,	V_8
+ATA_PRIV_MISC	,	V_66
+"%s: %dkB, %d/%d/%d CHS, %d kBps, "	,	L_17
+"Descriptor %d: %dkB, %d blocks, "	,	L_22
+tf_flags	,	V_69
+driver_data	,	V_5
+blk_rq_is_passthrough	,	F_30
+IDE_DBG_PROBE	,	V_100
+gendisk	,	V_72
+"sector size\n"	,	L_25
+REQ_OP_SCSI_IN	,	V_16
+strstarts	,	F_40
+ide_startstop_t	,	T_3
+"enter"	,	L_1
+IDE_AFLAG_CLIK_DRIVE	,	V_103
+uptodate	,	V_10
+IDE_AFLAG_ZIP_DRIVE	,	V_109
+blk_queue_max_hw_sectors	,	F_41
+"in drive\n"	,	L_33
+ATA_PRIV_SENSE	,	V_67
+"IOMEGA Clik!"	,	L_36
+rpm	,	V_80
+IDEFLOPPY_PC_DELAY	,	V_111
+idefloppy_create_rw_cmd	,	F_19
+ide_floppy_callback	,	F_1
+pc	,	V_7
+ide_init_sg_cmd	,	F_31
+bio_data	,	F_4
+atapi_flags	,	V_102
+BLK_STS_OK	,	V_61
+"block: %d, blocks: %d"	,	L_11
+capacity64	,	V_91

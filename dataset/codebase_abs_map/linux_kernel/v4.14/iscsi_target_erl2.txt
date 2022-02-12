@@ -1,0 +1,130 @@
+pr_debug	,	F_9
+conn	,	V_6
+atomic_set	,	F_39
+spin_lock_init	,	F_33
+sess	,	V_11
+connection_recovery	,	V_62
+cmdsn_mutex	,	V_41
+iscsi_session	,	V_15
+immediate_cmd	,	V_53
+data_sn	,	V_4
+"Incremented connection recovery count to %u for"	,	L_1
+conn_recovery_count	,	V_23
+DMA_TO_DEVICE	,	V_57
+cr_tmp	,	V_27
+list_for_each_entry_safe	,	F_13
+conn_recovery_cmd_list	,	V_48
+read_data_done	,	V_8
+cmd_tmp	,	V_26
+iscsi_conn	,	V_5
+iscsit_get_inactive_connection_recovery_entry	,	F_10
+be32_to_cpu	,	F_2
+iscsit_remove_cmd_from_connection_recovery	,	F_20
+MaxXmitDataSegmentLength	,	V_61
+iscsit_remove_inactive_connection_recovery_entry	,	F_19
+ICF_OOO_CMDSN	,	V_45
+i_state	,	V_54
+init_task_tag	,	V_30
+iscsit_attach_active_connection_recovery_entry	,	F_4
+deferred_i_state	,	V_34
+se_cmd	,	V_58
+"struct iscsi_conn_recovery pointer for ITT: 0x%08x"	,	L_4
+cr_a_lock	,	V_18
+pr_err	,	F_21
+cmd	,	V_2
+cr_active_list	,	V_20
+GFP_KERNEL	,	V_47
+cmd_lock	,	V_43
+" Opcode: 0x%02x, ITT: 0x%08x, CmdSN: 0x%08x,"	,	L_21
+iscsit_remove_active_connection_recovery_entry	,	F_18
+iscsit_create_conn_recovery_dataout_values	,	F_3
+ISTATE_SENT_STATUS	,	V_35
+kfree	,	F_17
+"iSCSI connection recovery successful for CID:"	,	L_12
+__be32	,	T_1
+iscsit_free_connection_recovery_entires	,	F_12
+list_del_init	,	F_15
+list_add_tail	,	F_6
+iscsi_sna_gte	,	F_34
+iscsit_stop_dataout_timer	,	F_35
+" %hu on SID: %u\n"	,	L_13
+mutex_unlock	,	F_27
+transport_wait_for_tasks	,	F_37
+BUG	,	F_22
+"No commands to be reassigned for failed"	,	L_10
+u16	,	T_3
+write_data_done	,	V_14
+" CmdSN: 0x%08x, StatSN: 0x%08x, CID: %hu for"	,	L_24
+MaxRecvDataSegmentLength	,	V_10
+data_direction	,	V_56
+cr	,	V_17
+cmd_flags	,	V_44
+"Dropped %u total acknowledged commands on"	,	L_8
+mutex_lock	,	F_25
+" %hu for ExpCmdSN: 0x%08x.\n"	,	L_17
+ooo_cmdsn	,	V_39
+maxxmitdatasegmentlength	,	V_60
+INIT_LIST_HEAD	,	F_32
+cr_list	,	V_19
+" CID: %hu\n"	,	L_22
+iscsit_connection_recovery_transport_reset	,	F_38
+iscsit_attach_inactive_connection_recovery_entry	,	F_8
+ISCSI_OP_SCSI_CMD	,	V_50
+u32	,	T_2
+iscsit_prepare_cmds_for_reallegiance	,	F_30
+conn_recovery_cmd_lock	,	V_28
+" 0x%08x, CID: %hu.\n"	,	L_7
+"Not performing reallegiance on"	,	L_20
+" SID: %u\n"	,	L_2
+sess_ops	,	V_12
+cmd_sn	,	V_52
+"Dropping unacknowledged CmdSN:"	,	L_14
+"Dropping Acknowledged ITT: 0x%08x, StatSN:"	,	L_6
+" struct iscsi_conn_recovery.\n"	,	L_19
+iscsi_conn_recovery	,	V_16
+"Preparing Opcode: 0x%02x, ITT: 0x%08x,"	,	L_23
+iscsi_opcode	,	V_49
+iscsit_free_all_datain_reqs	,	F_36
+cmdsn	,	V_42
+" reallegiance.\n"	,	L_25
+iscsi_ooo_cmdsn	,	V_38
+iscsit_close_connection	,	F_40
+list_for_each_entry	,	F_11
+next_burst_len	,	V_7
+cid	,	V_25
+" is NULL!\n"	,	L_5
+iscsit_create_conn_recovery_datain_values	,	F_1
+ISTATE_REMOVE	,	V_36
+ooo_cmdsn_tmp	,	V_40
+exp_data_sn	,	V_3
+cmd_count	,	V_31
+iscsit_discard_cr_cmds_by_expstatsn	,	F_23
+conn_ops	,	V_9
+iscsit_free_cmd	,	F_16
+MaxBurstLength	,	V_13
+"Dropped %u total unacknowledged commands on CID:"	,	L_16
+stat_sn	,	V_37
+sid	,	V_24
+ISCSI_OP_NOOP_OUT	,	V_51
+"Unable to allocate memory for"	,	L_18
+list_del	,	F_14
+kzalloc	,	F_31
+maxrecvdatasegmentlength	,	V_59
+cr_i_lock	,	V_21
+spin_lock	,	F_5
+ISTATE_IN_CONNECTION_RECOVERY	,	V_55
+exp_statsn	,	V_32
+dropped_count	,	V_33
+" CID: %hu less than old ExpStatSN: 0x%08x\n"	,	L_9
+i_conn_node	,	V_29
+spin_unlock	,	F_7
+" 0x%08x during connection recovery on CID: %hu\n"	,	L_15
+spin_unlock_bh	,	F_29
+"Decremented connection recovery count to %u for"	,	L_3
+iscsit_discard_unacknowledged_ooo_cmdsns_for_conn	,	F_24
+cr_inactive_list	,	V_22
+iscsit_remove_ooo_cmdsn	,	F_26
+iscsi_cmd	,	V_1
+exp_cmd_sn	,	V_46
+" connection CID: %hu on SID: %u\n"	,	L_11
+spin_lock_bh	,	F_28

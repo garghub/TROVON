@@ -1,0 +1,652 @@
+parent	,	V_10
+"Enable AC: %dmV %dmA\n"	,	L_35
+AB8500_IT_SOURCE21_REG	,	V_88
+sysfs_notify	,	F_10
+"VBUS has collapsed\n"	,	L_17
+AB8540_VBUS_IN_CURR_LIM_SHIFT	,	V_124
+ab8500_charger_chwdexp_handler	,	F_97
+dev	,	V_9
+curr_index	,	V_113
+"present"	,	L_5
+AB8500_USBCH_CTRL1_REG	,	V_168
+vset	,	V_147
+usb_link_status_work	,	V_234
+ARRAY_SIZE	,	F_28
+ac_chg	,	V_165
+usb_state	,	V_105
+is_ab8540	,	F_35
+ac	,	V_19
+INIT_DELAYED_WORK	,	F_136
+is_aca_rid	,	V_61
+"Not allowed USB charger detected\n"	,	L_88
+"%s ab8500 read failed\n"	,	L_7
+notifier_call	,	V_370
+POWER_SUPPLY_TYPE_USB	,	V_186
+charger_voltage	,	V_277
+charger	,	V_145
+NO_PW_CONN	,	V_46
+"%s set charger current: %d mA for reg: 0x%02x\n"	,	L_26
+of_node	,	V_337
+ab8500_charger_get_ac_current	,	F_20
+ab8500_charger_check_usbchargernotok_work	,	F_82
+POWER_SUPPLY_PROP_PRESENT	,	V_276
+free_charger_wq	,	V_364
+charger_attached_mutex	,	V_26
+cancel_delayed_work	,	F_53
+free_irq	,	F_119
+usleep_range	,	F_36
+devm_regulator_get	,	F_138
+bm	,	V_100
+"to finish"	,	L_72
+ab8500_charger_check_continue_stepping	,	F_32
+MAIN_CH_INPUT_CURR_SHIFT	,	V_122
+ab8500_charger_probe	,	F_126
+result	,	V_45
+"Main charger unplugged\n"	,	L_76
+ab8500_charger_detect_usb_type	,	F_26
+MAIN_CHARGER_V	,	V_32
+POWER_SUPPLY_TYPE_BATTERY	,	V_205
+mainch	,	V_227
+USB_STAT_HOST_CHG_HS	,	V_63
+MAIN_CH_NOK	,	V_215
+INIT_WORK	,	F_137
+psy_to_ux500_charger	,	F_101
+USB_STAT_STD_HOST_C_NS	,	V_56
+"USB Type - USB_STAT_RESERVED "	,	L_16
+MAIN_CHARGER_C	,	V_41
+i	,	V_95
+irq	,	V_260
+USB_CH_IP_CUR_LVL_0P09	,	V_107
+j	,	V_197
+blocking_notifier_chain_register	,	F_133
+ab8500_gpadc_get	,	F_130
+USB_CH_IP_CUR_LVL_0P05	,	V_77
+bkup_bat_i	,	V_312
+usb_chg	,	V_24
+charger_connected	,	V_18
+"%s USB state: 0x%02x mA: %d\n"	,	L_75
+ab8500_charger_usblinkstatus_handler	,	F_93
+t	,	V_209
+"USB Type - Charging not allowed\n"	,	L_15
+of_property_read_bool	,	F_129
+ab8500_charger_vbusovv_handler	,	F_99
+bkup_bat_v	,	V_305
+abx500_bm_data	,	V_338
+to_ab8500_charger_usb_device_info	,	F_52
+platform_device	,	V_327
+di	,	V_2
+NOTIFY_DONE	,	V_324
+link_status	,	V_53
+USB_CH_IP_CUR_LVL_0P19	,	V_108
+isr	,	V_372
+usb_curr_max	,	V_131
+dev_dbg	,	F_2
+ac_work	,	V_219
+max_out_volt	,	V_354
+overshoot	,	V_151
+AB8500_MCH_CTRL1	,	V_158
+"failed to disable main watchdog\n"	,	L_98
+"Power-off LED failed\n"	,	L_33
+reg	,	V_5
+"%s di-&gt;vbus_detected = false\n"	,	L_63
+ab8500_enable_disable_sw_fallback	,	F_1
+ab8500_gpadc_convert	,	F_16
+ab8500_charger_detect_chargers	,	F_22
+"%s Disabled AC charging\n"	,	L_44
+"failed to setup usb power path vsys voltage\n"	,	L_102
+kobj	,	V_25
+ret	,	V_8
+"%s Failed to set MainChInputCurr\n"	,	L_39
+ab8500_charger_vbus_drop_end_work	,	F_90
+VBUS_OVV_SELECT_6P3V	,	V_294
+ab8500_charger_usb_cv	,	F_21
+vddadc_en_usb	,	V_166
+ich_in	,	V_128
+ab8500_charger_usb_get_property	,	F_102
+USB_CH_IP_CUR_LVL_0P29	,	V_109
+USB_CH_TH_PROT	,	V_258
+max_out_curr	,	V_355
+VBUS_AUTO_IN_CURR_LIM_ENA	,	V_293
+check_hw_failure_work	,	V_212
+spin_unlock_irqrestore	,	F_81
+"USB Type - Legacy charger.\n"	,	L_14
+chg_input_curr	,	V_103
+external	,	V_334
+ab8500_vbus_in_curr_to_regval	,	F_30
+vbus_drop_end_work	,	V_263
+cv_active	,	V_279
+ab8500_charger_voltage_map	,	V_97
+"AC charger not connected\n"	,	L_34
+"Potential Legacy Charger device. "	,	L_70
+ac_conn	,	V_160
+class_for_each_device	,	F_68
+is_ab8500	,	F_3
+ab8500_charger_usbchargernotokr_handler	,	F_96
+ab8500_charger_ac_get_property	,	F_100
+work_struct	,	V_207
+USB_STAT_HM_IDGND	,	V_76
+"%s di-&gt;vbus_detected = true\n"	,	L_64
+"Power ON LED failed\n"	,	L_31
+AB8540_USB_PP_MODE_REG	,	V_189
+ab8500_charger_driver	,	V_375
+USB_CH_IP_CUR_LVL_0P38	,	V_110
+vddadc_en_ac	,	V_152
+ab8500_charger_usbchthprotr_handler	,	F_94
+is_ab8500_1p1_or_earlier	,	F_48
+ab8500_charger_set_usb_connected	,	F_9
+wd_expired	,	V_164
+"USB charger not connected\n"	,	L_45
+to_ab8500_charger_ac_device_info	,	F_45
+USB_STAT_DEDICATED_CHG	,	V_70
+ab8500_ac_chg_desc	,	V_365
+"write reg failed %d\n"	,	L_51
+pp_enable	,	V_359
+USB_STAT_CARKIT_1	,	V_81
+USB_STAT_CARKIT_2	,	V_82
+USB_STAT_ACA_RID_C_HS	,	V_64
+"Die temp above USB charger thermal protection threshold\n"	,	L_86
+USB_CH_IP_CUR_LVL_0P45	,	V_134
+usb_power_path	,	V_363
+ab8500_charger_update_charger_current	,	F_59
+spin_unlock	,	F_110
+"USB Type - 0x%02x MaxCurr: %d"	,	L_13
+autopower_cfg	,	V_16
+num_properties	,	V_200
+ab8500_charger_usb_en	,	F_51
+ab8500_charger_set_output_curr	,	F_42
+DROP_COUNT_RESET	,	V_182
+usb_state_changed_work	,	V_239
+ab8500_charger_check_vbat_work	,	F_66
+chg_output_curr	,	V_101
+"%s gpadc conv failed\n"	,	L_8
+ENOMEM	,	V_347
+dev_get_drvdata	,	F_63
+"Charger watchdog expired\n"	,	L_89
+AB8500_CHARG_WD_CTRL	,	V_187
+"ab8500_charger_wq"	,	L_111
+VBUP33_VRTCN	,	V_309
+bit	,	V_7
+flush_work	,	F_115
+HZ	,	V_29
+ab8500_power_supply_changed	,	F_7
+USB_STAT_ACA_RID_C_HS_CHIRP	,	V_72
+power_supply_property	,	V_201
+power_supply_class	,	V_210
+"Requested %s IRQ %d: %d\n"	,	L_121
+USB_LINK_STATUS_SHIFT	,	V_93
+EXTERNAL_CHARGER_ENABLE_REG_VAL	,	V_179
+abx500_mask_and_set_register_interruptible	,	F_56
+vbus_detected_start	,	V_231
+ab8500_charger_check_main_thermal_prot_work	,	F_83
+_di	,	V_261
+regulator_disable	,	F_50
+"Enable USB: %dmV %dmA\n"	,	L_46
+"VBUS falling detected\n"	,	L_83
+AB8500_BM_USB_STATE_RESET_HS	,	V_244
+AB8540_CH_USBCH_STAT3_REG	,	V_264
+VBUS_V	,	V_38
+"Main charger not ok\n"	,	L_78
+ab8500_charger_get_ac_voltage	,	F_15
+USB_STAT_HOST_CHG_NM	,	V_69
+"requested current limit out-of-range\n"	,	L_24
+POWER_SUPPLY_TYPE_MAINS	,	V_185
+old_vbat	,	V_211
+IRQ_HANDLED	,	V_262
+VBUS_IN_CURR_LIM_RETRY_SET_TIME	,	V_268
+ab8500_charger_mainchunplugdet_handler	,	F_85
+WD_KICK_INTERVAL	,	V_162
+OTP_ENABLE_WD	,	V_297
+"autopower_cfg"	,	L_109
+"faile to enable main watchdog\n"	,	L_96
+LOW_VOLT_REG	,	V_98
+"USB connected:%i\n"	,	L_4
+"%s AB8500_USB_LINE_STAT_REG %x\n"	,	L_21
+n_chg_in_curr	,	V_104
+USB_PW_CONN	,	V_51
+check_usb_thermal_prot_work	,	V_257
+"%s usb_state: 0x%02x mA: %d\n"	,	L_105
+"VBUS overvoltage detected\n"	,	L_91
+power_supply_unregister	,	F_125
+usbch_ctrl1	,	V_180
+ab8500_charger_max_usb_curr	,	F_24
+current_stepping_sessions	,	V_119
+ab8500_charger_usb_attached_work	,	F_72
+VBUS_OVV_TH	,	V_218
+power_path	,	V_362
+AB8500_INTERRUPT	,	V_87
+check_usbchgnotok_work	,	V_251
+free_usb	,	V_369
+"%s "	,	L_40
+flush_scheduled_work	,	F_124
+max_usb_in_curr	,	V_58
+ab8500_current_to_regval	,	F_29
+"%s gpadc conv failed,\n"	,	L_6
+min_value	,	V_129
+AB8500_CHARGER	,	V_35
+mA	,	V_323
+"%s Wait %d msec for USB enum to finish"	,	L_73
+"failed to set charger watchdog timeout\n"	,	L_99
+AB8500_CH_VOLT_LVL_MAX_REG	,	V_287
+ab8500_charger_usb_link_status_work	,	F_77
+notifier_block	,	V_171
+ab8500_charger_get_vbus_voltage	,	F_18
+supply_interface	,	V_348
+BUP_VCH_SEL_3P1V	,	V_306
+charger_notifier_list	,	V_333
+usb	,	V_17
+AB8500_USBCH_IPT_CRNTLVL_REG	,	V_112
+flush_delayed_work	,	F_114
+AB8540_USB_PP_CHR_REG	,	V_191
+USB_STAT_NOT_VALID_LINK	,	V_85
+MAIN_CH_NO_OVERSHOOT_ENA_N	,	V_157
+pdev	,	V_328
+AB8500_CHARGER_CTRL	,	V_181
+USB_STAT_ACA_RID_C_NM	,	V_73
+u32	,	T_2
+ab8500_bm_of_probe	,	F_128
+AB8500_CH_USBCH_STAT1_REG	,	V_42
+vbus_collapse	,	V_80
+intval	,	V_206
+"failed to register usb notifier\n"	,	L_119
+MAIN_CH_STATUS2_MAINCHGDROP	,	V_228
+AC_PW_CONN	,	V_48
+ab8500_charger_set_vbus_in_curr	,	F_38
+ab8500_charger_usb_check_enable	,	F_55
+AB8500_CH_WD_TIMER_REG	,	V_303
+power_supply_propval	,	V_196
+AB8500_USBCH_CTRL2_REG	,	V_292
+"failed to set CH_OPT_CRNTLVL_MAX_REG\n"	,	L_93
+mainch_ctrl1	,	V_183
+MAIN_CH_CV_ON	,	V_37
+ab8500_charger_ac_check_enable	,	F_57
+power_supply_register	,	F_141
+"VBUS input current limiting to %d mA\n"	,	L_81
+nb	,	V_319
+spin_lock_irqsave	,	F_80
+check_enable	,	V_351
+ab8500_charger_vbuschdropend_handler	,	F_98
+"VBUS input current limit set to %d mA\n"	,	L_30
+reg_value	,	V_116
+"charging not started\n"	,	L_38
+USB_CHG_NO_OVERSHOOT_ENA_N	,	V_167
+platform_set_drvdata	,	F_146
+devm_kzalloc	,	F_127
+"failed to create work queue\n"	,	L_112
+enable_overshoot	,	V_156
+np	,	V_336
+power_supply_changed	,	F_8
+platform_get_drvdata	,	F_112
+ENXIO	,	V_78
+MAIN_CH_TH_PROT	,	V_255
+LED_INDICATOR_PWM_DUTY_252_256	,	V_142
+charger_nb	,	V_172
+BUP_VCH_SEL_3P3V	,	V_308
+AB8500_BM_USB_STATE_RESUME	,	V_248
+VBUS_DET_DBNC1	,	V_49
+AB8500_USB_LINK_STATUS	,	V_92
+CH_OP_CUR_LVL_1P6	,	V_291
+ab8500_charger_link_status	,	V_52
+prev_curr_index	,	V_114
+"SW Fallback: %d\n"	,	L_1
+on	,	V_137
+"Enabling USB with write to AB8500_USBCH_CTRL1_REG\n"	,	L_47
+check_main_thermal_prot_work	,	V_254
+queue_delayed_work	,	F_13
+power_supply_get_property	,	F_65
+ab8500_usb_state	,	V_321
+ab8500_charger_kick_watchdog_work	,	F_70
+AB8500_BM_USB_STATE_RESET_FS	,	V_245
+"failed to get battery information\n"	,	L_108
+"Charger voltage or current too high, "	,	L_37
+dev_warn	,	F_47
+"curr change_1 to: %x for 0x%02x\n"	,	L_28
+NOTIFY_OK	,	V_326
+input_curr_index	,	V_150
+probe	,	V_44
+"failed to get usb transceiver\n"	,	L_118
+kick_wd_work	,	V_161
+container_of	,	F_67
+POWER_SUPPLY_HEALTH_OVERHEAT	,	V_273
+AB8500_OTP_EMUL	,	V_295
+power_supply	,	V_14
+AUTO_VBUS_IN_CURR_LIM_SHIFT	,	V_266
+VBUS_IN_CURR_LIM_SHIFT	,	V_125
+disable_otp	,	V_13
+properties	,	V_203
+IS_ERR	,	F_139
+POWER_SUPPLY_PROP_VOLTAGE_AVG	,	V_278
+shift_value	,	V_115
+"failed to request %s IRQ %d: %d\n"	,	L_120
+POWER_SUPPLY_PROP_VOLTAGE_NOW	,	V_204
+spin_lock_init	,	F_131
+AB8505_USB_LINK_STATUS	,	V_94
+"failed to disable LED\n"	,	L_43
+ab8500_charger_led_en	,	F_43
+msleep	,	F_23
+LED_INDICATOR_PWM_DIS	,	V_143
+"Failed to kick WD!\n"	,	L_60
+platform_driver_unregister	,	F_150
+AB8500_RTC	,	V_310
+bank	,	V_6
+ab8500_charger_set_main_in_curr	,	F_41
+"failed to set CH_VOLT_LVL_MAX_REG\n"	,	L_92
+"USB link status= 0x%02x\n"	,	L_69
+cancel_delayed_work_sync	,	F_14
+state	,	V_241
+curr	,	V_99
+ch_stat	,	V_345
+ext	,	V_193
+update_curr	,	V_353
+chg_params	,	V_130
+charger_status	,	V_344
+ab8500_charger_irq	,	V_330
+ab8500_charger_mainchthprotf_handler	,	F_89
+"detected through USB driver\n"	,	L_11
+"Charging has been disabled abnormally and will be re-enabled\n"	,	L_55
+AB8500_CH_STATUS1_REG	,	V_36
+AB8500_CH_USBCH_STAT2_REG	,	V_217
+destroy_workqueue	,	F_122
+GFP_KERNEL	,	V_346
+device	,	V_175
+"UsbLineStatus register = 0x%02x\n"	,	L_65
+USB_STAT_ACA_DOCK_CHARGER	,	V_83
+"ab8500-gpadc.0"	,	L_110
+LED_INDICATOR_PWM_ENA	,	V_140
+AB8500_BM_USB_STATE_MAX	,	V_247
+no_stepping	,	V_118
+MAIN_WDOG_DIS	,	V_302
+ab8500_charger_get_ext_psy_data	,	F_62
+mutex_init	,	F_132
+"Main charger plugged\n"	,	L_77
+device_node	,	V_335
+"failed to initialize ABB registers\n"	,	L_115
+usbch	,	V_220
+mutex_unlock	,	F_12
+supplied_to	,	V_195
+set_max	,	V_86
+MAIN_CH_ENA	,	V_159
+CH_VOL_LVL_4P6	,	V_288
+power_supply_config	,	V_341
+min	,	F_39
+regu	,	V_153
+USB_CH_CV_ON	,	V_43
+USB_STAT_STD_HOST_C_S	,	V_57
+USB_CH_IP_CUR_LVL_1P3	,	V_68
+abx500_get_register_interruptible	,	F_4
+AB8500_RTC_CTRL1_REG	,	V_313
+u8	,	T_1
+atomic_read	,	F_116
+USB_CH_VBUSDROP	,	V_221
+USB_CH_IP_CUR_LVL_1P5	,	V_71
+EXTERNAL_CHARGER_DISABLE_REG_VAL	,	V_177
+POWER_SUPPLY_PROP_HEALTH	,	V_270
+STEP_UDELAY	,	V_123
+AB8500_CH_VOLT_LVL_REG	,	V_155
+kick_wd	,	V_352
+vbus_drop_end	,	V_23
+ab8500_charger_detect_usb_type_work	,	F_75
+"USB Type - Standard host is "	,	L_10
+CH_OP_CUR_LVL_2P	,	V_290
+connected	,	V_21
+IS_ERR_OR_NULL	,	F_143
+AB8500_USB_LINE_STAT_REG	,	V_90
+"%s current register not valid\n"	,	L_23
+check_vbat_work	,	V_170
+mutex_lock	,	F_11
+detect_usb_type_work	,	V_230
+POWER_SUPPLY_HEALTH_DEAD	,	V_272
+USB_CH_VBUSDETDBNC	,	V_222
+VBAT_TRESH_IP_CUR_RED	,	V_133
+supplicants	,	V_194
+ab8500_charger_watchdog_kick	,	F_58
+"failed to enable AC charger %d\n"	,	L_59
+USB_STAT_CHARGER_LINE_1	,	V_84
+IRQF_NO_SUSPEND	,	V_374
+WAIT_ACA_RID_ENUMERATION	,	V_238
+usb_unregister_notifier	,	F_120
+round_jiffies	,	F_49
+usb_get_phy	,	F_142
+ab8540_charger_usb_pre_chg_enable	,	F_61
+ich	,	V_39
+AB8500_CH_OPT_CRNTLVL_REG	,	V_126
+"ab8500 write failed %d\n"	,	L_56
+BUS_VSYS_VOL_SELECT_3P6V	,	V_317
+AB8500_LED_INDICATOR_PWM_DUTY	,	V_141
+usb_thermal_prot	,	V_259
+INIT_DEFERRABLE_WORK	,	F_135
+ab8500_charger_mainchplugdet_handler	,	F_86
+drv_data	,	V_349
+wdt_refresh	,	V_356
+AB8500_CH_STATUS2_REG	,	V_214
+statval	,	V_223
+blocking_notifier_chain_unregister	,	F_123
+ab8500_charger_get_usb_current	,	F_19
+AB8500_BM_USB_STATE_SUSPEND	,	V_246
+USB_STAT_NOT_CONFIGURED	,	V_74
+"%s !di-&gt;vbus_detected\n"	,	L_74
+AB8500_MAIN_WDOG_CTRL_REG	,	V_299
+ops	,	V_350
+prev_status	,	V_250
+MAIN_WDOG_ENA	,	V_300
+name	,	V_199
+ab8500_charger_ac_work	,	F_71
+"USB charger ctrl: 0x%02x\n"	,	L_54
+USB_CHARGER_C	,	V_40
+desc	,	V_184
+WD_TIMER	,	V_304
+ab8500_charger	,	V_1
+allow	,	V_127
+VBUS_DET_DBNC100	,	V_50
+gpadc	,	V_31
+"Error reading USB link status\n"	,	L_66
+psp	,	V_269
+ab8500_charger_vbusdetr_handler	,	F_92
+ac_enabled	,	V_358
+"Set LED PWM duty cycle failed\n"	,	L_32
+dev_err	,	F_5
+usb_current	,	V_106
+USB_CH_DET	,	V_237
+AB8500_OTP_CONF_15	,	V_296
+create_singlethread_workqueue	,	F_134
+psy	,	V_15
+"curr change_2 to: %x for 0x%02x\n"	,	L_29
+free_ac	,	V_367
+"failed to enable main WD in OTP\n"	,	L_95
+LED_IND_CUR_5MA	,	V_139
+CHARG_WD_KICK	,	V_188
+AB8500_LED_INDICATOR_PWM_CTRL	,	V_138
+exit_set_current	,	V_120
+charger_wq	,	V_27
+AB8500_SYS_CHARGER_CONTROL_REG	,	V_176
+AB8500_MCH_IPT_CURLVL_REG	,	V_121
+"USB_STAT_ACA_RID_A detected\n"	,	L_12
+AB8500_USB	,	V_89
+RTC_BUP_CH_ENA	,	V_315
+CHG_WD_INTERVAL	,	V_357
+mainextchnotok	,	V_213
+"failed to register AC charger\n"	,	L_116
+voltage	,	V_96
+"AC charger ctrl: 0x%02x\n"	,	L_58
+"Failed to enable VBUS charger %d\n"	,	L_57
+"setting USBChInputCurr failed\n"	,	L_48
+"%s AB8500_CH_USBCH_STAT1_REG %x\n"	,	L_9
+detected_chargers	,	V_233
+usb_lock	,	V_240
+ac_psy_cfg	,	V_342
+regulator_enable	,	F_46
+"USB Type invalid - try charging anyway\n"	,	L_18
+"failed to set automatic current limitation\n"	,	L_94
+pm_message_t	,	T_4
+VBUS_CH_NOK	,	V_253
+n_chg_out_curr	,	V_102
+match_string	,	F_64
+AB8500_RTC_BACKUP_CHG_REG	,	V_311
+dev_info	,	F_40
+"no battery management data supplied\n"	,	L_107
+"failed to get vddadc regulator\n"	,	L_114
+"Failed to set ChOutputCurentLevel\n"	,	L_41
+ab8500_charger_mainchthprotr_handler	,	F_88
+ab8500_charger_remove	,	F_117
+"%d write failed\n"	,	L_3
+BUS_POWER_PATH_MODE_ENA	,	V_190
+enable	,	V_146
+AB8500_SYS_CTRL1_BLOCK	,	V_11
+"%s mask and set failed\n"	,	L_101
+ab8500_charger_usb_state_changed_work	,	F_79
+plat	,	V_339
+vbus_detected	,	V_75
+usb_type_max	,	V_59
+ac_charger_attached_work	,	V_226
+val	,	V_4
+"%s Disabled USB charging\n"	,	L_49
+POWER_SUPPLY_PROP_ONLINE	,	V_275
+"VBUS input current limited to %d mA\n"	,	L_82
+work	,	V_208
+MAIN_CH_DET	,	V_47
+"USB Type - Unknown\n"	,	L_19
+put_usb_phy	,	V_371
+vbup33_vrtcn	,	V_286
+"failed to setup usb power path prechage current\n"	,	L_103
+usb_device_is_unrecognised	,	V_54
+" old: %d\n"	,	L_62
+__func__	,	V_33
+USB_PHY_TYPE_USB2	,	V_368
+"not a standard host, returning\n"	,	L_104
+usb_charger_attached_work	,	V_28
+AB8500_BM_USB_STATE_CONFIGURED	,	V_249
+"VBUS rising detected\n"	,	L_84
+"VBUS charger drop ended\n"	,	L_90
+"%d read failed\n"	,	L_2
+autopower	,	V_20
+EPERM	,	V_111
+ab8500_charger_check_usb_thermal_prot_work	,	F_84
+flags	,	V_22
+"Invalid charger detected, state= 0\n"	,	L_67
+usb_phy	,	V_331
+enabled	,	V_332
+step_udelay	,	V_117
+out	,	V_178
+BUP_VCH_RANGE	,	V_307
+usb_register_notifier	,	F_144
+"%s write failed\n"	,	L_27
+prop	,	V_202
+ich_out	,	V_136
+vch	,	V_30
+ab8500_charger_get_usb_cur	,	F_31
+"USB link status changed\n"	,	L_85
+power	,	V_320
+event	,	V_173
+BUS_POWER_PATH_PRECHG_ENA	,	V_192
+ab8500_charger_usb_link_attach_work	,	F_76
+platform_get_irq_byname	,	F_118
+charger_online	,	V_34
+iset	,	V_148
+"Delay work for %d msec for USB enum "	,	L_71
+is_ab9540_2p0	,	F_104
+EAGAIN	,	V_329
+ab8500_charger_ac_cv	,	F_17
+"Die temp ok for USB charger thermal protection threshold\n"	,	L_87
+EINVAL	,	V_282
+"Write reg failed %d\n"	,	L_52
+ab8540_charger_power_path_enable	,	F_60
+bup_vch_range	,	V_285
+__init	,	T_5
+__exit	,	T_6
+udelay	,	F_107
+AB8500_SYS_CTRL2_BLOCK	,	V_298
+"failed to setup backup battery charging\n"	,	L_100
+usb_ipt_crnt_lock	,	V_135
+"Vbat did cross threshold, curr: %d, new: %d,"	,	L_61
+"Die temp above Main charger thermal protection threshold\n"	,	L_79
+AB8500_USB_LINK1_STAT_REG	,	V_91
+data	,	V_174
+ab8500_external_charger_prepare	,	F_54
+ab8500_charger_set_current	,	F_33
+atomic_inc	,	F_34
+MAIN_CH_STATUS2_MAINCHARGERDETDBNC	,	V_229
+USB_EVENT_VBUS	,	V_325
+calculated_max	,	V_267
+ab8500_voltage_to_regval	,	F_27
+"failed to enable LED\n"	,	L_42
+CH_VOL_LVL_3P5	,	V_163
+is_ab8505_2p0	,	F_106
+ab8500_charger_usbchthprotf_handler	,	F_95
+"%s current not changed for reg: 0x%02x\n"	,	L_25
+num_supplicants	,	V_198
+USB_CH_ENA	,	V_169
+charger_current	,	V_281
+USB_CH_IP_CUR_LVL_0P9	,	V_65
+usb_put_phy	,	F_121
+ab8500_charger_ac_en	,	F_44
+ab8500_charger_ac_attached_work	,	F_73
+"failed to kick main watchdog\n"	,	L_97
+atomic_dec	,	F_37
+USB_CH_IP_CUR_LVL_0P5	,	V_60
+POWER_SUPPLY_HEALTH_OVERVOLTAGE	,	V_283
+POWER_SUPPLY_PROP_CURRENT_AVG	,	V_284
+ab8500_charger_exit	,	F_149
+platform_driver_register	,	F_148
+POWER_SUPPLY_PROP_CURRENT_NOW	,	V_280
+is_ab9540_3p0	,	F_105
+ab8500_charger_check_hw_failure_work	,	F_69
+PTR_ERR	,	F_140
+AB8500_CH_OPT_CRNTLVL_MAX_REG	,	V_289
+AB8500_SW_CONTROL_FALLBACK	,	V_12
+USB_STAT_RESERVED	,	V_79
+abx500_set_register_interruptible	,	F_6
+"Die temp ok for Main charger thermal protection threshold\n"	,	L_80
+ab8500_charger_read_usb_type	,	F_25
+fallback	,	V_3
+CHARGER_STATUS_POLL	,	V_225
+"%s read failed\n"	,	L_22
+USB_STAT_ACA_RID_A	,	V_66
+invalid_charger_detect_state	,	V_235
+ab8500_charger_init_hw_registers	,	F_103
+ab8500_charger_usb_notifier_call	,	F_108
+POWER_SUPPLY_HEALTH_GOOD	,	V_274
+ux500_charger	,	V_144
+usbchargernotok	,	V_252
+"%s no mem for ab8500_charger\n"	,	L_106
+ab8500_charger_mainextchnotok_handler	,	F_87
+"vddadc"	,	L_113
+ab8500_charger_suspend	,	F_113
+"%s AB8500_IT_SOURCE21_REG %x\n"	,	L_20
+usb_current_tmp	,	V_243
+reschedule	,	V_224
+msecs_to_jiffies	,	F_78
+usb_psy_cfg	,	V_343
+usb_enabled	,	V_361
+"ab8500 read failed %d\n"	,	L_53
+state_tmp	,	V_242
+IRQF_SHARED	,	V_373
+spin_lock	,	F_109
+ab8500_charger_init	,	F_147
+AB8540_AUTO_VBUS_IN_CURR_MASK	,	V_265
+main_thermal_prot	,	V_256
+BUS_PP_PRECHG_CURRENT_MASK	,	V_318
+"Failed to reset ChOutputCurentLevel\n"	,	L_50
+irqreturn_t	,	T_3
+vbat	,	V_132
+ac_curr_max	,	V_154
+USB_STAT_STD_HOST_NC	,	V_55
+"Failed to enable regulator\n"	,	L_36
+USB_STAT_HOST_CHG_HS_CHIRP	,	V_62
+AB8500_USB_LINE_CTRL2_REG	,	V_236
+ab8500_charger_vbusdetf_handler	,	F_91
+"Invalid charger detected, state= 1\n"	,	L_68
+vbus_ovv	,	V_216
+MAIN_WDOG_KICK	,	V_301
+queue_work	,	F_74
+BUS_VSYS_VOL_SELECT_MASK	,	V_316
+request_threaded_irq	,	F_145
+ab8500_charger_resume	,	F_111
+bm_usb_state	,	V_322
+AB8500_RTC_CTRL_REG	,	V_314
+volt_index	,	V_149
+pre_chg_enable	,	V_360
+platform_data	,	V_340
+USB_STAT_ACA_RID_B	,	V_67
+attach_work	,	V_232
+POWER_SUPPLY_HEALTH_UNSPEC_FAILURE	,	V_271
+ab8500_usb_chg_desc	,	V_366
+"failed to register USB charger\n"	,	L_117

@@ -1,0 +1,169 @@
+"rx8025"	,	L_20
+parent	,	V_82
+ENOMEM	,	V_86
+rx8025_rtc_ops	,	V_88
+dev_get_drvdata	,	F_10
+i2c_client	,	V_1
+"%s: write 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x 0x%02x\n"	,	L_9
+alarm_time	,	V_66
+rx8025_set_clock_adjust	,	F_32
+dev_info	,	F_48
+to_i2c_client	,	F_27
+RX8025_ADJ_RESOLUTION	,	V_70
+tm_wday	,	V_55
+number	,	V_3
+rtc_time	,	V_36
+s32	,	T_1
+dev	,	V_10
+devm_request_threaded_irq	,	F_49
+RTC_PF	,	V_28
+lock	,	V_22
+id	,	V_79
+rx8025_handle_irq	,	F_13
+"doesn't support required functionality\n"	,	L_17
+"%s: date %ds %dm %dh %dmd %dm %dy\n"	,	L_8
+i2c_get_clientdata	,	F_14
+adapter	,	V_81
+rx8025_remove	,	F_50
+rx8025_probe	,	F_39
+rx8025_sysfs_show_clock_adjust	,	F_33
+EIO	,	V_7
+"0x%02x 0x%02x 0x%02x 0x%02x 0x%02x\n"	,	L_7
+bin2bcd	,	F_23
+IRQ_HANDLED	,	V_35
+digoff	,	V_68
+rx8025_alarm_irq_enable	,	F_30
+i2c_adapter	,	V_80
+to_i2c_adapter	,	F_40
+__func__	,	V_41
+devm_rtc_device_register	,	F_45
+"you may have to readjust the clock\n"	,	L_5
+GFP_KERNEL	,	V_85
+RX8025_REG_DIGOFF	,	V_69
+device	,	V_9
+status	,	V_25
+I2C_FUNC_SMBUS_I2C_BLOCK	,	V_84
+RX8025_BIT_CTRL2_PON	,	V_16
+ssize_t	,	T_5
+ctrl	,	V_56
+rtc_wkalrm	,	V_60
+rx8025_sysfs_register	,	F_35
+mutex	,	V_21
+rx8025_check_validity	,	F_9
+rx8025_set_alarm	,	F_26
+"unable to request IRQ, alarms disabled\n"	,	L_21
+"%s: read alarm 0x%02x 0x%02x ctrl2 %02x\n"	,	L_11
+"%i"	,	L_16
+enabled	,	V_64
+out	,	V_26
+RTC_AF	,	V_34
+"%s: write 0x%02x\n"	,	L_14
+rx8025_read_reg	,	F_1
+mutex_unlock	,	F_17
+dev_attr_clock_adjust_ppb	,	V_77
+tm_hour	,	V_46
+tm_mon	,	V_50
+RX8025_REG_YEAR	,	V_53
+device_create_file	,	F_36
+RX8025_REG_MIN	,	V_44
+RX8025_REG_SEC	,	V_40
+rtc	,	V_23
+RTC_IRQF	,	V_29
+u8	,	T_2
+err	,	V_39
+"Alarm was detected\n"	,	L_10
+irq	,	V_19
+rtc_valid_tm	,	F_21
+i2c_check_functionality	,	F_41
+EINVAL	,	V_17
+need_clear	,	V_57
+buf	,	V_75
+i2c_set_clientdata	,	F_44
+t	,	V_61
+rx8025_sysfs_store_clock_adjust	,	F_34
+mutex_lock	,	F_15
+rx8025_reset_validity	,	F_12
+RX8025_BIT_CTRL1_1224	,	V_45
+IRQF_ONESHOT	,	V_90
+"IRQ %d supplied\n"	,	L_19
+date	,	V_38
+rtc_tm_to_time64	,	F_28
+uie_unsupported	,	V_92
+rtc_update_irq	,	F_16
+tm_year	,	V_52
+"unable to register the class device\n"	,	L_18
+device_attribute	,	V_73
+dev_dbg	,	F_19
+size_t	,	T_6
+ctrl2	,	V_13
+RX8025_BIT_CTRL2_CTFG	,	V_27
+ctrl1	,	V_32
+RX8025_REG_MDAY	,	V_49
+dt	,	V_37
+tm_min	,	V_43
+"%d\n"	,	L_15
+RX8025_ADJ_DATA_MAX	,	V_71
+rx8025_write_reg	,	F_5
+tm_sec	,	V_42
+rx8025_sysfs_unregister	,	F_37
+max_user_freq	,	V_91
+rx8025_read_alarm	,	F_25
+ald	,	V_62
+RX8025_BIT_CTRL2_VDET	,	V_15
+i2c_smbus_read_byte_data	,	F_2
+rx8025_get_clock_adjust	,	F_31
+i2c_device_id	,	V_78
+ops_lock	,	V_24
+time64_t	,	T_4
+ret	,	V_6
+i2c_smbus_read_i2c_block_data	,	F_4
+"%s: write 0x%02x 0x%02x\n"	,	L_13
+RX8025_ADJ_DATA_MIN	,	V_72
+adj	,	V_67
+count	,	V_76
+"power-on reset detected, date is invalid\n"	,	L_2
+rtc_time64_to_tm	,	F_29
+THIS_MODULE	,	V_89
+RX8025_REG_CTRL2	,	V_14
+PTR_ERR	,	F_47
+rx8025_get_time	,	F_18
+RX8025_REG_CTRL1	,	V_31
+"%s: read 0x%02x 0x%02x "	,	L_6
+RX8025_BIT_CTRL2_WAFG	,	V_59
+RX8025_BIT_CTRL2_DAFG	,	V_30
+RX8025_REG_ALDMIN	,	V_63
+RX8025_REG_HOUR	,	V_47
+name	,	V_87
+rx8025	,	V_12
+rx8025_set_time	,	F_22
+devm_kzalloc	,	F_43
+I2C_FUNC_SMBUS_BYTE_DATA	,	V_83
+values	,	V_5
+pending	,	V_65
+"power voltage drop detected\n"	,	L_1
+dev_err	,	F_42
+RX8025_REG_WDAY	,	V_54
+tm_mday	,	V_48
+rx8025_write_regs	,	F_7
+RX8025_BIT_CTRL2_XST	,	V_18
+client	,	V_2
+attr	,	V_74
+value	,	V_8
+RX8025_BIT_CTRL1_DALE	,	V_33
+"%s: date: %ds %dm %dh %dmd %dm %dy\n"	,	L_12
+rx8025_init_client	,	F_24
+irqreturn_t	,	T_3
+length	,	V_4
+dev_warn	,	F_11
+RX8025_REG_MONTH	,	V_51
+"Oscillation stop was detected,"	,	L_4
+rx8025_data	,	V_11
+dev_id	,	V_20
+"crystal stopped, date is invalid\n"	,	L_3
+i2c_smbus_write_byte_data	,	F_6
+i2c_smbus_write_i2c_block_data	,	F_8
+bcd2bin	,	F_20
+device_remove_file	,	F_38
+rx8025_read_regs	,	F_3
+RX8025_BIT_CTRL1_TEST	,	V_58
+IS_ERR	,	F_46

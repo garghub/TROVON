@@ -1,0 +1,190 @@
+"%p port %s reg = 0x%x\n"	,	L_65
+xhci_print_run_regs	,	F_26
+erst_dma_addr	,	V_49
+"  %p: ir_set[%i]\n"	,	L_66
+upper_32_bits	,	F_31
+"  Event Interrupts %s\n"	,	L_49
+"  Max ports: %u\n"	,	L_17
+"  HC %s generate Stopped - Short Package event\n"	,	L_31
+db_off	,	V_10
+"HCSPARAMS 2: 0x%x\n"	,	L_18
+"USBCMD 0x%x:\n"	,	L_42
+vaf	,	V_66
+"  WARN: %p: ir_set.rsvd = 0x%x\n"	,	L_70
+"  %p: ir_set.erst_dequeue = @%08llx\n"	,	L_72
+xhci_container_ctx	,	V_58
+state	,	V_62
+"CAPLENGTH AND HCIVERSION 0x%x:\n"	,	L_11
+"// @%p = 0x%x RTSOFF\n"	,	L_6
+HCS_ERST_MAX	,	F_11
+"//   HCIVERSION: 0x%x\n"	,	L_4
+val	,	V_56
+"  %p: ir_set.pending = 0x%x\n"	,	L_67
+HCS_MAX_INTRS	,	F_8
+cmd_ring	,	V_57
+xhci_print_cap_regs	,	F_6
+"disabled"	,	L_51
+ctx	,	V_59
+slot_ctx	,	V_61
+xhci_dbg_regs	,	F_1
+xhci_dbg_cmd_ptrs	,	F_33
+"  HC %s Force save context capability"	,	L_37
+HCS_U1_LATENCY	,	F_12
+run_regs_off	,	V_7
+"HCC PARAMS2 0x%x:\n"	,	L_36
+HCC2_FSC	,	F_17
+run_regs	,	V_9
+"  %p: ir_set.erst_base = @%08llx\n"	,	L_71
+xhci_erst	,	V_47
+"enabled "	,	L_50
+"  %sHost System Error\n"	,	L_56
+"xHCI capability registers at %p:\n"	,	L_10
+HCS_MAX_PORTS	,	F_9
+"halted"	,	L_59
+"  Max interrupters: %u\n"	,	L_16
+status	,	V_24
+""	,	L_48
+CMD_RESET	,	V_20
+"HCIVERSION: 0x%x\n"	,	L_13
+CMD_LRESET	,	V_23
+ports	,	V_31
+"reserved"	,	L_64
+"xHCI runtime registers at %p:\n"	,	L_73
+"32"	,	L_27
+xhci_print_command_reg	,	F_20
+hcs_params2	,	V_14
+hcs_params1	,	V_13
+irq_pending	,	V_39
+hcs_params3	,	V_15
+CMD_RUN	,	V_19
+"power"	,	L_62
+"// @%p = 0x%x (CAPLENGTH AND HCIVERSION)\n"	,	L_2
+"doesn't support"	,	L_39
+"// xHCI capability registers at %p:\n"	,	L_1
+le64_to_cpu	,	F_30
+HCC2_LEC	,	F_18
+GET_SLOT_STATE	,	F_36
+HCC_64BIT_ADDR	,	F_14
+i	,	V_29
+"can't"	,	L_33
+j	,	V_30
+xhci_erst_entry	,	V_50
+xhci	,	V_2
+cap_regs	,	V_4
+names	,	V_32
+HCS_U2_LATENCY	,	F_13
+"not "	,	L_47
+"CAPLENGTH: 0x%x\n"	,	L_12
+xhci_get_slot_state	,	F_34
+"can"	,	L_32
+"  %p: ir_set.erst_size = 0x%x\n"	,	L_69
+irq_control	,	V_41
+set_num	,	V_35
+num_entries	,	V_52
+"// xHCI runtime registers at %p:\n"	,	L_7
+"xHCI operational registers at %p:\n"	,	L_60
+hci_version	,	V_12
+xhci_read_64	,	F_25
+__iomem	,	T_3
+"USBSTS 0x%x:\n"	,	L_54
+"  HC is %s\n"	,	L_43
+erst_dequeue	,	V_45
+"  %p: ir_set.control = 0x%x\n"	,	L_68
+fmt	,	V_65
+NUM_PORT_REGS	,	V_33
+xhci_get_slot_ctx	,	F_35
+lower_32_bits	,	F_29
+u32	,	T_1
+HC_LENGTH	,	F_4
+HC_VERSION	,	F_5
+"  Max device slots: %u\n"	,	L_15
+"  FIXME: more HCCPARAMS debugging\n"	,	L_34
+"HCSPARAMS 3 0x%x:\n"	,	L_21
+xhci_hcd	,	V_1
+"  HC %s Contiguous Frame ID Capability\n"	,	L_28
+xhci_print_registers	,	F_27
+xhci_print_op_regs	,	F_22
+rsvd	,	V_43
+"//   CAPLENGTH: 0x%x\n"	,	L_3
+"WARNING: "	,	L_57
+seg_size	,	V_55
+hc_capbase	,	V_5
+port_status_base	,	V_34
+"  Isoc scheduling threshold: %u\n"	,	L_19
+"  Maximum allowed segments in event ring: %u\n"	,	L_20
+HCC_SPC	,	F_16
+op_regs	,	V_6
+xhci_slot_state_string	,	F_37
+va_list	,	T_5
+hcc_params	,	V_16
+"  Host System Error Interrupts %s\n"	,	L_52
+dba	,	V_11
+va_format	,	V_64
+"// @%p = 0x%x DBOFF\n"	,	L_8
+va	,	V_67
+"  HC has %sfinished light reset\n"	,	L_53
+"supports"	,	L_38
+"link"	,	L_63
+erst_base	,	V_44
+HCS_IST	,	F_10
+"  Worst case U2 device exit latency: %u\n"	,	L_23
+entry	,	V_51
+xhci_dbg_trace	,	F_38
+entries	,	V_53
+seg_addr	,	V_54
+xhci_dbg	,	F_2
+STS_FATAL	,	V_26
+xhci_intr_reg	,	V_36
+"  HC generates %s bit addresses\n"	,	L_25
+xhci_dbg_erst	,	F_28
+xhci_print_status	,	F_21
+"  HC %s Large ESIT Payload Capability"	,	L_40
+"  HC has %sfinished hard reset\n"	,	L_46
+"@%016llx %08x %08x %08x %08x\n"	,	L_76
+dev_state	,	V_63
+"No "	,	L_58
+"  Worst case U1 device exit latency: %u\n"	,	L_22
+xhci_print_ports	,	F_23
+STS_HALT	,	V_27
+erst_size	,	V_42
+XHCI_INIT_VALUE	,	V_40
+"// xHCI operational registers at %p:\n"	,	L_5
+"%pV\n"	,	L_79
+"64"	,	L_26
+trace	,	F_39
+CMD_HSEIE	,	V_22
+"RTSOFF 0x%x:\n"	,	L_35
+le32_to_cpu	,	F_32
+HCC_CFC	,	F_15
+"status"	,	L_61
+"// xHC command ring deq ptr low bits + flags = @%08x\n"	,	L_77
+"  Event ring is %sempty\n"	,	L_55
+addr	,	V_28
+RTSOFF_MASK	,	V_8
+erst	,	V_48
+temp	,	V_3
+"// Doorbell array at %p:\n"	,	L_9
+"hasn't"	,	L_30
+xhci_slot_ctx	,	V_60
+readl	,	F_3
+"being stopped"	,	L_45
+"  HC %s Extended TBC capability"	,	L_41
+xhci_print_ir_set	,	F_24
+"  WARN: %p: Rsvd[%i] = 0x%x\n"	,	L_75
+HCS_MAX_SLOTS	,	F_7
+"has"	,	L_29
+HCC2_ETC	,	F_19
+temp_64	,	V_38
+ir_set	,	V_37
+"HCSPARAMS 1: 0x%x\n"	,	L_14
+CMD_EIE	,	V_21
+command	,	V_18
+"running"	,	L_44
+"  %p: Microframe index = 0x%x\n"	,	L_74
+__le32	,	T_2
+microframe_index	,	V_46
+"HCC PARAMS 0x%x:\n"	,	L_24
+u64	,	T_4
+"// xHC command ring deq ptr high bits = @%08x\n"	,	L_78
+STS_EINT	,	V_25
+hcc_params2	,	V_17

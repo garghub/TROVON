@@ -1,0 +1,199 @@
+"reporting nominal id %d instead\n"	,	L_20
+pmsr_pmax	,	V_40
+"Pstate set to safe frequency\n"	,	L_27
+"ibm,pstate-frequencies-mhz does not match\n"	,	L_15
+chips	,	V_42
+cpu_to_chip_id	,	F_26
+powernv_cpufreq_stop_cpu	,	F_48
+powernv_cpufreq_opal_nb	,	V_91
+powernv_cpufreq_reboot_nb	,	V_90
+pr_warn	,	F_3
+"OCC Loading, CPU frequency is throttled until OCC is started\n"	,	L_33
+"CPU %d on Chip %u has Pmax restored to %d\n"	,	L_26
+"Frequency Control disabled from OS\n"	,	L_28
+unlikely	,	F_30
+powernv_freqs	,	V_15
+s8	,	T_4
+init_powernv_pstates	,	F_1
+"CPU Frequency could be throttled\n"	,	L_30
+rc	,	V_88
+rebooting	,	V_48
+"NR PStates %d\n"	,	L_17
+unused	,	V_55
+len_ids	,	V_10
+GFP_KERNEL	,	V_86
+powernv_pstate_info	,	V_19
+cur	,	V_67
+ssize_t	,	T_3
+get_pmspr	,	F_12
+pstate_id_to_freq	,	F_10
+__be32	,	T_1
+OCC_LOAD	,	V_79
+pstate_ids	,	V_8
+freq	,	V_14
+device_node	,	V_1
+PMSR_MAX	,	F_27
+of_property_read_u32	,	F_4
+"CPU %d on Chip %u has Pmax reduced below nominal frequency (%d &lt; %d)\n"	,	L_24
+min	,	F_7
+threads_per_core	,	V_51
+nominal	,	V_21
+"ibm,pstate-max node not found\n"	,	L_6
+BUG	,	F_14
+arg	,	V_31
+OPAL_MSG_OCC	,	V_75
+policy	,	V_24
+INIT_WORK	,	F_54
+chip	,	V_60
+"Setting cpu %d pmcr to %016lX\n"	,	L_23
+nr_chips	,	V_41
+pr_info	,	F_5
+i	,	V_3
+cpufreq_policy	,	V_23
+buf	,	V_25
+cpumask_copy	,	F_40
+PMSR_PSAFE_ENABLE	,	V_45
+smp_processor_id	,	F_25
+"ibm,pstate-max"	,	L_5
+tcpu	,	V_65
+SPRN_PMSR	,	V_29
+cpu_first_thread_sibling	,	F_32
+omsg	,	V_74
+opal_message_notifier_register	,	F_58
+NOTIFY_DONE	,	V_57
+frequency	,	V_16
+powernv_cpufreq_target_index	,	F_29
+SPRN_PMCR	,	V_27
+mtspr	,	F_16
+freq_table	,	V_66
+cpufreq_frequency_table_target	,	F_42
+cpufreq_unregister_driver	,	F_63
+powernv_read_cpu_freq	,	F_17
+FW_FEATURE_OPAL	,	V_89
+cpumask_var_t	,	T_5
+"cpufreq pstate min %d nominal %d max %d\n"	,	L_9
+cpu_policy	,	V_56
+msg_type	,	V_69
+"%u\n"	,	L_21
+next	,	V_44
+work_struct	,	V_58
+prev_chip_id	,	V_84
+PMSR_SPR_EM_DISABLE	,	V_46
+local_pstate_id	,	V_33
+for_each_cpu_and	,	F_41
+pstate_nominal	,	V_6
+for_each_cpu	,	F_43
+SPRN_PMICR	,	V_28
+mask	,	V_62
+get_nominal_index	,	F_23
+"/ibm,opal/power-mgt"	,	L_1
+pstate_min	,	V_4
+nr_pstates	,	V_7
+powernv_cpufreq_driver	,	V_92
+"ibm,pstate-ids not found\n"	,	L_11
+_msg	,	V_70
+cpu_sibling_mask	,	F_21
+base	,	V_50
+pr_debug	,	F_8
+ENOMEM	,	V_87
+"PMSR = %16lx\n"	,	L_29
+OCC_MAX_THROTTLE_STATUS	,	V_82
+"power-mgt node not found\n"	,	L_2
+cpumask_clear_cpu	,	F_44
+opal_message_notifier_unregister	,	F_62
+kmalloc_array	,	F_52
+for_each_online_cpu	,	F_36
+cpufreq_register_driver	,	F_59
+powernv_smp_call_data	,	V_34
+action	,	V_54
+set_pmspr	,	F_15
+id	,	V_13
+val	,	V_30
+of_find_node_by_path	,	F_2
+work	,	V_59
+OCC_THROTTLE	,	V_80
+pmsr	,	V_39
+new_index	,	V_47
+index	,	V_64
+unregister_reboot_notifier	,	F_61
+pstate_freqs	,	V_9
+be32_to_cpu	,	F_9
+cpumask_set_cpu	,	F_33
+params	,	V_76
+pmspr_val	,	V_32
+"OCC Active, CPU frequency is no longer throttled\n"	,	L_34
+cpumask_of_node	,	F_53
+ENODEV	,	V_12
+throttle	,	V_61
+"cpu %d pmsr %016lX pstate_id %d frequency %d kHz\n"	,	L_22
+for_each_possible_cpu	,	F_51
+occ_reset	,	V_78
+cpufreq_table_validate_and_show	,	F_34
+"ibm,pstate-nominal"	,	L_7
+"ibm,pstate-nominal not found\n"	,	L_8
+of_get_property	,	F_6
+mfspr	,	F_13
+powernv_cpufreq_work_fn	,	F_38
+"powernv-cpufreq disabled. System does not support PState control\n"	,	L_37
+pr_crit	,	F_28
+"Entries in ibm,pstate-ids and "	,	L_14
+"PState id %d freq %d MHz\n"	,	L_18
+opal_occ_msg	,	V_73
+max	,	V_20
+throttle_status	,	V_81
+firmware_has_feature	,	F_56
+sprn	,	V_26
+__init	,	T_6
+__exit	,	T_7
+notifier_block	,	V_52
+pstate_id	,	V_22
+powernv_cpufreq_get	,	F_19
+throttled	,	V_43
+msg	,	V_72
+set_pstate	,	F_22
+data	,	V_38
+"CPU frequency is throttled for duration\n"	,	L_32
+power_mgt	,	V_2
+"ibm,pstate-frequencies-mhz not found\n"	,	L_13
+powernv_cpufreq_throttle_check	,	F_24
+CPUFREQ_TABLE_END	,	V_18
+freq_data	,	V_35
+"ibm,pstate-frequencies-mhz"	,	L_12
+"No PStates found\n"	,	L_16
+opal_msg	,	V_71
+UINT_MAX	,	V_85
+pstate_max	,	V_5
+u32	,	T_2
+"OCC: Chip %u Pmax reduced due to %s\n"	,	L_35
+powernv_cpufreq_occ_msg	,	F_45
+register_reboot_notifier	,	F_57
+cpu	,	V_36
+raw_smp_processor_id	,	F_18
+cpuinfo_nominal_freq_show	,	F_11
+"ibm,pstate-ids"	,	L_10
+nb	,	V_53
+cpufreq_get_policy	,	F_37
+CPUFREQ_RELATION_C	,	V_68
+"PState id %d outside of PState table, "	,	L_19
+powernv_cpufreq_cpu_init	,	F_31
+"CPU %d on Chip %u has Pmax reduced below turbo frequency (%d &lt; %d)\n"	,	L_25
+schedule_work	,	F_47
+"ibm,pstate-min node not found\n"	,	L_4
+init_chip_info	,	F_50
+throttle_reason	,	V_83
+len_freqs	,	V_11
+smp_call_function_single	,	F_49
+powernv_cpufreq_exit	,	F_60
+powernv_cpufreq_init	,	F_55
+driver_data	,	V_17
+OCC_RESET	,	V_77
+powernv_cpufreq_reboot_notifier	,	F_35
+"OCC: Chip %u %s\n"	,	L_36
+restore	,	V_63
+cpus	,	V_49
+smp_call_function_any	,	F_20
+"OCC (On Chip Controller - enforces hard thermal/power limits) Resetting\n"	,	L_31
+container_of	,	F_39
+"ibm,pstate-min"	,	L_3
+pstate_ul	,	V_37
+be64_to_cpu	,	F_46

@@ -1,0 +1,151 @@
+pr_debug	,	F_20
+cmd_kref	,	V_39
+execute_task_lock	,	V_63
+se_portal_group	,	V_72
+ENOMEM	,	V_7
+tmr_list	,	V_11
+CMD_T_TAS	,	V_22
+" skipping\n"	,	L_5
+sess	,	V_30
+sess_tearing_down	,	V_36
+core_tmr_lun_reset	,	F_36
+se_tpg	,	V_76
+list_empty	,	F_34
+se_node_acl	,	V_70
+t_state_lock	,	V_20
+transport_state	,	V_21
+task_cmd	,	V_10
+transport_cmd_finish_abort	,	F_12
+dev	,	V_13
+CMD_T_STOP	,	V_68
+tmr	,	V_6
+" fabric stop, skipping\n"	,	L_3
+" CMD_T_STOP: %d CMD_T_SENT: %d\n"	,	L_21
+atomic_long_inc	,	F_28
+core_tmr_abort_task	,	F_23
+__target_check_io_state	,	F_15
+list_for_each_entry_safe	,	F_31
+work	,	V_46
+tmr_dev	,	V_14
+se_tfo	,	V_43
+aborts_no_task	,	V_51
+t10_pr_registration	,	V_25
+"ABORT_TASK: Sending TMR_FUNCTION_COMPLETE for"	,	L_7
+send_tas	,	V_19
+cmd_wait_set	,	V_37
+list_move_tail	,	F_32
+rc	,	V_56
+"LUN_RESET: SCSI-2 Released reservation\n"	,	L_26
+"LUN_RESET: %s for [%s] Complete\n"	,	L_27
+se_cmd	,	V_1
+get_fabric_name	,	V_44
+pr_err	,	F_3
+SCF_SCSI_TMR_CDB	,	V_9
+DRF_SPC2_RESERVATIONS	,	V_82
+cmd	,	V_17
+dev_attrib	,	V_74
+LIST_HEAD	,	F_30
+get_cmd_state	,	V_66
+""	,	L_15
+sess_cmd_lock	,	V_32
+kfree	,	F_9
+ref_tag	,	V_40
+" -- CMD_T_ACTIVE: %d"	,	L_20
+flags	,	V_15
+list_del_init	,	F_7
+se_dev	,	V_41
+dev_reserved_node_acl	,	V_84
+"cdb: 0x%02x\n"	,	L_18
+transport_wait_for_tasks	,	F_26
+core_tmr_alloc_req	,	F_1
+assert_spin_locked	,	F_16
+tmr_p	,	V_54
+"Unable to locate struct se_cmd for TMR\n"	,	L_10
+"Preempt"	,	L_14
+u8	,	T_1
+irqs_disabled	,	F_18
+kref_get_unless_zero	,	F_22
+"ABORT_TASK: Found referenced %s task_tag: %llu\n"	,	L_6
+"TMR"	,	L_25
+"LUN_RESET: TMR caller fabric: %s"	,	L_22
+" Response: 0x%02x, t_state: %d\n"	,	L_13
+se_session	,	V_28
+" ref_tag: %llu\n"	,	L_8
+drain_tmr_list	,	V_53
+core_tmr_handle_tas_abort	,	F_10
+tmr_tpg	,	V_73
+pr_res_key	,	V_27
+"LUN_RESET: %s releasing TMR %p Function: 0x%02x,"	,	L_12
+"LUN_RESET: ITT[0x%08llx] - pr_res_key: 0x%016Lx"	,	L_19
+aborts_complete	,	V_49
+se_device	,	V_12
+CMD_T_ABORTED	,	V_38
+"ABORT_TASK: Sending TMR_TASK_DOES_NOT_EXIST for ref_tag: %lld\n"	,	L_9
+INIT_LIST_HEAD	,	F_4
+tmr_sess	,	V_29
+CMD_T_ACTIVE	,	V_57
+reg	,	V_26
+dev_reservation_flags	,	V_81
+dev_reservation_lock	,	V_83
+function	,	V_3
+se_cmd_list	,	V_45
+tag	,	V_35
+ref_task_tag	,	V_42
+tas	,	V_18
+CMD_T_FABRIC_STOP	,	V_34
+se_tpg_tfo	,	V_77
+list	,	V_24
+CMD_T_SENT	,	V_69
+num_resets	,	V_85
+spin_unlock_irqrestore	,	F_8
+"Unable to allocate struct se_tmr_req\n"	,	L_1
+spin_lock_irqsave	,	F_6
+"LUN_RESET TMR: non-zero kref_get_unless_zero\n"	,	L_11
+name	,	V_80
+TMR_FUNCTION_COMPLETE	,	V_48
+list_for_each_entry	,	F_14
+next	,	V_62
+tmr_pp	,	V_55
+"Attempted to abort io tag: %llu already shutdown,"	,	L_4
+tmr_nacl	,	V_71
+prout_cmd	,	V_60
+printk	,	F_24
+se_sess	,	V_31
+core_tmr_drain_tmr_list	,	F_29
+WARN_ON_ONCE	,	F_17
+state_active	,	V_65
+core_tmr_release_req	,	F_5
+"Attempted to abort io tag: %llu already complete or"	,	L_2
+cancel_work_sync	,	F_25
+transport_send_task_abort	,	F_11
+core_tmr_drain_state_list	,	F_33
+kzalloc	,	F_2
+drain_task_list	,	V_61
+se_tmr_req	,	V_5
+spin_lock	,	F_19
+"LUN_RESET: %s starting for [%s], tas: %d\n"	,	L_24
+gfp_flags	,	V_4
+"LUN_RESET: %s cmd: %p"	,	L_16
+list_head	,	V_23
+CMD_T_COMPLETE	,	V_33
+fabric_tmr_ptr	,	V_2
+state_list	,	V_64
+spin_unlock	,	F_21
+preempt_and_abort_list	,	V_52
+emulate_tas	,	V_75
+transport	,	V_79
+t_task_cdb	,	V_67
+" initiator port %s\n"	,	L_23
+se_cmd_flags	,	V_8
+target_put_sess_cmd	,	F_27
+TRANSPORT_ISTATE_PROCESSING	,	V_59
+u64	,	T_3
+response	,	V_47
+TMR_TASK_DOES_NOT_EXIST	,	V_50
+list_entry	,	F_35
+initiatorname	,	V_78
+t_state	,	V_58
+gfp_t	,	T_2
+se_tmr_lock	,	V_16
+target_check_cdb_and_preempt	,	F_13
+" ITT/CmdSN: 0x%08llx/0x%08x, i_state: %d, t_state: %d"	,	L_17

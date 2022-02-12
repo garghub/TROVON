@@ -1,0 +1,40 @@
+error_severity	,	V_14
+block_status	,	V_9
+pfx	,	V_10
+data	,	V_5
+__print_extlog_rcd	,	F_6
+KERN_INFO	,	V_16
+printk	,	F_8
+curr_seqno	,	V_12
+"Extended error log disabled because of problems parsing f/w tables\n"	,	L_10
+bank	,	V_3
+CPER_SEV_CORRECTED	,	V_15
+"Elog Table"	,	L_9
+"\\_SB"	,	L_4
+atomic_t	,	T_2
+"%s""	,	L_2
+"Not loading eMCA, error reporting force-enabled through EDAC.\n"	,	L_6
+"GPL"	,	L_13
+"L1 Table"	,	L_8
+"%s{%u}"	,	L_1
+seqno	,	V_11
+"Chen, Gong &lt;gong.chen@intel.com&gt;"	,	L_11
+cpu	,	V_2
+WARN_ON	,	F_2
+ELOG_ENTRY_VALID	,	V_7
+u64	,	T_1
+pfx_seq	,	V_13
+ELOG_IDX	,	F_3
+ELOG_ENTRY_ADDR	,	F_5
+estatus	,	V_6
+atomic_inc_return	,	F_7
+", pfx_seq, cpu);(NL)	cper_estatus_print(pfx_seq, estatus);(NL)}(NL)(NL)static int print_extlog_rcd(const char *pfx,(NL)			    struct acpi_hest_generic_status *estatus, int cpu)(NL){(NL)	/* Not more than 2 messages every 5 seconds */(NL)	static DEFINE_RATELIMIT_STATE(ratelimit_corrected, 5*HZ, 2);(NL)	static DEFINE_RATELIMIT_STATE(ratelimit_uncorrected, 5*HZ, 2);(NL)	struct ratelimit_state *ratelimit;(NL)(NL)	if (estatus-&gt;error_severity == CPER_SEV_CORRECTED ||(NL)	    (estatus-&gt;error_severity == CPER_SEV_INFORMATIONAL))(NL)		ratelimit = &amp;ratelimit_corrected;(NL)	else(NL)		ratelimit = &amp;ratelimit_uncorrected;(NL)	if (__ratelimit(ratelimit)) {(NL)		__print_extlog_rcd(pfx, estatus, cpu);(NL)		return 0;(NL)	}(NL)(NL)	return 1;(NL)}(NL)(NL)static int extlog_print(struct notifier_block *nb, unsigned long val,(NL)			void *data)(NL){(NL)	struct mce *mce = (struct mce *)data;(NL)	int	bank = mce-&gt;bank;(NL)	int	cpu = mce-&gt;extcpu;(NL)	struct acpi_hest_generic_status *estatus, *tmp;(NL)	struct acpi_hest_generic_data *gdata;(NL)	const uuid_le *fru_id = &amp;NULL_UUID_LE;(NL)	char *fru_text = ""	,	L_3
+acpi_hest_generic_status	,	V_1
+extlog_elog_entry_check	,	F_1
+KERN_ERR	,	V_17
+"L1 Directory is invalid at physical %llx\n"	,	L_5
+ELOG_ENTRY_DATA	,	F_4
+EXT_ELOG_ENTRY_MASK	,	V_8
+"L1 DIR HDR"	,	L_7
+idx	,	V_4
+"Extended MCA Error Log Driver"	,	L_12

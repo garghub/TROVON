@@ -1,0 +1,238 @@
+"Unable to allocate skb"	,	L_29
+"send_mapping_info: Local sockaddr:"	,	L_32
+IWPM_REMINFO_HASH_SIZE	,	V_15
+get_reminfo_hash_bucket	,	F_26
+local_sockaddr	,	V_17
+iwpm_free_nlmsg_request	,	F_34
+pr_warn	,	F_50
+"Unable to create a nlmsg"	,	L_22
+NLMSG_GOODSIZE	,	V_81
+iwpm_ipv4_jhash	,	F_60
+iwpm_create_nlmsg	,	F_47
+ipv6_hash	,	V_100
+hlist_for_each_entry_safe	,	F_22
+sockaddr_in	,	V_63
+iwpm_nlmsg_req_lock	,	V_43
+sin_port	,	V_68
+iwpm_remote_info	,	V_29
+iwpm_send_mapinfo	,	F_66
+pr_err	,	F_6
+a6_sockaddr	,	V_71
+"%s Unable to send a nlmsg\n"	,	L_28
+GFP_KERNEL	,	V_10
+found_request	,	V_50
+""	,	L_15
+nl_op	,	V_77
+"Invalid NULL attribute"	,	L_18
+iwpm_remove_mapinfo	,	F_21
+"Unable to send a nlmsg"	,	L_24
+list_del_init	,	F_36
+full_bucket	,	V_129
+nlmsg_request	,	V_42
+mutex_unlock	,	F_9
+mapped_rem_addr	,	V_35
+"get_remote_info: Remote sockaddr:"	,	L_8
+__force	,	V_102
+nlmsg_len	,	V_127
+iwpm_reminfo_lock	,	V_31
+cb	,	V_85
+u8	,	T_1
+atomic_read	,	F_4
+pr_info	,	F_28
+iwpm_hash_bucket	,	V_7
+i	,	V_28
+in6_addr	,	V_74
+nlh	,	V_79
+iwpm_get_nlmsg_seq	,	F_43
+b_hash	,	V_106
+IWPM_NLA_MAPINFO_LOCAL_ADDR	,	V_125
+"%s Unable to create mapinfo hash table\n"	,	L_1
+init_exit	,	V_13
+ntohs	,	F_56
+iwpm_find_nlmsg_request	,	F_37
+hash_bucket_head	,	V_19
+"%s: Unable to allocate a mapping info\n"	,	L_6
+mutex_lock	,	F_3
+sockaddr_in6	,	V_70
+IWPM_MAPINFO_HASH_MASK	,	V_107
+"%s: Mapinfo and reminfo tables are created\n"	,	L_3
+kref	,	V_46
+IWPM_MAPINFO_SKB_COUNT	,	V_128
+tmp_hlist_node	,	V_26
+jhash	,	F_58
+get_hash_bucket	,	F_61
+mapped_rem_sockaddr	,	V_33
+get_remote_info_exit	,	V_37
+sockaddr_v4	,	V_98
+sockaddr_v6	,	V_97
+refcount	,	V_6
+remote_sockaddr	,	V_38
+b_sockaddr	,	V_60
+mapped_local_addr	,	V_25
+iwpm_get_remote_info	,	F_27
+request_done	,	V_47
+reg	,	V_58
+hlist_empty	,	F_69
+nltb	,	V_90
+"Invalid attribute"	,	L_16
+ret	,	V_2
+"%s: Invalid client = %d\n"	,	L_7
+iwpm_set_valid	,	F_10
+iwpm_nlmsg_req_list	,	V_45
+atomic_dec_and_test	,	F_13
+nlmsg_policy	,	V_88
+iwpm_parse_nlmsg	,	F_52
+sockaddr_storage	,	V_16
+get_mapinfo_hash_bucket	,	F_18
+spin_unlock_irqrestore	,	F_20
+RDMA_NL_NUM_CLIENTS	,	V_54
+ibnl_put_attr	,	F_63
+sk_buff	,	V_76
+msg_type	,	V_91
+msg_seq	,	V_111
+"%s: %s (ret = %d)\n"	,	L_36
+iwpm_init	,	F_1
+err_code	,	V_48
+nlmsg_bytes	,	V_122
+mapped_loc_sockaddr	,	V_32
+send_mapping_info_unlock	,	V_124
+iwpm_mapping_info	,	V_20
+iwpm_exit	,	F_12
+__u32	,	T_2
+iwpm_wait_complete_req	,	F_39
+kzalloc	,	F_5
+parse_nlmsg_error	,	V_94
+send_mapinfo_num	,	F_62
+a_hash	,	V_105
+send_nlmsg_done	,	F_65
+"Unable to put the nlmsg header"	,	L_30
+remote_addr	,	V_36
+ipv4_sockaddr	,	V_103
+RDMA_NL_IWPM_MAPINFO_NUM	,	V_112
+"Unable to put attribute of the nlmsg"	,	L_31
+iwpm_reminfo_bucket	,	V_14
+iwpm_nlmsg_request	,	V_39
+"%s: Resources are destroyed\n"	,	L_5
+b6_sockaddr	,	V_72
+AF_INET6	,	V_69
+hlist_del_init	,	F_24
+atomic_inc_return	,	F_44
+iwpm_create_mapinfo	,	F_16
+gfp_t	,	T_3
+nlmsg_validate	,	F_53
+pr_debug	,	F_11
+ENOMEM	,	V_11
+inprocess_list	,	V_44
+"%s: Timeout %d sec for netlink request (seq = %u)\n"	,	L_11
+"%s Freeing incomplete nlmsg request (seq = %u).\n"	,	L_10
+skb	,	V_80
+iwpm_mapinfo_lock	,	V_23
+HZ	,	V_53
+nla_policy	,	V_87
+iwpm_valid_client	,	F_2
+map_info	,	V_21
+init_waitqueue_head	,	F_40
+"Unable to put attribute of mapinfo number nlmsg"	,	L_23
+kref_get	,	F_33
+nlmsg_type	,	V_118
+remove_mapinfo_exit	,	V_27
+hlist_add_head	,	F_19
+reg_list	,	V_57
+waitq	,	V_51
+wait_event_timeout	,	F_41
+AF_INET	,	V_62
+client_list	,	V_55
+__func__	,	V_12
+iwpm_registered_client	,	F_45
+mapping_num	,	V_109
+IWPM_REMINFO_HASH_MASK	,	V_108
+"Unable to send map info"	,	L_34
+IWPM_NLA_MAPINFO_SEQ	,	V_114
+hash	,	V_101
+IWPM_NL_TIMEOUT	,	V_52
+in_addr	,	V_67
+"%s IPV6 %pI6: %u(0x%04X)\n"	,	L_21
+kfree	,	F_7
+skb_num	,	V_121
+hlist_node	,	V_24
+flags	,	V_22
+sockaddr	,	V_95
+sin_addr	,	V_66
+iwpm_validate_nlmsg_attr	,	F_55
+list_add_tail	,	F_31
+iwpm_ipv6_jhash	,	F_57
+IWPM_NLA_MAPINFO_MAPPED_ADDR	,	V_126
+IWPM_MAPINFO_HASH_SIZE	,	V_8
+valid	,	V_56
+"%s: Unable to put the nlmsg header\n"	,	L_14
+iwpm_set_registered	,	F_46
+jhash_2words	,	F_59
+sin6_port	,	V_75
+iwpm_pid	,	V_110
+mapinfo_num_error	,	V_113
+dev_alloc_skb	,	F_48
+kref_put	,	F_42
+"send_mapping_info: Mapped local sockaddr:"	,	L_33
+"%s: Invalid sockaddr family\n"	,	L_12
+EINVAL	,	V_3
+gfp	,	V_41
+a4_sockaddr	,	V_64
+nlmsghdr	,	V_78
+"%s IPV4 %pI4: %u(0x%04X)\n"	,	L_20
+nlattr	,	V_89
+"%s Unable to put NLMSG_DONE\n"	,	L_27
+msg	,	V_96
+iwpm_get_nlmsg_request	,	F_30
+data	,	V_120
+nl_client	,	V_1
+RDMA_NL_IWPM_MAPINFO	,	V_116
+atomic_inc	,	F_8
+create_nlmsg_exit	,	V_82
+err_str	,	V_93
+"Insufficient skbs for map info"	,	L_35
+free_reminfo_bucket	,	F_15
+"Unable to parse the nlmsg"	,	L_17
+mapped_sockaddr	,	V_18
+NLM_F_REQUEST	,	V_83
+netlink_callback	,	V_84
+u32	,	T_4
+hlist_for_each_entry	,	F_67
+kref_init	,	F_32
+b4_sockaddr	,	V_65
+iwpm_compare_sockaddr	,	F_23
+nlmsg_seq	,	V_40
+hlist_head	,	V_9
+sin6_addr	,	V_73
+dev_kfree_skb	,	F_51
+iwpm_admin	,	V_5
+"%s Incorrect usage - negative refcount\n"	,	L_4
+iwpm_print_sockaddr	,	F_29
+ipv6_sockaddr	,	V_99
+rem_info	,	V_30
+spin_lock_irqsave	,	F_17
+"%s Unable to create reminfo hash table\n"	,	L_2
+"%s Unable to allocate skb\n"	,	L_13
+iwpm_add_remote_info	,	F_25
+"%s Unable to allocate a nlmsg_request\n"	,	L_9
+IWPM_NLA_MAPINFO_SEND_NUM	,	V_115
+list_for_each_entry	,	F_38
+"%s: %s (msg type %s ret = %d)\n"	,	L_19
+iwpm_admin_lock	,	V_4
+"%s: Sent mapping number = %d\n"	,	L_25
+NLMSG_DONE	,	V_119
+ibnl_unicast	,	F_64
+ss_family	,	V_61
+nlmsg_parse	,	F_54
+policy_max	,	V_86
+free_hash_bucket	,	F_14
+nlh_len	,	V_92
+"%s: %s\n"	,	L_26
+echo_seq	,	V_49
+a_sockaddr	,	V_59
+NLM_F_MULTI	,	V_117
+mapped_loc_addr	,	V_34
+send_mapping_info_exit	,	V_123
+container_of	,	F_35
+ipv4_hash	,	V_104
+ibnl_put_msg	,	F_49
+iwpm_mapinfo_available	,	F_68

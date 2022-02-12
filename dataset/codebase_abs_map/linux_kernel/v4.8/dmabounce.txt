@@ -1,0 +1,150 @@
+dma_data_direction	,	V_19
+"%s: unable to map unsafe buffer %p!\n"	,	L_9
+ENOMEM	,	V_57
+needs_bounce	,	F_24
+dma_addr_t	,	T_3
+dev_info	,	F_50
+list_empty	,	F_53
+"Removing from dmabounce with pending buffers!\n"	,	L_26
+dmabounce_unregister_dev	,	F_52
+"%s(page=%p,off=%#lx,size=%zx,dir=%x)\n"	,	L_13
+"%s: unsafe buffer %p (dma=%#x off=%#lx) mapped to %p (dma=%#x)\n"	,	L_17
+"Trying to %s invalid mapping\n"	,	L_6
+dev	,	V_2
+"%s: copy back safe %p to unsafe %p size %d\n"	,	L_12
+dmabounce_sync_for_device	,	F_40
+alloc_safe_buffer	,	F_2
+"%s: could not alloc dma memory (size=%d)\n"	,	L_4
+lock	,	V_29
+DMA_TO_DEVICE	,	V_41
+dmabounce_map_page	,	F_31
+DMA_FROM_DEVICE	,	V_43
+"%s: unsafe buffer %p (dma=%#x) mapped to %p (dma=%#x)\n"	,	L_10
+dma_mask	,	V_36
+large	,	V_12
+pool	,	V_22
+dma_pool_alloc	,	F_6
+handle	,	V_54
+attrs	,	V_46
+rb	,	V_33
+unmap_single	,	F_28
+node	,	V_30
+dma_addr	,	V_34
+size	,	V_18
+__func__	,	V_24
+free_safe_buffer	,	F_17
+device	,	V_1
+ssize_t	,	T_1
+kfree	,	F_8
+map_op_count	,	V_14
+bounce_count	,	V_15
+flags	,	V_23
+GFP_ATOMIC	,	V_25
+"mask %#Lx)\n"	,	L_8
+"dmabounce: device unregistered\n"	,	L_27
+dma_alloc_coherent	,	F_7
+__dmabounce_sync_for_cpu	,	F_37
+PageHighMem	,	F_34
+small_buffer_size	,	V_58
+BUG	,	F_54
+err_free	,	V_60
+page_address	,	F_35
+attr_res	,	V_62
+where	,	V_35
+device_create_file	,	F_48
+safe_buffers	,	V_31
+b	,	V_32
+"to unregister!\n"	,	L_25
+"dmabounce: registered device\n"	,	L_23
+sz	,	V_52
+dmabounce_sync_for_cpu	,	F_38
+dmabounce_unmap_page	,	F_36
+off	,	V_53
+buf	,	V_5
+sync_single_for_cpu	,	V_50
+allocs	,	V_11
+"small_dmabounce_pool"	,	L_20
+dmabounce_register_dev	,	F_44
+rwlock_init	,	F_47
+DO_STATS	,	F_26
+dma_free_coherent	,	F_20
+read_lock_irqsave	,	F_14
+DMA_BIDIRECTIONAL	,	V_42
+small	,	V_10
+dmabounce_pool	,	V_21
+"%s: kmalloc failed\n"	,	L_3
+"%s(dma=%#x,size=%d,dir=%x)\n"	,	L_15
+"large_dmabounce_pool"	,	L_22
+device_attribute	,	V_3
+arm_dma_ops	,	V_48
+size_t	,	T_2
+dev_dbg	,	F_3
+dir	,	V_20
+INIT_LIST_HEAD	,	F_46
+dmabounce_init_pool	,	F_42
+"dmabounce: could not allocate DMA pool for %ld byte objects\n"	,	L_21
+limit	,	V_37
+"%s: copy unsafe %p to safe %p, size %d\n"	,	L_11
+ret	,	V_47
+offset	,	V_45
+dma_pool_create	,	F_43
+dmabounce_show	,	F_1
+dmabounce_device_info	,	V_6
+"%s(dma=%#x,sz=%zx,dir=%x)\n"	,	L_16
+dmabounce_set_mask	,	F_41
+"DMA buffer bouncing of HIGHMEM pages is not supported\n"	,	L_14
+archdata	,	V_8
+__dmabounce_sync_for_device	,	F_39
+set_dma_mask	,	V_55
+set_dma_ops	,	F_49
+dma_pool_destroy	,	F_51
+dmabounce_ops	,	V_64
+safe	,	V_27
+name	,	V_56
+"Could not allocated dmabounce_device_info\n"	,	L_19
+list_add	,	F_11
+page	,	V_44
+list_for_each_entry	,	F_15
+read_unlock_irqrestore	,	F_16
+"DMA mapping too big (requested %#x "	,	L_7
+__cpuc_flush_dcache_area	,	F_30
+safe_buffer	,	V_16
+BUG_ON	,	F_29
+dev_attr_dmabounce_stats	,	V_63
+STATS	,	F_9
+virt_to_dma	,	F_27
+page_to_pfn	,	F_33
+pfn_to_dma	,	F_32
+total_allocs	,	V_13
+"%s(ptr=%p, size=%d, dir=%d)\n"	,	L_2
+dev_err	,	F_23
+list_del	,	F_18
+map_single	,	F_25
+dma_mapping_error	,	F_22
+kmalloc	,	F_4
+write_lock_irqsave	,	F_10
+find_safe_buffer	,	F_13
+E2BIG	,	V_39
+attr	,	V_4
+DMA_ERROR_CODE	,	V_40
+addr	,	V_51
+safe_dma_addr	,	V_28
+sync_single_for_device	,	V_49
+direction	,	V_26
+mask	,	V_38
+"Never registered with dmabounce but attempting"	,	L_24
+dmabounce	,	V_9
+write_unlock_irqrestore	,	F_12
+dev_warn	,	F_5
+err_destroy	,	V_61
+ptr	,	V_17
+find_safe_buffer_dev	,	F_21
+u64	,	T_4
+device_info	,	V_7
+"%s(buf=%p)\n"	,	L_5
+device_remove_file	,	F_55
+"%s: copy out unsafe %p to safe %p, size %d\n"	,	L_18
+large_buffer_size	,	V_59
+needs_bounce_fn	,	F_45
+"%lu %lu %lu %lu %lu %lu\n"	,	L_1
+dma_pool_free	,	F_19

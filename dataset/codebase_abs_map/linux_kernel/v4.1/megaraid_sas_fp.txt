@@ -1,0 +1,318 @@
+MR_DEV_HANDLE_INFO	,	V_66
+"Driver raid map all %p "	,	L_10
+MR_DRV_RAID_MAP	,	V_43
+MR_GetPhyParams	,	F_36
+regSize	,	V_158
+"pFwRaidMap-&gt;ldSpanMap[%d].ldRaid.seqNum 0x%x "	,	L_6
+"Strip 0x%llx,"	,	L_28
+data_strip_start	,	V_106
+data_row_start	,	V_104
+startlba_span	,	V_166
+rowMod	,	V_132
+dev	,	V_53
+raidLUN	,	V_150
+"returns invalid arm for ld=%x strip=%lx\n"	,	L_38
+element	,	V_96
+regTypeReqOnRead	,	V_140
+MAX_RAIDMAP_ARRAYS	,	V_65
+get_arm_from_strip	,	F_32
+logStart	,	V_90
+mr_update_load_balance_params	,	F_23
+diff	,	V_88
+do_div	,	F_3
+ar	,	V_17
+size	,	V_56
+pDrvRaidMap	,	V_44
+"for row 0x%llx, start strip 0x%llx end strip 0x%llx"	,	L_48
+"width=%x, diff=%x\n"	,	L_18
+cpu_to_le64	,	F_39
+"Quad=%x, diff=%x\n"	,	L_25
+device	,	V_134
+expected_size	,	V_73
+endLba	,	V_153
+isRead	,	V_165
+LB_PENDING_CMDS_DEFAULT	,	V_192
+curDevHdl	,	V_24
+span_blk	,	V_80
+fpOkForIo	,	V_171
+ldTgtId	,	V_26
+span_row_end	,	V_103
+span_row_size	,	V_203
+mega_div64_32	,	F_4
+capability	,	V_78
+mega_mod64	,	F_1
+dividend	,	V_1
+SPAN_INVALID	,	V_89
+" span 0x%x\n"	,	L_49
+modFactor	,	V_149
+arm	,	V_18
+le16_to_cpu	,	F_9
+megasas_instance	,	V_29
+IoforUnevenSpan	,	V_167
+rowSize	,	V_63
+MR_ARRAY_INFO	,	V_64
+MR_GetLDTgtId	,	F_12
+le64_to_cpu	,	F_26
+logEnd	,	V_91
+SPAN_ROW_SIZE	,	F_34
+u8	,	T_5
+atomic_read	,	F_41
+d	,	V_3
+"data row start=0x%08lx,"	,	L_23
+MR_BuildRaidContext	,	F_37
+"get_arm_from_strip"	,	L_37
+"megasas : DIVISOR is zero in mod fn\n"	,	L_2
+uint32_t	,	T_4
+i	,	V_38
+endRow	,	V_155
+j	,	V_84
+regLockFlags	,	V_142
+mr_spanset_get_span_block	,	F_28
+MR_ArPdGet	,	F_8
+"logical LBA"	,	L_19
+do_invader	,	V_127
+get_arm	,	F_33
+REGION_TYPE_EXCLUSIVE	,	V_143
+stripIdx	,	V_185
+"Span Set %x:"	,	L_17
+dev_dbg	,	F_18
+scsi_pending_cmds	,	V_207
+"Span=%x,"	,	L_15
+span_set_Row	,	V_113
+RAID_CTX_SPANARM_ARM_MASK	,	V_206
+offsetInSpan	,	V_94
+LD_SPAN_SET	,	T_8
+lbInfo	,	V_69
+cpu_to_le16	,	F_19
+stripe	,	V_117
+ldSpanInfo	,	V_70
+"offset_in_span=0x%08lx\n"	,	L_26
+"Check Span number from %s %d"	,	L_47
+load_balance_info	,	V_74
+REGION_TYPE_SHARED_READ	,	V_179
+info	,	V_108
+get_row_from_strip	,	F_29
+pDevHandle	,	V_129
+stripRef	,	V_120
+seqNum	,	V_55
+fpReadCapable	,	V_172
+spanArm	,	V_145
+ref_in_end_stripe	,	V_162
+MR_LD_SPAN_MAP	,	V_76
+debugBlk	,	V_93
+count	,	V_186
+span_row_width	,	V_187
+mr_spanset_get_phy_params	,	F_35
+retval	,	V_114
+fusion	,	V_32
+numBlocks	,	V_164
+__le16	,	V_58
+"for ld=0x%x strip=0x%lx arm is  0x%x\n"	,	L_36
+"data width 0x%llx span offset 0x%x\n"	,	L_30
+pd1	,	V_202
+pd0	,	V_201
+log_start_lba	,	V_100
+"raid-&gt;rowDataSize is 0, but has SPAN[0]"	,	L_39
+MR_SPAN_BLOCK_INFO	,	V_13
+MR_PdDevHandleGet	,	F_11
+numRows	,	V_160
+printk	,	F_2
+fpWriteCapable	,	V_174
+MR_LdSpanArrayGet	,	F_10
+endStrip	,	V_154
+MR_GetSpanBlock	,	F_25
+num_strips	,	V_159
+dev_err	,	F_21
+fw_map_old	,	V_35
+ldRaid	,	V_12
+"for row 0x%llx,start strip %llx"	,	L_45
+cpu_to_le32	,	F_16
+"pFwRaidMap-&gt;ldSpanMap[%d].ldRaid.targetId 0x%x "	,	L_5
+le32_to_cpu	,	F_17
+bestArm	,	V_200
+"but there is _NO_ UnevenSpanSupport\n"	,	L_41
+MR_QUAD_ELEMENT	,	V_82
+fpReadAcrossStripe	,	V_173
+spanRowDataSize	,	V_168
+"start_row 0x%llx endRow 0x%llx"	,	L_50
+MR_LdRaidGet	,	F_5
+log_end_lba	,	V_101
+dataArmMap	,	V_16
+logArm	,	V_131
+totalSize	,	V_48
+MAX_RAIDMAP_LOGICAL_DRIVES	,	V_60
+" end=0x%08lx\n"	,	L_22
+"returns invalid strip for ld=%x, row=%lx\n"	,	L_34
+physArm	,	V_126
+getSpanInfo	,	F_27
+"LSI Debug R1 Load balance "	,	L_54
+MR_LD_RAID	,	V_6
+"megasas: span map %x, pDrvRaidMap-&gt;totalSize : %x\n"	,	L_13
+num_lds	,	V_72
+uint64_t	,	T_3
+log_to_span	,	V_75
+dev_info	,	F_30
+PCI_DEVICE_ID_LSI_INVADER	,	V_135
+regLockLength	,	V_182
+"logical start=0x%08lx, end=0x%08lx\n"	,	L_27
+MR_FW_RAID_MAP_EXT	,	V_49
+ld_drv_map	,	V_41
+fusion_context	,	V_31
+PCI_DEVICE_ID_LSI_FURY	,	V_136
+MR_ValidateMapInfo	,	F_20
+data_row_end	,	V_105
+block	,	V_204
+span_offset	,	V_111
+MR_PD_INVALID	,	V_139
+"pDrvRaidMap-&gt;ldSpanMap[%d].ldRaid.targetId 0x%x "	,	L_8
+"row is 0x%llx\n"	,	L_32
+targetId	,	V_25
+LD_LOAD_BALANCE_INFO	,	V_68
+fpPdIoTimeoutSec	,	V_59
+VD_EXT_DEBUG	,	V_51
+arRef	,	V_125
+"pDrvRaidMap-&gt;ldSpanMap[%d].ldRaid.seqNum 0x%x "	,	L_9
+"start=0x%08lx, end=0x%08lx\n"	,	L_20
+get_updated_dev_handle	,	F_43
+megasas_get_best_arm_pd	,	F_40
+"endSrip %llx\n"	,	L_46
+MAX_RAIDMAP_PHYSICAL_DEVICES	,	V_67
+__func__	,	V_169
+"return from %s %d"	,	L_44
+ldSpanMap	,	V_11
+"io_info-&gt;span_arm 0x%x\n"	,	L_56
+ld_count	,	V_39
+rowDataSize	,	V_148
+"map info structure size 0x%x is not matching with ld count\n"	,	L_12
+start_span	,	V_138
+armIdx	,	V_15
+MR_LD_SPAN	,	V_28
+pd_after_lb	,	V_209
+span_arm	,	V_147
+VirtualDiskTgtId	,	V_180
+pSpanBlock	,	V_81
+arm_pd	,	V_210
+regLockRowLBA	,	V_181
+noElements	,	V_87
+"get_arm_from_strip:"	,	L_35
+MR_LD_STATE_OPTIMAL	,	V_195
+drv_map_sz	,	V_57
+current_map_sz	,	V_47
+span_set	,	V_97
+divisor	,	V_2
+MR_LdSpanPtrGet	,	F_14
+map_id	,	V_42
+"data strip start=0x%08lx,"	,	L_24
+ABS_DIFF	,	F_42
+armQ	,	V_133
+UnevenSpanSupport	,	V_77
+mr_update_span_set	,	F_22
+u16	,	T_6
+"raid map %p LD RAID MAP %p/%p\n"	,	L_11
+ldStartBlock	,	V_163
+"get_strip_from_row"	,	L_33
+stripRow	,	V_119
+map	,	V_9
+data_strip_end	,	V_107
+blk	,	V_92
+MR_LdDataArmGet	,	F_7
+io_info	,	V_122
+spanBlock	,	V_14
+drv_map	,	V_40
+start_row	,	V_137
+MR_DRV_RAID_MAP_ALL	,	V_8
+uint	,	V_116
+pFwRaidMap	,	V_37
+"rowDataSize = 0x%0x,"	,	L_40
+raidMap	,	V_10
+quad	,	V_83
+"For strip 0x%llx"	,	L_31
+MR_PopulateDrvRaidMap	,	F_15
+SPAN_ROW_DATA_SIZE	,	F_38
+ldState	,	V_194
+ld	,	V_7
+diff0	,	V_198
+pend0	,	V_196
+"span_set_Strip 0x%llx, span_set_Row 0x%llx"	,	L_29
+diff1	,	V_199
+span	,	V_21
+pend1	,	V_197
+SPAN_DEBUG	,	V_115
+"occur - span 0x%x arm 0x%x bestArm 0x%x "	,	L_55
+instance	,	V_30
+"LD %x: span_depth=%x\n"	,	L_14
+lb_pending_cmds	,	V_191
+devHandle	,	V_130
+atomic_inc	,	F_44
+regStart	,	V_157
+MR_TargetIdToLdGet	,	F_13
+le32_to_cpus	,	F_24
+arrayRef	,	V_22
+pdev	,	V_52
+MR_FW_RAID_MAP_ALL	,	V_34
+strip	,	V_109
+MR_FW_RAID_MAP	,	V_36
+fpIoTimeoutForLd	,	V_177
+u32	,	T_1
+get_strip_from_row	,	F_31
+"Send IO w/o region lock.\n"	,	L_43
+span_row_start	,	V_102
+stripeShift	,	V_95
+regTypeReqOnWrite	,	V_178
+configSeqNum	,	V_183
+span_row_data_width	,	V_99
+RAID_CTX_SPANARM_SPAN_SHIFT	,	V_146
+unique_id	,	V_54
+pRAID_Context	,	V_124
+level	,	V_118
+MAX_QUAD_DEPTH	,	V_98
+MR_LdSpanInfoGet	,	F_6
+"Start span 0x%x\n"	,	L_51
+span_set_Strip	,	V_112
+"Target Id 0x%x Seq Num 0x%x Size 0/%llx\n"	,	L_4
+supportmax256vd	,	V_45
+spanDepth	,	V_85
+raid	,	V_71
+"span %x rowDataSize %x\n"	,	L_53
+KERN_INFO	,	V_190
+strip_offset	,	V_110
+devHndlInfo	,	V_23
+stripe_mask	,	V_152
+span_row	,	V_188
+span_set_prev	,	V_189
+ref_in_start_stripe	,	V_161
+last_accessed_block	,	V_208
+pdBlock	,	V_128
+start_strip	,	V_156
+"megasas : DIVISOR is zero, in div fn\n"	,	L_1
+fpWriteAcrossStripe	,	V_175
+MAX_RAIDMAP_VIEWS	,	V_61
+MAX_LOGICAL_DRIVES_EXT	,	V_62
+" number of quads=%x\n"	,	L_16
+"return from %s %d."	,	L_42
+block_span_info	,	V_86
+REGION_TYPE_UNUSED	,	V_141
+timeoutValue	,	V_176
+IO_REQUEST_INFO	,	V_121
+row	,	V_79
+"megasas:"	,	L_52
+ldCount	,	V_50
+RAID_CTX_SPANARM_SPAN_MASK	,	V_205
+"size 0x%x\n"	,	L_7
+"(%d) :Index 0x%x "	,	L_3
+startBlk	,	V_144
+LUN	,	V_184
+PLD_SPAN_INFO	,	T_7
+fpCapable	,	V_170
+ld_map	,	V_46
+loadBalanceFlag	,	V_193
+ldTgtIdToLd	,	V_27
+u64	,	T_2
+stripSize	,	V_151
+RAID_CONTEXT	,	V_123
+pd	,	V_20
+ctrl_context	,	V_33
+KERN_ERR	,	V_5
+"span row start=0x%08lx,"	,	L_21
+remainder	,	V_4
+arMapInfo	,	V_19

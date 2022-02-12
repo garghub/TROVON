@@ -1,0 +1,295 @@
+"%s: Failed to read bootloader ID\n"	,	L_57
+"%s: Partition table mismatch\n"	,	L_54
+"%s: Failed to read block data\n"	,	L_13
+rmi_f34v7_read_blocks	,	F_32
+descriptor	,	V_146
+F34_ERASE_WAIT_MS	,	V_124
+"%s: Partition table programmed\n"	,	L_49
+IMAGE_HEADER_VERSION_10	,	V_174
+"%s: writing cmd %02X\n"	,	L_7
+"Firmware image OK\n"	,	L_55
+dev	,	V_14
+time_before	,	F_16
+f34_data	,	V_1
+top_level_container_start_addr	,	V_157
+"Writing firmware (%d bytes)...\n"	,	L_50
+ui_config	,	V_83
+configuration_id	,	V_116
+content_length	,	V_149
+BL_CONTAINER	,	V_162
+"%s: Unrecognized bootloader version\n"	,	L_58
+f34v7_data_1_5	,	V_24
+data_base_addr	,	V_9
+fl_config	,	V_85
+CMD_V7_ERASE_AP	,	V_29
+v7_CMD_ERASE_ALL	,	V_26
+"Bootloader V%d.%d\n"	,	L_25
+wait_for_completion_timeout	,	F_7
+remaining	,	V_129
+DISPLAY_CONFIG_PARTITION	,	V_37
+"%s: Global parameters block count: %d\n"	,	L_21
+size	,	V_122
+rmi_f34v7_parse_image_info	,	F_48
+"%s: Device in bootloader mode\n"	,	L_56
+block_ptr	,	V_132
+GFP_KERNEL	,	V_118
+"%s: status=%d, command=0x%02x\n"	,	L_2
+container_id	,	V_143
+"%s: Failed writing data (%d blks remaining)\n"	,	L_41
+physical_address	,	V_74
+irq_mask	,	V_180
+rmi_f34v7_write_command_single_transaction	,	F_9
+"%s: Failed to write flash command\n"	,	L_8
+partition_length	,	V_78
+pm_config	,	V_87
+usleep_range	,	F_17
+FLASH_CONFIG_PARTITION	,	V_39
+flash_config_length	,	V_64
+rmi_f34v7_write_guest_code	,	F_38
+partition	,	V_54
+min	,	F_33
+container_descriptor	,	V_145
+timeout_ms	,	V_18
+rmi_f34v7_write_ui_config	,	F_36
+v7_CMD_WRITE_CONFIG	,	V_48
+le16_to_cpu	,	F_19
+rmi_f34v7_write_flash_config	,	F_39
+"%s: Failed to write partition ID\n"	,	L_9
+put_unaligned_le16	,	F_14
+u8	,	T_1
+has_guest_code	,	V_110
+update_size	,	V_123
+config_area	,	V_55
+set_irq_bits	,	V_179
+i	,	V_76
+j	,	V_98
+v7_PM_CONFIG_AREA	,	V_58
+rmi_f34v7_erase_config	,	F_28
+F34_WRITE_WAIT_MS	,	V_66
+p	,	V_115
+"%s: Write transfer length fail (%d remaining)\n"	,	L_39
+jiffies	,	V_67
+UI_CONTAINER	,	V_158
+image_header_10	,	V_154
+"%s: Supported partitions: %*ph\n"	,	L_29
+DEVICE_CONFIG_CONTAINER	,	V_153
+UI_CONFIG_CONTAINER	,	V_160
+v7	,	V_10
+rmi_f34v7_write_command	,	F_11
+rmi_f34v7_compare_partition_tables	,	F_43
+"%s: Failed to write block number\n"	,	L_10
+guest_code	,	V_86
+"UI firmware size mismatch: %d != %d\n"	,	L_31
+block_number	,	V_63
+"%s: container_id=%d, length=%d\n"	,	L_45
+rmi_f34v7_enter_flash_prog	,	F_50
+payload	,	V_45
+GLOBAL_PARAMETERS_PARTITION	,	V_33
+block_count	,	V_72
+"%s: Core code block count: %d\n"	,	L_15
+ret	,	V_5
+partitions	,	V_80
+image	,	V_140
+DISPLAY_CONFIG_CONTAINER	,	V_166
+rmi_f34v7_erase_all	,	F_31
+HAS_DISP_CFG	,	V_109
+v7_UI_CONFIG_AREA	,	V_56
+"Configuration ID: %s\n"	,	L_28
+"%s: Flash config size mismatch\n"	,	L_42
+flash_status	,	V_12
+in_bl_mode	,	V_16
+ETIMEDOUT	,	V_21
+block_cnt	,	V_126
+get_unaligned_le32	,	F_45
+CMD_V7_ERASE	,	V_31
+__le16	,	T_2
+control_base_addr	,	V_117
+GUEST_CODE_CONTAINER	,	V_164
+rmi_f34v7_probe	,	F_52
+fd	,	V_8
+V7_PAYLOAD_OFFSET	,	V_106
+update_progress	,	V_133
+fn	,	V_6
+rmi_f34v7_wait_for_idle	,	F_5
+contains_flash_config	,	V_169
+rmi_f34v7_write_partition_table	,	F_40
+timeout	,	V_19
+content	,	V_144
+dev_err	,	F_4
+"%s: Timed out waiting for idle status\n"	,	L_4
+read_config_buf_size	,	V_119
+fw	,	V_176
+"Erasing firmware...\n"	,	L_38
+GUEST_SERIALIZATION_PARTITION	,	V_59
+"Display config size mismatch\n"	,	L_33
+contains_guest_code	,	V_165
+bootloader	,	V_147
+le32_to_cpu	,	F_46
+GUEST_CODE_PARTITION	,	V_41
+block_size	,	V_99
+devm_kfree	,	F_41
+rmi_f34v7_read_queries_bl_version	,	F_20
+length	,	V_62
+"%s: Failed to write single transaction command\n"	,	L_5
+content_address	,	V_148
+rmi_f34v7_check_ui_config_size	,	F_24
+v7_CMD_ERASE_GUEST_CODE	,	V_40
+ptable	,	V_79
+rmi_f34v7_write_partition_id	,	F_12
+DEVICE_CONFIG_PARTITION	,	V_89
+rmi_f34v7_parse_img_header_10_bl_container	,	F_44
+CORE_CONFIG_PARTITION	,	V_35
+BOOTLOADER_PARTITION	,	V_43
+"%s: header-&gt;major_header_version = %d\n"	,	L_46
+"UI config size mismatch\n"	,	L_32
+rmi_f34v7_write_dp_config	,	F_37
+v7_CMD_IDLE	,	V_68
+force_update	,	V_181
+base	,	V_23
+v7_CMD_ERASE_FLASH_CONFIG	,	V_38
+ENOMEM	,	V_120
+num_of_containers	,	V_141
+rmi_dbg	,	F_3
+"%s: Failed to read queries 1 to 7\n"	,	L_24
+rmi_read_block	,	F_2
+"%s: Read block failed (%d blks remaining)\n"	,	L_40
+"Writing guest code...\n"	,	L_53
+dev_info	,	F_29
+CMD_V7_READ	,	V_52
+V7_PARTITION_ID_OFFSET	,	V_102
+max_transfer	,	V_128
+rmi_f34v7_check_dp_config_size	,	F_25
+"%s: Failed to write transfer length\n"	,	L_11
+CONFIG_ID_SIZE	,	V_114
+"Bootloader config size mismatch\n"	,	L_35
+BL_LOCKDOWN_INFO_CONTAINER	,	V_152
+"Erasing config...\n"	,	L_36
+"%s: f34-&gt;v7.block_size = %d\n"	,	L_26
+index	,	V_77
+"%02X"	,	L_27
+rmi_f34v7_erase_guest_code	,	F_30
+rmi_f34v7_read_queries	,	F_21
+fail	,	V_177
+HAS_CONFIG_ID	,	V_112
+data_1_5	,	V_25
+driver	,	V_178
+__func__	,	V_15
+bl_config	,	V_88
+PAGE_SIZE	,	V_130
+"Unsupported image file format %02X\n"	,	L_47
+cmd	,	V_22
+major_header_version	,	V_173
+status	,	V_3
+"%s: Failed to read query 0\n"	,	L_23
+"%s: Failed to write command\n"	,	L_12
+V7_TRANSFER_LENGTH_OFFSET	,	V_104
+v7_DP_CONFIG_AREA	,	V_57
+f34	,	V_2
+"%s: Erase flash config command written\n"	,	L_43
+cmd_done	,	V_20
+start_physical_address	,	V_81
+"Writing display config...\n"	,	L_52
+"Writing config (%d bytes)...\n"	,	L_51
+init_completion	,	F_15
+RMI_DEBUG_FN	,	V_13
+rmi_f34v7_read_partition_table	,	F_13
+transfer_length	,	V_65
+v7_BL_CONFIG_AREA	,	V_60
+u16	,	T_3
+firmware	,	V_175
+bl_major_revision	,	V_97
+rmi_f34v7_check_guest_code_size	,	F_26
+"%s: No flash config in fw image\n"	,	L_48
+bl_version	,	V_163
+CORE_CONFIG_CONTAINER	,	V_161
+has_display_cfg	,	V_107
+partition_support	,	V_108
+off	,	V_11
+config_block_count	,	V_136
+EINVAL	,	V_53
+rmi_f34v7_parse_image_header_10	,	F_47
+CMD_V7_WRITE	,	V_50
+partition_table_bytes	,	V_70
+"%s: Guest serialization block count: %d\n"	,	L_20
+rmi_f34v7_start_reflash	,	F_51
+query_0	,	V_92
+"%s: Display config block count: %d\n"	,	L_17
+rmi_f34v7_do_reflash	,	F_49
+GLOBAL_PARAMETERS_CONTAINER	,	V_151
+partition_table	,	V_71
+rmi_f34v7_parse_partition_table	,	F_18
+v7_CMD_ERASE_BL_CONFIG	,	V_32
+new_partition_table	,	V_125
+config_data	,	V_135
+data	,	V_137
+BL_CONFIG_CONTAINER	,	V_150
+firmware_id	,	V_172
+rmi_write_block	,	F_10
+"%s: Invalid command 0x%02x\n"	,	L_6
+"%s: Flash config block count: %d\n"	,	L_18
+read_config_buf	,	V_69
+bl_minor_revision	,	V_96
+rmi_f34v7_write_f34v7_blocks	,	F_34
+"%s: Device config block count: %d\n"	,	L_22
+"Guest code size mismatch\n"	,	L_34
+V7_BOOTLOADER_ID_OFFSET	,	V_182
+v7_CMD_READ_CONFIG	,	V_51
+CMD_V7_ENTER_BL	,	V_44
+V7_COMMAND_OFFSET	,	V_105
+rmi_f34v7_write_config	,	F_35
+v7_CMD_ERASE_UI_CONFIG	,	V_34
+lockdown	,	V_90
+rmi_f34v7_check_bl_config_size	,	F_27
+rmi_dev	,	V_7
+blk_count	,	V_139
+V7_FLASH_STATUS_OFFSET	,	V_101
+"%s: Error %d reading flash status\n"	,	L_1
+v7_CMD_WRITE_GUEST_CODE	,	V_49
+offset	,	V_91
+"%s: Core config block count: %d\n"	,	L_16
+v7_FLASH_CONFIG_AREA	,	V_61
+FLASH_CONFIG_CONTAINER	,	V_168
+"%s: Failed to read flash command\n"	,	L_3
+transfer	,	V_127
+GENERAL_INFORMATION_CONTAINER	,	V_170
+header	,	V_155
+CORE_CODE_PARTITION	,	V_28
+dp_config	,	V_84
+F34_ENABLE_WAIT_MS	,	V_131
+"%s: Failed to read partition table\n"	,	L_30
+devm_kzalloc	,	F_22
+rmi_f34v7_check_ui_firmware_size	,	F_23
+"Erasing guest code...\n"	,	L_37
+HAS_GUEST_CODE	,	V_111
+img	,	V_121
+"%s: Guest code block count: %d\n"	,	L_19
+CORE_CODE_CONTAINER	,	V_159
+flash_cmd	,	V_17
+"%s: Partition entry %d: %*ph\n"	,	L_14
+msecs_to_jiffies	,	F_6
+partition_id	,	V_27
+v7_CMD_ENABLE_FLASH_PROG	,	V_42
+bootloader_id	,	V_46
+config_size	,	V_138
+f34_ctrl	,	V_113
+checksum	,	V_156
+v7_CMD_ERASE_DISP_CONFIG	,	V_36
+blkcount	,	V_73
+addr	,	V_142
+v7_CMD_ERASE_UI_FIRMWARE	,	V_30
+query_1_7	,	V_94
+dev_warn	,	F_8
+V7_BLOCK_NUMBER_OFFSET	,	V_103
+"%s: f34-&gt;v7.img.checksum=%X\n"	,	L_44
+payload_length	,	V_100
+contains_display_cfg	,	V_167
+command	,	V_4
+contains_firmware_id	,	V_171
+update_status	,	V_134
+f34v7_query_1_7	,	V_93
+ui_firmware	,	V_82
+query_base_addr	,	V_95
+phyaddr	,	V_75
+rmi_f34v7_read_flash_status	,	F_1
+v7_CMD_WRITE_FW	,	V_47
+rmi_f34v7_write_firmware	,	F_42

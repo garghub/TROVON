@@ -1,0 +1,644 @@
+lpfc_nvmet_xmt_ls_rsp_cmp	,	F_6
+virt	,	V_64
+atomic_set	,	F_59
+phba	,	V_2
+wqe_ls	,	V_328
+cfg_enable_fc4_type	,	V_295
+"6111 Wrong state NVMET FCP: %d  cnt %d\n"	,	L_75
+LPFC_CHECK_NVMET_RCV	,	V_313
+ts_nvme_data	,	V_76
+wqe_la	,	V_329
+lpfc_sli4_issue_wqe	,	F_35
+sli4_xritag	,	V_298
+dev	,	V_269
+CMD_FCP_TRECEIVE64_WQE	,	V_398
+NVMET_FCTGTFEAT_OPDONE_IN_ISR	,	V_267
+ktime_seg9_total	,	V_130
+tgtp	,	V_20
+"xri: x%x\n"	,	L_92
+lpfc_nvmet_defer_release	,	F_1
+"6083 Abort cmpl: ctx %p WCQE:%08x %08x %08x %08x\n"	,	L_83
+fc_myDID	,	V_255
+LPFC_DRIVER_ABORTED	,	V_429
+LPFC_NVMET_STE_ABORT	,	V_199
+rcv_fcp_cmd_in	,	V_84
+hwqid	,	V_197
+rcv_fcp_cmd_defer	,	V_213
+rcv_ls_req_out	,	V_272
+lpfc_nvmet_cleanup_io_context	,	F_45
+xmt_fcp_write	,	V_277
+size	,	V_53
+iocb	,	V_421
+ktime_seg4_max	,	V_116
+ktime_seg5_min	,	V_118
+"NVMET ABTS RCV: xri x%x CPU %02x rjt %d\n"	,	L_44
+"6162 ABORT Request to rport DID x%06x "	,	L_93
+"6703 CPU Check cmpl: "	,	L_10
+GFP_ATOMIC	,	V_311
+ktime_seg4_total	,	V_114
+result	,	V_24
+EBUSY	,	V_205
+wqe_abts	,	V_417
+"portnm %llx nodenm %llx\n"	,	L_40
+wwn_to_u64	,	F_57
+start_clean	,	V_139
+LPFC_NVMET_STE_LS_RCV	,	V_173
+bde	,	V_182
+tport	,	V_206
+lpfc_wcqe_xa_xri	,	V_288
+lpfc_sli_release_iocbq	,	F_11
+"6316 ABTS cmpl xri x%x flg x%x (%x) "	,	L_82
+f	,	V_185
+words	,	V_393
+i	,	V_225
+cfg_nvme_io_channel	,	V_263
+ENOENT	,	V_270
+"6039 Xmit NVMET LS response to remote "	,	L_67
+ts_nvme_status	,	V_80
+next_ctxp	,	V_291
+nvmet_fc_register_targetport	,	F_58
+u	,	V_250
+rsplen	,	V_150
+w	,	V_188
+lpfc_nvmet_destroy_targetport	,	F_73
+nvmet_mrq_hdr	,	V_317
+LPFC_MAX_NVME_SEG_CNT	,	V_257
+"6411 NVMET free, already free IO x%x: %d %d\n"	,	L_6
+"6104 NVMET prep LS wqe: link err: "	,	L_62
+WQE_BUSY	,	V_437
+CMD_XMIT_SEQUENCE64_WQE	,	V_339
+lpfc_sli4_sge_last	,	V_411
+"6165 ABORT cmpl: xri x%x flg x%x (%d) "	,	L_78
+wqe_pu	,	V_236
+axri	,	V_286
+BUFF_TYPE_BDE_64	,	V_325
+ulpCommand	,	V_422
+"6318 XB aborted oxid %x flg x%x (%x)\n"	,	L_43
+hba_flag	,	V_427
+"NVMET DEFERRCV: xri x%x sz %d CPU %02x\n"	,	L_28
+cpucheck_cmpl_io	,	V_160
+lpfc_nvmet_defer_rcv	,	F_43
+xmt_fcp_rsp_drop	,	V_279
+NO_XRI	,	V_368
+LPFC_NVMET_IO_INP	,	V_141
+be16_to_cpu	,	F_17
+rqb_free_buffer	,	V_89
+payload	,	V_52
+lpfc_set_rrq_active	,	F_67
+lpfc_wqe128	,	V_224
+sgl	,	V_361
+T_XRI_TAG	,	V_432
+lpfc_nvmep	,	V_195
+nlp_DID	,	V_359
+"6112 ABTS Wrong state:%d oxid x%x\n"	,	L_81
+targetport	,	V_32
+req	,	V_208
+ktime_seg3_max	,	V_113
+hrq	,	V_87
+word0	,	V_412
+abort_cmd	,	V_431
+ktime_seg6_min	,	V_122
+word3	,	V_414
+word2	,	V_382
+"6038 NVMET LS rsp cmpl: %d %d oxid x%x\n"	,	L_5
+nvme_wqe_free_wqeq_exit	,	V_324
+list	,	V_13
+xri	,	V_287
+lpfc_nvmet_xmt_fcp_op_cmp	,	F_26
+"6405 Ran out of NVMET "	,	L_31
+spin_unlock_irqrestore	,	F_4
+lpfc_rq_buf_free	,	F_44
+CMD_FCP_TSEND64_WQE	,	V_374
+NVMET_FCOP_WRITEDATA	,	V_395
+sg_dma_address	,	F_89
+"6064 Unknown Rsp Op %d\n"	,	L_77
+cpucheck_ccmpl_io	,	V_162
+LPFC_WQE_LENLOC_NONE	,	V_434
+"6105 NVMET prep LS wqe: No WQE: "	,	L_64
+private	,	V_34
+fh_ox_id	,	V_65
+wqe	,	V_161
+SGL_FREED	,	V_218
+"6160 Drop ABORT - wrong NDLP state x%x.\n"	,	L_90
+nvmet_io_wait_cnt	,	V_61
+sid	,	V_54
+"NVMET LS  RESP: xri x%x wqidx x%x len x%x\n"	,	L_17
+lpfc_printf_vlog	,	F_61
+ktime_data_samples	,	V_120
+lpfc_sli_ring	,	V_304
+list_del	,	F_63
+rspbuf	,	V_322
+lpfc_nvmet_ctx_put_list	,	V_93
+le32_to_cpu	,	F_34
+response_len	,	V_403
+retry	,	V_354
+xmt_fcp_drop	,	V_200
+bf_set	,	F_54
+"6108 NVMET prep FCP wqe: no ndlp: "	,	L_70
+"6134 Drop ABTS - wrong NDLP state x%x.\n"	,	L_88
+"IO x%x: %d %d\n"	,	L_104
+spin_unlock	,	F_49
+nvmet_fc_rcv_fcp_req	,	F_22
+ts_status_nvme	,	V_83
+lpfc_nvmet_targetport_delete	,	F_38
+abts_nvme_buf_list_lock	,	V_11
+LPFC_SGE_TYPE_SKIP	,	V_384
+LPFC_WQE_IOD_READ	,	V_399
+oxid	,	V_8
+lpfc_is_link_up	,	F_85
+ktime_seg7_total	,	V_124
+iocbq	,	V_222
+lpfc_sli4_abts_err_handler	,	F_68
+total_data_placed	,	V_413
+pring	,	V_305
+"6106 NVMET prep LS wqe: No ndlp: "	,	L_66
+ENOMEM	,	V_177
+HBA_NVME_IOQ_FLUSH	,	V_428
+fc_frame_header	,	V_48
+lpfc_nvmet_xmt_ls_abort_cmp	,	F_96
+CMD_XMIT_SEQUENCE64_CR	,	V_423
+wqe_cmd_type	,	V_351
+lpfc_nvmet_update_targetport	,	F_60
+abort_tag	,	V_340
+ktime_on	,	V_73
+lpfc_dmabuf	,	V_169
+ktime_seg2_max	,	V_110
+nvmewqe	,	V_223
+context	,	V_47
+txrdy	,	V_56
+id	,	V_140
+wqe_ct	,	V_230
+LOG_INIT	,	V_258
+ts_isr_status	,	V_82
+list_for_each_entry_safe	,	F_47
+lpfc_rcqe_length	,	V_307
+"6166 Failed ABORT issue_wqe with status x%x "	,	L_99
+ktime_seg10_total	,	V_133
+"6067 ABTS: sid %x xri x%x/x%x\n"	,	L_87
+wqe_irsp	,	V_391
+nvmet_xri_cnt	,	V_227
+lpfc_wcqe_c_status	,	V_25
+lpfc_nvmet_unsol_ls_buffer	,	F_77
+wqeq	,	V_68
+"%08x %08x %08x\n"	,	L_53
+wqe_dfctl	,	V_326
+lpfc_tgttemplate	,	V_260
+port_id	,	V_254
+hbuf	,	V_63
+"NVMET FCP DROP: xri x%x sz %d from %06x\n"	,	L_61
+status	,	V_23
+nlp_state	,	V_300
+dropit	,	V_306
+"NVMET LS  CMPL: xri x%x stat x%x result x%x\n"	,	L_4
+wqe_nvme	,	V_237
+"6414 NVMET Context corrupt %d %d oxid x%x\n"	,	L_58
+rcv_fcp_cmd_drop	,	V_90
+aerr	,	V_201
+lpfc_iocbq	,	V_15
+list_add_tail	,	F_5
+"6161 ABORT failed: No wqeqs: "	,	L_91
+ktime_seg4_min	,	V_115
+"6023 NVMET LS rsp oxid x%x\n"	,	L_13
+iotag	,	V_341
+wqe_sup	,	V_389
+"6102 IO xri x%x aborted\n"	,	L_20
+wqe_lenloc	,	V_347
+"WQE: NPORT x%x oxid x%x ste %d\n"	,	L_74
+sli4_sid_from_fc_hdr	,	F_18
+FCP_COMMAND_TRECEIVE	,	V_400
+nvmep	,	V_168
+rspdma	,	V_174
+"6026 Registered NVME "	,	L_38
+NLP_STE_MAX_STATE	,	V_418
+"NVMET FCP CMND: xri x%x op x%x len x%x\n"	,	L_22
+"6156 LS Drop IO x%x: nvmet_fc_rcv_ls_req %d\n"	,	L_55
+sgl_list_lock	,	V_220
+xmt_abort_rsp	,	V_283
+wqe_ar	,	V_386
+xmt_fcp_release	,	V_91
+wqe_ag	,	V_405
+"6407 Ran out of NVMET XRIs\n"	,	L_34
+ctxbuf	,	V_71
+xmit_len	,	V_353
+lpfc_worker_wake_up	,	F_69
+node_name	,	V_248
+cnt	,	V_365
+rqb_dmabuf	,	V_50
+list_remove_head	,	F_16
+cpucheck_on	,	V_156
+bdeFlags	,	V_187
+LOG_NVME_IOERR	,	V_31
+ktime_seg9_max	,	V_132
+LPFC_NVMET_ABTS_RCV	,	V_198
+nlp_flag	,	V_387
+"6418 NVMET LS abort state mismatch "	,	L_103
+lpfc_nvmet_io_wait_list	,	V_62
+LPFC_NVMET_STE_FREE	,	V_59
+cfg_nvme_seg_cnt	,	V_259
+"for oxid x%x.\n"	,	L_100
+LPFC_NVMET_ABORT_OP	,	V_211
+"NVMET FCP  RCV: xri x%x sz %d CPU %02x\n"	,	L_57
+complete	,	F_39
+max_hw_queues	,	V_262
+wqe_dbde	,	V_344
+NVME_SC_SUCCESS	,	V_148
+xmt_fcp_abort	,	V_210
+sli4_lxritag	,	V_217
+ktime_seg1_max	,	V_107
+"NVMET RCV BUSY: xri x%x sz %d from %06x\n"	,	L_59
+LOG_NVME_DISC	,	V_40
+xmt_fcp_rsp_cmpl	,	V_152
+lpfc_nvmet_sol_fcp_abort_cmp	,	F_94
+LPFC_CHECK_NVMET_IO	,	V_157
+ndlp	,	V_219
+sge_len	,	V_385
+wwn	,	V_251
+sli4_hba	,	V_10
+FC_TYPE_BLS	,	V_420
+wqe_com	,	V_232
+ctx_buf	,	V_45
+"NVMET FCP FREE: xri x%x ste %d abt %d\n"	,	L_27
+"6152 FCP Drop IO x%x: Prep\n"	,	L_21
+"6315 IO Cmpl XBUSY: xri x%x: %x/%x\n"	,	L_9
+__lpfc_clear_active_sglq	,	F_50
+"6070 ABTS cmpl: WCQE: %08x %08x %08x %08x\n"	,	L_80
+"6417 NVMET ABORT ctx freed %d %d oxid x%x\n"	,	L_101
+cpu	,	V_158
+"6705 CPU Check OP: "	,	L_19
+hbq_dmabuf	,	V_165
+lpfc_nvmet_xmt_fcp_abort	,	F_40
+lpfc_nvmet_unsol_fcp_abort_cmp	,	F_95
+uint16_t	,	T_3
+LPFC_NVMET_XBUSY	,	V_147
+spin_lock_irqsave	,	F_3
+d_buf	,	V_321
+cqe	,	V_309
+nvmet_ctx_put_lock	,	V_92
+"oxid x%x: %d %d\n"	,	L_15
+nvmet_mrq_data	,	V_318
+LPFC_IO_NVMET	,	V_203
+SLI4_CT_RPI	,	V_233
+"6069 Issue ABTS to xri x%x reqtag x%x\n"	,	L_89
+"6103 NVMET Abort op: oxri x%x flg x%x ste %d\n"	,	L_24
+FCP_COMMAND_TRSP	,	V_408
+KERN_INFO	,	V_39
+ENXIO	,	V_194
+lpfc_nvmet_unsol_ls_event	,	F_83
+lpfc_nvmet_setup_io_context	,	F_51
+nvmet_ctx_put_cnt	,	V_94
+FC_RCTL_BA_ABTS	,	V_419
+LPFC_DRVR_TIMEOUT	,	V_357
+"6041 Bad txrdy buffer: oxid x%x\n"	,	L_76
+lpfc_hba	,	V_1
+sgel	,	V_363
+lpfc_nvmet_xmt_ls_rsp	,	F_29
+wqe_class	,	V_234
+"WCQE: %08x %08x %08x %08x\n"	,	L_79
+ktime_seg3_min	,	V_112
+nvmefc_tgt_fcp_req	,	V_137
+rxid	,	V_289
+NVMET_FCOP_READDATA_RSP	,	V_153
+CONFIG_NVME_TARGET_FC	,	V_46
+wcqe	,	V_18
+"context memory\n"	,	L_32
+"6317 XB aborted xri x%x rxid x%x\n"	,	L_42
+wqe_reqtag	,	V_342
+bf_get	,	F_7
+bpl	,	V_172
+lpfc_sli_get_iocbq	,	F_53
+"6319 NVMET Rcv ABTS:acc xri x%x\n"	,	L_45
+op	,	V_138
+lpfc_nvmet_ctx_get_list	,	V_241
+nvmefc_tgt_ls_req	,	V_21
+lpfc_nvmet_ctxbuf	,	V_44
+LPFC_NVMET_STE_RCV	,	V_70
+"6415 NVMET LS Abort No ctx: WCQE: "	,	L_84
+sg_dma_len	,	F_90
+fcp_error	,	V_142
+port_name	,	V_252
+target_features	,	V_264
+container_of	,	F_30
+qno	,	V_312
+wqe_cqid	,	V_349
+ulp_bde64	,	V_171
+"6412 NVMET LS rsp state mismatch "	,	L_14
+putPaddrLow	,	F_87
+LOG_NVME	,	V_226
+"6154 LS Drop IO\n"	,	L_47
+CMD_FCP_TRSP64_WQE	,	V_406
+rpi_ids	,	V_335
+active_rrq_list	,	V_299
+cpu_to_be32	,	F_93
+ktime_seg9_min	,	V_131
+spin_lock_init	,	F_19
+dma_addr_t	,	T_4
+fcp_data_len	,	V_379
+lpfc_nvmet_xmt_fcp_release	,	F_42
+lpfc_nvmet_xmt_fcp_op	,	F_36
+rcqe_cmpl	,	V_310
+hba_wqidx	,	V_179
+fcp_treceive	,	V_396
+tus	,	V_184
+lpfc_nvmet_unsol_issue_abort	,	F_97
+ctxlock	,	V_72
+state	,	V_28
+lpfc_nvmeio_data	,	F_9
+xmt_abort_sol	,	V_282
+NLP_STE_UNMAPPED_NODE	,	V_301
+lpfc_nlp_put	,	F_10
+released	,	V_294
+hbalock	,	V_297
+cq_event	,	V_308
+OTHER_COMMAND	,	V_352
+"6406 Ran out of NVMET iocb/WQEs\n"	,	L_33
+wqe_xri_tag	,	V_337
+ctx	,	V_37
+abort_wqeq	,	V_426
+lpfc_nvmet_create_targetport	,	F_56
+nvmet_support	,	V_303
+"6403 Allocate NVMET resources for %d XRIs\n"	,	L_29
+wait_for_completion_timeout	,	F_76
+piocb	,	V_320
+rc	,	V_55
+"6007 Update NVMET port %p did x%x\n"	,	L_41
+sli4_wcqe_xri_aborted	,	V_285
+addrLow	,	V_180
+"2582 FCP Drop IO x%x: err x%x: x%x x%x x%x\n"	,	L_7
+xmt_abort_unsol	,	V_281
+bytes_recv	,	V_67
+GFP_KERNEL	,	V_228
+lpfc_nodelist	,	V_292
+LPFC_ENABLE_NVME	,	V_296
+FC_TYPE_NVME	,	V_333
+"NVMET LS  DROP: xri x%x sz %d from %06x\n"	,	L_54
+"6135 Failed to Issue ABTS for oxid x%x. Status x%x\n"	,	L_102
+CMD_ABORT_XRI_CX	,	V_433
+seg2	,	V_96
+wqe_rctl	,	V_330
+seg1	,	V_95
+seg4	,	V_98
+context3	,	V_42
+seg3	,	V_97
+list_del_init	,	F_48
+context2	,	V_27
+context1	,	V_41
+nvmet_fc_port_info	,	V_246
+cmdwqe	,	V_16
+rsp	,	V_22
+xmt_fcp_rsp	,	V_278
+wqe_irsplen	,	V_392
+lpfc_nvmet_tgtport	,	V_19
+xmt_ls_drop	,	V_175
+sg	,	V_371
+"%d %d\n"	,	L_3
+list_splice	,	F_80
+"6153 FCP Drop IO x%x: Issue: %d\n"	,	L_23
+"6068 Abort failed: No wqeqs: "	,	L_105
+cpucheck_xmt_io	,	V_196
+xmt_ls_rsp	,	V_193
+scatterlist	,	V_362
+atomic_read	,	F_23
+LPFC_CHECK_CPU_CNT	,	V_159
+uint32_t	,	T_1
+ktime_seg3_total	,	V_111
+ktime_seg2_min	,	V_109
+lpfc_wcqe_xa_remote_xid	,	V_290
+ktime_seg7_max	,	V_126
+cpucheck_rcv_io	,	V_314
+"targetport: %p, private %p "	,	L_39
+smp_processor_id	,	F_27
+addrHigh	,	V_183
+ts_isr_data	,	V_78
+LPFC_NVMET_STE_DONE	,	V_154
+xmt_abort_rsp_error	,	V_284
+NLP_SUPPRESS_RSP	,	V_388
+abts_wqe	,	V_425
+LPFC_NVMET_STE_LS_RSP	,	V_29
+"6400 Reducing sg segment cnt to %d\n"	,	L_35
+INIT_LIST_HEAD	,	F_81
+cfg_nvme_oas	,	V_376
+"6313 NVMET Defer ctx release xri x%x flg x%x\n"	,	L_1
+iflag	,	V_5
+ktime_seg5_total	,	V_117
+"cpu %d expect %d\n"	,	L_11
+ktime_seg10_max	,	V_135
+LPFC_NVMET_STE_LS_ABORT	,	V_415
+LPFC_NVMET_STE_DATA	,	V_369
+dmabuf	,	V_170
+lpfc_nvmet_unsol_fcp_issue_abort	,	F_24
+LPFC_SGE_TYPE_DATA	,	V_401
+ktime_seg8_total	,	V_127
+pport	,	V_245
+"NVMET LS  DROP: "	,	L_49
+fcp_req	,	V_85
+seg9	,	V_103
+ulpLe	,	V_424
+seg6	,	V_100
+seg5	,	V_99
+seg8	,	V_102
+pci_pool_free	,	F_15
+seg7	,	V_101
+LOG_NVME_ABTS	,	V_7
+xmit_sequence	,	V_181
+"6151 LS Drop IO x%x: Issue %d\n"	,	L_18
+idx	,	V_316
+"xri x%x sz %d from %06x\n"	,	L_50
+"6109 NVMET prep FCP wqe: seg cnt err: "	,	L_71
+nvmewqeq	,	V_167
+xmt_ls_rsp_cmpl	,	V_36
+"6163 Driver in reset cleanup - flushing "	,	L_95
+LPFC_WQE_LENLOC_WORD12	,	V_348
+rcv_ls_req_drop	,	V_273
+"NPORT x%x oxid x%x ste %d\n"	,	L_65
+tgtport	,	V_164
+lpfc_sli4_nvmet_xri_aborted	,	F_62
+ktime_status_samples	,	V_136
+kzalloc	,	F_52
+cpu_to_le32	,	F_91
+fcp_tsend	,	V_238
+__lpfc_sli_get_nvmet_sglq	,	F_55
+wqe_ctxt_tag	,	V_334
+ktime_seg8_max	,	V_129
+NVMET_FCOP_RSP	,	V_149
+"6413 NVMET release bad state %d %d oxid x%x\n"	,	L_26
+TXRDY_PAYLOAD_LEN	,	V_397
+aborting	,	V_212
+lpfc_nvmet_ctxbuf_post	,	F_13
+xc	,	V_366
+sg_cnt	,	V_367
+wqe_wqes	,	V_390
+sglq	,	V_216
+LPFC_IO_NVME_LS	,	V_358
+generic	,	V_231
+ts_isr_cmd	,	V_75
+lpfc_nvmet_prep_ls_wqe	,	F_31
+"6150 LS Drop IO x%x: Prep\n"	,	L_16
+"6037 NVMET Unsol rcv: sz %d rc %d: %08x %08x %08x "	,	L_52
+isr_timestamp	,	V_155
+relative_offset	,	V_373
+drvrTimeout	,	V_355
+wge_ctl	,	V_327
+wqe_qosd	,	V_240
+lpfc_post_rq_buffer	,	F_82
+rqbp	,	V_88
+wqe_oas	,	V_377
+ktime_seg1_min	,	V_106
+wqe_wqec	,	V_435
+NLP_CHK_NODE_ACT	,	F_66
+"for xri x%x x%x\n"	,	L_94
+NVME_SC_DATA_XFER_ERROR	,	V_143
+lpfc_nvmet_rcv_unsol_abort	,	F_70
+iocb_flag	,	V_202
+uint64_t	,	T_2
+lpfc_vport	,	V_243
+addr_lo	,	V_381
+ctxp	,	V_4
+list_empty	,	F_64
+physaddr	,	V_364
+"6157 NVMET FCP Drop IO\n"	,	L_56
+ts_status_wqput	,	V_81
+nlp_rpi	,	V_336
+"NPORT x%x oxid x%x ste %d cnt %d\n"	,	L_72
+nvmet_fc_target_port	,	V_163
+ktime_seg6_total	,	V_121
+ktime_seg7_min	,	V_125
+rsvd2	,	V_178
+wqe_iod	,	V_345
+NVMET_FCOP_READDATA	,	V_370
+NVMET_FCTGTFEAT_CMD_IN_ISR	,	V_266
+lpfc_sli4_sge_type	,	V_383
+fc_nodename	,	V_249
+ls_req	,	V_38
+ts_data_wqput	,	V_77
+"6704 CPU Check cmdcmpl: "	,	L_12
+"6404 Ran out of memory for NVMET\n"	,	L_30
+"6056 Failed to Issue ABTS. Status x%x\n"	,	L_106
+"NVMET FCP CMPL: xri x%x op x%x status x%x\n"	,	L_8
+txrdy_phys	,	V_58
+"NPORT x%x oxid:x%x ste %d\n"	,	L_63
+ts_cmd_nvme	,	V_74
+WQE_SUCCESS	,	V_192
+wqe_type	,	V_332
+"%08x %08x %08x %08x\n"	,	L_85
+lpfc_nvmet_sol_fcp_issue_abort	,	F_41
+FCP_COMMAND_TSEND	,	V_378
+lpfc_abts_nvmet_ctx_list	,	V_14
+flag	,	V_9
+wqe_ebde_cnt	,	V_239
+kfree	,	F_12
+vport	,	V_244
+xmt_fcp_abort_cmpl	,	V_280
+pinfo	,	V_247
+ktime_get_ns	,	F_21
+wqe_rcvoxid	,	V_343
+transferred_length	,	V_144
+tport_unreg_done	,	V_207
+flags	,	V_209
+xmt_fcp_read_rsp	,	V_275
+ktime_seg5_max	,	V_119
+cfg_sg_seg_cnt	,	V_256
+LPFC_IO_NVME	,	V_436
+out	,	V_33
+init_completion	,	F_74
+"6410 NVMET LS cmpl state mismatch IO x%x: "	,	L_2
+payload_offset_len	,	V_372
+transfer_length	,	V_151
+"6107 NVMET prep FCP wqe: link err:"	,	L_69
+offsetof	,	F_28
+"NVME Req now. hba_flag x%x oxid x%x\n"	,	L_96
+next_ctx_buf	,	V_214
+nvmet_fc_rcv_fcp_abort	,	F_71
+putPaddrHigh	,	F_88
+lpfc_wcqe_c_xb	,	V_146
+nvmet_ctx_get_cnt	,	V_242
+nvmebuf	,	V_51
+nvmet_ctx_get_lock	,	V_215
+lpfc_wcqe_complete	,	V_17
+entry_cnt	,	V_30
+bdeSize	,	V_186
+CLASS3	,	V_235
+"still pending on oxid x%x\n"	,	L_98
+"NVMET LS   RCV: xri x%x sz %d from %06x\n"	,	L_51
+iocb_cmpl	,	V_190
+rrq_empty	,	V_293
+xmt_fcp_read	,	V_276
+lpfc_sli4_sge_offset	,	V_410
+atomic_inc	,	F_8
+"6320 NVMET Rcv ABTS:rjt xri x%x\n"	,	L_46
+IS_ENABLED	,	F_14
+LPFC_NVMET_CTX_RLS	,	V_12
+rcv_fcp_cmd_out	,	V_86
+CONFIG_SCSI_LPFC_DEBUG_FS	,	F_20
+LPFC_WQE_LENLOC_WORD3	,	V_407
+abort_cmd_criteria	,	V_430
+ktime_seg8_min	,	V_128
+rqb_buffer	,	V_166
+max_sgl_segments	,	V_261
+nvmet_fc_unregister_targetport	,	F_75
+xmt_ls_rsp_error	,	V_35
+fcp_trsp	,	V_402
+addr_hi	,	V_380
+"6416 NVMET LS abort cmpl state mismatch: "	,	L_86
+lpfc_findnode_did	,	F_65
+"6164 Outstanding NVME I/O Abort Request "	,	L_97
+wqe_cmnd	,	V_338
+lpfc_nvmet_sgl_list	,	V_221
+fc_ratov	,	V_356
+lpfc_nvmet_unsol_fcp_buffer	,	F_79
+dbuf	,	V_66
+offset	,	V_69
+"6159 FCP Drop IO x%x: err x%x: x%x x%x x%x\n"	,	L_60
+abts_wqeq	,	V_416
+wqe_xc	,	V_375
+sli4_sge	,	V_360
+txrdy_payload_pool	,	V_57
+lpfc_wqe	,	V_229
+done	,	V_43
+fc_portname	,	V_253
+seg10	,	V_104
+lpfc_in_buf_free	,	F_32
+"6110 NVMET prep FCP wqe: No "	,	L_73
+ktime_seg2_total	,	V_108
+LPFC_FCP_RING	,	V_204
+ktime_seg10_min	,	V_134
+pcidev	,	V_268
+"x%x\n"	,	L_37
+rcv_ls_req_in	,	V_271
+NVMET_FCTGTFEAT_READDATA_RSP	,	V_265
+ts_data_nvme	,	V_79
+"6025 Cannot register NVME targetport "	,	L_36
+xmt_ls_abort	,	V_176
+nvmet_fc_rcv_ls_req	,	F_78
+lpfc_nvmet_unsol_ls_issue_abort	,	F_33
+lpfc_nlp_get	,	F_86
+wqe_cmpl	,	V_189
+LPFC_WQE_IOD_WRITE	,	V_346
+lpfc_nvmet_prep_fcp_wqe	,	F_37
+parameter	,	V_26
+fc_hdr	,	V_49
+nvmet_io_wait_lock	,	V_60
+spin_lock	,	F_46
+NLP_STE_MAPPED_NODE	,	V_302
+rspaddr	,	V_394
+ktime_seg1_total	,	V_105
+ktime_seg6_max	,	V_123
+LPFC_ELS_RING	,	V_191
+xmt_ls_abort_cmpl	,	V_274
+rsvd_4_5	,	V_404
+lpfc_printf_log	,	F_2
+"NVMET FCP ABRT: xri x%x flg x%x ste x%x\n"	,	L_25
+LPFC_WQE_CQ_ID_DEFAULT	,	V_350
+"6155 LS Drop IO x%x: Alloc\n"	,	L_48
+xmt_fcp_rsp_error	,	V_145
+lpfc_sli4_seq_abort_rsp	,	F_72
+nvmet_io_wait_total	,	V_315
+LPFC_NVMET_SUCCESS_LEN	,	V_409
+"NPORT x%x iotag:x%x oxid:x%x size:x%x\n"	,	L_68
+EOVERFLOW	,	V_319
+lpfc_nvmet_ktime	,	F_25
+lpfc_nvmet_unsol_fcp_event	,	F_84
+rspsize	,	V_323
+KERN_ERR	,	V_6
+lpfc_nvmet_rcv_ctx	,	V_3
+FC_RCTL_ELS4_REP	,	V_331
+pci_pool_alloc	,	F_92

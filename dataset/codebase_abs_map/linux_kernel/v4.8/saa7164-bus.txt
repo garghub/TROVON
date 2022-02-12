@@ -1,0 +1,133 @@
+" .type             = %d\n"	,	L_2
+SAA_ERR_BAD_PARAMETER	,	V_50
+"%s() Invalid bus state, missing msg "	,	L_40
+curr_grp	,	V_63
+dev	,	V_2
+"Dumping msg structure:\n"	,	L_13
+"%s() !msg\n"	,	L_21
+"%s() tr5\n"	,	L_35
+" .buffer (ignored)\n"	,	L_20
+lock	,	V_6
+saa7164_bus_verify	,	F_6
+"Dumping the bus structure:\n"	,	L_1
+id	,	V_35
+saa7164_bus_set	,	F_9
+SAA_DEVICE_MAXREQUESTSIZE	,	V_9
+"%s() sizeof(*msg) = %d\n"	,	L_33
+SAA_ERR_NO_RESOURCES	,	V_54
+memcpy_fromio	,	F_21
+write_distance	,	V_62
+"%s()\n"	,	L_22
+saa7164_bus_get	,	F_20
+curr_srp	,	V_45
+saa7164_writel	,	F_16
+m_dwSizeSetRing	,	V_17
+bytes_to_read	,	V_61
+size	,	V_37
+tmComResInfo	,	V_32
+__func__	,	V_52
+m_dwGetWritePos	,	V_27
+" .flags            = 0x%x\n"	,	L_15
+tmComResBusInfo	,	V_3
+msg_tmp	,	V_67
+dprintk	,	F_4
+flags	,	V_36
+mutex_init	,	F_2
+saa7164_readl	,	F_5
+peekonly	,	V_60
+out	,	V_55
+mutex_unlock	,	F_19
+BUG	,	F_7
+" .controlselector  = 0x%x\n"	,	L_18
+__force	,	V_56
+"%s() Missing msg buf, size should be %d bytes\n"	,	L_37
+controlselector	,	V_39
+" .m_pdwGetRing     = 0x%p\n"	,	L_7
+" .m_pdwSetRing     = 0x%p\n"	,	L_5
+SAA_ERR_INVALID_COMMAND	,	V_69
+u16	,	T_1
+busdesc	,	V_15
+le16_to_cpu	,	F_17
+saa7164_dev	,	V_1
+memcpy_toio	,	F_15
+SAA_ERR_EMPTY	,	V_68
+b	,	V_4
+u8	,	V_11
+m	,	V_33
+new_swp	,	V_47
+intfdesc	,	V_23
+saa7164_bus_dumpmsg	,	F_8
+m_dwSizeGetRing	,	V_21
+buf	,	V_34
+bug	,	V_30
+mutex_lock	,	F_11
+"%s() tr4\n"	,	L_34
+BARLocation	,	V_24
+msg	,	V_41
+bus	,	V_5
+" .command          = 0x%x\n"	,	L_17
+"%s() bytes_to_write = %d\n"	,	L_25
+" .m_dwSetReadPos   = 0x%x (0x%08x)\n"	,	L_9
+mdelay	,	F_12
+__iomem	,	V_12
+" .seqno            = %d\n"	,	L_19
+"%s() curr_srp = %x\n"	,	L_27
+SAA_DEVICE_BUFFERBLOCKSIZE	,	V_18
+u32	,	V_14
+m_dwSetReadPos	,	V_26
+cpu_to_le16	,	F_13
+"%s() bus timeout\n"	,	L_29
+ret	,	V_49
+ResponseRing	,	V_20
+"%s() space_rem = %x\n"	,	L_32
+buf_size	,	V_66
+bmmio	,	V_13
+CommandRing	,	V_16
+curr_swp	,	V_46
+__le16	,	V_57
+"%s() tr6\n"	,	L_36
+TYPE_BUS_PCIe	,	V_7
+curr_gwp	,	V_64
+SAA_OK	,	V_59
+bytes_to_write	,	V_42
+"or mangled ring, faulty H/W / bad code?\n"	,	L_41
+new_grp	,	V_65
+peekout	,	V_70
+space_rem	,	V_48
+printk	,	F_10
+" .dev-&gt;bmmio       = 0x%p\n"	,	L_3
+" .id               = %d\n"	,	L_14
+" .m_dwSizeSetRing  = 0x%x\n"	,	L_6
+timeout	,	V_44
+m_wMaxReqSize	,	V_8
+m_pdwSetRing	,	V_10
+"%s() bus-&gt;m_dwSizeSetRing = %x\n"	,	L_31
+cpu_to_le32	,	F_14
+"%s() free_write_space = %d\n"	,	L_26
+le32_to_cpu	,	F_18
+free_write_space	,	V_43
+"%s() curr_swp = %x\n"	,	L_28
+saa7164_bus_dump	,	F_3
+"%s() new_swp = %x\n"	,	L_30
+"%s() No message/response found\n"	,	L_38
+SAA_BUS_TIMEOUT	,	V_53
+"%s() Missing message buffer\n"	,	L_24
+saa7164_bus_setup	,	F_1
+" .m_dwSizeGetRing  = 0x%x\n"	,	L_8
+" .m_dwGetReadPos   = 0x%x (0x%08x)\n"	,	L_11
+seqno	,	V_40
+" .size             = 0x%x\n"	,	L_16
+"%s() Unexpected msg miss-match\n"	,	L_39
+" .m_dwSetWritePos  = 0x%x (0x%08x)\n"	,	L_10
+m_dwGetReadPos	,	V_28
+command	,	V_38
+" .m_wMaxReqSize    = 0x%x\n"	,	L_4
+__le32	,	V_58
+m_pdwGetRing	,	V_19
+u64	,	V_25
+" .m_dwGetWritePos  = 0x%x (0x%08x)\n"	,	L_12
+DBGLVL_BUS	,	V_29
+KERN_ERR	,	V_51
+"%s() Exceeded dev-&gt;bus.m_wMaxReqSize\n"	,	L_23
+m_dwSetWritePos	,	V_22
+saa_debug	,	V_31

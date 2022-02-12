@@ -1,0 +1,169 @@
+CP0_CERRD_FILLWB	,	V_12
+dc_state_str	,	F_27
+uint64_t	,	T_2
+" NO CAUSE,"	,	L_14
+taglo	,	V_58
+read_c0_prid	,	F_16
+" data-parity"	,	L_7
+csr_in32	,	F_7
+asmlinkage	,	T_3
+l2_tag	,	V_25
+datahi	,	V_62
+state	,	V_71
+" NO TYPE"	,	L_15
+bad_ecc	,	V_81
+IOADDR	,	F_8
+breakout_errctl	,	F_1
+val	,	V_1
+CP0_CERRD_STORE	,	V_11
+insta	,	V_63
+csr_out32	,	F_15
+CP0_CERRI_IDX_VALID	,	F_17
+SB1_CACHE_INDEX_MASK	,	V_40
+"   ** bad parity in VTag0/G/ASID\n"	,	L_41
+instb	,	V_64
+CP0_CERRI_DATA_PARITY	,	V_7
+tlo_tmp	,	V_60
+bits	,	V_82
+CP0_CERRD_COHERENCY	,	V_13
+dpalo	,	V_33
+" c0_cerr_d   ==	  %08x"	,	L_33
+panic	,	F_23
+cerr_d	,	V_32
+extract_dc	,	F_21
+"  dwords w/ bad ECC: %d %d %d %d\n"	,	L_54
+cerr_i	,	V_31
+" %d  [VA %016llx]  [Vld? %d]  raw tags: %08X-%016llX\n"	,	L_44
+CONFIG_SIBYTE_BW_TRACE	,	F_14
+uint8_t	,	T_4
+" c0_cerr_i   ==	  %08x"	,	L_30
+word	,	V_48
+status	,	V_22
+"Trace buffer frozen\n"	,	L_26
+predecode	,	V_65
+" tag-state"	,	L_17
+A_BUS_MEM_IO_ERRORS	,	V_29
+"   ** bad parity in instruction a\n"	,	L_46
+errctl	,	V_30
+"\nLast recorded signature:\n"	,	L_22
+CP0_ERRCTL_DCACHE	,	V_3
+"Bus watcher indicates no error\n"	,	L_25
+" data-DBE"	,	L_20
+valid	,	V_54
+"   ** bad parity for valid bit\n"	,	L_43
+" tag-address"	,	L_18
+extract_ic	,	F_18
+min	,	V_45
+taglolo	,	V_56
+CONFIG_SB1_CERR_STALL	,	F_22
+cerr_dpa	,	V_37
+datalolo	,	V_79
+mask_72_64	,	V_70
+breakout_cerri	,	F_3
+G_SCD_BERR_RID	,	F_11
+range_parity	,	F_24
+breakout_cerrd	,	F_4
+max	,	V_44
+" fill/wb,"	,	L_11
+"Icache index 0x%04x  "	,	L_39
+uint32_t	,	T_1
+i	,	V_47
+j	,	V_49
+sb1_cache_error	,	F_13
+p	,	V_69
+"unhandled cache error"	,	L_38
+CP0_CERRI_TAG_PARITY	,	V_6
+t	,	V_67
+dc_state	,	V_72
+A_SCD_TRACE_CFG	,	V_39
+A_L2_ECC_TAG	,	V_28
+w	,	V_68
+" external"	,	L_8
+DUMP_L2_ECC_TAG_ON_ERROR	,	F_6
+"\n"	,	L_5
+CP0_CERRD_TAG_STATE	,	V_17
+CP0_CERRI_DATA	,	V_41
+"[Bank %d Set 0x%02x]  LRU &gt; %d %d %d %d &gt; MRU\n"	,	L_40
+dc_ecc	,	F_26
+" c0_cerr_dpa == %010llx\n"	,	L_34
+data	,	V_52
+ecc	,	V_77
+G_SCD_BERR_DCODE	,	F_12
+CP0_CERRD_DATA_SBE	,	V_19
+hweight8	,	F_29
+taghi	,	V_55
+"   ** bad parity in predecode\n"	,	L_45
+" recoverable"	,	L_1
+in64	,	F_9
+" cerr_d idx doesn't match cerr_dpa\n"	,	L_36
+" icache"	,	L_3
+A_BUS_L2_ERRORS	,	V_27
+memio_err	,	V_24
+CP0_CERRD_TYPES	,	V_15
+"   ** bad parity in PTag1\n"	,	L_51
+datalo	,	V_80
+"   ** bad parity in R/VTag1\n"	,	L_42
+res	,	V_36
+dpahi	,	V_34
+"Last L2 tag w/ bad ECC: %016llx\n"	,	L_24
+offset	,	V_66
+" coherency,"	,	L_12
+"Bus watcher error counters: %08x %08x\n"	,	L_21
+DC_TAG_VALID	,	F_28
+va	,	V_59
+"...didn't see indicated icache problem\n"	,	L_32
+lru	,	V_61
+"Dcache index 0x%04x  "	,	L_49
+CP0_CERRD_DUPTAG	,	V_14
+byte_parity	,	V_50
+dsc	,	V_73
+"Cache error exception on CPU %x:\n"	,	L_27
+name	,	V_75
+" c0_errctl   ==	  %08x"	,	L_29
+inst_parity	,	F_25
+" %d  [PA %010llx]  [state %s (%02x)]  raw tags: %08X-%016llX\n"	,	L_50
+eepc	,	V_35
+CP0_CERRD_MULTIPLE	,	V_16
+" tag-parity"	,	L_6
+"  %02X-%016llX"	,	L_53
+" cerr_i idx doesn't match eepc\n"	,	L_31
+datalohi	,	V_78
+" data-SBE"	,	L_19
+check_bus_watcher	,	F_5
+parity	,	V_46
+"...didn't see indicated dcache problem\n"	,	L_35
+printk	,	F_2
+" multi-err"	,	L_16
+dc_states	,	V_74
+CP0_ERRCTL_RECOVERABLE	,	V_2
+l2_err	,	V_23
+dword	,	V_43
+M_SCD_TRACE_CFG_FREEZE	,	V_38
+"...didn't see indicated problem\n"	,	L_37
+A_SCD_BUS_ERR_STATUS	,	V_26
+CP0_CERRD_DATA_DBE	,	V_20
+CP0_CERRD_DATA	,	V_42
+CP0_CERRD_CAUSES	,	V_9
+addr	,	V_51
+" load,"	,	L_9
+" c0_errorepc ==	  %08x\n"	,	L_28
+"   ** bad parity in instruction b\n"	,	L_47
+CP0_CERRD_LOAD	,	V_10
+"Request %02x from %d, answered by %d with Dcode %d\n"	,	L_23
+G_SCD_BERR_TID	,	F_10
+" dcache"	,	L_2
+" multiple-buserr"	,	L_4
+"  %05X-%08X%08X"	,	L_48
+taglohi	,	V_57
+CP0_CERRD_IDX_VALID	,	F_20
+CP0_ERRCTL_ICACHE	,	V_4
+CP0_CERRD_DPA_VALID	,	F_19
+way	,	V_53
+CP0_CERRD_EXTERNAL	,	V_21
+pa	,	V_76
+" store,"	,	L_10
+" duptags,"	,	L_13
+CP0_CERRD_TAG_ADDRESS	,	V_18
+"   ** bad parity in PTag0\n"	,	L_52
+CP0_CERRI_EXTERNAL	,	V_8
+CP0_ERRCTL_MULTIBUS	,	V_5

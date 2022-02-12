@@ -1,0 +1,54 @@
+"e/ingress redirect daddr6:%x to ifindex:%d\n"	,	L_4
+_l2_to_ip6tun_ingress_redirect	,	F_10
+tunnel_id	,	V_31
+data	,	V_9
+ETH_P_IP	,	V_3
+htons	,	F_2
+ipv6hdr	,	V_26
+skb	,	V_6
+TC_ACT_OK	,	V_16
+__be16	,	T_2
+remote_ipv4	,	V_33
+protocol	,	V_22
+_l2_to_iptun_ingress_forward	,	F_4
+iphdr	,	V_20
+bpf_redirect	,	F_7
+eth	,	V_11
+bpf_map_lookup_elem	,	F_5
+__sk_buff	,	V_5
+ret	,	V_15
+iph	,	V_21
+tunnel_ttl	,	V_32
+ifindex	,	V_14
+bpf_skb_set_tunnel_key	,	F_9
+"ingress forward to ifindex:%d daddr4:%x\n"	,	L_1
+"ingress forward to ifindex:%d daddr6:%x::%x\n"	,	L_2
+_l2_to_iptun_ingress_redirect	,	F_8
+IPPROTO_IPV6	,	V_29
+__always_inline	,	T_1
+is_vip_addr	,	F_1
+TC_ACT_SHOT	,	V_36
+nexthdr	,	V_28
+IPPROTO_IPIP	,	V_23
+__be32	,	T_3
+eth_proto	,	V_1
+bpf_trace_printk	,	F_6
+s6_addr32	,	V_30
+"e/ingress redirect daddr4:%x to ifindex:%d\n"	,	L_3
+h_proto	,	V_18
+bpf_tunnel_key	,	V_7
+tkey	,	V_8
+key	,	V_13
+data_end	,	V_12
+_drop_non_tun_vip	,	F_11
+ip6h	,	V_27
+_htonl	,	F_3
+remote_ipv6	,	V_34
+BPF_F_TUNINFO_IPV6	,	V_35
+fmt4	,	V_19
+ETH_P_IPV6	,	V_4
+tun_iface	,	V_17
+fmt6	,	V_25
+daddr	,	V_2
+eth_hdr	,	V_10
+BPF_F_INGRESS	,	V_24

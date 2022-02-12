@@ -1,0 +1,132 @@
+ETP_SMBUS_FW_CHECKSUM_CMD	,	V_34
+elan_smbus_set_flash_key	,	F_24
+i2c_client	,	V_1
+"iap control reg: 0x%04x.\n"	,	L_14
+ETP_SMBUS_CALIBRATE_QUERY	,	V_19
+ETP_SMBUS_WRITE_FW_BLOCK	,	V_64
+__be16	,	V_24
+"IAP"	,	L_5
+msleep	,	F_26
+ETP_SMBUS_IAP_PASSWORD_READ	,	V_58
+ETP_SMBUS_RESOLUTION_CMD	,	V_42
+y_traces	,	V_44
+password	,	V_56
+len	,	V_6
+dev	,	V_8
+enable	,	V_17
+x_traces	,	V_43
+elan_smbus_get_sm_version	,	F_14
+be16_to_cpup	,	F_12
+id	,	V_31
+"cannot reset IC: %d\n"	,	L_15
+"FW"	,	L_6
+val	,	V_18
+csum	,	V_33
+"failed to get SM version: %d\n"	,	L_7
+EIO	,	V_9
+"failed to get dimensions: %d\n"	,	L_10
+version	,	V_26
+ETP_SMBUS_SM_VERSION_CMD	,	V_30
+elan_smbus_finish_fw_update	,	F_30
+ETP_SMBUS_HELLOPACKET_CMD	,	V_7
+elan_smbus_get_max	,	F_17
+"failed to get resolution: %d\n"	,	L_11
+ETP_SMBUS_REPORT_LEN	,	V_71
+"Failed to write page %d (part %d): %d\n"	,	L_21
+"IAP reports failed write: %04hx\n"	,	L_23
+cmd	,	V_13
+elan_smbus_get_checksum	,	F_16
+device	,	V_55
+"wrong report length (%d vs %d expected)\n"	,	L_25
+ETP_SMBUS_MIN_BASELINE_CMD	,	V_23
+elan_smbus_iap_reset	,	F_23
+"failed to get product ID: %d\n"	,	L_8
+elan_smbus_prepare_fw_update	,	F_25
+ETP_SMBUS_HELLOPACKET_LEN	,	V_4
+elan_smbus_power_control	,	F_8
+pattern	,	V_74
+"failed to read iap ctrol register: %d\n"	,	L_13
+usleep_range	,	F_28
+max_baseline	,	V_20
+sleep	,	V_15
+result	,	V_63
+elan_smbus_get_pressure_adjustment	,	F_20
+i2c_smbus_write_block_data	,	F_6
+iap	,	V_25
+tp_mode	,	V_48
+u16	,	T_2
+completion	,	V_72
+ETP_SMBUS_RANGE_CMD	,	V_39
+u8	,	T_1
+"failed to get trace info: %d\n"	,	L_12
+ETP_SMBUS_MAX_BASELINE_CMD	,	V_22
+ETP_SMBUS_IAP_VERSION_CMD	,	V_27
+elan_smbus_initialize	,	F_1
+fw_completion	,	V_73
+ETP_SMBUS_REPORT_OFFSET	,	V_70
+ETP_SMBUS_IAP_CMD	,	V_14
+max_x	,	V_36
+"failed to write iap password: %d\n"	,	L_18
+max_y	,	V_37
+hw_res_y	,	V_41
+report	,	V_68
+"cannot set flash key: %d\n"	,	L_16
+hw_res_x	,	V_40
+elan_smbus_iap_get_mode	,	F_21
+ETP_SMBUS_FW_VERSION_CMD	,	V_28
+"failed to get %s checksum: %d\n"	,	L_9
+i2c_smbus_read_block_data	,	F_2
+constant	,	V_49
+MAIN_MODE	,	V_53
+dev_dbg	,	F_22
+elan_smbus_get_baseline_data	,	F_11
+elan_smbus_get_pattern	,	F_31
+mode	,	V_12
+"Failed to read IAP write result: %d\n"	,	L_22
+"wrong iap password = 0x%X\n"	,	L_20
+ETP_FW_PAGE_SIZE	,	V_65
+elan_smbus_get_product_id	,	F_15
+elan_smbus_calibrate_result	,	F_10
+"failed to read report data: %d\n"	,	L_24
+elan_smbus_get_report	,	F_29
+ret	,	V_38
+elan_smbus_get_version	,	F_13
+elan_smbus_calibrate	,	F_9
+ETP_SMBUS_UNIQUEID_CMD	,	V_32
+"failed to read iap password: %d\n"	,	L_19
+ETP_FW_IAP_PAGE_ERR	,	V_66
+check	,	V_3
+elan_smbus_get_resolution	,	F_18
+ETP_SMBUS_IAP_RESET_CMD	,	V_54
+ETP_SMBUS_PACKET_QUERY	,	V_69
+"failed to get %s version: %d\n"	,	L_4
+ETP_SMBUS_IAP_PASSWORD	,	V_59
+ETP_SMBUS_ENABLE_TP	,	V_11
+ETP_SMBUS_IAP_CHECKSUM_CMD	,	V_35
+ETP_SMBUS_IAP_PASSWORD_WRITE	,	V_57
+adjustment	,	V_46
+page	,	V_60
+idx	,	V_62
+ETP_FW_IAP_INTF_ERR	,	V_67
+ETP_SMBUS_IAP_MODE_ON	,	V_51
+ENXIO	,	V_10
+values	,	V_5
+IAP_MODE	,	V_52
+elan_smbus_set_mode	,	F_5
+"failed to enable touchpad: %d\n"	,	L_3
+elan_smbus_get_num_traces	,	F_19
+dev_err	,	F_3
+ETP_SMBUS_XY_TRACENUM_CMD	,	V_45
+checksum	,	V_61
+client	,	V_2
+"cannot write iap password\n"	,	L_17
+value	,	V_21
+elan_smbus_sleep_control	,	F_7
+elan_smbus_write_fw_block	,	F_27
+ETP_PRESSURE_OFFSET	,	V_47
+ic_type	,	V_29
+"hello packet length fail: %d\n"	,	L_1
+ETP_SMBUS_SLEEP_CMD	,	V_16
+i2c_smbus_write_byte	,	F_4
+"hello packet fail [%*ph]\n"	,	L_2
+ETP_SMBUS_IAP_CTRL_CMD	,	V_50

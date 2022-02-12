@@ -1,0 +1,195 @@
+parent	,	V_35
+spin_lock_init	,	F_57
+xiic_tx_space	,	F_26
+XIIC_RFD_REG_OFFSET	,	V_20
+IIC_TX_FIFO_DEPTH	,	V_40
+dev	,	V_34
+len	,	V_43
+"%s entry SR: 0x%x\n"	,	L_19
+i2c_set_adapdata	,	F_56
+state	,	V_51
+XIIC_SR_TX_FIFO_EMPTY_MASK	,	V_103
+i2c_get_adapdata	,	F_44
+devices	,	V_106
+EIO	,	V_87
+"%s error\n"	,	L_6
+IIC_RX_FIFO_DEPTH	,	V_21
+XIIC_TFO_REG_OFFSET	,	V_41
+i2c_adapter	,	V_83
+"%s entry, len: %d, fifo space: %d\n"	,	L_2
+of_node	,	V_101
+GFP_KERNEL	,	V_97
+xiic_process	,	F_29
+pdata	,	V_94
+xiic_irq_en	,	F_15
+xiic_xfer	,	F_43
+"%s entry, ISR: 0x%x, CR: 0x%x\n"	,	L_16
+EBUSY	,	V_64
+fifo_space	,	V_42
+xiic_irq_dis	,	F_14
+sr	,	V_14
+pend	,	V_53
+iowrite16	,	F_6
+devm_ioremap_resource	,	F_50
+u8	,	T_1
+"Cannot claim IRQ\n"	,	L_20
+XIIC_DGIER_OFFSET	,	V_25
+iowrite8	,	F_2
+i	,	V_31
+irq	,	V_76
+ioread32	,	F_12
+cr	,	V_29
+"%s Got unexpected IRQ\n"	,	L_13
+buf	,	V_38
+XIIC_INTR_BNB_MASK	,	V_59
+I2C_M_NOSTART	,	V_71
+xiic_rx_space	,	F_23
+i2c_add_adapter	,	F_60
+platform_device	,	V_91
+xiic_setreg32	,	F_8
+xiic_func	,	F_46
+xiic_i2c_probe	,	F_47
+XIIC_GINTR_ENABLE_MASK	,	V_26
+xiic_fill_tx_fifo	,	F_25
+mdelay	,	F_34
+"%s entry, msg: %p, len: %d"	,	L_15
+isr	,	V_12
+dev_dbg	,	F_22
+dev_get_platdata	,	F_54
+xiic_irq_clr_en	,	F_17
+XIIC_WRITE_OPERATION	,	V_75
+STATE_START	,	V_81
+reg	,	V_3
+ioread32be	,	F_13
+i2c	,	V_2
+platform_get_irq	,	F_53
+ret	,	V_8
+res	,	V_96
+tx_pos	,	V_46
+iowrite32	,	F_9
+i2c_new_device	,	F_61
+spin_unlock_irqrestore	,	F_42
+ETIMEDOUT	,	V_88
+xiic_i2c_platform_data	,	V_93
+XIIC_SR_BUS_BUSY_MASK	,	V_63
+name	,	V_102
+"%s unexpexted RX IRQ\n"	,	L_7
+platform_get_resource	,	F_49
+XIIC_TX_DYN_STOP_MASK	,	V_48
+XIIC_RFO_REG_OFFSET	,	V_32
+nmsgs	,	V_47
+xiic_clear_rx_fifo	,	F_18
+"%s: SR: 0x%x, msg: %p, nmsgs: %d\n"	,	L_5
+xiic_setreg16	,	F_5
+XIIC_IIER_OFFSET	,	V_11
+dev_err	,	F_31
+XIIC_RESET_MASK	,	V_19
+xiic_i2c_remove	,	F_62
+XIIC_INTR_TX_EMPTY_MASK	,	V_61
+ier	,	V_10
+xiic_isr	,	F_37
+mask	,	V_9
+iowrite16be	,	F_7
+BIG	,	V_104
+"%s end of message sent, nmsgs: %d\n"	,	L_11
+spin_unlock	,	F_39
+xiic_i2c	,	V_1
+I2C_FUNC_SMBUS_EMUL	,	V_90
+"%s Got TX IRQ but no more to do...\n"	,	L_12
+endianness	,	V_5
+base	,	V_7
+XIIC_IISR_OFFSET	,	V_13
+tries	,	V_65
+ENOMEM	,	V_98
+STATE_ERROR	,	V_57
+XIIC_TX_DYN_START_MASK	,	V_74
+XIIC_INTR_ARB_LOST_MASK	,	V_28
+XIIC_READ_OPERATION	,	V_73
+HZ	,	V_86
+"%s end of message, nmsgs: %d\n"	,	L_8
+init_waitqueue_head	,	F_58
+iowrite32be	,	F_10
+lock	,	V_78
+msgs	,	V_84
+clr	,	V_54
+LITTLE	,	V_6
+wait_event_timeout	,	F_45
+"%s unexpexted TX IRQ\n"	,	L_10
+IRQ_HANDLED	,	V_79
+__func__	,	V_36
+i2c_msg	,	V_68
+XIIC_SR_RX_FIFO_EMPTY_MASK	,	V_16
+wait	,	V_52
+bytes_in_fifo	,	V_30
+flags	,	V_70
+xiic_deinit	,	F_20
+out	,	V_58
+I2C_FUNC_I2C	,	V_89
+"%s entry, msg: %p, fifos space: %d\n"	,	L_18
+XIIC_CR_ENABLE_DEVICE_MASK	,	V_24
+XIIC_RESETR_OFFSET	,	V_18
+rx_msg	,	V_37
+u16	,	T_2
+XIIC_INTR_RX_FULL_MASK	,	V_56
+xiic_start_send	,	F_36
+__xiic_start_xfer	,	F_30
+err	,	V_66
+"%s will start next...\n"	,	L_9
+XIIC_CR_TX_FIFO_RESET_MASK	,	V_23
+rx_watermark	,	V_67
+first	,	V_80
+xiic_adapter	,	V_100
+msg	,	V_69
+xiic_setreg8	,	F_1
+XIIC_CR_REG_OFFSET	,	V_22
+data	,	V_44
+xiic_reinit	,	F_19
+xiic_read_rx	,	F_21
+STATE_DONE	,	V_60
+"%s clr: 0x%x\n"	,	L_14
+"%s: IER: 0x%x, ISR: 0x%x, pend: 0x%x\n"	,	L_4
+num	,	V_85
+wake_up	,	F_28
+"%s TX STOP\n"	,	L_3
+rx_pos	,	V_39
+xiic_start_xfer	,	F_40
+pdev	,	V_92
+u32	,	T_3
+XIIC_INTR_AAS_MASK	,	V_27
+XIIC_INTR_TX_HALF_MASK	,	V_62
+resource	,	V_95
+num_devices	,	V_105
+PTR_ERR	,	F_52
+xiic_wakeup	,	F_27
+ioread8	,	F_4
+spin_lock_irqsave	,	F_41
+"Failed to add adapter\n"	,	L_21
+adap	,	V_33
+xiic_bus_busy	,	F_32
+platform_set_drvdata	,	F_55
+devm_kzalloc	,	F_48
+code	,	V_50
+platform_get_drvdata	,	F_63
+XIIC_DTR_REG_OFFSET	,	V_49
+"%s entry\n"	,	L_17
+I2C_M_RD	,	V_82
+xiic_getreg8	,	F_3
+xiic_irq_clr	,	F_16
+XIIC_DRR_REG_OFFSET	,	V_17
+xiic_start_recv	,	F_35
+spin_lock	,	F_38
+XIIC_INTR_TX_ERROR_MASK	,	V_55
+xiic_busy	,	F_33
+addr	,	V_72
+IORESOURCE_MEM	,	V_99
+value	,	V_4
+i2c_del_adapter	,	F_64
+XIIC_SR_REG_OFFSET	,	V_15
+xiic_getreg32	,	F_11
+irqreturn_t	,	T_4
+xiic_tx_fifo_space	,	F_24
+"%s entry, bytes in fifo: %d, msg: %d, SR: 0x%x, CR: 0x%x\n"	,	L_1
+dev_id	,	V_77
+tx_msg	,	V_45
+IS_ERR	,	F_51
+devm_request_irq	,	F_59

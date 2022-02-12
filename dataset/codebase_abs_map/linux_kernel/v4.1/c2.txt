@@ -1,0 +1,363 @@
+"utility to update your boot loader\n"	,	L_41
+spin_lock_init	,	F_76
+c2_print_macaddr	,	F_1
+dma_addr_t	,	T_1
+C2_RXP_FLAGS	,	V_57
+c2_rx_alloc	,	F_11
+C2_PCI_HTX_INT	,	V_114
+c2dev	,	V_59
+__be16	,	V_82
+"Invalid MAC Address\n"	,	L_27
+c2_tx_ring_alloc	,	F_4
+len	,	V_29
+dev	,	V_65
+stats	,	V_77
+TXP_HTXD_UNINIT	,	V_36
+in_dev_get	,	F_52
+pci_release_regions	,	F_103
+to_clean	,	V_44
+"Unable to remap MMIO HTXDQ region\n"	,	L_52
+in_device	,	V_102
+netisr0	,	V_94
+C2_REG0_SIZE	,	V_162
+C2_PCI_HRX_INT	,	V_115
+unlikely	,	F_13
+ib_dealloc_device	,	F_102
+netdev	,	V_2
+"Unable to fill RX ring\n"	,	L_18
+memcpy_fromio	,	F_77
+"Version mismatch "	,	L_43
+c2_probe	,	F_80
+NETDEV_TX_OK	,	V_127
+request_irq	,	F_95
+netif_wake_queue	,	F_24
+EIO	,	V_169
+C2_VERSION	,	V_174
+c2_rx_ring_alloc	,	F_10
+c2_netdev	,	V_134
+rx_ring	,	V_45
+c2_xmit_frame	,	F_62
+C2_RXP_HRXDQ_SIZE	,	V_184
+GFP_KERNEL	,	V_27
+skb_shinfo	,	F_63
+"PCI regions not an MMIO resource\n"	,	L_33
+c2_rxp_desc	,	V_49
+c2_txp_desc	,	V_20
+ioremap_nocache	,	F_90
+dmaisr	,	V_95
+kva_map_size	,	V_155
+IRQ_NONE	,	V_101
+TXP_HTXD_DONE	,	V_76
+free_irq	,	F_101
+__be32	,	V_172
+c2_set_rxbufsize	,	F_3
+IN_DEV_CONF_SET	,	F_53
+C2_REG4_SIZE	,	V_164
+dev_addr	,	V_4
+tx_size	,	V_105
+reg4_flags	,	V_153
+__force	,	V_31
+RXP_HRXD_READY	,	V_69
+kva	,	V_191
+"Unable to allocate memory for "	,	L_15
+pci_map_single	,	F_14
+rx_desc	,	V_48
+cpu_to_be64	,	F_7
+"%s: Unable to enable PCI device\n"	,	L_29
+"    rsvd  : 0x%x\n"	,	L_12
+"  rxp_hdr : %p [PA %p]\n"	,	L_9
+RXP_HRXD_UNINIT	,	V_56
+"%s: transmit queue full\n"	,	L_24
+irq	,	V_5
+i	,	V_24
+regs	,	V_97
+"packet dropped\n"	,	L_13
+NET_IP_ALIGN	,	V_12
+netif_stop_queue	,	F_59
+pci_resource_len	,	F_84
+C2_NUM_TX_DESC	,	V_140
+skb_set_tail_pointer	,	F_38
+jiffies	,	V_126
+handled	,	V_96
+"Unable to create TX ring\n"	,	L_19
+rxp_desc	,	V_50
+ssleep	,	F_60
+"%s: MAC %pM, IRQ %u\n"	,	L_1
+tx_lock	,	V_74
+"Invalid PCI region sizes\n"	,	L_34
+mmio_txp_ring	,	V_17
+__iomem	,	T_2
+mmio_addr	,	V_132
+register_netdev	,	F_97
+netif_start_queue	,	F_51
+C2_RXP_ADDR	,	V_55
+new_mtu	,	V_128
+be16_to_cpu	,	F_29
+txp_htxd	,	V_72
+c2_adapter_pci_regs	,	V_168
+c2_unregister_device	,	F_107
+pci_set_master	,	F_89
+rsvd	,	V_83
+in_dev	,	V_103
+netif_running	,	F_71
+c2_rx_error	,	F_33
+reg4_len	,	V_154
+ret	,	V_70
+c2_reset	,	F_50
+pci_get_drvdata	,	F_106
+count	,	V_26
+mapaddr	,	V_61
+netif_rx	,	F_40
+C2_RXP_HRXDQ_OFFSET	,	V_183
+"c2_reset: failed to quiesce the hardware!\n"	,	L_21
+"Current RX: %u\n"	,	L_22
+C2_REGS_PCI_WINSIZE	,	V_181
+spin_unlock_irqrestore	,	F_25
+rx_buf_size	,	V_9
+maplen	,	V_62
+pci_dev	,	V_143
+C2_RXP_LEN	,	V_54
+"    status: 0x%x\n"	,	L_11
+sk_buff	,	V_60
+name	,	V_3
+c2_remove	,	F_105
+pci_unmap_single	,	F_17
+NETDEV_TX_BUSY	,	V_119
+"%s: disabling interface\n"	,	L_20
+next	,	V_41
+netdev_ops	,	V_133
+reg0_flags	,	V_147
+c2_tx_interrupt	,	F_26
+netif_queue_stopped	,	F_31
+iounmap	,	F_92
+ETH_HLEN	,	V_10
+BUG_ON	,	F_49
+c2_rx_fill	,	F_15
+"%s: tx done slot %3Zu status 0x%x len "	,	L_3
+C2_REGS_VERS	,	V_173
+prefetch	,	F_37
+RXP_HRXD_OK	,	V_51
+printk	,	F_81
+c2_magic	,	V_170
+"%s: tx timeout\n"	,	L_25
+"%s: Unable to request regions\n"	,	L_35
+"%s: Unable to alloc hardware struct\n"	,	L_48
+rx_packets	,	V_91
+PCI_DMA_TODEVICE	,	V_71
+C2_NIMR0	,	V_113
+netif_msg_tx_queued	,	F_67
+kmalloc	,	F_5
+"  rx_desc : %p\n"	,	L_6
+rx_bytes	,	V_92
+cpu_to_be16	,	F_9
+"host descriptor rings\n"	,	L_16
+"    index : %Zu\n"	,	L_7
+RXP_HRXD_DONE	,	V_89
+C2_PCI_REGS_OFFSET	,	V_167
+reg0_len	,	V_148
+retry	,	V_73
+netdev_priv	,	F_27
+netimr0	,	V_106
+rx_size	,	V_104
+PCI_DMA_FROMDEVICE	,	V_67
+rx_dropped	,	V_85
+C2_REG2_SIZE	,	V_163
+start	,	V_25
+spin_unlock	,	F_32
+tx_avail	,	V_79
+ent	,	V_145
+c2_rnic_init	,	F_98
+DMA_BIT_MASK	,	F_88
+c2_rx_interrupt	,	F_36
+pci_device_id	,	V_144
+C2_TX_TIMEOUT	,	V_136
+"BAR2 size = 0x%lX bytes\n"	,	L_31
+netif_msg_ifup	,	F_47
+txp_desc	,	V_21
+dma	,	V_109
+C2_GET_CUR_RX	,	F_61
+C2_TXP_LEN	,	V_34
+C2_PCI_HRX_QUI	,	V_117
+base	,	V_16
+c2_rnic_interrupt	,	F_45
+pr_debug	,	F_2
+ENOMEM	,	V_28
+C2_TXP_HTXDQ_OFFSET	,	V_186
+c2_rx_clean	,	F_16
+ht_desc	,	V_39
+skb	,	V_38
+mem_size	,	V_107
+c2_rnic_term	,	F_108
+frags	,	V_123
+trans_start	,	V_125
+"BAR0 size = 0x%lX bytes\n"	,	L_30
+"Unable to remap BAR4\n"	,	L_54
+pci_zalloc_consistent	,	F_48
+reg2_flags	,	V_150
+buflen	,	V_86
+lock	,	V_87
+"c2_port etherdev alloc failed"	,	L_26
+DMA_TO_DEVICE	,	V_124
+"%s: enabling interface\n"	,	L_14
+ETH_ZLEN	,	V_129
+free_netdev	,	F_79
+c2_up	,	F_46
+BAR_0	,	V_157
+BAR_2	,	V_158
+ETH_JUMBO_MTU	,	V_130
+C2_NUM_RX_DESC	,	V_141
+BAR_4	,	V_159
+ARP_IGNORE	,	V_116
+be32_to_cpu	,	F_93
+IRQ_HANDLED	,	V_100
+cur_rx	,	V_88
+"Unable to register netdev, ret = %d\n"	,	L_50
+c2_tx_clean	,	F_21
+C2_REGS_ENADDR	,	V_142
+reg4_start	,	V_152
+C2_TXP_HTXDQ_SIZE	,	V_187
+pci_set_dma_mask	,	F_87
+status	,	V_30
+bail4	,	V_180
+ENODEV	,	V_161
+bail5	,	V_182
+bail2	,	V_166
+bail3	,	V_179
+kfree	,	F_55
+bail8	,	V_189
+bail9	,	V_192
+C2_REGS_HRX_CUR	,	V_177
+bail6	,	V_185
+bail7	,	V_188
+"%s: out of memory for receive\n"	,	L_2
+flags	,	V_68
+net_device	,	V_1
+"    flags : 0x%x\n"	,	L_10
+"%s: Tx ring full when queue awake!\n"	,	L_23
+DRV_NAME	,	V_165
+pci_free_consistent	,	F_56
+SET_NETDEV_DEV	,	F_74
+pci_disable_device	,	F_104
+"BAD RXP_HRXD\n"	,	L_5
+C2_NISR0	,	V_98
+pci_set_drvdata	,	F_96
+__raw_writeq	,	F_6
+c2_port	,	V_6
+u16	,	V_35
+bail0	,	V_110
+next_offset	,	V_42
+netif_msg_tx_done	,	F_30
+bail1	,	V_111
+netif_msg_init	,	F_75
+__raw_writew	,	F_8
+dev_alloc_skb	,	F_12
+tx_bytes	,	V_121
+"%s: requested IRQ %u is busy\n"	,	L_49
+eth_type_trans	,	F_39
+c2_tx_timeout	,	F_68
+reg0_start	,	V_146
+pci_request_regions	,	F_86
+"32b DMA configuration failed\n"	,	L_37
+EINVAL	,	V_131
+mmio_regs	,	V_156
+cur_tx	,	V_80
+c2_down	,	F_57
+"64b DMA configuration failed\n"	,	L_36
+C2_DISR	,	V_99
+default_msg	,	V_139
+dev_kfree_skb_any	,	F_20
+"[%d/%Zd: got 0x%x, exp 0x%x]. Use the cc_flash "	,	L_40
+C2_REGS_IVN	,	V_175
+RX_BUF_SIZE	,	V_8
+skb_frag_t	,	T_6
+c2_change_mtu	,	F_70
+netif_msg_timer	,	F_69
+bail10	,	V_193
+tx_ring	,	V_14
+rxp_hdr	,	V_63
+is_valid_ether_addr	,	F_78
+data	,	V_64
+netif_msg_ifdown	,	F_58
+alloc_etherdev	,	F_73
+C2_IDIS	,	V_112
+mmio_rxp_ring	,	V_46
+C2_TXP_ADDR	,	V_33
+c2_tx_desc	,	V_18
+c2_ring	,	V_13
+size_t	,	T_5
+pci_enable_device	,	F_82
+pci_resource_flags	,	F_85
+C2_IVN	,	V_176
+protocol	,	V_90
+"the OpenIB device support kit. "	,	L_46
+u32	,	T_3
+C2_TXP_FLAGS	,	V_37
+"Unable to remap adapter PCI registers in BAR4\n"	,	L_38
+skb_headlen	,	F_64
+"Unable to remap MMIO HRXDQ region\n"	,	L_51
+skb_frag_dma_map	,	F_66
+"[fw=%u, c2=%u], Adapter not claimed\n"	,	L_44
+elem	,	V_23
+msg_enable	,	V_137
+watchdog_timeo	,	V_135
+"Unable to remap BAR0\n"	,	L_53
+dev_kfree_skb	,	F_18
+skb_reset_tail_pointer	,	F_35
+ibdev	,	V_194
+"Adapter not claimed\n"	,	L_42
+"[fw=0x%x, c2=0x%x], Adapter not claimed\n"	,	L_47
+"c2_rnic_init failed: %d\n"	,	L_55
+mtu	,	V_7
+nr_frags	,	V_118
+pci_resource_start	,	F_83
+"AMSO1100 Gigabit Ethernet driver v%s loaded\n"	,	L_28
+"Unable to create RX ring\n"	,	L_17
+spin_lock_irqsave	,	F_22
+tx_dropped	,	V_78
+pcidev	,	V_66
+reg2_len	,	V_151
+in_dev_put	,	F_54
+frag	,	V_122
+hw_desc	,	V_40
+"Downlevel FIrmware level. You should be using "	,	L_45
+c2_register_device	,	F_99
+"    len   : %u\n"	,	L_8
+c2_interrupt	,	F_42
+C2_SET_CUR_RX	,	F_41
+vaddr	,	V_15
+head	,	V_84
+TXP_HTXD_READY	,	V_75
+c2_rx_desc	,	V_47
+MAX_SKB_FRAGS	,	V_81
+readw	,	F_23
+mem	,	V_108
+c2_dev	,	V_58
+IRQF_SHARED	,	V_178
+c2_devinit	,	F_72
+spin_lock	,	F_28
+skb_frag_size	,	F_65
+c2_element	,	V_22
+IORESOURCE_MEM	,	V_160
+c2_tx_free	,	F_19
+tx_packets	,	V_120
+C2_RXP_STATUS	,	V_52
+ib_alloc_device	,	F_94
+readl	,	F_43
+debug	,	V_138
+"%5u bytes\n"	,	L_4
+writel	,	F_44
+c2_rxp_hdr	,	V_11
+irqreturn_t	,	T_4
+reg2_start	,	V_149
+C2_RXP_COUNT	,	V_53
+tx_desc	,	V_19
+dev_id	,	V_93
+"BAR4 size = 0x%lX bytes\n"	,	L_32
+pa	,	V_190
+u64	,	V_32
+"Downlevel Firmware boot loader "	,	L_39
+unregister_netdev	,	F_100
+to_use	,	V_43
+readb	,	F_91
+C2_REGS_MAGIC	,	V_171
+__pa	,	F_34

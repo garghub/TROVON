@@ -1,0 +1,28 @@
+__list_add	,	F_1
+next	,	V_4
+WRITE_ONCE	,	F_3
+prev	,	V_3
+"list_del corruption. next-&gt;prev should be %p, "	,	L_10
+rcu_assign_pointer	,	F_8
+"but was %p\n"	,	L_9
+__list_add_rcu	,	F_7
+"list_add_rcu corruption. prev-&gt;next should be next (%p), but was %p. (prev=%p).\n"	,	L_12
+list_del	,	F_6
+"list_add_rcu corruption. next-&gt;prev should be prev (%p), but was %p. (next=%p).\n"	,	L_11
+"list_del corruption. prev-&gt;next should be %p, "	,	L_8
+new	,	V_2
+list_next_rcu	,	F_9
+__list_del_entry	,	F_4
+list_head	,	V_1
+__list_del	,	F_5
+"list_add corruption. next-&gt;prev should be "	,	L_1
+WARN	,	F_2
+entry	,	V_5
+"list_add double add: new=%p, prev=%p, next=%p.\n"	,	L_5
+"list_add corruption. prev-&gt;next should be "	,	L_3
+"list_del corruption, %p-&gt;next is LIST_POISON1 (%p)\n"	,	L_6
+"next (%p), but was %p. (prev=%p).\n"	,	L_4
+"prev (%p), but was %p. (next=%p).\n"	,	L_2
+"list_del corruption, %p-&gt;prev is LIST_POISON2 (%p)\n"	,	L_7
+LIST_POISON1	,	V_6
+LIST_POISON2	,	V_7

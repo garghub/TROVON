@@ -1,0 +1,217 @@
+CMD_PC_TO_RDR_ICCPOWEROFF	,	V_60
+"-&gt; cm4040_read(%s,%d)\n"	,	L_13
+"cmx%d"	,	L_42
+inode	,	V_76
+dev	,	V_5
+POLLOUT	,	V_74
+class_create	,	F_53
+cm4040_init	,	F_52
+POLLIN	,	V_72
+__user	,	T_2
+READ_WRITE_BUFFER_SIZE	,	V_50
+s_buf	,	V_51
+"wait_event_interruptible_timeout(timeout=%ld\n"	,	L_6
+CM_MAX_DEV	,	V_81
+EIO	,	V_46
+"woke up: BulkOut full, returning 0 :(\n"	,	L_8
+"woke up: BulkIn full\n"	,	L_11
+loff_t	,	T_4
+BSR_BULK_OUT_FULL	,	V_15
+rc	,	V_23
+"&lt;- cm4040_read (failure)\n"	,	L_15
+cm4040_exit	,	F_61
+"woke up: signal arrived\n"	,	L_9
+pcmcia_request_io	,	F_36
+"filep-&gt;f_flags O_NONBLOCK set\n"	,	L_14
+GFP_KERNEL	,	V_98
+ssize_t	,	T_1
+cmx_class	,	V_100
+wake_up_interruptible	,	F_9
+"%lu:%2x "	,	L_18
+dev_printk	,	F_40
+priv_data	,	V_90
+mutex_unlock	,	F_29
+current	,	V_37
+EBUSY	,	V_86
+SCR_HOST_TO_READER_DONE	,	V_69
+reader_dev	,	V_4
+poll_timer	,	V_19
+cm4040_write	,	F_22
+"outb(val=%.2x,port=%.4x)\n"	,	L_1
+xinb	,	F_4
+clear_bit	,	F_10
+"waking up write_wait\n"	,	L_4
+CCID_DRIVER_ASYNC_POWERUP_TIMEOUT	,	V_58
+i	,	V_22
+cm4040_mutex	,	V_82
+buf	,	V_30
+jiffies	,	V_20
+mutex_lock	,	F_27
+POLLRDNORM	,	V_73
+dev_table	,	V_83
+"cardman_4040"	,	L_43
+open	,	V_85
+reader_config	,	F_37
+poll_wait	,	V_18
+pcmcia_dev_present	,	F_20
+CMD_PC_TO_RDR_SECURE	,	V_53
+CMD_PC_TO_RDR_OK_SECURE	,	V_55
+cm4040_config_check	,	F_35
+CMD_PC_TO_RDR_SETPARAMETERS	,	V_63
+"&lt;- cm4040_close\n"	,	L_33
+uc	,	V_36
+"start \n"	,	L_26
+"&lt;- cm4040_write buffersize=%Zd &lt; 5\n"	,	L_22
+"wait_for_bulk_in_ready rc=%.2x\n"	,	L_16
+"%.2x=inb(%.4x)\n"	,	L_2
+CONF_AUTO_SET_IO	,	V_94
+SCR_HOST_TO_READER_START	,	V_67
+priv	,	V_87
+"%d at %pR\n"	,	L_40
+ret	,	V_80
+count	,	V_31
+CMD_PC_TO_RDR_ESCAPE	,	V_64
+CMD_PC_TO_RDR_GETPARAMETERS	,	V_61
+pcmcia_disable_device	,	F_42
+port	,	V_2
+bytes_to_write	,	V_49
+printk	,	F_57
+f_flags	,	V_41
+"-&gt; cm4040_close(maj/min=%d.%d)\n"	,	L_32
+DEVICE_NAME	,	V_97
+timeout	,	V_26
+pcmcia_register_driver	,	F_59
+"&lt;- cm4040_read (failed)\n"	,	L_17
+devq	,	V_89
+config_flags	,	V_93
+kzalloc	,	F_44
+wait_for_bulk_in_ready	,	F_18
+ERESTARTSYS	,	V_45
+"BulkOut empty (i=%d)\n"	,	L_5
+mask	,	V_71
+outb	,	F_3
+REG_OFFSET_SYNC_CONTROL	,	V_27
+"wait_for_bulk_out_ready rc=%.2Zx\n"	,	L_27
+"&lt;- cm4040_open (successfully)\n"	,	L_31
+start	,	V_9
+nonseekable_open	,	F_28
+buffer_status	,	V_13
+wait_event	,	F_34
+"woke up: BulkOut empty\n"	,	L_7
+CMD_PC_TO_RDR_GETSLOTSTATUS	,	V_59
+cm4040_open	,	F_25
+"&lt;- cm4040_poll(%u)\n"	,	L_30
+pr_debug	,	F_2
+obs	,	V_6
+ENOMEM	,	V_99
+CMD_PC_TO_RDR_RESETPARAMETERS	,	V_62
+register_chrdev	,	F_56
+"pcmcia_enable_device failed 0x%x\n"	,	L_38
+CCID_DRIVER_MINIMUM_TIMEOUT	,	V_66
+BS_WRITABLE	,	V_16
+setup_timer	,	F_46
+dummy	,	V_3
+CMD_PC_TO_RDR_XFRBLOCK	,	V_52
+"&lt;- cm4040_reader_release\n"	,	L_37
+init_waitqueue_head	,	F_45
+unregister_chrdev	,	F_60
+REG_OFFSET_BULK_IN	,	V_48
+CMD_PC_TO_RDR_ICCPOWERON	,	V_57
+val	,	V_1
+del_timer_sync	,	F_13
+comm	,	V_38
+devno	,	V_91
+min_bytes_to_read	,	V_35
+BSR_BULK_IN_FULL	,	V_11
+bytes_to_read	,	V_34
+BS_READABLE	,	V_12
+"&lt;- cm4040_write (failed)\n"	,	L_25
+ENODEV	,	V_44
+wait	,	V_70
+private_data	,	V_33
+kfree	,	F_47
+O_NONBLOCK	,	V_42
+out	,	V_84
+"&lt;- reader_config (succ)\n"	,	L_41
+class_destroy	,	F_58
+file	,	V_28
+r_buf	,	V_47
+pcmcia_enable_device	,	F_39
+CCID_DRIVER_BULK_DEFAULT_TIMEOUT	,	V_56
+"&lt;- cm4040_write empty read (successfully)\n"	,	L_21
+cm4040_reader_release	,	F_33
+EAGAIN	,	V_43
+reader_detach	,	F_50
+EFAULT	,	V_40
+REG_OFFSET_BULK_OUT	,	V_68
+POLL_PERIOD	,	V_21
+__init	,	T_6
+__exit	,	T_7
+"\n"	,	L_19
+"-&gt; cm4040_write(%s,%d)\n"	,	L_20
+iobase	,	V_24
+copy_from_user	,	F_23
+wait_event_interruptible_timeout	,	F_15
+xoutb	,	F_1
+minor	,	V_79
+data	,	V_88
+REG_OFFSET_BUFFER_STATUS	,	V_10
+DEBUGP	,	F_8
+wake_up	,	F_32
+pid	,	V_39
+reader_probe	,	F_43
+cm4040_do_poll	,	F_6
+size_t	,	T_3
+cm4040_poll	,	F_24
+cs_release	,	V_95
+p_dev	,	V_7
+"BulkIn full (i=%d)\n"	,	L_10
+major	,	V_101
+reader_release	,	F_41
+pcmcia_unregister_driver	,	F_62
+"write_sync_reg c=%.2Zx\n"	,	L_24
+"end\n"	,	L_28
+cm4040_read	,	F_19
+resource	,	V_8
+"-&gt; cm4040_reader_release\n"	,	L_34
+"&lt;- cm4040_write (successfully)\n"	,	L_29
+cm4040_close	,	F_30
+filp	,	V_29
+imajor	,	F_31
+pcmcia_loop_config	,	F_38
+THIS_MODULE	,	V_102
+mod_timer	,	F_11
+PTR_ERR	,	F_55
+iminor	,	F_26
+"until process has terminated\n"	,	L_36
+CMD_PC_TO_RDR_TEST_SECURE	,	V_54
+reader_driver	,	V_104
+pcmcia_device	,	V_77
+write_wait	,	V_17
+POLL_LOOP_COUNT	,	V_25
+KERN_INFO	,	V_96
+CMD_PC_TO_RDR_ICCCLOCK	,	V_65
+link	,	V_78
+fail_rc	,	V_92
+"device "	,	L_39
+write_sync_reg	,	F_17
+": could not get major number\n"	,	L_44
+ppos	,	V_32
+poll_table	,	T_5
+": delaying release "	,	L_35
+inb	,	F_5
+device_destroy	,	F_51
+read_wait	,	V_14
+"woke up: BulkIn not full, returning 0 :(\n"	,	L_12
+set_bit	,	F_7
+cm4040_stop_poll	,	F_12
+test_and_clear_bit	,	F_16
+"waking up read_wait\n"	,	L_3
+POLLWRNORM	,	V_75
+device_create	,	F_48
+reader_fops	,	V_103
+MKDEV	,	F_49
+CM4040_DEBUG	,	F_21
+wait_for_bulk_out_ready	,	F_14
+"&lt;- cm4040_write (failure)\n"	,	L_23
+IS_ERR	,	F_54

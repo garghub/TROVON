@@ -1,0 +1,325 @@
+D_RX	,	V_167
+atomic_set	,	F_41
+arcnet_init	,	F_1
+spin_lock_init	,	F_37
+"%s: %d: %s\n"	,	L_23
+"actually, let's use '%c' instead.\n"	,	L_29
+"Network reconfiguration detected (status=%Xh)\n"	,	L_52
+arcnet_exit	,	F_4
+dev	,	V_16
+len	,	V_25
+arc_proto_default	,	V_5
+get_arcbuf	,	F_26
+stats	,	V_135
+devres_add	,	F_21
+ARCNET_LED_EVENT_TX	,	V_46
+arcdev_setup	,	F_30
+XMTU	,	V_65
+soft	,	V_122
+netdev	,	V_50
+skb_push	,	F_53
+buf_queue	,	V_58
+default_proto	,	V_90
+NETDEV_TX_OK	,	V_132
+timed_out	,	V_149
+netif_wake_queue	,	F_59
+"%s: %d: %s: status=%x\n"	,	L_43
+netif_carrier_off	,	F_43
+TX_TIMEOUT	,	V_77
+"struct sizes: %zd %zd %zd %zd %zd\n"	,	L_2
+"arc_raw_proto used. proto='%c'\n"	,	L_26
+arcnet_unregister_proto	,	F_22
+"many reconfigurations detected: cabling problem?\n"	,	L_58
+uint8_t	,	T_3
+GFP_KERNEL	,	V_53
+first_free_buf	,	V_59
+device	,	V_47
+"arcnet_open: resetting card.\n"	,	L_19
+led_delay	,	V_38
+alloc_arcdev	,	F_35
+"go_tx: status=%Xh, intmask=%Xh, next_tx=%d, cur_tx=%d\n"	,	L_36
+""	,	L_39
+BUGLVL	,	F_3
+IRQ_NONE	,	V_160
+rx	,	F_65
+"go_tx"	,	L_37
+arcnet_rx	,	F_64
+RECON_THRESHOLD	,	V_174
+arc_eth_encap	,	V_13
+dev_addr	,	V_97
+arcnet_local	,	V_28
+"arcnet loaded\n"	,	L_1
+"Buffer #%d: received packet from %02Xh to %02Xh (%d+4 bytes)\n"	,	L_62
+netif_carrier_ok	,	F_32
+"in arcnet_interrupt\n"	,	L_41
+close	,	V_111
+network_header	,	V_118
+netif_carrier_on	,	F_33
+arc_proto_map	,	V_8
+arcnet_send_packet	,	F_54
+pr_info	,	F_2
+saddr	,	V_113
+i	,	V_30
+irq	,	V_154
+"tx: can't build header for encap %02Xh; load a protocol driver.\n"	,	L_65
+"skb: transmitting %d bytes to %02X\n"	,	L_31
+"broadcast was not acknowledged; that's normal (status=%Xh, dest=%02Xh)\n"	,	L_50
+netif_stop_queue	,	F_50
+last_recon	,	V_171
+take_arcnet_lock	,	V_27
+buf	,	V_33
+ARCNET_LED_EVENT_RECON	,	V_40
+netdev_err	,	F_19
+tx_led_trig	,	V_43
+jiffies	,	V_108
+CFLAGScmd	,	V_103
+"Buffer #%d: receive irq (status=%Xh)\n"	,	L_45
+open	,	V_96
+D_TX	,	V_141
+D_DURING	,	V_9
+arc_printk	,	F_24
+mdelay	,	F_51
+copy_to_card	,	V_186
+netif_start_queue	,	F_44
+source	,	V_178
+dest	,	V_128
+mac_header	,	V_119
+null_prepare_tx	,	F_68
+"%6s:%s skb-&gt;data:"	,	L_3
+module_put	,	F_47
+netif_running	,	F_62
+_daddr	,	V_114
+"building header for %02Xh using protocol '%c'\n"	,	L_28
+archdr	,	V_14
+res	,	V_49
+atomic_dec_and_test	,	F_27
+lasttrans_dest	,	V_144
+arc_rfc1201	,	V_11
+tx_queue_len	,	V_74
+TXACKflag	,	V_164
+count	,	V_1
+NOTXcmd	,	V_109
+"tx"	,	L_32
+"in arcnet_inthandler (status=%Xh, intmask=%Xh)\n"	,	L_42
+retval	,	V_124
+spin_unlock_irqrestore	,	F_10
+ackstatus	,	V_166
+init_timer	,	F_38
+"not recon: clearing counters anyway.\n"	,	L_60
+sk_buff	,	V_17
+arcnet_led_release	,	F_14
+boguscount	,	V_159
+name	,	V_21
+arcnet_timeout	,	F_57
+NETDEV_TX_BUSY	,	V_138
+devres_alloc	,	F_18
+"arc%d"	,	L_15
+null_build_header	,	F_67
+desc	,	V_19
+"tx timed out%s (status=%Xh, intmask=%Xh, dest=%02Xh)\n"	,	L_40
+netdev_ops	,	V_67
+outgoing	,	V_137
+"%s: %d: %s, status: %x\n"	,	L_35
+BUG_ON	,	F_61
+led_trigger_event	,	F_13
+led_trigger_blink_oneshot	,	F_12
+"release_arcbuf: freed #%d; buffer queue is now: "	,	L_8
+rx_packets	,	V_179
+ack_tx	,	V_134
+try_module_get	,	F_40
+EXCNAKflag	,	V_140
+rx_bytes	,	V_180
+"rx irq"	,	L_51
+hard	,	V_127
+out_module_put	,	V_89
+network_down	,	V_172
+arcnet_timer	,	F_31
+netdev_priv	,	F_8
+owner	,	V_84
+"TX IRQ (stat=%Xh)\n"	,	L_48
+lastload_dest	,	V_145
+newp	,	V_183
+go_tx	,	F_56
+first_recon	,	V_170
+"#%d "	,	L_9
+netdev_info	,	F_34
+length	,	V_31
+ArcProto	,	V_56
+proto_num	,	V_115
+counter	,	V_63
+arcnet_netdev_ops	,	V_68
+didsomething	,	V_158
+NET_NAME_UNKNOWN	,	V_79
+"arc%d-%d-tx"	,	L_6
+"arcnet_interrupt complete (status=%Xh, count=%d)\n"	,	L_61
+led_trigger_register_simple	,	F_20
+ARC_HDR_SIZE	,	V_130
+arcnet_debug	,	V_2
+"arcnet_open: mtu: %d.\n"	,	L_20
+"opened."	,	L_16
+" - missed IRQ?"	,	L_38
+arcnet_dump_packet	,	F_7
+hdr	,	V_20
+"arcnet_header: Yikes!  diff (%u) is not 2!\n"	,	L_27
+TXFREEflag	,	V_139
+dev_kfree_skb_irq	,	F_63
+LED_OFF	,	V_44
+TXcmd	,	V_142
+tx_led_trig_name	,	V_54
+recon_led_trig_name	,	V_55
+arc_bcast_proto	,	V_6
+skb	,	V_18
+D_EXTRA	,	V_153
+hw	,	V_35
+rfc1201	,	V_94
+ARCNET_ALEN	,	V_73
+HZ	,	V_152
+RECONflag	,	V_107
+lock	,	V_34
+oldp	,	V_182
+ARCNET_LED_EVENT_OPEN	,	V_42
+del_timer_sync	,	F_49
+choose_mtu	,	F_29
+arcnet_close	,	F_48
+index	,	V_51
+"cannot register LED triggers\n"	,	L_5
+arcnet_header	,	F_52
+NORXflag	,	V_106
+CONFIGclear	,	V_168
+"EXCNAK IRQ (diagstat=%Xh)\n"	,	L_47
+IRQ_HANDLED	,	V_175
+cur_rx	,	V_93
+arcnet_open	,	F_39
+__func__	,	V_99
+reset	,	V_88
+EXCNAKclear	,	V_163
+status	,	V_100
+gendev	,	V_48
+broadcast	,	V_75
+ENODEV	,	V_85
+"get_arcbuf: BUG: no buffers are available??\n"	,	L_12
+print_hex_dump	,	F_6
+pkthdr	,	V_184
+newpkt	,	V_185
+null_rx	,	F_66
+DUMP_PREFIX_OFFSET	,	V_23
+flags	,	V_32
+next_tx	,	V_92
+"arcnet_header: Yikes!  skb-&gt;len(%d) != len(%d)!\n"	,	L_25
+net_device	,	V_15
+D_INIT	,	V_83
+excnak_pending	,	V_146
+tx_errors	,	V_150
+copy_from_card	,	V_36
+D_DEBUG	,	V_98
+"%6s:%s packet dump:"	,	L_4
+time_after	,	F_58
+event	,	V_37
+tx_bytes	,	V_136
+continue_tx	,	V_131
+last_timeout	,	V_151
+tx_carrier_errors	,	V_165
+build_header	,	V_120
+"get_arcbuf: overlap (%d)!\n"	,	L_11
+"spurious reset (status=%Xh)\n"	,	L_44
+"link down\n"	,	L_53
+release_arcbuf	,	F_23
+"rx: don't know how to deal with proto %02Xh from host %02Xh.\n"	,	L_64
+"enabling receive to buffer #%d\n"	,	L_46
+newmtu	,	V_82
+ARCNET_LED_EVENT_STOP	,	V_45
+cur_tx	,	V_91
+__init	,	T_1
+__exit	,	T_2
+"tx: no encap for this host; load a protocol driver.\n"	,	L_66
+udelay	,	F_42
+RESETclear	,	V_104
+D_RECON	,	V_169
+ofs	,	V_176
+"\n"	,	L_10
+msg	,	V_147
+"transmit requested (status=%Xh, txbufs=%d/%d, len=%d, protocol %x)\n"	,	L_30
+"protocol map (default is '%c'): "	,	L_17
+"create header from %d to %d; protocol %d (%Xh); size %u.\n"	,	L_24
+data	,	V_24
+lp	,	V_29
+D_SKB	,	V_129
+atomic_inc	,	F_28
+suffix	,	V_87
+D_SKB_SIZE	,	V_126
+recon_led_trig	,	V_41
+protocol	,	V_125
+"WARNING!  Station address 00 is reserved for broadcasts!\n"	,	L_21
+"bug! continue_tx finished the first time! (proto='%c')\n"	,	L_34
+function	,	V_81
+RXbcasts	,	V_162
+RXcmd	,	V_161
+D_NORMAL	,	V_62
+hard_header_len	,	V_71
+prepare_tx	,	V_133
+addr_len	,	V_72
+diagstatus	,	V_157
+buf_lock	,	V_61
+"get_arcbuf: got #%d; buffer queue is now: "	,	L_13
+"fixme: packet too large: compensating badly!\n"	,	L_33
+tx_aborted_errors	,	V_148
+is_ip	,	V_181
+arc_raw_proto	,	V_4
+watchdog_timeo	,	V_76
+"WARNING!  Station address FF may confuse DOS networking programs!\n"	,	L_22
+offset	,	V_177
+recbuf	,	V_156
+dev_kfree_skb	,	F_55
+arcnet_dump_skb	,	F_5
+"cabling restored?\n"	,	L_59
+"recon: clearing counters.\n"	,	L_56
+"got protocol %02Xh; encap for host %02Xh is now '%c' (was '%c')\n"	,	L_63
+mod_timer	,	F_45
+mtu	,	V_64
+sequence	,	V_95
+"%c"	,	L_18
+NORXcmd	,	V_110
+uint16_t	,	V_117
+led_trigger_unregister_simple	,	F_16
+spin_lock_irqsave	,	F_9
+"arc%d-%d-recon"	,	L_7
+ETH_P_ARCNET	,	V_116
+proto	,	V_57
+arcnet_led_event	,	F_11
+arc_rfc1051	,	V_12
+"recon: counter=%d, time=%lds, net=%d\n"	,	L_57
+"reconfiguration detected: cabling restored?\n"	,	L_55
+tx_delay	,	V_39
+"transmit was not acknowledged! (status=%Xh, dest=%02Xh)\n"	,	L_49
+next_buf	,	V_60
+arc_cont	,	F_25
+subid	,	V_52
+arcnet_interrupt	,	F_60
+timer	,	V_80
+msecs_to_jiffies	,	F_46
+alloc_netdev	,	F_36
+RESETflag	,	V_101
+num_recons	,	V_173
+arc_proto_null	,	V_7
+netdev_tx_t	,	T_4
+pkt	,	V_121
+"Put out that recon myself\n"	,	L_54
+D_PROTO	,	V_86
+arc_hardware	,	V_10
+arcnet_header_ops	,	V_70
+tx_packets	,	V_143
+intmask	,	V_105
+debug	,	V_3
+header_ops	,	V_69
+devm_arcnet_led_init	,	F_17
+irqreturn_t	,	T_5
+bufnum	,	V_26
+ARPHRD_ARCNET	,	V_66
+command	,	V_102
+dev_id	,	V_155
+txbuf	,	V_123
+to_net_dev	,	F_15
+IFF_BROADCAST	,	V_78
+"link up\n"	,	L_14
+daddr	,	V_112
+KERN_DEBUG	,	V_22
