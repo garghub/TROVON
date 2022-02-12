@@ -1,0 +1,1 @@
+long\r\nsrm_puts(const char *str, long len)\r\n{\r\nlong remaining, written;\r\nif (!callback_init_done)\r\nreturn len;\r\nfor (remaining = len; remaining > 0; remaining -= written)\r\n{\r\nwritten = callback_puts(0, str, remaining);\r\nwritten &= 0xffffffff;\r\nstr += written;\r\n}\r\nreturn len;\r\n}

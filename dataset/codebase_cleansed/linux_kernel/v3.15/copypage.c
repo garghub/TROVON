@@ -1,0 +1,1 @@
+void __cpu_copy_user_page(void *kto, const void *kfrom, unsigned long vaddr)\r\n{\r\ncopy_page(kto, kfrom);\r\n__flush_dcache_area(kto, PAGE_SIZE);\r\n}\r\nvoid __cpu_clear_user_page(void *kaddr, unsigned long vaddr)\r\n{\r\nclear_page(kaddr);\r\n}

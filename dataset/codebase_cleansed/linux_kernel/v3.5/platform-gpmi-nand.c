@@ -1,0 +1,1 @@
+struct platform_device *__init\r\nmxs_add_gpmi_nand(const struct gpmi_nand_platform_data *pdata,\r\nconst struct mxs_gpmi_nand_data *data)\r\n{\r\nreturn mxs_add_platform_device_dmamask(data->devid, -1,\r\ndata->res, GPMI_NAND_RES_SIZE,\r\npdata, sizeof(*pdata), DMA_BIT_MASK(32));\r\n}

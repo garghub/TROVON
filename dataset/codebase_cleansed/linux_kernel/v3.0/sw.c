@@ -1,0 +1,101 @@
+static void rtl92c_init_aspm_vars(struct ieee80211_hw *hw)
+{
+struct rtl_pci *rtlpci = rtl_pcidev(rtl_pcipriv(hw));
+rtlpci->const_amdpci_aspm = 0;
+rtlpci->const_pci_aspm = 3;
+rtlpci->const_devicepci_aspm_setting = 0x03;
+rtlpci->const_hostpci_aspm_setting = 0x02;
+rtlpci->const_hwsw_rfoff_d3 = 0;
+rtlpci->const_support_pciaspm = 1;
+}
+int rtl92c_init_sw_vars(struct ieee80211_hw *hw)
+{
+int err;
+struct rtl_priv *rtlpriv = rtl_priv(hw);
+struct rtl_pci *rtlpci = rtl_pcidev(rtl_pcipriv(hw));
+const struct firmware *firmware;
+rtl8192ce_bt_reg_init(hw);
+rtlpriv->dm.dm_initialgain_enable = 1;
+rtlpriv->dm.dm_flag = 0;
+rtlpriv->dm.disable_framebursting = 0;
+rtlpriv->dm.thermalvalue = 0;
+rtlpci->transmit_config = CFENDFORM | BIT(12) | BIT(13);
+rtlpriv->rtlhal.current_bandtype = BAND_ON_2_4G;
+rtlpriv->rtlhal.bandset = BAND_ON_2_4G;
+rtlpriv->rtlhal.macphymode = SINGLEMAC_SINGLEPHY;
+rtlpci->receive_config = (RCR_APPFCS |
+RCR_AMF |
+RCR_ADF |
+RCR_APP_MIC |
+RCR_APP_ICV |
+RCR_AICV |
+RCR_ACRC32 |
+RCR_AB |
+RCR_AM |
+RCR_APM |
+RCR_APP_PHYST_RXFF | RCR_HTC_LOC_CTRL | 0);
+rtlpci->irq_mask[0] =
+(u32) (IMR_ROK |
+IMR_VODOK |
+IMR_VIDOK |
+IMR_BEDOK |
+IMR_BKDOK |
+IMR_MGNTDOK |
+IMR_HIGHDOK | IMR_BDOK | IMR_RDU | IMR_RXFOVW | 0);
+rtlpci->irq_mask[1] = (u32) (IMR_CPWM | IMR_C2HCMD | 0);
+rtlpriv->psc.inactiveps = rtlpriv->cfg->mod_params->inactiveps;
+rtlpriv->psc.swctrl_lps = rtlpriv->cfg->mod_params->swctrl_lps;
+rtlpriv->psc.fwctrl_lps = rtlpriv->cfg->mod_params->fwctrl_lps;
+rtlpriv->psc.reg_fwctrl_lps = 3;
+rtlpriv->psc.reg_max_lps_awakeintvl = 5;
+rtl92c_init_aspm_vars(hw);
+if (rtlpriv->psc.reg_fwctrl_lps == 1)
+rtlpriv->psc.fwctrl_psmode = FW_PS_MIN_MODE;
+else if (rtlpriv->psc.reg_fwctrl_lps == 2)
+rtlpriv->psc.fwctrl_psmode = FW_PS_MAX_MODE;
+else if (rtlpriv->psc.reg_fwctrl_lps == 3)
+rtlpriv->psc.fwctrl_psmode = FW_PS_DTIM_MODE;
+rtlpriv->rtlhal.pfirmware = vzalloc(0x4000);
+if (!rtlpriv->rtlhal.pfirmware) {
+RT_TRACE(rtlpriv, COMP_ERR, DBG_EMERG,
+("Can't alloc buffer for fw.\n"));
+return 1;
+}
+err = request_firmware(&firmware, rtlpriv->cfg->fw_name,
+rtlpriv->io.dev);
+if (err) {
+RT_TRACE(rtlpriv, COMP_ERR, DBG_EMERG,
+("Failed to request firmware!\n"));
+return 1;
+}
+if (firmware->size > 0x4000) {
+RT_TRACE(rtlpriv, COMP_ERR, DBG_EMERG,
+("Firmware is too big!\n"));
+release_firmware(firmware);
+return 1;
+}
+memcpy(rtlpriv->rtlhal.pfirmware, firmware->data, firmware->size);
+rtlpriv->rtlhal.fwsize = firmware->size;
+release_firmware(firmware);
+return 0;
+}
+void rtl92c_deinit_sw_vars(struct ieee80211_hw *hw)
+{
+struct rtl_priv *rtlpriv = rtl_priv(hw);
+if (rtlpriv->rtlhal.pfirmware) {
+vfree(rtlpriv->rtlhal.pfirmware);
+rtlpriv->rtlhal.pfirmware = NULL;
+}
+}
+static int __init rtl92ce_module_init(void)
+{
+int ret;
+ret = pci_register_driver(&rtl92ce_driver);
+if (ret)
+RT_ASSERT(false, (": No device found\n"));
+return ret;
+}
+static void __exit rtl92ce_module_exit(void)
+{
+pci_unregister_driver(&rtl92ce_driver);
+}

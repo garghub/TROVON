@@ -1,0 +1,1 @@
+static void __init u300_reserve(void)\r\n{\r\n#ifdef CONFIG_MACH_U300_SINGLE_RAM\r\n#if ((CONFIG_MACH_U300_ACCESS_MEM_SIZE & 1) == 1) && \\r\nCONFIG_MACH_U300_2MB_ALIGNMENT_FIX\r\nmemblock_reserve(PHYS_OFFSET, 0x00100000);\r\n#endif\r\n#endif\r\n}\r\nstatic void __init u300_init_machine(void)\r\n{\r\nu300_init_devices();\r\n}

@@ -1,0 +1,163 @@
+static u8 get_omap3_evm_rev(void)
+{
+return omap3_evm_version;
+}
+static void __init omap3_evm_get_revision(void)
+{
+void __iomem *ioaddr;
+unsigned int smsc_id;
+ioaddr = ioremap_nocache(OMAP3EVM_ETHR_START, SZ_1K);
+if (!ioaddr)
+return;
+smsc_id = readl(ioaddr + OMAP3EVM_ETHR_ID_REV) & 0xFFFF0000;
+iounmap(ioaddr);
+switch (smsc_id) {
+case 0x01150000:
+omap3_evm_version = OMAP3EVM_BOARD_GEN_1;
+break;
+case 0x92200000:
+default:
+omap3_evm_version = OMAP3EVM_BOARD_GEN_2;
+}
+}
+static inline void __init omap3evm_init_smsc911x(void)
+{
+if (cpu_is_omap3430()) {
+if (get_omap3_evm_rev() == OMAP3EVM_BOARD_GEN_1)
+smsc911x_cfg.gpio_reset = OMAP3EVM_GEN1_ETHR_GPIO_RST;
+else
+smsc911x_cfg.gpio_reset = OMAP3EVM_GEN2_ETHR_GPIO_RST;
+}
+gpmc_smsc911x_init(&smsc911x_cfg);
+}
+static inline void __init omap3evm_init_smsc911x(void) { return; }
+static void __init omap3_evm_display_init(void)
+{
+int r;
+r = gpio_request_array(omap3_evm_dss_gpios,
+ARRAY_SIZE(omap3_evm_dss_gpios));
+if (r)
+printk(KERN_ERR "failed to get lcd_panel_* gpios\n");
+}
+static int omap3_evm_enable_lcd(struct omap_dss_device *dssdev)
+{
+if (dvi_enabled) {
+printk(KERN_ERR "cannot enable LCD, DVI is enabled\n");
+return -EINVAL;
+}
+gpio_set_value(OMAP3EVM_LCD_PANEL_ENVDD, 0);
+if (get_omap3_evm_rev() >= OMAP3EVM_BOARD_GEN_2)
+gpio_set_value_cansleep(OMAP3EVM_LCD_PANEL_BKLIGHT_GPIO, 0);
+else
+gpio_set_value_cansleep(OMAP3EVM_LCD_PANEL_BKLIGHT_GPIO, 1);
+lcd_enabled = 1;
+return 0;
+}
+static void omap3_evm_disable_lcd(struct omap_dss_device *dssdev)
+{
+gpio_set_value(OMAP3EVM_LCD_PANEL_ENVDD, 1);
+if (get_omap3_evm_rev() >= OMAP3EVM_BOARD_GEN_2)
+gpio_set_value_cansleep(OMAP3EVM_LCD_PANEL_BKLIGHT_GPIO, 1);
+else
+gpio_set_value_cansleep(OMAP3EVM_LCD_PANEL_BKLIGHT_GPIO, 0);
+lcd_enabled = 0;
+}
+static int omap3_evm_enable_tv(struct omap_dss_device *dssdev)
+{
+return 0;
+}
+static void omap3_evm_disable_tv(struct omap_dss_device *dssdev)
+{
+}
+static int omap3evm_twl_gpio_setup(struct device *dev,
+unsigned gpio, unsigned ngpio)
+{
+int r, lcd_bl_en;
+mmc[0].gpio_cd = gpio + 0;
+omap_hsmmc_late_init(mmc);
+lcd_bl_en = get_omap3_evm_rev() >= OMAP3EVM_BOARD_GEN_2 ?
+GPIOF_OUT_INIT_HIGH : GPIOF_OUT_INIT_LOW;
+r = gpio_request_one(gpio + TWL4030_GPIO_MAX, lcd_bl_en, "EN_LCD_BKL");
+if (r)
+printk(KERN_ERR "failed to get/set lcd_bkl gpio\n");
+gpio_request_one(gpio + 7, GPIOF_OUT_INIT_LOW, "EN_DVI");
+gpio_leds[0].gpio = gpio + TWL4030_GPIO_MAX + 1;
+platform_device_register(&leds_gpio);
+#ifdef CONFIG_TWL4030_CORE
+if (get_omap3_evm_rev() >= OMAP3EVM_BOARD_GEN_2) {
+u8 val;
+twl_i2c_read_u8(TWL4030_MODULE_GPIO, &val, REG_GPIODATADIR1);
+val |= 0x04;
+twl_i2c_write_u8(TWL4030_MODULE_GPIO, val, REG_GPIODATADIR1);
+}
+#endif
+return 0;
+}
+static int __init omap3_evm_i2c_init(void)
+{
+omap3_pmic_get_config(&omap3evm_twldata,
+TWL_COMMON_PDATA_USB | TWL_COMMON_PDATA_MADC |
+TWL_COMMON_PDATA_AUDIO,
+TWL_COMMON_REGULATOR_VDAC | TWL_COMMON_REGULATOR_VPLL2);
+omap3evm_twldata.vdac->constraints.apply_uV = true;
+omap3evm_twldata.vpll2->constraints.apply_uV = true;
+omap3_pmic_init("twl4030", &omap3evm_twldata);
+omap_register_i2c_bus(2, 400, NULL, 0);
+omap_register_i2c_bus(3, 400, NULL, 0);
+return 0;
+}
+static void __init omap3_evm_wl12xx_init(void)
+{
+#ifdef CONFIG_WILINK_PLATFORM_DATA
+int ret;
+omap3evm_wlan_data.irq = gpio_to_irq(OMAP3EVM_WLAN_IRQ_GPIO);
+ret = wl12xx_set_platform_data(&omap3evm_wlan_data);
+if (ret)
+pr_err("error setting wl12xx data: %d\n", ret);
+ret = platform_device_register(&omap3evm_wlan_regulator);
+if (ret)
+pr_err("error registering wl12xx device: %d\n", ret);
+#endif
+}
+static void __init omap3_evm_init(void)
+{
+struct omap_board_mux *obm;
+omap3_evm_get_revision();
+regulator_register_fixed(0, dummy_supplies, ARRAY_SIZE(dummy_supplies));
+obm = (cpu_is_omap3630()) ? omap36x_board_mux : omap35x_board_mux;
+omap3_mux_init(obm, OMAP_PACKAGE_CBB);
+omap_mux_init_gpio(63, OMAP_PIN_INPUT);
+omap_hsmmc_init(mmc);
+if (get_omap3_evm_rev() >= OMAP3EVM_BOARD_GEN_2)
+omap3evm_twldata.vaux2 = &omap3evm_vaux2;
+omap3_evm_i2c_init();
+omap_display_init(&omap3_evm_dss_data);
+omap_serial_init();
+omap_sdrc_init(mt46h32m32lf6_sdrc_params, NULL);
+usb_nop_xceiv_register();
+if (get_omap3_evm_rev() >= OMAP3EVM_BOARD_GEN_2) {
+omap_mux_init_gpio(OMAP3_EVM_EHCI_VBUS, OMAP_PIN_INPUT_PULLUP);
+omap_mux_init_gpio(OMAP3_EVM_EHCI_SELECT,
+OMAP_PIN_INPUT_PULLUP);
+gpio_request_array(omap3_evm_ehci_gpios,
+ARRAY_SIZE(omap3_evm_ehci_gpios));
+omap_mux_init_gpio(21, OMAP_PIN_INPUT_PULLUP);
+usbhs_bdata.reset_gpio_port[1] = 21;
+musb_board_data.power = 500;
+musb_board_data.extvbus = 1;
+} else {
+omap_mux_init_gpio(135, OMAP_PIN_OUTPUT);
+usbhs_bdata.reset_gpio_port[1] = 135;
+}
+usb_bind_phy("musb-hdrc.0.auto", 0, "twl4030_usb");
+usb_musb_init(&musb_board_data);
+usbhs_init(&usbhs_bdata);
+board_nand_init(omap3evm_nand_partitions,
+ARRAY_SIZE(omap3evm_nand_partitions), NAND_CS,
+NAND_BUSWIDTH_16, NULL);
+omap_ads7846_init(1, OMAP3_EVM_TS_GPIO, 310, NULL);
+omap3evm_init_smsc911x();
+omap3_evm_display_init();
+omap3_evm_wl12xx_init();
+omap_twl4030_audio_init("omap3evm", NULL);
+}

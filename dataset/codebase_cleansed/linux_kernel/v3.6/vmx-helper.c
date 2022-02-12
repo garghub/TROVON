@@ -1,0 +1,26 @@
+int enter_vmx_usercopy(void)
+{
+if (in_interrupt())
+return 0;
+pagefault_disable();
+enable_kernel_altivec();
+return 1;
+}
+int exit_vmx_usercopy(void)
+{
+pagefault_enable();
+return 0;
+}
+int enter_vmx_copy(void)
+{
+if (in_interrupt())
+return 0;
+preempt_disable();
+enable_kernel_altivec();
+return 1;
+}
+void *exit_vmx_copy(void *dest)
+{
+preempt_enable();
+return dest;
+}

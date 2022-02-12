@@ -1,0 +1,1 @@
+int __cpuinit local_timer_setup(struct clock_event_device *evt)\r\n{\r\nstruct device_node *np;\r\nnp = of_find_compatible_node(NULL, NULL, "arm,smp-twd");\r\nif (!twd_base) {\r\ntwd_base = of_iomap(np, 0);\r\nWARN_ON(!twd_base);\r\n}\r\nevt->irq = irq_of_parse_and_map(np, 0);\r\ntwd_timer_setup(evt);\r\nreturn 0;\r\n}

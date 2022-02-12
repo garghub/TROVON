@@ -1,0 +1,1 @@
+void atalk_register_sysctl(void)\r\n{\r\natalk_table_header = register_net_sysctl(&init_net, "net/appletalk", atalk_table);\r\n}\r\nvoid atalk_unregister_sysctl(void)\r\n{\r\nunregister_net_sysctl_table(atalk_table_header);\r\n}

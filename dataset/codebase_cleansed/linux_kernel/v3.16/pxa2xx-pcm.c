@@ -1,0 +1,72 @@
+static int pxa2xx_pcm_hw_params(struct snd_pcm_substream *substream,
+struct snd_pcm_hw_params *params)
+{
+struct snd_pcm_runtime *runtime = substream->runtime;
+struct pxa2xx_runtime_data *prtd = runtime->private_data;
+struct snd_soc_pcm_runtime *rtd = substream->private_data;
+struct snd_dmaengine_dai_dma_data *dma;
+int ret;
+dma = snd_soc_dai_get_dma_data(rtd->cpu_dai, substream);
+if (!dma)
+return 0;
+if (prtd->params == NULL) {
+prtd->params = dma;
+ret = pxa_request_dma("name", DMA_PRIO_LOW,
+pxa2xx_pcm_dma_irq, substream);
+if (ret < 0)
+return ret;
+prtd->dma_ch = ret;
+} else if (prtd->params != dma) {
+pxa_free_dma(prtd->dma_ch);
+prtd->params = dma;
+ret = pxa_request_dma("name", DMA_PRIO_LOW,
+pxa2xx_pcm_dma_irq, substream);
+if (ret < 0)
+return ret;
+prtd->dma_ch = ret;
+}
+return __pxa2xx_pcm_hw_params(substream, params);
+}
+static int pxa2xx_pcm_hw_free(struct snd_pcm_substream *substream)
+{
+struct pxa2xx_runtime_data *prtd = substream->runtime->private_data;
+__pxa2xx_pcm_hw_free(substream);
+if (prtd->dma_ch >= 0) {
+pxa_free_dma(prtd->dma_ch);
+prtd->dma_ch = -1;
+prtd->params = NULL;
+}
+return 0;
+}
+static int pxa2xx_soc_pcm_new(struct snd_soc_pcm_runtime *rtd)
+{
+struct snd_card *card = rtd->card->snd_card;
+struct snd_pcm *pcm = rtd->pcm;
+int ret;
+ret = dma_coerce_mask_and_coherent(card->dev, DMA_BIT_MASK(32));
+if (ret)
+return ret;
+if (pcm->streams[SNDRV_PCM_STREAM_PLAYBACK].substream) {
+ret = pxa2xx_pcm_preallocate_dma_buffer(pcm,
+SNDRV_PCM_STREAM_PLAYBACK);
+if (ret)
+goto out;
+}
+if (pcm->streams[SNDRV_PCM_STREAM_CAPTURE].substream) {
+ret = pxa2xx_pcm_preallocate_dma_buffer(pcm,
+SNDRV_PCM_STREAM_CAPTURE);
+if (ret)
+goto out;
+}
+out:
+return ret;
+}
+static int pxa2xx_soc_platform_probe(struct platform_device *pdev)
+{
+return snd_soc_register_platform(&pdev->dev, &pxa2xx_soc_platform);
+}
+static int pxa2xx_soc_platform_remove(struct platform_device *pdev)
+{
+snd_soc_unregister_platform(&pdev->dev);
+return 0;
+}

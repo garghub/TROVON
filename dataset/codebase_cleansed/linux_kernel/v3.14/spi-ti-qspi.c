@@ -1,0 +1,349 @@
+static inline unsigned long ti_qspi_read(struct ti_qspi *qspi,
+unsigned long reg)
+{
+return readl(qspi->base + reg);
+}
+static inline void ti_qspi_write(struct ti_qspi *qspi,
+unsigned long val, unsigned long reg)
+{
+writel(val, qspi->base + reg);
+}
+static int ti_qspi_setup(struct spi_device *spi)
+{
+struct ti_qspi *qspi = spi_master_get_devdata(spi->master);
+struct ti_qspi_regs *ctx_reg = &qspi->ctx_reg;
+int clk_div = 0, ret;
+u32 clk_ctrl_reg, clk_rate, clk_mask;
+if (spi->master->busy) {
+dev_dbg(qspi->dev, "master busy doing other trasnfers\n");
+return -EBUSY;
+}
+if (!qspi->spi_max_frequency) {
+dev_err(qspi->dev, "spi max frequency not defined\n");
+return -EINVAL;
+}
+clk_rate = clk_get_rate(qspi->fclk);
+clk_div = DIV_ROUND_UP(clk_rate, qspi->spi_max_frequency) - 1;
+if (clk_div < 0) {
+dev_dbg(qspi->dev, "clock divider < 0, using /1 divider\n");
+return -EINVAL;
+}
+if (clk_div > QSPI_CLK_DIV_MAX) {
+dev_dbg(qspi->dev, "clock divider >%d , using /%d divider\n",
+QSPI_CLK_DIV_MAX, QSPI_CLK_DIV_MAX + 1);
+return -EINVAL;
+}
+dev_dbg(qspi->dev, "hz: %d, clock divider %d\n",
+qspi->spi_max_frequency, clk_div);
+ret = pm_runtime_get_sync(qspi->dev);
+if (ret < 0) {
+dev_err(qspi->dev, "pm_runtime_get_sync() failed\n");
+return ret;
+}
+clk_ctrl_reg = ti_qspi_read(qspi, QSPI_SPI_CLOCK_CNTRL_REG);
+clk_ctrl_reg &= ~QSPI_CLK_EN;
+ti_qspi_write(qspi, clk_ctrl_reg, QSPI_SPI_CLOCK_CNTRL_REG);
+clk_mask = QSPI_CLK_EN | clk_div;
+ti_qspi_write(qspi, clk_mask, QSPI_SPI_CLOCK_CNTRL_REG);
+ctx_reg->clkctrl = clk_mask;
+pm_runtime_mark_last_busy(qspi->dev);
+ret = pm_runtime_put_autosuspend(qspi->dev);
+if (ret < 0) {
+dev_err(qspi->dev, "pm_runtime_put_autosuspend() failed\n");
+return ret;
+}
+return 0;
+}
+static void ti_qspi_restore_ctx(struct ti_qspi *qspi)
+{
+struct ti_qspi_regs *ctx_reg = &qspi->ctx_reg;
+ti_qspi_write(qspi, ctx_reg->clkctrl, QSPI_SPI_CLOCK_CNTRL_REG);
+}
+static int qspi_write_msg(struct ti_qspi *qspi, struct spi_transfer *t)
+{
+int wlen, count, ret;
+unsigned int cmd;
+const u8 *txbuf;
+txbuf = t->tx_buf;
+cmd = qspi->cmd | QSPI_WR_SNGL;
+count = t->len;
+wlen = t->bits_per_word >> 3;
+while (count) {
+switch (wlen) {
+case 1:
+dev_dbg(qspi->dev, "tx cmd %08x dc %08x data %02x\n",
+cmd, qspi->dc, *txbuf);
+writeb(*txbuf, qspi->base + QSPI_SPI_DATA_REG);
+break;
+case 2:
+dev_dbg(qspi->dev, "tx cmd %08x dc %08x data %04x\n",
+cmd, qspi->dc, *txbuf);
+writew(*((u16 *)txbuf), qspi->base + QSPI_SPI_DATA_REG);
+break;
+case 4:
+dev_dbg(qspi->dev, "tx cmd %08x dc %08x data %08x\n",
+cmd, qspi->dc, *txbuf);
+writel(*((u32 *)txbuf), qspi->base + QSPI_SPI_DATA_REG);
+break;
+}
+ti_qspi_write(qspi, cmd, QSPI_SPI_CMD_REG);
+ret = wait_for_completion_timeout(&qspi->transfer_complete,
+QSPI_COMPLETION_TIMEOUT);
+if (ret == 0) {
+dev_err(qspi->dev, "write timed out\n");
+return -ETIMEDOUT;
+}
+txbuf += wlen;
+count -= wlen;
+}
+return 0;
+}
+static int qspi_read_msg(struct ti_qspi *qspi, struct spi_transfer *t)
+{
+int wlen, count, ret;
+unsigned int cmd;
+u8 *rxbuf;
+rxbuf = t->rx_buf;
+cmd = qspi->cmd;
+switch (t->rx_nbits) {
+case SPI_NBITS_DUAL:
+cmd |= QSPI_RD_DUAL;
+break;
+case SPI_NBITS_QUAD:
+cmd |= QSPI_RD_QUAD;
+break;
+default:
+cmd |= QSPI_RD_SNGL;
+break;
+}
+count = t->len;
+wlen = t->bits_per_word >> 3;
+while (count) {
+dev_dbg(qspi->dev, "rx cmd %08x dc %08x\n", cmd, qspi->dc);
+ti_qspi_write(qspi, cmd, QSPI_SPI_CMD_REG);
+ret = wait_for_completion_timeout(&qspi->transfer_complete,
+QSPI_COMPLETION_TIMEOUT);
+if (ret == 0) {
+dev_err(qspi->dev, "read timed out\n");
+return -ETIMEDOUT;
+}
+switch (wlen) {
+case 1:
+*rxbuf = readb(qspi->base + QSPI_SPI_DATA_REG);
+break;
+case 2:
+*((u16 *)rxbuf) = readw(qspi->base + QSPI_SPI_DATA_REG);
+break;
+case 4:
+*((u32 *)rxbuf) = readl(qspi->base + QSPI_SPI_DATA_REG);
+break;
+}
+rxbuf += wlen;
+count -= wlen;
+}
+return 0;
+}
+static int qspi_transfer_msg(struct ti_qspi *qspi, struct spi_transfer *t)
+{
+int ret;
+if (t->tx_buf) {
+ret = qspi_write_msg(qspi, t);
+if (ret) {
+dev_dbg(qspi->dev, "Error while writing\n");
+return ret;
+}
+}
+if (t->rx_buf) {
+ret = qspi_read_msg(qspi, t);
+if (ret) {
+dev_dbg(qspi->dev, "Error while reading\n");
+return ret;
+}
+}
+return 0;
+}
+static int ti_qspi_start_transfer_one(struct spi_master *master,
+struct spi_message *m)
+{
+struct ti_qspi *qspi = spi_master_get_devdata(master);
+struct spi_device *spi = m->spi;
+struct spi_transfer *t;
+int status = 0, ret;
+int frame_length;
+qspi->dc = 0;
+if (spi->mode & SPI_CPHA)
+qspi->dc |= QSPI_CKPHA(spi->chip_select);
+if (spi->mode & SPI_CPOL)
+qspi->dc |= QSPI_CKPOL(spi->chip_select);
+if (spi->mode & SPI_CS_HIGH)
+qspi->dc |= QSPI_CSPOL(spi->chip_select);
+frame_length = (m->frame_length << 3) / spi->bits_per_word;
+frame_length = clamp(frame_length, 0, QSPI_FRAME);
+qspi->cmd = 0;
+qspi->cmd |= QSPI_EN_CS(spi->chip_select);
+qspi->cmd |= QSPI_FLEN(frame_length);
+qspi->cmd |= QSPI_WC_CMD_INT_EN;
+ti_qspi_write(qspi, QSPI_WC_INT_EN, QSPI_INTR_ENABLE_SET_REG);
+ti_qspi_write(qspi, qspi->dc, QSPI_SPI_DC_REG);
+mutex_lock(&qspi->list_lock);
+list_for_each_entry(t, &m->transfers, transfer_list) {
+qspi->cmd |= QSPI_WLEN(t->bits_per_word);
+ret = qspi_transfer_msg(qspi, t);
+if (ret) {
+dev_dbg(qspi->dev, "transfer message failed\n");
+mutex_unlock(&qspi->list_lock);
+return -EINVAL;
+}
+m->actual_length += t->len;
+}
+mutex_unlock(&qspi->list_lock);
+m->status = status;
+spi_finalize_current_message(master);
+ti_qspi_write(qspi, qspi->cmd | QSPI_INVAL, QSPI_SPI_CMD_REG);
+return status;
+}
+static irqreturn_t ti_qspi_isr(int irq, void *dev_id)
+{
+struct ti_qspi *qspi = dev_id;
+u16 int_stat;
+u32 stat;
+irqreturn_t ret = IRQ_HANDLED;
+int_stat = ti_qspi_read(qspi, QSPI_INTR_STATUS_ENABLED_CLEAR);
+stat = ti_qspi_read(qspi, QSPI_SPI_STATUS_REG);
+if (!int_stat) {
+dev_dbg(qspi->dev, "No IRQ triggered\n");
+ret = IRQ_NONE;
+goto out;
+}
+ti_qspi_write(qspi, QSPI_WC_INT_DISABLE,
+QSPI_INTR_STATUS_ENABLED_CLEAR);
+if (stat & WC)
+complete(&qspi->transfer_complete);
+out:
+return ret;
+}
+static int ti_qspi_runtime_resume(struct device *dev)
+{
+struct ti_qspi *qspi;
+qspi = dev_get_drvdata(dev);
+ti_qspi_restore_ctx(qspi);
+return 0;
+}
+static int ti_qspi_probe(struct platform_device *pdev)
+{
+struct ti_qspi *qspi;
+struct spi_master *master;
+struct resource *r, *res_ctrl, *res_mmap;
+struct device_node *np = pdev->dev.of_node;
+u32 max_freq;
+int ret = 0, num_cs, irq;
+master = spi_alloc_master(&pdev->dev, sizeof(*qspi));
+if (!master)
+return -ENOMEM;
+master->mode_bits = SPI_CPOL | SPI_CPHA | SPI_RX_DUAL | SPI_RX_QUAD;
+master->bus_num = -1;
+master->flags = SPI_MASTER_HALF_DUPLEX;
+master->setup = ti_qspi_setup;
+master->auto_runtime_pm = true;
+master->transfer_one_message = ti_qspi_start_transfer_one;
+master->dev.of_node = pdev->dev.of_node;
+master->bits_per_word_mask = BIT(32 - 1) | BIT(16 - 1) | BIT(8 - 1);
+if (!of_property_read_u32(np, "num-cs", &num_cs))
+master->num_chipselect = num_cs;
+qspi = spi_master_get_devdata(master);
+qspi->master = master;
+qspi->dev = &pdev->dev;
+platform_set_drvdata(pdev, qspi);
+r = platform_get_resource_byname(pdev, IORESOURCE_MEM, "qspi_base");
+if (r == NULL) {
+r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+if (r == NULL) {
+dev_err(&pdev->dev, "missing platform data\n");
+return -ENODEV;
+}
+}
+res_mmap = platform_get_resource_byname(pdev,
+IORESOURCE_MEM, "qspi_mmap");
+if (res_mmap == NULL) {
+res_mmap = platform_get_resource(pdev, IORESOURCE_MEM, 1);
+if (res_mmap == NULL) {
+dev_err(&pdev->dev,
+"memory mapped resource not required\n");
+return -ENODEV;
+}
+}
+res_ctrl = platform_get_resource_byname(pdev,
+IORESOURCE_MEM, "qspi_ctrlmod");
+if (res_ctrl == NULL) {
+res_ctrl = platform_get_resource(pdev, IORESOURCE_MEM, 2);
+if (res_ctrl == NULL) {
+dev_dbg(&pdev->dev,
+"control module resources not required\n");
+}
+}
+irq = platform_get_irq(pdev, 0);
+if (irq < 0) {
+dev_err(&pdev->dev, "no irq resource?\n");
+return irq;
+}
+mutex_init(&qspi->list_lock);
+qspi->base = devm_ioremap_resource(&pdev->dev, r);
+if (IS_ERR(qspi->base)) {
+ret = PTR_ERR(qspi->base);
+goto free_master;
+}
+if (res_ctrl) {
+qspi->ctrl_mod = true;
+qspi->ctrl_base = devm_ioremap_resource(&pdev->dev, res_ctrl);
+if (IS_ERR(qspi->ctrl_base)) {
+ret = PTR_ERR(qspi->ctrl_base);
+goto free_master;
+}
+}
+if (res_mmap) {
+qspi->mmap_base = devm_ioremap_resource(&pdev->dev, res_mmap);
+if (IS_ERR(qspi->mmap_base)) {
+ret = PTR_ERR(qspi->mmap_base);
+goto free_master;
+}
+}
+ret = devm_request_irq(&pdev->dev, irq, ti_qspi_isr, 0,
+dev_name(&pdev->dev), qspi);
+if (ret < 0) {
+dev_err(&pdev->dev, "Failed to register ISR for IRQ %d\n",
+irq);
+goto free_master;
+}
+qspi->fclk = devm_clk_get(&pdev->dev, "fck");
+if (IS_ERR(qspi->fclk)) {
+ret = PTR_ERR(qspi->fclk);
+dev_err(&pdev->dev, "could not get clk: %d\n", ret);
+}
+init_completion(&qspi->transfer_complete);
+pm_runtime_use_autosuspend(&pdev->dev);
+pm_runtime_set_autosuspend_delay(&pdev->dev, QSPI_AUTOSUSPEND_TIMEOUT);
+pm_runtime_enable(&pdev->dev);
+if (!of_property_read_u32(np, "spi-max-frequency", &max_freq))
+qspi->spi_max_frequency = max_freq;
+ret = devm_spi_register_master(&pdev->dev, master);
+if (ret)
+goto free_master;
+return 0;
+free_master:
+spi_master_put(master);
+return ret;
+}
+static int ti_qspi_remove(struct platform_device *pdev)
+{
+struct ti_qspi *qspi = platform_get_drvdata(pdev);
+int ret;
+ret = pm_runtime_get_sync(qspi->dev);
+if (ret < 0) {
+dev_err(qspi->dev, "pm_runtime_get_sync() failed\n");
+return ret;
+}
+ti_qspi_write(qspi, QSPI_WC_INT_DISABLE, QSPI_INTR_ENABLE_CLEAR_REG);
+pm_runtime_put(qspi->dev);
+pm_runtime_disable(&pdev->dev);
+return 0;
+}

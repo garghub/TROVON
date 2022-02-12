@@ -1,0 +1,349 @@
+static void i40e_ptp_read(struct i40e_pf *pf, struct timespec *ts)
+{
+struct i40e_hw *hw = &pf->hw;
+u32 hi, lo;
+u64 ns;
+lo = rd32(hw, I40E_PRTTSYN_TIME_L);
+hi = rd32(hw, I40E_PRTTSYN_TIME_H);
+ns = (((u64)hi) << 32) | lo;
+*ts = ns_to_timespec(ns);
+}
+static void i40e_ptp_write(struct i40e_pf *pf, const struct timespec *ts)
+{
+struct i40e_hw *hw = &pf->hw;
+u64 ns = timespec_to_ns(ts);
+wr32(hw, I40E_PRTTSYN_TIME_L, ns & 0xFFFFFFFF);
+wr32(hw, I40E_PRTTSYN_TIME_H, ns >> 32);
+}
+static void i40e_ptp_convert_to_hwtstamp(struct skb_shared_hwtstamps *hwtstamps,
+u64 timestamp)
+{
+memset(hwtstamps, 0, sizeof(*hwtstamps));
+hwtstamps->hwtstamp = ns_to_ktime(timestamp);
+}
+static int i40e_ptp_adjfreq(struct ptp_clock_info *ptp, s32 ppb)
+{
+struct i40e_pf *pf = container_of(ptp, struct i40e_pf, ptp_caps);
+struct i40e_hw *hw = &pf->hw;
+u64 adj, freq, diff;
+int neg_adj = 0;
+if (ppb < 0) {
+neg_adj = 1;
+ppb = -ppb;
+}
+smp_mb();
+adj = ACCESS_ONCE(pf->ptp_base_adj);
+freq = adj;
+freq *= ppb;
+diff = div_u64(freq, 1000000000ULL);
+if (neg_adj)
+adj -= diff;
+else
+adj += diff;
+wr32(hw, I40E_PRTTSYN_INC_L, adj & 0xFFFFFFFF);
+wr32(hw, I40E_PRTTSYN_INC_H, adj >> 32);
+return 0;
+}
+static int i40e_ptp_adjtime(struct ptp_clock_info *ptp, s64 delta)
+{
+struct i40e_pf *pf = container_of(ptp, struct i40e_pf, ptp_caps);
+struct timespec now, then = ns_to_timespec(delta);
+unsigned long flags;
+spin_lock_irqsave(&pf->tmreg_lock, flags);
+i40e_ptp_read(pf, &now);
+now = timespec_add(now, then);
+i40e_ptp_write(pf, (const struct timespec *)&now);
+spin_unlock_irqrestore(&pf->tmreg_lock, flags);
+return 0;
+}
+static int i40e_ptp_gettime(struct ptp_clock_info *ptp, struct timespec *ts)
+{
+struct i40e_pf *pf = container_of(ptp, struct i40e_pf, ptp_caps);
+unsigned long flags;
+spin_lock_irqsave(&pf->tmreg_lock, flags);
+i40e_ptp_read(pf, ts);
+spin_unlock_irqrestore(&pf->tmreg_lock, flags);
+return 0;
+}
+static int i40e_ptp_settime(struct ptp_clock_info *ptp,
+const struct timespec *ts)
+{
+struct i40e_pf *pf = container_of(ptp, struct i40e_pf, ptp_caps);
+unsigned long flags;
+spin_lock_irqsave(&pf->tmreg_lock, flags);
+i40e_ptp_write(pf, ts);
+spin_unlock_irqrestore(&pf->tmreg_lock, flags);
+return 0;
+}
+static void i40e_ptp_tx_work(struct work_struct *work)
+{
+struct i40e_pf *pf = container_of(work, struct i40e_pf,
+ptp_tx_work);
+struct i40e_hw *hw = &pf->hw;
+u32 prttsyn_stat_0;
+if (!pf->ptp_tx_skb)
+return;
+if (time_is_before_jiffies(pf->ptp_tx_start +
+I40E_PTP_TX_TIMEOUT)) {
+dev_kfree_skb_any(pf->ptp_tx_skb);
+pf->ptp_tx_skb = NULL;
+pf->tx_hwtstamp_timeouts++;
+dev_warn(&pf->pdev->dev, "clearing Tx timestamp hang");
+return;
+}
+prttsyn_stat_0 = rd32(hw, I40E_PRTTSYN_STAT_0);
+if (prttsyn_stat_0 & I40E_PRTTSYN_STAT_0_TXTIME_MASK)
+i40e_ptp_tx_hwtstamp(pf);
+else
+schedule_work(&pf->ptp_tx_work);
+}
+static int i40e_ptp_enable(struct ptp_clock_info *ptp,
+struct ptp_clock_request *rq, int on)
+{
+return -EOPNOTSUPP;
+}
+void i40e_ptp_rx_hang(struct i40e_vsi *vsi)
+{
+struct i40e_pf *pf = vsi->back;
+struct i40e_hw *hw = &pf->hw;
+struct i40e_ring *rx_ring;
+unsigned long rx_event;
+u32 prttsyn_stat;
+int n;
+if (pf->flags & I40E_FLAG_PTP)
+return;
+prttsyn_stat = rd32(hw, I40E_PRTTSYN_STAT_1);
+if (!(prttsyn_stat & ((I40E_PRTTSYN_STAT_1_RXT0_MASK <<
+I40E_PRTTSYN_STAT_1_RXT0_SHIFT) |
+(I40E_PRTTSYN_STAT_1_RXT1_MASK <<
+I40E_PRTTSYN_STAT_1_RXT1_SHIFT) |
+(I40E_PRTTSYN_STAT_1_RXT2_MASK <<
+I40E_PRTTSYN_STAT_1_RXT2_SHIFT) |
+(I40E_PRTTSYN_STAT_1_RXT3_MASK <<
+I40E_PRTTSYN_STAT_1_RXT3_SHIFT)))) {
+pf->last_rx_ptp_check = jiffies;
+return;
+}
+rx_event = pf->last_rx_ptp_check;
+for (n = 0; n < vsi->num_queue_pairs; n++) {
+rx_ring = vsi->rx_rings[n];
+if (time_after(rx_ring->last_rx_timestamp, rx_event))
+rx_event = rx_ring->last_rx_timestamp;
+}
+if (time_is_before_jiffies(rx_event + 5 * HZ)) {
+rd32(hw, I40E_PRTTSYN_RXTIME_H(0));
+rd32(hw, I40E_PRTTSYN_RXTIME_H(1));
+rd32(hw, I40E_PRTTSYN_RXTIME_H(2));
+rd32(hw, I40E_PRTTSYN_RXTIME_H(3));
+pf->last_rx_ptp_check = jiffies;
+pf->rx_hwtstamp_cleared++;
+dev_warn(&vsi->back->pdev->dev,
+"%s: clearing Rx timestamp hang",
+__func__);
+}
+}
+void i40e_ptp_tx_hwtstamp(struct i40e_pf *pf)
+{
+struct skb_shared_hwtstamps shhwtstamps;
+struct i40e_hw *hw = &pf->hw;
+u32 hi, lo;
+u64 ns;
+lo = rd32(hw, I40E_PRTTSYN_TXTIME_L);
+hi = rd32(hw, I40E_PRTTSYN_TXTIME_H);
+ns = (((u64)hi) << 32) | lo;
+i40e_ptp_convert_to_hwtstamp(&shhwtstamps, ns);
+skb_tstamp_tx(pf->ptp_tx_skb, &shhwtstamps);
+dev_kfree_skb_any(pf->ptp_tx_skb);
+pf->ptp_tx_skb = NULL;
+}
+void i40e_ptp_rx_hwtstamp(struct i40e_pf *pf, struct sk_buff *skb, u8 index)
+{
+u32 prttsyn_stat, hi, lo;
+struct i40e_hw *hw;
+u64 ns;
+if (!pf->ptp_rx)
+return;
+hw = &pf->hw;
+prttsyn_stat = rd32(hw, I40E_PRTTSYN_STAT_1);
+if (!(prttsyn_stat & (1 << index)))
+return;
+lo = rd32(hw, I40E_PRTTSYN_RXTIME_L(index));
+hi = rd32(hw, I40E_PRTTSYN_RXTIME_H(index));
+ns = (((u64)hi) << 32) | lo;
+i40e_ptp_convert_to_hwtstamp(skb_hwtstamps(skb), ns);
+}
+void i40e_ptp_set_increment(struct i40e_pf *pf)
+{
+struct i40e_link_status *hw_link_info;
+struct i40e_hw *hw = &pf->hw;
+u64 incval;
+hw_link_info = &hw->phy.link_info;
+i40e_aq_get_link_info(&pf->hw, true, NULL, NULL);
+switch (hw_link_info->link_speed) {
+case I40E_LINK_SPEED_10GB:
+incval = I40E_PTP_10GB_INCVAL;
+break;
+case I40E_LINK_SPEED_1GB:
+incval = I40E_PTP_1GB_INCVAL;
+break;
+case I40E_LINK_SPEED_100MB:
+dev_warn(&pf->pdev->dev,
+"%s: 1588 functionality is not supported at 100 Mbps. Stopping the PHC.\n",
+__func__);
+incval = 0;
+break;
+case I40E_LINK_SPEED_40GB:
+default:
+incval = I40E_PTP_40GB_INCVAL;
+break;
+}
+wr32(hw, I40E_PRTTSYN_INC_L, incval & 0xFFFFFFFF);
+wr32(hw, I40E_PRTTSYN_INC_H, incval >> 32);
+ACCESS_ONCE(pf->ptp_base_adj) = incval;
+smp_mb();
+}
+int i40e_ptp_get_ts_config(struct i40e_pf *pf, struct ifreq *ifr)
+{
+struct hwtstamp_config *config = &pf->tstamp_config;
+return copy_to_user(ifr->ifr_data, config, sizeof(*config)) ?
+-EFAULT : 0;
+}
+int i40e_ptp_set_ts_config(struct i40e_pf *pf, struct ifreq *ifr)
+{
+struct i40e_hw *hw = &pf->hw;
+struct hwtstamp_config *config = &pf->tstamp_config;
+u32 pf_id, tsyntype, regval;
+if (copy_from_user(config, ifr->ifr_data, sizeof(*config)))
+return -EFAULT;
+if (config->flags)
+return -EINVAL;
+pf_id = (rd32(hw, I40E_PRTTSYN_CTL0) & I40E_PRTTSYN_CTL0_PF_ID_MASK) >>
+I40E_PRTTSYN_CTL0_PF_ID_SHIFT;
+if (hw->pf_id != pf_id)
+return -EINVAL;
+switch (config->tx_type) {
+case HWTSTAMP_TX_OFF:
+pf->ptp_tx = false;
+break;
+case HWTSTAMP_TX_ON:
+pf->ptp_tx = true;
+break;
+default:
+return -ERANGE;
+}
+switch (config->rx_filter) {
+case HWTSTAMP_FILTER_NONE:
+pf->ptp_rx = false;
+tsyntype = 0;
+break;
+case HWTSTAMP_FILTER_PTP_V1_L4_SYNC:
+case HWTSTAMP_FILTER_PTP_V1_L4_DELAY_REQ:
+case HWTSTAMP_FILTER_PTP_V1_L4_EVENT:
+pf->ptp_rx = true;
+tsyntype = I40E_PRTTSYN_CTL1_V1MESSTYPE0_MASK |
+I40E_PRTTSYN_CTL1_TSYNTYPE_V1 |
+I40E_PRTTSYN_CTL1_UDP_ENA_MASK;
+config->rx_filter = HWTSTAMP_FILTER_PTP_V1_L4_EVENT;
+break;
+case HWTSTAMP_FILTER_PTP_V2_EVENT:
+case HWTSTAMP_FILTER_PTP_V2_L2_EVENT:
+case HWTSTAMP_FILTER_PTP_V2_L4_EVENT:
+case HWTSTAMP_FILTER_PTP_V2_SYNC:
+case HWTSTAMP_FILTER_PTP_V2_L2_SYNC:
+case HWTSTAMP_FILTER_PTP_V2_L4_SYNC:
+case HWTSTAMP_FILTER_PTP_V2_DELAY_REQ:
+case HWTSTAMP_FILTER_PTP_V2_L2_DELAY_REQ:
+case HWTSTAMP_FILTER_PTP_V2_L4_DELAY_REQ:
+pf->ptp_rx = true;
+tsyntype = I40E_PRTTSYN_CTL1_V2MESSTYPE0_MASK |
+I40E_PRTTSYN_CTL1_TSYNTYPE_V2 |
+I40E_PRTTSYN_CTL1_UDP_ENA_MASK;
+config->rx_filter = HWTSTAMP_FILTER_PTP_V2_EVENT;
+break;
+case HWTSTAMP_FILTER_ALL:
+default:
+return -ERANGE;
+}
+rd32(hw, I40E_PRTTSYN_STAT_0);
+rd32(hw, I40E_PRTTSYN_TXTIME_H);
+rd32(hw, I40E_PRTTSYN_RXTIME_H(0));
+rd32(hw, I40E_PRTTSYN_RXTIME_H(1));
+rd32(hw, I40E_PRTTSYN_RXTIME_H(2));
+rd32(hw, I40E_PRTTSYN_RXTIME_H(3));
+regval = rd32(hw, I40E_PRTTSYN_CTL0);
+if (pf->ptp_tx)
+regval |= I40E_PRTTSYN_CTL0_TXTIME_INT_ENA_MASK;
+else
+regval &= ~I40E_PRTTSYN_CTL0_TXTIME_INT_ENA_MASK;
+wr32(hw, I40E_PRTTSYN_CTL0, regval);
+regval = rd32(hw, I40E_PFINT_ICR0_ENA);
+if (pf->ptp_tx)
+regval |= I40E_PFINT_ICR0_ENA_TIMESYNC_MASK;
+else
+regval &= ~I40E_PFINT_ICR0_ENA_TIMESYNC_MASK;
+wr32(hw, I40E_PFINT_ICR0_ENA, regval);
+if (pf->ptp_rx) {
+regval = rd32(hw, I40E_PRTTSYN_CTL1);
+regval &= I40E_PRTTSYN_CTL1_TSYNENA_MASK;
+regval |= tsyntype;
+wr32(hw, I40E_PRTTSYN_CTL1, regval);
+}
+return copy_to_user(ifr->ifr_data, config, sizeof(*config)) ?
+-EFAULT : 0;
+}
+void i40e_ptp_init(struct i40e_pf *pf)
+{
+struct i40e_hw *hw = &pf->hw;
+struct net_device *netdev = pf->vsi[pf->lan_vsi]->netdev;
+strncpy(pf->ptp_caps.name, "i40e", sizeof(pf->ptp_caps.name));
+pf->ptp_caps.owner = THIS_MODULE;
+pf->ptp_caps.max_adj = 999999999;
+pf->ptp_caps.n_ext_ts = 0;
+pf->ptp_caps.pps = 0;
+pf->ptp_caps.adjfreq = i40e_ptp_adjfreq;
+pf->ptp_caps.adjtime = i40e_ptp_adjtime;
+pf->ptp_caps.gettime = i40e_ptp_gettime;
+pf->ptp_caps.settime = i40e_ptp_settime;
+pf->ptp_caps.enable = i40e_ptp_enable;
+pf->ptp_clock = ptp_clock_register(&pf->ptp_caps, &pf->pdev->dev);
+if (IS_ERR(pf->ptp_clock)) {
+pf->ptp_clock = NULL;
+dev_err(&pf->pdev->dev, "%s: ptp_clock_register failed\n",
+__func__);
+} else {
+struct timespec ts;
+u32 regval;
+spin_lock_init(&pf->tmreg_lock);
+INIT_WORK(&pf->ptp_tx_work, i40e_ptp_tx_work);
+dev_info(&pf->pdev->dev, "%s: added PHC on %s\n", __func__,
+netdev->name);
+pf->flags |= I40E_FLAG_PTP;
+regval = rd32(hw, I40E_PRTTSYN_CTL0);
+regval |= I40E_PRTTSYN_CTL0_TSYNENA_MASK;
+wr32(hw, I40E_PRTTSYN_CTL0, regval);
+regval = rd32(hw, I40E_PRTTSYN_CTL1);
+regval |= I40E_PRTTSYN_CTL1_TSYNENA_MASK;
+wr32(hw, I40E_PRTTSYN_CTL1, regval);
+i40e_ptp_set_increment(pf);
+memset(&pf->tstamp_config, 0, sizeof(pf->tstamp_config));
+ts = ktime_to_timespec(ktime_get_real());
+i40e_ptp_settime(&pf->ptp_caps, &ts);
+}
+}
+void i40e_ptp_stop(struct i40e_pf *pf)
+{
+pf->flags &= ~I40E_FLAG_PTP;
+pf->ptp_tx = false;
+pf->ptp_rx = false;
+cancel_work_sync(&pf->ptp_tx_work);
+if (pf->ptp_tx_skb) {
+dev_kfree_skb_any(pf->ptp_tx_skb);
+pf->ptp_tx_skb = NULL;
+}
+if (pf->ptp_clock) {
+ptp_clock_unregister(pf->ptp_clock);
+pf->ptp_clock = NULL;
+dev_info(&pf->pdev->dev, "%s: removed PHC on %s\n", __func__,
+pf->vsi[pf->lan_vsi]->netdev->name);
+}
+}

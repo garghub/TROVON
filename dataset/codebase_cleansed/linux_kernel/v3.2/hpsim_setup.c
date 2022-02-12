@@ -1,0 +1,1 @@
+void\r\nia64_ssc_connect_irq (long intr, long irq)\r\n{\r\nia64_ssc(intr, irq, 0, 0, SSC_CONNECT_INTERRUPT);\r\n}\r\nvoid\r\nia64_ctl_trace (long on)\r\n{\r\nia64_ssc(on, 0, 0, 0, SSC_CTL_TRACE);\r\n}\r\nvoid __init\r\nhpsim_setup (char **cmdline_p)\r\n{\r\nROOT_DEV = Root_SDA1;\r\nsimcons_register();\r\n}

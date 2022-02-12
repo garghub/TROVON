@@ -1,0 +1,1 @@
+int __init b43_pci_ssb_bridge_init(void)\r\n{\r\nreturn ssb_pcihost_register(&b43_pci_bridge_driver);\r\n}\r\nvoid __exit b43_pci_ssb_bridge_exit(void)\r\n{\r\nssb_pcihost_unregister(&b43_pci_bridge_driver);\r\n}

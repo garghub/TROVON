@@ -1,0 +1,255 @@
+static int acpi_processor_errata_piix4(struct pci_dev *dev)
+{
+u8 value1 = 0;
+u8 value2 = 0;
+if (!dev)
+return -EINVAL;
+switch (dev->revision) {
+case 0:
+ACPI_DEBUG_PRINT((ACPI_DB_INFO, "Found PIIX4 A-step\n"));
+break;
+case 1:
+ACPI_DEBUG_PRINT((ACPI_DB_INFO, "Found PIIX4 B-step\n"));
+break;
+case 2:
+ACPI_DEBUG_PRINT((ACPI_DB_INFO, "Found PIIX4E\n"));
+break;
+case 3:
+ACPI_DEBUG_PRINT((ACPI_DB_INFO, "Found PIIX4M\n"));
+break;
+default:
+ACPI_DEBUG_PRINT((ACPI_DB_INFO, "Found unknown PIIX4\n"));
+break;
+}
+switch (dev->revision) {
+case 0:
+case 1:
+errata.piix4.throttle = 1;
+case 2:
+case 3:
+dev = pci_get_subsys(PCI_VENDOR_ID_INTEL,
+PCI_DEVICE_ID_INTEL_82371AB,
+PCI_ANY_ID, PCI_ANY_ID, NULL);
+if (dev) {
+errata.piix4.bmisx = pci_resource_start(dev, 4);
+pci_dev_put(dev);
+}
+dev = pci_get_subsys(PCI_VENDOR_ID_INTEL,
+PCI_DEVICE_ID_INTEL_82371AB_0,
+PCI_ANY_ID, PCI_ANY_ID, NULL);
+if (dev) {
+pci_read_config_byte(dev, 0x76, &value1);
+pci_read_config_byte(dev, 0x77, &value2);
+if ((value1 & 0x80) || (value2 & 0x80))
+errata.piix4.fdma = 1;
+pci_dev_put(dev);
+}
+break;
+}
+if (errata.piix4.bmisx)
+ACPI_DEBUG_PRINT((ACPI_DB_INFO,
+"Bus master activity detection (BM-IDE) erratum enabled\n"));
+if (errata.piix4.fdma)
+ACPI_DEBUG_PRINT((ACPI_DB_INFO,
+"Type-F DMA livelock erratum (C3 disabled)\n"));
+return 0;
+}
+static int acpi_processor_errata(struct acpi_processor *pr)
+{
+int result = 0;
+struct pci_dev *dev = NULL;
+if (!pr)
+return -EINVAL;
+dev = pci_get_subsys(PCI_VENDOR_ID_INTEL,
+PCI_DEVICE_ID_INTEL_82371AB_3, PCI_ANY_ID,
+PCI_ANY_ID, NULL);
+if (dev) {
+result = acpi_processor_errata_piix4(dev);
+pci_dev_put(dev);
+}
+return result;
+}
+static int acpi_processor_hotadd_init(struct acpi_processor *pr)
+{
+unsigned long long sta;
+acpi_status status;
+int ret;
+status = acpi_evaluate_integer(pr->handle, "_STA", NULL, &sta);
+if (ACPI_FAILURE(status) || !(sta & ACPI_STA_DEVICE_PRESENT))
+return -ENODEV;
+cpu_maps_update_begin();
+cpu_hotplug_begin();
+ret = acpi_map_lsapic(pr->handle, &pr->id);
+if (ret)
+goto out;
+ret = arch_register_cpu(pr->id);
+if (ret) {
+acpi_unmap_lsapic(pr->id);
+goto out;
+}
+pr_info("CPU%d has been hot-added\n", pr->id);
+pr->flags.need_hotplug_init = 1;
+out:
+cpu_hotplug_done();
+cpu_maps_update_done();
+return ret;
+}
+static inline int acpi_processor_hotadd_init(struct acpi_processor *pr)
+{
+return -ENODEV;
+}
+static int acpi_processor_get_info(struct acpi_device *device)
+{
+union acpi_object object = { 0 };
+struct acpi_buffer buffer = { sizeof(union acpi_object), &object };
+struct acpi_processor *pr = acpi_driver_data(device);
+int cpu_index, device_declaration = 0;
+acpi_status status = AE_OK;
+static int cpu0_initialized;
+if (num_online_cpus() > 1)
+errata.smp = TRUE;
+acpi_processor_errata(pr);
+if (acpi_gbl_FADT.pm2_control_block && acpi_gbl_FADT.pm2_control_length) {
+pr->flags.bm_control = 1;
+ACPI_DEBUG_PRINT((ACPI_DB_INFO,
+"Bus mastering arbitration control present\n"));
+} else
+ACPI_DEBUG_PRINT((ACPI_DB_INFO,
+"No bus mastering arbitration control\n"));
+if (!strcmp(acpi_device_hid(device), ACPI_PROCESSOR_OBJECT_HID)) {
+status = acpi_evaluate_object(pr->handle, NULL, NULL, &buffer);
+if (ACPI_FAILURE(status)) {
+dev_err(&device->dev,
+"Failed to evaluate processor object (0x%x)\n",
+status);
+return -ENODEV;
+}
+pr->acpi_id = object.processor.proc_id;
+} else {
+unsigned long long value;
+status = acpi_evaluate_integer(pr->handle, METHOD_NAME__UID,
+NULL, &value);
+if (ACPI_FAILURE(status)) {
+dev_err(&device->dev,
+"Failed to evaluate processor _UID (0x%x)\n",
+status);
+return -ENODEV;
+}
+device_declaration = 1;
+pr->acpi_id = value;
+}
+cpu_index = acpi_get_cpuid(pr->handle, device_declaration, pr->acpi_id);
+if (!cpu0_initialized && (cpu_index == -1) &&
+(num_online_cpus() == 1)) {
+cpu_index = 0;
+}
+cpu0_initialized = 1;
+pr->id = cpu_index;
+if (pr->id == -1) {
+int ret = acpi_processor_hotadd_init(pr);
+if (ret)
+return ret;
+}
+sprintf(acpi_device_bid(device), "CPU%X", pr->id);
+ACPI_DEBUG_PRINT((ACPI_DB_INFO, "Processor [%d:%d]\n", pr->id,
+pr->acpi_id));
+if (!object.processor.pblk_address)
+ACPI_DEBUG_PRINT((ACPI_DB_INFO, "No PBLK (NULL address)\n"));
+else if (object.processor.pblk_length != 6)
+dev_err(&device->dev, "Invalid PBLK length [%d]\n",
+object.processor.pblk_length);
+else {
+pr->throttling.address = object.processor.pblk_address;
+pr->throttling.duty_offset = acpi_gbl_FADT.duty_offset;
+pr->throttling.duty_width = acpi_gbl_FADT.duty_width;
+pr->pblk = object.processor.pblk_address;
+request_region(pr->throttling.address, 6, "ACPI CPU throttle");
+}
+status = acpi_evaluate_object(pr->handle, "_SUN", NULL, &buffer);
+if (ACPI_SUCCESS(status))
+arch_fix_phys_package_id(pr->id, object.integer.value);
+return 0;
+}
+static int acpi_processor_add(struct acpi_device *device,
+const struct acpi_device_id *id)
+{
+struct acpi_processor *pr;
+struct device *dev;
+int result = 0;
+pr = kzalloc(sizeof(struct acpi_processor), GFP_KERNEL);
+if (!pr)
+return -ENOMEM;
+if (!zalloc_cpumask_var(&pr->throttling.shared_cpu_map, GFP_KERNEL)) {
+result = -ENOMEM;
+goto err_free_pr;
+}
+pr->handle = device->handle;
+strcpy(acpi_device_name(device), ACPI_PROCESSOR_DEVICE_NAME);
+strcpy(acpi_device_class(device), ACPI_PROCESSOR_CLASS);
+device->driver_data = pr;
+result = acpi_processor_get_info(device);
+if (result)
+return 0;
+#ifdef CONFIG_SMP
+if (pr->id >= setup_max_cpus && pr->id != 0)
+return 0;
+#endif
+BUG_ON(pr->id >= nr_cpu_ids);
+if (per_cpu(processor_device_array, pr->id) != NULL &&
+per_cpu(processor_device_array, pr->id) != device) {
+dev_warn(&device->dev,
+"BIOS reported wrong ACPI id %d for the processor\n",
+pr->id);
+goto err;
+}
+per_cpu(processor_device_array, pr->id) = device;
+per_cpu(processors, pr->id) = pr;
+dev = get_cpu_device(pr->id);
+if (!dev) {
+result = -ENODEV;
+goto err;
+}
+result = acpi_bind_one(dev, pr->handle);
+if (result)
+goto err;
+pr->dev = dev;
+dev->offline = pr->flags.need_hotplug_init;
+if (device_attach(dev) >= 0)
+return 1;
+dev_err(dev, "Processor driver could not be attached\n");
+acpi_unbind_one(dev);
+err:
+free_cpumask_var(pr->throttling.shared_cpu_map);
+device->driver_data = NULL;
+per_cpu(processors, pr->id) = NULL;
+err_free_pr:
+kfree(pr);
+return result;
+}
+static void acpi_processor_remove(struct acpi_device *device)
+{
+struct acpi_processor *pr;
+if (!device || !acpi_driver_data(device))
+return;
+pr = acpi_driver_data(device);
+if (pr->id >= nr_cpu_ids)
+goto out;
+device_release_driver(pr->dev);
+acpi_unbind_one(pr->dev);
+per_cpu(processor_device_array, pr->id) = NULL;
+per_cpu(processors, pr->id) = NULL;
+cpu_maps_update_begin();
+cpu_hotplug_begin();
+arch_unregister_cpu(pr->id);
+acpi_unmap_lsapic(pr->id);
+cpu_hotplug_done();
+cpu_maps_update_done();
+try_offline_node(cpu_to_node(pr->id));
+out:
+free_cpumask_var(pr->throttling.shared_cpu_map);
+kfree(pr);
+}
+void __init acpi_processor_init(void)
+{
+acpi_scan_add_handler_with_hotplug(&processor_handler, "processor");
+}

@@ -1,0 +1,104 @@
+static int ack_ready(struct sdio_func *func)
+{
+unsigned long start = jiffies;
+u8 val;
+int ret;
+while ((jiffies - start) < HZ) {
+val = sdio_readb(func, 0x13, &ret);
+if (val & 0x01)
+return 1;
+schedule();
+}
+return 0;
+}
+static int download_image(struct sdio_func *func, const char *img_name)
+{
+int ret = 0, len, pno;
+u8 *buf = tx_buf;
+loff_t pos = 0;
+int img_len;
+const struct firmware *firm;
+ret = request_firmware(&firm, img_name, &func->dev);
+if (ret < 0) {
+dev_err(&func->dev,
+"requesting firmware %s failed with error %d\n",
+img_name, ret);
+return ret;
+}
+buf = kmalloc(DOWNLOAD_SIZE + TYPE_A_HEADER_SIZE, GFP_KERNEL);
+if (buf == NULL) {
+dev_err(&func->dev, "Error: kmalloc\n");
+return -ENOMEM;
+}
+img_len = firm->size;
+if (img_len <= 0) {
+ret = -1;
+goto out;
+}
+pno = 0;
+while (img_len > 0) {
+if (img_len > DOWNLOAD_SIZE) {
+len = DOWNLOAD_SIZE;
+buf[3] = 0;
+} else {
+len = img_len;
+buf[3] = 2;
+}
+buf[0] = len & 0xff;
+buf[1] = (len >> 8) & 0xff;
+buf[2] = (len >> 16) & 0xff;
+memcpy(buf+TYPE_A_HEADER_SIZE, firm->data + pos, len);
+ret = sdio_memcpy_toio(func, 0, buf, len + TYPE_A_HEADER_SIZE);
+if (ret < 0) {
+dev_err(&func->dev,
+"send image error: packet number = %d ret = %d\n",
+pno, ret);
+goto out;
+}
+if (buf[3] == 2)
+break;
+if (!ack_ready(func)) {
+ret = -EIO;
+dev_err(&func->dev, "Ack is not ready.\n");
+goto out;
+}
+ret = sdio_memcpy_fromio(func, buf, 0, TYPE_A_LOOKAHEAD_SIZE);
+if (ret < 0) {
+dev_err(&func->dev,
+"receive ack error: packet number = %d ret = %d\n",
+pno, ret);
+goto out;
+}
+sdio_writeb(func, 0x01, 0x13, &ret);
+sdio_writeb(func, 0x00, 0x10, &ret);
+img_len -= DOWNLOAD_SIZE;
+pos += DOWNLOAD_SIZE;
+pno++;
+}
+out:
+kfree(buf);
+return ret;
+}
+int sdio_boot(struct sdio_func *func)
+{
+int ret;
+const char *krn_name = FW_DIR FW_KRN;
+const char *rfs_name = FW_DIR FW_RFS;
+tx_buf = kmalloc(YMEM0_SIZE, GFP_KERNEL);
+if (tx_buf == NULL) {
+dev_err(&func->dev, "Error: kmalloc: %s %d\n",
+__func__, __LINE__);
+return -ENOMEM;
+}
+ret = download_image(func, krn_name);
+if (ret)
+goto restore_fs;
+dev_info(&func->dev, "GCT: Kernel download success.\n");
+ret = download_image(func, rfs_name);
+if (ret)
+goto restore_fs;
+dev_info(&func->dev, "GCT: Filesystem download success.\n");
+restore_fs:
+kfree(tx_buf);
+return ret;
+}

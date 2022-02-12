@@ -1,0 +1,1 @@
+void __init config_BSP(char *commandp, int size)\r\n{\r\nmach_sched_init = hw_timer_init;\r\nmcf_mapirq2imr(25, MCFINTC_EINT1);\r\nmcf_mapirq2imr(27, MCFINTC_EINT3);\r\nmcf_mapirq2imr(29, MCFINTC_EINT5);\r\nmcf_mapirq2imr(31, MCFINTC_EINT7);\r\n}

@@ -1,0 +1,1 @@
+static void cputime_to_compat_timeval(const cputime_t cputime,\r\nstruct compat_timeval *value)\r\n{\r\nstruct timeval tv;\r\ncputime_to_timeval(cputime, &tv);\r\nvalue->tv_sec = tv.tv_sec;\r\nvalue->tv_usec = tv.tv_usec;\r\n}

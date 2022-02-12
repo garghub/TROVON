@@ -1,0 +1,1 @@
+static void __init mpc831x_rdb_setup_arch(void)\r\n{\r\nif (ppc_md.progress)\r\nppc_md.progress("mpc831x_rdb_setup_arch()", 0);\r\nmpc83xx_setup_pci();\r\nmpc831x_usb_cfg();\r\n}\r\nstatic int __init mpc831x_rdb_probe(void)\r\n{\r\nreturn of_flat_dt_match(of_get_flat_dt_root(), board);\r\n}

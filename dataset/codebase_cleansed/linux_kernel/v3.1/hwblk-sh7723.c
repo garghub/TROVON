@@ -1,0 +1,1 @@
+int arch_hwblk_sleep_mode(void)\r\n{\r\nif (!sh7723_hwblk_area[CORE_AREA].cnt[HWBLK_CNT_USAGE])\r\nreturn SUSP_SH_STANDBY | SUSP_SH_SF;\r\nif (!sh7723_hwblk_area[CORE_AREA_BM].cnt[HWBLK_CNT_USAGE])\r\nreturn SUSP_SH_SLEEP | SUSP_SH_SF;\r\nreturn SUSP_SH_SLEEP;\r\n}\r\nint __init arch_hwblk_init(void)\r\n{\r\nreturn hwblk_register(&sh7723_hwblk_info);\r\n}

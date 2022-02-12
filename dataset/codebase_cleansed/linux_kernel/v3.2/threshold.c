@@ -1,0 +1,1 @@
+static void default_threshold_interrupt(void)\r\n{\r\nprintk(KERN_ERR "Unexpected threshold interrupt at vector %x\n",\r\nTHRESHOLD_APIC_VECTOR);\r\n}\r\nasmlinkage void smp_threshold_interrupt(void)\r\n{\r\nexit_idle();\r\nirq_enter();\r\ninc_irq_stat(irq_threshold_count);\r\nmce_threshold_vector();\r\nirq_exit();\r\nack_APIC_irq();\r\n}

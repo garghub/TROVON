@@ -1,0 +1,1 @@
+void s5p_mfc_init_hw_ops(struct s5p_mfc_dev *dev)\r\n{\r\nif (IS_MFCV6(dev)) {\r\ns5p_mfc_ops = s5p_mfc_init_hw_ops_v6();\r\ndev->warn_start = S5P_FIMV_ERR_WARNINGS_START_V6;\r\n} else {\r\ns5p_mfc_ops = s5p_mfc_init_hw_ops_v5();\r\ndev->warn_start = S5P_FIMV_ERR_WARNINGS_START;\r\n}\r\ndev->mfc_ops = s5p_mfc_ops;\r\n}

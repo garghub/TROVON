@@ -1,0 +1,1 @@
+static void __init teton_bga_init(void)\r\n{\r\nmfp_config(ARRAY_AND_SIZE(teton_bga_pin_config));\r\npxa168_add_uart(1);\r\npxa168_add_keypad(&teton_bga_keypad_info);\r\npxa168_add_twsi(0, NULL, ARRAY_AND_SIZE(teton_bga_i2c_info));\r\nplatform_device_register(&pxa168_device_gpio);\r\n}

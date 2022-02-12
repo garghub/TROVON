@@ -1,0 +1,1 @@
+void seaboard_pinmux_init(void)\r\n{\r\ntegra_board_pinmux_init(&common_conf, &seaboard_conf);\r\n}\r\nvoid ventana_pinmux_init(void)\r\n{\r\ntegra_board_pinmux_init(&common_conf, &ventana_conf);\r\n}

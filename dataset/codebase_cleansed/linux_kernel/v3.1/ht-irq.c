@@ -1,0 +1,1 @@
+void __init titan_ht_pcibios_fixup_bus(struct pci_bus *bus)\r\n{\r\nstruct pci_bus *current_bus = bus;\r\nstruct pci_dev *devices;\r\nstruct list_head *devices_link;\r\nlist_for_each(devices_link, &(current_bus->devices)) {\r\ndevices = pci_dev_b(devices_link);\r\nif (devices == NULL)\r\ncontinue;\r\n}\r\n}

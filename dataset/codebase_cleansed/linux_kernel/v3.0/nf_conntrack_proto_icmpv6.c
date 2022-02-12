@@ -1,0 +1,166 @@
+static bool icmpv6_pkt_to_tuple(const struct sk_buff *skb,
+unsigned int dataoff,
+struct nf_conntrack_tuple *tuple)
+{
+const struct icmp6hdr *hp;
+struct icmp6hdr _hdr;
+hp = skb_header_pointer(skb, dataoff, sizeof(_hdr), &_hdr);
+if (hp == NULL)
+return false;
+tuple->dst.u.icmp.type = hp->icmp6_type;
+tuple->src.u.icmp.id = hp->icmp6_identifier;
+tuple->dst.u.icmp.code = hp->icmp6_code;
+return true;
+}
+static bool icmpv6_invert_tuple(struct nf_conntrack_tuple *tuple,
+const struct nf_conntrack_tuple *orig)
+{
+int type = orig->dst.u.icmp.type - 128;
+if (type < 0 || type >= sizeof(invmap) || !invmap[type])
+return false;
+tuple->src.u.icmp.id = orig->src.u.icmp.id;
+tuple->dst.u.icmp.type = invmap[type] - 1;
+tuple->dst.u.icmp.code = orig->dst.u.icmp.code;
+return true;
+}
+static int icmpv6_print_tuple(struct seq_file *s,
+const struct nf_conntrack_tuple *tuple)
+{
+return seq_printf(s, "type=%u code=%u id=%u ",
+tuple->dst.u.icmp.type,
+tuple->dst.u.icmp.code,
+ntohs(tuple->src.u.icmp.id));
+}
+static int icmpv6_packet(struct nf_conn *ct,
+const struct sk_buff *skb,
+unsigned int dataoff,
+enum ip_conntrack_info ctinfo,
+u_int8_t pf,
+unsigned int hooknum)
+{
+nf_ct_refresh_acct(ct, ctinfo, skb, nf_ct_icmpv6_timeout);
+return NF_ACCEPT;
+}
+static bool icmpv6_new(struct nf_conn *ct, const struct sk_buff *skb,
+unsigned int dataoff)
+{
+static const u_int8_t valid_new[] = {
+[ICMPV6_ECHO_REQUEST - 128] = 1,
+[ICMPV6_NI_QUERY - 128] = 1
+};
+int type = ct->tuplehash[0].tuple.dst.u.icmp.type - 128;
+if (type < 0 || type >= sizeof(valid_new) || !valid_new[type]) {
+pr_debug("icmpv6: can't create new conn with type %u\n",
+type + 128);
+nf_ct_dump_tuple_ipv6(&ct->tuplehash[0].tuple);
+if (LOG_INVALID(nf_ct_net(ct), IPPROTO_ICMPV6))
+nf_log_packet(PF_INET6, 0, skb, NULL, NULL, NULL,
+"nf_ct_icmpv6: invalid new with type %d ",
+type + 128);
+return false;
+}
+return true;
+}
+static int
+icmpv6_error_message(struct net *net, struct nf_conn *tmpl,
+struct sk_buff *skb,
+unsigned int icmp6off,
+enum ip_conntrack_info *ctinfo,
+unsigned int hooknum)
+{
+struct nf_conntrack_tuple intuple, origtuple;
+const struct nf_conntrack_tuple_hash *h;
+const struct nf_conntrack_l4proto *inproto;
+u16 zone = tmpl ? nf_ct_zone(tmpl) : NF_CT_DEFAULT_ZONE;
+NF_CT_ASSERT(skb->nfct == NULL);
+if (!nf_ct_get_tuplepr(skb,
+skb_network_offset(skb)
++ sizeof(struct ipv6hdr)
++ sizeof(struct icmp6hdr),
+PF_INET6, &origtuple)) {
+pr_debug("icmpv6_error: Can't get tuple\n");
+return -NF_ACCEPT;
+}
+inproto = __nf_ct_l4proto_find(PF_INET6, origtuple.dst.protonum);
+if (!nf_ct_invert_tuple(&intuple, &origtuple,
+&nf_conntrack_l3proto_ipv6, inproto)) {
+pr_debug("icmpv6_error: Can't invert tuple\n");
+return -NF_ACCEPT;
+}
+*ctinfo = IP_CT_RELATED;
+h = nf_conntrack_find_get(net, zone, &intuple);
+if (!h) {
+pr_debug("icmpv6_error: no match\n");
+return -NF_ACCEPT;
+} else {
+if (NF_CT_DIRECTION(h) == IP_CT_DIR_REPLY)
+*ctinfo += IP_CT_IS_REPLY;
+}
+skb->nfct = &nf_ct_tuplehash_to_ctrack(h)->ct_general;
+skb->nfctinfo = *ctinfo;
+return NF_ACCEPT;
+}
+static int
+icmpv6_error(struct net *net, struct nf_conn *tmpl,
+struct sk_buff *skb, unsigned int dataoff,
+enum ip_conntrack_info *ctinfo, u_int8_t pf, unsigned int hooknum)
+{
+const struct icmp6hdr *icmp6h;
+struct icmp6hdr _ih;
+int type;
+icmp6h = skb_header_pointer(skb, dataoff, sizeof(_ih), &_ih);
+if (icmp6h == NULL) {
+if (LOG_INVALID(net, IPPROTO_ICMPV6))
+nf_log_packet(PF_INET6, 0, skb, NULL, NULL, NULL,
+"nf_ct_icmpv6: short packet ");
+return -NF_ACCEPT;
+}
+if (net->ct.sysctl_checksum && hooknum == NF_INET_PRE_ROUTING &&
+nf_ip6_checksum(skb, hooknum, dataoff, IPPROTO_ICMPV6)) {
+if (LOG_INVALID(net, IPPROTO_ICMPV6))
+nf_log_packet(PF_INET6, 0, skb, NULL, NULL, NULL,
+"nf_ct_icmpv6: ICMPv6 checksum failed ");
+return -NF_ACCEPT;
+}
+type = icmp6h->icmp6_type - 130;
+if (type >= 0 && type < sizeof(noct_valid_new) &&
+noct_valid_new[type]) {
+skb->nfct = &nf_ct_untracked_get()->ct_general;
+skb->nfctinfo = IP_CT_NEW;
+nf_conntrack_get(skb->nfct);
+return NF_ACCEPT;
+}
+if (icmp6h->icmp6_type >= 128)
+return NF_ACCEPT;
+return icmpv6_error_message(net, tmpl, skb, dataoff, ctinfo, hooknum);
+}
+static int icmpv6_tuple_to_nlattr(struct sk_buff *skb,
+const struct nf_conntrack_tuple *t)
+{
+NLA_PUT_BE16(skb, CTA_PROTO_ICMPV6_ID, t->src.u.icmp.id);
+NLA_PUT_U8(skb, CTA_PROTO_ICMPV6_TYPE, t->dst.u.icmp.type);
+NLA_PUT_U8(skb, CTA_PROTO_ICMPV6_CODE, t->dst.u.icmp.code);
+return 0;
+nla_put_failure:
+return -1;
+}
+static int icmpv6_nlattr_to_tuple(struct nlattr *tb[],
+struct nf_conntrack_tuple *tuple)
+{
+if (!tb[CTA_PROTO_ICMPV6_TYPE] ||
+!tb[CTA_PROTO_ICMPV6_CODE] ||
+!tb[CTA_PROTO_ICMPV6_ID])
+return -EINVAL;
+tuple->dst.u.icmp.type = nla_get_u8(tb[CTA_PROTO_ICMPV6_TYPE]);
+tuple->dst.u.icmp.code = nla_get_u8(tb[CTA_PROTO_ICMPV6_CODE]);
+tuple->src.u.icmp.id = nla_get_be16(tb[CTA_PROTO_ICMPV6_ID]);
+if (tuple->dst.u.icmp.type < 128 ||
+tuple->dst.u.icmp.type - 128 >= sizeof(invmap) ||
+!invmap[tuple->dst.u.icmp.type - 128])
+return -EINVAL;
+return 0;
+}
+static int icmpv6_nlattr_tuple_size(void)
+{
+return nla_policy_len(icmpv6_nla_policy, CTA_PROTO_MAX + 1);
+}

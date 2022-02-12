@@ -1,0 +1,169 @@
+static void atao_reset(struct comedi_device *dev)
+{
+struct atao_private *devpriv = dev->private;
+devpriv->cfg1 = 0;
+outw(devpriv->cfg1, dev->iobase + ATAO_CFG1);
+outb(RWSEL0 | MODESEL2, dev->iobase + ATAO_82C53_CNTRCMD);
+outb(0x03, dev->iobase + ATAO_82C53_CNTR1);
+outb(CNTRSEL0 | RWSEL0 | MODESEL2, dev->iobase + ATAO_82C53_CNTRCMD);
+devpriv->cfg2 = 0;
+outw(devpriv->cfg2, dev->iobase + ATAO_CFG2);
+devpriv->cfg3 = 0;
+outw(devpriv->cfg3, dev->iobase + ATAO_CFG3);
+inw(dev->iobase + ATAO_FIFO_CLEAR);
+devpriv->cfg1 |= GRP2WR;
+outw(devpriv->cfg1, dev->iobase + ATAO_CFG1);
+outw(0, dev->iobase + ATAO_2_INT1CLR);
+outw(0, dev->iobase + ATAO_2_INT2CLR);
+outw(0, dev->iobase + ATAO_2_DMATCCLR);
+devpriv->cfg1 &= ~GRP2WR;
+outw(devpriv->cfg1, dev->iobase + ATAO_CFG1);
+}
+static int atao_ao_winsn(struct comedi_device *dev, struct comedi_subdevice *s,
+struct comedi_insn *insn, unsigned int *data)
+{
+struct atao_private *devpriv = dev->private;
+int i;
+int chan = CR_CHAN(insn->chanspec);
+short bits;
+for (i = 0; i < insn->n; i++) {
+bits = data[i] - 0x800;
+if (chan == 0) {
+devpriv->cfg1 |= GRP2WR;
+outw(devpriv->cfg1, dev->iobase + ATAO_CFG1);
+}
+outw(bits, dev->iobase + ATAO_DACn(chan));
+if (chan == 0) {
+devpriv->cfg1 &= ~GRP2WR;
+outw(devpriv->cfg1, dev->iobase + ATAO_CFG1);
+}
+devpriv->ao_readback[chan] = data[i];
+}
+return i;
+}
+static int atao_ao_rinsn(struct comedi_device *dev, struct comedi_subdevice *s,
+struct comedi_insn *insn, unsigned int *data)
+{
+struct atao_private *devpriv = dev->private;
+int i;
+int chan = CR_CHAN(insn->chanspec);
+for (i = 0; i < insn->n; i++)
+data[i] = devpriv->ao_readback[chan];
+return i;
+}
+static int atao_dio_insn_bits(struct comedi_device *dev,
+struct comedi_subdevice *s,
+struct comedi_insn *insn, unsigned int *data)
+{
+if (data[0]) {
+s->state &= ~data[0];
+s->state |= data[0] & data[1];
+outw(s->state, dev->iobase + ATAO_DOUT);
+}
+data[1] = inw(dev->iobase + ATAO_DIN);
+return insn->n;
+}
+static int atao_dio_insn_config(struct comedi_device *dev,
+struct comedi_subdevice *s,
+struct comedi_insn *insn,
+unsigned int *data)
+{
+struct atao_private *devpriv = dev->private;
+unsigned int chan = CR_CHAN(insn->chanspec);
+unsigned int mask;
+int ret;
+if (chan < 4)
+mask = 0x0f;
+else
+mask = 0xf0;
+ret = comedi_dio_insn_config(dev, s, insn, data, mask);
+if (ret)
+return ret;
+if (s->io_bits & 0x0f)
+devpriv->cfg3 |= DOUTEN1;
+else
+devpriv->cfg3 &= ~DOUTEN1;
+if (s->io_bits & 0xf0)
+devpriv->cfg3 |= DOUTEN2;
+else
+devpriv->cfg3 &= ~DOUTEN2;
+outw(devpriv->cfg3, dev->iobase + ATAO_CFG3);
+return insn->n;
+}
+static int atao_calib_insn_read(struct comedi_device *dev,
+struct comedi_subdevice *s,
+struct comedi_insn *insn, unsigned int *data)
+{
+int i;
+for (i = 0; i < insn->n; i++)
+data[i] = 0;
+return insn->n;
+}
+static int atao_calib_insn_write(struct comedi_device *dev,
+struct comedi_subdevice *s,
+struct comedi_insn *insn, unsigned int *data)
+{
+struct atao_private *devpriv = dev->private;
+unsigned int bitstring, bit;
+unsigned int chan = CR_CHAN(insn->chanspec);
+bitstring = ((chan & 0x7) << 8) | (data[insn->n - 1] & 0xff);
+for (bit = 1 << (11 - 1); bit; bit >>= 1) {
+outw(devpriv->cfg2 | ((bit & bitstring) ? SDATA : 0),
+dev->iobase + ATAO_CFG2);
+outw(devpriv->cfg2 | SCLK | ((bit & bitstring) ? SDATA : 0),
+dev->iobase + ATAO_CFG2);
+}
+outw(devpriv->cfg2 | (((chan >> 3) + 1) << 14),
+dev->iobase + ATAO_CFG2);
+outw(devpriv->cfg2, dev->iobase + ATAO_CFG2);
+return insn->n;
+}
+static int atao_attach(struct comedi_device *dev, struct comedi_devconfig *it)
+{
+const struct atao_board *board = comedi_board(dev);
+struct atao_private *devpriv;
+struct comedi_subdevice *s;
+int ao_unipolar;
+int ret;
+ao_unipolar = it->options[3];
+ret = comedi_request_region(dev, it->options[0], ATAO_SIZE);
+if (ret)
+return ret;
+devpriv = comedi_alloc_devpriv(dev, sizeof(*devpriv));
+if (!devpriv)
+return -ENOMEM;
+ret = comedi_alloc_subdevices(dev, 4);
+if (ret)
+return ret;
+s = &dev->subdevices[0];
+s->type = COMEDI_SUBD_AO;
+s->subdev_flags = SDF_WRITABLE;
+s->n_chan = board->n_ao_chans;
+s->maxdata = (1 << 12) - 1;
+if (ao_unipolar)
+s->range_table = &range_unipolar10;
+else
+s->range_table = &range_bipolar10;
+s->insn_write = &atao_ao_winsn;
+s->insn_read = &atao_ao_rinsn;
+s = &dev->subdevices[1];
+s->type = COMEDI_SUBD_DIO;
+s->subdev_flags = SDF_READABLE | SDF_WRITABLE;
+s->n_chan = 8;
+s->maxdata = 1;
+s->range_table = &range_digital;
+s->insn_bits = atao_dio_insn_bits;
+s->insn_config = atao_dio_insn_config;
+s = &dev->subdevices[2];
+s->type = COMEDI_SUBD_CALIB;
+s->subdev_flags = SDF_WRITABLE | SDF_INTERNAL;
+s->n_chan = 21;
+s->maxdata = 0xff;
+s->insn_read = atao_calib_insn_read;
+s->insn_write = atao_calib_insn_write;
+s = &dev->subdevices[3];
+s->type = COMEDI_SUBD_UNUSED;
+atao_reset(dev);
+printk(KERN_INFO "\n");
+return 0;
+}

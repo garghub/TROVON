@@ -1,0 +1,1 @@
+static int __init rx51_video_init(void)\r\n{\r\nif (!machine_is_nokia_rx51())\r\nreturn 0;\r\nif (omap_mux_init_gpio(RX51_LCD_RESET_GPIO, OMAP_PIN_OUTPUT)) {\r\npr_err("%s cannot configure MUX for LCD RESET\n", __func__);\r\nreturn 0;\r\n}\r\nomap_display_init(&rx51_dss_board_info);\r\nplatform_device_register(&rx51_tv_connector_device);\r\nreturn 0;\r\n}

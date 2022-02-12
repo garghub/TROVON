@@ -1,0 +1,1 @@
+static int __devinit tegra30_pinctrl_probe(struct platform_device *pdev)\r\n{\r\nreturn tegra_pinctrl_probe(pdev, &tegra30_pinctrl);\r\n}\r\nstatic int __init tegra30_pinctrl_init(void)\r\n{\r\nreturn platform_driver_register(&tegra30_pinctrl_driver);\r\n}\r\nstatic void __exit tegra30_pinctrl_exit(void)\r\n{\r\nplatform_driver_unregister(&tegra30_pinctrl_driver);\r\n}

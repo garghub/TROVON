@@ -1,0 +1,169 @@
+static int ad5624r_spi_write(struct spi_device *spi,
+u8 cmd, u8 addr, u16 val, u8 len)
+{
+u32 data;
+u8 msg[3];
+data = (0 << 22) | (cmd << 19) | (addr << 16) | (val << (16 - len));
+msg[0] = data >> 16;
+msg[1] = data >> 8;
+msg[2] = data;
+return spi_write(spi, msg, 3);
+}
+static int ad5624r_read_raw(struct iio_dev *indio_dev,
+struct iio_chan_spec const *chan,
+int *val,
+int *val2,
+long m)
+{
+struct ad5624r_state *st = iio_priv(indio_dev);
+unsigned long scale_uv;
+switch (m) {
+case IIO_CHAN_INFO_SCALE:
+scale_uv = (st->vref_mv * 1000) >> chan->scan_type.realbits;
+*val = scale_uv / 1000;
+*val2 = (scale_uv % 1000) * 1000;
+return IIO_VAL_INT_PLUS_MICRO;
+}
+return -EINVAL;
+}
+static int ad5624r_write_raw(struct iio_dev *indio_dev,
+struct iio_chan_spec const *chan,
+int val,
+int val2,
+long mask)
+{
+struct ad5624r_state *st = iio_priv(indio_dev);
+int ret;
+switch (mask) {
+case 0:
+if (val >= (1 << chan->scan_type.realbits) || val < 0)
+return -EINVAL;
+return ad5624r_spi_write(st->us,
+AD5624R_CMD_WRITE_INPUT_N_UPDATE_N,
+chan->address, val,
+chan->scan_type.shift);
+default:
+ret = -EINVAL;
+}
+return -EINVAL;
+}
+static ssize_t ad5624r_read_powerdown_mode(struct device *dev,
+struct device_attribute *attr, char *buf)
+{
+struct iio_dev *indio_dev = dev_get_drvdata(dev);
+struct ad5624r_state *st = iio_priv(indio_dev);
+char mode[][15] = {"", "1kohm_to_gnd", "100kohm_to_gnd", "three_state"};
+return sprintf(buf, "%s\n", mode[st->pwr_down_mode]);
+}
+static ssize_t ad5624r_write_powerdown_mode(struct device *dev,
+struct device_attribute *attr,
+const char *buf, size_t len)
+{
+struct iio_dev *indio_dev = dev_get_drvdata(dev);
+struct ad5624r_state *st = iio_priv(indio_dev);
+int ret;
+if (sysfs_streq(buf, "1kohm_to_gnd"))
+st->pwr_down_mode = AD5624R_LDAC_PWRDN_1K;
+else if (sysfs_streq(buf, "100kohm_to_gnd"))
+st->pwr_down_mode = AD5624R_LDAC_PWRDN_100K;
+else if (sysfs_streq(buf, "three_state"))
+st->pwr_down_mode = AD5624R_LDAC_PWRDN_3STATE;
+else
+ret = -EINVAL;
+return ret ? ret : len;
+}
+static ssize_t ad5624r_read_dac_powerdown(struct device *dev,
+struct device_attribute *attr,
+char *buf)
+{
+struct iio_dev *indio_dev = dev_get_drvdata(dev);
+struct ad5624r_state *st = iio_priv(indio_dev);
+struct iio_dev_attr *this_attr = to_iio_dev_attr(attr);
+return sprintf(buf, "%d\n",
+!!(st->pwr_down_mask & (1 << this_attr->address)));
+}
+static ssize_t ad5624r_write_dac_powerdown(struct device *dev,
+struct device_attribute *attr,
+const char *buf, size_t len)
+{
+long readin;
+int ret;
+struct iio_dev *indio_dev = dev_get_drvdata(dev);
+struct ad5624r_state *st = iio_priv(indio_dev);
+struct iio_dev_attr *this_attr = to_iio_dev_attr(attr);
+ret = strict_strtol(buf, 10, &readin);
+if (ret)
+return ret;
+if (readin == 1)
+st->pwr_down_mask |= (1 << this_attr->address);
+else if (!readin)
+st->pwr_down_mask &= ~(1 << this_attr->address);
+else
+ret = -EINVAL;
+ret = ad5624r_spi_write(st->us, AD5624R_CMD_POWERDOWN_DAC, 0,
+(st->pwr_down_mode << 4) |
+st->pwr_down_mask, 16);
+return ret ? ret : len;
+}
+static int __devinit ad5624r_probe(struct spi_device *spi)
+{
+struct ad5624r_state *st;
+struct iio_dev *indio_dev;
+int ret, voltage_uv = 0;
+indio_dev = iio_allocate_device(sizeof(*st));
+if (indio_dev == NULL) {
+ret = -ENOMEM;
+goto error_ret;
+}
+st = iio_priv(indio_dev);
+st->reg = regulator_get(&spi->dev, "vcc");
+if (!IS_ERR(st->reg)) {
+ret = regulator_enable(st->reg);
+if (ret)
+goto error_put_reg;
+voltage_uv = regulator_get_voltage(st->reg);
+}
+spi_set_drvdata(spi, indio_dev);
+st->chip_info =
+&ad5624r_chip_info_tbl[spi_get_device_id(spi)->driver_data];
+if (voltage_uv)
+st->vref_mv = voltage_uv / 1000;
+else
+st->vref_mv = st->chip_info->int_vref_mv;
+st->us = spi;
+indio_dev->dev.parent = &spi->dev;
+indio_dev->name = spi_get_device_id(spi)->name;
+indio_dev->info = &ad5624r_info;
+indio_dev->modes = INDIO_DIRECT_MODE;
+indio_dev->channels = st->chip_info->channels;
+indio_dev->num_channels = AD5624R_DAC_CHANNELS;
+ret = ad5624r_spi_write(spi, AD5624R_CMD_INTERNAL_REFER_SETUP, 0,
+!!voltage_uv, 16);
+if (ret)
+goto error_disable_reg;
+ret = iio_device_register(indio_dev);
+if (ret)
+goto error_disable_reg;
+return 0;
+error_disable_reg:
+if (!IS_ERR(st->reg))
+regulator_disable(st->reg);
+error_put_reg:
+if (!IS_ERR(st->reg))
+regulator_put(st->reg);
+iio_free_device(indio_dev);
+error_ret:
+return ret;
+}
+static int __devexit ad5624r_remove(struct spi_device *spi)
+{
+struct iio_dev *indio_dev = spi_get_drvdata(spi);
+struct ad5624r_state *st = iio_priv(indio_dev);
+iio_device_unregister(indio_dev);
+if (!IS_ERR(st->reg)) {
+regulator_disable(st->reg);
+regulator_put(st->reg);
+}
+iio_free_device(indio_dev);
+return 0;
+}

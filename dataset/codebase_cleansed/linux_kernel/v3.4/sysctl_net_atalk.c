@@ -1,0 +1,1 @@
+void atalk_register_sysctl(void)\r\n{\r\natalk_table_header = register_sysctl_paths(atalk_path, atalk_table);\r\n}\r\nvoid atalk_unregister_sysctl(void)\r\n{\r\nunregister_sysctl_table(atalk_table_header);\r\n}

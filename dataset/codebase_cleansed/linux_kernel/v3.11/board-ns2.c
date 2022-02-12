@@ -1,0 +1,1 @@
+void __init ns2_init(void)\r\n{\r\nif (of_machine_is_compatible("lacie,cloudbox") ||\r\nof_machine_is_compatible("lacie,netspace_lite_v2") ||\r\nof_machine_is_compatible("lacie,netspace_mini_v2"))\r\nns2_ge00_data.phy_addr = MV643XX_ETH_PHY_ADDR(0);\r\nkirkwood_ge00_init(&ns2_ge00_data);\r\n}

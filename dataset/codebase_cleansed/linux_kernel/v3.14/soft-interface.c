@@ -1,0 +1,559 @@
+int batadv_skb_head_push(struct sk_buff *skb, unsigned int len)
+{
+int result;
+result = skb_cow_head(skb, len);
+if (result < 0)
+return result;
+skb_push(skb, len);
+return 0;
+}
+static int batadv_interface_open(struct net_device *dev)
+{
+netif_start_queue(dev);
+return 0;
+}
+static int batadv_interface_release(struct net_device *dev)
+{
+netif_stop_queue(dev);
+return 0;
+}
+static struct net_device_stats *batadv_interface_stats(struct net_device *dev)
+{
+struct batadv_priv *bat_priv = netdev_priv(dev);
+struct net_device_stats *stats = &bat_priv->stats;
+stats->tx_packets = batadv_sum_counter(bat_priv, BATADV_CNT_TX);
+stats->tx_bytes = batadv_sum_counter(bat_priv, BATADV_CNT_TX_BYTES);
+stats->tx_dropped = batadv_sum_counter(bat_priv, BATADV_CNT_TX_DROPPED);
+stats->rx_packets = batadv_sum_counter(bat_priv, BATADV_CNT_RX);
+stats->rx_bytes = batadv_sum_counter(bat_priv, BATADV_CNT_RX_BYTES);
+return stats;
+}
+static int batadv_interface_set_mac_addr(struct net_device *dev, void *p)
+{
+struct batadv_priv *bat_priv = netdev_priv(dev);
+struct sockaddr *addr = p;
+uint8_t old_addr[ETH_ALEN];
+if (!is_valid_ether_addr(addr->sa_data))
+return -EADDRNOTAVAIL;
+memcpy(old_addr, dev->dev_addr, ETH_ALEN);
+memcpy(dev->dev_addr, addr->sa_data, ETH_ALEN);
+if (atomic_read(&bat_priv->mesh_state) == BATADV_MESH_ACTIVE) {
+batadv_tt_local_remove(bat_priv, old_addr, BATADV_NO_FLAGS,
+"mac address changed", false);
+batadv_tt_local_add(dev, addr->sa_data, BATADV_NO_FLAGS,
+BATADV_NULL_IFINDEX, BATADV_NO_MARK);
+}
+return 0;
+}
+static int batadv_interface_change_mtu(struct net_device *dev, int new_mtu)
+{
+if ((new_mtu < 68) || (new_mtu > batadv_hardif_min_mtu(dev)))
+return -EINVAL;
+dev->mtu = new_mtu;
+return 0;
+}
+static void batadv_interface_set_rx_mode(struct net_device *dev)
+{
+}
+static int batadv_interface_tx(struct sk_buff *skb,
+struct net_device *soft_iface)
+{
+struct ethhdr *ethhdr;
+struct batadv_priv *bat_priv = netdev_priv(soft_iface);
+struct batadv_hard_iface *primary_if = NULL;
+struct batadv_bcast_packet *bcast_packet;
+__be16 ethertype = htons(ETH_P_BATMAN);
+static const uint8_t stp_addr[ETH_ALEN] = {0x01, 0x80, 0xC2, 0x00,
+0x00, 0x00};
+static const uint8_t ectp_addr[ETH_ALEN] = {0xCF, 0x00, 0x00, 0x00,
+0x00, 0x00};
+enum batadv_dhcp_recipient dhcp_rcp = BATADV_DHCP_NO;
+uint8_t *dst_hint = NULL, chaddr[ETH_ALEN];
+struct vlan_ethhdr *vhdr;
+unsigned int header_len = 0;
+int data_len = skb->len, ret;
+unsigned long brd_delay = 1;
+bool do_bcast = false, client_added;
+unsigned short vid;
+uint32_t seqno;
+int gw_mode;
+if (atomic_read(&bat_priv->mesh_state) != BATADV_MESH_ACTIVE)
+goto dropped;
+soft_iface->trans_start = jiffies;
+vid = batadv_get_vid(skb, 0);
+ethhdr = (struct ethhdr *)skb->data;
+switch (ntohs(ethhdr->h_proto)) {
+case ETH_P_8021Q:
+vhdr = (struct vlan_ethhdr *)skb->data;
+if (vhdr->h_vlan_encapsulated_proto != ethertype)
+break;
+case ETH_P_BATMAN:
+goto dropped;
+}
+if (batadv_bla_tx(bat_priv, skb, vid))
+goto dropped;
+ethhdr = (struct ethhdr *)skb->data;
+if (!is_multicast_ether_addr(ethhdr->h_source)) {
+client_added = batadv_tt_local_add(soft_iface, ethhdr->h_source,
+vid, skb->skb_iif,
+skb->mark);
+if (!client_added)
+goto dropped;
+}
+if (batadv_compare_eth(ethhdr->h_dest, stp_addr))
+goto dropped;
+if (batadv_compare_eth(ethhdr->h_dest, ectp_addr))
+goto dropped;
+gw_mode = atomic_read(&bat_priv->gw_mode);
+if (is_multicast_ether_addr(ethhdr->h_dest)) {
+if (gw_mode == BATADV_GW_MODE_OFF) {
+do_bcast = true;
+goto send;
+}
+dhcp_rcp = batadv_gw_dhcp_recipient_get(skb, &header_len,
+chaddr);
+ethhdr = (struct ethhdr *)skb->data;
+if (dhcp_rcp == BATADV_DHCP_NO) {
+do_bcast = true;
+goto send;
+}
+if (dhcp_rcp == BATADV_DHCP_TO_CLIENT)
+dst_hint = chaddr;
+else if ((gw_mode == BATADV_GW_MODE_SERVER) &&
+(dhcp_rcp == BATADV_DHCP_TO_SERVER))
+goto dropped;
+}
+send:
+batadv_skb_set_priority(skb, 0);
+if (do_bcast) {
+primary_if = batadv_primary_if_get_selected(bat_priv);
+if (!primary_if)
+goto dropped;
+if (batadv_dat_snoop_outgoing_arp_request(bat_priv, skb))
+brd_delay = msecs_to_jiffies(ARP_REQ_DELAY);
+if (batadv_skb_head_push(skb, sizeof(*bcast_packet)) < 0)
+goto dropped;
+bcast_packet = (struct batadv_bcast_packet *)skb->data;
+bcast_packet->version = BATADV_COMPAT_VERSION;
+bcast_packet->ttl = BATADV_TTL;
+bcast_packet->packet_type = BATADV_BCAST;
+bcast_packet->reserved = 0;
+memcpy(bcast_packet->orig,
+primary_if->net_dev->dev_addr, ETH_ALEN);
+seqno = atomic_inc_return(&bat_priv->bcast_seqno);
+bcast_packet->seqno = htonl(seqno);
+batadv_add_bcast_packet_to_list(bat_priv, skb, brd_delay);
+kfree_skb(skb);
+} else {
+if (dhcp_rcp == BATADV_DHCP_TO_SERVER) {
+ret = batadv_gw_out_of_range(bat_priv, skb);
+if (ret)
+goto dropped;
+ret = batadv_send_skb_via_gw(bat_priv, skb, vid);
+} else {
+if (batadv_dat_snoop_outgoing_arp_request(bat_priv,
+skb))
+goto dropped;
+batadv_dat_snoop_outgoing_arp_reply(bat_priv, skb);
+ret = batadv_send_skb_via_tt(bat_priv, skb, dst_hint,
+vid);
+}
+if (ret == NET_XMIT_DROP)
+goto dropped_freed;
+}
+batadv_inc_counter(bat_priv, BATADV_CNT_TX);
+batadv_add_counter(bat_priv, BATADV_CNT_TX_BYTES, data_len);
+goto end;
+dropped:
+kfree_skb(skb);
+dropped_freed:
+batadv_inc_counter(bat_priv, BATADV_CNT_TX_DROPPED);
+end:
+if (primary_if)
+batadv_hardif_free_ref(primary_if);
+return NETDEV_TX_OK;
+}
+void batadv_interface_rx(struct net_device *soft_iface,
+struct sk_buff *skb, struct batadv_hard_iface *recv_if,
+int hdr_size, struct batadv_orig_node *orig_node)
+{
+struct batadv_bcast_packet *batadv_bcast_packet;
+struct batadv_priv *bat_priv = netdev_priv(soft_iface);
+__be16 ethertype = htons(ETH_P_BATMAN);
+struct vlan_ethhdr *vhdr;
+struct ethhdr *ethhdr;
+unsigned short vid;
+bool is_bcast;
+batadv_bcast_packet = (struct batadv_bcast_packet *)skb->data;
+is_bcast = (batadv_bcast_packet->packet_type == BATADV_BCAST);
+if (!pskb_may_pull(skb, hdr_size))
+goto dropped;
+skb_pull_rcsum(skb, hdr_size);
+skb_reset_mac_header(skb);
+nf_reset(skb);
+vid = batadv_get_vid(skb, 0);
+ethhdr = eth_hdr(skb);
+switch (ntohs(ethhdr->h_proto)) {
+case ETH_P_8021Q:
+vhdr = (struct vlan_ethhdr *)skb->data;
+if (vhdr->h_vlan_encapsulated_proto != ethertype)
+break;
+case ETH_P_BATMAN:
+goto dropped;
+}
+if (unlikely(!pskb_may_pull(skb, ETH_HLEN)))
+goto dropped;
+skb->protocol = eth_type_trans(skb, soft_iface);
+batadv_inc_counter(bat_priv, BATADV_CNT_RX);
+batadv_add_counter(bat_priv, BATADV_CNT_RX_BYTES,
+skb->len + ETH_HLEN);
+soft_iface->last_rx = jiffies;
+if (batadv_bla_rx(bat_priv, skb, vid, is_bcast))
+goto out;
+if (orig_node)
+batadv_tt_add_temporary_global_entry(bat_priv, orig_node,
+ethhdr->h_source, vid);
+if (is_multicast_ether_addr(ethhdr->h_dest)) {
+if (batadv_vlan_ap_isola_get(bat_priv, vid) &&
+batadv_tt_global_is_isolated(bat_priv, ethhdr->h_source,
+vid)) {
+skb->mark &= ~bat_priv->isolation_mark_mask;
+skb->mark |= bat_priv->isolation_mark;
+}
+} else if (batadv_is_ap_isolated(bat_priv, ethhdr->h_source,
+ethhdr->h_dest, vid)) {
+goto dropped;
+}
+netif_rx(skb);
+goto out;
+dropped:
+kfree_skb(skb);
+out:
+return;
+}
+void batadv_softif_vlan_free_ref(struct batadv_softif_vlan *softif_vlan)
+{
+if (atomic_dec_and_test(&softif_vlan->refcount))
+kfree_rcu(softif_vlan, rcu);
+}
+struct batadv_softif_vlan *batadv_softif_vlan_get(struct batadv_priv *bat_priv,
+unsigned short vid)
+{
+struct batadv_softif_vlan *vlan_tmp, *vlan = NULL;
+rcu_read_lock();
+hlist_for_each_entry_rcu(vlan_tmp, &bat_priv->softif_vlan_list, list) {
+if (vlan_tmp->vid != vid)
+continue;
+if (!atomic_inc_not_zero(&vlan_tmp->refcount))
+continue;
+vlan = vlan_tmp;
+break;
+}
+rcu_read_unlock();
+return vlan;
+}
+int batadv_softif_create_vlan(struct batadv_priv *bat_priv, unsigned short vid)
+{
+struct batadv_softif_vlan *vlan;
+int err;
+vlan = batadv_softif_vlan_get(bat_priv, vid);
+if (vlan) {
+batadv_softif_vlan_free_ref(vlan);
+return -EEXIST;
+}
+vlan = kzalloc(sizeof(*vlan), GFP_ATOMIC);
+if (!vlan)
+return -ENOMEM;
+vlan->vid = vid;
+atomic_set(&vlan->refcount, 1);
+atomic_set(&vlan->ap_isolation, 0);
+err = batadv_sysfs_add_vlan(bat_priv->soft_iface, vlan);
+if (err) {
+kfree(vlan);
+return err;
+}
+batadv_tt_local_add(bat_priv->soft_iface,
+bat_priv->soft_iface->dev_addr, vid,
+BATADV_NULL_IFINDEX, BATADV_NO_MARK);
+spin_lock_bh(&bat_priv->softif_vlan_list_lock);
+hlist_add_head_rcu(&vlan->list, &bat_priv->softif_vlan_list);
+spin_unlock_bh(&bat_priv->softif_vlan_list_lock);
+return 0;
+}
+static void batadv_softif_destroy_vlan(struct batadv_priv *bat_priv,
+struct batadv_softif_vlan *vlan)
+{
+spin_lock_bh(&bat_priv->softif_vlan_list_lock);
+hlist_del_rcu(&vlan->list);
+spin_unlock_bh(&bat_priv->softif_vlan_list_lock);
+batadv_sysfs_del_vlan(bat_priv, vlan);
+batadv_tt_local_remove(bat_priv, bat_priv->soft_iface->dev_addr,
+vlan->vid, "vlan interface destroyed", false);
+batadv_softif_vlan_free_ref(vlan);
+}
+static int batadv_interface_add_vid(struct net_device *dev, __be16 proto,
+unsigned short vid)
+{
+struct batadv_priv *bat_priv = netdev_priv(dev);
+if (proto != htons(ETH_P_8021Q))
+return -EINVAL;
+vid |= BATADV_VLAN_HAS_TAG;
+return batadv_softif_create_vlan(bat_priv, vid);
+}
+static int batadv_interface_kill_vid(struct net_device *dev, __be16 proto,
+unsigned short vid)
+{
+struct batadv_priv *bat_priv = netdev_priv(dev);
+struct batadv_softif_vlan *vlan;
+if (proto != htons(ETH_P_8021Q))
+return -EINVAL;
+vlan = batadv_softif_vlan_get(bat_priv, vid | BATADV_VLAN_HAS_TAG);
+if (!vlan)
+return -ENOENT;
+batadv_softif_destroy_vlan(bat_priv, vlan);
+batadv_softif_vlan_free_ref(vlan);
+return 0;
+}
+static void batadv_set_lockdep_class_one(struct net_device *dev,
+struct netdev_queue *txq,
+void *_unused)
+{
+lockdep_set_class(&txq->_xmit_lock, &batadv_netdev_xmit_lock_key);
+}
+static void batadv_set_lockdep_class(struct net_device *dev)
+{
+lockdep_set_class(&dev->addr_list_lock, &batadv_netdev_addr_lock_key);
+netdev_for_each_tx_queue(dev, batadv_set_lockdep_class_one, NULL);
+}
+static void batadv_softif_destroy_finish(struct work_struct *work)
+{
+struct batadv_softif_vlan *vlan;
+struct batadv_priv *bat_priv;
+struct net_device *soft_iface;
+bat_priv = container_of(work, struct batadv_priv,
+cleanup_work);
+soft_iface = bat_priv->soft_iface;
+vlan = batadv_softif_vlan_get(bat_priv, BATADV_NO_FLAGS);
+if (vlan) {
+batadv_softif_destroy_vlan(bat_priv, vlan);
+batadv_softif_vlan_free_ref(vlan);
+}
+batadv_sysfs_del_meshif(soft_iface);
+rtnl_lock();
+unregister_netdevice(soft_iface);
+rtnl_unlock();
+}
+static int batadv_softif_init_late(struct net_device *dev)
+{
+struct batadv_priv *bat_priv;
+uint32_t random_seqno;
+int ret;
+size_t cnt_len = sizeof(uint64_t) * BATADV_CNT_NUM;
+batadv_set_lockdep_class(dev);
+bat_priv = netdev_priv(dev);
+bat_priv->soft_iface = dev;
+INIT_WORK(&bat_priv->cleanup_work, batadv_softif_destroy_finish);
+bat_priv->bat_counters = __alloc_percpu(cnt_len, __alignof__(uint64_t));
+if (!bat_priv->bat_counters)
+return -ENOMEM;
+atomic_set(&bat_priv->aggregated_ogms, 1);
+atomic_set(&bat_priv->bonding, 0);
+#ifdef CONFIG_BATMAN_ADV_BLA
+atomic_set(&bat_priv->bridge_loop_avoidance, 0);
+#endif
+#ifdef CONFIG_BATMAN_ADV_DAT
+atomic_set(&bat_priv->distributed_arp_table, 1);
+#endif
+atomic_set(&bat_priv->gw_mode, BATADV_GW_MODE_OFF);
+atomic_set(&bat_priv->gw_sel_class, 20);
+atomic_set(&bat_priv->gw.bandwidth_down, 100);
+atomic_set(&bat_priv->gw.bandwidth_up, 20);
+atomic_set(&bat_priv->orig_interval, 1000);
+atomic_set(&bat_priv->hop_penalty, 15);
+#ifdef CONFIG_BATMAN_ADV_DEBUG
+atomic_set(&bat_priv->log_level, 0);
+#endif
+atomic_set(&bat_priv->fragmentation, 1);
+atomic_set(&bat_priv->packet_size_max, ETH_DATA_LEN);
+atomic_set(&bat_priv->bcast_queue_left, BATADV_BCAST_QUEUE_LEN);
+atomic_set(&bat_priv->batman_queue_left, BATADV_BATMAN_QUEUE_LEN);
+atomic_set(&bat_priv->mesh_state, BATADV_MESH_INACTIVE);
+atomic_set(&bat_priv->bcast_seqno, 1);
+atomic_set(&bat_priv->tt.vn, 0);
+atomic_set(&bat_priv->tt.local_changes, 0);
+atomic_set(&bat_priv->tt.ogm_append_cnt, 0);
+#ifdef CONFIG_BATMAN_ADV_BLA
+atomic_set(&bat_priv->bla.num_requests, 0);
+#endif
+bat_priv->tt.last_changeset = NULL;
+bat_priv->tt.last_changeset_len = 0;
+bat_priv->isolation_mark = 0;
+bat_priv->isolation_mark_mask = 0;
+get_random_bytes(&random_seqno, sizeof(random_seqno));
+atomic_set(&bat_priv->frag_seqno, random_seqno);
+bat_priv->primary_if = NULL;
+bat_priv->num_ifaces = 0;
+batadv_nc_init_bat_priv(bat_priv);
+ret = batadv_algo_select(bat_priv, batadv_routing_algo);
+if (ret < 0)
+goto free_bat_counters;
+ret = batadv_debugfs_add_meshif(dev);
+if (ret < 0)
+goto free_bat_counters;
+ret = batadv_mesh_init(dev);
+if (ret < 0)
+goto unreg_debugfs;
+return 0;
+unreg_debugfs:
+batadv_debugfs_del_meshif(dev);
+free_bat_counters:
+free_percpu(bat_priv->bat_counters);
+bat_priv->bat_counters = NULL;
+return ret;
+}
+static int batadv_softif_slave_add(struct net_device *dev,
+struct net_device *slave_dev)
+{
+struct batadv_hard_iface *hard_iface;
+int ret = -EINVAL;
+hard_iface = batadv_hardif_get_by_netdev(slave_dev);
+if (!hard_iface || hard_iface->soft_iface != NULL)
+goto out;
+ret = batadv_hardif_enable_interface(hard_iface, dev->name);
+out:
+if (hard_iface)
+batadv_hardif_free_ref(hard_iface);
+return ret;
+}
+static int batadv_softif_slave_del(struct net_device *dev,
+struct net_device *slave_dev)
+{
+struct batadv_hard_iface *hard_iface;
+int ret = -EINVAL;
+hard_iface = batadv_hardif_get_by_netdev(slave_dev);
+if (!hard_iface || hard_iface->soft_iface != dev)
+goto out;
+batadv_hardif_disable_interface(hard_iface, BATADV_IF_CLEANUP_KEEP);
+ret = 0;
+out:
+if (hard_iface)
+batadv_hardif_free_ref(hard_iface);
+return ret;
+}
+static void batadv_softif_free(struct net_device *dev)
+{
+batadv_debugfs_del_meshif(dev);
+batadv_mesh_free(dev);
+rcu_barrier();
+free_netdev(dev);
+}
+static void batadv_softif_init_early(struct net_device *dev)
+{
+struct batadv_priv *priv = netdev_priv(dev);
+ether_setup(dev);
+dev->netdev_ops = &batadv_netdev_ops;
+dev->destructor = batadv_softif_free;
+dev->features |= NETIF_F_HW_VLAN_CTAG_FILTER;
+dev->tx_queue_len = 0;
+dev->mtu = ETH_DATA_LEN;
+dev->hard_header_len = batadv_max_header_len();
+eth_hw_addr_random(dev);
+SET_ETHTOOL_OPS(dev, &batadv_ethtool_ops);
+memset(priv, 0, sizeof(*priv));
+}
+struct net_device *batadv_softif_create(const char *name)
+{
+struct net_device *soft_iface;
+int ret;
+soft_iface = alloc_netdev(sizeof(struct batadv_priv), name,
+batadv_softif_init_early);
+if (!soft_iface)
+return NULL;
+soft_iface->rtnl_link_ops = &batadv_link_ops;
+ret = register_netdevice(soft_iface);
+if (ret < 0) {
+pr_err("Unable to register the batman interface '%s': %i\n",
+name, ret);
+free_netdev(soft_iface);
+return NULL;
+}
+return soft_iface;
+}
+void batadv_softif_destroy_sysfs(struct net_device *soft_iface)
+{
+struct batadv_priv *bat_priv = netdev_priv(soft_iface);
+queue_work(batadv_event_workqueue, &bat_priv->cleanup_work);
+}
+static void batadv_softif_destroy_netlink(struct net_device *soft_iface,
+struct list_head *head)
+{
+struct batadv_hard_iface *hard_iface;
+list_for_each_entry(hard_iface, &batadv_hardif_list, list) {
+if (hard_iface->soft_iface == soft_iface)
+batadv_hardif_disable_interface(hard_iface,
+BATADV_IF_CLEANUP_KEEP);
+}
+batadv_sysfs_del_meshif(soft_iface);
+unregister_netdevice_queue(soft_iface, head);
+}
+int batadv_softif_is_valid(const struct net_device *net_dev)
+{
+if (net_dev->netdev_ops->ndo_start_xmit == batadv_interface_tx)
+return 1;
+return 0;
+}
+static int batadv_get_settings(struct net_device *dev, struct ethtool_cmd *cmd)
+{
+cmd->supported = 0;
+cmd->advertising = 0;
+ethtool_cmd_speed_set(cmd, SPEED_10);
+cmd->duplex = DUPLEX_FULL;
+cmd->port = PORT_TP;
+cmd->phy_address = 0;
+cmd->transceiver = XCVR_INTERNAL;
+cmd->autoneg = AUTONEG_DISABLE;
+cmd->maxtxpkt = 0;
+cmd->maxrxpkt = 0;
+return 0;
+}
+static void batadv_get_drvinfo(struct net_device *dev,
+struct ethtool_drvinfo *info)
+{
+strlcpy(info->driver, "B.A.T.M.A.N. advanced", sizeof(info->driver));
+strlcpy(info->version, BATADV_SOURCE_VERSION, sizeof(info->version));
+strlcpy(info->fw_version, "N/A", sizeof(info->fw_version));
+strlcpy(info->bus_info, "batman", sizeof(info->bus_info));
+}
+static u32 batadv_get_msglevel(struct net_device *dev)
+{
+return -EOPNOTSUPP;
+}
+static void batadv_set_msglevel(struct net_device *dev, u32 value)
+{
+}
+static u32 batadv_get_link(struct net_device *dev)
+{
+return 1;
+}
+static void batadv_get_strings(struct net_device *dev, uint32_t stringset,
+uint8_t *data)
+{
+if (stringset == ETH_SS_STATS)
+memcpy(data, batadv_counters_strings,
+sizeof(batadv_counters_strings));
+}
+static void batadv_get_ethtool_stats(struct net_device *dev,
+struct ethtool_stats *stats,
+uint64_t *data)
+{
+struct batadv_priv *bat_priv = netdev_priv(dev);
+int i;
+for (i = 0; i < BATADV_CNT_NUM; i++)
+data[i] = batadv_sum_counter(bat_priv, i);
+}
+static int batadv_get_sset_count(struct net_device *dev, int stringset)
+{
+if (stringset == ETH_SS_STATS)
+return BATADV_CNT_NUM;
+return -EOPNOTSUPP;
+}

@@ -1,0 +1,1 @@
+int ptrace_getregs(long pid, unsigned long *regs_out)\r\n{\r\nif (ptrace(PTRACE_GETREGS, pid, 0, regs_out) < 0)\r\nreturn -errno;\r\nreturn 0;\r\n}\r\nint ptrace_setregs(long pid, unsigned long *regs)\r\n{\r\nif (ptrace(PTRACE_SETREGS, pid, 0, regs) < 0)\r\nreturn -errno;\r\nreturn 0;\r\n}

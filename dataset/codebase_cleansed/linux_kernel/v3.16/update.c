@@ -1,0 +1,125 @@
+void __rcu_read_lock(void)
+{
+current->rcu_read_lock_nesting++;
+barrier();
+}
+void __rcu_read_unlock(void)
+{
+struct task_struct *t = current;
+if (t->rcu_read_lock_nesting != 1) {
+--t->rcu_read_lock_nesting;
+} else {
+barrier();
+t->rcu_read_lock_nesting = INT_MIN;
+#ifdef CONFIG_PROVE_RCU_DELAY
+udelay(10);
+#endif
+barrier();
+if (unlikely(ACCESS_ONCE(t->rcu_read_unlock_special)))
+rcu_read_unlock_special(t);
+barrier();
+t->rcu_read_lock_nesting = 0;
+}
+#ifdef CONFIG_PROVE_LOCKING
+{
+int rrln = ACCESS_ONCE(t->rcu_read_lock_nesting);
+WARN_ON_ONCE(rrln < 0 && rrln > INT_MIN / 2);
+}
+#endif
+}
+int notrace debug_lockdep_rcu_enabled(void)
+{
+return rcu_scheduler_active && debug_locks &&
+current->lockdep_recursion == 0;
+}
+int rcu_read_lock_bh_held(void)
+{
+if (!debug_lockdep_rcu_enabled())
+return 1;
+if (!rcu_is_watching())
+return 0;
+if (!rcu_lockdep_current_cpu_online())
+return 0;
+return in_softirq() || irqs_disabled();
+}
+static void wakeme_after_rcu(struct rcu_head *head)
+{
+struct rcu_synchronize *rcu;
+rcu = container_of(head, struct rcu_synchronize, head);
+complete(&rcu->completion);
+}
+void wait_rcu_gp(call_rcu_func_t crf)
+{
+struct rcu_synchronize rcu;
+init_rcu_head_on_stack(&rcu.head);
+init_completion(&rcu.completion);
+crf(&rcu.head, wakeme_after_rcu);
+wait_for_completion(&rcu.completion);
+destroy_rcu_head_on_stack(&rcu.head);
+}
+void init_rcu_head(struct rcu_head *head)
+{
+debug_object_init(head, &rcuhead_debug_descr);
+}
+void destroy_rcu_head(struct rcu_head *head)
+{
+debug_object_free(head, &rcuhead_debug_descr);
+}
+static int rcuhead_fixup_activate(void *addr, enum debug_obj_state state)
+{
+struct rcu_head *head = addr;
+switch (state) {
+case ODEBUG_STATE_NOTAVAILABLE:
+debug_object_init(head, &rcuhead_debug_descr);
+debug_object_activate(head, &rcuhead_debug_descr);
+return 0;
+default:
+return 1;
+}
+}
+void init_rcu_head_on_stack(struct rcu_head *head)
+{
+debug_object_init_on_stack(head, &rcuhead_debug_descr);
+}
+void destroy_rcu_head_on_stack(struct rcu_head *head)
+{
+debug_object_free(head, &rcuhead_debug_descr);
+}
+void do_trace_rcu_torture_read(const char *rcutorturename, struct rcu_head *rhp,
+unsigned long secs,
+unsigned long c_old, unsigned long c)
+{
+trace_rcu_torture_read(rcutorturename, rhp, secs, c_old, c);
+}
+int rcu_jiffies_till_stall_check(void)
+{
+int till_stall_check = ACCESS_ONCE(rcu_cpu_stall_timeout);
+if (till_stall_check < 3) {
+ACCESS_ONCE(rcu_cpu_stall_timeout) = 3;
+till_stall_check = 3;
+} else if (till_stall_check > 300) {
+ACCESS_ONCE(rcu_cpu_stall_timeout) = 300;
+till_stall_check = 300;
+}
+return till_stall_check * HZ + RCU_STALL_DELAY_DELTA;
+}
+void rcu_sysrq_start(void)
+{
+if (!rcu_cpu_stall_suppress)
+rcu_cpu_stall_suppress = 2;
+}
+void rcu_sysrq_end(void)
+{
+if (rcu_cpu_stall_suppress == 2)
+rcu_cpu_stall_suppress = 0;
+}
+static int rcu_panic(struct notifier_block *this, unsigned long ev, void *ptr)
+{
+rcu_cpu_stall_suppress = 1;
+return NOTIFY_DONE;
+}
+static int __init check_cpu_stall_init(void)
+{
+atomic_notifier_chain_register(&panic_notifier_list, &rcu_panic_block);
+return 0;
+}

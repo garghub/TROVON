@@ -1,0 +1,1 @@
+unsigned int ltq_get_io_region_clock(void)\r\n{\r\nreturn CLOCK_133M;\r\n}\r\nunsigned int ltq_get_fpi_bus_clock(int fpi)\r\n{\r\nreturn CLOCK_133M;\r\n}\r\nunsigned int ltq_get_cpu_hz(void)\r\n{\r\nif (ltq_cgu_r32(LTQ_CGU_SYS) & (1 << 5))\r\nreturn CLOCK_266M;\r\nelse\r\nreturn CLOCK_133M;\r\n}\r\nunsigned int ltq_get_fpi_hz(void)\r\n{\r\nreturn CLOCK_133M;\r\n}

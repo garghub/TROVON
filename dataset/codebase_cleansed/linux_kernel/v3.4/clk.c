@@ -1,0 +1,1 @@
+struct clk *clk_get(struct device *dev, const char *id)\r\n{\r\nreturn NULL;\r\n}\r\nint clk_enable(struct clk *clk)\r\n{\r\nreturn 0;\r\n}\r\nvoid clk_disable(struct clk *clk)\r\n{\r\n}\r\nvoid clk_put(struct clk *clk)\r\n{\r\n}\r\nunsigned long clk_get_rate(struct clk *clk)\r\n{\r\nreturn MCF_CLK;\r\n}

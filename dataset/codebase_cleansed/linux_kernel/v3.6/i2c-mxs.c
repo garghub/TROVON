@@ -1,0 +1,232 @@
+static void mxs_i2c_reset(struct mxs_i2c_dev *i2c)
+{
+stmp_reset_block(i2c->regs);
+writel(i2c->speed->timing0, i2c->regs + MXS_I2C_TIMING0);
+writel(i2c->speed->timing1, i2c->regs + MXS_I2C_TIMING1);
+writel(i2c->speed->timing2, i2c->regs + MXS_I2C_TIMING2);
+writel(MXS_I2C_IRQ_MASK << 8, i2c->regs + MXS_I2C_CTRL1_SET);
+writel(MXS_I2C_QUEUECTRL_PIO_QUEUE_MODE,
+i2c->regs + MXS_I2C_QUEUECTRL_SET);
+}
+static void mxs_i2c_pioq_setup_read(struct mxs_i2c_dev *i2c, u8 addr, int len,
+int flags)
+{
+u32 data;
+writel(MXS_CMD_I2C_SELECT, i2c->regs + MXS_I2C_QUEUECMD);
+data = (addr << 1) | I2C_SMBUS_READ;
+writel(data, i2c->regs + MXS_I2C_DATA);
+data = MXS_CMD_I2C_READ | MXS_I2C_CTRL0_XFER_COUNT(len) | flags;
+writel(data, i2c->regs + MXS_I2C_QUEUECMD);
+}
+static void mxs_i2c_pioq_setup_write(struct mxs_i2c_dev *i2c,
+u8 addr, u8 *buf, int len, int flags)
+{
+u32 data;
+int i, shifts_left;
+data = MXS_CMD_I2C_WRITE | MXS_I2C_CTRL0_XFER_COUNT(len + 1) | flags;
+writel(data, i2c->regs + MXS_I2C_QUEUECMD);
+data = ((addr << 1) | I2C_SMBUS_WRITE) << 24;
+for (i = 0; i < len; i++) {
+data >>= 8;
+data |= buf[i] << 24;
+if ((i & 3) == 2)
+writel(data, i2c->regs + MXS_I2C_DATA);
+}
+shifts_left = 24 - (i & 3) * 8;
+if (shifts_left)
+writel(data >> shifts_left, i2c->regs + MXS_I2C_DATA);
+}
+static int mxs_i2c_wait_for_data(struct mxs_i2c_dev *i2c)
+{
+unsigned long timeout = jiffies + msecs_to_jiffies(1000);
+while (readl(i2c->regs + MXS_I2C_QUEUESTAT)
+& MXS_I2C_QUEUESTAT_RD_QUEUE_EMPTY) {
+if (time_after(jiffies, timeout))
+return -ETIMEDOUT;
+cond_resched();
+}
+return 0;
+}
+static int mxs_i2c_finish_read(struct mxs_i2c_dev *i2c, u8 *buf, int len)
+{
+u32 uninitialized_var(data);
+int i;
+for (i = 0; i < len; i++) {
+if ((i & 3) == 0) {
+if (mxs_i2c_wait_for_data(i2c))
+return -ETIMEDOUT;
+data = readl(i2c->regs + MXS_I2C_QUEUEDATA);
+}
+buf[i] = data & 0xff;
+data >>= 8;
+}
+return 0;
+}
+static int mxs_i2c_xfer_msg(struct i2c_adapter *adap, struct i2c_msg *msg,
+int stop)
+{
+struct mxs_i2c_dev *i2c = i2c_get_adapdata(adap);
+int ret;
+int flags;
+dev_dbg(i2c->dev, "addr: 0x%04x, len: %d, flags: 0x%x, stop: %d\n",
+msg->addr, msg->len, msg->flags, stop);
+if (msg->len == 0)
+return -EINVAL;
+init_completion(&i2c->cmd_complete);
+i2c->cmd_err = 0;
+flags = stop ? MXS_I2C_CTRL0_POST_SEND_STOP : 0;
+if (msg->flags & I2C_M_RD)
+mxs_i2c_pioq_setup_read(i2c, msg->addr, msg->len, flags);
+else
+mxs_i2c_pioq_setup_write(i2c, msg->addr, msg->buf, msg->len,
+flags);
+writel(MXS_I2C_QUEUECTRL_QUEUE_RUN,
+i2c->regs + MXS_I2C_QUEUECTRL_SET);
+ret = wait_for_completion_timeout(&i2c->cmd_complete,
+msecs_to_jiffies(1000));
+if (ret == 0)
+goto timeout;
+if ((!i2c->cmd_err) && (msg->flags & I2C_M_RD)) {
+ret = mxs_i2c_finish_read(i2c, msg->buf, msg->len);
+if (ret)
+goto timeout;
+}
+if (i2c->cmd_err == -ENXIO)
+mxs_i2c_reset(i2c);
+else
+writel(MXS_I2C_QUEUECTRL_QUEUE_RUN,
+i2c->regs + MXS_I2C_QUEUECTRL_CLR);
+dev_dbg(i2c->dev, "Done with err=%d\n", i2c->cmd_err);
+return i2c->cmd_err;
+timeout:
+dev_dbg(i2c->dev, "Timeout!\n");
+mxs_i2c_reset(i2c);
+return -ETIMEDOUT;
+}
+static int mxs_i2c_xfer(struct i2c_adapter *adap, struct i2c_msg msgs[],
+int num)
+{
+int i;
+int err;
+for (i = 0; i < num; i++) {
+err = mxs_i2c_xfer_msg(adap, &msgs[i], i == (num - 1));
+if (err)
+return err;
+}
+return num;
+}
+static u32 mxs_i2c_func(struct i2c_adapter *adap)
+{
+return I2C_FUNC_I2C | (I2C_FUNC_SMBUS_EMUL & ~I2C_FUNC_SMBUS_QUICK);
+}
+static irqreturn_t mxs_i2c_isr(int this_irq, void *dev_id)
+{
+struct mxs_i2c_dev *i2c = dev_id;
+u32 stat = readl(i2c->regs + MXS_I2C_CTRL1) & MXS_I2C_IRQ_MASK;
+bool is_last_cmd;
+if (!stat)
+return IRQ_NONE;
+if (stat & MXS_I2C_CTRL1_NO_SLAVE_ACK_IRQ)
+i2c->cmd_err = -ENXIO;
+else if (stat & (MXS_I2C_CTRL1_EARLY_TERM_IRQ |
+MXS_I2C_CTRL1_MASTER_LOSS_IRQ |
+MXS_I2C_CTRL1_SLAVE_STOP_IRQ | MXS_I2C_CTRL1_SLAVE_IRQ))
+i2c->cmd_err = -EIO;
+is_last_cmd = (readl(i2c->regs + MXS_I2C_QUEUESTAT) &
+MXS_I2C_QUEUESTAT_WRITE_QUEUE_CNT_MASK) == 0;
+if (is_last_cmd || i2c->cmd_err)
+complete(&i2c->cmd_complete);
+writel(stat, i2c->regs + MXS_I2C_CTRL1_CLR);
+return IRQ_HANDLED;
+}
+static int mxs_i2c_get_ofdata(struct mxs_i2c_dev *i2c)
+{
+uint32_t speed;
+struct device *dev = i2c->dev;
+struct device_node *node = dev->of_node;
+int ret;
+ret = of_property_read_u32(node, "clock-frequency", &speed);
+if (ret)
+dev_warn(dev, "No I2C speed selected, using 100kHz\n");
+else if (speed == 400000)
+i2c->speed = &mxs_i2c_400kHz_config;
+else if (speed != 100000)
+dev_warn(dev, "Unsupported I2C speed selected, using 100kHz\n");
+return 0;
+}
+static int __devinit mxs_i2c_probe(struct platform_device *pdev)
+{
+struct device *dev = &pdev->dev;
+struct mxs_i2c_dev *i2c;
+struct i2c_adapter *adap;
+struct pinctrl *pinctrl;
+struct resource *res;
+resource_size_t res_size;
+int err, irq;
+pinctrl = devm_pinctrl_get_select_default(dev);
+if (IS_ERR(pinctrl))
+return PTR_ERR(pinctrl);
+i2c = devm_kzalloc(dev, sizeof(struct mxs_i2c_dev), GFP_KERNEL);
+if (!i2c)
+return -ENOMEM;
+res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+if (!res)
+return -ENOENT;
+res_size = resource_size(res);
+if (!devm_request_mem_region(dev, res->start, res_size, res->name))
+return -EBUSY;
+i2c->regs = devm_ioremap_nocache(dev, res->start, res_size);
+if (!i2c->regs)
+return -EBUSY;
+irq = platform_get_irq(pdev, 0);
+if (irq < 0)
+return irq;
+err = devm_request_irq(dev, irq, mxs_i2c_isr, 0, dev_name(dev), i2c);
+if (err)
+return err;
+i2c->dev = dev;
+i2c->speed = &mxs_i2c_95kHz_config;
+if (dev->of_node) {
+err = mxs_i2c_get_ofdata(i2c);
+if (err)
+return err;
+}
+platform_set_drvdata(pdev, i2c);
+mxs_i2c_reset(i2c);
+adap = &i2c->adapter;
+strlcpy(adap->name, "MXS I2C adapter", sizeof(adap->name));
+adap->owner = THIS_MODULE;
+adap->algo = &mxs_i2c_algo;
+adap->dev.parent = dev;
+adap->nr = pdev->id;
+adap->dev.of_node = pdev->dev.of_node;
+i2c_set_adapdata(adap, i2c);
+err = i2c_add_numbered_adapter(adap);
+if (err) {
+dev_err(dev, "Failed to add adapter (%d)\n", err);
+writel(MXS_I2C_CTRL0_SFTRST,
+i2c->regs + MXS_I2C_CTRL0_SET);
+return err;
+}
+of_i2c_register_devices(adap);
+return 0;
+}
+static int __devexit mxs_i2c_remove(struct platform_device *pdev)
+{
+struct mxs_i2c_dev *i2c = platform_get_drvdata(pdev);
+int ret;
+ret = i2c_del_adapter(&i2c->adapter);
+if (ret)
+return -EBUSY;
+writel(MXS_I2C_CTRL0_SFTRST, i2c->regs + MXS_I2C_CTRL0_SET);
+platform_set_drvdata(pdev, NULL);
+return 0;
+}
+static int __init mxs_i2c_init(void)
+{
+return platform_driver_probe(&mxs_i2c_driver, mxs_i2c_probe);
+}
+static void __exit mxs_i2c_exit(void)
+{
+platform_driver_unregister(&mxs_i2c_driver);
+}

@@ -1,0 +1,1 @@
+static int zynq_enter_idle(struct cpuidle_device *dev,\r\nstruct cpuidle_driver *drv, int index)\r\n{\r\ncpu_pm_enter();\r\ncpu_do_idle();\r\ncpu_pm_exit();\r\nreturn index;\r\n}\r\nstatic int zynq_cpuidle_probe(struct platform_device *pdev)\r\n{\r\npr_info("Xilinx Zynq CpuIdle Driver started\n");\r\nreturn cpuidle_register(&zynq_idle_driver, NULL);\r\n}

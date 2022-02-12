@@ -1,0 +1,1 @@
+int\r\nfctiw(u32 *frD, void *frB)\r\n{\r\nFP_DECL_D(B);\r\nFP_DECL_EX;\r\nunsigned int r;\r\nFP_UNPACK_DP(B, frB);\r\nFP_TO_INT_D(r, B, 32, 1);\r\nfrD[1] = r;\r\n#ifdef DEBUG\r\nprintk("%s: D %p, B %p: ", __func__, frD, frB);\r\ndump_double(frD);\r\nprintk("\n");\r\n#endif\r\nreturn 0;\r\n}

@@ -1,0 +1,45 @@
+static int dbx500_cpufreq_target(struct cpufreq_policy *policy,
+unsigned int index)
+{
+return clk_set_rate(armss_clk, freq_table[index].frequency * 1000);
+}
+static unsigned int dbx500_cpufreq_getspeed(unsigned int cpu)
+{
+int i = 0;
+unsigned long freq = clk_get_rate(armss_clk) / 1000;
+while (freq_table[i + 1].frequency != CPUFREQ_TABLE_END) {
+if (freq < freq_table[i].frequency +
+(freq_table[i + 1].frequency - freq_table[i].frequency) / 2)
+return freq_table[i].frequency;
+i++;
+}
+return freq_table[i].frequency;
+}
+static int dbx500_cpufreq_init(struct cpufreq_policy *policy)
+{
+return cpufreq_generic_init(policy, freq_table, 20 * 1000);
+}
+static int dbx500_cpufreq_probe(struct platform_device *pdev)
+{
+int i = 0;
+freq_table = dev_get_platdata(&pdev->dev);
+if (!freq_table) {
+pr_err("dbx500-cpufreq: Failed to fetch cpufreq table\n");
+return -ENODEV;
+}
+armss_clk = clk_get(&pdev->dev, "armss");
+if (IS_ERR(armss_clk)) {
+pr_err("dbx500-cpufreq: Failed to get armss clk\n");
+return PTR_ERR(armss_clk);
+}
+pr_info("dbx500-cpufreq: Available frequencies:\n");
+while (freq_table[i].frequency != CPUFREQ_TABLE_END) {
+pr_info(" %d Mhz\n", freq_table[i].frequency/1000);
+i++;
+}
+return cpufreq_register_driver(&dbx500_cpufreq_driver);
+}
+static int __init dbx500_cpufreq_register(void)
+{
+return platform_driver_register(&dbx500_cpufreq_plat_driver);
+}

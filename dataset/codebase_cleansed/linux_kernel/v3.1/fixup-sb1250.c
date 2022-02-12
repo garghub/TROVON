@@ -1,0 +1,1 @@
+static void __init quirk_sb1250_pci(struct pci_dev *dev)\r\n{\r\npci_write_config_byte(dev, 0x40, 0xff);\r\n}\r\nstatic void __init quirk_sb1250_ht(struct pci_dev *dev)\r\n{\r\ndev->class = PCI_CLASS_BRIDGE_PCI << 8;\r\n}\r\nstatic void __init quirk_sp1011(struct pci_dev *dev)\r\n{\r\npci_write_config_byte(dev, 0x64, 0xff);\r\n}

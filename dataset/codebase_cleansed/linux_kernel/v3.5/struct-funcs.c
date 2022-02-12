@@ -1,0 +1,1 @@
+void btrfs_node_key(struct extent_buffer *eb,\r\nstruct btrfs_disk_key *disk_key, int nr)\r\n{\r\nunsigned long ptr = btrfs_node_key_ptr_offset(nr);\r\nread_eb_member(eb, (struct btrfs_key_ptr *)ptr,\r\nstruct btrfs_key_ptr, key, disk_key);\r\n}

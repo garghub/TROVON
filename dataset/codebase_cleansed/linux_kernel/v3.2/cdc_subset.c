@@ -1,0 +1,1 @@
+static int always_connected (struct usbnet *dev)\r\n{\r\nreturn 0;\r\n}\r\nstatic int __init cdc_subset_init(void)\r\n{\r\nreturn usb_register(&cdc_subset_driver);\r\n}\r\nstatic void __exit cdc_subset_exit(void)\r\n{\r\nusb_deregister(&cdc_subset_driver);\r\n}

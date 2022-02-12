@@ -1,0 +1,1 @@
+void __init ath79_register_ar913x_wmac(u8 *cal_data)\r\n{\r\nif (cal_data)\r\nmemcpy(ar913x_wmac_data.eeprom_data, cal_data,\r\nsizeof(ar913x_wmac_data.eeprom_data));\r\nath79_device_reset_set(AR913X_RESET_AMBA2WMAC);\r\nmdelay(10);\r\nath79_device_reset_clear(AR913X_RESET_AMBA2WMAC);\r\nmdelay(10);\r\nplatform_device_register(&ar913x_wmac_device);\r\n}

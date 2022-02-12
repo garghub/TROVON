@@ -1,0 +1,1 @@
+int scm_set_boot_addr(phys_addr_t addr, int flags)\r\n{\r\nstruct {\r\nunsigned int flags;\r\nphys_addr_t addr;\r\n} cmd;\r\ncmd.addr = addr;\r\ncmd.flags = flags;\r\nreturn scm_call(SCM_SVC_BOOT, SCM_BOOT_ADDR,\r\n&cmd, sizeof(cmd), NULL, 0);\r\n}

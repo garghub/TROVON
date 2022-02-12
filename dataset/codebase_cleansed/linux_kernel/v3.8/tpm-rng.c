@@ -1,0 +1,1 @@
+static int tpm_rng_read(struct hwrng *rng, void *data, size_t max, bool wait)\r\n{\r\nreturn tpm_get_random(TPM_ANY_NUM, data, max);\r\n}\r\nstatic int __init rng_init(void)\r\n{\r\nreturn hwrng_register(&tpm_rng);\r\n}\r\nstatic void __exit rng_exit(void)\r\n{\r\nhwrng_unregister(&tpm_rng);\r\n}

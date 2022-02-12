@@ -1,0 +1,1 @@
+void xmon_map_scc(void)\r\n{\r\n}\r\nint xmon_write(const void *ptr, int nb)\r\n{\r\nreturn udbg_write(ptr, nb);\r\n}\r\nint xmon_readchar(void)\r\n{\r\nif (udbg_getc)\r\nreturn udbg_getc();\r\nreturn -1;\r\n}\r\nint xmon_read_poll(void)\r\n{\r\nif (udbg_getc_poll)\r\nreturn udbg_getc_poll();\r\nreturn -1;\r\n}

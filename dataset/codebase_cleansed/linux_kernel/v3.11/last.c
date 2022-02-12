@@ -1,0 +1,1 @@
+static int __init alsa_sound_last_init(void)\r\n{\r\nint idx, ok = 0;\r\nprintk(KERN_INFO "ALSA device list:\n");\r\nfor (idx = 0; idx < SNDRV_CARDS; idx++)\r\nif (snd_cards[idx] != NULL) {\r\nprintk(KERN_INFO " #%i: %s\n", idx, snd_cards[idx]->longname);\r\nok++;\r\n}\r\nif (ok == 0)\r\nprintk(KERN_INFO " No soundcards found.\n");\r\nreturn 0;\r\n}

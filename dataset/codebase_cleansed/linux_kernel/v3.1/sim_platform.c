@@ -1,0 +1,1 @@
+static int __init mipsnet_devinit(void)\r\n{\r\nint err;\r\nerr = platform_device_register(&eth1_device);\r\nif (err)\r\nprintk(KERN_ERR "%s: registration failed\n", mipsnet_string);\r\nreturn err;\r\n}

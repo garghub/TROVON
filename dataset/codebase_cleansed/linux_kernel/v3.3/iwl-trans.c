@@ -1,0 +1,1 @@
+int iwl_trans_send_cmd_pdu(struct iwl_trans *trans, u8 id,\r\nu32 flags, u16 len, const void *data)\r\n{\r\nstruct iwl_host_cmd cmd = {\r\n.id = id,\r\n.len = { len, },\r\n.data = { data, },\r\n.flags = flags,\r\n};\r\nreturn iwl_trans_send_cmd(trans, &cmd);\r\n}

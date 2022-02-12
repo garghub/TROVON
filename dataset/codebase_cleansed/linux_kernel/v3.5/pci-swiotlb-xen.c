@@ -1,0 +1,1 @@
+int __init pci_xen_swiotlb_detect(void)\r\n{\r\nif ((xen_initial_domain() || swiotlb || swiotlb_force) &&\r\n(xen_pv_domain()))\r\nxen_swiotlb = 1;\r\nif (xen_pv_domain())\r\nswiotlb = 0;\r\nreturn xen_swiotlb;\r\n}\r\nvoid __init pci_xen_swiotlb_init(void)\r\n{\r\nif (xen_swiotlb) {\r\nxen_swiotlb_init(1);\r\ndma_ops = &xen_swiotlb_dma_ops;\r\npci_request_acs();\r\n}\r\n}

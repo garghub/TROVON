@@ -1,0 +1,1 @@
+unsigned long __copy_from_user_zeroing(void *to, const void __user *from,\r\nunsigned long n)\r\n{\r\nunsigned long rc = __copy_from_user_inatomic(to, from, n);\r\nif (unlikely(rc))\r\nmemset(to + n - rc, 0, rc);\r\nreturn rc;\r\n}

@@ -1,0 +1,1 @@
+static void __init imx27_dt_init(void)\r\n{\r\nof_platform_populate(NULL, of_default_bus_match_table,\r\nimx27_auxdata_lookup, NULL);\r\n}\r\nstatic void __init imx27_timer_init(void)\r\n{\r\nmx27_clocks_init_dt();\r\n}

@@ -1,0 +1,1 @@
+unsigned int instruction_size(unsigned int insn)\r\n{\r\nswitch ((insn & 0xf00f)) {\r\ncase 0x0000:\r\ncase 0x0001:\r\ncase 0x3001:\r\nreturn 4;\r\n}\r\nswitch ((insn & 0xf08f)) {\r\ncase 0x3009:\r\nreturn 4;\r\n}\r\nreturn 2;\r\n}

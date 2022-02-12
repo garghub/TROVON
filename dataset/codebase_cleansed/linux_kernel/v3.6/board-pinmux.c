@@ -1,0 +1,1 @@
+void tegra_board_pinmux_init(struct tegra_board_pinmux_conf *conf_a,\r\nstruct tegra_board_pinmux_conf *conf_b)\r\n{\r\nif (conf_a)\r\npinctrl_register_mappings(conf_a->maps, conf_a->map_count);\r\nif (conf_b)\r\npinctrl_register_mappings(conf_b->maps, conf_b->map_count);\r\nplatform_add_devices(devices, ARRAY_SIZE(devices));\r\n}

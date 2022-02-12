@@ -1,0 +1,129 @@
+static ssize_t ad9951_set_parameter(struct device *dev,
+struct device_attribute *attr,
+const char *buf,
+size_t len)
+{
+struct spi_message msg;
+struct spi_transfer xfer;
+int ret;
+struct ad9951_config *config = (struct ad9951_config *)buf;
+struct iio_dev *idev = dev_get_drvdata(dev);
+struct ad9951_state *st = idev->dev_data;
+xfer.len = 3;
+xfer.tx_buf = &config->asf[0];
+mutex_lock(&st->lock);
+spi_message_init(&msg);
+spi_message_add_tail(&xfer, &msg);
+ret = spi_sync(st->sdev, &msg);
+if (ret)
+goto error_ret;
+xfer.len = 2;
+xfer.tx_buf = &config->arr[0];
+spi_message_init(&msg);
+spi_message_add_tail(&xfer, &msg);
+ret = spi_sync(st->sdev, &msg);
+if (ret)
+goto error_ret;
+xfer.len = 5;
+xfer.tx_buf = &config->ftw0[0];
+spi_message_init(&msg);
+spi_message_add_tail(&xfer, &msg);
+ret = spi_sync(st->sdev, &msg);
+if (ret)
+goto error_ret;
+xfer.len = 3;
+xfer.tx_buf = &config->ftw1[0];
+spi_message_init(&msg);
+spi_message_add_tail(&xfer, &msg);
+ret = spi_sync(st->sdev, &msg);
+if (ret)
+goto error_ret;
+error_ret:
+mutex_unlock(&st->lock);
+return ret ? ret : len;
+}
+static void ad9951_init(struct ad9951_state *st)
+{
+struct spi_message msg;
+struct spi_transfer xfer;
+int ret;
+u8 cfr[5];
+cfr[0] = CFR1;
+cfr[1] = 0;
+cfr[2] = LSB_FST | CLR_PHA | SINE_OPT | ACLR_PHA;
+cfr[3] = AUTO_OSK | OSKEN | LOAD_ARR;
+cfr[4] = 0;
+mutex_lock(&st->lock);
+xfer.len = 5;
+xfer.tx_buf = &cfr;
+spi_message_init(&msg);
+spi_message_add_tail(&xfer, &msg);
+ret = spi_sync(st->sdev, &msg);
+if (ret)
+goto error_ret;
+cfr[0] = CFR2;
+cfr[1] = VCO_RANGE;
+cfr[2] = HSPD_SYNC;
+cfr[3] = 0;
+xfer.len = 4;
+xfer.tx_buf = &cfr;
+spi_message_init(&msg);
+spi_message_add_tail(&xfer, &msg);
+ret = spi_sync(st->sdev, &msg);
+if (ret)
+goto error_ret;
+error_ret:
+mutex_unlock(&st->lock);
+}
+static int __devinit ad9951_probe(struct spi_device *spi)
+{
+struct ad9951_state *st;
+int ret = 0;
+st = kzalloc(sizeof(*st), GFP_KERNEL);
+if (st == NULL) {
+ret = -ENOMEM;
+goto error_ret;
+}
+spi_set_drvdata(spi, st);
+mutex_init(&st->lock);
+st->sdev = spi;
+st->idev = iio_allocate_device(0);
+if (st->idev == NULL) {
+ret = -ENOMEM;
+goto error_free_st;
+}
+st->idev->dev.parent = &spi->dev;
+st->idev->info = &ad9951_info;
+st->idev->dev_data = (void *)(st);
+st->idev->modes = INDIO_DIRECT_MODE;
+ret = iio_device_register(st->idev);
+if (ret)
+goto error_free_dev;
+spi->max_speed_hz = 2000000;
+spi->mode = SPI_MODE_3;
+spi->bits_per_word = 8;
+spi_setup(spi);
+ad9951_init(st);
+return 0;
+error_free_dev:
+iio_free_device(st->idev);
+error_free_st:
+kfree(st);
+error_ret:
+return ret;
+}
+static int __devexit ad9951_remove(struct spi_device *spi)
+{
+struct ad9951_state *st = spi_get_drvdata(spi);
+iio_device_unregister(st->idev);
+kfree(st);
+return 0;
+}
+static __init int ad9951_spi_init(void)
+{
+return spi_register_driver(&ad9951_driver);
+}
+static __exit void ad9951_spi_exit(void)
+{
+spi_unregister_driver(&ad9951_driver);
+}

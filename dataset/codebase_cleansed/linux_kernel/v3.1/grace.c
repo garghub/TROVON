@@ -1,0 +1,1 @@
+void locks_start_grace(struct lock_manager *lm)\r\n{\r\nspin_lock(&grace_lock);\r\nlist_add(&lm->list, &grace_list);\r\nspin_unlock(&grace_lock);\r\n}\r\nvoid locks_end_grace(struct lock_manager *lm)\r\n{\r\nspin_lock(&grace_lock);\r\nlist_del_init(&lm->list);\r\nspin_unlock(&grace_lock);\r\n}\r\nint locks_in_grace(void)\r\n{\r\nreturn !list_empty(&grace_list);\r\n}

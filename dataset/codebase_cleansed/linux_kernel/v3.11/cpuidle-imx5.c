@@ -1,0 +1,1 @@
+static int imx5_cpuidle_enter(struct cpuidle_device *dev,\r\nstruct cpuidle_driver *drv, int index)\r\n{\r\narm_pm_idle();\r\nreturn index;\r\n}\r\nint __init imx5_cpuidle_init(void)\r\n{\r\nreturn cpuidle_register(&imx5_cpuidle_driver, NULL);\r\n}

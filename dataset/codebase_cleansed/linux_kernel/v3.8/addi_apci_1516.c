@@ -1,0 +1,178 @@
+static int apci1516_di_insn_bits(struct comedi_device *dev,
+struct comedi_subdevice *s,
+struct comedi_insn *insn,
+unsigned int *data)
+{
+data[1] = inw(dev->iobase + APCI1516_DI_REG);
+return insn->n;
+}
+static int apci1516_do_insn_bits(struct comedi_device *dev,
+struct comedi_subdevice *s,
+struct comedi_insn *insn,
+unsigned int *data)
+{
+unsigned int mask = data[0];
+unsigned int bits = data[1];
+s->state = inw(dev->iobase + APCI1516_DO_REG);
+if (mask) {
+s->state &= ~mask;
+s->state |= (bits & mask);
+outw(s->state, dev->iobase + APCI1516_DO_REG);
+}
+data[1] = s->state;
+return insn->n;
+}
+static int apci1516_wdog_insn_config(struct comedi_device *dev,
+struct comedi_subdevice *s,
+struct comedi_insn *insn,
+unsigned int *data)
+{
+struct apci1516_private *devpriv = dev->private;
+unsigned int reload;
+switch (data[0]) {
+case INSN_CONFIG_ARM:
+devpriv->ctrl = APCI1516_WDOG_CTRL_ENABLE;
+reload = data[1] & s->maxdata;
+outw(reload, devpriv->wdog_iobase + APCI1516_WDOG_RELOAD_REG);
+dev_info(dev->class_dev, "watchdog enabled, timeout:%dms\n",
+20 * reload + 20);
+break;
+case INSN_CONFIG_DISARM:
+devpriv->ctrl = 0;
+break;
+default:
+return -EINVAL;
+}
+outw(devpriv->ctrl, devpriv->wdog_iobase + APCI1516_WDOG_CTRL_REG);
+return insn->n;
+}
+static int apci1516_wdog_insn_write(struct comedi_device *dev,
+struct comedi_subdevice *s,
+struct comedi_insn *insn,
+unsigned int *data)
+{
+struct apci1516_private *devpriv = dev->private;
+int i;
+if (devpriv->ctrl == 0) {
+dev_warn(dev->class_dev, "watchdog is disabled\n");
+return -EINVAL;
+}
+for (i = 0; i < insn->n; i++) {
+outw(devpriv->ctrl | APCI1516_WDOG_CTRL_SW_TRIG,
+devpriv->wdog_iobase + APCI1516_WDOG_CTRL_REG);
+}
+return insn->n;
+}
+static int apci1516_wdog_insn_read(struct comedi_device *dev,
+struct comedi_subdevice *s,
+struct comedi_insn *insn,
+unsigned int *data)
+{
+struct apci1516_private *devpriv = dev->private;
+int i;
+for (i = 0; i < insn->n; i++)
+data[i] = inw(devpriv->wdog_iobase + APCI1516_WDOG_STATUS_REG);
+return insn->n;
+}
+static int apci1516_reset(struct comedi_device *dev)
+{
+const struct apci1516_boardinfo *this_board = comedi_board(dev);
+struct apci1516_private *devpriv = dev->private;
+if (!this_board->has_wdog)
+return 0;
+outw(0x0, dev->iobase + APCI1516_DO_REG);
+outw(0x0, devpriv->wdog_iobase + APCI1516_WDOG_CTRL_REG);
+outw(0x0, devpriv->wdog_iobase + APCI1516_WDOG_RELOAD_REG);
+return 0;
+}
+static const void *apci1516_find_boardinfo(struct comedi_device *dev,
+struct pci_dev *pcidev)
+{
+const struct apci1516_boardinfo *this_board;
+int i;
+for (i = 0; i < dev->driver->num_names; i++) {
+this_board = &apci1516_boardtypes[i];
+if (this_board->device == pcidev->device)
+return this_board;
+}
+return NULL;
+}
+static int apci1516_auto_attach(struct comedi_device *dev,
+unsigned long context_unused)
+{
+struct pci_dev *pcidev = comedi_to_pci_dev(dev);
+const struct apci1516_boardinfo *this_board;
+struct apci1516_private *devpriv;
+struct comedi_subdevice *s;
+int ret;
+this_board = apci1516_find_boardinfo(dev, pcidev);
+if (!this_board)
+return -ENODEV;
+dev->board_ptr = this_board;
+dev->board_name = this_board->name;
+devpriv = kzalloc(sizeof(*devpriv), GFP_KERNEL);
+if (!devpriv)
+return -ENOMEM;
+dev->private = devpriv;
+ret = comedi_pci_enable(pcidev, dev->board_name);
+if (ret)
+return ret;
+dev->iobase = pci_resource_start(pcidev, 1);
+devpriv->wdog_iobase = pci_resource_start(pcidev, 2);
+ret = comedi_alloc_subdevices(dev, 3);
+if (ret)
+return ret;
+s = &dev->subdevices[0];
+if (this_board->di_nchan) {
+s->type = COMEDI_SUBD_DI;
+s->subdev_flags = SDF_READABLE;
+s->n_chan = this_board->di_nchan;
+s->maxdata = 1;
+s->range_table = &range_digital;
+s->insn_bits = apci1516_di_insn_bits;
+} else {
+s->type = COMEDI_SUBD_UNUSED;
+}
+s = &dev->subdevices[1];
+if (this_board->do_nchan) {
+s->type = COMEDI_SUBD_DO;
+s->subdev_flags = SDF_WRITEABLE;
+s->n_chan = this_board->do_nchan;
+s->maxdata = 1;
+s->range_table = &range_digital;
+s->insn_bits = apci1516_do_insn_bits;
+} else {
+s->type = COMEDI_SUBD_UNUSED;
+}
+s = &dev->subdevices[2];
+if (this_board->has_wdog) {
+s->type = COMEDI_SUBD_TIMER;
+s->subdev_flags = SDF_WRITEABLE;
+s->n_chan = 1;
+s->maxdata = 0xff;
+s->insn_write = apci1516_wdog_insn_write;
+s->insn_read = apci1516_wdog_insn_read;
+s->insn_config = apci1516_wdog_insn_config;
+} else {
+s->type = COMEDI_SUBD_UNUSED;
+}
+apci1516_reset(dev);
+return 0;
+}
+static void apci1516_detach(struct comedi_device *dev)
+{
+struct pci_dev *pcidev = comedi_to_pci_dev(dev);
+if (dev->iobase) {
+apci1516_reset(dev);
+comedi_pci_disable(pcidev);
+}
+}
+static int apci1516_pci_probe(struct pci_dev *dev,
+const struct pci_device_id *ent)
+{
+return comedi_pci_auto_config(dev, &apci1516_driver);
+}
+static void apci1516_pci_remove(struct pci_dev *dev)
+{
+comedi_pci_auto_unconfig(dev);
+}

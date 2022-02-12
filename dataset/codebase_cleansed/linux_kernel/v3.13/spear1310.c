@@ -1,0 +1,1 @@
+static void __init spear1310_dt_init(void)\r\n{\r\nof_platform_populate(NULL, of_default_bus_match_table, NULL, NULL);\r\n}\r\nstatic void __init spear1310_map_io(void)\r\n{\r\niotable_init(spear1310_io_desc, ARRAY_SIZE(spear1310_io_desc));\r\nspear13xx_map_io();\r\n}

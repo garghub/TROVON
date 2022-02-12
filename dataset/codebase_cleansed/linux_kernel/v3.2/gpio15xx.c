@@ -1,0 +1,1 @@
+static int __init omap15xx_gpio_init(void)\r\n{\r\nif (!cpu_is_omap15xx())\r\nreturn -EINVAL;\r\nplatform_device_register(&omap15xx_mpu_gpio);\r\nplatform_device_register(&omap15xx_gpio);\r\ngpio_bank_count = 2;\r\nreturn 0;\r\n}

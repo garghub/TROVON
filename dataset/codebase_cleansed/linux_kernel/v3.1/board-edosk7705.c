@@ -1,0 +1,1 @@
+static void __init sh_edosk7705_init_irq(void)\r\n{\r\nmake_imask_irq(ETHERNET_IRQ);\r\n}\r\nstatic int __init init_edosk7705_devices(void)\r\n{\r\nreturn platform_add_devices(edosk7705_devices,\r\nARRAY_SIZE(edosk7705_devices));\r\n}

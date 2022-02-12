@@ -1,0 +1,1 @@
+const char *get_system_type(void)\r\n{\r\nreturn "NXP PNX8950/STB810";\r\n}\r\nvoid __init prom_init(void)\r\n{\r\nunsigned long memsize;\r\nprom_argc = (int) fw_arg0;\r\nprom_argv = (char **) fw_arg1;\r\nprom_envp = (char **) fw_arg2;\r\nprom_init_cmdline();\r\nmemsize = 0x08000000;\r\nadd_memory_region(0, memsize, BOOT_MEM_RAM);\r\n}

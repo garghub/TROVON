@@ -1,0 +1,1 @@
+static void __init mx27lite_init(void)\r\n{\r\nimx27_soc_init();\r\nmxc_gpio_setup_multiple_pins(mx27lite_pins, ARRAY_SIZE(mx27lite_pins),\r\n"imx27lite");\r\nimx27_add_imx_uart0(&uart_pdata);\r\nimx27_add_fec(NULL);\r\n}\r\nstatic void __init mx27lite_timer_init(void)\r\n{\r\nmx27_clocks_init(26000000);\r\n}

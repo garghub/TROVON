@@ -1,0 +1,1 @@
+static int idefloppy_capacity_proc_show(struct seq_file *m, void *v)\r\n{\r\nide_drive_t*drive = (ide_drive_t *)m->private;\r\nseq_printf(m, "%llu\n", (long long)ide_gd_capacity(drive));\r\nreturn 0;\r\n}\r\nstatic int idefloppy_capacity_proc_open(struct inode *inode, struct file *file)\r\n{\r\nreturn single_open(file, idefloppy_capacity_proc_show, PDE(inode)->data);\r\n}

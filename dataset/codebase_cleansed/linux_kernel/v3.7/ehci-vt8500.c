@@ -1,0 +1,59 @@
+static int ehci_update_device(struct usb_hcd *hcd, struct usb_device *udev)
+{
+struct ehci_hcd *ehci = hcd_to_ehci(hcd);
+int rc = 0;
+if (!udev->parent)
+rc = -1;
+if (ehci->has_lpm && !udev->parent->parent) {
+rc = ehci_lpm_set_da(ehci, udev->devnum, udev->portnum);
+if (!rc)
+rc = ehci_lpm_check(ehci, udev->portnum);
+}
+return rc;
+}
+static int vt8500_ehci_drv_probe(struct platform_device *pdev)
+{
+struct usb_hcd *hcd;
+struct ehci_hcd *ehci;
+struct resource *res;
+int ret;
+if (usb_disabled())
+return -ENODEV;
+if (!pdev->dev.dma_mask)
+pdev->dev.dma_mask = &vt8500_ehci_dma_mask;
+if (pdev->resource[1].flags != IORESOURCE_IRQ) {
+pr_debug("resource[1] is not IORESOURCE_IRQ");
+return -ENOMEM;
+}
+hcd = usb_create_hcd(&vt8500_ehci_hc_driver, &pdev->dev, "VT8500");
+if (!hcd)
+return -ENOMEM;
+res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+hcd->rsrc_start = res->start;
+hcd->rsrc_len = resource_size(res);
+hcd->regs = devm_request_and_ioremap(&pdev->dev, res);
+if (!hcd->regs) {
+pr_debug("ioremap failed");
+ret = -ENOMEM;
+goto err1;
+}
+ehci = hcd_to_ehci(hcd);
+ehci->caps = hcd->regs;
+ret = usb_add_hcd(hcd, pdev->resource[1].start,
+IRQF_SHARED);
+if (ret == 0) {
+platform_set_drvdata(pdev, hcd);
+return ret;
+}
+err1:
+usb_put_hcd(hcd);
+return ret;
+}
+static int vt8500_ehci_drv_remove(struct platform_device *pdev)
+{
+struct usb_hcd *hcd = platform_get_drvdata(pdev);
+usb_remove_hcd(hcd);
+usb_put_hcd(hcd);
+platform_set_drvdata(pdev, NULL);
+return 0;
+}

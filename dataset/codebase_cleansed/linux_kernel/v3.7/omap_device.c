@@ -1,0 +1,594 @@
+static int _omap_device_activate(struct omap_device *od, u8 ignore_lat)
+{
+struct timespec a, b, c;
+dev_dbg(&od->pdev->dev, "omap_device: activating\n");
+while (od->pm_lat_level > 0) {
+struct omap_device_pm_latency *odpl;
+unsigned long long act_lat = 0;
+od->pm_lat_level--;
+odpl = od->pm_lats + od->pm_lat_level;
+if (!ignore_lat &&
+(od->dev_wakeup_lat <= od->_dev_wakeup_lat_limit))
+break;
+read_persistent_clock(&a);
+odpl->activate_func(od);
+read_persistent_clock(&b);
+c = timespec_sub(b, a);
+act_lat = timespec_to_ns(&c);
+dev_dbg(&od->pdev->dev,
+"omap_device: pm_lat %d: activate: elapsed time %llu nsec\n",
+od->pm_lat_level, act_lat);
+if (act_lat > odpl->activate_lat) {
+odpl->activate_lat_worst = act_lat;
+if (odpl->flags & OMAP_DEVICE_LATENCY_AUTO_ADJUST) {
+odpl->activate_lat = act_lat;
+dev_dbg(&od->pdev->dev,
+"new worst case activate latency %d: %llu\n",
+od->pm_lat_level, act_lat);
+} else
+dev_warn(&od->pdev->dev,
+"activate latency %d higher than expected. (%llu > %d)\n",
+od->pm_lat_level, act_lat,
+odpl->activate_lat);
+}
+od->dev_wakeup_lat -= odpl->activate_lat;
+}
+return 0;
+}
+static int _omap_device_deactivate(struct omap_device *od, u8 ignore_lat)
+{
+struct timespec a, b, c;
+dev_dbg(&od->pdev->dev, "omap_device: deactivating\n");
+while (od->pm_lat_level < od->pm_lats_cnt) {
+struct omap_device_pm_latency *odpl;
+unsigned long long deact_lat = 0;
+odpl = od->pm_lats + od->pm_lat_level;
+if (!ignore_lat &&
+((od->dev_wakeup_lat + odpl->activate_lat) >
+od->_dev_wakeup_lat_limit))
+break;
+read_persistent_clock(&a);
+odpl->deactivate_func(od);
+read_persistent_clock(&b);
+c = timespec_sub(b, a);
+deact_lat = timespec_to_ns(&c);
+dev_dbg(&od->pdev->dev,
+"omap_device: pm_lat %d: deactivate: elapsed time %llu nsec\n",
+od->pm_lat_level, deact_lat);
+if (deact_lat > odpl->deactivate_lat) {
+odpl->deactivate_lat_worst = deact_lat;
+if (odpl->flags & OMAP_DEVICE_LATENCY_AUTO_ADJUST) {
+odpl->deactivate_lat = deact_lat;
+dev_dbg(&od->pdev->dev,
+"new worst case deactivate latency %d: %llu\n",
+od->pm_lat_level, deact_lat);
+} else
+dev_warn(&od->pdev->dev,
+"deactivate latency %d higher than expected. (%llu > %d)\n",
+od->pm_lat_level, deact_lat,
+odpl->deactivate_lat);
+}
+od->dev_wakeup_lat += odpl->activate_lat;
+od->pm_lat_level++;
+}
+return 0;
+}
+static void _add_clkdev(struct omap_device *od, const char *clk_alias,
+const char *clk_name)
+{
+struct clk *r;
+struct clk_lookup *l;
+if (!clk_alias || !clk_name)
+return;
+dev_dbg(&od->pdev->dev, "Creating %s -> %s\n", clk_alias, clk_name);
+r = clk_get_sys(dev_name(&od->pdev->dev), clk_alias);
+if (!IS_ERR(r)) {
+dev_warn(&od->pdev->dev,
+"alias %s already exists\n", clk_alias);
+clk_put(r);
+return;
+}
+r = clk_get(NULL, clk_name);
+if (IS_ERR(r)) {
+dev_err(&od->pdev->dev,
+"clk_get for %s failed\n", clk_name);
+return;
+}
+l = clkdev_alloc(r, clk_alias, dev_name(&od->pdev->dev));
+if (!l) {
+dev_err(&od->pdev->dev,
+"clkdev_alloc for %s failed\n", clk_alias);
+return;
+}
+clkdev_add(l);
+}
+static void _add_hwmod_clocks_clkdev(struct omap_device *od,
+struct omap_hwmod *oh)
+{
+int i;
+_add_clkdev(od, "fck", oh->main_clk);
+for (i = 0; i < oh->opt_clks_cnt; i++)
+_add_clkdev(od, oh->opt_clks[i].role, oh->opt_clks[i].clk);
+}
+static int omap_device_build_from_dt(struct platform_device *pdev)
+{
+struct omap_hwmod **hwmods;
+struct omap_device *od;
+struct omap_hwmod *oh;
+struct device_node *node = pdev->dev.of_node;
+const char *oh_name;
+int oh_cnt, i, ret = 0;
+oh_cnt = of_property_count_strings(node, "ti,hwmods");
+if (!oh_cnt || IS_ERR_VALUE(oh_cnt)) {
+dev_dbg(&pdev->dev, "No 'hwmods' to build omap_device\n");
+return -ENODEV;
+}
+hwmods = kzalloc(sizeof(struct omap_hwmod *) * oh_cnt, GFP_KERNEL);
+if (!hwmods) {
+ret = -ENOMEM;
+goto odbfd_exit;
+}
+for (i = 0; i < oh_cnt; i++) {
+of_property_read_string_index(node, "ti,hwmods", i, &oh_name);
+oh = omap_hwmod_lookup(oh_name);
+if (!oh) {
+dev_err(&pdev->dev, "Cannot lookup hwmod '%s'\n",
+oh_name);
+ret = -EINVAL;
+goto odbfd_exit1;
+}
+hwmods[i] = oh;
+}
+od = omap_device_alloc(pdev, hwmods, oh_cnt, NULL, 0);
+if (!od) {
+dev_err(&pdev->dev, "Cannot allocate omap_device for :%s\n",
+oh_name);
+ret = PTR_ERR(od);
+goto odbfd_exit1;
+}
+for (i = 0; i < pdev->num_resources; i++) {
+struct resource *r = &pdev->resource[i];
+if (r->name == NULL)
+r->name = dev_name(&pdev->dev);
+}
+if (of_get_property(node, "ti,no_idle_on_suspend", NULL))
+omap_device_disable_idle_on_suspend(pdev);
+pdev->dev.pm_domain = &omap_device_pm_domain;
+odbfd_exit1:
+kfree(hwmods);
+odbfd_exit:
+return ret;
+}
+static int _omap_device_notifier_call(struct notifier_block *nb,
+unsigned long event, void *dev)
+{
+struct platform_device *pdev = to_platform_device(dev);
+struct omap_device *od;
+switch (event) {
+case BUS_NOTIFY_DEL_DEVICE:
+if (pdev->archdata.od)
+omap_device_delete(pdev->archdata.od);
+break;
+case BUS_NOTIFY_ADD_DEVICE:
+if (pdev->dev.of_node)
+omap_device_build_from_dt(pdev);
+default:
+od = to_omap_device(pdev);
+if (od)
+od->_driver_status = event;
+}
+return NOTIFY_DONE;
+}
+int omap_device_get_context_loss_count(struct platform_device *pdev)
+{
+struct omap_device *od;
+u32 ret = 0;
+od = to_omap_device(pdev);
+if (od->hwmods_cnt)
+ret = omap_hwmod_get_context_loss_count(od->hwmods[0]);
+return ret;
+}
+static int omap_device_count_resources(struct omap_device *od)
+{
+int c = 0;
+int i;
+for (i = 0; i < od->hwmods_cnt; i++)
+c += omap_hwmod_count_resources(od->hwmods[i]);
+pr_debug("omap_device: %s: counted %d total resources across %d hwmods\n",
+od->pdev->name, c, od->hwmods_cnt);
+return c;
+}
+static int omap_device_fill_resources(struct omap_device *od,
+struct resource *res)
+{
+int i, r;
+for (i = 0; i < od->hwmods_cnt; i++) {
+r = omap_hwmod_fill_resources(od->hwmods[i], res);
+res += r;
+}
+return 0;
+}
+static int _od_fill_dma_resources(struct omap_device *od,
+struct resource *res)
+{
+int i, r;
+for (i = 0; i < od->hwmods_cnt; i++) {
+r = omap_hwmod_fill_dma_resources(od->hwmods[i], res);
+res += r;
+}
+return 0;
+}
+struct omap_device *omap_device_alloc(struct platform_device *pdev,
+struct omap_hwmod **ohs, int oh_cnt,
+struct omap_device_pm_latency *pm_lats,
+int pm_lats_cnt)
+{
+int ret = -ENOMEM;
+struct omap_device *od;
+struct resource *res = NULL;
+int i, res_count;
+struct omap_hwmod **hwmods;
+od = kzalloc(sizeof(struct omap_device), GFP_KERNEL);
+if (!od) {
+ret = -ENOMEM;
+goto oda_exit1;
+}
+od->hwmods_cnt = oh_cnt;
+hwmods = kmemdup(ohs, sizeof(struct omap_hwmod *) * oh_cnt, GFP_KERNEL);
+if (!hwmods)
+goto oda_exit2;
+od->hwmods = hwmods;
+od->pdev = pdev;
+res_count = omap_device_count_resources(od);
+if (res_count > pdev->num_resources) {
+res = kzalloc(sizeof(struct resource) * res_count, GFP_KERNEL);
+if (!res)
+goto oda_exit3;
+if (pdev->num_resources && pdev->resource) {
+dev_dbg(&pdev->dev, "%s(): resources already allocated %d\n",
+__func__, res_count);
+memcpy(res, pdev->resource,
+sizeof(struct resource) * pdev->num_resources);
+_od_fill_dma_resources(od, &res[pdev->num_resources]);
+} else {
+dev_dbg(&pdev->dev, "%s(): using resources from hwmod %d\n",
+__func__, res_count);
+omap_device_fill_resources(od, res);
+}
+ret = platform_device_add_resources(pdev, res, res_count);
+kfree(res);
+if (ret)
+goto oda_exit3;
+}
+if (!pm_lats) {
+pm_lats = omap_default_latency;
+pm_lats_cnt = ARRAY_SIZE(omap_default_latency);
+}
+od->pm_lats_cnt = pm_lats_cnt;
+od->pm_lats = kmemdup(pm_lats,
+sizeof(struct omap_device_pm_latency) * pm_lats_cnt,
+GFP_KERNEL);
+if (!od->pm_lats)
+goto oda_exit3;
+pdev->archdata.od = od;
+for (i = 0; i < oh_cnt; i++) {
+hwmods[i]->od = od;
+_add_hwmod_clocks_clkdev(od, hwmods[i]);
+}
+return od;
+oda_exit3:
+kfree(hwmods);
+oda_exit2:
+kfree(od);
+oda_exit1:
+dev_err(&pdev->dev, "omap_device: build failed (%d)\n", ret);
+return ERR_PTR(ret);
+}
+void omap_device_delete(struct omap_device *od)
+{
+if (!od)
+return;
+od->pdev->archdata.od = NULL;
+kfree(od->pm_lats);
+kfree(od->hwmods);
+kfree(od);
+}
+struct platform_device __init *omap_device_build(const char *pdev_name, int pdev_id,
+struct omap_hwmod *oh, void *pdata,
+int pdata_len,
+struct omap_device_pm_latency *pm_lats,
+int pm_lats_cnt, int is_early_device)
+{
+struct omap_hwmod *ohs[] = { oh };
+if (!oh)
+return ERR_PTR(-EINVAL);
+return omap_device_build_ss(pdev_name, pdev_id, ohs, 1, pdata,
+pdata_len, pm_lats, pm_lats_cnt,
+is_early_device);
+}
+struct platform_device __init *omap_device_build_ss(const char *pdev_name, int pdev_id,
+struct omap_hwmod **ohs, int oh_cnt,
+void *pdata, int pdata_len,
+struct omap_device_pm_latency *pm_lats,
+int pm_lats_cnt, int is_early_device)
+{
+int ret = -ENOMEM;
+struct platform_device *pdev;
+struct omap_device *od;
+if (!ohs || oh_cnt == 0 || !pdev_name)
+return ERR_PTR(-EINVAL);
+if (!pdata && pdata_len > 0)
+return ERR_PTR(-EINVAL);
+pdev = platform_device_alloc(pdev_name, pdev_id);
+if (!pdev) {
+ret = -ENOMEM;
+goto odbs_exit;
+}
+if (pdev->id != -1)
+dev_set_name(&pdev->dev, "%s.%d", pdev->name, pdev->id);
+else
+dev_set_name(&pdev->dev, "%s", pdev->name);
+od = omap_device_alloc(pdev, ohs, oh_cnt, pm_lats, pm_lats_cnt);
+if (IS_ERR(od))
+goto odbs_exit1;
+ret = platform_device_add_data(pdev, pdata, pdata_len);
+if (ret)
+goto odbs_exit2;
+if (is_early_device)
+ret = omap_early_device_register(pdev);
+else
+ret = omap_device_register(pdev);
+if (ret)
+goto odbs_exit2;
+return pdev;
+odbs_exit2:
+omap_device_delete(od);
+odbs_exit1:
+platform_device_put(pdev);
+odbs_exit:
+pr_err("omap_device: %s: build failed (%d)\n", pdev_name, ret);
+return ERR_PTR(ret);
+}
+static int __init omap_early_device_register(struct platform_device *pdev)
+{
+struct platform_device *devices[1];
+devices[0] = pdev;
+early_platform_add_devices(devices, 1);
+return 0;
+}
+static int _od_runtime_suspend(struct device *dev)
+{
+struct platform_device *pdev = to_platform_device(dev);
+int ret;
+ret = pm_generic_runtime_suspend(dev);
+if (!ret)
+omap_device_idle(pdev);
+return ret;
+}
+static int _od_runtime_idle(struct device *dev)
+{
+return pm_generic_runtime_idle(dev);
+}
+static int _od_runtime_resume(struct device *dev)
+{
+struct platform_device *pdev = to_platform_device(dev);
+omap_device_enable(pdev);
+return pm_generic_runtime_resume(dev);
+}
+static int _od_suspend_noirq(struct device *dev)
+{
+struct platform_device *pdev = to_platform_device(dev);
+struct omap_device *od = to_omap_device(pdev);
+int ret;
+if (od->_driver_status != BUS_NOTIFY_BOUND_DRIVER)
+return 0;
+ret = pm_generic_suspend_noirq(dev);
+if (!ret && !pm_runtime_status_suspended(dev)) {
+if (pm_generic_runtime_suspend(dev) == 0) {
+if (!(od->flags & OMAP_DEVICE_NO_IDLE_ON_SUSPEND))
+omap_device_idle(pdev);
+od->flags |= OMAP_DEVICE_SUSPENDED;
+}
+}
+return ret;
+}
+static int _od_resume_noirq(struct device *dev)
+{
+struct platform_device *pdev = to_platform_device(dev);
+struct omap_device *od = to_omap_device(pdev);
+if ((od->flags & OMAP_DEVICE_SUSPENDED) &&
+!pm_runtime_status_suspended(dev)) {
+od->flags &= ~OMAP_DEVICE_SUSPENDED;
+if (!(od->flags & OMAP_DEVICE_NO_IDLE_ON_SUSPEND))
+omap_device_enable(pdev);
+pm_generic_runtime_resume(dev);
+}
+return pm_generic_resume_noirq(dev);
+}
+int omap_device_register(struct platform_device *pdev)
+{
+pr_debug("omap_device: %s: registering\n", pdev->name);
+pdev->dev.pm_domain = &omap_device_pm_domain;
+return platform_device_add(pdev);
+}
+int omap_device_enable(struct platform_device *pdev)
+{
+int ret;
+struct omap_device *od;
+od = to_omap_device(pdev);
+if (od->_state == OMAP_DEVICE_STATE_ENABLED) {
+dev_warn(&pdev->dev,
+"omap_device: %s() called from invalid state %d\n",
+__func__, od->_state);
+return -EINVAL;
+}
+if (od->_state == OMAP_DEVICE_STATE_UNKNOWN)
+od->pm_lat_level = od->pm_lats_cnt;
+ret = _omap_device_activate(od, IGNORE_WAKEUP_LAT);
+od->dev_wakeup_lat = 0;
+od->_dev_wakeup_lat_limit = UINT_MAX;
+od->_state = OMAP_DEVICE_STATE_ENABLED;
+return ret;
+}
+int omap_device_idle(struct platform_device *pdev)
+{
+int ret;
+struct omap_device *od;
+od = to_omap_device(pdev);
+if (od->_state != OMAP_DEVICE_STATE_ENABLED) {
+dev_warn(&pdev->dev,
+"omap_device: %s() called from invalid state %d\n",
+__func__, od->_state);
+return -EINVAL;
+}
+ret = _omap_device_deactivate(od, USE_WAKEUP_LAT);
+od->_state = OMAP_DEVICE_STATE_IDLE;
+return ret;
+}
+int omap_device_shutdown(struct platform_device *pdev)
+{
+int ret, i;
+struct omap_device *od;
+od = to_omap_device(pdev);
+if (od->_state != OMAP_DEVICE_STATE_ENABLED &&
+od->_state != OMAP_DEVICE_STATE_IDLE) {
+dev_warn(&pdev->dev,
+"omap_device: %s() called from invalid state %d\n",
+__func__, od->_state);
+return -EINVAL;
+}
+ret = _omap_device_deactivate(od, IGNORE_WAKEUP_LAT);
+for (i = 0; i < od->hwmods_cnt; i++)
+omap_hwmod_shutdown(od->hwmods[i]);
+od->_state = OMAP_DEVICE_STATE_SHUTDOWN;
+return ret;
+}
+int omap_device_assert_hardreset(struct platform_device *pdev, const char *name)
+{
+struct omap_device *od = to_omap_device(pdev);
+int ret = 0;
+int i;
+for (i = 0; i < od->hwmods_cnt; i++) {
+ret = omap_hwmod_assert_hardreset(od->hwmods[i], name);
+if (ret)
+break;
+}
+return ret;
+}
+int omap_device_deassert_hardreset(struct platform_device *pdev,
+const char *name)
+{
+struct omap_device *od = to_omap_device(pdev);
+int ret = 0;
+int i;
+for (i = 0; i < od->hwmods_cnt; i++) {
+ret = omap_hwmod_deassert_hardreset(od->hwmods[i], name);
+if (ret)
+break;
+}
+return ret;
+}
+int omap_device_align_pm_lat(struct platform_device *pdev,
+u32 new_wakeup_lat_limit)
+{
+int ret = -EINVAL;
+struct omap_device *od;
+od = to_omap_device(pdev);
+if (new_wakeup_lat_limit == od->dev_wakeup_lat)
+return 0;
+od->_dev_wakeup_lat_limit = new_wakeup_lat_limit;
+if (od->_state != OMAP_DEVICE_STATE_IDLE)
+return 0;
+else if (new_wakeup_lat_limit > od->dev_wakeup_lat)
+ret = _omap_device_deactivate(od, USE_WAKEUP_LAT);
+else if (new_wakeup_lat_limit < od->dev_wakeup_lat)
+ret = _omap_device_activate(od, USE_WAKEUP_LAT);
+return ret;
+}
+struct powerdomain *omap_device_get_pwrdm(struct omap_device *od)
+{
+if (!od->hwmods_cnt)
+return NULL;
+return omap_hwmod_get_pwrdm(od->hwmods[0]);
+}
+void __iomem *omap_device_get_rt_va(struct omap_device *od)
+{
+if (od->hwmods_cnt != 1)
+return NULL;
+return omap_hwmod_get_mpu_rt_va(od->hwmods[0]);
+}
+struct device *omap_device_get_by_hwmod_name(const char *oh_name)
+{
+struct omap_hwmod *oh;
+if (!oh_name) {
+WARN(1, "%s: no hwmod name!\n", __func__);
+return ERR_PTR(-EINVAL);
+}
+oh = omap_hwmod_lookup(oh_name);
+if (IS_ERR_OR_NULL(oh)) {
+WARN(1, "%s: no hwmod for %s\n", __func__,
+oh_name);
+return ERR_PTR(oh ? PTR_ERR(oh) : -ENODEV);
+}
+if (IS_ERR_OR_NULL(oh->od)) {
+WARN(1, "%s: no omap_device for %s\n", __func__,
+oh_name);
+return ERR_PTR(oh->od ? PTR_ERR(oh->od) : -ENODEV);
+}
+if (IS_ERR_OR_NULL(oh->od->pdev))
+return ERR_PTR(oh->od->pdev ? PTR_ERR(oh->od->pdev) : -ENODEV);
+return &oh->od->pdev->dev;
+}
+int omap_device_enable_hwmods(struct omap_device *od)
+{
+int i;
+for (i = 0; i < od->hwmods_cnt; i++)
+omap_hwmod_enable(od->hwmods[i]);
+return 0;
+}
+int omap_device_idle_hwmods(struct omap_device *od)
+{
+int i;
+for (i = 0; i < od->hwmods_cnt; i++)
+omap_hwmod_idle(od->hwmods[i]);
+return 0;
+}
+int omap_device_disable_clocks(struct omap_device *od)
+{
+int i;
+for (i = 0; i < od->hwmods_cnt; i++)
+omap_hwmod_disable_clocks(od->hwmods[i]);
+return 0;
+}
+int omap_device_enable_clocks(struct omap_device *od)
+{
+int i;
+for (i = 0; i < od->hwmods_cnt; i++)
+omap_hwmod_enable_clocks(od->hwmods[i]);
+return 0;
+}
+static int __init omap_device_init(void)
+{
+bus_register_notifier(&platform_bus_type, &platform_nb);
+return 0;
+}
+static int __init omap_device_late_idle(struct device *dev, void *data)
+{
+struct platform_device *pdev = to_platform_device(dev);
+struct omap_device *od = to_omap_device(pdev);
+if (!od)
+return 0;
+if (od->_driver_status != BUS_NOTIFY_BOUND_DRIVER) {
+if (od->_state == OMAP_DEVICE_STATE_ENABLED) {
+dev_warn(dev, "%s: enabled but no driver. Idling\n",
+__func__);
+omap_device_idle(pdev);
+}
+}
+return 0;
+}
+static int __init omap_device_late_init(void)
+{
+bus_for_each_dev(&platform_bus_type, NULL, NULL, omap_device_late_idle);
+return 0;
+}

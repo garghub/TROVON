@@ -1,0 +1,54 @@
+static int wm5102_set_fll(struct snd_soc_codec *codec, int fll_id, int source,
+unsigned int Fref, unsigned int Fout)
+{
+struct wm5102_priv *wm5102 = snd_soc_codec_get_drvdata(codec);
+switch (fll_id) {
+case WM5102_FLL1:
+return arizona_set_fll(&wm5102->fll[0], source, Fref, Fout);
+case WM5102_FLL2:
+return arizona_set_fll(&wm5102->fll[1], source, Fref, Fout);
+default:
+return -EINVAL;
+}
+}
+static int wm5102_codec_probe(struct snd_soc_codec *codec)
+{
+struct wm5102_priv *priv = snd_soc_codec_get_drvdata(codec);
+codec->control_data = priv->core.arizona->regmap;
+return snd_soc_codec_set_cache_io(codec, 32, 16, SND_SOC_REGMAP);
+}
+static int __devinit wm5102_probe(struct platform_device *pdev)
+{
+struct arizona *arizona = dev_get_drvdata(pdev->dev.parent);
+struct wm5102_priv *wm5102;
+int i;
+wm5102 = devm_kzalloc(&pdev->dev, sizeof(struct wm5102_priv),
+GFP_KERNEL);
+if (wm5102 == NULL)
+return -ENOMEM;
+platform_set_drvdata(pdev, wm5102);
+wm5102->core.arizona = arizona;
+for (i = 0; i < ARRAY_SIZE(wm5102->fll); i++)
+wm5102->fll[i].vco_mult = 1;
+arizona_init_fll(arizona, 1, ARIZONA_FLL1_CONTROL_1 - 1,
+ARIZONA_IRQ_FLL1_LOCK, ARIZONA_IRQ_FLL1_CLOCK_OK,
+&wm5102->fll[0]);
+arizona_init_fll(arizona, 2, ARIZONA_FLL2_CONTROL_1 - 1,
+ARIZONA_IRQ_FLL2_LOCK, ARIZONA_IRQ_FLL2_CLOCK_OK,
+&wm5102->fll[1]);
+for (i = 0; i < ARRAY_SIZE(wm5102_dai); i++)
+arizona_init_dai(&wm5102->core, i);
+for (i = 0; i < ARRAY_SIZE(wm5102_digital_vu); i++)
+regmap_update_bits(arizona->regmap, wm5102_digital_vu[i],
+WM5102_DIG_VU, WM5102_DIG_VU);
+pm_runtime_enable(&pdev->dev);
+pm_runtime_idle(&pdev->dev);
+return snd_soc_register_codec(&pdev->dev, &soc_codec_dev_wm5102,
+wm5102_dai, ARRAY_SIZE(wm5102_dai));
+}
+static int __devexit wm5102_remove(struct platform_device *pdev)
+{
+snd_soc_unregister_codec(&pdev->dev);
+pm_runtime_disable(&pdev->dev);
+return 0;
+}

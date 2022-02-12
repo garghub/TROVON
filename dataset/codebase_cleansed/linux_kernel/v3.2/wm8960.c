@@ -1,0 +1,490 @@
+static int wm8960_set_deemph(struct snd_soc_codec *codec)
+{
+struct wm8960_priv *wm8960 = snd_soc_codec_get_drvdata(codec);
+int val, i, best;
+if (wm8960->deemph) {
+best = 1;
+for (i = 2; i < ARRAY_SIZE(deemph_settings); i++) {
+if (abs(deemph_settings[i] - wm8960->playback_fs) <
+abs(deemph_settings[best] - wm8960->playback_fs))
+best = i;
+}
+val = best << 1;
+} else {
+val = 0;
+}
+dev_dbg(codec->dev, "Set deemphasis %d\n", val);
+return snd_soc_update_bits(codec, WM8960_DACCTL1,
+0x6, val);
+}
+static int wm8960_get_deemph(struct snd_kcontrol *kcontrol,
+struct snd_ctl_elem_value *ucontrol)
+{
+struct snd_soc_codec *codec = snd_kcontrol_chip(kcontrol);
+struct wm8960_priv *wm8960 = snd_soc_codec_get_drvdata(codec);
+ucontrol->value.enumerated.item[0] = wm8960->deemph;
+return 0;
+}
+static int wm8960_put_deemph(struct snd_kcontrol *kcontrol,
+struct snd_ctl_elem_value *ucontrol)
+{
+struct snd_soc_codec *codec = snd_kcontrol_chip(kcontrol);
+struct wm8960_priv *wm8960 = snd_soc_codec_get_drvdata(codec);
+int deemph = ucontrol->value.enumerated.item[0];
+if (deemph > 1)
+return -EINVAL;
+wm8960->deemph = deemph;
+return wm8960_set_deemph(codec);
+}
+static int wm8960_add_widgets(struct snd_soc_codec *codec)
+{
+struct wm8960_data *pdata = codec->dev->platform_data;
+struct wm8960_priv *wm8960 = snd_soc_codec_get_drvdata(codec);
+struct snd_soc_dapm_context *dapm = &codec->dapm;
+struct snd_soc_dapm_widget *w;
+snd_soc_dapm_new_controls(dapm, wm8960_dapm_widgets,
+ARRAY_SIZE(wm8960_dapm_widgets));
+snd_soc_dapm_add_routes(dapm, audio_paths, ARRAY_SIZE(audio_paths));
+if (pdata && pdata->capless) {
+snd_soc_dapm_new_controls(dapm, wm8960_dapm_widgets_capless,
+ARRAY_SIZE(wm8960_dapm_widgets_capless));
+snd_soc_dapm_add_routes(dapm, audio_paths_capless,
+ARRAY_SIZE(audio_paths_capless));
+} else {
+snd_soc_dapm_new_controls(dapm, wm8960_dapm_widgets_out3,
+ARRAY_SIZE(wm8960_dapm_widgets_out3));
+snd_soc_dapm_add_routes(dapm, audio_paths_out3,
+ARRAY_SIZE(audio_paths_out3));
+}
+list_for_each_entry(w, &codec->card->widgets, list) {
+if (w->dapm != &codec->dapm)
+continue;
+if (strcmp(w->name, "LOUT1 PGA") == 0)
+wm8960->lout1 = w;
+if (strcmp(w->name, "ROUT1 PGA") == 0)
+wm8960->rout1 = w;
+if (strcmp(w->name, "OUT3 VMID") == 0)
+wm8960->out3 = w;
+}
+return 0;
+}
+static int wm8960_set_dai_fmt(struct snd_soc_dai *codec_dai,
+unsigned int fmt)
+{
+struct snd_soc_codec *codec = codec_dai->codec;
+u16 iface = 0;
+switch (fmt & SND_SOC_DAIFMT_MASTER_MASK) {
+case SND_SOC_DAIFMT_CBM_CFM:
+iface |= 0x0040;
+break;
+case SND_SOC_DAIFMT_CBS_CFS:
+break;
+default:
+return -EINVAL;
+}
+switch (fmt & SND_SOC_DAIFMT_FORMAT_MASK) {
+case SND_SOC_DAIFMT_I2S:
+iface |= 0x0002;
+break;
+case SND_SOC_DAIFMT_RIGHT_J:
+break;
+case SND_SOC_DAIFMT_LEFT_J:
+iface |= 0x0001;
+break;
+case SND_SOC_DAIFMT_DSP_A:
+iface |= 0x0003;
+break;
+case SND_SOC_DAIFMT_DSP_B:
+iface |= 0x0013;
+break;
+default:
+return -EINVAL;
+}
+switch (fmt & SND_SOC_DAIFMT_INV_MASK) {
+case SND_SOC_DAIFMT_NB_NF:
+break;
+case SND_SOC_DAIFMT_IB_IF:
+iface |= 0x0090;
+break;
+case SND_SOC_DAIFMT_IB_NF:
+iface |= 0x0080;
+break;
+case SND_SOC_DAIFMT_NB_IF:
+iface |= 0x0010;
+break;
+default:
+return -EINVAL;
+}
+snd_soc_write(codec, WM8960_IFACE1, iface);
+return 0;
+}
+static int wm8960_hw_params(struct snd_pcm_substream *substream,
+struct snd_pcm_hw_params *params,
+struct snd_soc_dai *dai)
+{
+struct snd_soc_pcm_runtime *rtd = substream->private_data;
+struct snd_soc_codec *codec = rtd->codec;
+struct wm8960_priv *wm8960 = snd_soc_codec_get_drvdata(codec);
+u16 iface = snd_soc_read(codec, WM8960_IFACE1) & 0xfff3;
+int i;
+switch (params_format(params)) {
+case SNDRV_PCM_FORMAT_S16_LE:
+break;
+case SNDRV_PCM_FORMAT_S20_3LE:
+iface |= 0x0004;
+break;
+case SNDRV_PCM_FORMAT_S24_LE:
+iface |= 0x0008;
+break;
+}
+if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK) {
+wm8960->playback_fs = params_rate(params);
+wm8960_set_deemph(codec);
+} else {
+for (i = 0; i < ARRAY_SIZE(alc_rates); i++)
+if (alc_rates[i].rate == params_rate(params))
+snd_soc_update_bits(codec,
+WM8960_ADDCTL3, 0x7,
+alc_rates[i].val);
+}
+snd_soc_write(codec, WM8960_IFACE1, iface);
+return 0;
+}
+static int wm8960_mute(struct snd_soc_dai *dai, int mute)
+{
+struct snd_soc_codec *codec = dai->codec;
+u16 mute_reg = snd_soc_read(codec, WM8960_DACCTL1) & 0xfff7;
+if (mute)
+snd_soc_write(codec, WM8960_DACCTL1, mute_reg | 0x8);
+else
+snd_soc_write(codec, WM8960_DACCTL1, mute_reg);
+return 0;
+}
+static int wm8960_set_bias_level_out3(struct snd_soc_codec *codec,
+enum snd_soc_bias_level level)
+{
+u16 reg;
+switch (level) {
+case SND_SOC_BIAS_ON:
+break;
+case SND_SOC_BIAS_PREPARE:
+reg = snd_soc_read(codec, WM8960_POWER1);
+reg &= ~0x180;
+reg |= 0x80;
+snd_soc_write(codec, WM8960_POWER1, reg);
+break;
+case SND_SOC_BIAS_STANDBY:
+if (codec->dapm.bias_level == SND_SOC_BIAS_OFF) {
+snd_soc_cache_sync(codec);
+snd_soc_write(codec, WM8960_APOP1,
+WM8960_POBCTRL | WM8960_SOFT_ST |
+WM8960_BUFDCOPEN | WM8960_BUFIOEN);
+reg = snd_soc_read(codec, WM8960_POWER1);
+reg |= 0x80;
+snd_soc_write(codec, WM8960_POWER1, reg);
+msleep(100);
+snd_soc_write(codec, WM8960_POWER1, reg | WM8960_VREF);
+snd_soc_write(codec, WM8960_APOP1, WM8960_BUFIOEN);
+}
+reg = snd_soc_read(codec, WM8960_POWER1);
+reg &= ~0x180;
+reg |= 0x100;
+snd_soc_write(codec, WM8960_POWER1, reg);
+break;
+case SND_SOC_BIAS_OFF:
+snd_soc_write(codec, WM8960_APOP1,
+WM8960_POBCTRL | WM8960_SOFT_ST |
+WM8960_BUFDCOPEN | WM8960_BUFIOEN);
+snd_soc_write(codec, WM8960_POWER1, 0);
+msleep(600);
+break;
+}
+codec->dapm.bias_level = level;
+return 0;
+}
+static int wm8960_set_bias_level_capless(struct snd_soc_codec *codec,
+enum snd_soc_bias_level level)
+{
+struct wm8960_priv *wm8960 = snd_soc_codec_get_drvdata(codec);
+int reg;
+switch (level) {
+case SND_SOC_BIAS_ON:
+break;
+case SND_SOC_BIAS_PREPARE:
+switch (codec->dapm.bias_level) {
+case SND_SOC_BIAS_STANDBY:
+snd_soc_update_bits(codec, WM8960_APOP1,
+WM8960_POBCTRL | WM8960_SOFT_ST |
+WM8960_BUFDCOPEN,
+WM8960_POBCTRL | WM8960_SOFT_ST |
+WM8960_BUFDCOPEN);
+reg = 0;
+if (wm8960->lout1 && wm8960->lout1->power)
+reg |= WM8960_PWR2_LOUT1;
+if (wm8960->rout1 && wm8960->rout1->power)
+reg |= WM8960_PWR2_ROUT1;
+if (wm8960->out3 && wm8960->out3->power)
+reg |= WM8960_PWR2_OUT3;
+snd_soc_update_bits(codec, WM8960_POWER2,
+WM8960_PWR2_LOUT1 |
+WM8960_PWR2_ROUT1 |
+WM8960_PWR2_OUT3, reg);
+snd_soc_update_bits(codec, WM8960_POWER1,
+WM8960_VMID_MASK, 0x80);
+msleep(100);
+snd_soc_update_bits(codec, WM8960_POWER1,
+WM8960_VREF, WM8960_VREF);
+msleep(100);
+break;
+case SND_SOC_BIAS_ON:
+snd_soc_update_bits(codec, WM8960_APOP1,
+WM8960_POBCTRL | WM8960_SOFT_ST |
+WM8960_BUFDCOPEN,
+WM8960_POBCTRL | WM8960_SOFT_ST |
+WM8960_BUFDCOPEN);
+snd_soc_update_bits(codec, WM8960_POWER1,
+WM8960_VREF | WM8960_VMID_MASK, 0);
+break;
+case SND_SOC_BIAS_OFF:
+snd_soc_cache_sync(codec);
+break;
+default:
+break;
+}
+break;
+case SND_SOC_BIAS_STANDBY:
+switch (codec->dapm.bias_level) {
+case SND_SOC_BIAS_PREPARE:
+snd_soc_update_bits(codec, WM8960_APOP2,
+WM8960_DISOP | WM8960_DRES_MASK,
+0);
+snd_soc_update_bits(codec, WM8960_APOP1,
+WM8960_POBCTRL | WM8960_SOFT_ST |
+WM8960_BUFDCOPEN,
+WM8960_POBCTRL | WM8960_SOFT_ST |
+WM8960_BUFDCOPEN);
+break;
+default:
+break;
+}
+break;
+case SND_SOC_BIAS_OFF:
+break;
+}
+codec->dapm.bias_level = level;
+return 0;
+}
+static int pll_factors(unsigned int source, unsigned int target,
+struct _pll_div *pll_div)
+{
+unsigned long long Kpart;
+unsigned int K, Ndiv, Nmod;
+pr_debug("WM8960 PLL: setting %dHz->%dHz\n", source, target);
+target *= 4;
+Ndiv = target / source;
+if (Ndiv < 6) {
+source >>= 1;
+pll_div->pre_div = 1;
+Ndiv = target / source;
+} else
+pll_div->pre_div = 0;
+if ((Ndiv < 6) || (Ndiv > 12)) {
+pr_err("WM8960 PLL: Unsupported N=%d\n", Ndiv);
+return -EINVAL;
+}
+pll_div->n = Ndiv;
+Nmod = target % source;
+Kpart = FIXED_PLL_SIZE * (long long)Nmod;
+do_div(Kpart, source);
+K = Kpart & 0xFFFFFFFF;
+if ((K % 10) >= 5)
+K += 5;
+K /= 10;
+pll_div->k = K;
+pr_debug("WM8960 PLL: N=%x K=%x pre_div=%d\n",
+pll_div->n, pll_div->k, pll_div->pre_div);
+return 0;
+}
+static int wm8960_set_dai_pll(struct snd_soc_dai *codec_dai, int pll_id,
+int source, unsigned int freq_in, unsigned int freq_out)
+{
+struct snd_soc_codec *codec = codec_dai->codec;
+u16 reg;
+static struct _pll_div pll_div;
+int ret;
+if (freq_in && freq_out) {
+ret = pll_factors(freq_in, freq_out, &pll_div);
+if (ret != 0)
+return ret;
+}
+snd_soc_write(codec, WM8960_CLOCK1,
+snd_soc_read(codec, WM8960_CLOCK1) & ~1);
+snd_soc_write(codec, WM8960_POWER2,
+snd_soc_read(codec, WM8960_POWER2) & ~1);
+if (!freq_in || !freq_out)
+return 0;
+reg = snd_soc_read(codec, WM8960_PLL1) & ~0x3f;
+reg |= pll_div.pre_div << 4;
+reg |= pll_div.n;
+if (pll_div.k) {
+reg |= 0x20;
+snd_soc_write(codec, WM8960_PLL2, (pll_div.k >> 18) & 0x3f);
+snd_soc_write(codec, WM8960_PLL3, (pll_div.k >> 9) & 0x1ff);
+snd_soc_write(codec, WM8960_PLL4, pll_div.k & 0x1ff);
+}
+snd_soc_write(codec, WM8960_PLL1, reg);
+snd_soc_write(codec, WM8960_POWER2,
+snd_soc_read(codec, WM8960_POWER2) | 1);
+msleep(250);
+snd_soc_write(codec, WM8960_CLOCK1,
+snd_soc_read(codec, WM8960_CLOCK1) | 1);
+return 0;
+}
+static int wm8960_set_dai_clkdiv(struct snd_soc_dai *codec_dai,
+int div_id, int div)
+{
+struct snd_soc_codec *codec = codec_dai->codec;
+u16 reg;
+switch (div_id) {
+case WM8960_SYSCLKDIV:
+reg = snd_soc_read(codec, WM8960_CLOCK1) & 0x1f9;
+snd_soc_write(codec, WM8960_CLOCK1, reg | div);
+break;
+case WM8960_DACDIV:
+reg = snd_soc_read(codec, WM8960_CLOCK1) & 0x1c7;
+snd_soc_write(codec, WM8960_CLOCK1, reg | div);
+break;
+case WM8960_OPCLKDIV:
+reg = snd_soc_read(codec, WM8960_PLL1) & 0x03f;
+snd_soc_write(codec, WM8960_PLL1, reg | div);
+break;
+case WM8960_DCLKDIV:
+reg = snd_soc_read(codec, WM8960_CLOCK2) & 0x03f;
+snd_soc_write(codec, WM8960_CLOCK2, reg | div);
+break;
+case WM8960_TOCLKSEL:
+reg = snd_soc_read(codec, WM8960_ADDCTL1) & 0x1fd;
+snd_soc_write(codec, WM8960_ADDCTL1, reg | div);
+break;
+default:
+return -EINVAL;
+}
+return 0;
+}
+static int wm8960_set_bias_level(struct snd_soc_codec *codec,
+enum snd_soc_bias_level level)
+{
+struct wm8960_priv *wm8960 = snd_soc_codec_get_drvdata(codec);
+return wm8960->set_bias_level(codec, level);
+}
+static int wm8960_suspend(struct snd_soc_codec *codec, pm_message_t state)
+{
+struct wm8960_priv *wm8960 = snd_soc_codec_get_drvdata(codec);
+wm8960->set_bias_level(codec, SND_SOC_BIAS_OFF);
+return 0;
+}
+static int wm8960_resume(struct snd_soc_codec *codec)
+{
+struct wm8960_priv *wm8960 = snd_soc_codec_get_drvdata(codec);
+wm8960->set_bias_level(codec, SND_SOC_BIAS_STANDBY);
+return 0;
+}
+static int wm8960_probe(struct snd_soc_codec *codec)
+{
+struct wm8960_priv *wm8960 = snd_soc_codec_get_drvdata(codec);
+struct wm8960_data *pdata = dev_get_platdata(codec->dev);
+int ret;
+u16 reg;
+wm8960->set_bias_level = wm8960_set_bias_level_out3;
+if (!pdata) {
+dev_warn(codec->dev, "No platform data supplied\n");
+} else {
+if (pdata->dres > WM8960_DRES_MAX) {
+dev_err(codec->dev, "Invalid DRES: %d\n", pdata->dres);
+pdata->dres = 0;
+}
+if (pdata->capless)
+wm8960->set_bias_level = wm8960_set_bias_level_capless;
+}
+ret = snd_soc_codec_set_cache_io(codec, 7, 9, wm8960->control_type);
+if (ret < 0) {
+dev_err(codec->dev, "Failed to set cache I/O: %d\n", ret);
+return ret;
+}
+ret = wm8960_reset(codec);
+if (ret < 0) {
+dev_err(codec->dev, "Failed to issue reset\n");
+return ret;
+}
+wm8960->set_bias_level(codec, SND_SOC_BIAS_STANDBY);
+reg = snd_soc_read(codec, WM8960_LINVOL);
+snd_soc_write(codec, WM8960_LINVOL, reg | 0x100);
+reg = snd_soc_read(codec, WM8960_RINVOL);
+snd_soc_write(codec, WM8960_RINVOL, reg | 0x100);
+reg = snd_soc_read(codec, WM8960_LADC);
+snd_soc_write(codec, WM8960_LADC, reg | 0x100);
+reg = snd_soc_read(codec, WM8960_RADC);
+snd_soc_write(codec, WM8960_RADC, reg | 0x100);
+reg = snd_soc_read(codec, WM8960_LDAC);
+snd_soc_write(codec, WM8960_LDAC, reg | 0x100);
+reg = snd_soc_read(codec, WM8960_RDAC);
+snd_soc_write(codec, WM8960_RDAC, reg | 0x100);
+reg = snd_soc_read(codec, WM8960_LOUT1);
+snd_soc_write(codec, WM8960_LOUT1, reg | 0x100);
+reg = snd_soc_read(codec, WM8960_ROUT1);
+snd_soc_write(codec, WM8960_ROUT1, reg | 0x100);
+reg = snd_soc_read(codec, WM8960_LOUT2);
+snd_soc_write(codec, WM8960_LOUT2, reg | 0x100);
+reg = snd_soc_read(codec, WM8960_ROUT2);
+snd_soc_write(codec, WM8960_ROUT2, reg | 0x100);
+snd_soc_add_controls(codec, wm8960_snd_controls,
+ARRAY_SIZE(wm8960_snd_controls));
+wm8960_add_widgets(codec);
+return 0;
+}
+static int wm8960_remove(struct snd_soc_codec *codec)
+{
+struct wm8960_priv *wm8960 = snd_soc_codec_get_drvdata(codec);
+wm8960->set_bias_level(codec, SND_SOC_BIAS_OFF);
+return 0;
+}
+static __devinit int wm8960_i2c_probe(struct i2c_client *i2c,
+const struct i2c_device_id *id)
+{
+struct wm8960_priv *wm8960;
+int ret;
+wm8960 = kzalloc(sizeof(struct wm8960_priv), GFP_KERNEL);
+if (wm8960 == NULL)
+return -ENOMEM;
+i2c_set_clientdata(i2c, wm8960);
+wm8960->control_type = SND_SOC_I2C;
+ret = snd_soc_register_codec(&i2c->dev,
+&soc_codec_dev_wm8960, &wm8960_dai, 1);
+if (ret < 0)
+kfree(wm8960);
+return ret;
+}
+static __devexit int wm8960_i2c_remove(struct i2c_client *client)
+{
+snd_soc_unregister_codec(&client->dev);
+kfree(i2c_get_clientdata(client));
+return 0;
+}
+static int __init wm8960_modinit(void)
+{
+int ret = 0;
+#if defined(CONFIG_I2C) || defined(CONFIG_I2C_MODULE)
+ret = i2c_add_driver(&wm8960_i2c_driver);
+if (ret != 0) {
+printk(KERN_ERR "Failed to register WM8960 I2C driver: %d\n",
+ret);
+}
+#endif
+return ret;
+}
+static void __exit wm8960_exit(void)
+{
+#if defined(CONFIG_I2C) || defined(CONFIG_I2C_MODULE)
+i2c_del_driver(&wm8960_i2c_driver);
+#endif
+}

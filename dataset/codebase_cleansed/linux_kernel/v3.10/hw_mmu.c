@@ -1,0 +1,252 @@
+hw_status hw_mmu_enable(void __iomem *base_address)
+{
+hw_status status = 0;
+MMUMMU_CNTLMMU_ENABLE_WRITE32(base_address, HW_SET);
+return status;
+}
+hw_status hw_mmu_disable(void __iomem *base_address)
+{
+hw_status status = 0;
+MMUMMU_CNTLMMU_ENABLE_WRITE32(base_address, HW_CLEAR);
+return status;
+}
+hw_status hw_mmu_num_locked_set(void __iomem *base_address,
+u32 num_locked_entries)
+{
+hw_status status = 0;
+MMUMMU_LOCK_BASE_VALUE_WRITE32(base_address, num_locked_entries);
+return status;
+}
+hw_status hw_mmu_victim_num_set(void __iomem *base_address,
+u32 victim_entry_num)
+{
+hw_status status = 0;
+MMUMMU_LOCK_CURRENT_VICTIM_WRITE32(base_address, victim_entry_num);
+return status;
+}
+hw_status hw_mmu_event_ack(void __iomem *base_address, u32 irq_mask)
+{
+hw_status status = 0;
+MMUMMU_IRQSTATUS_WRITE_REGISTER32(base_address, irq_mask);
+return status;
+}
+hw_status hw_mmu_event_disable(void __iomem *base_address, u32 irq_mask)
+{
+hw_status status = 0;
+u32 irq_reg;
+irq_reg = MMUMMU_IRQENABLE_READ_REGISTER32(base_address);
+MMUMMU_IRQENABLE_WRITE_REGISTER32(base_address, irq_reg & ~irq_mask);
+return status;
+}
+hw_status hw_mmu_event_enable(void __iomem *base_address, u32 irq_mask)
+{
+hw_status status = 0;
+u32 irq_reg;
+irq_reg = MMUMMU_IRQENABLE_READ_REGISTER32(base_address);
+MMUMMU_IRQENABLE_WRITE_REGISTER32(base_address, irq_reg | irq_mask);
+return status;
+}
+hw_status hw_mmu_event_status(void __iomem *base_address, u32 *irq_mask)
+{
+hw_status status = 0;
+*irq_mask = MMUMMU_IRQSTATUS_READ_REGISTER32(base_address);
+return status;
+}
+hw_status hw_mmu_fault_addr_read(void __iomem *base_address, u32 *addr)
+{
+hw_status status = 0;
+*addr = MMUMMU_FAULT_AD_READ_REGISTER32(base_address);
+return status;
+}
+hw_status hw_mmu_ttb_set(void __iomem *base_address, u32 ttb_phys_addr)
+{
+hw_status status = 0;
+u32 load_ttb;
+load_ttb = ttb_phys_addr & ~0x7FUL;
+MMUMMU_TTB_WRITE_REGISTER32(base_address, load_ttb);
+return status;
+}
+hw_status hw_mmu_twl_enable(void __iomem *base_address)
+{
+hw_status status = 0;
+MMUMMU_CNTLTWL_ENABLE_WRITE32(base_address, HW_SET);
+return status;
+}
+hw_status hw_mmu_twl_disable(void __iomem *base_address)
+{
+hw_status status = 0;
+MMUMMU_CNTLTWL_ENABLE_WRITE32(base_address, HW_CLEAR);
+return status;
+}
+hw_status hw_mmu_tlb_add(void __iomem *base_address,
+u32 physical_addr,
+u32 virtual_addr,
+u32 page_sz,
+u32 entry_num,
+struct hw_mmu_map_attrs_t *map_attrs,
+s8 preserved_bit, s8 valid_bit)
+{
+hw_status status = 0;
+u32 lock_reg;
+u32 virtual_addr_tag;
+enum hw_mmu_page_size_t mmu_pg_size;
+switch (page_sz) {
+case HW_PAGE_SIZE4KB:
+mmu_pg_size = HW_MMU_SMALL_PAGE;
+break;
+case HW_PAGE_SIZE64KB:
+mmu_pg_size = HW_MMU_LARGE_PAGE;
+break;
+case HW_PAGE_SIZE1MB:
+mmu_pg_size = HW_MMU_SECTION;
+break;
+case HW_PAGE_SIZE16MB:
+mmu_pg_size = HW_MMU_SUPERSECTION;
+break;
+default:
+return -EINVAL;
+}
+lock_reg = MMUMMU_LOCK_READ_REGISTER32(base_address);
+virtual_addr_tag = ((virtual_addr & MMU_ADDR_MASK) >> 12);
+mmu_set_cam_entry(base_address, mmu_pg_size, preserved_bit, valid_bit,
+virtual_addr_tag);
+mmu_set_ram_entry(base_address, physical_addr, map_attrs->endianism,
+map_attrs->element_size, map_attrs->mixed_size);
+MMUMMU_LOCK_CURRENT_VICTIM_WRITE32(base_address, entry_num);
+MMUMMU_LD_TLB_WRITE_REGISTER32(base_address, MMU_LOAD_TLB);
+MMUMMU_LOCK_WRITE_REGISTER32(base_address, lock_reg);
+return status;
+}
+hw_status hw_mmu_pte_set(const u32 pg_tbl_va,
+u32 physical_addr,
+u32 virtual_addr,
+u32 page_sz, struct hw_mmu_map_attrs_t *map_attrs)
+{
+hw_status status = 0;
+u32 pte_addr, pte_val;
+s32 num_entries = 1;
+switch (page_sz) {
+case HW_PAGE_SIZE4KB:
+pte_addr = hw_mmu_pte_addr_l2(pg_tbl_va,
+virtual_addr &
+MMU_SMALL_PAGE_MASK);
+pte_val =
+((physical_addr & MMU_SMALL_PAGE_MASK) |
+(map_attrs->endianism << 9) | (map_attrs->
+element_size << 4) |
+(map_attrs->mixed_size << 11) | 2);
+break;
+case HW_PAGE_SIZE64KB:
+num_entries = 16;
+pte_addr = hw_mmu_pte_addr_l2(pg_tbl_va,
+virtual_addr &
+MMU_LARGE_PAGE_MASK);
+pte_val =
+((physical_addr & MMU_LARGE_PAGE_MASK) |
+(map_attrs->endianism << 9) | (map_attrs->
+element_size << 4) |
+(map_attrs->mixed_size << 11) | 1);
+break;
+case HW_PAGE_SIZE1MB:
+pte_addr = hw_mmu_pte_addr_l1(pg_tbl_va,
+virtual_addr &
+MMU_SECTION_ADDR_MASK);
+pte_val =
+((((physical_addr & MMU_SECTION_ADDR_MASK) |
+(map_attrs->endianism << 15) | (map_attrs->
+element_size << 10) |
+(map_attrs->mixed_size << 17)) & ~0x40000) | 0x2);
+break;
+case HW_PAGE_SIZE16MB:
+num_entries = 16;
+pte_addr = hw_mmu_pte_addr_l1(pg_tbl_va,
+virtual_addr &
+MMU_SSECTION_ADDR_MASK);
+pte_val =
+(((physical_addr & MMU_SSECTION_ADDR_MASK) |
+(map_attrs->endianism << 15) | (map_attrs->
+element_size << 10) |
+(map_attrs->mixed_size << 17)
+) | 0x40000 | 0x2);
+break;
+case HW_MMU_COARSE_PAGE_SIZE:
+pte_addr = hw_mmu_pte_addr_l1(pg_tbl_va,
+virtual_addr &
+MMU_SECTION_ADDR_MASK);
+pte_val = (physical_addr & MMU_PAGE_TABLE_MASK) | 1;
+break;
+default:
+return -EINVAL;
+}
+while (--num_entries >= 0)
+((u32 *) pte_addr)[num_entries] = pte_val;
+return status;
+}
+hw_status hw_mmu_pte_clear(const u32 pg_tbl_va, u32 virtual_addr, u32 page_size)
+{
+hw_status status = 0;
+u32 pte_addr;
+s32 num_entries = 1;
+switch (page_size) {
+case HW_PAGE_SIZE4KB:
+pte_addr = hw_mmu_pte_addr_l2(pg_tbl_va,
+virtual_addr &
+MMU_SMALL_PAGE_MASK);
+break;
+case HW_PAGE_SIZE64KB:
+num_entries = 16;
+pte_addr = hw_mmu_pte_addr_l2(pg_tbl_va,
+virtual_addr &
+MMU_LARGE_PAGE_MASK);
+break;
+case HW_PAGE_SIZE1MB:
+case HW_MMU_COARSE_PAGE_SIZE:
+pte_addr = hw_mmu_pte_addr_l1(pg_tbl_va,
+virtual_addr &
+MMU_SECTION_ADDR_MASK);
+break;
+case HW_PAGE_SIZE16MB:
+num_entries = 16;
+pte_addr = hw_mmu_pte_addr_l1(pg_tbl_va,
+virtual_addr &
+MMU_SSECTION_ADDR_MASK);
+break;
+default:
+return -EINVAL;
+}
+while (--num_entries >= 0)
+((u32 *) pte_addr)[num_entries] = 0;
+return status;
+}
+static hw_status mmu_set_cam_entry(void __iomem *base_address,
+const u32 page_sz,
+const u32 preserved_bit,
+const u32 valid_bit,
+const u32 virtual_addr_tag)
+{
+hw_status status = 0;
+u32 mmu_cam_reg;
+mmu_cam_reg = (virtual_addr_tag << 12);
+mmu_cam_reg = (mmu_cam_reg) | (page_sz) | (valid_bit << 2) |
+(preserved_bit << 3);
+MMUMMU_CAM_WRITE_REGISTER32(base_address, mmu_cam_reg);
+return status;
+}
+static hw_status mmu_set_ram_entry(void __iomem *base_address,
+const u32 physical_addr,
+enum hw_endianism_t endianism,
+enum hw_element_size_t element_size,
+enum hw_mmu_mixed_size_t mixed_size)
+{
+hw_status status = 0;
+u32 mmu_ram_reg;
+mmu_ram_reg = (physical_addr & MMU_ADDR_MASK);
+mmu_ram_reg = (mmu_ram_reg) | ((endianism << 9) | (element_size << 7) |
+(mixed_size << 6));
+MMUMMU_RAM_WRITE_REGISTER32(base_address, mmu_ram_reg);
+return status;
+}
+void hw_mmu_tlb_flush_all(void __iomem *base)
+{
+__raw_writel(1, base + MMU_GFLUSH);
+}

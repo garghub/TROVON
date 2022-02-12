@@ -1,0 +1,80 @@
+static int da9052_i2c_enable_multiwrite(struct da9052 *da9052)
+{
+int reg_val, ret;
+ret = regmap_read(da9052->regmap, DA9052_CONTROL_B_REG, &reg_val);
+if (ret < 0)
+return ret;
+if (reg_val & DA9052_CONTROL_B_WRITEMODE) {
+reg_val &= ~DA9052_CONTROL_B_WRITEMODE;
+ret = regmap_write(da9052->regmap, DA9052_CONTROL_B_REG,
+reg_val);
+if (ret < 0)
+return ret;
+}
+return 0;
+}
+static int __devinit da9052_i2c_probe(struct i2c_client *client,
+const struct i2c_device_id *id)
+{
+struct da9052 *da9052;
+int ret;
+da9052 = devm_kzalloc(&client->dev, sizeof(struct da9052), GFP_KERNEL);
+if (!da9052)
+return -ENOMEM;
+if (!i2c_check_functionality(client->adapter,
+I2C_FUNC_SMBUS_BYTE_DATA)) {
+dev_info(&client->dev, "Error in %s:i2c_check_functionality\n",
+__func__);
+return -ENODEV;
+}
+da9052->dev = &client->dev;
+da9052->chip_irq = client->irq;
+i2c_set_clientdata(client, da9052);
+da9052->regmap = devm_regmap_init_i2c(client, &da9052_regmap_config);
+if (IS_ERR(da9052->regmap)) {
+ret = PTR_ERR(da9052->regmap);
+dev_err(&client->dev, "Failed to allocate register map: %d\n",
+ret);
+return ret;
+}
+ret = da9052_i2c_enable_multiwrite(da9052);
+if (ret < 0)
+return ret;
+#ifdef CONFIG_OF
+if (!id) {
+struct device_node *np = client->dev.of_node;
+const struct of_device_id *deviceid;
+deviceid = of_match_node(dialog_dt_ids, np);
+id = (const struct i2c_device_id *)deviceid->data;
+}
+#endif
+if (!id) {
+ret = -ENODEV;
+dev_err(&client->dev, "id is null.\n");
+return ret;
+}
+ret = da9052_device_init(da9052, id->driver_data);
+if (ret != 0)
+return ret;
+return 0;
+}
+static int __devexit da9052_i2c_remove(struct i2c_client *client)
+{
+struct da9052 *da9052 = i2c_get_clientdata(client);
+da9052_device_exit(da9052);
+return 0;
+}
+static int __init da9052_i2c_init(void)
+{
+int ret;
+ret = i2c_add_driver(&da9052_i2c_driver);
+if (ret != 0) {
+pr_err("DA9052 I2C registration failed %d\n", ret);
+return ret;
+}
+return 0;
+}
+static void __exit da9052_i2c_exit(void)
+{
+i2c_del_driver(&da9052_i2c_driver);
+}

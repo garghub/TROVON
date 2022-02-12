@@ -1,0 +1,1 @@
+static int __init via_init(void)\r\n{\r\ndriver.num_ioctls = via_max_ioctl;\r\nvia_init_command_verifier();\r\nreturn drm_pci_init(&driver, &via_pci_driver);\r\n}\r\nstatic void __exit via_exit(void)\r\n{\r\ndrm_pci_exit(&driver, &via_pci_driver);\r\n}

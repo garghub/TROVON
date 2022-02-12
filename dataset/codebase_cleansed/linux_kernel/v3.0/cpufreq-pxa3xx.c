@@ -1,0 +1,113 @@
+static int setup_freqs_table(struct cpufreq_policy *policy,
+struct pxa3xx_freq_info *freqs, int num)
+{
+struct cpufreq_frequency_table *table;
+int i;
+table = kzalloc((num + 1) * sizeof(*table), GFP_KERNEL);
+if (table == NULL)
+return -ENOMEM;
+for (i = 0; i < num; i++) {
+table[i].index = i;
+table[i].frequency = freqs[i].cpufreq_mhz * 1000;
+}
+table[num].index = i;
+table[num].frequency = CPUFREQ_TABLE_END;
+pxa3xx_freqs = freqs;
+pxa3xx_freqs_num = num;
+pxa3xx_freqs_table = table;
+return cpufreq_frequency_table_cpuinfo(policy, table);
+}
+static void __update_core_freq(struct pxa3xx_freq_info *info)
+{
+uint32_t mask = ACCR_XN_MASK | ACCR_XL_MASK;
+uint32_t accr = ACCR;
+uint32_t xclkcfg;
+accr &= ~(ACCR_XN_MASK | ACCR_XL_MASK | ACCR_XSPCLK_MASK);
+accr |= ACCR_XN(info->core_xn) | ACCR_XL(info->core_xl);
+accr |= ACCR_XSPCLK(XSPCLK_NONE);
+xclkcfg = (info->core_xn == 2) ? 0x3 : 0x2;
+ACCR = accr;
+__asm__("mcr p14, 0, %0, c6, c0, 0\n" : : "r"(xclkcfg));
+while ((ACSR & mask) != (accr & mask))
+cpu_relax();
+}
+static void __update_bus_freq(struct pxa3xx_freq_info *info)
+{
+uint32_t mask;
+uint32_t accr = ACCR;
+mask = ACCR_SMCFS_MASK | ACCR_SFLFS_MASK | ACCR_HSS_MASK |
+ACCR_DMCFS_MASK;
+accr &= ~mask;
+accr |= ACCR_SMCFS(info->smcfs) | ACCR_SFLFS(info->sflfs) |
+ACCR_HSS(info->hss) | ACCR_DMCFS(info->dmcfs);
+ACCR = accr;
+while ((ACSR & mask) != (accr & mask))
+cpu_relax();
+}
+static int pxa3xx_cpufreq_verify(struct cpufreq_policy *policy)
+{
+return cpufreq_frequency_table_verify(policy, pxa3xx_freqs_table);
+}
+static unsigned int pxa3xx_cpufreq_get(unsigned int cpu)
+{
+return pxa3xx_get_clk_frequency_khz(0);
+}
+static int pxa3xx_cpufreq_set(struct cpufreq_policy *policy,
+unsigned int target_freq,
+unsigned int relation)
+{
+struct pxa3xx_freq_info *next;
+struct cpufreq_freqs freqs;
+unsigned long flags;
+int idx;
+if (policy->cpu != 0)
+return -EINVAL;
+if (cpufreq_frequency_table_target(policy, pxa3xx_freqs_table,
+target_freq, relation, &idx))
+return -EINVAL;
+next = &pxa3xx_freqs[idx];
+freqs.old = policy->cur;
+freqs.new = next->cpufreq_mhz * 1000;
+freqs.cpu = policy->cpu;
+pr_debug("CPU frequency from %d MHz to %d MHz%s\n",
+freqs.old / 1000, freqs.new / 1000,
+(freqs.old == freqs.new) ? " (skipped)" : "");
+if (freqs.old == target_freq)
+return 0;
+cpufreq_notify_transition(&freqs, CPUFREQ_PRECHANGE);
+local_irq_save(flags);
+__update_core_freq(next);
+__update_bus_freq(next);
+local_irq_restore(flags);
+cpufreq_notify_transition(&freqs, CPUFREQ_POSTCHANGE);
+return 0;
+}
+static int pxa3xx_cpufreq_init(struct cpufreq_policy *policy)
+{
+int ret = -EINVAL;
+policy->cpuinfo.min_freq = 104000;
+policy->cpuinfo.max_freq = (cpu_is_pxa320()) ? 806000 : 624000;
+policy->cpuinfo.transition_latency = 1000;
+policy->max = pxa3xx_get_clk_frequency_khz(0);
+policy->cur = policy->min = policy->max;
+if (cpu_is_pxa300() || cpu_is_pxa310())
+ret = setup_freqs_table(policy, ARRAY_AND_SIZE(pxa300_freqs));
+if (cpu_is_pxa320())
+ret = setup_freqs_table(policy, ARRAY_AND_SIZE(pxa320_freqs));
+if (ret) {
+pr_err("failed to setup frequency table\n");
+return ret;
+}
+pr_info("CPUFREQ support for PXA3xx initialized\n");
+return 0;
+}
+static int __init cpufreq_init(void)
+{
+if (cpu_is_pxa3xx())
+return cpufreq_register_driver(&pxa3xx_cpufreq_driver);
+return 0;
+}
+static void __exit cpufreq_exit(void)
+{
+cpufreq_unregister_driver(&pxa3xx_cpufreq_driver);
+}

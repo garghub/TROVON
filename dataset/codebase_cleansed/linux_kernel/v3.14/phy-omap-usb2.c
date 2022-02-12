@@ -1,0 +1,182 @@
+int omap_usb2_set_comparator(struct phy_companion *comparator)
+{
+struct omap_usb *phy;
+struct usb_phy *x = usb_get_phy(USB_PHY_TYPE_USB2);
+if (IS_ERR(x))
+return -ENODEV;
+phy = phy_to_omapusb(x);
+phy->comparator = comparator;
+return 0;
+}
+static int omap_usb_set_vbus(struct usb_otg *otg, bool enabled)
+{
+struct omap_usb *phy = phy_to_omapusb(otg->phy);
+if (!phy->comparator)
+return -ENODEV;
+return phy->comparator->set_vbus(phy->comparator, enabled);
+}
+static int omap_usb_start_srp(struct usb_otg *otg)
+{
+struct omap_usb *phy = phy_to_omapusb(otg->phy);
+if (!phy->comparator)
+return -ENODEV;
+return phy->comparator->start_srp(phy->comparator);
+}
+static int omap_usb_set_host(struct usb_otg *otg, struct usb_bus *host)
+{
+struct usb_phy *phy = otg->phy;
+otg->host = host;
+if (!host)
+phy->state = OTG_STATE_UNDEFINED;
+return 0;
+}
+static int omap_usb_set_peripheral(struct usb_otg *otg,
+struct usb_gadget *gadget)
+{
+struct usb_phy *phy = otg->phy;
+otg->gadget = gadget;
+if (!gadget)
+phy->state = OTG_STATE_UNDEFINED;
+return 0;
+}
+static int omap_usb2_suspend(struct usb_phy *x, int suspend)
+{
+struct omap_usb *phy = phy_to_omapusb(x);
+int ret;
+if (suspend && !phy->is_suspended) {
+omap_control_usb_phy_power(phy->control_dev, 0);
+pm_runtime_put_sync(phy->dev);
+phy->is_suspended = 1;
+} else if (!suspend && phy->is_suspended) {
+ret = pm_runtime_get_sync(phy->dev);
+if (ret < 0) {
+dev_err(phy->dev, "get_sync failed with err %d\n", ret);
+return ret;
+}
+omap_control_usb_phy_power(phy->control_dev, 1);
+phy->is_suspended = 0;
+}
+return 0;
+}
+static int omap_usb_power_off(struct phy *x)
+{
+struct omap_usb *phy = phy_get_drvdata(x);
+omap_control_usb_phy_power(phy->control_dev, 0);
+return 0;
+}
+static int omap_usb_power_on(struct phy *x)
+{
+struct omap_usb *phy = phy_get_drvdata(x);
+omap_control_usb_phy_power(phy->control_dev, 1);
+return 0;
+}
+static int omap_usb2_probe(struct platform_device *pdev)
+{
+struct omap_usb *phy;
+struct phy *generic_phy;
+struct phy_provider *phy_provider;
+struct usb_otg *otg;
+struct device_node *node = pdev->dev.of_node;
+struct device_node *control_node;
+struct platform_device *control_pdev;
+if (!node)
+return -EINVAL;
+phy = devm_kzalloc(&pdev->dev, sizeof(*phy), GFP_KERNEL);
+if (!phy) {
+dev_err(&pdev->dev, "unable to allocate memory for USB2 PHY\n");
+return -ENOMEM;
+}
+otg = devm_kzalloc(&pdev->dev, sizeof(*otg), GFP_KERNEL);
+if (!otg) {
+dev_err(&pdev->dev, "unable to allocate memory for USB OTG\n");
+return -ENOMEM;
+}
+phy->dev = &pdev->dev;
+phy->phy.dev = phy->dev;
+phy->phy.label = "omap-usb2";
+phy->phy.set_suspend = omap_usb2_suspend;
+phy->phy.otg = otg;
+phy->phy.type = USB_PHY_TYPE_USB2;
+control_node = of_parse_phandle(node, "ctrl-module", 0);
+if (!control_node) {
+dev_err(&pdev->dev, "Failed to get control device phandle\n");
+return -EINVAL;
+}
+control_pdev = of_find_device_by_node(control_node);
+if (!control_pdev) {
+dev_err(&pdev->dev, "Failed to get control device\n");
+return -EINVAL;
+}
+phy->control_dev = &control_pdev->dev;
+phy->is_suspended = 1;
+omap_control_usb_phy_power(phy->control_dev, 0);
+otg->set_host = omap_usb_set_host;
+otg->set_peripheral = omap_usb_set_peripheral;
+otg->set_vbus = omap_usb_set_vbus;
+otg->start_srp = omap_usb_start_srp;
+otg->phy = &phy->phy;
+platform_set_drvdata(pdev, phy);
+pm_runtime_enable(phy->dev);
+generic_phy = devm_phy_create(phy->dev, &ops, NULL);
+if (IS_ERR(generic_phy))
+return PTR_ERR(generic_phy);
+phy_set_drvdata(generic_phy, phy);
+phy_provider = devm_of_phy_provider_register(phy->dev,
+of_phy_simple_xlate);
+if (IS_ERR(phy_provider))
+return PTR_ERR(phy_provider);
+phy->wkupclk = devm_clk_get(phy->dev, "usb_phy_cm_clk32k");
+if (IS_ERR(phy->wkupclk)) {
+dev_err(&pdev->dev, "unable to get usb_phy_cm_clk32k\n");
+return PTR_ERR(phy->wkupclk);
+}
+clk_prepare(phy->wkupclk);
+phy->optclk = devm_clk_get(phy->dev, "usb_otg_ss_refclk960m");
+if (IS_ERR(phy->optclk))
+dev_vdbg(&pdev->dev, "unable to get refclk960m\n");
+else
+clk_prepare(phy->optclk);
+usb_add_phy_dev(&phy->phy);
+return 0;
+}
+static int omap_usb2_remove(struct platform_device *pdev)
+{
+struct omap_usb *phy = platform_get_drvdata(pdev);
+clk_unprepare(phy->wkupclk);
+if (!IS_ERR(phy->optclk))
+clk_unprepare(phy->optclk);
+usb_remove_phy(&phy->phy);
+return 0;
+}
+static int omap_usb2_runtime_suspend(struct device *dev)
+{
+struct platform_device *pdev = to_platform_device(dev);
+struct omap_usb *phy = platform_get_drvdata(pdev);
+clk_disable(phy->wkupclk);
+if (!IS_ERR(phy->optclk))
+clk_disable(phy->optclk);
+return 0;
+}
+static int omap_usb2_runtime_resume(struct device *dev)
+{
+struct platform_device *pdev = to_platform_device(dev);
+struct omap_usb *phy = platform_get_drvdata(pdev);
+int ret;
+ret = clk_enable(phy->wkupclk);
+if (ret < 0) {
+dev_err(phy->dev, "Failed to enable wkupclk %d\n", ret);
+goto err0;
+}
+if (!IS_ERR(phy->optclk)) {
+ret = clk_enable(phy->optclk);
+if (ret < 0) {
+dev_err(phy->dev, "Failed to enable optclk %d\n", ret);
+goto err1;
+}
+}
+return 0;
+err1:
+clk_disable(phy->wkupclk);
+err0:
+return ret;
+}

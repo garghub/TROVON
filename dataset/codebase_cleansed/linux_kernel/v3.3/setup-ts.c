@@ -1,0 +1,1 @@
+void s3c24xx_ts_cfg_gpio(struct platform_device *dev)\r\n{\r\ns3c2410_gpio_cfgpin(S3C2410_GPG(12), S3C2410_GPG12_XMON);\r\ns3c2410_gpio_cfgpin(S3C2410_GPG(13), S3C2410_GPG13_nXPON);\r\ns3c2410_gpio_cfgpin(S3C2410_GPG(14), S3C2410_GPG14_YMON);\r\ns3c2410_gpio_cfgpin(S3C2410_GPG(15), S3C2410_GPG15_nYPON);\r\n}

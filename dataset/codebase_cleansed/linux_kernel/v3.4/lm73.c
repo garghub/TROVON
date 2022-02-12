@@ -1,0 +1,75 @@
+static ssize_t set_temp(struct device *dev, struct device_attribute *da,
+const char *buf, size_t count)
+{
+struct sensor_device_attribute *attr = to_sensor_dev_attr(da);
+struct i2c_client *client = to_i2c_client(dev);
+long temp;
+short value;
+int status = kstrtol(buf, 10, &temp);
+if (status < 0)
+return status;
+value = (short) SENSORS_LIMIT(temp/250, (LM73_TEMP_MIN*4),
+(LM73_TEMP_MAX*4)) << 5;
+i2c_smbus_write_word_swapped(client, attr->index, value);
+return count;
+}
+static ssize_t show_temp(struct device *dev, struct device_attribute *da,
+char *buf)
+{
+struct sensor_device_attribute *attr = to_sensor_dev_attr(da);
+struct i2c_client *client = to_i2c_client(dev);
+int temp = ((s16) (i2c_smbus_read_word_swapped(client,
+attr->index))*250) / 32;
+return sprintf(buf, "%d\n", temp);
+}
+static int
+lm73_probe(struct i2c_client *client, const struct i2c_device_id *id)
+{
+struct device *hwmon_dev;
+int status;
+status = sysfs_create_group(&client->dev.kobj, &lm73_group);
+if (status)
+return status;
+hwmon_dev = hwmon_device_register(&client->dev);
+if (IS_ERR(hwmon_dev)) {
+status = PTR_ERR(hwmon_dev);
+goto exit_remove;
+}
+i2c_set_clientdata(client, hwmon_dev);
+dev_info(&client->dev, "%s: sensor '%s'\n",
+dev_name(hwmon_dev), client->name);
+return 0;
+exit_remove:
+sysfs_remove_group(&client->dev.kobj, &lm73_group);
+return status;
+}
+static int lm73_remove(struct i2c_client *client)
+{
+struct device *hwmon_dev = i2c_get_clientdata(client);
+hwmon_device_unregister(hwmon_dev);
+sysfs_remove_group(&client->dev.kobj, &lm73_group);
+return 0;
+}
+static int lm73_detect(struct i2c_client *new_client,
+struct i2c_board_info *info)
+{
+struct i2c_adapter *adapter = new_client->adapter;
+int id, ctrl, conf;
+if (!i2c_check_functionality(adapter, I2C_FUNC_SMBUS_BYTE_DATA |
+I2C_FUNC_SMBUS_WORD_DATA))
+return -ENODEV;
+ctrl = i2c_smbus_read_byte_data(new_client, LM73_REG_CTRL);
+if (ctrl < 0 || (ctrl & 0x10))
+return -ENODEV;
+conf = i2c_smbus_read_byte_data(new_client, LM73_REG_CONF);
+if (conf < 0 || (conf & 0x0c))
+return -ENODEV;
+id = i2c_smbus_read_byte_data(new_client, LM73_REG_ID);
+if (id < 0 || id != (LM73_ID & 0xff))
+return -ENODEV;
+id = i2c_smbus_read_word_data(new_client, LM73_REG_ID);
+if (id < 0 || id != LM73_ID)
+return -ENODEV;
+strlcpy(info->type, "lm73", I2C_NAME_SIZE);
+return 0;
+}

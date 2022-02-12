@@ -1,0 +1,71 @@
+static void pci_free_resources(struct pci_dev *dev)
+{
+int i;
+msi_remove_pci_irq_vectors(dev);
+pci_cleanup_rom(dev);
+for (i = 0; i < PCI_NUM_RESOURCES; i++) {
+struct resource *res = dev->resource + i;
+if (res->parent)
+release_resource(res);
+}
+}
+static void pci_stop_dev(struct pci_dev *dev)
+{
+if (dev->is_added) {
+pci_proc_detach_device(dev);
+pci_remove_sysfs_dev_files(dev);
+device_unregister(&dev->dev);
+dev->is_added = 0;
+}
+if (dev->bus->self)
+pcie_aspm_exit_link_state(dev);
+}
+static void pci_destroy_dev(struct pci_dev *dev)
+{
+down_write(&pci_bus_sem);
+list_del(&dev->bus_list);
+up_write(&pci_bus_sem);
+pci_free_resources(dev);
+pci_dev_put(dev);
+}
+void pci_remove_bus(struct pci_bus *bus)
+{
+pci_proc_detach_bus(bus);
+down_write(&pci_bus_sem);
+list_del(&bus->node);
+pci_bus_release_busn_res(bus);
+up_write(&pci_bus_sem);
+if (!bus->is_added)
+return;
+pci_remove_legacy_files(bus);
+device_unregister(&bus->dev);
+}
+static void pci_stop_bus_device(struct pci_dev *dev)
+{
+struct pci_bus *bus = dev->subordinate;
+struct pci_dev *child, *tmp;
+if (bus) {
+list_for_each_entry_safe_reverse(child, tmp,
+&bus->devices, bus_list)
+pci_stop_bus_device(child);
+}
+pci_stop_dev(dev);
+}
+static void pci_remove_bus_device(struct pci_dev *dev)
+{
+struct pci_bus *bus = dev->subordinate;
+struct pci_dev *child, *tmp;
+if (bus) {
+list_for_each_entry_safe(child, tmp,
+&bus->devices, bus_list)
+pci_remove_bus_device(child);
+pci_remove_bus(bus);
+dev->subordinate = NULL;
+}
+pci_destroy_dev(dev);
+}
+void pci_stop_and_remove_bus_device(struct pci_dev *dev)
+{
+pci_stop_bus_device(dev);
+pci_remove_bus_device(dev);
+}

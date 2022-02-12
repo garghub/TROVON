@@ -1,0 +1,1 @@
+PCHAR __init\r\nArcGetEnvironmentVariable(CHAR *name)\r\n{\r\nreturn (CHAR *) ARC_CALL1(get_evar, name);\r\n}\r\nLONG __init\r\nArcSetEnvironmentVariable(PCHAR name, PCHAR value)\r\n{\r\nreturn ARC_CALL2(set_evar, name, value);\r\n}

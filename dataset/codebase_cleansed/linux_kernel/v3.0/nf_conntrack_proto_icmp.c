@@ -1,0 +1,159 @@
+static bool icmp_pkt_to_tuple(const struct sk_buff *skb, unsigned int dataoff,
+struct nf_conntrack_tuple *tuple)
+{
+const struct icmphdr *hp;
+struct icmphdr _hdr;
+hp = skb_header_pointer(skb, dataoff, sizeof(_hdr), &_hdr);
+if (hp == NULL)
+return false;
+tuple->dst.u.icmp.type = hp->type;
+tuple->src.u.icmp.id = hp->un.echo.id;
+tuple->dst.u.icmp.code = hp->code;
+return true;
+}
+static bool icmp_invert_tuple(struct nf_conntrack_tuple *tuple,
+const struct nf_conntrack_tuple *orig)
+{
+if (orig->dst.u.icmp.type >= sizeof(invmap) ||
+!invmap[orig->dst.u.icmp.type])
+return false;
+tuple->src.u.icmp.id = orig->src.u.icmp.id;
+tuple->dst.u.icmp.type = invmap[orig->dst.u.icmp.type] - 1;
+tuple->dst.u.icmp.code = orig->dst.u.icmp.code;
+return true;
+}
+static int icmp_print_tuple(struct seq_file *s,
+const struct nf_conntrack_tuple *tuple)
+{
+return seq_printf(s, "type=%u code=%u id=%u ",
+tuple->dst.u.icmp.type,
+tuple->dst.u.icmp.code,
+ntohs(tuple->src.u.icmp.id));
+}
+static int icmp_packet(struct nf_conn *ct,
+const struct sk_buff *skb,
+unsigned int dataoff,
+enum ip_conntrack_info ctinfo,
+u_int8_t pf,
+unsigned int hooknum)
+{
+nf_ct_refresh_acct(ct, ctinfo, skb, nf_ct_icmp_timeout);
+return NF_ACCEPT;
+}
+static bool icmp_new(struct nf_conn *ct, const struct sk_buff *skb,
+unsigned int dataoff)
+{
+static const u_int8_t valid_new[] = {
+[ICMP_ECHO] = 1,
+[ICMP_TIMESTAMP] = 1,
+[ICMP_INFO_REQUEST] = 1,
+[ICMP_ADDRESS] = 1
+};
+if (ct->tuplehash[0].tuple.dst.u.icmp.type >= sizeof(valid_new) ||
+!valid_new[ct->tuplehash[0].tuple.dst.u.icmp.type]) {
+pr_debug("icmp: can't create new conn with type %u\n",
+ct->tuplehash[0].tuple.dst.u.icmp.type);
+nf_ct_dump_tuple_ip(&ct->tuplehash[0].tuple);
+return false;
+}
+return true;
+}
+static int
+icmp_error_message(struct net *net, struct nf_conn *tmpl, struct sk_buff *skb,
+enum ip_conntrack_info *ctinfo,
+unsigned int hooknum)
+{
+struct nf_conntrack_tuple innertuple, origtuple;
+const struct nf_conntrack_l4proto *innerproto;
+const struct nf_conntrack_tuple_hash *h;
+u16 zone = tmpl ? nf_ct_zone(tmpl) : NF_CT_DEFAULT_ZONE;
+NF_CT_ASSERT(skb->nfct == NULL);
+if (!nf_ct_get_tuplepr(skb,
+skb_network_offset(skb) + ip_hdrlen(skb)
++ sizeof(struct icmphdr),
+PF_INET, &origtuple)) {
+pr_debug("icmp_error_message: failed to get tuple\n");
+return -NF_ACCEPT;
+}
+innerproto = __nf_ct_l4proto_find(PF_INET, origtuple.dst.protonum);
+if (!nf_ct_invert_tuple(&innertuple, &origtuple,
+&nf_conntrack_l3proto_ipv4, innerproto)) {
+pr_debug("icmp_error_message: no match\n");
+return -NF_ACCEPT;
+}
+*ctinfo = IP_CT_RELATED;
+h = nf_conntrack_find_get(net, zone, &innertuple);
+if (!h) {
+pr_debug("icmp_error_message: no match\n");
+return -NF_ACCEPT;
+}
+if (NF_CT_DIRECTION(h) == IP_CT_DIR_REPLY)
+*ctinfo += IP_CT_IS_REPLY;
+skb->nfct = &nf_ct_tuplehash_to_ctrack(h)->ct_general;
+skb->nfctinfo = *ctinfo;
+return NF_ACCEPT;
+}
+static int
+icmp_error(struct net *net, struct nf_conn *tmpl,
+struct sk_buff *skb, unsigned int dataoff,
+enum ip_conntrack_info *ctinfo, u_int8_t pf, unsigned int hooknum)
+{
+const struct icmphdr *icmph;
+struct icmphdr _ih;
+icmph = skb_header_pointer(skb, ip_hdrlen(skb), sizeof(_ih), &_ih);
+if (icmph == NULL) {
+if (LOG_INVALID(net, IPPROTO_ICMP))
+nf_log_packet(PF_INET, 0, skb, NULL, NULL, NULL,
+"nf_ct_icmp: short packet ");
+return -NF_ACCEPT;
+}
+if (net->ct.sysctl_checksum && hooknum == NF_INET_PRE_ROUTING &&
+nf_ip_checksum(skb, hooknum, dataoff, 0)) {
+if (LOG_INVALID(net, IPPROTO_ICMP))
+nf_log_packet(PF_INET, 0, skb, NULL, NULL, NULL,
+"nf_ct_icmp: bad HW ICMP checksum ");
+return -NF_ACCEPT;
+}
+if (icmph->type > NR_ICMP_TYPES) {
+if (LOG_INVALID(net, IPPROTO_ICMP))
+nf_log_packet(PF_INET, 0, skb, NULL, NULL, NULL,
+"nf_ct_icmp: invalid ICMP type ");
+return -NF_ACCEPT;
+}
+if (icmph->type != ICMP_DEST_UNREACH &&
+icmph->type != ICMP_SOURCE_QUENCH &&
+icmph->type != ICMP_TIME_EXCEEDED &&
+icmph->type != ICMP_PARAMETERPROB &&
+icmph->type != ICMP_REDIRECT)
+return NF_ACCEPT;
+return icmp_error_message(net, tmpl, skb, ctinfo, hooknum);
+}
+static int icmp_tuple_to_nlattr(struct sk_buff *skb,
+const struct nf_conntrack_tuple *t)
+{
+NLA_PUT_BE16(skb, CTA_PROTO_ICMP_ID, t->src.u.icmp.id);
+NLA_PUT_U8(skb, CTA_PROTO_ICMP_TYPE, t->dst.u.icmp.type);
+NLA_PUT_U8(skb, CTA_PROTO_ICMP_CODE, t->dst.u.icmp.code);
+return 0;
+nla_put_failure:
+return -1;
+}
+static int icmp_nlattr_to_tuple(struct nlattr *tb[],
+struct nf_conntrack_tuple *tuple)
+{
+if (!tb[CTA_PROTO_ICMP_TYPE] ||
+!tb[CTA_PROTO_ICMP_CODE] ||
+!tb[CTA_PROTO_ICMP_ID])
+return -EINVAL;
+tuple->dst.u.icmp.type = nla_get_u8(tb[CTA_PROTO_ICMP_TYPE]);
+tuple->dst.u.icmp.code = nla_get_u8(tb[CTA_PROTO_ICMP_CODE]);
+tuple->src.u.icmp.id = nla_get_be16(tb[CTA_PROTO_ICMP_ID]);
+if (tuple->dst.u.icmp.type >= sizeof(invmap) ||
+!invmap[tuple->dst.u.icmp.type])
+return -EINVAL;
+return 0;
+}
+static int icmp_nlattr_tuple_size(void)
+{
+return nla_policy_len(icmp_nla_policy, CTA_PROTO_MAX + 1);
+}

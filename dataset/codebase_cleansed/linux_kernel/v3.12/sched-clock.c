@@ -1,0 +1,1 @@
+static u32 notrace versatile_read_sched_clock(void)\r\n{\r\nif (ctr)\r\nreturn readl(ctr);\r\nreturn 0;\r\n}\r\nvoid __init versatile_sched_clock_init(void __iomem *reg, unsigned long rate)\r\n{\r\nctr = reg;\r\nsetup_sched_clock(versatile_read_sched_clock, 32, rate);\r\n}

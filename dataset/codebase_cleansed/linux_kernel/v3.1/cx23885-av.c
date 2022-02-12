@@ -1,0 +1,1 @@
+void cx23885_av_work_handler(struct work_struct *work)\r\n{\r\nstruct cx23885_dev *dev =\r\ncontainer_of(work, struct cx23885_dev, cx25840_work);\r\nbool handled;\r\nv4l2_subdev_call(dev->sd_cx25840, core, interrupt_service_routine,\r\nPCI_MSK_AV_CORE, &handled);\r\ncx23885_irq_enable(dev, PCI_MSK_AV_CORE);\r\n}

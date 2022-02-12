@@ -1,0 +1,1 @@
+static void __init r8a7790_sysc_init(void)\r\n{\r\nvoid __iomem *base = rcar_sysc_init(0xe6180000);\r\niowrite32(0x0131000e, base + SYSCIER);\r\niowrite32(0, base + SYSCIMR);\r\n}\r\nstatic inline void r8a7790_sysc_init(void) {}\r\nvoid __init r8a7790_pm_init(void)\r\n{\r\nstatic int once;\r\nif (!once++)\r\nr8a7790_sysc_init();\r\n}

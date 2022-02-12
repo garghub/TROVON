@@ -1,0 +1,1 @@
+void s5p_mfc_init_hw_cmds(struct s5p_mfc_dev *dev)\r\n{\r\nif (IS_MFCV6(dev))\r\ns5p_mfc_cmds = s5p_mfc_init_hw_cmds_v6();\r\nelse\r\ns5p_mfc_cmds = s5p_mfc_init_hw_cmds_v5();\r\ndev->mfc_cmds = s5p_mfc_cmds;\r\n}

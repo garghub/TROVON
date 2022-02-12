@@ -1,0 +1,129 @@
+static int max77686_set_ramp_delay(struct regulator_dev *rdev, int ramp_delay)
+{
+unsigned int ramp_value = RAMP_RATE_NO_CTRL;
+switch (ramp_delay) {
+case 1 ... 13750:
+ramp_value = RAMP_RATE_13P75MV;
+break;
+case 13751 ... 27500:
+ramp_value = RAMP_RATE_27P5MV;
+break;
+case 27501 ... 55000:
+ramp_value = RAMP_RATE_55MV;
+break;
+case 55001 ... 100000:
+break;
+default:
+pr_warn("%s: ramp_delay: %d not supported, setting 100000\n",
+rdev->desc->name, ramp_delay);
+}
+return regmap_update_bits(rdev->regmap, rdev->desc->enable_reg,
+MAX77686_RAMP_RATE_MASK, ramp_value << 6);
+}
+static int max77686_pmic_dt_parse_pdata(struct max77686_dev *iodev,
+struct max77686_platform_data *pdata)
+{
+struct device_node *pmic_np, *regulators_np;
+struct max77686_regulator_data *rdata;
+struct of_regulator_match rmatch;
+unsigned int i;
+pmic_np = iodev->dev->of_node;
+regulators_np = of_find_node_by_name(pmic_np, "voltage-regulators");
+if (!regulators_np) {
+dev_err(iodev->dev, "could not find regulators sub-node\n");
+return -EINVAL;
+}
+pdata->num_regulators = ARRAY_SIZE(regulators);
+rdata = devm_kzalloc(iodev->dev, sizeof(*rdata) *
+pdata->num_regulators, GFP_KERNEL);
+if (!rdata) {
+dev_err(iodev->dev,
+"could not allocate memory for regulator data\n");
+return -ENOMEM;
+}
+for (i = 0; i < pdata->num_regulators; i++) {
+rmatch.name = regulators[i].name;
+rmatch.init_data = NULL;
+rmatch.of_node = NULL;
+of_regulator_match(iodev->dev, regulators_np, &rmatch, 1);
+rdata[i].initdata = rmatch.init_data;
+}
+pdata->regulators = rdata;
+return 0;
+}
+static int max77686_pmic_dt_parse_pdata(struct max77686_dev *iodev,
+struct max77686_platform_data *pdata)
+{
+return 0;
+}
+static __devinit int max77686_pmic_probe(struct platform_device *pdev)
+{
+struct max77686_dev *iodev = dev_get_drvdata(pdev->dev.parent);
+struct max77686_platform_data *pdata = dev_get_platdata(iodev->dev);
+struct regulator_dev **rdev;
+struct max77686_data *max77686;
+int i, size;
+int ret = 0;
+struct regulator_config config = { };
+dev_dbg(&pdev->dev, "%s\n", __func__);
+if (!pdata) {
+dev_err(&pdev->dev, "no platform data found for regulator\n");
+return -ENODEV;
+}
+if (iodev->dev->of_node) {
+ret = max77686_pmic_dt_parse_pdata(iodev, pdata);
+if (ret)
+return ret;
+}
+if (pdata->num_regulators != MAX77686_REGULATORS) {
+dev_err(&pdev->dev,
+"Invalid initial data for regulator's initialiation\n");
+return -EINVAL;
+}
+max77686 = devm_kzalloc(&pdev->dev, sizeof(struct max77686_data),
+GFP_KERNEL);
+if (!max77686)
+return -ENOMEM;
+size = sizeof(struct regulator_dev *) * MAX77686_REGULATORS;
+max77686->rdev = devm_kzalloc(&pdev->dev, size, GFP_KERNEL);
+if (!max77686->rdev)
+return -ENOMEM;
+rdev = max77686->rdev;
+config.dev = &pdev->dev;
+config.regmap = iodev->regmap;
+platform_set_drvdata(pdev, max77686);
+for (i = 0; i < MAX77686_REGULATORS; i++) {
+config.init_data = pdata->regulators[i].initdata;
+rdev[i] = regulator_register(&regulators[i], &config);
+if (IS_ERR(rdev[i])) {
+ret = PTR_ERR(rdev[i]);
+dev_err(&pdev->dev,
+"regulator init failed for %d\n", i);
+rdev[i] = NULL;
+goto err;
+}
+}
+return 0;
+err:
+while (--i >= 0)
+regulator_unregister(rdev[i]);
+return ret;
+}
+static int __devexit max77686_pmic_remove(struct platform_device *pdev)
+{
+struct max77686_data *max77686 = platform_get_drvdata(pdev);
+struct regulator_dev **rdev = max77686->rdev;
+int i;
+for (i = 0; i < MAX77686_REGULATORS; i++)
+if (rdev[i])
+regulator_unregister(rdev[i]);
+return 0;
+}
+static int __init max77686_pmic_init(void)
+{
+return platform_driver_register(&max77686_pmic_driver);
+}
+static void __exit max77686_pmic_cleanup(void)
+{
+platform_driver_unregister(&max77686_pmic_driver);
+}

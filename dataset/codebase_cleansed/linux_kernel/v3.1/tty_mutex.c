@@ -1,0 +1,1 @@
+void __lockfunc tty_lock(void)\r\n{\r\nstruct task_struct *task = current;\r\nWARN_ON(__big_tty_mutex_owner == task);\r\nmutex_lock(&big_tty_mutex);\r\n__big_tty_mutex_owner = task;\r\n}\r\nvoid __lockfunc tty_unlock(void)\r\n{\r\nstruct task_struct *task = current;\r\nWARN_ON(__big_tty_mutex_owner != task);\r\n__big_tty_mutex_owner = NULL;\r\nmutex_unlock(&big_tty_mutex);\r\n}

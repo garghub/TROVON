@@ -1,0 +1,1 @@
+DWtype __muldi3(DWtype u, DWtype v)\r\n{\r\nconst DWunion uu = {.ll = u};\r\nconst DWunion vv = {.ll = v};\r\nDWunion w = {.ll = __umulsidi3(uu.s.low, vv.s.low)};\r\nw.s.high += ((UWtype) uu.s.low * (UWtype) vv.s.high\r\n+ (UWtype) uu.s.high * (UWtype) vv.s.low);\r\nreturn w.ll;\r\n}

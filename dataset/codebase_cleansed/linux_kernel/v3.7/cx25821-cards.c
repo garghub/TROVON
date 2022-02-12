@@ -1,0 +1,1 @@
+void cx25821_card_setup(struct cx25821_dev *dev)\r\n{\r\nstatic u8 eeprom[256];\r\nif (dev->i2c_bus[0].i2c_rc == 0) {\r\ndev->i2c_bus[0].i2c_client.addr = 0xa0 >> 1;\r\ntveeprom_read(&dev->i2c_bus[0].i2c_client, eeprom,\r\nsizeof(eeprom));\r\n}\r\n}

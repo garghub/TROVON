@@ -1,0 +1,1 @@
+static int __init msp_pci_setup(void)\r\n{\r\n#if 0\r\nif (getdeviceid() & DEV_ID_SINGLE_PC) {\r\nslmRegs *sreg = (slmRegs *) SREG_BASE;\r\nsreg->single_pc_enable = SINGLE_PCCARD;\r\n}\r\n#endif\r\nmsp_pci_init();\r\nreturn 0;\r\n}

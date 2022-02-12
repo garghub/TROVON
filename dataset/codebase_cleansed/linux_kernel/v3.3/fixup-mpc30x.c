@@ -1,0 +1,1 @@
+int __init pcibios_map_irq(const struct pci_dev *dev, u8 slot, u8 pin)\r\n{\r\nif (slot == 30)\r\nreturn internal_func_irqs[PCI_FUNC(dev->devfn)];\r\nreturn irq_tab_mpc30x[slot];\r\n}\r\nint pcibios_plat_dev_init(struct pci_dev *dev)\r\n{\r\nreturn 0;\r\n}

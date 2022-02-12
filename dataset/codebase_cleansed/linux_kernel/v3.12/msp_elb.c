@@ -1,0 +1,1 @@
+static int __init msp_elb_setup(void)\r\n{\r\n#if defined(CONFIG_PMC_MSP7120_GW) \\r\n|| defined(CONFIG_PMC_MSP7120_EVAL)\r\n*CS1_CNFG_REG = *CS2_CNFG_REG = *CS3_CNFG_REG = *CS0_CNFG_REG;\r\n#endif\r\nreturn 0;\r\n}

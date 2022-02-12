@@ -1,0 +1,215 @@
+static int dt2811_ai_insn(struct comedi_device *dev, struct comedi_subdevice *s,
+struct comedi_insn *insn, unsigned int *data)
+{
+int chan = CR_CHAN(insn->chanspec);
+int timeout = DT2811_TIMEOUT;
+int i;
+for (i = 0; i < insn->n; i++) {
+outb(chan, dev->iobase + DT2811_ADGCR);
+while (timeout
+&& inb(dev->iobase + DT2811_ADCSR) & DT2811_ADBUSY)
+timeout--;
+if (!timeout)
+return -ETIME;
+data[i] = inb(dev->iobase + DT2811_ADDATLO);
+data[i] |= inb(dev->iobase + DT2811_ADDATHI) << 8;
+data[i] &= 0xfff;
+}
+return i;
+}
+static int dt2811_ao_insn(struct comedi_device *dev, struct comedi_subdevice *s,
+struct comedi_insn *insn, unsigned int *data)
+{
+int i;
+int chan;
+chan = CR_CHAN(insn->chanspec);
+for (i = 0; i < insn->n; i++) {
+outb(data[i] & 0xff, dev->iobase + DT2811_DADAT0LO + 2 * chan);
+outb((data[i] >> 8) & 0xff,
+dev->iobase + DT2811_DADAT0HI + 2 * chan);
+devpriv->ao_readback[chan] = data[i];
+}
+return i;
+}
+static int dt2811_ao_insn_read(struct comedi_device *dev,
+struct comedi_subdevice *s,
+struct comedi_insn *insn, unsigned int *data)
+{
+int i;
+int chan;
+chan = CR_CHAN(insn->chanspec);
+for (i = 0; i < insn->n; i++)
+data[i] = devpriv->ao_readback[chan];
+return i;
+}
+static int dt2811_di_insn_bits(struct comedi_device *dev,
+struct comedi_subdevice *s,
+struct comedi_insn *insn, unsigned int *data)
+{
+if (insn->n != 2)
+return -EINVAL;
+data[1] = inb(dev->iobase + DT2811_DIO);
+return 2;
+}
+static int dt2811_do_insn_bits(struct comedi_device *dev,
+struct comedi_subdevice *s,
+struct comedi_insn *insn, unsigned int *data)
+{
+if (insn->n != 2)
+return -EINVAL;
+s->state &= ~data[0];
+s->state |= data[0] & data[1];
+outb(s->state, dev->iobase + DT2811_DIO);
+data[1] = s->state;
+return 2;
+}
+static int dt2811_attach(struct comedi_device *dev, struct comedi_devconfig *it)
+{
+int ret;
+struct comedi_subdevice *s;
+unsigned long iobase;
+iobase = it->options[0];
+printk(KERN_INFO "comedi%d: dt2811:base=0x%04lx\n", dev->minor, iobase);
+if (!request_region(iobase, DT2811_SIZE, driver_name)) {
+printk(KERN_ERR "I/O port conflict\n");
+return -EIO;
+}
+dev->iobase = iobase;
+dev->board_name = this_board->name;
+#if 0
+outb(0, dev->iobase + DT2811_ADCSR);
+udelay(100);
+i = inb(dev->iobase + DT2811_ADDATLO);
+i = inb(dev->iobase + DT2811_ADDATHI);
+#endif
+#if 0
+irq = it->options[1];
+if (irq < 0) {
+save_flags(flags);
+sti();
+irqs = probe_irq_on();
+outb(DT2811_CLRERROR | DT2811_INTENB,
+dev->iobase + DT2811_ADCSR);
+outb(0, dev->iobase + DT2811_ADGCR);
+udelay(100);
+irq = probe_irq_off(irqs);
+restore_flags(flags);
+if (inb(dev->iobase + DT2811_ADCSR) & DT2811_ADERROR)
+printk(KERN_ERR "error probing irq (bad)\n");
+dev->irq = 0;
+if (irq > 0) {
+i = inb(dev->iobase + DT2811_ADDATLO);
+i = inb(dev->iobase + DT2811_ADDATHI);
+printk(KERN_INFO "(irq = %d)\n", irq);
+ret = request_irq(irq, dt2811_interrupt, 0,
+driver_name, dev);
+if (ret < 0)
+return -EIO;
+dev->irq = irq;
+} else if (irq == 0) {
+printk(KERN_INFO "(no irq)\n");
+} else {
+printk(KERN_ERR "( multiple irq's -- this is bad! )\n");
+}
+}
+#endif
+ret = alloc_subdevices(dev, 4);
+if (ret < 0)
+return ret;
+ret = alloc_private(dev, sizeof(struct dt2811_private));
+if (ret < 0)
+return ret;
+switch (it->options[2]) {
+case 0:
+devpriv->adc_mux = adc_singleended;
+break;
+case 1:
+devpriv->adc_mux = adc_diff;
+break;
+case 2:
+devpriv->adc_mux = adc_pseudo_diff;
+break;
+default:
+devpriv->adc_mux = adc_singleended;
+break;
+}
+switch (it->options[4]) {
+case 0:
+devpriv->dac_range[0] = dac_bipolar_5;
+break;
+case 1:
+devpriv->dac_range[0] = dac_bipolar_2_5;
+break;
+case 2:
+devpriv->dac_range[0] = dac_unipolar_5;
+break;
+default:
+devpriv->dac_range[0] = dac_bipolar_5;
+break;
+}
+switch (it->options[5]) {
+case 0:
+devpriv->dac_range[1] = dac_bipolar_5;
+break;
+case 1:
+devpriv->dac_range[1] = dac_bipolar_2_5;
+break;
+case 2:
+devpriv->dac_range[1] = dac_unipolar_5;
+break;
+default:
+devpriv->dac_range[1] = dac_bipolar_5;
+break;
+}
+s = dev->subdevices + 0;
+s->type = COMEDI_SUBD_AI;
+s->subdev_flags = SDF_READABLE | SDF_GROUND;
+s->n_chan = devpriv->adc_mux == adc_diff ? 8 : 16;
+s->insn_read = dt2811_ai_insn;
+s->maxdata = 0xfff;
+switch (it->options[3]) {
+case 0:
+default:
+s->range_table = this_board->bip_5;
+break;
+case 1:
+s->range_table = this_board->bip_2_5;
+break;
+case 2:
+s->range_table = this_board->unip_5;
+break;
+}
+s = dev->subdevices + 1;
+s->type = COMEDI_SUBD_AO;
+s->subdev_flags = SDF_WRITABLE;
+s->n_chan = 2;
+s->insn_write = dt2811_ao_insn;
+s->insn_read = dt2811_ao_insn_read;
+s->maxdata = 0xfff;
+s->range_table_list = devpriv->range_type_list;
+devpriv->range_type_list[0] = dac_range_types[devpriv->dac_range[0]];
+devpriv->range_type_list[1] = dac_range_types[devpriv->dac_range[1]];
+s = dev->subdevices + 2;
+s->type = COMEDI_SUBD_DI;
+s->subdev_flags = SDF_READABLE;
+s->n_chan = 8;
+s->insn_bits = dt2811_di_insn_bits;
+s->maxdata = 1;
+s->range_table = &range_digital;
+s = dev->subdevices + 3;
+s->type = COMEDI_SUBD_DO;
+s->subdev_flags = SDF_WRITABLE;
+s->n_chan = 8;
+s->insn_bits = dt2811_do_insn_bits;
+s->maxdata = 1;
+s->state = 0;
+s->range_table = &range_digital;
+return 0;
+}
+static void dt2811_detach(struct comedi_device *dev)
+{
+if (dev->irq)
+free_irq(dev->irq, dev);
+if (dev->iobase)
+release_region(dev->iobase, DT2811_SIZE);
+}

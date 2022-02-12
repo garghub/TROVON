@@ -1,0 +1,1 @@
+HvLpIndex HvLpConfig_getLpIndex_outline(void)\r\n{\r\nreturn HvLpConfig_getLpIndex();\r\n}\r\nHvLpIndex HvLpConfig_getLpIndex(void)\r\n{\r\nreturn itLpNaca.xLpIndex;\r\n}\r\nHvLpIndex HvLpConfig_getPrimaryLpIndex(void)\r\n{\r\nreturn itLpNaca.xPrimaryLpIndex;\r\n}

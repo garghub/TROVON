@@ -1,0 +1,1 @@
+static void __init gic_init_irq(void)\r\n{\r\nof_irq_init(irq_match);\r\n}\r\nstatic void socfpga_cyclone5_restart(char mode, const char *cmd)\r\n{\r\n}\r\nstatic void __init socfpga_cyclone5_init(void)\r\n{\r\nl2x0_of_init(0, ~0UL);\r\nof_platform_populate(NULL, of_default_bus_match_table, NULL, NULL);\r\nsocfpga_init_clocks();\r\n}

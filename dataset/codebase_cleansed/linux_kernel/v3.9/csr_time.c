@@ -1,0 +1,1 @@
+u32 CsrTimeGet(u32 *high)\r\n{\r\nstruct timespec ts;\r\nu64 time;\r\nu32 low;\r\nts = current_kernel_time();\r\ntime = (u64) ts.tv_sec * 1000000 + ts.tv_nsec / 1000;\r\nif (high != NULL)\r\n*high = (u32) ((time >> 32) & 0xFFFFFFFF);\r\nlow = (u32) (time & 0xFFFFFFFF);\r\nreturn low;\r\n}

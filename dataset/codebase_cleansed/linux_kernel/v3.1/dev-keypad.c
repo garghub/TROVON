@@ -1,0 +1,1 @@
+void __init samsung_keypad_set_platdata(struct samsung_keypad_platdata *pd)\r\n{\r\nstruct samsung_keypad_platdata *npd;\r\nnpd = s3c_set_platdata(pd, sizeof(struct samsung_keypad_platdata),\r\n&samsung_device_keypad);\r\nif (!npd->cfg_gpio)\r\nnpd->cfg_gpio = samsung_keypad_cfg_gpio;\r\n}

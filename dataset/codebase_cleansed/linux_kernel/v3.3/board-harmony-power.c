@@ -1,0 +1,1 @@
+int __init harmony_regulator_init(void)\r\n{\r\nvoid __iomem *pmc = IO_ADDRESS(TEGRA_PMC_BASE);\r\nu32 pmc_ctrl;\r\npmc_ctrl = readl(pmc + PMC_CTRL);\r\nwritel(pmc_ctrl | PMC_CTRL_INTR_LOW, pmc + PMC_CTRL);\r\ni2c_register_board_info(3, harmony_regulators, 1);\r\nreturn 0;\r\n}

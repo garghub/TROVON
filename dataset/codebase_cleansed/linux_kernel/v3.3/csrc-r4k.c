@@ -1,0 +1,1 @@
+static cycle_t c0_hpt_read(struct clocksource *cs)\r\n{\r\nreturn read_c0_count();\r\n}\r\nint __init init_r4k_clocksource(void)\r\n{\r\nif (!cpu_has_counter || !mips_hpt_frequency)\r\nreturn -ENXIO;\r\nclocksource_mips.rating = 200 + mips_hpt_frequency / 10000000;\r\nclocksource_register_hz(&clocksource_mips, mips_hpt_frequency);\r\nreturn 0;\r\n}

@@ -1,0 +1,1 @@
+static void __init init_eval_h7202(void)\r\n{\r\ninit_hw_h7202();\r\n(void) platform_add_devices(devices, ARRAY_SIZE(devices));\r\nCPU_REG (GPIO_B_VIRT, GPIO_POL) &= ~(1 << 8);\r\nCPU_REG (GPIO_B_VIRT, GPIO_EN) |= (1 << 8);\r\n}

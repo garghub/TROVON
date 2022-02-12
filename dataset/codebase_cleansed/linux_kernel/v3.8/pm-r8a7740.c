@@ -1,0 +1,1 @@
+static int r8a7740_pd_a4s_suspend(void)\r\n{\r\nreturn -EBUSY;\r\n}\r\nstatic int r8a7740_pd_a3sp_suspend(void)\r\n{\r\nreturn console_suspend_enabled ? 0 : -EBUSY;\r\n}\r\nvoid __init r8a7740_init_pm_domains(void)\r\n{\r\nrmobile_init_domains(r8a7740_pm_domains, ARRAY_SIZE(r8a7740_pm_domains));\r\npm_genpd_add_subdomain_names("A4S", "A3SP");\r\n}

@@ -1,0 +1,1 @@
+void __init ltq_soc_detect(struct ltq_soc_info *i)\r\n{\r\ni->partnum = (ltq_r32(LTQ_MPS_CHIPID) & PART_MASK) >> PART_SHIFT;\r\ni->rev = (ltq_r32(LTQ_MPS_CHIPID) & REV_MASK) >> REV_SHIFT;\r\nswitch (i->partnum) {\r\ncase SOC_ID_AMAZON_SE:\r\ni->name = SOC_AMAZON_SE;\r\ni->type = SOC_TYPE_AMAZON_SE;\r\nbreak;\r\ndefault:\r\nunreachable();\r\nbreak;\r\n}\r\n}

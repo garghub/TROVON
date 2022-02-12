@@ -1,0 +1,71 @@
+static int touchbook_twl_gpio_setup(struct device *dev,
+unsigned gpio, unsigned ngpio)
+{
+if (system_rev >= 0x20 && system_rev <= 0x34301000) {
+omap_mux_init_gpio(23, OMAP_PIN_INPUT);
+mmc[0].gpio_wp = 23;
+} else {
+omap_mux_init_gpio(29, OMAP_PIN_INPUT);
+}
+mmc[0].gpio_cd = gpio + 0;
+omap2_hsmmc_init(mmc);
+touchbook_vmmc1_supply.dev = mmc[0].dev;
+touchbook_vsim_supply.dev = mmc[0].dev;
+gpio_request_one(gpio + 1, GPIOF_IN, "EHCI_nOC");
+gpio_request_one(gpio + TWL4030_GPIO_MAX, GPIOF_OUT_INIT_LOW,
+"nEN_USB_PWR");
+gpio_leds[2].gpio = gpio + TWL4030_GPIO_MAX + 1;
+return 0;
+}
+static int __init omap3_touchbook_i2c_init(void)
+{
+omap3_pmic_init("twl4030", &touchbook_twldata);
+omap_register_i2c_bus(3, 100, touchBook_i2c_boardinfo,
+ARRAY_SIZE(touchBook_i2c_boardinfo));
+return 0;
+}
+static void __init omap3_touchbook_init_early(void)
+{
+omap2_init_common_infrastructure();
+omap2_init_common_devices(mt46h32m32lf6_sdrc_params,
+mt46h32m32lf6_sdrc_params);
+}
+static void __init omap3_touchbook_init_irq(void)
+{
+omap_init_irq();
+#ifdef CONFIG_OMAP_32K_TIMER
+omap2_gp_clockevent_set_gptimer(12);
+#endif
+}
+static void omap3_touchbook_poweroff(void)
+{
+int pwr_off = TB_KILL_POWER_GPIO;
+if (gpio_request_one(pwr_off, GPIOF_OUT_INIT_LOW, "DVI reset") < 0)
+printk(KERN_ERR "Unable to get kill power GPIO\n");
+}
+static int __init early_touchbook_revision(char *p)
+{
+if (!p)
+return 0;
+return strict_strtoul(p, 10, &touchbook_revision);
+}
+static void __init omap3_touchbook_init(void)
+{
+omap3_mux_init(board_mux, OMAP_PACKAGE_CBB);
+omap_board_config = omap3_touchbook_config;
+omap_board_config_size = ARRAY_SIZE(omap3_touchbook_config);
+pm_power_off = omap3_touchbook_poweroff;
+omap3_touchbook_i2c_init();
+platform_add_devices(omap3_touchbook_devices,
+ARRAY_SIZE(omap3_touchbook_devices));
+omap_serial_init();
+omap_mux_init_gpio(170, OMAP_PIN_INPUT);
+gpio_request_one(176, GPIOF_OUT_INIT_HIGH, "DVI_nPD");
+omap_ads7846_init(4, OMAP3_TS_GPIO, 310, &ads7846_pdata);
+usb_musb_init(NULL);
+usbhs_init(&usbhs_bdata);
+omap_nand_flash_init(NAND_BUSWIDTH_16, omap3touchbook_nand_partitions,
+ARRAY_SIZE(omap3touchbook_nand_partitions));
+omap_mux_init_signal("sdrc_cke0", OMAP_PIN_OUTPUT);
+omap_mux_init_signal("sdrc_cke1", OMAP_PIN_OUTPUT);
+}

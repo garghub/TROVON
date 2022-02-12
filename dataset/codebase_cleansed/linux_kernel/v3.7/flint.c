@@ -1,0 +1,1 @@
+static void __init flint_init(void)\r\n{\r\nmfp_config(ARRAY_AND_SIZE(flint_pin_config));\r\nmmp2_add_uart(1);\r\nmmp2_add_uart(2);\r\nplatform_device_register(&mmp2_device_gpio);\r\nplatform_device_register(&smc91x_device);\r\n}

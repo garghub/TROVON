@@ -1,0 +1,128 @@
+static int tegra20_reset_sleeping_cpu_1(void)
+{
+int ret = 0;
+tegra_pen_lock();
+if (readl(pmc + PMC_SCRATCH41) == CPU_RESETTABLE)
+tegra20_cpu_shutdown(1);
+else
+ret = -EINVAL;
+tegra_pen_unlock();
+return ret;
+}
+static void tegra20_wake_cpu1_from_reset(void)
+{
+tegra_pen_lock();
+tegra20_cpu_clear_resettable();
+tegra_enable_cpu_clock(1);
+tegra_cpu_out_of_reset(1);
+flowctrl_write_cpu_halt(1, 0);
+tegra_pen_unlock();
+}
+static int tegra20_reset_cpu_1(void)
+{
+if (!cpu_online(1) || !tegra20_reset_sleeping_cpu_1())
+return 0;
+tegra20_wake_cpu1_from_reset();
+return -EBUSY;
+}
+static inline void tegra20_wake_cpu1_from_reset(void)
+{
+}
+static inline int tegra20_reset_cpu_1(void)
+{
+return 0;
+}
+static bool tegra20_cpu_cluster_power_down(struct cpuidle_device *dev,
+struct cpuidle_driver *drv,
+int index)
+{
+struct cpuidle_state *state = &drv->states[index];
+u32 cpu_on_time = state->exit_latency;
+u32 cpu_off_time = state->target_residency - state->exit_latency;
+while (tegra20_cpu_is_resettable_soon())
+cpu_relax();
+if (tegra20_reset_cpu_1() || !tegra_cpu_rail_off_ready())
+return false;
+clockevents_notify(CLOCK_EVT_NOTIFY_BROADCAST_ENTER, &dev->cpu);
+tegra_idle_lp2_last(cpu_on_time, cpu_off_time);
+clockevents_notify(CLOCK_EVT_NOTIFY_BROADCAST_EXIT, &dev->cpu);
+if (cpu_online(1))
+tegra20_wake_cpu1_from_reset();
+return true;
+}
+static bool tegra20_idle_enter_lp2_cpu_1(struct cpuidle_device *dev,
+struct cpuidle_driver *drv,
+int index)
+{
+clockevents_notify(CLOCK_EVT_NOTIFY_BROADCAST_ENTER, &dev->cpu);
+cpu_suspend(0, tegra20_sleep_cpu_secondary_finish);
+tegra20_cpu_clear_resettable();
+clockevents_notify(CLOCK_EVT_NOTIFY_BROADCAST_EXIT, &dev->cpu);
+return true;
+}
+static inline bool tegra20_idle_enter_lp2_cpu_1(struct cpuidle_device *dev,
+struct cpuidle_driver *drv,
+int index)
+{
+return true;
+}
+static int tegra20_idle_lp2_coupled(struct cpuidle_device *dev,
+struct cpuidle_driver *drv,
+int index)
+{
+u32 cpu = is_smp() ? cpu_logical_map(dev->cpu) : dev->cpu;
+bool entered_lp2 = false;
+if (tegra_pending_sgi())
+ACCESS_ONCE(abort_flag) = true;
+cpuidle_coupled_parallel_barrier(dev, &abort_barrier);
+if (abort_flag) {
+cpuidle_coupled_parallel_barrier(dev, &abort_barrier);
+abort_flag = false;
+return -EINTR;
+}
+local_fiq_disable();
+tegra_set_cpu_in_lp2(cpu);
+cpu_pm_enter();
+if (cpu == 0)
+entered_lp2 = tegra20_cpu_cluster_power_down(dev, drv, index);
+else
+entered_lp2 = tegra20_idle_enter_lp2_cpu_1(dev, drv, index);
+cpu_pm_exit();
+tegra_clear_cpu_in_lp2(cpu);
+local_fiq_enable();
+smp_rmb();
+return entered_lp2 ? index : 0;
+}
+int __init tegra20_cpuidle_init(void)
+{
+int ret;
+unsigned int cpu;
+struct cpuidle_device *dev;
+struct cpuidle_driver *drv = &tegra_idle_driver;
+#ifdef CONFIG_PM_SLEEP
+tegra_tear_down_cpu = tegra20_tear_down_cpu;
+#endif
+drv->state_count = ARRAY_SIZE(tegra_idle_states);
+memcpy(drv->states, tegra_idle_states,
+drv->state_count * sizeof(drv->states[0]));
+ret = cpuidle_register_driver(&tegra_idle_driver);
+if (ret) {
+pr_err("CPUidle driver registration failed\n");
+return ret;
+}
+for_each_possible_cpu(cpu) {
+dev = &per_cpu(tegra_idle_device, cpu);
+dev->cpu = cpu;
+#ifdef CONFIG_ARCH_NEEDS_CPU_IDLE_COUPLED
+dev->coupled_cpus = *cpu_possible_mask;
+#endif
+dev->state_count = drv->state_count;
+ret = cpuidle_register_device(dev);
+if (ret) {
+pr_err("CPU%u: CPUidle device registration failed\n",
+cpu);
+return ret;
+}
+}
+return 0;
+}

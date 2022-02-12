@@ -1,0 +1,1 @@
+static int __init sirfsoc_l2x0_init(void)\r\n{\r\nstruct device_node *np;\r\nconst struct l2x0_aux *aux;\r\nnp = of_find_matching_node(NULL, sirf_l2x0_ids);\r\nif (np) {\r\naux = of_match_node(sirf_l2x0_ids, np)->data;\r\nreturn l2x0_of_init(aux->val, aux->mask);\r\n}\r\nreturn 0;\r\n}

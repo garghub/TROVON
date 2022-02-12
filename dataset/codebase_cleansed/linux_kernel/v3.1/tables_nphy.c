@@ -1,0 +1,235 @@
+static inline void assert_ntab_array_sizes(void)
+{
+#undef check
+#define check(table, size) \
+BUILD_BUG_ON(ARRAY_SIZE(b43_ntab_##table) != B43_NTAB_##size##_SIZE)
+check(adjustpower0, C0_ADJPLT);
+check(adjustpower1, C1_ADJPLT);
+check(bdi, BDI);
+check(channelest, CHANEST);
+check(estimatepowerlt0, C0_ESTPLT);
+check(estimatepowerlt1, C1_ESTPLT);
+check(framelookup, FRAMELT);
+check(framestruct, FRAMESTRUCT);
+check(gainctl0, C0_GAINCTL);
+check(gainctl1, C1_GAINCTL);
+check(intlevel, INTLEVEL);
+check(iqlt0, C0_IQLT);
+check(iqlt1, C1_IQLT);
+check(loftlt0, C0_LOFEEDTH);
+check(loftlt1, C1_LOFEEDTH);
+check(mcs, MCS);
+check(noisevar10, NOISEVAR10);
+check(noisevar11, NOISEVAR11);
+check(pilot, PILOT);
+check(pilotlt, PILOTLT);
+check(tdi20a0, TDI20A0);
+check(tdi20a1, TDI20A1);
+check(tdi40a0, TDI40A0);
+check(tdi40a1, TDI40A1);
+check(tdtrn, TDTRN);
+check(tmap, TMAP);
+#undef check
+}
+u32 b43_ntab_read(struct b43_wldev *dev, u32 offset)
+{
+u32 type, value;
+type = offset & B43_NTAB_TYPEMASK;
+offset &= ~B43_NTAB_TYPEMASK;
+B43_WARN_ON(offset > 0xFFFF);
+switch (type) {
+case B43_NTAB_8BIT:
+b43_phy_write(dev, B43_NPHY_TABLE_ADDR, offset);
+value = b43_phy_read(dev, B43_NPHY_TABLE_DATALO) & 0xFF;
+break;
+case B43_NTAB_16BIT:
+b43_phy_write(dev, B43_NPHY_TABLE_ADDR, offset);
+value = b43_phy_read(dev, B43_NPHY_TABLE_DATALO);
+break;
+case B43_NTAB_32BIT:
+b43_phy_write(dev, B43_NPHY_TABLE_ADDR, offset);
+value = b43_phy_read(dev, B43_NPHY_TABLE_DATAHI);
+value <<= 16;
+value |= b43_phy_read(dev, B43_NPHY_TABLE_DATALO);
+break;
+default:
+B43_WARN_ON(1);
+value = 0;
+}
+return value;
+}
+void b43_ntab_read_bulk(struct b43_wldev *dev, u32 offset,
+unsigned int nr_elements, void *_data)
+{
+u32 type;
+u8 *data = _data;
+unsigned int i;
+type = offset & B43_NTAB_TYPEMASK;
+offset &= ~B43_NTAB_TYPEMASK;
+B43_WARN_ON(offset > 0xFFFF);
+b43_phy_write(dev, B43_NPHY_TABLE_ADDR, offset);
+for (i = 0; i < nr_elements; i++) {
+switch (type) {
+case B43_NTAB_8BIT:
+*data = b43_phy_read(dev, B43_NPHY_TABLE_DATALO) & 0xFF;
+data++;
+break;
+case B43_NTAB_16BIT:
+*((u16 *)data) = b43_phy_read(dev, B43_NPHY_TABLE_DATALO);
+data += 2;
+break;
+case B43_NTAB_32BIT:
+*((u32 *)data) = b43_phy_read(dev, B43_NPHY_TABLE_DATAHI);
+*((u32 *)data) <<= 16;
+*((u32 *)data) |= b43_phy_read(dev, B43_NPHY_TABLE_DATALO);
+data += 4;
+break;
+default:
+B43_WARN_ON(1);
+}
+}
+}
+void b43_ntab_write(struct b43_wldev *dev, u32 offset, u32 value)
+{
+u32 type;
+type = offset & B43_NTAB_TYPEMASK;
+offset &= 0xFFFF;
+switch (type) {
+case B43_NTAB_8BIT:
+B43_WARN_ON(value & ~0xFF);
+b43_phy_write(dev, B43_NPHY_TABLE_ADDR, offset);
+b43_phy_write(dev, B43_NPHY_TABLE_DATALO, value);
+break;
+case B43_NTAB_16BIT:
+B43_WARN_ON(value & ~0xFFFF);
+b43_phy_write(dev, B43_NPHY_TABLE_ADDR, offset);
+b43_phy_write(dev, B43_NPHY_TABLE_DATALO, value);
+break;
+case B43_NTAB_32BIT:
+b43_phy_write(dev, B43_NPHY_TABLE_ADDR, offset);
+b43_phy_write(dev, B43_NPHY_TABLE_DATAHI, value >> 16);
+b43_phy_write(dev, B43_NPHY_TABLE_DATALO, value & 0xFFFF);
+break;
+default:
+B43_WARN_ON(1);
+}
+return;
+assert_ntab_array_sizes();
+}
+void b43_ntab_write_bulk(struct b43_wldev *dev, u32 offset,
+unsigned int nr_elements, const void *_data)
+{
+u32 type, value;
+const u8 *data = _data;
+unsigned int i;
+type = offset & B43_NTAB_TYPEMASK;
+offset &= ~B43_NTAB_TYPEMASK;
+B43_WARN_ON(offset > 0xFFFF);
+b43_phy_write(dev, B43_NPHY_TABLE_ADDR, offset);
+for (i = 0; i < nr_elements; i++) {
+switch (type) {
+case B43_NTAB_8BIT:
+value = *data;
+data++;
+B43_WARN_ON(value & ~0xFF);
+b43_phy_write(dev, B43_NPHY_TABLE_DATALO, value);
+break;
+case B43_NTAB_16BIT:
+value = *((u16 *)data);
+data += 2;
+B43_WARN_ON(value & ~0xFFFF);
+b43_phy_write(dev, B43_NPHY_TABLE_DATALO, value);
+break;
+case B43_NTAB_32BIT:
+value = *((u32 *)data);
+data += 4;
+b43_phy_write(dev, B43_NPHY_TABLE_DATAHI, value >> 16);
+b43_phy_write(dev, B43_NPHY_TABLE_DATALO,
+value & 0xFFFF);
+break;
+default:
+B43_WARN_ON(1);
+}
+}
+}
+void b43_nphy_rev0_1_2_tables_init(struct b43_wldev *dev)
+{
+ntab_upload(dev, B43_NTAB_FRAMESTRUCT, b43_ntab_framestruct);
+ntab_upload(dev, B43_NTAB_FRAMELT, b43_ntab_framelookup);
+ntab_upload(dev, B43_NTAB_TMAP, b43_ntab_tmap);
+ntab_upload(dev, B43_NTAB_TDTRN, b43_ntab_tdtrn);
+ntab_upload(dev, B43_NTAB_INTLEVEL, b43_ntab_intlevel);
+ntab_upload(dev, B43_NTAB_PILOT, b43_ntab_pilot);
+ntab_upload(dev, B43_NTAB_TDI20A0, b43_ntab_tdi20a0);
+ntab_upload(dev, B43_NTAB_TDI20A1, b43_ntab_tdi20a1);
+ntab_upload(dev, B43_NTAB_TDI40A0, b43_ntab_tdi40a0);
+ntab_upload(dev, B43_NTAB_TDI40A1, b43_ntab_tdi40a1);
+ntab_upload(dev, B43_NTAB_CHANEST, b43_ntab_channelest);
+ntab_upload(dev, B43_NTAB_MCS, b43_ntab_mcs);
+ntab_upload(dev, B43_NTAB_NOISEVAR10, b43_ntab_noisevar10);
+ntab_upload(dev, B43_NTAB_NOISEVAR11, b43_ntab_noisevar11);
+ntab_upload(dev, B43_NTAB_BDI, b43_ntab_bdi);
+ntab_upload(dev, B43_NTAB_PILOTLT, b43_ntab_pilotlt);
+ntab_upload(dev, B43_NTAB_C0_GAINCTL, b43_ntab_gainctl0);
+ntab_upload(dev, B43_NTAB_C1_GAINCTL, b43_ntab_gainctl1);
+ntab_upload(dev, B43_NTAB_C0_ESTPLT, b43_ntab_estimatepowerlt0);
+ntab_upload(dev, B43_NTAB_C1_ESTPLT, b43_ntab_estimatepowerlt1);
+ntab_upload(dev, B43_NTAB_C0_ADJPLT, b43_ntab_adjustpower0);
+ntab_upload(dev, B43_NTAB_C1_ADJPLT, b43_ntab_adjustpower1);
+ntab_upload(dev, B43_NTAB_C0_IQLT, b43_ntab_iqlt0);
+ntab_upload(dev, B43_NTAB_C1_IQLT, b43_ntab_iqlt1);
+ntab_upload(dev, B43_NTAB_C0_LOFEEDTH, b43_ntab_loftlt0);
+ntab_upload(dev, B43_NTAB_C1_LOFEEDTH, b43_ntab_loftlt1);
+}
+void b43_nphy_rev3plus_tables_init(struct b43_wldev *dev)
+{
+ntab_upload_r3(dev, B43_NTAB_FRAMESTRUCT_R3, b43_ntab_framestruct_r3);
+ntab_upload_r3(dev, B43_NTAB_PILOT_R3, b43_ntab_pilot_r3);
+ntab_upload_r3(dev, B43_NTAB_TMAP_R3, b43_ntab_tmap_r3);
+ntab_upload_r3(dev, B43_NTAB_INTLEVEL_R3, b43_ntab_intlevel_r3);
+ntab_upload_r3(dev, B43_NTAB_TDTRN_R3, b43_ntab_tdtrn_r3);
+ntab_upload_r3(dev, B43_NTAB_NOISEVAR0_R3, b43_ntab_noisevar0_r3);
+ntab_upload_r3(dev, B43_NTAB_NOISEVAR1_R3, b43_ntab_noisevar1_r3);
+ntab_upload_r3(dev, B43_NTAB_MCS_R3, b43_ntab_mcs_r3);
+ntab_upload_r3(dev, B43_NTAB_TDI20A0_R3, b43_ntab_tdi20a0_r3);
+ntab_upload_r3(dev, B43_NTAB_TDI20A1_R3, b43_ntab_tdi20a1_r3);
+ntab_upload_r3(dev, B43_NTAB_TDI40A0_R3, b43_ntab_tdi40a0_r3);
+ntab_upload_r3(dev, B43_NTAB_TDI40A1_R3, b43_ntab_tdi40a1_r3);
+ntab_upload_r3(dev, B43_NTAB_PILOTLT_R3, b43_ntab_pilotlt_r3);
+ntab_upload_r3(dev, B43_NTAB_CHANEST_R3, b43_ntab_channelest_r3);
+ntab_upload_r3(dev, B43_NTAB_FRAMELT_R3, b43_ntab_framelookup_r3);
+ntab_upload_r3(dev, B43_NTAB_C0_ESTPLT_R3,
+b43_ntab_estimatepowerlt0_r3);
+ntab_upload_r3(dev, B43_NTAB_C1_ESTPLT_R3,
+b43_ntab_estimatepowerlt1_r3);
+ntab_upload_r3(dev, B43_NTAB_C0_ADJPLT_R3, b43_ntab_adjustpower0_r3);
+ntab_upload_r3(dev, B43_NTAB_C1_ADJPLT_R3, b43_ntab_adjustpower1_r3);
+ntab_upload_r3(dev, B43_NTAB_C0_GAINCTL_R3, b43_ntab_gainctl0_r3);
+ntab_upload_r3(dev, B43_NTAB_C1_GAINCTL_R3, b43_ntab_gainctl1_r3);
+ntab_upload_r3(dev, B43_NTAB_C0_IQLT_R3, b43_ntab_iqlt0_r3);
+ntab_upload_r3(dev, B43_NTAB_C1_IQLT_R3, b43_ntab_iqlt1_r3);
+ntab_upload_r3(dev, B43_NTAB_C0_LOFEEDTH_R3, b43_ntab_loftlt0_r3);
+ntab_upload_r3(dev, B43_NTAB_C1_LOFEEDTH_R3, b43_ntab_loftlt1_r3);
+}
+struct nphy_gain_ctl_workaround_entry *b43_nphy_get_gain_ctl_workaround_ent(
+struct b43_wldev *dev, bool ghz5, bool ext_lna)
+{
+struct nphy_gain_ctl_workaround_entry *e;
+u8 phy_idx;
+B43_WARN_ON(dev->phy.rev < 3);
+if (dev->phy.rev >= 5)
+phy_idx = 2;
+else if (dev->phy.rev == 4)
+phy_idx = 1;
+else
+phy_idx = 0;
+e = &nphy_gain_ctl_workaround[ghz5][phy_idx];
+if (!ghz5 && dev->phy.rev >= 5 && ext_lna) {
+e->rfseq_init[0] &= 0x0FFF;
+e->rfseq_init[1] &= 0x0FFF;
+e->rfseq_init[2] &= 0x0FFF;
+e->rfseq_init[3] &= 0x0FFF;
+e->init_gain &= 0x0FFF;
+}
+return e;
+}

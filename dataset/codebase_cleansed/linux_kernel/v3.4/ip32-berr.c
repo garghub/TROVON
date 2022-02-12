@@ -1,0 +1,1 @@
+static int ip32_be_handler(struct pt_regs *regs, int is_fixup)\r\n{\r\nint data = regs->cp0_cause & 4;\r\nif (is_fixup)\r\nreturn MIPS_BE_FIXUP;\r\nprintk("Got %cbe at 0x%lx\n", data ? 'd' : 'i', regs->cp0_epc);\r\nshow_regs(regs);\r\ndump_tlb_all();\r\nwhile(1);\r\nforce_sig(SIGBUS, current);\r\n}\r\nvoid __init ip32_be_init(void)\r\n{\r\nboard_be_handler = ip32_be_handler;\r\n}

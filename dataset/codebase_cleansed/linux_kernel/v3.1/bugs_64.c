@@ -1,0 +1,1 @@
+void __init check_bugs(void)\r\n{\r\nidentify_boot_cpu();\r\n#if !defined(CONFIG_SMP)\r\nprintk(KERN_INFO "CPU: ");\r\nprint_cpu_info(&boot_cpu_data);\r\n#endif\r\nalternative_instructions();\r\nif (!direct_gbpages)\r\nset_memory_4k((unsigned long)__va(0), 1);\r\n}

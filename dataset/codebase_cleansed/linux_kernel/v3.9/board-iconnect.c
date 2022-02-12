@@ -1,0 +1,1 @@
+void __init iconnect_init(void)\r\n{\r\nkirkwood_ge00_init(&iconnect_ge00_data);\r\n}\r\nstatic int __init iconnect_pci_init(void)\r\n{\r\nif (of_machine_is_compatible("iom,iconnect"))\r\nkirkwood_pcie_init(KW_PCIE0);\r\nreturn 0;\r\n}

@@ -1,0 +1,1 @@
+static int __init init_rc_map_pctv_sedna(void)\r\n{\r\nreturn rc_map_register(&pctv_sedna_map);\r\n}\r\nstatic void __exit exit_rc_map_pctv_sedna(void)\r\n{\r\nrc_map_unregister(&pctv_sedna_map);\r\n}

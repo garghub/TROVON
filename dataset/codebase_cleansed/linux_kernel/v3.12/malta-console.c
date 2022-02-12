@@ -1,0 +1,1 @@
+static inline unsigned int serial_in(int offset)\r\n{\r\nreturn inb(PORT(offset));\r\n}\r\nstatic inline void serial_out(int offset, int value)\r\n{\r\noutb(value, PORT(offset));\r\n}\r\nint prom_putchar(char c)\r\n{\r\nwhile ((serial_in(UART_LSR) & UART_LSR_THRE) == 0)\r\n;\r\nserial_out(UART_TX, c);\r\nreturn 1;\r\n}

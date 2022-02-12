@@ -1,0 +1,1 @@
+int __init sh_pfc_register(const char *name,\r\nstruct resource *resource, u32 num_resources)\r\n{\r\nsh_pfc_device.name = name;\r\nsh_pfc_device.num_resources = num_resources;\r\nsh_pfc_device.resource = resource;\r\nreturn platform_device_register(&sh_pfc_device);\r\n}

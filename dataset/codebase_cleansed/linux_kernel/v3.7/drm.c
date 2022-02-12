@@ -1,0 +1,1 @@
+static int __init omap_init_drm(void)\r\n{\r\nstruct omap_hwmod *oh = NULL;\r\nstruct platform_device *pdev;\r\noh = omap_hwmod_lookup("dmm");\r\nif (oh) {\r\npdev = omap_device_build(oh->name, -1, oh, NULL, 0, NULL, 0,\r\nfalse);\r\nWARN(IS_ERR(pdev), "Could not build omap_device for %s\n",\r\noh->name);\r\n}\r\nreturn platform_device_register(&omap_drm_device);\r\n}

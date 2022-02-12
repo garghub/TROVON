@@ -1,0 +1,1 @@
+void xen_setup_features(void)\r\n{\r\nstruct xen_feature_info fi;\r\nint i, j;\r\nfor (i = 0; i < XENFEAT_NR_SUBMAPS; i++) {\r\nfi.submap_idx = i;\r\nif (HYPERVISOR_xen_version(XENVER_get_features, &fi) < 0)\r\nbreak;\r\nfor (j = 0; j < 32; j++)\r\nxen_features[i * 32 + j] = !!(fi.submap & 1<<j);\r\n}\r\n}

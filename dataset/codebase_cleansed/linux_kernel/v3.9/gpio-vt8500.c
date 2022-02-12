@@ -1,0 +1,153 @@
+static int vt8500_gpio_request(struct gpio_chip *chip, unsigned offset)
+{
+u32 val;
+struct vt8500_gpio_chip *vt8500_chip = to_vt8500(chip);
+if (vt8500_chip->regs->en == NO_REG)
+return 0;
+val = readl_relaxed(vt8500_chip->base + vt8500_chip->regs->en);
+val |= BIT(offset);
+writel_relaxed(val, vt8500_chip->base + vt8500_chip->regs->en);
+return 0;
+}
+static void vt8500_gpio_free(struct gpio_chip *chip, unsigned offset)
+{
+struct vt8500_gpio_chip *vt8500_chip = to_vt8500(chip);
+u32 val;
+if (vt8500_chip->regs->en == NO_REG)
+return;
+val = readl_relaxed(vt8500_chip->base + vt8500_chip->regs->en);
+val &= ~BIT(offset);
+writel_relaxed(val, vt8500_chip->base + vt8500_chip->regs->en);
+}
+static int vt8500_gpio_direction_input(struct gpio_chip *chip, unsigned offset)
+{
+struct vt8500_gpio_chip *vt8500_chip = to_vt8500(chip);
+u32 val = readl_relaxed(vt8500_chip->base + vt8500_chip->regs->dir);
+val &= ~BIT(offset);
+writel_relaxed(val, vt8500_chip->base + vt8500_chip->regs->dir);
+return 0;
+}
+static int vt8500_gpio_direction_output(struct gpio_chip *chip, unsigned offset,
+int value)
+{
+struct vt8500_gpio_chip *vt8500_chip = to_vt8500(chip);
+u32 val = readl_relaxed(vt8500_chip->base + vt8500_chip->regs->dir);
+val |= BIT(offset);
+writel_relaxed(val, vt8500_chip->base + vt8500_chip->regs->dir);
+if (value) {
+val = readl_relaxed(vt8500_chip->base +
+vt8500_chip->regs->data_out);
+val |= BIT(offset);
+writel_relaxed(val, vt8500_chip->base +
+vt8500_chip->regs->data_out);
+}
+return 0;
+}
+static int vt8500_gpio_get_value(struct gpio_chip *chip, unsigned offset)
+{
+struct vt8500_gpio_chip *vt8500_chip = to_vt8500(chip);
+return (readl_relaxed(vt8500_chip->base + vt8500_chip->regs->data_in) >>
+offset) & 1;
+}
+static void vt8500_gpio_set_value(struct gpio_chip *chip, unsigned offset,
+int value)
+{
+struct vt8500_gpio_chip *vt8500_chip = to_vt8500(chip);
+u32 val = readl_relaxed(vt8500_chip->base +
+vt8500_chip->regs->data_out);
+if (value)
+val |= BIT(offset);
+else
+val &= ~BIT(offset);
+writel_relaxed(val, vt8500_chip->base + vt8500_chip->regs->data_out);
+}
+static int vt8500_of_xlate(struct gpio_chip *gc,
+const struct of_phandle_args *gpiospec, u32 *flags)
+{
+if (flags)
+*flags = gpiospec->args[2];
+return gpiospec->args[1];
+}
+static int vt8500_add_chips(struct platform_device *pdev, void __iomem *base,
+const struct vt8500_gpio_data *data)
+{
+struct vt8500_data *priv;
+struct vt8500_gpio_chip *vtchip;
+struct gpio_chip *chip;
+int i;
+int pin_cnt = 0;
+priv = devm_kzalloc(&pdev->dev, sizeof(struct vt8500_data), GFP_KERNEL);
+if (!priv) {
+dev_err(&pdev->dev, "failed to allocate memory\n");
+return -ENOMEM;
+}
+priv->chip = devm_kzalloc(&pdev->dev,
+sizeof(struct vt8500_gpio_chip) * data->num_banks,
+GFP_KERNEL);
+if (!priv->chip) {
+dev_err(&pdev->dev, "failed to allocate chip memory\n");
+return -ENOMEM;
+}
+priv->iobase = base;
+priv->num_banks = data->num_banks;
+platform_set_drvdata(pdev, priv);
+vtchip = priv->chip;
+for (i = 0; i < data->num_banks; i++) {
+vtchip[i].base = base;
+vtchip[i].regs = &data->banks[i];
+chip = &vtchip[i].chip;
+chip->of_xlate = vt8500_of_xlate;
+chip->of_gpio_n_cells = 3;
+chip->of_node = pdev->dev.of_node;
+chip->request = vt8500_gpio_request;
+chip->free = vt8500_gpio_free;
+chip->direction_input = vt8500_gpio_direction_input;
+chip->direction_output = vt8500_gpio_direction_output;
+chip->get = vt8500_gpio_get_value;
+chip->set = vt8500_gpio_set_value;
+chip->can_sleep = 0;
+chip->base = pin_cnt;
+chip->ngpio = data->banks[i].ngpio;
+pin_cnt += data->banks[i].ngpio;
+gpiochip_add(chip);
+}
+return 0;
+}
+static int vt8500_gpio_probe(struct platform_device *pdev)
+{
+int ret;
+void __iomem *gpio_base;
+struct resource *res;
+const struct of_device_id *of_id =
+of_match_device(vt8500_gpio_dt_ids, &pdev->dev);
+if (!of_id) {
+dev_err(&pdev->dev, "No matching driver data\n");
+return -ENODEV;
+}
+res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+if (!res) {
+dev_err(&pdev->dev, "Unable to get IO resource\n");
+return -ENODEV;
+}
+gpio_base = devm_request_and_ioremap(&pdev->dev, res);
+if (!gpio_base) {
+dev_err(&pdev->dev, "Unable to map GPIO registers\n");
+return -ENOMEM;
+}
+ret = vt8500_add_chips(pdev, gpio_base, of_id->data);
+return ret;
+}
+static int vt8500_gpio_remove(struct platform_device *pdev)
+{
+int i;
+int ret;
+struct vt8500_data *priv = platform_get_drvdata(pdev);
+struct vt8500_gpio_chip *vtchip = priv->chip;
+for (i = 0; i < priv->num_banks; i++) {
+ret = gpiochip_remove(&vtchip[i].chip);
+if (ret)
+dev_warn(&pdev->dev, "gpiochip_remove returned %d\n",
+ret);
+}
+return 0;
+}

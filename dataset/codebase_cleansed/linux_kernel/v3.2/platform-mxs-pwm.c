@@ -1,0 +1,1 @@
+struct platform_device *__init mxs_add_mxs_pwm(resource_size_t iobase, int id)\r\n{\r\nstruct resource res = {\r\n.flags = IORESOURCE_MEM,\r\n};\r\nres.start = iobase + 0x10 + 0x20 * id;\r\nres.end = res.start + 0x1f;\r\nreturn mxs_add_platform_device("mxs-pwm", id, &res, 1, NULL, 0);\r\n}

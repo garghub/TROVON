@@ -1,0 +1,1 @@
+int __cpuinit local_timer_setup(struct clock_event_device *evt)\r\n{\r\nif (omap_rev() == OMAP4430_REV_ES1_0)\r\nreturn -ENXIO;\r\nevt->irq = OMAP44XX_IRQ_LOCALTIMER;\r\ntwd_timer_setup(evt);\r\nreturn 0;\r\n}

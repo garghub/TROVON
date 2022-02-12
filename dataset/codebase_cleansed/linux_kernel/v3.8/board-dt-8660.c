@@ -1,0 +1,1 @@
+static void __init msm8x60_init_irq(void)\r\n{\r\nof_irq_init(msm_dt_gic_match);\r\n}\r\nstatic void __init msm8x60_init_late(void)\r\n{\r\nsmd_debugfs_init();\r\n}\r\nstatic void __init msm8x60_dt_init(void)\r\n{\r\nof_platform_populate(NULL, of_default_bus_match_table,\r\nmsm_auxdata_lookup, NULL);\r\n}

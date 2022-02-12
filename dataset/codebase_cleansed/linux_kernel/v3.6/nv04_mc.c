@@ -1,0 +1,1 @@
+int\r\nnv04_mc_init(struct drm_device *dev)\r\n{\r\nnv_wr32(dev, NV03_PMC_ENABLE, 0xFFFFFFFF);\r\nnv_wr32(dev, NV_PBUS_PCI_NV_20, NV_PBUS_PCI_NV_20_ROM_SHADOW_ENABLED);\r\nreturn 0;\r\n}\r\nvoid\r\nnv04_mc_takedown(struct drm_device *dev)\r\n{\r\n}

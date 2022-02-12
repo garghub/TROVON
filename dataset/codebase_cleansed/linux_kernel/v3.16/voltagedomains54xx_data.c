@@ -1,0 +1,1 @@
+void __init omap54xx_voltagedomains_init(void)\r\n{\r\nstruct voltagedomain *voltdm;\r\nint i;\r\nfor (i = 0; voltdm = voltagedomains_omap5[i], voltdm; i++)\r\nvoltdm->sys_clk.name = sys_clk_name;\r\nvoltdm_init(voltagedomains_omap5);\r\n}

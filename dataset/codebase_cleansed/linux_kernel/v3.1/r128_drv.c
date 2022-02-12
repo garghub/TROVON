@@ -1,0 +1,1 @@
+int r128_driver_load(struct drm_device *dev, unsigned long flags)\r\n{\r\nreturn drm_vblank_init(dev, 1);\r\n}\r\nstatic int __init r128_init(void)\r\n{\r\ndriver.num_ioctls = r128_max_ioctl;\r\nreturn drm_pci_init(&driver, &r128_pci_driver);\r\n}\r\nstatic void __exit r128_exit(void)\r\n{\r\ndrm_pci_exit(&driver, &r128_pci_driver);\r\n}

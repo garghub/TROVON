@@ -1,0 +1,1 @@
+int pwc_dec1_init(struct pwc_device *pwc, int type, int release, void *buffer)\r\n{\r\nstruct pwc_dec1_private *pdec;\r\nif (pwc->decompress_data == NULL) {\r\npdec = kmalloc(sizeof(struct pwc_dec1_private), GFP_KERNEL);\r\nif (pdec == NULL)\r\nreturn -ENOMEM;\r\npwc->decompress_data = pdec;\r\n}\r\npdec = pwc->decompress_data;\r\nreturn 0;\r\n}

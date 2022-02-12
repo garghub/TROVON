@@ -1,0 +1,1 @@
+static int kirkwood_pinctrl_probe(struct platform_device *pdev)\r\n{\r\nconst struct of_device_id *match =\r\nof_match_device(kirkwood_pinctrl_of_match, &pdev->dev);\r\npdev->dev.platform_data = (void *)match->data;\r\nreturn mvebu_pinctrl_probe(pdev);\r\n}\r\nstatic int kirkwood_pinctrl_remove(struct platform_device *pdev)\r\n{\r\nreturn mvebu_pinctrl_remove(pdev);\r\n}

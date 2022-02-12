@@ -1,0 +1,1 @@
+static void do_poweroff(struct work_struct *dummy)\r\n{\r\nkernel_power_off();\r\n}\r\nstatic void handle_poweroff(int key)\r\n{\r\nschedule_work_on(cpumask_first(cpu_online_mask), &poweroff_work);\r\n}\r\nstatic int __init pm_sysrq_init(void)\r\n{\r\nregister_sysrq_key('o', &sysrq_poweroff_op);\r\nreturn 0;\r\n}

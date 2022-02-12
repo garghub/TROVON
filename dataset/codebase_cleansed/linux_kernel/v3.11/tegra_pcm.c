@@ -1,0 +1,1 @@
+int tegra_pcm_platform_register(struct device *dev)\r\n{\r\nreturn snd_dmaengine_pcm_register(dev, &tegra_dmaengine_pcm_config,\r\nSND_DMAENGINE_PCM_FLAG_NO_DT |\r\nSND_DMAENGINE_PCM_FLAG_COMPAT);\r\n}\r\nvoid tegra_pcm_platform_unregister(struct device *dev)\r\n{\r\nreturn snd_dmaengine_pcm_unregister(dev);\r\n}

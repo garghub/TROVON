@@ -1,0 +1,1 @@
+static void __init evb3_init_i2c(void)\r\n{\r\npxa_set_i2c_info(NULL);\r\ni2c_register_board_info(0, ARRAY_AND_SIZE(evb3_i2c_info));\r\n}\r\nstatic inline void evb3_init_i2c(void) {}\r\nstatic void __init evb3_init(void)\r\n{\r\npxa3xx_mfp_config(ARRAY_AND_SIZE(evb3_mfp_cfg));\r\npxa_set_ffuart_info(NULL);\r\nevb3_init_i2c();\r\n}

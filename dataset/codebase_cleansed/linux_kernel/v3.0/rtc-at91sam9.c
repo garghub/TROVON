@@ -1,0 +1,269 @@
+static int at91_rtc_readtime(struct device *dev, struct rtc_time *tm)
+{
+struct sam9_rtc *rtc = dev_get_drvdata(dev);
+u32 secs, secs2;
+u32 offset;
+offset = gpbr_readl(rtc);
+if (offset == 0)
+return -EILSEQ;
+secs = rtt_readl(rtc, VR);
+secs2 = rtt_readl(rtc, VR);
+if (secs != secs2)
+secs = rtt_readl(rtc, VR);
+rtc_time_to_tm(offset + secs, tm);
+dev_dbg(dev, "%s: %4d-%02d-%02d %02d:%02d:%02d\n", "readtime",
+1900 + tm->tm_year, tm->tm_mon, tm->tm_mday,
+tm->tm_hour, tm->tm_min, tm->tm_sec);
+return 0;
+}
+static int at91_rtc_settime(struct device *dev, struct rtc_time *tm)
+{
+struct sam9_rtc *rtc = dev_get_drvdata(dev);
+int err;
+u32 offset, alarm, mr;
+unsigned long secs;
+dev_dbg(dev, "%s: %4d-%02d-%02d %02d:%02d:%02d\n", "settime",
+1900 + tm->tm_year, tm->tm_mon, tm->tm_mday,
+tm->tm_hour, tm->tm_min, tm->tm_sec);
+err = rtc_tm_to_time(tm, &secs);
+if (err != 0)
+return err;
+mr = rtt_readl(rtc, MR);
+rtt_writel(rtc, MR, mr & ~(AT91_RTT_ALMIEN | AT91_RTT_RTTINCIEN));
+offset = gpbr_readl(rtc);
+secs += 1;
+gpbr_writel(rtc, secs);
+alarm = rtt_readl(rtc, AR);
+if (alarm != ALARM_DISABLED) {
+if (offset > secs) {
+alarm += (offset - secs);
+} else if ((alarm + offset) > secs) {
+alarm -= (secs - offset);
+} else {
+alarm = ALARM_DISABLED;
+mr &= ~AT91_RTT_ALMIEN;
+}
+rtt_writel(rtc, AR, alarm);
+}
+rtt_writel(rtc, MR, mr | AT91_RTT_RTTRST);
+return 0;
+}
+static int at91_rtc_readalarm(struct device *dev, struct rtc_wkalrm *alrm)
+{
+struct sam9_rtc *rtc = dev_get_drvdata(dev);
+struct rtc_time *tm = &alrm->time;
+u32 alarm = rtt_readl(rtc, AR);
+u32 offset;
+offset = gpbr_readl(rtc);
+if (offset == 0)
+return -EILSEQ;
+memset(alrm, 0, sizeof(*alrm));
+if (alarm != ALARM_DISABLED && offset != 0) {
+rtc_time_to_tm(offset + alarm, tm);
+dev_dbg(dev, "%s: %4d-%02d-%02d %02d:%02d:%02d\n", "readalarm",
+1900 + tm->tm_year, tm->tm_mon, tm->tm_mday,
+tm->tm_hour, tm->tm_min, tm->tm_sec);
+if (rtt_readl(rtc, MR) & AT91_RTT_ALMIEN)
+alrm->enabled = 1;
+}
+return 0;
+}
+static int at91_rtc_setalarm(struct device *dev, struct rtc_wkalrm *alrm)
+{
+struct sam9_rtc *rtc = dev_get_drvdata(dev);
+struct rtc_time *tm = &alrm->time;
+unsigned long secs;
+u32 offset;
+u32 mr;
+int err;
+err = rtc_tm_to_time(tm, &secs);
+if (err != 0)
+return err;
+offset = gpbr_readl(rtc);
+if (offset == 0) {
+return -EILSEQ;
+}
+mr = rtt_readl(rtc, MR);
+rtt_writel(rtc, MR, mr & ~AT91_RTT_ALMIEN);
+if (secs <= offset) {
+rtt_writel(rtc, AR, ALARM_DISABLED);
+return 0;
+}
+rtt_writel(rtc, AR, secs - offset);
+if (alrm->enabled)
+rtt_writel(rtc, MR, mr | AT91_RTT_ALMIEN);
+dev_dbg(dev, "%s: %4d-%02d-%02d %02d:%02d:%02d\n", "setalarm",
+tm->tm_year, tm->tm_mon, tm->tm_mday, tm->tm_hour,
+tm->tm_min, tm->tm_sec);
+return 0;
+}
+static int at91_rtc_alarm_irq_enable(struct device *dev, unsigned int enabled)
+{
+struct sam9_rtc *rtc = dev_get_drvdata(dev);
+u32 mr = rtt_readl(rtc, MR);
+dev_dbg(dev, "alarm_irq_enable: enabled=%08x, mr %08x\n", enabled, mr);
+if (enabled)
+rtt_writel(rtc, MR, mr | AT91_RTT_ALMIEN);
+else
+rtt_writel(rtc, MR, mr & ~AT91_RTT_ALMIEN);
+return 0;
+}
+static int at91_rtc_proc(struct device *dev, struct seq_file *seq)
+{
+struct sam9_rtc *rtc = dev_get_drvdata(dev);
+u32 mr = mr = rtt_readl(rtc, MR);
+seq_printf(seq, "update_IRQ\t: %s\n",
+(mr & AT91_RTT_RTTINCIEN) ? "yes" : "no");
+return 0;
+}
+static irqreturn_t at91_rtc_interrupt(int irq, void *_rtc)
+{
+struct sam9_rtc *rtc = _rtc;
+u32 sr, mr;
+unsigned long events = 0;
+mr = rtt_readl(rtc, MR) & (AT91_RTT_ALMIEN | AT91_RTT_RTTINCIEN);
+sr = rtt_readl(rtc, SR) & (mr >> 16);
+if (!sr)
+return IRQ_NONE;
+if (sr & AT91_RTT_ALMS)
+events |= (RTC_AF | RTC_IRQF);
+if (sr & AT91_RTT_RTTINC)
+events |= (RTC_UF | RTC_IRQF);
+rtc_update_irq(rtc->rtcdev, 1, events);
+pr_debug("%s: num=%ld, events=0x%02lx\n", __func__,
+events >> 8, events & 0x000000FF);
+return IRQ_HANDLED;
+}
+static int __init at91_rtc_probe(struct platform_device *pdev)
+{
+struct resource *r;
+struct sam9_rtc *rtc;
+int ret;
+u32 mr;
+r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+if (!r)
+return -ENODEV;
+rtc = kzalloc(sizeof *rtc, GFP_KERNEL);
+if (!rtc)
+return -ENOMEM;
+if (!device_can_wakeup(&pdev->dev))
+device_init_wakeup(&pdev->dev, 1);
+platform_set_drvdata(pdev, rtc);
+rtc->rtt = (void __force __iomem *) (AT91_VA_BASE_SYS - AT91_BASE_SYS);
+rtc->rtt += r->start;
+mr = rtt_readl(rtc, MR);
+if ((mr & AT91_RTT_RTPRES) != AT91_SLOW_CLOCK) {
+mr = AT91_RTT_RTTRST | (AT91_SLOW_CLOCK & AT91_RTT_RTPRES);
+gpbr_writel(rtc, 0);
+}
+mr &= ~(AT91_RTT_ALMIEN | AT91_RTT_RTTINCIEN);
+rtt_writel(rtc, MR, mr);
+rtc->rtcdev = rtc_device_register(pdev->name, &pdev->dev,
+&at91_rtc_ops, THIS_MODULE);
+if (IS_ERR(rtc->rtcdev)) {
+ret = PTR_ERR(rtc->rtcdev);
+goto fail;
+}
+ret = request_irq(AT91_ID_SYS, at91_rtc_interrupt,
+IRQF_DISABLED | IRQF_SHARED,
+dev_name(&rtc->rtcdev->dev), rtc);
+if (ret) {
+dev_dbg(&pdev->dev, "can't share IRQ %d?\n", AT91_ID_SYS);
+rtc_device_unregister(rtc->rtcdev);
+goto fail;
+}
+if (gpbr_readl(rtc) == 0)
+dev_warn(&pdev->dev, "%s: SET TIME!\n",
+dev_name(&rtc->rtcdev->dev));
+return 0;
+fail:
+platform_set_drvdata(pdev, NULL);
+kfree(rtc);
+return ret;
+}
+static int __exit at91_rtc_remove(struct platform_device *pdev)
+{
+struct sam9_rtc *rtc = platform_get_drvdata(pdev);
+u32 mr = rtt_readl(rtc, MR);
+rtt_writel(rtc, MR, mr & ~(AT91_RTT_ALMIEN | AT91_RTT_RTTINCIEN));
+free_irq(AT91_ID_SYS, rtc);
+rtc_device_unregister(rtc->rtcdev);
+platform_set_drvdata(pdev, NULL);
+kfree(rtc);
+return 0;
+}
+static void at91_rtc_shutdown(struct platform_device *pdev)
+{
+struct sam9_rtc *rtc = platform_get_drvdata(pdev);
+u32 mr = rtt_readl(rtc, MR);
+rtc->imr = mr & (AT91_RTT_ALMIEN | AT91_RTT_RTTINCIEN);
+rtt_writel(rtc, MR, mr & ~rtc->imr);
+}
+static int at91_rtc_suspend(struct platform_device *pdev,
+pm_message_t state)
+{
+struct sam9_rtc *rtc = platform_get_drvdata(pdev);
+u32 mr = rtt_readl(rtc, MR);
+rtc->imr = mr & (AT91_RTT_ALMIEN | AT91_RTT_RTTINCIEN);
+if (rtc->imr) {
+if (device_may_wakeup(&pdev->dev) && (mr & AT91_RTT_ALMIEN)) {
+enable_irq_wake(AT91_ID_SYS);
+if (mr & AT91_RTT_RTTINCIEN)
+rtt_writel(rtc, MR, mr & ~AT91_RTT_RTTINCIEN);
+} else
+rtt_writel(rtc, MR, mr & ~rtc->imr);
+}
+return 0;
+}
+static int at91_rtc_resume(struct platform_device *pdev)
+{
+struct sam9_rtc *rtc = platform_get_drvdata(pdev);
+u32 mr;
+if (rtc->imr) {
+if (device_may_wakeup(&pdev->dev))
+disable_irq_wake(AT91_ID_SYS);
+mr = rtt_readl(rtc, MR);
+rtt_writel(rtc, MR, mr | rtc->imr);
+}
+return 0;
+}
+static int __init at91_rtc_match(struct device *dev, void *v)
+{
+struct platform_device *pdev = to_platform_device(dev);
+int ret;
+if (strcmp("at91_rtt", pdev->name) != 0
+|| pdev->id != CONFIG_RTC_DRV_AT91SAM9_RTT)
+goto fail;
+if (dev->driver) {
+dev_dbg(dev, "busy, can't use as RTC!\n");
+goto fail;
+}
+dev->driver = &at91_rtc_driver.driver;
+if (device_attach(dev) == 0) {
+dev_dbg(dev, "can't attach RTC!\n");
+goto fail;
+}
+ret = at91_rtc_probe(pdev);
+if (ret == 0)
+return true;
+dev_dbg(dev, "RTC probe err %d!\n", ret);
+fail:
+return false;
+}
+static int __init at91_rtc_init(void)
+{
+int status;
+struct device *rtc;
+status = platform_driver_register(&at91_rtc_driver);
+if (status)
+return status;
+rtc = bus_find_device(&platform_bus_type, NULL,
+NULL, at91_rtc_match);
+if (!rtc)
+platform_driver_unregister(&at91_rtc_driver);
+return rtc ? 0 : -ENODEV;
+}
+static void __exit at91_rtc_exit(void)
+{
+platform_driver_unregister(&at91_rtc_driver);
+}

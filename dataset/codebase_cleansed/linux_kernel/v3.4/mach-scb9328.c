@@ -1,0 +1,1 @@
+static void __init scb9328_init(void)\r\n{\r\nimx1_soc_init();\r\nmxc_gpio_setup_multiple_pins(mxc_uart1_pins,\r\nARRAY_SIZE(mxc_uart1_pins), "UART1");\r\nimx1_add_imx_uart0(&uart_pdata);\r\nprintk(KERN_INFO"Scb9328: Adding devices\n");\r\nplatform_add_devices(devices, ARRAY_SIZE(devices));\r\n}\r\nstatic void __init scb9328_timer_init(void)\r\n{\r\nmx1_clocks_init(32000);\r\n}

@@ -1,0 +1,76 @@
+static int s3c2412_i2s_probe(struct snd_soc_dai *dai)
+{
+int ret;
+pr_debug("Entered %s\n", __func__);
+ret = s3c_i2sv2_probe(dai, &s3c2412_i2s, S3C2410_PA_IIS);
+if (ret)
+return ret;
+s3c2412_i2s.dma_capture = &s3c2412_i2s_pcm_stereo_in;
+s3c2412_i2s.dma_playback = &s3c2412_i2s_pcm_stereo_out;
+s3c2412_i2s.iis_cclk = clk_get(dai->dev, "i2sclk");
+if (s3c2412_i2s.iis_cclk == NULL) {
+pr_err("failed to get i2sclk clock\n");
+iounmap(s3c2412_i2s.regs);
+return -ENODEV;
+}
+clk_set_parent(s3c2412_i2s.iis_cclk, clk_get(NULL, "mpll"));
+clk_enable(s3c2412_i2s.iis_cclk);
+s3c2412_i2s.iis_cclk = s3c2412_i2s.iis_pclk;
+s3c2410_gpio_cfgpin(S3C2410_GPE0, S3C2410_GPE0_I2SLRCK);
+s3c2410_gpio_cfgpin(S3C2410_GPE1, S3C2410_GPE1_I2SSCLK);
+s3c2410_gpio_cfgpin(S3C2410_GPE2, S3C2410_GPE2_CDCLK);
+s3c2410_gpio_cfgpin(S3C2410_GPE3, S3C2410_GPE3_I2SSDI);
+s3c2410_gpio_cfgpin(S3C2410_GPE4, S3C2410_GPE4_I2SSDO);
+return 0;
+}
+static int s3c2412_i2s_remove(struct snd_soc_dai *dai)
+{
+clk_disable(s3c2412_i2s.iis_cclk);
+clk_put(s3c2412_i2s.iis_cclk);
+iounmap(s3c2412_i2s.regs);
+return 0;
+}
+static int s3c2412_i2s_hw_params(struct snd_pcm_substream *substream,
+struct snd_pcm_hw_params *params,
+struct snd_soc_dai *cpu_dai)
+{
+struct s3c_i2sv2_info *i2s = snd_soc_dai_get_drvdata(cpu_dai);
+struct s3c_dma_params *dma_data;
+u32 iismod;
+pr_debug("Entered %s\n", __func__);
+if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK)
+dma_data = i2s->dma_playback;
+else
+dma_data = i2s->dma_capture;
+snd_soc_dai_set_dma_data(cpu_dai, substream, dma_data);
+iismod = readl(i2s->regs + S3C2412_IISMOD);
+pr_debug("%s: r: IISMOD: %x\n", __func__, iismod);
+switch (params_format(params)) {
+case SNDRV_PCM_FORMAT_S8:
+iismod |= S3C2412_IISMOD_8BIT;
+break;
+case SNDRV_PCM_FORMAT_S16_LE:
+iismod &= ~S3C2412_IISMOD_8BIT;
+break;
+}
+writel(iismod, i2s->regs + S3C2412_IISMOD);
+pr_debug("%s: w: IISMOD: %x\n", __func__, iismod);
+return 0;
+}
+static __devinit int s3c2412_iis_dev_probe(struct platform_device *pdev)
+{
+return snd_soc_register_dai(&pdev->dev, &s3c2412_i2s_dai);
+}
+static __devexit int s3c2412_iis_dev_remove(struct platform_device *pdev)
+{
+snd_soc_unregister_dai(&pdev->dev);
+return 0;
+}
+static int __init s3c2412_i2s_init(void)
+{
+return platform_driver_register(&s3c2412_iis_driver);
+}
+static void __exit s3c2412_i2s_exit(void)
+{
+platform_driver_unregister(&s3c2412_iis_driver);
+}

@@ -1,0 +1,173 @@
+static void __init fix_hypertransport_config(int num, int slot, int func)
+{
+u32 htcfg;
+htcfg = read_pci_config(num, slot, func, 0x68);
+if (htcfg & (1 << 18)) {
+printk(KERN_INFO "Detected use of extended apic ids "
+"on hypertransport bus\n");
+if ((htcfg & (1 << 17)) == 0) {
+printk(KERN_INFO "Enabling hypertransport extended "
+"apic interrupt broadcast\n");
+printk(KERN_INFO "Note this is a bios bug, "
+"please contact your hw vendor\n");
+htcfg |= (1 << 17);
+write_pci_config(num, slot, func, 0x68, htcfg);
+}
+}
+}
+static void __init via_bugs(int num, int slot, int func)
+{
+#ifdef CONFIG_GART_IOMMU
+if ((max_pfn > MAX_DMA32_PFN || force_iommu) &&
+!gart_iommu_aperture_allowed) {
+printk(KERN_INFO
+"Looks like a VIA chipset. Disabling IOMMU."
+" Override with iommu=allowed\n");
+gart_iommu_aperture_disabled = 1;
+}
+#endif
+}
+static int __init nvidia_hpet_check(struct acpi_table_header *header)
+{
+return 0;
+}
+static void __init nvidia_bugs(int num, int slot, int func)
+{
+#ifdef CONFIG_ACPI
+#ifdef CONFIG_X86_IO_APIC
+if (acpi_use_timer_override)
+return;
+if (acpi_table_parse(ACPI_SIG_HPET, nvidia_hpet_check)) {
+acpi_skip_timer_override = 1;
+printk(KERN_INFO "Nvidia board "
+"detected. Ignoring ACPI "
+"timer override.\n");
+printk(KERN_INFO "If you got timer trouble "
+"try acpi_use_timer_override\n");
+}
+#endif
+#endif
+}
+static u32 __init ati_ixp4x0_rev(int num, int slot, int func)
+{
+u32 d;
+u8 b;
+b = read_pci_config_byte(num, slot, func, 0xac);
+b &= ~(1<<5);
+write_pci_config_byte(num, slot, func, 0xac, b);
+d = read_pci_config(num, slot, func, 0x70);
+d |= 1<<8;
+write_pci_config(num, slot, func, 0x70, d);
+d = read_pci_config(num, slot, func, 0x8);
+d &= 0xff;
+return d;
+}
+static void __init ati_bugs(int num, int slot, int func)
+{
+u32 d;
+u8 b;
+if (acpi_use_timer_override)
+return;
+d = ati_ixp4x0_rev(num, slot, func);
+if (d < 0x82)
+acpi_skip_timer_override = 1;
+else {
+outb(0x72, 0xcd6); b = inb(0xcd7);
+if (!(b & 0x2))
+acpi_skip_timer_override = 1;
+}
+if (acpi_skip_timer_override) {
+printk(KERN_INFO "SB4X0 revision 0x%x\n", d);
+printk(KERN_INFO "Ignoring ACPI timer override.\n");
+printk(KERN_INFO "If you got timer trouble "
+"try acpi_use_timer_override\n");
+}
+}
+static u32 __init ati_sbx00_rev(int num, int slot, int func)
+{
+u32 d;
+d = read_pci_config(num, slot, func, 0x8);
+d &= 0xff;
+return d;
+}
+static void __init ati_bugs_contd(int num, int slot, int func)
+{
+u32 d, rev;
+rev = ati_sbx00_rev(num, slot, func);
+if (rev >= 0x40)
+acpi_fix_pin2_polarity = 1;
+if (rev >= 0x39)
+return;
+if (acpi_use_timer_override)
+return;
+d = read_pci_config(num, slot, func, 0x64);
+if (!(d & (1<<14)))
+acpi_skip_timer_override = 1;
+if (acpi_skip_timer_override) {
+printk(KERN_INFO "SB600 revision 0x%x\n", rev);
+printk(KERN_INFO "Ignoring ACPI timer override.\n");
+printk(KERN_INFO "If you got timer trouble "
+"try acpi_use_timer_override\n");
+}
+}
+static void __init ati_bugs(int num, int slot, int func)
+{
+}
+static void __init ati_bugs_contd(int num, int slot, int func)
+{
+}
+static void __init intel_remapping_check(int num, int slot, int func)
+{
+u8 revision;
+u16 device;
+device = read_pci_config_16(num, slot, func, PCI_DEVICE_ID);
+revision = read_pci_config_byte(num, slot, func, PCI_REVISION_ID);
+if (revision == 0x13)
+set_irq_remapping_broken();
+else if ((device == 0x3405) &&
+((revision == 0x12) ||
+(revision == 0x22)))
+set_irq_remapping_broken();
+}
+static int __init check_dev_quirk(int num, int slot, int func)
+{
+u16 class;
+u16 vendor;
+u16 device;
+u8 type;
+int i;
+class = read_pci_config_16(num, slot, func, PCI_CLASS_DEVICE);
+if (class == 0xffff)
+return -1;
+vendor = read_pci_config_16(num, slot, func, PCI_VENDOR_ID);
+device = read_pci_config_16(num, slot, func, PCI_DEVICE_ID);
+for (i = 0; early_qrk[i].f != NULL; i++) {
+if (((early_qrk[i].vendor == PCI_ANY_ID) ||
+(early_qrk[i].vendor == vendor)) &&
+((early_qrk[i].device == PCI_ANY_ID) ||
+(early_qrk[i].device == device)) &&
+(!((early_qrk[i].class ^ class) &
+early_qrk[i].class_mask))) {
+if ((early_qrk[i].flags &
+QFLAG_DONE) != QFLAG_DONE)
+early_qrk[i].f(num, slot, func);
+early_qrk[i].flags |= QFLAG_APPLIED;
+}
+}
+type = read_pci_config_byte(num, slot, func,
+PCI_HEADER_TYPE);
+if (!(type & 0x80))
+return -1;
+return 0;
+}
+void __init early_quirks(void)
+{
+int slot, func;
+if (!early_pci_allowed())
+return;
+for (slot = 0; slot < 32; slot++)
+for (func = 0; func < 8; func++) {
+if (check_dev_quirk(0, slot, func))
+break;
+}
+}

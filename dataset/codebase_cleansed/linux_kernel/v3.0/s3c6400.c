@@ -1,0 +1,28 @@
+void __init s3c6400_map_io(void)
+{
+s3c6400_default_sdhci0();
+s3c6400_default_sdhci1();
+s3c6400_default_sdhci2();
+s3c_i2c0_setname("s3c2440-i2c");
+s3c_device_nand.name = "s3c6400-nand";
+s3c_onenand_setname("s3c6400-onenand");
+s3c64xx_onenand1_setname("s3c6400-onenand");
+}
+void __init s3c6400_init_clocks(int xtal)
+{
+s3c64xx_register_clocks(xtal, S3C6400_CLKDIV0_ARM_MASK);
+s3c6400_setup_clocks();
+}
+void __init s3c6400_init_irq(void)
+{
+s3c64xx_init_irq(~0 & ~(0xf << 5), ~0);
+}
+static int __init s3c6400_core_init(void)
+{
+return sysdev_class_register(&s3c6400_sysclass);
+}
+int __init s3c6400_init(void)
+{
+printk("S3C6400: Initialising architecture\n");
+return sysdev_register(&s3c6400_sysdev);
+}

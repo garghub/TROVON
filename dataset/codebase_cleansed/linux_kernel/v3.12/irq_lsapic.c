@@ -1,0 +1,1 @@
+static unsigned int\r\nlsapic_noop_startup (struct irq_data *data)\r\n{\r\nreturn 0;\r\n}\r\nstatic void\r\nlsapic_noop (struct irq_data *data)\r\n{\r\n}\r\nstatic int lsapic_retrigger(struct irq_data *data)\r\n{\r\nia64_resend_irq(data->irq);\r\nreturn 1;\r\n}

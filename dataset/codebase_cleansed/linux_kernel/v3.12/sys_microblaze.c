@@ -1,0 +1,1 @@
+asmlinkage long sys_mmap(unsigned long addr, unsigned long len,\r\nunsigned long prot, unsigned long flags,\r\nunsigned long fd, off_t pgoff)\r\n{\r\nif (pgoff & ~PAGE_MASK)\r\nreturn -EINVAL;\r\nreturn sys_mmap_pgoff(addr, len, prot, flags, fd, pgoff >> PAGE_SHIFT);\r\n}

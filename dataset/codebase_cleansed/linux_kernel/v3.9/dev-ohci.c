@@ -1,0 +1,1 @@
+void __init exynos4_ohci_set_platdata(struct exynos4_ohci_platdata *pd)\r\n{\r\nstruct exynos4_ohci_platdata *npd;\r\nnpd = s3c_set_platdata(pd, sizeof(struct exynos4_ohci_platdata),\r\n&exynos4_device_ohci);\r\nif (!npd->phy_init)\r\nnpd->phy_init = s5p_usb_phy_init;\r\nif (!npd->phy_exit)\r\nnpd->phy_exit = s5p_usb_phy_exit;\r\n}

@@ -1,0 +1,1 @@
+struct platform_device *__init mxs_add_dma(const char *devid,\r\nresource_size_t base)\r\n{\r\nstruct resource res[] = {\r\n{\r\n.start = base,\r\n.end = base + SZ_8K - 1,\r\n.flags = IORESOURCE_MEM,\r\n}\r\n};\r\nreturn mxs_add_platform_device_dmamask(devid, -1,\r\nres, ARRAY_SIZE(res), NULL, 0,\r\nDMA_BIT_MASK(32));\r\n}

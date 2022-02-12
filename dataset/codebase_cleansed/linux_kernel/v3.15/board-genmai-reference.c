@@ -1,0 +1,1 @@
+static void __init genmai_add_standard_devices(void)\r\n{\r\n#ifdef CONFIG_COMMON_CLK\r\nof_clk_init(NULL);\r\n#else\r\nr7s72100_clock_init();\r\n#endif\r\nr7s72100_add_dt_devices();\r\nof_platform_populate(NULL, of_default_bus_match_table, NULL, NULL);\r\n}

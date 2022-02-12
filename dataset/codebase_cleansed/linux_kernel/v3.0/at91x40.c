@@ -1,0 +1,22 @@
+int clk_enable(struct clk *clk)
+{
+return 0;
+}
+void clk_disable(struct clk *clk)
+{
+}
+unsigned long clk_get_rate(struct clk *clk)
+{
+return AT91X40_MASTER_CLOCK;
+}
+void __init at91x40_initialize(unsigned long main_clock)
+{
+at91_extern_irq = (1 << AT91X40_ID_IRQ0) | (1 << AT91X40_ID_IRQ1)
+| (1 << AT91X40_ID_IRQ2);
+}
+void __init at91x40_init_interrupts(unsigned int priority[NR_AIC_IRQS])
+{
+if (!priority)
+priority = at91x40_default_irq_priority;
+at91_aic_init(priority);
+}

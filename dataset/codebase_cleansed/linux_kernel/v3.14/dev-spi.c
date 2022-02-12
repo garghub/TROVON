@@ -1,0 +1,1 @@
+void __init ath79_register_spi(struct ath79_spi_platform_data *pdata,\r\nstruct spi_board_info const *info,\r\nunsigned n)\r\n{\r\nspi_register_board_info(info, n);\r\nath79_spi_device.dev.platform_data = pdata;\r\nplatform_device_register(&ath79_spi_device);\r\n}

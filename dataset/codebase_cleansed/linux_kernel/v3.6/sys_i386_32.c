@@ -1,0 +1,1 @@
+int kernel_execve(const char *filename,\r\nconst char *const argv[],\r\nconst char *const envp[])\r\n{\r\nlong __res;\r\nasm volatile ("int $0x80"\r\n: "=a" (__res)\r\n: "0" (__NR_execve), "b" (filename), "c" (argv), "d" (envp) : "memory");\r\nreturn __res;\r\n}

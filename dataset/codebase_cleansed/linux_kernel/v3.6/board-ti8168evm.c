@@ -1,0 +1,1 @@
+static void __init ti81xx_evm_init(void)\r\n{\r\nomap_serial_init();\r\nomap_sdrc_init(NULL, NULL);\r\nomap_board_config = ti81xx_evm_config;\r\nomap_board_config_size = ARRAY_SIZE(ti81xx_evm_config);\r\nusb_musb_init(&musb_board_data);\r\n}

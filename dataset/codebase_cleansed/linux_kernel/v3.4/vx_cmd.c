@@ -1,0 +1,1 @@
+void vx_init_rmh(struct vx_rmh *rmh, unsigned int cmd)\r\n{\r\nif (snd_BUG_ON(cmd >= CMD_LAST_INDEX))\r\nreturn;\r\nrmh->LgCmd = vx_dsp_cmds[cmd].length;\r\nrmh->LgStat = vx_dsp_cmds[cmd].st_length;\r\nrmh->DspStat = vx_dsp_cmds[cmd].st_type;\r\nrmh->Cmd[0] = vx_dsp_cmds[cmd].opcode;\r\n}

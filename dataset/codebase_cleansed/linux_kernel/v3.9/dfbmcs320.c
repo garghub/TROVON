@@ -1,0 +1,1 @@
+static int dfbmcs320_probe(struct platform_device *pdev)\r\n{\r\nreturn snd_soc_register_codec(&pdev->dev, &soc_codec_dev_dfbmcs320,\r\n&dfbmcs320_dai, 1);\r\n}\r\nstatic int dfbmcs320_remove(struct platform_device *pdev)\r\n{\r\nsnd_soc_unregister_codec(&pdev->dev);\r\nreturn 0;\r\n}

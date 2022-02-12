@@ -1,0 +1,1 @@
+void __init mx23_map_io(void)\r\n{\r\niotable_init(mx23_io_desc, ARRAY_SIZE(mx23_io_desc));\r\n}\r\nvoid __init mx23_init_irq(void)\r\n{\r\nicoll_init_irq();\r\n}\r\nvoid __init mx28_map_io(void)\r\n{\r\niotable_init(mx28_io_desc, ARRAY_SIZE(mx28_io_desc));\r\n}\r\nvoid __init mx28_init_irq(void)\r\n{\r\nicoll_init_irq();\r\n}

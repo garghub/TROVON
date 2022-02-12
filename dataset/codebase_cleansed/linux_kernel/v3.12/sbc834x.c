@@ -1,0 +1,1 @@
+static void __init sbc834x_setup_arch(void)\r\n{\r\nif (ppc_md.progress)\r\nppc_md.progress("sbc834x_setup_arch()", 0);\r\nmpc83xx_setup_pci();\r\n}\r\nstatic int __init sbc834x_probe(void)\r\n{\r\nunsigned long root = of_get_flat_dt_root();\r\nreturn of_flat_dt_is_compatible(root, "SBC834xE");\r\n}

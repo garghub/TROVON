@@ -1,0 +1,1 @@
+static void __init *msic_gpio_platform_data(void *info)\r\n{\r\nstatic struct intel_msic_gpio_pdata msic_gpio_pdata;\r\nint gpio = get_gpio_by_name("msic_gpio_base");\r\nif (gpio < 0)\r\nreturn NULL;\r\nmsic_gpio_pdata.gpio_base = gpio;\r\nmsic_pdata.gpio = &msic_gpio_pdata;\r\nreturn msic_generic_platform_data(info, INTEL_MSIC_BLOCK_GPIO);\r\n}

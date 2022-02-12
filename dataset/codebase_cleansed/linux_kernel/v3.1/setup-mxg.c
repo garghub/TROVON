@@ -1,0 +1,1 @@
+static int __init mxg_devices_setup(void)\r\n{\r\nreturn platform_add_devices(mxg_devices,\r\nARRAY_SIZE(mxg_devices));\r\n}\r\nvoid __init plat_irq_setup(void)\r\n{\r\nregister_intc_controller(&intc_desc);\r\n}\r\nvoid __init plat_early_device_setup(void)\r\n{\r\nearly_platform_add_devices(mxg_early_devices,\r\nARRAY_SIZE(mxg_early_devices));\r\n}

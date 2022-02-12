@@ -1,0 +1,162 @@
+static void ni_atmio_win_out(struct comedi_device *dev, uint16_t data, int addr)
+{
+unsigned long flags;
+spin_lock_irqsave(&devpriv->window_lock, flags);
+if ((addr) < 8) {
+ni_writew(data, addr * 2);
+} else {
+ni_writew(addr, Window_Address);
+ni_writew(data, Window_Data);
+}
+spin_unlock_irqrestore(&devpriv->window_lock, flags);
+}
+static uint16_t ni_atmio_win_in(struct comedi_device *dev, int addr)
+{
+unsigned long flags;
+uint16_t ret;
+spin_lock_irqsave(&devpriv->window_lock, flags);
+if (addr < 8) {
+ret = ni_readw(addr * 2);
+} else {
+ni_writew(addr, Window_Address);
+ret = ni_readw(Window_Data);
+}
+spin_unlock_irqrestore(&devpriv->window_lock, flags);
+return ret;
+}
+static int __init driver_atmio_init_module(void)
+{
+return comedi_driver_register(&driver_atmio);
+}
+static void __exit driver_atmio_cleanup_module(void)
+{
+comedi_driver_unregister(&driver_atmio);
+}
+static int ni_atmio_detach(struct comedi_device *dev)
+{
+mio_common_detach(dev);
+if (dev->iobase)
+release_region(dev->iobase, NI_SIZE);
+if (dev->irq)
+free_irq(dev->irq, dev);
+if (devpriv->isapnp_dev)
+pnp_device_detach(devpriv->isapnp_dev);
+return 0;
+}
+static int ni_isapnp_find_board(struct pnp_dev **dev)
+{
+struct pnp_dev *isapnp_dev = NULL;
+int i;
+for (i = 0; i < n_ni_boards; i++) {
+isapnp_dev = pnp_find_dev(NULL,
+ISAPNP_VENDOR('N', 'I', 'C'),
+ISAPNP_FUNCTION(ni_boards[i].
+isapnp_id), NULL);
+if (isapnp_dev == NULL || isapnp_dev->card == NULL)
+continue;
+if (pnp_device_attach(isapnp_dev) < 0) {
+printk
+("ni_atmio: %s found but already active, skipping.\n",
+ni_boards[i].name);
+continue;
+}
+if (pnp_activate_dev(isapnp_dev) < 0) {
+pnp_device_detach(isapnp_dev);
+return -EAGAIN;
+}
+if (!pnp_port_valid(isapnp_dev, 0)
+|| !pnp_irq_valid(isapnp_dev, 0)) {
+pnp_device_detach(isapnp_dev);
+printk("ni_atmio: pnp invalid port or irq, aborting\n");
+return -ENOMEM;
+}
+break;
+}
+if (i == n_ni_boards)
+return -ENODEV;
+*dev = isapnp_dev;
+return 0;
+}
+static int ni_atmio_attach(struct comedi_device *dev,
+struct comedi_devconfig *it)
+{
+struct pnp_dev *isapnp_dev;
+int ret;
+unsigned long iobase;
+int board;
+unsigned int irq;
+ret = ni_alloc_private(dev);
+if (ret < 0)
+return ret;
+devpriv->stc_writew = &ni_atmio_win_out;
+devpriv->stc_readw = &ni_atmio_win_in;
+devpriv->stc_writel = &win_out2;
+devpriv->stc_readl = &win_in2;
+iobase = it->options[0];
+irq = it->options[1];
+isapnp_dev = NULL;
+if (iobase == 0) {
+ret = ni_isapnp_find_board(&isapnp_dev);
+if (ret < 0)
+return ret;
+iobase = pnp_port_start(isapnp_dev, 0);
+irq = pnp_irq(isapnp_dev, 0);
+devpriv->isapnp_dev = isapnp_dev;
+}
+printk("comedi%d: ni_atmio: 0x%04lx", dev->minor, iobase);
+if (!request_region(iobase, NI_SIZE, "ni_atmio")) {
+printk(" I/O port conflict\n");
+return -EIO;
+}
+dev->iobase = iobase;
+#ifdef DEBUG
+{
+int i;
+printk(" board fingerprint:");
+for (i = 0; i < 16; i += 2) {
+printk(" %04x %02x", inw(dev->iobase + i),
+inb(dev->iobase + i + 1));
+}
+}
+#endif
+board = ni_getboardtype(dev);
+if (board < 0)
+return -EIO;
+dev->board_ptr = ni_boards + board;
+printk(" %s", boardtype.name);
+dev->board_name = boardtype.name;
+if (irq != 0) {
+if (irq > 15 || ni_irqpin[irq] == -1) {
+printk(" invalid irq %u\n", irq);
+return -EINVAL;
+}
+printk(" ( irq = %u )", irq);
+ret = request_irq(irq, ni_E_interrupt, NI_E_IRQ_FLAGS,
+"ni_atmio", dev);
+if (ret < 0) {
+printk(" irq not available\n");
+return -EINVAL;
+}
+dev->irq = irq;
+}
+ret = ni_E_init(dev, it);
+if (ret < 0)
+return ret;
+return 0;
+}
+static int ni_getboardtype(struct comedi_device *dev)
+{
+int device_id = ni_read_eeprom(dev, 511);
+int i;
+for (i = 0; i < n_ni_boards; i++) {
+if (ni_boards[i].device_id == device_id)
+return i;
+}
+if (device_id == 255)
+printk(" can't find board\n");
+else if (device_id == 0)
+printk(" EEPROM read error (?) or device not found\n");
+else
+printk(" unknown device ID %d -- contact author\n", device_id);
+return -1;
+}

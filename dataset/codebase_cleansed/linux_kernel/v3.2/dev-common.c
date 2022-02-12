@@ -1,0 +1,1 @@
+void __init ath79_register_uart(void)\r\n{\r\nstruct clk *clk;\r\nclk = clk_get(NULL, "uart");\r\nif (IS_ERR(clk))\r\npanic("unable to get UART clock, err=%ld", PTR_ERR(clk));\r\nath79_uart_data[0].uartclk = clk_get_rate(clk);\r\nplatform_device_register(&ath79_uart_device);\r\n}\r\nvoid __init ath79_register_wdt(void)\r\n{\r\nplatform_device_register(&ath79_wdt_device);\r\n}

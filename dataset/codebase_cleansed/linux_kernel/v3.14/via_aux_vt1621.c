@@ -1,0 +1,1 @@
+void via_aux_vt1621_probe(struct via_aux_bus *bus)\r\n{\r\nstruct via_aux_drv drv = {\r\n.bus = bus,\r\n.addr = 0x20,\r\n.name = name};\r\nu8 tmp;\r\nif (!via_aux_read(&drv, 0x1B, &tmp, 1) || tmp != 0x02)\r\nreturn;\r\nprintk(KERN_INFO "viafb: Found %s\n", name);\r\nvia_aux_add(&drv);\r\n}

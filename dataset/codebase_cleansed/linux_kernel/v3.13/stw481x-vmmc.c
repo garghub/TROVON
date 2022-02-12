@@ -1,0 +1,32 @@
+static int stw481x_vmmc_regulator_probe(struct platform_device *pdev)
+{
+struct stw481x *stw481x = dev_get_platdata(&pdev->dev);
+struct regulator_config config = { };
+int ret;
+ret = regmap_update_bits(stw481x->map, STW_CONF2,
+STW_CONF2_VMMC_EXT, 0);
+if (ret) {
+dev_err(&pdev->dev, "could not disable external VMMC\n");
+return ret;
+}
+config.dev = &pdev->dev;
+config.driver_data = stw481x;
+config.regmap = stw481x->map;
+config.of_node = pdev->dev.of_node;
+config.init_data = of_get_regulator_init_data(&pdev->dev,
+pdev->dev.of_node);
+stw481x->vmmc_regulator = regulator_register(&vmmc_regulator, &config);
+if (IS_ERR(stw481x->vmmc_regulator)) {
+dev_err(&pdev->dev,
+"error initializing STw481x VMMC regulator\n");
+return PTR_ERR(stw481x->vmmc_regulator);
+}
+dev_info(&pdev->dev, "initialized STw481x VMMC regulator\n");
+return 0;
+}
+static int stw481x_vmmc_regulator_remove(struct platform_device *pdev)
+{
+struct stw481x *stw481x = dev_get_platdata(&pdev->dev);
+regulator_unregister(stw481x->vmmc_regulator);
+return 0;
+}

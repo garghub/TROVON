@@ -1,0 +1,1 @@
+u32 omap2xxx_get_sysclkdiv(void)\r\n{\r\nu32 div;\r\ndiv = __raw_readl(prcm_clksrc_ctrl);\r\ndiv &= OMAP_SYSCLKDIV_MASK;\r\ndiv >>= OMAP_SYSCLKDIV_SHIFT;\r\nreturn div;\r\n}\r\nunsigned long omap2xxx_sys_clk_recalc(struct clk_hw *clk,\r\nunsigned long parent_rate)\r\n{\r\nreturn parent_rate / omap2xxx_get_sysclkdiv();\r\n}

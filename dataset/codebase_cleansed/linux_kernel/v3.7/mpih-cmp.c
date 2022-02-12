@@ -1,0 +1,1 @@
+int mpihelp_cmp(mpi_ptr_t op1_ptr, mpi_ptr_t op2_ptr, mpi_size_t size)\r\n{\r\nmpi_size_t i;\r\nmpi_limb_t op1_word, op2_word;\r\nfor (i = size - 1; i >= 0; i--) {\r\nop1_word = op1_ptr[i];\r\nop2_word = op2_ptr[i];\r\nif (op1_word != op2_word)\r\ngoto diff;\r\n}\r\nreturn 0;\r\ndiff:\r\nreturn (op1_word > op2_word) ? 1 : -1;\r\n}

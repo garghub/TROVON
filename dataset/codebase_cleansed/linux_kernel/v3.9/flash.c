@@ -1,0 +1,1 @@
+static int __init favr32_flash_init(void)\r\n{\r\nint ret;\r\nsmc_set_timing(&flash_config, &flash_timing);\r\nret = smc_set_configuration(0, &flash_config);\r\nif (ret < 0) {\r\nprintk(KERN_ERR "Favr-32: failed to set NOR flash timing\n");\r\nreturn ret;\r\n}\r\nplatform_device_register(&flash_device);\r\nreturn 0;\r\n}

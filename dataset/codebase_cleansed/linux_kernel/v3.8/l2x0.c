@@ -1,0 +1,1 @@
+static int __init sirfsoc_l2x0_init(void)\r\n{\r\nstruct device_node *np;\r\nnp = of_find_matching_node(NULL, prima2_l2x0_ids);\r\nif (np) {\r\npr_info("Initializing prima2 L2 cache\n");\r\nreturn l2x0_of_init(0x40000, 0);\r\n}\r\nreturn 0;\r\n}

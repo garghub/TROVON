@@ -1,0 +1,1 @@
+void __init km_kirkwood_init(void)\r\n{\r\nstruct clk *sata_clk;\r\nsata_clk = clk_get_sys("sata_mv.0", "0");\r\nif (!IS_ERR(sata_clk))\r\nsata_clk->flags |= CLK_IGNORE_UNUSED;\r\nsata_clk = clk_get_sys("sata_mv.0", "1");\r\nif (!IS_ERR(sata_clk))\r\nsata_clk->flags |= CLK_IGNORE_UNUSED;\r\nkirkwood_ge00_init(&km_kirkwood_ge00_data);\r\n}

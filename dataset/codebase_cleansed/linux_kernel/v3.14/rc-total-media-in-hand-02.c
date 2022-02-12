@@ -1,0 +1,1 @@
+static int __init init_rc_map_total_media_in_hand_02(void)\r\n{\r\nreturn rc_map_register(&total_media_in_hand_02_map);\r\n}\r\nstatic void __exit exit_rc_map_total_media_in_hand_02(void)\r\n{\r\nrc_map_unregister(&total_media_in_hand_02_map);\r\n}

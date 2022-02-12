@@ -1,0 +1,1 @@
+const char *fdt_strerror(int errval)\r\n{\r\nif (errval > 0)\r\nreturn "<valid offset/length>";\r\nelse if (errval == 0)\r\nreturn "<no error>";\r\nelse if (errval > -FDT_ERRTABSIZE) {\r\nconst char *s = fdt_errtable[-errval].str;\r\nif (s)\r\nreturn s;\r\n}\r\nreturn "<unknown error>";\r\n}

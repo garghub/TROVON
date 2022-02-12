@@ -1,0 +1,1 @@
+void __init chroma_setup_arch(void)\r\n{\r\nwsp_setup_arch();\r\nwsp_setup_h8();\r\n}\r\nstatic int __init chroma_probe(void)\r\n{\r\nunsigned long root = of_get_flat_dt_root();\r\nif (!of_flat_dt_is_compatible(root, "ibm,wsp-chroma"))\r\nreturn 0;\r\nreturn 1;\r\n}

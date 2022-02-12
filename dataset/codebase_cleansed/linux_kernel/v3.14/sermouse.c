@@ -1,0 +1,165 @@
+static void sermouse_process_msc(struct sermouse *sermouse, signed char data)
+{
+struct input_dev *dev = sermouse->dev;
+signed char *buf = sermouse->buf;
+switch (sermouse->count) {
+case 0:
+if ((data & 0xf8) != 0x80)
+return;
+input_report_key(dev, BTN_LEFT, !(data & 4));
+input_report_key(dev, BTN_RIGHT, !(data & 1));
+input_report_key(dev, BTN_MIDDLE, !(data & 2));
+break;
+case 1:
+case 3:
+input_report_rel(dev, REL_X, data / 2);
+input_report_rel(dev, REL_Y, -buf[1]);
+buf[0] = data - data / 2;
+break;
+case 2:
+case 4:
+input_report_rel(dev, REL_X, buf[0]);
+input_report_rel(dev, REL_Y, buf[1] - data);
+buf[1] = data / 2;
+break;
+}
+input_sync(dev);
+if (++sermouse->count == 5)
+sermouse->count = 0;
+}
+static void sermouse_process_ms(struct sermouse *sermouse, signed char data)
+{
+struct input_dev *dev = sermouse->dev;
+signed char *buf = sermouse->buf;
+if (data & 0x40)
+sermouse->count = 0;
+else if (sermouse->count == 0)
+return;
+switch (sermouse->count) {
+case 0:
+buf[1] = data;
+input_report_key(dev, BTN_LEFT, (data >> 5) & 1);
+input_report_key(dev, BTN_RIGHT, (data >> 4) & 1);
+break;
+case 1:
+buf[2] = data;
+data = (signed char) (((buf[1] << 6) & 0xc0) | (data & 0x3f));
+input_report_rel(dev, REL_X, data / 2);
+input_report_rel(dev, REL_Y, buf[4]);
+buf[3] = data - data / 2;
+break;
+case 2:
+if ((sermouse->type == SERIO_MS) && !data && !buf[2] && !((buf[0] & 0xf0) ^ buf[1]))
+input_report_key(dev, BTN_MIDDLE, !test_bit(BTN_MIDDLE, dev->key));
+buf[0] = buf[1];
+data = (signed char) (((buf[1] << 4) & 0xc0) | (data & 0x3f));
+input_report_rel(dev, REL_X, buf[3]);
+input_report_rel(dev, REL_Y, data - buf[4]);
+buf[4] = data / 2;
+break;
+case 3:
+switch (sermouse->type) {
+case SERIO_MS:
+sermouse->type = SERIO_MP;
+case SERIO_MP:
+if ((data >> 2) & 3) break;
+input_report_key(dev, BTN_MIDDLE, (data >> 5) & 1);
+input_report_key(dev, BTN_SIDE, (data >> 4) & 1);
+break;
+case SERIO_MZP:
+case SERIO_MZPP:
+input_report_key(dev, BTN_SIDE, (data >> 5) & 1);
+case SERIO_MZ:
+input_report_key(dev, BTN_MIDDLE, (data >> 4) & 1);
+input_report_rel(dev, REL_WHEEL, (data & 8) - (data & 7));
+break;
+}
+break;
+case 4:
+case 6:
+buf[1] = (data >> 2) & 0x0f;
+break;
+case 5:
+case 7:
+if (sermouse->type != SERIO_MZPP)
+break;
+switch (buf[1]) {
+case 1:
+input_report_key(dev, BTN_SIDE, (data >> 4) & 1);
+input_report_key(dev, BTN_EXTRA, (data >> 5) & 1);
+input_report_rel(dev, data & 0x80 ? REL_HWHEEL : REL_WHEEL, (data & 7) - (data & 8));
+break;
+default:
+printk(KERN_WARNING
+"sermouse.c: Received MZ++ packet %x, don't know how to handle.\n", buf[1]);
+break;
+}
+break;
+}
+input_sync(dev);
+sermouse->count++;
+}
+static irqreturn_t sermouse_interrupt(struct serio *serio,
+unsigned char data, unsigned int flags)
+{
+struct sermouse *sermouse = serio_get_drvdata(serio);
+if (time_after(jiffies, sermouse->last + HZ/10))
+sermouse->count = 0;
+sermouse->last = jiffies;
+if (sermouse->type > SERIO_SUN)
+sermouse_process_ms(sermouse, data);
+else
+sermouse_process_msc(sermouse, data);
+return IRQ_HANDLED;
+}
+static void sermouse_disconnect(struct serio *serio)
+{
+struct sermouse *sermouse = serio_get_drvdata(serio);
+serio_close(serio);
+serio_set_drvdata(serio, NULL);
+input_unregister_device(sermouse->dev);
+kfree(sermouse);
+}
+static int sermouse_connect(struct serio *serio, struct serio_driver *drv)
+{
+struct sermouse *sermouse;
+struct input_dev *input_dev;
+unsigned char c = serio->id.extra;
+int err = -ENOMEM;
+sermouse = kzalloc(sizeof(struct sermouse), GFP_KERNEL);
+input_dev = input_allocate_device();
+if (!sermouse || !input_dev)
+goto fail1;
+sermouse->dev = input_dev;
+snprintf(sermouse->phys, sizeof(sermouse->phys), "%s/input0", serio->phys);
+sermouse->type = serio->id.proto;
+input_dev->name = sermouse_protocols[sermouse->type];
+input_dev->phys = sermouse->phys;
+input_dev->id.bustype = BUS_RS232;
+input_dev->id.vendor = sermouse->type;
+input_dev->id.product = c;
+input_dev->id.version = 0x0100;
+input_dev->dev.parent = &serio->dev;
+input_dev->evbit[0] = BIT_MASK(EV_KEY) | BIT_MASK(EV_REL);
+input_dev->keybit[BIT_WORD(BTN_MOUSE)] = BIT_MASK(BTN_LEFT) |
+BIT_MASK(BTN_RIGHT);
+input_dev->relbit[0] = BIT_MASK(REL_X) | BIT_MASK(REL_Y);
+if (c & 0x01) set_bit(BTN_MIDDLE, input_dev->keybit);
+if (c & 0x02) set_bit(BTN_SIDE, input_dev->keybit);
+if (c & 0x04) set_bit(BTN_EXTRA, input_dev->keybit);
+if (c & 0x10) set_bit(REL_WHEEL, input_dev->relbit);
+if (c & 0x20) set_bit(REL_HWHEEL, input_dev->relbit);
+serio_set_drvdata(serio, sermouse);
+err = serio_open(serio, drv);
+if (err)
+goto fail2;
+err = input_register_device(sermouse->dev);
+if (err)
+goto fail3;
+return 0;
+fail3: serio_close(serio);
+fail2: serio_set_drvdata(serio, NULL);
+fail1: input_free_device(input_dev);
+kfree(sermouse);
+return err;
+}

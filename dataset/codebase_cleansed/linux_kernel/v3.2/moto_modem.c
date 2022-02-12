@@ -1,0 +1,1 @@
+static int __init moto_init(void)\r\n{\r\nint retval;\r\nretval = usb_serial_register(&moto_device);\r\nif (retval)\r\nreturn retval;\r\nretval = usb_register(&moto_driver);\r\nif (retval)\r\nusb_serial_deregister(&moto_device);\r\nreturn retval;\r\n}\r\nstatic void __exit moto_exit(void)\r\n{\r\nusb_deregister(&moto_driver);\r\nusb_serial_deregister(&moto_device);\r\n}

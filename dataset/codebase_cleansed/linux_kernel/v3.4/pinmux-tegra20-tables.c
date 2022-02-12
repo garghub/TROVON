@@ -1,0 +1,1 @@
+void __devinit tegra20_pinmux_init(const struct tegra_pingroup_desc **pg,\r\nint *pg_max, const struct tegra_drive_pingroup_desc **pgdrive,\r\nint *pgdrive_max)\r\n{\r\n*pg = tegra_soc_pingroups;\r\n*pg_max = TEGRA_MAX_PINGROUP;\r\n*pgdrive = tegra_soc_drive_pingroups;\r\n*pgdrive_max = TEGRA_MAX_DRIVE_PINGROUP;\r\n}

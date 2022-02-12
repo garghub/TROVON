@@ -1,0 +1,1 @@
+static void __init mx27ipcam_init(void)\r\n{\r\nimx27_soc_init();\r\nmxc_gpio_setup_multiple_pins(mx27ipcam_pins, ARRAY_SIZE(mx27ipcam_pins),\r\n"mx27ipcam");\r\nimx27_add_imx_uart0(NULL);\r\nimx27_add_fec(NULL);\r\nimx27_add_imx2_wdt();\r\n}\r\nstatic void __init mx27ipcam_timer_init(void)\r\n{\r\nmx27_clocks_init(25000000);\r\n}

@@ -1,0 +1,1 @@
+static int devfreq_performance_func(struct devfreq *df,\r\nunsigned long *freq)\r\n{\r\nif (!df->max_freq)\r\n*freq = UINT_MAX;\r\nelse\r\n*freq = df->max_freq;\r\nreturn 0;\r\n}\r\nstatic int performance_init(struct devfreq *devfreq)\r\n{\r\nreturn update_devfreq(devfreq);\r\n}

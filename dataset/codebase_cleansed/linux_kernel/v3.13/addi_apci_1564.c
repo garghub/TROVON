@@ -1,0 +1,1 @@
+static int apci1564_auto_attach(struct comedi_device *dev,\r\nunsigned long context)\r\n{\r\ndev->board_ptr = &apci1564_boardtypes[0];\r\nreturn addi_auto_attach(dev, context);\r\n}\r\nstatic int apci1564_pci_probe(struct pci_dev *dev,\r\nconst struct pci_device_id *id)\r\n{\r\nreturn comedi_pci_auto_config(dev, &apci1564_driver, id->driver_data);\r\n}

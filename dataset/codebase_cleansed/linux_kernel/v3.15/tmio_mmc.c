@@ -1,0 +1,79 @@
+static int tmio_mmc_suspend(struct device *dev)
+{
+struct platform_device *pdev = to_platform_device(dev);
+const struct mfd_cell *cell = mfd_get_cell(pdev);
+int ret;
+ret = tmio_mmc_host_suspend(dev);
+if (!ret && cell->disable)
+cell->disable(pdev);
+return ret;
+}
+static int tmio_mmc_resume(struct device *dev)
+{
+struct platform_device *pdev = to_platform_device(dev);
+const struct mfd_cell *cell = mfd_get_cell(pdev);
+int ret = 0;
+if (cell->resume)
+ret = cell->resume(pdev);
+if (!ret)
+ret = tmio_mmc_host_resume(dev);
+return ret;
+}
+static int tmio_mmc_probe(struct platform_device *pdev)
+{
+const struct mfd_cell *cell = mfd_get_cell(pdev);
+struct tmio_mmc_data *pdata;
+struct tmio_mmc_host *host;
+struct resource *res;
+int ret = -EINVAL, irq;
+if (pdev->num_resources != 2)
+goto out;
+pdata = pdev->dev.platform_data;
+if (!pdata || !pdata->hclk)
+goto out;
+irq = platform_get_irq(pdev, 0);
+if (irq < 0) {
+ret = irq;
+goto out;
+}
+if (cell->enable) {
+ret = cell->enable(pdev);
+if (ret)
+goto out;
+}
+res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+if (!res)
+return -EINVAL;
+pdata->bus_shift = resource_size(res) >> 10;
+pdata->flags |= TMIO_MMC_HAVE_HIGH_REG;
+ret = tmio_mmc_host_probe(&host, pdev, pdata);
+if (ret)
+goto cell_disable;
+ret = request_irq(irq, tmio_mmc_irq, IRQF_TRIGGER_FALLING,
+dev_name(&pdev->dev), host);
+if (ret)
+goto host_remove;
+pr_info("%s at 0x%08lx irq %d\n", mmc_hostname(host->mmc),
+(unsigned long)host->ctl, irq);
+return 0;
+host_remove:
+tmio_mmc_host_remove(host);
+cell_disable:
+if (cell->disable)
+cell->disable(pdev);
+out:
+return ret;
+}
+static int tmio_mmc_remove(struct platform_device *pdev)
+{
+const struct mfd_cell *cell = mfd_get_cell(pdev);
+struct mmc_host *mmc = platform_get_drvdata(pdev);
+if (mmc) {
+struct tmio_mmc_host *host = mmc_priv(mmc);
+free_irq(platform_get_irq(pdev, 0), host);
+tmio_mmc_host_remove(host);
+if (cell->disable)
+cell->disable(pdev);
+}
+return 0;
+}

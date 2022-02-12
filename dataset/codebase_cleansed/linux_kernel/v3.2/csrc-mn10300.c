@@ -1,0 +1,1 @@
+static cycle_t mn10300_read(struct clocksource *cs)\r\n{\r\nreturn read_timestamp_counter();\r\n}\r\nint __init init_clocksource(void)\r\n{\r\nstartup_timestamp_counter();\r\nclocksource_register_hz(&clocksource_mn10300, MN10300_TSCCLK);\r\nreturn 0;\r\n}

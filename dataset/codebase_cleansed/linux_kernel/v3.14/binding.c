@@ -1,0 +1,99 @@
+static int iwl_mvm_binding_cmd(struct iwl_mvm *mvm, u32 action,
+struct iwl_mvm_iface_iterator_data *data)
+{
+struct iwl_binding_cmd cmd;
+struct iwl_mvm_phy_ctxt *phyctxt = data->phyctxt;
+int i, ret;
+u32 status;
+memset(&cmd, 0, sizeof(cmd));
+cmd.id_and_color = cpu_to_le32(FW_CMD_ID_AND_COLOR(phyctxt->id,
+phyctxt->color));
+cmd.action = cpu_to_le32(action);
+cmd.phy = cpu_to_le32(FW_CMD_ID_AND_COLOR(phyctxt->id,
+phyctxt->color));
+for (i = 0; i < MAX_MACS_IN_BINDING; i++)
+cmd.macs[i] = cpu_to_le32(FW_CTXT_INVALID);
+for (i = 0; i < data->idx; i++)
+cmd.macs[i] = cpu_to_le32(FW_CMD_ID_AND_COLOR(data->ids[i],
+data->colors[i]));
+status = 0;
+ret = iwl_mvm_send_cmd_pdu_status(mvm, BINDING_CONTEXT_CMD,
+sizeof(cmd), &cmd, &status);
+if (ret) {
+IWL_ERR(mvm, "Failed to send binding (action:%d): %d\n",
+action, ret);
+return ret;
+}
+if (status) {
+IWL_ERR(mvm, "Binding command failed: %u\n", status);
+ret = -EIO;
+}
+return ret;
+}
+static void iwl_mvm_iface_iterator(void *_data, u8 *mac,
+struct ieee80211_vif *vif)
+{
+struct iwl_mvm_iface_iterator_data *data = _data;
+struct iwl_mvm_vif *mvmvif = iwl_mvm_vif_from_mac80211(vif);
+if (vif == data->ignore_vif)
+return;
+if (mvmvif->phy_ctxt != data->phyctxt)
+return;
+if (WARN_ON_ONCE(data->idx >= MAX_MACS_IN_BINDING))
+return;
+data->ids[data->idx] = mvmvif->id;
+data->colors[data->idx] = mvmvif->color;
+data->idx++;
+}
+static int iwl_mvm_binding_update(struct iwl_mvm *mvm,
+struct ieee80211_vif *vif,
+struct iwl_mvm_phy_ctxt *phyctxt,
+bool add)
+{
+struct iwl_mvm_vif *mvmvif = iwl_mvm_vif_from_mac80211(vif);
+struct iwl_mvm_iface_iterator_data data = {
+.ignore_vif = vif,
+.phyctxt = phyctxt,
+};
+u32 action = FW_CTXT_ACTION_MODIFY;
+lockdep_assert_held(&mvm->mutex);
+ieee80211_iterate_active_interfaces_atomic(mvm->hw,
+IEEE80211_IFACE_ITER_NORMAL,
+iwl_mvm_iface_iterator,
+&data);
+if (data.idx == 0) {
+if (add)
+action = FW_CTXT_ACTION_ADD;
+else
+action = FW_CTXT_ACTION_REMOVE;
+}
+if (add) {
+if (WARN_ON_ONCE(data.idx >= MAX_MACS_IN_BINDING))
+return -EINVAL;
+data.ids[data.idx] = mvmvif->id;
+data.colors[data.idx] = mvmvif->color;
+data.idx++;
+}
+return iwl_mvm_binding_cmd(mvm, action, &data);
+}
+int iwl_mvm_binding_add_vif(struct iwl_mvm *mvm, struct ieee80211_vif *vif)
+{
+struct iwl_mvm_vif *mvmvif = iwl_mvm_vif_from_mac80211(vif);
+if (WARN_ON_ONCE(!mvmvif->phy_ctxt))
+return -EINVAL;
+if (iwl_mvm_sf_update(mvm, vif, false))
+return -EINVAL;
+return iwl_mvm_binding_update(mvm, vif, mvmvif->phy_ctxt, true);
+}
+int iwl_mvm_binding_remove_vif(struct iwl_mvm *mvm, struct ieee80211_vif *vif)
+{
+struct iwl_mvm_vif *mvmvif = iwl_mvm_vif_from_mac80211(vif);
+int ret;
+if (WARN_ON_ONCE(!mvmvif->phy_ctxt))
+return -EINVAL;
+ret = iwl_mvm_binding_update(mvm, vif, mvmvif->phy_ctxt, false);
+if (!ret)
+if (iwl_mvm_sf_update(mvm, vif, true))
+IWL_ERR(mvm, "Failed to update SF state\n");
+return ret;
+}

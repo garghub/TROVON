@@ -1,0 +1,1 @@
+static void __init pxa168_dt_init(void)\r\n{\r\nof_platform_populate(NULL, of_default_bus_match_table,\r\npxa168_auxdata_lookup, NULL);\r\n}\r\nstatic void __init pxa910_dt_init(void)\r\n{\r\nof_platform_populate(NULL, of_default_bus_match_table,\r\npxa910_auxdata_lookup, NULL);\r\n}

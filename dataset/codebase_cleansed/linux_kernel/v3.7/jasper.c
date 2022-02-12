@@ -1,0 +1,1 @@
+static void __init jasper_init(void)\r\n{\r\nmfp_config(ARRAY_AND_SIZE(jasper_pin_config));\r\nmmp2_add_uart(1);\r\nmmp2_add_uart(3);\r\nmmp2_add_twsi(1, NULL, ARRAY_AND_SIZE(jasper_twsi1_info));\r\nmmp2_add_sdhost(0, &mmp2_sdh_platdata_mmc0);\r\nregulator_has_full_constraints();\r\n}

@@ -1,0 +1,1 @@
+unsigned long int_sqrt(unsigned long x)\r\n{\r\nunsigned long op, res, one;\r\nop = x;\r\nres = 0;\r\none = 1UL << (BITS_PER_LONG - 2);\r\nwhile (one > op)\r\none >>= 2;\r\nwhile (one != 0) {\r\nif (op >= res + one) {\r\nop = op - (res + one);\r\nres = res + 2 * one;\r\n}\r\nres /= 2;\r\none /= 4;\r\n}\r\nreturn res;\r\n}

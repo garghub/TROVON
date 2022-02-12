@@ -1,0 +1,1 @@
+int fb_is_primary_device(struct fb_info *info)\r\n{\r\nstruct device *device = info->device;\r\nstruct pci_dev *pci_dev = NULL;\r\nstruct resource *res = NULL;\r\nint retval = 0;\r\nif (device)\r\npci_dev = to_pci_dev(device);\r\nif (pci_dev)\r\nres = &pci_dev->resource[PCI_ROM_RESOURCE];\r\nif (res && res->flags & IORESOURCE_ROM_SHADOW)\r\nretval = 1;\r\nreturn retval;\r\n}

@@ -1,0 +1,1 @@
+void via_aux_vt1636_probe(struct via_aux_bus *bus)\r\n{\r\nstruct via_aux_drv drv = {\r\n.bus = bus,\r\n.addr = 0x40,\r\n.name = name};\r\nconst u8 id[] = {0x06, 0x11, 0x45, 0x33}, len = ARRAY_SIZE(id);\r\nu8 tmp[len];\r\nif (!via_aux_read(&drv, 0x00, tmp, len) || memcmp(id, tmp, len))\r\nreturn;\r\nprintk(KERN_INFO "viafb: Found %s\n", name);\r\nvia_aux_add(&drv);\r\n}

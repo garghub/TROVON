@@ -1,0 +1,1 @@
+int __init scsi_init_sysctl(void)\r\n{\r\nscsi_table_header = register_sysctl_table(scsi_root_table);\r\nif (!scsi_table_header)\r\nreturn -ENOMEM;\r\nreturn 0;\r\n}\r\nvoid scsi_exit_sysctl(void)\r\n{\r\nunregister_sysctl_table(scsi_table_header);\r\n}

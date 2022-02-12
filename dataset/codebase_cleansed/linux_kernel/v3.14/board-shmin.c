@@ -1,0 +1,1 @@
+static void __init init_shmin_irq(void)\r\n{\r\n__raw_writew(0x2a00, PFC_PHCR);\r\n__raw_writew(0x0aaa, INTC_ICR1);\r\nplat_irq_setup_pins(IRQ_MODE_IRQ);\r\n}\r\nstatic void __init shmin_setup(char **cmdline_p)\r\n{\r\n__set_io_port_base(SHMIN_IO_BASE);\r\n}

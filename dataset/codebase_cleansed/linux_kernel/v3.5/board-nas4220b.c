@@ -1,0 +1,1 @@
+static void __init ib4220b_init(void)\r\n{\r\ngemini_gpio_init();\r\nplatform_register_uart();\r\nplatform_register_pflash(SZ_16M, NULL, 0);\r\nplatform_device_register(&ib4220b_led_device);\r\nplatform_device_register(&ib4220b_key_device);\r\nplatform_register_rtc();\r\n}

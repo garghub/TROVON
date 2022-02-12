@@ -1,0 +1,1 @@
+int ppc32_classify_syscall(unsigned syscall)\r\n{\r\nswitch(syscall) {\r\ncase __NR_open:\r\nreturn 2;\r\ncase __NR_openat:\r\nreturn 3;\r\ncase __NR_socketcall:\r\nreturn 4;\r\ncase __NR_execve:\r\nreturn 5;\r\ndefault:\r\nreturn 1;\r\n}\r\n}

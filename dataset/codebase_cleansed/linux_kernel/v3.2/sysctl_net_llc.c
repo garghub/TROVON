@@ -1,0 +1,1 @@
+int __init llc_sysctl_init(void)\r\n{\r\nllc_table_header = register_sysctl_paths(llc_path, llc_table);\r\nreturn llc_table_header ? 0 : -ENOMEM;\r\n}\r\nvoid llc_sysctl_exit(void)\r\n{\r\nif (llc_table_header) {\r\nunregister_sysctl_table(llc_table_header);\r\nllc_table_header = NULL;\r\n}\r\n}

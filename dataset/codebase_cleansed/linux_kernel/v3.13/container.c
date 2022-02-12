@@ -1,0 +1,1 @@
+static int container_device_attach(struct acpi_device *device,\r\nconst struct acpi_device_id *not_used)\r\n{\r\nreturn 1;\r\n}\r\nvoid __init acpi_container_init(void)\r\n{\r\nacpi_scan_add_handler_with_hotplug(&container_handler, "container");\r\n}

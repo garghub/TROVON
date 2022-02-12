@@ -1,0 +1,202 @@
+static inline unsigned ep93xx_ac97_read_reg(struct ep93xx_ac97_info *info,
+unsigned reg)
+{
+return __raw_readl(info->regs + reg);
+}
+static inline void ep93xx_ac97_write_reg(struct ep93xx_ac97_info *info,
+unsigned reg, unsigned val)
+{
+__raw_writel(val, info->regs + reg);
+}
+static unsigned short ep93xx_ac97_read(struct snd_ac97 *ac97,
+unsigned short reg)
+{
+struct ep93xx_ac97_info *info = ep93xx_ac97_info;
+unsigned short val;
+mutex_lock(&info->lock);
+ep93xx_ac97_write_reg(info, AC97S1DATA, reg);
+ep93xx_ac97_write_reg(info, AC97IM, AC97_SLOT2RXVALID);
+if (!wait_for_completion_timeout(&info->done, AC97_TIMEOUT)) {
+dev_warn(info->dev, "timeout reading register %x\n", reg);
+mutex_unlock(&info->lock);
+return -ETIMEDOUT;
+}
+val = (unsigned short)ep93xx_ac97_read_reg(info, AC97S2DATA);
+mutex_unlock(&info->lock);
+return val;
+}
+static void ep93xx_ac97_write(struct snd_ac97 *ac97,
+unsigned short reg,
+unsigned short val)
+{
+struct ep93xx_ac97_info *info = ep93xx_ac97_info;
+mutex_lock(&info->lock);
+ep93xx_ac97_write_reg(info, AC97S2DATA, val);
+ep93xx_ac97_write_reg(info, AC97S1DATA, reg);
+ep93xx_ac97_write_reg(info, AC97IM, AC97_SLOT2TXCOMPLETE);
+if (!wait_for_completion_timeout(&info->done, AC97_TIMEOUT))
+dev_warn(info->dev, "timeout writing register %x\n", reg);
+mutex_unlock(&info->lock);
+}
+static void ep93xx_ac97_warm_reset(struct snd_ac97 *ac97)
+{
+struct ep93xx_ac97_info *info = ep93xx_ac97_info;
+mutex_lock(&info->lock);
+ep93xx_ac97_write_reg(info, AC97SYNC, AC97SYNC_TIMEDSYNC);
+ep93xx_ac97_write_reg(info, AC97IM, AC97_CODECREADY);
+if (!wait_for_completion_timeout(&info->done, AC97_TIMEOUT))
+dev_warn(info->dev, "codec warm reset timeout\n");
+mutex_unlock(&info->lock);
+}
+static void ep93xx_ac97_cold_reset(struct snd_ac97 *ac97)
+{
+struct ep93xx_ac97_info *info = ep93xx_ac97_info;
+mutex_lock(&info->lock);
+ep93xx_ac97_write_reg(info, AC97GCR, 0);
+ep93xx_ac97_write_reg(info, AC97EOI, AC97EOI_CODECREADY | AC97EOI_WINT);
+ep93xx_ac97_write_reg(info, AC97GCR, AC97GCR_AC97IFE);
+ep93xx_ac97_write_reg(info, AC97RESET, AC97RESET_TIMEDRESET);
+ep93xx_ac97_write_reg(info, AC97IM, AC97_CODECREADY);
+if (!wait_for_completion_timeout(&info->done, AC97_TIMEOUT))
+dev_warn(info->dev, "codec cold reset timeout\n");
+usleep_range(15000, 20000);
+mutex_unlock(&info->lock);
+}
+static irqreturn_t ep93xx_ac97_interrupt(int irq, void *dev_id)
+{
+struct ep93xx_ac97_info *info = dev_id;
+unsigned status, mask;
+status = ep93xx_ac97_read_reg(info, AC97GIS);
+mask = ep93xx_ac97_read_reg(info, AC97IM);
+mask &= ~status;
+ep93xx_ac97_write_reg(info, AC97IM, mask);
+complete(&info->done);
+return IRQ_HANDLED;
+}
+static int ep93xx_ac97_trigger(struct snd_pcm_substream *substream,
+int cmd, struct snd_soc_dai *dai)
+{
+struct ep93xx_ac97_info *info = snd_soc_dai_get_drvdata(dai);
+unsigned v = 0;
+switch (cmd) {
+case SNDRV_PCM_TRIGGER_START:
+case SNDRV_PCM_TRIGGER_RESUME:
+case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
+if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK) {
+v |= AC97TXCR_CM;
+v |= AC97TXCR_TX3 | AC97TXCR_TX4;
+v |= AC97TXCR_TEN;
+ep93xx_ac97_write_reg(info, AC97TXCR(1), v);
+} else {
+v |= AC97RXCR_CM;
+v |= AC97RXCR_RX3 | AC97RXCR_RX4;
+v |= AC97RXCR_REN;
+ep93xx_ac97_write_reg(info, AC97RXCR(1), v);
+}
+break;
+case SNDRV_PCM_TRIGGER_STOP:
+case SNDRV_PCM_TRIGGER_SUSPEND:
+case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
+if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK) {
+unsigned long timeout = jiffies + AC97_TIMEOUT;
+do {
+v = ep93xx_ac97_read_reg(info, AC97SR(1));
+if (time_after(jiffies, timeout)) {
+dev_warn(info->dev, "TX timeout\n");
+break;
+}
+} while (!(v & (AC97SR_TXFE | AC97SR_TXUE)));
+ep93xx_ac97_write_reg(info, AC97TXCR(1), 0);
+} else {
+ep93xx_ac97_write_reg(info, AC97RXCR(1), 0);
+}
+break;
+default:
+dev_warn(info->dev, "unknown command %d\n", cmd);
+return -EINVAL;
+}
+return 0;
+}
+static int ep93xx_ac97_startup(struct snd_pcm_substream *substream,
+struct snd_soc_dai *dai)
+{
+struct ep93xx_pcm_dma_params *dma_data;
+if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK)
+dma_data = &ep93xx_ac97_pcm_out;
+else
+dma_data = &ep93xx_ac97_pcm_in;
+snd_soc_dai_set_dma_data(dai, substream, dma_data);
+return 0;
+}
+static int __devinit ep93xx_ac97_probe(struct platform_device *pdev)
+{
+struct ep93xx_ac97_info *info;
+int ret;
+info = kzalloc(sizeof(struct ep93xx_ac97_info), GFP_KERNEL);
+if (!info)
+return -ENOMEM;
+dev_set_drvdata(&pdev->dev, info);
+mutex_init(&info->lock);
+init_completion(&info->done);
+info->dev = &pdev->dev;
+info->mem = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+if (!info->mem) {
+ret = -ENXIO;
+goto fail_free_info;
+}
+info->irq = platform_get_irq(pdev, 0);
+if (!info->irq) {
+ret = -ENXIO;
+goto fail_free_info;
+}
+if (!request_mem_region(info->mem->start, resource_size(info->mem),
+pdev->name)) {
+ret = -EBUSY;
+goto fail_free_info;
+}
+info->regs = ioremap(info->mem->start, resource_size(info->mem));
+if (!info->regs) {
+ret = -ENOMEM;
+goto fail_release_mem;
+}
+ret = request_irq(info->irq, ep93xx_ac97_interrupt, IRQF_TRIGGER_HIGH,
+pdev->name, info);
+if (ret)
+goto fail_unmap_mem;
+ep93xx_ac97_info = info;
+platform_set_drvdata(pdev, info);
+ret = snd_soc_register_dai(&pdev->dev, &ep93xx_ac97_dai);
+if (ret)
+goto fail_free_irq;
+return 0;
+fail_free_irq:
+platform_set_drvdata(pdev, NULL);
+free_irq(info->irq, info);
+fail_unmap_mem:
+iounmap(info->regs);
+fail_release_mem:
+release_mem_region(info->mem->start, resource_size(info->mem));
+fail_free_info:
+kfree(info);
+return ret;
+}
+static int __devexit ep93xx_ac97_remove(struct platform_device *pdev)
+{
+struct ep93xx_ac97_info *info = platform_get_drvdata(pdev);
+snd_soc_unregister_dai(&pdev->dev);
+ep93xx_ac97_write_reg(info, AC97GCR, 0);
+free_irq(info->irq, info);
+iounmap(info->regs);
+release_mem_region(info->mem->start, resource_size(info->mem));
+platform_set_drvdata(pdev, NULL);
+kfree(info);
+return 0;
+}
+static int __init ep93xx_ac97_init(void)
+{
+return platform_driver_register(&ep93xx_ac97_driver);
+}
+static void __exit ep93xx_ac97_exit(void)
+{
+platform_driver_unregister(&ep93xx_ac97_driver);
+}

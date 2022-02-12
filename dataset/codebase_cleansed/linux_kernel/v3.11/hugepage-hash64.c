@@ -1,0 +1,90 @@
+int __hash_page_thp(unsigned long ea, unsigned long access, unsigned long vsid,
+pmd_t *pmdp, unsigned long trap, int local, int ssize,
+unsigned int psize)
+{
+unsigned int index, valid;
+unsigned char *hpte_slot_array;
+unsigned long rflags, pa, hidx;
+unsigned long old_pmd, new_pmd;
+int ret, lpsize = MMU_PAGE_16M;
+unsigned long vpn, hash, shift, slot;
+do {
+old_pmd = pmd_val(*pmdp);
+if (unlikely(old_pmd & _PAGE_BUSY))
+return 0;
+if (unlikely(old_pmd & _PAGE_SPLITTING))
+return 0;
+if (unlikely(access & ~old_pmd))
+return 1;
+new_pmd = old_pmd | _PAGE_BUSY | _PAGE_ACCESSED;
+if (access & _PAGE_RW)
+new_pmd |= _PAGE_DIRTY;
+} while (old_pmd != __cmpxchg_u64((unsigned long *)pmdp,
+old_pmd, new_pmd));
+rflags = new_pmd & _PAGE_USER;
+if ((new_pmd & _PAGE_USER) && !((new_pmd & _PAGE_RW) &&
+(new_pmd & _PAGE_DIRTY)))
+rflags |= 0x1;
+rflags |= ((new_pmd & _PAGE_EXEC) ? 0 : HPTE_R_N);
+#if 0
+if (!cpu_has_feature(CPU_FTR_COHERENT_ICACHE)) {
+rflags = hash_page_do_lazy_icache(rflags, __pte(old_pte), trap);
+}
+#endif
+shift = mmu_psize_defs[psize].shift;
+index = (ea & ~HPAGE_PMD_MASK) >> shift;
+BUG_ON(index >= 4096);
+vpn = hpt_vpn(ea, vsid, ssize);
+hash = hpt_hash(vpn, shift, ssize);
+hpte_slot_array = get_hpte_slot_array(pmdp);
+valid = hpte_valid(hpte_slot_array, index);
+if (valid) {
+hidx = hpte_hash_index(hpte_slot_array, index);
+if (hidx & _PTEIDX_SECONDARY)
+hash = ~hash;
+slot = (hash & htab_hash_mask) * HPTES_PER_GROUP;
+slot += hidx & _PTEIDX_GROUP_IX;
+ret = ppc_md.hpte_updatepp(slot, rflags, vpn,
+psize, lpsize, ssize, local);
+if (ret == -1) {
+valid = 0;
+new_pmd &= ~_PAGE_HPTEFLAGS;
+hpte_slot_array[index] = 0;
+} else
+new_pmd = (new_pmd & ~_PAGE_HPTEFLAGS) | _PAGE_HASHPTE;
+}
+if (!valid) {
+unsigned long hpte_group;
+pa = pmd_pfn(__pmd(old_pmd)) << PAGE_SHIFT;
+repeat:
+hpte_group = ((hash & htab_hash_mask) * HPTES_PER_GROUP) & ~0x7UL;
+new_pmd = (new_pmd & ~_PAGE_HPTEFLAGS) | _PAGE_HASHPTE;
+rflags |= (new_pmd & (_PAGE_WRITETHRU | _PAGE_NO_CACHE |
+_PAGE_COHERENT | _PAGE_GUARDED));
+slot = ppc_md.hpte_insert(hpte_group, vpn, pa, rflags, 0,
+psize, lpsize, ssize);
+if (unlikely(slot == -1)) {
+hpte_group = ((~hash & htab_hash_mask) *
+HPTES_PER_GROUP) & ~0x7UL;
+slot = ppc_md.hpte_insert(hpte_group, vpn, pa,
+rflags, HPTE_V_SECONDARY,
+psize, lpsize, ssize);
+if (slot == -1) {
+if (mftb() & 0x1)
+hpte_group = ((hash & htab_hash_mask) *
+HPTES_PER_GROUP) & ~0x7UL;
+ppc_md.hpte_remove(hpte_group);
+goto repeat;
+}
+}
+if (unlikely(slot == -2)) {
+*pmdp = __pmd(old_pmd);
+hash_failure_debug(ea, access, vsid, trap, ssize,
+psize, lpsize, old_pmd);
+return -1;
+}
+mark_hpte_slot_valid(hpte_slot_array, index, slot);
+}
+*pmdp = __pmd(new_pmd & ~_PAGE_BUSY);
+return 0;
+}

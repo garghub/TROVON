@@ -1,0 +1,104 @@
+static int __init vexpress_dt_find_scu(unsigned long node,
+const char *uname, int depth, void *data)
+{
+if (of_flat_dt_match(node, vexpress_dt_cortex_a9_match)) {
+phys_addr_t phys_addr;
+__be32 *reg = of_get_flat_dt_prop(node, "reg", NULL);
+if (WARN_ON(!reg))
+return -EINVAL;
+phys_addr = be32_to_cpup(reg);
+vexpress_dt_scu = CORTEX_A9_SCU;
+vexpress_dt_cortex_a9_scu_map.pfn = __phys_to_pfn(phys_addr);
+iotable_init(&vexpress_dt_cortex_a9_scu_map, 1);
+vexpress_dt_cortex_a9_scu_base = ioremap(phys_addr, SZ_256);
+if (WARN_ON(!vexpress_dt_cortex_a9_scu_base))
+return -EFAULT;
+}
+return 0;
+}
+void __init vexpress_dt_smp_map_io(void)
+{
+if (initial_boot_params)
+WARN_ON(of_scan_flat_dt(vexpress_dt_find_scu, NULL));
+}
+static int __init vexpress_dt_cpus_num(unsigned long node, const char *uname,
+int depth, void *data)
+{
+static int prev_depth = -1;
+static int nr_cpus = -1;
+if (prev_depth > depth && nr_cpus > 0)
+return nr_cpus;
+if (nr_cpus < 0 && strcmp(uname, "cpus") == 0)
+nr_cpus = 0;
+if (nr_cpus >= 0) {
+const char *device_type = of_get_flat_dt_prop(node,
+"device_type", NULL);
+if (device_type && strcmp(device_type, "cpu") == 0)
+nr_cpus++;
+}
+prev_depth = depth;
+return 0;
+}
+static void __init vexpress_dt_smp_init_cpus(void)
+{
+int ncores = 0, i;
+switch (vexpress_dt_scu) {
+case GENERIC_SCU:
+ncores = of_scan_flat_dt(vexpress_dt_cpus_num, NULL);
+break;
+case CORTEX_A9_SCU:
+ncores = scu_get_core_count(vexpress_dt_cortex_a9_scu_base);
+break;
+default:
+WARN_ON(1);
+break;
+}
+if (ncores < 2)
+return;
+if (ncores > nr_cpu_ids) {
+pr_warn("SMP: %u cores greater than maximum (%u), clipping\n",
+ncores, nr_cpu_ids);
+ncores = nr_cpu_ids;
+}
+for (i = 0; i < ncores; ++i)
+set_cpu_possible(i, true);
+}
+static void __init vexpress_dt_smp_prepare_cpus(unsigned int max_cpus)
+{
+int i;
+switch (vexpress_dt_scu) {
+case GENERIC_SCU:
+for (i = 0; i < max_cpus; i++)
+set_cpu_present(i, true);
+break;
+case CORTEX_A9_SCU:
+scu_enable(vexpress_dt_cortex_a9_scu_base);
+break;
+default:
+WARN_ON(1);
+break;
+}
+}
+static void __init vexpress_dt_smp_init_cpus(void)
+{
+WARN_ON(1);
+}
+void __init vexpress_dt_smp_prepare_cpus(unsigned int max_cpus)
+{
+WARN_ON(1);
+}
+static void __init vexpress_smp_init_cpus(void)
+{
+if (ct_desc)
+ct_desc->init_cpu_map();
+else
+vexpress_dt_smp_init_cpus();
+}
+static void __init vexpress_smp_prepare_cpus(unsigned int max_cpus)
+{
+if (ct_desc)
+ct_desc->smp_enable(max_cpus);
+else
+vexpress_dt_smp_prepare_cpus(max_cpus);
+vexpress_flags_set(virt_to_phys(versatile_secondary_startup));
+}

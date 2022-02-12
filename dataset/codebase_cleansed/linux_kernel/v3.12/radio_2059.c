@@ -1,0 +1,1 @@
+const struct b43_phy_ht_channeltab_e_radio2059\r\n*b43_phy_ht_get_channeltab_e_r2059(struct b43_wldev *dev, u16 freq)\r\n{\r\nconst struct b43_phy_ht_channeltab_e_radio2059 *e;\r\nunsigned int i;\r\ne = b43_phy_ht_channeltab_radio2059;\r\nfor (i = 0; i < ARRAY_SIZE(b43_phy_ht_channeltab_radio2059); i++, e++) {\r\nif (e->freq == freq)\r\nreturn e;\r\n}\r\nreturn NULL;\r\n}

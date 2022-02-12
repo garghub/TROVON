@@ -1,0 +1,1 @@
+static int __devinit k8x800_init(struct snd_ice1712 *ice)\r\n{\r\nice->vt1720 = 1;\r\nice->num_total_dacs = 6;\r\nice->num_total_adcs = 2;\r\nreturn 0;\r\n}\r\nstatic int __devinit k8x800_add_controls(struct snd_ice1712 *ice)\r\n{\r\nreturn 0;\r\n}

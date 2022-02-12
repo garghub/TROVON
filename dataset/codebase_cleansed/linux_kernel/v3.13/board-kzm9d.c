@@ -1,0 +1,1 @@
+void __init kzm9d_add_standard_devices(void)\r\n{\r\nregulator_register_fixed(0, dummy_supplies, ARRAY_SIZE(dummy_supplies));\r\nemev2_add_standard_devices();\r\nplatform_add_devices(kzm9d_devices, ARRAY_SIZE(kzm9d_devices));\r\n}

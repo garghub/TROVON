@@ -1,0 +1,1 @@
+static int __init pxa930_init(void)\r\n{\r\nif (cpu_is_pxa93x()) {\r\nmfp_init_base(io_p2v(MFPR_BASE));\r\nmfp_init_addr(pxa930_mfp_addr_map);\r\n}\r\nif (cpu_is_pxa935())\r\nmfp_init_addr(pxa935_mfp_addr_map);\r\nreturn 0;\r\n}

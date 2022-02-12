@@ -1,0 +1,1 @@
+unsigned long int_sqrt(unsigned long x)\r\n{\r\nunsigned long b, m, y = 0;\r\nif (x <= 1)\r\nreturn x;\r\nm = 1UL << (BITS_PER_LONG - 2);\r\nwhile (m != 0) {\r\nb = y + m;\r\ny >>= 1;\r\nif (x >= b) {\r\nx -= b;\r\ny += m;\r\n}\r\nm >>= 2;\r\n}\r\nreturn y;\r\n}

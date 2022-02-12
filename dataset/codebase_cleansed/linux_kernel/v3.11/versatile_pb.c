@@ -1,0 +1,1 @@
+static void __init versatile_pb_init(void)\r\n{\r\nint i;\r\nversatile_init();\r\nfor (i = 0; i < ARRAY_SIZE(amba_devs); i++) {\r\nstruct amba_device *d = amba_devs[i];\r\namba_device_register(d, &iomem_resource);\r\n}\r\n}

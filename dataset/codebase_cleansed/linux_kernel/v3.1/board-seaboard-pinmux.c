@@ -1,0 +1,1 @@
+void __init seaboard_pinmux_init(void)\r\n{\r\ntegra_pinmux_config_table(seaboard_pinmux, ARRAY_SIZE(seaboard_pinmux));\r\ntegra_drive_pinmux_config_table(seaboard_drive_pinmux,\r\nARRAY_SIZE(seaboard_drive_pinmux));\r\ntegra_gpio_config(gpio_table, ARRAY_SIZE(gpio_table));\r\n}

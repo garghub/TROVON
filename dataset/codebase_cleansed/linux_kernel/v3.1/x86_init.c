@@ -1,0 +1,1 @@
+void __cpuinit x86_init_noop(void) { }\r\nvoid __init x86_init_uint_noop(unsigned int unused) { }\r\nvoid __init x86_init_pgd_noop(pgd_t *unused) { }\r\nint __init iommu_init_noop(void) { return 0; }\r\nvoid iommu_shutdown_noop(void) { }\r\nstatic void default_nmi_init(void) { }\r\nstatic int default_i8042_detect(void) { return 1; }

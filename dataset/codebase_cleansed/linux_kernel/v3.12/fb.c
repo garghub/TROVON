@@ -1,0 +1,1 @@
+void __init omapfb_set_lcd_config(const struct omap_lcd_config *config)\r\n{\r\nomapfb_config.lcd = *config;\r\nomapfb_lcd_configured = true;\r\n}\r\nstatic int __init omap_init_fb(void)\r\n{\r\nif (!omapfb_lcd_configured)\r\nreturn 0;\r\nreturn platform_device_register(&omap_fb_device);\r\n}\r\nvoid __init omapfb_set_lcd_config(const struct omap_lcd_config *config)\r\n{\r\n}

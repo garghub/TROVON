@@ -1,0 +1,1 @@
+void __init plat_irq_setup_pins(int mode)\r\n{\r\nif (mode == IRQ_MODE_IRQ) {\r\n__raw_writew(__raw_readw(INTC_ICR1) & ~INTC_ICR1_IRQLVL, INTC_ICR1);\r\nregister_intc_controller(&intc_desc_irq0123);\r\nreturn;\r\n}\r\nBUG();\r\n}\r\nvoid __init plat_irq_setup_sh3(void)\r\n{\r\nregister_intc_controller(&intc_desc_irq45);\r\n}

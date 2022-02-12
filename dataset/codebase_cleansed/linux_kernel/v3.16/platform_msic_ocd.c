@@ -1,0 +1,1 @@
+static void __init *msic_ocd_platform_data(void *info)\r\n{\r\nstatic struct intel_msic_ocd_pdata msic_ocd_pdata;\r\nint gpio;\r\ngpio = get_gpio_by_name("ocd_gpio");\r\nif (gpio < 0)\r\nreturn NULL;\r\nmsic_ocd_pdata.gpio = gpio;\r\nmsic_pdata.ocd = &msic_ocd_pdata;\r\nreturn msic_generic_platform_data(info, INTEL_MSIC_BLOCK_OCD);\r\n}

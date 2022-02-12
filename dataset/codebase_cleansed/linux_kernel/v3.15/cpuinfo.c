@@ -1,0 +1,1 @@
+static int cpuinfo_open(struct inode *inode, struct file *file)\r\n{\r\nreturn seq_open(file, &cpuinfo_op);\r\n}\r\nstatic int __init proc_cpuinfo_init(void)\r\n{\r\nproc_create("cpuinfo", 0, NULL, &proc_cpuinfo_operations);\r\nreturn 0;\r\n}

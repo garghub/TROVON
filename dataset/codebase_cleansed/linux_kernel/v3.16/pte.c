@@ -1,0 +1,1 @@
+pte_t *kmemcheck_pte_lookup(unsigned long address)\r\n{\r\npte_t *pte;\r\nunsigned int level;\r\npte = lookup_address(address, &level);\r\nif (!pte)\r\nreturn NULL;\r\nif (level != PG_LEVEL_4K)\r\nreturn NULL;\r\nif (!pte_hidden(*pte))\r\nreturn NULL;\r\nreturn pte;\r\n}

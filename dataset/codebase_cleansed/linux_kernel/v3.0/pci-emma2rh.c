@@ -1,0 +1,23 @@
+static void __init emma2rh_pci_init(void)
+{
+emma2rh_out32(EMMA2RH_PCI_ARBIT_CTR, 0x70f);
+emma2rh_out32(EMMA2RH_PCI_IWIN0_CTR, 0x80000a18);
+emma2rh_out32(EMMA2RH_PCI_CONFIG_BASE + PCI_COMMAND,
+PCI_STATUS_DEVSEL_MEDIUM | PCI_STATUS_CAP_LIST |
+PCI_COMMAND_MASTER | PCI_COMMAND_MEMORY);
+emma2rh_out32(EMMA2RH_PCI_CONFIG_BASE + PCI_BASE_ADDRESS_0, 0x10000000);
+emma2rh_out32(EMMA2RH_PCI_CONFIG_BASE + PCI_BASE_ADDRESS_1, 0x00000000);
+emma2rh_out32(EMMA2RH_PCI_IWIN0_CTR, 0x12000000 | 0x218);
+emma2rh_out32(EMMA2RH_PCI_IWIN1_CTR, 0x18000000 | 0x600);
+emma2rh_out32(EMMA2RH_PCI_INIT_ESWP, 0x00000200);
+emma2rh_out32(EMMA2RH_PCI_TWIN_CTR, 0x00009200);
+emma2rh_out32(EMMA2RH_PCI_TWIN_BADR, 0x00000000);
+emma2rh_out32(EMMA2RH_PCI_TWIN0_DADR, 0x00000000);
+emma2rh_out32(EMMA2RH_PCI_TWIN1_DADR, 0x00000000);
+}
+static int __init emma2rh_pci_setup(void)
+{
+emma2rh_pci_init();
+register_pci_controller(&emma2rh_pci_controller);
+return 0;
+}

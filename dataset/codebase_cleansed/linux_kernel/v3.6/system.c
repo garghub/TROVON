@@ -1,0 +1,1 @@
+void highbank_restart(char mode, const char *cmd)\r\n{\r\nif (mode == 'h')\r\nhignbank_set_pwr_hard_reset();\r\nelse\r\nhignbank_set_pwr_soft_reset();\r\nscu_power_mode(scu_base_addr, SCU_PM_POWEROFF);\r\ncpu_do_idle();\r\n}

@@ -1,0 +1,1 @@
+int\r\nmtfsfi(unsigned int crfD, unsigned int IMM)\r\n{\r\nu32 mask = 0xf;\r\nif (!crfD)\r\nmask = 9;\r\n__FPU_FPSCR &= ~(mask << ((7 - crfD) << 2));\r\n__FPU_FPSCR |= (IMM & 0xf) << ((7 - crfD) << 2);\r\n#ifdef DEBUG\r\nprintk("%s: %d %x: %08lx\n", __func__, crfD, IMM, __FPU_FPSCR);\r\n#endif\r\nreturn 0;\r\n}

@@ -1,0 +1,84 @@
+static int __init nokia_bind_config(struct usb_configuration *c)
+{
+int status = 0;
+status = phonet_bind_config(c);
+if (status)
+printk(KERN_DEBUG "could not bind phonet config\n");
+status = obex_bind_config(c, tty_lines[TTY_PORT_OBEX0]);
+if (status)
+printk(KERN_DEBUG "could not bind obex config %d\n", 0);
+status = obex_bind_config(c, tty_lines[TTY_PORT_OBEX1]);
+if (status)
+printk(KERN_DEBUG "could not bind obex config %d\n", 0);
+status = acm_bind_config(c, tty_lines[TTY_PORT_ACM]);
+if (status)
+printk(KERN_DEBUG "could not bind acm config\n");
+status = ecm_bind_config(c, hostaddr);
+if (status)
+printk(KERN_DEBUG "could not bind ecm config\n");
+return status;
+}
+static int __init nokia_bind(struct usb_composite_dev *cdev)
+{
+struct usb_gadget *gadget = cdev->gadget;
+int status;
+int cur_line;
+status = gphonet_setup(cdev->gadget);
+if (status < 0)
+goto err_phonet;
+for (cur_line = 0; cur_line < TTY_PORTS_MAX; cur_line++) {
+status = gserial_alloc_line(&tty_lines[cur_line]);
+if (status)
+goto err_ether;
+}
+status = gether_setup(cdev->gadget, hostaddr);
+if (status < 0)
+goto err_ether;
+status = usb_string_ids_tab(cdev, strings_dev);
+if (status < 0)
+goto err_usb;
+device_desc.iManufacturer = strings_dev[USB_GADGET_MANUFACTURER_IDX].id;
+device_desc.iProduct = strings_dev[USB_GADGET_PRODUCT_IDX].id;
+status = strings_dev[STRING_DESCRIPTION_IDX].id;
+nokia_config_500ma_driver.iConfiguration = status;
+nokia_config_100ma_driver.iConfiguration = status;
+if (!gadget_supports_altsettings(gadget))
+goto err_usb;
+status = usb_add_config(cdev, &nokia_config_500ma_driver,
+nokia_bind_config);
+if (status < 0)
+goto err_usb;
+status = usb_add_config(cdev, &nokia_config_100ma_driver,
+nokia_bind_config);
+if (status < 0)
+goto err_usb;
+usb_composite_overwrite_options(cdev, &coverwrite);
+dev_info(&gadget->dev, "%s\n", NOKIA_LONG_NAME);
+return 0;
+err_usb:
+gether_cleanup();
+err_ether:
+cur_line--;
+while (cur_line >= 0)
+gserial_free_line(tty_lines[cur_line--]);
+gphonet_cleanup();
+err_phonet:
+return status;
+}
+static int __exit nokia_unbind(struct usb_composite_dev *cdev)
+{
+int i;
+gphonet_cleanup();
+for (i = 0; i < TTY_PORTS_MAX; i++)
+gserial_free_line(tty_lines[i]);
+gether_cleanup();
+return 0;
+}
+static int __init nokia_init(void)
+{
+return usb_composite_probe(&nokia_driver);
+}
+static void __exit nokia_cleanup(void)
+{
+usb_composite_unregister(&nokia_driver);
+}

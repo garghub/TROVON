@@ -1,0 +1,1 @@
+notrace long\r\n__vdso_getcpu(unsigned *cpu, unsigned *node, struct getcpu_cache *unused)\r\n{\r\nunsigned int p;\r\nif (VVAR(vgetcpu_mode) == VGETCPU_RDTSCP) {\r\nnative_read_tscp(&p);\r\n} else {\r\nasm("lsl %1,%0" : "=r" (p) : "r" (__PER_CPU_SEG));\r\n}\r\nif (cpu)\r\n*cpu = p & 0xfff;\r\nif (node)\r\n*node = p >> 12;\r\nreturn 0;\r\n}

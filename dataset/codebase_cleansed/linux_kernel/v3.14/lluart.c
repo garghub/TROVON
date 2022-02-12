@@ -1,0 +1,1 @@
+void __init sirfsoc_map_lluart(void)\r\n{\r\nstruct map_desc sirfsoc_lluart_map = {\r\n.virtual = SIRFSOC_UART1_VA_BASE,\r\n.pfn = __phys_to_pfn(SIRFSOC_UART1_PA_BASE),\r\n.length = SIRFSOC_UART1_SIZE,\r\n.type = MT_DEVICE,\r\n};\r\niotable_init(&sirfsoc_lluart_map, 1);\r\n}

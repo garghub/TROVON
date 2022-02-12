@@ -1,0 +1,8 @@
+static int __init init_rc_map_videomate_k100(void)
+{
+return rc_map_register(&videomate_k100_map);
+}
+static void __exit exit_rc_map_videomate_k100(void)
+{
+rc_map_unregister(&videomate_k100_map);
+}

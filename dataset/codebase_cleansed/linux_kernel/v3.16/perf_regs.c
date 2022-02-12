@@ -1,0 +1,1 @@
+u64 perf_reg_value(struct pt_regs *regs, int idx)\r\n{\r\nif (WARN_ON_ONCE((u32)idx >= PERF_REG_ARM_MAX))\r\nreturn 0;\r\nreturn regs->uregs[idx];\r\n}\r\nint perf_reg_validate(u64 mask)\r\n{\r\nif (!mask || mask & REG_RESERVED)\r\nreturn -EINVAL;\r\nreturn 0;\r\n}\r\nu64 perf_reg_abi(struct task_struct *task)\r\n{\r\nreturn PERF_SAMPLE_REGS_ABI_32;\r\n}

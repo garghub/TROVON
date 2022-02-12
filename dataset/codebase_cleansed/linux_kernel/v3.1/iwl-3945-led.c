@@ -1,0 +1,1 @@
+static int iwl3945_send_led_cmd(struct iwl_priv *priv,\r\nstruct iwl_led_cmd *led_cmd)\r\n{\r\nstruct iwl_host_cmd cmd = {\r\n.id = REPLY_LEDS_CMD,\r\n.len = sizeof(struct iwl_led_cmd),\r\n.data = led_cmd,\r\n.flags = CMD_ASYNC,\r\n.callback = NULL,\r\n};\r\nreturn iwl_legacy_send_cmd(priv, &cmd);\r\n}

@@ -1,0 +1,1 @@
+void __init load_mmu(void)\r\n{\r\nswitch(sparc_cpu_model) {\r\ncase sun4c:\r\ncase sun4:\r\nld_mmu_sun4c();\r\nbreak;\r\ncase sun4m:\r\ncase sun4d:\r\ncase sparc_leon:\r\nld_mmu_srmmu();\r\nbreak;\r\ndefault:\r\nprom_printf("load_mmu: %d unsupported\n", (int)sparc_cpu_model);\r\nprom_halt();\r\n}\r\nbtfixup();\r\n}

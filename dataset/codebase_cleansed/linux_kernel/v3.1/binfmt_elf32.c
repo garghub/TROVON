@@ -1,0 +1,1 @@
+static __inline__ void\r\ncputime_to_compat_timeval(const cputime_t cputime, struct compat_timeval *value)\r\n{\r\nunsigned long jiffies = cputime_to_jiffies(cputime);\r\nvalue->tv_usec = (jiffies % HZ) * (1000000L / HZ);\r\nvalue->tv_sec = jiffies / HZ;\r\n}

@@ -1,0 +1,1 @@
+static int sh73a0_enter_suspend(suspend_state_t suspend_state)\r\n{\r\ncpu_do_idle();\r\nreturn 0;\r\n}\r\nstatic void sh73a0_suspend_init(void)\r\n{\r\nshmobile_suspend_ops.enter = sh73a0_enter_suspend;\r\n}\r\nstatic void sh73a0_suspend_init(void) {}\r\nvoid __init sh73a0_pm_init(void)\r\n{\r\nsh73a0_suspend_init();\r\n}

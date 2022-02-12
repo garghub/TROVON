@@ -1,0 +1,1 @@
+static int __init zio_init(void)\r\n{\r\nint retval;\r\nretval = usb_serial_register(&zio_device);\r\nif (retval)\r\nreturn retval;\r\nretval = usb_register(&zio_driver);\r\nif (retval)\r\nusb_serial_deregister(&zio_device);\r\nreturn retval;\r\n}\r\nstatic void __exit zio_exit(void)\r\n{\r\nusb_deregister(&zio_driver);\r\nusb_serial_deregister(&zio_device);\r\n}

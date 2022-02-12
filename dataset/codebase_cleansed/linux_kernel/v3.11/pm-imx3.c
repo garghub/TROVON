@@ -1,0 +1,1 @@
+void mx3_cpu_lp_set(enum mx3_cpu_pwr_mode mode)\r\n{\r\nint reg = __raw_readl(mx3_ccm_base + MXC_CCM_CCMR);\r\nreg &= ~MXC_CCM_CCMR_LPM_MASK;\r\nswitch (mode) {\r\ncase MX3_WAIT:\r\nif (cpu_is_mx35())\r\nreg |= MXC_CCM_CCMR_LPM_WAIT_MX35;\r\n__raw_writel(reg, mx3_ccm_base + MXC_CCM_CCMR);\r\nbreak;\r\ndefault:\r\npr_err("Unknown cpu power mode: %d\n", mode);\r\nreturn;\r\n}\r\n}

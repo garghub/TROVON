@@ -1,0 +1,1 @@
+static inline unsigned int serial_in(int offset)\r\n{\r\nreturn *((char *)PORT(offset));\r\n}\r\nstatic inline void serial_out(int offset, int value)\r\n{\r\n*((char *)PORT(offset)) = value;\r\n}\r\nvoid putc(char c)\r\n{\r\nint timeout = 1024;\r\nwhile (((serial_in(UART_LSR) & UART_LSR_THRE) == 0) && (timeout-- > 0))\r\n;\r\nserial_out(UART_TX, c);\r\n}

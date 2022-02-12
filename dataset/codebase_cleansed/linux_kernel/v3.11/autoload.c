@@ -1,0 +1,1 @@
+void crypto_alg_autoload(const char *name)\r\n{\r\nrequest_module(name);\r\n}\r\nstruct crypto_alg *crypto_alg_mod_lookup(const char *name)\r\n{\r\nstruct crypto_alg *alg = crypto_alg_lookup(name);\r\nif (alg == NULL) {\r\ncrypto_alg_autoload(name);\r\nalg = crypto_alg_lookup(name);\r\n}\r\nreturn alg;\r\n}

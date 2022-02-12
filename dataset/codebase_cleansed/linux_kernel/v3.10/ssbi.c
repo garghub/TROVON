@@ -1,0 +1,217 @@
+static inline u32 ssbi_readl(struct ssbi *ssbi, u32 reg)
+{
+return readl(ssbi->base + reg);
+}
+static inline void ssbi_writel(struct ssbi *ssbi, u32 val, u32 reg)
+{
+writel(val, ssbi->base + reg);
+}
+static int ssbi_wait_mask(struct ssbi *ssbi, u32 set_mask, u32 clr_mask)
+{
+u32 timeout = SSBI_TIMEOUT_US;
+u32 val;
+while (timeout--) {
+val = ssbi_readl(ssbi, SSBI2_STATUS);
+if (((val & set_mask) == set_mask) && ((val & clr_mask) == 0))
+return 0;
+udelay(1);
+}
+return -ETIMEDOUT;
+}
+static int
+ssbi_read_bytes(struct ssbi *ssbi, u16 addr, u8 *buf, int len)
+{
+u32 cmd = SSBI_CMD_RDWRN | ((addr & 0xff) << 16);
+int ret = 0;
+if (ssbi->controller_type == MSM_SBI_CTRL_SSBI2) {
+u32 mode2 = ssbi_readl(ssbi, SSBI2_MODE2);
+mode2 = SET_SSBI_MODE2_REG_ADDR_15_8(mode2, addr);
+ssbi_writel(ssbi, mode2, SSBI2_MODE2);
+}
+while (len) {
+ret = ssbi_wait_mask(ssbi, SSBI_STATUS_READY, 0);
+if (ret)
+goto err;
+ssbi_writel(ssbi, cmd, SSBI2_CMD);
+ret = ssbi_wait_mask(ssbi, SSBI_STATUS_RD_READY, 0);
+if (ret)
+goto err;
+*buf++ = ssbi_readl(ssbi, SSBI2_RD) & 0xff;
+len--;
+}
+err:
+return ret;
+}
+static int
+ssbi_write_bytes(struct ssbi *ssbi, u16 addr, u8 *buf, int len)
+{
+int ret = 0;
+if (ssbi->controller_type == MSM_SBI_CTRL_SSBI2) {
+u32 mode2 = ssbi_readl(ssbi, SSBI2_MODE2);
+mode2 = SET_SSBI_MODE2_REG_ADDR_15_8(mode2, addr);
+ssbi_writel(ssbi, mode2, SSBI2_MODE2);
+}
+while (len) {
+ret = ssbi_wait_mask(ssbi, SSBI_STATUS_READY, 0);
+if (ret)
+goto err;
+ssbi_writel(ssbi, ((addr & 0xff) << 16) | *buf, SSBI2_CMD);
+ret = ssbi_wait_mask(ssbi, 0, SSBI_STATUS_MCHN_BUSY);
+if (ret)
+goto err;
+buf++;
+len--;
+}
+err:
+return ret;
+}
+static inline int
+ssbi_pa_transfer(struct ssbi *ssbi, u32 cmd, u8 *data)
+{
+u32 timeout = SSBI_TIMEOUT_US;
+u32 rd_status = 0;
+ssbi_writel(ssbi, cmd, SSBI_PA_CMD);
+while (timeout--) {
+rd_status = ssbi_readl(ssbi, SSBI_PA_RD_STATUS);
+if (rd_status & SSBI_PA_RD_STATUS_TRANS_DENIED)
+return -EPERM;
+if (rd_status & SSBI_PA_RD_STATUS_TRANS_DONE) {
+if (data)
+*data = rd_status & 0xff;
+return 0;
+}
+udelay(1);
+}
+return -ETIMEDOUT;
+}
+static int
+ssbi_pa_read_bytes(struct ssbi *ssbi, u16 addr, u8 *buf, int len)
+{
+u32 cmd;
+int ret = 0;
+cmd = SSBI_PA_CMD_RDWRN | (addr & SSBI_PA_CMD_ADDR_MASK) << 8;
+while (len) {
+ret = ssbi_pa_transfer(ssbi, cmd, buf);
+if (ret)
+goto err;
+buf++;
+len--;
+}
+err:
+return ret;
+}
+static int
+ssbi_pa_write_bytes(struct ssbi *ssbi, u16 addr, u8 *buf, int len)
+{
+u32 cmd;
+int ret = 0;
+while (len) {
+cmd = (addr & SSBI_PA_CMD_ADDR_MASK) << 8 | *buf;
+ret = ssbi_pa_transfer(ssbi, cmd, NULL);
+if (ret)
+goto err;
+buf++;
+len--;
+}
+err:
+return ret;
+}
+int ssbi_read(struct device *dev, u16 addr, u8 *buf, int len)
+{
+struct ssbi *ssbi = to_ssbi(dev);
+unsigned long flags;
+int ret;
+spin_lock_irqsave(&ssbi->lock, flags);
+ret = ssbi->read(ssbi, addr, buf, len);
+spin_unlock_irqrestore(&ssbi->lock, flags);
+return ret;
+}
+int ssbi_write(struct device *dev, u16 addr, u8 *buf, int len)
+{
+struct ssbi *ssbi = to_ssbi(dev);
+unsigned long flags;
+int ret;
+spin_lock_irqsave(&ssbi->lock, flags);
+ret = ssbi->write(ssbi, addr, buf, len);
+spin_unlock_irqrestore(&ssbi->lock, flags);
+return ret;
+}
+static int ssbi_probe(struct platform_device *pdev)
+{
+struct device_node *np = pdev->dev.of_node;
+struct resource *mem_res;
+struct ssbi *ssbi;
+int ret = 0;
+const char *type;
+ssbi = kzalloc(sizeof(struct ssbi), GFP_KERNEL);
+if (!ssbi) {
+pr_err("can not allocate ssbi_data\n");
+return -ENOMEM;
+}
+mem_res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+if (!mem_res) {
+pr_err("missing mem resource\n");
+ret = -EINVAL;
+goto err_get_mem_res;
+}
+ssbi->base = ioremap(mem_res->start, resource_size(mem_res));
+if (!ssbi->base) {
+pr_err("ioremap of 0x%p failed\n", (void *)mem_res->start);
+ret = -EINVAL;
+goto err_ioremap;
+}
+platform_set_drvdata(pdev, ssbi);
+type = of_get_property(np, "qcom,controller-type", NULL);
+if (type == NULL) {
+pr_err("Missing qcom,controller-type property\n");
+ret = -EINVAL;
+goto err_ssbi_controller;
+}
+dev_info(&pdev->dev, "SSBI controller type: '%s'\n", type);
+if (strcmp(type, "ssbi") == 0)
+ssbi->controller_type = MSM_SBI_CTRL_SSBI;
+else if (strcmp(type, "ssbi2") == 0)
+ssbi->controller_type = MSM_SBI_CTRL_SSBI2;
+else if (strcmp(type, "pmic-arbiter") == 0)
+ssbi->controller_type = MSM_SBI_CTRL_PMIC_ARBITER;
+else {
+pr_err("Unknown qcom,controller-type\n");
+ret = -EINVAL;
+goto err_ssbi_controller;
+}
+if (ssbi->controller_type == MSM_SBI_CTRL_PMIC_ARBITER) {
+ssbi->read = ssbi_pa_read_bytes;
+ssbi->write = ssbi_pa_write_bytes;
+} else {
+ssbi->read = ssbi_read_bytes;
+ssbi->write = ssbi_write_bytes;
+}
+spin_lock_init(&ssbi->lock);
+ret = of_platform_populate(np, NULL, NULL, &pdev->dev);
+if (ret)
+goto err_ssbi_controller;
+return 0;
+err_ssbi_controller:
+platform_set_drvdata(pdev, NULL);
+iounmap(ssbi->base);
+err_ioremap:
+err_get_mem_res:
+kfree(ssbi);
+return ret;
+}
+static int ssbi_remove(struct platform_device *pdev)
+{
+struct ssbi *ssbi = platform_get_drvdata(pdev);
+platform_set_drvdata(pdev, NULL);
+iounmap(ssbi->base);
+kfree(ssbi);
+return 0;
+}
+static int __init ssbi_init(void)
+{
+return platform_driver_register(&ssbi_driver);
+}
+static void __exit ssbi_exit(void)
+{
+platform_driver_unregister(&ssbi_driver);
+}

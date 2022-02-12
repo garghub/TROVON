@@ -1,0 +1,1 @@
+static int __init init_rc_map_leadtek_y04g0051(void)\r\n{\r\nreturn rc_map_register(&leadtek_y04g0051_map);\r\n}\r\nstatic void __exit exit_rc_map_leadtek_y04g0051(void)\r\n{\r\nrc_map_unregister(&leadtek_y04g0051_map);\r\n}

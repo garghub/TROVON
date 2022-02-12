@@ -1,0 +1,1 @@
+notrace long\r\n__vdso_getcpu(unsigned *cpu, unsigned *node, struct getcpu_cache *unused)\r\n{\r\nunsigned int p;\r\np = __getcpu();\r\nif (cpu)\r\n*cpu = p & VGETCPU_CPU_MASK;\r\nif (node)\r\n*node = p >> 12;\r\nreturn 0;\r\n}

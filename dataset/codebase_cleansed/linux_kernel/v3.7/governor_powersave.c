@@ -1,0 +1,1 @@
+static int devfreq_powersave_func(struct devfreq *df,\r\nunsigned long *freq)\r\n{\r\n*freq = df->min_freq;\r\nreturn 0;\r\n}\r\nstatic int powersave_init(struct devfreq *devfreq)\r\n{\r\nreturn update_devfreq(devfreq);\r\n}

@@ -1,0 +1,1 @@
+void clk_pxa2xx_cken_enable(struct clk *clk)\r\n{\r\nCKEN |= 1 << clk->cken;\r\n}\r\nvoid clk_pxa2xx_cken_disable(struct clk *clk)\r\n{\r\nCKEN &= ~(1 << clk->cken);\r\n}\r\nstatic int pxa2xx_clock_suspend(void)\r\n{\r\nsaved_cken = CKEN;\r\nreturn 0;\r\n}\r\nstatic void pxa2xx_clock_resume(void)\r\n{\r\nCKEN = saved_cken;\r\n}

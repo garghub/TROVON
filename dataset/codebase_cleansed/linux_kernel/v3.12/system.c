@@ -1,0 +1,1 @@
+void highbank_restart(enum reboot_mode mode, const char *cmd)\r\n{\r\nif (mode == REBOOT_HARD)\r\nhighbank_set_pwr_hard_reset();\r\nelse\r\nhighbank_set_pwr_soft_reset();\r\nwhile (1)\r\ncpu_do_idle();\r\n}

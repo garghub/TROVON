@@ -1,0 +1,1 @@
+static int __init init_rc_map_dntv_live_dvbt_pro(void)\r\n{\r\nreturn rc_map_register(&dntv_live_dvbt_pro_map);\r\n}\r\nstatic void __exit exit_rc_map_dntv_live_dvbt_pro(void)\r\n{\r\nrc_map_unregister(&dntv_live_dvbt_pro_map);\r\n}

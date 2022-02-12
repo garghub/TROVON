@@ -1,0 +1,1 @@
+static void __init vf610_init_machine(void)\r\n{\r\nmxc_arch_reset_init_dt();\r\nof_platform_populate(NULL, of_default_bus_match_table, NULL, NULL);\r\n}\r\nstatic void __init vf610_init_irq(void)\r\n{\r\nl2x0_of_init(0, ~0UL);\r\nirqchip_init();\r\n}\r\nstatic void __init vf610_init_time(void)\r\n{\r\nof_clk_init(NULL);\r\nclocksource_of_init();\r\n}

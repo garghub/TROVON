@@ -1,0 +1,70 @@
+static int smdk_wm8994_pcm_hw_params(struct snd_pcm_substream *substream,
+struct snd_pcm_hw_params *params)
+{
+struct snd_soc_pcm_runtime *rtd = substream->private_data;
+struct snd_soc_dai *codec_dai = rtd->codec_dai;
+struct snd_soc_dai *cpu_dai = rtd->cpu_dai;
+unsigned long mclk_freq;
+int rfs, ret;
+switch(params_rate(params)) {
+case 8000:
+rfs = 512;
+break;
+default:
+dev_err(cpu_dai->dev, "%s:%d Sampling Rate %u not supported!\n",
+__func__, __LINE__, params_rate(params));
+return -EINVAL;
+}
+mclk_freq = params_rate(params) * rfs;
+ret = snd_soc_dai_set_fmt(codec_dai, SND_SOC_DAIFMT_DSP_B
+| SND_SOC_DAIFMT_IB_NF
+| SND_SOC_DAIFMT_CBS_CFS);
+if (ret < 0)
+return ret;
+ret = snd_soc_dai_set_fmt(cpu_dai, SND_SOC_DAIFMT_DSP_B
+| SND_SOC_DAIFMT_IB_NF
+| SND_SOC_DAIFMT_CBS_CFS);
+if (ret < 0)
+return ret;
+ret = snd_soc_dai_set_sysclk(codec_dai, WM8994_SYSCLK_FLL1,
+mclk_freq, SND_SOC_CLOCK_IN);
+if (ret < 0)
+return ret;
+ret = snd_soc_dai_set_pll(codec_dai, WM8994_FLL1, WM8994_FLL_SRC_MCLK1,
+SMDK_WM8994_FREQ, mclk_freq);
+if (ret < 0)
+return ret;
+ret = snd_soc_dai_set_sysclk(cpu_dai, S3C_PCM_CLKSRC_MUX,
+mclk_freq, SND_SOC_CLOCK_IN);
+if (ret < 0)
+return ret;
+ret = snd_soc_dai_set_clkdiv(cpu_dai, S3C_PCM_SCLK_PER_FS, rfs);
+if (ret < 0)
+return ret;
+return 0;
+}
+static int __devinit snd_smdk_probe(struct platform_device *pdev)
+{
+int ret = 0;
+smdk_pcm.dev = &pdev->dev;
+ret = snd_soc_register_card(&smdk_pcm);
+if (ret) {
+dev_err(&pdev->dev, "snd_soc_register_card failed %d\n", ret);
+return ret;
+}
+return 0;
+}
+static int __devexit snd_smdk_remove(struct platform_device *pdev)
+{
+snd_soc_unregister_card(&smdk_pcm);
+platform_set_drvdata(pdev, NULL);
+return 0;
+}
+static int __init smdk_audio_init(void)
+{
+return platform_driver_register(&snd_smdk_driver);
+}
+static void __exit smdk_audio_exit(void)
+{
+platform_driver_unregister(&snd_smdk_driver);
+}

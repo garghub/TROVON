@@ -1,0 +1,1 @@
+int mxs_pcm_platform_register(struct device *dev)\r\n{\r\nreturn snd_dmaengine_pcm_register(dev, &mxs_dmaengine_pcm_config,\r\nSND_DMAENGINE_PCM_FLAG_NO_RESIDUE |\r\nSND_DMAENGINE_PCM_FLAG_HALF_DUPLEX);\r\n}\r\nvoid mxs_pcm_platform_unregister(struct device *dev)\r\n{\r\nsnd_dmaengine_pcm_unregister(dev);\r\n}

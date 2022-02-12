@@ -1,0 +1,1 @@
+pgd_t *pgd_alloc(struct mm_struct *mm)\r\n{\r\nif (PGD_SIZE == PAGE_SIZE)\r\nreturn (pgd_t *)get_zeroed_page(GFP_KERNEL);\r\nelse\r\nreturn kzalloc(PGD_SIZE, GFP_KERNEL);\r\n}\r\nvoid pgd_free(struct mm_struct *mm, pgd_t *pgd)\r\n{\r\nif (PGD_SIZE == PAGE_SIZE)\r\nfree_page((unsigned long)pgd);\r\nelse\r\nkfree(pgd);\r\n}

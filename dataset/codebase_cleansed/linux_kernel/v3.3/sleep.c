@@ -1,0 +1,361 @@
+static void acpi_sleep_tts_switch(u32 acpi_state)
+{
+union acpi_object in_arg = { ACPI_TYPE_INTEGER };
+struct acpi_object_list arg_list = { 1, &in_arg };
+acpi_status status = AE_OK;
+in_arg.integer.value = acpi_state;
+status = acpi_evaluate_object(NULL, "\\_TTS", &arg_list, NULL);
+if (ACPI_FAILURE(status) && status != AE_NOT_FOUND) {
+printk(KERN_NOTICE "Failure in evaluating _TTS object\n");
+}
+}
+static int tts_notify_reboot(struct notifier_block *this,
+unsigned long code, void *x)
+{
+acpi_sleep_tts_switch(ACPI_STATE_S5);
+return NOTIFY_DONE;
+}
+static int acpi_sleep_prepare(u32 acpi_state)
+{
+#ifdef CONFIG_ACPI_SLEEP
+if (acpi_state == ACPI_STATE_S3) {
+if (!acpi_wakeup_address) {
+return -EFAULT;
+}
+acpi_set_firmware_waking_vector(
+(acpi_physical_address)acpi_wakeup_address);
+}
+ACPI_FLUSH_CPU_CACHE();
+#endif
+printk(KERN_INFO PREFIX "Preparing to enter system sleep state S%d\n",
+acpi_state);
+acpi_enable_wakeup_devices(acpi_state);
+acpi_enter_sleep_state_prep(acpi_state);
+return 0;
+}
+void __init acpi_nvs_nosave(void)
+{
+nvs_nosave = true;
+}
+void __init acpi_old_suspend_ordering(void)
+{
+old_suspend_ordering = true;
+}
+static int acpi_pm_freeze(void)
+{
+acpi_disable_all_gpes();
+acpi_os_wait_events_complete(NULL);
+acpi_ec_block_transactions();
+return 0;
+}
+static int acpi_pm_pre_suspend(void)
+{
+acpi_pm_freeze();
+return suspend_nvs_save();
+}
+static int __acpi_pm_prepare(void)
+{
+int error = acpi_sleep_prepare(acpi_target_sleep_state);
+if (error)
+acpi_target_sleep_state = ACPI_STATE_S0;
+return error;
+}
+static int acpi_pm_prepare(void)
+{
+int error = __acpi_pm_prepare();
+if (!error)
+error = acpi_pm_pre_suspend();
+return error;
+}
+static void acpi_pm_finish(void)
+{
+u32 acpi_state = acpi_target_sleep_state;
+acpi_ec_unblock_transactions();
+suspend_nvs_free();
+if (acpi_state == ACPI_STATE_S0)
+return;
+printk(KERN_INFO PREFIX "Waking up from system sleep state S%d\n",
+acpi_state);
+acpi_disable_wakeup_devices(acpi_state);
+acpi_leave_sleep_state(acpi_state);
+acpi_set_firmware_waking_vector((acpi_physical_address) 0);
+acpi_target_sleep_state = ACPI_STATE_S0;
+}
+static void acpi_pm_end(void)
+{
+acpi_target_sleep_state = ACPI_STATE_S0;
+acpi_sleep_tts_switch(acpi_target_sleep_state);
+}
+static int acpi_suspend_begin(suspend_state_t pm_state)
+{
+u32 acpi_state = acpi_suspend_states[pm_state];
+int error = 0;
+error = nvs_nosave ? 0 : suspend_nvs_alloc();
+if (error)
+return error;
+if (sleep_states[acpi_state]) {
+acpi_target_sleep_state = acpi_state;
+acpi_sleep_tts_switch(acpi_target_sleep_state);
+} else {
+printk(KERN_ERR "ACPI does not support this state: %d\n",
+pm_state);
+error = -ENOSYS;
+}
+return error;
+}
+static int acpi_suspend_enter(suspend_state_t pm_state)
+{
+acpi_status status = AE_OK;
+u32 acpi_state = acpi_target_sleep_state;
+int error;
+ACPI_FLUSH_CPU_CACHE();
+switch (acpi_state) {
+case ACPI_STATE_S1:
+barrier();
+status = acpi_enter_sleep_state(acpi_state);
+break;
+case ACPI_STATE_S3:
+error = acpi_suspend_lowlevel();
+if (error)
+return error;
+pr_info(PREFIX "Low-level resume complete\n");
+break;
+}
+acpi_write_bit_register(ACPI_BITREG_SCI_ENABLE, 1);
+acpi_leave_sleep_state_prep(acpi_state);
+if (ACPI_SUCCESS(status) && (acpi_state == ACPI_STATE_S3))
+acpi_clear_event(ACPI_EVENT_POWER_BUTTON);
+acpi_disable_all_gpes();
+acpi_ec_unblock_transactions_early();
+suspend_nvs_restore();
+return ACPI_SUCCESS(status) ? 0 : -EFAULT;
+}
+static int acpi_suspend_state_valid(suspend_state_t pm_state)
+{
+u32 acpi_state;
+switch (pm_state) {
+case PM_SUSPEND_ON:
+case PM_SUSPEND_STANDBY:
+case PM_SUSPEND_MEM:
+acpi_state = acpi_suspend_states[pm_state];
+return sleep_states[acpi_state];
+default:
+return 0;
+}
+}
+static int acpi_suspend_begin_old(suspend_state_t pm_state)
+{
+int error = acpi_suspend_begin(pm_state);
+if (!error)
+error = __acpi_pm_prepare();
+return error;
+}
+static int __init init_old_suspend_ordering(const struct dmi_system_id *d)
+{
+old_suspend_ordering = true;
+return 0;
+}
+static int __init init_nvs_nosave(const struct dmi_system_id *d)
+{
+acpi_nvs_nosave();
+return 0;
+}
+void __init acpi_no_s4_hw_signature(void)
+{
+nosigcheck = true;
+}
+static int acpi_hibernation_begin(void)
+{
+int error;
+error = nvs_nosave ? 0 : suspend_nvs_alloc();
+if (!error) {
+acpi_target_sleep_state = ACPI_STATE_S4;
+acpi_sleep_tts_switch(acpi_target_sleep_state);
+}
+return error;
+}
+static int acpi_hibernation_enter(void)
+{
+acpi_status status = AE_OK;
+ACPI_FLUSH_CPU_CACHE();
+status = acpi_enter_sleep_state(ACPI_STATE_S4);
+acpi_leave_sleep_state_prep(ACPI_STATE_S4);
+return ACPI_SUCCESS(status) ? 0 : -EFAULT;
+}
+static void acpi_hibernation_leave(void)
+{
+acpi_enable();
+acpi_leave_sleep_state_prep(ACPI_STATE_S4);
+if (facs && s4_hardware_signature != facs->hardware_signature) {
+printk(KERN_EMERG "ACPI: Hardware changed while hibernated, "
+"cannot resume!\n");
+panic("ACPI S4 hardware signature mismatch");
+}
+suspend_nvs_restore();
+acpi_ec_unblock_transactions_early();
+}
+static void acpi_pm_thaw(void)
+{
+acpi_ec_unblock_transactions();
+acpi_enable_all_runtime_gpes();
+}
+static int acpi_hibernation_begin_old(void)
+{
+int error;
+acpi_sleep_tts_switch(ACPI_STATE_S4);
+error = acpi_sleep_prepare(ACPI_STATE_S4);
+if (!error) {
+if (!nvs_nosave)
+error = suspend_nvs_alloc();
+if (!error)
+acpi_target_sleep_state = ACPI_STATE_S4;
+}
+return error;
+}
+int acpi_suspend(u32 acpi_state)
+{
+suspend_state_t states[] = {
+[1] = PM_SUSPEND_STANDBY,
+[3] = PM_SUSPEND_MEM,
+[5] = PM_SUSPEND_MAX
+};
+if (acpi_state < 6 && states[acpi_state])
+return pm_suspend(states[acpi_state]);
+if (acpi_state == 4)
+return hibernate();
+return -EINVAL;
+}
+int acpi_pm_device_sleep_state(struct device *dev, int *d_min_p)
+{
+acpi_handle handle = DEVICE_ACPI_HANDLE(dev);
+struct acpi_device *adev;
+char acpi_method[] = "_SxD";
+unsigned long long d_min, d_max;
+if (!handle || ACPI_FAILURE(acpi_bus_get_device(handle, &adev))) {
+printk(KERN_DEBUG "ACPI handle has no context!\n");
+return -ENODEV;
+}
+acpi_method[2] = '0' + acpi_target_sleep_state;
+d_min = ACPI_STATE_D0;
+d_max = ACPI_STATE_D3;
+if (acpi_target_sleep_state > ACPI_STATE_S0)
+acpi_evaluate_integer(handle, acpi_method, NULL, &d_min);
+if (acpi_target_sleep_state == ACPI_STATE_S0 ||
+(device_may_wakeup(dev) &&
+adev->wakeup.sleep_state <= acpi_target_sleep_state)) {
+acpi_status status;
+acpi_method[3] = 'W';
+status = acpi_evaluate_integer(handle, acpi_method, NULL,
+&d_max);
+if (ACPI_FAILURE(status)) {
+if (acpi_target_sleep_state != ACPI_STATE_S0 ||
+status != AE_NOT_FOUND)
+d_max = d_min;
+} else if (d_max < d_min) {
+printk(KERN_WARNING "ACPI: Wrong value from %s\n",
+acpi_method);
+d_min = d_max;
+}
+}
+if (d_min_p)
+*d_min_p = d_min;
+return d_max;
+}
+int acpi_pm_device_sleep_wake(struct device *dev, bool enable)
+{
+acpi_handle handle;
+struct acpi_device *adev;
+int error;
+if (!device_can_wakeup(dev))
+return -EINVAL;
+handle = DEVICE_ACPI_HANDLE(dev);
+if (!handle || ACPI_FAILURE(acpi_bus_get_device(handle, &adev))) {
+dev_dbg(dev, "ACPI handle has no context in %s!\n", __func__);
+return -ENODEV;
+}
+error = enable ?
+acpi_enable_wakeup_device_power(adev, acpi_target_sleep_state) :
+acpi_disable_wakeup_device_power(adev);
+if (!error)
+dev_info(dev, "wake-up capability %s by ACPI\n",
+enable ? "enabled" : "disabled");
+return error;
+}
+static void acpi_power_off_prepare(void)
+{
+acpi_sleep_prepare(ACPI_STATE_S5);
+acpi_disable_all_gpes();
+}
+static void acpi_power_off(void)
+{
+printk(KERN_DEBUG "%s called\n", __func__);
+local_irq_disable();
+acpi_enter_sleep_state(ACPI_STATE_S5);
+}
+static void __init acpi_gts_bfs_check(void)
+{
+acpi_handle dummy;
+if (ACPI_SUCCESS(acpi_get_handle(ACPI_ROOT_OBJECT, METHOD_NAME__GTS, &dummy)))
+{
+printk(KERN_NOTICE PREFIX "BIOS offers _GTS\n");
+printk(KERN_NOTICE PREFIX "If \"acpi.gts=1\" improves suspend, "
+"please notify linux-acpi@vger.kernel.org\n");
+}
+if (ACPI_SUCCESS(acpi_get_handle(ACPI_ROOT_OBJECT, METHOD_NAME__BFS, &dummy)))
+{
+printk(KERN_NOTICE PREFIX "BIOS offers _BFS\n");
+printk(KERN_NOTICE PREFIX "If \"acpi.bfs=1\" improves resume, "
+"please notify linux-acpi@vger.kernel.org\n");
+}
+}
+int __init acpi_sleep_init(void)
+{
+acpi_status status;
+u8 type_a, type_b;
+#ifdef CONFIG_SUSPEND
+int i = 0;
+dmi_check_system(acpisleep_dmi_table);
+#endif
+if (acpi_disabled)
+return 0;
+sleep_states[ACPI_STATE_S0] = 1;
+printk(KERN_INFO PREFIX "(supports S0");
+#ifdef CONFIG_SUSPEND
+for (i = ACPI_STATE_S1; i < ACPI_STATE_S4; i++) {
+status = acpi_get_sleep_type_data(i, &type_a, &type_b);
+if (ACPI_SUCCESS(status)) {
+sleep_states[i] = 1;
+printk(" S%d", i);
+}
+}
+suspend_set_ops(old_suspend_ordering ?
+&acpi_suspend_ops_old : &acpi_suspend_ops);
+#endif
+#ifdef CONFIG_HIBERNATION
+status = acpi_get_sleep_type_data(ACPI_STATE_S4, &type_a, &type_b);
+if (ACPI_SUCCESS(status)) {
+hibernation_set_ops(old_suspend_ordering ?
+&acpi_hibernation_ops_old : &acpi_hibernation_ops);
+sleep_states[ACPI_STATE_S4] = 1;
+printk(" S4");
+if (!nosigcheck) {
+acpi_get_table(ACPI_SIG_FACS, 1,
+(struct acpi_table_header **)&facs);
+if (facs)
+s4_hardware_signature =
+facs->hardware_signature;
+}
+}
+#endif
+status = acpi_get_sleep_type_data(ACPI_STATE_S5, &type_a, &type_b);
+if (ACPI_SUCCESS(status)) {
+sleep_states[ACPI_STATE_S5] = 1;
+printk(" S5");
+pm_power_off_prepare = acpi_power_off_prepare;
+pm_power_off = acpi_power_off;
+}
+printk(")\n");
+register_reboot_notifier(&tts_notifier);
+acpi_gts_bfs_check();
+return 0;
+}

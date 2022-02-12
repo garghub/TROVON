@@ -1,0 +1,1 @@
+int pm_prepare_console(void)\r\n{\r\norig_fgconsole = vt_move_to_console(SUSPEND_CONSOLE, 1);\r\nif (orig_fgconsole < 0)\r\nreturn 1;\r\norig_kmsg = vt_kmsg_redirect(SUSPEND_CONSOLE);\r\nreturn 0;\r\n}\r\nvoid pm_restore_console(void)\r\n{\r\nif (orig_fgconsole >= 0) {\r\nvt_move_to_console(orig_fgconsole, 0);\r\nvt_kmsg_redirect(orig_kmsg);\r\n}\r\n}

@@ -1,0 +1,1 @@
+static irqreturn_t pit_timer_interrupt(int irq, void *dev_id)\r\n{\r\nstruct clock_event_device *ce = dev_id;\r\nce->event_handler(ce);\r\nreturn IRQ_HANDLED;\r\n}\r\nstatic void __init isa_timer_init(void)\r\n{\r\nclocksource_i8253_init();\r\nsetup_irq(i8253_clockevent.irq, &pit_timer_irq);\r\nclockevent_i8253_init(false);\r\n}

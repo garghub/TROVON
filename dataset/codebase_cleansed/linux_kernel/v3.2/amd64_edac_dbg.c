@@ -1,0 +1,1 @@
+static ssize_t amd64_hole_show(struct mem_ctl_info *mci, char *data)\r\n{\r\nu64 hole_base = 0;\r\nu64 hole_offset = 0;\r\nu64 hole_size = 0;\r\namd64_get_dram_hole_info(mci, &hole_base, &hole_offset, &hole_size);\r\nreturn sprintf(data, "%llx %llx %llx\n", hole_base, hole_offset,\r\nhole_size);\r\n}

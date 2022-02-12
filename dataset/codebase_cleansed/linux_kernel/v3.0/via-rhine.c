@@ -1,0 +1,1289 @@
+static inline u32 get_intr_status(struct net_device *dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+u32 intr_status;
+intr_status = ioread16(ioaddr + IntrStatus);
+if (rp->quirks & rqStatusWBRace)
+intr_status |= ioread8(ioaddr + IntrStatus2) << 16;
+return intr_status;
+}
+static void rhine_power_init(struct net_device *dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+u16 wolstat;
+if (rp->quirks & rqWOL) {
+iowrite8(ioread8(ioaddr + StickyHW) & 0xFC, ioaddr + StickyHW);
+iowrite8(0x80, ioaddr + WOLcgClr);
+iowrite8(0xFF, ioaddr + WOLcrClr);
+if (rp->quirks & rq6patterns)
+iowrite8(0x03, ioaddr + WOLcrClr1);
+wolstat = ioread8(ioaddr + PwrcsrSet);
+if (rp->quirks & rq6patterns)
+wolstat |= (ioread8(ioaddr + PwrcsrSet1) & 0x03) << 8;
+iowrite8(0xFF, ioaddr + PwrcsrClr);
+if (rp->quirks & rq6patterns)
+iowrite8(0x03, ioaddr + PwrcsrClr1);
+if (wolstat) {
+char *reason;
+switch (wolstat) {
+case WOLmagic:
+reason = "Magic packet";
+break;
+case WOLlnkon:
+reason = "Link went up";
+break;
+case WOLlnkoff:
+reason = "Link went down";
+break;
+case WOLucast:
+reason = "Unicast packet";
+break;
+case WOLbmcast:
+reason = "Multicast/broadcast packet";
+break;
+default:
+reason = "Unknown";
+}
+netdev_info(dev, "Woke system up. Reason: %s\n",
+reason);
+}
+}
+}
+static void rhine_chip_reset(struct net_device *dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+iowrite8(Cmd1Reset, ioaddr + ChipCmd1);
+IOSYNC;
+if (ioread8(ioaddr + ChipCmd1) & Cmd1Reset) {
+netdev_info(dev, "Reset not complete yet. Trying harder.\n");
+if (rp->quirks & rqForceReset)
+iowrite8(0x40, ioaddr + MiscCmd);
+RHINE_WAIT_FOR(!(ioread8(ioaddr + ChipCmd1) & Cmd1Reset));
+}
+if (debug > 1)
+netdev_info(dev, "Reset %s\n",
+(ioread8(ioaddr + ChipCmd1) & Cmd1Reset) ?
+"failed" : "succeeded");
+}
+static void enable_mmio(long pioaddr, u32 quirks)
+{
+int n;
+if (quirks & rqRhineI) {
+n = inb(pioaddr + ConfigA) | 0x20;
+outb(n, pioaddr + ConfigA);
+} else {
+n = inb(pioaddr + ConfigD) | 0x80;
+outb(n, pioaddr + ConfigD);
+}
+}
+static void __devinit rhine_reload_eeprom(long pioaddr, struct net_device *dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+outb(0x20, pioaddr + MACRegEEcsr);
+RHINE_WAIT_FOR(!(inb(pioaddr + MACRegEEcsr) & 0x20));
+#ifdef USE_MMIO
+enable_mmio(pioaddr, rp->quirks);
+#endif
+if (rp->quirks & rqWOL)
+iowrite8(ioread8(ioaddr + ConfigA) & 0xFC, ioaddr + ConfigA);
+}
+static void rhine_poll(struct net_device *dev)
+{
+disable_irq(dev->irq);
+rhine_interrupt(dev->irq, (void *)dev);
+enable_irq(dev->irq);
+}
+static int rhine_napipoll(struct napi_struct *napi, int budget)
+{
+struct rhine_private *rp = container_of(napi, struct rhine_private, napi);
+struct net_device *dev = rp->dev;
+void __iomem *ioaddr = rp->base;
+int work_done;
+work_done = rhine_rx(dev, budget);
+if (work_done < budget) {
+napi_complete(napi);
+iowrite16(IntrRxDone | IntrRxErr | IntrRxEmpty| IntrRxOverflow |
+IntrRxDropped | IntrRxNoBuf | IntrTxAborted |
+IntrTxDone | IntrTxError | IntrTxUnderrun |
+IntrPCIErr | IntrStatsMax | IntrLinkChange,
+ioaddr + IntrEnable);
+}
+return work_done;
+}
+static void __devinit rhine_hw_init(struct net_device *dev, long pioaddr)
+{
+struct rhine_private *rp = netdev_priv(dev);
+rhine_chip_reset(dev);
+if (rp->quirks & rqRhineI)
+msleep(5);
+rhine_reload_eeprom(pioaddr, dev);
+}
+static int __devinit rhine_init_one(struct pci_dev *pdev,
+const struct pci_device_id *ent)
+{
+struct net_device *dev;
+struct rhine_private *rp;
+int i, rc;
+u32 quirks;
+long pioaddr;
+long memaddr;
+void __iomem *ioaddr;
+int io_size, phy_id;
+const char *name;
+#ifdef USE_MMIO
+int bar = 1;
+#else
+int bar = 0;
+#endif
+#ifndef MODULE
+pr_info_once("%s\n", version);
+#endif
+io_size = 256;
+phy_id = 0;
+quirks = 0;
+name = "Rhine";
+if (pdev->revision < VTunknown0) {
+quirks = rqRhineI;
+io_size = 128;
+}
+else if (pdev->revision >= VT6102) {
+quirks = rqWOL | rqForceReset;
+if (pdev->revision < VT6105) {
+name = "Rhine II";
+quirks |= rqStatusWBRace;
+}
+else {
+phy_id = 1;
+if (pdev->revision >= VT6105_B0)
+quirks |= rq6patterns;
+if (pdev->revision < VT6105M)
+name = "Rhine III";
+else
+name = "Rhine III (Management Adapter)";
+}
+}
+rc = pci_enable_device(pdev);
+if (rc)
+goto err_out;
+rc = pci_set_dma_mask(pdev, DMA_BIT_MASK(32));
+if (rc) {
+dev_err(&pdev->dev,
+"32-bit PCI DMA addresses not supported by the card!?\n");
+goto err_out;
+}
+if ((pci_resource_len(pdev, 0) < io_size) ||
+(pci_resource_len(pdev, 1) < io_size)) {
+rc = -EIO;
+dev_err(&pdev->dev, "Insufficient PCI resources, aborting\n");
+goto err_out;
+}
+pioaddr = pci_resource_start(pdev, 0);
+memaddr = pci_resource_start(pdev, 1);
+pci_set_master(pdev);
+dev = alloc_etherdev(sizeof(struct rhine_private));
+if (!dev) {
+rc = -ENOMEM;
+dev_err(&pdev->dev, "alloc_etherdev failed\n");
+goto err_out;
+}
+SET_NETDEV_DEV(dev, &pdev->dev);
+rp = netdev_priv(dev);
+rp->dev = dev;
+rp->quirks = quirks;
+rp->pioaddr = pioaddr;
+rp->pdev = pdev;
+rc = pci_request_regions(pdev, DRV_NAME);
+if (rc)
+goto err_out_free_netdev;
+ioaddr = pci_iomap(pdev, bar, io_size);
+if (!ioaddr) {
+rc = -EIO;
+dev_err(&pdev->dev,
+"ioremap failed for device %s, region 0x%X @ 0x%lX\n",
+pci_name(pdev), io_size, memaddr);
+goto err_out_free_res;
+}
+#ifdef USE_MMIO
+enable_mmio(pioaddr, quirks);
+i = 0;
+while (mmio_verify_registers[i]) {
+int reg = mmio_verify_registers[i++];
+unsigned char a = inb(pioaddr+reg);
+unsigned char b = readb(ioaddr+reg);
+if (a != b) {
+rc = -EIO;
+dev_err(&pdev->dev,
+"MMIO do not match PIO [%02x] (%02x != %02x)\n",
+reg, a, b);
+goto err_out_unmap;
+}
+}
+#endif
+dev->base_addr = (unsigned long)ioaddr;
+rp->base = ioaddr;
+rhine_power_init(dev);
+rhine_hw_init(dev, pioaddr);
+for (i = 0; i < 6; i++)
+dev->dev_addr[i] = ioread8(ioaddr + StationAddr + i);
+if (!is_valid_ether_addr(dev->dev_addr)) {
+netdev_err(dev, "Invalid MAC address: %pM\n", dev->dev_addr);
+random_ether_addr(dev->dev_addr);
+netdev_info(dev, "Using random MAC address: %pM\n",
+dev->dev_addr);
+}
+memcpy(dev->perm_addr, dev->dev_addr, dev->addr_len);
+if (!phy_id)
+phy_id = ioread8(ioaddr + 0x6C);
+dev->irq = pdev->irq;
+spin_lock_init(&rp->lock);
+INIT_WORK(&rp->reset_task, rhine_reset_task);
+rp->mii_if.dev = dev;
+rp->mii_if.mdio_read = mdio_read;
+rp->mii_if.mdio_write = mdio_write;
+rp->mii_if.phy_id_mask = 0x1f;
+rp->mii_if.reg_num_mask = 0x1f;
+dev->netdev_ops = &rhine_netdev_ops;
+dev->ethtool_ops = &netdev_ethtool_ops,
+dev->watchdog_timeo = TX_TIMEOUT;
+netif_napi_add(dev, &rp->napi, rhine_napipoll, 64);
+if (rp->quirks & rqRhineI)
+dev->features |= NETIF_F_SG|NETIF_F_HW_CSUM;
+if (pdev->revision >= VT6105M)
+dev->features |= NETIF_F_HW_VLAN_TX | NETIF_F_HW_VLAN_RX |
+NETIF_F_HW_VLAN_FILTER;
+rc = register_netdev(dev);
+if (rc)
+goto err_out_unmap;
+netdev_info(dev, "VIA %s at 0x%lx, %pM, IRQ %d\n",
+name,
+#ifdef USE_MMIO
+memaddr,
+#else
+(long)ioaddr,
+#endif
+dev->dev_addr, pdev->irq);
+pci_set_drvdata(pdev, dev);
+{
+u16 mii_cmd;
+int mii_status = mdio_read(dev, phy_id, 1);
+mii_cmd = mdio_read(dev, phy_id, MII_BMCR) & ~BMCR_ISOLATE;
+mdio_write(dev, phy_id, MII_BMCR, mii_cmd);
+if (mii_status != 0xffff && mii_status != 0x0000) {
+rp->mii_if.advertising = mdio_read(dev, phy_id, 4);
+netdev_info(dev,
+"MII PHY found at address %d, status 0x%04x advertising %04x Link %04x\n",
+phy_id,
+mii_status, rp->mii_if.advertising,
+mdio_read(dev, phy_id, 5));
+if (mii_status & BMSR_LSTATUS)
+netif_carrier_on(dev);
+else
+netif_carrier_off(dev);
+}
+}
+rp->mii_if.phy_id = phy_id;
+if (debug > 1 && avoid_D3)
+netdev_info(dev, "No D3 power state at shutdown\n");
+return 0;
+err_out_unmap:
+pci_iounmap(pdev, ioaddr);
+err_out_free_res:
+pci_release_regions(pdev);
+err_out_free_netdev:
+free_netdev(dev);
+err_out:
+return rc;
+}
+static int alloc_ring(struct net_device* dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+void *ring;
+dma_addr_t ring_dma;
+ring = pci_alloc_consistent(rp->pdev,
+RX_RING_SIZE * sizeof(struct rx_desc) +
+TX_RING_SIZE * sizeof(struct tx_desc),
+&ring_dma);
+if (!ring) {
+netdev_err(dev, "Could not allocate DMA memory\n");
+return -ENOMEM;
+}
+if (rp->quirks & rqRhineI) {
+rp->tx_bufs = pci_alloc_consistent(rp->pdev,
+PKT_BUF_SZ * TX_RING_SIZE,
+&rp->tx_bufs_dma);
+if (rp->tx_bufs == NULL) {
+pci_free_consistent(rp->pdev,
+RX_RING_SIZE * sizeof(struct rx_desc) +
+TX_RING_SIZE * sizeof(struct tx_desc),
+ring, ring_dma);
+return -ENOMEM;
+}
+}
+rp->rx_ring = ring;
+rp->tx_ring = ring + RX_RING_SIZE * sizeof(struct rx_desc);
+rp->rx_ring_dma = ring_dma;
+rp->tx_ring_dma = ring_dma + RX_RING_SIZE * sizeof(struct rx_desc);
+return 0;
+}
+static void free_ring(struct net_device* dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+pci_free_consistent(rp->pdev,
+RX_RING_SIZE * sizeof(struct rx_desc) +
+TX_RING_SIZE * sizeof(struct tx_desc),
+rp->rx_ring, rp->rx_ring_dma);
+rp->tx_ring = NULL;
+if (rp->tx_bufs)
+pci_free_consistent(rp->pdev, PKT_BUF_SZ * TX_RING_SIZE,
+rp->tx_bufs, rp->tx_bufs_dma);
+rp->tx_bufs = NULL;
+}
+static void alloc_rbufs(struct net_device *dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+dma_addr_t next;
+int i;
+rp->dirty_rx = rp->cur_rx = 0;
+rp->rx_buf_sz = (dev->mtu <= 1500 ? PKT_BUF_SZ : dev->mtu + 32);
+rp->rx_head_desc = &rp->rx_ring[0];
+next = rp->rx_ring_dma;
+for (i = 0; i < RX_RING_SIZE; i++) {
+rp->rx_ring[i].rx_status = 0;
+rp->rx_ring[i].desc_length = cpu_to_le32(rp->rx_buf_sz);
+next += sizeof(struct rx_desc);
+rp->rx_ring[i].next_desc = cpu_to_le32(next);
+rp->rx_skbuff[i] = NULL;
+}
+rp->rx_ring[i-1].next_desc = cpu_to_le32(rp->rx_ring_dma);
+for (i = 0; i < RX_RING_SIZE; i++) {
+struct sk_buff *skb = netdev_alloc_skb(dev, rp->rx_buf_sz);
+rp->rx_skbuff[i] = skb;
+if (skb == NULL)
+break;
+skb->dev = dev;
+rp->rx_skbuff_dma[i] =
+pci_map_single(rp->pdev, skb->data, rp->rx_buf_sz,
+PCI_DMA_FROMDEVICE);
+rp->rx_ring[i].addr = cpu_to_le32(rp->rx_skbuff_dma[i]);
+rp->rx_ring[i].rx_status = cpu_to_le32(DescOwn);
+}
+rp->dirty_rx = (unsigned int)(i - RX_RING_SIZE);
+}
+static void free_rbufs(struct net_device* dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+int i;
+for (i = 0; i < RX_RING_SIZE; i++) {
+rp->rx_ring[i].rx_status = 0;
+rp->rx_ring[i].addr = cpu_to_le32(0xBADF00D0);
+if (rp->rx_skbuff[i]) {
+pci_unmap_single(rp->pdev,
+rp->rx_skbuff_dma[i],
+rp->rx_buf_sz, PCI_DMA_FROMDEVICE);
+dev_kfree_skb(rp->rx_skbuff[i]);
+}
+rp->rx_skbuff[i] = NULL;
+}
+}
+static void alloc_tbufs(struct net_device* dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+dma_addr_t next;
+int i;
+rp->dirty_tx = rp->cur_tx = 0;
+next = rp->tx_ring_dma;
+for (i = 0; i < TX_RING_SIZE; i++) {
+rp->tx_skbuff[i] = NULL;
+rp->tx_ring[i].tx_status = 0;
+rp->tx_ring[i].desc_length = cpu_to_le32(TXDESC);
+next += sizeof(struct tx_desc);
+rp->tx_ring[i].next_desc = cpu_to_le32(next);
+if (rp->quirks & rqRhineI)
+rp->tx_buf[i] = &rp->tx_bufs[i * PKT_BUF_SZ];
+}
+rp->tx_ring[i-1].next_desc = cpu_to_le32(rp->tx_ring_dma);
+}
+static void free_tbufs(struct net_device* dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+int i;
+for (i = 0; i < TX_RING_SIZE; i++) {
+rp->tx_ring[i].tx_status = 0;
+rp->tx_ring[i].desc_length = cpu_to_le32(TXDESC);
+rp->tx_ring[i].addr = cpu_to_le32(0xBADF00D0);
+if (rp->tx_skbuff[i]) {
+if (rp->tx_skbuff_dma[i]) {
+pci_unmap_single(rp->pdev,
+rp->tx_skbuff_dma[i],
+rp->tx_skbuff[i]->len,
+PCI_DMA_TODEVICE);
+}
+dev_kfree_skb(rp->tx_skbuff[i]);
+}
+rp->tx_skbuff[i] = NULL;
+rp->tx_buf[i] = NULL;
+}
+}
+static void rhine_check_media(struct net_device *dev, unsigned int init_media)
+{
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+mii_check_media(&rp->mii_if, debug, init_media);
+if (rp->mii_if.full_duplex)
+iowrite8(ioread8(ioaddr + ChipCmd1) | Cmd1FDuplex,
+ioaddr + ChipCmd1);
+else
+iowrite8(ioread8(ioaddr + ChipCmd1) & ~Cmd1FDuplex,
+ioaddr + ChipCmd1);
+if (debug > 1)
+netdev_info(dev, "force_media %d, carrier %d\n",
+rp->mii_if.force_media, netif_carrier_ok(dev));
+}
+static void rhine_set_carrier(struct mii_if_info *mii)
+{
+if (mii->force_media) {
+if (!netif_carrier_ok(mii->dev))
+netif_carrier_on(mii->dev);
+}
+else
+rhine_check_media(mii->dev, 0);
+if (debug > 1)
+netdev_info(mii->dev, "force_media %d, carrier %d\n",
+mii->force_media, netif_carrier_ok(mii->dev));
+}
+static void rhine_set_cam(void __iomem *ioaddr, int idx, u8 *addr)
+{
+int i;
+iowrite8(CAMC_CAMEN, ioaddr + CamCon);
+wmb();
+idx &= (MCAM_SIZE - 1);
+iowrite8((u8) idx, ioaddr + CamAddr);
+for (i = 0; i < 6; i++, addr++)
+iowrite8(*addr, ioaddr + MulticastFilter0 + i);
+udelay(10);
+wmb();
+iowrite8(CAMC_CAMWR | CAMC_CAMEN, ioaddr + CamCon);
+udelay(10);
+iowrite8(0, ioaddr + CamCon);
+}
+static void rhine_set_vlan_cam(void __iomem *ioaddr, int idx, u8 *addr)
+{
+iowrite8(CAMC_CAMEN | CAMC_VCAMSL, ioaddr + CamCon);
+wmb();
+idx &= (VCAM_SIZE - 1);
+iowrite8((u8) idx, ioaddr + CamAddr);
+iowrite16(*((u16 *) addr), ioaddr + MulticastFilter0 + 6);
+udelay(10);
+wmb();
+iowrite8(CAMC_CAMWR | CAMC_CAMEN, ioaddr + CamCon);
+udelay(10);
+iowrite8(0, ioaddr + CamCon);
+}
+static void rhine_set_cam_mask(void __iomem *ioaddr, u32 mask)
+{
+iowrite8(CAMC_CAMEN, ioaddr + CamCon);
+wmb();
+iowrite32(mask, ioaddr + CamMask);
+iowrite8(0, ioaddr + CamCon);
+}
+static void rhine_set_vlan_cam_mask(void __iomem *ioaddr, u32 mask)
+{
+iowrite8(CAMC_CAMEN | CAMC_VCAMSL, ioaddr + CamCon);
+wmb();
+iowrite32(mask, ioaddr + CamMask);
+iowrite8(0, ioaddr + CamCon);
+}
+static void rhine_init_cam_filter(struct net_device *dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+rhine_set_vlan_cam_mask(ioaddr, 0);
+rhine_set_cam_mask(ioaddr, 0);
+BYTE_REG_BITS_ON(TCR_PQEN, ioaddr + TxConfig);
+BYTE_REG_BITS_OFF(BCR1_VIDFR, ioaddr + PCIBusConfig1);
+}
+static void rhine_update_vcam(struct net_device *dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+u16 vid;
+u32 vCAMmask = 0;
+unsigned int i = 0;
+for_each_set_bit(vid, rp->active_vlans, VLAN_N_VID) {
+rhine_set_vlan_cam(ioaddr, i, (u8 *)&vid);
+vCAMmask |= 1 << i;
+if (++i >= VCAM_SIZE)
+break;
+}
+rhine_set_vlan_cam_mask(ioaddr, vCAMmask);
+}
+static void rhine_vlan_rx_add_vid(struct net_device *dev, unsigned short vid)
+{
+struct rhine_private *rp = netdev_priv(dev);
+spin_lock_irq(&rp->lock);
+set_bit(vid, rp->active_vlans);
+rhine_update_vcam(dev);
+spin_unlock_irq(&rp->lock);
+}
+static void rhine_vlan_rx_kill_vid(struct net_device *dev, unsigned short vid)
+{
+struct rhine_private *rp = netdev_priv(dev);
+spin_lock_irq(&rp->lock);
+clear_bit(vid, rp->active_vlans);
+rhine_update_vcam(dev);
+spin_unlock_irq(&rp->lock);
+}
+static void init_registers(struct net_device *dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+int i;
+for (i = 0; i < 6; i++)
+iowrite8(dev->dev_addr[i], ioaddr + StationAddr + i);
+iowrite16(0x0006, ioaddr + PCIBusConfig);
+iowrite8(0x20, ioaddr + TxConfig);
+rp->tx_thresh = 0x20;
+rp->rx_thresh = 0x60;
+iowrite32(rp->rx_ring_dma, ioaddr + RxRingPtr);
+iowrite32(rp->tx_ring_dma, ioaddr + TxRingPtr);
+rhine_set_rx_mode(dev);
+if (rp->pdev->revision >= VT6105M)
+rhine_init_cam_filter(dev);
+napi_enable(&rp->napi);
+iowrite16(IntrRxDone | IntrRxErr | IntrRxEmpty| IntrRxOverflow |
+IntrRxDropped | IntrRxNoBuf | IntrTxAborted |
+IntrTxDone | IntrTxError | IntrTxUnderrun |
+IntrPCIErr | IntrStatsMax | IntrLinkChange,
+ioaddr + IntrEnable);
+iowrite16(CmdStart | CmdTxOn | CmdRxOn | (Cmd1NoTxPoll << 8),
+ioaddr + ChipCmd);
+rhine_check_media(dev, 1);
+}
+static void rhine_enable_linkmon(void __iomem *ioaddr)
+{
+iowrite8(0, ioaddr + MIICmd);
+iowrite8(MII_BMSR, ioaddr + MIIRegAddr);
+iowrite8(0x80, ioaddr + MIICmd);
+RHINE_WAIT_FOR((ioread8(ioaddr + MIIRegAddr) & 0x20));
+iowrite8(MII_BMSR | 0x40, ioaddr + MIIRegAddr);
+}
+static void rhine_disable_linkmon(void __iomem *ioaddr, u32 quirks)
+{
+iowrite8(0, ioaddr + MIICmd);
+if (quirks & rqRhineI) {
+iowrite8(0x01, ioaddr + MIIRegAddr);
+mdelay(1);
+iowrite8(0x80, ioaddr + MIICmd);
+RHINE_WAIT_FOR(ioread8(ioaddr + MIIRegAddr) & 0x20);
+iowrite8(0, ioaddr + MIICmd);
+}
+else
+RHINE_WAIT_FOR(ioread8(ioaddr + MIIRegAddr) & 0x80);
+}
+static int mdio_read(struct net_device *dev, int phy_id, int regnum)
+{
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+int result;
+rhine_disable_linkmon(ioaddr, rp->quirks);
+iowrite8(phy_id, ioaddr + MIIPhyAddr);
+iowrite8(regnum, ioaddr + MIIRegAddr);
+iowrite8(0x40, ioaddr + MIICmd);
+RHINE_WAIT_FOR(!(ioread8(ioaddr + MIICmd) & 0x40));
+result = ioread16(ioaddr + MIIData);
+rhine_enable_linkmon(ioaddr);
+return result;
+}
+static void mdio_write(struct net_device *dev, int phy_id, int regnum, int value)
+{
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+rhine_disable_linkmon(ioaddr, rp->quirks);
+iowrite8(phy_id, ioaddr + MIIPhyAddr);
+iowrite8(regnum, ioaddr + MIIRegAddr);
+iowrite16(value, ioaddr + MIIData);
+iowrite8(0x20, ioaddr + MIICmd);
+RHINE_WAIT_FOR(!(ioread8(ioaddr + MIICmd) & 0x20));
+rhine_enable_linkmon(ioaddr);
+}
+static int rhine_open(struct net_device *dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+int rc;
+rc = request_irq(rp->pdev->irq, rhine_interrupt, IRQF_SHARED, dev->name,
+dev);
+if (rc)
+return rc;
+if (debug > 1)
+netdev_dbg(dev, "%s() irq %d\n", __func__, rp->pdev->irq);
+rc = alloc_ring(dev);
+if (rc) {
+free_irq(rp->pdev->irq, dev);
+return rc;
+}
+alloc_rbufs(dev);
+alloc_tbufs(dev);
+rhine_chip_reset(dev);
+init_registers(dev);
+if (debug > 2)
+netdev_dbg(dev, "%s() Done - status %04x MII status: %04x\n",
+__func__, ioread16(ioaddr + ChipCmd),
+mdio_read(dev, rp->mii_if.phy_id, MII_BMSR));
+netif_start_queue(dev);
+return 0;
+}
+static void rhine_reset_task(struct work_struct *work)
+{
+struct rhine_private *rp = container_of(work, struct rhine_private,
+reset_task);
+struct net_device *dev = rp->dev;
+disable_irq(rp->pdev->irq);
+napi_disable(&rp->napi);
+spin_lock_bh(&rp->lock);
+free_tbufs(dev);
+free_rbufs(dev);
+alloc_tbufs(dev);
+alloc_rbufs(dev);
+rhine_chip_reset(dev);
+init_registers(dev);
+spin_unlock_bh(&rp->lock);
+enable_irq(rp->pdev->irq);
+dev->trans_start = jiffies;
+dev->stats.tx_errors++;
+netif_wake_queue(dev);
+}
+static void rhine_tx_timeout(struct net_device *dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+netdev_warn(dev, "Transmit timed out, status %04x, PHY status %04x, resetting...\n",
+ioread16(ioaddr + IntrStatus),
+mdio_read(dev, rp->mii_if.phy_id, MII_BMSR));
+schedule_work(&rp->reset_task);
+}
+static netdev_tx_t rhine_start_tx(struct sk_buff *skb,
+struct net_device *dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+unsigned entry;
+unsigned long flags;
+entry = rp->cur_tx % TX_RING_SIZE;
+if (skb_padto(skb, ETH_ZLEN))
+return NETDEV_TX_OK;
+rp->tx_skbuff[entry] = skb;
+if ((rp->quirks & rqRhineI) &&
+(((unsigned long)skb->data & 3) || skb_shinfo(skb)->nr_frags != 0 || skb->ip_summed == CHECKSUM_PARTIAL)) {
+if (skb->len > PKT_BUF_SZ) {
+dev_kfree_skb(skb);
+rp->tx_skbuff[entry] = NULL;
+dev->stats.tx_dropped++;
+return NETDEV_TX_OK;
+}
+skb_copy_and_csum_dev(skb, rp->tx_buf[entry]);
+if (skb->len < ETH_ZLEN)
+memset(rp->tx_buf[entry] + skb->len, 0,
+ETH_ZLEN - skb->len);
+rp->tx_skbuff_dma[entry] = 0;
+rp->tx_ring[entry].addr = cpu_to_le32(rp->tx_bufs_dma +
+(rp->tx_buf[entry] -
+rp->tx_bufs));
+} else {
+rp->tx_skbuff_dma[entry] =
+pci_map_single(rp->pdev, skb->data, skb->len,
+PCI_DMA_TODEVICE);
+rp->tx_ring[entry].addr = cpu_to_le32(rp->tx_skbuff_dma[entry]);
+}
+rp->tx_ring[entry].desc_length =
+cpu_to_le32(TXDESC | (skb->len >= ETH_ZLEN ? skb->len : ETH_ZLEN));
+if (unlikely(vlan_tx_tag_present(skb))) {
+rp->tx_ring[entry].tx_status = cpu_to_le32((vlan_tx_tag_get(skb)) << 16);
+rp->tx_ring[entry].desc_length |= cpu_to_le32(0x020000);
+}
+else
+rp->tx_ring[entry].tx_status = 0;
+spin_lock_irqsave(&rp->lock, flags);
+wmb();
+rp->tx_ring[entry].tx_status |= cpu_to_le32(DescOwn);
+wmb();
+rp->cur_tx++;
+if (vlan_tx_tag_present(skb))
+BYTE_REG_BITS_ON(1 << 7, ioaddr + TQWake);
+iowrite8(ioread8(ioaddr + ChipCmd1) | Cmd1TxDemand,
+ioaddr + ChipCmd1);
+IOSYNC;
+if (rp->cur_tx == rp->dirty_tx + TX_QUEUE_LEN)
+netif_stop_queue(dev);
+spin_unlock_irqrestore(&rp->lock, flags);
+if (debug > 4) {
+netdev_dbg(dev, "Transmit frame #%d queued in slot %d\n",
+rp->cur_tx-1, entry);
+}
+return NETDEV_TX_OK;
+}
+static irqreturn_t rhine_interrupt(int irq, void *dev_instance)
+{
+struct net_device *dev = dev_instance;
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+u32 intr_status;
+int boguscnt = max_interrupt_work;
+int handled = 0;
+while ((intr_status = get_intr_status(dev))) {
+handled = 1;
+if (intr_status & IntrTxDescRace)
+iowrite8(0x08, ioaddr + IntrStatus2);
+iowrite16(intr_status & 0xffff, ioaddr + IntrStatus);
+IOSYNC;
+if (debug > 4)
+netdev_dbg(dev, "Interrupt, status %08x\n",
+intr_status);
+if (intr_status & (IntrRxDone | IntrRxErr | IntrRxDropped |
+IntrRxWakeUp | IntrRxEmpty | IntrRxNoBuf)) {
+iowrite16(IntrTxAborted |
+IntrTxDone | IntrTxError | IntrTxUnderrun |
+IntrPCIErr | IntrStatsMax | IntrLinkChange,
+ioaddr + IntrEnable);
+napi_schedule(&rp->napi);
+}
+if (intr_status & (IntrTxErrSummary | IntrTxDone)) {
+if (intr_status & IntrTxErrSummary) {
+RHINE_WAIT_FOR(!(ioread8(ioaddr+ChipCmd) & CmdTxOn));
+if (debug > 2 &&
+ioread8(ioaddr+ChipCmd) & CmdTxOn)
+netdev_warn(dev,
+"%s: Tx engine still on\n",
+__func__);
+}
+rhine_tx(dev);
+}
+if (intr_status & (IntrPCIErr | IntrLinkChange |
+IntrStatsMax | IntrTxError | IntrTxAborted |
+IntrTxUnderrun | IntrTxDescRace))
+rhine_error(dev, intr_status);
+if (--boguscnt < 0) {
+netdev_warn(dev, "Too much work at interrupt, status=%#08x\n",
+intr_status);
+break;
+}
+}
+if (debug > 3)
+netdev_dbg(dev, "exiting interrupt, status=%08x\n",
+ioread16(ioaddr + IntrStatus));
+return IRQ_RETVAL(handled);
+}
+static void rhine_tx(struct net_device *dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+int txstatus = 0, entry = rp->dirty_tx % TX_RING_SIZE;
+spin_lock(&rp->lock);
+while (rp->dirty_tx != rp->cur_tx) {
+txstatus = le32_to_cpu(rp->tx_ring[entry].tx_status);
+if (debug > 6)
+netdev_dbg(dev, "Tx scavenge %d status %08x\n",
+entry, txstatus);
+if (txstatus & DescOwn)
+break;
+if (txstatus & 0x8000) {
+if (debug > 1)
+netdev_dbg(dev, "Transmit error, Tx status %08x\n",
+txstatus);
+dev->stats.tx_errors++;
+if (txstatus & 0x0400)
+dev->stats.tx_carrier_errors++;
+if (txstatus & 0x0200)
+dev->stats.tx_window_errors++;
+if (txstatus & 0x0100)
+dev->stats.tx_aborted_errors++;
+if (txstatus & 0x0080)
+dev->stats.tx_heartbeat_errors++;
+if (((rp->quirks & rqRhineI) && txstatus & 0x0002) ||
+(txstatus & 0x0800) || (txstatus & 0x1000)) {
+dev->stats.tx_fifo_errors++;
+rp->tx_ring[entry].tx_status = cpu_to_le32(DescOwn);
+break;
+}
+} else {
+if (rp->quirks & rqRhineI)
+dev->stats.collisions += (txstatus >> 3) & 0x0F;
+else
+dev->stats.collisions += txstatus & 0x0F;
+if (debug > 6)
+netdev_dbg(dev, "collisions: %1.1x:%1.1x\n",
+(txstatus >> 3) & 0xF,
+txstatus & 0xF);
+dev->stats.tx_bytes += rp->tx_skbuff[entry]->len;
+dev->stats.tx_packets++;
+}
+if (rp->tx_skbuff_dma[entry]) {
+pci_unmap_single(rp->pdev,
+rp->tx_skbuff_dma[entry],
+rp->tx_skbuff[entry]->len,
+PCI_DMA_TODEVICE);
+}
+dev_kfree_skb_irq(rp->tx_skbuff[entry]);
+rp->tx_skbuff[entry] = NULL;
+entry = (++rp->dirty_tx) % TX_RING_SIZE;
+}
+if ((rp->cur_tx - rp->dirty_tx) < TX_QUEUE_LEN - 4)
+netif_wake_queue(dev);
+spin_unlock(&rp->lock);
+}
+static inline u16 rhine_get_vlan_tci(struct sk_buff *skb, int data_size)
+{
+u8 *trailer = (u8 *)skb->data + ((data_size + 3) & ~3) + 2;
+return be16_to_cpup((__be16 *)trailer);
+}
+static int rhine_rx(struct net_device *dev, int limit)
+{
+struct rhine_private *rp = netdev_priv(dev);
+int count;
+int entry = rp->cur_rx % RX_RING_SIZE;
+if (debug > 4) {
+netdev_dbg(dev, "%s(), entry %d status %08x\n",
+__func__, entry,
+le32_to_cpu(rp->rx_head_desc->rx_status));
+}
+for (count = 0; count < limit; ++count) {
+struct rx_desc *desc = rp->rx_head_desc;
+u32 desc_status = le32_to_cpu(desc->rx_status);
+u32 desc_length = le32_to_cpu(desc->desc_length);
+int data_size = desc_status >> 16;
+if (desc_status & DescOwn)
+break;
+if (debug > 4)
+netdev_dbg(dev, "%s() status is %08x\n",
+__func__, desc_status);
+if ((desc_status & (RxWholePkt | RxErr)) != RxWholePkt) {
+if ((desc_status & RxWholePkt) != RxWholePkt) {
+netdev_warn(dev,
+"Oversized Ethernet frame spanned multiple buffers, "
+"entry %#x length %d status %08x!\n",
+entry, data_size,
+desc_status);
+netdev_warn(dev,
+"Oversized Ethernet frame %p vs %p\n",
+rp->rx_head_desc,
+&rp->rx_ring[entry]);
+dev->stats.rx_length_errors++;
+} else if (desc_status & RxErr) {
+if (debug > 2)
+netdev_dbg(dev, "%s() Rx error was %08x\n",
+__func__, desc_status);
+dev->stats.rx_errors++;
+if (desc_status & 0x0030)
+dev->stats.rx_length_errors++;
+if (desc_status & 0x0048)
+dev->stats.rx_fifo_errors++;
+if (desc_status & 0x0004)
+dev->stats.rx_frame_errors++;
+if (desc_status & 0x0002) {
+spin_lock(&rp->lock);
+dev->stats.rx_crc_errors++;
+spin_unlock(&rp->lock);
+}
+}
+} else {
+struct sk_buff *skb = NULL;
+int pkt_len = data_size - 4;
+u16 vlan_tci = 0;
+if (pkt_len < rx_copybreak)
+skb = netdev_alloc_skb_ip_align(dev, pkt_len);
+if (skb) {
+pci_dma_sync_single_for_cpu(rp->pdev,
+rp->rx_skbuff_dma[entry],
+rp->rx_buf_sz,
+PCI_DMA_FROMDEVICE);
+skb_copy_to_linear_data(skb,
+rp->rx_skbuff[entry]->data,
+pkt_len);
+skb_put(skb, pkt_len);
+pci_dma_sync_single_for_device(rp->pdev,
+rp->rx_skbuff_dma[entry],
+rp->rx_buf_sz,
+PCI_DMA_FROMDEVICE);
+} else {
+skb = rp->rx_skbuff[entry];
+if (skb == NULL) {
+netdev_err(dev, "Inconsistent Rx descriptor chain\n");
+break;
+}
+rp->rx_skbuff[entry] = NULL;
+skb_put(skb, pkt_len);
+pci_unmap_single(rp->pdev,
+rp->rx_skbuff_dma[entry],
+rp->rx_buf_sz,
+PCI_DMA_FROMDEVICE);
+}
+if (unlikely(desc_length & DescTag))
+vlan_tci = rhine_get_vlan_tci(skb, data_size);
+skb->protocol = eth_type_trans(skb, dev);
+if (unlikely(desc_length & DescTag))
+__vlan_hwaccel_put_tag(skb, vlan_tci);
+netif_receive_skb(skb);
+dev->stats.rx_bytes += pkt_len;
+dev->stats.rx_packets++;
+}
+entry = (++rp->cur_rx) % RX_RING_SIZE;
+rp->rx_head_desc = &rp->rx_ring[entry];
+}
+for (; rp->cur_rx - rp->dirty_rx > 0; rp->dirty_rx++) {
+struct sk_buff *skb;
+entry = rp->dirty_rx % RX_RING_SIZE;
+if (rp->rx_skbuff[entry] == NULL) {
+skb = netdev_alloc_skb(dev, rp->rx_buf_sz);
+rp->rx_skbuff[entry] = skb;
+if (skb == NULL)
+break;
+skb->dev = dev;
+rp->rx_skbuff_dma[entry] =
+pci_map_single(rp->pdev, skb->data,
+rp->rx_buf_sz,
+PCI_DMA_FROMDEVICE);
+rp->rx_ring[entry].addr = cpu_to_le32(rp->rx_skbuff_dma[entry]);
+}
+rp->rx_ring[entry].rx_status = cpu_to_le32(DescOwn);
+}
+return count;
+}
+static inline void clear_tally_counters(void __iomem *ioaddr)
+{
+iowrite32(0, ioaddr + RxMissed);
+ioread16(ioaddr + RxCRCErrs);
+ioread16(ioaddr + RxMissed);
+}
+static void rhine_restart_tx(struct net_device *dev) {
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+int entry = rp->dirty_tx % TX_RING_SIZE;
+u32 intr_status;
+intr_status = get_intr_status(dev);
+if ((intr_status & IntrTxErrSummary) == 0) {
+iowrite32(rp->tx_ring_dma + entry * sizeof(struct tx_desc),
+ioaddr + TxRingPtr);
+iowrite8(ioread8(ioaddr + ChipCmd) | CmdTxOn,
+ioaddr + ChipCmd);
+if (rp->tx_ring[entry].desc_length & cpu_to_le32(0x020000))
+BYTE_REG_BITS_ON(1 << 7, ioaddr + TQWake);
+iowrite8(ioread8(ioaddr + ChipCmd1) | Cmd1TxDemand,
+ioaddr + ChipCmd1);
+IOSYNC;
+}
+else {
+if (debug > 1)
+netdev_warn(dev, "%s() Another error occurred %08x\n",
+__func__, intr_status);
+}
+}
+static void rhine_error(struct net_device *dev, int intr_status)
+{
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+spin_lock(&rp->lock);
+if (intr_status & IntrLinkChange)
+rhine_check_media(dev, 0);
+if (intr_status & IntrStatsMax) {
+dev->stats.rx_crc_errors += ioread16(ioaddr + RxCRCErrs);
+dev->stats.rx_missed_errors += ioread16(ioaddr + RxMissed);
+clear_tally_counters(ioaddr);
+}
+if (intr_status & IntrTxAborted) {
+if (debug > 1)
+netdev_info(dev, "Abort %08x, frame dropped\n",
+intr_status);
+}
+if (intr_status & IntrTxUnderrun) {
+if (rp->tx_thresh < 0xE0)
+BYTE_REG_BITS_SET((rp->tx_thresh += 0x20), 0x80, ioaddr + TxConfig);
+if (debug > 1)
+netdev_info(dev, "Transmitter underrun, Tx threshold now %02x\n",
+rp->tx_thresh);
+}
+if (intr_status & IntrTxDescRace) {
+if (debug > 2)
+netdev_info(dev, "Tx descriptor write-back race\n");
+}
+if ((intr_status & IntrTxError) &&
+(intr_status & (IntrTxAborted |
+IntrTxUnderrun | IntrTxDescRace)) == 0) {
+if (rp->tx_thresh < 0xE0) {
+BYTE_REG_BITS_SET((rp->tx_thresh += 0x20), 0x80, ioaddr + TxConfig);
+}
+if (debug > 1)
+netdev_info(dev, "Unspecified error. Tx threshold now %02x\n",
+rp->tx_thresh);
+}
+if (intr_status & (IntrTxAborted | IntrTxUnderrun | IntrTxDescRace |
+IntrTxError))
+rhine_restart_tx(dev);
+if (intr_status & ~(IntrLinkChange | IntrStatsMax | IntrTxUnderrun |
+IntrTxError | IntrTxAborted | IntrNormalSummary |
+IntrTxDescRace)) {
+if (debug > 1)
+netdev_err(dev, "Something Wicked happened! %08x\n",
+intr_status);
+}
+spin_unlock(&rp->lock);
+}
+static struct net_device_stats *rhine_get_stats(struct net_device *dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+unsigned long flags;
+spin_lock_irqsave(&rp->lock, flags);
+dev->stats.rx_crc_errors += ioread16(ioaddr + RxCRCErrs);
+dev->stats.rx_missed_errors += ioread16(ioaddr + RxMissed);
+clear_tally_counters(ioaddr);
+spin_unlock_irqrestore(&rp->lock, flags);
+return &dev->stats;
+}
+static void rhine_set_rx_mode(struct net_device *dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+u32 mc_filter[2];
+u8 rx_mode = 0x0C;
+struct netdev_hw_addr *ha;
+if (dev->flags & IFF_PROMISC) {
+rx_mode = 0x1C;
+iowrite32(0xffffffff, ioaddr + MulticastFilter0);
+iowrite32(0xffffffff, ioaddr + MulticastFilter1);
+} else if ((netdev_mc_count(dev) > multicast_filter_limit) ||
+(dev->flags & IFF_ALLMULTI)) {
+iowrite32(0xffffffff, ioaddr + MulticastFilter0);
+iowrite32(0xffffffff, ioaddr + MulticastFilter1);
+} else if (rp->pdev->revision >= VT6105M) {
+int i = 0;
+u32 mCAMmask = 0;
+netdev_for_each_mc_addr(ha, dev) {
+if (i == MCAM_SIZE)
+break;
+rhine_set_cam(ioaddr, i, ha->addr);
+mCAMmask |= 1 << i;
+i++;
+}
+rhine_set_cam_mask(ioaddr, mCAMmask);
+} else {
+memset(mc_filter, 0, sizeof(mc_filter));
+netdev_for_each_mc_addr(ha, dev) {
+int bit_nr = ether_crc(ETH_ALEN, ha->addr) >> 26;
+mc_filter[bit_nr >> 5] |= 1 << (bit_nr & 31);
+}
+iowrite32(mc_filter[0], ioaddr + MulticastFilter0);
+iowrite32(mc_filter[1], ioaddr + MulticastFilter1);
+}
+if (rp->pdev->revision >= VT6105M) {
+if (dev->flags & IFF_PROMISC)
+BYTE_REG_BITS_OFF(BCR1_VIDFR, ioaddr + PCIBusConfig1);
+else
+BYTE_REG_BITS_ON(BCR1_VIDFR, ioaddr + PCIBusConfig1);
+}
+BYTE_REG_BITS_ON(rx_mode, ioaddr + RxConfig);
+}
+static void netdev_get_drvinfo(struct net_device *dev, struct ethtool_drvinfo *info)
+{
+struct rhine_private *rp = netdev_priv(dev);
+strcpy(info->driver, DRV_NAME);
+strcpy(info->version, DRV_VERSION);
+strcpy(info->bus_info, pci_name(rp->pdev));
+}
+static int netdev_get_settings(struct net_device *dev, struct ethtool_cmd *cmd)
+{
+struct rhine_private *rp = netdev_priv(dev);
+int rc;
+spin_lock_irq(&rp->lock);
+rc = mii_ethtool_gset(&rp->mii_if, cmd);
+spin_unlock_irq(&rp->lock);
+return rc;
+}
+static int netdev_set_settings(struct net_device *dev, struct ethtool_cmd *cmd)
+{
+struct rhine_private *rp = netdev_priv(dev);
+int rc;
+spin_lock_irq(&rp->lock);
+rc = mii_ethtool_sset(&rp->mii_if, cmd);
+spin_unlock_irq(&rp->lock);
+rhine_set_carrier(&rp->mii_if);
+return rc;
+}
+static int netdev_nway_reset(struct net_device *dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+return mii_nway_restart(&rp->mii_if);
+}
+static u32 netdev_get_link(struct net_device *dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+return mii_link_ok(&rp->mii_if);
+}
+static u32 netdev_get_msglevel(struct net_device *dev)
+{
+return debug;
+}
+static void netdev_set_msglevel(struct net_device *dev, u32 value)
+{
+debug = value;
+}
+static void rhine_get_wol(struct net_device *dev, struct ethtool_wolinfo *wol)
+{
+struct rhine_private *rp = netdev_priv(dev);
+if (!(rp->quirks & rqWOL))
+return;
+spin_lock_irq(&rp->lock);
+wol->supported = WAKE_PHY | WAKE_MAGIC |
+WAKE_UCAST | WAKE_MCAST | WAKE_BCAST;
+wol->wolopts = rp->wolopts;
+spin_unlock_irq(&rp->lock);
+}
+static int rhine_set_wol(struct net_device *dev, struct ethtool_wolinfo *wol)
+{
+struct rhine_private *rp = netdev_priv(dev);
+u32 support = WAKE_PHY | WAKE_MAGIC |
+WAKE_UCAST | WAKE_MCAST | WAKE_BCAST;
+if (!(rp->quirks & rqWOL))
+return -EINVAL;
+if (wol->wolopts & ~support)
+return -EINVAL;
+spin_lock_irq(&rp->lock);
+rp->wolopts = wol->wolopts;
+spin_unlock_irq(&rp->lock);
+return 0;
+}
+static int netdev_ioctl(struct net_device *dev, struct ifreq *rq, int cmd)
+{
+struct rhine_private *rp = netdev_priv(dev);
+int rc;
+if (!netif_running(dev))
+return -EINVAL;
+spin_lock_irq(&rp->lock);
+rc = generic_mii_ioctl(&rp->mii_if, if_mii(rq), cmd, NULL);
+spin_unlock_irq(&rp->lock);
+rhine_set_carrier(&rp->mii_if);
+return rc;
+}
+static int rhine_close(struct net_device *dev)
+{
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+napi_disable(&rp->napi);
+cancel_work_sync(&rp->reset_task);
+netif_stop_queue(dev);
+spin_lock_irq(&rp->lock);
+if (debug > 1)
+netdev_dbg(dev, "Shutting down ethercard, status was %04x\n",
+ioread16(ioaddr + ChipCmd));
+iowrite8(rp->tx_thresh | 0x02, ioaddr + TxConfig);
+iowrite16(0x0000, ioaddr + IntrEnable);
+iowrite16(CmdStop, ioaddr + ChipCmd);
+spin_unlock_irq(&rp->lock);
+free_irq(rp->pdev->irq, dev);
+free_rbufs(dev);
+free_tbufs(dev);
+free_ring(dev);
+return 0;
+}
+static void __devexit rhine_remove_one(struct pci_dev *pdev)
+{
+struct net_device *dev = pci_get_drvdata(pdev);
+struct rhine_private *rp = netdev_priv(dev);
+unregister_netdev(dev);
+pci_iounmap(pdev, rp->base);
+pci_release_regions(pdev);
+free_netdev(dev);
+pci_disable_device(pdev);
+pci_set_drvdata(pdev, NULL);
+}
+static void rhine_shutdown (struct pci_dev *pdev)
+{
+struct net_device *dev = pci_get_drvdata(pdev);
+struct rhine_private *rp = netdev_priv(dev);
+void __iomem *ioaddr = rp->base;
+if (!(rp->quirks & rqWOL))
+return;
+rhine_power_init(dev);
+if (rp->quirks & rq6patterns)
+iowrite8(0x04, ioaddr + WOLcgClr);
+if (rp->wolopts & WAKE_MAGIC) {
+iowrite8(WOLmagic, ioaddr + WOLcrSet);
+iowrite8(ioread8(ioaddr + ConfigA) | 0x03, ioaddr + ConfigA);
+}
+if (rp->wolopts & (WAKE_BCAST|WAKE_MCAST))
+iowrite8(WOLbmcast, ioaddr + WOLcgSet);
+if (rp->wolopts & WAKE_PHY)
+iowrite8(WOLlnkon | WOLlnkoff, ioaddr + WOLcrSet);
+if (rp->wolopts & WAKE_UCAST)
+iowrite8(WOLucast, ioaddr + WOLcrSet);
+if (rp->wolopts) {
+iowrite8(0x01, ioaddr + PwcfgSet);
+iowrite8(ioread8(ioaddr + StickyHW) | 0x04, ioaddr + StickyHW);
+}
+if (!avoid_D3)
+iowrite8(ioread8(ioaddr + StickyHW) | 0x03, ioaddr + StickyHW);
+}
+static int rhine_suspend(struct pci_dev *pdev, pm_message_t state)
+{
+struct net_device *dev = pci_get_drvdata(pdev);
+struct rhine_private *rp = netdev_priv(dev);
+unsigned long flags;
+if (!netif_running(dev))
+return 0;
+napi_disable(&rp->napi);
+netif_device_detach(dev);
+pci_save_state(pdev);
+spin_lock_irqsave(&rp->lock, flags);
+rhine_shutdown(pdev);
+spin_unlock_irqrestore(&rp->lock, flags);
+free_irq(dev->irq, dev);
+return 0;
+}
+static int rhine_resume(struct pci_dev *pdev)
+{
+struct net_device *dev = pci_get_drvdata(pdev);
+struct rhine_private *rp = netdev_priv(dev);
+unsigned long flags;
+int ret;
+if (!netif_running(dev))
+return 0;
+if (request_irq(dev->irq, rhine_interrupt, IRQF_SHARED, dev->name, dev))
+netdev_err(dev, "request_irq failed\n");
+ret = pci_set_power_state(pdev, PCI_D0);
+if (debug > 1)
+netdev_info(dev, "Entering power state D0 %s (%d)\n",
+ret ? "failed" : "succeeded", ret);
+pci_restore_state(pdev);
+spin_lock_irqsave(&rp->lock, flags);
+#ifdef USE_MMIO
+enable_mmio(rp->pioaddr, rp->quirks);
+#endif
+rhine_power_init(dev);
+free_tbufs(dev);
+free_rbufs(dev);
+alloc_tbufs(dev);
+alloc_rbufs(dev);
+init_registers(dev);
+spin_unlock_irqrestore(&rp->lock, flags);
+netif_device_attach(dev);
+return 0;
+}
+static int __init rhine_init(void)
+{
+#ifdef MODULE
+pr_info("%s\n", version);
+#endif
+if (dmi_check_system(rhine_dmi_table)) {
+avoid_D3 = 1;
+pr_warn("Broken BIOS detected, avoid_D3 enabled\n");
+}
+else if (avoid_D3)
+pr_info("avoid_D3 set\n");
+return pci_register_driver(&rhine_driver);
+}
+static void __exit rhine_cleanup(void)
+{
+pci_unregister_driver(&rhine_driver);
+}

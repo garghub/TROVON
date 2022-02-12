@@ -1,0 +1,1 @@
+int __init omap4_opp_init(void)\r\n{\r\nint r = -ENODEV;\r\nif (!cpu_is_omap44xx())\r\nreturn r;\r\nr = omap_init_opp_table(omap44xx_opp_def_list,\r\nARRAY_SIZE(omap44xx_opp_def_list));\r\nreturn r;\r\n}

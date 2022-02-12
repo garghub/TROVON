@@ -1,0 +1,98 @@
+static void __init kota2_map_io(void)
+{
+iotable_init(kota2_io_desc, ARRAY_SIZE(kota2_io_desc));
+sh73a0_add_early_devices();
+shmobile_setup_console();
+}
+static void __init kota2_init(void)
+{
+sh73a0_pinmux_init();
+gpio_request(GPIO_FN_SCIFA2_TXD1, NULL);
+gpio_request(GPIO_FN_SCIFA2_RXD1, NULL);
+gpio_request(GPIO_FN_SCIFA2_RTS1_, NULL);
+gpio_request(GPIO_FN_SCIFA2_CTS1_, NULL);
+gpio_request(GPIO_FN_SCIFA4_TXD, NULL);
+gpio_request(GPIO_FN_SCIFA4_RXD, NULL);
+gpio_request(GPIO_FN_SCIFA4_RTS_, NULL);
+gpio_request(GPIO_FN_SCIFA4_CTS_, NULL);
+gpio_request(GPIO_FN_D0_NAF0, NULL);
+gpio_request(GPIO_FN_D1_NAF1, NULL);
+gpio_request(GPIO_FN_D2_NAF2, NULL);
+gpio_request(GPIO_FN_D3_NAF3, NULL);
+gpio_request(GPIO_FN_D4_NAF4, NULL);
+gpio_request(GPIO_FN_D5_NAF5, NULL);
+gpio_request(GPIO_FN_D6_NAF6, NULL);
+gpio_request(GPIO_FN_D7_NAF7, NULL);
+gpio_request(GPIO_FN_D8_NAF8, NULL);
+gpio_request(GPIO_FN_D9_NAF9, NULL);
+gpio_request(GPIO_FN_D10_NAF10, NULL);
+gpio_request(GPIO_FN_D11_NAF11, NULL);
+gpio_request(GPIO_FN_D12_NAF12, NULL);
+gpio_request(GPIO_FN_D13_NAF13, NULL);
+gpio_request(GPIO_FN_D14_NAF14, NULL);
+gpio_request(GPIO_FN_D15_NAF15, NULL);
+gpio_request(GPIO_FN_CS5A_, NULL);
+gpio_request(GPIO_FN_WE0__FWE, NULL);
+gpio_request(GPIO_PORT144, NULL);
+gpio_direction_input(GPIO_PORT144);
+gpio_request(GPIO_PORT145, NULL);
+gpio_direction_output(GPIO_PORT145, 1);
+gpio_request(GPIO_FN_KEYIN0_PU, NULL);
+gpio_request(GPIO_FN_KEYIN1_PU, NULL);
+gpio_request(GPIO_FN_KEYIN2_PU, NULL);
+gpio_request(GPIO_FN_KEYIN3_PU, NULL);
+gpio_request(GPIO_FN_KEYIN4_PU, NULL);
+gpio_request(GPIO_FN_KEYIN5_PU, NULL);
+gpio_request(GPIO_FN_KEYIN6_PU, NULL);
+gpio_request(GPIO_FN_KEYIN7_PU, NULL);
+gpio_request(GPIO_FN_KEYOUT0, NULL);
+gpio_request(GPIO_FN_KEYOUT1, NULL);
+gpio_request(GPIO_FN_KEYOUT2, NULL);
+gpio_request(GPIO_FN_KEYOUT3, NULL);
+gpio_request(GPIO_FN_KEYOUT4, NULL);
+gpio_request(GPIO_FN_KEYOUT5, NULL);
+gpio_request(GPIO_FN_PORT59_KEYOUT6, NULL);
+gpio_request(GPIO_FN_PORT58_KEYOUT7, NULL);
+gpio_request(GPIO_FN_KEYOUT8, NULL);
+gpio_request(GPIO_FN_MMCCLK0, NULL);
+gpio_request(GPIO_FN_MMCD0_0, NULL);
+gpio_request(GPIO_FN_MMCD0_1, NULL);
+gpio_request(GPIO_FN_MMCD0_2, NULL);
+gpio_request(GPIO_FN_MMCD0_3, NULL);
+gpio_request(GPIO_FN_MMCD0_4, NULL);
+gpio_request(GPIO_FN_MMCD0_5, NULL);
+gpio_request(GPIO_FN_MMCD0_6, NULL);
+gpio_request(GPIO_FN_MMCD0_7, NULL);
+gpio_request(GPIO_FN_MMCCMD0, NULL);
+gpio_request(GPIO_PORT208, NULL);
+gpio_direction_output(GPIO_PORT208, 1);
+gpio_request(GPIO_FN_SDHICD0_PU, NULL);
+gpio_request(GPIO_FN_SDHICMD0_PU, NULL);
+gpio_request(GPIO_FN_SDHICLK0, NULL);
+gpio_request(GPIO_FN_SDHID0_3_PU, NULL);
+gpio_request(GPIO_FN_SDHID0_2_PU, NULL);
+gpio_request(GPIO_FN_SDHID0_1_PU, NULL);
+gpio_request(GPIO_FN_SDHID0_0_PU, NULL);
+gpio_request(GPIO_FN_PORT159_SCIFB_SCK, NULL);
+gpio_request(GPIO_FN_PORT160_SCIFB_TXD, NULL);
+gpio_request(GPIO_FN_PORT161_SCIFB_CTS_, NULL);
+gpio_request(GPIO_FN_PORT162_SCIFB_RXD, NULL);
+gpio_request(GPIO_FN_PORT163_SCIFB_RTS_, NULL);
+gpio_request(GPIO_FN_SDHICLK1, NULL);
+gpio_request(GPIO_FN_SDHICMD1_PU, NULL);
+gpio_request(GPIO_FN_SDHID1_3_PU, NULL);
+gpio_request(GPIO_FN_SDHID1_2_PU, NULL);
+gpio_request(GPIO_FN_SDHID1_1_PU, NULL);
+gpio_request(GPIO_FN_SDHID1_0_PU, NULL);
+#ifdef CONFIG_CACHE_L2X0
+l2x0_init(__io(0xf0100000), 0x40460000, 0x82000fff);
+#endif
+sh73a0_add_standard_devices();
+platform_add_devices(kota2_devices, ARRAY_SIZE(kota2_devices));
+}
+static void __init kota2_timer_init(void)
+{
+sh73a0_clock_init();
+shmobile_timer.init();
+return;
+}

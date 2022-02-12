@@ -1,0 +1,1 @@
+static void __init spear600_evb_init(void)\r\n{\r\nunsigned int i;\r\nspear600_init();\r\nplatform_add_devices(plat_devs, ARRAY_SIZE(plat_devs));\r\nfor (i = 0; i < ARRAY_SIZE(amba_devs); i++)\r\namba_device_register(amba_devs[i], &iomem_resource);\r\n}

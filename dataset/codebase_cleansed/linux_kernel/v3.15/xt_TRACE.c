@@ -1,0 +1,1 @@
+static unsigned int\r\ntrace_tg(struct sk_buff *skb, const struct xt_action_param *par)\r\n{\r\nskb->nf_trace = 1;\r\nreturn XT_CONTINUE;\r\n}\r\nstatic int __init trace_tg_init(void)\r\n{\r\nreturn xt_register_target(&trace_tg_reg);\r\n}\r\nstatic void __exit trace_tg_exit(void)\r\n{\r\nxt_unregister_target(&trace_tg_reg);\r\n}

@@ -1,0 +1,1 @@
+void spear_restart(char mode, const char *cmd)\r\n{\r\nif (mode == 's') {\r\nsoft_restart(0);\r\n} else {\r\n#ifdef CONFIG_ARCH_SPEAR13XX\r\nwritel_relaxed(0x01, SPEAR13XX_SYS_SW_RES);\r\n#else\r\nsysctl_soft_reset((void __iomem *)VA_SPEAR_SYS_CTRL_BASE);\r\n#endif\r\n}\r\n}

@@ -1,0 +1,1 @@
+static void __init imx51_dt_init(void)\r\n{\r\nstruct platform_device_info devinfo = { .name = "cpufreq-cpu0", };\r\nmxc_arch_reset_init_dt();\r\nof_platform_populate(NULL, of_default_bus_match_table, NULL, NULL);\r\nplatform_device_register_full(&devinfo);\r\n}

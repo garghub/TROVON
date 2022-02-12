@@ -1,0 +1,106 @@
+union ieee754sp ieee754sp_mul(union ieee754sp x, union ieee754sp y)
+{
+int re;
+int rs;
+unsigned rm;
+unsigned short lxm;
+unsigned short hxm;
+unsigned short lym;
+unsigned short hym;
+unsigned lrm;
+unsigned hrm;
+unsigned t;
+unsigned at;
+COMPXSP;
+COMPYSP;
+EXPLODEXSP;
+EXPLODEYSP;
+ieee754_clearcx();
+FLUSHXSP;
+FLUSHYSP;
+switch (CLPAIR(xc, yc)) {
+case CLPAIR(IEEE754_CLASS_SNAN, IEEE754_CLASS_QNAN):
+case CLPAIR(IEEE754_CLASS_QNAN, IEEE754_CLASS_SNAN):
+case CLPAIR(IEEE754_CLASS_SNAN, IEEE754_CLASS_SNAN):
+case CLPAIR(IEEE754_CLASS_ZERO, IEEE754_CLASS_SNAN):
+case CLPAIR(IEEE754_CLASS_NORM, IEEE754_CLASS_SNAN):
+case CLPAIR(IEEE754_CLASS_DNORM, IEEE754_CLASS_SNAN):
+case CLPAIR(IEEE754_CLASS_INF, IEEE754_CLASS_SNAN):
+case CLPAIR(IEEE754_CLASS_SNAN, IEEE754_CLASS_ZERO):
+case CLPAIR(IEEE754_CLASS_SNAN, IEEE754_CLASS_NORM):
+case CLPAIR(IEEE754_CLASS_SNAN, IEEE754_CLASS_DNORM):
+case CLPAIR(IEEE754_CLASS_SNAN, IEEE754_CLASS_INF):
+ieee754_setcx(IEEE754_INVALID_OPERATION);
+return ieee754sp_nanxcpt(ieee754sp_indef());
+case CLPAIR(IEEE754_CLASS_ZERO, IEEE754_CLASS_QNAN):
+case CLPAIR(IEEE754_CLASS_NORM, IEEE754_CLASS_QNAN):
+case CLPAIR(IEEE754_CLASS_DNORM, IEEE754_CLASS_QNAN):
+case CLPAIR(IEEE754_CLASS_INF, IEEE754_CLASS_QNAN):
+return y;
+case CLPAIR(IEEE754_CLASS_QNAN, IEEE754_CLASS_QNAN):
+case CLPAIR(IEEE754_CLASS_QNAN, IEEE754_CLASS_ZERO):
+case CLPAIR(IEEE754_CLASS_QNAN, IEEE754_CLASS_NORM):
+case CLPAIR(IEEE754_CLASS_QNAN, IEEE754_CLASS_DNORM):
+case CLPAIR(IEEE754_CLASS_QNAN, IEEE754_CLASS_INF):
+return x;
+case CLPAIR(IEEE754_CLASS_INF, IEEE754_CLASS_ZERO):
+case CLPAIR(IEEE754_CLASS_ZERO, IEEE754_CLASS_INF):
+ieee754_setcx(IEEE754_INVALID_OPERATION);
+return ieee754sp_indef();
+case CLPAIR(IEEE754_CLASS_NORM, IEEE754_CLASS_INF):
+case CLPAIR(IEEE754_CLASS_DNORM, IEEE754_CLASS_INF):
+case CLPAIR(IEEE754_CLASS_INF, IEEE754_CLASS_NORM):
+case CLPAIR(IEEE754_CLASS_INF, IEEE754_CLASS_DNORM):
+case CLPAIR(IEEE754_CLASS_INF, IEEE754_CLASS_INF):
+return ieee754sp_inf(xs ^ ys);
+case CLPAIR(IEEE754_CLASS_ZERO, IEEE754_CLASS_ZERO):
+case CLPAIR(IEEE754_CLASS_ZERO, IEEE754_CLASS_NORM):
+case CLPAIR(IEEE754_CLASS_ZERO, IEEE754_CLASS_DNORM):
+case CLPAIR(IEEE754_CLASS_NORM, IEEE754_CLASS_ZERO):
+case CLPAIR(IEEE754_CLASS_DNORM, IEEE754_CLASS_ZERO):
+return ieee754sp_zero(xs ^ ys);
+case CLPAIR(IEEE754_CLASS_DNORM, IEEE754_CLASS_DNORM):
+SPDNORMX;
+case CLPAIR(IEEE754_CLASS_NORM, IEEE754_CLASS_DNORM):
+SPDNORMY;
+break;
+case CLPAIR(IEEE754_CLASS_DNORM, IEEE754_CLASS_NORM):
+SPDNORMX;
+break;
+case CLPAIR(IEEE754_CLASS_NORM, IEEE754_CLASS_NORM):
+break;
+}
+assert(xm & SP_HIDDEN_BIT);
+assert(ym & SP_HIDDEN_BIT);
+re = xe + ye;
+rs = xs ^ ys;
+xm <<= 32 - (SP_FBITS + 1);
+ym <<= 32 - (SP_FBITS + 1);
+lxm = xm & 0xffff;
+hxm = xm >> 16;
+lym = ym & 0xffff;
+hym = ym >> 16;
+lrm = lxm * lym;
+hrm = hxm * hym;
+t = lxm * hym;
+at = lrm + (t << 16);
+hrm += at < lrm;
+lrm = at;
+hrm = hrm + (t >> 16);
+t = hxm * lym;
+at = lrm + (t << 16);
+hrm += at < lrm;
+lrm = at;
+hrm = hrm + (t >> 16);
+rm = hrm | (lrm != 0);
+if ((int) rm < 0) {
+rm = (rm >> (32 - (SP_FBITS + 1 + 3))) |
+((rm << (SP_FBITS + 1 + 3)) != 0);
+re++;
+} else {
+rm = (rm >> (32 - (SP_FBITS + 1 + 3 + 1))) |
+((rm << (SP_FBITS + 1 + 3 + 1)) != 0);
+}
+assert(rm & (SP_HIDDEN_BIT << 3));
+return ieee754sp_format(rs, re, rm);
+}

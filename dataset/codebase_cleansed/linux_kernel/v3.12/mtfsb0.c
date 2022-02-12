@@ -1,0 +1,1 @@
+int\r\nmtfsb0(int crbD)\r\n{\r\nif ((crbD != 1) && (crbD != 2))\r\n__FPU_FPSCR &= ~(1 << (31 - crbD));\r\n#ifdef DEBUG\r\nprintk("%s: %d %08lx\n", __func__, crbD, __FPU_FPSCR);\r\n#endif\r\nreturn 0;\r\n}

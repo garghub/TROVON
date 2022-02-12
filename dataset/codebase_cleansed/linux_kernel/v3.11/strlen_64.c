@@ -1,0 +1,1 @@
+size_t strlen(const char *s)\r\n{\r\nconst uintptr_t s_int = (uintptr_t) s;\r\nconst uint64_t *p = (const uint64_t *)(s_int & -8);\r\nuint64_t v = *p | MASK(s_int);\r\nuint64_t bits;\r\nwhile ((bits = __insn_v1cmpeqi(v, 0)) == 0)\r\nv = *++p;\r\nreturn ((const char *)p) + (CFZ(bits) >> 3) - s;\r\n}

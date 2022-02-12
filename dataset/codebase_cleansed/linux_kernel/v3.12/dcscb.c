@@ -1,0 +1,135 @@
+static int dcscb_power_up(unsigned int cpu, unsigned int cluster)
+{
+unsigned int rst_hold, cpumask = (1 << cpu);
+unsigned int all_mask = dcscb_allcpus_mask[cluster];
+pr_debug("%s: cpu %u cluster %u\n", __func__, cpu, cluster);
+if (cpu >= 4 || cluster >= 2)
+return -EINVAL;
+local_irq_disable();
+arch_spin_lock(&dcscb_lock);
+dcscb_use_count[cpu][cluster]++;
+if (dcscb_use_count[cpu][cluster] == 1) {
+rst_hold = readl_relaxed(dcscb_base + RST_HOLD0 + cluster * 4);
+if (rst_hold & (1 << 8)) {
+rst_hold &= ~(1 << 8);
+rst_hold |= all_mask;
+}
+rst_hold &= ~(cpumask | (cpumask << 4));
+writel_relaxed(rst_hold, dcscb_base + RST_HOLD0 + cluster * 4);
+} else if (dcscb_use_count[cpu][cluster] != 2) {
+BUG();
+}
+arch_spin_unlock(&dcscb_lock);
+local_irq_enable();
+return 0;
+}
+static void dcscb_power_down(void)
+{
+unsigned int mpidr, cpu, cluster, rst_hold, cpumask, all_mask;
+bool last_man = false, skip_wfi = false;
+mpidr = read_cpuid_mpidr();
+cpu = MPIDR_AFFINITY_LEVEL(mpidr, 0);
+cluster = MPIDR_AFFINITY_LEVEL(mpidr, 1);
+cpumask = (1 << cpu);
+all_mask = dcscb_allcpus_mask[cluster];
+pr_debug("%s: cpu %u cluster %u\n", __func__, cpu, cluster);
+BUG_ON(cpu >= 4 || cluster >= 2);
+__mcpm_cpu_going_down(cpu, cluster);
+arch_spin_lock(&dcscb_lock);
+BUG_ON(__mcpm_cluster_state(cluster) != CLUSTER_UP);
+dcscb_use_count[cpu][cluster]--;
+if (dcscb_use_count[cpu][cluster] == 0) {
+rst_hold = readl_relaxed(dcscb_base + RST_HOLD0 + cluster * 4);
+rst_hold |= cpumask;
+if (((rst_hold | (rst_hold >> 4)) & all_mask) == all_mask) {
+rst_hold |= (1 << 8);
+last_man = true;
+}
+writel_relaxed(rst_hold, dcscb_base + RST_HOLD0 + cluster * 4);
+} else if (dcscb_use_count[cpu][cluster] == 1) {
+skip_wfi = true;
+} else
+BUG();
+if (last_man && __mcpm_outbound_enter_critical(cpu, cluster)) {
+arch_spin_unlock(&dcscb_lock);
+asm volatile(
+"str fp, [sp, #-4]! \n\t"
+"mrc p15, 0, r0, c1, c0, 0 @ get CR \n\t"
+"bic r0, r0, #"__stringify(CR_C)" \n\t"
+"mcr p15, 0, r0, c1, c0, 0 @ set CR \n\t"
+"isb \n\t"
+"bl v7_flush_dcache_all \n\t"
+"clrex \n\t"
+"mrc p15, 0, r0, c1, c0, 1 @ get AUXCR \n\t"
+"bic r0, r0, #(1 << 6) @ disable local coherency \n\t"
+"mcr p15, 0, r0, c1, c0, 1 @ set AUXCR \n\t"
+"isb \n\t"
+"dsb \n\t"
+"ldr fp, [sp], #4"
+: : : "r0","r1","r2","r3","r4","r5","r6","r7",
+"r9","r10","lr","memory");
+outer_flush_all();
+cci_disable_port_by_cpu(mpidr);
+__mcpm_outbound_leave_critical(cluster, CLUSTER_DOWN);
+} else {
+arch_spin_unlock(&dcscb_lock);
+asm volatile(
+"str fp, [sp, #-4]! \n\t"
+"mrc p15, 0, r0, c1, c0, 0 @ get CR \n\t"
+"bic r0, r0, #"__stringify(CR_C)" \n\t"
+"mcr p15, 0, r0, c1, c0, 0 @ set CR \n\t"
+"isb \n\t"
+"bl v7_flush_dcache_louis \n\t"
+"clrex \n\t"
+"mrc p15, 0, r0, c1, c0, 1 @ get AUXCR \n\t"
+"bic r0, r0, #(1 << 6) @ disable local coherency \n\t"
+"mcr p15, 0, r0, c1, c0, 1 @ set AUXCR \n\t"
+"isb \n\t"
+"dsb \n\t"
+"ldr fp, [sp], #4"
+: : : "r0","r1","r2","r3","r4","r5","r6","r7",
+"r9","r10","lr","memory");
+}
+__mcpm_cpu_down(cpu, cluster);
+dsb();
+if (!skip_wfi)
+wfi();
+}
+static void __init dcscb_usage_count_init(void)
+{
+unsigned int mpidr, cpu, cluster;
+mpidr = read_cpuid_mpidr();
+cpu = MPIDR_AFFINITY_LEVEL(mpidr, 0);
+cluster = MPIDR_AFFINITY_LEVEL(mpidr, 1);
+pr_debug("%s: cpu %u cluster %u\n", __func__, cpu, cluster);
+BUG_ON(cpu >= 4 || cluster >= 2);
+dcscb_use_count[cpu][cluster] = 1;
+}
+static int __init dcscb_init(void)
+{
+struct device_node *node;
+unsigned int cfg;
+int ret;
+if (!cci_probed())
+return -ENODEV;
+node = of_find_compatible_node(NULL, NULL, "arm,rtsm,dcscb");
+if (!node)
+return -ENODEV;
+dcscb_base = of_iomap(node, 0);
+if (!dcscb_base)
+return -EADDRNOTAVAIL;
+cfg = readl_relaxed(dcscb_base + DCS_CFG_R);
+dcscb_allcpus_mask[0] = (1 << (((cfg >> 16) >> (0 << 2)) & 0xf)) - 1;
+dcscb_allcpus_mask[1] = (1 << (((cfg >> 16) >> (1 << 2)) & 0xf)) - 1;
+dcscb_usage_count_init();
+ret = mcpm_platform_register(&dcscb_power_ops);
+if (!ret)
+ret = mcpm_sync_init(dcscb_power_up_setup);
+if (ret) {
+iounmap(dcscb_base);
+return ret;
+}
+pr_info("VExpress DCSCB support installed\n");
+vexpress_flags_set(virt_to_phys(mcpm_entry_point));
+return 0;
+}

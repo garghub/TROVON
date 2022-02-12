@@ -1,0 +1,84 @@
+static void h1940bt_enable(int on)
+{
+if (on) {
+gpio_set_value(H1940_LATCH_BLUETOOTH_POWER, 1);
+mdelay(10);
+gpio_set_value(S3C2410_GPH(1), 1);
+mdelay(10);
+gpio_set_value(S3C2410_GPH(1), 0);
+h1940_led_blink_set(-EINVAL, GPIO_LED_BLINK, NULL, NULL);
+}
+else {
+gpio_set_value(S3C2410_GPH(1), 1);
+mdelay(10);
+gpio_set_value(S3C2410_GPH(1), 0);
+mdelay(10);
+gpio_set_value(H1940_LATCH_BLUETOOTH_POWER, 0);
+h1940_led_blink_set(-EINVAL, GPIO_LED_NO_BLINK_LOW, NULL, NULL);
+}
+}
+static int h1940bt_set_block(void *data, bool blocked)
+{
+h1940bt_enable(!blocked);
+return 0;
+}
+static int __devinit h1940bt_probe(struct platform_device *pdev)
+{
+struct rfkill *rfk;
+int ret = 0;
+ret = gpio_request(S3C2410_GPH(1), dev_name(&pdev->dev));
+if (ret) {
+dev_err(&pdev->dev, "could not get GPH1\n");
+return ret;
+}
+ret = gpio_request(H1940_LATCH_BLUETOOTH_POWER, dev_name(&pdev->dev));
+if (ret) {
+gpio_free(S3C2410_GPH(1));
+dev_err(&pdev->dev, "could not get BT_POWER\n");
+return ret;
+}
+s3c_gpio_cfgpin(S3C2410_GPH(0), S3C2410_GPH0_nCTS0);
+s3c_gpio_setpull(S3C2410_GPH(0), S3C_GPIO_PULL_NONE);
+s3c_gpio_cfgpin(S3C2410_GPH(1), S3C2410_GPIO_OUTPUT);
+s3c_gpio_setpull(S3C2410_GPH(1), S3C_GPIO_PULL_NONE);
+s3c_gpio_cfgpin(S3C2410_GPH(2), S3C2410_GPH2_TXD0);
+s3c_gpio_setpull(S3C2410_GPH(2), S3C_GPIO_PULL_NONE);
+s3c_gpio_cfgpin(S3C2410_GPH(3), S3C2410_GPH3_RXD0);
+s3c_gpio_setpull(S3C2410_GPH(3), S3C_GPIO_PULL_NONE);
+rfk = rfkill_alloc(DRV_NAME, &pdev->dev, RFKILL_TYPE_BLUETOOTH,
+&h1940bt_rfkill_ops, NULL);
+if (!rfk) {
+ret = -ENOMEM;
+goto err_rfk_alloc;
+}
+ret = rfkill_register(rfk);
+if (ret)
+goto err_rfkill;
+platform_set_drvdata(pdev, rfk);
+return 0;
+err_rfkill:
+rfkill_destroy(rfk);
+err_rfk_alloc:
+return ret;
+}
+static int h1940bt_remove(struct platform_device *pdev)
+{
+struct rfkill *rfk = platform_get_drvdata(pdev);
+platform_set_drvdata(pdev, NULL);
+gpio_free(S3C2410_GPH(1));
+if (rfk) {
+rfkill_unregister(rfk);
+rfkill_destroy(rfk);
+}
+rfk = NULL;
+h1940bt_enable(0);
+return 0;
+}
+static int __init h1940bt_init(void)
+{
+return platform_driver_register(&h1940bt_driver);
+}
+static void __exit h1940bt_exit(void)
+{
+platform_driver_unregister(&h1940bt_driver);
+}

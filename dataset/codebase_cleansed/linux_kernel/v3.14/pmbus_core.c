@@ -1,0 +1,853 @@
+void pmbus_clear_cache(struct i2c_client *client)
+{
+struct pmbus_data *data = i2c_get_clientdata(client);
+data->valid = false;
+}
+int pmbus_set_page(struct i2c_client *client, u8 page)
+{
+struct pmbus_data *data = i2c_get_clientdata(client);
+int rv = 0;
+int newpage;
+if (page != data->currpage) {
+rv = i2c_smbus_write_byte_data(client, PMBUS_PAGE, page);
+newpage = i2c_smbus_read_byte_data(client, PMBUS_PAGE);
+if (newpage != page)
+rv = -EIO;
+else
+data->currpage = page;
+}
+return rv;
+}
+int pmbus_write_byte(struct i2c_client *client, int page, u8 value)
+{
+int rv;
+if (page >= 0) {
+rv = pmbus_set_page(client, page);
+if (rv < 0)
+return rv;
+}
+return i2c_smbus_write_byte(client, value);
+}
+static int _pmbus_write_byte(struct i2c_client *client, int page, u8 value)
+{
+struct pmbus_data *data = i2c_get_clientdata(client);
+const struct pmbus_driver_info *info = data->info;
+int status;
+if (info->write_byte) {
+status = info->write_byte(client, page, value);
+if (status != -ENODATA)
+return status;
+}
+return pmbus_write_byte(client, page, value);
+}
+int pmbus_write_word_data(struct i2c_client *client, u8 page, u8 reg, u16 word)
+{
+int rv;
+rv = pmbus_set_page(client, page);
+if (rv < 0)
+return rv;
+return i2c_smbus_write_word_data(client, reg, word);
+}
+static int _pmbus_write_word_data(struct i2c_client *client, int page, int reg,
+u16 word)
+{
+struct pmbus_data *data = i2c_get_clientdata(client);
+const struct pmbus_driver_info *info = data->info;
+int status;
+if (info->write_word_data) {
+status = info->write_word_data(client, page, reg, word);
+if (status != -ENODATA)
+return status;
+}
+if (reg >= PMBUS_VIRT_BASE)
+return -ENXIO;
+return pmbus_write_word_data(client, page, reg, word);
+}
+int pmbus_read_word_data(struct i2c_client *client, u8 page, u8 reg)
+{
+int rv;
+rv = pmbus_set_page(client, page);
+if (rv < 0)
+return rv;
+return i2c_smbus_read_word_data(client, reg);
+}
+static int _pmbus_read_word_data(struct i2c_client *client, int page, int reg)
+{
+struct pmbus_data *data = i2c_get_clientdata(client);
+const struct pmbus_driver_info *info = data->info;
+int status;
+if (info->read_word_data) {
+status = info->read_word_data(client, page, reg);
+if (status != -ENODATA)
+return status;
+}
+if (reg >= PMBUS_VIRT_BASE)
+return -ENXIO;
+return pmbus_read_word_data(client, page, reg);
+}
+int pmbus_read_byte_data(struct i2c_client *client, int page, u8 reg)
+{
+int rv;
+if (page >= 0) {
+rv = pmbus_set_page(client, page);
+if (rv < 0)
+return rv;
+}
+return i2c_smbus_read_byte_data(client, reg);
+}
+static int _pmbus_read_byte_data(struct i2c_client *client, int page, int reg)
+{
+struct pmbus_data *data = i2c_get_clientdata(client);
+const struct pmbus_driver_info *info = data->info;
+int status;
+if (info->read_byte_data) {
+status = info->read_byte_data(client, page, reg);
+if (status != -ENODATA)
+return status;
+}
+return pmbus_read_byte_data(client, page, reg);
+}
+static void pmbus_clear_fault_page(struct i2c_client *client, int page)
+{
+_pmbus_write_byte(client, page, PMBUS_CLEAR_FAULTS);
+}
+void pmbus_clear_faults(struct i2c_client *client)
+{
+struct pmbus_data *data = i2c_get_clientdata(client);
+int i;
+for (i = 0; i < data->info->pages; i++)
+pmbus_clear_fault_page(client, i);
+}
+static int pmbus_check_status_cml(struct i2c_client *client)
+{
+struct pmbus_data *data = i2c_get_clientdata(client);
+int status, status2;
+status = _pmbus_read_byte_data(client, -1, data->status_register);
+if (status < 0 || (status & PB_STATUS_CML)) {
+status2 = _pmbus_read_byte_data(client, -1, PMBUS_STATUS_CML);
+if (status2 < 0 || (status2 & PB_CML_FAULT_INVALID_COMMAND))
+return -EIO;
+}
+return 0;
+}
+static bool pmbus_check_register(struct i2c_client *client,
+int (*func)(struct i2c_client *client,
+int page, int reg),
+int page, int reg)
+{
+int rv;
+struct pmbus_data *data = i2c_get_clientdata(client);
+rv = func(client, page, reg);
+if (rv >= 0 && !(data->flags & PMBUS_SKIP_STATUS_CHECK))
+rv = pmbus_check_status_cml(client);
+pmbus_clear_fault_page(client, -1);
+return rv >= 0;
+}
+bool pmbus_check_byte_register(struct i2c_client *client, int page, int reg)
+{
+return pmbus_check_register(client, _pmbus_read_byte_data, page, reg);
+}
+bool pmbus_check_word_register(struct i2c_client *client, int page, int reg)
+{
+return pmbus_check_register(client, _pmbus_read_word_data, page, reg);
+}
+const struct pmbus_driver_info *pmbus_get_driver_info(struct i2c_client *client)
+{
+struct pmbus_data *data = i2c_get_clientdata(client);
+return data->info;
+}
+static struct pmbus_data *pmbus_update_device(struct device *dev)
+{
+struct i2c_client *client = to_i2c_client(dev->parent);
+struct pmbus_data *data = i2c_get_clientdata(client);
+const struct pmbus_driver_info *info = data->info;
+struct pmbus_sensor *sensor;
+mutex_lock(&data->update_lock);
+if (time_after(jiffies, data->last_updated + HZ) || !data->valid) {
+int i, j;
+for (i = 0; i < info->pages; i++) {
+data->status[PB_STATUS_BASE + i]
+= _pmbus_read_byte_data(client, i,
+data->status_register);
+for (j = 0; j < ARRAY_SIZE(pmbus_status); j++) {
+struct _pmbus_status *s = &pmbus_status[j];
+if (!(info->func[i] & s->func))
+continue;
+data->status[s->base + i]
+= _pmbus_read_byte_data(client, i,
+s->reg);
+}
+}
+if (info->func[0] & PMBUS_HAVE_STATUS_INPUT)
+data->status[PB_STATUS_INPUT_BASE]
+= _pmbus_read_byte_data(client, 0,
+PMBUS_STATUS_INPUT);
+if (info->func[0] & PMBUS_HAVE_STATUS_VMON)
+data->status[PB_STATUS_VMON_BASE]
+= _pmbus_read_byte_data(client, 0,
+PMBUS_VIRT_STATUS_VMON);
+for (sensor = data->sensors; sensor; sensor = sensor->next) {
+if (!data->valid || sensor->update)
+sensor->data
+= _pmbus_read_word_data(client,
+sensor->page,
+sensor->reg);
+}
+pmbus_clear_faults(client);
+data->last_updated = jiffies;
+data->valid = 1;
+}
+mutex_unlock(&data->update_lock);
+return data;
+}
+static long pmbus_reg2data_linear(struct pmbus_data *data,
+struct pmbus_sensor *sensor)
+{
+s16 exponent;
+s32 mantissa;
+long val;
+if (sensor->class == PSC_VOLTAGE_OUT) {
+exponent = data->exponent[sensor->page];
+mantissa = (u16) sensor->data;
+} else {
+exponent = ((s16)sensor->data) >> 11;
+mantissa = ((s16)((sensor->data & 0x7ff) << 5)) >> 5;
+}
+val = mantissa;
+if (sensor->class != PSC_FAN)
+val = val * 1000L;
+if (sensor->class == PSC_POWER)
+val = val * 1000L;
+if (exponent >= 0)
+val <<= exponent;
+else
+val >>= -exponent;
+return val;
+}
+static long pmbus_reg2data_direct(struct pmbus_data *data,
+struct pmbus_sensor *sensor)
+{
+long val = (s16) sensor->data;
+long m, b, R;
+m = data->info->m[sensor->class];
+b = data->info->b[sensor->class];
+R = data->info->R[sensor->class];
+if (m == 0)
+return 0;
+R = -R;
+if (sensor->class != PSC_FAN) {
+R += 3;
+b *= 1000;
+}
+if (sensor->class == PSC_POWER) {
+R += 3;
+b *= 1000;
+}
+while (R > 0) {
+val *= 10;
+R--;
+}
+while (R < 0) {
+val = DIV_ROUND_CLOSEST(val, 10);
+R++;
+}
+return (val - b) / m;
+}
+static long pmbus_reg2data_vid(struct pmbus_data *data,
+struct pmbus_sensor *sensor)
+{
+long val = sensor->data;
+if (val < 0x02 || val > 0xb2)
+return 0;
+return DIV_ROUND_CLOSEST(160000 - (val - 2) * 625, 100);
+}
+static long pmbus_reg2data(struct pmbus_data *data, struct pmbus_sensor *sensor)
+{
+long val;
+switch (data->info->format[sensor->class]) {
+case direct:
+val = pmbus_reg2data_direct(data, sensor);
+break;
+case vid:
+val = pmbus_reg2data_vid(data, sensor);
+break;
+case linear:
+default:
+val = pmbus_reg2data_linear(data, sensor);
+break;
+}
+return val;
+}
+static u16 pmbus_data2reg_linear(struct pmbus_data *data,
+struct pmbus_sensor *sensor, long val)
+{
+s16 exponent = 0, mantissa;
+bool negative = false;
+if (val == 0)
+return 0;
+if (sensor->class == PSC_VOLTAGE_OUT) {
+if (val < 0)
+return 0;
+if (data->exponent[sensor->page] < 0)
+val <<= -data->exponent[sensor->page];
+else
+val >>= data->exponent[sensor->page];
+val = DIV_ROUND_CLOSEST(val, 1000);
+return val & 0xffff;
+}
+if (val < 0) {
+negative = true;
+val = -val;
+}
+if (sensor->class == PSC_POWER)
+val = DIV_ROUND_CLOSEST(val, 1000L);
+if (sensor->class == PSC_FAN)
+val = val * 1000;
+while (val >= MAX_MANTISSA && exponent < 15) {
+exponent++;
+val >>= 1;
+}
+while (val < MIN_MANTISSA && exponent > -15) {
+exponent--;
+val <<= 1;
+}
+mantissa = DIV_ROUND_CLOSEST(val, 1000);
+if (mantissa > 0x3ff)
+mantissa = 0x3ff;
+if (negative)
+mantissa = -mantissa;
+return (mantissa & 0x7ff) | ((exponent << 11) & 0xf800);
+}
+static u16 pmbus_data2reg_direct(struct pmbus_data *data,
+struct pmbus_sensor *sensor, long val)
+{
+long m, b, R;
+m = data->info->m[sensor->class];
+b = data->info->b[sensor->class];
+R = data->info->R[sensor->class];
+if (sensor->class == PSC_POWER) {
+R -= 3;
+b *= 1000;
+}
+if (sensor->class != PSC_FAN) {
+R -= 3;
+b *= 1000;
+}
+val = val * m + b;
+while (R > 0) {
+val *= 10;
+R--;
+}
+while (R < 0) {
+val = DIV_ROUND_CLOSEST(val, 10);
+R++;
+}
+return val;
+}
+static u16 pmbus_data2reg_vid(struct pmbus_data *data,
+struct pmbus_sensor *sensor, long val)
+{
+val = clamp_val(val, 500, 1600);
+return 2 + DIV_ROUND_CLOSEST((1600 - val) * 100, 625);
+}
+static u16 pmbus_data2reg(struct pmbus_data *data,
+struct pmbus_sensor *sensor, long val)
+{
+u16 regval;
+switch (data->info->format[sensor->class]) {
+case direct:
+regval = pmbus_data2reg_direct(data, sensor, val);
+break;
+case vid:
+regval = pmbus_data2reg_vid(data, sensor, val);
+break;
+case linear:
+default:
+regval = pmbus_data2reg_linear(data, sensor, val);
+break;
+}
+return regval;
+}
+static int pmbus_get_boolean(struct pmbus_data *data, struct pmbus_boolean *b,
+int index)
+{
+struct pmbus_sensor *s1 = b->s1;
+struct pmbus_sensor *s2 = b->s2;
+u16 reg = (index >> 8) & 0xffff;
+u8 mask = index & 0xff;
+int ret, status;
+u8 regval;
+status = data->status[reg];
+if (status < 0)
+return status;
+regval = status & mask;
+if (!s1 && !s2) {
+ret = !!regval;
+} else if (!s1 || !s2) {
+WARN(1, "Bad boolean descriptor %p: s1=%p, s2=%p\n", b, s1, s2);
+return 0;
+} else {
+long v1, v2;
+if (s1->data < 0)
+return s1->data;
+if (s2->data < 0)
+return s2->data;
+v1 = pmbus_reg2data(data, s1);
+v2 = pmbus_reg2data(data, s2);
+ret = !!(regval && v1 >= v2);
+}
+return ret;
+}
+static ssize_t pmbus_show_boolean(struct device *dev,
+struct device_attribute *da, char *buf)
+{
+struct sensor_device_attribute *attr = to_sensor_dev_attr(da);
+struct pmbus_boolean *boolean = to_pmbus_boolean(attr);
+struct pmbus_data *data = pmbus_update_device(dev);
+int val;
+val = pmbus_get_boolean(data, boolean, attr->index);
+if (val < 0)
+return val;
+return snprintf(buf, PAGE_SIZE, "%d\n", val);
+}
+static ssize_t pmbus_show_sensor(struct device *dev,
+struct device_attribute *devattr, char *buf)
+{
+struct pmbus_data *data = pmbus_update_device(dev);
+struct pmbus_sensor *sensor = to_pmbus_sensor(devattr);
+if (sensor->data < 0)
+return sensor->data;
+return snprintf(buf, PAGE_SIZE, "%ld\n", pmbus_reg2data(data, sensor));
+}
+static ssize_t pmbus_set_sensor(struct device *dev,
+struct device_attribute *devattr,
+const char *buf, size_t count)
+{
+struct i2c_client *client = to_i2c_client(dev->parent);
+struct pmbus_data *data = i2c_get_clientdata(client);
+struct pmbus_sensor *sensor = to_pmbus_sensor(devattr);
+ssize_t rv = count;
+long val = 0;
+int ret;
+u16 regval;
+if (kstrtol(buf, 10, &val) < 0)
+return -EINVAL;
+mutex_lock(&data->update_lock);
+regval = pmbus_data2reg(data, sensor, val);
+ret = _pmbus_write_word_data(client, sensor->page, sensor->reg, regval);
+if (ret < 0)
+rv = ret;
+else
+sensor->data = regval;
+mutex_unlock(&data->update_lock);
+return rv;
+}
+static ssize_t pmbus_show_label(struct device *dev,
+struct device_attribute *da, char *buf)
+{
+struct pmbus_label *label = to_pmbus_label(da);
+return snprintf(buf, PAGE_SIZE, "%s\n", label->label);
+}
+static int pmbus_add_attribute(struct pmbus_data *data, struct attribute *attr)
+{
+if (data->num_attributes >= data->max_attributes - 1) {
+int new_max_attrs = data->max_attributes + PMBUS_ATTR_ALLOC_SIZE;
+void *new_attrs = krealloc(data->group.attrs,
+new_max_attrs * sizeof(void *),
+GFP_KERNEL);
+if (!new_attrs)
+return -ENOMEM;
+data->group.attrs = new_attrs;
+data->max_attributes = new_max_attrs;
+}
+data->group.attrs[data->num_attributes++] = attr;
+data->group.attrs[data->num_attributes] = NULL;
+return 0;
+}
+static void pmbus_dev_attr_init(struct device_attribute *dev_attr,
+const char *name,
+umode_t mode,
+ssize_t (*show)(struct device *dev,
+struct device_attribute *attr,
+char *buf),
+ssize_t (*store)(struct device *dev,
+struct device_attribute *attr,
+const char *buf, size_t count))
+{
+sysfs_attr_init(&dev_attr->attr);
+dev_attr->attr.name = name;
+dev_attr->attr.mode = mode;
+dev_attr->show = show;
+dev_attr->store = store;
+}
+static void pmbus_attr_init(struct sensor_device_attribute *a,
+const char *name,
+umode_t mode,
+ssize_t (*show)(struct device *dev,
+struct device_attribute *attr,
+char *buf),
+ssize_t (*store)(struct device *dev,
+struct device_attribute *attr,
+const char *buf, size_t count),
+int idx)
+{
+pmbus_dev_attr_init(&a->dev_attr, name, mode, show, store);
+a->index = idx;
+}
+static int pmbus_add_boolean(struct pmbus_data *data,
+const char *name, const char *type, int seq,
+struct pmbus_sensor *s1,
+struct pmbus_sensor *s2,
+u16 reg, u8 mask)
+{
+struct pmbus_boolean *boolean;
+struct sensor_device_attribute *a;
+boolean = devm_kzalloc(data->dev, sizeof(*boolean), GFP_KERNEL);
+if (!boolean)
+return -ENOMEM;
+a = &boolean->attribute;
+snprintf(boolean->name, sizeof(boolean->name), "%s%d_%s",
+name, seq, type);
+boolean->s1 = s1;
+boolean->s2 = s2;
+pmbus_attr_init(a, boolean->name, S_IRUGO, pmbus_show_boolean, NULL,
+(reg << 8) | mask);
+return pmbus_add_attribute(data, &a->dev_attr.attr);
+}
+static struct pmbus_sensor *pmbus_add_sensor(struct pmbus_data *data,
+const char *name, const char *type,
+int seq, int page, int reg,
+enum pmbus_sensor_classes class,
+bool update, bool readonly)
+{
+struct pmbus_sensor *sensor;
+struct device_attribute *a;
+sensor = devm_kzalloc(data->dev, sizeof(*sensor), GFP_KERNEL);
+if (!sensor)
+return NULL;
+a = &sensor->attribute;
+snprintf(sensor->name, sizeof(sensor->name), "%s%d_%s",
+name, seq, type);
+sensor->page = page;
+sensor->reg = reg;
+sensor->class = class;
+sensor->update = update;
+pmbus_dev_attr_init(a, sensor->name,
+readonly ? S_IRUGO : S_IRUGO | S_IWUSR,
+pmbus_show_sensor, pmbus_set_sensor);
+if (pmbus_add_attribute(data, &a->attr))
+return NULL;
+sensor->next = data->sensors;
+data->sensors = sensor;
+return sensor;
+}
+static int pmbus_add_label(struct pmbus_data *data,
+const char *name, int seq,
+const char *lstring, int index)
+{
+struct pmbus_label *label;
+struct device_attribute *a;
+label = devm_kzalloc(data->dev, sizeof(*label), GFP_KERNEL);
+if (!label)
+return -ENOMEM;
+a = &label->attribute;
+snprintf(label->name, sizeof(label->name), "%s%d_label", name, seq);
+if (!index)
+strncpy(label->label, lstring, sizeof(label->label) - 1);
+else
+snprintf(label->label, sizeof(label->label), "%s%d", lstring,
+index);
+pmbus_dev_attr_init(a, label->name, S_IRUGO, pmbus_show_label, NULL);
+return pmbus_add_attribute(data, &a->attr);
+}
+static int pmbus_add_limit_attrs(struct i2c_client *client,
+struct pmbus_data *data,
+const struct pmbus_driver_info *info,
+const char *name, int index, int page,
+struct pmbus_sensor *base,
+const struct pmbus_sensor_attr *attr)
+{
+const struct pmbus_limit_attr *l = attr->limit;
+int nlimit = attr->nlimit;
+int have_alarm = 0;
+int i, ret;
+struct pmbus_sensor *curr;
+for (i = 0; i < nlimit; i++) {
+if (pmbus_check_word_register(client, page, l->reg)) {
+curr = pmbus_add_sensor(data, name, l->attr, index,
+page, l->reg, attr->class,
+attr->update || l->update,
+false);
+if (!curr)
+return -ENOMEM;
+if (l->sbit && (info->func[page] & attr->sfunc)) {
+ret = pmbus_add_boolean(data, name,
+l->alarm, index,
+attr->compare ? l->low ? curr : base
+: NULL,
+attr->compare ? l->low ? base : curr
+: NULL,
+attr->sbase + page, l->sbit);
+if (ret)
+return ret;
+have_alarm = 1;
+}
+}
+l++;
+}
+return have_alarm;
+}
+static int pmbus_add_sensor_attrs_one(struct i2c_client *client,
+struct pmbus_data *data,
+const struct pmbus_driver_info *info,
+const char *name,
+int index, int page,
+const struct pmbus_sensor_attr *attr)
+{
+struct pmbus_sensor *base;
+int ret;
+if (attr->label) {
+ret = pmbus_add_label(data, name, index, attr->label,
+attr->paged ? page + 1 : 0);
+if (ret)
+return ret;
+}
+base = pmbus_add_sensor(data, name, "input", index, page, attr->reg,
+attr->class, true, true);
+if (!base)
+return -ENOMEM;
+if (attr->sfunc) {
+ret = pmbus_add_limit_attrs(client, data, info, name,
+index, page, base, attr);
+if (ret < 0)
+return ret;
+if (!ret && attr->gbit &&
+pmbus_check_byte_register(client, page,
+data->status_register)) {
+ret = pmbus_add_boolean(data, name, "alarm", index,
+NULL, NULL,
+PB_STATUS_BASE + page,
+attr->gbit);
+if (ret)
+return ret;
+}
+}
+return 0;
+}
+static int pmbus_add_sensor_attrs(struct i2c_client *client,
+struct pmbus_data *data,
+const char *name,
+const struct pmbus_sensor_attr *attrs,
+int nattrs)
+{
+const struct pmbus_driver_info *info = data->info;
+int index, i;
+int ret;
+index = 1;
+for (i = 0; i < nattrs; i++) {
+int page, pages;
+pages = attrs->paged ? info->pages : 1;
+for (page = 0; page < pages; page++) {
+if (!(info->func[page] & attrs->func))
+continue;
+ret = pmbus_add_sensor_attrs_one(client, data, info,
+name, index, page,
+attrs);
+if (ret)
+return ret;
+index++;
+}
+attrs++;
+}
+return 0;
+}
+static int pmbus_add_fan_attributes(struct i2c_client *client,
+struct pmbus_data *data)
+{
+const struct pmbus_driver_info *info = data->info;
+int index = 1;
+int page;
+int ret;
+for (page = 0; page < info->pages; page++) {
+int f;
+for (f = 0; f < ARRAY_SIZE(pmbus_fan_registers); f++) {
+int regval;
+if (!(info->func[page] & pmbus_fan_flags[f]))
+break;
+if (!pmbus_check_word_register(client, page,
+pmbus_fan_registers[f]))
+break;
+regval = _pmbus_read_byte_data(client, page,
+pmbus_fan_config_registers[f]);
+if (regval < 0 ||
+(!(regval & (PB_FAN_1_INSTALLED >> ((f & 1) * 4)))))
+continue;
+if (pmbus_add_sensor(data, "fan", "input", index,
+page, pmbus_fan_registers[f],
+PSC_FAN, true, true) == NULL)
+return -ENOMEM;
+if ((info->func[page] & pmbus_fan_status_flags[f]) &&
+pmbus_check_byte_register(client,
+page, pmbus_fan_status_registers[f])) {
+int base;
+if (f > 1)
+base = PB_STATUS_FAN34_BASE + page;
+else
+base = PB_STATUS_FAN_BASE + page;
+ret = pmbus_add_boolean(data, "fan",
+"alarm", index, NULL, NULL, base,
+PB_FAN_FAN1_WARNING >> (f & 1));
+if (ret)
+return ret;
+ret = pmbus_add_boolean(data, "fan",
+"fault", index, NULL, NULL, base,
+PB_FAN_FAN1_FAULT >> (f & 1));
+if (ret)
+return ret;
+}
+index++;
+}
+}
+return 0;
+}
+static int pmbus_find_attributes(struct i2c_client *client,
+struct pmbus_data *data)
+{
+int ret;
+ret = pmbus_add_sensor_attrs(client, data, "in", voltage_attributes,
+ARRAY_SIZE(voltage_attributes));
+if (ret)
+return ret;
+ret = pmbus_add_sensor_attrs(client, data, "curr", current_attributes,
+ARRAY_SIZE(current_attributes));
+if (ret)
+return ret;
+ret = pmbus_add_sensor_attrs(client, data, "power", power_attributes,
+ARRAY_SIZE(power_attributes));
+if (ret)
+return ret;
+ret = pmbus_add_sensor_attrs(client, data, "temp", temp_attributes,
+ARRAY_SIZE(temp_attributes));
+if (ret)
+return ret;
+ret = pmbus_add_fan_attributes(client, data);
+return ret;
+}
+static int pmbus_identify_common(struct i2c_client *client,
+struct pmbus_data *data, int page)
+{
+int vout_mode = -1;
+if (pmbus_check_byte_register(client, page, PMBUS_VOUT_MODE))
+vout_mode = _pmbus_read_byte_data(client, page,
+PMBUS_VOUT_MODE);
+if (vout_mode >= 0 && vout_mode != 0xff) {
+switch (vout_mode >> 5) {
+case 0:
+if (data->info->format[PSC_VOLTAGE_OUT] != linear)
+return -ENODEV;
+data->exponent[page] = ((s8)(vout_mode << 3)) >> 3;
+break;
+case 1:
+if (data->info->format[PSC_VOLTAGE_OUT] != vid)
+return -ENODEV;
+break;
+case 2:
+if (data->info->format[PSC_VOLTAGE_OUT] != direct)
+return -ENODEV;
+break;
+default:
+return -ENODEV;
+}
+}
+pmbus_clear_fault_page(client, page);
+return 0;
+}
+static int pmbus_init_common(struct i2c_client *client, struct pmbus_data *data,
+struct pmbus_driver_info *info)
+{
+struct device *dev = &client->dev;
+int page, ret;
+data->status_register = PMBUS_STATUS_BYTE;
+ret = i2c_smbus_read_byte_data(client, PMBUS_STATUS_BYTE);
+if (ret < 0 || ret == 0xff) {
+data->status_register = PMBUS_STATUS_WORD;
+ret = i2c_smbus_read_word_data(client, PMBUS_STATUS_WORD);
+if (ret < 0 || ret == 0xffff) {
+dev_err(dev, "PMBus status register not found\n");
+return -ENODEV;
+}
+}
+pmbus_clear_faults(client);
+if (info->identify) {
+ret = (*info->identify)(client, info);
+if (ret < 0) {
+dev_err(dev, "Chip identification failed\n");
+return ret;
+}
+}
+if (info->pages <= 0 || info->pages > PMBUS_PAGES) {
+dev_err(dev, "Bad number of PMBus pages: %d\n", info->pages);
+return -ENODEV;
+}
+for (page = 0; page < info->pages; page++) {
+ret = pmbus_identify_common(client, data, page);
+if (ret < 0) {
+dev_err(dev, "Failed to identify chip capabilities\n");
+return ret;
+}
+}
+return 0;
+}
+int pmbus_do_probe(struct i2c_client *client, const struct i2c_device_id *id,
+struct pmbus_driver_info *info)
+{
+struct device *dev = &client->dev;
+const struct pmbus_platform_data *pdata = dev_get_platdata(dev);
+struct pmbus_data *data;
+int ret;
+if (!info)
+return -ENODEV;
+if (!i2c_check_functionality(client->adapter, I2C_FUNC_SMBUS_WRITE_BYTE
+| I2C_FUNC_SMBUS_BYTE_DATA
+| I2C_FUNC_SMBUS_WORD_DATA))
+return -ENODEV;
+data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
+if (!data)
+return -ENOMEM;
+i2c_set_clientdata(client, data);
+mutex_init(&data->update_lock);
+data->dev = dev;
+if (pdata)
+data->flags = pdata->flags;
+data->info = info;
+ret = pmbus_init_common(client, data, info);
+if (ret < 0)
+return ret;
+ret = pmbus_find_attributes(client, data);
+if (ret)
+goto out_kfree;
+if (!data->num_attributes) {
+dev_err(dev, "No attributes found\n");
+ret = -ENODEV;
+goto out_kfree;
+}
+data->groups[0] = &data->group;
+data->hwmon_dev = hwmon_device_register_with_groups(dev, client->name,
+data, data->groups);
+if (IS_ERR(data->hwmon_dev)) {
+ret = PTR_ERR(data->hwmon_dev);
+dev_err(dev, "Failed to register hwmon device\n");
+goto out_kfree;
+}
+return 0;
+out_kfree:
+kfree(data->group.attrs);
+return ret;
+}
+int pmbus_do_remove(struct i2c_client *client)
+{
+struct pmbus_data *data = i2c_get_clientdata(client);
+hwmon_device_unregister(data->hwmon_dev);
+kfree(data->group.attrs);
+return 0;
+}

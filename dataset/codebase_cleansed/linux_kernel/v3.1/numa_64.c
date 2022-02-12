@@ -1,0 +1,1 @@
+void __init initmem_init(void)\r\n{\r\nx86_numa_init();\r\n}\r\nunsigned long __init numa_free_all_bootmem(void)\r\n{\r\nunsigned long pages = 0;\r\nint i;\r\nfor_each_online_node(i)\r\npages += free_all_bootmem_node(NODE_DATA(i));\r\npages += free_all_memory_core_early(MAX_NUMNODES);\r\nreturn pages;\r\n}

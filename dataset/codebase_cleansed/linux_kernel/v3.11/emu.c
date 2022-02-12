@@ -1,0 +1,1 @@
+static int __init emu_init(void)\r\n{\r\nif (!cpu_is_omap34xx())\r\nreturn -ENODEV;\r\namba_device_register(&omap3_etb_device, &iomem_resource);\r\namba_device_register(&omap3_etm_device, &iomem_resource);\r\nreturn 0;\r\n}

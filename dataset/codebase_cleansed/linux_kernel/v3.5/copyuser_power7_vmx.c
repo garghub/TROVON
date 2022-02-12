@@ -1,0 +1,1 @@
+int enter_vmx_copy(void)\r\n{\r\nif (in_interrupt())\r\nreturn 0;\r\npagefault_disable();\r\nenable_kernel_altivec();\r\nreturn 1;\r\n}\r\nint exit_vmx_copy(void)\r\n{\r\npagefault_enable();\r\nreturn 0;\r\n}

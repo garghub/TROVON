@@ -1,0 +1,457 @@
+static struct xlog_ticket *
+xlog_cil_ticket_alloc(
+struct xlog *log)
+{
+struct xlog_ticket *tic;
+tic = xlog_ticket_alloc(log, 0, 1, XFS_TRANSACTION, 0,
+KM_SLEEP|KM_NOFS);
+tic->t_trans_type = XFS_TRANS_CHECKPOINT;
+tic->t_curr_res = 0;
+return tic;
+}
+void
+xlog_cil_init_post_recovery(
+struct xlog *log)
+{
+log->l_cilp->xc_ctx->ticket = xlog_cil_ticket_alloc(log);
+log->l_cilp->xc_ctx->sequence = 1;
+log->l_cilp->xc_ctx->commit_lsn = xlog_assign_lsn(log->l_curr_cycle,
+log->l_curr_block);
+}
+static struct xfs_log_vec *
+xlog_cil_prepare_log_vecs(
+struct xfs_trans *tp)
+{
+struct xfs_log_item_desc *lidp;
+struct xfs_log_vec *lv = NULL;
+struct xfs_log_vec *ret_lv = NULL;
+if (list_empty(&tp->t_items)) {
+ASSERT(0);
+return NULL;
+}
+list_for_each_entry(lidp, &tp->t_items, lid_trans) {
+struct xfs_log_vec *new_lv;
+void *ptr;
+int index;
+int len = 0;
+uint niovecs;
+bool ordered = false;
+if (!(lidp->lid_flags & XFS_LID_DIRTY))
+continue;
+niovecs = IOP_SIZE(lidp->lid_item);
+if (!niovecs)
+continue;
+if (niovecs == XFS_LOG_VEC_ORDERED) {
+ordered = true;
+niovecs = 0;
+}
+new_lv = kmem_zalloc(sizeof(*new_lv) +
+niovecs * sizeof(struct xfs_log_iovec),
+KM_SLEEP|KM_NOFS);
+new_lv->lv_item = lidp->lid_item;
+new_lv->lv_niovecs = niovecs;
+if (ordered) {
+new_lv->lv_buf_len = XFS_LOG_VEC_ORDERED;
+goto next;
+}
+new_lv->lv_iovecp = (struct xfs_log_iovec *)&new_lv[1];
+IOP_FORMAT(new_lv->lv_item, new_lv->lv_iovecp);
+for (index = 0; index < new_lv->lv_niovecs; index++)
+len += new_lv->lv_iovecp[index].i_len;
+new_lv->lv_buf_len = len;
+new_lv->lv_buf = kmem_alloc(new_lv->lv_buf_len,
+KM_SLEEP|KM_NOFS);
+ptr = new_lv->lv_buf;
+for (index = 0; index < new_lv->lv_niovecs; index++) {
+struct xfs_log_iovec *vec = &new_lv->lv_iovecp[index];
+memcpy(ptr, vec->i_addr, vec->i_len);
+vec->i_addr = ptr;
+ptr += vec->i_len;
+}
+ASSERT(ptr == new_lv->lv_buf + new_lv->lv_buf_len);
+next:
+if (!ret_lv)
+ret_lv = new_lv;
+else
+lv->lv_next = new_lv;
+lv = new_lv;
+}
+return ret_lv;
+}
+STATIC void
+xfs_cil_prepare_item(
+struct xlog *log,
+struct xfs_log_vec *lv,
+int *len,
+int *diff_iovecs)
+{
+struct xfs_log_vec *old = lv->lv_item->li_lv;
+if (old) {
+ASSERT((old->lv_buf && old->lv_buf_len && old->lv_niovecs) ||
+old->lv_buf_len == XFS_LOG_VEC_ORDERED);
+if (lv->lv_buf_len == XFS_LOG_VEC_ORDERED) {
+ASSERT(!lv->lv_buf);
+kmem_free(lv);
+return;
+}
+*len += lv->lv_buf_len - old->lv_buf_len;
+*diff_iovecs += lv->lv_niovecs - old->lv_niovecs;
+kmem_free(old->lv_buf);
+kmem_free(old);
+} else {
+ASSERT(!lv->lv_item->li_lv);
+if (lv->lv_buf_len != XFS_LOG_VEC_ORDERED) {
+*len += lv->lv_buf_len;
+*diff_iovecs += lv->lv_niovecs;
+}
+IOP_PIN(lv->lv_item);
+}
+lv->lv_item->li_lv = lv;
+if (!lv->lv_item->li_seq)
+lv->lv_item->li_seq = log->l_cilp->xc_ctx->sequence;
+}
+static void
+xlog_cil_insert_items(
+struct xlog *log,
+struct xfs_log_vec *log_vector,
+struct xlog_ticket *ticket)
+{
+struct xfs_cil *cil = log->l_cilp;
+struct xfs_cil_ctx *ctx = cil->xc_ctx;
+struct xfs_log_vec *lv;
+int len = 0;
+int diff_iovecs = 0;
+int iclog_space;
+ASSERT(log_vector);
+spin_lock(&cil->xc_cil_lock);
+for (lv = log_vector; lv; ) {
+struct xfs_log_vec *next = lv->lv_next;
+ASSERT(lv->lv_item->li_lv || list_empty(&lv->lv_item->li_cil));
+lv->lv_next = NULL;
+list_move_tail(&lv->lv_item->li_cil, &cil->xc_cil);
+xfs_cil_prepare_item(log, lv, &len, &diff_iovecs);
+lv = next;
+}
+len += diff_iovecs * sizeof(xlog_op_header_t);
+ctx->nvecs += diff_iovecs;
+if (ctx->ticket->t_curr_res == 0) {
+ASSERT(ticket->t_curr_res >= ctx->ticket->t_unit_res + len);
+ctx->ticket->t_curr_res = ctx->ticket->t_unit_res;
+ticket->t_curr_res -= ctx->ticket->t_unit_res;
+}
+iclog_space = log->l_iclog_size - log->l_iclog_hsize;
+if (len > 0 && (ctx->space_used / iclog_space !=
+(ctx->space_used + len) / iclog_space)) {
+int hdrs;
+hdrs = (len + iclog_space - 1) / iclog_space;
+hdrs *= log->l_iclog_hsize + sizeof(struct xlog_op_header);
+ctx->ticket->t_unit_res += hdrs;
+ctx->ticket->t_curr_res += hdrs;
+ticket->t_curr_res -= hdrs;
+ASSERT(ticket->t_curr_res >= len);
+}
+ticket->t_curr_res -= len;
+ctx->space_used += len;
+spin_unlock(&cil->xc_cil_lock);
+}
+static void
+xlog_cil_free_logvec(
+struct xfs_log_vec *log_vector)
+{
+struct xfs_log_vec *lv;
+for (lv = log_vector; lv; ) {
+struct xfs_log_vec *next = lv->lv_next;
+kmem_free(lv->lv_buf);
+kmem_free(lv);
+lv = next;
+}
+}
+static void
+xlog_cil_committed(
+void *args,
+int abort)
+{
+struct xfs_cil_ctx *ctx = args;
+struct xfs_mount *mp = ctx->cil->xc_log->l_mp;
+xfs_trans_committed_bulk(ctx->cil->xc_log->l_ailp, ctx->lv_chain,
+ctx->start_lsn, abort);
+xfs_extent_busy_sort(&ctx->busy_extents);
+xfs_extent_busy_clear(mp, &ctx->busy_extents,
+(mp->m_flags & XFS_MOUNT_DISCARD) && !abort);
+spin_lock(&ctx->cil->xc_cil_lock);
+list_del(&ctx->committing);
+spin_unlock(&ctx->cil->xc_cil_lock);
+xlog_cil_free_logvec(ctx->lv_chain);
+if (!list_empty(&ctx->busy_extents)) {
+ASSERT(mp->m_flags & XFS_MOUNT_DISCARD);
+xfs_discard_extents(mp, &ctx->busy_extents);
+xfs_extent_busy_clear(mp, &ctx->busy_extents, false);
+}
+kmem_free(ctx);
+}
+STATIC int
+xlog_cil_push(
+struct xlog *log)
+{
+struct xfs_cil *cil = log->l_cilp;
+struct xfs_log_vec *lv;
+struct xfs_cil_ctx *ctx;
+struct xfs_cil_ctx *new_ctx;
+struct xlog_in_core *commit_iclog;
+struct xlog_ticket *tic;
+int num_iovecs;
+int error = 0;
+struct xfs_trans_header thdr;
+struct xfs_log_iovec lhdr;
+struct xfs_log_vec lvhdr = { NULL };
+xfs_lsn_t commit_lsn;
+xfs_lsn_t push_seq;
+if (!cil)
+return 0;
+new_ctx = kmem_zalloc(sizeof(*new_ctx), KM_SLEEP|KM_NOFS);
+new_ctx->ticket = xlog_cil_ticket_alloc(log);
+down_write(&cil->xc_ctx_lock);
+ctx = cil->xc_ctx;
+spin_lock(&cil->xc_cil_lock);
+push_seq = cil->xc_push_seq;
+ASSERT(push_seq <= ctx->sequence);
+if (list_empty(&cil->xc_cil)) {
+cil->xc_push_seq = 0;
+spin_unlock(&cil->xc_cil_lock);
+goto out_skip;
+}
+spin_unlock(&cil->xc_cil_lock);
+if (push_seq < cil->xc_ctx->sequence)
+goto out_skip;
+lv = NULL;
+num_iovecs = 0;
+while (!list_empty(&cil->xc_cil)) {
+struct xfs_log_item *item;
+item = list_first_entry(&cil->xc_cil,
+struct xfs_log_item, li_cil);
+list_del_init(&item->li_cil);
+if (!ctx->lv_chain)
+ctx->lv_chain = item->li_lv;
+else
+lv->lv_next = item->li_lv;
+lv = item->li_lv;
+item->li_lv = NULL;
+num_iovecs += lv->lv_niovecs;
+}
+INIT_LIST_HEAD(&new_ctx->committing);
+INIT_LIST_HEAD(&new_ctx->busy_extents);
+new_ctx->sequence = ctx->sequence + 1;
+new_ctx->cil = cil;
+cil->xc_ctx = new_ctx;
+cil->xc_current_sequence = new_ctx->sequence;
+spin_lock(&cil->xc_cil_lock);
+list_add(&ctx->committing, &cil->xc_committing);
+spin_unlock(&cil->xc_cil_lock);
+up_write(&cil->xc_ctx_lock);
+tic = ctx->ticket;
+thdr.th_magic = XFS_TRANS_HEADER_MAGIC;
+thdr.th_type = XFS_TRANS_CHECKPOINT;
+thdr.th_tid = tic->t_tid;
+thdr.th_num_items = num_iovecs;
+lhdr.i_addr = &thdr;
+lhdr.i_len = sizeof(xfs_trans_header_t);
+lhdr.i_type = XLOG_REG_TYPE_TRANSHDR;
+tic->t_curr_res -= lhdr.i_len + sizeof(xlog_op_header_t);
+lvhdr.lv_niovecs = 1;
+lvhdr.lv_iovecp = &lhdr;
+lvhdr.lv_next = ctx->lv_chain;
+error = xlog_write(log, &lvhdr, tic, &ctx->start_lsn, NULL, 0);
+if (error)
+goto out_abort_free_ticket;
+restart:
+spin_lock(&cil->xc_cil_lock);
+list_for_each_entry(new_ctx, &cil->xc_committing, committing) {
+if (new_ctx->sequence >= ctx->sequence)
+continue;
+if (!new_ctx->commit_lsn) {
+xlog_wait(&cil->xc_commit_wait, &cil->xc_cil_lock);
+goto restart;
+}
+}
+spin_unlock(&cil->xc_cil_lock);
+commit_lsn = xfs_log_done(log->l_mp, tic, &commit_iclog, 0);
+if (commit_lsn == -1)
+goto out_abort;
+ctx->log_cb.cb_func = xlog_cil_committed;
+ctx->log_cb.cb_arg = ctx;
+error = xfs_log_notify(log->l_mp, commit_iclog, &ctx->log_cb);
+if (error)
+goto out_abort;
+spin_lock(&cil->xc_cil_lock);
+ctx->commit_lsn = commit_lsn;
+wake_up_all(&cil->xc_commit_wait);
+spin_unlock(&cil->xc_cil_lock);
+return xfs_log_release_iclog(log->l_mp, commit_iclog);
+out_skip:
+up_write(&cil->xc_ctx_lock);
+xfs_log_ticket_put(new_ctx->ticket);
+kmem_free(new_ctx);
+return 0;
+out_abort_free_ticket:
+xfs_log_ticket_put(tic);
+out_abort:
+xlog_cil_committed(ctx, XFS_LI_ABORTED);
+return XFS_ERROR(EIO);
+}
+static void
+xlog_cil_push_work(
+struct work_struct *work)
+{
+struct xfs_cil *cil = container_of(work, struct xfs_cil,
+xc_push_work);
+xlog_cil_push(cil->xc_log);
+}
+static void
+xlog_cil_push_background(
+struct xlog *log)
+{
+struct xfs_cil *cil = log->l_cilp;
+ASSERT(!list_empty(&cil->xc_cil));
+if (cil->xc_ctx->space_used < XLOG_CIL_SPACE_LIMIT(log))
+return;
+spin_lock(&cil->xc_cil_lock);
+if (cil->xc_push_seq < cil->xc_current_sequence) {
+cil->xc_push_seq = cil->xc_current_sequence;
+queue_work(log->l_mp->m_cil_workqueue, &cil->xc_push_work);
+}
+spin_unlock(&cil->xc_cil_lock);
+}
+static void
+xlog_cil_push_foreground(
+struct xlog *log,
+xfs_lsn_t push_seq)
+{
+struct xfs_cil *cil = log->l_cilp;
+if (!cil)
+return;
+ASSERT(push_seq && push_seq <= cil->xc_current_sequence);
+flush_work(&cil->xc_push_work);
+spin_lock(&cil->xc_cil_lock);
+if (list_empty(&cil->xc_cil) || push_seq <= cil->xc_push_seq) {
+spin_unlock(&cil->xc_cil_lock);
+return;
+}
+cil->xc_push_seq = push_seq;
+spin_unlock(&cil->xc_cil_lock);
+xlog_cil_push(log);
+}
+int
+xfs_log_commit_cil(
+struct xfs_mount *mp,
+struct xfs_trans *tp,
+xfs_lsn_t *commit_lsn,
+int flags)
+{
+struct xlog *log = mp->m_log;
+int log_flags = 0;
+struct xfs_log_vec *log_vector;
+if (flags & XFS_TRANS_RELEASE_LOG_RES)
+log_flags = XFS_LOG_REL_PERM_RESERV;
+log_vector = xlog_cil_prepare_log_vecs(tp);
+if (!log_vector)
+return ENOMEM;
+down_read(&log->l_cilp->xc_ctx_lock);
+if (commit_lsn)
+*commit_lsn = log->l_cilp->xc_ctx->sequence;
+xlog_cil_insert_items(log, log_vector, tp->t_ticket);
+if (tp->t_ticket->t_curr_res < 0)
+xlog_print_tic_res(log->l_mp, tp->t_ticket);
+if (!list_empty(&tp->t_busy)) {
+spin_lock(&log->l_cilp->xc_cil_lock);
+list_splice_init(&tp->t_busy,
+&log->l_cilp->xc_ctx->busy_extents);
+spin_unlock(&log->l_cilp->xc_cil_lock);
+}
+tp->t_commit_lsn = *commit_lsn;
+xfs_log_done(mp, tp->t_ticket, NULL, log_flags);
+xfs_trans_unreserve_and_mod_sb(tp);
+xfs_trans_free_items(tp, *commit_lsn, 0);
+xlog_cil_push_background(log);
+up_read(&log->l_cilp->xc_ctx_lock);
+return 0;
+}
+xfs_lsn_t
+xlog_cil_force_lsn(
+struct xlog *log,
+xfs_lsn_t sequence)
+{
+struct xfs_cil *cil = log->l_cilp;
+struct xfs_cil_ctx *ctx;
+xfs_lsn_t commit_lsn = NULLCOMMITLSN;
+ASSERT(sequence <= cil->xc_current_sequence);
+xlog_cil_push_foreground(log, sequence);
+restart:
+spin_lock(&cil->xc_cil_lock);
+list_for_each_entry(ctx, &cil->xc_committing, committing) {
+if (ctx->sequence > sequence)
+continue;
+if (!ctx->commit_lsn) {
+xlog_wait(&cil->xc_commit_wait, &cil->xc_cil_lock);
+goto restart;
+}
+if (ctx->sequence != sequence)
+continue;
+commit_lsn = ctx->commit_lsn;
+}
+spin_unlock(&cil->xc_cil_lock);
+return commit_lsn;
+}
+bool
+xfs_log_item_in_current_chkpt(
+struct xfs_log_item *lip)
+{
+struct xfs_cil_ctx *ctx;
+if (list_empty(&lip->li_cil))
+return false;
+ctx = lip->li_mountp->m_log->l_cilp->xc_ctx;
+if (XFS_LSN_CMP(lip->li_seq, ctx->sequence) != 0)
+return false;
+return true;
+}
+int
+xlog_cil_init(
+struct xlog *log)
+{
+struct xfs_cil *cil;
+struct xfs_cil_ctx *ctx;
+cil = kmem_zalloc(sizeof(*cil), KM_SLEEP|KM_MAYFAIL);
+if (!cil)
+return ENOMEM;
+ctx = kmem_zalloc(sizeof(*ctx), KM_SLEEP|KM_MAYFAIL);
+if (!ctx) {
+kmem_free(cil);
+return ENOMEM;
+}
+INIT_WORK(&cil->xc_push_work, xlog_cil_push_work);
+INIT_LIST_HEAD(&cil->xc_cil);
+INIT_LIST_HEAD(&cil->xc_committing);
+spin_lock_init(&cil->xc_cil_lock);
+init_rwsem(&cil->xc_ctx_lock);
+init_waitqueue_head(&cil->xc_commit_wait);
+INIT_LIST_HEAD(&ctx->committing);
+INIT_LIST_HEAD(&ctx->busy_extents);
+ctx->sequence = 1;
+ctx->cil = cil;
+cil->xc_ctx = ctx;
+cil->xc_current_sequence = ctx->sequence;
+cil->xc_log = log;
+log->l_cilp = cil;
+return 0;
+}
+void
+xlog_cil_destroy(
+struct xlog *log)
+{
+if (log->l_cilp->xc_ctx) {
+if (log->l_cilp->xc_ctx->ticket)
+xfs_log_ticket_put(log->l_cilp->xc_ctx->ticket);
+kmem_free(log->l_cilp->xc_ctx);
+}
+ASSERT(list_empty(&log->l_cilp->xc_cil));
+kmem_free(log->l_cilp);
+}

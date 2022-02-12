@@ -1,0 +1,1 @@
+unsigned char * __init highlander_plat_irq_setup(void)\r\n{\r\nif (__raw_readw(0xa5000600)) {\r\nprintk(KERN_INFO "Using r7780rp interrupt controller.\n");\r\nregister_intc_controller(&intc_desc);\r\nreturn irl2irq;\r\n}\r\nreturn NULL;\r\n}

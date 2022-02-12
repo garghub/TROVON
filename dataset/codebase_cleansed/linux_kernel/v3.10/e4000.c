@@ -1,0 +1,261 @@
+static int e4000_wr_regs(struct e4000_priv *priv, u8 reg, u8 *val, int len)
+{
+int ret;
+u8 buf[1 + len];
+struct i2c_msg msg[1] = {
+{
+.addr = priv->cfg->i2c_addr,
+.flags = 0,
+.len = sizeof(buf),
+.buf = buf,
+}
+};
+buf[0] = reg;
+memcpy(&buf[1], val, len);
+ret = i2c_transfer(priv->i2c, msg, 1);
+if (ret == 1) {
+ret = 0;
+} else {
+dev_warn(&priv->i2c->dev, "%s: i2c wr failed=%d reg=%02x " \
+"len=%d\n", KBUILD_MODNAME, ret, reg, len);
+ret = -EREMOTEIO;
+}
+return ret;
+}
+static int e4000_rd_regs(struct e4000_priv *priv, u8 reg, u8 *val, int len)
+{
+int ret;
+u8 buf[len];
+struct i2c_msg msg[2] = {
+{
+.addr = priv->cfg->i2c_addr,
+.flags = 0,
+.len = 1,
+.buf = &reg,
+}, {
+.addr = priv->cfg->i2c_addr,
+.flags = I2C_M_RD,
+.len = sizeof(buf),
+.buf = buf,
+}
+};
+ret = i2c_transfer(priv->i2c, msg, 2);
+if (ret == 2) {
+memcpy(val, buf, len);
+ret = 0;
+} else {
+dev_warn(&priv->i2c->dev, "%s: i2c rd failed=%d reg=%02x " \
+"len=%d\n", KBUILD_MODNAME, ret, reg, len);
+ret = -EREMOTEIO;
+}
+return ret;
+}
+static int e4000_wr_reg(struct e4000_priv *priv, u8 reg, u8 val)
+{
+return e4000_wr_regs(priv, reg, &val, 1);
+}
+static int e4000_rd_reg(struct e4000_priv *priv, u8 reg, u8 *val)
+{
+return e4000_rd_regs(priv, reg, val, 1);
+}
+static int e4000_init(struct dvb_frontend *fe)
+{
+struct e4000_priv *priv = fe->tuner_priv;
+int ret;
+dev_dbg(&priv->i2c->dev, "%s:\n", __func__);
+if (fe->ops.i2c_gate_ctrl)
+fe->ops.i2c_gate_ctrl(fe, 1);
+ret = e4000_wr_reg(priv, 0x02, 0x40);
+ret = e4000_wr_reg(priv, 0x00, 0x01);
+if (ret < 0)
+goto err;
+ret = e4000_wr_reg(priv, 0x06, 0x00);
+if (ret < 0)
+goto err;
+ret = e4000_wr_reg(priv, 0x7a, 0x96);
+if (ret < 0)
+goto err;
+ret = e4000_wr_regs(priv, 0x7e, "\x01\xfe", 2);
+if (ret < 0)
+goto err;
+ret = e4000_wr_reg(priv, 0x82, 0x00);
+if (ret < 0)
+goto err;
+ret = e4000_wr_reg(priv, 0x24, 0x05);
+if (ret < 0)
+goto err;
+ret = e4000_wr_regs(priv, 0x87, "\x20\x01", 2);
+if (ret < 0)
+goto err;
+ret = e4000_wr_regs(priv, 0x9f, "\x7f\x07", 2);
+if (ret < 0)
+goto err;
+ret = e4000_wr_reg(priv, 0x2d, 0x0c);
+if (ret < 0)
+goto err;
+ret = e4000_wr_reg(priv, 0x1a, 0x17);
+if (ret < 0)
+goto err;
+ret = e4000_wr_reg(priv, 0x1f, 0x1a);
+if (ret < 0)
+goto err;
+if (fe->ops.i2c_gate_ctrl)
+fe->ops.i2c_gate_ctrl(fe, 0);
+return 0;
+err:
+if (fe->ops.i2c_gate_ctrl)
+fe->ops.i2c_gate_ctrl(fe, 0);
+dev_dbg(&priv->i2c->dev, "%s: failed=%d\n", __func__, ret);
+return ret;
+}
+static int e4000_sleep(struct dvb_frontend *fe)
+{
+struct e4000_priv *priv = fe->tuner_priv;
+int ret;
+dev_dbg(&priv->i2c->dev, "%s:\n", __func__);
+if (fe->ops.i2c_gate_ctrl)
+fe->ops.i2c_gate_ctrl(fe, 1);
+ret = e4000_wr_reg(priv, 0x00, 0x00);
+if (ret < 0)
+goto err;
+if (fe->ops.i2c_gate_ctrl)
+fe->ops.i2c_gate_ctrl(fe, 0);
+return 0;
+err:
+if (fe->ops.i2c_gate_ctrl)
+fe->ops.i2c_gate_ctrl(fe, 0);
+dev_dbg(&priv->i2c->dev, "%s: failed=%d\n", __func__, ret);
+return ret;
+}
+static int e4000_set_params(struct dvb_frontend *fe)
+{
+struct e4000_priv *priv = fe->tuner_priv;
+struct dtv_frontend_properties *c = &fe->dtv_property_cache;
+int ret, i, sigma_delta;
+unsigned int f_VCO;
+u8 buf[5];
+dev_dbg(&priv->i2c->dev, "%s: delivery_system=%d frequency=%d " \
+"bandwidth_hz=%d\n", __func__,
+c->delivery_system, c->frequency, c->bandwidth_hz);
+if (fe->ops.i2c_gate_ctrl)
+fe->ops.i2c_gate_ctrl(fe, 1);
+ret = e4000_wr_reg(priv, 0x1a, 0x00);
+if (ret < 0)
+goto err;
+for (i = 0; i < ARRAY_SIZE(e4000_pll_lut); i++) {
+if (c->frequency <= e4000_pll_lut[i].freq)
+break;
+}
+if (i == ARRAY_SIZE(e4000_pll_lut))
+goto err;
+f_VCO = c->frequency * e4000_pll_lut[i].mul;
+sigma_delta = 0x10000UL * (f_VCO % priv->cfg->clock) / priv->cfg->clock;
+buf[0] = f_VCO / priv->cfg->clock;
+buf[1] = (sigma_delta >> 0) & 0xff;
+buf[2] = (sigma_delta >> 8) & 0xff;
+buf[3] = 0x00;
+buf[4] = e4000_pll_lut[i].div;
+dev_dbg(&priv->i2c->dev, "%s: f_VCO=%u pll div=%d sigma_delta=%04x\n",
+__func__, f_VCO, buf[0], sigma_delta);
+ret = e4000_wr_regs(priv, 0x09, buf, 5);
+if (ret < 0)
+goto err;
+for (i = 0; i < ARRAY_SIZE(e400_lna_filter_lut); i++) {
+if (c->frequency <= e400_lna_filter_lut[i].freq)
+break;
+}
+if (i == ARRAY_SIZE(e400_lna_filter_lut))
+goto err;
+ret = e4000_wr_reg(priv, 0x10, e400_lna_filter_lut[i].val);
+if (ret < 0)
+goto err;
+for (i = 0; i < ARRAY_SIZE(e4000_if_filter_lut); i++) {
+if (c->bandwidth_hz <= e4000_if_filter_lut[i].freq)
+break;
+}
+if (i == ARRAY_SIZE(e4000_if_filter_lut))
+goto err;
+buf[0] = e4000_if_filter_lut[i].reg11_val;
+buf[1] = e4000_if_filter_lut[i].reg12_val;
+ret = e4000_wr_regs(priv, 0x11, buf, 2);
+if (ret < 0)
+goto err;
+for (i = 0; i < ARRAY_SIZE(e4000_band_lut); i++) {
+if (c->frequency <= e4000_band_lut[i].freq)
+break;
+}
+if (i == ARRAY_SIZE(e4000_band_lut))
+goto err;
+ret = e4000_wr_reg(priv, 0x07, e4000_band_lut[i].reg07_val);
+if (ret < 0)
+goto err;
+ret = e4000_wr_reg(priv, 0x78, e4000_band_lut[i].reg78_val);
+if (ret < 0)
+goto err;
+ret = e4000_wr_reg(priv, 0x1a, 0x17);
+if (ret < 0)
+goto err;
+if (fe->ops.i2c_gate_ctrl)
+fe->ops.i2c_gate_ctrl(fe, 0);
+return 0;
+err:
+if (fe->ops.i2c_gate_ctrl)
+fe->ops.i2c_gate_ctrl(fe, 0);
+dev_dbg(&priv->i2c->dev, "%s: failed=%d\n", __func__, ret);
+return ret;
+}
+static int e4000_get_if_frequency(struct dvb_frontend *fe, u32 *frequency)
+{
+struct e4000_priv *priv = fe->tuner_priv;
+dev_dbg(&priv->i2c->dev, "%s:\n", __func__);
+*frequency = 0;
+return 0;
+}
+static int e4000_release(struct dvb_frontend *fe)
+{
+struct e4000_priv *priv = fe->tuner_priv;
+dev_dbg(&priv->i2c->dev, "%s:\n", __func__);
+kfree(fe->tuner_priv);
+return 0;
+}
+struct dvb_frontend *e4000_attach(struct dvb_frontend *fe,
+struct i2c_adapter *i2c, const struct e4000_config *cfg)
+{
+struct e4000_priv *priv;
+int ret;
+u8 chip_id;
+if (fe->ops.i2c_gate_ctrl)
+fe->ops.i2c_gate_ctrl(fe, 1);
+priv = kzalloc(sizeof(struct e4000_priv), GFP_KERNEL);
+if (!priv) {
+ret = -ENOMEM;
+dev_err(&i2c->dev, "%s: kzalloc() failed\n", KBUILD_MODNAME);
+goto err;
+}
+priv->cfg = cfg;
+priv->i2c = i2c;
+ret = e4000_rd_reg(priv, 0x02, &chip_id);
+if (ret < 0)
+goto err;
+dev_dbg(&priv->i2c->dev, "%s: chip_id=%02x\n", __func__, chip_id);
+if (chip_id != 0x40)
+goto err;
+ret = e4000_wr_reg(priv, 0x00, 0x00);
+if (ret < 0)
+goto err;
+dev_info(&priv->i2c->dev,
+"%s: Elonics E4000 successfully identified\n",
+KBUILD_MODNAME);
+fe->tuner_priv = priv;
+memcpy(&fe->ops.tuner_ops, &e4000_tuner_ops,
+sizeof(struct dvb_tuner_ops));
+if (fe->ops.i2c_gate_ctrl)
+fe->ops.i2c_gate_ctrl(fe, 0);
+return fe;
+err:
+if (fe->ops.i2c_gate_ctrl)
+fe->ops.i2c_gate_ctrl(fe, 0);
+dev_dbg(&i2c->dev, "%s: failed=%d\n", __func__, ret);
+kfree(priv);
+return NULL;
+}

@@ -1,0 +1,1 @@
+static int __init qcaux_init(void)\r\n{\r\nint retval;\r\nretval = usb_serial_register(&qcaux_device);\r\nif (retval)\r\nreturn retval;\r\nretval = usb_register(&qcaux_driver);\r\nif (retval)\r\nusb_serial_deregister(&qcaux_device);\r\nreturn retval;\r\n}\r\nstatic void __exit qcaux_exit(void)\r\n{\r\nusb_deregister(&qcaux_driver);\r\nusb_serial_deregister(&qcaux_device);\r\n}

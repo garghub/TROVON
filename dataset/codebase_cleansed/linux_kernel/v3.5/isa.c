@@ -1,0 +1,1 @@
+void __init\r\nregister_isa_ports(unsigned int membase, unsigned int portbase, unsigned int portshift)\r\n{\r\nisa_membase = membase;\r\nisa_portbase = portbase;\r\nisa_portshift = portshift;\r\nisa_sysctl_header = register_sysctl_table(ctl_bus);\r\n}

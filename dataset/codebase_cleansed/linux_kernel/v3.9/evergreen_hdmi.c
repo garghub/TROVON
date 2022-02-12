@@ -1,0 +1,92 @@
+static void evergreen_hdmi_update_ACR(struct drm_encoder *encoder, uint32_t clock)
+{
+struct drm_device *dev = encoder->dev;
+struct radeon_device *rdev = dev->dev_private;
+struct radeon_hdmi_acr acr = r600_hdmi_acr(clock);
+struct radeon_encoder *radeon_encoder = to_radeon_encoder(encoder);
+struct radeon_encoder_atom_dig *dig = radeon_encoder->enc_priv;
+uint32_t offset = dig->afmt->offset;
+WREG32(HDMI_ACR_32_0 + offset, HDMI_ACR_CTS_32(acr.cts_32khz));
+WREG32(HDMI_ACR_32_1 + offset, acr.n_32khz);
+WREG32(HDMI_ACR_44_0 + offset, HDMI_ACR_CTS_44(acr.cts_44_1khz));
+WREG32(HDMI_ACR_44_1 + offset, acr.n_44_1khz);
+WREG32(HDMI_ACR_48_0 + offset, HDMI_ACR_CTS_48(acr.cts_48khz));
+WREG32(HDMI_ACR_48_1 + offset, acr.n_48khz);
+}
+static void evergreen_hdmi_update_avi_infoframe(struct drm_encoder *encoder,
+void *buffer, size_t size)
+{
+struct drm_device *dev = encoder->dev;
+struct radeon_device *rdev = dev->dev_private;
+struct radeon_encoder *radeon_encoder = to_radeon_encoder(encoder);
+struct radeon_encoder_atom_dig *dig = radeon_encoder->enc_priv;
+uint32_t offset = dig->afmt->offset;
+uint8_t *frame = buffer + 3;
+frame[0x0] += 2;
+WREG32(AFMT_AVI_INFO0 + offset,
+frame[0x0] | (frame[0x1] << 8) | (frame[0x2] << 16) | (frame[0x3] << 24));
+WREG32(AFMT_AVI_INFO1 + offset,
+frame[0x4] | (frame[0x5] << 8) | (frame[0x6] << 16) | (frame[0x7] << 24));
+WREG32(AFMT_AVI_INFO2 + offset,
+frame[0x8] | (frame[0x9] << 8) | (frame[0xA] << 16) | (frame[0xB] << 24));
+WREG32(AFMT_AVI_INFO3 + offset,
+frame[0xC] | (frame[0xD] << 8));
+}
+void evergreen_hdmi_setmode(struct drm_encoder *encoder, struct drm_display_mode *mode)
+{
+struct drm_device *dev = encoder->dev;
+struct radeon_device *rdev = dev->dev_private;
+struct radeon_encoder *radeon_encoder = to_radeon_encoder(encoder);
+struct radeon_encoder_atom_dig *dig = radeon_encoder->enc_priv;
+u8 buffer[HDMI_INFOFRAME_HEADER_SIZE + HDMI_AVI_INFOFRAME_SIZE];
+struct hdmi_avi_infoframe frame;
+uint32_t offset;
+ssize_t err;
+if (!dig->afmt->enabled)
+return;
+offset = dig->afmt->offset;
+r600_audio_set_clock(encoder, mode->clock);
+WREG32(HDMI_VBI_PACKET_CONTROL + offset,
+HDMI_NULL_SEND);
+WREG32(AFMT_AUDIO_CRC_CONTROL + offset, 0x1000);
+WREG32(HDMI_AUDIO_PACKET_CONTROL + offset,
+HDMI_AUDIO_DELAY_EN(1) |
+HDMI_AUDIO_PACKETS_PER_LINE(3));
+WREG32(AFMT_AUDIO_PACKET_CONTROL + offset,
+AFMT_AUDIO_SAMPLE_SEND |
+AFMT_60958_CS_UPDATE);
+WREG32(HDMI_ACR_PACKET_CONTROL + offset,
+HDMI_ACR_AUTO_SEND |
+HDMI_ACR_SOURCE);
+WREG32(HDMI_VBI_PACKET_CONTROL + offset,
+HDMI_NULL_SEND |
+HDMI_GC_SEND |
+HDMI_GC_CONT);
+WREG32(HDMI_INFOFRAME_CONTROL0 + offset,
+HDMI_AVI_INFO_SEND |
+HDMI_AVI_INFO_CONT |
+HDMI_AUDIO_INFO_SEND |
+HDMI_AUDIO_INFO_CONT);
+WREG32(AFMT_INFOFRAME_CONTROL0 + offset,
+AFMT_AUDIO_INFO_UPDATE);
+WREG32(HDMI_INFOFRAME_CONTROL1 + offset,
+HDMI_AVI_INFO_LINE(2) |
+HDMI_AUDIO_INFO_LINE(2));
+WREG32(HDMI_GC + offset, 0);
+err = drm_hdmi_avi_infoframe_from_display_mode(&frame, mode);
+if (err < 0) {
+DRM_ERROR("failed to setup AVI infoframe: %zd\n", err);
+return;
+}
+err = hdmi_avi_infoframe_pack(&frame, buffer, sizeof(buffer));
+if (err < 0) {
+DRM_ERROR("failed to pack AVI infoframe: %zd\n", err);
+return;
+}
+evergreen_hdmi_update_avi_infoframe(encoder, buffer, sizeof(buffer));
+evergreen_hdmi_update_ACR(encoder, mode->clock);
+WREG32(AFMT_RAMP_CONTROL0 + offset, 0x00FFFFFF);
+WREG32(AFMT_RAMP_CONTROL1 + offset, 0x007FFFFF);
+WREG32(AFMT_RAMP_CONTROL2 + offset, 0x00000001);
+WREG32(AFMT_RAMP_CONTROL3 + offset, 0x00000001);
+}

@@ -1,0 +1,1 @@
+static void arthur_lcall7(int nr, struct pt_regs *regs)\r\n{\r\nstruct siginfo info;\r\ninfo.si_signo = SIGSWI;\r\ninfo.si_errno = nr;\r\nsend_sig_info(SIGSWI, &info, current);\r\n}\r\nstatic int __init arthur_init(void)\r\n{\r\nreturn register_exec_domain(&arthur_exec_domain);\r\n}\r\nstatic void __exit arthur_exit(void)\r\n{\r\nunregister_exec_domain(&arthur_exec_domain);\r\n}

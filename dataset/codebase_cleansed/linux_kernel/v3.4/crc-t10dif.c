@@ -1,0 +1,1 @@
+__u16 crc_t10dif(const unsigned char *buffer, size_t len)\r\n{\r\n__u16 crc = 0;\r\nunsigned int i;\r\nfor (i = 0 ; i < len ; i++)\r\ncrc = (crc << 8) ^ t10_dif_crc_table[((crc >> 8) ^ buffer[i]) & 0xff];\r\nreturn crc;\r\n}

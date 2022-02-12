@@ -1,0 +1,1 @@
+static int __init omap7xx_gpio_init(void)\r\n{\r\nint i;\r\nif (!cpu_is_omap7xx())\r\nreturn -EINVAL;\r\nfor (i = 0; i < ARRAY_SIZE(omap7xx_gpio_dev); i++)\r\nplatform_device_register(omap7xx_gpio_dev[i]);\r\ngpio_bank_count = ARRAY_SIZE(omap7xx_gpio_dev);\r\nreturn 0;\r\n}

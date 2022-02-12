@@ -1,0 +1,1 @@
+static void lsxl_power_off(void)\r\n{\r\nkirkwood_restart('h', NULL);\r\n}\r\nvoid __init lsxl_init(void)\r\n{\r\nkirkwood_ge00_init(&lsxl_ge00_data);\r\nkirkwood_ge01_init(&lsxl_ge01_data);\r\npm_power_off = lsxl_power_off;\r\n}

@@ -1,0 +1,1 @@
+void am33xx_restart(enum reboot_mode mode, const char *cmd)\r\n{\r\nam33xx_prm_rmw_reg_bits(AM33XX_RST_GLOBAL_WARM_SW_MASK,\r\nAM33XX_RST_GLOBAL_WARM_SW_MASK,\r\nAM33XX_PRM_DEVICE_MOD,\r\nAM33XX_PRM_RSTCTRL_OFFSET);\r\n(void)am33xx_prm_read_reg(AM33XX_PRM_DEVICE_MOD,\r\nAM33XX_PRM_RSTCTRL_OFFSET);\r\n}

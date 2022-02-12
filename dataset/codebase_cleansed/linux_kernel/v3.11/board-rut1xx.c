@@ -1,0 +1,1 @@
+static void __init rut1xx_init(void)\r\n{\r\ngemini_gpio_init();\r\nplatform_register_uart();\r\nplatform_register_pflash(SZ_8M, NULL, 0);\r\nplatform_device_register(&rut1xx_leds);\r\nplatform_device_register(&rut1xx_keys_device);\r\nplatform_register_rtc();\r\n}

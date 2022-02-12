@@ -1,0 +1,1 @@
+int\r\nfrsp(void *frD, void *frB)\r\n{\r\nFP_DECL_D(B);\r\nFP_DECL_EX;\r\n#ifdef DEBUG\r\nprintk("%s: D %p, B %p\n", __func__, frD, frB);\r\n#endif\r\nFP_UNPACK_DP(B, frB);\r\n#ifdef DEBUG\r\nprintk("B: %ld %lu %lu %ld (%ld)\n", B_s, B_f1, B_f0, B_e, B_c);\r\n#endif\r\n__FP_PACK_DS(frD, B);\r\nreturn FP_CUR_EXCEPTIONS;\r\n}

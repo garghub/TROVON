@@ -1,0 +1,1 @@
+void prom_putchar(char c)\r\n{\r\nULONG cnt;\r\nCHAR it = c;\r\nbc_disable();\r\nArcWrite(1, &it, 1, &cnt);\r\nbc_enable();\r\n}\r\nchar prom_getchar(void)\r\n{\r\nULONG cnt;\r\nCHAR c;\r\nbc_disable();\r\nArcRead(0, &c, 1, &cnt);\r\nbc_enable();\r\nreturn c;\r\n}

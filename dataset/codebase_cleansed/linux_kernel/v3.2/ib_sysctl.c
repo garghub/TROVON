@@ -1,0 +1,1 @@
+void rds_ib_sysctl_exit(void)\r\n{\r\nif (rds_ib_sysctl_hdr)\r\nunregister_sysctl_table(rds_ib_sysctl_hdr);\r\n}\r\nint rds_ib_sysctl_init(void)\r\n{\r\nrds_ib_sysctl_hdr = register_sysctl_paths(rds_ib_sysctl_path, rds_ib_sysctl_table);\r\nif (!rds_ib_sysctl_hdr)\r\nreturn -ENOMEM;\r\nreturn 0;\r\n}

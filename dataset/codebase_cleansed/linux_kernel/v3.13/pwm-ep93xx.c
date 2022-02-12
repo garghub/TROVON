@@ -1,0 +1,114 @@
+static inline struct ep93xx_pwm *to_ep93xx_pwm(struct pwm_chip *chip)
+{
+return container_of(chip, struct ep93xx_pwm, chip);
+}
+static int ep93xx_pwm_request(struct pwm_chip *chip, struct pwm_device *pwm)
+{
+struct platform_device *pdev = to_platform_device(chip->dev);
+return ep93xx_pwm_acquire_gpio(pdev);
+}
+static void ep93xx_pwm_free(struct pwm_chip *chip, struct pwm_device *pwm)
+{
+struct platform_device *pdev = to_platform_device(chip->dev);
+ep93xx_pwm_release_gpio(pdev);
+}
+static int ep93xx_pwm_config(struct pwm_chip *chip, struct pwm_device *pwm,
+int duty_ns, int period_ns)
+{
+struct ep93xx_pwm *ep93xx_pwm = to_ep93xx_pwm(chip);
+void __iomem *base = ep93xx_pwm->base;
+unsigned long long c;
+unsigned long period_cycles;
+unsigned long duty_cycles;
+unsigned long term;
+int ret = 0;
+if (!test_bit(PWMF_ENABLED, &pwm->flags)) {
+ret = clk_enable(ep93xx_pwm->clk);
+if (ret)
+return ret;
+}
+c = clk_get_rate(ep93xx_pwm->clk);
+c *= period_ns;
+do_div(c, 1000000000);
+period_cycles = c;
+c = period_cycles;
+c *= duty_ns;
+do_div(c, period_ns);
+duty_cycles = c;
+if (period_cycles < 0x10000 && duty_cycles < 0x10000) {
+term = readw(base + EP93XX_PWMx_TERM_COUNT);
+if (period_cycles > term) {
+writew(period_cycles, base + EP93XX_PWMx_TERM_COUNT);
+writew(duty_cycles, base + EP93XX_PWMx_DUTY_CYCLE);
+} else {
+writew(duty_cycles, base + EP93XX_PWMx_DUTY_CYCLE);
+writew(period_cycles, base + EP93XX_PWMx_TERM_COUNT);
+}
+} else {
+ret = -EINVAL;
+}
+if (!test_bit(PWMF_ENABLED, &pwm->flags))
+clk_disable(ep93xx_pwm->clk);
+return ret;
+}
+static int ep93xx_pwm_polarity(struct pwm_chip *chip, struct pwm_device *pwm,
+enum pwm_polarity polarity)
+{
+struct ep93xx_pwm *ep93xx_pwm = to_ep93xx_pwm(chip);
+int ret;
+ret = clk_enable(ep93xx_pwm->clk);
+if (ret)
+return ret;
+if (polarity == PWM_POLARITY_INVERSED)
+writew(0x1, ep93xx_pwm->base + EP93XX_PWMx_INVERT);
+else
+writew(0x0, ep93xx_pwm->base + EP93XX_PWMx_INVERT);
+clk_disable(ep93xx_pwm->clk);
+return 0;
+}
+static int ep93xx_pwm_enable(struct pwm_chip *chip, struct pwm_device *pwm)
+{
+struct ep93xx_pwm *ep93xx_pwm = to_ep93xx_pwm(chip);
+int ret;
+ret = clk_enable(ep93xx_pwm->clk);
+if (ret)
+return ret;
+writew(0x1, ep93xx_pwm->base + EP93XX_PWMx_ENABLE);
+return 0;
+}
+static void ep93xx_pwm_disable(struct pwm_chip *chip, struct pwm_device *pwm)
+{
+struct ep93xx_pwm *ep93xx_pwm = to_ep93xx_pwm(chip);
+writew(0x0, ep93xx_pwm->base + EP93XX_PWMx_ENABLE);
+clk_disable(ep93xx_pwm->clk);
+}
+static int ep93xx_pwm_probe(struct platform_device *pdev)
+{
+struct ep93xx_pwm *ep93xx_pwm;
+struct resource *res;
+int ret;
+ep93xx_pwm = devm_kzalloc(&pdev->dev, sizeof(*ep93xx_pwm), GFP_KERNEL);
+if (!ep93xx_pwm)
+return -ENOMEM;
+res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+ep93xx_pwm->base = devm_ioremap_resource(&pdev->dev, res);
+if (IS_ERR(ep93xx_pwm->base))
+return PTR_ERR(ep93xx_pwm->base);
+ep93xx_pwm->clk = devm_clk_get(&pdev->dev, "pwm_clk");
+if (IS_ERR(ep93xx_pwm->clk))
+return PTR_ERR(ep93xx_pwm->clk);
+ep93xx_pwm->chip.dev = &pdev->dev;
+ep93xx_pwm->chip.ops = &ep93xx_pwm_ops;
+ep93xx_pwm->chip.base = -1;
+ep93xx_pwm->chip.npwm = 1;
+ret = pwmchip_add(&ep93xx_pwm->chip);
+if (ret < 0)
+return ret;
+platform_set_drvdata(pdev, ep93xx_pwm);
+return 0;
+}
+static int ep93xx_pwm_remove(struct platform_device *pdev)
+{
+struct ep93xx_pwm *ep93xx_pwm = platform_get_drvdata(pdev);
+return pwmchip_remove(&ep93xx_pwm->chip);
+}
