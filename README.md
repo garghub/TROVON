@@ -2,9 +2,9 @@
 
 # *Learning from What We Know: How to Perform Vulnerability Prediction using Noisy Historical Data*
 
-This repo contains the source-code and data set for the paper _Learning from What We Know: How to Perform Vulnerability Prediction using Noisy Historical Data_, submitted in _Empirical Software Engineering (EMSE)_.
+This repository contains the source code and dataset for the paper _Learning from What We Know: How to Perform Vulnerability Prediction using Noisy Historical Data_, submitted in _Empirical Software Engineering (EMSE)_, and is under review.
 
-Additionally, our implementation of the exisitng approaches (due to lack of original source-code) that we compared with, is also available in this repo. Please refer to the details below. 
+In addition to the source code of our proposed appraoch _TROVON_, we also implement existing approaches due to unavailable authors' implementation. Our implementation of the existing approaches which we compare _TROVON_ with, is also available in this repository. Please refer to the details below. 
 
 ---
 
