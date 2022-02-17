@@ -27,3 +27,33 @@ The source code of the vulnerability prediction approaches - _TROVON_ and the ex
 3) Source code of our implementation of the approach [Devign](https://arxiv.org/abs/1909.03496) is available in the [devign](devign) directory.
 
 4) Source code of our implementation of the approaches [LSTM and LSTM-RF](https://ieeexplore.ieee.org/document/8540022) is available in the [lstm-rf](lstm-rf) directory.
+
+---
+
+**Tools required/dependencies to be taken care of**
+
+1) [Apache Maven](https://maven.apache.org/download.cgi)
+2) [srcML](https://www.srcml.org/)
+3) [seq2seq](https://google.github.io/seq2seq/getting_started/#download-setup)
+4) [Tkinter](https://docs.python.org/3.8/library/tkinter.html)
+5) [TensorFlow](https://www.tensorflow.org/install/pip)
+6) [PyYAML](https://pyyaml.org/wiki/LibYAML)
+7) [Perl](https://www.cpan.org/modules/INSTALL.html)
+
+---
+
+**Model training**
+
+Please refer to the script [train.sh](seq2seq/train.sh)
+
+./train.sh [dirpath] [training-samples-num * epoch-num] [dirpath]/model [config] 1 [training-samples-num] [training-samples-num] 0
+
+For model configuration, please refer [length_50-l-1-2.yml](seq2seq/configs/length_50-l-1-2.yml). It is configured to train on sequences of length 50, which can be changed based on your requirement.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+**Model testing**
+
+Please refer to the script [test.sh](seq2seq/test.sh)
+
+./test.sh [dirpath]/test [dirpath]/model [desired-generated-sequences-file-name]
