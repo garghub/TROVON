@@ -1,4 +1,7 @@
-# Our implementation of [_Devign: Effective Vulnerability Identification by Learning Comprehensive Program Semantics via Graph Neural Networks_](https://arxiv.org/abs/1909.03496)
+# Our implementation of _Devign_
+
+Paper: 
+[_Devign: Effective Vulnerability Identification by Learning Comprehensive Program Semantics via Graph Neural Networks_](https://arxiv.org/abs/1909.03496)
 
 Paper Authors:
 _Yaqin Zhou, Shangqing Liu, Jingkai Siow, Xiaoning Du, Yang Liu_
