@@ -1,4 +1,7 @@
-# Our implementation of [_Automatic Feature Learning for Predicting Vulnerable Software Components_](https://ieeexplore.ieee.org/document/8540022)
+# Our implementation of _LSTM_ and _LSTM-RF_ 
+
+Paper:
+[_Automatic Feature Learning for Predicting Vulnerable Software Components_](https://ieeexplore.ieee.org/document/8540022)
 
 Paper Authors:
 _Hoa Khanh Dam, Truyen Tran, Trang Pham, Shien Wee Ng, John Grundy, Aditya Ghose_
