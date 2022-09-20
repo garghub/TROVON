@@ -1,6 +1,6 @@
-# *Learning from What We Know: How to Perform Vulnerability Prediction using Noisy Historical Data*
+# *Learning from what we know: How to perform vulnerability prediction using noisy historical data*
 
-This repository contains the source code and dataset for the paper _Learning from What We Know: How to Perform Vulnerability Prediction using Noisy Historical Data_, accepted in _Empirical Software Engineering (EMSE)_ (July 02, 2022). 
+This repository contains the source code and dataset for the paper _Learning from what we know: How to perform vulnerability prediction using noisy historical data_, published in _Empirical Software Engineering (EMSE)_. 
 
 The paper is available here: [![Paper](https://img.shields.io/badge/Paper-Springer-blue)](https://link.springer.com/article/10.1007/s10664-022-10197-4)
 
